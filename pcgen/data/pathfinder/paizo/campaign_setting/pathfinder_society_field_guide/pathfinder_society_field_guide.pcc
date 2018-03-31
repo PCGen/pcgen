@@ -1,0 +1,65 @@
+# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+CAMPAIGN:Pathfinder Society Field Guide
+GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing.Pathfinder Campaign Setting
+RANK:1
+STATUS:BETA
+GENRE:Fantasy
+BOOKTYPE:Campaign Setting
+SETTING:Pathfinder|Golarion
+# TODO: should depend on prestige rules in Guide To Pathfinder Society Organized Play or Faction Guide (if they are in it too)
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Pathfinder Society Field Guide
+SOURCESHORT:PFSFG
+SOURCEWEB:http://paizo.com/products/btpy8mfq
+SOURCEDATE:2011-08
+ISOGL:YES
+
+COVER:pathfinder_society_field_guide.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy8mfq|Buy this publication from Paizo Publishing!
+DESC:MAKE HISTORY! &nl; The Pathfinder Society is an eccentric organization of adventurers, explorers, and scholars with agents spread across Golarion and beyond. While members are expected to be fairly self-sufficient, the organization's leadership knows that those equipped with the knowledge and gear to face the challenges of the job are most likely to survive to bring back priceless treasures and to fill the Pathfinder Chronicles with tales of their daring exploits. The Pathfinder Society Field Guide breaks down what it means to be a Pathfinder and gives players and GMs tools to build characters and campaigns around the illustrious organization. In addition, all content within this book is 100% legal for use in the world-spanning Pathfinder Society Organized Play campaign. &nl; Within this 64-page book, Pathfinders will find: &nl; An overview of Absalom, City at the Center of the World, where the Pathfinder Society keeps its headquarters &nl; Details on 10 factions within the Pathfinder Society, and the benefits available to those agents loyal to each; New archetypes for Pathfinders of all three branches of the organization: the Scrolls, the Spells, and the Swords; A complete field guide covering threats to Pathfinder agents, as well as suggestions on building PCs prepared to face them &nl; Rules for day jobs and professions, property, followers, and other ways to customize your character &nl; A system for turning characters' fame and prestige into valuable in-game rewards &nl; Dozens of new spells, magic items, specialized adventuring tools, and more!
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Rot Grub from the Tome of Horrors, Revised. Copyright 2002, Necromancer Games, Inc.; Authors: Scott Greene and Clark Peterson, based on original material by Gary Gygax.
+COPYRIGHT:Russet Mold from the Tome of Horrors, Revised. Copyright 2002, Necromancer Games, Inc.; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Vegepygmy from the Tome of Horrors, Revised. Copyright 2002, Necromancer Games, Inc.; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:The Book of Fiends. Copyright 2003, Green Ronin Publishing; Authors: Aaron Loeb, Erik Mona, Chris Pramas, and Robert J. Schwalb.
+COPYRIGHT:Pathfinder Campaign Setting: Pathfinder Society Field Guide. Copyright 2011, Paizo Publishing, LLC. Authors: Erik Mona, Mark Moreland, Russ Taylor, and Larry Wilhelm.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Society Field Guide" Copyright 2009, PCGen Data team (Including, but not limited to Mark Means)
+
+#Do Not Remove Comment
+#EXTRAFILE:OGL.txt
+
+
+ABILITYCATEGORY:pfsfg_abilitycategories.lst
+ABILITY:pfsfg_abilities.lst
+ABILITY:pfsfg_abilities_class.lst
+EQUIPMENT:pfsfg_equip.lst
+KIT:pfsfg_kits.lst
+SPELL:pfsfg_spells.lst
+ABILITY:pfsfg_feats.lst
+EQUIPMOD:pfsfg_equipmods.lst
+
+ABILITYCATEGORY:pfsfg_abilitycategories_skillspecialization.lst
+ABILITY:pfsfg_abilities_skillspecialization.lst
+
+#TODO:
+#adjust advanturing kits for correct price and weight (page 47)
+#character archetypes (pages 25 to 31)
+
+#prestige points PP
+#prestige awards purchased with PP (pages 14 to 23)
+#vanities purchased with PP (pages 60 to 63)
+
+
+#
+###END
+#

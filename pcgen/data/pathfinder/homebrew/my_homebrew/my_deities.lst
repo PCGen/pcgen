@@ -1,0 +1,52 @@
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPC	SOURCEWEB:http://www.mywebsite.com	SOURCEDATE:2008-01
+
+# Use only in 6.05.x or higher.
+#XXX
+#	KEY:Group ~ XXX
+#	ALIGN:
+#	SORTKEY:1
+#	FACT:Title|
+#	FACT:Symbol|
+#	FACT:Worshippers|
+#	FACT:Appearance|
+#	FACTSET:Pantheon|Group
+#	FACTSET:Race|
+#	DESC:
+#	DOMAINS:____|PREALIGN:
+
+#insert your data here
+
+#Every line that starts with a '#' is a comment. You may want to remove these comments, if you use this file to set up
+#your own data. Remember not to put the '#' at the start of your own data, as PCGen would see it as a comment only.
+#
+#When Running PCGen, you can select "Help > Documentation > List Files > List File Tag Index > Deities File tags" to find
+#out how the tags in the deitis file work. Some of the tags used here are global tags. You will see an alphabetical
+#listing of all PCGen tags to the left of the documentation window. You can find the global tags there as well.
+#
+#
+#
+#
+#####Example
+
+#Mosat		DOMAINS:Chaos,Knowledge,Animal|PREALIGN:LG,LN,NG,TN,CG,CN		DESC:The CONTENTed One		SYMBOL:a Kitten on a keyboard		DEITYWEAP:Tiger claws		ALIGN:CG	PANTHEON:BoD	SOURCEPAGE:not recorded yet
+
+#####
+#The first field is the Deity Name, this is a required field and does not have a tag.
+#
+#The DOMAINS tag is a list of domains that the deity grants to it's divine spell casting followings. The domain name MUST
+#match the domain names listed in the domain list file.
+#To limit alignments allowed for classes (such as cleric) to gain domains, use PREALIGN on the DOMAINS tag.
+#
+#The DESC tag is used for a quick description of the deity.
+#
+#The SYMBOL tag is used on the output sheet to display what the holy symbol is for this deity.
+#
+#The DEITYWEAP is holding a list of the deity's favored weapon(s). The Weapon name MUST match exactly what is listed in the
+#weapon proficiencies list file.
+#
+#The ALIGN tag holds the two letter abbreviated alignment of the deity itself.
+#
+#The PANTHEON tag is used to specify what pantheon the deity belongs to.
+#
+#The SOURCEPAGE tag can be used to hold a reference to where you can find the deity. This will be displayed in PCGen.

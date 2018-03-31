@@ -1,0 +1,17 @@
+# CVS $Revision: $ $Author: $ -- Thu Sep 26 01:19:49 2013 -- reformated by prettylst.pl v1.50 (build 21406)
+SOURCELONG:Cheliax, Empire of Devils	SOURCESHORT:CEOD	SOURCEWEB:http://paizo.com/pathfinder/pathfinderCompanion/pathfinderRPG/v5748btpy89ca	SOURCEDATE:2009-08
+# Original Entry by: Stefan Radermacher
+
+###Block: Rings
+# Equipment Name		Type			Cost		Source Page		Special Property
+Ring of Terrible Cost	TYPE:Magic.Ring	COST:20000	SOURCEPAGE:p.21	SPROP:As a standard action, charge the ring with a +1 profane bonus (max. +5) by sacrificing 2 hp that cannot be healed until the bonus is expended. As an immediate action, add the stored bonus to a single attack roll, damage roll, skill check roll, or saving throw.
+
+###Block: Wondrous Items
+# Equipment Name			Type					Cost		Weight	Source Page		Special Property
+Cloak of Flash and Shadow	TYPE:Magic.Wondrous.Cloak	COST:11000	WT:1		SOURCEPAGE:p.20
+Pact Parchment			TYPE:Magic.Wondrous		COST:3500	WT:0		SOURCEPAGE:p.21	SPROP:Seal a pact in blood on this parchment. Pact breakers suffer -4 penalty to attack rolles, saves, ability checks, and skill checks.
+Verdict of the Netherworld	TYPE:Magic.Wondrous		COST:32000	WT:2		SOURCEPAGE:p.21	SPROP:Once per day, judge a single foe within 30 ft. with the effects of a Dictum spell.
+
+#
+# End
+#

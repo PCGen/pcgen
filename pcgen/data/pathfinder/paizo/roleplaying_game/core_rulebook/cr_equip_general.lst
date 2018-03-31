@@ -1,0 +1,517 @@
+# CVS $Revision: 20121 $ $Author: zaister $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
+# Original RSRD Entry by: PCGen Data Team
+# Pathfinder RPG Entry by: Stefan Radermacher
+
+# Sorted by the "Magic Items on the Body" listing for now...
+# Equipment Name	Type						Cost		Weight	Slot Needed	Requires Modification?
+# Belt slot
+# Equipment Name	Type						Cost		Weight	Slot Needed	Requires Modification?
+Belt			TYPE:Belt					COST:0	WT:0				MODS:REQUIRED
+Girdle		TYPE:Belt					COST:0	WT:0				MODS:REQUIRED
+# Body slot
+Robe			TYPE:Robe					COST:0	WT:0				MODS:REQUIRED
+Vestment		TYPE:Robe					COST:0	WT:0				MODS:REQUIRED
+# Chest slot
+Mantle		TYPE:Shirt					COST:0	WT:0				MODS:REQUIRED
+Shirt			TYPE:Shirt					COST:0	WT:0				MODS:REQUIRED
+Vest			TYPE:Shirt					COST:0	WT:0				MODS:REQUIRED
+# Eyes slot
+Eye Lenses		TYPE:Eyegear				COST:0	WT:0				MODS:REQUIRED
+Goggles		TYPE:Eyegear				COST:0	WT:0				MODS:REQUIRED
+# Feet slot
+Boots			TYPE:Boot					COST:0	WT:0		SLOTS:2	MODS:REQUIRED
+Shoes			TYPE:Boot					COST:0	WT:0		SLOTS:2	MODS:REQUIRED
+Slippers		TYPE:Boot					COST:0	WT:0		SLOTS:2	MODS:REQUIRED
+# Hands slot
+Gauntlets		TYPE:Glove					COST:0	WT:0		SLOTS:2	MODS:REQUIRED
+Gloves		TYPE:Glove					COST:0	WT:0		SLOTS:2	MODS:REQUIRED
+# Head slot
+Circlet		TYPE:Headgear				COST:0	WT:0				MODS:REQUIRED
+Crown			TYPE:Headgear				COST:0	WT:0				MODS:REQUIRED
+Hat			TYPE:Headgear				COST:0	WT:0				MODS:REQUIRED
+Helmet		TYPE:Headgear				COST:0	WT:0				MODS:REQUIRED
+Mask			TYPE:Headgear				COST:0	WT:0				MODS:REQUIRED
+# Headband slot
+Headband		TYPE:Headband				COST:0	WT:0				MODS:REQUIRED
+Phylactery		TYPE:Headband				COST:0	WT:0				MODS:REQUIRED
+# Neck slot
+Amulet		TYPE:Amulet					COST:0	WT:0				MODS:REQUIRED
+Brooch		TYPE:Amulet					COST:0	WT:0				MODS:REQUIRED
+Medallion		TYPE:Amulet					COST:0	WT:0				MODS:REQUIRED
+Necklace		TYPE:Amulet					COST:0	WT:0				MODS:REQUIRED
+Periapt		TYPE:Amulet					COST:0	WT:0				MODS:REQUIRED
+Scarab		TYPE:Amulet					COST:0	WT:0				MODS:REQUIRED
+# Ring slot
+Ring			TYPE:Ring					COST:0	WT:0				MODS:REQUIRED
+# Shoulders slot
+Cape			TYPE:Cape					COST:0	WT:0				MODS:REQUIRED
+Cloak			TYPE:Cape					COST:0	WT:0				MODS:REQUIRED
+# Wrist slot
+Bracelets		TYPE:Bracer					COST:0	WT:0		SLOTS:2	MODS:REQUIRED
+Bracers		TYPE:Bracer					COST:0	WT:0		SLOTS:2	MODS:REQUIRED
+# From "summary of magic item creation costs"
+Potion		TYPE:Potion.Consumable			COST:0	WT:0				MODS:REQUIRED
+Rod			TYPE:Rod					COST:0	WT:0				MODS:REQUIRED
+Scroll		TYPE:Scroll.Consumable			COST:0	WT:0				MODS:REQUIRED
+Staff			TYPE:Staff					COST:0	WT:0				MODS:REQUIRED
+Wand			TYPE:Wand					COST:0	WT:0				MODS:REQUIRED
+# From Magic Overview "Components"
+Spell Component	TYPE:SpellComponent.Consumable	COST:0	WT:0				MODS:REQUIRED
+Spell Focus		TYPE:SpellComponent.Focus		COST:0	WT:0				MODS:REQUIRED
+#
+Art			TYPE:Art					COST:0	WT:0				MODS:REQUIRED
+Gem			TYPE:Gem					COST:0	WT:0				MODS:REQUIRED
+
+###Block: Tattoo Slot Support
+# Equipment Name	Type				Cost		Weight	Requires Modification?
+Tattoo Head		TYPE:Tattoo Head		COST:0	WT:0		MODS:REQUIRED
+Tattoo Shoulders	TYPE:Tattoo Shoulders	COST:0	WT:0		MODS:REQUIRED
+Tattoo Neck		TYPE:Tattoo Neck		COST:0	WT:0		MODS:REQUIRED
+Tattoo Chest	TYPE:Tattoo Chest		COST:0	WT:0		MODS:REQUIRED
+Tattoo Body		TYPE:Tattoo Body		COST:0	WT:0		MODS:REQUIRED
+Tattoo Belt		TYPE:Tattoo Belt		COST:0	WT:0		MODS:REQUIRED
+Tattoo Wrist	TYPE:Tattoo Wrist		COST:0	WT:0		MODS:REQUIRED
+Tattoo Hands	TYPE:Tattoo Hands		COST:0	WT:0		MODS:REQUIRED
+Tattoo Ring		TYPE:Tattoo Ring		COST:0	WT:0		MODS:REQUIRED
+Tattoo Feet		TYPE:Tattoo Feet		COST:0	WT:0		MODS:REQUIRED
+
+###Block: Trade Goods
+# Equipment Name	Output Name				Type			Cost		Weight	Source Page
+Wheat (per lb)	OUTPUTNAME:Wheat (per lb.)	TYPE:Goods.Trade	COST:0.01	WT:1		SOURCEPAGE:p.140
+Flour (per lb)	OUTPUTNAME:Flour (per lb.)	TYPE:Goods.Trade	COST:0.02	WT:1		SOURCEPAGE:p.140
+Chicken							TYPE:Goods.Trade	COST:0.02			SOURCEPAGE:p.140
+Iron (per lb)	OUTPUTNAME:Iron (per lb.)	TYPE:Goods.Trade	COST:0.1	WT:1		SOURCEPAGE:p.140
+Tobacco (per lb)	OUTPUTNAME:Tobacco (per lb.)	TYPE:Goods.Trade	COST:0.5	WT:1		SOURCEPAGE:p.140
+Copper (per lb)	OUTPUTNAME:Copper (per lb.)	TYPE:Goods.Trade	COST:0.5	WT:1		SOURCEPAGE:p.140
+Cinnamon (per lb)	OUTPUTNAME:Cinnamon (per lb.)	TYPE:Goods.Trade	COST:1	WT:1		SOURCEPAGE:p.140
+Goat								TYPE:Goods.Trade	COST:1			SOURCEPAGE:p.140
+Ginger (per lb)	OUTPUTNAME:Ginger (per lb.)	TYPE:Goods.Trade	COST:2	WT:1		SOURCEPAGE:p.140
+Pepper (per lb)	OUTPUTNAME:Pepper (per lb.)	TYPE:Goods.Trade	COST:2	WT:1		SOURCEPAGE:p.140
+Sheep								TYPE:Goods.Trade	COST:2			SOURCEPAGE:p.140
+Pig								TYPE:Goods.Trade	COST:3			SOURCEPAGE:p.140
+Linen (sq yd)	OUTPUTNAME:Linen (sq. yd.)	TYPE:Goods.Trade	COST:4	WT:1		SOURCEPAGE:p.140
+Salt (per lb)	OUTPUTNAME:Salt (per lb.)	TYPE:Goods.Trade	COST:5	WT:1		SOURCEPAGE:p.140
+Silver (per lb)	OUTPUTNAME:Silver (per lb.)	TYPE:Goods.Trade	COST:5	WT:1		SOURCEPAGE:p.140
+Silk (sq yd)	OUTPUTNAME:Silk (sq. yd.)	TYPE:Goods.Trade	COST:10	WT:0.5	SOURCEPAGE:p.140
+Cow								TYPE:Goods.Trade	COST:10			SOURCEPAGE:p.140
+Saffron (per lb)	OUTPUTNAME:Saffron (per lb.)	TYPE:Goods.Trade	COST:15	WT:1		SOURCEPAGE:p.140
+Cloves (per lb)	OUTPUTNAME:Cloves (per lb.)	TYPE:Goods.Trade	COST:15	WT:1		SOURCEPAGE:p.140
+Ox								TYPE:Goods.Trade	COST:15			SOURCEPAGE:p.140
+Gold (per lb)	OUTPUTNAME:Gold (per lb.)	TYPE:Goods.Trade	COST:50	WT:1		SOURCEPAGE:p.140
+Platinum (per lb)	OUTPUTNAME:Platinum (per lb.)	TYPE:Goods.Trade	COST:500	WT:1		SOURCEPAGE:p.140
+
+###Block: Adventuring Gear
+# Equipment Name			Output Name					Type								Contains									Cost		Weight	Source Page		Quality and value																			Special Property
+Backpack										TYPE:Goods.Container.General.Resizable		CONTAINS:UNLIM|Any							COST:2	WT:2		SOURCEPAGE:p.158
+Barrel										TYPE:Goods.Container.General				CONTAINS:UNLIM|Any							COST:2	WT:30		SOURCEPAGE:p.158
+Basket										TYPE:Goods.Container.General				CONTAINS:UNLIM|Any							COST:0.4	WT:1		SOURCEPAGE:p.158
+Bedroll										TYPE:Goods.General.Resizable														COST:0.1	WT:5		SOURCEPAGE:p.158
+Bell											TYPE:Goods.General															COST:1	WT:0		SOURCEPAGE:p.158
+Blanket (Winter)									TYPE:Goods.General.Resizable														COST:0.5	WT:3		SOURCEPAGE:p.158
+Block and Tackle									TYPE:Goods.General															COST:5	WT:5		SOURCEPAGE:p.158
+Bottle (Glass)									TYPE:Goods.Container.General				CONTAINS:1.5|Liquid=3							COST:2	WT:1		SOURCEPAGE:p.158
+Bucket										TYPE:Goods.Container.General				CONTAINS:UNLIM|Any							COST:0.5	WT:2		SOURCEPAGE:p.158
+Caltrops										TYPE:Goods.General															COST:1	WT:2		SOURCEPAGE:p.155
+Candle										TYPE:Goods.General.Consumable.LightSource												COST:0.01			SOURCEPAGE:p.155	QUALITY:Increases light level by one step|5 ft.	QUALITY:Duration|1 hr.										SPROP:Increases light level (5') for 1 hr.
+Canvas (Sq Yd)			OUTPUTNAME:Canvas (Sq. Yd.)		TYPE:Goods.General															COST:0.1	WT:1		SOURCEPAGE:p.158
+Case (Map or Scroll)								TYPE:Goods.Container.General				CONTAINS:UNLIM|Total=10|Paper=10|Documents=10|Scroll=10	COST:1	WT:0.5	SOURCEPAGE:p.158
+Chain (10 Ft)			OUTPUTNAME:Chain (10 Ft.)		TYPE:Goods.General															COST:30	WT:2		SOURCEPAGE:p.155
+Chalk (1 Piece)									TYPE:Goods.General															COST:0.01			SOURCEPAGE:p.158
+Chest											TYPE:Goods.Container.General				CONTAINS:UNLIM|Any							COST:2	WT:25		SOURCEPAGE:p.158
+Crowbar										TYPE:Goods.General															COST:2	WT:5		SOURCEPAGE:p.155																						SPROP:+2 circumstance bonus to Strength checks to force open a door or chest
+Firewood (Per Day)								TYPE:Goods.General															COST:0.01	WT:20		SOURCEPAGE:p.158
+Fishhook										TYPE:Goods.General															COST:0.1			SOURCEPAGE:p.158
+Fishing Net (25 Sq Ft)		OUTPUTNAME:Fishing Net (25 Sq. Ft.)	TYPE:Goods.General															COST:4	WT:5		SOURCEPAGE:p.158
+Flask (Empty)									TYPE:Goods.Container.General.Flask			CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1			COST:0.03	WT:1.5	SOURCEPAGE:p.158
+Flint and Steel									TYPE:Goods.General															COST:1			SOURCEPAGE:p.155
+Grappling Hook									TYPE:Goods.General															COST:1	WT:4		SOURCEPAGE:p.155
+Hammer										TYPE:Goods.General															COST:0.5	WT:2		SOURCEPAGE:p.156
+Hourglass										TYPE:Goods.General															COST:25	WT:1		SOURCEPAGE:p.158
+Ink (1 oz Vial)			OUTPUTNAME:Ink (1 oz. Vial)		TYPE:Goods.General.Writing.Liquid.Vial												COST:8			SOURCEPAGE:p.156
+Ink (Color/1 oz Vial)		OUTPUTNAME:Ink (Color/1 oz. Vial)	TYPE:Goods.General.Writing.Liquid.Vial												COST:16			SOURCEPAGE:p.156
+Inkpen										TYPE:Goods.General.Writing														COST:0.1			SOURCEPAGE:p.158
+Jug (Clay)										TYPE:Goods.Container.General				CONTAINS:8|Liquid|SpellComponent=1					COST:0.03	WT:9		SOURCEPAGE:p.146
+Ladder (10 Ft)			OUTPUTNAME:Ladder (10 Ft.)		TYPE:Goods.General															COST:0.2	WT:20		SOURCEPAGE:p.158
+Lamp (Common)									TYPE:Goods.General.LightSource													COST:0.1	WT:1		SOURCEPAGE:p.156	QUALITY:Bright Illumination|15 ft.	QUALITY:Shadowy Illumination|30 ft.	QUALITY:Duration|6 hr./pint					SPROP:Bright illumination (15'), shadowy illumination (30'), 6 hr./pint
+Lantern (Bullseye)								TYPE:Goods.General.LightSource													COST:12	WT:3		SOURCEPAGE:p.156	QUALITY:Normal Illumination|60 ft. cone	QUALITY:Increases light level by 1 step|120 ft. cone	QUALITY:Duration|6 hr./pint	SPROP:Normal illumination (60'), plus 1 step (120'), 6 hr./pint
+Lantern (Hooded)									TYPE:Goods.General.LightSource													COST:7	WT:2		SOURCEPAGE:p.156	QUALITY:Bright Illumination|30 ft.	QUALITY:Shadowy Illumination|60 ft.	QUALITY:Duration|6 hr./pint					SPROP:Bright illumination (30'), shadowy illumination (60'), 6 hr./pint
+Lock (Simple)									TYPE:Goods.General															COST:20	WT:1		SOURCEPAGE:p.156
+Lock (Average)									TYPE:Goods.General															COST:40	WT:1		SOURCEPAGE:p.156
+Lock (Good)										TYPE:Goods.General															COST:80	WT:1		SOURCEPAGE:p.156
+Lock (Superior)									TYPE:Goods.General															COST:150	WT:1		SOURCEPAGE:p.156
+Manacles (Small)									TYPE:Goods.General															COST:15	WT:2		SOURCEPAGE:p.156
+Manacles (Medium)									TYPE:Goods.General															COST:15	WT:2		SOURCEPAGE:p.156
+Manacles (Large)									TYPE:Goods.General															COST:150	WT:8		SOURCEPAGE:p.156
+Manacles (Huge)									TYPE:Goods.General															COST:1500	WT:32		SOURCEPAGE:p.156
+Manacles (Masterwork/Small)							TYPE:Goods.General.Masterwork														COST:50	WT:2		SOURCEPAGE:p.156
+Manacles (Masterwork/Medium)							TYPE:Goods.General.Masterwork														COST:50	WT:2		SOURCEPAGE:p.156
+Manacles (Masterwork/Large)							TYPE:Goods.General.Masterwork														COST:500	WT:8		SOURCEPAGE:p.156
+Manacles (Masterwork/Huge)							TYPE:Goods.General.Masterwork														COST:5000	WT:32		SOURCEPAGE:p.156
+Mirror (Small/Steel)								TYPE:Goods.General															COST:10	WT:0.5	SOURCEPAGE:p.158
+Mug or Tankard (Clay)								TYPE:Goods.Container.General				CONTAINS:1|Liquid								COST:0.02	WT:1		SOURCEPAGE:p.158
+Oil (1 Pint Flask)				PROFICIENCY:WEAPON|Splash Weapon	TYPE:Goods.General.Liquid.Flask.Consumable.Weapon.Ranged.Thrown.Fire.Splash	CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	RANGE:10	SIZE:M	COST:0.1	WT:1	SOURCEPAGE:p.157	SPROP:Thrown splash weapon see p.202, full-round action to prepare, 50% chance to ignite
+Paper (Sheet)									TYPE:Goods.General.Writing.Documents												COST:0.4			SOURCEPAGE:p.158
+Parchment (Sheet)									TYPE:Goods.General.Writing.Documents												COST:0.2			SOURCEPAGE:p.158
+Pick (Miner's)									TYPE:Goods.General															COST:3	WT:10		SOURCEPAGE:p.157
+Pitcher (Clay)									TYPE:Goods.Container.General				CONTAINS:4|Liquid								COST:0.02	WT:5		SOURCEPAGE:p.158
+Piton											TYPE:Goods.General															COST:0.1	WT:0.5	SOURCEPAGE:p.158
+Pole (10 Ft)			OUTPUTNAME:Pole (10 Ft.)		TYPE:Goods.General															COST:0.05	WT:8		SOURCEPAGE:p.158
+Pot (Iron)										TYPE:Goods.Container.General				CONTAINS:UNLIM|Any							COST:0.8	WT:4		SOURCEPAGE:p.158
+Pouch (Belt)									TYPE:Goods.Container.General.Resizable		CONTAINS:UNLIM|Any							COST:1	WT:0.5	SOURCEPAGE:p.158
+Ram (Portable)									TYPE:Goods.General															COST:10	WT:20		SOURCEPAGE:p.157
+Rations (Trail/Per Day)								TYPE:Goods.Food.Resizable.Consumable												COST:0.5	WT:1		SOURCEPAGE:p.158
+Rope (Hemp/50 ft)			OUTPUTNAME:Rope (Hemp/50 ft.)		TYPE:Goods.General															COST:1	WT:10		SOURCEPAGE:p.157
+Rope (Silk/50 ft)			OUTPUTNAME:Rope (Silk/50 ft.)		TYPE:Goods.General															COST:10	WT:5		SOURCEPAGE:p.157																						SPROP:4 hp, DC 24 Strength check to burst
+Sack											TYPE:Goods.Container.General.Resizable		CONTAINS:UNLIM|Any							COST:0.1	WT:0.5	SOURCEPAGE:p.158
+Sealing Wax										TYPE:Goods.General.Writing														COST:1	WT:1		SOURCEPAGE:p.158
+Sewing Needle									TYPE:Goods.General															COST:0.5			SOURCEPAGE:p.158
+Shovel or Spade									TYPE:Goods.General															COST:2	WT:8		SOURCEPAGE:p.157
+Signal Whistle									TYPE:Goods.General															COST:0.8			SOURCEPAGE:p.158
+Signet Ring										TYPE:Goods.General															COST:5			SOURCEPAGE:p.158
+Sledge										TYPE:Goods.General															COST:1	WT:10		SOURCEPAGE:p.158
+Soap (per lb)			OUTPUTNAME:Soap (per lb.)		TYPE:Goods.General															COST:0.5	WT:1		SOURCEPAGE:p.158
+Spyglass										TYPE:Goods.General															COST:1000	WT:1		SOURCEPAGE:p.157
+Tent											TYPE:Goods.General.Resizable														COST:10	WT:20		SOURCEPAGE:p.158
+Torch											TYPE:Goods.General.Consumable.LightSource												COST:0.01	WT:1		SOURCEPAGE:p.157	QUALITY:Bright Illumination|20 ft.	QUALITY:Shadowy Illumination|40 ft.	QUALITY:Duration|1 hr.
+Vial											TYPE:Goods.Container.General.Vial			CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1			COST:1			SOURCEPAGE:p.157
+Water Clock										TYPE:Goods.General															COST:1000	WT:200	SOURCEPAGE:p.157
+Waterskin										TYPE:Goods.Container.General				CONTAINS:4|Liquid=4							COST:1			SOURCEPAGE:p.158
+Waterskin (Filled)								TYPE:Goods.General.Resizable														COST:1	WT:4		SOURCEPAGE:p.158
+Whetstone										TYPE:Goods.General															COST:0.02	WT:1		SOURCEPAGE:p.158
+
+###Block: Special Substances and Items
+# Equipment Name		Proficiency				Type																		Cost		Weight	Source Page		Quality and value															Special Property
+Acid (Flask)			PROFICIENCY:WEAPON|Splash Weapon	TYPE:Goods.Alchemical.Flask.Consumable.Weapon.Ranged.Thrown.Acid.Splash	CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	RANGE:10	SIZE:M	COST:10		WT:1	SOURCEPAGE:p.160																		SPROP:Thrown splash weapon see p.202
+Alchemist's Fire (Flask)	PROFICIENCY:WEAPON|Splash Weapon	TYPE:Goods.Alchemical.Flask.Consumable.Weapon.Ranged.Thrown.Fire.Splash	CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	RANGE:10	SIZE:M	COST:20		WT:1	SOURCEPAGE:p.160																		SPROP:Thrown splash weapon see p.202
+Antitoxin (Vial)							TYPE:Goods.Alchemical.Vial.Consumable														COST:50			SOURCEPAGE:p.160																		SPROP:+5 alchemical bonus to Fortitude saves against poison for 1 hour
+Everburning Torch							TYPE:Goods.Magic.LightSource															COST:110	WT:1	SOURCEPAGE:p.160	QUALITY:Bright Illumination|20 ft.	QUALITY:Shadowy Illumination|40 ft.	QUALITY:Duration|Permanent
+Holy Water (Flask)		PROFICIENCY:WEAPON|Splash Weapon	TYPE:Goods.Flask.Consumable.Weapon.Ranged.Thrown.Splash	CRITMULT:x2			CRITRANGE:1	DAMAGE:1d6	RANGE:10	SIZE:M	COST:25		WT:1	SOURCEPAGE:p.160																		SPROP:thown splash weapon see p.202
+Smokestick								TYPE:Goods.Alchemical.Consumable														COST:20		WT:0.5	SOURCEPAGE:p.160																		SPROP:creates 10ft cube of smoke as per fog cloud
+Sunrod									TYPE:Goods.Alchemical.Consumable.LightSource													COST:2		WT:1	SOURCEPAGE:p.160	QUALITY:Bright Illumination|30 ft.	QUALITY:Shadowy Illumination|60 ft.	QUALITY:Duration|6 hr.
+Tanglefoot Bag			PROFICIENCY:WEAPON|Splash Weapon	TYPE:Goods.Alchemical.Consumable.Weapon.Ranged.Thrown.Splash								RANGE:10	SIZE:M	COST:50		WT:4	SOURCEPAGE:p.160																		SPROP:Ranged Touch attack entangles up to large creatures DC15 reflex
+Thunderstone			PROFICIENCY:WEAPON|Splash Weapon	TYPE:Goods.Alchemical.Consumable.Weapon.Ranged.Thrown.Sonic.Splash							RANGE:20	SIZE:M	COST:30		WT:1	SOURCEPAGE:p.160																		SPROP:Ranged attack on target square (AC5), 10ft radius effect, DC15 fortitude save or be deafened
+Tindertwig								TYPE:Goods.Alchemical.Consumable														COST:1			SOURCEPAGE:p.160																		SPROP:lights a torch with a standard action
+
+###Block: Tools and Skill Kits
+# Equipment Name				Type									Contains		Number of Pages	Page Usage				Cost		Weight	Modifier					Source Page		Bonus to skill													Special Property
+Alchemist's Lab				TYPE:Goods.Tools.Artisan																COST:200	WT:40								SOURCEPAGE:p.161	BONUS:SKILL|Craft (Alchemy)|2|TYPE=Circumstance
+Artisan's Tools (Armor)			TYPE:Goods.Tools.Artisan.CraftToolsArmor														COST:5	WT:5								SOURCEPAGE:p.161	BONUS:SKILL|Craft (Armor)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Artisan's Tools (Baskets)		TYPE:Goods.Tools.Artisan.CraftToolsBaskets													COST:5	WT:5								SOURCEPAGE:p.161	BONUS:SKILL|Craft (Baskets)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Artisan's Tools (Books)			TYPE:Goods.Tools.Artisan.CraftToolsBooks														COST:5	WT:5								SOURCEPAGE:p.161	BONUS:SKILL|Craft (Books)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Artisan's Tools (Bows)			TYPE:Goods.Tools.Artisan.CraftToolsBows														COST:5	WT:5								SOURCEPAGE:p.161	BONUS:SKILL|Craft (Bows)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Artisan's Tools (Calligraphy)		TYPE:Goods.Tools.Artisan.CraftToolsCalligraphy													COST:5	WT:5								SOURCEPAGE:p.161	BONUS:SKILL|Craft (Calligraphy)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Artisan's Tools (Carpentry)		TYPE:Goods.Tools.Artisan.CraftToolsCarpentry													COST:5	WT:5								SOURCEPAGE:p.161	BONUS:SKILL|Craft (Carpentry)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Artisan's Tools (Cloth)			TYPE:Goods.Tools.Artisan.CraftToolsCloth														COST:5	WT:5								SOURCEPAGE:p.161	BONUS:SKILL|Craft (Cloth)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Artisan's Tools (Clothing)		TYPE:Goods.Tools.Artisan.CraftToolsClothing													COST:5	WT:5								SOURCEPAGE:p.161	BONUS:SKILL|Craft (Clothing)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Artisan's Tools (Gemcutting)		TYPE:Goods.Tools.Artisan.CraftToolsGemcutting													COST:5	WT:5								SOURCEPAGE:p.161	BONUS:SKILL|Craft (Gemcutting)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Artisan's Tools (Glass)			TYPE:Goods.Tools.Artisan.CraftToolsGlass														COST:5	WT:5								SOURCEPAGE:p.161	BONUS:SKILL|Craft (Glass)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Artisan's Tools (Jewelry)		TYPE:Goods.Tools.Artisan.CraftToolsJewelry													COST:5	WT:5								SOURCEPAGE:p.161	BONUS:SKILL|Craft (Jewelry)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Artisan's Tools (Leather)		TYPE:Goods.Tools.Artisan.CraftToolsLeather													COST:5	WT:5								SOURCEPAGE:p.161	BONUS:SKILL|Craft (Leather)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Artisan's Tools (Locks)			TYPE:Goods.Tools.Artisan.CraftToolsLocks														COST:5	WT:5								SOURCEPAGE:p.161	BONUS:SKILL|Craft (Locks)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Artisan's Tools (Paintings)		TYPE:Goods.Tools.Artisan.CraftToolsPaintings													COST:5	WT:5								SOURCEPAGE:p.161	BONUS:SKILL|Craft (Paintings)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Artisan's Tools (Pottery)		TYPE:Goods.Tools.Artisan.CraftToolsPottery													COST:5	WT:5								SOURCEPAGE:p.161	BONUS:SKILL|Craft (Pottery)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Artisan's Tools (Sculptures)		TYPE:Goods.Tools.Artisan.CraftToolsSculptures													COST:5	WT:5								SOURCEPAGE:p.161	BONUS:SKILL|Craft (Sculptures)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Artisan's Tools (Ships)			TYPE:Goods.Tools.Artisan.CraftToolsShips														COST:5	WT:5								SOURCEPAGE:p.161	BONUS:SKILL|Craft (Ships)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Artisan's Tools (Shoes)			TYPE:Goods.Tools.Artisan.CraftToolsShoes														COST:5	WT:5								SOURCEPAGE:p.161	BONUS:SKILL|Craft (Shoes)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Artisan's Tools (Stonemasonry)	TYPE:Goods.Tools.Artisan.CraftToolsStonemasonry													COST:5	WT:5								SOURCEPAGE:p.161	BONUS:SKILL|Craft (Stonemasonry)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Artisan's Tools (Traps)			TYPE:Goods.Tools.Artisan.CraftToolsTraps														COST:5	WT:5								SOURCEPAGE:p.161	BONUS:SKILL|Craft (Traps)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Artisan's Tools (Weaponsmithing)	TYPE:Goods.Tools.Artisan.CraftToolsWeapons													COST:5	WT:5								SOURCEPAGE:p.161	BONUS:SKILL|Craft (Weapons)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Climber's Kit				TYPE:Goods.Tools.Masterwork.Resizable														COST:80	WT:5								SOURCEPAGE:p.161	BONUS:SKILL|Climb|2|TYPE=Circumstance
+Disguise Kit				TYPE:Goods.Tools.Masterwork.Resizable														COST:50	WT:8		EQMOD:Special Ability ~ Charged Item / 10 Maximum|CHARGES[10]	SOURCEPAGE:p.161	BONUS:SKILL|Disguise|2|TYPE=Circumstance
+Healer's Kit				TYPE:Goods.Tools.Masterwork																COST:50	WT:1		EQMOD:Special Ability ~ Charged Item / 10 Maximum|CHARGES[10]	SOURCEPAGE:p.161	BONUS:SKILL|Heal|2|TYPE=Circumstance
+Holly and Mistletoe			TYPE:Goods.Tools.SpellComponent.DivineFocus																							SOURCEPAGE:p.161
+Holy Symbol (Wooden)			TYPE:Goods.Tools.SpellComponent.DivineFocus													COST:1									SOURCEPAGE:p.161
+Holy Symbol (Silver)			TYPE:Goods.Tools.SpellComponent.DivineFocus													COST:25	WT:1								SOURCEPAGE:p.161
+Magnifying Glass				TYPE:Goods.Tools																		COST:100									SOURCEPAGE:p.161																SPROP:a +2 circumstance bonus on Appraise checks involving any item that is small or highly detailed.
+Musical Instrument (Harpsichord)	TYPE:Goods.Tools.Instrument.Keyboard.Resizable													COST:5	WT:3								SOURCEPAGE:p.161	BONUS:SKILL|Perform (Keyboard Instruments)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Musical Instrument (Piano)		TYPE:Goods.Tools.Instrument.Keyboard.Resizable													COST:5	WT:3								SOURCEPAGE:p.161	BONUS:SKILL|Perform (Keyboard Instruments)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Musical Instrument (Pipe Organ)	TYPE:Goods.Tools.Instrument.Keyboard.Resizable													COST:5	WT:3								SOURCEPAGE:p.161	BONUS:SKILL|Perform (Keyboard Instruments)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Musical Instrument (Bells)		TYPE:Goods.Tools.Instrument.Percussion.Resizable												COST:5	WT:3								SOURCEPAGE:p.161	BONUS:SKILL|Perform (Percussion Instruments)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Musical Instrument (Chimes)		TYPE:Goods.Tools.Instrument.Percussion.Resizable												COST:5	WT:3								SOURCEPAGE:p.161	BONUS:SKILL|Perform (Percussion Instruments)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Musical Instrument (Drums)		TYPE:Goods.Tools.Instrument.Percussion.Resizable												COST:5	WT:3								SOURCEPAGE:p.161	BONUS:SKILL|Perform (Percussion Instruments)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Musical Instrument (Gong)		TYPE:Goods.Tools.Instrument.Percussion.Resizable												COST:5	WT:3								SOURCEPAGE:p.161	BONUS:SKILL|Perform (Percussion Instruments)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Musical Instrument (Fiddle)		TYPE:Goods.Tools.Instrument.String.Resizable													COST:5	WT:3								SOURCEPAGE:p.161	BONUS:SKILL|Perform (String Instruments)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Musical Instrument (Harp)		TYPE:Goods.Tools.Instrument.String.Resizable													COST:5	WT:3								SOURCEPAGE:p.161	BONUS:SKILL|Perform (String Instruments)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Musical Instrument (Lute)		TYPE:Goods.Tools.Instrument.String.Resizable													COST:5	WT:3								SOURCEPAGE:p.161	BONUS:SKILL|Perform (String Instruments)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Musical Instrument (Mandolin)		TYPE:Goods.Tools.Instrument.String.Resizable													COST:5	WT:3								SOURCEPAGE:p.161	BONUS:SKILL|Perform (String Instruments)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Musical Instrument (Flute)		TYPE:Goods.Tools.Instrument.Wind.Resizable													COST:5	WT:3								SOURCEPAGE:p.161	BONUS:SKILL|Perform (Wind Instruments)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Musical Instrument (Pan Pipes)	TYPE:Goods.Tools.Instrument.Wind.Resizable													COST:5	WT:3									SOURCEPAGE:p.161	BONUS:SKILL|Perform (Wind Instruments)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Musical Instrument (Recorder)		TYPE:Goods.Tools.Instrument.Wind.Resizable													COST:5	WT:3								SOURCEPAGE:p.161	BONUS:SKILL|Perform (Wind Instruments)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Musical Instrument (Trumpet)		TYPE:Goods.Tools.Instrument.Wind.Resizable													COST:5	WT:3								SOURCEPAGE:p.161	BONUS:SKILL|Perform (Wind Instruments)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Scale (Merchant's)			TYPE:Goods.Tools																		COST:2	WT:1						SOURCEPAGE:p.161																SPROP:+2 to appraise items valued by weight
+Spell Component Pouch			TYPE:Goods.Tools.Container					CONTAINS:UNLIM									COST:5	WT:2								SOURCEPAGE:p.161
+Spellbook		TYPE:Goods.Tools.Book.Spellbook								NUMPAGES:100	PAGEUSAGE:max(SPELLLEVEL,1)	COST:15	WT:3									SOURCEPAGE:p.161
+Thieves' Tools				TYPE:Goods.Tools.Thief.ThiefTools															COST:30	WT:1							SOURCEPAGE:p.161	BONUS:SKILL|Disable Device|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Unholy Symbol (Wooden)			TYPE:Goods.Tools.SpellComponent.DivineFocus													COST:1									SOURCEPAGE:p.161
+Unholy Symbol (Silver)			TYPE:Goods.Tools.SpellComponent.DivineFocus													COST:25	WT:1								SOURCEPAGE:p.161
+
+###Block: Clothing
+# Equipment Name		Unique Key				SORTKEY					Output Name				Type		Cost		Weight		Source Page		Special Property
+Outfit (Artisan's)	KEY:Outfit (Artisan's)		SORTKEY:Outfit (Artisan's)		OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable.Starting	COST:1		WT:4		SOURCEPAGE:p.161
+Vestments (Cleric's)	KEY:Vestments (Cleric's)	SORTKEY:Vestments (Cleric's)		OUTPUTNAME:[NAME] Vestments	TYPE:Goods.Clothing.Resizable.Starting	COST:5		WT:6		SOURCEPAGE:p.161
+Outfit (Cold-Weather)	KEY:Outfit (Cold-Weather)	SORTKEY:Outfit (Cold-Weather)		OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable.Starting	COST:8		WT:7		SOURCEPAGE:p.161	SPROP: +5 circumstance bonus on Fortitude saves vs cold weather
+Outfit (Courtier's)	KEY:Outfit (Courtier's)		SORTKEY:Outfit (Courtier's)		OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable		COST:30		WT:6		SOURCEPAGE:p.161
+Outfit (Entertainer's)	KEY:Outfit (Entertainer's)	SORTKEY:Outfit (Entertainer's)		OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable.Starting	COST:3		WT:4		SOURCEPAGE:p.161
+Outfit (Explorer's)	KEY:Outfit (Explorer's)		SORTKEY:Outfit (Explorer's)		OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable.Starting	COST:10		WT:8		SOURCEPAGE:p.161
+Outfit (Monk's)		KEY:Outfit (Monk's)		SORTKEY:Outfit (Monk's)			OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable.Starting	COST:5		WT:2		SOURCEPAGE:p.162
+Outfit (Noble's)	KEY:Outfit (Noble's)		SORTKEY:Outfit (Noble's)		OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable		COST:75		WT:10		SOURCEPAGE:p.162
+Outfit (Peasant's)	KEY:Outfit (Peasant's)		SORTKEY:Outfit (Peasant's)		OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable.Starting	COST:0.1	WT:2		SOURCEPAGE:p.162
+Outfit (Royal)		KEY:Outfit (Royal)		SORTKEY:Outfit (Royal)			OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable		COST:200	WT:15		SOURCEPAGE:p.162
+Outfit (Scholar's)	KEY:Outfit (Scholar's)		SORTKEY:Outfit (Scholar's)		OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable.Starting	COST:5		WT:6		SOURCEPAGE:p.162
+Outfit (Traveler's)	KEY:Outfit (Traveler's)		SORTKEY:Outfit (Traveler's)		OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable.Starting	COST:1		WT:5		SOURCEPAGE:p.162
+
+###Block:Food, Drink, and Lodging
+# Equipment Name		Type							Cost		Weight	Source Page
+Ale (Gallon)		TYPE:Goods.Liquid.Food.Consumable		COST:0.2	WT:8		SOURCEPAGE:p.159
+Ale (Mug)			TYPE:Goods.Food.Consumable			COST:0.04	WT:1		SOURCEPAGE:p.159
+Banquet (Per Person)	TYPE:Goods.Food.Consumable			COST:10			SOURCEPAGE:p.159
+Bread (Loaf)		TYPE:Goods.Food.Resizable.Consumable	COST:0.02	WT:0.5	SOURCEPAGE:p.159
+Cheese (Hunk)		TYPE:Goods.Food.Resizable.Consumable	COST:0.1	WT:0.5	SOURCEPAGE:p.159
+Inn (Good/Per Day)	TYPE:Service.Lodging.Consumable		COST:2			SOURCEPAGE:p.162
+Inn (Common/Per Day)	TYPE:Service.Lodging.Consumable		COST:0.5			SOURCEPAGE:p.162
+Inn (Poor/Per Day)	TYPE:Service.Lodging.Consumable		COST:0.2			SOURCEPAGE:p.162
+Meals (Good/Per Day)	TYPE:Goods.Food.Resizable.Consumable	COST:0.5			SOURCEPAGE:p.162
+Meals (Common/Per Day)	TYPE:Goods.Food.Resizable.Consumable	COST:0.3			SOURCEPAGE:p.162
+Meals (Poor/Per Day)	TYPE:Goods.Food.Resizable.Consumable	COST:0.1			SOURCEPAGE:p.162
+Meat (Chunk)		TYPE:Goods.Food.Consumable			COST:0.3	WT:0.5	SOURCEPAGE:p.159
+Wine (Common/Pitcher)	TYPE:Goods.Food.Consumable			COST:0.2	WT:6		SOURCEPAGE:p.159
+Wine (Fine/Bottle)	TYPE:Goods.Food.Consumable			COST:10	WT:1.5	SOURCEPAGE:p.159
+
+###Block:Mounts and Related Gear
+# Barding is in armor .LST file
+# Equipment Name			Type								Contains			Cost		Weight	Size		Source Page		Special Property
+Bit and Bridle			TYPE:Goods.Mount.Resizable								COST:2	WT:1				SOURCEPAGE:p.159
+Dog (Guard)				TYPE:Mount.Goods.Container				CONTAINS:*300|Any		COST:25					SOURCEPAGE:p.159
+Dog (Riding)			TYPE:Mount.Goods.Transportation.Container		CONTAINS:*300|Any		COST:150			SIZE:M	SOURCEPAGE:p.162
+Donkey				TYPE:Mount.Goods.Transportation.Container		CONTAINS:*690|Any		COST:8			SIZE:M	SOURCEPAGE:p.162
+Mule					TYPE:Mount.Goods.Transportation.Container		CONTAINS:*690|Any		COST:8			SIZE:M	SOURCEPAGE:p.162
+Feed (Per Day)			TYPE:Goods.Mount.Consumable								COST:0.05	WT:10				SOURCEPAGE:p.162
+Horse (Heavy)			TYPE:Mount.Goods.Transportation.Container		CONTAINS:*600|Any		COST:200	WT:0		SIZE:L	SOURCEPAGE:p.162
+Horse (Heavy/Combat Trained)	TYPE:Mount.Goods.Transportation.Container		CONTAINS:*900|Any		COST:300			SIZE:L	SOURCEPAGE:p.162
+Horse (Light)			TYPE:Mount.Goods.Transportation.Container		CONTAINS:*450|Any		COST:75			SIZE:L	SOURCEPAGE:p.162
+Horse (Light/Combat Trained)	TYPE:Mount.Goods.Transportation.Container		CONTAINS:*690|Any		COST:110			SIZE:L	SOURCEPAGE:p.162
+Pony					TYPE:Mount.Goods.Transportation.Container		CONTAINS:*225|Any		COST:30			SIZE:M	SOURCEPAGE:p.162
+Pony (Combat Trained)		TYPE:Mount.Goods.Transportation.Container		CONTAINS:*300|Any		COST:45			SIZE:M	SOURCEPAGE:p.162
+Saddle (Military)			TYPE:Goods.Mount.Saddle.Military.Resizable					COST:20	WT:30				SOURCEPAGE:p.162	SPROP:+2 circumstance bonus on Ride checks related to staying in the saddle
+Saddle (Pack)			TYPE:Goods.Container.Mount.Saddle.Resizable	CONTAINS:UNLIM|Any	COST:5	WT:15				SOURCEPAGE:p.162
+Saddle (Riding)			TYPE:Goods.Mount.Saddle.Resizable							COST:10	WT:25				SOURCEPAGE:p.162
+Saddle (Exotic/Military)	TYPE:Goods.Mount.Saddle.Military.Resizable					COST:60	WT:40				SOURCEPAGE:p.162	SPROP:+2 circumstance bonus on Ride checks related to staying in the saddle
+Saddle (Exotic/Pack)		TYPE:Goods.Container.Mount.Saddle.Resizable	CONTAINS:UNLIM|Any	COST:15	WT:20				SOURCEPAGE:p.162
+Saddle (Exotic/Riding)		TYPE:Goods.Mount.Saddle.Resizable							COST:30	WT:30				SOURCEPAGE:p.162
+Saddlebags				TYPE:Goods.Container.Mount.Resizable		CONTAINS:UNLIM|Any	COST:4	WT:8				SOURCEPAGE:p.159
+Stabling (Per Day)		TYPE:Goods.Mount										COST:0.5					SOURCEPAGE:p.159
+
+###Block: Transport
+# Equipment Name	Type									Contains			Cost		Weight	Source Page
+Carriage		TYPE:Goods.Transportation.Vehicle.Container		CONTAINS:3120|Any		COST:100	WT:600	SOURCEPAGE:p.163
+Cart			TYPE:Goods.Transportation.Vehicle.Container		CONTAINS:3120|Any		COST:15	WT:200	SOURCEPAGE:p.163
+Galley		TYPE:Goods.Transportation.Vehicle.Ships.Container	CONTAINS:300000|Any	COST:30000			SOURCEPAGE:p.163
+Keelboat		TYPE:Goods.Transportation.Vehicle.Ships.Container	CONTAINS:100000|Any	COST:3000			SOURCEPAGE:p.163
+Longship		TYPE:Goods.Transportation.Vehicle.Ships.Container	CONTAINS:100000|Any	COST:10000			SOURCEPAGE:p.163
+Rowboat		TYPE:Goods.Transportation.Vehicle.Ships.Container	CONTAINS:600|Any		COST:50	WT:100	SOURCEPAGE:p.163
+Oar			TYPE:Goods.Transportation.Vehicle.Ships.Extra						COST:2	WT:10		SOURCEPAGE:p.159
+Sailing Ship	TYPE:Goods.Transportation.Vehicle.Ships.Container	CONTAINS:300000|Any	COST:10000			SOURCEPAGE:p.163
+Sled			TYPE:Goods.Transportation.Vehicle.Container		CONTAINS:2000|Any		COST:20	WT:300	SOURCEPAGE:p.163
+Wagon			TYPE:Goods.Transportation.Vehicle.Container		CONTAINS:4000|Any		COST:35	WT:400	SOURCEPAGE:p.163
+Warship		TYPE:Goods.Transportation.Vehicle.Ships.Container	CONTAINS:300000|Any	COST:25000			SOURCEPAGE:p.163
+
+###Block: Spellcasting and services
+# Equipment Name			Type					Cost		Source Page
+Coach Cab (Per Mile)		TYPE:Service.Transportation	COST:0.03	SOURCEPAGE:p.163
+Hireling (Trained)		TYPE:Service			COST:0.3	SOURCEPAGE:p.163
+Hireling (Untrained)		TYPE:Service			COST:0.1	SOURCEPAGE:p.163
+Messenger (Per Mile)		TYPE:Service			COST:0.02	SOURCEPAGE:p.163
+Road or Gate Toll			TYPE:Service.Transportation	COST:0.01	SOURCEPAGE:p.163
+Ship's Passage (Per Mile)	TYPE:Service.Transportation	COST:0.1	SOURCEPAGE:p.163
+
+
+###Block: Coins
+# Equipment Name		Type		Cost		Weight	Source Page
+Coin (Copper Piece)	TYPE:Coin	COST:0.01	WT:0.02	SOURCEPAGE:p.140
+Coin (Silver Piece)	TYPE:Coin	COST:0.1	WT:0.02	SOURCEPAGE:p.140
+Coin (Gold Piece)		TYPE:Coin	COST:1	WT:0.02	SOURCEPAGE:p.140
+Coin (Platinum Piece)	TYPE:Coin	COST:10	WT:0.02	SOURCEPAGE:p.140
+
+
+###Block: Gems
+# Equipment Name				Output Name						Type		Cost		Weight	Source Page
+Agate													TYPE:Gem	COST:10	WT:0		SOURCEPAGE:p.400
+Azurite												TYPE:Gem	COST:10	WT:0		SOURCEPAGE:p.400
+Quartz (Blue)				OUTPUTNAME:[NAME] Quartz			TYPE:Gem	COST:10	WT:0		SOURCEPAGE:p.400
+Hematite												TYPE:Gem	COST:10	WT:0		SOURCEPAGE:p.400
+Lapis Lazuli											TYPE:Gem	COST:10	WT:0		SOURCEPAGE:p.400
+Malachite												TYPE:Gem	COST:10	WT:0		SOURCEPAGE:p.400
+Obsidian												TYPE:Gem	COST:10	WT:0		SOURCEPAGE:p.400
+Rhodochrosite											TYPE:Gem	COST:10	WT:0		SOURCEPAGE:p.400
+Tigereye												TYPE:Gem	COST:10	WT:0		SOURCEPAGE:p.400
+Turquoise												TYPE:Gem	COST:10	WT:0		SOURCEPAGE:p.400
+Pearl (Freshwater/Irregular)		OUTPUTNAME:Freshwater (Irregular) Pearl	TYPE:Gem	COST:10	WT:0		SOURCEPAGE:p.400
+Bloodstone												TYPE:Gem	COST:50	WT:0		SOURCEPAGE:p.400
+Carnelian												TYPE:Gem	COST:50	WT:0		SOURCEPAGE:p.400
+Chalcedony												TYPE:Gem	COST:50	WT:0		SOURCEPAGE:p.400
+Chrysoprase												TYPE:Gem	COST:50	WT:0		SOURCEPAGE:p.400
+Citrine												TYPE:Gem	COST:50	WT:0		SOURCEPAGE:p.400
+Jasper												TYPE:Gem	COST:50	WT:0		SOURCEPAGE:p.400
+Moonstone												TYPE:Gem	COST:50	WT:0		SOURCEPAGE:p.400
+Onyx													TYPE:Gem	COST:50	WT:0		SOURCEPAGE:p.400
+Peridot												TYPE:Gem	COST:50	WT:0		SOURCEPAGE:p.400
+Rock Crystal (Clear Quartz)									TYPE:Gem	COST:50	WT:0		SOURCEPAGE:p.400
+Sard													TYPE:Gem	COST:50	WT:0		SOURCEPAGE:p.400
+Sardonyx												TYPE:Gem	COST:50	WT:0		SOURCEPAGE:p.400
+Quartz (Rose)				OUTPUTNAME:[NAME] Quartz			TYPE:Gem	COST:50	WT:0		SOURCEPAGE:p.400
+Quartz (Smoky)				OUTPUTNAME:[NAME] Quartz			TYPE:Gem	COST:50	WT:0		SOURCEPAGE:p.400
+Quartz (Star Rose)			OUTPUTNAME:[NAME] Quartz			TYPE:Gem	COST:50	WT:0		SOURCEPAGE:p.400
+Zircon												TYPE:Gem	COST:50	WT:0		SOURCEPAGE:p.400
+Amber													TYPE:Gem	COST:100	WT:0		SOURCEPAGE:p.400
+Amethyst												TYPE:Gem	COST:100	WT:0		SOURCEPAGE:p.400
+Chrysoberyl												TYPE:Gem	COST:100	WT:0		SOURCEPAGE:p.400
+Coral													TYPE:Gem	COST:100	WT:0		SOURCEPAGE:p.400
+Garnet (Red)				OUTPUTNAME:[NAME] Garnet			TYPE:Gem	COST:100	WT:0		SOURCEPAGE:p.400
+Garnet (Brown-Green)			OUTPUTNAME:[NAME] Garnet			TYPE:Gem	COST:100	WT:0		SOURCEPAGE:p.400
+Jade													TYPE:Gem	COST:100	WT:0		SOURCEPAGE:p.400
+Jet													TYPE:Gem	COST:100	WT:0		SOURCEPAGE:p.400
+Pearl (White)				OUTPUTNAME:[NAME] Pearl				TYPE:Gem	COST:100	WT:0		SOURCEPAGE:p.400
+Pearl (Golden)				OUTPUTNAME:[NAME] Pearl				TYPE:Gem	COST:100	WT:0		SOURCEPAGE:p.400
+Pearl (Pink)				OUTPUTNAME:[NAME] Pearl				TYPE:Gem	COST:100	WT:0		SOURCEPAGE:p.400
+Pearl (Silver)				OUTPUTNAME:[NAME] Pearl				TYPE:Gem	COST:100	WT:0		SOURCEPAGE:p.400
+Spinel (Red)				OUTPUTNAME:[NAME] Spinel			TYPE:Gem	COST:100	WT:0		SOURCEPAGE:p.400
+Spinel (Red-Brown)			OUTPUTNAME:[NAME] Spinel			TYPE:Gem	COST:100	WT:0		SOURCEPAGE:p.400
+Spinel (Deep Green)			OUTPUTNAME:[NAME] Spinel			TYPE:Gem	COST:100	WT:0		SOURCEPAGE:p.400
+Tourmaline												TYPE:Gem	COST:100	WT:0		SOURCEPAGE:p.400
+Alexandrite												TYPE:Gem	COST:500	WT:0		SOURCEPAGE:p.400
+Aquamarine												TYPE:Gem	COST:500	WT:0		SOURCEPAGE:p.400
+Garnet (Violet)				OUTPUTNAME:[NAME] Garnet			TYPE:Gem	COST:500	WT:0		SOURCEPAGE:p.400
+Pearl (Black)				OUTPUTNAME:[NAME] Pearl				TYPE:Gem	COST:500	WT:0		SOURCEPAGE:p.400
+Spinel (Deep Blue)			OUTPUTNAME:[NAME] Spinel			TYPE:Gem	COST:500	WT:0		SOURCEPAGE:p.400
+Topaz (Golden Yellow)			OUTPUTNAME:[NAME] Topaz				TYPE:Gem	COST:500	WT:0		SOURCEPAGE:p.400
+Emerald												TYPE:Gem	COST:1000	WT:0		SOURCEPAGE:p.400
+Opal (White)				OUTPUTNAME:[NAME] Opal				TYPE:Gem	COST:1000	WT:0		SOURCEPAGE:p.400
+Opal (Black)				OUTPUTNAME:[NAME] Opal				TYPE:Gem	COST:1000	WT:0		SOURCEPAGE:p.400
+Opal (Fire)					OUTPUTNAME:[NAME] Opal				TYPE:Gem	COST:1000	WT:0		SOURCEPAGE:p.400
+Sapphire (Blue)				OUTPUTNAME:[NAME] Sapphire			TYPE:Gem	COST:1000	WT:0		SOURCEPAGE:p.400
+Corundum (Fiery Yellow)			OUTPUTNAME:[NAME] Corundum			TYPE:Gem	COST:1000	WT:0		SOURCEPAGE:p.400
+Corundum (Rich Purple)			OUTPUTNAME:[NAME] Corundum			TYPE:Gem	COST:1000	WT:0		SOURCEPAGE:p.400
+Star Sapphire (Blue)			OUTPUTNAME:[NAME] Star Sapphire		TYPE:Gem	COST:1000	WT:0		SOURCEPAGE:p.400
+Star Sapphire (Black)			OUTPUTNAME:[NAME] Star Sapphire		TYPE:Gem	COST:1000	WT:0		SOURCEPAGE:p.400
+Emerald (Clearest Bright Green)	OUTPUTNAME:[NAME] Emerald			TYPE:Gem	COST:5000	WT:0		SOURCEPAGE:p.400
+Diamond												TYPE:Gem	COST:5000	WT:0		SOURCEPAGE:p.400
+Jacinth												TYPE:Gem	COST:5000	WT:0		SOURCEPAGE:p.400
+Ruby													TYPE:Gem	COST:5000	WT:0		SOURCEPAGE:p.400
+
+
+###Block: Material Components
+# Equipment Name					Output Name							Type						Cost		Weight	Special Property
+Amber Dust (1000 gp)												TYPE:SpellComponent.Consumable	COST:1000	WT:0		SPROP:Material Component for Teleportation Circle
+Crushed Black Pearl (500 gp)											TYPE:SpellComponent.Consumable	COST:500	WT:0		SPROP:Material Component for Circle of Death
+Crushed Jade (250 gp)												TYPE:SpellComponent.Consumable	COST:250	WT:0		SPROP:Material Component for False Vision
+Diamond (500 gp)													TYPE:SpellComponent.Consumable	COST:500	WT:0		SPROP:Material Component for Protection from Spells
+Diamond (1500 gp)													TYPE:SpellComponent.Consumable	COST:1500	WT:0		SPROP:Material Component for Limited Wish
+Diamond (5000 gp)													TYPE:SpellComponent.Consumable	COST:5000	WT:0		SPROP:Material Component for Raise Dead
+Diamond (10000 gp)												TYPE:SpellComponent.Consumable	COST:10000	WT:0		SPROP:Material Component for Resurrection
+Diamond (25000 gp)												TYPE:SpellComponent.Consumable	COST:25000	WT:0		SPROP:Material Component for True Resurrection or Wish
+Diamond Dust (50 gp)												TYPE:SpellComponent.Consumable	COST:50	WT:0		SPROP:Material Component for Nondetection
+Diamond Dust (100 gp)												TYPE:SpellComponent.Consumable	COST:100	WT:0		SPROP:Material Component for Restoration
+Diamond Dust (250 gp)												TYPE:SpellComponent.Consumable	COST:250	WT:0		SPROP:Material Component for Stoneskin
+Diamond Dust (500 gp)												TYPE:SpellComponent.Consumable	COST:500	WT:0		SPROP:Material Component for Undeath to Death
+Diamond Dust (1000 gp)												TYPE:SpellComponent.Consumable	COST:1000	WT:0		SPROP:Material Component for Restoration
+Diamond Dust (5000 gp)												TYPE:SpellComponent.Consumable	COST:5000	WT:0		SPROP:Material Component for Greater Restoration
+Diamond Dust (25000 gp)												TYPE:SpellComponent.Consumable	COST:25000	WT:0		SPROP:Material Component for Miracle
+Gem Dust (5000 gp)												TYPE:SpellComponent.Consumable	COST:5000	WT:0		SPROP:Material Component for Temporal Stasis
+Gold Dust (25 gp)													TYPE:SpellComponent.Consumable	COST:25	WT:0		SPROP:Material Component for Arcane Lock or Fire Trap
+Herbs and Oils (2000 gp)											TYPE:SpellComponent.Consumable	COST:2000	WT:0		SPROP:Material Component for Awaken
+Incense (25 gp)													TYPE:SpellComponent.Consumable	COST:25	WT:0		SPROP:Material Component for Augury
+Incense (250 gp)													TYPE:SpellComponent.Consumable	COST:250	WT:0		SPROP:Material Component for Legend Lore
+Incense (500 gp)													TYPE:SpellComponent.Consumable	COST:500	WT:0		SPROP:Material Component for Commune
+Jade Circlet (1500 gp)												TYPE:SpellComponent.Consumable	COST:1500	WT:0		SPROP:Material Component for Shapechange
+Jade Dust (25 gp)													TYPE:SpellComponent.Consumable	COST:25	WT:0		SPROP:Material Component for Programmed Image
+Oils (1000 gp)													TYPE:SpellComponent.Consumable	COST:1000	WT:0		SPROP:Material Component for Reincarnate
+Ointment (250 gp)													TYPE:SpellComponent.Consumable	COST:250	WT:0		SPROP:Material Component for True Seeing
+Onyx (25 gp)													TYPE:SpellComponent.Consumable	COST:25	WT:0		SPROP:Material Component for Animate Dead
+Powdered Silver (25 gp)												TYPE:SpellComponent.Consumable	COST:25	WT:5		SPROP:Material Component for Bless Water, Consecrate, or Curse Water
+Ruby Dust (50 gp)													TYPE:SpellComponent.Consumable	COST:50	WT:0		SPROP:Material Component for Continual Flame
+Small Replica of Self (5 gp)											TYPE:SpellComponent.Consumable	COST:5	WT:0		SPROP:Material Component for Project Image
+Diamond (1000 gp)													TYPE:SpellComponent.SpellFocus	COST:1000	WT:0		SPROP:Focus for Protection from Spells
+Forked Metal Rod													TYPE:SpellComponent.SpellFocus	COST:0	WT:0		SPROP:Focus for Plane Shift
+Forked Metal Rod (Material Plane)										TYPE:SpellComponent.SpellFocus	COST:0	WT:0		SPROP:Focus for Plane Shift, attuned to the Material Plane
+Forked Metal Rod (Astral Plane)										TYPE:SpellComponent.SpellFocus	COST:0	WT:0		SPROP:Focus for Plane Shift, attuned to the Astral Plane
+Forked Metal Rod (Ethereal Plane)										TYPE:SpellComponent.SpellFocus	COST:0	WT:0		SPROP:Focus for Plane Shift, attuned to the Ethereal Plane
+Forked Metal Rod (Shadow Plane)										TYPE:SpellComponent.SpellFocus	COST:0	WT:0		SPROP:Focus for Plane Shift, attuned to the Shadow Plane
+Forked Metal Rod (Plane of Air)										TYPE:SpellComponent.SpellFocus	COST:0	WT:0		SPROP:Focus for Plane Shift, attuned to the Plane of Air
+Forked Metal Rod (Plane of Earth)										TYPE:SpellComponent.SpellFocus	COST:0	WT:0		SPROP:Focus for Plane Shift, attuned to the Plane of Earth
+Forked Metal Rod (Plane of Fire)										TYPE:SpellComponent.SpellFocus	COST:0	WT:0		SPROP:Focus for Plane Shift, attuned to the Plane of Fire
+Forked Metal Rod (Plane of Water)										TYPE:SpellComponent.SpellFocus	COST:0	WT:0		SPROP:Focus for Plane Shift, attuned to the Plane of Water
+Forked Metal Rod (Positive Energy Plane)									TYPE:SpellComponent.SpellFocus	COST:0	WT:0		SPROP:Focus for Plane Shift, attuned to the Positive Energy Plane
+Forked Metal Rod (Negative Energy Plane)									TYPE:SpellComponent.SpellFocus	COST:0	WT:0		SPROP:Focus for Plane Shift, attuned to the Negative Energy Plane
+Forked Metal Rod (Heaven)											TYPE:SpellComponent.SpellFocus	COST:0	WT:0		SPROP:Focus for Plane Shift, attuned to Heaven
+Forked Metal Rod (Abyss)											TYPE:SpellComponent.SpellFocus	COST:0	WT:0		SPROP:Focus for Plane Shift, attuned to the Abyss
+Forked Metal Rod (Hell)												TYPE:SpellComponent.SpellFocus	COST:0	WT:0		SPROP:Focus for Plane Shift, attuned to Hell
+Forked Metal Rod (Elysium)											TYPE:SpellComponent.SpellFocus	COST:0	WT:0		SPROP:Focus for Plane Shift, attuned to Elysium
+Ivory Statuette of Self (1500 gp)										TYPE:SpellComponent.SpellFocus	COST:1500	WT:0		SPROP:Focus for Contingency
+Ruby and Gold Lens (1500 gp)											TYPE:SpellComponent.SpellFocus	COST:1500	WT:0		SPROP:Focus for Analyze Dweomer
+Platinum Ring (50 gp)												TYPE:SpellComponent.SpellFocus	COST:50	WT:0		SPROP:Focus for Shield Other
+Set of 4 Pieces of Ivory (200 gp)										TYPE:SpellComponent.SpellFocus	COST:200	WT:0		SPROP:Focus for Legend Lore
+Set of Marked Bones (25 gp)											TYPE:SpellComponent.SpellFocus	COST:25	WT:0		SPROP:Focus for Augury
+Silver Mirror (1000 gp)												TYPE:SpellComponent.SpellFocus	COST:1000	WT:0		SPROP:Focus for Scrying
+Tiny Reliquary (500 gp)												TYPE:SpellComponent.SpellFocus	COST:500	WT:0		SPROP:Focus for Cloak of Chaos, Holy Aura, Shield of Law, or Unholy Aura
+Crushed Pearls (1500 gp)											TYPE:SpellComponent.Consumable	COST:1500	WT:0		SPROP:Material Component for Sympathy
+Diamond Dust (200 gp)												TYPE:SpellComponent.Consumable	COST:200	WT:0		SPROP:Material Component for Glyph of Warding
+Gold Dust (50 gp)													TYPE:SpellComponent.Consumable	COST:50	WT:0		SPROP:Material Component for Wall of Iron
+Herbs Oils and Incense (1000 gp)		OUTPUTNAME:Herbs, Oils, and Incense (1000 gp)	TYPE:SpellComponent.Consumable	COST:2000	WT:0		SPROP:Material Component for Hallow or Unhallow
+Incense (1500 gp)													TYPE:SpellComponent.Consumable	COST:1500	WT:0		SPROP:Material Component for Forbiddance
+Jacinth (1000 gp)													TYPE:SpellComponent.Consumable	COST:1000	WT:0		SPROP:Material Component for Astral Projection
+Jade Dust (10 gp)													TYPE:SpellComponent.Consumable	COST:10	WT:0		SPROP:Material Component for Magic Mouth
+Laboratory Supplies (1000 gp)											TYPE:SpellComponent.Consumable	COST:1000	WT:0		SPROP:Material Component for Clone
+Lead-Based Ink (50 gp)												TYPE:SpellComponent.Consumable	COST:50	WT:0		SPROP:Material Component for Illusory Script
+Opal (500 gp)													TYPE:SpellComponent.Consumable	COST:500	WT:0		SPROP:Material Component for Binding
+Onyx (50 gp)													TYPE:SpellComponent.Consumable	COST:50	WT:0		SPROP:Material Component for Create Undead
+Powdered Amber (500 gp)												TYPE:SpellComponent.Consumable	COST:500	WT:0		SPROP:Material Component for Sepia Snake Sigil
+Powdered Diamond and Opal (1000 gp)										TYPE:SpellComponent.Consumable	COST:1000	WT:0		SPROP:Material Component for Symbol of Fear, Symbol of Sleep, or Symbol of Pain
+Powdered Diamond and Opal (5000 gp)										TYPE:SpellComponent.Consumable	COST:5000	WT:0		SPROP:Material Component for Symbol of Insanity, Symbol of Persuasion, Symbol of Stunning, or Symbol of Weakness
+Powdered Opal (5000 gp)												TYPE:SpellComponent.Consumable	COST:5000	WT:0		SPROP:Material Component for Symbol of Death
+Powdered Ruby (500 gp)												TYPE:SpellComponent.Consumable	COST:500	WT:0		SPROP:Material Component for Simulacrum
+Sapphire (1000 gp)												TYPE:SpellComponent.Consumable	COST:1000	WT:0		SPROP:Material Component for Instant Summons
+Special Dust (50 gp)												TYPE:SpellComponent.Consumable	COST:50	WT:0		SPROP:Material Component for Phantom Trap
+Laboratory Equipment (500 gp)											TYPE:SpellComponent.SpellFocus	COST:500	WT:0		SPROP:Focus for Clone
+Ivory Plaque (50 gp)												TYPE:SpellComponent.SpellFocus	COST:50	WT:0		SPROP:Focus for Mnemonic Enhancer
+Miniature Platinum Sword (250 gp)										TYPE:SpellComponent.SpellFocus	COST:250	WT:0		SPROP:Focus for Mage's Sword
+Set of Minature Items (15 gp)											TYPE:SpellComponent.SpellFocus	COST:15	WT:0		SPROP:Focus for Mage's Magnificent Mansion
+Set of Prayer Beads (500 gp)											TYPE:SpellComponent.SpellFocus	COST:500	WT:0		SPROP:Focus for Atonement
+
+
+###Block: Poisons
+# Equipment Name				Output Name		Type					Cost		Weight	Source Page		Special Property
+Poison (Arsenic)				OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:120	WT:0		SOURCEPAGE:p.558	SPROP:Ingested; Fort DC 13; Onset 10 min; Freq 1 min (4); Effect 1d2 Con dmg; Cure 1 save
+Poison (Belladonna)			OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:100	WT:0		SOURCEPAGE:p.558	SPROP:Ingested; Fort DC 14; Onset 10 min; Freq 1 min (6); Effect 1d2 Str dmg (plus attempt lycanthropy cure if within 1 hour); Cure 1 save
+Poison (Black Adder Venom)		OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:120	WT:0		SOURCEPAGE:p.558	SPROP:Injury; Fort DC 11; Freq 1 rnd (6); Effect 1d2 Con dmg; Cure 1 save
+Poison (Black Lotus Extract)		OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:4500	WT:0		SOURCEPAGE:p.558	SPROP:Contact; Fort DC 20; Onset 1 min; Freq 1 rnd (6); Effect 1d6 Con dmg; Cure 2 consecutive save
+Poison (Bloodroot)			OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:100	WT:0		SOURCEPAGE:p.558	SPROP:Injury; Fort DC 12; Onset 1 rnd; Freq 1 rnd (4); Effect 1 Con dmg and 1 Wis dmg; Cure 1 save
+Poison (Blue Whinnis)			OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:120	WT:0		SOURCEPAGE:p.558	SPROP:Injury; Fort DC 14; Freq 1 rnd (2); Effect 1 Con dmg/unconsciousness for 1d3 hrs; Cure 1 save
+Poison (Burnt Othur Fumes)		OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:2100	WT:0		SOURCEPAGE:p.558	SPROP:Inhaled; Fort DC 18; Freq 1 rnd (6); Effect 1 Con drain/1d3 Con dmg; Cure 2 consecutive saves
+Poison (Dark Reaver Powder)		OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:800	WT:0		SOURCEPAGE:p.558	SPROP:Ingested; Fort DC 18; Onset 10 min; Freq 1 min (6); Effect 1d3 Con dmg and 1 Str dmg; Cure 2 consecutive saves
+Poison (Deathblade)			OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:1800	WT:0		SOURCEPAGE:p.558	SPROP:Injury; Fort DC 20; Freq 1 rnd (6); Effect 1d3 Con dmg; Cure 2 consecutive saves
+Poison (Dragon Bile)			OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:1500	WT:0		SOURCEPAGE:p.558	SPROP:Contact; Fort DC 26; Freq 1 rnd (6); Effect 1d3 Str dmg; no cure
+Poison (Drow Poison)			OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:75	WT:0		SOURCEPAGE:p.559	SPROP:Injury; Fort DC 13; Freq 1 min (2); Effect unconciousness for 1 min/unconsciousness for 2d4 hours; Cure 1 save
+Poison (Giant Wasp Poison)		OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:210	WT:0		SOURCEPAGE:p.559	SPROP:Injury; Fort DC 18; Freq 1 rnd (6); Effect 1d2 Dex dmg; Cure 1 save
+Poison (Greenblood Oil)			OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:100	WT:0		SOURCEPAGE:p.559	SPROP:Injury; Fort DC 13; Freq 1 rnd (4); Effect 1 Con dmg; Cure 1 save
+Poison (Hemlock)				OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:2500	WT:0		SOURCEPAGE:p.559	SPROP:Ingested; Fort DC 18; Onset 10 min; Freq 1 min (6); Effect 1d6 Dex dmg - suffocates when dex reduced to 0; Cure 2 consecutive save
+Poison (Id Moss)				OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:125	WT:0		SOURCEPAGE:p.559	SPROP:Ingested; Fort DC 14; Onset 10 min; Freq 1 min (6); Effect 1d3 Int dmg; Cure 1 save
+Poison (Insanity Mist)			OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:1500	WT:0		SOURCEPAGE:p.560	SPROP:Inhaled; Fort DC 15; Freq 1 rnd (6); Effect 1d3 Wis dmg; Cure 1 save
+Poison (King's Sleep)			OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:5000	WT:0		SOURCEPAGE:p.560	SPROP:Ingested; Fort DC 19; Onset 1 day; Freq 1 day; Effect 1 Con drain; Cure 2 consecutive saves
+Poison (Large Scorpion Venom)		OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:200	WT:0		SOURCEPAGE:p.560	SPROP:Injury; Fort DC 17; Freq 1 rnd (6); Effect 1d2 Str dmg; Cure 1 save
+Poison (Lich Dust)			OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:400	WT:0		SOURCEPAGE:p.560	SPROP:Ingested; Fort DC 17; Onset 10 min; Freq 1 min (6); Effect 1d3 Str dmg; Cure 2 consecutive saves
+Poison (Malyass Root Paste)		OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:250	WT:0		SOURCEPAGE:p.560	SPROP:Contact; Fort DC 16; Onset 1 min; Freq 1 min (6); Effect 1d2 Dex dmg; Cure 1 save
+Poison (Medium Spider Venom)		OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:150	WT:0		SOURCEPAGE:p.560	SPROP:Injury; Fort DC 14; Freq 1 rnd (4); Effect 1d2 Str dmg; Cure 1 save
+Poison (Nightmare Vapor)		OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:1800	WT:0		SOURCEPAGE:p.560	SPROP:Inhaled; Fort DC 20; Freq 1 rnd (6); Effect 1 Wis dmg confused for 1 rnd; Cure 2 consecutive saves
+Poison (Nitharit)				OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:650	WT:0		SOURCEPAGE:p.560	SPROP:Contact; Fort DC 13; Onset 1 min; Freq 1 min (6); Effect 1d3 Con dmg; Cure 1 save
+Poison (Oil of Taggit)			OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:90	WT:0		SOURCEPAGE:p.560	SPROP:Ingested; Fort DC 15; Onset 1 min; Effect unconsciousness for 1d3 hours; Cure 1 save
+Poison (Purple Worm Poison)		OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:700	WT:0		SOURCEPAGE:p.560	SPROP:Injury; Fort DC 24; Freq 1 rnd (6); Effect 1d3 Str dmg; Cure 2 consecutive saves
+Poison (Sassone Leaf Residue)		OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:300	WT:0		SOURCEPAGE:p.560	SPROP:Contact; Fort DC 16; Onset 1 min; Freq 1 min (6); Effect 2d12 hp dmg/1 Con dmg; Cure 1 save
+Poison (Shadow Essence)			OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:250	WT:0		SOURCEPAGE:p.560	SPROP:Inhaled; Fort DC 17;  Freq 1 rnd (6); Effect 1 Str drain/1d2 Str dmg; Cure 1 save
+Poison (Small Centipede Poison)	OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:90	WT:0		SOURCEPAGE:p.560	SPROP:Injury; Fort DC 11; Freq 1 rnd (4); Effect 1 Dex dmg; Cure 1 save
+Poison (Striped Toadstool)		OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:180	WT:0		SOURCEPAGE:p.560	SPROP:Ingested; Fort DC 11; Onset 10 min; Freq 1 min (4); Effect 1d3 Wis dmg and 1 Int dmg; Cure 1 save
+Poison (Tears of Death)			OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:6500	WT:0		SOURCEPAGE:p.560	SPROP:Contact; Fort DC 22; Onset: 1 min; Freq 1 min (6); Effect 1d6 Con dmg and paralyzed for 1 minute; Cure none
+Poison (Terinav Root)			OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:400	WT:0		SOURCEPAGE:p.560	SPROP:Contact; Fort DC 16; Onset 1 min; Freq 1 min (6); Effect 1d3 Dex dmg; Cure 1 save
+Poison (Ungol Dust)			OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:1000	WT:0		SOURCEPAGE:p.560	SPROP:Inhaled; Fort DC 15; Freq 1 rnd (4); Effect 1 Cha drain/1d2 Cha dmg; Cure 1 save
+Poison (Wolfsbane)			OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:500	WT:0		SOURCEPAGE:p.560	SPROP:Ingested; Fort DC 16; Onset 10 min; Freq 1 min (6); Effect 1d3 Con dmg; Cure 1 save
+Poison (Wyvern Poison)			OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:3000	WT:0		SOURCEPAGE:p.560	SPROP:Injury; Fort DC 17; Freq 1 rnd (6); Effect 1d4 Con dmg; Cure 2 consecutive saves

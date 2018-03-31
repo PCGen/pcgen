@@ -1,0 +1,11 @@
+# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+SOURCELONG:Curse of the Crimson Throne, Chaper 1 - Edge of Anarchy	SOURCESHORT:AP7	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy81xw	SOURCEDATE:2008-03
+
+###Block: Dream Spider
+# Ability Name		Output Name		Category of Ability		Type						Description																																				Source Page
+Dream Web						CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DESC:Any animal, humanoid, giant, or monstrous humanoid that comes in contact with these webs experiences strange hallucinations, taking 1 point of Wisdom damage per round of contact (DC %1 Fortitude save negates)|10+CON	SOURCEPAGE:p.82
+Dream Spider Poison	OUTPUTNAME:Poison	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:Injury, Fortitude DC %1, initial and secondary damage 1d4 Wis|10+CON																									SOURCEPAGE:p.82
+
+###Block: Cabbagehead's Deformities
+# Ability Name			Output Name					Category of Ability		Type						Description
+Cabbagehead's Deformities	OUTPUTNAME:Ogrekin Deformities	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:Cabbagehead's head is monstrously deformed and his skin is thick and blubbery.

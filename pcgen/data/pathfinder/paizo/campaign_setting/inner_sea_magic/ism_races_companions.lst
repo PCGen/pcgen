@@ -1,0 +1,10 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Inner Sea Magic	SOURCESHORT:ISM	SOURCEWEB:http://paizo.com/products/btpy8mfs?Pathfinder-Campaign-Setting-Inner-Sea-Magic	SOURCEDATE:2011-07
+# Original Entry by: Paul Shipley (elro the onk)
+
+# Race Name	Starting Feats	Size		Move			Face/Space	Reach		Stat bonus					Modify VAR						Racial HD Class Skills																																Ability																	Nb Legs	Nb Hands	Monster Class Name and Starting Level	Main Race Type	Source, Long Desc.		Source, Short Desc.	Source Page		Apply Kit
+#Fey Eidolon	STARTFEATS:1	FACT:BaseSize|M	SIZE:M	MOVE:Walk,20			REACH:5	BONUS:STAT|CON|2	BONUS:STAT|INT|-4	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base	MONCSKILL:Acrobatics|Bluff|Climb|Diplomacy|Disguise|Escape Artist|Fly|Knowledge (Geography)|Knowledge (Nature)|Perception|Sense Motive|Sleight of Hand|Stealth|Swim|Use Magic Device|TYPE=Craft|TYPE=Perform	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Eidolon	ABILITY:Special Ability|AUTOMATIC|Low-Light Vision	LEGS:0	HANDS:7	MONSTERCLASS:Eidolon (Fey):1			RACETYPE:Eidolon	SOURCELONG:Inner Sea Magic	SOURCESHORT:ISM		SOURCEPAGE:p.56	KIT:1|Fey Eidolon
+
+#
+# End
+#

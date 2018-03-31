@@ -1,0 +1,36 @@
+# CVS $Revision: $ $Author: $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Psionics Expanded	SOURCESHORT:PsiEx	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2012-07
+# ORIGINAL ENTRY: Douglas Limmer
+# ORIGINAL ENTRY DATE: 2013/07/05
+
+###Block: Advanced Constructs Astral Construct abilities
+###Block: Menu A
+# Ability Name	Unique Key			Category of Ability		Type							Visible	Required Template				Define				Description														Stackable?	Multiple?	Choose		Ability				Combat bonus					Modify VAR									Natural Attacks
+Armor Spikes	KEY:Astral_Armor Spikes	CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuA	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct						DESC:Do extra 1d6 piercing damage with trample, constrict, bull rush, or grapple attack.																														NATURALATTACKS:Armor Spikes,Weapon.Natural.Melee.Finesseable.Piercing,*1,1d6
+Dodge			KEY:Astral_Dodge		CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct																												ABILITY:FEAT|AUTOMATIC|Dodge
+Might			KEY:Astral_Might		CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuA	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct																																	BONUS:COMBAT|DAMAGE.Melee|1|TYPE=Might
+Talons		KEY:Astral_Talons		CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuA	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct						DESC:Slam attacks do either slashing or piercing damage.
+Utility		KEY:Astral_Utility	CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct	DEFINE:AstralUtilityDC|0	DESC:The astral construct can perform various tasks up to DC %1.|AstralUtilityDC		STACK:YES	MULT:YES	CHOOSE:NOCHOICE													BONUS:VAR|AstralUtilityDC|8	BONUS:VAR|AstralUtilityDC|2
+###Block: Menu B
+# Ability Name	Unique Key				Category of Ability		Type							Visible	Required Template				Description											Ability						Combat bonus
+Great Cleave	KEY:Astral_Great Cleave		CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuB	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct													ABILITY:FEAT|AUTOMATIC|Great Cleave
+Improved Might	KEY:Astral_Improved Might	CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuB	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct																				BONUS:COMBAT|DAMAGE.Melee|3|TYPE=Might
+Reach			KEY:Astral_Reach			CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuB	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct																				BONUS:COMBAT|REACH|5
+Stunning Fist	KEY:Astral_Stunning Fist	CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuB	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct	DESC:The astral construct can use Stunning Fist with its slam attacks.	ABILITY:FEAT|AUTOMATIC|Stunning Fist
+###Block: Menu C
+# Ability Name	Unique Key				Category of Ability		Type							Visible	Required Template				Combat bonus					Weapon prof. bonus																Natural Attacks
+Greater Might	KEY:Astral_Greater Might	CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuC	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct	BONUS:COMBAT|DAMAGE.Melee|5|TYPE=Might
+Tail Slap		KEY:Astral_Tail Slap		CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuC	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct								BONUS:WEAPONPROF=Tail Slap|TOHIT|-5	BONUS:WEAPONPROF=Tail Slap|TOHIT|3|PREABILITY:1,CATEGORY=FEAT,Multiattack	NATURALATTACKS:Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d8
+
+###Block: Astral Warrior abilities
+# Ability Name	Unique Key				Category of Ability		Type						Description																																																																																																																		Source Page
+Link			KEY:Link ~ Astral Warrior	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:An ectopic artisan and his astral warrior share a mental link that allows for communication across any distance (as long as they are on the same plane). This communication is a free action, allowing the ectopic artisan to give orders to his astral warrior at any time. In addition, magic items interfere with the ectopic artisan's connection to his astral warrior. As a result, the ectopic artisan and his astral warrior share magic item slots. For example, if the ectopic artisan is wearing a ring, his astral warrior can wear no more than one ring. In case of a conflict, the items worn by the ectopic artisan remain active, and those used by the astral warrior become dormant.	SOURCEPAGE:p.66
+
+###Block: Ectoplasmic Swarm abilities
+# Ability Name		Unique Key							Category of Ability		Type						Define					Description																						Ability								Modify VAR																								Source Page		Aspects
+Ectoplasmic Poison	KEY:Ectoplasmic Poison ~ Ectoplasmic Swarm	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DEFINE:EctoplasmicSwarmPoisonDC|0	DESC:Swarm - injury; save Fort DC %1; frequency 1/round for 2 rounds; effect 1d3 Dexterity drain; cure 1 save.|EctoplasmicSwarmPoisonDC	ABILITY:Ability Focus|AUTOMATIC|Ectoplasmic Poison	BONUS:VAR|EctoplasmicSwarmPoisonDC|10+TL/2+CON	BONUS:VAR|EctoplasmicSwarmPoisonDC|2|PREABILITY:1,CATEGORY=FEAT,Ability Focus (Ectoplasmic Poison)	SOURCEPAGE:p.67	ASPECT:Ability Benefit|(swarm)
+
+###Block: Horror abilities
+# Ability Name	Unique Key					Category of Ability		Type						Define																						Description																																																																																																															Modify VAR																												Source Page
+Link			KEY:Link ~ Horror				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																								DESC:A nightmare constructor and his horror share a mental link that allows for communication across any distance (as long as they are on the same plane). This communication is a free action, allowing the nightmare constructor to give orders to his horror at any time. In addition, magic items interfere with the nightmare constructor's connection to his horror. As a result, the nightmare constructor and his horror share magic item slots. For example, if the nightmare constructor is wearing a ring, his horror can wear no more than one ring. In case of a conflict, the items worn by the nightmare constructor remain active, and those used by the horror become dormant.																														SOURCEPAGE:p.70
+Devastating Touch	KEY:Devastating Touch ~ Horror	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	DEFINE:DevastatingTouchDice|0	DEFINE:DevastatingTouchDieType|0	DEFINE:DevastatingTouchBonusDamage|0	DEFINE:DevastatingTouchLVL|0	DESC:Melee touch on living target deals %1d%2+%3 damage.|DevastatingTouchDice|DevastatingTouchDieType|DevastatingTouchBonusDamage																																																																																											BONUS:VAR|DevastatingTouchDice|1	BONUS:VAR|DevastatingTouchDieType|6	BONUS:VAR|DevastatingTouchBonusDamage|DevastatingTouchLVL	BONUS:VAR|DevastatingTouchLVL|MasterLevel	SOURCEPAGE:p.70

@@ -1,0 +1,20 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Ultimate Psionics	SOURCESHORT:UP	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2013-12
+# ORIGINAL ENTRY: Douglas Limmer
+# ORIGINAL ENTRY DATE: 2013/07/05
+
+# CONSIDER:
+#   Add aquatic form from UM
+# Race Name	Starting Feats	Size		Move			Face/Space	Reach		Vision			Serves As			Combat bonus				Stat bonus								Modify VAR			Ability							Nb Legs	Nb Hands	Define		Monster Class Name and Starting Level	Main Race Type		Source Page		Apply Kit
+Horror	STARTFEATS:0	FACT:BaseSize|M	SIZE:M	MOVE:Walk,20			REACH:5	VISION:Darkvision (60')	SERVESAS:RACE|Eidolon	BONUS:COMBAT|AC|2|TYPE=NaturalArmor	BONUS:STAT|STR|6	BONUS:STAT|DEX|2	BONUS:STAT|CON|2	BONUS:VAR|EidHeads|1	ABILITY:Internal|AUTOMATIC|Race Traits ~ Horror	LEGS:2	HANDS:7	DEFINE:EidHeads|0	MONSTERCLASS:Horror:1				RACETYPE:Construct	SOURCEPAGE:p.268	KIT:1|Horror
+
+# NEEDS CODE/DATA WORK: RACETYPE:Eidolon needed to allow some eidolon evolutions - but only one RACETYPE allowed!
+# NEEDS CODE WORK: SERVESAS:RACE|Eidolon (Whatever) doesn't seem to be working.
+# Race Name			Starting Feats	Size		Move			Face/Space	Reach		Vision			Serves As					Bonus Ability Pool					Combat bonus				Stat bonus								Modify VAR										Nb Legs	Nb Hands	Define		Monster Class Name and Starting Level	Main Race Type		Source Page		Apply Kit
+#Horror (Biped)		STARTFEATS:0	FACT:BaseSize|M	SIZE:M	MOVE:Walk,20			REACH:5	VISION:Darkvision (60')	SERVESAS:RACE|Eidolon (Biped)		BONUS:ABILITYPOOL|Horror Biped Evolution|5	BONUS:COMBAT|AC|2|TYPE=NaturalArmor	BONUS:STAT|STR|6	BONUS:STAT|DEX|2	BONUS:STAT|CON|2	BONUS:VAR|EidHeads|1								LEGS:2	HANDS:7	DEFINE:EidHeads|0	MONSTERCLASS:Horror (Fort/Will):1		RACETYPE:Construct	SOURCEPAGE:p.268	KIT:1|Horror (Biped)
+#Horror (Quadruped)	STARTFEATS:0	FACT:BaseSize|M	SIZE:M	MOVE:Walk,20			REACH:5	VISION:Darkvision (60')	SERVESAS:RACE|Eidolon (Quadruped)	BONUS:ABILITYPOOL|Horror Quadruped Evolution|5	BONUS:COMBAT|AC|2|TYPE=NaturalArmor	BONUS:STAT|STR|4	BONUS:STAT|DEX|4	BONUS:STAT|CON|2	BONUS:VAR|RaceSizeIsLong|1|TYPE=Base	BONUS:VAR|EidHeads|1	LEGS:4	HANDS:7	DEFINE:EidHeads|0	MONSTERCLASS:Horror (Fort/Ref):1		RACETYPE:Construct	SOURCEPAGE:p.268	KIT:1|Horror (Quadruped)
+#Horror (Serpentine)	STARTFEATS:0	FACT:BaseSize|M	SIZE:M	MOVE:Walk,20			REACH:5	VISION:Darkvision (60')	SERVESAS:RACE|Eidolon (Serpentine)	BONUS:ABILITYPOOL|Horror Serpentine Evolution|5	BONUS:COMBAT|AC|2|TYPE=NaturalArmor	BONUS:STAT|STR|2	BONUS:STAT|DEX|6	BONUS:STAT|CON|2	BONUS:VAR|EidHeads|1								LEGS:0	HANDS:7	DEFINE:EidHeads|0	MONSTERCLASS:Horror (Ref/Will):1		RACETYPE:Construct	SOURCEPAGE:p.268	KIT:1|Horror (Serpentine)
+
+#
+# End
+#

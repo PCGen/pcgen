@@ -1,0 +1,53 @@
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPC	SOURCEWEB:http://www.mywebsite.com	SOURCEDATE:2008-01
+
+#insert your data here
+
+#Every line that starts with a '#' is a comment. You may want to remove these comments, if you use this file to set up
+#your own data. Remember not to put the '#' at the start of your own data, as PCGen would see it as a comment only.
+#
+#When Running PCGen, you can select "Help > Documentation > List Files > List File Tag Index > Equipment File tags" to find
+#out how the tags in the races file work. Some of the tags used here are global tags. You will see an alphabetical listing
+#of all PCGen tags to the left of the documentation window. You can find the global tags there as well.
+#
+#
+#
+#
+#####1st Example
+
+#Dagger		PROFICIENCY:WEAPON|Dagger		TYPE:Weapon.Resizable.Melee.Finesseable.Ranged.Thrown.Simple.Standard.Piercing.Slashing.Dagger		COST:2	WT:1		CRITMULT:x2		CRITRANGE:2		DAMAGE:1d4		EQMOD:Material ~ Steel		WIELD:Light		RANGE:10	SIZE:M
+
+#####
+#
+#####2nd Example
+
+#Saddlebags		TYPE:Goods.Container.Mount.Resizable		CONTAINS:UNLIM|Any=UNLIM	COST:4	WT:8		SOURCEPAGE:Equipment
+
+#####
+#The Dagger is an Example of a weapon, while the Saddlebags is an item that is set up to be used as a container for other
+#items. The first field is the item's name and is required.
+#
+#The PROFICIENCY tag is only used with weapons, armor and shields. It tells PCGen what Weapon Proficiency name to use from the weapprofs.lst, armorprofs.lst or shieldprofs.lst file.
+#
+#The TYPE tag is used for many filtering and PRExxx tags. TYPE:Armor items should also have the type of SLOTS it uses. This
+#is usually TYPE:Suit. TYPE:Container is a special type name. It activates the CONTAINS tag in the item. Every TYPE:Weapon
+#item must be also have either TYPE:Melee or TYPE:Ranged (TYPE:Weapon.Melee.Foo). TYPE:Double is a special weapon tag. It
+#activates three ALTxxx tags for the second head statistics.
+#
+#The CONTAINS tag is used to define how much and what a container can hold. Any object with CONTAINS must also be TYPE:Container
+#for the CONTAINS tag to be activated.
+#
+#The COST tag sets the cost of the item.
+#
+#The WT tag is holding the item's weight.
+#
+#The SOURCEPAGE tag can be used to hold a reference to where you can find the item. This will be displayed in PCGen.
+#
+#CRITMULT, CRITRANGE, DAMAGE, WIELD, and RANGE are tags that are associated with weapons. They can be used to set up the
+#various weapon stats.
+
+#The SIZE tag determines the size of the Item. F=Fine, D=Diminutive, T=Tiny, S=Small, M=Medium, L=Large, H=Huge, G=Gargantuan,
+#C=Colossal.
+
+#The EQMOD tag calls an equipment modifier to be applied to the base item before looking at other tags. You will need to use
+#the equipment modifier's KEY with this tag, not it's name.

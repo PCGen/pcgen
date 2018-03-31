@@ -1,0 +1,249 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Remarkable Races: Compendium of Unusual PC Races, Pathway to Adventure Edition	SOURCESHORT:RR	SOURCEWEB:http://www.alluriapublishing.net/compendium-p.htm	SOURCEDATE:2009-01
+# Original Entry by Andrew Maitland
+
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus																Save bonus																																																			Modify VAR
+CLASS:Abolisher	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.74	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")-1/2+1|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")+1/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")-1/2+1|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
+# Class Name	Required Ability										Restricted AL		Required Race	Required Skill					Required Text															PRETOTALAB
+CLASS:Abolisher	PREABILITY:2,CATEGORY=FEAT,Aberration Abolisher,Skill Focus (Survival)	!PREALIGN:CG,CN,CE	PRERACE:1,Zif	PRESKILL:1,Knowledge (Dungeoneering)=7	PRETEXT:Spells: Ability to cast the protection from aberrations spell (detailed in this document).	PRETOTALAB:5
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Abolisher	STARTSKILLPTS:4	CSKILL:Heal|Intimidate|Knowledge (Dungeoneering)|Perception|Sense Motive|Spellcraft|Survival
+2	ADD:SPELLCASTER|Arcane
+4	ADD:SPELLCASTER|Arcane
+6	ADD:SPELLCASTER|Arcane
+8	ADD:SPELLCASTER|Arcane
+10	ADD:SPELLCASTER|Arcane
+###Block:
+1	ABILITY:Abolisher Class Feature|AUTOMATIC|Abolisher ~ Weapon and Armor Proficiency
+1	ABILITY:Abolisher Class Feature|AUTOMATIC|Abolisher ~ Spells per Day
+1	ABILITY:Abolisher Class Feature|AUTOMATIC|Abolisher ~ Favored Enemy
+1	ABILITY:Abolisher Class Feature|AUTOMATIC|Abolisher ~ See The Darkness
+2	ABILITY:Abolisher Class Feature|AUTOMATIC|Abolisher ~ Protection From Aberrations
+3	ABILITY:Abolisher Class Feature|AUTOMATIC|Abolisher ~ Mind Shell
+6	ABILITY:Abolisher Class Feature|AUTOMATIC|Abolisher ~ Mind Cracker
+8	ABILITY:Abolisher Class Feature|AUTOMATIC|Abolisher ~ Gaze of Elders
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus																	Save bonus																																																		Modify VAR
+CLASS:Archeovitus	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.76	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")+1/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")-1/2+1|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")-1/2+1|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
+# Class Name	Required Race	Required Skill
+CLASS:Archeovitus	PRERACE:1,Relluk	PRESKILL:4,Knowledge (Arcana)=5,Knowledge (Dungeoneering)=3,Knowledge (History)=7,Linguistics=3
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Archeovitus	STARTSKILLPTS:8	CSKILL:Appraise|Climb|Disable Device|TYPE=Knowledge|Linguistics|Perception|Survival|Spellcraft|Use Magic Device
+1	ABILITY:Archeovitus Class Feature|AUTOMATIC|Archeovitus ~ Weapon and Armor Proficiency
+1	ABILITY:Archeovitus Class Feature|AUTOMATIC|Archeovitus ~ Bardic Knowledge
+1	ABILITY:Archeovitus Class Feature|AUTOMATIC|Archeovitus ~ Detect Magic
+1	ABILITY:Archeovitus Class Feature|AUTOMATIC|Archeovitus ~ Wisdom of Ages
+2	ABILITY:Archeovitus Class Feature|AUTOMATIC|Archeovitus ~ Ruins Walker
+2	ABILITY:Archeovitus Class Feature|AUTOMATIC|Archeovitus ~ Stonecunning
+3	ABILITY:Archeovitus Class Feature|AUTOMATIC|Archeovitus ~ Eyes of the Ancients
+4	ABILITY:Archeovitus Class Feature|AUTOMATIC|Archeovitus ~ Evasion
+5	ABILITY:Archeovitus Class Feature|AUTOMATIC|Archeovitus ~ Mists of Time
+6	ABILITY:Archeovitus Class Feature|AUTOMATIC|Archeovitus ~ Analyze Dweomer
+7	ABILITY:Archeovitus Class Feature|AUTOMATIC|Archeovitus ~ Find the Path
+8	ABILITY:Archeovitus Class Feature|AUTOMATIC|Archeovitus ~ Legend Lore
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus																Save bonus																																																	Modify VAR
+CLASS:Battletwin	HD:12		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.78	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")+1/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")-1/2+1|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")+1/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
+# Class Name	Required Ability													Restricted AL		Required Race	PRETOTALAB
+CLASS:Battletwin	PREABILITY:5,CATEGORY=FEAT,Cleave,Combat Expertise,Reflex of Two,Will of Two,Weapon Focus	!PREALIGN:CE,CG,CN	PRERACE:1,Taddol	PRETOTALAB:7
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Battletwin	STARTSKILLPTS:2	CSKILL:Acrobatics|Climb|Intimidate|Ride|Swim
+1	ABILITY:Battletwin Class Feature|AUTOMATIC|Battletwin ~ Weapon and Armor Proficiency
+1	ABILITY:Battletwin Class Feature|AUTOMATIC|Battletwin ~ Twintellect
+2	ABILITY:Battletwin Class Feature|AUTOMATIC|Battletwin ~ Reach of Two
+3	ABILITY:Battletwin Class Feature|AUTOMATIC|Battletwin ~ Defense of Two
+4	ABILITY:Battletwin Class Feature|AUTOMATIC|Battletwin ~ Strength of Two
+7	ABILITY:Battletwin Class Feature|AUTOMATIC|Battletwin ~ Double Jeopardy
+8	ABILITY:Battletwin Class Feature|AUTOMATIC|Battletwin ~ Superior Cleave
+10	ABILITY:Battletwin Class Feature|AUTOMATIC|Battletwin ~ Doublethink
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus																Save bonus																																																		Modify VAR
+CLASS:Deathseeker	HD:12		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.80	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")-1/2+1|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")-1/2+1|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")+1/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
+# Class Name	Required Ability								Restricted AL		Required Race	Required Skill		PRETOTALAB
+CLASS:Deathseeker	PREABILITY:3,CATEGORY=FEAT,Dodge,Endurance,See More Evil	!PREALIGN:LE,NE,CE	PRERACE:1,Kval	PRESKILL:1,Survival=5	PRETOTALAB:7
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Deathseeker	STARTSKILLPTS:2	CSKILL:Acrobatics|Climb|Escape Artist|Heal|Intimidate|Perception|Sense Motive|Survival
+1	ABILITY:Deathseeker Class Feature|AUTOMATIC|Deathseeker ~ Weapon and Armor Proficiency
+1	ABILITY:Deathseeker Class Feature|AUTOMATIC|Deathseeker ~ Raging Malice
+1	ABILITY:Deathseeker Class Feature|AUTOMATIC|Deathseeker ~ See Evil Fast
+2	ABILITY:Deathseeker Class Feature|AUTOMATIC|Deathseeker ~ Reckless Spite
+2	ABILITY:Deathseeker Class Feature|AUTOMATIC|Deathseeker ~ Fear Nothing
+4	ABILITY:Deathseeker Class Feature|AUTOMATIC|Deathseeker ~ Damage Reduction
+5	ABILITY:Deathseeker Class Feature|AUTOMATIC|Deathseeker ~ Bloody Toxin
+8	ABILITY:Deathseeker Class Feature|AUTOMATIC|Deathseeker ~ Rage Refocus
+10	ABILITY:Deathseeker Class Feature|AUTOMATIC|Deathseeker ~ Last Resort
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus																	Save bonus																																																	Modify VAR
+CLASS:Demolisher	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.82	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")+1/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")-1/2+1|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")+1/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
+# Class Name	Required Ability								Required Race	Required Skill
+CLASS:Demolisher	PREABILITY:3,CATEGORY=FEAT,Arcane Ruin,Dodge,Monkey Wrench	PRERACE:1,Boggle	PRESKILL:2,Disable Device=5,Craft (Alchemy)=5
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Demolisher	STARTSKILLPTS:6	CSKILL:Acrobatics|Appraise|TYPE=Craft|Disable Device|TYPE=Knowledge|Perception|Spellcraft|Use Magic Device
+1	ABILITY:Demolisher Class Feature|AUTOMATIC|Demolisher ~ Weapon and Armor Proficiency
+1	ABILITY:Demolisher Class Feature|AUTOMATIC|Demolisher ~ Boggle Bomb
+1	ABILITY:Demolisher Class Feature|AUTOMATIC|Demolisher ~ Improved Sunder
+2	ABILITY:Demolisher Class Feature|AUTOMATIC|Demolisher ~ Evasion
+2	ABILITY:Demolisher Class Feature|AUTOMATIC|Demolisher ~ Break and bend
+3	ABILITY:Demolisher Class Feature|AUTOMATIC|Demolisher ~ Rogue Talent
+3	ABILITY:Demolisher Class Feature|AUTOMATIC|Demolisher ~ Harness destructive force
+4	ABILITY:Demolisher Class Feature|AUTOMATIC|Demolisher ~ Scratch and dent
+8	ABILITY:Demolisher Class Feature|AUTOMATIC|Demolisher ~ Mangle mail
+10	ABILITY:Demolisher Class Feature|AUTOMATIC|Demolisher ~ Greater Boggle Bomb
+10	ABILITY:Demolisher Class Feature|AUTOMATIC|Demolisher ~ Improved Evasion
+
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus																	Save bonus																																																		Modify VAR
+CLASS:Entrepreneur	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.84	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")-1/2+1|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")-1/2+1|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")+1/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
+# Class Name		Required Ability						Required Race		Required Skill
+CLASS:Entrepreneur	PREABILITY:2,CATEGORY=FEAT,Alertness,Golden Eye	PRERACE:1,Numistian	PRESKILL:4,Appraise=10,Diplomacy=10,Knowledge (Dungeoneering)=10,Perception=7
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Entrepreneur	STARTSKILLPTS:8	CSKILL:Appraise|Diplomacy|Disable Device|TYPE=Knowledge|Perception|Linguistics|Sense Motive
+1	ABILITY:Entrepreneur Class Feature|AUTOMATIC|Entrepreneur ~ Weapon and Armor Proficiency
+1	ABILITY:Entrepreneur Class Feature|AUTOMATIC|Entrepreneur ~ Automatic Appraisal
+1	ABILITY:Entrepreneur Class Feature|AUTOMATIC|Entrepreneur ~ Knowledge is Power
+2	ABILITY:Entrepreneur Class Feature|AUTOMATIC|Entrepreneur ~ Blindsight
+2	ABILITY:Entrepreneur Class Feature|AUTOMATIC|Entrepreneur ~ Curestrike
+3	ABILITY:Entrepreneur Class Feature|AUTOMATIC|Entrepreneur ~ Silver Tongue
+3	ABILITY:Entrepreneur Class Feature|AUTOMATIC|Entrepreneur ~ Trustworthy Aura
+4	ABILITY:Entrepreneur Class Feature|AUTOMATIC|Entrepreneur ~ Darkvision
+5	ABILITY:Entrepreneur Class Feature|AUTOMATIC|Entrepreneur ~ X-ray Vision
+7	ABILITY:Entrepreneur Class Feature|AUTOMATIC|Entrepreneur ~ Treasure Sense
+10	ABILITY:Entrepreneur Class Feature|AUTOMATIC|Entrepreneur ~ True Seeing
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus																	Save bonus																																																		Modify VAR
+CLASS:Golden Muse	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.86	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")+1/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")+1/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")-1/2+1|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
+# Class Name	Required Ability					Required AL		Required Race	Required Skill					Required Text
+CLASS:Golden Muse	PREABILITY:1,CATEGORY=FEAT,Leadership	PREALIGN:LG,NG,CG	PRERACE:1,Muse	PRESKILL:2,Heal=7,Knowledge (Religion)=10	PRETEXT:Spells: Ability to cast consecrate and at least one healing spell.	PRETEXT:Special: Channel positive energy class feature.
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Golden Muse	STARTSKILLPTS:2	CSKILL:Diplomacy|Heal|Knowledge (Religion)|Sense Motive
+1	ABILITY:Golden Muse Class Feature|AUTOMATIC|Golden Muse ~ Weapon and Armor Proficiency
+1	ABILITY:Golden Muse Class Feature|AUTOMATIC|Golden Muse ~ Spells per Day
+1	ABILITY:Golden Muse Class Feature|AUTOMATIC|Golden Muse ~ Golden Light
+2	ABILITY:Golden Muse Class Feature|AUTOMATIC|Golden Muse ~ Touch of Gold
+3	ABILITY:Golden Muse Class Feature|AUTOMATIC|Golden Muse ~ Golden Strike
+5	ABILITY:Golden Muse Class Feature|AUTOMATIC|Golden Muse ~ Divine Presence
+8	ABILITY:Golden Muse Class Feature|AUTOMATIC|Golden Muse ~ Let It Shine
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus																Save bonus																																																		Modify VAR
+CLASS:Grim Repear	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.88	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")+1/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")+1/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")-1/2+1|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
+# Class Name	Required Ability								Restricted AL		Required Race	Required Text																					PRETOTALAB
+CLASS:Grim Repear	PREABILITY:2,CATEGORY=FEAT,Deathbane Touch,Death Drain	!PREALIGN:LE,NE,CE	PRERACE:1,Obitu	PRETEXT:Spells: Ability to cast 1st level divine spells.	PRETEXT:Special: Favored Enemy (undead) class feature or Turn Undead feat.	PRETOTALAB:5
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Grim Repear	STARTSKILLPTS:4	CSKILL:Heal|Intimidate|Knowledge (Religion)|Perception|Sense Motive|Survival
+1	ABILITY:Grim Repear Class Feature|AUTOMATIC|Grim Repear ~ Weapon and Armor Proficiency
+1	ABILITY:Grim Repear Class Feature|AUTOMATIC|Grim Repear ~ Spells per Day
+1	ABILITY:Grim Repear Class Feature|AUTOMATIC|Grim Repear ~ Bonus Feat
+1	ABILITY:Grim Repear Class Feature|AUTOMATIC|Grim Repear ~ Expanded Spell List
+1	ABILITY:Grim Repear Class Feature|AUTOMATIC|Grim Repear ~ Superior Turning
+2	ABILITY:Grim Repear Class Feature|AUTOMATIC|Grim Repear ~ Favored Enemy
+3	ABILITY:Grim Repear Class Feature|AUTOMATIC|Grim Repear ~ Potent Carrier
+4	ABILITY:Grim Repear Class Feature|AUTOMATIC|Grim Repear ~ Legendary Hunter
+7	ABILITY:Grim Repear Class Feature|AUTOMATIC|Grim Repear ~ Life Over Death
+8	ABILITY:Grim Repear Class Feature|AUTOMATIC|Grim Repear ~ Life From Death
+10	ABILITY:Grim Repear Class Feature|AUTOMATIC|Grim Repear ~ Life Strike
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus																Save bonus																																																	Modify VAR
+CLASS:Lightseeker	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.90	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")+1/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")-1/2+1|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")+1/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
+# Class Name	Required Ability							Required AL		Required Race		Required Skill										PRETOTALAB
+CLASS:Lightseeker	PREABILITY:2,CATEGORY=FEAT,Dodge,Improved Initiative	PREALIGN:LG,NG,CG	PRERACE:1,Entobian	PRESKILL:3,Perception=2,Escape Artist=2,Knowledge (Dungeoneering)=2	PRETOTALAB:6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Lightseeker	STARTSKILLPTS:4	CSKILL:Acrobatics|Appraise|Climb|Escape Artist|Knowledge (Dungeoneering)|Perception|Sense Motive|Survival
+1	ABILITY:Lightseeker Class Feature|AUTOMATIC|Lightseeker ~ Weapon and Armor Proficiency
+1	ABILITY:Lightseeker Class Feature|AUTOMATIC|Lightseeker ~ Darksense
+2	ABILITY:Lightseeker Class Feature|AUTOMATIC|Lightseeker ~ Enlighten
+2	ABILITY:Lightseeker Class Feature|AUTOMATIC|Lightseeker ~ See the Unseen
+3	ABILITY:Lightseeker Class Feature|AUTOMATIC|Lightseeker ~ Uncanny Dodge
+3	ABILITY:Lightseeker Class Feature|AUTOMATIC|Lightseeker ~ Precocious Speed
+4	ABILITY:Lightseeker Class Feature|AUTOMATIC|Lightseeker ~ Bonus Mobility
+5	ABILITY:Lightseeker Class Feature|AUTOMATIC|Lightseeker ~ Blindsense
+6	ABILITY:Lightseeker Class Feature|AUTOMATIC|Lightseeker ~ Ruins Walker
+10	ABILITY:Lightseeker Class Feature|AUTOMATIC|Lightseeker ~ Radiant Critical
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus																	Save bonus																																																		Modify VAR
+CLASS:Pharaoh	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.92	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")+1/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")+1/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")-1/2+1|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
+# Class Name	Required Ability					Required Race	Required Skill								Required Text
+CLASS:Pharaoh	PREABILITY:1,CATEGORY=FEAT,Leadership	PRERACE:1,Anumus	PRESKILL:2,Knowledge (Religion)=5,Knowledge (History)=5	PRETEXT:Spells: Ability to cast 2nd level divine spells.
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Pharaoh	STARTSKILLPTS:4	CSKILL:Appraise|Diplomacy|Handle Animal|Heal|TYPE=Knowledge|Linguistics|Perception|Spellcraft|Use Magic Device
+1	ABILITY:Pharaoh Class Feature|AUTOMATIC|Pharaoh ~ Weapon and Armor Proficiency
+1	ABILITY:Pharaoh Class Feature|AUTOMATIC|Pharaoh ~ Spells per Day
+1	ABILITY:Pharaoh Class Feature|AUTOMATIC|Pharaoh ~ Ancient Secret
+2	ABILITY:Pharaoh Class Feature|AUTOMATIC|Pharaoh ~ Light of the Gods
+3	ABILITY:Pharaoh Class Feature|AUTOMATIC|Pharaoh ~ Divine Form
+5	ABILITY:Pharaoh Class Feature|AUTOMATIC|Pharaoh ~ Crook and Flail
+6	ABILITY:Pharaoh Class Feature|AUTOMATIC|Pharaoh ~ Flames of Judgment
+8	ABILITY:Pharaoh Class Feature|AUTOMATIC|Pharaoh ~ Resplendent Range
+9	ABILITY:Pharaoh Class Feature|AUTOMATIC|Pharaoh ~ Divine Decree
+
+# Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus																Save bonus																																																			Modify VAR
+CLASS:Reverent of Spring	HD:12		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.94	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")-1/2+1|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")+1/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")-1/2+1|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
+# Class Name			Required Ability								Required Check Base		Required Race	Required Skill
+CLASS:Reverent of Spring	PREABILITY:3,CATEGORY=FEAT,Endurance,Mighty Oak,Thorns	PRECHECKBASE:1,Fortitude=4	PRERACE:1,Oakling	PRESKILL:3,Survival=8,Knowledge (Nature)=4,Stealth=4
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Reverent of Spring	STARTSKILLPTS:4	CSKILL:Acrobatics|Climb|Handle Animal|Knowledge (Nature)|Perception|Stealth|Survival
+1	ABILITY:Reverent of Spring Class Feature|AUTOMATIC|Reverent of Spring ~ Weapon and Armor Proficiency
+1	ABILITY:Reverent of Spring Class Feature|AUTOMATIC|Reverent of Spring ~ Wild Root
+1	ABILITY:Reverent of Spring Class Feature|AUTOMATIC|Reverent of Spring ~ Nature's Resistance
+2	ABILITY:Reverent of Spring Class Feature|AUTOMATIC|Reverent of Spring ~ Hunter's Insight
+4	ABILITY:Reverent of Spring Class Feature|AUTOMATIC|Reverent of Spring ~ Tame the Mind
+7	ABILITY:Reverent of Spring Class Feature|AUTOMATIC|Reverent of Spring ~ Blood Heal
+10	ABILITY:Reverent of Spring Class Feature|AUTOMATIC|Reverent of Spring ~ Strangle Root
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus																Save bonus																																																		Modify VAR
+CLASS:Savage	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.96	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")-1/2+1|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")+1/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")+1/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
+# Class Name	Required Ability					Required Race	Required Skill													PRETOTALAB
+CLASS:Savage	PREABILITY:1,CATEGORY=FEAT,Endurance	PRERACE:1,Mahrog	PRESKILL:3,Knowledge (Nature)=3,Knowledge (Religion)=3,Survival=3	PRESKILL:1,TYPE.Craft=3	PRETOTALAB:6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Savage	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Knowledge (Nature)|Knowledge (Religion)|Handle Animal|Survival
+1	ABILITY:Savage Class Feature|AUTOMATIC|Savage ~ Weapon and Armor Proficiency
+1	ABILITY:Savage Class Feature|AUTOMATIC|Savage ~ Power Animal
+1	ABILITY:Savage Class Feature|AUTOMATIC|Savage ~ Call of the Wild
+2	ABILITY:Savage Class Feature|AUTOMATIC|Savage ~ Beast Hide
+2	ABILITY:Savage Class Feature|AUTOMATIC|Savage ~ Tools of Nature
+3	ABILITY:Savage Class Feature|AUTOMATIC|Savage ~ Fang Blade
+4	ABILITY:Savage Class Feature|AUTOMATIC|Savage ~ Form of Power
+6	ABILITY:Savage Class Feature|AUTOMATIC|Savage ~ Unbalancing Bash
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus																	Save bonus																																																		Modify VAR
+CLASS:Slime Lord	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.98	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")-1/2+1|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")-1/2+1|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")+1/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
+# Class Name	Required Ability						Required Race	Required Skill											Req. Known Spell				Required Text
+CLASS:Slime Lord	PREABILITY:2,CATEGORY=FEAT,Evade Grasp,Liquefy	PRERACE:1,Squole	PRESKILL:3,Craft (Alchemy)=3,Knowledge (Dungeoneering)=5,Knowledge (Nature)=5	PRESPELL:1,Summon Nature's Ally III	PRETEXT:Spells: Ability to cast Summon Nature's Ally III.
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Slime Lord	STARTSKILLPTS:4	CSKILL:Craft (Alchemy)|Handle Animal|Knowledge (Dungeoneering)|Knowledge (Nature)|Perception|Survival
+1	ABILITY:Slime Lord Class Feature|AUTOMATIC|Slime Lord ~ Weapon and Armor Proficiency
+1	ABILITY:Slime Lord Class Feature|AUTOMATIC|Slime Lord ~ Spells per Day
+1	ABILITY:Slime Lord Class Feature|AUTOMATIC|Slime Lord ~ Ooze Whisperer
+2	ABILITY:Slime Lord Class Feature|AUTOMATIC|Slime Lord ~ Summon Ooze
+3	ABILITY:Slime Lord Class Feature|AUTOMATIC|Slime Lord ~ Acid Resistance
+3	ABILITY:Slime Lord Class Feature|AUTOMATIC|Slime Lord ~ Slime Shot
+5	ABILITY:Slime Lord Class Feature|AUTOMATIC|Slime Lord ~ Amorphous Body
+10	ABILITY:Slime Lord Class Feature|AUTOMATIC|Slime Lord ~ Ooze Traits
+
+# Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus																Save bonus																																																			Modify VAR
+CLASS:Warrior Philosopher	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.100	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")-1/2+1|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")+1/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")-1/2+1|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
+# Class Name			Required Ability											Required AL		Required Race	Required Skill				Required Text													PRETOTALAB
+CLASS:Warrior Philosopher	PREABILITY:3,CATEGORY=FEAT,Manipulate Probability,Summon Weapon,Weapon Focus	PREALIGN:LG,LN,LE	PRERACE:1,Xax	PRESKILL:1,Knowledge (History)=7	PRETEXT:Weapon Focus (chosen exotic weapon from the Memory of Conflict racial trait)	PRETOTALAB:5
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Warrior Philosopher	STARTSKILLPTS:2	CSKILL:Acrobatics|Climb|Intimidate|TYPE=Knowledge|Ride|Swim
+1	ABILITY:Warrior Philosopher Class Feature|AUTOMATIC|Warrior Philosopher ~ Weapon and Armor Proficiency
+1	ABILITY:Warrior Philosopher Class Feature|AUTOMATIC|Warrior Philosopher ~ Exotic Specialization
+1	ABILITY:Warrior Philosopher Class Feature|AUTOMATIC|Warrior Philosopher ~ Combat Precognition
+2	ABILITY:Warrior Philosopher Class Feature|AUTOMATIC|Warrior Philosopher ~ Enduring Body
+3	ABILITY:Warrior Philosopher Class Feature|AUTOMATIC|Warrior Philosopher ~ Army of One
+4	ABILITY:Warrior Philosopher Class Feature|AUTOMATIC|Warrior Philosopher ~ Summon Magic Weapon
+5	ABILITY:Warrior Philosopher Class Feature|AUTOMATIC|Warrior Philosopher ~ Greater Probability Manipulation
+7	ABILITY:Warrior Philosopher Class Feature|AUTOMATIC|Warrior Philosopher ~ Impossible Odds
+9	ABILITY:Warrior Philosopher Class Feature|AUTOMATIC|Warrior Philosopher ~ Perfect Attack
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus																Save bonus																																																		Modify VAR
+CLASS:Zubit		HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.102	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")+1/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")+1/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")-1/2+1|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
+# Class Name	Required Ability							Required AL	Required Race	Required Skill							PRETOTALAB
+CLASS:Zubit		PREABILITY:2,CATEGORY=FEAT,Endurance,Mounted Combat	PREALIGN:LG	PRERACE:1,Mogogol	PRESKILL:3,Diplomacy=6,Knowledge (nobility)=3,Ride=3	PRETOTALAB:4
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Zubit		STARTSKILLPTS:2	CSKILL:Diplomacy|Intimidate|Knowledge (Nobility)|Ride
+1	ABILITY:Zubit Class Feature|AUTOMATIC|Zubit ~ Weapon and Armor Proficiency
+1	ABILITY:Zubit Class Feature|AUTOMATIC|Zubit ~ Armor of the Heart
+1	ABILITY:Zubit Class Feature|AUTOMATIC|Zubit ~ Inspiring Aura
+2	ABILITY:Zubit Class Feature|AUTOMATIC|Zubit ~ Claws of the Meek
+3	ABILITY:Zubit Class Feature|AUTOMATIC|Zubit ~ Leaping Step
+4	ABILITY:Zubit Class Feature|AUTOMATIC|Zubit ~ Courageous Aura

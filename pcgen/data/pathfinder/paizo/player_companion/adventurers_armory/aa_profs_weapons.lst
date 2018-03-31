@@ -1,0 +1,182 @@
+# CVS $Revision: 12254 $ $Author: jbaril $ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Adventurer's Armory	SOURCESHORT:AA	SOURCEWEB:http://paizo.com/products/btpy8dmf?Pathfinder-Player-Companion-Adventurers-Armory	SOURCEDATE:2010-04
+
+# Weapon Name		Type
+
+# Weapon Name		Type
+Hanbo				TYPE:Simple.Melee
+Mere Club			TYPE:Simple.Melee
+Cestus			TYPE:Simple.Melee
+Stake				TYPE:Simple.Melee
+Bayonet			TYPE:Simple.Melee
+Stingchuck			TYPE:Simple.Melee.Ranged
+
+Blade Boot			TYPE:Martial.Melee
+Dogslicer			TYPE:Martial.Melee
+Switchblade Knife		TYPE:Martial.Melee
+War Razor			TYPE:Martial.Melee
+Combat Scabbard		TYPE:Martial.Melee
+Klar				TYPE:Martial.Melee
+Scizore			TYPE:Martial.Melee
+Terbutje			TYPE:Martial.Melee
+Bardiche			TYPE:Martial.Melee
+Bec de corbin		TYPE:Martial.Melee
+Bill				TYPE:Martial.Melee
+Earth Breaker		TYPE:Martial.Melee
+Glaive-Guisarme		TYPE:Martial.Melee
+Lucerne Hammer		TYPE:Martial.Melee
+Ogre Hook			TYPE:Martial.Melee
+Syringe spear		TYPE:Martial.Melee.Thrown
+Horsechopper		TYPE:Martial.Melee
+
+Flambard			TYPE:Exotic.Melee
+Garrote			TYPE:Exotic.Melee
+Rhoka				TYPE:Exotic.Melee
+
+Butterfly Knife		TYPE:Exotic.Melee
+Maulaxe			TYPE:Exotic.Melee.Ranged.Thrown.Dwarven
+Pata				TYPE:Exotic.Melee
+Chain Spear			TYPE:Exotic.Melee
+Aldori Dueling Sword	TYPE:Exotic.Melee
+Urumi				TYPE:Exotic.Melee
+Bladed Scarf		TYPE:Exotic.Melee
+Shoanti Bola		TYPE:Exotic.Ranged
+
+Aklys				TYPE:Exotic.Melee.Ranged
+Rope Gauntlet		TYPE:Exotic.Melee
+Sawtooth Sabre		TYPE:Exotic.Melee
+Sika				TYPE:Exotic.Melee
+Swordbrekaer Dagger	KEY:Swordbreaker (Dagger)	TYPE:Exotic.Melee
+Battle Poi			TYPE:Exotic.Melee
+Falcata			TYPE:Exotic.Melee.Tengu
+Khopesh			TYPE:Exotic.Melee.Tengu
+Scorpion Whip		TYPE:Exotic.Melee
+Shotel			TYPE:Exotic.Melee
+Temple Sword		TYPE:Exotic.Melee.Monk
+Mancatcher			TYPE:Exotic.Melee
+Boomerang			TYPE:Exotic.Ranged
+Double Crossbow	KEY:Crossbow (Double)		TYPE:Exotic.Ranged
+Launching Crossbow	KEY:Crossbow (Launching)	TYPE:Exotic.Ranged
+Lasso				TYPE:Exotic.Melee
+Sling Glove			TYPE:Exotic.Melee
+Throwing Shield		TYPE:Exotic.Melee.Ranged
+
+###Block: Weapon Groups
+# Equipment Name				Type
+#
+# Weapon Group Axes
+#
+# Weapon Name			Type
+Bardiche.MOD			TYPE:Weapon Group Axes.Weapon Group Pole Arms
+Maulaxe.MOD				TYPE:Weapon Group Axes.Weapon Group Hammers
+Pata.MOD				TYPE:Weapon Group Axes.Weapon Group Blades Light
+
+#
+# Weapon Group Blades, Heavy
+#
+# Weapon Name			Type
+Aldori Dueling Sword.MOD	TYPE:Bladeheavy.Weapon Group Blades Heavy
+Flambard.MOD			TYPE:Bladeheavy.Weapon Group Blades Heavy
+Terbutje.MOD			TYPE:Bladeheavy.Weapon Group Blades Heavy
+Falcata.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy
+Khopesh.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy
+Rhoka.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy
+Shotel.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy
+Temple Sword.MOD			TYPE:Bladeheavy.Weapon Group Blades Heavy
+Flambard.MOD			TYPE:Bladeheavy.Weapon Group Blades Heavy
+Sawtooth Sabre.MOD		TYPE:Bladelight.Weapon Group Blades Light
+Combat Scabbard.MOD		TYPE:Weapon Group Blades Heavy.Weapon Group Hammers
+
+#
+# Weapon Group Blades, Light
+#
+Butterfly Knife.MOD		TYPE:Bladelight.Weapon Group Blades Light
+Chakram.MOD				TYPE:Bladelight.Weapon Group Blades Light.Bladeheavy.Weapon Group Blades Heavy.Thrown.Weapon Group Thrown
+Hunga Munga.MOD			TYPE:Weapon Group Blades Light.Weapon Group Thrown
+Sica.MOD				TYPE:Bladelight.Weapon Group Blades Light
+Swordbreaker (Dagger).MOD	TYPE:Bladelight.Weapon Group Blades Light
+Butterfly Knife.MOD		TYPE:Bladelight.Weapon Group Blades Light
+Bayonet.MOD				TYPE:Bladelight.Weapon Group Blades Light.Close.Weapon Group Close
+War Razor.MOD			TYPE:Bladelight.Weapon Group Blades Light
+Scizore.MOD				TYPE:Bladelight.Weapon Group Blades Light.Close.Weapon Group Close
+Madu.MOD				TYPE:Bladelight.Weapon Group Blades Light.Close.Weapon Group Close
+Blade boot.MOD			TYPE:Weapon Group Blades Light.Weapon Group Close
+Dogslicer.MOD			TYPE:Weapon Group Blades Light
+Switchblade Knife.MOD		TYPE:Weapon Group Blades Light
+
+#
+# Weapon Group Close
+#
+Brass Knuckles.MOD		TYPE:Close.Weapon Group Close.Weapon Group Monk
+Cestus.MOD				TYPE:Close.Weapon Group Close.Monk.Weapon Group Monk
+Stake.MOD				TYPE:Close.Weapon Group Close
+Mere Club.MOD			TYPE:Close.Weapon Group Close.Hammer.Weapon Group Hammers
+Rope Gauntlet.MOD			TYPE:Close.Weapon Group Close
+Garrote.MOD				TYPE:Weapon Group Close
+Klar.MOD				TYPE:Weapon Group Close
+
+
+#
+# Weapon Group Crossbow
+#
+Crossbow (Double).MOD		TYPE:Crossbow.Weapon Group Crossbows
+Crossbow (Launching).MOD	TYPE:Crossbow.Weapon Group Crossbows
+#
+# Weapon Group Double
+#
+Chain Spear.MOD			TYPE:Double.Weapon Group Double.Flail.Weapon Group Flails.Spear.Weapon Group Spears
+#
+# Weapon Group Flail
+#
+Battle Poi.MOD			TYPE:Flail.Weapon Group Flails
+Scorpion Whip.MOD			TYPE:Flail.Weapon Group Flails
+Urumi.MOD				TYPE:Flail.Weapon Group Flails.Monk.Weapon Group Monk
+Meteor Hammer.MOD			TYPE:Flail.Weapon Group Flails
+Bladed Scarf.MOD			TYPE:Flail.Weapon Group Flails
+#
+# Weapon Group Hammer
+#
+Aklys.MOD				TYPE:Hammer.Weapon Group Hammers.Thrown.Weapon Group Thrown
+Earth Breaker.MOD			TYPE:Weapon Group Hammers
+
+#
+# Weapon Group Monk
+#
+Hanbo.MOD				TYPE:Monk.Weapon Group Monk.Weapon Group Hammers
+#
+# Weapon Group Polearm
+#
+Horsechopper.MOD			TYPE:Polearm.Weapon Group Pole Arms
+Mancatcher.MOD			TYPE:Polearm.Weapon Group Pole Arms
+Bec de corbin.MOD			TYPE:Weapon Group Pole Arms
+Bill.MOD				TYPE:Weapon Group Pole Arms
+Glaive-Guisarme.MOD		TYPE:Weapon Group Pole Arms
+Lucerne Hammer.MOD		TYPE:Weapon Group Pole Arms
+Ogre Hook.MOD			TYPE:Weapon Group Pole Arms
+
+#
+# Weapon Group Spears
+#
+Pilum.MOD				TYPE:Weapon Group Spears
+Syringe spear.MOD			TYPE:Weapon Group Spears.Weapon Group Thrown
+
+
+#
+# Weapon Group Thrown
+#
+Boomerang.MOD			TYPE:Thrown.Weapon Group Thrown
+Lasso.MOD				TYPE:Thrown.Weapon Group Thrown
+Shoanti Bola.MOD			TYPE:Thrown.Weapon Group Thrown
+Sling Glove.MOD			TYPE:Thrown.Weapon Group Thrown
+Throwing Shield.MOD		TYPE:Thrown.Weapon Group Thrown
+Aklys.MOD				TYPE:Weapon Group Thrown
+Stingchuck.MOD			TYPE:Weapon Group Thrown
+
+#
+# End
+#
+
+
+#
+# End
+#

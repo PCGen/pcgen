@@ -1,0 +1,279 @@
+# CVS $Revision: 21485 $ $Author: amaitland $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
+# All Material Used from this Web Site - http://www.d20pfsrd.com/
+# ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
+# ORIGINAL ENTRY DATE: 2012-02-03
+
+# Dummy Proficiency to Trigger granting all Firearms Profs
+# Weapon Name			Type																Nb Hands
+Firearms				TYPE:Exotic
+
+#-(Early) One-Handed Firearms
+Buckler Gun				TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.OneHandedFireArm
+Pepperbox				TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.OneHandedFireArm
+Pistol				TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.OneHandedFireArm.Pistol
+Coat Pistol	KEY:Pistol (Coat)			TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.OneHandedFireArm.Pistol
+Dagger Pistol	KEY:Pistol (Dagger)			TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.OneHandedFireArm.Pistol
+Double-Barreled Pistol	KEY:Pistol (Double-Barreled)	TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.OneHandedFireArm.Pistol
+Dragon Pistol	KEY:Pistol (Dragon)			TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.OneHandedFireArm.Pistol
+Sword Cane Pistol	KEY:Pistol (Sword Cane)		TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.OneHandedFireArm.Pistol
+
+# Early Two-Handed Firearms
+Blunderbuss				TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.TwoHandedFireArm			HANDS:2
+Culverin				TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.TwoHandedFireArm			HANDS:2
+Double Hackbut			TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.TwoHandedFireArm			HANDS:2
+Fire Lance				TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.TwoHandedFireArm			HANDS:2
+Musket				TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.TwoHandedFireArm.Musket	HANDS:2
+Axe Musket	KEY:Musket (Axe)			TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.TwoHandedFireArm.Musket	HANDS:2
+Double-Barreled Musket	KEY:Musket (Double-Barreled)	TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.TwoHandedFireArm.Musket	HANDS:2
+Warhammer Musket	KEY:Musket (Warhammer)		TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.TwoHandedFireArm.Musket	HANDS:2
+
+###Block: Advanced Firearms
+# One-Handed
+# Weapon Name	Type																	Nb Hands
+Revolver		TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.Revolver.OneHandedFireArm
+
+# Two-Handed
+Rifle			TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.Rifle.TwoHandedFireArm			HANDS:2
+Shotgun		TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.Shotgun.Scatter.TwoHandedFireArm	HANDS:2
+
+# NOTE: Expanded Groups p.45
+
+###Block: Eastern  - Martial
+# Light
+# Weapon Name				Type
+Butterfly Sword				TYPE:Eastern.Melee.Martial.Light.Monk.Tengu.Sword.LightMartial
+Iron Brush					TYPE:Eastern.Melee.Martial.Light.LightMartial
+Jutte						TYPE:Eastern.Melee.Martial.Light.Disarm.Monk.LightMartial
+Kerambit					TYPE:Eastern.Melee.Martial.Light.LightMartial
+Lungchuan Tamo				TYPE:Eastern.Melee.Martial.Light.Monk.LightMartial
+Shang Gou					TYPE:Eastern.Melee.Martial.Light.Disarm.Trip.Monk.LightMartial
+Tonfa						TYPE:Eastern.Melee.Martial.Light.Blocking.Monk.LightMartial
+Wushu Dart					TYPE:Eastern.Melee.Martial.Light.Monk.LightMartial
+
+# One-Handed Melee
+Nine Ring Broadsword	KEY:Broadsword (Nine Ring)			TYPE:Eastern.Melee.Martial.OneHanded.Monk.Tengu.Sword.OneHandedMartial
+Double Chicken Saber			TYPE:Eastern.Melee.Martial.OneHanded.Disarm.Monk.Tengu.Sword.OneHandedMartial
+Sibat						TYPE:Eastern.Melee.Martial.OneHanded.Spear.OneHandedMartial
+
+# Two-Handed Melee
+Hooked Lance				TYPE:Eastern.Melee.Martial.TwoHanded.Reach.Trip.Polearm
+Monk's Spade				TYPE:Eastern.Melee.Martial.TwoHanded.Double.Monk.Polearm
+Naginata					TYPE:Eastern.Melee.Martial.TwoHanded.Reach
+Nodachi					TYPE:Eastern.Melee.Martial.TwoHanded.Brace.Polearm
+Sansetsukon					TYPE:Eastern.Melee.Martial.TwoHanded.Blocking.Disarm.Monk
+Tri-Point Double-Edged Sword	KEY:Sword (Tri-Point Double-Edged)	TYPE:Eastern.Melee.Martial.TwoHanded.Reach.Tengu.Sword
+Tiger Fork					TYPE:Eastern.Melee.Martial.TwoHanded.Brace.Monk.Polearm.Spear
+
+# Ranged
+Tube Arrow Shooter			TYPE:Eastern.Ranged.Martial
+Poisoned Sand Tube			TYPE:Eastern.Ranged.Martial
+
+
+###Block: Eastern  - Exotic
+# Light
+# Weapon Name			Type
+Dan Bong				TYPE:Eastern.Melee.Exotic.Light.Bludgeoning.Blocking.Monk.Ranged.Thrown
+Emei Piercer			TYPE:Eastern.Melee.Exotic.Light.Piercing.Monk
+Fighting Fan			TYPE:Eastern.Melee.Exotic.Light.Slashing.Piercing.Distracting.Monk
+Tekko-Kagi	KEY:Tekko-Kagi (Iron Claw)		TYPE:Eastern.Melee.Exotic.Light.Piercing.Disarm
+Wakizashi				TYPE:Eastern.Melee.Exotic.Light.Piercing.Slashing.Deadly.Tengu.Sword
+# One-Handed
+Katana				TYPE:Eastern.Melee.Martial.OneHanded.Exotic.Slashing.Deadly.Tengu.Sword
+Nine-Section Whip			TYPE:Eastern.Melee.Exotic.OneHanded.Bludgeoning.Blocking.Distracting.Monk.Trip
+Urumi					TYPE:Eastern.Melee.Exotic.OneHanded.Slashing.Distracting
+
+# Two-Handed
+Bo Staff				TYPE:Eastern.Melee.Exotic.TwoHanded.Bludgeoning.Blocking.Double.Monk
+Double-Chained Kama	KEY:Kama (Double-Chained)		TYPE:Eastern.Melee.Exotic.TwoHanded.Slashing.Double.Monk.Reach.Trip
+Double Walking Stick Katana	KEY:Katana (Double Walking Stick)	TYPE:Eastern.Melee.Exotic.TwoHanded.Bludgeoning.Double.Tengu.Sword
+Kusarigama	KEY:Kusarigama (Sickle and Chain)	TYPE:Eastern.Melee.Exotic.TwoHanded.Slashing.Bludgeoning.Double.Monk.Reach.Trip.Grapple
+Kyoketsu Shoge			TYPE:Eastern.Melee.Exotic.TwoHanded.Slashing.Piercing.Disarm.Grapple.Monk.Reach.Ranged.Thrown
+Meteor Hammer			TYPE:Eastern.Melee.Exotic.TwoHanded.Bludgeoning.Reach.Trip
+Seven-Branched Sword	KEY:Sword (Seven-Branched)		TYPE:Eastern.Melee.Exotic.TwoHanded.Slashing.Disarm.Monk.Tengu.Sword
+Tetsubo				TYPE:Eastern.Melee.Exotic.TwoHanded.Bludgeoning
+
+# Ranged
+Rope Dart				TYPE:Eastern.Ranged.Exotic.Piercing.Blocking.Distracting.Monk
+
+# Samurai
+Katana.MOD				TYPE:Samurai.HeavyBlade
+Naginata.MOD			TYPE:Samurai.Polearm
+Wakizashi.MOD			TYPE:Samurai.LightBlade
+
+###Block: Gladiator
+# Martial
+# Weapon Name		Type
+#Gladius			TYPE:GladiatorMelee.Martial.Piercing.Performance.Light
+
+# One-Handed
+# Weapon Name				Type
+Scizore					TYPE:GladiatorMelee.Martial.Piercing.Performance.OneHanded
+
+# Ranged
+Amentum					TYPE:GladiatorMelee.Martial.Piercing.Performance.Thrown.Ranged.Spear
+
+# EXOTIC
+# Light
+Aklys						TYPE:GladiatorMelee.Exotic.Bludgeoning.Ranged.Thrown.Light.Performance.Trip
+# COMMENT: Conflicts with Pathfinder Bestiary version which is a Simple Weapon for Derro.
+Knuckle Axe					TYPE:GladiatorMelee.Exotic.Slashing.Performance.Light.Monk
+Madu						TYPE:GladiatorMelee.Exotic.Piercing.Performance.Light
+Pata						TYPE:GladiatorMelee.Exotic.Piercing.Performance.Light
+Quadrens					TYPE:GladiatorMelee.Exotic.Piercing.Performance.Light
+Scorpion Whip				TYPE:GladiatorMelee.Exotic.Slashing.Performance.Light
+Sica						TYPE:GladiatorMelee.Exotic.Slashing.Performance.Light
+
+# One-Handed
+Hooked Axe					TYPE:GladiatorMelee.Exotic.Slashing.Performance.Disarm.Trip.OneHanded
+Shotel					TYPE:GladiatorMelee.Exotic.Piercing.Performance.OneHanded
+# Two-Handed
+Flying Blade				TYPE:GladiatorMelee.Exotic.Slashing.Performance.Reach.TwoHanded.Tengu.Sword
+# RANGED
+Throwing Shield				TYPE:GladiatorMelee.Ranged.Thrown.Exotic.Bludgeoning.Performance.Trip
+
+# Bronze Age
+# Two-Handed Melee
+Mattock					TYPE:Piercing.Martial.Fragile
+Rhomphaia					TYPE:Piercing.Slashing.Martial.Brace.Fragile.Reach
+
+#Exotic
+#Two-Handed Melee
+Harpoon					TYPE:Piercing.Ranged.Thrown.Exotic.Fragile.Grapple.Spear
+
+#Ranged
+Kestros					TYPE:Piercing.Exotic.Ranged
+
+# Stone Age
+#Simple
+#One-Handed Melee
+Mere Club					TYPE:StoneAge.Simple.Bludgeoning.Piercing.Fragile
+
+#Martial
+#One-Handed Melee
+Terbutje					TYPE:StoneAge.Martial.Slashing.Fragile.OneHandedMartial
+
+#Two-Handed Melee
+Tepoztopilli				TYPE:StoneAge.Martial.Piercing.Slashing.Fragile.Reach
+
+#Ranged
+Atlatl					TYPE:StoneAge.Martial.Piercing.Ranged.Thrown
+
+#Exotic
+#One-Handed Melee
+Taiaha					TYPE:StoneAge.Exotic.Bludgeoning.Piercing.Double
+Great Terbutje	KEY:Terbutje (Great)				TYPE:StoneAge.Exotic.Slashing.Fragile
+Wahaika					TYPE:StoneAge.Exotic.Bludgeoning.Disarm
+
+# Siege Engines
+#Direct-Fire Engines	Cost		Dmg		Critical			Range		Type1 Crew Aim Load Speed
+# Large Siege Engines
+Light Ballista	KEY:Ballista (Light)				TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Piercing
+Cannon					TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.SiegeFirearm.Bludgeoning.Piercing.Firearm
+# Huge Siege Engines
+Heavy Ballista	KEY:Ballista (Heavy)				TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Piercing
+Fiend's Mouth Cannon	KEY:Cannon (Fiend's Mouth)			TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.SiegeFirearm.Bludgeoning.Piercing.Firearm
+Firedrake					TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Fire
+# Gargantuan Siege Engines
+Gate Breaker Ballista	KEY:Ballista (Gate Breaker)			TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
+Firewyrm					TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Fire
+
+# Large Siege Engines
+Light Bombard	KEY:Bombard (Light)				TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.SiegeFirearm.Bludgeoning.Piercing.Firearm
+Light Catapult	KEY:Catapult (Light)				TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
+Light Trebuchet	KEY:Trebuchet (Light)				TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
+
+# Huge Siege Engines
+Bombard	KEY:Bombard (Standard)			TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.SiegeFirearm.Bludgeoning.Piercing.Firearm
+Catapult	KEY:Catapult (Standard)			TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
+Springal (Arrow)				TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Piercing
+Springal (Rocket)				TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Fire
+Trebuchet	KEY:Trebuchet (Standard)			TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
+
+#Gargantuan Siege Engines
+Heavy Bombard	KEY:Bombard (Heavy)				TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.SiegeFirearm.Bludgeoning.Piercing.Firearm
+Heavy Catapult	KEY:Catapult (Heavy)				TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
+Heavy Trebuchet	KEY:Trebuchet (Heavy)				TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
+
+###Bock: Weapon Groups:
+Hooked Axe.MOD				TYPE:Axe.Weapon Group Axes.Polearm.Weapon Group Pole Arms
+Knuckle Axe.MOD				TYPE:Axe.Weapon Group Axes
+Mattock.MOD					TYPE:Axe.Weapon Group Axes
+Pata.MOD					TYPE:Axe.Weapon Group Axes.Bladelight.Weapon Group Blades Light
+#
+Double Chicken Saber.MOD		TYPE:Bladeheavy.Weapon Group Blades Heavy.Monk.Weapon Group Monk
+Katana (Double Walking Stick).MOD	TYPE:Bladeheavy.Weapon Group Blades Heavy
+Terbutje (Great).MOD			TYPE:Bladeheavy.Weapon Group Blades Heavy
+Katana.MOD					TYPE:Bladeheavy.Weapon Group Blades Heavy
+Broadsword (Nine Ring).MOD		TYPE:Bladeheavy.Weapon Group Blades Heavy
+Nodachi.MOD					TYPE:Bladeheavy.Weapon Group Blades Heavy.Polearm.Weapon Group Pole Arms
+Sword (Seven-Branched).MOD		TYPE:Bladeheavy.Weapon Group Blades Heavy.Monk.Weapon Group Monk
+Shotel.MOD					TYPE:Bladeheavy.Weapon Group Blades Heavy
+Terbutje.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy
+#
+Butterfly Sword.MOD			TYPE:Bladelight.Weapon Group Blades Light.Monk.Weapon Group Monk
+#Gladius.MOD	TYPE:Bladelight
+Kerambit.MOD				TYPE:Bladelight.Weapon Group Blades Light
+Quadrens.MOD				TYPE:Bladelight.Weapon Group Blades Light
+Sica.MOD					TYPE:Bladelight.Weapon Group Blades Light
+Wakizashi.MOD				TYPE:Bladelight.Weapon Group Blades Light
+#
+Dan Bong.MOD				TYPE:Close.Weapon Group Close.Monk.Weapon Group Monk
+Emei Piercer.MOD				TYPE:Close.Weapon Group Close.Monk.Weapon Group Monk
+Fighting Fan.MOD				TYPE:Close.Weapon Group Close.Monk.Weapon Group Monk
+Iron Brush.MOD				TYPE:Close.Weapon Group Close
+Madu.MOD					TYPE:Close.Weapon Group Close
+Mere Club.MOD				TYPE:Close.Weapon Group Close
+Scizore.MOD					TYPE:Close.Weapon Group Close
+Tekko-Kagi (Iron Claw).MOD		TYPE:Close.Weapon Group Close
+Tonfa.MOD					TYPE:Close.Weapon Group Close.Monk.Weapon Group Monk
+Wushu Dart.MOD				TYPE:Close.Weapon Group Close.Monk.Weapon Group Monk.Thrown.Weapon Group Thrown
+#
+Tube Arrow Shooter.MOD			TYPE:Crossbow.Weapon Group Crossbows
+#
+#Firearms: All One-Handed, Two-Handed, And Siege Firearms
+#
+#Chain Spear.MOD	TYPE:Flail
+Kama (Double-Chained).MOD		TYPE:Flail.Weapon Group Flails.Monk
+Flying Blade.MOD				TYPE:Flail.Weapon Group Flails
+Kusarigama (Sickle and Chain).MOD	TYPE:Flail.Weapon Group Flails.Monk.Weapon Group Monk
+Kyoketsu Shoge.MOD			TYPE:Flail.Weapon Group Flails.Monk.Weapon Group Monk
+Meteor Hammer.MOD				TYPE:Flail.Weapon Group Flails
+Nine-Section Whip.MOD			TYPE:Flail.Weapon Group Flails.Monk.Weapon Group Monk
+Sansetsukon.MOD				TYPE:Flail.Weapon Group Flails.Monk.Weapon Group Monk
+Scorpion Whip.MOD				TYPE:Flail.Weapon Group Flails
+Urumi.MOD					TYPE:Flail.Weapon Group Flails.Monk.Weapon Group Monk
+#
+Aklys.MOD					TYPE:Hammer.Weapon Group Hammers.Thrown.Weapon Group Thrown
+Mere Club.MOD				TYPE:Hammer.Weapon Group Hammers
+Taiaha.MOD					TYPE:Hammer.Weapon Group Hammers
+Tetsubo.MOD					TYPE:Hammer.Weapon Group Hammers
+Wahaika.MOD					TYPE:Hammer.Weapon Group Hammers
+#
+Bo Staff.MOD				TYPE:Monk.Weapon Group Monk
+Jutte.MOD					TYPE:Monk.Weapon Group Monk
+Monk's Spade.MOD				TYPE:Monk.Weapon Group Monk.Polearm.Weapon Group Pole Arms
+Broadsword (Nine Ring).MOD		TYPE:Monk.Weapon Group Monk
+Rope Dart.MOD				TYPE:Monk.Weapon Group Monk.Thrown.Weapon Group Thrown
+Shang Gou.MOD				TYPE:Monk.Weapon Group Monk
+Tiger Fork.MOD				TYPE:Monk.Weapon Group Monk.Polearm.Weapon Group Pole Arms
+Sword (Tri-Point Double-Edged).MOD	TYPE:Monk.Weapon Group Monk
+
+Naginata.MOD				TYPE:Polearm.Weapon Group Spears
+
+Amentum.MOD					TYPE:Spear.Weapon Group Spears.Thrown.Weapon Group Thrown
+#Boar Spear.MOD	TYPE:Spear
+Pilum.MOD					TYPE:Spear.Weapon Group Spears
+Sibat.MOD					TYPE:Spear.Weapon Group Spears
+Tiger Fork.MOD				TYPE:Spear.Weapon Group Spears
+
+Atlatl.MOD					TYPE:Thrown.Weapon Group Thrown
+Harpoon.MOD					TYPE:Thrown.Weapon Group Thrown
+Kestros.MOD					TYPE:Thrown.Weapon Group Thrown
+Poisoned Sand Tube.MOD			TYPE:Thrown.Weapon Group Thrown
+Throwing Shield.MOD			TYPE:Thrown.Weapon Group Thrown
+Shuriken.MOD				TYPE:Thrown.Weapon Group Thrown
+Sibat.MOD					TYPE:Thrown.Weapon Group Thrown
+
+#Siege Engines: All Siege Engines
+# Tengu now gets a BONUS VAR to include Exotic, matching the Bastard Sword.
+#Katana (Exotic)				TYPE:ExoticExtra.Tengu

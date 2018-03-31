@@ -1,0 +1,71 @@
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+CAMPAIGN:Demon Hunter's Handbook
+GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing.Pathfinder Player Companion
+RANK:3
+STATUS:BETA
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder Player Companion
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+PUBNAMELONG:Paizo Publishing
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+SOURCELONG:Pathfinder Player Companion: Demon Hunter's Handbook
+SOURCESHORT:DHH
+SOURCEWEB:http://paizo.com/products/btpy8ywa
+SOURCEDATE:2014-02
+ISOGL:YES
+
+COVER:PZO9437_180.jpeg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy8ywa|Buy this publication from Paizo Publishing!
+DESC:Raise your banner and lead the charge in your fight against the dreaded demons of the Abyss with Pathfinder Player Companion: Demon Hunter's Handbook! Whether you're crusading against the demons crawling from the horrific Worldwound or you've traveled all the way to the Abyss to fight these fiends on their own turf, this volume will give you everything you need to face off against the forces of the demonic horde. Demon Hunter's Handbook contains player-focused, in-depth discussions of demons, how to slay them, and the best ways to survive encounters against these despicable foes. Each Pathfinder Player Companion includes new options and tools for every Pathfinder RPG player.
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+
+COPYRIGHT:Open Game License v 1.0a Copyright 2000,Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, and Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Demon, Nabasu from the Tome of Horrors Complete (c) 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Demon, Shadow from the Tome of Horrors Complete (c) 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Neville White.
+COPYRIGHT:Demon Lord, Baphomet from the Tome of Horrors Complete (c) 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on material by Gary Gygax.
+COPYRIGHT:Demon Lord, Dagon from the Tome of Horrors Complete (c) 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene.
+COPYRIGHT:Demon Lord, Kostchtchie from the Tome of Horrors Complete (c) 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on material by Gary Gygax.
+COPYRIGHT:Demon Lord, Orcus from the Tome of Horrors Complete (c) 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on material by Gary Gygax.
+COPYRIGHT:Demon Lord, Pazuzu from the Tome of Horrors Complete (c) 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on material by Gary Gygax.
+COPYRIGHT:Froghemoth from the Tome of Horrors Complete (c) 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Ice Golem from the Tome of Horrors Complete (c) 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene.
+COPYRIGHT:Vegepygmy from the Tome of Horrors Complete (c) 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Yeti from the Tome of Horrors Complete (c) 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Pathfinder Player Companion: Demon Hunter's Handbook (c) 2013, Paizo Publishing, LLC; Authors: Philip Minchin, F. Wesley Schneider, and Jerome Virnich.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Demon Hunter's Handbook" Copyright 2015, PCGen Data Team (including, but not limited to Andrew Maitland)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# Data files
+ABILITY:dhh_abilities.lst
+EQUIPMENT:dhh_equip.lst
+ABILITY:dhh_feats.lst
+SPELL:dhh_spells.lst
+
+
+# ENTRY DATE: 2015-11-25
+# LST MONKEY: Andrew Maitland (LegacyKing) on 2015-11-25
+# LICENSE MONKEY: Paul Grosse on 2015-12-07
+# RELEASE REVIEW #
+# BETA: Andrew Maitland for 6.05.06 on 2015-12-07
+# RELEASE:
+# Built for PCGen Version: 6.05.06
+# Updated to work with version: -
+# MINVER:6.5
+# MINDEVVER:6.05.1
+# COMMENTS:
+
+
+
+#
+# End
+#

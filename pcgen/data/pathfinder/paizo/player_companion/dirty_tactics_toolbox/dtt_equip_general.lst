@@ -1,0 +1,49 @@
+# CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Dirty Tactics Toolbox	SOURCESHORT:DTT		SOURCEWEB:http://paizo.com/products/btpy9g23?Pathfinder-Player-Companion-Dirty-Tactics-Toolbox	SOURCEDATE:2015-09
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 03 May 2016
+
+# ==============================
+# New Equipment
+# ==============================
+
+Alchemical Candle Wax					TYPE:Goods.Alchemical.Consumable		COST:150		WT:1		SOURCEPAGE:20
+Alchemical Pheromones (Aggression)			TYPE:Goods.Alchemical.Consumable		COST:1400		WT:0		SOURCEPAGE:20
+Alchemical Pheromones (Arousal)			TYPE:Goods.Alchemical.Consumable		COST:150		WT:0		SOURCEPAGE:20
+Alchemical Pheromones (Susceptibility)		TYPE:Goods.Alchemical.Consumable		COST:300		WT:0		SOURCEPAGE:20
+Angry Jack							TYPE:Goods.General				COST:25		WT:2		SOURCEPAGE:20
+Burglar's Torc						TYPE:Goods.Tools					COST:2102		WT:5		SOURCEPAGE:20
+Hollow Caltrops						TYPE:Goods.Tools					COST:451		WT:2		SOURCEPAGE:21
+Mithralbane Sap						TYPE:Goods.Alchemical.Consumable		COST:50		WT:1		SOURCEPAGE:21
+Serrated Caltrops						TYPE:Goods.Tools					COST:451		WT:2		SOURCEPAGE:21
+Shrapnel Caltrops						TYPE:Goods.Tools					COST:401		WT:2		SOURCEPAGE:21
+Spike Hilt							TYPE:Goods.Tools					COST:300		WT:1		SOURCEPAGE:21
+Venom Trap							TYPE:Goods.General				COST:300		WT:10		SOURCEPAGE:21		SPROP:Type mechanical; Perception DC 15; Disable Device DC 21; Trigger location; Reset manual; Effect Atk +11 melee (2d6+4 plus poison) and half base speed, DC 20 Disable Device, DC 22 Escape Artist, or DC 26 Strength to escape.
+
+# ==============================
+# New Magic Items
+# ==============================
+
+Ashes of Unluck						TYPE:Magic.Wondrous				COST:2400		WT:0		SOURCEPAGE:26
+Bag of Rust							TYPE:Magic.Wondrous				COST:1400		WT:0.5	SOURCEPAGE:26
+Burdenstone							TYPE:Magic.Wondrous				COST:1000		WT:0		SOURCEPAGE:26
+Circlet of Petty Discord				TYPE:Magic.Wondrous.Headband			COST:84000		WT:0		SOURCEPAGE:26
+Gloves of Pulverizing Disruption			TYPE:Magic.Wondrous.Glove			COST:9400		WT:0		SOURCEPAGE:26
+Rime-Stride Boots						TYPE:Magic.Wondrous.Boot			COST:27000		WT:1		SOURCEPAGE:27
+Shadow Jumper's Tunic					TYPE:Magic.Wondrous.Shirt			COST:16200		WT:1		SOURCEPAGE:27
+Radiant Tattoo						TYPE:Magic.Wondrous.Consumable		COST:1500		WT:0		SOURCEPAGE:27
+Viper Tattoo						TYPE:Magic.Wondrous				COST:18000		WT:0		SOURCEPAGE:27
+Weapon Tattoo						TYPE:Magic.Wondrous.Tattoo Wrist		COST:10000		WT:0		SOURCEPAGE:27
+
+Radiant Tattoo.MOD					TYPE:Tattoo Head.Tattoo Shoulders.Tattoo Neck.Tattoo Chest.Tattoo Body.Tattoo Belt.Tattoo Wrist.Tattoo Hands.Tattoo Ring.Tattoo Feet
+Viper Tattoo.MOD						TYPE:Tattoo Chest.Tattoo Body.Tattoo Belt.Tattoo Wrist.Tattoo Hands.Tattoo Ring.Tattoo Feet
+
+# ==============================
+# New Poison
+# ==============================
+
+Poison (Addlemind)					TYPE:Goods.Poison.Consumable			COST:75		WT:0		SOURCEPAGE:p.9		SPROP:Ingested; Fort DC 15; Onset 1 minute; Freq 1 min (10); Effect 1d2 Wis damage, –5 penalty on all Knowledge and Perception checks until Wisdom damage is healed; Cure 2 save
+Poison (Laughing Gas)					TYPE:Goods.Poison.Consumable			COST:500		WT:0.5	SOURCEPAGE:p.9		SPROP:Inhaled; Fort DC 12; Onset immediate; Freq 1 rnd (5); Effect uncontrollable laughter and dazed for 1 round; Cure 1 save
+Poison (Red Tears)					TYPE:Goods.Poison.Consumable			COST:50		WT:0		SOURCEPAGE:p.7		SPROP:Injury; Fort DC 15; Freq 1 rnd (10); Effect 1d6 damage (immune to this damage if immune to bleed effects); Cure 1 save
+Poison (Snap Will)					TYPE:Goods.Poison.Consumable			COST:2500		WT:0		SOURCEPAGE:p.9		SPROP:Ingested; Fort DC 18; Onset 5 minutes; Freq 1 min (10); Effect –4 penalty on Will saves and Wisdom-based skill checks for 1 minute; Cure 2 save
+Poison (Whisperwound)					TYPE:Goods.Poison.Consumable			COST:5000		WT:0		SOURCEPAGE:p.9		SPROP:Ingested; Fort DC 20; Onset 1 minute; Freq 1 rnd (1); Effect 1d6 Con damage, speaking (even spellcasting) deals 2d6 damage until Con damage is healed; Cure 1 save

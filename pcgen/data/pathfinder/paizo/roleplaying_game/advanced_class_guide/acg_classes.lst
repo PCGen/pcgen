@@ -1,0 +1,408 @@
+# CVS $Revision: 12957 $ $Author: jbaril $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Advanced Class Guide	SOURCESHORT:ACG	SOURCEWEB:http://paizo.com/products/btpy92zi	SOURCEDATE:2014-08
+# Original Entry by: Stefan Radermacher and Douglas Limmer
+# Updated by Andrew Maitland
+###
+###################################################################################
+###
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Define			Combat bonus																	Save bonus																																		Modify VAR																																																																	Monster Role	FACT
+CLASS:Arcanist	HD:6		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.8	DEFINE:ArcanistLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ArcanistLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	ROLE:Wizard		FACT:ClassType|PC	FACT:Abb|Arc	FACT:SpellType|Arcane
+# Class Name	Skill Pts/Lvl
+CLASS:Arcanist	STARTSKILLPTS:2
+# Class Name	Spell Stat		Spell Stat Bonus		Memorize		Spellbook		Caster level			Use Spell List
+CLASS:Arcanist	SPELLSTAT:INT	BONUSSPELLSTAT:NONE	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Arcanist|CL	SPELLLIST:1|Wizard
+1	ABILITY:Class|AUTOMATIC|Arcanist
+###Block: Level Progression
+1	ABILITY:Arcanist Class Feature|AUTOMATIC|Arcanist ~ Weapon and Armor Proficiency
+1	ABILITY:Arcanist Class Feature|AUTOMATIC|Arcanist ~ Spells Prepared
+1	ABILITY:Arcanist Class Feature|AUTOMATIC|Arcanist ~ Consume Spells|PREVAREQ:Arcanist_CF_ConsumeSpells,0
+1	ABILITY:Arcanist Class Feature|AUTOMATIC|Arcanist ~ Arcane Reservoir|PREVAREQ:Arcanist_CF_ArcaneReservoir,0
+1	ABILITY:Arcanist Class Feature|AUTOMATIC|Arcanist ~ Arcanist Exploits|PREVAREQ:Arcanist_CF_ArcanistExploits,0
+1	ABILITY:Arcanist Class Feature|AUTOMATIC|Arcanist ~ Cantrips|PREVAREQ:Arcanist_CF_Cantrips,0
+11	ABILITY:Arcanist Class Feature|AUTOMATIC|Arcanist ~ Greater Arcanist Exploits|PREVAREQ:Arcanist_CF_GreaterArcanistExploits,0
+20	ABILITY:Arcanist Class Feature|AUTOMATIC|Arcanist ~ Magical Supremacy|PREVAREQ:Arcanist_CF_MagicalSupremacy,0
+1	ABILITY:Internal|AUTOMATIC|Arcanist Free Spellbook|PREMULT:1,[PREMULT:2,[PREPCLEVEL:MAX=0],[PRECLASS:1,Arcanist=1]],[PREMULT:2,[!PRECLASS:1,TYPE.Base=0],[PRECLASS:1,Arcanist=1]]
+###Block: Spell Level progression
+# WORKAROUND: CAST is actually spells prepared
+# WORKAROUND: The variables ArcanistCastLVL_n (n=1..9) hold the number of spells castable per day of each level
+# COMMENT: Should be limited to preparing only 1 of any specific spell
+1:REPEATLEVEL:1	CAST:ArcanistPreparedLVL_0,ArcanistPreparedLVL_1,ArcanistPreparedLVL_2,ArcanistPreparedLVL_3,ArcanistPreparedLVL_4,ArcanistPreparedLVL_5,ArcanistPreparedLVL_6,ArcanistPreparedLVL_7,ArcanistPreparedLVL_8,ArcanistPreparedLVL_9
+
+
+###
+###################################################################################
+###
+
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Define			Combat bonus																Save bonus																																		Modify VAR																																																																	Monster Role		FACT
+CLASS:Bloodrager	HD:10		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.15	DEFINE:BloodragerLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|BloodragerLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	ROLE:Combat.Sorcerer	FACT:ClassType|PC	FACT:Abb|Bld	FACT:SpellType|Arcane
+# Class Name	Skill Pts/Lvl
+CLASS:Bloodrager	STARTSKILLPTS:4
+# Class Name	Spell Stat		Memorize	Caster level								Use Spell List
+CLASS:Bloodrager	SPELLSTAT:CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Bloodrager|CL|PRECLASS:1,Bloodrager=4	SPELLLIST:1|Bloodrager
+1	ABILITY:Class|AUTOMATIC|Bloodrager
+###Block: Level Progression
+1	ABILITY:Bloodrager Class Feature|AUTOMATIC|Bloodrager ~ Weapon and Armor Proficiency
+1	ABILITY:Bloodrager Class Feature|AUTOMATIC|Bloodrager ~ Bloodline|PREVAREQ:Bloodrager_CF_Bloodline,0
+1	ABILITY:Bloodrager Class Feature|AUTOMATIC|Bloodrager ~ Bloodrage|PREVAREQ:Bloodrager_CF_Bloodrage,0
+1	ABILITY:Bloodrager Class Feature|AUTOMATIC|Bloodrager ~ Fast Movement|PREVAREQ:Bloodrager_CF_FastMovement,0
+2	ABILITY:Bloodrager Class Feature|AUTOMATIC|Bloodrager ~ Uncanny Dodge Tracker
+3	ABILITY:Bloodrager Class Feature|AUTOMATIC|Bloodrager ~ Blood Sanctuary|PREVAREQ:Bloodrager_CF_BloodSanctuary,0
+4	ABILITY:Bloodrager Class Feature|AUTOMATIC|Bloodrager ~ Blood Casting|PREVAREQ:Bloodrager_CF_BloodCasting,0
+4	ABILITY:Bloodrager Class Feature|AUTOMATIC|Bloodrager ~ Eschew Materials|PREVAREQ:Bloodrager_CF_EschewMaterials,0
+7	ABILITY:Bloodrager Class Feature|AUTOMATIC|Bloodrager ~ Damage Reduction|PREVAREQ:Bloodrager_CF_DamageReduction,0
+11	ABILITY:Bloodrager Class Feature|AUTOMATIC|Bloodrager ~ Greater Bloodrage|PREVAREQ:Bloodrager_CF_GreaterBloodrage,0
+14	ABILITY:Bloodrager Class Feature|AUTOMATIC|Bloodrager ~ Indomitable Will|PREVAREQ:Bloodrager_CF_IndomitableWill,0
+17	ABILITY:Bloodrager Class Feature|AUTOMATIC|Bloodrager ~ Tireless Bloodrage|PREVAREQ:Bloodrager_CF_TirelessBloodrage,0
+20	ABILITY:Bloodrager Class Feature|AUTOMATIC|Bloodrager ~ Mighty Bloodrage|PREVAREQ:Bloodrager_CF_MightyBloodrage,0
+###Block: Spell Level progression
+4	CAST:0,1		KNOWN:0,2
+5	CAST:0,1		KNOWN:0,3
+6	CAST:0,1		KNOWN:0,4
+7	CAST:0,1,1		KNOWN:0,4,2
+8	CAST:0,1,1		KNOWN:0,4,3
+9	CAST:0,2,1		KNOWN:0,5,4
+10	CAST:0,2,1,1	KNOWN:0,5,4,2
+11	CAST:0,2,1,1	KNOWN:0,5,4,3
+12	CAST:0,2,2,1	KNOWN:0,6,5,4
+13	CAST:0,3,2,1,1	KNOWN:0,6,5,4,2
+14	CAST:0,3,2,1,1	KNOWN:0,6,5,4,3
+15	CAST:0,3,2,2,1	KNOWN:0,6,6,5,4
+16	CAST:0,3,3,2,1	KNOWN:0,6,6,5,4
+17	CAST:0,4,3,2,1	KNOWN:0,6,6,5,4
+18	CAST:0,4,3,2,2	KNOWN:0,6,6,6,5
+19	CAST:0,4,3,3,2	KNOWN:0,6,6,6,5
+20	CAST:0,4,4,3,2	KNOWN:0,6,6,6,5
+
+###Block: Brawler
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Define																							Combat bonus																Save bonus																							Modify VAR																																																																Monster Role	FACT
+CLASS:Brawler	HD:10		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.23	DEFINE:BrawlerLVL|0	DEFINE:MartialFlexibilityLVL|0	DEFINE:ManeuverTrainingLVL|0	DEFINE:MartialTrainingLVL|0	DEFINE:BrawlerMFBonus|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will|CL/3	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|BrawlerLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	ROLE:None		FACT:ClassType|PC	FACT:Abb|Bra
+# Class Name	Skill Pts/Lvl
+CLASS:Brawler	STARTSKILLPTS:4
+1	ABILITY:Class|AUTOMATIC|Brawler
+###Block:
+2	KIT:1|Brawler Brawler's Flurry
+###Block:
+1	ABILITY:Brawler Class Feature|AUTOMATIC|Brawler ~ Weapon and Armor Proficiency
+1	ABILITY:Brawler Class Feature|AUTOMATIC|Brawler ~ Brawler's Cunning|PREVAREQ:Brawler_CF_BrawlersCunning,0
+1	ABILITY:Brawler Class Feature|AUTOMATIC|Brawler ~ Martial Flexibility|PREVAREQ:Brawler_CF_MartialFlexibility,0
+1	ABILITY:Brawler Class Feature|AUTOMATIC|Brawler ~ Martial Training|PREVAREQ:Brawler_CF_MartialTraining,0
+2	ABILITY:Brawler Class Feature|AUTOMATIC|Brawler ~ Bonus Feats|PREVAREQ:Brawler_CF_BonusFeats,0
+2	ABILITY:Brawler Class Feature|AUTOMATIC|Brawler ~ Brawler's Flurry|PREVAREQ:Brawler_CF_BrawlersFlurry,0
+3	ABILITY:Brawler Class Feature|AUTOMATIC|Brawler ~ Maneuver Training|PREVAREQ:Brawler_CF_ManeuverTraining,0
+4	ABILITY:Brawler Class Feature|AUTOMATIC|Brawler ~ AC Bonus|PREVAREQ:Brawler_CF_ACBonus,0
+4	ABILITY:Brawler Class Feature|AUTOMATIC|Brawler ~ Knockout|PREVAREQ:Brawler_CF_Knockout,0
+5	ABILITY:Brawler Class Feature|AUTOMATIC|Brawler ~ Brawler's Strike|PREVAREQ:Brawler_CF_BrawlersStrike,0
+5	ABILITY:Brawler Class Feature|AUTOMATIC|Brawler ~ Close Weapon Mastery|PREVAREQ:Brawler_CF_CloseWeaponMastery,0
+16	ABILITY:Brawler Class Feature|AUTOMATIC|Brawler ~ Awesome Blow|PREVAREQ:Brawler_CF_AwesomeBlow,0
+20	ABILITY:Brawler Class Feature|AUTOMATIC|Brawler ~ Improved Awesome Blow|PREVAREQ:Brawler_CF_ImprovedAwesomeBlow,0
+
+###Block: Hunter
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Define			Combat bonus																	Save bonus																																		Modify VAR																																																																	Monster Role	FACT
+CLASS:Hunter	HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.26	DEFINE:HunterLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|HunterLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	ROLE:Combat.Druid	FACT:ClassType|PC	FACT:Abb|Hun	FACT:SpellType|Divine
+# Class Name	Required AL
+CLASS:Hunter	PREALIGN:NG,LN,TN,CN,NE
+# Class Name	Skill Pts/Lvl
+CLASS:Hunter	STARTSKILLPTS:6
+# Class Name	Spell Stat		Memorize	Automatically Known Spell Levels																					Caster level			Use Spell List
+CLASS:Hunter	SPELLSTAT:WIS	MEMORIZE:NO	KNOWNSPELLS:Summon Nature's Ally I|Summon Nature's Ally II|Summon Nature's Ally III|Summon Nature's Ally IV|Summon Nature's Ally V|Summon Nature's Ally VI	BONUS:CASTERLEVEL|Hunter|CL	SPELLLIST:2|Druid|Ranger
+1	ABILITY:Class|AUTOMATIC|Hunter
+###Block: Spell Alignment Restrictions
+1	PROHIBITSPELL:ALIGNMENT.Good|PREDEITYALIGN:LE,NE,CE
+1	PROHIBITSPELL:ALIGNMENT.Evil|PREDEITYALIGN:LG,NG,CG
+1	PROHIBITSPELL:ALIGNMENT.Lawful|PREDEITYALIGN:CG,CN,CE
+1	PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:LG,LN,LE
+###Block: Level Progression Abilities
+1	ABILITY:Hunter Class Feature|AUTOMATIC|Hunter ~ Weapon and Armor Proficiency
+1	ABILITY:Hunter Class Feature|AUTOMATIC|Hunter ~ Animal Companion|PREVAREQ:Hunter_CF_AnimalCompanion,0
+1	ABILITY:Hunter Class Feature|AUTOMATIC|Hunter ~ Animal Focus|PREVAREQ:Hunter_CF_AnimalFocus,0
+1	ABILITY:Hunter Class Feature|AUTOMATIC|Hunter ~ Nature Training|PREVAREQ:Hunter_CF_NatureTraining,0
+1	ABILITY:Hunter Class Feature|AUTOMATIC|Hunter ~ Orisons|PREVAREQ:Hunter_CF_Orisons,0
+1	ABILITY:Hunter Class Feature|AUTOMATIC|Hunter ~ Wild Empathy|PREVAREQ:Hunter_CF_WildEmpathy,0
+2	ABILITY:Hunter Class Feature|AUTOMATIC|Hunter ~ Precise Companion|PREVAREQ:Hunter_CF_PreciseCompanion,0
+2	ABILITY:Hunter Class Feature|AUTOMATIC|Hunter ~ Track|PREVAREQ:Hunter_CF_Track,0
+3	ABILITY:Hunter Class Feature|AUTOMATIC|Hunter ~ Hunter Tactics|PREVAREQ:Hunter_CF_HunterTactics,0
+3	ABILITY:Hunter Class Feature|AUTOMATIC|Hunter ~ Teamwork Feats|PREVAREQ:Hunter_CF_TeamworkFeats,0
+4	ABILITY:Hunter Class Feature|AUTOMATIC|Hunter ~ Improved Empathic Link|PREVAREQ:Hunter_CF_ImprovedEmpathicLink,0
+5	ABILITY:Hunter Class Feature|AUTOMATIC|Hunter ~ Woodland Stride|PREVAREQ:Hunter_CF_WoodlandStride,0
+7	ABILITY:Hunter Class Feature|AUTOMATIC|Hunter ~ Bonus Tricks|PREVAREQ:Hunter_CF_BonusTricks,0
+8	ABILITY:Hunter Class Feature|AUTOMATIC|Hunter ~ Second Animal Focus|PREVAREQ:Hunter_CF_SecondAnimalFocus,0
+8	ABILITY:Hunter Class Feature|AUTOMATIC|Hunter ~ Swift Tracker|PREVAREQ:Hunter_CF_SwiftTracker,0
+10	ABILITY:Hunter Class Feature|AUTOMATIC|Hunter ~ Raise Animal Companion|PREVAREQ:Hunter_CF_RaiseAnimalCompanion,0
+11	ABILITY:Hunter Class Feature|AUTOMATIC|Hunter ~ Speak With Master|PREVAREQ:Hunter_CF_SpeakWithMaster,0
+14	ABILITY:Hunter Class Feature|AUTOMATIC|Hunter ~ Greater Empathic Link|PREVAREQ:Hunter_CF_GreaterEmpathicLink,0
+17	ABILITY:Hunter Class Feature|AUTOMATIC|Hunter ~ One With The Wild|PREVAREQ:Hunter_CF_OneWithTheWild,0
+20	ABILITY:Hunter Class Feature|AUTOMATIC|Hunter ~ Master Hunter|PREVAREQ:Hunter_CF_MasterHunter,0
+###Block: Level progression
+# The KNOWN are 1 higher than in the book for levels 1+ because all the Summon Nature's Ally spells are automatically known in addition
+1	CAST:0,1			KNOWN:4,3
+2	CAST:0,2			KNOWN:5,4
+3	CAST:0,3			KNOWN:6,5
+4	CAST:0,3,1			KNOWN:6,5,3
+5	CAST:0,4,2			KNOWN:6,5,4
+6	CAST:0,4,3			KNOWN:6,5,5
+7	CAST:0,4,3,1		KNOWN:6,6,5,3
+8	CAST:0,4,4,2		KNOWN:6,6,5,4
+9	CAST:0,5,4,3		KNOWN:6,6,5,5
+10	CAST:0,5,4,3,1		KNOWN:6,6,6,5,3
+11	CAST:0,5,4,4,2		KNOWN:6,7,6,5,4
+12	CAST:0,5,5,4,3		KNOWN:6,7,6,5,5
+13	CAST:0,5,5,4,3,1		KNOWN:6,7,6,6,5,3
+14	CAST:0,5,5,4,4,2		KNOWN:6,7,7,6,5,4
+15	CAST:0,5,5,5,4,3		KNOWN:6,7,7,6,5,5
+16	CAST:0,5,5,5,4,3,1	KNOWN:6,7,7,6,6,5,3
+17	CAST:0,5,5,5,4,4,2	KNOWN:6,7,7,7,6,5,4
+18	CAST:0,5,5,5,5,4,3	KNOWN:6,7,7,7,6,5,5
+19	CAST:0,5,5,5,5,5,4	KNOWN:6,7,7,7,6,6,5
+20	CAST:0,5,5,5,5,5,5	KNOWN:6,7,7,7,7,6,6
+
+###Block: Investigator
+
+# Class Name		Hit Dice	Type			Max Level	Source Page		Define				Combat bonus																	Save bonus																																		Modify VAR																																																																							Monster Role	FACT
+CLASS:Investigator	HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.30	DEFINE:InvestigatorLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|InvestigatorLVL|classlevel("APPLIEDAS=NONEPIC")	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	ROLE:Skill		FACT:ClassType|PC	FACT:Abb|Inv	FACT:SpellType|Arcane
+# Class Name		Skill Pts/Lvl
+CLASS:Investigator	STARTSKILLPTS:6
+# Class Name		Spell Stat		Memorize		Spellbook		Caster level				Use Spell List
+CLASS:Investigator	SPELLSTAT:INT	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Investigator|CL	SPELLLIST:1|Alchemist
+1	ABILITY:Class|AUTOMATIC|Investigator
+###Block: Alchemist Book
+1	ABILITY:Internal|AUTOMATIC|Free Formula Book|PREMULT:1,[PREMULT:2,[PREPCLEVEL:MAX=0],[PRECLASS:1,Investigator=1]],[PREMULT:2,[!PRECLASS:1,TYPE.Base=0],[PRECLASS:1,Investigator=1]]
+###Block: Vars
+1	BONUS:VAR|AlchemistAlchemyLVL|InvestigatorLVL	BONUS:VAR|TrapfindingLVL|InvestigatorLVL
+3	BONUS:VAR|InvestigatorTalentLVL|InvestigatorLVL
+3	BONUS:VAR|RogueTrapSenseLVL|InvestigatorLVL
+4	BONUS:VAR|RogueSneakAttackLVL|InvestigatorLVL-3
+###Block: Class Abilities
+1	ABILITY:Investigator Class Feature|AUTOMATIC|Investigator ~ Weapon and Armor Proficiency
+1	ABILITY:Investigator Class Feature|AUTOMATIC|Investigator ~ Alchemy|PREVAREQ:Investigator_CF_Alchemy,0
+1	ABILITY:Investigator Class Feature|AUTOMATIC|Investigator ~ Inspiration|PREVAREQ:Investigator_CF_Inspiration,0
+1	ABILITY:Investigator Class Feature|AUTOMATIC|Investigator ~ Trapfinding|PREVAREQ:Investigator_CF_Trapfinding,0
+2	ABILITY:Investigator Class Feature|AUTOMATIC|Investigator ~ Poison Lore|PREVAREQ:Investigator_CF_PoisonLore,0
+2	ABILITY:Investigator Class Feature|AUTOMATIC|Investigator ~ Poison Resistance|PREVAREQ:Investigator_CF_PoisonResistance,0
+3	ABILITY:Investigator Class Feature|AUTOMATIC|Investigator ~ Investigator Talents|PREVAREQ:Investigator_CF_InvestigatorTalents,0
+3	ABILITY:Investigator Class Feature|AUTOMATIC|Investigator ~ Keen Recollection|PREVAREQ:Investigator_CF_KeenRecollection,0
+3	ABILITY:Investigator Class Feature|AUTOMATIC|Investigator ~ Trap Sense|PREVAREQ:Investigator_CF_TrapSense,0
+4	ABILITY:Investigator Class Feature|AUTOMATIC|Investigator ~ Swift Alchemy|PREVAREQ:Investigator_CF_SwiftAlchemy,0
+4	ABILITY:Investigator Class Feature|AUTOMATIC|Investigator ~ Studied Combat|PREVAREQ:Investigator_CF_StudiedCombat,0
+4	ABILITY:Investigator Class Feature|AUTOMATIC|Investigator ~ Studied Strike|PREVAREQ:Investigator_CF_StudiedStrike,0
+20	ABILITY:Investigator Class Feature|AUTOMATIC|Investigator ~ True Inspiration|PREVAREQ:Investigator_CF_TrueInspiration,0
+###Block: Spellcasting
+1	CAST:0,1
+2	CAST:0,2
+3	CAST:0,3
+4	CAST:0,3,1
+5	CAST:0,4,2
+6	CAST:0,4,3
+7	CAST:0,4,3,1
+8	CAST:0,4,4,2
+9	CAST:0,5,4,3
+10	CAST:0,5,4,3,1
+11	CAST:0,5,4,4,2
+12	CAST:0,5,5,4,3
+13	CAST:0,5,5,4,3,1
+14	CAST:0,5,5,4,4,2
+15	CAST:0,5,5,5,4,3
+16	CAST:0,5,5,5,4,3,1
+17	CAST:0,5,5,5,4,4,2
+18	CAST:0,5,5,5,5,4,3
+19	CAST:0,5,5,5,5,5,4
+20	CAST:0,5,5,5,5,5,5
+
+
+###Block: Shaman
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Define			Combat bonus																	Save bonus																																		Modify VAR																																																																	Monster Role	FACT
+CLASS:Shaman	HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.35	DEFINE:ShamanLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ShamanLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	ROLE:Cleric		FACT:ClassType|PC	FACT:Abb|Shm	FACT:SpellType|Divine
+# Class Name	Skill Pts/Lvl
+CLASS:Shaman	STARTSKILLPTS:4
+# Class Name	Spell Stat		Memorize		Automatically Known Spell Levels											Caster level
+CLASS:Shaman	SPELLSTAT:WIS	MEMORIZE:YES	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Shaman|CL
+1	ABILITY:Class|AUTOMATIC|Shaman
+###Block:Proficiencies
+1	ABILITY:Shaman Class Feature|AUTOMATIC|Shaman ~ Weapon and Armor Proficiency
+1	ABILITY:Shaman Class Feature|AUTOMATIC|Shaman ~ Orisons|PREVAREQ:Shaman_CF_Orisons,0
+1	ABILITY:Shaman Class Feature|AUTOMATIC|Shaman ~ Spirit|PREVAREQ:Shaman_CF_Spirit,0
+1	ABILITY:Shaman Class Feature|AUTOMATIC|Shaman ~ Spirit Animal|PREVAREQ:Shaman_CF_SpiritAnimal,0
+1	ABILITY:Shaman Class Feature|AUTOMATIC|Shaman ~ Spirit Magic|PREVAREQ:Shaman_CF_SpiritMagic,0
+2	ABILITY:Shaman Class Feature|AUTOMATIC|Shaman ~ Hex|PREVAREQ:Shaman_CF_Hex,0
+4	ABILITY:Shaman Class Feature|AUTOMATIC|Shaman ~ Wandering Spirit|PREVAREQ:Shaman_CF_WanderingSpirit,0
+6	ABILITY:Shaman Class Feature|AUTOMATIC|Shaman ~ Wandering Hex|PREVAREQ:Shaman_CF_WanderingHex,0
+20	ABILITY:Shaman Class Feature|AUTOMATIC|Shaman ~ Manifestation|PREVAREQ:Shaman_CF_Manifestation,0
+###Block: Spell Level progression
+1	CAST:3,1
+2	CAST:4,2
+3	CAST:4,2,1
+4	CAST:4,3,2
+5	CAST:4,3,2,1
+6	CAST:4,3,3,2
+7	CAST:4,4,3,2,1
+8	CAST:4,4,3,3,2
+9	CAST:4,4,4,3,2,1
+10	CAST:4,4,4,3,3,2
+11	CAST:4,4,4,3,3,2,1
+12	CAST:4,4,4,4,3,3,2
+13	CAST:4,4,4,4,4,3,2,1
+14	CAST:4,4,4,4,4,3,3,2
+15	CAST:4,4,4,4,4,4,3,2,1
+16	CAST:4,4,4,4,4,4,3,3,2
+17	CAST:4,4,4,4,4,4,4,3,2,1
+18	CAST:4,4,4,4,4,4,4,3,3,2
+19	CAST:4,4,4,4,4,4,4,4,3,3
+20	CAST:4,4,4,4,4,4,4,4,4,4
+
+
+###Block: Skald
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Define		Combat bonus																	Save bonus																																		Modify VAR																																																																	Monster Role	FACT
+CLASS:Skald		HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.49	DEFINE:SkaldLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|SkaldLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	ROLE:Skill		FACT:ClassType|PC	FACT:Abb|Ska	FACT:SpellType|Arcane
+# Class Name	Skill Pts/Lvl
+CLASS:Skald		STARTSKILLPTS:4
+# Class Name	Spell Stat		Memorize		Spellbook		Caster level			Use Spell List
+CLASS:Skald		SPELLSTAT:CHA	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Skald|CL	SPELLLIST:1|Bard
+1	ABILITY:Class|AUTOMATIC|Skald
+###Block: Class Abilities
+1	ABILITY:Skald Class Feature|AUTOMATIC|Skald ~ Weapon and Armor Proficiency
+1	ABILITY:Skald Class Feature|AUTOMATIC|Skald ~ Bardic Knowledge|PREVAREQ:Skald_CF_BardicKnowledge,0
+1	ABILITY:Skald Class Feature|AUTOMATIC|Skald ~ Cantrips|PREVAREQ:Skald_CF_Cantrips,0
+1	ABILITY:Skald Class Feature|AUTOMATIC|Skald ~ Raging Song|PREVAREQ:Skald_CF_RagingSong,0
+1	ABILITY:Skald Class Feature|AUTOMATIC|Skald ~ Inspired Rage|PREVAREQ:Skald_CF_InspiredRage,0
+1	ABILITY:Skald Class Feature|AUTOMATIC|Skald ~ Scribe Scroll|PREVAREQ:Skald_CF_ScribeScroll,0
+2	ABILITY:Skald Class Feature|AUTOMATIC|Skald ~ Versatile Performance|PREVAREQ:Skald_CF_VersatilePerformance,0
+2	ABILITY:Skald Class Feature|AUTOMATIC|Skald ~ Well-Versed|PREVAREQ:Skald_CF_WellVersed,0
+3	ABILITY:Skald Class Feature|AUTOMATIC|Skald ~ Rage Powers|PREVAREQ:Skald_CF_RagePowers,0
+3	ABILITY:Skald Class Feature|AUTOMATIC|Skald ~ Song of Marching|PREVAREQ:Skald_CF_SongOfMarching,0
+4	ABILITY:Skald Class Feature|AUTOMATIC|Skald ~ Uncanny Dodge|PREVAREQ:Skald_CF_UncannyDodge,0
+5	ABILITY:Skald Class Feature|AUTOMATIC|Skald ~ Spell Kenning|PREVAREQ:Skald_CF_SpellKenning,0
+6	ABILITY:Skald Class Feature|AUTOMATIC|Skald ~ Song of Strength|PREVAREQ:Skald_CF_SongOfStrength,0
+7	ABILITY:Skald Class Feature|AUTOMATIC|Skald ~ Lore Master|PREVAREQ:Skald_CF_LoreMaster,0
+8	ABILITY:Skald Class Feature|AUTOMATIC|Skald ~ Improved Uncanny Dodge|PREVAREQ:Skald_CF_ImprovedUncannyDodge,0
+9	ABILITY:Skald Class Feature|AUTOMATIC|Skald ~ Damage Reduction|PREVAREQ:Skald_CF_DamageReduction,0
+10	ABILITY:Skald Class Feature|AUTOMATIC|Skald ~ Dirge of Doom|PREVAREQ:Skald_CF_DirgeOfDoom,0
+14	ABILITY:Skald Class Feature|AUTOMATIC|Skald ~ Song of the Fallen|PREVAREQ:Skald_CF_SongOfTheFallen,0
+20	ABILITY:Skald Class Feature|AUTOMATIC|Skald ~ Master Skald|PREVAREQ:Skald_CF_MasterSkald,0
+###Block: Spellcasting
+1	CAST:0,1			KNOWN:4,2
+2	CAST:0,2			KNOWN:5,3
+3	CAST:0,3			KNOWN:6,4
+4	CAST:0,3,1			KNOWN:6,4,2
+5	CAST:0,4,2			KNOWN:6,4,3
+6	CAST:0,4,3			KNOWN:6,4,4
+7	CAST:0,4,3,1		KNOWN:6,5,4,2
+8	CAST:0,4,4,2		KNOWN:6,5,4,3
+9	CAST:0,5,4,3		KNOWN:6,5,4,4
+10	CAST:0,5,4,3,1		KNOWN:6,5,5,4,2
+11	CAST:0,5,4,4,2		KNOWN:6,6,5,4,3
+12	CAST:0,5,5,4,3		KNOWN:6,6,5,4,4
+13	CAST:0,5,5,4,3,1		KNOWN:6,6,5,5,4,2
+14	CAST:0,5,5,4,4,2		KNOWN:6,6,6,5,4,3
+15	CAST:0,5,5,5,4,3		KNOWN:6,6,6,5,4,4
+16	CAST:0,5,5,5,4,3,1	KNOWN:6,6,6,5,5,4,2
+17	CAST:0,5,5,5,4,4,2	KNOWN:6,6,6,6,5,4,3
+18	CAST:0,5,5,5,5,4,3	KNOWN:6,6,6,6,5,4,4
+19	CAST:0,5,5,5,5,5,4	KNOWN:6,6,5,6,5,5,4
+20	CAST:0,5,5,5,5,5,5	KNOWN:6,6,6,6,6,5,5
+###Block: Bardic Masterpiece activation
+1	TEMPLATE:Masterpiece Activation
+
+###Block: Slayer
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Define			Combat bonus																Save bonus																																		Modify VAR																																																																Monster Role	FACT
+CLASS:Slayer	HD:10		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.53	DEFINE:SlayerLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|SlayerLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	ROLE:Combat.Skill	FACT:ClassType|PC	FACT:Abb|Sla
+# Class Name	Skill Pts/Lvl
+CLASS:Slayer	STARTSKILLPTS:6
+1	ABILITY:Class|AUTOMATIC|Slayer
+###Block:Proficiencies
+1	ABILITY:Slayer Class Feature|AUTOMATIC|Slayer ~ Weapon and Armor Proficiency
+1	ABILITY:Slayer Class Feature|AUTOMATIC|Slayer ~ Studied Target|PREVAREQ:Slayer_CF_StudiedTarget,0
+1	ABILITY:Slayer Class Feature|AUTOMATIC|Slayer ~ Track|PREVAREQ:Slayer_CF_Track,0
+2	ABILITY:Slayer Class Feature|AUTOMATIC|Slayer ~ Slayer Talents|PREVAREQ:Slayer_CF_Talents,0
+3	ABILITY:Slayer Class Feature|AUTOMATIC|Slayer ~ Sneak Attack|PREVAREQ:Slayer_CF_SneakAttack,0
+7	ABILITY:Slayer Class Feature|AUTOMATIC|Slayer ~ Stalker|PREVAREQ:Slayer_CF_Stalker,0
+11	ABILITY:Slayer Class Feature|AUTOMATIC|Slayer ~ Swift Tracker|PREVAREQ:Slayer_CF_SwiftTracker,0
+13	ABILITY:Slayer Class Feature|AUTOMATIC|Slayer ~ Slayer's Advance|PREVAREQ:Slayer_CF_SlayersAdvance,0
+14	ABILITY:Slayer Class Feature|AUTOMATIC|Slayer ~ Quarry|PREVAREQ:Slayer_CF_Quarry,0
+19	ABILITY:Slayer Class Feature|AUTOMATIC|Slayer ~ Improved Quarry|PREVAREQ:Slayer_CF_ImprovedQuarry,0
+20	ABILITY:Slayer Class Feature|AUTOMATIC|Slayer ~ Master Slayer|PREVAREQ:Slayer_CF_MasterSlayer,0
+
+###Block: Swashbuckler
+
+# Class Name		Hit Dice	Type			Max Level	Source Page		Define								Combat bonus																Save bonus																																																	Modify VAR																																																																	Monster Role	FACT
+CLASS:Swashbuckler	HD:10		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.56	DEFINE:SlayerLVL|0	DEFINE:SwashbucklerLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|SwashbucklerLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	ROLE:Combat.Skill	FACT:ClassType|PC	FACT:Abb|Swa
+# Class Name		Skill Pts/Lvl
+CLASS:Swashbuckler	STARTSKILLPTS:4
+1	ABILITY:Class|AUTOMATIC|Swashbuckler
+1	ABILITY:Swashbuckler Class Feature|AUTOMATIC|Swashbuckler ~ Weapon and Armor Proficiency
+1	ABILITY:Swashbuckler Class Feature|AUTOMATIC|Swashbuckler ~ Panache|PREVAREQ:Swashbuckler_CF_Panache,0
+1	ABILITY:Swashbuckler Class Feature|AUTOMATIC|Swashbuckler ~ Deeds|PREVAREQ:Swashbuckler_CF_Deeds,0
+1	ABILITY:Swashbuckler Class Feature|AUTOMATIC|Swashbuckler ~ Swashbuckler Finesse|PREVAREQ:Swashbuckler_CF_SwashbucklerFinesse,0
+2	ABILITY:Swashbuckler Class Feature|AUTOMATIC|Swashbuckler ~ Charmed Life|PREVAREQ:Swashbuckler_CF_CharmedLife,0
+3	ABILITY:Swashbuckler Class Feature|AUTOMATIC|Swashbuckler ~ Nimble|PREVAREQ:Swashbuckler_CF_Nimble,0
+4	ABILITY:Swashbuckler Class Feature|AUTOMATIC|Swashbuckler ~ Bonus Feats|PREVAREQ:Swashbuckler_CF_BonusFeats,0
+5	ABILITY:Swashbuckler Class Feature|AUTOMATIC|Swashbuckler ~ Swashbuckler Weapon Training|PREVAREQ:Swashbuckler_CF_SwashbucklerWeaponTraining,0
+20	ABILITY:Swashbuckler Class Feature|AUTOMATIC|Swashbuckler ~ Swashbuckler Weapon Mastery|PREVAREQ:Swashbuckler_CF_SwashbucklerWeaponMastery,0
+
+###Block: Warpriest
+
+# Class Name	Hit Dice	Type			Max Level	Ex Class			Source Page		Define			Combat bonus																	Save bonus																																																Modify VAR																																																																		Monster Role		FACT
+CLASS:Warpriest	HD:8		TYPE:Base.PC	MAXLEVEL:20	EXCLASS:Ex-Warpriest	SOURCEPAGE:p.60	DEFINE:WarpriestLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|WarpriestLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	ROLE:Combat.Cleric	FACT:ClassType|PC	FACT:Abb|Wrp	FACT:SpellType|Divine
+# Class Name	Skill Pts/Lvl
+CLASS:Warpriest	STARTSKILLPTS:2
+# Class Name	Spell Stat		Automatically Known Spell Levels							Caster level									Use Spell List
+CLASS:Warpriest	SPELLSTAT:WIS	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6	BONUS:CASTERLEVEL|Warpriest|CL	BONUS:CASTERLEVEL|Cleric|CL	SPELLLIST:1|Cleric
+1	ABILITY:Class|AUTOMATIC|Warpriest
+###Block:Proficiencies
+1	ABILITY:Warpriest Class Feature|AUTOMATIC|Warpriest ~ Weapon and Armor Proficiency
+###Block: Spell Alignment Restrictions
+1	PROHIBITSPELL:ALIGNMENT.Good|PREDEITYALIGN:LE,NE,CE
+1	PROHIBITSPELL:ALIGNMENT.Evil|PREDEITYALIGN:LG,NG,CG
+1	PROHIBITSPELL:ALIGNMENT.Lawful|PREDEITYALIGN:CG,CN,CE
+1	PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:LG,LN,LE
+###Block: Level Progression Abilities
+1	ABILITY:Warpriest Class Feature|AUTOMATIC|Warpriest ~ Aura|PREVAREQ:Warpriest_CF_Aura,0
+1	ABILITY:Warpriest Class Feature|AUTOMATIC|Warpriest ~ Blessings|PREVAREQ:Warpriest_CF_Blessings,0
+1	ABILITY:Warpriest Class Feature|AUTOMATIC|Warpriest ~ Focus Weapon|PREVAREQ:Warpriest_CF_FocusWeapon,0
+1	ABILITY:Warpriest Class Feature|AUTOMATIC|Warpriest ~ Orisons|PREVAREQ:Warpriest_CF_Orisons,0
+1	ABILITY:Warpriest Class Feature|AUTOMATIC|Warpriest ~ Sacred Weapon|PREVAREQ:Warpriest_CF_SacredWeapon,0
+1	ABILITY:Warpriest Class Feature|AUTOMATIC|Warpriest ~ Spontaneous Casting|PREVAREQ:Warpriest_CF_SpontaneousCasting,0
+1	ABILITY:Warpriest Class Feature|AUTOMATIC|Warpriest ~ Bonus Languages|PREVAREQ:Warpriest_CF_BonusLanguages,0
+2	ABILITY:Warpriest Class Feature|AUTOMATIC|Warpriest ~ Fervor|PREVAREQ:Warpriest_CF_Fervor,0
+3	ABILITY:Warpriest Class Feature|AUTOMATIC|Warpriest ~ Bonus Feats|PREVAREQ:Warpriest_CF_BonusFeats,0
+4	ABILITY:Warpriest Class Feature|AUTOMATIC|Warpriest ~ Channel Energy|PREVAREQ:Warpriest_CF_ChannelEnergy,0
+7	ABILITY:Warpriest Class Feature|AUTOMATIC|Warpriest ~ Sacred Armor|PREVAREQ:Warpriest_CF_SacredArmor,0
+20	ABILITY:Warpriest Class Feature|AUTOMATIC|Warpriest ~ Aspect of War|PREVAREQ:Warpriest_CF_AspectOfWar,0
+###Block: Level progression
+1	CAST:3,1
+2	CAST:4,2
+3	CAST:4,3
+4	CAST:4,3,1
+5	CAST:4,4,2
+6	CAST:5,4,3
+7	CAST:5,4,3,1
+8	CAST:5,4,4,2
+9	CAST:5,5,4,3
+10	CAST:5,5,4,3,1
+11	CAST:5,5,4,4,2
+12	CAST:5,5,5,4,3
+13	CAST:5,5,5,4,3,1
+14	CAST:5,5,5,4,4,2
+15	CAST:5,5,5,5,4,3
+16	CAST:5,5,5,5,4,3,1
+17	CAST:5,5,5,5,4,4,2
+18	CAST:5,5,5,5,5,4,3
+19	CAST:5,5,5,5,5,5,4
+20	CAST:5,5,5,5,5,5,5
+
+# Class Name		Hit Dice	Type			Max Level	Source Page		Visible	Define			Combat bonus																	Save bonus																																		Modify VAR																																																																		Monster Role	FACT
+CLASS:Ex-Warpriest	HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.63	VISIBLE:NO	DEFINE:WarpriestLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|WarpriestLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	ROLE:Combat		FACT:ClassType|PC	FACT:Abb|XWrp
+# Class Name		Skill Pts/Lvl
+CLASS:Ex-Warpriest	STARTSKILLPTS:2
+###Block:Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Warpriest ~ Weapon and Armor Proficiency
+3	ABILITY:Warpriest Class Feature|AUTOMATIC|Warpriest ~ Bonus Feats|PREVAREQ:Warpriest_CF_BonusFeats,0
+
+#
+# End
+#

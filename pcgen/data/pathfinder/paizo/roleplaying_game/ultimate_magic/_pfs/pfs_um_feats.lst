@@ -1,0 +1,19 @@
+# CVS $Revision: 21421 $ $Author: evilmynex $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Ultimate Magic	SOURCESHORT:UM	SOURCEWEB:http://paizo.com/pathfinderRPG/v5748btpy8g7s	SOURCEDATE:2011-05
+# ORIGINAL ENTRY: Stefan Radermacher, Henk Slaaf, Douglas Limmer and Paul Shipley
+# ORIGINAL ENTRY DATE: Unknown
+
+#   Feats: Blighted Critical, Create Reliquary Arms and Shield, Create Sanguine Elixir are not legal for play.
+# Feat Name						Type			Visible
+# Ability Name							Type			!PRECHARACTERTYPE
+CATEGORY=FEAT|Blighted Critical.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=FEAT|Blighted Critical Mastery.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=FEAT|Create Reliquary Arms and Shields.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=FEAT|Create Sanguine Elixir.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+
+#   Discoveries: arcane builder arcane discovery, golem constructor arcane discovery, true name arcane discovery, staff-like wand arcane discovery are not legal for play.
+# Feat Name					Type							Required Ability								Required Class		Required Feat		Define			Description																																																			Stackable?	Multiple?	Choose								Selections	Ability								Bonus Ability Pool																																																																				Modify VAR						Source Page		Benefits
+CATEGORY=FEAT|Discovery (Arcane Builder).MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=FEAT|Discovery (Golem Constructor).MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=FEAT|Discovery (True Name).MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=FEAT|Discovery (Staff-Like Wand).MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC

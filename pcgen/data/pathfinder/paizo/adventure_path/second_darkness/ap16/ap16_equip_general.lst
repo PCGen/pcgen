@@ -1,0 +1,11 @@
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:Second Darkness, Chapter 4 - Endless Night	SOURCESHORT:AP16	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy85er	SOURCEDATE:2008-11
+
+# Equipment Name					Output Name						Type					Cost		Weight	Source Page
+Fleshcrafting Poison (Antennae)		OUTPUTNAME:[NAME] Fleshcrafting Poison	TYPE:Magic.Potion.Consumable	COST:750	WT:0		SOURCEPAGE:p.63
+Fleshcrafting Poison (Blinding Spittle)	OUTPUTNAME:[NAME] Fleshcrafting Poison	TYPE:Magic.Potion.Consumable	COST:900	WT:0		SOURCEPAGE:p.63
+Fleshcrafting Poison (Burrowing Claws)	OUTPUTNAME:[NAME] Fleshcrafting Poison	TYPE:Magic.Potion.Consumable	COST:1000	WT:0		SOURCEPAGE:p.63
+Fleshcrafting Poison (Chitinous Skin)	OUTPUTNAME:[NAME] Fleshcrafting Poison	TYPE:Magic.Potion.Consumable	COST:1200	WT:0		SOURCEPAGE:p.63
+Fleshcrafting Poison (Poison Fangs)		OUTPUTNAME:[NAME] Fleshcrafting Poison	TYPE:Magic.Potion.Consumable	COST:2250	WT:0		SOURCEPAGE:p.63
+Fleshcrafting Poison (Retractable Spines)	OUTPUTNAME:[NAME] Fleshcrafting Poison	TYPE:Magic.Potion.Consumable	COST:600	WT:0		SOURCEPAGE:p.63
+Fleshcrafting Poison (Stinging Tail)	OUTPUTNAME:[NAME] Fleshcrafting Poison	TYPE:Magic.Potion.Consumable	COST:3500	WT:0		SOURCEPAGE:p.63

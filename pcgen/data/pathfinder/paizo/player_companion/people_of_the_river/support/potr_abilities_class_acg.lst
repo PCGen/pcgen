@@ -1,0 +1,6 @@
+SOURCELONG:People of the River	SOURCESHORT:PotR	SOURCEWEB:http://paizo.com/products/btpy978r?Pathfinder-Player-Companion-People-of-the-River	SOURCEDATE:2014-08
+
+
+###Block: Arcanist Bloodline Development Exploit -- Goes in ACG or ACG support _abilities_class.lst
+
+Nanite Bloodline		CATEGORY:Arcanist Bloodline Development		TYPE:SorcererBloodlineChoice		BONUS:VAR|Sorcerer_Nanite_BloodlineLVL|1|!PREABILITY:1,CATEGORY=Sorcerer Bloodline,Nanite Bloodline|!PREABILITY:1,CATEGORY=Crossblooded Bloodline,Nanite Bloodline		BONUS:VAR|Sorcerer_Nanite_BloodlineLVL|ArcanistLVL|PREMULT:1,[PREABILITY:1,CATEGORY=Sorcerer Bloodline,Nanite Bloodline],[PREABILITY:1,CATEGORY=Crossblooded Bloodline,Nanite Bloodline]		BONUS:VAR|Sorcerer_Nanite_BloodlinePower1LVL|1|!PREABILITY:1,CATEGORY=Sorcerer Bloodline,Nanite Bloodline|!PREABILITY:1,CATEGORY=Crossblooded Bloodline,Nanite Bloodline		ABILITY:Special Ability|AUTOMATIC|TYPE=Nanite Bloodline ~ Power LVL 01		ABILITY:Special Ability|AUTOMATIC|Sorcerer Bloodline ~ Nanite

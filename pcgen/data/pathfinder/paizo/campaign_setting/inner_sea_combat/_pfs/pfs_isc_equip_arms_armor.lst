@@ -1,0 +1,8 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+
+# Equipment Name			Type			!PRECHARACTERTYPE
+Backbreaker Mail.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Crag Linnorm Plate.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Mammoth Hide.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Numerian Resistance Plate.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Shadowbound Chains.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC

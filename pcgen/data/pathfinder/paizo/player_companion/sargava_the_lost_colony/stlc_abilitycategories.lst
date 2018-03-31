@@ -1,0 +1,14 @@
+# CVS $Revision: 19663 $ $Author: amaitland $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+#SOURCELONG:Sargava, the Lost Colony	SOURCESHORT:STLC	SOURCEWEB:http://paizo.com/pathfinder/pathfinderCompanion/pathfinderRPG/v5748btpy8ey2	SOURCEDATE:2010-07
+# Original Entry by: Stefan Radermacher
+
+# These objects are temporary stand-ins for objects that will move to the dataset for the revised book
+# "Pathfinder Campaign Setting World Guide: The Inner Sea" upon release of that dataset.
+
+###Block: Background Ability Categories
+# Ability Category		Visible		Editable?		Change Pool?	Fractional values?	Category of Object	Type of Object	Plural description for UI	Display Location
+ABILITYCATEGORY:Mwangi Tribe	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Background	TYPE:MwangiTribe	PLURAL:Mwangi Tribes		DISPLAYLOCATION:Background
+
+#
+# End
+#

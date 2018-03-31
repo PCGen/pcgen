@@ -1,0 +1,13 @@
+# CVS $Revision: 21421 $ $Author: evilmynex $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Ultimate Magic	SOURCESHORT:UM	SOURCEWEB:http://paizo.com/pathfinderRPG/v5748btpy8g7s	SOURCEDATE:2011-05
+# ORIGINAL ENTRY: Stefan Radermacher, Henk Slaaf, Douglas Limmer, Paul Shipley
+# ORIGINAL ENTRY DATE: Unknown
+
+# Spell Name							Type		Classes of caster					School							Descriptor			Components	Casting Time			Range				Target Area or Effect			Duration							Save Info							Spell Resistance		Required Ability													Source Page		Source Pub Link															Description
+Burst Fire Blast							TYPE:Arcane	CLASSES:Magus,Sorcerer,Wizard=3		SCHOOL:Evocation						DESCRIPTOR:Fire		COMPS:V,S,M	CASTTIME:1 standard action	RANGE:Close			TARGETAREA:10-foot radius burst	DURATION:Instantaneous					SAVEINFO:Reflex half					SPELLRES:Yes		PREABILITY:2,CATEGORY=Words of Power,Burst,Fire Blast							SOURCEPAGE:p.165	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/ultimateMagicWordsOfPower.html#examples	DESC:Deals (min(10,CASTERLEVEL))d6 fire damage in 10 foot burst.
+Selected Ice Blast Life Leech					TYPE:Arcane	CLASSES:Magus,Sorcerer,Witch,Wizard=6	SCHOOL:Evocation|Necromancy				DESCRIPTOR:Cold|Evil	COMPS:V,S,M	CASTTIME:1 standard action	RANGE:Close or Touch	TARGETAREA:Ray or touch attack	DURATION:Instantaneous and (CASTERLEVEL) hours	SAVEINFO:Reflex or Fortitude partial (see text)	SPELLRES:Yes		PREABILITY:3,CATEGORY=Words of Power,Selected,Ice Blast,Life Leech				SOURCEPAGE:p.165	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/ultimateMagicWordsOfPower.html#examples	DESC:Deals (min(10,CASTERLEVEL))d6 cold damage, entangles target for 1d4 rounds, and gives 1d4 temporary negative levels.
+Selected Alignment Shield Enhance Form Grave Bane	TYPE:Divine	CLASSES:Cleric=6					SCHOOL:Abjuration|Necromancy|Transmutation					COMPS:V,S,M	CASTTIME:1 standard action	RANGE:Close or Touch	TARGETAREA:Ray or touch attack	DURATION:(CASTERLEVEL) rounds				SAVEINFO:Will negates (harmless)			SPELLRES:Yes (harmless)	PREABILITY:4,CATEGORY=Words of Power,Selected,Alignment Shield,Enhance Form,Grave Bane	SOURCEPAGE:p.165	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/ultimateMagicWordsOfPower.html#examples	DESC:Grants +2 to AC and saves when attacked by chosen alignment type, +4 Strength, Dexterity, or Constitution, and +4 on saves vs. death magic; subject cannot gain negative levels and is automatically stabilized.
+
+#
+# End
+#

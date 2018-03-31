@@ -1,0 +1,61 @@
+CAMPAIGN:Kobolds of Golarion
+GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing.Pathfinder Player Companion
+RANK:3
+STATUS:BETA
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder|Golarion
+PRECAMPAIGN:4,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+SOURCELONG:Pathfinder Player Companion: Kobolds of Golarion
+SOURCESHORT:KOG
+SOURCEWEB:http://paizo.com/products/btpy8yw0
+SOURCEDATE:2013-06
+ISOGL:YES
+
+COVER:kobolds_of_golarion.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy8yw0|Buy this publication from Paizo Publishing!
+DESC:Dwelling underground in the dark and twisting sprawl of their tunnels, kobolds make unlikely heroes. Pathfinder Player Companion: Kobolds of Golarion unlocks the potential of this cunning and skilled race, showing how the talents kobolds have trained in since birth--trapmaking, teamwork, and sneakiness--make them excellent dungeon delvers. Unlike some of the less intelligent creatures that share the Darklands with them, kobolds make allies among the surface races and exert influence in many of Golarion's cities. Though they're limited within their rigid tribal rules, kobolds have the ambition of dragons!
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder Player Companion: Kobolds of Golarion Copyright 2013, Paizo Publishing, LLC; Authors: Written by Tork Shaw, Mat Smith, and Jerome Virnich.
+
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Kobolds of Golarion" Copyright 2016, PCGen Data Team (including, but not limited to Gwen T.)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# Data files
+ABILITY:kog_abilities.lst
+ABILITY:kog_abilities_race.lst
+ABILITYCATEGORY:kog_abilitycategories.lst
+ABILITY:kog_abilities_class.lst
+DEITY:kog_deities.lst
+DOMAIN:kog_domains.lst
+EQUIPMENT:kog_equip_arms_armor.lst
+EQUIPMENT:kog_equip_general.lst
+ABILITY:kog_feats.lst
+KIT:kog_kits.lst
+SPELL:kog_spells.lst
+
+
+# ENTRY DATE: 2016-05-09
+# LST MONKEY: Gwen T. (evilpixie87)
+# LICENSE MONKEY: Paul Grosse
+# RELEASE REVIEW #
+# BETA: Andrew Maitland 2016-07-19
+# RELEASE:
+# Built for PCGen Version: 6.06.01
+# Updated to work with version: -
+# MINVER:6.6
+# MINDEVVER:6.06.1
+# COMMENTS:
+

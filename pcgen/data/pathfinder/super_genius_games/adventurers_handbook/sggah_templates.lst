@@ -1,0 +1,24 @@
+# CVS $Revision: $ $Author: $ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+SOURCELONG:Adventurer's Handbook: Genius Guide Volume 1	SOURCESHORT:SGGAH	SOURCEDATE:2010-04
+# Original Entry by: Paul Shipley (elro the onk)
+
+###Block: Headbutt templates to add headbutt natural attack
+# Template Name		Visible	!PREEQUIP			Required Size	Natural Attacks
+Head Butt ~ Small		VISIBLE:NO	!PREEQUIP:1,Head Butt	PRESIZEEQ:S		NATURALATTACKS:Head Butt,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d2
+Head Butt ~ Medium	VISIBLE:NO	!PREEQUIP:1,Head Butt	PRESIZEEQ:M		NATURALATTACKS:Head Butt,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d3
+Head Butt ~ Large		VISIBLE:NO	!PREEQUIP:1,Head Butt	PRESIZEEQ:L		NATURALATTACKS:Head Butt,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d4
+
+###Block: Template for sorcerer stone bloodline
+# Template Name	Race Subtype
+Earthborn		RACESUBTYPE:Earth
+
+###Block: New templates
+# Template Name		Damage Reduction				Source Page		Define									Required Race							Bonus DR													Misc bonus			Save bonus			Modify VAR																																		Ability																		Auto Language		Race Subtype
+Arctic									SOURCEPAGE:p.95																																																																													ABILITY:Special Ability|AUTOMATIC|Cold Resistance ~ Arctic|Fire Vulnerability ~ Arctic|Snowy Adaptation ~ Arctic
+Cold-Iron Elemental							SOURCEPAGE:p.95	DEFINE:NoEarthMastery|0	DEFINE:NoEarthGlide|0			PRERACE:2,RACESUBTYPE=Earth,RACESUBTYPE=Elemental															BONUS:MISC|SR|5+HD					BONUS:VAR|NoEarthMastery|1	BONUS:VAR|NoEarthGlide|1																										ABILITY:Special Ability|AUTOMATIC|Cold Iron Attacks ~ Cold Iron Elemental
+Ice Elemental								SOURCEPAGE:p.95	DEFINE:NoEarthMastery|0							PRERACE:2,RACESUBTYPE=Earth,RACESUBTYPE=Elemental																							BONUS:VAR|NoEarthMastery|1																															ABILITY:Special Ability|AUTOMATIC|Freeze ~ Ice Elemental										AUTO:LANG|.CLEAR|Aquan	RACESUBTYPE:.REMOVE.Earth|Cold
+Ironskinned			DR:1/adamantine|PREVARGTEQ:TL,6	SOURCEPAGE:p.96	DEFINE:AcidResistanceBonus|0	DEFINE:IronskinnedBonus|0										BONUS:DR|adamantine|1|PREVARGTEQ:TL,11	BONUS:DR|adamantine|1|PREVARGTEQ:TL,21					BONUS:SAVE|Reflex|-2	BONUS:VAR|AcidResistanceBonus|3+IronskinnedBonus|TYPE=Resistance	BONUS:VAR|IronskinnedBonus|2|PREVARGTEQ:TL,6	BONUS:VAR|IronskinnedBonus|5|PREVARGTEQ:TL,11	BONUS:VAR|IronskinnedBonus|5|PREVARGTEQ:TL,21	ABILITY:Special Ability|AUTOMATIC|Resistance to Acid|Thick Build ~ Ironskinned|Vulnerability to Sonic
+
+###Block: Templates for unbreathing subtype
+# Template Name		Visible	Define				Required Race							Prohibited Race			Modify VAR								Ability
+Unbreathing Subtype	VISIBLE:YES	DEFINE:ColdResistanceBonus|0	PRERACE:1,RACETYPE=Magical Beast,RACETYPE=Humanoid	!PRERACE:1,RACESUBTYPE=Fire	BONUS:VAR|ColdResistanceBonus|TL|TYPE=Resistance	ABILITY:Special Ability|AUTOMATIC|Healing Resistance ~ Unbreathing|Still Breath ~ Unbreathing|Undead-like ~ Unbreathing

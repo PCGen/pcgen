@@ -1,0 +1,60 @@
+# CVS $Revision: $ $Author: $ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+SOURCELONG:Skull and Shackles, Chapter 1 - The Wormwood Mutiny	SOURCESHORT:AP55	SOURCEWEB:http://paizo.com/products/btpy8rcc?Pathfinder-Adventure-Path-55-The-Wormwood-Mutiny	SOURCEDATE:2012-04
+# ORIGINAL ENTRY: Vincent Lhote
+# ORIGINAL ENTRY DATE: 2012-08
+
+###Block: Familiars --------------------------------------
+
+STARTPACK:Familiar ~ Osprey	TYPE:Familiar	VISIBLE:NO
+STAT:DEX=11|STR=10|CON=11|INT=10|WIS=10|CHA=11
+SKILL:Perception	RANK:1
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+
+STARTPACK:Familiar ~ Snail kite	TYPE:Familiar	VISIBLE:NO
+STAT:DEX=11|STR=10|CON=11|INT=10|WIS=10|CHA=11
+SKILL:Perception	RANK:1
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+
+STARTPACK:Familiar ~ Toucan	TYPE:Familiar	VISIBLE:NO
+STAT:DEX=11|STR=10|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Perception	RANK:1
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+
+STARTPACK:Familiar ~ Parrot	TYPE:Familiar	VISIBLE:NO
+STAT:DEX=11|STR=10|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Perception	RANK:1
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+
+STARTPACK:Familiar ~ Sea krait	TYPE:Familiar	VISIBLE:NO
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+SKILL:Perception	RANK:1
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+
+STARTPACK:Familiar ~ Mongoose	TYPE:Familiar	VISIBLE:NO
+STAT:STR=11|DEX=11|CHA=11|CON=10|INT=10|WIS=10
+SKILL:Escape Artist	RANK:1
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+
+
+STARTPACK:Familiar ~ Dodo	TYPE:Familiar	VISIBLE:NO
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+#Str 3, Dex 11, Con 14, Int 2, Wis 9, Cha 6
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+#Skills Perception +3
+
+STARTPACK:Familiar ~ Dwarf Caiman	TYPE:Familiar	VISIBLE:NO
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+#Str 10, Dex 11, Con 15, Int 2, Wis 11, Cha 2
+ABILITY:CATEGORY=FEAT|Skill Focus (Stealth)
+#Skills Stealth +11 (+19 in water), Swim +8; Racial Traits +8 Stealth in water
+
+STARTPACK:Familiar ~ Giant Isopod	TYPE:Familiar	VISIBLE:NO
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+#Str 5, Dex 9, Con 14, Int -, Wis 10, Cha 2
+#Skills Perception +4, Swim +5; Racial Modifiers +4 Perception
+
+
+STARTPACK:Familiar ~ Seal	TYPE:Familiar	VISIBLE:NO
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+#Str 10, Dex 13, Con 11, Int 2, Wis 13, Cha 6
+#Skills Perception +5, Swim +8; Racial Modifiers +4 Perception

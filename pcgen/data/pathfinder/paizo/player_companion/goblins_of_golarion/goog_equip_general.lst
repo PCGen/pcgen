@@ -1,0 +1,14 @@
+# CVS $Revision: $ $Author: $ -- Thu Sep 26 01:19:49 2013 -- reformated by prettylst.pl v1.50 (build 21406)
+SOURCELONG:Goblins of Golarion	SOURCESHORT:GOOG	SOURCEWEB:http://paizo.com/products/btpy8mfk?Pathfinder-Player-Companion-Goblins-of-Golarion	SOURCEDATE:2011-07
+#ORIGINAL ENTRY: Eric C. Smith (maredudd AT blackroot DOT org)
+#ORIGINAL ENTRY DATE: 2013/07/14
+
+
+# Equipment Name		Output Name				Type						Cost		Weight	Source Page
+Caltrops (Vicious)	OUTPUTNAME:Caltrops, [NAME]	TYPE:Goods.General			COST:50	WT:4		SOURCEPAGE:p.12
+Fangfile								TYPE:Goods.Tool				COST:3	WT:2		SOURCEPAGE:p.12
+Fetish (Tribal)							TYPE:Fetish.MaterialComponent.Focus	COST:5	WT:0		SOURCEPAGE:p.12
+Fire Carrier							TYPE:Goods.General			COST:0.1	WT:1		SOURCEPAGE:p.12
+Goblin Pickles (Jar)						TYPE:Goods.Food				COST:0.4	WT:1		SOURCEPAGE:p.12
+Pig Grease								TYPE:Goods.Liquid				COST:0.1	WT:1		SOURCEPAGE:p.12
+Tossglove								TYPE:Glove					COST:0.1	WT:1		SOURCEPAGE:p.12

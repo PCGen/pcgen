@@ -1,0 +1,16 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec  2 17:52:53 2014 -- reformated by prettylst.pl v1.51 (build 25490)
+SOURCELONG:Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEWEB:http://paizo.com/pathfinder/companion/35E/v5748btpy84en	SOURCEDATE:2008-08
+
+
+###Block: Liberator Abilities
+# Ability Name			Unique Key					Output Name				Category of Ability		Type								Visible	Define					Description																																																																Source Page
+Freedom of Movement		KEY:Freedom of Movement ~ Liberator						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.ModifyMovement	VISIBLE:YES							DESC:The liberator's focus against slavery and restriction to mobility develops into a potent resistance to restraint. He is now treated as if under the effects of a freedom of movement spell at all times. This ability cannot be dispelled. Once per day, he can also use freedom of movement as a spell-like ability (caster level equals his class level) to share this benefit with others.
+To the Rescue														CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural											DESC:The sight of a liberator staging a daring rescue proves inspirational to his allies ~ %1 rounds|CHA+3																																																SOURCEPAGE:p.22
+Liberator Poison Resistance							OUTPUTNAME:Poison Resistance	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary					DEFINE:LiberatorPoisonResistance|0	DESC:A liberator purposefully exposes himself to a variety of venoms in order to build up a resistance to such toxins ~ +%1|LiberatorPoisonResistance																																									SOURCEPAGE:p.22
+Lockbreaker															CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary					DEFINE:LiberatorLockbreakerBonus|0	DESC:+%1 to checks made to escape bindings, shackles, and other restraints|LiberatorLockbreakerBonus																																																	SOURCEPAGE:p.22
+#BONUS:SKILL|Open Lock|LiberatorLockbreakerBonus
+Silent Sunder														CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary											DESC:A liberator learns methods of applying force and striking objects in such a way as to minimize noise																																																SOURCEPAGE:p.22
+Slaver's Ruin														CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary											DESC:The sight of imprisonment and slavery can drive a liberator into a righteous frenzy																																																			SOURCEPAGE:p.22
+Greater Sunder														CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary																																																																												SOURCEPAGE:p.23
+Steely Resolve														CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary											DESC:A liberator fears magical domination more than anything else, for the enslavement of the mind is difficult to detect and remove																																											SOURCEPAGE:p.23
+Quick Pick															CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary											DESC:There's not always time to properly pick a lock, and sometimes liberators have to improvise.																																																	SOURCEPAGE:p.23

@@ -1,0 +1,92 @@
+# CVS $Revision: 21490 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
+# ORIGINAL ENTRY DATE: 2012-02-03
+
+# Ability Category							Visible		Editable?		Change Pool?	Fractional values?	Base Pool number					Category of Object		Type of Object							Specific choices list																									Plural description for UI			Display Location
+ABILITYCATEGORY:Choose Attack Rolls Stat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO													CATEGORY:Internal			TYPE:AttackStatChoice																																									DISPLAYLOCATION:Class Features
+# Ability Category							Visible		Editable?		Change Pool?	Fractional values?	Base Pool number					Category of Object		Type of Object							Specific choices list																									Plural description for UI			Display Location
+ABILITYCATEGORY:Spellslinger Gun Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO													CATEGORY:Special Ability										ABILITYLIST:Arcane Gun ~ Display																														DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Spellslinger Opposition School Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO													CATEGORY:Special Ability										ABILITYLIST:School of the Gun ~ Display																													DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Arcane Bomber Opposition School Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO													CATEGORY:Special Ability										ABILITYLIST:School of the Bomb ~ Display																													DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Siege Mage Opposition School Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO													CATEGORY:Special Ability										ABILITYLIST:Siege School ~ Display																														DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Unarmed Fighter Bonus Style Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:UnarmedFighterStyle																																	PLURAL:Unarmed Fighter Bonus Style Feats	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Gladiator Bonus Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:FEAT			TYPE:Combat.Performance																																		PLURAL:Gladiator Bonus Feats			DISPLAYLOCATION:Feats
+
+
+# Gunslinger
+ABILITYCATEGORY:Gun Training Choice					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability										ABILITYLIST:Gunslinger ~ Gun Training Choice																					PLURAL:Gun Training Choices			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Gunslinger Feat					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_GunslingerBonusFeat			CATEGORY:FEAT			TYPE:GunslingerFeat.Combat.Grit																																PLURAL:Gunslinger Feats				DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Gunslinger Battered Gun			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO										CATEGORY:Special Ability										ABILITYLIST:Gunslinger Battered Gun																																						DISPLAYLOCATION:Class Features
+
+# Added with ACG - Grants choice of Dare or Feat
+ABILITYCATEGORY:Gunslinger Bonus Feat Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_GunslingerBonusFeatPoolChoice	CATEGORY:Internal			TYPE:Gunslinger Bonus Feat Selection																																						DISPLAYLOCATION:Feats
+
+# Samurai
+ABILITYCATEGORY:Samurai Order						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:SamuraiOrder.CavalierOrder																																PLURAL:Samurai Orders				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Samurai Feat						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:FEAT			TYPE:SamuraiFeat.Combat																																		PLURAL:Samurai Feats				DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Samurai Expertise					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability										ABILITYLIST:Samurai Expertise Selection																													DISPLAYLOCATION:Class Features
+
+
+# Ninja
+ABILITYCATEGORY:Ninja Trick						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:Ninjatrick																																			PLURAL:Ninja Tricks				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Advanced Ninja Trick				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:AdvancedNinjaTrick																																		PLURAL:Ninja Tricks				DISPLAYLOCATION:Class Features
+
+
+# Archetype Support
+ABILITYCATEGORY:Gunslinger Archetype				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Archetype		TYPE:GunslingerArchetype																																	PLURAL:Gunslinger Archetypes			DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Samurai Archetype					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Archetype		TYPE:SamuraiArchetype																																		PLURAL:Samurai Archetypes			DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Ninja Archetype					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Archetype		TYPE:NinjaArchetype																																		PLURAL:Ninja Archetypes				DISPLAYLOCATION:Archetype
+
+ABILITYCATEGORY:Crusader Feat						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:CrusaderBonusFeat																																		PLURAL:Crusader Feats				DISPLAYLOCATION:Feats
+# Monk
+ABILITYCATEGORY:Flowing Monk Bonus Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:FlowingMonkBonusFeat																																								DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Maneuver Master Bonus Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat.MonkBonusFeat																																					DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Master Of Many Styles Bonus Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:MasterOfManyStylesBonusFeat																																							DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Sohei Bonus Feat					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:SoheiBonusFeat.MonkBonusFeat																																							DISPLAYLOCATION:Feats
+#
+ABILITYCATEGORY:Sohei Weapon Training I				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability										ABILITYLIST:Weapon Training 1 Bows|Weapon Training 1 Crossbows|Weapon Training 1 Monk|Weapon Training 1 Pole Arms|Weapon Training 1 Spears|Weapon Training 1 Thrown	PLURAL:Sohei Weapon Training I		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Sohei Weapon Training II				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability										ABILITYLIST:Weapon Training 2 Bows|Weapon Training 2 Crossbows|Weapon Training 2 Monk|Weapon Training 2 Pole Arms|Weapon Training 2 Spears|Weapon Training 2 Thrown	PLURAL:Sohei Weapon Training II		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Sohei Weapon Training III				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability										ABILITYLIST:Weapon Training 3 Bows|Weapon Training 3 Crossbows|Weapon Training 3 Monk|Weapon Training 3 Pole Arms|Weapon Training 3 Spears|Weapon Training 3 Thrown	PLURAL:Sohei Weapon Training III		DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Tetori Bonus Feat					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:TetoriBonusFeat																																									DISPLAYLOCATION:Feats
+
+
+ABILITYCATEGORY:Emissary Bonus Feat					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:FEAT			TYPE:Combat								ABILITYLIST:Endurance|Fleet|Run																														DISPLAYLOCATION:Feats
+
+# TODO: Set up the feats as Abilities with full PRExxx; Currently Bonus Feat isn't selectable till all the other feats have been taken.
+ABILITYCATEGORY:Gendarme Bonus Feat					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:FEAT												ABILITYLIST:Improved Bull Rush|Mounted Combat|Power Attack|Ride-By Attack|Spirited Charge|Spring Attack|Unseat|Gundarme Bonus Feat														DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Tactician Bonus Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:FEAT			TYPE:Teamwork.Combat						ABILITYLIST:Skill Focus																																DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Swift Powder Choice					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:FEAT												ABILITYLIST:Rapid Reload (musket)|Rapid Reload (pistol)																										DISPLAYLOCATION:Feats
+
+
+ABILITYCATEGORY:Amateur Gunslinger					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:FEAT												ABILITYLIST:Amateur Gunslinger|Extra Grit																													DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Teamwork Feat Selection				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:FEAT			TYPE:Teamwork																																										DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Spellbreaker Arcane Defense			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Special Ability										ABILITYLIST:SPELLBREAKER Arcane Defense Choice																												DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Spellbreaker Impervious Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Special Ability										ABILITYLIST:SPELLBREAKER Impervious Choice																												DISPLAYLOCATION:Class Features
+
+
+
+ABILITYCATEGORY:Ape Shaman Feat					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:FEAT												ABILITYLIST:Diehard|Endurance|Great Fortitude|Improved Bull Rush|Toughness																							DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Bat Shaman Feat					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:FEAT												ABILITYLIST:Acrobatic|Agile Maneuvers|Improved Initiative|Lightning Reflexes|Skill Focus (Perception)																			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Boar Shaman Feat					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:FEAT												ABILITYLIST:Bleeding Critical|Blind-Fight|Diehard|Improved Overrun																								DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Wild Stalker Wild Talent				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:WILDSTALKERWildTalent																																								DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Rapid Reload						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:FEAT												ABILITYLIST:Rapid Reload																															DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Rogue Advanced Talent				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:RogueAdvancedTalent																																	PLURAL:Rogue Advanced Talents			DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Guided Hand Selection				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Internal												ABILITYLIST:Guided Hand ~ Melee|Guided Hand ~ Ranged																											DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Gunslinger Class Feature				VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO													CATEGORY:Special Ability	TYPE:GunslingerClassFeatures.Gunslinger Class Feature																													PLURAL:Gunslinger Class Features		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Ninja Class Feature					VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO													CATEGORY:Special Ability	TYPE:NinjaClassFeatures.Ninja Class Feature																														PLURAL:Ninja Class Features			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Samurai Class Feature				VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO													CATEGORY:Special Ability	TYPE:SamuraiClassFeatures.Samurai Class Feature																														PLURAL:Samurai Class Features			DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Terrain Mastery					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO													CATEGORY:Special Ability	TYPE:Terrain Mastery																																		PLURAL:Terrain Mastery				DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Controlled Rage Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO													CATEGORY:Special Ability	TYPE:Controlled Rage Choice																																								DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Controlled Rage Allocation			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO													CATEGORY:Special Ability	TYPE:Controlled Rage Allocation																																							DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Temp Ninja Trick					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_Temp_Ninja_Trick			CATEGORY:Special Ability	TYPE:NinjaTrickOnly																																		PLURAL:Ninja Tricks				DISPLAYLOCATION:Class Features

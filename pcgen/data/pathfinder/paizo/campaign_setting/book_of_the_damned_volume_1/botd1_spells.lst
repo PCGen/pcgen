@@ -1,0 +1,16 @@
+# CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Princes of Darkness, Book of the Damned, Volume 1	SOURCESHORT:BOTD1	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8a6f	SOURCEDATE:2009-10
+# Original Entry by: Stefan Radermacher
+
+###Block: Spell
+# Spell Name	Type				Classes of caster					School			Sub-School		Descriptor				Components		Casting Time			Range			Target Area or Effect							Duration								Save Info				Spell Resistance	Source Page		Description																						FACT
+Agonize		TYPE:Arcane.Divine	CLASSES:Cleric=3|Sorcerer,Wizard=4		SCHOOL:Evocation					DESCRIPTOR:Evil			COMPS:V, S		CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One conjured outsider or elemental (see text)	DURATION:1 full round						SAVEINFO:Fortitude negates	SPELLRES:Yes	SOURCEPAGE:p.46	DESC:You afflict a creature you have conjured with a calling spell with bolts of vicious energy to make it more pliant to your will.
+Hellfire Ray	TYPE:Arcane.Divine	CLASSES:Cleric,Sorcerer,Wizard=6		SCHOOL:Evocation					DESCRIPTOR:Evil			COMPS:V, S, DF/F	CASTTIME:1 standard action	RANGE:Close		TARGETAREA:Ray								DURATION:Instantaneous						SAVEINFO:None (see text)	SPELLRES:Yes	SOURCEPAGE:p.46	DESC:A blast of hellfire blazes from your hands and deals (min(15,CASTERLEVEL))d6 points of damage.
+Maledication	TYPE:Divine			CLASSES:Cleric=4					SCHOOL:Necromancy										COMPS:V, S		CASTTIME:1 standard action	RANGE:Touch		TARGETAREA:1 creature touched						DURATION:1 minute and instantaneous (see text)		SAVEINFO:Will negates		SPELLRES:Yes	SOURCEPAGE:p.46	DESC:Target's soul is damned to hell and cannot be resurrected if killed while the spell lasts.
+Sacrifice		TYPE:Arcane.Divine	CLASSES:Cleric,Sorcerer,Wizard=4		SCHOOL:Enchantment	SUBSCHOOL:Charm	DESCRIPTOR:Mind-Affecting	COMPS:V, S, M	CASTTIME:1 minute			RANGE:Close		TARGETAREA:1 summoned outsider or elemental (see text)	DURATION:instantaneous, 1 hour or 1 day (see text)	SAVEINFO:None			SPELLRES:No		SOURCEPAGE:p.47	DESC:You make a sacrifice to aid in conjuring and commanding a creature called with planar ally, planar binding, or a similar spell.	FACT:CompMaterial|(see text)
+Vision of Hell	TYPE:Arcane.Divine	CLASSES:Bard,Cleric,Sorcerer,Wizard=3	SCHOOL:Illusion		SUBSCHOOL:Glamer	DESCRIPTOR:Evil			COMPS:V, M							RANGE:Medium	TARGETAREA:50-ft.-radius emanation					DURATION:(CASTERLEVEL) minutes (D)				SAVEINFO:Will Negates		SPELLRES:No		SOURCEPAGE:p.47	DESC:You overlay a realistic illusion of a terrifying hellscape upon an area, causing creatures to be shaken.					FACT:CompMaterial|(a pinch of brimstone)
+
+###Block: Monster Support
+
+# Spell Name
+Teleport (Greater).COPY=Greater Teleport (Self Plus 50 Lbs. Of Objects Only)

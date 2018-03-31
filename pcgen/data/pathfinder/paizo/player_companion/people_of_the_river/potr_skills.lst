@@ -1,0 +1,17 @@
+# CVS $Revision: $ $Author: $ -- Sun Sep  4 16:33:31 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:People of the River	SOURCESHORT:PotR	SOURCEWEB:http://paizo.com/products/btpy978r?Pathfinder-Player-Companion-People-of-the-River	SOURCEDATE:2014-08
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 27 April 2017
+
+Bluff.MOD				SITUATION:Sow suspicion, hatred, or animosity
+Diplomacy.MOD			SITUATION:Sow suspicion, hatred, or animosity
+Diplomacy.MOD			SITUATION:With aristocrats and nobles
+Intimidate.MOD			SITUATION:With commoners
+Knowledge (engineering).MOD	SITUATION:ID creatures with robot subtype
+Knowledge (engineering).MOD	SITUATION:ID relics of Numerian technology
+Perception.MOD			SITUATION:Opposed
+Sense Motive.MOD			SITUATION:Against fey.
+Stealth.MOD				SITUATION:In calm or rough water
+Survival.MOD			SITUATION:Forage in or near rivers and streams
+Swim.MOD				SITUATION:In calm or rough water
+Swim.MOD				SITUATION:In rivers and streams

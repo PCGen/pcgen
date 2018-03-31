@@ -1,0 +1,57 @@
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+CAMPAIGN:Blood of the Night
+GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing.Pathfinder Player Companion
+RANK:3
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder|Golarion
+STATUS:BETA
+PRECAMPAIGN:4,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Bestiary 2,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://www.paizo.com
+SOURCELONG:Pathfinder Player Companion: Blood of the Night
+SOURCESHORT:BOTN
+SOURCEWEB:http://paizo.com/products/btpy8v33
+SOURCEDATE:2012-02
+ISOGL:YES
+
+COVER:blood_of_the_night.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy8v33|Buy this publication from Paizo Publishing!
+DESC:Inherit the night and reclaim the power that is rightfully yours! Fight off the vampiric hordes that threaten the safety of humanity, or join their undead ranks in your pursuit of unholy strength. Will you vanquish the blood-sucking villains that seek to rule the streets beneath the cover of darkness? Or will your undead heritage prove that you are more monster than mortal? While others sleep, you find renewed vigor beneath the starlit sky, and whether you seek the blood of the living or the dead, one thing remains certain: the hunt is on.
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder Player Companion: Blood of the Night Copyright 2012, Paizo Publishing, LLC; Author: Tork Shaw
+COPYRIGHT:PCGen dataset conversion for "Player Companion: Blood of the Night" Copyright 2016, PCgen Data team (including, but not limited to Gwen T.)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# Data files
+
+ABILITY:botn_abilities_race.lst
+ABILITY:botn_feats.lst
+ABILITYCATEGORY:botn_abilitycategories.lst
+EQUIPMENT:botn_equip_general.lst
+SPELL:botn_spells.lst
+TEMPLATE:botn_templates.lst
+
+# ENTRY DATE: 2016-04-13
+# LST MONKEY: Gwen T.
+# LICENSE MONKEY: Paul Grosse
+# RELEASE REVIEW #
+# BETA: Andrew Maitland for 6.06.01
+# RELEASE:
+# Built for PCGen Version: 6.06.01
+# Updated to work with version: -
+# MINVER:6.6
+# MINDEVVER:6.06.1
+# COMMENTS:
+

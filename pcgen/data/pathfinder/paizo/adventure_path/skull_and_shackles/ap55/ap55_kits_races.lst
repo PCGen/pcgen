@@ -1,0 +1,102 @@
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+SOURCELONG:Skull and Shackles, Chapter 1 - The Wormwood Mutiny	SOURCESHORT:AP55	SOURCEWEB:http://paizo.com/products/btpy8rcc?Pathfinder-Adventure-Path-55-The-Wormwood-Mutiny	SOURCEDATE:2012-04
+# ORIGINAL ENTRY: James Dempsey
+# ORIGINAL ENTRY DATE: 2014-06
+
+#Dragon, Tidepool -- Can be a Familiar
+
+
+STARTPACK:Dodo Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dodo]	SOURCEPAGE:p.88
+RACE:Dodo	!PRERACE:1,%
+NAME:Dodo
+ALIGN:TN
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+#Str 3, Dex 11, Con 14, Int 2, Wis 9, Cha 6
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+#Skills Perception +3
+
+STARTPACK:Dwarf Caiman Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dwarf Caiman]	SOURCEPAGE:p.88
+RACE:Dwarf Caiman	!PRERACE:1,%
+NAME:Dwarf Caiman
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+#Str 10, Dex 11, Con 15, Int 2, Wis 11, Cha 2
+ABILITY:CATEGORY=FEAT|Skill Focus (Stealth)
+#Skills Stealth +11 (+19 in water), Swim +8; Racial Traits +8 Stealth in water
+
+STARTPACK:Giant Isopod Default	TYPE:Default Monster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant Isopod]	SOURCEPAGE:p.88
+RACE:Giant Isopod	!PRERACE:1,%
+NAME:Giant Isopod
+ALIGN:TN
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+#Str 5, Dex 9, Con 14, Int -, Wis 10, Cha 2
+#Skills Perception +4, Swim +5; Racial Modifiers +4 Perception
+
+
+STARTPACK:Seal Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Seal]	SOURCEPAGE:p.88
+RACE:Seal	!PRERACE:1,%
+NAME:Seal
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+#Str 10, Dex 13, Con 11, Int 2, Wis 13, Cha 6
+#Skills Perception +5, Swim +8; Racial Modifiers +4 Perception
+
+
+STARTPACK:Dragon (Tidepool) Default	TYPE:Default Monster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Tidepool)],[!PRERACE:1,%]	SOURCEPAGE:p.82
+ALIGN:CN
+RACE:Dragon (Tidepool)	!PRERACE:1,%
+NAME:Tidepool Dragon
+SKILL:Fly				RANK:4.0
+SKILL:Knowledge (Nature)	RANK:4.0
+SKILL:Perception			RANK:4.0
+SKILL:Survival			RANK:4.0
+SKILL:Swim				RANK:4.0
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Slipstream
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Hydraulic Push
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Obscuring Mist
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Acid Splash
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dancing Lights
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Daze
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Poison
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mage Hand
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Touch of Fatigue
+
+
+STARTPACK:Incutilis Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Incutilis],[!PRERACE:1,%]	SOURCEPAGE:p.84
+ALIGN:LE
+RACE:Incutilis	!PRERACE:1,%
+NAME:Incutilis
+SKILL:Bluff		RANK:1.0
+SKILL:Disguise	RANK:1.0
+SKILL:Perception	RANK:4.0
+SKILL:Stealth	RANK:4.0
+SKILL:Swim		RANK:4.0
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Step Up
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=10|CHA=10
+
+
+STARTPACK:Kelpie's Wrath Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Kelpie's Wrath],[!PRERACE:1,%]	SOURCEPAGE:p.86
+ALIGN:CN
+RACE:Kelpie's Wrath	!PRERACE:1,%
+NAME:Kelpie's Wrath
+SKILL:Knowledge (engineering)	RANK:9.0
+SKILL:Knowledge (nature)	RANK:9.0
+SKILL:Knowledge (planes)	RANK:9.0
+SKILL:Perception			RANK:18.0
+SKILL:Sense Motive		RANK:9.0
+SKILL:Survival			RANK:18.0
+SKILL:Swim				RANK:18.0
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Disruptive
+ABILITY:CATEGORY=FEAT|Greater Overrun
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Overrun
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Spellbreaker
+ABILITY:CATEGORY=FEAT|Stand Still
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10

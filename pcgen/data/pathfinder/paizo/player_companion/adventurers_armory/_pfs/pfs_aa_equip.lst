@@ -1,0 +1,8 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# $Revision$ $Author$
+SOURCELONG:Adventurer's Armory	SOURCESHORT:AA	SOURCEWEB:http://paizo.com/products/btpy8dmf?Pathfinder-Player-Companion-Adventurers-Armory	SOURCEDATE:2010-04
+# Original RSRD Entry by: PCGen Data Team
+# Pathfinder RPG Entry by: Jeff Baril, Jonas Karlsson
+
+# Equipment Name	Type			!PRECHARACTERTYPE
+Elephant.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC

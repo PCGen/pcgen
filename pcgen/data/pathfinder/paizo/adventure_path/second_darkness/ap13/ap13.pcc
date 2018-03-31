@@ -1,0 +1,43 @@
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+CAMPAIGN:Second Darkness, Chapter 1 - Shadow in the Sky (Conversion)
+GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing.Pathfinder Adventure Path.Second Darkness
+RANK:4
+STATUS:RELEASE
+GENRE:Fantasy
+BOOKTYPE:Adventure
+SETTING:Pathfinder|Golarion
+PRECAMPAIGN:1,Second Darkness Player's Guide (Conversion)
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Second Darkness, Chapter 1 - Shadow in the Sky
+SOURCESHORT:AP13
+SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy84em
+SOURCEDATE:2008-08
+ISOGL:YES
+
+COVER:ap13.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy84em|Buy this publication from Paizo Publishing!
+DESC:The elves of the Mierani Forest have been hiding something from outside eyes for hundreds of years, but now, this sinister secret has escaped. What at first seems to be a sudden uprising in unsanctioned banditry in the Riddleport hinterlands is in fact something altogether more menacing--the dark elves have come to Varisia. Yet the threat presented by the drow from below may be nothing compared to a new threat from the skies above. Can a new group of heroes save the world from the Second Darkness?
+
+INFOTEXT:This dataset implements rules from a book that was originally designed for the 3.5 ruleset. For this dataset, these rules have been updated to the rules of the Pathfinder Roleplaying Game by the PCGen data team.
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder 13: Shadow in the Sky. Copyright 2008, Paizo Inc.; Author: Greg A. Vaughan.
+COPYRIGHT:Pathfinder RPG Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
+COPYRIGHT:PCGen dataset conversion for "Second Darkness, Chapter 1: Shadow in the Sky" Copyright 2008-2010, PCGen Data Team (including, but not limited to Eddy Anthony).
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+ABILITY:ap13_abilities_race.lst
+EQUIPMENT:ap13_equip_arms_armor.lst
+KIT:ap13_kits.lst
+KIT:ap13_kits_race.lst
+RACE:ap13_races.lst
+TEMPLATE:ap13_templates.lst

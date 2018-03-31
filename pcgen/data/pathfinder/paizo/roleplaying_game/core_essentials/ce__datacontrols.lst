@@ -1,0 +1,31 @@
+
+DEFAULTVARIABLEVALUE:ORDEREDPAIR|0,0
+DEFAULTVARIABLEVALUE:NUMBER|0
+DEFAULTVARIABLEVALUE:DICE|0
+DEFAULTVARIABLEVALUE:BOOLEAN|False
+DEFAULTVARIABLEVALUE:STRING|
+DEFAULTVARIABLEVALUE:ALIGNMENT|None
+
+
+
+###Block: Required Facts
+FACTDEF:RACE|BaseSize	DATAFORMAT:SIZEADJUSTMENT	VISIBLE:YES	REQUIRED:YES	EXPLANATION:All Races must have a Size - in the case of multiple sizes, use the SMALLEST allowed.
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Name			Dataformat		Visible	Explanation
+FACTSETDEF:SPELL|Deity	DATAFORMAT:String	VISIBLE:YES	EXPLANATION:Just for Listing deities that are predisposed to certain spells.
+#
+FACTSETDEF:DEITY|Animal	DATAFORMAT:String	VISIBLE:YES	EXPLANATION:The deity's sacred animal(s)
+FACTSETDEF:DEITY|Colors	DATAFORMAT:String	VISIBLE:YES	EXPLANATION:The deity's sacred color(s)
+

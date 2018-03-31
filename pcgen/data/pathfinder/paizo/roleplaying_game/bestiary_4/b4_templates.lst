@@ -1,0 +1,207 @@
+# CVS $Revision: 21640 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Bestiary 4	SOURCESHORT:B4	SOURCEWEB:http://paizo.com/products/btpy91ds?Pathfinder-Roleplaying-Game-Bestiary-4	SOURCEDATE:2013-10
+
+Mythic		VISIBLE:NO		RACESUBTYPE:Mythic
+
+#Beheaded Variations
+Beheaded										SOURCEPAGE:p.17																		ABILITY:Special Ability|AUTOMATIC|Beheaded ~ Base|Can't Be Tripped
+Beheaded (Belching)						CR:1		SOURCEPAGE:p.17																		ABILITY:Special Ability|AUTOMATIC|Beheaded ~ Base|Beheaded ~ Belching|Can't Be Tripped
+Beheaded (Flaming)						CR:1		SOURCEPAGE:p.17	BONUS:STAT|CHA|2															ABILITY:Special Ability|AUTOMATIC|Beheaded ~ Base|Beheaded ~ Flaming|Immunity to Fire|Can't Be Tripped
+Beheaded (Grabbing)						CR:1		SOURCEPAGE:p.17																		ABILITY:Special Ability|AUTOMATIC|Beheaded ~ Base|Beheaded ~ Grabbing|Grab ~ Medium|Can't Be Tripped
+Beheaded (Screaming)						CR:1		SOURCEPAGE:p.17																		ABILITY:Special Ability|AUTOMATIC|Beheaded ~ Base|Beheaded ~ Screaming|Can't Be Tripped
+Beheaded (Swarming)						CR:1		SOURCEPAGE:p.17	RACESUBTYPE:Swarm		HITDIE:%+1												ABILITY:Special Ability|AUTOMATIC|Beheaded ~ Swarming|Distraction ~ Swarm|Can't Be Tripped
+Beheaded (Belching/Flaming)					CR:1		SOURCEPAGE:p.17	BONUS:STAT|CHA|2															ABILITY:Special Ability|AUTOMATIC|Beheaded ~ Base|Beheaded ~ Belching|Beheaded ~ Flaming|Immunity to Fire|Can't Be Tripped
+Beheaded (Belching/Grabbing)					CR:1		SOURCEPAGE:p.17																		ABILITY:Special Ability|AUTOMATIC|Beheaded ~ Base|Beheaded ~ Belching|Beheaded ~ Grabbing|Grab ~ Medium|Can't Be Tripped
+Beheaded (Belching/Screaming)					CR:1		SOURCEPAGE:p.17																		ABILITY:Special Ability|AUTOMATIC|Beheaded ~ Base|Beheaded ~ Belching|Beheaded ~ Screaming|Can't Be Tripped
+Beheaded (Belching/Swarming)					CR:2		SOURCEPAGE:p.17	RACESUBTYPE:Swarm		HITDIE:%+1												ABILITY:Special Ability|AUTOMATIC|Beheaded ~ Belching|Beheaded ~ Swarming|Distraction ~ Swarm|Can't Be Tripped
+Beheaded (Flaming/Grabbing)					CR:1		SOURCEPAGE:p.17	BONUS:STAT|CHA|2															ABILITY:Special Ability|AUTOMATIC|Beheaded ~ Base|Beheaded ~ Flaming|Beheaded ~ Grabbing|Grab ~ Medium|Immunity to Fire|Can't Be Tripped
+Beheaded (Flaming/Screaming)					CR:1		SOURCEPAGE:p.17	BONUS:STAT|CHA|2															ABILITY:Special Ability|AUTOMATIC|Beheaded ~ Base|Beheaded ~ Flaming|Beheaded ~ Screaming|Immunity to Fire|Can't Be Tripped
+Beheaded (Grabbing/Screaming)					CR:1		SOURCEPAGE:p.17																		ABILITY:Special Ability|AUTOMATIC|Beheaded ~ Base|Beheaded ~ Grabbing|Beheaded ~ Screaming|Grab ~ Medium|Can't Be Tripped
+Beheaded (Screaming/Swarming)					CR:2		SOURCEPAGE:p.17	RACESUBTYPE:Swarm		HITDIE:%+1												ABILITY:Special Ability|AUTOMATIC|Beheaded ~ Screaming|Beheaded ~ Swarming|Distraction ~ Swarm|Can't Be Tripped
+Beheaded (Belching/Flaming/Grabbing)			CR:2		SOURCEPAGE:p.17	BONUS:STAT|CHA|2															ABILITY:Special Ability|AUTOMATIC|Beheaded ~ Base|Beheaded ~ Belching|Beheaded ~ Flaming|Beheaded ~ Grabbing|Grab ~ Medium|Immunity to Fire|Can't Be Tripped
+Beheaded (Belching/Flaming/Screaming)			CR:2		SOURCEPAGE:p.17	BONUS:STAT|CHA|2															ABILITY:Special Ability|AUTOMATIC|Beheaded ~ Base|Beheaded ~ Belching|Beheaded ~ Flaming|Beheaded ~ Screaming|Immunity to Fire|Can't Be Tripped
+Beheaded (Belching/Grabbing/Screaming)			CR:2		SOURCEPAGE:p.17																		ABILITY:Special Ability|AUTOMATIC|Beheaded ~ Base|Beheaded ~ Belching|Beheaded ~ Grabbing|Beheaded ~ Screaming|Grab ~ Medium|Can't Be Tripped
+Beheaded (Belching/Screaming/Swarming)			CR:3		SOURCEPAGE:p.17	RACESUBTYPE:Swarm		HITDIE:%+1												ABILITY:Special Ability|AUTOMATIC|Beheaded ~ Belching|Beheaded ~ Screaming|Beheaded ~ Swarming|Distraction ~ Swarm|Can't Be Tripped
+Beheaded (Flaming/Grabbing/Screaming)			CR:3		SOURCEPAGE:p.17	BONUS:STAT|CHA|2															ABILITY:Special Ability|AUTOMATIC|Beheaded ~ Base|Beheaded ~ Flaming|Beheaded ~ Grabbing|Beheaded ~ Screaming|Grab ~ Medium|Immunity to Fire|Can't Be Tripped
+Beheaded (Belching/Flaming/Grabbing/Screaming)		CR:4		SOURCEPAGE:p.17	BONUS:STAT|CHA|2															ABILITY:Special Ability|AUTOMATIC|Beheaded ~ Base|Beheaded ~ Belching|Beheaded ~ Flaming|Beheaded ~ Grabbing|Beheaded ~ Screaming|Grab ~ Medium|Immunity to Fire|Can't Be Tripped
+Beheaded (Familiar)								SOURCEPAGE:p.17	BONUS:VAR|Mindless|-1														ABILITY:Special Ability|AUTOMATIC|Beheaded ~ Base|Can't Be Tripped
+
+#Bodythief Spawn
+Pod-Spawned Creature (Basic)							SOURCEPAGE:p.21	RACETYPE:Plant		BONUS:STAT|CHA|-4											ABILITY:Special Ability|AUTOMATIC|Pod-Spawned ~ Loss of Magic|Pod-Spawned ~ Mimic		BONUS:VAR|HasLowlightVision|1|TYPE=Base		KIT:1|LE
+Pod-Spawned Creature (With class levels)			CR:-1		SOURCEPAGE:p.21	RACETYPE:Plant		BONUS:STAT|CHA|-4											ABILITY:Special Ability|AUTOMATIC|Pod-Spawned ~ Loss of Magic|Pod-Spawned ~ Mimic		BONUS:VAR|HasLowlightVision|1|TYPE=Base		KIT:1|LE
+Pod-Spawned Creature (With magical abilities)		CR:-2		SOURCEPAGE:p.21	RACETYPE:Plant		BONUS:STAT|CHA|-4											ABILITY:Special Ability|AUTOMATIC|Pod-Spawned ~ Loss of Magic|Pod-Spawned ~ Mimic		BONUS:VAR|HasLowlightVision|1|TYPE=Base		KIT:1|LE
+
+#Boilborn Variations
+Boilborn										SOURCEPAGE:p.22																		ABILITY:Special Ability|AUTOMATIC|Boilborn ~ Death Throes|Boilborn ~ Leprosy|Can't Be Tripped
+Abyssal Boilborn									SOURCEPAGE:p.22	TEMPLATE:Advanced Creature|Fiendish Creature										ABILITY:Special Ability|AUTOMATIC|Boilborn ~ Death Throes|Boilborn ~ Demon Fever|Can't Be Tripped
+Blindborn										SOURCEPAGE:p.22																		ABILITY:Special Ability|AUTOMATIC|Boilborn ~ Death Throes|Boilborn ~ Blinding Sickness|Can't Be Tripped
+Infernal Boilborn									SOURCEPAGE:p.22	TEMPLATE:Advanced Creature|Fiendish Creature										ABILITY:Special Ability|AUTOMATIC|Boilborn ~ Death Throes|Boilborn ~ Devil Chills|Can't Be Tripped
+Plagueborn										SOURCEPAGE:p.22	TEMPLATE:Giant Creature														ABILITY:Special Ability|AUTOMATIC|Boilborn ~ Death Throes|Boilborn ~ Cackle Fever|Can't Be Tripped
+
+#Broken Soul Template
+Broken Soul								CR:2		SOURCEPAGE:p.24	DEFINESTAT:MINVALUE|WIS|1													ABILITY:Special Ability|AUTOMATIC|Broken Soul ~ Agonized Wail|Broken Soul ~ Baleful Gaze|Broken Soul ~ Torturous Touch|Broken Soul ~ Stat Bonuses		ABILITY:Internal|AUTOMATIC|Broken Soul ~ Stat Penalty		BONUS:VAR|AC_Natural_Armor|4|TYPE=Base.STACK	BONUS:VAR|AcidResistanceBonus,ColdResistanceBonus,ElectricityResistanceBonus,FireResistanceBonus,SonicResistanceBonus|5|TYPE=Resistance	BONUS:MOVEADD|TYPE.All|-10|PREVARGT:MOVEBASE,10	BONUS:MOVEADD|TYPE.All|-5|PREVAREQ:MOVEBASE,10			KIT:1|LE		BONUS:STAT|CON|6		BONUS:STAT|WIS|-2		DR:5/-
+
+#Clockwork Dragon Variations
+Adamantine Clockwork Dragon							SOURCEPAGE:p.31																		ABILITY:Special Ability|AUTOMATIC|Clockwork Dragon ~ Adamantine Weapons
+Clockwork Dragon Acid Breath							SOURCEPAGE:p.30																		ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Acid		BONUS:VAR|BreathWeaponLine|60		BONUS:VAR|BreathWeaponDice|10	BONUS:VAR|BreathWeaponDamageDie|8	BONUS:VAR|BreathWeaponDC|22
+Clockwork Dragon Fire Breath							SOURCEPAGE:p.30																		ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Fire		BONUS:VAR|BreathWeaponLine|100	BONUS:VAR|BreathWeaponDice|14	BONUS:VAR|BreathWeaponDamageDie|6	BONUS:VAR|BreathWeaponDC|22
+Clockwork Dragon Flaming Tar					CR:1		SOURCEPAGE:p.30																		ABILITY:Special Ability|AUTOMATIC|Clockwork Dragon ~ Flaming Tar
+Clockwork Dragon Rust Breath							SOURCEPAGE:p.31																		ABILITY:Special Ability|AUTOMATIC|Clockwork Dragon ~ Rusting Breath
+Clockwork Dragon Sleep Gas							SOURCEPAGE:p.31																		ABILITY:Special Ability|AUTOMATIC|Clockwork Dragon ~ Sleep Gas Breath
+Destroyer-Type Clockwork Dragon						SOURCEPAGE:p.30																		ABILITY:Special Ability|AUTOMATIC|Clockwork Dragon ~ Destroyer
+Infiltrator-Type Clockwork Dragon				CR:1		SOURCEPAGE:p.31	BONUS:SKILL|Stealth|8|TYPE=Racial												ABILITY:Special Ability|AUTOMATIC|Clockwork Dragon ~ Infiltrator|Compression
+Mithral Clockwork Dragon							SOURCEPAGE:p.31	BONUS:VAR|Maneuverability|1													ABILITY:Special Ability|AUTOMATIC|Clockwork Dragon ~ Mithral Construction		BONUS:MOVEADD|TYPE.Walk|10	BONUS:MOVEADD|TYPE.Swim|10	BONUS:MOVEADD|TYPE.Fly|100
+Standard-Type Clockwork Dragon						SOURCEPAGE:p.30
+
+#Clockwork Mage Variations
+Abjuration Clockwork Mage							SOURCEPAGE:p.32																		SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=9|Hold Portal|Shield	SPELLS:Innate|TIMES=3|CASTERLEVEL=9|Protection from Arrows|Resist Energy	SPELLS:Innate|TIMES=1|CASTERLEVEL=9|Dispel Magic
+Conjuration Clockwork Mage							SOURCEPAGE:p.32																		SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=9|Grease,11|Summon Monster I	SPELLS:Innate|TIMES=3|CASTERLEVEL=9|Glitterdust,13|Web,13	SPELLS:Innate|TIMES=1|CASTERLEVEL=9|Stinking Cloud,14
+Enchantment Clockwork Mage							SOURCEPAGE:p.32																		SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=9|Bungle,11|Sleep,11	SPELLS:Innate|TIMES=3|CASTERLEVEL=9|Daze Monster,13|Touch of Idiocy	SPELLS:Innate|TIMES=1|CASTERLEVEL=9|Deep Slumber,14
+Evocation Clockwork Mage							SOURCEPAGE:p.32																		SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=9|Magic Missile|Shocking Grasp,11	SPELLS:Innate|TIMES=3|CASTERLEVEL=9|Gust of Wind,13|Scorching Ray	SPELLS:Innate|TIMES=1|CASTERLEVEL=9|Fireball,14
+Illusion Clockwork Mage								SOURCEPAGE:p.32																		SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=9|Color Spray,11|Vanish	SPELLS:Innate|TIMES=3|CASTERLEVEL=9|Blur|Hypnotic Pattern,13	SPELLS:Innate|TIMES=1|CASTERLEVEL=9|Displacement
+Necromancy Clockwork Mage							SOURCEPAGE:p.32																		SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=9|Cause Fear,11|Ray of Enfeeblement,11	SPELLS:Innate|TIMES=3|CASTERLEVEL=9|Blindness/Deafness,13|Scare,13	SPELLS:Innate|TIMES=1|CASTERLEVEL=9|Ray of Exhaustion,14
+Transmutation Clockwork Mage							SOURCEPAGE:p.32																		SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=9|Expeditious Retreat|Reduce Person,11	SPELLS:Innate|TIMES=3|CASTERLEVEL=9|Alter Self|Spider Climb	SPELLS:Innate|TIMES=1|CASTERLEVEL=9|Haste
+
+#Clockwork Steed Variations
+Clockwork Charger									SOURCEPAGE:p.33	TEMPLATE:Advanced Creature													ABILITY:Special Ability|AUTOMATIC|Clockwork Steed ~ Clockwork Charger|Undersized Weapons		ABILITY:FEAT|VIRTUAL|Martial Weapon Proficiency (Lance)
+Standard Clockwork Steed							SOURCEPAGE:p.33
+
+#Colour-Blighted Creature Template
+Colour-Blighted Simple Template						SOURCEPAGE:p.39
+
+#Death Dog Variations
+Standard Death Dog								SOURCEPAGE:p.44
+Death Worg										SOURCEPAGE:p.44	TEMPLATE:Advanced Creature
+
+#Demon Lord Options
+Demon Lord in Home Realm							SOURCEPAGE:B4 p.45																	ABILITY:Special Ability|AUTOMATIC|Mythic Power|Surge	BONUS:VAR|Mythic_Rank|10	BONUS:SKILL|Perception|10|TYPE=Insight	BONUS:COMBAT|INITIATIVE|10|TYPE=Insight	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=TL|Demand|Discern Location|Fabricate|Major Creation|Polymorph Any Object	SPELLS:Innate|CASTERLEVEL=TL|Binding|Miracle (Divine Realm)
+Demon Lord Away from Home Realm						SOURCEPAGE:B4 p.45
+
+#Nemesis Devil Domain Options
+Devil (Nemesis) ~ Evil Domain							SOURCEPAGE:p.54																		SPELLS:Innate|TIMES=3|CASTERLEVEL=16|Protection from Good,11+CHA|Align Weapon (Evil Only),12+CHA|Magic Circle against Good,13+CHA|Unholy Blight,14+CHA|Dispel Good,15+CHA
+Devil (Nemesis) ~ Fire Domain							SOURCEPAGE:p.54																		SPELLS:Innate|TIMES=3|CASTERLEVEL=16|Burning Hands,11+CHA|Produce Flame|Fireball,13+CHA|Wall of Fire|Fire Shield
+Devil (Nemesis) ~ Law Domain							SOURCEPAGE:p.54																		SPELLS:Innate|TIMES=3|CASTERLEVEL=16|Protection from Chaos,11+CHA|Align Weapon (Law Only),12+CHA|Magic Circle against Chaos,13+CHA|Order's Wrath,14+CHA|Dispel Chaos,15+CHA
+Devil (Nemesis) ~ Trickery Domain						SOURCEPAGE:p.54																		SPELLS:Innate|TIMES=3|CASTERLEVEL=16|Disguise Self|Invisibility,12+CHA|Nondetection,13+CHA|Confusion,14+CHA|False Vision
+Devil (Nemesis) ~ War Domain							SOURCEPAGE:p.54																		SPELLS:Innate|TIMES=3|CASTERLEVEL=16|Magic Weapon,11+CHA|Spiritual Weapon|Magic Vestment,13+CHA|Divine Power|Flame Strike,15+CHA
+Devil (Nemesis) ~ Weather Domain						SOURCEPAGE:p.54																		SPELLS:Innate|TIMES=3|CASTERLEVEL=16|Obscuring Mist|Fog Cloud|Call Lightning,13+CHA|Sleet Storm|Ice Storm
+
+#Devilbound Creature Variations
+Devilbound Creature						CR:1		SOURCEPAGE:p.56	PREALIGN:LE,NE,CE		PREVARGTEQ:TL,5											ABILITY:Special Ability|AUTOMATIC|Devilbound Creature ~ Contract Bound|Devilbound Creature ~ Evil Aura|See in Darkness|Regeneration ~ Good				BONUS:VAR|DarkvisionRange|60|TYPE=Base	BONUS:VAR|AC_Natural_Armor|4|TYPE=Profane	BONUS:VAR|AcidResistanceBonus|30|TYPE=Resistance
+Accuser Devil Bound								SOURCEPAGE:p.57																		SPELLS:Innate|TIMES=3|CASTERLEVEL=TL|Clairaudience/Clairvoyance|Invisibility (self only)|Summon Swarm											BONUS:STAT|DEX,CON,WIS|2|TYPE=Profane
+Barbed Devil Bound								SOURCEPAGE:p.57																		SPELLS:Innate|TIMES=3|CASTERLEVEL=TL|Hold Monster,14+max(max(INT,WIS),CHA)															BONUS:STAT|STR,DEX,CON|2|TYPE=Profane
+Bearded Devil Bound								SOURCEPAGE:p.57																		SPELLS:Innate|TIMES=3|CASTERLEVEL=TL|Dimension Door|Rage																		BONUS:STAT|STR,DEX,CON|2|TYPE=Profane
+Belier Devil Bound								SOURCEPAGE:p.57																		SPELLS:Innate|TIMES=3|CASTERLEVEL=TL|Charm Monster,14+max(max(INT,WIS),CHA)															BONUS:STAT|INT,WIS,CHA|2|TYPE=Profane
+Bone Devil Bound									SOURCEPAGE:p.57																		SPELLS:Innate|TIMES=3|CASTERLEVEL=TL|Fly|Invisibility (self only)																	BONUS:STAT|CON,INT,WIS|2|TYPE=Profane
+Contract Devil Bound								SOURCEPAGE:p.57																		SPELLS:Innate|TIMES=3|CASTERLEVEL=TL|Bestow Curse,14+max(max(INT,WIS),CHA)|Detect Thoughts,12+max(max(INT,WIS),CHA)|Locate Creature						BONUS:STAT|INT,WIS,CHA|2|TYPE=Profane
+Drowning Devil Bound								SOURCEPAGE:p.57																		SPELLS:Innate|TIMES=3|CASTERLEVEL=TL|Hydraulic Push|Water Breathing																BONUS:STAT|STR,DEX,CHA|2|TYPE=Profane
+Erinyes Devil Bound								SOURCEPAGE:p.57																		SPELLS:Innate|TIMES=3|CASTERLEVEL=TL|Fear (single target),14+max(max(INT,WIS),CHA)|Unholy Blight,14+max(max(INT,WIS),CHA)							BONUS:STAT|CON,DEX,CHA|2|TYPE=Profane
+Handmaiden Devil Bound								SOURCEPAGE:p.57																		SPELLS:Innate|TIMES=3|CASTERLEVEL=TL|Black Tentacles	SPELLS:Innate|CASTERLEVEL=TL|True Seeing												BONUS:STAT|INT,WIS,CHA|2|TYPE=Profane
+Horned Devil Bound								SOURCEPAGE:p.57																		SPELLS:Innate|TIMES=3|CASTERLEVEL=TL|Dispel Good,15+max(max(INT,WIS),CHA)|Fireball,13+max(max(INT,WIS),CHA)										BONUS:STAT|STR,DEX,CHA|2|TYPE=Profane
+Host Devil Bound									SOURCEPAGE:p.57																		SPELLS:Innate|TIMES=3|CASTERLEVEL=TL|Dimension Door|Fly																		BONUS:STAT|STR,DEX,CON|2|TYPE=Profane
+Ice Devil Bound									SOURCEPAGE:p.57																		SPELLS:Innate|TIMES=3|CASTERLEVEL=TL|Cone of Cold,15+max(max(INT,WIS),CHA)|Ice Storm													BONUS:STAT|CON,INT,WIS|2|TYPE=Profane
+Immolation Devil Bound								SOURCEPAGE:p.57																		SPELLS:Innate|TIMES=3|CASTERLEVEL=TL|Fire Shield|Fireball,13+max(max(INT,WIS),CHA)														BONUS:STAT|STR,CON,CHA|2|TYPE=Profane
+Imp Devil Bound									SOURCEPAGE:p.57																		SPELLS:Innate|TIMES=3|CASTERLEVEL=TL|Invisibility (self only)|Polymorph (self only/same size)												BONUS:STAT|DEX,INT,CHA|2|TYPE=Profane
+Nemesis Devil Bound								SOURCEPAGE:p.57																		SPELLS:Innate|TIMES=3|CASTERLEVEL=TL|Invisibility|Scorching Ray	SPELLS:Innate|CASTERLEVEL=TL|Blasphemy,17+max(max(INT,WIS),CHA)						BONUS:ABILITYPOOL|+2 Profane bonus to Stat|3		
+Pit Fiend Devil Bound								SOURCEPAGE:p.57																		SPELLS:Innate|TIMES=3|CASTERLEVEL=TL|Invisibility|Quickened Fireball,13+max(max(INT,WIS),CHA)	SPELLS:Innate|CASTERLEVEL=TL|Blasphemy,17+max(max(INT,WIS),CHA)	BONUS:ABILITYPOOL|+2 Profane bonus to Stat|3
+
+#Divine Guardian Template
+Divine Guardian							CR:1		SOURCEPAGE:p.61																		ABILITY:Special Ability|AUTOMATIC|Divine Guardian ~ Ability Healing|Divine Guardian ~ Aura|Divine Guardian ~ Blessed Life|Divine Guardian ~ Divine Swiftness|Divine Guardian ~ Sacred Site|Immunity to Disease|Immunity to Mind-Affecting Effects|Immunity to Poison|Fast Healing	VISION:Darkvision (60')|Low-Light Vision	BONUS:VAR|FastHealingRate|5	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=max(SLA_CL,TL)|Dimension Door (within sacred site)|PREVARGTEQ:TL,1	SPELLS:Innate|TIMES=3|CASTERLEVEL=max(SLA_CL,TL)|Alarm|PREVARGTEQ:TL,1	SPELLS:Innate|CASTERLEVEL=max(SLA_CL,TL)|Hold Portal|PREVARGTEQ:TL,1	SPELLS:Innate|TIMES=3|CASTERLEVEL=max(SLA_CL,TL)|Knock|PREVARGTEQ:TL,3	SPELLS:Innate|CASTERLEVEL=max(SLA_CL,TL)|Arcane Lock|PREVARGTEQ:TL,3	SPELLS:Innate|CASTERLEVEL=max(SLA_CL,TL)|Augury|Clairaudience/Clairvoyance|PREVARGTEQ:TL,5	SPELLS:Innate|CASTERLEVEL=max(SLA_CL,TL)|Dismissal|PREVARGTEQ:TL,7	SPELLS:Innate|CASTERLEVEL=max(SLA_CL,TL)|Commune|PREVARGTEQ:TL,9	SPELLS:Innate|CASTERLEVEL=max(SLA_CL,TL)|Guards and Wards|PREVARGTEQ:TL,11	SPELLS:Innate|CASTERLEVEL=max(SLA_CL,TL)|Forbiddance|PREVARGTEQ:TL,13	SPELLS:Innate|CASTERLEVEL=max(SLA_CL,TL)|Banishment|PREVARGTEQ:TL,15	SPELLS:Innate|CASTERLEVEL=max(SLA_CL,TL)|Repulsion|PREVARGTEQ:TL,17	SPELLS:Innate|CASTERLEVEL=max(SLA_CL,TL)|Screen|PREVARGTEQ:TL,19	SPELLS:Innate|CASTERLEVEL=max(SLA_CL,TL)|Antipathy|PREVARGTEQ:TL,21	BONUS:STAT|WIS,CHA|4	BONUS:STAT|INT|4|!PRESTAT:1,INT=3	BONUS:SKILL|Perception,Sense Motive|5|TYPE=Racial
+
+#Drakainia Spawn Variations
+Drakainia Spawn									SOURCEPAGE:p.77																		ABILITY:Internal|AUTOMATIC|Race Traits ~ Drakainia Spawn
+Drakainia Spawn ~ Covered in Eyes						SOURCEPAGE:p.77																		ABILITY:Special Ability|AUTOMATIC|Drakainia Spawn ~ Covered in Eyes
+Drakainia Spawn ~ Chameleon Scales						SOURCEPAGE:p.77																		ABILITY:Special Ability|AUTOMATIC|Drakainia Spawn ~ Chameleon Scales
+Drakainia Spawn ~ Poison Glands						SOURCEPAGE:p.77																		ABILITY:Special Ability|AUTOMATIC|Drakainia Spawn ~ Poison Glands
+Drakainia Spawn ~ Sticky							SOURCEPAGE:p.77																		ABILITY:Special Ability|AUTOMATIC|Drakainia Spawn ~ Sticky
+Drakainia Spawn ~ Serpent-Headed Tail					SOURCEPAGE:p.77																		ABILITY:Special Ability|AUTOMATIC|Drakainia Spawn ~ Serpent-Headed Tail
+Drakainia Spawn ~ Vestigial Companion					SOURCEPAGE:p.77																		ABILITY:Special Ability|AUTOMATIC|Drakainia Spawn ~ Vestigial Companion
+Drakainia Spawn ~ Multiple Heads						SOURCEPAGE:p.77																		ABILITY:Special Ability|AUTOMATIC|Drakainia Spawn ~ Multiple Heads
+Drakainia Spawn ~ Tentacles							SOURCEPAGE:p.77																		ABILITY:Special Ability|AUTOMATIC|Drakainia Spawn ~ Tentacles
+Drakainia Spawn ~ Impenetrable Skin						SOURCEPAGE:p.77																		ABILITY:Special Ability|AUTOMATIC|Drakainia Spawn ~ Impenetrable Skin
+Drakainia Spawn ~ Favored Spawn						SOURCEPAGE:p.77																		ABILITY:Special Ability|AUTOMATIC|Drakainia Spawn ~ Favored Spawn
+
+#Ectoplasmic Creature Template
+Ectoplasmic Creature						CR:1		SOURCEPAGE:p.83	!PRERACE:1,RACETYPE=Undead	!PREABILITY:1,CATEGORY=Special Ability,Incorporeal				RACETYPE:Undead	RACESUBTYPE:.REMOVE.Good|.REMOVE.Evil|.REMOVE.Chaotic|.REMOVE.Lawful	HITDIE:8|CLASS.TYPE=Monster	ABILITY:Internal|AUTOMATIC|Race Traits ~ Ectoplasmic Creature|Slam	BONUS:VAR|AC_Natural_Armor|1|TYPE=TYPE=Base.STACK|PRESIZEGTEQ:S	BONUS:VAR|AC_Natural_Armor|1|TYPE=TYPE=Base.STACK|PRESIZEGTEQ:M	BONUS:VAR|AC_Natural_Armor|1|TYPE=TYPE=Base.STACK|PRESIZEGTEQ:L	BONUS:VAR|AC_Natural_Armor|1|TYPE=TYPE=Base.STACK|PRESIZEGTEQ:H	BONUS:VAR|AC_Natural_Armor|2|TYPE=TYPE=Base.STACK|PRESIZEGTEQ:G	BONUS:VAR|AC_Natural_Armor|2|TYPE=TYPE=Base.STACK|PRESIZEGTEQ:C	DR:5/Slashing	DEFINESTAT:LOCK|WIS|10	DEFINESTAT:NONSTAT|INT	BONUS:STAT|STR,CHA|2|TYPE=Racial	ABILITY:FEAT|AUTOMATIC|Toughness	BONUS:VAR|Maneuverability|-3|PREVAREQ:Maneuverability,5	BONUS:VAR|Maneuverability|-2|PREVAREQ:Maneuverability,4	BONUS:VAR|Maneuverability|-1|PREVAREQ:Maneuverability,3	KIT:1|CE	BONUS:HP|CURRENTMAX|CHA-CON
+
+#Empyreal Lord Options
+Empyreal Lord in Home Realm							SOURCEPAGE:B4 p.87																	ABILITY:Special Ability|AUTOMATIC|Mythic Power|Surge	BONUS:VAR|Mythic_Rank|10	BONUS:SKILL|Perception|10|TYPE=Insight	BONUS:COMBAT|INITIATIVE|10|TYPE=Insight	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=TL|Demand|Discern Location|Fabricate|Major Creation	SPELLS:Innate|CASTERLEVEL=TL|Dimensional Lock|Miracle (Divine Realm)|Power Word Stun
+Empyreal Lord Away from Home Realm						SOURCEPAGE:B4 p.87
+
+#Fleshdreg
+Fleshdreg (Envy)									SOURCEPAGE:p.100																		ABILITY:Special Ability|AUTOMATIC|Fleshdreg ~ Sinful Bite (Envy)
+Fleshdreg (Gluttony)								SOURCEPAGE:p.100																		ABILITY:Special Ability|AUTOMATIC|Fleshdreg ~ Sinful Bite (Gluttony)
+Fleshdreg (Greed)									SOURCEPAGE:p.100																		ABILITY:Special Ability|AUTOMATIC|Fleshdreg ~ Sinful Bite (Greed)
+Fleshdreg (Lust)									SOURCEPAGE:p.100																		ABILITY:Special Ability|AUTOMATIC|Fleshdreg ~ Sinful Bite (Lust)
+Fleshdreg (Pride)									SOURCEPAGE:p.100																		ABILITY:Special Ability|AUTOMATIC|Fleshdreg ~ Sinful Bite (Pride)
+Fleshdreg (Sloth)									SOURCEPAGE:p.100																		ABILITY:Special Ability|AUTOMATIC|Fleshdreg ~ Sinful Bite (Sloth)
+Fleshdreg (Wrath)									SOURCEPAGE:p.100																		ABILITY:Special Ability|AUTOMATIC|Fleshdreg ~ Sinful Bite (Wrath)
+
+#Fungal Creature
+Fungal Creature							CR:1		SOURCEPAGE:p.116	!PRERACE:1,RACETYPE=Undead,RACETYPE=Construct	!PREABILITY:1,CATEGORY=Special Ability,Incorporeal	RACETYPE:Plant	RACESUBTYPE:Augmented Plant	BONUS:VAR|DarkvisionRange|60|TYPE=Base	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	HITDIE:8|CLASS.TYPE=Monster	ABILITY:Internal|AUTOMATIC|Race Traits ~ Fungal Creature	ABILITY:Internal|AUTOMATIC|Slam|PREVAREQ:NaturalAttacks,1	BONUS:STAT|STR|4	BONUS:STAT|DEX|-2	BONUS:STAT|CON|4	DEFINESTAT:MINVALUE|DEX|1	BONUS:MOVEADD|TYPE.All|-10|PREVARGT:MOVEBASE,10	BONUS:MOVEADD|TYPE.All|-5|PREVAREQ:MOVEBASE,10	AUTO:LANG|Sylvan|PRESTAT:1,INT=3	FACT:AppliedName|Fungal Creature
+
+#Gholdako
+Standard Gholdako									SOURCEPAGE:p.125
+Dread Gholdako							CR:1		SOURCEPAGE:p.125					HITDIE:%+1												ABILITY:Special Ability|AUTOMATIC|Dread Gholdako ~ Paralysis
+
+#Leaf Ray
+Leaf Ray ~ Fall									SOURCEPAGE:p.179																		ABILITY:Special Ability|AUTOMATIC|Leaf Ray ~ Fall Poison
+Leaf Ray ~ Spring/Summer							SOURCEPAGE:p.179																		ABILITY:Special Ability|AUTOMATIC|Leaf Ray ~ Spring/Summer Poison
+Leaf Ray ~ Winter									SOURCEPAGE:p.179																		ABILITY:Special Ability|AUTOMATIC|Leaf Ray ~ Winter Poison
+
+#Lycanthropes
+Lycanthrope Abilities.MOD																											VISIBLE:NO	TEMPLATE:ADDCHOICE:Werebat Abilities|Werecrocodile Abilities|Wereshark Abilities
+
+Natural Werebat												PREABILITY:1,CATEGORY=Special Ability,Natural Lycanthrope								VISIBLE:NO	SUBRACE:Natural Werebat
+Afflicted Werebat												PREABILITY:1,CATEGORY=Special Ability,Afflicted Lycanthrope								VISIBLE:NO	SUBRACE:Afflicted Werebat
+Natural Werecrocodile											PREABILITY:1,CATEGORY=Special Ability,Natural Lycanthrope								VISIBLE:NO	SUBRACE:Natural Werecrocodile
+Afflicted Werecrocodile											PREABILITY:1,CATEGORY=Special Ability,Afflicted Lycanthrope								VISIBLE:NO	SUBRACE:Afflicted Werecrocodile
+Natural Wereshark												PREABILITY:1,CATEGORY=Special Ability,Natural Lycanthrope								VISIBLE:NO	SUBRACE:Natural Wereshark
+Afflicted Wereshark											PREABILITY:1,CATEGORY=Special Ability,Afflicted Lycanthrope								VISIBLE:NO	SUBRACE:Afflicted Wereshark
+
+Werebat Abilities												PREABILITY:1,CATEGORY=Special Ability,Werebat										VISIBLE:NO	BONUS:STAT|WIS|2	BONUS:STAT|CHA|-2		TEMPLATE:CHOOSE:Werebat_STATS			ABILITY:Internal|AUTOMATIC|Bite|Claw	BONUS:VAR|Maneuverability|3																BONUS:VAR|AC_Natural_Armor|2|TYPE=Base	MOVE:Move,30,Fly,40
+Werecrocodile Abilities											PREABILITY:1,CATEGORY=Special Ability,Werecrocodile									VISIBLE:NO	BONUS:STAT|WIS|2	BONUS:STAT|CHA|-2		TEMPLATE:CHOOSE:Werecrocodile_STATS		ABILITY:Internal|AUTOMATIC|Bite		BONUS:VAR|BiteSize|1			ABILITY:Special Ability|AUTOMATIC|Werecrocodile ~ Death Roll|Werecrocodile ~ Sprint	BONUS:VAR|AC_Natural_Armor|6|TYPE=Base	MOVE:Move,30,Swim,20	NATURALATTACKS:Tail Slap,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,1d12
+Wereshark Abilities											PREABILITY:1,CATEGORY=Special Ability,Wereshark										VISIBLE:NO	BONUS:STAT|WIS|2	BONUS:STAT|CHA|-2		TEMPLATE:CHOOSE:Wereshark_STATS		ABILITY:Internal|AUTOMATIC|Bite		BONUS:VAR|BiteSize|1			ABILITY:Special Ability|AUTOMATIC|Keen Scent							BONUS:VAR|AC_Natural_Armor|6|TYPE=Base	MOVE:Move,30
+
+Werebat_STATS																													VISIBLE:NO	DEFINESTAT:MINVALUE|STR|3	DEFINESTAT:MINVALUE|DEX|15	DEFINESTAT:MINVALUE|CON|8	DEFINESTAT:MINVALUE|INT|2	DEFINESTAT:MINVALUE|WIS|16	DEFINESTAT:MINVALUE|CHA|3
+Werecrocodile_STATS																												VISIBLE:NO	DEFINESTAT:MINVALUE|STR|21	DEFINESTAT:MINVALUE|DEX|12	DEFINESTAT:MINVALUE|CON|19	DEFINESTAT:MINVALUE|INT|1	DEFINESTAT:MINVALUE|WIS|14	DEFINESTAT:MINVALUE|CHA|1
+Wereshark_STATS																													VISIBLE:NO	DEFINESTAT:MINVALUE|STR|19	DEFINESTAT:MINVALUE|DEX|12	DEFINESTAT:MINVALUE|CON|15	DEFINESTAT:MINVALUE|INT|1	DEFINESTAT:MINVALUE|WIS|14	DEFINESTAT:MINVALUE|CHA|1
+
+#Mummified Creature  -  Unable to add Improved Natural Attack to all currently extant natural attacks or add slam if no other natural attacks. Added these in text as an ability for user to add manually.
+Mummified Creature						CR:1		SOURCEPAGE:197	!PRERACE:1,RACETYPE=Undead,RACETYPE=Construct	!PREABILITY:1,CATEGORY=Special Ability,Incorporeal	ABILITY:Special Ability|AUTOMATIC|Mummified Creature ~ Powerful Attacks|Mummified Creature ~ Burst of Vengeance|Mummified Creature ~ Dust Stroke|Mummified Creature ~ Fail-Safe|Mummified Creature ~ Frightful Presence		DEFINESTAT:MINVALUE|INT|1		BONUS:HP|CURRENTMAX|CHA-CON	RACETYPE:Undead	CSKILL:Climb|Disguise|Fly|Intimidate|Knowledge (arcana)|Knowledge (religion)|Perception|Sense Motive|Spellcraft|Stealth	BONUS:VAR|AC_Natural_Armor|4|TYPE=Base.STACK	HITDIE:8|CLASS.TYPE=Monster	DR:5/—	BONUS:MOVEADD|TYPE.All|-10	BONUS:VAR|Maneuverability|-(Maneuverability-1)	BONUS:STAT|STR|2	BONUS:STAT|INT|-2	BONUS:SKILL|Stealth|4	TEMPLATE:CHOOSE:Mummified Creature Weakness ~ Electricity Vulnerability|Mummified Creature Weakness ~ Acid Vulnerability|Mummified Creature Weakness ~ Fire Vulnerability|Mummified Creature Weakness ~ Cold Vulnerability|Mummified Creature Weakness ~ Sonic Vulnerability	ABILITY:FEAT|AUTOMATIC|Toughness	KIT:1|CE|LE|NE
+Mummified Creature.MOD																												RACESUBTYPE:.REMOVE.Chaos|.REMOVE.Evil|.REMOVE.Good|.REMOVE.Lawful|Augmented Undead
+
+Mummified Creature Weakness ~ Electricity Vulnerability																						VISIBLE:NO	ABILITY:Special Ability|AUTOMATIC|Vulnerability to Electricity
+Mummified Creature Weakness ~ Acid Vulnerability																							VISIBLE:NO	ABILITY:Special Ability|AUTOMATIC|Vulnerability to Acid
+Mummified Creature Weakness ~ Fire Vulnerability																							VISIBLE:NO	ABILITY:Special Ability|AUTOMATIC|Vulnerability to Fire
+Mummified Creature Weakness ~ Cold Vulnerability																							VISIBLE:NO	ABILITY:Special Ability|AUTOMATIC|Vulnerability to Cold
+Mummified Creature Weakness ~ Sonic Vulnerability																							VISIBLE:NO	ABILITY:Special Ability|AUTOMATIC|Vulnerability to Sonic
+
+#Nightmare Creature
+Nightmare Creature						CR:1		SOURCEPAGE:204	PRESTAT:2,INT=6,CHA=6	PREHD:MAX=9												ABILITY:Internal|AUTOMATIC|Nightmare Creature Subtype|PRERACE:1,RACETYPE=Outsider	ABILITY:Internal|AUTOMATIC|Nightmare Creature Flight|!PREMOVE:1,Fly=1		KIT:1|CE|LE|NE	BONUS:VAR|BlindsightRange|120|TYPE=Base	DR:5/Good or Silver	BONUS:STAT|DEX,CHA|4	BONUS:STAT|INT|2	BONUS:SKILL|Intimidate,Stealth|4	BONUS:VAR|RegenerationRate|5	BONUS:VAR|FrightfulPresenceRange|30	ABILITY:Internal|AUTOMATIC|Race Traits ~ Nightmare Creature
+Nightmare Lord							CR:1		SOURCEPAGE:204	PRESTAT:2,INT=6,CHA=6	PREHD:MIN=10											ABILITY:Internal|AUTOMATIC|Nightmare Creature Subtype|PRERACE:1,RACETYPE=Outsider	ABILITY:Internal|AUTOMATIC|Nightmare Creature Flight|!PREMOVE:1,Fly=1		KIT:1|CE|LE|NE	BONUS:VAR|BlindsightRange|120|TYPE=Base	DR:5/Good or Silver	BONUS:STAT|DEX,CHA|6	BONUS:STAT|INT|4	BONUS:SKILL|Intimidate,Stealth|4	BONUS:VAR|RegenerationRate|5	BONUS:VAR|FrightfulPresenceRange|30	BONUS:DC|SUBSCHOOL.Phantasm|4	BONUS:DC|SUBSCHOOL.Shadow|4	ABILITY:Internal|AUTOMATIC|Race Traits ~ Nightmare Lord
+Nightmare Outsider																												RACESUBTYPE:Evil
+
+#Shadow Creature
+Shadow Creature							CR:1		SOURCEPAGE:238	!PRERACE:1,RACETYPE=Undead,RACETYPE=Construct										ABILITY:Internal|AUTOMATIC|Race Traits ~ Shadow Creature	RACETYPE:Outsider	RACESUBTYPE:Augmented	BONUS:VAR|HasLowlightVision|1|TYPE=Base	BONUS:VAR|DarkvisionRange|60|TYPE=Base	BONUS:VAR|ColdResistanceBonus|5|TYPE=Resistance|PREHD:MAX=4		BONUS:VAR|ElectricityResistanceBonus|5|TYPE=Resistance|PREHD:MAX=4	BONUS:VAR|ColdResistanceBonus|10|TYPE=Resistance|PREHD:MIN=5,MAX=10	BONUS:VAR|ElectricityResistanceBonus|10|TYPE=Resistance|PREHD:MIN=5,MAX=10	DR:5/Magic|PREHD:MIN=5,MAX=10		BONUS:VAR|ColdResistanceBonus|15|TYPE=Resistance|PREHD:MIN=11	BONUS:VAR|ElectricityResistanceBonus|15|TYPE=Resistance|PREHD:MIN=11	DR:10/Magic|PREHD:MIN=11	SR:CR+6
+Shadow Lord								CR:2		SOURCEPAGE:238	PRETEMPLATE:1,Shadow Creature		PREHD:MIN=5										ABILITY:Internal|AUTOMATIC|Race Traits ~ Shadow Lord	KIT:1|CE|LE|NE	BONUS:VAR|ColdResistanceBonus|15|TYPE=Resistance|PREHD:MIN=5,MAX=10	BONUS:VAR|ElectricityResistanceBonus|15|TYPE=Resistance|PREHD:MIN=5,MAX=10	BONUS:DR|Magic|5|PREHD:MIN=5,MAX=10		BONUS:VAR|ColdResistanceBonus|20|TYPE=Resistance|PREHD:MIN=11,MAX=15	BONUS:VAR|ElectricityResistanceBonus|20|TYPE=Resistance|PREHD:MIN=11,MAX=15	BONUS:DR|Magic|5|PREHD:MIN=11,MAX=15	BONUS:VAR|ColdResistanceBonus|30|TYPE=Resistance|PREHD:MIN=16	BONUS:VAR|ElectricityResistanceBonus|30|TYPE=Resistance|PREHD:MIN=16	BONUS:DR|Magic|10|PREHD:MIN=16	BONUS:STAT|DEX,CHA|4	BONUS:SKILL|Stealth|8|TYPE=Racial
+
+#Skinstitch
+Enhanced Skinstitch						CR:1																						BONUS:VAR|AC_Natural_Armor|12|TYPE=Base	BONUS:VAR|FireResistanceBonus|10|TYPE=Resistance		DR:5/Slashing	BONUS:SKILL|Stealth|5|TYPE=Racial
+Resilient Skinstitch						CR:1																						BONUS:VAR|AC_Natural_Armor|7|TYPE=Base	BONUS:VAR|FireResistanceBonus|10|TYPE=Resistance		DR:5/Magic
+Standard Skinstitch																												BONUS:VAR|AC_Natural_Armor|7|TYPE=Base	ABILITY:Special Ability|AUTOMATIC|Vulnerability to Fire	DR:5/Slashing
+
+#Soulbound Shell
+Soulbound Cleric																													ADD:SPELLCASTER|Cleric					BONUS:PCLEVEL|Cleric|12
+Soulbound Witch																													ADD:SPELLCASTER|Witch					BONUS:PCLEVEL|Witch|12
+Soulbound Wizard																													ADD:SPELLCASTER|Wizard					BONUS:PCLEVEL|Wizard|12
+
+#Vampire (Nosferatu)
+Nosferatu								CR:2		SOURCEPAGE:268	!PRERACE:1,RACETYPE=Undead,RACETYPE=Construct	PREHD:MIN=5								ABILITY:Internal|AUTOMATIC|Race Traits ~ Vampire (Nosferatu)	KIT:1|CE|LE|NE	RACETYPE:Undead	RACESUBTYPE:Augmented	BONUS:VAR|HasLowlightVision|1|TYPE=Base	BONUS:VAR|DarkvisionRange|60|TYPE=Base	BONUS:VAR|AC_Natural_Armor|8|TYPE=Base.STACK	HITDIE:8|CLASS.TYPE=Monster	BONUS:HP|CURRENTMAX|CHA-CON	BONUS:VAR|ChannelResistance|4	DR:5/Wood and Piercing	BONUS:VAR|ColdResistanceBonus|10|TYPE=Resistance	BONUS:VAR|ElectricityResistanceBonus|10|TYPE=Resistance	BONUS:VAR|SonicResistanceBonus|10|TYPE=Resistance	BONUS:VAR|FastHealingRate|5	BONUS:STAT|STR,INT|2	BONUS:STAT|DEX,CHA|4	BONUS:STAT|WIS|6	BONUS:SKILL|Perception,Sense Motive,Stealth|8|TYPE=Racial	ABILITY:FEAT|AUTOMATIC|Alertness|Improved Initiative|Lightning Reflexes	ADD:FEAT|2|Skill Focus	ABILITY:Internal|AUTOMATIC|Vampire (Nosferatu) ~ Claws|!PREWEAPONPROF:1,Claw,Claws
+
+#Zombie Lord  - NOTE: Unsure how to change skill points/HD
+Zombie Lord								CR:1		SOURCEPAGE:286	!PRERACE:1,RACETYPE=Undead	!PREABILITY:1,CATEGORY=Special Ability,Incorporeal	PRESTAT:1,INT=3	RACETYPE:Undead	RACESUBTYPE:.REMOVE.Chaos|.REMOVE.Evil|.REMOVE.Good|.REMOVE.Lawful	KIT:1|CE|LE|NE	BONUS:VAR|AC_Natural_Armor|1|TYPE=Base.STACK|PRESIZEEQ:S	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK|PRESIZEEQ:M	BONUS:VAR|AC_Natural_Armor|3|TYPE=Base.STACK|PRESIZEEQ:L	BONUS:VAR|AC_Natural_Armor|4|TYPE=Base.STACK|PRESIZEEQ:H	BONUS:VAR|AC_Natural_Armor|7|TYPE=Base.STACK|PRESIZEEQ:G	BONUS:VAR|AC_Natural_Armor|11|TYPE=Base.STACK|PRESIZEEQ:C	HITDIE:8|CLASS.TYPE=Monster	ADDLEVEL:Undead|2	BONUS:SAVE|BASE.Fortitude|(HD/3)-(BASE.Fortitude)	BONUS:SAVE|BASE.Reflex|(HD/3)-(BASE.Reflex)	BONUS:SAVE|BASE.Will|(HD/2+2)-(BASE.Fortitude)	DR:5/Slashing	BONUS:VAR|ChannelResistance|4	BONUS:VAR|Maneuverability|1-Maneuverability|PREMOVE:1,Fly=1	ABILITY:Internal|AUTOMATIC|Slam	BONUS:VAR|SlamSize|1	BONUS:STAT|STR|2	BONUS:STAT|DEX|2	BONUS:COMBAT|BASEAB|(HD*3/4)-(BASEAB)	ABILITY:FEAT|AUTOMATIC|Toughness	ABILITY:Special Ability|AUTOMATIC|Channel Resistance
+
+####Should be moved to Core Essentials!####
+Base Dragon HD (9)	TEMPLATE:Dragon Size HD (9)	HD:9-10:TEMPLATE:Wyrmling	HD:11-12:TEMPLATE:Very Young	HD:13-14:TEMPLATE:Young	HD:15-16:TEMPLATE:Juvenile	HD:17-18:TEMPLATE:Young Adult	HD:19-20:TEMPLATE:Adult	HD:21-22:TEMPLATE:Mature Adult	HD:23-24:TEMPLATE:Old	HD:25-26:TEMPLATE:Very Old	HD:27-28:TEMPLATE:Ancient	HD:29-30:TEMPLATE:Wyrm	HD:31+:TEMPLATE:Great Wyrm
+Dragon Size HD (9)	HD:9-10:TEMPLATE:Dragon (Small)	HD:11-12:TEMPLATE:Dragon (Medium)	HD:13-16:TEMPLATE:Dragon (Large)	HD:17-22:TEMPLATE:Dragon (Huge)	HD:23-30:TEMPLATE:Dragon (Gargantuan)	HD:31+:TEMPLATE:Dragon (Colossal)
+Dragon Attacks HD (9)	HD:9-10:TEMPLATE:Dragon Attacks (Small)	HD:11-12:TEMPLATE:Dragon Attacks (Medium)	HD:13-16:TEMPLATE:Dragon Attacks (Large)	HD:17-22:TEMPLATE:Dragon Attacks (Huge)	HD:23-30:TEMPLATE:Dragon Attacks (Gargantuan)	HD:31+:TEMPLATE:Dragon Attacks (Colossal)

@@ -1,0 +1,11 @@
+# CVS $Revision: 18761 $ $Author: amaitland $ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Qadira, Gateway to the East	SOURCESHORT:QGTTE	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderCompanion/pathfinderRPG/v5748btpy88zq	SOURCEDATE:2009-08
+
+# Modifier Name	Unique Key		Type								Cost		Visible		Type granted				Keys to replace	Source Page		Required Type	Special Property									Apply to both heads
+Silversheen		KEY:Material ~ Silversheen	TYPE:BaseMaterial.MasterworkQuality.Weapon	COST:750	VISIBLE:QUALIFY	ITYPE:Metal.Silversheen.Masterwork	REPLACES:Special Quality ~ Masterwork ~ Weapon	SOURCEPAGE:p.27	PRETYPE:1,Metal	SPROP:Count as an alchemical silver weapon, immune to all rust	ASSIGNTOALL:NO
+
+
+
+
+#Old KEYs
+Material ~ Silversheen.COPY=SSHEEN_WEAP	VISIBLE:NO

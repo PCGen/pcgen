@@ -1,0 +1,119 @@
+# CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
+
+###Block: Updated Background Skills
+# Skill Name					Type
+Appraise.MOD					TYPE:Background
+Handle Animal.MOD					TYPE:Background
+Knowledge (engineering).MOD			TYPE:Background
+Knowledge (geography).MOD			TYPE:Background
+Knowledge (history).MOD				TYPE:Background
+Knowledge (nobility).MOD			TYPE:Background
+Linguistics.MOD					TYPE:Background
+Sleight of Hand.MOD				TYPE:Background
+
+Craft (Alchemy).MOD				TYPE:Background
+Craft (Armor).MOD					TYPE:Background
+Craft (Baskets).MOD				TYPE:Background
+Craft (Blacksmithing).MOD			TYPE:Background	SOURCELONG:Pathfinder Unchained	SOURCESHORT:PU	SOURCEPAGE:p.51
+Craft (Books).MOD					TYPE:Background
+Craft (Bows).MOD					TYPE:Background
+Craft (Calligraphy).MOD				TYPE:Background
+Craft (Carpentry).MOD				TYPE:Background
+Craft (Cloth).MOD					TYPE:Background
+Craft (Clothing).MOD				TYPE:Background
+Craft (Gemcutting).MOD				TYPE:Background
+Craft (Glass).MOD					TYPE:Background
+Craft (Jewelry).MOD				TYPE:Background
+Craft (Leather).MOD				TYPE:Background
+Craft (Locks).MOD					TYPE:Background
+Craft (Paintings).MOD				TYPE:Background
+Craft (Pottery).MOD				TYPE:Background
+Craft (Sculptures).MOD				TYPE:Background
+Craft (Ships).MOD					TYPE:Background
+Craft (Shoes).MOD					TYPE:Background
+Craft (Stonemasonry).MOD			TYPE:Background
+Craft (Tattoos).MOD				TYPE:Background
+Craft (Traps).MOD					TYPE:Background
+Craft (Weapons).MOD				TYPE:Background
+
+Perform (Act).MOD					TYPE:Background
+Perform (Comedy).MOD				TYPE:Background
+Perform (Dance).MOD				TYPE:Background
+Perform (Keyboard Instruments).MOD		TYPE:Background
+Perform (Oratory).MOD				TYPE:Background
+Perform (Percussion Instruments).MOD	TYPE:Background
+Perform (Sing).MOD				TYPE:Background
+Perform (String Instruments).MOD		TYPE:Background
+Perform (Wind Instruments).MOD		TYPE:Background
+Perform (Untrained).MOD				TYPE:Background
+Profession (Architect).MOD			TYPE:Background
+Profession (Baker).MOD				TYPE:Background
+Profession (Barrister).MOD			TYPE:Background
+Profession (Brewer).MOD				TYPE:Background
+Profession (Butcher).MOD			TYPE:Background
+Profession (Clerk).MOD				TYPE:Background
+Profession (Cook).MOD				TYPE:Background
+Profession (Courtesan).MOD			TYPE:Background
+Profession (Driver).MOD				TYPE:Background
+Profession (Engineer).MOD			TYPE:Background
+Profession (Farmer).MOD				TYPE:Background
+Profession (Fisherman).MOD			TYPE:Background
+Profession (Gambler).MOD			TYPE:Background
+Profession (Gardener).MOD			TYPE:Background
+Profession (Herbalist).MOD			TYPE:Background
+Profession (Innkeeper).MOD			TYPE:Background
+Profession (Librarian).MOD			TYPE:Background
+Profession (Merchant).MOD			TYPE:Background
+Profession (Midwife).MOD			TYPE:Background
+Profession (Miller).MOD				TYPE:Background
+Profession (Miner).MOD				TYPE:Background
+Profession (Porter).MOD				TYPE:Background
+Profession (Sailor).MOD				TYPE:Background
+Profession (Scribe).MOD				TYPE:Background
+Profession (Shepherd).MOD			TYPE:Background
+Profession (Soldier).MOD			TYPE:Background
+Profession (Soothsayer).MOD			TYPE:Background
+Profession (Stable Master).MOD		TYPE:Background
+Profession (Tanner).MOD				TYPE:Background
+Profession (Trapper).MOD			TYPE:Background
+Profession (Woodcutter).MOD			TYPE:Background
+
+
+
+###Block: New Skills
+# Skill Name							Key Stat	Untrained?		Classes	Type						Required Var. value
+Artistry								KEYSTAT:INT						TYPE:Intelligence.Base.Background		PREVAREQ:UsePathfinderUnchainedSkills,1
+Lore (           )						KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background.Lore	PREVAREQ:UsePathfinderUnchainedSkills,1
+
+Lore (A particular small city)				KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background.Lore	PREVAREQ:UsePathfinderUnchainedSkills,1
+Lore (One district of a large city or metropolis)	KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background.Lore	PREVAREQ:UsePathfinderUnchainedSkills,1
+Lore (A particular monastery)					KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background.Lore	PREVAREQ:UsePathfinderUnchainedSkills,1
+Lore (Taverns in a region)					KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background.Lore	PREVAREQ:UsePathfinderUnchainedSkills,1
+Lore (Bandits in a region)					KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background.Lore	PREVAREQ:UsePathfinderUnchainedSkills,1
+Lore (Famous battles in a region)				KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background.Lore	PREVAREQ:UsePathfinderUnchainedSkills,1
+Lore (The spice trade)						KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background.Lore	PREVAREQ:UsePathfinderUnchainedSkills,1
+Lore (Cats)								KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background.Lore	PREVAREQ:UsePathfinderUnchainedSkills,1
+Lore (Drow matriarchs)						KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background.Lore	PREVAREQ:UsePathfinderUnchainedSkills,1
+Lore (Dwarven history)						KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background.Lore	PREVAREQ:UsePathfinderUnchainedSkills,1
+Lore (Frost giants)						KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background.Lore	PREVAREQ:UsePathfinderUnchainedSkills,1
+Lore (Sarenrae)							KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background.Lore	PREVAREQ:UsePathfinderUnchainedSkills,1
+Lore (Dagon)							KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background.Lore	PREVAREQ:UsePathfinderUnchainedSkills,1
+Lore (Phlegethon)							KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background.Lore	PREVAREQ:UsePathfinderUnchainedSkills,1
+Lore (Military commanders)					KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background.Lore	PREVAREQ:UsePathfinderUnchainedSkills,1
+
+
+
+###Block: Consolidated Skills
+#Acrobatics		KEY:Consolidated Skill ~ Acrobatics		PREVAREQ:UseConsolidatedSkills,1	ACHECK:YES	USEUNTRAINED:YES	KEYSTAT:DEX	DESC:Replaces....
+# Skill Name	Unique Key						Key Stat	Untrained?		Skill Penalty?	Required Var. value			Description
+Athletics		KEY:Consolidated Skill ~ Athletics		KEYSTAT:STR	USEUNTRAINED:YES	ACHECK:YES		PREVAREQ:UseConsolidatedSkills,1	DESC:Replaces....	TYPE:Consolidated Skills
+Finesse		KEY:Consolidated Skill ~ Finesse		KEYSTAT:DEX	USEUNTRAINED:NO	ACHECK:YES		PREVAREQ:UseConsolidatedSkills,1	DESC:Replaces....	TYPE:Consolidated Skills
+Influence		KEY:Consolidated Skill ~ Influence		KEYSTAT:CHA	USEUNTRAINED:YES				PREVAREQ:UseConsolidatedSkills,1	DESC:Replaces....	TYPE:Consolidated Skills
+Nature		KEY:Consolidated Skill ~ Nature		KEYSTAT:INT	USEUNTRAINED:NO				PREVAREQ:UseConsolidatedSkills,1	DESC:Replaces....	TYPE:Consolidated Skills
+#Perception		KEY:Consolidated Skill ~ Perception		PREVAREQ:UseConsolidatedSkills,1			USEUNTRAINED:YES	KEYSTAT:WIS	DESC:Replaces....
+Performance		KEY:Consolidated Skill ~ Performance	KEYSTAT:CHA	USEUNTRAINED:YES				PREVAREQ:UseConsolidatedSkills,1	DESC:Replaces....	TYPE:Consolidated Skills
+Religion		KEY:Consolidated Skill ~ Religion		KEYSTAT:INT	USEUNTRAINED:NO				PREVAREQ:UseConsolidatedSkills,1	DESC:Replaces....	TYPE:Consolidated Skills
+Society		KEY:Consolidated Skill ~ Society		KEYSTAT:INT	USEUNTRAINED:NO				PREVAREQ:UseConsolidatedSkills,1	DESC:Replaces....	TYPE:Consolidated Skills
+#Spellcraft		KEY:Consolidated Skill ~ Spellcraft		PREVAREQ:UseConsolidatedSkills,1			USEUNTRAINED:NO	KEYSTAT:INT	DESC:Replaces....
+#Stealth		KEY:Consolidated Skill ~ Stealth		PREVAREQ:UseConsolidatedSkills,1	ACHECK:YES	USEUNTRAINED:YES	KEYSTAT:DEX	DESC:Replaces....
+#Survival		KEY:Consolidated Skill ~ Survival		PREVAREQ:UseConsolidatedSkills,1			USEUNTRAINED:YES	KEYSTAT:WIS	DESC:Replaces....

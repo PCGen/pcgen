@@ -1,0 +1,79 @@
+# CVS $Revision: $ $Author: $ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+SOURCELONG:Second Darkness, Chapter 3 - The Armageddon Echo	SOURCESHORT:AP15	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy85ep	SOURCEDATE:2008-10
+# Original Entry by Eddy Anthony (MoSaT)
+
+###Block: Blast Shadow Abilities
+# Ability Name		Output Name									Category of Ability		Type							Define			Description																							Modify VAR						Source Page
+Cloud of Smoke and Fire											CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural.Aura					DESC:A blast shadow can, as a free action, surround itself with a cloud of smoke that burns living flesh.														SOURCEPAGE:p.82
+Death Burst													CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural		DEFINE:DeathBurstDC|0	DESC:When a blast shadow is reduced to 0 or fewer hit points, it explodes in a blast of flame. DC 18 Reflex save for half damage.|DeathBurstDC	BONUS:VAR|DeathBurstDC|10+(HD/2)+CHA	SOURCEPAGE:p.82
+Blast Shadow Claws	OUTPUTNAME:Claw attacks do an additional 1d6 fire damage	CATEGORY:Special Ability	TYPE:SpecialQuality																																							SOURCEPAGE:p.82
+
+###Block: Cutlass Spider Abilities
+# Ability Name				Output Name																Category of Ability		Type							Description																												Source Page
+Cutlass Spider All-Around Vision	OUTPUTNAME:All-Around Vision													CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Sense	DESC:A cutlass spider can see through the blades that makes up its body as if they were eyes and can't be flanked.										SOURCEPAGE:p.84
+Collapse																						CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural		DESC:As a full-round action, a cutlass spider may withdraw the magical energy holding its body together and fall into a heap of blades and wooden pieces.				SOURCEPAGE:p.84
+Shared Enhancement																				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural		DESC:Should a cutlass spider have a magical weapon incorporated into its body it shares the weapon's enhancement bonus and special abilities with all of its natural attacks.	SOURCEPAGE:p.84
+Weapon Thief																					CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary		DESC:A cutlass spider that disarms an opponent incorporates the disarmed weapon into its body.														SOURCEPAGE:p.84
+Cutlass Spider Hide			OUTPUTNAME:+8 racial bonus on Hide checks (+12 amid trash and debris) when using its collapse ability	CATEGORY:Special Ability	TYPE:SpecialQuality																																	SOURCEPAGE:p.84
+
+###Block: Forest Drake Abilities
+# Ability Name			Output Name											Category of Ability		Type									Define				Description																							Modify VAR								Source Page
+Forest Drake Immunities		OUTPUTNAME:Immune to acid, sleep and paralysis					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity																																								SOURCEPAGE:p.86
+Acidic Cloud Breath														CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				DEFINE:AcidicCloudBreathDC|0	DESC:60 feet range ball of acid deals 4d4 points of acid damage within the 10-foot-radius cloud, DC %1 Reflex save for half|AcidicCloudBreathDC	BONUS:VAR|AcidicCloudBreathDC|10+(HD/2)+CON|TYPE=Base	SOURCEPAGE:p.86
+Speed Surge																CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyMovement						DESC:Three times per day, a forest drake may take an additional move action																					SOURCEPAGE:p.86
+Forest Drake Bite			OUTPUTNAME:Bite attack does an additional 1d6 acid damage			CATEGORY:Special Ability	TYPE:SpecialQuality																																												SOURCEPAGE:p.86
+Forest Drake Hide			OUTPUTNAME:+8 racial bonus on Hide checks made in a forest environment	CATEGORY:Special Ability	TYPE:SpecialQuality																																												SOURCEPAGE:p.86
+Forest Drake Water Breathing	OUTPUTNAME:Water Breathing								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary									DESC:A forest drake can breathe underwater indefinitely and can freely use its breath weapon and other abilities while underwater.												SOURCEPAGE:p.86
+
+###Block: Maftet Abilities
+# Ability Name	Category of Ability		Type								Description																					Source Page
+Aerial Pounce	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	DESC:When making a raptor dive, a maftet can take a full attack.												SOURCEPAGE:p.88
+Paired Weapons	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			DESC:A maftet is ambidextrous and fights with a scimitar in each hand.											SOURCEPAGE:p.88
+Raptor Dive		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	DESC:Maftets begin combat from the air. When airborne, they can swoop down and strike at lightning speed.					SOURCEPAGE:p.88
+Runic Tattoos	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			DESC:The eldritch tattoos scribed on a maftet's body power its spell-like abilities and glow faintly when those abilities are used.	SOURCEPAGE:p.88
+
+
+###Block: Abyssal Resistance Benefits
+# Ability Name						Description
+CATEGORY=Special Ability|Abyssal Resistance.MOD	DESC:You gain a +%1 profane bonus on saves made to resist effects that employ a written medium.|classlevel("Demonic Initiate")|PREDEITY:1,Abraxas
+CATEGORY=Special Ability|Abyssal Resistance.MOD	DESC:You gain a +%1 profane bonus on saves made to avoid traps.|classlevel("Demonic Initiate")|PREDEITY:1,Andirifkhu
+CATEGORY=Special Ability|Abyssal Resistance.MOD	DESC:You gain a +%1 profane bonus on saves made to resist sonic or language-dependent effects.|classlevel("Demonic Initiate")|PREDEITY:1,Areshkagal
+CATEGORY=Special Ability|Abyssal Resistance.MOD	DESC:You gain a +%1 profane bonus on saves made to resist any effect that causes nausea.|classlevel("Demonic Initiate")|PREDEITY:1,Cyth-V'sug
+CATEGORY=Special Ability|Abyssal Resistance.MOD	DESC:You gain a +%1 profane bonus on saves made to resist all fire-based spells or effects.|classlevel("Demonic Initiate")|PREDEITY:1,Flauros
+CATEGORY=Special Ability|Abyssal Resistance.MOD	DESC:You gain a +%1 profane bonus on saves made to resist transmutation spells and effects.|classlevel("Demonic Initiate")|PREDEITY:1,Haagenti
+CATEGORY=Special Ability|Abyssal Resistance.MOD	DESC:You gain a +%1 profane bonus on saves made to resist poison.|classlevel("Demonic Initiate")|PREDEITY:1,Jubilex
+CATEGORY=Special Ability|Abyssal Resistance.MOD	DESC:You gain a +%1 profane bonus on all skill and grapple checks made to escape bindings or grapples.|classlevel("Demonic Initiate")|PREDEITY:1,Mazmezz
+CATEGORY=Special Ability|Abyssal Resistance.MOD	DESC:You gain a +%1 profane bonus on all Will saves made to resist spells of the charm subschool and against blindness effects.|classlevel("Demonic Initiate")|PREDEITY:1,Nocticula
+CATEGORY=Special Ability|Abyssal Resistance.MOD	DESC:You gain a +%1 profane bonus on all Will saves made to resist illusions of the figment subschool.|classlevel("Demonic Initiate")|PREDEITY:1,Shax
+CATEGORY=Special Ability|Abyssal Resistance.MOD	DESC:You gain a +%1 profane bonus on all Will saves made to resist enchantments of the compulsion subschool.|classlevel("Demonic Initiate")|PREDEITY:1,Socothbenoth
+CATEGORY=Special Ability|Abyssal Resistance.MOD	DESC:You gain a +%1 profane bonus on all saves made to resist the supernatural abilities of undead creatures.|classlevel("Demonic Initiate")|PREDEITY:1,Zura
+
+###Block: Demonic Boon, Lesser Benefits
+# Ability Name							Innate Spells																								Description
+CATEGORY=Special Ability|Demonic Boon (Lesser).MOD	SPELLS:Innate|TIMES=1|CASTERLEVEL=classlevel("Demonic Initiate")|Augury,10+CHA|Identify,10+CHA|Illusory Script,10+CHA|PREDEITY:1,Abraxas				DESC:You can cast augury, identify, and illusory script as spell-like abilities once per day.|PREDEITY:1,Abraxas
+CATEGORY=Special Ability|Demonic Boon (Lesser).MOD	SPELLS:Innate|TIMES=1|CASTERLEVEL=classlevel("Demonic Initiate")|Fire Trap,10+CHA|Magic Weapon,10+CHA|Snare,10+CHA|PREDEITY:1,Andirifkhu				DESC:You can cast fire trap, magic weapon, and snare as spell-like abilities once per day.|PREDEITY:1,Andirifkhu
+CATEGORY=Special Ability|Demonic Boon (Lesser).MOD	SPELLS:Innate|TIMES=1|CASTERLEVEL=classlevel("Demonic Initiate")|Hold Portal,10+CHA|Magic Mouth,10+CHA|Touch of Idiocy,10+CHA|PREDEITY:1,Areshkagal		DESC:You can cast hold portal, magic mouth, and touch of idiocy as spell-like abilities once per day.|PREDEITY:1,Areshkagal
+CATEGORY=Special Ability|Demonic Boon (Lesser).MOD	SPELLS:Innate|TIMES=1|CASTERLEVEL=classlevel("Demonic Initiate")|Hold Person,10+CHA|Ray of Enfeeblement,10+CHA|Warp Wood,10+CHA|PREDEITY:1,Cyth-V'sug		DESC:You can cast hold person, ray of enfeeblement, and warp wood as spell-like abilities once per day.|PREDEITY:1,Cyth-V'sug
+CATEGORY=Special Ability|Demonic Boon (Lesser).MOD	SPELLS:Innate|TIMES=1|CASTERLEVEL=classlevel("Demonic Initiate")|Burning Hands,10+CHA|Flaming Sphere,10+CHA|Pyrotechnics,10+CHA|PREDEITY:1,Flauros		DESC:You can cast burning hands, flaming sphere, and pyrotechnics as spelllike abilities once per day.|PREDEITY:1,Flauros
+CATEGORY=Special Ability|Demonic Boon (Lesser).MOD	SPELLS:Innate|TIMES=1|CASTERLEVEL=classlevel("Demonic Initiate")|Blindness/Deafness,10+CHA|Enlarge Person,10+CHA|Reduce Person,10+CHA|PREDEITY:1,Haagenti	DESC:Lesser You can cast blindness/deafness, enlarge person, and reduce person as spell-like abilities once per day.|PREDEITY:1,Haagenti
+CATEGORY=Special Ability|Demonic Boon (Lesser).MOD	SPELLS:Innate|TIMES=1|CASTERLEVEL=classlevel("Demonic Initiate")|Curse Water,10+CHA|Detect Poison,10+CHA|Ghoul Touch,10+CHA|PREDEITY:1,Jubilex			DESC:You can cast curse water, detect poison, and ghoul touch as spell-like abilities once per day.|PREDEITY:1,Jubilex
+CATEGORY=Special Ability|Demonic Boon (Lesser).MOD	SPELLS:Innate|TIMES=1|CASTERLEVEL=classlevel("Demonic Initiate")|Animate Rope,10+CHA|Summon Swarm,10+CHA|Web,10+CHA|PREDEITY:1,Mazmezz				DESC:You can cast animate rope, summon swarm, and web as spell-like abilities once per day.|PREDEITY:1,Mazmezz
+CATEGORY=Special Ability|Demonic Boon (Lesser).MOD	SPELLS:Innate|TIMES=1|CASTERLEVEL=classlevel("Demonic Initiate")|Charm Person,10+CHA|Darkness,10+CHA|Darkvision,10+CHA|PREDEITY:1,Nocticula			DESC:You can cast charm person, darkness, and darkvision as spell-like abilities once per day.|PREDEITY:1,Nocticula
+CATEGORY=Special Ability|Demonic Boon (Lesser).MOD	SPELLS:Innate|TIMES=1|CASTERLEVEL=classlevel("Demonic Initiate")|Disguise Self,10+CHA|Invisibility,10+CHA|True Strike,10+CHA|PREDEITY:1,Shax			DESC:You can cast disguise self, invisibility, and true strike as spell-like abilities once per day.|PREDEITY:1,Shax
+CATEGORY=Special Ability|Demonic Boon (Lesser).MOD	SPELLS:Innate|TIMES=1|CASTERLEVEL=classlevel("Demonic Initiate")|Alter Self,10+CHA|Hypnotism,10+CHA|Suggestion,10+CHA|PREDEITY:1,Socothbenoth			DESC:You can cast alter self, hypnotism, and suggestion as spell-like abilities once per day.|PREDEITY:1,Socothbenoth
+CATEGORY=Special Ability|Demonic Boon (Lesser).MOD	SPELLS:Innate|TIMES=1|CASTERLEVEL=classlevel("Demonic Initiate")|Cause Fear,10+CHA|Deathwatch,10+CHA|Spider Climb,10+CHA|PREDEITY:1,Zura				DESC:You can cast cause fear, deathwatch, and spider climb as spell-like abilities once per day.|PREDEITY:1,Zura
+
+###Block: Demonic Boon, Greater Benefits
+# Ability Name							Description																										Ability											Modify VAR
+CATEGORY=Special Ability|Demonic Boon (Greater).MOD	DESC:Heretical Revelation ~ Three times per day, you may whisper a terrible secret of reality to an adjacent target as a standard action.|PREDEITY:1,Abraxas
+CATEGORY=Special Ability|Demonic Boon (Greater).MOD	DESC:Any living creature you damage with a slashing or piercing weapon continues to bleed, losing 1 hit point per round thereafter.|PREDEITY:1,Andirifkhu
+CATEGORY=Special Ability|Demonic Boon (Greater).MOD	DESC:Once per day, as a free action, you may pass through one door and come out another elsewhere.|PREDEITY:1,Areshkagal
+CATEGORY=Special Ability|Demonic Boon (Greater).MOD	DESC:Three times per day you can make a touch attack against an opponent for 4d6 points of damage, which you gain as temporary hit points.|PREDEITY:1,Cyth-V'sug
+CATEGORY=Special Ability|Demonic Boon (Greater).MOD	DESC:You gain fire resistance 10.|PREDEITY:1,Flauros																			ABILITY:Special Ability|VIRTUAL|Resistance To Fire|PREDEITY:1,Flauros	BONUS:VAR|FireResistanceBonus|10|TYPE=Resistance|PREDEITY:1,Flauros
+CATEGORY=Special Ability|Demonic Boon (Greater).MOD	DESC:You gain a malleable form and may employ alter self as a spell-like ability at will.|PREDEITY:1,Haagenti
+CATEGORY=Special Ability|Demonic Boon (Greater).MOD	DESC:Three times per day, as a free action, you may add the effects of the spell poison to any melee attack that just dealt damage.|PREDEITY:1,Jubilex
+CATEGORY=Special Ability|Demonic Boon (Greater).MOD	DESC:You gain a climb speed equal to half your base land speed and you can communicate with all vermin.|PREDEITY:1,Mazmezz
+CATEGORY=Special Ability|Demonic Boon (Greater).MOD	DESC:Three times per day, as a free action, you may add the effects of the spell blindness to any ranged attack that just dealt damage.|PREDEITY:1,Nocticula
+CATEGORY=Special Ability|Demonic Boon (Greater).MOD	DESC:You gain sneak attack +3d6 as per a rogue.|PREDEITY:1,Shax																	ABILITY:Special Ability|VIRTUAL|Sneak Attack|PREDEITY:1,Shax		BONUS:VAR|SneakAttackDice|3|PREDEITY:1,Shax
+CATEGORY=Special Ability|Demonic Boon (Greater).MOD	DESC:Your enchantment spells and spell-like abilities become hard to resist, granting you a +1 bonus to their save DCs.|PREDEITY:1,Socothbenoth
+CATEGORY=Special Ability|Demonic Boon (Greater).MOD	DESC:Once per day, you may draw power from the blood of your victims.|PREDEITY:1,Zura

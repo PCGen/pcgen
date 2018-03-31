@@ -1,0 +1,12 @@
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:Skull & Shackles Player's Guide	SOURCESHORT:SASPG	SOURCEWEB:http://paizo.com/products/btpy8rwc?Pathfinder-Adventure-Path-Skull-Shackles-Players-Guide	SOURCEDATE:2012-07
+# Original Entry by: Richard Woodard
+
+STARTPACK:DocksideBrawler	TYPE:Character Trait	VISIBLE:NO	TOTALCOST:0
+GEAR:Brass Knuckles	LOCATION:Equipped
+
+STARTPACK:EyeForPlunder	TYPE:Character Trait	VISIBLE:NO	EQUIPBUY:0
+FUNDS:gp	QTY:50
+
+STARTPACK:ShipsSurgeon	TYPE:Character Trait	VISIBLE:NO	TOTALCOST:0
+GEAR:Healer's Kit	LOCATION:Equipped

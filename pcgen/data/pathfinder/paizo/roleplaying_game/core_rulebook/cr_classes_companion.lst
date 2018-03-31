@@ -1,0 +1,22 @@
+# CVS $Revision: 20121 $ $Author: zaister $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
+# Original Entry by: Andrew Maitland
+
+# Class Name	Output Name		Hit Dice	Type				Max Level	Source Page		Ability					Visible	Define														Bonus Ability Pool																	Combat bonus																	Save bonus																																		Modify VAR																																																																																									FACT
+CLASS:Companion	OUTPUTNAME:Animal	HD:8		TYPE:Monster.Companion	MAXLEVEL:20	SOURCEPAGE:p.52	ABILITY:FEAT|AUTOMATIC|CMB Output	VISIBLE:NO	DEFINE:CompanionClassLevel|0	DEFINE:AnimalCompanionSkill|0	DEFINE:BaseClassSkillPts|0	BONUS:ABILITYPOOL|Animal Companion Feat|(classlevel("APPLIEDAS=NONEPIC")+1)/2|!PRETEMPLATE:1,No Intelligence Score	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|CompanionClassLevel|CL	BONUS:VAR|AnimalCompanionSkill|1|PREVARLT:INTSCORE,3	BONUS:VAR|BaseClassSkillPts|MAX(1,2+INT)|!PRETEMPLATE:1,No Intelligence Score	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|Companion	FACT:Abb|AC
+# Class Name	Skill Pts/Lvl				Add INT to Skill Points?	Class Skill
+CLASS:Companion	STARTSKILLPTS:0+BaseClassSkillPts	MODTOSKILLS:NO			CSKILL:Acrobatics|Climb|Fly|Perception|Stealth|Swim
+###Block: Level Advancement
+3:REPEATLEVEL:2	BONUS:ABILITYPOOL|FEAT|-1
+
+#COMMENT: Used for the Shadow Companion - Removes HD pop up
+
+# Class Name		Hit Dice	Type				Max Level		Source Page		Ability																	Visible	Combat bonus																	Save bonus																																		Modify VAR																																																													FACT
+CLASS:Shadow Companion	HD:8		TYPE:Monster.Companion	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.309	ABILITY:Special Ability|AUTOMATIC|Undead Traits|PREVAREQ:NoTypeTraits,0	ABILITY:FEAT|AUTOMATIC|CMB Output	VISIBLE:NO	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|Companion
+# Class Name		Reg. Race Type
+CLASS:Shadow Companion	PRERACETYPE:Undead
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
+CLASS:Shadow Companion	STARTSKILLPTS:4	MODTOSKILLS:YES			CSKILL:Climb|Disguise|Fly|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|Perception|Sense Motive|Spellcraft|Stealth
+2:REPEATLEVEL:1	DONOTADD:HITDIE
+
+#EOF

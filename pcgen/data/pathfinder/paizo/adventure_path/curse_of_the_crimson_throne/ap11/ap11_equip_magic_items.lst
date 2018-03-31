@@ -1,0 +1,6 @@
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:Curse of the Crimson Throne, Chapter 5 - Skeletons of Scarwall	SOURCESHORT:AP11	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy83yw	SOURCEDATE:2008-08
+
+# Ring
+# Equipment Name	Output Name				Type			Cost		Weight	Modifier					Source Page		Innate Spells								Special Property
+Ring (Immolation)	OUTPUTNAME:Ring of [NAME]	TYPE:Magic.Ring	COST:12000	WT:0		EQMOD:Special Ability ~ Charged Item / 10 Maximum|CHARGES[10]	SOURCEPAGE:p.42	SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=10|Fire Shield	SPROP:As a free action, the wearer can activate the ring to create a fire shield (warm) on himself. Aura moderate evocation (fire)

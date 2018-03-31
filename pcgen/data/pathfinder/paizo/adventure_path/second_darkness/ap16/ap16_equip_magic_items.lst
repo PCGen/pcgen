@@ -1,0 +1,5 @@
+# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Second Darkness, Chapter 4 - Endless Night	SOURCESHORT:AP16	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy85er	SOURCEDATE:2008-11
+
+# Equipment Name	Type					Cost		Weight	Source Page		Innate Spells																		Special Property										Auto Weapon Prof
+Bloodlink		TYPE:Magic.Wondrous.Amulet	COST:4800	WT:0		SOURCEPAGE:p.11	SPELLS:Magic Item|TIMES=1|CASTERLEVEL=TL|Dancing Lights,10+CHA|Darkness,12+CHA|Faerie Fire,11+CHA|PRESTAT:1,INT=10	SPROP:Wearer is granted the ability to speak and understand Undercommon	AUTO:WEAPONPROF|Crossbow (Hand)|Rapier|Sword (Short)

@@ -1,0 +1,13 @@
+# CVS $Revision: $ $Author: $ -- Thu Sep 26 01:19:49 2013 -- reformated by prettylst.pl v1.50 (build 21406)
+SOURCELONG:Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEWEB:http://paizo.com/pathfinder/companion/35E/v5748btpy84en	SOURCEDATE:2008-08
+
+
+# Equipment Name			Output Name				Type					Contains		Cost		Weight	Slot Needed	Source Page		Bonus to skill
+Boots (Trackless)			OUTPUTNAME:Trackless Boots	TYPE:Magic.Wondrous.Boot				COST:3500	WT:2		SLOTS:2	SOURCEPAGE:p.29	BONUS:SKILL|Stealth|5|TYPE=Competence
+Caver's Hammock								TYPE:Magic.Wondrous.Container	CONTAINS:500	COST:1200	WT:1				SOURCEPAGE:p.28
+Mushroom Vest								TYPE:Magic.Wondrous.Shirt				COST:500	WT:3				SOURCEPAGE:p.28
+Portable Stalactite							TYPE:Magic.Wondrous					COST:800	WT:1				SOURCEPAGE:p.28
+Potion (Hero's Brew)		OUTPUTNAME:[NAME]			TYPE:Magic.Potion.Consumable				COST:1400	WT:0				SOURCEPAGE:p.25
+Ring of Emancipation							TYPE:Magic.Ring						COST:2100	WT:0				SOURCEPAGE:p.25	BONUS:SKILL|Disable Device,Escape Artist|2|TYPE=Competence
+Ring of the Stone Sibling						TYPE:Magic.Ring						COST:7400	WT:0				SOURCEPAGE:p.28
+Salt Lamp									TYPE:Magic.Wondrous					COST:350	WT:2				SOURCEPAGE:p.29

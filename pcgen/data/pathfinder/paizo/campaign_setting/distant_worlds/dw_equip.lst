@@ -1,0 +1,9 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+
+# Equipment Name			Type					Cost		Weight	Range		Size		Source Page		Quality and value					Special Property																																																					Auto Equip
+Pressure Suit			TYPE:Slot_body.Uses_helm_Slot	COST:4000	WT:30						SOURCEPAGE:p.55	QUALITY:Aura|faint abjuration; CL 5th	SPROP:This magical full-body suit completely protects the wearer from temperature extremes (as if by endure elements) and pressure dangers of hard vacuum and all worlds in the system (save the sun), though it only carries enough air for 3 days before it must be recharged in breathable atmosphere (such as that inside a ship).	AUTO:EQUIP|Pressure Suit (Helm)
+Pressure Suit (Helm)		TYPE:Helm.Headgear										SOURCEPAGE:p.55
+
+#Rifle.COPY=Shobhad Longrifle
+#Shobhad Longrifle.MOD											RANGE:200	SIZE:L											SPROP:only works in the low gravity of Akiton and similar worlds.
+Shobhad Longrifle			NAMEISPI:YES					PROFICIENCY:WEAPON|Shobhad Longrifle	TYPE:Weapon.Resizable.Martial.Ranged.Standard.Piercing.Bludgeoning.Container.Projectile.Firearm.Rifle		CONTAINS:1|FirearmCartridge=1				COST:5000	WT:12		CRITMULT:x4	CRITRANGE:1	DAMAGE:1d10	EQMOD:Material ~ Steel				WIELD:TwoHandsOnly	RANGE:200	SIZE:L	SOURCEPAGE:p.139	SPROP:Misfire 1; Only functions on low-gravity worlds.

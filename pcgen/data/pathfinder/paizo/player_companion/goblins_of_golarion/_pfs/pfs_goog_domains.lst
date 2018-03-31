@@ -1,0 +1,10 @@
+# CVS $Revision: $ $Author: $ -- Wed Dec 10 01:48:21 2014 -- reformated by prettylst.pl v1.51 (build 25712)
+SOURCELONG:Goblins of Golarion	SOURCESHORT:GOOG	SOURCEWEB:http://paizo.com/products/btpy8mfk?Pathfinder-Player-Companion-Goblins-of-Golarion	SOURCEDATE:2011-07
+#ORIGINAL ENTRY: Eric C. Smith (maredudd AT blackroot DOT org)
+#ORIGINAL ENTRY DATE: 2013/07/14
+
+
+# Misc.: all goblin gods and subdomains except flotsam on pages 26-27 are legal for play;
+
+# Domain Name		!PRECHARACTERTYPE		Type
+Flotsam Subdomain.MOD	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal

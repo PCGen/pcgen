@@ -1,0 +1,63 @@
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:Second Darkness, Chapter 3 - The Armageddon Echo	SOURCESHORT:AP15	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy85ep	SOURCEDATE:2008-10
+# Original Entry by Eddy Anthony (MoSaT)
+
+STARTPACK:Blast Shadow Default	TYPE:Default Monster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Blast Shadow],[!PRERACE:1,%]	SOURCEPAGE:p.82
+ALIGN:CE
+RACE:Blast Shadow	!PRERACE:1,%
+NAME:Blast Shadow
+SKILL:Acrobatics	RANK:10
+SKILL:Climb		RANK:10
+SKILL:Perception	RANK:10
+SKILL:Stealth	RANK:10
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Stealthy
+ABILITY:CATEGORY=FEAT|Toughness
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Focus(Claw)
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=10
+
+###MISSING VARIANTS - ACID, FREEZING, LIGHTNING SHADOWS
+###NEED TO SET UP A METHOD TO CHOOSE WHICH SHADOW TYPE
+
+STARTPACK:Cutlass Spider Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Cutlass Spider],[!PRERACE:1,%]	SOURCEPAGE:p.84
+ALIGN:TN
+RACE:Cutlass Spider	!PRERACE:1,%
+NAME:Cutlass Spider
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=11
+
+
+STARTPACK:Forest Drake Default	TYPE:Default Monster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Forest Drake],[!PRERACE:1,%]	SOURCEPAGE:p.86
+ALIGN:LE
+RACE:Forest Drake	!PRERACE:1,%
+NAME:Forest Drake
+SKILL:Acrobatics	RANK:7
+SKILL:Fly		RANK:7
+SKILL:Perception	RANK:7
+SKILL:Stealth	RANK:7
+SKILL:Swim		RANK:7
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
+STAT:STR=11|DEX=10|CON=10|INT=11|WIS=11|CHA=10
+
+###MISSING VARIANTS
+
+STARTPACK:Maftet Default	TYPE:Default Monster.Monstrous Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Maftet],[!PRERACE:1,%]	SOURCEPAGE:p.88
+ALIGN:TN
+RACE:Maftet	!PRERACE:1,%
+NAME:Maftet
+SKILL:Acrobatics			RANK:6
+SKILL:Fly				RANK:6
+SKILL:Knowledge (History)	RANK:6
+SKILL:Perception			RANK:9
+SKILL:Stealth			RANK:9
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Two-Weapon Fighting
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Two-Weapon Fighting
+ABILITY:CATEGORY=FEAT|Weapon Focus(Scimitar)
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+GEAR:Scimitar	LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Scimitar	LOCATION:Secondary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon

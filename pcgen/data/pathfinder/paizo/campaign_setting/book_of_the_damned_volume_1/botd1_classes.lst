@@ -1,0 +1,20 @@
+# CVS $Revision: $ $Author: $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Princes of Darkness, Book of the Damned, Volume 1	SOURCESHORT:BOTD1	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8a6f	SOURCEDATE:2009-10
+# Original Entry by: Stefan Radermacher
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus																	Save bonus																						Modify VAR																																																												FACT
+CLASS:Diabolist	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.44	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|Dia
+# Class Name	Required AL		Required Language		Required Skill										Required Text
+CLASS:Diabolist	PREALIGN:LN,LE,NE	PRELANG:1,Infernal	PRESKILL:3,Knowledge (Planes)=5,Knowledge (Religion)=3,Spellcraft=5	PRETEXT:Must have conjured a devil using Lesser Planar Ally or Lesser Planar Binding (or a similar spell) and successfully coaxed the fiend into performing a task lasting longer than 1 day.
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Diabolist	STARTSKILLPTS:2	CSKILL:Bluff|Diplomacy|Intimidate|Knowledge (Arcana)|Knowledge (Planes)|Knowledge (Religion)|Sense Motive|Spellcraft
+1	BONUS:VAR|DiabolistDamnedLVL,DiabolistInfernalCharismaLVL|CL	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Diabolist ~ Damned|Diabolist ~ Imp Companion|Diabolist ~ Infernal Charisma
+2												ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Diabolist ~ Channel Hellfire|Diabolist ~ Infernal Bargain
+3	BONUS:VAR|DiabolistHeresyLVL|CL						ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Diabolist ~ Heresy	ABILITY:FEAT|AUTOMATIC|Augment Summoning
+4												ADD:SPELLCASTER|ANY
+5												ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Diabolist ~ Hellish Soul
+6												ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Diabolist ~ Infernal Transport
+7												ADD:SPELLCASTER|ANY
+8	BONUS:VAR|DiabolistHellfireRayLVL|CL					ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Diabolist ~ Hellfire Ray
+9												ADD:SPELLCASTER|ANY
+10												ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Diabolist ~ Master Conjurer

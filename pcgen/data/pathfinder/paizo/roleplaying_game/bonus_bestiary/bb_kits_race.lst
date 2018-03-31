@@ -1,0 +1,168 @@
+# CVS $Revision: 20127 $ $Author: zaister $ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Bonus Bestiary	SOURCESHORT:BB	SOURCEWEB:http://paizo.com/store/paizoExclusives/v5748btpy88x4	SOURCEDATE:2009-06
+
+STARTPACK:Allip Default	TYPE:Default Monster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Allip]	SOURCEPAGE:p.4
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=10
+RACE:Allip	!PRERACE:1,%
+NAME:Allip
+ALIGN:CE
+SKILL:Fly		RANK:4
+SKILL:Intimidate	RANK:4
+SKILL:Perception	RANK:4
+SKILL:Stealth	RANK:4
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+
+STARTPACK:Ant Lion (Giant) Default	TYPE:Default Monster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ant Lion (Giant)]	SOURCEPAGE:p.5
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+RACE:Ant Lion (Giant)	!PRERACE:1,%
+NAME:Giant Ant Lion
+ALIGN:TN
+
+STARTPACK:Ant Lion (Mature) Default	TYPE:Default Monster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ant Lion (Mature)]	SOURCEPAGE:p.5
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+RACE:Ant Lion (Mature)	!PRERACE:1,%
+NAME:Giant Lacewing
+ALIGN:TN
+
+STARTPACK:Ascomoid Default	TYPE:Default Monster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ascomoid]	SOURCEPAGE:p.6
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+RACE:Ascomoid	!PRERACE:1,%
+NAME:Ascomoid
+ALIGN:TN
+
+STARTPACK:Axe Beak Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Axe Beak]	SOURCEPAGE:p.7
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+RACE:Axe Beak	!PRERACE:1,%
+NAME:Axe Beak
+ALIGN:TN
+SKILL:Perception	RANK:3
+ABILITY:CATEGORY=FEAT|Run
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
+
+STARTPACK:Caryatid Column Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Caryatid Column]	SOURCEPAGE:p.8
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+RACE:Caryatid Column	!PRERACE:1,%
+NAME:Caryatid Column
+ALIGN:TN
+GEAR:Longsword	SIZE:PC	LOCATION:Both Hands	EQMOD:Special Quality ~ Masterwork ~ Weapon
+
+STARTPACK:Dragon (Faerie) Default	TYPE:Default Monster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Faerie)]	SOURCEPAGE:p.9
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+RACE:Dragon (Faerie)	!PRERACE:1,%
+NAME:Faerie Dragon
+ALIGN:CG
+SKILL:Acrobatics		RANK:3
+SKILL:Bluff			RANK:3
+SKILL:Diplomacy		RANK:3
+SKILL:Fly			RANK:3
+SKILL:Perception		RANK:3
+SKILL:Sense Motive	RANK:3
+SKILL:Stealth		RANK:3
+SKILL:Swim			RANK:3
+SKILL:Use Magic Device	RANK:3
+ABILITY:CATEGORY=FEAT|Acrobatic
+ABILITY:CATEGORY=FEAT|Dodge
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dancing Lights|Flare|Ghost Sound|Grease|Mage Hand|Open/Close|Silent Image|Sleep
+
+STARTPACK:Dragonne Default	TYPE:Default Monster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragonne]	SOURCEPAGE:p.10
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+RACE:Dragonne	!PRERACE:1,%
+NAME:Dragonne
+ALIGN:TN
+SKILL:Fly		RANK:5
+SKILL:Perception	RANK:4
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Power Attack
+
+STARTPACK:Hag (Annis) Default	TYPE:Default Monster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hag (Annis)]	SOURCEPAGE:p.11
+STAT:STR=11|DEX=10|CON=10|INT=11|WIS=11|CHA=10
+RACE:Hag (Annis)	!PRERACE:1,%
+NAME:Annis Hag
+ALIGN:CE
+SKILL:Bluff		RANK:7
+SKILL:Diplomacy	RANK:7
+SKILL:Intimidate	RANK:7
+SKILL:Perception	RANK:7
+SKILL:Stealth	RANK:7
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Intimidating Prowess
+
+STARTPACK:Huecuva Default	TYPE:Default Monster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Huecuva]	SOURCEPAGE:p.12
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+RACE:Huecuva	!PRERACE:1,%
+NAME:Huecuva
+ALIGN:CE
+SKILL:Perception	RANK:1
+SKILL:Stealth	RANK:2
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Weapon Focus (Claw)
+
+STARTPACK:Lammasu Default	TYPE:Default Monster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Lammasu]	SOURCEPAGE:p.13
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+RACE:Lammasu	!PRERACE:1,%
+NAME:Lammasu
+ALIGN:LG
+SKILL:Diplomacy			RANK:9
+SKILL:Fly				RANK:9
+SKILL:Knowledge (Arcana)	RANK:9
+SKILL:Perception			RANK:9
+SKILL:Sense Motive		RANK:9
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Power Attack
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Bear's Endurance|Bless|Cure Light Wounds=2|Cure Serious Wounds|Detect Magic|Detect Evil|Detect Poison|Divine Favor|Guidance|Holy Smite|Prayer|Resist Energy|Restoration (Lesser)|Searing Light|Shield Other|Stabilize
+
+STARTPACK:Naga (Water) Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Naga (Water)]	SOURCEPAGE:p.14
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+RACE:Naga (Water)	!PRERACE:1,%
+NAME:Naga (Water)
+ALIGN:TN
+SKILL:Bluff			RANK:0
+SKILL:Knowledge (Local)	RANK:0
+SKILL:Perception		RANK:0
+SKILL:Spellcraft		RANK:0
+SKILL:Stealth		RANK:0
+SKILL:Swim			RANK:0
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Skill Focus (Stealth)
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Acid Arrow|Acid Splash|Daze|Detect Magic|Expeditious Retreat|Invisibility|Light|Mage Hand|Magic Missile|Mirror Image|Obscuring Mist|Open/Close|Protection from Energy|Read Magic|Shield|Suggestion|True Strike
+
+STARTPACK:Nixie Default	TYPE:Default Monster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Nixie]	SOURCEPAGE:p.15
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+RACE:Nixie	!PRERACE:1,%
+NAME:Nixie
+ALIGN:TN
+SKILL:Bluff			RANK:2
+SKILL:TYPE.Craft		RANK:1
+SKILL:Escape Artist	RANK:2
+SKILL:Handle Animal	RANK:1
+SKILL:Perception		RANK:2
+SKILL:Perform (Sing)	RANK:1
+SKILL:Sense Motive	RANK:1
+SKILL:Stealth		RANK:2
+SKILL:Swim			RANK:1
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+GEAR:Sword (Short)	SIZE:PC	LOCATION:Primary Hand
+GEAR:Crossbow (Light)	SIZE:PC	LOCATION:Carried
+
+STARTPACK:Shadow Mastiff Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shadow Mastiff]	SOURCEPAGE:p.16
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+RACE:Shadow Mastiff	!PRERACE:1,%
+NAME:Shadow Mastiff
+ALIGN:NE
+SKILL:Perception	RANK:6
+SKILL:Stealth	RANK:6
+SKILL:Survival	RANK:6
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Power Attack

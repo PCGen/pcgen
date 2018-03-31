@@ -1,0 +1,13 @@
+# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+
+# Class Name		Type
+CLASS:Harrower.MOD	TYPE:PFSNotLegal
+
+# Class Name		Type
+CLASS:Hellknight.MOD	TYPE:PFSLegal
+
+# Class Name		Type
+CLASS:Low Templar.MOD	TYPE:PFSLegal
+
+# Class Name			Type
+CLASS:Red Mantis Assassin.MOD	TYPE:PFSNotLegal

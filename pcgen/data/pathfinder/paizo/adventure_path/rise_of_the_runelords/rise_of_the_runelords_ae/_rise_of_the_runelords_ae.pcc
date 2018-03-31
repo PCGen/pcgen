@@ -1,0 +1,71 @@
+# CVS $Revision$ $Author$ -- Wed Jul 23 18:41:10 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# Anniversary Edition Replacement for the Conversion Set
+CAMPAIGN:Rise of the Runelords Adventure Path
+GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing.Pathfinder Adventure Path.Rise of the Runelords
+RANK:3
+STATUS:BETA
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder|Golarion
+PRECAMPAIGN:4,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Advanced Player's Guide,INCLUDES=Bestiary,INCLUDES=Inner Sea World Guide
+PUBNAMELONG:Paizo Publishing
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Rise of the Runelords Adventure Path
+SOURCESHORT:RotR
+SOURCEWEB:http://paizo.com/products/btpy8tc0?Pathfinder-Adventure-Path-Rise-of-the-Runelords-Anniversary-Edition
+SOURCEDATE:2012-07
+ISOGL:YES
+
+COVER:rotr_ae.jpeg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy8tc0?Pathfinder-Adventure-Path-Rise-of-the-Runelords-Anniversary-Edition|Get this publication from Paizo Publishing!
+DESC:In the sleepy coastal town of Sandpoint, evil is brewing. An attack by crazed goblins reveals the shadows of a forgotten past returning to threaten the town, and perhaps all of Varisia. The Rise of the Runelords Adventure Path begins with this goblin raid and takes players on an epic journey through the land of Varisia as they track a cult of serial killers, fight backwoods ogres, stop an advancing army of stone giants, delve into ancient dungeons, and finally face off against a wizard-king in his ancient mountaintop city. This hardcover compilation updates the fan-favorite campaign to the Pathfinder Roleplaying Game rules with revised and new content in more than 400 pages packed with mayhem, excitement, and adventure!
+DESC:Anniversary Edition
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+INFOTEXT:Anniversary Edition
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Advanced Bestiary Copyright 2004, Green Ronin Publishing, LLC; Author: Matthew Sernett.
+COPYRIGHT:The Book of Fiends Copyright 2003, Green Ronin Publishing, LLC; Authors: Aaron Loeb, Erik Mona, Chris Pramas, and Robert J. Schwalb.
+COPYRIGHT:Plot & Poison Copyright 2002, Green Ronin Publishing, LLC; Author: Matthew Sernett.
+COPYRIGHT:Bunyip from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Dermot Jackson.
+COPYRIGHT:Decapus from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Jean Wells.
+COPYRIGHT:Demon, Alu- from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Jelly, Mustard from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Jubilex from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Mite from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author. Scott Greene, based onoriginal material by Ian Livingstone and Mark Barnes.
+COPYRIGHT:Nereid from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Orcus from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author. Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Pazuzu from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Skulk from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author. Scott Greene, based on original material by Simon Muth.
+COPYRIGHT:Tentamort from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Mike Roberts.
+COPYRIGHT:Undead Lord from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene.
+COPYRIGHT:Wolf-ln-Sheep's-Clothing from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Yeti from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author. Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Zombie, Juju from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Pathfinder Adventure Path: Rise of the Runelords Anniversary Edition Copyright 2012, Paizo Publishing, LLC; Authors: Wolfgang Baur, Stephen S. Greer, James Jacobs, Nicolas Logue, Richard Pett, and Greg A. Vaughan.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Adventure Path: Rise of the Runelords Anniversary Edition" Copyright 2014, PCGen Data Team (including, but not limited to Andrew Maitland)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# Data Files
+ABILITY:rotr_abilities.lst
+EQUIPMENT:rotr_equip.lst
+EQUIPMOD:rotr_equipmods.lst
+ABILITY:rotr_feats.lst
+KIT:rotr_kits.lst
+RACE:rotr_races.lst
+SKILL:rotr_skills.lst
+SPELL:rotr_spells.lst
+TEMPLATE:rotr_templates.lst
+#
+# End
+#
+
+FORWARDREF:CLASSSPELLLIST|Magus

@@ -1,0 +1,69 @@
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+CAMPAIGN:Weapon Master's Handbook
+GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing.Pathfinder Player Companion
+RANK:3
+STATUS:BETA
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder Player Companion
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:1,INCLUDES=Ultimate Equipment
+PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
+PUBNAMELONG:Paizo Publishing
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+SOURCELONG:Pathfinder Player Companion: Weapon Master's Handbook
+SOURCESHORT:WMH
+SOURCEWEB:http://paizo.com/products/btpy9hdy
+SOURCEDATE:2015-12
+ISOGL:YES
+
+COVER:PZO9463_180.jpeg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy9hdy|Buy this publication from Paizo Publishing!
+DESC:Don't just hack and slash like a fresh recruit! Rise above the rank and file to become a true artist of combat with the secrets found within Pathfinder Player Companion: Weapon Master's Handbook! Emulate the fighting style of your patron deity, learn to use your weapons in tricky new ways, or simply enchant your boring old sword with new and exciting magical abilities. Whether you want to perfect the use of a single weapon, become an expert on a whole group of them, or dedicate yourself to specific fighting style, this player-friendly volume contains everything you need!
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+
+COPYRIGHT:Open Game License v 1.0a Copyright 2000,Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, and Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder Player Companion: Weapon Master's Handbook Copyright 2015, Paizo Inc.; Authors: Alexander Augunas and David N. Ross.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Weapon Master's Handbook" Copyright 2015, PCGen Data Team (including, but not limited to Andrew Maitland)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# Data files
+ABILITYCATEGORY:wmh_abilitycategories.lst
+ABILITY:wmh_abilities.lst
+EQUIPMENT:wmh_equip.lst
+EQUIPMOD:wmh_equipmods.lst
+ABILITY:wmh_feats.lst
+WEAPONPROF:wmh_profs_weapon.lst
+
+# Support
+ABILITY:support/wmh_abilities_isc.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea Combat
+ABILITY:support/wmh_abilities_isg.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea Gods
+ABILITY:support/wmh_abilities_iswg.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
+
+
+# ENTRY DATE: 2015-11-26
+# LST MONKEY: Andrew Maitland (LegacyKing) on 2015-11-26
+# LICENSE MONKEY: Paul Grosse on 2015-12-07
+# RELEASE REVIEW #
+# BETA: Andrew Maitland for 6.05.06 on 2015-12-07
+# RELEASE:
+# Built for PCGen Version: 6.05.06
+# Updated to work with version: -
+# MINVER:6.5
+# MINDEVVER:6.05.1
+# COMMENTS:
+
+
+
+#
+# End
+#

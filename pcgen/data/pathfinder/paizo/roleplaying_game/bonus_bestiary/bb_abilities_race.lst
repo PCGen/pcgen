@@ -1,0 +1,52 @@
+# CVS $Revision: 20127 $ $Author: zaister $ -- Sun Jan 25 18:47:12 2015 -- reformated by prettylst.pl v1.51 (build 25712)
+SOURCELONG:Bonus Bestiary	SOURCESHORT:BB	SOURCEWEB:http://paizo.com/store/paizoExclusives/v5748btpy88x4	SOURCEDATE:2009-06
+
+###Block: Allip abilities
+# Ability Name	Category of Ability		Type							Visible	Define		Description																																																																															Modify VAR					Source Page		Aspects
+Babble		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural.Aura	VISIBLE:YES	DEFINE:BabbleDC|0	DESC:An allip constantly mutters and whines to itself, creating a hypnotic effect. All sane creatures within 60 feet of the allip must succeed on a DC %1 Will save or be fascinated for 2d4 rounds. While a target is fascinated, the allip can approach without breaking the effect, but an attack by the allip breaks the effect. This is a sonic, mind-affecting compulsion effect. Creatures that successfully save cannot be affected by the same allip's babble for 24 hours.|BabbleDC	BONUS:VAR|BabbleDC|10+(HD/2)+CHA	SOURCEPAGE:p.4	ASPECT:Ability Benefit|(60 tf., DC %1)|BabbleDC
+Madness		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural		VISIBLE:YES				DESC:Anyone targeting an allip with a thought detection, mind control, or telepathic ability makes direct contact with its tortured mind and takes 1d4 points of Wisdom damage.																																																									SOURCEPAGE:p.4
+Touch of Insanity	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural		VISIBLE:YES				DESC:The touch of an allip deals 1d4 points of Wisdom damage. A successful critical hit causes 1d4 points of Wisdom damage and 1 point of Wisdom drain (instead of double Wisdom damage). On each such successful attack, an allip gains 5 temporary hit points.																																												SOURCEPAGE:p.4
+
+###Block: Ant Lion abilities
+# Ability Name	Category of Ability		Type						Visible	Description																																																																												Source Page
+Sand Trap		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DESC:A giant ant lion can create a 60-foot-diameter trap in any sand or soft earth surface (mechanical trap, Perception DC 15, 20 ft. deep, no damage; DC 15 Reflex to avoid; DC 20 Climb check to climb out). Creating a sand trap takes 1 hour. A giant ant lion can make an attack of opportunity against any creature that falls to the bottom of its sand trap. These creatures can move across sand traps at their normal speed and are immune to these trap effects.	SOURCEPAGE:p.5
+
+###Block: Ascomoid abilities
+# Ability Name	Category of Ability		Type						Visible	Define		Description																																																																																																Modify VAR							Source Page
+Spores		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DEFINE:SporesDC|0	DESC:Once per round, as a free action, an ascomoid can release a jet of deadly spores in a 30-foot line. Upon impacting a solid surface, such as a wall or creature, the jet billows out into a cloud of spores, that fills a 10-foot-radius area. This cloud lasts for 1 round before dispersing. Any creature in the cloud inhales ascomoid poison (Save Fortitude DC %1, Frequency 1 round (7), Effect 1 Con damage, Cure 1 save). Even if the save succeeds, creatures inside the cloud are nauseated as long as they remain in the cloud. Ascomoids are immune to ascomoid spores.|SporesDC	BONUS:VAR|SporesDC|10+(HD/2)+CON|TYPE=Base	SOURCEPAGE:p.6
+
+###Block: Axe Beak abilities
+# Ability Name	Category of Ability		Type						Visible	Description																																									Source Page
+Sudden Charge	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DESC:When making a charge attack, an axe beak makes a single bite attack. If successful, it may also attempt to trip its opponent as a free action without provoking a attack of opportunity. If the attempt fails, the axe beak is not tripped in return.	SOURCEPAGE:p.7
+
+###Block: Caryatid Column abilities
+# Ability Name	Unique Key						Category of Ability		Type								Visible	Description																																																																																				Source Page
+Immunity to Magic	KEY:Caryatid Column ~ Immunity to Magic	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	DESC:A caryatid column is immune to any spell or spell-like ability that allows spell resistance. In addition, certain spells and effects function differently against the creature. A Transmute Rock to Mud spell deals 1d6 points of damage per caster level to a caryatid column, with no saving throw. Transmute Mud to Rock, on the other hand, heals any lost hit points. A Stone to Flesh spell does not actually change the column's structure but negates its damage reduction and immunity to magic for 1 round.	SOURCEPAGE:p.8
+Shatter Weapons								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES	DESC:Whenever a character strikes a caryatid column with a weapon (magical or nonmagical), the weapon takes 3d6 points of damage. Apply the weapon's hardness normally. Weapons that take any amount of damage in excess of their hardness gain the broken quality.																																										SOURCEPAGE:p.8
+Statue									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES	DESC:A caryatid column can stand perfectly still, emulating a statue (usually one that is holding up the ceiling, like a carved column). An observer must succeed on a DC 20 Perception check to notice the caryatid column is alive.																																															SOURCEPAGE:p.8
+
+###Block: Faerie Dragon abilities
+# Ability Name	Unique Key					Category of Ability		Type						Visible	Define			Description																																										Ability							Modify VAR																						Source Page
+Breath Weapon	KEY:Faerie Dragon ~ Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES	DEFINE:BreathWeaponDC|0	DESC:5-foot cone, euphoria for 1d6 rounds, DC %1 Fortitude negates. Affected creatures are staggered, sickened, and immunte to fear effects for the duration of the euphoria. A faerie dragon can use this breath weapon once every 1d4 rounds.|BreathWeaponDC	ABILITY:Ability Focus|AUTOMATIC|Breath Weapon	BONUS:VAR|BreathWeaponDC|10+(HD/2)+CON|TYPE=Base	BONUS:VAR|BreathWeaponDC|2|PREABILITY:1,CATEGORY=FEAT,Ability Focus (Breath Weapon)	SOURCEPAGE:p.9
+
+###Block: Dragonne abilities
+# Ability Name	Category of Ability		Type						Visible	Define		Description																																																	Ability						Modify VAR																		Source Page
+Roar			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES	DEFINE:RoarDC|0	DESC:A dragonne can unleash a devastating roar every 1d4 rounds as a standard action. All creatures except dragonnes within 120 feet must succed on a DC %1 Fortitude save or become fatigued. Those within 30 feet who fail their saves are also deafened for 2d4 rounds. This is a sonic effect.|RoarDC	ABILITY:Ability Focus|AUTOMATIC|Roar	BONUS:VAR|RoarDC|10+(HD/2)+CON|TYPE=Base	BONUS:VAR|RoarDC|2|PREABILITY:1,CATEGORY=FEAT,Ability Focus (Roar)	SOURCEPAGE:p.10
+
+###Block: Huecuva abilities
+# Ability Name	Unique Key			Category of Ability		Type							Visible	Define				Description																																			Modify VAR						Source Page
+Disease		KEY:Huecuva ~ Disease	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary		VISIBLE:YES	DEFINE:HuecuvaDiseaseDC|0	DESC:Claw, Save Fortitude DC %1, Frequency 1d3 days/1 day, Effect 1d3 Dex damage and 1d3 Con damage, Cure 2 consecutive saves.|HuecuvaDiseaseDC													BONUS:VAR|HuecuvaDiseaseDC|10+(HD/2)+CHA	SOURCEPAGE:p.12
+Faithless						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura	VISIBLE:YES						DESC:The huecuva and all undead creatures within 30 feet receive a +2 profane bonus on Will saves made toresist channeled energy and any effects based off that ability. This bonus stacks with channel resistance.								SOURCEPAGE:p.12
+
+###Block: Lammasu abilities
+# Ability Name			Category of Ability		Type						Visible
+Magic Circle against Evil	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES
+
+###Block: Water Naga abilities
+# Ability Name	Unique Key			Category of Ability		Type						Visible	Define				Description																			Modify VAR								Source Page
+Poison		KEY:Water Naga ~ Poison	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DEFINE:WaterNagaPoisonDC|0	DESC:Bite, Level 7, Save Fortitude DC %1, Frequency 1 round (10), Effect 1 Con damage, Cure 1 save.|WaterNagaPoisonDC	BONUS:VAR|WaterNagaPoisonDC|10+(HD/2)+CON|TYPE=Base	SOURCEPAGE:p.14
+
+###Block: Shadow Mastiff abilities
+# Ability Name	Unique Key					Category of Ability		Type						Visible	Define		Description																																																							Ability					Modify VAR																						Source Page
+Bay			KEY:Shadow Mastiff ~ Bay		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES	DEFINE:BayDC|0	DESC:When a shadow mastiff howls or barks, all creatures except evil outsiders within a 300-foot spread must succeed on a DC %1 Will save or become panicked for 2d4 rounds. This is a sonic, mind-affecting fear effect. A creature that successfully saves cannot be affected by the same mastiff's bay for 24 hours.|BayDC				ABILITY:Ability Focus|AUTOMATIC|Bay	BONUS:VAR|BayDC|10+(HD/2)+CON|TYPE=Base	BONUS:VAR|BayDC|2|TYPE=Racial	BONUS:VAR|RoarDC|2|PREABILITY:1,CATEGORY=FEAT,Ability Focus (Bay)	SOURCEPAGE:p.16
+Shadow Blend	KEY:Shadow Mastiff ~ Shadow Blend	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES				DESC:In any condition of illumination other than full daylight, a shadow mastiff disappears into the shadows, giving it total concealment. Artificial illumination, even a Light or Continual Flame spell, does not negate this ability. A Daylight spell, however, will. A shadow mastiff can suspend or resume this ability as a free action.																														SOURCEPAGE:p.16

@@ -1,0 +1,10 @@
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+SOURCELONG:Skull and Shackles, Chapter 1 - The Wormwood Mutiny	SOURCESHORT:AP55	SOURCEWEB:http://paizo.com/products/btpy8rcc?Pathfinder-Adventure-Path-55-The-Wormwood-Mutiny	SOURCEDATE:2012-04
+# ORIGINAL ENTRY: James Dempsey
+# ORIGINAL ENTRY DATE: 2014-06
+
+# Equipment Name		Type					Cost		Weight	Source Page		Bonus to skill								Special Property
+Besmara's Tricorne	TYPE:Magic.Wondrous.Headgear	COST:2600	WT:1		SOURCEPAGE:p.58	BONUS:SKILL|Profession (Sailor),Swim|2|TYPE=Competence	SPROP:Transform once per day on command into a small ship's boat.
+Hospitality's Hammock	TYPE:Magic.Wondrous.Resizable	COST:5000	WT:3
+Shackles of Compliance	TYPE:Magic.Wondrous		COST:2810	WT:2
+Steadfast Grapple		TYPE:Magic.Wondrous		COST:5000	WT:9

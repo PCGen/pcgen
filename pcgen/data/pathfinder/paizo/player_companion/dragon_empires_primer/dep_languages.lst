@@ -1,0 +1,35 @@
+# CVS $Revision: 14888 $ $Author: amaitland $ -- Tue Feb 21 17:29:28 2012 -- reformated by prettylst.pl v1.39 (build 16265)
+SOURCELONG:Dragon Empires Primer	SOURCESHORT:DEP	SOURCEWEB:http://paizo.com/products/btpy8pg0?Pathfinder-Player-Companion-Dragon-Empires-Primer	SOURCEDATE:2012-01
+# Original Entry by:Stefan Radermacher
+
+# Human Languages
+# Language	Type
+Dtang		TYPE:Spoken.Written.Read.Human
+Hon-La	TYPE:Spoken.Written.Read.Human
+Hwan		TYPE:Spoken.Written.Read.Human
+Minatan	TYPE:Spoken.Written.Read.Human
+Minkaian	TYPE:Spoken.Written.Read.Human
+Pidgin Tien	TYPE:Spoken.Written.Read.Human
+Senzar	TYPE:Spoken.Written.Read.Human
+Tien		TYPE:Spoken.Written.Read.Human
+
+###Block: Racial Languages
+# Language	Type
+Nagaji	TYPE:Spoken.Written.Read
+Samsaran	TYPE:Spoken.Written.Read
+Tengu		TYPE:Spoken.Written.Read
+Wayang	TYPE:Spoken.Written.Read
+
+###Block: Other
+# Language	Type
+Kelish	TYPE:Spoken.Written.Read.Human
+Taldane	TYPE:Spoken.Written.Read.Human
+Vudrani	TYPE:Spoken.Written.Read.Human
+#
+Catfolk	TYPE:Spoken.Written.Read
+Goblinoid	TYPE:Spoken.Written.Read
+Grippli	TYPE:Spoken.Written.Read
+
+#
+# End
+#

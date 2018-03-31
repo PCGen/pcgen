@@ -1,0 +1,476 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Ultimate Psionics	SOURCESHORT:UP	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2013-12
+# ORIGINAL ENTRY: Douglas Limmer
+# ORIGINAL ENTRY DATE: 2013/07/05
+
+###Block: Astral suits
+# NEEDS CODE/DATA WORK: Astral Armor and Astral Juggernaut should override other worn armor.
+# WORKAROUND: Right now, they take a slot.
+# Equipment Name	Required Armor Proficiency	Type									Cost		Weight	AC Penalty Check	Modifier		Maximum DEX Bonus	Source Page		% of Spell Failure	Ability																				Combat bonus													Bonus Equip Mods							Bonus Armor Mods
+Astral Skin		PROFICIENCY:ARMOR|Astral Suit	TYPE:Skin.AstralSuit						COST:0	WT:0											SOURCEPAGE:p.28					ABILITY:Special Ability|AUTOMATIC|Aegis ~ Astral Skin|PREABILITY:1,CATEGORY=Special Ability,Aegis~ Form Astral Suit
+Astral Armor	PROFICIENCY:ARMOR|Astral Suit	TYPE:Armor.Medium.ArmorProfMedium.Suit.AstralSuit	COST:-150	WT:40		ACCHECK:-5		EQMOD:Special Quality ~ Masterwork ~ Armor	MAXDEX:2		SOURCEPAGE:p.29	SPELLFAILURE:30		ABILITY:Special Ability|AUTOMATIC|Aegis ~ Astral Armor|PREABILITY:1,CATEGORY=Special Ability,Aegis ~ Form Astral Suit		BONUS:COMBAT|AC|6|TYPE=Armor											BONUS:EQM|WEIGHTADD|-10|PREVARGT:AstralSuitLVL,7	BONUS:EQMARMOR|ACCHECK|1|PREVARGT:AstralSuitLVL,7	BONUS:EQMARMOR|ACCHECK|1|PREABILITY:1,CATEGORY=Special Ability,Aegis ~ Flexible Suit	BONUS:EQMARMOR|MAXDEX|1|PREVARGT:AstralSuitLVL,7	BONUS:EQMARMOR|SPELLFAILURE|-5|PREVARGT:AstralSuitLVL,7
+Astral Juggernaut	PROFICIENCY:ARMOR|Astral Suit	TYPE:Armor.Heavy.ArmorProfHeavy.Suit.AstralSuit		COST:-150	WT:50		ACCHECK:-7		EQMOD:Special Quality ~ Masterwork ~ Armor	MAXDEX:0		SOURCEPAGE:p.29	SPELLFAILURE:40		ABILITY:Special Ability|AUTOMATIC|Aegis ~ Astral Juggernaut|PREABILITY:1,CATEGORY=Special Ability,Aegis ~ Form Astral Suit	BONUS:COMBAT|AC|8|TYPE=Armor	BONUS:COMBAT|AC|1|TYPE=Armor.STACK|PREVARGT:AstralSuitLVL,6										BONUS:EQMARMOR|ACCHECK|1|PREVARGT:AstralSuitLVL,6	BONUS:EQMARMOR|ACCHECK|1|PREABILITY:1,CATEGORY=Special Ability,Aegis ~ Flexible Suit	BONUS:EQMARMOR|MAXDEX|1|PREVARGT:AstralSuitLVL,6	BONUS:EQMARMOR|SPELLFAILURE|-5|PREVARGT:AstralSuitLVL,6
+
+###Block: Astral suit weapons
+# Equipment Name	Output Name		Required Weapon Proficiency		Type								Cost		Weight	Crit Mult	Crit Range	Damage	Source Page
+Astral Suit Ram 1	OUTPUTNAME:Ram	PROFICIENCY:WEAPON|Astral Suit Ram	TYPE:Weapon.Melee.Standard.Bludgeoning.Ram	COST:0	WT:0		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d6	SOURCEPAGE:p.33
+Astral Suit Ram 2	OUTPUTNAME:Ram	PROFICIENCY:WEAPON|Astral Suit Ram	TYPE:Weapon.Melee.Standard.Bludgeoning.Ram	COST:0	WT:0		CRITMULT:x2	CRITRANGE:1	DAMAGE:3d6	SOURCEPAGE:p.33
+Astral Suit Ram 3	OUTPUTNAME:Ram	PROFICIENCY:WEAPON|Astral Suit Ram	TYPE:Weapon.Melee.Standard.Bludgeoning.Ram	COST:0	WT:0		CRITMULT:x2	CRITRANGE:1	DAMAGE:4d6	SOURCEPAGE:p.33
+Astral Suit Ram 4	OUTPUTNAME:Ram	PROFICIENCY:WEAPON|Astral Suit Ram	TYPE:Weapon.Melee.Standard.Bludgeoning.Ram	COST:0	WT:0		CRITMULT:x2	CRITRANGE:1	DAMAGE:5d6	SOURCEPAGE:p.33
+
+
+###Block: Soulknife's Mind Blade
+# Equipment Name				Output Name							Required Weapon Proficiency	Type									Cost		Weight	Crit Mult	Crit Range	Damage	Modifier		Wield Category	Size		Source Page
+Mind Blade (Light Bludgeoning)	OUTPUTNAME:Mind Blade, Light Bludgeoning		PROFICIENCY:WEAPON|Mind Blade	TYPE:Weapon.Melee.Finesseable.Bludgeoning.MindBlade	COST:0	WT:0		CRITMULT:x2	CRITRANGE:2	DAMAGE:1d6	EQMOD:Special Ability ~ Psionic Blade ~ Weapon	WIELD:Light		SIZE:M	SOURCEPAGE:p.58
+Mind Blade (Light Piercing)		OUTPUTNAME:Mind Blade, Light Piercing		PROFICIENCY:WEAPON|Mind Blade	TYPE:Weapon.Melee.Finesseable.Piercing.MindBlade	COST:0	WT:0		CRITMULT:x2	CRITRANGE:2	DAMAGE:1d6	EQMOD:Special Ability ~ Psionic Blade ~ Weapon	WIELD:Light		SIZE:M	SOURCEPAGE:p.58
+Mind Blade (Light Slashing)		OUTPUTNAME:Mind Blade, Light Slashing		PROFICIENCY:WEAPON|Mind Blade	TYPE:Weapon.Melee.Finesseable.Slashing.MindBlade	COST:0	WT:0		CRITMULT:x2	CRITRANGE:2	DAMAGE:1d6	EQMOD:Special Ability ~ Psionic Blade ~ Weapon	WIELD:Light		SIZE:M	SOURCEPAGE:p.58
+Mind Blade (One-Handed Bludgeoning)	OUTPUTNAME:Mind Blade, One-Handed Bludgeoning	PROFICIENCY:WEAPON|Mind Blade	TYPE:Weapon.Melee.Bludgeoning.MindBlade			COST:0	WT:0		CRITMULT:x2	CRITRANGE:2	DAMAGE:1d8	EQMOD:Special Ability ~ Psionic Blade ~ Weapon	WIELD:OneHanded	SIZE:M	SOURCEPAGE:p.58
+Mind Blade (One-Handed Piercing)	OUTPUTNAME:Mind Blade, One-Handed Piercing	PROFICIENCY:WEAPON|Mind Blade	TYPE:Weapon.Melee.Piercing.MindBlade			COST:0	WT:0		CRITMULT:x2	CRITRANGE:2	DAMAGE:1d8	EQMOD:Special Ability ~ Psionic Blade ~ Weapon	WIELD:OneHanded	SIZE:M	SOURCEPAGE:p.58
+Mind Blade (One-Handed Slashing)	OUTPUTNAME:Mind Blade, One-Handed Slashing	PROFICIENCY:WEAPON|Mind Blade	TYPE:Weapon.Melee.Slashing.MindBlade			COST:0	WT:0		CRITMULT:x2	CRITRANGE:2	DAMAGE:1d8	EQMOD:Special Ability ~ Psionic Blade ~ Weapon	WIELD:OneHanded	SIZE:M	SOURCEPAGE:p.58
+Mind Blade (Two-Handed Bludgeoning)	OUTPUTNAME:Mind Blade, Two-Handed Bludgeoning	PROFICIENCY:WEAPON|Mind Blade	TYPE:Weapon.Melee.Bludgeoning.MindBlade			COST:0	WT:0		CRITMULT:x2	CRITRANGE:2	DAMAGE:2d6	EQMOD:Special Ability ~ Psionic Blade ~ Weapon	WIELD:TwoHanded	SIZE:M	SOURCEPAGE:p.58
+Mind Blade (Two-Handed Piercing)	OUTPUTNAME:Mind Blade, Two-Handed Piercing	PROFICIENCY:WEAPON|Mind Blade	TYPE:Weapon.Melee.Piercing.MindBlade			COST:0	WT:0		CRITMULT:x2	CRITRANGE:2	DAMAGE:2d6	EQMOD:Special Ability ~ Psionic Blade ~ Weapon	WIELD:TwoHanded	SIZE:M	SOURCEPAGE:p.58
+Mind Blade (Two-Handed Slashing)	OUTPUTNAME:Mind Blade, Two-Handed Slashing	PROFICIENCY:WEAPON|Mind Blade	TYPE:Weapon.Melee.Slashing.MindBlade			COST:0	WT:0		CRITMULT:x2	CRITRANGE:2	DAMAGE:2d6	EQMOD:Special Ability ~ Psionic Blade ~ Weapon	WIELD:TwoHanded	SIZE:M	SOURCEPAGE:p.58
+
+###Block: Mind Blade variants
+# Equipment Name	Required Weapon Proficiency			Type																	Cost		Weight	Slot Needed	Crit Mult	Crit Range	Damage	Modifier		Wield Category	Range		Size		Source Page		Weapon prop. bonus
+Mind Dagger		PROFICIENCY:WEAPON|Mind Blade			TYPE:Weapon.Melee.Finesseable.Slashing.MindBlade.Thrown								COST:0	WT:0				CRITMULT:x2	CRITRANGE:2	DAMAGE:1d4	EQMOD:Special Ability ~ Psionic Blade ~ Weapon	WIELD:Light				SIZE:M	SOURCEPAGE:p.62
+Deadly Fist		PROFICIENCY:WEAPON|Deadly Fist		TYPE:Weapon.Melee.Special.Unarmed.Monk.Bludgeoning.Piercing.Slashing.Finesseable.Close			COST:0	WT:0				CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6				WIELD:Light				SIZE:M	SOURCEPAGE:p.280
+# COMMENT: Necessary free hand simulated by requiring 1 hand "slot".
+Mind Arrow		PROFICIENCY:WEAPON|Mind Blade			TYPE:Weapon.Ranged.Projectile.Piercing.MindArrow									COST:0	WT:0		SLOTS:1	CRITMULT:x3	CRITRANGE:1	DAMAGE:1d8	EQMOD:Special Ability ~ Psionic Blade ~ Weapon				RANGE:110	SIZE:M	SOURCEPAGE:p.379	BONUS:WEAPON|DAMAGE|WIS
+Mind Xephyr Knife	PROFICIENCY:WEAPON|Mind Xephyr Knife	TYPE:Weapon.Melee.Light.Finesseable.Slashing.MindBlade.Thrown.Ranged.Standard.Piercing.BladeLight	COST:0	WT:0				CRITMULT:x2	CRITRANGE:3	DAMAGE:1d6	EQMOD:Special Ability ~ Psionic Blade ~ Weapon								SOURCEPAGE:p.340
+
+###Block: Mind bolts
+# Equipment Name					Output Name							Required Weapon Proficiency	Type									Cost		Weight	Slot Needed	Crit Mult	Crit Range	Damage	Modifier		Range		Size		Source Page
+Mind Bolt (Long Range Bludgeoning)		OUTPUTNAME:Mind Bolt, Long Range Bludgeoning	PROFICIENCY:WEAPON|Mind Bolt	TYPE:Weapon.Ranged.Projectile.Bludgeoning.MindBolt	COST:0	WT:0		SLOTS:0	CRITMULT:x2	CRITRANGE:2	DAMAGE:1d6	EQMOD:Special Ability ~ Psionic Blade ~ Weapon	RANGE:100	SIZE:M	SOURCEPAGE:p.283
+Mind Bolt (Long Range Piercing)		OUTPUTNAME:Mind Bolt, Long Range Piercing		PROFICIENCY:WEAPON|Mind Bolt	TYPE:Weapon.Ranged.Projectile.Piercing.MindBolt		COST:0	WT:0		SLOTS:0	CRITMULT:x2	CRITRANGE:2	DAMAGE:1d6	EQMOD:Special Ability ~ Psionic Blade ~ Weapon	RANGE:100	SIZE:M	SOURCEPAGE:p.283
+Mind Bolt (Long Range Slashing)		OUTPUTNAME:Mind Bolt, Long Range Slashing		PROFICIENCY:WEAPON|Mind Bolt	TYPE:Weapon.Ranged.Projectile.Slashing.MindBolt		COST:0	WT:0		SLOTS:0	CRITMULT:x2	CRITRANGE:2	DAMAGE:1d6	EQMOD:Special Ability ~ Psionic Blade ~ Weapon	RANGE:100	SIZE:M	SOURCEPAGE:p.283
+Mind Bolt (Medium Range Bludgeoning)	OUTPUTNAME:Mind Bolt, Medium Range Bludgeoning	PROFICIENCY:WEAPON|Mind Bolt	TYPE:Weapon.Ranged.Projectile.Bludgeoning.MindBolt	COST:0	WT:0		SLOTS:1	CRITMULT:x2	CRITRANGE:2	DAMAGE:1d8	EQMOD:Special Ability ~ Psionic Blade ~ Weapon	RANGE:60	SIZE:M	SOURCEPAGE:p.283
+Mind Bolt (Medium Range Piercing)		OUTPUTNAME:Mind Bolt, Medium Range Piercing	PROFICIENCY:WEAPON|Mind Bolt	TYPE:Weapon.Ranged.Projectile.Piercing.MindBolt		COST:0	WT:0		SLOTS:1	CRITMULT:x2	CRITRANGE:2	DAMAGE:1d8	EQMOD:Special Ability ~ Psionic Blade ~ Weapon	RANGE:60	SIZE:M	SOURCEPAGE:p.283
+Mind Bolt (Medium Range Slashing)		OUTPUTNAME:Mind Bolt, Medium Range Slashing	PROFICIENCY:WEAPON|Mind Bolt	TYPE:Weapon.Ranged.Projectile.Slashing.MindBolt		COST:0	WT:0		SLOTS:1	CRITMULT:x2	CRITRANGE:2	DAMAGE:1d8	EQMOD:Special Ability ~ Psionic Blade ~ Weapon	RANGE:60	SIZE:M	SOURCEPAGE:p.283
+Mind Bolt (Short Range Bludgeoning)		OUTPUTNAME:Mind Bolt, Short Range Bludgeoning	PROFICIENCY:WEAPON|Mind Bolt	TYPE:Weapon.Ranged.Projectile.Bludgeoning.MindBolt	COST:0	WT:0		SLOTS:2	CRITMULT:x2	CRITRANGE:2	DAMAGE:1d10	EQMOD:Special Ability ~ Psionic Blade ~ Weapon	RANGE:20	SIZE:M	SOURCEPAGE:p.283
+Mind Bolt (Short Range Piercing)		OUTPUTNAME:Mind Bolt, Short Range Piercing	PROFICIENCY:WEAPON|Mind Bolt	TYPE:Weapon.Ranged.Projectile.Piercing.MindBolt		COST:0	WT:0		SLOTS:2	CRITMULT:x2	CRITRANGE:2	DAMAGE:1d10	EQMOD:Special Ability ~ Psionic Blade ~ Weapon	RANGE:20	SIZE:M	SOURCEPAGE:p.283
+Mind Bolt (Short Range Slashing)		OUTPUTNAME:Mind Bolt, Short Range Slashing	PROFICIENCY:WEAPON|Mind Bolt	TYPE:Weapon.Ranged.Projectile.Slashing.MindBolt		COST:0	WT:0		SLOTS:2	CRITMULT:x2	CRITRANGE:2	DAMAGE:1d10	EQMOD:Special Ability ~ Psionic Blade ~ Weapon	RANGE:20	SIZE:M	SOURCEPAGE:p.283
+
+###Block: Mind armor
+# Equipment Name			Required Armor Proficiency			Type										Cost		Weight	Slot Needed	AC Penalty Check	Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus
+Mind Armor (Light)		PROFICIENCY:ARMOR|Mind Armor			TYPE:Armor.Light.ArmorProfLight.Suit.Standard			COST:0	WT:25		SLOTS:1	ACCHECK:-1		MAXDEX:4		SOURCEPAGE:p.279	SPELLFAILURE:20		BONUS:COMBAT|AC|4|TYPE=Armor
+Mind Armor (Medium)		PROFICIENCY:ARMOR|Mind Armor			TYPE:Armor.Medium.ArmorProfMedium.Suit.Standard			COST:0	WT:40		SLOTS:1	ACCHECK:-4		MAXDEX:2		SOURCEPAGE:p.279	SPELLFAILURE:30		BONUS:COMBAT|AC|6|TYPE=Armor
+Mind Armor (Heavy)		PROFICIENCY:ARMOR|Mind Armor			TYPE:Armor.Heavy.ArmorProfHeavy.Suit.Standard			COST:0	WT:45		SLOTS:1	ACCHECK:-6		MAXDEX:0		SOURCEPAGE:p.279	SPELLFAILURE:40		BONUS:COMBAT|AC|7|TYPE=Armor
+# NEEDS CODE/DATA WORK: How does one use the Armor magic item slot, without being counted as armor?
+Improved Mind Armor (Light)	PROFICIENCY:ARMOR|Improved Mind Armor	TYPE:Armor.None.Standard						COST:0	WT:0		SLOTS:1	ACCHECK:0					SOURCEPAGE:p.279					BONUS:COMBAT|AC|4|TYPE=Armor
+Improved Mind Armor (Medium)	PROFICIENCY:ARMOR|Improved Mind Armor	TYPE:Armor.Medium.ArmorProfMedium.Suit.Standard.Masterwork	COST:0	WT:30		SLOTS:1	ACCHECK:-3		MAXDEX:3		SOURCEPAGE:p.279	SPELLFAILURE:25		BONUS:COMBAT|AC|6|TYPE=Armor
+Improved Mind Armor (Heavy)	PROFICIENCY:ARMOR|Improved Mind Armor	TYPE:Armor.Heavy.ArmorProfHeavy.Suit.Standard.Masterwork	COST:0	WT:50		SLOTS:1	ACCHECK:-5		MAXDEX:1		SOURCEPAGE:p.279	SPELLFAILURE:35		BONUS:COMBAT|AC|9|TYPE=Armor
+
+###Block: Mind shield
+# Equipment Name		Required Shield Proficiency		Type						Cost		Weight	Slot Needed	AC Penalty Check	Crit Mult	Crit Range	Damage	Wield Category	Maximum DEX Bonus	Size		Source Page		% of Spell Failure	Combat bonus			Special Property
+Mind Shield			PROFICIENCY:SHIELD|Shield (Light)	TYPE:Shield.Standard			COST:0	WT:0		SLOTS:1	ACCHECK:0																SOURCEPAGE:p.62					BONUS:COMBAT|AC|2|TYPE=Shield
+Mind Shield (Heavy)	PROFICIENCY:SHIELD|Mind Shield	TYPE:Shield.Heavy.Standard.Close	COST:0	WT:0		SLOTS:1	ACCHECK:0		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d4	WIELD:OneHanded				SIZE:M	SOURCEPAGE:p.62					BONUS:COMBAT|AC|2|TYPE=Shield
+Mind Shield (Tower)	PROFICIENCY:SHIELD|Mind Shield	TYPE:Shield.Tower.Standard.Close	COST:0	WT:0		SLOTS:1	ACCHECK:-9											MAXDEX:2		SIZE:M	SOURCEPAGE:p.63	SPELLFAILURE:50		BONUS:COMBAT|AC|4|TYPE=Shield	SPROP:can grant full cover
+
+###Block: Flurry weapons
+# Equipment Name	Required Weapon Proficiency		Type												Cost		Weight	Crit Mult	Crit Range	Damage	Wield Category	Requires Modification?	Size		Source Page		Weapon prop. bonus
+Flurry of Fists	PROFICIENCY:WEAPON|Unarmed Strike	TYPE:Weapon.Melee.Special.Unarmed.Monk.Bludgeoning.Finesseable.Close	COST:0	WT:0		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d3	WIELD:Light		MODS:NO			SIZE:M	SOURCEPAGE:p.278	BONUS:WEAPON|ATTACKS|FlurryOfFistsExtraAttacks	BONUS:WEAPON|TOHIT|-2
+Flurry of Strikes	PROFICIENCY:WEAPON|Unarmed Strike	TYPE:Weapon.Melee.Special.Unarmed.Monk.Bludgeoning.Finesseable.Close	COST:0	WT:0		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d3	WIELD:Light		MODS:NO			SIZE:M	SOURCEPAGE:p.276	BONUS:WEAPON|WEAPONBAB|MeditantFlurryBABBonus	BONUS:WEAPON|ATTACKS|MeditantFlurryExtraAttacks	BONUS:WEAPON|TOHIT|-2
+
+
+###Block: Astral Warrior weapons
+# Equipment Name				Required Weapon Proficiency			Type											Cost		Weight	Crit Mult	Crit Range	Damage	Modifier		Wield Category	Size		Source Page
+Astral Warrior Weapon (Bludgeoning)	PROFICIENCY:WEAPON|Astral Warrior Weapon	TYPE:Weapon.Melee.OneHanded.Finesseable.Standard.Bludgeoning	COST:0	WT:0		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d8	EQMOD:Special Quality ~ Masterwork ~ Weapon	WIELD:OneHanded	SIZE:M	SOURCEPAGE:p.263
+Astral Warrior Weapon (Piercing)	PROFICIENCY:WEAPON|Astral Warrior Weapon	TYPE:Weapon.Melee.OneHanded.Finesseable.Standard.Piercing		COST:0	WT:0		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d8	EQMOD:Special Quality ~ Masterwork ~ Weapon	WIELD:OneHanded	SIZE:M	SOURCEPAGE:p.263
+Astral Warrior Weapon (Slashing)	PROFICIENCY:WEAPON|Astral Warrior Weapon	TYPE:Weapon.Melee.OneHanded.Finesseable.Standard.Slashing		COST:0	WT:0		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d8	EQMOD:Special Quality ~ Masterwork ~ Weapon	WIELD:OneHanded	SIZE:M	SOURCEPAGE:p.263
+
+
+###Block: Crystal Shard from Metacreative Talent trait
+# Equipment Name	Required Weapon Proficiency		Type								Cost		Weight	Crit Mult	Crit Range	Damage	Range		Source Page
+Crystal Shard	PROFICIENCY:WEAPON|Crystal Shard	TYPE:Weapon.Ranged.Standard.Slashing.Thrown	COST:0	WT:0		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d2	RANGE:10	SOURCEPAGE:p.299
+
+
+###Block: Mundane items
+# Equipment Name	Required Weapon Proficiency		Type																Cost		Weight	Crit Mult	Crit Range	Damage	Source Page
+Xephyr Knife	PROFICIENCY:WEAPON|Xephyr Knife	TYPE:Weapon.Melee.Light.Finesseable.Ranged.Thrown.Exotic.Standard.Piercing.Slashing.BladeLight	COST:15	WT:1		CRITMULT:x2	CRITRANGE:3	DAMAGE:1d6	SOURCEPAGE:p.340
+
+
+###Block: psionic base items
+# Equipment Name		Output Name				Type					Cost		Weight	Requires Modification?	Source Page
+Dorje									TYPE:Dorje				COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:p.400
+Power Stone								TYPE:PowerStone			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:p.401
+Psicrown								TYPE:Psicrown.Headgear		COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:p.402
+Psionic Tattoo							TYPE:PsionicTattoo		COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:p.405
+Crawling Tattoo							TYPE:PsionicTattoo.Crawling	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:p.411
+Mind Stone								TYPE:MindStone			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:p.417
+Mind Stone (Greater)	OUTPUTNAME:Greater Mind Stone	TYPE:GreaterMindStone		COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:p.418
+
+
+###BLOCK: Specific armors
+# Equipment Name			Required Armor Proficiency		Type												Cost		Weight	AC Penalty Check	Modifier							Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus			Bonus to skill						Special Property
+Leather of Confined Spaces	PROFICIENCY:ARMOR|Leather		TYPE:Enhancement.Armor.Light.ArmorProfLight.Suit.Specific.Nonmetal	COST:10	WT:15		ACCHECK:0		EQMOD:Material ~ Leather.Special Ability ~ Enhancement Cost|5000.Special Ability ~ +3 ~ Armor		MAXDEX:6		SOURCEPAGE:p.393	SPELLFAILURE:10		BONUS:COMBAT|AC|2|TYPE=Armor	BONUS:SKILL|Escape Artist|5|TYPE=Enhancement	SPROP:1/day reduce size by one category, +5 to Escape Artist and Combat Manuever checks to escape from grapples
+Shadow Shirt			PROFICIENCY:ARMOR|Chain Shirt		TYPE:Enhancement.Armor.Light.ArmorProfLight.Suit.Specific			COST:100	WT:25		ACCHECK:-2		EQMOD:Special Ability ~ Enhancement Cost|27850.Special Ability ~ +2 ~ Armor				MAXDEX:4		SOURCEPAGE:p.393	SPELLFAILURE:20		BONUS:COMBAT|AC|4|TYPE=Armor	BONUS:SKILL|Stealth|5|TYPE=Competence		SPROP:use shadow body for 5 rounds/day; +5 to Stealth checks
+Skinwalker's Leather		PROFICIENCY:ARMOR|Studded Leather	TYPE:Enhancement.Armor.Light.ArmorProfLight.Suit.Specific			COST:25	WT:20		ACCHECK:-1		EQMOD:Material ~ Leather|Material ~ Steel.Special Ability ~ Enhancement Cost|15000.Special Ability ~ +2 ~ Armor	MAXDEX:5		SOURCEPAGE:p.393	SPELLFAILURE:15		BONUS:COMBAT|AC|3|TYPE=Armor									SPROP:merges with skin; gain 1 customization point as 2nd level aberrant or treat class level as 2 higher for customizations
+Plate of the Juggernaut		PROFICIENCY:ARMOR|Full Plate		TYPE:Enhancement.Armor.Heavy.ArmorProfHeavy.Suit.Specific			COST:1500	WT:50		ACCHECK:-6		EQMOD:Special Ability ~ Enhancement Cost|14850.Special Ability ~ +2 ~ Armor.Material ~ Steel			MAXDEX:1		SOURCEPAGE:p.393	SPELLFAILURE:35		BONUS:COMBAT|AC|9|TYPE=Armor									SPROP:gain 1 customization point as 2nd level aegis or treat class level as 2 higher for customizations
+
+
+###BLOCK: Specific weapons
+# Equipment Name	Required Weapon Proficiency	Type									Cost		Weight	Crit Mult	Crit Range	Damage	Modifier						Wield Category	Size		Source Page		Special Property
+Strengthbleeder	PROFICIENCY:WEAPON|Longsword	TYPE:Weapon.Melee.Martial.Specific.Slashing.Sword	COST:15	WT:4		CRITMULT:x2	CRITRANGE:2	DAMAGE:1d8	EQMOD:Material ~ Crystal / Mundane.Special Ability ~ Enhancement Cost|9600.Special Ability ~ +2 ~ Weapon	WIELD:OneHanded	SIZE:M	SOURCEPAGE:p.398	SPROP:1/day, until end of combat, enemy takes 1 Strength damage when hit and wielder gets a cumulative +1 enhancement bonus to Strength (up to +8)
+
+
+###Block: Cognizance Crystals
+# Equipment Name		Type				Cost		Weight	Source Page		Special Property
+Cognizance Crystal (1)	TYPE:Psionic.Crystal	COST:1000	WT:1		SOURCEPAGE:p.398	SPROP:Stores up to 1 Power Point to be used for manifesting powers
+Cognizance Crystal (3)	TYPE:Psionic.Crystal	COST:4000	WT:1		SOURCEPAGE:p.398	SPROP:Stores up to 3 Power Points to be used for manifesting powers
+Cognizance Crystal (5)	TYPE:Psionic.Crystal	COST:9000	WT:1		SOURCEPAGE:p.398	SPROP:Stores up to 5 Power Points to be used for manifesting powers
+Cognizance Crystal (7)	TYPE:Psionic.Crystal	COST:16000	WT:1		SOURCEPAGE:p.398	SPROP:Stores up to 7 Power Points to be used for manifesting powers
+Cognizance Crystal (9)	TYPE:Psionic.Crystal	COST:25000	WT:1		SOURCEPAGE:p.398	SPROP:Stores up to 9 Power Points to be used for manifesting powers
+Cognizance Crystal (11)	TYPE:Psionic.Crystal	COST:36000	WT:1		SOURCEPAGE:p.398	SPROP:Stores up to 11 Power Points to be used for manifesting powers
+Cognizance Crystal (13)	TYPE:Psionic.Crystal	COST:49000	WT:1		SOURCEPAGE:p.398	SPROP:Stores up to 13 Power Points to be used for manifesting powers
+Cognizance Crystal (15)	TYPE:Psionic.Crystal	COST:64000	WT:1		SOURCEPAGE:p.398	SPROP:Stores up to 15 Power Points to be used for manifesting powers
+Cognizance Crystal (17)	TYPE:Psionic.Crystal	COST:81000	WT:1		SOURCEPAGE:p.398	SPROP:Stores up to 17 Power Points to be used for manifesting powers
+
+
+###Block: Crystalline Focus Items
+# Equipment Name			Type					Cost		Weight	Source Page		Special Property
+Crystal Bow +1			TYPE:Psionic.CrystallineFocus	COST:11200	WT:2		SOURCEPAGE:p.399	SPROP:enhancement of mind bolt is increased by +1, up to +5
+Crystal Bow +2			TYPE:Psionic.CrystallineFocus	COST:44800	WT:2		SOURCEPAGE:p.399	SPROP:enhancement of mind bolt is increased by +2, up to +5
+Crystal Bow +3			TYPE:Psionic.CrystallineFocus	COST:100800	WT:2		SOURCEPAGE:p.399	SPROP:enhancement of mind bolt is increased by +3, up to +5
+Crystal Gauntlets +1		TYPE:Psionic.CrystallineFocus	COST:11200	WT:2		SOURCEPAGE:p.399	SPROP:enhancement of empowered unarmed strikes is increased by +1, up to +5
+Crystal Gauntlets +2		TYPE:Psionic.CrystallineFocus	COST:44800	WT:2		SOURCEPAGE:p.399	SPROP:enhancement of empowered unarmed strikes is increased by +2, up to +5
+Crystal Gauntlets +3		TYPE:Psionic.CrystallineFocus	COST:100800	WT:2		SOURCEPAGE:p.399	SPROP:enhancement of empowered unarmed strikes is increased by +3, up to +5
+Crystal Grip +1			TYPE:Psionic.CrystallineFocus	COST:5600	WT:2		SOURCEPAGE:p.399	SPROP:enhancement of mind shield is increased by +1, up to +5
+Crystal Grip +2			TYPE:Psionic.CrystallineFocus	COST:22400	WT:2		SOURCEPAGE:p.399	SPROP:enhancement of mind shield is increased by +2, up to +5
+Crystal Grip +3			TYPE:Psionic.CrystallineFocus	COST:50400	WT:2		SOURCEPAGE:p.399	SPROP:enhancement of mind shield is increased by +3, up to +5
+Crystal Hilt (Light) +1		TYPE:Psionic.CrystallineFocus	COST:11200	WT:2		SOURCEPAGE:p.399	SPROP:enhancement of mind blade is increased by +1, up to +5
+Crystal Hilt (Light) +2		TYPE:Psionic.CrystallineFocus	COST:44800	WT:2		SOURCEPAGE:p.399	SPROP:enhancement of mind blade is increased by +2, up to +5
+Crystal Hilt (Light) +3		TYPE:Psionic.CrystallineFocus	COST:100800	WT:2		SOURCEPAGE:p.399	SPROP:enhancement of mind blade is increased by +3, up to +5
+Crystal Hilt (One-Handed) +1	TYPE:Psionic.CrystallineFocus	COST:11200	WT:2		SOURCEPAGE:p.399	SPROP:enhancement of mind blade is increased by +1, up to +5
+Crystal Hilt (One-Handed) +2	TYPE:Psionic.CrystallineFocus	COST:44800	WT:2		SOURCEPAGE:p.399	SPROP:enhancement of mind blade is increased by +2, up to +5
+Crystal Hilt (One-Handed) +3	TYPE:Psionic.CrystallineFocus	COST:100800	WT:2		SOURCEPAGE:p.399	SPROP:enhancement of mind blade is increased by +3, up to +5
+Crystal Hilt (Two-Handed) +1	TYPE:Psionic.CrystallineFocus	COST:11200	WT:2		SOURCEPAGE:p.399	SPROP:enhancement of mind blade is increased by +1, up to +5
+Crystal Hilt (Two-Handed) +2	TYPE:Psionic.CrystallineFocus	COST:44800	WT:2		SOURCEPAGE:p.399	SPROP:enhancement of mind blade is increased by +2, up to +5
+Crystal Hilt (Two-Handed) +3	TYPE:Psionic.CrystallineFocus	COST:100800	WT:2		SOURCEPAGE:p.399	SPROP:enhancement of mind blade is increased by +3, up to +5
+Crystal Spaulders +1		TYPE:Psionic.CrystallineFocus	COST:5600	WT:2		SOURCEPAGE:p.400	SPROP:enhancement of mind armor is increased by +1, up to +5
+Crystal Spaulders +2		TYPE:Psionic.CrystallineFocus	COST:22400	WT:2		SOURCEPAGE:p.400	SPROP:enhancement of mind armor is increased by +2, up to +5
+Crystal Spaulders +3		TYPE:Psionic.CrystallineFocus	COST:50400	WT:2		SOURCEPAGE:p.400	SPROP:enhancement of mind armor is increased by +3, up to +5
+
+
+###Block: Psicrowns
+# Equipment Name				Output Name							Type				Cost		Weight	Base Item for EQMOD	Source Page		Special Property
+Psicrown (Astral Legion)		OUTPUTNAME:True Psicrown of the [NAME]		TYPE:Psionic.Psicrown	COST:122400	WT:0		BASEITEM:Psicrown		SOURCEPAGE:p.402	SPROP:Power Points - 170; Manifester Level - 17; Powers - Astral Construct; Recharge Cost 17 pp, Gain 17 pp
+Psicrown (Beast)				OUTPUTNAME:Lesser Psicrown of the [NAME]		TYPE:Psionic.Psicrown	COST:23400	WT:0		BASEITEM:Psicrown		SOURCEPAGE:p.403	SPROP:Power Points - 30; Manifester Level - 9; Powers - Claw of Energy, Duodimensional Claw, Prevenom, Truevenom; Recharge Cost 9 pp, Gain 3 pp
+Psicrown (Cautious Warrior)		OUTPUTNAME:Greater Psicrown of the [NAME]		TYPE:Psionic.Psicrown	COST:61600	WT:0		BASEITEM:Psicrown		SOURCEPAGE:p.403	SPROP:Power Points - 60; Manifester Level - 11; Powers - Adapt Body, Body Adjustment, Precognition (Defensive), Inertial Barrier; Recharge Cost 11 pp, Gain 6 pp
+Psicrown (Discerning Watcher)		OUTPUTNAME:Greater Psicrown of the [NAME]		TYPE:Psionic.Psicrown	COST:105600	WT:0		BASEITEM:Psicrown		SOURCEPAGE:p.403	SPROP:Power Points - 60; Manifester Level - 11; Powers - Aura Sight, Clairtangent Hand, Clairvoyant Sense, Heightened Vision, Pierce the Veils, Remote Viewing; Recharge Cost 11 pp, Gain 6 pp
+Psicrown (Dominator)			OUTPUTNAME:Greater Psicrown of the [NAME]		TYPE:Psionic.Psicrown	COST:39600	WT:0		BASEITEM:Psicrown		SOURCEPAGE:p.403	SPROP:Power Points - 60; Manifester Level - 11; Powers - Empathic Connection, Mind Control, Compelling Voice; Recharge Cost 11 pp, Gain 6 pp
+Psicrown (Lesser Dominator)		OUTPUTNAME:Lesser Psicrown of the Dominator	TYPE:Psionic.Psicrown	COST:14400	WT:0		BASEITEM:Psicrown		SOURCEPAGE:p.403	SPROP:Power Points - 30; Manifester Level - 9; Powers - Empathic Connection, Mind Control, Compelling Voice; Recharge Cost 9 pp, Gain 3 pp
+Psicrown (Evader)				OUTPUTNAME:True Psicrown of the [NAME]		TYPE:Psionic.Psicrown	COST:145600	WT:0		BASEITEM:Psicrown		SOURCEPAGE:p.403	SPROP:Power Points - 140; Manifester Level - 14; Powers - Flight, Slip the Bonds, Wall Walker; Recharge Cost 14 pp, Gain 14 pp
+Psicrown (Fiery Ruin)			OUTPUTNAME:Lesser Psicrown of [NAME]		TYPE:Psionic.Psicrown	COST:57000	WT:0		BASEITEM:Psicrown		SOURCEPAGE:p.404	SPROP:Power Points - 50; Manifester Level - 15; Powers - Energy Ball, Energy Cone, Energy Missile, Energy Stun, Fiery Discorporation; Recharge Cost 15 pp, Gain 5 pp
+Psicrown (Temporal Juggler)		OUTPUTNAME:Greater Psicrown of the [NAME]		TYPE:Psionic.Psicrown	COST:122400	WT:0		BASEITEM:Psicrown		SOURCEPAGE:p.404	SPROP:Power Points - 90; Manifester Level - 17; Powers - Temporal Acceleration, Time Hop, Timeless Body; Recharge Cost 17 pp, Gain 9 pp
+Psicrown (Traveler)			OUTPUTNAME:Lesser Psicrown of the [NAME]		TYPE:Psionic.Psicrown	COST:54000	WT:0		BASEITEM:Psicrown		SOURCEPAGE:p.404	SPROP:Power Points - 50; Manifester Level - 15; Powers - Astral Traveler, Fold Space, Psychoport (Greater), Psychoport; Recharge Cost 15 pp, Gain 5 pp
+Psicrown (Kinetic Control)		OUTPUTNAME:True Psicrown of [NAME]			TYPE:Psionic.Psicrown	COST:130400	WT:0		BASEITEM:Psicrown		SOURCEPAGE:p.404	SPROP:Power Points - 150; Manifester Level - 15; Powers - Psychokinetic Sphere, Telekinetic Force, Telekinetic Maneuver; Recharge Cost 15 pp, Gain 15 pp
+Psicrown (Lesser Force and Fire)	OUTPUTNAME:Lesser Psicrown of Force and Fire	TYPE:Psionic.Psicrown	COST:22000	WT:0		BASEITEM:Psicrown		SOURCEPAGE:p.404	SPROP:Power Points - 60; Manifester Level - 11; Powers - Deflect Missiles, Energy Burst, Energy Push, Force Screen; Recharge Cost 11 pp, Gain 6 pp
+Psicrown (Force and Fire)		OUTPUTNAME:True Psicrown of [NAME]			TYPE:Psionic.Psicrown	COST:61600	WT:0		BASEITEM:Psicrown		SOURCEPAGE:p.404	SPROP:Power Points - 140; Manifester Level - 14; Powers - Deflect Missiles, Energy Burst, Energy Push, Force Screen; Recharge Cost 14 pp, Gain 14 pp
+
+
+###Block: Universal psionic items
+###Block: - A -
+# Equipment Name			Output Name					Type					Cost		Weight	Source Page		Special Property
+Amulet of Catapsi									TYPE:Psionic.Universal.Amulet	COST:16200	WT:0		SOURCEPAGE:p.405
+Aura Monocle (Good/Evil)							TYPE:Psionic.Wondrous.Eyes	COST:23520	WT:0.5	SOURCEPAGE:p.405	SPROP:Discern good/evil alignment 3/day
+Aura Monocle (Law/Chaos)							TYPE:Psionic.Wondrous.Eyes	COST:23520	WT:0.5	SOURCEPAGE:p.405	SPROP:Discern lawful/chaotic alignment 3/day
+Aura Monocle (Greater)		OUTPUTNAME:Aura Monocle, Greater	TYPE:Psionic.Wondrous.Eyes	COST:47040	WT:0.5	SOURCEPAGE:p.405	SPROP:Discern good/evil and lawful/chaotic alignment 3/day
+
+###Block: - B -
+# Equipment Name				Type					Cost		Weight	Slot Needed	Define			Source Page		Ability										Innate Spells											Add to base move						Modify VAR					Special Property
+Belt of Ectoplasmic Safety		TYPE:Psionic.Wondrous.Belt	COST:30000	WT:2								SOURCEPAGE:p.405																																							SPROP:3/day move out of area of effect on successful Reflex save, leaving ectoplasmic copy
+Boots of Gravity Binding		TYPE:Psionic.Wondrous.Boot	COST:18000	WT:1		SLOTS:2					SOURCEPAGE:p.405												SPELLS:Boots of Gravity Binding|TIMES=3|CASTERLEVEL=5|Gravitational Anchor
+Boots of Landing				TYPE:Psionic.Universal.Boot	COST:1000	WT:1		SLOTS:2					SOURCEPAGE:p.405
+Boots of Skating				TYPE:Psionic.Universal.Boot	COST:7000	WT:1		SLOTS:2					SOURCEPAGE:p.405																									BONUS:MOVEADD|TYPE=Walk|15|TYPE=Enhancement
+Boots of Stomping				TYPE:Psionic.Universal.Boot	COST:600	WT:1		SLOTS:2					SOURCEPAGE:p.405												SPELLS:Innate|TIMES=3|CASTERLEVEL=3|Stomp,13
+Boots of Temporal Acceleration	TYPE:Psionic.Universal.Boot	COST:43200	WT:1		SLOTS:2					SOURCEPAGE:p.405																																							SPROP:1/day temporal acceleration for 2 rounds
+Boots of the Nomad			TYPE:Psionic.Wondrous.Boot	COST:10000	WT:1		SLOTS:2	DEFINE:NomadsStepLVL|0	SOURCEPAGE:p.405	ABILITY:Special Ability|AUTOMATIC|Psychoportation ~ Nomad's Step																						BONUS:VAR|NomadsStepLVL|4		SPROP:Gain Nomad's Step as 4th-level Nomad, or add 4 to Nomad level for Nomad's Step
+Bracers of Disruption			TYPE:Psionic.Wondrous.Bracer	COST:20000	WT:0		SLOTS:2					SOURCEPAGE:p.407																																	BONUS:VAR|EnhancedDisruptionDice|2
+Bracers of Martial Surging		TYPE:Psionic.Wondrous.Bracer	COST:5000	WT:1		SLOTS:2					SOURCEPAGE:p.407																																							SPROP:Charge bracers with wild surge; use charges to give weapon enhancement bonus or special ability
+
+###Block: - C -
+# Equipment Name					Output Name							Type						Cost		Weight	Source Page		Ability									Bonus Ability Pool			Combat bonus						Save bonus					Bonus to skill												Modify VAR						Special Property
+Cacophonous Bell													TYPE:Psionic.Wondrous			COST:10500	WT:3		SOURCEPAGE:p.409																																																				SPROP:Bardic performance more difficult when rung
+Charm of Perservation												TYPE:Psionic.Wondrous.Consumable	COST:250	WT:0		SOURCEPAGE:p.409																																																				SPROP:Allows psionic revivify to be used up to a week later
+# NEEDS DATA/CODE WORK: How can something be put in ANY item slot?
+Charms of Friendly Interception										TYPE:Psionic.Wondrous			COST:12000	WT:0		SOURCEPAGE:p.409																																																				SPROP:switch places with wearer of mated charm (30 ft. range)
+Circlet of the Sheltered Mind											TYPE:Psionic.Wondrous.Headgear	COST:7500	WT:2		SOURCEPAGE:p.410																																													BONUS:VAR|PsychicEnervationPercent|-5	SPROP:Reduce enervation chance by 5%
+Coin of Brotherhood												TYPE:Psionic.Wondrous			COST:5000	WT:0		SOURCEPAGE:p.410																																																				SPROP:Gain +10 bonus on Diplomacy
+Companion Stone (Diplomacy)			OUTPUTNAME:Companion Stone of [NAME]		TYPE:Psionic.CompanionStone		COST:1700	WT:0		SOURCEPAGE:p.410																															BONUS:SKILL|Diplomacy|4|TYPE=Competence
+Companion Stone (Electrical Protection)	OUTPUTNAME:Companion Stone of [NAME]		TYPE:Psionic.CompanionStone		COST:27200	WT:0		SOURCEPAGE:p.410	ABILITY:Special Ability|AUTOMATIC|Resistance to Electricity																																			BONUS:VAR|ElectricityResistanceBonus|10
+Companion Stone (Far Sight)			OUTPUTNAME:Companion Stone of [NAME]		TYPE:Psionic.CompanionStone		COST:7500	WT:0		SOURCEPAGE:p.410																	BONUS:COMBAT|TOHIT.RANGED|2|TYPE=Competence																												SPROP:+2 save vs. illusions
+Companion Stone (Fire)				OUTPUTNAME:Companion Stone of [NAME]		TYPE:Psionic.CompanionStone		COST:17000	WT:0		SOURCEPAGE:p.410																																																				SPROP:energy cone [fire]; 30 charges
+Companion Stone (Fortify)			OUTPUTNAME:Companion Stone of [NAME]		TYPE:Psionic.CompanionStone		COST:9000	WT:0		SOURCEPAGE:p.410																																																				SPROP:1/day +4 resistance bonus to saves for 5 minutes
+Companion Stone (Truthful Dealings)		OUTPUTNAME:Companion Stone of [NAME]		TYPE:Psionic.CompanionStone		COST:10800	WT:0		SOURCEPAGE:p.410																																																				SPROP:1/day read thoughts for 3 minutes
+Cowardly Cryptic's Goggles											TYPE:Psionic.Wondrous.Eyes		COST:10000	WT:1		SOURCEPAGE:p.410																																																				SPROP:gain trap spotter insight if wearer has insights; when passing within 10 ft. of a detected trap, goggles black out everything but the trap
+Creature of Habit's Medallion											TYPE:Psionic.Wondrous.Amulet		COST:2000	WT:0		SOURCEPAGE:p.411																																																				SPROP:when hit, wearer can cause attacker to make the same action next turn (Will DC 11)
+Crawling Tattoo (Concussion)			OUTPUTNAME:Crawling Tattoo of Concussion		TYPE:Psionic.PsionicTattoo.Crawling	COST:50	WT:0		SOURCEPAGE:p.411
+Crawling Tattoo (Energy Bolt)			OUTPUTNAME:Crawling Tattoo of Energy Bolt		TYPE:Psionic.PsionicTattoo.Crawling	COST:750	WT:0		SOURCEPAGE:p.411
+Crown of Traded Will												TYPE:Psionic.Wondrous.Head		COST:20000	WT:2		SOURCEPAGE:p.411																																																				SPROP:1/day swap minds for one round (Will DC 19)
+Crystal Anchor (Body)				OUTPUTNAME:Body Crystal Anchor			TYPE:Psionic.Universal			COST:24000	WT:3		SOURCEPAGE:p.412																																																				SPROP:Those who manifest psychometabolism powers are affected
+Crystal Anchor (Comprehension)		OUTPUTNAME:Comprehension Crystal Anchor		TYPE:Psionic.Universal			COST:24000	WT:3		SOURCEPAGE:p.412																																																				SPROP:Those who manifest clairsentience powers are affected
+Crystal Anchor (Creation)			OUTPUTNAME:Creation Crystal Anchor			TYPE:Psionic.Universal			COST:24000	WT:3		SOURCEPAGE:p.412																																																				SPROP:Those who manifest metacreativity powers are affected
+Crystal Anchor (Energy)				OUTPUTNAME:Energy Crystal Anchor			TYPE:Psionic.Universal			COST:24000	WT:3		SOURCEPAGE:p.412																																																				SPROP:Those who manifest psychokinesis powers are affected
+Crystal Anchor (Ghost)				OUTPUTNAME:Ghost Crystal Anchor			TYPE:Psionic.Universal			COST:24000	WT:3		SOURCEPAGE:p.412																																																				SPROP:Those who manifest remote viewing are affected
+Crystal Anchor (Mind)				OUTPUTNAME:Mind Crystal Anchor			TYPE:Psionic.Universal			COST:24000	WT:3		SOURCEPAGE:p.412																																																				SPROP:Those who manifest telepathy powers are affected
+Crystal Anchor (Travel)				OUTPUTNAME:Travel Crystal Anchor			TYPE:Psionic.Universal			COST:24000	WT:3		SOURCEPAGE:p.412																																																				SPROP:Those who manifest psychoportation powers are affected
+Crystal Mask (Detection)			OUTPUTNAME:Crystal Mask of Detection		TYPE:Psionic.Universal.Eyegear	COST:10000	WT:0.5	SOURCEPAGE:p.412																															BONUS:SKILL|Perception|10|TYPE=Competence
+Crystal Mask (Discernment)			OUTPUTNAME:Crystal Mask of Discernment		TYPE:Psionic.Universal.Eyegear	COST:10000	WT:0.5	SOURCEPAGE:p.412																															BONUS:SKILL|Sense Motive|10|TYPE=Insight
+Crystal Mask (Dread)				OUTPUTNAME:Crystal Mask of Dread			TYPE:Psionic.Universal.Eyegear	COST:10000	WT:0.5	SOURCEPAGE:p.412																															BONUS:SKILL|Intimidate|10|TYPE=Competence
+Crystal Mask (Insightful Detection)		OUTPUTNAME:Crystal Mask of Insightful Detection	TYPE:Psionic.Universal.Eyegear	COST:20250	WT:0.5	SOURCEPAGE:p.412																															BONUS:SKILL|Perception|9|TYPE=Insight	BONUS:SKILL|Sense Motive|9|TYPE=Insight
+Crystal Mask (Knowledge)			OUTPUTNAME:Crystal Mask of Knowledge		TYPE:Psionic.Universal.Eyegear	COST:2500	WT:0.5	SOURCEPAGE:p.412											BONUS:ABILITYPOOL|Crystal Mask|1
+Crystal Mask (Languages)			OUTPUTNAME:Crystal Mask of Languages		TYPE:Psionic.Universal.Eyegear	COST:2500	WT:0.5	SOURCEPAGE:p.412																																																				SPROP:Grants the ability to speak and write five different languages
+Crystal Mask (Mindarmor)			OUTPUTNAME:Crystal Mask of Mindarmor		TYPE:Psionic.Universal.Eyegear	COST:10667	WT:0.5	SOURCEPAGE:p.412																									BONUS:SAVE|Will|4|TYPE=Insight
+Crystal Mask (Psionic Craft)			OUTPUTNAME:Crystal Mask of Psionic Craft		TYPE:Psionic.Universal.Eyegear	COST:10000	WT:0.5	SOURCEPAGE:p.413																															BONUS:SKILL|Spellcraft|10|TYPE=Competence
+
+###Block: - D -
+# Equipment Name		Type					Cost		Weight	Slot Needed	Source Page		Special Property
+Dissipating Gloves	TYPE:Psionic.Wondrous.Glove	COST:6000	WT:0		SLOTS:2	SOURCEPAGE:p.413	SPROP:3/day, melee touch attack deals 3d6 damage
+
+###Block: - E -
+# Equipment Name				Output Name						Type							Cost		Weight	Requires Modification?	Source Page		Bonus to skill					Special Property
+Earring of Resistance +1									TYPE:Psionic.Wondrous.EarringOfResistance	COST:700	WT:0		MODS:REQUIRED		SOURCEPAGE:p.413								SPROP:+1 competence bonus on save against a single psionic power
+Earring of Resistance +2									TYPE:Psionic.Wondrous.EarringOfResistance	COST:2800	WT:0		MODS:REQUIRED		SOURCEPAGE:p.413								SPROP:+2 competence bonus on save against a single psionic power
+Earring of Resistance +3									TYPE:Psionic.Wondrous.EarringOfResistance	COST:6300	WT:0		MODS:REQUIRED		SOURCEPAGE:p.413								SPROP:+3 competence bonus on save against a single psionic power
+Earring of Resistance +4									TYPE:Psionic.Wondrous.EarringOfResistance	COST:12200	WT:0		MODS:REQUIRED		SOURCEPAGE:p.413								SPROP:+4 competence bonus on save against a single psionic power
+Earring of Resistance +5									TYPE:Psionic.Wondrous.EarringOfResistance	COST:17500	WT:0		MODS:REQUIRED		SOURCEPAGE:p.413								SPROP:+5 competence bonus on save against a single psionic power
+Empathic Monocle											TYPE:Psionic.Wondrous.Eyes			COST:1750	WT:0.5					SOURCEPAGE:p.413								SPROP:Expend focus for bonus to Diplomacy and Sense Motive
+Empathic Monocle (Greater)		OUTPUTNAME:Empathic Monocle, Greater	TYPE:Psionic.Wondrous.Eyes			COST:8400	WT:0.5					SOURCEPAGE:p.413								SPROP:Learn surface thoughts of creature (Will DC 12 negates)
+Eyes of Disarming Glances									TYPE:Psionic.Wondrous.Eyegear			COST:20000	WT:0						SOURCEPAGE:p.413								SPROP:2/day disarm with 30ft. range gaze attack
+Eyes of Expanded Vision										TYPE:Psionic.Universal.Eyegear		COST:3000	WT:0						SOURCEPAGE:p.413	BONUS:SKILL|Perception|1|TYPE=Enhancement	SPROP:Flanking opponents gain only +1 bonus instead of +2 and -2 penalty on save against gaze attacks.
+Eyes of Power Leech										TYPE:Psionic.Universal.Eyegear		COST:10080	WT:0						SOURCEPAGE:p.414								SPROP:1/day power leech for 7 rounds (1d6 pp lost; 1 pp gained)
+Eyes of Power Leech (Vampiric)	OUTPUTNAME:Eyes of Power Leech, Vampiric	TYPE:Psionic.Universal.Eyegear		COST:20160	WT:0						SOURCEPAGE:p.414								SPROP:1/day power leech for 13 rounds (1d6 pp lost; 1 pp gained), can go over pp maximum
+
+###Block: - F -
+# Equipment Name				Type					Cost		Weight	Source Page		Special Property
+Fear Drinker's Amulet			TYPE:Psionic.Wondrous.Amulet	COST:2500	WT:0		SOURCEPAGE:p.414	SPROP:using devastating touch gives 2 temporary hit points, stacks with self up to dread level
+Fear Drinker's Amulet (Greater)	TYPE:Psionic.Wondrous.Amulet	COST:10000	WT:0		SOURCEPAGE:p.414	SPROP:using devastating touch gives 2 temporary hit points, stacks with self up to twice dread level; if target is frightened,gain 1 temporary power point
+
+###Block: - G -
+# Equipment Name				Type								Cost		Weight	Requires Modification?	Source Page		Combat bonus		Special Property												Temporary Bonus
+Gauntlet of the Thunder Shield	TYPE:Psionic.Wondrous.Glove				COST:8000	WT:1						SOURCEPAGE:p.414					SPROP:gain +4 shield bonus to AC and sonic resistance 10 for 30 rounds per day
+Gladiator's Gauze				TYPE:Psionic.Wondrous.Consumable			COST:35	WT:0.5					SOURCEPAGE:p.414					SPROP:Stabilizes and stops bleed effects
+Glove of Calling				TYPE:Psionic.Wondrous.Glove.GloveOfCalling	COST:4000	WT:1		MODS:REQUIRED		SOURCEPAGE:p.415					SPROP:Call a weapon as a swift action.
+Gloves of Object Reading		TYPE:Psionic.Universal.Glove				COST:3000	WT:0						SOURCEPAGE:p.415					SPROP:object reading while handling an item
+Gloves of Titan's Grip			TYPE:Psionic.Universal.Glove				COST:14000	WT:0						SOURCEPAGE:p.415					SPROP:3/day +8 enhancement bonus on grapple checks for 7 rounds				TEMPBONUS:PC|VAR|CMB_Grapple|8
+Gloves of the Beast (1d3)		TYPE:Psionic.Wondrous.Glove				COST:625	WT:0.5					SOURCEPAGE:p.415
+Gloves of the Beast (1d4)		TYPE:Psionic.Wondrous.Glove				COST:1000	WT:0.5					SOURCEPAGE:p.415
+Gloves of the Beast (1d6)		TYPE:Psionic.Wondrous.Glove				COST:3000	WT:0.5					SOURCEPAGE:p.415
+Gloves of the Beast (1d8)		TYPE:Psionic.Wondrous.Glove				COST:5000	WT:0.5					SOURCEPAGE:p.415
+Gloves of the Beast (2d6)		TYPE:Psionic.Wondrous.Glove				COST:7000	WT:0.5					SOURCEPAGE:p.415
+Gloves of the Beast (3d6)		TYPE:Psionic.Wondrous.Glove				COST:11000	WT:0.5					SOURCEPAGE:p.415
+Gloves of the Beast (4d6)		TYPE:Psionic.Wondrous.Glove				COST:15000	WT:0.5					SOURCEPAGE:p.415
+Gloves of the Beast (5d6)		TYPE:Psionic.Wondrous.Glove				COST:19000	WT:0.5					SOURCEPAGE:p.415
+Gloves of the Beast (6d6)		TYPE:Psionic.Wondrous.Glove				COST:22000	WT:0.5					SOURCEPAGE:p.415
+Boots of the Beast (1d3)		TYPE:Psionic.Wondrous.Boot				COST:625	WT:0.5					SOURCEPAGE:p.415
+Boots of the Beast (1d4)		TYPE:Psionic.Wondrous.Boot				COST:1000	WT:0.5					SOURCEPAGE:p.415
+Boots of the Beast (1d6)		TYPE:Psionic.Wondrous.Boot				COST:3000	WT:0.5					SOURCEPAGE:p.415
+Boots of the Beast (1d8)		TYPE:Psionic.Wondrous.Boot				COST:5000	WT:0.5					SOURCEPAGE:p.415
+Boots of the Beast (2d6)		TYPE:Psionic.Wondrous.Boot				COST:7000	WT:0.5					SOURCEPAGE:p.415
+Boots of the Beast (3d6)		TYPE:Psionic.Wondrous.Boot				COST:11000	WT:0.5					SOURCEPAGE:p.415
+Boots of the Beast (4d6)		TYPE:Psionic.Wondrous.Boot				COST:15000	WT:0.5					SOURCEPAGE:p.415
+Boots of the Beast (5d6)		TYPE:Psionic.Wondrous.Boot				COST:19000	WT:0.5					SOURCEPAGE:p.415
+Boots of the Beast (6d6)		TYPE:Psionic.Wondrous.Boot				COST:22000	WT:0.5					SOURCEPAGE:p.415
+Goggles of Far Sight			TYPE:Psionic.Wondrous.Eyegear				COST:4000	WT:0						SOURCEPAGE:p.215	BONUS:COMBAT|AC|-1	SPROP:Ignore first ranged increment penalty
+
+###Block: - H -
+# COMMENT: Right now, headband of the great village bonuses both the Tactican and Vitalist collectives.  Need to see how collectives are supposed to interact.
+# Equipment Name						Type						Cost		Weight	Slot Needed	Source Page		Modify VAR											Special Property
+Headband of the Great Village (1 creature)	TYPE:Psionic.Wondrous.Headband	COST:3000	WT:0.5	SLOTS:1	SOURCEPAGE:p.415	BONUS:VAR|TacticianCollectiveMinds|1	BONUS:VAR|CollectiveMinds|1	SPROP:Mindlink with 1 creature within 30 ft.	SPROP:Add one to size of collective|PREMULT:1,[PREVARGT:TacticianCollectiveMinds,0],[PREVARGT:CollectiveMinds,0]
+Headband of the Great Village (2 creatures)	TYPE:Psionic.Wondrous.Headband	COST:12000	WT:0.5	SLOTS:1	SOURCEPAGE:p.415	BONUS:VAR|TacticianCollectiveMinds|2	BONUS:VAR|CollectiveMinds|2	SPROP:Mindlink with 2 creatures within 30 ft.	SPROP:Add two to size of collective|PREMULT:1,[PREVARGT:TacticianCollectiveMinds,0],[PREVARGT:CollectiveMinds,0]
+Headband of the Great Village (3 creatures)	TYPE:Psionic.Wondrous.Headband	COST:27000	WT:0.5	SLOTS:1	SOURCEPAGE:p.415	BONUS:VAR|TacticianCollectiveMinds|3	BONUS:VAR|CollectiveMinds|3	SPROP:Mindlink with 3 creatures within 30 ft.	SPROP:Add three to size of collective|PREMULT:1,[PREVARGT:TacticianCollectiveMinds,0],[PREVARGT:CollectiveMinds,0]
+Helm of Attitude Adjustment				TYPE:Psionic.Wondrous.Head		COST:18000	WT:2				SOURCEPAGE:p.416													SPROP:2/day shift attitude by one step (Will DC 14 negates); +4 bonus on Bluff, Diplomacy, Intimidate to change attitude
+
+###Block: - I -
+# COMMENT:  Cost for Dull Grey Ioun Stone made up
+# Equipment Name			Output Name				Type							Cost		Weight	Requires Modification?	Source Page		Special Property
+Ioun Stone (Dull Grey)		OUTPUTNAME:Ioun Stone, [NAME]	TYPE:Magic.Wondrous.Ioun			COST:25	WT:0.02					SOURCEPAGE:p.390	SPROP:Provides 1 psionic power point then disintegrates.
+# NEEDS CODE/DATA WORK: Can't add the power to powers known.
+Ioun Stone (Green and White)	OUTPUTNAME:Ioun Stone, [NAME]	TYPE:Psionic.Wondrous.Ioun.GreenWhiteIoun	COST:12000	WT:0		MODS:REQUIRED		SOURCEPAGE:p.214	SPROP:Grants an additional power known.
+Ioun Stone (Rainbow)		OUTPUTNAME:Ioun Stone, [NAME]	TYPE:Magic.Wondrous.Ioun			COST:16000	WT:0.02					SOURCEPAGE:p.390	SPROP:Provides 5 psionic power points per day (regenerates)
+
+###Block: - L -
+# Equipment Name		Type					Cost		Weight	Slot Needed	Source Page		Special Property
+Lava Walker's Boots	TYPE:Psionic.Wondrous.Boot	COST:12000	WT:1		SLOTS:2	SOURCEPAGE:p.416	SPROP:walk on liquid surfaces and fire resistance 10 for 10 rounds/day
+
+###Block: - M -
+# Equipment Name					Output Name					Type					Cost		Weight	Source Page		Bonus to Situation																	Bonus to skill																									Modify VAR											Special Property
+Mantle of the Void										TYPE:Psionic.Wondrous.Chest	COST:18480	WT:0		SOURCEPAGE:p.416																																																												SPROP:gain +6 insight bonus to one d20 roll in the next minute; take 1d3 Wisdom burn if used more than once per week
+Map of the Mind											TYPE:Psionic.Wondrous		COST:16000	WT:0		SOURCEPAGE:p.416																																																												SPROP:1/week psychic reformation
+Mask of Confounded Foes										TYPE:Psionic.Wondrous.Head	COST:12000	WT:0.5	SOURCEPAGE:p.416																																																												SPROP:1/day force once creature to redirect attack (Will DC 16 negates)
+Meld Stone (Alchemist)				OUTPUTNAME:Meld Stone of the [NAME]	TYPE:Psionic.Universal		COST:3040	WT:0		SOURCEPAGE:p.417																					BONUS:SKILL|Craft (Alchemy)|8|TYPE=Competence	BONUS:SKILL|Appraise,Use Magic Device|6|TYPE=Competence	BONUS:SKILL|Knowledge (Arcana)|4|TYPE=Competence													SPROP:+8 to Craft (Alchemy), +6 to Appraise and Use Magic Device, +4 to Knowledge (Arcana), if set in a Synaptic Mask
+Meld Stone (Inflitrator)			OUTPUTNAME:Meld Stone of the [NAME]	TYPE:Psionic.Universal		COST:3040	WT:0		SOURCEPAGE:p.417	BONUS:SITUATION|Linguistics=Forgery|6|TYPE=Competence	BONUS:SITUATION|Diplomacy=Gather information|4|TYPE=Competence	BONUS:SKILL|Bluff|8|TYPE=Competence	BONUS:SKILL|Disguise|6|TYPE=Competence																											SPROP:+8 to Bluff, +6 to Disguise and Forgery, +4 to Gather Information, if set in a Synaptic Mask
+Meld Stone (Nimble Trickster)			OUTPUTNAME:Meld Stone of the [NAME]	TYPE:Psionic.Universal		COST:3040	WT:0		SOURCEPAGE:p.417	BONUS:SITUATION|Acrobatics=Tumble|8|TYPE=Competence												BONUS:SKILL|Escape Artist,Stealth|6|TYPE=Competence																															SPROP:+8 to Tumble, +6 to Escape Artist and Stealth
+Mender's Vestments (extra time)								TYPE:Psionic.Wondrous.Robe	COST:3750	WT:1		SOURCEPAGE:p.417																																																BONUS:VAR|TransferWoundsTimes|1
+Mender's Vestments (extra 1d6)								TYPE:Psionic.Wondrous.Robe	COST:4000	WT:1		SOURCEPAGE:p.417																																																BONUS:VAR|TransferWoundsDice|1
+Mender's Vestments (extra time and 1d6)							TYPE:Psionic.Wondrous.Robe	COST:10000	WT:1		SOURCEPAGE:p.417																																																BONUS:VAR|TransferWoundsTimes|1	BONUS:VAR|TransferWoundsDice|1
+Mind Sharing Circlets										TYPE:Psionic.Wondrous.Head	COST:42000	WT:1		SOURCEPAGE:p.417																																																												SPROP:manifest powers known by other wearer for 6 extra pp
+Mirror of Lost Recollections									TYPE:Psionic.Wondrous		COST:150000	WT:0.5	SOURCEPAGE:p.418																																																												SPROP:deal 8d6 damage (Will DC 16 half) to creature within 30 ft.; 1/day kill target (Will DC 22 for 5d6 damage)
+Mirror of Mind Switch										TYPE:Psionic.Universal		COST:19800	WT:0.5	SOURCEPAGE:p.418																																																												SPROP:1/day mind switch as gaze attack
+Mirror of Suggestion										TYPE:Psionic.Universal		COST:3600	WT:0.5	SOURCEPAGE:p.418																																																												SPROP:2/day suggestion as gaze attack
+Mirror of Time Hop										TYPE:Psionic.Universal		COST:9000	WT:0.5	SOURCEPAGE:p.418																																																												SPROP:2/day time hop as gaze attack
+
+###Block: - P -
+# Equipment Name				Output Name						Required Weapon Proficiency		Type																	Alt Type					Cost		Weight	Slot Needed	Crit Mult	Crit Range	Alt Crit Mult	Alt Crit Range	Damage	Alt Damage		Modifier				Alt EQModifier	Wield Category	Size		Source Page		Spell Res.	Combat bonus											Bonus DC					Save bonus								Bonus to skill					Modify VAR							Special Property
+Pattern Breaker's Gloves															TYPE:Psionic.Wondrous.Glove																			COST:2000	WT:1		SLOTS:2																													SOURCEPAGE:p.419																																														SPROP:Use disrupt pattern with unarmed strikes or natural attacks
+Pearl (Brain Lock)			OUTPUTNAME:Pearl, Brain Lock									TYPE:Psionic.Universal																				COST:300	WT:0																																SOURCEPAGE:p.419																																														SPROP:DC 13 Will
+Pearl (Breath Crisis)			OUTPUTNAME:Pearl, Breath Crisis								TYPE:Psionic.Universal																				COST:750	WT:0																																SOURCEPAGE:p.419																																														SPROP:DC 14 Will
+Pearl (Mind Seed)				OUTPUTNAME:Pearl, Mind Seed									TYPE:Psionic.Universal																				COST:18500	WT:0																																SOURCEPAGE:p.419																																														SPROP:DC 22 Will
+Pearl (Personality Parasite)		OUTPUTNAME:Pearl, Personality Parasite							TYPE:Psionic.Universal																				COST:1400	WT:0																																SOURCEPAGE:p.419																																														SPROP:DC 16 Will
+Psicrystal Crown																	TYPE:Psionic.Wondrous.Headband																		COST:2000	WT:0.5																															SOURCEPAGE:p.419																																						BONUS:VAR|PsiCrystalLVL|2				SPROP:as psicrystal staff; expend psionic focus to gain psicrystal's sighted ability for one round
+Psicrystal Harness																TYPE:Psionic.Wondrous.Belt																			COST:2000	WT:0.5																															SOURCEPAGE:p.419																																						BONUS:VAR|PsiCrystalLVL|2				SPROP:as psicrystal staff but no companion stones; expend psionic focus to gain psicrystal's natural armor adjustment as DR, and sonic vulnerability, until next turn
+Psicrystal Staff																	TYPE:Psionic.Universal.Staff																			COST:2000	WT:5																																SOURCEPAGE:p.420																																						BONUS:VAR|PsiCrystalLVL|2				SPROP:Can hold psicrystal, 3 setting stones, 10 companion stones
+Psicrystal Staff (Greater)		OUTPUTNAME:Psicrystal Staff, Greater	PROFICIENCY:WEAPON|Quarterstaff	TYPE:Weapon.Melee.OneHanded.Simple.Standard.Double.Bludgeoning.Quarterstaff.Polearm.Psionic.Wondrous	ALTTYPE:Weapon.Melee.Bludgeoning	COST:10000	WT:5				CRITMULT:x2	CRITRANGE:1	ALTCRITMULT:x2	ALTCRITRANGE:1	DAMAGE:1d6	ALTDAMAGE:1d6	EQMOD:Material ~ Wood	EQMOD:Special Quality ~ Masterwork ~ Weapon	ALTEQMOD:Material ~ Wood	WIELD:TwoHanded	SIZE:M	SOURCEPAGE:p.420																																						BONUS:VAR|PsiCrystalLVL|2				SPROP:Can hold psicrystal, 5 setting stones, 10 companion stones; psicrystal repairs 1 hp/minute; double personality bonuses [not implemented]
+Psionatrix (Clairsentience)		OUTPUTNAME:Psionatrix of [NAME]								TYPE:Psionic.Universal.Amulet																			COST:8000	WT:0																																SOURCEPAGE:p.420																BONUS:DC|SCHOOL.Clairsentience|1
+Psionatrix (Metacreativity)		OUTPUTNAME:Psionatrix of [NAME]								TYPE:Psionic.Universal.Amulet																			COST:8000	WT:0																																SOURCEPAGE:p.420																BONUS:DC|SCHOOL.Metacreativity|1
+Psionatrix (Psychokinesis)		OUTPUTNAME:Psionatrix of [NAME]								TYPE:Psionic.Universal.Amulet																			COST:8000	WT:0																																SOURCEPAGE:p.420																BONUS:DC|SCHOOL.Psychokinesis|1
+Psionatrix (Psychometabolism)		OUTPUTNAME:Psionatrix of [NAME]								TYPE:Psionic.Universal.Amulet																			COST:8000	WT:0																																SOURCEPAGE:p.420																BONUS:DC|SCHOOL.Psychometabolism|1
+Psionatrix (Psychoportation)		OUTPUTNAME:Psionatrix of [NAME]								TYPE:Psionic.Universal.Amulet																			COST:8000	WT:0																																SOURCEPAGE:p.420																BONUS:DC|SCHOOL.Psychoportation|1
+Psionatrix (Telepathy)			OUTPUTNAME:Psionatrix of [NAME]								TYPE:Psionic.Universal.Amulet																			COST:8000	WT:0																																SOURCEPAGE:p.420																BONUS:DC|SCHOOL.Telepathy|1
+Psionic Restraint (Lesser)		OUTPUTNAME:Psionic Restraint, [NAME]							TYPE:Psionic.Universal																				COST:1000	WT:0																																SOURCEPAGE:p.420																																														SPROP:Wearer can use at most 5PP/round
+Psionic Restraint (Average)		OUTPUTNAME:Psionic Restraint, [NAME]							TYPE:Psionic.Universal																				COST:6000	WT:0																																SOURCEPAGE:p.420																																														SPROP:Wearer can use at most 3PP/round
+Psionic Restraint (Greater)		OUTPUTNAME:Psionic Restraint, [NAME]							TYPE:Psionic.Universal																				COST:12000	WT:0																																SOURCEPAGE:p.420																																														SPROP:Wearer can use at most 1PP/round
+Psionic Restraint (Damping)		OUTPUTNAME:Psionic Restraint, [NAME]							TYPE:Psionic.Universal																				COST:24000	WT:0																																SOURCEPAGE:p.420																																														SPROP:Wearer can use no PP
+Psychoactive Skin (Chameleon)		OUTPUTNAME:Skin of the [NAME]									TYPE:Psionic.Universal.Ectoshell																		COST:18000	WT:2																																SOURCEPAGE:p.421																															BONUS:SKILL|Stealth|10|TYPE=Enhancement
+Psychoactive Skin (Claw)		OUTPUTNAME:Skin of the [NAME]									TYPE:Psionic.Universal.Ectoshell																		COST:16000	WT:2																																SOURCEPAGE:p.421																																														SPROP:Claws of the Beast at will, as free action.  Only for Psychic Warrior.
+Psychoactive Skin (Defender)		OUTPUTNAME:Skin of the [NAME]									TYPE:Psionic.Universal.Ectoshell																		COST:32000	WT:2																																SOURCEPAGE:p.421			BONUS:COMBAT|AC|4|TYPE=NaturalArmor
+Psychoactive Skin (Fiery Response)	OUTPUTNAME:Skin of [NAME]									TYPE:Psionic.Universal.Ectoshell																		COST:60000	WT:2																																SOURCEPAGE:p.421																																														SPROP:1/round Energy Retort [fire]
+Psychoactive Skin (Hero)		OUTPUTNAME:Skin of the [NAME]									TYPE:Psionic.Universal.Ectoshell																		COST:77500	WT:2																																SOURCEPAGE:p.421			BONUS:COMBAT|AC|3|TYPE=Deflection	BONUS:COMBAT|TOHIT|3|TYPE=Enhancement							BONUS:SAVE|Fortitude,Reflex,Will|3|TYPE=Resistance
+Psychoactive Skin (Iron)		OUTPUTNAME:Skin of [NAME]									TYPE:Psionic.Universal.Ectoshell																		COST:129600	WT:2																																SOURCEPAGE:p.421																																														SPROP:3/day Psionic Iron Body for 15 minutes
+Psychoactive Skin (Nimbleness)	OUTPUTNAME:Skin of [NAME]									TYPE:Psionic.Universal.Ectoshell																		COST:10000	WT:2																																SOURCEPAGE:p.421																															BONUS:SKILL|Acrobatics|10|TYPE=Competence
+Psychoactive Skin (Proteus)		OUTPUTNAME:Skin of [NAME]									TYPE:Psionic.Universal.Ectoshell																		COST:84000	WT:2																																SOURCEPAGE:p.421																																														SPROP:continuous Metamorphosis
+Psychoactive Skin (Psion)		OUTPUTNAME:Skin of the [NAME]									TYPE:Psionic.Universal.Ectoshell																		COST:151000	WT:2																																SOURCEPAGE:p.421	SR:21																																					BONUS:VAR|BonusPowerPoints|7|TYPE=PsionSkin	SPROP:Power Resistance 21
+Psychoactive Skin (Spider)		OUTPUTNAME:Skin of the [NAME]									TYPE:Psionic.Universal.Ectoshell																		COST:79080	WT:2																																SOURCEPAGE:p.421																															BONUS:SKILL|Climb|20|TYPE=Competence									SPROP:continual Body Equilibrium; Entangling Ectoplasm 3/day, 30 ft.
+Psychoactive Skin (Troll)		OUTPUTNAME:Skin of the [NAME]									TYPE:Psionic.Universal.Ectoshell																		COST:61200	WT:2																																SOURCEPAGE:p.421																																														SPROP:continual True Metabolism except heal 5 HP/minute.
+
+###Block: - Q -
+# Equipment Name	Type				Cost		Weight	Source Page		Special Property
+Quiver of Recall	TYPE:Psionic.Wondrous	COST:2000	WT:2		SOURCEPAGE:p.421	SPROP:holds 60 units of ammunition; misses return to quiver (all if marksman using wind reader; surviving otherwise)
+
+###Block: - R -
+# Equipment Name				Type				Cost		Weight	Source Page		Special Property
+Rug of Object Sliding (500 lbs.)	TYPE:Psionic.Wondrous	COST:2000	WT:0.5	SOURCEPAGE:p.422	SPROP:slides under object; only 1/10 of weight for dragging
+Rug of Object Sliding (2500 lbs.)	TYPE:Psionic.Wondrous	COST:5000	WT:0.5	SOURCEPAGE:p.422	SPROP:slides under object; only 1/10 of weight for dragging
+Rug of Object Sliding (5000 lbs.)	TYPE:Psionic.Wondrous	COST:7400	WT:0.5	SOURCEPAGE:p.422	SPROP:slides under object; only 1/10 of weight for dragging
+Rug of Object Sliding (10000 lbs.)	TYPE:Psionic.Wondrous	COST:10000	WT:0.5	SOURCEPAGE:p.422	SPROP:slides under object; only 1/10 of weight for dragging
+
+###Block: - S -
+# Equipment Name				Output Name					Type						Cost		Weight	Slot Needed	Source Page		Modify VAR																																	Special Property																						Temporary Bonus
+Setting Stone (Invigoration)		OUTPUTNAME:Setting Stone of [NAME]	TYPE:Psionic.Universal.SettingStone	COST:10080	WT:0				SOURCEPAGE:p.422																																			SPROP:1/day invigorate self for 10 minutes																	TEMPBONUS:PC|CASTERLEVEL|TYPE.Psionic|1	TEMPBONUS:PC|SAVE|Fortitude,Reflex,Will|2|TYPE=Morale	TEMPBONUS:PC|DC|TYPE.Psionic|2|TYPE=Morale	TEMPBONUS:PC|SKILL|ALL|2|TYPE=Morale	TEMPBONUS:PC|VAR|BonusPowerPoints|5|TYPE=Invigoration
+Setting Stone (Kenosis)			OUTPUTNAME:Setting Stone of [NAME]	TYPE:Psionic.Universal.SettingStone	COST:29000	WT:0				SOURCEPAGE:p.423																																			SPROP:1/day ranged touch to suppress psi-like, spell-like, and supernatural abilities for 1d4 rounds
+Setting Stone (Power Echo (3rd))	OUTPUTNAME:Setting Stone of [NAME]	TYPE:Psionic.Universal.SettingStone	COST:9000	WT:0				SOURCEPAGE:p.423																																			SPROP:1/day manifest 3rd or lower level power manifested earlier that day as free manifestation
+Setting Stone (Power Echo (6th))	OUTPUTNAME:Setting Stone of [NAME]	TYPE:Psionic.Universal.SettingStone	COST:36000	WT:0				SOURCEPAGE:p.423																																			SPROP:1/day manifest 6th or lower level power manifested earlier that day as free manifestation
+Setting Stone (Power Echo (9th))	OUTPUTNAME:Setting Stone of [NAME]	TYPE:Psionic.Universal.SettingStone	COST:81000	WT:0				SOURCEPAGE:p.423																																			SPROP:1/day manifest 9th or lower level power manifested earlier that day as free manifestation
+Setting Stone (Reconstruction)	OUTPUTNAME:Setting Stone of [NAME]	TYPE:Psionic.Universal.SettingStone	COST:2500	WT:0				SOURCEPAGE:p.423																																			SPROP:1/day psicrystal heals 5 hit points per round, up to wielder's manifester level
+Shard +1											TYPE:Psionic.Universal			COST:10	WT:0				SOURCEPAGE:p.423																																			SPROP:+1 competence bonus on one specific skill roll.
+Shard +2											TYPE:Psionic.Universal			COST:40	WT:0				SOURCEPAGE:p.423																																			SPROP:+2 competence bonus on one specific skill roll.
+Shard +3											TYPE:Psionic.Universal			COST:90	WT:0				SOURCEPAGE:p.423																																			SPROP:+3 competence bonus on one specific skill roll.
+Shard +4											TYPE:Psionic.Universal			COST:160	WT:0				SOURCEPAGE:p.423																																			SPROP:+4 competence bonus on one specific skill roll.
+Shard +5											TYPE:Psionic.Universal			COST:250	WT:0				SOURCEPAGE:p.423																																			SPROP:+5 competence bonus on one specific skill roll.
+Shard +6											TYPE:Psionic.Universal			COST:360	WT:0				SOURCEPAGE:p.423																																			SPROP:+6 competence bonus on one specific skill roll.
+Shard +7											TYPE:Psionic.Universal			COST:490	WT:0				SOURCEPAGE:p.423																																			SPROP:+7 competence bonus on one specific skill roll.
+Shard +8											TYPE:Psionic.Universal			COST:640	WT:0				SOURCEPAGE:p.423																																			SPROP:+8 competence bonus on one specific skill roll.
+Shard +9											TYPE:Psionic.Universal			COST:810	WT:0				SOURCEPAGE:p.423																																			SPROP:+9 competence bonus on one specific skill roll.
+Shard +10											TYPE:Psionic.Universal			COST:1000	WT:0				SOURCEPAGE:p.423																																			SPROP:+10 competence bonus on one specific skill roll.
+Shimmering Vest										TYPE:Psionic.Wondrous.Shirt		COST:12500	WT:0.5			SOURCEPAGE:p.423																																			SPROP:Gives or enhances light-bending pattern insight
+Shimmering Vest (Greater)		OUTPUTNAME:Shimmering Vest, Greater	TYPE:Psionic.Wondrous.Shirt		COST:25000	WT:0.5			SOURCEPAGE:p.423																																			SPROP:Gives or enhances light-bending pattern insight
+Sliver Prison										TYPE:Psionic.Wondrous			COST:5000	WT:1				SOURCEPAGE:p.423																																			SPROP:capture psicrystal; gain +2 on DC of Will saves against master
+Snatching Gloves										TYPE:Psionic.Wondrous.Glove		COST:20000	WT:1		SLOTS:2	SOURCEPAGE:p.424																																			SPROP:1/day teleport item to hand
+Student's Robes										TYPE:Psionic.Wondrous.Robe		COST:13000	WT:1				SOURCEPAGE:p.424	BONUS:VAR|PsychometabolismDisciplineLVL,PsychokinesisDisciplineLVL,PsychoportationDisciplineLVL,ClairsentienceDisciplineLVL,MetacreativityDisciplineLVL,TelepathyDisciplineLVL,GeneralistDisciplineLVL|5	SPROP:Psion level treated as five higher for discipline abilities.
+Suffocating Collar									TYPE:Psionic.Wondrous.Amulet		COST:30000	WT:1				SOURCEPAGE:p.424																																			SPROP:1/day use crisis of breath on all creatures within 20 ft. (Will DC 17); chokes wearer for duration of effect
+Surge Crystal +1										TYPE:Psionic.Wondrous.Headband	COST:15000	WT:0.5			SOURCEPAGE:p.424																																			SPROP:permanent 2 Con drain; gain wild surge as free surge; take bleed damage to use surge blast; bonus to wilder's wild surge
+Surge Crystal +2										TYPE:Psionic.Wondrous.Headband	COST:30000	WT:0.5			SOURCEPAGE:p.424																																			SPROP:permanent 2 Con drain; gain wild surge as free surge; take bleed damage to use surge blast; bonus to wilder's wild surge
+Surge Crystal +3										TYPE:Psionic.Wondrous.Headband	COST:60000	WT:0.5			SOURCEPAGE:p.424																																			SPROP:permanent 2 Con drain; gain wild surge as free surge; take bleed damage to use surge blast; bonus to wilder's wild surge
+Survivor's Sleeping Bag									TYPE:Psionic.Wondrous			COST:1400	WT:3				SOURCEPAGE:p.425																																			SPROP:No harm from hot or cold environments
+Sycophant's Ring										TYPE:Psionic.Wondrous.Ring		COST:1000	WT:0				SOURCEPAGE:p.425																																			SPROP:wearer does not count against collective limit; must take worse of two rolls vs. charm effects and begin forcibly added to a collective
+Synaptic Mask										TYPE:Psionic.Universal			COST:9000	WT:1				SOURCEPAGE:p.425																																			SPROP:Can use embedded shard without losing shard
+Synaptic Shard (Medic)									TYPE:Psionic.Wondrous			COST:2000	WT:0				SOURCEPAGE:p.425																																			SPROP:can take 10 on Heal checks even in combat; must be in synaptic mask
+Synaptic Shard (Precision)								TYPE:Psionic.Wondrous			COST:16000	WT:0				SOURCEPAGE:p.425																																			SPROP:add 1d6 precision damage when flanking; must be in synaptic mask
+Synaptic Shard (Shifting Steps)							TYPE:Psionic.Wondrous			COST:9000	WT:0				SOURCEPAGE:p.425																																			SPROP:use move action for a 5 foot step; must be in synaptic mask
+Synaptic Shard (Guarded Flank)							TYPE:Psionic.Wondrous			COST:16000	WT:0				SOURCEPAGE:p.425																																			SPROP:+2 AC vs. flankers; must be in synaptic mask
+
+###Block: - T -
+# Equipment Name			Type								Cost		Weight	Requires Modification?	Source Page		Bonus to Situation								Bonus to skill					Special Property
+Tactician's Chessboard		TYPE:Psionic.Wondrous					COST:8000	WT:10						SOURCEPAGE:p.425																			SPROP:shows collective members and what they see; can aid another through the board
+Third Eye (Aware)			TYPE:Psionic.Universal.Eyegear			COST:10000	WT:0						SOURCEPAGE:p.426												BONUS:SKILL|Perception|10|TYPE=Competence
+Third Eye (Conceal)		TYPE:Psionic.Universal.Eyegear			COST:120000	WT:0						SOURCEPAGE:p.426																			SPROP:Continuous Psionic Mind Blank
+Third Eye (Concentrate)		TYPE:Psionic.Universal.Eyegear			COST:10000	WT:0						SOURCEPAGE:p.426																			SPROP:+10 competence bonus to concentrate checks
+Third Eye (Dominate)		TYPE:Psionic.Universal.Eyegear			COST:120000	WT:0						SOURCEPAGE:p.426																			SPROP:1/day Mind Control, DC 18
+Third Eye (Energy Ray)		TYPE:Psionic.Universal.Eyegear			COST:7200	WT:0						SOURCEPAGE:p.426																			SPROP:3/day 30-ft. ray of active energy type, 5d6 damage (5d3 if sonic)
+Third Eye (Expose)		TYPE:Psionic.Universal.Eyegear			COST:112000	WT:0						SOURCEPAGE:p.426																			SPROP:Know when someone lies directly to you
+Third Eye (Gather)		TYPE:Psionic.Universal.Eyegear			COST:10000	WT:0						SOURCEPAGE:p.426	BONUS:SITUATION|Diplomacy=Gather information|10|TYPE=Competence
+Third Eye (Penetrate)		TYPE:Psionic.Universal.Eyegear			COST:8000	WT:0						SOURCEPAGE:p.426																			SPROP:+2 to overcome power resistance
+Third Eye (Powerthieve)		TYPE:Psionic.Universal.Eyegear			COST:10080	WT:0						SOURCEPAGE:p.426																			SPROP:1/day steal power from target within 40 ft., lasts for 70 minutes
+Third Eye (Repudiate)		TYPE:Psionic.Universal.Eyegear			COST:43200	WT:0						SOURCEPAGE:p.426																			SPROP:1/day Dispel Psionics at +20 modifier
+Third Eye (Sense)			TYPE:Psionic.Universal.Eyegear			COST:24000	WT:0						SOURCEPAGE:p.426																			SPROP:Clairvoyant Sense at will
+# NEEDS DATA WORK: Feat not granted
+Third Eye (Talented)		TYPE:Psionic.Universal.Eyegear.ThirdEyeTalented	COST:10180	WT:0		MODS:REQUIRED		SOURCEPAGE:p.426																			SPROP:grants user psionic talent, and Wild Talent or Psionic Talent feat
+Third Eye (View)			TYPE:Psionic.Universal.Eyegear			COST:10180	WT:0						SOURCEPAGE:p.426																			SPROP:1/day Remote Viewing
+Torc of Free Will			TYPE:Psionic.Universal.Amulet				COST:6000	WT:2						SOURCEPAGE:p.427																			SPROP:not affected by Brain Lock power or items.
+# COMMENT: Can these next two be combined into one item somehow?
+Torc of Interrogation		TYPE:Psionic.Wondrous.Amulet				COST:0	WT:2						SOURCEPAGE:p.427																			SPROP:take 2d6 nonlethal damage when lying (Will DC 14); cumulative -1 penalty per save attempted
+Headband of Interrogation	TYPE:Psionic.Wondrous.Headband			COST:20000	WT:0						SOURCEPAGE:p.427																			SPROP:get +10 to Intimidate and Sense Motive against wearer of torc
+Torc of Leech Freedom		TYPE:Psionic.Universal.Amulet				COST:12000	WT:2						SOURCEPAGE:p.427																			SPROP:resist up to two uses of Power Leech per day
+Torc of Power Preservation	TYPE:Psionic.Universal.Amulet				COST:36000	WT:2						SOURCEPAGE:p.427																			SPROP:manifest all powers by paying power points equal to the standard cost minus 1 (minimum of 1)
+
+###Block: - W -
+# COMMENT: Each new Warrior's Path needs a new warrior's bracer.
+# Equipment Name					Type					Cost		Weight	Slot Needed	Source Page		Modify VAR					Special Property
+Warrior's Bracer (Archer Path)		TYPE:Psionic.Wondrous.Bracer	COST:15000	WT:0		SLOTS:1	SOURCEPAGE:p.427	BONUS:VAR|ArcherPathLVL|4		SPROP:Treat level as 4 higher for trance and maneuver for specific warrior's path, or can use the trance and maneuver 3/day for 1 minute if path is not known.
+Warrior's Bracer (Ascetic Path)		TYPE:Psionic.Wondrous.Bracer	COST:15000	WT:0		SLOTS:1	SOURCEPAGE:p.427	BONUS:VAR|AsceticPathLVL|4		SPROP:Treat level as 4 higher for trance and maneuver for specific warrior's path, or can use the trance and maneuver 3/day for 1 minute if path is not known.
+Warrior's Bracer (Assassin's Path)		TYPE:Psionic.Wondrous.Bracer	COST:15000	WT:0		SLOTS:1	SOURCEPAGE:p.427	BONUS:VAR|AssassinsPathLVL|4		SPROP:Treat level as 4 higher for trance and maneuver for specific warrior's path, or can use the trance and maneuver 3/day for 1 minute if path is not known.
+Warrior's Bracer (Brawling Path)		TYPE:Psionic.Wondrous.Bracer	COST:15000	WT:0		SLOTS:1	SOURCEPAGE:p.427	BONUS:VAR|BrawlingPathLVL|4		SPROP:Treat level as 4 higher for trance and maneuver for specific warrior's path, or can use the trance and maneuver 3/day for 1 minute if path is not known.
+Warrior's Bracer (Dervish Path)		TYPE:Psionic.Wondrous.Bracer	COST:15000	WT:0		SLOTS:1	SOURCEPAGE:p.427	BONUS:VAR|DervishPathLVL|4		SPROP:Treat level as 4 higher for trance and maneuver for specific warrior's path, or can use the trance and maneuver 3/day for 1 minute if path is not known.
+Warrior's Bracer (Feral Warrior Path)	TYPE:Psionic.Wondrous.Bracer	COST:15000	WT:0		SLOTS:1	SOURCEPAGE:p.427	BONUS:VAR|FeralWarriorPathLVL|4	SPROP:Treat level as 4 higher for trance and maneuver for specific warrior's path, or can use the trance and maneuver 3/day for 1 minute if path is not known.
+Warrior's Bracer (Gladiator Path)		TYPE:Psionic.Wondrous.Bracer	COST:15000	WT:0		SLOTS:1	SOURCEPAGE:p.427	BONUS:VAR|GladiatorPathLVL|4		SPROP:Treat level as 4 higher for trance and maneuver for specific warrior's path, or can use the trance and maneuver 3/day for 1 minute if path is not known.
+Warrior's Bracer (Infiltrator Path)		TYPE:Psionic.Wondrous.Bracer	COST:15000	WT:0		SLOTS:1	SOURCEPAGE:p.427	BONUS:VAR|InfiltratorPathLVL|4	SPROP:Treat level as 4 higher for trance and maneuver for specific warrior's path, or can use the trance and maneuver 3/day for 1 minute if path is not known.
+Warrior's Bracer (Interceptor Path)		TYPE:Psionic.Wondrous.Bracer	COST:15000	WT:0		SLOTS:1	SOURCEPAGE:p.427	BONUS:VAR|InterceptorPathLVL|4	SPROP:Treat level as 4 higher for trance and maneuver for specific warrior's path, or can use the trance and maneuver 3/day for 1 minute if path is not known.
+Warrior's Bracer (Mind Knight Path)		TYPE:Psionic.Wondrous.Bracer	COST:15000	WT:0		SLOTS:1	SOURCEPAGE:p.427	BONUS:VAR|MndKnightPathLVL|4		SPROP:Treat level as 4 higher for trance and maneuver for specific warrior's path, or can use the trance and maneuver 3/day for 1 minute if path is not known.
+Warrior's Bracer (Survivor Path)		TYPE:Psionic.Wondrous.Bracer	COST:15000	WT:0		SLOTS:1	SOURCEPAGE:p.427	BONUS:VAR|SurvivorPathLVL|4		SPROP:Treat level as 4 higher for trance and maneuver for specific warrior's path, or can use the trance and maneuver 3/day for 1 minute if path is not known.
+Warrior's Bracer (Weaponmaster Path)	TYPE:Psionic.Wondrous.Bracer	COST:15000	WT:0		SLOTS:1	SOURCEPAGE:p.427	BONUS:VAR|WeaponmasterPathLVL|4	SPROP:Treat level as 4 higher for trance and maneuver for specific warrior's path, or can use the trance and maneuver 3/day for 1 minute if path is not known.
+Warrior's Scabbard				TYPE:Psionic.Wondrous		COST:1000	WT:1				SOURCEPAGE:p.427							SPROP:Gain +1 insight bonus on attack rolls for 1 turn
+Warblade Staff					TYPE:Psionic.Wondrous		COST:16000	WT:5				SOURCEPAGE:p.427	BONUS:VAR|PsiCrystalLVL|2		SPROP:as psicrystal staff; can be transformed into crystal blade (masterwork deep crystal bastard sword); can deliver touch attacks with melee attacks
+Warblade Staff (Greater)			TYPE:Psionic.Wondrous		COST:20000	WT:5				SOURCEPAGE:p.428	BONUS:VAR|PsiCrystalLVL|2		SPROP:as psicrystal staff; can be transformed into crystal blade (masterwork deep crystal bastard sword); can deliver touch attacks with melee attacks; crystal blade can create energy burst
+Wooden Shirt					TYPE:Psionic.Wondrous.Body	COST:32760	WT:3				SOURCEPAGE:p.428							SPROP:1/day oak body for 9 minutes
+
+
+###Block: Psionic rings
+# Equipment Name			Output Name					Type			Cost		Weight	Source Page		Bonus to skill						Special Property
+Ring of Altered Perception							TYPE:Psionic.Ring	COST:12000	WT:0		SOURCEPAGE:p.422									SPROP:Give false information to clairsentience powers
+Ring of Missile Protection							TYPE:Psionic.Ring	COST:4000	WT:0		SOURCEPAGE:p.422									SPROP:DR 10/magic vs. ranged attacks, inert for 24 hours after 50 damage avoided
+Ring of Psionics +2								TYPE:Psionic.Ring	COST:20000	WT:1		SOURCEPAGE:p.422									SPROP:Treat your key ability score as 2 higher for bonus power points
+Ring of Psionics +4								TYPE:Psionic.Ring	COST:40000	WT:1		SOURCEPAGE:p.422									SPROP:Treat your key ability score as 4 higher for bonus power points
+Ring of Psionics +6								TYPE:Psionic.Ring	COST:70000	WT:1		SOURCEPAGE:p.422									SPROP:Treat your key ability score as 6 higher for bonus power points
+Ring (Self Sufficiency)		OUTPUTNAME:Ring of Self-Sufficiency	TYPE:Psionic.Ring	COST:10000	WT:0		SOURCEPAGE:p.422	BONUS:SKILL|Autohypnosis|10|TYPE=Competence
+
+
+###Block: Cursed Items
+# Equipment Name	Type				Weight	Source Page		Special Property
+Reverse Capacitor	TYPE:Psionic.Cursed	WT:1		SOURCEPAGE:p.428	SPROP:lose 1d6 pp per round for 7 rounds when trying to use as crystal capacitor
+
+###Block: Artifacts
+#Block: minor
+# Equipment Name			Type							Cost		Weight	Source Page
+Sutra of Tranquil Thought	TYPE:Psionic.Artifact.Minor.Book		COST:0	WT:3		SOURCEPAGE:p.429
+#Block: major
+Annulus				TYPE:Psionic.Artifact.Major			COST:0	WT:0		SOURCEPAGE:p.429
+Psicrown of the Crystal Mind	TYPE:Psionic.Artifact.Major.Psicrown	COST:0	WT:0		SOURCEPAGE:p.429
+
+
+###Block: Legendary Items
+# Equipment Name			Output Name							Required Weapon Proficiency		Required Armor Proficiency	Type																			Alt Type					Weight	Slot Needed	Define					AC Penalty Check	Crit Mult	Crit Range	Alt Crit Mult	Alt Crit Range	Damage	Alt Damage		Modifier						Alt EQModifier					Wield Category	Maximum DEX Bonus	Size		Source Page		% of Spell Failure	Ability																																																		Combat bonus							Add to base move						Bonus to Situation							Modify VAR																														Special Property
+Crown of Chaos																						TYPE:Psionic.Legendary.Psicrown																				WT:0																																																		SOURCEPAGE:p.432					ABILITY:Special Ability|AUTOMATIC|Crown of Chaos Attunement|PREMULT:4,[!PREALIGN:LG,LN,LE],[PRESKILL:1,Bluff=5],[PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Overchannel],[PREABILITY:1,CATEGORY=Special Ability,Wilder ~ Wild Surge]],[PREVARGTEQ:TL,5]																																																																					SPROP:Power Points - 60; Manifester Level - 11; Powers - Deflect Missiles, Energy Burst, Energy Push, Force Screen; Recharge Cost 11 pp, Gain 6 pp; treat powers as if on power list|PREVARLT:CrownOfChaosLVL,4	SPROP:Power Points - 140; Manifester Level - 14; Powers - Deflect Missiles, Energy Burst, Energy Push, Force Screen; Recharge Cost 14 pp, Gain 14 pp; treat powers as if on power list; 1/day recharge for 14 pp|PREVARGTEQ:CrownOfChaosLVL,4
+Dancing Robes of Sharatwan															PROFICIENCY:ARMOR|Padded	TYPE:Psionic.Legendary.Armor.Light.ArmorProfLight.Suit.Specific.Nonmetal													WT:10										ACCHECK:0																	EQMOD:Material ~ Cloth.Special Quality ~ Dancing Robes of Sharatwan / Determination.Special Quality ~ Masterwork ~ Armor.Special Quality ~ Dancing Robes of Sharatwan / Armor Bonus											MAXDEX:8				SOURCEPAGE:p.433	SPELLFAILURE:5		ABILITY:Special Ability|AUTOMATIC|Dancing Robes of Sharatwan Attunement|PREMULT:4,[PREABILITY:2,CATEGORY=FEAT,Two-Weapon Fighting,Weapon Finesse],[PRESKILL:2,Diplomacy=4,Intimidate=4],[PREVARGTEQ:TL,4],[PRETEXT:Ability to form two mind blades]											BONUS:COMBAT|AC|1|TYPE=Armor
+Disruptor																							TYPE:Psionic.Legendary.CrystallineFocus																			WT:2				DEFINE:DisruptorShieldBonus|0																																										SOURCEPAGE:p.434					ABILITY:Special Ability|AUTOMATIC|Disruptor Attunement|PREMULT:4,[PREABILITY:1,CATEGORY=FEAT,Shield Focus],[PRESKILL:1,Knowledge (Psionics)=4],[PREABILITY:1,CATEGORY=Special Ability,Blade Skill ~ Mind Shield],[PREVARGTEQ:TL,4]																																									BONUS:VAR|DisruptorShieldBonus|1																										SPROP:enhancement of mind shield is increased by +%, up to +5|DisruptorShieldBonus
+Dissonance				OUTPUTNAME:Dissonance, Wind of the Mind		PROFICIENCY:WEAPON|Meteor Hammer						TYPE:Weapon.EasternWeapon.Eastern.Melee.Double.TwoHanded.Exotic.Bludgeoning.Reach.Trip.Hammer.Psionic.Legendary	ALTTYPE:Weapon.Melee.Bludgeoning	WT:10													CRITMULT:x2	CRITRANGE:1	ALTCRITMULT:x2	ALTCRITRANGE:1	DAMAGE:1d8	ALTDAMAGE:1d8	EQMOD:Special Quality ~ Dissonance / Enhancement Bonus / Main.Material ~ Steel.Special Quality ~ Dissonance / Whistling / Main		ALTEQMOD:Special Quality ~ Dissonance / Enhancement Bonus / Alt.Material ~ Steel.Special Quality ~ Dissonance / Whistling / Alt	WIELD:TwoHanded				SIZE:M	SOURCEPAGE:p.435					ABILITY:Special Ability|AUTOMATIC|Dissonance Attunement|PREMULT:3,[PREABILITY:2,CATEGORY=FEAT,Weapon Focus (Meteor Hammer),Exotic Weapon Proficiency (Meteor Hammer)],[PRESKILL:1,Perform (Wind Instruments)=4],[PREVARGTEQ:TL,4]
+Groundscorn Boots			OUTPUTNAME:Groundscorn Boots of the Twice-Loved												TYPE:Psionic.Legendary.Boot																					WT:1		SLOTS:2																																															SOURCEPAGE:p.436					ABILITY:Special Ability|AUTOMATIC|Groundscorn Boots Attunement|PREMULT:3,[PREABILITY:2,CATEGORY=FEAT,Lightning Reflexes,Step Up],[PRESKILL:1,Acrobatics=5],[PREVARGTEQ:TL,5]																																BONUS:MOVEADD|TYPE=Walk|15|TYPE=Enhancement
+Heartstaff				OUTPUTNAME:The Heartstaff				PROFICIENCY:WEAPON|Quarterstaff						TYPE:Psionic.Legendary.Staff.Weapon.Melee.OneHanded.Simple.Standard.Double.Bludgeoning.Quarterstaff.Polearm		ALTTYPE:Weapon.Melee.Bludgeoning	WT:5				DEFINE:HeartstaffLVL|0						CRITMULT:x2	CRITRANGE:1	ALTCRITMULT:x2	ALTCRITRANGE:1	DAMAGE:1d6	ALTDAMAGE:1d6	EQMOD:Material ~ Wood	EQMOD:Special Quality ~ Masterwork ~ Weapon			ALTEQMOD:Material ~ Wood					WIELD:TwoHanded				SIZE:M	SOURCEPAGE:p.437					ABILITY:Special Ability|AUTOMATIC|Heartstaff Attunement|PREMULT:3,[PREABILITY:2,CATEGORY=FEAT,Psicrystal Affinity,Psicrystal Containment],[PRESKILL:1,Spellcraft=5],[PREVARGTEQ:TL,4]																																																BONUS:VAR|HeartstaffLVL|1	BONUS:VAR|PsiCrystalLVL|2																						SPROP:Can hold psicrystal, 3 setting stones, 10 companion stones|PREVARLT:HeartstaffLVL,5	SPROP:Can hold psicrystal, 5 setting stones, 10 companion stones; psicrystal repairs 1 hp/minute; double personality bonuses [not implemented]|PREVARGTEQ:HeartstaffLVL,5
+Helm of the Hydra																						TYPE:Psionic.Legendary																																																																								SOURCEPAGE:p.438					ABILITY:Special Ability|AUTOMATIC|Helm of the Hydra Collective|!PREABILITY:1,CATEGORY=Special Ability,Vitalist ~ Collective,Tactician ~ Collective	ABILITY:Special Ability|AUTOMATIC|Helm of the Hydra Attunement|PREMULT:3,[PRESKILL:1,Intimidate=5],[PRESPELLSCHOOL:1,Psychometabolism=0],[PREVARGTEQ:TL,5]																												BONUS:VAR|TacticianCollectiveLVL|4|PREABILITY:1,CATEGORY=Special Ability,Tactician ~ Collective	BONUS:VAR|CollectiveLVL|4|PREABILITY:1,CATEGORY=Special Ability,Vitalist ~ Collective
+Moldev				OUTPUTNAME:Moldev, the Secret Strike													TYPE:Psionic.Legendary.Ring																																																																							SOURCEPAGE:p.439					ABILITY:Special Ability|AUTOMATIC|Moldev Attunement|PREMULT:4,[PREABILITY:2,CATEGORY=Special Ability,Soulknife ~ Form Mind Blade,Soulknife ~ Enhanced Mind Blade],[PREABILITY:1,CATEGORY=FEAT,Up The Walls],[PRESKILL:1,Stealth=5],[PREVARGTEQ:TL,5]																																						BONUS:VAR|EnhancedMndBladeLVL|2																										SPROP:Can create a light piercing weapon with a 19-20/x2 crit range as a mind blade (1st level soulknife).
+Severis				OUTPUTNAME:Severis, the Scourge Slayer		PROFICIENCY:WEAPON|Battleaxe							TYPE:Weapon.Melee.OneHanded.Martial.Standard.Slashing.Axe.Psionic.Legendary													WT:6													CRITMULT:x3	CRITRANGE:1							DAMAGE:1d8				EQMOD:Material ~ Steel	EQMOD:Special Quality ~ Severis / Enhancement Bonus.Special Quality ~ Severis / Scourgebane								WIELD:OneHanded				SIZE:M	SOURCEPAGE:p.440					ABILITY:Special Ability|AUTOMATIC|Severis Attunement|PREMULT:4,[PRETOTALAB:4],[PREABILITY:1,CATEGORY=FEAT,Power Attack],[PRESKILL:1,Knowledge (Psionics)=4],[PREVARGTEQ:TL,4]
+Tempest's Blade																						TYPE:Psionic.Legendary.CrystallineFocus																			WT:2				DEFINE:TempestsBladeHiltBonus|0																																									SOURCEPAGE:p.441					ABILITY:Special Ability|AUTOMATIC|Tempest's Blade Attunement|PREMULT:4,[PREABILITY:1,CATEGORY=Special Ability,Blade Skill ~ Additional Configuration],[PREABILITY:1,CATEGORY=FEAT,Weapon Finesse],[PRESKILL:1,Knowledge (Psionics)=4],[PREVARGTEQ:TL,4]										BONUS:COMBAT|INITIATIVE|4*TempestsBladeDuelingWeapon									BONUS:SITUATION|Bluff=Feint|2*TempestsBladeDuelingWeapon	BONUS:VAR|TempestsBladeHiltBonus|1	BONUS:VAR|CMB_Disarm|2*TempestsBladeDuelingWeapon	BONUS:VAR|CMD_Disarm|2*TempestsBladeDuelingWeapon								SPROP:enhancement of mind blade is increased by +%, up to +5|TempestsBladeHiltBonus
+
+#
+# End
+#

@@ -1,0 +1,16 @@
+SOURCELONG:Familiar Folio	SOURCESHORT:FF	SOURCEWEB:http://paizo.com/products/btpy9au2?Pathfinder-Player-Companion-Familiar-Folio	SOURCEDATE:2014-12
+
+FOLLOWER:FamiliarLVL=1			TYPE:Familiar		ABILITY:Familiar Archetype|AUTOMATIC|Archetype Familiar
+
+MASTERBONUSRACE:Familiar (Chicken)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Chicken)
+MASTERBONUSRACE:Familiar (Popoto Dolphin)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Popoto Dolphin)
+MASTERBONUSRACE:Familiar (Ioun Wyrd)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Ioun Wyrd)
+MASTERBONUSRACE:Familiar (Kakapo)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Kakapo)
+MASTERBONUSRACE:Familiar (Koala)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Koala)
+MASTERBONUSRACE:Familiar (Leopard Slug)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Leopard Slug)
+MASTERBONUSRACE:Familiar (Mole)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Mole)
+MASTERBONUSRACE:Familiar (Peacock)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Peacock)
+MASTERBONUSRACE:Familiar (Penguin)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Penguin)
+MASTERBONUSRACE:Familiar (Petrifern)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Petrifern)
+MASTERBONUSRACE:Familiar (Pufferfish)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Pufferfish)
+MASTERBONUSRACE:Familiar (Wallaby)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Wallaby)

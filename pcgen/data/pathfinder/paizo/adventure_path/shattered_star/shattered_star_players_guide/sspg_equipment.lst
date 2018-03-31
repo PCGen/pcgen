@@ -1,0 +1,11 @@
+# CVS $Revision: $ $Author: $ -- Wed Jul 23 13:38:17 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+SOURCELONG:Shattered Star Player's Guide	SOURCESHORT:SSPG	SOURCEWEB:http://paizo.com/products/btpy8txj?Pathfinder-Adventure-Path-Shattered-Star-Players-Guide	SOURCEDATE:2012-08
+# Original Entry by: Eric C Smith (Maredudd)
+# Orginal Entry on: 9/19/2013
+
+# Equipment Name	Type				Cost		Weight	Source Page
+Wayfinder		TYPE:Magic.Wondrous	COST:500	WT:1		SOURCEPAGE:p.11
+
+#
+# End
+#

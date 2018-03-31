@@ -1,0 +1,118 @@
+# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Psionics Expanded	SOURCESHORT:PsiEx	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2012-07
+# ORIGINAL ENTRY: Douglas Limmer
+# ORIGINAL ENTRY DATE: 2013/07/07
+
+###Block: Bonus Power handlers
+#Block: Cryptic
+# Ability Name			Category of Ability		Type						Stackable?	Multiple?	Choose		Bonus to spell known/L
+Cryptic Power Level 0		CATEGORY:Special Ability	TYPE:BonusSpellKnownCryptic		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Cryptic;LEVEL=0|1
+Cryptic Power Level 1		CATEGORY:Special Ability	TYPE:BonusSpellKnownCryptic		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Cryptic;LEVEL=1|1
+Cryptic Power Level 2		CATEGORY:Special Ability	TYPE:BonusSpellKnownCryptic		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Cryptic;LEVEL=2|1
+Cryptic Power Level 3		CATEGORY:Special Ability	TYPE:BonusSpellKnownCryptic		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Cryptic;LEVEL=3|1
+Cryptic Power Level 4		CATEGORY:Special Ability	TYPE:BonusSpellKnownCryptic		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Cryptic;LEVEL=4|1
+Cryptic Power Level 5		CATEGORY:Special Ability	TYPE:BonusSpellKnownCryptic		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Cryptic;LEVEL=5|1
+Cryptic Power Level 6		CATEGORY:Special Ability	TYPE:BonusSpellKnownCryptic		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Cryptic;LEVEL=6|1
+
+#Block: Dread
+Dread Power Level 0		CATEGORY:Special Ability	TYPE:BonusSpellKnownDread		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Dread;LEVEL=0|1
+Dread Power Level 1		CATEGORY:Special Ability	TYPE:BonusSpellKnownDread		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Dread;LEVEL=1|1
+Dread Power Level 2		CATEGORY:Special Ability	TYPE:BonusSpellKnownDread		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Dread;LEVEL=2|1
+Dread Power Level 3		CATEGORY:Special Ability	TYPE:BonusSpellKnownDread		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Dread;LEVEL=3|1
+Dread Power Level 4		CATEGORY:Special Ability	TYPE:BonusSpellKnownDread		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Dread;LEVEL=4|1
+Dread Power Level 5		CATEGORY:Special Ability	TYPE:BonusSpellKnownDread		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Dread;LEVEL=5|1
+Dread Power Level 6		CATEGORY:Special Ability	TYPE:BonusSpellKnownDread		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Dread;LEVEL=6|1
+
+#Block: Gifted Blade
+Gifted Blade Power Level 0	CATEGORY:Special Ability	TYPE:BonusSpellKnownGiftedBlade	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Gifted Blade;LEVEL=0|1
+Gifted Blade Power Level 1	CATEGORY:Special Ability	TYPE:BonusSpellKnownGiftedBlade	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Gifted Blade;LEVEL=1|1
+Gifted Blade Power Level 2	CATEGORY:Special Ability	TYPE:BonusSpellKnownGiftedBlade	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Gifted Blade;LEVEL=2|1
+Gifted Blade Power Level 3	CATEGORY:Special Ability	TYPE:BonusSpellKnownGiftedBlade	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Gifted Blade;LEVEL=3|1
+Gifted Blade Power Level 4	CATEGORY:Special Ability	TYPE:BonusSpellKnownGiftedBlade	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Gifted Blade;LEVEL=4|1
+
+#Block: Sighted Seeker
+Sighted Seeker Power Level 1	CATEGORY:Special Ability	TYPE:BonusSpellKnownSightedSeeker	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Sighted Seeker;LEVEL=1|1
+Sighted Seeker Power Level 2	CATEGORY:Special Ability	TYPE:BonusSpellKnownSightedSeeker	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Sighted Seeker;LEVEL=2|1
+Sighted Seeker Power Level 3	CATEGORY:Special Ability	TYPE:BonusSpellKnownSightedSeeker	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Sighted Seeker;LEVEL=3|1
+Sighted Seeker Power Level 4	CATEGORY:Special Ability	TYPE:BonusSpellKnownSightedSeeker	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Sighted Seeker;LEVEL=4|1
+
+#Block: Psion
+Psion Power Level 0		CATEGORY:Special Ability	TYPE:BonusSpellKnownPsion		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Psion;LEVEL=0|1
+Psion Power Level 1		CATEGORY:Special Ability	TYPE:BonusSpellKnownPsion		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Psion;LEVEL=1|1
+Psion Power Level 2		CATEGORY:Special Ability	TYPE:BonusSpellKnownPsion		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Psion;LEVEL=2|1
+Psion Power Level 3		CATEGORY:Special Ability	TYPE:BonusSpellKnownPsion		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Psion;LEVEL=3|1
+Psion Power Level 4		CATEGORY:Special Ability	TYPE:BonusSpellKnownPsion		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Psion;LEVEL=4|1
+Psion Power Level 5		CATEGORY:Special Ability	TYPE:BonusSpellKnownPsion		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Psion;LEVEL=5|1
+Psion Power Level 6		CATEGORY:Special Ability	TYPE:BonusSpellKnownPsion		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Psion;LEVEL=6|1
+Psion Power Level 7		CATEGORY:Special Ability	TYPE:BonusSpellKnownPsion		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Psion;LEVEL=7|1
+Psion Power Level 8		CATEGORY:Special Ability	TYPE:BonusSpellKnownPsion		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Psion;LEVEL=8|1
+Psion Power Level 9		CATEGORY:Special Ability	TYPE:BonusSpellKnownPsion		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Psion;LEVEL=9|1
+
+#Block: Psychic Warrior
+Psychic Warrior Power Level 0	CATEGORY:Special Ability	TYPE:BonusSpellKnownPsychicWarrior	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Psychic Warrior;LEVEL=0|1
+Psychic Warrior Power Level 1	CATEGORY:Special Ability	TYPE:BonusSpellKnownPsychicWarrior	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Psychic Warrior;LEVEL=1|1
+Psychic Warrior Power Level 2	CATEGORY:Special Ability	TYPE:BonusSpellKnownPsychicWarrior	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Psychic Warrior;LEVEL=2|1
+Psychic Warrior Power Level 3	CATEGORY:Special Ability	TYPE:BonusSpellKnownPsychicWarrior	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Psychic Warrior;LEVEL=3|1
+Psychic Warrior Power Level 4	CATEGORY:Special Ability	TYPE:BonusSpellKnownPsychicWarrior	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Psychic Warrior;LEVEL=4|1
+Psychic Warrior Power Level 5	CATEGORY:Special Ability	TYPE:BonusSpellKnownPsychicWarrior	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Psychic Warrior;LEVEL=5|1
+Psychic Warrior Power Level 6	CATEGORY:Special Ability	TYPE:BonusSpellKnownPsychicWarrior	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Psychic Warrior;LEVEL=6|1
+
+#Block: Marksman
+Marksman Power Level 0		CATEGORY:Special Ability	TYPE:BonusSpellKnownMarksman		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Marksman;LEVEL=0|1
+Marksman Power Level 1		CATEGORY:Special Ability	TYPE:BonusSpellKnownMarksman		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Marksman;LEVEL=1|1
+Marksman Power Level 2		CATEGORY:Special Ability	TYPE:BonusSpellKnownMarksman		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Marksman;LEVEL=2|1
+Marksman Power Level 3		CATEGORY:Special Ability	TYPE:BonusSpellKnownMarksman		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Marksman;LEVEL=3|1
+Marksman Power Level 4		CATEGORY:Special Ability	TYPE:BonusSpellKnownMarksman		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Marksman;LEVEL=4|1
+
+#Block: Tactician
+Tactician Power Level 0		CATEGORY:Special Ability	TYPE:BonusSpellKnownTactician		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Tactician;LEVEL=0|1
+Tactician Power Level 1		CATEGORY:Special Ability	TYPE:BonusSpellKnownTactician		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Tactician;LEVEL=1|1
+Tactician Power Level 2		CATEGORY:Special Ability	TYPE:BonusSpellKnownTactician		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Tactician;LEVEL=2|1
+Tactician Power Level 3		CATEGORY:Special Ability	TYPE:BonusSpellKnownTactician		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Tactician;LEVEL=3|1
+Tactician Power Level 4		CATEGORY:Special Ability	TYPE:BonusSpellKnownTactician		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Tactician;LEVEL=4|1
+Tactician Power Level 5		CATEGORY:Special Ability	TYPE:BonusSpellKnownTactician		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Tactician;LEVEL=5|1
+Tactician Power Level 6		CATEGORY:Special Ability	TYPE:BonusSpellKnownTactician		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Tactician;LEVEL=6|1
+Tactician Power Level 7		CATEGORY:Special Ability	TYPE:BonusSpellKnownTactician		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Tactician;LEVEL=7|1
+Tactician Power Level 8		CATEGORY:Special Ability	TYPE:BonusSpellKnownTactician		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Tactician;LEVEL=8|1
+Tactician Power Level 9		CATEGORY:Special Ability	TYPE:BonusSpellKnownTactician		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Tactician;LEVEL=9|1
+
+#Block: Vitalist
+Vitalist Power Level 0		CATEGORY:Special Ability	TYPE:BonusSpellKnownVitalist		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Vitalist;LEVEL=0|1
+Vitalist Power Level 1		CATEGORY:Special Ability	TYPE:BonusSpellKnownVitalist		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Vitalist;LEVEL=1|1
+Vitalist Power Level 2		CATEGORY:Special Ability	TYPE:BonusSpellKnownVitalist		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Vitalist;LEVEL=2|1
+Vitalist Power Level 3		CATEGORY:Special Ability	TYPE:BonusSpellKnownVitalist		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Vitalist;LEVEL=3|1
+Vitalist Power Level 4		CATEGORY:Special Ability	TYPE:BonusSpellKnownVitalist		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Vitalist;LEVEL=4|1
+Vitalist Power Level 5		CATEGORY:Special Ability	TYPE:BonusSpellKnownVitalist		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Vitalist;LEVEL=5|1
+Vitalist Power Level 6		CATEGORY:Special Ability	TYPE:BonusSpellKnownVitalist		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Vitalist;LEVEL=6|1
+Vitalist Power Level 7		CATEGORY:Special Ability	TYPE:BonusSpellKnownVitalist		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Vitalist;LEVEL=7|1
+Vitalist Power Level 8		CATEGORY:Special Ability	TYPE:BonusSpellKnownVitalist		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Vitalist;LEVEL=8|1
+Vitalist Power Level 9		CATEGORY:Special Ability	TYPE:BonusSpellKnownVitalist		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Vitalist;LEVEL=9|1
+
+#Block: Wilder
+Wilder Power Level 0		CATEGORY:Special Ability	TYPE:BonusSpellKnownWilder		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Wilder;LEVEL=0|1
+Wilder Power Level 1		CATEGORY:Special Ability	TYPE:BonusSpellKnownWilder		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Wilder;LEVEL=1|1
+Wilder Power Level 2		CATEGORY:Special Ability	TYPE:BonusSpellKnownWilder		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Wilder;LEVEL=2|1
+Wilder Power Level 3		CATEGORY:Special Ability	TYPE:BonusSpellKnownWilder		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Wilder;LEVEL=3|1
+Wilder Power Level 4		CATEGORY:Special Ability	TYPE:BonusSpellKnownWilder		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Wilder;LEVEL=4|1
+Wilder Power Level 5		CATEGORY:Special Ability	TYPE:BonusSpellKnownWilder		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Wilder;LEVEL=5|1
+Wilder Power Level 6		CATEGORY:Special Ability	TYPE:BonusSpellKnownWilder		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Wilder;LEVEL=6|1
+Wilder Power Level 7		CATEGORY:Special Ability	TYPE:BonusSpellKnownWilder		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Wilder;LEVEL=7|1
+Wilder Power Level 8		CATEGORY:Special Ability	TYPE:BonusSpellKnownWilder		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Wilder;LEVEL=8|1
+Wilder Power Level 9		CATEGORY:Special Ability	TYPE:BonusSpellKnownWilder		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Wilder;LEVEL=9|1
+
+###Block: "Gain a bonus power" abilities
+# Ability Name			Unique Key						Category of Ability	Type			Var. Min. Value			Stackable?	Multiple?	Choose		Bonus Ability Pool
+Bonus Cryptic Power		KEY:Bonus Cryptic Power ~ Generic		CATEGORY:Internal		TYPE:BonusPower	PREVARGTEQ:CrypticML,1		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Bonus Cryptic Power|1
+Bonus Dread Power			KEY:Bonus Dread Power ~ Generic		CATEGORY:Internal		TYPE:BonusPower	PREVARGTEQ:DreadML,1		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Bonus Dread Power|1
+Bonus Gifted Blade Power	KEY:Bonus Gifted Blade Power ~ Generic	CATEGORY:Internal		TYPE:BonusPower	PREVARGTEQ:GiftedBladeML,1	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Bonus Gifted Blade Power|1
+Bonus Marksman Power		KEY:Bonus Marksman Power ~ Generic		CATEGORY:Internal		TYPE:BonusPower	PREVARGTEQ:MarksmanML,1		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Bonus Marksman Power|1
+Bonus Psion Power			KEY:Bonus Psion Power ~ Generic		CATEGORY:Internal		TYPE:BonusPower	PREVARGTEQ:PsionML,1		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Bonus Psion Power|1
+Bonus Psychic Warrior Power	KEY:Bonus Psychic Warrior Power ~ Generic	CATEGORY:Internal		TYPE:BonusPower	PREVARGTEQ:PsychicWarriorML,1	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Bonus Psychic Warrior Power|1
+Bonus Sighted Seeker Power	KEY:Bonus Sighted Seeker Power ~ Generic	CATEGORY:Internal		TYPE:BonusPower	PREVARGTEQ:SightedSeekerML,1	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Bonus Sighted Seeker Power|1
+Bonus Tactician Power		KEY:Bonus Tactician Power ~ Generic		CATEGORY:Internal		TYPE:BonusPower	PREVARGTEQ:TacticianML,1	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Bonus Tactician Power|1
+Bonus Vitalist Power		KEY:Bonus Vitalist Power ~ Generic		CATEGORY:Internal		TYPE:BonusPower	PREVARGTEQ:VitalistML,1		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Bonus Vitalist Power|1
+Bonus Wilder Power		KEY:Bonus Wilder Power ~ Generic		CATEGORY:Internal		TYPE:BonusPower	PREVARGTEQ:WilderML,1		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Bonus Wilder Power|1
+
+#
+# End
+#

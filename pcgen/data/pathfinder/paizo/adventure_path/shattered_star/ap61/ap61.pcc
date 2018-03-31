@@ -1,0 +1,57 @@
+# CVS $Revision$ $Author$ -- Wed Jul 23 12:11:28 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+CAMPAIGN:Shattered Star, Part 1 - Shards of Sin
+KEY:Adventure Path #61
+GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing.Pathfinder Adventure Path.Shattered Star
+RANK:3
+STATUS:BETA
+GENRE:Fantasy
+BOOKTYPE:Adventure
+SETTING:Pathfinder|Golarion
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules,INCLUDESBOOKTYPE=Complete Core
+PUBNAMELONG:Paizo Publishing
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Shattered Star, Part 1 - Shards of Sin
+SOURCESHORT:AP61
+SOURCEWEB:http://paizo.com/products/btpy8rcj?Pathfinder-Adventure-Path-61-Shards-of-Sin
+SOURCEDATE:2013-02
+ISOGL:YES
+
+COVER:ap61.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy8rcj?Pathfinder-Adventure-Path-61-Shards-of-Sin|Buy this publication from Paizo Publishing!
+DESC:In Varisia's bustling frontier city of Magnimar, the Pathfinder Society's newest lodge recruits a team of rookie Pathfinders to track down rogue agent Natalya Vancaskerkin--who also happens to be one of the Varisian criminals known as the Sczarni. Yet when these heroes track down the missing woman, they find far more than a Pathfinder on the run, becoming embroiled in a swiftly expanding hunt for a fragmented artifact from the ancient empire of Thassilon--a quest that will take them to some of the most dangerous corners of Varisia.
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, and Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Abyssal Larva from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author Scott Greene.
+COPYRIGHT:Cave Fisher from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author Scott Greene, based on original material by Lawrence Schick.
+COPYRIGHT:Cave Moray from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author Scott Greene and Clark Peterson, based on original material by Gary Gygax.
+COPYRIGHT:Devil, Nupperibo from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Iron Cobra from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author Scott Greene, based on original material by Philip Masters.
+COPYRIGHT:Mite from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Authors Scott Greene and Skeeter Green, based on original material by Ian Livingstone and Mark Barnes.
+COPYRIGHT:Poltergeist from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Lewis Pulsipher.
+COPYRIGHT:Rot Grub from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Authors: Scott Greene and Clark Peterson, based on original material by Gary Gygax.
+COPYRIGHT:Skulk from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Simon Muth.
+COPYRIGHT:Pathfinder Adventure Path #61: Shards of Sin Copyright 2012, Paizo Publishing, LLC; Author: Greg A. Vaughan.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Adventure Path: Shattered Star, Part 1 - Shards of Sin" Copyright 2012-2014, PCGen Data Team (including, but not limited to Stefan Radermacher, Paul Grosse (License), and Andrew Maitland (Data Review)).
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# PFS Rules
+#
+
+# Data files
+ABILITY:ap61_abilities.lst
+EQUIPMENT:ap61_equip.lst
+EQUIPMOD:ap61_equipmods.lst
+WEAPONPROF:ap61_profs_weapon.lst
+
+#
+# End
+#

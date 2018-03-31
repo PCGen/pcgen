@@ -1,0 +1,10 @@
+# CVS $Revision: $ $Author: $ -- Sun Sep  4 16:33:31 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Curse of the Crimson Throne, Chapter 6 - Crown of Fangs	SOURCESHORT:AP12	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy84el	SOURCEDATE:2008-08
+
+# Note:
+# For the offical Pathfinder RPG version of the belier devil (bdellavritra), load Pathfinder RPG Bestiary 2 dataset.
+# For the offical Pathfinder RPG version of the contract devil (phistophilus), load Pathfinder RPG Bestiary 3 dataset.
+# For the offical Pathfinder RPG version of the mobogo, load Pathfinder RPG Bestiary 3 dataset.
+
+# Race Name	Size		Move		Face/Space	Reach		Stat bonus												Modify VAR															Ability																Nb Legs	Nb Hands	Natural Attacks																																											Define				Damage Reduction	Monster Class Name and Starting Level	Main Race Type		Template				Challenge Rating	Source Page		Apply Kit
+Akaruzug	FACT:BaseSize|L	SIZE:L	MOVE:Fly,40			REACH:5	BONUS:STAT|STR|20	BONUS:STAT|DEX|4	BONUS:STAT|WIS|2	BONUS:STAT|CHA|-10	BONUS:VAR|AC_Natural_Armor|18|TYPE=Base	BONUS:VAR|Maneuverability|5	BONUS:VAR|Mindless|1	ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability|Soul Engine|Soul Slave|Soul Steal|Unhallow	LEGS:2	HANDS:2	NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*2,1d8|Wing Slam,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1d8|Body Slam,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,2d8	DEFINE:Maneuverability|0	DR:15/Good		MONSTERCLASS:Construct:32			RACETYPE:Construct	TEMPLATE:Construct|Mindless	CR:14			SOURCEPAGE:p.82	KIT:1|LE

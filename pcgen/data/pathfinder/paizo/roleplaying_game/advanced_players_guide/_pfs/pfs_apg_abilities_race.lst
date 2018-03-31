@@ -1,0 +1,8 @@
+# CVS $Revision: 21399 $ $Author: evilmynex $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
+# Original Entry by: Stefan Radermacher & Andrew Maitland
+
+# Ability Name								Type			!PRECHARACTERTYPE
+CATEGORY=Special Ability|Dwarf ~ Craftsman.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Halfling ~ Practicality.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Human ~ Heart of the Fields.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC

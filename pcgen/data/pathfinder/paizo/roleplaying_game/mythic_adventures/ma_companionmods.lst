@@ -1,0 +1,12 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+
+###Block: Impervious Companion Support
+# Class of the Master						Type				Damage Reduction
+FOLLOWER:MythicImperviousBody_Animal_Companion=1	TYPE:Animal Companion	DR:mastervar("MythicImperviousBodyDR")/epic
+FOLLOWER:MythicImperviousBody_Animal_Companion=1	TYPE:Samurai Mount	DR:mastervar("MythicImperviousBodyDR")/epic
+FOLLOWER:MythicImperviousBody_Eidolon=1			TYPE:Eidolon		DR:mastervar("MythicImperviousBodyDR")/epic
+FOLLOWER:MythicImperviousBody_Familiar=1			TYPE:Familiar		DR:mastervar("MythicImperviousBodyDR")/epic
+FOLLOWER:MythicImperviousBody_Bonded_Mount=1		TYPE:Special Mount	DR:mastervar("MythicImperviousBodyDR")/epic
+
+###Block: Improved Familiar	floor(mastervar("MythicLevel")/3)
+FOLLOWER:FamiliarLVL=1						TYPE:Familiar		ABILITY:Familiar Class Feature|AUTOMATIC|Familiar ~ Mythic Improved Familiar|PREVARGTEQ:MasterMythicLevel,1	DEFINE:MasterMythicLevel|0	DEFINE:Familiar_Master_Has_MythicImprovedFamiliar|0	BONUS:VAR|Familiar_Master_Has_MythicImprovedFamiliar|mastervar("Feat_Master_Has_MythicImprovedFamiliar")|TYPE=Boolean	BONUS:VAR|MasterMythicLevel|mastervar("MythicLevel")|PREVARGTEQ:Familiar_Master_Has_MythicImprovedFamiliar,1

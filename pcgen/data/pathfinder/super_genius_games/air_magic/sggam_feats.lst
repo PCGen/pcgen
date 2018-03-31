@@ -1,0 +1,20 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:The Genius Guide to: Air Magic	SOURCESHORT:SGGAM	SOURCEDATE:2010-07
+# Original Entry by: Paul Shipley (elro the onk)
+
+# Feat	Type						Source Page		Requirements							Description of the Benefits & Bonus
+# Feat Name				Type						Required Feat				Required Spell Descriptor	Required Stat	Description																																										Source Page
+# Ability Name						Category of Ability	Type						Required Ability							Required Spell Descriptor	Required Stat	Description																																										Source Page
+Air Kata							CATEGORY:FEAT		TYPE:General.SkyborneBloodline	PREABILITY:1,CATEGORY=FEAT,Improved Unarmed Strike						PRESTAT:1,WIS=13	DESC:As long as you fulfill the somatic components of a spell with the [air] subtype, you do not need to fulfill the verbal components. If you bypass the somatic component in some way (such as Still Spell) you must fulfill the verbal component normally.	SOURCEPAGE:p.12
+Squallblood							CATEGORY:FEAT		TYPE:General.SkyborneBloodline										PRESPELLDESCRIPTOR:1,Air=0	PRESTAT:1,CHA=13	DESC:When you use a spell with the [air] descriptor to make a combat maneuver or grant a bonus to CMD, you gain a +4 bonus to the CMB or CMD, as appropriate.																	SOURCEPAGE:p.12
+
+# .MODs
+CATEGORY=FEAT|Agile Maneuvers.MOD							TYPE:SkyborneBloodline
+CATEGORY=FEAT|Defensive Combat Training.MOD					TYPE:SkyborneBloodline
+CATEGORY=FEAT|Dodge.MOD									TYPE:SkyborneBloodline
+CATEGORY=FEAT|Fleet.MOD									TYPE:SkyborneBloodline
+CATEGORY=FEAT|Nimble Moves.MOD							TYPE:SkyborneBloodline
+
+#
+# End
+#

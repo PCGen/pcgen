@@ -1,0 +1,22 @@
+# CVS $Revision: $ $Author: $ -- Wed Dec 10 01:48:21 2014 -- reformated by prettylst.pl v1.51 (build 25712)
+SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8ief	SOURCEDATE:2011-03
+# Original Entry by: Stefan Radermacher
+
+# Race Name					Type
+Rat (Donkey).MOD				TYPE:PFSNotLegal
+Spider (Drain).MOD			TYPE:PFSNotLegal
+Fennec (Firefoot).MOD			TYPE:PFSNotLegal
+Gecko (Giant).MOD				TYPE:PFSNotLegal
+Shark (Jigsaw).MOD			TYPE:PFSNotLegal
+Boar (Sargavan).MOD			TYPE:PFSNotLegal
+Herd Animal (Storval Aurochs).MOD	TYPE:PFSNotLegal
+Aluum.MOD					TYPE:PFSNotLegal
+Calikang.MOD				TYPE:PFSNotLegal
+Charau-ka.MOD				TYPE:PFSNotLegal
+Daughter of Urgathoa.MOD		TYPE:PFSNotLegal
+Sandpoint Devil.MOD			TYPE:PFSNotLegal
+Dragon (Spine).MOD			TYPE:PFSNotLegal
+Treerazer.MOD				TYPE:PFSNotLegal
+
+Gillman.MOD					TYPE:PFSNotLegal
+Strix.MOD					TYPE:PFSNotLegal

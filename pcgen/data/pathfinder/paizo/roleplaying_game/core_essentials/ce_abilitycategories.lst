@@ -1,0 +1,27 @@
+# CVS $Revision: 20121 $ $Author: zaister $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+#SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy85k5	SOURCEDATE:2009-09
+
+# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Specific choices list		Plural description for UI			Display Location
+ABILITYCATEGORY:Class Level +4 Ability Adjustment	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ClassLevelAdjustmentPlus4						PLURAL:Class Level +4 Ability Adjustments	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Class Level +2 Ability Adjustment	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ClassLevelAdjustmentPlus2						PLURAL:Class Level +2 Ability Adjustments	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Class Level -2 Ability Adjustment	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ClassLevelAdjustmentMinus2						PLURAL:Class Level -2 Ability Adjustments	DISPLAYLOCATION:Racial Abilities
+
+ABILITYCATEGORY:Emotive Duality				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EmotiveDuality								PLURAL:Emotive Dualities			DISPLAYLOCATION:Racial Abilities
+
+
+
+ABILITYCATEGORY:Tiefling Language				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TieflingLanguageTrait							PLURAL:Tiefling Languages			DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Ability Focus					VISIBLE:NO		EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Ability Focus
+ABILITYCATEGORY:Spell-Like Ability				VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO						CATEGORY:Spell-Like Ability
+ABILITYCATEGORY:SLA						VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO						CATEGORY:SLA
+
+ABILITYCATEGORY:Giant Creature Option			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GiantCreatureSelection							PLURAL:Giant Creature Options			DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Setting Specific Language			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:RaceLanguageSelection														DISPLAYLOCATION:Racial Abilities
+
+ABILITYCATEGORY:Disable First Level Domain Power	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal									ABILITYLIST:DisableDomainLVL1								DISPLAYLOCATION:Class Abilities
+
+###Block: An underlying Ability for base class stuff that has the EXACT name of the class.
+# Ability Category	Visible	Editable?		Change Pool?	Fractional values?	Category of Object
+ABILITYCATEGORY:Class	VISIBLE:NO	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:CLASS
+
+ABILITYCATEGORY:Size						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal	TYPE:Size							PLURAL:Sizes			DISPLAYLOCATION:Racial Abilities

@@ -1,0 +1,24 @@
+# CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Society Primer	SOURCESHORT:PFSP	SOURCEWEB:http://paizo.com/products/btpy8yw6?Pathfinder-Player-Companion-Pathfinder-Society-Primer	SOURCEDATE:2013-07
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 26 May 2016
+
+# ==============================
+# Prestige Class
+# ==============================
+
+###Block: Pathfinder Field Agent ------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Class Name			Hit Dice	Type			Max Level	Source Page		Define					Combat bonus																	Save bonus																						Modify VAR																																																																		FACT
+CLASS:Pathfinder Field Agent	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.18	DEFINE:PathfinderFieldAgentLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|PathfinderFieldAgentLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|PFA
+# Class Name			Required Feat						Required Skill							
+CLASS:Pathfinder Field Agent	PREABILITY:1,CATEGORY=FEAT,Skill Focus		PRESKILL:3,TYPE.Knowledge=5,Linguistics=1,Perception=1
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Pathfinder Field Agent	STARTSKILLPTS:6	CSKILL:Bluff|Climb|Diplomacy|Disable Device|Escape Artist|Heal|TYPE.Knowledge|Linguistics|Perception|Sense Motive|Stealth|Swim|Use Magic Device
+###Block:
+1	ABILITY:Class|AUTOMATIC|Pathfinder Field Agent
+1	ABILITY:Special Ability|AUTOMATIC|Pathfinder Field Agent ~ Weapon and Armor Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|Pathfinder Field Agent ~ Pathfinder Training
+1	ABILITY:Special Ability|AUTOMATIC|Pathfinder Field Agent ~ Wayfinder Upgrade
+2	ABILITY:Special Ability|AUTOMATIC|Pathfinder Field Agent ~ Bonus Feat
+10	ABILITY:Special Ability|AUTOMATIC|Pathfinder Field Agent ~ Legends Uncovered

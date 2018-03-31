@@ -1,0 +1,7 @@
+# CVS $Revision: $ $Author: $ -- Thu Jan 29 16:18:08 2015 -- reformated by prettylst.pl v1.51 (build 25712)
+
+# Ability Category						Visible		Editable?		Change Pool?	Base Pool number			Category of Object		Type of Object					Plural description for UI				Display Location
+ABILITYCATEGORY:Ulfen Guard Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Special Ability	TYPE:Ulfen Guard Class Feature		PLURAL:Ulfen Guard Class Features			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Pure Legion Enforcer Class Feature	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Special Ability	TYPE:Pure Legion Enforcer Class Feature	PLURAL:Pure Legion Enforcer Class Features	DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Guard Dedication				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:Pool_GuardDedication	CATEGORY:Special Ability	TYPE:Guard Dedication Choice			PLURAL:Guard Dedications				DISPLAYLOCATION:Class Features

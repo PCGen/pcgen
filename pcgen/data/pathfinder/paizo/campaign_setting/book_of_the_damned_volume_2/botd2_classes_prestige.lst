@@ -1,0 +1,25 @@
+# CVS $Revision: $ $Author: $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Lords of Chaos, Book of the Damned, Volume 2	SOURCESHORT:BOTD2	SOURCEWEB:http://paizo.com/products/btpy8hij?Pathfinder-Campaign-Setting-Book-of-the-Damned-Volume-2-Lords-of-Chaos	SOURCEDATE:2010-10
+# ORIGINAL ENTRY: elro the onk (Paul Shipley)
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Define			Combat bonus														Save bonus																Modify VAR																																																																		FACT
+CLASS:Demoniac	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.46	DEFINE:DemoniacLVL|0	BONUS:COMBAT|BASEAB|classlevel()*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|(classlevel()+1)/2	BONUS:SAVE|BASE.Will,BASE.Reflex|(classlevel()+1)/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|DemoniacLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|Dem
+# Class Name	Required Ability								Required AL	Required Deity				Required Language	Required Skill								Required Text
+CLASS:Demoniac	PREABILITY:2,CATEGORY=FEAT,Iron Will,Demonic Obedience	PREALIGN:CE	PREDEITY:1,PANTHEON.Demon Lords	PRELANG:1,Abyssal	PRESKILL:3,Knowledge (Planes)=7,Intimidate=7,Spellcraft=7	PRETEXT:Must have been physically traumatized by a demon
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Demoniac	STARTSKILLPTS:2	CSKILL:Bluff|Intimidate|Knowledge (Planes)|Knowledge (Religion)|Sense Motive|Spellcraft|Stealth
+1																ABILITY:Special Ability|AUTOMATIC|Demoniac ~ Weapon Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
+1																ABILITY:Special Ability|AUTOMATIC|Demoniac ~ Damned|Demoniac ~ Demonic Mark|Demoniac ~ Obedience
+2							BONUS:VAR|DemoniacEnergumen|1	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Demoniac ~ Energumen
+3							BONUS:VAR|DemoniacBoon|1	ADD:SPELLCASTER|ANY
+4												ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Demoniac ~ Summon Demon I
+5							BONUS:VAR|DemoniacEnergumen|1	ADD:SPELLCASTER|ANY
+6							BONUS:VAR|DemoniacBoon|1	ADD:SPELLCASTER|ANY
+7							BONUS:VAR|DemoniacEnergumen|1	ADD:SPELLCASTER|ANY
+8												ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Demoniac ~ Summon Demon II
+9							BONUS:VAR|DemoniacBoon|1	ADD:SPELLCASTER|ANY
+10	BONUS:ABILITYPOOL|Demonic Form|1						ADD:SPELLCASTER|ANY
+
+#
+# End
+#

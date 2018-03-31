@@ -1,0 +1,53 @@
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+CAMPAIGN:Faiths of Balance (PFS)
+KEY:PFS ~ Faiths of Balance
+#GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing PFS.Pathfinder Player Companion
+RANK:3
+STATUS:BETA
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder|Golarion
+PRECAMPAIGN:1,Pathfinder Society Core Assumption
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+SOURCELONG:Pathfinder Player Companion: Faiths of Balance
+SOURCESHORT:FOB
+SOURCEWEB:http://paizo.com/products/btpy8lvb
+SOURCEDATE:2011-07
+ISOGL:YES
+
+#COVER:@/pathfinder/paizo/player_companion/faiths_of_balance/faiths_of_balance.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy8lvb|Buy this publication from Paizo Publishing!
+DESC:There are those who walk a middle road, the heroes to whom questions of morality come second to some greater goal. It is to these bold individuals that the gods of balance offer their hands. Whether it's the god of cities and civilization or the guardians of the wild places, the goddess of death or the twisted and insane lord of magic, the neutral gods of Golarion are every bit as active as their righteous or evil counterparts. Often misunderstood, their worshipers run the gambit from enlightened scholars to bloodthirsty paragons of battle, all bound together by the same knowledge: that there are distinctions more important than good versus evil.
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000, Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder Player Companion: Faiths of Balance. Copyright 2011, Paizo Inc.; Author: Colin McComb.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Faiths of Balance" Copyright 2011, PCGen Data Team (including, but not limited to Stefan Radermacher, Paul Grosse, Andrew Maitland)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# Additional Resources
+# Last Updated Friday, January 9, 2015
+#
+# Pathfinder Player Companion: Faiths of Balance
+# Equipment: all channel foci on pages 24-25, all magic items on pages 26-27;
+# Feats: All feats on page 24;
+# Spells: all spells on pages 28-29;
+# Traits: all traits on pages 4-21
+
+# Data files
+DEITY:pfs_fob_deities.lst|PRECAMPAIGN:1,INCLUDES=Faiths of Balance
+
+#
+# End
+#

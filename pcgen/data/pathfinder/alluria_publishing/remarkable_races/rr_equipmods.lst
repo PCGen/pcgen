@@ -1,0 +1,21 @@
+# CVS $Revision: $ $Author: $ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+SOURCELONG:Remarkable Races: Compendium of Unusual PC Races, Pathway to Adventure Edition	SOURCESHORT:RR	SOURCEWEB:http://www.alluriapublishing.net/compendium-p.htm	SOURCEDATE:2009-01
+# Original Entry by Andrew Maitland
+
+
+# Modifier Name		Unique Key		Type		Plus		Visible		Source Page		Required Type		Special Property
+Boggle Brew			KEY:Special Quality ~ Boggle Brew					VISIBLE:NO									SPROP:This small vial of bright green bubbly and bitter solution prevents older boggles from entering a murderous rampage. After imbibing one dose of this solution, a boggle is immune to the symptoms of Boggle Madness for 24 hours. This does not prevent further mind-altering effects. This potion has no effect on non-boggles. Boggles rarely drink this concoction straight, as it is quite bitter and unpalatable. Often, the brew is mixed with some other drink or added to food. Boggles will often purchase or create large quantities of this substance at one time; keeping it in bottles or even small casks. To create boggle brew, it requires a Craft (alchemy) skill check, DC 20.|PRERULE:1,DisplayFullEquip
+
+
+Probability Weapon (+1)	KEY:Special Ability ~ Probability / +1 ~ Weapon	TYPE:Weapon	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.130	PRETYPE:1,Enhancement	SPROP:This weapon betters the probability to hit without increasing accuracy. Roll 2d10 instead of a d20 for attack rolls with this weapon.
+Probability Weapon (+2)	KEY:Special Ability ~ Probability / +2 ~ Weapon	TYPE:Weapon	PLUS:2	VISIBLE:QUALIFY	SOURCEPAGE:p.130	PRETYPE:1,Enhancement	SPROP:This weapon betters the probability to hit without increasing accuracy. Roll 5d4 instead of a d20 for attack rolls with this weapon.
+Twinned Weapon		KEY:Special Ability ~ Twinned Weapon ~ Weapon	TYPE:Weapon	PLUS:2	VISIBLE:QUALIFY	SOURCEPAGE:p.130	PRETYPE:1,Enhancement	SPROP:Instead of making an attack roll, use the last attack roll made by its twin this round as the attack roll, once per round. If the weapon's twin did not yet attack this round, you cannot use this power.
+
+
+#Old KEYs
+Special Quality ~ Boggle Brew.COPY=BOGGLE_BREW				VISIBLE:NO
+
+
+Special Ability ~ Probability / +1 ~ Weapon.COPY=PROB_WEAP1		VISIBLE:NO
+Special Ability ~ Probability / +2 ~ Weapon.COPY=PROB_WEAP2		VISIBLE:NO
+Special Ability ~ Twinned Weapon ~ Weapon.COPY=TWIN_WEAP		VISIBLE:NO

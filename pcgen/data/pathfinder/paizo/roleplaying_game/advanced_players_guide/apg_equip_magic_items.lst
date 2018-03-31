@@ -1,0 +1,266 @@
+# CVS $Revision: 20448 $ $Author: amaitland $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
+# Original Entry by: Eric C. Smith (Maredudd)
+
+###Block: MINOR ARTIFACTS
+# Equipment Name			Required Weapon Proficiency	Type														Cost		Weight	Crit Mult	Crit Range	Damage	Modifier				Wield Category	Size		Source Page		Bonus Ability Pool						Stat bonus						Quality and value
+Beacon of True Faith							TYPE:Artifact.Minor.LightSource									COST:0	WT:2																		SOURCEPAGE:p.313																	QUALITY:Bright Illumination|20 ft.	QUALITY:Shadowy Illumination|40 ft.	QUALITY:Duration|Permanent
+Hammer of Thunderbolts		PROFICIENCY:WEAPON|Warhammer	TYPE:Weapon.Resizable.Melee.OneHanded.Martial.Artifact.Minor.Bludgeoning.Hammer	COST:0	WT:15		CRITMULT:x3	CRITRANGE:1	DAMAGE:2d6	EQMOD:Special Ability ~ +3 ~ Weapon.Special Ability ~ Returning ~ Thrown.Material ~ Steel	WIELD:OneHanded	SIZE:L	SOURCEPAGE:p.314
+##TODO: Add PRExxx for Girdle and additional capabilities.
+Knucklebone of Fickle Fortune						TYPE:Artifact.Minor											COST:0	WT:0.01																	SOURCEPAGE:p.314
+Perfect Golden Lute							TYPE:Artifact.Minor											COST:0	WT:3																		SOURCEPAGE:p.314
+Spindle of Perfect Knowledge						TYPE:Artifact.Minor											COST:0	WT:0.01																	SOURCEPAGE:p.314	BONUS:ABILITYPOOL|Spindle of Perfect Knowledge|2	BONUS:STAT|INT,WIS,CHA|4|TYPE=Enhancement
+Talisman of Reluctant Wishes						TYPE:Artifact.Minor											COST:0	WT:1																		SOURCEPAGE:p.314
+
+###Block: MAJOR ARTIFACTS
+# Equipment Name				Required Weapon Proficiency	Type														Cost		Weight	Base Item for EQMOD	Crit Mult	Crit Range	Damage	Modifier							Wield Category	Reach Multiplier	Size		Source Page		Innate Spells							Bonus to skill
+Bottle of the Bound								TYPE:Artifact.Major											COST:0	WT:4																												SOURCEPAGE:p.316
+Cloud Castle of the Storm King						TYPE:Artifact.Major											COST:0	WT:0																												SOURCEPAGE:p.316
+Fork of the Forgotten One		PROFICIENCY:WEAPON|Ranseur	TYPE:Weapon.Resizable.Melee.TwoHanded.Martial.Reach.Artifact/Major.Piercing.Polearm	COST:0	WT:12						CRITMULT:x3	CRITRANGE:1	DAMAGE:2d4	EQMOD:Special Quality ~ Disarm.Special Ability ~ Flaming ~ Weapon.Special Ability ~ +5 ~ Weapon.Material ~ Steel.Special Ability ~ Unholy ~ Weapon.Special Ability ~ Wounding ~ Weapon	WIELD:TwoHanded	REACHMULT:2		SIZE:M	SOURCEPAGE:p.317	SPELLS:Artifact|TIMES=3|CASTERLEVEL=20|Scorching Ray	BONUS:SKILL|Diplomacy,Intimidate|10
+The Moaning Diamond								TYPE:Artifact.Major											COST:0	WT:4																												SOURCEPAGE:p.317
+The Shield of the Sun								TYPE:Artifact.Major											COST:0	WT:2																												SOURCEPAGE:p.317
+
+### BLOCK: Staves
+Staff of Bolstering								TYPE:Magic.Staff												COST:20800	WT:5		BASEITEM:Staff								EQMOD:Special Ability ~ Staff Charges|CHARGES[10]											SOURCEPAGE:p.296
+Staff of Cackling Wrath								TYPE:Magic.Staff												COST:23600	WT:5		BASEITEM:Staff								EQMOD:Special Ability ~ Staff Charges|CHARGES[10]											SOURCEPAGE:p.296
+Staff of Hoarding									TYPE:Magic.Staff												COST:30016	WT:5		BASEITEM:Staff								EQMOD:Special Ability ~ Staff Charges|CHARGES[10]											SOURCEPAGE:p.297
+Staff of Journeys									TYPE:Magic.Staff												COST:13600	WT:5		BASEITEM:Staff								EQMOD:Special Ability ~ Staff Charges|CHARGES[10]											SOURCEPAGE:p.297
+Staff of Many Rays								TYPE:Magic.Staff												COST:52800	WT:5		BASEITEM:Staff								EQMOD:Special Ability ~ Staff Charges|CHARGES[10]											SOURCEPAGE:p.297
+Staff of Obstacles								TYPE:Magic.Staff												COST:25800	WT:5		BASEITEM:Staff								EQMOD:Special Ability ~ Staff Charges|CHARGES[10]											SOURCEPAGE:p.297
+Staff of Performance								TYPE:Magic.Staff												COST:26800	WT:5		BASEITEM:Staff								EQMOD:Special Ability ~ Staff Charges|CHARGES[10]											SOURCEPAGE:p.297
+Staff of Revelations								TYPE:Magic.Staff												COST:20400	WT:5		BASEITEM:Staff								EQMOD:Special Ability ~ Staff Charges|CHARGES[10]											SOURCEPAGE:p.297
+Staff of Rigor									TYPE:Magic.Staff												COST:13600	WT:5		BASEITEM:Staff								EQMOD:Special Ability ~ Staff Charges|CHARGES[10]											SOURCEPAGE:p.298
+Staff of Slumber									TYPE:Magic.Staff												COST:34050	WT:5		BASEITEM:Staff								EQMOD:Special Ability ~ Staff Charges|CHARGES[10]											SOURCEPAGE:p.298
+Staff of Shrieking								TYPE:Magic.Staff												COST:14400	WT:5		BASEITEM:Staff								EQMOD:Special Ability ~ Staff Charges|CHARGES[10]											SOURCEPAGE:p.298
+Staff of Souls									TYPE:Magic.Staff												COST:16400	WT:5		BASEITEM:Staff								EQMOD:Special Ability ~ Staff Charges|CHARGES[10]											SOURCEPAGE:p.298
+Staff of Stealth									TYPE:Magic.Staff												COST:18400	WT:5		BASEITEM:Staff								EQMOD:Special Ability ~ Staff Charges|CHARGES[10]											SOURCEPAGE:p.298
+Staff of Toxins									TYPE:Magic.Staff												COST:12600	WT:5		BASEITEM:Staff								EQMOD:Special Ability ~ Staff Charges|CHARGES[10]											SOURCEPAGE:p.298
+Staff of Traps									TYPE:Magic.Staff												COST:21200	WT:5		BASEITEM:Staff								EQMOD:Special Ability ~ Staff Charges|CHARGES[10]											SOURCEPAGE:p.299
+Staff of Vision									TYPE:Magic.Staff												COST:41250	WT:5		BASEITEM:Staff								EQMOD:Special Ability ~ Staff Charges|CHARGES[10]											SOURCEPAGE:p.299
+Staff of Weather									TYPE:Magic.Staff												COST:44200	WT:5		BASEITEM:Staff								EQMOD:Special Ability ~ Staff Charges|CHARGES[10]											SOURCEPAGE:p.299
+
+
+###Block: Magic Rods
+# Equipment Name				Output Name					Type			Cost		Weight	Base Item for EQMOD	Modifier					Source Page
+Rod (Bouncing/Lesser)			OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:3000	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.294
+Rod (Bouncing/Normal)			OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:11000	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.294
+Rod (Bouncing/Greater)			OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:24500	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.294
+Rod (Dazing/Lesser)			OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:14000	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.294
+Rod (Dazing/Normal)			OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:54000	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.294
+Rod (Dazing/Greater)			OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:121500	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.294
+Rod (Disruptive/Lesser)			OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:3000	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.294
+Rod (Disruptive/Normal)			OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:11000	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.294
+Rod (Disruptive/Greater)		OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:24500	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.294
+Rod (Ectoplasmic/Lesser)		OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:3000	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.294
+Rod (Ectoplasmic/Normal)		OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:11000	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.294
+Rod (Ectoplasmic/Greater)		OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:24500	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.294
+Rod (Elemental Acid/Lesser)		OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:3000	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.294
+Rod (Elemental Acid/Normal)		OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:11000	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.294
+Rod (Elemental Acid/Greater)		OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:24500	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.294
+Rod (Elemental Cold/Lesser)		OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:3000	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.294
+Rod (Elemental Cold/Normal)		OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:11000	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.294
+Rod (Elemental Cold/Greater)		OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:24500	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.294
+Rod (Elemental Electricity/Lesser)	OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:3000	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.294
+Rod (Elemental Electricity/Normal)	OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:11000	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.294
+Rod (Elemental Electricity/Greater)	OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:24500	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.294
+Rod (Elemental Fire/Lesser)		OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:3000	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.294
+Rod (Elemental Fire/Normal)		OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:11000	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.294
+Rod (Elemental Fire/Greater)		OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:24500	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.294
+Rod (Focused/Lesser)			OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:3000	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.294
+Rod (Focused/Normal)			OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:11000	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.294
+Rod (Focused/Greater)			OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:24500	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.294
+Rod (Intensified/Lesser)		OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:3000	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.294
+Rod (Intensified/Normal)		OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:11000	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.294
+Rod (Intensified/Greater)		OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:24500	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.294
+Rod (Lingering/Lesser)			OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:3000	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.295
+Rod (Lingering/Normal)			OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:11000	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.295
+Rod (Lingering/Greater)			OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:24500	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.295
+Rod (Merciful/Lesser)			OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:1500	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.295
+Rod (Merciful/Normal)			OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:5500	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.295
+Rod (Merciful/Greater)			OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:12250	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.295
+Rod (Persistent/Lesser)			OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:9000	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.295
+Rod (Persistent/Normal)			OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:32500	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.295
+Rod (Persistent/Greater)		OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:73000	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.295
+Rod (Reach/Lesser)			OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:3000	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.295
+Rod (Reach/Normal)			OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:11000	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.295
+Rod (Reach/Greater)			OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:24500	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.295
+Rod (Selective/Lesser)			OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:3000	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.295
+Rod (Selective/Normal)			OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:11000	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.295
+Rod (Selective/Greater)			OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:24500	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.295
+Rod (Sickening/Lesser)			OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:9000	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.296
+Rod (Sickening/Normal)			OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:32500	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.296
+Rod (Sickening/Greater)			OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:73000	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.296
+Rod (Thundering/Lesser)			OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:9000	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.296
+Rod (Thundering/Normal)			OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:32500	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.296
+Rod (Thundering/Greater)		OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:73000	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.296
+
+###Block: Cursed Rods
+# Equipment Name	Type				Cost		Weight	Base Item for EQMOD	Modifier					Source Page
+Rod of Arson	TYPE:Magic.Rod.Cursed	COST:0	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.313
+
+
+###Block: Magic Rings
+# Equipment Name			Output Name				Type			Cost		Modifier			Source Page		Bonus to skill								Special Property
+Dungeon Ring (Jailers)		OUTPUTNAME:Jailer's Ring	TYPE:Magic.Ring	COST:16000					SOURCEPAGE:p.292											SPROP:The jailer is aware of any wearer of a linked prisoner's ring like a constant status spell.
+Dungeon Ring (Prisoners)		OUTPUTNAME:Prisoner's Ring	TYPE:Magic.Ring	COST:250					SOURCEPAGE:p.292
+Ring of Arcane Signets							TYPE:Magic.Ring	COST:1000					SOURCEPAGE:p.292
+Ring of Delayed Doom							TYPE:Magic.Ring	COST:5000	EQMOD:Special Ability ~ Charged Item / 9 Maximum	SOURCEPAGE:p.292											SPROP:Whenever your mind or body first becomes subject to any harmful effect that allows a saving throw to resist or mitigate it, you may, as an immediate action, choose to delay the onset of that effect for 1 minute.
+Ring of Forcefangs							TYPE:Magic.Ring	COST:8000					SOURCEPAGE:p.292											SPROP:Negates any force spell or spell-like ability targeted at the wearer. Doing so gives the ring a number of charges equal to the spell level of the incoming force effect, to a maximum of 9 charges. On command, the wearer can use the ring?s charges to cast magic missile, per the spell of the same name, per charge but no more than five missiles per round.
+Ring of Maniacal Devices						TYPE:Magic.Ring	COST:5000					SOURCEPAGE:p.292	BONUS:SKILL|Craft (Traps),Disable Device|5|TYPE=Competence
+Ring of Retribution							TYPE:Magic.Ring	COST:15000					SOURCEPAGE:p.292											SPROP:Once per day, the wearer of this charred bone ring may, as an immediate action, cause it to detonate in a 30-foot-radius burst that deals 10d6 points of fire damage (Reflex DC 14 half ).
+#Ring of Revelation (Lesser)			OUTPUTNAME:Ring of Revelation, Lesser		TYPE:Magic.Ring	COST:10000	SOURCEPAGE:p.293
+#Ring of Revelation (Greater)			OUTPUTNAME:Ring of Revelation, Greater		TYPE:Magic.Ring	COST:16000	SOURCEPAGE:p.293
+#Ring of Revelation (Superior)			OUTPUTNAME:Ring of Revelation, Superior		TYPE:Magic.Ring	COST:24000	SOURCEPAGE:p.293
+
+###Block: Cursed Rings
+# Equipment Name	Type				Cost		Weight	Source Page
+Cannibal Ring	TYPE:Magic.Ring.Cursed	COST:0	WT:0.01	SOURCEPAGE:p.310
+Ring of Truth	TYPE:Magic.Ring.Cursed	COST:0	WT:0.01	SOURCEPAGE:p.312
+
+###Block: Wondrous Items
+###Block:A
+# Equipment Name		Type					Cost		Weight	Source Page		Special Property
+All Tools Vest		TYPE:Magic.Wondrous.Vest	COST:1800	WT:5		SOURCEPAGE:p.300	SPROP:As a standard action, the wearer can speak its command word and order it to bring forth all the standard tools required to make checks for any one Craft skill.
+Amulet of Magecraft	TYPE:Magic.Wondrous.Amulet	COST:20000	WT:2		SOURCEPAGE:p.300	SPROP:Allows a universalist wizard to choose one school of spells each day when he prepares spells. He then can use the necklace to spontaneously convert any prepared wizard spell of that school into any other wizard spell of that school he knows; the desired spell must be of the same level or lower than the prepared spell.|PRETYPE:1,EQMOD=Special Quality ~ Bonded Object
+Amulet of Spell Cunning	TYPE:Magic.Wondrous.Amulet	COST:10000	WT:1		SOURCEPAGE:p.300	SPROP:Allows a wizard to prepare an additional 3 levels of spells per day.|PRETYPE:1,EQMOD=Special Quality ~ Bonded Object
+Annihilation Spectacles	TYPE:Magic.Wondrous.Eyes	COST:2500	WT:0.25	SOURCEPAGE:p.300	SPROP:Once per day, he may use the spectacles to spontaneously cast disintegrate in place of one of his prepared transmutation wizard spells of 6th level or higher, even if he doesn't know that spell.
+Apple of Eternal Sleep	TYPE:Magic.Wondrous		COST:2500	WT:0.01	SOURCEPAGE:p.300
+Assisting Gloves		TYPE:Magic.Wondrous.Glove	COST:180	WT:1		SOURCEPAGE:p.300
+
+###Block:B
+# Equipment Name					Type							Cost		Weight	Source Page		Ability																													Modify VAR
+Bandages of Rapid Recovery			TYPE:Magic.Wondrous.Chest.Consumable	COST:200	WT:1		SOURCEPAGE:p.301
+Book of the Loremaster				TYPE:Magic.Wondrous.Book			COST:15000	WT:2		SOURCEPAGE:p.301
+Boots of Friendly Terrain (Cold)		TYPE:Magic.Wondrous.Boot			COST:2400	WT:1		SOURCEPAGE:p.301	ABILITY:Special Ability|AUTOMATIC|Equipment ~ Favored Terrain (Cold)|PREMULT:2,[PRECLASS:1,Ranger=1],[!PREABILITY:1,CATEGORY=Special Ability,Favored Terrain (Cold)]			BONUS:VAR|FavoredTerrainCold|2
+Boots of Friendly Terrain (Desert)		TYPE:Magic.Wondrous.Boot			COST:2400	WT:1		SOURCEPAGE:p.301	ABILITY:Special Ability|AUTOMATIC|Equipment ~ Favored Terrain (Desert)|PREMULT:2,[PRECLASS:1,Ranger=1],[!PREABILITY:1,CATEGORY=Special Ability,Favored Terrain (Desert)]		BONUS:VAR|FavoredTerrainDesert|2
+Boots of Friendly Terrain (Forest)		TYPE:Magic.Wondrous.Boot			COST:2400	WT:1		SOURCEPAGE:p.301	ABILITY:Special Ability|AUTOMATIC|Equipment ~ Favored Terrain (Forest)|PREMULT:2,[PRECLASS:1,Ranger=1],[!PREABILITY:1,CATEGORY=Special Ability,Favored Terrain (Forest)]		BONUS:VAR|FavoredTerrainForest|2
+Boots of Friendly Terrain (Jungle)		TYPE:Magic.Wondrous.Boot			COST:2400	WT:1		SOURCEPAGE:p.301	ABILITY:Special Ability|AUTOMATIC|Equipment ~ Favored Terrain (Jungle)|PREMULT:2,[PRECLASS:1,Ranger=1],[!PREABILITY:1,CATEGORY=Special Ability,Favored Terrain (Jungle)]		BONUS:VAR|FavoredTerrainJungle|2
+Boots of Friendly Terrain (Mountain)	TYPE:Magic.Wondrous.Boot			COST:2400	WT:1		SOURCEPAGE:p.301	ABILITY:Special Ability|AUTOMATIC|Equipment ~ Favored Terrain (Mountain)|PREMULT:2,[PRECLASS:1,Ranger=1],[!PREABILITY:1,CATEGORY=Special Ability,Favored Terrain (Mountain)]		BONUS:VAR|FavoredTerrainMountains|2
+Boots of Friendly Terrain (Plains)		TYPE:Magic.Wondrous.Boot			COST:2400	WT:1		SOURCEPAGE:p.301	ABILITY:Special Ability|AUTOMATIC|Equipment ~ Favored Terrain (Plains)|PREMULT:2,[PRECLASS:1,Ranger=1],[!PREABILITY:1,CATEGORY=Special Ability,Favored Terrain (Plains)]		BONUS:VAR|FavoredTerrainPlains|2
+Boots of Friendly Terrain (Planes)		TYPE:Magic.Wondrous.Boot			COST:2400	WT:1		SOURCEPAGE:p.301	ABILITY:Special Ability|AUTOMATIC|Equipment ~ Favored Terrain (Plane)|PREMULT:2,[PRECLASS:1,Ranger=1],[!PREABILITY:1,CATEGORY=Special Ability,Favored Terrain (Plane)]			BONUS:VAR|FavoredTerrainPlains|2
+Boots of Friendly Terrain (Swamp)		TYPE:Magic.Wondrous.Boot			COST:2400	WT:1		SOURCEPAGE:p.301	ABILITY:Special Ability|AUTOMATIC|Equipment ~ Favored Terrain (Swamp)|PREMULT:2,[PRECLASS:1,Ranger=1],[!PREABILITY:1,CATEGORY=Special Ability,Favored Terrain (Swamp)]			BONUS:VAR|FavoredTerrainSwamp|2
+Boots of Friendly Terrain (Underground)	TYPE:Magic.Wondrous.Boot			COST:2400	WT:1		SOURCEPAGE:p.301	ABILITY:Special Ability|AUTOMATIC|Equipment ~ Favored Terrain (Underground)|PREMULT:2,[PRECLASS:1,Ranger=1],[!PREABILITY:1,CATEGORY=Special Ability,Favored Terrain (Underground)]	BONUS:VAR|FavoredTerrainUnderground|2
+Boots of Friendly Terrain (Urban)		TYPE:Magic.Wondrous.Boot			COST:2400	WT:1		SOURCEPAGE:p.301	ABILITY:Special Ability|AUTOMATIC|Equipment ~ Favored Terrain (Urban)|PREMULT:2,[PRECLASS:1,Ranger=1],[!PREABILITY:1,CATEGORY=Special Ability,Favored Terrain (Urban)]			BONUS:VAR|FavoredTerrainUrban|2
+Boots of Friendly Terrain (Water)		TYPE:Magic.Wondrous.Boot			COST:2400	WT:1		SOURCEPAGE:p.301	ABILITY:Special Ability|AUTOMATIC|Equipment ~ Favored Terrain (Water)|PREMULT:2,[PRECLASS:1,Ranger=1],[!PREABILITY:1,CATEGORY=Special Ability,Favored Terrain (Water)]			BONUS:VAR|FavoredTerrainWater|2
+Bottle of Messages				TYPE:Magic.Wondrous.Consumable		COST:300	WT:1		SOURCEPAGE:p.301
+Bracelet of Mercy					TYPE:Magic.Wondrous.Bracelet			COST:15000	WT:0.01	SOURCEPAGE:p.301
+
+###Block:C
+# Equipment Name					Type						Cost		Weight	Source Page		Bonus to skill
+Campfire Bead					TYPE:Magic.Wondrous.Consumable	COST:720			SOURCEPAGE:p.302
+Catching Cape					TYPE:Magic.Wondrous.Cape		COST:200	WT:3		SOURCEPAGE:p.302
+Cauldron of Brewing				TYPE:Magic.Wondrous			COST:3000	WT:5		SOURCEPAGE:p.302	BONUS:SKILL|Craft (Alchemy)|5|TYPE=Competence
+Cauldron of Flying				TYPE:Magic.Wondrous			COST:40000	WT:100	SOURCEPAGE:p.302
+Cauldron of Plenty				TYPE:Magic.Wondrous			COST:15000	WT:25		SOURCEPAGE:p.302
+Cauldron of Resurrection			TYPE:Magic.Wondrous			COST:33000	WT:35		SOURCEPAGE:p.303
+Cauldron of Seeing				TYPE:Magic.Wondrous			COST:42000	WT:5		SOURCEPAGE:p.303
+Cauldron of Seeing (See Invisibility)	TYPE:Magic.Wondrous			COST:50000	WT:5		SOURCEPAGE:p.303
+Cauldron of Seeing (Detect Thoughts)	TYPE:Magic.Wondrous			COST:51000	WT:5		SOURCEPAGE:p.303
+Cauldron of Seeing (Telepathy)		TYPE:Magic.Wondrous			COST:70000	WT:5		SOURCEPAGE:p.303
+Cauldron of Seeing (True Seeing)		TYPE:Magic.Wondrous			COST:80000	WT:5		SOURCEPAGE:p.303
+Cauldron of the Dead				TYPE:Magic.Wondrous			COST:30000	WT:35		SOURCEPAGE:p.303
+Clamor Box						TYPE:Magic.Wondrous			COST:2000	WT:2		SOURCEPAGE:p.303
+Construct Channel Brick				TYPE:Magic.Wondrous			COST:10000	WT:1		SOURCEPAGE:p.303
+Cowardly Crouching Cloak			EQMOD:Material ~ Cloth	TYPE:Magic.Wondrous.Cape		COST:1800	WT:4		SOURCEPAGE:p.303
+Crystal of Healing Hands			TYPE:Magic.Wondrous.Neck		COST:12000	WT:1		SOURCEPAGE:p.303
+
+###Block:D
+# Equipment Name	Type									Cost		Weight	Source Page		Bonus to skill
+Defoliant Polish	TYPE:Magic.Wondrous.Consumable				COST:800			SOURCEPAGE:p.304
+Doomharp		TYPE:Magic.Wondrous.Instrument.String.Masterwork	COST:10000	WT:5		SOURCEPAGE:p.304	BONUS:SKILL|Perform (String Instruments)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Dust of Emulation	TYPE:Magic.Wondrous.Consumable				COST:800			SOURCEPAGE:p.304
+
+###Block:F
+# Equipment Name	Type				Cost		Weight	Source Page
+Flying Ointment	TYPE:Magic.Wondrous	COST:2250	WT:0.01	SOURCEPAGE:p.305
+
+###Block:G
+# Equipment Name	Type					Cost		Weight	Source Page		Modify VAR
+Gloves of Dueling	TYPE:Magic.Wondrous.Glove	COST:15000	WT:0.01	SOURCEPAGE:p.305	BONUS:VAR|CMD_Disarm,CMD_Sunder|4	BONUS:VAR|WeaponTrainingBase|2
+Glowing Glove	TYPE:Magic.Wondrous.Glove	COST:2000			SOURCEPAGE:p.305
+Grappler's Mask	TYPE:Magic.Wondrous.Mask	COST:5000	WT:2		SOURCEPAGE:p.306
+
+###Block:H
+# Equipment Name		Type						Cost		Weight	Source Page
+Helm of Fearsome Mien	TYPE:Magic.Wondrous.Helm		COST:5000	WT:4		SOURCEPAGE:p.306
+Horn of the Huntmaster	TYPE:Magic.Wondrous.Instrument	COST:5000	WT:5		SOURCEPAGE:p.306
+
+###Block:I
+# Equipment Name	Type				Cost		Source Page
+Ioun Torch		TYPE:Magic.Wondrous	COST:75	SOURCEPAGE:p.306
+
+###Block:K
+# Equipment Name			Type						Cost		Weight	Source Page
+Key of Lock Jamming		TYPE:Magic.Wondrous.Consumable	COST:400	WT:0.5	SOURCEPAGE:p.306
+Ki Mat				TYPE:Magic.Wondrous			COST:10000	WT:3		SOURCEPAGE:p.306
+Knight's Pennon (Battle)	TYPE:Magic.Wondrous			COST:4500	WT:1		SOURCEPAGE:p.307
+Knight's Pennon (Honor)		TYPE:Magic.Wondrous			COST:2200	WT:1		SOURCEPAGE:p.307
+Knight's Pennon (Parley)	TYPE:Magic.Wondrous			COST:4500	WT:1		SOURCEPAGE:p.307
+
+###Block:L
+# Equipment Name			Type				Cost		Weight	Source Page
+Lord's Banner (Crusades)	TYPE:Magic.Wondrous	COST:100000	WT:3		SOURCEPAGE:p.307
+Lord's Banner (Swiftness)	TYPE:Magic.Wondrous	COST:10000	WT:3		SOURCEPAGE:p.307
+Lord's Banner (Terror)		TYPE:Magic.Wondrous	COST:56000	WT:3		SOURCEPAGE:p.307
+Lord's Banner (Victory)		TYPE:Magic.Wondrous	COST:75000	WT:3		SOURCEPAGE:p.307
+
+###Block:M
+# Equipment Name			Type					Cost		Weight	Source Page		Vision			Modify VAR
+Manacles of Cooperation		TYPE:Magic.Wondrous.Wrist	COST:2000	WT:2		SOURCEPAGE:p.307
+Mask of Giants (Lesser)		TYPE:Magic.Wondrous.Mask	COST:30000	WT:1		SOURCEPAGE:p.307
+Mask of Giants (Greater)	TYPE:Magic.Wondrous.Mask	COST:90000	WT:1		SOURCEPAGE:p.307
+Moon Circlet			TYPE:Magic.Wondrous.Circlet	COST:20000			SOURCEPAGE:p.308	VISION:Darkvision (60')
+Muleback Cords			TYPE:Magic.Wondrous.Shoulders	COST:1000	WT:0.25	SOURCEPAGE:p.308					BONUS:VAR|LOADSCORE|8
+
+###Block:N
+# Equipment Name		Type					Cost		Weight	Source Page		Modify VAR
+Necklass of Ki Serenity	TYPE:Magic.Wondrous.Necklace	COST:16000			SOURCEPAGE:p.308	BONUS:VAR|KiPoolLVL|4
+Necromancer's Athame	TYPE:Magic.Wondrous		COST:20000	WT:2		SOURCEPAGE:p.308
+
+###Block:P
+# Equipment Name	Type				Cost		Source Page
+Philter of Love	TYPE:Magic.Wondrous	COST:3000	SOURCEPAGE:p.308
+
+###Block:R
+# Equipment Name			Type					Cost		Weight	Source Page		Modify VAR
+Robes of Arcane Heritage	TYPE:Magic.Wondrous.Robe	COST:16000	WT:1		SOURCEPAGE:p.308	BONUS:VAR|BloodlineLVL|4	BONUS:VAR|BloodlineFeatProgression|-4
+
+###Block:S
+# Equipment Name			Type						Contains			Cost		Weight	Source Page		Modify VAR
+Sash of the War Champion	TYPE:Magic.Wondrous.Chest						COST:4000	WT:1		SOURCEPAGE:p.309	BONUS:VAR|ArmorTrainingLVL,BraveryLVL|4
+Scabbard of Stanching		TYPE:Magic.Wondrous.Belt.Container	CONTAINS:UNLIM|Weapon=1	COST:5000	WT:2		SOURCEPAGE:p.309
+Scabbard of Vigor			TYPE:Magic.Wondrous.Belt.Container	CONTAINS:UNLIM|Weapon=1	COST:1800	WT:3		SOURCEPAGE:p.309
+Sheath of Bladestealth		TYPE:Magic.Wondrous.Belt.Container	CONTAINS:UNLIM|Weapon=1	COST:5000	WT:2		SOURCEPAGE:p.309
+Silver Smite Bracelet		TYPE:Magic.Wondrous.Bracelet						COST:16000	WT:1		SOURCEPAGE:p.309	BONUS:VAR|SmiteEvilLVL|4
+Sniper Goggles			TYPE:Magic.Wondrous.Goggles						COST:20000	WT:1		SOURCEPAGE:p.309
+Soul Soap				TYPE:Magic.Wondrous.Consumable					COST:200	WT:2		SOURCEPAGE:p.309
+
+###Block:T
+# Equipment Name		Type					Cost		Weight	Source Page		Ability
+Torc of Lionheart Fury	TYPE:Magic.Wondrous.Neck	COST:8000	WT:1		SOURCEPAGE:p.310	ABILITY:Special Ability|AUTOMATIC|Rage Power ~ Fearless Rage|PRECLASS:1,Barbarian=12
+
+###Block:V
+# Equipment Name		Type					Cost		Weight	Source Page		Ability
+Vest of the Cockroach	TYPE:Magic.Wondrous.Vest	COST:16000	WT:2		SOURCEPAGE:p.310	ABILITY:Special Ability|AUTOMATIC|Rogue Talent ~ Resiliency|PREVARGTEQ:RogueTalentLVL,1
+
+###Block:W
+# Equipment Name				Type						Cost		Weight	Source Page		Special Property
+War Paint of the Terrible Visage	TYPE:Magic.Wondrous.Consumable	COST:100	WT:0.01	SOURCEPAGE:p.310	SPROP:(DC 11)
+
+###Block: Cursed Items
+# Equipment Name			Type							Cost		Weight	Source Page
+Cloak of Immolation		TYPE:Magic.Wondrous.Cursed			COST:0	WT:1		SOURCEPAGE:p.310
+Crown of Blindness		TYPE:Magic.Wondrous.Cursed			COST:0	WT:1		SOURCEPAGE:p.311
+Hat of Hatreds			TYPE:Magic.Wondrous.Cursed			COST:0			SOURCEPAGE:p.311
+Girdle of Opposite Gender	TYPE:Magic.Wondrous.Cursed			COST:0	WT:1		SOURCEPAGE:p.311
+Riot Pipes				TYPE:Magic.Wondrous.Instrument.Cursed	COST:0	WT:3		SOURCEPAGE:p.312
+
+###Block:Special
+# Equipment Name					Type					Cost		Source Page		Modify VAR
+Brooch (Folding Plate)				TYPE:Magic.Wondrous.Brooch	COST:12650	SOURCEPAGE:p.284
+
+
+
+
+Phylactery of Negative Channeling.MOD											BONUS:VAR|AntipaladinChannelDice|2|PREABILITY:1,CATEGORY=Special Ability,Antipaladin ~ Channel Negative Energy
+Phylactery of Positive Channeling.MOD											BONUS:VAR|OracleChannelDice|2|PREABILITY:1,CATEGORY=Special Ability,Life Mystery ~ Channel

@@ -1,0 +1,22 @@
+# CVS $Revision: 9628 $ $Author: zaister $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Faiths of Purity	SOURCESHORT:FOP	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderCompanion/v5748btpy8j60	SOURCEDATE:2011-04
+# Original Entry by: Stefan Radermacher
+
+###Block: Minor Deities
+# Deity Name	Product Identity?	Domains											Description of Deity/Title				FACTSET						Deity Weapon			Align		Source Page
+Apsu			NAMEISPI:YES	DOMAINS:Artifice,Earth,Good,Law,Travel|PREALIGN:LG,LN,NG			DESC:God of dragons, glory, leadership, peace	FACTSET:Pantheon|Pathfinder Chronicles	DEITYWEAP:Bite|Quarterstaff	ALIGN:LG	SOURCEPAGE:p.18
+Kurgess		NAMEISPI:YES	DOMAINS:Community,Good,Luck,Strength,Travel|PREALIGN:LG,NG,CG,TN		DESC:God of bravery, competition, sport		FACTSET:Pantheon|Pathfinder Chronicles	DEITYWEAP:Javelin			ALIGN:NG	SOURCEPAGE:p.18
+Milani		NAMEISPI:YES	DOMAINS:Chaos,Good,Healing,Liberation,Protection|PREALIGN:NG,CG,CN	DESC:Goddess of devotion, hope, uprisings		FACTSET:Pantheon|Pathfinder Chronicles	DEITYWEAP:Morningstar		ALIGN:CG	SOURCEPAGE:p.18
+
+###Block: Empyreal Lords
+# Deity Name	Product Identity?	Domains									Description of Deity/Title						FACTSET					Deity Weapon			Align		Source Page
+Andoletta		NAMEISPI:YES	DOMAINS:Good,Knowledge,Law,Protection|PREALIGN:LG,LN,NG	DESC:Empyreal lord of consolation, respect, security		FACTSET:Pantheon|Empyreal Lords	DEITYWEAP:Quarterstaff		ALIGN:LG	SOURCEPAGE:p.21
+Arshea		NAMEISPI:YES	DOMAINS:Charm,Good,Liberation,Strength|PREALIGN:LG,NG,CG,TN	DESC:Empyreal lord of freedom, physical beauty, sexuality	FACTSET:Pantheon|Empyreal Lords	DEITYWEAP:Flail			ALIGN:NG	SOURCEPAGE:p.21
+Korada		NAMEISPI:YES	DOMAINS:Good,Healing,Magic,Protection|PREALIGN:LG,NG,CG,TN	DESC:Empyreal lord of foresight, forgiveness, peace		FACTSET:Pantheon|Empyreal Lords	DEITYWEAP:Unarmed Strike	ALIGN:NG	SOURCEPAGE:p.21
+Ragathiel		NAMEISPI:YES	DOMAINS:Destruction,Good,Law,Nobility|PREALIGN:LG,LN,NG	DESC:Empyreal lord of chivalry, duty, vengeance			FACTSET:Pantheon|Empyreal Lords	DEITYWEAP:Sword (Bastard)	ALIGN:LG	SOURCEPAGE:p.21
+Sinashakti		NAMEISPI:YES	DOMAINS:Chaos,Good,Luck,Travel|PREALIGN:NG,CG,CN		DESC:Empyreal lord of journeys, joy, messengers			FACTSET:Pantheon|Empyreal Lords	DEITYWEAP:Shortbow		ALIGN:CG	SOURCEPAGE:p.21
+Valani		NAMEISPI:YES	DOMAINS:Chaos,Earth,Good,Weather|PREALIGN:NG,CG,CN		DESC:Empyreal lord of change, growth, primality			FACTSET:Pantheon|Empyreal Lords	DEITYWEAP:Club			ALIGN:CG	SOURCEPAGE:p.21
+
+#
+# End
+#

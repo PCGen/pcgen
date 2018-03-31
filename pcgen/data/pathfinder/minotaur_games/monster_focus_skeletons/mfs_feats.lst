@@ -1,0 +1,14 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Monster Focus: Skeletons	SOURCESHORT:MFS	SOURCEWEB:http://minotaurrpg.com/monster-focus/skeletons/	SOURCEDATE:2013-04
+# ORIGINAL ENTRY: Stefan Radermacher
+# ORIGINAL ENTRY DATE: 2013/05/23
+
+# Feat Name		Type			Required Ability									Required Feat				PRETOTALAB		Description															Source Page		Benefits
+# Ability Name	Category of Ability	Type			Required Ability									PRETOTALAB		Description															Source Page		Benefits
+Ash and Dust	CATEGORY:FEAT		TYPE:General	PREABILITY:1,CATEGORY=Special Ability,Channel Positive Energy				DESC:Your channeled energy easily destroys skeletal creatures.						SOURCEPAGE:p.1	BENEFIT:Whenever you use channel positive energy to harm undead creatures, any skeleton (or undead creature made up primarily of bones, such as a lich) takes 2 extra points of damage per die of damage dealt. In addition, undead creatures made from bone take a -2 penalty on any saving throw made to reduce this damage.
+Bone Breaker	CATEGORY:FEAT		TYPE:Combat													PRETOTALAB:1	DESC:You are skilled at shattering the bones of the undead, even when using a slashing weapon.	SOURCEPAGE:p.1	BENEFIT:Whenever you deal damage with a slashing melee weapon, you can ignore any damage reduction that could normally only be bypassed by weapons dealing bludgeoning damage. If the damage reduction also requires magic, silver, or any other type to bypass it, your weapon must meet that type to bypass the damage reduction.
+Skull Lord		CATEGORY:FEAT		TYPE:General	PREABILITY:1,CATEGORY=FEAT,Spell Focus (Necromancy)						DESC:You easily control skeletons of any type.									SOURCEPAGE:p.1	BENEFIT:When determining the total amount of undead you can control, skeletons count as if their Hit Dice were reduced to 25%% of their actual total, rounded up to the nearest Hit Die. Add up all the Hit Dice of any skeletons you control before reducing their total.
+
+#
+# End
+#

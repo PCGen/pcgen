@@ -1,0 +1,13 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Monster Focus: Zombies	SOURCESHORT:MFZ	SOURCEWEB:http://minotaurrpg.com/monster-focus/zombies/	SOURCEDATE:2013-04
+# ORIGINAL ENTRY: Stefan Radermacher
+# ORIGINAL ENTRY DATE: 2013/10/25
+
+###Block: Zombie Templates
+# Template Name		Damage Reduction	Template																								Source Page		Define			Define Stat			Stat bonus					Modify VAR				Ability																												Apply Kit	Subrace
+Zombie (Relentless)	DR:5/-		TEMPLATE:Undead	TEMPLATE:CHOOSE:Zombie ~ Tiny|Zombie ~ Small|Zombie ~ Medium|Zombie ~ Large|Zombie ~ Huge|Zombie ~ Gargantuan|Zombie ~ Colossal	SOURCEPAGE:p.288	DEFINE:NoTypeTraits|0	DEFINESTAT:LOCK|CHA|14	BONUS:STAT|STR|2	BONUS:STAT|DEX|-2	BONUS:VAR|NoTypeTraits|1	ABILITY:Special Ability|AUTOMATIC|Brain Vulnerability ~ Relentless Zombie|Relentless ~ Relentless Zombie|Undead Traits	ABILITY:FEAT|AUTOMATIC|Toughness				KIT:1|NE	SUBRACE:Zombie (Relentless)
+Zombie (Virulent)		DR:5/Slashing	TEMPLATE:Undead	TEMPLATE:CHOOSE:Zombie ~ Tiny|Zombie ~ Small|Zombie ~ Medium|Zombie ~ Large|Zombie ~ Huge|Zombie ~ Gargantuan|Zombie ~ Colossal	SOURCEPAGE:p.288	DEFINE:NoTypeTraits|0	DEFINESTAT:LOCK|CHA|14	BONUS:STAT|STR|2	BONUS:STAT|DEX|-2	BONUS:VAR|NoTypeTraits|1	ABILITY:Special Ability|AUTOMATIC|Aura of Infection ~ Virulent Zombie|Plague Cloud ~ Virulent Zombie|Undead Traits|Zombie ~ Staggered	ABILITY:FEAT|AUTOMATIC|Toughness	KIT:1|NE	SUBRACE:Zombie (Virulent)
+
+#
+# End
+#

@@ -1,0 +1,15 @@
+# CVS $Revision: 21399 $ $Author: evilmynex $ -- Thu Jan  8 10:36:25 2015 -- reformated by prettylst.pl v1.51 (build 25135)
+#SOURCELONG:Reign of Winter Campaign	SOURCESHORT:SS	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/reignOfWinter	SOURCEDATE:2013-02
+# Original Entry by: Stefan Radermacher
+
+###Block: Reign of Winter Specials
+# Ability Category			Visible	Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI	Display Location
+ABILITYCATEGORY:Reign of Winter	VISIBLE:YES	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ReignOfWinter	PLURAL:Reign of Winter		DISPLAYLOCATION:Misc
+
+###Block: Mantle of the Black Rider
+# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI		Display Location
+ABILITYCATEGORY:Mantle of the Black Rider	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MantleBlackRider	PLURAL:Mantle of the Black Rider	DISPLAYLOCATION:Misc
+
+#
+# End
+#

@@ -1,0 +1,62 @@
+# CVS $Revision: $ $Author: $ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+#SOURCELONG:Remarkable Races: Compendium of Unusual PC Races, Pathway to Adventure Edition	SOURCESHORT:RR	SOURCEWEB:http://www.alluriapublishing.net/compendium-p.htm	SOURCEDATE:2009-01
+# Original Entry by Andrew Maitland
+
+
+# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object					Plural description for UI			Display Location
+ABILITYCATEGORY:Anumus Subrace				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:AnumusSubrace.AnumusSubraceDisplay								DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Squole Subrace				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:SquoleSubrace.SquoleSubraceDisplay								DISPLAYLOCATION:Racial Abilities
+
+
+
+ABILITYCATEGORY:Anumus Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Anumus RacialTrait				PLURAL:Dwarf Racial Traits			DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Boggle Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Boggle RacialTrait				PLURAL:Boggle Racial Traits			DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Entobian Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Entobian RacialTrait			PLURAL:Entobian Racial Traits			DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Kval Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Kval RacialTrait				PLURAL:Kval Racial Traits			DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Mahrog Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Mahrog RacialTrait				PLURAL:Mahrog Racial Traits			DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Mogogol Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Mogogol RacialTrait			PLURAL:Mogogol Racial Traits			DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Muse Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Muse RacialTrait				PLURAL:Muse Racial Traits			DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Numistian Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Numistian RacialTrait			PLURAL:Numistian Racial Traits		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Oakling Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Oakling RacialTrait			PLURAL:Oakling Racial Traits			DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Obitu Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Obitu RacialTrait				PLURAL:Obitu Racial Traits			DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Relluk Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Relluk RacialTrait				PLURAL:Relluk Racial Traits			DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Squole Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Squole RacialTrait				PLURAL:Squole Racial Traits			DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Taddol Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Taddol RacialTrait				PLURAL:Taddol Racial Traits			DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Xax Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Xax RacialTrait				PLURAL:Xax Racial Traits			DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Zif Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Zif RacialTrait				PLURAL:Zif Racial Traits			DISPLAYLOCATION:Racial Abilities
+
+#
+ABILITYCATEGORY:Kval Langauge					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:KvalLang												DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Muse Langauge					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:MuseLang												DISPLAYLOCATION:Racial Abilities
+
+
+ABILITYCATEGORY:Mahrog Stat Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:MahrogStat												DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Mogogol Size					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:Mogogol Size												DISPLAYLOCATION:Racial Abilities
+
+ABILITYCATEGORY:Xax Resistance Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:XaxResistanceSelection										DISPLAYLOCATION:Racial Abilities
+
+
+ABILITYCATEGORY:Abolisher Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Abolisher Class Feature			PLURAL:Abolisher Class Features		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Archeovitus Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Archeovitus Class Feature		PLURAL:Archeovitus Class Features		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Battletwin Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Battletwin Class Feature			PLURAL:Battletwin Class Features		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Deathseeker Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Deathseeker Class Feature		PLURAL:Deathseeker Class Features		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Demolisher Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Demolisher Class Feature			PLURAL:Demolisher Class Features		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Entrepreneur Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Entrepreneur Class Feature		PLURAL:Entrepreneur Class Features		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Golden Muse Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Golden Muse Class Feature		PLURAL:Golden Muse Class Features		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Grim Repear Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Grim Repear Class Feature		PLURAL:Grim Repear Class Features		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Lightseeker Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Lightseeker Class Feature		PLURAL:Lightseeker Class Features		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Pharaoh Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Pharaoh Class Feature			PLURAL:Pharaoh Class Features			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Reverent of Spring Class Feature	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Reverent of Spring Class Feature	PLURAL:Reverent of Spring Class Features	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Savage Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Savage Class Feature			PLURAL:Savage Class Features			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Slime Lord Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Slime Lord Class Feature			PLURAL:Slime Lord Class Features		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Warrior Philosopher Class Feature	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Warrior Philosopher Class Feature	PLURAL:Warrior Philosopher Class Features	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Zubit Class Feature				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Zubit Class Feature			PLURAL:Zubit Class Features			DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Matron Selection				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:Matron Selection											DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Matron Racial Stat +2			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:MatronStatPostitive										DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Matron Racial Stat -2			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:MatronStatNegative											DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Matron Vision					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:MatronVision												DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Matron Trait					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:MatronTrait												DISPLAYLOCATION:Racial Abilities
+
+
+ABILITYCATEGORY:Mechanical Genius Selection		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:MechanicalGeniusSelection									DISPLAYLOCATION:Racial Abilities

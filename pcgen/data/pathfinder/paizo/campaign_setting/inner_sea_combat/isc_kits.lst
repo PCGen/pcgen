@@ -1,0 +1,13 @@
+# CVS $Revision: $ $Author: $ -- Thu Jan 29 16:18:08 2015 -- reformated by prettylst.pl v1.51 (build 25712)
+
+STARTPACK:Griffon Companion
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
+
+STARTPACK:Hippocampus Companion
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
+
+STARTPACK:Hippogriff Companion
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+
+STARTPACK:Worg Companion
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10

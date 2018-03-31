@@ -1,0 +1,22 @@
+# CVS $Revision: $ $Author: $ -- Sat Jun 13 14:52:16 2015 -- reformated by prettylst.pl v1.51 (build 23662)
+# Original Entry by: Douglas Limmer
+# Original Entry Date: 2015-06-02 or earlier
+
+STARTPACK:Classes Starting Gold ~ PoW	TYPE:Starting.Gold	VISIBLE:QUALIFY	APPLY:INSTANT	PREMULT:2,[PREPCLEVEL:MIN=1,MAX=1],[PRECLASS:1,Stalker=1,Warlord=1,Warder=1]
+TEMPLATE:Starting Gold ~ PoW
+
+STARTPACK:Starting Gold PoW ~ Random	VISIBLE:NO	APPLY:INSTANT
+FUNDS:gp	QTY:10*roll("4d6")	PRECLASS:1,Stalker=1
+FUNDS:gp	QTY:10*roll("5d6")	PRECLASS:1,Warlord=1,Warder=1
+
+STARTPACK:Starting Gold PoW ~ Maximum	VISIBLE:NO	APPLY:INSTANT
+FUNDS:gp	QTY:240	PRECLASS:1,Stalker=1
+FUNDS:gp	QTY:300	PRECLASS:1,Warlord=1,Warder=1
+
+STARTPACK:Starting Gold PoW ~ Average	VISIBLE:NO	APPLY:INSTANT
+FUNDS:gp	QTY:140	PRECLASS:1,Stalker=1
+FUNDS:gp	QTY:175	PRECLASS:1,Warlord=1,Warder=1
+
+#
+# End
+#

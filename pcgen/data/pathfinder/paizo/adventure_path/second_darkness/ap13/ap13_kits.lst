@@ -1,0 +1,526 @@
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:Second Darkness, Chapter 1 - Shadow in the Sky	SOURCESHORT:AP13	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy84em	SOURCEDATE:2008-08
+
+
+STARTPACK:NPC (Riddleport Thief)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.9	NAMEISPI:YES
+ALIGN:NE
+RACE:Human	!PRERACE:1,%
+ABILITY:CATEGORY=Ability Bonus|+2 Strength
+STAT:STR=11|DEX=15|CON=14|INT=12|WIS=10|CHA=8
+NAME:Riddleport Thief
+CLASS:Rogue	LEVEL:1
+ABILITY:CATEGORY=Favored Class|Rogue
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+SKILL:Acrobatics		RANK:1
+SKILL:Bluff			RANK:1
+SKILL:Climb			RANK:1
+SKILL:Disable Device	RANK:1
+SKILL:Intimidate		RANK:1
+SKILL:Knowledge (Local)	RANK:1
+SKILL:Perception		RANK:1
+SKILL:Sleight of Hand	RANK:1
+SKILL:Stealth		RANK:1
+SKILL:Swim			RANK:1
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Stealthy
+GEAR:Leather					LOCATION:Equipped
+GEAR:Rapier						LOCATION:Primary Hand
+GEAR:Dagger			QTY:4			LOCATION:Carried
+GEAR:Shortbow					LOCATION:Carried
+GEAR:Arrow			QTY:20		LOCATION:Carried
+GEAR:Coin (Gold Piece)	QTY:roll("2d6")	LOCATION:Carried
+LANGBONUS:Varisian
+
+
+STARTPACK:NPC (Riddleport Thug)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.9	NAMEISPI:YES
+ALIGN:NE
+RACE:Human	!PRERACE:1,%
+ABILITY:CATEGORY=Ability Bonus|+2 Strength
+NAME:Riddleport Thug
+CLASS:Warrior	LEVEL:1
+ABILITY:CATEGORY=Favored Class|Warrior
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+SKILL:Intimidate	RANK:1
+SKILL:Swim		RANK:1
+ABILITY:CATEGORY=FEAT|Improved Unarmed Strike
+ABILITY:CATEGORY=FEAT|Weapon Focus (Sword (Short))
+STAT:STR=11|DEX=11|CON=12|INT=9|WIS=10|CHA=8
+GEAR:Studded Leather				LOCATION:Equipped
+GEAR:Sword (Short)				LOCATION:Primary Hand
+GEAR:Unarmed Strike				LOCATION:Unarmed
+GEAR:Coin (Gold Piece)	QTY:roll("1d10")	LOCATION:Carried
+
+
+STARTPACK:NPC (Angvar Thestlecrit)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.17	NAMEISPI:YES
+ALIGN:NE
+RACE:Human	!PRERACE:1,%
+ABILITY:CATEGORY=Ability Bonus|+2 Intelligence
+TEMPLATE:Angvar Thestlecrit
+STAT:STR=10|DEX=14|CON=13|INT=13|WIS=12|CHA=8
+NAME:Angvar Thestlecrit
+CLASS:Wizard	LEVEL:2	SUBCLASS:Universalist
+ABILITY:CATEGORY=Favored Class|Wizard
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Arcane Bond|Arcane Bond ~ Familiar
+SKILL:Appraise			RANK:1
+SKILL:Bluff				RANK:2
+SKILL:Diplomacy			RANK:2
+SKILL:Knowledge (Arcana)	RANK:1
+SKILL:Knowledge (Local)		RANK:2
+SKILL:Spellcraft			RANK:2
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Improved Initiative
+GEAR:Pouch (Belt)						LOCATION:Carried
+GEAR:Coin (Gold Piece)			QTY:33	LOCATION:Pouch (Belt)
+GEAR:Wand of Shocking Grasp				LOCATION:Carried
+GEAR:Scroll (Pyrotechnics)				LOCATION:Carried
+GEAR:Scroll (Shrink Item)				LOCATION:Carried
+GEAR:Bracers of Armor +1				LOCATION:Equipped
+GEAR:Sickle							LOCATION:Primary Hand
+GEAR:Spellbook			LOCATION:Carried
+LANGBONUS:Infernal|Varisian
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Hold Portal
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Magic Missile
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Shield
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Grease
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Identify
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Magic Aura
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|True Strike
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Detect Magic
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Flare
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Ghost Sound
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Open/Close
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Hold Portal
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Magic Missile
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Shield
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Grease
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Identify
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Magic Aura
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|True Strike
+
+
+STARTPACK:NPC (Thuvalia Barabbio)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.18	NAMEISPI:YES
+ALIGN:CN
+RACE:Human	!PRERACE:1,%
+ABILITY:CATEGORY=Ability Bonus|+2 Charisma
+STAT:STR=10|DEX=13|CON=12|INT=14|WIS=8|CHA=13
+NAME:Thuvalia Barabbio
+CLASS:Bard	LEVEL:1
+ABILITY:CATEGORY=Favored Class|Bard
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+SKILL:Acrobatics		RANK:1
+SKILL:Disguise		RANK:1
+SKILL:Escape Artist	RANK:1
+SKILL:Diplomacy		RANK:1
+SKILL:Perform (Oratory)	RANK:1
+SKILL:Sense Motive	RANK:1
+SKILL:Sleight of Hand	RANK:1
+SKILL:Stealth		RANK:1
+SKILL:Use Magic Device	RANK:1
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
+GEAR:Leather				LOCATION:Equipped		EQMOD:Special Quality ~ Masterwork ~ Armor
+GEAR:Rapier					LOCATION:Primary Hand
+GEAR:Crossbow (Light)			LOCATION:Carried
+GEAR:Bolt (Crossbow)	QTY:10	LOCATION:Carried
+GEAR:Pouch (Belt)				LOCATION:Carried
+GEAR:Coin (Gold Piece)	QTY:17	LOCATION:Pouch (Belt)
+LANGBONUS:Halfling|Varisian
+SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Daze
+SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Lullaby
+SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Message
+SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Read Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Disguise Self
+SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Expeditious Retreat
+
+
+STARTPACK:NPC (Saul Vancaskerkin)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.21	NAMEISPI:YES
+ALIGN:CE
+RACE:Human	!PRERACE:1,%
+ABILITY:CATEGORY=Ability Bonus|+2 Dexterity
+STAT:STR=11|DEX=13|CON=13|INT=13|WIS=9|CHA=14
+NAME:Saul Vancaskerkin
+CLASS:Rogue	LEVEL:4
+ABILITY:CATEGORY=Favored Class|Rogue
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Rogue Talent|Rogue Talent ~ Surprise Attack
+ABILITY:CATEGORY=Rogue Talent|Rogue Talent ~ Trap Spotter
+SKILL:Appraise			RANK:4
+SKILL:Bluff				RANK:4
+SKILL:Diplomacy			RANK:4
+SKILL:Disable Device		RANK:4
+SKILL:Linguistics			RANK:4
+SKILL:Stealth			RANK:4
+SKILL:Knowledge (Local)		RANK:4
+SKILL:Profession (Gambler)	RANK:4
+SKILL:Sense Motive		RANK:4
+SKILL:Sleight of Hand		RANK:4
+ABILITY:CATEGORY=FEAT|Skill Focus (Bluff)
+ABILITY:CATEGORY=FEAT|Two-Weapon Fighting
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+GEAR:Leather					LOCATION:Equipped		EQMOD:Special Ability ~ +1 ~ Armor
+GEAR:Rapier						LOCATION:Primary Hand	EQMOD:Special Ability ~ +1 ~ Weapon
+GEAR:Key Stump					LOCATION:Secondary Hand
+GEAR:Pouch (Belt)					LOCATION:Carried
+GEAR:Coin (Gold Piece)		QTY:25	LOCATION:Pouch (Belt)
+GEAR:Potion of Barkskin +2			LOCATION:Pouch (Belt)
+GEAR:Poison (Drow Poison)	QTY:3		LOCATION:Pouch (Belt)
+LANGBONUS:Varisian
+
+
+STARTPACK:NPC (Samaritha Beldusk)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Half-Elf],[!PRERACE:1,%]	SOURCEPAGE:p.26	NAMEISPI:YES
+ALIGN:CG
+RACE:Half-Elf	!PRERACE:1,%
+ABILITY:CATEGORY=Ability Bonus|+2 Intelligence
+ABILITY:CATEGORY=Adaptability Bonus Feat|Skill Focus (Diplomacy)
+GENDER:Female
+STAT:STR=8|DEX=12|CON=13|INT=13|WIS=10|CHA=14
+NAME:Samaritha Beldusk
+CLASS:Wizard	LEVEL:3	SUBCLASS:Transmuter
+ABILITY:CATEGORY=Favored Class|Wizard
+ABILITY:CATEGORY=Favored Class|Rogue
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Arcane Opposition School|Abjuration Opposition School
+ABILITY:CATEGORY=Arcane Opposition School|Illusion Opposition School
+ABILITY:CATEGORY=Arcane Bond|Arcane Bond ~ Familiar
+SKILL:Diplomacy			RANK:3
+SKILL:Knowledge (Arcana)	RANK:3
+SKILL:Perception			RANK:3
+SKILL:Spellcraft			RANK:3
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Spell Focus (Transmutation)
+#FEAT:Varisian Tattoo (Transmutation)
+GEAR:Bracers of Armor +1	LOCATION:Equipped
+GEAR:Dagger				LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Pouch (Belt)			LOCATION:Carried
+LANGBONUS:Halfling|Varisian
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Daze Monster
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Levitate
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Scorching Ray
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Animate Rope
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Mage Armor
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Ray Of Enfeeblement
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Reduce Person
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Daze Monster
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Levitate
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Scorching Ray
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Animate Rope
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Mage Armor
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Ray Of Enfeeblement
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Reduce Person
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Acid Splash
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Detect Magic
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Light
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Mending
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Message
+
+
+STARTPACK:NPC (Lymas Smeed)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.28	NAMEISPI:YES
+ALIGN:NE
+RACE:Human	!PRERACE:1,%
+ABILITY:CATEGORY=Ability Bonus|+2 Strength
+STAT:STR=15|DEX=8|CON=12|INT=10|WIS=9|CHA=11
+NAME:Lymas Smeed
+CLASS:Expert	LEVEL:4
+ABILITY:CATEGORY=Favored Class|Expert
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills (Appraise)
+ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills (Bluff)
+ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills (Diplomacy)
+ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills (Intimidate)
+ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills (Knowledge (Local))
+ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills (Sense Motive)
+ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills (Climb)
+ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills (Disguise)
+ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills (Escape Artist)
+ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills (Acrobatics)
+SKILL:Appraise		RANK:4
+SKILL:Bluff			RANK:4
+SKILL:Diplomacy		RANK:4
+SKILL:Intimidate		RANK:4
+SKILL:Knowledge (Local)	RANK:4
+SKILL:Sense Motive	RANK:4
+SKILL:Climb			RANK:1
+SKILL:Disguise		RANK:1
+SKILL:Escape Artist	RANK:1
+SKILL:Acrobatics		RANK:1
+ABILITY:CATEGORY=FEAT|Martial Weapon Proficiency (Scimitar)
+ABILITY:CATEGORY=FEAT|Deceitful
+ABILITY:CATEGORY=FEAT|Persuasive
+GEAR:Studded Leather					LOCATION:Equipped		EQMOD:Special Ability ~ +1 ~ Armor
+GEAR:Scimitar						LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Crossbow (Light)					LOCATION:Carried
+GEAR:Bolt (Crossbow)			QTY:10	LOCATION:Carried
+GEAR:Potion of Bull's Strength	QTY:2		LOCATION:Carried
+GEAR:Poison (Black adder venom)			LOCATION:Carried
+GEAR:Pouch (Belt)						LOCATION:Carried
+GEAR:Coin (Gold Piece)			QTY:25	LOCATION:Pouch (Belt)
+GEAR:Coin (Platinum Piece)		QTY:5		LOCATION:Pouch (Belt)
+
+
+STARTPACK:NPC (Braddikar Faje)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.30	NAMEISPI:YES
+ALIGN:NE
+RACE:Human	!PRERACE:1,%
+ABILITY:CATEGORY=Ability Bonus|+2 Strength
+STAT:STR=13|DEX=12|CON=14|INT=8|WIS=10|CHA=13
+NAME:Braddikar Faje
+CLASS:Fighter	LEVEL:3
+ABILITY:CATEGORY=Favored Class|Fighter
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+SKILL:Intimidate	RANK:3
+SKILL:Acrobatics	RANK:3
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=Fighter Bonus Feat|Power Attack
+ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Focus (Longsword)
+GEAR:Banded Mail			LOCATION:Equipped
+GEAR:Shield (Heavy/Steel)	LOCATION:Equipped		EQMOD:Special Ability ~ +1 ~ Shield
+GEAR:Longsword			LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Cloak of Resistance +1	LOCATION:Equipped
+
+
+STARTPACK:NPC (Jasker Gant)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Half-Orc],[!PRERACE:1,%]	SOURCEPAGE:p.32	NAMEISPI:YES
+ALIGN:LE
+RACE:Half-Orc	!PRERACE:1,%
+ABILITY:CATEGORY=Ability Bonus|+2 Strength
+STAT:STR=14|DEX=15|CON=13|INT=8|WIS=12|CHA=6
+NAME:Jasker Gant
+CLASS:Monk	LEVEL:3
+ABILITY:CATEGORY=Favored Class|Monk
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+SKILL:Acrobatics	RANK:3
+SKILL:Climb		RANK:3
+SKILL:Intimidate	RANK:3
+SKILL:Perception	RANK:3
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=Monk Bonus Feat|Monk Bonus Feat ~ Combat Reflexes
+#ABILITY:CATEGORY=Monk Bonus Feat|Monk Bonus Feat ~ Stunning Fist
+GEAR:Amulet of Natural Armor +1	LOCATION:Equipped
+GEAR:Outfit (Monk's)			LOCATION:Equipped
+GEAR:Unarmed Strike			LOCATION:Equipped
+GEAR:Flurry of Blows			LOCATION:Equipped
+
+
+STARTPACK:NPC (Croat Thug)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Half-Orc],[!PRERACE:1,%]	SOURCEPAGE:p.32	NAMEISPI:YES
+ALIGN:NE
+RACE:Half-Orc	!PRERACE:1,%
+ABILITY:CATEGORY=Ability Bonus|+2 Strength
+STAT:STR=15|DEX=12|CON=14|INT=8|WIS=13|CHA=6
+NAME:Croat Thug
+CLASS:Fighter	LEVEL:1
+ABILITY:CATEGORY=Favored Class|Fighter
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+SKILL:Intimidate	RANK:1
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Focus (Longsword)
+GEAR:Chainmail					LOCATION:Equipped
+GEAR:Shield (Heavy/Steel)			LOCATION:Equipped
+GEAR:Longsword					LOCATION:Primary Hand
+GEAR:Shortbow					LOCATION:Carried
+GEAR:Arrow				QTY:20	LOCATION:Carried
+GEAR:Coin (Gold Piece)		QTY:20	LOCATION:Carried
+
+
+STARTPACK:NPC (Kwava)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Elf],[!PRERACE:1,%]	SOURCEPAGE:p.35	NAMEISPI:YES
+ALIGN:TN
+RACE:Elf	!PRERACE:1,%
+STAT:STR=15|DEX=14|CON=14|INT=8|WIS=12|CHA=8
+NAME:Kwava
+CLASS:Ranger	LEVEL:4
+ABILITY:CATEGORY=Favored Class|Ranger
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Enemy|Favored Enemy ~ Humanoid (Human)
+ABILITY:CATEGORY=Combat Style|Ranger Combat Style ~ Archery
+ABILITY:CATEGORY=Favored Terrain|Favored Terrain ~ Forest
+ABILITY:CATEGORY=Hunter's Bond|Hunter's Bond ~ Animal Companion
+SKILL:Handle Animal		RANK:4
+SKILL:Knowledge (Geography)	RANK:4
+SKILL:Knowledge (Nature)	RANK:4
+SKILL:Perception			RANK:4
+SKILL:Stealth			RANK:4
+SKILL:Survival			RANK:4
+ABILITY:CATEGORY=FEAT|Point-Blank Shot
+ABILITY:CATEGORY=FEAT|Precise Shot
+ABILITY:CATEGORY=Ranger Combat Style Feat|Ranger Combat Style Feat ~ Rapid Shot
+GEAR:Leather						LOCATION:Equipped		EQMOD:Special Ability ~ +1 ~ Armor
+GEAR:Longbow (Composite)				LOCATION:Both Hands	EQMOD:Special Quality ~ Composite Bow Strength Rating|+2.Special Ability ~ +1 ~ Weapon
+GEAR:Dagger							LOCATION:Carried
+GEAR:Arrow					QTY:20	LOCATION:Carried
+GEAR:Arrow					QTY:8		LOCATION:Carried		EQMOD:Material ~ Alchemical Silver
+GEAR:Alchemist's Fire (Flask)		QTY:2		LOCATION:Carried
+GEAR:Potion of Cure Moderate Wounds			LOCATION:Carried
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Ranger|Animal Messenger
+LANGBONUS:Orc
+
+
+STARTPACK:NPC (Wererat/Shadow in the Sky)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.36	NAMEISPI:YES
+ALIGN:LE
+RACE:Human	!PRERACE:1,%
+ABILITY:CATEGORY=Ability Bonus|+2 Strength
+STAT:STR=10|DEX=15|CON=10|INT=12|WIS=13|CHA=10
+NAME:Wererat
+CLASS:Rogue	LEVEL:1
+ABILITY:CATEGORY=Favored Class|Rogue
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+TEMPLATE:Lycanthrope
+ABILITY:CATEGORY=Lycanthrope Type|Afflicted Lycanthrope
+ABILITY:CATEGORY=Lycanthrope Kind|Wererat
+TEMPLATE:Lycanthrope (Hybrid Form)
+SKILL:Acrobatics		RANK:1
+SKILL:Bluff			RANK:1
+SKILL:Climb			RANK:1
+SKILL:Escape Artist	RANK:1
+SKILL:Disable Device	RANK:1
+SKILL:Intimidate		RANK:1
+SKILL:Perception		RANK:1
+SKILL:Sleight of Hand	RANK:1
+SKILL:Stealth		RANK:1
+SKILL:Swim			RANK:1
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Stealthy
+GEAR:Chain Shirt				LOCATION:Equipped
+GEAR:Dagger					LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Shortbow				LOCATION:Carried
+GEAR:Arrow			QTY:20	LOCATION:Carried
+GEAR:Thieves' Tools			LOCATION:Carried
+GEAR:Tanglefoot Bag			LOCATION:Carried
+GEAR:Coin (Gold Piece)	QTY:20	LOCATION:Carried
+LANGBONUS:Varisian
+
+
+STARTPACK:NPC (Bojask)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.39	NAMEISPI:YES
+ALIGN:NE
+RACE:Human	!PRERACE:1,%
+ABILITY:CATEGORY=Ability Bonus|+2 Strength
+STAT:STR=12|DEX=13|CON=15|INT=8|WIS=12|CHA=10
+NAME:Bojask
+CLASS:Ranger	LEVEL:2
+ABILITY:CATEGORY=Favored Class|Ranger
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Enemy|Favored Enemy ~ Animal
+ABILITY:CATEGORY=Combat Style|Ranger Combat Style ~ Two-Weapon Combat
+SKILL:Handle Animal		RANK:2
+SKILL:Knowledge (Nature)	RANK:2
+SKILL:Perception			RANK:2
+SKILL:Ride				RANK:2
+SKILL:Stealth			RANK:2
+SKILL:Survival			RANK:2
+ABILITY:CATEGORY=FEAT|Skill Focus (Handle Animal)
+ABILITY:CATEGORY=FEAT|Animal Affinity
+ABILITY:CATEGORY=Ranger Combat Style Feat|Ranger Combat Style Feat ~ Two-Weapon Fighting
+GEAR:Chain Shirt					LOCATION:Equipped		EQMOD:Special Ability ~ +1 ~ Armor
+GEAR:Battleaxe					LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Handaxe					LOCATION:Secondary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Axe (Throwing)			QTY:3	LOCATION:Carried
+GEAR:Potion of Cure Light Wounds		LOCATION:Carried
+LANGBONUS:Orc
+
+
+STARTPACK:NPC (Depora Azrinae)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Drow],[!PRERACE:1,%]	SOURCEPAGE:p.45	NAMEISPI:YES
+ALIGN:CE
+RACE:Drow	!PRERACE:1,%
+STAT:STR=13|DEX=16|CON=14|INT=12|WIS=8|CHA=12
+NAME:Depora Azrinae
+CLASS:Fighter	LEVEL:5
+ABILITY:CATEGORY=Favored Class|Fighter
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Weapon Training I|Weapon Training 1 Crossbows
+SKILL:Craft (Alchemy)	RANK:5
+SKILL:Intimidate		RANK:5
+SKILL:Survival		RANK:4
+SKILL:Linguistics		RANK:1	SELECTION:Draconic
+ABILITY:CATEGORY=FEAT|Diehard
+ABILITY:CATEGORY=FEAT|Endurance
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=Fighter Bonus Feat|Dodge
+ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Focus (Crossbow (Hand))
+ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Specialization (Crossbow (Hand))
+GEAR:Chainmail						LOCATION:Equipped		EQMOD:Special Ability ~ +1 ~ Armor.Material ~ Mithril ~ Armor / Medium
+GEAR:Buckler						LOCATION:Equipped
+GEAR:Sword (Short)					LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Crossbow (Hand)					LOCATION:Secondary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Bolt (Crossbow)			QTY:20	LOCATION:Carried
+GEAR:Ring of Feather Falling				LOCATION:Equipped
+GEAR:Slippers of Spider Climbing			LOCATION:Equipped
+GEAR:Poison (Drow Poison)		QTY:5		LOCATION:Carried
+LANGBONUS:Common
+
+
+STARTPACK:NPC (Beltias Kreun)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.66	NAMEISPI:YES
+ALIGN:NE
+RACE:Human	!PRERACE:1,%
+ABILITY:CATEGORY=Ability Bonus|+2 Dexterity
+STAT:STR=8|DEX=13|CON=14|INT=12|WIS=10|CHA=14
+NAME:Beltias Kreun, The Splithog Pauper
+CLASS:Rogue	LEVEL:4
+ABILITY:CATEGORY=Favored Class|Rogue
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Rogue Talent|Rogue Talent ~ Ledge Walker
+ABILITY:CATEGORY=Rogue Talent|Rogue Talent ~ Trap Spotter
+SKILL:Acrobatics		RANK:4
+SKILL:Bluff			RANK:4
+SKILL:Climb			RANK:4
+SKILL:Diplomacy		RANK:4
+SKILL:Disguise		RANK:4
+SKILL:Sense Motive	RANK:4
+SKILL:Stealth		RANK:4
+SKILL:Knowledge (Local)	RANK:4
+SKILL:Sleight of Hand	RANK:4
+SKILL:Perception		RANK:4
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+GEAR:Leather						LOCATION:Equipped
+GEAR:Dagger							LOCATION:Primary Hand	EQMOD:Special Ability ~ +1 ~ Weapon
+GEAR:Thunderstone				QTY:4		LOCATION:Carried
+GEAR:Thieves' Tools					LOCATION:Carried		EQMOD:Special Quality ~ Masterwork ~ Item
+GEAR:Potion of Shield of Faith +3			LOCATION:Carried
+GEAR:Potion of Spider Climb				LOCATION:Carried
+GEAR:Coin (Gold Piece)			QTY:178	LOCATION:Carried
+LANGBONUS:Varisian
+
+
+STARTPACK:NPC (Badeye Rumblefist)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Half-Orc],[!PRERACE:1,%]	SOURCEPAGE:p.70	NAMEISPI:YES
+ALIGN:NE
+RACE:Half-Orc	!PRERACE:1,%
+ABILITY:CATEGORY=Ability Bonus|+2 Strength
+STAT:STR=13|DEX=12|CON=14|INT=10|WIS=8|CHA=13
+NAME:Badeye Rumblefist
+CLASS:Fighter	LEVEL:2
+ABILITY:CATEGORY=Favored Class|Fighter
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+SKILL:Intimidate	RANK:2
+SKILL:Climb		RANK:2
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=Fighter Bonus Feat|Power Attack
+ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Focus (Morningstar)
+GEAR:Studded Leather			LOCATION:Equipped
+GEAR:Morningstar				LOCATION:Both Hands	EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Coin (Silver Piece)	QTY:8	LOCATION:Carried

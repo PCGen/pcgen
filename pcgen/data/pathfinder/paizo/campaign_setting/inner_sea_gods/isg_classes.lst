@@ -1,0 +1,68 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Inner Sea Gods	SOURCESHORT:ISG	SOURCEDATE:2014-04
+# Original Entry by: Andrew Maitland, Stefan Radermacher
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Define			Combat bonus																	Save bonus																																																	Modify VAR
+CLASS:Evangelist	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.198	DEFINE:EvangelistLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3+1|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|EvangelistLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
+# Class Name	Required Ability						Multiple Requirements												Required Text
+CLASS:Evangelist	PREABILITY:1,CATEGORY=FEAT,Deific Obedience	PREMULT:1,[PRETOTALAB:5],[PRESPELLTYPE:1,Divine=3,Arcane=3],[PRESKILL:1,TYPE.Base=5]	PRETEXT:Alignment: Within one step of chosen deity. Deity: Must worship a single, specific deity. Feat: Deific Obedience* Special: Any one of the following: base attack bonus +5, 5 ranks in any skill other than Knowledge (religion), or ability to cast 3rd-level spells.
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Evangelist	STARTSKILLPTS:6	CSKILL:TYPE=Craft|Diplomacy|Heal|Knowledge (Religion)|Perception|TYPE=Profession
+###Block
+1	ADD:CLASSSKILLS|2|ANY
+###Block
+1	ABILITY:Evangelist Class Feature|AUTOMATIC|Evangelist ~ Weapon and Armor Proficiency
+1	ABILITY:Evangelist Class Feature|AUTOMATIC|Evangelist ~ Obedience
+1	ABILITY:Evangelist Class Feature|AUTOMATIC|Evangelist ~ Skilled
+2	ABILITY:Evangelist Class Feature|AUTOMATIC|Evangelist ~ Aligned Class
+2	ABILITY:Evangelist Class Feature|AUTOMATIC|Evangelist ~ Protective Grace
+3	ABILITY:Evangelist Class Feature|AUTOMATIC|Evangelist ~ Divine Boon
+4	ABILITY:Evangelist Class Feature|AUTOMATIC|Evangelist ~ Gift of Tongues
+5	ABILITY:Evangelist Class Feature|AUTOMATIC|Evangelist ~ Multitude of Talents
+10	ABILITY:Evangelist Class Feature|AUTOMATIC|Evangelist ~ Spiritual Form
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Define			Combat bonus																	Save bonus																																																	Modify VAR
+CLASS:Exalted	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.200	DEFINE:ExaltedLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")+1/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")+1/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")+1/2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ExaltedLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
+# Class Name	Required Ability												Required AL		Required Deity	Required Skill						Req. Spell Type		Required Text
+CLASS:Exalted	PREABILITY:2,CATEGORY=FEAT,deific obedience,skill focus (knowledge (religion))	PREALIGN:DEITY	PREDEITY:1,Y	PRESKILL:2,Diplomacy=5,Knowledge (Religion)=5	PRESPELLTYPE:1,Divine=3	PRETEXT:Alignment: Same as chosen deity. Deity: Must worship a single, specific deity. Feats: Deific Obedience*, Skill Focus (Knowledge [religion]). Skills: Diplomacy 5 ranks, Knowledge (religion) 5 ranks. Spells: Ability to cast 3rd-level divine spells.
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Exalted	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Diplomacy|Heal|Intimidate|Knowledge (Planes)|Knowledge (Religion)|Linguistics|Perform (Oratory)|TYPE=Profession|Sense Motive|Spellcraft
+###Block
+1:REPEATLEVEL:1	ADD:SPELLCASTER|Divine
+###Block
+1	ADD:CLASSSKILLS|TYPE=Knowledge
+###Block
+1	ABILITY:Exalted Class Feature|AUTOMATIC|Exalted ~ Weapon and Armor Proficiency
+1	ABILITY:Exalted Class Feature|AUTOMATIC|Exalted ~ Divine Brand
+1	ABILITY:Exalted Class Feature|AUTOMATIC|Exalted ~ Obedience
+1	ABILITY:Exalted Class Feature|AUTOMATIC|Exalted ~ Scholar
+2	ABILITY:Exalted Class Feature|AUTOMATIC|Exalted ~ Vitality
+3	ABILITY:Exalted Class Feature|AUTOMATIC|Exalted ~ Divine Boon
+4	ABILITY:Exalted Class Feature|AUTOMATIC|Exalted ~ Religious Speaker
+5	ABILITY:Exalted Class Feature|AUTOMATIC|Exalted ~ Expanded Portfolio
+7	ABILITY:Exalted Class Feature|AUTOMATIC|Exalted ~ Aspect of Divinity
+8	ABILITY:Exalted Class Feature|AUTOMATIC|Exalted ~ Ardent Vision
+10	ABILITY:Exalted Class Feature|AUTOMATIC|Exalted ~ Perform Miracle
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Define			Combat bonus																Save bonus																																																	Modify VAR
+CLASS:Sentinel	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.202	DEFINE:SentinelLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")+1/2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")+1/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")+1/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|SentinelLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
+# Class Name	Required Ability								Required Deity	Required Text																																PRETOTALAB
+CLASS:Sentinel	PREABILITY:2,CATEGORY=FEAT,Deific obedience,Weapon Focus	PREDEITY:1,Y	PRETEXT:Alignment: Within one step of chosen deity. Deity: Must worship a single, specific deity. Feats: Deific Obedience*, Weapon Focus (deity's favored weapon). Special: Base attack bonus +5 or higher.	PRETOTALAB:5
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Sentinel	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Knowledge (Religion)|Perception|TYPE=Profession|Ride|Survival|Swim
+###Block
+1	ABILITY:Sentinel Class Feature|AUTOMATIC|Sentinel ~ Weapon and Armor Proficiency
+1	ABILITY:Sentinel Class Feature|AUTOMATIC|Sentinel ~ Obedience
+1	ABILITY:Sentinel Class Feature|AUTOMATIC|Sentinel ~ Symbolic Weapon
+2	ABILITY:Sentinel Class Feature|AUTOMATIC|Sentinel ~ Bonus Feat
+3	ABILITY:Sentinel Class Feature|AUTOMATIC|Sentinel ~ Divine Boon
+4	ABILITY:Sentinel Class Feature|AUTOMATIC|Sentinel ~ Divine Quickness
+5	ABILITY:Sentinel Class Feature|AUTOMATIC|Sentinel ~ Aligned Strike
+5	ABILITY:Sentinel Class Feature|AUTOMATIC|Sentinel ~ Stalwart
+7	ABILITY:Sentinel Class Feature|AUTOMATIC|Sentinel ~ Practiced Combatant
+8	ABILITY:Sentinel Class Feature|AUTOMATIC|Sentinel ~ Righteous Leader
+10	ABILITY:Sentinel Class Feature|AUTOMATIC|Sentinel ~ Unstoppable Warrior
+
+#
+# End
+#

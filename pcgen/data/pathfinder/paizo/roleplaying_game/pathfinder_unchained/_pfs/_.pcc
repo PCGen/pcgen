@@ -1,0 +1,63 @@
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+CAMPAIGN:Pathfinder Unchained (Unchained Summoner Only) (PFS)
+KEY:PFS ~ Pathfinder Unchained ~ Unchained Summoner
+#GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing PFS.Pathfinder RPG
+STATUS:ALPHA
+RANK:1
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder
+#PRECAMPAIGN:4,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic,INCLUDES=Ultimate Combat
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
+
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Pathfinder Unchained
+SOURCESHORT:PU
+SOURCEWEB:http://paizo.com/products/btpy97vo
+SOURCEDATE:2015-04
+ISOGL:YES
+INFOTEXT:Includes ONLY the Unchained Summoner and supporting rules for the Summoner. This is a PCGen Team rapid support release for those that require the Unchained Summoner to enjoy their games. The rest of the book will be implemented soon(tm).
+
+#COVER:/pathfinder/paizo/roleplaying_game/pathfinder_unchained/pathfinder_unchained.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy97vo|Download this publication from Paizo Publishing!
+
+DESC:Partial release of Pathfinder Unchained.
+#DESC:Get ready to shake up your game! Within these pages, the designers of the Pathfinder Roleplaying Game unleash their wildest ideas, and nothing is safe. From totally revised fundamentals like core classes and monster design to brand-new systems for expanding the way you play, this book offers fresh ideas while still blending with the existing system. With Pathfinder Unchained, you become the game designer! Pathfinder Unchained is an indispensable companion to the Pathfinder Roleplaying Game: Core Rulebook. This imaginative tabletop game builds upon more than 15 years of system development and an Open Playtest featuring more than 50,000 gamers to create a cutting-edge RPG experience that brings the all-time best-selling set of fantasy rules into a new era.
+
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc.; Authors: Jonathan Tweet, Monte Cook, and Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder Roleplaying Game Core Rulebook Copyright 2009, Paizo Inc.; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:Genie, Marid from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Mite from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Ian Livingstone and Mark Barnes.
+COPYRIGHT:Pathfinder Roleplaying Game Pathfinder Unchained Copyright 2015, Paizo Inc.; Authors: Dennis Baker, Jesse Benner, Ross Beyers, Logan Bonner, Jason Bulmahn, Robert Emerson, Tim Hitchcock, Jason Nelson, Tom Phillips, Stephen Radney-MacFarland, Thomas M. Reid, Robert Schwalb, Mark Seifter, and Russ Taylor.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Pathfinder Unchained" Copyright 2015, PCGen Data team (Including, but not limited to Stefan Radermacher, and Andrew Maitland).
+
+#Do Not Remove Comment
+#EXTRAFILE:OGL.txt
+
+# Additional Resources
+# Last Updated July 29, 2015
+#
+# Pathfinder Roleplaying Game: Pathfinder Unchained
+# The following parts of Pathfinder Unchained are legal for play:
+# Classes: all classes on pages 8-39 are legal for play;
+# Skill Unlocks: the skill unlocks and Signature Skill feat are only available through the rogue's edge class ability.
+
+# Data files
+#ABILITY:pfs_pu_abilities_class.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Unchained ~ Unchained Summoner
+#ABILITY:pfs_pu_abilities_race.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Unchained ~ Unchained Summoner
+#ABILITYCATEGORY:pfs_pu_abilitycategories.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Unchained ~ Unchained Summoner
+#CLASS:pfs_pu_classes.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Unchained ~ Unchained Summoner
+#COMPANIONMOD:pfs_pu_companionmods.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Unchained ~ Unchained Summoner
+#SPELL:pfs_pu_spells.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Unchained ~ Unchained Summoner
+#TEMPLATE:pfs_pu_templates.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Unchained ~ Unchained Summoner
+
+#
+# End
+#

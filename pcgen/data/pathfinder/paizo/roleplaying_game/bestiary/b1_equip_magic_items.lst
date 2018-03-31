@@ -1,0 +1,6 @@
+# CVS $Revision: $ $Author: $ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
+
+
+# Equipment Name		Output Name			Type					Cost		Weight	Source Page		Ability								Save bonus		Special Property
+Heartstone (Night Hag)	OUTPUTNAME:Heartstone	TYPE:Magic.Monster.Periapt	COST:0	WT:0		SOURCEPAGE:p.215	ABILITY:Special Ability|AUTOMATIC|Immunity to Disease	BONUS:SAVE|ALL|2	SPROP:Gemstone worth 1800gp

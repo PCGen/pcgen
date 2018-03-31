@@ -1,0 +1,8 @@
+# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+SOURCELONG:Kingmaker Player's Guide	SOURCESHORT:KMPG	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/kingmaker/v5748btpy8dqh	SOURCEDATE:2010-03
+
+STARTPACK:Companion ~ Elk	TYPE:Companion	VISIBLE:NO
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+
+STARTPACK:Companion ~ Thylacine	TYPE:Companion	VISIBLE:NO
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11

@@ -1,0 +1,15 @@
+# CVS $Revision: $ $Author: $ -- Thu May 22 08:41:39 2014 -- reformated by prettylst.pl v1.51 (build 23662)
+SOURCELONG:Ultimate Psionics	SOURCESHORT:UP	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2013-12
+#Original Entry: Douglas Limmer
+#SRD Original Entry by Tir Gwaith
+
+# Language	Type
+Maenad	TYPE:Spoken.Written.Read
+Ophiduan	TYPE:Spoken.Written.Read
+Xeph		TYPE:Spoken.Written.Read
+Forgeborn	TYPE:Spoken.Written.Read
+Noral		TYPE:Spoken.Written.Read
+
+#
+# End
+#

@@ -1,0 +1,196 @@
+# CVS $Revision: $ $Author: $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Ultimate Psionics	SOURCESHORT:UP	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2013-12
+# ORIGINAL ENTRY: Douglas Limmer
+# ORIGINAL ENTRY DATE: 2013/07/05
+
+###Block: General use templates
+###Block: Activate High Psionics
+# Template Name		Visible		Ability																Description
+High Psionics																						DESC:Add this to activate high psionics options.
+#Psionically Focused	VISIBLE:DISPLAY	PREVARGTEQ:TotalPowerPoints,1	TEMPBONUS:PC|VAR|PsionicFocusActive|1																		TEMPDESC:Character is psionically focused.
+Activate Size Changing	VISIBLE:DISPLAY	ABILITY:Special Ability|AUTOMATIC|Size Changing	ABILITY:Special Ability|AUTOMATIC|CM Size Changing
+
+###Block: Race templates
+###Block: Racial Subtype Templates
+# Template Name	Visible	Source Page		Race Subtype
+Aberrant		VISIBLE:NO	SOURCEPAGE:p.12	RACESUBTYPE:Aberrant
+Insectoid		VISIBLE:NO	SOURCEPAGE:p.10	RACESUBTYPE:Insectoid
+Maenad		VISIBLE:NO	SOURCEPAGE:p.15	RACESUBTYPE:Maenad
+Xeph			VISIBLE:NO	SOURCEPAGE:p.17	RACESUBTYPE:Xeph
+Forgeborn		VISIBLE:NO	SOURCEPAGE:p.16	RACESUBTYPE:Forgeborn
+Noral			VISIBLE:NO	SOURCEPAGE:p.21	RACESUBTYPE:Noral
+# COMMENT: Should the half-construct abilities be here?  I didn't see them in the PF Bestiary templates.
+Half-Construct	VISIBLE:YES	SOURCEPAGE:p.16	RACESUBTYPE:Half-Construct
+
+###Block: Failed Transformation templates (where needed)
+# Template Name			Size		Visible	Ability								Move			Vision
+Failed Transformation Blue	SIZE:S	VISIBLE:NO													VISION:Darkvision (60')
+Failed Transformation Duergar			VISIBLE:NO	ABILITY:Special Ability|AUTOMATIC|DuergarDSP ~ Steady	MOVE:Walk,20	VISION:Darkvision (60')
+Failed Transformation Dwarf			VISIBLE:NO	ABILITY:Special Ability|AUTOMATIC|Dwarf ~ Steady	MOVE:Walk,20	VISION:Darkvision (60')
+
+
+###Block: Activate Advanced Construct abilities
+# Template Name		Required Race
+Advanced Construct	PRERACE:1,Astral Construct%
+
+###Block: Determination templates
+###Block: Determines whether a Soulknife gets Wild Talent or Psionic Talent
+# Template Name			Visible	Template						Required Var. value	Var. Min. Value		Ability
+Wild Talent Determination	VISIBLE:NO	TEMPLATE:CHOOSE:Is Psionic|Is Not Psionic
+Is Psionic				VISIBLE:NO												PREVARGTEQ:IsPsionic,1	ABILITY:FEAT|AUTOMATIC|Psionic Talent
+Is Not Psionic			VISIBLE:NO								PREVAREQ:IsPsionic,0					ABILITY:FEAT|AUTOMATIC|Wild Talent
+
+###Block: Determines whether a Constructor gets Advanced Construct or Boost Construct
+# Template Name				Visible	Template													Required Ability									Restricted Ability					Bonus Ability Pool				Ability
+Improved Constructs Determination	VISIBLE:NO	TEMPLATE:CHOOSE:Get Advanced Constructs|Get Boost Construct|Get Bonus Psionic Feat
+Get Advanced Constructs			VISIBLE:NO																										!PREABILITY:1,CATEGORY=FEAT,Advanced Constructs								ABILITY:FEAT|AUTOMATIC|Advanced Constructs
+Get Boost Construct			VISIBLE:NO																										!PREABILITY:1,CATEGORY=FEAT,Boost Construct								ABILITY:FEAT|AUTOMATIC|Boost Construct
+Get Bonus Psionic Feat			VISIBLE:NO															PREABILITY:2,CATEGORY=FEAT,Advanced Construct,Boost Construct									BONUS:ABILITYPOOL|Bonus Psionic Feat|1
+
+###Block: Determines Psicrystal Bond choice
+# Template Name		Visible	Template										Required Ability						Restricted Ability					Ability
+Psicrystal Bond Choice	VISIBLE:NO	TEMPLATE:CHOOSE:Get Psicrystal Affinity|Get Improved Psicrystal
+Get Psicrystal Affinity	VISIBLE:NO																				!PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity	ABILITY:FEAT|AUTOMATIC|Psicrystal Affinity
+Get Improved Psicrystal	VISIBLE:NO												PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity									ABILITY:FEAT|AUTOMATIC|Improved Psicrystal
+
+###Block: Determines whether a Metamorph gets Swift Shapeshifter or Master of Forms
+# Template Name			Visible	Template												Required Ability									Restricted Ability					Ability
+Quick Shift Determination	VISIBLE:NO	TEMPLATE:CHOOSE:Get Swift Shapeshifter|Get Master of All Forms|Get Nothing
+Get Swift Shapeshifter		VISIBLE:NO																									!PREABILITY:1,CATEGORY=FEAT,Swift Shapeshifter	ABILITY:FEAT|AUTOMATIC|Swift Shapeshifter
+Get Master of All Forms		VISIBLE:NO														PREABILITY:1,CATEGORY=FEAT,Swift Shapeshifter				!PREABILITY:1,CATEGORY=FEAT,Master of All Forms	ABILITY:FEAT|AUTOMATIC|Master of All Forms
+Get Nothing				VISIBLE:NO														PREABILITY:2,CATEGORY=FEAT,Swift Shapeshifter,Master of All Forms
+
+###Block: Determines whether a Metamorph gets Major Metamorphosis or some other power.
+# Template Name				Visible	Template										Req. Known Spell				!PRESPELL					Bonus Ability Pool
+Major Metamorphosis Determination	VISIBLE:NO	TEMPLATE:CHOOSE:Get Major Metamorphosis|Get Level Five Power
+Get Major Metamorphosis			VISIBLE:NO																		!PRESPELL:1,Metamorphosis (Major)	BONUS:ABILITYPOOL|Metamorph Major Metamorphosis|1
+Get Level Five Power			VISIBLE:NO												PRESPELL:1,Metamorphosis (Major)							BONUS:ABILITYPOOL|Metamorph Level Five Power|1
+
+###Block: Determines Inner Peace Maenad trait templates
+# Template Name		Visible	Required Class Skill						Prohibited Class SKill							Multiple Requirements											Bonus to skill										Class Skill
+Inner Peace both		VISIBLE:NO	PRECSKILL:2,Knowledge (Psionics),Knowledge (Religion)																									BONUS:SKILL|Knowledge (Religion),Knowledge (Psionics)|1|TYPE=Trait
+Inner Peace religion	VISIBLE:NO																				PREMULT:2,[PRECSKILL:1,Knowledge (Religion)],[!PRECSKILL:1,Knowledge (Psionics)]	BONUS:SKILL|Knowledge (Religion)|1|TYPE=Trait					CSKILL:Knowledge (Psionics)
+Inner Peace psionics	VISIBLE:NO																				PREMULT:2,[PRECSKILL:1,Knowledge (Psionics)],[!PRECSKILL:1,Knowledge (Religion)]	BONUS:SKILL|Knowledge (Psionics)|1|TYPE=Trait					CSKILL:Knowledge (Religion)
+Inner Peace neither	VISIBLE:NO										!PRECSKILL:1,Knowledge (Psionics),Knowledge (Religion)																											CSKILL:Knowledge (Religion)|Knowledge (Psionics)
+
+###Block: classes
+###Block: Ascetic Trance bonus choice (psychic warrior)
+# Template Name		Visible		Multiple Requirements															Save checks bonus																									Combat bonus
+#Ascetic Trance AC		VISIBLE:DISPLAY	PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Trance ~ Ascetic],[!PRETEMPLATE:1,Ascetic Trance Saves]																												BONUS:COMBAT|AC|((WarriorPathLVL+1)/4)*PsionicFocusActive*(var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.LIGHT]")+(1-var("COUNT[EQTYPE.ARMOR.EQUIPPED]")))|TYPE=Insight
+#Ascetic Trance Saves	VISIBLE:DISPLAY	PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Trance ~ Ascetic],[!PRETEMPLATE:1,Ascetic Trance AC]		BONUS:SAVE|ALL|((WarriorPathLVL+1)/4)*PsionicFocusActive*(var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.LIGHT]")+(1-var("COUNT[EQTYPE.ARMOR.EQUIPPED]")))|TYPE=Insight
+
+###Block: Strengthened By Fear stat choices
+# Template Name				Visible	Template																																					Combat bonus										Stat bonus
+Strengthened By Fear					TEMPLATE:CHOOSE:Strengthened By Fear (Str/Dex/Con)|Strengthened By Fear (Str/Con/Dex)|Strengthened By Fear (Dex/Str/Con)|Strengthened By Fear (Dex/Con/Str)|Strengthened By Fear (Con/Str/Dex)|Strengthened By Fear (Con/Dex/Str)	BONUS:COMBAT|AC|StrengthenedByFearNABonus|TYPE=InsightNaturalArmor
+
+Strengthened By Fear (Str/Dex/Con)	VISIBLE:NO																																																			BONUS:STAT|STR|StrengthenedByFearStatBonus1|TYPE=Insight	BONUS:STAT|DEX|StrengthenedByFearStatBonus2|TYPE=Insight	BONUS:STAT|CON|StrengthenedByFearStatBonus3|TYPE=Insight
+Strengthened By Fear (Str/Con/Dex)	VISIBLE:NO																																																			BONUS:STAT|STR|StrengthenedByFearStatBonus1|TYPE=Insight	BONUS:STAT|CON|StrengthenedByFearStatBonus2|TYPE=Insight	BONUS:STAT|DEX|StrengthenedByFearStatBonus3|TYPE=Insight
+Strengthened By Fear (Dex/Str/Con)	VISIBLE:NO																																																			BONUS:STAT|DEX|StrengthenedByFearStatBonus1|TYPE=Insight	BONUS:STAT|STR|StrengthenedByFearStatBonus2|TYPE=Insight	BONUS:STAT|CON|StrengthenedByFearStatBonus3|TYPE=Insight
+Strengthened By Fear (Dex/Con/Str)	VISIBLE:NO																																																			BONUS:STAT|DEX|StrengthenedByFearStatBonus1|TYPE=Insight	BONUS:STAT|CON|StrengthenedByFearStatBonus2|TYPE=Insight	BONUS:STAT|STR|StrengthenedByFearStatBonus3|TYPE=Insight
+Strengthened By Fear (Con/Str/Dex)	VISIBLE:NO																																																			BONUS:STAT|CON|StrengthenedByFearStatBonus1|TYPE=Insight	BONUS:STAT|STR|StrengthenedByFearStatBonus2|TYPE=Insight	BONUS:STAT|DEX|StrengthenedByFearStatBonus3|TYPE=Insight
+Strengthened By Fear (Con/Dex/Str)	VISIBLE:NO																																																			BONUS:STAT|CON|StrengthenedByFearStatBonus1|TYPE=Insight	BONUS:STAT|DEX|StrengthenedByFearStatBonus2|TYPE=Insight	BONUS:STAT|STR|StrengthenedByFearStatBonus3|TYPE=Insight
+
+###Block: Dread Fear Incarnate Template
+# Template Name	Visible	Template		Main Race Type
+Fear Incarnate	VISIBLE:NO	TEMPLATE:Native	RACETYPE:Outsider
+
+###Block: Blue Aegis Annihilator Size Matters template
+# Template Name			Size		Stat bonus
+Size Matters Size Change	SIZE:M	BONUS:STAT|DEX|-2	BONUS:STAT|STR|2
+
+###Block: Elan Ascendant Psion Ascension template
+# Template Name			Main Race Type			Race Subtype
+Ascendant Psion Ascension	RACETYPE:Monstrous Humanoid	RACESUBTYPE:Incorporeal
+
+
+###Block: Powers
+###Block: Natural attack templates for use with abilities and powers
+#Bites may be Bludgeoning.Slashing.Piercing
+#For ophiduan bite, bite of the wolf power
+# Template Name	Visible		Natural Attacks
+Bite 1d8		VISIBLE:DISPLAY	NATURALATTACKS:Bite,Weapon.Natural.Melee.Piercing,*1,1d8
+Bite 2d8		VISIBLE:DISPLAY	NATURALATTACKS:Bite,Weapon.Natural.Melee.Piercing,*1,2d8
+Bite 3d8		VISIBLE:DISPLAY	NATURALATTACKS:Bite,Weapon.Natural.Melee.Piercing,*1,3d8
+Bite 4d8		VISIBLE:DISPLAY	NATURALATTACKS:Bite,Weapon.Natural.Melee.Piercing,*1,4d8
+Bite 5d8		VISIBLE:DISPLAY	NATURALATTACKS:Bite,Weapon.Natural.Melee.Piercing,*1,5d8
+
+#For claws of the beast power
+Claws 1d3		VISIBLE:DISPLAY	NATURALATTACKS:Claw,Weapon.Natural.Melee.Slashing,*2,1d3
+Claws 1d4		VISIBLE:DISPLAY	NATURALATTACKS:Claw,Weapon.Natural.Melee.Slashing,*2,1d4
+Claws 1d6		VISIBLE:DISPLAY	NATURALATTACKS:Claw,Weapon.Natural.Melee.Slashing,*2,1d6
+Claws 1d8		VISIBLE:DISPLAY	NATURALATTACKS:Claw,Weapon.Natural.Melee.Slashing,*2,1d8
+Claws 2d6		VISIBLE:DISPLAY	NATURALATTACKS:Claw,Weapon.Natural.Melee.Slashing,*2,2d6
+Claws 3d6		VISIBLE:DISPLAY	NATURALATTACKS:Claw,Weapon.Natural.Melee.Slashing,*2,3d6
+Claws 4d6		VISIBLE:DISPLAY	NATURALATTACKS:Claw,Weapon.Natural.Melee.Slashing,*2,4d6
+Claws 5d6		VISIBLE:DISPLAY	NATURALATTACKS:Claw,Weapon.Natural.Melee.Slashing,*2,5d6
+Claws 6d6		VISIBLE:DISPLAY	NATURALATTACKS:Claw,Weapon.Natural.Melee.Slashing,*2,6d6
+
+#For hammer power
+Melee touch 1d8	VISIBLE:DISPLAY	NATURALATTACKS:Touch,Weapon.Natural.Melee.Touch,*1,1d8
+Melee touch 2d8	VISIBLE:DISPLAY	NATURALATTACKS:Touch,Weapon.Natural.Melee.Touch,*1,2d8
+Melee touch 3d8	VISIBLE:DISPLAY	NATURALATTACKS:Touch,Weapon.Natural.Melee.Touch,*1,3d8
+Melee touch 4d8	VISIBLE:DISPLAY	NATURALATTACKS:Touch,Weapon.Natural.Melee.Touch,*1,4d8
+Melee touch 5d8	VISIBLE:DISPLAY	NATURALATTACKS:Touch,Weapon.Natural.Melee.Touch,*1,5d8
+Melee touch 6d8	VISIBLE:DISPLAY	NATURALATTACKS:Touch,Weapon.Natural.Melee.Touch,*1,6d8
+Melee touch 7d8	VISIBLE:DISPLAY	NATURALATTACKS:Touch,Weapon.Natural.Melee.Touch,*1,7d8
+Melee touch 8d8	VISIBLE:DISPLAY	NATURALATTACKS:Touch,Weapon.Natural.Melee.Touch,*1,8d8
+Melee touch 9d8	VISIBLE:DISPLAY	NATURALATTACKS:Touch,Weapon.Natural.Melee.Touch,*1,9d8
+Melee touch 10d8	VISIBLE:DISPLAY	NATURALATTACKS:Touch,Weapon.Natural.Melee.Touch,*1,10d8
+
+###Block: Stat boosters (for animal affinity, etc.)
+# Template Name				Visible		Stat bonus					Description
+Enhancement bonus +4 Strength		VISIBLE:DISPLAY	BONUS:STAT|STR|4|TYPE=Enhancement	DESC:Enhancement bonus template for animal affinity, etc.
+Enhancement bonus +4 Dexterity	VISIBLE:DISPLAY	BONUS:STAT|DEX|4|TYPE=Enhancement	DESC:Enhancement bonus template for animal affinity, etc.
+Enhancement bonus +4 Constitution	VISIBLE:DISPLAY	BONUS:STAT|CON|4|TYPE=Enhancement	DESC:Enhancement bonus template for animal affinity, etc.
+Enhancement bonus +4 Intelligence	VISIBLE:DISPLAY	BONUS:STAT|INT|4|TYPE=Enhancement	DESC:Enhancement bonus template for animal affinity, etc.
+Enhancement bonus +4 Wisdom		VISIBLE:DISPLAY	BONUS:STAT|WIS|4|TYPE=Enhancement	DESC:Enhancement bonus template for animal affinity, etc.
+Enhancement bonus +4 Charisma		VISIBLE:DISPLAY	BONUS:STAT|CHA|4|TYPE=Enhancement	DESC:Enhancement bonus template for animal affinity, etc.
+
+Untyped bonus +4 Strength		VISIBLE:DISPLAY	BONUS:STAT|STR|4				DESC:Untyped bonus template for assimilate, etc.
+Untyped bonus +4 Dexterity		VISIBLE:DISPLAY	BONUS:STAT|DEX|4				DESC:Untyped bonus template for assimilate, etc.
+Untyped bonus +4 Constitution		VISIBLE:DISPLAY	BONUS:STAT|CON|4				DESC:Untyped bonus template for assimilate, etc.
+Untyped bonus +4 Intelligence		VISIBLE:DISPLAY	BONUS:STAT|INT|4				DESC:Untyped bonus template for assimilate, etc.
+Untyped bonus +4 Wisdom			VISIBLE:DISPLAY	BONUS:STAT|WIS|4				DESC:Untyped bonus template for assimilate, etc.
+Untyped bonus +4 Charisma		VISIBLE:DISPLAY	BONUS:STAT|CHA|4				DESC:Untyped bonus template for assimilate, etc.
+
+###Block: Battlesense templates
+# Template Name				Visible		Temporary Bonus											TEMPVALUE
+Battlesense attack bonus		VISIBLE:DISPLAY	TEMPBONUS:ANYPC|COMBAT|TOHIT|%CHOICE|TYPE=Circumstance				TEMPVALUE:MIN=1|MAX=5|TITLE=Number of attack bonus choices
+Battlesense AC bonus			VISIBLE:DISPLAY	TEMPBONUS:ANYPC|COMBAT|AC|%CHOICE|TYPE=Circumstance					TEMPVALUE:MIN=1|MAX=5|TITLE=Number of AC bonus choices
+Battlesense weapon damage bonus	VISIBLE:DISPLAY	TEMPBONUS:ANYPC|COMBAT|DAMAGE.Melee,DAMAGE.Ranged|2*%CHOICE|TYPE=Circumstance	TEMPVALUE:MIN=1|MAX=5|TITLE=Number of weapon damage bonus choices
+Battlesense speed bonus			VISIBLE:DISPLAY	TEMPBONUS:ANYPC|MOVEADD|TYPE.Walk|5*%CHOICE|TYPE=Circumstance			TEMPVALUE:MIN=1|MAX=5|TITLE=Number of movement bonus choices
+
+###Block: Starting Gold
+# Template Name				Visible	Template																	Apply Kit
+Starting Gold ~ UltPsi			VISIBLE:NO	TEMPLATE:CHOOSE:Starting Gold UltPsi ~ Random|Starting Gold UltPsi ~ Maximum|Starting Gold UltPsi ~ Average
+Starting Gold UltPsi ~ Random		VISIBLE:NO																			KIT:1|Starting Gold UltPsi ~ Random
+Starting Gold UltPsi ~ Maximum	VISIBLE:NO																			KIT:1|Starting Gold UltPsi ~ Maximum
+Starting Gold UltPsi ~ Average	VISIBLE:NO																			KIT:1|Starting Gold UltPsi ~ Average
+
+###Block: Following kludge necessary to get around the fact that natural attacks are created Medium except on race
+# Template Name			Visible	Template																																Required Size	Weapon prof. bonus				Natural Attacks
+Feral Heart Claw			VISIBLE:NO	TEMPLATE:CHOOSE:Feral Heart Claw ~ Tiny|Feral Heart Claw ~ Small|Feral Heart Claw ~ Medium|Feral Heart Claw ~ Large|Feral Heart Claw ~ Huge|Feral Heart Claw ~ Gargantuan|Feral Heart Claw ~ Colossal
+
+Feral Heart Claw ~ Tiny		VISIBLE:NO																																		PRESIZEEQ:T		BONUS:WEAPONPROF=Claw|WIELDCATEGORY|-2	NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1d2
+Feral Heart Claw ~ Small	VISIBLE:NO																																		PRESIZEEQ:S		BONUS:WEAPONPROF=Claw|WIELDCATEGORY|-1	NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1d3
+Feral Heart Claw ~ Medium	VISIBLE:NO																																		PRESIZEEQ:M									NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1d4
+Feral Heart Claw ~ Large	VISIBLE:NO																																		PRESIZEEQ:L		BONUS:WEAPONPROF=Claw|WIELDCATEGORY|1	NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1d6
+Feral Heart Claw ~ Huge		VISIBLE:NO																																		PRESIZEEQ:H		BONUS:WEAPONPROF=Claw|WIELDCATEGORY|2	NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1d8
+Feral Heart Claw ~ Gargantuan	VISIBLE:NO																																		PRESIZEEQ:G		BONUS:WEAPONPROF=Claw|WIELDCATEGORY|3	NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,2d6
+Feral Heart Claw ~ Colossal	VISIBLE:NO																																		PRESIZEEQ:C		BONUS:WEAPONPROF=Claw|WIELDCATEGORY|4	NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,2d8
+
+###Block: Following kludge necessary to get around the fact that natural attacks are created Medium except on race
+# Template Name			Visible	Template																																Required Size	Weapon prof. bonus				Natural Attacks
+Feral Heart Bite			VISIBLE:NO	TEMPLATE:CHOOSE:Feral Heart Bite ~ Tiny|Feral Heart Bite ~ Small|Feral Heart Bite ~ Medium|Feral Heart Bite ~ Large|Feral Heart Bite ~ Huge|Feral Heart Bite ~ Gargantuan|Feral Heart Bite ~ Colossal
+
+Feral Heart Bite ~ Tiny		VISIBLE:NO																																		PRESIZEEQ:T		BONUS:WEAPONPROF=Bite|WIELDCATEGORY|-2	NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*1,1d4
+Feral Heart Bite ~ Small	VISIBLE:NO																																		PRESIZEEQ:S		BONUS:WEAPONPROF=Bite|WIELDCATEGORY|-1	NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*1,1d6
+Feral Heart Bite ~ Medium	VISIBLE:NO																																		PRESIZEEQ:M									NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*1,1d8
+Feral Heart Bite ~ Large	VISIBLE:NO																																		PRESIZEEQ:L		BONUS:WEAPONPROF=Bite|WIELDCATEGORY|1	NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*1,2d6
+Feral Heart Bite ~ Huge		VISIBLE:NO																																		PRESIZEEQ:H		BONUS:WEAPONPROF=Bite|WIELDCATEGORY|2	NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*1,2d8
+Feral Heart Bite ~ Gargantuan	VISIBLE:NO																																		PRESIZEEQ:G		BONUS:WEAPONPROF=Bite|WIELDCATEGORY|3	NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*1,3d6
+Feral Heart Bite ~ Colossal	VISIBLE:NO																																		PRESIZEEQ:C		BONUS:WEAPONPROF=Bite|WIELDCATEGORY|4	NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*1,3d8
+
+#
+# End
+#

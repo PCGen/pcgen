@@ -1,0 +1,10 @@
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:Guide to the River Kingdoms	SOURCESHORT:GTTRK	SOURCEWEB:http://paizo.com/pathfinder/pathfinderChronicles/pathfinderRPG/v5748btpy87d8	SOURCEDATE:2010-03
+# Original Entry by: Stefan Radermacher
+
+# Equipment Name		Output Name		Type					Cost		Weight	Source Page		Special Property
+Poison (Aconite Root)	OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:1800	WT:0		SOURCEPAGE:p.14	SPROP:Ingested; Fort DC 25; Onset 1 minute; Frequency 1 round for 5 rounds; Effect 1d3 Dex damage, 1 Con damage, and nauseated for 1 round; Cure 2 saves
+Poison (Baneberry)	OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:90	WT:0		SOURCEPAGE:p.14	SPROP:Ingested of injury; Fort DC 15; Onset 1 round (injury) or 30 minutes (ingested); Frequency 1/minute for 5 minutes; Effect 1d3 Str damage, 1Con damage, and paralyzed for 1d3 rounds; Cure 2 saves
+Poison (Calotropis)	OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:120	WT:0		SOURCEPAGE:p.14	SPROP:Ingested; Fort DC 14; Onset 1 hour; Frequency 1/minute for 6 minutes; Effect 1 Wis damage and 1d3 Dex damage; Cure 1 save
+Poison (Shamweed)		OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:6500	WT:0		SOURCEPAGE:p.14	SPROP:Contact; Fort DC 18; Onset Immediate and 1 week; Frequency varies; Initial effect +1 Con/day for 1 week, secondary effect all Con gained from initial effect removed, 1d6 Con damage/day for 7 days; Cure 2 consecutive saves
+Poison (Thornapple)	OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:90	WT:0		SOURCEPAGE:p.14	SPROP:Contact; Fort DC 11; Onset 10 minutes; Frequency 1/minute for 6 minutes; Effect 1 Int damage, 1 Wis damage, 1 Con damage, and blind for 1 minute; Cure 2 saves

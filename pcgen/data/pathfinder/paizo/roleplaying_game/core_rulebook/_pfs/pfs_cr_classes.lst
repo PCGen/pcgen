@@ -1,0 +1,89 @@
+# CVS $Revision: 21684 $ $Author: spraynpray $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
+# Original Entry by: Jeff Baril
+# Updated by: Andrew Wilson
+
+# Apply starting gold kit to all CR classes
+
+# Class Name		Template
+CLASS:Barbarian.MOD	TEMPLATE:PFS Starting Gold	TEMPLATE:Starting Gold ~ CRB.REMOVE
+
+# Class Name	Template
+CLASS:Bard.MOD	TEMPLATE:PFS Starting Gold	TEMPLATE:Starting Gold ~ CRB.REMOVE
+
+# Class Name	Template
+CLASS:Cleric.MOD	TEMPLATE:PFS Starting Gold	TEMPLATE:Starting Gold ~ CRB.REMOVE
+
+# Class Name	Template
+CLASS:Druid.MOD	TEMPLATE:PFS Starting Gold	TEMPLATE:Starting Gold ~ CRB.REMOVE
+
+# Class Name	Template
+CLASS:Fighter.MOD	TEMPLATE:PFS Starting Gold	TEMPLATE:Starting Gold ~ CRB.REMOVE
+
+# Class Name	Template
+CLASS:Monk.MOD	TEMPLATE:PFS Starting Gold	TEMPLATE:Starting Gold ~ CRB.REMOVE
+
+# Class Name	Template
+CLASS:Paladin.MOD	TEMPLATE:PFS Starting Gold	TEMPLATE:Starting Gold ~ CRB.REMOVE
+
+# Class Name	Template
+CLASS:Ranger.MOD	TEMPLATE:PFS Starting Gold	TEMPLATE:Starting Gold ~ CRB.REMOVE
+
+# Class Name	Template
+CLASS:Rogue.MOD	TEMPLATE:PFS Starting Gold	TEMPLATE:Starting Gold ~ CRB.REMOVE
+
+# Class Name		Template
+CLASS:Sorcerer.MOD	TEMPLATE:PFS Starting Gold	TEMPLATE:Starting Gold ~ CRB.REMOVE
+
+# Class Name	Template
+CLASS:Wizard.MOD	TEMPLATE:PFS Starting Gold	TEMPLATE:Starting Gold ~ CRB.REMOVE
+
+
+# Limit all CR PC classes to non-evil
+
+# Class Name		Restricted AL
+CLASS:Barbarian.MOD	!PREALIGN:CE,NE,LE
+
+# Class Name	Restricted AL
+CLASS:Bard.MOD	!PREALIGN:CE,NE,LE
+
+# Class Name	Restricted AL
+CLASS:Cleric.MOD	!PREALIGN:CE,NE,LE
+
+# Class Name	Restricted AL
+CLASS:Druid.MOD	!PREALIGN:CE,NE,LE
+
+# Class Name	Restricted AL
+CLASS:Fighter.MOD	!PREALIGN:CE,NE,LE
+
+# Class Name	Restricted AL
+CLASS:Monk.MOD	!PREALIGN:CE,NE,LE
+
+# Class Name	Restricted AL
+CLASS:Paladin.MOD	!PREALIGN:CE,NE,LE
+
+# Class Name	Restricted AL
+CLASS:Ranger.MOD	!PREALIGN:CE,NE,LE
+
+# Class Name	Restricted AL
+CLASS:Rogue.MOD	!PREALIGN:CE,NE,LE
+
+# Class Name		Restricted AL
+CLASS:Sorcerer.MOD	!PREALIGN:CE,NE,LE
+
+# Class Name	Restricted AL
+CLASS:Wizard.MOD	!PREALIGN:CE,NE,LE
+
+
+# Class Name
+CLASS:Cleric.MOD
+1	ABILITY:FEAT|AUTOMATIC|Improved Unarmed Strike|PREDEITY:1,Irori
+
+# Class Name
+CLASS:Wizard.MOD
+###Block: Level progression
+1	BONUS:ABILITYPOOL|Spell Focus Replacement|1	BONUS:VAR|Wizard_CF_ScribeScroll|1
+
+# Class Name
+#CLASS:Companion.MOD
+#1	BONUS:ABILITYPOOL|Society Faction|-1

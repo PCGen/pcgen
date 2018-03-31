@@ -1,0 +1,33 @@
+# CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Inner Sea races	SOURCESHORT:ISR	SOURCEWEB:http://paizo.com/products/btpy9g9v?Pathfinder-Campaign-Setting-Inner-Sea-Races	SOURCEDATE:2015-09
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 14 May 2016
+
+# ==============================
+# Human Ethnicities
+# ==============================
+
+Human Ethnicity (Mwangi)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.15	AUTO:LANG|Polyglot	SUBRACE:Mwangi
+Human Ethnicity (Arcadian)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.64					SUBRACE:Arcadian
+Human Ethnicity (Caldaru)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.64	AUTO:LANG|Polyglot	SUBRACE:Caldaru
+Human Ethnicity (Erutaki)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.64					SUBRACE:Erutaki
+Human Ethnicity (Iobarian)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.64					SUBRACE:Iobarian
+Human Ethnicity (Jadwiga)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.65					SUBRACE:Jadwiga
+Human Ethnicity (Lirgeni)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.65					SUBRACE:Lirgeni
+Human Ethnicity (Varki)		NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.65					SUBRACE:Varki
+
+# ==============================
+# Racial Trait Support
+# ==============================
+
+
+# ==============================
+# New Race Support
+# ==============================
+
+Male Lashunta																																																																																																																																																																																																																										GENDERLOCK:Male
+Female Lashunta																																																																																																																																																																																																																										GENDERLOCK:Female
+
+
+
+

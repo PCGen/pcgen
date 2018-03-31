@@ -1,0 +1,43 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Player Companion: Weapon Master's Handbook	SOURCESHORT:WMH	SOURCEWEB:http://paizo.com/products/btpy9hdy?Pathfinder-Player-Companion-Weapon-Masters-Handbook	SOURCEDATE:2015-12
+
+# Modifier Name	Type		Plus		Cost		Visible		Source Page		Required Type
+Driving		KEY:Special Ability ~ Driving ~ Weapon	TYPE:Weapon	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Ranged	PRETYPE:1,Enhancement
+Heart-Piercing	KEY:Special Ability ~ Heart-Piercing ~ Weapon	TYPE:Weapon	PLUS:5			VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:2,Ranged,Piercing	PRETYPE:1,Enhancement
+Leveraging		KEY:Special Ability ~ Leveraging ~ Weapon	TYPE:Weapon	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Melee	PRETYPE:1,Enhancement
+Liberating		KEY:Special Ability ~ Liberating ~ Weapon	TYPE:Weapon			COST:7000	VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Enhancement
+Quaking		KEY:Special Ability ~ Quaking ~ Weapon	TYPE:Weapon	PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:2,Melee,Bludgeoning	PRETYPE:1,Enhancement
+Sharding		KEY:Special Ability ~ Sharding ~ Weapon	TYPE:Weapon	PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Melee,Thrown	PRETYPE:1,Enhancement
+Vampiric		KEY:Special Ability ~ Vampiric ~ Weapon	TYPE:Weapon	PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Melee	PRETYPE:1,Enhancement
+
+
+
+###Block: Optional Rule for custom items
+#Additional Design Points (0 DP): Increase the weapon's available Design Points by 1 and its gp price by 15. This quality can be selected twice for one-handed weapons and ranged weapons, or three times for twohanded weapons.
+#Additional Damage Type (Varies): Select an additional type of damage (B, P, or S). The weapon deals the selected type of damage either separately from its original damage type (such as �P or S�) or simultaneously (such as �P and S�) . This quality costs 1 DP if the types apply separately and 3 DP if they apply simultaneously.
+#Aerodynamic (1 DP): The weapon has a 10-foot range and can be thrown up to 5 range increments. Only melee weapons can have this quality.
+#Attached (1 DP): The weapon is attached to the wielder's arm and cannot be disarmed. The wielder can wield or carry items in the hand to which this weapon is attached, but she takes a -2 penalty on all precision-based tasks involving that hand (such as opening locks). This penalty can be removed by increasing this quality's cost to 3 DP.
+#Concealed (1 DP): The weapon is easy to hide, granting the wielder a +2 bonus on Sleight of Hand checks to conceal it. Only light and one-handed melee weapons and ranged weapons that need one hand to fire can have this quality.
+#Ease of Grip (1 DP): The weapon can be wielded as a twohanded martial weapon. Only one-handed exotic weapons can have this quality.
+#Expanded Range Increment (1 DP): The weapon's range increment increases by 10 feet, up to a maximum range increment of 30 feet for thrown weapons and 120 feet for projectile weapons or slings. This quality can be selected multiple times.
+#Finesse (3 DP): The weapon can be used with Weapon Finesse as if it were a light weapon. Only one-handed and exotic melee weapons can have this quality.
+#Fragile (-1 DP): The weapon gains the fragile special weapon feature.
+#Improved Critical Multiplier (Varies): Increase the weapon's critical multiplier by 1. This quality can be selected twice. It costs 3 DP the first time it is selected, and 6 DP the second time. It can be selected only once if the weapon has the improved critical threat range quality, in which case the Design Point cost is doubled.
+#Improved Critical Threat Range (Varies): Increase the weapon's critical threat range by 1. This quality can be selected twice. It costs 3 DP the first time it is selected and 7 DP the second.
+#Improved Damage (1 DP): Increase the weapon's damage dice by one step (1d3 to 1d4, 1d4 to 1d6, 1d6 to 1d8 or 2d4, 1d8 to 1d10, or 1d10 to 2d6 or 1d12). This quality can be selected three times for light weapons, four times for one-handed weapons and ranged weapons, and five times for two-handed weapons. Among weapons sized for Medium characters, the maximum damage is 1d6 for light weapons, 1d8 for one-handed weapons (1d10 if exotic), 1d12 or 2d6 for two-handed weapons, and 1d10 for ranged weapons (1d6 if used or thrown one-handed).
+#Lesser Damage (-1 DP): Reduce the weapon's damage by one step (1d3 to 1d2). A weapon cannot have the improved damage quality and this quality simultaneously.
+#Shield (1 DP): The weapon counts as a light shield made of wood or metal and can have armor spikes (your choice). Add the gp price of the shield and any armor spikes that the weapon gains from this quality to the weapon's gp price. This quality can be added only to one-handed melee weapons.
+#Spring-Loaded (2 DP): The weapon's wielder can activate or suspend its reach as a swift action. This quality can be added only to one-handed or two-handed melee weapons with the reach special feature.
+#Strong (1 DP): The weapon's wielder gains a +2 bonus to her Combat Maneuver Defense to resist sunder combat maneuvers attempted against the weapon.
+
+
+
+
+#Old KEYs
+Special Ability ~ Driving ~ Weapon.COPY=Driving				VISIBLE:NO
+Special Ability ~ Heart-Piercing ~ Weapon.COPY=Heart-Piercing	VISIBLE:NO
+Special Ability ~ Leveraging ~ Weapon.COPY=Leveraging			VISIBLE:NO
+Special Ability ~ Liberating ~ Weapon.COPY=Liberating			VISIBLE:NO
+Special Ability ~ Quaking ~ Weapon.COPY=Quaking				VISIBLE:NO
+Special Ability ~ Sharding ~ Weapon.COPY=Sharding			VISIBLE:NO
+Special Ability ~ Vampiric ~ Weapon.COPY=Vampiric			VISIBLE:NO

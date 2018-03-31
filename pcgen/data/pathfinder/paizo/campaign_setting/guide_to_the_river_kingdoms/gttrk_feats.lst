@@ -1,0 +1,8 @@
+# CVS $Revision: $ $Author: $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
+SOURCELONG:Guide to the River Kingdoms	SOURCESHORT:GTTRK	SOURCEWEB:http://paizo.com/pathfinder/pathfinderChronicles/pathfinderRPG/v5748btpy87d8	SOURCEDATE:2010-03
+# Original Entry by: Stefan Radermacher
+
+###Block: General Feats
+# Feat Name		Type			Required Text			Description															Source Page
+# Ability Name	Category of Ability	Type			Required Text			Description															Source Page
+Touvette Defender	CATEGORY:FEAT		TYPE:General	PRETEXT:Touvette affinity	DESC:For your kingdom and the General, you may strike down enemies who threaten your homeland.	SOURCEPAGE:p.55

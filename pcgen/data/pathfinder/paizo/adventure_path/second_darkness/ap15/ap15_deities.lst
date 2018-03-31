@@ -1,0 +1,17 @@
+# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Second Darkness, Chapter 3 - The Armageddon Echo	SOURCESHORT:AP15	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy85ep	SOURCEDATE:2008-10
+# Original Entry by Eddy Anthony (MoSaT)
+
+# Deity Name	Domains									Description of Deity/Title				Deity Weapon						Align		Source Page
+Abraxas		DOMAINS:Chaos,Evil,Knowledge,Magic|PREALIGN:CE,CN,NE		DESC:Demon Lord of forbidden lore, magic		DEITYWEAP:Whip						ALIGN:CE	SOURCEPAGE:p.65
+Andirifkhu		DOMAINS:Chaos,Evil,Luck,Trickery|PREALIGN:CE,CN,NE		DESC:Demon Lord of knives, traps			DEITYWEAP:Kukri						ALIGN:CE	SOURCEPAGE:p.65
+Areshkagal		DOMAINS:Air,Chaos,Evil,Trickery|PREALIGN:CE,CN,NE		DESC:Demon Lord of portals, riddles			DEITYWEAP:Sickle						ALIGN:CE	SOURCEPAGE:p.65
+Cyth-V'sug		DOMAINS:Chaos,Earth,Evil,Plant|PREALIGN:CE,CN,NE		DESC:Demon Lord of fungus, parasites		DEITYWEAP:Scimitar					ALIGN:CE	SOURCEPAGE:p.65
+Flauros		DOMAINS:Chaos,Evil,Fire,War|PREALIGN:CE,CN,NE			DESC:Demon Lord of fire, salamanders		DEITYWEAP:Longspear|Shortspear|Spear		ALIGN:CE	SOURCEPAGE:p.65
+Haagenti		DOMAINS:Chaos,Evil,Strength|PREALIGN:CE,CN,NE			DESC:Demon Lord of alchemy, transformation	DEITYWEAP:Axe (Throwing)|Battleaxe|Greataxe	ALIGN:CE	SOURCEPAGE:p.65
+Jubilex		DOMAINS:Chaos,Destruction,Evil,Water|PREALIGN:CE,CN,NE	DESC:Demon Lord of ooze, poison			DEITYWEAP:Mace (Heavy)					ALIGN:CE	SOURCEPAGE:p.65
+Mazmezz		DOMAINS:Animal,Chaos,Destruction,Evil|PREALIGN:CE,CN,NE	DESC:Demon Lord of bindings, vermin			DEITYWEAP:Flail|Flail (Heavy)				ALIGN:CE	SOURCEPAGE:p.65
+Nocticula		DOMAINS:Chaos,Charm,Darkness,Evil|PREALIGN:CE,CN,NE		DESC:Demon Lord of darkness, lust			DEITYWEAP:Crossbow (Hand)				ALIGN:CE	SOURCEPAGE:p.65
+Shax			DOMAINS:Chaos,Destruction,Evil,Trickery|PREALIGN:CE,CN,NE	DESC:Demon Lord of lies, murder			DEITYWEAP:Dagger						ALIGN:CE	SOURCEPAGE:p.65
+Socothbenoth	DOMAINS:Chaos,Charm,Evil,Travel|PREALIGN:CE,CN,NE		DESC:Demon Lord of perversion, taboos		DEITYWEAP:Quarterstaff					ALIGN:CE	SOURCEPAGE:p.65
+Zura			DOMAINS:Chaos,Death,Evil,Madness|PREALIGN:CE,CN,NE		DESC:Demon Lord of cannibalism, vampires		DEITYWEAP:Rapier						ALIGN:CE	SOURCEPAGE:p.65

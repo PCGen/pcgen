@@ -1,0 +1,50 @@
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+CAMPAIGN:Super Genius Games - Genius Guide: Air Magic
+GAMEMODE:Pathfinder
+TYPE:Super Genius Games.Genius Guide
+STATUS:BETA
+RANK:3
+GENRE:Fantasy
+BOOKTYPE:Supplement
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+PUBNAMELONG:Super Genius Games
+PUBNAMESHORT:Super Genius Games
+PUBNAMEWEB:http://www.supergeniusgames.com
+SOURCELONG:The Genius Guide to: Air Magic
+SOURCESHORT:SGGAM
+SOURCEDATE:2010-07
+ISOGL:YES
+
+COVER:sggam.jpg
+LOGO:@/publisher_logos/super_genius_games_logo.png
+URL:WEBSITE|http://www.supergeniusgames.com|Super Genius Games website
+URL:RPG Now|http://www.rpgnow.com/product/82214/%5BPFRPG%5D-The-Genius-Guide-to-Air-Magic|Buy this from RPGNow.com!
+URL:Paizo Store|http://paizo.com/products/btpy8fvx?The-Genius-Guide-to-Air-Magic|Buy this from the Paizo Store
+DESC:The Genius Guide to Air Magic is a 13-page book featuring new spells and spellcasting class options themed around the elemental forces of air and wind.
+
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder RPG Core Rulebook. Copyright 2009, Paizo Inc.; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:The Book of Experimental Might. Copyright 2008, Monte J. Cook. All rights reserved.
+COPYRIGHT:Tome of Horrors. Copyright 2002, Necromancer Games, Inc.; Authors: Scott Greene, with Clark Peterson, Erica Balsley, Kevin Baase, Casey Christofferson, Lance Hawvermale, Travis Hawvermale, Patrick Lawinger, and Bill Webb; Based on original content from TSR.
+COPYRIGHT:The Genius Guide To: Air Magic. Copyright 2010, Super Genius Games. Author: Owen K.C. Stephens
+COPYRIGHT:PCGen dataset conversion for the "The Genius Guide To: Air Magic" Copyright 2013, PCGen Data Team (Including, but not limited to Paul Shipley)
+
+#Do Not Remove Comment
+#EXTRAFILE:OGL.txt
+
+FORWARDREF:CLASSSPELLLIST|Summoner,Witch,Archon,Death Mage
+
+ABILITY:sggam_abilities_class.lst
+ABILITYCATEGORY:sggam_abilitycategories.lst
+CLASS:sggam_classes_companions.lst
+DOMAIN:sggam_domains.lst
+ABILITY:sggam_feats.lst
+KIT:sggam_kits_companions.lst
+RACE:sggam_races_companions.lst
+SPELL:sggam_spells.lst
+TEMPLATE:sggam_templates.lst
+
+#
+# End
+#

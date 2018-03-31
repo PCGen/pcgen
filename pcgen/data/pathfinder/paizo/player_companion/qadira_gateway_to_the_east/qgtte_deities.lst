@@ -1,0 +1,9 @@
+# CVS $Revision: $ $Author: $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Qadira, Gateway to the East	SOURCESHORT:QGTTE	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderCompanion/pathfinderRPG/v5748btpy88zq	SOURCEDATE:2009-08
+
+# Deity Name	Product Identity?	Domains										Description of Deity/Title					FACTSET						Deity Weapon						Align		Source Page
+Irori			NAMEISPI:YES	DOMAINS:Healing,Knowledge,Law,Rune,Strength|PREALIGN:LN,LG,LE,TN	DESC:God Of History, Knowledge, Self-Perfection		FACTSET:Pantheon|Pathfinder Chronicles	DEITYWEAP:Unarmed Strike				ALIGN:LN	SOURCEPAGE:p.22
+Rovagug		NAMEISPI:YES	DOMAINS:Chaos,Destruction,Evil,War,Weather|PREALIGN:CE,NE,CN	DESC:God Of Wrath, Disaster, Destruction			FACTSET:Pantheon|Pathfinder Chronicles	DEITYWEAP:Greataxe					ALIGN:CE	SOURCEPAGE:p.22
+Sarenrae		NAMEISPI:YES	DOMAINS:Fire,Glory,Good,Healing,Sun|PREALIGN:NG,LG,CG,TN		DESC:Goddess Of The Sun, Redemption, Honesty, Healing	FACTSET:Pantheon|Pathfinder Chronicles	DEITYWEAP:Scimitar					ALIGN:NG	SOURCEPAGE:p.22
+Gorum			NAMEISPI:YES	DOMAINS:Chaos,Destruction,Glory,Strength,War|PREALIGN:TN,CN,CG,CE	DESC:God Of Strength, Battle, Weapons			FACTSET:Pantheon|Pathfinder Chronicles	DEITYWEAP:Greatsword					ALIGN:CN	SOURCEPAGE:p.23
+Abadar		NAMEISPI:YES	DOMAINS:Earth,Law,Nobility,Protection,Travel|PREALIGN:LN,LG,LE,TN	DESC:God Of Cities, Wealth, Merchants, Law		FACTSET:Pantheon|Pathfinder Chronicles	DEITYWEAP:Crossbow (Heavy)|Crossbow (Light)	ALIGN:LN	SOURCEPAGE:p.23

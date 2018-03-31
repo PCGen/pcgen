@@ -1,0 +1,699 @@
+# CVS $Revision: 21421 $ $Author: evilmynex $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Ultimate Magic	SOURCESHORT:UM	SOURCEWEB:http://paizo.com/pathfinderRPG/v5748btpy8g7s	SOURCEDATE:2011-05
+# ORIGINAL ENTRY: Stefan Radermacher, Eric Smith (Maredudd), Douglas Limmer, and Paul Shipley
+# ORIGINAL ENTRY DATE: Unknown
+
+###BLOCK: Words of Power Archtypes
+# COMMENT: Magus, Witch, Wizard: Remove 0-level spells known.  (Not possible now?)
+# COMMENT: Alchemist, Magus, Witch, Wizard: Restrict spells prepared to Words of Power spells.  (Rely on user?)
+# COMMENT: Alchemist, Magus, Witch, Wizard: User will have to manually add to the ability pool value to learn new words of power.
+
+# COMMENT: Cleric, Druid, Ranger, Paladin: Lose all regular spells known.  (Not possible now?)
+# COMMENT: Cleric, Druid, Ranger, Paladin: Restrict spells prepared to Words of Power spells.  (Rely on user?)
+# COMMENT: Cleric: Spontaneously cast spells with only Healing/Wounding effect words.  (Modify/Replace cleric spontaneous casting ability?)
+# COMMENT: Druid: Spontaneously cast spells with only Summoning effect words.  (Modify/replace druid spontaneous casting ability?)
+
+###Block: Sorcerer Words of Power Archetype
+# Ability Name								Unique Key						Category of Ability	Type											Required Class		Multiple Requirements																					Define					Description														Ability																																																																																																																																																																																																																																															Modify VAR											Cost		Source Page
+Words of Power Alchemist						KEY:Alchemist Archetype ~ Words of Power	CATEGORY:Archetype	TYPE:Archetype.AlchemistArchetype.AlchemistSpells.WordsOfPower	PRECLASS:1,Alchemist=1	PREMULT:1,[PREABILITY:1,CATEGORY=Archetype,Alchemist Archetype ~ Words of Power],[!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistSpells]		DEFINE:AlchemistMetaWordsPerDay|0	DESC:A words of power using alchemist; %1 meta words/day.|AlchemistMetaWordsPerDay		ABILITY:Words of Power|AUTOMATIC|Boost|Personal|Selected	ABILITY:1st-Level Alchemist Word|AUTOMATIC|Alchemist Starter Word 1	ABILITY:2nd-Level Alchemist Word|AUTOMATIC|Alchemist Starter Word 2	ABILITY:3rd-Level Alchemist Word|AUTOMATIC|Alchemist Starter Word 3	ABILITY:4th-Level Alchemist Word|AUTOMATIC|Alchemist Starter Word 4	ABILITY:5th-Level Alchemist Word|AUTOMATIC|Alchemist Starter Word 5	ABILITY:6th-Level Alchemist Word|AUTOMATIC|Alchemist Starter Word 6																																																																																																																																																															BONUS:VAR|AlchemistMetaWordsPerDay|max(1,classlevel("Alchemist")/2)	COST:0	SOURCEPAGE:p.162
+Words of Power Bard							KEY:Bard Archetype ~ Words of Power		CATEGORY:Archetype	TYPE:Archetype.BardArchetype.BardSpells.WordsOfPower			PRECLASS:1,Bard=1		PREMULT:1,[PREABILITY:1,CATEGORY=Archetype,Bard Archetype ~ Words of Power],[!PREABILITY:1,CATEGORY=Archetype,TYPE.BardSpells]			DEFINE:BardMetaWordsPerDay|0		DESC:A words of power using bard; %1 meta words/day.|BardMetaWordsPerDay			ABILITY:Internal|AUTOMATIC|WOP Bard 1|PRECLASS:1,Bard=1	ABILITY:Internal|AUTOMATIC|WOP Bard 2|PRECLASS:1,Bard=2	ABILITY:Internal|AUTOMATIC|WOP Bard 3|PRECLASS:1,Bard=3	ABILITY:Internal|AUTOMATIC|WOP Bard 4|PRECLASS:1,Bard=4	ABILITY:Internal|AUTOMATIC|WOP Bard 5|PRECLASS:1,Bard=5	ABILITY:Internal|AUTOMATIC|WOP Bard 6|PRECLASS:1,Bard=6	ABILITY:Internal|AUTOMATIC|WOP Bard 7|PRECLASS:1,Bard=7	ABILITY:Internal|AUTOMATIC|WOP Bard 8|PRECLASS:1,Bard=8	ABILITY:Internal|AUTOMATIC|WOP Bard 9|PRECLASS:1,Bard=9	ABILITY:Internal|AUTOMATIC|WOP Bard 10|PRECLASS:1,Bard=10	ABILITY:Internal|AUTOMATIC|WOP Bard 11|PRECLASS:1,Bard=11	ABILITY:Internal|AUTOMATIC|WOP Bard 12|PRECLASS:1,Bard=12	ABILITY:Internal|AUTOMATIC|WOP Bard 13|PRECLASS:1,Bard=13	ABILITY:Internal|AUTOMATIC|WOP Bard 14|PRECLASS:1,Bard=14	ABILITY:Internal|AUTOMATIC|WOP Bard 15|PRECLASS:1,Bard=15	ABILITY:Internal|AUTOMATIC|WOP Bard 16|PRECLASS:1,Bard=16	ABILITY:Internal|AUTOMATIC|WOP Bard 17|PRECLASS:1,Bard=17	ABILITY:Internal|AUTOMATIC|WOP Bard 18|PRECLASS:1,Bard=18	ABILITY:Internal|AUTOMATIC|WOP Bard 19|PRECLASS:1,Bard=19	ABILITY:Internal|AUTOMATIC|WOP Bard 20|PRECLASS:1,Bard=20																																									BONUS:VAR|BardMetaWordsPerDay|max(1,classlevel("Bard")/2)			COST:0	SOURCEPAGE:p.162
+Words of Power Cleric							KEY:Cleric Archetype ~ Words of Power	CATEGORY:Archetype	TYPE:Archetype.ClericArchetype.ClericSpells.WordsOfPower		PRECLASS:1,Cleric=1	PREMULT:1,[PREABILITY:1,CATEGORY=Archetype,Cleric Archetype ~ Words of Power],[!PREABILITY:1,CATEGORY=Archetype,TYPE.ClericSpells]			DEFINE:ClericMetaWordsPerDay|0	DESC:A words of power using cleric; %1 meta words/day.|ClericMetaWordsPerDay			ABILITY:Words of Power|AUTOMATIC|Barrier|Burst|Cone|Line|Personal|Selected	ABILITY:Words of Power|AUTOMATIC|TYPE=Cleric0|TYPE=Cleric1|TYPE=MetaLevel0|TYPE=MetaLevel1	ABILITY:Words of Power|AUTOMATIC|TYPE=Cleric2|TYPE=MetaLevel2|PRECLASS:1,Cleric=3	ABILITY:Words of Power|AUTOMATIC|TYPE=Cleric3|TYPE=MetaLevel3|PRECLASS:1,Cleric=5	ABILITY:Words of Power|AUTOMATIC|TYPE=Cleric4|TYPE=MetaLevel4|PRECLASS:1,Cleric=7	ABILITY:Words of Power|AUTOMATIC|TYPE=Cleric5|TYPE=MetaLevel5|PRECLASS:1,Cleric=9	ABILITY:Words of Power|AUTOMATIC|TYPE=Cleric6|TYPE=MetaLevel6|PRECLASS:1,Cleric=11	ABILITY:Words of Power|AUTOMATIC|TYPE=Cleric7|TYPE=MetaLevel7|PRECLASS:1,Cleric=13	ABILITY:Words of Power|AUTOMATIC|TYPE=Cleric8|TYPE=MetaLevel8|PRECLASS:1,Cleric=15	ABILITY:Words of Power|AUTOMATIC|TYPE=Cleric9|TYPE=MetaLevel9|PRECLASS:1,Cleric=17																																																																																																				BONUS:VAR|ClericMetaWordsPerDay|max(1,classlevel("Cleric")/2)		COST:0	SOURCEPAGE:p.162
+Words of Power Druid							KEY:Druid Archetype ~ Words of Power	CATEGORY:Archetype	TYPE:Archetype.DruidArchetype.DruidSpells.WordsOfPower		PRECLASS:1,Druid=1	PREMULT:1,[PREABILITY:1,CATEGORY=Archetype,Druid Archetype ~ Words of Power],[!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidSpells]			DEFINE:DruidMetaWordsPerDay|0		DESC:A words of power using druid; %1 meta words/day.|DruidMetaWordsPerDay			ABILITY:Words of Power|AUTOMATIC|Barrier|Burst|Cone|Line|Personal|Selected	ABILITY:Words of Power|AUTOMATIC|TYPE=Druid0|TYPE=Druid1|TYPE=MetaLevel0|TYPE=MetaLevel1	ABILITY:Words of Power|AUTOMATIC|TYPE=Druid2|TYPE=MetaLevel2|PRECLASS:1,Druid=3	ABILITY:Words of Power|AUTOMATIC|TYPE=Druid3|TYPE=MetaLevel3|PRECLASS:1,Druid=5	ABILITY:Words of Power|AUTOMATIC|TYPE=Druid4|TYPE=MetaLevel4|PRECLASS:1,Druid=7	ABILITY:Words of Power|AUTOMATIC|TYPE=Druid5|TYPE=MetaLevel5|PRECLASS:1,Druid=9	ABILITY:Words of Power|AUTOMATIC|TYPE=Druid6|TYPE=MetaLevel6|PRECLASS:1,Druid=11	ABILITY:Words of Power|AUTOMATIC|TYPE=Druid7|TYPE=MetaLevel7|PRECLASS:1,Druid=13	ABILITY:Words of Power|AUTOMATIC|TYPE=Druid8|TYPE=MetaLevel8|PRECLASS:1,Druid=15	ABILITY:Words of Power|AUTOMATIC|TYPE=Druid9|TYPE=MetaLevel9|PRECLASS:1,Druid=17																																																																																																					BONUS:VAR|DruidMetaWordsPerDay|max(1,classlevel("Druid")/2)			COST:0	SOURCEPAGE:p.162
+Words of Power Inquisitor						KEY:Inquisitor Archetype ~ Words of Power	CATEGORY:Archetype	TYPE:Archetype.InquisitorArchetype.InquisitorSpells.WordsOfPower	PRECLASS:1,Inquisitor=1	PREMULT:1,[PREABILITY:1,CATEGORY=Archetype,Inquisitor Archetype ~ Words of Power],[!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorSpells]	DEFINE:InquisitorMetaWordsPerDay|0	DESC:A words of power using inquisitor; %1 meta words/day.|InquisitorMetaWordsPerDay	ABILITY:Internal|AUTOMATIC|WOP Inquisitor 1|PRECLASS:1,Inquisitor=1	ABILITY:Internal|AUTOMATIC|WOP Inquisitor 2|PRECLASS:1,Inquisitor=2	ABILITY:Internal|AUTOMATIC|WOP Inquisitor 3|PRECLASS:1,Inquisitor=3	ABILITY:Internal|AUTOMATIC|WOP Inquisitor 4|PRECLASS:1,Inquisitor=4	ABILITY:Internal|AUTOMATIC|WOP Inquisitor 5|PRECLASS:1,Inquisitor=5	ABILITY:Internal|AUTOMATIC|WOP Inquisitor 6|PRECLASS:1,Inquisitor=6	ABILITY:Internal|AUTOMATIC|WOP Inquisitor 7|PRECLASS:1,Inquisitor=7	ABILITY:Internal|AUTOMATIC|WOP Inquisitor 8|PRECLASS:1,Inquisitor=8	ABILITY:Internal|AUTOMATIC|WOP Inquisitor 9|PRECLASS:1,Inquisitor=9	ABILITY:Internal|AUTOMATIC|WOP Inquisitor 10|PRECLASS:1,Inquisitor=10	ABILITY:Internal|AUTOMATIC|WOP Inquisitor 11|PRECLASS:1,Inquisitor=11	ABILITY:Internal|AUTOMATIC|WOP Inquisitor 12|PRECLASS:1,Inquisitor=12	ABILITY:Internal|AUTOMATIC|WOP Inquisitor 13|PRECLASS:1,Inquisitor=13	ABILITY:Internal|AUTOMATIC|WOP Inquisitor 14|PRECLASS:1,Inquisitor=14	ABILITY:Internal|AUTOMATIC|WOP Inquisitor 15|PRECLASS:1,Inquisitor=15	ABILITY:Internal|AUTOMATIC|WOP Inquisitor 16|PRECLASS:1,Inquisitor=16	ABILITY:Internal|AUTOMATIC|WOP Inquisitor 17|PRECLASS:1,Inquisitor=17	ABILITY:Internal|AUTOMATIC|WOP Inquisitor 18|PRECLASS:1,Inquisitor=18	ABILITY:Internal|AUTOMATIC|WOP Inquisitor 19|PRECLASS:1,Inquisitor=19	ABILITY:Internal|AUTOMATIC|WOP Inquisitor 20|PRECLASS:1,Inquisitor=20	BONUS:VAR|InquisitorMetaWordsPerDay|max(1,classlevel("Inquisitor")/2)	COST:0	SOURCEPAGE:p.162
+Words of Power Magus							KEY:Magus Archetype ~ Words of Power	CATEGORY:Archetype	TYPE:Archetype.MagusArchetype.MagusSpells.WordsOfPower		PRECLASS:1,Magus=1	PREMULT:1,[PREABILITY:1,CATEGORY=Archetype,Magus Archetype ~ Words of Power],[!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusSpells]			DEFINE:MagusMetaWordsPerDay|0		DESC:A words of power using magus; %1 meta words/day.|MagusMetaWordsPerDay			ABILITY:Words of Power|AUTOMATIC|Barrier|Boost|Burst|Cone|Line|Personal|Selected	ABILITY:0-Level Magus Word|AUTOMATIC|Magus Starter Word 0	ABILITY:1st-Level Magus Word|AUTOMATIC|Magus Starter Word 1	ABILITY:2nd-Level Magus Word|AUTOMATIC|Magus Starter Word 2	ABILITY:3rd-Level Magus Word|AUTOMATIC|Magus Starter Word 3	ABILITY:4th-Level Magus Word|AUTOMATIC|Magus Starter Word 4	ABILITY:5th-Level Magus Word|AUTOMATIC|Magus Starter Word 5	ABILITY:6th-Level Magus Word|AUTOMATIC|Magus Starter Word 6																																																																																																																																																													BONUS:VAR|MagusMetaWordsPerDay|max(1,classlevel("Magus")/2)			COST:0	SOURCEPAGE:p.162
+Words of Power Oracle							KEY:Oracle Archetype ~ Words of Power	CATEGORY:Archetype	TYPE:Archetype.OracleArchetype.OracleSpells.WordsOfPower		PRECLASS:1,Oracle=1	PREMULT:1,[PREABILITY:1,CATEGORY=Archetype,Oracle Archetype ~ Words of Power],[!PREABILITY:1,CATEGORY=Archetype,TYPE.OracleSpells]			DEFINE:OracleMetaWordsPerDay|0	DESC:A words of power using oracle; %1 meta words/day.|OracleMetaWordsPerDay			ABILITY:Internal|AUTOMATIC|WOP Oracle 1|PRECLASS:1,Oracle=1	ABILITY:Internal|AUTOMATIC|WOP Oracle 2|PRECLASS:1,Oracle=2	ABILITY:Internal|AUTOMATIC|WOP Oracle 3|PRECLASS:1,Oracle=3	ABILITY:Internal|AUTOMATIC|WOP Oracle 4|PRECLASS:1,Oracle=4	ABILITY:Internal|AUTOMATIC|WOP Oracle 5|PRECLASS:1,Oracle=5	ABILITY:Internal|AUTOMATIC|WOP Oracle 6|PRECLASS:1,Oracle=6	ABILITY:Internal|AUTOMATIC|WOP Oracle 7|PRECLASS:1,Oracle=7	ABILITY:Internal|AUTOMATIC|WOP Oracle 8|PRECLASS:1,Oracle=8	ABILITY:Internal|AUTOMATIC|WOP Oracle 9|PRECLASS:1,Oracle=9	ABILITY:Internal|AUTOMATIC|WOP Oracle 10|PRECLASS:1,Oracle=10	ABILITY:Internal|AUTOMATIC|WOP Oracle 11|PRECLASS:1,Oracle=11	ABILITY:Internal|AUTOMATIC|WOP Oracle 12|PRECLASS:1,Oracle=12	ABILITY:Internal|AUTOMATIC|WOP Oracle 13|PRECLASS:1,Oracle=13	ABILITY:Internal|AUTOMATIC|WOP Oracle 14|PRECLASS:1,Oracle=14	ABILITY:Internal|AUTOMATIC|WOP Oracle 15|PRECLASS:1,Oracle=15	ABILITY:Internal|AUTOMATIC|WOP Oracle 16|PRECLASS:1,Oracle=16	ABILITY:Internal|AUTOMATIC|WOP Oracle 17|PRECLASS:1,Oracle=17	ABILITY:Internal|AUTOMATIC|WOP Oracle 18|PRECLASS:1,Oracle=18	ABILITY:Internal|AUTOMATIC|WOP Oracle 19|PRECLASS:1,Oracle=19	ABILITY:Internal|AUTOMATIC|WOP Oracle 20|PRECLASS:1,Oracle=20																														BONUS:VAR|OracleMetaWordsPerDay|max(1,classlevel("Oracle")/2)		COST:0	SOURCEPAGE:p.162
+Words of Power Paladin							KEY:Paladin Archetype ~ Words of Power	CATEGORY:Archetype	TYPE:Archetype.PaladinArchetype.PaladinSpells.WordsOfPower		PRECLASS:1,Paladin=1	PREMULT:1,[PREABILITY:1,CATEGORY=Archetype,Paladin Archetype ~ Words of Power],[!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinSpells]		DEFINE:PaladinMetaWordsPerDay|0	DESC:A words of power using paladin; %1 meta words/day.|PaladinMetaWordsPerDay		ABILITY:Words of Power|AUTOMATIC|Barrier|Burst|Cone|Line|Personal|Selected	ABILITY:Words of Power|AUTOMATIC|TYPE=MetaLevel0|TYPE=MetaLevel1|TYPE=Paladin1|PRECLASS:1,Paladin=4	ABILITY:Words of Power|AUTOMATIC|TYPE=MetaLevel2|TYPE=Paladin2|PRECLASS:1,Paladin=7	ABILITY:Words of Power|AUTOMATIC|TYPE=MetaLevel3|TYPE=Paladin3|PRECLASS:1,Paladin=10	ABILITY:Words of Power|AUTOMATIC|TYPE=MetaLevel4|TYPE=Paladin4|PRECLASS:1,Paladin=13																																																																																																																																																																							BONUS:VAR|PaladinMetaWordsPerDay|max(1,classlevel("Paladin")/2)		COST:0	SOURCEPAGE:p.162
+Words of Power Ranger							KEY:Ranger Archetype ~ Words of Power	CATEGORY:Archetype	TYPE:Archetype.RangerArchetype.RangerSpells.WordsOfPower		PRECLASS:1,Ranger=1	PREMULT:1,[PREABILITY:1,CATEGORY=Archetype,Ranger Archetype ~ Words of Power],[!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerSpells]			DEFINE:RangerMetaWordsPerDay|0	DESC:A words of power using ranger; %1 meta words/day.|RangerMetaWordsPerDay			ABILITY:Words of Power|AUTOMATIC|Barrier|Burst|Cone|Line|Personal|Selected	ABILITY:Words of Power|AUTOMATIC|TYPE=MetaLevel0|TYPE=MetaLevel1|TYPE=Ranger1|PRECLASS:1,Ranger=4	ABILITY:Words of Power|AUTOMATIC|TYPE=MetaLevel2|TYPE=Ranger2|PRECLASS:1,Ranger=7	ABILITY:Words of Power|AUTOMATIC|TYPE=MetaLevel3|TYPE=Ranger3|PRECLASS:1,Ranger=10	ABILITY:Words of Power|AUTOMATIC|TYPE=MetaLevel4|TYPE=Ranger4|PRECLASS:1,Ranger=13																																																																																																																																																																									BONUS:VAR|RangerMetaWordsPerDay|max(1,classlevel("Ranger")/2)		COST:0	SOURCEPAGE:p.162
+Words of Power Sorcerer							KEY:Sorcerer Archetype ~ Words of Power	CATEGORY:Archetype	TYPE:Archetype.Sorcerer Archetype.SorcererSpells.WordsOfPower	PRECLASS:1,Sorcerer=1	PREMULT:1,[PREABILITY:1,CATEGORY=Archetype,Sorcerer Archetype ~ Words of Power],[!PREABILITY:1,CATEGORY=Archetype,TYPE.SorcererSpells]		DEFINE:SorcererMetaWordsPerDay|0	DESC:A words of power using sorcerer; %1 meta words/day.|SorcererMetaWordsPerDay		ABILITY:Internal|AUTOMATIC|WOP Sorcerer 1|PRECLASS:1,Sorcerer=1	ABILITY:Internal|AUTOMATIC|WOP Sorcerer 2|PRECLASS:1,Sorcerer=2	ABILITY:Internal|AUTOMATIC|WOP Sorcerer 3|PRECLASS:1,Sorcerer=3	ABILITY:Internal|AUTOMATIC|WOP Sorcerer 4|PRECLASS:1,Sorcerer=4	ABILITY:Internal|AUTOMATIC|WOP Sorcerer 5|PRECLASS:1,Sorcerer=5	ABILITY:Internal|AUTOMATIC|WOP Sorcerer 6|PRECLASS:1,Sorcerer=6	ABILITY:Internal|AUTOMATIC|WOP Sorcerer 7|PRECLASS:1,Sorcerer=7	ABILITY:Internal|AUTOMATIC|WOP Sorcerer 8|PRECLASS:1,Sorcerer=8	ABILITY:Internal|AUTOMATIC|WOP Sorcerer 9|PRECLASS:1,Sorcerer=9	ABILITY:Internal|AUTOMATIC|WOP Sorcerer 10|PRECLASS:1,Sorcerer=10	ABILITY:Internal|AUTOMATIC|WOP Sorcerer 11|PRECLASS:1,Sorcerer=11	ABILITY:Internal|AUTOMATIC|WOP Sorcerer 12|PRECLASS:1,Sorcerer=12	ABILITY:Internal|AUTOMATIC|WOP Sorcerer 13|PRECLASS:1,Sorcerer=13	ABILITY:Internal|AUTOMATIC|WOP Sorcerer 14|PRECLASS:1,Sorcerer=14	ABILITY:Internal|AUTOMATIC|WOP Sorcerer 15|PRECLASS:1,Sorcerer=15	ABILITY:Internal|AUTOMATIC|WOP Sorcerer 16|PRECLASS:1,Sorcerer=16	ABILITY:Internal|AUTOMATIC|WOP Sorcerer 17|PRECLASS:1,Sorcerer=17	ABILITY:Internal|AUTOMATIC|WOP Sorcerer 18|PRECLASS:1,Sorcerer=18	ABILITY:Internal|AUTOMATIC|WOP Sorcerer 19|PRECLASS:1,Sorcerer=19	ABILITY:Internal|AUTOMATIC|WOP Sorcerer 20|PRECLASS:1,Sorcerer=20																					BONUS:VAR|SorcererMetaWordsPerDay|max(1,classlevel("Sorcerer")/2)		COST:0	SOURCEPAGE:p.162
+Words of Power Summoner							KEY:Summoner Archetype ~ Words of Power	CATEGORY:Archetype	TYPE:Archetype.SummonerArchetype.SummonerSpells.WordsOfPower	PRECLASS:1,Summoner=1	PREMULT:1,[PREABILITY:1,CATEGORY=Archetype,Summoner Archetype ~ Words of Power],[!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerSpells]		DEFINE:SummonerMetaWordsPerDay|0	DESC:A words of power using summoner; %1 meta words/day.|SummonerMetaWordsPerDay		ABILITY:Internal|AUTOMATIC|WOP Summoner 1|PRECLASS:1,Summoner=1	ABILITY:Internal|AUTOMATIC|WOP Summoner 2|PRECLASS:1,Summoner=2	ABILITY:Internal|AUTOMATIC|WOP Summoner 3|PRECLASS:1,Summoner=3	ABILITY:Internal|AUTOMATIC|WOP Summoner 4|PRECLASS:1,Summoner=4	ABILITY:Internal|AUTOMATIC|WOP Summoner 5|PRECLASS:1,Summoner=5	ABILITY:Internal|AUTOMATIC|WOP Summoner 6|PRECLASS:1,Summoner=6	ABILITY:Internal|AUTOMATIC|WOP Summoner 7|PRECLASS:1,Summoner=7	ABILITY:Internal|AUTOMATIC|WOP Summoner 8|PRECLASS:1,Summoner=8	ABILITY:Internal|AUTOMATIC|WOP Summoner 9|PRECLASS:1,Summoner=9	ABILITY:Internal|AUTOMATIC|WOP Summoner 10|PRECLASS:1,Summoner=10	ABILITY:Internal|AUTOMATIC|WOP Summoner 11|PRECLASS:1,Summoner=11	ABILITY:Internal|AUTOMATIC|WOP Summoner 12|PRECLASS:1,Summoner=12	ABILITY:Internal|AUTOMATIC|WOP Summoner 13|PRECLASS:1,Summoner=13	ABILITY:Internal|AUTOMATIC|WOP Summoner 14|PRECLASS:1,Summoner=14	ABILITY:Internal|AUTOMATIC|WOP Summoner 15|PRECLASS:1,Summoner=15	ABILITY:Internal|AUTOMATIC|WOP Summoner 16|PRECLASS:1,Summoner=16	ABILITY:Internal|AUTOMATIC|WOP Summoner 17|PRECLASS:1,Summoner=17	ABILITY:Internal|AUTOMATIC|WOP Summoner 18|PRECLASS:1,Summoner=18	ABILITY:Internal|AUTOMATIC|WOP Summoner 19|PRECLASS:1,Summoner=19	ABILITY:Internal|AUTOMATIC|WOP Summoner 20|PRECLASS:1,Summoner=20																					BONUS:VAR|SummonerMetaWordsPerDay|max(1,classlevel("Summoner")/2)		COST:0	SOURCEPAGE:p.162
+Words of Power Witch							KEY:Witch Archetype ~ Words of Power	CATEGORY:Archetype	TYPE:Archetype.WitchArchetype.WitchSpells.WordsOfPower		PRECLASS:1,Witch=1	PREMULT:1,[PREABILITY:1,CATEGORY=Archetype,Witch Archetype ~ Words of Power],[!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchSpells]			DEFINE:WitchMetaWordsPerDay|0		DESC:A words of power using witch; %1 meta words/day.|WitchMetaWordsPerDay			ABILITY:Words of Power|AUTOMATIC|Barrier|Boost|Burst|Cone|Line|Personal|Selected	ABILITY:0-Level Witch Word|AUTOMATIC|Witch Starter Word 0	ABILITY:1st-Level Witch Word|AUTOMATIC|Witch Starter Word 1	ABILITY:2nd-Level Witch Word|AUTOMATIC|Witch Starter Word 2	ABILITY:3rd-Level Witch Word|AUTOMATIC|Witch Starter Word 3	ABILITY:4th-Level Witch Word|AUTOMATIC|Witch Starter Word 4	ABILITY:5th-Level Witch Word|AUTOMATIC|Witch Starter Word 5	ABILITY:6th-Level Witch Word|AUTOMATIC|Witch Starter Word 6	ABILITY:7th-Level Witch Word|AUTOMATIC|Witch Starter Word 7	ABILITY:8th-Level Witch Word|AUTOMATIC|Witch Starter Word 8	ABILITY:9th-Level Witch Word|AUTOMATIC|Witch Starter Word 9																																																																																																																															BONUS:VAR|WitchMetaWordsPerDay|max(1,classlevel("Witch")/2)			COST:0	SOURCEPAGE:p.162
+Words of Power Wizard							KEY:Wizard Archetype ~ Words of Power	CATEGORY:Archetype	TYPE:Archetype.WizardArchetype.WizardSpells.WordsOfPower		PRECLASS:1,Wizard=1	PREMULT:1,[PREABILITY:1,CATEGORY=Archetype,Wizard Archetype ~ Words of Power],[!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardSpells]			DEFINE:WizardMetaWordsPerDay|0	DESC:A words of power using wizard; %1 meta words/day.|WizardMetaWordsPerDay			ABILITY:Words of Power|AUTOMATIC|Barrier|Boost|Burst|Cone|Line|Personal|Selected	ABILITY:0-Level Wizard Word|AUTOMATIC|Wizard Starter Word 0	ABILITY:1st-Level Wizard Word|AUTOMATIC|Wizard Starter Word 1	ABILITY:2nd-Level Wizard Word|AUTOMATIC|Wizard Starter Word 2	ABILITY:3rd-Level Wizard Word|AUTOMATIC|Wizard Starter Word 3	ABILITY:4th-Level Wizard Word|AUTOMATIC|Wizard Starter Word 4	ABILITY:5th-Level Wizard Word|AUTOMATIC|Wizard Starter Word 5	ABILITY:6th-Level Wizard Word|AUTOMATIC|Wizard Starter Word 6	ABILITY:7th-Level Wizard Word|AUTOMATIC|Wizard Starter Word 7	ABILITY:8th-Level Wizard Word|AUTOMATIC|Wizard Starter Word 8	ABILITY:9th-Level Wizard Word|AUTOMATIC|Wizard Starter Word 9																																																																																																																						BONUS:VAR|WizardMetaWordsPerDay|max(1,classlevel("Wizard")/2)		COST:0	SOURCEPAGE:p.162
+
+# Arcehtype Fact Work.
+CATEGORY=Archetype|Summoner Archetype ~ Words of Power.MOD																											PREMULT:1,[PREABILITY:1,CATEGORY=Archetype,Summoner Archetype ~ Words of Power],[!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerSpells]
+
+
+
+
+
+###Block: Words of Power class abilities
+#Block: Bard abilities by level
+# Ability Name	Category of Ability	Ability																					Bonus Ability Pool																													Bonus to spell known/L
+WOP Bard 1		CATEGORY:Internal		ABILITY:Words of Power|AUTOMATIC|Barrier|Boost|Burst|Cone|Line|Personal|Selected	ABILITY:0-Level Bard Word|AUTOMATIC|Boost		BONUS:ABILITYPOOL|0-Level Bard Word|4	BONUS:ABILITYPOOL|1st-Level Bard Word|2																			BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=0|-4	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=1|-2
+WOP Bard 2		CATEGORY:Internal																								BONUS:ABILITYPOOL|0-Level Bard Word|1	BONUS:ABILITYPOOL|1st-Level Bard Word|1																			BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=0|-1	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=1|-1
+WOP Bard 3		CATEGORY:Internal																								BONUS:ABILITYPOOL|0-Level Bard Word|1	BONUS:ABILITYPOOL|1st-Level Bard Word|1																			BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=0|-1	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=1|-1
+WOP Bard 4		CATEGORY:Internal																								BONUS:ABILITYPOOL|2nd-Level Bard Word|2																										BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=2|-2
+WOP Bard 5		CATEGORY:Internal																								BONUS:ABILITYPOOL|2nd-Level Bard Word|1																										BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=2|-1
+WOP Bard 6		CATEGORY:Internal																								BONUS:ABILITYPOOL|2nd-Level Bard Word|1																										BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=2|-1
+WOP Bard 7		CATEGORY:Internal																								BONUS:ABILITYPOOL|1st-Level Bard Word|1	BONUS:ABILITYPOOL|3rd-Level Bard Word|2																			BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=1|-1	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=3|-2
+WOP Bard 8		CATEGORY:Internal																								BONUS:ABILITYPOOL|3rd-Level Bard Word|1																										BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=3|-1
+WOP Bard 9		CATEGORY:Internal																								BONUS:ABILITYPOOL|3rd-Level Bard Word|1																										BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=3|-1
+WOP Bard 10		CATEGORY:Internal																								BONUS:ABILITYPOOL|2nd-Level Bard Word|1	BONUS:ABILITYPOOL|4th-Level Bard Word|2																			BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=2|-1	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=4|-2
+WOP Bard 11		CATEGORY:Internal																								BONUS:ABILITYPOOL|1st-Level Bard Word|1	BONUS:ABILITYPOOL|4th-Level Bard Word|1																			BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=1|-1	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=4|-1
+WOP Bard 12		CATEGORY:Internal																								BONUS:ABILITYPOOL|4th-Level Bard Word|1																										BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=4|-1
+WOP Bard 13		CATEGORY:Internal																								BONUS:ABILITYPOOL|3rd-Level Bard Word|1	BONUS:ABILITYPOOL|5th-Level Bard Word|2																			BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=3|-1	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=5|-2
+WOP Bard 14		CATEGORY:Internal																								BONUS:ABILITYPOOL|2nd-Level Bard Word|1	BONUS:ABILITYPOOL|5th-Level Bard Word|1																			BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=2|-1	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=5|-1
+WOP Bard 15		CATEGORY:Internal																								BONUS:ABILITYPOOL|5th-Level Bard Word|1																										BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=5|-1
+WOP Bard 16		CATEGORY:Internal																								BONUS:ABILITYPOOL|4th-Level Bard Word|1	BONUS:ABILITYPOOL|6th-Level Bard Word|2																			BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=4|-1	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=6|-2
+WOP Bard 17		CATEGORY:Internal																								BONUS:ABILITYPOOL|3rd-Level Bard Word|1	BONUS:ABILITYPOOL|6th-Level Bard Word|1																			BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=3|-1	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=6|-1
+WOP Bard 18		CATEGORY:Internal																								BONUS:ABILITYPOOL|6th-Level Bard Word|1																										BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=6|-1
+WOP Bard 19		CATEGORY:Internal																								BONUS:ABILITYPOOL|5th-Level Bard Word|1																										BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=5|-1
+WOP Bard 20		CATEGORY:Internal																								BONUS:ABILITYPOOL|4th-Level Bard Word|1	BONUS:ABILITYPOOL|6th-Level Bard Word|1																			BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=4|-1	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=6|-1
+
+#Block: Inquisitor abilities by level
+WOP Inquisitor 1	CATEGORY:Internal		ABILITY:Words of Power|AUTOMATIC|Barrier|Boost|Burst|Cone|Line|Personal|Selected	ABILITY:0-Level Inquisitor Word|AUTOMATIC|Boost	BONUS:ABILITYPOOL|0-Level Inquisitor Word|4	BONUS:ABILITYPOOL|1st-Level Inquisitor Word|2																	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=0|-4	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=1|-2
+WOP Inquisitor 2	CATEGORY:Internal																								BONUS:ABILITYPOOL|0-Level Inquisitor Word|1	BONUS:ABILITYPOOL|1st-Level Inquisitor Word|1																	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=0|-1	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=1|-1
+WOP Inquisitor 3	CATEGORY:Internal																								BONUS:ABILITYPOOL|0-Level Inquisitor Word|1	BONUS:ABILITYPOOL|1st-Level Inquisitor Word|1																	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=0|-1	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=1|-1
+WOP Inquisitor 4	CATEGORY:Internal																								BONUS:ABILITYPOOL|2nd-Level Inquisitor Word|2																									BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=2|-2
+WOP Inquisitor 5	CATEGORY:Internal																								BONUS:ABILITYPOOL|2nd-Level Inquisitor Word|1																									BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=2|-1
+WOP Inquisitor 6	CATEGORY:Internal																								BONUS:ABILITYPOOL|2nd-Level Inquisitor Word|1																									BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=2|-1
+WOP Inquisitor 7	CATEGORY:Internal																								BONUS:ABILITYPOOL|1st-Level Inquisitor Word|1	BONUS:ABILITYPOOL|3rd-Level Inquisitor Word|2																	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=1|-1	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=3|-2
+WOP Inquisitor 8	CATEGORY:Internal																								BONUS:ABILITYPOOL|3rd-Level Inquisitor Word|1																									BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=3|-1
+WOP Inquisitor 9	CATEGORY:Internal																								BONUS:ABILITYPOOL|3rd-Level Inquisitor Word|1																									BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=3|-1
+WOP Inquisitor 10	CATEGORY:Internal																								BONUS:ABILITYPOOL|2nd-Level Inquisitor Word|1	BONUS:ABILITYPOOL|4th-Level Inquisitor Word|2																	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=2|-1	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=4|-2
+WOP Inquisitor 11	CATEGORY:Internal																								BONUS:ABILITYPOOL|1st-Level Inquisitor Word|1	BONUS:ABILITYPOOL|4th-Level Inquisitor Word|1																	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=1|-1	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=4|-1
+WOP Inquisitor 12	CATEGORY:Internal																								BONUS:ABILITYPOOL|4th-Level Inquisitor Word|1																									BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=4|-1
+WOP Inquisitor 13	CATEGORY:Internal																								BONUS:ABILITYPOOL|3rd-Level Inquisitor Word|1	BONUS:ABILITYPOOL|5th-Level Inquisitor Word|2																	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=3|-1	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=5|-2
+WOP Inquisitor 14	CATEGORY:Internal																								BONUS:ABILITYPOOL|2nd-Level Inquisitor Word|1	BONUS:ABILITYPOOL|5th-Level Inquisitor Word|1																	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=2|-1	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=5|-1
+WOP Inquisitor 15	CATEGORY:Internal																								BONUS:ABILITYPOOL|5th-Level Inquisitor Word|1																									BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=5|-1
+WOP Inquisitor 16	CATEGORY:Internal																								BONUS:ABILITYPOOL|4th-Level Inquisitor Word|1	BONUS:ABILITYPOOL|6th-Level Inquisitor Word|2																	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=4|-1	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=6|-2
+WOP Inquisitor 17	CATEGORY:Internal																								BONUS:ABILITYPOOL|3rd-Level Inquisitor Word|1	BONUS:ABILITYPOOL|6th-Level Inquisitor Word|1																	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=3|-1	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=6|-1
+WOP Inquisitor 18	CATEGORY:Internal																								BONUS:ABILITYPOOL|6th-Level Inquisitor Word|1																									BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=6|-1
+WOP Inquisitor 19	CATEGORY:Internal																								BONUS:ABILITYPOOL|5th-Level Inquisitor Word|1																									BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=5|-1
+WOP Inquisitor 20	CATEGORY:Internal																								BONUS:ABILITYPOOL|4th-Level Inquisitor Word|1	BONUS:ABILITYPOOL|6th-Level Inquisitor Word|1																	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=4|-1	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=6|-1
+
+#Block: Oracle abilities by level
+WOP Oracle 1	CATEGORY:Internal		ABILITY:Words of Power|AUTOMATIC|Barrier|Boost|Burst|Cone|Line|Personal|Selected	ABILITY:0-Level Oracle Word|AUTOMATIC|Boost	BONUS:ABILITYPOOL|0-Level Oracle Word|4	BONUS:ABILITYPOOL|1st-Level Oracle Word|2																			BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=0|-4	BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=1|-2
+WOP Oracle 2	CATEGORY:Internal																								BONUS:ABILITYPOOL|0-Level Oracle Word|1																										BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=0|-1
+WOP Oracle 3	CATEGORY:Internal																								BONUS:ABILITYPOOL|1st-Level Oracle Word|1																										BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=1|-1
+WOP Oracle 4	CATEGORY:Internal																								BONUS:ABILITYPOOL|0-Level Oracle Word|1	BONUS:ABILITYPOOL|2nd-Level Oracle Word|1																			BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=0|-1	BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=2|-1
+WOP Oracle 5	CATEGORY:Internal																								BONUS:ABILITYPOOL|1st-Level Oracle Word|1	BONUS:ABILITYPOOL|2nd-Level Oracle Word|1																			BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=1|-1	BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=2|-1
+WOP Oracle 6	CATEGORY:Internal																								BONUS:ABILITYPOOL|0-Level Oracle Word|1	BONUS:ABILITYPOOL|3rd-Level Oracle Word|1																			BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=0|-1	BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=3|-1
+WOP Oracle 7	CATEGORY:Internal																								BONUS:ABILITYPOOL|1st-Level Oracle Word|1	BONUS:ABILITYPOOL|2nd-Level Oracle Word|1	BONUS:ABILITYPOOL|3rd-Level Oracle Word|1												BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=1|-1	BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=2|-1	BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=3|-1
+WOP Oracle 8	CATEGORY:Internal																								BONUS:ABILITYPOOL|0-Level Oracle Word|1	BONUS:ABILITYPOOL|4th-Level Oracle Word|1																			BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=0|-1	BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=4|-1
+WOP Oracle 9	CATEGORY:Internal																								BONUS:ABILITYPOOL|2nd-Level Oracle Word|1	BONUS:ABILITYPOOL|3rd-Level Oracle Word|1	BONUS:ABILITYPOOL|4th-Level Oracle Word|1												BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=2|-1	BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=3|-1	BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=4|-1
+WOP Oracle 10	CATEGORY:Internal																								BONUS:ABILITYPOOL|0-Level Oracle Word|1	BONUS:ABILITYPOOL|5th-Level Oracle Word|1																			BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=0|-1	BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=5|-1
+WOP Oracle 11	CATEGORY:Internal																								BONUS:ABILITYPOOL|2nd-Level Oracle Word|1	BONUS:ABILITYPOOL|3rd-Level Oracle Word|1	BONUS:ABILITYPOOL|4th-Level Oracle Word|1	BONUS:ABILITYPOOL|5th-Level Oracle Word|1					BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=2|-1	BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=3|-1	BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=4|-1	BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=5|-1
+WOP Oracle 12	CATEGORY:Internal																								BONUS:ABILITYPOOL|6th-Level Oracle Word|1																										BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=6|-1
+WOP Oracle 13	CATEGORY:Internal																								BONUS:ABILITYPOOL|4th-Level Oracle Word|1	BONUS:ABILITYPOOL|5th-Level Oracle Word|1	BONUS:ABILITYPOOL|6th-Level Oracle Word|1												BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=4|-1	BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=5|-1	BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=6|-1
+WOP Oracle 14	CATEGORY:Internal																								BONUS:ABILITYPOOL|7th-Level Oracle Word|1																										BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=7|-1
+WOP Oracle 15	CATEGORY:Internal																								BONUS:ABILITYPOOL|5th-Level Oracle Word|1	BONUS:ABILITYPOOL|6th-Level Oracle Word|1	BONUS:ABILITYPOOL|7th-Level Oracle Word|1												BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=5|-1	BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=6|-1	BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=7|-1
+WOP Oracle 16	CATEGORY:Internal																								BONUS:ABILITYPOOL|8th-Level Oracle Word|1																										BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=8|-1
+WOP Oracle 17	CATEGORY:Internal																								BONUS:ABILITYPOOL|7th-Level Oracle Word|1	BONUS:ABILITYPOOL|8th-Level Oracle Word|1																			BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=7|-1	BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=8|-1
+WOP Oracle 18	CATEGORY:Internal																								BONUS:ABILITYPOOL|9th-Level Oracle Word|1																										BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=9|-1
+WOP Oracle 19	CATEGORY:Internal																								BONUS:ABILITYPOOL|8th-Level Oracle Word|1	BONUS:ABILITYPOOL|9th-Level Oracle Word|1																			BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=8|-1	BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=9|-1
+WOP Oracle 20	CATEGORY:Internal																								BONUS:ABILITYPOOL|9th-Level Oracle Word|1																										BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=9|-1
+
+#Block: Sorcerer abilities by level
+WOP Sorcerer 1	CATEGORY:Internal		ABILITY:Words of Power|AUTOMATIC|Barrier|Burst|Cone|Line|Personal|Selected	ABILITY:0-Level Sorcerer Word|AUTOMATIC|Boost		BONUS:ABILITYPOOL|0-Level Sorcerer Word|4	BONUS:ABILITYPOOL|1st-Level Sorcerer Word|2																		BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=0|-4	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=1|-2
+WOP Sorcerer 2	CATEGORY:Internal																								BONUS:ABILITYPOOL|0-Level Sorcerer Word|1																										BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=0|-1
+WOP Sorcerer 3	CATEGORY:Internal																								BONUS:ABILITYPOOL|1st-Level Sorcerer Word|1																									BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=1|-1
+WOP Sorcerer 4	CATEGORY:Internal																								BONUS:ABILITYPOOL|0-Level Sorcerer Word|1	BONUS:ABILITYPOOL|2nd-Level Sorcerer Word|1																		BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=0|-1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=2|-1
+WOP Sorcerer 5	CATEGORY:Internal																								BONUS:ABILITYPOOL|1st-Level Sorcerer Word|1	BONUS:ABILITYPOOL|2nd-Level Sorcerer Word|1																	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=1|-1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=2|-1
+WOP Sorcerer 6	CATEGORY:Internal																								BONUS:ABILITYPOOL|0-Level Sorcerer Word|1	BONUS:ABILITYPOOL|3rd-Level Sorcerer Word|1																		BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=0|-1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=3|-1
+WOP Sorcerer 7	CATEGORY:Internal																								BONUS:ABILITYPOOL|1st-Level Sorcerer Word|1	BONUS:ABILITYPOOL|2nd-Level Sorcerer Word|1	BONUS:ABILITYPOOL|3rd-Level Sorcerer Word|1									BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=1|-1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=2|-1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=3|-1
+WOP Sorcerer 8	CATEGORY:Internal																								BONUS:ABILITYPOOL|0-Level Sorcerer Word|1	BONUS:ABILITYPOOL|4th-Level Sorcerer Word|1																		BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=0|-1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=4|-1
+WOP Sorcerer 9	CATEGORY:Internal																								BONUS:ABILITYPOOL|2nd-Level Sorcerer Word|1	BONUS:ABILITYPOOL|3rd-Level Sorcerer Word|1	BONUS:ABILITYPOOL|4th-Level Sorcerer Word|1									BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=2|-1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=3|-1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=4|-1
+WOP Sorcerer 10	CATEGORY:Internal																								BONUS:ABILITYPOOL|0-Level Sorcerer Word|1	BONUS:ABILITYPOOL|5th-Level Sorcerer Word|1																		BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=0|-1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=5|-1
+WOP Sorcerer 11	CATEGORY:Internal																								BONUS:ABILITYPOOL|2nd-Level Sorcerer Word|1	BONUS:ABILITYPOOL|3rd-Level Sorcerer Word|1	BONUS:ABILITYPOOL|4th-Level Sorcerer Word|1	BONUS:ABILITYPOOL|5th-Level Sorcerer Word|1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=2|-1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=3|-1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=4|-1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=5|-1
+WOP Sorcerer 12	CATEGORY:Internal																								BONUS:ABILITYPOOL|6th-Level Sorcerer Word|1																									BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=6|-1
+WOP Sorcerer 13	CATEGORY:Internal																								BONUS:ABILITYPOOL|4th-Level Sorcerer Word|1	BONUS:ABILITYPOOL|5th-Level Sorcerer Word|1	BONUS:ABILITYPOOL|6th-Level Sorcerer Word|1									BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=4|-1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=5|-1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=6|-1
+WOP Sorcerer 14	CATEGORY:Internal																								BONUS:ABILITYPOOL|7th-Level Sorcerer Word|1																									BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=7|-1
+WOP Sorcerer 15	CATEGORY:Internal																								BONUS:ABILITYPOOL|5th-Level Sorcerer Word|1	BONUS:ABILITYPOOL|6th-Level Sorcerer Word|1	BONUS:ABILITYPOOL|7th-Level Sorcerer Word|1									BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=5|-1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=6|-1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=7|-1
+WOP Sorcerer 16	CATEGORY:Internal																								BONUS:ABILITYPOOL|8th-Level Sorcerer Word|1																									BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=8|-1
+WOP Sorcerer 17	CATEGORY:Internal																								BONUS:ABILITYPOOL|7th-Level Sorcerer Word|1	BONUS:ABILITYPOOL|8th-Level Sorcerer Word|1																	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=7|-1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=8|-1
+WOP Sorcerer 18	CATEGORY:Internal																								BONUS:ABILITYPOOL|9th-Level Sorcerer Word|1																									BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=9|-1
+WOP Sorcerer 19	CATEGORY:Internal																								BONUS:ABILITYPOOL|8th-Level Sorcerer Word|1	BONUS:ABILITYPOOL|9th-Level Sorcerer Word|1																	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=8|-1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=9|-1
+WOP Sorcerer 20	CATEGORY:Internal																								BONUS:ABILITYPOOL|9th-Level Sorcerer Word|1																									BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=9|-1
+
+#Block: Summoner abilities by level
+WOP Summoner 1	CATEGORY:Internal		ABILITY:Words of Power|AUTOMATIC|Barrier|Boost|Burst|Cone|Line|Personal|Selected	ABILITY:0-Level Summoner Word|AUTOMATIC|Boost	BONUS:ABILITYPOOL|0-Level Summoner Word|4	BONUS:ABILITYPOOL|1st-Level Summoner Word|2																		BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=0|-4	BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=1|-2
+WOP Summoner 2	CATEGORY:Internal																								BONUS:ABILITYPOOL|0-Level Summoner Word|1	BONUS:ABILITYPOOL|1st-Level Summoner Word|1																		BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=0|-1	BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=1|-1
+WOP Summoner 3	CATEGORY:Internal																								BONUS:ABILITYPOOL|0-Level Summoner Word|1	BONUS:ABILITYPOOL|1st-Level Summoner Word|1																		BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=0|-1	BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=1|-1
+WOP Summoner 4	CATEGORY:Internal																								BONUS:ABILITYPOOL|2nd-Level Summoner Word|2																									BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=2|-2
+WOP Summoner 5	CATEGORY:Internal																								BONUS:ABILITYPOOL|2nd-Level Summoner Word|1																									BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=2|-1
+WOP Summoner 6	CATEGORY:Internal																								BONUS:ABILITYPOOL|2nd-Level Summoner Word|1																									BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=2|-1
+WOP Summoner 7	CATEGORY:Internal																								BONUS:ABILITYPOOL|1st-Level Summoner Word|1	BONUS:ABILITYPOOL|3rd-Level Summoner Word|2																	BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=1|-1	BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=3|-2
+WOP Summoner 8	CATEGORY:Internal																								BONUS:ABILITYPOOL|3rd-Level Summoner Word|1																									BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=3|-1
+WOP Summoner 9	CATEGORY:Internal																								BONUS:ABILITYPOOL|3rd-Level Summoner Word|1																									BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=3|-1
+WOP Summoner 10	CATEGORY:Internal																								BONUS:ABILITYPOOL|2nd-Level Summoner Word|1	BONUS:ABILITYPOOL|4th-Level Summoner Word|2																	BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=2|-1	BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=4|-2
+WOP Summoner 11	CATEGORY:Internal																								BONUS:ABILITYPOOL|1st-Level Summoner Word|1	BONUS:ABILITYPOOL|4th-Level Summoner Word|1																	BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=1|-1	BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=4|-1
+WOP Summoner 12	CATEGORY:Internal																								BONUS:ABILITYPOOL|4th-Level Summoner Word|1																									BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=4|-1
+WOP Summoner 13	CATEGORY:Internal																								BONUS:ABILITYPOOL|3rd-Level Summoner Word|1	BONUS:ABILITYPOOL|5th-Level Summoner Word|2																	BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=3|-1	BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=5|-2
+WOP Summoner 14	CATEGORY:Internal																								BONUS:ABILITYPOOL|2nd-Level Summoner Word|1	BONUS:ABILITYPOOL|5th-Level Summoner Word|1																	BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=2|-1	BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=5|-1
+WOP Summoner 15	CATEGORY:Internal																								BONUS:ABILITYPOOL|5th-Level Summoner Word|1																									BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=5|-1
+WOP Summoner 16	CATEGORY:Internal																								BONUS:ABILITYPOOL|4th-Level Summoner Word|1	BONUS:ABILITYPOOL|6th-Level Summoner Word|2																	BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=4|-1	BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=6|-2
+WOP Summoner 17	CATEGORY:Internal																								BONUS:ABILITYPOOL|3rd-Level Summoner Word|1	BONUS:ABILITYPOOL|6th-Level Summoner Word|1																	BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=3|-1	BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=6|-1
+WOP Summoner 18	CATEGORY:Internal																								BONUS:ABILITYPOOL|6th-Level Summoner Word|1																									BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=6|-1
+WOP Summoner 19	CATEGORY:Internal																								BONUS:ABILITYPOOL|5th-Level Summoner Word|1																									BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=5|-1
+WOP Summoner 20	CATEGORY:Internal																								BONUS:ABILITYPOOL|4th-Level Summoner Word|1	BONUS:ABILITYPOOL|6th-Level Summoner Word|1																	BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=4|-1	BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=6|-1
+
+
+###Block: Words of Power extra word abilities
+# Ability Name				Category of Ability	Type			Stackable?	Multiple?	Choose		Bonus Ability Pool
+Extra Word - Bard 0			CATEGORY:Words of Power	TYPE:ExtraWord	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|0-level Bard Word|1
+Extra Word - Bard 1			CATEGORY:Words of Power	TYPE:ExtraWord	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|1st-level Bard Word|1
+Extra Word - Bard 2			CATEGORY:Words of Power	TYPE:ExtraWord	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|2nd-level Bard Word|1
+Extra Word - Bard 3			CATEGORY:Words of Power	TYPE:ExtraWord	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|3rd-level Bard Word|1
+Extra Word - Bard 4			CATEGORY:Words of Power	TYPE:ExtraWord	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|4th-level Bard Word|1
+Extra Word - Bard 5			CATEGORY:Words of Power	TYPE:ExtraWord	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|5th-level Bard Word|1
+Extra Word - Bard 6			CATEGORY:Words of Power	TYPE:ExtraWord	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|6th-level Bard Word|1
+
+Extra Word - Inquisitor 0		CATEGORY:Words of Power	TYPE:ExtraWord	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|0-level Inquisitor Word|1
+Extra Word - Inquisitor 1		CATEGORY:Words of Power	TYPE:ExtraWord	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|1st-level Inquisitor Word|1
+Extra Word - Inquisitor 2		CATEGORY:Words of Power	TYPE:ExtraWord	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|2nd-level Inquisitor Word|1
+Extra Word - Inquisitor 3		CATEGORY:Words of Power	TYPE:ExtraWord	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|3rd-level Inquisitor Word|1
+Extra Word - Inquisitor 4		CATEGORY:Words of Power	TYPE:ExtraWord	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|4th-level Inquisitor Word|1
+Extra Word - Inquisitor 5		CATEGORY:Words of Power	TYPE:ExtraWord	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|5th-level Inquisitor Word|1
+Extra Word - Inquisitor 6		CATEGORY:Words of Power	TYPE:ExtraWord	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|6th-level Inquisitor Word|1
+
+Extra Word - Oracle 0			CATEGORY:Words of Power	TYPE:ExtraWord	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|0-level Oracle Word|1
+Extra Word - Oracle 1			CATEGORY:Words of Power	TYPE:ExtraWord	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|1st-level Oracle Word|1
+Extra Word - Oracle 2			CATEGORY:Words of Power	TYPE:ExtraWord	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|2nd-level Oracle Word|1
+Extra Word - Oracle 3			CATEGORY:Words of Power	TYPE:ExtraWord	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|3rd-level Oracle Word|1
+Extra Word - Oracle 4			CATEGORY:Words of Power	TYPE:ExtraWord	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|4th-level Oracle Word|1
+Extra Word - Oracle 5			CATEGORY:Words of Power	TYPE:ExtraWord	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|5th-level Oracle Word|1
+Extra Word - Oracle 6			CATEGORY:Words of Power	TYPE:ExtraWord	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|6th-level Oracle Word|1
+Extra Word - Oracle 7			CATEGORY:Words of Power	TYPE:ExtraWord	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|7th-level Oracle Word|1
+Extra Word - Oracle 8			CATEGORY:Words of Power	TYPE:ExtraWord	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|8th-level Oracle Word|1
+Extra Word - Oracle 9			CATEGORY:Words of Power	TYPE:ExtraWord	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|9th-level Oracle Word|1
+
+Extra Word - Sorcerer 0			CATEGORY:Words of Power	TYPE:ExtraWord	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|0-level Sorcerer Word|1
+Extra Word - Sorcerer 1			CATEGORY:Words of Power	TYPE:ExtraWord	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|1st-level Sorcerer Word|1
+Extra Word - Sorcerer 2			CATEGORY:Words of Power	TYPE:ExtraWord	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|2nd-level Sorcerer Word|1
+Extra Word - Sorcerer 3			CATEGORY:Words of Power	TYPE:ExtraWord	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|3rd-level Sorcerer Word|1
+Extra Word - Sorcerer 4			CATEGORY:Words of Power	TYPE:ExtraWord	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|4th-level Sorcerer Word|1
+Extra Word - Sorcerer 5			CATEGORY:Words of Power	TYPE:ExtraWord	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|5th-level Sorcerer Word|1
+Extra Word - Sorcerer 6			CATEGORY:Words of Power	TYPE:ExtraWord	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|6th-level Sorcerer Word|1
+Extra Word - Sorcerer 7			CATEGORY:Words of Power	TYPE:ExtraWord	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|7th-level Sorcerer Word|1
+Extra Word - Sorcerer 8			CATEGORY:Words of Power	TYPE:ExtraWord	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|8th-level Sorcerer Word|1
+Extra Word - Sorcerer 9			CATEGORY:Words of Power	TYPE:ExtraWord	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|9th-level Sorcerer Word|1
+
+Extra Word - Summoner 0			CATEGORY:Words of Power	TYPE:ExtraWord	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|0-level Summoner Word|1
+Extra Word - Summoner 1			CATEGORY:Words of Power	TYPE:ExtraWord	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|1st-level Summoner Word|1
+Extra Word - Summoner 2			CATEGORY:Words of Power	TYPE:ExtraWord	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|2nd-level Summoner Word|1
+Extra Word - Summoner 3			CATEGORY:Words of Power	TYPE:ExtraWord	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|3rd-level Summoner Word|1
+Extra Word - Summoner 4			CATEGORY:Words of Power	TYPE:ExtraWord	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|4th-level Summoner Word|1
+Extra Word - Summoner 5			CATEGORY:Words of Power	TYPE:ExtraWord	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|5th-level Summoner Word|1
+Extra Word - Summoner 6			CATEGORY:Words of Power	TYPE:ExtraWord	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|6th-level Summoner Word|1
+
+Extra Word - Two Lower-Level Words	CATEGORY:Words of Power	TYPE:ExtraWord	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Extra Word|2
+
+
+###BLOCK: Words of Power Words
+###Block: Target Words
+# Ability Name	Category of Ability	Type							Description																									Source Page
+Personal		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.TargetLevel0	DESC:Spell targets only the caster.																					SOURCEPAGE:p.166
+Selected		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.TargetLevel0	DESC:Spell targets a single target within Close range as ranged touch or melee touch.   Boost (3 to effects): One target per caster level, Medium range	SOURCEPAGE:p.166
+Barrier		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.TargetLevel3	DESC:Spell creates a barrier within Close range.  Boost: Larger barrier, any vertical shape											SOURCEPAGE:p.166
+Burst			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.TargetLevel1	DESC:Spell creates 10' radius burst or emanation within Close range.  Boost (2): 20' radius, Medium range.  Boost (4): 40' radius, Long range.			SOURCEPAGE:p.167
+Cone			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.TargetLevel0	DESC:Spell creates 10' cone.  Boost (2): 20' cone.  Boost(4): 40' cone.															SOURCEPAGE:p.167
+Line			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.TargetLevel1	DESC:Spell creates 20' line.  Boost (1): 60' line.  Boost(3): 60' line.															SOURCEPAGE:p.167
+
+###Block: Effect Words ~ Spontaneous
+#Block: Acid Words
+# Ability Name		Unique Key						Category of Ability	Type															Description																			Source Page
+Acid Burn			KEY:Acid Burn ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Acid.Inquisitor0.Sorcerer0.Summoner0				DESC:1d3 acid damage.																	SOURCEPAGE:p.167
+Corrosive Bolt		KEY:Corrosive Bolt ~ Spontaneous		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Acid.Sorcerer2								DESC:1d4/caster level acid damage, max 5; also on 2nd round.										SOURCEPAGE:p.167
+Acid Wave			KEY:Acid Wave ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Acid.Sorcerer4								DESC:1d6/caster level acid damage, max 10; also sickens.											SOURCEPAGE:p.167
+Caustic Cloud		KEY:Caustic Cloud ~ Spontaneous		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Acid.Sorcerer7								DESC:1d6/caster level acid damage, max 20; also fatigues; cloud.										SOURCEPAGE:p.168
+
+#Block: Alignment Words
+Alignment Shield		KEY:Alignment Shield ~ Spontaneous		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Alignment.Oracle1.Inquisitor1.Sorcerer1				DESC:Protection from chosen alignment.														SOURCEPAGE:p.168
+Alignment Assault		KEY:Alignment Assault ~ Spontaneous		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Alignment.Oracle5.Inquisitor5					DESC:1d8/2 caster levels damage to chosen alignment, max 8; also staggers.								SOURCEPAGE:p.168
+Alignment Aura		KEY:Alignment Aura ~ Spontaneous		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Alignment.Oracle8							DESC:Greater protection from chosen alignment.													SOURCEPAGE:p.168
+
+#Block: Animal Words
+Nature's Calm		KEY:Nature's Calm ~ Spontaneous		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Animal									DESC:Calms animals and magical beasts.														SOURCEPAGE:p.168
+Wild Lure			KEY:Wild Lure ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Animal									DESC:Target animal or magical beast treats caster as ally.											SOURCEPAGE:p.168
+Nature's Command		KEY:Nature's Command ~ Spontaneous		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Animal.Summoner5								DESC:Target animal or magical beast obeys caster's commands.										SOURCEPAGE:p.169
+
+#Block: Armor Words
+Force Block			KEY:Force Block ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Armor.Oracle0.Sorcerer0.Summoner0					DESC:+1 armor bonus to AC; force.  Boost(1): Cast as immediate action.									SOURCEPAGE:p.169
+Force Shield		KEY:Force Shield ~ Spontaneous		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Armor.Sorcerer1.Summoner1						DESC:+4 armor bonus to AC; force.															SOURCEPAGE:p.169
+Force Armor			KEY:Force Armor ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Armor.Oracle3.Sorcerer3						DESC:+4+1/4 caster levels armor bonus to AC, or +1 to other armor bonus; force.							SOURCEPAGE:p.170
+Force Ward			KEY:Force Ward ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Armor.Sorcerer6								DESC:+6+1/4 caster levels armor bonus to AC, or +2 to other armor bonus; force.							SOURCEPAGE:p.170
+
+#Block: Binding Words
+Lock Ward			KEY:Lock Ward ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Binding.Sorcerer1							DESC:Closes object; other effects trigger when object opened.										SOURCEPAGE:p.170
+Paralyze Humanoid		KEY:Paralyze Humanoid ~ Spontaneous		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Binding.Bard2.Oracle2.Inquisitor2.Sorcerer3			DESC:Target humanoid is paralyzed.															SOURCEPAGE:p.170
+Paralyze Creature		KEY:Paralyze Creature ~ Spontaneous		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Binding.Bard4.Inquisitor4.Sorcerer5.Summoner5			DESC:Target creature is paralyzed.															SOURCEPAGE:p.170
+Permanent Paralysis	KEY:Permanent Paralysis ~ Spontaneous	CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Binding.Sorcerer8.Summoner6						DESC:Target creature is permanently paralyzed.													SOURCEPAGE:p.170
+
+#Block: Body Words
+Fortify			KEY:Fortify ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Body.Oracle1.Inquisitor1.Sorcerer1.Summoner1			DESC:+1 to saves and +HD temporary hit points.													SOURCEPAGE:p.170
+Energy Resistance		KEY:Energy Resistance ~ Spontaneous		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Body.Oracle2.Inquisitor2.Sorcerer2.Summoner2			DESC:Resistance 10 to one energy type.  Boost:Resistance 20.										SOURCEPAGE:p.170
+Enhance Form		KEY:Enhance Form ~ Spontaneous		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Body.Bard2.Oracle2.Sorcerer2.Summoner2				DESC:+4 enhancement bonus to Str, Dex, or Con; end early for +8.										SOURCEPAGE:p.171
+Perfect Form		KEY:Perfect Form ~ Spontaneous		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Body.Bard4.Oracle4.Sorcerer4.Summoner4				DESC:+4 enhancement bonus to Str, Dex, and Con.													SOURCEPAGE:p.171
+Energy Immunity		KEY:Energy Immunity ~ Spontaneous		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Body.Oracle6.Inquisitor6.Sorcerer6.Summoner6			DESC:Immunity to one energy type.															SOURCEPAGE:p.171
+
+#Block: Change Words
+Altered Form		KEY:Altered Form ~ Spontaneous		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Change.Sorcerer3								DESC:+2 size bonus to Str and 2 other abilities.  Boost(1): 3 abilities.  Boost(1): Can use selected target word.		SOURCEPAGE:p.171
+Bestial Form		KEY:Bestial Form ~ Spontaneous		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Change.Sorcerer4								DESC:+4 size bonus to Str and 3 other abilities.  Boost(1): 4 abilities.  Boost(1): Can use selected target word.		SOURCEPAGE:p.171
+Monstrous Form		KEY:Monstrous Form ~ Spontaneous		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Change.Sorcerer5								DESC:+6 size bonus to Str and 3 other abilities.  Boost(1): 4 abilities.  Boost(1): Can use selected target word.		SOURCEPAGE:p.171
+
+#Block: Cold Words
+Cold Snap			KEY:Cold Snap ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Cold.Sorcerer0								DESC:1d3 cold damage.																	SOURCEPAGE:p.172
+Frost Fingers		KEY:Frost Fingers ~ Spontaneous		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Cold.Sorcerer2								DESC:1d6/caster level cold damage, max 5; also staggers.											SOURCEPAGE:p.172
+Ice Blast			KEY:Ice Blast ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Cold.Sorcerer4								DESC:1d6/caster level cold damage, max 10; also entangles.											SOURCEPAGE:p.172
+Winter's Wrath		KEY:Winter's Wrath ~ Spontaneous		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Cold.Sorcerer8								DESC:1d6/caster level cold damage, max 20; 1d4 Dex damage; also creates blizzard.							SOURCEPAGE:p.172
+
+#Block: Command Words
+Friendship			KEY:Friendship ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Command.Bard1.Sorcerer1						DESC:Target humanoid treats caster as ally.													SOURCEPAGE:p.172
+Simple Order		KEY:Simple Order ~ Spontaneous		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Command.Bard1.Oracle1.Inquisitor1.Sorcerer1			DESC:Target must follow 1 of 5 simple commands.  Boost(3): Can use any target word.							SOURCEPAGE:p.172
+Complex Order		KEY:Complex Order ~ Spontaneous		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Command.Bard3.Sorcerer3						DESC:Target must follow caster's instructions.													SOURCEPAGE:p.172
+Crush Will			KEY:Crush Will ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Command.Bard4.Sorcerer5						DESC:Target humanoid obeys mental commands of caster.												SOURCEPAGE:p.172
+
+#Block: Concealing Words
+Fade				KEY:Fade ~ Spontaneous				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Concealing.Bard1.Inquisitor1.Sorcerer1.Summoner1		DESC:Short invisibility.  Boost: Attacks don't end invisibility.										SOURCEPAGE:p.173
+Disappear			KEY:Disappear ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Concealing.Bard2.Inquisitor2.Sorcerer2.Summoner2		DESC:Invisibility.  Boost(2): Attacks don't end invisibility.										SOURCEPAGE:p.173
+Unseen Shell		KEY:Unseen Shell ~ Spontaneous		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Concealing.Bard4.Sorcerer4						DESC:Area invisibility.  Boost(2): Attacks don't end invisibility.									SOURCEPAGE:p.173
+
+#Block: Death Words
+Undeath			KEY:Undeath ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Death.Oracle2.Sorcerer3						DESC:Create skeletons or zombies.															SOURCEPAGE:p.173
+Grave Bane			KEY:Grave Bane ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Death.Oracle4.Inquisitor5						DESC:+4 sacred bonus on saves vs. death; cannot gain negative levels; auto stabilize.						SOURCEPAGE:p.173
+Life Leech			KEY:Life Leech ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Death.Sorcerer4								DESC:1d4 temporary negative levels.  Boost(5): Permanent negative levels.								SOURCEPAGE:p.174
+Slay				KEY:Slay ~ Spontaneous				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Death.Oracle6.Sorcerer6						DESC:Living target takes 10/caster level damage, max 150.											SOURCEPAGE:p.174
+
+#Block: Destruction Words
+Damage			KEY:Damage ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Destruction.Bard3.Oracle3.Sorcerer2				DESC:Damage and break object.																SOURCEPAGE:p.174
+Rumble			KEY:Rumble ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Destruction.Oracle8							DESC:Creates earthquake.																SOURCEPAGE:p.174
+Catastrophe			KEY:Catastrophe ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Destruction.Oracle9							DESC:Creates thunderhailstorm.															SOURCEPAGE:p.174
+
+#Block: Detection Words
+Sense Magic			KEY:Sense Magic ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Detection.Bard0.Oracle0.Inquisitor0.Sorcerer0.Summoner0	DESC:Detect magic auras.																SOURCEPAGE:p.174
+Sense Alignment		KEY:Sense Alignment ~ Spontaneous		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Detection.Oracle1.Inquisitor1					DESC:Detect an alignment aura.  Boost(1): Detect 2 alignments.  Boost(2): Detect 4 alignments.					SOURCEPAGE:p.175
+Sense Thoughts		KEY:Sense Thoughts ~ Spontaneous		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Detection.Bard2.Inquisitor2.Sorcerer2.Summoner2		DESC:Detect and read surface thoughts.														SOURCEPAGE:p.175
+Sense Hidden		KEY:Sense Hidden ~ Spontaneous		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Detection.Bard2.Oracle2.Inquisitor2.Sorcerer2.Summoner2	DESC:See invisible things.  Boost(4): See through illusions, polymorphs, and effects that grant concealment.		SOURCEPAGE:p.175
+
+#Block: Dispelling Words
+Suppress			KEY:Suppress ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Dispelling.Bard2.Oracle2.Inquisitor2.Sorcerer2.Summoner2	DESC:Suppress chosen spell on willing target.  Boost(1): Can affect unwilling targets.						SOURCEPAGE:p.175
+Resist Arcana		KEY:Resist Arcana ~ Spontaneous		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Dispelling.Oracle5.Inquisitor5.Sorcerer6.Summoner6		DESC:Gain SR 12+caster level.																SOURCEPAGE:p.175
+Unmake			KEY:Unmake ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Dispelling.Bard5.Oracle5.Inquisitor6.Sorcerer5.Summoner6	DESC:Unravel all magic effects on target.														SOURCEPAGE:p.175
+Negation			KEY:Negation ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Dispelling.Oracle8.Sorcerer6						DESC:Anti-magic field.																	SOURCEPAGE:p.176
+
+#Block: Divination Words
+Beacon			KEY:Beacon ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Divination.Bard0								DESC:Know direction and distance to fixed point.												SOURCEPAGE:p.176
+Far Sight			KEY:Far Sight ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Divination.Bard3.Oracle3.Sorcerer3					DESC:Scry.  Boost(2): No range limit; can place near known creature.									SOURCEPAGE:p.176
+Locate			KEY:Locate ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Divination.Bard6.Oracle6.Inquisitor6				DESC:Find swiftest path to location or object.													SOURCEPAGE:p.176
+
+#Block: Electricity Words
+Spark				KEY:Spark ~ Spontaneous				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Electricity.Sorcerer0							DESC:1d4 electricity damage.																SOURCEPAGE:p.176
+Shock Arc			KEY:Shock Arc ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Electricity.Sorcerer1							DESC:1d4/caster level electricity damage, max 5.												SOURCEPAGE:p.176
+Lightning Blast		KEY:Lightning Blast ~ Spontaneous		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Electricity.Sorcerer3							DESC:1d6/caster level electricity damage, max 10.												SOURCEPAGE:p.176
+Ball Lightning		KEY:Ball Lightning ~ Spontaneous		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Electricity.Sorcerer5							DESC:1d8/caster level electricity damage, max 15, to target; half damage to any other targets.					SOURCEPAGE:p.176
+Thunder Strike		KEY:Thunder Strike ~ Spontaneous		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Electricity.Sorcerer8							DESC:1d8/caster level electricty damage, max 20; also deafens.										SOURCEPAGE:p.177
+
+#Block: Fear Words
+Spook				KEY:Spook ~ Spontaneous				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Fear.Bard1.Oracle1.Inquisitor1.Sorcerer1				DESC:Target is frightened, up to 5 HD.														SOURCEPAGE:p.177
+Terror			KEY:Terror ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Fear.Bard3.Inquisitor4.Sorcerer4					DESC:Target is frightened, shaken if save made.													SOURCEPAGE:p.177
+Horror			KEY:Horror ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Fear.Sorcerer7								DESC:Target takes 10/caster level damage.														SOURCEPAGE:p.177
+
+#Block: Fire Words
+Flame Jet			KEY:Flame Jet ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Fire.Sorcerer0								DESC:1d4 fire damage.																	SOURCEPAGE:p.177
+Burning Flash		KEY:Burning Flash ~ Spontaneous		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Fire.Inquisitor2.Sorcerer1						DESC:1d4/caster level fire damage, max 5  Boost(1): 1d6/caster level damage.								SOURCEPAGE:p.177
+Fire Blast			KEY:Fire Blast ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Fire.Sorcerer3								DESC:1d6/caster level fire damage, max 10.													SOURCEPAGE:p.177
+Cinder Storm		KEY:Cinder Storm ~ Spontaneous		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Fire.Oracle5.Inquisitor5.Sorcerer5.Summoner5			DESC:1d6/caster level fire damage, max 15.													SOURCEPAGE:p.177
+Inferno			KEY:Inferno ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Fire.Sorcerer8								DESC:1d8/caster level fire damage, max 20.													SOURCEPAGE:p.177
+True Fire			KEY:True Fire ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Fire.Sorcerer9								DESC:1d6/caster level fire damage, max 20; no save.												SOURCEPAGE:p.177
+
+#Block: Flight Words
+Glide				KEY:Glide ~ Spontaneous				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Flight.Bard1.Sorcerer1.Summoner1					DESC:Fall slowly.																		SOURCEPAGE:p.178
+Float				KEY:Float ~ Spontaneous				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Flight.Bard2.Sorcerer2.Summoner2					DESC:Move up and down at 30'/round.															SOURCEPAGE:p.178
+Soar				KEY:Soar ~ Spontaneous				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Flight.Oracle4.Sorcerer3.Summoner3					DESC:Fly 60' (average).																	SOURCEPAGE:p.178
+
+#Block: Force Words
+Force Bolt			KEY:Force Bolt ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Force.Sorcerer2								DESC:1d4/caster level force damage, max 5.													SOURCEPAGE:p.178
+Force Blast			KEY:Force Blast ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Force.Sorcerer5								DESC:1d6/caster level force damage, max 10.													SOURCEPAGE:p.178
+
+#Block: Gravity Words
+Lift				KEY:Lift ~ Spontaneous				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Gravity.Bard0.Sorcerer0.Summoner0					DESC:Move small nonmagical objects.															SOURCEPAGE:p.178
+Unfetter			KEY:Unfetter ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Gravity.Sorcerer6							DESC:Up and down reversed for targets.														SOURCEPAGE:p.179
+Repulse			KEY:Repulse ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Gravity.Oracle9.Sorcerer8.Summoner6				DESC:Targets fall away from center of effect.  Boost:Designate caster level unaffected targets.					SOURCEPAGE:p.179
+
+#Block: Healing Words
+Soothing Touch		KEY:Soothing Touch ~ Spontaneous		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Healing.Oracle0.Inquisitor0						DESC:Stabilize dying target.  Boost(1): Cure shakened, sickened, or fatigued condition.						SOURCEPAGE:p.179
+Lesser Cure			KEY:Lesser Cure ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Healing.Bard1.Oracle1.Inquisitor1					DESC:Cure 1d6+1/caster level damage, max 5.  Boost: 1d8 base curing.									SOURCEPAGE:p.179
+Moderate Cure		KEY:Moderate Cure ~ Spontaneous		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Healing.Bard2.Oracle2.Inquisitor2					DESC:Cure 2d6+1/caster level damage, max 10.  Boost: 2d8 base curing.									SOURCEPAGE:p.179
+Greater Cure		KEY:Greater Cure ~ Spontaneous		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Healing.Bard3.Oracle3.Inquisitor3					DESC:Cure 3d6+1/caster level damage, max 15.  Boost: 3d8 base curing.									SOURCEPAGE:p.179
+Elder Cure			KEY:Elder Cure ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Healing.Bard4.Oracle4.Inquisitor4					DESC:Cure 4d6+1/caster level damage, max 20.  Boost: 4d8 base curing.									SOURCEPAGE:p.179
+
+#Block: Illusion Words
+Echo				KEY:Echo ~ Spontaneous				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Illusion.Bard0.Sorcerer0						DESC:Create sound.																	SOURCEPAGE:p.180
+Glamering			KEY:Glamering ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Illusion.Bard2.Sorcerer3						DESC:Create image.																	SOURCEPAGE:p.180
+
+#Block: Illumination Words
+Radiance			KEY:Radiance ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Illumination.Bard1.Oracle1.Inquisitor1.Sorcerer1		DESC:Create torch light.																SOURCEPAGE:p.180
+Gloom				KEY:Gloom ~ Spontaneous				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Illumination.Bard2.Oracle2.Sorcerer2				DESC:Create darkness.																	SOURCEPAGE:p.180
+Sunshine			KEY:Sunshine ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Illumination.Bard3.Oracle3.Sorcerer3				DESC:Create bright light.																SOURCEPAGE:p.180
+
+#Block: Language Words
+Decipher			KEY:Decipher ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Language.Bard0.Oracle0.Inquisitor0.Sorcerer0.Summoner0	DESC:Read a language.																	SOURCEPAGE:p.180
+Translate			KEY:Translate ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Language.Bard2.Oracle4.Sorcerer3					DESC:Read, write, speak, and understand one language.												SOURCEPAGE:p.181
+Far Casting			KEY:Far Casting ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Language.Bard5.Oracle5.Sorcerer5					DESC:Communicate with far away target.														SOURCEPAGE:p.181
+
+#Block: Life Words
+Purify			KEY:Purify ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Life.Bard4.Oracle4.Inquisitor4					DESC:End an affliction or remove negative levels.												SOURCEPAGE:p.181
+Revive			KEY:Revive ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Life.Oracle5								DESC:Restore life to the recently dead.														SOURCEPAGE:p.181
+Life Touch			KEY:Life Touch ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Life.Oracle8								DESC:Restore life to the dead.															SOURCEPAGE:p.181
+
+#Block: Pain Words
+Cramp				KEY:Cramp ~ Spontaneous				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Pain.Bard0.Oracle0.Inquisitor0.Sorcerer0				DESC:Reduce speed of target.																SOURCEPAGE:p.181
+Wrack				KEY:Wrack ~ Spontaneous				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Pain.Bard1.Oracle1.Inquisitor1.Sorcerer1				DESC:Target is sickened.																SOURCEPAGE:p.182
+Torture			KEY:Torture ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Pain.Bard3.Inquisitor3.Sorcerer3					DESC:Target is nauseated.																SOURCEPAGE:p.182
+
+#Block: Power Words
+Blind				KEY:Blind ~ Spontaneous				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Power.Sorcerer7								DESC:Target is blinded.																	SOURCEPAGE:p.182
+Stun				KEY:Stun ~ Spontaneous				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Power.Sorcerer8								DESC:Target is stunned.																	SOURCEPAGE:p.182
+Kill				KEY:Kill ~ Spontaneous				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Power.Sorcerer9								DESC:Target is killed.																	SOURCEPAGE:p.182
+
+#Block: Sonic  Words
+Discordant Note		KEY:Discordant Note ~ Spontaneous		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Sonic.Bard2.Oracle2							DESC:1d4/caster level sonic damage, max 5; also staggers.											SOURCEPAGE:p.182
+Sound Blast			KEY:Sound Blast ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Sonic.Bard4.Sorcerer4							DESC:1d6/caster level sonic damage, max 10.													SOURCEPAGE:p.182
+Destructive Vibration	KEY:Destructive Vibration ~ Spontaneous	CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Sonic.Bard6.Sorcerer7							DESC:1d6/caster level sonic damage, max 15; also deafens.											SOURCEPAGE:p.182
+
+#Block: Summoning Words
+Servitor I			KEY:Servitor I ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Summoning.Bard1.Oracle1.Sorcerer1.Summoner1			DESC:Summon Monster/Nature's Ally I; summoned creature is target of other effect words.						SOURCEPAGE:p.183
+Servitor II			KEY:Servitor II ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Summoning.Bard2.Oracle2.Sorcerer2.Summoner2			DESC:Summon Monster/Nature's Ally II; summoned creature is target of other effect words.						SOURCEPAGE:p.183
+Servitor III		KEY:Servitor III ~ Spontaneous		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Summoning.Bard3.Oracle3.Sorcerer3					DESC:Summon Monster/Nature's Ally III; summoned creature is target of other effect words.						SOURCEPAGE:p.183
+Servitor IV			KEY:Servitor IV ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Summoning.Bard4.Oracle4.Sorcerer4.Summoner3			DESC:Summon Monster/Nature's Ally IV; summoned creature is target of other effect words.						SOURCEPAGE:p.183
+Servitor V			KEY:Servitor V ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Summoning.Bard5.Oracle5.Sorcerer5					DESC:Summon Monster/Nature's Ally V; summoned creature is target of other effect words.						SOURCEPAGE:p.184
+Servitor VI			KEY:Servitor VI ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Summoning.Bard6.Oracle6.Sorcerer6.Summoner4			DESC:Summon Monster/Nature's Ally VI; summoned creature is target of other effect words.						SOURCEPAGE:p.184
+Servitor VII		KEY:Servitor VII ~ Spontaneous		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Summoning.Oracle7.Sorcerer7.Summoner5				DESC:Summon Monster/Nature's Ally VII; summoned creature is target of other effect words.						SOURCEPAGE:p.184
+Servitor VIII		KEY:Servitor VIII ~ Spontaneous		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Summoning.Oracle8.Sorcerer8						DESC:Summon Monster/Nature's Ally VIII; summoned creature is target of other effect words.					SOURCEPAGE:p.184
+Servitor IX			KEY:Servitor IX ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Summoning.Oracle9.Sorcerer9.Summoner6				DESC:Summon Monster/Nature's Ally IX; summoned creature is target of other effect words.						SOURCEPAGE:p.184
+
+#Block: Teleportation Words
+Dimensional Hop		KEY:Dimensional Hop ~ Spontaneous		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Teleportation.Bard3.Sorcerer3.Summoner3				DESC:Teleport willing targets to location within range.											SOURCEPAGE:p.184
+Dimensional Jump		KEY:Dimensional Jump ~ Spontaneous		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Teleportation.Sorcerer5.Summoner5					DESC:Teleport caster and willing targets within same plane.											SOURCEPAGE:p.184
+Dimensional Shift		KEY:Dimensional Shift ~ Spontaneous		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Teleportation.Oracle5.Sorcerer7					DESC:Teleport caster and willing targets to another plane.											SOURCEPAGE:p.184
+Dimensional Gate		KEY:Dimensional Gate ~ Spontaneous		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Teleportation.Oracle8.Sorcerer9					DESC:Create two-way gate to another plane.													SOURCEPAGE:p.185
+
+#Block: Time Words
+Fleet				KEY:Fleet ~ Spontaneous				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Time										DESC:Increase speed by 10' for hours.														SOURCEPAGE:p.185
+Dash				KEY:Dash ~ Spontaneous				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Time.Bard1.Inquisitor1.Sorcerer1.Summoner1			DESC:Increase speed by 30' for minutes.														SOURCEPAGE:p.185
+Accelerate			KEY:Accelerate ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Time.Bard2.Sorcerer2.Summoner2					DESC:Gain extra move action.  Boost: Can make an additional attack on a full attack instead of extra move action.		SOURCEPAGE:p.185
+Decelerate			KEY:Decelerate ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Time.Bard2.Sorcerer2.Summoner2					DESC:Target is staggered; new save every round.  Boost: No new save every round.							SOURCEPAGE:p.185
+Predict			KEY:Predict ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Time.Oracle2								DESC:Target predicts weal or woe of future action.												SOURCEPAGE:p.185
+Borrow Future		KEY:Borrow Future ~ Spontaneous		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Time.Bard4.Sorcerer4.Summoner4					DESC:Target takes a round of actions now, and loses next round's actions.  Boost: Target is only staggered next round.	SOURCEPAGE:p.185
+Control Time		KEY:Control Time ~ Spontaneous		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Time.Sorcerer9								DESC:Time is stopped.																	SOURCEPAGE:p.186
+
+#Block: Wall Words
+Wind Wall			KEY:Wind Wall ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Wall.Oracle3.Sorcerer3.Summoner3					DESC:Blocks projectiles and gases; may block creatures.											SOURCEPAGE:p.186
+Fire Wall			KEY:Fire Wall ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Wall.Sorcerer4.Summoner4						DESC:2d6+1/caster level fire damage, max +20.													SOURCEPAGE:p.186
+Ice Wall			KEY:Ice Wall ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Wall.Sorcerer4.Summoner4						DESC:Creates solid opaque wall of ice.														SOURCEPAGE:p.186
+Stone Wall			KEY:Stone Wall ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Wall.Oracle5.Sorcerer5.Summoner5					DESC:Creates wall of stone.																SOURCEPAGE:p.186
+Blade Wall			KEY:Blade Wall ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Wall.Oracle6.Summoner5							DESC:1d6/caster level when touching or passing through wall.										SOURCEPAGE:p.186
+
+#Block: Weather Words
+Fog Bank			KEY:Fog Bank ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Weather.Oracle1.Sorcerer1						DESC:Blocks sight.  Boost: If used with burst target word, caster can move fog.							SOURCEPAGE:p.186
+Wind Blast			KEY:Wind Blast ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Weather.Sorcerer3							DESC:Creates blast of air.																SOURCEPAGE:p.187
+Blizzard			KEY:Blizzard ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Weather.Sorcerer3							DESC:Create concealment and slippery ground.  Boost(1): 2d6 cold damage.								SOURCEPAGE:p.187
+Storm Master		KEY:Storm Master ~ Spontaneous		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Weather.Oracle7.Sorcerer7						DESC:Alters weather within a mile.  Boost: Change weather more quickly.									SOURCEPAGE:p.187
+
+#Block: Wounding Words
+Bleeding Wounds		KEY:Bleeding Wounds ~ Spontaneous		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Wounding.Oracle0.Inquisitor0.Sorcerer0				DESC:Dying creature takes 1 bleed damage each turn.  Boost(1): 1d3 bleed damage.							SOURCEPAGE:p.187
+Lesser Wound		KEY:Lesser Wound ~ Spontaneous		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Wounding.Oracle1.Inquisitor1						DESC:Deal 1d6+1/caster level damage, max +5.  Boost: 1d8 base damage.									SOURCEPAGE:p.187
+Moderate Wound		KEY:Moderate Wound ~ Spontaneous		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Wounding.Oracle2.Inquisitor2						DESC:Deal 2d6+1/caster level damage, max +10.  Boost: 2d8 base damage.									SOURCEPAGE:p.187
+Greater Wound		KEY:Greater Wound ~ Spontaneous		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Wounding.Oracle3.Inquisitor3						DESC:Deal 3d6+1/caster level damage, max +15.  Boost: 3d8 base damage.									SOURCEPAGE:p.188
+Elder Wound			KEY:Elder Wound ~ Spontaneous			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Wounding.Oracle4.Inquisitor4						DESC:Deal 4d6+1/caster level damage, max +20.  Boost: 4d8 base damage.									SOURCEPAGE:p.188
+
+
+###Block: Effect Words ~ Prepared
+#Block: Acid Words
+# Ability Name		Unique Key						Category of Ability	Type																		Description																			Cost		Source Page
+Acid Burn			KEY:Acid Burn ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Acid.Druid0.Magus0.Wizard0									DESC:1d3 acid damage.																	COST:0	SOURCEPAGE:p.167
+Corrosive Bolt		KEY:Corrosive Bolt ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Acid.Magus2.Wizard2										DESC:1d4/caster level acid damage, max 5; also on 2nd round.										COST:0	SOURCEPAGE:p.167
+Acid Wave			KEY:Acid Wave ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Acid.Magus4.Wizard4										DESC:1d6/caster level acid damage, max 10; also sickens.											COST:0	SOURCEPAGE:p.167
+Caustic Cloud		KEY:Caustic Cloud ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Acid.Witch6.Wizard7										DESC:1d6/caster level acid damage, max 20; also fatigues; cloud.										COST:0	SOURCEPAGE:p.168
+
+#Block: Alignment Words
+Alignment Shield		KEY:Alignment Shield ~ Prepared		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Alignment.Cleric1.Paladin1.Wizard1								DESC:Protection from chosen alignment.														COST:0	SOURCEPAGE:p.168
+Alignment Assault		KEY:Alignment Assault ~ Prepared		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Alignment.Cleric5.Paladin4									DESC:1d8/2 caster levels damage to chosen alignment, max 8; also staggers.								COST:0	SOURCEPAGE:p.168
+Alignment Aura		KEY:Alignment Aura ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Alignment.Cleric8										DESC:Greater protection from chosen alignment.													COST:0	SOURCEPAGE:p.168
+
+#Block: Animal Words
+Nature's Calm		KEY:Nature's Calm ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Animal.Druid1.Ranger1.Witch1									DESC:Calms animals and magical beasts.														COST:0	SOURCEPAGE:p.168
+Wild Lure			KEY:Wild Lure ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Animal.Druid2.Ranger2.Witch2									DESC:Target animal or magical beast treats caster as ally.											COST:0	SOURCEPAGE:p.168
+Nature's Command		KEY:Nature's Command ~ Prepared		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Animal.Druid4.Ranger4.Witch4									DESC:Target animal or magical beast obeys caster's commands.										COST:0	SOURCEPAGE:p.169
+
+#Block: Armor Words
+Force Block			KEY:Force Block ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Armor.Cleric0.Magus0.Wizard0									DESC:+1 armor bonus to AC; force.  Boost(1): Cast as immediate action.									COST:0	SOURCEPAGE:p.169
+Force Shield		KEY:Force Shield ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Armor.Alchemist1.Magus1.Witch1.Wizard1							DESC:+4 armor bonus to AC; force.															COST:0	SOURCEPAGE:p.169
+Force Armor			KEY:Force Armor ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Armor.Cleric3.Magus3.Witch3.Wizard3							DESC:+4+1/4 caster levels armor bonus to AC, or +1 to other armor bonus; force.							COST:0	SOURCEPAGE:p.170
+Force Ward			KEY:Force Ward ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Armor.Magus6.Wizard6										DESC:+6+1/4 caster levels armor bonus to AC, or +2 to other armor bonus; force.							COST:0	SOURCEPAGE:p.170
+
+#Block: Binding Words
+Lock Ward			KEY:Lock Ward ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Binding.Wizard1											DESC:Closes object; other effects trigger when object opened.										COST:0	SOURCEPAGE:p.170
+Paralyze Humanoid		KEY:Paralyze Humanoid ~ Prepared		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Binding.Cleric2.Witch2.Wizard3								DESC:Target humanoid is paralyzed.															COST:0	SOURCEPAGE:p.170
+Paralyze Creature		KEY:Paralyze Creature ~ Prepared		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Binding.Druid4.Witch5.Wizard5								DESC:Target creature is paralyzed.															COST:0	SOURCEPAGE:p.170
+Permanent Paralysis	KEY:Permanent Paralysis ~ Prepared		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Binding.Witch8.Wizard8										DESC:Target creature is permanently paralyzed.													COST:0	SOURCEPAGE:p.170
+
+#Block: Body Words
+Fortify			KEY:Fortify ~ Prepared				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Body.Alchemist1.Cleric1.Paladin1.Ranger1.Wizard1					DESC:+1 to saves and +HD temporary hit points.													COST:0	SOURCEPAGE:p.170
+Energy Resistance		KEY:Energy Resistance ~ Prepared		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Body.Alchemist2.Cleric2.Druid2.Paladin2.Ranger1.Wizard2				DESC:Resistance 10 to one energy type.  Boost:Resistance 20.										COST:0	SOURCEPAGE:p.170
+Enhance Form		KEY:Enhance Form ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Body.Alchemist2.Cleric2.Druid2.Magus2.Paladin2.Ranger2.Wizard2			DESC:+4 enhancement bonus to Str, Dex, or Con; end early for +8.										COST:0	SOURCEPAGE:p.171
+Perfect Form		KEY:Perfect Form ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Body.Alchemist4.Cleric4.Druid4.Magus4.Wizard4						DESC:+4 enhancement bonus to Str, Dex, and Con.													COST:0	SOURCEPAGE:p.171
+Energy Immunity		KEY:Energy Immunity ~ Prepared		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Body.Alchemist6.Cleric6.Druid6.Wizard6							DESC:Immunity to one energy type.															COST:0	SOURCEPAGE:p.171
+
+#Block: Change Words
+Altered Form		KEY:Altered Form ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Change.Alchemist3.Druid3.Magus3.Witch3.Wizard3						DESC:+2 size bonus to Str and 2 other abilities.  Boost(1): 3 abilities.  Boost(1): Can use selected target word.		COST:0	SOURCEPAGE:p.171
+Bestial Form		KEY:Bestial Form ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Change.Alchemist4.Druid4.Magus4.Wizard4							DESC:+4 size bonus to Str and 3 other abilities.  Boost(1): 4 abilities.  Boost(1): Can use selected target word.		COST:0	SOURCEPAGE:p.171
+Monstrous Form		KEY:Monstrous Form ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Change.Alchemist5.Druid5.Magus5.Wizard5							DESC:+6 size bonus to Str and 3 other abilities.  Boost(1): 4 abilities.  Boost(1): Can use selected target word.		COST:0	SOURCEPAGE:p.171
+
+#Block: Cold Words
+Cold Snap			KEY:Cold Snap ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Cold.Druid0.Magus0.Wizard0									DESC:1d3 cold damage.																	COST:0	SOURCEPAGE:p.172
+Frost Fingers		KEY:Frost Fingers ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Cold.Druid2.Magus2.Wizard2									DESC:1d6/caster level cold damage, max 5; also staggers.											COST:0	SOURCEPAGE:p.172
+Ice Blast			KEY:Ice Blast ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Cold.Druid4.Magus4.Witch4.Wizard4								DESC:1d6/caster level cold damage, max 10; also entangles.											COST:0	SOURCEPAGE:p.172
+Winter's Wrath		KEY:Winter's Wrath ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Cold.Druid8.Wizard8										DESC:1d6/caster level cold damage, max 20; 1d4 Dex damage; also creates blizzard.							COST:0	SOURCEPAGE:p.172
+
+#Block: Command Words
+Friendship			KEY:Friendship ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Command.Witch1.Wizard1										DESC:Target humanoid treats caster as ally.													COST:0	SOURCEPAGE:p.172
+Simple Order		KEY:Simple Order ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Command.Cleric1.Witch1.Wizard1								DESC:Target must follow 1 of 5 simple commands.  Boost(3): Can use any target word.							COST:0	SOURCEPAGE:p.172
+Complex Order		KEY:Complex Order ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Command.Witch3.Wizard3										DESC:Target must follow caster's instructions.													COST:0	SOURCEPAGE:p.172
+Crush Will			KEY:Crush Will ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Command.Witch5.Wizard5										DESC:Target humanoid obeys mental commands of caster.												COST:0	SOURCEPAGE:p.172
+
+#Block: Concealing Words
+Fade				KEY:Fade ~ Prepared				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Concealing.Alchemist1.Magus1.Witch1.Wizard1						DESC:Short invisibility.  Boost: Attacks don't end invisibility.										COST:0	SOURCEPAGE:p.173
+Disappear			KEY:Disappear ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Concealing.Alchemist2.Magus2.Witch2.Wizard2						DESC:Invisibility.  Boost(2): Attacks don't end invisibility.										COST:0	SOURCEPAGE:p.173
+Unseen Shell		KEY:Unseen Shell ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Concealing.Witch4.Wizard4									DESC:Area invisibility.  Boost(2): Attacks don't end invisibility.									COST:0	SOURCEPAGE:p.173
+
+#Block: Death Words
+Undeath			KEY:Undeath ~ Prepared				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Death.Cleric2.Wizard3										DESC:Create skeletons or zombies.															COST:0	SOURCEPAGE:p.173
+Grave Bane			KEY:Grave Bane ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Death.Cleric4.Druid5.Paladin4								DESC:+4 sacred bonus on saves vs. death; cannot gain negative levels; auto stabilize.						COST:0	SOURCEPAGE:p.173
+Life Leech			KEY:Life Leech ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Death.Magus4.Witch4.Wizard4									DESC:1d4 temporary negative levels.  Boost(5): Permanent negative levels.								COST:0	SOURCEPAGE:p.174
+Slay				KEY:Slay ~ Prepared				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Death.Cleric6.Druid7.Witch6.Wizard6							DESC:Living target takes 10/caster level damage, max 150.											COST:0	SOURCEPAGE:p.174
+
+#Block: Destruction Words
+Damage			KEY:Damage ~ Prepared				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Destruction.Cleric3.Wizard2									DESC:Damage and break object.																COST:0	SOURCEPAGE:p.174
+Rumble			KEY:Rumble ~ Prepared				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Destruction.Cleric8.Druid8									DESC:Creates earthquake.																COST:0	SOURCEPAGE:p.174
+Catastrophe			KEY:Catastrophe ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Destruction.Cleric9.Druid9.Witch9								DESC:Creates thunderhailstorm.															COST:0	SOURCEPAGE:p.174
+
+#Block: Detection Words
+Sense Magic			KEY:Sense Magic ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Detection.Cleric0.Druid0.Magus0.Witch0.Wizard0						DESC:Detect magic auras.																COST:0	SOURCEPAGE:p.174
+Sense Alignment		KEY:Sense Alignment ~ Prepared		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Detection.Cleric1.Paladin1									DESC:Detect an alignment aura.  Boost(1): Detect 2 alignments.  Boost(2): Detect 4 alignments.					COST:0	SOURCEPAGE:p.175
+Sense Thoughts		KEY:Sense Thoughts ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Detection.Alchemist2.Witch2.Wizard2							DESC:Detect and read surface thoughts.														COST:0	SOURCEPAGE:p.175
+Sense Hidden		KEY:Sense Hidden ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Detection.Alchemist2.Cleric2.Witch2.Wizard2						DESC:See invisible things.  Boost(4): See through illusions, polymorphs, and effects that grant concealment.		COST:0	SOURCEPAGE:p.175
+
+#Block: Dispelling Words
+Suppress			KEY:Suppress ~ Prepared				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Dispelling.Cleric2.Druid2.Magus2.Paladin2.Witch2.Wizard2				DESC:Suppress chosen spell on willing target.  Boost(1): Can affect unwilling targets.						COST:0	SOURCEPAGE:p.175
+Resist Arcana		KEY:Resist Arcana ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Dispelling.Alchemist5.Cleric5.Wizard6							DESC:Gain SR 12+caster level.																COST:0	SOURCEPAGE:p.175
+Unmake			KEY:Unmake ~ Prepared				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Dispelling.Cleric5.Druid5.Magus6.Witch5.Wizard5					DESC:Unravel all magic effects on target.														COST:0	SOURCEPAGE:p.175
+Negation			KEY:Negation ~ Prepared				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Dispelling.Cleric8.Wizard6									DESC:Anti-magic field.																	COST:0	SOURCEPAGE:p.176
+
+#Block: Divination Words
+Beacon			KEY:Beacon ~ Prepared				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Divination.Druid0.Ranger1									DESC:Know direction and distance to fixed point.												COST:0	SOURCEPAGE:p.176
+Far Sight			KEY:Far Sight ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Divination.Cleric3.Druid3.Witch3.Wizard3							DESC:Scry.  Boost(2): No range limit; can place near known creature.									COST:0	SOURCEPAGE:p.176
+Locate			KEY:Locate ~ Prepared				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Divination.Cleric6.Druid6.Witch6								DESC:Find swiftest path to location or object.													COST:0	SOURCEPAGE:p.176
+
+#Block: Electricity Words
+Spark				KEY:Spark ~ Prepared				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Electricity.Druid0.Magus0.Witch0.Wizard0							DESC:1d4 electricity damage.																COST:0	SOURCEPAGE:p.176
+Shock Arc			KEY:Shock Arc ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Electricity.Magus1.Witch1.Wizard1								DESC:1d4/caster level electricity damage, max 5.												COST:0	SOURCEPAGE:p.176
+Lightning Blast		KEY:Lightning Blast ~ Prepared		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Electricity.Druid3.Magus3.Witch3.Wizard3							DESC:1d6/caster level electricity damage, max 10.												COST:0	SOURCEPAGE:p.176
+Ball Lightning		KEY:Ball Lightning ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Electricity.Druid5.Magus5.Witch6.Wizard5							DESC:1d8/caster level electricity damage, max 15, to target; half damage to any other targets.					COST:0	SOURCEPAGE:p.176
+Thunder Strike		KEY:Thunder Strike ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Electricity.Druid8.Witch9.Wizard8								DESC:1d8/caster level electricty damage, max 20; also deafens.										COST:0	SOURCEPAGE:p.177
+
+#Block: Fear Words
+Spook				KEY:Spook ~ Prepared				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Fear.Cleric1.Witch1.Wizard1									DESC:Target is frightened, up to 5 HD.														COST:0	SOURCEPAGE:p.177
+Terror			KEY:Terror ~ Prepared				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Fear.Witch4.Wizard4										DESC:Target is frightened, shaken if save made.													COST:0	SOURCEPAGE:p.177
+Horror			KEY:Horror ~ Prepared				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Fear.Witch7.Wizard7										DESC:Target takes 10/caster level damage.														COST:0	SOURCEPAGE:p.177
+
+#Block: Fire Words
+Flame Jet			KEY:Flame Jet ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Fire.Druid0.Magus0.Wizard0									DESC:1d4 fire damage.																	COST:0	SOURCEPAGE:p.177
+Burning Flash		KEY:Burning Flash ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Fire.Druid2.Magus1.Witch1.Wizard1								DESC:1d4/caster level fire damage, max 5  Boost(1): 1d6/caster level damage.								COST:0	SOURCEPAGE:p.177
+Fire Blast			KEY:Fire Blast ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Fire.Magus3.Wizard3										DESC:1d6/caster level fire damage, max 10.													COST:0	SOURCEPAGE:p.177
+Cinder Storm		KEY:Cinder Storm ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Fire.Cleric5.Druid5.Magus5.Wizard5								DESC:1d6/caster level fire damage, max 15.													COST:0	SOURCEPAGE:p.177
+Inferno			KEY:Inferno ~ Prepared				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Fire.Druid8.Wizard8										DESC:1d8/caster level fire damage, max 20.													COST:0	SOURCEPAGE:p.177
+True Fire			KEY:True Fire ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Fire.Druid9.Wizard9										DESC:1d6/caster level fire damage, max 20; no save.												COST:0	SOURCEPAGE:p.177
+
+#Block: Flight Words
+Glide				KEY:Glide ~ Prepared				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Flight.Alchemist1.Magus1.Witch1.Wizard1							DESC:Fall slowly.																		COST:0	SOURCEPAGE:p.178
+Float				KEY:Float ~ Prepared				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Flight.Alchemist2.Magus2.Witch2.Wizard2							DESC:Move up and down at 30'/round.															COST:0	SOURCEPAGE:p.178
+Soar				KEY:Soar ~ Prepared				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Flight.Alchemist3.Cleric4.Magus3.Witch3.Wizard3					DESC:Fly 60' (average).																	COST:0	SOURCEPAGE:p.178
+
+#Block: Force Words
+Force Bolt			KEY:Force Bolt ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Force.Magus2.Wizard2										DESC:1d4/caster level force damage, max 5.													COST:0	SOURCEPAGE:p.178
+Force Blast			KEY:Force Blast ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Force.Magus5.Wizard5										DESC:1d6/caster level force damage, max 10.													COST:0	SOURCEPAGE:p.178
+
+#Block: Gravity Words
+Lift				KEY:Lift ~ Prepared				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Gravity.Magus0.Wizard0										DESC:Move small nonmagical objects.															COST:0	SOURCEPAGE:p.178
+Unfetter			KEY:Unfetter ~ Prepared				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Gravity.Druid7.Wizard6										DESC:Up and down reversed for targets.														COST:0	SOURCEPAGE:p.179
+Repulse			KEY:Repulse ~ Prepared				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Gravity.Cleric9.Druid9.Witch8.Wizard8							DESC:Targets fall away from center of effect.  Boost:Designate caster level unaffected targets.					COST:0	SOURCEPAGE:p.179
+
+#Block: Healing Words
+Soothing Touch		KEY:Soothing Touch ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Healing.Cleric0.Druid0.Paladin1.Witch0							DESC:Stabilize dying target.  Boost(1): Cure shakened, sickened, or fatigued condition.						COST:0	SOURCEPAGE:p.179
+Lesser Cure			KEY:Lesser Cure ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Healing.Alchemist1.Cleric1.Druid1.Paladin1.Ranger2.Witch1				DESC:Cure 1d6+1/caster level damage, max 5.  Boost: 1d8 base curing.									COST:0	SOURCEPAGE:p.179
+Moderate Cure		KEY:Moderate Cure ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Healing.Alchemist2.Cleric2.Druid3.Paladin3.Ranger3.Witch2				DESC:Cure 2d6+1/caster level damage, max 10.  Boost: 2d8 base curing.									COST:0	SOURCEPAGE:p.179
+Greater Cure		KEY:Greater Cure ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Healing.Alchemist3.Cleric3.Druid4.Paladin4.Ranger4.Witch4				DESC:Cure 3d6+1/caster level damage, max 15.  Boost: 3d8 base curing.									COST:0	SOURCEPAGE:p.179
+Elder Cure			KEY:Elder Cure ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Healing.Alchemist4.Cleric4.Druid5.Witch5							DESC:Cure 4d6+1/caster level damage, max 20.  Boost: 4d8 base curing.									COST:0	SOURCEPAGE:p.179
+
+#Block: Illusion Words
+Echo				KEY:Echo ~ Prepared				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Illusion.Wizard0											DESC:Create sound.																	COST:0	SOURCEPAGE:p.180
+Glamering			KEY:Glamering ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Illusion.Wizard3											DESC:Create image.																	COST:0	SOURCEPAGE:p.180
+
+#Block: Illumination Words
+Radiance			KEY:Radiance ~ Prepared				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Illumination.Cleric1.Druid1.Magus1.Witch1.Wizard1					DESC:Create torch light.																COST:0	SOURCEPAGE:p.180
+Gloom				KEY:Gloom ~ Prepared				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Illumination.Cleric2.Magus2.Witch2.Wizard2						DESC:Create darkness.																	COST:0	SOURCEPAGE:p.180
+Sunshine			KEY:Sunshine ~ Prepared				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Illumination.Cleric3.Druid3.Paladin3.Wizard3						DESC:Create bright light.																COST:0	SOURCEPAGE:p.180
+
+#Block: Language Words
+Decipher			KEY:Decipher ~ Prepared				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Language.Alchemist1.Cleric0.Druid0.Magus0.Paladin1.Ranger1.Witch0.Wizard0	DESC:Read a language.																	COST:0	SOURCEPAGE:p.180
+Translate			KEY:Translate ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Language.Alchemist3.Cleric4.Wizard3							DESC:Read, write, speak, and understand one language.												COST:0	SOURCEPAGE:p.181
+Far Casting			KEY:Far Casting ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Language.Cleric5.Witch5.Wizard5								DESC:Communicate with far away target.														COST:0	SOURCEPAGE:p.181
+
+#Block: Life Words
+Purify			KEY:Purify ~ Prepared				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Life.Alchemist4.Cleric4.Druid4.Paladin4.Ranger4					DESC:End an affliction or remove negative levels.												COST:0	SOURCEPAGE:p.181
+Revive			KEY:Revive ~ Prepared				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Life.Cleric5.Druid5.Witch5									DESC:Restore life to the recently dead.														COST:0	SOURCEPAGE:p.181
+Life Touch			KEY:Life Touch ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Life.Cleric8.Witch8										DESC:Restore life to the dead.															COST:0	SOURCEPAGE:p.181
+
+#Block: Pain Words
+Cramp				KEY:Cramp ~ Prepared				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Pain.Cleric0.Witch0.Wizard0									DESC:Reduce speed of target.																COST:0	SOURCEPAGE:p.181
+Wrack				KEY:Wrack ~ Prepared				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Pain.Cleric1.Witch1.Wizard1									DESC:Target is sickened.																COST:0	SOURCEPAGE:p.182
+Torture			KEY:Torture ~ Prepared				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Pain.Witch3.Wizard3										DESC:Target is nauseated.																COST:0	SOURCEPAGE:p.182
+
+#Block: Power Words
+Blind				KEY:Blind ~ Prepared				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Power.Wizard7											DESC:Target is blinded.																	COST:0	SOURCEPAGE:p.182
+Stun				KEY:Stun ~ Prepared				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Power.Wizard8											DESC:Target is stunned.																	COST:0	SOURCEPAGE:p.182
+Kill				KEY:Kill ~ Prepared				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Power.Wizard9											DESC:Target is killed.																	COST:0	SOURCEPAGE:p.182
+
+#Block: Sonic  Words
+Discordant Note		KEY:Discordant Note ~ Prepared		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Sonic.Cleric2.Magus2										DESC:1d4/caster level sonic damage, max 5; also staggers.											COST:0	SOURCEPAGE:p.182
+Sound Blast			KEY:Sound Blast ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Sonic.Magus4.Wizard4										DESC:1d6/caster level sonic damage, max 10.													COST:0	SOURCEPAGE:p.182
+Destructive Vibration	KEY:Destructive Vibration ~ Prepared	CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Sonic.Wizard7											DESC:1d6/caster level sonic damage, max 15; also deafens.											COST:0	SOURCEPAGE:p.182
+
+#Block: Summoning Words
+Servitor I			KEY:Servitor I ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Summoning.Cleric1.Druid1.Ranger1.Witch1.Wizard1					DESC:Summon Monster/Nature's Ally I; summoned creature is target of other effect words.						COST:0	SOURCEPAGE:p.183
+Servitor II			KEY:Servitor II ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Summoning.Cleric2.Druid2.Ranger2.Witch2.Wizard2					DESC:Summon Monster/Nature's Ally II; summoned creature is target of other effect words.						COST:0	SOURCEPAGE:p.183
+Servitor III		KEY:Servitor III ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Summoning.Cleric3.Druid3.Ranger3.Witch3.Wizard3					DESC:Summon Monster/Nature's Ally III; summoned creature is target of other effect words.						COST:0	SOURCEPAGE:p.183
+Servitor IV			KEY:Servitor IV ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Summoning.Cleric4.Druid4.Ranger4.Witch4.Wizard4					DESC:Summon Monster/Nature's Ally IV; summoned creature is target of other effect words.						COST:0	SOURCEPAGE:p.183
+Servitor V			KEY:Servitor V ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Summoning.Cleric5.Druid5.Witch5.Wizard5							DESC:Summon Monster/Nature's Ally V; summoned creature is target of other effect words.						COST:0	SOURCEPAGE:p.184
+Servitor VI			KEY:Servitor VI ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Summoning.Cleric6.Druid6.Witch6.Wizard6							DESC:Summon Monster/Nature's Ally VI; summoned creature is target of other effect words.						COST:0	SOURCEPAGE:p.184
+Servitor VII		KEY:Servitor VII ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Summoning.Cleric7.Druid7.Witch7.Wizard7							DESC:Summon Monster/Nature's Ally VII; summoned creature is target of other effect words.						COST:0	SOURCEPAGE:p.184
+Servitor VIII		KEY:Servitor VIII ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Summoning.Cleric8.Druid8.Witch8.Wizard8							DESC:Summon Monster/Nature's Ally VIII; summoned creature is target of other effect words.					COST:0	SOURCEPAGE:p.184
+Servitor IX			KEY:Servitor IX ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Summoning.Cleric9.Druid9.Witch9.Wizard9							DESC:Summon Monster/Nature's Ally IX; summoned creature is target of other effect words.						COST:0	SOURCEPAGE:p.184
+
+#Block: Teleportation Words
+Dimensional Hop		KEY:Dimensional Hop ~ Prepared		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Teleportation.Magus3.Witch3.Wizard3							DESC:Teleport willing targets to location within range.											COST:0	SOURCEPAGE:p.184
+Dimensional Jump		KEY:Dimensional Jump ~ Prepared		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Teleportation.Magus5.Witch5.Wizard5							DESC:Teleport caster and willing targets within same plane.											COST:0	SOURCEPAGE:p.184
+Dimensional Shift		KEY:Dimensional Shift ~ Prepared		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Teleportation.Cleric5.Witch7.Wizard7							DESC:Teleport caster and willing targets to another plane.											COST:0	SOURCEPAGE:p.184
+Dimensional Gate		KEY:Dimensional Gate ~ Prepared		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Teleportation.Cleric8.Wizard9								DESC:Create two-way gate to another plane.													COST:0	SOURCEPAGE:p.185
+
+#Block: Time Words
+Fleet				KEY:Fleet ~ Prepared				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Time.Druid1.Ranger1										DESC:Increase speed by 10' for hours.														COST:0	SOURCEPAGE:p.185
+Dash				KEY:Dash ~ Prepared				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Time.Alchemist1.Magus1.Wizard1								DESC:Increase speed by 30' for minutes.														COST:0	SOURCEPAGE:p.185
+Accelerate			KEY:Accelerate ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Time.Alchemist2.Magus2.Wizard2								DESC:Gain extra move action.  Boost: Can make an additional attack on a full attack instead of extra move action.		COST:0	SOURCEPAGE:p.185
+Decelerate			KEY:Decelerate ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Time.Magus2.Wizard2										DESC:Target is staggered; new save every round.  Boost: No new save every round.							COST:0	SOURCEPAGE:p.185
+Predict			KEY:Predict ~ Prepared				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Time.Cleric2.Witch2										DESC:Target predicts weal or woe of future action.												COST:0	SOURCEPAGE:p.185
+Borrow Future		KEY:Borrow Future ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Time.Alchemist4.Magus4.Wizard4								DESC:Target takes a round of actions now, and loses next round's actions.  Boost: Target is only staggered next round.	COST:0	SOURCEPAGE:p.185
+Control Time		KEY:Control Time ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Time.Wizard9											DESC:Time is stopped.																	COST:0	SOURCEPAGE:p.186
+
+#Block: Wall Words
+Wind Wall			KEY:Wind Wall ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Wall.Cleric3.Druid3.Magus3.Ranger3.Wizard3						DESC:Blocks projectiles and gases; may block creatures.											COST:0	SOURCEPAGE:p.186
+Fire Wall			KEY:Fire Wall ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Wall.Druid4.Magus4.Wizard4									DESC:2d6+1/caster level fire damage, max +20.													COST:0	SOURCEPAGE:p.186
+Ice Wall			KEY:Ice Wall ~ Prepared				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Wall.Druid4.Magus4.Wizard4									DESC:Creates solid opaque wall of ice.														COST:0	SOURCEPAGE:p.186
+Stone Wall			KEY:Stone Wall ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Wall.Cleric5.Druid6.Magus5.Wizard5								DESC:Creates wall of stone.																COST:0	SOURCEPAGE:p.186
+Blade Wall			KEY:Blade Wall ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Wall.Cleric6											DESC:1d6/caster level when touching or passing through wall.										COST:0	SOURCEPAGE:p.186
+
+#Block: Weather Words
+Fog Bank			KEY:Fog Bank ~ Prepared				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Weather.Cleric1.Druid1.Witch1.Wizard1							DESC:Blocks sight.  Boost: If used with burst target word, caster can move fog.							COST:0	SOURCEPAGE:p.186
+Wind Blast			KEY:Wind Blast ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Weather.Druid2.Wizard3										DESC:Creates blast of air.																COST:0	SOURCEPAGE:p.187
+Blizzard			KEY:Blizzard ~ Prepared				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Weather.Druid3.Magus3.Witch3.Wizard3							DESC:Create concealment and slippery ground.  Boost(1): 2d6 cold damage.								COST:0	SOURCEPAGE:p.187
+Storm Master		KEY:Storm Master ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Weather.Cleric7.Druid7.Witch7.Wizard7							DESC:Alters weather within a mile.  Boost: Change weather more quickly.									COST:0	SOURCEPAGE:p.187
+
+#Block: Wounding Words
+Bleeding Wounds		KEY:Bleeding Wounds ~ Prepared		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Wounding.Cleric0.Witch0.Wizard0								DESC:Dying creature takes 1 bleed damage each turn.  Boost(1): 1d3 bleed damage.							COST:0	SOURCEPAGE:p.187
+Lesser Wound		KEY:Lesser Wound ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Wounding.Cleric1.Witch1									DESC:Deal 1d6+1/caster level damage, max +5.  Boost: 1d8 base damage.									COST:0	SOURCEPAGE:p.187
+Moderate Wound		KEY:Moderate Wound ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Wounding.Cleric2.Witch2									DESC:Deal 2d6+1/caster level damage, max +10.  Boost: 2d8 base damage.									COST:0	SOURCEPAGE:p.187
+Greater Wound		KEY:Greater Wound ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Wounding.Cleric3.Witch3									DESC:Deal 3d6+1/caster level damage, max +15.  Boost: 3d8 base damage.									COST:0	SOURCEPAGE:p.188
+Elder Wound			KEY:Elder Wound ~ Prepared			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Wounding.Cleric4.Witch4									DESC:Deal 4d6+1/caster level damage, max +20.  Boost: 4d8 base damage.									COST:0	SOURCEPAGE:p.188
+
+
+###Block: Meta Words
+# Ability Name	Category of Ability	Type						Visible	Description											Source Page
+Boost			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.MetaLevel0			DESC:Activates boost of effect word.						SOURCEPAGE:p.188
+Careful		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.MetaLevel1			DESC:No somatic component.								SOURCEPAGE:p.188
+Distant		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.MetaLevel0			DESC:Increases range.									SOURCEPAGE:p.188
+Irresistible	CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.MetaLevel5			DESC:Target rolls save twice; add 2 levels to effect words.			SOURCEPAGE:p.188
+Lengthy		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.MetaLevel0			DESC:Doubles duration.									SOURCEPAGE:p.188
+Manifestation	CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.MetaLevel4			DESC:Change Will save to Fortitude save.						SOURCEPAGE:p.188
+Mind Warp		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.MetaLevel4			DESC:Change Fortitude save to Will save.						SOURCEPAGE:p.188
+Penetrating		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.MetaLevel5			DESC:Caster rolls to overcome SR twice; add 1 level to effect words.	SOURCEPAGE:p.188
+Quiet			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.MetaLevel1			DESC:No verbal component.								SOURCEPAGE:p.188
+Simple		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.MetaLevel1			DESC:No material component.								SOURCEPAGE:p.188
+
+
+#Block: Placeholder Meta Words for levels without meta words (to avoid warnings)
+Placeholder2	CATEGORY:Words of Power	TYPE:MetaLevel2				VISIBLE:NO
+Placeholder3	CATEGORY:Words of Power	TYPE:MetaLevel3				VISIBLE:NO
+Placeholder6	CATEGORY:Words of Power	TYPE:MetaLevel6				VISIBLE:NO
+Placeholder7	CATEGORY:Words of Power	TYPE:MetaLevel7				VISIBLE:NO
+Placeholder8	CATEGORY:Words of Power	TYPE:MetaLevel8				VISIBLE:NO
+Placeholder9	CATEGORY:Words of Power	TYPE:MetaLevel9				VISIBLE:NO
+
+
+###Block: Starter words for spellbook casters
+#Block: Alchemist
+# Ability Name			Category of Ability	Type			Visible
+Alchemist Starter Word 1	CATEGORY:Words of Power	TYPE:Alchemist1	VISIBLE:NO
+Alchemist Starter Word 2	CATEGORY:Words of Power	TYPE:Alchemist2	VISIBLE:NO
+Alchemist Starter Word 3	CATEGORY:Words of Power	TYPE:Alchemist3	VISIBLE:NO
+Alchemist Starter Word 4	CATEGORY:Words of Power	TYPE:Alchemist4	VISIBLE:NO
+Alchemist Starter Word 5	CATEGORY:Words of Power	TYPE:Alchemist5	VISIBLE:NO
+Alchemist Starter Word 6	CATEGORY:Words of Power	TYPE:Alchemist6	VISIBLE:NO
+
+#Block: Magus
+Magus Starter Word 0		CATEGORY:Words of Power	TYPE:Magus0		VISIBLE:NO
+Magus Starter Word 1		CATEGORY:Words of Power	TYPE:Magus1		VISIBLE:NO
+Magus Starter Word 2		CATEGORY:Words of Power	TYPE:Magus2		VISIBLE:NO
+Magus Starter Word 3		CATEGORY:Words of Power	TYPE:Magus3		VISIBLE:NO
+Magus Starter Word 4		CATEGORY:Words of Power	TYPE:Magus4		VISIBLE:NO
+Magus Starter Word 5		CATEGORY:Words of Power	TYPE:Magus5		VISIBLE:NO
+Magus Starter Word 6		CATEGORY:Words of Power	TYPE:Magus6		VISIBLE:NO
+
+#Block: Witch
+Witch Starter Word 0		CATEGORY:Words of Power	TYPE:Witch0		VISIBLE:NO
+Witch Starter Word 1		CATEGORY:Words of Power	TYPE:Witch1		VISIBLE:NO
+Witch Starter Word 2		CATEGORY:Words of Power	TYPE:Witch2		VISIBLE:NO
+Witch Starter Word 3		CATEGORY:Words of Power	TYPE:Witch3		VISIBLE:NO
+Witch Starter Word 4		CATEGORY:Words of Power	TYPE:Witch4		VISIBLE:NO
+Witch Starter Word 5		CATEGORY:Words of Power	TYPE:Witch5		VISIBLE:NO
+Witch Starter Word 6		CATEGORY:Words of Power	TYPE:Witch6		VISIBLE:NO
+Witch Starter Word 7		CATEGORY:Words of Power	TYPE:Witch7		VISIBLE:NO
+Witch Starter Word 8		CATEGORY:Words of Power	TYPE:Witch8		VISIBLE:NO
+Witch Starter Word 9		CATEGORY:Words of Power	TYPE:Witch9		VISIBLE:NO
+
+#Block: Wizard
+Wizard Starter Word 0		CATEGORY:Words of Power	TYPE:Wizard0	VISIBLE:NO
+Wizard Starter Word 1		CATEGORY:Words of Power	TYPE:Wizard1	VISIBLE:NO
+Wizard Starter Word 2		CATEGORY:Words of Power	TYPE:Wizard2	VISIBLE:NO
+Wizard Starter Word 3		CATEGORY:Words of Power	TYPE:Wizard3	VISIBLE:NO
+Wizard Starter Word 4		CATEGORY:Words of Power	TYPE:Wizard4	VISIBLE:NO
+Wizard Starter Word 5		CATEGORY:Words of Power	TYPE:Wizard5	VISIBLE:NO
+Wizard Starter Word 6		CATEGORY:Words of Power	TYPE:Wizard6	VISIBLE:NO
+Wizard Starter Word 7		CATEGORY:Words of Power	TYPE:Wizard7	VISIBLE:NO
+Wizard Starter Word 8		CATEGORY:Words of Power	TYPE:Wizard8	VISIBLE:NO
+Wizard Starter Word 9		CATEGORY:Words of Power	TYPE:Wizard9	VISIBLE:NO
+
+#
+# End
+#

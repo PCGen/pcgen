@@ -1,0 +1,10 @@
+# CVS $Revision: 21638 $ $Author: amaitland $ -- Wed Dec 10 01:48:21 2014 -- reformated by prettylst.pl v1.51 (build 25712)
+# Original Entry By: W. Robert 'Mynex' Reed III
+# Entry Date: August 2013
+SOURCELONG:Bestiary 3	SOURCESHORT:B3	SOURCEWEB:http://paizo.com/products/btpy8odu?Pathfinder-Roleplaying-Game-Bestiary-3	SOURCEDATE:2012-01
+
+# Equipment Name	Type			!PRECHARACTERTYPE
+Dagger (Chain)	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Binding Contract	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Shears		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Ranged Cannon	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC

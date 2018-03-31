@@ -1,0 +1,21 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Monster Focus: Skeletons	SOURCESHORT:MFS	SOURCEWEB:http://minotaurrpg.com/monster-focus/skeletons/	SOURCEDATE:2013-04
+# ORIGINAL ENTRY: Stefan Radermacher
+# ORIGINAL ENTRY DATE: 2013/05/23
+
+###Block: Decrepit Skeleton Impairment abilities
+# Ability Name			Unique Key								Category of Ability		Type								Visible		Description																					Stat bonus		Source Page
+No Missing Parts			KEY:Decrepit Skeleton ~ No Missing Part			CATEGORY:Special Ability	TYPE:SpecialQuality.DecrepitSkeletonImpairment	VISIBLE:DISPLAY	DESC:No missing parts.																						SOURCEPAGE:p.4
+Missing One Arm			KEY:Decrepit Skeleton ~ Missing One Arm			CATEGORY:Special Ability	TYPE:SpecialQuality.DecrepitSkeletonImpairment	VISIBLE:DISPLAY	DESC:Missing one arm. The skeleton only gets one claw attack or weapon attack and can't use two-handed weapons.							SOURCEPAGE:p.4
+Missing Numerous Bones		KEY:Decrepit Skeleton ~ Missing Numerous Bones		CATEGORY:Special Ability	TYPE:SpecialQuality.DecrepitSkeletonImpairment	VISIBLE:DISPLAY	DESC:Missing a number of bones all over its body. It loses DR 5/bludgeoning or slashing.											SOURCEPAGE:p.4
+Missing One or Both Legs	KEY:Decrepit Skeleton ~ Missing One or Both Legs	CATEGORY:Special Ability	TYPE:SpecialQuality.DecrepitSkeletonImpairment	VISIBLE:DISPLAY	DESC:Missing one or both legs. It takes a -4 penalty to Dexterity and its speed is reduced to 5 feet. It cannot take a 5-foot step.	BONUS:STAT|DEX|-4	SOURCEPAGE:p.4
+
+###Block: Skeletal Lord abilities
+# Ability Name	Unique Key						Category of Ability		Type						Define				Description																																																																																																				Modify VAR						Source Page
+Command Skeleton	KEY:Command Skeleton ~ Skeletal Lord	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural						DESC:As a standard action, a skeletal lord can command any unintelligent skeleton with 3 Hit Dice or less within 30 feet. These skeletons do not receive a saving throw to resist this control. This ability cannot be used to gain control of a skeleton under the control of another creature. A skeletal lord can only have a number of Hit Dice of undead under its control equal to four times the skeletal lord's total Hit Dice. If the skeletal lord is controlled by another creature, any undead under the skeletal lord's control do not count toward the limit of the creature controlling the skeletal lord.								SOURCEPAGE:p.5
+Detonate Minion	KEY:Detonate Minion ~ Skeletal Lord		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	DEFINE:SacrificeMinionDC|0	DESC:As a standard action, a skeletal lord can cause one skeleton under its control to explode. This destroys the skeleton (no saving throw allowed). Any creature within 10 feet of the exploding skeleton takes 1d6 points of piercing damage per Hit Die of the exploding skeleton. A Reflex save halves this damage (DC %1).|SacrificeMinionDC																																													BONUS:VAR|SacrificeMinionDC|10+(HD/2)+CHA	SOURCEPAGE:p.5
+Sacrifice Minion	KEY:Sacrifice Minion ~ Skeletal Lord	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural						DESC:As an immediate action, whenever a skeletal lord takes damage from channel energy or a cure spell, it can redirect this damage to any one skeleton under its control within 30 feet. If that skeleton is also within the range of the effect it takes this damage twice, although it can attempt a saving throw as normal.																																																							SOURCEPAGE:p.5
+
+#
+# End
+#

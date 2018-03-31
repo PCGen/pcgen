@@ -1,0 +1,109 @@
+Workarounds added for:
+Arcanist: Spell Books. Arcanists have spell books that define the "known spells". The then memorize 'x' number of spells, but can cast 'y' number of spells.
+Brawler: Brawler's Flurry damage
+Warpriest: Weapon Proficiency. Warpriests should get Improved Unarmed Strike as a bonus feat if their deity has unarmed strike as a favored weapon
+Warpriest: Bonus Feats. Feats taken as warpriest bonus feats have prerequisites different from feats taken as regular feats
+
+Workarounds needed for:
+Arcanist: Display of number of spells/day
+Brawler: Brawler's Flurry attack bonus
+
+Unimplemented:
+Skald rage powers should be limited to only those powers that DO NOT require a standard action or rounds of rage to activate
+Swashbuckler Weapon Training: Supposed to grant the benefits of Improved Critical to all light and one handed, melee piercing weapons.
+
+Incomplete or unimplemented Hunter Archetype Abilities
+	Divine Hunter ~ Domain: If the hunter selects the Animal domain, the Hunter should not gain a second animal companion. Instead the existing animal companion gains 2 abilitiy increases! Also 1st domain spells are added to known spells at 3rd level, 2nd level domain spells are added at 6th level, etc until 6th level domain spells added to known spells at 18th level.
+	Divine Hunter ~ Otherworldly Companion
+	Packmaster ~ Pack Bond
+	Packmaster ~ Pack Focus
+	Packmaster ~ Second Pack Focus
+	Primal Companion Hunter ~ Primal Transformation
+	Primal Companion Hunter ~ Primal Surge
+	Primal Companion Hunter ~ Primal Master
+	Verminous Hunter ~ Vermin Companion
+
+Barbarian Rage Powers on page 80
+
+Ability: Earth Blessing ~ Armor of Earth should have BONUS to DR, but not stack with any other DR.
+
+Ability: Glory Blessing ~ Demoralizing Glory "ranks in Intimidate" instead of "warpriest level"? So recalculate the DC by Intimidate skill, subtract ranks and any bonus due to ranks and recalcuate using level in place of ranks
+
+Feat: Weapon of the Chosen needs PRExxx to require Weapon Focus (DEITYWEAPON)
+
+COVERAGE TRACKING MAP (status = 0-Not started, 1-Started, 2-Entered, *-Bug, 3-Checked)
+
+3	Chapter 1 - Classes
+3	- Arcanist
+3,3,3	- - Alignment, Hit Die, Starting Wealth
+3	- - Class Skills
+2	- - Class Features
+3	- - - Weapon and armor proficiencies
+3	- - - Other
+3	- Bloodrager
+3,3,3	- - Alignment, Hit Die, Starting Wealth
+3	- - Class Skills
+3	- - Class Features
+3	- - - Weapon and armor proficiencies
+3	- - - Other
+3	- - Bloodrager Bloodlines
+3	- - Bloodrager Spells
+3	- Brawler
+3,3,3	- - Alignment, Hit Die, Starting Wealth
+3	- - Class Skills
+3	- - Class Features
+3	- - - Weapon and armor proficiencies
+3	- Hunter
+3,3,3	- - Alignment, Hit Die, Starting Wealth
+3	- - Class Skills
+3	- - Class Features
+3	- - - Weapon and armor proficiencies
+3	- Investigator
+3,3,3	- - Alignment, Hit Die, Starting Wealth
+3	- - Class Skills
+3	- - Class Features
+3	- - - Weapon and armor proficiencies
+3	- Shaman
+3,3,3	- - Alignment, Hit Die, Starting Wealth
+3	- - Class Skills
+3	- - Class Features
+3	- - - Weapon and armor proficiencies
+3	- - Spirits
+3	- - Spirit Animal
+3	- - Shaman Spells
+3	- Skald
+3,3,3	- - Alignment, Hit Die, Starting Wealth
+3	- - Class Skills
+3	- - Class Features
+3	- - - Weapon and armor proficiencies
+3	- Slayer
+3,3,3	- - Alignment, Hit Die, Starting Wealth
+3	- - Class Skills
+3	- - Class Features
+3	- - - Weapon and armor proficiencies
+3	- Swashbuckler
+3,3,3	- - Alignment, Hit Die, Starting Wealth
+3	- - Class Skills
+3	- - Class Features
+3	- - - Weapon and armor proficiencies
+3	- Warpriest
+3,3,3	- - Alignment, Hit Die, Starting Wealth
+3	- - Class Skills
+3	- - Class Features
+3	- - - Weapon and armor proficiencies
+3	- - Ex-Warpriest
+3	- - Blessings
+2	- Racial Favored Class Options
+3	- - Dwarves
+3	- - Elves
+3	- - Gnomes
+3	- - Half-Elves
+3	- - Halflings
+3	- - Half-Orcs
+2	- - Humans
+2	Chapter 2 - Archetypes and Class options
+3	Chapter 3 - Feats
+3	Chapter 4 - Spells
+3	Chapter 5 - Gear and Magic Items
+3	Chapter 6 - Designing Classes
+

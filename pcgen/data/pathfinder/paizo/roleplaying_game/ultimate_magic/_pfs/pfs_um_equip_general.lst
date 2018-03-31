@@ -1,0 +1,24 @@
+# CVS $Revision: $ $Author: $ -- Wed Dec 10 01:48:21 2014 -- reformated by prettylst.pl v1.51 (build 25712)
+SOURCELONG:Ultimate Magic	SOURCESHORT:UM	SOURCEWEB:http://paizo.com/pathfinderRPG/v5748btpy8g7s	SOURCEDATE:2011-05
+# ORIGINAL ENTRY: Douglas Limmer
+# ORIGINAL ENTRY DATE: 20 March 2012
+
+# Other: No content from Chapter 2 is legal for play except new familiars;
+# Equipment Name				Type			!PRECHARACTERTYPE
+Book of Harms				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Lab Journal of Constance Inflix	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Book of the Grave				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Grimoire of Glittering Eyes		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Tome of the Transmuter			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Journeyman Book of Rul Thaven		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Journal of the Beast Within		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Arctic Call					TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Insights of Far-Seeing Taernis	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Quest Eternal				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Guardian Grimoire				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Mysteries of Shadow			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Master Books of Rul Thaven		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Manual of Binding				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Library of the Dancer of Skins	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+The Formulae of Master Gebr		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Mastery of Word and Thought		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC

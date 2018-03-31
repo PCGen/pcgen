@@ -1,0 +1,39 @@
+# CVS $Revision: 9628 $ $Author: zaister $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Faiths of Purity	SOURCESHORT:FOP	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderCompanion/v5748btpy8j60	SOURCEDATE:2011-04
+# Original Entry by:Stefan Radermacher
+
+###Block: New Feats
+# Feat Name			Type			Required Ability									Required Class			Required Feat							Required Skill					Req. Known Spell			Required Casting Type		PRETOTALAB		Define			Description																Modify VAR																Source Page
+# Ability Name		Category of Ability	Type			Required Ability																	Multiple Requirements									Required Skill					Req. Known Spell			Required Casting Type		PRETOTALAB		Define			Description																Modify VAR																Source Page
+Drunken Brawler		CATEGORY:FEAT		TYPE:Combat		PREABILITY:1,CATEGORY=FEAT,Endurance																																																	DESC:You have learned how to fight effectively while drunk.																									SOURCEPAGE:p.24
+Butterfly's Sting		CATEGORY:FEAT		TYPE:Critical	PREABILITY:1,CATEGORY=FEAT,Combat Expertise																																																DESC:You can forgo a critical hit in order to pass it on to an ally.																							SOURCEPAGE:p.24
+Divination Guide		CATEGORY:FEAT		TYPE:General																				PREMULT:1,[PRECLASS:1,SPELLCASTER=3],[PREVARGTEQ:CasterLevel_Highest,3]								PRESPELL:1,Augury,Divination													DESC:Consulting the agents of your deity, you gain more guidance than most would.																					SOURCEPAGE:p.24
+Bullseye Shot		CATEGORY:FEAT		TYPE:Combat		PREABILITY:2,CATEGORY=FEAT,Point-Blank Shot,Precise Shot																																							PRETOTALAB:5					DESC:You slow your breath, calm yourself, and hit the bullseye, just as you were trained to.																			SOURCEPAGE:p.24
+Nimble Natural Summons	CATEGORY:FEAT		TYPE:General	PREABILITY:2,CATEGORY=FEAT,Augment Summoning,Spell Focus (Conjuration)								PREMULT:1,[PRECLASS:1,SPELLCASTER=6],[PREVARGTEQ:CasterLevel_Highest,6]																									DESC:Your summoned natural allies ignore difficult terrain in undergrowth.																						SOURCEPAGE:p.24
+Charge of the Righteous	CATEGORY:FEAT		TYPE:Combat																																																		PRETOTALAB:1					DESC:You charge undead and fiends with confidence in your righteous cause.																						SOURCEPAGE:p.24
+Protector's Strike	CATEGORY:FEAT		TYPE:General	PREABILITY:1,CATEGORY=Special Ability,Smite Evil																																								PRETOTALAB:5					DESC:When you smite evil, your divine power protects a creature within line of sight.																				SOURCEPAGE:p.25
+Bestow Hope			CATEGORY:FEAT		TYPE:General	PREABILITY:1,CATEGORY=Special Ability,Channel Positive Energy	PREABILITY:1,CATEGORY=FEAT,Improved Channel																																					DESC:Upon healing a creature with positive energy, you also give it hope.																						SOURCEPAGE:p.25
+Glorious Heat		CATEGORY:FEAT		TYPE:General																				PREMULT:1,[PRECLASS:1,SPELLCASTER=5],[PREVARGTEQ:CasterLevel_Highest,5]													PRESPELLCAST:TYPE=Divine								DESC:When you cast divine fire spells, their heat empowers nearby allies.																						SOURCEPAGE:p.25
+Spear Dancer		CATEGORY:FEAT		TYPE:General	PREABILITY:1,CATEGORY=FEAT,Weapon Focus (TYPE=TwoHanded.Reach)																					PRESKILL:1,TYPE.Perform=4																				DESC:You incorporate a two-handed reach weapon into a dizzying martial dance.																						SOURCEPAGE:p.25
+Stone Read			CATEGORY:FEAT		TYPE:General																																PRESKILL:1,Knowledge (Dungeoneering)=4														DEFINE:StoneReadBonus|0	DESC:Even the faint movement and vibrations of stone can alert you to trouble.				BONUS:VAR|StoneReadBonus|2	BONUS:VAR|StoneReadBonus|2|PRESKILL:1,Knowledge (Dungeoneering)=1,10=1	SOURCEPAGE:p.25
+Undermining Exploit	CATEGORY:FEAT		TYPE:General																																PRESKILL:1,Knowledge (Dungeoneering)=4																		DESC:Your familiarity with earth and stone gives you a distinct advantage on rocky battlefields.																		SOURCEPAGE:p.25
+
+###Block: Feat benefits
+# Feat Name				Benefits
+# Ability Name					Benefits
+CATEGORY=FEAT|Drunken Brawler.MOD		BENEFIT:When you drink a tankard of ale or strong alcohol, you take a -2 penalty on Reflex saving throws, but gain a number of temporary hit points equal to your level, and gain a +2 alchemical bonus on Fortitude and Will saving throws. These bonuses lasts an hour or until the temporary hit points gained by this effect are spent, whichever occurs first. The penalties last for a full hour.
+CATEGORY=FEAT|Butterfly's Sting.MOD		BENEFIT:When you confirm a critical hit against a creature, you can choose to forgo the effect of the critical hit and grant a critical hit to the next ally who hits the creature with a melee attack before the start of your next turn. Your attack only deals normal damage, and the next ally automatically confirms the hit as a critical.
+CATEGORY=FEAT|Divination Guide.MOD		BENEFIT:Whenever you cast augury or divination, you receive further guidance by your deity's agents. You gain a +1 sacred bonus on all saving throws for 10 minutes per your caster level in the class you used to cast the augury or divination spell.
+CATEGORY=FEAT|Bullseye Shot.MOD		BENEFIT:You can spend a move action to steady your shot. When you do, you gain a +4 bonus on the next ranged attack roll you make before the end of your turn.
+CATEGORY=FEAT|Nimble Natural Summons.MOD	BENEFIT:Creatures you summon with summon nature's ally can move through any sort of undergrowth (such as natural thorns, briars, and similar terrain) at their normal speeds without taking damage or suffering other impairment. Thorns, briars, and undergrowth areas that have been magically manipulated to impede motion, however, still affect the summoned creatures.
+CATEGORY=FEAT|Charge of the Righteous.MOD	BENEFIT:When you charge an undead creature or an evil outsider, you do not take the -2 penalty for charging.
+CATEGORY=FEAT|Protector's Strike.MOD	BENEFIT:When you choose the target of your smite evil ability, you also choose one creature other than you within line of sight. While your smite is in effect, the additional creature you chose gains a deflection bonus to AC equal to your Charisma modifier against attacks made by the target of the smite. This bonus ends when the smite ends. You do not gain the deflection bonus to AC typical for the smite evil class feature.
+CATEGORY=FEAT|Bestow Hope.MOD			BENEFIT:When you heal a creature by channeling positive energy, you also relieve its fear. If a creature you heal is shaken, that condition ends. If the creature is frightened, it becomes shaken instead. If the creature is panicked, it becomes frightened instead.
+CATEGORY=FEAT|Glorious Heat.MOD		BENEFIT:When you cast a divine spell with the fire descriptor, choose a single ally within 30 feet that you can see. That ally heals half your level in hit points, and gains a +1 morale bonus on attack rolls until the end of its next turn.
+CATEGORY=FEAT|Spear Dancer.MOD		BENEFIT:Each time you hit a creature with a two-handed reach weapon that you have Weapon Focus in, the creature is dazzled for 1 round.
+CATEGORY=FEAT|Stone Read.MOD			BENEFIT:While within a primarily underground or mountainous environment, you gain a +%1 bonus on Perception checks.|StoneReadBonus
+CATEGORY=FEAT|Undermining Exploit.MOD	BENEFIT:You gain a +4 insight bonus on combat maneuvers against opponents that are located in rocky, difficult terrain.
+
+#
+# End
+#

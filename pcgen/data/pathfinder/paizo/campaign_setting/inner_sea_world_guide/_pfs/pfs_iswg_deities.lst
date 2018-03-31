@@ -1,0 +1,91 @@
+# CVS $Revision: $ $Author: $ -- Wed Dec 10 01:48:21 2014 -- reformated by prettylst.pl v1.51 (build 25712)
+SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8ief	SOURCEDATE:2011-03
+# Original Entry by: Stefan Radermacher
+
+
+###Block: Other Deities
+# Deity Name	Type
+Achaekek.MOD	TYPE:PFSLegal
+Apsu.MOD		TYPE:PFSLegal
+Besmara.MOD		TYPE:PFSLegal
+Dahak.MOD		TYPE:PFSLegal
+Ghlaunder.MOD	TYPE:PFSLegal
+Groetus.MOD		TYPE:PFSLegal
+Gyronna.MOD		TYPE:PFSLegal
+Hanspur.MOD		TYPE:PFSLegal
+Kurgess.MOD		TYPE:PFSLegal
+Milani.MOD		TYPE:PFSLegal
+Sivanah.MOD		TYPE:PFSLegal
+Zyphus.MOD		TYPE:PFSLegal
+
+###Block: Archdevils
+# Deity Name		Type
+Baalzebul.MOD		TYPE:PFSLegal
+Barbatos.MOD		TYPE:PFSLegal
+Belial.MOD			TYPE:PFSLegal
+Dispater.MOD		TYPE:PFSLegal
+Geryon.MOD			TYPE:PFSLegal
+Mammon.MOD			TYPE:PFSLegal
+Mephistopheles.MOD	TYPE:PFSLegal
+Moloch.MOD			TYPE:PFSLegal
+
+###Block: Demon Lords
+# Deity Name	Type
+Abraxas.MOD		TYPE:PFSLegal
+Angazhan.MOD	TYPE:PFSLegal
+Baphomet.MOD	TYPE:PFSLegal
+Cyth-V'sug.MOD	TYPE:PFSLegal
+Dagon.MOD		TYPE:PFSLegal
+Deskari.MOD		TYPE:PFSLegal
+Gogunta.MOD		TYPE:PFSLegal
+Kostchtchie.MOD	TYPE:PFSLegal
+Nocticula.MOD	TYPE:PFSLegal
+Orcus.MOD		TYPE:PFSLegal
+Pazuzu.MOD		TYPE:PFSLegal
+Shax.MOD		TYPE:PFSLegal
+Socothbenoth.MOD	TYPE:PFSLegal
+Zura.MOD		TYPE:PFSLegal
+
+###Block: Eldest
+# Deity Name		Type
+Count Ranalc.MOD		TYPE:PFSLegal
+The Green Mother.MOD	TYPE:PFSLegal
+Imbrex.MOD			TYPE:PFSLegal
+The Lantern King.MOD	TYPE:PFSLegal
+The Lost Prince.MOD	TYPE:PFSLegal
+Maghd.MOD			TYPE:PFSLegal
+Ng.MOD			TYPE:PFSLegal
+Ragadahn.MOD		TYPE:PFSLegal
+Shyka.MOD			TYPE:PFSLegal
+
+###Block: Elemental Lords
+# Deity Name	Type
+Ayrzul.MOD		TYPE:PFSLegal
+Hshurha.MOD		TYPE:PFSLegal
+Kelizandri.MOD	TYPE:PFSLegal
+Ymeri.MOD		TYPE:PFSLegal
+
+###Block: Empyreal Lords
+# Deity Name	Type
+Andoletta.MOD	TYPE:PFSLegal
+Arshea.MOD		TYPE:PFSLegal
+Korada.MOD		TYPE:PFSLegal
+Ragathiel.MOD	TYPE:PFSLegal
+Sinashakti.MOD	TYPE:PFSLegal
+Valani.MOD		TYPE:PFSLegal
+
+###Block: Horsemen
+# Deity Name	Type
+Apollyon.MOD	TYPE:PFSLegal
+Charon.MOD		TYPE:PFSLegal
+Szuriel.MOD		TYPE:PFSLegal
+Trelmarixian.MOD	TYPE:PFSLegal
+
+###Block: Fallen, False, and Forgotten Gods
+# Deity Name		Type
+Aroden.MOD			TYPE:PFSLegal
+Great Old Ones.MOD	TYPE:PFSLegal
+Lissala.MOD			TYPE:PFSLegal
+The Peacock Spirit.MOD	TYPE:PFSLegal
+Razmir.MOD			TYPE:PFSLegal
+Ydersius.MOD		TYPE:PFSLegal

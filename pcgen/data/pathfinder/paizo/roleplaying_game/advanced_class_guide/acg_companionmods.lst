@@ -1,0 +1,108 @@
+# CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
+
+SOURCELONG:Advanced Class Guide	SOURCESHORT:ACG	SOURCEWEB:http://paizo.com/products/btpy92zi	SOURCEDATE:2014-08
+# Original Entry by: Mark Means and Douglas Limmer
+
+# COMMENT: Can't seem to get mastervar to work in 6.04
+#      Wrong number of arguments error when companion loaded
+
+# Class of the Master			Type				Ability																		Bonus Ability Pool				Modify VAR
+FOLLOWER:HunterAnimalCompanionLVL=1	TYPE:Animal Companion	ABILITY:FEAT|AUTOMATIC|Outflank|PREABILITY:1,CATEGORY=Special Ability,Hunter Precise Companion Feat ~ Outflank	DEFINE:HunterSkirmisherAnimalTrick|0	BONUS:VAR|HunterSkirmisherAnimalTrick|1	BONUS:VAR|HunterAnimalFocusLVL|mastervar("HunterAnimalFocusLVL")
+#	BONUS:VAR|BonusTricks|mastervar("HunterBonusTricks")
+#	BONUS:ABILITYPOOL|Hunter Animal Focus|mastervar("HunterAnimalFocusACPool")
+
+FOLLOWER:HunterBonusTricks=1		TYPE:Animal Companion																											BONUS:VAR|BonusTricks|1
+FOLLOWER:HunterBonusTricks=2		TYPE:Animal Companion																											BONUS:VAR|BonusTricks|1
+FOLLOWER:HunterBonusTricks=3		TYPE:Animal Companion																											BONUS:VAR|BonusTricks|1
+
+FOLLOWER:HunterAnimalFocusACPool=1	TYPE:Animal Companion																				BONUS:ABILITYPOOL|Hunter Animal Focus|1
+FOLLOWER:HunterAnimalFocusACPool=2	TYPE:Animal Companion																				BONUS:ABILITYPOOL|Hunter Animal Focus|1
+
+###Block: Spirit Animal Abilities
+# Class of the Master				Type			Ability
+FOLLOWER:SpiritAnimalLVL=3			TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Spirit Animal ~ Deliver Touch Spells
+FOLLOWER:ShamanBattleSpiritAnimal=1		TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Spirit Animal ~ Battle
+FOLLOWER:ShamanBonesSpiritAnimal=1		TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Spirit Animal ~ Bones
+FOLLOWER:ShamanFlameSpiritAnimal=1		TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Spirit Animal ~ Flame
+FOLLOWER:ShamanHeavensSpiritAnimal=1	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Spirit Animal ~ Heavens
+FOLLOWER:ShamanLifeSpiritAnimal=1		TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Spirit Animal ~ Life
+FOLLOWER:ShamanLoreSpiritAnimal=1		TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Spirit Animal ~ Lore
+FOLLOWER:ShamanNatureSpiritAnimal=1		TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Spirit Animal ~ Nature
+FOLLOWER:ShamanStoneSpiritAnimal=1		TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Spirit Animal ~ Stone
+FOLLOWER:ShamanWavesSpiritAnimal=1		TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Spirit Animal ~ Waves
+FOLLOWER:ShamanWindSpiritAnimal=1		TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Spirit Animal ~ Wind
+
+###Block: Racial Spirit Animal adjustments
+# Class of the Master			Type			Combat bonus
+FOLLOWER:DwarfShamanFavClassBonus=1	TYPE:Familiar	BONUS:COMBAT|AC|DwarfShamanFavClassBonus/4|TYPE=NaturalArmor.STACK
+
+###Block: Racial Hunter Animal Companion adjustments
+# Class of the Master				Type				Damage Reduction		Define					Bonus to HP			Add to base move						Save bonus										Modify VAR
+FOLLOWER:GnomeHunterFavClassBonus=1		TYPE:Animal Companion	DR:GnomeHunterDR/magic	DEFINE:GnomeHunterDR|0																										BONUS:VAR|GnomeHunterDR|1
+FOLLOWER:GnomeHunterFavClassBonus=3		TYPE:Animal Companion																																		BONUS:VAR|GnomeHunterDR|1
+FOLLOWER:GnomeHunterFavClassBonus=5		TYPE:Animal Companion																																		BONUS:VAR|GnomeHunterDR|1
+FOLLOWER:GnomeHunterFavClassBonus=7		TYPE:Animal Companion																																		BONUS:VAR|GnomeHunterDR|1
+FOLLOWER:GnomeHunterFavClassBonus=9		TYPE:Animal Companion																																		BONUS:VAR|GnomeHunterDR|1
+FOLLOWER:GnomeHunterFavClassBonus=11	TYPE:Animal Companion																																		BONUS:VAR|GnomeHunterDR|1
+FOLLOWER:GnomeHunterFavClassBonus=13	TYPE:Animal Companion																																		BONUS:VAR|GnomeHunterDR|1
+FOLLOWER:GnomeHunterFavClassBonus=15	TYPE:Animal Companion																																		BONUS:VAR|GnomeHunterDR|1
+FOLLOWER:GnomeHunterFavClassBonus=17	TYPE:Animal Companion																																		BONUS:VAR|GnomeHunterDR|1
+FOLLOWER:GnomeHunterFavClassBonus=19	TYPE:Animal Companion																																		BONUS:VAR|GnomeHunterDR|1
+#	BONUS:VAR|GnomeHunterDR|min(10,1+floor((mastervar("GnomeHunterFavClassBonus")-1)/2))
+
+FOLLOWER:HalfelfHunterFavClassBonus=1	TYPE:Animal Companion					DEFINE:HalfElfHunterMoveBonus|0					BONUS:MOVEADD|TYPE=Walk|HalfElfHunterMoveBonus
+FOLLOWER:HalfelfHunterFavClassBonus=5	TYPE:Animal Companion																																		BONUS:VAR|HalfElfHunterMoveBonus|5
+FOLLOWER:HalfelfHunterFavClassBonus=10	TYPE:Animal Companion																																		BONUS:VAR|HalfElfHunterMoveBonus|5
+FOLLOWER:HalfelfHunterFavClassBonus=15	TYPE:Animal Companion																																		BONUS:VAR|HalfElfHunterMoveBonus|5
+FOLLOWER:HalfelfHunterFavClassBonus=20	TYPE:Animal Companion																																		BONUS:VAR|HalfElfHunterMoveBonus|5
+#	BONUS:VAR|HalfElfHunterMoveBonus|5*floor(mastervar("HalfelfHunterFavClassBonus")/5)
+
+FOLLOWER:HalflingHunterFavClassBonus=4	TYPE:Animal Companion					DEFINE:HalflingHunterSaveBonus|0													BONUS:SAVE|ALL|HalflingHunterSaveBonus+Global_LuckBonus|TYPE=Luck	BONUS:VAR|HalflingHunterSaveBonus|1
+FOLLOWER:HalflingHunterFavClassBonus=8	TYPE:Animal Companion																																		BONUS:VAR|HalflingHunterSaveBonus|1
+FOLLOWER:HalflingHunterFavClassBonus=12	TYPE:Animal Companion																																		BONUS:VAR|HalflingHunterSaveBonus|1
+FOLLOWER:HalflingHunterFavClassBonus=16	TYPE:Animal Companion																																		BONUS:VAR|HalflingHunterSaveBonus|1
+FOLLOWER:HalflingHunterFavClassBonus=20	TYPE:Animal Companion																																		BONUS:VAR|HalflingHunterSaveBonus|1
+#	BONUS:VAR|HalflingHunterSaveBonus|floor(mastervar("HalflingHunterFavClassBonus")/4)
+
+FOLLOWER:HalfOrcHunterFavClassBonus=1	TYPE:Animal Companion											BONUS:HP|CURRENTMAX|1
+FOLLOWER:HalfOrcHunterFavClassBonus=2	TYPE:Animal Companion											BONUS:HP|CURRENTMAX|1
+FOLLOWER:HalfOrcHunterFavClassBonus=3	TYPE:Animal Companion											BONUS:HP|CURRENTMAX|1
+FOLLOWER:HalfOrcHunterFavClassBonus=4	TYPE:Animal Companion											BONUS:HP|CURRENTMAX|1
+FOLLOWER:HalfOrcHunterFavClassBonus=5	TYPE:Animal Companion											BONUS:HP|CURRENTMAX|1
+FOLLOWER:HalfOrcHunterFavClassBonus=6	TYPE:Animal Companion											BONUS:HP|CURRENTMAX|1
+FOLLOWER:HalfOrcHunterFavClassBonus=7	TYPE:Animal Companion											BONUS:HP|CURRENTMAX|1
+FOLLOWER:HalfOrcHunterFavClassBonus=8	TYPE:Animal Companion											BONUS:HP|CURRENTMAX|1
+FOLLOWER:HalfOrcHunterFavClassBonus=9	TYPE:Animal Companion											BONUS:HP|CURRENTMAX|1
+FOLLOWER:HalfOrcHunterFavClassBonus=10	TYPE:Animal Companion											BONUS:HP|CURRENTMAX|1
+FOLLOWER:HalfOrcHunterFavClassBonus=11	TYPE:Animal Companion											BONUS:HP|CURRENTMAX|1
+FOLLOWER:HalfOrcHunterFavClassBonus=12	TYPE:Animal Companion											BONUS:HP|CURRENTMAX|1
+FOLLOWER:HalfOrcHunterFavClassBonus=13	TYPE:Animal Companion											BONUS:HP|CURRENTMAX|1
+FOLLOWER:HalfOrcHunterFavClassBonus=14	TYPE:Animal Companion											BONUS:HP|CURRENTMAX|1
+FOLLOWER:HalfOrcHunterFavClassBonus=15	TYPE:Animal Companion											BONUS:HP|CURRENTMAX|1
+FOLLOWER:HalfOrcHunterFavClassBonus=16	TYPE:Animal Companion											BONUS:HP|CURRENTMAX|1
+FOLLOWER:HalfOrcHunterFavClassBonus=17	TYPE:Animal Companion											BONUS:HP|CURRENTMAX|1
+FOLLOWER:HalfOrcHunterFavClassBonus=18	TYPE:Animal Companion											BONUS:HP|CURRENTMAX|1
+FOLLOWER:HalfOrcHunterFavClassBonus=19	TYPE:Animal Companion											BONUS:HP|CURRENTMAX|1
+FOLLOWER:HalfOrcHunterFavClassBonus=20	TYPE:Animal Companion											BONUS:HP|CURRENTMAX|1
+#	BONUS:HP|CURRENTMAX|mastervar("OrcHunterFavClassBonus")
+
+###Block: Modifications for Evolved Companion feat -- 20 arbitrarily chosen as the limit
+# Class of the Master				Type				Spell Res.			Ability																																																																																								Bonus Ability Pool										Modify VAR																																																																							Template
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	BONUS:ABILITYPOOL|Eidolon Evolution|mastervar("EvolvedCompanionFeatCount_NBC")
+FOLLOWER:CavalierMountLVL=1	TYPE:Cavalier Mount	BONUS:ABILITYPOOL|Eidolon Evolution|mastervar("EvolvedCompanionFeatCount_Mount")
+FOLLOWER:SamuraiMountLVL=1	TYPE:Samurai Mount	BONUS:ABILITYPOOL|Eidolon Evolution|mastervar("EvolvedCompanionFeatCount_Mount")
+FOLLOWER:SpecialMountLVL=1	TYPE:Special Mount	BONUS:ABILITYPOOL|Eidolon Evolution|mastervar("EvolvedCompanionFeatCount_DBC")
+
+#
+FOLLOWER:DivineHunterCelestialCompanion=1	TYPE:Animal Companion																																																																																																																																																																																			TEMPLATE:Celestial Creature
+FOLLOWER:DivineHunterFiendishCompanion=1	TYPE:Animal Companion																																																																																																																																																																																			TEMPLATE:Fiendish Creature
+
+FOLLOWER:DivineCommanderCelestialMount=1	TYPE:Animal Companion																																																																																																																																																																																			TEMPLATE:Celestial Creature
+FOLLOWER:DivineCommanderEntropicMount=1	TYPE:Animal Companion																																																																																																																																																																																			TEMPLATE:Entropic Creature
+FOLLOWER:DivineCommanderFiendishMount=1	TYPE:Animal Companion																																																																																																																																																																																			TEMPLATE:Fiendish Creature
+FOLLOWER:DivineCommanderResoluteMount=1	TYPE:Animal Companion																																																																																																																																																																																			TEMPLATE:Resolute Creature
+FOLLOWER:DivineCommanderUnbiasedMount=1	TYPE:Animal Companion	SR:AnimalCompanionLVL+5	ABILITY:Special Ability|AUTOMATIC|Resistance to Acid|PREVARGTEQ:DivineCommanderMountResistance Acid,1	ABILITY:Special Ability|AUTOMATIC|Resistance to Cold|PREVARGTEQ:DivineCommanderMountResistance Cold,1	ABILITY:Special Ability|AUTOMATIC|Resistance to Electricity|PREVARGTEQ:DivineCommanderMountResistance Electricity,1	ABILITY:Special Ability|AUTOMATIC|Resistance to Fire|PREVARGTEQ:DivineCommanderMountResistance Fire,1	ABILITY:Special Ability|AUTOMATIC|Resistance to Sonic|PREVARGTEQ:DivineCommanderMountResistance Sonic,1														BONUS:VAR|AcidResistanceBonus|DivineCommanderMountResistance Acid|TYPE=Resistance	BONUS:VAR|ColdResistanceBonus|DivineCommanderMountResistance Cold|TYPE=Resistance	BONUS:VAR|ElectricityResistanceBonus|DivineCommanderMountResistance Electricity|TYPE=Resistance	BONUS:VAR|FireResistanceBonus|DivineCommanderMountResistance Fire|TYPE=Resistance	BONUS:VAR|SonicResistanceBonus|DivineCommanderMountResistance Sonic|TYPE=Resistance
+
+#
+# End
+#

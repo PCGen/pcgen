@@ -1,0 +1,172 @@
+# CVS $Revision: 17406 $ $Author: amaitland $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Psionics Unleashed	SOURCESHORT:PsU	SOURCEWEB:http://dreamscarredpress.com/dragonfly/Store/product/pid=69.html	SOURCEDATE:2010-12
+#Original Entry: Douglas Limmer
+#SRD Original Entry: Arknight
+#SRD Updated Entry: TaluronIscandar
+
+# Class Name	Hit Dice	Type				Max Level	Base class as subclass?	Source Page		Define		Combat bonus																	Save bonus																																		Modify VAR																																																																														FACT
+CLASS:Psion		HD:6		TYPE:Base.Psionic.PC	MAXLEVEL:20	ALLOWBASECLASS:NO		SOURCEPAGE:p.20	DEFINE:PsionLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|PsionLVL|CL	BONUS:VAR|PsiCrystalLVL|PsionLVL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:SpellType|Psionic
+# Class Name	Skill Pts/Lvl
+CLASS:Psion		STARTSKILLPTS:2
+# Class Name	Spell Stat		Memorize	Caster level
+CLASS:Psion		SPELLSTAT:INT	MEMORIZE:NO	BONUS:CASTERLEVEL|Psion|CL
+SUBCLASS:Egoist			COST:0	PROHIBITCOST:0	SPELLLIST:2|Egoist|Psion	CSKILL:Autohypnosis|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft
+SUBCLASSLEVEL:1	BONUS:VAR|PsychometabolismDisciplineLVL|CL	ABILITY:Special Ability|AUTOMATIC|Psychometabolism Discipline	ABILITY:Special Ability|AUTOMATIC|Psychometabolism Class Skills|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsionDisciplineClassSkills
+SUBCLASS:Kineticist		COST:0	PROHIBITCOST:0	SPELLLIST:2|Kineticist|Psion	CSKILL:Autohypnosis|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft
+SUBCLASSLEVEL:1	BONUS:VAR|PsychokinesisDisciplineLVL|CL		ABILITY:Special Ability|AUTOMATIC|Psychokinesis Discipline	ABILITY:Special Ability|AUTOMATIC|Psychokinesis Class Skills|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsionDisciplineClassSkills
+SUBCLASS:Nomad			COST:0	PROHIBITCOST:0	SPELLLIST:2|Nomad|Psion		CSKILL:Autohypnosis|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft
+SUBCLASSLEVEL:1	BONUS:VAR|PsychoportationDisciplineLVL|CL		ABILITY:Special Ability|AUTOMATIC|Psychoportation Discipline	ABILITY:Special Ability|AUTOMATIC|Psychoportation Class Skills|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsionDisciplineClassSkills
+SUBCLASS:Seer			COST:0	PROHIBITCOST:0	SPELLLIST:2|Psion|Seer		CSKILL:Autohypnosis|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft
+SUBCLASSLEVEL:1	BONUS:VAR|ClairsentienceDisciplineLVL|CL		ABILITY:Special Ability|AUTOMATIC|Clairsentience Discipline	ABILITY:Special Ability|AUTOMATIC|Clairsentience Class Skills|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsionDisciplineClassSkills
+SUBCLASS:Shaper			COST:0	PROHIBITCOST:0	SPELLLIST:2|Psion|Shaper	CSKILL:Autohypnosis|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft
+SUBCLASSLEVEL:1	BONUS:VAR|MetacreativityDisciplineLVL|CL		ABILITY:Special Ability|AUTOMATIC|Metacreativity Discipline	ABILITY:Special Ability|AUTOMATIC|Metacreativity Class Skills|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsionDisciplineClassSkills
+SUBCLASS:Telepath			COST:0	PROHIBITCOST:0	SPELLLIST:2|Psion|Telepath	CSKILL:Autohypnosis|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft
+SUBCLASSLEVEL:1	BONUS:VAR|TelepathyDisciplineLVL|CL			ABILITY:Special Ability|AUTOMATIC|Telepathy Discipline	ABILITY:Special Ability|AUTOMATIC|Telepathy Class Skills|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsionDisciplineClassSkills
+SUBCLASS:Generalist Psion	COST:0	PROHIBITCOST:0	SPELLLIST:1|Psion			CSKILL:Autohypnosis|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft
+SUBCLASSLEVEL:1	BONUS:VAR|GeneralistDisciplineLVL|CL		ABILITY:Special Ability|AUTOMATIC|Generalist Discipline	ABILITY:Special Ability|AUTOMATIC|Generalist Class Skills|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsionDisciplineClassSkills
+
+###Block:Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Psion Weapon Proficiencies
+###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
+1	TEMPLATE:Psion Caster Support
+###Block: Class Info
+1	KNOWN:0,3				BONUS:ABILITYPOOL|Psion Feat|(CL/5)+1	ABILITY:Special Ability|AUTOMATIC|Detect Psionics
+2	KNOWN:0,5
+3	KNOWN:0,5,2
+4	KNOWN:0,5,4
+5	KNOWN:0,5,4,2
+6	KNOWN:0,5,4,4
+7	KNOWN:0,5,4,4,2
+8	KNOWN:0,5,4,4,4
+9	KNOWN:0,5,4,4,4,2
+10	KNOWN:0,5,4,4,4,4
+11	KNOWN:0,5,4,4,4,4,1
+12	KNOWN:0,5,4,4,4,4,3
+13	KNOWN:0,5,4,4,4,4,3,1
+14	KNOWN:0,5,4,4,4,4,3,3
+15	KNOWN:0,5,4,4,4,4,3,3,1
+16	KNOWN:0,5,4,4,4,4,3,3,3
+17	KNOWN:0,5,4,4,4,4,3,3,3,1
+18	KNOWN:0,5,4,4,4,4,3,3,3,3
+19	KNOWN:0,5,4,4,4,4,3,3,3,4
+20	KNOWN:0,5,4,4,4,4,3,3,3,6
+
+
+# Class Name		Hit Dice	Type				Max Level	Source Page		Combat bonus																	Save bonus																																		Modify VAR																																																																										FACT
+CLASS:Psychic Warrior	HD:8		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.25	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:SpellType|Psionic
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Psychic Warrior	STARTSKILLPTS:4	CSKILL:Acrobatics|Autohypnosis|Climb|TYPE=Craft|Knowledge (Psionics)|Perception|TYPE=Profession|Ride|Spellcraft|Swim
+# Class Name		Spell Stat		Memorize	Caster level
+CLASS:Psychic Warrior	SPELLSTAT:WIS	MEMORIZE:NO	BONUS:CASTERLEVEL|Psychic Warrior|CL
+
+###Block:Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorMartialWeaponProficiency	ABILITY:FEAT|AUTOMATIC|Martial Weapon Proficiency Output|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorMartialWeaponProficiency
+1	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorSimpleWeaponProficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorHeavyArmorProficiency,TYPE.PsychicWarriorArmorProficiencies
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorLightArmorProficiency,TYPE.PsychicWarriorArmorProficiencies
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Medium)|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorMediumArmorProficiency,TYPE.PsychicWarriorArmorProficiencies
+1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorShieldProficiency
+
+###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
+1	BONUS:VAR|PsychicWarriorML|CL	BONUS:VAR|PsychicWarriorML|var("BL=Psychic Warrior")	BONUS:VAR|IsPsionic|1																							DEFINE:PsychicWarriorML|0	DEFINE:IsPsionic|0	ABILITY:Special Ability|AUTOMATIC|Psionic
+1	BONUS:VAR|PsychicWarriorPL|PsychicWarriorML																																	DEFINE:PsychicWarriorPL|0
+1	BONUS:VAR|BasePowerPoints|1	BONUS:VAR|BasePowerPoints|1|PREVARGTEQ:PsychicWarriorPL,2	BONUS:VAR|BasePowerPoints|2|PREVARGTEQ:PsychicWarriorPL,3	BONUS:VAR|BasePowerPoints|2|PREVARGTEQ:PsychicWarriorPL,4
+1	BONUS:VAR|BasePowerPoints|2|PREVARGTEQ:PsychicWarriorPL,5	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:PsychicWarriorPL,6	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:PsychicWarriorPL,7	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:PsychicWarriorPL,8
+1	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:PsychicWarriorPL,9	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:PsychicWarriorPL,10	BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:PsychicWarriorPL,11	BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:PsychicWarriorPL,12
+1	BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:PsychicWarriorPL,13	BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:PsychicWarriorPL,14	BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:PsychicWarriorPL,15	BONUS:VAR|BasePowerPoints|12|PREVARGTEQ:PsychicWarriorPL,16
+1	BONUS:VAR|BasePowerPoints|12|PREVARGTEQ:PsychicWarriorPL,17	BONUS:VAR|BasePowerPoints|12|PREVARGTEQ:PsychicWarriorPL,18	BONUS:VAR|BasePowerPoints|12|PREVARGTEQ:PsychicWarriorPL,19	BONUS:VAR|BasePowerPoints|12|PREVARGTEQ:PsychicWarriorPL,20
+1	BONUS:VAR|BonusPowerPoints|(WIS*PsychicWarriorPL)/2|TYPE=PsychicWarriorBonusPP
+
+###Block: Class Info
+1					BONUS:ABILITYPOOL|Primary Warrior Path|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorWarriorPath		BONUS:VAR|WarriorPathLVL|CL|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorWarriorPath
+1	KNOWN:0,1			BONUS:ABILITYPOOL|Psychic Warrior Feat|1													BONUS:VAR|PrereqBAB|(CL+3)/4|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorPsionicProficiency	BONUS:VAR|PrereqBAB|BAB	DEFINE:PrereqBAB|0	ABILITY:Special Ability|AUTOMATIC|Psionic Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorPsionicProficiency
+1																																																	ABILITY:Special Ability|AUTOMATIC|Warrior's Path|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorWarriorPath
+2	KNOWN:0,2			BONUS:ABILITYPOOL|Psychic Warrior Feat|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorBonusFeat2
+3	KNOWN:0,3
+4	KNOWN:0,3,1
+5	KNOWN:0,3,2			BONUS:ABILITYPOOL|Psychic Warrior Feat|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorBonusFeat5
+6	KNOWN:0,3,3																																															ABILITY:Special Ability|AUTOMATIC|Martial Power|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorMartialPower
+7	KNOWN:0,3,3,1
+8	KNOWN:0,3,3,2		BONUS:ABILITYPOOL|Psychic Warrior Feat|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorBonusFeat8
+9	KNOWN:0,3,3,3		BONUS:ABILITYPOOL|Secondary Warrior Path|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorSecondaryPath																										ABILITY:Special Ability|AUTOMATIC|Secondary Path|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorSecondaryPath
+10	KNOWN:0,3,3,3,1
+11	KNOWN:0,3,3,3,2		BONUS:ABILITYPOOL|Psychic Warrior Feat|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorBonusFeat11
+12	KNOWN:0,3,3,3,3																																														ABILITY:Special Ability|AUTOMATIC|Twisting Path|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorTwistingPath
+13	KNOWN:0,3,3,3,3,1
+14	KNOWN:0,3,3,3,3,2		BONUS:ABILITYPOOL|Psychic Warrior Feat|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorBonusFeat14
+15	KNOWN:0,3,3,3,3,3																					BONUS:VAR|PathweavingLVL|-CL|PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorPathweaving	BONUS:VAR|PathweavingLVL|CL	DEFINE:PathweavingLVL|0	ABILITY:Special Ability|AUTOMATIC|Pathweaving|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorPathweaving
+16	KNOWN:0,3,3,3,3,3,1
+17	KNOWN:0,3,3,3,3,3,2	BONUS:ABILITYPOOL|Psychic Warrior Feat|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorBonusFeat17
+18	KNOWN:0,3,3,3,3,3,3
+19	KNOWN:0,3,3,3,3,3,4
+20	KNOWN:0,3,3,3,3,3,5	BONUS:ABILITYPOOL|Psychic Warrior Feat|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorBonusFeat20																											ABILITY:Special Ability|AUTOMATIC|Eternal Warrior|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorEternalWarrior
+
+
+# Class Name	Hit Dice	Type				Max Level	Source Page		Combat bonus																Save bonus																																		Modify VAR
+CLASS:Soulknife	HD:10		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.28	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Soulknife	STARTSKILLPTS:4	CSKILL:Acrobatics|Autohypnosis|Climb|TYPE=Craft|Intimidate|Knowledge (Psionics)|Perception|TYPE=Profession|Stealth|Swim
+###Block:Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.SoulknifeSimpleWeaponProficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|!PREABILITY:1,CATEGORY=Archetype,TYPE.SoulknifeLightArmorProficiency	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Medium)|!PREABILITY:1,CATEGORY=Archetype,TYPE.SoulknifeMediumArmorProficiency
+1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.SoulknifeShieldProficiency
+
+###Block: Mind Blade abilities by effective level; to add a PrC's class level to SK for mind blade powers, use BONUS:VAR|MndBladeLVL|x in the PrC's class level line setup
+
+1							BONUS:VAR|MndBladeLVL|CL				DEFINE:MndBladeLVL|0	ABILITY:Special Ability|AUTOMATIC|Form Mind Blade|!PREABILITY:1,CATEGORY=Archetype,TYPE.SoulknifeFormMindBlade	ABILITY:Special Ability|AUTOMATIC|Shape Mind Blade|!PREABILITY:1,CATEGORY=Archetype,TYPE.SoulknifeShapeMindBlade	ABILITY:Special Ability|AUTOMATIC|Throw Mind Blade|!PREABILITY:1,CATEGORY=Archetype,TYPE.SoulknifeThrowMindBlade
+1	BONUS:ABILITYPOOL|Blade Skill|CL/2													ABILITY:Special Ability|AUTOMATIC|Enhanced Mind Blade|PREMULT:2,[PREVARGTEQ:MndBladeLVL,3],[!PREABILITY:1,CATEGORY=Archetype,TYPE.SoulknifeEnhancedMindBlade]
+3							BONUS:VAR|PsychicStrikeDiceNumber|(CL+1)/4					ABILITY:Special Ability|AUTOMATIC|Psychic Strike|!PREABILITY:1,CATEGORY=Archetype,TYPE.SoulknifePsychicStrike
+5																			ABILITY:Special Ability|AUTOMATIC|Quick Draw Mind Blade|!PREABILITY:1,CATEGORY=Archetype,TYPE.SoulknifeQuickDraw
+20																			ABILITY:Special Ability|AUTOMATIC|Mind Blade Mastery|!PREABILITY:1,CATEGORY=Archetype,TYPE.SoulknifeMindBladeMastery
+
+###Block: Class Info
+1	BONUS:ABILITYPOOL|Soulknife Feat|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.SoulknifeBonusFeat	BONUS:VAR|IsPsionic|1	DEFINE:IsPsionic|0	ABILITY:Special Ability|AUTOMATIC|Psionic	TEMPLATE:Wild Talent Determination
+
+
+# Class Name	Hit Dice	Type				Max Level	Source Page		Combat bonus																	Save bonus																																		Modify VAR																																																																										FACT
+CLASS:Wilder	HD:8		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.33	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:SpellType|Psionic
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Wilder	STARTSKILLPTS:4	CSKILL:Acrobatics|Autohypnosis|Bluff|Climb|TYPE=Craft|Diplomacy|Escape Artist|Intimidate|Knowledge (Psionics)|Perception|TYPE=Profession|Sense Motive|Spellcraft|Swim|Use Magic Device
+# Class Name	Spell Stat		Memorize	Caster level
+CLASS:Wilder	SPELLSTAT:CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Wilder|CL
+
+###Block:Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
+1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
+
+###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
+1	BONUS:VAR|WilderML|CL	BONUS:VAR|WilderML|var("BL=Wilder")	BONUS:VAR|IsPsionic|1																							DEFINE:WilderML|0	DEFINE:IsPsionic|0	ABILITY:Special Ability|AUTOMATIC|Psionic
+1	BONUS:VAR|WilderPL|WilderML																																DEFINE:WilderPL|0
+1	BONUS:VAR|BasePowerPoints|2	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:WilderPL,2	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:WilderPL,3	BONUS:VAR|BasePowerPoints|6|PREVARGTEQ:WilderPL,4
+1	BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:WilderPL,5	BONUS:VAR|BasePowerPoints|10|PREVARGTEQ:WilderPL,6	BONUS:VAR|BasePowerPoints|11|PREVARGTEQ:WilderPL,7	BONUS:VAR|BasePowerPoints|12|PREVARGTEQ:WilderPL,8
+1	BONUS:VAR|BasePowerPoints|14|PREVARGTEQ:WilderPL,9	BONUS:VAR|BasePowerPoints|16|PREVARGTEQ:WilderPL,10	BONUS:VAR|BasePowerPoints|18|PREVARGTEQ:WilderPL,11	BONUS:VAR|BasePowerPoints|20|PREVARGTEQ:WilderPL,12
+1	BONUS:VAR|BasePowerPoints|21|PREVARGTEQ:WilderPL,13	BONUS:VAR|BasePowerPoints|23|PREVARGTEQ:WilderPL,14	BONUS:VAR|BasePowerPoints|25|PREVARGTEQ:WilderPL,15	BONUS:VAR|BasePowerPoints|26|PREVARGTEQ:WilderPL,16
+1	BONUS:VAR|BasePowerPoints|29|PREVARGTEQ:WilderPL,17	BONUS:VAR|BasePowerPoints|30|PREVARGTEQ:WilderPL,18	BONUS:VAR|BasePowerPoints|31|PREVARGTEQ:WilderPL,19	BONUS:VAR|BasePowerPoints|32|PREVARGTEQ:WilderPL,20
+1	BONUS:VAR|BonusPowerPoints|(CHA*WilderPL)/2|TYPE=WilderBonusPP
+
+###Block: Class Info
+1	KNOWN:0,1																			BONUS:VAR|PsychicEnervation|1	BONUS:VAR|WildSurge|1	BONUS:VAR|SurgeLVL|WilderML	ABILITY:Special Ability|AUTOMATIC|Psychic Enervation|!PREABILITY:1,CATEGORY=Archetype,TYPE.WilderPsychicEnervation
+1																																			ABILITY:Special Ability|AUTOMATIC|Surge Blast|!PREABILITY:1,CATEGORY=Archetype,TYPE.WilderSurgeBlast
+1																																			ABILITY:Special Ability|AUTOMATIC|Surge Bond|!PREABILITY:1,CATEGORY=Archetype,TYPE.WilderSurgeBond
+1						BONUS:ABILITYPOOL|Surge Type|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.WilderWildSurge															ABILITY:Special Ability|AUTOMATIC|Wild Surge|!PREABILITY:1,CATEGORY=Archetype,TYPE.WilderWildSurge
+2	KNOWN:0,2																			BONUS:VAR|EludeAttack|1											ABILITY:Special Ability|AUTOMATIC|Elude Attack|!PREABILITY:1,CATEGORY=Archetype,TYPE.WilderEludeAttack
+3	KNOWN:0,2																			BONUS:VAR|WildSurge|1
+4	KNOWN:0,2,1																			BONUS:VAR|SurgingEuphoria|1										ABILITY:Special Ability|AUTOMATIC|Surging Euphoria|!PREABILITY:1,CATEGORY=Archetype,TYPE.WilderSurgingEuphoria
+5	KNOWN:0,2,1																			BONUS:VAR|ImpSurgeBond|1										ABILITY:Special Ability|AUTOMATIC|Improved Surge Bond|!PREABILITY:1,CATEGORY=Archetype,TYPE.WilderImprovedSurgeBond
+6	KNOWN:0,2,1,1																		BONUS:VAR|EludeAttack|1
+7	KNOWN:0,2,1,1																		BONUS:VAR|WildSurge|1
+8	KNOWN:0,2,1,1,1
+9	KNOWN:0,2,1,1,1																		BONUS:VAR|ImpSurgeBond|1
+10	KNOWN:0,2,1,1,1,1																		BONUS:VAR|EludeAttack|1
+11	KNOWN:0,2,1,1,1,1																		BONUS:VAR|WildSurge|1
+12	KNOWN:0,2,1,1,1,1,1																	BONUS:VAR|SurgingEuphoria|1
+13	KNOWN:0,2,1,1,1,1,1																	BONUS:VAR|ImpSurgeBond|1
+14	KNOWN:0,2,1,1,1,1,1,1																	BONUS:VAR|EludeAttack|1
+15	KNOWN:0,2,1,1,1,1,1,1																	BONUS:VAR|WildSurge|1
+16	KNOWN:0,2,1,1,1,1,1,1,1
+17	KNOWN:0,2,1,1,1,1,1,1,1																	BONUS:VAR|ImpSurgeBond|1
+18	KNOWN:0,2,1,1,1,1,1,1,1,1																BONUS:VAR|EludeAttack|1
+19	KNOWN:0,2,1,1,1,1,1,1,1,1																BONUS:VAR|WildSurge|1
+20	KNOWN:0,2,1,1,1,1,1,1,1,2																BONUS:VAR|SurgingEuphoria|1										ABILITY:Special Ability|AUTOMATIC|Perfect Surge|!PREABILITY:1,CATEGORY=Archetype,TYPE.WilderPerfectSurge

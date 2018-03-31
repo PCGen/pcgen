@@ -1,0 +1,14 @@
+# CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Remarkable Races: Compendium of Unusual PC Races, Pathway to Adventure Edition	SOURCESHORT:RR	SOURCEWEB:http://www.alluriapublishing.net/compendium-p.htm	SOURCEDATE:2009-01
+# Original Entry by Andrew Maitland
+
+
+# Template Name	Size		Visible		Add to base move			Subrace		Type			Description
+Mogogol (Small)	SIZE:S	VISIBLE:EXPORT
+Mogogol (Medium)	SIZE:M	VISIBLE:EXPORT	BONUS:MOVEADD|TYPE.Walk|10
+
+Boggle Madness														TYPE:Disease	DESC:Type disease, inherited; Save Will DC 16; Onset venerable age; Frequency 1/hour Effect 1d4 Wisdom damage, if more than 2 Wisdom damage, the target must make an addition Will save or he will lose control and must attack the nearest mobile creature or object; Cure none Special Boggle Madness is a genetic condition that all boggles have. Symptoms do not typically appear until the boggle is of venerable age. It cannot be passed on to a non-boggle, and even goblins are immune. The disease cannot be completely cured, magically or otherwise. Instead, any effect that would remove disease removes only the symptoms for 24 hours.
+
+Ice					VISIBLE:NO							SUBRACE:Ice
+Magma					VISIBLE:NO							SUBRACE:Magma
+Ooze					VISIBLE:NO							SUBRACE:Ooze

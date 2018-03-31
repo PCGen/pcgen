@@ -1,0 +1,30 @@
+# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Goblins of Golarion	SOURCESHORT:GOOG	SOURCEWEB:http://paizo.com/products/btpy8mfk?Pathfinder-Player-Companion-Goblins-of-Golarion	SOURCEDATE:2011-07
+#ORIGINAL ENTRY: Eric C. Smith (maredudd AT blackroot DOT org)
+#ORIGINAL ENTRY DATE: 2013/07/14
+
+
+# Favored Class Bonus Skill Points
+# Class of the Master	Type			Define			Bonus Ability Pool							Modify VAR
+FOLLOWER:FamiliarLVL=1	TYPE:Familiar	DEFINE:FamiliarSP|0	BONUS:ABILITYPOOL|Familiar Bonus Skill|var("FamiliarSP")
+
+FOLLOWER:FamiliarSP=1	TYPE:Familiar															BONUS:VAR|FamiliarSP|1
+FOLLOWER:FamiliarSP=2	TYPE:Familiar															BONUS:VAR|FamiliarSP|2
+FOLLOWER:FamiliarSP=3	TYPE:Familiar															BONUS:VAR|FamiliarSP|3
+FOLLOWER:FamiliarSP=4	TYPE:Familiar															BONUS:VAR|FamiliarSP|4
+FOLLOWER:FamiliarSP=5	TYPE:Familiar															BONUS:VAR|FamiliarSP|5
+FOLLOWER:FamiliarSP=6	TYPE:Familiar															BONUS:VAR|FamiliarSP|6
+FOLLOWER:FamiliarSP=7	TYPE:Familiar															BONUS:VAR|FamiliarSP|7
+FOLLOWER:FamiliarSP=8	TYPE:Familiar															BONUS:VAR|FamiliarSP|8
+FOLLOWER:FamiliarSP=9	TYPE:Familiar															BONUS:VAR|FamiliarSP|9
+FOLLOWER:FamiliarSP=10	TYPE:Familiar															BONUS:VAR|FamiliarSP|10
+FOLLOWER:FamiliarSP=11	TYPE:Familiar															BONUS:VAR|FamiliarSP|11
+FOLLOWER:FamiliarSP=12	TYPE:Familiar															BONUS:VAR|FamiliarSP|12
+FOLLOWER:FamiliarSP=13	TYPE:Familiar															BONUS:VAR|FamiliarSP|13
+FOLLOWER:FamiliarSP=14	TYPE:Familiar															BONUS:VAR|FamiliarSP|14
+FOLLOWER:FamiliarSP=15	TYPE:Familiar															BONUS:VAR|FamiliarSP|15
+FOLLOWER:FamiliarSP=16	TYPE:Familiar															BONUS:VAR|FamiliarSP|16
+FOLLOWER:FamiliarSP=17	TYPE:Familiar															BONUS:VAR|FamiliarSP|17
+FOLLOWER:FamiliarSP=18	TYPE:Familiar															BONUS:VAR|FamiliarSP|18
+FOLLOWER:FamiliarSP=19	TYPE:Familiar															BONUS:VAR|FamiliarSP|19
+FOLLOWER:FamiliarSP=20	TYPE:Familiar															BONUS:VAR|FamiliarSP|20

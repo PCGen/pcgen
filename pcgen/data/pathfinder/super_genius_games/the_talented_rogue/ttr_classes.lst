@@ -1,0 +1,21 @@
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# Original Entry By: Andrew (LegacyKing) Maitland
+# Entry Date: 26-Dec-2013
+
+###Block: The Talented Rogue
+
+# Class Name		Hit Dice	Type				Source Page		Define		Combat bonus																	Save bonus																																			Modify VAR																																																																	Serves As
+CLASS:Talented Rogue	HD:8		TYPE:PC.Base.Rogue	SOURCEPAGE:p.1	DEFINE:RogueLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|RogueLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	SERVESAS:CLASS|Rogue
+# Class Name		Multiple Requirements
+CLASS:Talented Rogue	PREMULT:1,[PRECLASS:1,Talented Rogue=1],[!PRECLASS:1,TYPE.Rogue=1]
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Talented Rogue	STARTSKILLPTS:8	CSKILL:Acrobatics|Appraise|Bluff|Climb|TYPE=Craft|Diplomacy|Disable Device|Disguise|Escape Artist|Intimidate|Knowledge (Dungeoneering)|Knowledge (Local)|Linguistics|Perception|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Stealth|Swim|Use Magic Device
+###Block:
+1	BONUS:VAR|TalentedRogueTalentCount|CL
+1	BONUS:VAR|TalentedRogueEdgeCount|1+(CL>1)+(CL>2)+(CL>3)+(CL>7)+(CL>19)
+###Block:
+1	ABILITY:Talented Rogue Class Ability|AUTOMATIC|Talented Rogue ~ Proficiencies
+1	ABILITY:Talented Rogue Class Ability|AUTOMATIC|Talented Rogue ~ Rogue Edges
+1	ABILITY:Talented Rogue Class Ability|AUTOMATIC|Talented Rogue ~ Rogue Talents
+10	ABILITY:Talented Rogue Class Ability|AUTOMATIC|Talented Rogue ~ Advanced Talents
+20	ABILITY:Talented Rogue Class Ability|AUTOMATIC|Talented Rogue ~ Grand Talent

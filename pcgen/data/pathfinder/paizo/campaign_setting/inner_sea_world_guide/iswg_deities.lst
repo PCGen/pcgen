@@ -1,0 +1,323 @@
+# CVS $Revision: $ $Author: $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8ief	SOURCEDATE:2011-03
+# Original Entry by: Stefan Radermacher
+
+
+###Block: Other Deities
+# Deity Name	Product Identity?	Domains											Description of Deity/Title																																	FACTSET						Deity Weapon			Align		Source Page
+Achaekek		NAMEISPI:YES	DOMAINS:Death,Evil,Law,Trickery,War|PREALIGN:LN,LE,NE				DESC:God of The Red Mantis, assassination																															FACTSET:Pantheon|Pathfinder Chronicles	DEITYWEAP:Sawtooth Sabre	ALIGN:LE	SOURCEPAGE:p.228
+Apsu			NAMEISPI:YES	DOMAINS:Artifice,Good,Law,Scalykind,Travel|PREALIGN:LG,LN,NG		DESC:God of glory, good dragons, leadership, peace																													FACTSET:Pantheon|Pathfinder Chronicles	DEITYWEAP:Bite|Quarterstaff	ALIGN:LG	SOURCEPAGE:p.228
+Besmara		NAMEISPI:YES	DOMAINS:Chaos,Trickery,War,Water,Weather|PREALIGN:CG,TN,CN,CE		DESC:Goddess of piracy, strife, sea monsters																														FACTSET:Pantheon|Pathfinder Chronicles	DEITYWEAP:Rapier			ALIGN:CN	SOURCEPAGE:p.228
+Dahak			NAMEISPI:YES	DOMAINS:Chaos,Destruction,Evil,Scalykind,Trickery|PREALIGN:NE,CN,CE	DESC:God of destruction, evil dragons, greed, treachery																												FACTSET:Pantheon|Pathfinder Chronicles	DEITYWEAP:Bite|Whip		ALIGN:CE	SOURCEPAGE:p.228
+Ghlaunder		NAMEISPI:YES	DOMAINS:Air,Animal,Chaos,Destruction,Evil|PREALIGN:NE,CN,CE			DESC:God of parasites, infection, stagnation																														FACTSET:Pantheon|Pathfinder Chronicles	DEITYWEAP:Spear			ALIGN:CE	SOURCEPAGE:p.228
+Groetus		NAMEISPI:YES	DOMAINS:Chaos,Darkness,Destruction,Madness,Void|PREALIGN:CG,TN,CN,CE	DESC:God of empty places, ruins, oblivion																															FACTSET:Pantheon|Pathfinder Chronicles	DEITYWEAP:Flail (Heavy)		ALIGN:CN	SOURCEPAGE:p.229
+Gyronna		NAMEISPI:YES	DOMAINS:Chaos,Destruction,Evil,Madness|PREALIGN:NE,CN,CE			DESC:Gyronna is a far different deity than Hanspur, with no friendly face at all--only drooling rage and madness. Her permanent sneer is the look of a woman scorned and half-mad, bent on vengeance, destruction, and spite.	FACTSET:Pantheon|Pathfinder Chronicles	DEITYWEAP:Dagger			ALIGN:CE	SOURCEPAGE:p.229
+Hanspur		NAMEISPI:YES	DOMAINS:Chaos,Death,Travel,Water|PREALIGN:CG,TN,CN,CE				DESC:Hanspur is a creature of place; he rules the waters, the currents, the rats, and the ships that travel on the many marshy roads that unite the territories of the Sellen River watershed.						FACTSET:Pantheon|Pathfinder Chronicles	DEITYWEAP:Trident			ALIGN:CN	SOURCEPAGE:p.229
+Kurgess		NAMEISPI:YES	DOMAINS:Community,Good,Luck,Strength,Travel|PREALIGN:LG,NG,CG,TN		DESC:God of competition, sport, self-sacrifice																														FACTSET:Pantheon|Pathfinder Chronicles	DEITYWEAP:Javelin			ALIGN:NG	SOURCEPAGE:p.229
+Milani		NAMEISPI:YES	DOMAINS:Chaos,Good,Healing,Liberation,Protection|PREALIGN:NG,CG,CN	DESC:Goddess of hope, devotion, uprisings																															FACTSET:Pantheon|Pathfinder Chronicles	DEITYWEAP:Morningstar		ALIGN:CG	SOURCEPAGE:p.229
+Sivanah		NAMEISPI:YES	DOMAINS:Knowledge,Madness,Magic,Rune,Trickery|PREALIGN:LN,NG,TN,NE,CN	DESC:Goddess of illusions, reflections, mystery																														FACTSET:Pantheon|Pathfinder Chronicles	DEITYWEAP:Bladed Scarf		ALIGN:TN	SOURCEPAGE:p.230
+Zyphus		NAMEISPI:YES	DOMAINS:Death,Destruction,Evil,Plant,War|PREALIGN:TN,LE,NE,CE		DESC:God of accidental death, graveyards, tragedy																													FACTSET:Pantheon|Pathfinder Chronicles	DEITYWEAP:Pick (Heavy)		ALIGN:NE	SOURCEPAGE:p.230
+
+###Block: Archdevils
+# Deity Name	Product Identity?	Domains								Description of Deity/Title					FACTSET				Deity Weapon		Align		Source Page
+Baalzebul		NAMEISPI:YES	DOMAINS:Air,Death,Evil,Law|PREALIGN:LN,LE,NE		DESC:Devil lord arrogance, flies, lies			FACTSET:Pantheon|Archdevils	DEITYWEAP:Spear		ALIGN:LE	SOURCEPAGE:p.231
+Barbatos		NAMEISPI:YES	DOMAINS:Evil,Law,Magic,Travel|PREALIGN:LN,LE,NE		DESC:Devil lord of animals, corruption, gateways	FACTSET:Pantheon|Archdevils	DEITYWEAP:Quarterstaff	ALIGN:LE	SOURCEPAGE:p.231
+Belial		NAMEISPI:YES	DOMAINS:Charm,Destruction,Evil,Law|PREALIGN:LN,LE,NE	DESC:Devil lord of adultery, deception, desire		FACTSET:Pantheon|Archdevils	DEITYWEAP:Ranseur		ALIGN:LE	SOURCEPAGE:p.231
+Dispater		NAMEISPI:YES	DOMAINS:Evil,Law,Nobility,Trickery|PREALIGN:LN,LE,NE	DESC:Devil lord of cities, prisons, rulership		FACTSET:Pantheon|Archdevils	DEITYWEAP:Mace (Heavy)	ALIGN:LE	SOURCEPAGE:p.231
+Geryon		NAMEISPI:YES	DOMAINS:Evil,Law,Strength,Water|PREALIGN:LN,LE,NE	DESC:Devil lord of forbidden lore, heresy, snakes	FACTSET:Pantheon|Archdevils	DEITYWEAP:Flail (Heavy)	ALIGN:LE	SOURCEPAGE:p.231
+Mammon		NAMEISPI:YES	DOMAINS:Artifice,Earth,Evil,Law|PREALIGN:LN,LE,NE	DESC:Devil lord of avarice, watchfulness, wealth	FACTSET:Pantheon|Archdevils	DEITYWEAP:Shortspear	ALIGN:LE	SOURCEPAGE:p.231
+Mephistopheles	NAMEISPI:YES	DOMAINS:Evil,Knowledge,Law,Rune|PREALIGN:LN,LE,NE	DESC:Devil lord of contracts, devils, secrets		FACTSET:Pantheon|Archdevils	DEITYWEAP:Trident		ALIGN:LE	SOURCEPAGE:p.231
+Moloch		NAMEISPI:YES	DOMAINS:Evil,Fire,Law,War|PREALIGN:LN,LE,NE		DESC:Devil lord of fire, obedience, war			FACTSET:Pantheon|Archdevils	DEITYWEAP:Whip		ALIGN:LE	SOURCEPAGE:p.231
+
+###Block: Demon Lords
+# Deity Name	Product Identity?	Domains									Description of Deity/Title					FACTSET				Deity Weapon			Align		Source Page
+Abraxas		NAMEISPI:YES	DOMAINS:Chaos,Evil,Knowledge,Magic|PREALIGN:NE,CN,CE		DESC:Demon lord of forbidden lore, magic, snakes	FACTSET:Pantheon|Demon Lords	DEITYWEAP:Whip			ALIGN:CE	SOURCEPAGE:p.231
+Angazhan		NAMEISPI:YES	DOMAINS:Animal,Chaos,Evil,Plant|PREALIGN:NE,CN,CE		DESC:Demon lord of apes, jungles, tyrants			FACTSET:Pantheon|Demon Lords	DEITYWEAP:Spear			ALIGN:CE	SOURCEPAGE:p.231
+Baphomet		NAMEISPI:YES	DOMAINS:Animal,Chaos,Evil,Strength|PREALIGN:NE,CN,CE		DESC:Demon lord of beasts, labyrinths, minotaurs	FACTSET:Pantheon|Demon Lords	DEITYWEAP:Glaive			ALIGN:CE	SOURCEPAGE:p.231
+Cyth-V'sug		NAMEISPI:YES	DOMAINS:Chaos,Earth,Evil,Plant|PREALIGN:NE,CN,CE		DESC:Demon lord of disease, fungus, parasites		FACTSET:Pantheon|Demon Lords	DEITYWEAP:Scimitar		ALIGN:CE	SOURCEPAGE:p.232
+Dagon			NAMEISPI:YES	DOMAINS:Chaos,Destruction,Evil,Water|PREALIGN:NE,CN,CE	DESC:Demon lord of deformities, sea monsters, the sea	FACTSET:Pantheon|Demon Lords	DEITYWEAP:Trident			ALIGN:CE	SOURCEPAGE:p.232
+Deskari		NAMEISPI:YES	DOMAINS:Chaos,Destruction,Evil,War|PREALIGN:NE,CN,CE		DESC:Demon lord of chasms, infestation, locusts		FACTSET:Pantheon|Demon Lords	DEITYWEAP:Scythe			ALIGN:CE	SOURCEPAGE:p.232
+Gogunta		NAMEISPI:YES	DOMAINS:Chaos,Death,Evil,Water|PREALIGN:NE,CN,CE		DESC:Demon lord of amphibians, boggards, swamps		FACTSET:Pantheon|Demon Lords	DEITYWEAP:Whip			ALIGN:CE	SOURCEPAGE:p.232
+Kostchtchie		NAMEISPI:YES	DOMAINS:Chaos,Evil,Strength,War|PREALIGN:NE,CN,CE		DESC:Demon lord of cold, giants, revenge			FACTSET:Pantheon|Demon Lords	DEITYWEAP:Warhammer		ALIGN:CE	SOURCEPAGE:p.232
+Nocticula		NAMEISPI:YES	DOMAINS:Chaos,Charm,Darkness,Evil|PREALIGN:NE,CN,CE		DESC:Demon lord of assassins, darkness, lust		FACTSET:Pantheon|Demon Lords	DEITYWEAP:Crossbow (Hand)	ALIGN:CE	SOURCEPAGE:p.232
+Orcus			NAMEISPI:YES	DOMAINS:Chaos,Death,Evil,Magic|PREALIGN:NE,CN,CE		DESC:Demon lord of necromancy, undead, wrath		FACTSET:Pantheon|Demon Lords	DEITYWEAP:Mace (Heavy)		ALIGN:CE	SOURCEPAGE:p.232
+Pazuzu		NAMEISPI:YES	DOMAINS:Air,Chaos,Evil,Trickery|PREALIGN:NE,CN,CE		DESC:Demon lord of sky, temptation, winged creatures	FACTSET:Pantheon|Demon Lords	DEITYWEAP:Longsword		ALIGN:CE	SOURCEPAGE:p.232
+Shax			NAMEISPI:YES	DOMAINS:Chaos,Destruction,Evil,Nobility|PREALIGN:NE,CN,CE	DESC:Demon lord of envy, lies, murder			FACTSET:Pantheon|Demon Lords	DEITYWEAP:Dagger			ALIGN:CE	SOURCEPAGE:p.232
+Socothbenoth	NAMEISPI:YES	DOMAINS:Chaos,Charm,Evil,Travel|PREALIGN:NE,CN,CE		DESC:Demon lord of perversion, pride, taboos		FACTSET:Pantheon|Demon Lords	DEITYWEAP:Quarterstaff		ALIGN:CE	SOURCEPAGE:p.232
+Zura			NAMEISPI:YES	DOMAINS:Chaos,Death,Evil,Madness|PREALIGN:NE,CN,CE		DESC:Demon lord of blood, cannibalism, vampires		FACTSET:Pantheon|Demon Lords	DEITYWEAP:Rapier			ALIGN:CE	SOURCEPAGE:p.232
+
+###Block: Eldest
+# Deity Name	Product Identity?	Domains										Description of Deity/Title						FACTSET			Deity Weapon		Align		Source Page
+Count Ranalc	NAMEISPI:YES	DOMAINS:Chaos,Darkness,Nobility,Travel|PREALIGN:CG,TN,CN,CE		DESC:Eldest lord of betrayal, exiles, shadows			FACTSET:Pantheon|Eldest	DEITYWEAP:Rapier		ALIGN:CN	SOURCEPAGE:p.233
+The Green Mother	NAMEISPI:YES	DOMAINS:Charm,Earth,Evil,Plant|PREALIGN:TN,LE,NE,CE			DESC:Eldest lord of carnivorous plants, intrigue, seduction	FACTSET:Pantheon|Eldest	DEITYWEAP:Sickle		ALIGN:NE	SOURCEPAGE:p.233
+Imbrex		NAMEISPI:YES	DOMAINS:Community,Earth,Law,Strength|PREALIGN:LG,LN,NG,TN		DESC:Eldest lord of endings, statues, twins			FACTSET:Pantheon|Eldest	DEITYWEAP:Flail (Dire)	ALIGN:LN	SOURCEPAGE:p.233
+The Lantern King	NAMEISPI:YES	DOMAINS:Chaos,Charm,Madness,Trickery|PREALIGN:CG,TN,CN,CE		DESC:Eldest lord of laughter, mischief, transformation	FACTSET:Pantheon|Eldest	DEITYWEAP:Dagger		ALIGN:CN	SOURCEPAGE:p.233
+The Lost Prince	NAMEISPI:YES	DOMAINS:Knowledge,Madness,Nobility,Repose|PREALIGN:LN,NG,TN,NE,CN	DESC:Eldest lord of forgotten things, sadness, solitude	FACTSET:Pantheon|Eldest	DEITYWEAP:Quarterstaff	ALIGN:TN	SOURCEPAGE:p.233
+Maghd			NAMEISPI:YES	DOMAINS:Knowledge,Law,Luck,Rune|PREALIGN:LG,LN,NG,TN			DESC:Eldest lord of complexity, fate, triplets			FACTSET:Pantheon|Eldest	DEITYWEAP:Scythe		ALIGN:LN	SOURCEPAGE:p.233
+Ng			NAMEISPI:YES	DOMAINS:Knowledge,Magic,Travel,Weather|PREALIGN:LN,NG,TN,NE,CN	DESC:Eldest lord of the season, secrets, wanderers		FACTSET:Pantheon|Eldest	DEITYWEAP:Gauntlet	ALIGN:TN	SOURCEPAGE:p.233
+Ragadahn		NAMEISPI:YES	DOMAINS:Chaos,Evil,Scalykind,Water|PREALIGN:NE,CN,CE			DESC:Eldest lord of linnorms, oceans, spirals			FACTSET:Pantheon|Eldest	DEITYWEAP:Whip		ALIGN:CE	SOURCEPAGE:p.233
+Shyka			NAMEISPI:YES	DOMAINS:Death,Destruction,Madness,Magic|PREALIGN:LN,NG,TN,NE,CN	DESC:Eldest lord of entropy, reincarnation, time		FACTSET:Pantheon|Eldest	DEITYWEAP:Mace (Light)	ALIGN:TN	SOURCEPAGE:p.233
+
+###Block: Elemental Lords
+# Deity Name	Product Identity?	Domains									Description of Deity/Title	FACTSET					Deity Weapon		Align		Source Page
+Ayrzul		NAMEISPI:YES	DOMAINS:Destruction,Earth,Strength|PREALIGN:TN,LE,NE,CE	DESC:Elemental lord of earth	FACTSET:Pantheon|Elemental Lords	DEITYWEAP:Morningstar	ALIGN:NE	SOURCEPAGE:p.233
+Hshurha		NAMEISPI:YES	DOMAINS:Air,Destruction,Weather|PREALIGN:TN,LE,NE,CE		DESC:Elemental lord of air	FACTSET:Pantheon|Elemental Lords	DEITYWEAP:Longbow		ALIGN:NE	SOURCEPAGE:p.233
+Kelizandri		NAMEISPI:YES	DOMAINS:Destruction,Travel,Water|PREALIGN:TN,LE,NE,CE		DESC:Elemental lord of water	FACTSET:Pantheon|Elemental Lords	DEITYWEAP:Trident		ALIGN:NE	SOURCEPAGE:p.233
+Ymeri			NAMEISPI:YES	DOMAINS:Destruction,Fire,War|PREALIGN:TN,LE,NE,CE		DESC:Elemental lord of fire	FACTSET:Pantheon|Elemental Lords	DEITYWEAP:Longsword	ALIGN:NE	SOURCEPAGE:p.233
+
+###Block: Empyreal Lords
+# Deity Name	Product Identity?	Domains									Description of Deity/Title						FACTSET					Deity Weapon			Align		Source Page
+Andoletta		NAMEISPI:YES	DOMAINS:Good,Knowledge,Law,Protection|PREALIGN:LG,LN,NG	DESC:Empyreal lord of consolation, respect, security		FACTSET:Pantheon|Empyreal Lords	DEITYWEAP:Quarterstaff		ALIGN:LG	SOURCEPAGE:p.233
+Arshea		NAMEISPI:YES	DOMAINS:Charm,Good,Liberation,Strength|PREALIGN:LG,NG,CG,TN	DESC:Empyreal lord of freedom, physical beauty, sexuality	FACTSET:Pantheon|Empyreal Lords	DEITYWEAP:Flail			ALIGN:NG	SOURCEPAGE:p.234
+Korada		NAMEISPI:YES	DOMAINS:Good,Healing,Magic,Protection|PREALIGN:LG,NG,CG,TN	DESC:Empyreal lord of foresight, forgiveness, peace		FACTSET:Pantheon|Empyreal Lords	DEITYWEAP:Unarmed Strike	ALIGN:NG	SOURCEPAGE:p.234
+Ragathiel		NAMEISPI:YES	DOMAINS:Destruction,Good,Law,Nobility|PREALIGN:LG,LN,NG	DESC:Empyreal lord of chivalry, duty, vengeance			FACTSET:Pantheon|Empyreal Lords	DEITYWEAP:Sword (Bastard)	ALIGN:LG	SOURCEPAGE:p.234
+Sinashakti		NAMEISPI:YES	DOMAINS:Chaos,Good,Luck,Travel|PREALIGN:NG,CG,CN		DESC:Empyreal lord of journeys, joy, messengers			FACTSET:Pantheon|Empyreal Lords	DEITYWEAP:Shortbow		ALIGN:CG	SOURCEPAGE:p.234
+Valani		NAMEISPI:YES	DOMAINS:Chaos,Earth,Good,Weather|PREALIGN:NG,CG,CN		DESC:Empyreal lord of change, growth, primality			FACTSET:Pantheon|Empyreal Lords	DEITYWEAP:Club			ALIGN:CG	SOURCEPAGE:p.234
+
+###Block: Horsemen
+# Deity Name	Product Identity?	Domains									Description of Deity/Title	FACTSET				Deity Weapon			Align		Source Page
+Apollyon		NAMEISPI:YES	DOMAINS:Air,Darkness,Destruction,Evil|PREALIGN:TN,LE,NE,CE	DESC:Horsemen of Pestilence	FACTSET:Pantheon|Horsemen	DEITYWEAP:Scythe			ALIGN:NE	SOURCEPAGE:p.234
+Charon		NAMEISPI:YES	DOMAINS:Death,Evil,Knowledge,Water|PREALIGN:TN,LE,NE,CE	DESC:Horsemen of Death		FACTSET:Pantheon|Horsemen	DEITYWEAP:Quarterstaff		ALIGN:NE	SOURCEPAGE:p.234
+Szuriel		NAMEISPI:YES	DOMAINS:Evil,Fire,Strength,War|PREALIGN:TN,LE,NE,CE		DESC:Horsemen of War		FACTSET:Pantheon|Horsemen	DEITYWEAP:Greatsword		ALIGN:NE	SOURCEPAGE:p.234
+Trelmarixian	NAMEISPI:YES	DOMAINS:Earth,Evil,Madness,Weather|PREALIGN:TN,LE,NE,CE	DESC:Horsemen of Famine		FACTSET:Pantheon|Horsemen	DEITYWEAP:Gauntlet (Spiked)	ALIGN:NE	SOURCEPAGE:p.234
+
+###Block: Fallen, False, and Forgotten Gods
+# Deity Name		Product Identity?	Domains										FACTSET					Deity Weapon	Align		Source Page
+Aroden			NAMEISPI:YES												FACTSET:Pantheon|Dead Gods							SOURCEPAGE:p.235
+Great Old Ones		NAMEISPI:YES	DOMAINS:Chaos,Knowledge,Madness,Rune,Void|PREALIGN:CG,TN,CN,CE	FACTSET:Pantheon|Forgotten Gods	DEITYWEAP:Dagger	ALIGN:CN	SOURCEPAGE:p.235
+Lissala			NAMEISPI:YES	DOMAINS:Evil,Knowledge,Law,Nobility,Rune|PREALIGN:LN,LE,NE		FACTSET:Pantheon|Forgotten Gods	DEITYWEAP:Whip	ALIGN:LE	SOURCEPAGE:p.235
+The Peacock Spirit	NAMEISPI:YES												FACTSET:Pantheon|Dead Gods							SOURCEPAGE:p.235
+Razmir			NAMEISPI:YES												FACTSET:Pantheon|False Gods							SOURCEPAGE:p.235
+Ydersius			NAMEISPI:YES	DOMAINS:Chaos,Evil,Nobility,Scalykind,War|PREALIGN:NE,CN,CE		FACTSET:Pantheon|Forgotten Gods	DEITYWEAP:Dagger	ALIGN:CE	SOURCEPAGE:p.235
+
+###Block: Subdomain Inclusion -  http://paizo.com/paizo/blog/v5748dyo5lbwn?Golarion-Day-Subdomains-for-Everyone
+# Deity Name		Domains
+Achaekek.MOD		DOMAINS:Blood Subdomain,Deception Subdomain,Devil Subdomain (Evil),Devil Subdomain (Law),Murder Subdomain,Tactics Subdomain,Thievery Subdomain|PREALIGN:LN,LE,NE
+Apsu.MOD			DOMAINS:Archon Subdomain (Good),Archon Subdomain (Law),Construct Subdomain,Dragon Subdomain,Exploration Subdomain,Toil Subdomain,Trade Subdomain|PREALIGN:LG,LN,NG
+Besmara.MOD			DOMAINS:Deception Subdomain,Oceans Subdomain,Protean Subdomain,Storms Subdomain,Tactics Subdomain,Thievery Subdomain|PREALIGN:CG,TN,CN,CE
+Dahak.MOD			DOMAINS:Catastrophe Subdomain,Deception Subdomain,Demon Subdomain (Chaos),Demon Subdomain (Evil),Dragon Subdomain,Rage Subdomain,Thievery Subdomain|PREALIGN:NE,CN,CE
+Ghlaunder.MOD		DOMAINS:Catastrophe Subdomain,Cloud Subdomain,Demon Subdomain (Chaos),Demon Subdomain (Evil),Fur Subdomain,Rage Subdomain,Wind Subdomain|PREALIGN:NE,CN,CE
+Groetus.MOD			DOMAINS:Catastrophe Subdomain,Insanity Subdomain,Loss Subdomain,Night Subdomain,Protean Subdomain,Stars Subdomain|PREALIGN:CG,TN,CN,CE
+Gyronna.MOD			DOMAINS:Demon Subdomain (Chaos),Demon Subdomain (Evil),Insanity Subdomain,Nightmare Subdomain,Rage Subdomain|PREALIGN:NE,CN,CE
+Hanspur.MOD			DOMAINS:Exploration Subdomain,Murder Subdomain,Protean Subdomain,Trade Subdomain|PREALIGN:CG,TN,CN,CE
+Kurgess.MOD			DOMAINS:Agathion Subdomain,Family Subdomain,Fate Subdomain,Home Subdomain,Resolve Subdomain,Trade Subdomain|PREALIGN:LG,NG,CG,TN
+Milani.MOD			DOMAINS:Azata Subdomain (Chaos),Azata Subdomain (Good),Defense Subdomain,Freedom Subdomain,Purity Subdomain,Restoration Subdomain,Revolution Subdomain|PREALIGN:NG,CG,CN
+Sivanah.MOD			DOMAINS:Deception Subdomain,Insanity Subdomain,Memory Subdomain,Protean Subdomain,Thought Subdomain,Wards Subdomain|PREALIGN:LN,NG,TN,NE,CN
+Zyphus.MOD			DOMAINS:Blood Subdomain,Catastrophe Subdomain,Daemon Subdomain,Decay Subdomain,Murder Subdomain,Undead Subdomain|PREALIGN:TN,LE,NE,CE
+#Archdevils
+Baalzebul.MOD		DOMAINS:Devil Subdomain (Evil),Devil Subdomain (Law),Murder Subdomain,Undead Subdomain,Wind Subdomain|PREALIGN:LN,LE,NE
+Barbatos.MOD		DOMAINS:Arcane Subdomain,Devil Subdomain (Evil),Devil Subdomain (Law),Divine Subdomain,Trade Subdomain|PREALIGN:LN,LE,NE
+Belial.MOD			DOMAINS:Catastrophe Subdomain,Devil Subdomain (Evil),Devil Subdomain (Law),Lust Subdomain,Rage Subdomain|PREALIGN:LN,LE,NE
+Dispater.MOD		DOMAINS:Deception Subdomain,Devil Subdomain (Evil),Devil Subdomain (Law),Leadership Subdomain,Thievery Subdomain|PREALIGN:LN,LE,NE
+Geryon.MOD			DOMAINS:Devil Subdomain (Evil),Devil Subdomain (Law),Ferocity Subdomain,Oceans Subdomain,Resolve Subdomain|PREALIGN:LN,LE,NE
+Mammon.MOD			DOMAINS:Construct Subdomain,Devil Subdomain (Evil),Devil Subdomain (Law),Metal Subdomain,Toil Subdomain|PREALIGN:LN,LE,NE
+Mephistopheles.MOD	DOMAINS:Devil Subdomain (Evil),Devil Subdomain (Law),Language Subdomain,Memory Subdomain,Thought Subdomain|PREALIGN:LN,LE,NE
+Moloch.MOD			DOMAINS:Ash Subdomain,Devil Subdomain (Evil),Devil Subdomain (Law),Smoke Subdomain,Tactics Subdomain|PREALIGN:LN,LE,NE
+#Demon Lords
+Abraxas.MOD			DOMAINS:Arcane Subdomain,Demon Subdomain (Chaos),Demon Subdomain (Evil),Memory Subdomain,Thought Subdomain|PREALIGN:NE,CN,CE
+Angazhan.MOD		DOMAINS:Decay Subdomain,Demon Subdomain (Chaos),Demon Subdomain (Evil),Fur Subdomain,Growth Subdomain|PREALIGN:NE,CN,CE
+Baphomet.MOD		DOMAINS:Demon Subdomain (Chaos),Demon Subdomain (Evil),Ferocity Subdomain,Fur Subdomain,Resolve Subdomain|PREALIGN:NE,CN,CE
+Cyth-V'sug.MOD		DOMAINS:Caves Subdomain,Decay Subdomain,Demon Subdomain (Chaos),Demon Subdomain (Evil),Growth Subdomain|PREALIGN:NE,CN,CE
+Dagon.MOD			DOMAINS:Catastrophe Subdomain,Demon Subdomain (Chaos),Demon Subdomain (Evil),Oceans Subdomain,Rage Subdomain|PREALIGN:NE,CN,CE
+Deskari.MOD			DOMAINS:Blood Subdomain,Catastrophe Subdomain,Demon Subdomain (Chaos),Demon Subdomain (Evil),Tactics Subdomain|PREALIGN:NE,CN,CE
+Gogunta.MOD			DOMAINS:Demon Subdomain (Chaos),Demon Subdomain (Evil),Murder Subdomain,Oceans Subdomain,Undead Subdomain|PREALIGN:NE,CN,CE
+Kostchtchie.MOD		DOMAINS:Demon Subdomain (Chaos),Demon Subdomain (Evil),Ferocity Subdomain,Ice Subdomain,Tactics Subdomain|PREALIGN:NE,CN,CE
+Nocticula.MOD		DOMAINS:Demon Subdomain (Chaos),Demon Subdomain (Evil),Loss Subdomain,Lust Subdomain,Night Subdomain|PREALIGN:NE,CN,CE
+Orcus.MOD			DOMAINS:Demon Subdomain (Chaos),Demon Subdomain (Evil),Divine Subdomain,Murder Subdomain,Undead Subdomain|PREALIGN:NE,CN,CE
+Pazuzu.MOD			DOMAINS:Cloud Subdomain,Deception Subdomain,Demon Subdomain (Chaos),Demon Subdomain (Evil),Wind Subdomain|PREALIGN:NE,CN,CE
+Shax.MOD			DOMAINS:Demon Subdomain (Chaos),Demon Subdomain (Evil),Leadership Subdomain,Martyr Subdomain,Rage Subdomain|PREALIGN:NE,CN,CE
+#TYPO from Blog - Trade Lust Subdomain
+Socothbenoth.MOD		DOMAINS:Demon Subdomain (Chaos),Demon Subdomain (Evil),Exploration Subdomain,Trade Subdomain|PREALIGN:NE,CN,CE
+Zura.MOD			DOMAINS:Blood Subdomain,Demon Subdomain (Chaos),Demon Subdomain (Evil),Murder Subdomain,Undead Subdomain|PREALIGN:NE,CN,CE
+#The Eldest
+Count Ranalc.MOD		DOMAINS:Exploration Subdomain,Loss Subdomain,Martyr Subdomain,Night Subdomain|PREALIGN:CG,TN,CN,CE
+The Green Mother.MOD	DOMAINS:Caves Subdomain,Decay Subdomain,Growth Subdomain,Lust Subdomain|PREALIGN:TN,LE,NE,CE
+Imbrex.MOD			DOMAINS:Family Subdomain,Home Subdomain,Metal Subdomain,Resolve Subdomain|PREALIGN:LG,LN,NG,TN
+The Lantern King.MOD	DOMAINS:Deception Subdomain,Love Subdomain,Lust Subdomain,Thievery Subdomain|PREALIGN:CG,TN,CN,CE
+The Lost Prince.MOD	DOMAINS:Ancestors Subdomain,Insanity Subdomain,Martyr Subdomain,Memory Subdomain|PREALIGN:LN,NG,TN,NE,CN
+Maghd.MOD			DOMAINS:Curse Subdomain,Fate Subdomain,Thought Subdomain,Wards Subdomain|PREALIGN:LG,LN,NG,TN
+Ng.MOD			DOMAINS:Exploration Subdomain,Seasons Subdomain,Thought Subdomain,Trade Subdomain|PREALIGN:LN,NG,TN,NE,CN
+Ragadahn.MOD		DOMAINS:Ancestors Subdomain,Dragon Subdomain,Oceans Subdomain,Saurian Subdomain|PREALIGN:NE,CN,CE
+Shyka.MOD			DOMAINS:Arcane Subdomain,Catastrophe Subdomain,Divine Subdomain,Insanity Subdomain|PREALIGN:LN,NG,TN,NE,CN
+#Elemental Lords
+Ayrzul.MOD			DOMAINS:Caves Subdomain,Metal Subdomain|PREALIGN:TN,LE,NE,CE
+Hshurha.MOD			DOMAINS:Cloud Subdomain,Wind Subdomain|PREALIGN:TN,LE,NE,CE
+Kelizandri.MOD		DOMAINS:Ice Subdomain,Oceans Subdomain|PREALIGN:TN,LE,NE,CE
+Ymeri.MOD			DOMAINS:Ash Subdomain,Smoke Subdomain|PREALIGN:TN,LE,NE,CE
+#Empyreal Lords
+Andoletta.MOD		DOMAINS:Archon Subdomain (Good),Archon Subdomain (Law),Defense Subdomain,Memory Subdomain,Purity Subdomain|PREALIGN:LG,LN,NG
+Arshea.MOD			DOMAINS:Agathion Subdomain,Freedom Subdomain,Love Subdomain,Lust Subdomain|PREALIGN:LG,NG,CG,TN
+Korada.MOD			DOMAINS:Agathion Subdomain,Purity Subdomain,Restoration Subdomain,Resurrection Subdomain|PREALIGN:LG,NG,CG,TN
+Ragathiel.MOD		DOMAINS:Archon Subdomain (Good),Archon Subdomain (Law),Leadership Subdomain,Martyr Subdomain,Rage Subdomain|PREALIGN:LG,LN,NG
+Sinashakti.MOD		DOMAINS:Azata Subdomain (Chaos),Azata Subdomain (Good),Exploration Subdomain,Fate Subdomain,Trade Subdomain|PREALIGN:NG,CG,CN
+Valani.MOD			DOMAINS:Azata Subdomain (Chaos),Azata Subdomain (Good),Growth Subdomain,Seasons Subdomain,Storms Subdomain|PREALIGN:NG,CG,CN
+#Horsemen
+Apollyon.MOD		DOMAINS:Catastrophe Subdomain,Daemon Subdomain,Loss Subdomain,Night Subdomain|PREALIGN:TN,LE,NE,CE
+Charon.MOD			DOMAINS:Daemon Subdomain,Ice Subdomain,Memory Subdomain,Undead Subdomain|PREALIGN:TN,LE,NE,CE
+Szuriel.MOD			DOMAINS:Blood Subdomain,Daemon Subdomain,Ferocity Subdomain,Tactics Subdomain|PREALIGN:TN,LE,NE,CE
+Trelmarixian.MOD		DOMAINS:Daemon Subdomain,Decay Subdomain,Insanity Subdomain,Seasons Subdomain|PREALIGN:TN,LE,NE,CE
+#The Fallen, False, and Forgotten
+#Aroden.MOD			DOMAINS:None
+Great Old Ones.MOD	DOMAINS:Dark Tapestry Subdomain,Insanity Subdomain,Language Subdomain,Memory Subdomain,Nightmare Subdomain,Stars Subdomain|PREALIGN:CG,TN,CN,CE
+Lissala.MOD			DOMAINS:Devil Subdomain (Evil),Devil Subdomain (Law),Language Subdomain,Leadership Subdomain,Memory Subdomain,Thought Subdomain,Wards Subdomain|PREALIGN:LN,LE,NE
+#Peacock Spirit.MOD	DOMAINS:None
+#Razmir.MOD			DOMAINS:None
+Ydersius.MOD		DOMAINS:Demon Subdomain (Chaos),Demon Subdomain (Evil),Leadership Subdomain,Martyr Subdomain,Saurian Subdomain,Tactics Subdomain|PREALIGN:NE,CN,CE
+
+
+###Block: Inquisitor Support
+
+
+# Deity Name	Modify VAR
+Achaekek.MOD	BONUS:VAR|InquisitorDomainDeath,InquisitorDomainEvil,InquisitorDomainLaw,InquisitorDomainTrickery,InquisitorDomainWar|1|PREALIGN:LN,LE,NE
+Apsu.MOD		BONUS:VAR|InquisitorDomainArtifice,InquisitorDomainGood,InquisitorDomainLaw,InquisitorDomainScalykind,InquisitorDomainTravel|1|PREALIGN:LG,LN,NG
+Besmara.MOD		BONUS:VAR|InquisitorDomainChaos,InquisitorDomainTrickery,InquisitorDomainWar,InquisitorDomainWater,InquisitorDomainWeather|1|PREALIGN:CG,TN,CN,CE
+Dahak.MOD		BONUS:VAR|InquisitorDomainChaos,InquisitorDomainDestruction,InquisitorDomainEvil,InquisitorDomainScalykind,InquisitorDomainTrickery|1|PREALIGN:NE,CN,CE
+Ghlaunder.MOD	BONUS:VAR|InquisitorDomainAir,InquisitorDomainAnimal,InquisitorDomainChaos,InquisitorDomainDestruction,InquisitorDomainEvil|1|PREALIGN:NE,CN,CE
+Groetus.MOD		BONUS:VAR|InquisitorDomainChaos,InquisitorDomainDarkness,InquisitorDomainDestruction,InquisitorDomainMadness,InquisitorDomainVoid|1|PREALIGN:CG,TN,CN,CE
+Gyronna.MOD		BONUS:VAR|InquisitorDomainChaos,InquisitorDomainDestruction,InquisitorDomainEvil,InquisitorDomainMadness|1|PREALIGN:NE,CN,CE
+Hanspur.MOD		BONUS:VAR|InquisitorDomainChaos,InquisitorDomainDeath,InquisitorDomainTravel,InquisitorDomainWater|1|PREALIGN:CG,TN,CN,CE
+Kurgess.MOD		BONUS:VAR|InquisitorDomainCommunity,InquisitorDomainGood,InquisitorDomainLuck,InquisitorDomainStrength,InquisitorDomainTravel|1|PREALIGN:LG,NG,CG,TN
+Milani.MOD		BONUS:VAR|InquisitorDomainChaos,InquisitorDomainGood,InquisitorDomainHealing,InquisitorDomainLiberation,InquisitorDomainProtection|1|PREALIGN:NG,CG,CN
+Sivanah.MOD		BONUS:VAR|InquisitorDomainKnowledge,InquisitorDomainMadness,InquisitorDomainMagic,InquisitorDomainRune,InquisitorDomainTrickery|1|PREALIGN:LN,NG,TN,NE,CN
+Zyphus.MOD		BONUS:VAR|InquisitorDomainDeath,InquisitorDomainDestruction,InquisitorDomainEvil,InquisitorDomainPlant,InquisitorDomainWar|1|PREALIGN:TN,LE,NE,CE
+
+###Block: Archdevils
+# Deity Name		Modify VAR
+Baalzebul.MOD		BONUS:VAR|InquisitorDomainAir,InquisitorDomainDeath,InquisitorDomainEvil,InquisitorDomainLaw|1|PREALIGN:LN,LE,NE
+Barbatos.MOD		BONUS:VAR|InquisitorDomainEvil,InquisitorDomainLaw,InquisitorDomainMagic,InquisitorDomainTravel|1|PREALIGN:LN,LE,NE
+Belial.MOD			BONUS:VAR|InquisitorDomainCharm,InquisitorDomainDestruction,InquisitorDomainEvil,InquisitorDomainLaw|1|PREALIGN:LN,LE,NE
+Dispater.MOD		BONUS:VAR|InquisitorDomainEvil,InquisitorDomainLaw,InquisitorDomainNobility,InquisitorDomainTrickery|1|PREALIGN:LN,LE,NE
+Geryon.MOD			BONUS:VAR|InquisitorDomainEvil,InquisitorDomainLaw,InquisitorDomainStrength,InquisitorDomainWater|1|PREALIGN:LN,LE,NE
+Mammon.MOD			BONUS:VAR|InquisitorDomainArtifice,InquisitorDomainEarth,InquisitorDomainEvil,InquisitorDomainLaw|1|PREALIGN:LN,LE,NE
+Mephistopheles.MOD	BONUS:VAR|InquisitorDomainEvil,InquisitorDomainKnowledge,InquisitorDomainLaw,InquisitorDomainRune|1|PREALIGN:LN,LE,NE
+Moloch.MOD			BONUS:VAR|InquisitorDomainEvil,InquisitorDomainFire,InquisitorDomainLaw,InquisitorDomainWar|1|PREALIGN:LN,LE,NE
+
+###Block: Demon Lords
+# Deity Name	Modify VAR
+Abraxas.MOD		BONUS:VAR|InquisitorDomainChaos,InquisitorDomainEvil,InquisitorDomainKnowledge,InquisitorDomainMagic|1|PREALIGN:NE,CN,CE
+Angazhan.MOD	BONUS:VAR|InquisitorDomainAnimal,InquisitorDomainChaos,InquisitorDomainEvil,InquisitorDomainPlant|1|PREALIGN:NE,CN,CE
+Baphomet.MOD	BONUS:VAR|InquisitorDomainAnimal,InquisitorDomainChaos,InquisitorDomainEvil,InquisitorDomainStrength|1|PREALIGN:NE,CN,CE
+Cyth-V'sug.MOD	BONUS:VAR|InquisitorDomainChaos,InquisitorDomainEarth,InquisitorDomainEvil,InquisitorDomainPlant|1|PREALIGN:NE,CN,CE
+Dagon.MOD		BONUS:VAR|InquisitorDomainChaos,InquisitorDomainDestruction,InquisitorDomainEvil,InquisitorDomainWater|1|PREALIGN:NE,CN,CE
+Deskari.MOD		BONUS:VAR|InquisitorDomainChaos,InquisitorDomainDestruction,InquisitorDomainEvil,InquisitorDomainWar|1|PREALIGN:NE,CN,CE
+Gogunta.MOD		BONUS:VAR|InquisitorDomainChaos,InquisitorDomainDeath,InquisitorDomainEvil,InquisitorDomainWater|1|PREALIGN:NE,CN,CE
+Kostchtchie.MOD	BONUS:VAR|InquisitorDomainChaos,InquisitorDomainEvil,InquisitorDomainStrength,InquisitorDomainWar|1|PREALIGN:NE,CN,CE
+Nocticula.MOD	BONUS:VAR|InquisitorDomainChaos,InquisitorDomainCharm,InquisitorDomainDarkness,InquisitorDomainEvil|1|PREALIGN:NE,CN,CE
+Orcus.MOD		BONUS:VAR|InquisitorDomainChaos,InquisitorDomainDeath,InquisitorDomainEvil,InquisitorDomainMagic|1|PREALIGN:NE,CN,CE
+Pazuzu.MOD		BONUS:VAR|InquisitorDomainAir,InquisitorDomainChaos,InquisitorDomainEvil,InquisitorDomainTrickery|1|PREALIGN:NE,CN,CE
+Shax.MOD		BONUS:VAR|InquisitorDomainChaos,InquisitorDomainDestruction,InquisitorDomainEvil,InquisitorDomainNobility|1|PREALIGN:NE,CN,CE
+Socothbenoth.MOD	BONUS:VAR|InquisitorDomainChaos,InquisitorDomainCharm,InquisitorDomainEvil,InquisitorDomainTravel|1|PREALIGN:NE,CN,CE
+Zura.MOD		BONUS:VAR|InquisitorDomainChaos,InquisitorDomainDeath,InquisitorDomainEvil,InquisitorDomainMadness|1|PREALIGN:NE,CN,CE
+
+###Block: Eldest
+# Deity Name		Modify VAR
+Count Ranalc.MOD		BONUS:VAR|InquisitorDomainChaos,InquisitorDomainDarkness,InquisitorDomainNobility,InquisitorDomainTravel|1|PREALIGN:CG,TN,CN,CE
+The Green Mother.MOD	BONUS:VAR|InquisitorDomainCharm,InquisitorDomainEarth,InquisitorDomainEvil,InquisitorDomainPlant|1|PREALIGN:TN,LE,NE,CE
+Imbrex.MOD			BONUS:VAR|InquisitorDomainCommunity,InquisitorDomainEarth,InquisitorDomainLaw,InquisitorDomainStrength|1|PREALIGN:LG,LN,NG,TN
+The Lantern King.MOD	BONUS:VAR|InquisitorDomainChaos,InquisitorDomainCharm,InquisitorDomainMadness,InquisitorDomainTrickery|1|PREALIGN:CG,TN,CN,CE
+The Lost Prince.MOD	BONUS:VAR|InquisitorDomainKnowledge,InquisitorDomainMadness,InquisitorDomainNobility,InquisitorDomainRepose|1|PREALIGN:LN,NG,TN,NE,CN
+Maghd.MOD			BONUS:VAR|InquisitorDomainKnowledge,InquisitorDomainLaw,InquisitorDomainLuck,InquisitorDomainRune|1|PREALIGN:LG,LN,NG,TN
+Ng.MOD			BONUS:VAR|InquisitorDomainKnowledge,InquisitorDomainMagic,InquisitorDomainTravel,InquisitorDomainWeather|1|PREALIGN:LN,NG,TN,NE,CN
+Ragadahn.MOD		BONUS:VAR|InquisitorDomainChaos,InquisitorDomainEvil,InquisitorDomainScalykind,InquisitorDomainWater|1|PREALIGN:NE,CN,CE
+Shyka.MOD			BONUS:VAR|InquisitorDomainDeath,InquisitorDomainDestruction,InquisitorDomainMadness,InquisitorDomainMagic|1|PREALIGN:LN,NG,TN,NE,CN
+
+###Block: Elemental Lords
+# Deity Name	Modify VAR
+Ayrzul.MOD		BONUS:VAR|InquisitorDomainDestruction,InquisitorDomainEarth,InquisitorDomainStrength|1|PREALIGN:TN,LE,NE,CE
+Hshurha.MOD		BONUS:VAR|InquisitorDomainAir,InquisitorDomainDestruction,InquisitorDomainWeather|1|PREALIGN:TN,LE,NE,CE
+Kelizandri.MOD	BONUS:VAR|InquisitorDomainDestruction,InquisitorDomainTravel,InquisitorDomainWater|1|PREALIGN:TN,LE,NE,CE
+Ymeri.MOD		BONUS:VAR|InquisitorDomainDestruction,InquisitorDomainFire,InquisitorDomainWar|1|PREALIGN:TN,LE,NE,CE
+
+###Block: Empyreal Lords
+# Deity Name	Modify VAR
+Andoletta.MOD	BONUS:VAR|InquisitorDomainGood,InquisitorDomainKnowledge,InquisitorDomainLaw,InquisitorDomainProtection|1|PREALIGN:LG,LN,NG
+Arshea.MOD		BONUS:VAR|InquisitorDomainCharm,InquisitorDomainGood,InquisitorDomainLiberation,InquisitorDomainStrength|1|PREALIGN:LG,NG,CG,TN
+Korada.MOD		BONUS:VAR|InquisitorDomainGood,InquisitorDomainHealing,InquisitorDomainMagic,InquisitorDomainProtection|1|PREALIGN:LG,NG,CG,TN
+Ragathiel.MOD	BONUS:VAR|InquisitorDomainDestruction,InquisitorDomainGood,InquisitorDomainLaw,InquisitorDomainNobility|1|PREALIGN:LG,LN,NG
+Sinashakti.MOD	BONUS:VAR|InquisitorDomainChaos,InquisitorDomainGood,InquisitorDomainLuck,InquisitorDomainTravel|1|PREALIGN:NG,CG,CN
+Valani.MOD		BONUS:VAR|InquisitorDomainChaos,InquisitorDomainEarth,InquisitorDomainGood,InquisitorDomainWeather|1|PREALIGN:NG,CG,CN
+
+###Block: Horsemen
+# Deity Name	Modify VAR
+Apollyon.MOD	BONUS:VAR|InquisitorDomainAir,InquisitorDomainDarkness,InquisitorDomainDestruction,InquisitorDomainEvil|1|PREALIGN:TN,LE,NE,CE
+Charon.MOD		BONUS:VAR|InquisitorDomainDeath,InquisitorDomainEvil,InquisitorDomainKnowledge,InquisitorDomainWater|1|PREALIGN:TN,LE,NE,CE
+Szuriel.MOD		BONUS:VAR|InquisitorDomainEvil,InquisitorDomainFire,InquisitorDomainStrength,InquisitorDomainWar|1|PREALIGN:TN,LE,NE,CE
+Trelmarixian.MOD	BONUS:VAR|InquisitorDomainEarth,InquisitorDomainEvil,InquisitorDomainMadness,InquisitorDomainWeather|1|PREALIGN:TN,LE,NE,CE
+
+###Block: Fallen, False, and Forgotten Gods
+# Deity Name		Modify VAR
+Great Old Ones.MOD	BONUS:VAR|InquisitorDomainChaos,InquisitorDomainKnowledge,InquisitorDomainMadness,InquisitorDomainRune,InquisitorDomainVoid|1|PREALIGN:CG,TN,CN,CE
+Lissala.MOD			BONUS:VAR|InquisitorDomainEvil,InquisitorDomainKnowledge,InquisitorDomainLaw,InquisitorDomainNobility,InquisitorDomainRune|1|PREALIGN:LN,LE,NE
+Ydersius.MOD		BONUS:VAR|InquisitorDomainChaos,InquisitorDomainEvil,InquisitorDomainNobility,InquisitorDomainScalykind,InquisitorDomainWar|1|PREALIGN:NE,CN,CE
+
+###Block: Subdomain Inclusion-http://paizo.com/paizo/blog/v5748dyo5lbwn?Golarion-Day-Subdomains-for-Everyone
+# Deity Name		Modify VAR
+Achaekek.MOD		BONUS:VAR|InquisitorDomainBloodSubdomain,InquisitorDomainDeceptionSubdomain,InquisitorDomainDevilSubdomainLaw,InquisitorDomainDevilSubdomainEvil,InquisitorDomainMurderSubdomain,InquisitorDomainTacticsSubdomain,InquisitorDomainThieverySubdomain|1|PREALIGN:LN,LE,NE
+Apsu.MOD			BONUS:VAR|InquisitorDomainArchonSubdomainGood,InquisitorDomainArchonSubdomainLaw,InquisitorDomainConstructSubdomain,InquisitorDomainDragonSubdomain,InquisitorDomainExplorationSubdomain,InquisitorDomainToilSubdomain,InquisitorDomainTradeSubdomain|1|PREALIGN:LG,LN,NG
+Besmara.MOD			BONUS:VAR|InquisitorDomainDeceptionSubdomain,InquisitorDomainOceansSubdomain,InquisitorDomainProteanSubdomain,InquisitorDomainTacticsSubdomain,InquisitorDomainThieverySubdomain,InquisitorDomainStormsSubdomain|1|PREALIGN:CG,TN,CN,CE
+Dahak.MOD			BONUS:VAR|InquisitorDomainCatastropheSubdomain,InquisitorDomainDeceptionSubdomain,InquisitorDomainDemonSubdomainChaos,InquisitorDomainDemonSubdomainEvil,InquisitorDomainDragonSubdomain,InquisitorDomainRageSubdomain,InquisitorDomainThieverySubdomain|1|PREALIGN:NE,CN,CE
+Ghlaunder.MOD		BONUS:VAR|InquisitorDomainCatastropheSubdomain,InquisitorDomainCloudSubdomain,InquisitorDomainDemonSubdomainChaos,InquisitorDomainDemonSubdomainEvil,InquisitorDomainFurSubdomain,InquisitorDomainRageSubdomain,InquisitorDomainWindSubdomain|1|PREALIGN:NE,CN,CE
+Groetus.MOD			BONUS:VAR|InquisitorDomainCatastropheSubdomain,InquisitorDomainInsanitySubdomain,InquisitorDomainLossSubdomain,InquisitorDomainNightSubdomain,InquisitorDomainProteanSubdomain,InquisitorDomainStarsSubdomain|1|PREALIGN:CG,TN,CN,CE
+Gyronna.MOD			BONUS:VAR|InquisitorDomainDemonSubdomainChaos,InquisitorDomainDemonSubdomainEvil,InquisitorDomainInsanitySubdomain,InquisitorDomainNightmareSubdomain,InquisitorDomainRageSubdomain|1|PREALIGN:NE,CN,CE
+Hanspur.MOD			BONUS:VAR|InquisitorDomainExplorationSubdomain,InquisitorDomainMurderSubdomain,InquisitorDomainProteanSubdomain,InquisitorDomainTradeSubdomain|1|PREALIGN:CG,TN,CN,CE
+Kurgess.MOD			BONUS:VAR|InquisitorDomainAgathionSubdomain,InquisitorDomainFamilySubdomain,InquisitorDomainFateSubdomain,InquisitorDomainHomeSubdomain,InquisitorDomainResolveSubdomain,InquisitorDomainTradeSubdomain|1|PREALIGN:LG,NG,CG,TN
+Milani.MOD			BONUS:VAR|InquisitorDomainAzataSubdomainGood,InquisitorDomainAzataSubdomainChaos,InquisitorDomainDefenseSubdomain,InquisitorDomainFreedomSubdomain,InquisitorDomainPuritySubdomain,InquisitorDomainRestorationSubdomain,InquisitorDomainRevolutionSubdomain|1|PREALIGN:NG,CG,CN
+Sivanah.MOD			BONUS:VAR|InquisitorDomainDeceptionSubdomain,InquisitorDomainInsanitySubdomain,InquisitorDomainMemorySubdomain,InquisitorDomainProteanSubdomain,InquisitorDomainThoughtSubdomain,InquisitorDomainWardsSubdomain|1|PREALIGN:LN,NG,TN,NE,CN
+Zyphus.MOD			BONUS:VAR|InquisitorDomainBloodSubdomain,InquisitorDomainCatastropheSubdomain,InquisitorDomainDaemonSubdomain,InquisitorDomainDecaySubdomain,InquisitorDomainMurderSubdomain,InquisitorDomainUndeadSubdomain|1|PREALIGN:TN,LE,NE,CE
+#Archdevils
+Baalzebul.MOD		BONUS:VAR|InquisitorDomainDevilSubdomainLaw,InquisitorDomainDevilSubdomainEvil,InquisitorDomainMurderSubdomain,InquisitorDomainUndeadSubdomain,InquisitorDomainWindSubdomain|1|PREALIGN:LN,LE,NE
+Barbatos.MOD		BONUS:VAR|InquisitorDomainArcaneSubdomain,InquisitorDomainDevilSubdomainLaw,InquisitorDomainDevilSubdomainEvil,InquisitorDomainDivineSubdomain,InquisitorDomainTradeSubdomain|1|PREALIGN:LN,LE,NE
+Belial.MOD			BONUS:VAR|InquisitorDomainCatastropheSubdomain,InquisitorDomainDevilSubdomainLaw,InquisitorDomainDevilSubdomainEvil,InquisitorDomainLustSubdomain,InquisitorDomainRageSubdomain|1|PREALIGN:LN,LE,NE
+Dispater.MOD		BONUS:VAR|InquisitorDomainDeceptionSubdomain,InquisitorDomainDevilSubdomainLaw,InquisitorDomainDevilSubdomainEvil,InquisitorDomainLeadershipSubdomain,InquisitorDomainThieverySubdomain|1|PREALIGN:LN,LE,NE
+Geryon.MOD			BONUS:VAR|InquisitorDomainDevilSubdomainLaw,InquisitorDomainDevilSubdomainEvil,InquisitorDomainFerocitySubdomain,InquisitorDomainOceansSubdomain,InquisitorDomainResolveSubdomain|1|PREALIGN:LN,LE,NE
+Mammon.MOD			BONUS:VAR|InquisitorDomainConstructSubdomain,InquisitorDomainDevilSubdomainLaw,InquisitorDomainDevilSubdomainEvil,InquisitorDomainMetalSubdomain,InquisitorDomainToilSubdomain|1|PREALIGN:LN,LE,NE
+Mephistopheles.MOD	BONUS:VAR|InquisitorDomainDevilSubdomainLaw,InquisitorDomainDevilSubdomainEvil,InquisitorDomainLanguageSubdomain,InquisitorDomainMemorySubdomain,InquisitorDomainThoughtSubdomain|1|PREALIGN:LN,LE,NE
+Moloch.MOD			BONUS:VAR|InquisitorDomainAshSubdomain,InquisitorDomainDevilSubdomainLaw,InquisitorDomainDevilSubdomainEvil,InquisitorDomainSmokeSubdomain,InquisitorDomainTacticsSubdomain|1|PREALIGN:LN,LE,NE
+#Demon Lords
+Abraxas.MOD			BONUS:VAR|InquisitorDomainArcaneSubdomain,InquisitorDomainDemonSubdomainChaos,InquisitorDomainDemonSubdomainEvil,InquisitorDomainMemorySubdomain,InquisitorDomainThoughtSubdomain|1|PREALIGN:NE,CN,CE
+Angazhan.MOD		BONUS:VAR|InquisitorDomainDecaySubdomain,InquisitorDomainDemonSubdomainChaos,InquisitorDomainDemonSubdomainEvil,InquisitorDomainFurSubdomain,InquisitorDomainGrowthSubdomain|1|PREALIGN:NE,CN,CE
+Baphomet.MOD		BONUS:VAR|InquisitorDomainDemonSubdomainChaos,InquisitorDomainDemonSubdomainEvil,InquisitorDomainFerocitySubdomain,InquisitorDomainFurSubdomain,InquisitorDomainResolveSubdomain|1|PREALIGN:NE,CN,CE
+Cyth-V'sug.MOD		BONUS:VAR|InquisitorDomainCavesSubdomain,InquisitorDomainDecaySubdomain,InquisitorDomainDemonSubdomainChaos,InquisitorDomainDemonSubdomainEvil,InquisitorDomainGrowthSubdomain|1|PREALIGN:NE,CN,CE
+Dagon.MOD			BONUS:VAR|InquisitorDomainCatastropheSubdomain,InquisitorDomainDemonSubdomainChaos,InquisitorDomainDemonSubdomainEvil,InquisitorDomainOceansSubdomain,InquisitorDomainRageSubdomain|1|PREALIGN:NE,CN,CE
+Deskari.MOD			BONUS:VAR|InquisitorDomainBloodSubdomain,InquisitorDomainCatastropheSubdomain,InquisitorDomainDemonSubdomainChaos,InquisitorDomainDemonSubdomainEvil,InquisitorDomainTacticsSubdomain|1|PREALIGN:NE,CN,CE
+Gogunta.MOD			BONUS:VAR|InquisitorDomainDemonSubdomainChaos,InquisitorDomainDemonSubdomainEvil,InquisitorDomainMurderSubdomain,InquisitorDomainUndeadSubdomain,InquisitorDomainOceansSubdomain|1|PREALIGN:NE,CN,CE
+Kostchtchie.MOD		BONUS:VAR|InquisitorDomainDemonSubdomainChaos,InquisitorDomainDemonSubdomainEvil,InquisitorDomainFerocitySubdomain,InquisitorDomainIceSubdomain,InquisitorDomainTacticsSubdomain|1|PREALIGN:NE,CN,CE
+Nocticula.MOD		BONUS:VAR|InquisitorDomainDemonSubdomainChaos,InquisitorDomainDemonSubdomainEvil,InquisitorDomainLossSubdomain,InquisitorDomainLustSubdomain,InquisitorDomainNightSubdomain|1|PREALIGN:NE,CN,CE
+Orcus.MOD			BONUS:VAR|InquisitorDomainDemonSubdomainChaos,InquisitorDomainDemonSubdomainEvil,InquisitorDomainDivineSubdomain,InquisitorDomainMurderSubdomain,InquisitorDomainUndeadSubdomain|1|PREALIGN:NE,CN,CE
+Pazuzu.MOD			BONUS:VAR|InquisitorDomainCloudSubdomain,InquisitorDomainDeceptionSubdomain,InquisitorDomainDemonSubdomainChaos,InquisitorDomainDemonSubdomainEvil,InquisitorDomainWindSubdomain|1|PREALIGN:NE,CN,CE
+Shax.MOD			BONUS:VAR|InquisitorDomainDemonSubdomainChaos,InquisitorDomainDemonSubdomainEvil,InquisitorDomainLeadershipSubdomain,InquisitorDomainMartyrSubdomain,InquisitorDomainRageSubdomain|1|PREALIGN:NE,CN,CE
+#TYPO from Blog - Trade LustSubdomain
+Socothbenoth.MOD		BONUS:VAR|InquisitorDomainDemonSubdomainChaos,InquisitorDomainDemonSubdomainEvil,InquisitorDomainExplorationSubdomain,InquisitorDomainTradeSubdomain|1|PREALIGN:NE,CN,CE
+Zura.MOD			BONUS:VAR|InquisitorDomainBloodSubdomain,InquisitorDomainDemonSubdomainChaos,InquisitorDomainDemonSubdomainEvil,InquisitorDomainMurderSubdomain,InquisitorDomainUndeadSubdomain|1|PREALIGN:NE,CN,CE
+#The Eldest
+Count Ranalc.MOD		BONUS:VAR|InquisitorDomainExplorationSubdomain,InquisitorDomainLossSubdomain,InquisitorDomainMartyrSubdomain,InquisitorDomainNightSubdomain|1|PREALIGN:CG,TN,CN,CE
+The Green Mother.MOD	BONUS:VAR|InquisitorDomainCavesSubdomain,InquisitorDomainDecaySubdomain,InquisitorDomainGrowthSubdomain,InquisitorDomainLustSubdomain|1|PREALIGN:TN,LE,NE,CE
+Imbrex.MOD			BONUS:VAR|InquisitorDomainFamilySubdomain,InquisitorDomainHomeSubdomain,InquisitorDomainMetalSubdomain,InquisitorDomainResolveSubdomain|1|PREALIGN:LG,LN,NG,TN
+The Lantern King.MOD	BONUS:VAR|InquisitorDomainDeceptionSubdomain,InquisitorDomainLoveSubdomain,InquisitorDomainLustSubdomain,InquisitorDomainThieverySubdomain|1|PREALIGN:CG,TN,CN,CE
+The Lost Prince.MOD	BONUS:VAR|InquisitorDomainAncestorsSubdomain,InquisitorDomainInsanitySubdomain,InquisitorDomainMartyrSubdomain,InquisitorDomainMemorySubdomain|1|PREALIGN:LN,NG,TN,NE,CN
+Maghd.MOD			BONUS:VAR|InquisitorDomainCurseSubdomain,InquisitorDomainFateSubdomain,InquisitorDomainThoughtSubdomain,InquisitorDomainWardsSubdomain|1|PREALIGN:LG,LN,NG,TN
+Ng.MOD			BONUS:VAR|InquisitorDomainExplorationSubdomain,InquisitorDomainSeasonsSubdomain,InquisitorDomainThoughtSubdomain,InquisitorDomainTradeSubdomain|1|PREALIGN:LN,NG,TN,NE,CN
+Ragadahn.MOD		BONUS:VAR|InquisitorDomainAncestorsSubdomain,InquisitorDomainDragonSubdomain,InquisitorDomainOceansSubdomain,InquisitorDomainSaurianSubdomain|1|PREALIGN:NE,CN,CE
+Shyka.MOD			BONUS:VAR|InquisitorDomainArcaneSubdomain,InquisitorDomainCatastropheSubdomain,InquisitorDomainDivineSubdomain,InquisitorDomainInsanitySubdomain|1|PREALIGN:LN,NG,TN,NE,CN
+#Elemental Lords
+Ayrzul.MOD			BONUS:VAR|InquisitorDomainCavesSubdomain,InquisitorDomainMetalSubdomain|1|PREALIGN:TN,LE,NE,CE
+Hshurha.MOD			BONUS:VAR|InquisitorDomainCloudSubdomain,InquisitorDomainWindSubdomain|1|PREALIGN:TN,LE,NE,CE
+Kelizandri.MOD		BONUS:VAR|InquisitorDomainIceSubdomain,InquisitorDomainOceansSubdomain|1|PREALIGN:TN,LE,NE,CE
+Ymeri.MOD			BONUS:VAR|InquisitorDomainAshSubdomain,InquisitorDomainSmokeSubdomain|1|PREALIGN:TN,LE,NE,CE
+#Empyreal Lords
+Andoletta.MOD		BONUS:VAR|InquisitorDomainArchonSubdomainGood,InquisitorDomainArchonSubdomainLaw,InquisitorDomainDefenseSubdomain,InquisitorDomainMemorySubdomain,InquisitorDomainPuritySubdomain|1|PREALIGN:LG,LN,NG
+Arshea.MOD			BONUS:VAR|InquisitorDomainAgathionSubdomain,InquisitorDomainFreedomSubdomain,InquisitorDomainLoveSubdomain,InquisitorDomainLustSubdomain|1|PREALIGN:LG,NG,CG,TN
+Korada.MOD			BONUS:VAR|InquisitorDomainAgathionSubdomain,InquisitorDomainPuritySubdomain,InquisitorDomainRestorationSubdomain,InquisitorDomainResurrectionSubdomain|1|PREALIGN:LG,NG,CG,TN
+Ragathiel.MOD		BONUS:VAR|InquisitorDomainArchonSubdomainGood,InquisitorDomainArchonSubdomainLaw,InquisitorDomainLeadershipSubdomain,InquisitorDomainMartyrSubdomain,InquisitorDomainRageSubdomain|1|PREALIGN:LG,LN,NG
+Sinashakti.MOD		BONUS:VAR|InquisitorDomainAzataSubdomainGood,InquisitorDomainAzataSubdomainChaos,InquisitorDomainExplorationSubdomain,InquisitorDomainFateSubdomain,InquisitorDomainTradeSubdomain|1|PREALIGN:NG,CG,CN
+Valani.MOD			BONUS:VAR|InquisitorDomainAzataSubdomainGood,InquisitorDomainAzataSubdomainChaos,InquisitorDomainGrowthSubdomain,InquisitorDomainSeasonsSubdomain,InquisitorDomainStormsSubdomain|1|PREALIGN:NG,CG,CN
+#Horsemen
+Apollyon.MOD		BONUS:VAR|InquisitorDomainCatastropheSubdomain,InquisitorDomainDaemonSubdomain,InquisitorDomainLossSubdomain,InquisitorDomainNightSubdomain|1|PREALIGN:TN,LE,NE,CE
+Charon.MOD			BONUS:VAR|InquisitorDomainDaemonSubdomain,InquisitorDomainIceSubdomain,InquisitorDomainMemorySubdomain,InquisitorDomainUndeadSubdomain|1|PREALIGN:TN,LE,NE,CE
+Szuriel.MOD			BONUS:VAR|InquisitorDomainBloodSubdomain,InquisitorDomainDaemonSubdomain,InquisitorDomainFerocitySubdomain,InquisitorDomainTacticsSubdomain|1|PREALIGN:TN,LE,NE,CE
+Trelmarixian.MOD		BONUS:VAR|InquisitorDomainDaemonSubdomain,InquisitorDomainDecaySubdomain,InquisitorDomainInsanitySubdomain,InquisitorDomainSeasonsSubdomain|1|PREALIGN:TN,LE,NE,CE
+#The Fallen, False, and Forgotten
+Great Old Ones.MOD	BONUS:VAR|InquisitorDomainDarkTapestrySubdomain,InquisitorDomainInsanitySubdomain,InquisitorDomainLanguageSubdomain,InquisitorDomainMemorySubdomain,InquisitorDomainNightmareSubdomain,InquisitorDomainStarsSubdomain|1|PREALIGN:CG,TN,CN,CE
+Lissala.MOD			BONUS:VAR|InquisitorDomainDevilSubdomainLaw,InquisitorDomainDevilSubdomainEvil,InquisitorDomainLanguageSubdomain,InquisitorDomainLeadershipSubdomain,InquisitorDomainMemorySubdomain,InquisitorDomainThoughtSubdomain,InquisitorDomainWardsSubdomain|1|PREALIGN:LN,LE,NE
+Ydersius.MOD		BONUS:VAR|InquisitorDomainDemonSubdomainChaos,InquisitorDomainDemonSubdomainEvil,InquisitorDomainLeadershipSubdomain,InquisitorDomainMartyrSubdomain,InquisitorDomainSaurianSubdomain,InquisitorDomainTacticsSubdomain|1|PREALIGN:NE,CN,CE

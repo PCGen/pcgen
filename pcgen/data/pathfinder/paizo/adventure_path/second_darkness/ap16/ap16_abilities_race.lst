@@ -1,0 +1,43 @@
+# CVS $Revision: $ $Author: $ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+SOURCELONG:Second Darkness, Chapter 4 - Endless Night	SOURCESHORT:AP16	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy85er	SOURCEDATE:2008-11
+
+###Block: Deep Crow Abilities
+# Ability Name		Output Name												Category of Ability		Type								Define			Description																												Modify VAR						Source Page
+Deep Crow Hide		OUTPUTNAME:+8 racial bonus on Hide and Move Silently checks when underground	CATEGORY:Special Ability	TYPE:SpecialQuality																																													SOURCEPAGE:p.80
+Ancient Caw																CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			DEFINE:AncientCawDC|0	DESC:A deep crow can unleash a high-pitched squawk, a predatory shriek that plays upon primal fears deeply rooted in all creatures' subconscious minds. DC %1|AncientCawDC	BONUS:VAR|AncientCawDC|10+(HD/2)+CHA	SOURCEPAGE:p.80
+Fear of Magic															CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness					DESC:Deep crows are highly unnerved by magic (or seemingly magical) effects.																								SOURCEPAGE:p.80
+Deep Crow Immunities	OUTPUTNAME:Immune to Disease and Poison							CATEGORY:Special Ability	TYPE:SpecialQuality.Immunity																																												SOURCEPAGE:p.80
+Deep Crow Stealth		OUTPUTNAME:+8 racial bonus on Stealth checks when underground			CATEGORY:Special Ability	TYPE:SpecialQuality																																													SOURCEPAGE:p.80
+
+###Block: Demon (Omox) Abilities
+# Ability Name		Output Name																			Category of Ability		Type						Description																						Source Page
+Omox Demon Immunities	OUTPUTNAME:Immunity to critical hits, disease, electricity, paralysis, poison, polymorph, sleep effects and stunning	CATEGORY:Special Ability	TYPE:SpecialQuality.Immunity																									SOURCEPAGE:p.82
+Fluid Form																							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:Omoxes are comprised of living ooze and can contract their disgusting mass as they please.								SOURCEPAGE:p.84
+Invasive Grapple																						CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DESC:Any creature an omox successfully grapples begins to suffocate as the demon smothers it.								SOURCEPAGE:p.84
+Liquid Leap																							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DESC:An omox can instantly travel between bodies of water similarly to the spell dimension door.							SOURCEPAGE:p.84
+Omox Slime			OUTPUTNAME:Slime																		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	DESC:Omoxes can throw compacted balls of ooze. These blasts of slime have a range increment of 20 feet and deal 1d6+6 points of damage.	SOURCEPAGE:p.84
+Omox Summon Demon		OUTPUTNAME:Summon Demon																	CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike		DESC:Once per day an omox can attempt to summon 1d4 babaus with a 60%% chance of success or another omox with a 40%% chance of success.	SOURCEPAGE:p.84
+
+###Block: Ghonhatine Abilities
+# Ability Name			Unique Key			Output Name											Category of Ability		Type						Visible	Define			Description																																																Modify VAR							Source Page
+Ghonhatine Immunities						OUTPUTNAME:Immune to critical hits, disease and poison			CATEGORY:Special Ability	TYPE:SpecialQuality.Immunity																																																																	SOURCEPAGE:p.84
+Filth Fever																				CATEGORY:Special Ability	TYPE:SpecialAttack					DEFINE:FilthFeverDC|0	DESC:When hit by the Ghonhatine's Regurgitate attack the victim is exposed to this disease. Fortitude DC %1, incubation period 1d3 days, damage 1d3 Dex and 1d3 Con.|FilthFeverDC																				BONUS:VAR|FilthFeverDC|10+(HD/2)+CON|TYPE=Base	SOURCEPAGE:p.84
+Powerful Stench																			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary							DESC:When a ghonhatine is enraged, it secretes a tarry, musk-like chemical similar to that of troglodytes, but much more offensive.																																				SOURCEPAGE:p.84
+Regurgitate																				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary							DESC:A ghonhatine can expel the reeking, tightly compacted contents of its stomach with great force. This powerful vomit is treated as a ranged attack with a splash weapon, has a range increment of 20 feet, and deals 2d6 points of damage to the target and splashes all adjacent creatures.									SOURCEPAGE:p.86
+Ghonhatine Survival Checks					OUTPUTNAME:+4 on Survival checks when tracking by scent			CATEGORY:Special Ability	TYPE:SpecialQuality																																																																		SOURCEPAGE:p.86
+Ghonhatine Hide Checks						OUTPUTNAME:+4 on Hide checks when in rocky or underground settings	CATEGORY:Special Ability	TYPE:SpecialQuality																																																																		SOURCEPAGE:p.86
+Feed					KEY:Ghonhatine Feed													CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES					DESC:Insatiable predators, ghonhatines are invigorated immediately after feeding.																																												SOURCEPAGE:p.84
+
+###Block: Irnakurse Abilities
+# Ability Name	Output Name		Category of Ability		Type						Define			Description																									Modify VAR						Source Page
+Mind Lash					CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	DEFINE:MindLashDC|0	DESC:DC %1. Those struck by an irnakurse are overwhelmed with corrupted images of a ruined life and dark emotions.|MindLashDC						BONUS:VAR|MindLashDC|10+(HD/2)+CHA		SOURCEPAGE:p.86
+Soul Scream					CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	DEFINE:SoulScreamDC|0	DESC:DC %1. Capable of channeling all of its rage and terror into a single unnatural noise, an irnakurse can unleash a sound of alien horror.|SoulScreamDC	BONUS:VAR|SoulScreamDC|10+(HD/2)+CHA	SOURCEPAGE:p.86
+Irnakurse Rend	OUTPUTNAME:Rend	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary					DESC:If an irnakurse hits with two or more tentacle attacks, it latches onto the opponent's body and tears the flesh.														SOURCEPAGE:p.86
+
+###Block: Mothman Abilities
+# Ability Name	Output Name			Category of Ability		Type								Visible	Define				Description																															Modify VAR						Source Page
+Agent of Fate					CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike											DESC:A mothman may recreate the effects of any spell of 5th-level or lower once per day, but only if doing so steers the flow of fate in its proper course.														SOURCEPAGE:p.88
+Blurred						CATEGORY:Special Ability	TYPE:SpecialQuality.ModifyAC.Supernatural									DESC:Although they often don't appear indistinct, mothmen are constantly affected as per the spell blur.																						SOURCEPAGE:p.88
+Mind-Warping Gaze					CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural					DEFINE:MindWarpingGazeDC|0	DESC:A mothman's gaze fascinates all creatures within 30 feet (Will DC %1 negates).|MindWarpingGazeDC																BONUS:VAR|MindWarpingGazeDC|10+(HD/2)+CHA	SOURCEPAGE:p.88
+Seer Speak						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Communication								DESC:Mothmen are either unwilling or incapable of communicating verbally. Even when one uses its telepathy, the messages conveyed are not perceived as speech, but rather as cryptic images.								SOURCEPAGE:p.88
+Mothman Telepathy	OUTPUTNAME:Telepathy	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Communicate	VISIBLE:YES	DEFINE:TelepathyRange|0		DESC:%1 ft. range|TelepathyRange|PREVARGT:TelepathyRange,0

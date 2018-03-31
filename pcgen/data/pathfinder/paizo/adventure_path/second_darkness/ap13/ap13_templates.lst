@@ -1,0 +1,8 @@
+# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Second Darkness, Chapter 1 - Shadow in the Sky	SOURCESHORT:AP13	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy84em	SOURCEDATE:2008-08
+
+# Template Name					Visible	Source Page		Required Race								Prohibited Template							Class Skill			Ability								Auto Weapon Prof		Subrace
+Cockroach Variant (Mwangi Hissing)				SOURCEPAGE:p.85	PRERACE:1,Monstrous Cockroach,Flesh-Eating Cockroach Swarm	!PRETEMPLATE:1,Cockroach Variant (Keleshite Venomroach)					ABILITY:Special Ability|AUTOMATIC|Fighting Hiss						SUBRACE:Mwangi Hissing
+Cockroach Variant (Keleshite Venomroach)			SOURCEPAGE:p.85	PRERACE:1,Monstrous Cockroach,Flesh-Eating Cockroach Swarm	!PRETEMPLATE:1,Cockroach Variant (Mwangi Hissing)						ABILITY:Special Ability|AUTOMATIC|Venomroach Poison					SUBRACE:Keleshite Venomroach
+
+Angvar Thestlecrit				VISIBLE:NO																								CSKILL:Appraise|Bluff										AUTO:WEAPONPROF|Sickle

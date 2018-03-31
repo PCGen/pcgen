@@ -1,0 +1,470 @@
+# CVS $Revision: $ $Author: $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
+SOURCELONG:Curse of the Crimson Throne, Chapter 2 - Seven Days to the Grave	SOURCESHORT:AP8	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy82qy	SOURCEDATE:2008-04
+
+
+STARTPACK:NPC (Vendra Loaggri)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p.25	NAMEISPI:YES
+RACE:Human	!PRERACE:1,%
+ABILITY:CATEGORY=Ability Bonus|+2 Strength
+GENDER:Female
+NAME:Vendra Loaggri
+ALIGN:CN
+CLASS:Expert	LEVEL:2
+ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills(Bluff)
+ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills(Craft (Alchemy))
+ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills(Diplomacy)
+ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills(Disable Device)
+ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills(Escape Artist)
+ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills(Linguistics)
+ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills(Knowledge (Local))
+ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills(Perception)
+ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills(Stealth)
+ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills(Use Magic Device)
+CLASS:Rogue		LEVEL:4
+ABILITY:CATEGORY=Favored Class|Rogue
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Rogue Talent|Rogue Talent ~ Fast Stealth
+ABILITY:CATEGORY=Rogue Talent|Rogue Talent ~ Minor Magic (Daze)
+STAT:STR=8|DEX=14|CON=8|INT=13|WIS=12|CHA=16
+SKILL:Bluff				RANK:6
+SKILL:Craft (Alchemy)		RANK:6
+SKILL:Diplomacy			RANK:6
+SKILL:Escape Artist		RANK:4
+SKILL:Knowledge (Local)		RANK:6
+SKILL:Linguistics			RANK:4
+SKILL:Perception			RANK:6
+SKILL:Profession (Perfumer)	RANK:6
+SKILL:Stealth			RANK:6
+SKILL:Use Magic Device		RANK:6
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+ABILITY:CATEGORY=FEAT|Skill Focus(Use Magic Device)
+GEAR:Wand					LOCATION:Equipped		EQMOD:Special Ability ~ Spell Effect / Spell Trigger|SPELLNAME[Charm Person]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[38]
+GEAR:Poison (Giant wasp poison)	LOCATION:Equipped
+GEAR:Wand					LOCATION:Equipped		EQMOD:Special Ability ~ Spell Effect / Spell Trigger|SPELLNAME[Remove Disease] CASTER[Cleric] SPELLTYPE[Divine] SPELLLEVEL[3] CASTERLEVEL[5] CHARGES[7]
+GEAR:Dagger					LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Bracers of Armor +2		LOCATION:Equipped
+
+
+STARTPACK:NPC (Lavender Thug)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p.25	NAMEISPI:YES
+RACE:Human	!PRERACE:1,%
+ABILITY:CATEGORY=Ability Bonus|+2 Strength
+NAME:Lavender Thug
+ALIGN:CN
+CLASS:Fighter	LEVEL:3
+ABILITY:CATEGORY=Favored Class|Fighter
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+STAT:STR=13|DEX=13|CON=14|INT=10|WIS=8|CHA=12
+SKILL:Intimidate	RANK:3
+SKILL:Perception	RANK:3
+SKILL:Stealth	RANK:3
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Endurance
+ABILITY:CATEGORY=FEAT|Diehard
+ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Focus (Sap)
+ABILITY:CATEGORY=Fighter Bonus Feat|Improved Unarmed Strike
+GEAR:Chainmail						LOCATION:Equipped
+GEAR:Sap							LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Coin (Gold Piece)			QTY:20	LOCATION:Equipped
+GEAR:Lavender's Luxuriant Liniment			LOCATION:Equipped
+
+
+STARTPACK:NPC (Girrigz)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p.30	NAMEISPI:YES
+RACE:Human	!PRERACE:1,%
+ABILITY:CATEGORY=Ability Bonus|+2 Strength
+NAME:Girrigz
+ALIGN:CE
+STAT:STR=11|DEX=14|CON=12|INT=10|WIS=9|CHA=10
+CLASS:Fighter	LEVEL:5
+ABILITY:CATEGORY=Favored Class|Fighter
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+TEMPLATE:Lycanthrope
+ABILITY:CATEGORY=Lycanthrope Type|Natural Lycanthrope
+ABILITY:CATEGORY=Lycanthrope Kind|Wererat
+TEMPLATE:Lycanthrope (Hybrid Form)
+TEMPLATE:Girrigz's Magic Buffs
+SKILL:Climb			RANK:1
+SKILL:Handle Animal	RANK:2
+SKILL:Perception		RANK:3
+SKILL:Stealth		RANK:5
+SKILL:Swim			RANK:4
+ABILITY:CATEGORY=FEAT|Agile Maneuvers
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Focus (Rapier)
+ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Specialization (Rapier)
+ABILITY:CATEGORY=Fighter Bonus Feat|Improved Initiative
+ABILITY:CATEGORY=Weapon Training I|Weapon Training 1 Blades Light
+GEAR:Potion of Blur					LOCATION:Pouch (Belt)
+GEAR:Potion of Shield of Faith +3			LOCATION:Pouch (Belt)
+GEAR:Chain Shirt						LOCATION:Equipped		EQMOD:Special Ability ~ +1 ~ Armor
+GEAR:Rapier							LOCATION:Primary Hand	EQMOD:Special Ability ~ +1 ~ Weapon.Material ~ Alchemical Silver
+GEAR:Coin (Gold Piece)			QTY:30	LOCATION:Pouch (Belt)
+GEAR:Pouch (Belt)						LOCATION:Equipped
+
+
+STARTPACK:NPC (Yvicca)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sea Hag]	SOURCEPAGE:p.33	NAMEISPI:YES
+RACE:Sea Hag	!PRERACE:1,%
+GENDER:Female
+NAME:Yvicca
+ALIGN:NE
+CLASS:Druid	LEVEL:4
+ABILITY:CATEGORY=Favored Class|Druid
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Nature Bond|Nature's Bond ~ Druid Domain
+ABILITY:CATEGORY=Druid Domain|Druid Domain ~ Water
+CLASS:Druid	LEVEL:1
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+STAT:STR=12|DEX=14|CON=14|INT=8|WIS=16|CHA=10
+SKILL:Handle Animal		RANK:5
+SKILL:Knowledge (Nature)	RANK:3
+SKILL:Perception			RANK:9
+SKILL:Spellcraft			RANK:7
+SKILL:Stealth			RANK:9
+SKILL:Survival			RANK:1
+SKILL:Swim				RANK:2
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Initiative
+GEAR:Bracers of Armor +2	LOCATION:Equipped
+GEAR:Shortspear			LOCATION:Primary Hand	EQMOD:Special Ability ~ +1 ~ Weapon
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Druid|Barkskin|Bull's Strength|Charm Animal|Cure Light Wounds|Cure Moderate Wounds|Detect Magic|Detect Poison|Faerie Fire|Flare|Magic Fang (Greater)|Read Magic|Resist Energy|Resistance|Speak with Animals
+TEMPLATE:Yvicca's Magic Buffs
+
+
+STARTPACK:NPC (Jolistina Susperio)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elf]	SOURCEPAGE:p.35	NAMEISPI:YES
+RACE:Elf	!PRERACE:1,%
+GENDER:Female
+NAME:Jolistina Susperio
+ALIGN:CE
+CLASS:Rogue		LEVEL:6
+ABILITY:CATEGORY=Favored Class|Rogue
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Rogue Talent|Rogue Talent ~ Trap Spotter
+ABILITY:CATEGORY=Rogue Talent|Rogue Talent ~ Surprise Attack
+ABILITY:CATEGORY=Rogue Talent|Rogue Talent ~ Finesse Rogue
+CLASS:Sorcerer	LEVEL:2
+ABILITY:CATEGORY=Special Ability|Sorcerer Bloodline ~ Undead
+STAT:STR=12|DEX=14|CON=16|INT=10|WIS=8|CHA=14
+SKILL:Acrobatics		RANK:8
+SKILL:Bluff			RANK:8
+SKILL:Climb			RANK:2
+SKILL:Diplomacy		RANK:2
+SKILL:Disable Device	RANK:2
+SKILL:Disguise		RANK:8
+SKILL:Escape Artist	RANK:8
+SKILL:Knowledge (Local)	RANK:2
+SKILL:Perception		RANK:8
+SKILL:Perform (Comedy)	RANK:2
+SKILL:Sleight of Hand	RANK:2
+SKILL:Stealth		RANK:8
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Point-Blank Shot
+ABILITY:CATEGORY=FEAT|Precise Shot
+GEAR:Potion of Invisibility	QTY:3		LOCATION:Pouch (Belt)
+GEAR:Potion of Remove Disease	QTY:2		LOCATION:Pouch (Belt)
+GEAR:Wand						LOCATION:Pouch (Belt)	EQMOD:Special Ability ~ Spell Effect / Spell Trigger|SPELLNAME[Cat's Grace]SPELLLEVEL[2]CASTERLEVEL[3]CHARGES[11]
+GEAR:Smokestick			QTY:5		LOCATION:Pouch (Belt)
+GEAR:Studded Leather				LOCATION:Equipped		EQMOD:Special Ability ~ +1 ~ Armor.Special Ability ~ Glamered ~ Armor
+GEAR:Bolt (Crossbow)		QTY:30	LOCATION:Carried
+GEAR:Crossbow (Light)				LOCATION:Carried		EQMOD:Special Ability ~ +1 ~ Weapon
+GEAR:Dagger						LOCATION:Primary Hamd	EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Alchemist's Fire (Flask)	QTY:2.0	LOCATION:Pouch (Belt)
+GEAR:Flint and Steel				LOCATION:Pouch (Belt)
+GEAR:Manacles (Medium)				LOCATION:Pouch (Belt)
+GEAR:Sealing Wax					LOCATION:Pouch (Belt)
+GEAR:Sewing Needle				LOCATION:Pouch (Belt)
+GEAR:Pouch (Belt)					LOCATION:Equipped
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Ray of Enfeeblement|Shield|Acid Splash|Dancing Lights|Ghost Sound|Mage Hand|Open/Close
+TEMPLATE:Jolistina Susperio's Magic Buffs
+
+
+STARTPACK:NPC (Gray Maiden)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p.42
+GENDER:Female
+RACE:Human	!PRERACE:1,%
+ABILITY:CATEGORY=Ability Bonus|+2 Strength
+GENDER:Female
+NAME:Gray Maiden
+ALIGN:LE
+CLASS:Fighter	LEVEL:2
+ABILITY:CATEGORY=Favored Class|Fighter
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+STAT:STR=12|DEX=12|CON=15|INT=10|WIS=8|CHA=13
+SKILL:Acrobatics	RANK:2
+SKILL:Climb		RANK:2
+SKILL:Intimidate	RANK:2
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Point-Blank Shot
+ABILITY:CATEGORY=Fighter Bonus Feat|Quick Draw
+ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Focus (Longsword)
+GEAR:Full Plate			LOCATION:Equipped		EQMOD:Special Quality ~ Masterwork ~ Armor
+GEAR:Shield (Heavy/Steel)	LOCATION:Equipped
+GEAR:Longsword			LOCATION:Promary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Arrows (20)			LOCATION:Carried
+GEAR:Longbow (Composite +0)	LOCATION:Carried
+
+
+STARTPACK:NPC (Queen's Physician)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p.42
+RACE:Human	!PRERACE:1,%
+ABILITY:CATEGORY=Ability Bonus|+2 Strength
+NAME:Queen's Physician
+ALIGN:NE
+CLASS:Rogue	LEVEL:2
+ABILITY:CATEGORY=Favored Class|Rogue
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Rogue Talent|Rogue Talent ~ Fast Stealth
+STAT:STR=12|DEX=15|CON=12|INT=13|WIS=10|CHA=8
+SKILL:Acrobatics		RANK:2
+SKILL:Bluff			RANK:2
+SKILL:Diplomacy		RANK:2
+SKILL:Disguise		RANK:2
+SKILL:Heal			RANK:2
+SKILL:Intimidate		RANK:2
+SKILL:Knowledge (Local)	RANK:2
+SKILL:Perception		RANK:2
+SKILL:Sense Motive	RANK:2
+SKILL:Stealth		RANK:2
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
+GEAR:Leather			LOCATION:Equipped
+GEAR:Healer's Kit			LOCATION:Equipped
+GEAR:Club				LOCATION:Both Hands	EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Plaguebringer's Mask	LOCATION:Equipped
+
+
+STARTPACK:NPC (Dr. Davaulus)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p.46	NAMEISPI:YES
+RACE:Human	!PRERACE:1,%
+ABILITY:CATEGORY=Ability Bonus|+2 Dexterity
+NAME:Dr. Davaulus
+ALIGN:NE
+CLASS:Rogue		LEVEL:3
+ABILITY:CATEGORY=Rogue Talent|Rogue Talent ~ Fast Stealth
+CLASS:Expert	LEVEL:3
+ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills (Heal)
+ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills (Stealth)
+ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills (Knowledge (Nature))
+ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills (Knowledge (Religion))
+ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills (Disable Device)
+ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills (Profession (Doctor))
+ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills (Perception)
+ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills (Sense Motive)
+ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills (Sleight of Hand)
+ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills (Linguistics)
+CLASS:Bard		LEVEL:4
+ABILITY:CATEGORY=Favored Class|Bard
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Versatile Performance|Versatile Performance ~ Oratory
+STAT:STR=8|DEX=12|CON=10|INT=16|WIS=12|CHA=14
+SKILL:Appraise			RANK:4
+SKILL:Bluff				RANK:10
+SKILL:Diplomacy			RANK:10
+SKILL:Disable Device		RANK:4
+SKILL:Heal				RANK:4
+SKILL:Intimidate			RANK:4
+SKILL:Knowledge (Arcana)	RANK:4
+SKILL:Knowledge (Local)		RANK:4
+SKILL:Knowledge (Nature)	RANK:4
+SKILL:Knowledge (Religion)	RANK:4
+SKILL:Perception			RANK:10
+SKILL:Perform (Oratory)		RANK:10
+SKILL:Profession (Doctor)	RANK:10
+SKILL:Sense Motive		RANK:4
+SKILL:Sleight of Hand		RANK:4
+SKILL:Spellcraft			RANK:6
+SKILL:Stealth			RANK:10
+ABILITY:CATEGORY=FEAT|Combat Expertise
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Quick Draw
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+GEAR:Potion of Remove Disease		LOCATION:Equipped
+GEAR:Rapier					LOCATION:Primary Hand	EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Bane ~ Weapon|Humanoids (human)
+GEAR:Mithral Shirt			LOCATION:Equipped		EQMOD:Special Ability ~ +1 ~ Armor.Material ~ Mithril ~ Armor / Light
+GEAR:Amulet of Natural Armor +1	LOCATION:Equipped
+SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Cause Fear|Charm Person|Dancing Lights|Detect Magic|Disguise Self|Ghost Sound|Hideous Laughter|Invisibility|Mage Hand|Mending|Misdirection|Prestidigitation
+
+
+STARTPACK:NPC (Rolth)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p.48	NAMEISPI:YES
+RACE:Human	!PRERACE:1,%
+ABILITY:CATEGORY=Ability Bonus|+2 Dexterity
+NAME:Rolth
+ALIGN:CE
+CLASS:Wizard	LEVEL:8	SUBCLASS:Necromancer
+ABILITY:CATEGORY=Favored Class|Wizard
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+STAT:STR=8|DEX=12|CON=14|INT=16|WIS=10|CHA=12
+SKILL:Craft (Alchemy)		RANK:8
+SKILL:Knowledge (Arcana)	RANK:8
+SKILL:Knowledge (Religion)	RANK:8
+SKILL:Knowledge (Planes)	RANK:8
+SKILL:Perception			RANK:8
+SKILL:Spellcraft			RANK:8
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Craft Wondrous Item
+ABILITY:CATEGORY=FEAT|Spell Focus(Necromancy)
+ABILITY:CATEGORY=FEAT|Greater Spell Focus(Necromancy)
+ABILITY:CATEGORY=FEAT|Craft Construct
+ABILITY:CATEGORY=Wizard Bonus Feat|Brew Potion
+ABILITY:CATEGORY=Arcane Bond|Arcane Bond ~ Familiar
+ABILITY:CATEGORY=Arcane Opposition School|Illusion Opposition School
+ABILITY:CATEGORY=Arcane Opposition School|Transmutation Opposition School
+ABILITY:CATEGORY=Necromancer Channeling|Power Over Undead ~ Command Undead
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Acid Splash|Animate Dead|Charm Person|Chill Touch|Detect Magic|Detect Thoughts|Dimension Door|Dispel Magic|Enervation|False Life|Ghoul Touch|Grease|Hold Person|Ice Storm|Light|Lightning Bolt|Mage Armor|Ray of Enfeeblement|Ray of Exhaustion|Ray of Frost|Scorching Ray|Shield|Spectral Hand|Touch of Fatigue|Vampiric Touch
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Acid Splash|Animate Dead|Charm Person|Chill Touch|Detect Magic|Detect Thoughts|Dimension Door|Dispel Magic|Enervation|False Life|Ghoul Touch|Grease|Hold Person|Ice Storm|Light|Lightning Bolt|Mage Armor|Ray of Enfeeblement|Ray of Exhaustion|Ray of Frost|Scorching Ray|Shield|Spectral Hand|Touch of Fatigue|Vampiric Touch
+GEAR:Wand						LOCATION:Equipped		EQMOD:Special Ability ~ Spell Effect / Spell Trigger|SPELLNAME[Magic Missile]SPELLLEVEL[1]CASTERLEVEL[3]CHARGES[43]
+GEAR:Dagger						LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Cloak of Resistance +1			LOCATION:Equipped
+GEAR:Headband of Vast Intelligence +2	LOCATION:Equipped
+GEAR:Ring of Protection +1			LOCATION:Equipped
+GEAR:Unguent of Timelessness			LOCATION:Equipped
+GEAR:Mortician's Tools				LOCATION:Equipped
+TEMPLATE:Rolth's Magic Buffs
+
+
+STARTPACK:NPC (Priest of Urgathoa)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p.49	NAMEISPI:YES
+RACE:Human	!PRERACE:1,%
+ABILITY:CATEGORY=Ability Bonus|+2 Strength
+NAME:Priest of Urgathoa
+ALIGN:NE
+CLASS:Cleric	LEVEL:2
+ABILITY:CATEGORY=Favored Class|Cleric
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+DEITY:Urgathoa	DOMAIN:Death|War
+STAT:STR=11|DEX=10|CON=14|INT=12|WIS=15|CHA=8
+SKILL:Heal				RANK:2
+SKILL:Knowledge (Religion)	RANK:2
+SKILL:Perception			RANK:2
+SKILL:Spellcraft			RANK:2
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=Channel Energy|Cleric ~ Channel Negative Energy
+GEAR:Scythe					LOCATION:Both Hands	EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Potion of Cure Moderate Wounds	LOCATION:Equipped
+GEAR:Breastplate				LOCATION:Equipped		EQMOD:Special Ability ~ +1 ~ Armor
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Cure Light Wounds|Detect Magic|Divine Favor|Resistance|Shield of Faith
+# Domain Spells, Note: PCGen does not currently Add Cleric Domain spells
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Magic Weapon
+TEMPLATE:Priest of Urgathoa's Magic Buffs
+
+
+STARTPACK:NPC (Lady Andaisin)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p.55	NAMEISPI:YES
+RACE:Human	!PRERACE:1,%
+ABILITY:CATEGORY=Ability Bonus|+2 Strength
+GENDER:Female
+NAME:Lady Andaisin
+ALIGN:NE
+CLASS:Cleric	LEVEL:9
+ABILITY:CATEGORY=Favored Class|Cleric
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+DEITY:Urgathoa	DOMAIN:Death|War
+STAT:STR=10|DEX=8|CON=18|INT=10|WIS=17|CHA=13
+SKILL:Perception			RANK:9
+SKILL:Knowledge (Religion)	RANK:9
+SKILL:Spellcraft			RANK:9
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Craft Magic Arms and Armor
+ABILITY:CATEGORY=FEAT|Craft Wondrous Item
+ABILITY:CATEGORY=FEAT|Extend Spell
+ABILITY:CATEGORY=FEAT|Spell Focus(Necromancy)
+ABILITY:CATEGORY=FEAT|Martial Weapon Proficiency (Scythe)
+ABILITY:CATEGORY=FEAT|Weapon Focus (Scythe)					FREE:YES
+ABILITY:CATEGORY=Channel Energy|Cleric ~ Channel Negative Energy
+GEAR:Scythe				LOCATION:Both Hands	EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Vicious ~ Melee
+GEAR:Breastplate			LOCATION:Equipped		EQMOD:Special Ability ~ +1 ~ Armor
+GEAR:Cloak of Resistance +2	LOCATION:Equipped
+GEAR:Periapt			LOCATION:Equipped		EQMOD:Special Ability ~ Bonus Ability / Enhancement|WIS=+2
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Aid|Air Walk|Bear's Endurance|Blindness/Deafness|Command (Greater)|Contagion|Cure Critical Wounds|Cure Light Wounds=2|Cure Moderate Wounds=2|Dispel Magic|Status|Guidance|Light=2|Shield of Faith|Shield of Faith[Extend Spell]|Status[Extend Spell]
+# Domain Spells, Note: PCGen does not currently Add Cleric Domain spells
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Divine Power|Magic Vestment|Magic Weapon|Slay Living|Spiritual Weapon
+TEMPLATE:Lady Andaisin's Magic Buffs
+
+
+
+STARTPACK:NPC (Ramoska Arkminos/Sample Nosferatu)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.89
+ALIGN:LE
+RACE:Human	!PRERACE:1,%
+ABILITY:CATEGORY=Ability Bonus|+2 Strength
+NAME:Ramoska Arkminos
+STAT:STR=8|DEX=12|CON=10|WIS=14|INT=17|CHA=13
+TEMPLATE:Nosferatu
+CLASS:Wizard	LEVEL:8	SUBCLASS:Universalist
+ABILITY:CATEGORY=Favored Class|Wizard
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Wizard Bonus Feat|Silent Spell
+ABILITY:CATEGORY=Arcane Bond|Arcane Bond ~ Bonded Object
+SKILL:Craft (Alchemy)		RANK:2
+SKILL:Diplomacy			RANK:4
+SKILL:Heal				RANK:8
+SKILL:Knowledge (Arcana)	RANK:8
+SKILL:Knowledge (History)	RANK:2
+SKILL:Knowledge (Planes)	RANK:2
+SKILL:Knowledge (Religion)	RANK:2
+SKILL:Linguistics			RANK:4
+SKILL:Perception			RANK:8
+SKILL:Sense Motive		RANK:4
+SKILL:Spellcraft			RANK:4
+SKILL:Stealth			RANK:8
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Persuasive
+ABILITY:CATEGORY=FEAT|Spell Focus (Enchantment)
+ABILITY:CATEGORY=FEAT|Greater Spell Focus (Enchantment)
+ABILITY:CATEGORY=Skill Focus|Skill Focus(Craft (Alchemy))
+ABILITY:CATEGORY=Skill Focus|Skill Focus(Heal)
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Ghost Sound|Mage Hand|Message|Disguise Self|Mage Armor|Magic Missile|Ray of Enfeeblement|Silent Image|Invisibility|Scorching Ray|Touch of Idiocy|Web|Dispel Magic|Hold Person|Lightning Bolt|Stinking Cloud|Crushing Despair|Dimension Door|Fire Shield
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Ghost Sound|Mage Hand|Message|Disguise Self|Mage Armor|Magic Missile|Ray of Enfeeblement|Silent Image|Invisibility|Scorching Ray|Touch of Idiocy|Web|Dispel Magic|Hold Person|Lightning Bolt|Stinking Cloud|Crushing Despair|Dimension Door|Fire Shield
+GEAR:Wand						LOCATION:Equipped	EQMOD:Special Ability ~ Spell Effect / Spell Trigger|SPELLNAME[Magic Missile]SPELLLEVEL[1]CASTERLEVEL[3]CHARGES[31]
+GEAR:Potion					QTY:2	LOCATION:Equipped	EQMOD:Special Ability ~ Spell Effect / Single Use|SPELLNAME[Inflict Moderate Wounds]CASTER[Cleric]SPELLTYPE[Divine]SPELLLEVEL[2]CASTERLEVEL[3]
+GEAR:Ring of Protection +2			LOCATION:Equipped
+GEAR:Cape of the Mountebank			LOCATION:Equipped
+GEAR:Spellbook		LOCATION:Equipped

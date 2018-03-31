@@ -1,0 +1,8 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Curse of the Crimson Throne, Chaper 1 - Edge of Anarchy	SOURCESHORT:AP7	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy81xw	SOURCEDATE:2008-03
+
+# Template Name		Challenge Rating	Size		Visible	Level Adjustment	Stat bonus											Modify VAR						Class Skill																						Ability									Subrace		Main Race Type	Vision
+Yargin Balko's Skills						VISIBLE:NO																							CSKILL:Appraise|Craft (Alchemy)|Disable Device|Linguistics|Knowledge (Arcana)|Perception|Spellcraft|Use Magic Device|Bluff|Craft (Traps)
+Lamm's Lambs Skills				SIZE:S	VISIBLE:NO																							CSKILL:Acrobatics|Bluff|Climb|Escape Artist|Sleight of Hand|Perception|Stealth																				SUBRACE:Child
+Gaedren Lamm's Skills						VISIBLE:NO																							CSKILL:Appraise|Bluff|Linguistics|Handle Animal|Intimidate|Knowledge (Local)|Disable Device|Sleight of Hand|Perception														SUBRACE:Old
+Cabbagehead Ogrekin	CR:1					VISIBLE:YES	LEVELADJUSTMENT:2	BONUS:STAT|STR|6	BONUS:STAT|CON|4	BONUS:STAT|CHA|-2	BONUS:STAT|INT|-4	BONUS:VAR|AC_Natural_Armor|5|TYPE=Base																								ABILITY:Special Ability|AUTOMATIC|Cabbagehead's Deformities	SUBRACE:Ogrekin	RACETYPE:Giant	VISION:Low-Light Vision

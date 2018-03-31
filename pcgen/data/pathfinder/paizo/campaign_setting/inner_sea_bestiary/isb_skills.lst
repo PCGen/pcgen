@@ -1,0 +1,16 @@
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:Inner Sea Bestiary	SOURCESHORT:ISB	SOURCEWEB:http://paizo.com/products/btpy8v2x	SOURCEDATE:2013-06
+# Original Entry by: Scott Meyer
+
+# Skill Name		Key Stat	Untrained?		Classes	Type			Visible		Req. Rule (in options)		Prohibited Var. Value
+Perception (Dim Light)	KEYSTAT:WIS	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Perception (Dim Light).MISC"),var("SKILL.Perception.MISC")
+Stealth (Dim Light)	KEYSTAT:DEX	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Stealth (Dim Light).MISC"),var("SKILL.Stealth.MISC")
+Stealth (Jungle)		KEYSTAT:DEX	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Stealth (Jungle).MISC"),var("SKILL.Stealth.MISC")
+Stealth (Cane Fields)	KEYSTAT:DEX	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Stealth (Cane Fields).MISC"),var("SKILL.Stealth.MISC")
+
+###Block:
+# Skill Name	Bonus to skill									Bonus to skill rank
+Perception.MOD	BONUS:SKILL|Perception (Dim Light)|var("SKILL.Perception.MISC")	BONUS:SKILLRANK|Perception (Dim Light)|skillinfo("TOTALRANK", "Perception")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Perception (Dim Light).MISC"),var("SKILL.Perception.MISC")
+Stealth.MOD		BONUS:SKILL|Stealth (Dim Light)|var("SKILL.Stealth.MISC")		BONUS:SKILLRANK|Stealth (Dim Light)|skillinfo("TOTALRANK", "Stealth")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Stealth (Dim Light).MISC"),var("SKILL.Stealth.MISC")
+Stealth.MOD		BONUS:SKILL|Stealth (Jungle)|var("SKILL.Stealth.MISC")		BONUS:SKILLRANK|Stealth (Jungle)|skillinfo("TOTALRANK", "Stealth")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Stealth (Jungle).MISC"),var("SKILL.Stealth.MISC")
+Stealth.MOD		BONUS:SKILL|Stealth (Cane Fields)|var("SKILL.Stealth.MISC")		BONUS:SKILLRANK|Stealth (Cane Fields)|skillinfo("TOTALRANK", "Stealth")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Stealth (Cane Fields).MISC"),var("SKILL.Stealth.MISC")

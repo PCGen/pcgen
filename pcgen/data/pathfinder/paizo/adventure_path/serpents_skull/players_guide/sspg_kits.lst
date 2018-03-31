@@ -1,0 +1,10 @@
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:Serpent's Skull Player's Guide	SOURCESHORT:SSPG	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/theSerpentsSkull/v5748btpy8g6d	SOURCEDATE:2010-08
+# Original Entry by: Stefan Radermacher
+
+STARTPACK:Boarded in Cheliax	TYPE:Character Trait	VISIBLE:NO	EQUIPBUY:0
+FUNDS:gp	QTY:200
+GEAR:Map (Mwangi Expanse)	LOCATION:Equipped
+
+STARTPACK:Get the Cargo Through	TYPE:Character Trait	VISIBLE:NO	EQUIPBUY:0
+FUNDS:gp	QTY:300

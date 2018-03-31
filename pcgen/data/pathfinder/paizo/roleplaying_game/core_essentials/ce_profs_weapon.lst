@@ -1,0 +1,91 @@
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+
+
+
+# Weapon Name				Type																	Nb Hands
+Atlatl					TYPE:StoneAge.Martial.Piercing.Ranged.Thrown
+Blunderbuss					TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm								HANDS:2
+Bo Staff					TYPE:Eastern.Melee.Exotic.TwoHanded.Bludgeoning.Blocking.Double.Monk
+Nine Ring Broadsword	KEY:Broadsword (Nine Ring)			TYPE:Eastern.Melee.Martial.OneHanded.Monk.Tengu.Sword.Bladeheavy
+Buckler Gun					TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm
+Butterfly Sword				TYPE:Eastern.Melee.Martial.Light.Monk.Tengu.Sword.Bladelight
+Culverin					TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm								HANDS:2
+Dan Bong					TYPE:Eastern.Melee.Exotic.Light.Bludgeoning.Blocking.Monk.Ranged.Thrown.Close
+Double Chicken Saber			TYPE:Eastern.Melee.Martial.OneHanded.Disarm.Monk.Tengu.Sword.Bladeheavy
+Double Hackbut				TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm								HANDS:2
+Emei Piercer				TYPE:Eastern.Melee.Exotic.Light.Piercing.Monk.Close
+Fighting Fan				TYPE:Eastern.Melee.Exotic.Light.Slashing.Piercing.Distracting.Monk.Close
+Fire Lance					TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm								HANDS:2
+Flying Blade				TYPE:GladiatorMelee.Exotic.Slashing.Performance.Reach.TwoHanded.Tengu.Sword.Flail
+Harpoon					TYPE:Piercing.Ranged.Thrown.Exotic.Fragile.Grapple.Spear
+Hooked Axe					TYPE:GladiatorMelee.Exotic.Slashing.Performance.Disarm.Trip.OneHanded.Axe.Polearm
+Hooked Lance				TYPE:Eastern.Melee.Martial.TwoHanded.Reach.Trip.Polearm
+Iron Brush					TYPE:Eastern.Melee.Martial.Light.Close
+Jutte						TYPE:Eastern.Melee.Martial.Light.Disarm.Monk
+Double-Chained Kama	KEY:Kama (Double-Chained)			TYPE:Eastern.Melee.Exotic.TwoHanded.Slashing.Double.Monk.Reach.Trip.Flail
+Katana					TYPE:Eastern.Melee.Martial.OneHanded.Exotic.Slashing.Deadly.Tengu.Sword.Bladeheavy.Samurai.HeavyBlade
+Double Walking Stick Katana	KEY:Katana (Double Walking Stick)		TYPE:Eastern.Melee.Exotic.TwoHanded.Bludgeoning.Double.Tengu.Sword.Bladeheavy
+Kerambit					TYPE:Eastern.Melee.Martial.Light.Bladelight
+Kestros					TYPE:Piercing.Exotic.Ranged.Thrown
+Knuckle Axe					TYPE:GladiatorMelee.Exotic.Slashing.Performance.Light.Monk.Axe
+Kusarigama	KEY:Kusarigama (Sickle and Chain)		TYPE:Eastern.Melee.Exotic.TwoHanded.Slashing.Bludgeoning.Double.Monk.Reach.Trip.Grapple.Flail
+Kyoketsu Shoge				TYPE:Eastern.Melee.Exotic.TwoHanded.Slashing.Piercing.Disarm.Grapple.Monk.Reach.Ranged.Thrown.Flail
+Lungchuan Tamo				TYPE:Eastern.Melee.Martial.Light.Monk
+Madu						TYPE:GladiatorMelee.Exotic.Piercing.Performance.Light.Close
+Mattock					TYPE:Piercing.Martial.Fragile.Axe
+Mere Club					TYPE:StoneAge.Simple.Bludgeoning.Piercing.Fragile.Close.Hammer
+Meteor Hammer				TYPE:Eastern.Melee.Exotic.TwoHanded.Bludgeoning.Reach.Trip.Flail
+Monk's Spade				TYPE:Eastern.Melee.Martial.TwoHanded.Double.Monk.Polearm
+Musket					TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm.Musket							HANDS:2
+Axe Musket	KEY:Musket (Axe)				TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm.Musket							HANDS:2
+Double-Barreled Musket	KEY:Musket (Double-Barreled)		TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm.Musket							HANDS:2
+Warhammer Musket	KEY:Musket (Warhammer)			TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm.Musket							HANDS:2
+Naginata					TYPE:Eastern.Melee.Martial.TwoHanded.Reach.Samurai.Polearm
+Nine-Section Whip				TYPE:Eastern.Melee.Exotic.OneHanded.Bludgeoning.Blocking.Distracting.Monk.Trip.Flail
+Nodachi					TYPE:Eastern.Melee.Martial.TwoHanded.Brace.Polearm.Bladeheavy
+Pata						TYPE:GladiatorMelee.Exotic.Piercing.Performance.Light.Axe.Bladelight
+Pepperbox					TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm
+Pistol					TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm.Pistol
+Coat Pistol	KEY:Pistol (Coat)				TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm.Pistol
+Dagger Pistol	KEY:Pistol (Dagger)				TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm.Pistol
+Double-Barreled Pistol	KEY:Pistol (Double-Barreled)		TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm.Pistol
+Dragon Pistol	KEY:Pistol (Dragon)				TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm.Pistol
+Sword Cane Pistol	KEY:Pistol (Sword Cane)			TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm.Pistol
+Poisoned Sand Tube			TYPE:Eastern.Ranged.Martial.Thrown
+Quadrens					TYPE:GladiatorMelee.Exotic.Piercing.Performance.Light.Bladelight
+Revolver					TYPE:Ranged.Piercing.Bludgeoning.Firearm.Revolver.OneHandedFireArm
+Rhomphaia					TYPE:Piercing.Slashing.Martial.Brace.Fragile.Reach
+Rifle						TYPE:Ranged.Piercing.Bludgeoning.Firearm.Rifle.TwoHandedFireArm							HANDS:2
+Rope Dart					TYPE:Eastern.Ranged.Exotic.Piercing.Blocking.Distracting.Monk.Thrown
+Sansetsukon					TYPE:Eastern.Melee.Martial.TwoHanded.Blocking.Disarm.Monk.Flail
+Scizore					TYPE:GladiatorMelee.Martial.Piercing.Performance.OneHanded.Close
+Scorpion Whip				TYPE:GladiatorMelee.Exotic.Slashing.Performance.Light.Flail
+Shang Gou					TYPE:Eastern.Melee.Martial.Light.Disarm.Trip.Monk
+Shotel					TYPE:GladiatorMelee.Exotic.Piercing.Performance.OneHanded.Bladeheavy
+Shotgun					TYPE:Ranged.Piercing.Bludgeoning.Firearm.Shotgun.Scatter.TwoHandedFireArm					HANDS:2
+Sibat						TYPE:Eastern.Melee.Martial.OneHanded.Spear
+Sica						TYPE:GladiatorMelee.Exotic.Slashing.Performance.Light.Bladelight
+Seven-Branched Sword	KEY:Sword (Seven-Branched)			TYPE:Eastern.Melee.Exotic.TwoHanded.Slashing.Disarm.Monk.Tengu.Sword.Bladeheavy
+Tri-Point Double-Edged Sword	KEY:Sword (Tri-Point Double-Edged)	TYPE:Eastern.Melee.Martial.TwoHanded.Reach.Tengu.Sword.Monk
+Taiaha					TYPE:StoneAge.Exotic.Bludgeoning.Piercing.Double.Hammer
+Tekko-Kagi	KEY:Tekko-Kagi (Iron Claw)			TYPE:Eastern.Melee.Exotic.Light.Piercing.Disarm.Close
+Tepoztopilli				TYPE:StoneAge.Martial.Piercing.Slashing.Fragile.Reach
+Terbutje					TYPE:StoneAge.Martial.Slashing.Fragile.Bladeheavy
+Tetsubo					TYPE:Eastern.Melee.Exotic.TwoHanded.Bludgeoning.Hammer
+Throwing Shield				TYPE:GladiatorMelee.Ranged.Thrown.Exotic.Bludgeoning.Performance.Trip
+Tiger Fork					TYPE:Eastern.Melee.Martial.TwoHanded.Brace.Monk.Polearm.Spear
+Tonfa						TYPE:Eastern.Melee.Martial.Light.Blocking.Monk.Close
+Tube Arrow Shooter			TYPE:Eastern.Ranged.Martial.Crossbow
+Urumi						TYPE:Eastern.Melee.Exotic.OneHanded.Slashing.Distracting.Flail.Monk
+Wahaika					TYPE:StoneAge.Exotic.Bludgeoning.Disarm.Hammer
+Wakizashi					TYPE:Eastern.Melee.Exotic.Light.Piercing.Slashing.Deadly.Tengu.Sword.Samurai.LightBlade.Bladelight
+Wushu Dart					TYPE:Eastern.Melee.Martial.Light.Close.Monk.Thrown
+
+
+
+
+
+
+
+#Dogslicer	- Missing
+#Horsechopper - Missing

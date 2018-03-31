@@ -1,0 +1,22 @@
+# CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Kobolds of Golarion	SOURCESHORT:KOG	SOURCEWEB:http://paizo.com/products/btpy8yw0?Pathfinder-Player-Companion-Kobolds-of-Golarion	SOURCEDATE:2013-06
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 9 May 2016
+
+# ==============================
+# Deity Subdomain Access
+# ==============================
+
+Andirifkhu.MOD		NAMEISPI:YES		DOMAINS:Ambush Subdomain|PREALIGN:CN,NE,CE												SOURCEPAGE:p.12
+Asmodeus.MOD		NAMEISPI:Yes		DOMAINS:Ambush Subdomain|PREALIGN:LN,LE,NE												SOURCEPAGE:p.12
+Dahak.MOD			NAMEISPI:Yes		DOMAINS:Ambush Subdomain|PREALIGN:CN,NE,CE												SOURCEPAGE:p.12
+Mammon.MOD			NAMEISPI:Yes		DOMAINS:Radiation Subdomain,Trap Subdomain|PREALIGN:LN,LE,NE									SOURCEPAGE:p.12
+Trelmarixian.MOD		NAMEISPI:Yes		DOMAINS:Radiation Subdomain|PREALIGN:TN,LE,NE,CE											SOURCEPAGE:p.12
+
+###Block: Inquisitor Support
+# Deity Name		Modify VAR
+Andirifkhu.MOD		BONUS:VAR|InquisitorDomainAmbushSubdomain|1|PREALIGN:CN,NE,CE
+Asmodeus.MOD		BONUS:VAR|InquisitorDomainAmbushSubdomain|1|PREALIGN:LN,LE,NE
+Dahak.MOD			BONUS:VAR|InquisitorDomainAmbushSubdomain|1|PREALIGN:CN,NE,CE
+Mammon.MOD			BONUS:VAR|InquisitorDomainRadiationSubdomain,InquisitorDomainTrapSubdomain|1|PREALIGN:LN,LE,NE
+Trelmarixian.MOD		BONUS:VAR|InquisitorDomainRadiationSubdomain|1|PREALIGN:TN,LE,NE,CE

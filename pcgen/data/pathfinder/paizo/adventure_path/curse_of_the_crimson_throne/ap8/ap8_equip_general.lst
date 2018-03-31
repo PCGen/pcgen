@@ -1,0 +1,11 @@
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:Curse of the Crimson Throne, Chapter 2 - Seven Days to the Grave	SOURCESHORT:AP8	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy82qy	SOURCEDATE:2008-04
+
+###Block: Other Gear
+# Equipment Name			Output Name				Type					Cost		Weight	Requires Modification?	Source Page		Special Property
+Plaguebringer's Mask							TYPE:Headgear			COST:2000	WT:2		MODS:NO			SOURCEPAGE:p.18	SPROP:+2 resistance bonus on saving throws against nauseating scents and immunity to one specific disease
+Lavender's Luxuriant Liniment						TYPE:Goods												SOURCEPAGE:p.23
+Outfit (Doctor's)			OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable	COST:150	WT:6						SOURCEPAGE:p.61
+Mortician's Tools								TYPE:Goods.Tools			COST:20	WT:5						SOURCEPAGE:p.49
+Surgeons' Tools								TYPE:Goods.Tools			COST:20	WT:5						SOURCEPAGE:p.61
+Thurible									TYPE:Goods				COST:50	WT:3						SOURCEPAGE:p.61

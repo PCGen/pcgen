@@ -1,0 +1,13 @@
+# CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Chronicle of the Righteous	SOURCESHORT:COTR	SOURCEWEB:http://paizo.com/products/btpy8xe9?Pathfinder-Campaign-Setting-Chronicle-of-the-Righteous	SOURCEDATE:2013-05
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 16 June 2016
+
+# ==============================
+# New Magical Weapons and Armor
+# ==============================
+
+Empyreal Armor		PROFICIENCY:ARMOR|Full Plate		TYPE:Armor.Magic.Heavy.ArmorProfHeavy.Suit.Specific										COST:1500	WT:50		ACCHECK:-6		EQMOD:Special Ability ~ Enhancement Cost|62400.Special Ability ~ Fortification / Moderate ~ Armor.Special Ability ~ +3 ~ Armor.Material ~ Steel							MAXDEX:1											SOURCEPAGE:p.52	SPELLFAILURE:35																			BONUS:COMBAT|AC|9|TYPE=Armor									BONUS:VAR|ArmorCheckPenalty|6
+
+Starknife of the Void	PROFICIENCY:WEAPON|Starknife		TYPE:Weapon.Magic.Resizable.Melee.Light.Finesseable.Ranged.Thrown.Martial.Specific.Piercing.BladeLight	COST:24	WT:3					EQMOD:Special Ability ~ Enhancement Cost|3000.Special Ability ~ Returning ~ Thrown.Special Ability ~ +2 ~ Weapon.Material ~ Steel		CRITMULT:x3	CRITRANGE:1					DAMAGE:1d4		WIELD:Light		RANGE:20	SIZE:M	SOURCEPAGE:p.53
+Sword of Vengeance	PROFICIENCY:WEAPON|Greatsword		TYPE:Weapon.Magic.Resizable.Melee.TwoHanded.Martial.Specific.Slashing.Sword.BladeHeavy				COST:50	WT:8					EQMOD:Special Ability ~ Enhancement Cost|14000.Special Ability ~ Holy ~ Weapon.Special Ability ~ +1 ~ Weapon.Material ~ Steel		CRITMULT:x2	CRITRANGE:2					DAMAGE:2d6		WIELD:TwoHanded			SIZE:M	SOURCEPAGE:p.53

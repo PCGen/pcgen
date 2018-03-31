@@ -1,0 +1,17 @@
+# CVS $Revision: 12957 $ $Author: jbaril $ -- Sun Jul  6 20:02:09 2014 -- reformated by prettylst.pl v1.51 (build 23662)
+SOURCELONG:Advanced Class Origins	SOURCESHORT:ACO	SOURCEWEB:http://paizo.com/products/btpy92zi	SOURCEDATE:2014-08
+
+Gorum's Armor.MOD					CLASSES:Bloodrager,Shaman=1
+Infernal Healing.MOD				CLASSES:Bloodrager=1
+Unbreakable Heart.MOD				CLASSES:Shaman=1
+
+Harrowing.MOD					CLASSES:Shaman=3
+Lover's Vengeance.MOD				CLASSES:Shaman=3
+Vermin Shape I.MOD				CLASSES:Bloodrager=3
+Waters of Lamashtu.MOD				CLASSES:Shaman=3
+
+Vermin Shape II.MOD				CLASSES:Bloodrager=4
+
+Ancestral Memory.MOD				CLASSES:Shaman=5
+
+Vision of Lamashtu.MOD				CLASSES:Shaman=7

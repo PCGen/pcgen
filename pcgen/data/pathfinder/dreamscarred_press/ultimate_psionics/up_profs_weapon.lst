@@ -1,0 +1,21 @@
+# CVS $Revision: $ $Author: $ -- Thu May 22 08:41:39 2014 -- reformated by prettylst.pl v1.51 (build 23662)
+SOURCELONG:Ultimate Psionics	SOURCESHORT:UP	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2013-12
+# ORIGINAL ENTRY: Douglas Limmer
+# ORIGINAL ENTRY DATE: 2013/07/05
+
+# Weapon Name			Type
+Astral Suit Ram			TYPE:AstralSuit
+Astral Suit Ranged Attack	TYPE:AstralSuit
+Astral Warrior Weapon
+Crystal Shard			TYPE:MetacreativeTalentTrait
+Deadly Fist				TYPE:MindBlade
+Goblin Weapon			TYPE:Exotic.Melee.Bludgeoning.Club.Goblin
+Maenad Weapon			TYPE:Exotic.Melee.Slashing.MeleeSlashing.Sword.Maenad
+Mind Blade				TYPE:MindBlade
+Mind Bolt				TYPE:MindBolt
+Ophiduan Weapon			TYPE:Exotic.Melee.Piercing.MeleePiercing.Sword.Ophiduan
+Xephyr Knife			TYPE:Exotic.Light.Melee.Ranged.Dagger.Piercing.Slashing.MeleeSlashing.MeleePiercing.RangedPiercing.RangedSlashing
+Mind Xephyr Knife			TYPE:MindBlade
+#
+# End
+#

@@ -1,0 +1,8 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec  2 19:28:17 2014 -- reformated by prettylst.pl v1.51 (build 25490)
+SOURCELONG:Lords of Chaos, Book of the Damned, Volume 2	SOURCESHORT:BOTD2	SOURCEWEB:http://paizo.com/products/btpy8hij?Pathfinder-Campaign-Setting-Book-of-the-Damned-Volume-2-Lords-of-Chaos	SOURCEDATE:2010-10
+# ORIGINAL ENTRY: elro the onk (Paul Shipley)
+
+#Nascent Demon Lord abilities
+# Ability Name	Unique Key						Category of Ability		Type						Description																																																												Source Page
+Aligned Strike	KEY:Nascent Demon Lord ~ Aligned Strike	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	DESC:A nascent demon lord's natural weapons, as well as any weapon it wields, are treated as chaotic, epic, and evil for the purpose of resolving damage reduction.																																		SOURCEPAGE:p.37
+Grant Spells	KEY:Nascent Demon Lord ~ Grant Spells	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DESC:Nascent demon lords can grant spells to their worshipers. Granting spells does not require any specific action on the nascent demon lord's behalf. All nascent demon lords grant access to the domains of Chaos and Evil--in addition, they grant access to two other domains and a favored weapon that vary according to the nascent demon lord's themes and interests.	SOURCEPAGE:p.37

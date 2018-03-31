@@ -1,0 +1,26 @@
+# CVS $Revision: $ $Author: $ -- Sun Jun 21 20:39:51 2015 -- reformated by PCGen PrettyLST v6.05.01
+###Block: Modern Human Languages
+# Language		Product Identity?	Type
+Hallit		NAMEISPI:YES	TYPE:Spoken.Written.Read.ModernHumanLanguage
+Kelish		NAMEISPI:YES	TYPE:Spoken.Written.Read.ModernHumanLanguage
+Osiriani		NAMEISPI:YES	TYPE:Spoken.Written.Read.ModernHumanLanguage
+Polyglot					TYPE:Spoken.Written.Read.ModernHumanLanguage
+Shadowtongue				TYPE:Spoken.Written.Read.ModernHumanLanguage
+Shoanti		NAMEISPI:YES	TYPE:Spoken.Written.Read.ModernHumanLanguage
+Skald			NAMEISPI:YES	TYPE:Spoken.Written.Read.ModernHumanLanguage
+Tien			NAMEISPI:YES	TYPE:Spoken.Written.Read.ModernHumanLanguage
+Varisian		NAMEISPI:YES	TYPE:Spoken.Written.Read.ModernHumanLanguage
+Vudrani		NAMEISPI:YES	TYPE:Spoken.Written.Read.ModernHumanLanguage
+
+###Block: Ancient Languages
+# Language		Product Identity?	Type
+Ancient Osiriani	NAMEISPI:YES	TYPE:Spoken.Written.Read
+Azlanti		NAMEISPI:YES	TYPE:Spoken.Written.Read
+Jistka		NAMEISPI:YES	TYPE:Spoken.Written.Read
+Tekritanin		NAMEISPI:YES	TYPE:Spoken.Written.Read
+Thassilonian	NAMEISPI:YES	TYPE:Spoken.Written.Read
+
+###Block: Other Languages
+# Language	Product Identity?	Type
+Necril				TYPE:Spoken.Written.Read
+Orvian	NAMEISPI:YES	TYPE:Spoken.Written.Read

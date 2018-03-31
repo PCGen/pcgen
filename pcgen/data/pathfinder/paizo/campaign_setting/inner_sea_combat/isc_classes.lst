@@ -1,0 +1,42 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+
+
+# Class Name			Hit Dice	Type			Max Level	Source Page		Define					Combat bonus																Save bonus																														Modify VAR
+CLASS:Pure Legion Enforcer	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.32	DEFINE:Pure_Legion_EnforcerLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")+3/2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")+1/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")+3/2	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|Pure_Legion_EnforcerLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
+# Class Name			Required Ability						Required AL		Multiple Requirements																				Required Skill							!PRESPELLTYPE			Required Text
+CLASS:Pure Legion Enforcer	PREABILITY:1,CATEGORY=FEAT,Godless Healing	PREALIGN:LG,LN,LE	PREMULT:1,[!PRECLASS:1,SPELLCASTER.Divine=1],[PREVARLT:Caster_Level_Highest__Divine,1]	PREMULT:1,[!PREDEITY:1,ANY],[PREDEITY:1,None]	PRESKILL:2,Knowledge (religion)=5,Sense Motive=4	!PRESPELLTYPE:1,Divine=1	PRETEXT:Alignment: Any lawful. Deity: Cannot worship a deity. Feats: Godless Healing. Skills: Knowledge (religion) 5 ranks, Sense Motive 4 ranks. Special: Cannot cast divine spells.
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Pure Legion Enforcer	STARTSKILLPTS:4	CSKILL:Diplomacy|Heal|Intimidate|Knowledge (Local)|Knowledge (Religion)|Perception|Sense Motive|Spellcraft|Survival
+###Block
+1	ABILITY:Pure Legion Enforcer Class Feature|AUTOMATIC|Pure Legion Enforcer ~ Weapon and Armor Proficiency
+1	ABILITY:Pure Legion Enforcer Class Feature|AUTOMATIC|Pure Legion Enforcer ~ Aura Sense
+1	ABILITY:Pure Legion Enforcer Class Feature|AUTOMATIC|Pure Legion Enforcer ~ Nonbeliever
+2	ABILITY:Pure Legion Enforcer Class Feature|AUTOMATIC|Pure Legion Enforcer ~ Divine Detective
+2	ABILITY:Pure Legion Enforcer Class Feature|AUTOMATIC|Pure Legion Enforcer ~ Voice of Law
+3	ABILITY:Pure Legion Enforcer Class Feature|AUTOMATIC|Pure Legion Enforcer ~ Improved Godless Healing
+4	ABILITY:Pure Legion Enforcer Class Feature|AUTOMATIC|Pure Legion Enforcer ~ Confiscate
+4	ABILITY:Pure Legion Enforcer Class Feature|AUTOMATIC|Pure Legion Enforcer ~ Decree of Law
+5	ABILITY:Pure Legion Enforcer Class Feature|AUTOMATIC|Pure Legion Enforcer ~ Discern Lies
+5	ABILITY:Pure Legion Enforcer Class Feature|AUTOMATIC|Pure Legion Enforcer ~ Disruptive Critical
+6	ABILITY:Pure Legion Enforcer Class Feature|AUTOMATIC|Pure Legion Enforcer ~ Edict of Law
+7	ABILITY:Pure Legion Enforcer Class Feature|AUTOMATIC|Pure Legion Enforcer ~ Iconoclast
+8	ABILITY:Pure Legion Enforcer Class Feature|AUTOMATIC|Pure Legion Enforcer ~ Absolute Law
+9	ABILITY:Pure Legion Enforcer Class Feature|AUTOMATIC|Pure Legion Enforcer ~ Traces of Divinity
+10	ABILITY:Pure Legion Enforcer Class Feature|AUTOMATIC|Pure Legion Enforcer ~ Iron-Willed Atheist
+
+
+# Class Name	Hit Dice	Type			Source Page		Define			Combat bonus																Save bonus																														Modify VAR
+CLASS:Ulfen Guard	HD:10		TYPE:PC.Prestige	SOURCEPAGE:p.34	DEFINE:Ulfen_GuardLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")+3/2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")+1/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")+3/2	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|Ulfen_GuardLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
+# Class Name	Required Skill									Required Text																					PRETOTALAB
+CLASS:Ulfen Guard	PRESKILL:3,Knowledge (nobility)=2,Perception=5,Sense Motive=3	PRETEXT:Base Attack Bonus: +5. Skills: Knowledge (nobility) 2 ranks, Perception 5 ranks, Sense Motive 3 ranks. Special: Ulfen descent.	PRETOTALAB:5
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Ulfen Guard	STARTSKILLPTS:4	CSKILL:Diplomacy|Knowledge (Nobility)|Perception|Sense Motive
+###Block
+1	ABILITY:Ulfen Guard Class Feature|AUTOMATIC|Ulfen Guard ~ Chosen Ally
+1	ABILITY:Ulfen Guard Class Feature|AUTOMATIC|Ulfen Guard ~ Guard Dedications
+1	ABILITY:Ulfen Guard Class Feature|AUTOMATIC|Ulfen Guard ~ Rage
+2	ABILITY:Ulfen Guard Class Feature|AUTOMATIC|Ulfen Guard ~ Guarded Thoughts
+4	ABILITY:Ulfen Guard Class Feature|AUTOMATIC|Ulfen Guard ~ Adaptable Guardian
+6	ABILITY:Ulfen Guard Class Feature|AUTOMATIC|Ulfen Guard ~ Tight Follower
+8	ABILITY:Ulfen Guard Class Feature|AUTOMATIC|Ulfen Guard ~ Reactive Strike
+10	ABILITY:Ulfen Guard Class Feature|AUTOMATIC|Ulfen Guard ~ Unbreakable Defender

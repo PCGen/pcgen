@@ -1,0 +1,9 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+
+
+# Skill Name		Key Stat	Untrained?		Type					Var. Must Be Lower			Source Page		Bonus to skill
+Craft (Mechanical)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft.Base	PREVARLT:AnimalCompanionSkill,1	SOURCEPAGE:p.10	BONUS:SKILL|Craft (Mechanical)|3|TYPE=ClassSkill|PRECSKILL:1,Craft (Mechanical)|PRESKILL:1,Craft (Mechanical)=1
+
+###Block: Skill Focus Support
+# Skill Name		Bonus to skill
+Craft (Mechanical).MOD	BONUS:SKILL|Craft (Mechanical)|3|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Craft (Mechanical))	BONUS:SKILL|Craft (Mechanical)|6|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Craft (Mechanical))|PRESKILL:1,Craft (Mechanical)=10

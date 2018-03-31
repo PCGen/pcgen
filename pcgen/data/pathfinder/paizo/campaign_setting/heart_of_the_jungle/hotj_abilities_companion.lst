@@ -1,0 +1,7 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Heart of the Jungle	SOURCESHORT:HOTJ	SOURCEWEB:http://paizo.com/pathfinder/pathfinderChronicles/pathfinderRPG/v5748btpy8evh	SOURCEDATE:2010-07
+# Original Entry by: Stefan Radermacher
+
+###Block: Companion Advancement abilities
+# Ability Name						Unique Key							Category of Ability		Type					Visible		Required Race					Ability												Adjust PC Size		Modify VAR
+Companion Advancement (Pygmy Hippopotamus)	KEY:Companion Advancement ~ Pygmy Hippopotamus	CATEGORY:Special Ability	TYPE:CompanionAdvancement	VISIBLE:DISPLAY	PRERACE:1,Companion (Pygmy Hippopotamus)	ABILITY:Special Ability|AUTOMATIC|Trample	ABILITY:Internal|AUTOMATIC|Bite	BONUS:SIZEMOD|NUMBER|1	BONUS:VAR|AC_Natural_Armor|4|TYPE=Base.REPLACE	BONUS:VAR|TrampleDamageDieSize|8

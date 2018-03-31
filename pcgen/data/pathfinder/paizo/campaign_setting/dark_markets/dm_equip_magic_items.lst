@@ -1,0 +1,7 @@
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:Dark Markets - A Guide to Katapesh	SOURCESHORT:DM	SOURCEWEB:http://paizo.com/pathfinder/campaignSetting/35E/v5748btpy87ut	SOURCEDATE:2009-04
+# Original Entry by: Terry Milnes
+
+###Block: Wondrous Items
+# Equipment Name		Type					Cost		Weight	Source Page		Special Property
+Charm of Aluum Control	TYPE:Magic.Wondrous.Amulet	COST:20000	WT:0		SOURCEPAGE:p.59	SPROP:You may give orders to any generic aluum within 100 feet; the construct obeys you as if you were using dominate person on a humanoid creature-

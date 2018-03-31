@@ -1,0 +1,20 @@
+# CVS $Revision: $ $Author: $ -- Mon Oct  2 15:10:37 2017 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Player Companion: Champions of Balance	SOURCESHORT:COB	SOURCEWEB:http://paizo.com/products/btpy93nc	SOURCEDATE:2014-03
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 6 April 2016
+SOURCELONG:Dragon Empires Gazetteer	SOURCESHORT:DEG	SOURCEWEB:http://paizo.com/products/btpy8pfu	SOURCEDATE:2012-02
+
+# ==============================
+# Deity Subdomain Access
+# ==============================
+# Missing the Var to enable these.
+# Deity Name	Product Identity?	Domains													Source Page
+Nalinivati.MOD	NAMEISPI:YES	DOMAINS:Aristocracy Subdomain|PREALIGN:LN,NG,TN,CN,NE						SOURCEPAGE:p.16
+Sun Wukong.MOD	NAMEISPI:YES	DOMAINS:Innuendo Subdomain|PREALIGN:CG,TN,CN,CE							SOURCEPAGE:p.17
+Yamatsumi.MOD	NAMEISPI:YES	DOMAINS:Fist Subdomain,Flowing Subdomain,Solitude Subdomain|PREALIGN:LN,NG,TN,CN,NE	SOURCEPAGE:p.17
+
+###Block: Inquisitor Support
+# Deity Name	Modify VAR
+Nalinivati.MOD	BONUS:VAR|InquisitorDomainAristocracySubdomain|1|PREALIGN:LN,NG,TN,CN,NE
+Sun Wukong.MOD	BONUS:VAR|InquisitorDomainInnuendoSubdomain|1|PREALIGN:CG,TN,CN,CE
+Yamatsumi.MOD	BONUS:VAR|InquisitorDomainFistSubdomain,InquisitorDomainFlowingSubdomain,InquisitorDomainSolitudeSubdomain|1|PREALIGN:LN,NG,TN,CN,NE

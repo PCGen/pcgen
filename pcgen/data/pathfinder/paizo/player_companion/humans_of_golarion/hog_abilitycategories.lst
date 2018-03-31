@@ -1,0 +1,4 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+
+# Ability Category		Visible		Editable?		Change Pool?	Fractional values?	Category of Object	Type of Object	Plural description for UI	Display Location
+ABILITYCATEGORY:Shoanti Clan	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Background	TYPE:ShoantiClan	PLURAL:Shoanti Clans		DISPLAYLOCATION:Background

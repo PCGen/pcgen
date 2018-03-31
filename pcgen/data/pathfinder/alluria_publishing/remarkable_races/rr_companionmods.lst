@@ -1,0 +1,6 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+
+
+# Race of familiar		Ability
+MASTERBONUSRACE:Pigeon Toad	ABILITY:Internal|AUTOMATIC|Familiar (Pigeon Toad)
+MASTERBONUSRACE:Purple Peeper	ABILITY:Internal|AUTOMATIC|Familiar (Purple Peeper)

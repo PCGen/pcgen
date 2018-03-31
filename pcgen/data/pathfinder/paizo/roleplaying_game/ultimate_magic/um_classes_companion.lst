@@ -1,0 +1,19 @@
+# CVS $Revision: $ $Author: $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Ultimate Magic	SOURCESHORT:UM	SOURCEWEB:http://paizo.com/pathfinderRPG/v5748btpy8g7s	SOURCEDATE:2011-05
+# ORIGINAL ENTRY: Douglas Limmer
+# ORIGINAL ENTRY DATE: 24 December 2011
+
+# Eventually move ALL companions under one Companion race class, and handle the slight nuances with vars.
+
+# Class Name		Output Name		Hit Dice	Type				Max Level	Source Page		Ability																															Visible	Combat bonus																	Save bonus																																		Modify VAR																																																													FACT
+CLASS:Vermin Companion	OUTPUTNAME:Vermin	HD:8		TYPE:Monster.Companion	MAXLEVEL:20	SOURCEPAGE:p.36	ABILITY:Special Ability|AUTOMATIC|Vermin Traits|PREVAREQ:NoTypeTraits,0	ABILITY:Internal|AUTOMATIC|Mindless Companion|!PREABILITY:1,CATEGORY=Special Ability,Companion Stat ~ Mindless to 1 INT	VISIBLE:NO	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|Companion	FACT:Abb|VC
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
+CLASS:Vermin Companion	STARTSKILLPTS:0	MODTOSKILLS:NO			CSKILL:Acrobatics|Climb|Escape Artist|Fly|Intimidate|Perception|Stealth|Survival|Swim
+###Block: Level Advancement
+1	ABILITY:FEAT|AUTOMATIC|CMB Output
+
+# Class Name	Output Name			Type				Max Level	Source Page		Visible	Bonus to HP			FACT
+CLASS:Black Blade	OUTPUTNAME:Black Blade	TYPE:Monster.Companion	MAXLEVEL:1	SOURCEPAGE:p.47	VISIBLE:NO	BONUS:HP|CURRENTMAX|5	FACT:ClassType|Companion	FACT:Abb|BB
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Black Blade	STARTSKILLPTS:0	MODTOSKILLS:NO
+

@@ -1,0 +1,123 @@
+# CVS $Revision: 21741 $ $Author: zaister $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
+
+# Oracle Tongues granting Language:
+# Template Name				Nb Legs	Visible	Auto Language
+Oracle Tongues Choice ~ Abyssal			VISIBLE:NO	AUTO:LANG|Abyssal
+Oracle Tongues Choice ~ Aklo				VISIBLE:NO	AUTO:LANG|Aklo
+Oracle Tongues Choice ~ Aquan				VISIBLE:NO	AUTO:LANG|Aquan
+Oracle Tongues Choice ~ Auran				VISIBLE:NO	AUTO:LANG|Auran
+Oracle Tongues Choice ~ Celestial			VISIBLE:NO	AUTO:LANG|Celestial
+Oracle Tongues Choice ~ Ignan				VISIBLE:NO	AUTO:LANG|Ignan
+Oracle Tongues Choice ~ Infernal			VISIBLE:NO	AUTO:LANG|Infernal
+Oracle Tongues Choice ~ Terran			VISIBLE:NO	AUTO:LANG|Terran
+
+LEGS 2					LEGS:2	VISIBLE:NO
+LEGS 4					LEGS:4	VISIBLE:NO
+
+
+###Block: Eidolon templates
+# Template Name				Visible		Define							Minimum Size	Maximum Size	Required Vision			Prohibited Vision							Bonus to Ability Pool								Bonus to spell known/L					Modify VAR									Add to vision			Weapon prof. bonus																												Choose									Bonus Languages	Vision		Natural Attacks
+# Bite																																																								BONUS:VAR|EidUsedAttacks|1																																																										NATURALATTACKS:1 Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d6
+# 2 Clawed Hands																																																						BONUS:VAR|EidUsedAttacks|2	BONUS:VAR|EidArmsUsed|1																																																						NATURALATTACKS:2 Clawed Hands,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1d4
+# 4 Clawed Hands																																																						BONUS:VAR|EidUsedAttacks|4	BONUS:VAR|EidArmsUsed|2																																																						NATURALATTACKS:4 Clawed Hands,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*4,1d4
+# 6 Clawed Hands																																																						BONUS:VAR|EidUsedAttacks|6	BONUS:VAR|EidArmsUsed|3																																																						NATURALATTACKS:6 Clawed Hands,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*6,1d4
+# 2 Clawed Feet																																																						BONUS:VAR|EidUsedAttacks|2	BONUS:VAR|EidLegsUsed|1																																																						NATURALATTACKS:2 Clawed Feet,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1d4
+# Gore																																																								BONUS:VAR|EidUsedAttacks|1																																																										NATURALATTACKS:1 Gore,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing,*1,1d6
+# Wing Buffet																																																							BONUS:VAR|EidUsedAttacks|2											BONUS:WEAPONPROF=2 Wing Buffet|TOHIT|-5|!PREABILITY:1,CATEGORY=FEAT,Multiattack	BONUS:WEAPONPROF=2 Wing Buffet|TOHIT|-2|PREABILITY:1,CATEGORY=FEAT,Multiattack	BONUS:WEAPONPROF=2 Wing Buffet|DAMAGE|-ceil(STR/2)																	NATURALATTACKS:2 Wing Buffets,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1d4
+# 2 Pincers																																																							BONUS:VAR|EidUsedAttacks|2	BONUS:VAR|EidArmsUsed|1							BONUS:WEAPONPROF=2 Pincers|TOHIT|-5|!PREABILITY:1,CATEGORY=FEAT,Multiattack	BONUS:WEAPONPROF=2 Pincers|TOHIT|-2|PREABILITY:1,CATEGORY=FEAT,Multiattack	BONUS:WEAPONPROF=2 Pincers|DAMAGE|-ceil(STR/2)																				NATURALATTACKS:2 Pincers,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1d6
+# 4 Pincers																																																							BONUS:VAR|EidUsedAttacks|4	BONUS:VAR|EidArmsUsed|2							BONUS:WEAPONPROF=4 Pincers|TOHIT|-5|!PREABILITY:1,CATEGORY=FEAT,Multiattack	BONUS:WEAPONPROF=4 Pincers|TOHIT|-2|PREABILITY:1,CATEGORY=FEAT,Multiattack	BONUS:WEAPONPROF=4 Pincers|DAMAGE|-ceil(STR/2)																				NATURALATTACKS:4 Pincers,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*4,1d6
+# 6 Pincers																																																							BONUS:VAR|EidUsedAttacks|6	BONUS:VAR|EidArmsUsed|3							BONUS:WEAPONPROF=6 Pincers|TOHIT|-5|!PREABILITY:1,CATEGORY=FEAT,Multiattack	BONUS:WEAPONPROF=6 Pincers|TOHIT|-2|PREABILITY:1,CATEGORY=FEAT,Multiattack	BONUS:WEAPONPROF=6 Pincers|DAMAGE|-ceil(STR/2)																				NATURALATTACKS:6 Pincers,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*6,1d6
+# 1 Tail Slap																																																							BONUS:VAR|EidUsedAttacks|1	BONUS:VAR|EidTailsUsed|1						BONUS:WEAPONPROF=1 Tail Slap|TOHIT|-5|!PREABILITY:1,CATEGORY=FEAT,Multiattack	BONUS:WEAPONPROF=1 Tail Slap|TOHIT|-2|PREABILITY:1,CATEGORY=FEAT,Multiattack	BONUS:WEAPONPROF=1 Tail Slap|DAMAGE|-ceil(STR/2)																		NATURALATTACKS:1 Tail Slap,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,1d6
+# 2 Tail Slaps																																																						BONUS:VAR|EidUsedAttacks|2	BONUS:VAR|EidTailsUsed|2						BONUS:WEAPONPROF=2 Tail Slaps|TOHIT|-5|!PREABILITY:1,CATEGORY=FEAT,Multiattack	BONUS:WEAPONPROF=2 Tail Slaps|TOHIT|-2|PREABILITY:1,CATEGORY=FEAT,Multiattack	BONUS:WEAPONPROF=2 Tail Slaps|DAMAGE|-ceil(STR/2)																	NATURALATTACKS:2 Tail Slaps,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1d6
+# 3 Tail Slaps																																																						BONUS:VAR|EidUsedAttacks|3	BONUS:VAR|EidTailsUsed|3						BONUS:WEAPONPROF=3 Tail Slaps|TOHIT|-5|!PREABILITY:1,CATEGORY=FEAT,Multiattack	BONUS:WEAPONPROF=3 Tail Slaps|TOHIT|-2|PREABILITY:1,CATEGORY=FEAT,Multiattack	BONUS:WEAPONPROF=3 Tail Slaps|DAMAGE|-ceil(STR/2)																	NATURALATTACKS:3 Tail Slaps,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*3,1d6
+# 4 Tail Slaps																																																						BONUS:VAR|EidUsedAttacks|4	BONUS:VAR|EidTailsUsed|4						BONUS:WEAPONPROF=4 Tail Slaps|TOHIT|-5|!PREABILITY:1,CATEGORY=FEAT,Multiattack	BONUS:WEAPONPROF=4 Tail Slaps|TOHIT|-2|PREABILITY:1,CATEGORY=FEAT,Multiattack	BONUS:WEAPONPROF=4 Tail Slaps|DAMAGE|-ceil(STR/2)																	NATURALATTACKS:4 Tail Slaps,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*4,1d6
+# 5 Tail Slaps																																																						BONUS:VAR|EidUsedAttacks|5	BONUS:VAR|EidTailsUsed|5						BONUS:WEAPONPROF=5 Tail Slaps|TOHIT|-5|!PREABILITY:1,CATEGORY=FEAT,Multiattack	BONUS:WEAPONPROF=5 Tail Slaps|TOHIT|-2|PREABILITY:1,CATEGORY=FEAT,Multiattack	BONUS:WEAPONPROF=5 Tail Slaps|DAMAGE|-ceil(STR/2)																	NATURALATTACKS:5 Tail Slaps,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*5,1d6
+# 6 Tail Slaps																																																						BONUS:VAR|EidUsedAttacks|6	BONUS:VAR|EidTailsUsed|6						BONUS:WEAPONPROF=6 Tail Slaps|TOHIT|-5|!PREABILITY:1,CATEGORY=FEAT,Multiattack	BONUS:WEAPONPROF=6 Tail Slaps|TOHIT|-2|PREABILITY:1,CATEGORY=FEAT,Multiattack	BONUS:WEAPONPROF=6 Tail Slaps|DAMAGE|-ceil(STR/2)																	NATURALATTACKS:6 Tail Slaps,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*6,1d6
+# 7 Tail Slaps																																																						BONUS:VAR|EidUsedAttacks|7	BONUS:VAR|EidTailsUsed|7						BONUS:WEAPONPROF=7 Tail Slaps|TOHIT|-5|!PREABILITY:1,CATEGORY=FEAT,Multiattack	BONUS:WEAPONPROF=7 Tail Slaps|TOHIT|-2|PREABILITY:1,CATEGORY=FEAT,Multiattack	BONUS:WEAPONPROF=7 Tail Slaps|DAMAGE|-ceil(STR/2)																	NATURALATTACKS:7 Tail Slaps,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*7,1d6
+# 1 Slam																																																							BONUS:VAR|EidUsedAttacks|1	BONUS:VAR|EidArmsUsed|1																																																						NATURALATTACKS:1 Slam,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,1d8
+# 2 Slams																																																							BONUS:VAR|EidUsedAttacks|1	BONUS:VAR|EidArmsUsed|1																																																						NATURALATTACKS:2 Slams,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1d8
+# 3 Slams																																																							BONUS:VAR|EidUsedAttacks|1	BONUS:VAR|EidArmsUsed|1																																																						NATURALATTACKS:3 Slams,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*3,1d8
+# 4 Slams																																																							BONUS:VAR|EidUsedAttacks|1	BONUS:VAR|EidArmsUsed|1																																																						NATURALATTACKS:4 Slams,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*4,1d8
+# 5 Slams																																																							BONUS:VAR|EidUsedAttacks|1	BONUS:VAR|EidArmsUsed|1																																																						NATURALATTACKS:5 Slams,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*5,1d8
+# 6 Slams																																																							BONUS:VAR|EidUsedAttacks|1	BONUS:VAR|EidArmsUsed|1																																																						NATURALATTACKS:6 Slams,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*6,1d8
+# 7 Slams																																																							BONUS:VAR|EidUsedAttacks|1	BONUS:VAR|EidArmsUsed|1																																																						NATURALATTACKS:7 Slams,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*7,1d8
+# 1 Sting																																																							BONUS:VAR|EidUsedAttacks|1	BONUS:VAR|EidTailsUsed|1																																																					NATURALATTACKS:1 Sting,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing,*1,1d4
+# 2 Stings																																																							BONUS:VAR|EidUsedAttacks|2	BONUS:VAR|EidTailsUsed|2																																																					NATURALATTACKS:2 Stings,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing,*2,1d4
+# 3 Stings																																																							BONUS:VAR|EidUsedAttacks|3	BONUS:VAR|EidTailsUsed|3																																																					NATURALATTACKS:3 Stings,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing,*3,1d4
+# 4 Stings																																																							BONUS:VAR|EidUsedAttacks|4	BONUS:VAR|EidTailsUsed|4																																																					NATURALATTACKS:4 Stings,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing,*4,1d4
+# 5 Stings																																																							BONUS:VAR|EidUsedAttacks|5	BONUS:VAR|EidTailsUsed|5																																																					NATURALATTACKS:5 Stings,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing,*5,1d4
+# 6 Stings																																																							BONUS:VAR|EidUsedAttacks|6	BONUS:VAR|EidTailsUsed|6																																																					NATURALATTACKS:6 Stings,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing,*6,1d4
+# 7 Stings																																																							BONUS:VAR|EidUsedAttacks|7	BONUS:VAR|EidTailsUsed|7																																																					NATURALATTACKS:7 Stings,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing,*7,1d4
+# Rake																																																								BONUS:VAR|EidUsedAttacks|2	BONUS:VAR|EidLegsUsed|1																																																						NATURALATTACKS:2 Rakes,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1d4
+# 1 Tentacle																																																							BONUS:VAR|EidUsedAttacks|1											BONUS:WEAPONPROF=1 Tentacle|TOHIT|-5|!PREABILITY:1,CATEGORY=FEAT,Multiattack	BONUS:WEAPONPROF=1 Tentacle|TOHIT|-2|PREABILITY:1,CATEGORY=FEAT,Multiattack	BONUS:WEAPONPROF=1 Tentacle|DAMAGE|-ceil(STR/2)																				NATURALATTACKS:1 Tentacle,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,1d4
+# 2 Tentacles																																																							BONUS:VAR|EidUsedAttacks|2											BONUS:WEAPONPROF=2 Tentacles|TOHIT|-5|!PREABILITY:1,CATEGORY=FEAT,Multiattack	BONUS:WEAPONPROF=2 Tentacles|TOHIT|-2|PREABILITY:1,CATEGORY=FEAT,Multiattack	BONUS:WEAPONPROF=2 Tentacles|DAMAGE|-ceil(STR/2)																		NATURALATTACKS:2 Tentacles,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1d4
+# 3 Tentacles																																																							BONUS:VAR|EidUsedAttacks|3											BONUS:WEAPONPROF=3 Tentacles|TOHIT|-5|!PREABILITY:1,CATEGORY=FEAT,Multiattack	BONUS:WEAPONPROF=3 Tentacles|TOHIT|-2|PREABILITY:1,CATEGORY=FEAT,Multiattack	BONUS:WEAPONPROF=3 Tentacles|DAMAGE|-ceil(STR/2)																		NATURALATTACKS:3 Tentacles,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*3,1d4
+# 4 Tentacles																																																							BONUS:VAR|EidUsedAttacks|4											BONUS:WEAPONPROF=4 Tentacles|TOHIT|-5|!PREABILITY:1,CATEGORY=FEAT,Multiattack	BONUS:WEAPONPROF=4 Tentacles|TOHIT|-2|PREABILITY:1,CATEGORY=FEAT,Multiattack	BONUS:WEAPONPROF=4 Tentacles|DAMAGE|-ceil(STR/2)																		NATURALATTACKS:4 Tentacles,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*4,1d4
+# 5 Tentacles																																																							BONUS:VAR|EidUsedAttacks|5											BONUS:WEAPONPROF=5 Tentacles|TOHIT|-5|!PREABILITY:1,CATEGORY=FEAT,Multiattack	BONUS:WEAPONPROF=5 Tentacles|TOHIT|-2|PREABILITY:1,CATEGORY=FEAT,Multiattack	BONUS:WEAPONPROF=5 Tentacles|DAMAGE|-ceil(STR/2)																		NATURALATTACKS:5 Tentacles,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*5,1d4
+# 6 Tentacles																																																							BONUS:VAR|EidUsedAttacks|6											BONUS:WEAPONPROF=6 Tentacles|TOHIT|-5|!PREABILITY:1,CATEGORY=FEAT,Multiattack	BONUS:WEAPONPROF=6 Tentacles|TOHIT|-2|PREABILITY:1,CATEGORY=FEAT,Multiattack	BONUS:WEAPONPROF=6 Tentacles|DAMAGE|-ceil(STR/2)																		NATURALATTACKS:6 Tentacles,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*6,1d4
+# 7 Tentacles																																																							BONUS:VAR|EidUsedAttacks|7											BONUS:WEAPONPROF=7 Tentacles|TOHIT|-5|!PREABILITY:1,CATEGORY=FEAT,Multiattack	BONUS:WEAPONPROF=7 Tentacles|TOHIT|-2|PREABILITY:1,CATEGORY=FEAT,Multiattack	BONUS:WEAPONPROF=7 Tentacles|DAMAGE|-ceil(STR/2)																		NATURALATTACKS:7 Tentacles,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*7,1d4
+
+##
+##Block:Class Feature Templates
+##
+# Oracle Templates
+# Template Name	Visible	Define							Modify VAR									Weapon prof. bonus																											Natural Attacks
+
+# Template Name			Visible	Template																Minimum Size	Maximum Size	Required Vision				Prohibited Vision						Add to vision			Choose						Apply Kit					Bonus Languages	Vision			Natural Attacks
+Aquan Bonus Language																																																											LANGBONUS:Aquan
+
+Small Claws																										PRESIZELTEQ:S																																								NATURALATTACKS:Claws,Weapon.Natural.Weapon Group Natural.Melee.Slashing,*2,1d3
+Medium Claws																						PRESIZEGTEQ:M																																											NATURALATTACKS:Claws,Weapon.Natural.Weapon Group Natural.Melee.Slashing,*2,1d4
+
+
+Vision Normal																																		!PREVISION:1,Darkvision=1,Low-Light Vision=1																						VISION:Low-Light Vision
+Vision Lowlight																												PREVISION:1,Low-Light Vision=ANY									BONUS:VISION|Darkvision|30
+Vision Darkvision																												PREVISION:1,Darkvision=1										BONUS:VISION|Darkvision|30
+# TODO: Test these thoroughly, I recall an issue with Low-Light having a NULL value.
+
+Starting Gold ~ APG		VISIBLE:NO	TEMPLATE:CHOOSE:Starting Gold APG ~ Random|Starting Gold APG ~ Maximum|Starting Gold APG ~ Average
+Starting Gold APG ~ Random	VISIBLE:NO																																																		KIT:1|Starting Gold APG ~ Random
+Starting Gold APG ~ Maximum	VISIBLE:NO																																																		KIT:1|Starting Gold APG ~ Maximum
+Starting Gold APG ~ Average	VISIBLE:NO																																																		KIT:1|Starting Gold APG ~ Average
+
+Formula Book			VISIBLE:NO																																																		KIT:1|Alchemist Formula Book
+
+#
+# End
+#
+
+
+
+#STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|RACE|RACETYPE=Humanoid
+Racial Heritage					TEMPLATE:%LIST																																								CHOOSE:TEMPLATE|TYPE=Racial Heritage
+
+
+###Block:
+# Template Name	Visible	Template							Define				Stat bonus					Modify VAR
+Mental Acuity	VISIBLE:NO	TEMPLATE:CHOOSE:TYPE=MentalAcuityOracleLevel	DEFINE:MentalAcuityLVL|0	BONUS:STAT|INT|1+MentalAcuityBonus	BONUS:VAR|MentalAcuityBonus|(OracleLVL-MentalAcuityLVL)/3
+
+###Block:
+# Template Name	Visible	Required Var. value	Modify VAR				Type
+Mental Acuity 07	VISIBLE:NO	PREVAREQ:OracleLVL,7	BONUS:VAR|MentalAcuityLVL|7	TYPE:MentalAcuityOracleLevel
+Mental Acuity 08	VISIBLE:NO	PREVAREQ:OracleLVL,8	BONUS:VAR|MentalAcuityLVL|8	TYPE:MentalAcuityOracleLevel
+Mental Acuity 09	VISIBLE:NO	PREVAREQ:OracleLVL,9	BONUS:VAR|MentalAcuityLVL|9	TYPE:MentalAcuityOracleLevel
+Mental Acuity 10	VISIBLE:NO	PREVAREQ:OracleLVL,10	BONUS:VAR|MentalAcuityLVL|10	TYPE:MentalAcuityOracleLevel
+Mental Acuity 11	VISIBLE:NO	PREVAREQ:OracleLVL,11	BONUS:VAR|MentalAcuityLVL|11	TYPE:MentalAcuityOracleLevel
+Mental Acuity 12	VISIBLE:NO	PREVAREQ:OracleLVL,12	BONUS:VAR|MentalAcuityLVL|12	TYPE:MentalAcuityOracleLevel
+Mental Acuity 13	VISIBLE:NO	PREVAREQ:OracleLVL,13	BONUS:VAR|MentalAcuityLVL|13	TYPE:MentalAcuityOracleLevel
+Mental Acuity 14	VISIBLE:NO	PREVAREQ:OracleLVL,14	BONUS:VAR|MentalAcuityLVL|14	TYPE:MentalAcuityOracleLevel
+Mental Acuity 15	VISIBLE:NO	PREVAREQ:OracleLVL,15	BONUS:VAR|MentalAcuityLVL|15	TYPE:MentalAcuityOracleLevel
+Mental Acuity 16	VISIBLE:NO	PREVAREQ:OracleLVL,16	BONUS:VAR|MentalAcuityLVL|16	TYPE:MentalAcuityOracleLevel
+Mental Acuity 17	VISIBLE:NO	PREVAREQ:OracleLVL,17	BONUS:VAR|MentalAcuityLVL|17	TYPE:MentalAcuityOracleLevel
+Mental Acuity 18	VISIBLE:NO	PREVAREQ:OracleLVL,18	BONUS:VAR|MentalAcuityLVL|18	TYPE:MentalAcuityOracleLevel
+Mental Acuity 19	VISIBLE:NO	PREVAREQ:OracleLVL,19	BONUS:VAR|MentalAcuityLVL|19	TYPE:MentalAcuityOracleLevel
+Mental Acuity 20	VISIBLE:NO	PREVAREQ:OracleLVL,20	BONUS:VAR|MentalAcuityLVL|20	TYPE:MentalAcuityOracleLevel
+
+###BLOCK:
+# Template Name	Choose											Ability
+Class ~ Summoner	CHOOSE:ABILITYSELECTION|Class|QUALIFIED[TYPE=Summoner Class Selection]	ABILITY:Summoner Class Selection|AUTOMATIC|%LIST
+#	TEMPLATE:CHOOSE:TYPE=SummonerClass	TEMPLATE:%LIST
+#
+
+#Summoner ~ Standard Class	ABILITY:Summoner Class Selection|AUTOMATIC|Summoner ~ Standard Class

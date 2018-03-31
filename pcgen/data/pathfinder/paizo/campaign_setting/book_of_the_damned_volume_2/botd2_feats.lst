@@ -1,0 +1,9 @@
+# CVS $Revision: $ $Author: $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
+SOURCELONG:Lords of Chaos, Book of the Damned, Volume 2	SOURCESHORT:BOTD2	SOURCEWEB:http://paizo.com/products/btpy8hij?Pathfinder-Campaign-Setting-Book-of-the-Damned-Volume-2-Lords-of-Chaos	SOURCEDATE:2010-10
+# ORIGINAL ENTRY: elro the onk (Paul Shipley)
+
+# Feat Name		Type			Required Deity				Required Skill				Define			Description																								Ability									Bonus Ability Pool				Modify VAR																																									Source Page		Benefits
+# Ability Name	Category of Ability	Type			Required Deity				Required Skill				Define			Description																								Ability									Bonus Ability Pool				Modify VAR																																									Source Page		Benefits
+Demonic Obedience	CATEGORY:FEAT		TYPE:General	PREDEITY:1,PANTHEON.Demon Lords	PRESKILL:1,Knowledge (Planes)=3	DEFINE:DemonicBoon|0	DESC:You physically defile yourself, others, or holy objects in order to prove your blasphemous devotion to a demon lord and gain special boons.	ABILITY:Special Ability|AUTOMATIC|Demonic Obedience Base	BONUS:ABILITYPOOL|Demonic Obedience|1	BONUS:VAR|DemonicBoon|1|PREMULT:1,[PREVARGTEQ:TL,12],[PREVARGTEQ:DemoniacBoon,1]	BONUS:VAR|DemonicBoon|1|PREMULT:1,[PREVARGTEQ:TL,16],[PREVARGTEQ:DemoniacBoon,2]	BONUS:VAR|DemonicBoon|1|PREMULT:1,[PREVARGTEQ:TL,20],[PREVARGTEQ:DemoniacBoon,3]	SOURCEPAGE:p.8	BENEFIT:Once you spend an hour performing the required obedience of your demon lord, you gain the associated benefits. If you ever fail to perform a daily obedience, you lose all benefits granted by this feat until you next perform the obedience.
+
+# END

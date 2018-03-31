@@ -1,0 +1,4 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+
+# Ability Category					Visible		Editable?		Change Pool?	Category of Object		Type of Object										Plural description for UI			Display Location
+ABILITYCATEGORY:Brightness Seeker Class Feature	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Brightness Seeker Class Feature.Brightness SeekerClassFeatures	PLURAL:Brightness Seeker Class Features	DISPLAYLOCATION:Class Features

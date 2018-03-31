@@ -1,0 +1,270 @@
+# CVS $Revision: $ $Author: $ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
+
+###Block: New FACT Archetype System
+# Ability Name	Category of Ability	Ability
+Gunslinger		CATEGORY:Class		ABILITY:Internal|AUTOMATIC|Gunslinger ~ Class Skill|PREVAREQ:Gunslinger_CF_ClassSkills,0	ABILITY:Special Ability|AUTOMATIC|Gunslinger ~ Proficiencies|PREVAREQ:Gunslinger_CF_Proficiencies,0
+Ninja			CATEGORY:Class		ABILITY:Internal|AUTOMATIC|Ninja ~ Class Skill|PREVAREQ:Ninja_CF_ClassSkills,0
+Samurai		CATEGORY:Class		ABILITY:Internal|AUTOMATIC|Samurai ~ Class Skill|PREVAREQ:Samurai_CF_ClassSkills,0
+
+
+###Block:
+# Ability Name			Category of Ability	Class Skill
+Gunslinger ~ Class Skill	CATEGORY:Internal		CSKILL:Acrobatics|Bluff|Climb|TYPE=Craft|Handle Animal|Heal|Intimidate|Knowledge (Engineering)|Knowledge (Local)|Perception|TYPE=Profession|Ride|Sleight of Hand|Survival|Swim
+Ninja ~ Class Skill		CATEGORY:Internal		CSKILL:Acrobatics|Appraise|Bluff|Climb|TYPE=Craft|Diplomacy|Disable Device|Disguise|Escape Artist|Intimidate|Knowledge (Local)|Knowledge (Nobility)|Linguistics|Perception|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Stealth|Swim|Use Magic Device
+Samurai ~ Class Skill		CATEGORY:Internal		CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Handle Animal|Intimidate|TYPE=Profession|Ride|Sense Motive|Swim
+
+# COMMENT: TODO - Put the Weapon and Armor Proficiency stuff in a proper ability.
+
+###Block:
+# Ability Name			Define							Auto Weapon Prof			Ability
+#CATEGORY=Class|Gunslinger.MOD									AUTO:WEAPONPROF|TYPE=Firearm	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	ABILITY:FEAT|AUTOMATIC|Exotic Weapon Proficiency (Firearms)|Martial Weapon Proficiency Output|Simple Weapon Proficiency
+#CATEGORY=Class|Gunslinger.MOD														ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
+
+
+CATEGORY=Class|Gunslinger.MOD	DEFINE:Gunslinger_CF_Proficiencies|0
+CATEGORY=Class|Gunslinger.MOD	DEFINE:Gunslinger_CF_ClassSkills|0
+CATEGORY=Class|Gunslinger.MOD	DEFINE:Gunslinger_CF_Gunsmith|0
+CATEGORY=Class|Gunslinger.MOD	DEFINE:Gunslinger_CF_Deeds|0
+CATEGORY=Class|Gunslinger.MOD	DEFINE:Gunslinger_CF_Grit|0
+CATEGORY=Class|Gunslinger.MOD	DEFINE:Gunslinger_CF_Nimble|0
+CATEGORY=Class|Gunslinger.MOD	DEFINE:Gunslinger_CF_BonusFeats|0
+CATEGORY=Class|Gunslinger.MOD	DEFINE:Gunslinger_CF_GunTraining|0
+CATEGORY=Class|Gunslinger.MOD	DEFINE:Gunslinger_CF_TrueGrit|0
+CATEGORY=Class|Gunslinger.MOD	DEFINE:Gunslinger_CF_GunTraining1|0
+CATEGORY=Class|Gunslinger.MOD	DEFINE:Gunslinger_CF_GunTraining2|0
+CATEGORY=Class|Gunslinger.MOD	DEFINE:Gunslinger_CF_GunTraining3|0
+CATEGORY=Class|Gunslinger.MOD	DEFINE:Gunslinger_CF_GunTraining4|0
+CATEGORY=Class|Gunslinger.MOD	DEFINE:Gunslinger_CF_DeadeyeDeed|0
+CATEGORY=Class|Gunslinger.MOD	DEFINE:Gunslinger_CF_GunslingersDodgeDeed|0
+CATEGORY=Class|Gunslinger.MOD	DEFINE:Gunslinger_CF_QuickClearDeed|0
+CATEGORY=Class|Gunslinger.MOD	DEFINE:Gunslinger_CF_GunslingerInitiativeDeed|0
+CATEGORY=Class|Gunslinger.MOD	DEFINE:Gunslinger_CF_PistolWhipDeed|0
+CATEGORY=Class|Gunslinger.MOD	DEFINE:Gunslinger_CF_UtilityShotDeed|0
+CATEGORY=Class|Gunslinger.MOD	DEFINE:Gunslinger_CF_DeadShotDeed|0
+CATEGORY=Class|Gunslinger.MOD	DEFINE:Gunslinger_CF_StartlingShotDeed|0
+CATEGORY=Class|Gunslinger.MOD	DEFINE:Gunslinger_CF_TargetingDeed|0
+CATEGORY=Class|Gunslinger.MOD	DEFINE:Gunslinger_CF_BleedingWoundDeed|0
+CATEGORY=Class|Gunslinger.MOD	DEFINE:Gunslinger_CF_ExpertLoadingDeed|0
+CATEGORY=Class|Gunslinger.MOD	DEFINE:Gunslinger_CF_LightningReloadDeed|0
+CATEGORY=Class|Gunslinger.MOD	DEFINE:Gunslinger_CF_EvasiveDeed|0
+CATEGORY=Class|Gunslinger.MOD	DEFINE:Gunslinger_CF_MenacingShotDeed|0
+CATEGORY=Class|Gunslinger.MOD	DEFINE:Gunslinger_CF_SlingersLuckDeed|0
+CATEGORY=Class|Gunslinger.MOD	DEFINE:Gunslinger_CF_CheatDeathDeed|0
+CATEGORY=Class|Gunslinger.MOD	DEFINE:Gunslinger_CF_DeathsShotDeed|0
+CATEGORY=Class|Gunslinger.MOD	DEFINE:Gunslinger_CF_StunningShotDeed|0
+
+###Block: Boolean
+# Ability Name			Modify VAR
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_Proficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gunslinger_CF_Proficiencies=True
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gunslinger_CF_ClassSkills=True
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_Gunsmith|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gunslinger_CF_Gunsmith=True
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_Deeds|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gunslinger_CF_Deeds=True
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_Grit|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gunslinger_CF_Grit=True
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_Nimble|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gunslinger_CF_Nimble=True
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_BonusFeats|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gunslinger_CF_BonusFeats=True
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_GunTraining|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gunslinger_CF_GunTraining=True
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_TrueGrit|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gunslinger_CF_TrueGrit=True
+###Block: TYPE
+# Ability Name			Modify VAR
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_Gunsmith|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerGunsmith
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_Deeds|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerDeeds
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_Grit|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerGrit
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_Nimble|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerNimble
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_BonusFeats|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerBonusFeat
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_GunTraining|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerGunTraining
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_TrueGrit|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerTrueGrit
+###Block:
+# Ability Name			Modify VAR
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_DeadeyeDeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gunslinger_CF_DeadeyeDeed=True
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_GunslingersDodgeDeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gunslinger_CF_GunslingersDodgeDeed=True
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_QuickClearDeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gunslinger_CF_QuickClearDeed=True
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_GunslingerInitiativeDeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gunslinger_CF_GunslingerInitiativeDeed=True
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_PistolWhipDeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gunslinger_CF_PistolWhipDeed=True
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_UtilityShotDeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gunslinger_CF_UtilityShotDeed=True
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_DeadShotDeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gunslinger_CF_DeadShotDeed=True
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_StartlingShotDeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gunslinger_CF_StartlingShotDeed=True
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_TargetingDeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gunslinger_CF_TargetingDeed=True
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_BleedingWoundDeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gunslinger_CF_BleedingWoundDeed=True
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_ExpertLoadingDeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gunslinger_CF_ExpertLoadingDeed=True
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_LightningReloadDeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gunslinger_CF_LightningReloadDeed=True
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_EvasiveDeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gunslinger_CF_EvasiveDeed=True
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_MenacingShotDeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gunslinger_CF_MenacingShotDeed=True
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_SlingersLuckDeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gunslinger_CF_SlingersLuckDeed=True
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_CheatDeathDeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gunslinger_CF_CheatDeathDeed=True
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_DeathsShotDeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gunslinger_CF_DeathsShotDeed=True
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_StunningShotDeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gunslinger_CF_StunningShotDeed=True
+###Block:
+# Ability Name			Modify VAR
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_DeadeyeDeed|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerDeadeyeDeed
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_GunslingersDodgeDeed|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerGunslingersDodgeDeed
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_QuickClearDeed|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerQuickClearDeed
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_GunslingerInitiativeDeed|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerGunslingerInitiativeDeed
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_PistolWhipDeed|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerPistolWhipDeed
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_UtilityShotDeed|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerUtilityShotDeed
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_DeadShotDeed|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerDeadShotDeed
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_StartlingShotDeed|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerStartlingShotDeed
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_TargetingDeed|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerTargetingDeed
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_BleedingWoundDeed|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerBleedingWoundDeed
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_ExpertLoadingDeed|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerExpertLoadingDeed
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_LightningReloadDeed|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerLightningReloadDeed
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_EvasiveDeed|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerEvasiveDeed
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_MenacingShotDeed|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerMenacingShotDeed
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_SlingersLuckDeed|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerSlingersLuckDeed
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_CheatDeathDeed|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerCheatDeathDeed
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_DeathsShotDeed|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerDeathsShotDeed
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_StunningShotDeed|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerStunningShotDeed
+
+###Block:
+# Ability Name			Modify VAR
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_GunTraining1|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gunslinger_CF_GunTraining1=True
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_GunTraining2|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gunslinger_CF_GunTraining2=True
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_GunTraining3|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gunslinger_CF_GunTraining3=True
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_GunTraining4|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gunslinger_CF_GunTraining4=True
+###Block:
+# Ability Name			Define					Modify VAR
+CATEGORY=Class|Gunslinger.MOD							BONUS:VAR|Gunslinger_CF_GunTraining1|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerGunTraining1
+CATEGORY=Class|Gunslinger.MOD							BONUS:VAR|Gunslinger_CF_GunTraining2|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerGunTraining2
+CATEGORY=Class|Gunslinger.MOD							BONUS:VAR|Gunslinger_CF_GunTraining3|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerGunTraining3
+CATEGORY=Class|Gunslinger.MOD							BONUS:VAR|Gunslinger_CF_GunTraining4|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerGunTraining4
+
+
+###Block:
+# Ability Name			Ability
+CATEGORY=Class|Ninja.MOD	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:Special Ability|AUTOMATIC|Ninja ~ Weapon Proficiencies|PREVAREQ:Ninja_CF_WeaponProficiencies,0	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency|PREVAREQ:Ninja_CF_WeaponProficiencies,0
+CATEGORY=Class|Ninja.MOD	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|PREVAREQ:Ninja_CF_ArmorProficiency,0
+
+CATEGORY=Class|Ninja.MOD	DEFINE:Ninja_CF_ClassSkills|0
+CATEGORY=Class|Ninja.MOD	DEFINE:Ninja_CF_WeaponProficiencies|0
+CATEGORY=Class|Ninja.MOD	DEFINE:Ninja_CF_ArmorProficiency|0
+CATEGORY=Class|Ninja.MOD	DEFINE:Ninja_CF_PoisonUse|0
+CATEGORY=Class|Ninja.MOD	DEFINE:Ninja_CF_SneakAttack|0
+CATEGORY=Class|Ninja.MOD	DEFINE:Ninja_CF_NinjaTrick|0
+CATEGORY=Class|Ninja.MOD	DEFINE:Ninja_CF_KiPool|0
+CATEGORY=Class|Ninja.MOD	DEFINE:Ninja_CF_NoTrace|0
+CATEGORY=Class|Ninja.MOD	DEFINE:Ninja_CF_LightSteps|0
+CATEGORY=Class|Ninja.MOD	DEFINE:Ninja_CF_UncannyDodge|0
+CATEGORY=Class|Ninja.MOD	DEFINE:Ninja_CF_ImprovedUncannyDodge|0
+CATEGORY=Class|Ninja.MOD	DEFINE:Ninja_CF_HiddenMaster|0
+CATEGORY=Class|Ninja.MOD	DEFINE:Ninja_CF_NinjaTrick2|0
+CATEGORY=Class|Ninja.MOD	DEFINE:Ninja_CF_NinjaTrick4|0
+CATEGORY=Class|Ninja.MOD	DEFINE:Ninja_CF_NinjaTrick6|0
+CATEGORY=Class|Ninja.MOD	DEFINE:Ninja_CF_NinjaTrick8|0
+CATEGORY=Class|Ninja.MOD	DEFINE:Ninja_CF_NinjaTrick10|0
+CATEGORY=Class|Ninja.MOD	DEFINE:Ninja_CF_NinjaTrick12|0
+CATEGORY=Class|Ninja.MOD	DEFINE:Ninja_CF_NinjaTrick14|0
+CATEGORY=Class|Ninja.MOD	DEFINE:Ninja_CF_NinjaTrick16|0
+CATEGORY=Class|Ninja.MOD	DEFINE:Ninja_CF_NinjaTrick18|0
+CATEGORY=Class|Ninja.MOD	DEFINE:Ninja_CF_NinjaTrick20|0
+
+###Block: Boolean
+# Ability Name			Modify VAR
+CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ninja_CF_ClassSkills=True
+CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_WeaponProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ninja_CF_WeaponProficiencies=True
+CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_ArmorProficiency|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ninja_CF_ArmorProficiency=True
+CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_PoisonUse|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ninja_CF_Poison=True
+CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_SneakAttack|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ninja_CF_SneakAttack=True
+CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_NinjaTrick|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ninja_CF_Trick=True
+CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_KiPool|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ninja_CF_KiPool=True
+CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_NoTrace|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ninja_CF_NoTrace=True
+CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_LightSteps|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ninja_CF_LightSteps=True
+CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_UncannyDodge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ninja_CF_UncannyDodge=True
+CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_ImprovedUncannyDodge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ninja_CF_HiddenMaster=True
+CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_HiddenMaster|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ninja_CF_HiddenMaster=True
+CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_NinjaTrick2|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ninja_CF_NinjaTrick2=True
+CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_NinjaTrick4|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ninja_CF_NinjaTrick4=True
+CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_NinjaTrick6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ninja_CF_NinjaTrick6=True
+CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_NinjaTrick8|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ninja_CF_NinjaTrick8=True
+CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_NinjaTrick10|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ninja_CF_NinjaTrick10=True
+CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_NinjaTrick12|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ninja_CF_NinjaTrick12=True
+CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_NinjaTrick14|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ninja_CF_NinjaTrick14=True
+CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_NinjaTrick16|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ninja_CF_NinjaTrick16=True
+CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_NinjaTrick18|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ninja_CF_NinjaTrick18=True
+CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_NinjaTrick20|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ninja_CF_NinjaTrick20=True
+###Block: Type
+# Ability Name			Modify VAR
+CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_PoisonUse|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaPoison
+CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_SneakAttack|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaSneakAttack
+CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_NinjaTrick|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaTrick
+CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_KiPool|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaKiPool
+CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_NoTrace|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaNoTrace
+CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_LightSteps|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaLightSteps
+CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_HiddenMaster|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaHiddenMaster
+
+
+###Block:Proficiencies
+# Ability Name			Ability
+CATEGORY=Class|Samurai.MOD	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
+CATEGORY=Class|Samurai.MOD	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies|Samurai Proficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiWeaponProficiencies
+CATEGORY=Class|Samurai.MOD	ABILITY:FEAT|AUTOMATIC|Martial Weapon Proficiency Output|Simple Weapon Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiWeaponProficiencies
+CATEGORY=Class|Samurai.MOD	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiArmorProficiency,TYPE.SamuraiArmorProficiencyHeavy
+CATEGORY=Class|Samurai.MOD	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiArmorProficiency,TYPE.SamuraiArmorProficiencyLight
+CATEGORY=Class|Samurai.MOD	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Medium)|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiArmorProficiency,TYPE.SamuraiArmorProficiencyMedium
+CATEGORY=Class|Samurai.MOD	ABILITY:FEAT|AUTOMATIC|Shield Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiArmorProficiency,TYPE.SamuraiShieldProficiency
+
+###Block: 
+# Ability Name			Define
+CATEGORY=Class|Samurai.MOD	DEFINE:Samurai_CF_ClassSkills|0
+CATEGORY=Class|Samurai.MOD	DEFINE:Samurai_CF_WeaponProficiencies|0
+CATEGORY=Class|Samurai.MOD	DEFINE:Samurai_CF_ArmorProficiency|0
+CATEGORY=Class|Samurai.MOD	DEFINE:Samurai_CF_SamuraiArmorProficiencyHeavy|0
+CATEGORY=Class|Samurai.MOD	DEFINE:Samurai_CF_SamuraiArmorProficiencyLight|0
+CATEGORY=Class|Samurai.MOD	DEFINE:Samurai_CF_SamuraiArmorProficiencyMedium|0
+CATEGORY=Class|Samurai.MOD	DEFINE:Samurai_CF_SamuraiShieldProficiency|0
+CATEGORY=Class|Samurai.MOD	DEFINE:Samurai_CF_Challenge|0
+CATEGORY=Class|Samurai.MOD	DEFINE:Samurai_CF_Mount|0
+CATEGORY=Class|Samurai.MOD	DEFINE:Samurai_CF_Order|0
+CATEGORY=Class|Samurai.MOD	DEFINE:Samurai_CF_Resolve|0
+CATEGORY=Class|Samurai.MOD	DEFINE:Samurai_CF_WeaponExpertise|0
+CATEGORY=Class|Samurai.MOD	DEFINE:Samurai_CF_MountedArcher|0
+CATEGORY=Class|Samurai.MOD	DEFINE:Samurai_CF_Banner|0
+CATEGORY=Class|Samurai.MOD	DEFINE:Samurai_CF_BonusFeat|0
+CATEGORY=Class|Samurai.MOD	DEFINE:Samurai_CF_GreaterResolve|0
+CATEGORY=Class|Samurai.MOD	DEFINE:Samurai_CF_HonorableStand|0
+CATEGORY=Class|Samurai.MOD	DEFINE:Samurai_CF_DemandingChallenge|0
+CATEGORY=Class|Samurai.MOD	DEFINE:Samurai_CF_GreaterBanner|0
+CATEGORY=Class|Samurai.MOD	DEFINE:Samurai_CF_TrueResolve|0
+CATEGORY=Class|Samurai.MOD	DEFINE:Samurai_CF_LastStand|0
+
+# Boolean
+CATEGORY=Class|Samurai.MOD																										BONUS:VAR|Samurai_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_ClassSkills=True
+CATEGORY=Class|Samurai.MOD																										BONUS:VAR|Samurai_CF_WeaponProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_WeaponProficiencies=True
+CATEGORY=Class|Samurai.MOD																										BONUS:VAR|Samurai_CF_ArmorProficiency|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_ArmorProficiency=True
+CATEGORY=Class|Samurai.MOD																										BONUS:VAR|Samurai_CF_SamuraiArmorProficiencyHeavy|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_SamuraiArmorProficiencyHeavy=True
+CATEGORY=Class|Samurai.MOD																										BONUS:VAR|Samurai_CF_SamuraiArmorProficiencyLight|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_SamuraiArmorProficiencyLight=True
+CATEGORY=Class|Samurai.MOD																										BONUS:VAR|Samurai_CF_SamuraiArmorProficiencyMedium|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_SamuraiArmorProficiencyMedium=True
+CATEGORY=Class|Samurai.MOD																										BONUS:VAR|Samurai_CF_SamuraiShieldProficiency|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_SamuraiShieldProficiency=True
+CATEGORY=Class|Samurai.MOD																										BONUS:VAR|Samurai_CF_Challenge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_Challenge=True
+CATEGORY=Class|Samurai.MOD																										BONUS:VAR|Samurai_CF_Mount|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_Mount=True
+CATEGORY=Class|Samurai.MOD																										BONUS:VAR|Samurai_CF_Order|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_Order=True
+CATEGORY=Class|Samurai.MOD																										BONUS:VAR|Samurai_CF_Resolve|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_Resolve=True
+CATEGORY=Class|Samurai.MOD																										BONUS:VAR|Samurai_CF_WeaponExpertise|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_WeaponExpertise=True
+CATEGORY=Class|Samurai.MOD																										BONUS:VAR|Samurai_CF_MountedArcher|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_MountedArcher=True
+CATEGORY=Class|Samurai.MOD																										BONUS:VAR|Samurai_CF_Banner|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_Banner=True
+CATEGORY=Class|Samurai.MOD																										BONUS:VAR|Samurai_CF_BonusFeat|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_BonusFeats=True
+CATEGORY=Class|Samurai.MOD																										BONUS:VAR|Samurai_CF_GreaterResolve|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_GreaterResolve=True
+CATEGORY=Class|Samurai.MOD																										BONUS:VAR|Samurai_CF_HonorableStand|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_HonorableStand=True
+CATEGORY=Class|Samurai.MOD																										BONUS:VAR|Samurai_CF_DemandingChallenge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_DemandingChallenge=True
+CATEGORY=Class|Samurai.MOD																										BONUS:VAR|Samurai_CF_GreaterBanner|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_GreaterBanner=True
+CATEGORY=Class|Samurai.MOD																										BONUS:VAR|Samurai_CF_TrueResolve|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_TrueResolve=True
+CATEGORY=Class|Samurai.MOD																										BONUS:VAR|Samurai_CF_LastStand|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_LastStand=True
+# Type
+CATEGORY=Class|Samurai.MOD																										BONUS:VAR|Samurai_CF_WeaponProficiencies|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiWeaponProficiencies
+CATEGORY=Class|Samurai.MOD																										BONUS:VAR|Samurai_CF_ArmorProficiency|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiArmorProficiency
+CATEGORY=Class|Samurai.MOD																										BONUS:VAR|Samurai_CF_SamuraiArmorProficiencyHeavy|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiArmorProficiencyHeavy
+CATEGORY=Class|Samurai.MOD																										BONUS:VAR|Samurai_CF_SamuraiArmorProficiencyLight|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiArmorProficiencyLight
+CATEGORY=Class|Samurai.MOD																										BONUS:VAR|Samurai_CF_SamuraiArmorProficiencyMedium|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiArmorProficiencyMedium
+CATEGORY=Class|Samurai.MOD																										BONUS:VAR|Samurai_CF_SamuraiShieldProficiency|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiShieldProficiency
+CATEGORY=Class|Samurai.MOD																										BONUS:VAR|Samurai_CF_Challenge|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiChallenge
+CATEGORY=Class|Samurai.MOD																										BONUS:VAR|Samurai_CF_Mount|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiMount
+CATEGORY=Class|Samurai.MOD																										BONUS:VAR|Samurai_CF_Order|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiOrder
+CATEGORY=Class|Samurai.MOD																										BONUS:VAR|Samurai_CF_Resolve|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiResolve
+CATEGORY=Class|Samurai.MOD																										BONUS:VAR|Samurai_CF_WeaponExpertise|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiWeaponExpertise
+CATEGORY=Class|Samurai.MOD																										BONUS:VAR|Samurai_CF_MountedArcher|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiMountedArcher
+CATEGORY=Class|Samurai.MOD																										BONUS:VAR|Samurai_CF_Banner|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiBanner
+CATEGORY=Class|Samurai.MOD																										BONUS:VAR|Samurai_CF_BonusFeat|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiBonusFeats
+CATEGORY=Class|Samurai.MOD																										BONUS:VAR|Samurai_CF_GreaterResolve|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiGreaterResolve
+CATEGORY=Class|Samurai.MOD																										BONUS:VAR|Samurai_CF_HonorableStand|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiHonorableStand
+CATEGORY=Class|Samurai.MOD																										BONUS:VAR|Samurai_CF_DemandingChallenge|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiDemandingChallenge
+CATEGORY=Class|Samurai.MOD																										BONUS:VAR|Samurai_CF_GreaterBanner|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiGreaterBanner
+CATEGORY=Class|Samurai.MOD																										BONUS:VAR|Samurai_CF_TrueResolve|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiTrueResolve
+CATEGORY=Class|Samurai.MOD																										BONUS:VAR|Samurai_CF_LastStand|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiLastStand

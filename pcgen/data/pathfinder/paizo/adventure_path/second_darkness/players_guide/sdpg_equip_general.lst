@@ -1,0 +1,6 @@
+# CVS $Revision: $ $Author: $ -- Thu Sep 26 01:19:49 2013 -- reformated by prettylst.pl v1.50 (build 21406)
+SOURCELONG:Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEWEB:http://paizo.com/pathfinder/companion/35E/v5748btpy84en	SOURCEDATE:2008-08
+
+# Equipment Name		Output Name		Type					Cost		Weight	Source Page		Special Property
+Poison (Riddleport Tea)	OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:500	WT:0		SOURCEPAGE:p.21	SPROP:Ingested DC 15, Init.:confusion, Sec.:fatigue
+Poison (Indigo Dreams)	OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:150	WT:0		SOURCEPAGE:p.21	SPROP:Ingested DC 13, Init.:1d6 WIS, Sec.:2d6 WIS

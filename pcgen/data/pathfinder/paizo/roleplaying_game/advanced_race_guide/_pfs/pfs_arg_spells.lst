@@ -1,0 +1,8 @@
+# CVS $Revision: $ $Author: $ -- Wed Dec 10 01:48:21 2014 -- reformated by prettylst.pl v1.51 (build 25712)
+SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/products/btpy8rv2?Pathfinder-Roleplaying-Game-Advanced-Race-Guide	SOURCEDATE:2012-06
+# ORIGINAL ENTRY: none
+# ORIGINAL ENTRY DATE: none
+
+# Spell Name		Type			!PRECHARACTERTYPE
+Half-Blood Extraction	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Vomit Twin			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC

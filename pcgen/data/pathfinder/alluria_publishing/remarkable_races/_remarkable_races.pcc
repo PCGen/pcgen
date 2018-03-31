@@ -1,0 +1,52 @@
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+CAMPAIGN:Remarkable Races
+KEY:Remarkable Races
+GAMEMODE:Pathfinder
+RANK:6
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Generic
+STATUS:BETA
+TYPE:Alluria Publishing.Supplement
+PUBNAMELONG:Alluria Publishing
+PUBNAMESHORT:ALP
+PUBNAMEWEB:http://www.alluriapublishing.net/index.htm
+SOURCELONG:Remarkable Races: Compendium of Unusual PC Races, Pathway to Adventure Edition
+SOURCESHORT:RR
+SOURCEWEB:http://www.alluriapublishing.net/compendium-p.htm
+SOURCEDATE:2009-01
+ISOGL:YES
+
+#INFOTEXT:ogl.txt
+#INFOTEXT:ogl_declaration.txt
+
+#COVER:remarkable_races.jpg
+#LOGO:@/publisher_logos/Alluria_Publishing.png
+
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder RPG Core Rulebook. Copyright 2009, Paizo Publishing, LLC; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:Pathfinder RPG Bestiary, Copyright 2009, Paizo Publishing, LLC; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:The Book of Experimental Might. Copyright 2008, Monte J. Cook. All rights reserved.
+COPYRIGHT:Tome of Horrors. Copyright 2002, Necromancer Games, Inc.; Authors: Scott Greene, with Clark Peterson, Erica Balsley, Kevin Baase, Casey Christofferson, Lance Hawvermale, Travis Hawvermale, Patrick Lawinger, and Bill Webb; Based on original content from TSR.
+COPYRIGHT:Remarkable Races: Compendium of Unusual PC Races, Pathway to Adventure Edition. Copyright 2009, Alluria Publishing; Author: J. Matthew Kubisz
+COPYRIGHT:PCGen dataset conversion for "Remarkable Races: Compendium of Unusual PC Races, Pathway to Adventure Edition" Copyright 2014, PCgen Data team (Including, but not limited to Andrew Mailand, Eric Smith).
+
+
+ABILITY:rr_abilities_class.lst
+ABILITY:rr_abilities_companion.lst
+ABILITY:rr_abilities_race.lst
+ABILITYCATEGORY:rr_abilitycategories.lst
+CLASS:rr_classes.lst
+COMPANIONMOD:rr_companionmods.lst
+DEITY:rr_deities.lst
+DOMAIN:rr_domains.lst
+EQUIPMENT:rr_equip.lst
+EQUIPMOD:rr_equipmods.lst
+ABILITY:rr_feats.lst
+KIT:rr_kits.lst
+LANGUAGE:rr_languages.lst
+RACE:rr_races.lst
+RACE:rr_races_companion.lst
+SPELL:rr_spells.lst
+TEMPLATE:rr_templates.lst

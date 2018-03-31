@@ -1,0 +1,85 @@
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+CAMPAIGN:Ultimate Equipment (PFS)
+KEY:PFS ~ Ultimate Equipment
+#GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing PFS.Pathfinder RPG
+RANK:1
+STATUS:BETA
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder
+PRECAMPAIGN:1,INCLUDES=Ultimate Magic
+PRECAMPAIGN:1,Pathfinder Society Core Assumption
+
+PUBNAMELONG:Paizo Publishing LLC
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Ultimate Equipment
+SOURCESHORT:UE
+SOURCEWEB:http://paizo.com/products/btpy8tmc?Pathfinder-Roleplaying-Game-Ultimate-Equipment
+SOURCEDATE:2012-08
+ISOGL:YES
+
+#COVER:@/pathfinder/paizo/roleplaying_game/ultimate_equipment/ultimate_equipment.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy8tmc?Pathfinder-Roleplaying-Game-Ultimate-Equipment|Buy this publication from Paizo Publishing!
+DESC:Choose your weapon and stride boldly into battle with Pathfinder RPG Ultimate Equipment! Within this handy, all-in-one reference, you'll find 400 jam-packed pages of magic items and adventuring gear, from simple camping equipment and weapons up to the most earth-shaking artifacts. Included as well are handy rules references, convenient price lists, and extensive random treasure generation tables, all organized to help you find what you need, when you need it. With this vast catalog of tools and treasures, the days of boring dragon hoards are over, and your hero will never be caught unprepared again.
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, and Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder Roleplaying Game Core Rulebook Copyright 2009, Paizo Inc.; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:Axe Beak from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Genie, Marid from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Grippli from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Iron Cobra from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Philip Masters.
+COPYRIGHT:Yeti from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Pathfinder RPG Ultimate Equipment Copyright 2012, Paizo Inc.; Authors: Dennis Baker, Jesse Benner, Benjamin Bruck, Ross Byers, Brian J. Cortijo, Ryan Costello, Mike Ferguson, Matt Goetz, Jim Groves, Tracy Hurley, Matt James, Jonathan H. Keith, Michael Kenway, Hal MacLean, Jason Nelson, Tork Shaw, Owen KC Stephens, and Russ Taylor.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Ultimate Equipment" Copyright 2013, PCGen Data team (Including, but not limited to James Dempsey, Scott Meyer and Stefan Radermacher).
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# Additional Resources
+# Last Updated Friday, January 9, 2015
+#
+# Pathfinder Roleplaying Game: Ultimate Equipment
+# All items from Chapter 1 are legal for play except as noted below. Some rules elements are legal but function differently in Pathfinder Society Organized Play, as described here.
+#   Equipment: No Large or larger firearm is available for purchase. The double hackbut, culverin and any advanced firearms on Table 1-10 are not permitted in Pathfinder Society Organized Play.
+#     No character may purchase a firearm unless she possesses the Gunsmithing feat and firearms are never considered Always Available; a character must possess enough Fame to purchase any firearm not found on a Chronicle sheet or granted by a class feature.
+#     All ammunition except metal cartridges may be purchased.
+#   Special Materials: All special materials, except angel skin, living steel and wyroot, are legal for play.
+#   The scorpion whip found in this book is no longer legal. Please refer to the Adventurer's Armory for the legal version.
+# All items from Chapter 2 are legal for play except as noted below.
+#   Equipment: Only creatures of the animal type of size Large and smaller may be purchased.
+#     No eggs are legal for play.
+#     Animal-related gear on pages 80-86 is available for purchase.
+#     Transports on pages 86-87 are not available for purchase.
+#     All alchemical remedies, alchemical tools, alchemical weapons, clothing, entertainment items, and food and drink are legal for play.
+#   Any character with the Poison Use class ability can purchase and use poisons.
+#     For now, they are the only classes that have a list of "always available poisons" (those noted below)-no other class may purchase poisons unless they appear on a Chronicle sheet or in another legal source.
+#     Alchemists, ninja, and poisoner rogues may only purchase the following poisons: black adder venom, bloodroot, giant wasp poison, greenblood oil, large scorpion venom, malyass root paste, Medium spider venom, nitharit, shadow essence, small centipede poison, terinav root.
+# All items from Chapter 3 are legal for play except as noted below.
+#   All armor special abilities on pages 114-123, except dastard, are legal for play.
+#   All specific magic armor on pages 124-129, except breastplate of vanishing, catskin leather, demon armor, enchanted eelskin, hamatula hide, mail of malevolence, morlock hide, otyugh hide, scarab breastplate, and warden of the woods are legal for play.
+#   All specific magic shields on pages 130-133, except avalanche shield, belligerent shield, celestial shield, dragonslayer's shield, elysian shield, living steel heavy shield, tempest shield, volcanic shield, wyrmslayer's shield, and zombie skin shield are legal for play.
+#   All weapon special abilities on pages 134-149, except unholy, are legal for play.
+#   All specific magic weapons on pages 150-163, except bastard's sting, blade of the rising sun, blade of the sword-saint, cutthroat's apprentice, dagger of doubling, dragoncatch guisarme, earthenflail, hellscourge, lash of the howler, nine lives stealer, pistol of the infinite sky, polarity hammer, spider's fang, and ten-ring sword, are legal All items from Chapter 4 are legal for play except as noted below.
+#   All rings on pages 166-177 are legal for play.
+#   All rods on pages 178-191, except rod of the viper, are legal for play.
+#   All staves on pages 192-203, except unholy staff, are legal for play.
+# All items from Chapter 5 are legal for play except as noted below.
+#   Equipment: All items on pages 208-325, except ampoule of false blood, beneficial bandolier, bone razor, bracers of falcon's aim, cauldron of the undead, collar of the true companion, darkskull, horn of evil, otherworldly kimono, orb of foul abaddon, quick runner's shirt, robe of the archmagi (black), stalker's mask and talons of Leng are legal for play.
+# Nothing from Chapter 6 is legal for play unless it appears on a Chronicle sheet.
+
+# Data files
+EQUIPMOD:pfs_ue_equipmods.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Equipment
+EQUIPMENT:pfs_ue_equip_arms_armor.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Equipment
+EQUIPMENT:pfs_ue_equip_magic_items.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Equipment
+EQUIPMENT:pfs_ue_equip_general.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Equipment
+
+#
+# End
+#

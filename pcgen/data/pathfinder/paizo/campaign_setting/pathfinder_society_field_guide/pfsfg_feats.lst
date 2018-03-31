@@ -1,0 +1,12 @@
+# CVS $Revision$ $Author$ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
+SOURCELONG:Pathfinder Society Field Guide	SOURCESHORT:PFSFG	SOURCEWEB:http://paizo.com/products/btpy8mfq	SOURCEDATE:2011-08
+# Original Entry by: Mark Means
+
+# Feat Name		Type		PRETOTALAB		Description									Stackable?	Multiple?	Choose								Source Page		Benefits
+# Ability Name	Category of Ability	Type		PRETOTALAB		Description									Stackable?	Multiple?	Choose								Source Page		Benefits
+Equipment Trick	CATEGORY:FEAT		TYPE:Combat	PRETOTALAB:1	DESC:You understand how to use a certain item in combat.	STACK:NO	MULT:YES	CHOOSE:ABILITY|Special Ability|TYPE=EquipmentTrick	SOURCEPAGE:p.49	BENEFIT:You may use any equipment tricks relating to the item if you meet the appropriate trick requirements. If the item would normally be considered an improvised weapon, you may treat it as a normal weapon or an improvised weapon, whichever is more beneficial for you. You can gain the Equipment Trick feat multiple times. Each time you take the feat, it applies to a new type of equipment.
+
+
+#
+###END
+#

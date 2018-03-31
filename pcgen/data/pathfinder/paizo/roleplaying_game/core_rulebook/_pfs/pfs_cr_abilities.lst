@@ -1,0 +1,10 @@
+# CVS $Revision: 21684 $ $Author: spraynpray $ -- Wed Dec 10 01:48:21 2014 -- reformated by prettylst.pl v1.51 (build 25712)
+SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
+
+# Ability Name				Category of Ability	Type						Description																					Cost		Source Page
+Remove Alchemist Brew Potion		CATEGORY:Archetype	TYPE:Homebrew.ClassAbilityRemoval	DESC:Alchemists receive the Extra Bombs feat at 1st level instead of Brew Potion.									COST:0	SOURCEPAGE:p.7
+Remove Cavalier Expert Trainer	CATEGORY:Archetype	TYPE:Homebrew.ClassAbilityRemoval	DESC:Instead of the Expert Trainer class feature, Pathfinder Society cavaliers receive Skill Focus (Handle Animal) as a bonus feat.	COST:0	SOURCEPAGE:p.7
+
+###Block: Language Support
+# Ability Name			Template
+CATEGORY=Internal|Default.MOD	TEMPLATE:Race Bonus Language ~ Modern Human Language

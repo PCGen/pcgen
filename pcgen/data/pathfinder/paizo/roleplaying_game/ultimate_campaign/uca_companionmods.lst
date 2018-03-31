@@ -1,0 +1,4 @@
+# CVS $Revision: $ $Author: $ -- Sun Jan 25 18:47:12 2015 -- reformated by prettylst.pl v1.51 (build 25712)
+
+# Class of the Master		Type			Ability
+FOLLOWER:L_A_L_Eidolon=1	TYPE:Eidolon	ABILITY:Special Ability|AUTOMATIC|Loyalty across Lifetimes ~ Eidolon Bonus

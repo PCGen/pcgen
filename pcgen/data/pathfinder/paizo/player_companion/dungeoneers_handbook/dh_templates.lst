@@ -1,0 +1,5 @@
+# CVS $Revision: 18754 $ $Author: amaitland $ -- Tue Dec  2 17:52:53 2014 -- reformated by prettylst.pl v1.51 (build 25490)
+SOURCELONG:Dungeoneer's Handbook	SOURCESHORT:DH	SOURCEWEB:http://paizo.com/products/btpy8wfn?Pathfinder-Player-Companion-Dungeoneers-Handbook	SOURCEDATE:2013-03
+
+# Template Name		Choose										Selections	Auto Language
+Trait ~ Dungeon Dweller	CHOOSE:LANG|Aklo|Dark Folk|Draconic|Goblin|Necril|Orc|Undercommon	SELECT:1	AUTO:LANG|%LIST

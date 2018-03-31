@@ -1,0 +1,20 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8ief	SOURCEDATE:2011-03
+# Original Entry by: Stefan Radermacher
+
+# Weapon Name			Type			Required Ability
+Dogslicer.MOD			TYPE:PFSLegal
+War Razor.MOD			TYPE:PFSLegal
+Klar.MOD				TYPE:PFSLegal
+Earth Breaker.MOD			TYPE:PFSLegal
+Horsechopper.MOD			TYPE:PFSLegal
+Ogre Hook.MOD			TYPE:PFSLegal
+Aldori Dueling Sword.MOD	TYPE:PFSLegal
+Sawtooth Sabre.MOD		TYPE:PFSLegal
+Urumi.MOD				TYPE:PFSLegal
+Bladed Scarf.MOD			TYPE:PFSLegal
+Firearms.MOD			TYPE:PFSLegal	PREABILITY:1,CATEGORY=FEAT,Gunsmithing
+Pepperbox.MOD			TYPE:PFSLegal
+Pistol.MOD				TYPE:PFSLegal
+Musket.MOD				TYPE:PFSLegal
+Cannon.MOD				TYPE:PFSLegal

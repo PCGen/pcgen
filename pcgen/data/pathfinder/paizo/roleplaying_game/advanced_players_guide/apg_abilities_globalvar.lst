@@ -1,0 +1,582 @@
+# CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
+
+# Ability Name	Category of Ability
+Alchemist		CATEGORY:Class
+Cavalier		CATEGORY:Class
+Inquisitor		CATEGORY:Class
+Oracle		CATEGORY:Class
+Summoner		CATEGORY:Class
+Witch			CATEGORY:Class
+Antipaladin		CATEGORY:Class
+
+###Block: Class Specifics
+
+
+# Ability Name				Define							Auto Weapon Prof																					Ability																								Bonus Ability Pool				Modify VAR
+CATEGORY=Class|Alchemist.MOD																																	ABILITY:Special Ability|AUTOMATIC|Alchemist Weapon Proficiencies	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfLight|TYPE=WeaponProfSimple		ABILITY:Internal|AUTOMATIC|Alchemist ~ Class Skills|PREVAREQ:Alchemist_CF_ClassSkills,0
+
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_Alchemy|0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_Bomb|0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_BrewPotion|0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_Mutagen|0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_ThrowAnything|0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_Discovery|0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_PoisonResistance|0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_PoisonUse|0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_SwiftAlchemy|0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_SwiftPoisoning|0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_PersistentMutagen|0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_InstantAlchemy|0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_GrandDiscovery|0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_ClassSkills|0
+
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_PoisonResistance2|0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_PoisonResistance4|0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_PoisonResistance6|0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_PoisonImmunity|0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_Discovery2|0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_Discovery4|0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_Discovery6|0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_Discovery8|0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_Discovery10|0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_Discovery12|0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_Discovery14|0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_Discovery16|0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_Discovery18|0
+
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_BombReduction|0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_BombDamage3|0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_BombDamage5|0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_BombDamage7|0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_BombDamage9|0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_BombDamage11|0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_BombDamage13|0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_BombDamage15|0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_BombDamage17|0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_BombDamage19|0
+
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_Alchemy|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_Alchemy=True
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_Bomb|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_Bomb=True
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_BrewPotion|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_BrewPotion=True
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_Mutagen|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_Mutagen=True
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_ThrowAnything|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_ThrowAnything=True
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_Discovery|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_Discovery=True
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_PoisonResistance|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_PoisonResistance=True
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_PoisonUse|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_PoisonUse=True
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_SwiftAlchemy|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_SwiftAlchemy=True
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_SwiftPoisoning|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_SwiftPoisoning=True
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_PersistentMutagen|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_PersistentMutagen=True
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_InstantAlchemy|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_InstantAlchemy=True
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_GrandDiscovery|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_GrandDiscovery=True
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_ClassSkills=True
+
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_PoisonResistance2|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_PoisonResistance2=True
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_PoisonResistance4|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_PoisonResistance4=True
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_PoisonResistance6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_PoisonResistance6=True
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_PoisonImmunity|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_PoisonImmunity=True
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_Discovery2|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_Discovery2=True
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_Discovery4|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_Discovery4=True
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_Discovery6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_Discovery6=True
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_Discovery8|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_Discovery8=True
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_Discovery10|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_Discovery10=True
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_Discovery12|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_Discovery12=True
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_Discovery14|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_Discovery14=True
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_Discovery16|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_Discovery16=True
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_Discovery18|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_Discovery18=True
+
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_BombReduction|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_BombReduction=True
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_BombDamage3|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_BombDamage3=True
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_BombDamage5|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_BombDamage5=True
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_BombDamage7|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_BombDamage7=True
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_BombDamage9|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_BombDamage9=True
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_BombDamage11|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_BombDamage11=True
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_BombDamage13|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_BombDamage13=True
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_BombDamage15|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_BombDamage15=True
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_BombDamage17|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_BombDamage17=True
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_BombDamage19|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_BombDamage19=True
+
+# Old Type System
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_Alchemy|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistAlchemy
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_Bomb|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistBomb
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_BrewPotion|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistBrewPotion
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_Mutagen|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistMutagen
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_ThrowAnything|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistThrowAnything
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_Discovery|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistDiscovery
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_PoisonResistance|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistPoisonResistance
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_PoisonUse|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistPoisonUse
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_SwiftAlchemy|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistSwiftAlchemy
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_SwiftPoisoning|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistSwiftPoisoning
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_PersistentMutagen|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistPersistentMutagen
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_InstantAlchemy|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistInstantAlchemy
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_GrandDiscovery|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistGrandDiscovery
+
+
+# Cavalier
+CATEGORY=Class|Cavalier.MOD																																	ABILITY:Internal|AUTOMATIC|Cavalier ~ Class Skills|PREVAREQ:Cavalier_CF_ClassSkills,0
+
+CATEGORY=Class|Cavalier.MOD																																	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial|PREMULT:2,[!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierWeaponProficiencies],[PREVAREQ:Cavalier_CF_Proficiencies,0]
+CATEGORY=Class|Cavalier.MOD																																	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfHeavy|PREMULT:3,[!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierArmorProficiencies,TYPE.CavalierHeavyArmorProficiency],[PREVAREQ:Cavalier_CF_Proficiencies,0],[PREVAREQ:Cavalier_CF_HeavyArmorProficiency,0]
+CATEGORY=Class|Cavalier.MOD																																	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfLight|PREMULT:3,[!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierArmorProficiencies,TYPE.CavalierLightArmorProficiency],[PREVAREQ:Cavalier_CF_Proficiencies,0],[PREVAREQ:Cavalier_CF_LightArmorProficiency,0]
+CATEGORY=Class|Cavalier.MOD																																	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfMedium|PREMULT:3,[!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierArmorProficiencies,TYPE.CavalierMediumArmorProficiency],[PREVAREQ:Cavalier_CF_Proficiencies,0],[PREVAREQ:Cavalier_CF_MediumArmorProficiency,0]
+CATEGORY=Class|Cavalier.MOD																																	ABILITY:Internal|AUTOMATIC|TYPE=ShieldProf|PREMULT:3,[!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierArmorProficiencies,TYPE.CavalierShieldProficiency],[PREVAREQ:Cavalier_CF_Proficiencies,0],[PREVAREQ:Cavalier_CF_ShieldProficiency,0]
+
+
+CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_ClassSkills|0
+CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_Proficiencies|0
+CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_HeavyArmorProficiency|0
+CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_LightArmorProficiency|0
+CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_MediumArmorProficiency|0
+CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_ShieldProficiency|0
+CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_Challenge|0
+CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_Mount|0
+CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_Order|0
+CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_Tactician|0
+CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_CavaliersCharge|0
+CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_ExpertTrainer|0
+CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_BonusFeat|0
+CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_Banner|0
+CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_GreaterTactician|0
+CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_MightyCharge|0
+CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_DemandingChallenge|0
+CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_GreaterBanner|0
+CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_MasterTactician|0
+CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_SupremeCharge|0
+CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_OrderAbility2|0
+CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_OrderAbility8|0
+CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_OrderAbility15|0
+
+CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Cavalier_CF_ClassSkills=True
+CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_Proficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Cavalier_CF_Proficiencies=True
+CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_HeavyArmorProficiency|1|TYPE=Boolean|PREFACT:1,ABILITIES,Cavalier_CF_HeavyArmorProficiency=True
+CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_LightArmorProficiency|1|TYPE=Boolean|PREFACT:1,ABILITIES,Cavalier_CF_LightArmorProficiency=True
+CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_MediumArmorProficiency|1|TYPE=Boolean|PREFACT:1,ABILITIES,Cavalier_CF_MediumArmorProficiency=True
+CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_ShieldProficiency|1|TYPE=Boolean|PREFACT:1,ABILITIES,Cavalier_CF_ShieldProficiency=True
+CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_Challenge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Cavalier_CF_Challenge=True
+CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_Mount|1|TYPE=Boolean|PREFACT:1,ABILITIES,Cavalier_CF_Mount=True
+CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_Order|1|TYPE=Boolean|PREFACT:1,ABILITIES,Cavalier_CF_Order=True
+CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_Tactician|1|TYPE=Boolean|PREFACT:1,ABILITIES,Cavalier_CF_Tactician=True
+CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_CavaliersCharge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Cavalier_CF_CavaliersCharge=True
+CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_ExpertTrainer|1|TYPE=Boolean|PREFACT:1,ABILITIES,Cavalier_CF_ExpertTrainer=True
+CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_BonusFeat|1|TYPE=Boolean|PREFACT:1,ABILITIES,Cavalier_CF_BonusFeat=True
+CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_Banner|1|TYPE=Boolean|PREFACT:1,ABILITIES,Cavalier_CF_Banner=True
+CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_GreaterTactician|1|TYPE=Boolean|PREFACT:1,ABILITIES,Cavalier_CF_GreaterTactician=True
+CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_MightyCharge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Cavalier_CF_MightyCharge=True
+CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_DemandingChallenge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Cavalier_CF_DemandingChallenge=True
+CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_GreaterBanner|1|TYPE=Boolean|PREFACT:1,ABILITIES,Cavalier_CF_GreaterBanner=True
+CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_MasterTactician|1|TYPE=Boolean|PREFACT:1,ABILITIES,Cavalier_CF_MasterTactician=True
+CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_SupremeCharge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Cavalier_CF_SupremeCharge=True
+CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_OrderAbility2|1|PREFACT:1,ABILITIES,Cavalier_CF_OrderAbility2=True
+CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_OrderAbility8|1|PREFACT:1,ABILITIES,Cavalier_CF_OrderAbility8=True
+CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_OrderAbility15|1|PREFACT:1,ABILITIES,Cavalier_CF_OrderAbility15=True
+
+CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_Challenge|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierChallenge
+CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_Mount|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierMount
+CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_Order|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierOrder
+CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_Tactician|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierTactician
+CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_CavaliersCharge|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierCavaliersCharge
+CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_ExpertTrainer|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierExpertTrainer
+CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_BonusFeat|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierBonusFeat,TYPE.CavalierBonusFeats
+CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_Banner|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierBanner
+CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_GreaterTactician|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierGreaterTactician
+CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_MightyCharge|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierMightyCharge
+CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_DemandingChallenge|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierDemandingChallenge
+CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_GreaterBanner|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierGreaterBanner
+CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_MasterTactician|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierMasterTactician
+CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_SupremeCharge|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierSupremeCharge
+
+# Inquisitor
+CATEGORY=Class|Inquisitor.MOD																																	ABILITY:Internal|AUTOMATIC|Inquisitor ~ Class Skills|PREVAREQ:Inquisitor_CF_ClassSkills,0
+
+CATEGORY=Class|Inquisitor.MOD																																	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfSimple
+CATEGORY=Class|Inquisitor.MOD																																	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfMedium|TYPE=ShieldProf
+CATEGORY=Class|Inquisitor.MOD										AUTO:WEAPONPROF|Crossbow (Hand)|Longbow|Crossbow (Repeating Heavy)|Crossbow (Repeating Light)|Shortbow	AUTO:WEAPONPROF|DEITYWEAPONS
+
+
+CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_ClassSkills|0
+CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_Domains|0
+CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_Judgment|0
+CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_MonsterLore|0
+CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_SternGaze|0
+CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_CunningInitiative|0
+CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_DetectAlignment|0
+CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_Track|0
+CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_SoloTactics|0
+CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_TeamworkFeat|0
+CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_TeamworkFeat3|0
+CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_TeamworkFeat6|0
+CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_TeamworkFeat9|0
+CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_TeamworkFeat12|0
+CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_TeamworkFeat15|0
+CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_TeamworkFeat18|0
+
+CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_Bane|0
+CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_DiscernLies|0
+CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_SecondJudgment|0
+CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_Stalwart|0
+CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_GreaterBane|0
+CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_ExploitWeakness|0
+CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_ThirdJudgment|0
+CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_Slayer|0
+CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_TrueJudgment|0
+
+CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_JudgmentHealing|0
+CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_JudgmentResiliency|0
+CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_JudgmentResistance|0
+CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_JudgmentSmiting|0
+CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_JudgmentDestruction|0
+CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_JudgmentJustice|0
+CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_JudgmentPiercing|0
+CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_JudgmentProtection|0
+CATEGORY=Class|Inquisitor.MOD		DEFINE:Inquisitor_CF_JudgmentPurity|0
+
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_ClassSkills=True
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_Domains|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_Domains=True
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_Judgment|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_Judgment=True
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_MonsterLore|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_MonsterLore=True
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_SternGaze|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_SternGaze=True
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_CunningInitiative|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_CunningInitiative=True
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_DetectAlignment|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_DetectAlignment=True
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_Track|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_Track=True
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_SoloTactics|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_SoloTactics=True
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_TeamworkFeat|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_TeamworkFeat=True
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_Bane|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_Bane=True
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_DiscernLies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_DiscernLies=True
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_SecondJudgment|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_SecondJudgment=True
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_Stalwart|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_Stalwart=True
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_GreaterBane|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_GreaterBane=True
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_ExploitWeakness|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_ExploitWeakness=True
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_ThirdJudgment|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_ThirdJudgment=True
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_Slayer|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_Slayer=True
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_TrueJudgment|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_TrueJudgment=True
+
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_TeamworkFeat3|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_TeamworkFeat3=True
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_TeamworkFeat6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_TeamworkFeat6=True
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_TeamworkFeat9|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_TeamworkFeat9=True
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_TeamworkFeat12|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_TeamworkFeat12=True
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_TeamworkFeat15|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_TeamworkFeat15=True
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_TeamworkFeat18|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_TeamworkFeat18=True
+
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_JudgmentHealing|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_JudgmentHealing=True
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_JudgmentResiliency|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_JudgmentResiliency=True
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_JudgmentResistance|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_JudgmentResistance=True
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_JudgmentSmiting|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_JudgmentSmiting=True
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_JudgmentDestruction|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_JudgmentDestruction=True
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_JudgmentJustice|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_JudgmentJustice=True
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_JudgmentPiercing|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_JudgmentPiercing=True
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_JudgmentProtection|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_JudgmentProtection=True
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_JudgmentPurity|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_JudgmentPurity=True
+
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_Domains|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorDomain
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_Judgment|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorJudgements
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_MonsterLore|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorMonsterLore
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_SternGaze|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorSternGaze
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_CunningInitiative|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorCunningInitiative
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_DetectAlignment|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorDetectAlignment
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_Track|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorTrack
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_SoloTactics|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorSoloTactics
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_TeamworkFeat|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorTeamworkFeat
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_TeamworkFeat6|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorTeamworkFeat6
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_Bane|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorBane
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_DiscernLies|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorDiscernLies
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_SecondJudgment|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorSecondJudgment
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_Stalwart|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorStalwart
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_GreaterBane|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorGreaterBane
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_ExploitWeakness|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorExploitWeakness
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_ThirdJudgment|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorThirdJudgment
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_Slayer|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorSlayer
+CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_TrueJudgment|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorTrueJudgment
+
+# Oracle
+CATEGORY=Class|Oracle.MOD	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfMedium|TYPE=ShieldProf|TYPE=WeaponProfSimple
+CATEGORY=Class|Oracle.MOD	BONUS:ABILITYPOOL|Oracle Spell Choice|1
+CATEGORY=Class|Oracle.MOD	DEFINE:Oracle_CF_OraclesCurse|0
+CATEGORY=Class|Oracle.MOD	DEFINE:Oracle_CF_OraclesMystery|0
+CATEGORY=Class|Oracle.MOD	DEFINE:Oracle_CF_Revelation1|0	
+CATEGORY=Class|Oracle.MOD	DEFINE:Oracle_CF_Revelation3|0	
+CATEGORY=Class|Oracle.MOD	DEFINE:Oracle_CF_Revelation7|0	
+CATEGORY=Class|Oracle.MOD	DEFINE:Oracle_CF_Revelation11|0	
+CATEGORY=Class|Oracle.MOD	DEFINE:Oracle_CF_Revelation15|0	
+CATEGORY=Class|Oracle.MOD	DEFINE:Oracle_CF_Revelation20|0	
+CATEGORY=Class|Oracle.MOD	DEFINE:Oracle_CF_MysterySpell2|0	
+CATEGORY=Class|Oracle.MOD	DEFINE:Oracle_CF_MysterySpell4|0	
+CATEGORY=Class|Oracle.MOD	DEFINE:Oracle_CF_MysterySpell6|0	
+CATEGORY=Class|Oracle.MOD	DEFINE:Oracle_CF_MysterySpell8|0	
+CATEGORY=Class|Oracle.MOD	DEFINE:Oracle_CF_MysterySpell10|0	
+CATEGORY=Class|Oracle.MOD	DEFINE:Oracle_CF_MysterySpell12|0	
+CATEGORY=Class|Oracle.MOD	DEFINE:Oracle_CF_MysterySpell14|0	
+CATEGORY=Class|Oracle.MOD	DEFINE:Oracle_CF_MysterySpell16|0	
+CATEGORY=Class|Oracle.MOD	DEFINE:Oracle_CF_MysterySpell18|0	
+CATEGORY=Class|Oracle.MOD	DEFINE:Oracle_CF_FinalRevelation|0	
+CATEGORY=Class|Oracle.MOD	DEFINE:Oracle_CF_MysterySkills|0	
+
+CATEGORY=Class|Oracle.MOD	BONUS:VAR|Oracle_CF_Revelation1|1|TYPE=Boolean|PREFACT:1,ABILITIES,Oracle_CF_Revelation1=True	
+CATEGORY=Class|Oracle.MOD	BONUS:VAR|Oracle_CF_Revelation3|1|TYPE=Boolean|PREFACT:1,ABILITIES,Oracle_CF_Revelation3=True	
+CATEGORY=Class|Oracle.MOD	BONUS:VAR|Oracle_CF_Revelation7|1|TYPE=Boolean|PREFACT:1,ABILITIES,Oracle_CF_Revelation7=True	
+CATEGORY=Class|Oracle.MOD	BONUS:VAR|Oracle_CF_Revelation11|1|TYPE=Boolean|PREFACT:1,ABILITIES,Oracle_CF_Revelation11=True	
+CATEGORY=Class|Oracle.MOD	BONUS:VAR|Oracle_CF_Revelation15|1|TYPE=Boolean|PREFACT:1,ABILITIES,Oracle_CF_Revelation15=True	
+CATEGORY=Class|Oracle.MOD	BONUS:VAR|Oracle_CF_Revelation20|1|TYPE=Boolean|PREFACT:1,ABILITIES,Oracle_CF_Revelation20=True	
+CATEGORY=Class|Oracle.MOD	BONUS:VAR|Oracle_CF_MysterySpell2|1|TYPE=Boolean|PREFACT:1,ABILITIES,Oracle_CF_MysterySpell2=True	
+CATEGORY=Class|Oracle.MOD	BONUS:VAR|Oracle_CF_MysterySpell4|1|TYPE=Boolean|PREFACT:1,ABILITIES,Oracle_CF_MysterySpell4=True	
+CATEGORY=Class|Oracle.MOD	BONUS:VAR|Oracle_CF_MysterySpell6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Oracle_CF_MysterySpell6=True
+CATEGORY=Class|Oracle.MOD	BONUS:VAR|Oracle_CF_MysterySpell8|1|TYPE=Boolean|PREFACT:1,ABILITIES,Oracle_CF_MysterySpell8=True
+CATEGORY=Class|Oracle.MOD	BONUS:VAR|Oracle_CF_MysterySpell10|1|TYPE=Boolean|PREFACT:1,ABILITIES,Oracle_CF_MysterySpell10=True	
+CATEGORY=Class|Oracle.MOD	BONUS:VAR|Oracle_CF_MysterySpell12|1|TYPE=Boolean|PREFACT:1,ABILITIES,Oracle_CF_MysterySpell12=True	
+CATEGORY=Class|Oracle.MOD	BONUS:VAR|Oracle_CF_MysterySpell14|1|TYPE=Boolean|PREFACT:1,ABILITIES,Oracle_CF_MysterySpell14=True	
+CATEGORY=Class|Oracle.MOD	BONUS:VAR|Oracle_CF_MysterySpell16|1|TYPE=Boolean|PREFACT:1,ABILITIES,Oracle_CF_MysterySpell16=True	
+CATEGORY=Class|Oracle.MOD	BONUS:VAR|Oracle_CF_MysterySpell18|1|TYPE=Boolean|PREFACT:1,ABILITIES,Oracle_CF_MysterySpell18=True	
+CATEGORY=Class|Oracle.MOD	BONUS:VAR|Oracle_CF_FinalRevelation|1|TYPE=Boolean|PREFACT:1,ABILITIES,Oracle_CF_FinalRevelation=True	
+CATEGORY=Class|Oracle.MOD	BONUS:VAR|Oracle_CF_MysterySkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Oracle_CF_MysterySkills=True	
+
+CATEGORY=Class|Oracle.MOD	BONUS:VAR|Oracle_CF_OraclesCurse|1|TYPE=Boolean|PREFACT:1,ABILITIES,Oracle_CF_OraclesCurse=True
+CATEGORY=Class|Oracle.MOD	BONUS:VAR|Oracle_CF_OraclesMystery|1|TYPE=Boolean|PREFACT:1,ABILITIES,Oracle_CF_OraclesMystery=True
+
+CATEGORY=Class|Oracle.MOD	BONUS:VAR|Oracle_CF_OraclesCurse|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.OracleOraclesCurse
+CATEGORY=Class|Oracle.MOD	BONUS:VAR|Oracle_CF_OraclesMystery|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.OracleOraclesMystery
+
+
+# Summoner
+CATEGORY=Class|Summoner.MOD		DEFINE:Summoner_CF_ArmorProficiencies|0
+CATEGORY=Class|Summoner.MOD		DEFINE:Summoner_CF_SimpleWeapons|0
+CATEGORY=Class|Summoner.MOD		DEFINE:Summoner_CF_SummonMonsterSpells|0
+CATEGORY=Class|Summoner.MOD		DEFINE:Summoner_CF_Eidolon|0
+CATEGORY=Class|Summoner.MOD		DEFINE:Summoner_CF_LifeLink|0
+CATEGORY=Class|Summoner.MOD		DEFINE:Summoner_CF_SummonMonster|0
+CATEGORY=Class|Summoner.MOD		DEFINE:Summoner_CF_BondSenses|0
+CATEGORY=Class|Summoner.MOD		DEFINE:Summoner_CF_ShieldAlly|0
+CATEGORY=Class|Summoner.MOD		DEFINE:Summoner_CF_MakersCall|0
+CATEGORY=Class|Summoner.MOD		DEFINE:Summoner_CF_Transposition|0
+CATEGORY=Class|Summoner.MOD		DEFINE:Summoner_CF_GreaterShieldAlly|0
+CATEGORY=Class|Summoner.MOD		DEFINE:Summoner_CF_LifeBond|0
+CATEGORY=Class|Summoner.MOD		DEFINE:Summoner_CF_MergeForms|0
+CATEGORY=Class|Summoner.MOD		DEFINE:Summoner_CF_SummonMonster|0
+CATEGORY=Class|Summoner.MOD		DEFINE:Summoner_CF_ClassSkills|0
+
+
+CATEGORY=Class|Summoner.MOD		DEFINE:Summoner_CF_Aspect|0
+CATEGORY=Class|Summoner.MOD		DEFINE:Summoner_CF_GreaterAspect|0
+CATEGORY=Class|Summoner.MOD		DEFINE:Summoner_CF_ShareSpells|0
+CATEGORY=Class|Summoner.MOD		DEFINE:Summoner_CF_TwinEidolon|0
+
+CATEGORY=Class|Summoner.MOD																																																																	BONUS:VAR|Summoner_CF_ArmorProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_ArmorProficiencies=True
+CATEGORY=Class|Summoner.MOD																																																																	BONUS:VAR|Summoner_CF_SimpleWeapons|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_SimpleWeapons=True
+CATEGORY=Class|Summoner.MOD																																																																	BONUS:VAR|Summoner_CF_SummonMonsterSpells|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_SummonMonsterSpells=True
+CATEGORY=Class|Summoner.MOD																																																																	BONUS:VAR|Summoner_CF_Eidolon|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_Eidolon=True
+CATEGORY=Class|Summoner.MOD																																																																	BONUS:VAR|Summoner_CF_LifeLink|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_LifeLink=True
+CATEGORY=Class|Summoner.MOD																																																																	BONUS:VAR|Summoner_CF_SummonMonster|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_SummonMonster=True
+CATEGORY=Class|Summoner.MOD																																																																	BONUS:VAR|Summoner_CF_BondSenses|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_BondSenses=True
+CATEGORY=Class|Summoner.MOD																																																																	BONUS:VAR|Summoner_CF_ShieldAlly|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_ShieldAlly=True
+CATEGORY=Class|Summoner.MOD																																																																	BONUS:VAR|Summoner_CF_MakersCall|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_MakersCall=True
+CATEGORY=Class|Summoner.MOD																																																																	BONUS:VAR|Summoner_CF_Transposition|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_Transposition=True
+CATEGORY=Class|Summoner.MOD																																																																	BONUS:VAR|Summoner_CF_GreaterShieldAlly|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_GreaterShieldAlly=True
+CATEGORY=Class|Summoner.MOD																																																																	BONUS:VAR|Summoner_CF_LifeBond|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_LifeBond=True
+CATEGORY=Class|Summoner.MOD																																																																	BONUS:VAR|Summoner_CF_MergeForms|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_MergeForms=True
+CATEGORY=Class|Summoner.MOD																																																																	BONUS:VAR|Summoner_CF_GreaterAspect|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_GreaterAspect=True
+CATEGORY=Class|Summoner.MOD																																																																	BONUS:VAR|Summoner_CF_Aspect|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_Aspect=True
+CATEGORY=Class|Summoner.MOD																																																																	BONUS:VAR|Summoner_CF_ShareSpells|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_ShareSpells=True
+CATEGORY=Class|Summoner.MOD																																																																	BONUS:VAR|Summoner_CF_TwinEidolon|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_TwinEidolon=True
+CATEGORY=Class|Summoner.MOD																																																																	BONUS:VAR|Summoner_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_ClassSkills=True
+
+
+CATEGORY=Class|Summoner.MOD																																																																	BONUS:VAR|Summoner_CF_ArmorProficiencies|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerArmorProficiencies
+CATEGORY=Class|Summoner.MOD																																																																	BONUS:VAR|Summoner_CF_SimpleWeapons|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerSimpleWeapons
+CATEGORY=Class|Summoner.MOD																																																																	BONUS:VAR|Summoner_CF_SummonMonsterSpells|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerSummonMonsterSpells
+CATEGORY=Class|Summoner.MOD																																																																	BONUS:VAR|Summoner_CF_Eidolon|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerEidolon
+CATEGORY=Class|Summoner.MOD																																																																	BONUS:VAR|Summoner_CF_LifeLink|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerLifeLink
+CATEGORY=Class|Summoner.MOD																																																																	BONUS:VAR|Summoner_CF_SummonMonster|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerSummonMonster
+CATEGORY=Class|Summoner.MOD																																																																	BONUS:VAR|Summoner_CF_BondSenses|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerBondSenses
+CATEGORY=Class|Summoner.MOD																																																																	BONUS:VAR|Summoner_CF_ShieldAlly|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerShieldAlly
+CATEGORY=Class|Summoner.MOD																																																																	BONUS:VAR|Summoner_CF_MakersCall|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerMakersCall
+CATEGORY=Class|Summoner.MOD																																																																	BONUS:VAR|Summoner_CF_Transposition|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerTransposition
+CATEGORY=Class|Summoner.MOD																																																																	BONUS:VAR|Summoner_CF_GreaterShieldAlly|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerGreaterShieldAlly
+CATEGORY=Class|Summoner.MOD																																																																	BONUS:VAR|Summoner_CF_LifeBond|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerLifeBond
+CATEGORY=Class|Summoner.MOD																																																																	BONUS:VAR|Summoner_CF_MergeForms|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerMergeForms
+
+CATEGORY=Class|Summoner.MOD																																																																	BONUS:VAR|Summoner_CF_GreaterAspect|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerGreaterAspect
+CATEGORY=Class|Summoner.MOD																																																																	BONUS:VAR|Summoner_CF_Aspect|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerAspect
+CATEGORY=Class|Summoner.MOD																																																																	BONUS:VAR|Summoner_CF_ShareSpells|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerShareSpells
+CATEGORY=Class|Summoner.MOD																																																																	BONUS:VAR|Summoner_CF_TwinEidolon|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerTwinEidolon
+
+
+
+
+# Witch
+CATEGORY=Class|Witch.MOD																																	ABILITY:Internal|AUTOMATIC|Witch ~ Class Skills|PREVAREQ:Witch_CF_ClassSkills,0
+
+CATEGORY=Class|Witch.MOD																																	ABILITY:Special Ability|AUTOMATIC|Witch Weapon Proficiencies	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfAuto
+CATEGORY=Class|Witch.MOD		DEFINE:SpellMasteryQualify|0																																																											BONUS:VAR|FamiliarMasterLVL|WitchLVL	BONUS:VAR|SpellMasteryQualify|1
+
+CATEGORY=Class|Witch.MOD		DEFINE:Witch_CF_ClassSkills|0
+CATEGORY=Class|Witch.MOD		DEFINE:Witch_CF_Familiar|0
+CATEGORY=Class|Witch.MOD		DEFINE:Witch_CF_Cantrips|0
+CATEGORY=Class|Witch.MOD		DEFINE:Witch_CF_Hex|0
+CATEGORY=Class|Witch.MOD		DEFINE:Witch_CF_FamiliarTouchSpells|0
+CATEGORY=Class|Witch.MOD		DEFINE:Witch_CF_PatronSpell|0
+CATEGORY=Class|Witch.MOD		DEFINE:Witch_CF_Hex1|0
+CATEGORY=Class|Witch.MOD		DEFINE:Witch_CF_Hex2|0
+CATEGORY=Class|Witch.MOD		DEFINE:Witch_CF_Hex4|0
+CATEGORY=Class|Witch.MOD		DEFINE:Witch_CF_Hex6|0
+CATEGORY=Class|Witch.MOD		DEFINE:Witch_CF_Hex8|0
+CATEGORY=Class|Witch.MOD		DEFINE:Witch_CF_Hex10|0
+CATEGORY=Class|Witch.MOD		DEFINE:Witch_CF_Hex12|0
+CATEGORY=Class|Witch.MOD		DEFINE:Witch_CF_Hex14|0
+CATEGORY=Class|Witch.MOD		DEFINE:Witch_CF_Hex16|0
+CATEGORY=Class|Witch.MOD		DEFINE:Witch_CF_Hex18|0
+CATEGORY=Class|Witch.MOD		DEFINE:Witch_CF_Hex20|0
+
+CATEGORY=Class|Witch.MOD		DEFINE:Witch_CF_PatronSpell2|0
+CATEGORY=Class|Witch.MOD		DEFINE:Witch_CF_PatronSpell4|0
+CATEGORY=Class|Witch.MOD		DEFINE:Witch_CF_PatronSpell6|0
+CATEGORY=Class|Witch.MOD		DEFINE:Witch_CF_PatronSpell8|0
+CATEGORY=Class|Witch.MOD		DEFINE:Witch_CF_PatronSpell10|0
+CATEGORY=Class|Witch.MOD		DEFINE:Witch_CF_PatronSpell12|0
+CATEGORY=Class|Witch.MOD		DEFINE:Witch_CF_PatronSpell14|0
+CATEGORY=Class|Witch.MOD		DEFINE:Witch_CF_PatronSpell16|0
+CATEGORY=Class|Witch.MOD		DEFINE:Witch_CF_PatronSpell18|0
+
+CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Witch_CF_ClassSkills=True
+CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_Familiar|1|TYPE=Boolean|PREFACT:1,ABILITIES,Witch_CF_Familiar=True
+CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_Cantrips|1|TYPE=Boolean|PREFACT:1,ABILITIES,Witch_CF_Cantrips=True
+CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_Hex|1|TYPE=Boolean|PREFACT:1,ABILITIES,Witch_CF_Hex=True,Witch_CF_Hexes=True
+CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_FamiliarTouchSpells|1|TYPE=Boolean|PREFACT:1,ABILITIES,Witch_CF_FamiliarTouchSpells=True
+CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_PatronSpell|1|TYPE=Boolean|PREFACT:1,ABILITIES,Witch_CF_PatronSpell=True
+CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_Hex1|1|TYPE=Boolean|PREFACT:1,ABILITIES,Witch_CF_Hex1=True
+CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_Hex2|1|TYPE=Boolean|PREFACT:1,ABILITIES,Witch_CF_Hex2=True
+CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_Hex4|1|TYPE=Boolean|PREFACT:1,ABILITIES,Witch_CF_Hex4=True
+CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_Hex6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Witch_CF_Hex6=True
+CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_Hex8|1|TYPE=Boolean|PREFACT:1,ABILITIES,Witch_CF_Hex8=True
+CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_Hex10|1|TYPE=Boolean|PREFACT:1,ABILITIES,Witch_CF_Hex10=True
+CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_Hex12|1|TYPE=Boolean|PREFACT:1,ABILITIES,Witch_CF_Hex12=True
+CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_Hex14|1|TYPE=Boolean|PREFACT:1,ABILITIES,Witch_CF_Hex14=True
+CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_Hex16|1|TYPE=Boolean|PREFACT:1,ABILITIES,Witch_CF_Hex16=True
+CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_Hex18|1|TYPE=Boolean|PREFACT:1,ABILITIES,Witch_CF_Hex18=True
+CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_Hex20|1|TYPE=Boolean|PREFACT:1,ABILITIES,Witch_CF_Hex20=True
+
+CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_PatronSpell2|1|TYPE=Boolean|PREFACT:1,ABILITIES,Witch_CF_PatronSpell2=True
+CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_PatronSpell4|1|TYPE=Boolean|PREFACT:1,ABILITIES,Witch_CF_PatronSpell4=True
+CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_PatronSpell6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Witch_CF_PatronSpell6=True
+CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_PatronSpell8|1|TYPE=Boolean|PREFACT:1,ABILITIES,Witch_CF_PatronSpell8=True
+CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_PatronSpell10|1|TYPE=Boolean|PREFACT:1,ABILITIES,Witch_CF_PatronSpell10=True
+CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_PatronSpell12|1|TYPE=Boolean|PREFACT:1,ABILITIES,Witch_CF_PatronSpell12=True
+CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_PatronSpell14|1|TYPE=Boolean|PREFACT:1,ABILITIES,Witch_CF_PatronSpell14=True
+CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_PatronSpell16|1|TYPE=Boolean|PREFACT:1,ABILITIES,Witch_CF_PatronSpell16=True
+CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_PatronSpell18|1|TYPE=Boolean|PREFACT:1,ABILITIES,Witch_CF_PatronSpell18=True
+
+CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_Familiar|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WitchFamiliar
+CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_Cantrips|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WitchCantrips
+CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_Hexes|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WitchHexes
+CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_FamiliarTouchSpells|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WitchFamiliarTouchSpells
+CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_Hex1|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WitchHex1
+CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_Hex2|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WitchHex2
+CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_Hex4|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WitchHex4
+CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_Hex6|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WitchHex6
+CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_Hex8|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WitchHex8
+CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_Hex10|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WitchHex10
+CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_Hex12|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WitchHex12
+CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_Hex14|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WitchHex14
+CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_Hex16|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WitchHex16
+CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_Hex18|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WitchHex18
+CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_Hex20|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WitchHex20
+
+CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_PatronSpell2|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WitchPatronSpell2
+CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_PatronSpell4|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WitchPatronSpell4
+CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_PatronSpell6|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WitchPatronSpell6
+CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_PatronSpell8|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WitchPatronSpell8
+CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_PatronSpell10|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WitchPatronSpell10
+CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_PatronSpell12|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WitchPatronSpell12
+CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_PatronSpell14|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WitchPatronSpell14
+CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_PatronSpell16|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WitchPatronSpell16
+CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_PatronSpell18|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WitchPatronSpell18
+
+# Antipaladin
+CATEGORY=Class|Antipaladin.MOD																																ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfHeavy|TYPE=ShieldProf|PREVAREQ:Antipaladin_CF_ArmorProficiencies,0		ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial|PREVAREQ:Antipaladin_CF_WeaponProficiencies,0		ABILITY:Internal|AUTOMATIC|Antipaladin ~ Class Skills|PREVAREQ:Antipaladin_CF_ClassSkills,0
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|DetectGoodLVL|AntipaladinLVL
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|SmiteGoodLVL|AntipaladinLVL
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|TouchOfCorruptionLVL|AntipaladinLVL
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|CrueltyLVL|AntipaladinLVL
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|AntipaladinChannelLVL|AntipaladinLVL
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|FiendishBoonLVL|AntipaladinLVL
+
+
+CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_AuraOfEvil|0
+CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_DetectGood|0
+CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_SmiteGood|0
+CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_TouchOfCorruption|0
+CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_UnholyResilience|0
+CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_AuraOfCowardice|0
+CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_Cruelty|0
+CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_PlagueBringer|0
+CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_ChannelNegativeEnergy|0
+CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_FiendishBoon|0
+CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_AuraOfDespair|0
+CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_AuraOfVengeance|0
+CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_AuraOfSin|0
+CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_AuraOfDepravity|0
+CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_UnholyChampion|0
+CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_Spells|0
+CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_ClassSkills|0
+CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_WeaponProficiencies|0
+CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_ArmorProficiencies|0
+
+CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_SmiteGood1|0
+CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_SmiteGood4|0
+CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_SmiteGood7|0
+CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_SmiteGood10|0
+CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_SmiteGood13|0
+CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_SmiteGood16|0
+CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_SmiteGood19|0
+CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_Cruelty3|0
+CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_Cruelty6|0
+CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_Cruelty9|0
+CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_Cruelty12|0
+CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_Cruelty15|0
+CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_Cruelty18|0
+
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_AuraOfEvil|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_AuraOfEvil=True
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_DetectGood|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_DetectGood=True
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_SmiteGood|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_SmiteGood=True
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_TouchOfCorruption|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_TouchOfCorruption=True
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_UnholyResilience|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_UnholyResilience=True
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_AuraOfCowardice|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_AuraOfCowardice=True
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_Cruelty|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_Cruelty=True
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_PlagueBringer|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_PlagueBringer=True
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_ChannelNegativeEnergy|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_ChannelNegativeEnergy=True
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_FiendishBoon|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_FiendishBoon=True
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_AuraOfDespair|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_AuraOfDespair=True
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_AuraOfVengeance|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_AuraOfVengeance=True
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_AuraOfSin|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_AuraOfSin=True
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_AuraOfDepravity|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_AuraOfDepravity=True
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_UnholyChampion|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_UnholyChampion=True
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_Spells|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_Spells=True
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_ClassSkills=True
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_WeaponProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_WeaponProficiencies=True
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_ArmorProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_ArmorProficiencies=True
+
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_SmiteGood1|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_SmiteGood1=True
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_SmiteGood4|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_SmiteGood4=True
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_SmiteGood7|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_SmiteGood7=True
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_SmiteGood10|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_SmiteGood10=True
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_SmiteGood13|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_SmiteGood13=True
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_SmiteGood16|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_SmiteGood16=True
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_SmiteGood19|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_SmiteGood19=True
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_Cruelty3|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_Cruelty3=True
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_Cruelty6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_Cruelty6=True
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_Cruelty9|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_Cruelty9=True
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_Cruelty12|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_Cruelty12=True
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_Cruelty15|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_Cruelty15=True
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_Cruelty18|1|TYPE=Boolean|PREFACT:1,ABILITIES,Antipaladin_CF_Cruelty18=True
+
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_AuraOfEvil|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfEvil
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_DetectGood|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinDetectGood
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_SmiteGood|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinSmiteGood
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_TouchOfCorruption|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinTouchOfCorruption
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_UnholyResilience|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinUnholyResilience
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_AuraOfCowardice|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfCowardice
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_Cruelty|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinCruelty
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_PlagueBringer|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinPlagueBringer
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_ChannelNegativeEnergy|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinChannelNegativeEnergy
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_FiendishBoon|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinFiendishBoon
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_AuraOfDespair|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfDespair
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_AuraOfVengeance|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfVengeance
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_AuraOfSin|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfSin
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_AuraOfDepravity|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfDepravity
+CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|Antipaladin_CF_UnholyChampion|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinUnholyChampion

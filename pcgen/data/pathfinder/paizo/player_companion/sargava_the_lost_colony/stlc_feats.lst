@@ -1,0 +1,17 @@
+# CVS $Revision: 18779 $ $Author: amaitland $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
+SOURCELONG:Sargava, the Lost Colony	SOURCESHORT:STLC	SOURCEWEB:http://paizo.com/pathfinder/pathfinderCompanion/pathfinderRPG/v5748btpy8ey2	SOURCEDATE:2010-07
+# Original Entry by: Stefan Radermacher
+
+###Block: Combat Feats
+# Feat Name		Type		Required Feat					Required Skill		Required Stat	PRETOTALAB		Description																					Stackable?	Multiple?	Choose								Source Page		Benefits
+# Ability Name	Category of Ability	Type		Required Ability								Required Skill		Required Stat	PRETOTALAB		Description																					Stackable?	Multiple?	Choose								Source Page		Benefits
+Elephant Stomp	CATEGORY:FEAT		TYPE:Combat	PREABILITY:2,CATEGORY=FEAT,Improved Overrun,Power Attack					PRESTAT:1,STR=13	PRETOTALAB:1	DESC:You deliver a crushing blow to downed enemies.																											SOURCEPAGE:p.24
+Equipment Trick	CATEGORY:FEAT		TYPE:Combat																		PRETOTALAB:1	DESC:You understand how to use a certain item in combat.													STACK:NO	MULT:YES	CHOOSE:ABILITY|Special Ability|TYPE=EquipmentTrick	SOURCEPAGE:p.25	BENEFIT:You may use any equipment tricks relating to your chosen item if you meet the appropriate trick requirements. If the item would normally be considered an improvised weapon, you may treat it as a normal weapon or an improvised weapon, whichever is more beneficial for you.
+Jaguar Pounce	CATEGORY:FEAT		TYPE:Combat																		PRETOTALAB:4	DESC:Your ambushes are especially lethal.																													SOURCEPAGE:p.24
+Monkey Lunge	CATEGORY:FEAT		TYPE:Combat	PREABILITY:1,CATEGORY=FEAT,Lunge					PRESKILL:1,Acrobatics=1							DESC:You can quickly recover from your lunges, helping you to avoid counterattacks.																						SOURCEPAGE:p.24
+Piranha Strike	CATEGORY:FEAT		TYPE:Combat	PREABILITY:1,CATEGORY=FEAT,Weapon Finesse											PRETOTALAB:1	DESC:You make a combination of quick strikes, sacrificing accuracy for multiple, minor wounds that prove exceptionally deadly.														SOURCEPAGE:p.24
+Rhino Charge	CATEGORY:FEAT		TYPE:Combat	PREABILITY:2,CATEGORY=FEAT,Improved Bull Rush,Power Attack								PRETOTALAB:5	DESC:Your charges are both violent and unpredictable.																											SOURCEPAGE:p.24
+#
+#
+# End
+#

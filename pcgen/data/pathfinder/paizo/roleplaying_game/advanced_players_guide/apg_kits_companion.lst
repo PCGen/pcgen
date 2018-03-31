@@ -1,0 +1,11 @@
+# CVS $Revision: 20122 $ $Author: zaister $ -- Wed Dec  8 14:31:21 2010 -- reformated by prettylst.pl v1.39 (build )
+SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
+# Original Entry by: Stefan Radermacher
+
+STARTPACK:Eidolon	TYPE:Companion	VISIBLE:NO	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Eidolon]
+RACE:Eidolon	!PRERACE:1,%
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
+
+#
+# End
+#

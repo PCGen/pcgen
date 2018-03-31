@@ -1,0 +1,94 @@
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Psionics Unleashed	SOURCESHORT:PsU	SOURCEWEB:http://dreamscarredpress.com/dragonfly/Store/product/pid=69.html	SOURCEDATE:2010-12
+# Original Entry by: Douglas Limmer
+# SRD Original Entry by: TaluronIscandar
+
+###Block: Astral Construct Menu A Abilities
+# Ability Name								Unique Key						Output Name		Category of Ability		Type								Visible		Description																		Template					Move			Ability									Bonus Ability Pool						Combat bonus				Bonus DR		Bonus to HP			Add to base move			Bonus to skill					Stat bonus									Modify VAR						Vision			Damage Reduction	Aspects
+Buff										KEY:Astral_Buff								CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA		VISIBLE:YES																																																										BONUS:HP|CURRENTMAX|5
+Celerity									KEY:Astral_Celerity							CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA		VISIBLE:YES																																																														BONUS:MOVEADD|TYPE.Walk|10
+Cleave									KEY:Astral_Cleave								CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA		VISIBLE:DISPLAY																													ABILITY:FEAT|AUTOMATIC|Cleave
+Deflection									KEY:Astral_Deflection							CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA		VISIBLE:YES																																																	BONUS:COMBAT|AC|1|TYPE=Deflection
+Fly										KEY:Astral_Fly								CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA		VISIBLE:YES																											MOVE:Fly,20		ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability																																													BONUS:VAR|Maneuverability|3
+Improved Bull Rush							KEY:Astral_Improved Bull Rush						CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA		VISIBLE:DISPLAY																													ABILITY:FEAT|AUTOMATIC|Improved Bull Rush
+Improved Slam Attack							KEY:Astral_Improved Slam Attack					CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA		VISIBLE:DISPLAY																													ABILITY:FEAT|AUTOMATIC|Improved Natural Attack (Slam)
+Mobility									KEY:Astral_Mobility							CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA		VISIBLE:DISPLAY																													ABILITY:FEAT|AUTOMATIC|Mobility
+Power Attack								KEY:Astral_Power Attack							CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA		VISIBLE:DISPLAY																													ABILITY:FEAT|AUTOMATIC|Power Attack
+#Resistance				KEY:Astral_Resistance				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY										ABILITY:Special Ability|AUTOMATIC|Resistance
+Swim										KEY:Astral_Swim								CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA		VISIBLE:YES																											MOVE:Swim,30
+Trip										KEY:Astral_Trip								CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA		VISIBLE:DISPLAY																													ABILITY:Special Ability|AUTOMATIC|Trip
+Resistance To Cold							KEY:Astral_Resistance To Cold						CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA		VISIBLE:DISPLAY																													ABILITY:Special Ability|AUTOMATIC|Resistance To Cold																																														BONUS:VAR|ColdResistanceBonus|5
+Resistance To Fire							KEY:Astral_Resistance To Fire						CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA		VISIBLE:DISPLAY																													ABILITY:Special Ability|AUTOMATIC|Resistance To Fire																																														BONUS:VAR|FireResistanceBonus|5
+Resistance To Electricity						KEY:Astral_Resistance To Electricity				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA		VISIBLE:DISPLAY																													ABILITY:Special Ability|AUTOMATIC|Resistance To Electricity																																													BONUS:VAR|ElectricityResistanceBonus|5
+Resistance To Sonic							KEY:Astral_Resistance To Sonic					CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA		VISIBLE:DISPLAY																													ABILITY:Special Ability|AUTOMATIC|Resistance To Sonic																																														BONUS:VAR|SonicResistanceBonus|5
+Resistance To Acid							KEY:Astral_Resistance To Acid						CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA		VISIBLE:DISPLAY																													ABILITY:Special Ability|AUTOMATIC|Resistance To Acid																																														BONUS:VAR|AcidResistanceBonus|5
+
+#Astral Construct Menu B Abilities
+Two Menu A Abilities							KEY:Astral_Two Menu A Abilities					CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB		VISIBLE:DISPLAY																																							BONUS:ABILITYPOOL|Astral Construct Menu A Ability|2
+Compact Form								KEY:Astral_Compact Form							CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB		VISIBLE:DISPLAY																				TEMPLATE:Activate Size Changing																																																BONUS:STAT|STR|-2|TYPE=Size	BONUS:STAT|DEX|2|TYPE=Size	BONUS:VAR|SizeChange|-1
+Extra Attack								KEY:Astral_Extra Attack							CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB		VISIBLE:YES
+Fast Healing								KEY:Astral_Fast Healing							CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB		VISIBLE:DISPLAY																													ABILITY:Special Ability|AUTOMATIC|Fast Healing																																															BONUS:VAR|FastHealing|2
+Heavy Deflection								KEY:Astral_Heavy Deflection						CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB		VISIBLE:YES																																																	BONUS:COMBAT|AC|4|TYPE=Deflection
+Improved Buff								KEY:Astral_Improved Buff						CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB		VISIBLE:YES																																																										BONUS:HP|CURRENTMAX|15
+Improved Critical								KEY:Astral_Improved Critical						CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB		VISIBLE:DISPLAY																													ABILITY:FEAT|AUTOMATIC|Improved Critical (Slam)
+Improved Damage Reduction						KEY:Astral_Improved Damage Reduction				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB		VISIBLE:DISPLAY																																																						BONUS:DR|Magic|3																																						DR:0/Magic
+Improved Fly								KEY:Astral_Improved Fly							CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB		VISIBLE:DISPLAY																										MOVE:Fly,40		ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability																																													BONUS:VAR|Maneuverability|3
+Grab										KEY:Astral_Grab								CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB		VISIBLE:DISPLAY																													ABILITY:Special Ability|AUTOMATIC|Grab
+Improved Swim								KEY:Astral_Improved Swim						CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB		VISIBLE:YES																											MOVE:Swim,60
+Muscle									KEY:Astral_Muscle								CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB		VISIBLE:YES																																																																										BONUS:STAT|STR|4
+Poison Touch								KEY:Astral_Poison Touch							CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB		VISIBLE:YES
+Pounce									KEY:Astral_Pounce								CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB		VISIBLE:DISPLAY																													ABILITY:Special Ability|AUTOMATIC|Pounce
+Smite										KEY:Astral_Smite								CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB		VISIBLE:YES
+Trample									KEY:Astral_Trample							CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB		VISIBLE:DISPLAY																													ABILITY:Special Ability|AUTOMATIC|Trample
+Energy Touch ~ Acid																	CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB		VISIBLE:YES
+Energy Touch ~ Cold																	CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB		VISIBLE:YES
+Energy Touch ~ Electricity																CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB		VISIBLE:YES
+Energy Touch ~ Fire																	CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB		VISIBLE:YES
+
+#Astral Construct Menu C Abilities
+Two Menu B Abilities							KEY:Astral_Two Menu B Abilities					CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC		VISIBLE:DISPLAY																																							BONUS:ABILITYPOOL|Astral Construct Menu B Ability|2
+Blindsight									KEY:Astral_Blindsight							CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC		VISIBLE:DISPLAY																																																																																										VISION:Blindsight (60')
+Concussion									KEY:Astral_Concussion							CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC		VISIBLE:YES
+Constrict									KEY:Astral_Constrict							CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC		VISIBLE:DISPLAY																													ABILITY:Special Ability|AUTOMATIC|Constrict
+Dimension Slide								KEY:Astral_Dimension Slide						CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC		VISIBLE:YES
+Energy Bolt									KEY:Astral_Energy Bolt							CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC		VISIBLE:YES
+Extra Buff									KEY:Astral_Extra Buff							CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC		VISIBLE:YES																																																										BONUS:HP|CURRENTMAX|30
+Extreme Damage Reduction						KEY:Astral_Extreme Damage Reduction					CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC		VISIBLE:YES																																																							BONUS:DR|Magic|6
+Extreme Deflection							KEY:Astral_Extreme Deflection						CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC		VISIBLE:YES																																																	BONUS:COMBAT|AC|8|TYPE=Deflection
+Natural Invisibility							KEY:Astral_Natural Invisibility					CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC		VISIBLE:DISPLAY																													ABILITY:Special Ability|AUTOMATIC|Natural Invisibility
+Power Resistance								KEY:Astral_Power Resistance						CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC		VISIBLE:YES
+Rend										KEY:Astral_Rend								CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC		VISIBLE:DISPLAY																													ABILITY:Special Ability|AUTOMATIC|Rend
+Spring Attack								KEY:Astral_Spring Attack						CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC		VISIBLE:DISPLAY																													ABILITY:FEAT|AUTOMATIC|Spring Attack
+Whirlwind Attack								KEY:Astral_Whirlwind Attack						CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC		VISIBLE:DISPLAY																													ABILITY:FEAT|AUTOMATIC|Whirlwind Attack
+
+Body Thief																			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES		DESC:Can merge with body of victim.
+Cascade Flu																			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES		DESC:Disease - bite; Fortitude DC %1, onset one day, damage psionic cascade.|11+CON
+Compress																			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES		DESC:Can squeeze through narrow slits.
+Crown Regeneration																	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES		DESC:If destroyed, crown cannot attack, but no other effect.  Crowns regrow in a month.
+Dispassionate Insight																	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES		DESC:All psi-like and supernatural abilities are based on Int, not Cha.
+Dispel Psionics																		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES		DESC:1/round, as a free action, area effect dispel psionics, 30-ft. radius, ML 10
+Double Manifest																		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES		DESC:Can manifest two psionic powers per round, as long as at least two crowns are remaining.
+Eat Thoughts																		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES		DESC:Drain 6 pp or deal 1 Int point damage.
+Enthrall																			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES		DESC:If in contact with charmed victim, that victim is dominated.
+Ethereal Jaunt																		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Defensive	VISIBLE:YES		DESC:Shift to material plane as part of move action, and back as free action.
+Host Protection																		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Defensive	VISIBLE:YES		DESC:Treated as an attended magic item for saves, as being in grapple for attacks.
+Immunity To Psionics																	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES		DESC:You are never subject to psionics effects.																																																																																									ASPECT:Immunity|Psionics
+Implant																			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES		DESC:If both tendrils hit, save (DC %1) or infected with larva, which eventually reach the brain.|16+CON
+Liquefy Crystal																		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES		DESC:Breaks crystal objects, does 3d6+4 damage to crystal creatures, DC %1 negates.|12+CON
+Mind-Consuming Gaze																	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES		DESC:Range 30 ft., direct gaze kills, indirect gaze dazes, DC %1 negates.|17+CHA
+Mind Feed																			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES		DESC:1d4 Int damage on bite.
+Natural Invisibility																	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Defensive	VISIBLE:YES		DESC:Constantly invisible, even while attacking.
+Null Psionic Exhalation																	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES		DESC:1/round, as a free action, breathe 10' cube of gas poisonous to characters with power points.
+Poison ~ Gray Glutton														OUTPUTNAME:Poison	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES		DESC:save %1, frequency 1/round for 4 rounds; effect 1d4 power points; cure 1 save.|14+CON
+Power Conversion																		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES		DESC:Heal 1 hp when draining a power point with power leech.
+Sap Will																			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES		DESC:30-ft. range, 20-ft. radius sphere, save (DC %1) or stunned.|16+INT
+Scent Crystal																		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Sense		VISIBLE:YES		DESC:Like scent, except it has a range of 90 ft., and can only be used to find crystals.
+Steal Essence																		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES		DESC:Gains 12 hp when it slays a living creature with its touch attack.
+Summon Demon																		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES		DESC:1/day, 1 cerebrilith 35%%, 4th level.
+Time Filch																			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES		DESC:Hop self and grappled creature forward in time.
+Udoroot Traits																		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES		DESC:Can only be killed if root dug up and destroyed. Crowns have hardness 5 and 7 hp.
+Unnatural Aura																		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura		VISIBLE:YES		DESC:Animals within 30 ft. must make DC %1 Will save or be panicked until they are more than 30 ft. away.|16+CHA
+Unnatural Vision																		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Sense		VISIBLE:YES		DESC:Impossible to benefit from flanking, +6 racial bonus to Perception, only when not clothed.																																																		BONUS:SKILL|Perception|6|TYPE=Racial
+
+CATEGORY=Special Ability|Vulnerability to Sunlight.MOD																											DESC:Can only take one move or standard action a round in natural sunlight.
+CATEGORY=Special Ability|Telekinetic Force.MOD																		TYPE:SpecialAttack

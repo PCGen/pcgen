@@ -1,0 +1,10 @@
+# CVS $Revision: 18790 $ $Author: amaitland $ -- Mon Apr 19 10:33:00 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Council of Thieves Player's Guide	SOURCESHORT:COTPG	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/councilOfThieves/v5748btpy89m7	SOURCEDATE:2009-08
+# Original Entry by: Stefan Radermacher
+
+STARTPACK:Child of Infamy	TYPE:Character Trait	VISIBLE:NO
+FUNDS:gp	QTY:300
+
+#
+# End
+#

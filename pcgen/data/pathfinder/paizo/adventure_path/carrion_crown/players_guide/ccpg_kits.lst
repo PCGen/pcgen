@@ -1,0 +1,10 @@
+# CVS $Revision: 18782 $ $Author: amaitland $ -- Thu Mar 10 07:44:40 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Carrion Crown Player's Guide	SOURCESHORT:CCPG	SOURCEWEB:http://paizo.com/store/paizo/pathfinder/adventurePath/carrionCrown/v5748btpy8j0q	SOURCEDATE:2011-03
+# Original Entry by: Stefan Radermacher
+
+STARTPACK:On the Payroll	TYPE:Character Trait	VISIBLE:NO
+FUNDS:gp	QTY:150
+
+#
+# End
+#

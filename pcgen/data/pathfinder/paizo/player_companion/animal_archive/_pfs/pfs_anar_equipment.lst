@@ -1,0 +1,10 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+
+# Equipment Name					Type			Prohibited Type
+Circlet of Speaking.MOD				TYPE:PFSNotLegal	!PRETYPE:1,PFSNotLegal
+Familiar Metamagic Rod (Lesser).MOD		TYPE:PFSNotLegal	!PRETYPE:1,PFSNotLegal
+Familiar Metamagic Rod.MOD			TYPE:PFSNotLegal	!PRETYPE:1,PFSNotLegal
+Familiar Metamagic Rod (Greater).MOD	TYPE:PFSNotLegal	!PRETYPE:1,PFSNotLegal
+Barding Stitches.MOD				TYPE:PFSNotLegal	!PRETYPE:1,PFSNotLegal
+Poison Caps.MOD					TYPE:PFSNotLegal	!PRETYPE:1,PFSNotLegal
+Fury Drops.MOD					TYPE:PFSNotLegal	!PRETYPE:1,PFSNotLegal

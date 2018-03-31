@@ -1,0 +1,150 @@
+# CVS $Revision: $ $Author: $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
+SOURCELONG:Princes of Darkness, Book of the Damned, Volume 1	SOURCESHORT:BOTD1	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8a6f	SOURCEDATE:2009-10
+### Original Entry by: Andrew Maitland
+### Entry Date: 09-2012
+
+
+STARTPACK:Devil (Apostate) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Apostate)]
+RACE:Devil (Apostate)	!PRERACE:1,%
+NAME:Apostate Devil
+ALIGN:LE
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=10
+#Str 28, Dex 31, Con 28, Int 21, Wis 24, Cha 28
+#SKILL:Acrobatics +28, Bluff +30, Diplomacy +34, Disguise +27,
+# Fly +18, Intimidate +34, Knowledge (history) +26
+#, Knowledge (planes) +26, Knowledge (religion) +26,
+# Perception +28, Sense Motive +28, Stealth +28
+
+SKILL:Acrobatics			RANK:18
+SKILL:Bluff				RANK:18
+SKILL:Diplomacy			RANK:15
+SKILL:Disguise			RANK:18
+SKILL:Fly				RANK:5
+SKILL:Intimidate			RANK:18
+SKILL:Knowledge (history)	RANK:18
+SKILL:Knowledge (planes)	RANK:18
+SKILL:Knowledge (religion)	RANK:18
+SKILL:Perception			RANK:18
+SKILL:Sense Motive		RANK:18
+SKILL:Stealth			RANK:15
+
+ABILITY:CATEGORY=FEAT|Agile Maneuvers
+ABILITY:CATEGORY=FEAT|Combat Expertise
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Critical (Claw)
+ABILITY:CATEGORY=FEAT|Improved Disarm
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Persuasive
+ABILITY:CATEGORY=FEAT|Weapon Focus (Claw)		FREE:YES
+
+#GEAR:Scale Mail			SIZE:PC	LOCATION:Equipped
+#GEAR:Shield (Heavy/Metal)	SIZE:PC	LOCATION:Equipped
+#GEAR:Waraxe (Dwarven)		SIZE:PC	LOCATION:Primary Hand
+#GEAR:Shortbow			SIZE:PC	LOCATION:Carried
+GEAR:Full Plate	SIZE:PC	LOCATION:Equipped	EQMOD:Special Ability ~ +5 ~ Armor.Special Ability ~ Shadow ~ Armor
+#Treasure double (+5 shadow full plate, other treasure)
+
+
+#Languages Abyssal, Celestial, Common, Draconic, Infernal;
+
+###Block: END APOSTATE DEVIL
+
+STARTPACK:Devil (Heresy) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Heresy)]
+RACE:Devil (Heresy)	!PRERACE:1,%
+NAME:Heresy Devil
+ALIGN:LE
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=10
+#Str 24, Dex 8, Con 24, Int 22, Wis 21, Cha 20
+ABILITY:CATEGORY=FEAT|Diehard
+ABILITY:CATEGORY=FEAT|Endurance
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Persuasive
+ABILITY:CATEGORY=FEAT|Toughness
+#Skills Bluff +21, Diplomacy +25, Fly +8, Intimidate +17, Knowledge (arcana) +22,
+#Knowledge (history) +19, Knowledge (planes) +22, Knowledge (religion) +22, Perception +21,
+#Perform (oratory) +18, Profession (librarian) +10, Sense Motive +21, Spellcraft +22
+SKILL:Bluff				RANK:13
+SKILL:Diplomacy			RANK:13
+SKILL:Fly				RANK:5
+SKILL:Intimidate			RANK:10
+SKILL:Knowledge (arcana)	RANK:13
+SKILL:Knowledge (history)	RANK:13
+SKILL:Knowledge (planes)	RANK:13
+SKILL:Knowledge (religion)	RANK:13
+SKILL:Perception			RANK:13
+SKILL:Perform (oratory)		RANK:13
+SKILL:Profession (librarian)	RANK:10
+SKILL:Sense Motive		RANK:13
+SKILL:Spellcraft			RANK:13
+#Languages Abyssal, Celestial, Draconic, Infernal
+
+# Lesser Host Devil --------------------------------------------------------------------------
+STARTPACK:Devil (Host Lesser) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Lesser Host)]
+RACE:Devil (Lesser Host)	!PRERACE:1,%
+NAME:Lesser Host Devil
+ALIGN:LE
+STAT:STR=11|DEX=11|CON=10|INT=11|WIS=11|CHA=10
+#Str 13, Dex 17, Con 14, Int 7, Wis 9, Cha 8
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Hover	FREE:YES
+#Skills Acrobatics +9, Escape Artist +9, Fly +11, Perception +6, Stealth +13
+SKILL:Acrobatics		RANK:4
+SKILL:Escape Artist	RANK:4
+SKILL:Fly			RANK:2
+SKILL:Perception		RANK:4
+SKILL:Stealth		RANK:4	FREE:YES
+#
+GEAR:Spear	LOCATION:Equipped	EQMOD:Special Quality ~ Masterwork ~ Weapon
+
+
+STARTPACK:Devil (Host Greater) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Greater Host)]
+RACE:Devil (Greater Host)	!PRERACE:1,%
+NAME:Greater Host Devil
+ALIGN:LE
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=10
+#Str 18, Dex 19, Con 16, Int 10, Wis 12, Cha 11
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Hover
+#Skills Acrobatics +14, Escape Artist +14, Fly +14, Intimidate +10, Perception +11, Stealth +14
+SKILL:Acrobatics		RANK:7
+SKILL:Escape Artist	RANK:7
+SKILL:Fly			RANK:7
+SKILL:Intimidate		RANK:7
+SKILL:Perception		RANK:7
+SKILL:Stealth		RANK:7
+GEAR:Ranseur	LOCATION:Equipped	EQMOD:Special Quality ~ Masterwork ~ Weapon
+#Languages Celestial, Draconic, Infernal; telepathy 100 ft.
+
+
+###Block:Devil (Warmonger) -----------------------------------------------------------------------------------
+STARTPACK:Devil (Warmonger) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Warmonger)]
+RACE:Devil (Warmonger)	!PRERACE:1,%
+NAME:Warmonger Devil
+ALIGN:LE
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=10
+# Str 20, Dex 17, Con 19, Int 14, Wis 16, Cha 15
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Toughness
+#Skills Acrobatics +14 (+18 jumping), Bluff +13, Climb +17, Craft (weapons) +9, Intimidate +13,
+# Knowledge (dungeoneering) +9, Knowledge (engineering) +9, Knowledge (planes) +13, Perception +16, Stealth +12
+#
+SKILL:Acrobatics				RANK:8
+SKILL:Bluff					RANK:8
+SKILL:Climb					RANK:4
+SKILL:Craft (weapons)			RANK:7
+SKILL:Intimidate				RANK:8
+SKILL:Knowledge (dungeoneering)	RANK:7
+SKILL:Knowledge (engineering)		RANK:7
+SKILL:Knowledge (planes)		RANK:7
+SKILL:Perception				RANK:8
+SKILL:Stealth				RANK:8
+GEAR:Trident			LOCATION:Equipped	EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Net		SIZE:PC	LOCATION:Equipped
+
+#Languages Celestial, Draconic, Infernal; telepathy 100 ft.

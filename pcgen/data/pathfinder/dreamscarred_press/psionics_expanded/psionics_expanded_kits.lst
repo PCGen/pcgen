@@ -1,0 +1,33 @@
+# CVS $Revision: $ $Author: $ -- Tue Jul 16 09:27:47 2013 -- reformated by prettylst.pl v1.50 (build 20400)
+SOURCELONG:Psionics Expanded	SOURCESHORT:PsiEx	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2012-07
+# ORIGINAL ENTRY: Douglas Limmer
+# ORIGINAL ENTRY DATE: 2013/07/05
+
+###Block: Astral Swarm
+STARTPACK:Astral Swarm Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Swarm]	SOURCEPAGE:p.66
+RACE:Astral Swarm	!PRERACE:1,%
+NAME:Astral Swarm
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=10
+
+###Block: Astral Warrior
+STARTPACK:Astral Warrior	TYPE:Companion	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Warrior]	SOURCEPAGE:p.66
+RACE:Astral Warrior	!PRERACE:1,%
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
+GEAR:Astral Warrior Weapon (Bludgeoning)
+GEAR:Astral Warrior Weapon (Piercing)
+GEAR:Astral Warrior Weapon (Slashing)
+
+
+###Block: Meditant's Flurry of Strikes
+STARTPACK:Meditant Flurry of Strikes	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
+GEAR:Flurry of Strikes	LOCATION:Unarmed
+
+
+###Block: Lose a skill point for Telekinetic Draw
+STARTPACK:Telekinetic Draw Skill Point Loss	VISIBLE:NO	APPLY:INSTANT
+SKILL:Lost Skill Point	RANK:1
+
+#
+# End
+#

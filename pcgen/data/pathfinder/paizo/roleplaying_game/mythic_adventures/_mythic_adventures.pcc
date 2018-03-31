@@ -1,0 +1,70 @@
+# CVS $Revision$ $Author$ -- Sat Jun 21 01:05:38 2014 -- reformated by prettylst.pl v1.50 (build 19967)
+CAMPAIGN:Mythic Adventures
+GAMEMODE:Pathfinder
+TYPE:Paizo Publishing.Pathfinder RPG
+RANK:3
+STATUS:ALPHA
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder
+PRECAMPAIGN:1,INCLUDES=Core Rulebook
+PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
+PRECAMPAIGN:1,INCLUDES=Bestiary 3
+PUBNAMELONG:Paizo Publishing LLC
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Mythic Adventures
+SOURCESHORT:MA
+SOURCEWEB:http://paizo.com/products/btpy8ywe
+SOURCEDATE:2013-08
+ISOGL:YES
+
+COVER:MythicAdventures.jpeg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/pathfinder/btpy8ywe|Buy this publication from Paizo Publishing!
+DESC:Not all heroes are created equal. Many adventurers pick up swords or call upon strange powers in times of trouble, yet only a few are chosen by fate or the gods to change the course of history. These are mythic heroes-legendary figures whose every footstep shakes the heavens. With Pathfinder Roleplaying Game: Mythic Adventures, it's your turn to change the world. Choose a mythic path and take on unbelievable powers by completing mythic trials tied to your character's story. Each mythic path works in parallel with your character class, allowing you to continue advancing in your chosen calling even as you seek a greater destiny. Best of all, you can start playing a mythic character at any point-even as early as 1st level!
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder Roleplaying Game: Mythic Adventures. 2013, Paizo Inc.; Authors: Jason Bulmahn, Stephen Radney-MacFarland, Sean K Reynolds, Dennis Baker, Jesse Benner, Ben Bruck, Jim Groves, Tim Hitchcock, Tracy Hurley, Jonathan Keith, Jason Nelson, Tom Phillips, Ryan Macklin, F. Wesley Schneider, Amber Scott, Tork Shaw, Russ Taylor, and Ray Vallese.
+COPYRIGHT:PCGen dataset conversion for "Mythic Adventures" Copyright 2013, PCGen Data Team (including, but not limited to David "PapaDRB" Bender, Andrew "LegacyKing" Maitland, Stefan "Zaister" Radermacher)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# Data files
+ABILITY:ma_abilities.lst
+ABILITY:ma_abilities_race.lst
+ABILITY:ma_abilities_spell.lst
+ABILITYCATEGORY:ma_abilitycategories.lst
+COMPANIONMOD:ma_companionmods.lst
+EQUIPMENT:ma_equip.lst
+EQUIPMOD:ma_equipmods.lst
+ABILITY:ma_feats.lst
+SKILL:ma_skills.lst
+SPELL:ma_spells.lst
+TEMPLATE:ma_templates.lst
+
+
+EQUIPMOD:@/pathfinder/paizo/roleplaying_game/ultimate_equipment/ue_equipmods.lst|!PRECAMPAIGN:1,INCLUDES=Ultimate Equipment
+ABILITY:@/pathfinder/paizo/roleplaying_game/ultimate_equipment/ue_abilities.lst|!PRECAMPAIGN:1,INCLUDES=Ultimate Equipment
+
+# ENTRY DATE: 2015-01
+# LST MONKEY: David Bender, and Andrew Maitland
+# LICENSE MONKEY: Paul Grosse
+# RELEASE REVIEW #
+# BETA:
+# RELEASE:
+# Built for PCGen Version: 6.04.01
+# Updated to work with version: -
+# MINVER:6.4
+# MINDEVVER:6.04.1
+# COMMENTS:
+
+
+#
+# End
+#

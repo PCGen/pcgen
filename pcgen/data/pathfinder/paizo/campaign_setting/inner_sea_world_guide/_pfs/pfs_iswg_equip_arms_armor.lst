@@ -1,0 +1,31 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8ief	SOURCEDATE:2011-03
+# Original Entry by: Stefan Radermacher
+
+# Equipment Name			Type			Required Ability
+Blackaxe.MOD			TYPE:PFSLegal
+Shield of Aroden.MOD		TYPE:PFSLegal
+Dogslicer.MOD			TYPE:PFSLegal
+War Razor.MOD			TYPE:PFSLegal
+Klar (as weapon).MOD		TYPE:PFSLegal
+Earth Breaker.MOD			TYPE:PFSLegal
+Horsechopper.MOD			TYPE:PFSLegal
+Ogre Hook.MOD			TYPE:PFSLegal
+Aldori Dueling Sword.MOD	TYPE:PFSLegal
+Sawtooth Sabre.MOD		TYPE:PFSLegal
+Urumi.MOD				TYPE:PFSLegal
+Bladed Scarf.MOD			TYPE:PFSLegal
+Bolas (Shoanti).MOD		TYPE:PFSLegal
+Leaf Armor.MOD			TYPE:PFSLegal
+Field Plate.MOD			TYPE:PFSLegal
+Hellknight Plate.MOD		TYPE:PFSLegal
+Stoneplate.MOD			TYPE:PFSLegal
+Klar (as Shield).MOD		TYPE:PFSLegal
+Pepperbox.MOD			TYPE:PFSLegal	PREABILITY:1,CATEGORY=FEAT,Gunsmithing
+Pistol.MOD				TYPE:PFSLegal	PREABILITY:1,CATEGORY=FEAT,Gunsmithing
+Musket.MOD				TYPE:PFSLegal	PREABILITY:1,CATEGORY=FEAT,Gunsmithing
+Cannon.MOD				TYPE:PFSLegal	PREABILITY:1,CATEGORY=FEAT,Gunsmithing
+Black Powder (Dose).MOD		TYPE:PFSLegal
+Black Powder (Keg).MOD		TYPE:PFSLegal
+Cannon Ball.MOD			TYPE:PFSLegal
+Firearm Bullet.MOD		TYPE:PFSLegal

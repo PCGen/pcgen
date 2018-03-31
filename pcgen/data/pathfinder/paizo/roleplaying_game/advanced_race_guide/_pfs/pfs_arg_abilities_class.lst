@@ -1,0 +1,19 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/products/btpy8rv2?Pathfinder-Roleplaying-Game-Advanced-Race-Guide	SOURCEDATE:2012-06
+# ORIGINAL ENTRY: none
+# ORIGINAL ENTRY DATE: none
+
+# Ability Name										Unique Key							Category of Ability		Type									!PRECHARACTERTYPE		Clear Description	Description																																																																					Ability									Remove Object					Source Page
+CATEGORY=Archetype|Gunslinger Archetype ~ Experimental Gunsmith.MOD														TYPE:PFSNotLegal							!PRECHARACTERTYPE:1,PC
+CATEGORY=Archetype|Summoner Archetype ~ Wild Caller.MOD																TYPE:PFSNotLegal							!PRECHARACTERTYPE:1,PC
+CATEGORY=Archetype|Summoner Archetype ~ Blood God Disciple.MOD															TYPE:PFSNotLegal							!PRECHARACTERTYPE:1,PC
+CATEGORY=Archetype|Barbarian Archetype ~ Hateful Rager.MOD																TYPE:PFSNotLegal							!PRECHARACTERTYPE:1,PC
+CATEGORY=Archetype|Gunslinger Archetype ~ Buccaneer.MOD																TYPE:PFSNotLegal							!PRECHARACTERTYPE:1,PC
+CATEGORY=Archetype|Druid Archetype ~ Feral Child.MOD																	TYPE:PFSNotLegal							!PRECHARACTERTYPE:1,PC
+CATEGORY=Archetype|Summoner Archetype ~ Shadow Caller.MOD																TYPE:PFSNotLegal							!PRECHARACTERTYPE:1,PC
+CATEGORY=Archetype|Cleric Archetype ~ Fiendish Vessel.MOD																TYPE:PFSNotLegal							!PRECHARACTERTYPE:1,PC
+
+Craft Magic Arms and Armor								KEY:Forgemaster ~ Craft Magic Arms and Armor	CATEGORY:Special Ability	TYPE:ArchetypeAbility.SpecialQuality							DESC:.CLEAR		DESC:The forgemaster gains Armor Proficiency (Heavy) as a bonus feat at 3rd level.																																																									ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)		REMOVE:FEAT|Craft Magic Arms and Armor	SOURCEPAGE:p.16
+Master Smith										KEY:Forgemaster ~ Master Smith			CATEGORY:Special Ability	TYPE:ArchetypeAbility.SpecialQuality.Extraordinary					DESC:.CLEAR		DESC:The forgemaster gains Skill Focus (Craft (Blacksmithing)) as a bonus feat at 5th level.																																																							ABILITY:FEAT|AUTOMATIC|Skill Focus (Craft (Blacksmithing))								SOURCEPAGE:p.16
+
+CATEGORY=Special Ability|Bonded Witch ~ Bonded Item.MOD																																DESC:PFS Weapon - 2nd-warding weapon (Ultimate Combat 248); 4th-versatile weapon (Advanced Player's Guide 254); 6th-greater magic weapon; 8th-telekinetic charge (Ultimate Combat 247); 10th-resounding shot (Advanced Player's Guide 238); 12th-blade barrier; 14th-fire brand (Advanced Player's Guide 222); 16th-earthquake; 18th-ride the lightning (Ultimate Magic 235).|PREABILITY:1,CATEGORY=Special Ability,BWBI ~ Weapon

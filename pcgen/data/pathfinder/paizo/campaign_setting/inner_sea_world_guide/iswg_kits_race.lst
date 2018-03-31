@@ -1,0 +1,178 @@
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8ief	SOURCEDATE:2011-03
+# Original Entry by: Paul Shipley
+
+STARTPACK:Aluum Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Aluum]	SOURCEPAGE:p.306
+RACE:Aluum	!PRERACE:1,%
+NAME:Aluum
+GENDER:Neuter
+ALIGN:TN
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
+ABILITY:CATEGORY=Region of Origin|Katapesh
+
+STARTPACK:Calikang Default	TYPE:Default Monster.Monstrous Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Calikang]	SOURCEPAGE:p.307
+RACE:Calikang	!PRERACE:1,%
+NAME:Calikang
+ALIGN:LN
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+ABILITY:CATEGORY=Region of Origin|Region ~ Unknown
+SKILL:Intimidate		RANK:15
+SKILL:Perception		RANK:15
+SKILL:Use Magic Device	RANK:15
+ABILITY:CATEGORY=FEAT|Critical Focus
+ABILITY:CATEGORY=FEAT|Double Slice
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Critical (Longsword)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Staggering Critical
+ABILITY:CATEGORY=FEAT|Two-Weapon Fighting
+ABILITY:CATEGORY=FEAT|Vital Strike
+GEAR:Longsword	SIZE:L	LOCATION:Primary Hand	EQMOD:Special Ability ~ +1 ~ Weapon
+GEAR:Longsword	SIZE:L	LOCATION:Secondary Hand	EQMOD:Special Ability ~ +1 ~ Weapon
+
+STARTPACK:Charau-ka Default	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Charau-ka]	SOURCEPAGE:p.308
+RACE:Charau-ka	!PRERACE:1,%
+NAME:Charau-ka
+ALIGN:CE
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+ABILITY:CATEGORY=Region of Origin|Mwangi Expanse
+SKILL:Climb		RANK:1
+SKILL:Perception	RANK:1
+SKILL:Stealth	RANK:1
+ABILITY:CATEGORY=FEAT|Point-blank Shot
+ABILITY:CATEGORY=FEAT|Precise Shot
+GEAR:Club		SIZE:S	LOCATION:Both Hands
+GEAR:Rock (Small)	SIZE:S	LOCATION:Carried
+
+STARTPACK:Daughter of Urgathoa Default	TYPE:Default Monster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daughter of Urgathoa]	SOURCEPAGE:p.309
+RACE:Daughter of Urgathoa	!PRERACE:1,%
+NAME:Daughter of Urgathoa
+GENDER:Female
+DEITY:Urgathoa	DOMAIN:Death|Magic
+#DEITY:Urgathoa
+ALIGN:NE
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+ABILITY:CATEGORY=Region of Origin|Region ~ Unknown
+LANGBONUS:Abyssal|Common|Infernal|Necril
+ABILITY:CATEGORY=FEAT|Ability Focus (Disease)
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Vital Strike
+SKILL:Acrobatics			RANK:11
+SKILL:Bluff				RANK:11
+SKILL:Fly				RANK:11
+SKILL:Intimidate			RANK:11
+SKILL:Knowledge (Religion)	RANK:11
+SKILL:Perception			RANK:11
+SKILL:Sense Motive		RANK:11
+SKILL:Spellcraft			RANK:11
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Daughter of Urgathoa|Bestow Curse|Contagion|Dispel Magic|Inflict Serious Wounds
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Daughter of Urgathoa|Death Knell|Hold Person|Inflict Moderate Wounds|Resist Energy|Spiritual Weapon
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Daughter of Urgathoa|Cause Fear|Command|Divine Favor|Obscuring Mist|Shield of Faith
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Daughter of Urgathoa|Bleed|Detect Magic|Guidance|Resistance
+
+STARTPACK:Gillman Default	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gillman]	SOURCEPAGE:p.310
+RACE:Gillman	!PRERACE:1,%
+NAME:Gillman
+ALIGN:TN
+STAT:STR=12|DEX=13|CON=11|INT=9|WIS=10|CHA=8
+ABILITY:CATEGORY=Region of Origin|Absalom
+CLASS:Warrior	LEVEL:1
+ABILITY:CATEGORY=Favored Class|Warrior
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
+SKILL:Swim	RANK:1
+GEAR:Trident			SIZE:M	LOCATION:Both Hands
+GEAR:Crossbow (Light)		SIZE:M	LOCATION:Carried
+GEAR:Bolts (Crossbow/10)	SIZE:M	LOCATION:Carried
+
+STARTPACK:Sandpoint Devil Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sandpoint Devil]	SOURCEPAGE:p.311
+RACE:Sandpoint Devil	!PRERACE:1,%
+NAME:Sandpoint Devil
+ALIGN:NE
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+ABILITY:CATEGORY=Region of Origin|Varisia
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Vital Strike
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Spring Attack
+ABILITY:CATEGORY=FEAT|Vital Strike
+SKILL:Fly				RANK:12
+SKILL:Intimidate			RANK:6
+SKILL:Knowledge (Geography)	RANK:6
+SKILL:Perception			RANK:12
+SKILL:Stealth			RANK:12
+SKILL:Survival			RANK:12
+
+STARTPACK:Dragon (Spine) Default	TYPE:Default Monster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Spine)]	SOURCEPAGE:p.312
+RACE:Dragon (Spine)	!PRERACE:1,%
+NAME:Spine Dragon
+ALIGN:CN
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
+ABILITY:CATEGORY=Region of Origin|Numeria
+ABILITY:CATEGORY=FEAT|Awesome Blow
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Point-blank Shot
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Precise Shot
+ABILITY:CATEGORY=FEAT|Vital Strike
+SKILL:Appraise			RANK:16
+SKILL:Bluff				RANK:16
+SKILL:Fly				RANK:16
+SKILL:Intimidate			RANK:16
+SKILL:Knowledge (Engineering)	RANK:16
+SKILL:Knowledge (Nature)	RANK:16
+SKILL:Perception			RANK:16
+SKILL:Sense Motive		RANK:16
+SKILL:Stealth			RANK:16
+
+STARTPACK:Strix Default	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Strix]	SOURCEPAGE:p.313
+RACE:Strix	!PRERACE:1,%
+NAME:Strix
+ALIGN:TN
+STAT:STR=12|DEX=13|CON=10|INT=8|WIS=11|CHA=9
+ABILITY:CATEGORY=Region of Origin|Cheliax
+CLASS:Warrior	LEVEL:1
+ABILITY:CATEGORY=Favored Class|Warrior
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Skill Rank (Fly)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+SKILL:Linguistics	RANK:1	SELECTION:Common
+GEAR:Spear	SIZE:M	LOCATION:Both Hands
+
+STARTPACK:Treerazer Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Treerazer]	SOURCEPAGE:p.314
+RACE:Treerazer	!PRERACE:1,%
+NAME:Treerazer
+ALIGN:CE
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=10|CHA=11
+ABILITY:CATEGORY=Region of Origin|Kyonin
+ABILITY:CATEGORY=FEAT|Awesome Blow
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Critical Focus
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Greater Vital Strike
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Critical (Greataxe)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Vital Strike
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Quicken Spell-Like Ability ~ Spell (Dispel Magic (Greater))
+ABILITY:CATEGORY=FEAT|Staggering Critical
+ABILITY:CATEGORY=FEAT|Vital Strike
+SKILL:Acrobatics			RANK:28
+SKILL:Fly				RANK:28
+SKILL:Intimidate			RANK:28
+SKILL:Knowledge (Arcana)	RANK:28
+SKILL:Knowledge (Nature)	RANK:28
+SKILL:Knowledge (Planes)	RANK:28
+SKILL:Perception			RANK:28
+SKILL:Sense Motive		RANK:28
+SKILL:Spellcraft			RANK:28
+SKILL:Stealth			RANK:28
+SKILL:Swim				RANK:28
+GEAR:Blackaxe	SIZE:H	LOCATION:Both Hands

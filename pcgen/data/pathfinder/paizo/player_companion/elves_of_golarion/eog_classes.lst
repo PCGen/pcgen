@@ -1,0 +1,25 @@
+# CVS $Revision: $ $Author: $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+
+# Class Name		Hit Dice	Type			Max Level	Source Page		Define				Combat bonus																	Save bonus																																																Modify VAR																																																																			FACT
+CLASS:Brightness Seeker	HD:6		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.28	DEFINE:BrightnessSeekerLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|BrightnessSeekerLVL|CL	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:Abb|BS	FACT:ClassType|PC
+# Class Name		Required Ability					Multiple Requirements																		Required Race				Required Skill				Required Text
+CLASS:Brightness Seeker	PREABILITY:1,CATEGORY=FEAT,Iron Will	PREMULT:1,[PRESKILL:2,Knowledge (Nature)=4,Knowledge (Religion)=8],[PRESKILL:2,Knowledge (Nature)=8,Knowledge (Religion)=4]	PRERACE:1,Elf%,RACESUBTYPE=Elf	PRESKILL:2,Perception=4,Survival=4	PRETEXT:Feat: Iron Will; Race: Elf; Skills: Perception 4 ranks, Survival 4 ranks, Knowledge (nature) 4 ranks and Knowledge (religion) 8 ranks (or vice versa).
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Brightness Seeker	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Diplomacy|Handle Animal|Heal|Stealth|Knowledge (Nature)|Knowledge (Religion)|Perception|TYPE=Profession|Survival|Swim
+# 35e version
+#CLASS:Brightness Seeker	PRETEXT:Feat: Iron Will; Race: Elf; Skills: Spot 4 ranks, Survival 4 ranks, Knowledge (nature) 4 ranks and Knowledge (religion) 8 ranks (or vice versa).	PREABILITY:1,CATEGORY=FEAT,Iron Will	PRERACE:1,Elf%,RACESUBTYPE=Elf	PRESKILL:2,Spot=4,Survival=4	PREMULT:1,[PRESKILL:2,Knowledge (Nature)=4,Knowledge (Religion)=8],[PRESKILL:2,Knowledge (Nature)=8,Knowledge (Religion)=4]
+#CLASS:Brightness Seeker	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Hide|Knowledge (nature)|Knowledge (religion)|Listen|Profession|Spot|Survival|Swim
+###Block
+1	ABILITY:Brightness Seeker Class Feature|AUTOMATIC|Brightness Seeker ~ Discover Omen
+1	ABILITY:Brightness Seeker Class Feature|AUTOMATIC|Brightness Seeker ~ Favored Pilgrim
+2	ABILITY:Brightness Seeker Class Feature|AUTOMATIC|Brightness Seeker ~ Channel Past Incarnation
+2	ABILITY:Brightness Seeker Class Feature|AUTOMATIC|Brightness Seeker ~ Tranquility
+3	ABILITY:Brightness Seeker Class Feature|AUTOMATIC|Brightness Seeker ~ Common Ground
+3	ABILITY:Brightness Seeker Class Feature|AUTOMATIC|Brightness Seeker ~ Wild Shape
+4	ABILITY:Brightness Seeker Class Feature|AUTOMATIC|Brightness Seeker ~ One With Nature
+4	ABILITY:Brightness Seeker Class Feature|AUTOMATIC|Brightness Seeker ~ Tranquility Aura
+5	ABILITY:Brightness Seeker Class Feature|AUTOMATIC|Brightness Seeker ~ Rebirth
+
+#
+# eof
+#

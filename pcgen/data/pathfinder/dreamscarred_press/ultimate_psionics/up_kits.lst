@@ -1,0 +1,139 @@
+# CVS $Revision: $ $Author: $ -- Thu May 22 08:41:39 2014 -- reformated by prettylst.pl v1.51 (build 23662)
+SOURCELONG:Ultimate Psionics	SOURCESHORT:UP	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2013-12
+#Original Entry: Douglas Limmer
+#SRD Original Entry: Unknown
+
+### --- Monster kits (begin) --- ###
+
+
+STARTPACK:Astral Construct (1st Level) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Construct (1st Level)]	SOURCEPAGE:p.444
+RACE:Astral Construct (1st Level)	!PRERACE:1,%
+NAME:Astral Construct (1st Level)
+ALIGN:TN
+GENDER:Neuter
+STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
+
+STARTPACK:Astral Construct (2nd Level) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Construct (2nd Level)]	SOURCEPAGE:p.445
+RACE:Astral Construct (2nd Level)	!PRERACE:1,%
+NAME:Astral Construct (2nd Level)
+ALIGN:TN
+GENDER:Neuter
+STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
+
+STARTPACK:Astral Construct (3rd Level) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Construct (3rd Level)]	SOURCEPAGE:p.445
+RACE:Astral Construct (3rd Level)	!PRERACE:1,%
+NAME:Astral Construct (3rd Level)
+ALIGN:TN
+GENDER:Neuter
+STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
+
+STARTPACK:Astral Construct (4th Level) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Construct (4th Level)]	SOURCEPAGE:p.445
+RACE:Astral Construct (4th Level)	!PRERACE:1,%
+NAME:Astral Construct (4th Level)
+ALIGN:TN
+GENDER:Neuter
+STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
+
+STARTPACK:Astral Construct (5th Level) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Construct (5th Level)]	SOURCEPAGE:p.446
+RACE:Astral Construct (5th Level)	!PRERACE:1,%
+NAME:Astral Construct (5th Level)
+ALIGN:TN
+GENDER:Neuter
+STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
+
+STARTPACK:Astral Construct (6th Level) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Construct (6th Level)]	SOURCEPAGE:p.446
+RACE:Astral Construct (6th Level)	!PRERACE:1,%
+NAME:Astral Construct (6th Level)
+ALIGN:TN
+GENDER:Neuter
+STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
+
+STARTPACK:Astral Construct (7th Level) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Construct (7th Level)]	SOURCEPAGE:p.446
+RACE:Astral Construct (7th Level)	!PRERACE:1,%
+NAME:Astral Construct (7th Level)
+ALIGN:TN
+GENDER:Neuter
+STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
+
+STARTPACK:Astral Construct (8th Level) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Construct (8th Level)]	SOURCEPAGE:p.447
+RACE:Astral Construct (8th Level)	!PRERACE:1,%
+NAME:Astral Construct (8th Level)
+ALIGN:TN
+GENDER:Neuter
+STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
+
+STARTPACK:Astral Construct (9th Level) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Construct (9th Level)]	SOURCEPAGE:p.447
+RACE:Astral Construct (9th Level)	!PRERACE:1,%
+NAME:Astral Construct (9th Level)
+ALIGN:TN
+GENDER:Neuter
+STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
+
+###Block: Astral Swarm
+STARTPACK:Astral Swarm Default	TYPE:DefaultMonster.AstralSwarm	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Swarm]	SOURCEPAGE:p.447
+RACE:Astral Swarm	!PRERACE:1,%
+NAME:Astral Swarm
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=10
+
+###Block: Astral Warrior
+STARTPACK:Astral Warrior	TYPE:Companion	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Warrior]	SOURCEPAGE:p.263
+RACE:Astral Warrior	!PRERACE:1,%
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
+GEAR:Astral Warrior Weapon (Bludgeoning)
+GEAR:Astral Warrior Weapon (Piercing)
+GEAR:Astral Warrior Weapon (Slashing)
+
+###Block: Companion ~ Karaan
+STARTPACK:Companion ~ Karaan	TYPE:Companion	VISIBLE:NO
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+
+
+### --- Monster kits (end) --- ###
+
+
+### --- Other kits --- ###
+
+# ORIGINAL ENTRY: Douglas Limmer
+# ORIGINAL ENTRY DATE: 2013/07/05
+
+###Block: Meditant's Flurry of Strikes
+STARTPACK:Meditant Flurry of Strikes	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
+GEAR:Flurry of Strikes	LOCATION:Unarmed
+
+
+###Block: Lose a skill point for Telekinetic Draw
+STARTPACK:Telekinetic Draw Skill Point Loss	VISIBLE:NO	APPLY:INSTANT
+SKILL:Lost Skill Point	RANK:1
+
+
+###Block: Starting Gold kits
+STARTPACK:Classes Starting Gold ~ UltPsi	VISIBLE:QUALIFY	APPLY:INSTANT	PREMULT:2,[PREPCLEVEL:MIN=1,MAX=1],[PRECLASS:1,Psion=1,Wilder=1,Psychic Warrior=1,Soulknife=1,Aegis=1,Cryptic=1,Dread=1,Marksman=1,Tactician=1,Vitalist=1]
+TEMPLATE:Starting Gold ~ UltPsi
+
+STARTPACK:Starting Gold UltPsi ~ Random	VISIBLE:NO	APPLY:INSTANT
+FUNDS:gp	QTY:10*roll("2d6")	PRECLASS:1,Aegis=1
+FUNDS:gp	QTY:10*roll("3d4")	PRECLASS:1,Psion=1
+FUNDS:gp	QTY:10*roll("4d4")	PRECLASS:1,Vitalist=1,Wilder=1
+FUNDS:gp	QTY:10*roll("3d6")	PRECLASS:1,Cryptic=1,Dread=1
+FUNDS:gp	QTY:10*roll("5d4")	PRECLASS:1,Marksman=1,Psychic Warrior=1,Soulknife=1
+FUNDS:gp	QTY:10*roll("4d6")	PRECLASS:1,Tactician=1
+
+STARTPACK:Starting Gold UltPsi ~ Maximum	VISIBLE:NO	APPLY:INSTANT
+FUNDS:gp	QTY:120	PRECLASS:1,Aegis=1,Psion=1
+FUNDS:gp	QTY:160	PRECLASS:1,Vitalist=1,Wilder=1
+FUNDS:gp	QTY:180	PRECLASS:1,Cryptic=1,Dread=1
+FUNDS:gp	QTY:200	PRECLASS:1,Marksman=1,Psychic Warrior=1,Soulknife=1
+FUNDS:gp	QTY:240	PRECLASS:1,Tactician=1
+
+STARTPACK:Starting Gold UltPsi ~ Average	VISIBLE:NO	APPLY:INSTANT
+FUNDS:gp	QTY:70	PRECLASS:1,Aegis=1
+FUNDS:gp	QTY:75	PRECLASS:1,Psion=1
+FUNDS:gp	QTY:100	PRECLASS:1,Vitalist=1,Wilder=1
+FUNDS:gp	QTY:105	PRECLASS:1,Cryptic=1,Dread=1
+FUNDS:gp	QTY:125	PRECLASS:1,Marksman=1,Psychic Warrior=1,Soulknife=1
+FUNDS:gp	QTY:140	PRECLASS:1,Tactician=1
+
+#
+# End
+#

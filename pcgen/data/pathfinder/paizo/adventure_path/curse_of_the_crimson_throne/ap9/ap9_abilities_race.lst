@@ -1,0 +1,12 @@
+# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+SOURCELONG:Curse of the Crimson Throne, Chapter 3 - Escape from Old Korvosa	SOURCESHORT:AP9	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy82t5	SOURCEDATE:2008-05
+
+###Block: Rajput Ambari Racial Abilities
+# Ability Name	Category of Ability		Type						Visible	Special ABility																							Define				Modify VAR
+War Stomp		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:War Stomp (Su)
+Undead Servitor	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:NO	SAB:Undead Servitor ~ Treated as % HD undead for purposes of calculating total HD of undead under the control of an evil cleric.|UndeadControlHD	DEFINE:UndeadControlHD|0	BONUS:VAR|UndeadControlHD|HD/2
+
+###Block: Sikari Macaque Swarm Racial Abilities
+# Ability Name	Category of Ability		Type						Visible	Special ABility							Define			Modify VAR
+Diseased		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Diseased (Ex)
+Sikari Rage		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:NO	SAB:Sikari Rage (Ex) ~ % DC Fortitude|SikariRageDC	DEFINE:SikariRageDC|0	BONUS:VAR|SikariRageDC|10+(HD/2)+CON

@@ -1,0 +1,14 @@
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:Curse of the Crimson Throne Player's Guide	SOURCESHORT:COTCTPG	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy8bdb	SOURCEDATE:2008-02
+
+
+#Equipment of Korvosa
+# Equipment Name		Type			Cost		Weight	Source Page
+Barbarian Chew		TYPE:Goods		COST:15	WT:1		SOURCEPAGE:p.12
+Doctor's Mask		TYPE:Headgear	COST:50	WT:2		SOURCEPAGE:p.12
+Harrow Deck			TYPE:Goods		COST:100	WT:0		SOURCEPAGE:p.12
+Perfume (Common/1 Dose)	TYPE:Goods		COST:1	WT:0		SOURCEPAGE:p.12
+Perfume (Exotic/1 Dose)	TYPE:Goods		COST:10	WT:0		SOURCEPAGE:p.12
+Scarf (Pocketed)		TYPE:Goods		COST:8	WT:0.5	SOURCEPAGE:p.12
+Scarf (Reinforced)	TYPE:Goods		COST:10	WT:1		SOURCEPAGE:p.12
+Varisian Idol		TYPE:Goods		COST:50	WT:0		SOURCEPAGE:p.12

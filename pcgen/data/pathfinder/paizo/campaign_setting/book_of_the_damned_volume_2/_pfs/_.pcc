@@ -1,0 +1,77 @@
+# CVS $Revision$ $Author$ -- Wed Dec  3 18:59:40 2014 -- reformated by prettylst.pl v1.51 (build 25490)
+CAMPAIGN:Lords of Chaos (PFS)
+KEY:PFS ~ Lords of Chaos
+#GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing PFS.Pathfinder Campaign Setting
+RANK:2
+STATUS:BETA
+GENRE:Fantasy
+BOOKTYPE:Campaign Setting
+SETTING:Pathfinder|Golarion
+PRECAMPAIGN:1,Pathfinder Society Core Assumption
+PRECAMPAIGN:2,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide
+
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Lords of Chaos, Book of the Damned, Volume 2
+SOURCESHORT:BOTD2
+SOURCEWEB:http://paizo.com/products/btpy8hij?Pathfinder-Campaign-Setting-Book-of-the-Damned-Volume-2-Lords-of-Chaos
+SOURCEDATE:2010-10
+ISOGL:YES
+
+#COVER:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_2/botd2.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy8hij?Pathfinder-Campaign-Setting-Book-of-the-Damned-Volume-2-Lords-of-Chaos|Buy this publication from Paizo Publishing!
+DESC:Gaze into the Abyss! Spawned from the darkest depths of the Abyss, the howling hordes of demonkind rise up to destroy and devour all of existence, their slavering, fiendish forms built to rend, enslave, and beguile. Whether in their horrid domains of madness in the Outer Rifts, or called forth into the material world by insane spellcasters, demons represent the fundamental immorality of the universe, evolving from sinful souls into entities both wretched and godlike, united under their vile taskmasters toward a single goal: to destroy all that mortal life holds dear.
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+
+#COPYRIGHTS
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder Campaign Setting: Lords of Chaos, Book of the Damned, Vol. 2. Copyright 2010, Paizo Inc.; Author: James Jacobs.
+COPYRIGHT:Advanced Bestiary. Copyright 2004, Green Ronin Publishing, LLC; Author: Matthew Sernett.
+COPYRIGHT:The Book of Fiends. Copyright 2003, Green Ronin Publishing, LLC; Authors: Aaron Loeb, Erik Mona, Chris Pramas, and Robert J. Schwalb.
+COPYRIGHT:Baphomet from the Tome of Horrors Revised. Copyright 2002, Necromancer Games, Inc.; Author: Scott Greene and Clark Peterson, based on original material by Gary Gygax.
+COPYRIGHT:Froghemoth from the Tome of Horrors Revised. Copyright 2002, Necromancer Games, Inc.; Author: Scott Greene and Clark Peterson, based on original material by Gary Gygax.
+COPYRIGHT:Ice Golem from the Tome of Horrors Revised. Copyright 2002, Necromancer Games, Inc.; Author: Scott Greene.
+COPYRIGHT:Jubilex from the Tome of Horrors Revised. Copyright 2002, Necromancer Games, Inc.; Author: Scott Greene and Clark Peterson, based on original material by Gary Gygax.
+COPYRIGHT:Kostchtchie from the Tome of Horrors Revised. Copyright 2002, Necromancer Games, Inc.; Author: Scott Greene and Clark Peterson, based on original material by Gary Gygax.
+COPYRIGHT:Nabasu from the Tome of Horrors Revised. Copyright 2002, Necromancer Games, Inc.; Author: Scott Greene and Clark Peterson, based on original material by Gary Gygax.
+COPYRIGHT:Orcus from the Tome of Horrors Revised. Copyright 2002, Necromancer Games, Inc.; Author: Scott Greene and Clark Peterson, based on original material by Gary Gygax.
+COPYRIGHT:Pazuzu from the Tome of Horrors Revised. Copyright 2002, Necromancer Games, Inc.; Author: Scott Greene and Clark Peterson, based on original material by Gary Gygax.
+COPYRIGHT:Shadow Demon from the Tome of Horrors Revised. Copyright 2002, Necromancer Games, Inc.; Author: Scott Greene and Clark Peterson, based on original material by Neville White.
+COPYRIGHT:Vegepygmy from the Tome of Horrors Revised. Copyright 2002, Necromancer Games, Inc.; Author: Scott Greene and Clark Peterson, based on original material by Gary Gygax.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Campaign Setting: Lords of Chaos, Book of the Damned, Vol. 2" Copyright 2013-2014, PCGen Data team (Including, but not limited to Paul Shipley, Paul Grosse (License), Andrew Maitland (Data))
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# Additional Resources
+# Last Updated Friday, January 9, 2015
+#
+# Pathfinder Campaign Setting: Lords of Chaos
+# Spells: disfiguring touch, vermin shape I, vermin shape II
+
+SPELL:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_2/botd2_spells.lst|(INCLUDE:Disfiguring Touch,Vermin Shape I,Vermin Shape II)|PRECAMPAIGN:1,INCLUDES=Lords of Chaos - Book of the Damned - Volume 2
+
+LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_2/botd2_abilitycategories.lst
+LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_2/botd2_abilities_classes.lst
+LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_2/botd2_abilities_ndl.lst
+LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_2/botd2_abilities_race.lst
+LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_2/botd2_classes_prestige.lst
+LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_2/botd2_deities.lst
+LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_2/botd2_equip.lst
+LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_2/botd2_feats.lst
+LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_2/botd2_kits_race.lst
+LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_2/botd2_races.lst
+LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_2/botd2_spells_ndl.lst
+LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_2/botd2_templates.lst
+LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_2/botd2_templates_ndl.lst
+
+
+#
+# End
+#

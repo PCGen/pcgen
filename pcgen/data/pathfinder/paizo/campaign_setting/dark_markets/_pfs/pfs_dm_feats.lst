@@ -1,0 +1,8 @@
+# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Dark Markets - A Guide to Katapesh	SOURCESHORT:DM	SOURCEWEB:http://paizo.com/pathfinder/campaignSetting/35E/v5748btpy87ut	SOURCEDATE:2009-04
+# Original Entry by: Terry Milnes
+
+#CATEGORY=FEAT|Pesh Euphoria.MOD		!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+#CATEGORY=FEAT|Pesh Healing.MOD		!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+#CATEGORY=FEAT|Pesh Rejuvenation.MOD		!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+#CATEGORY=FEAT|Sahir-Afiyun.MOD		!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal

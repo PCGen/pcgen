@@ -1,0 +1,30 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Adventurer's Handbook: Genius Guide Volume 1	SOURCESHORT:SGGAH	SOURCEDATE:2010-04
+# Original Entry by: Paul Shipley (elro the onk)
+
+###Block:Companion for Death Mage
+# Class of the Master	Type					Hit Dice	Ability																					Apply Kit				Define							Bonus Ability Pool					Combat bonus					Stat bonus			Modify VAR							Main Race Type
+FOLLOWER:UBLevel=1	TYPE:Unbreathing Companion			ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training|Companion ~ Bonus Tricks|Companion ~ Link|Companion ~ Share Spells	KIT:1|Unbreathing Subtype	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																				BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Magical Beast
+FOLLOWER:UBLevel=2	TYPE:Unbreathing Companion	HD:1																																																								BONUS:VAR|MasterLevel|1
+FOLLOWER:UBLevel=3	TYPE:Unbreathing Companion			ABILITY:Special Ability|AUTOMATIC|Evasion																																					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:UBLevel=4	TYPE:Unbreathing Companion	HD:1																																					BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
+FOLLOWER:UBLevel=5	TYPE:Unbreathing Companion	HD:1																																																								BONUS:VAR|MasterLevel|1
+FOLLOWER:UBLevel=6	TYPE:Unbreathing Companion	HD:1		ABILITY:Special Ability|AUTOMATIC|Companion ~ Devotion																																		BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:UBLevel=7	TYPE:Unbreathing Companion																																																									BONUS:VAR|MasterLevel|1
+FOLLOWER:UBLevel=8	TYPE:Unbreathing Companion	HD:1																																																								BONUS:VAR|MasterLevel|1
+FOLLOWER:UBLevel=9	TYPE:Unbreathing Companion	HD:1		ABILITY:FEAT|AUTOMATIC|Multiattack																														BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:UBLevel=10	TYPE:Unbreathing Companion	HD:1																																																								BONUS:VAR|MasterLevel|1
+FOLLOWER:UBLevel=11	TYPE:Unbreathing Companion																																																									BONUS:VAR|MasterLevel|1
+FOLLOWER:UBLevel=12	TYPE:Unbreathing Companion	HD:1																																													BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:UBLevel=13	TYPE:Unbreathing Companion	HD:1																																																								BONUS:VAR|MasterLevel|1
+FOLLOWER:UBLevel=14	TYPE:Unbreathing Companion	HD:1																																					BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
+FOLLOWER:UBLevel=15	TYPE:Unbreathing Companion																																														BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:UBLevel=16	TYPE:Unbreathing Companion	HD:1		ABILITY:Special Ability|AUTOMATIC|Improved Evasion																																														BONUS:VAR|MasterLevel|1
+FOLLOWER:UBLevel=17	TYPE:Unbreathing Companion	HD:1																																																								BONUS:VAR|MasterLevel|1
+FOLLOWER:UBLevel=18	TYPE:Unbreathing Companion	HD:1																																													BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:UBLevel=19	TYPE:Unbreathing Companion																																																									BONUS:VAR|MasterLevel|1
+FOLLOWER:UBLevel=20	TYPE:Unbreathing Companion	HD:1																																					BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
+
+#
+# End
+#

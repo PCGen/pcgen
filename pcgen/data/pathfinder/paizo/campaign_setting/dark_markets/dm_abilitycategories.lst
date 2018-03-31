@@ -1,0 +1,6 @@
+# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+#SOURCELONG:Dark Markets - A Guide to Katapesh	SOURCESHORT:DM	SOURCEWEB:http://paizo.com/pathfinder/campaignSetting/35E/v5748btpy87ut	SOURCEDATE:2009-04
+
+
+# Ability Category				Visible		Editable?		Change Pool?	Category of Object		Type of Object		Display Location
+ABILITYCATEGORY:Genie Type Selection	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:GenieSelection	DISPLAYLOCATION:Racial Abilities

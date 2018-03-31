@@ -1,0 +1,10 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec  2 19:28:17 2014 -- reformated by prettylst.pl v1.51 (build 25490)
+# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI			Display Location
+ABILITYCATEGORY:Demonic Form				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DemoniacForm			PLURAL:Demonic Forms				DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Demonic Obedience			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DemonicObedience		PLURAL:Demonic Obediences			DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Teratoma Type ~ Lamashtu		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:LamashtuTeratomaType	PLURAL:Teratoma Type ~ Lamashtu		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Teratoma Ability ~ Lamashtu	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:LamashtuTeratomaAbility	PLURAL:Teratoma Ability ~ Lamashtu		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Second Oath ~ Dagon			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DagonSecondOath		PLURAL:Second Oath ~ Dagon			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Afflicted Lycanthrope ~ Jezelda	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:JezeldaAfflicted		PLURAL:Afflicted Lycanthrope ~ Jezelda	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:True Lycanthrope ~ Jezelda	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:JezeldaTrue			PLURAL:True Lycanthrope ~ Jezelda		DISPLAYLOCATION:Feats

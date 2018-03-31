@@ -1,0 +1,7 @@
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:Curse of the Crimson Throne, Chapter 4: A History of Ashes	SOURCESHORT:AP10	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy82u9	SOURCEDATE:2008-07
+# Original Entry by: Paul Grosse
+
+# Equipment Name	Output Name				Type			Cost		Weight	Source Page
+Bracelet (Bronze)	OUTPUTNAME:[NAME] Bracelet	TYPE:Goods.Art	COST:50	WT:0		SOURCEPAGE:p.10
+Necklace (Copper)	OUTPUTNAME:[NAME] Necklace	TYPE:Goods.Art	COST:100	WT:0		SOURCEPAGE:p.10

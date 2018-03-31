@@ -1,0 +1,56 @@
+# CVS $Revision: 16794 $ $Author: amaitland $ -- Sat Dec  8 13:05:34 2007 -- reformated by prettylst.pl v1.38 (build 4387)
+CAMPAIGN:Varisia, Birthplace of Legends (PFS)
+KEY:PFS ~ Varisia - Birthplace of Legends
+#GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing PFS.Pathfinder Player Companion
+RANK:3
+STATUS:ALPHA
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder|Golarion
+PRECAMPAIGN:2,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:1,Pathfinder Society Core Assumption
+
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+SOURCELONG:Pathfinder Player Companion: Varisia, Birthplace of Legends
+SOURCESHORT:VBOL
+SOURCEWEB:http://paizo.com/products/btpy8tim
+SOURCEDATE:2012-9
+ISOGL:YES
+
+#COVER:@/pathfinder/paizo/player_companion/varisia_birthplace_of_legends/varisia_birthplace_of_legends.jpeg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy8tim|Buy this publication from Paizo Publishing!
+DESC:Never has a land needed heroes more than Varisia. There, at the edge of civilization, barbarians clash with dark armored invaders, foul creatures lurk within the hearts of titanic monuments, and daring explorers unearth the secrets of a forgotten age of wizard-tyrants. This definitive Pathfinder guide equips players with all they need to face Varisia's dangers and mysteries, as well as dozens of new options for playing characters native to this wild region - perhaps as a mystical thundercaller of the Shoanti barbarians, a daring bravo leading a caravan of Varisian wanderers, or an obsessed magic-user steeped in the lore of the sinister Thassilonian empire. New options for character backgrounds and campaign traits allow players to integrate their characters into any of the Adventure Paths set in Varisia - such as the Rise of the Runelords or Shattered Star Adventure Path - like never before! Varisia needs heroes, be one of them with the all-new format Pathfinder Player Companion: Varisia, Birthplace of Legends!
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document © 2000, Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, and Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder Player Companion: Varisia, Birthplace of Legends Copyright 2012, Paizo Inc.; Authors: F. Wesley Schneider, Amber E. Scott, Tork Shaw, James L. Sutter, and Jerome Virnich.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Varisia, Birthplace of Legends" Copyright 2012, PCGen Data Team (including, but not limited to John Mooney, Stefan Radermacher)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# Additional Resources
+# Last Updated Friday, January 9, 2015
+#
+# Pathfinder Player Companion: Varisia, Birthplace of Legends
+# Archetypes: Kapenia dancer and thundercaller are legal for play.;
+# Equipment: All equipment on pages 14-15 are legal for play except Varisian idol.;
+# Feats: Deadly Dealer and Thunder and Fang is legal for play.;
+# Roles: Duskwarden, Frontier Defender, Magnimarian Warden, Professional Gambler, Sable Company Marine, Sczarni Tough, Shingles Dweller, Shoanti Outrider, Shoanti Totem Shaman, Sky Magistrate, Varisian Bravo, and Welcome Wanderer are legal for play.;
+# Traits: Coincunning, cypher resistance, emissary, empyreal cultist, harrow chosen, humble beginnings, local know-it-all, regional influence (except Magnimar), regional recluse, roof racer, savage breaker, Shoanti steed, Shoanti tattoo, town gossip, underbridge dweller, Varisian tattoo, and winner's luck are legal for play.
+
+# Data files
+EQUIPMENT:pfs_vbol_equip_general.lst|PRECAMPAIGN:1,INCLUDES=Varisia - Birthplace of Legends
+ABILITY:pfs_vbol_abilities.lst|PRECAMPAIGN:1,INCLUDES=Varisia - Birthplace of Legends
+ABILITY:pfs_vbol_abilities_class.lst|PRECAMPAIGN:1,INCLUDES=Varisia - Birthplace of Legends
+
+#
+# End
+#

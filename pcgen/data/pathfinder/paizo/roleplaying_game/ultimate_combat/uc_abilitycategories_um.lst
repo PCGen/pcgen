@@ -1,0 +1,8 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+
+
+# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Specific choices list				Display Location
+ABILITYCATEGORY:Kensai Weapon Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	ABILITYLIST:Kensai ~ Weapon Proficiency	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Kensai Chosen Weapon	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	ABILITYLIST:Kensai ~ Chosen Weapon		DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Kensai Weapon Focus		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	ABILITYLIST:Kensai ~ Weapon Focus Display	DISPLAYLOCATION:Class Features

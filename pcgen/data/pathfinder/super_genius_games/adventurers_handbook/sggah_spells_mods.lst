@@ -1,0 +1,276 @@
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:Adventurer's Handbook: Genius Guide Volume 1	SOURCESHORT:SGGAH	SOURCEDATE:2010-04
+# Original Entry by: Paul Shipley (elro the onk)
+
+#Spell Name					Classes of caster
+#Archon spells
+#0
+# Spell Name					Classes of caster
+Arcane Mark.MOD					CLASSES:Archon=0
+Dancing Lights.MOD				CLASSES:Archon=0
+Detect Magic.MOD					CLASSES:Archon=0
+Disrupt Undead.MOD				CLASSES:Archon=0
+Flare.MOD						CLASSES:Archon=0
+Ghost Sound.MOD					CLASSES:Archon=0
+Light.MOD						CLASSES:Archon=0
+Mending.MOD						CLASSES:Archon=0
+Message.MOD						CLASSES:Archon=0
+Open/Close.MOD					CLASSES:Archon=0
+Prestidigitation.MOD				CLASSES:Archon=0
+Read Magic.MOD					CLASSES:Archon=0
+Resistance.MOD					CLASSES:Archon=0
+Touch of Fatigue.MOD				CLASSES:Archon=0
+#1
+Alarm.MOD						CLASSES:Archon=1
+Animate Rope.MOD					CLASSES:Archon=1
+Burning Hands.MOD					CLASSES:Archon=1
+Charm Person.MOD					CLASSES:Archon=1
+Chill Touch.MOD					CLASSES:Archon=1
+Comprehend Languages.MOD			CLASSES:Archon=1
+Detect Secret Doors.MOD				CLASSES:Archon=1
+Detect Undead.MOD					CLASSES:Archon=1
+Disguise Self.MOD					CLASSES:Archon=1
+Endure Elements.MOD				CLASSES:Archon=1
+Enlarge Person.MOD				CLASSES:Archon=1
+Erase.MOD						CLASSES:Archon=1
+Feather Fall.MOD					CLASSES:Archon=1
+Floating Disk.MOD					CLASSES:Archon=1
+Grease.MOD						CLASSES:Archon=1
+Hold Portal.MOD					CLASSES:Archon=1
+Jump.MOD						CLASSES:Archon=1
+Magic Aura.MOD					CLASSES:Archon=1
+Magic Missile.MOD					CLASSES:Archon=1
+Magic Weapon.MOD					CLASSES:Archon=1
+Mount.MOD						CLASSES:Archon=1
+Obscuring Mist.MOD				CLASSES:Archon=1
+Protection from Chaos.MOD			CLASSES:Archon=1
+Protection from Evil.MOD			CLASSES:Archon=1
+Protection from Good.MOD			CLASSES:Archon=1
+Protection from Law.MOD				CLASSES:Archon=1
+Ray of Enfeeblement.MOD				CLASSES:Archon=1
+Shield.MOD						CLASSES:Archon=1
+Shocking Grasp.MOD				CLASSES:Archon=1
+Silent Image.MOD					CLASSES:Archon=1
+Ventriloquism.MOD					CLASSES:Archon=1
+#2
+Acid Arrow.MOD					CLASSES:Archon=2
+Alter Self.MOD					CLASSES:Archon=2
+Bear's Endurance.MOD				CLASSES:Archon=2
+Blindness/Deafness.MOD				CLASSES:Archon=2
+Blur.MOD						CLASSES:Archon=2
+Bull's Strength.MOD				CLASSES:Archon=2
+Cat's Grace.MOD					CLASSES:Archon=2
+Darkness.MOD					CLASSES:Archon=2
+Darkvision.MOD					CLASSES:Archon=2
+Detect Thoughts.MOD				CLASSES:Archon=2
+Eagle's Splendor.MOD				CLASSES:Archon=2
+Fog Cloud.MOD					CLASSES:Archon=2
+Fox's Cunning.MOD					CLASSES:Archon=2
+Ghoul Touch.MOD					CLASSES:Archon=2
+Glitterdust.MOD					CLASSES:Archon=2
+Gust of Wind.MOD					CLASSES:Archon=2
+Hypnotic Pattern.MOD				CLASSES:Archon=2
+Invisibility.MOD					CLASSES:Archon=2
+Knock.MOD						CLASSES:Archon=2
+Levitate.MOD					CLASSES:Archon=2
+Locate Object.MOD					CLASSES:Archon=2
+Make Whole.MOD					CLASSES:Archon=2
+Minor Image.MOD					CLASSES:Archon=2
+Mirror Image.MOD					CLASSES:Archon=2
+Obscure Object.MOD				CLASSES:Archon=2
+Owl's Wisdom.MOD					CLASSES:Archon=2
+Protection from Arrows.MOD			CLASSES:Archon=2
+Pyrotechnics.MOD					CLASSES:Archon=2
+Resist Energy.MOD					CLASSES:Archon=2
+Scorching Ray.MOD					CLASSES:Archon=2
+See Invisibility.MOD				CLASSES:Archon=2
+Shatter.MOD						CLASSES:Archon=2
+Spectral Hand.MOD					CLASSES:Archon=2
+Spider Climb.MOD					CLASSES:Archon=2
+Touch of Idiocy.MOD				CLASSES:Archon=2
+Whispering Wind.MOD				CLASSES:Archon=2
+#3
+Clairaudience/Clairvoyance.MOD		CLASSES:Archon=3
+Daylight.MOD					CLASSES:Archon=3
+Dispel Magic.MOD					CLASSES:Archon=3
+Displacement.MOD					CLASSES:Archon=3
+Explosive Runes.MOD				CLASSES:Archon=3
+Fireball.MOD					CLASSES:Archon=3
+Flame Arrow.MOD					CLASSES:Archon=3
+Fly.MOD						CLASSES:Archon=3
+Gaseous Form.MOD					CLASSES:Archon=3
+Haste.MOD						CLASSES:Archon=3
+Heroism.MOD						CLASSES:Archon=3
+Keen Edge.MOD					CLASSES:Archon=3
+Lightning Bolt.MOD				CLASSES:Archon=3
+Magic Circle against Chaos.MOD		CLASSES:Archon=3
+Magic Circle against Evil.MOD			CLASSES:Archon=3
+Magic Circle against Good.MOD			CLASSES:Archon=3
+Magic Circle against Law.MOD			CLASSES:Archon=3
+Magic Weapon (Greater).MOD			CLASSES:Archon=3
+Major Image.MOD					CLASSES:Archon=3
+Phantom Steed.MOD					CLASSES:Archon=3
+Protection from Energy.MOD			CLASSES:Archon=3
+Rage.MOD						CLASSES:Archon=3
+Ray of Exhaustion.MOD				CLASSES:Archon=3
+Sleet Storm.MOD					CLASSES:Archon=3
+Slow.MOD						CLASSES:Archon=3
+Stinking Cloud.MOD				CLASSES:Archon=3
+Suggestion.MOD					CLASSES:Archon=3
+Tiny Hut.MOD					CLASSES:Archon=3
+Tongues.MOD						CLASSES:Archon=3
+Vampiric Touch.MOD				CLASSES:Archon=3
+Water Breathing.MOD				CLASSES:Archon=3
+#4
+Arcane Eye.MOD					CLASSES:Archon=4
+Bestow Curse.MOD					CLASSES:Archon=4
+Black Tentacles.MOD				CLASSES:Archon=4
+Confusion.MOD					CLASSES:Archon=4
+Contagion.MOD					CLASSES:Archon=4
+Crushing Despair.MOD				CLASSES:Archon=4
+Detect Scrying.MOD				CLASSES:Archon=4
+Dimension Door.MOD				CLASSES:Archon=4
+Enervation.MOD					CLASSES:Archon=4
+Fear.MOD						CLASSES:Archon=4
+Fire Shield.MOD					CLASSES:Archon=4
+Globe of Invulnerability (Lesser).MOD	CLASSES:Archon=4
+Ice Storm.MOD					CLASSES:Archon=4
+Locate Creature.MOD				CLASSES:Archon=4
+Minor Creation.MOD				CLASSES:Archon=4
+Phantasmal Killer.MOD				CLASSES:Archon=4
+Remove Curse.MOD					CLASSES:Archon=4
+Resilient Sphere.MOD				CLASSES:Archon=4
+Secure Shelter.MOD				CLASSES:Archon=4
+Shout.MOD						CLASSES:Archon=4
+Solid Fog.MOD					CLASSES:Archon=4
+Stone Shape.MOD					CLASSES:Archon=4
+#5
+Baleful Polymorph.MOD				CLASSES:Archon=5
+Blight.MOD						CLASSES:Archon=5
+Break Enchantment.MOD				CLASSES:Archon=5
+Cone of Cold.MOD					CLASSES:Archon=5
+Dismissal.MOD					CLASSES:Archon=5
+Dream.MOD						CLASSES:Archon=5
+Interposing Hand.MOD				CLASSES:Archon=5
+Mage's Faithful Hound.MOD			CLASSES:Archon=5
+Major Creation.MOD				CLASSES:Archon=5
+Mind Fog.MOD					CLASSES:Archon=5
+Nightmare.MOD					CLASSES:Archon=5
+Overland Flight.MOD				CLASSES:Archon=5
+Persistent Image.MOD				CLASSES:Archon=5
+Polymorph.MOD					CLASSES:Archon=5
+Prying Eyes.MOD					CLASSES:Archon=5
+Sending.MOD						CLASSES:Archon=5
+Telepathic Bond.MOD				CLASSES:Archon=5
+Teleport.MOD					CLASSES:Archon=5
+Transmute Mud to Rock.MOD			CLASSES:Archon=5
+Transmute Rock to Mud.MOD			CLASSES:Archon=5
+Waves of Fatigue.MOD				CLASSES:Archon=5
+#6
+Acid Fog.MOD					CLASSES:Archon=6
+Antimagic Field.MOD				CLASSES:Archon=6
+Chain Lightning.MOD				CLASSES:Archon=6
+Control Water.MOD					CLASSES:Archon=6
+Disintegrate.MOD					CLASSES:Archon=6
+Eyebite.MOD						CLASSES:Archon=6
+Flesh to Stone.MOD				CLASSES:Archon=6
+Forceful Hand.MOD					CLASSES:Archon=6
+Freezing Sphere.MOD				CLASSES:Archon=6
+Guards and Wards.MOD				CLASSES:Archon=6
+Globe of Invulnerability.MOD			CLASSES:Archon=6
+Heroism (Greater).MOD				CLASSES:Archon=6
+Mislead.MOD						CLASSES:Archon=6
+Move Earth.MOD					CLASSES:Archon=6
+Permanent Image.MOD				CLASSES:Archon=6
+Shadow Walk.MOD					CLASSES:Archon=6
+Stone to Flesh.MOD				CLASSES:Archon=6
+Veil.MOD						CLASSES:Archon=6
+
+#Death Mage spells
+# 0
+Bleed.MOD						CLASSES:Death Mage=0
+Detect Magic.MOD					CLASSES:Death Mage=0
+Detect Poison.MOD					CLASSES:Death Mage=0
+Disrupt Undead.MOD				CLASSES:Death Mage=0
+Guidance.MOD					CLASSES:Death Mage=0
+Read Magic.MOD					CLASSES:Death Mage=0
+Stabilize.MOD					CLASSES:Death Mage=0
+Touch of Fatigue.MOD				CLASSES:Death Mage=0
+Virtue.MOD						CLASSES:Death Mage=0
+# 1st
+Cause Fear.MOD					CLASSES:Death Mage=1
+Chill Touch.MOD					CLASSES:Death Mage=1
+Deathwatch.MOD					CLASSES:Death Mage=1
+Inflict Light Wounds.MOD			CLASSES:Death Mage=1
+Obscuring Mist.MOD				CLASSES:Death Mage=1
+Ray of Enfeeblement.MOD				CLASSES:Death Mage=1
+# 2nd
+Command Undead.MOD				CLASSES:Death Mage=2
+Death Knell.MOD					CLASSES:Death Mage=2
+False Life.MOD					CLASSES:Death Mage=2
+Fog Cloud.MOD					CLASSES:Death Mage=2
+Gentle Repose.MOD					CLASSES:Death Mage=2
+Ghoul Touch.MOD					CLASSES:Death Mage=2
+Inflict Moderate Wounds.MOD			CLASSES:Death Mage=2
+Remove Paralysis.MOD				CLASSES:Death Mage=2
+Scare.MOD						CLASSES:Death Mage=2
+Spectral Hand.MOD					CLASSES:Death Mage=2
+# 3rd
+Animate Dead.MOD					CLASSES:Death Mage=3
+Deeper Darkness.MOD				CLASSES:Death Mage=3
+Halt Undead.MOD					CLASSES:Death Mage=3
+Inflict Serious Wounds.MOD			CLASSES:Death Mage=3
+Ray of Exhaustion.MOD				CLASSES:Death Mage=3
+Speak with Dead.MOD				CLASSES:Death Mage=3
+Vampiric Touch.MOD				CLASSES:Death Mage=3
+# 4th
+Bestow Curse.MOD					CLASSES:Death Mage=4
+Contagion.MOD					CLASSES:Death Mage=4
+Death Ward.MOD					CLASSES:Death Mage=4
+Enervation.MOD					CLASSES:Death Mage=4
+Fear.MOD						CLASSES:Death Mage=4
+Inflict Critical Wounds.MOD			CLASSES:Death Mage=4
+Inflict Light Wounds (Mass).MOD		CLASSES:Death Mage=4
+Shadow Conjuration.MOD				CLASSES:Death Mage=4
+# 5th
+Blight.MOD
+Inflict Moderate Wounds (Mass).MOD		CLASSES:Death Mage=5
+Insect Plague.MOD					CLASSES:Death Mage=5
+Magic Jar.MOD					CLASSES:Death Mage=5
+Shadow Evocation.MOD				CLASSES:Death Mage=5
+Slay Living.MOD					CLASSES:Death Mage=5
+Symbol of Pain.MOD				CLASSES:Death Mage=5
+Waves of Fatigue.MOD				CLASSES:Death Mage=5
+# 6th
+Circle of Death.MOD				CLASSES:Death Mage=6
+Create Undead.MOD					CLASSES:Death Mage=6
+Eyebite.MOD						CLASSES:Death Mage=6
+Harm.MOD						CLASSES:Death Mage=6
+Inflict Serious Wounds (Mass).MOD		CLASSES:Death Mage=6
+Shadow Walk.MOD					CLASSES:Death Mage=6
+Symbol of Fear.MOD				CLASSES:Death Mage=6
+Undeath to Death.MOD				CLASSES:Death Mage=6
+# 7th
+Control Undead.MOD				CLASSES:Death Mage=7
+Destruction.MOD					CLASSES:Death Mage=7
+Finger of Death.MOD				CLASSES:Death Mage=7
+Inflict Critical Wounds (Mass).MOD		CLASSES:Death Mage=7
+Power Word Blind.MOD				CLASSES:Death Mage=7
+Shadow Conjuration (Greater).MOD		CLASSES:Death Mage=7
+Symbol of Weakness.MOD				CLASSES:Death Mage=7
+Waves of Exhaustion.MOD				CLASSES:Death Mage=7
+# 8th
+Clone.MOD						CLASSES:Death Mage=8
+Create Greater Undead.MOD			CLASSES:Death Mage=8
+Horrid Wilting.MOD				CLASSES:Death Mage=8
+Shadow Evocation (Greater).MOD		CLASSES:Death Mage=8
+Symbol of Death.MOD				CLASSES:Death Mage=8
+# 9th
+Astral Projection.MOD				CLASSES:Death Mage=9
+Energy Drain.MOD					CLASSES:Death Mage=9
+Shades.MOD						CLASSES:Death Mage=9
+Soul Bind.MOD					CLASSES:Death Mage=9
+Wail of the Banshee.MOD				CLASSES:Death Mage=9
+
+#
+# EOF

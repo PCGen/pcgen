@@ -1,0 +1,74 @@
+# CVS $Revision: 21399 $ $Author: evilmynex $ -- Tue Dec  2 17:52:53 2014 -- reformated by prettylst.pl v1.51 (build 25490)
+SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
+# Original Entry by: Eric C. Smith (Maredudd)
+
+# Weapon Name			Type																								Nb Hands
+Bomb					TYPE:Exotic.Ranged.Splash.Weapon Group Thrown
+# SIMPLE WEAPONS
+# -- unarmed
+# Weapon Name			Type																		Nb Hands
+#Brass Knuckles			TYPE:Simple.Melee.Unarmed.Bludgeoning.Weapon Group Close.Weapon Group Monk
+
+# -- light melee
+Cestus				TYPE:Simple.Melee.Light.Bludgeoning.Piercing.MeleeBludgeoning.MeleePiercing.Weapon Group Close.Weapon Group Monk
+Stake					TYPE:Simple.Melee.Ranged.Light.Piercing.RangedPiercing.Weapon Group Close
+
+# -- 2-handers
+Bayonet				TYPE:Simple.Melee.Piercing.MeleePiercing.TwoHanded.Weapon Group Close.Weapon Group Blades Light
+Boar Spear	KEY:Spear (Boar)			TYPE:Simple.Melee,Piercing.MeleePiercing.Spear.TwoHanded.Weapon Group Spears
+
+# Martial
+# 1-handers
+Sword Cane				TYPE:Martial.Melee.Piercing.MeleePiercing.Sword.Weapon Group Blades Light.SwordLike.Tengu
+
+# 2-handers
+Bardiche				TYPE:Martial.Melee.Slashing.MeleeSlashing.Axe.TwoHanded.Polearm.Weapon Group Pole Arms.Weapon Group Axes
+Bec de Corbin			TYPE:Martial.Melee.Bludgeoning.Piercing.MeleeBludgeoning.MeleePiercing.Hammer.TwoHanded.Polearm.Weapon Group Pole Arms
+Bill					TYPE:Martial.Melee.Slashing.MeleeSlashing.Axe.TwoHanded.Polearm.Weapon Group Pole Arms
+Glaive-Guisarme			TYPE:Martial.Melee.Slashing.MeleeSlashing.Axe.TwoHanded.Polearm.Weapon Group Pole Arms
+Lucerne Hammer			TYPE:Martial.Melee.Bludgeoning.Piercing.MeleeBludgeoning.MeleePiercing.Hammer.TwoHanded.Polearm.Weapon Group Pole Arms
+
+# --ranged
+#Longbow				TYPE:Martial.Ranged.Piercing.RangedPiercing.Bow											HANDS:2
+Chakram				TYPE:Martial.Ranged.Slashing.RangedSlashing.Weapon Group Thrown.Weapon Group Blades Light.Weapon Group Blades Heavy
+Pilum					TYPE:Martial.Ranged.Piercing.RangedPiercing.Spear.Weapon Group Spears
+
+# EXOTIC
+# -- light
+Swordbreaker Dagger	KEY:Dagger (Swordbreaker)		TYPE:Exotic.Melee.Light.Slashing.MeleeSlashing.Dagger.Tengu.SwordLike.Weapon Group Blades Light
+
+# -- 1-handers
+Falcata				TYPE:Exotic.Melee.Slashing.MeleeSlashing.Sword.Weapon Group Blades Heavy.SwordLike.Tengu
+Khopesh				TYPE:Exotic.Melee.Slashing.MeleeSlashing.Sword.Weapon Group Blades Heavy.SwordLike.Tengu
+Temple Sword	KEY:Sword (Temple)			TYPE:Exotic.Melee.Slashing.MeleeSlashing.Sword.Monk.Weapon Group Blades Heavy.SwordLike.Tengu.Weapon Group Monk
+
+# -- 2-handers
+Chain Spear	KEY:Spear (Chain)			TYPE:Exotic.Melee.Piercing.Slashing.MeleePiercing.MeleeSlashing.Spear.TwoHanded.Weapon Group Double.Weapon Group Flails.Weapon Group Spears
+Mancatcher				TYPE:Exotic.Melee.Piercing.MeleePiercing.Spear.TwoHanded.Weapon Group Pole Arms
+
+# -- ranged
+Boomerang				TYPE:Exotic.Ranged.Bludgeoning.RangedBludgeoning.Weapon Group Thrown
+Double Crossbow	KEY:Crossbow (Double)			TYPE:Exotic.Ranged.Piercing.RangedPiercing.Crossbow.Weapon Group Crossbows												HANDS:2
+Lasso					TYPE:Exotic.Ranged.Lasso.Weapon Group Thrown																	HANDS:2
+
+###Weapon Groups:
+Bardiche.MOD			TYPE:Axe.Polearm
+Chakram.MOD				TYPE:BladeHeavy.Thrown
+Falcata.MOD				TYPE:BladeHeavy
+Khopesh.MOD				TYPE:BladeHeavy
+Sword (Temple).MOD		TYPE:BladeHeavy
+Bayonet.MOD				TYPE:BladeLight.Close
+Dagger (Swordbreaker).MOD	TYPE:BladeLight
+#Brass Knuckles.MOD	TYPE:Close.Monk
+#Wooden Stake.MOD	TYPE:Close
+Stake.MOD				TYPE:Close
+Crossbow (Double).MOD		TYPE:Crossbow
+Cestus.MOD				TYPE:Monk
+Bec De Corbin.MOD			TYPE:Polearm
+Bill.MOD				TYPE:Polearm
+Glaive-Guisarme.MOD		TYPE:Polearm
+Lucerne Hammer.MOD		TYPE:Polearm
+Mancatcher.MOD			TYPE:Polearm
+Boomerang.MOD			TYPE:Thrown
+Lasso.MOD				TYPE:Thrown
+Sword Cane.MOD			TYPE:BladeLight

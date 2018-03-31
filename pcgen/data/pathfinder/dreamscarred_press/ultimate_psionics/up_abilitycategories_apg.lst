@@ -1,0 +1,31 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# SOURCELONG:Ultimate Psionics	SOURCESHORT:UP	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2013-12
+# ORIGINAL ENTRY: Douglas Limmer
+# ORIGINAL ENTRY DATE: 2013/07/08
+
+# TODO:
+#   Change source line
+
+###Block: Horror ability pools
+# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location
+ABILITYCATEGORY:Horror Biped Evolution		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EvolutionBiped		PLURAL:Horror Biped Evolutions	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Horror Quadruped Evolution	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EvolutionQuadruped		PLURAL:Horror Quadruped Evolutions	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Horror Serpentine Evolution	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EvolutionSerpentine	PLURAL:Horror Serpentine Evolutions	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Horror Evolution			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EvolutionChoice		PLURAL:Horror Evolutions		DISPLAYLOCATION:Class Features
+
+###Block: Bonus Feat ability pools
+# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object	Type of Object				Plural description for UI		Display Location
+ABILITYCATEGORY:Forgesteed Rider Bonus Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:Psionic.CavalierFeat.Combat	PLURAL:Forgesteed Rider Bonus Feats	DISPLAYLOCATION:Feats
+
+###Block: Clan Warden domain choice
+# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Base Pool number		Category of Object		Type of Object		Plural description for UI		Display Location
+ABILITYCATEGORY:Clan Warden Domain Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:Special Ability	TYPE:ClanWardenDomain	PLURAL:Clan Warden Domain Choices	DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Horror Type			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_HorrorType	CATEGORY:Internal			TYPE:Horror Type		PLURAL:Horror Evolutions		DISPLAYLOCATION:Class Features
+
+
+
+
+#
+# End
+#

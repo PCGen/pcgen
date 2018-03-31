@@ -1,0 +1,49 @@
+# CVS $Revision: $ $Author: $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Psionics Expanded	SOURCESHORT:PsiEx	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2012-07
+# ORIGINAL ENTRY: Douglas Limmer
+# ORIGINAL ENTRY DATE: 2013/07/05
+
+###Block: Astral Warrior class
+
+# Class Name		Hit Dice	Type				Max Level		Source Page		Levels per Feat	Ability																		Auto Weapon Prof					Combat bonus																Save bonus																																		Modify VAR																																																												Template				FACT
+CLASS:Astral Warrior	HD:10		TYPE:Monster.Companion	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.66	LEVELSPERFEAT:0	ABILITY:FEAT|AUTOMATIC|CMB Output	ABILITY:Special Ability|AUTOMATIC|Construct Traits|PREVAREQ:NoTypeTraits,0	AUTO:WEAPONPROF|Astral Warrior Weapon	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	TEMPLATE:Construct|Mindless	FACT:ClassType|Companion
+# Class Name		Reg. Race Type
+CLASS:Astral Warrior	PRERACETYPE:Construct
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Astral Warrior	STARTSKILLPTS:0	MODTOSKILLS:NO
+
+###Block: Horror Companion Classes
+
+# Class Name	Output Name		Hit Dice	Type				Max Level		Source Page		Levels per Feat	Ability																		Define												Combat bonus																Save bonus																																																																																																																													Modify VAR																																																																																																																																							Template				FACT
+CLASS:Horror	OUTPUTNAME:Horror	HD:10		TYPE:Monster.Companion	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.70	LEVELSPERFEAT:0	ABILITY:FEAT|AUTOMATIC|CMB Output	ABILITY:Special Ability|AUTOMATIC|Construct Traits|PREVAREQ:NoTypeTraits,0	DEFINE:HorrorFortGood|0	DEFINE:HorrorReflexGood|0	DEFINE:HorrorWillGood|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0|PREVAREQ:HorrorFortGood,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0|PREVAREQ:HorrorFortGood,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0|PREVAREQ:HorrorReflexGood,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0|PREVAREQ:HorrorReflexGood,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0|PREVAREQ:HorrorWillGood,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0|PREVAREQ:HorrorWillGood,0	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1|PREVAREQ:HorrorFortGood,1	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1|PREVAREQ:HorrorFortGood,0	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1|PREVAREQ:HorrorReflexGood,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1|PREVAREQ:HorrorReflexGood,0	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1|PREVAREQ:HorrorWillGood,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1|PREVAREQ:HorrorWillGood,0	TEMPLATE:Construct|Mindless	FACT:ClassType|Companion
+# Class Name	Reg. Race Type
+CLASS:Horror	PRERACETYPE:Construct
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Horror	STARTSKILLPTS:0	MODTOSKILLS:NO
+
+###Block: Old Version
+
+# Class Name		Output Name		Hit Dice	Type				Max Level		Source Page		Levels per Feat	Ability																		Combat bonus																Save bonus																																		Modify VAR																																																												Template				FACT
+CLASS:Horror (Fort/Ref)	OUTPUTNAME:Horror	HD:10		TYPE:Monster.Companion	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.70	LEVELSPERFEAT:0	ABILITY:FEAT|AUTOMATIC|CMB Output	ABILITY:Special Ability|AUTOMATIC|Construct Traits|PREVAREQ:NoTypeTraits,0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	TEMPLATE:Construct|Mindless	FACT:ClassType|Companion
+# Class Name		Reg. Race Type
+CLASS:Horror (Fort/Ref)	PRERACETYPE:Construct
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Horror (Fort/Ref)	STARTSKILLPTS:0	MODTOSKILLS:NO
+
+# Class Name			Output Name		Hit Dice	Type				Max Level		Source Page		Levels per Feat	Ability																		Combat bonus																Save bonus																																		Modify VAR																																																												Template				FACT
+CLASS:Horror (Fort/Will)	OUTPUTNAME:Horror	HD:10		TYPE:Monster.Companion	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.70	LEVELSPERFEAT:0	ABILITY:FEAT|AUTOMATIC|CMB Output	ABILITY:Special Ability|AUTOMATIC|Construct Traits|PREVAREQ:NoTypeTraits,0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	TEMPLATE:Construct|Mindless	FACT:ClassType|Companion
+# Class Name			Reg. Race Type
+CLASS:Horror (Fort/Will)	PRERACETYPE:Construct
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Horror (Fort/Will)	STARTSKILLPTS:0	MODTOSKILLS:NO
+
+# Class Name		Output Name		Hit Dice	Type				Max Level		Source Page		Levels per Feat	Ability																		Combat bonus																Save bonus																																		Modify VAR																																																												Template				FACT
+CLASS:Horror (Ref/Will)	OUTPUTNAME:Horror	HD:10		TYPE:Monster.Companion	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.70	LEVELSPERFEAT:0	ABILITY:FEAT|AUTOMATIC|CMB Output	ABILITY:Special Ability|AUTOMATIC|Construct Traits|PREVAREQ:NoTypeTraits,0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	TEMPLATE:Construct|Mindless	FACT:ClassType|Companion
+# Class Name		Reg. Race Type
+CLASS:Horror (Ref/Will)	PRERACETYPE:Construct
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Horror (Ref/Will)	STARTSKILLPTS:0	MODTOSKILLS:NO
+
+#
+# End
+#

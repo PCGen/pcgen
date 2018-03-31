@@ -1,0 +1,12 @@
+# CVS $Revision: $ $Author: $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Second Darkness, Chapter 2 - Children of the Void	SOURCESHORT:AP14	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy85ed	SOURCEDATE:2008-10
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus																Save bonus																																		Modify VAR																																																												FACT
+CLASS:Chevalier	HD:10		TYPE:PC.Prestige	MAXLEVEL:3	SOURCEPAGE:p.62	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|Chev
+# Class Name	Required AL		Required Skill						Required Text													PRETOTALAB
+CLASS:Chevalier	PREALIGN:LG,NG,CG	PRESKILL:2,Diplomacy=1,Knowledge (Local)=1	PRETEXT:A would-be chevalier must have succeeded at a challenge requiring great heroism	PRETOTALAB:6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Chevalier	STARTSKILLPTS:4	CSKILL:Acrobatics|Bluff|TYPE=Craft|Diplomacy|Intimidate|TYPE=Perform|TYPE=Profession|Survival
+1	ABILITY:Special Ability|AUTOMATIC|Chevalier Aura of Courage|Recklessness
+2	ABILITY:Special Ability|AUTOMATIC|Controlled Charge|Stubborn Mind
+3	ABILITY:Special Ability|AUTOMATIC|Chevalier Poison Immunity|Chevalier Smite Evil

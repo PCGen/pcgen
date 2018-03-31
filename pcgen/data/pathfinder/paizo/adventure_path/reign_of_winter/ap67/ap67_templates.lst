@@ -1,0 +1,14 @@
+# CVS $Revision: 17892 $ $Author: amaitland $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Reign of Winter, Part 1: The Snows of Summer	SOURCESHORT:AP67	SOURCEWEB:http://paizo.com/products/btpy8w7d/discuss?Pathfinder-Adventure-Path-67-The-Snows-of-Summer	SOURCEDATE:2013-02
+# ORIGINAL ENTRY: Stefan Radermacher
+
+###Block: Reign of Winter toolkit
+# Template Name				Challenge Rating	Visible	Template								Source Page		Required Race					Prohibited Race				Maximum Size	Bonus to Situation																																Stat bonus			Ability																											Apply Kit		Main Race Type		Race Subtype	FACT
+Boreal Creature				CR:1			VISIBLE:YES	TEMPLATE:CHOOSE:Boreal Creature ~ Animal or Vermin	SOURCEPAGE:p.72								!PRERACE:1,RACESUBTYPE=Incorporeal	PRESIZELTEQ:H	BONUS:SITUATION|Stealth=In snow,Survival=In snow|4|TYPE=Racial|!PRERACE:1,RACESUBTYPE=Aquatic	BONUS:SITUATION|Stealth=In frigid waters,Survival=In frigid waters|4|TYPE=Racial|PRERACE:1,RACESUBTYPE=Aquatic	BONUS:STAT|STR,CON|2	ABILITY:Special Ability|AUTOMATIC|Boreal Creature ~ Cold Damage	ABILITY:Special Ability|AUTOMATIC|Boreal Creature ~ Trackless Step|!PRERACE:1,RACESUBTYPE=Aquatic								RACESUBTYPE:Cold	FACT:AppliedName|Boreal
+Boreal Creature ~ Animal or Vermin				VISIBLE:NO													PRERACE:1,RACETYPE=Animal,RACETYPE=Vermin																																																																																RACETYPE:Magical Beast
+#
+Winter-Touched Fey						VISIBLE:YES										SOURCEPAGE:p.72	PRERACE:1,RACETYPE=Fey				!PRERACE:1,RACESUBTYPE=Fire																																												ABILITY:Special Ability|AUTOMATIC|Winter-Touched Fey ~ Numbing Cold																	KIT:1|CE|LE|NE					RACESUBTYPE:Cold	FACT:AppliedName|Winter-Touched
+
+#
+# End
+#

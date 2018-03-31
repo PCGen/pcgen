@@ -1,0 +1,68 @@
+# CVS $Revision: $ $Author: $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Lords of Chaos, Book of the Damned, Volume 2	SOURCESHORT:BOTD2	SOURCEWEB:http://paizo.com/products/btpy8hij?Pathfinder-Campaign-Setting-Book-of-the-Damned-Volume-2-Lords-of-Chaos	SOURCEDATE:2010-10
+# ORIGINAL ENTRY: elro the onk (Paul Shipley)
+
+###Block: Other Deities
+# Deity Name	Product Identity?	Domains											Description of Deity/Title				FACTSET							Deity Weapon			Align		Source Page			Prohibited Campaign(s)
+Camazotz		NAMEISPI:YES	DOMAINS:Animal,Chaos,Darkness,Evil,Trickery|PREALIGN:NE,CN,CE		DESC:God of bats, blood, caverns			FACTSET:Pantheon|Pathfinder Chronicles		DEITYWEAP:Javelin			ALIGN:CE	SOURCEPAGE:Rear Cover
+Droskar		NAMEISPI:YES	DOMAINS:Artifice,Charm,Darkness,Evil,Trickery|PREALIGN:TN,LE,NE,CE	DESC:God of cheating, slavery, toil, slavery	FACTSET:Pantheon|Pathfinder Chronicles|Dwarven	DEITYWEAP:Hammer (Light)	ALIGN:NE	SOURCEPAGE:Rear Cover	!PRECAMPAIGN:1,Dwarves of Golarion
+Gyronna		NAMEISPI:YES	DOMAINS:Chaos,Destruction,Evil,Madness|PREALIGN:NE,CN,CE			DESC:Goddess of exortion, hatred, spite		FACTSET:Pantheon|Pathfinder Chronicles		DEITYWEAP:Dagger			ALIGN:CE	SOURCEPAGE:Rear Cover	!PRECAMPAIGN:1,Inner Sea World Guide
+#Lamashtu		NAMEISPI:YES	DOMAINS:Chaos,Evil,Madness,Strength,Trickery|PREALIGN:NE,CN,CE		DESC:Goddess of madness, monsters, nightmares	DEITYWEAP:Falchion		ALIGN:CE	PANTHEON:Pathfinder Chronicles		SOURCEPAGE:p.45
+
+###Block: Demon Lords
+# Deity Name	Product Identity?	Domains									Description of Deity/Title										FACTSET				Deity Weapon			Align		Source Page		Prohibited Campaign(s)
+Abraxas		NAMEISPI:YES	DOMAINS:Chaos,Evil,Knowledge,Magic|PREALIGN:NE,CN,CE		DESC:Master of the Final Incantation; Demon lord of forbidden lore, magic, snakes	FACTSET:Pantheon|Demon Lords	DEITYWEAP:Whip			ALIGN:CE	SOURCEPAGE:p.9	!PRECAMPAIGN:1,Inner Sea World Guide
+Aldinach		NAMEISPI:YES	DOMAINS:Animal,Chaos,Evil,Sun|PREALIGN:NE,CN,CE			DESC:She of the Six Venoms; Demon lord of sand, scorpions, thirst				FACTSET:Pantheon|Demon Lords	DEITYWEAP:Kukri			ALIGN:CE	SOURCEPAGE:p.10
+Andirifhku		NAMEISPI:YES	DOMAINS:Chaos,Evil,Luck,Trickery|PREALIGN:NE,CN,CE		DESC:The Razor Princess; Demon lord of illusions, traps, knives				FACTSET:Pantheon|Demon Lords	DEITYWEAP:Kukri			ALIGN:CE	SOURCEPAGE:p.10
+Angazhan		NAMEISPI:YES	DOMAINS:Animal,Chaos,Evil,Plant|PREALIGN:NE,CN,CE		DESC:The Ravenous King; Demon lord of apes, jungles, brutal tyrants			FACTSET:Pantheon|Demon Lords	DEITYWEAP:Spear			ALIGN:CE	SOURCEPAGE:p.11	!PRECAMPAIGN:1,Inner Sea World Guide
+Areshkagal		NAMEISPI:YES	DOMAINS:Air,Chaos,Evil,Trickery|PREALIGN:NE,CN,CE		DESC:The Faceless Sphinx; Demon lord of greed, magical and mundane portals, riddles	FACTSET:Pantheon|Demon Lords	DEITYWEAP:Sickle			ALIGN:CE	SOURCEPAGE:p.12
+Baphomet		NAMEISPI:YES	DOMAINS:Animal,Chaos,Evil,Strength|PREALIGN:NE,CN,CE		DESC:Lord of the Minotaurs; Demon lord of beasts, labyrinths, minotaurs			FACTSET:Pantheon|Demon Lords	DEITYWEAP:Glaive			ALIGN:CE	SOURCEPAGE:p.12	!PRECAMPAIGN:1,Inner Sea World Guide
+Cyth-V'sug		NAMEISPI:YES	DOMAINS:Chaos,Earth,Evil,Plant|PREALIGN:NE,CN,CE		DESC:Prince of the Blasted Heath; Demon lord of disease, fungus, parasites		FACTSET:Pantheon|Demon Lords	DEITYWEAP:Scimitar		ALIGN:CE	SOURCEPAGE:p.13	!PRECAMPAIGN:1,Inner Sea World Guide
+Dagon			NAMEISPI:YES	DOMAINS:Chaos,Destruction,Evil,Water|PREALIGN:NE,CN,CE	DESC:The Shadow in the Sea; Demon lord of deformity, the sea, sea monsters		FACTSET:Pantheon|Demon Lords	DEITYWEAP:Trident			ALIGN:CE	SOURCEPAGE:p.14	!PRECAMPAIGN:1,Inner Sea World Guide
+Deskari		NAMEISPI:YES	DOMAINS:Chaos,Destruction,Evil,War|PREALIGN:NE,CN,CE		DESC:Lord of the Locust Host; Demon lord of chasms, infestations, locusts		FACTSET:Pantheon|Demon Lords	DEITYWEAP:Scythe			ALIGN:CE	SOURCEPAGE:p.14	!PRECAMPAIGN:1,Inner Sea World Guide
+Flauros		NAMEISPI:YES	DOMAINS:Chaos,Evil,Fire,War|PREALIGN:NE,CN,CE			DESC:The Burning Maw; Demon lord of fire, salamanders, volcanoes				FACTSET:Pantheon|Demon Lords	DEITYWEAP:Spear			ALIGN:CE	SOURCEPAGE:p.15
+Gogunta		NAMEISPI:YES	DOMAINS:Chaos,Death,Evil,Water|PREALIGN:NE,CN,CE		DESC:Song of the Swamp; Demon lord of amphibians, boggards, swamps			FACTSET:Pantheon|Demon Lords	DEITYWEAP:Whip			ALIGN:CE	SOURCEPAGE:p.16	!PRECAMPAIGN:1,Inner Sea World Guide
+Haagenti		NAMEISPI:YES	DOMAINS:Artifice,Chaos,Evil,Strength|PREALIGN:NE,CN,CE	DESC:The Whispers Within; Demon lord of alchemy, invention, transformation		FACTSET:Pantheon|Demon Lords	DEITYWEAP:Battleaxe		ALIGN:CE	SOURCEPAGE:p.16
+Jezelda		NAMEISPI:YES	DOMAINS:Animal,Chaos,Evil,Trickery|PREALIGN:NE,CN,CE		DESC:Mistress of the Hungry Moon; Demon lord of desolation, the moon, werewolves	FACTSET:Pantheon|Demon Lords	DEITYWEAP:Scimitar		ALIGN:CE	SOURCEPAGE:p.17
+Jubilex		NAMEISPI:YES	DOMAINS:Chaos,Destruction,Evil,Water|PREALIGN:NE,CN,CE	DESC:The Faceless Lord; Demon lord of ooze monsters, poison, sloth			FACTSET:Pantheon|Demon Lords	DEITYWEAP:Mace (Heavy)		ALIGN:CE	SOURCEPAGE:p.18
+Kabriri		NAMEISPI:YES	DOMAINS:Chaos,Death,Evil,Knowledge|PREALIGN:NE,CN,CE		DESC:Him Who Gnaws; Demon lord of ghouls, graves, secrets kept by the dead		FACTSET:Pantheon|Demon Lords	DEITYWEAP:Flail			ALIGN:CE	SOURCEPAGE:p.18
+Kostchtchie		NAMEISPI:YES	DOMAINS:Chaos,Evil,Strength,War|PREALIGN:NE,CN,CE		DESC:The Deathless Frost; Demon lord of cold, giants, revenge				FACTSET:Pantheon|Demon Lords	DEITYWEAP:Warhammer		ALIGN:CE	SOURCEPAGE:p.19	!PRECAMPAIGN:1,Inner Sea World Guide
+Mazmezz		NAMEISPI:YES	DOMAINS:Animal,Chaos,Destruction,Evil|PREALIGN:NE,CN,CE	DESC:The Creeping Queen; Demon lord of bindings, driders, vermin				FACTSET:Pantheon|Demon Lords	DEITYWEAP:Net			ALIGN:CE	SOURCEPAGE:p.20
+Mestama		NAMEISPI:YES	DOMAINS:Chaos,Charm,Evil,Trickery|PREALIGN:NE,CN,CE		DESC:The Mother of Witches; Demon lord of cruelty, deception, hags			FACTSET:Pantheon|Demon Lords	DEITYWEAP:Dagger (Punching)	ALIGN:CE	SOURCEPAGE:p.20
+Nocticula		NAMEISPI:YES	DOMAINS:Chaos,Charm,Darkness,Evil|PREALIGN:NE,CN,CE		DESC:Our Lady in Shadow; Demon lord of assassins, darkness, lust				FACTSET:Pantheon|Demon Lords	DEITYWEAP:Crossbow (Hand)	ALIGN:CE	SOURCEPAGE:p.21	!PRECAMPAIGN:1,Inner Sea World Guide
+Nurgal		NAMEISPI:YES	DOMAINS:Chaos,Evil,Fire,Sun|PREALIGN:NE,CN,CE			DESC:The Shining Scourge; Demon lord of deserts, the sun, senseless warfare		FACTSET:Pantheon|Demon Lords	DEITYWEAP:Mace (Heavy)		ALIGN:CE	SOURCEPAGE:p.22
+Orcus			NAMEISPI:YES	DOMAINS:Chaos,Death,Evil,Magic|PREALIGN:NE,CN,CE		DESC:Prince of Undeath; Demon lord of death, necromancy, wrath				FACTSET:Pantheon|Demon Lords	DEITYWEAP:Mace (Heavy)		ALIGN:CE	SOURCEPAGE:p.22	!PRECAMPAIGN:1,Inner Sea World Guide
+Pazuzu		NAMEISPI:YES	DOMAINS:Air,Chaos,Evil,Trickery|PREALIGN:NE,CN,CE		DESC:King of the Wind Demons; Demon lord of sky, temptation, winged creatures		FACTSET:Pantheon|Demon Lords	DEITYWEAP:Longsword		ALIGN:CE	SOURCEPAGE:p.23	!PRECAMPAIGN:1,Inner Sea World Guide
+Shax			NAMEISPI:YES	DOMAINS:Chaos,Destruction,Evil,Trickery|PREALIGN:NE,CN,CE	DESC:The Blood Marquis; Demon lord of envy, lies, particularly violent murder		FACTSET:Pantheon|Demon Lords	DEITYWEAP:Dagger			ALIGN:CE	SOURCEPAGE:p.24	!PRECAMPAIGN:1,Inner Sea World Guide
+Shivaska		NAMEISPI:YES	DOMAINS:Chaos,Darkness,Evil,Madness|PREALIGN:NE,CN,CE		DESC:The Chained Maiden; Demon lord of aberrations, clocks, prisons			FACTSET:Pantheon|Demon Lords	DEITYWEAP:Flail (Heavy)		ALIGN:CE	SOURCEPAGE:p.24
+Sifkesh		NAMEISPI:YES	DOMAINS:Chaos,Evil,Madness,Trickery|PREALIGN:NE,CN,CE		DESC:The Sacred Whore; Demon lord of hopeless, despair, heresy, suicide			FACTSET:Pantheon|Demon Lords	DEITYWEAP:War Razor		ALIGN:CE	SOURCEPAGE:p.25
+Socothbenoth	NAMEISPI:YES	DOMAINS:Chaos,Charm,Evil,Travel|PREALIGN:NE,CN,CE		DESC:The Silken Sin; Demon lord of perversion, pride, taboos				FACTSET:Pantheon|Demon Lords	DEITYWEAP:Quarterstaff		ALIGN:CE	SOURCEPAGE:p.26	!PRECAMPAIGN:1,Inner Sea World Guide
+Urxehl		NAMEISPI:YES	DOMAINS:Chaos,Evil,Fire,Weather|PREALIGN:NE,CN,CE		DESC:Trollfather; Demon lord of natural disasters, storms, trolls				FACTSET:Pantheon|Demon Lords	DEITYWEAP:Greatclub		ALIGN:CE	SOURCEPAGE:p.26
+Xoveron		NAMEISPI:YES	DOMAINS:Chaos,Earth,Evil,Strength|PREALIGN:NE,CN,CE		DESC:The Horned Prince; Demon lord of gargoyles, gluttony, ruins				FACTSET:Pantheon|Demon Lords	DEITYWEAP:Ranseur			ALIGN:CE	SOURCEPAGE:p.27
+Yhidothrus		NAMEISPI:YES	DOMAINS:Chaos,Death,Evil,Repose|PREALIGN:NE,CN,CE		DESC:The Ravager Worm; Demon lord of age, time, worms						FACTSET:Pantheon|Demon Lords	DEITYWEAP:Chain (Spiked)	ALIGN:CE	SOURCEPAGE:p.28
+Zevgavizeb		NAMEISPI:YES	DOMAINS:Animal,Chaos,Evil,Strength|PREALIGN:NE,CN,CE		DESC:The God of the Troglodytes; Demon lord of vast caverns, reptiles, troglodytes	FACTSET:Pantheon|Demon Lords	DEITYWEAP:Gauntlet (Spiked)	ALIGN:CE	SOURCEPAGE:p.28
+Zura			NAMEISPI:YES	DOMAINS:Chaos,Death,Evil,Madness|PREALIGN:NE,CN,CE		DESC:The Vampire Queen; Demon lord of blood, cannibalism, vampires			FACTSET:Pantheon|Demon Lords	DEITYWEAP:Rapier			ALIGN:CE	SOURCEPAGE:p.29	!PRECAMPAIGN:1,Inner Sea World Guide
+
+###Block: Nascent Demon Lords
+# Deity Name	Product Identity?	Domains									Description of Deity/Title											FACTSET				Deity Weapon			Align		Source Page
+Daclau-Sar		NAMEISPI:YES	DOMAINS:Animal,Chaos,Destruction,Evil|PREALIGN:NE,CN,CE	DESC:The Lord of Carrion; Nascent demon lord of carrion, scavengers				FACTSET:Pantheon|Demon Lords	DEITYWEAP:Gauntlet (Spiked)	ALIGN:CE	SOURCEPAGE:p.38
+Izyagna		NAMEISPI:YES	DOMAINS:Chaos,Evil,Fire,War|PREALIGN:NE,CN,CE			DESC:She of the Sevenfold Swarm; Nascent demon lord of angry mobs, ants				FACTSET:Pantheon|Demon Lords	DEITYWEAP:Trident			ALIGN:CE	SOURCEPAGE:p.38
+Menxyr		NAMEISPI:YES	DOMAINS:Chaos,Death,Evil,Trickery|PREALIGN:NE,CN,CE		DESC:The Coffin Groom; Nascent demon lord of graverobbing, necrophilia				FACTSET:Pantheon|Demon Lords	DEITYWEAP:Pick (Heavy)		ALIGN:CE	SOURCEPAGE:p.38
+Murnath		NAMEISPI:YES	DOMAINS:Animal,Chaos,Earth,Evil|PREALIGN:NE,CN,CE		DESC:The Horned Rat; Nascent demon lord of rats, sewers						FACTSET:Pantheon|Demon Lords	DEITYWEAP:Sword (Short)		ALIGN:CE	SOURCEPAGE:p.38
+The Nightripper	NAMEISPI:YES	DOMAINS:Chaos,Darkness,Evil,Strength|PREALIGN:NE,CN,CE	DESC:Nascent demon lord of botched executions, pits							FACTSET:Pantheon|Demon Lords	DEITYWEAP:Sword (Bastard)	ALIGN:CE	SOURCEPAGE:p.38
+Ovonovo		NAMEISPI:YES	DOMAINS:Animal,Chaos,Evil,Water|PREALIGN:NE,CN,CE		DESC:Nascent demon lord of sharks, shipwrecks								FACTSET:Pantheon|Demon Lords	DEITYWEAP:Dagger (Punching)	ALIGN:CE	SOURCEPAGE:p.39
+Shamira		NAMEISPI:YES	DOMAINS:Chaos,Charm,Evil,Nobility|PREALIGN:NE,CN,CE		DESC:Nascent demon lord of lost dreams, seduction of the pure					FACTSET:Pantheon|Demon Lords	DEITYWEAP:Longbow			ALIGN:CE	SOURCEPAGE:p.39
+Sithhud		NAMEISPI:YES	DOMAINS:Chaos,Death,Evil,Weather|PREALIGN:NE,CN,CE		DESC:The Frozen Lord; Nascent demon lord of blizzards, the frozen dead				FACTSET:Pantheon|Demon Lords	DEITYWEAP:Longsword		ALIGN:CE	SOURCEPAGE:p.39
+Treerazer		NAMEISPI:YES	DOMAINS:Chaos,Destruction,Evil,Plant|PREALIGN:NE,CN,CE	DESC:Lord of the Blasted Tarn; Nascent demon lord of corruption of nature, pollution	FACTSET:Pantheon|Demon Lords	DEITYWEAP:Greataxe		ALIGN:CE	SOURCEPAGE:p.39
+Yamasoth		NAMEISPI:YES	DOMAINS:Artifice,Chaos,Earth,Evil|PREALIGN:NE,CN,CE		DESC:The Polymorph Plague; Nascent demon lord of cursed kingdoms, vile experiments		FACTSET:Pantheon|Demon Lords	DEITYWEAP:Halberd			ALIGN:CE	SOURCEPAGE:p.39
+
+###Block: Barghest Hero Gods
+# Deity Name	Product Identity?	Domains									Description of Deity/Title						FACTSET							Deity Weapon		Align		Source Page			Prohibited Campaign(s)
+Hadregash		NAMEISPI:YES	DOMAINS:Evil,Law,Strength,War|PREALIGN:LE,NE,LN			DESC:Barghest hero god of goblins, slavery, territory		FACTSET:Pantheon|Barghest Hero Gods|Goblin	DEITYWEAP:Flail		ALIGN:LE	SOURCEPAGE:Rear Cover	!PRECAMPAIGN:1,Goblins of Golarion
+Venkelvore		NAMEISPI:YES	DOMAINS:Death,Destruction,Earth,Evil|PREALIGN:TN,LE,NE,CE	DESC:Barghest hero god of famine, graves, torture		FACTSET:Pantheon|Barghest Hero Gods|Goblin	DEITYWEAP:Spear		ALIGN:NE	SOURCEPAGE:Rear Cover	!PRECAMPAIGN:1,Goblins of Golarion
+Zarongel		NAMEISPI:YES	DOMAINS:Animal,Evil,Fire,Travel|PREALIGN:TN,LE,NE,CE		DESC:Barghest hero god of dog killing, fire, mounted combat	FACTSET:Pantheon|Barghest Hero Gods|Goblin	DEITYWEAP:Dogslicer	ALIGN:NE	SOURCEPAGE:Rear Cover	!PRECAMPAIGN:1,Goblins of Golarion
+Zogmugot		NAMEISPI:YES	DOMAINS:Chaos,Evil,Trickery,Water|PREALIGN:NE,CN,CE		DESC:Barghest hero god of drowning, flotsam, scavenging	FACTSET:Pantheon|Barghest Hero Gods|Goblin	DEITYWEAP:Sickle		ALIGN:CE	SOURCEPAGE:Rear Cover	!PRECAMPAIGN:1,Goblins of Golarion
+
+#
+# End
+#

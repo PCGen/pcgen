@@ -1,0 +1,37 @@
+# CVS $Revision: $ $Author: $ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8ief	SOURCEDATE:2011-03
+# Original Entry by: Stefan Radermacher
+
+# Weapon Name		Product Identity?	Type
+Dogslicer						TYPE:Martial.Melee.Light.Slashing.MeleeSlashing.Bladelight
+War Razor						TYPE:Martial.Melee.Light.Slashing.MeleeSlashing
+Klar							TYPE:Martial.Melee.OneHanded.Slashing.MeleeSlashing
+Earth Breaker					TYPE:Martial.Melee.TwoHanded.Bludgeoning.MeleeBludgeoning.Hammer
+Horsechopper					TYPE:Martial.Melee.TwoHanded.Piercing.Slashing.MeleePiercing.MeleeSlashing.Polearm
+Ogre Hook						TYPE:Martial.Melee.TwoHanded.Piercing.MeleePiercing.Polearm
+Aldori Dueling Sword	NAMEISPI:YES	TYPE:Martial.Exotic.Melee.OneHanded.Slashing.MeleeSlashing
+Sawtooth Sabre					TYPE:Exotic.Melee.OneHanded.Slashing.MeleeSlashing.Bladeheavy
+Shoanti Bolas	KEY:Bolas (Shoanti)		NAMEISPI:YES	TYPE:Exotic.Thrown.Bludgeoning
+Urumi							TYPE:Exotic.Melee.OneHanded.Slashing.MeleeSlashing.Flail.Monk
+Bladed Scarf					TYPE:Exotic.Melee.TwoHanded.Slashing.MeleeSlashing
+Firearms						TYPE:Exotic.Ranged.Piercing.RangedPiercing
+Pepperbox						TYPE:Exotic.Ranged.OneHanded.Bludgeoning.Piercing.Firearm
+Pistol						TYPE:Exotic.Ranged.OneHanded.Bludgeoning.Piercing.Firearm
+Musket						TYPE:Exotic.Ranged.TwoHanded.Bludgeoning.Piercing.Firearm
+Cannon						TYPE:Exotic.Ranged.Siege.Bludgeoning.Piercing.Firearm
+
+
+###Block: Weapon Groups
+# Equipment Name				Type
+# Weapon Name			Type
+Dogslicer.MOD			TYPE:Bladelight.Weapon Group Blades Light
+War Razor.MOD			TYPE:Bladelight.Weapon Group Blades Light
+Klar.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy
+Earth Breaker.MOD			TYPE:Hammer.Weapon Group Hammers
+Horsechopper.MOD			TYPE:Polearm.Weapon Group Pole Arms
+Ogre Hook.MOD			TYPE:Polearm.Weapon Group Pole Arms
+Aldori Dueling Sword.MOD	TYPE:Bladeheavy.Weapon Group Blades Heavy
+Sawtooth Sabre.MOD		TYPE:Bladeheavy.Weapon Group Blades Heavy.Bladelight.Weapon Group Blades Light
+Urumi.MOD				TYPE:Flail.Weapon Group Flails.Monk.Weapon Group Monk
+Bladed Scarf.MOD			TYPE:Flail.Weapon Group Flails
+Bolas (Shoanti).MOD		TYPE:Thrown.Weapon Group Thrown

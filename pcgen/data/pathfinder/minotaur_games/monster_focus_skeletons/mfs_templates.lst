@@ -1,0 +1,27 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Monster Focus: Skeletons	SOURCESHORT:MFS	SOURCEWEB:http://minotaurrpg.com/monster-focus/skeletons/	SOURCEDATE:2013-04
+# ORIGINAL ENTRY: Stefan Radermacher
+# ORIGINAL ENTRY DATE: 2013/05/23
+
+###Block: Skeleton Templates
+# Template Name		Hit Dice Size			Challenge Rating	Visible	Damage Reduction			Template						Source Page		Define Stat			Required Hit Dice	Prohibited Race						Required Stat	Bonus Ability Pool						Combat bonus																																																Stat bonus					Modify VAR				Class Skill																			Ability																																			Apply Kit		Subrace				Main Race Type	Race Subtype		Add Levels		Innate Spells
+Skeleton (Decrepit)	HITDIE:8|CLASS.TYPE=Monster	CR:-1					DR:5/Bludgeoning or Slashing	TEMPLATE:CHOOSE:Skeleton HitDice		SOURCEPAGE:p.4	DEFINESTAT:LOCK|CHA|8				!PRERACE:1,RACETYPE=Undead,RACETYPE=Construct				BONUS:ABILITYPOOL|Decrepit Skeleton Impairment|1	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK|PRESIZEGTEQ:M	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK|PRESIZEGTEQ:H	BONUS:COMBAT|AC|3|TYPE=NaturalArmor.STACK|PRESIZEGTEQ:G	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.STACK|PRESIZEGTEQ:C											BONUS:STAT|DEX|2																													ABILITY:Special Ability|AUTOMATIC|Immunity to Cold	ABILITY:FEAT|AUTOMATIC|Improved Initiative																				KIT:1|NE		SUBRACE:Decrepit Skeleton	RACETYPE:Undead	RACESUBTYPE:Mindless
+Skeletal Lord		HITDIE:8|CLASS.TYPE=Monster	CR:2					DR:5/Bludgeoning			TEMPLATE:CHOOSE:Skeletal Lord HitDice											!PRERACE:1,RACETYPE=Undead,RACETYPE=Construct	PRESTAT:1,INT=3										BONUS:COMBAT|AC|3|TYPE=NaturalArmor.STACK|PRESIZEGTEQ:S	BONUS:COMBAT|AC|3|TYPE=NaturalArmor.STACK|PRESIZEGTEQ:M	BONUS:COMBAT|AC|3|TYPE=NaturalArmor.STACK|PRESIZEGTEQ:H	BONUS:COMBAT|AC|5|TYPE=NaturalArmor.STACK|PRESIZEGTEQ:G	BONUS:COMBAT|AC|6|TYPE=NaturalArmor.STACK|PRESIZEGTEQ:C	BONUS:STAT|STR|2	BONUS:STAT|DEX|2	BONUS:VAR|ChannelResistance|4	CSKILL:Climb|Disguise|Fly|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|Perception|Sense Motive|Spellcraft|Stealth	ABILITY:Special Ability|AUTOMATIC|Channel Resistance|Command Skeleton ~ Skeletal Lord|Detonate Minion ~ Skeletal Lord|Immunity to Cold|Sacrifice Minion ~ Skeletal Lord	ABILITY:FEAT|AUTOMATIC|Improved Initiative	KIT:1|CE|LE|NE	SUBRACE:Skeletal Lord		RACETYPE:Undead								SPELLS:Innate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=HD|Animate Dead
+Skeletal Lord HitDice									VISIBLE:NO																				PREHD:MAX=0																																																																																																																																																										ADDLEVEL:Undead|3
+
+# Issues
+# Cannot currently implement Monstrous Skeleton
+
+# General Skeleton issues:
+#TODO: Can't do now: A skeleton drops any HD gained from class levels
+#TODO Can't do now: Remove Fly Speed
+#TODO Can't do now: Lock CHA at 10 without making it a non-ability
+#TODO Can't do now: BAB: A skeleton's base attack bonus is equal to 3/4 of its Hit Dice.
+#TODO Can't do now: Skills: A skeleton loses all skill ranks possessed by the base creature and gains none of its own.
+#TODO Can't do now: Feats: A skeleton loses all feats possessed by the base creature.
+#TODO Can't do now: Special Qualities: A skeleton loses most special qualities of the base creature.
+#TODO Can't do now: Challenge Rating: Depends on Hit Dice, not based on base creatures CR
+
+#
+# End
+#

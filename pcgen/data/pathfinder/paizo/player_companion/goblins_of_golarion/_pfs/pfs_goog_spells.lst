@@ -1,0 +1,9 @@
+# CVS $Revision: $ $Author: $ -- Wed Dec 10 01:48:21 2014 -- reformated by prettylst.pl v1.51 (build 25712)
+SOURCELONG:Goblins of Golarion	SOURCESHORT:GOOG	SOURCEWEB:http://paizo.com/products/btpy8mfk?Pathfinder-Player-Companion-Goblins-of-Golarion	SOURCEDATE:2011-07
+#ORIGINAL ENTRY: Eric C. Smith (maredudd AT blackroot DOT org)
+#ORIGINAL ENTRY DATE: 2013/07/14
+
+# Spells: all spells on pages 28-29 except limp lash are legal for play;
+
+# Spell Name	Type			!PRECHARACTERTYPE
+Limp Lash.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC

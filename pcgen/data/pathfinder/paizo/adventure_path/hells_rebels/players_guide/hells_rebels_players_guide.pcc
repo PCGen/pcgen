@@ -1,0 +1,50 @@
+# CVS $Revision$ $Author$ -- Thu May 12 15:04:57 2016 -- reformated by PCGen PrettyLST v6.06.00
+CAMPAIGN:Hell's Rebels Player's Guide
+KEY:PF - Hell's Rebels Player's Guide
+GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing.Pathfinder Adventure Path.Hell's Rebels
+RANK:1
+STATUS:ALPHA
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder|Golarion
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Hell's Rebels Player's Guide
+SOURCESHORT:HRAP
+SOURCEWEB:http://paizo.com/products/btpy9g44?Pathfinder-Adventure-Path-Hells-Rebels-Players-Guide
+SOURCEDATE:2015-09
+ISOGL:YES
+
+COVER:hells_rebels_players_guide.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:WEBSITE|http://paizo.com/products/btpy9g44?Pathfinder-Adventure-Path-Hells-Rebels-Players-Guide|Buy this publication from Paizo Publishing!
+DESC:The Hell's Rebels Player's Guide gives players all the spoiler-free information, inspiration, and new rules they'll need to create characters prepared for delving into the adventure and excitement of the Hell's Rebels Adventure Path. Within, players of this campaign will find everything they need to create character backgrounds tied to personalities and events vital to Pathfinder Adventure Path's themes of urban rebellion and building a seditious group to fight against the oppressive tyranny of House Thrune, along with new campaign-specific traits to give bold adventurers the edge they'll need to take on the dangerous threats faced in the Hell's Rebels Adventure Path. This player's guide also features a view of the city of Kintargo where the adventure takes place, as well as various class options and advice for heroes ready to take on a Hell's Rebels campaign. Don't let the man keep you down! Gather your allies and let the Hell's Rebels Player's Guide light the fuse on your adventures to save the city of Kintargo.
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Hell's Rebels Player's Guide Copyright 2015, Paizo Inc.;
+COPYRIGHT:PCGen dataset conversion for "Hell's Rebels Player's Guide" Copyright 2015, PCGen Data Team (including, but not limited to Pieter Lexis, Andrew Maitland, and Paul Grosse).
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# Data files
+ABILITY:hrpg_abilities.lst
+ABILITY:hrpg_feats.lst
+
+# ENTRY DATE: 2016-04
+# LST MONKEY: Pieter Lexis, Andrew Maitland
+# LICENSE MONKEY: Paul Grosse
+# RELEASE REVIEW #
+# BETA:
+# RELEASE:
+# Built for PCGen Version: 6.06.01
+# Updated to work with version: -
+# MINVER:6.6
+# MINDEVVER:6.06.1
+# COMMENTS:

@@ -1,0 +1,45 @@
+# CVS $Revision: $ $Author: $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Define																	Combat bonus																	Save bonus																																																	Modify VAR																																																																																																																							FACT
+CLASS:Gun Priest	HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.3	DEFINE:GunPriestLVL|0	DEFINE:Caster_Level_BL_Stripped_GunPriest|0	DEFINE:CasterLevelBLGunPriest|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|GunPriestLVL|CL	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|Caster_Level_BL_Stripped_GunPriest|Caster_Level_GunPriest-CasterLevelBLGunPriest	BONUS:VAR|Caster_Level_GunPriest|CL+Caster_Level_Bonus+CasterLevelBLGunPriest	BONUS:VAR|CasterLevelBL_GunPriest|charbonusto("PCLEVEL","Gun Priest")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_GunPriest|TYPE=Base	FACT:Abb|GPr	FACT:ClassType|Support	FACT:SpellType|Divine
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Gun Priest	STARTSKILLPTS:2	CSKILL:Acrobatics|Appraise|Bluff|TYPE=Craft|Heal|Intimidate|Knowledge (Engineering)|Knowledge (Religion)|Perception|TYPE=Profession|Sense Motive|Spellcraft
+# Class Name	Spell Stat		Memorize		Automatically Known Spell Levels					Caster level									Use Spell List
+CLASS:Gun Priest	SPELLSTAT:WIS	MEMORIZE:YES	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6	BONUS:CASTERLEVEL|Gun Priest|Caster_Level_BL_Stripped_GunPriest	SPELLLIST:1|Cleric
+###Block
+1	CAST:0,1
+2	CAST:0,2
+3	CAST:0,3,1
+4	CAST:0,3,2
+5	CAST:0,4,3
+6	CAST:0,4,3
+7	CAST:0,4,3,1
+8	CAST:0,4,3,2
+9	CAST:0,5,4,3
+10	CAST:0,5,4,3
+11	CAST:0,5,4,4
+12	CAST:0,5,5,4
+13	CAST:0,5,5,4,1
+14	CAST:0,5,5,4,2
+15	CAST:0,5,5,5,3
+16	CAST:0,5,5,5,3,1
+17	CAST:0,5,5,5,4,2
+18	CAST:0,5,5,5,4,3
+19	CAST:0,5,5,5,5,4
+20	CAST:0,5,5,5,5,5
+###Block
+1	ABILITY:Gun Priest Class Feature|AUTOMATIC|Gun Priest ~ Aura
+1	ABILITY:Gun Priest Class Feature|AUTOMATIC|Gun Priest ~ Bonus Feats
+1	ABILITY:Gun Priest Class Feature|AUTOMATIC|Gun Priest ~ Gunsmith
+1	ABILITY:Gun Priest Class Feature|AUTOMATIC|Gun Priest ~ Orisons
+1	ABILITY:Gun Priest Class Feature|AUTOMATIC|Gun Priest ~ Sacred Gun
+1	ABILITY:Gun Priest Class Feature|AUTOMATIC|Gun Priest ~ Vested Weapon
+1	ABILITY:Gun Priest Class Feature|AUTOMATIC|Gun Priest ~ Weapon and Armor Proficiencies
+1	ABILITY:Gun Priest Class Feature|AUTOMATIC|Gun Priest ~ Domains
+2	ABILITY:Gun Priest Class Feature|AUTOMATIC|Gun Priest ~ Nimble
+3	ABILITY:Gun Priest Class Feature|AUTOMATIC|Gun Priest ~ Channel Energy
+4	ABILITY:Gun Priest Class Feature|AUTOMATIC|Gun Priest ~ Deeds
+4	ABILITY:Gun Priest Class Feature|AUTOMATIC|Gun Priest ~ Grit
+20	ABILITY:Gun Priest Class Feature|AUTOMATIC|Gun Priest ~ Gun Master's Wrath
+###Block
+1	BONUS:DOMAIN|NUMBER|1

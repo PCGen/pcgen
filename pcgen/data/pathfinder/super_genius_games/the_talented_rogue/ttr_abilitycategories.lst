@@ -1,0 +1,12 @@
+# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# Original Entry By: Andrew (LegacyKing) Maitland
+# Entry Date: 26-Dec-2013
+
+###Block:
+# Ability Category				Visible		Editable?		Change Pool?	Category of Object		Type of Object			Plural description for UI	Display Location
+ABILITYCATEGORY:Talented Rogue Edge		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:TalentedRogueEdge		PLURAL:Talented Rogue Edges	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Talented Rogue Talent	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:TalentedRogueTalent	PLURAL:Talented Rogue Talents	DISPLAYLOCATION:Class Abilities
+
+###Block:
+# Ability Category					Visible		Editable?	Change Pool?	Category of Object		Type of Object				Plural description for UI	Display Location
+ABILITYCATEGORY:Talented Rogue Class Ability	VISIBLE:QUALIFY	EDITABLE:NO	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:TalentedRogueClassAbility	PLURAL:Talented Rogue Talents	DISPLAYLOCATION:Class Abilities

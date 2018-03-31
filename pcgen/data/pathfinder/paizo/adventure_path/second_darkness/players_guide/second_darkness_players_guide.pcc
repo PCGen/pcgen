@@ -1,0 +1,48 @@
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+CAMPAIGN:Second Darkness Player's Guide (Conversion)
+GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing.Pathfinder Adventure Path.Second Darkness
+RANK:3
+STATUS:RELEASE
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder|Golarion
+PRECAMPAIGN:2,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Advanced Player's Guide
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Second Darkness Player's Guide
+SOURCESHORT:SDPG
+SOURCEWEB:http://paizo.com/pathfinder/companion/35E/v5748btpy84en
+SOURCEDATE:2008-08
+ISOGL:YES
+
+COVER:second_darkness_players_guide.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/pathfinder/companion/35E/v5748btpy84en|Buy this publication from Paizo Publishing!
+DESC:The city of Riddleport is no place for the naive. Founded by pirates and ruled by criminals, Varisia's most lawless city chews up the weak and foolhardy. In other words, it's a perfect home for adventurers! Take the first step into Riddleport, the starting city for Pathfinder's Second Darkness Adventure Path. The information contained herein gives players the edge they need to face this deadly quest, with new rules, details on making campaign-specific characters, and background information no adventurer should be without. Even if you aren't playing the Second Darkness Adventure Path, this booklet is filled with all-new spells, magic items, and character options perfect for any game.
+
+INFOTEXT:This dataset implements rules from a book that was originally designed for the 3.5 ruleset. For this dataset, these rules have been updated to the rules of the Pathfinder Roleplaying Game by the PCGen data team.
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder Companion: Second Darkness Player's Guide, Copyright 2008, Paizo Inc.; Authors James Jacobs, F. Wesley Schneider, Amber Scott, Greg A. Vaughan.
+COPYRIGHT:Pathfinder RPG Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
+COPYRIGHT:PCGen dataset conversion for "Second Darkness Player's Guide" Copyright 2008-2010, PCGen Data Team (including, but not limited to Stefan Radermacher, Eddy Anthony).
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+ABILITYCATEGORY:sdpg_abilitycategories.lst
+ABILITY:sdpg_abilities.lst
+ABILITY:sdpg_abilities_class.lst
+CLASS:sdpg_classes.lst
+EQUIPMENT:sdpg_equip_arms_armor.lst
+EQUIPMENT:sdpg_equip_general.lst
+EQUIPMENT:sdpg_equip_magic_items.lst
+ABILITY:sdpg_feats.lst
+LANGUAGE:sdpg_languages.lst
+SPELL:sdpg_spells.lst
+TEMPLATE:sdpg_templates.lst

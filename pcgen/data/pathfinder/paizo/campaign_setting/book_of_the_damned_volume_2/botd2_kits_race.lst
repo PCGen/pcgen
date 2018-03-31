@@ -1,0 +1,90 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec  2 19:28:17 2014 -- reformated by prettylst.pl v1.51 (build 25490)
+SOURCELONG:Lords of Chaos, Book of the Damned, Volume 2	SOURCESHORT:BOTD2	SOURCEWEB:http://paizo.com/products/btpy8hij?Pathfinder-Campaign-Setting-Book-of-the-Damned-Volume-2-Lords-of-Chaos	SOURCEDATE:2010-10
+# ORIGINAL ENTRY: elro the onk (Paul Shipley)
+
+STARTPACK:Demon (Vermlek) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Demon (Vermlek)],[!PRERACE:1,%]	SOURCEPAGE:p.54
+ALIGN:CE
+RACE:Demon (Vermlek)	!PRERACE:1,%
+NAME:Vermlek
+SKILL:Bluff				RANK:4
+SKILL:Disguise			RANK:4
+SKILL:Escape Artist		RANK:4
+SKILL:Knowledge (Religion)	RANK:4
+SKILL:Perception			RANK:4
+SKILL:Sense Motive		RANK:4
+SKILL:Use Magic Device		RANK:4
+ABILITY:CATEGORY=FEAT|Deceitful
+ABILITY:CATEGORY=FEAT|Great Fortitude
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+GEAR:Longsword	SIZE:PC	LOCATION:Primary Hand
+
+
+STARTPACK:Demon (Brimorak) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Demon (Brimorak)],[!PRERACE:1,%]	SOURCEPAGE:p.56
+ALIGN:CE
+RACE:Demon (Brimorak)	!PRERACE:1,%
+NAME:Brimorak
+SKILL:Acrobatics			RANK:6
+SKILL:Bluff				RANK:6
+SKILL:Knowledge (Engineering)	RANK:6
+SKILL:Knowledge (Planes)	RANK:6
+SKILL:Perception			RANK:6
+SKILL:Sense Motive		RANK:6
+SKILL:Stealth			RANK:6
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Weapon Focus (Longsword)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
+GEAR:Longsword	SIZE:PC	LOCATION:Primary Hand	EQMOD:Special Ability ~ Flaming ~ Weapon
+
+
+STARTPACK:Demon (Seraptis) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Demon (Seraptis)],[!PRERACE:1,%]	SOURCEPAGE:p.60
+ALIGN:CE
+RACE:Demon (Seraptis)	!PRERACE:1,%
+NAME:Seraptis
+SKILL:Acrobatics			RANK:15
+SKILL:Bluff				RANK:15
+SKILL:Fly				RANK:15
+SKILL:Intimidate			RANK:15
+SKILL:Knowledge (Planes)	RANK:15
+SKILL:Knowledge (Religion)	RANK:15
+SKILL:Perception			RANK:15
+SKILL:Sense Motive		RANK:15
+SKILL:Stealth			RANK:15
+ABILITY:CATEGORY=FEAT|Bleeding Critical
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Critical Focus
+ABILITY:CATEGORY=FEAT|Improved Critical (Scimitar)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Vital Strike
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+GEAR:Scimitar	SIZE:PC	LOCATION:Primary Hand	EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Wounding ~ Weapon
+
+
+STARTPACK:Demon (Vavakia) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Demon (Vavakia)],[!PRERACE:1,%]	SOURCEPAGE:p.61
+ALIGN:CE
+RACE:Demon (Vavakia)	!PRERACE:1,%
+NAME:Vavakia
+SKILL:Bluff				RANK:18
+SKILL:Fly				RANK:18
+SKILL:Intimidate			RANK:18
+SKILL:Knowledge (Arcana)	RANK:18
+SKILL:Knowledge (Planes)	RANK:18
+SKILL:Perception			RANK:18
+SKILL:Sense Motive		RANK:18
+SKILL:Spellcraft			RANK:18
+SKILL:Stealth			RANK:18
+SKILL:Swim				RANK:18
+ABILITY:CATEGORY=FEAT|Awesome Blow
+ABILITY:CATEGORY=FEAT|Greater Vital Strike
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Iron Will
+ABILITY:CATEGORY=FEAT|Improved Vital Strike
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Quicken Spell-Like Ability ~ Spell (Enervation)
+ABILITY:CATEGORY=FEAT|Vital Strike
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+GEAR:Breastplate	SIZE:PC	LOCATION:Equipped		EQMOD:Special Ability ~ +2 ~ Armor
+GEAR:Ranseur	SIZE:PC	LOCATION:Both Hands	EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Unholy ~ Weapon

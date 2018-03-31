@@ -1,0 +1,17 @@
+# CVS $Revision: 9628 $ $Author: zaister $ -- Tue Dec  2 17:52:53 2014 -- reformated by prettylst.pl v1.51 (build 25490)
+SOURCELONG:Faiths of Balance	SOURCESHORT:FOB	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderCompanion/v5748btpy8lvb	SOURCEDATE:2011-07
+# Original Entry by: Stefan Radermacher
+
+###Block: Channel Foci
+# Equipment Name	Type					Cost		Weight	Source Page
+Bronze Gong		TYPE:Goods.Tools.ChannelFoci	COST:100	WT:5		SOURCEPAGE:p.24
+Driftwood Icon	TYPE:Goods.Tools.ChannelFoci	COST:25			SOURCEPAGE:p.25
+Iron Eye		TYPE:Goods.Tools.ChannelFoci	COST:50	WT:1		SOURCEPAGE:p.25
+Just Scale		TYPE:Goods.Tools.ChannelFoci	COST:50	WT:1		SOURCEPAGE:p.25
+Stinging Whip	TYPE:Goods.Tools.ChannelFoci	COST:50	WT:5		SOURCEPAGE:p.25
+Sundered Mask	TYPE:Goods.Tools.ChannelFoci	COST:250	WT:1		SOURCEPAGE:p.25
+Winged Fetish	TYPE:Goods.Tools.ChannelFoci	COST:50			SOURCEPAGE:p.25
+
+#
+# End
+#

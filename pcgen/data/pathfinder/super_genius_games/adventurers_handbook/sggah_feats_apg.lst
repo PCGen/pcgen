@@ -1,0 +1,27 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Adventurer's Handbook: Genius Guide Volume 1	SOURCESHORT:SGGAH	SOURCEDATE:2010-04
+# Original Entry by: Paul Shipley (elro the onk)
+
+#Block: .MODs for Magister bonus feats
+#APG
+# Feat Name			Type
+# Ability Name				Type
+CATEGORY=FEAT|Arcane Blast.MOD	TYPE:Magister
+CATEGORY=FEAT|Arcane Shield.MOD	TYPE:Magister
+CATEGORY=FEAT|Arcane Talent.MOD	TYPE:Magister
+
+#Block: .MODs for MagisterMetamagic
+#APG
+CATEGORY=FEAT|Bouncing Spell.MOD	TYPE:MagisterMetamagic
+CATEGORY=FEAT|Disruptive Spell.MOD	TYPE:MagisterMetamagic
+CATEGORY=FEAT|Ectoplasmic Spell.MOD	TYPE:MagisterMetamagic
+CATEGORY=FEAT|Elemental Spell.MOD	TYPE:MagisterMetamagic
+CATEGORY=FEAT|Focused Spell.MOD	TYPE:MagisterMetamagic
+CATEGORY=FEAT|Intensified Spell.MOD	TYPE:MagisterMetamagic
+CATEGORY=FEAT|Lingering Spell.MOD	TYPE:MagisterMetamagic
+CATEGORY=FEAT|Merciful Spell.MOD	TYPE:MagisterMetamagic
+CATEGORY=FEAT|Selective Spell.MOD	TYPE:MagisterMetamagic
+
+#
+# End
+#

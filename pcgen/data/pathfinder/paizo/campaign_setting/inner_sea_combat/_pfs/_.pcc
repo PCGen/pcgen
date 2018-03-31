@@ -1,0 +1,59 @@
+# CVS $Revision: 9628 $ $Author: eddyanthony $ -- Sat Dec  8 13:05:34 2007 -- reformated by prettylst.pl v1.38 (build 4387)
+CAMPAIGN:Inner Sea Combat (PFS)
+#GAMEMODE:Pathfinder
+TYPE:Paizo Publishing PFS.Pathfinder Campaign Setting
+RANK:3
+STATUS:ALPHA
+GENRE:Fantasy
+BOOKTYPE:Campaign Setting
+SETTING:Pathfinder Campaign Setting
+PRECAMPAIGN:1,Pathfinder Society Core Assumption
+PRECAMPAIGN:2,INCLUDES=Advanced Player's Guide,INCLUDES=Inner Sea World Guide
+
+PUBNAMELONG:Paizo Publishing
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Inner Sea Magic
+SOURCESHORT:ISM
+SOURCEWEB:http://paizo.com/products/btpy8mfs?Pathfinder-Campaign-Setting-Inner-Sea-Magic
+SOURCEDATE:2011-07
+ISOGL:YES
+
+#COVER:../inner_sea_combat.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy8mfs?Pathfinder-Campaign-Setting-Inner-Sea-Magic|Buy this publication from Paizo Publishing!
+DESC:From the tortured sands of the Mana Wastes, where magic is as likely to tear you apart as it is to not work at all, to the perpetually frozen northern nation of Irrisen where the winter witches rule, magic is a part of life in the Inner Sea region. Whether it is wielded by benevolent clerics to keep their allies fighting the good fight or unleashed by wizards in the form of scorching blasts of fire, magic can be the difference between life or death. Or, as in so many cases, the cause of life or death.
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000, Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Advanced Bestiary. Copyright 2004, Green Ronin Publishing, LLC; Author: Matthew Sernett.
+COPYRIGHT:Marid from the Tome of Horrors III. Copyright 2005, Necromancer Games, Inc.; Author: Scott Greene.
+COPYRIGHT:Pathfinder Campaign Setting: Inner Sea Magic. Copyright 2011, Paizo Publishing, LLC; Authors: Jesse Benner, Jason Nelson, Sean K Reynolds, Owen K.C. Stephens, Russ Taylor.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Campaign Setting: Inner Sea Magic" Copyright 2012, PCGen Data Team (including, but not limited to Stefan Radermacher)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# Additional Resources
+# Last Updated Wednesday, February 18, 2015
+#
+# Pathfinder Campaign Setting: Inner Sea Combat
+# All content on pages 10-11 and pages 13-17 are legal except the cannon master feat.
+# Nothing on page 12 is legal.
+# Nothing in the combat schools chapter (pages 18-27) is legal.
+# All content on pages 28-47 is legal except the order of the beast, rough rampager, seal-breaker, and siege gunner.
+# Equipment: all equipment and magic items on pages 50-63 are legal except backbreaker mail, crag linnorm plate,
+# feather token, mammoth hide, numerian resistance plate, shadowbound chains, and imperial army greathelm.
+
+# Data files
+ABILITY:pfs_isc_abilities_class.lst|PRECAMPAIGN:1,Inner Sea Combat
+ABILITY:pfs_isc_abilities_feat.lst|PRECAMPAIGN:1,Inner Sea Combat
+EQUIPMENT:pfs_isc_equip_arms_armor.lst|PRECAMPAIGN:1,Inner Sea Combat
+EQUIPMENT:pfs_isc_equip_magic.lst|PRECAMPAIGN:1,Inner Sea Combat
+
+#
+# End
+#

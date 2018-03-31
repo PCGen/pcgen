@@ -1,0 +1,34 @@
+# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Adventurer's Handbook: Genius Guide Volume 1	SOURCESHORT:SGGAH	SOURCEDATE:2010-04
+# Original Entry by: Paul Shipley (elro the onk)
+
+###Block: Favored Classes
+# Ability Name	Category of Ability		Type			Visible		Stackable?	Multiple?	Bonus Ability Pool
+Archon		CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:ABILITYPOOL|Favored Class Bonus|var("CL=Archon")
+Death Mage		CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:ABILITYPOOL|Favored Class Bonus|var("CL=Death Mage")
+
+###Block: Template-Derived Special Abilities
+
+# Arctic Special Abilities
+# Ability Name									Unique Key							Category of Ability		Type				Var. Must Be Lower		Define				Description																																																																																																																								Add to base move				Bonus to skill		Modify VAR					Source Page		Ignore Encumberance
+Cold Resistance									KEY:Cold Resistance ~ Arctic				CATEGORY:Special Ability	TYPE:SpecialQuality											DESC:Arctic creatures take only half of any cold damage dealt to them. They gain a +5 bonus to Fortitude saves from natural cold dangers, the DC of their Fortitude saves against natural cold dangers does not increase (it's always DC 15), and they are treated as if wearing cold weather gear.																																																																																									SOURCEPAGE:p.95
+Fire Vulnerability								KEY:Fire Vulnerability ~ Arctic			CATEGORY:Special Ability	TYPE:SpecialQuality											DESC:Arctic creatures suffer a -2 penalty to saving throws against fire damage and spells with the [fire] descriptor. They suffer a -2 penalty to all Fortitude saves against natural heat dangers.																																																																																																									SOURCEPAGE:p.95
+Snowy Adaptation									KEY:Snowy Adaptation ~ Arctic				CATEGORY:Special Ability	TYPE:SpecialQuality											DESC:Arctic creatures are generally white, and thus receive a +5 bonus to Stealth checks in snowy conditions, and a -5 penalty to Stealth checks made in areas that are not snowy.																																																																																																												SOURCEPAGE:p.95
+
+# Cold-Iron Elemental
+CATEGORY=Special Ability|Earth Elemental ~ Earth Glide.MOD																			PREVARLT:NoEarthGlide,1
+CATEGORY=Special Ability|Earth Elemental ~ Earth Mastery.MOD																		PREVARLT:NoEarthMastery,1
+Cold Iron Attacks									KEY:Cold Iron Attacks ~ Cold Iron Elemental	CATEGORY:Special Ability	TYPE:SpecialAttack											DESC:A cold-iron elemental's natural attacks function as cold iron for purposes of bypassing DR.																																																																																																																									SOURCEPAGE:p.95
+
+# Ice Elemental
+Freeze										KEY:Freeze ~ Ice Elemental				CATEGORY:Special Ability	TYPE:SpecialAttack											DESC:Those hit by an ice elemental's slam attacks must succeed at a DC %1 Reflex save or suffer frostbite. Those that fail suffer cold damage equal to the elemental's slam attack each round for 1d4 rounds. If a heat source is available, as a move action a freezing character can use the heat source to thaw himself and avoid future damage. If an ice elemental strikes a creature that is already freezing, the amount of damage the creature takes each round is not increased, but the duration of the cold damage is extended by +1d4 rounds. Creatures that hit an ice elemental with natural weapons or melee attacks (other than reach attacks) take freezing damage as though they were hit by the elemental's slam attack.|10+HD+CON																	SOURCEPAGE:p.95
+
+# Ironskinned
+Thick Build										KEY:Thick Build ~ Ironskinned				CATEGORY:Special Ability	TYPE:SpecialQuality											DESC:Ironskinned creatures move at half the rate of normal versions of the same creature and suffer a -4 penalty to all Swim checks due to their weight and thick builds. However, they suffer no reduction in movement from medium or heavy encumbrance or any kind of armor.																																																																												BONUS:MOVEADD|TYPE.Walk|-MOVEBASE/2	BONUS:SKILL|Swim|-4							SOURCEPAGE:p.96	UNENCUMBEREDMOVE:HeavyLoad|HeavyArmor
+
+# Unbreathing Special Abilities
+Still Breath									KEY:Still Breath ~ Unbreathing			CATEGORY:Special Ability	TYPE:SpecialQuality						DEFINE:StillBreathTime|0	DESC:Unbreathing creatures can choose to not breath for %1 minutes. After this duration, they use normal drowning/suffocation rules.|StillBreathTime																																																																																																											BONUS:VAR|StillBreathTime|CONSCORE	SOURCEPAGE:p.96
+Undead-like										KEY:Undead-like ~ Unbreathing				CATEGORY:Special Ability	TYPE:SpecialQuality											DESC:Spells and effects that affect or damage undead also affect or damage unbreathing creatures. Spells or effects that specify they do not affect undead do not affect unbreathing creatures.																																																																																																										SOURCEPAGE:p.96
+Healing Resistance								KEY:Healing Resistance ~ Unbreathing		CATEGORY:Special Ability	TYPE:SpecialQuality											DESC:Unbreathing creatures are resistant to healing magic. They receive only half the hp of healing granted by any magic source of healing.																																																																																																																		SOURCEPAGE:p.96
+
+# EOF

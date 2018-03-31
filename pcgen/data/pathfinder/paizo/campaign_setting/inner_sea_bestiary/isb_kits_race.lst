@@ -1,0 +1,971 @@
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:Inner Sea Bestiary	SOURCESHORT:ISB	SOURCEWEB:http://paizo.com/products/btpy8v2x	SOURCEDATE:2013-06
+# Original Entry by: Scott Meyer
+
+STARTPACK:Android Rogue	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Android],[!PRERACE:1,%]	SOURCEPAGE:p.3
+ALIGN:TN
+RACE:Android	!PRERACE:1,%
+GENDER:Female
+NAME:Android Rogue
+CLASS:Rogue	LEVEL:1
+ABILITY:CATEGORY=Favored Class|Rogue
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+LANGBONUS:Hallit|Varisian
+SKILL:Acrobatics			RANK:1
+SKILL:Climb				RANK:1
+SKILL:Disable Device		RANK:1
+SKILL:Escape Artist		RANK:1
+SKILL:Knowledge (Engineering)	RANK:1
+SKILL:Knowledge (Local)		RANK:1
+SKILL:Perception			RANK:1
+SKILL:Sense Motive		RANK:1
+SKILL:Sleight of Hand		RANK:1
+SKILL:Stealth			RANK:1
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+STAT:STR=13|DEX=15|CON=14|INT=12|WIS=10|CHA=8
+GEAR:Rapier		QTY:1	SIZE:PC	LOCATION:Primary Hand
+GEAR:Leather	QTY:1	SIZE:PC	LOCATION:Equipped
+
+STARTPACK:Apostasy Wraith Default	TYPE:Default Monster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Apostasy Wraith],[!PRERACE:1,%]	SOURCEPAGE:p.4
+ALIGN:CE
+RACE:Apostasy Wraith	!PRERACE:1,%
+GENDER:Neuter
+NAME:Apostasy Wraith
+SKILL:Fly				RANK:8
+SKILL:Knowledge (Religion)	RANK:8
+SKILL:Stealth			RANK:8
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=11
+
+STARTPACK:Beetle (Scarab) Default	TYPE:Default Monster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Beetle (Scarab)],[!PRERACE:1,%]	SOURCEPAGE:p.5
+ALIGN:TN
+RACE:Beetle (Scarab)	!PRERACE:1,%
+GENDER:Neuter
+NAME:Scarab Beetle
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=11
+
+STARTPACK:Beetle (Stalk) Default	TYPE:Default Monster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Beetle (Stalk)],[!PRERACE:1,%]	SOURCEPAGE:p.5
+ALIGN:TN
+RACE:Beetle (Stalk)	!PRERACE:1,%
+GENDER:Neuter
+NAME:Stalk Beetle
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=11
+
+STARTPACK:Blighted Fey Satyr	TYPE:Default Monster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Satyr],[!PRERACE:1,%]	SOURCEPAGE:p.6
+RACE:Satyr	!PRERACE:1,%
+GENDER:Male
+NAME:Blighted Fey Satyr
+ALIGN:CE
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
+TEMPLATE:Blighted Fey
+SKILL:Bluff					RANK:8
+SKILL:Diplomacy				RANK:8
+SKILL:Disguise				RANK:2
+SKILL:Intimidate				RANK:5
+SKILL:Knowledge (Nature)		RANK:6
+SKILL:Perception				RANK:6
+SKILL:Perform (Wind Instruments)	RANK:8
+SKILL:Stealth				RANK:8
+SKILL:Survival				RANK:5
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+GEAR:Dagger							LOCATION:Primary Hand
+GEAR:Shortbow						LOCATION:Carried
+GEAR:Arrow					QTY:20	LOCATION:Carried
+GEAR:Musical Instrument (Pan Pipes)			LOCATION:Carried		EQMOD:Special Quality ~ Masterwork ~ Item
+
+
+STARTPACK:Cayhound Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Cayhound],[!PRERACE:1,%]	SOURCEPAGE:p.8
+ALIGN:CG
+RACE:Cayhound	!PRERACE:1,%
+NAME:Cayhound
+SKILL:Acrobatics			RANK:5
+SKILL:Intimidate			RANK:2
+SKILL:Knowledge (Planes)	RANK:4
+SKILL:Perception			RANK:6
+SKILL:Sense Motive		RANK:4
+SKILL:Stealth			RANK:5
+SKILL:Survival			RANK:4
+ABILITY:CATEGORY=FEAT|Dimensional Agility
+ABILITY:CATEGORY=FEAT|Dimensional Assault
+ABILITY:CATEGORY=FEAT|Improved Initiative
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=11
+
+STARTPACK:Ceru Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Ceru],[!PRERACE:1,%]	SOURCEPAGE:p.9
+ALIGN:NG
+RACE:Ceru	!PRERACE:1,%
+NAME:Ceru
+SKILL:Diplomacy			RANK:2
+SKILL:Knowledge (Arcana)	RANK:3
+SKILL:Stealth			RANK:2
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
+
+STARTPACK:Charnel Colossus Default	TYPE:Default Monster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Charnel Colossus],[!PRERACE:1,%]	SOURCEPAGE:p.10
+ALIGN:NE
+RACE:Charnel Colossus	!PRERACE:1,%
+GENDER:Neuter
+NAME:Charnel Colossus
+SKILL:Climb				RANK:30
+SKILL:Intimidate			RANK:30
+SKILL:Knowledge (Arcana)	RANK:30
+SKILL:Knowledge (History)	RANK:30
+SKILL:Knowledge (Religion)	RANK:30
+SKILL:Perception			RANK:30
+SKILL:Sense Motive		RANK:30
+SKILL:Spellcraft			RANK:30
+ABILITY:CATEGORY=FEAT|Ability Focus (Voice of the Ancients)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Critical Focus
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Critical (Slam)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Iron Will
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Staggering Critical
+ABILITY:CATEGORY=FEAT|Stand Still
+ABILITY:CATEGORY=FEAT|Stunning Critical
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+
+STARTPACK:Fungus Queen Default	TYPE:Default Monster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Fungus Queen],[!PRERACE:1,%]	SOURCEPAGE:p.12
+ALIGN:CE
+RACE:Fungus Queen	!PRERACE:1,%
+GENDER:Female
+NAME:Fungus Queen
+SKILL:Bluff					RANK:12
+SKILL:Disguise				RANK:12
+SKILL:Knowledge (Dungeoneering)	RANK:6
+SKILL:Knowledge (Planes)		RANK:6
+SKILL:Perception				RANK:12
+SKILL:Sense Motive			RANK:12
+SKILL:Use Magic Device			RANK:12
+ABILITY:CATEGORY=FEAT|Combat Expertise
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Skill Focus (Disguise)
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+
+STARTPACK:Ghoran Bard	TYPE:Default Monster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Ghoran],[!PRERACE:1,%]	SOURCEPAGE:p.14
+ALIGN:TN
+RACE:Ghoran	!PRERACE:1,%
+GENDER:Female
+NAME:Ghoran Bard
+CLASS:Bard	LEVEL:1
+ABILITY:CATEGORY=Favored Class|Bard
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+SKILL:Bluff				RANK:1
+SKILL:Knowledge (History)	RANK:1
+SKILL:Knowledge (Local)		RANK:1
+SKILL:Perception			RANK:1
+SKILL:Perform (Sing)		RANK:1
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+STAT:STR=8|DEX=13|CON=14|INT=10|WIS=12|CHA=15
+GEAR:Rapier	QTY:1	SIZE:PC	LOCATION:Primary Hand
+SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Charm Person|Disguise Self|Daze|Light|Mending|Message
+
+STARTPACK:Giant (Shadow) Default	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Giant (Shadow)],[!PRERACE:1,%]	SOURCEPAGE:p.15
+ALIGN:LE
+RACE:Giant (Shadow)	!PRERACE:1,%
+GENDER:Male
+NAME:Shadow Giant
+SKILL:Climb		RANK:6
+SKILL:Intimidate	RANK:10
+SKILL:Perception	RANK:10
+SKILL:Stealth	RANK:6
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Double Slice
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Critical (Terbutje (Great))
+ABILITY:CATEGORY=FEAT|Improved Critical (Rock)
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Two-Weapon Fighting
+ABILITY:CATEGORY=FEAT|Vital Strike
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+GEAR:Terbutje (Great)	QTY:1	SIZE:PC	LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:BreastPlate									EQMOD:Special Ability ~ +1 ~ Armor.Material ~ Gold
+GEAR:Rock (Small)		QTY:1	SIZE:PC	LOCATION:Equipped
+
+STARTPACK:Monkey Goblin Barbarian	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Goblin (Monkey)],[!PRERACE:1,%]	SOURCEPAGE:p.16
+ALIGN:NE
+RACE:Goblin (Monkey)	!PRERACE:1,%
+GENDER:Male
+NAME:Monkey Goblin
+CLASS:Barbarian	LEVEL:1
+ABILITY:CATEGORY=Favored Class|Barbarian
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+SKILL:Acrobatics	RANK:1
+SKILL:Climb		RANK:1
+SKILL:Perception	RANK:1
+SKILL:Survival	RANK:1
+SKILL:Stealth	RANK:1
+ABILITY:CATEGORY=FEAT|Exotic Weapon Proficiency (Net)
+STAT:STR=15|DEX=14|CON=13|INT=10|WIS=12|CHA=8
+GEAR:Leather	QTY:1		SIZE:PC	LOCATION:Equipped
+GEAR:Kukri		QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Net		QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Shortbow	QTY:1		SIZE:PC	LOCATION:Equipped
+GEAR:Arrow		QTY:10	SIZE:PC	LOCATION:Shortbow
+
+STARTPACK:Golem (Marrowstone) Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	APPLY:INSTANT	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Golem (Marrowstone)],[!PRERACE:1,%]	SOURCEPAGE:p.17
+ALIGN:TN
+RACE:Golem (Marrowstone)	!PRERACE:1,%
+GENDER:Neuter
+NAME:Marrowstone Golem
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+
+STARTPACK:Golem (Noqual) Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Golem (Noqual)],[!PRERACE:1,%]	SOURCEPAGE:p.18
+ALIGN:TN
+RACE:Golem (Noqual)	!PRERACE:1,%
+GENDER:Neuter
+NAME:Noqual Golem
+ABILITY:CATEGORY=FEAT|Toughness
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+
+STARTPACK:Golem (Quantium) Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Golem (Quantium)],[!PRERACE:1,%]	SOURCEPAGE:p.19
+ALIGN:TN
+RACE:Golem (Quantium)	!PRERACE:1,%
+GENDER:Neuter
+NAME:Quantium Golem
+ABILITY:CATEGORY=FEAT|Whirlwind Attack
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+GEAR:Sword (Bastard)	QTY:1	SIZE:PC	LOCATION:Primary Hand	EQMOD:Special Ability ~ +5 ~ Weapon
+
+STARTPACK:Kakuen-Taka Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Kakuen-Taka],[!PRERACE:1,%]	SOURCEPAGE:p.20
+ALIGN:CE
+RACE:Kakuen-Taka	!PRERACE:1,%
+GENDER:Neuter
+NAME:Kakuen-Taka
+SKILL:Acrobatics	RANK:21
+SKILL:Intimidate	RANK:21
+SKILL:Perception	RANK:21
+SKILL:Stealth	RANK:11
+SKILL:Survival	RANK:10
+ABILITY:CATEGORY=FEAT|Ability Focus (Consume Flesh)
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Iron Will
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Run
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Step Up
+ABILITY:CATEGORY=FEAT|Toughness
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+
+STARTPACK:Khaei Default	TYPE:Default Monster.Monstrous Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Khaei],[!PRERACE:1,%]	SOURCEPAGE:p.22
+ALIGN:TN
+RACE:Khaei	!PRERACE:1,%
+GENDER:Neuter
+NAME:Khaei
+SKILL:Perception	RANK:4
+SKILL:Stealth	RANK:4
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
+GEAR:Club	QTY:1	SIZE:PC	LOCATION:Primary Hand
+GEAR:Sling	QTY:1	SIZE:PC	LOCATION:Carried
+
+STARTPACK:Korir-Kokembe Default	TYPE:Default Monster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Korir-Kokembe],[!PRERACE:1,%]	SOURCEPAGE:p.23
+ALIGN:TN
+RACE:Korir-Kokembe	!PRERACE:1,%
+GENDER:Neuter
+NAME:Korir-Kokembe
+SKILL:Climb				RANK:3
+SKILL:Fly				RANK:10
+SKILL:Intimidate			RANK:10
+SKILL:Knowledge (Nature)	RANK:10
+SKILL:Perception			RANK:13
+SKILL:Spellcraft			RANK:7
+SKILL:Stealth			RANK:13
+SKILL:Survival			RANK:5
+SKILL:Swim				RANK:7
+ABILITY:CATEGORY=FEAT|Critical Focus
+ABILITY:CATEGORY=FEAT|Improved Critical (Claw)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Sickening Critical
+ABILITY:CATEGORY=FEAT|Wingover
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+
+STARTPACK:Kyton (Termagent) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Kyton (Termagant)],[!PRERACE:1,%]	SOURCEPAGE:p.24
+ALIGN:LE
+RACE:Kyton (Termagant)	!PRERACE:1,%
+GENDER:Female
+NAME:Termagent Kyton
+SKILL:Bluff				RANK:17
+SKILL:Fly				RANK:17
+SKILL:Heal				RANK:17
+SKILL:Intimidate			RANK:17
+SKILL:Knowledge (Planes)	RANK:17
+SKILL:Knowledge (Religion)	RANK:17
+SKILL:Perception			RANK:17
+SKILL:Sense Motive		RANK:17
+SKILL:Stealth			RANK:17
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Critical Focus
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Critical (Slam)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Spring Attack
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+
+STARTPACK:Female Lashunta Wizard	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Lashunta (Male),Lashunta (Female)],[!PRERACE:1,%]	SOURCEPAGE:p.25
+ALIGN:NG
+RACE:Lashunta
+GENDER:Female
+NAME:Female Lashunta Wizard
+CLASS:Wizard	LEVEL:1
+ABILITY:CATEGORY=Favored Class|Wizard
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Skill Rank (Use Magic Device)
+ABILITY:CATEGORY=Arcane Bond|Arcane Bond ~ Bonded Object
+ABILITY:CATEGORY=Lashunta Knowledge Bonus|Lashunta ~ Knowledge Bonus (Knowledge (Arcana))
+LANGBONUS:Celestial|Draconic|Common
+SKILL:Diplomacy			RANK:1
+SKILL:Handle Animal		RANK:1
+SKILL:Knowledge (Arcana)	RANK:1
+SKILL:Perception			RANK:1
+SKILL:Spellcraft			RANK:1
+ABILITY:CATEGORY=FEAT|Toughness
+STAT:STR=8|DEX=13|CON=10|INT=15|WIS=12|CHA=14
+GEAR:Crossbow (Light)	QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Bolt (Crossbow)	QTY:20	SIZE:PC	LOCATION:Crossbow (Light)
+GEAR:Quarterstaff		QTY:1		SIZE:PC	LOCATION:Primary Hand		EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Amulet			QTY:1		SIZE:PC	LOCATION:Equipped
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Charm Person|Mage Armor|Magic Missile
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Charm Person|Mage Armor|Magic Missile|Acid Splash|Detect Magic|Flare|Read Magic
+
+STARTPACK:Lorthact	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Lorthact],[!PRERACE:1,%]	SOURCEPAGE:p.26
+ALIGN:LE
+RACE:Lorthact	!PRERACE:1,%
+GENDER:Male
+NAME:Lorthact
+SKILL:Acrobatics				RANK:25
+SKILL:Bluff					RANK:32
+SKILL:Craft (Alchemy)			RANK:17
+SKILL:Diplomacy				RANK:32
+SKILL:Disguise				RANK:32
+SKILL:Fly					RANK:12
+SKILL:Intimidate				RANK:32
+SKILL:Knowledge (Arcana)		RANK:32
+SKILL:Knowledge (Planes)		RANK:32
+SKILL:Knowledge (Dungeoneering)	RANK:10
+SKILL:Knowledge (Engineering)		RANK:10
+SKILL:Knowledge (Geography)		RANK:10
+SKILL:Knowledge (Nobility)		RANK:10
+SKILL:Knowledge (Religion)		RANK:10
+SKILL:Knowledge (History)		RANK:20
+SKILL:Knowledge (Local)			RANK:20
+SKILL:Perception				RANK:32
+SKILL:Perform (Act)			RANK:10
+SKILL:Sense Motive			RANK:19
+SKILL:Sleight of Hand			RANK:19
+SKILL:Spellcraft				RANK:32
+SKILL:Stealth				RANK:32
+SKILL:Use Magic Device			RANK:32
+ABILITY:CATEGORY=FEAT|Deflect Arrows
+ABILITY:CATEGORY=FEAT|Destructive Dispel
+ABILITY:CATEGORY=FEAT|Dispel Synergy
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Empower Spell-Like Ability ~ Spell (Horrid Wilting)
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Unarmed Strike
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Quicken Spell-Like Ability ~ Spell (Dispel Magic (Greater))
+ABILITY:CATEGORY=FEAT|Spell Penetration
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Focus (Claw)
+ABILITY:CATEGORY=FEAT|Greater Spell Penetration
+ABILITY:CATEGORY=FEAT|Improved Great Fortitude
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
+GEAR:Boots of Speed		QTY:1	SIZE:PC	LOCATION:Equipped
+GEAR:Rod (Cancellation)		QTY:2	SIZE:PC	LOCATION:Carried
+GEAR:Staff of Power		QTY:1	SIZE:PC	LOCATION:Both Hands
+GEAR:Bracers of Armor +6	QTY:1	SIZE:PC	LOCATION:Equipped
+GEAR:Mirror of Life Trapping	QTY:1	SIZE:PC	LOCATION:Carried
+GEAR:Ring of Evasion		QTY:1	SIZE:PC	LOCATION:Equipped
+GEAR:Ring of Protection +5	QTY:1	SIZE:PC	LOCATION:Equipped
+
+STARTPACK:Gnoll Mutant	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Gnoll],[!PRERACE:1,%]	SOURCEPAGE:p.28
+ALIGN:CE
+RACE:Gnoll	!PRERACE:1,%
+GENDER:Male
+NAME:Mana Wastes Mutant Gnoll
+CLASS:Fighter	LEVEL:2
+TEMPLATE:Mana Wastes Mutant
+ABILITY:CATEGORY=Favored Class|Fighter
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Mutant Deformity|Mana Wastes Mutant ~ Deformed Arm
+ABILITY:CATEGORY=Mutant Special Ability|Mana Wastes Mutant ~ Disease
+SKILL:Perception	RANK:4
+SKILL:Stealth	RANK:3
+SKILL:Survival	RANK:2
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=Fighter Bonus Feat|Cleave
+ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Focus (Longsword)
+STAT:STR=9|DEX=14|CON=13|INT=12|WIS=15|CHA=10
+GEAR:Breastplate	QTY:1	SIZE:PC	LOCATION:Equipped		EQMOD:Special Quality ~ Masterwork ~ Armor
+GEAR:Longsword	QTY:1	SIZE:PC	LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
+
+STARTPACK:Mantis (Deadly) Default	TYPE:Default Monster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Mantis (Deadly)],[!PRERACE:1,%]	SOURCEPAGE:p.30
+ALIGN:TN
+RACE:Mantis (Deadly)	!PRERACE:1,%
+GENDER:Female
+NAME:Deadly Mantis
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+
+STARTPACK:Mockingfey Default	TYPE:Default Monster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Mockingfey],[!PRERACE:1,%]	SOURCEPAGE:p.31
+ALIGN:CN
+RACE:Mockingfey	!PRERACE:1,%
+NAME:Mockingfey
+SKILL:Acrobatics	RANK:3
+SKILL:Disguise	RANK:3
+SKILL:Fly		RANK:1
+SKILL:Perception	RANK:3
+SKILL:Stealth	RANK:2
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
+
+STARTPACK:Moxix	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Moxix],[!PRERACE:1,%]	SOURCEPAGE:p.32
+ALIGN:CE
+RACE:Moxix	!PRERACE:1,%
+GENDER:Neuter
+NAME:Moxix
+SKILL:Bluff				RANK:23
+SKILL:Climb				RANK:18
+SKILL:Diplomacy			RANK:15
+SKILL:Intimidate			RANK:23
+SKILL:Knowledge (Planes)	RANK:23
+SKILL:Knowledge (Religion)	RANK:16
+SKILL:Perception			RANK:23
+SKILL:Sense Motive		RANK:23
+SKILL:Spellcraft			RANK:20
+ABILITY:CATEGORY=FEAT|Bleeding Critical
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Critical Focus
+ABILITY:CATEGORY=FEAT|Dazing Assault
+ABILITY:CATEGORY=FEAT|Improved Critical (Bite)
+ABILITY:CATEGORY=FEAT|Improved Critical (Slam)
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Quicken Spell-Like Ability ~ Spell (Mind Fog)
+ABILITY:CATEGORY=FEAT|Vital Strike
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
+
+STARTPACK:Nightripper	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Nightripper],[!PRERACE:1,%]	SOURCEPAGE:p.34
+ALIGN:CE
+RACE:Nightripper	!PRERACE:1,%
+GENDER:Male
+NAME:Nightripper
+SKILL:Acrobatics			RANK:27
+SKILL:Intimidate			RANK:27
+SKILL:Knowledge (History)	RANK:27
+SKILL:Knowledge (Local)		RANK:27
+SKILL:Knowledge (Religion)	RANK:27
+SKILL:Knowledge (Nobility)	RANK:27
+SKILL:Perception			RANK:27
+SKILL:Sense Motive		RANK:27
+SKILL:Stealth			RANK:27
+SKILL:Use Magic Device		RANK:27
+ABILITY:CATEGORY=FEAT|Combat Expertise
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dazzling Display
+ABILITY:CATEGORY=FEAT|Deadly Stroke
+ABILITY:CATEGORY=FEAT|Exotic Weapon Proficiency (Sword (Bastard))
+ABILITY:CATEGORY=FEAT|Greater Feint
+ABILITY:CATEGORY=FEAT|Greater Weapon Focus (Sword (Bastard))
+ABILITY:CATEGORY=FEAT|Greater Weapon Specialization (Sword (Bastard))
+ABILITY:CATEGORY=FEAT|Improved Critical (Sword (Bastard))
+ABILITY:CATEGORY=FEAT|Improved Critical (Claw)
+ABILITY:CATEGORY=FEAT|Improved Critical (Talons)
+ABILITY:CATEGORY=FEAT|Improved Disarm
+ABILITY:CATEGORY=FEAT|Improved Feint
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Quick Draw								FREE:YES
+ABILITY:CATEGORY=FEAT|Quicken Spell-Like Ability ~ Spell (Blade Barrier)	FREE:YES
+ABILITY:CATEGORY=FEAT|Shatter Defenses							FREE:YES
+ABILITY:CATEGORY=FEAT|Weapon Focus (Sword (Bastard))					FREE:YES
+ABILITY:CATEGORY=FEAT|Weapon Specialization (Sword (Bastard))			FREE:YES
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+GEAR:Sword (Bastard)	QTY:1	SIZE:PC	LOCATION:Primary Hand	EQMOD:Special Ability ~ +5 ~ Weapon.Special Ability ~ Keen ~ Weapon.Special Ability ~ Vorpal ~ Melee
+
+STARTPACK:Oronci Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	APPLY:INSTANT	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Oronci],[!PRERACE:1,%]	SOURCEPAGE:p.36
+ALIGN:CE
+RACE:Oronci	!PRERACE:1,%
+GENDER:Male
+NAME:Oronci
+SKILL:Acrobatics	RANK:4
+SKILL:Climb		RANK:1
+SKILL:Perception	RANK:2
+SKILL:Stealth	RANK:2
+SKILL:Swim		RANK:1
+ABILITY:CATEGORY=FEAT|Acrobatic Steps
+ABILITY:CATEGORY=FEAT|Improved Overrun
+ABILITY:CATEGORY=FEAT|Nimble Moves
+ABILITY:CATEGORY=FEAT|Power Attack
+STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
+GEAR:Battleaxe			QTY:1	SIZE:M	LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Shield (Heavy/Wooden)	QTY:1	SIZE:M	LOCATION:Secondary Hand
+
+STARTPACK:Petrified Maiden Default	TYPE:Default Monster.Undead	VISIBLE:QUALIFY	APPLY:INSTANT	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Petrified Maiden],[!PRERACE:1,%]	SOURCEPAGE:p.37
+ALIGN:NE
+RACE:Petrified Maiden	!PRERACE:1,%
+GENDER:Female
+NAME:Petrified Maiden
+ABILITY:CATEGORY=Petrified Maiden Weapon Selection|Petrified Maiden ~ Weapon Selection (Scimitar)
+SKILL:Intimidate	RANK:9
+SKILL:Perception	RANK:9
+SKILL:Stealth	RANK:9
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Vital Strike
+ABILITY:CATEGORY=FEAT|Weapon Focus (Scimitar)
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=10
+GEAR:Scimitar	QTY:1	SIZE:PC	LOCATION:Primary Hand	EQMOD:Special Ability ~ +1 ~ Weapon
+
+STARTPACK:Memitim Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	APPLY:INSTANT	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Psychopomp (Memitim)],[!PRERACE:1,%]	SOURCEPAGE:p.39
+ALIGN:TN
+RACE:Psychopomp (Memitim)	!PRERACE:1,%
+GENDER:Female
+NAME:Memitim
+SKILL:Bluff				RANK:16
+SKILL:Diplomacy			RANK:16
+SKILL:Escape Artist		RANK:16
+SKILL:Fly				RANK:16
+SKILL:Intimidate			RANK:16
+SKILL:Knowledge (Planes)	RANK:16
+SKILL:Knowledge (Religion)	RANK:16
+SKILL:Perception			RANK:16
+SKILL:Stealth			RANK:16
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Bleeding Critical
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Critical Focus
+ABILITY:CATEGORY=FEAT|Improved Critical (Scythe)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus (Scythe)
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
+GEAR:Scythe	QTY:1	SIZE:PC	LOCATION:Both Hands	EQMOD:Special Ability ~ +3 ~ Weapon
+
+STARTPACK:Shoki Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Psychopomp (Shoki)],[!PRERACE:1,%]	SOURCEPAGE:p.40
+ALIGN:TN
+RACE:Psychopomp (Shoki)	!PRERACE:1,%
+GENDER:Male
+NAME:Shoki
+SKILL:Bluff				RANK:10
+SKILL:Diplomacy			RANK:10
+SKILL:Intimidate			RANK:10
+SKILL:Knowledge (Arcana)	RANK:10
+SKILL:Knowledge (Planes)	RANK:10
+SKILL:Knowledge (Religion)	RANK:10
+SKILL:Perception			RANK:10
+SKILL:Sense Motive		RANK:10
+SKILL:Spellcraft			RANK:10
+SKILL:Stealth			RANK:10
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Persuasive
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+GEAR:Quarterstaff	QTY:1	SIZE:PC	LOCATION:Both Hands	EQMOD:Material ~ Cold Iron.Special Ability ~ +2 ~ Weapon
+
+STARTPACK:Viduus Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Psychopomp (Viduus)],[!PRERACE:1,%]	SOURCEPAGE:p.41
+ALIGN:TN
+RACE:Psychopomp (Viduus)	!PRERACE:1,%
+GENDER:Male
+NAME:Viduus
+SKILL:Bluff				RANK:5
+SKILL:Diplomacy			RANK:5
+SKILL:Knowledge (History)	RANK:5
+SKILL:Knowledge (Planes)	RANK:5
+SKILL:Knowledge (Religion)	RANK:5
+SKILL:Perception			RANK:5
+SKILL:Sense Motive		RANK:5
+SKILL:Stealth			RANK:5
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
+
+STARTPACK:Robot (Annihilator) Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	APPLY:INSTANT	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Robot (Annihilator)],[!PRERACE:1,%]	SOURCEPAGE:p.43
+ALIGN:TN
+RACE:Robot (Annihilator)	!PRERACE:1,%
+GENDER:Neuter
+NAME:Annihilator
+SKILL:Acrobatics		RANK:20
+SKILL:Intimidate		RANK:20
+SKILL:Perception		RANK:20
+SKILL:Sense Motive	RANK:20
+ABILITY:CATEGORY=FEAT|Combat Expertise
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Deadly Aim
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Critical (Chain Guns)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Skill Focus (Acrobatics)
+ABILITY:CATEGORY=FEAT|Weapon Focus (Chain Guns)
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+
+STARTPACK:Robot (Gearsman) Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	APPLY:INSTANT	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Robot (Gearsman)],[!PRERACE:1,%]	SOURCEPAGE:p.44
+ALIGN:TN
+RACE:Robot (Gearsman)	!PRERACE:1,%
+GENDER:Neuter
+NAME:Gearsman
+SKILL:TYPE=Craft		RANK:4
+SKILL:Disable Device	RANK:4
+SKILL:TYPE=Profession	RANK:3
+SKILL:Perception		RANK:4
+SKILL:Sense Motive	RANK:4	FREE:YES
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Power Attack
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+GEAR:Spear	QTY:1	SIZE:PC	LOCATION:Both Hands	EQMOD:Special Quality ~ Masterwork ~ Weapon
+
+STARTPACK:Robot (Myrmidon) Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	APPLY:INSTANT	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Robot (Myrmidon)],[!PRERACE:1,%]	SOURCEPAGE:p.45
+ALIGN:TN
+RACE:Robot (Myrmidon)	!PRERACE:1,%
+GENDER:Neuter
+NAME:Myrmidon
+SKILL:Fly				RANK:15
+SKILL:Knowledge (Engineering)	RANK:15
+SKILL:Perception			RANK:15
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Point-Blank Shot
+ABILITY:CATEGORY=FEAT|Precise Shot
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+
+STARTPACK:Chemnosit	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	APPLY:INSTANT	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Chemnosit],[!PRERACE:1,%]	SOURCEPAGE:p.47
+ALIGN:CE
+RACE:Chemnosit	!PRERACE:1,%
+GENDER:Neuter
+NAME:Chemnosit
+SKILL:Climb		RANK:4
+SKILL:Perception	RANK:22
+SKILL:Swim		RANK:1
+ABILITY:CATEGORY=FEAT|Ability Focus (Hungry Gaze)
+ABILITY:CATEGORY=FEAT|Awesome Blow
+ABILITY:CATEGORY=FEAT|Bleeding Critical
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Critical Focus
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Critical (Spells (Ray))
+ABILITY:CATEGORY=FEAT|Improved Critical (Toothed Tentacle)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus (Toothed Tentacle)
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
+
+STARTPACK:Volnagur	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Volnagur],[!PRERACE:1,%]	SOURCEPAGE:p.48
+ALIGN:CE
+RACE:Volnagur	!PRERACE:1,%
+GENDER:Neuter
+NAME:Volnagur
+SKILL:Fly		RANK:10
+SKILL:Perception	RANK:15
+ABILITY:CATEGORY=FEAT|Ability Focus (Eye Rays)
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Precise Shot
+ABILITY:CATEGORY=FEAT|Improved Vital Strike
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Point-Blank Shot
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Precise Strike
+ABILITY:CATEGORY=FEAT|Snatch
+ABILITY:CATEGORY=FEAT|Vital Strike
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
+
+STARTPACK:Spellscar Fext Default	TYPE:Default Monster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Spellscar Fext],[!PRERACE:1,%]	SOURCEPAGE:p.49
+ALIGN:CE
+RACE:Spellscar Fext	!PRERACE:1,%
+GENDER:Neuter
+NAME:Spellscar Fext
+SKILL:Climb		RANK:6
+SKILL:Intimidate	RANK:5
+SKILL:Perception	RANK:10
+SKILL:Stealth	RANK:9
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Skill Focus (Stealth)
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
+
+STARTPACK:Star Monarch Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Star Monarch],[!PRERACE:1,%]	SOURCEPAGE:p.50
+ALIGN:CG
+RACE:Star Monarch	!PRERACE:1,%
+GENDER:Neuter
+NAME:Star Monarch
+SKILL:Fly			RANK:9
+SKILL:Perception		RANK:6
+SKILL:Sense Motive	RANK:7
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
+
+STARTPACK:Syrinx Adept	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Syrinx],[!PRERACE:1,%]	SOURCEPAGE:p.51
+ALIGN:LE
+RACE:Syrinx	!PRERACE:1,%
+GENDER:Male
+NAME:Syrinx Adept
+CLASS:Adept	LEVEL:1
+ABILITY:CATEGORY=Favored Class|Adept
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+LANGBONUS:Common
+SKILL:Fly		RANK:1
+SKILL:Perception	RANK:1
+SKILL:Spellcraft	RANK:1
+ABILITY:CATEGORY=FEAT|Combat Casting
+STAT:STR=8|DEX=10|CON=9|INT=12|WIS=13|CHA=11
+GEAR:Quarterstaff	QTY:1	SIZE:PC	LOCATION:Both Hands
+SPELLS:SPELLBOOK=Known Spells|CLASS=Adept|Command|Detect Magic|Ghost Sound|Read Magic|Stabilize
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Adept|Command|Detect Magic|Ghost Sound|Read Magic|Stabilize
+
+STARTPACK:Thin Man Default	TYPE:Default Monster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Thin Man],[!PRERACE:1,%]	SOURCEPAGE:p.52
+ALIGN:CN
+RACE:Thin Man	!PRERACE:1,%
+GENDER:Male
+NAME:Thin Man
+SKILL:Climb			RANK:7
+SKILL:Escape Artist	RANK:7
+SKILL:Perception		RANK:7
+SKILL:Stealth		RANK:7
+SKILL:Survival		RANK:7
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Weapon Focus (Claw)
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+
+STARTPACK:Umbral Shepherd Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Umbral Shepherd],[!PRERACE:1,%]	SOURCEPAGE:p.53
+ALIGN:LE
+RACE:Umbral Shepherd	!PRERACE:1,%
+GENDER:Neuter
+NAME:Umbral Shepherd
+SKILL:Bluff				RANK:5
+SKILL:Disguise			RANK:6
+SKILL:Fly				RANK:1
+SKILL:Intimidate			RANK:6
+SKILL:Knowledge (Planes)	RANK:6
+SKILL:Knowledge (Religion)	RANK:6
+SKILL:Perception			RANK:6
+SKILL:Sense Motive		RANK:6
+SKILL:Stealth			RANK:6
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
+
+STARTPACK:Female Human Vetala Oracle	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	APPLY:INSTANT	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.54
+ALIGN:NE
+RACE:Human	!PRERACE:1,%
+GENDER:Female
+NAME:Female Human Vetala Oracle
+CLASS:Oracle	LEVEL:5
+STAT:STR=14|DEX=13|CON=0|INT=12|WIS=10|CHA=16
+TEMPLATE:Vetala
+ABILITY:CATEGORY=Favored Class|Oracle
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Oracle Mystery|Oracle ~ Bone Mystery
+ABILITY:CATEGORY=Oracle Curse|Oracle ~ Haunted
+ABILITY:CATEGORY=Bone Mystery Revelation|Bone Mystery ~ Death's Touch
+ABILITY:CATEGORY=Bone Mystery Revelation|Bone Mystery ~ Undead Servitude
+ABILITY:CATEGORY=FEAT|Extra Revelation
+ABILITY:CATEGORY=Bone Mystery Revelation|Bone Mystery ~ Voice of the Grave
+LANGBONUS:Infernal|Vudrani
+SKILL:Bluff				RANK:5
+SKILL:Diplomacy			RANK:5
+SKILL:Disguise			RANK:5
+SKILL:Knowledge (Religion)	RANK:5
+SKILL:Perception			RANK:5
+SKILL:Sense Motive		RANK:5
+SKILL:Spellcraft			RANK:5
+SKILL:Stealth			RANK:5
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Mobility
+GEAR:Chain Shirt			QTY:1	SIZE:PC	LOCATION:Equipped
+GEAR:Cloak of Resistance +1	QTY:1	SIZE:PC	LOCATION:Equipped
+GEAR:Potion of Invisibility	QTY:2	SIZE:PC	LOCATION:Carried
+SPELLS:SPELLBOOK=Known Spells|CLASS=Oracle|Bleed|Detect Magic|Ghost Sound|Guidance|Light|Mage Hand|Read Magic|Resistance|Cause Fear|Command|Doom|Inflict Light Wounds|Obscuring Mist|Shield of Faith|Death Knell|False Life|Inflict Moderate Wounds|Levitate|Minor Image|Silence
+
+STARTPACK:Veiled Master Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Veiled Master],[!PRERACE:1,%]	SOURCEPAGE:p.56
+ALIGN:LE
+RACE:Veiled Master	!PRERACE:1,%
+GENDER:Neuter
+NAME:Veiled Master
+SKILL:Knowledge (Arcana)	RANK:13
+SKILL:Knowledge (History)	RANK:13
+SKILL:Knowledge (Nature)	RANK:13
+SKILL:Perception			RANK:16
+SKILL:Sense Motive		RANK:16
+SKILL:Spellcraft			RANK:16
+SKILL:Stealth			RANK:16
+SKILL:Swim				RANK:16
+SKILL:Use Magic Device		RANK:16
+ABILITY:CATEGORY=FEAT|Arcane Strike
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Combat Expertise
+ABILITY:CATEGORY=FEAT|Eschew Materials
+ABILITY:CATEGORY=FEAT|Extend Spell
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Quicken Spell
+ABILITY:CATEGORY=FEAT|Quicken Spell-Like Ability ~ Spell (Dominate Person)	FREE:YES
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=11|CHA=10
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Arcane Mark|Dancing Lights|Daze|Detect Magic|Ghost Sound|Mage Hand|Message|Read Magic|Touch of Fatigue|Charm Person|Comprehend Languages|Erase|Ray of Enfeeblement|Silent Image|Blindness/Deafness|Invisibility|Levitate|Symbol of Mirroring|Touch of Idiocy|Clairaudience/Clairvoyance|Explosive Runes|Hold Person|Secret Page|Dimension Door|Phantasmal Killer|Symbol of Slowing|Symbol of Pain|Symbol of Persuasion
+
+STARTPACK:Vespergaunt Default	TYPE:Default Monster.Ooze	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Vespergaunt],[!PRERACE:1,%]	SOURCEPAGE:p.58
+ALIGN:NE
+RACE:Vespergaunt	!PRERACE:1,%
+GENDER:Neuter
+NAME:Vespergaunt
+SKILL:Diplomacy			RANK:3
+SKILL:Fly				RANK:5
+SKILL:Intimidate			RANK:10
+SKILL:Knowledge (Planes)	RANK:16
+SKILL:Perception			RANK:16
+SKILL:Sense Motive		RANK:6
+SKILL:Stealth			RANK:10
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Persuasive
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus (Slam)
+STAT:STR=11|DEX=10|CON=10|INT=11|WIS=11|CHA=10
+
+STARTPACK:Water Wraith Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Water Wraith],[!PRERACE:1,%]	SOURCEPAGE:p.59
+ALIGN:CN
+RACE:Water Wraith	!PRERACE:1,%
+GENDER:Neuter
+NAME:Water Wraith
+SKILL:Perception	RANK:1
+SKILL:Stealth	RANK:1
+SKILL:Swim		RANK:1
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
+STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=10
+
+STARTPACK:Whirlmaw Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Whirlmaw],[!PRERACE:1,%]	SOURCEPAGE:p.60
+ALIGN:TN
+RACE:Whirlmaw	!PRERACE:1,%
+GENDER:Neuter
+NAME:Whirlmaw
+SKILL:Fly		RANK:1
+SKILL:Perception	RANK:5
+SKILL:Stealth	RANK:6
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
+ABILITY:CATEGORY=FEAT|Wingover
+STAT:STR=11|DEX=10|CON=10|INT=11|WIS=10|CHA=11
+
+STARTPACK:Woundwyrm Default	TYPE:Default Monster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Woundwyrm],[!PRERACE:1,%]	SOURCEPAGE:p.61
+ALIGN:CE
+RACE:Woundwyrm	!PRERACE:1,%
+GENDER:Male
+NAME:Woundwyrm
+SKILL:Acrobatics			RANK:18
+SKILL:Bluff				RANK:10
+SKILL:Diplomacy			RANK:7
+SKILL:Fly				RANK:18
+SKILL:Intimidate			RANK:18
+SKILL:Knowledge (Planes)	RANK:18
+SKILL:Perception			RANK:18
+SKILL:Spellcraft			RANK:18
+SKILL:Survival			RANK:18
+SKILL:Swim				RANK:1
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Critical Focus
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Snatch
+ABILITY:CATEGORY=FEAT|Staggering Critical
+ABILITY:CATEGORY=FEAT|Stunning Critical
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+
+STARTPACK:Zelishkar	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	APPLY:INSTANT	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Zelishkar],[!PRERACE:1,%]	SOURCEPAGE:p.62
+ALIGN:NE
+RACE:Zelishkar	!PRERACE:1,%
+GENDER:Male
+NAME:Zelishkar of the Bitter Flame
+SKILL:Acrobatics			RANK:24
+SKILL:Bluff				RANK:11
+SKILL:Diplomacy			RANK:14
+SKILL:Fly				RANK:15
+SKILL:Intimidate			RANK:24
+SKILL:Knowledge (Planes)	RANK:24
+SKILL:Perception			RANK:24
+SKILL:Sense Motive		RANK:20
+SKILL:Spellcraft			RANK:21
+SKILL:Stealth			RANK:24
+SKILL:Survival			RANK:21
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Charge Through
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Empower Spell-Like Ability ~ Spell (Fire Storm)
+ABILITY:CATEGORY=FEAT|Greater Overrun
+ABILITY:CATEGORY=FEAT|Improved Critical (Claw)
+ABILITY:CATEGORY=FEAT|Improved Overrun
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Quicken Spell-Like Ability ~ Spell (Contagious Flame)
+ABILITY:CATEGORY=FEAT|Weapon Focus (Claw)
+STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=11
+GEAR:Breastplate	QTY:1	SIZE:PC	LOCATION:Equipped	EQMOD:Special Ability ~ +5 ~ Armor

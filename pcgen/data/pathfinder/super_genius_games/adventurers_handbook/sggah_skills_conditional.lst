@@ -1,0 +1,23 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Adventurer's Handbook: Genius Guide Volume 1	SOURCESHORT:SGGAH	SOURCEDATE:2010-04
+# Original Entry by: Paul Shipley (elro the onk)
+
+###Block: Conditional Skills for output only
+# Skill Name				Key Stat	Untrained?		Classes	Type			Visible		Required Ability									Req. Rule (in options)		Prohibited Var. Value
+Appraise (Perception)			KEYSTAT:WIS	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Perspicacity ~ War Master	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Appraise (Perception).MISC"),var("SKILL.Appraise.MISC")
+Bluff (Feint)				KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT												PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Bluff (Feint).MISC"),var("SKILL.Bluff.MISC")
+Diplomacy (Knowledge (Nobility))	KEYSTAT:INT	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Consul ~ War Master		PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Diplomacy (Knowledge (Nobility)).MISC"),var("SKILL.Diplomacy.MISC")
+Perception (Mystic energy)		KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=FEAT,Sensitive					PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Perception (Mystic energy).MISC"),var("SKILL.Perception.MISC")
+Sense Motive (Perception)		KEYSTAT:WIS	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Perspicacity ~ War Master	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Sense Motive (Perception).MISC"),var("SKILL.Sense Motive.MISC")
+Spellcraft (Favored spell)		KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT												PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Spellcraft (Favored spell).MISC"),var("SKILL.Spellcraft.MISC")
+Spellcraft (Identify spell)		KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT												PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Spellcraft (Identify spell).MISC"),var("SKILL.Spellcraft.MISC")
+
+###Block: Skill .MODs
+# Skill Name			Bonus to skill												Bonus to skill rank
+Bluff.MOD				BONUS:SKILL|Bluff (Feint)|var("SKILL.Bluff.MISC")						BONUS:SKILLRANK|Bluff (Feint)|skillinfo("TOTALRANK","Bluff")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Bluff (Feint).MISC"),var("SKILL.Bluff.MISC")
+Knowledge (Nobility).MOD	BONUS:SKILL|Diplomacy (Knowledge (Nobility))|var("SKILL.Knowledge (Nobility).MISC")	BONUS:SKILLRANK|Diplomacy (Knowledge (Nobility))|skillinfo("TOTALRANK", "Knowledge (Nobility)")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Diplomacy (Knowledge (Nobility)).MISC"),var("SKILL.Diplomacy.MISC")
+Perception.MOD			BONUS:SKILL|Appraise (Perception)|var("SKILL.Perception.MISC")				BONUS:SKILLRANK|Appraise (Perception)|skillinfo("TOTALRANK", "Perception")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Appraise (Perception).MISC"),var("SKILL.Appraise.MISC")
+Perception.MOD			BONUS:SKILL|Sense Motive (Perception)|var("SKILL.Perception.MISC")			BONUS:SKILLRANK|Sense Motive (Perception)|skillinfo("TOTALRANK", "Perception")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Sense Motive (Perception).MISC"),var("SKILL.Sense Motive.MISC")
+Spellcraft.MOD			BONUS:SKILL|Spellcraft (Favored spell)|var("SKILL.Spellcraft.MISC")			BONUS:SKILLRANK|Spellcraft (Favored spell)|skillinfo("TOTALRANK","Spellcraft")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Spellcraft (Favored spell).MISC"),var("SKILL.Spellcraft.MISC")
+Spellcraft.MOD			BONUS:SKILL|Spellcraft (Identify spell)|var("SKILL.Spellcraft.MISC")			BONUS:SKILLRANK|Spellcraft (Identify spell)|skillinfo("TOTALRANK","Spellcraft")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Spellcraft (Identify spell).MISC"),var("SKILL.Spellcraft.MISC")
+Spellcraft.MOD			BONUS:SKILL|Perception (Mystic energy)|var("SKILL.Spellcraft.MISC")			BONUS:SKILLRANK|Perception (Mystic energy)|skillinfo("TOTALRANK","Spellcraft")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Perception (Mystic energy).MISC"),var("SKILL.Perception.MISC")

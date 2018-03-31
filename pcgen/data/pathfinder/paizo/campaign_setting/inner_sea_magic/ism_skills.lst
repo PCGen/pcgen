@@ -1,0 +1,27 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Inner Sea Magic	SOURCESHORT:ISM	SOURCEWEB:http://paizo.com/products/btpy8mfs?Pathfinder-Campaign-Setting-Inner-Sea-Magic	SOURCEDATE:2011-07
+
+# Skill Name	Key Stat	Untrained?		Type					Var. Must Be Lower			Source Page		Bonus to skill
+Craft (Tattoos)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft.Base	PREVARLT:AnimalCompanionSkill,1	SOURCEPAGE:p.16	BONUS:SKILL|Craft (Alchemy)|3|TYPE=ClassSkill|PRECSKILL:1,Craft (Alchemy)|PRESKILL:1,Craft (Alchemy)=1
+
+###Block: Skill Focus implementation
+# Skill Name		Bonus to skill
+Craft (Tattoos).MOD	BONUS:SKILL|Craft (Tattoos)|3|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Craft (Tattoos))	BONUS:SKILL|Craft (Tattoos)|6|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Craft (Tattoos))|PRESKILL:1,Craft (Tattoos)=10
+
+###Block: Situations
+# Skill Name		Situational Skill
+Bluff.MOD			SITUATION:Region of fame
+Craft (Alchemy).MOD	SITUATION:Silver
+Craft (Weapons).MOD	SITUATION:Silver
+Intimidate.MOD		SITUATION:Region of fame
+Knowledge (Nature).MOD	SITUATION:In coastal or marshy lands
+Knowledge (Planes).MOD	SITUATION:Demons & demonic cults
+Perception.MOD		SITUATION:In forests
+Spellcraft.MOD		SITUATION:Create silver item
+Survival.MOD		SITUATION:In coastal or marshy lands
+Use Magic Device.MOD	SITUATION:Cast scrolls
+Use Magic Device.MOD	SITUATION:Divine spell trigger/completion
+
+#
+# EOF
+#

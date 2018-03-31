@@ -1,0 +1,26 @@
+# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Second Darkness, Chapter 3 - The Armageddon Echo	SOURCESHORT:AP15	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy85ep	SOURCEDATE:2008-10
+
+###Block: Pain Taster Abilities
+# Ability Name		Category of Ability		Type								Define								Description																			Bonus Ability Pool					Stat bonus					Modify VAR				Source Page
+Masochism			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary												DESC:You have a perverse tolerance for pain																																SOURCEPAGE:p.61
+Disciple of Pain		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural												DESC:A pain taster gains insight into the mysteries of self-torture and torment.							BONUS:ABILITYPOOL|Disciple of Pain Routine|1												SOURCEPAGE:p.61
+Disciple of Acuity	CATEGORY:Special Ability	TYPE:SpecialQuality.DiscipleOfPainRoutine																																							BONUS:STAT|INT|2|TYPE=Enhancement						SOURCEPAGE:p.61
+Disciple of Flexibility	CATEGORY:Special Ability	TYPE:SpecialQuality.DiscipleOfPainRoutine																																							BONUS:STAT|DEX|2|TYPE=Enhancement						SOURCEPAGE:p.61
+Disciple of Insight	CATEGORY:Special Ability	TYPE:SpecialQuality.DiscipleOfPainRoutine																																							BONUS:STAT|WIS|2|TYPE=Enhancement						SOURCEPAGE:p.61
+Disciple of Spirit	CATEGORY:Special Ability	TYPE:SpecialQuality.DiscipleOfPainRoutine																																							BONUS:STAT|CHA|2|TYPE=Enhancement						SOURCEPAGE:p.61
+Disciple of Torment	CATEGORY:Special Ability	TYPE:SpecialQuality.DiscipleOfPainRoutine																																							BONUS:STAT|CON|2|TYPE=Enhancement						SOURCEPAGE:p.61
+Disciple of Vigor		CATEGORY:Special Ability	TYPE:SpecialQuality.DiscipleOfPainRoutine																																							BONUS:STAT|STR|2|TYPE=Enhancement						SOURCEPAGE:p.61
+Cruelty			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			DEFINE:SneakAttackDie|0	DEFINE:SneakAttackDice|0	DESC:You gain the sneak attack ability (+%1d%2), but only when using slashing weapons.|SneakAttackDice|SneakAttackDie															BONUS:VAR|SneakAttackDie|6	SOURCEPAGE:p.61
+Blood Control		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyAC	DEFINE:BloodControlBonus|0					DESC:You gain precise control over the movement of blood within your body (%1 points/round)|BloodControlBonus																					SOURCEPAGE:p.62
+Pain Mastery		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyAC										DESC:Your tolerance and enjoyment of pain increases your resistance to nonlethal damage.																									SOURCEPAGE:p.62
+
+###Block: Demonic Initiate Abilities
+# Ability Name		Output Name					Category of Ability		Type						Description																		Source Page
+Abyssal Resistance							CATEGORY:Special Ability	TYPE:SpecialQuality.Resistance																				SOURCEPAGE:p.64-65
+Dark Mark									CATEGORY:Special Ability	TYPE:SpecialQuality			DESC:Demonic initiates innately recognize those dedicated to their Abyssal patron						SOURCEPAGE:p.63
+Abyssal Tongue								CATEGORY:Special Ability	TYPE:SpecialQuality.Communicate	DESC:You may communicate in a way that is only understood by those foresworn to the same demonic patron as you.	SOURCEPAGE:p.64
+Summon Demonic Ally							CATEGORY:Special Ability	TYPE:SpecialQuality			DESC:Once per day you can cast summon monster to conjure a demon in service to your patron.				SOURCEPAGE:p.64
+Damnation									CATEGORY:Special Ability	TYPE:SpecialQuality			DESC:Upon dying your soul is claimed by your demonic patron										SOURCEPAGE:p.64
+Demonic Boon (Lesser)	OUTPUTNAME:Demonic Boon, Lesser	CATEGORY:Special Ability	TYPE:SpecialQuality																						SOURCEPAGE:p.64-65
+Demonic Boon (Greater)	OUTPUTNAME:Demonic Boon, Greater	CATEGORY:Special Ability	TYPE:SpecialQuality																						SOURCEPAGE:p.64-65

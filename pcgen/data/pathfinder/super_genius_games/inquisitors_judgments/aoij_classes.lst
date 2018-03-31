@@ -1,0 +1,33 @@
+# CVS $Revision: $ $Author: $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Advanced Options: Inquisitors' Judgments	SOURCESHORT:AOIJ	SOURCEDATE:2010-12
+# Original Entry by: Paul Shipley (elro the onk)
+
+# Class Name	Hit Dice	Type				Max Level	Source Page		Define							Combat bonus																Save bonus																																		Modify VAR																																																																						FACT						Serves As
+CLASS:Justicar	HD:10		TYPE:Base.PC.Inquisitor	MAXLEVEL:20	SOURCEPAGE:p.5	DEFINE:JusticarLVL|0	DEFINE:InquisitorLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|JusticarLVL|CL	BONUS:VAR|InquisitorLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|Jus	SERVESAS:CLASS|Inquisitor
+# Class Name	Multiple Requirements								Required Text
+CLASS:Justicar	PREMULT:1,[PRECLASS:1,Justicar=1],[!PRECLASS:1,TYPE.Inquisitor=1]	PRETEXT:Alignment must be within one step of deity's, along either the chaos/lawful axis or the good/evil axis
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Justicar	STARTSKILLPTS:6	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Disguise|Handle Animal|Heal|Intimidate|Knowledge (Dungeoneering)|Knowledge (Local)|Knowledge (Nature)|Knowledge (Planes)|Knowledge (Religion)|Perception|TYPE=Profession|Ride|Sense Motive|Stealth|Survival|Swim
+###Block:Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Justicar ~ Weapon and Armor Proficiency
+###Block: Class Abilities
+1	ABILITY:Justicar Class Feature|AUTOMATIC|Justicar ~ Judgment
+1	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Monster Lore
+1	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Stern Gaze
+2	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Cunning Initiative
+2	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Detect Alignment
+2	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Track
+3	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Solo Tactics
+3	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Teamwork Feat
+4	ABILITY:Justicar Class Feature|AUTOMATIC|Justicar ~ Additional Judgment Known
+5	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Bane
+5	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Discern Lies
+8	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Second Judgment
+10	ABILITY:Justicar Class Feature|AUTOMATIC|Justicar ~ Lesser Slayer
+11	ABILITY:Justicar Class Feature|AUTOMATIC|Justicar ~ Greater Stalwart
+12	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Greater Bane
+14	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Exploit Weakness
+16	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Third Judgment
+17	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Slayer
+19	ABILITY:Justicar Class Feature|AUTOMATIC|Justicar ~ Greater Slayer
+20	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ True Judgment

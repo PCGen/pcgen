@@ -1,0 +1,21 @@
+# CVS $Revision: 21670 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
+
+# TODO All languages (except aboleth and drow sign language) found in this book are available for a character to learn with the linguistics skill. NOT FROM INT BONUS LANGUAGE
+
+# Language			Type
+#Boggard
+#Cyclops
+#Dark Folk
+#Drow
+#Pidgin of Giant
+#Sahuagin
+#Sphinx
+#Tengu
+#Treant
+#Vegepygmy
+#Worg
+
+# Language			Type			!PRECHARACTERTYPE
+Aboleth.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Drow Sign Language.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC

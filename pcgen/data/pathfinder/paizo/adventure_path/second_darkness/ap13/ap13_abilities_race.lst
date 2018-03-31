@@ -1,0 +1,34 @@
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:Second Darkness, Chapter 1 - Shadow in the Sky	SOURCESHORT:AP13	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy84em	SOURCEDATE:2008-08
+
+###Block: Darklands Sentinel
+# Ability Name				Output Name			Category of Ability		Type								Description																				Source Page
+Darklands Sentinel Flare		OUTPUTNAME:Flare		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			DESC:DC %1 Fortitude save or be dazzled for 1d6 rounds|11+CON											SOURCEPAGE:p.80
+Darklands Sentinel No Breath		OUTPUTNAME:No Breath	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	DESC:A Darklands sentinel is immune to the effects of harmful vapors and cannot suffocate or drown.					SOURCEPAGE:p.80
+Darklands Sentinel Shocking Arc	OUTPUTNAME:Shocking Arc	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			DESC:As a standard action, a Darklands sentinel can launch an arc of electricity up to 30 feet long as a ranged touch attack.	SOURCEPAGE:p.80
+
+###Block: Fungal Crawler
+# Ability Name			Output Name			Category of Ability		Type								Description																		Source Page
+Fungal Crawler Leap		OUTPUTNAME:Leap		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			DESC:As a move action, a fungal crawler can leap through unobstructed spaces in a straight line up to 40 feet.	SOURCEPAGE:p.82
+Fungal Crawler Poison		OUTPUTNAME:Poison		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			DESC:Injury, Fortitude DC %1, initial and secondary damage 1d3 Str and 1d3 Con.|12+CON					SOURCEPAGE:p.82
+Fungal Crawler Plant Traits	OUTPUTNAME:Plant Traits	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	DESC:Fungal crawlers enjoy the benefits of the immunities common to plant creatures.					SOURCEPAGE:p.82
+
+###Block: Monstrous Cockroach
+# Ability Name					Output Name				Category of Ability		Type								Description																Source Page
+Monstrous Cockroach Hold Breath		OUTPUTNAME:Hold Breath		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			DESC:A monstrous cockroach can hold its breath for %1 rounds before it risks drowning|CONSCORE*4	SOURCEPAGE:p.84
+Monstrous Cockroach Light Sensitivity	OUTPUTNAME:Light Sensitivity	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness	DESC:A monstrous cockroaches is dazzled in bright sunlight								SOURCEPAGE:p.84
+
+###Block: Cockroach Swarm
+# Ability Name				Output Name				Category of Ability		Type								Description										Source Page
+Cockroach Swarm Distraction		OUTPUTNAME:Distraction		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			DESC:DC %1 Fortitude save or be nauseated for 1 round|12+CON	SOURCEPAGE:p.84
+Cockroach Swarm Light Sensitivity	OUTPUTNAME:Light Sensitivity	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness	DESC:Cockroach swarms are dazzled in bright sunlight			SOURCEPAGE:p.84
+
+###Block: Cockroach Variants
+# Ability Name	Output Name		Category of Ability		Type						Description																	Source Page
+Fighting Hiss				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DESC:a monstrous cockroach or cockroach swarm can make a loud hissing noise, DC 14 Will save or be shaken	SOURCEPAGE:p.85
+Venomroach Poison	OUTPUTNAME:Poison	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DESC:Injury--bite, Fortitude DC 14, initial and secondary damage 1d2 Dexterity					SOURCEPAGE:p.85
+
+###Block: Swamp Barracuda
+# Ability Name			Output Name			Category of Ability		Type							Description												Source Page
+Swamp Barracuda Amphibious	OUTPUTNAME:Amphibious	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary		DESC:swamp barracuda can survive indefinitely on land					SOURCEPAGE:p.86
+Swamp Barracuda Keen Scent	OUTPUTNAME:Keen Scent	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Sense	DESC:A swamp barracuda can notice creatures by scent in a 180-foot radius	SOURCEPAGE:p.86

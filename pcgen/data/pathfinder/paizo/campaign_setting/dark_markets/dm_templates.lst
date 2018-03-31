@@ -1,0 +1,27 @@
+# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Dark Markets - A Guide to Katapesh	SOURCESHORT:DM	SOURCEWEB:http://paizo.com/pathfinder/campaignSetting/35E/v5748btpy87ut	SOURCEDATE:2009-04
+# Original Entry by: Terry Milnes
+
+###Block: Pehs Effects
+# Template Name	Visible	Required Template
+Pesh User		VISIBLE:YES
+Pesh Addict		VISIBLE:YES	PRETEMPLATE:1,Pesh User
+
+###Block: Sahir-Afiyun base template
+# Template Name		Visible	Template
+Sahir-Afiyun Spells	VISIBLE:NO	TEMPLATE:CHOOSE:Sahir-Afiyun Spells ~ Bard|Sahir-Afiyun Spells ~ Cleric|Sahir-Afiyun Spells ~ Druid|Sahir-Afiyun Spells ~ Paladin|Sahir-Afiyun Spells ~ Ranger|Sahir-Afiyun Spells ~ Sorcerer|Sahir-Afiyun Spells ~ Wizard
+
+###Block: Sahir-Afiyun builder templates
+# Template Name				Visible	Required Class		List of Known Class Spells by Level
+Sahir-Afiyun Spells ~ Bard		VISIBLE:NO	PRECLASS:1,Bard=1		SPELLKNOWN:CLASS|Bard=1|Night Blindness,Pesh Vigor,Ray of Sickening|Bard=2|Euphoric Cloud,Suffocation (Slow)|Bard=3|Pesh Addiction (Lesser)|Bard=5|Pesh Addiction,Suffocation (Instant),Symbol of Sleep
+Sahir-Afiyun Spells ~ Cleric		VISIBLE:NO	PRECLASS:1,Cleric=1	SPELLKNOWN:CLASS|Cleric=1|Confusion (Lesser),Night Blindness,Pesh Vigor,Ray of Sickening,Sleep|Cleric=2|Euphoric Cloud,Suffocation (Slow)|Cleric=3|Pesh Addiction (Lesser)|Cleric=4|Confusion|Cleric=5|Pesh Addiction,Suffocation (Instant)
+Sahir-Afiyun Spells ~ Druid		VISIBLE:NO	PRECLASS:1,Druid=1	SPELLKNOWN:CLASS|Druid=1|Confusion (Lesser),Night Blindness,Pesh Vigor,Ray of Sickening,Remove Fear,Sleep|Druid=2|Calm Emotions,Euphoric Cloud,Suffocation (Slow)|Druid=3|Pesh Addiction (Lesser)|Druid=4|Confusion|Druid=5|Pesh Addiction,Suffocation (Instant),Symbol of Sleep
+Sahir-Afiyun Spells ~ Paladin		VISIBLE:NO	PRECLASS:1,Paladin=1	SPELLKNOWN:CLASS|Paladin=1|Confusion (Lesser),Night Blindness,Pesh Vigor,Ray of Sickening,Remove Fear,Sleep|Paladin=2|Calm Emotions,Euphoric Cloud,Suffocation (Slow)|Paladin=3|Pesh Addiction (Lesser)
+Sahir-Afiyun Spells ~ Ranger		VISIBLE:NO	PRECLASS:1,Ranger=1	SPELLKNOWN:CLASS|Ranger=1|Confusion (Lesser),Night Blindness,Pesh Vigor,Ray of Sickening,Remove Fear,Sleep|Ranger=2|Calm Emotions,Euphoric Cloud,Suffocation (Slow)|Ranger=3|Pesh Addiction (Lesser)
+Sahir-Afiyun Spells ~ Sorcerer	VISIBLE:NO	PRECLASS:1,Sorcerer=1	SPELLKNOWN:CLASS|Sorcerer=1|Confusion (Lesser),Night Blindness,Pesh Vigor,Ray of Sickening,Remove Fear|Sorcerer=2|Calm Emotions,Euphoric Cloud,Suffocation (Slow)|Sorcerer=3|Pesh Addiction (Lesser)|Sorcerer=5|Pesh Addiction,Suffocation (Instant)
+Sahir-Afiyun Spells ~ Wizard		VISIBLE:NO	PRECLASS:1,Wizard=1	SPELLKNOWN:CLASS|Wizard=1|Confusion (Lesser),Night Blindness,Pesh Vigor,Ray of Sickening,Remove Fear|Wizard=2|Calm Emotions,Euphoric Cloud,Suffocation (Slow)|Wizard=3|Pesh Addiction (Lesser)|Wizard=5|Pesh Addiction,Suffocation (Instant)
+
+###Block: Greater Ghul Template
+
+# Template Name	Bonus Ability Pool				Ability
+Greater Ghul	BONUS:ABILITYPOOL|Genie Type Selection|1	ABILITY:Special Ability|AUTOMATIC|Ghul ~ Bleed|Ghul ~ Cursed Claws|Ghul ~ Genie-Kin|Ghul ~ Rend|Ghul ~ Skills	ABILITY:Special Ability|AUTOMATIC|Greater Ghul ~ Bonus Feats|Greater Ghul ~ Change Shape|Greater Ghul ~ Create Spawn|Greater Ghul ~ DR|Greater Ghul ~ Greater Invisibility

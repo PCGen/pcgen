@@ -1,0 +1,25 @@
+# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+#
+SOURCELONG:Andoran, Spirit of Liberty	SOURCESHORT:ASoL	SOURCEWEB:http://paizo.com/products/btpy8bc3?Pathfinder-Companion-Andoran-Spirit-of-Liberty	SOURCEDATE:2009-11
+# Original Entry by: J. Hunter Johnson
+
+###Block: Wondrous Items
+# Equipment Name														Output Name					Type						Cost		Weight	Source Page		Innate Spells							Bonus Ability Pool							Special Property
+Feather Token (Floating Feather)											OUTPUTNAME:Feather Token, [NAME]	TYPE:Magic.Wondrous.Consumable	COST:450	WT:0.02	SOURCEPAGE:p.26
+Feather Token (Lance)													OUTPUTNAME:Feather Token, [NAME]	TYPE:Magic.Wondrous.Consumable	COST:150	WT:0.02	SOURCEPAGE:p.26
+Feather Token (Returning Raven)											OUTPUTNAME:Feather Token, [NAME]	TYPE:Magic.Wondrous.Consumable	COST:800	WT:0.02	SOURCEPAGE:p.26
+Feather Token (Sky Hook)												OUTPUTNAME:Feather Token, [NAME]	TYPE:Magic.Wondrous.Consumable	COST:200	WT:0.02	SOURCEPAGE:p.26
+Feather Token (Tar and Feathers)											OUTPUTNAME:Feather Token, [NAME]	TYPE:Magic.Wondrous.Consumable	COST:600	WT:0.02	SOURCEPAGE:p.26
+Figurine of Wondrous Power (Serpentine Owl).COPY=Figurine of Wondrous Power (Serpentine Eagle)
+Figurine of Wondrous Power (Serpentine Eagle).MOD																								SOURCEPAGE:p.28
+Golden Eagle Epaulets																			TYPE:Magic.Wondrous.Shoulders		COST:3000	WT:0.02	SOURCEPAGE:p.26	SPELLS:Magic Item|TIMES=1|CASTERLEVEL=1|Bless,11	BONUS:ABILITYPOOL|Golden Eagle Epaulets Skill Choice|1	SPROP:If you are reduced to 0 or fewer hit points, once per day the epaulets automatically activate a sanctuary spell (Will DC 11) on you.
+
+###Block: Weapons
+# Equipment Name					Cost		Weight	Modifier							Special Property
+Sword (Bastard).COPY=Talon Sword
+Talon Sword.MOD					COST:35	WT:6		EQMOD:Material ~ Alchemical Silver.Special Ability ~ Defending ~ Melee.Special Ability ~ Enhancement Cost|1000.Special Ability ~ +2 ~ Weapon		SPROP:Its defending ability also protects your mount
+Sword (Bastard).COPY=Talonstrike Sword
+Talonstrike Sword.MOD				COST:35	WT:6		EQMOD:Material ~ Alchemical Silver.Special Ability ~ Defending ~ Melee.Special Ability ~ Enhancement Cost|20200.Special Ability ~ +2 ~ Weapon	SPROP:Its defending ability also protects your mount, and it can cast dimensional anchor on the target as a free action upon a successful hit
+#
+# End
+#

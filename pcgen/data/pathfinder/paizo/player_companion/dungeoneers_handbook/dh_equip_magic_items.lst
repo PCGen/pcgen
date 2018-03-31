@@ -1,0 +1,15 @@
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:Dungeoneer's Handbook	SOURCESHORT:DH	SOURCEWEB:http://paizo.com/products/btpy8wfn?Pathfinder-Player-Companion-Dungeoneers-Handbook	SOURCEDATE:2013-03
+# Original RSRD Entry by: PCGen Data Team
+# Pathfinder RPG Entry by: Scott Meyer
+
+# Equipment Name				Output Name				Type						Cost		Weight	Source Page		Quality and value										Special Property
+Ioun Stone (Dark Green Rhomboid)	OUTPUTNAME:Ioun Stone, [NAME]	TYPE:Magic.Wondrous			COST:8000	WT:0		SOURCEPAGE:p.30													SPROP:Immediately notice any poison within 5 feet of you.
+Ioun Stone (Deep Brown Sphere)	OUTPUTNAME:Ioun Stone, [NAME]	TYPE:Magic.Wondrous			COST:10000	WT:0		SOURCEPAGE:p.30													SPROP:Know at all times exactly how many feet you are under or above sea level.
+Discerning Goggles								TYPE:Magic.Wondrous.Eyegear		COST:13500	WT:0		SOURCEPAGE:p.30													SPROP:Allows wearer to determine creature's alignment.
+Evidentiary Dust									TYPE:Magic.Wondrous.Consumable	COST:600	WT:0		SOURCEPAGE:p.30													SPROP:When thrown on the floor, illuminates all footprints made in the last 24 hours
+Lantern of Concealment								TYPE:Magic.Wondrous			COST:12000	WT:2		SOURCEPAGE:p.31													SPROP:Creates a Hide Campsite effect in a 20-ft cube centered on the lantern
+Luminous Facet									TYPE:Magic.Wondrous.LightSource	COST:850	WT:3		SOURCEPAGE:p.31	QUALITY:Bright Illumination|20 ft.	QUALITY:Shadowy Illumination|40 ft.	SPROP:Speaking command word within 60 ft activates or deactivates.
+Smear of Seeing									TYPE:Magic.Wondrous.Consumable	COST:4000	WT:1		SOURCEPAGE:p.31													SPROP:Allows user to see through plaster, stone, wood or similar surfaces up to 10 ft thick
+Teleporting Climbing Rig							TYPE:Magic.Wondrous			COST:7600	WT:7		SOURCEPAGE:p.31													SPROP:Grappling hook teleports to any designated location within 50 feet to which the user has both line of sight and line of effect.
+Toxin Sponge									TYPE:Magic.Wondrous			COST:1125	WT:0		SOURCEPAGE:p.31													SPROP:When the command word is spoken, a toxin sponge can absorb a 10-foot cube of inhaled poison, removing the gas from that area and concentrating it in the sponge

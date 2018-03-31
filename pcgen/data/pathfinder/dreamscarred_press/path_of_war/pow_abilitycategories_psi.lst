@@ -1,0 +1,17 @@
+# CVS $Revision: $ $Author: $ -- Sat Jun 13 14:52:16 2015 -- reformated by prettylst.pl v1.51 (build 23662)
+# Original Entry by: Douglas Limmer
+# Original Entry Date: 2015-06-11
+
+# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI			Display Location
+ABILITYCATEGORY:Pathwalker Discipline			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:PathwalkerDisciplineChoice		PLURAL:Pathwalker Disciplines			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Primary Martial Warrior Path		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FirstMartialWarriorPath									DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Secondary Martial Warrior Path		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SecondMartialWarriorPath									DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Awakened Blade Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:AwakenedBladeClassFeatures	PLURAL:Awakened Blade Class Features	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Awakened Blade Initiator Class Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:AwakenedBladeInitiatingChoice								DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Awakened Blade Bonus Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Combat.Psionic										DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Awakened Blade Enhancement Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AwakenedBladeEnhancementChoice								DISPLAYLOCATION:Class Features
+
+#
+# End
+#

@@ -1,0 +1,19 @@
+# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+#SOURCELONG:The Genius Guide to: Air Magic	SOURCESHORT:SGGAM	SOURCEDATE:2010-07
+# Original Entry by: Paul Shipley (elro the onk)
+
+# Air Master
+# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object		Specific choices list		Plural description for UI		Display Location
+ABILITYCATEGORY:Air Master Spell Level 1	VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AirMasterSpell1												DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Air Master Spell Level 2	VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AirMasterSpell2												DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Air Master Spell Level 3	VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AirMasterSpell3												DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Air Master Spell Level 4	VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AirMasterSpell4												DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Air Master Spell Level 5	VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AirMasterSpell5												DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Air Master Spell Level 6	VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AirMasterSpell6												DISPLAYLOCATION:Class Abilities
+
+# Sorcerer
+ABILITYCATEGORY:Skyborne Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:SkyborneBloodline	ABILITYLIST:Skill Focus(Fly)	PLURAL:Skyborne Bloodline Feats	DISPLAYLOCATION:Feats
+
+#
+# End
+#

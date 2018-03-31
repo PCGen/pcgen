@@ -1,0 +1,50 @@
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:Second Darkness, Chapter 1 - Shadow in the Sky	SOURCESHORT:AP13	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy84em	SOURCEDATE:2008-08
+
+
+STARTPACK:Darklands Sentinel Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Darklands Sentinel],[!PRERACE:1,%]	SOURCEPAGE:p.80
+ALIGN:TN
+RACE:Darklands Sentinel	!PRERACE:1,%
+NAME:Darklands Sentinel
+SKILL:Perception	RANK:2
+SKILL:Stealth	RANK:1
+ABILITY:CATEGORY=FEAT|Alertness
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=10|CHA=10
+
+
+STARTPACK:Fungal Crawler Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Fungal Crawler],[!PRERACE:1,%]	SOURCEPAGE:p.82
+ALIGN:TN
+RACE:Fungal Crawler	!PRERACE:1,%
+NAME:Fungal Crawler
+SKILL:Acrobatics	RANK:2
+SKILL:Perception	RANK:2
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Multiattack
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+
+###MISSING VARIANT FUNGAL FLYER
+
+STARTPACK:Monstrous Cockroach Default	TYPE:Default Monster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Monstrous Cockroach],[!PRERACE:1,%]	SOURCEPAGE:p.84
+ALIGN:TN
+RACE:Monstrous Cockroach	!PRERACE:1,%
+NAME:Monstrous Cockroach
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=10|CHA=10
+
+
+STARTPACK:Flesh-Eating Cockroach Swarm Default	TYPE:Default Monster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Flesh-Eating Cockroach Swarm],[!PRERACE:1,%]	SOURCEPAGE:p.84
+ALIGN:TN
+RACE:Flesh-Eating Cockroach Swarm	!PRERACE:1,%
+NAME:Flesh-Eating Cockroach Swarm
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+
+###MISSING VARIANTS MWANGI HISSING COCKROACH AND KELESHITE VENOMROACH
+
+STARTPACK:Swamp Barracuda Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Swamp Barracuda],[!PRERACE:1,%]	SOURCEPAGE:p.86
+ALIGN:TN
+RACE:Swamp Barracuda	!PRERACE:1,%
+NAME:Swamp Barracuda
+SKILL:Perception	RANK:2
+SKILL:Stealth	RANK:2
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Improved Initiative
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=10

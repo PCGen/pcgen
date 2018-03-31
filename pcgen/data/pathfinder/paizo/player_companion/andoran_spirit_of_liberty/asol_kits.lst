@@ -1,0 +1,29 @@
+# CVS $Revision: $ $Author: $ -- Thu Feb  6 20:36:08 2014 -- reformated by prettylst.pl v1.51 (build 22988)
+#
+SOURCELONG:Andoran, Spirit of Liberty	SOURCESHORT:ASoL	SOURCEWEB:http://paizo.com/products/btpy8bc3?Pathfinder-Companion-Andoran-Spirit-of-Liberty	SOURCEDATE:2009-11
+# Original Entry by: J. Hunter Johnson
+
+STARTPACK:Avoral Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Avoral],[!PRERACE:1,%]	SOURCEPAGE:p.21
+ALIGN:NG
+RACE:Avoral	!PRERACE:1,%
+NAME:Avoral
+STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
+SKILL:Bluff			RANK:5
+SKILL:Diplomacy		RANK:4
+SKILL:Fly			RANK:9
+SKILL:Handle Animal	RANK:2
+SKILL:Intimidate		RANK:9
+SKILL:TYPE.Knowledge	RANK:9
+SKILL:Perception		RANK:9
+SKILL:Ride			RANK:1
+SKILL:Sense Motive	RANK:9
+SKILL:Spellcraft		RANK:6
+SKILL:Stealth		RANK:9
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Empower Spell-Like Ability ~ Spell (Magic Missile)
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Focus (Claw)
+#
+# End
+#

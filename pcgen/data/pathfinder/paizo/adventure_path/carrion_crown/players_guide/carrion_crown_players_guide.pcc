@@ -1,0 +1,37 @@
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+CAMPAIGN:Carrion Crown Player's Guide
+GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing.Pathfinder Adventure Path.Carrion Crown
+RANK:3
+STATUS:RELEASE
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder|Golarion
+PRECAMPAIGN:2,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Advanced Player's Guide
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Carrion Crown Player's Guide
+SOURCESHORT:CCPG
+SOURCEWEB:http://paizo.com/store/paizo/pathfinder/adventurePath/carrionCrown/v5748btpy8j0q
+SOURCEDATE:2011-03
+ISOGL:YES
+
+COVER:carrion_crown_players_guide.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/pathfinder/adventurePath/CarrionCrown/v5748btpy8dqh|Get this publication from Paizo Publishing!
+DESC:The Carrion Crown Player's Guide gives players all the spoiler-free information, inspiration, and new rules they'll need to create characters prepared for the horrors of the Carrion Crown Adventure Path. Within, players of this campaign will find everything they need to create character backgrounds tied to the grim events that kick off Adventure Path's most horrifying series, along with new campaign-specific traits to give bold adventurers the edge they'll need to take on the frightful country of Ustalav's myriad menaces. New rules for employing the Harrow Deck also put the mystery and magic of that fateful fortunetelling device at the players' disposal when they'll need it most. Adventurers need not venture into the darkness unprepared; gather your courage and let the Carrion Crown Player's Guide be your first step into the nightmare of the Carrion Crown.
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Carrion Crown Player's Guide. Copyright 2011, Paizo Inc.; Authors: James Jacobs, Mark Moreland, and F. Wesley Schneider.
+COPYRIGHT:PCGen dataset conversion for "Carrion Crown Player's Guide" Copyright 2010, PCGen Data Team (including, but not limited to David R. Bender).
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+ABILITY:ccpg_abilities.lst
+KIT:ccpg_kits.lst

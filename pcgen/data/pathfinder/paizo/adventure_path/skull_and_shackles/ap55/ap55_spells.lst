@@ -1,0 +1,13 @@
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Skull and Shackles, Chapter 1 - The Wormwood Mutiny	SOURCESHORT:AP55	SOURCEWEB:http://paizo.com/products/btpy8rcc?Pathfinder-Adventure-Path-55-The-Wormwood-Mutiny	SOURCEDATE:2012-04
+# ORIGINAL ENTRY: James Dempsey
+# ORIGINAL ENTRY DATE: 2014-06
+
+# Spell Name		Type				Classes of caster					School			Sub-School			Descriptor			Components		Casting Time			Range		Target Area or Effect						Duration				Save Info						Spell Resistance	Source Page		Description
+Advanced Scurvy		TYPE:Divine			CLASSES:Cleric,Druid=1				SCHOOL:Necromancy						DESCRIPTOR:Disease|Evil	COMPS:V, S		CASTTIME:1 standard action	RANGE:Touch	TARGETAREA:Living creature touched				DURATION:Instantaneous		SAVEINFO:Fortitude negates			SPELLRES:Yes	SOURCEPAGE:p.73	DESC:The subject contracts an advanced form of scurvy. They become fatigued, take a -1 penalty on strength and dexterity-based checks, add +1 point of damage to any bleed effects they receive and heal at half rate.
+Cloud of Seasickness	TYPE:Divine.Arcane	CLASSES:Cleric,Druid,Sorcerer,Wizard=2	SCHOOL:Conjuration	SUBSCHOOL:Creation	DESCRIPTOR:Poison		COMPS:V, S, M	CASTTIME:1 standard action	RANGE:Close	TARGETAREA:Cloud spreads in 20ft radius, 20ft high	DURATION:(CASTERLEVEL) rounds	SAVEINFO:Fortitude negates (see text)	SPELLRES:No		SOURCEPAGE:p.73	DESC:Cloud of vapors makes creatures sickened.
+
+###Block: Monster spells
+# Spell Name								Classes of caster
+Freedom of Movement.COPY=Freedom of Movement (self only)
+Freedom of Movement (self only).MOD					CLASSES:.CLEARALL

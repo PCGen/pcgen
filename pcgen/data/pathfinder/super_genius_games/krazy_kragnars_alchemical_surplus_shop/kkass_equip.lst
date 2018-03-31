@@ -1,0 +1,44 @@
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Krazy Kragnar's Alchemical Surplus Shop	SOURCESHORT:KKASS	SOURCEDATE:2010-08
+# Original Entry by: Paul Shipley (elro the onk)
+
+# Alchemical equipment
+# Equipment Name			Output Name						Required Weapon Proficiency	Type													Cost		Weight	Crit Mult	Crit Range	Damage	Modifier							Wield Category	Range		Reach		Size		Source Page		Special Property
+Alchemical Goad (Standard)	OUTPUTNAME:Alchemical Goad, Standard						TYPE:Goods.Alchemical.Consumable								COST:50	WT:1																									SOURCEPAGE:p.3
+Alchemical Goad (Greater)	OUTPUTNAME:Alchemical Goad, Greater							TYPE:Goods.Alchemical.Consumable								COST:150	WT:1																									SOURCEPAGE:p.3
+Alchemical Goad (Sovereign)	OUTPUTNAME:Alchemical Goad, Sovereign						TYPE:Goods.Alchemical.Consumable								COST:350	WT:1																									SOURCEPAGE:p.3
+Anarchic Water (Flask)														TYPE:Goods.Flask.Consumable									COST:75	WT:1																									SOURCEPAGE:p.3
+Axiomatic Water (Flask)														TYPE:Goods.Flask.Consumable									COST:75	WT:1																									SOURCEPAGE:p.4
+Blacklight Oil															TYPE:Goods.Liquid.Flask.Consumable								COST:10	WT:1																									SOURCEPAGE:p.4
+Bladesharp																TYPE:Goods.Alchemical.Consumable								COST:1000	WT:1																									SOURCEPAGE:p.4
+Bloodbind																TYPE:Goods.Alchemical.Consumable								COST:1	WT:0																									SOURCEPAGE:p.4
+Boilwort																TYPE:Goods.Alchemical.Consumable								COST:20	WT:0																									SOURCEPAGE:p.4
+Boompot																TYPE:Goods.Alchemical.Consumable								COST:25	WT:1																									SOURCEPAGE:p.4
+Brazier Mug																TYPE:Goods.Alchemical.Consumable								COST:1	WT:1																									SOURCEPAGE:p.4
+Clocktinder																TYPE:Goods.Alchemical.Consumable								COST:2	WT:0																									SOURCEPAGE:p.4
+Dawnleaf																TYPE:Goods.Alchemical.Consumable								COST:1	WT:0																									SOURCEPAGE:p.5
+Dragonrod																TYPE:Goods.Alchemical.Consumable								COST:50	WT:1																									SOURCEPAGE:p.5
+Firegut Ale																TYPE:Goods.Liquid.Food										COST:10	WT:1																									SOURCEPAGE:p.5
+Fog Bomb																TYPE:Goods.Alchemical.Consumable								COST:35	WT:1																									SOURCEPAGE:p.5
+Iron Soup																TYPE:Goods.Food											COST:20	WT:1																									SOURCEPAGE:p.6
+Itching Dust															TYPE:Goods.Alchemical.Consumable								COST:30	WT:0.5																								SOURCEPAGE:p.6
+Landvines																TYPE:Goods.Alchemical.Consumable								COST:100	WT:1																									SOURCEPAGE:p.6
+Landvines (Greater)		OUTPUTNAME:Landvines, Greater								TYPE:Goods.Alchemical.Consumable								COST:250	WT:1																									SOURCEPAGE:p.6
+Mage Candle																TYPE:Goods.Alchemical.Consumable								COST:2	WT:0																									SOURCEPAGE:p.6
+Mummy Leech																TYPE:Goods.Alchemical.Consumable								COST:35	WT:0																									SOURCEPAGE:p.6
+Nightglow Candle															TYPE:Goods.Alchemical.Consumable.LightSource						COST:50	WT:0																									SOURCEPAGE:p.6
+Blue Salve																TYPE:Goods.Alchemical.Consumable								COST:10	WT:1																									SOURCEPAGE:p.7
+Golden Salve															TYPE:Goods.Alchemical.Consumable								COST:10	WT:1																									SOURCEPAGE:p.7
+Red Salve																TYPE:Goods.Alchemical.Consumable								COST:5	WT:1																									SOURCEPAGE:p.7
+White Salve																TYPE:Goods.Alchemical.Consumable								COST:35	WT:1																									SOURCEPAGE:p.7
+Charge Flask															TYPE:Goods.Alchemical.Consumable								COST:200	WT:1																									SOURCEPAGE:p.7	SPROP:Deals 1d4 lightning damage on one hit of choice when loaded into shocklash
+Amber Coil																TYPE:Goods.Alchemical										COST:150	WT:1																									SOURCEPAGE:p.7	SPROP:Reloads spent charge flask
+Shadow Paste															TYPE:Goods.Alchemical.Consumable								COST:150	WT:1																									SOURCEPAGE:p.8
+Slickback																TYPE:Goods.Alchemical.Consumable								COST:50	WT:1																									SOURCEPAGE:p.8
+Spiderbane Pot															TYPE:Goods.Alchemical.Consumable								COST:20	WT:1																									SOURCEPAGE:p.8
+Wayfarer Loaf (per wk)		OUTPUTNAME:Wayfarer Loaf (per wk.)							TYPE:Goods.Food											COST:20	WT:1																									SOURCEPAGE:p.8
+Unholy Water															TYPE:Goods.Flask.Consumable									COST:75	WT:1																									SOURCEPAGE:p.8
+
+# Weapons
+Shocklash											PROFICIENCY:WEAPON|Whip		TYPE:Weapon.Resizable.Melee.OneHanded.Exotic.Reach.Finesseable.Slashing.Flail	COST:350	WT:3		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d3	EQMOD:Special Quality ~ Disarm.Material ~ Leather.Special Quality ~ Masterwork ~ Weapon.Special Quality ~ Nonlethal.Special Quality ~ Trip	WIELD:OneHanded			REACH:15	SIZE:M	SOURCEPAGE:p.7
+Thundernet											PROFICIENCY:WEAPON|Net		TYPE:Weapon.Resizable.Exotic.Ranged.Standard.Thrown					COST:250	WT:7		CRITMULT:-					EQMOD:Material ~ Rope							WIELD:OneHanded	RANGE:10			SIZE:M	SOURCEPAGE:p.8

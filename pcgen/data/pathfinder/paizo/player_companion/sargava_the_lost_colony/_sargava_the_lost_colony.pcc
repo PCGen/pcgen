@@ -1,0 +1,46 @@
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+CAMPAIGN:Sargava the Lost Colony
+GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing.Pathfinder Player Companion
+RANK:3
+STATUS:RELEASE
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder|Golarion
+PRECAMPAIGN:2,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Advanced Player's Guide
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Pathfinder Companion: Sargava, the Lost Colony
+SOURCESHORT:STLC
+SOURCEWEB:http://paizo.com/products/btpy8ey2
+SOURCEDATE:2010-07
+ISOGL:YES
+
+COVER:sargava_the_lost_colony.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy8ey2|Buy this publication from Paizo Publishing!
+DESC:On the distant shores of an unexplored tropical continent, brave colonists strive to break with their devil-haunted past and make new lives for themselves in a land of plenty. Yet in fleeing tyranny, these colonists have also imposed their own, and the land's indigenous peoples have greeted the imperialistic settlers with open arms and leveled spears. This is Sargava: a nation on the brink of disaster, surrounded on all sides by pirates, hostile natives, and trackless jungles full of howling beasts and ancient ruins. Through its ports flood ancient treasures beyond imagination, brought forth from the wilderness by the blood and sweat of intrepid explorers. But can the colonists maintain their delicate balance, or will greed and their own deals with the devil see them swept into the sea?
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder Companion: Sargava, the Lost Colony. Copyright 2010, Paizo Inc.; Author: JD Wiker.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Companion: Sargava, the Lost Colony" Copyright 2010, PCGen Data Team (including, but not limited to Stefan Radermacher)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+ABILITY:stlc_abilities.lst
+ABILITYCATEGORY:stlc_abilitycategories.lst
+DEITY:stlc_deities.lst
+EQUIPMENT:stlc_equip_arms_armor.lst
+EQUIPMENT:stlc_equip_general.lst
+EQUIPMENT:stlc_equip_magic_items.lst
+ABILITY:stlc_feats.lst
+LANGUAGE:stlc_languages.lst
+RACE:stlc_races.lst
+SPELL:stlc_spells.lst
+TEMPLATE:stlc_templates.lst

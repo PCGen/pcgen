@@ -1,0 +1,306 @@
+# CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
+# SOURCELONG:Ultimate Psionics	SOURCESHORT:UP	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2013-12
+# ORIGINAL ENTRY: Douglas Limmer
+# ORIGINAL ENTRY DATE: 2013/07/05
+
+###Block: Base Class Class Feature categories
+# Ability Category					Visible		Editable?		Change Pool?	Category of Object		Type of Object				Plural description for UI			Display Location
+ABILITYCATEGORY:Aegis Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:AegisClassFeatures			PLURAL:Aegis Class Features			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Cryptic Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:CrypticClassFeatures		PLURAL:Cryptic Class Features			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Dread Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:DreadClassFeatures			PLURAL:Dread Class Features			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Marksman Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:MarksmanClassFeatures		PLURAL:Marksman Class Features		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Psion Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:PsionClassFeatures			PLURAL:Psion Class Features			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Psychic Warrior Class Feature	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:PsychicWarriorClassFeatures	PLURAL:Psychic Warrior Class Features	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Soulknife Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:SoulknifeClassFeatures		PLURAL:Soulknife Class Features		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Tactician Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:TacticianClassFeatures		PLURAL:Tactician Class Features		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Vitalist Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:VitalistClassFeatures		PLURAL:Vitalist Class Features		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Wilder Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:WilderClassFeatures		PLURAL:Wilder Class Features			DISPLAYLOCATION:Class Features
+
+###Block: Prestige Class Class Feature categories
+# Ability Category							Visible		Editable?		Change Pool?	Category of Object		Type of Object					Plural description for UI				Display Location
+ABILITYCATEGORY:Adaptive Warrior Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:AdaptiveWarriorClassFeatures		PLURAL:Adaptive Warrior Class Features		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Body Snatcher Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:BodySnatcherClassFeatures		PLURAL:Body Snatcher Class Features			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Cerebremancer Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:CerebremancerClassFeatures		PLURAL:Cerebremancer Class Features			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Dark Tempest Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:DarkTempestClassFeatures			PLURAL:Dark Tempest Class Features			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Elocater Class Feature				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:ElocaterClassFeatures			PLURAL:Elocater Class Features			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Metaforge Class Feature				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:MetaforgeClassFeatures			PLURAL:Metaforge Class Features			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Metamind Class Feature				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:MetamindClassFeatures			PLURAL:Metamind Class Features			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Metamorph Class Feature				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:MetamorphClassFeatures			PLURAL:Metamorph Class Features			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Mystic Archer Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:MysticArcherClassFeatures		PLURAL:Mystic Archer Class Features			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Phrenic Slayer Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:PhrenicSlayerClassFeatures		PLURAL:Phrenic Slayer Class Features		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Psicrystal Imprinter Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:PsicrystalImprinterClassFeatures	PLURAL:Psicrystal Imprinter Class Features	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Psion Uncarnate Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:PsionUncarnateClassFeatures		PLURAL:Psion Uncarnate Class Features		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Psychic Fist Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:PsychicFistClassFeatures			PLURAL:Psychic Fist Class Features			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Pyrokineticist Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:PyrokineticistClassFeatures		PLURAL:Pyrokineticist Class Features		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Sighted Seeker Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:SightedSeekerClassFeatures		PLURAL:Sighted Seeker Class Features		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Soul Archer Class Feature				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:SoulArcherClassFeatures			PLURAL:Soul Archer Class Features			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Telekinetic Weaponmaster Class Feature	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:TelekineticWeaponmasterClassFeatures	PLURAL:Telekinetic Weaponmaster Class Features	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Thrallherd Class Feature				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:ThrallherdClassFeatures			PLURAL:Thrallherd Class Features			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:War Mind Class Feature				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:WarmindClassFeatures			PLURAL:Warmind Class Features				DISPLAYLOCATION:Class Features
+
+
+###Block: Bonus Feat ability pools
+# Ability Category							Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object										Specific choices list						Plural description for UI					Display Location
+ABILITYCATEGORY:Naturally Psionic Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:NaturallyPsionicFeat																	PLURAL:Naturally Psionic Feats				DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Bonus Psionic Feat					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Psionic																			PLURAL:Bonus Psionic Feats					DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Psion Feat						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Psionic.Metapsionic.ItemCreation															PLURAL:Psion Feats						DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Generalist Psion Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Metapsionic.ItemCreation.ExpandedKnowledge														PLURAL:Generalist Psion Feats					DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Psychic Warrior Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Psionic.Combat																		PLURAL:Psychic Warrior Feats					DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Soulknife Feat					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SoulknifeFeat																		PLURAL:Soulknife Feats						DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Artificer's Surge Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:ItemCreation																			PLURAL:Artificer's Surge Feats				DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Student's Surge Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:StudentSurge																			PLURAL:Student's Surge Feats					DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Psychic Fist Feat					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Psionic																			PLURAL:Psychic Fist Feats					DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Master Craftsman Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT															ABILITYLIST:Master Craftsman					PLURAL:Master Craftsman Feats					DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Dread Bonus Feat					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:DreadBonusFeat																		PLURAL:Dread Bonus Feats					DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Finesse Marksman Bonus Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:MarksmanBonus.FinesseMarksmanBonus															PLURAL:Marksman Bonus Feats					DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Sniper Marksman Bonus Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:MarksmanBonus.SniperMarksmanBonus															PLURAL:Marksman Bonus Feats					DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Volley Marksman Bonus Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:MarksmanBonus.VolleyMarksmanBonus															PLURAL:Marksman Bonus Feats					DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Tactician Bonus Teamwork Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Teamwork																			PLURAL:Tactician Bonus Teamwork Feats			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Vitalist Feat						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:VitalistBonusFeat																		PLURAL:Vitalist Feats						DISPLAYLOCATION:Feats
+# COMMENT: Powers chosen must be Healing powers; can't control for that?
+ABILITYCATEGORY:Healing Surge Feat					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT															ABILITYLIST:Expanded Knowledge|Extra Power Known	PLURAL:Healing Surge Feats					DISPLAYLOCATION:Feats
+#Block: Psionic Fighter archetype
+ABILITYCATEGORY:Psionic Fighter Bonus Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Combat.Psionic																		PLURAL:Psionic Fighter Bonus Feats				DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Psionic Fighter Starting Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:PsionicFighterStartingFeat																PLURAL:Psionic Fighter Starting Feats			DISPLAYLOCATION:Feats
+#Block: Martial Kineticist archetype
+ABILITYCATEGORY:Martial Kineticist Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Psionic.Metapsionic																	PLURAL:Martial Kineticist Feats				DISPLAYLOCATION:Feats
+#Block: Mindwright archetype
+ABILITYCATEGORY:Mindwright Feat					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:ItemCreation																			PLURAL:Mindwright Feats						DISPLAYLOCATION:Feats
+#Block: Soulbolt archetype
+ABILITYCATEGORY:Soulbolt Feat						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SoulboltFeat																			PLURAL:Soulbolt Feats						DISPLAYLOCATION:Feats
+#Block: Soul Archer prestige class
+# NEEDS CODE/DATA WORK: How to limit this to only feats with Point-Blank Shot as a prereq?  There isn't a PREPREREQ tag, is there? :-)
+# WORKAROUND: "Combat" feats probably cover all the feats that fit, and more.  The rest is user-enforced.
+ABILITYCATEGORY:Ranged Feat						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Combat																				PLURAL:Ranged Feats						DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Unlocked Talent Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT															ABILITYLIST:Unlocked Talent					PLURAL:Unlocked Talent Feats					DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Pathmaster Advanced Path Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:PathmasterAdvancedPathFeat																PLURAL:Pathmaster Advanced Path Feat			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Contemplative Psionic Meditation Bonus Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:ContemplativePsionicMeditationFeat															PLURAL:Contemplative Psionic Meditation Bonus Feat	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Contemplative Knowledge Bonus Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT															ABILITYLIST:Expanded Knowledge|Extra Power Known	PLURAL:Contemplative Knowledge Bonus Feats		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Psychic Bloodline Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:PsychicBloodline									ABILITYLIST:Skill Focus(Autohypnosis)			PLURAL:Psychic Bloodline Feats				DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Psychic Mage Bonus Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:WizardBonus.ItemCreation.Metamagic.Metapsionic.PsychicMageBonus										PLURAL:Psychic Mage Bonus Feats				DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Mobile Knife Bonus Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MobileKnifeBonusFeat																	PLURAL:Mobile Knife Bonus Feat				DISPLAYLOCATION:Feats
+
+
+###Block: Class Skill ability pools
+# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Specific choices list				Plural description for UI			Display Location
+ABILITYCATEGORY:Generalist Psion Class Skill	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GeneralistClassSkill								PLURAL:Generalist Psion Class Skills	DISPLAYLOCATION:Class Features
+
+#Block: Aegis
+ABILITYCATEGORY:Craft Skill Bonus			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal								ABILITYLIST:Aegis ~ Craftsman Skill Bonus	PLURAL:Craft Skill Bonuses			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Astral Suit Type			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AstralSuitType									PLURAL:Astral Suit Type				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Astral Suit Customization		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AstralSuitCustomization								PLURAL:Astral Suit Customizations		DISPLAYLOCATION:Class Features
+
+#Block: Cryptic
+ABILITYCATEGORY:Cryptic Insight			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:CrypticInsight									PLURAL:Cryptic Insights				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Cryptic Supreme Insight		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:CrypticSupremeInsight								PLURAL:Cryptic Insights				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Cryptic Ranger Trap			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:CrypticRangerTrap									PLURAL:Cryptic Ranger Traps			DISPLAYLOCATION:Class Features
+
+#Block: Dread
+ABILITYCATEGORY:Terror					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DreadTerror										PLURAL:Terrors					DISPLAYLOCATION:Class Features
+
+#Block: Marksman
+ABILITYCATEGORY:Marksman Combat Style		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MarksmanStyle									PLURAL:Marksman Combat Style			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Favored Weapon			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FavoredWeapon									PLURAL:Favored Weapon				DISPLAYLOCATION:Class Features
+
+###Block: Psion Discipline ability pools
+# Ability Category						Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Specific choices list																														Plural description for UI				Display Location
+#ABILITYCATEGORY:Clairsentience Discipline Talent	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	ABILITYLIST:Discipline Talent (Call to Mind)|Discipline Talent (Destiny Dissonance)|Discipline Talent (Know Direction and Location)|Discipline Talent (Precognition (Offensive))				PLURAL:Clairsentience Discipline Talents		DISPLAYLOCATION:Class Features
+#ABILITYCATEGORY:Metacreativity Discipline Talent	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	ABILITYLIST:Discipline Talent (Create Sound)|Discipline Talent (Crystal Shard)|Discipline Talent (Ectoplasmic Creation)|Discipline Talent (Entangling Ectoplasm)							PLURAL:Metacreativity Discipline Talents		DISPLAYLOCATION:Class Features
+#ABILITYCATEGORY:Psychokinesis Discipline Talent		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	ABILITYLIST:Discipline Talent (Energy Ray)|Discipline Talent (Far Hand)|Discipline Talent (Force Screen)|Discipline Talent (My Light)											PLURAL:Psychokinesis Discipline Talents		DISPLAYLOCATION:Class Features
+#ABILITYCATEGORY:Psychometabolism Discipline Talent	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	ABILITYLIST:Discipline Talent (Hammer)|Discipline Talent (Synesthete)|Discipline Talent (Thicken Skin)|Discipline Talent (Vigor)												PLURAL:Psychometabolism Discipline Talents	DISPLAYLOCATION:Class Features
+#ABILITYCATEGORY:Psychoportation Discipline Talent	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	ABILITYLIST:Discipline Talent (Burst)|Discipline Talent (Catfall)|Discipline Talent (Decelerate)|Discipline Talent (Detect Teleportation)											PLURAL:Psychoportation Discipline Talents		DISPLAYLOCATION:Class Features
+#ABILITYCATEGORY:Telepathy Discipline Talent		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	ABILITYLIST:Discipline Talent (Conceal Thoughts)|Discipline Talent (Mind Link)|Discipline Talent (Mind Thrust)|Discipline Talent (Telepathic Lash)									PLURAL:Telepathy Discipline Talents			DISPLAYLOCATION:Class Features
+#ABILITYCATEGORY:Generalist Discipline Talent		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	ABILITYLIST:Discipline Talent (Call to Mind)|Discipline Talent (Catfall)|Discipline Talent (Create Sound)|Discipline Talent (Far Hand)|Discipline Talent (Hammer)|Discipline Talent (Telepathic Lash)	PLURAL:Generalist Discipline Talents		DISPLAYLOCATION:Class Features
+
+###Block: Psychic Warrior ability pools
+# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI	Display Location
+ABILITYCATEGORY:Primary Warrior Path	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FirstWarriorPath	PLURAL:Primary Warrior Path	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Secondary Warrior Path	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SecondWarriorPath	PLURAL:Secondary Warrior Path	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Path Power			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:PathPower		PLURAL:Path Powers		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Warrior Path Skill		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:PathSkill		PLURAL:Warrior Path Skills	DISPLAYLOCATION:Class Features
+
+###Block: Soulknife ability pools
+# Ability Category		Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object	Plural description for UI	Display Location
+ABILITYCATEGORY:Blade Skill	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BladeSkill	PLURAL:Blade Skills		DISPLAYLOCATION:Class Features
+
+###Block: Tactician ability pools
+# Ability Category			Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI	Display Location
+ABILITYCATEGORY:Tactician Strategy	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TacticianStrategy	PLURAL:Tactician Strategies	DISPLAYLOCATION:Class Features
+
+###Block: Vitalist ability pools
+# Ability Category			Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI	Display Location
+ABILITYCATEGORY:Vitalist Method	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:VitalistMethod	PLURAL:Vitalist Method		DISPLAYLOCATION:Class Features
+#ABILITYCATEGORY:Knack					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GeneralKnack											PLURAL:Knacks					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Guardian Knack	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GuardianKnack	PLURAL:Guardian Knacks		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Intercessor Knack	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:IntercessorKnack	PLURAL:Intercessor Knacks	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Mender Knack		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MenderKnack		PLURAL:Mender Knacks		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Soulthief Knack	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SoulthiefKnack	PLURAL:Soulthief Knacks		DISPLAYLOCATION:Class Features
+
+###Block: Wilder ability pools
+# Ability Category		Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object	Plural description for UI	Display Location
+ABILITYCATEGORY:Surge Type	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SurgeType	PLURAL:Surge Types		DISPLAYLOCATION:Class Features
+
+###Block: Archetype support
+# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object	Type of Object			Plural description for UI		Display Location
+ABILITYCATEGORY:Aegis Archetype		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype	TYPE:AegisArchetype		PLURAL:Aegis Archetypes			DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Cryptic Archetype		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype	TYPE:CrypticArchetype		PLURAL:Cryptic Archetypes		DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Dread Archetype		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype	TYPE:DreadArchetype		PLURAL:Dread Archetypes			DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Marksman Archetype		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype	TYPE:MarksmanArchetype		PLURAL:Marksman Archetypes		DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Psion Archetype		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype	TYPE:PsionArchetype		PLURAL:Psion Archetypes			DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Psychic Warrior Archetype	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype	TYPE:PsychicWarriorArchetype	PLURAL:Psychic Warrior Archetypes	DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Soulknife Archetype		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype	TYPE:SoulknifeArchetype		PLURAL:Soulknife Archetypes		DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Tactician Archetype		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype	TYPE:TacticianArchetype		PLURAL:Tactician Archetypes		DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Vitalist Archetype		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype	TYPE:VitalistArchetype		PLURAL:Vitalist Archetypes		DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Wilder Archetype		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype	TYPE:WilderArchetype		PLURAL:Wilder Archetypes		DISPLAYLOCATION:Archetype
+
+###Block: Archetype Ability ability pools
+# Ability Category								Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object					Plural description for UI						Display Location
+ABILITYCATEGORY:Transformed Body Customization				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AberrantCustomization			PLURAL:Transformed Body Customizations				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Secondary Discipline					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SecondaryDiscipline			PLURAL:Secondary Disciplines						DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Martial Kineticist Skill Bonus				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:MartialKineticistSkillBonus		PLURAL:Martial Kineticist Skill Bonuses				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Meditant Fighting Style					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MeditantFightingStyle			PLURAL:Meditant Fighting Styles					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Soulknife Rogue Talent					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SoulknifeRogueTalent			PLURAL:Soulknife Rogue Talents					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Soulknife Advanced Talent					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SoulknifeAdvancedTalent			PLURAL:Soulknife Advanced Talents					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Medic Tricks							VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BattleMedicMedicTrick			PLURAL:Medic Tricks							DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Feral Heart Blade Skill					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FeralHeartBladeSkill			PLURAL:Feral Heart Blade Skills					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Quick Shift Blade SKill					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:QuickShiftBladeSkill			PLURAL:Quick Shift Blade Skill					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Pack Leader Manifesting					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:PackLeaderManifestingChoice		PLURAL:Pack Leader Manifesting					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Psychic Mage Arcane Bond					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ArcaneBond.PsychicMageArcaneBond	PLURAL:Arcane Bonds							DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Disciple of the Raging Sea Feat or Rage Power	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RagePower.MonkBonusFeat			PLURAL:Disciple of the Raging Sea Feats and Rage Powers	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Pacifist Method						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:PacifistMethod				PLURAL:Pacifist Method							DISPLAYLOCATION:Class Features
+
+
+###Block: Prestige Class ability pools
+###Block: Soul Archer
+# NEEDS CODE/DATA WORK: How to limit this to only soulbolt blade skills, but not Alter Mind Bolt?
+# WORKAROUND: Allow any blade skill.  The rest is user-enforced.
+# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI	Display Location
+ABILITYCATEGORY:Ranged Blade Skill			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BladeSkill		PLURAL:Ranged Blade Skill	DISPLAYLOCATION:Class Features
+#Block: Metamorph
+ABILITYCATEGORY:Metamorph Major Metamorphosis	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MajorMetamorph	PLURAL:Major Metamorphosis	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Metamorph Level Five Power	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:LevelFivePower	PLURAL:Level Five Power		DISPLAYLOCATION:Class Features
+
+###Block: Prestige Class ability pools
+# Ability Category							Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object					Plural description for UI				Display Location
+ABILITYCATEGORY:Elocater Transporter				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ElocaterTransporter			PLURAL:Elocater Transporter				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Thrallherd Empathic Connection Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ThrallherdEmpathicConnection		PLURAL:Thrallherd Empathic Connection Choice	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Thrallherd Mind Control Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ThrallherdMindControl			PLURAL:Thrallherd Mind Control Choice		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Alluring Voice Bonus				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AlluringVoice				PLURAL:Alluring Voice Bonuses				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Metamind Bonus PP Level				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MetamindBonusPP				PLURAL:Metamind Bonus PP Levels			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Phrenic Slayer Favored Enemy			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SlayerFavoredEnemy				PLURAL:Slayer Favored Enemy				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Dark Tempest Blade Skill				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DarkTempestBladeSkill			PLURAL:Dark Tempest Blade Skills			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Dark Tempest Expanded Power List Class	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DarkTempestExpandedPowerListClass	PLURAL:Dark Tempest Expanded Power List Class	DISPLAYLOCATION:Class Features
+
+###Block: Sighted Seeker ability pools
+# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI			Display Location
+ABILITYCATEGORY:Sighted Seeker Hypercognition	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SightedSeekerHypercognition	PLURAL:Sighted Seeker Hypercognition	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Sighted Seeker The Sight		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SightedSeekerTheSight		PLURAL:Sighted Seeker The Sight		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Sighted Seeker Metafaculty	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SightedSeekerMetafaculty		PLURAL:Sighted Seeker Metafaculty		DISPLAYLOCATION:Class Features
+
+###Block: Enhancement choice ability pools
+# Ability Category							Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object						Plural description for UI			Display Location
+ABILITYCATEGORY:Manifesting Level Advancement			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:BonusManifesting					PLURAL:Manifesting Level Advancements	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Adaptive Warrior Enhancement Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AdaptiveWarriorEnhancementChoice									DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Body Snatcher Enhancement Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BodySnatcherEnhancementChoice										DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Cerebremancer Enhancement Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:CerebremancerEnhancementChoice										DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Elocater Enhancement Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ElocaterEnhancementChoice										DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Metamind Enhancement Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MetamindEnhancementChoice										DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Metamorph Enhancement Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MetamorphEnhancementChoice										DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Phrenic Slayer Enhancement Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:PhrenicSlayerEnhancementChoice										DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Psicrystal Imprinter Enhancement Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:PsicrystalImprinterEnhancementChoice									DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Psion Uncarnate Enhancement Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:PsionUncarnateEnhancementChoice									DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Psychic Fist Enhancement Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:PsychicFistEnhancementChoice										DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Sighted Seeker Enhancement Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SightedSeekerEnhancementChoice										DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Soul Archer Enhancement Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SoulArcherEnhancementChoice										DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Telekinetic Weaponmaster Enhancement Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TelekineticWeaponmasterEnhancementChoice								DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Thrallherd Enhancement Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ThrallherdEnhancementChoice										DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:War Mind Enhancement Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WarMindEnhancementChoice											DISPLAYLOCATION:Class Features
+
+###Block: Racial Traits (abilities) Categories
+# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display where?				Display Location
+ABILITYCATEGORY:Blue Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BlueRacialTrait		PLURAL:Blue Racial Traits								DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Dromite Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DromiteRacialTrait		PLURAL:Dromite Racial Traits								DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:DuergarDSP Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DuergarDSPRacialTrait	PLURAL:Duergar Racial Traits		DISPLAYNAME:Duergar Racial Trait	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Elan Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ElanRacialTrait		PLURAL:Elan Racial Traits								DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Half-Giant Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Half-GiantRacialTrait	PLURAL:Half-Giant Racial Traits							DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Maenad Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MaenadRacialTrait		PLURAL:Maenad Racial Traits								DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Ophiduan Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OphiduanRacialTrait	PLURAL:Ophiduan Racial Traits								DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Xeph Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:XephRacialTrait		PLURAL:Xeph Racial Traits								DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Forgeborn Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ForgebornRacialTrait	PLURAL:Forgeborn Racial Traits							DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Noral Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:NoralRacialTrait		PLURAL:Noral Racial Traits								DISPLAYLOCATION:Racial Abilities
+
+###Block: Traits Sub Selections
+# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI	Display where?				Display Location
+ABILITYCATEGORY:Blue Race Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BlueTrait		PLURAL:Blue Race Traits								DISPLAYLOCATION:Traits
+ABILITYCATEGORY:Dromite Race Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DromiteTrait		PLURAL:Dromite Race Traits							DISPLAYLOCATION:Traits
+ABILITYCATEGORY:DuergarDSP Race Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DuergarDSPTrait	PLURAL:Duergar Race Traits	DISPLAYNAME:Duergar Race Trait	DISPLAYLOCATION:Traits
+ABILITYCATEGORY:Elan Race Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ElanTrait		PLURAL:Elan Race Traits								DISPLAYLOCATION:Traits
+ABILITYCATEGORY:Half-Giant Race Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HalfGiantTrait	PLURAL:Half-Giant Race Traits							DISPLAYLOCATION:Traits
+ABILITYCATEGORY:Maenad Race Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MaenadTrait		PLURAL:Maenad Race Traits							DISPLAYLOCATION:Traits
+ABILITYCATEGORY:Ophiduan Race Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OphiduanTrait	PLURAL:Ophiduan Race Traits							DISPLAYLOCATION:Traits
+ABILITYCATEGORY:Xeph Race Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:XephTrait		PLURAL:Xeph Race Traits								DISPLAYLOCATION:Traits
+ABILITYCATEGORY:Forgeborn Race Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ForgebornTrait	PLURAL:Forgeborn Race Traits							DISPLAYLOCATION:Traits
+ABILITYCATEGORY:Noral Race Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:NoralTrait		PLURAL:Noral Race Traits							DISPLAYLOCATION:Traits
+
+###Block: Race Traits
+# COMMENT: Why are these duplicated??
+# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI	Display Location
+#ABILITYCATEGORY:Blue Race Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BlueTrait		PLURAL:Blue Race Traits		DISPLAYLOCATION:Traits
+#ABILITYCATEGORY:Dromite Race Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DromiteTrait		PLURAL:Dromite Race Traits	DISPLAYLOCATION:Traits
+#ABILITYCATEGORY:Duergar Race Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DuergarTrait		PLURAL:Duergar Race Traits	DISPLAYLOCATION:Traits
+#ABILITYCATEGORY:Elan Race Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ElanTrait		PLURAL:Elan Race Traits		DISPLAYLOCATION:Traits
+#ABILITYCATEGORY:Half Giant Race Trait	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HalfGiantTrait	PLURAL:Half-Giant Race Traits	DISPLAYLOCATION:Traits
+#ABILITYCATEGORY:Maenad Race Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MaenadTrait		PLURAL:Maenad Race Traits	DISPLAYLOCATION:Traits
+#ABILITYCATEGORY:Ophiduan Race Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OphiduanTrait	PLURAL:Ophiduan Race Traits	DISPLAYLOCATION:Traits
+#ABILITYCATEGORY:Xeph Race Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:XephTrait		PLURAL:Xeph Race Traits		DISPLAYLOCATION:Traits
+
+###Block: Dromite Energy Choice category
+# Ability Category			Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI	Display Location
+ABILITYCATEGORY:Dromite Chitin	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DromiteChitinEnergy	PLURAL:Dromite Chitin		DISPLAYLOCATION:Racial Abilities
+
+###Block: Noral Gift of Tongues category
+# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Specific choices list				Plural description for UI		Display Location
+ABILITYCATEGORY:Noral Additional Language	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	ABILITYLIST:Noral Language Selections	PLURAL:Noral Additional Languages	DISPLAYLOCATION:Racial Abilities
+
+###Block: Improved Psicrystal Personality category
+# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI			Display Location
+ABILITYCATEGORY:Psicrystal Personality	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:PsicrystalPersonality	PLURAL:Improved Psicrystal Personalities	DISPLAYLOCATION:Feats
+
+###Block: Astral Construct ability pools
+# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI			Display Location
+ABILITYCATEGORY:Astral Construct Menu A Ability	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AstralConstructMenuA	PLURAL:Astral Construct Menu A Abilities	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Astral Construct Menu B Ability	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AstralConstructMenuB	PLURAL:Astral Construct Menu B Abilities	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Astral Construct Menu C Ability	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AstralConstructMenuC	PLURAL:Astral Construct Menu C Abilities	DISPLAYLOCATION:Racial Abilities
+
+###Block: Bonus Powers
+# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Display Location
+ABILITYCATEGORY:Bonus Cryptic Power			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BonusSpellKnownCryptic		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Bonus Dread Power			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BonusSpellKnownDread		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Bonus Marksman Power		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BonusSpellKnownMarksman		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Bonus Psion Power			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BonusSpellKnownPsion		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Bonus Psychic Warrior Power	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BonusSpellKnownPsychicWarrior	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Bonus Tactician Power		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BonusSpellKnownTactician		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Bonus Vitalist Power		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BonusSpellKnownVitalist		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Bonus Wilder Power			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BonusSpellKnownWilder		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Bonus Gifted Blade Power		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BonusSpellKnownGiftedBlade	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Bonus Psychic Fist Power		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BonusSpellKnownPsychicFist	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Bonus Sighted Seeker Power	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BonusSpellKnownSightedSeeker	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Bonus War Mind Power		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BonusSpellKnownWarMind		DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Bonus Power				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:BonusPower				DISPLAYLOCATION:Class Features
+
+###Block: Other ability pools
+# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Specific choices list				Plural description for UI			Display Location
+ABILITYCATEGORY:Improved Shield Blade Skill	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ImprovedShieldBladeSkill								PLURAL:Improve Shield Blade Skills		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Dromite Crafter Skill Bonus	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DromiteCrafter									PLURAL:Dromite Crafter Skill Bonuses	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Duergar Ancestral Voice Bonus	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DuergarAncestralVoice								PLURAL:Duergar Ancestral Voice Bonuses	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Ophiduan Scholar Bonus		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OphiduanScholar									PLURAL:Ophiduan Scholar Bonuses		DISPLAYLOCATION:Racial Abilities
+
+ABILITYCATEGORY:Crystal Mask				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal								ABILITYLIST:Equipment ~ Crystal Mask								DISPLAYLOCATION:Equipment
+
+ABILITYCATEGORY:Expanded Knowledge			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Feat								ABILITYLIST:Expanded Knowledge
+ABILITYCATEGORY:Feral Combat Training		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Feat								ABILITYLIST:Feral Combat Training
+
+#
+# End
+#

@@ -1,0 +1,18 @@
+# CVS $Revision: 9628 $ $Author: zaister $ -- Wed Dec 10 01:48:21 2014 -- reformated by prettylst.pl v1.51 (build 25712)
+SOURCELONG:Faiths of Purity	SOURCESHORT:FOP	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderCompanion/v5748btpy8j60	SOURCEDATE:2011-04
+# Original Entry by: Stefan Radermacher
+
+###Block: Minor Deities
+# Deity Name	!PRECHARACTERTYPE		Type
+Apsu.MOD		!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Kurgess.MOD		!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Milani.MOD		!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+
+###Block: Empyreal Lords
+# Deity Name	!PRECHARACTERTYPE		Type
+Andoletta.MOD	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Arshea.MOD		!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Korada.MOD		!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Ragathiel.MOD	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Sinashakti.MOD	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Valani.MOD		!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal

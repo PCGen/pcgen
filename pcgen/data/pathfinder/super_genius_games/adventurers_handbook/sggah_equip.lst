@@ -1,0 +1,13 @@
+# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Adventurer's Handbook: Genius Guide Volume 1	SOURCESHORT:SGGAH	SOURCEDATE:2010-04
+# Original Entry by: Paul Shipley (elro the onk)
+
+# Equipment Name					Output Name				Required Weapon Proficiency				Type														Contains				Cost		Weight	Base Quantity	Crit Mult	Crit Range	Damage	Modifier																																																	Range		Source Page		Weapon prop. bonus
+Sling (Stone Bloodline)									PROFICIENCY:WEAPON|Sling (Stone Bloodline)	TYPE:Weapon.Resizable.Simple.Ranged.Standard.Bludgeoning.Container.Projectile.Sling	CONTAINS:UNLIM|SlingStone	COST:0	WT:0					CRITMULT:x2	CRITRANGE:1	DAMAGE:1d4	EQMOD:Material ~ Leather																																																RANGE:50	SOURCEPAGE:p.93	BONUS:WEAPON|DAMAGE|STR
+Sling (Stone Bloodline).MOD																																																EQMOD:Special Ability ~ Distance ~ Ranged|PREABILITY:1,CATEGORY=Special Ability,Distance ~ Stone Pitch	EQMOD:Special Ability ~ Merciful ~ Weapon|PREABILITY:1,CATEGORY=Special Ability,Merciful ~ Stone Pitch	EQMOD:Special Ability ~ Seeking ~ Ranged|PREABILITY:1,CATEGORY=Special Ability,Seeking ~ Stone Pitch	EQMOD:Special Ability ~ Speed ~ Weapon|PREABILITY:1,CATEGORY=Special Ability,Speed ~ Stone Pitch
+Sling (Stone Bloodline).MOD																																																EQMOD:Special Ability ~ Anarchic ~ Weapon|PREABILITY:1,CATEGORY=Special Ability,Anarchic ~ Stone Pitch	EQMOD:Special Ability ~ Axiomatic ~ Weapon|PREABILITY:1,CATEGORY=Special Ability,Axiomatic ~ Stone Pitch	EQMOD:Special Ability ~ Holy ~ Weapon|PREABILITY:1,CATEGORY=Special Ability,Holy ~ Stone Pitch	EQMOD:Special Ability ~ Unholy ~ Weapon|PREABILITY:1,CATEGORY=Special Ability,Unholy ~ Stone Pitch
+Bullet (Earth/Clay/Stone Improvised)	OUTPUTNAME:Bullet, [NAME]									TYPE:Ammunition.Resizable.Standard.Bullet.Individual											COST:0	WT:0		BASEQTY:1																																																												SOURCEPAGE:p.93	BONUS:WEAPON|TOHIT,DAMAGE|-1
+
+####Block: Shadow Assassin Specialist Weapons
+Bolas.MOD																			TYPE:ShadowAssassin
+Shuriken.MOD																		TYPE:ShadowAssassin

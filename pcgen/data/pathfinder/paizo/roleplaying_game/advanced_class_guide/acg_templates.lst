@@ -1,0 +1,53 @@
+# CVS $Revision: 12957 $ $Author: nuance $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Advanced Class Guide	SOURCESHORT:ACG	SOURCEWEB:http://paizo.com/products/btpy92zi	SOURCEDATE:2014-08
+# Original Entry by: Andrew Wilson
+
+
+###Block: Arcanist energy damage choices
+# Template Name			Visible	Apply Kit
+Arcanist ~ Fire Damage		VISIBLE:NO
+Arcanist ~ Electricity Damage	VISIBLE:NO
+Arcanist ~ Acid Damage		VISIBLE:NO
+Arcanist ~ Cold Damage		VISIBLE:NO
+Arcanist SpellBook		VISIBLE:NO	KIT:1|Arcanist Spellbook
+
+###Block: Templates for Warpriest
+# Template Name			Bonus Languages					Temporary effect description			Temporary Bonus
+Sacred Weapon ~ Warpriest								TEMPDESC:Your BAB is your class levels.	TEMPBONUS:EQ|Weapon|WEAPON|TOHIT|TL-BAB|TYPE=Temporary
+
+Warpriest ~ Bonus Languages	LANGBONUS:Abyssal,Celestial,Infernal
+
+###Block: Starting Gold
+# Template Name			Visible	Template																Apply Kit
+Starting Gold ~ ACG		VISIBLE:NO	TEMPLATE:CHOOSE:Starting Gold ACG ~ Random|Starting Gold ACG ~ Maximum|Starting Gold ACG ~ Average
+Starting Gold ACG ~ Random	VISIBLE:NO																		KIT:1|Starting Gold CRB ~ Random
+Starting Gold ACG ~ Maximum	VISIBLE:NO																		KIT:1|Starting Gold CRB ~ Maximum
+Starting Gold ACG ~ Average	VISIBLE:NO																		KIT:1|Starting Gold CRB ~ Average
+
+###Block: Skald's Instrument
+# Template Name			Visible	Template											Apply Kit
+Skald's Instrument		VISIBLE:NO	TEMPLATE:CHOOSE:Bard's Instrument (Choose)|Bard's Instrument (Random)
+Skald's Instrument (Choose)	VISIBLE:NO													KIT:1|Skald's Instrument (Choose)
+Skald's Instrument (Random)	VISIBLE:NO													KIT:1|Skald's Instrument (Random)
+
+###Block: Slayer's Manacles
+# Template Name	Visible	Apply Kit
+Slayer's Manacles	VISIBLE:NO	KIT:1|Slayer's Manacles
+
+###Block: Heavens Spirit Animal - add flight, or bonus to flight
+# Template Name			Unique Key							Visible	Template										Multiple Requirements											Required Size	Add to base move			Bonus Languages	Move		Natural Attacks
+Add Fly Speed			KEY:Heavens Spirit Animal ~ Add Fly Speed															PREMULT:1,[!PREMOVE:1,Fly=1],[PRETEMPLATE:1,Heavens Spirit Animal ~ Add Fly Speed]												MOVE:Fly,5
+Enhance Fly Speed			KEY:Heavens Spirit Animal ~ Enhance Fly Speed														PREMULT:2,[PREMOVE:1,Fly=1],[!PRETEMPLATE:1,Heavens Spirit Animal ~ Add Fly Speed]				BONUS:MOVEADD|TYPE.Fly|10
+
+Inspired Chemist Languages									VISIBLE:NO																																		LANGBONUS:ALL
+
+Fighter Tentacle											VISIBLE:NO	TEMPLATE:CHOOSE:Medium Fighter Tentacle|Small Fighter Tentacle
+Medium Fighter Tentacle										VISIBLE:NO																										PRESIZEEQ:M												NATURALATTACKS:Tentacle,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,1d4
+Small Fighter Tentacle										VISIBLE:NO																										PRESIZEEQ:S												NATURALATTACKS:Tentacle,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,1d3
+
+
+
+
+#
+# End
+#

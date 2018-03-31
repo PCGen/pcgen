@@ -1,0 +1,12 @@
+# CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
+# SOURCELONG:People of the North	SOURCESHORT:POTN	SOURCEWEB:http://paizo.com/products/btpy8v35?Pathfinder-Player-Companion-People-of-the-North	SOURCEDATE:2013-01
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 14 April 2016
+
+# ==============================
+# Oracle Mystery - Winter
+# ==============================
+
+# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object					Plural description for UI		Display Location
+ABILITYCATEGORY:Winter Mystery Revelation	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WinterRevelation.GeneralRevelation	PLURAL:Winter Mystery Revelations	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Viking Bonus Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:VikingBonusFeatChoice			PLURAL:Viking Bonus Feats		DISPLAYLOCATION:Class Features

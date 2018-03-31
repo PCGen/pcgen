@@ -1,0 +1,5 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+
+# Template Name	Special ABility																				Required Text	Combat bonus				Misc bonus
+Aggregate		SAB:All-Around Vision when it is located in an area fitted with cameras or other sensors that are under the control of the base AI.	PRETEXT:Robot	BONUS:COMBAT|INITIATIVE|INT-DEX	BONUS:MISC|CR|1
+# This template needs thought to implement... it's taking another creature and imposing it on another. Might be best as a AI as a Creature, and then a aggregate "robot" as a Companion

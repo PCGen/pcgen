@@ -1,0 +1,9 @@
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:Curse of the Crimson Throne, Chapter 6 - Crown of Fangs	SOURCESHORT:AP12	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy84el	SOURCEDATE:2008-08
+
+###Block: Akaruzug Abilities
+# Ability Name	Category of Ability		Type						Description																									Source Page
+Soul Engine		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DESC:An akaruzug draws the energy it requires to function from a living creature crucified upon its frame.									SOURCEPAGE:p.82
+Soul Slave		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	DESC:Using the soul trapped within its frame, an akaruzug can manifest ghostly representations of its victim to attack its enemies as a standard action.	SOURCEPAGE:p.82
+Soul Steal		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	DESC:An akaruzug can attempt to draw additional soul energy into it. DC 26 Fortitude save or gain 1d4 negative levels.							SOURCEPAGE:p.83
+Unhallow		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.Aura	DESC:An akaruzug emanates a 40-foot aura of unholy energy, as per the spell unhallow.												SOURCEPAGE:p.83

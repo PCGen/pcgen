@@ -1,0 +1,7 @@
+# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Rise of the Runelords Adventure Path	SOURCESHORT:RotR	SOURCEWEB:http://paizo.com/products/btpy8tc0?Pathfinder-Adventure-Path-Rise-of-the-Runelords-Anniversary-Edition	SOURCEDATE:2012-07
+# Original Entry by: Andrew Maitland
+
+###Block: Skill .MODs
+# Skill Name	Situational Skill
+Appraise.MOD	SITUATION:Determine most valuable item

@@ -1,0 +1,7 @@
+# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Guide to the River Kingdoms	SOURCESHORT:GTTRK	SOURCEWEB:http://paizo.com/pathfinder/pathfinderChronicles/pathfinderRPG/v5748btpy87d8	SOURCEDATE:2010-03
+# Original Entry by: Stefan Radermacher
+
+###Block: Spells
+# Spell Name	Type				Classes of caster							School		Descriptor		Components		Casting Time			Range		Target Area or Effect		Duration					Save Info				Spell Resistance	Source Page		Description
+Silverlight		TYPE:Arcane.Divine	CLASSES:Bard,Cleric,Druid,Paladin,Sorcerer,Wizard=3	SCHOOL:Evocation	DESCRIPTOR:Light	COMPS:V, S, M	CASTTIME:1 standard action	RANGE:Touch	TARGETAREA:Object touched	DURATION:(CASTERLEVEL) minutes	SAVEINFO:Fortitude partial	SPELLRES:No		SOURCEPAGE:p.25	DESC:Object sheds bright silvery light harmful to creatures susceptible to alchemical silver

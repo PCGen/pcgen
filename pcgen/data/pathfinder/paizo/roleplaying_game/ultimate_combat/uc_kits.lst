@@ -1,0 +1,23 @@
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:Ultimate Combat	SOURCESHORT:UC	SOURCEWEB:http://paizo.com/products/btpy8mcz?Pathfinder-Roleplaying-Game-Ultimate-Combat	SOURCEDATE:2011-01
+#Entry by W. Robert 'Mynex' Reed III
+
+
+#Starting Gold
+STARTPACK:Classes Starting Gold ~ UC	TYPE:Starting.Gold	VISIBLE:QUALIFY	APPLY:INSTANT	PREMULT:2,[PREPCLEVEL:MIN=1,MAX=1],[PRECLASS:1,Samuri=1,Ninja=1,Gunslinger=1]
+TEMPLATE:Starting Gold ~ UC
+
+STARTPACK:Starting Gold UC ~ Random	VISIBLE:NO	APPLY:INSTANT
+FUNDS:gp	QTY:10*roll("3d6")	PRECLASS:1,Samuri=1
+FUNDS:gp	QTY:10*roll("4d6")	PRECLASS:1,Ninja=1
+FUNDS:gp	QTY:10*roll("5d6")	PRECLASS:1,Gunslinger=1
+
+STARTPACK:Starting Gold UC ~ Maximum	VISIBLE:NO	APPLY:INSTANT
+FUNDS:gp	QTY:180	PRECLASS:1,Samuri=1
+FUNDS:gp	QTY:240	PRECLASS:1,Ninja=1
+FUNDS:gp	QTY:300	PRECLASS:1,Gunslinger=1
+
+STARTPACK:Starting Gold UC ~ Average	VISIBLE:NO	APPLY:INSTANT
+FUNDS:gp	QTY:105	PRECLASS:1,Samuri=1
+FUNDS:gp	QTY:140	PRECLASS:1,Ninja=1
+FUNDS:gp	QTY:175	PRECLASS:1,Gunslinger=1

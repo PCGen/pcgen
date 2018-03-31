@@ -1,0 +1,72 @@
+# CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Magical Marketplace	SOURCESHORT:MM	SOURCEWEB:http://paizo.com/products/btpy92lv?Pathfinder-Player-Companion-Magical-Marketplace	SOURCEDATE:2013-12
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 20 April 2016
+
+# ==============================
+# New Magic Items
+# ==============================
+
+# Equipment Name			Product Identity?	Type								Contains			Cost		Weight	Source Page		Special Property
+Animal Totem Tattoo					TYPE:Magic.Wondrous									COST:12000			SOURCEPAGE:p.5
+Arcane Battery						TYPE:Magic.Wondrous									COST:22000			SOURCEPAGE:p.19
+Bracelets of Stone					TYPE:Magic.Wondrous.Bracer								COST:26760	WT:4		SOURCEPAGE:p.7
+Clockwork Bug						TYPE:Magic.Wondrous									COST:1100	WT:.5		SOURCEPAGE:p.27
+Clockwork Prosthesis					TYPE:Magic.Wondrous									COST:6400	WT:25		SOURCEPAGE:p.23
+Coldwarp Key						TYPE:Magic.Rod										COST:45700	WT:5		SOURCEPAGE:p.29
+Copycat Siphon						TYPE:Magic.Wondrous									COST:1800	WT:1		SOURCEPAGE:p.21
+Crusader's Scabbard					TYPE:Magic.Wondrous.Belt.Intelligent.Container	CONTAINS:UNLIM|Weapon=1	COST:8500	WT:3		SOURCEPAGE:p.16	SPROP:Scabbard of Vigor, lawful good, INT 10, WIS 12, CHA 14, EGO 6, Senses 60 ft, Language speech (common), bless weapon 3/day, demoralize enemies (Intimidate +7)
+Elemental Storing Stone					TYPE:Magic.Wondrous									COST:900	WT:.5		SOURCEPAGE:p.19
+Explorer's Pith Helmet					TYPE:Magic.Wondrous.Headgear								COST:3200	WT:1		SOURCEPAGE:p.13
+Floating Sail (10x15 ft)				TYPE:Magic.Wondrous									COST:5000	WT:20		SOURCEPAGE:p.9
+Floating Sail (15x30 ft)				TYPE:Magic.Wondrous									COST:15000	WT:25		SOURCEPAGE:p.9
+Floating Sail (15x40 ft)				TYPE:Magic.Wondrous									COST:20000	WT:40		SOURCEPAGE:p.9
+Floating Sail (20x50 ft)				TYPE:Magic.Wondrous									COST:32000	WT:50		SOURCEPAGE:p.9
+Healer's Burning Glass					TYPE:Magic.Wondrous									COST:32400	WT:.5		SOURCEPAGE:p.11
+Hollis's Lucky Rock		NAMEISPI:YES	TYPE:Magic.Wondrous.Intelligent							COST:35000			SOURCEPAGE:p.17	SPROP:Luckstone, neutral good, INT 10, WIS 16, CHA 14, EGO 10, Senses 120 ft, Language speech (common, halfling), good hope 1/day, +2 saves vs. emotion and fear effects
+Homunculus Clay						TYPE:Magic.Wondrous									COST:4100	WT:1		SOURCEPAGE:p.21
+Hypnotic Tattoo						TYPE:Magic.Wondrous									COST:900			SOURCEPAGE:p.5
+Murderer's Silence					TYPE:Magic.Wondrous.Consumable							COST:900	WT:1		SOURCEPAGE:p.25
+Orbicular Sac						TYPE:Magic.Wondrous.Consumable							COST:500			SOURCEPAGE:p.13
+Poison Popcushion						TYPE:Magic.Wondrous.Consumable							COST:700	WT:2		SOURCEPAGE:p.13
+Poison Vial of Distance					TYPE:Magic.Wondrous									COST:3000	WT:1		SOURCEPAGE:p.25
+Quick Action Slippers					TYPE:Magic.Wondrous.Boot								COST:10000	WT:1		SOURCEPAGE:p.25
+Runeward Tattoo						TYPE:Magic.Wondrous									COST:1000			SOURCEPAGE:p.5
+Saint's Protection Charm				TYPE:Magic.Wondrous.Bracer								COST:1500			SOURCEPAGE:p.11
+Saline Purge						TYPE:Magic.Wondrous.Consumable							COST:900	WT:.5		SOURCEPAGE:p.9
+Scabbard of True Death					TYPE:Magic.Wondrous									COST:32000	WT:2		SOURCEPAGE:p.25
+Scavenger's Ring						TYPE:Magic.Wondrous.Ring								COST:15000			SOURCEPAGE:p.9
+Serpentine Tattoo						TYPE:Magic.Wondrous									COST:2000			SOURCEPAGE:p.5
+Spell-Capturing Gem					TYPE:Magic.Wondrous.Consumable							COST:5000			SOURCEPAGE:p.19
+Sporecrafter's Kindness					TYPE:Magic.Wondrous.Consumable							COST:1500	WT:4		SOURCEPAGE:p.29
+Stalagmite Seed						TYPE:Magic.Wondrous.Consumable							COST:750	WT:.5		SOURCEPAGE:p.29
+Thoqqua Snake						TYPE:Magic.Wondrous.Consumable							COST:750			SOURCEPAGE:p.21
+Trophy Box							TYPE:Magic.Wondrous.Headgear								COST:18000	WT:5		SOURCEPAGE:p.13
+Wary Ring							TYPE:Magic.Ring.Intelligent								COST:14600			SOURCEPAGE:p.17	SPROP:Ring of Mind Shielding, lawful good, INT 12, WIS 15, CHA 12, EGO 7, Senses 60 ft, Language (empathy), can read script in any language, timely inspiration 3/day
+
+Discordant Piccolo					TYPE:Magic.Wondrous.Instrument							COST:16000	WT:.5		SOURCEPAGE:p.31
+Master Vidlian's Squeeze-Box	NAMEISPI:YES	TYPE:Magic.Wondrous.Instrument							COST:6000	WT:5		SOURCEPAGE:p.31
+Music Box Trap						TYPE:Magic.Wondrous.Instrument							COST:20160	WT:2		SOURCEPAGE:p.31
+
+Animal Totem Tattoo (ape)		TYPE:Magic.Wondrous.Tattoo Head.Tattoo Shoulders.Tattoo Neck.Tattoo Chest.Tattoo Body.Tattoo Belt.Tattoo Wrist.Tattoo Hands.Tattoo Ring.Tattoo Feet				COST:12000			SOURCEPAGE:p.5		SPROP:Movement (climb 20 ft., +4 Climb checks), senses (low-light, scent), natural weapons (2 slams, +2 on grapple), or toughness (+2 natural armor, Endurance feat), 5 min/day.
+Animal Totem Tattoo (bat)		TYPE:Magic.Wondrous.Tattoo Head.Tattoo Shoulders.Tattoo Neck.Tattoo Chest.Tattoo Body.Tattoo Belt.Tattoo Wrist.Tattoo Hands.Tattoo Ring.Tattoo Feet				COST:12000			SOURCEPAGE:p.5		SPROP:Movement (fly 30 ft. [average]), natural weapons (bite), or senses (blindsense 20 ft.), 5 min/day.
+Animal Totem Tattoo (bear)		TYPE:Magic.Wondrous.Tattoo Head.Tattoo Shoulders.Tattoo Neck.Tattoo Chest.Tattoo Body.Tattoo Belt.Tattoo Wrist.Tattoo Hands.Tattoo Ring.Tattoo Feet				COST:12000			SOURCEPAGE:p.5		SPROP:Movement (+10 land speed, +4 Swim checks), senses (low-light, scent), toughness (+2 natural armor, Endurance feat), or natural weapons (bite, 2 claws, +2 CMB to grapple), 5 min/day.
+Animal Totem Tattoo (boar)		TYPE:Magic.Wondrous.Tattoo Head.Tattoo Shoulders.Tattoo Neck.Tattoo Chest.Tattoo Body.Tattoo Belt.Tattoo Wrist.Tattoo Hands.Tattoo Ring.Tattoo Feet				COST:12000			SOURCEPAGE:p.5		SPROP:Movement (+10 land speed), senses (low-light, scent), natural weapons (gore, +2 on overrun), or toughness (+2 natural armor, Endurance feat), 5 min/day.
+Animal Totem Tattoo (dragon)		TYPE:Magic.Wondrous.Tattoo Head.Tattoo Shoulders.Tattoo Neck.Tattoo Chest.Tattoo Body.Tattoo Belt.Tattoo Wrist.Tattoo Hands.Tattoo Ring.Tattoo Feet				COST:12000			SOURCEPAGE:p.5		SPROP:Movement (fly 30 ft. [average]), senses (low-light, +4 Perception), toughness (+2 natural armor, Endurance feat), or natural weapons (bite, 2 claws, +2 CMB to grapple), 5 min/day.
+Animal Totem Tattoo (eagle)		TYPE:Magic.Wondrous.Tattoo Head.Tattoo Shoulders.Tattoo Neck.Tattoo Chest.Tattoo Body.Tattoo Belt.Tattoo Wrist.Tattoo Hands.Tattoo Ring.Tattoo Feet				COST:12000			SOURCEPAGE:p.5		SPROP:Movement (fly 30 ft. [average]), senses (low-light, +4 Perception), or natural weapons (bite, 2 talons), 5 min/day.
+Animal Totem Tattoo (lion)		TYPE:Magic.Wondrous.Tattoo Head.Tattoo Shoulders.Tattoo Neck.Tattoo Chest.Tattoo Body.Tattoo Belt.Tattoo Wrist.Tattoo Hands.Tattoo Ring.Tattoo Feet				COST:12000			SOURCEPAGE:p.5		SPROP:Movement (+20 land speed), senses (low-light, scent), or natural weapons (bite, 2 claws, rake, +2 CMB to grapple), 5 min/day.
+Animal Totem Tattoo (saurian)		TYPE:Magic.Wondrous.Tattoo Head.Tattoo Shoulders.Tattoo Neck.Tattoo Chest.Tattoo Body.Tattoo Belt.Tattoo Wrist.Tattoo Hands.Tattoo Ring.Tattoo Feet				COST:12000			SOURCEPAGE:p.5		SPROP:Movement (+10 land speed), scales (+2 natural armor), senses (low-light, scent), or natural weapons (bite, 2 claws, rake, +2 CMB to grapple), 5 min/day.
+Animal Totem Tattoo (serpent)		TYPE:Magic.Wondrous.Tattoo Head.Tattoo Shoulders.Tattoo Neck.Tattoo Chest.Tattoo Body.Tattoo Belt.Tattoo Wrist.Tattoo Hands.Tattoo Ring.Tattoo Feet				COST:12000			SOURCEPAGE:p.5		SPROP:Movement (climb 20 ft., swim 20 ft.), scales (+2 natural armor), senses (low-light, scent), or natural weapons (bite, poison [freq 1, round (6), 1 Con damage, Cure 1 save, Con-based DC], +2 CMB to grapple), 5 min/day.
+Animal Totem Tattoo (shark)		TYPE:Magic.Wondrous.Tattoo Head.Tattoo Shoulders.Tattoo Neck.Tattoo Chest.Tattoo Body.Tattoo Belt.Tattoo Wrist.Tattoo Hands.Tattoo Ring.Tattoo Feet				COST:12000			SOURCEPAGE:p.5		SPROP:Movement (breathe water, swim 30 ft.), senses (scent 30 feet [90 feet in water]), natural weapons (bite), or shark skin (+2 natural armor, creatures grappling take 1 point of slashing damage per round of grapple), 5 min/day.
+Animal Totem Tattoo (wolf)		TYPE:Magic.Wondrous.Tattoo Head.Tattoo Shoulders.Tattoo Neck.Tattoo Chest.Tattoo Body.Tattoo Belt.Tattoo Wrist.Tattoo Hands.Tattoo Ring.Tattoo Feet				COST:12000			SOURCEPAGE:p.5		SPROP:Movement (+20 land speed), senses (low-light, scent, +4 Survival when tracking by scent), or natural weapons (bite, +2 CMB to trip), 5 min/day.
+Runeward Tattoo (Abjuration)		TYPE:Magic.Wondrous.Tattoo Head.Tattoo Shoulders.Tattoo Neck.Tattoo Chest.Tattoo Body.Tattoo Belt.Tattoo Wrist.Tattoo Hands.Tattoo Ring.Tattoo Feet				COST:1000			SOURCEPAGE:p.5		SPROP:+1 on saves vs. spells and abilities of the abjuration school
+Runeward Tattoo (Conjuration)		TYPE:Magic.Wondrous.Tattoo Head.Tattoo Shoulders.Tattoo Neck.Tattoo Chest.Tattoo Body.Tattoo Belt.Tattoo Wrist.Tattoo Hands.Tattoo Ring.Tattoo Feet				COST:1000			SOURCEPAGE:p.5		SPROP:+1 on saves vs. spells and abilities of the conjuration school
+Runeward Tattoo (Divination)		TYPE:Magic.Wondrous.Tattoo Head.Tattoo Shoulders.Tattoo Neck.Tattoo Chest.Tattoo Body.Tattoo Belt.Tattoo Wrist.Tattoo Hands.Tattoo Ring.Tattoo Feet				COST:1000			SOURCEPAGE:p.5		SPROP:+1 on saves vs. spells and abilities of the divination school
+Runeward Tattoo (Enchantment)		TYPE:Magic.Wondrous.Tattoo Head.Tattoo Shoulders.Tattoo Neck.Tattoo Chest.Tattoo Body.Tattoo Belt.Tattoo Wrist.Tattoo Hands.Tattoo Ring.Tattoo Feet				COST:1000			SOURCEPAGE:p.5		SPROP:+1 on saves vs. spells and abilities of the enchantment school
+Runeward Tattoo (Evocation)		TYPE:Magic.Wondrous.Tattoo Head.Tattoo Shoulders.Tattoo Neck.Tattoo Chest.Tattoo Body.Tattoo Belt.Tattoo Wrist.Tattoo Hands.Tattoo Ring.Tattoo Feet				COST:1000			SOURCEPAGE:p.5		SPROP:+1 on saves vs. spells and abilities of the evocation school
+Runeward Tattoo (Illusion)		TYPE:Magic.Wondrous.Tattoo Head.Tattoo Shoulders.Tattoo Neck.Tattoo Chest.Tattoo Body.Tattoo Belt.Tattoo Wrist.Tattoo Hands.Tattoo Ring.Tattoo Feet				COST:1000			SOURCEPAGE:p.5		SPROP:+1 on saves vs. spells and abilities of the illusion school
+Runeward Tattoo (Necromancy)		TYPE:Magic.Wondrous.Tattoo Head.Tattoo Shoulders.Tattoo Neck.Tattoo Chest.Tattoo Body.Tattoo Belt.Tattoo Wrist.Tattoo Hands.Tattoo Ring.Tattoo Feet				COST:1000			SOURCEPAGE:p.5		SPROP:+1 on saves vs. spells and abilities of the necromancy school
+Runeward Tattoo (Transmutation)	TYPE:Magic.Wondrous.Tattoo Head.Tattoo Shoulders.Tattoo Neck.Tattoo Chest.Tattoo Body.Tattoo Belt.Tattoo Wrist.Tattoo Hands.Tattoo Ring.Tattoo Feet				COST:1000			SOURCEPAGE:p.5		SPROP:+1 on saves vs. spells and abilities of the transmutation school
+
+Hypnotic Tattoo.MOD			TYPE:Tattoo Head.Tattoo Shoulders.Tattoo Neck.Tattoo Chest.Tattoo Body.Tattoo Belt.Tattoo Wrist.Tattoo Hands.Tattoo Ring.Tattoo Feet
+Serpentine Tattoo.MOD			TYPE:Tattoo Head.Tattoo Shoulders.Tattoo Neck.Tattoo Chest.Tattoo Body.Tattoo Belt.Tattoo Wrist.Tattoo Hands.Tattoo Ring.Tattoo Feet

@@ -1,0 +1,37 @@
+# CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Ultimate Combat	SOURCESHORT:UC	SOURCEWEB:http://paizo.com/products/btpy8mcz?Pathfinder-Roleplaying-Game-Ultimate-Combat	SOURCEDATE:2011-01
+
+###BLOCK: General Items
+# Carriage previously defined in CRB
+# Equipment Name		Clear Types	Type																Contains						Cost		Weight	Source Page		Description
+Carriage.MOD		TYPE:.CLEAR	TYPE:Goods.Transportation.Vehicle.VehicleLand.Container.VehicleLarge.PropulsionMusclePulled	CONTAINS:200|Any					COST:100	WT:600	SOURCEPAGE:p.181	DESC:.CLEAR	DESC:This four-wheeled vehicle can transport as many as four people within an enclosed cab, in addition to one driver and one other person seated next to the driver (often armed). The carriage's roof can carry 200 pounds of cargo. &nl; [Squares] 6 (10 ft. by 15 ft.; 6 feet high) &nl; [Defense] AC 9; Hardness 5 hp 90 (44) Base Save +1 &nl; [Propulsion] muscle (pulled; 6 Medium creatures or 2 Large creatures) &nl; [Driving Check] Handle Animal or Profession (driver) (in the case of creatures with animal intelligence pulling the vehicle), Diplomacy or Intimidate (in the case of intelligent creatures pulling the vehicle) &nl; [Facing] Forward Facing toward the creatures pulling the vehicle &nl; [Driving Device] reins &nl; [Driving Space the most forward squares if the carriage's upper deck. &nl; [Maximum Speed] twice the speed of the pulling creature(s) &nl; [Acceleration] the speed of the pulling creature(s) &nl; [Decks] 2; a lower cab with enough room for four passengers, and an upper deck with room for a driver and another passenger. [Other] CMB +1; CMD 11; Ramming Damage 1d8
+Black Powder (Dose)			TYPE:Goods.FirearmGear.Black Powder (Dose).Consumable															COST:10
+Black Powder (Keg)			TYPE:Goods.FirearmGear																				COST:1000	WT:5
+Gunsmith's Kit				TYPE:Goods.FirearmGear.Kit.Gunsmith's Kit																	COST:15	WT:2
+Powder Horn					TYPE:Goods.FirearmGear.Powder Horn.Container									CONTAINS:UNLIM|Black Powder (Dose)=10	COST:3	WT:1
+Powder Keg					TYPE:Goods.FirearmGear.Container											CONTAINS:UNLIM|Black Powder (Dose)=100	COST:0	WT:5
+
+
+###BLOCK: Siege Items
+# Equipment Name			Type					Cost		Special Property
+Bridge (Assault/Colossal)	TYPE:Siege.BridgeAssault	COST:250
+Bridge (Assault/Gargantuan)	TYPE:Siege.BridgeAssault	COST:50
+Bridge (Assault/Huge)		TYPE:Siege.BridgeAssault	COST:10
+Bridge (Assault/Large)		TYPE:Siege.BridgeAssault	COST:1
+Corvus				TYPE:Siege.Corvus			COST:100	SPROP:Crew 1, Speed Special
+Gallery (Colossal)		TYPE:Siege.Gallery		COST:2000	SPROP:Crew 18, Speed 15 ft.
+Gallery (Gargantuan)		TYPE:Siege.Gallery		COST:1000	SPROP:Crew 9, Speed 15 ft.
+Gallery (Huge)			TYPE:Siege.Gallery		COST:500	SPROP:Crew 6, Speed 15 ft.
+Gallery (Large)			TYPE:Siege.Gallery		COST:250	SPROP:Crew 3, Speed 15 ft.
+Ladder (Escalade/Colossal)	TYPE:Siege.LadderEscalade	COST:250	SPROP:Crew 8, Speed as crew speed
+Ladder (Escalade/Gargantuan)	TYPE:Siege.LadderEscalade	COST:50	SPROP:Crew 6, Speed as crew speed
+Ladder (Escalade/Huge)		TYPE:Siege.LadderEscalade	COST:10	SPROP:Crew 4, Speed as crew speed
+Ladder (Escalade/Large)		TYPE:Siege.LadderEscalade	COST:5	SPROP:Crew 2, Speed as crew speed
+Ram (Colossal)			TYPE:Siege.Ram			COST:5000	SPROP:Damage 10d6 20/x3 Bludgeoning; Crew 40, Speed 15 ft.
+Ram (Gargantuan)			TYPE:Siege.Ram			COST:2000	SPROP:Damage 6d6 20/x3 Bludgeoning; Crew 20, Speed 15 ft.
+Ram (Huge)				TYPE:Siege.Ram			COST:1000	SPROP:Damage 3d6 20/x3 Bludgeoning; Crew 10, Speed 15 ft.
+Ram (Large)				TYPE:Siege.Ram			COST:500	SPROP:Damage 2d6 20/x3 Bludgeoning; Crew 5, Speed 15 ft.
+Siege Tower (Colossal)		TYPE:Siege.SiegeTower		COST:10000	SPROP:Crew 48, Speed 15 ft.
+Siege Tower (Gargantuan)	TYPE:Siege.SiegeTower		COST:5000	SPROP:Crew 24, Speed 15 ft.
+Siege Tower (Huge)		TYPE:Siege.SiegeTower		COST:2000	SPROP:Crew 12, Speed 15 ft.
+Siege Tower (Large)		TYPE:Siege.SiegeTower		COST:1000	SPROP:Crew 6, Speed 15 ft.

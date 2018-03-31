@@ -1,0 +1,16 @@
+# CVS $Revision: $ $Author: $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Legacy of Fire Player's Guide	SOURCESHORT:LOFPG	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy8bdb	SOURCEDATE:2009-02
+
+# Gods of Katapesh
+
+# Deity Name	Product Identity?	Domains												Description of Deity/Title					FACTSET				Deity Weapon						Align		Source Page
+Abadar		NAMEISPI:YES	DOMAINS:Earth,Law,Nobility,Protection,Travel|PREALIGN:LG,LN,NG			DESC:God of Cities, Wealth, Merchants, Law		FACTSET:Pantheon|Katapesh	DEITYWEAP:Crossbow (Light)|Crossbow (Heavy)	ALIGN:LN	SOURCEPAGE:p.25
+Besmara		NAMEISPI:YES	DOMAINS:Chaos,Trickery,War,Water,Weather|PREALIGN:CG,CN,CE				DESC:Goddess of Piracy, Strife, Sea Monsters		FACTSET:Pantheon|Katapesh	DEITYWEAP:Rapier						ALIGN:CN	SOURCEPAGE:p.25
+Gozreh		NAMEISPI:YES	DOMAINS:Air,Animal,Plant,Water,Weather|PREALIGN:LN,NG,TN,NE,CN			DESC:God of Nature, Weather, The Sea			FACTSET:Pantheon|Katapesh	DEITYWEAP:Trident						ALIGN:TN	SOURCEPAGE:p.25
+Iomedae		NAMEISPI:YES	DOMAINS:Glory,Good,Law,Sun,War|PREALIGN:LG,LN,NG					DESC:Goddess of Valor, Rulership, Justice, Honor	FACTSET:Pantheon|Katapesh	DEITYWEAP:Longsword					ALIGN:LG	SOURCEPAGE:p.25
+Irori			NAMEISPI:YES	DOMAINS:Healing,Knowledge,Law,Rune,Strength|PREALIGN:LG,LN,NG			DESC:God of History, Knowledge, Self-Perfection		FACTSET:Pantheon|Katapesh	DEITYWEAP:Unarmed Strike				ALIGN:LN	SOURCEPAGE:p.25
+Lamashtu		NAMEISPI:YES	DOMAINS:Chaos,Evil,Madness,Strength,Trickery|PREALIGN:NE,CN,CE			DESC:Goddess of Madness, Monsters, Nightmares		FACTSET:Pantheon|Katapesh	DEITYWEAP:Falchion					ALIGN:CE	SOURCEPAGE:p.25
+Nethys		NAMEISPI:YES	DOMAINS:Destruction,Knowledge,Magic,Protection,Rune|PREALIGN:LN,NG,TN,NE,CN	DESC:God of Magic							FACTSET:Pantheon|Katapesh	DEITYWEAP:Quarterstaff					ALIGN:TN	SOURCEPAGE:p.25
+Rovagug		NAMEISPI:YES	DOMAINS:Chaos,Destruction,Evil,War,Weather|PREALIGN:NE,CN,CE			DESC:God of Wrath, Disaster, Destruction			FACTSET:Pantheon|Katapesh	DEITYWEAP:Greataxe					ALIGN:CE	SOURCEPAGE:p.25
+Sarenrae		NAMEISPI:YES	DOMAINS:Fire,Glory,Good,Healing,Sun|PREALIGN:LG,NG,CG					DESC:Goddess of The Sun, Redemption, Honesty, Healing	FACTSET:Pantheon|Katapesh	DEITYWEAP:Scimitar					ALIGN:NG	SOURCEPAGE:p.25
+Sivanah		NAMEISPI:YES	DOMAINS:Knowledge,Madness,Magic,Rune,Trickery|PREALIGN:LN,NG,TN,NE,CN		DESC:Goddess of Illusions, Reflections, Mystery		FACTSET:Pantheon|Katapesh	DEITYWEAP:Scarf (Bladed)				ALIGN:TN	SOURCEPAGE:p.25

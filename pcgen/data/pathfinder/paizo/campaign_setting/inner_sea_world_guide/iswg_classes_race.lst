@@ -1,0 +1,28 @@
+# CVS $Revision: $ $Author: $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8ief	SOURCEDATE:2011-03
+# Original Entry by: Paul Shipley
+
+# Class Name			Product Identity?	Hit Dice	Type			Max Level		Source Page		Ability																	Combat bonus																	Save bonus																																		Modify VAR																																																													Template		FACT
+CLASS:Daughter of Urgathoa	NAMEISPI:YES	HD:8		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.309	ABILITY:Special Ability|AUTOMATIC|Undead Traits|PREVAREQ:NoTypeTraits,0	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	TEMPLATE:Undead	FACT:ClassType|Monster	FACT:SpellType|Divine
+# Class Name			Reg. Race Type
+CLASS:Daughter of Urgathoa	PRERACETYPE:Undead
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
+CLASS:Daughter of Urgathoa	STARTSKILLPTS:4	MODTOSKILLS:YES			CSKILL:Climb|Disguise|Fly|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|Perception|Sense Motive|Spellcraft|Stealth
+# Class Name			Spell Stat		Automatically Known Spell Levels											Caster level						Use Spell List
+CLASS:Daughter of Urgathoa	SPELLSTAT:WIS	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Daughter of Urgathoa|CL-5	SPELLLIST:1|Cleric
+1					BONUS:DOMAIN|NUMBER|2	ABILITY:Special Ability|AUTOMATIC|Domains
+6	CAST:3,1
+7	CAST:4,2
+8	CAST:4,2,1
+9	CAST:4,3,2
+10	CAST:4,3,2,1
+11	CAST:4,3,3,2
+12	CAST:4,4,3,2,1
+13	CAST:4,4,3,3,2
+14	CAST:4,4,4,3,2,1
+15	CAST:4,4,4,3,3,2
+16	CAST:4,4,4,4,3,2,1
+17	CAST:4,4,4,4,3,3,2
+18	CAST:4,4,4,4,4,3,2,1
+19	CAST:4,4,4,4,4,3,3,2
+20	CAST:4,4,4,4,4,4,3,2,1

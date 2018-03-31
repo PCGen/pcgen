@@ -1,0 +1,26 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# HD standard deviates! This is a 3.5 conversion.
+
+# Class Name	Hit Dice	Type			Source Page		Define			Combat bonus																	Save bonus																																																	Modify VAR
+CLASS:Lion Blade	HD:6		TYPE:PC.Prestige	SOURCEPAGE:p.22	DEFINE:Lion_BladeLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|Lion_BladeLVL|CL	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
+# Class Name	Required Ability																									Required AL			Required Skill														Required Text																																																								Var. Min. Value
+CLASS:Lion Blade	PREABILITY:3,CATEGORY=FEAT,Deceitful,Improved Initiative,Skill Focus (Perform)	PREABILITY:1,CATEGORY=Special Ability,Bardic Performance ~ Inspire Competence	PREALIGN:TN,LN,CN,NG,NE	PRESKILL:4,Bluff=6,Disguise=8,Stealth=8	PRESKILL:1,Perform (Singing)=6,Perform (Acting)=6	PRETEXT:Alignment: Any neutral; Feats: Deceitful, Improved Initiative, Skill Focus (Perform); Skills: Bluff 6 ranks, Disguise 8 ranks, Gather Information 6 ranks, Hide 8 ranks, Move Silently 6 ranks, either Perform (singing) or Perform (acting) 6 ranks; Special: Inspire competence, Taldor affinity, sneak attack +2d6	PRETEXT:PREREGION:Taldor	PREVARGTEQ:SneakAttackDice,2
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Lion Blade	STARTSKILLPTS:6	CSKILL:Bluff|Climb|Disguise|Intimidate|TYPE=Perform|Sense Motive|Acrobatics|Stealth|Perception|Disable Device
+#	CSKILL:Balance|Bluff|Climb|Disguise|Gather Information|Hide|Intimidate|Jump|Listen|Move Silently|Open Lock|TYPE=Perform|Search|Sense Motive|Spot|Tumble|Acrobatics|Stealth|Perception|Disable Device
+###Block
+1	ABILITY:Lion Blade Class Feature|AUTOMATIC|Lion Blade ~ Weapon and Armor Proficiency
+1	ABILITY:Lion Blade Class Feature|AUTOMATIC|Lion Blade ~ Master of Disguise
+1	ABILITY:Lion Blade Class Feature|AUTOMATIC|Lion Blade ~ Move with Crowd
+1	ABILITY:Lion Blade Class Feature|AUTOMATIC|Lion Blade ~ Inspire Self
+2	ABILITY:Lion Blade Class Feature|AUTOMATIC|Lion Blade ~ Slowing Strike
+2	ABILITY:Lion Blade Class Feature|AUTOMATIC|Lion Blade ~ Sneak Attack
+3	ABILITY:Lion Blade Class Feature|AUTOMATIC|Lion Blade ~ Unexpected Suggestion
+3	ABILITY:Lion Blade Class Feature|AUTOMATIC|Lion Blade ~ Hide in Plain Sight
+4	ABILITY:Lion Blade Class Feature|AUTOMATIC|Lion Blade ~ Expeditious Advance
+5	ABILITY:Lion Blade Class Feature|AUTOMATIC|Lion Blade ~ Glean Information
+7	ABILITY:Lion Blade Class Feature|AUTOMATIC|Lion Blade ~ Secret Step
+7	ABILITY:Lion Blade Class Feature|AUTOMATIC|Lion Blade ~ Cloud the Mind
+8	ABILITY:Lion Blade Class Feature|AUTOMATIC|Lion Blade ~ Narrow Miss
+9	ABILITY:Lion Blade Class Feature|AUTOMATIC|Lion Blade ~ Grandmaster of Disguise
+10	ABILITY:Lion Blade Class Feature|AUTOMATIC|Lion Blade ~ Silent Soul

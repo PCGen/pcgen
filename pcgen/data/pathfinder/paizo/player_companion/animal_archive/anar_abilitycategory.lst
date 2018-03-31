@@ -1,0 +1,11 @@
+# CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
+
+###Block: Archetype Buckets
+# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI		Display Location
+ABILITYCATEGORY:Companion Archetype			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype		TYPE:CompanionArchetype			PLURAL:Companion Archetypes		DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Familiar Archetype			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype		TYPE:FamiliarArchetype			PLURAL:Familiar Archetypes		DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:EqSlot					VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO						CATEGORY:EqSlot
+
+ABILITYCATEGORY:Boon Companion Selection		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:BoonCompanionSelection								DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Huntmaster Companion Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HuntmasterCompanionChoice	PLURAL:Huntmaster Companion Choices	DISPLAYLOCATION:Class Features

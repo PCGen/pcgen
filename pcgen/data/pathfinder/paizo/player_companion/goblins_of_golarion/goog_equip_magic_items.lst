@@ -1,0 +1,10 @@
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:Goblins of Golarion	SOURCESHORT:GOOG	SOURCEWEB:http://paizo.com/products/btpy8mfk?Pathfinder-Player-Companion-Goblins-of-Golarion	SOURCEDATE:2011-07
+#ORIGINAL ENTRY: Eric C. Smith (maredudd AT blackroot DOT org)
+#ORIGINAL ENTRY DATE: 2013/07/14
+
+# Equipment Name		Type				Cost		Weight	Source Page
+Devastating Dog Whistle	TYPE:Magic.Wondrous	COST:1500	WT:1		SOURCEPAGE:p.29
+Explosion Pocket		TYPE:Magic.Wondrous	COST:3000	WT:0.5	SOURCEPAGE:p.29
+Jumping Cinder		TYPE:Magic.Wondrous	COST:300	WT:1		SOURCEPAGE:p.29
+Scavenger's Stone		TYPE:Magic.Wondrous	COST:2000	WT:1		SOURCEPAGE:p.29

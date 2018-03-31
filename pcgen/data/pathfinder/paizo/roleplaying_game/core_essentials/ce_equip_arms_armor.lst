@@ -1,0 +1,8 @@
+# CVS $Revision: 20121 $ $Author: zaister $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
+
+
+###Block: Thrown Rocks
+# Equipment Name	Output Name		Required Weapon Proficiency	Type										Cost		Weight	Crit Mult	Crit Range	Damage	Range		Size		Source Page
+Rock (Small)	OUTPUTNAME:Rock	PROFICIENCY:WEAPON|Rock		TYPE:Weapon.Simple.Ranged.Standard.Bludgeoning.Thrown.Rock	COST:0.0	WT:50		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d8	RANGE:120	SIZE:L	SOURCEPAGE:p.303
+Rock (Medium)	OUTPUTNAME:Rock	PROFICIENCY:WEAPON|Rock		TYPE:Weapon.Simple.Ranged.Standard.Bludgeoning.Thrown.Rock	COST:0.0	WT:100	CRITMULT:x2	CRITRANGE:1	DAMAGE:2d6	RANGE:140	SIZE:H	SOURCEPAGE:p.303

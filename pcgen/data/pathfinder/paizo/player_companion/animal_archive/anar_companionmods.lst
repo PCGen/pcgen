@@ -1,0 +1,16 @@
+# CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
+
+
+###Block: Note repeats WILL cause stacking issue! Using TYPE to prevent this issue.
+# Race of familiar				Type			Ability
+MASTERBONUSRACE:Familiar (Armadillo)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Armadillo)
+MASTERBONUSRACE:Familiar (Platypus)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Platypus)
+MASTERBONUSRACE:Familiar (Rabbit)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Rabbit)
+MASTERBONUSRACE:Familiar (Skunk)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Skunk)
+MASTERBONUSRACE:Familiar (Squirrel)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Squirrel)
+
+# Class of the Master			Type				Ability									Bonus to Situation
+FOLLOWER:FamiliarLVL=1			TYPE:Familiar		ABILITY:Familiar Archetype|AUTOMATIC|Archetype Familiar
+
+# Animal Companion follow track bonus
+FOLLOWER:HuntmasterCompanionLVL=1	TYPE:Animal Companion											BONUS:SITUATION|Survival=Follow or identify tracks|MAX(1,mastervar("CompanionMasterLVL_Huntmaster")/2)

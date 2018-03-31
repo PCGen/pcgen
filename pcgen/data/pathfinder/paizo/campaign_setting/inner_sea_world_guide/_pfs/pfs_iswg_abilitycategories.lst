@@ -1,0 +1,37 @@
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+#SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8ief	SOURCEDATE:2011-03
+# Original Entry by:Stefan Radermacher & Paul Shipley
+
+###Block: Master Category
+#ABILITYCATEGORY:Background	VISIBLE:NO	EDITABLE:NO			EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Background
+
+###Block: Background Ability Categories
+# Ability Category		Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object	Type of Object	Plural description for UI	Display Location
+#ABILITYCATEGORY:Shoanti Clan.MOD				TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+
+###Block: Hellknight Abilities
+# Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object	Plural description for UI	Display Location
+#ABILITYCATEGORY:Hellknight Order.MOD			TYPE:PFSLegal
+#ABILITYCATEGORY:Hellknight Discipline 2.MOD	TYPE:PFSLegal
+#ABILITYCATEGORY:Hellknight Discipline 3.MOD	TYPE:PFSLegal
+#ABILITYCATEGORY:Hellknight Domain.MOD			TYPE:PFSLegal
+#ABILITYCATEGORY:Hellknight Force of Will 1.MOD	TYPE:PFSLegal
+#ABILITYCATEGORY:Hellknight Force of Will 2.MOD	TYPE:PFSLegal
+#ABILITYCATEGORY:Hellknight Force of Will 3.MOD	TYPE:PFSLegal
+
+###Block: Low Templar Abilities
+# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object	Plural description for UI	Display Location
+#ABILITYCATEGORY:Low Templar Path.MOD			TYPE:PFSLegal
+#ABILITYCATEGORY:Low Templar Final Choice.MOD	TYPE:PFSLegal
+
+###Block: Feat Support Abilities
+# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI		Display Location
+#ABILITYCATEGORY:Andoren Falconry Bonus.MOD		TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+#ABILITYCATEGORY:Hermean Blood.MOD				TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+#ABILITYCATEGORY:Noble Scion Choice.MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+#ABILITYCATEGORY:Scholar Choice.MOD				TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+#ABILITYCATEGORY:Totem Spirit Choice.MOD		TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+#ABILITYCATEGORY:Varisian Tattoo Choice.MOD		TYPE:PFSLegal
+
+#ABILITYCATEGORY:Strix Racial Trait.MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+#ABILITYCATEGORY:Gillman Racial Trait.MOD		TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1

@@ -1,0 +1,12 @@
+# CVS $Revision: 18757 $ $Author: amaitland $ -- Wed Nov 17 11:57:01 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Inner Sea Primer	SOURCESHORT:ISP	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/companion/pathfinderRPG/v5748btpy8hih	SOURCEDATE:2010-11
+# Original Entry by:Stefan Radermacher
+
+# Race Name		Template
+Half-Elf.MOD	TEMPLATE:Human Ethnicity
+Half-Orc.MOD	TEMPLATE:Human Ethnicity
+Human.MOD		TEMPLATE:Human Ethnicity
+
+#
+# End
+#

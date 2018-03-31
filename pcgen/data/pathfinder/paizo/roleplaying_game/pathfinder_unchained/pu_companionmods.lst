@@ -1,0 +1,28 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+
+# COMMENT: Broken down for easier review
+# COMMENT: EidolonDefault - Set to "1" to disable the APG default Eidolon
+# COMMENT: Pool_UnchainedEidolonType - Set to "1" to select the "Subtype" which determines allowed base forms
+# COMMENT: EidolonBiped set to "1" allows selecting the Biped form from the selection, this is set to 1 even if the only form will be granted anyways for less confusion
+# COMMENT: EidolonQuadruped set to "1" allows selecting the Quadruped form from the selection, this is set to 1 even if the only form will be granted anyways for less confusion
+# COMMENT: EidolonSerpentine set to "1" allows selecting the Serpentine form from the selection, this is set to 1 even if the only form will be granted anyways for less confusion
+# COMMENT: EidMaxAttacks determines the maximum attacks an Eidolon may have
+# COMMENT: EidUsedAttacks determines how many available attacks has been used
+# COMMENT: MasterLevel is used by the Eidolon. Eidolon uses it to advance the progression per subtype and determine when Evolutions can be taken.
+# COMMENT: Pool_UnchainedEidolonEvolution tracks Evolution Points gained from Progression
+
+
+FOLLOWER:EidolonCompanionLVL=1	TYPE:Eidolon	BONUS:VAR|EidolonSubtype_Agathion|mastervar("EidolonSubtype_Agathion")
+FOLLOWER:EidolonCompanionLVL=1	TYPE:Eidolon	BONUS:VAR|EidolonSubtype_Angel|mastervar("EidolonSubtype_Angel")
+FOLLOWER:EidolonCompanionLVL=1	TYPE:Eidolon	BONUS:VAR|EidolonSubtype_Archon|mastervar("EidolonSubtype_Archon")
+FOLLOWER:EidolonCompanionLVL=1	TYPE:Eidolon	BONUS:VAR|EidolonSubtype_Azata|mastervar("EidolonSubtype_Azata")
+FOLLOWER:EidolonCompanionLVL=1	TYPE:Eidolon	BONUS:VAR|EidolonSubtype_Daemon|mastervar("EidolonSubtype_Daemon")
+FOLLOWER:EidolonCompanionLVL=1	TYPE:Eidolon	BONUS:VAR|EidolonSubtype_Demon|mastervar("EidolonSubtype_Demon")
+FOLLOWER:EidolonCompanionLVL=1	TYPE:Eidolon	BONUS:VAR|EidolonSubtype_Devil|mastervar("EidolonSubtype_Devil")
+FOLLOWER:EidolonCompanionLVL=1	TYPE:Eidolon	BONUS:VAR|EidolonSubtype_Div|mastervar("EidolonSubtype_Div")
+FOLLOWER:EidolonCompanionLVL=1	TYPE:Eidolon	BONUS:VAR|EidolonSubtype_Elemental|mastervar("EidolonSubtype_Elemental")
+FOLLOWER:EidolonCompanionLVL=1	TYPE:Eidolon	BONUS:VAR|EidolonSubtype_Inevitable|mastervar("EidolonSubtype_Inevitable")
+FOLLOWER:EidolonCompanionLVL=1	TYPE:Eidolon	BONUS:VAR|EidolonSubtype_Protean|mastervar("EidolonSubtype_Protean")
+FOLLOWER:EidolonCompanionLVL=1	TYPE:Eidolon	BONUS:VAR|EidolonSubtype_Psychopomp|mastervar("EidolonSubtype_Psychopomp")
+
+

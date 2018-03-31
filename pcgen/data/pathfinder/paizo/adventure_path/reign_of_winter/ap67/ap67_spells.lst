@@ -1,0 +1,18 @@
+# CVS $Revision: 17892 $ $Author: amaitland $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Reign of Winter, Part 1: The Snows of Summer	SOURCESHORT:AP67	SOURCEWEB:http://paizo.com/products/btpy8w7d/discuss?Pathfinder-Adventure-Path-67-The-Snows-of-Summer	SOURCEDATE:2013-02
+# ORIGINAL ENTRY: Stefan Radermacher
+
+###Block: Reign of Winter toolkit
+# Spell Name		Product Identity?	Type				Classes of caster							School			Sub-School			Descriptor			Components		Casting Time			Range			Target Area or Effect				Duration					Save Info					Spell Resistance	Source Page		Description																						FACT
+Flurry of Snowballs				TYPE:Arcane.Divine	CLASSES:Druid,Magus,Sorcerer,Witch,Wizard=2		SCHOOL:Evocation						DESCRIPTOR:Cold|Water	COMPS:V, S		CASTTIME:1 standard action	RANGE:30 ft.	TARGETAREA:Cone-shaped burst			DURATION:Instantaneous			SAVEINFO:Reflex half			SPELLRES:No		SOURCEPAGE:p.72	DESC:Flurry of snowballs deasl 4d6 points of cold damage|!PRERULE:1,DisplayFullSpell
+Ice Spears						TYPE:Arcane.Divine	CLASSES:Druid,Sorcerer,Witch,Wizard=3			SCHOOL:Conjuration					DESCRIPTOR:Cold		COMPS:V, S, M	CASTTIME:1 standard action	RANGE:Close		TARGETAREA:(CASTERLEVEL/4) ice spears	DURATION:Instantaneous			SAVEINFO:Reflex half and see text	SPELLRES:No		SOURCEPAGE:p.72	DESC:Giant spears of ice lance out of the ground.|!PRERULE:1,DisplayFullSpell
+Irriseni Mirror Sight	NAMEISPI:YES	TYPE:Arcane			CLASSES:Sorcerer,Witch,Wizard=3				SCHOOL:Divination		SUBSCHOOL:Scrying						COMPS:V, S, F	CASTTIME:10 minutes		RANGE:See text	TARGETAREA:Magical sensor			DURATION:(CASTERLEVEL) minutes	SAVEINFO:None				SPELLRES:No		SOURCEPAGE:p.73	DESC:Look into a mirror and see an image reflected in another mirror chosen by you.|!PRERULE:1,DisplayFullSpell					FACT:CompMaterial|(a mirror)
+Snowball						TYPE:Arcane.Divine	CLASSES:Druid,Magus,Sorcerer,Summoner,Witch,Wizard=1	SCHOOL:Conjuration	SUBSCHOOL:Creation	DESCRIPTOR:Cold|Water	COMPS:V, S		CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One ball of ice and snow		DURATION:Instantaneous			SAVEINFO:Fortitude partial		SPELLRES:No		SOURCEPAGE:p.73	DESC:Ranged touch attack deals (min(CASTERLEVEL,5))d6 of cold damage and target is staggered for 1 round.|!PRERULE:1,DisplayFullSpell
+
+###Block: Custom Spells with restrictions as used in spell-like abilities
+# Spell Name				Type		School		Components	Casting Time			Range			Target Area or Effect	Duration					Description
+Speak with Animals (birds only)	TYPE:Arcane	SCHOOL:Divination	COMPS:V, S	CASTTIME:1 standard action	RANGE:Personal	TARGETAREA:You		DURATION:(CASTERLEVEL) minutes	DESC:You can ask questions of and receive answers from birds, but the spell doesn't make them any more friendly than normal.
+
+#
+# End
+#

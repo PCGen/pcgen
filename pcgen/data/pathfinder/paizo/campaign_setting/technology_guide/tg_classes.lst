@@ -1,0 +1,23 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+
+# Class Name		Hit Dice	Type			Source Page		Define				Combat bonus																	Save bonus																																																Modify VAR
+CLASS:Technomancer	HD:6		TYPE:PC.Prestige	SOURCEPAGE:p.14	DEFINE:TechnomancerLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|TechnomancerLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
+# Class Name		Required Ability											Required Skill										Req. Spell Type		Required Text
+CLASS:Technomancer	PREABILITY:2,CATEGORY=FEAT,Skill Focus (Knowledge (Engineering)),Technologist	PRESKILL:3,Disable Device=6,Knowledge (engineering)=6,Spellcraft=6	PRESPELLTYPE:1,Arcane=3	PRETEXT:Feats: Skill Focus (Knowledge [engineering]), Technologist. Skills: Disable Device 6 ranks, Knowledge (engineering) 6 ranks, Spellcraft 6 ranks. Special: Ability to cast 3rd-level arcane spells.
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Technomancer	STARTSKILLPTS:4	CSKILL:Appraise|TYPE=Craft|Disable Device|Fly|Intimidate|TYPE=Knowledge|Linguistics|Perception|TYPE=Profession|Spellcraft
+###Block
+2:REPEATLEVEL:1	ADD:SPELLCASTER|Arcane
+###Block
+1	ABILITY:Technomancer Class Feature|AUTOMATIC|Technomancer ~ Weapon and Armor Proficiency
+1	ABILITY:Technomancer Class Feature|AUTOMATIC|Technomancer ~ Recondition
+1	ABILITY:Technomancer Class Feature|AUTOMATIC|Technomancer ~ Technical Expertise
+2	ABILITY:Technomancer Class Feature|AUTOMATIC|Technomancer ~ Efficient Construction
+2	ABILITY:Technomancer Class Feature|AUTOMATIC|Technomancer ~ Technic Spell Mastery
+3	ABILITY:Technomancer Class Feature|AUTOMATIC|Technomancer ~ Arcane Battery
+3	ABILITY:Technomancer Class Feature|AUTOMATIC|Technomancer ~ Study Technology
+4	ABILITY:Technomancer Class Feature|AUTOMATIC|Technomancer ~ Recycle Technology
+5	ABILITY:Technomancer Class Feature|AUTOMATIC|Technomancer ~ Command Robot
+6	ABILITY:Technomancer Class Feature|AUTOMATIC|Technomancer ~ Unified Energy
+8	ABILITY:Technomancer Class Feature|AUTOMATIC|Technomancer ~ Applied Learning
+10	ABILITY:Technomancer Class Feature|AUTOMATIC|Technomancer ~ Field Improvisation

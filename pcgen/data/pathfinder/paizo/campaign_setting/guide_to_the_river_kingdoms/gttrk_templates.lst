@@ -1,0 +1,28 @@
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:Guide to the River Kingdoms	SOURCESHORT:GTTRK	SOURCEWEB:http://paizo.com/pathfinder/pathfinderChronicles/pathfinderRPG/v5748btpy87d8	SOURCEDATE:2010-03
+# Original Entry by: Stefan Radermacher
+
+###Block: Regional Affinities
+# Template Name							Product Identity?	Visible	Source Page		Region				Subregion
+Regional Affinity (Artume)					NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.10	REGION:The River Kingdoms	SUBREGION:Artume
+Regional Affinity (Cordelon)					NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.11	REGION:The River Kingdoms	SUBREGION:Cordelon
+Regional Affinity (Daggermark)				NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.12	REGION:The River Kingdoms	SUBREGION:Daggermark
+Regional Affinity (Gralton)					NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.16	REGION:The River Kingdoms	SUBREGION:Gralton
+Regional Affinity (Heibarr)					NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.20	REGION:The River Kingdoms	SUBREGION:Heibarr
+Regional Affinity (Hymbria)					NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.21	REGION:The River Kingdoms	SUBREGION:Hymbria
+Regional Affinity (Lambreth)					NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.22	REGION:The River Kingdoms	SUBREGION:Lambreth
+Regional Affinity (Liberthan)					NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.26	REGION:The River Kingdoms	SUBREGION:Liberthan
+Regional Affinity (Loric Fells)				NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.27	REGION:The River Kingdoms	SUBREGION:Loric Fells
+Regional Affinity (Mivon)					NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.28	REGION:The River Kingdoms	SUBREGION:Mivon
+Regional Affinity (Mosswater)					NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.32	REGION:The River Kingdoms	SUBREGION:Mosswater
+Regional Affinity (Nystra)					NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.33	REGION:The River Kingdoms	SUBREGION:Nystra
+Regional Affinity (Outsea)					NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.34	REGION:The River Kingdoms	SUBREGION:Outsea
+Regional Affinity (Pitax)					NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.38	REGION:The River Kingdoms	SUBREGION:Pitax
+Regional Affinity (Protectorate of the Black Marquis)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.42	REGION:The River Kingdoms	SUBREGION:Protectorate of the Black Marquis
+Regional Affinity (Riverton)					NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.44	REGION:The River Kingdoms	SUBREGION:Riverton
+Regional Affinity (Scrawny Crossing)			NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.45	REGION:The River Kingdoms	SUBREGION:Scrawny Crossing
+Regional Affinity (Sevenarches)				NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.46	REGION:The River Kingdoms	SUBREGION:Sevenarches
+Regional Affinity (The Stolen Lands)			NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.50	REGION:The River Kingdoms	SUBREGION:The Stolen Lands
+Regional Affinity (Touvette)					NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.54	REGION:The River Kingdoms	SUBREGION:Touvette
+Regional Affinity (Tymon)					NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.56	REGION:The River Kingdoms	SUBREGION:Tymon
+Regional Affinity (Uringen)					NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.60	REGION:The River Kingdoms	SUBREGION:Uringen

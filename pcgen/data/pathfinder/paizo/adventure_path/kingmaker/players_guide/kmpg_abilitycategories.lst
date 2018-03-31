@@ -1,0 +1,6 @@
+# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# SOURCELONG:Kingmaker Player's Guide	SOURCESHORT:KMPG	SOURCEWEB:http://paizo.com/store/paizo/pathfinder/adventurePath/kingmaker/v5748btpy8dqh	SOURCEDATE:2010-03
+# Original Entry by: Stefan Radermacher
+
+# Ability Category			Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object	Plural description for UI	Display Location
+ABILITYCATEGORY:Noble Born Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:NobleBorn	PLURAL:Noble Born Traits	DISPLAYLOCATION:Traits

@@ -1,0 +1,11 @@
+# CVS $Revision: $ $Author: $ -- Wed Dec 10 01:48:21 2014 -- reformated by prettylst.pl v1.51 (build 25712)
+SOURCELONG:Bestiary 2	SOURCESHORT:B2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8hif	SOURCEDATE:2010-12
+
+
+# Equipment Name		Type			!PRECHARACTERTYPE
+Leprechaun Shillelagh	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Gaff				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Maul of the Titans	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Rhoka Sword			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Rock (Korred)		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Rock (Huge)			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC

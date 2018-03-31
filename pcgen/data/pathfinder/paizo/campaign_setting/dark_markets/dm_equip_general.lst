@@ -1,0 +1,51 @@
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:Dark Markets - A Guide to Katapesh	SOURCESHORT:DM	SOURCEWEB:http://paizo.com/pathfinder/campaignSetting/35E/v5748btpy87ut	SOURCEDATE:2009-04
+# Original Entry by: Terry Milnes
+
+###Block: Clothing
+# Equipment Name	Output Name				Type					Cost		Weight	Source Page
+Outfit (Kaftan)	OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable	COST:50	WT:4		SOURCEPAGE:p.3
+
+###Block:Abadaran services
+# Equipment Name					Type			Cost		Source Page
+Abadaran Simple contract			TYPE:Service	COST:5	SOURCEPAGE:p.29
+Abadaran Complex contract			TYPE:Service	COST:10	SOURCEPAGE:p.29
+Abadaran Notarization of documents		TYPE:Service	COST:1	SOURCEPAGE:p.29
+Abadaran Identify spell				TYPE:Service	COST:125	SOURCEPAGE:p.29
+Abadaran Document a magic item's power	TYPE:Service	COST:10	SOURCEPAGE:p.29
+Abadaran Business license			TYPE:Service	COST:5	SOURCEPAGE:p.29
+Abadaran Scale certification			TYPE:Service	COST:10	SOURCEPAGE:p.29
+
+###Block:Food, Drink, and Lodging
+# Equipment Name			Type				Cost		Weight	Source Page
+Blood Ale				TYPE:Goods.Liquid.Food	COST:0.04	WT:1		SOURCEPAGE:p.32
+Cinnamon Stout			TYPE:Goods.Liquid.Food	COST:0.04	WT:1		SOURCEPAGE:p.32
+Fish Oil Whisky			TYPE:Goods.Liquid.Food	COST:0.1	WT:1		SOURCEPAGE:p.32
+Goblin Turpentine			TYPE:Goods.Liquid.Food	COST:0.04	WT:1		SOURCEPAGE:p.32
+Hair of the Dog			TYPE:Goods.Liquid.Food	COST:0.05	WT:1		SOURCEPAGE:p.32
+Hammer Head				TYPE:Goods.Liquid.Food	COST:0.1	WT:1		SOURCEPAGE:p.32
+Jerikal's Private Reserve	TYPE:Goods.Liquid.Food	COST:0.1	WT:1		SOURCEPAGE:p.32
+Orange Peel Ale			TYPE:Goods.Liquid.Food	COST:0.05	WT:1		SOURCEPAGE:p.32
+Morning Constitutional		TYPE:Goods.Liquid.Food	COST:0.04	WT:1		SOURCEPAGE:p.32
+Pesh Brandy				TYPE:Goods.Liquid.Food	COST:0.2	WT:1		SOURCEPAGE:p.32
+Purple Dragon Spit		TYPE:Goods.Liquid.Food	COST:0.1	WT:1		SOURCEPAGE:p.32
+Rabid Squirrel			TYPE:Goods.Liquid.Food	COST:0.08	WT:1		SOURCEPAGE:p.32
+Thileu Lager			TYPE:Goods.Liquid.Food	COST:0.15	WT:1		SOURCEPAGE:p.32
+Wolfberry Wine			TYPE:Goods.Liquid.Food	COST:0.1	WT:1		SOURCEPAGE:p.32
+
+###Block: Potions
+# Equipment Name	Type					Cost		Weight	Source Page		Special Property
+Acolyte Ale		TYPE:Magic.Potion.Consumable	COST:250	WT:1		SOURCEPAGE:p.32	SPROP:Cures 1d8+1 points of damage, 5 doses
+Little Bishop	TYPE:Magic.Potion.Consumable	COST:900	WT:1		SOURCEPAGE:p.32	SPROP:Frees target from temporary paralysis or related magical effects, 3 doses
+Blue Priest		TYPE:Magic.Potion.Consumable	COST:1500	WT:1		SOURCEPAGE:p.32	SPROP:Cures 2d8+3 points of damage, 5 doses
+Night Light Stout	TYPE:Magic.Potion.Consumable	COST:250	WT:1		SOURCEPAGE:p.32	SPROP:Suppresses existing fear effect, +4 morale bonus on saves against fear, or for 10 minutes, 5 doses
+Red Cardinal Wine	TYPE:Magic.Potion.Consumable	COST:3750	WT:1		SOURCEPAGE:p.32	SPROP:Cures 3d8+5 points of damage, 5 doses
+Shelyn's Nectar	TYPE:Magic.Potion.Consumable	COST:2250	WT:1		SOURCEPAGE:p.32	SPROP:Removes curses with a caster level check at +5, 3 doses
+
+###Block: Poisons
+# Equipment Name		Type					Cost		Weight	Source Page		Special Property
+Purple Pesh			TYPE:Goods.Poison.Consumable	COST:200	WT:0		SOURCEPAGE:p.40	SPROP:Ingested; Fort DC 18; Initial Effect 1d2 Con and Str damage; Secondary Effect unconsciousness for 1 hour; Cure 1 save
+Dhabba Spittle		TYPE:Goods.Poison.Consumable	COST:50	WT:0		SOURCEPAGE:p.40	SPROP:Injury; Fort DC 12; Initial Effect 1d6 acid damage and nauseated; Secondary Effect 1d4 Dex damage; Cure 1 save
+Insanity Pill		TYPE:Goods.Poison.Consumable	COST:1500	WT:0		SOURCEPAGE:p.40	SPROP:Ingested; Fort DC 14; Effect confusion spell for 1 minute; Cure 1 save
+Flayleaf Spider Venom	TYPE:Goods.Poison.Consumable	COST:100	WT:0		SOURCEPAGE:p.40	SPROP:Injury; Fort DC 11; Initial Effect 1d3 Con damage; Secondary Effect 1d3 Con damage; Cure 1 save
+Mage Bane			TYPE:Goods.Poison.Consumable	COST:500	WT:0		SOURCEPAGE:p.40	SPROP:Contact; Fort DC 20; Initial Effect +10 to all Concentration DCs for 1 hour; Secondary Effect +10 to all Concentration DCs for 1 hour; Cure 1 save

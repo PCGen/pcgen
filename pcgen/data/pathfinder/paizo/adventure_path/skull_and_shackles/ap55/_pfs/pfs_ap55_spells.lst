@@ -1,0 +1,4 @@
+# CVS $Revision: $ $Author: $ -- Wed Dec 10 01:48:21 2014 -- reformated by prettylst.pl v1.51 (build 25712)
+
+# Spell Name				Type			!PRECHARACTERTYPE
+Freedom of Movement (self only).MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC

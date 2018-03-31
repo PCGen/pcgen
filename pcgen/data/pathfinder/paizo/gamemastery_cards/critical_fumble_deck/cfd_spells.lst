@@ -1,0 +1,12 @@
+# CVS $Revision: 14884 $ $Author: amaitland $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Critical Fumble Deck	SOURCESHORT:CFD	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/gameMastery/itemPacks/v5748btpy89mn	SOURCEDATE:2009-09
+# Original Entry by:Stefan Radermacher
+
+###Block: Spells
+# Spell Name	Output Name				Type		Classes of caster				School			Sub-School			Descriptor				Components		Casting Time			Range		Target Area or Effect											Duration					Save Info			Spell Resistance	Description
+Fumble							TYPE:Arcane	CLASSES:Bard,Sorcerer,Wizard=2	SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Mind-Affecting	COMPS:V, S, F	CASTTIME:1 standard action	RANGE:Close	TARGETAREA:One creature											DURATION:(CASTERLEVEL) rounds [D]	SAVEINFO:Will negates	SPELLRES:Yes	DESC:Cause target to become more clumsy. Whenever the target misses an attack, that attack is automatically a critical fumble threat.
+Fumble (Mass)	OUTPUTNAME:Fumble, [NAME]	TYPE:Arcane	CLASSES:Bard,Sorcerer,Wizard=6	SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Mind-Affecting	COMPS:V, S, F	CASTTIME:1 standard action	RANGE:Close	TARGETAREA:(CASTERLEVEL) creatures, no two of which can be more than 30 ft. apart	DURATION:(CASTERLEVEL) rounds [D]	SAVEINFO:Will negates	SPELLRES:Yes	DESC:Cause targets to become more clumsy. Whenever a target misses an attack, that attack is automatically a critical fumble threat.
+
+#
+# End
+#

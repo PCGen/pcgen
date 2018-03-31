@@ -1,0 +1,58 @@
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+CAMPAIGN:Dragon Empires Gazetteer (PFS)
+KEY:PFS ~ Dragon Empires Gazetteer
+#GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing PFS.Pathfinder Campaign Setting
+RANK:2
+STATUS:BETA
+GENRE:Fantasy
+BOOKTYPE:Campaign Setting
+SETTING:Pathfinder|Golarion
+PRECAMPAIGN:1,Pathfinder Society Core Assumption
+PRECAMPAIGN:2,INCLUDES=Inner Sea World Guide,INCLUDES=Ultimate Combat
+
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Dragon Empires Gazetteer
+SOURCESHORT:DEG
+SOURCEWEB:http://paizo.com/products/btpy8pfu
+SOURCEDATE:2012-02
+ISOGL:YES
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:The Book of Fiends. Copyright 2003. Green Ronin Publishing: Authors Aaron Loeb, Erik Mona, Chris Pramas, Robert J. Schwalb
+COPYRIGHT:Death Worm from the Tome of Horrors Complete Copyright 2003. 2011 Necromancer Games, Inc. Published and distributed by Frog God Games Author: Scott Greene, based on original material by Gary Gygax
+COPYRIGHT:Foo Creature  from the Tome of Horrors Complete Copyright 2003. 2011 Necromancer Games, Inc. Published and distributed by Frog God Games Author: Scott Greene, based on original material by Gary Gygax
+COPYRIGHT:Grippli from the Tome of Horrors Complete Copyright 2003. 2011 Necromancer Games, Inc. Published and distributed by Frog God Games Author: Scott Greene, based on original material by Gary Gygax
+COPYRIGHT:Yeti from the Tome of Horrors Complete Copyright 2003. 2011 Necromancer Games, Inc. Published and distributed by Frog God Games Author: Scott Greene, based on original material by Gary Gygax
+COPYRIGHT:Pathfinder Campaign Setting: Dragon Empires Gazetteer Copyright 2011 Paizo Inc.: Authors: Matthew Goodall, Dave Gros, James Jacobs, Steve Kenson, Michael Kortes, Colin McComb, Rob McCreary, Richerd Fett, F. Wesley Schenider, Mike Shel and Todd Stewart
+COPYRIGHT:PCGen dataset conversion for "Dragon Empires Gazetteer" Copyright 2012, PCGen Data team (Including, but not limited to David York (Phoex))
+
+#COVER:@/pathfinder/paizo/campaign_setting/dragon_empires_gazetteer/dragon_empires_gazetteer.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/store/downloads/pathfinder/pathfinderChronicles/35E/v5748btpy84eo&source=search|Buy this publication from Paizo Publishing!
+DESC:It is a land where honorable samurai wage war against devious ninja. Where the guardian spirits known as kami stand against the ravages of evil oni. Where the martial artists of a shattered empire strive to maintain their traditions against rising chaos. A land of jade and tea, of pride and treachery, of reincarnation and vengeful ghosts. These are the lands of the Dragon Empires. Dragon Empires Gazetteer presents the first exploration of the continent of Tian Xia, a vast realm found on the opposite side of the world of Golarion from the Inner Sea region. Inspired by the fascinating myths and rich histories of numerous Asian cultures and traditions, the Dragon Empires can be either an exotic destination for world-traveling heroes from the far side of the world, or they can be the foundation of an entirely new campaign.
+
+#Do Not Remove Comment
+#EXTRAFILE:OGL.txt
+
+# Additional Resources
+# Last Updated Friday, January 9, 2015
+#
+# Pathfinder Campaign Setting: Dragon Empires Gazetteer
+# Subdomains: Moon;
+# Gods: All gods listed on pages 58-63;
+# Languages: all languages on pages 49-51 may be learned via the Linguistics skill;
+# Races: All human ethnicities are legal, humans begin play knowing all listed languages for their chosen ethnicity as racial languages.
+# The boon restriction to create a kitsune, nagaji, and wayang was removed at the start of Season 6 and all three are now available for open creation.
+
+LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/dragon_empires_gazetteer/deg_spells.lst
+
+#
+# End
+#

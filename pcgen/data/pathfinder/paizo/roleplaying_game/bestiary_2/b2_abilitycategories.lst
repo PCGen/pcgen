@@ -1,0 +1,15 @@
+# CVS $Revision: 20126 $ $Author: zaister $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
+#SOURCELONG:Bestiary 2	SOURCESHORT:B2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8hif	SOURCEDATE:2010-12
+
+# ORIGINAL ENTRY: ? and Douglas Limmer
+# ORIGINAL ENTRY DATE: Unknown
+
+###Block: Bestiary 2 Ability Categories
+# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object					Plural description for UI				Display Location
+ABILITYCATEGORY:Draconal Color				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DraconalColor				PLURAL:Draconal Colors					DISPLAYLOCATION:Racial Abilities
+#ABILITYCATEGORY:Domain Spells					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DomainSpells				PLURAL:Domain Spells
+ABILITYCATEGORY:Forlarren Spell-Like Ability		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ForlarrenSpelllike				PLURAL:Forlarren Spell-Like Abilities		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Ogrekin Beneficial Deformity		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OgrekinBeneficialDeformity		PLURAL:Ogrekin Beneficial Deformities		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Ogrekin Disadvantageous Deformity	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OgrekinDisadvantageousDeformity	PLURAL:Ogrekin Disadvantageous Deformities	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Petitioner Trait				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Petitioner					PLURAL:Petitioner Traits				DISPLAYLOCATION:Racial Abilities
+

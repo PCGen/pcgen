@@ -1,0 +1,11 @@
+# CVS $Revision: $ $Author: $ -- Sat May  7 19:25:18 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Magical Marketplace	SOURCESHORT:MM	SOURCEWEB:http://paizo.com/products/btpy92lv?Pathfinder-Player-Companion-Magical-Marketplace	SOURCEDATE:2013-12
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 20 April 2016
+
+# ==============================
+# Masterpiece Activation
+# ==============================
+
+# Template Name				Visible	Ability
+Masterpiece Activation Marketplace	VISIBLE:NO	ABILITY:Special Ability|AUTOMATIC|Masterpiece ~ Rat Quadrille|PREMULT:1,[PRESPELL:1,Masterpiece (Rat Quadrille)],[PREABILITY:1,CATEGORY=FEAT,Masterpiece (Rat Quadrille)]	ABILITY:Special Ability|AUTOMATIC|Masterpiece ~ Vindictive Soliloquy|PREMULT:1,[PRESPELL:1,Masterpiece (Vindictive Soliloquy)],[PREABILITY:1,CATEGORY=FEAT,Masterpiece (Vindictive Soliloquy)]

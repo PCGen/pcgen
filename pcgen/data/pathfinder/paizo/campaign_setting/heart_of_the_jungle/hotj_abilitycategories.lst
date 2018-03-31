@@ -1,0 +1,6 @@
+# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+#SOURCELONG:Heart of the Jungle	SOURCESHORT:HOTJ	SOURCEWEB:http://paizo.com/pathfinder/pathfinderChronicles/pathfinderRPG/v5748btpy8evh	SOURCEDATE:2010-07
+# Original Entry by:Stefan Radermacher
+
+# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object	Type of Object			Plural description for UI				Display Location
+ABILITYCATEGORY:Angazhani Martial Weapon Proficiency	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:MartialWeaponProficiency	PLURAL:Angazhani Martial Weapon Proficiencies	DISPLAYLOCATION:Feats

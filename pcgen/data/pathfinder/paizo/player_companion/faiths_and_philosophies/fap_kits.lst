@@ -1,0 +1,14 @@
+# CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Faiths and Philosophies	SOURCESHORT:FAP	SOURCEWEB:http://paizo.com/products/btpy8yw8?Pathfinder-Player-Companion-Faiths-Philosophies	SOURCEDATE:2013-08
+# ORIGINAL ENTRY:  Vincent Lhote (copied by Gwen T. (evilpixie87))
+# ORIGINAL ENTRY DATE: 2012-08, 2014-06
+
+# ==============================
+# Copy of dwarf caiman from AP55 (for Druid Crocodile domain)
+# ==============================
+
+STARTPACK:Familiar ~ Dwarf Caiman	TYPE:Familiar	VISIBLE:NO
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+#Str 10, Dex 11, Con 15, Int 2, Wis 11, Cha 2
+ABILITY:CATEGORY=FEAT|Skill Focus (Stealth)
+#Skills Stealth +11 (+19 in water), Swim +8; Racial Traits +8 Stealth in water

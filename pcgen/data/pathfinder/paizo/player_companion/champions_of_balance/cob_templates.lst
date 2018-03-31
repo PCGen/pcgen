@@ -1,0 +1,7 @@
+# CVS $Revision: $ $Author: $ -- Tue Apr 19 11:52:17 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Champions of Balance	SOURCESHORT:COB	SOURCEWEB:http://paizo.com/products/btpy93nc?Pathfinder-Player-Companion-Champions-of-Balance	SOURCEDATE:2014-03
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 6 April 2016
+
+# Template Name		Visible	Damage Reduction				Source Page		Define						Bonus DR						Misc bonus					Modify VAR																																																						Ability																						Spell Res.	FACT
+Counterpoised Creature	VISIBLE:YES	DR:5/Adamantine|PRELEVEL:MIN=5	SOURCEPAGE:p.33	DEFINE:CounterpoisedResistanceBonus|0	BONUS:DR|Adamantine|5|PRELEVEL:MIN=11	BONUS:MISC|CR|1|PRELEVEL:MIN=5	BONUS:VAR|CounterpoisedResistanceBonus|5	BONUS:VAR|FireResistanceBonus,ColdResistanceBonus,ElectricityResistanceBonus|CounterpoisedResistanceBonus|TYPE=Resistance	BONUS:VAR|CounterpoisedResistanceBonus|5|PRELEVEL:MIN=5	BONUS:VAR|CounterpoisedResistanceBonus|5|PRELEVEL:MIN=11	BONUS:VAR|DarkvisionRange|60|TYPE=Base	ABILITY:Special Ability|AUTOMATIC|Counterpoised Creature ~ Smite Bias|Resistance to Fire|Resistance to Cold|Resistance to Electricity	SR:CR+5	FACT:AppliedName|Counterpoised

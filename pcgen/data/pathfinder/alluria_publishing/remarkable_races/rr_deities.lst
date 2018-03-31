@@ -1,0 +1,7 @@
+# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Remarkable Races: Compendium of Unusual PC Races, Pathway to Adventure Edition	SOURCESHORT:RR	SOURCEWEB:http://www.alluriapublishing.net/compendium-p.htm	SOURCEDATE:2009-01
+# Original Entry by Andrew Maitland
+
+
+# Deity Name			Unique Key	Product Identity?	Domains									Deity Weapon	Align		Source Page
+Mahra, Goddess of the Mahrogs	KEY:Mahra	NAMEISPI:YES	DOMAINS:Animal,Community,Preservation,Protection,Strength	DEITYWEAP:Club	ALIGN:TN	SOURCEPAGE:p.29

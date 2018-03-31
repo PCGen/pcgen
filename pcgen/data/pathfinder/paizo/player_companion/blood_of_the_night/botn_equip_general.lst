@@ -1,0 +1,17 @@
+# CVS $Revision: $ $Author: $ -- Mon May  9 15:11:37 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Blood of the Night	SOURCESHORT:BOTN	SOURCEWEB:http://paizo.com/products/btpy8v33?Pathfinder-Player-Companion-Blood-of-the-Night	SOURCEDATE:2012-02
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 13 April 2016
+
+# ==============================
+# New Magic Items
+# ==============================
+
+# Equipment Name		Required Weapon Proficiency	Type															Cost		Weight	Crit Mult	Crit Range	Damage	Modifier						Wield Category	Range		Size		Source Page
+Bloodletting Thimble						TYPE:Magic.Ring												COST:4000																							SOURCEPAGE:p.31
+Deadly Draught							TYPE:Magic.Wondrous.Consumable										COST:900																							SOURCEPAGE:p.31
+Dread Heart of Life						TYPE:Magic.Wondrous												COST:2000																							SOURCEPAGE:p.31
+Necklace of Fangs							TYPE:Magic.Wondrous.Amulet											COST:1800	WT:1																						SOURCEPAGE:p.31
+
+Force Net			PROFICIENCY:WEAPON|Net		TYPE:Magic.Weapon.Resizable.Exotic.Ranged.Thrown.Specific.Net					COST:20	WT:6								EQMOD:Special Ability ~ Ghost Touch ~ Weapon.Special Ability ~ Enhancement Cost|2000.Special Ability ~ +1 ~ Weapon.Material ~ Alchemical Silver	WIELD:OneHandOnly	RANGE:10	SIZE:M	SOURCEPAGE:p.31
+Stake of the Righteous	PROFICIENCY:WEAPON|Stake	TYPE:Magic.Weapon.Resizable.Simple.Melee.Ranged.Light.Thrown.Specific.Piercing.Stake	COST:0	WT:2		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d4	EQMOD:Special Ability ~ Enhancement Cost|3200.Special Ability ~ +1 ~ Weapon.Material ~ Alchemical Silver		WIELD:Light				SIZE:M	SOURCEPAGE:p.31

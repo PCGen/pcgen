@@ -1,0 +1,10 @@
+# CVS $Revision: $ $Author: $ -- Wed Dec 10 01:48:21 2014 -- reformated by prettylst.pl v1.51 (build 25712)
+SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8ief	SOURCEDATE:2011-03
+# Original Entry by: Stefan Radermacher
+
+# These are legal, but they are not part of ISWG
+# Web Blog - Golarion Day - http://paizo.com/paizo/blog/v5748dyo5lbvp
+#Dark Tapestry Subdomain.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+#Dragon Subdomain.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+#Stars Subdomain.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+#Saurian Subdomain.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC

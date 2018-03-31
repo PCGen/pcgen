@@ -1,0 +1,48 @@
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+CAMPAIGN:Princes of Darkness (PFS)
+KEY:PFS ~ Princes of Darkness
+#GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing PFS.Pathfinder Campaign Setting
+RANK:2
+STATUS:BETA
+GENRE:Fantasy
+BOOKTYPE:Campaign Setting
+SETTING:Pathfinder|Golarion
+PRECAMPAIGN:1,Pathfinder Society Core Assumption
+
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Princes of Darkness, Book of the Damned, Volume 1
+SOURCESHORT:BOTD1
+SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8a6f
+SOURCEDATE:2009-10
+ISOGL:YES
+
+#COVER:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_1/book_of_the_damned_volume_1.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8a6f|Buy this publication from Paizo Publishing!
+DESC:From the origin of the gods to the inhabitants of the darkest infernal pit, Princes of Darkness: Book of the Damned Volume 1 is an unflinching look at the methods, motivations, and goals of Asmodeus, the archdevils, and the entire hierarchy of Hell. Whether you're planning to storm the gates of Avernus or trade in the exotic and immoral markets of Dis, or simply want to add a splash of diabolical flavor to a standard campaign, this 64-page book is full of delicious temptations worthy of Faust himself.
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder Chronicles: Princes of Darkness, Book of the Damned, Vol. I. Copyright 2009, Paizo Inc.; Author: F. Wesley Schneider.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Chronicles: Princes of Darkness, Book of the Damned Vol. I" Copyright 2009-2011, PCGen Data team (Including, but not limited to Stefan Radermacher, Henk Slaaf, Andrew Maitland)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# Additional Resources
+# Last Updated Friday, January 9, 2015
+#
+# Pathfinder Campaign Setting: Princes of Darkness
+# Prestige Class: Diabolist; to qualify for the diabolist prestige class, you must cast lesser planar ally or lesser planar binding (or a similar spell) using one of your own prepared spells or a daily spell slot, and the spell must be on your class spell list;
+# Spells: vision of hell
+
+LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_1/botd1_abilities_race.lst
+LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_1/botd1_kits_race.lst
+LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_1/botd1_races.lst
+SPELL:pfs_botd1_spells.lst|PRECAMPAIGN:1,Princes of Darkness - Book of the Damned - Volume 1

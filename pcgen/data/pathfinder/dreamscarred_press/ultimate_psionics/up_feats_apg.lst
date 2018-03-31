@@ -1,0 +1,14 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Ultimate Psionics	SOURCESHORT:UP	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2013-12
+# ORIGINAL ENTRY: Douglas Limmer
+# ORIGINAL ENTRY DATE: 2013/07/08
+
+# Feat Name					Type
+# Ability Name				Type
+CATEGORY=FEAT|Parting Shot.MOD	TYPE:MarksmanBonus
+CATEGORY=FEAT|Disrupting Shot.MOD	TYPE:FinesseMarksmanBonus
+CATEGORY=FEAT|Crossbow Mastery.MOD	TYPE:VolleyMarksmanBonus
+
+#
+# End
+#

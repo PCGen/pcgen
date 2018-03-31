@@ -1,0 +1,22 @@
+# CVS $Revision: $ $Author: $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Second Darkness, Chapter 6 - Descent into Midnight	SOURCESHORT:AP18	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy86v1	SOURCEDATE:2009-01
+
+
+# Deity Name	Product Identity?	Output Name							Domains							Description of Deity/Title				FACT														Deity Weapon			Align
+Aldinach		NAMEISPI:YES	OUTPUTNAME:Aldinach, She of the Six Venoms	DOMAINS:Animal,Chaos,Evil,Sun				DESC:Demon Lord of sand and scorpions		FACT:Symbol|Gold scorpion with sand dripping from its claws					DEITYWEAP:Kukri			ALIGN:CE
+Angazhan		NAMEISPI:YES	OUTPUTNAME:Angazhan, The Ravener King		DOMAINS:Animal,Chaos,Evil,Plant			DESC:Demon Lord of apes and jungles			FACT:Symbol|Demonic ape face										DEITYWEAP:Spear			ALIGN:CE
+Baphomet		NAMEISPI:YES	OUTPUTNAME:Baphomet, Lord of the Minotaurs	DOMAINS:Animal,Chaos,Evil,Strength			DESC:Demon Lord of labyrinths and beasts		FACT:Symbol|A brass minotaur's head with ruby eyes						DEITYWEAP:Glaive			ALIGN:CE
+Dagon			NAMEISPI:YES	OUTPUTNAME:Dagon, The Shadow in the Sea		DOMAINS:Chaos,Destruction,Evil,Water		DESC:Demon Lord of the sea and sea monsters	FACT:Symbol|Gold disk inscribed with sinister runes around an open octopus eye	DEITYWEAP:Trident			ALIGN:CE
+Deskari		NAMEISPI:YES	OUTPUTNAME:Deskari, Lord of the Locust Host	DOMAINS:Chaos,Destruction,Evil,War			DESC:Demon Lord of locusts and infestation	FACT:Symbol|Crossed locust wings dripping with blood						DEITYWEAP:Scythe			ALIGN:CE
+Gogunta		NAMEISPI:YES	OUTPUTNAME:Gogunta, Song of the Swamp		DOMAINS:Chaos,Death,Evil,Water			DESC:Demon Lord of boggards and swamps		FACT:Symbol|Fetish of frog-like humanoid made of twigs					DEITYWEAP:Whip			ALIGN:CE
+Jezelda		NAMEISPI:YES	OUTPUTNAME:Jezelda, Mistress of the Hungry Moon	DOMAINS:Animal,Chaos,Evil,Trickery			DESC:Demon Lord of the moon and werewolves	FACT:Symbol|Full moon rising above a desolate moor						DEITYWEAP:Scimitar		ALIGN:CE
+Kabriri		NAMEISPI:YES	OUTPUTNAME:Kabriri, He Who Gnaws			DOMAINS:Chaos,Death,Evil,Knowledge			DESC:Demon Lord of graves and ghouls		FACT:Symbol|Maggot-filled bowl made from a human skull					DEITYWEAP:Flail			ALIGN:CE
+Kostchtchie		NAMEISPI:YES	OUTPUTNAME:Kostchtchie, The Deathless Frost	DOMAINS:Chaos,Evil,Strength,War			DESC:Demon Lord of giants and cold			FACT:Symbol|Ice-caked rune-carved warhammer							DEITYWEAP:Warhammer		ALIGN:CE
+Lamashtu		NAMEISPI:YES	OUTPUTNAME:Lamashtu, The Demon Queen		DOMAINS:Chaos,Evil,Madness,Strength,Trickery	DESC:Demon Lord of madness and monsters		FACT:Symbol|Three-eyed jackal head									DEITYWEAP:Falchion		ALIGN:CE
+Mestama		NAMEISPI:YES	OUTPUTNAME:Mestama, The Mother of Witches		DOMAINS:Chaos,Charm,Evil,Trickery			DESC:Demon Lord of hags and deception		FACT:Symbol|Human eye balanced atop three sharp stones					DEITYWEAP:Dagger (Punching)	ALIGN:CE
+Orcus			NAMEISPI:YES	OUTPUTNAME:Orcus, Prince of Undeath			DOMAINS:Chaos,Death,Evil,Magic			DESC:Demon Lord of undead and necromancy		FACT:Symbol|A goat's head with red eyes and four horns					DEITYWEAP:Mace (Heavy)		ALIGN:CE
+Pazuzu		NAMEISPI:YES	OUTPUTNAME:Pazuzu, King of the Wind Demons	DOMAINS:Air,Chaos,Evil,Trickery			DESC:Demon Lord of winged creatures and the sky	FACT:Symbol|Image of Pazuzu with right hand upraised						DEITYWEAP:Longsword		ALIGN:CE
+Sifkesh		NAMEISPI:YES	OUTPUTNAME:Sifkesh, The Sacred Whore		DOMAINS:Chaos,Evil,Madness,Trickery			DESC:Demon Lord of heresy and suicide		FACT:Symbol|Bloody feminine hands crossed at slashed wrists										ALIGN:CE
+Urxehl		NAMEISPI:YES	OUTPUTNAME:Urxehl, Trollfather			DOMAINS:Chaos,Evil,Fire,Weather			DESC:Demon Lord of trolls and storms		FACT:Symbol|Stormcloud pierced by lightning							DEITYWEAP:Greatclub		ALIGN:CE
+Xoveron		NAMEISPI:YES	OUTPUTNAME:Xoveron, The Horned Prince		DOMAINS:Chaos,Earth,Evil,Strength			DESC:Demon Lord of gargoyles and ruins		FACT:Symbol|Five-horned gray gargoyle skull missing a jaw					DEITYWEAP:Ranseur			ALIGN:CE
+Zevgavizeb		NAMEISPI:YES	OUTPUTNAME:Zevgavizeb, God of the Troglodytes	DOMAINS:Animal,Chaos,Evil,Strength			DESC:Demon Lord of troglodytes and caverns	FACT:Symbol|Twisted tentacle terminating in an oversized talon				DEITYWEAP:Gauntlet (Spiked)	ALIGN:CE

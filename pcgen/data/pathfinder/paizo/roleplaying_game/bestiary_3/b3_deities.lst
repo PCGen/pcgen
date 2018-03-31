@@ -1,0 +1,9 @@
+# CVS $Revision: 21638 $ $Author: amaitland $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+# Original Entry By: W. Robert 'Mynex' Reed III
+# Entry Date: August 2013
+SOURCELONG:Bestiary 3	SOURCESHORT:B3	SOURCEWEB:http://paizo.com/products/btpy8odu?Pathfinder-Roleplaying-Game-Bestiary-3	SOURCEDATE:2012-01
+
+
+# Deity Name	Product Identity?	Domains								Description of Deity/Title			FACTSET						Deity Weapon	Align		Source Page
+# Pulling from Inner Sea Gods
+#Ahriman		NAMEISPI:YES	DOMAINS:Darkness,Death,Destruction|PREALIGN:NE,LE,CE	DESC:God of wrath, disaster, destruction	FACTSET:Pantheon|Pathfinder Chronicles	DEITYWEAP:Whip	ALIGN:NE	SOURCEPAGE:p.45

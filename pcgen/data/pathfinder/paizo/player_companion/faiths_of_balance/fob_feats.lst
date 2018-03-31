@@ -1,0 +1,27 @@
+# CVS $Revision: 9628 $ $Author: zaister $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
+SOURCELONG:Faiths of Balance	SOURCESHORT:FOB	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderCompanion/v5748btpy8lvb	SOURCEDATE:2011-07
+# Original Entry by:Stefan Radermacher
+
+###Block: New Feats
+# Feat Name		Type			Required Deity		Required Feat					PRETOTALAB		Req. Weapond Prof.		Description																Source Page
+# Ability Name	Category of Ability	Type			Required Ability								Required Deity		PRETOTALAB		Req. Weapond Prof.		Description																Source Page
+Arcane Insight	CATEGORY:FEAT		TYPE:General	PREABILITY:1,CATEGORY=FEAT,Arcane Shield				PREDEITY:1,Nethys										DESC:Magical insight helps you evade attacks.										SOURCEPAGE:p.24
+Bloody Vengeance	CATEGORY:FEAT		TYPE:Combat												PREDEITY:1,Calistria	PRETOTALAB:1						DESC:Your retaliatory strikes have long-lasting effects.								SOURCEPAGE:p.24
+Measured Response	CATEGORY:FEAT		TYPE:Combat												PREDEITY:1,Abadar		PRETOTALAB:1						DESC:You believe that a conservative but consistent response guarantees success.				SOURCEPAGE:p.24
+Riptide Attack	CATEGORY:FEAT		TYPE:Combat		PREABILITY:2,CATEGORY=FEAT,Improved Drag,Improved Trip	PREDEITY:1,Gozreh										DESC:You can follow up a successful trip attempt with a drag maneuver.						SOURCEPAGE:p.24
+Spiked Destroyer	CATEGORY:FEAT		TYPE:Combat												PREDEITY:1,Gorum					PREWEAPONPROF:1,Spiked Armor	DESC:You can attack with your armor spikes while using bull rush or overrun.					SOURCEPAGE:p.24
+Steady Engagement	CATEGORY:FEAT		TYPE:Combat		PREABILITY:2,CATEGORY=FEAT,Combat Reflexes,Stand Still	PREDEITY:1,Irori										DESC:You can draw on your excellent balance to trip or disarm opponents when they try to disengage.	SOURCEPAGE:p.24
+
+###Block: Feat benefits
+# Feat Name			Benefits
+# Ability Name				Benefits
+CATEGORY=FEAT|Arcane Insight.MOD	BENEFIT:Whenever you use the Arcane Shield feat, you also gain a +1 insight bonus to your Armor Class for 1 round.
+CATEGORY=FEAT|Bloody Vengeance.MOD	BENEFIT:If an opponent has damaged you within the past minute, you may study that opponent as a standard action. Thereafter, if you hit that creature with a melee attack, the target takes 1 point of bleed damage each round at the start of its turn. The bleeding can be stopped by a DC 15 Heal check or the application of any effect that heals hit point damage. Bleed damage does not stack. Bleed damage bypasses any damage reduction the creature might possess.
+CATEGORY=FEAT|Measured Response.MOD	BENEFIT:When you hit an opponent with a melee or ranged attack, you may choose to deal average damage (rounded down), as if you had rolled exactly the average amount on the damage die or dice. You add your damage bonuses and penalties as normal.
+CATEGORY=FEAT|Riptide Attack.MOD	BENEFIT:When you succeed at a trip combat maneuver, you may automatically make a drag combat maneuver against your tripped target as a swift action. Your base attack bonus for the drag check is the same as the base attack bonus you used for the trip check. The drag attempt provokes attacks of opportunity as normal.
+CATEGORY=FEAT|Spiked Destroyer.MOD	BENEFIT:When you succeed at a bull rush or overrun combat maneuver, you may automatically make an attack roll with your armor spikes against the target of the maneuver as a swift action. This attack is made using your highest attack bonus.
+CATEGORY=FEAT|Steady Engagement.MOD	BENEFIT:If you use the Stand Still feat to prevent an opponent from moving, you may make a disarm or trip combat maneuver against the target as an immediate action.
+
+#
+# End
+#

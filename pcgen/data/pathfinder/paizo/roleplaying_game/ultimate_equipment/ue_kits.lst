@@ -1,0 +1,411 @@
+# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+SOURCELONG:Ultimate Equipment	SOURCESHORT:UE	SOURCEWEB:http://paizo.com/products/btpy8tmc?Pathfinder-Roleplaying-Game-Ultimate-Equipment	SOURCEDATE:2012-08
+
+STARTPACK:Alchemist's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:40
+GEAR:Alchemy Crafting Kit	QTY:1		SIZE:PC
+GEAR:Backpack			QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Bedroll			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Pouch (Belt)			QTY:1		SIZE:PC	LOCATION:Equipped
+GEAR:Flint and Steel		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Ink (1 oz Vial)		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Inkpen				QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Pot (Iron)			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Mess Kit			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Rope (Hemp/50 ft)		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Soap (per lb)		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Torch				QTY:10	SIZE:PC	LOCATION:Backpack
+GEAR:Rations (Trail/Per Day)	QTY:5		SIZE:PC	LOCATION:Backpack
+GEAR:Waterskin			QTY:1		SIZE:PC	LOCATION:Backpack
+
+STARTPACK:Barbarian's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:9
+GEAR:Backpack			QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Pouch (Belt)			QTY:1		SIZE:PC	LOCATION:Equipped
+GEAR:Blanket			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Flint and Steel		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Pot (Iron)			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Rope (Hemp/50 ft)		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Soap (per lb)		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Torch				QTY:10	SIZE:PC	LOCATION:Backpack
+GEAR:Rations (Trail/Per Day)	QTY:5		SIZE:PC	LOCATION:Backpack
+GEAR:Waterskin			QTY:1		SIZE:PC	LOCATION:Backpack
+
+STARTPACK:Bard's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:41
+GEAR:Backpack			QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Bedroll			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Pouch (Belt)			QTY:1		SIZE:PC	LOCATION:Equipped
+GEAR:Flint and Steel		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Ink (1 oz Vial)		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Inkpen				QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Pot (Iron)			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Journal			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Mess Kit			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Mirror (Small/Steel)	QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Rope (Hemp/50 ft)		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Soap (per lb)		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Torch				QTY:10	SIZE:PC	LOCATION:Backpack
+GEAR:Rations (Trail/Per Day)	QTY:5		SIZE:PC	LOCATION:Backpack
+GEAR:Waterskin			QTY:1		SIZE:PC	LOCATION:Backpack
+TEMPLATE:Bard's Instrument
+
+STARTPACK:Bard's Instrument (Choose)	VISIBLE:NO	APPLY:INSTANT	TOTALCOST:0
+GEAR:TYPE=Goods.Instrument	QTY:1	SIZE:PC	LOCATION:Carried
+
+STARTPACK:Bard's Instrument (Random)	VISIBLE:NO	APPLY:INSTANT	TOTALCOST:0
+SELECT:roll("1d15")
+GEAR:Musical Instrument (Harpsichord)	QTY:1	SIZE:PC	LOCATION:Carried	OPTION:1
+GEAR:Musical Instrument (Piano)		QTY:1	SIZE:PC	LOCATION:Carried	OPTION:2
+GEAR:Musical Instrument (Pipe Organ)	QTY:1	SIZE:PC	LOCATION:Carried	OPTION:3
+GEAR:Musical Instrument (Bells)		QTY:1	SIZE:PC	LOCATION:Carried	OPTION:4
+GEAR:Musical Instrument (Chimes)		QTY:1	SIZE:PC	LOCATION:Carried	OPTION:5
+GEAR:Musical Instrument (Drums)		QTY:1	SIZE:PC	LOCATION:Carried	OPTION:6
+GEAR:Musical Instrument (Gong)		QTY:1	SIZE:PC	LOCATION:Carried	OPTION:7
+GEAR:Musical Instrument (Fiddle)		QTY:1	SIZE:PC	LOCATION:Carried	OPTION:8
+GEAR:Musical Instrument (Harp)		QTY:1	SIZE:PC	LOCATION:Carried	OPTION:9
+GEAR:Musical Instrument (Lute)		QTY:1	SIZE:PC	LOCATION:Carried	OPTION:10
+GEAR:Musical Instrument (Mandolin)		QTY:1	SIZE:PC	LOCATION:Carried	OPTION:11
+GEAR:Musical Instrument (Flute)		QTY:1	SIZE:PC	LOCATION:Carried	OPTION:12
+GEAR:Musical Instrument (Pan Pipes)		QTY:1	SIZE:PC	LOCATION:Carried	OPTION:13
+GEAR:Musical Instrument (Recorder)		QTY:1	SIZE:PC	LOCATION:Carried	OPTION:14
+GEAR:Musical Instrument (Trumpet)		QTY:1	SIZE:PC	LOCATION:Carried	OPTION:15
+
+STARTPACK:Cavalier's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:23
+GEAR:Feed (Per Day)		QTY:5		SIZE:PC
+GEAR:Backpack			QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Bedroll			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Pouch (Belt)			QTY:1		SIZE:PC	LOCATION:Equipped
+GEAR:Bit and Bridle		QTY:1		SIZE:PC
+GEAR:Flint and Steel		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Pot (Iron)			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Mess Kit			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Rope (Hemp/50 ft)		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Saddle (Riding)		QTY:1		SIZE:PC
+GEAR:Saddlebags			QTY:1		SIZE:PC
+GEAR:Soap (per lb)		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Torch				QTY:10	SIZE:PC	LOCATION:Backpack
+GEAR:Rations (Trail/Per Day)	QTY:5		SIZE:PC	LOCATION:Backpack
+GEAR:Waterskin			QTY:1		SIZE:PC	LOCATION:Backpack
+
+STARTPACK:Cleric's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:16
+GEAR:Backpack			QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Bedroll			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Pouch (Belt)			QTY:1		SIZE:PC	LOCATION:Equipped
+GEAR:Candle				QTY:10	SIZE:PC	LOCATION:Backpack
+GEAR:Holy Text (Cheap)		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Flint and Steel		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Pot (Iron)			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Mess Kit			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Rope (Hemp/50 ft)		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Soap (per lb)		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Spell Component Pouch	QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Torch				QTY:10	SIZE:PC	LOCATION:Backpack
+GEAR:Rations (Trail/Per Day)	QTY:5		SIZE:PC	LOCATION:Backpack
+GEAR:Waterskin			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Holy Symbol (Wooden)	QTY:1		SIZE:PC	LOCATION:Carried
+
+STARTPACK:Druid's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:14
+GEAR:Feed (Per Day)		QTY:5		SIZE:PC
+GEAR:Backpack			QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Pouch (Belt)			QTY:1		SIZE:PC	LOCATION:Equipped
+GEAR:Blanket			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Flint and Steel		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Holly and Mistletoe	QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Pot (Iron)			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Mess Kit			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Rope (Hemp/50 ft)		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Soap (per lb)		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Spell Component Pouch	QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Torch				QTY:10	SIZE:PC	LOCATION:Backpack
+GEAR:Rations (Trail/Per Day)	QTY:5		SIZE:PC	LOCATION:Backpack
+GEAR:Waterskin			QTY:1		SIZE:PC	LOCATION:Backpack
+
+STARTPACK:Fighter's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:9
+GEAR:Backpack			QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Bedroll			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Pouch (Belt)			QTY:1		SIZE:PC	LOCATION:Equipped
+GEAR:Flint and Steel		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Pot (Iron)			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Mess Kit			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Rope (Hemp/50 ft)		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Soap (per lb)		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Torch				QTY:10	SIZE:PC	LOCATION:Backpack
+GEAR:Rations (Trail/Per Day)	QTY:5		SIZE:PC	LOCATION:Backpack
+GEAR:Waterskin			QTY:1		SIZE:PC	LOCATION:Backpack
+
+STARTPACK:Gunslinger's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:26
+GEAR:Backpack			QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Bedroll			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Pouch (Belt)			QTY:1		SIZE:PC	LOCATION:Equipped
+GEAR:Flint and Steel		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Gunsmith's Kit		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Pot (Iron)			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Mess Kit			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Powder Horn			QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Rope (Hemp/50 ft)		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Torch				QTY:10	SIZE:PC	LOCATION:Backpack
+GEAR:Rations (Trail/Per Day)	QTY:5		SIZE:PC	LOCATION:Backpack
+GEAR:Waterskin			QTY:1		SIZE:PC	LOCATION:Backpack
+
+STARTPACK:Inquisitor's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:30
+GEAR:Backpack			QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Bedroll			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Pouch (Belt)			QTY:1		SIZE:PC	LOCATION:Equipped
+GEAR:Candle				QTY:10	SIZE:PC	LOCATION:Backpack
+GEAR:Holy Text (Cheap)		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Flint and Steel		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Pot (Iron)			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Manacles (Medium)		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Mess Kit			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Rope (Hemp/50 ft)		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Soap (per lb)		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Spell Component Pouch	QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Torch				QTY:10	SIZE:PC	LOCATION:Backpack
+GEAR:Rations (Trail/Per Day)	QTY:5		SIZE:PC	LOCATION:Backpack
+GEAR:Waterskin			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Holy Symbol (Wooden)	QTY:1		SIZE:PC	LOCATION:Carried
+
+STARTPACK:Magus' Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:22
+GEAR:Backpack			QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Bedroll			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Pouch (Belt)			QTY:1		SIZE:PC	LOCATION:Equipped
+GEAR:Flint and Steel		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Ink (1 oz Vial)		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Inkpen				QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Pot (Iron)			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Mess Kit			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Rope (Hemp/50 ft)		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Soap (per lb)		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Spell Component Pouch	QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Torch				QTY:10	SIZE:PC	LOCATION:Backpack
+GEAR:Rations (Trail/Per Day)	QTY:5		SIZE:PC	LOCATION:Backpack
+GEAR:Waterskin			QTY:1		SIZE:PC	LOCATION:Backpack
+
+STARTPACK:Monk's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:8
+GEAR:Backpack			QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Pouch (Belt)			QTY:1		SIZE:PC	LOCATION:Equipped
+GEAR:Blanket			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Rope (Hemp/50 ft)		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Soap (per lb)		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Torch				QTY:10	SIZE:PC	LOCATION:Backpack
+GEAR:Rations (Trail/Per Day)	QTY:5		SIZE:PC	LOCATION:Backpack
+GEAR:Waterskin			QTY:1		SIZE:PC	LOCATION:Backpack
+
+STARTPACK:Oracle's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:9
+GEAR:Backpack			QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Bedroll			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Pouch (Belt)			QTY:1		SIZE:PC	LOCATION:Equipped
+GEAR:Candle				QTY:10	SIZE:PC	LOCATION:Backpack
+GEAR:Flint and Steel		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Pot (Iron)			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Mess Kit			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Rope (Hemp/50 ft)		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Soap (per lb)		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Torch				QTY:10	SIZE:PC	LOCATION:Backpack
+GEAR:Rations (Trail/Per Day)	QTY:5		SIZE:PC	LOCATION:Backpack
+GEAR:Waterskin			QTY:1		SIZE:PC	LOCATION:Backpack
+
+STARTPACK:Paladin's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:11
+GEAR:Backpack			QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Bedroll			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Pouch (Belt)			QTY:1		SIZE:PC	LOCATION:Equipped
+GEAR:Holy Text (Cheap)		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Flint and Steel		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Pot (Iron)			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Mess Kit			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Rope (Hemp/50 ft)		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Soap (per lb)		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Torch				QTY:10	SIZE:PC	LOCATION:Backpack
+GEAR:Rations (Trail/Per Day)	QTY:5		SIZE:PC	LOCATION:Backpack
+GEAR:Waterskin			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Holy Symbol (Wooden)	QTY:1		SIZE:PC	LOCATION:Carried
+
+STARTPACK:Ranger's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:9
+GEAR:Backpack			QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Bedroll			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Pouch (Belt)			QTY:1		SIZE:PC	LOCATION:Equipped
+GEAR:Flint and Steel		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Pot (Iron)			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Mess Kit			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Rope (Hemp/50 ft)		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Soap (per lb)		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Torch				QTY:10	SIZE:PC	LOCATION:Backpack
+GEAR:Rations (Trail/Per Day)	QTY:5		SIZE:PC	LOCATION:Backpack
+GEAR:Waterskin			QTY:1		SIZE:PC	LOCATION:Backpack
+
+STARTPACK:Rogue's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:50
+GEAR:Backpack			QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Bedroll			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Pouch (Belt)			QTY:1		SIZE:PC	LOCATION:Equipped
+GEAR:Caltrops			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Chalk (1 Piece)		QTY:10	SIZE:PC	LOCATION:Backpack
+GEAR:Flint and Steel		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Grappling Hook		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Pot (Iron)			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Mess Kit			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Mirror (Small/Steel)	QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Piton				QTY:10	SIZE:PC	LOCATION:Backpack
+GEAR:Rope (Hemp/50 ft)		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Soap (per lb)		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Thieves' Tools		QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Torch				QTY:10	SIZE:PC	LOCATION:Backpack
+GEAR:Rations (Trail/Per Day)	QTY:5		SIZE:PC	LOCATION:Backpack
+GEAR:Waterskin			QTY:1		SIZE:PC	LOCATION:Backpack
+
+STARTPACK:Sorceror's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:8
+GEAR:Backpack			QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Bedroll			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Pouch (Belt)			QTY:1		SIZE:PC	LOCATION:Equipped
+GEAR:Flint and Steel		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Pot (Iron)			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Mess Kit			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Soap (per lb)		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Torch				QTY:10	SIZE:PC	LOCATION:Backpack
+GEAR:Rations (Trail/Per Day)	QTY:5		SIZE:PC	LOCATION:Backpack
+GEAR:Waterskin			QTY:1		SIZE:PC	LOCATION:Backpack
+
+STARTPACK:Witch's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:21
+GEAR:Backpack			QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Bedroll			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Pouch (Belt)			QTY:1		SIZE:PC	LOCATION:Equipped
+GEAR:Candle				QTY:10	SIZE:PC	LOCATION:Backpack
+GEAR:Chalk (1 Piece)		QTY:10	SIZE:PC	LOCATION:Backpack
+GEAR:Flint and Steel		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Ink (1 oz Vial)		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Inkpen				QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Pot (Iron)			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Mess Kit			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Soap (per lb)		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Spell Component Pouch	QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Torch				QTY:10	SIZE:PC	LOCATION:Backpack
+GEAR:Rations (Trail/Per Day)	QTY:5		SIZE:PC	LOCATION:Backpack
+GEAR:Waterskin			QTY:1		SIZE:PC	LOCATION:Backpack
+
+STARTPACK:Wizard's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:21
+GEAR:Backpack			QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Bedroll			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Pouch (Belt)			QTY:1		SIZE:PC	LOCATION:Equipped
+GEAR:Flint and Steel		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Ink (1 oz Vial)		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Inkpen				QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Pot (Iron)			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Mess Kit			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Rope (Hemp/50 ft)		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Soap (per lb)		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Spell Component Pouch	QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Torch				QTY:10	SIZE:PC	LOCATION:Backpack
+GEAR:Rations (Trail/Per Day)	QTY:5		SIZE:PC	LOCATION:Backpack
+GEAR:Waterskin			QTY:1		SIZE:PC	LOCATION:Backpack
+
+STARTPACK:Campsite Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:12
+GEAR:Bedroll			QTY:4	SIZE:PC
+GEAR:Blanket			QTY:4	SIZE:PC
+GEAR:Firewood (Per Day)		QTY:1	SIZE:PC
+GEAR:Flint and Steel		QTY:1	SIZE:PC
+GEAR:Tindertwig			QTY:1	SIZE:PC
+GEAR:Mess Kit			QTY:4	SIZE:PC
+GEAR:Cooking Kit			QTY:1	SIZE:PC
+GEAR:Rations (Trail/Per Day)	QTY:8	SIZE:PC
+
+STARTPACK:Chronicler's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:40
+GEAR:Case (Map or Scroll)	QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Ink (1 oz Vial)		QTY:2		SIZE:PC	LOCATION:Backpack
+GEAR:Inkpen				QTY:2		SIZE:PC	LOCATION:Backpack
+GEAR:Paper (Sheet)		QTY:10	SIZE:PC	LOCATION:Backpack
+GEAR:Journal			QTY:2		SIZE:PC	LOCATION:Backpack
+GEAR:Powder				QTY:2		SIZE:PC	LOCATION:Backpack
+
+STARTPACK:Dragonslayer's Kit (Fire)	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:485
+GEAR:Backpack				QTY:1	SIZE:PC	LOCATION:Carried
+GEAR:Potion of Cure Moderate Wounds	QTY:1	SIZE:PC	LOCATION:Backpack
+GEAR:Oil of Bless Weapon		QTY:1	SIZE:PC	LOCATION:Backpack
+GEAR:Longspear				QTY:1	SIZE:PC	LOCATION:Primary Hand
+GEAR:Shield (Tower)			QTY:1	SIZE:PC	LOCATION:Shield
+GEAR:Sack					QTY:3	SIZE:PC	LOCATION:Carried
+GEAR:Sunrod					QTY:1	SIZE:PC	LOCATION:Backpack
+GEAR:Alchemist's Fire (Flask)		QTY:5	SIZE:PC	LOCATION:Backpack
+
+STARTPACK:Dragonslayer's Kit (Acid)	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:485
+GEAR:Backpack				QTY:1	SIZE:PC	LOCATION:Carried
+GEAR:Potion of Cure Moderate Wounds	QTY:1	SIZE:PC	LOCATION:Backpack
+GEAR:Oil of Bless Weapon		QTY:1	SIZE:PC	LOCATION:Backpack
+GEAR:Longspear				QTY:1	SIZE:PC	LOCATION:Primary Hand
+GEAR:Shield (Tower)			QTY:1	SIZE:PC	LOCATION:Shield
+GEAR:Sack					QTY:3	SIZE:PC	LOCATION:Carried
+GEAR:Sunrod					QTY:1	SIZE:PC	LOCATION:Backpack
+GEAR:Acid (Flask)				QTY:5	SIZE:PC	LOCATION:Backpack
+
+STARTPACK:Dungeoneering Kit (Common)	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:15
+GEAR:Candle			QTY:2	SIZE:PC	LOCATION:Backpack
+GEAR:Chalk (1 Piece)	QTY:1	SIZE:PC	LOCATION:Backpack
+GEAR:Hammer			QTY:1	SIZE:PC	LOCATION:Backpack
+GEAR:Piton			QTY:4	SIZE:PC	LOCATION:Backpack
+GEAR:Rope (Hemp/50 ft)	QTY:1	SIZE:PC	LOCATION:Backpack
+GEAR:Lantern (Hooded)	QTY:1	SIZE:PC	LOCATION:Backpack
+GEAR:Oil (1 Pint Flask)	QTY:5	SIZE:PC	LOCATION:Backpack
+GEAR:Sack			QTY:2	SIZE:PC	LOCATION:Backpack
+GEAR:Torch			QTY:2	SIZE:PC	LOCATION:Backpack
+GEAR:Tindertwig		QTY:4	SIZE:PC	LOCATION:Backpack
+
+STARTPACK:Dungeoneering Kit (Deluxe)	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:130
+GEAR:Candle			QTY:2	SIZE:PC	LOCATION:Backpack
+GEAR:Chalk (1 Piece)	QTY:1	SIZE:PC	LOCATION:Backpack
+GEAR:Hammer			QTY:1	SIZE:PC	LOCATION:Backpack
+GEAR:Piton			QTY:4	SIZE:PC	LOCATION:Backpack
+GEAR:Rope (Hemp/50 ft)	QTY:1	SIZE:PC	LOCATION:Backpack
+GEAR:Sack			QTY:2	SIZE:PC	LOCATION:Backpack
+GEAR:Sunrod			QTY:3	SIZE:PC	LOCATION:Backpack
+GEAR:Tindertwig		QTY:4	SIZE:PC	LOCATION:Backpack
+GEAR:Everburning Torch	QTY:1	SIZE:PC	LOCATION:Backpack
+
+STARTPACK:Pathfinder's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:12
+GEAR:Backpack			QTY:1	SIZE:PC	LOCATION:Carried
+GEAR:Bedroll			QTY:1	SIZE:PC	LOCATION:Backpack
+GEAR:Pouch (Belt)			QTY:1	SIZE:PC	LOCATION:Equipped
+GEAR:Mug or Tankard (Clay)	QTY:1	SIZE:PC	LOCATION:Backpack
+GEAR:Dagger				QTY:1	SIZE:PC	LOCATION:Backpack
+GEAR:Fishhook			QTY:2	SIZE:PC	LOCATION:Backpack
+GEAR:Flint and Steel		QTY:1	SIZE:PC	LOCATION:Backpack
+GEAR:Sewing Needle		QTY:1	SIZE:PC	LOCATION:Backpack
+GEAR:Signal Whistle		QTY:1	SIZE:PC	LOCATION:Backpack
+GEAR:String (50 ft.)		QTY:1	SIZE:PC	LOCATION:Backpack
+GEAR:Rations (Trail/Per Day)	QTY:5	SIZE:PC	LOCATION:Backpack
+GEAR:Waterskin			QTY:1	SIZE:PC	LOCATION:Backpack
+GEAR:Whetstone			QTY:1	SIZE:PC	LOCATION:Backpack
+
+STARTPACK:Riding Kit (Common)	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:16
+GEAR:Bit and Bridle	QTY:1	SIZE:PC
+GEAR:Saddle (Riding)	QTY:1	SIZE:PC
+GEAR:Blanket		QTY:1	SIZE:PC
+GEAR:Saddlebags		QTY:1	SIZE:PC
+GEAR:Feed (Per Day)	QTY:2
+
+STARTPACK:Riding Kit (Exotic)	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:36
+GEAR:Bit and Bridle		QTY:1	SIZE:PC
+GEAR:Saddle (Exotic/Riding)	QTY:1	SIZE:PC
+GEAR:Blanket			QTY:1	SIZE:PC
+GEAR:Saddlebags			QTY:1	SIZE:PC
+GEAR:Feed (Per Day)		QTY:2
+
+STARTPACK:Spelunker's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:174
+GEAR:Lantern (Hooded)	QTY:1			LOCATION:Carried
+GEAR:Oil (1 Pint Flask)	QTY:4			LOCATION:Backpack
+GEAR:Hammer			QTY:1			LOCATION:Backpack
+GEAR:Piton			QTY:8			LOCATION:Backpack
+GEAR:Rope (Silk/50 ft)	QTY:2			LOCATION:Backpack
+GEAR:Grappling Hook	QTY:1			LOCATION:Backpack
+GEAR:Climber's Kit	QTY:1	SIZE:PC	LOCATION:Carried
+
+STARTPACK:Troll Slayer's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:30
+GEAR:Alchemist's Fire (Flask)	QTY:1		LOCATION:Backpack
+GEAR:Acid (Flask)			QTY:1		LOCATION:Backpack
+GEAR:Torch				QTY:10	LOCATION:Carried
+GEAR:Tindertwig			QTY:1		LOCATION:Backpack
+GEAR:Oil (1 Pint Flask)		QTY:5		LOCATION:Backpack
+
+STARTPACK:Undead Slayer's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:402
+GEAR:Holy Symbol (Wooden)		QTY:1	LOCATION:Carried
+GEAR:Garlic (per lb)			QTY:1	LOCATION:Backpack
+GEAR:Hammer					QTY:1	LOCATION:Backpack
+GEAR:Holy Water (Flask)			QTY:2	LOCATION:Backpack
+GEAR:Sunrod					QTY:1	LOCATION:Backpack
+GEAR:Potion of Lesser Restoration	QTY:1	LOCATION:Backpack
+GEAR:Potion of Protection from Evil	QTY:1	LOCATION:Backpack

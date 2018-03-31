@@ -1,0 +1,5 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+
+# APG Has exact same feat...
+# Ability Name	Category of Ability	Type			Description						Modify VAR			Source Page
+Additional Traits	CATEGORY:FEAT		TYPE:General	DESC:You have more traits than normal	BONUS:VAR|Pool_Traits|2	SOURCEPAGE:p.15

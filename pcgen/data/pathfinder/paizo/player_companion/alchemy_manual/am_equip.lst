@@ -1,0 +1,197 @@
+# CVS $Revision: $ $Author: $ -- Fri Apr 22 14:27:09 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Alchemy Manual	SOURCESHORT:AM	SOURCEWEB:http://paizo.com/products/btpy90bj	SOURCEDATE:2014-04
+
+# ==============================
+# Alchemical Reagents
+# ==============================
+
+# Equipment Name				Product Identity?				Type													Cost		Weight	Source Page		Special Property
+Black Powder										TYPE:Goods.Alchemical.Consumable.Reagent							COST:10	WT:0		SOURCEPAGE:p.0
+Brimstone											TYPE:Goods.Alchemical.Consumable.Reagent							COST:0.5	WT:0		SOURCEPAGE:p.0
+Cold Iron											TYPE:Goods.Alchemical.Consumable.Reagent							COST:1	WT:0		SOURCEPAGE:p.0
+Cytillesh Spores				NAMEISPI:YES				TYPE:Goods.Alchemical.Consumable.Reagent							COST:5	WT:0		SOURCEPAGE:p.11
+Darkwood											TYPE:Goods.Alchemical.Consumable.Reagent							COST:2	WT:0		SOURCEPAGE:p.0
+Dew of Lunary										TYPE:Goods.Alchemical.Consumable.Reagent							COST:4	WT:0		SOURCEPAGE:p.0
+Ginger Extract										TYPE:Goods.Alchemical.Consumable.Reagent							COST:2	WT:0		SOURCEPAGE:p.25
+Gold												TYPE:Goods.Alchemical.Consumable.Reagent							COST:5	WT:0		SOURCEPAGE:p.0
+Magnesium											TYPE:Goods.Alchemical.Consumable.Reagent							COST:1	WT:0		SOURCEPAGE:p.0
+Mugwort Extract										TYPE:Goods.Alchemical.Consumable.Reagent							COST:5	WT:0		SOURCEPAGE:p.25
+Myrrh												TYPE:Goods.Alchemical.Consumable.Reagent							COST:0.5	WT:0		SOURCEPAGE:p.0
+Pesh						NAMEISPI:YES				TYPE:Goods.Alchemical.Consumable.Reagent							COST:15	WT:0		SOURCEPAGE:p.19
+Phosphorus											TYPE:Goods.Alchemical.Consumable.Reagent							COST:0.2	WT:0		SOURCEPAGE:p.33
+Quicksilver											TYPE:Goods.Alchemical.Consumable.Reagent							COST:1	WT:0		SOURCEPAGE:p.33
+Realgar											TYPE:Goods.Alchemical.Consumable.Reagent							COST:3	WT:0		SOURCEPAGE:p.33
+Salt												TYPE:Goods.Alchemical.Consumable.Reagent							COST:0.5	WT:0		SOURCEPAGE:p.33
+Saltpeter											TYPE:Goods.Alchemical.Consumable.Reagent							COST:3	WT:0		SOURCEPAGE:p.33
+Silver											TYPE:Goods.Alchemical.Consumable.Reagent							COST:1	WT:0		SOURCEPAGE:p.33
+Spirit of Wine										TYPE:Goods.Alchemical.Consumable.Reagent							COST:0.5	WT:0		SOURCEPAGE:p.33
+Urea												TYPE:Goods.Alchemical.Consumable.Reagent							COST:0.5	WT:0		SOURCEPAGE:p.33
+
+# ==============================
+# Alchemical Crafting Tools
+# ==============================
+
+Brewer's Kit										TYPE:Goods.Tools											COST:20	WT:25		SOURCEPAGE:p.13
+Brewer's Kit (Masterwork)								TYPE:Goods.Tools.Masterwork									COST:20	WT:75		SOURCEPAGE:p.13
+Crucible											TYPE:Goods.Tools											COST:20	WT:30		SOURCEPAGE:p.5
+Filter											TYPE:Goods.Tools											COST:.5	WT:.5		SOURCEPAGE:p.5
+Oozing Vat (Small)									TYPE:Goods.Tools											COST:1	WT:2		SOURCEPAGE:p.23
+Oozing Vat (Medium)									TYPE:Goods.Tools											COST:10	WT:20		SOURCEPAGE:p.23
+Oozing Vat (Large)									TYPE:Goods.Tools											COST:50	WT:200	SOURCEPAGE:p.23
+Oozing Vat (Huge)										TYPE:Goods.Tools											COST:200	WT:2000	SOURCEPAGE:p.23
+Oozing Vat (Gargantuan)									TYPE:Goods.Tools											COST:500	WT:10000	SOURCEPAGE:p.23
+Retort											TYPE:Goods.Tools											COST:2	WT:.5		SOURCEPAGE:p.5
+
+# ==============================
+# Alchemical Remedies
+# ==============================
+
+Acid Neutralizer										TYPE:Goods.Alchemical.Consumable								COST:15			SOURCEPAGE:p.23
+Blood-Boiling Pill									TYPE:Goods.Alchemical.Consumable								COST:75			SOURCEPAGE:p.24
+Blood-Chilling Pill									TYPE:Goods.Alchemical.Consumable								COST:75			SOURCEPAGE:p.25
+Bloodgorge											TYPE:Goods.Alchemical.Consumable								COST:40	WT:.5		SOURCEPAGE:p.6
+Chameleon Ointment									TYPE:Goods.Alchemical.Consumable								COST:20			SOURCEPAGE:p.15
+Essence of Independence									TYPE:Goods.Alchemical.Consumable								COST:80			SOURCEPAGE:p.15
+Eye Drops of the Unseen Master							TYPE:Goods.Alchemical.Consumable								COST:150			SOURCEPAGE:p.15
+Insight Leaves										TYPE:Goods.Alchemical.Consumable								COST:50			SOURCEPAGE:p.25
+Loyalty Transfusion									TYPE:Goods.Alchemical.Consumable								COST:625			SOURCEPAGE:p.15
+Semblance Transfusion									TYPE:Goods.Alchemical.Consumable								COST:300			SOURCEPAGE:p.15
+Surge Syrup											TYPE:Goods.Alchemical.Mythic.Consumable							COST:80	WT:1		SOURCEPAGE:p.27
+Tea of Transference									TYPE:Goods.Alchemical.Consumable								COST:40			SOURCEPAGE:p.25
+Vapors of Easy Breath									TYPE:Goods.Alchemical.Consumable								COST:75	WT:3		SOURCEPAGE:p.25
+Vivifying Moxibustion Needles								TYPE:Goods.Alchemical.Consumable								COST:85			SOURCEPAGE:p.25
+
+# ==============================
+# Alchemical Tools
+# ==============================
+
+Amp												TYPE:Goods.Alchemical.Consumable								COST:30			SOURCEPAGE:p.19
+Bunk												TYPE:Goods.Alchemical.Consumable								COST:.05	WT:1		SOURCEPAGE:p.19
+Frightful War Paint									TYPE:Goods.Alchemical.Consumable								COST:300	WT:1		SOURCEPAGE:p.7
+Homunculus Clay										TYPE:Goods.Alchemical.Consumable								COST:2250	WT:5		SOURCEPAGE:p.15
+Imposing War Paint									TYPE:Goods.Alchemical.Consumable								COST:70	WT:.5		SOURCEPAGE:p.7
+Incense of Divinity									TYPE:Goods.Alchemical.Mythic.Consumable							COST:200	WT:.5		SOURCEPAGE:p.27
+Instant Fertilizer									TYPE:Goods.Alchemical.Consumable								COST:20	WT:4		SOURCEPAGE:p.11
+Mimic Fibers										TYPE:Goods.Alchemical.Consumable								COST:30			SOURCEPAGE:p.11
+Poison Diffuser										TYPE:Goods.Alchemical.Consumable								COST:200			SOURCEPAGE:p.9
+Shaman's Paint										TYPE:Goods.Alchemical.Consumable								COST:90	WT:.5		SOURCEPAGE:p.7
+Silence Dust										TYPE:Goods.Alchemical.Consumable								COST:60	WT:1		SOURCEPAGE:p.15
+Spirit of Glass										TYPE:Goods.Alchemical.Consumable								COST:35			SOURCEPAGE:p.9
+Tunnel Creeper										TYPE:Goods.Alchemical.Consumable								COST:280	WT:1		SOURCEPAGE:p.11
+Vector Ink											TYPE:Goods.Alchemical.Consumable								COST:60			SOURCEPAGE:p.9
+
+# ==============================
+# Alchemical Weapons
+# ==============================
+
+Artokus's Fire				NAMEISPI:YES				TYPE:Goods.Alchemical.Mythic.Consumable.Weapon.Ranged.Thrown.Fire.Splash	COST:100	WT:.5		SOURCEPAGE:p.26
+Blanch Bomb (Adamantine)								TYPE:Goods.Alchemical.Mythic.Consumable.Weapon.Ranged.Thrown.Splash		COST:250	WT:.5		SOURCEPAGE:p.27
+Blanch Bomb (Cold Iron)									TYPE:Goods.Alchemical.Mythic.Consumable.Weapon.Ranged.Thrown.Splash		COST:150	WT:.5		SOURCEPAGE:p.27
+Blanch Bomb (Silver)									TYPE:Goods.Alchemical.Mythic.Consumable.Weapon.Ranged.Thrown.Splash		COST:100	WT:.5		SOURCEPAGE:p.27
+Bleeding Arrow										TYPE:Goods.Alchemical.Consumable.Ammunition.Arrow.Individual			COST:160			SOURCEPAGE:p.20
+Bleeding Bolt										TYPE:Goods.Alchemical.Consumable.Ammunition.Bolt.Individual				COST:160			SOURCEPAGE:p.20
+Bleeding Dart										TYPE:Goods.Alchemical.Consumable.Ammunition.Dart.Individual				COST:160			SOURCEPAGE:p.20
+Bleeding Shuriken										TYPE:Goods.Alchemical.Consumable.Ammunition.Shuriken.Individual			COST:160			SOURCEPAGE:p.20
+Bloating Solution										TYPE:Goods.Alchemical.Consumable.Weapon.Ranged.Thrown.Acid.Splash			COST:25			SOURCEPAGE:p.23
+Congealer Spray										TYPE:Goods.Alchemical.Consumable.Weapon.Ranged						COST:15			SOURCEPAGE:p.23
+Dancing Peonies (Firework)								TYPE:Goods.Alchemical.Consumable.Weapon.Ranged.Thrown.Fire				COST:50	WT:.5		SOURCEPAGE:p.29
+Desiccating Lubricant									TYPE:Goods.Alchemical.Consumable.Weapon.Ranged.Thrown.Splash			COST:30			SOURCEPAGE:p.23
+Durable Arrow										TYPE:Goods.Alchemical.Ammunition.Arrow.Individual					COST:1			SOURCEPAGE:p.20
+Durable Bolt										TYPE:Goods.Alchemical.Ammunition.Bolt.Individual					COST:1			SOURCEPAGE:p.20
+Durable Dart										TYPE:Goods.Alchemical.Ammunition.Dart.Individual					COST:1			SOURCEPAGE:p.20
+Durable Shuriken										TYPE:Goods.Alchemical.Ammunition.Shuriken.Individual					COST:1			SOURCEPAGE:p.20
+Dye Arrow											TYPE:Goods.Alchemical.Consumable.Ammunition.Arrow.Individual			COST:60			SOURCEPAGE:p.21
+Dye Bolt											TYPE:Goods.Alchemical.Consumable.Ammunition.Bolt.Individual				COST:60			SOURCEPAGE:p.21
+Dye Dart											TYPE:Goods.Alchemical.Consumable.Ammunition.Dart.Individual				COST:60			SOURCEPAGE:p.21
+Dye Shuriken										TYPE:Goods.Alchemical.Consumable.Ammunition.Shuriken.Individual			COST:60			SOURCEPAGE:p.21
+Firecracker											TYPE:Goods.Alchemical.Consumable.Weapon.Ranged.Thrown					COST:10			SOURCEPAGE:p.29
+Firecracker (Spirit)									TYPE:Goods.Alchemical.Consumable.Weapon.Ranged.Thrown					COST:30			SOURCEPAGE:p.29
+Jumping Jenny (Firework)								TYPE:Goods.Alchemical.Consumable.Weapon.Ranged.Thrown.Fire				COST:15			SOURCEPAGE:p.29
+Lodestone Arrow										TYPE:Goods.Alchemical.Consumable.Ammunition.Arrow.Individual			COST:60			SOURCEPAGE:p.21
+Lodestone Bolt										TYPE:Goods.Alchemical.Consumable.Ammunition.Bolt.Individual				COST:60			SOURCEPAGE:p.21
+Lodestone Dart										TYPE:Goods.Alchemical.Consumable.Ammunition.Dart.Individual				COST:60			SOURCEPAGE:p.21
+Lodestone Shuriken									TYPE:Goods.Alchemical.Consumable.Ammunition.Shuriken.Individual			COST:60			SOURCEPAGE:p.21
+Lyddric Essence				NAMEISPI:YES				TYPE:Goods.Alchemical.Consumable.Weapon.Ranged.Thrown.Acid.Splash			COST:20	WT:1		SOURCEPAGE:p.11
+Pheromone Arrow										TYPE:Goods.Alchemical.Consumable.Ammunition.Arrow.Individual			COST:60			SOURCEPAGE:p.21
+Pheromone Bolt										TYPE:Goods.Alchemical.Consumable.Ammunition.Bolt.Individual				COST:60			SOURCEPAGE:p.21
+Pheromone Dart										TYPE:Goods.Alchemical.Consumable.Ammunition.Dart.Individual				COST:60			SOURCEPAGE:p.21
+Pheromone Shuriken									TYPE:Goods.Alchemical.Consumable.Ammunition.Shuriken.Individual			COST:60			SOURCEPAGE:p.21
+Raining Arrow										TYPE:Goods.Alchemical.Consumable.Ammunition.Arrow.Individual			COST:60			SOURCEPAGE:p.21
+Raining Bolt										TYPE:Goods.Alchemical.Consumable.Ammunition.Bolt.Individual				COST:60			SOURCEPAGE:p.21
+Raining Dart										TYPE:Goods.Alchemical.Consumable.Ammunition.Dart.Individual				COST:60			SOURCEPAGE:p.21
+Raining Shuriken										TYPE:Goods.Alchemical.Consumable.Ammunition.Shuriken.Individual			COST:60			SOURCEPAGE:p.21
+Shriek Bomb											TYPE:Goods.Alchemical.Consumable.Weapon.Ranged.Thrown.Sonic.Splash		COST:45	WT:1		SOURCEPAGE:p.7
+Skydragon Firework									TYPE:Goods.Alchemical.Consumable.Weapon.Ranged.Fire					COST:300	WT:10		SOURCEPAGE:p.29
+Slime Grenade										TYPE:Goods.Alchemical.Consumable.Weapon.Ranged.Thrown.Acid.Splash			COST:100	WT:3		SOURCEPAGE:p.23
+Slow Burn Arrow										TYPE:Goods.Alchemical.Consumable.Ammunition.Fire.Arrow.Individual			COST:60			SOURCEPAGE:p.21
+Slow Burn Bolt										TYPE:Goods.Alchemical.Consumable.Ammunition.Fire.Bolt.Individual			COST:60			SOURCEPAGE:p.21
+Slow Burn Dart										TYPE:Goods.Alchemical.Consumable.Ammunition.Fire.Dart.Individual			COST:60			SOURCEPAGE:p.21
+Slow Burn Shuriken									TYPE:Goods.Alchemical.Consumable.Ammunition.Fire					COST:60			SOURCEPAGE:p.21
+Sparking Pinwheel (Firework)								TYPE:Goods.Alchemical.Consumable.Weapon.Melee.Fire					COST:60	WT:1		SOURCEPAGE:p.29
+Splintercloud Arrow									TYPE:Goods.Alchemical.Consumable.Ammunition.Arrow.Individual			COST:60			SOURCEPAGE:p.21
+Splintercloud Bolt									TYPE:Goods.Alchemical.Consumable.Ammunition.Bolt.Individual				COST:60			SOURCEPAGE:p.21
+Splintercloud Dart									TYPE:Goods.Alchemical.Consumable.Ammunition.Dart.Individual				COST:60			SOURCEPAGE:p.21
+Splintercloud Shuriken									TYPE:Goods.Alchemical.Consumable.Ammunition.Shuriken.Individual			COST:60			SOURCEPAGE:p.21
+Stormstone											TYPE:Goods.Alchemical.Mythic.Consumable.Weapon.Ranged.Thrown.Sonic.Splash	COST:150	WT:1		SOURCEPAGE:p.27
+Suffocating Powder									TYPE:Goods.Alchemical.Mythic.Consumable.Weapon.Ranged.Thrown.Splash		COST:45	WT:2		SOURCEPAGE:p.27
+Tangleshot Arrow										TYPE:Goods.Alchemical.Consumable.Ammunition.Arrow.Individual			COST:60			SOURCEPAGE:p.21
+Tangleshot Bolt										TYPE:Goods.Alchemical.Consumable.Ammunition.Bolt.Individual				COST:60			SOURCEPAGE:p.21
+Tangleshot Dart										TYPE:Goods.Alchemical.Consumable.Ammunition.Dart.Individual				COST:60			SOURCEPAGE:p.21
+Tangleshot Shuriken									TYPE:Goods.Alchemical.Consumable.Ammunition.Shuriken.Individual			COST:60			SOURCEPAGE:p.21
+Trip Arrow											TYPE:Goods.Alchemical.Consumable.Ammunition.Arrow.Individual			COST:60			SOURCEPAGE:p.21
+Trip Bolt											TYPE:Goods.Alchemical.Consumable.Ammunition.Bolt.Individual				COST:60			SOURCEPAGE:p.21
+Trip Dart											TYPE:Goods.Alchemical.Consumable.Ammunition.Dart.Individual				COST:60			SOURCEPAGE:p.21
+Trip Shuriken										TYPE:Goods.Alchemical.Consumable.Ammunition.Shuriken.Individual			COST:60			SOURCEPAGE:p.21
+
+# ==============================
+# Drugs and Alcohol
+# ==============================
+
+Boulderhead Bock										TYPE:Goods.Alchemical.Consumable.Alcohol							COST:25	WT:2		SOURCEPAGE:p.13
+Drug (Angel's Trumpet)									TYPE:Goods.Drug.Consumable									COST:75			SOURCEPAGE:p.19	SPROP:Ingested; Addiction minor, Fortitude DC 18; Effect 1 hr; +2 Initiative, +4 Bluff and Diplomacy, +4 on saves vs. temporary fear or compulsion effects; Effect 1d4 days; Light blindness; 1d4 Con and 1d4 Wis damage
+Drug (Black Pesh)										TYPE:Goods.Drug.Consumable									COST:100			SOURCEPAGE:p.19	SPROP:Ingested or inhaled; Addiction minor, Fortitude DC 22; Effect 1 hr; +1d4 Str and Con, -2 saves vs. illusions and mind-affecting effects, may attempt full-round Str checks; 1d4 Con damage
+Drug (Golden Pesh)									TYPE:Goods.Drug.Consumable									COST:50			SOURCEPAGE:p.19	SPROP:Ingested or inhaled; Addiction major, Fortitude DC 18; +1d2 Str, -2 saves vs. illusions and mind-affecting effects, +2 on saves vs other drugs, reduces penalties of other drugs; 1 Con and 1 Wis damage
+Icecap Ale											TYPE:Goods.Alchemical.Consumable.Alcohol							COST:40	WT:.5		SOURCEPAGE:p.13
+Longbeard Lambic										TYPE:Goods.Alchemical.Consumable.Alcohol							COST:20	WT:1		SOURCEPAGE:p.13
+Wyrm's Breath Bitter									TYPE:Goods.Alchemical.Consumable.Alcohol							COST:30	WT:1		SOURCEPAGE:p.13
+
+# ==============================
+# Equipment and Gear
+# ==============================
+
+Hookah											TYPE:Goods.General										COST:400	WT:10		SOURCEPAGE:p.18
+Hookah (Premium)										TYPE:Goods.General										COST:1000	WT:15		SOURCEPAGE:p.18
+Hookah (Traveler's)									TYPE:Goods.General										COST:1500	WT:4		SOURCEPAGE:p.18
+Pain Wheel											TYPE:Goods.General										COST:50	WT:.5		SOURCEPAGE:p.6
+Poison Belcher										TYPE:Goods.General										COST:50	WT:.5		SOURCEPAGE:p.6
+Purity Test											TYPE:Goods.General										COST:10	WT:2		SOURCEPAGE:p.18
+
+# ==============================
+# Fungal Grafts
+# ==============================
+
+Fungal Eyes											TYPE:Alchemical.Graft.Eyes									COST:18000			SOURCEPAGE:p.10
+Reaching Vines										TYPE:Alchemical.Graft.Bracer									COST:4000			SOURCEPAGE:p.10
+
+# ==============================
+# Magic Items
+# ==============================
+
+Focusing Flask										TYPE:Magic.Wondrous										COST:700	WT:1		SOURCEPAGE:p.16
+Retort of Control										TYPE:Magic.Wondrous										COST:13000			SOURCEPAGE:p.16
+Vial of Efficacious Medicine								TYPE:Magic.Wondrous										COST:700			SOURCEPAGE:p.16
+Winged Bottle										TYPE:Magic.Wondrous										COST:1620	WT:1		SOURCEPAGE:p.16
+
+# ==============================
+# Poisons
+# ==============================
+
+Poison (Alchemical Isolation)								TYPE:Goods.Poison.Consumable									COST:175	WT:1		SOURCEPAGE:p.9	SPROP:Inhaled; Fort DC 13; Freq 1 min (2); Effect Deafened 10 min/Blinded for 10 min; Cure 1 save
+Poison (Confabulation Powder)								TYPE:Goods.Poison.Consumable									COST:80	WT:1		SOURCEPAGE:p.11	SPROP:Inhaled; Fort DC 18; Freq 1 min (2); Effect Staggered 1 min/Become highly suggestible; Cure 1 save
+Poison (Count Ambras's Punishment)	NAMEISPI:YES	NAMEISPI:YES	TYPE:Goods.Poison.Consumable									COST:350			SOURCEPAGE:p.9	SPROP:Contact; Fort DC 16; Onset 1 min; Freq 1 min (6); Effect 1 Dex drain and nauseated 1 min/1d2 Dex drain and sickened 1 min; Cure 1 save
+Poison (Flaming Doom)									TYPE:Goods.Poison.Consumable									COST:900			SOURCEPAGE:p.7	SPROP:Injury; Fort DC 18; Freq 1 rd (6); Effect 1d6 fire dmg, may catch fire; Cure 2 saves
+Poison (Fury Gas)										TYPE:Goods.Poison.Consumable									COST:900	WT:.5		SOURCEPAGE:p.7	SPROP:Inhaled; Fort DC 16; Freq 1 min (4); Effect Non-ors blinded, Orcs rage, attacking nearst creature; Cure 2 saves
+Poison (Liquid Persuation)								TYPE:Goods.Poison.Consumable									COST:120			SOURCEPAGE:p.9	SPROP:Ingested; Fort DC 11; Onset 10 min; Freq 1 min (5); Effect 1 Wis dmg and attitude shifts are more pronounced; Cure 1 save
+Poison (Smell of Fear)									TYPE:Goods.Poison.Consumable									COST:600	WT:.5		SOURCEPAGE:p.7	SPROP:Inhaled; Fort DC 17; Freq 1 min (6); Effect 1d2 Wis dmg, becomes frightened if would normally be shaken; Cure 2 saves
+Poison (Vampire's Kiss)									TYPE:Goods.Poison.Consumable									COST:75			SOURCEPAGE:p.9	SPROP:Injury; Fort DC 15; Freq 1 rnd (2); Effect 1d2 Con dmg/Bleed dmg increases; Cure 1 save
+Poison (Cytillesh Extract)		NAMEISPI:YES				TYPE:Goods.Poison.Consumable									COST:800			SOURCEPAGE:p.9	SPROP:Ingested; Fort DC 18; Freq 1 hr (8); Effect Lose all memories from last hour and next 8; Cure 2 saves

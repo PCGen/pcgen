@@ -1,0 +1,49 @@
+# CVS $Revision$ $Author$ -- Wed Jul 23 12:11:28 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+CAMPAIGN:Shattered Star Player's Guide
+GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing.Pathfinder Adventure Path.Shattered Star
+RANK:3
+STATUS:BETA
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder|Golarion
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
+PUBNAMELONG:Paizo Publishing
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Shattered Star Player's Guide
+SOURCESHORT:SSPG
+SOURCEWEB:http://paizo.com/products/btpy8txj?Pathfinder-Adventure-Path-Shattered-Star-Players-Guide
+SOURCEDATE:2012-08
+ISOGL:YES
+
+COVER:shattered_star_players_guide.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy8txj?Pathfinder-Adventure-Path-Shattered-Star-Players-Guide|Get this publication from Paizo Publishing!
+DESC:The Shattered Star Player's Guide gives players all the spoiler-free information, inspiration, and new rules they'll need to create characters prepared for delving into the adventure and intrigue of the Shattered Star Adventure Path. Within, players of this campaign will find everything they need to create character backgrounds tied to personalities and events vital to Pathfinder Adventure Path's exploration of some of the many ancient dungeons spread throughout Varisia, along with new campaign-specific traits to give bold adventurers the edge they'll need to take on the strange and deadly threats faced in these dark places. This player's guide also features a view of Magnimar at a glance, and an introduction to the Pathfinder Society, including rewards and resources of the organization.
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, and Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder Adventure Path: Shattered Star Player's Guide Copyright 2012, Paizo Publishing, LLC; Author: Adam Daigle, Mark Moreland, F. Wesley Schneider, James L Sutter.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Adventure Path: Shattered Star Player's Guide" Copyright 2012, PCGen Data Team (including, but not limited to Eric C. Smith (Maredudd), Stefan Radermacher, Paul Grosse (PL), Andrew Maitland (DC))
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# PFS Rules
+#
+
+# Data Files
+ABILITY:sspg_abilities_traits.lst
+EQUIPMENT:sspg_equipment.lst
+KIT:sspg_kits.lst
+SKILL:sspg_skills.lst
+
+#
+# End
+#

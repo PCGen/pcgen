@@ -1,0 +1,43 @@
+# CVS $Revision: $ $Author: $ -- Thu May 12 14:50:48 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Melee Tactics Toolbox	SOURCESHORT:MTT	SOURCEWEB:http://paizo.com/products/btpy9c23?Pathfinder-Player-Companion-Melee-Tactics-Toolbox	SOURCEDATE:2015-03
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 26 April 2016
+
+# ==============================
+# New Equipment
+# ==============================
+
+# Equipment Name				Output Name						Type						Cost		Weight	Source Page		Special Property
+Acrobat's Pillar											TYPE:Goods.Tools				COST:50	WT:40		SOURCEPAGE:p.20
+Armor Truss												TYPE:Goods.Tools				COST:30	WT:10		SOURCEPAGE:p.20
+Exemplar Weapon Salve										TYPE:Goods.Alchemical.Consumable	COST:350	WT:1		SOURCEPAGE:p.20	SPROP:Turns a typical nonmagical melee weapon into a masterwork weapon.
+Handle Harness											TYPE:Goods.Tools				COST:25	WT:10		SOURCEPAGE:p.20
+Manacles (Quickcatch)			OUTPUTNAME:Manacles, Quickcatch		TYPE:Goods.Tools				COST:180	WT:3		SOURCEPAGE:p.20
+Rockshard Canister										TYPE:Goods.Alchemical.Consumable	COST:50	WT:25		SOURCEPAGE:p.20	SPROP:Allows bludgeoning weapon to deal piercing damage for 10 minutes.
+Reinforcing Boss											TYPE:Goods.Tools				COST:30	WT:10		SOURCEPAGE:p.21
+Reinforcing Boss (Masterwork)		OUTPUTNAME:Reinforcing Boss, Masterwork	TYPE:Goods.Tools				COST:80	WT:10		SOURCEPAGE:p.21
+Breakaway Boss											TYPE:Goods.Tools				COST:120	WT:10		SOURCEPAGE:p.21
+Breakaway Boss (Masterwork)		OUTPUTNAME:Breakaway Boss, Masterwork	TYPE:Goods.Tools				COST:170	WT:10		SOURCEPAGE:p.21
+Hooked Boss												TYPE:Goods.Tools				COST:80	WT:10		SOURCEPAGE:p.21
+Hooked Boss (Masterwork)		OUTPUTNAME:Hooked Boss, Masterwork		TYPE:Goods.Tools				COST:130	WT:10		SOURCEPAGE:p.21
+Illuminating Boss											TYPE:Goods.Tools				COST:35	WT:10		SOURCEPAGE:p.21
+Illuminating Boss (Masterwork)	OUTPUTNAME:Illuminating Boss, Masterwork	TYPE:Goods.Tools				COST:85	WT:10		SOURCEPAGE:p.21
+Sunderblock												TYPE:Goods.Alchemical.Consumable	COST:35	WT:2		SOURCEPAGE:p.21
+Surefoot Training Blocks									TYPE:Goods.Tools				COST:50	WT:25		SOURCEPAGE:p.21
+Waster												TYPE:Goods.Tools				COST:1	WT:0		SOURCEPAGE:p.21
+
+# ==============================
+# New Magic Items
+# ==============================
+
+Amulet of Quaking Strikes									TYPE:Magic.Wondrous.Amulet		COST:28000	WT:0		SOURCEPAGE:p.28
+Anchoring Bracers											TYPE:Magic.Wondrous.Bracer		COST:30000	WT:2		SOURCEPAGE:p.28
+Arms of the Marilith										TYPE:Magic.Wondrous.Cloak		COST:30000	WT:10		SOURCEPAGE:p.28
+Corset of Delicate Moves									TYPE:Magic.Wondrous.Shirt		COST:2000	WT:0		SOURCEPAGE:p.28
+Crown of Challenge										TYPE:Magic.Wondrous.Headgear		COST:21000	WT:1		SOURCEPAGE:p.28
+Eyes of the Liar											TYPE:Magic.Wondrous.Eyes		COST:16000	WT:0		SOURCEPAGE:p.29
+Gladiator's Sandals										TYPE:Magic.Wondrous.Boot		COST:6000	WT:0.5	SOURCEPAGE:p.29
+Ratcheting Gauntlets										TYPE:Magic.Wondrous.Glove		COST:12000	WT:5		SOURCEPAGE:p.29
+Serpentform Belt											TYPE:Magic.Wondrous.Belt		COST:20000	WT:0.5	SOURCEPAGE:p.29
+Swordmaster's Shirt										TYPE:Magic.Wondrous.Shirt		COST:10000	WT:0		SOURCEPAGE:p.29
+Vestments of War											TYPE:Magic.Wondrous.Robe		COST:14000	WT:0		SOURCEPAGE:p.29

@@ -1,0 +1,22 @@
+# CVS $Revision: 19787 $ $Author: zaister $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pirates of the Inner Sea	SOURCESHORT:POTIS	SOURCEWEB:http://paizo.com/products/btpy8qif?Pathfinder-Player-Companion-Pirates-of-the-Inner-Sea	SOURCEDATE:2012-04
+# Original Entry by: Stefan Radermacher
+
+###Block: Inner Sea Pirate
+
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus																	Save bonus																							Modify VAR																																																													FACT
+CLASS:Inner Sea Pirate	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.24	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|ISP
+# Class Name		Restricted AL		Required Skill
+CLASS:Inner Sea Pirate	!PREALIGN:LG,LN,LE	PRESKILL:3,Appraise=5,Profession (Sailor)=5,Swim=5
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Inner Sea Pirate	STARTSKILLPTS:6	CSKILL:Appraise|Climb|Intimidate|Knowledge (Nature)|Profession (Sailor)|Swim
+###Block:Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Inner Sea Pirate ~ Weapon Proficiencies
+###Block: Normal Level Progression
+1	BONUS:VAR|SneakAttackDice|(CL+2)/3	ABILITY:Special Ability|AUTOMATIC|Inner Sea Pirate ~ Sneak Attack
+2	BONUS:VAR|PirateTrickLVL|CL		ABILITY:Special Ability|AUTOMATIC|Inner Sea Pirate ~ Pirate Tricks
+6							ABILITY:Special Ability|AUTOMATIC|Inner Sea Pirate ~ Advanced Tricks
+
+#
+# End
+#

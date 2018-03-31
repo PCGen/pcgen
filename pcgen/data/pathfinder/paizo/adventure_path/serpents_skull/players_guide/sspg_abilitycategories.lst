@@ -1,0 +1,7 @@
+# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+#SOURCELONG:Serpent's Skull Player's Guide	SOURCESHORT:SSPG	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/theSerpentsSkull/v5748btpy8g6d	SOURCEDATE:2010-08
+# Original Entry by: Stefan Radermacher
+
+# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location
+ABILITYCATEGORY:Mediogalti Poison Immunity	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MediogaltiPoisonImmunity	PLURAL:Mediogalti Poison Immunity	DISPLAYLOCATION:Traits
+ABILITYCATEGORY:Shackles Save Bonus			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ShacklesSaveBonus		PLURAL:Shackles Save Bonus		DISPLAYLOCATION:Traits

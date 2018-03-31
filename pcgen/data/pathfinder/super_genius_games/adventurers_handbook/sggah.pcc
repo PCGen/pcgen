@@ -1,0 +1,75 @@
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+CAMPAIGN:Super Genius Games - Adventurer's Handbook
+GAMEMODE:Pathfinder
+TYPE:Super Genius Games.Adventurer's Handbook
+STATUS:BETA
+RANK:3
+GENRE:Fantasy
+BOOKTYPE:Supplement
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+PUBNAMELONG:Super Genius Games
+PUBNAMESHORT:Super Genius Games
+PUBNAMEWEB:http://www.supergeniusgames.com
+SOURCELONG:Adventurer's Handbook: Genius Guide Volume 1
+SOURCESHORT:SGGAH
+SOURCEDATE:2010-04
+ISOGL:YES
+
+COVER:sggah.jpg
+LOGO:@/publisher_logos/super_genius_games_logo.png
+URL:WEBSITE|http://www.supergeniusgames.com|Super Genius Games website
+URL:RPG Now|http://www.rpgnow.com/product_info.php?products_id=82731?affiliate_id=200170|Buy this from RPGNow.com!
+URL:Paizo Store|http://paizo.com/store/byCompany/s/superGeniusGames/pathfinderRPG/geniusGuides/compilations/v5748btpy8fn1|Buy this from the Paizo Store
+DESC:Contains new base classes, spells and feats
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder RPG Core Rulebook. Copyright 2009, Paizo Inc.; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:The Book of Experimental Might. Copyright 2008, Monte J. Cook. All rights reserved.
+COPYRIGHT:Tome of Horrors. Copyright 2002, Necromancer Games, Inc.; Authors: Scott Greene, with Clark Peterson, Erica Balsley, Kevin Baase, Casey Christofferson, Lance Hawvermale, Travis Hawvermale, Patrick Lawinger, and Bill Webb; Based on original content from TSR.
+COPYRIGHT:The Genius Guide to the Shadow Assassin. Copyright 2009, Super Genius Games. Author: Owen K.C. Stephens
+COPYRIGHT:The Genius Guide to the Archon. Copyright 2009, Super Genius Games. Author: Owen K.C. Stephens
+COPYRIGHT:The Genius Guide to Feats of Spellcasting. Copyright 2009, Super Genius Games. Author: Owen K.C. Stephens
+COPYRIGHT:The Genius Guide to Ice Magic. Copyright 2010, Super Genius Games. Author: Owen K.C. Stephens
+COPYRIGHT:The Genius Guide to the Death Mage. Copyright 2010, Super Genius Games. Author: Owen K.C. Stephens
+COPYRIGHT:The Genius Guide to Feats of Subterfuge. Copyright 2010, Super Genius Games. Author: Owen K.C. Stephens
+COPYRIGHT:The Genius Guide to the War Master. Copyright 2010, Super Genius Games. Author: Owen K.C. Stephens
+COPYRIGHT:The Genius Guide to Feats of Battle. Copyright 2010, Super Genius Games. Author: Owen K.C. Stephens
+COPYRIGHT:The Genius Guide to the Magus. Copyright 2010, Super Genius Games. Author: Owen K.C. Stephens
+COPYRIGHT:Adventurer's Handbook: Genius Guide Volume 1. Copyright 2010, Super Genius Games. Authors: Owen K.C. Stephens and Stan!
+COPYRIGHT:PCGen dataset conversion for the "Adventurer's Handbook: Genius Guide Volume 1" Copyright 2011-2013, PCGen Data Team (Including, but not limited to Paul Shipley, Andrew Maitland)
+
+#Do Not Remove Comment
+#EXTRAFILE:OGL.txt
+
+ABILITY:sggah_abilities_class.lst
+ABILITY:sggah_abilities_class_apg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+ABILITY:sggah_abilities_class_um.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
+ABILITY:sggah_abilities_class_arg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
+ABILITY:sggah_abilities_feats.lst
+ABILITY:sggah_abilities_racial.lst
+ABILITYCATEGORY:sggah_abilitycategories.lst
+ABILITYCATEGORY:sggah_abilitycategories_apg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+ABILITYCATEGORY:sggah_abilitycategories_arg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
+CLASS:sggah_classes_base.lst
+CLASS:sggah_classes_mod.lst
+COMPANIONMOD:sggah_companion_mods.lst
+DOMAIN:sggah_domains.lst
+EQUIPMENT:sggah_equip.lst
+EQUIPMOD:sggah_equipmods.lst
+ABILITY:sggah_feats.lst
+ABILITY:sggah_feats_pfcr.lst
+ABILITY:sggah_feats_apg.lst|PRECAMPAIGN:1,Advanced Player's Guide
+ABILITY:sggah_feats_um.lst|PRECAMPAIGN:1,Ultimate Magic
+KIT:sggah_kits_companions.lst
+LANGUAGE:sggah_languages.lst
+SKILL:sggah_skills_conditional.lst
+SPELL:sggah_spells.lst
+SPELL:sggah_spells_mods.lst
+TEMPLATE:sggah_templates.lst
+WEAPONPROF:sggah_weaponprofs.lst
+
+#
+# End
+#

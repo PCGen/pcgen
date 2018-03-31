@@ -1,0 +1,289 @@
+# CVS $Revision$ $Author$ -- Sun Jun 19 04:35:41 2011 -- reformated by prettylst.pl v1.39 (build )
+SOURCELONG:Psionics Unleashed	SOURCESHORT:PsU	SOURCEWEB:http://dreamscarredpress.com/dragonfly/Store/product/pid=69.html	SOURCEDATE:2010-12
+#Original Entry: Douglas Limmer
+#SRD Original Entry: Unknown
+
+STARTPACK:Astral Construct (1st Level) Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Construct (1st Level)]
+RACE:Astral Construct (1st Level)	!PRERACE:1,%
+NAME:Astral Construct (1st Level)
+ALIGN:TN
+GENDER:Neuter
+STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
+
+STARTPACK:Astral Construct (2nd Level) Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Construct (2nd Level)]
+RACE:Astral Construct (2nd Level)	!PRERACE:1,%
+NAME:Astral Construct (2nd Level)
+ALIGN:TN
+GENDER:Neuter
+STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
+
+STARTPACK:Astral Construct (3rd Level) Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Construct (3rd Level)]
+RACE:Astral Construct (3rd Level)	!PRERACE:1,%
+NAME:Astral Construct (3rd Level)
+ALIGN:TN
+GENDER:Neuter
+STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
+
+STARTPACK:Astral Construct (4th Level) Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Construct (4th Level)]
+RACE:Astral Construct (4th Level)	!PRERACE:1,%
+NAME:Astral Construct (4th Level)
+ALIGN:TN
+GENDER:Neuter
+STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
+
+STARTPACK:Astral Construct (5th Level) Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Construct (5th Level)]
+RACE:Astral Construct (5th Level)	!PRERACE:1,%
+NAME:Astral Construct (5th Level)
+ALIGN:TN
+GENDER:Neuter
+STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
+
+STARTPACK:Astral Construct (6th Level) Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Construct (6th Level)]
+RACE:Astral Construct (6th Level)	!PRERACE:1,%
+NAME:Astral Construct (6th Level)
+ALIGN:TN
+GENDER:Neuter
+STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
+
+STARTPACK:Astral Construct (7th Level) Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Construct (7th Level)]
+RACE:Astral Construct (7th Level)	!PRERACE:1,%
+NAME:Astral Construct (7th Level)
+ALIGN:TN
+GENDER:Neuter
+STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
+
+STARTPACK:Astral Construct (8th Level) Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Construct (8th Level)]
+RACE:Astral Construct (8th Level)	!PRERACE:1,%
+NAME:Astral Construct (8th Level)
+ALIGN:TN
+GENDER:Neuter
+STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
+
+STARTPACK:Astral Construct (9th Level) Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Construct (9th Level)]
+RACE:Astral Construct (9th Level)	!PRERACE:1,%
+NAME:Astral Construct (9th Level)
+ALIGN:TN
+GENDER:Neuter
+STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
+
+STARTPACK:Brain Mole Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Brain Mole]
+RACE:Brain Mole	!PRERACE:1,%
+NAME:Brain Mole
+ALIGN:TN
+SKILL:Stealth	RANK:1
+ABILITY:CATEGORY=FEAT|Alertness
+STAT:CON=11|CHA=11|STR=10|DEX=10|INT=10|WIS=10
+
+STARTPACK:Caller in Darkness Default	TYPE:Default Monster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Caller in Darkness]
+RACE:Caller in Darkness	!PRERACE:1,%
+NAME:Caller in Darkness
+ALIGN:CE
+SKILL:Spellcraft			RANK:11
+SKILL:Perception			RANK:11
+SKILL:Intimidate			RANK:11
+SKILL:Knowledge (Psionics)	RANK:11
+SKILL:Sense Motive		RANK:11
+SKILL:Stealth			RANK:11
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Autonomous
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Ability Focus (Unnatural Aura)
+STAT:CHA=11|STR=10|DEX=10|CON=10|INT=10|WIS=10
+
+STARTPACK:Cerebrilith Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Cerebrilith]
+RACE:Cerebrilith	!PRERACE:1,%
+NAME:Cerebrilith
+ALIGN:CE
+SKILL:Spellcraft			RANK:9
+SKILL:Autohypnosis		RANK:9
+SKILL:Perception			RANK:9
+SKILL:Stealth			RANK:9
+SKILL:Knowledge (Arcana)	RANK:9
+SKILL:Knowledge (Psionics)	RANK:9
+SKILL:Knowledge (Planes)	RANK:9
+SKILL:Sense Motive		RANK:9
+ABILITY:CATEGORY=FEAT|Wild Talent
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Psionic Fist
+ABILITY:CATEGORY=FEAT|Psionic Meditation
+ABILITY:CATEGORY=FEAT|Greater Psionic Fist
+ABILITY:CATEGORY=FEAT|Unavoidable Strike
+STAT:DEX=11|CON=11|INT=11|CHA=11|STR=10|WIS=10
+
+STARTPACK:Crysmal Default ~ Psionic	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Crysmal ~ Psionic]
+RACE:Crysmal ~ Psionic	!PRERACE:1,%
+NAME:Crysmal
+ALIGN:LN
+GENDER:Neuter
+SKILL:Appraise	RANK:6
+SKILL:Climb		RANK:6
+SKILL:Acrobatics	RANK:6
+SKILL:Perception	RANK:6
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Folugub Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Folugub]
+RACE:Folugub	!PRERACE:1,%
+NAME:Folugub
+ALIGN:TN
+SKILL:Perception	RANK:4
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+STAT:DEX=11|CON=11|WIS=11|CHA=11|STR=10|INT=10
+
+STARTPACK:Gray Glutton Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gray Glutton]
+RACE:Gray Glutton	!PRERACE:1,%
+NAME:Gray Glutton
+ALIGN:TN
+SKILL:Survival	RANK:9
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Step Up
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
+STAT:STR=11|DEX=11|CON=11|WIS=11|INT=10|CHA=10
+
+STARTPACK:Intellect Devourer ~ Psionic Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Intellect Devourer ~ Psionic]
+RACE:Intellect Devourer ~ Psionic	!PRERACE:1,%
+NAME:Intellect Devourer ~ Psionic
+ALIGN:CE
+SKILL:Stealth		RANK:6
+SKILL:Autohypnosis	RANK:6
+SKILL:Bluff			RANK:6
+SKILL:Perform (Act)	RANK:6
+SKILL:Perception		RANK:6
+ABILITY:CATEGORY=FEAT|Wild Talent
+ABILITY:CATEGORY=FEAT|Combat Manifestation
+ABILITY:CATEGORY=FEAT|Toughness
+ABILITY:CATEGORY=FEAT|Up the Walls
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+
+STARTPACK:Phrenic Scourge Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Phrenic Scourge]
+RACE:Phrenic Scourge	!PRERACE:1,%
+NAME:Phrenic Scourge
+SKILL:Autohypnosis		RANK:3
+SKILL:Bluff				RANK:8
+SKILL:Diplomacy			RANK:8
+SKILL:Disguise			RANK:6
+SKILL:Intimidate			RANK:2
+SKILL:Knowledge (Psionics)	RANK:8
+SKILL:Perception			RANK:8
+SKILL:Stealth			RANK:8
+SKILL:Sense Motive		RANK:5
+SKILL:Spellcraft			RANK:8
+ABILITY:CATEGORY=FEAT|Ability Focus (Implant)
+ABILITY:CATEGORY=FEAT|Ability Focus (Sap Will)
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+ABILITY:CATEGORY=FEAT|Alertness
+ALIGN:LE
+STAT:INT=11|WIS=11|CHA=11|STR=10|DEX=10|CON=10
+
+STARTPACK:Phthisic Default	TYPE:Default Monster.Monstrous Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Phthisic]
+RACE:Phthisic	!PRERACE:1,%
+NAME:Phthisic
+ALIGN:CE
+SKILL:Perception	RANK:6
+SKILL:Stealth	RANK:6
+SKILL:Climb		RANK:6
+SKILL:Swim		RANK:6
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Initiative
+STAT:STR=11|CON=11|DEX=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Psion-Killer Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Psion-Killer]
+RACE:Psion-Killer	!PRERACE:1,%
+NAME:Psion-Killer
+ALIGN:TN
+GENDER:Neuter
+STAT:STR=11|WIS=11|DEX=10|CON=10|INT=10|CHA=10
+
+STARTPACK:Puppeteer Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Puppeteer]
+RACE:Puppeteer	!PRERACE:1,%
+NAME:Puppeteer
+ALIGN:LE
+SKILL:Stealth		RANK:1
+SKILL:Perception		RANK:1
+SKILL:Sense Motive	RANK:1
+SKILL:Bluff			RANK:1
+ABILITY:CATEGORY=FEAT|Iron Will
+STAT:DEX=11|CON=11|STR=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Puppeteer (Flesh Harrower) Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Puppeteer (Flesh Harrower)]
+RACE:Puppeteer (Flesh Harrower)	!PRERACE:1,%
+NAME:Puppeteer (Flesh Harrower)
+ALIGN:TN
+SKILL:Stealth	RANK:3
+SKILL:Perception	RANK:3
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Iron Will
+STAT:DEX=11|CON=11|INT=11|STR=10|WIS=10|CHA=10
+
+STARTPACK:Temporal Filcher Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Temporal Filcher]
+RACE:Temporal Filcher	!PRERACE:1,%
+NAME:Temporal Filcher
+ALIGN:NE
+SKILL:Acrobatics	RANK:8
+SKILL:Perception	RANK:8
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Mobility
+STAT:STR=11|DEX=11|INT=11|CON=10|WIS=10|CHA=10
+
+STARTPACK:Thought Eater Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Thought Eater]
+RACE:Thought Eater	!PRERACE:1,%
+NAME:Thought Eater
+ALIGN:TN
+SKILL:Stealth	RANK:3
+SKILL:Perception	RANK:3
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Improved Initiative
+STAT:CON=11|INT=11|STR=10|DEX=10|WIS=10|CHA=10
+
+STARTPACK:Thought Slayer Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Thought Slayer]
+RACE:Thought Slayer	!PRERACE:1,%
+NAME:Thought Slayer
+ALIGN:CN
+SKILL:Climb		RANK:14
+SKILL:Perception	RANK:14
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus(Bite)
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Improved Initiative
+STAT:DEX=11|CON=11|INT=11|CHA=11|STR=10|WIS=10
+
+STARTPACK:Udoroot Default	TYPE:Default Monster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Udoroot]
+RACE:Udoroot	!PRERACE:1,%
+NAME:Udoroot
+ALIGN:TN
+SKILL:Perception	RANK:6
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Great Fortitude
+STAT:WIS=11|STR=10|DEX=10|CON=10|INT=10|CHA=10
+
+STARTPACK:Unbodied Default	TYPE:Default Monster.Monstrous Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Unbodied]
+RACE:Unbodied	!PRERACE:1,%
+NAME:Unbodied
+ALIGN:TN
+#SKILL:Bluff			RANK:0
+SKILL:Diplomacy			RANK:4
+#SKILL:Disguise			RANK:0
+SKILL:Intimidate			RANK:4
+SKILL:Perception			RANK:4
+SKILL:Sense Motive		RANK:4
+SKILL:Spellcraft			RANK:4
+SKILL:Knowledge (Psionics)	RANK:4
+ABILITY:CATEGORY=FEAT|Overchannel
+ABILITY:CATEGORY=FEAT|Wild Talent
+STAT:DEX=11|INT=11|CHA=11|STR=10|CON=10|WIS=10
+SPELLS:SPELLBOOK=Known Spells|CLASS=Unbodied Monstrous Humanoid|Detect Psionics|Empty Mind|Mind Thrust|Empathic Connection|Far Hand|Brain Lock|Cloud Mind|Energy Push|Read Thoughts
+#This doesn't actually give these spells to the creature.  I'm guessing it's due to the "Unbodied Monstrous Humanoid" class, which isn't a listed spellcasting class for the given spells.

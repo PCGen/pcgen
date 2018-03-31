@@ -1,0 +1,6 @@
+# CVS $Revision: 21399 $ $Author: evilmynex $ -- Wed Dec 10 01:48:21 2014 -- reformated by prettylst.pl v1.51 (build 25712)
+SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
+# Original Entry by: Eric C. Smith (Maredudd)
+
+# Equipment Name		Type			Prohibited Type
+Buffoon's Sword.MOD	TYPE:PFSNotLegal	!PRETYPE:1,PFSNotLegal

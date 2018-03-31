@@ -1,0 +1,25 @@
+# CVS $Revision: 21722 $ $Author: zaister $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
+
+###Block: Modify default ability
+# Add traits for PCs only
+# Ability Name			Bonus Ability Pool
+
+# Ability Name								Type			!PRECHARACTERTYPE
+CATEGORY=Special Ability|Trait ~ Hedge Magician.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Natural-Born Leader.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Rich Parents.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+
+# No campaign traits allowed from this source
+###Block: Campaign Traits
+# Ability Name									Type			!PRECHARACTERTYPE
+CATEGORY=Special Ability|Trait ~ Favored Person.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Favored Person ~ Ameiko.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Favored Person ~ Belor.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Black Sheep.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Black Sheep ~ Aliver.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Black Sheep ~ Titus.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Outlander.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Outlander ~ Lore Seeker.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Outlander ~ Exile.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Outlander ~ Missionary.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC

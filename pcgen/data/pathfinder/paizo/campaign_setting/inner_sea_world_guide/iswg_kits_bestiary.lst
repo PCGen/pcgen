@@ -1,0 +1,70 @@
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8ief	SOURCEDATE:2011-03
+# Original Entry by: Paul Shipley
+
+STARTPACK:Rat (Donkey) Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rat (Donkey)]	SOURCEPAGE:p.254
+RACE:Rat (Donkey)	!PRERACE:1,%
+NAME:Donkey Rat
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Stealth	RANK:1
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
+ABILITY:CATEGORY=Region of Origin|Cheliax
+
+STARTPACK:Spider (Drain) Default	TYPE:Default Monster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spider (Drain)]	SOURCEPAGE:p.254
+RACE:Spider (Drain)	!PRERACE:1,%
+NAME:Drain Spider
+ALIGN:TN
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+ABILITY:CATEGORY=Giant Spider Type|Web-spinning Giant Spider
+ABILITY:CATEGORY=Region of Origin|Absalom
+
+STARTPACK:Fennec (Firefoot) Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fennec (Firefoot)]	SOURCEPAGE:p.254
+RACE:Fennec (Firefoot)	!PRERACE:1,%
+NAME:Firefoot Fennec
+ALIGN:TN
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Perception	RANK:1
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
+ABILITY:CATEGORY=Region of Origin|Andoran
+
+STARTPACK:Gecko (Giant) Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gecko (Giant)]	SOURCEPAGE:p.254
+RACE:Gecko (Giant)	!PRERACE:1,%
+NAME:Giant Gecko
+ALIGN:TN
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Climb		RANK:1
+SKILL:Perception	RANK:1
+SKILL:Stealth	RANK:1
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
+ABILITY:CATEGORY=Region of Origin|Region ~ Unknown
+
+STARTPACK:Shark (Jigsaw) Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shark (Jigsaw)]	SOURCEPAGE:p.255
+RACE:Shark (Jigsaw)	!PRERACE:1,%
+NAME:Jigsaw Shark
+ALIGN:TN
+STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
+SKILL:Perception	RANK:4
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=Region of Origin|Region ~ Unknown
+
+STARTPACK:Boar (Sargavan) Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Boar (Sargavan)]	SOURCEPAGE:p.255
+RACE:Boar (Sargavan)	!PRERACE:1,%
+NAME:Sargavan Boar
+ALIGN:TN
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Perception	RANK:2
+ABILITY:CATEGORY=FEAT|Toughness
+ABILITY:CATEGORY=Region of Origin|Sargava
+
+STARTPACK:Herd Animal (Storval Aurochs) Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Herd Animal (Storval Aurochs)]	SOURCEPAGE:p.255
+RACE:Herd Animal (Storval Aurochs)	!PRERACE:1,%
+NAME:Storval Aurochs
+ALIGN:TN
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Perception	RANK:3
+ABILITY:CATEGORY=FEAT|Endurance
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
+ABILITY:CATEGORY=Region of Origin|Varisia

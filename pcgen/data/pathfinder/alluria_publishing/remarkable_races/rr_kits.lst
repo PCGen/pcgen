@@ -1,0 +1,7 @@
+# CVS $Revision: $ $Author: $ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+
+
+STARTPACK:Companion Toad Default	VISIBLE:NO
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+#Starting Statistics: Size Small; Speed 30 ft., swim 30 ft., climb 10 ft.; AC +4 natural armor; Attack bite (1d6); Ability Scores Str 10, Dex
+#15, Con 17, Int 2, Wis 12, Cha 10; Special Attacks grasping tongue (as a mogogol); Special Qualities low-light vision, marsh move.

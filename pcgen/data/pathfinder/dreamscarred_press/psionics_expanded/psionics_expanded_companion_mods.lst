@@ -1,0 +1,99 @@
+# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Psionics Expanded	SOURCESHORT:PsiEx	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2012-07
+# ORIGINAL ENTRY: Douglas Limmer
+# ORIGINAL ENTRY DATE: 2013/07/05
+
+###Block: Base Astral Warrior
+# Class of the Master		Type				Hit Dice	Ability									Define								Bonus Ability Pool								Combat bonus					Stat bonus			Modify VAR
+FOLLOWER:AstralWarriorLVL=1	TYPE:Astral Warrior			ABILITY:Special Ability|AUTOMATIC|Link ~ Astral Warrior	DEFINE:MasterLevel|0																												BONUS:VAR|MasterLevel|1
+FOLLOWER:AstralWarriorLVL=2	TYPE:Astral Warrior	HD:1		ABILITY:Special Ability|AUTOMATIC|Evasion																								BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
+FOLLOWER:AstralWarriorLVL=3	TYPE:Astral Warrior	HD:1																																											BONUS:VAR|MasterLevel|1
+FOLLOWER:AstralWarriorLVL=4	TYPE:Astral Warrior																																												BONUS:VAR|MasterLevel|1
+FOLLOWER:AstralWarriorLVL=5	TYPE:Astral Warrior	HD:1																					BONUS:ABILITYPOOL|Companion Stat Increase|1				BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
+FOLLOWER:AstralWarriorLVL=6	TYPE:Astral Warrior	HD:1		ABILITY:Special Ability|AUTOMATIC|Companion ~ Devotion																																BONUS:VAR|MasterLevel|1
+FOLLOWER:AstralWarriorLVL=7	TYPE:Astral Warrior	HD:1																																BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
+FOLLOWER:AstralWarriorLVL=8	TYPE:Astral Warrior																																												BONUS:VAR|MasterLevel|1
+FOLLOWER:AstralWarriorLVL=9	TYPE:Astral Warrior	HD:1																																											BONUS:VAR|MasterLevel|1
+FOLLOWER:AstralWarriorLVL=10	TYPE:Astral Warrior	HD:1																					BONUS:ABILITYPOOL|Companion Stat Increase|1				BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
+FOLLOWER:AstralWarriorLVL=11	TYPE:Astral Warrior	HD:1																																											BONUS:VAR|MasterLevel|1
+FOLLOWER:AstralWarriorLVL=12	TYPE:Astral Warrior																																	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
+FOLLOWER:AstralWarriorLVL=13	TYPE:Astral Warrior	HD:1																																											BONUS:VAR|MasterLevel|1
+FOLLOWER:AstralWarriorLVL=14	TYPE:Astral Warrior	HD:1		ABILITY:Special Ability|AUTOMATIC|Improved Evasion																																	BONUS:VAR|MasterLevel|1
+FOLLOWER:AstralWarriorLVL=15	TYPE:Astral Warrior	HD:1																					BONUS:ABILITYPOOL|Companion Stat Increase|1				BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
+FOLLOWER:AstralWarriorLVL=16	TYPE:Astral Warrior																																												BONUS:VAR|MasterLevel|1
+FOLLOWER:AstralWarriorLVL=17	TYPE:Astral Warrior	HD:1																																BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
+FOLLOWER:AstralWarriorLVL=18	TYPE:Astral Warrior	HD:1																																											BONUS:VAR|MasterLevel|1
+FOLLOWER:AstralWarriorLVL=19	TYPE:Astral Warrior	HD:1																																											BONUS:VAR|MasterLevel|1
+FOLLOWER:AstralWarriorLVL=20	TYPE:Astral Warrior																																	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
+
+FOLLOWER:AstralWarriorLVL=1	TYPE:Astral Warrior													DEFINE:CustomizationPoints|0	DEFINE:AstralSuitLVL|0	BONUS:ABILITYPOOL|Astral Suit Customization|CustomizationPoints
+
+###Block: Pass AstralSuitLVL to Astral Warrior
+# COMMENT: Is there a way to 'transfer' a variable from a master to a follower?
+# Class of the Master		Type				Modify VAR
+FOLLOWER:AstralSuitLVL=1	TYPE:Astral Warrior	BONUS:VAR|AstralSuitLVL|1
+FOLLOWER:AstralSuitLVL=2	TYPE:Astral Warrior	BONUS:VAR|AstralSuitLVL|1
+FOLLOWER:AstralSuitLVL=3	TYPE:Astral Warrior	BONUS:VAR|AstralSuitLVL|1
+FOLLOWER:AstralSuitLVL=4	TYPE:Astral Warrior	BONUS:VAR|AstralSuitLVL|1
+FOLLOWER:AstralSuitLVL=5	TYPE:Astral Warrior	BONUS:VAR|AstralSuitLVL|1
+FOLLOWER:AstralSuitLVL=6	TYPE:Astral Warrior	BONUS:VAR|AstralSuitLVL|1
+FOLLOWER:AstralSuitLVL=7	TYPE:Astral Warrior	BONUS:VAR|AstralSuitLVL|1
+FOLLOWER:AstralSuitLVL=8	TYPE:Astral Warrior	BONUS:VAR|AstralSuitLVL|1
+FOLLOWER:AstralSuitLVL=9	TYPE:Astral Warrior	BONUS:VAR|AstralSuitLVL|1
+FOLLOWER:AstralSuitLVL=10	TYPE:Astral Warrior	BONUS:VAR|AstralSuitLVL|1
+FOLLOWER:AstralSuitLVL=11	TYPE:Astral Warrior	BONUS:VAR|AstralSuitLVL|1
+FOLLOWER:AstralSuitLVL=12	TYPE:Astral Warrior	BONUS:VAR|AstralSuitLVL|1
+FOLLOWER:AstralSuitLVL=13	TYPE:Astral Warrior	BONUS:VAR|AstralSuitLVL|1
+FOLLOWER:AstralSuitLVL=14	TYPE:Astral Warrior	BONUS:VAR|AstralSuitLVL|1
+FOLLOWER:AstralSuitLVL=15	TYPE:Astral Warrior	BONUS:VAR|AstralSuitLVL|1
+FOLLOWER:AstralSuitLVL=16	TYPE:Astral Warrior	BONUS:VAR|AstralSuitLVL|1
+FOLLOWER:AstralSuitLVL=17	TYPE:Astral Warrior	BONUS:VAR|AstralSuitLVL|1
+FOLLOWER:AstralSuitLVL=18	TYPE:Astral Warrior	BONUS:VAR|AstralSuitLVL|1
+FOLLOWER:AstralSuitLVL=19	TYPE:Astral Warrior	BONUS:VAR|AstralSuitLVL|1
+FOLLOWER:AstralSuitLVL=20	TYPE:Astral Warrior	BONUS:VAR|AstralSuitLVL|1
+FOLLOWER:AstralSuitLVL=21	TYPE:Astral Warrior	BONUS:VAR|AstralSuitLVL|1
+FOLLOWER:AstralSuitLVL=22	TYPE:Astral Warrior	BONUS:VAR|AstralSuitLVL|1
+FOLLOWER:AstralSuitLVL=23	TYPE:Astral Warrior	BONUS:VAR|AstralSuitLVL|1
+FOLLOWER:AstralSuitLVL=24	TYPE:Astral Warrior	BONUS:VAR|AstralSuitLVL|1
+FOLLOWER:AstralSuitLVL=25	TYPE:Astral Warrior	BONUS:VAR|AstralSuitLVL|1
+
+###Block: Transfer customization points to Astral Warrior
+# COMMENT: Is there a way to 'transfer' a variable from a master to a follower?
+# Class of the Master					Type				Modify VAR
+FOLLOWER:TransferredCustomizationPoints=1		TYPE:Astral Warrior	BONUS:VAR|CustomizationPoints|1
+FOLLOWER:TransferredCustomizationPoints=2		TYPE:Astral Warrior	BONUS:VAR|CustomizationPoints|1
+FOLLOWER:TransferredCustomizationPoints=3		TYPE:Astral Warrior	BONUS:VAR|CustomizationPoints|1
+FOLLOWER:TransferredCustomizationPoints=4		TYPE:Astral Warrior	BONUS:VAR|CustomizationPoints|1
+FOLLOWER:TransferredCustomizationPoints=5		TYPE:Astral Warrior	BONUS:VAR|CustomizationPoints|1
+FOLLOWER:TransferredCustomizationPoints=6		TYPE:Astral Warrior	BONUS:VAR|CustomizationPoints|1
+FOLLOWER:TransferredCustomizationPoints=7		TYPE:Astral Warrior	BONUS:VAR|CustomizationPoints|1
+FOLLOWER:TransferredCustomizationPoints=8		TYPE:Astral Warrior	BONUS:VAR|CustomizationPoints|1
+FOLLOWER:TransferredCustomizationPoints=9		TYPE:Astral Warrior	BONUS:VAR|CustomizationPoints|1
+FOLLOWER:TransferredCustomizationPoints=10	TYPE:Astral Warrior	BONUS:VAR|CustomizationPoints|1
+FOLLOWER:TransferredCustomizationPoints=11	TYPE:Astral Warrior	BONUS:VAR|CustomizationPoints|1
+FOLLOWER:TransferredCustomizationPoints=12	TYPE:Astral Warrior	BONUS:VAR|CustomizationPoints|1
+FOLLOWER:TransferredCustomizationPoints=13	TYPE:Astral Warrior	BONUS:VAR|CustomizationPoints|1
+FOLLOWER:TransferredCustomizationPoints=14	TYPE:Astral Warrior	BONUS:VAR|CustomizationPoints|1
+FOLLOWER:TransferredCustomizationPoints=15	TYPE:Astral Warrior	BONUS:VAR|CustomizationPoints|1
+FOLLOWER:TransferredCustomizationPoints=16	TYPE:Astral Warrior	BONUS:VAR|CustomizationPoints|1
+FOLLOWER:TransferredCustomizationPoints=17	TYPE:Astral Warrior	BONUS:VAR|CustomizationPoints|1
+FOLLOWER:TransferredCustomizationPoints=18	TYPE:Astral Warrior	BONUS:VAR|CustomizationPoints|1
+FOLLOWER:TransferredCustomizationPoints=19	TYPE:Astral Warrior	BONUS:VAR|CustomizationPoints|1
+FOLLOWER:TransferredCustomizationPoints=20	TYPE:Astral Warrior	BONUS:VAR|CustomizationPoints|1
+FOLLOWER:TransferredCustomizationPoints=21	TYPE:Astral Warrior	BONUS:VAR|CustomizationPoints|1
+FOLLOWER:TransferredCustomizationPoints=22	TYPE:Astral Warrior	BONUS:VAR|CustomizationPoints|1
+FOLLOWER:TransferredCustomizationPoints=23	TYPE:Astral Warrior	BONUS:VAR|CustomizationPoints|1
+FOLLOWER:TransferredCustomizationPoints=24	TYPE:Astral Warrior	BONUS:VAR|CustomizationPoints|1
+FOLLOWER:TransferredCustomizationPoints=25	TYPE:Astral Warrior	BONUS:VAR|CustomizationPoints|1
+FOLLOWER:TransferredCustomizationPoints=26	TYPE:Astral Warrior	BONUS:VAR|CustomizationPoints|1
+FOLLOWER:TransferredCustomizationPoints=27	TYPE:Astral Warrior	BONUS:VAR|CustomizationPoints|1
+FOLLOWER:TransferredCustomizationPoints=28	TYPE:Astral Warrior	BONUS:VAR|CustomizationPoints|1
+FOLLOWER:TransferredCustomizationPoints=29	TYPE:Astral Warrior	BONUS:VAR|CustomizationPoints|1
+FOLLOWER:TransferredCustomizationPoints=30	TYPE:Astral Warrior	BONUS:VAR|CustomizationPoints|1
+FOLLOWER:TransferredCustomizationPoints=31	TYPE:Astral Warrior	BONUS:VAR|CustomizationPoints|1
+FOLLOWER:TransferredCustomizationPoints=32	TYPE:Astral Warrior	BONUS:VAR|CustomizationPoints|1
+FOLLOWER:TransferredCustomizationPoints=33	TYPE:Astral Warrior	BONUS:VAR|CustomizationPoints|1
+
+#
+# End
+#

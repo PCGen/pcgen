@@ -1,0 +1,7 @@
+# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Second Darkness, Chapter 5: A Memory of Darkness	SOURCESHORT:AP17	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy86j6	SOURCEDATE:2008-12
+# Original Entry by Eddy Anthony (MoSaT)
+
+# Spell Name	Type				Classes of caster					School			Sub-School			Descriptor				Components	Casting Time			Range		Item		Target Area or Effect			Duration					Save Info					Spell Resistance		Source Page		Description
+Lover's Vengeance	TYPE:Divine.Arcane	CLASSES:Bard,Cleric,Sorcerer,Wizard=3	SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Mind-Affecting	COMPS:V	CASTTIME:1 minute			RANGE:Touch	ITEM:Potion	TARGETAREA:Living creature touched	DURATION:(CASTERLEVEL) days		SAVEINFO:Will negates (harmless)	SPELLRES:Yes (harmless)	SOURCEPAGE:p.62	DESC:You inspire yourself or another to enter a vengeful rage upon entering combat with an enemy chosen at the time of the spell's casting.
+Secret Speech	TYPE:Divine.Arcane	CLASSES:Bard,Cleric,Sorcerer,Wizard=1	SCHOOL:Divination											COMPS:V, S	CASTTIME:1 standard action	RANGE:Touch	ITEM:Potion	TARGETAREA:Creature touched		DURATION:(CASTERLEVEL*10) minutes	SAVEINFO:Will negates (harmless)	SPELLRES:No			SOURCEPAGE:p.62	DESC:This spell grants the creature touched the ability to send secret messages within normal speech.

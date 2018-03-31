@@ -1,0 +1,61 @@
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+CAMPAIGN:Elves of Golarion
+KEY:Elves of Golarion
+GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing.Pathfinder Player Companion
+RANK:3
+STATUS:BETA
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Pathfinder Companion: Elves of Golarion
+SOURCESHORT:EOG
+SOURCEWEB:http://paizo.com/products/btpy85el
+SOURCEDATE:2008-12
+ISOGL:YES
+
+COVER:PZO9402_180.jpeg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy85el|Buy this publication from Paizo Publishing!
+DESC:Elves have been a part of the world for as long as anyone can remember. Caretakers of the natural world, warriors against the tide of savagery, and scholars of the deepest secrets of magic, elves are among Golarion's most mystical and mysterious races. This book presents the definitive word on how elves live, fight, worship, and relate with other races. The information contained herein presents a wealth of information about the elven race, with new rules, details on making elven characters, and an extensive exploration of their society, history, and goals as a people. Even if you aren't playing an elf, this booklet contains new spells, magic items, and character options perfect for any character.
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder Companion: Elves of Golarion, Copyright 2008, Paizo Publishing, LLC; Authors Jeff Quick and Hal Maclean.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Companion: Elves of Golarion" Copyright 2012, PCGen Data Team (including, but not limited to Andrew Maitland, and Paul Grosse)
+
+#Do Not Remove Comment
+#EXTRAFILE:OGL.txt
+
+# PFS Rules
+#
+
+
+# Data Files
+ABILITYCATEGORY:eog_abilitycategories.lst
+ABILITY:eog_abilities.lst
+ABILITY:eog_abilities_class.lst
+CLASS:eog_classes.lst
+EQUIPMENT:eog_equip.lst
+EQUIPMOD:eog_equipmods.lst
+ABILITY:eog_abilities_feat.lst
+
+
+# ENTRY DATE: 2015-09
+# LST MONKEY: Andrew Maitland (LegacyKing)
+# LICENSE MONKEY: Paul Grosse
+# RELEASE REVIEW #
+# BETA: Andrew Maitland
+# RELEASE:
+# Built for PCGen Version: 6.05.04
+# Updated to work with version: -
+# MINVER:6.5
+# MINDEVVER:6.05.1
+# COMMENTS:

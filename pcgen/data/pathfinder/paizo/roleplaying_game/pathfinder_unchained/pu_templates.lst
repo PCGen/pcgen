@@ -1,0 +1,17 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+
+
+# Template Name		Hit Dice Size		Nb Legs	Visible
+Monk ~ Unchained HD	HITDIE:10|CLASS=Monk			VISIBLE:NO
+
+Legs 02							LEGS:2	VISIBLE:NO
+Legs 04							LEGS:4	VISIBLE:NO
+Legs 06							LEGS:6	VISIBLE:NO
+Legs 08							LEGS:8	VISIBLE:NO
+Legs 10							LEGS:10	VISIBLE:NO
+Legs 12							LEGS:12	VISIBLE:NO
+Legs 14							LEGS:14	VISIBLE:NO
+Legs 16							LEGS:16	VISIBLE:NO
+Legs 18							LEGS:18	VISIBLE:NO
+Legs 20							LEGS:20	VISIBLE:NO
+Legs 22							LEGS:22	VISIBLE:NO

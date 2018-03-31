@@ -1,0 +1,7 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+
+# Equipment Name				Type			!PRECHARACTERTYPE
+Feather Token (Catapult).MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Feather Token (Ram).MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Feather Token (Siege Tower).MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Imperial Army Greathelm.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC

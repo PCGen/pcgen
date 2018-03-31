@@ -1,0 +1,9 @@
+# CVS $Revision: 21684 $ $Author: spraynpray $ -- Wed Dec 10 01:48:21 2014 -- reformated by prettylst.pl v1.51 (build 25712)
+SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
+# Original Entry by: Jeff Baril
+# Updated by: Andrew Wilson
+
+# Spell Name	Type
+Awaken.MOD		TYPE:PFSNotLegal
+Permanency.MOD	TYPE:PFSNotLegal
+Reincarnate.MOD	TYPE:PFSNotLegal

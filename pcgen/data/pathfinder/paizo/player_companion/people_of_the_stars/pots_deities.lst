@@ -1,0 +1,7 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+
+# Deity Name	Product Identity?	Domains										Deity Weapon		Align
+Azathoth		NAMEISPI:YES	DOMAINS:Chaos,Destruction,Madness,Sun,Void|PREALIGN:CG,CN,CE,TN	DEITYWEAP:Warhammer	ALIGN:CN
+Bokrug		NAMEISPI:YES	DOMAINS:Chaos,Destruction,Water,Weather|PREALIGN:CG,CN,CE,TN	DEITYWEAP:Ranseur		ALIGN:CN
+Mhar			NAMEISPI:YES	DOMAINS:Chaos,Destruction,Earth,Fire|PREALIGN:CG,CN,CE,TN		DEITYWEAP:Pick (Heavy)	ALIGN:CN
+Yog-Sothoth		NAMEISPI:YES	DOMAINS:Chaos,Darkness,Knowledge,Travel,Void|PREALIGN:CG,CN,CE,TN	DEITYWEAP:Dagger		ALIGN:CN

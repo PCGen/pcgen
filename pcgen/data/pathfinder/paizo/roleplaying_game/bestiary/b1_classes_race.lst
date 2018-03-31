@@ -1,0 +1,65 @@
+# CVS $Revision: 20125 $ $Author: zaister $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
+
+# These should be phased out, not in use.
+
+# Class Name		Output Name			Hit Dice	Type			Max Level		Source Page		Ability														Combat bonus																Save bonus																																		Modify VAR													FACT
+CLASS:Couatl Outsider	OUTPUTNAME:Outsider	HD:10		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.309	ABILITY:Special Ability|AUTOMATIC|Outsider Traits	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	FACT:ClassType|Monster	FACT:SpellType|Arcane
+# Class Name		Required Race	Reg. Race Type
+CLASS:Couatl Outsider	PRERACE:1,Couatl	PRERACETYPE:Outsider
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
+CLASS:Couatl Outsider	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Bluff|TYPE=Craft|Knowledge (Planes)|Perception|Sense Motive|Stealth
+# Class Name		Spell Stat		Memorize	Use Spell List
+CLASS:Couatl Outsider	SPELLSTAT:CHA	MEMORIZE:NO	SPELLLIST:2|Cleric|Sorcerer
+###Block:Proficiencies
+1											ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	ABILITY:FEAT|AUTOMATIC|Martial Weapon Proficiency Output|Simple Weapon Proficiency
+#9	CAST:0,6,6,6,4	KNOWN:8,5,4,3,2
+1						ADD:SPELLCASTER|Sorcerer
+2	BONUS:PCLEVEL|Sorcerer|8
+
+# Class Name			Output Name			Hit Dice	Type			Max Level		Source Page		Levels per Feat	Ability																		Combat bonus																Save bonus																																		Modify VAR													Template		FACT
+CLASS:Outsider (Mindless)	OUTPUTNAME:Outsider	HD:10		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.309	LEVELSPERFEAT:0	ABILITY:Special Ability|AUTOMATIC|Outsider Traits|PREVAREQ:NoTypeTraits,0	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	TEMPLATE:Mindless	FACT:ClassType|Monster
+# Class Name			Reg. Race Type
+CLASS:Outsider (Mindless)	PRERACETYPE:Outsider
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Outsider (Mindless)	STARTSKILLPTS:0	MODTOSKILLS:NO
+###Block:Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
+
+# Class Name	Output Name			Hit Dice	Type			Max Level		Source Page		Ability																		Combat bonus																	Save bonus																																		Modify VAR														FACT
+CLASS:Drider	OUTPUTNAME:Aberration	HD:8		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.306	ABILITY:Special Ability|AUTOMATIC|Aberration Traits|PREVAREQ:NoTypeTraits,0	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	FACT:ClassType|Monster
+# Class Name	Reg. Race Type
+CLASS:Drider	PRERACETYPE:Aberration
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
+CLASS:Drider	STARTSKILLPTS:4	MODTOSKILLS:YES			CSKILL:Acrobatics|Climb|Escape Artist|Fly|Intimidate|TYPE=Knowledge|Perception|Spellcraft|Stealth|Survival|Swim
+###Block:Spell Casting
+SUBSTITUTIONCLASS:Drider Cleric
+SUBSTITUTIONLEVEL:1	BONUS:PCLEVEL|Cleric|5		BONUS:VAR|IsDriderCleric|1	DEFINE:IsDriderCleric|0		ADD:SPELLCASTER|Cleric
+SUBSTITUTIONCLASS:Drider Sorcerer
+SUBSTITUTIONLEVEL:1	BONUS:PCLEVEL|Sorcerer|5	BONUS:VAR|IsDriderSorcerer|1	DEFINE:IsDriderSorcerer|0	ADD:SPELLCASTER|Sorcerer
+SUBSTITUTIONCLASS:Drider Wizard
+SUBSTITUTIONLEVEL:1	BONUS:PCLEVEL|Wizard|5		BONUS:VAR|IsDriderWizard|1	DEFINE:IsDriderWizard|0		ADD:SPELLCASTER|Wizard
+
+# Class Name		Hit Dice	Type			Max Level		Source Page		Ability					Combat bonus																	Save bonus																																		Modify VAR														FACT
+CLASS:Guardian Naga	HD:8		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.213	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	FACT:ClassType|Monster	FACT:SpellType|Arcane
+# Class Name		Required Race			Reg. Race Type
+CLASS:Guardian Naga	PRERACE:1,Naga (Guardian)	PRERACETYPE:Aberration
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
+CLASS:Guardian Naga	STARTSKILLPTS:4	MODTOSKILLS:YES			CSKILL:Acrobatics|Climb|Escape Artist|Fly|Intimidate|TYPE=Knowledge|Perception|Spellcraft|Stealth|Survival|Swim
+# Class Name		Spell Stat		Memorize	Caster level				Use Spell List
+CLASS:Guardian Naga	SPELLSTAT:CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Guardian Naga|9	SPELLLIST:2|Cleric|Sorcerer
+12	CAST:0,6,6,6,4	KNOWN:8,5,4,3,2
+
+# Class Name	Hit Dice	Type			Max Level		Source Page		Ability					Combat bonus																	Save bonus																																		Modify VAR														FACT
+CLASS:Spirit Naga	HD:8		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.215	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	FACT:ClassType|Monster	FACT:SpellType|Arcane
+# Class Name	Required Race		Reg. Race Type
+CLASS:Spirit Naga	PRERACE:1,Naga (Spirit)	PRERACETYPE:Aberration
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
+CLASS:Spirit Naga	STARTSKILLPTS:4	MODTOSKILLS:YES			CSKILL:Acrobatics|Climb|Escape Artist|Fly|Intimidate|TYPE=Knowledge|Perception|Spellcraft|Stealth|Survival|Swim
+# Class Name	Spell Stat		Memorize	Caster level				Use Spell List
+CLASS:Spirit Naga	SPELLSTAT:CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Spirit Naga|7	SPELLLIST:2|Cleric|Sorcerer
+10	CAST:0,6,6,4	KNOWN:7,5,3,2
+
+#
+# End
+#

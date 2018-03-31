@@ -1,0 +1,24 @@
+# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+SOURCELONG:Ultimate Magic	SOURCESHORT:UM	SOURCEWEB:http://paizo.com/pathfinderRPG/v5748btpy8g7s	SOURCEDATE:2011-05
+# ORIGINAL ENTRY: W. Robert 'Mynex' Reed III
+# ORIGINAL ENTRY DATE: 3 September 2012
+
+
+STARTPACK:Classes Starting Gold ~ UM	TYPE:Starting.Gold	VISIBLE:QUALIFY	APPLY:INSTANT	PREMULT:2,[PREPCLEVEL:MIN=1,MAX=1],[PRECLASS:1,Magus=1]
+TEMPLATE:Starting Gold ~ UM
+
+STARTPACK:Starting Gold UM ~ Random	VISIBLE:NO	APPLY:INSTANT
+FUNDS:gp	QTY:10*roll("4d6")
+
+STARTPACK:Starting Gold UM ~ Maximum	VISIBLE:NO	APPLY:INSTANT
+FUNDS:gp	QTY:240
+
+STARTPACK:Starting Gold UM ~ Average	VISIBLE:NO	APPLY:INSTANT
+FUNDS:gp	QTY:140
+
+
+STARTPACK:Magus Spellbook	VISIBLE:NO	TOTALCOST:0
+GEAR:Spellbook	LOCATION:Carried
+
+STARTPACK:Add Vow Placeholder	VISIBLE:NO	APPLY:PERMANENT
+ABILITY:CATEGORY=Vow|Vow Placeholder

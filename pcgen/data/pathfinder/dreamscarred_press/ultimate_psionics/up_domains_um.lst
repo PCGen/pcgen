@@ -1,0 +1,11 @@
+# CVS $Revision: $ $Author: $ -- Thu May 22 08:41:39 2014 -- reformated by prettylst.pl v1.51 (build 23662)
+SOURCELONG:Ultimate Psionics	SOURCESHORT:UP	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2013-12
+# Original Entry by: Douglas Limmer
+# Original Entry Date: 5 May 2014
+
+# Domain Name		Multiple Requirements										Ability																																																									Define																									Modify VAR																																																		Source Page		List of Domain Spells by Level
+Discipline Subdomain	PREMULT:1,[PREDOMAIN:1,Discipline Subdomain],[PREVARLT:PsionicsDomain,1]	ABILITY:Special Ability|AUTOMATIC|Discipline Subdomain ~ Mind over Body|PREVARGTEQ:DomainPsionicsAbilityTriggerLVL,1	ABILITY:Special Ability|AUTOMATIC|Psionics Domain ~ Granted Power|PREVARGTEQ:DomainPsionicsAbilityTriggerLVL,1	ABILITY:Special Ability|AUTOMATIC|Psionics Domain ~ Dispelling Touch|PREVARGTEQ:DomainPsionicsAbilityTriggerLVL,8	DEFINE:PsionicsDomain|0	DEFINE:DomainPsionicsLVL|0	DEFINE:DomainPsionicsDC|0	DEFINE:DomainPsionicsTimes|0	DEFINE:DomainPsionicsAbilityTriggerLVL|0	BONUS:VAR|PsionicsDomain|1|TYPE=Domain	BONUS:VAR|DomainPsionicsLVL|DomainLVL|TYPE=Domain	BONUS:VAR|DomainPsionicsDC|10+(DomainPsionicsLVL/2)+WIS|TYPE=Domain	BONUS:VAR|DomainPsionicsTimes|DomainPowerTimes|TYPE=Domain	BONUS:VAR|DomainPsionicsAbilityTriggerLVL|DomainAbilityTriggerLVL|TYPE=Domain	SOURCEPAGE:p.294	SPELLLEVEL:DOMAIN|Discipline Subdomain=1|Charm Person|Discipline Subdomain=2|Delay Pain|Discipline Subdomain=3|Magic Circle against Chaos|Discipline Subdomain=4|Charm Monster|Discipline Subdomain=5|Forbid Action (Greater)|Discipline Subdomain=6|Suggestion (Mass)|Discipline Subdomain=7|Insanity|Discipline Subdomain=8|Mind Blank|Discipline Subdomain=9|Foresight
+
+#
+# End
+#

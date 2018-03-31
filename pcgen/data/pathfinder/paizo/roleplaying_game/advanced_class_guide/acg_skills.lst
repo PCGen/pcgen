@@ -1,0 +1,17 @@
+# CVS $Revision: $ $Author: $ -- Sat May  9 00:54:12 2015 -- reformated by PCGen PrettyLST v6.04.01
+SOURCELONG:Advanced Class Guide	SOURCESHORT:ACG	SOURCEWEB:http://paizo.com/products/btpy92zi	SOURCEDATE:2014-08
+# Original Entry by: Andrew Wilson
+
+# Skill Name			Situational Skill			Bonus to Situation
+Diplomacy.MOD			SITUATION:Info about humans
+Knowledge (history).MOD		SITUATION:Info about humans
+Knowledge (local).MOD		SITUATION:Info about humans
+Knowledge (nobility).MOD	SITUATION:Info about humans
+Linguistics.MOD			SITUATION:Info about humans
+
+
+Knowledge (dungeoneering).MOD	SITUATION:underground
+Survival.MOD			SITUATION:underground
+
+Knowledge (dungeoneering).MOD						BONUS:SITUATION|Knowledge (dungeoneering)=underground|DwarfSlayerFavClassBonus/4
+Survival.MOD								BONUS:SITUATION|Survival=underground|DwarfSlayerFavClassBonus/4

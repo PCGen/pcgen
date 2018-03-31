@@ -1,0 +1,80 @@
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+CAMPAIGN:Inner Sea Gods
+GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing.Pathfinder Campaign Setting
+RANK:3
+STATUS:BETA
+GENRE:Fantasy
+BOOKTYPE:Campaign Setting
+SETTING:Pathfinder Campaign Setting
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+PRECAMPAIGN:1,INCLUDES=Ultimate Magic
+PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Inner Sea Gods
+SOURCESHORT:ISG
+SOURCEDATE:2014-04
+ISOGL:YES
+
+COVER:PZO9267_180.jpeg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Inc.|http://paizo.com/products/btpy94wj?Pathfinder-Campaign-Setting-Inner-Sea-Gods-Hardcover|Buy this publication from Paizo Publishing!
+
+DESC:Through the miracles of priests and the weapons of crusaders, the deities of the Pathfinder Roleplaying Game command unrivaled influence over the lands of the Inner Sea. Tap into their incredible might with Pathfinder Campaign Setting: Inner Sea Gods! Inside you'll discover the deepest secrets of an entire pantheon of incomparable beings, claim relics suited to both sinners and saints, and wield immortal might as a character of any background, race, or class. No longer does the favor of the gods belong to clerics, paladins, and other divine spellcasters alone—choose your faith and make holy power your own!
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000, Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:The Book of Fiends Copyright 2003, Green Ronin Publishing; Authors: Aaron Loeb, Erik Mona, Chris Pramas, and Robert J. Schwalb.
+COPYRIGHT:Amphisbaena from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Angel, Monadic Deva from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Bat, Mobat from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Authors: Scott Greene and Clark Peterson, based on original material by Gary Gygax.
+COPYRIGHT:Cave Fisher from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Lawrence Schick.
+COPYRIGHT:Daemon, Piscodaemon from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Demon Lord, Baphomet from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on material by Gary Gygax.
+COPYRIGHT:Demon Lord, Jubi1ex from the To me of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on material by Gary Gygax.
+COPYRIGHT:Demon Lord, Kostchtchie from the To me of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on material by Gary Gygax.
+COPYRIGHT:Demon Lord, Orcus from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene and Clark Peterson, based on material by Gary Gygax.
+COPYRIGHT:Demon Lord, Pazuzu from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on material by Gary Gygax.
+COPYRIGHT:Grippli from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Rot Grub from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Authors: Scott Greene and Clark Peterson, based on original material by Gary Gygax.
+COPYRIGHT:Soul Eater from the To me of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by David Cook.
+COPYRIGHT:Pathfinder Campaign Setting: Inner Sea Gods Copyright 2014, Paizo Publishing, LLC; Authors: Sean K Reynolds, with Amanda Hamon, James Jacobs, John Ling, Mark Moreland, David N. Ross, F. Wesley Schneider, Amber E. Scott, Tork Shaw, James L. Sutter,Jerome Virnich.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Campaign Setting: Inner Sea Gods" Copyright 2015, PCGen Data team (Including, but not limited to Andrew Maitland, Stefan Radermacher, and Gwen T.)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+DATACONTROL:isg__datacontrols.lst
+
+# Data files
+ABILITY:isg_abilities.lst
+ABILITY:isg_abilities_faith.lst
+ABILITY:isg_abilities_feat.lst
+ABILITYCATEGORY:isg_abilitycategories.lst
+CLASS:isg_classes.lst
+DEITY:isg_deities.lst
+DOMAIN:isg_domains.lst
+EQUIPMENT:isg_equip.lst
+SPELL:isg_spells.lst
+
+# ENTRY DATE: 2015-02
+# LST MONKEY: Andrew Maitland
+# LICENSE MONKEY: Paul Grosse (2015-11-04)
+# RELEASE REVIEW #
+# BETA: Andrew Maitland (2015-11-04)
+# RELEASE:
+# Built for PCGen Version: 6.05.05
+# Updated to work with version: -
+# MINVER:6.5
+# MINDEVVER:6.05.5
+# COMMENTS:
+
+
+#
+# End
+#

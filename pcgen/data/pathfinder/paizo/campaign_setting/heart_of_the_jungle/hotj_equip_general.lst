@@ -1,0 +1,6 @@
+# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Heart of the Jungle	SOURCESHORT:HOTJ	SOURCEWEB:http://paizo.com/pathfinder/pathfinderChronicles/pathfinderRPG/v5748btpy8evh	SOURCEDATE:2010-07
+
+# Equipment Name			Output Name		Required Weapon Proficiency	Type										Cost		Weight	Crit Mult	Crit Range	Damage	Range		Size		Source Page		Special Property
+Rock (Large)			OUTPUTNAME:Rock	PROFICIENCY:WEAPON|Rock		TYPE:Weapon.Simple.Ranged.Standard.Bludgeoning.Thrown.Rock	COST:0.0	WT:200	CRITMULT:x2	CRITRANGE:1	DAMAGE:4d6	RANGE:140	SIZE:G	SOURCEPAGE:p.61
+Poison (Spider Vine Posion)	OUTPUTNAME:[NAME]						TYPE:Goods.Poison.Consumable								WT:0												SOURCEPAGE:p.6	SPROP:Injury; Fort DC 15; Freq. 1 round (6); Initial Effect paralysis; Secondary Effect 1d2 Con damage; Cure 2 consecutive saves

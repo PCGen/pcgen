@@ -1,0 +1,20 @@
+# CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
+#
+SOURCELONG:Andoran, Spirit of Liberty	SOURCESHORT:ASoL	SOURCEWEB:http://paizo.com/products/btpy8bc3?Pathfinder-Companion-Andoran-Spirit-of-Liberty	SOURCEDATE:2009-11
+# Original Entry by: J. Hunter Johnson
+
+###Block: Spells
+# Spell Name				Type				Classes of caster								School			Components		Casting Time			Range			Target Area or Effect												Duration									Save Info					Spell Resistance		Source Page		Description																								FACT
+Detect Charm				TYPE:Arcane.Divine	CLASSES:Bard,Cleric,Paladin,Sorcerer,Wizard=1			SCHOOL:Divination		COMPS:V, S		CASTTIME:1 standard action	RANGE:60 ft.	TARGETAREA:Cone-shaped emanation										DURATION:Concentration, up to (CASTERLEVEL) minutes [D]	SAVEINFO:None				SPELLRES:No			SOURCEPAGE:p.27	DESC:You detect the strength and location of each charm, compulsion, and possession aura on all creatures in the area.|!PRERULE:1,DisplayFullSpell
+Liberating Command			TYPE:Arcane.Divine	CLASSES:Bard,Cleric,Druid,Paladin,Ranger,Sorcerer,Wizard=1	SCHOOL:Transmutation	COMPS:V		CASTTIME:1 immediate action	RANGE:Close		TARGETAREA:One creature												DURATION:Instantaneous							SAVEINFO:Will negates (harmless)	SPELLRES:Yes (harmless)	SOURCEPAGE:p.27	DESC:Target may make an Escape Artist check with a +(MIN((CASTERLEVEL*2),20)) competence bonus.|!PRERULE:1,DisplayFullSpell
+Suppress Charms and Compulsions	TYPE:Arcane.Divine	CLASSES:Bard,Cleric,Paladin,Sorcerer,Wizard=2			SCHOOL:Abjuration		COMPS:V, S		CASTTIME:1 standard action	RANGE:Close		TARGETAREA:(1+(CASTERLEVEL/4)) creatures, no two of which can be more than 30 ft. apart	DURATION:10 minutes; see text						SAVEINFO:Will negates (harmeless)	SPELLRES:Yes (harmless)	SOURCEPAGE:p.27	DESC:Targets gain a +4 morale bonus against charm and compulsion effects.|!PRERULE:1,DisplayFullSpell
+Summon Flight of Eagles			TYPE:Arcane.Divine	CLASSES:Ranger=4|Druid,Sorcerer,Wizard=6				SCHOOL:Conjuration	COMPS:V, S, F	CASTTIME:1 round			RANGE:Close		TARGETAREA:1d4+1 summoned creatures										DURATION:(CASTERLEVEL) minutes					SAVEINFO:None				SPELLRES:No			SOURCEPAGE:p.27	DESC:Summon 1d4+1 giant eagles.|!PRERULE:1,DisplayFullSpell																FACT:CompMaterial|(a gold feather worth 100 gp)
+###Block:
+# Spell Name				Description
+Detect Charm.MOD				DESC:As detect magic, except you immediately detect the strength and location of each charm, compulsion, and possession aura on all creatures in the area. You can attempt to identify the properties of each aura [see Spellcraft in the Pathfinder RPG Core Rulebook]. In addition to noticing the targets of these effects, you can recognize when creatures in the area are using these effects on others by making a Sense Motive check as a standard action [DC (20+CASTERLEVEL)]. If you succeed, you may make a Spellcraft check to identify what magic it is using [even if the target is not in the area].|PRERULE:1,DisplayFullSpell
+Liberating Command.MOD			DESC:If the target is bound, grappled, or otherwise restrained, he may make an Escape Artist check to escape as an immediate action. He gains a +(MIN((CASTERLEVEL*2),20)) competence bonus on this check. This spell has no effect if the target could not get free by using the Escape Artist skill [for example, if he were under the effects of a hold person spell or paralyzed by Strength damage].|PRERULE:1,DisplayFullSpell
+Suppress Charms and Compulsions.MOD	DESC:As remove fear, except the targets gain a +4 morale bonus on saves against charm and compulsion effects, and charms and compulsions in effect on the targets are suppressed for the duration of the spell.|PRERULE:1,DisplayFullSpell
+Summon Flight of Eagles.MOD		DESC:You summon 1d4+1 giant eagles to serve as mounts for creatures you designate. The summoned birds do not fight independently, but they willingly carry their riders into battle as if trained for combat.|PRERULE:1,DisplayFullSpell
+#
+# End
+#

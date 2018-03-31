@@ -1,0 +1,59 @@
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+CAMPAIGN:Skull and Shackles, Chapter 1 - The Wormwood Mutiny (PFS)
+KEY:PFS ~ Skull and Shackles (The Wormwood Mutiny)
+#GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing PFS.Pathfinder Adventure Path.Skull & Shackles
+RANK:3
+STATUS:ALPHA
+GENRE:Fantasy
+BOOKTYPE:Adventure
+SETTING:Pathfinder|Golarion
+PRECAMPAIGN:1,Pathfinder Society Core Assumption
+PRECAMPAIGN:1,INCLUDES=Pirates of the Inner Sea
+
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+SOURCELONG:Skull and Shackles, Chapter 1 - The Wormwood Mutiny
+SOURCESHORT:AP55
+SOURCEWEB:http://paizo.com/products/btpy8rcc?Pathfinder-Adventure-Path-55-The-Wormwood-Mutiny
+SOURCEDATE:2012-04
+ISOGL:YES
+
+#COVER:@/pathfinder/paizo/adventure_path/skull_and_shackles/ap55/ap55.jpeg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy8rcc?Pathfinder-Adventure-Path-55-The-Wormwood-Mutiny|Get this publication from Paizo Publishing!
+DESC:Pirates take whatever they please, whether it be ships, plunder, or people! The adventurers wake to find themselves press-ganged into the crew of the pirate ship Wormwood, the vessel of the nefarious Captain Barnabus Harrigan. They'll have to learn how to survive as pirates if they're to have any hope of weathering rough waves, brutal crew members, enemy pirates, ravenous beasts, and worse. But when fortune turns to their favor, it's up to the new crew to decide whether they'll remain the pirate's swabs or seize control and set sail for adventures all their own.
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, and Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Dead Man's Chest Copyright 2005 Necromancer Games, Inc.; Authors: Lance Hawvermale, Rob Mason, Robert Hunter, Patrick Goulah, Greg Ragland, Matt McGee, Chris Bernhardt, Casey W. Christofferson, Chad Coulter, Skeeter Green, and Travis Hawvermale, with additional contributions by Erica Balsley, Lindsey Barrentine, Jay Decker, Rachel Mason, and Nadine Oatmeyer.
+COPYRIGHT:Freeport Companion: Pathfinder Roleplaying Game Edition Copyright 2008, Green Ronin Publishing, LLC; Authors: Robert J. Schwalb; Adam Daigle; Brandon Hodge; John E. Ling, Jr.; and Greg A. Vaughan.
+COPYRIGHT:Pathfinder Adventure Path #55: The Wormwood Mutiny Copyright 2012, Paizo Publishing, LLC; Author: Richard Pett.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Adventure Path #55: The Wormwood Mutiny" Copyright 2014, PCGen Data Team (including, but not limited to James Dempsey, Vincent Lhote, Andrew Maitland)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# Pathfinder Adventure Path #55: "The Wormwood Mutiny"
+# Equipment: Besmara's tricorne, boarding pike of repelling, hospitality's hammock, shackles of compliance, steadfast grapple, tidewater cutlass, vindictive harpoon;
+# Familiars: all familiars listed on pages 88-89;
+# Spells: advanced scurvy, cloud of seasickness;
+# Misc: customized summon list are legal for Besmaran clerics and Besmaran familiars are legal for clerics and rangers of Besmara;
+
+EQUIPMENT:@/pathfinder/paizo/adventure_path/skull_and_shackles/ap55/ap55_equip_arms_armor.lst|(INCLUDE:Boarding Pike of Repelling|Tidewater Cutlass|Vindictive Harpoon)
+EQUIPMENT:@/pathfinder/paizo/adventure_path/skull_and_shackles/ap55/ap55_equip_magic_items.lst|(INCLUDE:Besmara's Tricorne|Hospitality's Hammock|Shackles of Compliance|Steadfast Grapple)
+COMPANIONMOD:@/pathfinder/paizo/adventure_path/skull_and_shackles/ap55/ap55_companionmods.lst
+RACE:@/pathfinder/paizo/adventure_path/skull_and_shackles/ap55/ap55_races.lst
+RACE:@/pathfinder/paizo/adventure_path/skull_and_shackles/ap55/ap55_races_companions.lst
+SPELL:@/pathfinder/paizo/adventure_path/skull_and_shackles/ap55/ap55_spells.lst|(INCLUDE:Advanced Scurvy|Cloud of Seasickness|Freedom of Movement (self only))
+ABILITY:@/pathfinder/paizo/adventure_path/skull_and_shackles/ap55/ap55_abilities_race.lst
+KIT:@/pathfinder/paizo/adventure_path/skull_and_shackles/ap55/ap55_kits_companions.lst
+KIT:@/pathfinder/paizo/adventure_path/skull_and_shackles/ap55/ap55_kits_races.lst
+#KIT:@/pathfinder/paizo/adventure_path/skull_and_shackles/ap55/ap55_kits_npcs.lst
+
+FORWARDREF:SPELL|Freedom of Movement (self only)
+SPELL:pfs_ap55_spells.lst

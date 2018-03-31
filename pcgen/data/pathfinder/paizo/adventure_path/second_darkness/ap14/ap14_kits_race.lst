@@ -1,0 +1,104 @@
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:Second Darkness, Chapter 2 - Children of the Void	SOURCESHORT:AP14	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy85ed	SOURCEDATE:2008-10
+
+
+STARTPACK:Akata Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Akata],[!PRERACE:1,%]	SOURCEPAGE:p.80
+ALIGN:TN
+RACE:Akata	!PRERACE:1,%
+NAME:Akata
+SKILL:Acrobatics	RANK:1
+SKILL:Stealth	RANK:1
+ABILITY:CATEGORY=FEAT|Improved Initiative
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
+
+
+STARTPACK:Moonflower Default	TYPE:Default Monster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Moonflower],[!PRERACE:1,%]	SOURCEPAGE:p.82
+ALIGN:TN
+RACE:Moonflower	!PRERACE:1,%
+NAME:Moonflower
+SKILL:Perception	RANK:6
+SKILL:Stealth	RANK:6
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Stealthy
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
+
+
+STARTPACK:Siren Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Siren],[!PRERACE:1,%]	SOURCEPAGE:p.84
+ALIGN:CN
+RACE:Siren	!PRERACE:1,%
+GENDER:Female
+NAME:Siren
+SKILL:Knowledge (History)	RANK:8
+SKILL:Perception			RANK:8
+SKILL:Perform (Sing)		RANK:8
+SKILL:Stealth			RANK:8
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+
+
+STARTPACK:Thais Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Thais],[!PRERACE:1,%]	SOURCEPAGE:p.86
+ALIGN:CG
+RACE:Thais	!PRERACE:1,%
+GENDER:Female
+NAME:Thais
+SKILL:Acrobatics			RANK:17
+SKILL:Bluff				RANK:17
+SKILL:Diplomacy			RANK:17
+SKILL:Disguise			RANK:10
+SKILL:Escape Artist		RANK:10
+SKILL:Heal				RANK:10
+SKILL:Intimidate			RANK:1
+SKILL:Knowledge (Local)		RANK:7
+SKILL:Knowledge (Planes)	RANK:7
+SKILL:Knowledge (Religion)	RANK:7
+SKILL:Perception			RANK:17
+SKILL:Perform (Dance)		RANK:17
+SKILL:Profession (Courtesan)	RANK:6
+SKILL:Sense Motive		RANK:17
+SKILL:Sleight of Hand		RANK:10
+SKILL:Stealth			RANK:17
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Iron Will
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Weapon Focus (Halberd)
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=10|CHA=10
+GEAR:Tyranny's Foil	LOCATION:Both Hands
+
+
+STARTPACK:Witchwyrd Default	TYPE:Default Monster.Monstrous Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Witchwyrd],[!PRERACE:1,%]	SOURCEPAGE:p.88
+ALIGN:LN
+RACE:Witchwyrd	!PRERACE:1,%
+NAME:Witchwyrd
+SKILL:Appraise			RANK:8
+SKILL:Bluff				RANK:8
+SKILL:Diplomacy			RANK:8
+SKILL:Knowledge (Arcana)	RANK:8
+SKILL:Knowledge (Geography)	RANK:8
+SKILL:Knowledge (Planes)	RANK:8
+SKILL:Perception			RANK:8
+SKILL:Sense Motive		RANK:8
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Persuasive
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=10
+GEAR:Ranseur	LOCATION:Both Hands	EQMOD:Special Quality ~ Masterwork ~ Weapon
+
+
+STARTPACK:Zombie (Void) Default	TYPE:Default Monster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Zombie (Void)],[!PRERACE:1,%]	SOURCEPAGE:p.22
+ALIGN:NE
+RACE:Zombie (Void)	!PRERACE:1,%
+NAME:Void Zombie
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=11

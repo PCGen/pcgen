@@ -1,0 +1,17 @@
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:Dragon Empires Gazetteer	SOURCESHORT:DEG	SOURCEWEB:http://paizo.com/products/btpy8pfu	SOURCEDATE:2012-02
+
+# Modern Eastern Languages
+# Language	Type
+Nagaji	TYPE:Spoken.Written.Read
+Samsaran	TYPE:Spoken.Written.Read
+Senzar	TYPE:Spoken.Written.Read
+Wayang	TYPE:Spoken.Written.Read
+
+# Modern Human Eastern Languages
+Dtang		TYPE:Spoken.Written.Read.HumanRegional
+Hwan		TYPE:Spoken.Written.Read.HumanRegional
+Hon-La	TYPE:Spoken.Written.Read.HumanRegional
+Minkaian	TYPE:Spoken.Written.Read.HumanRegional
+Minatan	TYPE:Spoken.Written.Read.HumanRegional
+Common.MOD	TYPE:HumanRegional

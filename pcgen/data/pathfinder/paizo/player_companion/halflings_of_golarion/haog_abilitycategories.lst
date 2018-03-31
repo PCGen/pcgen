@@ -1,0 +1,5 @@
+# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+
+
+# Ability Category				Visible		Editable?		Change Pool?	Category of Object		Type of Object			Plural description for UI		Display Location
+ABILITYCATEGORY:Opportunist Class Feature	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:OpportunistClassFeatures	PLURAL:Opportunist Class Features	DISPLAYLOCATION:Class Features

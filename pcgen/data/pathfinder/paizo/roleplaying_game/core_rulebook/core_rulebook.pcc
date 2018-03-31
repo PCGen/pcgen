@@ -1,0 +1,117 @@
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+CAMPAIGN:Core Rulebook
+KEY:Core Rulebook
+GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing.Pathfinder RPG
+RANK:0
+STATUS:RELEASE
+GENRE:Fantasy
+BOOKTYPE:Core Rules
+SETTING:Pathfinder
+!PRECAMPAIGN:1,BOOKTYPE=Core Rules,[Core Rulebook]
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Core Rulebook
+SOURCESHORT:CR
+SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj
+SOURCEDATE:2009-08
+ISOGL:YES
+
+# Errata: December 4, 2012 "Monkeying Around" Article - http://paizo.com/paizo/blog/v5748dyo5le61?Monkeying-Around (Andrew Maitland)
+
+COVER:core_rulebook.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj|Buy this publication from Paizo Publishing!
+DESC:The Pathfinder Roleplaying Game puts you in the role of a brave adventurer fighting to survive in a world beset by magic and evil. Will you cut your way through monster-filled ruins and cities rife with political intrigue to emerge as a famous hero laden with fabulous treasure, or will you fall victim to treacherous traps and fiendish monsters in a forgotten dungeon? Your fate is yours to decide with this giant Core Rulebook that provides everything a player needs to set out on a life of adventure and excitement!
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder RPG Core Rulebook. Copyright 2009, Paizo Inc.; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:The Book of Experimental Might. Copyright 2008, Monte J. Cook. All rights reserved.
+COPYRIGHT:Tome of Horrors. Copyright 2002, Necromancer Games, Inc.; Authors: Scott Greene, with Clark Peterson, Erica Balsley, Kevin Baase, Casey Christofferson, Lance Hawvermale, Travis Hawvermale, Patrick Lawinger, and Bill Webb; Based on original content from TSR.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Core Rulebook" Copyright 2009-2010, PCGen Data team (Including, but not limited to Stefan Radermacher, Eddy Anthony (MoSaT), Eric Smith (Mardudd), Andrew Maitland (LegacyKing)).
+
+#Do Not Remove Comment
+#EXTRAFILE:OGL.txt
+
+# Data Files
+PCC:@/homebrew/conversion_support/conversion_support.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/core_essentials/_core_essentials.pcc
+
+
+
+# Fact/Factset & Formula System
+DATACONTROL:cr__datacontrols.lst
+
+### GM Moved
+ALIGNMENT:cr__align.lst
+SAVE:cr__saves.lst
+STAT:cr__stats.lst
+
+# Standard Files
+ABILITYCATEGORY:cr_abilitycategories.lst
+ABILITY:cr_abilities.lst
+ABILITY:cr_abilities_class.lst
+ABILITY:cr_abilities_race.lst
+ABILITY:cr_abilities_globalvar.lst
+CLASS:cr_classes.lst
+DEITY:cr_deities.lst
+DOMAIN:cr_domains.lst
+EQUIPMENT:cr_equip_arms_armor.lst
+EQUIPMENT:cr_equip_general.lst
+EQUIPMENT:cr_equip_magic_items.lst
+EQUIPMOD:cr_equipmods.lst
+ABILITY:cr_feats.lst
+KIT:cr_kits.lst
+LANGUAGE:cr_languages.lst
+RACE:cr_races.lst
+SKILL:cr_skills.lst
+SPELL:cr_spells.lst
+TEMPLATE:cr_templates.lst
+
+ARMORPROF:cr_profs_armor.lst
+SHIELDPROF:cr_profs_shield.lst
+WEAPONPROF:cr_profs_weapon.lst
+
+
+#MOVE TO CORE_ESSENTIALS
+ABILITY:cr_abilities_companion.lst
+CLASS:cr_classes_companion.lst
+COMPANIONMOD:cr_companionmods.lst
+KIT:cr_kits_companion.lst
+RACE:cr_races_companion.lst
+
+
+
+#Hide internal feat types
+HIDETYPE:FEAT|SpecialQuality|SpecialAttack|Extraordinary|SpellLike|Supernatural|AttackOption|Aura|Immunity|ModifyAC|Resistance|Weakness
+HIDETYPE:FEAT|WizardBonus|SkillFocus|WeaponFocus
+HIDETYPE:FEAT|AberrantBloodline|AbyssalBloodline|ArcaneBloodline|CelestialBloodline|DestinedBloodline|DraconicBloodline|ElementalBloodline|FeyBloodline|InfernalBloodline|UndeadBloodline
+HIDETYPE:EQUIP|AmuletOfMightyFists
+
+# Hide key stat types for skills
+HIDETYPE:SKILL|Strength|Dexterity|Constitution|Intelligence|Wisdom|Charisma|Base|Background
+HIDETYPE:SKILL|ACHECK
+
+COMPANIONLIST:Mount|ANY
+COMPANIONLIST:Follower|ANY
+
+FORWARDREF:RACE|Orc
+
+# Implement Pharasma-Friendly Death Domain from http://paizo.com/paizo/blog/v5748dyo5lbvp
+
+# ENTRY DATE:
+# LST MONKEY: Stefan Radermacher, Andrew Maitland, Eric Smith, David Bender, gjorbjond, and James Dempsey
+# LICENSE MONKEY: Eric Smith
+# RELEASE REVIEW #
+# BETA: Andrew Maitland
+# RELEASE: Andrew Maitland
+# Built for PCGen Version: 6.04.01
+# Updated to work with version: -
+# MINVER:6.4
+# MINDEVVER:6.04.1
+# COMMENTS:

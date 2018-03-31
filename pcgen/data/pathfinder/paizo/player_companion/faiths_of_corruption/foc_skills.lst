@@ -1,0 +1,23 @@
+# CVS $Revision: 9628 $ $Author: zaister $ -- Sun Feb 10 03:32:15 2013 -- reformated by prettylst.pl v1.39 (build 18270)
+SOURCELONG:Faiths of Corruption	SOURCESHORT:FOC	SOURCEWEB:http://paizo.com/products/btpy8odc?Pathfinder-Player-Companion-Faiths-of-Corruption	SOURCEDATE:2011-10
+# Original Entry by: Stefan Radermacher
+
+###Block: Conditional skills (for output only)
+# Skill Name		Key Stat	Untrained?		Classes	Type			Visible		Req. Rule (in options)		Prohibited Var. Value
+#Diplomacy (Aberrations)	KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Diplomacy (Aberrations).MISC"),var("SKILL.Diplomacy.MISC")
+#Diplomacy (Demons)	KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Diplomacy (Demons).MISC"),var("SKILL.Diplomacy.MISC")
+#Diplomacy (Undead)	KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Diplomacy (Undead).MISC"),var("SKILL.Diplomacy.MISC")
+#Disable Device (Traps)	KEYSTAT:DEX	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Disable Device (Traps).MISC"),var("SKILL.Disable Device.MISC")
+#Intimidate (Demons)	KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Intimidate (Demons).MISC"),var("SKILL.Intimidate.MISC")
+
+###Block: Skill .MODs
+# Skill Name		Bonus to skill										Bonus to skill rank
+#Diplomacy.MOD		BONUS:SKILL|Diplomacy (Aberrations)|var("SKILL.Diplomacy.MISC")		BONUS:SKILLRANK|Diplomacy (Aberrations)|skillinfo("TOTALRANK", "Diplomacy")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Diplomacy (Aberrations).MISC"),var("SKILL.Diplomacy.MISC")
+#Diplomacy.MOD		BONUS:SKILL|Diplomacy (Demons)|var("SKILL.Diplomacy.MISC")			BONUS:SKILLRANK|Diplomacy (Demons)|skillinfo("TOTALRANK", "Diplomacy")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Diplomacy (Demons).MISC"),var("SKILL.Diplomacy.MISC")
+#Diplomacy.MOD		BONUS:SKILL|Diplomacy (Undead)|var("SKILL.Diplomacy.MISC")			BONUS:SKILLRANK|Diplomacy (Undead)|skillinfo("TOTALRANK", "Diplomacy")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Diplomacy (Undead).MISC"),var("SKILL.Diplomacy.MISC")
+#Disable Device.MOD	BONUS:SKILL|Disable Device (Traps)|var("SKILL.Disable Device.MISC")	BONUS:SKILLRANK|Disable Device (Traps)|skillinfo("TOTALRANK", "Disable Device")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Disable Device (Traps).MISC"),var("SKILL.Disable Device.MISC")
+#Intimidate.MOD		BONUS:SKILL|Intimidate (Demons)|var("SKILL.Intimidate.MISC")		BONUS:SKILLRANK|Intimidate (Demons)|skillinfo("TOTALRANK", "Intimidate")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Intimidate (Demons).MISC"),var("SKILL.Intimidate.MISC")
+
+#
+# End
+#

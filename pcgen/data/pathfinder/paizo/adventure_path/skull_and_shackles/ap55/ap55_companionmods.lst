@@ -1,0 +1,30 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Skull and Shackles, Chapter 1 - The Wormwood Mutiny	SOURCESHORT:AP55	SOURCEWEB:http://paizo.com/products/btpy8rcc?Pathfinder-Adventure-Path-55-The-Wormwood-Mutiny	SOURCEDATE:2012-04
+# ORIGINAL ENTRY: Vincent Lhote
+# ORIGINAL ENTRY DATE: 2012-08
+
+# Not included because they are in Pathfinder Adventure Path #55
+#Dodo	Dodo	Master gains a +4 bonus on initiative checks
+#Dwarf caiman	Dwarf caiman	Master gains a +3 bonus on Stealth checks
+#Giant isopod	Giant isopod	Master gains a +1 natural armor bonus to AC
+#Marine iguana	Dwarf caiman	Master gains a +3 bonus on Swim checks
+#Seal	Seal	Master gains a +3 bonus on Swim checks
+
+###Block: Specific Familiars
+# Class of the Master	Type			Required Race			Apply Kit
+FOLLOWER:FamiliarLVL=1	TYPE:Familiar	PRERACE:1,Familiar (Parrot)	KIT:1|Raven Familiar Language
+#
+
+###Block:Familiar Bonuses to Master
+# Race of familiar				Type			Ability
+MASTERBONUSRACE:Familiar (Mongoose)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Mongoose)
+MASTERBONUSRACE:Familiar (Osprey)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Osprey)
+MASTERBONUSRACE:Familiar (Parrot)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Parrot)
+MASTERBONUSRACE:Familiar (Toucan)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Toucan)
+MASTERBONUSRACE:Familiar (Sea krait)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Sea krait)
+MASTERBONUSRACE:Familiar (Snail kite)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Snail kite)
+MASTERBONUSRACE:Familiar (Dodo)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Dodo)
+MASTERBONUSRACE:Familiar (Dwarf Caiman)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Dwarf Caiman)
+MASTERBONUSRACE:Familiar (Giant Isopod)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Giant Isopod)
+MASTERBONUSRACE:Familiar (Seal)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Seal)
+#MASTERBONUSRACE:Familiar (Marine Iguana)	TYPE:Familiar		BONUS:SKILL|Swim|3

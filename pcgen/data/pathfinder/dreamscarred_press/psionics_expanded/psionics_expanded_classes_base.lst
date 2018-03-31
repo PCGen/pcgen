@@ -1,0 +1,403 @@
+# CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Psionics Expanded	SOURCESHORT:PsiEx	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2012-07
+# ORIGINAL ENTRY: Douglas Limmer
+# ORIGINAL ENTRY DATE: 2013/07/05
+
+###Block: Aegis
+
+# Class Name	Hit Dice	Type				Max Level	Source Page		Ability																		Define		Combat bonus																Save bonus																																		Modify VAR
+CLASS:Aegis		HD:10		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.28	ABILITY:Internal|AUTOMATIC|Use Magic Device Class Skill|!PREABILITY:1,CATEGORY=Archetype,TYPE.AegisUseMagicDevice	DEFINE:AegisLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|AegisLVL|CL	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Aegis		STARTSKILLPTS:4	CSKILL:Acrobatics|Autohypnosis|Climb|TYPE=Craft|Fly|Intimidate|Knowledge (Engineering)|Knowledge (Psionics)|TYPE=Profession|Spellcraft|Swim
+
+###Block: Aegis Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.AegisMartialWeaponProficiency	ABILITY:FEAT|AUTOMATIC|Martial Weapon Proficiency Output|!PREABILITY:1,CATEGORY=Archetype,TYPE.AegisMartialWeaponProficiency	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.AegisSimpleWeaponProficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|!PREABILITY:1,CATEGORY=Archetype,TYPE.AegisLightArmorProficiency	ABILITY:FEAT|AUTOMATIC|Shield Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.AegisShieldProficiency																												AUTO:ARMORPROF|Astral Suit
+
+###Block: Aegis Psionic Ability
+1	BONUS:VAR|IsPsionic|1																								DEFINE:IsPsionic|0	ABILITY:Special Ability|AUTOMATIC|Psionic
+1	BONUS:VAR|AegisPL|AegisLVL	BONUS:VAR|AegisPL|var("BL=Aegis")																	DEFINE:AegisPL|0
+1	BONUS:VAR|BasePowerPoints|1	BONUS:VAR|BasePowerPoints|1|PREVARGTEQ:AegisPL,2	BONUS:VAR|BasePowerPoints|1|PREVARGTEQ:AegisPL,3
+1	BONUS:VAR|BasePowerPoints|2|PREVARGTEQ:AegisPL,4	BONUS:VAR|BasePowerPoints|2|PREVARGTEQ:AegisPL,5	BONUS:VAR|BasePowerPoints|2|PREVARGTEQ:AegisPL,6
+1	BONUS:VAR|BasePowerPoints|2|PREVARGTEQ:AegisPL,7	BONUS:VAR|BasePowerPoints|3|PREVARGTEQ:AegisPL,8	BONUS:VAR|BasePowerPoints|3|PREVARGTEQ:AegisPL,9
+1	BONUS:VAR|BasePowerPoints|3|PREVARGTEQ:AegisPL,10	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:AegisPL,11	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:AegisPL,12
+1	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:AegisPL,13	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:AegisPL,14	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:AegisPL,15
+1	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:AegisPL,16	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:AegisPL,17	BONUS:VAR|BasePowerPoints|6|PREVARGTEQ:AegisPL,18
+1	BONUS:VAR|BasePowerPoints|6|PREVARGTEQ:AegisPL,19	BONUS:VAR|BasePowerPoints|6|PREVARGTEQ:AegisPL,20
+1	BONUS:VAR|BonusPowerPoints|(INT*AegisPL)/2|TYPE=AegisBonusPP
+
+###Block: Aegis Customization Points and DR setup
+1	BONUS:VAR|AegisCL|AegisLVL	BONUS:VAR|AegisCL|var("BL=Aegis")				DEFINE:AegisCL|0
+1	BONUS:VAR|CustomPoints|2+AegisCL	BONUS:VAR|CustomPoints|floor((AegisCL+1)/5)
+1	BONUS:VAR|AegisDRLVL|AegisLVL										DEFINE:AegisDRLVL|0
+
+#Block: Aegis Class Abilities
+1																			ABILITY:Special Ability|AUTOMATIC|Astral Repair ~ Aegis|!PREABILITY:1,CATEGORY=Archetype,TYPE.AegisAstralRepair
+1																			ABILITY:Special Ability|AUTOMATIC|Form Astral Suit ~ Aegis|!PREABILITY:1,CATEGORY=Archetype,TYPE.AegisFormAstralSuit
+1	BONUS:VAR|AegisDR|floor((AegisDRLVL+4)/3)												ABILITY:Special Ability|AUTOMATIC|Damage Reduction ~ Aegis|PREMULT:2,[!PREABILITY:1,CATEGORY=Archetype,TYPE.AegisDamageReduction],[PREVARGTEQ:AegisDRLVL,2]
+2	BONUS:VAR|CraftsmanBonus|floor((CL+2)/4)												ABILITY:Special Ability|AUTOMATIC|Craftsman ~ Aegis|!PREABILITY:1,CATEGORY=Archetype,TYPE.AegisCraftsman
+3	BONUS:VAR|ReconfigureTimes|floor((CL-1)/2)											ABILITY:Special Ability|AUTOMATIC|Reconfigure ~ Aegis|!PREABILITY:1,CATEGORY=Archetype,TYPE.AegisReconfigure
+3																			ABILITY:Special Ability|AUTOMATIC|Invigorating Suit ~ Aegis|!PREABILITY:1,CATEGORY=Archetype,TYPE.AegisInvigoratingSuit
+4	BONUS:VAR|AugmentSuitMax|floor(CL/4)												ABILITY:Special Ability|AUTOMATIC|Augment Suit ~ Aegis|!PREABILITY:1,CATEGORY=Archetype,TYPE.AegisAugmentSuit
+5																			ABILITY:Internal|AUTOMATIC|Master Craftsman ~ Aegis|!PREABILITY:1,CATEGORY=Archetype,TYPE.AegisMasterCraftsman
+12	BONUS:VAR|CannibalizeTimes|floor((CL-10)/2)											ABILITY:Special Ability|AUTOMATIC|Cannibalize Suit ~ Aegis|!PREABILITY:1,CATEGORY=Archetype,TYPE.AegisCannibalizeSuit
+20																			ABILITY:Special Ability|AUTOMATIC|Perfect Merger ~ Aegis|!PREABILITY:1,CATEGORY=Archetype,TYPE.AegisPerfectMerger
+
+
+###Block: Cryptic
+
+# Class Name	Hit Dice	Type				Max Level	Source Page		Ability																		Combat bonus																	Save bonus																																		Modify VAR																																																																															FACT
+CLASS:Cryptic	HD:8		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.36	ABILITY:Internal|AUTOMATIC|Disable Device Class Skill|!PREABILITY:1,CATEGORY=Archetype,TYPE.CrypticDisableDevice	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|PCrystalLevel|classlevel("APPLIEDAS=NONEPIC")|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:SpellType|Psionic
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Cryptic	STARTSKILLPTS:4	CSKILL:Acrobatics|Appraise|Autohypnosis|Climb|TYPE=Craft|Disguise|Escape Artist|TYPE=Knowledge|Linguistics|Perception|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Spellcraft|Stealth|Swim|Use Magic Device
+# Class Name	Spell Stat		Memorize	Caster level
+CLASS:Cryptic	SPELLSTAT:INT	MEMORIZE:NO	BONUS:CASTERLEVEL|Cryptic|classlevel("APPLIEDAS=NONEPIC")
+
+###Block: Cryptic Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.CrypticSimpleWeaponProficiency	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|!PREABILITY:1,CATEGORY=Archetype,TYPE.CrypticLightArmorProficiency	AUTO:WEAPONPROF|Rapier|Shortbow
+
+###Block: Cryptic Psionic Ability
+1	BONUS:VAR|IsPsionic|1																								DEFINE:IsPsionic|0											ABILITY:Special Ability|AUTOMATIC|Psionic
+1	BONUS:VAR|CrypticLVL|CL																								DEFINE:CrypticLVL|0
+1	BONUS:VAR|CrypticPL|CrypticLVL	BONUS:VAR|CrypticPL|var("BL=Cryptic")															DEFINE:CrypticPL|0
+1	BONUS:VAR|CrypticPrimeStat|INT																						DEFINE:CrypticPrimeStat|0
+1	BONUS:VAR|BasePowerPoints|1	BONUS:VAR|BasePowerPoints|1|PREVARGTEQ:CrypticPL,2	BONUS:VAR|BasePowerPoints|2|PREVARGTEQ:CrypticPL,3
+1	BONUS:VAR|BasePowerPoints|2|PREVARGTEQ:CrypticPL,4	BONUS:VAR|BasePowerPoints|2|PREVARGTEQ:CrypticPL,5	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:CrypticPL,6
+1	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:CrypticPL,7	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:CrypticPL,8	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:CrypticPL,9
+1	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:CrypticPL,10	BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:CrypticPL,11	BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:CrypticPL,12
+1	BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:CrypticPL,13	BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:CrypticPL,14	BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:CrypticPL,15
+1	BONUS:VAR|BasePowerPoints|12|PREVARGTEQ:CrypticPL,16	BONUS:VAR|BasePowerPoints|12|PREVARGTEQ:CrypticPL,17	BONUS:VAR|BasePowerPoints|12|PREVARGTEQ:CrypticPL,18
+1	BONUS:VAR|BasePowerPoints|12|PREVARGTEQ:CrypticPL,19	BONUS:VAR|BasePowerPoints|12|PREVARGTEQ:CrypticPL,20
+1	BONUS:VAR|BonusPowerPoints|(CrypticPrimeStat*CrypticPL)/2|TYPE=CrypticBonusPP
+
+1	BONUS:VAR|CrypticCL|CrypticLVL	BONUS:VAR|CrypticCL|var("BL=Cryptic")															DEFINE:CrypticCL|0
+1	BONUS:VAR|CrypticPowersKnown|CrypticPowersKnownLVL	BONUS:VAR|CrypticPowersKnownLVL|CL													DEFINE:CrypticPowersKnownLVL|0	DEFINE:CrypticPowersKnown|0
+1	BONUS:VAR|CrypticMaximumPowerLevelKnown|min(6,floor((CrypticMaximumPowerLevelKnownLVL+2)/3))	BONUS:VAR|CrypticMaximumPowerLevelKnownLVL|CL				DEFINE:CrypticMaximumPowerLevelKnownLVL|0	DEFINE:CrypticMaximumPowerLevelKnown|0
+
+###Block: Cryptic Powers Known
+1	KNOWN:2,1
+2	KNOWN:2,2
+3	KNOWN:2,3
+4	KNOWN:2,3,1
+5	KNOWN:2,3,2
+6	KNOWN:2,3,3
+7	KNOWN:2,3,3,1
+8	KNOWN:2,3,3,2
+9	KNOWN:2,3,3,3
+10	KNOWN:2,3,3,3,1
+11	KNOWN:2,3,3,3,2
+12	KNOWN:2,3,3,3,3
+13	KNOWN:2,3,3,3,3,1
+14	KNOWN:2,3,3,3,3,2
+15	KNOWN:2,3,3,3,3,3
+16	KNOWN:2,3,3,3,3,3,1
+17	KNOWN:2,3,3,3,3,3,2
+18	KNOWN:2,3,3,3,3,3,3
+19	KNOWN:2,3,3,3,3,3,4
+20	KNOWN:2,3,3,3,3,3,5
+
+###Block: Cryptic Class Abilities
+1	ABILITY:Special Ability|AUTOMATIC|Altered Defense ~ Cryptic|!PREABILITY:1,CATEGORY=Archetype,TYPE.CrypticAlteredDefense
+1	ABILITY:Special Ability|AUTOMATIC|Disrupt Pattern ~ Cryptic|!PREABILITY:1,CATEGORY=Archetype,TYPE.CrypticDisruptPattern
+1	ABILITY:Special Ability|AUTOMATIC|Pattern Designs ~ Cryptic|!PREABILITY:1,CATEGORY=Archetype,TYPE.CrypticPatternDesigns
+1	ABILITY:Internal|AUTOMATIC|Scribe Tattoo ~ Cryptic|!PREABILITY:1,CATEGORY=Archetype,TYPE.CrypticScribeTattoo
+1	ABILITY:Internal|AUTOMATIC|Trapfinding ~ Cryptic|!PREABILITY:1,CATEGORY=Archetype,TYPE.CrypticTrapfinding
+1	ABILITY:Special Ability|AUTOMATIC|Trapmaker ~ Cryptic|!PREABILITY:1,CATEGORY=Archetype,TYPE.CrypticTrapmaker
+2	ABILITY:Special Ability|AUTOMATIC|Hidden Pattern ~ Cryptic|!PREABILITY:1,CATEGORY=Archetype,TYPE.CrypticHiddenPattern
+2	ABILITY:Internal|AUTOMATIC|Insights ~ Cryptic|!PREABILITY:1,CATEGORY=Archetype,TYPE.CrypticInsights
+3	ABILITY:Special Ability|AUTOMATIC|Enhanced Disruption ~ Cryptic|!PREABILITY:1,CATEGORY=Archetype,TYPE.CrypticEnhancedDisruption
+3	ABILITY:Special Ability|AUTOMATIC|Evasion ~ Cryptic|!PREABILITY:1,CATEGORY=Archetype,TYPE.CrypticEvasion
+4	ABILITY:Special Ability|AUTOMATIC|Rapid Defense ~ Cryptic|!PREABILITY:1,CATEGORY=Archetype,TYPE.CrypticRapidDefense
+6	ABILITY:Special Ability|AUTOMATIC|Swift Trapper ~ Cryptic|!PREABILITY:1,CATEGORY=Archetype,TYPE.CrypticSwiftTrapper
+10	ABILITY:Special Ability|AUTOMATIC|Hide in Plain Sight ~ Cryptic|!PREABILITY:1,CATEGORY=Archetype,TYPE.CrypticHideInPlainSight,TYPE.CrypticHiddenPattern
+14	ABILITY:Special Ability|AUTOMATIC|Enduring Defense ~ Cryptic|!PREABILITY:1,CATEGORY=Archetype,TYPE.CrypticEnduringDefense
+18	ABILITY:Special Ability|AUTOMATIC|Unchanging Pattern ~ Cryptic|!PREABILITY:1,CATEGORY=Archetype,TYPE.CrypticUnchangingPattern
+20	ABILITY:Internal|AUTOMATIC|Supreme Insight ~ Cryptic|!PREABILITY:1,CATEGORY=Archetype,TYPE.CrypticSupremeInsight
+
+
+###Block: Dread
+
+# Class Name	Hit Dice	Type				Max Level	Source Page		Combat bonus																	Save bonus																																		Modify VAR																																																																															FACT
+CLASS:Dread		HD:8		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.43	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|PCrystalLevel|classlevel("APPLIEDAS=NONEPIC")|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:SpellType|Psionic
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Dread		STARTSKILLPTS:6	CSKILL:Acrobatics|Autohypnosis|Bluff|Climb|TYPE=Craft|Escape Artist|Intimidate|Knowledge (Psionics)|Perception|TYPE=Profession|Sense Motive|Spellcraft|Stealth|Swim
+# Class Name	Spell Stat		Memorize	Caster level
+CLASS:Dread		SPELLSTAT:CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Dread|classlevel("APPLIEDAS=NONEPIC")
+
+###Block: Dread Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.DreadMartialWeaponProficiency	ABILITY:FEAT|AUTOMATIC|Martial Weapon Proficiency Output|!PREABILITY:1,CATEGORY=Archetype,TYPE.DreadMartialWeaponProficiency
+1	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.DreadSimpleWeaponProficiency	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|!PREABILITY:1,CATEGORY=Archetype,TYPE.DreadLightArmorProficiency
+
+###Block: Dread Psionic Ability
+1	BONUS:VAR|IsPsionic|1																								DEFINE:IsPsionic|0	ABILITY:Special Ability|AUTOMATIC|Psionic
+1	BONUS:VAR|DreadLVL|CL																								DEFINE:DreadLVL|0
+1	BONUS:VAR|DreadPL|DreadLVL	BONUS:VAR|DreadPL|var("BL=Dread")																	DEFINE:DreadPL|0
+1	BONUS:VAR|DreadPrimeStat|CHA																							DEFINE:DreadPrimeStat|0
+1	BONUS:VAR|BasePowerPoints|1	BONUS:VAR|BasePowerPoints|1|PREVARGTEQ:DreadPL,2	BONUS:VAR|BasePowerPoints|2|PREVARGTEQ:DreadPL,3
+1	BONUS:VAR|BasePowerPoints|2|PREVARGTEQ:DreadPL,4	BONUS:VAR|BasePowerPoints|2|PREVARGTEQ:DreadPL,5	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:DreadPL,6
+1	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:DreadPL,7	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:DreadPL,8	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:DreadPL,9
+1	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:DreadPL,10	BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:DreadPL,11	BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:DreadPL,12
+1	BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:DreadPL,13	BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:DreadPL,14	BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:DreadPL,15
+1	BONUS:VAR|BasePowerPoints|12|PREVARGTEQ:DreadPL,16	BONUS:VAR|BasePowerPoints|12|PREVARGTEQ:DreadPL,17	BONUS:VAR|BasePowerPoints|12|PREVARGTEQ:DreadPL,18
+1	BONUS:VAR|BasePowerPoints|12|PREVARGTEQ:DreadPL,19	BONUS:VAR|BasePowerPoints|12|PREVARGTEQ:DreadPL,20
+1	BONUS:VAR|BonusPowerPoints|(DreadPrimeStat*DreadPL)/2|TYPE=DreadBonusPP
+
+1	BONUS:VAR|DreadCL|DreadLVL	BONUS:VAR|DreadCL|var("BL=Dread")																	DEFINE:DreadCL|0
+
+###Block: Dread Powers Known
+1	KNOWN:2,1
+2	KNOWN:2,2
+3	KNOWN:2,3
+4	KNOWN:2,3,1
+5	KNOWN:2,3,2
+6	KNOWN:2,3,3
+7	KNOWN:2,3,3,1
+8	KNOWN:2,3,3,2
+9	KNOWN:2,3,3,3
+10	KNOWN:2,3,3,3,1
+11	KNOWN:2,3,3,3,2
+12	KNOWN:2,3,3,3,3
+13	KNOWN:2,3,3,3,3,1
+14	KNOWN:2,3,3,3,3,2
+15	KNOWN:2,3,3,3,3,3
+16	KNOWN:2,3,3,3,3,3,1
+17	KNOWN:2,3,3,3,3,3,2
+18	KNOWN:2,3,3,3,3,3,3
+19	KNOWN:2,3,3,3,3,3,4
+20	KNOWN:2,3,3,3,3,3,5
+
+###Block: Dread Class Abilities
+1																					ABILITY:Special Ability|AUTOMATIC|Fearsome Insight ~ Dread|!PREABILITY:1,CATEGORY=Archetype,TYPE.DreadFearsomeInsight
+1																					ABILITY:Special Ability|AUTOMATIC|Devastating Touch ~ Dread|!PREABILITY:1,CATEGORY=Archetype,TYPE.DreadDevastatingTouch
+2	BONUS:ABILITYPOOL|Terror|floor(classlevel("APPLIEDAS=NONEPIC")/2)|!PREABILITY:1,CATEGORY=Archetype,TYPE.DreadTerror	ABILITY:Special Ability|AUTOMATIC|Terror ~ Dread|!PREABILITY:1,CATEGORY=Archetype,TYPE.DreadTerror
+3																					ABILITY:Special Ability|AUTOMATIC|Aura of Fear ~ Dread|!PREABILITY:1,CATEGORY=Archetype,TYPE.DreadAuraOfFear
+3																					ABILITY:Special Ability|AUTOMATIC|Channel Terror ~ Dread|!PREABILITY:1,CATEGORY=Archetype,TYPE.DreadChannelTerror
+5	BONUS:ABILITYPOOL|Dread Bonus Feat|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.DreadBonusFeat5
+7																					ABILITY:Special Ability|AUTOMATIC|Immersed in Fear ~ Dread|!PREABILITY:1,CATEGORY=Archetype,TYPE.DreadImmersedInFear
+9	BONUS:ABILITYPOOL|Dread Bonus Feat|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.DreadBonusFeat9
+11																					ABILITY:Special Ability|AUTOMATIC|Shadow Twin ~ Dread|!PREABILITY:1,CATEGORY=Archetype,TYPE.DreadShadowTwin
+11																					ABILITY:Special Ability|AUTOMATIC|Twin Fear ~ Dread|!PREABILITY:1,CATEGORY=Archetype,TYPE.DreadTwinFear
+13	BONUS:ABILITYPOOL|Dread Bonus Feat|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.DreadBonusFeat13
+15																					ABILITY:Internal|AUTOMATIC|Shadow Twin 100 ~ Dread|!PREABILITY:1,CATEGORY=Archetype,TYPE.DreadShadowTwin100
+15																					ABILITY:Internal|AUTOMATIC|Twin Fear Form of Doom ~ Dread|!PREABILITY:1,CATEGORY=Archetype,TYPE.DreadTwinFearFormOfDoom
+17	BONUS:ABILITYPOOL|Dread Bonus Feat|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.DreadBonusFeat17
+19																					ABILITY:Internal|AUTOMATIC|Shadow Twin 400 ~ Dread|!PREABILITY:1,CATEGORY=Archetype,TYPE.DreadShadowTwin400
+20																					ABILITY:Special Ability|AUTOMATIC|Fear Incarnate ~ Dread|!PREABILITY:1,CATEGORY=Archetype,TYPE.DreadFearIncarnate
+
+
+###Block: Marksman
+
+# Class Name	Hit Dice	Type				Max Level	Source Page		Combat bonus																Save bonus																																		Modify VAR																																																																									FACT
+CLASS:Marksman	HD:10		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.47	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:SpellType|Psionic
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Marksman	STARTSKILLPTS:4	CSKILL:Acrobatics|Autohypnosis|Climb|TYPE=Craft|Escape Artist|Intimidate|Knowledge (Psionics)|Perception|TYPE=Perform|TYPE=Profession|Sense Motive|Stealth|Survival|Use Magic Device
+# Class Name	Spell Stat		Spell Stat Bonus		Memorize	Caster level
+CLASS:Marksman	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	MEMORIZE:NO	BONUS:CASTERLEVEL|Marksman|classlevel("APPLIEDAS=NONEPIC")
+
+###Block: Marksman Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.MarksmanSimpleWeaponProficiency	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|!PREABILITY:1,CATEGORY=Archetype,TYPE.MarksmanLightArmorProficiency	AUTO:SHIELDPROF|SHIELDTYPE=Buckler|!PREABILITY:1,CATEGORY=Archetype,TYPE.MarksmanBucklerProficiency	AUTO:WEAPONPROF|TYPE=Light.Martial|!PREABILITY:1,CATEGORY=Archetype,TYPE.MarksmanLightMartialProficiency	AUTO:WEAPONPROF|TYPE=Martial.Ranged|TYPE=Martial.Thrown|!PREABILITY:1,CATEGORY=Archetype,TYPE.MarksmanRangedProficiency
+
+###Block: Marksman Psionic Ability
+1	BONUS:VAR|MarksmanML|classlevel("APPLIEDAS=NONEPIC")	BONUS:VAR|MarksmanML|var("BL=Marksman")	BONUS:VAR|IsPsionic|1																	DEFINE:MarksmanML|0	DEFINE:IsPsionic|0	ABILITY:Special Ability|AUTOMATIC|Psionic
+1	BONUS:VAR|MarksmanPL|MarksmanML																															DEFINE:MarksmanPL|0
+1	BONUS:VAR|BasePowerPoints|1	BONUS:VAR|BasePowerPoints|1|PREVARGTEQ:MarksmanPL,2	BONUS:VAR|BasePowerPoints|1|PREVARGTEQ:MarksmanPL,3	BONUS:VAR|BasePowerPoints|2|PREVARGTEQ:MarksmanPL,4
+1	BONUS:VAR|BasePowerPoints|2|PREVARGTEQ:MarksmanPL,5	BONUS:VAR|BasePowerPoints|2|PREVARGTEQ:MarksmanPL,6	BONUS:VAR|BasePowerPoints|2|PREVARGTEQ:MarksmanPL,7	BONUS:VAR|BasePowerPoints|3|PREVARGTEQ:MarksmanPL,8
+1	BONUS:VAR|BasePowerPoints|3|PREVARGTEQ:MarksmanPL,9	BONUS:VAR|BasePowerPoints|3|PREVARGTEQ:MarksmanPL,10	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:MarksmanPL,11	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:MarksmanPL,12
+1	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:MarksmanPL,13	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:MarksmanPL,14	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:MarksmanPL,15	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:MarksmanPL,16
+1	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:MarksmanPL,17	BONUS:VAR|BasePowerPoints|6|PREVARGTEQ:MarksmanPL,18	BONUS:VAR|BasePowerPoints|6|PREVARGTEQ:MarksmanPL,19	BONUS:VAR|BasePowerPoints|6|PREVARGTEQ:MarksmanPL,20
+1	BONUS:VAR|BonusPowerPoints|(WIS*MarksmanPL)/2|TYPE=MarksmanBonusPP
+
+###Block: Marksman Powers Known
+2	KNOWN:0,1
+3	KNOWN:0,2
+4	KNOWN:0,2
+5	KNOWN:0,2,1
+6	KNOWN:0,2,2
+7	KNOWN:0,2,3
+8	KNOWN:0,2,3
+9	KNOWN:0,2,3,1
+10	KNOWN:0,2,3,2
+11	KNOWN:0,2,3,3
+12	KNOWN:0,2,3,3
+13	KNOWN:0,2,3,3,1
+14	KNOWN:0,2,3,3,1
+15	KNOWN:0,2,3,3,2
+16	KNOWN:0,2,3,3,2
+17	KNOWN:0,2,3,3,3
+18	KNOWN:0,2,3,3,3
+19	KNOWN:0,2,3,3,4
+20	KNOWN:0,2,3,3,4
+
+###Block: Marksman Class Abilities
+1	BONUS:ABILITYPOOL|Marksman Combat Style|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.MarksmanCombatStyle	BONUS:VAR|MarksmanStyleLVL|CL							DEFINE:MarksmanStyleLVL|0
+1																		BONUS:VAR|WindReaderLVL|CL							DEFINE:WindReaderLVL|0		ABILITY:Special Ability|AUTOMATIC|Wind Reader ~ Marksman|!PREABILITY:1,CATEGORY=Archetype,TYPE.MarksmanWindReader
+1																																		ABILITY:FEAT|AUTOMATIC|Point-Blank Shot|!PREABILITY:1,CATEGORY=Archetype,TYPE.MarksmanPointBlankShot
+2	BONUS:ABILITYPOOL|Favored Weapon|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.MarksmanFavoredWeapon		BONUS:VAR|FavoredWeaponBase|(classlevel("APPLIEDAS=NONEPIC")+2)/4	DEFINE:FavoredWeaponBase|0	ABILITY:Special Ability|AUTOMATIC|Favored Weapon ~ Marksman|!PREABILITY:1,CATEGORY=Archetype,TYPE.MarksmanFavoredWeapon
+2																		BONUS:VAR|EvadeArrows|(classlevel("APPLIEDAS=NONEPIC")+2)/4		DEFINE:EvadeArrows|0		ABILITY:Special Ability|AUTOMATIC|Evade Arrows ~ Marksman|!PREABILITY:1,CATEGORY=Archetype,TYPE.MarksmanEvadeArrows
+3																		BONUS:VAR|StyleSkill|classlevel("APPLIEDAS=NONEPIC")/3		DEFINE:StyleSkill|0
+4																		BONUS:VAR|CoverFireLVL|CL												ABILITY:Special Ability|AUTOMATIC|Cover Fire ~ Marksman|!PREABILITY:1,CATEGORY=Archetype,TYPE.MarksmanCoverFire
+7																																		ABILITY:Special Ability|AUTOMATIC|Disengage ~ Marksman|!PREABILITY:1,CATEGORY=Archetype,TYPE.MarksmanDisengage
+13																																		ABILITY:Special Ability|AUTOMATIC|Defensive Shot ~ Marksman|!PREABILITY:1,CATEGORY=Archetype,TYPE.MarksmanDefensiveShot
+19																																		ABILITY:Special Ability|AUTOMATIC|Ranged Specialist ~ Marksman|!PREABILITY:1,CATEGORY=Archetype,TYPE.MarksmanRangedSpecialist
+
+
+###Block: Tactician
+
+# Class Name	Hit Dice	Type				Max Level	Source Page		Combat bonus																	Save bonus																																		Modify VAR																																																																										FACT
+CLASS:Tactician	HD:8		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.52	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|PCrystalLevel|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:SpellType|Psionic
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Tactician	STARTSKILLPTS:4	CSKILL:Autohypnosis|Bluff|Climb|TYPE=Craft|Diplomacy|Intimidate|Knowledge (Engineering)|Knowledge (History)|Knowledge (Psionics)|Linguistics|Perception|TYPE=Perform|TYPE=Profession|Ride|Sense Motive|Spellcraft|Swim|Use Magic Device
+# Class Name	Spell Stat		Memorize	Caster level
+CLASS:Tactician	SPELLSTAT:INT	MEMORIZE:NO	BONUS:CASTERLEVEL|Tactician|CL
+
+###Block: Tactician Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.TacticianMartialWeaponProficiency	ABILITY:FEAT|AUTOMATIC|Martial Weapon Proficiency Output|!PREABILITY:1,CATEGORY=Archetype,TYPE.TacticianMartialWeaponProficiency	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.TacticianSimpleWeaponProficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|!PREABILITY:1,CATEGORY=Archetype,TYPE.TacticianLightArmorProficiency	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Medium)|!PREABILITY:1,CATEGORY=Archetype,TYPE.TacticianMediumArmorProficiency	ABILITY:FEAT|AUTOMATIC|Shield Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.TacticianShieldProficiency
+
+###Block: Tactician Psionic Ability
+1	BONUS:VAR|IsPsionic|1																											DEFINE:IsPsionic|0	ABILITY:Special Ability|AUTOMATIC|Psionic
+1	BONUS:VAR|TacticianLVL|CL																										DEFINE:TacticianLVL|0
+1	BONUS:VAR|TacticianPL|TacticianLVL	BONUS:VAR|TacticianPL|var("BL=Tactician")																		DEFINE:TacticianPL|0
+1	BONUS:VAR|BasePowerPoints|2	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:TacticianPL,2	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:TacticianPL,3
+1	BONUS:VAR|BasePowerPoints|6|PREVARGTEQ:TacticianPL,4	BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:TacticianPL,5	BONUS:VAR|BasePowerPoints|10|PREVARGTEQ:TacticianPL,6
+1	BONUS:VAR|BasePowerPoints|11|PREVARGTEQ:TacticianPL,7	BONUS:VAR|BasePowerPoints|12|PREVARGTEQ:TacticianPL,8	BONUS:VAR|BasePowerPoints|14|PREVARGTEQ:TacticianPL,9
+1	BONUS:VAR|BasePowerPoints|16|PREVARGTEQ:TacticianPL,10	BONUS:VAR|BasePowerPoints|18|PREVARGTEQ:TacticianPL,11	BONUS:VAR|BasePowerPoints|20|PREVARGTEQ:TacticianPL,12
+1	BONUS:VAR|BasePowerPoints|21|PREVARGTEQ:TacticianPL,13	BONUS:VAR|BasePowerPoints|23|PREVARGTEQ:TacticianPL,14	BONUS:VAR|BasePowerPoints|25|PREVARGTEQ:TacticianPL,15
+1	BONUS:VAR|BasePowerPoints|26|PREVARGTEQ:TacticianPL,16	BONUS:VAR|BasePowerPoints|29|PREVARGTEQ:TacticianPL,17	BONUS:VAR|BasePowerPoints|30|PREVARGTEQ:TacticianPL,18
+1	BONUS:VAR|BasePowerPoints|31|PREVARGTEQ:TacticianPL,19	BONUS:VAR|BasePowerPoints|32|PREVARGTEQ:TacticianPL,20
+1	BONUS:VAR|BonusPowerPoints|(INT*TacticianPL)/2|TYPE=TacticianBonusPP
+1	BONUS:VAR|TacticianCL|TacticianLVL	BONUS:VAR|TacticianCL|var("BL=Tactician")																		DEFINE:TacticianCL|0
+
+###Block: Tactician Powers Known
+1	KNOWN:3,1
+2	KNOWN:3,2
+3	KNOWN:3,2,1
+4	KNOWN:3,2,2
+5	KNOWN:3,2,2,1
+6	KNOWN:3,2,2,2
+7	KNOWN:3,2,2,2,1
+8	KNOWN:3,2,2,2,2
+9	KNOWN:3,2,2,2,2,1
+10	KNOWN:3,2,2,2,2,2
+11	KNOWN:3,2,2,2,2,2,1
+12	KNOWN:3,2,2,2,2,2,2
+13	KNOWN:3,2,2,2,2,2,2,1
+14	KNOWN:3,2,2,2,2,2,2,2
+15	KNOWN:3,2,2,2,2,2,2,2,1
+16	KNOWN:3,2,2,2,2,2,2,2,2
+17	KNOWN:3,2,2,2,2,2,2,2,2,1
+18	KNOWN:3,2,2,2,2,2,2,2,2,2
+19	KNOWN:3,2,2,2,2,2,2,2,2,3
+20	KNOWN:3,2,2,2,2,2,2,2,2,4
+
+###Block: Tactician Class Abilities
+1	ABILITY:Special Ability|AUTOMATIC|Collective ~ Tactician|!PREABILITY:1,CATEGORY=Archetype,TYPE.TacticianCollective
+1	ABILITY:Special Ability|AUTOMATIC|Coordinated Strike ~ Tactician|!PREABILITY:1,CATEGORY=Archetype,TYPE.TacticianCoordinatedStrike
+2	ABILITY:Special Ability|AUTOMATIC|Spirit of Many ~ Tactician|!PREABILITY:1,CATEGORY=Archetype,TYPE.TacticianSpiritOfMany
+3	ABILITY:Special Ability|AUTOMATIC|Telepathy ~ Tactician|!PREABILITY:1,CATEGORY=Archetype,TYPE.TacticianTelepathy
+4	ABILITY:Special Ability|AUTOMATIC|Strategy ~ Tactician|!PREABILITY:1,CATEGORY=Archetype,TYPE.TacticianStrategy
+5	ABILITY:Special Ability|AUTOMATIC|Improved Share ~ Tactician|!PREABILITY:1,CATEGORY=Archetype,TYPE.TacticianImprovedShare
+6	ABILITY:Special Ability|AUTOMATIC|Coordinate ~ Tactician|!PREABILITY:1,CATEGORY=Archetype,TYPE.TacticianCoordinate
+6	ABILITY:Special Ability|AUTOMATIC|Teamwork Feats ~ Tactician|!PREABILITY:1,CATEGORY=Archetype,TYPE.TacticianTeamworkFeats
+8	ABILITY:Special Ability|AUTOMATIC|Echo Effect ~ Tactician|!PREABILITY:1,CATEGORY=Archetype,TYPE.TacticianEchoEffect
+14	ABILITY:Special Ability|AUTOMATIC|Pooled Knowledge ~ Tactician|!PREABILITY:1,CATEGORY=Archetype,TYPE.TacticianPooledKnowledge
+15	ABILITY:Internal|AUTOMATIC|Collective Range Unlimited ~ Tactician|!PREABILITY:1,CATEGORY=Archetype,TYPE.TacticianCollectiveRangeUnlimited
+19	ABILITY:Internal|AUTOMATIC|Collective Range Planar ~ Tactician|!PREABILITY:1,CATEGORY=Archetype,TYPE.TacticianCollectiveRangePlanar
+20	ABILITY:Special Ability|AUTOMATIC|Master Strategist ~ Tactician|!PREABILITY:1,CATEGORY=Archetype,TYPE.TacticianMasterStrategist
+
+
+###Block: Vitalist
+
+# Class Name	Hit Dice	Type				Max Level	Source Page		Combat bonus																	Save bonus																																		Modify VAR																																																																									FACT
+CLASS:Vitalist	HD:6		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.57	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:SpellType|PSIONIC
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Vitalist	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|TYPE=Craft|Diplomacy|Heal|Intimidate|Knowledge (History)|Knowledge (Local)|Knowledge (Psionics)|Linguistics|Perception|TYPE=Perform|TYPE=Profession|Sense Motive|Spellcraft|Survival
+# Class Name	Spell Stat		Spell Stat Bonus		Memorize	Caster level
+CLASS:Vitalist	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	MEMORIZE:NO	BONUS:CASTERLEVEL|Vitalist|CL
+
+###Block: Vitalist Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistSimpleWeaponProficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistLightArmorProficiency
+
+###Block: Vitalist Psionic Ability
+1	BONUS:VAR|VitalistML|CL	BONUS:VAR|VitalistML|var("BL=Vitalist")	BONUS:VAR|IsPsionic|1																						DEFINE:VitalistML|0	DEFINE:IsPsionic|0	ABILITY:Special Ability|AUTOMATIC|Psionic
+1	BONUS:VAR|VitalistPL|VitalistML																															DEFINE:VitalistPL|0
+1	BONUS:VAR|BasePowerPoints|2	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:VitalistPL,2	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:VitalistPL,3	BONUS:VAR|BasePowerPoints|6|PREVARGTEQ:VitalistPL,4
+1	BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:VitalistPL,5	BONUS:VAR|BasePowerPoints|10|PREVARGTEQ:VitalistPL,6	BONUS:VAR|BasePowerPoints|11|PREVARGTEQ:VitalistPL,7	BONUS:VAR|BasePowerPoints|12|PREVARGTEQ:VitalistPL,8
+1	BONUS:VAR|BasePowerPoints|14|PREVARGTEQ:VitalistPL,9	BONUS:VAR|BasePowerPoints|16|PREVARGTEQ:VitalistPL,10	BONUS:VAR|BasePowerPoints|18|PREVARGTEQ:VitalistPL,11	BONUS:VAR|BasePowerPoints|20|PREVARGTEQ:VitalistPL,12
+1	BONUS:VAR|BasePowerPoints|21|PREVARGTEQ:VitalistPL,13	BONUS:VAR|BasePowerPoints|23|PREVARGTEQ:VitalistPL,14	BONUS:VAR|BasePowerPoints|25|PREVARGTEQ:VitalistPL,15	BONUS:VAR|BasePowerPoints|26|PREVARGTEQ:VitalistPL,16
+1	BONUS:VAR|BasePowerPoints|29|PREVARGTEQ:VitalistPL,17	BONUS:VAR|BasePowerPoints|30|PREVARGTEQ:VitalistPL,18	BONUS:VAR|BasePowerPoints|31|PREVARGTEQ:VitalistPL,19	BONUS:VAR|BasePowerPoints|32|PREVARGTEQ:VitalistPL,20
+1	BONUS:VAR|BonusPowerPoints|(WIS*VitalistPL)/2|TYPE=VitalistBonusPP
+
+###Block: Vitalist Powers Known
+1	KNOWN:0,VitalistPowersKnown				BONUS:VAR|VitalistPowersKnown|2										DEFINE:VitalistPowersKnown|0
+2	KNOWN:0,VitalistPowersKnown
+3	KNOWN:0,0,VitalistPowersKnown				BONUS:VAR|VitalistPowersKnown|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistPower3
+4	KNOWN:0,0,VitalistPowersKnown
+5	KNOWN:0,0,0,VitalistPowersKnown			BONUS:VAR|VitalistPowersKnown|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistPower5
+6	KNOWN:0,0,0,VitalistPowersKnown
+7	KNOWN:0,0,0,0,VitalistPowersKnown			BONUS:VAR|VitalistPowersKnown|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistPower7
+8	KNOWN:0,0,0,0,VitalistPowersKnown
+9	KNOWN:0,0,0,0,0,VitalistPowersKnown			BONUS:VAR|VitalistPowersKnown|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistPower9
+10	KNOWN:0,0,0,0,0,VitalistPowersKnown
+11	KNOWN:0,0,0,0,0,0,VitalistPowersKnown		BONUS:VAR|VitalistPowersKnown|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistPower11
+12	KNOWN:0,0,0,0,0,0,VitalistPowersKnown
+13	KNOWN:0,0,0,0,0,0,0,VitalistPowersKnown		BONUS:VAR|VitalistPowersKnown|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistPower13
+14	KNOWN:0,0,0,0,0,0,0,VitalistPowersKnown
+15	KNOWN:0,0,0,0,0,0,0,0,VitalistPowersKnown		BONUS:VAR|VitalistPowersKnown|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistPower15
+16	KNOWN:0,0,0,0,0,0,0,0,VitalistPowersKnown
+17	KNOWN:0,0,0,0,0,0,0,0,0,VitalistPowersKnown	BONUS:VAR|VitalistPowersKnown|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistPower17
+18	KNOWN:0,0,0,0,0,0,0,0,0,VitalistPowersKnown
+19	KNOWN:0,0,0,0,0,0,0,0,0,VitalistPowersKnown	BONUS:VAR|VitalistPowersKnown|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistPower19
+20	KNOWN:0,0,0,0,0,0,0,0,0,VitalistPowersKnown
+
+###Block: Vitalist Class Abilities
+1	BONUS:ABILITYPOOL|Vitalist Method|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistMethod																			BONUS:VAR|MethodLVL|CL												DEFINE:MethodLVL|0
+1																																		BONUS:VAR|CollectiveLVL|CL											DEFINE:CollectiveLVL|0		ABILITY:Special Ability|AUTOMATIC|Collective|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistCollective
+1																		BONUS:SPELLKNOWN|CLASS=Vitalist;LEVEL=0|2|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistKnacks
+1																																																						ABILITY:Special Ability|AUTOMATIC|Collective Healing|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistCollectiveHealing
+1																																																						ABILITY:Special Ability|AUTOMATIC|Medic Powers|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistMedicPowers
+1																																		BONUS:VAR|TransferWoundsDice|(TransferWoundsLVL+2)/3	BONUS:VAR|TransferWoundsLVL|CL	DEFINE:TransferWoundsLVL|0	ABILITY:Special Ability|AUTOMATIC|Transfer Wounds|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistTransferWounds
+2																																		BONUS:VAR|HealthSenseLVL|CL																ABILITY:Special Ability|AUTOMATIC|Health Sense|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistHealthSense
+2																																																						ABILITY:Special Ability|AUTOMATIC|Spirit of Many|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistSpiritOfMany
+3																																		BONUS:VAR|StealHealthLVL|CL																ABILITY:Special Ability|AUTOMATIC|Steal Health|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistStealHealth
+3																																																						ABILITY:Special Ability|AUTOMATIC|Telepathy ~ Vitalist|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistTelepathy
+5																																																						ABILITY:Special Ability|AUTOMATIC|Request Aid|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistRequestAid
+9	BONUS:ABILITYPOOL|Vitalist Feat|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistExpandedKnowledge9
+14																																		BONUS:VAR|StealLifeLVL|CL																ABILITY:Special Ability|AUTOMATIC|Steal Life|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistStealLife
+18	BONUS:ABILITYPOOL|Vitalist Feat|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistExpandedKnowledge18
+
+
+###Block: Gifted Blade pseudo-class
+
+# Class Name		Type			Visible	FACT
+CLASS:Gifted Blade	TYPE:Psionic	VISIBLE:NO	FACT:SpellType|Psionic
+# Class Name		Spell Stat		Memorize	Caster level
+CLASS:Gifted Blade	SPELLSTAT:WIS	MEMORIZE:NO	BONUS:CASTERLEVEL|Gifted Blade|CL
+
+###Block: Gifted Blade Powers Known
+1	KNOWN:0,1
+2	KNOWN:0,1
+3	KNOWN:0,2
+4	KNOWN:0,2
+5	KNOWN:0,2,1
+6	KNOWN:0,2,1
+7	KNOWN:0,2,2
+8	KNOWN:0,2,2
+9	KNOWN:0,2,2,1
+10	KNOWN:0,2,2,1
+11	KNOWN:0,2,2,1
+12	KNOWN:0,2,2,2
+13	KNOWN:0,2,2,2,0
+14	KNOWN:0,2,2,2,0
+15	KNOWN:0,2,2,2,1
+16	KNOWN:0,2,2,2,1
+17	KNOWN:0,2,2,2,1
+18	KNOWN:0,2,2,2,1
+
+#
+# End
+#

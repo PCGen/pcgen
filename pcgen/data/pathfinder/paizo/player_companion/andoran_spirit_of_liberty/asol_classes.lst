@@ -1,0 +1,23 @@
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+#
+SOURCELONG:Andoran, Spirit of Liberty	SOURCESHORT:ASoL	SOURCEWEB:http://paizo.com/products/btpy8bc3?Pathfinder-Companion-Andoran-Spirit-of-Liberty	SOURCEDATE:2009-11
+# Original Entry by: Ben Mullen
+
+###Block: Steel Falcon
+
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus																Save bonus																																				Modify VAR																																																												FACT
+CLASS:Steel Falcon	HD:10		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.22	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:Abb|SF
+# Class Name		Required Ability					Required AL		Required Skill												PRETOTALAB
+CLASS:Steel Falcon	PREABILITY:1,CATEGORY=FEAT,Iron Will	PREALIGN:LG,NG,CG	PRESKILL:4,Diplomacy=5,Knowledge (History)=2,Knowledge (Local)=2,Sense Motive=5	PRETOTALAB:2
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Steel Falcon	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Intimidate|Knowledge (History)|Knowledge (Local)|Knowledge (Nobility)|Linguistics|Perception|Sense Motive|Stealth|Survival|Swim
+###Block: Normal Level Progression
+1	BONUS:VAR|EnemyOfSlaversSteelFalconBonus|2	ABILITY:Special Ability|AUTOMATIC|Steel Falcon ~ Enemy of Slavers|Steel Falcon ~ Heart of Freedom|Steel Falcon ~ Sailor and Survivalist
+2									ABILITY:Special Ability|AUTOMATIC|Steel Falcon ~ Heroic Speech|Steel Falcon ~ Luck of the Eagle|Steel Falcon ~ Superior Aid
+3									ABILITY:Special Ability|AUTOMATIC|Steel Falcon ~ Natural Traps|Steel Falcon ~ Subtle Manipulator
+4									ABILITY:Special Ability|AUTOMATIC|Steel Falcon ~ Chainbreaker|Steel Falcon ~ Comrade's Bond
+5	BONUS:VAR|EnemyOfSlaversSteelFalconBonus|2	ABILITY:Special Ability|AUTOMATIC|Steel Falcon ~ Talmandor's Blessing|Steel Falcon ~ Talmandor's Fury
+
+#
+# End
+#

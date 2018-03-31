@@ -1,0 +1,10 @@
+# CVS $Revision: 21741 $ $Author: zaister $ -- Wed Dec 10 01:48:21 2014 -- reformated by prettylst.pl v1.51 (build 25712)
+SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
+#Original Entry By: Andrew Maitland
+
+# Spell Name			Type			!PRECHARACTERTYPE
+Heroic Fortune.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Heroic Fortune (Mass).MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Malediction.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Severed Fate.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Unravel Destiny.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC

@@ -1,0 +1,53 @@
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+CAMPAIGN:Core Rulebook (PFS)
+KEY:PFS ~ Core Rulebook
+#GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing PFS.Pathfinder RPG
+RANK:0
+STATUS:RELEASE
+GENRE:Fantasy
+BOOKTYPE:Core Rules
+SETTING:Pathfinder
+!PRECAMPAIGN:1,BOOKTYPE=Core Rules,[PFS ~ Core Rulebook]
+PRECAMPAIGN:1,Pathfinder Society Core Assumption
+
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Core Rulebook
+SOURCESHORT:CR
+SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj
+SOURCEDATE:2009-08
+ISOGL:YES
+
+# Errata: December 4, 2012 "Monkeying Around" Article - http://paizo.com/paizo/blog/v5748dyo5le61?Monkeying-Around (Andrew Maitland)
+
+#COVER:/pathfinder/paizo/roleplaying_game/core_rulebook/core_rulebook.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj|Buy this publication from Paizo Publishing!
+DESC:The Pathfinder Roleplaying Game puts you in the role of a brave adventurer fighting to survive in a world beset by magic and evil. Will you cut your way through monster-filled ruins and cities rife with political intrigue to emerge as a famous hero laden with fabulous treasure, or will you fall victim to treacherous traps and fiendish monsters in a forgotten dungeon? Your fate is yours to decide with this giant Core Rulebook that provides everything a player needs to set out on a life of adventure and excitement!
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder RPG Core Rulebook. Copyright 2009, Paizo Inc.; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:The Book of Experimental Might. Copyright 2008, Monte J. Cook. All rights reserved.
+COPYRIGHT:Tome of Horrors. Copyright 2002, Necromancer Games, Inc.; Authors: Scott Greene, with Clark Peterson, Erica Balsley, Kevin Baase, Casey Christofferson, Lance Hawvermale, Travis Hawvermale, Patrick Lawinger, and Bill Webb; Based on original content from TSR.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Core Rulebook" Copyright 2009-2010, PCGen Data team (Including, but not limited to Stefan Radermacher, Eddy Anthony (MoSaT), Eric Smith (Mardudd), Andrew Maitland (LegacyKing)).
+
+#Do Not Remove Comment
+#EXTRAFILE:OGL.txt
+
+# The modification of the core rulebook related rules are specified in the Guide to Pathfinder Society Organized Play 6.0, but they are implemented here.
+
+# Data Files
+ABILITY:pfs_cr_abilities.lst|PRECAMPAIGN:1,INCLUDES=Core Rulebook
+CLASS:pfs_cr_classes.lst|PRECAMPAIGN:1,INCLUDES=Core Rulebook
+ABILITY:pfs_cr_feats.lst|PRECAMPAIGN:1,INCLUDES=Core Rulebook
+SPELL:pfs_cr_spells.lst|PRECAMPAIGN:1,INCLUDES=Core Rulebook
+
+#
+# End
+#

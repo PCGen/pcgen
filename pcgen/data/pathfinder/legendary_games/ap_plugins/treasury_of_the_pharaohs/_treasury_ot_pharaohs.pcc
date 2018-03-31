@@ -1,0 +1,48 @@
+CAMPAIGN:Treasury of the Pharaohs
+KEY:Legendary - Treasury of the Pharaohs
+GAMEMODE:Pathfinder
+RANK:5
+GENRE:Fantasy
+BOOKTYPE:Supplement
+STATUS:BETA
+SETTING:Pathfinder
+TYPE:Legendary Games.Adventure Path Add-ons.Egyptian
+PRECAMPAIGN:6,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Ultimate Combat,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Equipment,INCLUDES=Ultimate Magic,INCLUDES=Melee Tactics Toolbox
+PUBNAMELONG:Legendary Games
+PUBNAMESHORT:Legendary
+PUBNAMEWEB:http://www.makeyourgamelegendary.com/
+SOURCELONG:Treasury of the Pharaohs
+SOURCESHORT:TotP
+SOURCEWEB:http://www.makeyourgamelegendary.com/
+SOURCEDATE:2015-04
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder RPG Core Rulebook. Copyright 2009, Paizo Inc.; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:Advanced Player's Guide. Copyright 2010, Paizo Inc.; Author: Jason Bulmahn.
+COPYRIGHT:Pathfinder RPG Ultimate Equipment Copyright 2012, Paizo Inc.; Authors: Dennis Baker, Jesse Benner, Benjamin Bruck, Ross Byers, Brian J. Cortijo, Ryan Costello, Mike Ferguson, Matt Goetz, Jim Groves, Tracy Hurley, Matt James, Jonathan H. Keith, Michael Kenway, Hal MacLean, Jason Nelson, Tork Shaw, Owen KC Stephens, and Russ Taylor.
+COPYRIGHT:Pathfinder Roleplaying Game Ultimate Magic. Copyright 2011, Paizo Inc.; Authors: Jason Bulmahn, Tim Hitchcock, Colin McComb, Rob McCreary, Jason Nelson, Stephen Radney-MacFarland, Sean K Reynolds, Owen K.C. Stephens, and Russ Taylor.
+COPYRIGHT:Pathfinder Roleplaying Game Ultimate Combat. Copyright 2011, Paizo Inc.; Authors: Jason Bulmahn, Tim Hitchcock, Colin McComb, Rob McCreary, Jason Nelson, Stephen Radney-MacFarland, Sean K Reynolds, Owen K.C. Stephens, and Russ Taylor.
+COPYRIGHT:Treasury of the Pharaohs, Copyright 2015 by Legendary Games
+COPYRIGHT:PCGen dataset conversion for "Treasury of the Pharaohs", Copyright 2017, PCGen Data Team (including, but not limited to, Sam Zimmerman)
+LOGO:@/publisher_logos/Legendary_Games.png
+COVER:_totp.jpg
+
+INFOTEXT:Intended for use with the 14th Pathfinder Adventure Path (Issues 79 to 84).
+
+ABILITY:totp_abilities.lst
+EQUIPMENT:totp_equip_arms_armor.lst
+EQUIPMENT:totp_equip_general.lst
+EQUIPMENT:totp_equip_magic_items.lst
+
+# ENTRY DATE: 2017-04
+# LST MONKEY: Sam Zimmerman
+# LICENSE MONKEY: Paul Grosse
+# RELEASE REVIEW #
+# BETA: Andrew Maitland
+# RELEASE:
+# Built for PCGen Version: 6.07.02
+# Updated to work with version: -
+# MINVER:6.7
+# MINDEVVER:6.07.02
+# COMMENTS:

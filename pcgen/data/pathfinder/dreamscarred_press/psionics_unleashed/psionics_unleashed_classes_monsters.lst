@@ -1,0 +1,28 @@
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Psionics Unleashed	SOURCESHORT:PsU	SOURCEWEB:http://dreamscarredpress.com/dragonfly/Store/product/pid=69.html	SOURCEDATE:2010-12
+#Original Entry: Douglas Limmer
+#SRD Original Entry: Eddy Anthony
+
+# Class Name				Output Name				Hit Dice	Type			Max Level		Source Page		Ability															Combat bonus																Save bonus																																		Modify VAR																																																												FACT
+CLASS:Unbodied Monstrous Humanoid	OUTPUTNAME:Monstrous Humanoid	HD:10		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.225	ABILITY:Special Ability|AUTOMATIC|Monstrous Humanoid Traits	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:SpellType|Psionic
+# Class Name				Required Race		Reg. Race Type
+CLASS:Unbodied Monstrous Humanoid	PRERACE:1,Unbodied	PRERACETYPE:Monstrous Humanoid
+# Class Name				Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
+CLASS:Unbodied Monstrous Humanoid	STARTSKILLPTS:4	MODTOSKILLS:YES			CSKILL:Climb|TYPE=Craft|Fly|Intimidate|Perception|Ride|Stealth|Survival|Swim
+# Class Name				Spell Stat		Memorize	Caster level							Use Spell List
+CLASS:Unbodied Monstrous Humanoid	SPELLSTAT:INT	MEMORIZE:NO	BONUS:CASTERLEVEL|Unbodied Monstrous Humanoid|CL	SPELLLIST:2|Psion|Telepath
+1			ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
+4	KNOWN:0,5,4
+###Block: Psionic Power Points
+1	BONUS:VAR|PsionML|CL	BONUS:VAR|IsPsionic|1																									DEFINE:PsionML|0	DEFINE:IsPsionic|0	ABILITY:Special Ability|AUTOMATIC|Psionic
+1	BONUS:VAR|PsionPL|PsionML																												DEFINE:PsionPL|0
+1	BONUS:VAR|BasePowerPoints|2	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:PsionPL,2	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:PsionPL,3	BONUS:VAR|BasePowerPoints|6|PREVARGTEQ:PsionPL,4
+1	BONUS:VAR|BonusPowerPoints|(INT*PsionPL)/2|TYPE=PsionBonusPP
+
+# Class Name		Hit Dice	Type			Max Level		Source Page		Ability											Combat bonus																	Save bonus																																		Modify VAR
+CLASS:Plant (Immobile)	HD:8		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.309	ABILITY:Special Ability|AUTOMATIC|Plant Traits|PREVAREQ:NoTypeTraits,0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
+# Class Name		Reg. Race Type
+CLASS:Plant (Immobile)	PRERACETYPE:Plant
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
+CLASS:Plant (Immobile)	STARTSKILLPTS:2	MODTOSKILLS:YES			CSKILL:Perception|Stealth
+# This removes CMB and CMD, I hope.

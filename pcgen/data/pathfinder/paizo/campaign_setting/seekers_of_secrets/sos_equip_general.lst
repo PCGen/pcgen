@@ -1,0 +1,15 @@
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:Seekers of Secrets - A Guide to the Pathfinder Society	SOURCESHORT:SOS	SOURCEWEB:http://paizo.com/products/btpy8az2?Pathfinder-Chronicles-Seekers-of-Secrets-A-Guide-to-the-Pathfinder-Society	SOURCEDATE:2009-10
+# Original Entry by: Terry Milnes
+
+###Block: Adventuring Gear
+# Equipment Name		Output Name				Type							Contains			Cost		Weight	Source Page
+Adventurer's Sash		OUTPUTNAME:Sash, Adventurer's	TYPE:Goods.General.Container.Resizable	CONTAINS:UNLIM|ANY	COST:20	WT:3		SOURCEPAGE:p.42
+Charcoal (1 stick)						TYPE:Goods.General								COST:0.5			SOURCEPAGE:p.42
+Pantograph								TYPE:Goods.General								COST:50	WT:2		SOURCEPAGE:p.42
+
+###Block: Special Substances and Items
+# Equipment Name	Type						Cost		Weight	Source Page		Bonus to skill						Quality and value		Special Property
+Beast-Scent		TYPE:Goods.Alchemical.Consumable	COST:75	WT:0.5	SOURCEPAGE:p.42	BONUS:SKILL|Handle Animal|2|TYPE=Circumstance	QUALITY:Craft DC|25	SPROP:-5 penalty to track wearer by original scent
+Ghost Ink		TYPE:Goods.Alchemical.Consumable	COST:25			SOURCEPAGE:p.43									QUALITY:Craft DC|20	SPROP:DC 25 Perception check to notice writing
+Troll Styptic	TYPE:Goods.Alchemical.Consumable	COST:100			SOURCEPAGE:p.43									QUALITY:Craft DC|25	SPROP:Fast healing 2 for 2d4 rounds and DC 15 Fortitude save to avoid being sickened for the duration of the fast healing

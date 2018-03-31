@@ -1,0 +1,107 @@
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+CAMPAIGN:Advanced Race Guide
+GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing.Pathfinder RPG
+RANK:1
+STATUS:BETA
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder
+PRECAMPAIGN:2,INCLUDES=Ultimate Magic,INCLUDES=Ultimate Combat
+!PRECAMPAIGN:1,Pathfinder RPG Core Supplements
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Advanced Race Guide
+SOURCESHORT:ARG
+SOURCEWEB:http://paizo.com/products/btpy8rv2?Pathfinder-Roleplaying-Game-Advanced-Race-Guide
+SOURCEDATE:2012-06
+ISOGL:YES
+
+COVER:advanced_race_guide.jpeg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy8rv2?Pathfinder-Roleplaying-Game-Advanced-Race-Guide|Buy this publication from Paizo Publishing!
+DESC:Get the most out of your heritage with the Pathfinder RPG Advanced Race Guide! Embrace your inner monster by playing one of 30 iconic races from mythology and gaming history, or build an entirely new race of your own. If classic races are more your style, go beyond the stereotypes for elves, dwarves, and the other core races with new options and equipment to help you stand out from the crowd.
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, and Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder Roleplaying Game Bestiary Copyright 2009, Paizo Inc.; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:Pathfinder Roleplaying Game Bestiary 2 Copyright 2010, Paizo Inc.; Authors: Wolfgang Baur, Jason Bulmahn, Adam Daigle, Graeme Davis, Crystal Frasier, Joshua J. Frost, Tim Hitchcock, Brandon Hodge, James Jacobs, Steve Kenson, Hal MacLean, Martin Mason, Rob McCreary, Erik Mona, Jason Nelson, Patrick Renie, Sean K Reynolds, F. Wesley Schneider, Owen K.C. Stephens, James L. Sutter, Russ Taylor, and Greg A. Vaughan, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:Pathfinder Roleplaying Game Bestiary 3 Copyright 2011, Paizo Inc.; Authors: Jesse Benner, Jason Bulmahn, Adam Daigle, James Jacobs, Michael Kenway, Rob McCreary, Patrick Renie, Chris Sims, F. Wesley Schneider, James L. Sutter, and Russ Taylor, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:Pathfinder Roleplaying Game Core Rulebook Copyright 2009, Paizo Inc.; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:Baphomet from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Genie, Marid from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Grippli from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Nereid from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Pathfinder Roleplaying Game Advanced Race Guide Copyright 2012, Paizo Inc.; Authors: Dennis Baker, Jesse Benner, Benjamin Bruck, Jason Bulmahn, Adam Daigle, Jim Groves, Tim Hitchcock, Hal MacLean, Jason Nelson, Stephen Radney-MacFarland, Owen K.C. Stephens, Todd Stewart, and Russ Taylor.
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# support
+ABILITY:support/arg_abilities_class_um.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
+ABILITY:support/arg_abilities_class_acg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
+
+FORWARDREF:SPELL|Age Resistance (Lesser),Memory Lapse,Hydraulic Push
+
+ABILITY:arg_abilities_builder.lst
+ABILITY:arg_abilities_class.lst
+ABILITY:arg_abilities_race.lst
+ABILITYCATEGORY:arg_abilitycategories.lst
+BIOSET:arg_biosettings.lst
+EQUIPMENT:arg_equip_arms_armor.lst
+EQUIPMENT:arg_equip_general.lst
+EQUIPMENT:arg_equip_magic_items.lst
+EQUIPMOD:arg_equipmods.lst
+ABILITY:arg_feats.lst
+RACE:arg_races.lst
+SPELL:arg_spells.lst
+TEMPLATE:arg_templates.lst
+LANGUAGE:arg_languages.lst
+
+WEAPONPROF:arg_profs_weapon.lst
+
+# Base B1 races (if B1 not loaded)
+ABILITY:@/pathfinder/paizo/roleplaying_game/bestiary/b1_abilities_race_arg.lst|!PRECAMPAIGN:1,Bestiary
+ABILITYCATEGORY:@/pathfinder/paizo/roleplaying_game/bestiary/b1_abilitycategories_arg.lst|!PRECAMPAIGN:1,Bestiary
+RACE:@/pathfinder/paizo/roleplaying_game/bestiary/b1_races_arg.lst|!PRECAMPAIGN:1,Bestiary
+TEMPLATE:@/pathfinder/paizo/roleplaying_game/bestiary/b1_templates.lst|(INCLUDE:Default Language ~ Tengu)|!PRECAMPAIGN:1,Bestiary
+
+FORWARDREF:RACE|Companion (Dinosaur (Pteranodon)),Companion (Dinosaur (Stegosaurus)),Companion (Rhinoceros)
+
+# Base B2 races (if B2 not loaded)
+ABILITY:@/pathfinder/paizo/roleplaying_game/bestiary_2/b2_abilities_race_arg.lst|!PRECAMPAIGN:1,Bestiary 2
+ABILITYCATEGORY:@/pathfinder/paizo/roleplaying_game/bestiary_2/b2_abilitycategories_arg.lst|!PRECAMPAIGN:1,Bestiary 2
+RACE:@/pathfinder/paizo/roleplaying_game/bestiary_2/b2_races_arg.lst|!PRECAMPAIGN:1,Bestiary 2
+
+# Base B3 races (if B3 not loaded)
+ABILITY:@/pathfinder/paizo/roleplaying_game/bestiary_3/b3_abilities_race_arg.lst|!PRECAMPAIGN:1,Bestiary 3
+ABILITYCATEGORY:@/pathfinder/paizo/roleplaying_game/bestiary_3/b3_abilitycategories_arg.lst|!PRECAMPAIGN:1,Bestiary 3
+RACE:@/pathfinder/paizo/roleplaying_game/bestiary_3/b3_races_arg.lst|!PRECAMPAIGN:1,Bestiary 3
+
+# MOVE TO CORE_ESSENTIALS
+ABILITY:arg_abilities_companion.lst
+CLASS:arg_classes_companion.lst
+COMPANIONMOD:arg_companionmods.lst
+KIT:arg_kits_companion.lst
+RACE:arg_races_companion.lst
+
+FORWARDREF:WEAPONPROF|Buckler Gun,Pepperbox,Pistol,Pistol (Coat),Pistol (Dagger),Pistol (Double-Barreled),Pistol (Dragon),Pistol (Sword Cane),Blunderbuss,Culverin,Double Hackbut,Fire Lance,Musket,Musket (Axe),Musket (Double-Barreled),Musket (Warhammer),Revolver,Rifle,Shotgun,Butterfly Sword,Iron Brush,Jutte,Kerambit,Lungchuan Tamo,Shang Gou,Tonfa,Wushu Dart,Broadsword (Nine Ring),Double Chicken Saber,Sibat,Hooked Lance,Monk's Spade,Naginata,Nodachi,Sansetsukon,Sword (Tri-Point Double-Edged),Tiger Fork,Tube Arrow Shooter,Poisoned Sand Tube,Dan Bong,Emei Piercer,Fighting Fan,Tekko-Kagi (Iron Claw),Wakizashi,Katana,Nine-Section Whip,Urumi,Bo Staff,Kama (Double-Chained),Katana (Double Walking Stick),Kusarigama (Sickle and Chain),Kyoketsu Shoge,Meteor Hammer,Sword (Seven-Branched),Tetsubo,Rope Dart
+FORWARDREF:WEAPONPROF|Bomb,Sword Cane,Bardiche,Bec de Corbin,Bill,Glaive-Guisarme,Lucerne Hammer,Chakram,Pilum,Dagger (Swordbreaker),Falcata,Khopesh,Sword (Temple),Spear (Chain),Mancatcher,Boomerang,Crossbow (Double),Lasso
+
+# ENTRY DATE: 
+# LST MONKEY:  
+# LICENSE MONKEY:  
+# RELEASE REVIEW #
+# BETA: 
+# RELEASE:
+# Built for PCGen Version:  
+# Updated to work with version: -
+# MINVER:
+# MINDEVVER: 
+# COMMENTS: Errata applied (Update 1.0 � Release Date: 7/28/15)
+

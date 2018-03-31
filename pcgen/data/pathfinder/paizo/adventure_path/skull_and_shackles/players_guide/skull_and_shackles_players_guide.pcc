@@ -1,0 +1,41 @@
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+CAMPAIGN:Skull and Shackles Player's Guide
+GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing.Pathfinder Adventure Path.Skull & Shackles
+RANK:3
+STATUS:BETA
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder|Golarion
+PRECAMPAIGN:3,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Advanced Player's Guide,Inner Sea World Guide
+PUBNAMELONG:Paizo Publishing
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Skull & Shackles Player's Guide
+SOURCESHORT:SASPG
+SOURCEWEB:http://paizo.com/products/btpy8rwc?Pathfinder-Adventure-Path-Skull-Shackles-Players-Guide
+SOURCEDATE:2012-07
+ISOGL:YES
+
+COVER:skull_and_shackles_players_guide.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy8rwc?Pathfinder-Adventure-Path-Skull-Shackles-Players-Guide|Get this publication from Paizo Publishing!
+DESC:The Skull & Shackles Player's Guide gives players all the spoiler-free information, inspiration, and new rules they'll need to create characters prepared for the swashbuckling adventure and piratical perils of the Skull & Shackles Adventure Path.  Within, players of this campaign will find everything they need to create character backgrounds tied to personalities and events vital to Adventure Path's expedition onto the high seas, along with new campaign-specific traits to give bold adventurers the edge they'll need to take on the varied and unpredictable dangers of the pirate isles known as the Shackles. New rules for ship-to-ship combat also give players the resources they'll need to sail pirate vessels, board enemy ships, and claim plunder as true scallywags.  Adventurers don't need to take to the seas unprepared! Gather your allies, practice your best pirate voice, and let the Skull & Shackles Player's Guide set your course for the swashbuckling adventure of the Skull & Shackles Adventure Path.
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc; Authors: Jonathan Tweet,  Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Dead Man's Chest Copyright 2005 Necromancer Games, Inc.; Authors: Lance Hawvermale, Rob  Mason, Robert Hunter, Patrick Goulah, Greg Ragland, Matt McGee, Chris Bernhardt, Casey W.  Christofferson, Chad Coulter, Skeeter Green, and Travis Hawvermale, with additional contributions  by Erica Balsley, Lindsey Barrentine, Jay Decker, Rachel Mason, and Nadine Oatmeyer.
+COPYRIGHT:Skull & Shackles Player's Guide Copyright 2012, Paizo Inc.; Author: Rob McCreary.
+COPYRIGHT:PCGen dataset conversion for "Adventure Path: Skull & Shackles Player's Guide" Copyright 2012-2013, PCGen Data Team (including, but not limited to Richard Woodard and Stefan Radermacher)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# PFS Rules
+#
+
+ABILITY:saspg_abilities.lst
+KIT:saspg_kits.lst
+LANGUAGE:saspg_languages.lst

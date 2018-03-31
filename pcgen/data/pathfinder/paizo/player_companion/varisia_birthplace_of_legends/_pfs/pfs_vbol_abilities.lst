@@ -1,0 +1,27 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Varisia, Birthplace of Legends	SOURCESHORT:VBoL	SOURCEWEB:http://paizo.com/products/btpy8tim?Pathfinder-Player-Companion-Varisia-Birthplace-of-Legends	SOURCEDATE:2012-9
+# Original Entry by: John Mooney (SLoPPYALieN)
+
+# Traits: Coincunning, cypher resistance, emissary, empyreal cultist, harrow chosen, humble beginnings, local know-it-all, regional influence (except Magnimar), regional recluse,
+# roof racer, savage breaker, Shoanti steed, Shoanti tattoo, town gossip, underbridge dweller, Varisian tattoo, and winner's luck are legal for play.
+
+# Ability Name										Type			!PRECHARACTERTYPE
+CATEGORY=Special Ability|Trait ~ Sandpoint Faithful.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Thrill Seeker.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Regional Influence ~ Magnimar.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Dockside Avenger.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Varisian Immunity.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Daring Doomsayer.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Fixer of Odds.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Portentous Perception.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Best Customer.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Foreign-Tongued.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Alabaster Outcast.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Ex-Sczarni.MOD					TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Exchange Agent.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Monument Scholar.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Nontraditional Native.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Ruin Raider.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Serpent Runner.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+
+# Roles: Duskwarden, Frontier Defender, Magnimarian Warden, Professional Gambler, Sable Company Marine, Sczarni Tough, Shingles Dweller, Shoanti Outrider, Shoanti Totem Shaman, Sky Magistrate, Varisian Bravo, and Welcome Wanderer are legal for play.;

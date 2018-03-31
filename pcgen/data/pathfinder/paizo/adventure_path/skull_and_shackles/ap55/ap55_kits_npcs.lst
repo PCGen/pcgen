@@ -1,0 +1,190 @@
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+SOURCELONG:Skull and Shackles, Chapter 1 - The Wormwood Mutiny	SOURCESHORT:AP55	SOURCEWEB:http://paizo.com/products/btpy8rcc?Pathfinder-Adventure-Path-55-The-Wormwood-Mutiny	SOURCEDATE:2012-04
+# ORIGINAL ENTRY: James Dempsey
+# ORIGINAL ENTRY DATE: 2014-06
+
+###Block: NPCs --------------------------------------
+
+STARTPACK:AP55-Ambrose 'Fishguts' Kroop	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.52	NAMEISPI:YES
+RACE:Human	!PRERACE:1,%
+NAME:Ambrose 'Fishguts' Kroop
+AGE:49
+GENDER:Male
+STAT:STR=14|DEX=13|CON=12|INT=13|WIS=8|CHA=12
+CLASS:Rogue	LEVEL:3
+SKILL:Appraise			RANK:1.0
+SKILL:Bluff				RANK:3.0
+SKILL:Climb				RANK:1.0
+SKILL:Diplomacy			RANK:3.0
+SKILL:Disable Device		RANK:1.0
+SKILL:Intimidate			RANK:3.0
+SKILL:Knowledge (Local)		RANK:3.0
+SKILL:Perception			RANK:1.0
+SKILL:Perform (Oratory)		RANK:3.0
+SKILL:Profession (Cook)		RANK:3.0
+SKILL:Profession (Sailor)	RANK:3.0
+SKILL:Sense Motive		RANK:3.0
+SKILL:Sleight of Hand		RANK:3.0
+SKILL:Stealth			RANK:1.0
+SKILL:Swim				RANK:1.0
+ABILITY:CATEGORY=FEAT|Catch Off-Guard
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Skill Focus (Profession (Cook))
+ABILITY:CATEGORY=Rogue Talent|Rogue Talent ~ Resiliency
+ABILITY:CATEGORY=Ability Bonus|+2 Dexterity
+ABILITY:CATEGORY=Favored Class|Rogue
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+GEAR:Dagger			QTY:3	LOCATION:Carried
+GEAR:Dagger				LOCATION:Equipped
+GEAR:Padded				LOCATION:Equipped
+GEAR:Steadfast Grapple		LOCATION:Carried
+GEAR:Frying Pan			LOCATION:Carried
+
+STARTPACK:AP55-Mister Plugg	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.54	NAMEISPI:YES
+RACE:Human	!PRERACE:1,%
+NAME:Mister Plugg
+AGE:21
+GENDER:Male
+ALIGN:NE
+STAT:STR=14|DEX=14|CON=14|INT=13|WIS=8|CHA=10
+CLASS:Fighter	LEVEL:5
+SKILL:Climb				RANK:2.0
+SKILL:Intimidate			RANK:5.0
+SKILL:Perception			RANK:3.0
+SKILL:Profession (Sailor)	RANK:5.0
+SKILL:Sense Motive		RANK:3.0
+SKILL:Swim				RANK:2.0
+ABILITY:CATEGORY=Feat|Combat Expertise
+ABILITY:CATEGORY=Feat|Improved Disarm
+ABILITY:CATEGORY=Feat|Intimidating Prowess
+ABILITY:CATEGORY=Feat|Iron Will
+ABILITY:CATEGORY=Fighter Bonus Feat|Two-Weapon Fighting
+ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Focus (Cutlass)
+ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Specialization (Cutlass)
+ABILITY:CATEGORY=Ability Bonus|+2 Dexterity
+ABILITY:CATEGORY=Favored Class|Fighter
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Weapon Training I|Weapon Training 1 Blades Heavy
+GEAR:Amulet of Natural Armor +1			LOCATION:Equipped
+GEAR:Bracers of Armor +1				LOCATION:Equipped
+GEAR:Tidewater Cutlass					LOCATION:Primary Hand
+GEAR:Masterwork Cat-O'-Nine-Tails			LOCATION:Secondary Hand
+GEAR:Bolt (Screaming)			QTY:3		LOCATION:Carried
+GEAR:Bolts (Crossbow/10)				LOCATION:Carried
+GEAR:Crossbow (Light)					LOCATION:Carried
+GEAR:Potion of Cure Moderate Wounds			LOCATION:Carried
+GEAR:Shackles of Compliance				LOCATION:Carried
+GEAR:Coin (Gold Piece)			QTY:200	LOCATION:Not Carried
+GEAR:Coin (Silver Piece)		QTY:100	LOCATION:Not Carried
+
+STARTPACK:AP55-Sandara Quinn	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.56	NAMEISPI:YES
+RACE:Human	!PRERACE:1,%
+NAME:Sandara Quinn
+GENDER:Female
+ALIGN:CN
+STAT:STR=13|DEX=12|CON=10|INT=10|WIS=13|CHA=14
+CLASS:Cleric	LEVEL:3
+DEITY:Besmara	DOMAIN:Trickery|Oceans Subdomain
+SKILL:Appraise			RANK:1.0
+SKILL:Bluff				RANK:1.0
+SKILL:Heal				RANK:1.0
+SKILL:Knowledge (Religion)	RANK:1.0
+SKILL:Profession (Sailor)	RANK:3.0
+SKILL:Stealth			RANK:1.0
+SKILL:Swim				RANK:1.0
+ABILITY:CATEGORY=Feat|Athletic
+ABILITY:CATEGORY=Feat|Combat Reflexes
+ABILITY:CATEGORY=Feat|Scribe Scroll
+ABILITY:CATEGORY=Ability Bonus|+2 Wisdom
+ABILITY:CATEGORY=Channel Energy|Cleric ~ Channel Positive Energy
+ABILITY:CATEGORY=Favored Class|Cleric
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+GEAR:Besmara's Tricorne					LOCATION:Equipped
+GEAR:Masterwork Rapier					LOCATION:Equipped
+GEAR:Bolts (Crossbow/10)		QTY:2		LOCATION:Carried
+GEAR:Crossbow (Heavy)					LOCATION:Carried
+GEAR:Dagger							LOCATION:Carried
+GEAR:Holy Symbol (Wooden)				LOCATION:Carried
+GEAR:Scroll (Cure Light Wounds)	QTY:2		LOCATION:Carried
+GEAR:Scroll (Cure Moderate Wounds)			LOCATION:Carried
+GEAR:Tindertwig				QTY:10	LOCATION:Carried
+GEAR:Coin (Gold Piece)			QTY:35	LOCATION:Not Carried
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Instant Armor
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Slipstream
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Summon Monster II
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Command
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Doom
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Inflict Light Wounds
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Obscuring Mist
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Bleed
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Create Water
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Purify Food and Drink
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Stabilize
+
+STARTPACK:AP55-Master Scourge	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.21	NAMEISPI:YES
+RACE:Human	!PRERACE:1,%
+NAME:Master Scourge
+GENDER:Male
+ALIGN:NE
+STAT:STR=14|DEX=14|CON=15|INT=10|WIS=12|CHA=8
+CLASS:Fighter	LEVEL:2
+CLASS:Rogue		LEVEL:2
+SKILL:Acrobatics			RANK:2.0
+SKILL:Bluff				RANK:4.0
+SKILL:Climb				RANK:4.0
+SKILL:Disable Device		RANK:1.0
+SKILL:Intimidate			RANK:3.0
+SKILL:Profession (Sailor)	RANK:4.0
+SKILL:Sense Motive		RANK:2.0
+SKILL:Sleight of Hand		RANK:2.0
+SKILL:Stealth			RANK:2.0
+ABILITY:CATEGORY=Fighter Bonus Feat|Exotic Weapon Proficiency (Whip)
+ABILITY:CATEGORY=Fighter Bonus Feat|Improved Initiative
+ABILITY:CATEGORY=Feat|Intimidating Prowess
+ABILITY:CATEGORY=Feat|Iron Will
+ABILITY:CATEGORY=Feat|Weapon Finesse
+ABILITY:CATEGORY=Rogue Talent|Rogue Talent ~ Bleeding Attack
+ABILITY:CATEGORY=Ability Bonus|+2 Dexterity
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Skill Rank (Intimidate)
+ABILITY:CATEGORY=Favored Class|Fighter
+GEAR:Whip							LOCATION:Primary Hand
+GEAR:Leather						LOCATION:Equipped
+GEAR:Masterwork Handaxe					LOCATION:Carried
+GEAR:Dagger (Punching)					LOCATION:Carried
+GEAR:Arrow					QTY:12	LOCATION:Carried
+GEAR:Poison (Black Adder Venom)			LOCATION:Carried
+GEAR:Poison (Oil of Taggit)		QTY:8		LOCATION:Carried
+GEAR:Potion of Blur					LOCATION:Carried
+GEAR:Potion of Cure Light Wounds			LOCATION:Carried
+GEAR:Shortbow						LOCATION:Carried
+
+STARTPACK:AP55-Wormwood Pirate	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.20
+RACE:Human	!PRERACE:1,%
+NAME:Wormwood Pirate
+GENDER:Male
+STAT:STR=13|DEX=12|CON=11|INT=10|WIS=9|CHA=8
+CLASS:Warrior	LEVEL:2
+SKILL:Climb				RANK:1.0
+SKILL:Intimidate			RANK:1.0
+SKILL:Perception			RANK:2.0
+SKILL:Profession (Sailor)	RANK:1.0
+SKILL:Swim				RANK:1.0
+ABILITY:CATEGORY=Feat|Athletic
+ABILITY:CATEGORY=Feat|Skill Focus (Profession (Sailor))
+ABILITY:CATEGORY=Ability Bonus|+2 Dexterity
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Skill Rank (Intimidate)
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Skill Rank (Stealth)
+ABILITY:CATEGORY=Favored Class|Warrior
+GEAR:Cutlass			LOCATION:Primary Hand
+GEAR:Pirate Clothes (Basic)	LOCATION:Equipped
+GEAR:Axe (Throwing)		LOCATION:Carried
+GEAR:Dagger				LOCATION:Carried
+GEAR:Sap				LOCATION:Carried

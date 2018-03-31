@@ -1,0 +1,5 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Second Darkness, Chapter 4 - Endless Night	SOURCESHORT:AP16	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy85er	SOURCEDATE:2008-11
+
+# Ability Name			Category of Ability	Type			Multiple Requirements																								Required Skill			Description														Source Page
+Brew Fleshcrafting Poison	CATEGORY:FEAT		TYPE:ItemCreation	PREMULT:1,[PRECLASS:1,SPELLCASTER.Arcane=10,SPELLCASTER.Divine=10],[PREVARGTEQ:Caster_Level_Highest__Arcane,10],[PREVARGTEQ:Caster_Level_Highest__Divine,10]	PRESKILL:1,Craft (Alchemy)=8	DESC:You can create a fleshcrafting poison capable of mimicking one monster ability.	SOURCEPAGE:p.63

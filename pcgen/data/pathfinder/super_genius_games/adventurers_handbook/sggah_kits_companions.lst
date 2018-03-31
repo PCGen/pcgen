@@ -1,0 +1,7 @@
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:Adventurer's Handbook: Genius Guide Volume 1	SOURCESHORT:SGGAH	SOURCEDATE:2010-04
+# Original Entry by: Paul Shipley (elro the onk)
+
+###Block: Companion Kits
+STARTPACK:Unbreathing Subtype	TYPE:Companion	VISIBLE:NO
+TEMPLATE:Unbreathing Subtype

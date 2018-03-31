@@ -1,0 +1,6 @@
+# CVS $Revision: $ $Author: $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Orcs of Golarion	SOURCESHORT:OOG	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy8fvz	SOURCEDATE:2010-12
+# Author: Henk Slaaf
+
+# Race Name	Type			Challenge Rating	FACT
+Orc.MOD	TYPE:Base.PC	CR:1/2		FACT:IsPC|true

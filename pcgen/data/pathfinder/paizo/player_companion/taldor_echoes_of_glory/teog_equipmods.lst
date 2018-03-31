@@ -1,0 +1,11 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+
+
+# Modifier Name	Type		Plus		Visible		Source Page		Required Type		Special Property
+Pitfall	KEY:Special Ability ~ Pitfall ~ Weapon		TYPE:Weapon	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.27	PRETYPE:1,Enhancement	SPROP:When holding a pitfall weapon, apply the weapon's enhancement bonus to your initiative checks, Reflex saves made to avoid traps, and AC against attacks made by traps.
+
+
+
+
+#Old KEYs
+Special Ability ~ Pitfall ~ Weapon.COPY=Pitfall		VISIBLE:NO

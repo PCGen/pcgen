@@ -1,0 +1,5 @@
+# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+#SOURCELONG:Curse of the Crimson Throne, Chapter 4 - A History of Ashes	SOURCESHORT:AP10	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy82u9	SOURCEDATE:2008-7
+
+# Ability Category			Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI	Display Location
+ABILITYCATEGORY:Havero Appendages	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HaveroAppendages	PLURAL:Havero Appendages	DISPLAYLOCATION:Racial Abilities

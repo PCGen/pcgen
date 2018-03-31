@@ -1,0 +1,52 @@
+# CVS $Revision: 20739 $ $Author: zaister $
+CAMPAIGN:Ultimate Campaign (PFS)
+#GAMEMODE:Pathfinder
+TYPE:Paizo Publishing PFS.Pathfinder RPG
+RANK:3
+STATUS:BETA
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder RPG
+PRECAMPAIGN:1,Pathfinder Society Core Assumption
+
+PUBNAMELONG:Paizo Publishing
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Ultimate Campaign
+SOURCESHORT:UCA
+SOURCEWEB:http://paizo.com/products/btpy8x64?Pathfinder-Roleplaying-Game-Ultimate-Campaign
+SOURCEDATE:2013-05
+ISOGL:YES
+
+#COVER:/pathfinder/paizo/roleplaying_game/ultimate_campaign/ultimate_campaign.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy8x64?Pathfinder-Roleplaying-Game-Ultimate-Campaign|Buy this publication from Paizo Publishing!
+DESC:Take Charge! Where the dungeon ends, another adventure begins! Pathfinder Roleplaying Game: Ultimate Campaign takes you on a guided tour through the parts of the game that happen between monster attacks and quests for ancient artifacts. As some of the most powerful and prestigious heroes around, do your player characters want to build up a kingdom of their own, or lead an army against a neighboring nation? Perhaps they want to start a business, craft magic items, or embark on a quest that will come to define them. Whether you're looking for help generating a young character or seeking ways to challenge adventurers who've grown bored of fighting monsters one-on-one, this book has everything you need!
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000,Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, and Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder Roleplaying Game Core Rulebook Copyright 2009, Paizo Inc.; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:Pathfinder Roleplaying Game Ultimate Campaign Copyright 2013, Paizo Inc.; Authors: Jesse Benner, Benjamin Bruck, Jason Bulmahn, Ryan Costello, Adam Daigle, Matt Goetz, Tim Hitchcock, James Jacobs, Ryan Macklin, Colin McComb, Jason Nelson, Richard Pett, Stephen Radney-MacFarland, Patrick Renie, Sean K Reynolds, F. Wesley Schneider, James L. Sutter, Russ Taylor, and Stephen Townshend.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Ultimate Campaign" Copyright 2013, PCGen Data team (Including, but not limited to Stefan Radermacher).
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# Additional Resources
+# Last Updated Friday, January 9, 2015
+#
+# Pathfinder Roleplaying Game: Ultimate Campaign
+# Refer to page 10 in the Guide to Pathfinder Society Organized Play for rules on utilizing character retraining.
+# Note: Race traits are only available for characters of the associated race. Religion traits are only available for characters of the associated religion.
+# Traits: all traits listed on pages 51-64 are legal for play except corpse cannibal, hedge magician, natural-born leader, rich parents, and unblemished barrel.
+
+# Data files
+ABILITY:pfs_uca_abilities_traits.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Campaign
+ABILITY:pfs_uca_abilities_drawbacks.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Campaign
+
+#
+# End
+#

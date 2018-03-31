@@ -1,0 +1,55 @@
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+CAMPAIGN:Dwarves of Golarion (PFS)
+KEY:PFS ~ Dwarves of Golarion
+#GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing PFS.Pathfinder Player Companion
+RANK:3
+STATUS:RELEASE
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder|Golarion
+PRECAMPAIGN:1,Pathfinder Society Core Assumption
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Pathfinder Companion: Dwarves of Golarion
+SOURCESHORT:DOG
+SOURCEWEB:http://paizo.com/products/btpy8b9j
+SOURCEDATE:2009-12
+ISOGL:YES
+
+#COVER:@/pathfinder/paizo/player_companion/dwarves_of_golarion/dwarves_of_golarion.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy8b9j|Buy this publication from Paizo Publishing!
+DESC:Born ages ago in lightless caverns, the dwarves surged upward in pursuit of a divine prophecy, driving the feral orcs before them until they reached the surface world in the fabled Quest for Sky. Now established with their own lands and customs, the dwarves work their forges, sing songs of legendary heroes, brew signature beers, and wage war against evil humanoids and hideous monsters.
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder Companion: Dwarves of Golarion. Copyright 2010, Paizo Inc.; Authors: David Eitelbach, Russ Taylor, JD Wiker, Keri Wiker, and Hank Woon
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Companion: Dwarves of Golarion" Copyright 2011, PCGen Data Team (including, but not limited to Gerard van Konijnenburg, Andrew Maitland)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# Additional Resources
+# Last Updated Friday, January 9, 2015
+#
+# Pathfinder Player Companion: Dwarves of Golarion
+# Equipment: dwarven dorn-dergar;
+# Feats: Bounding Hammer, Darting Viper, Dorn-Dergar Master, Sliding Axe Throw, Stance of the Xorn;
+# Gods: all gods listed on the inside front cover (note that all gods with favored weapons listed as "hammer" should read "warhammer");
+# Spells: ancestral communion, ancestral gift, bloodsworn retribution, dwarven veil, invigorating repose, mighty strength, oath of justice, peacemaker's parley, planned assault, rune of durability, rune of warding, see through stone, summon ancestral guardian, tactical formation, watchful eye;
+# Traits: all traits except Coin Hoarder, Eldritch Smith, and Toilcrafter
+
+# Data files
+ABILITY:pfs_dog_abilities.lst|PRECAMPAIGN:1,INCLUDES=Dwarves of Golarion
+DEITY:pfs_dog_deities.lst|PRECAMPAIGN:1,INCLUDES=Dwarves of Golarion
+
+#
+# End
+#

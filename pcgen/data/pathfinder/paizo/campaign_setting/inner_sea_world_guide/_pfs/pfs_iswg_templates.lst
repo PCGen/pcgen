@@ -1,0 +1,69 @@
+# CVS $Revision: $ $Author: $ -- Wed Dec 10 01:48:21 2014 -- reformated by prettylst.pl v1.51 (build 25712)
+SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8ief	SOURCEDATE:2011-03
+# Original Entry by:Stefan Radermacher
+
+# Template Name			Source Page		Required Race			Modify VAR																			Ability																																														Race Subtype		Innate Spells
+Clockwork				SOURCEPAGE:p.256	PRERACE:1,RACETYPE=Construct																					ABILITY:Special Ability|AUTOMATIC|Clockwork ~ Difficult to Create|Clockwork ~ Swift Reactions|Clockwork ~ Winding|Vulnerability to Electricity																								RACESUBTYPE:Clockwork
+Nascent Demon Lord Traits	SOURCEPAGE:p.314	PRERACE:1,RACESUBTYPE=Demon	BONUS:VAR|AcidResistanceBonus,ColdResistanceBonus,FireResistanceBonus|30|TYPE=Resistance	BONUS:VAR|TelepathyRange|200	ABILITY:Special Ability|AUTOMATIC|Immunity to Charm|Immunity to Compulsion|Immunity to Death Effects|Immunity to Electricity|Immunity to Poison|Nascent Demon Lord ~ Aligned Strike|Nascent Demon Lord ~ Grant Spells|Resistance to Acid|Resistance to Cold|Resistance to Fire|Telepathy					SPELLS:Innate|TIMES=1|CASTERLEVEL=20|Summon Demons (Nascent Demon Lord)
+
+###Block: Human Ethnicities
+# Template Name				Type
+Human Ethnicity (Azlanti).MOD		TYPE:PFSLegal
+Human Ethnicity (Chelaxian).MOD	TYPE:PFSLegal
+Human Ethnicity (Garundi).MOD		TYPE:PFSLegal
+Human Ethnicity (Keleshite).MOD	TYPE:PFSLegal
+Human Ethnicity (Kellid).MOD		TYPE:PFSLegal
+Human Ethnicity (Bekyar).MOD		TYPE:PFSLegal
+Human Ethnicity (Bonuwat).MOD		TYPE:PFSLegal
+Human Ethnicity (Mauxi).MOD		TYPE:PFSLegal
+Human Ethnicity (Zenj).MOD		TYPE:PFSLegal
+Human Ethnicity (Shoanti).MOD		TYPE:PFSLegal
+Human Ethnicity (Taldan).MOD		TYPE:PFSLegal
+Human Ethnicity (Tian).MOD		TYPE:PFSLegal
+Human Ethnicity (Ulfen).MOD		TYPE:PFSLegal
+Human Ethnicity (Varisian).MOD	TYPE:PFSLegal
+Human Ethnicity (Vudrani).MOD		TYPE:PFSLegal
+
+###Block: Regional Affinities
+# Template Name						Type
+Regional Affinity (Absalom).MOD			TYPE:PFSLegal
+Regional Affinity (Andoran).MOD			TYPE:PFSLegal
+Regional Affinity (Belkzen).MOD			TYPE:PFSLegal
+Regional Affinity (Brevoy).MOD			TYPE:PFSLegal
+Regional Affinity (Cheliax).MOD			TYPE:PFSLegal
+Regional Affinity (Darklands).MOD			TYPE:PFSLegal
+Regional Affinity (Druma).MOD				TYPE:PFSLegal
+Regional Affinity (Five Kings Mountains).MOD	TYPE:PFSLegal
+Regional Affinity (Galt).MOD				TYPE:PFSLegal
+Regional Affinity (Geb).MOD				TYPE:PFSLegal
+Regional Affinity (Irrisen).MOD			TYPE:PFSLegal
+Regional Affinity (Isger).MOD				TYPE:PFSLegal
+Regional Affinity (Jalmeray).MOD			TYPE:PFSLegal
+Regional Affinity (Katapesh).MOD			TYPE:PFSLegal
+Regional Affinity (Kyonin).MOD			TYPE:PFSLegal
+Regional Affinity (Lastwall).MOD			TYPE:PFSLegal
+Regional Affinity (Linnorm Kings).MOD		TYPE:PFSLegal
+Regional Affinity (Mammoth Lords).MOD		TYPE:PFSLegal
+Regional Affinity (Mana Wastes).MOD			TYPE:PFSLegal
+Regional Affinity (Mediogalti Island).MOD		TYPE:PFSLegal
+Regional Affinity (Mendev).MOD			TYPE:PFSLegal
+Regional Affinity (Molthune).MOD			TYPE:PFSLegal
+Regional Affinity (Mwangi Expanse).MOD		TYPE:PFSLegal
+Regional Affinity (Nex).MOD				TYPE:PFSLegal
+Regional Affinity (Nidal).MOD				TYPE:PFSLegal
+Regional Affinity (Nirmathas).MOD			TYPE:PFSLegal
+Regional Affinity (Numeria).MOD			TYPE:PFSLegal
+Regional Affinity (Osirion).MOD			TYPE:PFSLegal
+Regional Affinity (Qadira).MOD			TYPE:PFSLegal
+Regional Affinity (Rahadoum).MOD			TYPE:PFSLegal
+Regional Affinity (Razmiran).MOD			TYPE:PFSLegal
+Regional Affinity (River Kingdoms).MOD		TYPE:PFSLegal
+Regional Affinity (Sargava).MOD			TYPE:PFSLegal
+Regional Affinity (Shackles).MOD			TYPE:PFSLegal
+Regional Affinity (Sodden Lands).MOD		TYPE:PFSLegal
+Regional Affinity (Steaming Sea).MOD		TYPE:PFSLegal
+Regional Affinity (Taldor).MOD			TYPE:PFSLegal
+Regional Affinity (Thuvia).MOD			TYPE:PFSLegal
+Regional Affinity (Ustalav).MOD			TYPE:PFSLegal
+Regional Affinity (Varisia).MOD			TYPE:PFSLegal
+Regional Affinity (Worldwound).MOD			TYPE:PFSLegal

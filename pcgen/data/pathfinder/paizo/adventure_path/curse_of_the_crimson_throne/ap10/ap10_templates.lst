@@ -1,0 +1,11 @@
+# CVS $Revision: $ $Author: $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
+SOURCELONG:Curse of the Crimson Throne, Chapter 4: A History of Ashes	SOURCESHORT:AP10	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy82u9	SOURCEDATE:2008-07
+# Original Entry by: Paul Grosse
+
+# Template Name	Level Adjustment	Template			Special ABility																								Misc bonus		Stat bonus										Ability					Race Subtype
+Elemental Body								SAB:Elemental Body (Ex):25% resistance to poison, paralysis, sleep effects, stunning effect, sneak attack and critical hit damage bonuses
+Fire-infused	LEVELADJUSTMENT:3	TEMPLATE:Elemental Body	SAB:Breath Weapon (Su): 30' cone %d6 fire damage|max(1,TL)	SAB:Fire Healing (Ex)	SAB:Firewalk	SAB:Heat (Su): extra 1d6 fire damage with any attack	BONUS:MISC|CR|1	BONUS:STAT|STR,CON|-2	BONUS:STAT|DEX,CHA|2	BONUS:STAT|INT|4	ABILITY:FEAT|AUTOMATIC|Quick Draw	RACESUBTYPE:Fire
+
+#
+# End
+#

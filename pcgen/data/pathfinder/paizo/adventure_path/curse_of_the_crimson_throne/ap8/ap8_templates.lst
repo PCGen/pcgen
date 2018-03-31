@@ -1,0 +1,26 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Curse of the Crimson Throne, Chapter 2 - Seven Days to the Grave	SOURCESHORT:AP8	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy82qy	SOURCEDATE:2008-04
+
+###Block: Custom Templates
+# Template Name			Visible	Special ABility					Clear Prereq.	Required Template						Prohibited Template				Combat bonus						Bonus to HP																							Stat bonus		Virtual Feat	Race Subtype			Vision
+# Note: remove the BONUS:HP|CURRENTMAX|(AnimalCon/2)*(TL-AnimalHD) when moving to the trunk
+# Template Name			Visible	Special ABility					Clear Prereq.	Required Template						Prohibited Template				Bonus to HP																										Stat bonus		Modify VAR							Ability					Race Subtype			Vision
+Lycanthrope (Girrigz)		VISIBLE:NO	SAB:Alternate Form (Su)	SAB:Scent (Ex)																			BONUS:HP|CURRENTMAX|(AnimalCon/2)*(TL-AnimalHD)	BONUS:HP|CURRENTMAX|(AnimalCon/2)*AnimalHD|!PRETEMPLATE:1,Lycanthrope (Animal Form),Lycanthrope (Hybrid Form)	BONUS:STAT|WIS|2	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	ABILITY:FEAT|VIRTUAL|Iron Will	RACESUBTYPE:Shapechanger	VISION:Low-Light Vision
+Lycanthrope (Animal Form).MOD										PRE:.CLEAR		PRETEMPLATE:1,Lycanthrope,Lycanthrope (Girrigz)	!PRETEMPLATE:1,Lycanthrope (Hybrid Form)
+Lycanthrope (Hybrid Form).MOD										PRE:.CLEAR		PRETEMPLATE:1,Lycanthrope,Lycanthrope (Girrigz)	!PRETEMPLATE:1,Lycanthrope (Animal Form)
+
+###Block: Magic Buffs
+# Template Name				Visible	Combat bonus																		Bonus to HP						Save bonus						Stat bonus					Weapon prof. bonus
+Girrigz's Magic Buffs			VISIBLE:YES	BONUS:COMBAT|AC|3|TYPE=Deflection
+Yvicca's Magic Buffs			VISIBLE:YES	BONUS:COMBAT|AC|2|TYPE=NaturalArmorEnhancement																											BONUS:STAT|STR|4|TYPE=Enhancement	BONUS:WEAPONPROF=Claw|TOHIT,DAMAGE|1|TYPE=Enhancement
+Jolistina Susperio's Magic Buffs	VISIBLE:YES	BONUS:COMBAT|AC|2|TYPE=Shield																														BONUS:STAT|DEX|4|TYPE=Enhancement
+Rolth's Magic Buffs			VISIBLE:YES	BONUS:COMBAT|AC|4|TYPE=Armor	BONUS:COMBAT|AC|4|TYPE=Shield											BONUS:HP|CURRENTMAX|12|TYPE=Enhancement	BONUS:SAVE|Fortitude|3|TYPE=Resistance
+Priest of Urgathoa's Magic Buffs	VISIBLE:YES	BONUS:COMBAT|AC|2|TYPE=Deflection																																			BONUS:WEAPONPROF=Scythe|DAMAGE|1|TYPE=Enhancement
+Lady Andaisin's Magic Buffs		VISIBLE:YES	BONUS:COMBAT|AC|1|TYPE=Enhancement	BONUS:COMBAT|AC|4|TYPE=NaturalArmorEnhancement	BONUS:COMBAT|AC|3|TYPE=Deflection															BONUS:STAT|CON|4|TYPE=Enhancement	BONUS:WEAPONPROF=Scythe|TOHIT,DAMAGE|2|TYPE=Enhancement
+
+SOURCELONG:Bestiary 4	SOURCESHORT:B4	SOURCEWEB:paizo.com/products/btpy91ds	SOURCEDATE:2013-11
+
+###Block: Nosferatu Template
+Nosferatu		HITDIE:8		CR:2			BONUS:VAR|FastHealingRate|5	DR:5/Piercing and Wood	ABILITY:Internal|AUTOMATIC|Claw	BONUS:WEAPONPROF=Claw|DAMAGESIZE|1	ABILITY:Special Ability|AUTOMATIC|Scent	BONUS:VAR|DarkvisionRange|60|TYPE=Base	BONUS:VAR|HasLowlightVision|1|TYPE=Boolean		SOURCEPAGE:p.268	PREALIGN:LE,NE,CE	PRERACE:1,RACETYPE=Humanoid,RACETYPE=Monstrous humanoid	ABILITY:Internal|AUTOMATIC|Nosferatu ~ Humanoid|PRERACE:1,RACETYPE=Humanoid	ABILITY:Internal|AUTOMATIC|Nosferatu ~ Monstrous Humanoid|PRERACE:1,RACETYPE=Monstrous humanoid		BONUS:ABILITYPOOL|Skill Focus|2	BONUS:SKILL|Stealth,Perception,Sense Motive|8|TYPE=Racial	BONUS:STAT|STR|2	BONUS:STAT|DEX|4	BONUS:STAT|INT|2	BONUS:STAT|WIS|6	BONUS:STAT|CHA|4	BONUS:VAR|AC_Natural_Armor|8|TYPE=Base.STACK	BONUS:VAR|ColdResistanceBonus,ElectricityResistanceBonus,SonicResistanceBonus|10|TYPE=Resistance	ABILITY:FEAT|AUTOMATIC|Alertness|Improved Initiative|Lightning Reflexes	ABILITY:Special Ability|AUTOMATIC|Nosferatu Defensive Abilities|Nosferatu Weaknesses|Nosferatu Blood Drain|Nosferatu Dominate|Nosferatu Telekinesis|Nosferatu Spider Climb|Nosferatu Swarm Form|Nosferatu Telepathy|Undead Traits	RACETYPE:Undead
+Nosferatu (Humanoid)			KEY:Nosferatu ~ Humanoid			VISIBLE:NO	RACESUBTYPE:Augmented Humanoid
+Nosferatu (Monstrous Humanoid)	KEY:Nosferatu ~ Monstrous Humanoid		VISIBLE:NO	RACESUBTYPE:Augmented Monstrous Humanoid

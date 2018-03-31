@@ -1,0 +1,230 @@
+# CVS $Revision: $ $Author: $ -- Thu Nov 26 22:25:37 2015 -- reformated by PCGen PrettyLST v6.05.01
+SOURCELONG:Occult Adventures	SOURCESHORT:OA	SOURCEWEB:http://paizo.com/products/btpy9a0h	SOURCEDATE:2015-07
+# Kineticist
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Define																	Combat bonus																	Save bonus																																																	Modify VAR																																																																																																																									Fact
+CLASS:Kineticist	HD:8		TYPE:Base.PC.Psychic	MAXLEVEL:20	SOURCEPAGE:p.10	DEFINE:KineticistLVL|0	DEFINE:Caster_Level_BL_Stripped_Kineticist|0	DEFINE:CasterLevelBLKineticist|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|KineticistLVL|CL	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|Caster_Level_BL_Stripped_Kineticist|Caster_Level_Kineticist-CasterLevelBLKineticist	BONUS:VAR|Caster_Level_Kineticist|CL+Caster_Level_Bonus+CasterLevelBLKineticist	BONUS:VAR|CasterLevelBL_Kineticist|charbonusto("PCLEVEL","Kineticist")	BONUS:VAR|Caster_Level_Highest__Psychic|Caster_Level_Kineticist|TYPE=Base	FACT:Abb|Kin	FACT:ClassType|Caster	FACT:SpellType|Pyshic
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Kineticist	STARTSKILLPTS:4
+# Class Name	Spell Stat		Memorize		Caster level
+CLASS:Kineticist	SPELLSTAT:CON	MEMORIZE:YES	BONUS:CASTERLEVEL|Kineticist|Caster_Level_BL_Stripped_Kineticist
+###Block
+1	ABILITY:CLASS|AUTOMATIC|Kineticist
+
+# Class Name	HD	Type								Class Type		Abbrev	Max Level	Source Page		Define			Modify VAR
+CLASS:Medium	MAXLEVEL:20
+CLASS:Medium	HD:8	TYPE:Base.PC.Spontaneous.Psychic
+CLASS:Medium	FACT:Abb|Med	FACT:ClassType|Skill
+CLASS:Medium	DEFINE:MediumLVL|0	BONUS:VAR|MediumLVL|CL
+CLASS:Medium	SOURCEPAGE:p.30
+CLASS:Medium	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Medium	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Medium	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Medium	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Medium	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Medium	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
+CLASS:Medium	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
+CLASS:Medium	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
+CLASS:Medium	STARTSKILLPTS:4
+CLASS:Medium	FACT:SpellType|Psychic	
+CLASS:Medium	SPELLSTAT:CHA	MEMORIZE:NO
+CLASS:Medium	BONUS:CASTERLEVEL|Medium|Caster_Level_BL_Stripped_Medium	DEFINE:Caster_Level_BL_Stripped_Medium|0	BONUS:VAR|Caster_Level_BL_Stripped_Medium|Caster_Level_Medium-CasterLevelBLMedium	BONUS:VAR|Caster_Level_Medium|CL+Caster_Level_Bonus+CasterLevelBLMedium	DEFINE:CasterLevelBLMedium|0	BONUS:VAR|CasterLevelBL_Medium|charbonusto("PCLEVEL","Medium")	
+CLASS:Medium	BONUS:VAR|Caster_Level_Highest__Psychic|Caster_Level_Medium|TYPE=Base
+
+###Block: Level progression
+1	CAST:0		KNOWN:2
+2	CAST:0		KNOWN:3
+3	CAST:0		KNOWN:4
+4	CAST:0,1		KNOWN:4,2
+5	CAST:0,1		KNOWN:5,3
+6	CAST:0,1		KNOWN:5,4
+7	CAST:0,1,1		KNOWN:6,4,2
+8	CAST:0,1,1		KNOWN:6,4,3
+9	CAST:0,2,1		KNOWN:6,5,4
+10	CAST:0,2,1,1	KNOWN:6,5,4,2
+11	CAST:0,2,1,1	KNOWN:6,5,4,3
+12	CAST:0,2,2,1	KNOWN:6,6,5,4
+13	CAST:0,3,2,1,1	KNOWN:6,6,5,4,2
+14	CAST:0,3,2,1,1	KNOWN:6,6,5,4,3
+15	CAST:0,3,2,2,1	KNOWN:6,6,6,5,4
+16	CAST:0,3,3,2,1	KNOWN:6,6,6,5,4
+17	CAST:0,4,3,2,1	KNOWN:6,6,6,5,4
+18	CAST:0,4,3,2,2	KNOWN:6,6,6,6,5
+19	CAST:0,4,3,3,2	KNOWN:6,6,6,6,5
+20	CAST:0,4,4,3,2	KNOWN:6,6,6,6,5
+###Block: Class Features
+1	ABILITY:CLASS|AUTOMATIC|Medium
+
+# Class Name	Hit Dice	Type								Max Level	Source Page		Define																							Combat bonus																	Save bonus																																																	Modify VAR																																																																																																																								Monster Role	Fact
+CLASS:Mesmerist	HD:8		TYPE:Base.PC.Spontaneous.Psychic	MAXLEVEL:20	SOURCEPAGE:p.38	DEFINE:MesmeristLVL|0	DEFINE:Caster_Level_Mesmerist|0	DEFINE:Caster_Level_BL_Stripped_Mesmerist|0	DEFINE:CasterLevelBLMesmerist|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|MesmeristLVL|CL	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|Caster_Level_BL_Stripped_Mesmerist|Caster_Level_Mesmerist-CasterLevelBLMesmerist	BONUS:VAR|Caster_Level_Mesmerist|CL+Caster_Level_Bonus+CasterLevelBLMesmerist	BONUS:VAR|CasterLevelBL_x_Mesmerist|charbonusto("PCLEVEL","Mesmerist")	BONUS:VAR|Caster_Level_Highest__Psychic|Caster_Level_Mesmerist|TYPE=Base	ROLE:Skill		FACT:ClassType|PC	FACT:Abb|Msm	FACT:SpellType|Psychic
+# Class Name	Skill Pts/Lvl
+CLASS:Mesmerist	STARTSKILLPTS:6
+# Class Name	Spell Stat		Memorize	Caster level
+CLASS:Mesmerist	SPELLSTAT:CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Mesmerist|Caster_Level_BL_Stripped_Mesmerist
+###Block: Level progression
+1	CAST:0,1			KNOWN:4,2
+2	CAST:0,2			KNOWN:5,3
+3	CAST:0,3			KNOWN:6,4
+4	CAST:0,3,1			KNOWN:6,4,2
+5	CAST:0,4,2			KNOWN:6,4,3
+6	CAST:0,4,3			KNOWN:6,4,4
+7	CAST:0,4,3,1		KNOWN:6,5,4,2
+8	CAST:0,4,4,2		KNOWN:6,5,4,3
+9	CAST:0,5,4,3		KNOWN:6,5,4,4
+10	CAST:0,5,4,3,1		KNOWN:6,5,5,4,2
+11	CAST:0,5,4,4,2		KNOWN:6,6,5,4,3
+12	CAST:0,5,5,4,3		KNOWN:6,6,5,4,4
+13	CAST:0,5,5,4,3,1		KNOWN:6,6,5,5,4,2
+14	CAST:0,5,5,4,4,2		KNOWN:6,6,6,5,4,3
+15	CAST:0,5,5,5,4,3		KNOWN:6,6,6,5,4,4
+16	CAST:0,5,5,5,4,3,1	KNOWN:6,6,6,5,5,4,2
+17	CAST:0,5,5,5,4,4,2	KNOWN:6,6,6,6,5,4,3
+18	CAST:0,5,5,5,5,4,3	KNOWN:6,6,6,6,5,4,4
+19	CAST:0,5,5,5,5,5,4	KNOWN:6,6,6,6,5,5,4
+20	CAST:0,5,5,5,5,5,5	KNOWN:6,6,6,6,6,5,5
+###Block: Class Features
+1	ABILITY:CLASS|AUTOMATIC|Mesmerist
+
+# Occultist
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Define																	Combat bonus																	Save bonus																																																Modify VAR																																																																																																																								Fact
+CLASS:Occultist	HD:8		TYPE:Base.PC.Spontaneous.Psychic	MAXLEVEL:20	SOURCEPAGE:p.46	DEFINE:OccultistLVL|0	DEFINE:Caster_Level_BL_Stripped_Occultist|0	DEFINE:CasterLevelBLOccultist|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|OccultistLVL|CL	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|Caster_Level_BL_Stripped_Occultist|Caster_Level_Occultist-CasterLevelBLOccultist	BONUS:VAR|Caster_Level_Occultist|CL+Caster_Level_Bonus+CasterLevelBLOccultist	BONUS:VAR|CasterLevelBL_Occultist|charbonusto("PCLEVEL","Occultist")	BONUS:VAR|Caster_Level_Highest__Psychic|Caster_Level_Occultist|TYPE=Base	FACT:Abb|Occ	FACT:ClassType|Caster	FACT:SpellType|Psychic
+# Class Name	Skill Pts/Lvl
+CLASS:Occultist	STARTSKILLPTS:4
+# Class Name	Spell Stat		Memorize		Caster level
+CLASS:Occultist	SPELLSTAT:INT	MEMORIZE:YES	BONUS:CASTERLEVEL|Occultist|Caster_Level_BL_Stripped_Occultist
+###Block
+1	CAST:0,1
+2	CAST:0,2
+3	CAST:0,3
+4	CAST:0,3,1
+5	CAST:0,4,2
+6	CAST:0,4,3
+7	CAST:0,4,3,1
+8	CAST:0,4,4,2
+9	CAST:0,5,4,3
+10	CAST:0,5,4,3,1
+11	CAST:0,5,4,4,2
+12	CAST:0,5,5,4,3
+13	CAST:0,5,5,4,3,1
+14	CAST:0,5,5,4,4,2
+15	CAST:0,5,5,5,4,3
+16	CAST:0,5,5,5,4,3,1
+17	CAST:0,5,5,5,4,4,2
+18	CAST:0,5,5,5,5,4,3
+19	CAST:0,5,5,5,5,5,4
+20	CAST:0,5,5,5,5,5,5
+###Block
+1	ABILITY:CLASS|AUTOMATIC|Occultist
+
+
+# Psychic
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Define															Combat bonus																	Save bonus																																																Modify VAR																																																																																																																			Fact
+CLASS:Psychic	HD:6		TYPE:Base.PC.Spontaneous.Psychic	MAXLEVEL:20	SOURCEPAGE:p.60	DEFINE:PsychicLVL|0	DEFINE:Caster_Level_BL_Stripped_Psychic|0	DEFINE:CasterLevelBLPsychic|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|PsychicLVL|CL	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|Caster_Level_BL_Stripped_Psychic|Caster_Level_Psychic-CasterLevelBLPsychic	BONUS:VAR|Caster_Level_Psychic|CL+Caster_Level_Bonus+CasterLevelBLPsychic	BONUS:VAR|CasterLevelBL_Psychic|charbonusto("PCLEVEL","Psychic")	BONUS:VAR|Caster_Level_Highest__Psychic|Caster_Level_Psychic|TYPE=Base	FACT:Abb|Psy	FACT:ClassType|Caster	FACT:SpellType|Psychic
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Psychic	STARTSKILLPTS:2
+# Class Name	Spell Stat		Memorize		Caster level
+CLASS:Psychic	SPELLSTAT:INT	MEMORIZE:YES	BONUS:CASTERLEVEL|Psychic|Caster_Level_BL_Stripped_Psychic
+###Block:
+1	CAST:0,3				KNOWN:4,2			
+2	CAST:0,4				KNOWN:5,2			
+3	CAST:0,5				KNOWN:5,3			
+4	CAST:0,6,3				KNOWN:6,3,1			
+5	CAST:0,6,4				KNOWN:6,4,2			
+6	CAST:0,6,5,3			KNOWN:7,4,2,1		
+7	CAST:0,6,6,4			KNOWN:7,5,3,2		
+8	CAST:0,6,6,5,3			KNOWN:8,5,3,2,1		
+9	CAST:0,6,6,6,4			KNOWN:8,5,4,3,2		
+10	CAST:0,6,6,6,5,3			KNOWN:9,5,4,3,2,1		
+11	CAST:0,6,6,6,6,4			KNOWN:9,5,5,4,3,2		
+12	CAST:0,6,6,6,6,5,3		KNOWN:9,5,5,4,3,2,1	
+13	CAST:0,6,6,6,6,6,4		KNOWN:9,5,5,4,4,3,2	
+14	CAST:0,6,6,6,6,6,5,3		KNOWN:9,5,5,4,4,3,2,1	
+15	CAST:0,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,2	
+16	CAST:0,6,6,6,6,6,6,5,3		KNOWN:9,5,5,4,4,4,3,2,1	
+17	CAST:0,6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,3,2	
+18	CAST:0,6,6,6,6,6,6,6,5,3	KNOWN:9,5,5,4,4,4,3,3,2,1
+19	CAST:0,6,6,6,6,6,6,6,6,4	KNOWN:9,5,5,4,4,4,3,3,3,2
+20	CAST:0,6,6,6,6,6,6,6,6,6	KNOWN:9,5,5,4,4,4,3,3,3,3
+###Block
+1	ABILITY:CLASS|AUTOMATIC|Psychic
+
+
+# Spiritualist
+
+# Class Name		Hit Dice	Type			Max Level	Source Page		Define																		Combat bonus																	Save bonus																																																Modify VAR																																																																																																																											Fact
+CLASS:Spiritualist	HD:8		TYPE:Base.PC.Spontaneous.Psychic	MAXLEVEL:20	SOURCEPAGE:p.72	DEFINE:SpiritualistLVL|0	DEFINE:Caster_Level_BL_Stripped_Spiritualist|0	DEFINE:CasterLevelBLSpiritualist|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|SpiritualistLVL|CL	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|Caster_Level_BL_Stripped_Spiritualist|Caster_Level_Spiritualist-CasterLevelBLSpiritualist	BONUS:VAR|Caster_Level_Spiritualist|CL+Caster_Level_Bonus+CasterLevelBLSpiritualist	BONUS:VAR|CasterLevelBL_Spiritualist|charbonusto("PCLEVEL","Spiritualist")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Spiritualist|TYPE=Base	FACT:Abb|Spi	FACT:ClassType|Caster	FACT:SpellType|Psychic
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Spiritualist	STARTSKILLPTS:4
+# Class Name		Spell Stat		Memorize		Caster level
+CLASS:Spiritualist	SPELLSTAT:WIS	MEMORIZE:YES	BONUS:CASTERLEVEL|Spiritualist|Caster_Level_BL_Stripped_Spiritualist
+###Block
+1	CAST:0,1			KNOWN:4,2			
+2	CAST:0,2			KNOWN:5,3			
+3	CAST:0,3			KNOWN:6,4			
+4	CAST:0,3,1			KNOWN:6,4,2			
+5	CAST:0,4,2			KNOWN:6,4,3			
+6	CAST:0,4,3			KNOWN:6,4,4			
+7	CAST:0,4,3,1		KNOWN:6,5,4,2		
+8	CAST:0,4,4,2		KNOWN:6,5,4,3		
+9	CAST:0,5,4,3		KNOWN:6,5,4,4		
+10	CAST:0,5,4,3,1		KNOWN:6,5,5,4,2		
+11	CAST:0,5,4,4,2		KNOWN:6,6,5,4,3		
+12	CAST:0,5,5,4,3		KNOWN:6,6,5,4,4		
+13	CAST:0,5,5,4,3,1		KNOWN:6,6,5,5,4,2		
+14	CAST:0,5,5,4,4,2		KNOWN:6,6,6,5,4,3		
+15	CAST:0,5,5,5,4,3		KNOWN:6,6,6,5,4,4		
+16	CAST:0,5,5,5,4,3,1	KNOWN:6,6,6,5,5,4,2	
+17	CAST:0,5,5,5,4,4,2	KNOWN:6,6,6,6,5,4,3	
+18	CAST:0,5,5,5,5,4,3	KNOWN:6,6,6,6,5,4,4	
+19	CAST:0,5,5,5,5,5,4	KNOWN:6,6,6,6,5,5,4	
+20	CAST:0,5,5,5,5,5,5	KNOWN:6,6,6,6,6,5,5	
+###Block
+1	ABILITY:CLASS|AUTOMATIC|Spiritualist
+
+
+CLASS:Phantom	MAXLEVEL:20
+CLASS:Phantom	HD:10	TYPE:Monster	PRERACE:1,Phantom
+CLASS:Phantom	FACT:Abb|Phtm	FACT:ClassType|Monster
+CLASS:Phantom	DEFINE:PhantomLVL|0	BONUS:VAR|PhantomLVL|CL
+CLASS:Phantom	SOURCEPAGE:p.78	
+CLASS:Phantom	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Phantom	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Phantom	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0|PREVAREQ:PhantomGoodSave_Fortitude,1
+CLASS:Phantom	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0|PREVAREQ:PhantomGoodSave_Fortitude,0
+CLASS:Phantom	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0|PREVAREQ:PhantomGoodSave_Reflex,1
+CLASS:Phantom	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0|PREVAREQ:PhantomGoodSave_Reflex,0
+CLASS:Phantom	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0|PREVAREQ:PhantomGoodSave_Will,1
+CLASS:Phantom	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0|PREVAREQ:PhantomGoodSave_Will,0
+CLASS:Phantom	BONUS:VAR|ClassSaveGood_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1|PREVAREQ:PhantomGoodSave_Fortitude,1
+CLASS:Phantom	BONUS:VAR|ClassSavePoor_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1|PREVAREQ:PhantomGoodSave_Fortitude,0
+CLASS:Phantom	BONUS:VAR|ClassSaveGood_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1|PREVAREQ:PhantomGoodSave_Reflex,1
+CLASS:Phantom	BONUS:VAR|ClassSavePoor_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1|PREVAREQ:PhantomGoodSave_Reflex,0
+CLASS:Phantom	BONUS:VAR|ClassSaveGood_Will|classlevel()|PREVAREQ:UseFractionalSave,1|PREVAREQ:PhantomGoodSave_Will,1
+CLASS:Phantom	BONUS:VAR|ClassSavePoor_Will|classlevel()|PREVAREQ:UseFractionalSave,1|PREVAREQ:PhantomGoodSave_Will,0
+CLASS:Phantom	STARTSKILLPTS:2
+
+
+CLASS:Psychic Detective		VISIBLE:NO	SPELLSTAT:INT	SPELLBOOK:YES	FACT:SpellType|Arcane	BONUS:CASTERLEVEL|Psychic Detective|CL	SPELLLIST:2|Psychic|Psychic Detective
+1	CAST:0,1
+2	CAST:0,2
+3	CAST:0,3
+4	CAST:0,3,1
+5	CAST:0,4,2
+6	CAST:0,4,3
+7	CAST:0,4,3,1
+8	CAST:0,4,4,2
+9	CAST:0,5,4,3
+10	CAST:0,5,4,3,1
+11	CAST:0,5,4,4,2
+12	CAST:0,5,5,4,3
+13	CAST:0,5,5,4,3,1
+14	CAST:0,5,5,4,4,2
+15	CAST:0,5,5,5,4,3
+16	CAST:0,5,5,5,4,3,1
+17	CAST:0,5,5,5,4,4,2
+18	CAST:0,5,5,5,5,4,3
+19	CAST:0,5,5,5,5,5,4
+20	CAST:0,5,5,5,5,5,5
+

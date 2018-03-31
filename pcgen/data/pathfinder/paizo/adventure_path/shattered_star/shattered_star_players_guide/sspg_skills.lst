@@ -1,0 +1,17 @@
+# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Shattered Star Player's Guide	SOURCESHORT:SSPG	SOURCEWEB:http://paizo.com/products/btpy8txj?Pathfinder-Adventure-Path-Shattered-Star-Players-Guide	SOURCEDATE:2012-08
+# Original Entry by: Stefan Radermacher
+# Orginal Entry on: 7/23/2014
+
+# Skill Name			Situational Skill
+Diplomacy.MOD			SITUATION:In Magnimar
+Intimidate.MOD			SITUATION:In Magnimar
+Knowledge (History).MOD		SITUATION:Magnimar
+Knowledge (History).MOD		SITUATION:Varisia
+Knowledge (Geography).MOD	SITUATION:Varisia
+Perception.MOD			SITUATION:Distinguishing Statue-Like Creatures
+Survival.MOD			SITUATION:Varisia
+
+#
+# End
+#

@@ -1,0 +1,25 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Princes of Darkness, Book of the Damned, Volume 1	SOURCESHORT:BOTD1	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8a6f	SOURCEDATE:2009-10
+
+###Block:Companion for Diabolist
+# Class of the Master		Type				Hit Dice	Ability																									Define								Bonus Ability Pool					Stat bonus			Modify VAR																	Main Race Type
+FOLLOWER:ImpCompanionLVL=1	TYPE:Imp Companion			ABILITY:Special Ability|AUTOMATIC|Imp Companion ~ Bonus Tricks|Imp Companion ~ Link|Imp Companion ~ Share Spells|Imp Companion ~ Starting Shape Change	DEFINE:MasterLevel|0	DEFINE:ImpCompBonusTricks|0													BONUS:VAR|MasterLevel|1	BONUS:VAR|ImpCompBonusTricks|1									RACETYPE:Outsider
+FOLLOWER:ImpCompanionLVL=2	TYPE:Imp Companion	HD:1																																																	BONUS:VAR|MasterLevel|1
+FOLLOWER:ImpCompanionLVL=3	TYPE:Imp Companion			ABILITY:Special Ability|AUTOMATIC|Evasion																																					BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|ImpCompBonusTricks|1
+FOLLOWER:ImpCompanionLVL=4	TYPE:Imp Companion	HD:1																																					BONUS:ABILITYPOOL|Companion Stat Increase|1					BONUS:VAR|MasterLevel|1
+FOLLOWER:ImpCompanionLVL=5	TYPE:Imp Companion	HD:1																																																	BONUS:VAR|MasterLevel|1
+FOLLOWER:ImpCompanionLVL=6	TYPE:Imp Companion	HD:1		ABILITY:Special Ability|AUTOMATIC|Companion ~ Devotion																																		BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|ImpCompBonusTricks|1
+FOLLOWER:ImpCompanionLVL=7	TYPE:Imp Companion																																																		BONUS:VAR|MasterLevel|1
+FOLLOWER:ImpCompanionLVL=8	TYPE:Imp Companion	HD:1																																																	BONUS:VAR|MasterLevel|1
+FOLLOWER:ImpCompanionLVL=9	TYPE:Imp Companion	HD:1		ABILITY:FEAT|AUTOMATIC|Multiattack																														BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|ImpCompBonusTricks|1
+FOLLOWER:ImpCompanionLVL=10	TYPE:Imp Companion	HD:1																																																	BONUS:VAR|MasterLevel|1
+FOLLOWER:ImpCompanionLVL=11	TYPE:Imp Companion																																																		BONUS:VAR|MasterLevel|1
+FOLLOWER:ImpCompanionLVL=12	TYPE:Imp Companion	HD:1																																													BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|ImpCompBonusTricks|1
+FOLLOWER:ImpCompanionLVL=13	TYPE:Imp Companion	HD:1																																																	BONUS:VAR|MasterLevel|1
+FOLLOWER:ImpCompanionLVL=14	TYPE:Imp Companion	HD:1																																					BONUS:ABILITYPOOL|Companion Stat Increase|1					BONUS:VAR|MasterLevel|1
+FOLLOWER:ImpCompanionLVL=15	TYPE:Imp Companion			ABILITY:Special Ability|AUTOMATIC|Improved Evasion																																			BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|ImpCompBonusTricks|1
+FOLLOWER:ImpCompanionLVL=16	TYPE:Imp Companion	HD:1																																																	BONUS:VAR|MasterLevel|1
+FOLLOWER:ImpCompanionLVL=17	TYPE:Imp Companion	HD:1																																																	BONUS:VAR|MasterLevel|1
+FOLLOWER:ImpCompanionLVL=18	TYPE:Imp Companion	HD:1																																													BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|ImpCompBonusTricks|1
+FOLLOWER:ImpCompanionLVL=19	TYPE:Imp Companion																																																		BONUS:VAR|MasterLevel|1
+FOLLOWER:ImpCompanionLVL=20	TYPE:Imp Companion	HD:1																																					BONUS:ABILITYPOOL|Companion Stat Increase|1					BONUS:VAR|MasterLevel|1

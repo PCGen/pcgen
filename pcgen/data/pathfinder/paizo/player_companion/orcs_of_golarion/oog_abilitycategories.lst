@@ -1,0 +1,8 @@
+# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+#SOURCELONG:Orcs of Golarion	SOURCESHORT:OOG	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy8fvz	SOURCEDATE:2010-08
+# Author: Henk Slaaf
+
+# Ability Category			Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object	Specific choices list			Plural description for UI	Display Location
+ABILITYCATEGORY:Region of Origin	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Background		TYPE:Region								PLURAL:Regions of Origin	DISPLAYLOCATION:Background
+ABILITYCATEGORY:Orc Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:OrcBloodline	ABILITYLIST:Skill Focus(Survival)	PLURAL:Orc Bloodline Feats	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Orc Race Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OrcTrait							PLURAL:Orc Race Traits		DISPLAYLOCATION:Traits

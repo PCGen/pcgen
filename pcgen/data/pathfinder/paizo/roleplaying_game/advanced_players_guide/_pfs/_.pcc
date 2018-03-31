@@ -1,0 +1,73 @@
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+CAMPAIGN:Advanced Player's Guide (PFS)
+KEY:PFS ~ Advanced Player's Guide
+#GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing PFS.Pathfinder RPG
+STATUS:RELEASE
+RANK:1
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder
+PRECAMPAIGN:1,Pathfinder Society Core Assumption
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Advanced Player's Guide
+SOURCESHORT:APG
+SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1
+SOURCEDATE:2010-08
+ISOGL:YES
+
+# COMMENT: Updated to Errata 2nd Printing - Last Updated - 12/01/2010 on Oct 6th, 2012 - LegacyKing
+
+
+#COVER:@/pathfinder/paizo/roleplaying_game/advanced_players_guide/advanced_players_guide.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1|Download this publication from Paizo Publishing!
+DESC:Explore new and uncharted depths of roleplaying with the Pathfinder RPG Advanced Player's Guide! Empower your existing characters with expanded rules for all 11 Pathfinder Roleplaying Game core classes and seven core races, or build a new one from the ground up with one of six brand-new, 20-level base classes. Whether you're designing your own monstrous helpers as an enigmatic summoner, brewing up trouble with a grimy urban alchemist, or simply teaching an old rogue a new trick, this book has everything you need to make your heroes more heroic. The Pathfinder RPG Advanced Player's Guide is a must-have companion volume to the Pathfinder RPG Core Rulebook. This imaginative tabletop game builds upon more than 10 years of system development and an Open Playtest featuring more than 50,000 gamers to create a cutting-edge RPG experience that brings the all-time best-selling set of fantasy rules into the new millennium.
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Advanced Player's Guide. Copyright 2010, Paizo Inc.; Author: Jason Bulmahn.
+COPYRIGHT:Pathfinder RPG Core Rulebook. Copyright 2009, Paizo Inc.; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Advanced Player's Guide" Copyright 2010, PCGen Data team (Including, but not limited to Stefan Radermacher, Andrew Maitland, Eric Smith, Joseph (Sensai) Caubo, David Bender, gjorbjond, James Dempsey and tons of community feedback).
+
+#Do Not Remove Comment
+#EXTRAFILE:OGL.txt
+
+# Additional Resources
+# Last Updated Friday, January 9, 2015
+#
+# Pathfinder Roleplaying Game: Advanced Player's Guide
+# All playtest versions of the six new base classes from this book are no longer legal for play as of 8/3/10. Anyone playing the playtest version of one of the six new base classes must have updated his or her character as of 8/3/10. Updating your character means adjusting only the things that have changed, but not rebuilding the character.
+# The following parts of the Advanced Player's Guide are NOT legal for play:
+#   craftsman alternate Dwarven racial trait,
+#   practicality alternate Halfling racial trait,
+#   heart of the fields alternate Human racial trait,
+#   Alchemist's Brew Potion class ability (he receives Extra Bombs instead as a bonus feat),
+#   Cavalier's Expert Trainer class ability (he receives Skill Focus [Handle Animal] instead as a bonus feat),
+#   Witch's Cauldron hex,
+#   Antipaladin alternate class,
+#   Cooperative Crafting feat,
+#   all cursed magic items and artifacts,
+#   the Hero Point new rule and associated feats, spells, and magic items
+# Equipment: All staves in Chapter 7 are not legal for play from this source. If you purchased these prior to Aug. 16, 2012, they are grandfathered into the campaign.
+# Traits: hedge magician, natural born leader, and rich parents traits, and all of the Campaign Traits.
+# The Master Alchemist feat may only be selected by Alchemists and Poisoners.
+
+# Data files
+ABILITY:pfs_apg_abilities.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+ABILITY:pfs_apg_abilities_race.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+ABILITY:pfs_apg_abilities_class.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+CLASS:pfs_apg_classes.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+EQUIPMENT:pfs_apg_equip_arms_armor.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+EQUIPMENT:pfs_apg_equip_magic_items.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+ABILITY:pfs_apg_feats.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+SPELL:pfs_apg_spells.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+
+#
+# End
+#

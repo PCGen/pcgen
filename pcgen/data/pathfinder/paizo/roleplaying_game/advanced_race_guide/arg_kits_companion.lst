@@ -1,0 +1,31 @@
+# CVS $Revision: $ $Author: $ -- Thu Aug  2 19:19:21 2012 -- reformated by prettylst.pl v1.39 (build )
+SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/products/btpy8rv2?Pathfinder-Roleplaying-Game-Advanced-Race-Guide	SOURCEDATE:2012-06
+# ORIGINAL ENTRY: Scott Meyer (guru_scott)
+# ORIGINAL ENTRY DATE: 05/26/13
+
+# new familiar kits
+STARTPACK:Familiar ~ Parrot	TYPE:Familiar	VISIBLE:NO
+STAT:DEX=11|STR=10|CON=10|INT=10|WIS=11|CHA=11
+
+#STARTPACK:Familiar ~ Cacodaemon		TYPE:Companion		VISIBLE:NO
+#ALIGN:CE
+#STAT:STR=10|DEX=9|CON=11|INT=10|WIS=11|CHA=10
+#SKILL:Bluff						RANK:3
+#SKILL:Fly						RANK:3
+#SKILL:Knowledge (Planes)		RANK:3
+#SKILL:Perception				RANK:3
+#SKILL:Stealth					RANK:3
+
+###Block: plant companion kits
+STARTPACK:Plant Companion ~ Carnivorous Flower	TYPE:Companion	VISIBLE:NO
+STAT:STR=10|DEX=17|CON=15|INT=2|WIS=12|CHA=10
+
+STARTPACK:Plant Companion ~ Crawling Vine	TYPE:Companion	VISIBLE:NO
+STAT:STR=13|DEX=17|CON=13|INT=1|WIS=12|CHA=2
+
+STARTPACK:Plant Companion ~ Puffball	TYPE:Companion	VISIBLE:NO
+STAT:STR=10|DEX=15|CON=12|INT=2|WIS=14|CHA=6
+
+STARTPACK:Plant Companion ~ Sapling Treant	TYPE:Companion	VISIBLE:NO
+STAT:STR=15|DEX=10|CON=12|INT=2|WIS=12|CHA=7
+

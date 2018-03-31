@@ -1,0 +1,12 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+#SOURCELONG:Adventurer's Handbook: Genius Guide Volume 1	SOURCESHORT:SGGAH	SOURCEDATE:2010-04
+# Original Entry by: Paul Shipley (elro the onk)
+
+#	Chooser based Feats
+# Ability Category				Visible		Editable?		Change Pool?	Category of Object	Specific choices list			Display Location
+ABILITYCATEGORY:Disrupting Shot		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:FEAT		ABILITYLIST:Disrupting Shot		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Shield Specialization	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:FEAT		ABILITYLIST:Shield Specialization	DISPLAYLOCATION:Feats
+
+#
+# End
+#

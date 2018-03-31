@@ -1,0 +1,50 @@
+# CVS $Revision: $ $Author: $ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Seekers of Secrets - A Guide to the Pathfinder Society	SOURCESHORT:SOS	SOURCEWEB:http://paizo.com/products/btpy8az2?Pathfinder-Chronicles-Seekers-of-Secrets-A-Guide-to-the-Pathfinder-Society	SOURCEDATE:2009-10
+# Original Entry by: Terry Milnes & Paul Shipley (elro the onk)
+
+# Class Name		Hit Dice	Type			Max Level	Source Page		Define		Combat bonus																	Save bonus																																			Modify VAR																																																																	FACT
+CLASS:Pathfinder Delver	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.58	DEFINE:PaDLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|PaDLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|PaD
+# Class Name		Required Skill											Required Text
+CLASS:Pathfinder Delver	PRESKILL:4,Acrobatics=5,Disable Device=4,Knowledge (History)=4,Perception=5	PRETEXT:Must have recovered an object of historical significance from an ancient ruin or similar location
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Pathfinder Delver	STARTSKILLPTS:8	CSKILL:Acrobatics|Appraise|Bluff|Climb|Diplomacy|Disable Device|Escape Artist|TYPE=Knowledge|Linguistics|Perception|Sense Motive|Sleight of Hand|Stealth|Survival|Swim|Use Magic Device
+1	BONUS:VAR|BardicKnowledgeLVL|CL	BONUS:VAR|PaDSkillBonus|max(1,CL/2)	ABILITY:Special Ability|AUTOMATIC|Bard ~ Bardic Knowledge|Pathfinder Delver ~ Master Explorer
+2	BONUS:VAR|RogueTrapSenseLVL|CL+1							ABILITY:Special Ability|AUTOMATIC|Pathfinder Delver ~ Surefooted|Rogue ~ Trap Sense
+3	BONUS:VAR|PaDEscapeTimes|1								ABILITY:Special Ability|AUTOMATIC|Pathfinder Delver ~ Guardbreaker|Pathfinder Delver ~ Thrilling Escape
+4	BONUS:VAR|PaDInitiative|CL/2								ABILITY:Special Ability|AUTOMATIC|Pathfinder Delver ~ Resourceful Disabler|Pathfinder Delver ~ Vigilant Combatant
+5													ABILITY:Special Ability|AUTOMATIC|Pathfinder Delver ~ Left for Dead
+6	BONUS:VAR|PaDFortunateTimes|1								ABILITY:Special Ability|AUTOMATIC|Pathfinder Delver ~ Fortunate Soul
+7	BONUS:VAR|PaDEscapeTimes|1
+9	BONUS:VAR|PaDEscapeTimes|1								ABILITY:Special Ability|AUTOMATIC|Pathfinder Delver ~ True Seeing
+10	BONUS:VAR|PaDFortunateTimes|1								ABILITY:Special Ability|AUTOMATIC|Pathfinder Delver ~ Nick of Time
+
+# Class Name		Hit Dice	Type			Max Level	Source Page		Define		Combat bonus																	Save bonus																																				Modify VAR																																																																FACT
+CLASS:Pathfinder Savant	HD:6		TYPE:PC.Prestige	MAXLEVEL:7	SOURCEPAGE:p.60	DEFINE:PaSLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|PaSLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|PaS
+# Class Name		Required Ability														Required Skill									Req. Spell Type
+CLASS:Pathfinder Savant	PREABILITY:1,CATEGORY=FEAT,Magical Aptitude	PREABILITY:1,CATEGORY=FEAT,TYPE=ItemCreation	PRESKILL:3,Knowledge (Arcana)=5,Spellcraft=5,Use Magic Device=5	PRESPELLTYPE:1,Arcane=2,Divine=2
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Pathfinder Savant	STARTSKILLPTS:2	CSKILL:Appraise|TYPE=Craft|TYPE=Knowledge|Linguistics|Perception|TYPE=Profession|Spellcraft|Use Magic Device
+1	BONUS:VAR|PaSSkillBonus|max(1,CL/2)					ABILITY:Special Ability|AUTOMATIC|Pathfinder Savant ~ Adept Activation|Pathfinder Savant ~ Master Scholar
+2	BONUS:VAR|PaSEsotericSpells|CL-1	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Pathfinder Savant ~ Esoteric Magic|Pathfinder Savant ~ Glyph Finding
+3							ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Pathfinder Savant ~ Scroll Master
+4	BONUS:VAR|PaSIdentifyTimes|CL/2	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Pathfinder Savant ~ Quick Identification
+5	BONUS:VAR|PaSSaveBonus|CL		ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Pathfinder Savant ~ Sigil Master
+6	BONUS:VAR|PaSAnalyzeDuration|CL	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Pathfinder Savant ~ Analyze Dweomer|Pathfinder Savant ~ Silence Master
+7							ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Pathfinder Savant ~ Dispelling Master
+
+# Class Name		Hit Dice	Type			Max Level	Source Page		Define		Combat bonus																Save bonus																																				Modify VAR																																																																FACT
+CLASS:Student of War	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.62	DEFINE:SoWLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|SoWLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|SoW
+# Class Name		Required Ability																Required Skill			Required Text																Req. Weapond Prof.
+CLASS:Student of War	PREABILITY:2,CATEGORY=FEAT,Combat Expertise,Dodge	PREABILITY:1,CATEGORY=FEAT,Skill Focus (Knowledge%)	PRESKILL:2,TYPE.Knowledge=4	PRETEXT:Must have made successful Knowledge checks against five distinct creatures prior to defeating them	PREWEAPONPROF:2,TYPE.Martial,TYPE.Martial
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Student of War	STARTSKILLPTS:6	CSKILL:Climb|TYPE=Craft|Disable Device|Handle Animal|TYPE=Knowledge|Linguistics|Perception|TYPE=Profession|Sense Motive|Spellcraft|Survival|Swim
+1								BONUS:VAR|SoWKnowEnemy|1	BONUS:VAR|SoWDuration|CL	ABILITY:Special Ability|AUTOMATIC|Stances ~ SoW|Student of War ~ Know Your Enemy
+2	BONUS:ABILITYPOOL|Fighter Bonus Feat|1											ABILITY:Special Ability|AUTOMATIC|Student of War ~ Mind Over Metal
+3								BONUS:VAR|SoWAnticipateTimes|CL/3					ABILITY:Special Ability|AUTOMATIC|Student of War ~ Anticipate
+4								BONUS:VAR|SoWKnowEnemy|1
+5	BONUS:ABILITYPOOL|Fighter Bonus Feat|1
+6																		ABILITY:Special Ability|AUTOMATIC|Student of War ~ Telling Blow
+7								BONUS:VAR|SoWKnowEnemy|1
+8	BONUS:ABILITYPOOL|Fighter Bonus Feat|1
+9																		ABILITY:Special Ability|AUTOMATIC|Student of War ~ Nemesis
+10																		ABILITY:Special Ability|AUTOMATIC|Student of War ~ Deadly Blow

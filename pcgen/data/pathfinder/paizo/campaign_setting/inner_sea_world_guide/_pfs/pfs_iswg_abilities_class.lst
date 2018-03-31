@@ -1,0 +1,207 @@
+# CVS $Revision: $ $Author: $ -- Wed Dec 10 01:48:21 2014 -- reformated by prettylst.pl v1.51 (build 25712)
+SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8ief	SOURCEDATE:2011-03
+# Original Entry by:Stefan Radermacher
+
+# Prestige Classes: Hellknight, Low Templar;
+
+###Block: Cleric Domain Powers
+# Ability Name		Unique Key								Category of Ability		Type								Define					Description																										Modify VAR									Allow Follower			Allowed Companions												Source Page		Aspects																				Description of the Benefits
+#CATEGORY=Special Ability|Venomous Stare ~ Scalykind Domain				TYPE:PFSLegal
+#CATEGORY=Special Ability|Serpent Companion ~ Scalykind Domain			TYPE:PFSLegal
+#CATEGORY=Special Ability|Guarded Mind ~ Void Domain					TYPE:PFSLegal
+#CATEGORY=Special Ability|Part the Veil ~ Void Domain					TYPE:PFSLegal
+#CATEGORY=Special Ability|It Came From Beyond ~ Dark Tapestry Subdomain	TYPE:PFSLegal
+#CATEGORY=Special Ability|Dragonbreath ~ Dragon Subdomain				TYPE:PFSLegal
+#CATEGORY=Special Ability|The Stars Are Right ~ Stars Subdomain			TYPE:PFSLegal
+#CATEGORY=Special Ability|Dinosaur Companion ~ Saurian Subdomain		TYPE:PFSLegal
+
+
+###BLOCK: Harrower Abilities
+# Ability Name							Type
+CATEGORY=Special Ability|Blessing of the Harrow.MOD	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Harrow Casting.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Tower of Intelligence.MOD	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Tower of Strength.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Tower of Charisma.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Spirit Deck.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Divination ~ Harrower.MOD	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Tower of Constitution.MOD	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Tower of Dexterity.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Tower of Wisdom.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Reading the Signs.MOD		TYPE:PFSNotLegal
+
+###BLOCK: Hellknight Abilities
+# Ability Name									Type
+CATEGORY=Special Ability|Detect Chaos ~ HK.MOD				TYPE:PFSLegal
+CATEGORY=Special Ability|Smite Chaos ~ HK.MOD				TYPE:PFSLegal
+CATEGORY=Special Ability|Discern Lies ~ HK.MOD				TYPE:PFSLegal
+CATEGORY=Special Ability|Hellknight Armor ~ HK.MOD			TYPE:PFSLegal
+#CATEGORY=Special Ability|HK Armor Benefits.MOD			TYPE:PFSLegal
+CATEGORY=Special Ability|Force of Will ~ HK.MOD				TYPE:PFSLegal
+CATEGORY=Special Ability|Lawbringer ~ HK.MOD				TYPE:PFSLegal
+CATEGORY=Special Ability|Infernal Armor ~ HK.MOD			TYPE:PFSLegal
+CATEGORY=Special Ability|Hell's Knight ~ HK.MOD				TYPE:PFSLegal
+
+# Hellknight Orders
+CATEGORY=Special Ability|Order of the Chain.MOD				TYPE:PFSLegal
+CATEGORY=Special Ability|Order of the Gate.MOD				TYPE:PFSLegal
+CATEGORY=Special Ability|Order of the God Claw.MOD			TYPE:PFSLegal
+CATEGORY=Special Ability|Order of the Nail.MOD				TYPE:PFSLegal
+CATEGORY=Special Ability|Order of the Pyre.MOD				TYPE:PFSLegal
+CATEGORY=Special Ability|Order of the Rack.MOD				TYPE:PFSLegal
+CATEGORY=Special Ability|Order of the Scourge.MOD			TYPE:PFSLegal
+
+# Hellknight Disciplines
+CATEGORY=Special Ability|Discipline ~ HK.MOD				TYPE:PFSLegal
+CATEGORY=Special Ability|Brand ~ HK.MOD					TYPE:PFSLegal
+CATEGORY=Special Ability|Censor ~ HK.MOD					TYPE:PFSLegal
+CATEGORY=Special Ability|Fearsomeness ~ HK.MOD				TYPE:PFSLegal
+CATEGORY=Special Ability|Onslaught ~ HK.MOD				TYPE:PFSLegal
+CATEGORY=Special Ability|Pentamic Faith ~ HK.MOD			TYPE:PFSLegal
+CATEGORY=Special Ability|Shackle ~ HK.MOD					TYPE:PFSLegal
+CATEGORY=Special Ability|Summon Devil ~ HK.MOD				TYPE:PFSLegal
+CATEGORY=Special Ability|Summon Devil V ~ HK.MOD			TYPE:PFSLegal
+CATEGORY=Special Ability|Summon Devil VI ~ HK.MOD			TYPE:PFSLegal
+CATEGORY=Special Ability|Summon Devil VII ~ HK.MOD			TYPE:PFSLegal
+CATEGORY=Special Ability|Tracker ~ HK.MOD					TYPE:PFSLegal
+CATEGORY=Special Ability|Vigilance ~ HK.MOD				TYPE:PFSLegal
+CATEGORY=Special Ability|Wrack ~ HK.MOD					TYPE:PFSLegal
+
+#Pentamic Faith domains
+CATEGORY=Special Ability|Artifice ~ HK.MOD				TYPE:PFSLegal
+CATEGORY=Special Ability|Glory ~ HK.MOD					TYPE:PFSLegal
+CATEGORY=Special Ability|Knowledge ~ HK.MOD				TYPE:PFSLegal
+CATEGORY=Special Ability|Law ~ HK.MOD					TYPE:PFSLegal
+CATEGORY=Special Ability|Magic ~ HK.MOD					TYPE:PFSLegal
+CATEGORY=Special Ability|Nobility ~ HK.MOD				TYPE:PFSLegal
+CATEGORY=Special Ability|Protection ~ HK.MOD				TYPE:PFSLegal
+CATEGORY=Special Ability|Rune ~ HK.MOD					TYPE:PFSLegal
+CATEGORY=Special Ability|Strength ~ HK.MOD				TYPE:PFSLegal
+CATEGORY=Special Ability|Travel ~ HK.MOD					TYPE:PFSLegal
+CATEGORY=Special Ability|War ~ HK.MOD					TYPE:PFSLegal
+
+# Hellknight Force of Will
+CATEGORY=Special Ability|Charm ~ HKFow1.MOD				TYPE:PFSLegal
+CATEGORY=Special Ability|Compulsion ~ HKFow1.MOD			TYPE:PFSLegal
+CATEGORY=Special Ability|Glamer ~ HKFow1.MOD				TYPE:PFSLegal
+CATEGORY=Special Ability|Fear ~ HKFow1.MOD				TYPE:PFSLegal
+CATEGORY=Special Ability|Figment ~ HKFow1.MOD				TYPE:PFSLegal
+CATEGORY=Special Ability|Pattern ~ HKFow1.MOD				TYPE:PFSLegal
+CATEGORY=Special Ability|Phantasm ~ HKFow1.MOD				TYPE:PFSLegal
+
+CATEGORY=Special Ability|Charm ~ HKFow2.MOD				TYPE:PFSLegal
+CATEGORY=Special Ability|Compulsion ~ HKFow2.MOD			TYPE:PFSLegal
+CATEGORY=Special Ability|Glamer ~ HKFow2.MOD				TYPE:PFSLegal
+CATEGORY=Special Ability|Fear ~ HKFow2.MOD				TYPE:PFSLegal
+CATEGORY=Special Ability|Figment ~ HKFow2.MOD				TYPE:PFSLegal
+CATEGORY=Special Ability|Pattern ~ HKFow2.MOD				TYPE:PFSLegal
+CATEGORY=Special Ability|Phantasm ~ HKFow2.MOD				TYPE:PFSLegal
+
+CATEGORY=Special Ability|Charm ~ HKFow3.MOD				TYPE:PFSLegal
+CATEGORY=Special Ability|Compulsion ~ HKFow3.MOD			TYPE:PFSLegal
+CATEGORY=Special Ability|Glamer ~ HKFow3.MOD				TYPE:PFSLegal
+CATEGORY=Special Ability|Fear ~ HKFow3.MOD				TYPE:PFSLegal
+CATEGORY=Special Ability|Figment ~ HKFow3.MOD				TYPE:PFSLegal
+CATEGORY=Special Ability|Pattern ~ HKFow3.MOD				TYPE:PFSLegal
+CATEGORY=Special Ability|Phantasm ~ HKFow3.MOD				TYPE:PFSLegal
+
+### BLOCK: Low Templar
+CATEGORY=Special Ability|Crusader ~ Low.MOD				TYPE:PFSLegal
+CATEGORY=Special Ability|Flag of Convenience ~ Low.MOD		TYPE:PFSLegal
+CATEGORY=Special Ability|Dirty Fighting ~ Low.MOD			TYPE:PFSLegal
+CATEGORY=Special Ability|Live to Fight Another Day ~ Low.MOD	TYPE:PFSLegal
+CATEGORY=Special Ability|Ruthless ~ Low.MOD				TYPE:PFSLegal
+CATEGORY=Special Ability|Parting Shot ~ Low.MOD				TYPE:PFSLegal
+CATEGORY=Special Ability|Planar Cohort ~ Low.MOD			TYPE:PFSLegal
+
+# Low Templar path choices
+CATEGORY=Special Ability|Path of DarknessC ~ Low.MOD			TYPE:PFSLegal
+CATEGORY=Special Ability|Path of DarknessE ~ Low.MOD			TYPE:PFSLegal
+CATEGORY=Special Ability|Path of LightG ~ Low.MOD			TYPE:PFSLegal
+CATEGORY=Special Ability|Path of LightL ~ Low.MOD			TYPE:PFSLegal
+CATEGORY=Special Ability|DamnationC ~ Low.MOD				TYPE:PFSLegal
+CATEGORY=Special Ability|DamnationE ~ Low.MOD				TYPE:PFSLegal
+CATEGORY=Special Ability|RedemptionG ~ Low.MOD				TYPE:PFSLegal
+CATEGORY=Special Ability|RedemptionL ~ Low.MOD				TYPE:PFSLegal
+
+### BLOCK: Red Mantis Assassin
+CATEGORY=Special Ability|RMA Weapon Proficiencies.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Armored Casting ~ RMA.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Sabre Fighting.MOD				TYPE:PFSNotLegal
+CATEGORY=Special Ability|Prayer Attack.MOD				TYPE:PFSNotLegal
+CATEGORY=Special Ability|Red Shroud.MOD					TYPE:PFSNotLegal
+CATEGORY=Special Ability|Summon Mantis.MOD				TYPE:PFSNotLegal
+CATEGORY=Special Ability|Resurrection Sense.MOD				TYPE:PFSNotLegal
+CATEGORY=Special Ability|Mantis Form.MOD					TYPE:PFSNotLegal
+CATEGORY=Special Ability|Blood Mantis Form.MOD				TYPE:PFSNotLegal
+CATEGORY=Special Ability|Death Mantis Form.MOD				TYPE:PFSNotLegal
+CATEGORY=Special Ability|Fading.MOD						TYPE:PFSNotLegal
+CATEGORY=Special Ability|Mantis Doom.MOD					TYPE:PFSNotLegal
+CATEGORY=Special Ability|RMA Bonus Spells.MOD				TYPE:PFSNotLegal
+
+###BLOCK: Companion Ablities
+# Ability Name								Type
+CATEGORY=Special Ability|Companion Andoren Falconry.MOD	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Bonus to AC ~ AF.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Bonus to Attack ~ AF.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Bonus to Will Saves ~ AF.MOD		TYPE:PFSNotLegal
+
+
+###BLOCK: Hermean Blood Abilities
+# Ability Name								Type
+CATEGORY=Special Ability|Hermean Blood ~ Strength.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Hermean Blood ~ Dexterity.MOD	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Hermean Blood ~ Intelligence.MOD	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Hermean Blood ~ Wisdom.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Hermean Blood ~ Charisma.MOD		TYPE:PFSNotLegal
+
+###BLOCK: Noble Scion Abilities
+# Ability Name								Type
+CATEGORY=Special Ability|Scion of the Arts.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Scion of Lore.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Scion of Lore ~ Arcana.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Scion of Lore ~ Dungeoneering.MOD	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Scion of Lore ~ Engineering.MOD	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Scion of Lore ~ Geography.MOD	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Scion of Lore ~ History.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Scion of Lore ~ Local.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Scion of Lore ~ Nature.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Scion of Lore ~ Nobility.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Scion of Lore ~ Planes.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Scion of Lore ~ Religion.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Scion of Magic.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Scion of Peace.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Scion of War.MOD				TYPE:PFSNotLegal
+
+###BLOCK: Scholar Abilities
+# Ability Name							Type
+CATEGORY=Special Ability|Scholar ~ Arcana.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Scholar ~ Dungeoneering.MOD	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Scholar ~ Engineering.MOD	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Scholar ~ Geography.MOD	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Scholar ~ History.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Scholar ~ Local.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Scholar ~ Nature.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Scholar ~ Nobility.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Scholar ~ Planes.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Scholar ~ Religion.MOD		TYPE:PFSNotLegal
+
+###BLOCK: Totem Spirit Abilities
+# Ability Name								Type
+CATEGORY=Special Ability|Totem Spirit ~ Lyrune-Quah.MOD	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Totem Spirit ~ Shadde-Quah.MOD	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Totem Spirit ~ Shriikirri-Quah.MOD	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Totem Spirit ~ Shundar-Quah.MOD	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Totem Spirit ~ Sklar-Quah.MOD	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Totem Spirit ~ Skoan-Quah.MOD	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Totem Spirit ~ Tamiir-Quah.MOD	TYPE:PFSNotLegal
+
+###BLOCK: Varisian Tattoo Abilities
+# Ability Name								Type
+CATEGORY=Special Ability|Varisian Tattoo ~ Avidais.MOD	TYPE:PFSLegal
+CATEGORY=Special Ability|Varisian Tattoo ~ Idolis.MOD		TYPE:PFSLegal
+CATEGORY=Special Ability|Varisian Tattoo ~ Carnasia.MOD	TYPE:PFSLegal
+CATEGORY=Special Ability|Varisian Tattoo ~ Ragario.MOD	TYPE:PFSLegal
+CATEGORY=Special Ability|Varisian Tattoo ~ Vangloris.MOD	TYPE:PFSLegal
+CATEGORY=Special Ability|Varisian Tattoo ~ Voratalo.MOD	TYPE:PFSLegal
+CATEGORY=Special Ability|Varisian Tattoo ~ Avaria.MOD		TYPE:PFSLegal

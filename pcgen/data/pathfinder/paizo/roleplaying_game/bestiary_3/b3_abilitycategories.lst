@@ -1,0 +1,34 @@
+# CVS $Revision: 21669 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+#SOURCELONG:Bestiary 3	SOURCESHORT:B3	SOURCEWEB:http://paizo.com/products/btpy8odu?Pathfinder-Roleplaying-Game-Bestiary-3
+
+
+# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object					Specific choices list						Plural description for UI			Display Location
+ABILITYCATEGORY:Animal Lord Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:AnimalLord																					DISPLAYLOCATION:Racial Abilities
+
+ABILITYCATEGORY:Variant Bandersnatch			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:VariantBandersnatch																			DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Nixie Choice					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal			TYPE:NixieChoice																					DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Dire Corby Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal			TYPE:DireCorbyChoice																				DISPLAYLOCATION:Racial Abilities
+
+ABILITYCATEGORY:Variant Asurendra				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:AsurendraAdditional																			DISPLAYLOCATION:Racial Abilities
+
+ABILITYCATEGORY:Akvan Prince Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:AkvanPrinceSelection																			DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Akvan Stat Increase				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal										ABILITYLIST:Akvan Prince Stat												DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Variant Kamadan				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:VariantKamadan																				DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Variant Elder Jinushigami			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:ElderJinushigami																				DISPLAYLOCATION:Racial Abilities
+
+ABILITYCATEGORY:Adlet Selection				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:AdletSelection																				DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Kirin Selection				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:KirinSelection																				DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Eremite Selection				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:EremiteSelection																				DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Void Yai Selection				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:VoidYaiSelection																				DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Voidlord Selection				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:VoidlordSelection																				DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Maharaja Selection				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:MaharajaSelection																				DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Demilich Selection				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:DemilichSelection																				DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Graven Guardian Domain Selection	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:GravenGuardianDomain																			DISPLAYLOCATION:Racial Abilities
+
+ABILITYCATEGORY:Ruinous Revivification			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability								ABILITYLIST:Graveknight ~ Ruinous Revivification	PLURAL:Ruinous Revivification			DISPLAYLOCATION:Racial Abilities
+
+ABILITYCATEGORY:Fey Creature Special Abilities		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FeyCreatureSelection												PLURAL:Fey Creature Traits			DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Unfettered Eidolon Evolution		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:UnfetteredEidolonEvolution											PLURAL:Unfettered Eidolon Evolutions	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Eidolon AC Bonus				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Eidolon AC Bonus													PLURAL:Eidolon AC Bonus				DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Unfettered Eidolon Base Form		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Unfettered Eidolon Base Form											PLURAL:Unfettered Eidolon Evolutions	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Unfettered Eidolon Stat Boost		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Unfettered Eidolon Stat Selection										PLURAL:Unfettered Eidolon Stat Selection	DISPLAYLOCATION:Racial Abilities

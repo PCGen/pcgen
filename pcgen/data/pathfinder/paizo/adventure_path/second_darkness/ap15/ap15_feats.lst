@@ -1,0 +1,7 @@
+# CVS $Revision: $ $Author: $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
+SOURCELONG:Second Darkness, Chapter 3 - The Armageddon Echo	SOURCESHORT:AP15	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy85ep	SOURCEDATE:2008-10
+# Original Entry by Eddy Anthony (MoSaT)
+
+# Feat Name		Type			Required Ability									Required Feat		Required Gender	Multiple Requirements										Required Non-Monster Lvl	Innate Spells																					Description													Source Page
+# Ability Name	Category of Ability	Type			Required Ability																Required Gender	Multiple Requirements													Required Non-Monster Lvl	Innate Spells																					Description													Source Page
+Umbral Scion	CATEGORY:FEAT		TYPE:General	PREABILITY:1,CATEGORY=Special Ability,Spell-Like Abilities ~ Drow	PREABILITY:1,CATEGORY=FEAT,Dark Adept	PREGENDER:Female	PREMULT:1,[PRERACE:1,Drow%,RACESUBTYPE=Drow],[PREABILITY:1,CATEGORY=FEAT,Half-Drow Paragon]	PREPCLEVEL:MIN=7			SPELLS:Innate|TIMES=1|CASTERLEVEL=(max(TL,1))|Clairaudience/Clairvoyance,13+CHA|Discern Lies,14+CHA|Dispel Magic,13+CHA|Suggestion,13+CHA	DESC:You develop more advanced spell-like abilities related to your drow heritage.	SOURCEPAGE:p.59

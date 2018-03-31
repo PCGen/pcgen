@@ -1,0 +1,24 @@
+# CVS $Revision: $ $Author: $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEWEB:http://paizo.com/pathfinder/companion/35E/v5748btpy84en	SOURCEDATE:2008-08
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus																Save bonus																																		Modify VAR																																																												FACT
+CLASS:Liberator	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.22	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|Liber
+# Class Name	Required Ability									Required AL				Required Skill						PRETOTALAB
+CLASS:Liberator	PREABILITY:3,CATEGORY=FEAT,Improved Sunder,Power Attack,Stealthy	PREALIGN:NG,CG,TN,CN,NE,CE	PRESKILL:2,Escape Artist=3,Disable Device=3	PRETOTALAB:5
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Liberator	STARTSKILLPTS:2	CSKILL:Diplomacy|Disable Device|Perception|Stealth
+
+1							BONUS:VAR|LiberatorPoisonResistance|2	ABILITY:Special Ability|AUTOMATIC|Liberator Poison Resistance|To the Rescue
+2							BONUS:VAR|LiberatorLockbreakerBonus|CL/2	ABILITY:Special Ability|AUTOMATIC|Lockbreaker
+3	BONUS:ABILITYPOOL|Liberator Feat|1								ABILITY:Special Ability|AUTOMATIC|Silent Sunder
+4
+5														ABILITY:Special Ability|AUTOMATIC|Slaver's Ruin
+6														ABILITY:Special Ability|AUTOMATIC|Greater Sunder
+7							BONUS:VAR|LiberatorPoisonResistance|2	ABILITY:Special Ability|AUTOMATIC|Steely Resolve
+8																											TEMPLATE:Liberator Darkvision
+9														ABILITY:Special Ability|AUTOMATIC|Quick Pick
+10														ABILITY:Special Ability|AUTOMATIC|Freedom of Movement ~ Liberator
+
+#
+# End
+#

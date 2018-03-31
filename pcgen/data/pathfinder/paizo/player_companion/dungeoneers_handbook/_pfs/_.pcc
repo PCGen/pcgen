@@ -1,0 +1,57 @@
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+CAMPAIGN:Dungeoneer's Handbook (PFS)
+KEY:PFS ~ Dungeoneer's Handbook
+#GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing PFS.Pathfinder Player Companion
+RANK:3
+STATUS:BETA
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder|Golarion
+PRECAMPAIGN:1,Pathfinder Society Core Assumption
+PRECAMPAIGN:3,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Equipment
+
+PUBNAMELONG:Paizo Publishing
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Pathfinder Player Companion: Dungeoneer's Handbook
+SOURCESHORT:DH
+SOURCEWEB:http://paizo.com/products/btpy8wfn
+SOURCEDATE:2013-03
+ISOGL:YES
+
+#COVER:@/pathfinder/paizo/player_companion/dungeoneers_handbook/dungeoneers_handbook.jpeg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy8wfn|Buy this publication from Paizo Publishing!
+DESC:Perhaps no environment is more iconic, more varied, and more fearsome than the dungeon, and when you delve into the perilous, monster-infested ruins of ages lost, you need all the help you can get! Intrepid explorers in search of the ultimate tomb raider's boon need look no further than Player Companion: Dungeoneer's Handbook! Packed with useful tips, handy tricks, and new rules and options, this volume is a must-have for any adventurer looking to brave the world's most infamous dungeons.
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Russet Mold from the Tome of Horrors Complete. Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax
+COPYRIGHT:Player Companion: Dungeoneer's Handbook Copyright 2013, Paizo Inc.; Authors: Amanda Hamon, Gareth Hanrahan, David Ross, & Jerome Virnich
+COPYRIGHT:PCGen dataset conversion for "Player Companion: Dungeoneer's Handbook" Copyright 2013, PCGen Data team (Including, but not limited to Scott Meyer (Guru_Scott), Paul Grosse, Andrew Maitland)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# Additional Resources
+# Last Updated Friday, January 9, 2015
+#
+# Pathfinder Player Companion: Dungeoneer's Handbook
+# Archetypes: all archetypes on pages 22-23 are legal for play;
+# Discoveries: all discoveries on page 27 are legal for play;
+# Equipment: all equipment on pages 6-7 and 24-29 except petrified ooze are legal for play;
+# Feats: all feats on pages 8, 10, and 12 are legal for play;
+# Spells: all spells on pages 30-31.;
+# Traits: all traits on back inside cover are legal except Alien Origins and Lost Role Model.
+
+# Data files
+EQUIPMENT:pfs_dh_equip_general.lst|PRECAMPAIGN:1,INCLUDES=Dungeoneer's Handbook
+ABILITY:pfs_dh_abilities.lst|PRECAMPAIGN:1,INCLUDES=Dungeoneer's Handbook
+
+#
+# End
+#

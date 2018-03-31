@@ -1,0 +1,10 @@
+# CVS $Revision: 21670 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Ultimate Combat	SOURCESHORT:UC	SOURCEWEB:http://paizo.com/products/btpy8mcz?Pathfinder-Roleplaying-Game-Ultimate-Combat	SOURCEDATE:2011-01
+# Implemented 2nd printing errata: 2014-01-27, Stefan Radermacher
+
+# Spell Name				Type			!PRECHARACTERTYPE
+Arcane Cannon.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Energy Siege Shot.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Energy Siege Shot (Greater).MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Magic Siege Engine.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Magic Siege Engine (Greater).MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC

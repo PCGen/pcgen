@@ -1,0 +1,14 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/products/btpy8rv2?Pathfinder-Roleplaying-Game-Advanced-Race-Guide	SOURCEDATE:2012-06
+# ORIGINAL ENTRY: none
+# ORIGINAL ENTRY DATE: none
+
+#CATEGORY=Special Ability|Dwarf ~ Craftsman.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+# Ability Name							Type			!PRECHARACTERTYPE
+CATEGORY=Special Ability|Dwarf ~ Xenophobic.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Elf ~ Darkvision.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Half-Elf ~ Drow Blooded.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Half-Elf ~ Drow Magic.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+#CATEGORY=Special Ability|Halfling ~ Practicality.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+#CATEGORY=Special Ability|Human ~ Heart of the Fields.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Human ~ Heroic.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC

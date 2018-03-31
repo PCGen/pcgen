@@ -1,0 +1,76 @@
+# CVS $Revision$ $Author$ -- Wed Nov 20 08:25:04 2013 -- reformated by prettylst.pl v1.50 (build 21703)
+CAMPAIGN:Advanced Class Guide (PFS)
+KEY:PFS ~ Advanced Class Guide
+#GAMEMODE:Pathfinder
+TYPE:Paizo Publishing PFS.Pathfinder RPG
+STATUS:ALPHA
+RANK:1
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder
+PRECAMPAIGN:1,Pathfinder Society Core Assumption
+
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Advanced Class Guide
+SOURCESHORT:ACG
+SOURCEWEB:http://paizo.com/products/btpy92zi
+SOURCEDATE:2014-08
+ISOGL:YES
+
+#COVER:@/pathfinder/paizo/roleplaying_game/advanced_players_guide.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy92zi|Download this publication from Paizo Publishing!
+
+DESC:Adventure like never before with the Pathfinder Roleplaying Game Advanced Class Guide! Explore new heights of heroism with 10 new base classes, each with 20 levels of amazing abilities. Incredible powers also await existing characters, with more than a hundred new archetypes and class options. Prepare characters for their most legendary adventure ever with massive selections of never-before-seen spells, magic items, and more!
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:System Reference Document Copyright 2000. Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:The Book of Fiends © 2003, Green Ronin Publishing; Authors: Aaron Loeb, Erik Mona, Chris Pramas, and Robert J. Schwalb.  Pathfinder Roleplaying Game Core Rulebook © 2009, Paizo Publishing, LLC; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:Angel, Monadic Deva from the Tome of Horrors Complete © 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Angel, Movanic Deva from the Tome of Horrors Complete © 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Daemon, Derghodaemon from the Tome of Horrors Complete © 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Daemon, Guardian from the Tome of Horrors Complete © 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Ian McDowall.
+COPYRIGHT:Daemon, Hydrodaemon from the Tome of Horrors Complete © 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Daemon, Piscodaemon from the Tome of Horrors Complete © 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Pathfinder Roleplaying Game Advanced Class Guide © 2014, Paizo Inc.; Authors: Dennis Baker, Ross Byers, Jesse Benner, Savannah Broadway, Jason Bulmahn, Jim Groves, Tim Hitchcock, Tracy Hurley, Jonathan H. Keith, Will McCardell, Dale C. McCoy, Jr., Tom Phillips, Stephen Radney-MacFarland, Thomas M. Reid, Sean K Reynolds, Tork Shaw, Owen K.C. Stephens, and Russ Taylor.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Advanced Class Guide" Copyright 2014, PCGen Data team (Including, but not limited to Stefan Radermacher and Andrew Wilson).
+
+#Do Not Remove Comment
+#EXTRAFILE:OGL.txt
+
+# Additional Resources
+# Last Updated Wednesday, October 29, 2014
+#
+# Pathfinder Roleplaying Game: Advanced Class Guide
+# All playtest versions of the ten new base classes from this book are no longer legal for play as of 8/14/14. Anyone playing the playtest version of one of the ten new base classes must have updated his or her character as of 8/14/14. Updating your character means adjusting only the things that have changed, but not rebuilding the character.
+# Arcana: all magus arcana on page 104 are legal for play.
+# Archetypes: all archetypes on pages 75-133 are legal for play, except forgepriest, hex channeler, musketeer, mutation warrior, packmaster, primal companion hunter, primalist, spirit summoner, and steel hound.
+# Classes: All ten base classes are legal for play. Some classes are modified as follows:
+#   Arcanist: The Item Crafting bonus feat is not legal for play.
+#   Brawler: To utilize the Martial Flexibility class feature, the player must have the source book of the combat feat she wishes to utilize.
+#   Shaman: Fetish hex replaces Craft Wondorous Item with Spell Focus. Shamans with the Nature spirit receive animal growth as a bonus spell at 10th level instead of awaken.
+#   Skald: Skalds receive Extra Performance at 1st level instead of Scribe Scroll.
+#   Warpriest: To select a blessing, a warpriest must worship a deity that offers the domain of the same name.
+# Combat Styles: all combat styles on page 118 are legal for play.
+# Dares: all dares on page 94 are legal for play.
+# Discoveries: all discoveries on page 75 are legal for play.
+# Equipment: all equipment and magic items on pages 202-237 are legal for play, except cape of feinting, dust knuckles, false face, rod of abrupt hexes, and rod of voracious hexes.
+# Feats: all feats on pages 136-159 are legal for play, except Animal Soul, Divine Protection, Evolved Companion, Evolved Summon Monster, and Spirit's Gift, Pummeling Charge has been removed from the banned list and is now available for play.
+# Misc: Nothing in Chapter 6 is legal.
+# Orders: The Order of the Beast is not legal for play.
+# Racial Favored Class Options: all racial favored class options on pages 69-71 are legal for play.
+# Rages: all rages on pages 80 and 114 are legal for play.
+# Spells: all spells on pages 162-199 are legal for play.
+
+ABILITY:pfs_acg_abilities_class.lst|PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
+CLASS:pfs_acg_classes.lst|PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
+EQUIPMENT:pfs_acg_equip.lst|PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
+ABILITY:pfs_acg_feats.lst|PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
+
+#
+# End
+#

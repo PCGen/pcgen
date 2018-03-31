@@ -1,0 +1,8 @@
+# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Ultimate Magic	SOURCESHORT:UM	SOURCEWEB:http://paizo.com/pathfinderRPG/v5748btpy8g7s	SOURCEDATE:2011-05
+
+
+###Block: Scrollmaster Gear
+# Equipment Name	Required Weapon Proficiency		Required Shield Proficiency		Type												Cost		Weight	AC Penalty Check	Crit Mult	Crit Range	Damage	Wield Category	Size		Source Page		% of Spell Failure	Combat bonus
+Scroll Shield							PROFICIENCY:SHIELD|Scroll Shield	TYPE:Shield.Light.Close									COST:0	WT:0		ACCHECK:0		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d3	WIELD:Light		SIZE:M	SOURCEPAGE:p.89	SPELLFAILURE:0		BONUS:COMBAT|AC|1|TYPE=Shield
+Scroll Blade	PROFICIENCY:WEAPON|Scroll Blade							TYPE:Weapon.Resizable.Melee.Light.Finesseable.Piercing.Sword.BladeLight	COST:0	WT:0					CRITMULT:x2	CRITRANGE:2	DAMAGE:1d6	WIELD:Light		SIZE:M	SOURCEPAGE:p.89

@@ -1,0 +1,58 @@
+# CVS $Revision: 21663 $ $Author: amaitland $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+#SOURCELONG:Pathfinder Unchained	SOURCESHORT:PU	SOURCEWEB:http://paizo.com/products/btpy97vo	SOURCEDATE:2015-04
+# Original Entry by: Stefan Radermacher
+
+###Block: Class Feature Categories
+# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Base Pool number					Category of Object		Type of Object						Specific choices list					Plural description for UI	Display Location
+ABILITYCATEGORY:Unchained Rage Power			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:Unchained Rage Power.UnchainedRagePower									PLURAL:Unchained Rage Powers	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Unchained Raging Selection		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:UnchainedRageSelection																	DISPLAYLOCATION:Class Features
+
+
+ABILITYCATEGORY:Unchained Eidolon Subtype			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						POOL:Pool_UnchainedEidolonType		CATEGORY:Special Ability	TYPE:Unchained Eidolon Subtype Selection															DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Unchained Eidolon Form			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						POOL:Pool_UnchainedEidolonForm		CATEGORY:Special Ability	TYPE:Unchained Eidolon Base Form Selection														DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Unchained Eidolon Evolution		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						POOL:Pool_UnchainedEidolonEvolution		CATEGORY:Special Ability	TYPE:Unchained Evolution																	DISPLAYLOCATION:Racial Abilities
+
+ABILITYCATEGORY:Unchained Eidolon Resistance		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						POOL:Pool_EidolonResistance			CATEGORY:Internal			TYPE:Unchained Eidolon Resistance																DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Unchained Eidolon Immunity		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						POOL:Pool_EidolonImmunity			CATEGORY:Internal			TYPE:Unchained Eidolon Immunity																DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Unchained Eidolon Ability Increase	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						POOL:Pool_UnchainedEidolonAbilityIncrease	CATEGORY:Special Ability	TYPE:Unchained Eidolon Ability Increase															DISPLAYLOCATION:Racial Abilities
+
+ABILITYCATEGORY:Unchained Eidolon Grab			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						POOL:Pool_UnchainedEidolonGrab		CATEGORY:Special Ability									ABILITYLIST:Unchained Evolution ~ Grab							DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Unchained Eidolon Constrict		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						POOL:Pool_UnchainedEidolonConstrict		CATEGORY:Special Ability									ABILITYLIST:Unchained Evolution ~ Constrict						DISPLAYLOCATION:Racial Abilities
+
+
+###Block: Unchained Rogue Class Feature Categories
+# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Base Pool number				Category of Object		Type of Object						Plural description for UI				Display Location
+ABILITYCATEGORY:Unchained Rogue Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:Unchained Rogue Class Feature			PLURAL:Unchained Rogue Class Feature		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Skill Unlock Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:SkillUnlock						PLURAL:Skill Unlock Choices				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Certainty Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:Certainty						PLURAL:Certainty Choices				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Skill Mastery Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:Skill Mastery					PLURAL:Skill Mastery Choices				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Unchained Rogue Finesse Damage Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:Unchained Rogue Finesse Damage Choice	PLURAL:Unchained Rogue Finesse Damage Choice	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Unchained Rogue Talent			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:Unchained Rogue Talent				PLURAL:Unchained Rogue Talents			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Unchained Rogue Advanced Talent		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:Unchained Rogue Advanced Talent		PLURAL:Unchained Rogue Advanced Talents		DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Unchained Barbarian Class Feature	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO												CATEGORY:Special Ability	TYPE:Unchained Barbarian Class Feature		PLURAL:Unchained Barbarian Class Features		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Unchained Monk Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO												CATEGORY:Special Ability	TYPE:Unchained Monk Class Feature			PLURAL:Unchained Monk Class Features		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Unchained Rogue Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO												CATEGORY:Special Ability	TYPE:Unchained Rogue Class Feature			PLURAL:Unchained Rogue Class Features		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Unchained Summoner Class Feature	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO												CATEGORY:Special Ability	TYPE:Unchained Summoner Class Feature		PLURAL:Unchained Summoner Class Features		DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Unchained Monk Bonus Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:UnchainedMonkBonusFeat				PLURAL:Unchained Monk Bonus Feats			DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Unchained Monk Ki Power			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_Unchained_Ki_Power		CATEGORY:Special Ability	TYPE:Unchained Ki Power					PLURAL:Ki Powers						DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Unchained Monk Style Strike		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_Unchained_Style_Strike	CATEGORY:Special Ability	TYPE:Unchained Style Strike				PLURAL:Unchained Style Strikes			DISPLAYLOCATION:Class Features
+
+
+ABILITYCATEGORY:Background Skill				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_BackgroundSkill		CATEGORY:Special Ability	TYPE:BackgroundSkill					PLURAL:Background Skills				DISPLAYLOCATION:Class Features
+
+
+ABILITYCATEGORY:Variant Multiclass				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_VariantMulticlass		CATEGORY:Special Ability	TYPE:Variant Multiclass					PLURAL:Variant Multiclasses				DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Signature Skill 5 Ranks			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:Signature Skill 05					PLURAL:Signature Skills					DISPLAYLOCATION:Feats
+
+###Block: Unchained Archetype Support
+ABILITYCATEGORY:Unchained Monk Archetype		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Archetype	TYPE:Unchained Monk Archetype			PLURAL:Unchained Monk Archetypes			DISPLAYLOCATION:Archetype
+
+
+
+#
+# End
+#

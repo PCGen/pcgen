@@ -1,0 +1,23 @@
+# CVS $Revision: 19661 $ $Author: amaitland $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
+SOURCELONG:Cheliax, Empire of Devils	SOURCESHORT:CEOD	SOURCEWEB:http://paizo.com/pathfinder/pathfinderCompanion/pathfinderRPG/v5748btpy89ca	SOURCEDATE:2009-08
+# Original Entry by: Stefan Radermacher
+
+###Block: Combat Feats
+# Feat Name		Type		Required Ability							Required Feat							Required Skill		Required Stat	PRETOTALAB		Var. Min. Value			Description													Combat bonus										Modify VAR			Source Page
+# Ability Name	Category of Ability	Type		Required Ability																		Required Skill		Required Stat					PRETOTALAB		Var. Min. Value			Description													Combat bonus										Modify VAR			Source Page
+Belier's Bite	CATEGORY:FEAT		TYPE:Combat	PREABILITY:1,CATEGORY=FEAT,Improved Unarmed Strike																															DESC:Your unarmed strikes cause your opponents to bleed.																					SOURCEPAGE:p.26
+Cornugon Shield	CATEGORY:FEAT		TYPE:Combat	PREABILITY:1,CATEGORY=FEAT,Weapon Focus (Chain (Spiked))															PREMULT:1,[PREVARGTEQ:PreStatScore_DEX,15],[PREVARGTEQ:FeatDexRequirement,15]			DESC:You can use your spiked chain as both armor and weapon.				BONUS:COMBAT|AC|TwoWeaponShield|TYPE=Shield|PREEQUIP:1,Chain (Spiked)					SOURCEPAGE:p.26
+Cornugon Smash	CATEGORY:FEAT		TYPE:Combat	PREABILITY:1,CATEGORY=FEAT,Power Attack														PRESKILL:1,Intimidate=6																DESC:Your terrible attacks strike fear into your enemies.																					SOURCEPAGE:p.26
+Cornugon Stun	CATEGORY:FEAT		TYPE:Combat	PREABILITY:1,CATEGORY=FEAT,Stunning Fist																																	DESC:You are able to make stunning attacks with special monk weapons.																			SOURCEPAGE:p.26
+Cornugon Trip	CATEGORY:FEAT		TYPE:Combat	PREABILITY:2,CATEGORY=FEAT,Improved Trip,Weapon Focus (Chain (Spiked))													PREMULT:1,[PREVARGTEQ:PreStatScore_DEX,15],[PREVARGTEQ:FeatDexRequirement,15]			DESC:You can throw your spiked chain to make trip attacks.																					SOURCEPAGE:p.26
+Fury's Fall		CATEGORY:FEAT		TYPE:Combat	PREABILITY:1,CATEGORY=FEAT,Improved Trip																																	DESC:You can use your strength and agility to send foes crashing to the ground.													BONUS:VAR|CMB_Trip|DEX	SOURCEPAGE:p.26
+Fury's Snare	CATEGORY:FEAT		TYPE:Combat	PREABILITY:2,CATEGORY=FEAT,Fury's Fall,Improved Trip																															DESC:You entangle your foe in your weapon.																							SOURCEPAGE:p.26
+Hamatula Grasp	CATEGORY:FEAT		TYPE:Combat	PREABILITY:2,CATEGORY=FEAT,Hamatula Strike,Improved Grapple															PRESTAT:1,STR=13	PRETOTALAB:9										DESC:You deal terrible damage to impaled foes.																							SOURCEPAGE:p.27
+Hamatula Strike	CATEGORY:FEAT		TYPE:Combat	PREABILITY:1,CATEGORY=FEAT,Improved Grapple																	PRESTAT:1,STR=13	PRETOTALAB:7										DESC:You can catch your opponents on your weapon and hold them in place.																		SOURCEPAGE:p.27
+Hellcat Pounce	CATEGORY:FEAT		TYPE:Combat	PREABILITY:1,CATEGORY=Special Ability,Sneak Attack	PREABILITY:2,CATEGORY=FEAT,Hellcat Stealth,Skill Focus (Stealth)															PREVARGTEQ:SneakAttackDice,2	DESC:You attack unsuspecting foes twice.																								SOURCEPAGE:p.27
+Hellcat Stealth	CATEGORY:FEAT		TYPE:Combat	PREABILITY:1,CATEGORY=FEAT,Skill Focus (Stealth)												PRESKILL:1,Stealth=6																DESC:You are difficult to see in the light.																							SOURCEPAGE:p.27
+Osyluth Guile	CATEGORY:FEAT		TYPE:Combat	PREABILITY:1,CATEGORY=FEAT,Dodge															PRESKILL:1,Bluff=8																DESC:You are skilled at misdirecting an opponent's attack.																					SOURCEPAGE:p.27
+
+#
+# End
+#

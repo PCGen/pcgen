@@ -1,0 +1,57 @@
+# CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Dragonslayer's Handbook	SOURCESHORT:DSH	SOURCEWEB:http://paizo.com/products/btpy8yw4?Pathfinder-Player-Companion-Dragonslayer-s-Handbook	SOURCEDATE:2013-07
+# ORIGINAL ENTRY: Including, but not limited to Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 23 May 2016
+
+# ==============================
+# New Equipment
+# ==============================
+
+Balloon Trap							TYPE:Goods.Tools.Consumable				COST:150	WT:4			SOURCEPAGE:p.26
+Dahak's Fire				NAMEISPI:YES	TYPE:Goods.Tools.Dragoncraft.Consumable		COST:50	WT:0.5		SOURCEPAGE:p.18
+Draconic Perfume (Rosewood and Myrrh)			TYPE:Goods.Tools.Dragoncraft.Consumable		COST:75	WT:0.5		SOURCEPAGE:p.18
+Draconic Perfume (Sage with Bergamot and Cedar Ash)	TYPE:Goods.Tools.Dragoncraft.Consumable		COST:75	WT:0.5		SOURCEPAGE:p.18
+Draconic Perfume (Sulfur and Honeycomb)			TYPE:Goods.Tools.Dragoncraft.Consumable		COST:75	WT:0.5		SOURCEPAGE:p.18
+Dragon Muzzle							TYPE:Goods.Tools						COST:20	WT:2			SOURCEPAGE:p.26
+Dragon's Blood							TYPE:Goods.Tools.Dragoncraft.Consumable		COST:60	WT:1			SOURCEPAGE:p.19
+Dragon's Gut							TYPE:Goods.Tools.Dragoncraft.Consumable		COST:50	WT:1			SOURCEPAGE:p.19
+Dragoncrafting Kit						TYPE:Goods.Tools						COST:40	WT:4			SOURCEPAGE:p.26
+Dragonskin Grip							TYPE:Goods.Tools.Dragoncraft				COST:250	WT:0			SOURCEPAGE:p.19
+Drug (Wyrm Pesh)							TYPE:Goods.Drug.Dragoncraft.Consumable		COST:500	WT:0			SOURCEPAGE:p.19	SPROP:Ingested or inhaled; Addiction severe, Fortitude DC 24; Effect 1 hr; 25 temporary hp;Effect  1 day; +2 alchemical bonus on saves against sleep and paralysis effects;Damage  1d2 Wis
+Elemental Proofing (Acid)					TYPE:Goods.Alchemical.Consumable			COST:100	WT:1			SOURCEPAGE:p.26
+Elemental Proofing (Cold)					TYPE:Goods.Alchemical.Consumable			COST:100	WT:1			SOURCEPAGE:p.26
+Elemental Proofing (Electricity)				TYPE:Goods.Alchemical.Consumable			COST:100	WT:1			SOURCEPAGE:p.26
+Elemental Proofing (Fire)					TYPE:Goods.Alchemical.Consumable			COST:100	WT:1			SOURCEPAGE:p.26
+Smoke Cover								TYPE:Goods.Alchemical.Consumable			COST:75	WT:10			SOURCEPAGE:p.26
+Spotlight								TYPE:Goods.Tools.Lightsource				COST:75	WT:18			SOURCEPAGE:p.27
+Wind Platform							TYPE:Goods.Tools						COST:5000	WT:1600		SOURCEPAGE:p.27
+Wing Hobble								TYPE:Goods.Tools						COST:75	WT:20			SOURCEPAGE:p.27
+
+# ==============================
+# New Kits
+# ==============================
+
+Knight's Kit (Fire)						TYPE:Kit							COST:751	WT:17			SOURCEPAGE:p.7	SPROP:This kit includes 50 feet of chain, a crowbar, an everburning torch, an application of fire ward gel, fire-resistant boots, a potion of resist energy (fire), three sacks, a shield sconce, a simple lock, and a weapon cord.
+Knight's Kit (Cold)						TYPE:Kit							COST:751	WT:17			SOURCEPAGE:p.7	SPROP:This kit includes 50 feet of chain, a crowbar, an everburning torch, an application of frost ward gel, fire-resistant boots, a potion of resist energy (cold), three sacks, a shield sconce, a simple lock, and a weapon cord.
+Tracker's Kit							TYPE:Kit							COST:563	WT:33			SOURCEPAGE:p.7	SPROP:This kit includes an area map, a climber's kit, an elixir of swimming, an everburning torch, a footprint book, a grappling hook, a hammer, eight pitons, four sacks, and 100 feet of silk rope.
+Trickster's Kit							TYPE:Kit							COST:474	WT:23			SOURCEPAGE:p.7	SPROP:This kit includes a pot of alchemical grease, a board game, five candles, a candle lamp, a common snorkel, fake footprint shoes, a grappling hook, a mirror, a periscope, a potion of eagle's splendor, two sacks, a scent cloak,  50 feet of silk rope, a smokestick, a dose of sneezing powder, five tindertwigs, and 50 feet of twine.
+
+# ==============================
+# New Magic items
+# ==============================
+
+Boots of the Vengeful Behir					TYPE:Magic.Wondrous.Boot				COST:5400	WT:1			SOURCEPAGE:p.30
+Elixir of Elemental Protection				TYPE:Magic.Wondrous.Consumable			COST:1800	WT:0			SOURCEPAGE:p.30
+Hexing Runes							TYPE:Magic.Wondrous.Amulet				COST:10000	WT:0			SOURCEPAGE:p.30
+Incense of Dulled Senses					TYPE:Magic.Wondrous.Consumable			COST:1500	WT:0			SOURCEPAGE:p.30
+Perilous Gloves							TYPE:Magic.Wondrous.Glove				COST:10000	WT:1			SOURCEPAGE:p.31
+Ring of Fear Reflection						TYPE:Magic.Ring						COST:48000	WT:0			SOURCEPAGE:p.31
+Scaled Sash								TYPE:Magic.Wondrous.Shirt				COST:73000	WT:1			SOURCEPAGE:p.31
+Staff of Hunting							TYPE:Magic.Staff						COST:51000	WT:5			SOURCEPAGE:p.31			BASEITEM:Staff		EQMOD:Special Ability ~ Staff Charges|CHARGES[10]
+Staff of Internal Assault					TYPE:Magic.Staff						COST:20800	WT:5			SOURCEPAGE:p.31			BASEITEM:Staff		EQMOD:Special Ability ~ Staff Charges|CHARGES[10]
+
+# ==============================
+# New Artifacts
+# ==============================
+
+Eye of Abenatrex				NAMEISPI:YES	TYPE:Artifact.Minor					COST:0	WT:0			SOURCEPAGE:p.29

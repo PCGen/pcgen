@@ -1,0 +1,14 @@
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:Dragon Empires Gazetteer	SOURCESHORT:DEG	SOURCEWEB:http://paizo.com/products/btpy8pfu	SOURCEDATE:2012-02
+
+
+# Spell Name					Domains granting the spell
+Faerie Fire.MOD					DOMAINS:Moon Subdomain=1
+Blindness/Deafness (Blindness Only).MOD	DOMAINS:Moon Subdomain=2
+Deeper Darkness.MOD				DOMAINS:Moon Subdomain=3
+Moonstruck.MOD					DOMAINS:Moon Subdomain=4
+Summon Monster V (1d3 Shadows).MOD		DOMAINS:Moon Subdomain=5
+Dream.MOD						DOMAINS:Moon Subdomain=6
+Power Word Blind.MOD				DOMAINS:Moon Subdomain=7
+Shadow Evocation (Greater).MOD		DOMAINS:Moon Subdomain=8
+Shades.MOD						DOMAINS:Moon Subdomain=9

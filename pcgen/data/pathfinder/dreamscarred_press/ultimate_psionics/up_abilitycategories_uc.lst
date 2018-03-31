@@ -1,0 +1,18 @@
+# CVS $Revision: $ $Author: $ -- Thu May 22 08:41:39 2014 -- reformated by prettylst.pl v1.51 (build 23662)
+# SOURCELONG:Ultimate Psionics	SOURCESHORT:UP	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2013-12
+# ORIGINAL ENTRY: Douglas Limmer
+# ORIGINAL ENTRY DATE: 2013/07/08
+
+# TODO:
+#   Change source line
+
+###Block: Archetype ability pools
+# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Specific choices list				Plural description for UI		Display Location
+ABILITYCATEGORY:Amateur Gunslinger Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT								ABILITYLIST:Amateur Gunslinger|Extra Grit	PLURAL:Amateur Gunslinger Feat	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Rapid Reload Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT								ABILITYLIST:Rapid Reload			PLURAL:Rapid Reload Feat		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Kaigun Deed			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DeedsLvl1										PLURAL:Kaigun Deeds			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Insightful Deed		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DeedsLvl1.DeedsLvl3								PLURAL:Insightful Deeds			DISPLAYLOCATION:Class Features
+
+#
+# End
+#

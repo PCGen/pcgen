@@ -1,0 +1,19 @@
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:Serpent's Skull Player's Guide	SOURCESHORT:SSPG	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/theSerpentsSkull/v5748btpy8g6d	SOURCEDATE:2010-08
+# Original Entry by: Stefan Radermacher
+
+###Block: Conditional Skills for output only
+# Skill Name					Key Stat	Untrained?		Classes	Type			Visible		Req. Rule (in options)		Prohibited Var. Value
+Knowledge (History/Mwangi Expanse)		KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Knowledge (History/Mwangi Expanse).MISC"),var("SKILL.Knowledge (History).MISC")
+Knowledge (Geography/Mwangi Expanse)	KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Knowledge (Geography/Mwangi Expanse).MISC"),var("SKILL.Knowledge (Geography).MISC")
+Knowledge (Local/Sargava)			KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Knowledge (Local/Sargava).MISC"),var("SKILL.Knowledge (Local).MISC")
+Knowledge (Nature/Jungle)			KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Knowledge (Nature/Jungle).MISC"),var("SKILL.Knowledge (Nature).MISC")
+Survival (Find Food)				KEYSTAT:WIS	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Survival (Find Food).MISC"),SKILL.Survival.MISC
+
+###Block: Skill .MODs
+# Skill Name			Bonus to skill													Bonus to skill rank
+Knowledge (History).MOD		BONUS:SKILL|Knowledge (History/Mwangi Expanse)|var("SKILL.Knowledge (History).MISC")	BONUS:SKILLRANK|Knowledge (History/Mwangi Expanse)|skillinfo("TOTALRANK","Knowledge (History)")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Knowledge (History/Mwangi Expanse).MISC"),var("SKILL.Knowledge (History).MISC")
+Knowledge (Geography).MOD	BONUS:SKILL|Knowledge (Geography/Mwangi Expanse)|var("SKILL.Knowledge (Geography).MISC")	BONUS:SKILLRANK|Knowledge (Geography/Mwangi Expanse)|skillinfo("TOTALRANK","Knowledge (Geography)")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Knowledge (Geography/Mwangi Expanse).MISC"),var("SKILL.Knowledge (Geography).MISC")
+Knowledge (Local).MOD		BONUS:SKILL|Knowledge (Local/Sargava)|var("SKILL.Knowledge (Local).MISC")			BONUS:SKILLRANK|Knowledge (Local/Sargava)|skillinfo("TOTALRANK","Knowledge (Local)")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Knowledge (Local).MISC"),var("SKILL.Knowledge (Local/Sargava).MISC")
+Knowledge (Nature).MOD		BONUS:SKILL|Knowledge (Nature/Jungle)|var("SKILL.Knowledge (Nature).MISC")			BONUS:SKILLRANK|Knowledge (Nature/Jungle)|skillinfo("TOTALRANK","Knowledge (Nature)")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Knowledge (Nature).MISC"),var("SKILL.Knowledge (Nature/Jungle).MISC")
+Survival.MOD			BONUS:SKILL|Survival (Find Food)|SKILL.Survival.MISC							BONUS:SKILLRANK|Survival (Find Food)|skillinfo("TOTALRANK","Survival")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Survival (Find Food).MISC"),SKILL.Survival.MISC

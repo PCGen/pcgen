@@ -1,0 +1,80 @@
+# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+#SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8ief	SOURCEDATE:2011-03
+
+###Block: Human Ethnicities
+# Ability Name				Type			Auto Language
+CATEGORY=Background|Azlanti.MOD	TYPE:PFSLegal	AUTO:LANG|Azlanti
+CATEGORY=Background|Chelaxian.MOD	TYPE:PFSLegal	AUTO:LANG|Common
+CATEGORY=Background|Garundi.MOD	TYPE:PFSLegal	AUTO:LANG|Osiriani
+CATEGORY=Background|Keleshite.MOD	TYPE:PFSLegal	AUTO:LANG|Kelish
+CATEGORY=Background|Kellid.MOD	TYPE:PFSLegal	AUTO:LANG|Hallit
+CATEGORY=Background|Bekyar.MOD	TYPE:PFSLegal	AUTO:LANG|Polyglot
+CATEGORY=Background|Bonuwat.MOD	TYPE:PFSLegal	AUTO:LANG|Polyglot
+CATEGORY=Background|Mauxi.MOD		TYPE:PFSLegal	AUTO:LANG|Polyglot
+CATEGORY=Background|Zenj.MOD		TYPE:PFSLegal	AUTO:LANG|Polyglot
+CATEGORY=Background|Shoanti.MOD	TYPE:PFSLegal	AUTO:LANG|Shoanti
+CATEGORY=Background|Taldan.MOD	TYPE:PFSLegal	AUTO:LANG|Common
+CATEGORY=Background|Tian.MOD		TYPE:PFSLegal	AUTO:LANG|Tien
+CATEGORY=Background|Ulfen.MOD		TYPE:PFSLegal	AUTO:LANG|Skald
+CATEGORY=Background|Varisian.MOD	TYPE:PFSLegal	AUTO:LANG|Varisian
+CATEGORY=Background|Vudrani.MOD	TYPE:PFSLegal	AUTO:LANG|Vudrani
+
+
+###Block: Regional Affinities
+# Ability Name						Type
+#CATEGORY=Background|Absalom.MOD			TYPE:PFSNotLegal
+#CATEGORY=Background|Andoran.MOD			TYPE:PFSNotLegal
+#CATEGORY=Background|Belkzen.MOD			TYPE:PFSNotLegal
+#CATEGORY=Background|Brevoy.MOD			TYPE:PFSNotLegal
+#CATEGORY=Background|Cheliax.MOD			TYPE:PFSNotLegal
+#CATEGORY=Background|Darklands.MOD			TYPE:PFSNotLegal
+#CATEGORY=Background|Druma.MOD				TYPE:PFSNotLegal
+#CATEGORY=Background|Five Kings Mountains.MOD	TYPE:PFSNotLegal
+#CATEGORY=Background|Galt.MOD				TYPE:PFSNotLegal
+#CATEGORY=Background|Geb.MOD				TYPE:PFSNotLegal
+#CATEGORY=Background|Irrisen.MOD			TYPE:PFSNotLegal
+#CATEGORY=Background|Isger.MOD				TYPE:PFSNotLegal
+#CATEGORY=Background|Jalmeray.MOD			TYPE:PFSNotLegal
+#CATEGORY=Background|Katapesh.MOD			TYPE:PFSNotLegal
+#CATEGORY=Background|Kyonin.MOD			TYPE:PFSNotLegal
+#CATEGORY=Background|Lastwall.MOD			TYPE:PFSNotLegal
+#CATEGORY=Background|Linnorm Kings.MOD		TYPE:PFSNotLegal
+#CATEGORY=Background|Mammoth Lords.MOD		TYPE:PFSNotLegal
+#CATEGORY=Background|Mana Wastes.MOD			TYPE:PFSNotLegal
+#CATEGORY=Background|Mediogalti Island.MOD		TYPE:PFSNotLegal
+#CATEGORY=Background|Mendev.MOD			TYPE:PFSNotLegal
+#CATEGORY=Background|Molthune.MOD			TYPE:PFSNotLegal
+#CATEGORY=Background|Mwangi Expanse.MOD		TYPE:PFSNotLegal
+#CATEGORY=Background|Nex.MOD				TYPE:PFSNotLegal
+#CATEGORY=Background|Nidal.MOD				TYPE:PFSNotLegal
+#CATEGORY=Background|Nirmathas.MOD			TYPE:PFSNotLegal
+#CATEGORY=Background|Numeria.MOD			TYPE:PFSNotLegal
+#CATEGORY=Background|Osirion.MOD			TYPE:PFSNotLegal
+#CATEGORY=Background|Qadira.MOD			TYPE:PFSNotLegal
+#CATEGORY=Background|Rahadoum.MOD			TYPE:PFSNotLegal
+#CATEGORY=Background|Razmiran.MOD			TYPE:PFSNotLegal
+#CATEGORY=Background|River Kingdoms.MOD		TYPE:PFSNotLegal
+#CATEGORY=Background|Sargava.MOD			TYPE:PFSNotLegal
+#CATEGORY=Background|Shackles.MOD			TYPE:PFSNotLegal
+#CATEGORY=Background|Sodden Lands.MOD		TYPE:PFSNotLegal
+#CATEGORY=Background|Steaming Sea.MOD		TYPE:PFSNotLegal
+#CATEGORY=Background|Taldor.MOD			TYPE:PFSNotLegal
+#CATEGORY=Background|Thuvia.MOD			TYPE:PFSNotLegal
+#CATEGORY=Background|Ustalav.MOD			TYPE:PFSNotLegal
+#CATEGORY=Background|Varisia.MOD			TYPE:PFSNotLegal
+#CATEGORY=Background|Worldwound.MOD			TYPE:PFSNotLegal
+
+###Block: Shoanti Clans
+# Ability Name					Type
+#CATEGORY=Background|Lyrune-Quah.MOD		TYPE:PFSNotLegal
+#CATEGORY=Background|Shadde-Quah.MOD		TYPE:PFSNotLegal
+#CATEGORY=Background|Shriikirri-Quah.MOD	TYPE:PFSNotLegal
+#CATEGORY=Background|Shundar-Quah.MOD	TYPE:PFSNotLegal
+#CATEGORY=Background|Sklar-Quah.MOD		TYPE:PFSNotLegal
+#CATEGORY=Background|Skoan-Quah.MOD		TYPE:PFSNotLegal
+#CATEGORY=Background|Tamiir-Quah.MOD		TYPE:PFSNotLegal
+
+###Block: Placeholder objects for no Human Ethnicities or Regional Affinities
+# Ability Name				Type
+#CATEGORY=Background|None.MOD		TYPE:PFSNotLegal
+#CATEGORY=Background|Unknown.MOD	TYPE:PFSNotLegal

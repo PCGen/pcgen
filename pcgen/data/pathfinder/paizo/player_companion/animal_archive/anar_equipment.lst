@@ -1,0 +1,155 @@
+# CVS $Revision: $ $Author: $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
+
+# Equipment Name			Type						Cost		Weight	Source Page
+Aquatic Pinger			TYPE:Animal Gear				COST:6	WT:0.5	SOURCEPAGE:p.12
+Barding Stitches			TYPE:Animal Gear				COST:50	WT:1		SOURCEPAGE:p.12
+Beast-Training Kit		TYPE:Animal Gear				COST:15	WT:26		SOURCEPAGE:p.12
+Birdfeed (Per Day)		TYPE:Animal Gear				COST:0.05	WT:0.5	SOURCEPAGE:p.12
+Bird-Training Kit			TYPE:Animal Gear				COST:17	WT:8		SOURCEPAGE:p.12
+Carnivore Feed (Per Day)	TYPE:Animal Gear				COST:0.05	WT:5		SOURCEPAGE:p.12
+Dandy Brush				TYPE:Animal Gear				COST:0.2	WT:2		SOURCEPAGE:p.12
+Mastodon Brush			TYPE:Animal Gear				COST:20	WT:5		SOURCEPAGE:p.12
+Poison Caps				TYPE:Animal Gear				COST:25	WT:0.5	SOURCEPAGE:p.12
+Training Sleeve			TYPE:Animal Gear				COST:100	WT:5		SOURCEPAGE:p.13
+Whet Bone				TYPE:Animal Gear				COST:0.1	WT:2		SOURCEPAGE:p.13
+
+#
+Deodorizing Agent (Vial)	TYPE:Special Substances			COST:30			SOURCEPAGE:p.13
+Fury Drops				TYPE:Special Substances			COST:50			SOURCEPAGE:p.13
+Noxious Aromatic (Flask)	TYPE:Special Substances			COST:15	WT:1		SOURCEPAGE:p.13
+
+
+# Animals - Combat-Trained Version requires Equipment Customizer
+Aurochs				TYPE:Animal.Riding Animal		COST:300			SOURCEPAGE:p.14
+Bison					TYPE:Animal.Riding Animal		COST:50			SOURCEPAGE:p.14
+Boar					TYPE:Animal.Riding Animal		COST:100			SOURCEPAGE:p.14
+Elk					TYPE:Animal.Riding Animal		COST:100			SOURCEPAGE:p.14
+Giant Chameleon			TYPE:Animal.Riding Animal		COST:225			SOURCEPAGE:p.14
+Giant Frilled Lizard		TYPE:Animal.Riding Animal		COST:375			SOURCEPAGE:p.14
+Giant Gecko				TYPE:Animal.Riding Animal		COST:100			SOURCEPAGE:p.14
+Giant Owl				TYPE:Animal.Riding Animal		COST:6000			SOURCEPAGE:p.14
+Giant Vulture			TYPE:Animal.Riding Animal		COST:750			SOURCEPAGE:p.14
+Goblin Dog				TYPE:Animal.Riding Animal		COST:35			SOURCEPAGE:p.14
+Lion					TYPE:Animal.Riding Animal		COST:200			SOURCEPAGE:p.14
+Ram					TYPE:Animal.Riding Animal		COST:25			SOURCEPAGE:p.14
+Rhinoceros				TYPE:Animal.Riding Animal		COST:1000			SOURCEPAGE:p.14
+Roc					TYPE:Animal.Riding Animal		COST:7200			SOURCEPAGE:p.14
+Tiger					TYPE:Animal.Riding Animal		COST:325			SOURCEPAGE:p.14
+Woolly Rhinoceros			TYPE:Animal.Riding Animal		COST:2000			SOURCEPAGE:p.14
+
+# Dinosaur & Megafauna
+Allosaurus				TYPE:Animal.Dinosaur_Megafauna	COST:3850			SOURCEPAGE:p.14
+Ankylosaurus			TYPE:Animal.Dinosaur_Megafauna	COST:2000			SOURCEPAGE:p.14
+Archelon				TYPE:Animal.Dinosaur_Megafauna	COST:1750			SOURCEPAGE:p.14
+Arsinoitherium			TYPE:Animal.Dinosaur_Megafauna	COST:3150			SOURCEPAGE:p.14
+Baluchitherium			TYPE:Animal.Dinosaur_Megafauna	COST:4800			SOURCEPAGE:p.14
+Basilosaurus			TYPE:Animal.Dinosaur_Megafauna	COST:10200			SOURCEPAGE:p.14
+Brachiosaurus			TYPE:Animal.Dinosaur_Megafauna	COST:9000			SOURCEPAGE:p.14
+Compsognathus			TYPE:Animal.Dinosaur_Megafauna	COST:25			SOURCEPAGE:p.14
+Deinoychus				TYPE:Animal.Dinosaur_Megafauna	COST:600			SOURCEPAGE:p.14
+Dimetrodon				TYPE:Animal.Dinosaur_Megafauna	COST:600			SOURCEPAGE:p.14
+Elasmosaurus			TYPE:Animal.Dinosaur_Megafauna	COST:3500			SOURCEPAGE:p.14
+Glyptodon				TYPE:Animal.Dinosaur_Megafauna	COST:2700			SOURCEPAGE:p.14
+Iguanodon				TYPE:Animal.Dinosaur_Megafauna	COST:2700			SOURCEPAGE:p.14
+Megalania				TYPE:Animal.Dinosaur_Megafauna	COST:3500			SOURCEPAGE:p.14
+Megaloceros				TYPE:Animal.Dinosaur_Megafauna	COST:800			SOURCEPAGE:p.14
+Megatherium				TYPE:Animal.Dinosaur_Megafauna	COST:1750			SOURCEPAGE:p.14
+Pachycephalosaurus		TYPE:Animal.Dinosaur_Megafauna	COST:1000			SOURCEPAGE:p.14
+Parasaurus				TYPE:Animal.Dinosaur_Megafauna	COST:1200			SOURCEPAGE:p.14
+Pteranodon				TYPE:Animal.Dinosaur_Megafauna	COST:750			SOURCEPAGE:p.14
+Spinosaurus				TYPE:Animal.Dinosaur_Megafauna	COST:11000			SOURCEPAGE:p.14
+Stegosaurus				TYPE:Animal.Dinosaur_Megafauna	COST:4200			SOURCEPAGE:p.14
+Triceratops				TYPE:Animal.Dinosaur_Megafauna	COST:5600			SOURCEPAGE:p.14
+Tylosaurus				TYPE:Animal.Dinosaur_Megafauna	COST:4000			SOURCEPAGE:p.14
+Tyrannosaurus			TYPE:Animal.Dinosaur_Megafauna	COST:8100			SOURCEPAGE:p.14
+
+# Aquatic
+Blue Whale				TYPE:Animal.Aquatic Animal		COST:12500			SOURCEPAGE:p.14
+Crimson Whale			TYPE:Animal.Aquatic Animal		COST:8000			SOURCEPAGE:p.14
+Crocodile				TYPE:Animal.Aquatic Animal		COST:55			SOURCEPAGE:p.14
+Dolphin				TYPE:Animal.Aquatic Animal		COST:105			SOURCEPAGE:p.14
+Dwarf Caiman			TYPE:Animal.Aquatic Animal		COST:7			SOURCEPAGE:p.14
+Electric Eel			TYPE:Animal.Aquatic Animal		COST:125			SOURCEPAGE:p.14
+Gar					TYPE:Animal.Aquatic Animal		COST:90			SOURCEPAGE:p.14
+Giant Frog				TYPE:Animal.Aquatic Animal		COST:75			SOURCEPAGE:p.14
+Giant Gar				TYPE:Animal.Aquatic Animal		COST:1200			SOURCEPAGE:p.14
+Giant Moray Eel			TYPE:Animal.Aquatic Animal		COST:1000			SOURCEPAGE:p.14
+Giant Octopus			TYPE:Animal.Aquatic Animal		COST:1800			SOURCEPAGE:p.14
+Giant Squid				TYPE:Animal.Aquatic Animal		COST:2500			SOURCEPAGE:p.15
+Giant Toad				TYPE:Animal.Aquatic Animal		COST:150			SOURCEPAGE:p.15
+Great White Whale			TYPE:Animal.Aquatic Animal		COST:12600			SOURCEPAGE:p.15
+Manta Ray				TYPE:Animal.Aquatic Animal		COST:25			SOURCEPAGE:p.15
+Marine Iguana			TYPE:Animal.Aquatic Animal		COST:6			SOURCEPAGE:p.15
+Narwhal				TYPE:Animal.Aquatic Animal		COST:350			SOURCEPAGE:p.15
+Orca					TYPE:Animal.Aquatic Animal		COST:1350			SOURCEPAGE:p.15
+Sea Krait				TYPE:Animal.Aquatic Animal		COST:5			SOURCEPAGE:p.15
+Seal					TYPE:Animal.Aquatic Animal		COST:45			SOURCEPAGE:p.15
+Shark					TYPE:Animal.Aquatic Animal		COST:325			SOURCEPAGE:p.15
+Squid					TYPE:Animal.Aquatic Animal		COST:25			SOURCEPAGE:p.15
+Stingray				TYPE:Animal.Aquatic Animal		COST:18			SOURCEPAGE:p.15
+Whale					TYPE:Animal.Aquatic Animal		COST:10000			SOURCEPAGE:p.15
+
+# Dire Animals
+Dire Ape				TYPE:Animal.Dire Animal			COST:450			SOURCEPAGE:p.15
+Dire Badger				TYPE:Animal.Dire Animal			COST:125			SOURCEPAGE:p.15
+Dire Bat				TYPE:Animal.Dire Animal			COST:220			SOURCEPAGE:p.15
+Dire Bear				TYPE:Animal.Dire Animal			COST:1750			SOURCEPAGE:p.15
+Dire Boar				TYPE:Animal.Dire Animal			COST:370			SOURCEPAGE:p.15
+Dire Crocodile			TYPE:Animal.Dire Animal			COST:2700			SOURCEPAGE:p.15
+Dire Hyena				TYPE:Animal.Dire Animal			COST:250			SOURCEPAGE:p.15
+Dire Lion				TYPE:Animal.Dire Animal			COST:1000			SOURCEPAGE:p.15
+Dire Shark				TYPE:Animal.Dire Animal			COST:3375			SOURCEPAGE:p.15
+Dire Tiger				TYPE:Animal.Dire Animal			COST:1055			SOURCEPAGE:p.15
+Dire Wolf				TYPE:Animal.Dire Animal			COST:380			SOURCEPAGE:p.15
+Dire Wolverine			TYPE:Animal.Dire Animal			COST:500			SOURCEPAGE:p.15
+
+# Other Animals
+Antelope				TYPE:Animal.Other Animal		COST:45			SOURCEPAGE:p.15
+Baboon				TYPE:Animal.Other Animal		COST:15			SOURCEPAGE:p.15
+Behemoth Hippopotamus		TYPE:Animal.Other Animal		COST:7900			SOURCEPAGE:p.15
+Cheetah				TYPE:Animal.Other Animal		COST:160			SOURCEPAGE:p.15
+Constrictor Snake			TYPE:Animal.Other Animal		COST:90			SOURCEPAGE:p.15
+Dodo					TYPE:Animal.Other Animal		COST:5			SOURCEPAGE:p.15
+Eagle					TYPE:Animal.Other Animal		COST:40			SOURCEPAGE:p.15
+Emperor Cobra			TYPE:Animal.Other Animal		COST:1600			SOURCEPAGE:p.15
+Giant Anaconda			TYPE:Animal.Other Animal		COST:6300			SOURCEPAGE:p.15
+Giant Porcupine			TYPE:Animal.Other Animal		COST:135			SOURCEPAGE:p.15
+Giant Skunk				TYPE:Animal.Other Animal		COST:190			SOURCEPAGE:p.15
+Giant Snapping Turtle		TYPE:Animal.Other Animal		COST:5200			SOURCEPAGE:p.15
+Gorilla				TYPE:Animal.Other Animal		COST:175			SOURCEPAGE:p.15
+Great Horned Owl			TYPE:Animal.Other Animal		COST:22			SOURCEPAGE:p.15
+Grizzly Bear			TYPE:Animal.Other Animal		COST:740			SOURCEPAGE:p.15
+Hippopotamus			TYPE:Animal.Other Animal		COST:1050			SOURCEPAGE:p.15
+Hyena					TYPE:Animal.Other Animal		COST:80			SOURCEPAGE:p.15
+Kangaroo				TYPE:Animal.Other Animal		COST:30			SOURCEPAGE:p.15
+Leopard				TYPE:Animal.Other Animal		COST:100			SOURCEPAGE:p.15
+Mongoose				TYPE:Animal.Other Animal		COST:4			SOURCEPAGE:p.15
+Monitor Lizard			TYPE:Animal.Other Animal		COST:150			SOURCEPAGE:p.15
+Osprey				TYPE:Animal.Other Animal		COST:45			SOURCEPAGE:p.15
+Poison Frog				TYPE:Animal.Other Animal		COST:60			SOURCEPAGE:p.15
+Porcupine				TYPE:Animal.Other Animal		COST:5			SOURCEPAGE:p.15
+Snail Kite				TYPE:Animal.Other Animal		COST:18			SOURCEPAGE:p.15
+Snapping Turtle			TYPE:Animal.Other Animal		COST:5			SOURCEPAGE:p.15
+Thylacine				TYPE:Animal.Other Animal		COST:18			SOURCEPAGE:p.15
+Toucan				TYPE:Animal.Other Animal		COST:40			SOURCEPAGE:p.15
+Vulture				TYPE:Animal.Other Animal		COST:30			SOURCEPAGE:p.15
+Wolf					TYPE:Animal.Other Animal		COST:100			SOURCEPAGE:p.15
+Wolverine				TYPE:Animal.Other Animal		COST:125			SOURCEPAGE:p.15
+
+###Block: Magic Items
+# Equipment Name			Type					Cost		Weight	Source Page
+Circlet of Speaking		TYPE:Magic.Headband		COST:4800	WT:1		SOURCEPAGE:p.26
+Collar of Obediance		TYPE:Magic.Amulet.Neck		COST:5000	WT:3		SOURCEPAGE:p.26
+Horseshoes of Sacred Silver	TYPE:Magic.Boot.Feet		COST:20000	WT:4		SOURCEPAGE:p.26
+Pull-Ring of Scent		TYPE:Magic.Helm.Headband	COST:11000	WT:1		SOURCEPAGE:p.26
+Saddle of the Sky-River		TYPE:Magic.Torso.Chest		COST:16000	WT:15		SOURCEPAGE:p.26
+
+###Block: Other Magic Items
+# Equipment Name					Type				Cost		Weight	Source Page
+Familiar Metamagic Rod (Lesser)		TYPE:Rod.Magic		COST:14000	WT:5		SOURCEPAGE:p.27
+Familiar Metamagic Rod				TYPE:Rod.Magic		COST:54000	WT:5		SOURCEPAGE:p.27
+Familiar Metamagic Rod (Greater)		TYPE:Rod.Magic		COST:121500	WT:5		SOURCEPAGE:p.27
+Figurine of Wondrous Power (Glass Walrus)	TYPE:Magic.Slotless	COST:14000	WT:1		SOURCEPAGE:p.27
+Instant Muzzle					TYPE:Magic.Slotless	COST:6500	WT:4		SOURCEPAGE:p.27
+Rod of Animal Training				TYPE:Magic.Slotless	COST:12300	WT:5		SOURCEPAGE:p.27
+Tamer's Whip					TYPE:Magic.Slotless	COST:11901	WT:2		SOURCEPAGE:p.27

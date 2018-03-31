@@ -1,0 +1,13 @@
+Psychometrist implements need implemented, if possible. Unsure how to do.
+
+Figure out how to grant Magic Child archetype multiple familiars.
+
+Force eidolon choice (Fey) on Fey Caller unchained summoner archetype
+
+Activate spellcasting in vigilante archetypes
+
+Fix BAB progression for Cardinal cleric archetype and Feyspeaker druid archetype
+
+Find a way to implement changes to companion for Courtly Hunter hunter archetype
+
+Vigilante Archetypes (in progress)

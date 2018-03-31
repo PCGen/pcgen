@@ -1,0 +1,44 @@
+# CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Second Darkness, Chapter 2 - Children of the Void	SOURCESHORT:AP14	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy85ed	SOURCEDATE:2008-10
+
+###Block: Akata Abilities
+# Ability Name			Output Name										Category of Ability		Type								Description															Source Page
+Akata Immunities			OUTPUTNAME:Immune to cold, disease, fire, poison, suffocation	CATEGORY:Special Ability	TYPE:SpecialQuality.Resistance			DESC:Immune to cold, disease, fire, poison, suffocation							SOURCEPAGE:p.80
+Akata Deaf				OUTPUTNAME:Deaf									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	DESC:Akatas cannot hear													SOURCEPAGE:p.82
+Akata No Breath			OUTPUTNAME:No Breath								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	DESC:Akatas do not breathe, and as such are immune to inhaled toxins					SOURCEPAGE:p.82
+Akata Hibernation			OUTPUTNAME:Hibernation								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	DESC:Akatas can enter a state of hibernation for an effectively infinite number of years		SOURCEPAGE:p.82
+Void Bite															CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			DESC:Akatas hold hundreds of microscopic larval young within their mouths				SOURCEPAGE:p.82
+Salt Water Vulnerability												CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness	DESC:Due to their bizarre physiology, salt water acts as an extremely strong acid to akatas	SOURCEPAGE:p.80
+
+###Block: Moonflower Abilities
+# Ability Name	Output Name											Category of Ability		Type						Description																												Source Page
+Moonflower Hide	OUTPUTNAME:+16 racial bonus on Hide checks made in thick vegetation	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait																														SOURCEPAGE:p.82
+Light Pulse														CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	DESC:As a standard action, a moonflower can release a pulse of bright light from its numerous blossoms every 1d6 rounds up to 3 times a day						SOURCEPAGE:p.82
+Pod Prison														CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DESC:Once every 1d4 rounds, a moonflower can try to swallow a grabbed opponent of a smaller size than itself by making a successful grapple check					SOURCEPAGE:p.82
+Pod Spawn														CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:Should a moonflower's pod prison be allowed to kill and digest a Small or larger creature, 1d4 hours later it transforms into an adult moonflower with full hit points	SOURCEPAGE:p.82
+
+###Block: Siren Abilities
+# Ability Name	Output Name							Category of Ability		Type						Description								Source Page
+Siren Song										CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	DESC:The siren's most infamous weapons are her songs	SOURCEPAGE:p.84
+Siren Immunities	OUTPUTNAME:Immune to mind-affecting effects	CATEGORY:Special Ability	TYPE:SpecialQuality.Immunity											SOURCEPAGE:p.84
+
+###Block: Thais Abilities
+# Ability Name		Output Name				Category of Ability		Type							Description																										Combat bonus				Save bonus							Source Page
+Armor of Valor							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.ModifyAC	DESC:A halo of righteous energy surrounds Thais, granting her a deflection bonus														BONUS:COMBAT|AC|CHA|TYPE=Deflection									SOURCEPAGE:p.86
+Aura of Bravery							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura	DESC:Thais is surrounded by an aura of courage that inspires her allies																														SOURCEPAGE:p.86
+Thais Change Shape	OUTPUTNAME:Change Shape		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural		DESC:Thais can assume the form of a female elf, half-elf, or human from Medium to Huge size at will																									SOURCEPAGE:p.86
+Charmed Life							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary		DESC:As the personification of luck, up to three times per day, Thais can choose to reroll any die roll that she makes before it results in success or failure							BONUS:SAVE|ALL|1+Global_LuckBonus|TYPE=Luck	SOURCEPAGE:p.86
+Fortune's Kiss							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural		DESC:Three times per day, as a standard action, Thais can blow a kiss that grants good luck to any one creature within 30 feet																				SOURCEPAGE:p.86
+Thais Piercing Gaze	OUTPUTNAME:Piercing Gaze	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural		DESC:Thais's penetrating gaze burns deep into the hearts and souls of enemies within 30 feet																										SOURCEPAGE:p.86
+Thais Tongues		OUTPUTNAME:Tongues		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike			DESC:Thais can speak with any creature that has a language, as if using a tongues spell																											SOURCEPAGE:p.86
+
+###Block: Witchwyrd Abilities
+# Ability Name	Output Name			Category of Ability		Type						Description																Source Page
+Absorb Force					CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	DESC:As long as it has at least one hand free, a witchwyrd can "catch" magic missiles fired at it	SOURCEPAGE:p.88
+Force Bolt						CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	DESC:A witchwyrd can "throw" a magic missile from each free upper hand as a free action			SOURCEPAGE:p.88
+Witchwyrd Tongues	OUTPUTNAME:Tongues	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		DESC:A witchwyrd can speak with any creature that has a language, as if using a tongues spell		SOURCEPAGE:p.88
+
+###Block: Void Zombie Abilities
+# Ability Name					Output Name						Category of Ability		Type						Description																												Source Page
+Void Zombie Blood Drain				OUTPUTNAME:Blood Drain				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DESC:If a void zombie hits a living creature with its tongue attack, it drains blood from the creature, inflicting 2 points of Strength damage before the tongue detaches	SOURCEPAGE:p.81
+Void Zombie Vulnerable to Critical Hits	OUTPUTNAME:Vulnerable to Critical Hits	CATEGORY:Special Ability	TYPE:SpecialQuality.Weakness		DESC:a void zombie does not enjoy the typical undead immunity to critical hits and sneak attacks													SOURCEPAGE:p.81

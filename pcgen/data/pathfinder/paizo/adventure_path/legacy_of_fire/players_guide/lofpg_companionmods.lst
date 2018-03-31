@@ -1,0 +1,14 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Legacy of Fire Player's Guide	SOURCESHORT:LOFPG	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy8bdb	SOURCEDATE:2009-02
+
+###Block: Specific Familiars
+# Class of the Master	Type			Ability										Required Race			Add
+FOLLOWER:FamiliarLVL=1	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar ~ Speak One Language	PRERACE:1,Familiar (Bustard)	ADD:LANGUAGE|TYPE=Spoken
+
+###Block:Familiar Bonuses to Master
+# Race of familiar					Type			Ability
+MASTERBONUSRACE:Familiar (Fennec (Brushtail))	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Fennec (Brushtail))
+MASTERBONUSRACE:Familiar (Bustard)			TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Bustard)
+MASTERBONUSRACE:Familiar (Jerboa)			TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Jerboa)
+MASTERBONUSRACE:Familiar (Scorpion (Lashtail))	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Scorpion (Lashtail))
+MASTERBONUSRACE:Familiar (Solifugid)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Solifugid)

@@ -1,0 +1,14 @@
+# CVS $Revision: 21555 $ $Author: amaitland $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+
+
+# Template Name				Visible	Template															Required Vision						Prohibited Vision						Modify VAR						Ability								Apply Kit
+WILD STALKER Strong Senses		VISIBLE:NO	TEMPLATE:CHOOSE:WILD STALKER No Low Light Vision|WILD STALKER Has Low Light Vision
+
+WILD STALKER No Low Light Vision	VISIBLE:NO																									!PREVISION:1,Low-Light Vision=ANY,Low Light=ANY								ABILITY:Special Ability|AUTOMATIC|Low-Light Vision
+WILD STALKER Has Low Light Vision	VISIBLE:NO																	PREVISION:1,Low-Light Vision=ANY,Low Light=ANY									BONUS:VAR|WildStalkerPerceptionBonus|1
+
+
+Starting Gold ~ UC			VISIBLE:NO	TEMPLATE:CHOOSE:Starting Gold UC ~ Random|Starting Gold UC ~ Maximum|Starting Gold UC ~ Average
+Starting Gold UC ~ Random		VISIBLE:NO																																																	KIT:1|Starting Gold UC ~ Random
+Starting Gold UC ~ Maximum		VISIBLE:NO																																																	KIT:1|Starting Gold UC ~ Maximum
+Starting Gold UC ~ Average		VISIBLE:NO																																																	KIT:1|Starting Gold UC ~ Average

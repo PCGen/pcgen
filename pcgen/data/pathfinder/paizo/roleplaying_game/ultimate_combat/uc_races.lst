@@ -1,0 +1,8 @@
+# CVS $Revision: 17959 $ $Author: amaitland $ -- Sun Oct 21 23:15:04 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+
+
+
+# Race Name				Race Subtype
+Companion (Bird (Eagle)).MOD	RACESUBTYPE:FeatheredCompanion
+Companion (Bird (Hawk)).MOD	RACESUBTYPE:FeatheredCompanion
+Companion (Bird (Owl)).MOD	RACESUBTYPE:FeatheredCompanion

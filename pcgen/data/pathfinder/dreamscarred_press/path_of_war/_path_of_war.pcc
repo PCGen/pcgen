@@ -1,0 +1,91 @@
+# CVS $Revision$ $Author$ -- Sat Jun 13 14:52:16 2015 -- reformated by prettylst.pl v1.51 (build 23662)
+CAMPAIGN:Path of War
+GAMEMODE:Pathfinder
+TYPE:Dreamscarred Press.Path of War.Pathfinder RPG
+STATUS:BETA
+RANK:6
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder
+PRECAMPAIGN:1,INCLUDES=Core Rulebook
+PUBNAMELONG:Dreamscarred Press
+PUBNAMESHORT:DSP
+PUBNAMEWEB:http://www.dreamscarred.com
+SOURCELONG:Path of War
+SOURCESHORT:PoW
+SOURCEWEB:http://dreamscarred.com/product/path-of-war/
+SOURCEDATE:2013-11
+ISOGL:YES
+
+COVER:DRP_PathOfWar_Cover_Final-115x150.jpg
+LOGO:Logo_200x72.png
+URL:WEBSITE|http://www.dreamscarred.com|Visit Dreamscarred Press' website!
+URL:WEBSITE|http://dreamscarred.com/forum/general-discussion/pathfinder/|Need help?  Dreamscarred Press' discussion board for their Pathfinder Products
+URL:WEBSITE|http://www.d20pfsrd.com/path-of-war|Path of War information at d20Pfsrd
+URL:Dreamscarred Press|http://dreamscarred.com/product/path-of-war/|Buy this source from Dreamscarred Press!
+DESC:Make martial combat more interesting with the Path of War, a maneuver-based combat system designed and playtested to work side-by-side with all of the standard classes.&nl;Path of War offers new base classes, feats, archetypes, and much more.
+
+#INFOTEXT:Not sure what this is used for.
+COPYRIGHT:Open Game License v 1.0a, Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder RPG Core Rulebook. Copyright 2009, Paizo Publishing, LLC; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:Pathfinder RPG Bestiary, Copyright 2009, Paizo Publishing, LLC; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:Advanced Player's Guide, Copyright 2010, Paizo Publishing, LLC; Author: Jason Bulmahn
+COPYRIGHT:Pathfinder RPG GameMastery Guide, Copyright 2010, Paizo Publishing, LLC; Author: Cam Banks, Wolfgang Buar, Jason Bulmahn, Jim Butler, Eric Cagle, Graeme Davis, Adam Daigle, Joshua J. Frost, James Jacobs, Kenneth Hite, Steven Kenson, Robin Laws, Tito Leati, Rob McCreary, Hal Maclean, Colin McComb, Jason Nelson, David Noonan, Richard Pett, Rich Redman, Sean K reynolds, F. Wesley Schneider, Amber Scorr, Doug Seacat, Mike Selinker, Lisa Stevens, James L. Sutter, Russ Taylor, Penny Williams, Skip Williams, Teeuwynn Woodruff.
+COPYRIGHT:Pathfinder Roleplaying Game Ultimate Magic, Copyright 2011, Paizo Publishing, LLC; Authors: Jason Bulmahn, Tim Hitchcock, Colin McComb, Rob McCreary, Jason Nelson, Stephen Radney-MacFarland, Sean K Reynolds, Owen K.C. Stephens, and Russ Taylor.
+COPYRIGHT:Pathfinder Roleplaying Game Ultimate Combat, Copyright 2011, Paizo Publishing, LLC; Authors: Dennis Baker, Jesse Benner, Benjamin Bruck, Jason Bulmahn, Brian J. Cortijo, Jim Groves, Tim Hitchcock, Richard A. Hunt, Colin McComb, Jason Nelson, Tom Phillips, Patrick Renie, Sean K Reynolds, and Russ Taylor.
+COPYRIGHT:The Book of Experimental Might, Copyright 2008, Monte J. Cook. All rights reserved.
+COPYRIGHT:Tome of Horrors, Copyright 2002, Necromancer Games, Inc.; Authors: Scott Greene, with Clark Peterson, Erica Balsley, Kevin Baase, Casey Christofferson, Lance Hawvermale, Travis Hawvermale, Patrick Lawinger, and Bill Webb; Based on original content from TSR.
+COPYRIGHT:Unearthed Arcana, Copyright 2004, Wizards of the Coast, Inc.; Authors Andy Collins, Jesse Decker, David Noonan, Rich Redman
+COPYRIGHT:The Iconic Bestiary: Classics of Fantasy, Copyright 2005, Lions Den Press; Author Ari Marmell
+COPYRIGHT:Hyperconscious: Explorations in Psionics, Copyright 2004, Bruce R Cordell. All rights reserved.
+COPYRIGHT:If Thoughts Could Kill, Copyright 2001-2004, Bruce R. Cordell. All rights reserved.
+COPYRIGHT:Mindscapes, Copyright 2003-2004, Bruce R. Cordell. All rights reserved.
+COPYRIGHT:Unearthed Arcana, Copyright 2004, Wizards of the Coast.
+COPYRIGHT:Mutants & Masterminds Copyright 2002, Green Ronin Publishing.
+COPYRIGHT:Swords of Our Fathers, Copyright 2003, The Game Mechanics.
+COPYRIGHT:Modern System Reference Document, Copyright 2002, Wizards of the Coast, Inc.; Authors Bill Slavicsek, Jeff Grubb, Rich Redman, Charles Ryan, based on material by Jonathan Tweet, Monte Cook, Skip Williams, Richard Baker,Peter Adkison, Bruce R. Cordell, John Tynes, Andy Collins, and JD Wiker
+COPYRIGHT:Psionics Unleashed. Copyright 2010, Dreamscarred Press.
+COPYRIGHT:Path of War, Copyright 2014, Dreamscarred Press.
+COPYRIGHT:PCGen dataset conversion for "Path of War" Copyright 2015, PCGen Data team (Including, but not limited to Douglas Limmer, Paul Grosse, and Andrew Maitland).
+
+
+# COMMENT:Is this part still needed?  What does it do? Is it a prettyLST thing?
+#Do Not Remove Comment
+#EXTRAFILE:ogl.txt
+
+ABILITY:pow_abilities.lst
+ABILITY:pow_abilities_apg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+ABILITY:pow_abilities_psi.lst|PRECAMPAIGN:1,INCLUDES=DSP - Ultimate Psionics
+ABILITY:pow_feats.lst
+ABILITYCATEGORY:pow_abilitycategories.lst
+ABILITYCATEGORY:pow_abilitycategories_psi.lst|PRECAMPAIGN:1,INCLUDES=DSP - Ultimate Psionics
+CLASS:pow_classes.lst
+CLASS:pow_classes_psi.lst|PRECAMPAIGN:1,INCLUDES=DSP - Ultimate Psionics
+#COMPANIONMOD:none
+#DEITY:none
+#DOMAIN:none
+EQUIPMENT:pow_equipment.lst
+#EQUIPMOD:none
+KIT:pow_kits.lst
+#LANGUAGE:none
+#RACE:none
+SKILL:pow_skills.lst
+SPELL:pow_maneuvers.lst
+TEMPLATE:pow_templates.lst
+
+#ARMORPROF:none
+#SHIELDPROF:none
+#WEAPONPROF:none
+
+# ENTRY DATE: 2015-06
+# LST MONKEY: Douglas Limmer
+# LICENSE MONKEY: Paul Grosse
+# RELEASE REVIEW #
+# BETA: Andrew Maitland
+# RELEASE:
+# Built for PCGen Version: 6.05.01
+# Updated to work with version: -
+# MINVER:6.5
+# MINDEVVER:6.05.1
+# COMMENTS:

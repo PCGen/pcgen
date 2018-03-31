@@ -1,0 +1,14 @@
+# CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Dragon Empires Gazetteer	SOURCESHORT:DEG	SOURCEWEB:http://paizo.com/products/btpy8pfu	SOURCEDATE:2012-02
+
+###Block: Human Ethnicities
+# Ability Name	Unique Key				Product Identity?	Category of Ability		Type								Visible		Description																																																																																				Template						Source Page		Aspects
+Tian-Dan							NAMEISPI:YES	CATEGORY:Background		TYPE:HumanEthnicity					VISIBLE:DISPLAY																																																																																						TEMPLATE:Human Ethnicity (Tian-Dan)		SOURCEPAGE:p.5
+Tian-Dtang							NAMEISPI:YES	CATEGORY:Background		TYPE:HumanEthnicity					VISIBLE:DISPLAY																																																																																						TEMPLATE:Human Ethnicity (Tian-Dtang)	SOURCEPAGE:p.5
+Tian-Hwan							NAMEISPI:YES	CATEGORY:Background		TYPE:HumanEthnicity					VISIBLE:DISPLAY																																																																																						TEMPLATE:Human Ethnicity (Tian-Hwan)	SOURCEPAGE:p.5
+Tian-La							NAMEISPI:YES	CATEGORY:Background		TYPE:HumanEthnicity					VISIBLE:DISPLAY																																																																																						TEMPLATE:Human Ethnicity (Tian-La)		SOURCEPAGE:p.6
+Tian-Min							NAMEISPI:YES	CATEGORY:Background		TYPE:HumanEthnicity					VISIBLE:DISPLAY																																																																																						TEMPLATE:Human Ethnicity (Tian-Min)		SOURCEPAGE:p.6
+Tian-Shu							NAMEISPI:YES	CATEGORY:Background		TYPE:HumanEthnicity					VISIBLE:DISPLAY																																																																																						TEMPLATE:Human Ethnicity (Tian-Shu)		SOURCEPAGE:p.6
+Tian-Sing							NAMEISPI:YES	CATEGORY:Background		TYPE:HumanEthnicity					VISIBLE:DISPLAY																																																																																						TEMPLATE:Human Ethnicity (Tian-Sing)	SOURCEPAGE:p.6
+
+Moonfire		KEY:Domain Power ~ Moonfire				CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural.DomainPower				DESC:You can launch a blast of blazing moonlight from your eyes at a single target within 30 feet as a standard action. Moonfire deals %1d8 points of damage, and the target is dazzled for %2 rounds. This damage is the result of raw divine power, and cannot be blocked by energy resistance. A successful Reflex saving throw (DC %3) reduces the damage by half and negates the dazzle effect. You can use this ability %4 times per day.|DomainDarknessLVL/2|DomainDarknessLVL|DomainDarknessDC|DomainDarknessLVL/4-1								SOURCEPAGE:p.57	ASPECT:Ability Benefit|(%1/day)|DomainDarknessLVL/4-1	ASPECT:CheckCount|%1|DomainDarknessLVL/4-1	ASPECT:CheckType|Uses per Day

@@ -1,0 +1,9 @@
+# CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Dirty Tactics Toolbox	SOURCESHORT:DTT		SOURCEWEB:http://paizo.com/products/btpy9g23?Pathfinder-Player-Companion-Dirty-Tactics-Toolbox	SOURCEDATE:2015-09
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 03 May 2016
+
+
+FOLLOWER:AsmodeanFamiliar=1			TYPE:Familiar		PRERACE:1,Familiar (Viper)		KIT:1|Asmodean Viper Familiar Language
+
+MASTERBONUSRACE:Familiar (Wasp (Giant))	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Wasp (Giant))

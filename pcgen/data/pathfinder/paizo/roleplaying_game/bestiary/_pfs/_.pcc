@@ -1,0 +1,85 @@
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+CAMPAIGN:Bestiary (PFS)
+KEY:PFS ~ Bestiary
+#GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing PFS.Pathfinder RPG
+RANK:1
+STATUS:RELEASE
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder
+PRECAMPAIGN:1,Pathfinder Society Core Assumption
+!PRECAMPAIGN:1,INCLUDES=Bonus Bestiary
+
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Bestiary
+SOURCESHORT:B1
+SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu
+SOURCEDATE:2009-10
+ISOGL:YES
+
+#COVER:@/pathfinder/paizo/roleplaying_game/bestiary/bestiary.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu|Buy this publication from Paizo Publishing!
+DESC:The greatest monsters of fantasy gaming come alive in this hardcover release for Paizo's new Pathfinder Roleplaying Game! Backward-compatible with the 3.5 fantasy rules but packed with new solutions and options that place it firmly on the cutting edge, the Pathfinder Roleplaying Game is the culmination of the largest open playtest in tabletop RPG history.
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a (c) 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. (c) 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder RPG Bestiary, (c) 2009, Paizo Inc.; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:Basidirond from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Cave Fisher from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Lawrence Schick.
+COPYRIGHT:Crystal Ooze from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Dark Creeper from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Rik Shepard.
+COPYRIGHT:Dark Stalker from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Simon Muth.
+COPYRIGHT:Dracolisk from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Froghemoth from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Giant Slug from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Ice Golem from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene.
+COPYRIGHT:Iron Cobra from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Philip Masters.
+COPYRIGHT:Marid from the Tome of Horrors III, (c) 2005, Necromancer Games, Inc.; Author Scott Greene.
+COPYRIGHT:Mite from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Ian Livingstone and Mark Barnes.
+COPYRIGHT:Nabasu Demon from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Russet Mold from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Shadow Demon from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Neville White.
+COPYRIGHT:Vegepygmy from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Wood Golem from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Authors Scott Greene and Patrick Lawinger.
+COPYRIGHT:Yellow Musk Creeper from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Albie Fiore.
+COPYRIGHT:Yellow Musk Zombie from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Albie Fiore.
+COPYRIGHT:Yeti from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Bestiary" Copyright 2009-2010, PCGen Data team (Including, but not limited to Stefan Radermacher, Eddy Anthony (MoSaT), Eric C Smith (Maredudd), Andrew Maitland (LegacyKing)).
+
+#Do Not Remove Comment
+#EXTRAFILE:OGL.txt
+
+# Additional Resources
+# Last Updated Friday, January 9, 2015
+#
+# Pathfinder Roleplaying Game: Bestiary
+# Animal Companions: ankylosaurus, aurochs, brachiosaurus, dire bat, dire rat, dolphin, elasmosaurus, electric eel, elephant/mastodon, frog, goblin dog, hyena, monitor lizard, moray eel, octopus, orca, pteranodon, rhinoceros, roc, squid, stegosaurus, triceratops, and tyrannosaurus;
+# Familiars: all familiars listed on pages 131-133;
+# Feats: none of the feats are legal for play for PCs, animal companions, or familiars unless specifically granted by another legal source;
+# Other: all creatures in this book are legal for polymorph effects (including a druid's wild shape ability) within the boundaries of each spell or ability's parameters.
+# All languages found in this book are available for a character to learn with the linguistics skill, except aboleth and drow sign language.
+
+# Data files
+ABILITY:pfs_b1_abilities_race.lst|PRECAMPAIGN:1,INCLUDES=Bestiary
+EQUIPMENT:pfs_b1_equip_magic_items.lst|PRECAMPAIGN:1,INCLUDES=Bestiary
+EQUIPMENT:pfs_b1_equip_arms_armor.lst|PRECAMPAIGN:1,INCLUDES=Bestiary
+EQUIPMENT:pfs_b1_equip_general.lst|PRECAMPAIGN:1,INCLUDES=Bestiary
+RACE:pfs_b1_races_companion.lst|PRECAMPAIGN:1,INCLUDES=Bestiary
+
+LANGUAGE:pfs_ce_languages.lst|PRECAMPAIGN:1,INCLUDES=Bestiary
+ABILITY:pfs_ce_feats.lst|PRECAMPAIGN:1,INCLUDES=Bestiary
+
+# TODO: All languages found in this book are available for a character to learn with the linguistics skill, except aboleth and drow sign language.
+# Aboleth and drow sign language are blocked, but the others are not blocked from int bonus language selection.
+# PCGen shows all the languages for INT bonus languages.
+
+#
+# End
+#

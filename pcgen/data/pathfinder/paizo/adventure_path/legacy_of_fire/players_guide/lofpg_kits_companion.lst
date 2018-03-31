@@ -1,0 +1,17 @@
+# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+SOURCELONG:Legacy of Fire Player's Guide	SOURCESHORT:LOFPG	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy8bdb	SOURCEDATE:2009-02
+
+STARTPACK:Familiar ~ Fennec (Brushtail)	TYPE:Familiar	VISIBLE:NO
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+
+STARTPACK:Familiar ~ Bustard	TYPE:Familiar	VISIBLE:NO
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+
+STARTPACK:Familiar ~ Jerboa	TYPE:Familiar	VISIBLE:NO
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+
+STARTPACK:Familiar ~ Scorpion (Lashtail)	TYPE:Familiar	VISIBLE:NO
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+
+STARTPACK:Familiar ~ Solifugid	TYPE:Familiar	VISIBLE:NO
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11

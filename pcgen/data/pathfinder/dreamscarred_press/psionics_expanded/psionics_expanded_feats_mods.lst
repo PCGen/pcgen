@@ -1,0 +1,50 @@
+# CVS $Revision: $ $Author: $ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Psionics Expanded	SOURCESHORT:PsiEx	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2012-07
+# ORIGINAL ENTRY: Douglas Limmer
+# ORIGINAL ENTRY DATE: 2013/07/05
+
+###Block: Psionic fighter 1st-level bonus feat
+# Feat Name			Type
+# Ability Name				Type
+CATEGORY=FEAT|Psionic Fist.MOD	TYPE:PsionicFighterStartingFeat
+CATEGORY=FEAT|Psionic Shot.MOD	TYPE:PsionicFighterStartingFeat
+CATEGORY=FEAT|Psionic Weapon.MOD	TYPE:PsionicFighterStartingFeat
+
+###Block: Marksman bonus feats
+# Feat Name					Type
+# Ability Name						Type
+CATEGORY=FEAT|Deadly Aim.MOD				TYPE:MarksmanBonus
+CATEGORY=FEAT|Far Shot.MOD				TYPE:MarksmanBonus
+CATEGORY=FEAT|Fell Shot.MOD				TYPE:MarksmanBonus
+CATEGORY=FEAT|Greater Psionic Shot.MOD		TYPE:MarksmanBonus
+CATEGORY=FEAT|Precise Shot.MOD			TYPE:MarksmanBonus
+CATEGORY=FEAT|Psionic Meditation.MOD		TYPE:MarksmanBonus
+CATEGORY=FEAT|Psionic Shot.MOD			TYPE:MarksmanBonus
+CATEGORY=FEAT|Quick Draw.MOD				TYPE:MarksmanBonus
+CATEGORY=FEAT|Return Shot.MOD				TYPE:MarksmanBonus
+CATEGORY=FEAT|Returning Throw.MOD			TYPE:MarksmanBonus
+CATEGORY=FEAT|Weapon Focus.MOD			TYPE:MarksmanBonus
+CATEGORY=FEAT|Improved Critical.MOD			TYPE:MarksmanBonus
+CATEGORY=FEAT|Exotic Weapon Proficiency.MOD	TYPE:MarksmanBonus
+CATEGORY=FEAT|Rapid Reload.MOD			TYPE:MarksmanBonus
+CATEGORY=FEAT|Greater Weapon Focus.MOD		TYPE:MarksmanBonus
+CATEGORY=FEAT|Weapon Specialization.MOD		TYPE:MarksmanBonus
+CATEGORY=FEAT|Greater Weapon Specialization.MOD	TYPE:MarksmanBonus
+CATEGORY=FEAT|Shot on the Run.MOD			TYPE:FinesseMarksmanBonus
+CATEGORY=FEAT|Throw Anything.MOD			TYPE:FinesseMarksmanBonus
+CATEGORY=FEAT|Greater Vital Strike.MOD		TYPE:SniperMarksmanBonus
+CATEGORY=FEAT|Improved Precise Shot.MOD		TYPE:SniperMarksmanBonus
+CATEGORY=FEAT|Improved Vital Strike.MOD		TYPE:SniperMarksmanBonus
+CATEGORY=FEAT|Pinpoint Targeting.MOD		TYPE:SniperMarksmanBonus
+CATEGORY=FEAT|Vital Strike.MOD			TYPE:SniperMarksmanBonus
+CATEGORY=FEAT|Manyshot.MOD				TYPE:VolleyMarksmanBonus
+CATEGORY=FEAT|Rapid Shot.MOD				TYPE:VolleyMarksmanBonus
+
+###Block: Vitalist bonus feat
+# Feat Name			Type
+# Ability Name					Type
+CATEGORY=FEAT|Expanded Knowledge.MOD	TYPE:VitalistBonusFeat
+
+#
+# End
+#

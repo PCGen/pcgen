@@ -1,0 +1,21 @@
+# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Legacy of Fire Player's Guide	SOURCESHORT:LOFPG	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy8bdb	SOURCEDATE:2009-02
+
+# Exotic Weapons
+# One-Handed Melee Weapons
+# Equipment Name		Required Weapon Proficiency			Type										Cost		Weight	Slot Needed	Crit Mult	Damage	Range		Reach Multiplier	Source Page
+Battle Poi			PROFICIENCY:WEAPON|Battle Poi			TYPE:Weapon.Resizable.Exotic.Melee.Standard.Fire		COST:5	WT:2				CRITMULT:x2	DAMAGE:1d4						SOURCEPAGE:p.23
+Madu (Shield Bash)	PROFICIENCY:WEAPON|Madu (Shield Bash)	TYPE:Weapon.Resizable.Exotic.Melee.Standard.Piercing		COST:0	WT:0				CRITMULT:x2	DAMAGE:1d4						SOURCEPAGE:p.23
+Rope Gauntlets		PROFICIENCY:WEAPON|Rope Gauntlets		TYPE:Weapon.Resizable.Exotic.Melee.Standard.Bludgeoning	COST:0.02	WT:2				CRITMULT:x2	DAMAGE:1d4						SOURCEPAGE:p.23
+Scorpion Whip		PROFICIENCY:WEAPON|Scorpion Whip		TYPE:Weapon.Resizable.Exotic.Melee.Standard.Slashing		COST:5	WT:3				CRITMULT:x2	DAMAGE:1d4			REACHMULT:2		SOURCEPAGE:p.23
+
+# Two-Handed Melee Weapons
+Meteor Hammer		PROFICIENCY:WEAPON|Meteor Hammer		TYPE:Weapon.Resizable.Exotic.Melee.Standard.Bludgeoning	COST:100	WT:10		SLOTS:2	CRITMULT:x2	DAMAGE:1d8			REACHMULT:2		SOURCEPAGE:p.23
+
+# Ranged Weapons
+Sling Glove			PROFICIENCY:WEAPON|Sling Glove		TYPE:Weapon.Resizable.Exotic.Ranged.Standard.Bludgeoning	COST:10	WT:1				CRITMULT:x2	DAMAGE:1d6	RANGE:50				SOURCEPAGE:p.23
+
+###Block: Shields
+# Equipment Name	Output Name				Required Shield Proficiency	Type						Cost		Weight	AC Penalty Check	Source Page		% of Spell Failure	Combat bonus
+Madu (Leather)	OUTPUTNAME:Madu, leather	PROFICIENCY:SHIELD|Madu		TYPE:Shield.Light.Standard.Nonmetal	COST:30	WT:5		ACCHECK:-2		SOURCEPAGE:p.23	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Armor
+Madu (Steel)	OUTPUTNAME:Madu, steel		PROFICIENCY:SHIELD|Madu		TYPE:Shield.Light.Standard		COST:40	WT:6		ACCHECK:-2		SOURCEPAGE:p.23	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Armor

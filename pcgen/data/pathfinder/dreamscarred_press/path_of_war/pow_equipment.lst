@@ -1,0 +1,10 @@
+# CVS $Revision: $ $Author: $ -- Sat Jun 13 14:52:16 2015 -- reformated by prettylst.pl v1.51 (build 23662)
+# Original Entry by: Douglas Limmer
+# Original Entry Date: 2015-06-13
+
+# Equipment Name	Type				Cost		Weight	Source Page
+Travelogue		TYPE:Artifact.Minor	COST:0	WT:0		SOURCEPAGE:p.161
+
+#
+# End
+#

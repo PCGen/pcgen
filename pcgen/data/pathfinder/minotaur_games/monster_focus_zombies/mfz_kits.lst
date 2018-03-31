@@ -1,0 +1,24 @@
+# CVS $Revision: $ $Author: $ -- Fri Oct 25 12:34:56 2013 -- reformated by prettylst.pl v1.50 (build 20400)
+#SOURCELONG:Monster Focus: Zombies	SOURCESHORT:MFZ	SOURCEWEB:http://minotaurrpg.com/monster-focus/zombies/	SOURCEDATE:2013-04
+# ORIGINAL ENTRY: Stefan Radermacher
+# ORIGINAL ENTRY DATE: 2013/10/25
+
+STARTPACK:Brood Zombie Default	TYPE:Default Monster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Brood Zombie],[!PRERACE:1,%]	SOURCEPAGE:p.4
+RACE:Brood Zombie	!PRERACE:1,%
+NAME:Brood Zombie
+ALIGN:NE
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+SKILL:Bluff		RANK:9
+SKILL:Disguise	RANK:9
+SKILL:Perception	RANK:9
+SKILL:Stealth	RANK:9
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Skill Focus (Stealth)
+ABILITY:CATEGORY=FEAT|Toughness
+ABILITY:CATEGORY=FEAT|Weapon Focus (Slam)
+GEAR:Leather	LOCATION:Armor
+
+#
+# End
+#

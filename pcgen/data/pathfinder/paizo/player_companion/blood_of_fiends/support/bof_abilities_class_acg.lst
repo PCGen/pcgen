@@ -1,0 +1,6 @@
+SOURCELONG:Blood of Fiends	SOURCESHORT:BOF	SOURCEWEB:http://paizo.com/products/btpy8qzz?Pathfinder-Player-Companion-Blood-of-Fiends	SOURCEDATE:2012-04
+
+
+###Block: Arcanist Bloodline Development Exploit -- Goes in ACG or ACG support _abilities_class.lst
+
+Daemon Bloodline		CATEGORY:Arcanist Bloodline Development		TYPE:SorcererBloodlineChoice		BONUS:VAR|Sorcerer_Daemon_BloodlineLVL|1|!PREABILITY:1,CATEGORY=Sorcerer Bloodline,Daemon Bloodline|!PREABILITY:1,CATEGORY=Crossblooded Bloodline,Daemon Bloodline		BONUS:VAR|Sorcerer_Daemon_BloodlineLVL|ArcanistLVL|PREMULT:1,[PREABILITY:1,CATEGORY=Sorcerer Bloodline,Daemon Bloodline],[PREABILITY:1,CATEGORY=Crossblooded Bloodline,Daemon Bloodline]		BONUS:VAR|Sorcerer_Daemon_BloodlinePower1LVL|1|!PREABILITY:1,CATEGORY=Sorcerer Bloodline,Daemon Bloodline|!PREABILITY:1,CATEGORY=Crossblooded Bloodline,Daemon Bloodline		ABILITY:Special Ability|AUTOMATIC|TYPE=Daemon Bloodline ~ Power LVL 01		ABILITY:Special Ability|AUTOMATIC|Sorcerer Bloodline ~ Daemon

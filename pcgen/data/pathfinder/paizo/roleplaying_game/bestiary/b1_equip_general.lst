@@ -1,0 +1,7 @@
+# CVS $Revision: 20125 $ $Author: zaister $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
+
+
+
+# Equipment Name		Output Name		Type					Weight	Source Page		Special Property
+Poison (Black Smear)	OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	WT:0		SOURCEPAGE:p.54	SPROP:Injury; save Fort DC 15; frequency 1/round for 6 rounds; effect 1d2 Str; cure 1 save

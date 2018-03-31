@@ -1,0 +1,29 @@
+# CVS $Revision: $ $Author: $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Second Darkness, Chapter 3 - The Armageddon Echo	SOURCESHORT:AP15	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy85ep	SOURCEDATE:2008-10
+# Original Entry by Eddy Anthony (MoSaT)
+
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus																Save bonus																																		Modify VAR																																																												FACT
+CLASS:Pain Taster	HD:10		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.61	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|PnTst
+# Class Name	Required Ability									Required AL				Required Skill		Required Text
+CLASS:Pain Taster	PREABILITY:3,CATEGORY=FEAT,Diehard,Endurance,Great Fortitude	PREALIGN:LN,TN,CN,LE,NE,CE	PRESKILL:1,Intimidate=5	PRETEXT:Must survive a special ritual designed to inure him to pain.
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Pain Taster	STARTSKILLPTS:2	CSKILL:Acrobatics|Climb|Escape Artist|Heal|Intimidate|Sense Motive|Survival
+1																											ABILITY:Special Ability|AUTOMATIC|Disciple of Pain|Masochism		AUTO:WEAPONPROF|Whip|TYPE=Martial|TYPE=Simple
+2	DR:1/-				BONUS:VAR|SneakAttackDice|1																	ABILITY:Special Ability|AUTOMATIC|Cruelty
+3						BONUS:VAR|BloodControlBonus|CL	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.STACK	BONUS:VAR|UncannyDodgeLVL|1	ABILITY:Special Ability|AUTOMATIC|Blood Control|Uncanny Dodge ~ Base
+4			BONUS:DR|-|1	BONUS:VAR|SneakAttackDice|1
+5																											ABILITY:Special Ability|AUTOMATIC|Pain Mastery
+
+
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus																	Save bonus																																		Modify VAR																																																													FACT
+CLASS:Demonic Initiate	HD:8		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.63	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|DmInt
+# Class Name		Required Ability					Required AL	Required Skill						Required Text
+CLASS:Demonic Initiate	PREABILITY:1,CATEGORY=FEAT,Iron Will	PREALIGN:CE	PRESKILL:2,Knowledge (Planes)=5,Spellcraft=1	PRETEXT:Foresworn to a demonic patron
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Demonic Initiate	STARTSKILLPTS:2	CSKILL:Bluff|Intimidate|Knowledge (Religion)|Knowledge (Planes)|Sense Motive|Spellcraft|Stealth
+1					ABILITY:Special Ability|AUTOMATIC|Abyssal Resistance|Dark Mark
+2	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Demonic Boon (Lesser)
+3	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Abyssal Tongue
+4	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Summon Demonic Ally
+5	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Damnation|Demonic Boon (Greater)

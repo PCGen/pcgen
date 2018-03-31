@@ -1,0 +1,10 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Adventurer's Handbook: Genius Guide Volume 1	SOURCESHORT:SGGAH	SOURCEDATE:2010-04
+# Original Entry by: Paul Shipley (elro the onk)
+
+# Block - ARG specific War Master abilities
+
+# War Master Fighting Spirit - ARG Fighter Feats (<= Fighter10)
+# Ability Name		Unique Key					Category of Ability		Type					Required Ability							Required Race	Var. Min. Value				Description																																										Bonus Ability Pool
+Shatterspell		KEY:Shatterspell ~ WMFSFeat		CATEGORY:Special Ability	TYPE:Internal.WMFSFighterFeat	PREABILITY:2,CATEGORY=FEAT,Disruptive,Spellbreaker	PRERACE:1,Dwarf	PREVARGTEQ:WMFighterQualLvl,10	DESC:As a standard action, you can attempt to sunder an ongoing spell effect as if you had the spell sunder rage power. You may use this feat once per day, plus one additional time per day for every 5 points by which your base attack bonus exceeds +10.	BONUS:ABILITYPOOL|Shatterspell|1
+Martial Versatility	KEY:Martial Versatility ~ WMFSFeat	CATEGORY:Special Ability	TYPE:Internal.WMFSFighterFeat										PRERACE:1,Human	PREVARGTEQ:WMFighterQualLvl,4		DESC:Choose one combat feat you know that applies to a specific weapon (e.g., Weapon Focus). You can use that feat with any weapon within the same weapon group. &nl; [Special] You may take this feat more than once. Each time it applies to a different feat.	BONUS:ABILITYPOOL|Martial Versatility|1

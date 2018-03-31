@@ -1,0 +1,93 @@
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Psionics Unleashed	SOURCESHORT:PsU	SOURCEWEB:http://dreamscarredpress.com/dragonfly/Store/product/pid=69.html	SOURCEDATE:2010-12
+# Original Entry by: Douglas Limmer
+# SRD Original Entry by: Arknight
+# SRD update by: TaluronIscandar
+
+# Template Name		Visible		Define									Var. Min. Value			Modify VAR																																																																																																																																																																																																															Ability																Temporary effect description				Temporary Bonus
+Psion Caster Support	VISIBLE:NO		DEFINE:PsionML|0	DEFINE:IsPsionic|0	DEFINE:PsionPL|0						BONUS:VAR|PsionML|var("CL=Psion")	BONUS:VAR|PsionML|var("BL=Psion")	BONUS:VAR|IsPsionic|1	BONUS:VAR|PsionPL|PsionML	BONUS:VAR|BasePowerPoints|2	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:PsionPL,2	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:PsionPL,3	BONUS:VAR|BasePowerPoints|6|PREVARGTEQ:PsionPL,4	BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:PsionPL,5	BONUS:VAR|BasePowerPoints|10|PREVARGTEQ:PsionPL,6	BONUS:VAR|BasePowerPoints|11|PREVARGTEQ:PsionPL,7	BONUS:VAR|BasePowerPoints|12|PREVARGTEQ:PsionPL,8	BONUS:VAR|BasePowerPoints|14|PREVARGTEQ:PsionPL,9	BONUS:VAR|BasePowerPoints|16|PREVARGTEQ:PsionPL,10	BONUS:VAR|BasePowerPoints|18|PREVARGTEQ:PsionPL,11	BONUS:VAR|BasePowerPoints|20|PREVARGTEQ:PsionPL,12	BONUS:VAR|BasePowerPoints|21|PREVARGTEQ:PsionPL,13	BONUS:VAR|BasePowerPoints|23|PREVARGTEQ:PsionPL,14	BONUS:VAR|BasePowerPoints|25|PREVARGTEQ:PsionPL,15	BONUS:VAR|BasePowerPoints|26|PREVARGTEQ:PsionPL,16	BONUS:VAR|BasePowerPoints|29|PREVARGTEQ:PsionPL,17	BONUS:VAR|BasePowerPoints|30|PREVARGTEQ:PsionPL,18	BONUS:VAR|BasePowerPoints|31|PREVARGTEQ:PsionPL,19	BONUS:VAR|BasePowerPoints|32|PREVARGTEQ:PsionPL,20	BONUS:VAR|BonusPowerPoints|(INT*PsionPL)/2|TYPE=PsionBonusPP	ABILITY:Special Ability|AUTOMATIC|Psionic
+
+
+# Template Name		Visible		Define									Var. Min. Value			Modify VAR																																																																																																																																																																																																															Ability																Temporary effect description				Temporary Bonus
+Psionically Focused	VISIBLE:DISPLAY											PREVARGTEQ:TotalPowerPoints,1																																																																																																																																																																																																																																		TEMPDESC:Character is psionically focused.	TEMPBONUS:PC|VAR|PsionicFocusActive|1
+Activate Size Changing	VISIBLE:DISPLAY																																																																																																																																																																																																																																ABILITY:Special Ability|AUTOMATIC|Size Changing	ABILITY:Special Ability|AUTOMATIC|CM Size Changing
+
+###BLOCK: Racial Subtype Templates
+# Template Name	Visible	Source Page		Race Subtype
+Aberrant		VISIBLE:NO	SOURCEPAGE:p.12	RACESUBTYPE:Aberrant
+Insectoid		VISIBLE:NO	SOURCEPAGE:p.10	RACESUBTYPE:Insectoid
+Maenad		VISIBLE:NO	SOURCEPAGE:p.15	RACESUBTYPE:Maenad
+Xeph			VISIBLE:NO	SOURCEPAGE:p.17	RACESUBTYPE:Xeph
+
+###BLOCK: Determines whether a Soulknife gets Wild Talent or Psionic Talent
+# Template Name			Visible	Template						Required Var. value	Var. Min. Value		Ability
+Wild Talent Determination	VISIBLE:NO	TEMPLATE:CHOOSE:Is Psionic|Is Not Psionic
+Is Psionic				VISIBLE:NO												PREVARGTEQ:IsPsionic,1	ABILITY:FEAT|AUTOMATIC|Psionic Talent
+Is Not Psionic			VISIBLE:NO								PREVAREQ:IsPsionic,0					ABILITY:FEAT|AUTOMATIC|Wild Talent
+
+###BLOCK: Natural attack templates for use with abilities and powers
+# Template Name	Visible		Natural Attacks
+Bite 1d8		VISIBLE:DISPLAY	NATURALATTACKS:Bite,Weapon.Natural.Melee.Piercing,*1,1d8
+Bite 2d8		VISIBLE:DISPLAY	NATURALATTACKS:Bite,Weapon.Natural.Melee.Piercing,*1,2d8
+Bite 3d8		VISIBLE:DISPLAY	NATURALATTACKS:Bite,Weapon.Natural.Melee.Piercing,*1,3d8
+Bite 4d8		VISIBLE:DISPLAY	NATURALATTACKS:Bite,Weapon.Natural.Melee.Piercing,*1,4d8
+Bite 5d8		VISIBLE:DISPLAY	NATURALATTACKS:Bite,Weapon.Natural.Melee.Piercing,*1,5d8
+#Bites may be Bludgeoning.Slashing.Piercing
+#For ophiduan bite, bite of the wolf power
+
+Claws 1d3		VISIBLE:DISPLAY	NATURALATTACKS:Claw,Weapon.Natural.Melee.Slashing,*2,1d3
+Claws 1d4		VISIBLE:DISPLAY	NATURALATTACKS:Claw,Weapon.Natural.Melee.Slashing,*2,1d4
+Claws 1d6		VISIBLE:DISPLAY	NATURALATTACKS:Claw,Weapon.Natural.Melee.Slashing,*2,1d6
+Claws 1d8		VISIBLE:DISPLAY	NATURALATTACKS:Claw,Weapon.Natural.Melee.Slashing,*2,1d8
+Claws 2d6		VISIBLE:DISPLAY	NATURALATTACKS:Claw,Weapon.Natural.Melee.Slashing,*2,2d6
+Claws 3d6		VISIBLE:DISPLAY	NATURALATTACKS:Claw,Weapon.Natural.Melee.Slashing,*2,3d6
+Claws 4d6		VISIBLE:DISPLAY	NATURALATTACKS:Claw,Weapon.Natural.Melee.Slashing,*2,4d6
+Claws 5d6		VISIBLE:DISPLAY	NATURALATTACKS:Claw,Weapon.Natural.Melee.Slashing,*2,5d6
+Claws 6d6		VISIBLE:DISPLAY	NATURALATTACKS:Claw,Weapon.Natural.Melee.Slashing,*2,6d6
+#For claws of the beast power
+
+Melee touch 1d8	VISIBLE:DISPLAY	NATURALATTACKS:Touch,Weapon.Natural.Melee.Touch,*1,1d8
+Melee touch 2d8	VISIBLE:DISPLAY	NATURALATTACKS:Touch,Weapon.Natural.Melee.Touch,*1,2d8
+Melee touch 3d8	VISIBLE:DISPLAY	NATURALATTACKS:Touch,Weapon.Natural.Melee.Touch,*1,3d8
+Melee touch 4d8	VISIBLE:DISPLAY	NATURALATTACKS:Touch,Weapon.Natural.Melee.Touch,*1,4d8
+Melee touch 5d8	VISIBLE:DISPLAY	NATURALATTACKS:Touch,Weapon.Natural.Melee.Touch,*1,5d8
+Melee touch 6d8	VISIBLE:DISPLAY	NATURALATTACKS:Touch,Weapon.Natural.Melee.Touch,*1,6d8
+Melee touch 7d8	VISIBLE:DISPLAY	NATURALATTACKS:Touch,Weapon.Natural.Melee.Touch,*1,7d8
+Melee touch 8d8	VISIBLE:DISPLAY	NATURALATTACKS:Touch,Weapon.Natural.Melee.Touch,*1,8d8
+Melee touch 9d8	VISIBLE:DISPLAY	NATURALATTACKS:Touch,Weapon.Natural.Melee.Touch,*1,9d8
+Melee touch 10d8	VISIBLE:DISPLAY	NATURALATTACKS:Touch,Weapon.Natural.Melee.Touch,*1,10d8
+#For hammer power
+
+
+###BLOCK: Ascetic Trance bonus choice
+# Template Name		Visible		Multiple Requirements															Combat bonus																									Save bonus
+Ascetic Trance AC		VISIBLE:DISPLAY	PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Trance ~ Ascetic],[!PRETEMPLATE:1,Ascetic Trance Saves]	BONUS:COMBAT|AC|((WarriorPathLVL+1)/4)*PsionicFocusActive*(var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.LIGHT]")+(1-var("COUNT[EQTYPE.ARMOR.EQUIPPED]")))|TYPE=Insight
+Ascetic Trance Saves	VISIBLE:DISPLAY	PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Trance ~ Ascetic],[!PRETEMPLATE:1,Ascetic Trance AC]																													BONUS:SAVE|ALL|((WarriorPathLVL+1)/4)*PsionicFocusActive*(var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.LIGHT]")+(1-var("COUNT[EQTYPE.ARMOR.EQUIPPED]")))|TYPE=Insight
+
+###BLOCK: Stat boosters (for animal affinity, etc.)
+# Template Name				Visible		Stat bonus					Description
+Enhancement bonus +4 Strength		VISIBLE:DISPLAY	BONUS:STAT|STR|4|TYPE=Enhancement	DESC:Enhancement bonus template for animal affinity, etc.
+Enhancement bonus +4 Dexterity	VISIBLE:DISPLAY	BONUS:STAT|DEX|4|TYPE=Enhancement	DESC:Enhancement bonus template for animal affinity, etc.
+Enhancement bonus +4 Constitution	VISIBLE:DISPLAY	BONUS:STAT|CON|4|TYPE=Enhancement	DESC:Enhancement bonus template for animal affinity, etc.
+Enhancement bonus +4 Intelligence	VISIBLE:DISPLAY	BONUS:STAT|INT|4|TYPE=Enhancement	DESC:Enhancement bonus template for animal affinity, etc.
+Enhancement bonus +4 Wisdom		VISIBLE:DISPLAY	BONUS:STAT|WIS|4|TYPE=Enhancement	DESC:Enhancement bonus template for animal affinity, etc.
+Enhancement bonus +4 Charisma		VISIBLE:DISPLAY	BONUS:STAT|CHA|4|TYPE=Enhancement	DESC:Enhancement bonus template for animal affinity, etc.
+
+Untyped bonus +4 Strength		VISIBLE:DISPLAY	BONUS:STAT|STR|4				DESC:Untyped bonus template for assimilate, etc.
+Untyped bonus +4 Dexterity		VISIBLE:DISPLAY	BONUS:STAT|DEX|4				DESC:Untyped bonus template for assimilate, etc.
+Untyped bonus +4 Constitution		VISIBLE:DISPLAY	BONUS:STAT|CON|4				DESC:Untyped bonus template for assimilate, etc.
+Untyped bonus +4 Intelligence		VISIBLE:DISPLAY	BONUS:STAT|INT|4				DESC:Untyped bonus template for assimilate, etc.
+Untyped bonus +4 Wisdom			VISIBLE:DISPLAY	BONUS:STAT|WIS|4				DESC:Untyped bonus template for assimilate, etc.
+Untyped bonus +4 Charisma		VISIBLE:DISPLAY	BONUS:STAT|CHA|4				DESC:Untyped bonus template for assimilate, etc.
+
+
+### Templates applied through powers - not yet done
+# Body of Iron
+# Form of Doom
+# Metamorphosis powers?
+# Oak Body
+# Shadow Body
+
+#Psionic			VISIBLE:EXPORT	ABILITY:Special Ability|AUTOMATIC|Psionic	SUBRACE:Psionic	RACESUBTYPE:Psionic
+#** Removed and Replaced with IsPsionic variable, since the template was inappropriately removed.  Use tags below instead.
+#** DEFINE:IsPsionic|0	BONUS:VAR|IsPsionic|1	ABILITY:Special Ability|AUTOMATIC|Psionic

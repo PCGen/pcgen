@@ -1,0 +1,80 @@
+# CVS $Revision: $ $Author: $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+# Original Entry by: Douglas Limmer
+# Original Entry Date: 2015-06-11
+
+###Block: Archetype initiating
+
+# Class Name	Type			Visible	FACT
+CLASS:Pathwalker	TYPE:Initiator	VISIBLE:NO	FACT:SpellType|Initiator
+# Class Name	Spell Stat		Memorize		Caster level
+CLASS:Pathwalker	SPELLSTAT:OTHER	MEMORIZE:YES	BONUS:CASTERLEVEL|Pathwalker|PathwalkerInitiatorLVL
+
+1																																	KNOWN:0,PathwalkerManeuversKnownOne,PathwalkerManeuversKnownTwo,PathwalkerManeuversKnownThree,PathwalkerManeuversKnownFour,PathwalkerManeuversKnownFive,PathwalkerManeuversKnownSix
+1	CAST:0,PathwalkerManeuversReadiedOne,PathwalkerManeuversReadiedTwo,PathwalkerManeuversReadiedThree,PathwalkerManeuversReadiedFour,PathwalkerManeuversReadiedFive,PathwalkerManeuversReadiedSix
+
+# Class Name			Type				Visible	FACT
+CLASS:Pathwalker Stances	TYPE:InitiatorStances	VISIBLE:NO	FACT:SpellType|Initiator
+# Class Name			Spell Stat		Memorize		Caster level
+CLASS:Pathwalker Stances	SPELLSTAT:OTHER	MEMORIZE:YES	BONUS:CASTERLEVEL|Pathwalker Stances|PathwalkerInitiatorLVL
+1																															KNOWN:0,PathwalkerStancesKnownOne,PathwalkerStancesKnownTwo,PathwalkerStancesKnownThree,PathwalkerStancesKnownFour,PathwalkerStancesKnownFive,PathwalkerStancesKnownSix
+1	CAST:0,PathwalkerStancesReadiedOne,PathwalkerStancesReadiedTwo,PathwalkerStancesReadiedThree,PathwalkerStancesReadiedFour,PathwalkerStancesReadiedFive,PathwalkerStancesReadiedSix
+
+
+# Class Name	Type			Visible	FACT
+CLASS:War Soul	TYPE:Initiator	VISIBLE:NO	FACT:SpellType|Initiator
+# Class Name	Spell Stat		Memorize		Caster level
+CLASS:War Soul	SPELLSTAT:OTHER	MEMORIZE:YES	BONUS:CASTERLEVEL|War Soul|WarSoulInitiatorLVL
+
+1																														KNOWN:0,WarSoulManeuversKnownOne,WarSoulManeuversKnownTwo,WarSoulManeuversKnownThree,WarSoulManeuversKnownFour,WarSoulManeuversKnownFive,WarSoulManeuversKnownSix
+1	CAST:0,WarSoulManeuversReadiedOne,WarSoulManeuversReadiedTwo,WarSoulManeuversReadiedThree,WarSoulManeuversReadiedFour,WarSoulManeuversReadiedFive,WarSoulManeuversReadiedSix
+
+# Class Name		Type				Visible	FACT
+CLASS:War Soul Stances	TYPE:InitiatorStances	VISIBLE:NO	FACT:SpellType|Initiator
+# Class Name		Spell Stat		Memorize		Caster level
+CLASS:War Soul Stances	SPELLSTAT:OTHER	MEMORIZE:YES	BONUS:CASTERLEVEL|War Soul Stances|WarSoulInitiatorLVL
+1																												KNOWN:0,WarSoulStancesKnownOne,WarSoulStancesKnownTwo,WarSoulStancesKnownThree,WarSoulStancesKnownFour,WarSoulStancesKnownFive,WarSoulStancesKnownSix
+1	CAST:0,WarSoulStancesReadiedOne,WarSoulStancesReadiedTwo,WarSoulStancesReadiedThree,WarSoulStancesReadiedFour,WarSoulStancesReadiedFive,WarSoulStancesReadiedSix
+
+
+###Awakened Blade prestige class
+
+# Class Name		Hit Dice	Type			Max Level	Source Page		Ability																			Define				Combat bonus																Save bonus																																									Modify VAR																																																																	Monster Role	FACT
+CLASS:Awakened Blade	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.137	ABILITY:Internal|AUTOMATIC|Awakened Blade ~ Class Skills	ABILITY:Internal|AUTOMATIC|Awakened Blade ~ Class Variables	DEFINE:AwakenedBladeLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")+1/2|PREVAREQ:UseAlternateSaveProgression,0|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")+1/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|AwakenedBladeLVL|CL	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	ROLE:Combat		FACT:ClassType|PC	FACT:Abb|AwB
+# Class Name		Required Ability								Required Skill												Req. Known Spell									Required Sub-school		Req. Spell Type
+CLASS:Awakened Blade	PREABILITY:2,CATEGORY=FEAT,Psionic Body,Psionic Meditation	PRESKILL:3,Acrobatics=5,Autohypnosis=4,Knowledge (Martial)=3,Knowledge (Psionics)=3	PRESPELL:2,Precognition (Defensive),Precognition (Offensive)	PRESPELLSCHOOLSUB:1,Stance=1	PRESPELLTYPE:1,Initiator=2
+# Class Name		Skill Pts/Lvl
+CLASS:Awakened Blade	STARTSKILLPTS:4
+
+###Block:Proficiencies
+1	ABILITY:Awakened Blade Class Feature|AUTOMATIC|Awakened Blade ~ Weapon and Armor Proficiency
+
+###Block: Level Progression
+1	ABILITY:Awakened Blade Class Feature|AUTOMATIC|Awakened Blade ~ Situational Awareness|PREVARGTEQ:AwakenedBladeLVL,1
+1	ABILITY:Internal|AUTOMATIC|Awakened Blade ~ Deep Focus|PREVARGTEQ:AwakenedBladeLVL,1
+1	ABILITY:Awakened Blade Class Feature|AUTOMATIC|Awakened Blade ~ Path of the Warrior|PREVARGTEQ:AwakenedBladeLVL,1
+2	ABILITY:Awakened Blade Class Feature|AUTOMATIC|Awakened Blade ~ Stance of the Inner Eye|PREVARGTEQ:AwakenedBladeLVL,2
+4	ABILITY:Internal|AUTOMATIC|Awakened Blade ~ Bonus Feat|PREVARGTEQ:AwakenedBladeLVL,4
+5	ABILITY:Awakened Blade Class Feature|AUTOMATIC|Awakened Blade ~ Precognitive Defenses|PREVARGTEQ:AwakenedBladeLVL,5
+6	ABILITY:Awakened Blade Class Feature|AUTOMATIC|Awakened Blade ~ Hypercognitive Focus|PREVARGTEQ:AwakenedBladeLVL,6
+7	ABILITY:Awakened Blade Class Feature|AUTOMATIC|Awakened Blade ~ Clairsentient Counter|PREVARGTEQ:AwakenedBladeLVL,7
+10	ABILITY:Awakened Blade Class Feature|AUTOMATIC|Awakened Blade ~ Pretercognitive Mind|PREVARGTEQ:AwakenedBladeLVL,10
+
+###Block: Awakened Blade enhance psionic ability
+1	BONUS:ABILITYPOOL|Awakened Blade Enhancement Choice|1																						DEFINE:AwakenedBladeEnhancementCount|0
+1										BONUS:VAR|AwakenedBladeEnhancementCount|1|PRECLASS:1,Soulknife=1|PREABILITY:1,CATEGORY=Special Ability,Awakened Blade ~ MB
+2										BONUS:VAR|AwakenedBladeEnhancementCount|1
+3										BONUS:VAR|AwakenedBladeEnhancementCount|1
+4										BONUS:VAR|AwakenedBladeEnhancementCount|1
+5										BONUS:VAR|AwakenedBladeEnhancementCount|1
+6										BONUS:VAR|AwakenedBladeEnhancementCount|1|PRECLASS:1,Soulknife=1|PREABILITY:1,CATEGORY=Special Ability,Awakened Blade ~ MB
+7										BONUS:VAR|AwakenedBladeEnhancementCount|1
+8										BONUS:VAR|AwakenedBladeEnhancementCount|1
+9										BONUS:VAR|AwakenedBladeEnhancementCount|1
+10										BONUS:VAR|AwakenedBladeEnhancementCount|1
+
+###Block: Manifesting
+1	ABILITY:Internal|AUTOMATIC|Awakened Blade ~ Initiating|PREVARGTEQ:AwakenedBladeLVL,1
+
+#
+# End
+#

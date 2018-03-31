@@ -1,0 +1,7 @@
+# CVS $Revision: $ $Author: $ -- Wed Dec 10 01:48:21 2014 -- reformated by prettylst.pl v1.51 (build 25712)
+#SOURCELONG:Blood of Angels	SOURCESHORT:BOA	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2012-04
+
+# Other: variant assimar abilities are not legal for Pathfinder Society;
+
+# Ability Category					Visible
+ABILITYCATEGORY:Aasimar Variant Ability.MOD	VISIBLE:NO

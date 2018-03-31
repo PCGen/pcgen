@@ -1,0 +1,11 @@
+# CVS $Revision: $ $Author: $ -- Sat Jun 13 14:52:16 2015 -- reformated by prettylst.pl v1.51 (build 23662)
+# Original Entry by: Douglas Limmer
+# Original Entry Date: 2015-06-02 or earlier
+
+# Skill Name		Key Stat	Untrained?		Type						Var. Must Be Lower			Source Page		Bonus to skill
+Knowledge (Martial)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Base	PREVARLT:AnimalCompanionSkill,1	SOURCEPAGE:p.19	BONUS:SKILL|Knowledge (Martial)|3|TYPE=ClassSkill|PRECSKILL:1,Knowledge (Martial)|PRESKILL:1,Knowledge (Martial)=1
+Knowledge (Martial).MOD																					BONUS:SKILL|Knowledge (Martial)|3|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Knowledge (Martial))	BONUS:SKILL|Knowledge (Martial)|6|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Knowledge (Martial))|PRESKILL:1,Knowledge (Martial)=10
+
+#
+# End
+#

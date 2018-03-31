@@ -1,0 +1,40 @@
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Psionics Unleashed	SOURCESHORT:PsU	SOURCEWEB:http://dreamscarredpress.com/dragonfly/Store/product/pid=69.html	SOURCEDATE:2010-12
+#Original Entry: Douglas Limmer
+#SRD Original Entry: Arknight
+
+###Block:Psicrystal
+# Class of the Master		Type			Spell Res.	Ability																	Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Move		Combat bonus					Stat bonus		Modify VAR
+FOLLOWER:PsiCrystalLVL=1	TYPE:Psicrystal			ABILITY:Special Ability|AUTOMATIC|Improved Evasion|Self Propulsion|Share Powers|Sighted|Telepathic Link	COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:MASTER/2		USEMASTERSKILL:YES			BONUS:COMBAT|AC|0|TYPE=NaturalArmor.STACK
+FOLLOWER:PsiCrystalLVL=3	TYPE:Psicrystal			ABILITY:Special Ability|AUTOMATIC|Deliver Touch Powers																												BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:STAT|INT|1
+FOLLOWER:PsiCrystalLVL=5	TYPE:Psicrystal			ABILITY:Special Ability|AUTOMATIC|Telepathic Speech																													BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:STAT|INT|1
+FOLLOWER:PsiCrystalLVL=7	TYPE:Psicrystal																																								BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:STAT|INT|1
+FOLLOWER:PsiCrystalLVL=9	TYPE:Psicrystal			ABILITY:Special Ability|AUTOMATIC|Flight ~ Su|Flight Maneuverability																								MOVE:Fly,50	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:STAT|INT|1	BONUS:VAR|Maneuverability|2
+FOLLOWER:PsiCrystalLVL=11	TYPE:Psicrystal	SR:16		ABILITY:Special Ability|AUTOMATIC|Power Resistance																													BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:STAT|INT|1
+FOLLOWER:PsiCrystalLVL=12	TYPE:Psicrystal	SR:17
+FOLLOWER:PsiCrystalLVL=13	TYPE:Psicrystal	SR:18		ABILITY:Special Ability|AUTOMATIC|Sight Link																														BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:STAT|INT|1
+FOLLOWER:PsiCrystalLVL=14	TYPE:Psicrystal	SR:19
+FOLLOWER:PsiCrystalLVL=15	TYPE:Psicrystal	SR:20		ABILITY:Special Ability|AUTOMATIC|Channel Power																														BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:STAT|INT|1
+FOLLOWER:PsiCrystalLVL=16	TYPE:Psicrystal	SR:21
+FOLLOWER:PsiCrystalLVL=17	TYPE:Psicrystal	SR:22																																							BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:STAT|INT|1
+FOLLOWER:PsiCrystalLVL=18	TYPE:Psicrystal	SR:23
+FOLLOWER:PsiCrystalLVL=19	TYPE:Psicrystal	SR:24																																							BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:STAT|INT|1
+FOLLOWER:PsiCrystalLVL=20	TYPE:Psicrystal	SR:25
+
+###Block:Psicrystal Bonuses to Master
+# Race of familiar					Type			Combat bonus			Save bonus			Bonus to skill			Ability
+MASTERBONUSRACE:Psicrystal				TYPE:Psicrystal															ABILITY:FEAT|VIRTUAL|Alertness
+
+MASTERBONUSRACE:Psicrystal (Artiste)		TYPE:Psicrystal										BONUS:SKILL|TYPE.Craft|3	ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Psicrystal (Bully)			TYPE:Psicrystal										BONUS:SKILL|Intimidate|3	ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Psicrystal (Friendly)		TYPE:Psicrystal										BONUS:SKILL|Diplomacy|3		ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Psicrystal (Hero)			TYPE:Psicrystal						BONUS:SAVE|Fortitude|2						ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Psicrystal (Liar)			TYPE:Psicrystal										BONUS:SKILL|Bluff|3		ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Psicrystal (Meticulous)		TYPE:Psicrystal										BONUS:SKILL|Perception|3	ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Psicrystal (Nimble)			TYPE:Psicrystal	BONUS:COMBAT|INITIATIVE|2										ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Psicrystal (Poised)			TYPE:Psicrystal										BONUS:SKILL|Acrobatics|3	ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Psicrystal (Resolved)		TYPE:Psicrystal						BONUS:SAVE|Will|2							ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Psicrystal (Sage)			TYPE:Psicrystal										BONUS:SKILL|TYPE.Knowledge|3	ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Psicrystal (Single Minded)	TYPE:Psicrystal										BONUS:SKILL|Autohypnosis|3	ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Psicrystal (Sneaky)			TYPE:Psicrystal										BONUS:SKILL|Stealth|3		ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Psicrystal (Sympathetic)		TYPE:Psicrystal										BONUS:SKILL|Sense Motive|3	ABILITY:FEAT|VIRTUAL|Alertness

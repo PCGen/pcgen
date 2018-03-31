@@ -1,0 +1,49 @@
+# CVS $Revision: 17892 $ $Author: amaitland $ -- Mon Nov 24 13:31:57 2014 -- reformated by prettylst.pl v1.51 (build 25135)
+SOURCELONG:Shattered Star, Part 1 - Shards of Sin	SOURCESHORT:AP61	SOURCEWEB:http://paizo.com/products/btpy8rcj?Pathfinder-Adventure-Path-61-Shards-of-Sin	SOURCEDATE:2013-02
+# ORIGINAL ENTRY: Stefan Radermacher
+# ORIGINAL ENTRY DATE: 24 November 2014
+
+####Block: Melee Weapons
+# Equipment Name	Required Weapon Proficiency		Type												Cost		Weight	Crit Mult	Crit Range	Damage	Modifier		Wield Category	Size		Source Page		Special Property
+Injection Spear	PROFICIENCY:WEAPON|Injection Spear	TYPE:Weapon.Resizable.Melee.TwoHanded.Exotic.Standard.Piercing.Spear	COST:60	WT:8		CRITMULT:x3	CRITRANGE:1	DAMAGE:1d8	EQMOD:Material ~ Steel.Material ~ Wood	WIELD:TwoHanded	SIZE:M	SOURCEPAGE:p.148	SPROP:Can be used to inject target with liquid on a hit; hods up to 5 doses
+
+###Block: Tools
+# Equipment Name		Type			Cost		Weight	Source Page
+Second-Story Harness	TYPE:Goods.Tools	COST:55	WT:3		SOURCEPAGE:p.65
+
+###Block: Wondrous Items
+# Equipment Name		Type					Cost		Weight	Source Page		Innate Spells								Bonus to skill								Special Property
+Cat Burglar's Boots	TYPE:Magic.Wondrous.Boot	COST:2000	WT:1		SOURCEPAGE:p.64											BONUS:SKILL|Acrobatics,Climb,Stealth|2|TYPE=Competence	SPROP:1/day, as an immediate action, reroll any one failed Acrobatics, Climb, or Stealth check. Can hold a set of masterwork thieves' tools in secret pocket.
+Extraction Scarificator	TYPE:Magic.Wondrous		COST:2500	WT:1		SOURCEPAGE:p.64
+Paradox Box			TYPE:Magic.Wondrous		COST:5000	WT:30		SOURCEPAGE:p.64
+Pendant of the Souk	TYPE:Magic.Wondrous.Amulet	COST:4000			SOURCEPAGE:p.65	SPELLS:Pendant of the Souk|TIMES=1|CASTERLEVEL=3|Identify	BONUS:SKILL|Appraise|5|TYPE=Competence				SPROP:+2 on saving throws to disbelieve illusion effects
+
+###Block: Artifacts
+# Equipment Name	Type					Contains				Cost		Weight	Source Page		Ability									Innate Spells									Combat bonus												Bonus to HP			Bonus to skill															Special Property
+Shard of Envy	TYPE:Artifact.Major.Container	CONTAINS:1|IounEnvy=1		COST:0	WT:1		SOURCEPAGE:p.68	ABILITY:Internal|AUTOMATIC|Shard of Envy Save Bonus		SPELLS:Shard of Envy|TIMES=1|CASTERLEVEL=HD|Dispel Magic		BONUS:COMBAT|AC|1|TYPE=Insight
+Shard of Gluttony	TYPE:Artifact.Major.Container	CONTAINS:1|IounGluttony=1	COST:0	WT:1		SOURCEPAGE:p.68	ABILITY:Internal|AUTOMATIC|Shard of Gluttony Save Bonus	SPELLS:Shard of Gluttony|TIMES=1|CASTERLEVEL=HD|Vampiric Touch															BONUS:HP|CURRENTMAX|TL
+Shard of Greed	TYPE:Artifact.Major.Container	CONTAINS:1|IounGreed=1		COST:0	WT:1		SOURCEPAGE:p.69	ABILITY:Internal|AUTOMATIC|Shard of Greed Save Bonus		SPELLS:Shard of Greed|TIMES=1|CASTERLEVEL=HD|Haste			BONUS:COMBAT|TOHIT|1|TYPE=Insight
+Shard of Lust	TYPE:Artifact.Major.Container	CONTAINS:1|IounLust=1		COST:0	WT:1		SOURCEPAGE:p.69	ABILITY:Internal|AUTOMATIC|Shard of Lust Save Bonus		SPELLS:Shard of Lust|TIMES=1|CASTERLEVEL=HD|Suggestion,13+CHA	BONUS:COMBAT|INITIATIVE|4|TYPE=Insight
+Shard of Pride	TYPE:Artifact.Major.Container	CONTAINS:1|IounPride=1		COST:0	WT:1		SOURCEPAGE:p.69	ABILITY:Internal|AUTOMATIC|Shard of Pride Save Bonus		SPELLS:Shard of Pride|TIMES=1|CASTERLEVEL=TL|Major Image,13+CHA																			BONUS:SKILL|TYPE.Strength,TYPE.Dexterity,TYPE.Intelligence,TYPE.Wisdom,TYPE.Charisma|2|TYPE=Insight
+Shard of Sloth	TYPE:Artifact.Major.Container	CONTAINS:1|IounSloth=1		COST:0	WT:1		SOURCEPAGE:p.69	ABILITY:Internal|AUTOMATIC|Shard of Sloth Save Bonus		SPELLS:Shard of Sloth|TIMES=1|CASTERLEVEL=HD|Summon Monster III																																				SPROP:Gain +4 insight bonus to concentration and caster level checks
+Shard of Wrath	TYPE:Artifact.Major.Container	CONTAINS:1|IounWrath=1		COST:0	WT:1		SOURCEPAGE:p.69	ABILITY:Internal|AUTOMATIC|Shard of Wrath Save Bonus		SPELLS:Shard of Wrath|TIMES=1|CASTERLEVEL=HD|Fireball,13+CHA	BONUS:COMBAT|DAMAGE.Bludgeoning,DAMAGE.Piercing,DAMAGE.Slashing|2|TYPE=Insight
+
+###Block: Poisons
+# Equipment Name			Output Name		Type					Cost		Weight	Source Page		Special Property
+Poison (Abysium Powder)		OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:900	WT:0		SOURCEPAGE:p.70	SPROP:Ingested; Fort DC 18; Onset 10 minutes; Freq 1 minute (6); Effect 1d4 Con dmp plus nausea; Cure 2 saves
+Poison (Cytillesh Extract)	OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:800	WT:0		SOURCEPAGE:p.64	SPROP:Ingested; Fort DC 18; Freq 1 hour (8); Effect lose all memory of previous hour, cannot form new memories while poisoned; Cure 2 saves
+Poison (Frostspore)		OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:100	WT:0		SOURCEPAGE:p.64	SPROP:Ingested or injury; Fort DC 13; Freq 1 round (6); Effect d6 cold dmg plus staggered for 1 round; Cure 2 saves
+
+###Block: Item MODs
+# Equipment Name					Type
+Ioun Stone (Dusty rose Prism).MOD		TYPE:IounEnvy
+Ioun Stone (Deep red Sphere).MOD		TYPE:IounWrath
+Ioun Stone (Incandescent blue Sphere).MOD	TYPE:IounSloth
+Ioun Stone (Pale blue Rhomboid).MOD		TYPE:IounGreed
+Ioun Stone (Pink Rhomboid).MOD		TYPE:IounGluttony
+Ioun Stone (Pink and green Sphere).MOD	TYPE:IounLust
+Ioun Stone (Scarlet and blue Sphere).MOD	TYPE:IounPride
+
+#
+# End
+#

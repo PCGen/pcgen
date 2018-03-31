@@ -1,0 +1,85 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8ief	SOURCEDATE:2011-03
+# Original Entry by: Paul Shipley & Stefan Radermacher
+
+# Ability Name			Bonus Ability Pool
+CATEGORY=Internal|Default.MOD	BONUS:ABILITYPOOL|Region of Origin|1|TYPE=Background
+
+###Block: Human Ethnicities
+# Ability Name	Product Identity?	Category of Ability	Type				Visible		Template						Bonus Ability Pool			Stat bonus						Source Page
+Azlanti		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Azlanti)															SOURCEPAGE:p.12
+Azlanti Pureblood	NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Azlanti)		BONUS:ABILITYPOOL|Ability Bonus|-1	BONUS:STAT|STR,DEX,CON,INT,WIS,CHA|2	SOURCEPAGE:p.12
+Chelaxian		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Chelaxian)														SOURCEPAGE:p.13
+Garundi		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Garundi)															SOURCEPAGE:p.14
+Keleshite		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Keleshite)														SOURCEPAGE:p.15
+Kellid		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Kellid)															SOURCEPAGE:p.16
+Bekyar		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Bekyar)															SOURCEPAGE:p.17
+Bonuwat		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Bonuwat)															SOURCEPAGE:p.17
+Mauxi			NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Mauxi)															SOURCEPAGE:p.17
+Zenj			NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Zenj)															SOURCEPAGE:p.17
+Shoanti		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Shoanti)		BONUS:ABILITYPOOL|Shoanti Clan|1								SOURCEPAGE:p.18
+Taldan		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Taldan)															SOURCEPAGE:p.19
+Tian			NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Tian)															SOURCEPAGE:p.20
+Ulfen			NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Ulfen)															SOURCEPAGE:p.21
+Varisian		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Varisian)															SOURCEPAGE:p.22
+Vudrani		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Vudrani)															SOURCEPAGE:p.23
+
+###Block: Regional Affinities
+# Ability Name		Product Identity?	Category of Ability	Type		Visible		Description						Template								Source Page
+Absalom			NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	DESC:City at the Center of the World	TEMPLATE:Regional Affinity (Absalom)			SOURCEPAGE:p.38
+Andoran			NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	DESC:Birthplace of Freedom			TEMPLATE:Regional Affinity (Andoran)			SOURCEPAGE:p.42
+Belkzen			NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	DESC:Savage Orc Homeland			TEMPLATE:Regional Affinity (Belkzen)			SOURCEPAGE:p.46
+Brevoy			NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	DESC:Stuggle Between Noble Houses		TEMPLATE:Regional Affinity (Brevoy)				SOURCEPAGE:p.50
+Cheliax			NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	DESC:Diabolical Empire in Decline		TEMPLATE:Regional Affinity (Cheliax)			SOURCEPAGE:p.54
+Darklands			NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	DESC:Tripartite Underground World		TEMPLATE:Regional Affinity (Darklands)			SOURCEPAGE:p.58
+Druma				NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	DESC:Merchant's Religious Paradise		TEMPLATE:Regional Affinity (Druma)				SOURCEPAGE:p.62
+Five Kings Mountains	NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	DESC:Fractured Dwarven Nation			TEMPLATE:Regional Affinity (Five Kings Mountains)	SOURCEPAGE:p.66
+Galt				NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	DESC:Eternal Revolution				TEMPLATE:Regional Affinity (Galt)				SOURCEPAGE:p.70
+Geb				NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	DESC:Domain of the Dead				TEMPLATE:Regional Affinity (Geb)				SOURCEPAGE:p.74
+Irrisen			NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	DESC:Land of Eternal Winter			TEMPLATE:Regional Affinity (Irrisen)			SOURCEPAGE:p.78
+Isger				NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	DESC:Thrall of Cheliax				TEMPLATE:Regional Affinity (Isger)				SOURCEPAGE:p.82
+Jalmeray			NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	DESC:Kingdom of the Impossible		TEMPLATE:Regional Affinity (Jalmeray)			SOURCEPAGE:p.86
+Katapesh			NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	DESC:Bazaar of the Bizarre			TEMPLATE:Regional Affinity (Katapesh)			SOURCEPAGE:p.90
+Kyonin			NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	DESC:Kingdom of the Elves			TEMPLATE:Regional Affinity (Kyonin)				SOURCEPAGE:p.94
+Lastwall			NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	DESC:Watchful Border Kingdom			TEMPLATE:Regional Affinity (Lastwall)			SOURCEPAGE:p.98
+Linnorm Kings		NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	DESC:Frigid Viking Homeland			TEMPLATE:Regional Affinity (Linnorm Kings)		SOURCEPAGE:p.102
+Mammoth Lords		NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	DESC:Lost Land of the Distant North		TEMPLATE:Regional Affinity (Mammoth Lords)		SOURCEPAGE:p.106
+Mana Wastes			NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	DESC:Magic-Dead Wasteland			TEMPLATE:Regional Affinity (Mana Wastes)			SOURCEPAGE:p.110
+Mediogalti Island		NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	DESC:Lair of the Red Mantis			TEMPLATE:Regional Affinity (Mediogalti Island)		SOURCEPAGE:p.114
+Mendev			NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	DESC:Crusader Theocracy				TEMPLATE:Regional Affinity (Mendev)				SOURCEPAGE:p.118
+Molthune			NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	DESC:Territorial Expansionists		TEMPLATE:Regional Affinity (Molthune)			SOURCEPAGE:p.122
+Mwangi Expanse		NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	DESC:Unexplored Jungle Wilderness		TEMPLATE:Regional Affinity (Mwangi Expanse)		SOURCEPAGE:p.126
+Nex				NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	DESC:Monument to a Lost Wizard-King		TEMPLATE:Regional Affinity (Nex)				SOURCEPAGE:p.130
+Nidal				NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	DESC:Shadowy Servitor State			TEMPLATE:Regional Affinity (Nidal)				SOURCEPAGE:p.134
+Nirmathas			NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	DESC:War-Torn Wilderness			TEMPLATE:Regional Affinity (Nirmathas)			SOURCEPAGE:p.138
+Numeria			NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	DESC:Savage Land of Super-Science		TEMPLATE:Regional Affinity (Numeria)			SOURCEPAGE:p.142
+Osirion			NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	DESC:Land of the Pharaohs			TEMPLATE:Regional Affinity (Osirion)			SOURCEPAGE:p.146
+Qadira			NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	DESC:Gateway to the East			TEMPLATE:Regional Affinity (Qadira)				SOURCEPAGE:p.150
+Rahadoum			NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	DESC:The Kingdom of Man				TEMPLATE:Regional Affinity (Rahadoum)			SOURCEPAGE:p.154
+Razmiran			NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	DESC:Theocracy of the Living God		TEMPLATE:Regional Affinity (Razmiran)			SOURCEPAGE:p.158
+River Kingdoms		NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	DESC:Independent Realms of Low Character	TEMPLATE:Regional Affinity (River Kingdoms)		SOURCEPAGE:p.162
+Sargava			NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	DESC:The Lost Colony				TEMPLATE:Regional Affinity (Sargava)			SOURCEPAGE:p.166
+Shackles			NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	DESC:Treacherous Pirate Isles			TEMPLATE:Regional Affinity (Shackles)			SOURCEPAGE:p.170
+Sodden Lands		NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	DESC:Hurricane-Ravaged Wasteland		TEMPLATE:Regional Affinity (Sodden Lands)			SOURCEPAGE:p.174
+Steaming Sea		NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	DESC:Remote Northern Islands			TEMPLATE:Regional Affinity (Steaming Sea)			SOURCEPAGE:p.178
+Taldor			NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	DESC:Decadent Failing Empire			TEMPLATE:Regional Affinity (Taldor)				SOURCEPAGE:p.182
+Thuvia			NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	DESC:Desert Land of Eternal Youth		TEMPLATE:Regional Affinity (Thuvia)				SOURCEPAGE:p.186
+Ustalav			NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	DESC:Fog-Shrouded Land of Gothic Horror	TEMPLATE:Regional Affinity (Ustalav)			SOURCEPAGE:p.190
+Varisia			NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	DESC:Wild Frontier Region			TEMPLATE:Regional Affinity (Varisia)			SOURCEPAGE:p.194
+Worldwound			NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	DESC:Expanding Demonic Invasion		TEMPLATE:Regional Affinity (Worldwound)			SOURCEPAGE:p.198
+
+###Block: Shoanti Clans
+# Ability Name			Unique Key			Product Identity?	Category of Ability	Type			Visible		Description							Source Page
+Lyrune-Quah (Moon Clan)		KEY:Lyrune-Quah		NAMEISPI:YES	CATEGORY:Background	TYPE:ShoantiClan	VISIBLE:DISPLAY	DESC:You are a member of the Shoanti Moon Clan	SOURCEPAGE:p.18
+Shadde-Quah (Axe Clan)		KEY:Shadde-Quah		NAMEISPI:YES	CATEGORY:Background	TYPE:ShoantiClan	VISIBLE:DISPLAY	DESC:You are a member of the Shoanti Axe Clan	SOURCEPAGE:p.18
+Shriikirri-Quah (Hawk Clan)	KEY:Shriikirri-Quah	NAMEISPI:YES	CATEGORY:Background	TYPE:ShoantiClan	VISIBLE:DISPLAY	DESC:You are a member of the Shoanti Hawk Clan	SOURCEPAGE:p.18
+Shundar-Quah (Spire Clan)	KEY:Shundar-Quah		NAMEISPI:YES	CATEGORY:Background	TYPE:ShoantiClan	VISIBLE:DISPLAY	DESC:You are a member of the Shoanti Spire Clan	SOURCEPAGE:p.18
+Sklar-Quah (Sun Clan)		KEY:Sklar-Quah		NAMEISPI:YES	CATEGORY:Background	TYPE:ShoantiClan	VISIBLE:DISPLAY	DESC:You are a member of the Shoanti Sun Clan	SOURCEPAGE:p.18
+Skoan-Quah (Skull Clan)		KEY:Skoan-Quah		NAMEISPI:YES	CATEGORY:Background	TYPE:ShoantiClan	VISIBLE:DISPLAY	DESC:You are a member of the Shoanti Skull Clan	SOURCEPAGE:p.18
+Tamiir-Quah (Wind Clan)		KEY:Tamiir-Quah		NAMEISPI:YES	CATEGORY:Background	TYPE:ShoantiClan	VISIBLE:DISPLAY	DESC:You are a member of the Shoanti Wind Clan	SOURCEPAGE:p.18
+
+###Block: Placeholder objects for no Human Ethnicities or Regional Affinities
+# Ability Name	Category of Ability	Type
+# These are in Core Rules
+#None			CATEGORY:Background	TYPE:HumanEthnicity.Region
+#Unknown		CATEGORY:Background	TYPE:HumanEthnicity.Region

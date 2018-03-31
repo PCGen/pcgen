@@ -1,0 +1,17 @@
+# CVS $Revision: 21418 $ $Author: evilmynex $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+#SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy85k5	SOURCEDATE:2009-09
+
+# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI			Display Location
+ABILITYCATEGORY:Animated Object Ability		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AnimatedObjectAbility	PLURAL:Animated Object Abilities		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Ghost Ability				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GhostAbility			PLURAL:Ghost Abilities				DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Half-Celestial Ability Bonus	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TemplateAbilityBonus	PLURAL:Half-Celestial Ability Bonuses	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Half-Dragon Type			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:HalfDragonType		PLURAL:Half-Dragon Types			DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Half-Fiend Ability Bonus		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TemplateAbilityBonus	PLURAL:Half-Fiend Ability Bonuses		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Lycanthrope Type			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:LycanthropeType		PLURAL:Lycanthrope Types			DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Lycanthrope Kind			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:LycanthropeKind		PLURAL:Lycanthrope Kinds			DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Cloud Giant Oversized Weapon	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OversizedWeapon		PLURAL:Oversized Weapons			DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Giant Spider Type			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:GiantSpiderType		PLURAL:Giant Spider Types			DISPLAYLOCATION:Racial Abilities
+
+#
+# End
+#

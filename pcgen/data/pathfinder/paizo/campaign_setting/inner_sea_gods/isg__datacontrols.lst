@@ -1,0 +1,11 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+
+# Name			Dataformat		Visible	Explanation
+FACTSETDEF:SPELL|Deity	DATAFORMAT:String	VISIBLE:YES	EXPLANATION:Just for Listing deities that are predisposed to certain spells.
+#
+FACTSETDEF:DEITY|Animal	DATAFORMAT:String	VISIBLE:YES	EXPLANATION:The deity's sacred animal(s)
+FACTSETDEF:DEITY|Colors	DATAFORMAT:String	VISIBLE:YES	EXPLANATION:The deity's sacred color(s)
+
+#
+# End
+#

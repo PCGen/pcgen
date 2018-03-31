@@ -1,0 +1,68 @@
+# CVS $Revision: 12254 $ $Author: eddyanthony $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+#SOURCELONG:Inner Sea Magic	SOURCESHORT:ISM	SOURCEWEB:http://paizo.com/products/btpy8mfs?Pathfinder-Campaign-Setting-Inner-Sea-Magic	SOURCEDATE:2011-07
+# Original Entry by:Stefan Radermacher & Paul Shipley (elro the onk)
+
+###Block: Fleshwarped template
+# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI			Display Location
+ABILITYCATEGORY:Fleshwarped Special Ability	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FleshwarpedAbility			PLURAL:Fleshwarped Special Abilities	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Fleshwarped Ability Bonus		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FleshwarpedAbilityBonus		PLURAL:Fleshwarped Ability Bonuses		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Fleshwarped Ability Penalty	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FleshwarpedAbilityPenalty	PLURAL:Fleshwarped Ability Penalties	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Fleshwarped Skill Bonus		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FleshwarpedSkillBonus		PLURAL:Fleshwarped Skill Bonuses		DISPLAYLOCATION:Racial Abilities
+
+###Block: Magic Schools
+# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI		Display Location
+ABILITYCATEGORY:Magic School Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MagicSchool				PLURAL:Magic School Choices		DISPLAYLOCATION:Background
+ABILITYCATEGORY:Skill Specialization		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SkillSpecialization		PLURAL:Skill Specializations		DISPLAYLOCATION:Background
+
+ABILITYCATEGORY:Acadamae Reward			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AcadamaeReward			PLURAL:Acadamae Rewards			DISPLAYLOCATION:Background
+ABILITYCATEGORY:Arcanamirium Reward			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ArcanamiriumReward			PLURAL:Arcanamirium Rewards		DISPLAYLOCATION:Background
+ABILITYCATEGORY:Magaambya Reward			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MagaambyaReward			PLURAL:Magaambya Rewards		DISPLAYLOCATION:Background
+ABILITYCATEGORY:Kintargo Opera House Reward	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:KintargoOperaHouseReward		PLURAL:Kintargo Opera House Rewards	DISPLAYLOCATION:Background
+ABILITYCATEGORY:Oenopion Fleshforges Reward	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OenopionFleshforgesReward	PLURAL:Oenopion Fleshforges Rewards	DISPLAYLOCATION:Background
+ABILITYCATEGORY:Poisioners Guild Reward		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:PoisionersGuildReward		PLURAL:Poisioners Guild Rewards	DISPLAYLOCATION:Background
+ABILITYCATEGORY:White Grotto Reward			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WhiteGrottoReward			PLURAL:White Grotto Rewards		DISPLAYLOCATION:Background
+ABILITYCATEGORY:Monastery Reward			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MonasteryReward			PLURAL:Monastery Rewards		DISPLAYLOCATION:Background
+ABILITYCATEGORY:Citadel Enferac Reward		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:CitadelEnferacReward		PLURAL:Citadel Enferac Rewards	DISPLAYLOCATION:Background
+ABILITYCATEGORY:The Harrowed Society Reward	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TheHarrowedSocietyReward		PLURAL:The Harrowed Society Rewards	DISPLAYLOCATION:Background
+ABILITYCATEGORY:Crimson Citadel Reward		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:CrimsonCitadelReward		PLURAL:Crimson Citadel Rewards	DISPLAYLOCATION:Background
+
+ABILITYCATEGORY:Eclectic Training Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GuildEclecticTraining		PLURAL:Eclectic Training Choices	DISPLAYLOCATION:Background
+ABILITYCATEGORY:Senior Guild Member Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GuildSeniorMember			PLURAL:Senior Guild Member Choices	DISPLAYLOCATION:Background
+ABILITYCATEGORY:Esoteric Training Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GuildEsotericTraining		PLURAL:Esoteric Training Choices	DISPLAYLOCATION:Background
+ABILITYCATEGORY:Fleshforge Enhancement		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FleshforgeAbilityBonus		PLURAL:Fleshforge Enhancements	DISPLAYLOCATION:Background
+ABILITYCATEGORY:Fleshforge Penalty			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FleshforgeAbilityPenalty		PLURAL:Fleshforge Penalties		DISPLAYLOCATION:Background
+ABILITYCATEGORY:Harrowed Trumps			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HarrowedTrump			PLURAL:Harrowed Trumps			DISPLAYLOCATION:Background
+
+###Block: Oracle Revelations
+# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object						Plural description for UI			Display Location
+ABILITYCATEGORY:Spellscar Mystery Revelation	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SpellscarRevelation.GeneralRevelation	PLURAL:Spellscar Mystery Revelations	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Outer Rifts Mystery Revelation	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OuterRiftsRevelation.GeneralRevelation	PLURAL:Outer Rifts Mystery Revelations	DISPLAYLOCATION:Class Features
+
+###Block: Archetype Support
+# Ability Category							Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI					Display Location
+ABILITYCATEGORY:Chelish Diva Famous Region			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DivaFamous				PLURAL:Chelish Diva Famous Regions				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Hidden Priest Arcane Magic Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HiddenPriestArcaneMagic		PLURAL:Hidden Priest Arcane Magic Choices			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Mendevian Priest Teamwork Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Teamwork.MendevianPriest		PLURAL:Mendevian Priest Teamwork Feats			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Spire Defender Exotic Weapon Proficiency	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SpireDefenderExotic		PLURAL:Spire Defender Exotic Weapon Proficiencies	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Tattooed Sorcerer Varisian Tattoo Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TattooedSorcererVarisianTattoo	PLURAL:Tattooed Sorcerer Varisian Tattoo Choices	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Tempest Druid Domain Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TempestDruidDomain			PLURAL:Tempest Druid Domain Choices				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Varisian Pilgrim Domain Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:VarisianPilgrimDomain		PLURAL:Varisian Pilgrim Domain Choices			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Blessing of the Harrow Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:BlessingOfTheHarrow		PLURAL:Blessing of the Harrow Choices			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Winter Witch Patron					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WinterWitchPatron			PLURAL:Winter Witch Patrons					DISPLAYLOCATION:Class Features
+
+###Block: Prestige classes
+# Ability Category					Visible		Editable?		Change Pool?	Category of Object		Type of Object			Plural description for UI		Display Location
+ABILITYCATEGORY:Cyphermage Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:CyphermageClassFeatures	PLURAL:Cyphermage Class Features	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Cypherlord				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Cypherlord			PLURAL:Cypherlords			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Cypher Lore				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:CypherLore			PLURAL:Cypher Lore			DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Divine Scion Class Feature	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:DivineScionClassFeatures	PLURAL:Divine Scion Class Features	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Opposition Alignment		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:OppositionAlign		PLURAL:Opposition Alignments		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Domain Specialization		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:DomainSpecialization	PLURAL:Domain Specializations		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:True Scion				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:TrueScion			PLURAL:True Scion				DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Black Blooded Dual Cursed Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DualBlackBloodedCurse											DISPLAYLOCATION:Class Features
+
+#
+# End
+#

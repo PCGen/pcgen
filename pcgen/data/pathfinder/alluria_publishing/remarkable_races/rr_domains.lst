@@ -1,0 +1,7 @@
+# CVS $Revision: $ $Author: $ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+SOURCELONG:Remarkable Races: Compendium of Unusual PC Races, Pathway to Adventure Edition	SOURCESHORT:RR	SOURCEWEB:http://www.alluriapublishing.net/compendium-p.htm	SOURCEDATE:2009-01
+# Original Entry by Andrew Maitland
+
+
+# Domain Name	Special ABility														Source Page		Description																List of Domain Spells by Level
+Preservation	SAB:The will of the gods allows you to shake off any effect that would alter your mind or form.	SOURCEPAGE:p.29	DESC:The will of the gods allows you to shake off any effect that would alter your mind or form.	SPELLLEVEL:DOMAIN|Preservation=1|Endure Elements|Preservation=2|Restoration (Lesser)|Preservation=3|Dispel Magic|Preservation=4|Restoration|Preservation=5|Break Enchantment|Preservation=6|Heal|Preservation=7|Restoration (Greater)|Preservation=8|Antimagic Field|Preservation=9|True Resurrection

@@ -1,0 +1,8 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+
+
+# Ability Name									Type			!PRECHARACTERTYPE
+CATEGORY=Special Ability|Order of the Beast.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Archetype|Antipaladin Archetype ~ Rough Rampager.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Archetype|Antipaladin Archetype ~ Seal-Breaker.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Archetype|Gunslinger Archetype ~ Siege Gunner.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC

@@ -1,0 +1,10 @@
+# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+#
+#SOURCELONG:Andoran, Spirit of Liberty	SOURCESHORT:ASoL	SOURCEWEB:http://paizo.com/products/btpy8qif?Pathfinder-Companion-Andoran-Spirit-of-Liberty	SOURCEDATE:2009-11
+# Original Entry by: J. Hunter Johnson
+
+# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI				Display Location
+ABILITYCATEGORY:Golden Eagle Epaulets Skill Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EpauletsSkill	PLURAL:Golden Eagle Epaulets Skill Choices	DISPLAYLOCATION:Misc
+#
+#END
+#

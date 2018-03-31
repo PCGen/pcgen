@@ -1,0 +1,61 @@
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+CAMPAIGN:Blood of Fiends (PFS)
+KEY:PFS ~ Blood of Fiends
+#GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing PFS.Pathfinder Player Companion
+RANK:3
+STATUS:BETA
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder|Golarion
+PRECAMPAIGN:1,Pathfinder Society Core Assumption
+PRECAMPAIGN:2,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide
+
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://www.paizo.com
+SOURCELONG:Pathfinder Player Companion: Blood of Fiends
+SOURCESHORT:BOF
+SOURCEWEB:http://paizo.com/products/btpy8qzz
+SOURCEDATE:2012-04
+ISOGL:YES
+
+#COVER:@/pathfinder/paizo/player_companion/blood_of_fiends/blood_of_fiends.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy8qzz|Buy this publication from Paizo Publishing!
+DESC:Born of mortal and fiendish blood intertwined, tieflings are tainted individuals thrust into a world that has learned to both fear and despise them. Whether they openly display their freakish ancestry in settlements known for their tiefling populations or hide such shameful attributes through either mundane or magical methods, all tieflings know that they are different. Blood of Fiends presents a player-friendly overview of the tieflings of the Player Companion, as well as new rules and information to help players customize their own fiendish characters.
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc; Authors: Jonathan Tweet,Monte Cook, and Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Player Companion: Blood of Fiends Copyright 2012, Paizo Inc.; Authors: Hal Maclean and Colin McComb.
+COPYRIGHT:The Book of Fiends Copyright 2003, Green Ronin Publishing; Authors: Aaron Loeb, Erik Mona, Chris Pramas, Robert J. Schwalb.
+COPYRIGHT:Demodand from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:PCGen dataset conversion for "Player Companion: Blood of Fiends" Copyright 2012, PCGen Data Team (including, but not limited to Stefan Radermacher)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# Additional Resources
+# Last Updated Friday, January 9, 2015
+#
+# Pathfinder Player Companion: Blood of Fiends
+# To create a tiefling, you must have a Chronicle sheet that opens the race as a legal option at character creation. Tieflings that were created and had least one xp applied before August 14, 2014, remain legal for play.
+# *Note: Tieflings may only be half-human. Other races, including but not limited to dwarf, elf, gnome, halfling, half-orc, tengu, and any other race, are not legal in PFS.
+# Bloodlines: daemon bloodline is not legal for Pathfinder Society;
+# Feats: all feats on pages 24-25 are legal;
+# Heritages: all heritages, and associated traits, on pages 18-23 are legal;
+# Magic: bard masterpieces are legal;
+# Other: variant tiefling abilities are not legal for Pathfinder Society;
+# oracle curses on page 26 are legal;
+# Inquisitons on pages 26-27 are legal;
+# Subdomains: all subdomains on page 15 are legal;
+# Traits: all traits on pages 30-31 are legal.
+
+# Data files
+
+#
+# End
+#

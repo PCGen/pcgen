@@ -1,0 +1,63 @@
+# CVS $Revision: $ $Author: $ -- Sun Jun 21 20:39:51 2015 -- reformated by PCGen PrettyLST v6.05.01
+
+###Block: Human Ethnicities
+# Template Name			Visible	Source Page		Auto Language		Subrace
+Human Ethnicity (Azlanti)	VISIBLE:NO	SOURCEPAGE:p.12	AUTO:LANG|Azlanti		SUBRACE:Azlanti
+Human Ethnicity (Chelaxian)	VISIBLE:NO	SOURCEPAGE:p.13					SUBRACE:Chelaxian
+Human Ethnicity (Garundi)	VISIBLE:NO	SOURCEPAGE:p.14	AUTO:LANG|Osiriani	SUBRACE:Garundi
+Human Ethnicity (Keleshite)	VISIBLE:NO	SOURCEPAGE:p.15	AUTO:LANG|Kelish		SUBRACE:Keleshite
+Human Ethnicity (Kellid)	VISIBLE:NO	SOURCEPAGE:p.16	AUTO:LANG|Hallit		SUBRACE:Kellid
+Human Ethnicity (Bekyar)	VISIBLE:NO	SOURCEPAGE:p.17	AUTO:LANG|Polyglot	SUBRACE:Bekyar
+Human Ethnicity (Bonuwat)	VISIBLE:NO	SOURCEPAGE:p.17	AUTO:LANG|Polyglot	SUBRACE:Bonuwat
+Human Ethnicity (Mauxi)		VISIBLE:NO	SOURCEPAGE:p.17	AUTO:LANG|Polyglot	SUBRACE:Mauxi
+Human Ethnicity (Zenj)		VISIBLE:NO	SOURCEPAGE:p.17	AUTO:LANG|Polyglot	SUBRACE:Zenj
+Human Ethnicity (Shoanti)	VISIBLE:NO	SOURCEPAGE:p.18	AUTO:LANG|Shoanti		SUBRACE:Shoanti
+Human Ethnicity (Taldan)	VISIBLE:NO	SOURCEPAGE:p.19					SUBRACE:Taldan
+Human Ethnicity (Tian)		VISIBLE:NO	SOURCEPAGE:p.20	AUTO:LANG|Tien		SUBRACE:Tian
+Human Ethnicity (Ulfen)		VISIBLE:NO	SOURCEPAGE:p.21	AUTO:LANG|Skald		SUBRACE:Ulfen
+Human Ethnicity (Varisian)	VISIBLE:NO	SOURCEPAGE:p.22	AUTO:LANG|Varisian	SUBRACE:Varisian
+Human Ethnicity (Vudrani)	VISIBLE:NO	SOURCEPAGE:p.23	AUTO:LANG|Vudrani		SUBRACE:Vudrani
+
+###Block: Regional Affinities
+# Template Name					Visible	Source Page		Bonus Languages					Region
+Regional Affinity (Absalom)			VISIBLE:NO	SOURCEPAGE:p.38	LANGBONUS:Kelish,Osiriani			REGION:Absalom
+Regional Affinity (Andoran)			VISIBLE:NO	SOURCEPAGE:p.42								REGION:Andoran
+Regional Affinity (Belkzen)			VISIBLE:NO	SOURCEPAGE:p.46	LANGBONUS:Orc					REGION:Hold of Belkzen
+Regional Affinity (Brevoy)			VISIBLE:NO	SOURCEPAGE:p.50	LANGBONUS:Draconic,Hallit,Skald,Varisian	REGION:Brevoy
+Regional Affinity (Cheliax)			VISIBLE:NO	SOURCEPAGE:p.54	LANGBONUS:Infernal				REGION:Cheliax
+Regional Affinity (Darklands)			VISIBLE:NO	SOURCEPAGE:p.58	LANGBONUS:Aklo,Undercommon			REGION:The Darklands
+Regional Affinity (Druma)			VISIBLE:NO	SOURCEPAGE:p.62	LANGBONUS:Dwarven					REGION:Druma
+Regional Affinity (Five Kings Mountains)	VISIBLE:NO	SOURCEPAGE:p.66	LANGBONUS:Dwarven					REGION:Five Kings Mountains
+Regional Affinity (Galt)			VISIBLE:NO	SOURCEPAGE:p.70	LANGBONUS:Hallit					REGION:Galt
+Regional Affinity (Geb)				VISIBLE:NO	SOURCEPAGE:p.74	LANGBONUS:Kelish,Osiriani			REGION:Geb
+Regional Affinity (Irrisen)			VISIBLE:NO	SOURCEPAGE:p.78	LANGBONUS:Hallit,Skald				REGION:Irrisen
+Regional Affinity (Isger)			VISIBLE:NO	SOURCEPAGE:p.82								REGION:Isger
+Regional Affinity (Jalmeray)			VISIBLE:NO	SOURCEPAGE:p.86	LANGBONUS:Vudrani					REGION:Jalmeray
+Regional Affinity (Katapesh)			VISIBLE:NO	SOURCEPAGE:p.90	LANGBONUS:Kelish,Osiriani,Tien,Vudrani	REGION:Katapesh
+Regional Affinity (Kyonin)			VISIBLE:NO	SOURCEPAGE:p.94	LANGBONUS:Elven					REGION:Kyonin
+Regional Affinity (Lastwall)			VISIBLE:NO	SOURCEPAGE:p.98	LANGBONUS:Varisian				REGION:Lastwall
+Regional Affinity (Linnorm Kings)		VISIBLE:NO	SOURCEPAGE:p.102	LANGBONUS:Skald					REGION:Lands of the Linnorm Kings
+Regional Affinity (Mammoth Lords)		VISIBLE:NO	SOURCEPAGE:p.106	LANGBONUS:Giant,Hallit				REGION:Realm of the Mammoth Lords
+Regional Affinity (Mana Wastes)		VISIBLE:NO	SOURCEPAGE:p.110	LANGBONUS:Kelish,Osiriani			REGION:Mana Wastes
+Regional Affinity (Mediogalti Island)	VISIBLE:NO	SOURCEPAGE:p.114	LANGBONUS:Infernal				REGION:Medoigalti Island
+Regional Affinity (Mendev)			VISIBLE:NO	SOURCEPAGE:p.118	LANGBONUS:Hallit					REGION:Mendev
+Regional Affinity (Molthune)			VISIBLE:NO	SOURCEPAGE:p.122	LANGBONUS:Varisian				REGION:Molthune
+Regional Affinity (Mwangi Expanse)		VISIBLE:NO	SOURCEPAGE:p.126	LANGBONUS:Polyglot				REGION:Mwangi Expanse
+Regional Affinity (Nex)				VISIBLE:NO	SOURCEPAGE:p.130	LANGBONUS:Kelish,Osiriani,Vudrani		REGION:Nex
+Regional Affinity (Nidal)			VISIBLE:NO	SOURCEPAGE:p.134	LANGBONUS:Shadowtongue,Varisian		REGION:Nidal
+Regional Affinity (Nirmathas)			VISIBLE:NO	SOURCEPAGE:p.138	LANGBONUS:Varisian				REGION:Nirmathas
+Regional Affinity (Numeria)			VISIBLE:NO	SOURCEPAGE:p.142	LANGBONUS:Hallit					REGION:Numeria
+Regional Affinity (Osirion)			VISIBLE:NO	SOURCEPAGE:p.146	LANGBONUS:Osiriani				REGION:Osirion
+Regional Affinity (Qadira)			VISIBLE:NO	SOURCEPAGE:p.150	LANGBONUS:Kelish					REGION:Qadira
+Regional Affinity (Rahadoum)			VISIBLE:NO	SOURCEPAGE:p.154	LANGBONUS:Osiriani				REGION:Rahadoum
+Regional Affinity (Razmiran)			VISIBLE:NO	SOURCEPAGE:p.158	LANGBONUS:Hallit					REGION:Razmiran
+Regional Affinity (River Kingdoms)		VISIBLE:NO	SOURCEPAGE:p.162	LANGBONUS:Hallit					REGION:The River Kingdoms
+Regional Affinity (Sargava)			VISIBLE:NO	SOURCEPAGE:p.166	LANGBONUS:Polyglot				REGION:Sargava
+Regional Affinity (Shackles)			VISIBLE:NO	SOURCEPAGE:p.170	LANGBONUS:Polyglot				REGION:The Shackles
+Regional Affinity (Sodden Lands)		VISIBLE:NO	SOURCEPAGE:p.174	LANGBONUS:Polyglot				REGION:The Sodden Lands
+Regional Affinity (Steaming Sea)		VISIBLE:NO	SOURCEPAGE:p.178	LANGBONUS:Azlanti,Elven,Hallit,Skald	REGION:Steaming Sea
+Regional Affinity (Taldor)			VISIBLE:NO	SOURCEPAGE:p.182	LANGBONUS:Azlanti,Elven,Hallit,Skald	REGION:Taldor
+Regional Affinity (Thuvia)			VISIBLE:NO	SOURCEPAGE:p.186	LANGBONUS:Kelish					REGION:Thuvia
+Regional Affinity (Ustalav)			VISIBLE:NO	SOURCEPAGE:p.190	LANGBONUS:Skald,Varisian			REGION:Ustalav
+Regional Affinity (Varisia)			VISIBLE:NO	SOURCEPAGE:p.194	LANGBONUS:Shoanti,Varisian			REGION:Varisia
+Regional Affinity (Worldwound)		VISIBLE:NO	SOURCEPAGE:p.198	LANGBONUS:Abyssal,Hallit			REGION:The Worldwound

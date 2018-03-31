@@ -1,0 +1,22 @@
+# CVS $Revision: 17892 $ $Author: amaitland $ -- Mon Nov 24 14:20:48 2014 -- reformated by prettylst.pl v1.51 (build 25135)
+SOURCELONG:Shattered Star, Part 1 - Shards of Sin	SOURCESHORT:AP61	SOURCEWEB:http://paizo.com/products/btpy8rcj?Pathfinder-Adventure-Path-61-Shards-of-Sin	SOURCEDATE:2013-02
+# ORIGINAL ENTRY: Stefan Radermacher
+# ORIGINAL ENTRY DATE: 24 November 2014
+
+###Block: Sihedron Shards save bonus abilites
+# Ability Name			Category of Ability	Type			Aspects
+Shard of Envy Save Bonus	CATEGORY:Internal		TYPE:SaveBonus	ASPECT:SaveBonus|+2 insight bonus vs. abjuration spells and spell-like abilities
+Shard of Gluttony Save Bonus	CATEGORY:Internal		TYPE:SaveBonus	ASPECT:SaveBonus|+2 insight bonus vs. necromancy spells and spell-like abilities
+Shard of Greed Save Bonus	CATEGORY:Internal		TYPE:SaveBonus	ASPECT:SaveBonus|+2 insight bonus vs. transmutation spells and spell-like abilities
+Shard of Lust Save Bonus	CATEGORY:Internal		TYPE:SaveBonus	ASPECT:SaveBonus|+2 insight bonus vs. enchantment spells and spell-like abilities
+Shard of Pride Save Bonus	CATEGORY:Internal		TYPE:SaveBonus	ASPECT:SaveBonus|+2 insight bonus vs. illusion spells and spell-like abilities
+Shard of Sloth Save Bonus	CATEGORY:Internal		TYPE:SaveBonus	ASPECT:SaveBonus|+2 insight bonus vs. conjuration spells and spell-like abilities
+Shard of Wrath Save Bonus	CATEGORY:Internal		TYPE:SaveBonus	ASPECT:SaveBonus|+2 insight bonus vs. evocation spells and spell-like abilities
+
+###Block: Skymetal save bonus abilites
+# Ability Name		Category of Ability	Type			Aspects
+Noqual Armor Save Bonus	CATEGORY:Internal		TYPE:SaveBonus	ASPECT:SaveBonus|+2 resistance bonus vs. spells and spell-like abilities
+
+#
+# End
+#

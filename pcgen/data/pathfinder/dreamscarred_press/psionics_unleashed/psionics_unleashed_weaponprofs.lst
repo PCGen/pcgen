@@ -1,0 +1,10 @@
+# CVS $Revision$ $Author$ -- Sun Jun 19 04:35:41 2011 -- reformated by prettylst.pl v1.39 (build )
+SOURCELONG:Psionics Unleashed	SOURCESHORT:PsU	SOURCEWEB:http://dreamscarredpress.com/dragonfly/Store/product/pid=69.html	SOURCEDATE:2010-12
+# Original Entry: Douglas Limmer
+# SRD Original Entry: Unknown
+
+# Weapon Name	Type
+Goblin Weapon	TYPE:Exotic.Melee.Bludgeoning.Club.Goblin
+Maenad Weapon	TYPE:Exotic.Melee.Slashing.MeleeSlashing.Sword.Maenad
+Ophiduan Weapon	TYPE:Exotic.Melee.Piercing.MeleePiercing.Sword.Ophiduan
+Mind Blade		TYPE:MindBlade

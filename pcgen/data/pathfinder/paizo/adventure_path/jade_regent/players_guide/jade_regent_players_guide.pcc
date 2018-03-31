@@ -1,0 +1,35 @@
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+CAMPAIGN:Jade Regent Player's Guide
+GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing.Pathfinder Adventure Path.Jade Regent
+RANK:3
+STATUS:RELEASE
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder|Golarion
+PRECAMPAIGN:2,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Advanced Player's Guide
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Jade Regent Player's Guide
+SOURCESHORT:JRPG
+SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderAdventurePath/jadeRegent/v5748btpy8mh3
+SOURCEDATE:2011-03
+ISOGL:YES
+
+COVER:jade_regent_players_guide.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderAdventurePath/jadeRegent/v5748btpy8mh3|Get this publication from Paizo Publishing!
+DESC:The Jade Regent Player's Guide gives players all the spoiler-free information, inspiration, and new rules they'll need to create characters prepared for the mysteries and exotic wonders of the Jade Regent Adventure Path. Within, players of this campaign will find everything they need to create character backgrounds tied to personalities and events vital to Adventure Path's greatest step into lands unexplored, along with new campaign-specific traits to give bold adventurers the edge they'll need to take on the varied and unpredictable dangers of these new realms. New rules for caravans also give players the opportunity to build their own homes on the road, as well as conscript the companions and resources the'll need for this truly epic journey. Adventurers don't need to start upon their expedition unprepared! Gather your allies and let the Jade Regent Player's Guide set your course into the legendary lands of the Jade Regent.
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Jade Regent Player's Guide Copyright 2011, Paizo Inc.; Authors: James Jacobs and Patrick Renie.
+COPYRIGHT:PCGen dataset conversion for "Adventure Path: Jade Regent Player's Guide" Copyright 2011, PCGen Data Team (including, but not limited to Stefan Radermacher)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+ABILITY:jrpg_abilities.lst

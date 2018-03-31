@@ -1,0 +1,17 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Rise of the Runelords Adventure Path	SOURCESHORT:RotR	SOURCEWEB:http://paizo.com/products/btpy8tc0?Pathfinder-Adventure-Path-Rise-of-the-Runelords-Anniversary-Edition	SOURCEDATE:2012-07
+# Original Entry by: Andrew Maitland
+
+# COMMENT: +4 Dex from Template and +2 Dex to counteract Size Change from Large to Huge.
+# Template Name					Size		Damage Reduction	Source Page		Special ABility																														Combat bonus		Misc bonus		Add to base move			Adjust PC Size		Stat bonus										Modify VAR						Ability															Spell Res.	Subrace		Natural Attacks
+Lamia Harridan							DR:10/magic																																									BONUS:MISC|CR|1						BONUS:SIZEMOD|NUMBER|1	BONUS:STAT|DEX|6	BONUS:STAT|WIS,CHA|2												ABILITY:Special Ability|AUTOMATIC|Pounce|Rake									SR:CR+11
+
+Runeslave																																																		BONUS:MISC|CR|1	BONUS:MOVEADD|TYPE.Walk|20					BONUS:STAT|STR|4	BONUS:STAT|DEX|2	BONUS:STAT|INT,WIS,CHA|-2								ABILITY:Internal|AUTOMATIC|Race Traits ~ Runeslave	ABILITY:FEAT|AUTOMATIC|Diehard|Toughness
+
+
+
+
+#
+# Template Name					Size		Damage Reduction	Source Page		Special ABility																														Combat bonus		Misc bonus		Add to base move			Adjust PC Size		Stat bonus										Modify VAR						Ability															Spell Res.	Subrace		Natural Attacks
+Lamashtu's Gift										SOURCEPAGE:p.52																																																																																								NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*1,1d6
+Waters of Lamashtu (Koruvus's Mutation)	SIZE:M				SOURCEPAGE:p.28	SAB:Breath Weapon (Su) ~ 20ft. line of acid for 2d4 damage (DC % for half) once/1d4 rounds|10+CON	SAB:Immune to acid, mind-affecting effects, paralysis, poison	SAB:Fast Healing 1	BONUS:COMBAT|TOHIT|-4													BONUS:STAT|STR|4									BONUS:VAR|AC_Natural_Armor|4|TYPE=Base																			SUBRACE:Mutated

@@ -1,0 +1,61 @@
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+CAMPAIGN:Magical Marketplace
+GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing.Pathfinder Player Companion
+RANK:3
+STATUS:BETA
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder Player Companion
+PRECAMPAIGN:4,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+SOURCELONG:Pathfinder Player Companion: Magical Marketplace
+SOURCESHORT:MM
+SOURCEWEB:http://paizo.com/products/btpy92lv
+SOURCEDATE:2013-12
+ISOGL:YES
+
+COVER:magical_marketplace.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy92lv|Buy this publication from Paizo Publishing!
+DESC:Gather your gold and get ready to upgrade your gear with Pathfinder Player Companion: Magical Marketplace! The merchants of Golarion have honed their skills for years, plumbed ancient sites of legend, and made deals with otherworldly forces to dredge up miraculous magic items salable to intrepid adventurers such as yourself. In addition, these practiced merchants each offer a host of unique and useful abilities to teach their favored and frequent customers.
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+
+COPYRIGHT:Open Game License v 1.0a Copyright 2000,Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, and Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Russet Mold from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Vegepygmy from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Pathfinder Player Companion: Magical Marketplace Copyright 2013, Paizo Publishing LLC; Authors: John Ling, Ron Lundeen, Patrick Renie, David Schwartz, and Jerome Virnich
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Magical Marketplace" Copyright 2016, PCGen Data Team (including, but not limited to Gwen T., Paul Grosse, and Andrew Maitland)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# Data files
+
+ABILITY:mm_abilities.lst
+ABILITY:mm_abilities_class.lst
+ABILITY:mm_feats.lst
+CLASS:mm_classes.lst
+EQUIPMENT:mm_equip_arms_armor.lst
+EQUIPMENT:mm_equip_general.lst
+EQUIPMOD:mm_equipmods.lst
+SPELL:mm_spells.lst
+TEMPLATE:mm_templates.lst
+
+# ENTRY DATE: 2016-04-20
+# LST MONKEY: Gwen T. (evilpixie87)
+# LICENSE MONKEY: Paul Grosse
+# RELEASE REVIEW #
+# BETA: Andrew Maitland
+# RELEASE:
+# Built for PCGen Version: 6.06.01
+# Updated to work with version: -
+# MINVER:6.06
+# MINDEVVER:6.06.01
+# COMMENTS:

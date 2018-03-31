@@ -1,0 +1,39 @@
+# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+SOURCELONG:Curse of the Crimson Throne, Chapter 5 - Skeletons of Scarwall	SOURCESHORT:AP11	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy83yw	SOURCEDATE:2008-08
+
+
+STARTPACK:Chained Spirit Default	TYPE:Default Monster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Chained Spirit],[!PRERACE:1,%]	SOURCEPAGE:p.78
+RACE:Chained Spirit	!PRERACE:1,%
+NAME:Chained Spirit
+ALIGN:LE
+STAT:STR=10|DEX=10|CON=10|WIS=10|INT=10|CHA=10
+SKILL:Bluff				RANK:14
+SKILL:Diplomacy			RANK:14
+SKILL:Intimidate			RANK:14
+SKILL:Knowledge (History)	RANK:14
+SKILL:Perception			RANK:14
+SKILL:Sense Motive		RANK:14
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Lightning Reflexes
+
+STARTPACK:Danse Macabre Default	TYPE:Default Monster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Danse Macabre],[!PRERACE:1,%]	SOURCEPAGE:p.80
+RACE:Danse Macabre	!PRERACE:1,%
+NAME:Danse Macabre
+ALIGN:NE
+STAT:STR=10|DEX=10|CON=10|WIS=10|INT=10|CHA=10
+SKILL:Intimidate		RANK:16
+SKILL:Perception		RANK:16
+SKILL:Sense Motive	RANK:16
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Improved Lightning Reflexes

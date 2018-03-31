@@ -1,0 +1,7 @@
+# CVS $Revision: $ $Author: $ -- Wed Sep 18 14:05:56 2013 -- reformated by prettylst.pl v1.50 (build 21406)
+
+
+
+# Skill Name			Key Stat	Untrained?		Type				Source Page		Bonus to skill
+Craft (Siege Engine)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft				BONUS:SKILL|Craft (Siege Engine)|3|TYPE=ClassSkill|PRECSKILL:1,Craft (Siege Engine)|PRESKILL:1,Craft (Siege Engine)=1
+Profession (Siege Engineer)	KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession	SOURCEPAGE:p.103	BONUS:SKILL|Profession (Siege Engineer)|3|TYPE=ClassSkill|PRECSKILL:1,Profession (Siege Engineer)|PRESKILL:1,Profession (Siege Engineer)=1

@@ -1,0 +1,68 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEWEB:http://paizo.com/pathfinder/companion/35E/v5748btpy84en	SOURCEDATE:2008-08
+
+###Block: Combat Traits
+# Ability Name							Source Page
+CATEGORY=Special Ability|Trait ~ Anatomist.MOD		SOURCEPAGE:p.11
+CATEGORY=Special Ability|Trait ~ Armor Expert.MOD	SOURCEPAGE:p.11
+CATEGORY=Special Ability|Trait ~ Bullied.MOD		SOURCEPAGE:p.11
+CATEGORY=Special Ability|Trait ~ Courageous.MOD		SOURCEPAGE:p.11
+CATEGORY=Special Ability|Trait ~ Deft Dodger.MOD	SOURCEPAGE:p.11
+CATEGORY=Special Ability|Trait ~ Dirty Fighter.MOD	SOURCEPAGE:p.11
+CATEGORY=Special Ability|Trait ~ Fencer.MOD		SOURCEPAGE:p.11
+CATEGORY=Special Ability|Trait ~ Killer.MOD		SOURCEPAGE:p.11
+CATEGORY=Special Ability|Trait ~ Reactionary.MOD	SOURCEPAGE:p.11
+CATEGORY=Special Ability|Trait ~ Resilient.MOD		SOURCEPAGE:p.12
+
+###Block: Faith Traits
+# Ability Name									Source Page
+CATEGORY=Special Ability|Trait ~ Birthmark.MOD				SOURCEPAGE:p.12
+CATEGORY=Special Ability|Trait ~ Caretaker.MOD				SOURCEPAGE:p.12
+CATEGORY=Special Ability|Trait ~ Child of the Temple.MOD		SOURCEPAGE:p.12
+CATEGORY=Special Ability|Trait ~ Devotee of the Green.MOD		SOURCEPAGE:p.12
+CATEGORY=Special Ability|Trait ~ Ease of Faith.MOD			SOURCEPAGE:p.12
+CATEGORY=Special Ability|Trait ~ History of Heresy.MOD		SOURCEPAGE:p.12
+CATEGORY=Special Ability|Trait ~ Indomitable Faith.MOD		SOURCEPAGE:p.12
+CATEGORY=Special Ability|Trait ~ Sacred Conduit.MOD			SOURCEPAGE:p.12
+CATEGORY=Special Ability|Trait ~ Sacred Touch.MOD			SOURCEPAGE:p.12
+CATEGORY=Special Ability|Trait ~ Scholar of the Great Beyond.MOD	SOURCEPAGE:p.12
+
+###Block: Magic Traits
+# Ability Name								Source Page
+CATEGORY=Special Ability|Trait ~ Classically Schooled.MOD	SOURCEPAGE:p.12
+CATEGORY=Special Ability|Trait ~ Dangerously Curious.MOD	SOURCEPAGE:p.12
+CATEGORY=Special Ability|Trait ~ Focused Mind.MOD		SOURCEPAGE:p.13
+CATEGORY=Special Ability|Trait ~ Gifted Adept.MOD		SOURCEPAGE:p.13
+CATEGORY=Special Ability|Trait ~ Hedge Magician.MOD		SOURCEPAGE:p.13
+CATEGORY=Special Ability|Trait ~ Magical Knack.MOD		SOURCEPAGE:p.13
+CATEGORY=Special Ability|Trait ~ Magical Lineage.MOD		SOURCEPAGE:p.13
+CATEGORY=Special Ability|Trait ~ Magical Talent.MOD		SOURCEPAGE:p.13
+CATEGORY=Special Ability|Trait ~ Mathematical Prodigy.MOD	SOURCEPAGE:p.13
+CATEGORY=Special Ability|Trait ~ Skeptic.MOD			SOURCEPAGE:p.13
+
+###Block: Social Traits
+# Ability Name								Source Page
+CATEGORY=Special Ability|Trait ~ Adopted.MOD			SOURCEPAGE:p.13
+CATEGORY=Special Ability|Trait ~ Bully.MOD			SOURCEPAGE:p.13
+CATEGORY=Special Ability|Trait ~ Canter.MOD			SOURCEPAGE:p.13
+CATEGORY=Special Ability|Trait ~ Charming.MOD			SOURCEPAGE:p.13
+CATEGORY=Special Ability|Trait ~ Child of the Streets.MOD	SOURCEPAGE:p.13
+CATEGORY=Special Ability|Trait ~ Fast-Talker.MOD		SOURCEPAGE:p.13
+CATEGORY=Special Ability|Trait ~ Natural-Born Leader.MOD	SOURCEPAGE:p.13
+CATEGORY=Special Ability|Trait ~ Poverty-Stricken.MOD		SOURCEPAGE:p.14
+CATEGORY=Special Ability|Trait ~ Rich Parents.MOD		SOURCEPAGE:p.14
+CATEGORY=Special Ability|Trait ~ Suspicious.MOD			SOURCEPAGE:p.14
+
+###Block: Campaign Traits
+# Ability Name		Unique Key					Category of Ability		Type		Description																																																											Stackable?	Multiple?	Choose																		Save bonus				Bonus to skill			Class Skill	Source Page
+Fools for Friends		KEY:Trait ~ Fools for Friends		CATEGORY:Special Ability	TYPE:Trait	DESC:Whenever you take the Aid Another action to help an ally, or whenever an ally aids you in this manner, a successful check grants an additional +1 trait bonus to the check for which aid was being rendered. Additionally, as long as one of your friends is within 30 feet, you gain a +1 trait bonus on all saving throws against charm and compulsion effects.																																				SOURCEPAGE:p.14
+Into Enemy Territory	KEY:Trait ~ Into Enemy Territory	CATEGORY:Special Ability	TYPE:Trait	DESC:Your long life of self-sustenance has toughened you and made you more resistant to hardship, in any event-pick one of the three categories of saving throw. You gain a +1 trait bonus on all saving throws of that type.																								STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|STRING|Fortitude|Reflex|Will											BONUS:SAVE|%LIST|1|TYPE=Trait								SOURCEPAGE:p.15
+Looking for Work		KEY:Trait ~ Looking for Work		CATEGORY:Special Ability	TYPE:Trait	DESC:Pick one of the following skills: Bluff, Craft (any), Diplomacy, Intimidate, Perform (any), Profession (gambler), or Spot. You gain a +1 trait bonus in that skill, and that skill is always considered a class skill for you.																							STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|Bluff|Diplomacy|Intimidate|Perception|Profession (Gambler)|TYPE=Craft|TYPE=Perform						BONUS:SKILL|LIST|1|TYPE=Trait	CSKILL:LIST	SOURCEPAGE:p.15
+Optimistic Gambler	KEY:Trait ~ Optimistic Gambler	CATEGORY:Special Ability	TYPE:Trait	DESC:Effects that grant you morale bonuses persist 1d4 rounds longer than they normally would as a result.																																																																														SOURCEPAGE:p.15
+Researching the Blot	KEY:Trait ~ Researching the Blot	CATEGORY:Special Ability	TYPE:Trait	DESC:You can use Spellcraft to identify magic items in the same way you can use Spellcraft to identify a potion. The DC to identify a magic item is equal to 20 + the item's caster level.																																																																SOURCEPAGE:p.15
+Scouting for Fiends	KEY:Trait ~ Scouting for Fiends	CATEGORY:Special Ability	TYPE:Trait	DESC:Your near-obsessive hatred of all things fiendish grants you a +1 trait bonus on all attack rolls made against foes you know to be evil outsiders.																																																																						SOURCEPAGE:p.15
+
+
+#
+# End
+#

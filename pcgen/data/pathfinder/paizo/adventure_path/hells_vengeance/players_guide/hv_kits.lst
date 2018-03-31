@@ -1,0 +1,9 @@
+# CVS $Revision: $ $Author: $
+SOURCELONG:Hell's Vengeance Player's Guide	SOURCESHORT:HVPG	SOURCEWEB:http://paizo.com/products/btpy9jva?Pathfinder-Adventure-Path-Hells-Vengeance-Players-Guide	SOURCEDATE:2015-09
+# Original Entry by: Klaus Singvogel
+
+# Note: the Chelish Noble Kit should also grant "a single additional nonmagical item worth no more than 200 gp".
+
+STARTPACK:Chelish Noble	TYPE:Character Trait	VISIBLE:NO	EQUIPBUY:0
+GEAR:Outfit (Noble's)
+GEAR:Signet Ring

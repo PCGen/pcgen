@@ -1,0 +1,12 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Kingmaker Player's Guide	SOURCESHORT:KMPG	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/kingmaker/v5748btpy8dqh	SOURCEDATE:2010-03
+# Original Entry by: Stefan Radermacher
+
+###Block: Companion Advancement abilities
+# Ability Name				Unique Key						Category of Ability		Type					Visible		Required Race				Ability														Adjust PC Size		Modify VAR
+Companion Advancement (Thylacine)	KEY:Companion Advancement ~ Thylacine	CATEGORY:Special Ability	TYPE:CompanionAdvancement	VISIBLE:DISPLAY	PRERACE:1,Companion (Thylacine)																BONUS:SIZEMOD|NUMBER|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.REPLACE
+Companion Advancement (Elk)		KEY:Companion Advancement ~ Elk		CATEGORY:Special Ability	TYPE:CompanionAdvancement	VISIBLE:DISPLAY	PRERACE:1,Companion (Elk)		ABILITY:Special Ability|AUTOMATIC|Powerful Charge	ABILITY:Internal|AUTOMATIC|Hoof	BONUS:SIZEMOD|NUMBER|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.REPLACE
+
+###Block: Companion abilities
+# Ability Name	Unique Key				Category of Ability		Type						Description														Weapon prof. bonus
+Powerful Jaws	KEY:Powerful Jaws ~ Thylacine	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DESC:A thylacine's muscular jaws threaten a critical hit on a natural roll of 19 or 20.	BONUS:WEAPONPROF=Bite|CRITRANGEADD|1

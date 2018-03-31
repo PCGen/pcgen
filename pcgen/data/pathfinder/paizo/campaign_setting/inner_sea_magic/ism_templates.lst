@@ -1,0 +1,14 @@
+# CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Inner Sea Magic	SOURCESHORT:ISM	SOURCEWEB:http://paizo.com/products/btpy8mfs?Pathfinder-Campaign-Setting-Inner-Sea-Magic	SOURCEDATE:2011-07
+# Original Entry by: Andrew Wilson
+
+# Template Name			Hit Dice Size		Challenge Rating	Visible		Bonus Ability Pool
+Fleshwarped								CR:1			VISIBLE:DISPLAY	BONUS:ABILITYPOOL|Fleshwarped Special Ability|1	BONUS:ABILITYPOOL|Fleshwarped Ability Bonus|1	BONUS:ABILITYPOOL|Fleshwarped Ability Penalty|2	BONUS:ABILITYPOOL|Fleshwarped Skill Bonus|1
+Magic School										VISIBLE:DISPLAY	BONUS:ABILITYPOOL|Magic School Choice|1
+
+
+
+First Worlder Eidolon HD	HITDIE:6|CLASS=Eidolon				VISIBLE:NO
+#
+# End
+#

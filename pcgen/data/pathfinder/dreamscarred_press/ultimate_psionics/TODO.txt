@@ -1,0 +1,27 @@
+DS/DL DONE:
+- Collating PsiUn and PsiEx entries
+- Page numbering, updating, and new entries through Chapter 3: Skills and Feats (p. 120)
+- Some new entries for race abilities/archetypes
+- Update powers known/max power level variables and display for classes (and gifted blade)
+- Chapter 4: Psionics
+- Chapter 6: Advanced Character Options
+- Chapter 7: Prestige Classes
+- Chapter 8: Psionic Items
+- Appendix: (removed extra monsters)
+- Change classlevel references to xxxLVL (for consistency)
+- Change keys to new standard
+  * Consolidate files and change to new file naming scheme
+  * Add appropriate comments to separate sections
+  * Update OGL info  
+  * Consider adding checklist info to all the myriad N/day abilities
+  * Convert to new core variables and types
+  * Update SOURCExxx line / prettyLST files - do last
+  
+ELRO DONE:
+- Change BONUS/PREAPPLY to TEMPBONUS
+- Chapter 5: Powers
+  * Add commas to the COMPS entries and change to full words
+  * Check all powers: fix errors/page numbers etc.
+
+LEFT TO DO:
+  Nothing!!

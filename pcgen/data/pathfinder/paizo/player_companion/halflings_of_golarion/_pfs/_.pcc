@@ -1,0 +1,54 @@
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+CAMPAIGN:Halflings of Golarion (PFS)
+KEY:PFS ~ Halflings of Golarion
+#GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing PFS.Pathfinder Player Companion
+RANK:3
+STATUS:BETA
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder|Golarion
+PRECAMPAIGN:1,Pathfinder Society Core Assumption
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Pathfinder Player Companion: Halflings of Golarion
+SOURCESHORT:HAOG
+SOURCELONG:Pathfinder Player Companion: Halflings of Golarion
+SOURCEDATE:2010-12
+ISOGL:YES
+
+#COVER:@/pathfinder/paizo/player_companion/halflings_of_golarion/halflings_of_golarion.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy8i8p|Buy this publication from Paizo Publishing!
+DESC:Since the birth of modern fantasy fiction, halflings have been the incongruous, pint-sized adventurers at the center of it all, constantly overlooked and dismissed by their enemies, only to end up overcoming all odds. Nowhere is this more true than in the Player Companion, where plucky and courageous halflings do their best to integrate into the societies of larger races, where they're frequently preyed upon by slavers and malicious employers. Yet despite such adversity, halflings maintain a notoriously positive outlook and an uncanny knack for being in the right place at the right time. Those who disregard halflings based on their size do so at their peril, for you never know when that smiling servant might slip your coins into his pocket-or his knife into your back. Put some hair on your toes with this new Player Companion.
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc. System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder RPG Core Rulebook. Copyright 2010, Paizo Inc.; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:Player Companion: Halflings of Golarion. Copyright 2010, Paizo Inc.; Authors: Hal MacLean and Amber E. Scott.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Companion: Halflings of Golarion" Copyright 2013, PCGen Data Team (including, but not limited to Eric C. Smith, Paul Grosse, Andrew Maitland)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# Additional Resources
+# Last Updated Friday, January 9, 2015
+#
+# Pathfinder Player Companion: Halflings of Golarion
+# Equipment: halfling hooch on page 10, all equipment in the table on page 22;
+# Feats: all feats on pages 23, and 26-27;
+# Prestige Class: Halfling Opportunist;
+# Traits: all traits on pages 30-31;
+# Other: halfling jinx alternate racial trait
+
+# Data files
+DEITY:pfs_haog_deities.lst|PRECAMPAIGN:1,INCLUDES=Halflings of Golarion
+
+#
+# End
+#

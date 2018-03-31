@@ -1,0 +1,45 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Ultimate Psionics	SOURCESHORT:UP	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2013-12
+# ORIGINAL ENTRY: Douglas Limmer
+# ORIGINAL ENTRY DATE: 2013/07/05
+
+###Block: Base Horror
+# Class of the Master	Type		Hit Dice	Ability											Define											Bonus Ability Pool												Combat bonus					Stat bonus			Modify VAR
+FOLLOWER:HorrorLVL=1	TYPE:Horror			ABILITY:Special Ability|AUTOMATIC|Horror ~ Link					DEFINE:MasterLevel|0	DEFINE:EidMaxAttacks|0	DEFINE:EidUsedAttacks|0	BONUS:ABILITYPOOL|Horror Evolution|3																				BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|3
+FOLLOWER:HorrorLVL=2	TYPE:Horror	HD:1		ABILITY:Special Ability|AUTOMATIC|Evasion|Horror ~ Devastating Touch													BONUS:ABILITYPOOL|Horror Evolution|1									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
+FOLLOWER:HorrorLVL=3	TYPE:Horror	HD:1																										BONUS:ABILITYPOOL|Horror Evolution|1																				BONUS:VAR|MasterLevel|1
+FOLLOWER:HorrorLVL=4	TYPE:Horror																											BONUS:ABILITYPOOL|Horror Evolution|2																				BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|1
+FOLLOWER:HorrorLVL=5	TYPE:Horror	HD:1																										BONUS:ABILITYPOOL|Horror Evolution|1	BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
+FOLLOWER:HorrorLVL=6	TYPE:Horror	HD:1		ABILITY:Special Ability|AUTOMATIC|Companion ~ Devotion															BONUS:ABILITYPOOL|Horror Evolution|1																				BONUS:VAR|MasterLevel|1
+FOLLOWER:HorrorLVL=7	TYPE:Horror	HD:1																										BONUS:ABILITYPOOL|Horror Evolution|1									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
+FOLLOWER:HorrorLVL=8	TYPE:Horror																											BONUS:ABILITYPOOL|Horror Evolution|1																				BONUS:VAR|MasterLevel|1
+FOLLOWER:HorrorLVL=9	TYPE:Horror	HD:1		ABILITY:FEAT|AUTOMATIC|Multiattack																			BONUS:ABILITYPOOL|Horror Evolution|2																				BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|1
+FOLLOWER:HorrorLVL=10	TYPE:Horror	HD:1																										BONUS:ABILITYPOOL|Horror Evolution|1	BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
+FOLLOWER:HorrorLVL=11	TYPE:Horror	HD:1																										BONUS:ABILITYPOOL|Horror Evolution|1																				BONUS:VAR|MasterLevel|1
+FOLLOWER:HorrorLVL=12	TYPE:Horror																											BONUS:ABILITYPOOL|Horror Evolution|1									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
+FOLLOWER:HorrorLVL=13	TYPE:Horror	HD:1																										BONUS:ABILITYPOOL|Horror Evolution|1																				BONUS:VAR|MasterLevel|1
+FOLLOWER:HorrorLVL=14	TYPE:Horror	HD:1		ABILITY:Special Ability|AUTOMATIC|Improved Evasion																BONUS:ABILITYPOOL|Horror Evolution|2																				BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|1
+FOLLOWER:HorrorLVL=15	TYPE:Horror	HD:1																										BONUS:ABILITYPOOL|Horror Evolution|1	BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
+FOLLOWER:HorrorLVL=16	TYPE:Horror																											BONUS:ABILITYPOOL|Horror Evolution|1																				BONUS:VAR|MasterLevel|1
+FOLLOWER:HorrorLVL=17	TYPE:Horror	HD:1																										BONUS:ABILITYPOOL|Horror Evolution|1									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
+FOLLOWER:HorrorLVL=18	TYPE:Horror	HD:1																										BONUS:ABILITYPOOL|Horror Evolution|1																				BONUS:VAR|MasterLevel|1
+FOLLOWER:HorrorLVL=19	TYPE:Horror	HD:1																										BONUS:ABILITYPOOL|Horror Evolution|1																				BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|1
+FOLLOWER:HorrorLVL=20	TYPE:Horror																											BONUS:ABILITYPOOL|Horror Evolution|1									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
+
+###Block: Bonus evolutions from Fear Surge
+# Class of the Master	Type		Bonus Ability Pool
+FOLLOWER:FSEPhandler=1	TYPE:Horror	BONUS:ABILITYPOOL|Horror Evolution|1
+FOLLOWER:FSEPhandler=2	TYPE:Horror	BONUS:ABILITYPOOL|Horror Evolution|1
+FOLLOWER:FSEPhandler=3	TYPE:Horror	BONUS:ABILITYPOOL|Horror Evolution|1
+
+###Block: Forgesteed Rider Mount abilities
+# Class of the Master		Type				Ability												Modify VAR
+FOLLOWER:ForgesteedMount=1	TYPE:Cavalier Mount	ABILITY:Special Ability|AUTOMATIC|Forgesteed Rider Mount ~ Forgesteed Mount
+FOLLOWER:BoostSteedBonus=2	TYPE:Cavalier Mount	ABILITY:Special Ability|AUTOMATIC|Forgesteed Rider Mount ~ Boost Steed		BONUS:VAR|MountBoostSteedBonus|2
+FOLLOWER:BoostSteedBonus=4	TYPE:Cavalier Mount														BONUS:VAR|MountBoostSteedBonus|2
+FOLLOWER:BoostSteedBonus=6	TYPE:Cavalier Mount														BONUS:VAR|MountBoostSteedBonus|2
+FOLLOWER:BoostSteedBonus=8	TYPE:Cavalier Mount														BONUS:VAR|MountBoostSteedBonus|2
+
+#
+# End
+#

@@ -1,0 +1,4 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+
+# Ability Name	Category of Ability	Type			Description										Source Page		Benefits
+Technologist	CATEGORY:FEAT		TYPE:General	DESC:You are familiar with the basic mechanics of technology.	SOURCEPAGE:p.9	BENEFIT:You are considered to be trained in any skill used against a technology-based subject. If the skill in question requires training to use even against non-technological subjects, you must still have ranks in that skill in order to gain the benefit of Technologist. Normal: You treat all skill checks made against technology as if they were untrained skill checks. This may mean that you cannot attempt certain skill checks, even if you possess ranks in the skill in question.

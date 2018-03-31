@@ -1,0 +1,18 @@
+# CVS $Revision: 19265 $ $Author: amaitland $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+#SOURCELONG:Qadira, Gateway to the East	SOURCESHORT:QGTTE	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderCompanion/pathfinderRPG/v5748btpy88zq	SOURCEDATE:2009-08
+# Original Entry by: Terry Milnes
+
+
+# Deivrat Prestige Class Feature Categories
+# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Display Location
+ABILITYCATEGORY:Elemental Focus		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Elemental Focus	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Elemental Attunement	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Elemental Attunement	DISPLAYLOCATION:Class Abilities
+
+
+# These objects are temporary stand-ins for objects that will move to the dataset for the revised book
+# "Pathfinder Campaign Setting World Guide: The Inner Sea" upon release of that dataset.
+
+
+#
+# End
+#

@@ -1,0 +1,30 @@
+# CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:People of the North	SOURCESHORT:POTN	SOURCEWEB:http://paizo.com/products/btpy8v35?Pathfinder-Player-Companion-People-of-the-North	SOURCEDATE:2013-01
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 15 April 2016
+
+# ==============================
+# New Gear
+# ==============================
+
+# Equipment Name			Required Weapon Proficiency	Type																				Cost		Weight	Crit Mult	Crit Range	Damage	Modifier						Wield Category	Range		Size		Source Page		Combat bonus			Special Property
+Ember pot									TYPE:Goods.General																	COST:.5	WT:1																						SOURCEPAGE:p.28
+Mammoth									TYPE:Mount.Goods.Transportation.Container														COST:2000	WT:16000																					SOURCEPAGE:p.28
+Mammoth (combat-trained)						TYPE:Mount.Goods.Transportation.Container														COST:2250	WT:16000																					SOURCEPAGE:p.28
+Mammoth goad								TYPE:Goods.Mount																		COST:5	WT:10																						SOURCEPAGE:p.28						SPROP:The goad grants a +2 bonus on all Handle Animal checks made against mammoths and other megafauna.
+Reindeer									TYPE:Mount.Goods.Transportation.Container														COST:75	WT:450																					SOURCEPAGE:p.28
+Whale oil									TYPE:Goods.General																	COST:.2	WT:1																						SOURCEPAGE:p.28
+
+# ==============================
+# New Magic Items
+# ==============================
+
+Cloak of the Saga Keeper						TYPE:Magic.Wondrous.Cloak																COST:13800	WT:1																						SOURCEPAGE:p.28
+Helm of the Mammoth							TYPE:Magic.Wondrous.Headgear																COST:8500	WT:3																						SOURCEPAGE:p.29
+Hex Nail									TYPE:Magic.Wondrous.Consumable															COST:20																							SOURCEPAGE:p.29
+Pelt of Primal Power							TYPE:Magic.Wondrous.Cloak																COST:26000	WT:10																						SOURCEPAGE:p.29	BONUS:COMBAT|AC|4|TYPE=Armor
+Saga of the Linnorm Kings						TYPE:Magic.Wondrous.Consumable															COST:26000	WT:5																						SOURCEPAGE:p.29
+
+Buoyant Harpoon			PROFICIENCY:WEAPON|Harpoon	TYPE:Magic.Weapon.Resizable.Ranged.Exotic.Thrown.Piercing.Fragile.Specific.Grapple.Spear.Harpoon				COST:5	WT:16		CRITMULT:x3	CRITRANGE:1	DAMAGE:1d8	EQMOD:Special Ability ~ Enhancement Cost|6000.Special Ability ~ +1 ~ Weapon.Material ~ Bronze		WIELD:TwoHanded	RANGE:10	SIZE:M	SOURCEPAGE:p.28
+Mammoth Lance			PROFICIENCY:WEAPON|Lance	TYPE:Magic.Weapon.Resizable.Melee.Martial.TwoHanded.Piercing.Specific.Lance								COST:10	WT:10		CRITMULT:x3	CRITRANGE:1	DAMAGE:1d8	EQMOD:Special Ability ~ Enhancement Cost|24000.Special Ability ~ +2 ~ Weapon.Material ~ Steel		WIELD:TwoHanded			SIZE:M	SOURCEPAGE:p.29
+Shard of Winter			PROFICIENCY:WEAPON|Dagger	TYPE:Magic.Weapon.Resizable.Melee.Light.Finesseable.Ranged.Thrown.Simple.Specific.Piercing.Slashing.Dagger.BladeLight	COST:2	WT:1		CRITMULT:x2	CRITRANGE:2	DAMAGE:1d4	EQMOD:Special Ability ~ Frost ~ Weapon.Special Ability ~ Enhancement Cost|18000.Special Ability ~ +1 ~ Weapon.Material ~ Steel	WIELD:Light		RANGE:10	SIZE:M	SOURCEPAGE:p.29

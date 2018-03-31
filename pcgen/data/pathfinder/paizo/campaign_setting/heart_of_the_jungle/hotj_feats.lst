@@ -1,0 +1,7 @@
+# CVS $Revision: $ $Author: $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
+SOURCELONG:Heart of the Jungle	SOURCESHORT:HOTJ	SOURCEWEB:http://paizo.com/pathfinder/pathfinderChronicles/pathfinderRPG/v5748btpy8evh	SOURCEDATE:2010-07
+# Original Entry by:Stefan Radermacher
+
+# Feat Name					Type
+# Ability Name						Type
+CATEGORY=FEAT|Martial Weapon Proficiency.MOD	TYPE:MartialWeaponProficiency

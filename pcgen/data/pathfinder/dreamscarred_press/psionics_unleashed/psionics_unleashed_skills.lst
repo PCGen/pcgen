@@ -1,0 +1,23 @@
+# CVS $Revision$ $Author$ -- Sun Jun 19 04:35:41 2011 -- reformated by prettylst.pl v1.39 (build )
+SOURCELONG:Psionics Unleashed	SOURCESHORT:PsU	SOURCEWEB:http://dreamscarredpress.com/dragonfly/Store/product/pid=69.html	SOURCEDATE:2010-12
+# Original Entry: Douglas Limmer
+# SRD Original Entry: Arknight
+
+# Skill Name		Key Stat	Untrained?		Classes	Type					Visible		Req. Rule (in options)		Prohibited Var. Value									Source Page		Bonus to skill																		Bonus to skill rank
+Autohypnosis		KEYSTAT:WIS	USEUNTRAINED:NO			TYPE:Wisdom.Base																								SOURCEPAGE:p.37	BONUS:SKILL|Autohypnosis|3|TYPE=ClassSkill|PRECSKILL:1,Autohypnosis|PRESKILL:1,Autohypnosis=1
+Knowledge (Psionics)	KEYSTAT:INT	USEUNTRAINED:NO			TYPE:Intelligence.Knowledge.Base																					SOURCEPAGE:p.38	BONUS:SKILL|Knowledge (Psionics)|3|TYPE=ClassSkill|PRECSKILL:1,Knowledge (Psionics)|PRESKILL:1,Knowledge (Psionics)=1
+
+###Block: Skill Focus Support
+Autohypnosis.MOD			BONUS:SKILL|Autohypnosis|3|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Autohypnosis)	BONUS:SKILL|Autohypnosis|6|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Autohypnosis)|PRESKILL:1,Autohypnosis=10
+Knowledge (Psionics).MOD	BONUS:SKILL|Knowledge (Psionics)|3|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Knowledge (Psionics))	BONUS:SKILL|Knowledge (Psionics)|6|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Knowledge (Psionics))|PRESKILL:1,Knowledge (Psionics)=10
+
+
+#Conditional Skills
+Acrobatics (On ship)	KEYSTAT:DEX	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse			VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Acrobatics (On ship).MISC"),SKILL.Acrobatics.MISC
+Climb (On ship)		KEYSTAT:STR	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse			VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Climb (On ship).MISC"),SKILL.Climb.MISC
+Perception (Vision)	KEYSTAT:WIS	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse			VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Perception (Vision).MISC"),SKILL.Perception.MISC
+
+#Conditional Skills MODs
+Acrobatics.MOD																																					BONUS:SKILL|Acrobatics (On ship)|SKILL.Acrobatics.MISC											BONUS:SKILLRANK|Acrobatics (On ship)|skillinfo("TOTALRANK", "Acrobatics")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Acrobatics (On ship).MISC"),SKILL.Acrobatics.MISC
+Climb.MOD																																						BONUS:SKILL|Climb (On ship)|SKILL.Climb.MISC													BONUS:SKILLRANK|Climb (On ship)|skillinfo("TOTALRANK", "Climb")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Climb (On ship).MISC"),SKILL.Climb.MISC
+Perception.MOD																																					BONUS:SKILL|Perception (Vision)|SKILL.Perception.MISC												BONUS:SKILLRANK|Perception (Vision)|skillinfo("TOTALRANK", "Perception")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Perception (Vision).MISC"),SKILL.Perception.MISC

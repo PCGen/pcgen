@@ -1,0 +1,10 @@
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:Rise of the Runelords Anniversary Edition Player's Guide	SOURCESHORT:ROTRAEPG	SOURCEWEB:http://paizo.com/products/btpy8tgl?Pathfinder-Adventure-Path-Rise-of-the-Runelords-Anniversary-Edition-Players-Guide	SOURCEDATE:2012-07
+# Original Entry by: Paul Shipley
+
+STARTPACK:Friends and Enemies	TYPE:Character Trait	VISIBLE:NO	TOTALCOST:0
+GEAR:Horse (Heavy/Combat Trained)
+GEAR:Saddle (Military)
+GEAR:Saddlebags
+GEAR:Bit and Bridle
+GEAR:Feed (Per Day)			QTY:30

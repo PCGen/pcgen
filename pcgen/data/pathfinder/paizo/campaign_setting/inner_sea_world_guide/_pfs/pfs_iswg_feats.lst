@@ -1,0 +1,16 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+#SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8ief	SOURCEDATE:2011-03
+# Original Entry by: Stefan Radermacher & Paul Shipley
+
+# Feats: all feats on pages 284-289 except Eye of the Arclord, Fortune Teller, Hamatulatsu, Harrowed, and Shade of the Uskwood. For the Cypher Magic feat, replace the Scribe Scroll prerequisite with Spell Focus;
+
+# Feat Name						Type			Required Feat
+
+# Ability Name					Type			Required Ability					!PRECHARACTERTYPE
+CATEGORY=FEAT|Eye of the Arclord.MOD	TYPE:PFSNotLegal								!PRECHARACTERTYPE:1,PC
+CATEGORY=FEAT|Fortune Teller.MOD		TYPE:PFSNotLegal								!PRECHARACTERTYPE:1,PC
+CATEGORY=FEAT|Hamatulatsu.MOD			TYPE:PFSNotLegal								!PRECHARACTERTYPE:1,PC
+CATEGORY=FEAT|Harrowed.MOD			TYPE:PFSNotLegal								!PRECHARACTERTYPE:1,PC
+CATEGORY=FEAT|Shade of the Uskwood.MOD	TYPE:PFSNotLegal								!PRECHARACTERTYPE:1,PC
+
+CATEGORY=FEAT|Cypher Magic.MOD					PREABILITY:1,CATEGORY=FEAT,Spell Focus

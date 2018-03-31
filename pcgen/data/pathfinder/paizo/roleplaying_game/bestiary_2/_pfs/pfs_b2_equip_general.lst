@@ -1,0 +1,6 @@
+# CVS $Revision: 20126 $ $Author: zaister $ -- Wed Dec 10 01:48:21 2014 -- reformated by prettylst.pl v1.51 (build 25712)
+SOURCELONG:Bestiary 2	SOURCESHORT:B2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8hif	SOURCEDATE:2010-12
+
+
+# Equipment Name	Type			!PRECHARACTERTYPE
+Royal Jelly		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC

@@ -1,0 +1,73 @@
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:Heart of the Jungle	SOURCESHORT:HOTJ	SOURCEWEB:http://paizo.com/pathfinder/pathfinderChronicles/pathfinderRPG/v5748btpy8evh	SOURCEDATE:2010-07
+# Original Entry by:Stefan Radermacher
+
+STARTPACK:Angazhani Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Angazhani]	SOURCEPAGE:p.58
+ALIGN:CE
+RACE:Angazhani	!PRERACE:1,%
+NAME:Angazhani
+SKILL:Climb		RANK:6
+SKILL:Intimidate	RANK:9
+SKILL:Perception	RANK:6
+SKILL:Stealth	RANK:6
+SKILL:Survival	RANK:9
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Multiweapon Fighting
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus (Axe (Throwing))
+STAT:STR=11|DEX=11|CON=10|INT=11|WIS=11|CHA=10
+ABILITY:CATEGORY=Angazhani Martial Weapon Proficiency|Martial Weapon Proficiency (Axe (Throwing))
+GEAR:Hide				SIZE:L	LOCATION:Equipped			EQMOD:Special Quality ~ Masterwork ~ Armor
+GEAR:Axe (Throwing)		SIZE:L	LOCATION:Primary Hand		EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Axe (Throwing)		SIZE:L	LOCATION:Secondary Hand		EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Axe (Throwing)		SIZE:L	LOCATION:Secondary Hand 2	EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Axe (Throwing)		SIZE:L	LOCATION:Secondary Hand 3	EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Axe (Throwing)	QTY:4	SIZE:L	LOCATION:Carried			EQMOD:Special Quality ~ Masterwork ~ Weapon
+
+STARTPACK:Botfly (Giant) Default	TYPE:Default Monster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Botfly (Giant)]	SOURCEPAGE:p.59
+RACE:Botfly (Giant)	!PRERACE:1,%
+NAME:Botfly (Giant)
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=10
+
+STARTPACK:Botfly Swarm Default	TYPE:Default Monster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Botfly Swarm]	SOURCEPAGE:p.59
+RACE:Botfly Swarm	!PRERACE:1,%
+NAME:Botfly Swarm
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
+
+STARTPACK:Hippopotamus Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hippopotamus]	SOURCEPAGE:p.60
+RACE:Hippopotamus	!PRERACE:1,%
+NAME:Hippopotamus
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=11
+SKILL:Intimidate	RANK:4
+SKILL:Perception	RANK:2
+SKILL:Stealth	RANK:1
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
+
+STARTPACK:Treant (Tobongo) Default	TYPE:Default Monster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Treant (Tobongo)],[!PRERACE:1,%]	SOURCEPAGE:p.266
+ALIGN:NG
+RACE:Treant (Tobongo)	!PRERACE:1,%
+NAME:Tobongo
+SKILL:Diplomacy			RANK:10
+SKILL:Intimidate			RANK:12
+SKILL:Knowledge (Local)		RANK:12
+SKILL:Knowledge (Nature)	RANK:12
+SKILL:Perception			RANK:4
+SKILL:Sense Motive		RANK:4
+SKILL:Stealth			RANK:2
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Improved Critical (Slam)
+ABILITY:CATEGORY=FEAT|Improved Natural Attack (Slam)
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus (Slam)
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+GEAR:Rock (Large)	LOCATION:Carried

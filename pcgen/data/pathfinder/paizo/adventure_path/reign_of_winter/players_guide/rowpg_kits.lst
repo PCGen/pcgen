@@ -1,0 +1,60 @@
+# CVS $Revision: 16260 $ $Author: zaister $ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+SOURCELONG:Reign of Winter Player's Guide	SOURCESHORT:ROWPG	SOURCEWEB:http://paizo.com/products/btpy8x1t?Pathfinder-Adventure-Path-Reign-of-Winter-Players-Guide	SOURCEDATE:2013-02
+
+STARTPACK:Vigilante Witch Hunter	TYPE:StartingKit	VISIBLE:NO	EQUIPBUY:0
+GEAR:Hex Nail	QTY:4	LOCATION:Equipped
+
+###Block: Familiars --------------------------------------
+STARTPACK:Familiar ~ Artic Fox	TYPE:Familiar	VISIBLE:NO	SOURCEPAGE:10
+ALIGN:TN
+STAT:DEX=11|STR=11|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Acrobatics	RANK:2
+SKILL:Perception	RANK:8
+SKILL:Stealth	RANK:10
+SKILL:Survival	RANK:1
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
+
+STARTPACK:Familiar ~ Artic Hare	TYPE:Familiar	VISIBLE:NO	SOURCEPAGE:10
+ALIGN:TN
+STAT:DEX=11|STR=11|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Stealth	RANK:15
+ABILITY:CATEGORY=FEAT|Run
+
+STARTPACK:Familiar ~ Artic Tern	TYPE:Familiar	VISIBLE:NO	SOURCEPAGE:10
+ALIGN:TN
+STAT:DEX=11|STR=11|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Fly		RANK:6
+SKILL:Perception	RANK:6
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+
+STARTPACK:Familiar ~ Ermine	TYPE:Familiar	VISIBLE:NO
+STAT:STR=11|DEX=11|CHA=11|CON=10|INT=10|WIS=10
+SKILL:Escape Artist	RANK:1
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+
+STARTPACK:Familiar ~ Lemming	TYPE:Familiar	VISIBLE:NO
+STAT:STR=11|DEX=11|CHA=11|CON=10|INT=10|WIS=10
+SKILL:Climb		RANK:5
+SKILL:Stealth	RANK:17
+ABILITY:CATEGORY=FEAT|Great Fortitude
+
+STARTPACK:Familiar ~ Ptargmin	TYPE:Familiar	VISIBLE:NO
+STAT:STR=11|DEX=11|CHA=11|CON=10|INT=10|WIS=10
+SKILL:Perception	RANK:6
+SKILL:Stealth	RANK:10
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+
+STARTPACK:Familiar ~ Puffin	TYPE:Familiar	VISIBLE:NO
+STAT:STR=11|DEX=11|CHA=11|CON=10|INT=10|WIS=10
+SKILL:Perception	RANK:6
+SKILL:Fly		RANK:8
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+
+STARTPACK:Familiar ~ Snowy Owl	TYPE:Familiar	VISIBLE:NO
+STAT:DEX=11|STR=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Perception	RANK:1
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+
+#
+# End
+#

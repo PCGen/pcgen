@@ -1,0 +1,11 @@
+# CVS $Revision: $ $Author: $ -- Sun Sep  4 16:01:20 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Curse of the Crimson Throne, Chaper 1 - Edge of Anarchy	SOURCESHORT:AP7	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy81xw	SOURCEDATE:2008-03
+
+
+STARTPACK:Dream Spider Default	TYPE:Default Monster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dream Spider],[!PRERACE:1,%]	SOURCEPAGE:p.82
+ALIGN:TN
+RACE:Dream Spider	!PRERACE:1,%
+NAME:Dream Spider
+STAT:STR=10|DEX=11|CON=10|WIS=10|INT=10|CHA=11
+
+###MISSING DEATHEYE AND NIGHTMARE VARIANTS

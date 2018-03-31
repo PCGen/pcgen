@@ -1,0 +1,56 @@
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+CAMPAIGN:Alchemy Manual (PFS)
+KEY:PFS ~ Alchemy Manual
+#GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing PFS.Pathfinder Player Companion
+RANK:3
+STATUS:BETA
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder Player Companion
+PRECAMPAIGN:4,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+SOURCELONG:Pathfinder Player Companion: Alchemy Manual
+SOURCESHORT:AM
+SOURCEWEB:http://paizo.com/products/btpy90bj
+SOURCEDATE:2014-04
+ISOGL:YES
+
+#COVER:alchemy_manual.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy90bj|Buy this publication from Paizo Publishing!
+DESC:Harness the powers of alchemy with Pathfinder Player Companion: Alchemy Manual! Along with nearly 100 never-before-seen alchemical items, this volume features a brand-new rules subsystem for creating potent alchemical items on the fly using a variety of alchemical reagents and alchemical recipes. Whether you're brewing the magical dwarven ales of the Five Kings Mountains or honing the deadly secrets of the Daggermark Poisoners' Guild, you'll discover all the tools you need inside the Alchemy Manual!
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+
+COPYRIGHT:Open Game License v 1.0a Copyright 2000,Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, and Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+
+COPYRIGHT:Kobold Quarterly, Issue 7 (c) 2008, Open Design LLC, www.koboldquarterly.com; Authors: John Baichtal, Wolfgang Baur, Ross Byers, Matthew Cicci, John Flemming, Jeremy Jones, Derek Kagemann, Phillip Larwood, Richard Pett, and Stan!
+COPYRIGHT:Ooze, Magma from the Tome of Horrors Complete (c) 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene.
+COPYRIGHT:Slithering Tracker from the Tome of Horrors Complete (c) 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Pathfinder Player Companion: Alchemy Manual (c) 2014, Paizo Inc.; Authors: Jason Nelson, Patrick Renie, and David N. Ross.
+
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Alchemy Manual" Copyright 2016, PCGen Data Team (including, but not limited to Vincent Hatakeyama, Gwen T., Paul Grosse (License), Andrew Maitland (Beta Review))
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# Additional Resources
+# Last Updated Wednesday, March 22, 2017
+#
+#The spontaneous alchemy rules on pages 4–5 are legal for play; Archetypes: the drunken rager on page 12 is legal; Equipment: all equipment, magic items, and reagents on the inside of the front and back covers, as well as pages 6–31 are legal for play except cytillesh extract, cytillesh spores, fungul grafts, fungal eyes, fury gas, ginger extract, mugwort extract, reaching vines, and shaman’s paint. The mythic alchemical items on pages 26–27 are legal, however the mythic section of each is not available for PFS play. Note that any inidividual items found in kits can not be sold back seperately. The correct price for the vial of efficacious medicine is 7,000 gp; Feats: the feats on pages 5 and 8 are legal for play; Misc.: the new abilities for improved homunculi on page 14 are legal for play. The ooze crafting section on pages 22–23 is not legal for play. The herbalism as alchemy section on page 24 is legal for play. The mythic path abilities and 1st-tier universal path abilities sections on page 26 are not legal for play.
+#
+#Campaign Clarifications
+#Last Updated Tuesday, January 31, 2017
+#
+#You may purchase other types of ammunition with the properties of any of the arrows listed on these pages. The ammunition costs the same as the arrow, unless the base cost of one unit of the ammunition costs 1 gp or more—in that case, add the cost of one unit of ammunition to the listed cost for the arrow.
+
+# Data files
+ABILITY:pfs_am_abilities.lst|PRECAMPAIGN:1,INCLUDES=Alchemy Manual
+EQUIPMENT:pfs_am_equip.lst|PRECAMPAIGN:1,INCLUDES=Alchemy Manual
+ABILITY:pfs_am_feats.lst|PRECAMPAIGN:1,INCLUDES=Alchemy Manual

@@ -1,0 +1,56 @@
+# CVS $Revision$ $Author$ -- Fri Nov  8 13:07:25 2013 -- reformated by prettylst.pl v1.50 (build 21703)
+CAMPAIGN:Dragon Empires Primer (PFS)
+KEY:PFS ~ Dragon Empires Primer
+#GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing PFS.Pathfinder Player Companion
+RANK:3
+STATUS:BETA
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder|Golarion
+PRECAMPAIGN:1,Pathfinder Society Core Assumption
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+SOURCELONG:Pathfinder Player Companion: Dragon Empires Primer
+SOURCESHORT:DEP
+SOURCEWEB:http://paizo.com/products/btpy8pg0
+SOURCEDATE:2012-01
+ISOGL:YES
+
+#COVER:@/pathfinder/paizo/player_companion/dragon_empires_primer/dragon_empires_primer.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy8pg0|Buy this publication from Paizo Publishing!
+DESC:The distant continent of Tian Xia rests on the opposite side of the world from the Inner Sea region, and it shows. From the treacherous jungles of naga-ruled Nagajor to the sorcerous kingdom of Dtang Ma, and from the trackless and unforgiving deserts of Shaguang to the wondrous city of Goka, countless opportunities can be found for any character or adventure in amazingly expansive Tian Xia. While the extensive Dragon Empires Gazetteer unveils dozens of the mystical continent's secrets, the Dragon Empires Primer provides information pertinent to creating characters for campaigns set in this vast and diverse region. This volume of Player Companion provides players and Game Masters alike with all of the settingspecific traits and trappings they need to customize and play characters in the Dragon Empires.
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, and Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Player Companion: Dragon Empires Primer Copyright 2011, Paizo Inc.; Authors: Tim Hitchcock and Colin McComb.
+COPYRIGHT:PCGen dataset conversion for "Player Companion: Dragon Empires Primer" Copyright 2013, PCGen Data Team (including, but not limited to swiftbrook, Paul Shipley, Paul Grosse, Andrew Maitland, Stefan Radermacher)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# Additional Resources
+# Last Updated Friday, January 9, 2015
+#
+# Pathfinder Player Companion: Dragon Empires Primer
+# Archetypes: all archetypes on pages 22-23;
+# Feats: kitsune feats on page 5 are legal for kitsune characters; all feats on pages 24-25;
+# Gods: All gods listed on pages 26-27;
+# Other: Oni Bloodline, Void elemental school;
+# Spells: call the void;
+# Subdomains: Moon;
+# Traits: all traits on pages 8-21 except Chosen Child and Rebel Leader.
+# The boon restriction to create a kitsune, nagaji, and wayang was removed at the start of Season 6 and all three are now available for open creation.
+
+# Data files
+
+#
+# End
+#

@@ -1,0 +1,16 @@
+# CVS $Revision: $ $Author: $ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Dark Markets - A Guide to Katapesh	SOURCESHORT:DM	SOURCEWEB:http://paizo.com/pathfinder/campaignSetting/35E/v5748btpy87ut	SOURCEDATE:2009-04
+# Original Entry by: Stefan Radermacher
+
+# Class Name				Hit Dice	Type			Max Level	Source Page		Combat bonus																	Save bonus																																		Modify VAR																																																												FACT
+CLASS:Balanced Scale of Abadar	HD:6		TYPE:PC.Prestige	MAXLEVEL:6	SOURCEPAGE:p.55	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|BSA
+# Class Name				Required Deity	Required Skill					Req. Spell Type
+CLASS:Balanced Scale of Abadar	PREDEITY:1,Abadar	PRESKILL:2,Appraise=4,Disable Device=4	PRESPELLTYPE:1,Divine=3
+# Class Name				Skill Pts/Lvl	Class Skill
+CLASS:Balanced Scale of Abadar	STARTSKILLPTS:2	CSKILL:Appraise|TYPE=Craft|Diplomacy|Disable Device|Heal|Knowledge (Dungeoneering)|Knowledge (Local)|Knowledge (Religion)|Perception|TYPE=Profession|Spellcraft
+1																		ABILITY:Special Ability|AUTOMATIC|Balanced Scale ~ Bypass Ward
+2														ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Balanced Scale ~ Appraising Eye
+3	BONUS:VAR|BalancedScaleBottomlessBagLVL,BalancedScaleAccessTheVaultLVL|CL	ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Balanced Scale ~ Access the Vault|Balanced Scale ~ Bottomless Bag
+4														ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Balanced Scale ~ Eloquent Bargainer
+5														ADD:SPELLCASTER|Divine
+6														ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Balanced Scale ~ Vault Jump

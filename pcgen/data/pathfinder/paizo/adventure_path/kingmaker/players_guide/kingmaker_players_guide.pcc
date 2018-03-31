@@ -1,0 +1,45 @@
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+CAMPAIGN:Kingmaker Player's Guide
+GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing.Pathfinder Adventure Path.Kingmaker
+RANK:3
+STATUS:RELEASE
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder|Golarion
+PRECAMPAIGN:2,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Advanced Player's Guide
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Kingmaker Player's Guide
+SOURCESHORT:KMPG
+SOURCEWEB:http://paizo.com/pathfinder/adventurePath/kingmaker/v5748btpy8dqh
+SOURCEDATE:2010-03
+ISOGL:YES
+
+COVER:kingmaker_players_guide.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/pathfinder/adventurePath/kingmaker/v5748btpy8dqh|Get this publication from Paizo Publishing!
+DESC:The Kingmaker Player's Guide is intended to provide context for creating characters from the nation of Brevoy or surrounding regions who wish to play a role in the Stolen Lands' transformation. In this campaign, your characters will explore vast wildernesses and settle them, build cities and nations, and even fight wars against opposing kingdoms. Many of these unusual campaign elements are supported by additional rules that appear in other volumes of the Kingmaker Adventure Path-your GM can provide you with the information you need to explore, build, conquer, and war as the need arises in each adventure. As a special preview, some of these elements are presented at the end of this guide so you have all of the blank forms and hex paper you need to track your adventures and achievements in the Stolen Lands.
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Kingmaker Player's Guide. Copyright 2010, Paizo Inc.; Authors: James Jacobs, Mark Moreland, and F. Wesley Schneider.
+COPYRIGHT:PCGen dataset conversion for "Kingmaker Player's Guide" Copyright 2010, PCGen Data Team (including, but not limited to Stefan Radermacher).
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+EQUIPMENT:@/pathfinder/paizo/campaign_setting/inner_sea_world_guide/iswg_equip_arms_armor.lst|(INCLUDE:Aldori Dueling Sword)
+WEAPONPROF:@/pathfinder/paizo/campaign_setting/inner_sea_world_guide/iswg_profs_weapon.lst
+
+ABILITY:kmpg_abilities_companion.lst
+ABILITY:kmpg_abilities.lst
+ABILITYCATEGORY:kmpg_abilitycategories.lst
+KIT:kmpg_kits.lst
+KIT:kmpg_kits_companion.lst
+RACE:kmpg_races_companion.lst
+SKILL:kmpg_skills.lst

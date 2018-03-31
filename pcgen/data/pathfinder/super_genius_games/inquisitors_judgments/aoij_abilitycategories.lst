@@ -1,0 +1,15 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+#SOURCELONG:Advanced Options: Inquisitors' Judgments	SOURCESHORT:AOIJ	SOURCEDATE:2010-12
+# Original Entry by: Paul Shipley (elro the onk)
+
+# Rules options
+# Ability Category								Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object								Plural description for UI						Display Location
+ABILITYCATEGORY:Inquisitor Judgment Option				VISIBLE:YES		EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:InquisitorJudgmentOption						PLURAL:Inquisitor Judgment Options					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Inquisitor Judgment (Sacred)				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:InquisitorJudgmentSacred.InquisitorJudgmentNeither	PLURAL:Inquisitor Judgments						DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Inquisitor Judgment (Profane)				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:InquisitorJudgmentProfane.InquisitorJudgmentNeither	PLURAL:Inquisitor Judgments						DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Inquisitor Regeneration Judgment Vulnerability	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:InquisitorRegenerationChoice					PLURAL:Inquisitor Regeneration Judgment Vulnerabilities	DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Justicar Class Feature					VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:JusticarClassFeatures						PLURAL:Justicar Class Features					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Justicar Judgment Effect					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:JusticarJudgment							PLURAL:Justicar Judgment Effects					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Justicar Judgment (Sacred)				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:InquisitorJudgmentSacred.InquisitorJudgmentNeither	PLURAL:Justicar Judgments						DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Justicar Judgment (Profane)				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:InquisitorJudgmentProfane.InquisitorJudgmentNeither	PLURAL:Justicar Judgments						DISPLAYLOCATION:Class Features

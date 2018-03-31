@@ -1,0 +1,47 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Adventurer's Handbook: Genius Guide Volume 1	SOURCESHORT:SGGAH	SOURCEDATE:2010-04
+# Original Entry by: Paul Shipley (elro the onk)
+
+#Block: .MODs for Magister bonus feats
+#Core
+# Feat Name					Type						Modify VAR
+# Ability Name						Type						Modify VAR
+CATEGORY=FEAT|Arcane Armor Training.MOD		TYPE:Magister
+CATEGORY=FEAT|Arcane Armor Mastery.MOD		TYPE:Magister
+CATEGORY=FEAT|Arcane Strike.MOD			TYPE:Magister				BONUS:VAR|ArcaneStrikeLVL|charbonusto("CASTERLEVEL","Archon")+var("BL=Archon")+charbonusto("CASTERLEVEL","Death Mage")+var("BL=Death Mage")+charbonusto("CASTERLEVEL","Magister")+var("BL=Magister")
+CATEGORY=FEAT|Armor Proficiency (Medium).MOD	TYPE:Magister
+CATEGORY=FEAT|Augment Summoning.MOD			TYPE:Magister
+CATEGORY=FEAT|Combat Casting.MOD			TYPE:Magister
+CATEGORY=FEAT|Eschew Materials.MOD			TYPE:Magister
+CATEGORY=FEAT|Greater Spell Focus.MOD		TYPE:Magister
+CATEGORY=FEAT|Greater Spell Penetration.MOD	TYPE:Magister
+CATEGORY=FEAT|Improved Counterspell.MOD		TYPE:Magister
+CATEGORY=FEAT|Magical Aptitude.MOD			TYPE:Magister
+CATEGORY=FEAT|Spell Focus.MOD				TYPE:Magister
+CATEGORY=FEAT|Spell Penetration.MOD			TYPE:Magister
+
+#Block: .MODs for MagisterMetamagic
+#Core
+CATEGORY=FEAT|Enlarge Spell.MOD			TYPE:MagisterMetamagic
+CATEGORY=FEAT|Extend Spell.MOD			TYPE:MagisterMetamagic
+CATEGORY=FEAT|Silent Spell.MOD			TYPE:MagisterMetamagic
+CATEGORY=FEAT|Still Spell.MOD				TYPE:MagisterMetamagic
+
+#Block: .MODs for Sorcerer Bloodlines
+CATEGORY=FEAT|Arcane Armor Training.MOD		TYPE:FrostBloodline.StoneBloodline
+CATEGORY=FEAT|Armor Proficiency (Light).MOD	TYPE:FrostBloodline.StoneBloodline
+CATEGORY=FEAT|Defensive Combat Training.MOD	TYPE:FrostBloodline.StoneBloodline
+CATEGORY=FEAT|Endurance.MOD				TYPE:FrostBloodline
+CATEGORY=FEAT|Great Fortitude.MOD			TYPE:FrostBloodline
+CATEGORY=FEAT|Nimble Moves.MOD			TYPE:FrostBloodline
+CATEGORY=FEAT|Agile Maneuvers.MOD			TYPE:StoneBloodline
+CATEGORY=FEAT|Alertness.MOD				TYPE:StoneBloodline
+CATEGORY=FEAT|Arcane Armor Mastery.MOD		TYPE:StoneBloodline
+CATEGORY=FEAT|Armor Proficiency (Heavy).MOD	TYPE:StoneBloodline
+CATEGORY=FEAT|Armor Proficiency (Medium).MOD	TYPE:StoneBloodline
+CATEGORY=FEAT|Blind-fight.MOD				TYPE:StoneBloodline
+CATEGORY=FEAT|Deadly Aim.MOD				TYPE:StoneBloodline
+
+#
+# End
+#

@@ -1,0 +1,328 @@
+# CVS $Revision: 20121 $ $Author: zaister $ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
+# Original Entry by: Eric Smith (Maredudd), Stefan Radermacher
+
+# Conditional skills for bard's Versatile Performance ability
+# Verasatile Performance includes:
+#? Ability score: use Cha instead of the original score
+#? Ranks: use Perform ranks instead of rank in Diplomacy, Sense Motive, Acrobatics, etc.
+#? +3 because Perform is a class skill
+#? Bonuses: any random bonuses to Perform, like Skill Focus
+
+# Skill Name							Key Stat	Untrained?		Classes	Type			Visible		Required Ability													Req. Rule (in options)		Source Page
+Bluff (Perform (Act))						KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Act					PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.90
+Disguise (Perform (Act))					KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Act					PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.95
+#
+Bluff (Perform (Comedy))					KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Comedy				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.90
+Intimidate (Perform (Comedy))					KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Comedy				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.99
+#
+Acrobatics (Perform (Dance))					KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Dance				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.87
+Fly (Perform (Dance))						KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Dance				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.96
+#
+Diplomacy (Perform (Keyboard Instruments))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Keyboard Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.93
+Intimidate (Perform (Keyboard Instruments))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Keyboard Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.104
+#
+Diplomacy (Perform (Oratory))					KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Oratory				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.93
+Sense Motive (Perform (Oratory))				KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Oratory				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.104
+#
+Handle Animal (Perform (Percussion Instruments))	KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Percussion Instruments	PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.97
+Intimidate (Perform (Percussion Instruments))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Percussion Instruments	PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.99
+#
+Bluff (Perform (Sing))						KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Sing				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.90
+Sense Motive (Perform (Sing))					KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Sing				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.104
+#
+Bluff (Perform (String Instruments))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ String Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.90
+Diplomacy (Perform (String Instruments))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ String Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.93
+#
+Diplomacy (Perform (Wind Instruments))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Wind Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.93
+Handle Animal (Perform (Wind Instruments))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Wind Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.97
+
+Samurai Mount							KEYSTAT:DEX						TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Mount ~ Samurai							PRERULE:1,DISPLAYSKILLUSE
+
+###Block:
+
+###Block:
+# Skill Name	Define							Bonus to Situation										Modify VAR
+Acrobatics.MOD									BONUS:SITUATION|Acrobatics=Jump|floor((var("MOVE[Walk]")-30)/10)*4|TYPE=Move
+Ride.MOD		DEFINE:RideACP|0	DEFINE:SamuraiMountACP|0	BONUS:SITUATION|Samurai Mount|SamuraiMountACP						BONUS:VAR|RideACP|var("ARMOR.0.ACCHECK")	BONUS:VAR|SamuraiMountACP|RideACP-(RideACP*2)
+#BONUS:SKILLRANK|Samurai Mount|skillinfo("TOTALRANK", "Ride")|TYPE=SkillGranted|PREABILITY:1,CATEGORY=Special Ability,Mount ~ Samurai	BONUS:SKILL|Samurai Mount|var("SKILL.Ride.MISC")
+###Block: New Skill
+# Skill Name			Key Stat	Untrained?		Type				Source, Long Desc.		Source, Short Desc.	Source URI																		Source Page		Bonus to skill																						Source Pub. Date
+Profession (Fortune-teller)	KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession	SOURCELONG:Inner Sea Primer	SOURCESHORT:ISP		SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/companion/pathfinderRPG/v5748btpy8hih	SOURCEPAGE:p.103	BONUS:SKILL|Profession (Fortune-teller)|3|TYPE=ClassSkill|PRECSKILL:1,Profession (Fortune-teller)|PRESKILL:1,Profession (Fortune-teller)=1	SOURCEDATE:2010-11
+
+###Block: Skill Focus implementation
+# Skill Name				Key Stat	Untrained?		Type					Var. Must Be Lower			Source, Long Desc.	Source, Short Desc.	Source Page		Bonus to skill
+Profession (Fortune-teller).MOD																												BONUS:SKILL|Profession (Fortune-teller)|3|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Fortune-teller))	BONUS:SKILL|Profession (Fortune-teller)|6|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Fortune-teller))|PRESKILL:1,Profession (Fortune-teller)=10
+
+
+Craft (Clockwork)				KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft.Base	PREVARLT:AnimalCompanionSkill,1	SOURCELONG:Bestiary 3	SOURCESHORT:B3		SOURCEPAGE:p.54	BONUS:SKILL|Craft (Clockwork)|3|TYPE=ClassSkill|PRECSKILL:1,Craft (Clockwork)|PRESKILL:1,Craft (Clockwork)=1
+
+
+
+
+###Block: (NEW) Situation skills
+
+
+# Skill Name			Situational Skill Use
+###Block:
+
+
+#Handle Animal.MOD			SITUATION:Bird
+#Handle Animal.MOD			SITUATION:Handle Animal (Dog)
+#Handle Animal.MOD			SITUATION:Handle Animal (Horse)
+#Handle Animal.MOD			SITUATION:Handle Animal (Small Cat)
+#Knowledge (Nature).MOD		SITUATION:Dog
+#Knowledge (Nature).MOD		SITUATION:Horse
+#Knowledge (Nature).MOD		SITUATION:Knowledge (Nature/Bird)
+#Knowledge (Nature).MOD		SITUATION:Small Cat
+# Skill Name			Situational Skill
+Acrobatics.MOD			SITUATION:Jump
+Acrobatics.MOD			SITUATION:Jump/Underground
+Acrobatics.MOD			SITUATION:Move Through
+Acrobatics.MOD			SITUATION:Move through threatened squares
+Acrobatics.MOD			SITUATION:Swing
+Acrobatics.MOD			SITUATION:Underground
+Acrobatics.MOD			SITUATION:Uneven Ground
+Acrobatics.MOD			SITUATION:Reduce Damage from Falls
+Appraise.MOD			SITUATION:Precious metals and gemstones
+Appraise.MOD			SITUATION:Treasure found in or under the water
+Bluff.MOD				SITUATION:Feint
+Bluff.MOD				SITUATION:Imitate Voice
+Bluff.MOD				SITUATION:Lie
+Bluff.MOD				SITUATION:Pass Hidden Message
+Bluff.MOD				SITUATION:Potentially Sexually Attracted
+Bluff.MOD				SITUATION:Secret Messages|Conceal Identity
+Bluff.MOD				SITUATION:Sexually Attracted
+Bluff.MOD				SITUATION:While using change shape ability
+Climb.MOD				SITUATION:Narrow Surfaces
+Climb.MOD				SITUATION:Rope
+Climb.MOD				SITUATION:Underground
+Craft (Alchemy).MOD		SITUATION:Create item
+Craft (Alchemy).MOD		SITUATION:Brew Poisons
+Diplomacy.MOD			SITUATION:City Officials
+Diplomacy.MOD			SITUATION:Gather Information
+Diplomacy.MOD			SITUATION:Influence Monster
+Diplomacy.MOD			SITUATION:Potentially Sexually Attracted
+Diplomacy.MOD			SITUATION:interacting with dwarves
+Disable Device.MOD		SITUATION:Magical Traps|Traps
+Disguise.MOD			SITUATION:Appear Human
+Disguise.MOD			SITUATION:Appear as cloak
+Disguise.MOD			SITUATION:As Medium humanoid
+Disguise.MOD			SITUATION:Mimic objects
+Disguise.MOD			SITUATION:When using change shape
+Disguise.MOD			SITUATION:While using change shape ability
+Disguise.MOD			SITUATION:as original race
+Escape Artist.MOD			SITUATION:Escape manacles or ropes
+Handle Animal.MOD			SITUATION:Push Animal
+Handle Animal.MOD			SITUATION:Reptiles
+Heal.MOD				SITUATION:Animal
+Heal.MOD				SITUATION:Treat disease and poison
+Intimidate.MOD			SITUATION:Demoralize Animal
+Intimidate.MOD			SITUATION:interacting with dwarves
+Intimidate.MOD			SITUATION:Mounted
+Intimidate.MOD			SITUATION:To demoralize
+Intimidate.MOD			SITUATION:Elders
+Knowledge (Arcana).MOD		SITUATION:ID monster|Identify Dragons
+Knowledge (Dungeoneering).MOD	SITUATION:ID monster
+Knowledge (Dungeoneering).MOD	SITUATION:Navigate
+Knowledge (Dungeoneering).MOD	SITUATION:Underground
+Knowledge (History).MOD		SITUATION:Dwarves
+Knowledge (Local).MOD		SITUATION:ID monster
+Knowledge (Local).MOD		SITUATION:local art or music scene
+Knowledge (Nature).MOD		SITUATION:ID monster
+Knowledge (Planes).MOD		SITUATION:ID monster
+Knowledge (Religion).MOD	SITUATION:ID monster
+Linguistics.MOD			SITUATION:Forgery
+Linguistics.MOD			SITUATION:Identify Forgery
+Linguistics.MOD			SITUATION:Decipher unfamiliar languages
+Perception.MOD			SITUATION:Blindsense
+Perception.MOD			SITUATION:Determine Food Spoiled
+Perception.MOD			SITUATION:Identify Potion
+Perception.MOD			SITUATION:In dim light or darkness
+Perception.MOD			SITUATION:Notice Creatures Underwater
+Perception.MOD			SITUATION:Notice Flying Creatures
+Perception.MOD			SITUATION:Notice Hidden Object
+Perception.MOD			SITUATION:Notice unusual stonework
+Perception.MOD			SITUATION:Notice unusual stonework/Underground
+Perception.MOD			SITUATION:Opposed
+Perception.MOD			SITUATION:Precious metals and gemstones
+Perception.MOD			SITUATION:Trapfinding
+Perception.MOD			SITUATION:Underground
+Perception.MOD			SITUATION:Underwater
+Perception.MOD			SITUATION:When listening
+Perception.MOD			SITUATION:When using blindsense
+Perception.MOD			SITUATION:sight- and hearing-based
+Ride.MOD				SITUATION:Samurai Mount
+Sense Motive.MOD			SITUATION:Secret Messages
+Sense Motive.MOD			SITUATION:Sense Enchantment
+Sense Motive.MOD			SITUATION:Social Hunch
+Sleight of Hand.MOD		SITUATION:Conceal Small Object
+Sleight of Hand.MOD		SITUATION:Conceal Weapon
+Spellcraft.MOD			SITUATION:decipher the writing on a scroll
+Spellcraft.MOD			SITUATION:Cast Defensively
+Spellcraft.MOD			SITUATION:Identify Curse or Emotion
+Spellcraft.MOD			SITUATION:Identify Enchantment
+Spellcraft.MOD			SITUATION:Identify Magic Auras and Items
+Spellcraft.MOD			SITUATION:Identify magic item
+Stealth.MOD				SITUATION:concealed in metal objects or debris
+Stealth.MOD				SITUATION:Darkness or smoke
+Stealth.MOD				SITUATION:In ambush
+Stealth.MOD				SITUATION:In bright light
+Stealth.MOD				SITUATION:In brush
+Stealth.MOD				SITUATION:In caverns
+Stealth.MOD				SITUATION:In darkness
+Stealth.MOD				SITUATION:In deserts
+Stealth.MOD				SITUATION:In dim light
+Stealth.MOD				SITUATION:In dim light or darkness
+Stealth.MOD				SITUATION:In forests
+Stealth.MOD				SITUATION:In hilly or rocky areas
+Stealth.MOD				SITUATION:In lair
+Stealth.MOD				SITUATION:In marshes
+Stealth.MOD				SITUATION:In metal or stony areas
+Stealth.MOD				SITUATION:In mud
+Stealth.MOD				SITUATION:In rocky areas
+Stealth.MOD				SITUATION:In rocky terrain
+Stealth.MOD				SITUATION:In sand
+Stealth.MOD				SITUATION:In scrubland or brush
+Stealth.MOD				SITUATION:In shadowy conditions
+Stealth.MOD				SITUATION:In shallow water
+Stealth.MOD				SITUATION:In snow
+Stealth.MOD				SITUATION:In grass
+Stealth.MOD				SITUATION:In stony environs
+Stealth.MOD				SITUATION:In stony or icy areas
+Stealth.MOD				SITUATION:In swamps
+Stealth.MOD				SITUATION:In tall grass
+Stealth.MOD				SITUATION:In thick vegetation
+Stealth.MOD				SITUATION:In vegetation
+Stealth.MOD				SITUATION:In water
+Stealth.MOD				SITUATION:In webs
+Stealth.MOD				SITUATION:Load Crossbow
+Stealth.MOD				SITUATION:Move Silently
+Stealth.MOD				SITUATION:Poison Ammo
+Stealth.MOD				SITUATION:Sniping
+Stealth.MOD				SITUATION:Stationary for at least one round
+Stealth.MOD				SITUATION:Underground
+Stealth.MOD				SITUATION:Underwater
+Stealth.MOD				SITUATION:When moving
+Stealth.MOD				SITUATION:When submerged
+Stealth.MOD				SITUATION:In rocks
+Stealth.MOD				SITUATION:Undergrowth
+Stealth.MOD				SITUATION:In dense vegetation
+Survival.MOD			SITUATION:Avoid Becoming Lost in Caverns and Rocky Areas
+Survival.MOD			SITUATION:Avoid Getting Lost
+Survival.MOD			SITUATION:Avoid becoming lost
+Survival.MOD			SITUATION:Darklands
+Survival.MOD			SITUATION:Desert
+Survival.MOD			SITUATION:Find Food
+Survival.MOD			SITUATION:Follow or identify tracks
+Survival.MOD			SITUATION:Follow or identify tracks/Underground
+Survival.MOD			SITUATION:In forests
+Survival.MOD			SITUATION:Navigate
+Survival.MOD			SITUATION:Rainforest
+Survival.MOD			SITUATION:Sea
+Survival.MOD			SITUATION:Track Giant
+Survival.MOD			SITUATION:Track by scent
+Survival.MOD			SITUATION:Tracking
+Survival.MOD			SITUATION:Tracking Undead
+Survival.MOD			SITUATION:Underground
+Survival.MOD			SITUATION:Urban
+Survival.MOD			SITUATION:Get along in the wild
+
+Use Magic Device.MOD		SITUATION:Spell Trigger or Spell Completion
+
+
+
+
+
+
+Bluff.MOD				SITUATION:Giant subtype
+Perception.MOD			SITUATION:Giant subtype
+Sense Motive.MOD			SITUATION:Giant subtype
+Appraise.MOD			SITUATION:Giant subtype
+Perception.MOD			SITUATION:sight-based
+
+
+Acrobatics.MOD			SITUATION:Maintain Balance
+Acrobatics.MOD			SITUATION:on the ground
+Appraise.MOD			SITUATION:Gems
+Bluff.MOD				SITUATION:fool someone
+Bluff.MOD				SITUATION:Using voice
+Climb.MOD				SITUATION:With spider legs
+Climb.MOD				SITUATION:Without Rope
+Diplomacy.MOD			SITUATION:Aberrations
+Diplomacy.MOD			SITUATION:Demons
+Diplomacy.MOD			SITUATION:Dromites
+Diplomacy.MOD			SITUATION:Undead
+Diplomacy.MOD			SITUATION:Using voice
+Diplomacy.MOD			SITUATION:Wild Empathy
+Disable Device.MOD		SITUATION:Traps
+Disable Device.MOD		SITUATION:Unlock Door
+Disguise.MOD			SITUATION:As animal of different species
+Disguise.MOD			SITUATION:As specific animal of same species
+Handle Animal.MOD			SITUATION:Train Animal
+Intimidate.MOD			SITUATION:Demons
+Intimidate.MOD			SITUATION:Demoralize
+Perception.MOD			SITUATION:At night
+Perception.MOD			SITUATION:Avoid Surprise
+Perception.MOD			SITUATION:Find Secret Doors
+Perception.MOD			SITUATION:See Through Disguise
+Sleight of Hand.MOD		SITUATION:Pick pockets of stunned or disabled victims
+Spellcraft.MOD			SITUATION:Counterspell
+Spellcraft.MOD			SITUATION:Identity magic item
+Stealth.MOD				SITUATION:In jungles
+Stealth.MOD				SITUATION:On plains
+Stealth.MOD				SITUATION:In urban environments
+Stealth.MOD				SITUATION:While still
+Survival.MOD			SITUATION:Find Fresh Water
+Survival.MOD			SITUATION:In water
+Survival.MOD			SITUATION:Jungles
+Survival.MOD			SITUATION:Plains
+Survival.MOD			SITUATION:Swamps
+Survival.MOD			SITUATION:Undergrowth
+Swim.MOD				SITUATION:Completely Underwater
+Use Magic Device.MOD		SITUATION:activate item
+
+###Block: Inner Sea World Guide
+# Skill Name		Situational Skill
+Bluff.MOD			SITUATION:Fool someone
+Bluff.MOD			SITUATION:Pass messages
+Escape Artist.MOD		SITUATION:Escape bonds/grapple
+Handle Animal.MOD		SITUATION:Birds of prey
+Knowledge (Planes).MOD	SITUATION:ID demon
+Linguistics.MOD		SITUATION:Create forgeries
+Sense Motive.MOD		SITUATION:Resist feint
+
+
+Handle Animal.MOD		SITUATION:Horse
+Ride.MOD			SITUATION:Horse
+
+###Book of the Damned vol 2
+Disguise.MOD		SITUATION:Inhabiting a corpse
+Escape Artist.MOD		SITUATION:Not inhabiting a corpse
+
+
+
+
+
+
+
+
+###Block: Versatile Performance
+# Skill Name	Situational Skill Use
+#	Bluff.MOD		SITUATION:Versatile Performance (Act)					BONUS:SITUATION|Bluff=Versatile Performance (Act)|var("SKILL.Perform (Act).MISC")	BONUS:SITUATION|Disguise=Versatile Performance (Act)|var("SKILL.Perform (Act).MISC")
+#	Disguise.MOD	SITUATION:Versatile Performance (Act)					BONUS:SITUATION|Bluff=Versatile Performance (Comedy)|var("SKILL.Perform (Comedy).MISC")	BONUS:SITUATION|Intimidate=Versatile Performance (Comedy)|var("SKILL.Perform (Comedy).MISC")
+#	Bluff.MOD		SITUATION:Versatile Performance (Comedy)					BONUS:SITUATION|Acrobatics=Versatile Performance (Dance)|var("SKILL.Perform (Dance).MISC")	BONUS:SITUATION|Fly=Versatile Performance (Dance)|var("SKILL.Perform (Dance).MISC")
+#	Intimidate.MOD	SITUATION:Versatile Performance (Comedy)					BONUS:SITUATION|Diplomacy=Versatile Performance (Keyboard Instruments)|var("SKILL.Perform (Keyboard Instruments).MISC")	BONUS:SITUATION|Sense Motive=Versatile Performance (Keyboard Instruments)|var("SKILL.Perform (Keyboard Instruments).MISC")
+#	Acrobatics.MOD	SITUATION:Versatile Performance (Dance)					BONUS:SITUATION|Diplomacy=Versatile Performance (Oratory)|var("SKILL.Perform (Oratory).MISC")	BONUS:SITUATION|Sense Motive=Versatile Performance (Oratory)|var("SKILL.Perform (Oratory).MISC")
+#	Fly.MOD		SITUATION:Versatile Performance (Dance)					BONUS:SITUATION|Handle Animal=Versatile Performance (Percussion Instruments)|var("SKILL.Perform (Percussion Instruments).MISC")	BONUS:SITUATION|Intimidate=Versatile Performance (Percussion Instruments)|var("SKILL.Perform (Percussion Instruments).MISC")
+#	Diplomacy.MOD	SITUATION:Versatile Performance (Keyboard Instruments)		BONUS:SITUATION|Bluff=Versatile Performance (Sing)|var("SKILL.Perform (Sing).MISC")	BONUS:SITUATION|Sense Motive=Versatile Performance (Sing)|var("SKILL.Perform (Sing).MISC")
+#	Sense Motive.MOD	SITUATION:Versatile Performance (Keyboard Instruments)		BONUS:SITUATION|Bluff=Versatile Performance (String Instruments)|var("SKILL.Perform (String Instruments).MISC")	BONUS:SITUATION|Diplomacy=Versatile Performance (String Instruments)|var("SKILL.Perform (String Instruments).MISC")
+#	Diplomacy.MOD	SITUATION:Versatile Performance (Oratory)					BONUS:SITUATION|Diplomacy=Versatile Performance (Wind Instruments)|var("SKILL.Perform (Wind Instruments).MISC")	BONUS:SITUATION|Handle Animal=Versatile Performance (Wind Instruments)|var("SKILL.Perform (Wind Instruments).MISC")
+#	Sense Motive.MOD	SITUATION:Versatile Performance (Oratory)
+#	Handle Animal.MOD	SITUATION:Versatile Performance (Percussion Instruments)
+#	Intimidate.MOD	SITUATION:Versatile Performance (Percussion Instruments)
+#	Bluff.MOD		SITUATION:Versatile Performance (Sing)
+#	Sense Motive.MOD	SITUATION:Versatile Performance (Sing)
+#	Bluff.MOD		SITUATION:Versatile Performance (String Instruments)
+#	Diplomacy.MOD	SITUATION:Versatile Performance (String Instruments)
+#	Diplomacy.MOD	SITUATION:Versatile Performance (Wind Instruments)
+#	Handle Animal.MOD	SITUATION:Versatile Performance (Wind Instruments)

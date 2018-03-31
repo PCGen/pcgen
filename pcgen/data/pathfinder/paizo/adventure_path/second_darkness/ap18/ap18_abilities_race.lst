@@ -1,0 +1,32 @@
+# CVS $Revision: $ $Author: $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
+SOURCELONG:Second Darkness, Chapter 6 - Descent into Midnight	SOURCESHORT:AP18	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy86v1	SOURCEDATE:2009-01
+
+###Block: Black-Blooded Abilities
+# Ability Name			Output Name				Category of Ability		Type								Define					Description																	Ability							Modify VAR																										Source Page		Aspects
+Black-Blooded Breath Weapon	OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			DEFINE:BlackBloodedBreathWeaponDC|0	DESC:Cone of black blood, reflex save (DC %1) for half|BlackBloodedBreathWeaponDC					ABILITY:Ability Focus|AUTOMATIC|Breath Weapon	BONUS:VAR|BlackBloodedBreathWeaponDC|10+(HD/2)+CON|TYPE=Base	BONUS:VAR|BlackBloodedBreathWeaponDC|2|PREABILITY:1,CATEGORY=FEAT,Ability Focus (Breath Weapon)	SOURCEPAGE:p.82
+Blood Rain									CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural.Aura								DESC:Black-blooded creatures constantly leak and spray bursts of freezing black blood (%1 Cold Damage)|CON																																				SOURCEPAGE:p.82
+Tainted Life								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness							DESC:The black blood is antithetical to all life and consumes all but the heartiest hosts.																																						SOURCEPAGE:p.82
+Cold Damage									CATEGORY:Special Ability	TYPE:SpecialAttack											DESC:A black-blooded creature deals additional cold damage on all attacks																																									SOURCEPAGE:p.82	ASPECT:Ability Bonus|+1d6
+
+###Block: Charda Abilities
+# Ability Name		Category of Ability		Type								Define			Description															Modify VAR							Source Page
+Immunity To Black Blood	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity					DESC:You are unaffected by black blood																		SOURCEPAGE:p.84
+Black Bile			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary							DESC:All chardas retain a store of black blood in muscular organs attached to their mouths.									SOURCEPAGE:p.84
+Blood Bite			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption					DESC:On a successfully bite attack, a charda can choose to deal additional cold damage.										SOURCEPAGE:p.84
+Bile Blast			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption					DESC:A charda can spit a concentrated stream of black blood.														SOURCEPAGE:p.84
+Bile Spray			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	DEFINE:BileSprayDC|0	DESC:Chardas can also unleash a cone of black blood, DC %1|BileSprayDC					BONUS:VAR|BileSprayDC|10+(HD/2)+CON|TYPE=Base	SOURCEPAGE:p.84
+Blood Born			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary							DESC:The chardas are children of the black blood.																SOURCEPAGE:p.85
+Body Slam			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption					DESC:Small and dense, chardas excel at rushing into opponents and bowling them over.										SOURCEPAGE:p.85
+
+###Block: Shaitan Abilities
+# Ability Name	Category of Ability		Type								Description																																										Source Page
+Metalmorph		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			DESC:A shaitan may touch any single metal object and transform it into any other metal as a standard action																										SOURCEPAGE:p.86
+Stone Curse		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural.AttackOption	DESC:If a shaitan wins a bull rush check and pushes its target into a stone, metal, or crystal barrier, the target must make a DC %1 Reflex save or be forced into the barrier as if the target had cast meld into stone to merge with the object|10+(HD/2)+STR	SOURCEPAGE:p.86
+Stone Glide		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			DESC:Shaitans can move through stone, dirt, crystal, or metal as easily as a fish swims through water, using their burrow speed.																						SOURCEPAGE:p.86
+
+###Block: Xacarba Abilities
+# Ability Name		Output Name			Category of Ability		Type							Description																				Source Page		Aspects
+Aura of Voices						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura	DESC:A xacarba has three voices that constantly murmur to, taunt, and distract anything that comes near, DC %1|10+(HD/2)+WIS	SOURCEPAGE:p.88	ASPECT:Ability Benefit|30 ft.
+Serpentine Mask						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural		DESC:A xacarba can transform itself into any humanoid shape of its size or smaller.								SOURCEPAGE:p.88
+Xacarba Summon Demon	OUTPUTNAME:Summon Demon	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike			DESC:Once per day a xacarba can attempt to summon Demons with a 50%% chance of success.							SOURCEPAGE:p.88
+Tri-Venom							CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural		DESC:A xacarba's bite can afflict an opponent with one of three separate poisons, DC %1|10+(HD/2)+CON|TYPE=Base			SOURCEPAGE:p.88

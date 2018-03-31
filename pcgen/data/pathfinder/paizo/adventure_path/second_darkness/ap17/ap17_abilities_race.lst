@@ -1,0 +1,38 @@
+# CVS $Revision: $ $Author: $ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+SOURCELONG:Second Darkness, Chapter 5: A Memory of Darkness	SOURCESHORT:AP17	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy86j6	SOURCEDATE:2008-12
+# Original Entry by Eddy Anthony (MoSaT)
+
+###Block: Banshee Abilities
+# Ability Name		Unique Key						Category of Ability		Type								Visible	Description															Bonus to HP				Save bonus				Source Page
+Hear Heartbeat									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Sense				DESC:A banshee can sense the beating hearts of living creatures with horrific ease.													SOURCEPAGE:p.80
+Unholy Fortitude									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																					BONUS:HP|CURRENTMAX|CHA*TL	BONUS:SAVE|Fortitude|CHA	SOURCEPAGE:p.80
+Wail											CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary					DESC:A banshee's wail is its most notorious and devastating attack, DC %1|10+(HD/2)+CHA												SOURCEPAGE:p.80
+Fear				KEY:Fear ~ Banshee				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES	DESC:The touch of a banshee infuses the living with overwhelming waves of fear.													SOURCEPAGE:p.80
+Sunlight Powerlessness	KEY:Sunlight Powerlessness ~ Banshee	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness	VISIBLE:YES	DESC:A banshee is powerless in natural sunlight (not merely a daylight spell) and flees from it											SOURCEPAGE:p.80
+
+###Block: Leucrotta Abilities
+# Ability Name	Category of Ability		Type						Description																								Source Page
+Lure			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	DESC:A leucrotta can use its voice to create a powerful compulsion to approach it if the listener isn't aware of the danger, DC %1|10+(HD/2)+CHA	SOURCEPAGE:p.82
+Powerful Bite	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DESC:A leucrotta's bite is powerful indeed, capable of slicing through metal and cutting through bone with terrifying ease					SOURCEPAGE:p.82
+Voice Mimicry	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DESC:A leucrotta can perfectly imitate the voice of any creature it has heard talking											SOURCEPAGE:p.82
+
+###Block: Mandragora Abilities
+# Ability Name			Unique Key				Category of Ability		Type								Visible	Description																								Source Page
+Vulnerability To Darkness						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness	VISIBLE:YES																										SOURCEPAGE:p.84
+Blood Drain				KEY:Blood Drain ~ Mandragora	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES	DESC:A mandragora drains blood, dealing 1 point of Strength damage, whenever it successfully bites a victim.							SOURCEPAGE:p.84
+Shriek				KEY:Shriek ~ Mandragora		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES	DESC:Once per day as a standard action, a mandragora can give voice to an unsettling shriek that sounds not unlike the cry of a frightened baby.	SOURCEPAGE:p.84
+
+###Block: Menotherian Abilities
+# Ability Name	Unique Key					Category of Ability		Type							Visible	Description																													Source Page
+Alluring Scent							CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.Aura			DESC:The Menotherian constantly exudes intoxicating pheromones that cause creatures in her vicinity to grow relaxed and react favorably toward her, DC %1|10+(HD/2)+CON|TYPE=Base	SOURCEPAGE:p.86
+Implant Swarm							CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				DESC:Once per day as a standard action, the Menotherian can use her stinger to implant a cluster of eggs in a target, DC %1|10+(HD/2)+CON|TYPE=Base						SOURCEPAGE:p.86
+Mind Control							CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				DESC:The Menotherian can inject a concentrated form of its alluring scent directly into the brain of a helpless or willing humanoid creature.							SOURCEPAGE:p.86
+Alternate Form	KEY:Alternate Form ~ Menotherian	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural		VISIBLE:YES	DESC:The Menotherian can change into her elf-like form or back again at will as a move-equivalent action.													SOURCEPAGE:p.87
+
+###Block: Treerazer Abilities
+# Ability Name		Unique Key					Category of Ability		Type								Visible	Description																									Source Page
+Aura of Corruption							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura				DESC:Treerazer exudes an aura of corruption to a radius of 120 feet, DC %1|10+(HD/2)+CON|TYPE=Base										SOURCEPAGE:p.88
+Defoliation									CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural					DESC:As a standard action once every 1d4 rounds, Treerazer can exude a pulse of defoliating energy in a 30-footradius spread, DC %1|10+(HD/2)+CON|TYPE=Base	SOURCEPAGE:p.88
+Unholy Aura									CATEGORY:Special Ability	TYPE:SpecialQuality.Aura						DESC:DC 25																									SOURCEPAGE:p.88
+Freedom of Movement	KEY:Freedom of Movement ~ Treerazer	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.ModifyMovement	VISIBLE:YES	DESC:Treerazer constantly uses this ability, as the spell (CL 20th).															SOURCEPAGE:p.89
+Summon Demon		KEY:Summon Demon ~ Treerazer		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES	DESC:Once per day, Treerazer can automatically summon 1 shemhazian or 1d6 hezrous.													SOURCEPAGE:p.89

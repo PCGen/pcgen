@@ -1,0 +1,10 @@
+# CVS $Revision: $ $Author: $ -- Sun Sep  4 16:33:31 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:People of the River	SOURCESHORT:PotR	SOURCEWEB:http://paizo.com/products/btpy978r?Pathfinder-Player-Companion-People-of-the-River	SOURCEDATE:2014-08
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 27 April 2017
+
+CATEGORY=Special Ability|Veneficus Witch ~ Poisoner.MOD		DESC: A veneficus witch can use Craft (alchemy) to craft poisons.
+
+CATEGORY=Special Ability|Sorcerer Bloodline ~ Nanite.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Order of Vengeance.MOD					TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Rage Power ~ Raging Grappler.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC

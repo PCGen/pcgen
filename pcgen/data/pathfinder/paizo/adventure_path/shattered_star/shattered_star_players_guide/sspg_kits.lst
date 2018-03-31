@@ -1,0 +1,14 @@
+# CVS $Revision: $ $Author: $ -- Wed Jul 23 13:38:17 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+SOURCELONG:Shattered Star Player's Guide	SOURCESHORT:SSPG	SOURCEWEB:http://paizo.com/products/btpy8txj?Pathfinder-Adventure-Path-Shattered-Star-Players-Guide	SOURCEDATE:2012-08
+# Original Entry by: Stefan Radermacher
+# Orginal Entry on: 7/23/2014
+
+# Note: the Alabaster Outcast Kit should also grant "a single additional nonmagical item worth no more than 200 gp".
+
+STARTPACK:Alabaster Outcast	TYPE:Character Trait	VISIBLE:NO
+GEAR:Outfit (Noble's)
+GEAR:Signet Ring
+
+#
+# End
+#

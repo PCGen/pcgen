@@ -1,0 +1,19 @@
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Skull and Shackles, Chapter 1 - The Wormwood Mutiny	SOURCESHORT:AP55	SOURCEWEB:http://paizo.com/products/btpy8rcc?Pathfinder-Adventure-Path-55-The-Wormwood-Mutiny	SOURCEDATE:2012-04
+# ORIGINAL ENTRY: James Dempsey
+# ORIGINAL ENTRY DATE: 2012-12
+
+# Equipment Name			Required Weapon Proficiency		Type																	Cost		Weight	Crit Mult	Crit Range	Damage	Modifier						Wield Category	Range		Size		Source Page		Special Property
+Boarding Pike of Repelling	PROFICIENCY:WEAPON|Boarding Pike	TYPE:Weapon.Resizable.Melee.TwoHanded.Simple.Reach.Standard.Piercing.Specific					COST:2308	WT:9		CRITMULT:x3	CRITRANGE:1	DAMAGE:1d8	EQMOD:Special Quality ~ Brace.Special Ability ~ Enhancement Cost|2000.Special Ability ~ +1 ~ Weapon.Material ~ Steel	WIELD:TwoHanded			SIZE:M	SOURCEPAGE:p.58	SPROP:Extend as a swift action giving reach of 20 feet for 1 round.
+Tidewater Cutlass			PROFICIENCY:WEAPON|Cutlass		TYPE:Weapon.Resizable.Melee.OneHanded.Martial.Standard.Slashing.Sword.Pirate.BladeHeavy.Specific	COST:1395	WT:4		CRITMULT:x2	CRITRANGE:3	DAMAGE:1d6	EQMOD:Special Ability ~ Enhancement Cost|2000.Special Ability ~ +1 ~ Weapon.Material ~ Steel		WIELD:OneHanded			SIZE:M	SOURCEPAGE:p.58	SPROP:Cast hydraulic push once per day.
+Vindictive Harpoon		PROFICIENCY:WEAPON|Harpoon		TYPE:Weapon.Resizable.Melee.OneHanded.Exotic.Ranged.Standard.Slashing.Sword.Specific			COST:2305	WT:16		CRITMULT:x3	CRITRANGE:1	DAMAGE:1d8	EQMOD:Special Ability ~ Enhancement Cost|8000.Special Ability ~ +1 ~ Weapon.Special Ability ~ Returning ~ Thrown.Material ~ Steel	WIELD:TwoHanded	RANGE:10	SIZE:M	SOURCEPAGE:p.58	SPROP:Wielder takes no penalties on attack rolls underwater.
+
+###Block: Custom gear for NPCs
+# Equipment Name							Modifier
+Cat-O'-Nine-Tails.COPY=Masterwork Cat-O'-Nine-Tails
+Masterwork Cat-O'-Nine-Tails.MOD				EQMOD:Special Quality ~ Masterwork ~ Weapon
+Club.COPY=Frying Pan
+Handaxe.COPY=Masterwork Handaxe
+Masterwork Handaxe.MOD						EQMOD:Special Quality ~ Masterwork ~ Weapon
+Rapier.COPY=Masterwork Rapier
+Masterwork Rapier.MOD						EQMOD:Special Quality ~ Masterwork ~ Weapon

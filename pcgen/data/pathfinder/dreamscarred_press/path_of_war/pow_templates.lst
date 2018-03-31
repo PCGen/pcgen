@@ -1,0 +1,22 @@
+# CVS $Revision: $ $Author: $ -- Sat Jun 13 14:52:16 2015 -- reformated by prettylst.pl v1.51 (build 23662)
+# Original Entry by: Douglas Limmer
+# Original Entry Date: 2015-06-02 or earlier
+
+### Starting Gold
+# Template Name					Visible	Damage Reduction	Template																Modify VAR								Add to vision			Ability								Apply Kit					Main Race Type	Race Subtype		Vision			Description
+Starting Gold ~ PoW				VISIBLE:NO				TEMPLATE:CHOOSE:Starting Gold PoW ~ Random|Starting Gold PoW ~ Maximum|Starting Gold PoW ~ Average
+Starting Gold PoW ~ Random			VISIBLE:NO																																												KIT:1|Starting Gold PoW ~ Random
+Starting Gold PoW ~ Maximum			VISIBLE:NO																																												KIT:1|Starting Gold PoW ~ Maximum
+Starting Gold PoW ~ Average			VISIBLE:NO																																												KIT:1|Starting Gold PoW ~ Average
+
+Umbral Blade ~ Darkvision			VISIBLE:NO				TEMPLATE:CHOOSE:Umbral Blade ~ Gain Darkvision|Umbral Blade ~ Improve Darkvision
+Umbral Blade ~ Gain Darkvision		VISIBLE:NO																																																									VISION:Darkvision (60')
+Umbral Blade ~ Improve Darkvision		VISIBLE:NO																														BONUS:VISION|Darkvision|30
+
+Umbral Blade One with the Dark		VISIBLE:NO	DR:10/silver																		BONUS:VAR|ColdResistanceBonus|10|TYPE=Resistance						ABILITY:Special Ability|AUTOMATIC|Resistance to Cold							RACETYPE:Outsider	RACESUBTYPE:Native
+
+Martial Tradition Allegiance Benefit																																																															DESC:Use this to activate allegiance benefits of martial traditions.
+
+#
+# End
+#

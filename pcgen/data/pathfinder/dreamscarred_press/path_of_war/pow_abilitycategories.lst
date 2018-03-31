@@ -1,0 +1,97 @@
+# CVS $Revision: $ $Author: $ -- Sat Jun 13 14:52:16 2015 -- reformated by prettylst.pl v1.51 (build 23662)
+# Original Entry by: Douglas Limmer
+# Original Entry Date: 2015-06-02 or earlier
+
+###Block: Stalker
+# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI	Display Location
+ABILITYCATEGORY:Stalker Class Feature	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:StalkerClassFeatures	PLURAL:Stalker Class Features	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Stalker Archetype		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Archetype		TYPE:StalkerArchetype		PLURAL:Stalker Archetypes	DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Stalker Art			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:StalkerArt			PLURAL:Stalker Arts		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Combat Art Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Combat				PLURAL:Combat Art Feats		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Stalker Rogue Talent	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:StalkerRogueTalent		PLURAL:Stalker Rogue Talents	DISPLAYLOCATION:Class Features
+
+
+###Block: Warder
+# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI	Display Location
+ABILITYCATEGORY:Warder Class Feature	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:WarderClassFeatures	PLURAL:Warder Class Features	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Warder Archetype		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Archetype		TYPE:WarderArchetype		PLURAL:Warder Archetypes	DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Warder Bonus Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Combat.Teamwork		PLURAL:Warder Bonus Feats	DISPLAYLOCATION:Feats
+
+
+###Block: Warlord
+# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI		Display Location
+ABILITYCATEGORY:Warlord Class Feature	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:WarlordClassFeatures		PLURAL:Warlord Class Features		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Warlord Archetype		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Archetype		TYPE:WarlordArchetype			PLURAL:Warlord Archetypes		DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Warlord Gambit		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WarlordGambit			PLURAL:Warlord Gambits			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Warlord Bonus Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Combat.Teamwork			PLURAL:Warlord Bonus Feats		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Warlord Warleader Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Teamwork				PLURAL:Warlord Warleader Feats	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Battle Prowess Discipline	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:BasicInitiatingDiscipline	PLURAL:Battle Prowess Disciplines	DISPLAYLOCATION:Class Features
+
+
+###Block: ability categories for feats
+# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object	Type of Object				Plural description for UI			Display Location
+ABILITYCATEGORY:Advanced Study Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal		TYPE:AdvancedStudyChoice		PLURAL:Advanced Study Choices			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Martial Training Discipline	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal		TYPE:MartialTrainingDiscipline	PLURAL:Martial Training Disciplines		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Martial Training Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal		TYPE:MartialTrainingChoice		PLURAL:Martial Training Choices		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Weapon Group Adaptation Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal		TYPE:WeaponGroupAdaptation		PLURAL:Weapon Group Adaptation Choices	DISPLAYLOCATION:Feats
+
+
+###Block: ability categories for prestige classes
+# Block: Battle Templar
+# Ability Category						Visible		Editable?		Change Pool?	Category of Object		Type of Object				Plural description for UI				Display Location
+ABILITYCATEGORY:Battle Templar Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:BattleTemplarClassFeatures	PLURAL:Battle Templar Class Features		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Battle Templar Initiator Class Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Internal			TYPE:BattleTemplarInitiatingChoice	PLURAL:Battle Templar Initiator Class Choices	DISPLAYLOCATION:Class Features
+
+# Block: Bladecaster
+ABILITYCATEGORY:Bladecaster Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:BladecasterClassFeatures		PLURAL:Bladecaster Class Features			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Bladecaster Initiator Class Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Internal			TYPE:BladecasterInitiatingChoice	PLURAL:Bladecaster Initiator Class Choices	DISPLAYLOCATION:Class Features
+
+# Block: Dragon Fury
+ABILITYCATEGORY:Dragon Fury Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:DragonFuryClassFeatures		PLURAL:Dragon Fury Class Features			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Dragon Fury Initiator Class Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Internal			TYPE:DragonFuryInitiatingChoice	PLURAL:Dragon Fury Initiator Class Choices	DISPLAYLOCATION:Class Features
+
+# Block: Mage Hunter
+ABILITYCATEGORY:Mage Hunter Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:MageHunterClassFeatures		PLURAL:Mage Hunter Class Features			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Mage Hunter Initiator Class Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Internal			TYPE:MageHunterInitiatingChoice	PLURAL:Mage Hunter Initiator Class Choices	DISPLAYLOCATION:Class Features
+
+# Block: Umbral Blade
+ABILITYCATEGORY:Umbral Blade Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:UmbralBladeClassFeatures		PLURAL:Umbral Blade Class Features			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Umbral Blade Initiator Class Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Internal			TYPE:UmbralBladeInitiatingChoice	PLURAL:Umbral Blade Initiator Class Choices	DISPLAYLOCATION:Class Features
+
+
+###Block: ability categories for archetypes
+# Block:
+# Ability Category							Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI					Display Location
+ABILITYCATEGORY:Archer Training					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ArcherTraining			PLURAL:Archer Training						DISPLAYLOCATION:Class Features
+
+# Block: Steelfist Commando
+ABILITYCATEGORY:Steelfist Commando Bonus Ability		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:SteelfistCommandoBonusChoice	PLURAL:Steelfist Commando Bonus Abilities			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Steelfist Commando Bonus Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Combat.Teamwork			PLURAL:Steelfist Commando Bonus Feats			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Steelfist Commando Rogue Talent			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RogueTalent				PLURAL:Steelfist Commando Rogue Talents			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Steelfist Commando Advanced Rogue Talent	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AdvancedRogueTalent		PLURAL:Steelfist Commando Advanced Rogue Talents	DISPLAYLOCATION:Class Features
+
+###Block: martial traditions
+# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object	Type of Object					Plural description for UI	Display Location
+ABILITYCATEGORY:Martial Tradition				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Archetype	TYPE:MartialTradition				PLURAL:Martial Traditions	DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Black Seraph Stalker Replacement	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal		TYPE:BlackSeraphStalkerReplacement							DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Black Seraph Warder Replacement		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal		TYPE:BlackSeraphWarderReplacement							DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Black Seraph Warlord Replacement	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal		TYPE:BlackSeraphWarlordReplacement							DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Primal Fury Stalker Replacement		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal		TYPE:PrimalFuryStalkerReplacement							DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Primal Fury Warder Replacement		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal		TYPE:PrimalFuryWardenReplacement							DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Primal Fury Warlord Replacement		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal		TYPE:PrimalFuryWarlordReplacement							DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Iron Tortoise Stalker Replacement	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal		TYPE:IronTortoiseStalkerReplacement							DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Iron Tortoise Warder Replacement	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal		TYPE:IronTortoiseWardenReplacement							DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Iron Tortoise Warlord Replacement	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal		TYPE:IronTortoiseWarlordReplacement							DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Silver Crane Stalker Replacement	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal		TYPE:SilverCraneStalkerReplacement							DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Silver Crane Warder Replacement		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal		TYPE:SilverCraneWardenReplacement							DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Silver Crane Warlord Replacement	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal		TYPE:SilverCraneWarlordReplacement							DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Scarlet Throne Stalker Replacement	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal		TYPE:ScarletThroneStalkerReplacement						DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Scarlet Throne Warder Replacement	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal		TYPE:ScarletThroneWardenReplacement							DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Scarlet Throne Warlord Replacement	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal		TYPE:ScarletThroneWarlordReplacement						DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Veiled Moon Stalker Replacement		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal		TYPE:VeiledMoonStalkerReplacement							DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Veiled Moon Warder Replacement		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal		TYPE:VeiledMoonWardenReplacement							DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Veiled Moon Warlord Replacement		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal		TYPE:VeiledMoonWarlordReplacement							DISPLAYLOCATION:Archetype
+
+#
+# End
+#

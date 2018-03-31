@@ -1,0 +1,21 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec  2 19:28:17 2014 -- reformated by prettylst.pl v1.51 (build 25490)
+SOURCELONG:Lords of Chaos, Book of the Damned, Volume 2	SOURCESHORT:BOTD2	SOURCEWEB:http://paizo.com/products/btpy8hij?Pathfinder-Campaign-Setting-Book-of-the-Damned-Volume-2-Lords-of-Chaos	SOURCEDATE:2010-10
+# ORIGINAL ENTRY: elro the onk (Paul Shipley)
+
+###Block: Demonic Implants
+# Name														Type							Cost		Wt	Source Page
+# Equipment Name	Type							Cost		Weight	Source Page		Bonus to skill					Special Property																					Template
+Demon Blood		TYPE:Magic.Wondrous.Implant.Consumable	COST:800	WT:1		SOURCEPAGE:p.44								SPROP:+2 bonus on CL checks to penetrate a demon's SR, plus demons suffer -2 penalty on saves against user's spells and SLAs for 1 hour
+Demon Senses	TYPE:Magic.Wondrous.Implant			COST:20000	WT:1		SOURCEPAGE:p.44	BONUS:SKILL|Perception|8|TYPE=Racial
+Demon Talon		TYPE:Magic.Wondrous.Implant			COST:20000	WT:3		SOURCEPAGE:p.44																															TEMPLATE:Demon Talon
+
+###Block: Abyssal Items
+# Equipment Name				Product Identity?	Output Name						Type					Cost		Weight	Source Page		Ability								Innate Spells																											Caster level				Modify VAR							Special Property
+Amulet of the Abyss													TYPE:Magic.Wondrous.Amulet	COST:15000	WT:0		SOURCEPAGE:p.49	ABILITY:Special Ability|AUTOMATIC|Negative Levels																																				BONUS:VAR|NegLevels|2|PREALIGN:LG,NG,CG,LN,LE	SPROP:Functions as holy symbol of attuned demon lord, worshiper is aware of any action or item that could adversely affect his alignment and his standing with demon lord, all 3 SLAs from first demonic boon 1/day each
+Amulet of the Abyss (Lamashtu)	NAMEISPI:YES								TYPE:Magic.Wondrous.Amulet	COST:15000	WT:0		SOURCEPAGE:p.49	ABILITY:Special Ability|AUTOMATIC|Negative Levels	SPELLS:Amulet of the Abyss|TIMES=1|CASTERLEVEL=5|Confusion (Lesser),11|Summon Monster III,14|Touch of Idiocy,13																	BONUS:VAR|NegLevels|2|PREALIGN:LG,NG,CG,LN,LE	SPROP:Functions as holy symbol of Lamashtu, worshiper is aware of any action or item that could adversely affect his alignment and his standing with Lamashtu
+# Remaining 41 amulet variants left as exercise for the reader...
+Book of the Damned (Demonic)					OUTPUTNAME:Book of the Damned: [NAME]	TYPE:Artifact.Major		COST:0	WT:12		SOURCEPAGE:p.49	ABILITY:Special Ability|AUTOMATIC|Negative Levels	SPELLS:Book of the Damned|TIMES=3|CASTERLEVEL=25|Blasphemy,20|Desecrate,13|Insanity,20|Planar Binding (Greater),22|Rift of Ruin,22|Summon Monster VII,20|Unholy Blight,16	BONUS:CASTERLEVEL|DESCRIPTOR.Evil|2	BONUS:VAR|NegLevels|1|PREALIGN:LG,NG,CG		SPROP:Contains every [Evil] spell plus SLAs, +4 bonus on Knowledge (planes) after consulting for 1 hr, teleporting to Abyss always arrives at exact location, permanent unhallow & sympathy to CE, +2 bonus to Charisma checks vs CE creatures, 3/day can cast one of variety of SLAs, 1/day as standard action gain any one demonic boon
+
+#
+# End
+#

@@ -1,0 +1,41 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+
+# Group Firearms - Single Feat
+# Weapon Name	Type
+Arc Pistol		TYPE:Firearm.Proficiency_Group_Firearm.OneHandedFirearm.Pistol
+Arc Rifle		TYPE:Firearm.Proficiency_Group_Firearm
+Autograpnel		TYPE:Firearm.Proficiency_Group_Firearm
+Dart Gun		TYPE:Firearm.Proficiency_Group_Firearm
+Death Ray		TYPE:Firearm.Proficiency_Group_Firearm
+EMP Pistol		TYPE:Firearm.Proficiency_Group_Firearm.OneHandedFirearm.Pistol
+EMP Rifle		TYPE:Firearm.Proficiency_Group_Firearm
+Flare Gun		TYPE:Firearm.Proficiency_Group_Firearm.OneHandedFirearm.Pistol
+Gravity Pistol	TYPE:Firearm.Proficiency_Group_Firearm.OneHandedFirearm.Pistol
+Gravity Rifle	TYPE:Firearm.Proficiency_Group_Firearm
+Id Rifle		TYPE:Firearm.Proficiency_Group_Firearm
+Laser Pistol	TYPE:Firearm.Proficiency_Group_Firearm.OneHandedFirearm.Pistol
+Laser Rifle		TYPE:Firearm.Proficiency_Group_Firearm
+Mindrender		TYPE:Firearm.Proficiency_Group_Firearm
+Sonic Pistol	TYPE:Firearm.Proficiency_Group_Firearm.OneHandedFirearm.Pistol
+Sonic Rifle		TYPE:Firearm.Proficiency_Group_Firearm
+Stun Gun		TYPE:Firearm.Proficiency_Group_Firearm.OneHandedFirearm.Pistol
+Zero Pistol		TYPE:Firearm.Proficiency_Group_Firearm.OneHandedFirearm.Pistol
+Zero Rifle		TYPE:Firearm.Proficiency_Group_Firearm
+
+
+# Group Heavy Weaponry - Single Feat
+Atom Gun		TYPE:Heavy Weaponry.Proficiency_Group_Heavy_Weaponry
+Grenade Launcher	TYPE:Heavy Weaponry.Proficiency_Group_Heavy_Weaponry
+Nuclear Resonator	TYPE:Heavy Weaponry.Proficiency_Group_Heavy_Weaponry
+Plasmathrower	TYPE:Heavy Weaponry.Proficiency_Group_Heavy_Weaponry
+Rail Gun		TYPE:Heavy Weaponry.Proficiency_Group_Heavy_Weaponry
+Rocket Launcher	TYPE:Heavy Weaponry.Proficiency_Group_Heavy_Weaponry
+Vortex Gun		TYPE:Heavy Weaponry.Proficiency_Group_Heavy_Weaponry
+X-Laser		TYPE:Heavy Weaponry.Proficiency_Group_Heavy_Weaponry
+
+
+Chainsaw		TYPE:Exotic
+Laser Torch		TYPE:Martial
+
+Firearms		TYPE:Exotic
+Heavy Weaponry	TYPE:Exotic

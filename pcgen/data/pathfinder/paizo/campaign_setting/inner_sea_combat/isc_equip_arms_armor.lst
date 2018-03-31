@@ -1,0 +1,88 @@
+# CVS $Revision: $ $Author: $ -- Thu Jan 29 16:18:08 2015 -- reformated by prettylst.pl v1.51 (build 25712)
+
+# Armor
+# Equipment Name
+Splint Mail.COPY=Backbreaker Mail
+Armored Coat.COPY=Blackjacket
+Shield (Heavy/Wooden).COPY=Broadside Bulwark
+Full Plate.COPY=Crag Linnorm Plate
+Parade.COPY=Eagle Knight Dress Uniform
+Leaf Armor.COPY=Ekujae Jungle Armor
+Hellknight Plate.COPY=Gelugon Plate
+Hide.COPY=Ghoul Hide
+Shield (Tower).COPY=Guard of Man
+Klar.COPY=Lyrune-Quah Klar
+Hide.COPY=Mammoth Hide
+Studded Leather.COPY=Mosswater Stained Leather
+Breastplate.COPY=Numerian Resistance Plate
+Madu (Leather).COPY=Okeno Madu
+Leather.COPY=Scouting Leather
+Chain Shirt.COPY=Truefaith Vestments
+Stoneplate.COPY=Tunnel Defender Stoneplate
+Field Plate.COPY=War Commander's Field Plate
+Half-Plate.COPY=Xill Carapace Armor
+
+# Weapons
+Curve blade (Elven).COPY=Calistrian Kiss
+Sawtooth Sabre.COPY=Crimson Bluff
+Earth Breaker.COPY=Earth Breaker of Righted Injustice
+War Razor.COPY=Final Word
+Whip.COPY=Greenblood Scourge
+Starknife.COPY=Hunter's Starknife
+Temple Sword.COPY=Monastic Warden
+Pistol.COPY=Peacekeeping Pistol
+Falcata.COPY=Purging Falcata
+Quarterstaff.COPY=Quarterstaff of Contemplation
+Khopesh.COPY=Risen Blade
+Aldori Dueling Sword.COPY=Rostland Edge
+Bolas (Shoanti).COPY=Shadde-Quah Spirit Bolas
+Chain (Spiked).COPY=Shadowbound Chains
+Greatsword.COPY=Shearing Sword
+Urumi.COPY=Steadfast Urumi
+Bladed Scarf.COPY=Wanderer's Scarf
+Shortspear.COPY=Wendifisa Spear
+
+
+###Block: Armor Specific
+# Equipment Name					Modifier					Source, Long Desc.		Source, Short Desc.	Source Page
+Backbreaker Mail.MOD				EQMOD:Special Ability ~ +2 ~ Armor.Special Quality ~ Spikes ~ Armor			SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.50
+Blackjacket.MOD					EQMOD:Special Ability ~ +3 ~ Armor				SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.50
+Broadside Bulwark.MOD				EQMOD:Special Ability ~ +2 ~ Shield				SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.50
+Crag Linnorm Plate.MOD				EQMOD:Material ~ Dragonhide.Special Ability ~ +4 ~ Armor			SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.50
+Eagle Knight Dress Uniform.MOD		EQMOD:Special Ability ~ +2 ~ Armor				SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.50
+Ekujae Jungle Armor.MOD				EQMOD:Material ~ Leaf.Special Ability ~ +1 ~ Armor				SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.51
+Gelugon Plate.MOD					EQMOD:Special Ability ~ +3 ~ Armor				SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.51
+Ghoul Hide.MOD					EQMOD:Special Ability ~ +1 ~ Armor				SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.51
+Guard of Man.MOD					EQMOD:Special Ability ~ +2 ~ Shield.Special Ability ~ Spell Resistance / 13 ~ Armor		SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.51
+
+Lyrune-Quah Klar.MOD				EQMOD:Special Ability ~ +2 ~ Shield				SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.52
+Mammoth Hide.MOD					EQMOD:Special Ability ~ +3 ~ Armor				SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.52
+Mosswater Stained Leather.MOD			EQMOD:Special Ability ~ +2 ~ Armor				SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.52
+Numerian Resistance Plate.MOD			EQMOD:Special Ability ~ +2 ~ Armor				SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.52
+Okeno Madu.MOD					EQMOD:Special Ability ~ +1 ~ Shield				SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.52
+
+Scouting Leather.MOD				EQMOD:Special Ability ~ Expeditious ~ Armor.Special Ability ~ Glamered ~ Armor.Special Ability ~ +1 ~ Armor			SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.53
+Truefaith Vestments.MOD				EQMOD:Special Ability ~ +1 ~ Armor				SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.53
+Tunnel Defender Stoneplate.MOD		EQMOD:Special Ability ~ +3 ~ Armor				SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.53
+War Commander's Field Plate.MOD		EQMOD:Special Ability ~ Champion ~ Armor.Special Ability ~ +2 ~ Armor			SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.53
+Xill Carapace Armor.MOD				EQMOD:Special Ability ~ +1 ~ Armor.Special Quality ~ Spikes ~ Armor			SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.53
+
+# Weapons
+Calistrian Kiss.MOD				EQMOD:Special Ability ~ Heartseeker ~ Melee.Special Ability ~ +1 ~ Weapon		SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.54
+Crimson Bluff.MOD					EQMOD:Special Ability ~ +2 ~ Weapon.Special Ability ~ Speed ~ Weapon			SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.54
+Earth Breaker of Righted Injustice.MOD	EQMOD:Special Ability ~ Anarchic ~ Weapon.Special Ability ~ Flaming ~ Weapon.Special Ability ~ +2 ~ Weapon		SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.54
+Final Word.MOD					EQMOD:Special Ability ~ +1 ~ Weapon				SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.54
+Greenblood Scourge.MOD				EQMOD:Special Ability ~ Corrosive ~ Weapon.Special Ability ~ +2 ~ Weapon			SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.55
+Hunter's Starknife.MOD				EQMOD:Special Ability ~ +2 ~ Weapon.Special Ability ~ Wounding ~ Weapon			SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.55
+Monastic Warden.MOD				EQMOD:Special Ability ~ Ki Focus ~ Melee.Special Ability ~ +1 ~ Weapon				SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.55
+Peacekeeping Pistol.MOD				EQMOD:Special Ability ~ Merciful ~ Weapon.Special Ability ~ +1 ~ Weapon			SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.55
+Purging Falcata.MOD				EQMOD:Special Ability ~ +2 ~ Weapon				SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.55
+Quarterstaff of Contemplation.MOD		EQMOD:Special Ability ~ +2 ~ Weapon				SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.56
+Risen Blade.MOD					EQMOD:Special Ability ~ Flaming ~ Weapon.Special Ability ~ +2 ~ Weapon			SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.56
+Rostland Edge.MOD					EQMOD:Special Ability ~ Countering ~ Melee.Special Ability ~ Impervious ~ Weapon.Special Ability ~ +2 ~ Weapon	SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.56
+Shadde-Quah Spirit Bolas.MOD			EQMOD:Special Ability ~ +1 ~ Weapon				SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.56
+Shadowbound Chains.MOD				EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Vicious ~ Melee.Material ~ Viridium ~ Weapon	SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.57
+Shearing Sword.MOD				EQMOD:Special Ability ~ +1 ~ Weapon				SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.57
+Steadfast Urumi.MOD				EQMOD:Special Ability ~ Mighty Cleaving ~ Melee.Special Ability ~ +1 ~ Weapon			SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.57
+Wanderer's Scarf.MOD				EQMOD:Special Ability ~ +1 ~ Weapon				SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.57
+Wendifisa Spear.MOD				EQMOD:Special Ability ~ +1 ~ Weapon				SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.57

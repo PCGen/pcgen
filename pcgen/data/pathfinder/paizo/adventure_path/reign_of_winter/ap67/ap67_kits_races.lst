@@ -1,0 +1,139 @@
+# CVS $Revision: 17892 $ $Author: amaitland $ -- Wed Jan 21 16:41:44 2015 -- reformated by prettylst.pl v1.51 (build 25836)
+SOURCELONG:Reign of Winter, Part 1: The Snows of Summer	SOURCESHORT:AP67	SOURCEWEB:http://paizo.com/products/btpy8w7d/discuss?Pathfinder-Adventure-Path-67-The-Snows-of-Summer	SOURCEDATE:2013-02
+# ORIGINAL ENTRY: Stefan Radermacher
+# ORIGINAL ENTRY DATE: 26 September 2013
+
+STARTPACK:Bear (Polar) Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Bear (Polar)],[!PRERACE:1,%]	SOURCEPAGE:p.82
+ALIGN:TN
+RACE:Bear (Polar)	!PRERACE:1,%
+NAME:Polar Bear
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Perception	RANK:2
+SKILL:Survival	RANK:2
+SKILL:Swim		RANK:1
+ABILITY:CATEGORY=FEAT|Endurance
+ABILITY:CATEGORY=FEAT|Run
+ABILITY:CATEGORY=FEAT|Skill Focus (Survival)
+
+STARTPACK:Weasel (Giant) Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Weasel (Giant)],[!PRERACE:1,%]	SOURCEPAGE:p.82
+ALIGN:TN
+RACE:Weasel (Giant)	!PRERACE:1,%
+NAME:Giant Weasel
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+SKILL:Climb		RANK:1
+SKILL:Perception	RANK:1
+SKILL:Stealth	RANK:1
+SKILL:Survival	RANK:1
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Stealthy
+
+STARTPACK:Wolf (Timber) Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Wolf (Timber)],[!PRERACE:1,%]	SOURCEPAGE:p.83
+ALIGN:TN
+RACE:Wolf (Timber)	!PRERACE:1,%
+NAME:Timber Wolf
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Perception	RANK:1
+SKILL:Stealth	RANK:1
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
+
+STARTPACK:Frost Fir Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Frost Fir],[!PRERACE:1,%]	SOURCEPAGE:p.84
+ALIGN:TN
+RACE:Frost Fir	!PRERACE:1,%
+NAME:Frost Fir
+STAT:STR=11|DEX=10|CON=10|INT=11|WIS=10|CHA=11
+SKILL:Intimidate	RANK:2
+SKILL:Perception	RANK:1
+SKILL:Stealth	RANK:1
+ABILITY:CATEGORY=FEAT|Power Attack
+
+STARTPACK:House Spirit (Domovoi) Default	TYPE:DefaultMonster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,House Spirit (Domovoi)],[!PRERACE:1,%]	SOURCEPAGE:p.86
+ALIGN:CG
+RACE:House Spirit (Domovoi)	!PRERACE:1,%
+NAME:Domovoi
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=11
+SKILL:Acrobatics		RANK:2
+SKILL:Bluff			RANK:3
+SKILL:Diplomacy		RANK:3
+SKILL:Handle Animal	RANK:5
+SKILL:Knowledge (local)	RANK:2
+SKILL:Perception		RANK:3
+SKILL:Sense Motive	RANK:3
+SKILL:Stealth		RANK:4
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Mobility
+GEAR:Club	SIZE:T	LOCATION:Primary Hand
+
+STARTPACK:House Spirit (Dvorovoi) Default	TYPE:DefaultMonster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,House Spirit (Dvorovoi)],[!PRERACE:1,%]	SOURCEPAGE:p.86
+ALIGN:CG
+RACE:House Spirit (Dvorovoi)	!PRERACE:1,%
+NAME:Dvorovoi
+STAT:STR=11|DEX=10|CON=10|INT=11|WIS=11|CHA=10
+SKILL:Acrobatics			RANK:4
+SKILL:Bluff				RANK:4
+SKILL:Diplomacy			RANK:3
+SKILL:Handle Animal		RANK:6
+SKILL:Knowledge (nature)	RANK:3
+SKILL:Perception			RANK:5
+SKILL:Sense Motive		RANK:2
+SKILL:Stealth			RANK:6
+SKILL:Survival			RANK:2
+ABILITY:CATEGORY=FEAT|Catch Off-Guard
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Throw Anything
+ABILITY:CATEGORY=FEAT|Two-Handed Thrower
+GEAR:Pitchfork	LOCATION:Both Hands
+
+STARTPACK:House Spirit (Ovinnik) Default	TYPE:DefaultMonster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,House Spirit (Ovinnik)],[!PRERACE:1,%]	SOURCEPAGE:p.87
+ALIGN:CN
+RACE:House Spirit (Ovinnik)	!PRERACE:1,%
+NAME:Ovinnik
+STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=10
+SKILL:Acrobatics			RANK:2
+SKILL:Climb				RANK:3
+SKILL:Escape Artist		RANK:4
+SKILL:Intimidate			RANK:2
+SKILL:Knowledge (local)		RANK:2
+SKILL:Knowledge (nature)	RANK:2
+SKILL:Perception			RANK:4
+SKILL:Stealth			RANK:1
+ABILITY:CATEGORY=FEAT|Go Unnoticed
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+
+STARTPACK:Witchcrow Default	TYPE:DefaultMonster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Witchcrow],[!PRERACE:1,%]	SOURCEPAGE:p.88
+ALIGN:CE
+RACE:Witchcrow	!PRERACE:1,%
+NAME:Witchcrow
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
+SKILL:Fly				RANK:2
+SKILL:Knowledge (arcana)	RANK:1
+SKILL:Perception			RANK:2
+SKILL:Sleight of Hand		RANK:1
+SKILL:Spellcraft			RANK:2
+SKILL:Stealth			RANK:1
+ABILITY:CATEGORY=FEAT|Combat Expertise
+ABILITY:CATEGORY=FEAT|Improved Steal
+
+STARTPACK:Witchcrow (Greater) Default	TYPE:DefaultMonster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Witchcrow (Greater)],[!PRERACE:1,%]	SOURCEPAGE:p.88
+ALIGN:CE
+RACE:Witchcrow (Greater)	!PRERACE:1,%
+NAME:Greater Witchcrow
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
+SKILL:Bluff				RANK:4
+SKILL:Fly				RANK:3
+SKILL:Knowledge (arcana)	RANK:3
+SKILL:Perception			RANK:3
+SKILL:Sense Motive		RANK:3
+SKILL:Sleight of Hand		RANK:1
+SKILL:Spellcraft			RANK:3
+SKILL:Stealth			RANK:5
+ABILITY:CATEGORY=FEAT|Combat Expertise
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Steal
+ABILITY:CATEGORY=Witch Hex|Witch Hex ~ Cackle
+ABILITY:CATEGORY=Witch Hex|Witch Hex ~ Evil Eye
+ABILITY:CATEGORY=Witch Hex|Witch Hex ~ Misfortune
+
+#
+# End
+#

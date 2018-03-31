@@ -1,0 +1,5 @@
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:Guide to the River Kingdoms	SOURCESHORT:GTTRK	SOURCEWEB:http://paizo.com/pathfinder/pathfinderChronicles/pathfinderRPG/v5748btpy87d8	SOURCEDATE:2010-03
+
+# Equipment Name			Type						Cost		Weight	Source Page		Special Property
+Salve of the Second Chance	TYPE:Magic.Wondrous.Consumable	COST:1600	WT:0		SOURCEPAGE:62	SPROP:Apply for Reincarnate effect

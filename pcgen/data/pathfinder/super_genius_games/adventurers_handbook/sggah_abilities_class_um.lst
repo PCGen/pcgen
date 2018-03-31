@@ -1,0 +1,17 @@
+# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+SOURCELONG:Adventurer's Handbook: Genius Guide Volume 1	SOURCESHORT:SGGAH	SOURCEDATE:2010-04
+# Original Entry by: Paul Shipley (elro the onk)
+
+# UM specific Magister stuff
+
+# Magister Spells Known
+
+# Other Non-Devoted Casting Lists
+# Ability Name				Category of Ability		Type						Description											Multiple?	Choose
+Magister Other 2 Spell ~ Magus	CATEGORY:Special Ability	TYPE:SpecialQuality.MagisterSpellO2	DESC:You have selected %1 as 2nd-level spells from another list.|%LIST	MULT:YES	CHOOSE:SPELLS|CLASSLIST=Magus[KNOWN=NO;LEVELMAX=0;LEVELMIN=0]
+Magister Other 3 Spell ~ Magus	CATEGORY:Special Ability	TYPE:SpecialQuality.MagisterSpellO3	DESC:You have selected %1 as 3rd-level spells from another list.|%LIST	MULT:YES	CHOOSE:SPELLS|CLASSLIST=Magus[KNOWN=NO;LEVELMAX=1;LEVELMIN=1]
+Magister Other 4 Spell ~ Magus	CATEGORY:Special Ability	TYPE:SpecialQuality.MagisterSpellO4	DESC:You have selected %1 as 4th-level spells from another list.|%LIST	MULT:YES	CHOOSE:SPELLS|CLASSLIST=Magus[KNOWN=NO;LEVELMAX=2;LEVELMIN=2]
+Magister Other 5 Spell ~ Magus	CATEGORY:Special Ability	TYPE:SpecialQuality.MagisterSpellO5	DESC:You have selected %1 as 5th-level spells from another list.|%LIST	MULT:YES	CHOOSE:SPELLS|CLASSLIST=Magus[KNOWN=NO;LEVELMAX=3;LEVELMIN=3]
+Magister Other 6 Spell ~ Magus	CATEGORY:Special Ability	TYPE:SpecialQuality.MagisterSpellO6	DESC:You have selected %1 as 6th-level spells from another list.|%LIST	MULT:YES	CHOOSE:SPELLS|CLASSLIST=Magus[KNOWN=NO;LEVELMAX=4;LEVELMIN=4]
+Magister Other 7 Spell ~ Magus	CATEGORY:Special Ability	TYPE:SpecialQuality.MagisterSpellO7	DESC:You have selected %1 as 7th-level spells from another list.|%LIST	MULT:YES	CHOOSE:SPELLS|CLASSLIST=Magus[KNOWN=NO;LEVELMAX=5;LEVELMIN=5]
+Magister Other 8 Spell ~ Magus	CATEGORY:Special Ability	TYPE:SpecialQuality.MagisterSpellO8	DESC:You have selected %1 as 8th-level spells from another list.|%LIST	MULT:YES	CHOOSE:SPELLS|CLASSLIST=Magus[KNOWN=NO;LEVELMAX=6;LEVELMIN=6]

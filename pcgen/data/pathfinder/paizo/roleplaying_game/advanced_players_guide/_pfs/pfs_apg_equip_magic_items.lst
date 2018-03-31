@@ -1,0 +1,46 @@
+# CVS $Revision: 20448 $ $Author: amaitland $ -- Wed Dec 10 01:48:21 2014 -- reformated by prettylst.pl v1.51 (build 25712)
+SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
+# Original Entry by: Eric C. Smith (Maredudd)
+
+# Cursed Items
+# Equipment Name				Type
+Rod of Arson.MOD				TYPE:PFSNotLegal
+Cannibal Ring.MOD				TYPE:PFSNotLegal
+Ring of Truth.MOD				TYPE:PFSNotLegal
+Cloak of Immolation.MOD			TYPE:PFSNotLegal
+Crown of Blindness.MOD			TYPE:PFSNotLegal
+Hat of Hatreds.MOD			TYPE:PFSNotLegal
+Girdle of Opposite Gender.MOD		TYPE:PFSNotLegal
+Riot Pipes.MOD				TYPE:PFSNotLegal
+
+# Artifacts
+Beacon of True Faith.MOD		TYPE:PFSNotLegal
+Hammer of Thunderbolts.MOD		TYPE:PFSNotLegal
+Knucklebone of Fickle Fortune.MOD	TYPE:PFSNotLegal
+Perfect Golden Lute.MOD			TYPE:PFSNotLegal
+Spindle of Perfect Knowledge.MOD	TYPE:PFSNotLegal
+Talisman of Reluctant Wishes.MOD	TYPE:PFSNotLegal
+Bottle of the Bound.MOD			TYPE:PFSNotLegal
+Cloud Castle of the Storm King.MOD	TYPE:PFSNotLegal
+Fork of the Forgotten One.MOD		TYPE:PFSNotLegal
+The Moaning Diamond.MOD			TYPE:PFSNotLegal
+The Shield of the Sun.MOD		TYPE:PFSNotLegal
+
+# Staves not legal unless purchased prior to Aug. 16, 2012
+Staff of Bolstering.MOD			TYPE:PFSNotLegal
+Staff of Cackling Wrath.MOD		TYPE:PFSNotLegal
+Staff of Hoarding.MOD			TYPE:PFSNotLegal
+Staff of Journeys.MOD			TYPE:PFSNotLegal
+Staff of Many Rays.MOD			TYPE:PFSNotLegal
+Staff of Obstacles.MOD			TYPE:PFSNotLegal
+Staff of Performance.MOD		TYPE:PFSNotLegal
+Staff of Revelations.MOD		TYPE:PFSNotLegal
+Staff of Rigor.MOD			TYPE:PFSNotLegal
+Staff of Slumber.MOD			TYPE:PFSNotLegal
+Staff of Shrieking.MOD			TYPE:PFSNotLegal
+Staff of Souls.MOD			TYPE:PFSNotLegal
+Staff of Stealth.MOD			TYPE:PFSNotLegal
+Staff of Toxins.MOD			TYPE:PFSNotLegal
+Staff of Traps.MOD			TYPE:PFSNotLegal
+Staff of Vision.MOD			TYPE:PFSNotLegal
+Staff of Weather.MOD			TYPE:PFSNotLegal

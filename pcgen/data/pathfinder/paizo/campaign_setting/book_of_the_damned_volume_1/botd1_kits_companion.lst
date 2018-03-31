@@ -1,0 +1,7 @@
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:Princes of Darkness, Book of the Damned, Volume 1	SOURCESHORT:BOTD1	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8a6f	SOURCEDATE:2009-10
+
+
+STARTPACK:Companion ~ Imp	TYPE:Companion	VISIBLE:NO
+ALIGN:LE
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10

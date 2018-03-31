@@ -1,0 +1,33 @@
+# CVS $Revision: $ $Author: $ -- Mon Sep 16 06:44:37 2013 -- reformated by prettylst.pl v1.50 (build 20400)
+SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
+# Original Entry by: W. Robert 'Mynex' Reed III
+
+
+STARTPACK:Classes Starting Gold ~ APG	TYPE:Starting.Gold	VISIBLE:QUALIFY	APPLY:INSTANT	PREMULT:2,[PREPCLEVEL:MIN=1,MAX=1],[PRECLASS:1,Summoner=1,Alchemist=1,Oracle=1,Witch=1,Inquisitor=1,Cavalier=1]
+TEMPLATE:Starting Gold ~ APG
+
+STARTPACK:Starting Gold APG ~ Random	VISIBLE:NO	APPLY:INSTANT
+FUNDS:gp	QTY:10*roll("2d6")	PRECLASS:1,Summoner=1
+FUNDS:gp	QTY:10*roll("3d6")	PRECLASS:1,Alchemist=1,Oracle=1,Witch=1
+FUNDS:gp	QTY:10*roll("4d6")	PRECLASS:1,Inquisitor=1
+FUNDS:gp	QTY:10*roll("5d6")	PRECLASS:1,Cavalier=1
+
+STARTPACK:Starting Gold APG ~ Maximum	VISIBLE:NO	APPLY:INSTANT
+FUNDS:gp	QTY:120	PRECLASS:1,Summoner=1
+FUNDS:gp	QTY:180	PRECLASS:1,Alchemist=1,Oracle=1,Witch=1
+FUNDS:gp	QTY:240	PRECLASS:1,Inquisitor=1
+FUNDS:gp	QTY:300	PRECLASS:1,Cavalier=1
+
+STARTPACK:Starting Gold APG ~ Average	VISIBLE:NO	APPLY:INSTANT
+FUNDS:gp	QTY:120	PRECLASS:1,Summoner=1
+FUNDS:gp	QTY:180	PRECLASS:1,Alchemist=1,Oracle=1,Witch=1
+FUNDS:gp	QTY:240	PRECLASS:1,Inquisitor=1
+FUNDS:gp	QTY:300	PRECLASS:1,Cavalier=1
+
+
+STARTPACK:Alchemist Formula Book	VISIBLE:NO	TOTALCOST:0
+GEAR:Formula Book	LOCATION:Carried
+
+
+STARTPACK:Rich Parents	TYPE:Character Trait	VISIBLE:NO
+FUNDS:gp	QTY:900

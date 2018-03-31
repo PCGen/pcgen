@@ -1,0 +1,19 @@
+# CVS $Revision: $ $Author: $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
+
+
+
+# Template Name					Template					Ability														Type
+Body Type						TEMPLATE:CHOOSE:TYPE=BodyTypeByRace	ABILITY:EqSlot|AUTOMATIC|EQSlot Tracker
+#
+Body Type ~ Avian											ABILITY:EqSlot|AUTOMATIC|Armor|Belt|Chest|Eyes|Headband|Neck|Ring|Wrist				TYPE:BodyTypeByRace
+Body Type ~ Biped (claws/paws)								ABILITY:EqSlot|AUTOMATIC|Armor|Belt|Chest|Eyes|Headband|Neck|Ring|Shoulders|Wrist		TYPE:BodyTypeByRace
+Body Type ~ Biped (hands)									ABILITY:EqSlot|AUTOMATIC|TYPE=Eqslot									TYPE:BodyTypeByRace
+Body Type ~ Piscine										ABILITY:EqSlot|AUTOMATIC|Belt|Chest|Eyes									TYPE:BodyTypeByRace
+Body Type ~ Quadruped (claws/paws)								ABILITY:EqSlot|AUTOMATIC|Armor|Belt|Chest|Eyes|Headband|Neck|Shoulders|Wrist			TYPE:BodyTypeByRace
+Body Type ~ Quadruped/Hexapod (feet)							ABILITY:EqSlot|AUTOMATIC|Armor|Belt|Chest|Eyes|Headband|Neck|Shoulders|Wrist			TYPE:BodyTypeByRace
+Body Type ~ Quadruped (hooves)								ABILITY:EqSlot|AUTOMATIC|Armor|Belt|Chest|Eyes|Feet|Head|Headband|Neck|Shoulders|Wrist	TYPE:BodyTypeByRace
+Body Type ~ Quadruped (squat-body)								ABILITY:EqSlot|AUTOMATIC|Armor|Eyes|Headband|Neck|Shoulders|Wrist					TYPE:BodyTypeByRace
+Body Type ~ Saurian										ABILITY:EqSlot|AUTOMATIC|Armor|Belt|Chest|Eyes|Headband|Neck					TYPE:BodyTypeByRace
+Body Type ~ Serpentine										ABILITY:EqSlot|AUTOMATIC|Belt|Eyes|Headband								TYPE:BodyTypeByRace
+Body Type ~ Verminous										ABILITY:EqSlot|AUTOMATIC|Belt|Eyes										TYPE:BodyTypeByRace
+Body Type ~ Not Determined									ABILITY:EqSlot|AUTOMATIC|TYPE=Eqslot									TYPE:BodyTypeByRace

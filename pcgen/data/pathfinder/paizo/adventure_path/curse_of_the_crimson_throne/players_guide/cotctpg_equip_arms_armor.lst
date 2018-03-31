@@ -1,0 +1,17 @@
+# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Curse of the Crimson Throne Player's Guide	SOURCESHORT:COTCTPG	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy8bdb	SOURCEDATE:2008-02
+
+### BLOCK: Armor
+# Equipment Name	Output Name				Required Weapon Proficiency		Required Armor Proficiency	Required Shield Proficiency		Type													Cost		Weight	AC Penalty Check	Crit Mult	Crit Range	Damage	Modifier	Wield Category	Maximum DEX Bonus	Range		Reach		Source Page		% of Spell Failure	Combat bonus
+Hide Shirt													PROFICIENCY:ARMOR|Hide Shirt							TYPE:Armor.Light.ArmorProfLight.Suit.Standard.Nonmetal				COST:90	WT:25		ACCHECK:-3													MAXDEX:4						SOURCEPAGE:p.13	SPELLFAILURE:20		BONUS:COMBAT|AC|4|TYPE=Armor
+
+### BLOCK: Shield
+Klar																			PROFICIENCY:SHIELD|Shield (Light)	TYPE:Shield.Light.Standard									COST:12	WT:6		ACCHECK:-1																				SOURCEPAGE:p.13	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Shield
+
+### BLOCK: Weapon
+Starknife							PROFICIENCY:WEAPON|Starknife													TYPE:Weapon.Resizable.Melee.Martial.Standard.Piercing					COST:24	WT:3					CRITMULT:x3	CRITRANGE:1	DAMAGE:1d4	EQMOD:Material ~ Steel	WIELD:Light					RANGE:20			SOURCEPAGE:p.13
+Klar (as weapon)	OUTPUTNAME:Klar			PROFICIENCY:WEAPON|Klar (as weapon)												TYPE:Weapon.Resizable.Melee.Martial.Standard.Slashing					COST:0	WT:0					CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	EQMOD:Material ~ Steel	WIELD:Light									SOURCEPAGE:p.13
+Earth Breaker						PROFICIENCY:WEAPON|Earth Breaker												TYPE:Weapon.Resizable.Melee.Martial.Standard.Bludgeoning				COST:40	WT:14					CRITMULT:x3	CRITRANGE:1	DAMAGE:2d6	EQMOD:Material ~ Steel	WIELD:TwoHanded								SOURCEPAGE:p.13
+Sawtooth Sabre						PROFICIENCY:WEAPON|Sawtooth Sabre												TYPE:Weapon.Resizable.Melee.Exotic.Standard.Slashing					COST:35	WT:2					CRITMULT:x2	CRITRANGE:2	DAMAGE:1d8	EQMOD:Material ~ Steel	WIELD:Light									SOURCEPAGE:p.13
+Scarf (Bladed)	OUTPUTNAME:Scarf, bladed	PROFICIENCY:WEAPON|Scarf (Bladed)												TYPE:Weapon.Resizable.Melee.Exotic.Standard.Reach.Finesseable.Slashing		COST:12	WT:2					CRITMULT:x2	CRITRANGE:2	DAMAGE:1d6			WIELD:TwoHanded						REACH:10	SOURCEPAGE:p.13
+Shoanti Bola						PROFICIENCY:WEAPON|Shoanti Bola												TYPE:Weapon.Resizable.Ranged.Exotic.Standard.Bludgeoning.Piercing.Thrown	COST:15	WT:2					CRITMULT:x2	CRITRANGE:1	DAMAGE:1d4	EQMOD:Material ~ Steel							RANGE:10			SOURCEPAGE:p.13

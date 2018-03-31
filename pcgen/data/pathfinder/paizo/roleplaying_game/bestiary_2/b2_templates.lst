@@ -1,0 +1,140 @@
+# CVS $Revision: 21419 $ $Author: evilmynex $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Bestiary 2	SOURCESHORT:B2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8hif	SOURCEDATE:2010-12
+
+# ORIGINAL ENTRY: Distant Scholar
+# ORIGINAL ENTRY DATE: 2011/08/02
+
+###Block: Void Zombie template
+# Template Name	Challenge Rating	Visible	Source Page		Required Template			Weapon prof. bonus															Ability									Natural Attacks
+Zombie (Void)	CR:1			VISIBLE:YES	SOURCEPAGE:p.23	PRETEMPLATE:1,Zombie (Fast)	BONUS:WEAPONPROF=Tongue|TOHIT|-5	BONUS:WEAPONPROF=Tongue|TOHIT|3|PREABILITY:1,CATEGORY=FEAT,Multiattack	ABILITY:Special Ability|AUTOMATIC|Void Zombie ~ Blood Drain	NATURALATTACKS:Tongue,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.BloodDrain,*1,1d6
+
+###Block: Lycanthrope Subrace
+# Template Name		Visible	Required Ability								Subrace
+Natural Werebear		VISIBLE:NO	PREABILITY:1,CATEGORY=Special Ability,Natural Lycanthrope	SUBRACE:Natural Werebear
+Afflicted Werebear	VISIBLE:NO	PREABILITY:1,CATEGORY=Special Ability,Afflicted Lycanthrope	SUBRACE:Afflicted Werebear
+Natural Wereboar		VISIBLE:NO	PREABILITY:1,CATEGORY=Special Ability,Natural Lycanthrope	SUBRACE:Natural Wereboar
+Afflicted Wereboar	VISIBLE:NO	PREABILITY:1,CATEGORY=Special Ability,Afflicted Lycanthrope	SUBRACE:Afflicted Wereboar
+Natural Weretiger		VISIBLE:NO	PREABILITY:1,CATEGORY=Special Ability,Natural Lycanthrope	SUBRACE:Natural Weretiger
+Afflicted Weretiger	VISIBLE:NO	PREABILITY:1,CATEGORY=Special Ability,Afflicted Lycanthrope	SUBRACE:Afflicted Weretiger
+
+###Block: Lycanthrope Abilities (in Hybrid and animal forms)
+# Template Name			Visible	Template														Required Ability						Modify VAR						Weapon prof. bonus																																										Ability								Move			Natural Attacks
+Lycanthrope Abilities.MOD	VISIBLE:NO	TEMPLATE:ADDCHOICE:Werebear Abilities|Wereboar Abilities|Weretiger Abilities
+Werebear Abilities		VISIBLE:NO	TEMPLATE:CHOOSE:Werebear_STR	TEMPLATE:CHOOSE:Werebear_DEX	TEMPLATE:CHOOSE:Werebear_CON	PREABILITY:1,CATEGORY=Special Ability,Werebear	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base	BONUS:WEAPONPROF=Bite|DAMAGE|max(0,(STR/2))	BONUS:WEAPONPROF=Bite|TOHIT|-5|PRETEMPLATE:1,Lycanthrope (Hybrid Form)	BONUS:WEAPONPROF=Claw|TOHIT|-5|PRETEMPLATE:1,Lycanthrope (Hybrid Form)	BONUS:WEAPONPROF=Bite|DAMAGE|-STR|PRETEMPLATE:1,Lycanthrope (Hybrid Form)	ABILITY:Special Ability|AUTOMATIC|Grab ~ Werebear	MOVE:Walk,30	NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d6	NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Slashing.Grab,*1,1d6
+Wereboar Abilities		VISIBLE:NO	TEMPLATE:CHOOSE:Wereboar_STR	TEMPLATE:CHOOSE:Wereboar_DEX	TEMPLATE:CHOOSE:Wereboar_CON	PREABILITY:1,CATEGORY=Special Ability,Wereboar	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base	BONUS:WEAPONPROF=Bite|DAMAGE|max(0,(STR/2))	BONUS:WEAPONPROF=Bite|TOHIT|-5|PRETEMPLATE:1,Lycanthrope (Hybrid Form)	BONUS:WEAPONPROF=Gore|TOHIT|-5|PRETEMPLATE:1,Lycanthrope (Hybrid Form)	BONUS:WEAPONPROF=Bite|DAMAGE|-STR|PRETEMPLATE:1,Lycanthrope (Hybrid Form)	ABILITY:Special Ability|AUTOMATIC|Ferocity		MOVE:Walk,30	NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d4	NATURALATTACKS:Gore,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing.Grab,*1,1d8
+Weretiger Abilities		VISIBLE:NO	TEMPLATE:CHOOSE:Weretiger_STR	TEMPLATE:CHOOSE:Weretiger_DEX	TEMPLATE:CHOOSE:Weretiger_CON	PREABILITY:1,CATEGORY=Special Ability,Weretiger	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base																																																							MOVE:Walk,30	NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,2d6	NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Slashing,*1,1d8
+
+###Block: Lycanthrope Ability Scores (in Hybrid and animal forms)
+# Template Name	Visible	Define Stat				Prohibited Stat
+Werebear_STR	VISIBLE:NO	DEFINESTAT:MINVALUE|STR|18	!PRESTAT:1,STR=18
+Werebear_DEX	VISIBLE:NO	DEFINESTAT:MINVALUE|DEX|13	!PRESTAT:1,DEX=13
+Werebear_CON	VISIBLE:NO	DEFINESTAT:MINVALUE|CON|15	!PRESTAT:1,CON=15
+Wereboar_STR	VISIBLE:NO	DEFINESTAT:MINVALUE|STR|23	!PRESTAT:1,STR=23
+Wereboar_DEX	VISIBLE:NO	DEFINESTAT:MINVALUE|DEX|10	!PRESTAT:1,DEX=10
+Wereboar_CON	VISIBLE:NO	DEFINESTAT:MINVALUE|CON|23	!PRESTAT:1,CON=23
+Weretiger_STR	VISIBLE:NO	DEFINESTAT:MINVALUE|STR|25	!PRESTAT:1,STR=25
+Weretiger_DEX	VISIBLE:NO	DEFINESTAT:MINVALUE|DEX|15	!PRESTAT:1,DEX=15
+Weretiger_CON	VISIBLE:NO	DEFINESTAT:MINVALUE|CON|19	!PRESTAT:1,CON=19
+
+
+###Block: Ogrekin template
+# NEEDS DATA WORK: Minimum CR 2
+# Template Name	Challenge Rating	Source Page		Required Race			Minimum Size	Bonus Ability Pool															Stat bonus									Modify VAR							Race Subtype	Vision
+Ogrekin		CR:1			SOURCEPAGE:p.204	PRERACE:1,RACETYPE=Humanoid	PRESIZEGTEQ:M	BONUS:ABILITYPOOL|Ogrekin Beneficial Deformity|1	BONUS:ABILITYPOOL|Ogrekin Disadvantageous Deformity|1	BONUS:STAT|STR|6	BONUS:STAT|CON|4	BONUS:STAT|INT,CHA|-2	BONUS:VAR|AC_Natural_Armor|3|TYPE=Base.STACK	RACESUBTYPE:Giant	VISION:Low-Light Vision
+
+###Block: Petitioner Natural Attack templates
+
+# Template Name		Visible	Template																																Required Size	Natural Attacks
+Petitioner Slam		VISIBLE:NO	TEMPLATE:CHOOSE:Petitioner Slam ~ F|Petitioner Slam ~ D|Petitioner Slam ~ T|Petitioner Slam ~ S|Petitioner Slam ~ M|Petitioner Slam ~ L|Petitioner Slam ~ H|Petitioner Slam ~ G|Petitioner Slam ~ C
+Petitioner Slam ~ F	VISIBLE:NO																																		PRESIZEEQ:F
+Petitioner Slam ~ D	VISIBLE:NO																																		PRESIZEEQ:D		NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,1d1
+Petitioner Slam ~ T	VISIBLE:NO																																		PRESIZEEQ:T		NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,1d2
+Petitioner Slam ~ S	VISIBLE:NO																																		PRESIZEEQ:S		NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,1d3
+Petitioner Slam ~ M	VISIBLE:NO																																		PRESIZEEQ:M		NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,1d4
+Petitioner Slam ~ L	VISIBLE:NO																																		PRESIZEEQ:L		NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,1d6
+Petitioner Slam ~ H	VISIBLE:NO																																		PRESIZEEQ:H		NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,1d8
+Petitioner Slam ~ G	VISIBLE:NO																																		PRESIZEEQ:G		NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,2d6
+Petitioner Slam ~ C	VISIBLE:NO																																		PRESIZEEQ:C		NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,2d8
+
+Petitioner Bite		VISIBLE:NO	TEMPLATE:CHOOSE:Petitioner Bite ~ F|Petitioner Bite ~ D|Petitioner Bite ~ T|Petitioner Bite ~ S|Petitioner Bite ~ M|Petitioner Bite ~ L|Petitioner Bite ~ H|Petitioner Bite ~ G|Petitioner Bite ~ C
+Petitioner Bite ~ F	VISIBLE:NO																																		PRESIZEEQ:F		NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,1d1
+Petitioner Bite ~ D	VISIBLE:NO																																		PRESIZEEQ:D		NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,1d2
+Petitioner Bite ~ T	VISIBLE:NO																																		PRESIZEEQ:T		NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,1d3
+Petitioner Bite ~ S	VISIBLE:NO																																		PRESIZEEQ:S		NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,1d4
+Petitioner Bite ~ M	VISIBLE:NO																																		PRESIZEEQ:M		NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,1d6
+Petitioner Bite ~ L	VISIBLE:NO																																		PRESIZEEQ:L		NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,1d8
+Petitioner Bite ~ H	VISIBLE:NO																																		PRESIZEEQ:H		NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,2d6
+Petitioner Bite ~ G	VISIBLE:NO																																		PRESIZEEQ:G		NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,2d8
+Petitioner Bite ~ C	VISIBLE:NO																																		PRESIZEEQ:C		NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,4d6
+
+###Block: Ravener template
+# NEEDS CODE WORK: Change DR from /magic to /good - not possible?
+# NEEDS DATA WORK: Combining the template's increased crit range and the
+# NEEDS DATA WORK:   Improved Critical feat isn't working correctly.
+# COMMENT: There are a bunch of small differences between the bestiary's
+# COMMENT:   version and PCGen's version:
+# COMMENT:      Bestiary has Dex 8; PCGen has Dex 6 - with cascading effects.
+# COMMENT:      Bestiary has 337 hp; PCGen has 328 hp
+# COMMENT:      Bestiary has +23 Will save; PCGen has +24 Will save
+# COMMENT:      Bestiary has 57 CMD; PCGen has 60
+# COMMENT:        (PCGen uses lower Dex, deflection bonus to AC)
+# COMMENT:      Bestiary has -1 damage to all melee attacks (except wings)
+# COMMENT:        compared with PCGen
+# COMMENT:      Bestiary has -1 on Bluff, Diplomacy, Fly, Intimidate vs PCGen.
+# COMMENT:      Bestiary doesn't list the ravener's low-light vision.
+# COMMENT:      PCGen gives Knowledge (Religion) as a class skill;
+# COMMENT:        are dragons limited to 2 knowledges for class skills?
+# Template Name	Hit Dice Size			Challenge Rating	Template		Source Page		Required AL		Required Race				Var. Must Be Grater		Combat bonus						Bonus to skill								Stat bonus							Modify VAR				Ability																																		Main Race Type	Vision
+Ravener		HITDIE:8|CLASS.TYPE=Monster	CR:2			TEMPLATE:Undead	SOURCEPAGE:p.230	PREALIGN:LE,NE,CE	PRERACE:1,Dragon%,RACETYPE=Dragon	PREVARGT:DragonAgeCategory,9	BONUS:COMBAT|AC|max(1,CHA/2)|TYPE=Deflection	BONUS:SKILL|Intimidate,Perception,Stealth|8|TYPE=Racial	BONUS:STAT|STR,INT,WIS|4	BONUS:STAT|CHA|6	BONUS:VAR|ChannelResistance|4	ABILITY:Special Ability|AUTOMATIC|Channel Resistance|Ravener ~ Breath Weapon|Ravener ~ Cowering Fear|Ravener ~ Critical Hits|Ravener ~ Soul Consumption|Ravener ~ Soul Magic|Ravener ~ Soul Ward|Undead Traits	RACETYPE:Undead	VISION:Blindsense (120')|Darkvision (240')
+
+###Block: Spriggan Size Alteration template
+# NEEDS DATA WORK: BONUS:COMBAT|TOHIT|4 should be BONUS:WEAPON|TOHIT|4,
+# NEEDS DATA WORK:   but I couldn't get that to work.
+# Template Name			Size		Face/Space	Reach		Define				Combat bonus							Add to base move			Stat bonus								Modify VAR					Wield Category bonus
+Spriggan Size Alteration	SIZE:L			REACH:10	DEFINE:SizeAlterationActive|0	BONUS:COMBAT|TOHIT|4	BONUS:COMBAT|DAMAGESIZE|2	BONUS:MOVEADD|TYPE.Walk|10	BONUS:STAT|STR|12	BONUS:STAT|DEX|-2	BONUS:STAT|CON|6	BONUS:VAR|SizeAlterationActive|1	BONUS:WIELDCATEGORY|ALL|2
+
+
+###Block: Worm that Walks template
+# NEEDS DATA WORK: Need to remove Natural Armor bonus from AC, remove
+# NEEDS DATA WORK:   previous DR, remove previous natural attacks
+# Template Name			Hit Dice Size			Challenge Rating	Visible	Damage Reduction	Template																																								Source Page		Required AL		Multiple Requirements									Required Size	Combat bonus					Bonus to skill						Stat bonus			Modify VAR				Ability																																															Main Race Type	Vision						Natural Attacks
+Worm that Walks			HITDIE:8|CLASS.TYPE=Monster	CR:2					DR:15/-		TEMPLATE:Worm that Walks Slam																																					SOURCEPAGE:p.286	PREALIGN:LE,NE,CE	PREMULT:1,[PRECLASS:1,SPELLCASTER=1],[PREVARGTEQ:CasterLevel_Highest,1]				BONUS:COMBAT|AC|max(2,WIS)|TYPE=Insight	BONUS:SKILL|Perception,Sense Motive,Stealth|8	BONUS:STAT|DEX,CON|4	BONUS:VAR|FastHealingRate|CR	ABILITY:Special Ability|AUTOMATIC|Fast Healing|Grab|Immunity to Disease|Immunity to Paralysis|Immunity to Poison|Immunity to Sleep|Worm that Walks ~ Discorporate|Worm that Walks ~ Squirming Embrace|Worm that Walks ~ Tenacious|Worm that Walks Traits	ABILITY:FEAT|AUTOMATIC|Diehard	RACETYPE:Vermin	VISION:Blindsight (30')|Darkvision (60')
+
+#Block: Templates to choose the correct version of the Slam natural attack for Worms that Walk.
+Worm that Walks Slam										VISIBLE:NO				TEMPLATE:CHOOSE:Worm that Walks Slam ~ F|Worm that Walks Slam ~ D|Worm that Walks Slam ~ T|Worm that Walks Slam ~ S|Worm that Walks Slam ~ M|Worm that Walks Slam ~ L|Worm that Walks Slam ~ H|Worm that Walks Slam ~ G|Worm that Walks Slam ~ C
+Worm that Walks Slam ~ F									VISIBLE:NO																																																															PRESIZEEQ:F
+Worm that Walks Slam ~ D									VISIBLE:NO																																																															PRESIZEEQ:D																																																																																				NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,1d1
+Worm that Walks Slam ~ T									VISIBLE:NO																																																															PRESIZEEQ:T																																																																																				NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,1d2
+Worm that Walks Slam ~ S									VISIBLE:NO																																																															PRESIZEEQ:S																																																																																				NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,1d3
+Worm that Walks Slam ~ M									VISIBLE:NO																																																															PRESIZEEQ:M																																																																																				NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,1d4
+Worm that Walks Slam ~ L									VISIBLE:NO																																																															PRESIZEEQ:L																																																																																				NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,1d6
+Worm that Walks Slam ~ H									VISIBLE:NO																																																															PRESIZEEQ:H																																																																																				NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,1d8
+Worm that Walks Slam ~ G									VISIBLE:NO																																																															PRESIZEEQ:G																																																																																				NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,2d6
+Worm that Walks Slam ~ C									VISIBLE:NO																																																															PRESIZEEQ:C																																																																																				NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,2d8
+
+
+###Block: Whale templates - for natural attack choice
+# Template Name	Visible	Ability
+Whale Tail Slap	VISIBLE:NO	ABILITY:Internal|AUTOMATIC|Tail Slap
+Whale Bite		VISIBLE:NO	ABILITY:Internal|AUTOMATIC|Bite
+
+###Block: Zombie (Juju) template
+# NEEDS CODE WORK: This template seems to try to use the Juju Zombie Flight
+# NEEDS CODE WORK:   twice, for some unknown reason.
+# Template Name			Hit Dice Size			Challenge Rating	Visible	Damage Reduction		Template															Source Page		Define			Required Movement Rate	Prohibited Movement Rate	Prohibited Race			Bonus DR											Bonus to skill				Stat bonus					Modify VAR																										Weapon prof. bonus				Ability																																														Apply Kit		Subrace			Main Race Type
+Zombie (Juju)			HITDIE:8|CLASS.TYPE=Monster	CR:1					DR:5/Magic and Slashing	TEMPLATE:Undead	TEMPLATE:Juju Zombie Flight									SOURCEPAGE:p.291	DEFINE:NoTypeTraits|0										!PRERACE:1,RACETYPE=Undead	BONUS:DR|Magic|5|PRELEVEL:MIN=11	BONUS:DR|Slashing|5|PRELEVEL:MIN=11	BONUS:SKILL|Climb|8|TYPE=Racial	BONUS:STAT|DEX|2	BONUS:STAT|STR|4	BONUS:VAR|AC_Natural_Armor|3|TYPE=Base.STACK	BONUS:VAR|NoTypeTraits|1	BONUS:VAR|ChannelResistance|4	BONUS:VAR|FireResistanceBonus|10|TYPE=Resistance	BONUS:WEAPONPROF=Slam|DAMAGE|max(0,STR/2)	ABILITY:Internal|AUTOMATIC|Slam	ABILITY:Special Ability|AUTOMATIC|Channel Resistance|Immunity to Cold|Immunity to Electricity|Immunity to Electricity|Juju Zombie ~ Immunity to Magic Missile|Resistance to Fire|Undead Traits	ABILITY:FEAT|AUTOMATIC|Improved Initiative|Toughness	KIT:1|CE|LE|NE	SUBRACE:Zombie (Juju)	RACETYPE:Undead
+
+#Block: Templates to choose the correct maneuverability for flying Juju Zombies.
+Juju Zombie Flight										VISIBLE:NO					TEMPLATE:CHOOSE:Juju Zombie No Flight|Juju Zombie Winged Flight|Juju Zombie Magical Flight
+Juju Zombie No Flight										VISIBLE:NO																																!PREMOVE:1,Fly=1
+Juju Zombie Winged Flight									VISIBLE:NO																												PREMOVE:1,Fly=1																																				BONUS:VAR|Maneuverability|-Maneuverability
+Juju Zombie Magical Flight									VISIBLE:NO																												PREMOVE:1,Fly=1
+
+
+Dhampir		KEY:RaceSubtype ~ Dhampir				VISIBLE:NO					RACESUBTYPE:Dhampir			TYPE:Racial Heritage	
+Fetchling		KEY:RaceSubtype ~ Fetchling				VISIBLE:NO					RACESUBTYPE:Fetchling			TYPE:Racial Heritage
+Grippli		KEY:RaceSubtype ~ Grippli				VISIBLE:NO					RACESUBTYPE:Grippli			TYPE:Racial Heritage
+Ifrit			KEY:RaceSubtype ~ Ifrit					VISIBLE:NO					RACESUBTYPE:Ifrit				TYPE:Racial Heritage
+Oread			KEY:RaceSubtype ~ Oread					VISIBLE:NO					RACESUBTYPE:Oread				TYPE:Racial Heritage
+Sylph			KEY:RaceSubtype ~ Sylph					VISIBLE:NO					RACESUBTYPE:Sylph				TYPE:Racial Heritage
+Undine		KEY:RaceSubtype ~ Undine				VISIBLE:NO					RACESUBTYPE:Undine			TYPE:Racial Heritage

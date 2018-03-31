@@ -1,0 +1,62 @@
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+CAMPAIGN:Faiths of Purity (PFS)
+KEY:PFS ~ Faiths of Purity
+#GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing PFS.Pathfinder Player Companion
+RANK:3
+STATUS:BETA
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder|Golarion
+PRECAMPAIGN:1,Pathfinder Society Core Assumption
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+SOURCELONG:Pathfinder Player Companion: Faiths of Purity
+SOURCESHORT:FOP
+SOURCEWEB:http://paizo.com/products/btpy8j60
+SOURCEDATE:2011-04
+ISOGL:YES
+
+#COVER:@/pathfinder/paizo/player_companion/faiths_of_purity/faiths_of_purity.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy8j60|Buy this publication from Paizo Publishing!
+DESC:True heroes know that evil is not an abstraction, nor a concept to be debated. Rather, it is a relentless adversary, a dark tide that seeks always to roll over the world, turning the hearts of gentle souls with its claws and whispers. Against this onslaught stand a proud and pious few: those priests and soldiers who dedicate themselves in body and soul to the forces of light, ready to lay down their lives in defense of the innocent. Aided by the powers of their gods, these stalwart champions use sword and spell, faith and ferocity to protect all that they hold dear. For they know that if they do not - who will? Faiths of Purity presents a player-friendly overview of the good-aligned religions of the Player Companion, along with new rules and information to help players customize pious characters in both flavor and mechanics.
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Player Companion: Faiths of Purity. Copyright 2011, Paizo Inc.; Author: Colin McComb.
+COPYRIGHT:PCGen dataset conversion for "Player Companion: Faiths of Purity" Copyright 2011, PCGen Data Team (including, but not limited to Stefan Radermacher)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# Pathfinder Player Companion: Faiths of Purity
+# Feats: all feats on pages 24-25 with the following errata: Glorious Heat grants a number of points of healing equal to the spell level, not the caster level (ie. flame strike grants 5 points, while spark grants 0);
+# Spells: all spells on pages 28-29;
+# Traits: all traits on pages 5, 7, 9, 11, 13, 15, 17, and 18-21. Note that Eye of the Father grants Appraise as a class skill, not Perform, as written.
+
+# Additional Resources
+# Last Updated Friday, January 9, 2015
+#
+# Pathfinder Player Companion: Faiths of Purity
+# Feats: Feats on pages 24-25 are no longer legal in this sourcebook. Please refer to Pathfinder Campaign Setting: Inner Sea Gods for the updated versions of these feats and the requirements to choose them;
+# Spells: all spells on pages 28-29;
+# Traits: all traits on pages 5, 7, 9, 11, 13, 15, 17, and 18-21. Note that Eye of the Father grants Appraise as a class skill, not Perform, as written.
+
+# Data files
+DEITY:pfs_fop_deities.lst|PRECAMPAIGN:1,INCLUDES=Faiths of Purity
+ABILITY:pfs_fop_abilities.lst|PRECAMPAIGN:1,INCLUDES=Faiths of Purity
+
+# TODO: Previous versions of Additional Resource Guide allowed these feats. Existing characters would be broken with this change unless Inner Sea Gods source is added to PCGen, which it isn't at this time. So I'm keeping these feats in for the time being.
+#LSTEXCLUDE:@/pathfinder/paizo/player_companion/faiths_of_balance/fop_feats.lst
+ABILITY:pfs_fop_feats.lst|PRECAMPAIGN:1,INCLUDES=Faiths of Purity
+
+#
+# End
+#

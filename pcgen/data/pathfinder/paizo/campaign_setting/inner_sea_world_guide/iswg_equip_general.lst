@@ -1,0 +1,12 @@
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8ief	SOURCEDATE:2011-03
+
+# Equipment Name		Product Identity?	Output Name				Type							Contains				Cost		Weight	Source Page		Special Property
+Drug (Tears of Razmir)	NAMEISPI:YES	OUTPUTNAME:[NAME]			TYPE:Goods.Poison.Consumable								COST:25	WT:0		SOURCEPAGE:p.293	SPROP:Ingested; Addiction major, Fort DC 18; Effect 1 hour, +2 alchemical bonus to Constitution, -2 penalty on Wisdom-based skill checks; Damage 1d2 Con damage
+Flag												TYPE:Goods.General.Flag									COST:10	WT:3		SOURCEPAGE:p.293
+Harrow Deck			NAMEISPI:YES						TYPE:Goods.Tools.Entertainment.CardDeck						COST:100	WT:0		SOURCEPAGE:p.293
+Heatstone											TYPE:Goods.Alchemical.Consumable							COST:20	WT:1		SOURCEPAGE:p.293
+Pathfinder Chronicle	NAMEISPI:YES						TYPE:Goods.Book										COST:50	WT:1		SOURCEPAGE:p.293
+Perfume (Common)					OUTPUTNAME:Perfume, [NAME]	TYPE:Goods.Alchemical.Consumable							COST:1	WT:0		SOURCEPAGE:p.293
+Perfume (Exotic)					OUTPUTNAME:Perfume, [NAME]	TYPE:Goods.Alchemical.Consumable							COST:100	WT:0		SOURCEPAGE:p.293
+Powder Horn											TYPE:Goods.General.Container			CONTAINS:UNLIM|BlackPowder=10	COST:50	WT:1		SOURCEPAGE:p.293

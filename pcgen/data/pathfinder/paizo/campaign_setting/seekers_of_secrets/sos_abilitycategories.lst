@@ -1,0 +1,28 @@
+# CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
+#SOURCELONG:Seekers of Secrets - A Guide to the Pathfinder Society	SOURCESHORT:SOS	SOURCEWEB:http://paizo.com/products/btpy8az2?Pathfinder-Chronicles-Seekers-of-Secrets-A-Guide-to-the-Pathfinder-Society	SOURCEDATE:2009-10
+# CVS $Revision: 21252 $ $Author: evilmynex $ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+# Original Entry by: Paul Shipley
+
+###Block: Ioun Stone Categories
+# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object					Specific choices list										Plural description for UI		Display Location
+ABILITYCATEGORY:Ioun Weapon Familiarity			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:IounWpnFam																		PLURAL:Ioun Weapon Familiarities	DISPLAYLOCATION:Equipment
+ABILITYCATEGORY:Esoteric Magic Spell			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EsotericSpell																	PLURAL:Esoteric Magic Spells		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Dispelling Master Class			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DispellingMaster																							DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Boon Companion Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:BoonCompanionSelection																						DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Weapon Proficiency Granted		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal										ABILITYLIST:Weapon Proficiency Selection													DISPLAYLOCATION:Equipment
+
+
+ABILITYCATEGORY:Deep Red Sphere Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal										ABILITYLIST:Equipment ~ Deep Red Sphere													DISPLAYLOCATION:Equipment
+ABILITYCATEGORY:Incandescent Blue Sphere Selection	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal										ABILITYLIST:Equipment ~ Incandescent Blue Sphere											DISPLAYLOCATION:Equipment
+ABILITYCATEGORY:Pale Blue Rhomboid Selection		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal										ABILITYLIST:Equipment ~ Pale Blue Rhomboid												DISPLAYLOCATION:Equipment
+ABILITYCATEGORY:Pink and Green Sphere Selection		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal										ABILITYLIST:Equipment ~ Pink And Green Sphere												DISPLAYLOCATION:Equipment
+ABILITYCATEGORY:Scarlet and Blue Sphere Selection	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal										ABILITYLIST:Equipment ~ Scarlet And Blue Sphere												DISPLAYLOCATION:Equipment
+
+ABILITYCATEGORY:Slotted Ioun Stone				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Wayfinder Ioun Stone																						DISPLAYLOCATION:Equipment
+ABILITYCATEGORY:Slotted Ioun Stone Resonant Power	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Slotted Ioun Stone Resonant Power																				DISPLAYLOCATION:Equipment
+ABILITYCATEGORY:Slotted Ioun Rule				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Slotted Ioun Rule																							DISPLAYLOCATION:Equipment
+
+
+ABILITYCATEGORY:+1 Competence to Knowledge Skill	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal										ABILITYLIST:Equipment ~ Select Single Knowledge Skill for +1 Competence Bonus							DISPLAYLOCATION:Equipment
+ABILITYCATEGORY:Ioun Stone Rogue Talent			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal										ABILITYLIST:Ioun Stone Rogue Talent														DISPLAYLOCATION:Equipment

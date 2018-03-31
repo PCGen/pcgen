@@ -1,0 +1,23 @@
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:Curse of the Crimson Throne, Chapter 3 - Escape from Old Korvosa	SOURCESHORT:AP9	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy82t5	SOURCEDATE:2008-05
+
+STARTPACK:Rajput Ambari Default	TYPE:Default Monster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rajput Ambari]
+ALIGN:TN
+RACE:Rajput Ambari	!PRERACE:1,%
+NAME:Rajput Ambari
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+
+
+STARTPACK:Sikari Macaque Swarm Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sikari Macaque Swarm]
+ALIGN:TN
+RACE:Sikari Macaque Swarm	!PRERACE:1,%
+NAME:Sikari Macaque Swarm
+STAT:STR=11|DEX=11|CON=11|INT=11|WIS=10|CHA=11
+ABILITY:CATEGORY=FEAT|Nimble Moves
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+SKILL:Acrobatics		RANK:2
+SKILL:Escape Artist	RANK:6
+SKILL:Perception		RANK:2

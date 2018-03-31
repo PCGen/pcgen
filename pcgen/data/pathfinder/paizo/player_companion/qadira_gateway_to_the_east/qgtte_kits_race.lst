@@ -1,0 +1,86 @@
+# CVS $Revision: 18761 $ $Author: amaitland $ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Qadira, Gateway to the East	SOURCESHORT:QGTTE	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderCompanion/pathfinderRPG/v5748btpy88zq	SOURCEDATE:2009-08
+# Original entry by Chris 'Barak' Chandler
+
+STARTPACK:Zhyen ~ Air Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zhyen ~ Air]	SOURCEPAGE:p.32
+RACE:Zhyen ~ Air	!PRERACE:1,%
+NAME:Zhyen ~ Air
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=10|CHA=10
+ABILITY:CATEGORY=FEAT|Run
+SKILL:Knowledge (Planes)	RANK:1
+SKILL:Perception			RANK:1
+SKILL:Stealth			RANK:1
+
+STARTPACK:Zhyen ~ Earth Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zhyen ~ Earth]	SOURCEPAGE:p.32
+RACE:Zhyen ~ Earth	!PRERACE:1,%
+NAME:Zhyen ~ Earth
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=10|CHA=10
+ABILITY:CATEGORY=FEAT|Run
+SKILL:Knowledge (Planes)	RANK:1
+SKILL:Perception			RANK:1
+SKILL:Stealth			RANK:1
+
+STARTPACK:Zhyen ~ Fire Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zhyen ~ Fire]	SOURCEPAGE:p.32
+RACE:Zhyen ~ Fire	!PRERACE:1,%
+NAME:Zhyen ~ Fire
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=10|CHA=10
+ABILITY:CATEGORY=FEAT|Run
+SKILL:Knowledge (Planes)	RANK:1
+SKILL:Perception			RANK:1
+SKILL:Stealth			RANK:1
+
+STARTPACK:Zhyen ~ Water Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zhyen ~ Water]	SOURCEPAGE:p.32
+RACE:Zhyen ~ Water	!PRERACE:1,%
+NAME:Zhyen ~ Water
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=10|CHA=10
+ABILITY:CATEGORY=FEAT|Run
+SKILL:Knowledge (Planes)	RANK:1
+SKILL:Perception			RANK:1
+SKILL:Stealth			RANK:1
+
+
+
+
+STARTPACK:Jocta ~ Air Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jocta ~ Air]	SOURCEPAGE:p.32
+RACE:Jocta ~ Air	!PRERACE:1,%
+NAME:Jocta ~ Air
+ALIGN:CE|NE
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=10|CHA=10
+ABILITY:CATEGORY=FEAT|Run
+SKILL:Knowledge (Planes)	RANK:1
+SKILL:Perception			RANK:1
+SKILL:Stealth			RANK:1
+
+STARTPACK:Jocta ~ Earth Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jocta ~ Earth]	SOURCEPAGE:p.32
+RACE:Jocta ~ Earth	!PRERACE:1,%
+NAME:Jocta ~ Earth
+ALIGN:CE|NE
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=10|CHA=10
+ABILITY:CATEGORY=FEAT|Run
+SKILL:Knowledge (Planes)	RANK:1
+SKILL:Perception			RANK:1
+SKILL:Stealth			RANK:1
+
+STARTPACK:Jocta ~ Fire Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jocta ~ Fire]	SOURCEPAGE:p.32
+RACE:Jocta ~ Fire	!PRERACE:1,%
+NAME:Jocta ~ Fire
+ALIGN:CE|NE
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=10|CHA=10
+ABILITY:CATEGORY=FEAT|Run
+SKILL:Knowledge (Planes)	RANK:1
+SKILL:Perception			RANK:1
+SKILL:Stealth			RANK:1
+
+STARTPACK:Jocta ~ Water Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jocta ~ Water]	SOURCEPAGE:p.32
+RACE:Jocta ~ Water	!PRERACE:1,%
+NAME:Jocta ~ Water
+ALIGN:CE|NE
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=10|CHA=10
+ABILITY:CATEGORY=FEAT|Run
+SKILL:Knowledge (Planes)	RANK:1
+SKILL:Perception			RANK:1
+SKILL:Stealth			RANK:1

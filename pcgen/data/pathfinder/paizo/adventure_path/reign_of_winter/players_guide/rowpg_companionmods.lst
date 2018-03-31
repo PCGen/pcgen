@@ -1,0 +1,15 @@
+# CVS $Revision: $ $Author: $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
+SOURCELONG:Reign of Winter Player's Guide	SOURCESHORT:ROWPG	SOURCEWEB:http://paizo.com/products/btpy8x1t?Pathfinder-Adventure-Path-Reign-of-Winter-Players-Guide	SOURCEDATE:2013-02
+# Original Entry by: Stefan Radermacher
+
+
+
+# Race of familiar		Type			Ability
+MASTERBONUSRACE:Arctic Fox	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Arctic Fox)
+MASTERBONUSRACE:Arctic Hare	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Arctic Hare)
+MASTERBONUSRACE:Arctic Tern	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Arctic Tern)
+MASTERBONUSRACE:Ermine		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Ermine)
+MASTERBONUSRACE:Lemming		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Lemming)
+MASTERBONUSRACE:Ptarmigan	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Ptarmigan)
+MASTERBONUSRACE:Puffin		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Puffin)
+MASTERBONUSRACE:Snowy Owl	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Snowy Owl)

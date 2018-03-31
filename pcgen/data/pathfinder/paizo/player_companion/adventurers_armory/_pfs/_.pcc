@@ -1,0 +1,51 @@
+# CVS $Revision: 13827 $ $Author: zaister $ -- Sat Nov 20 04:10:09 2004 -- reformated by prettylst.pl v1.34 (build 422)
+CAMPAIGN:Adventurer's Armory (PFS)
+KEY:PFS ~ Adventurer's Armory
+#GAMEMODE:Pathfinder
+TYPE:Paizo Publishing PFS.Pathfinder Player Companion
+RANK:3
+STATUS:ALPHA
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder Campaign Setting
+PRECAMPAIGN:1,Pathfinder Society Core Assumption
+
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Pathfinder Player Companion: Adventurer's Armory
+SOURCESHORT:AA
+SOURCEWEB:http://paizo.com/products/btpy8dmf
+SOURCEDATE:2010-04
+ISOGL:YES
+
+#COVER:../adventurers_armory.jpeg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy8dmf|Buy this publication from Paizo Publishing!
+DESC:Hundreds of New Items! Whether your character's in the market for an exotic weapon, a new pet, or an unusual alchemical item to help in exploring old tombs, this book has it covered. Adventurer's Armory is the go-to sourcebook for supplementing your character's gear; all of the items are nonmagical and most of them are priced low enough that even 1st-level heroes can afford them!
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder Player Companion: Adventurer's Armory. Copyright 2010, Paizo Inc.; Authors: Jonathan Keith, Hal Maclean, Jeff Quick, Christopher Self, JD Wiker, and Keri Wiker.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Roleplaying Game Bestiary" Copyright 2010-2012, PCGen Data team (Including, but not limited to Stefan Radermacher)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# Additional Resources
+# Last Updated Friday, January 9, 2015
+#
+# Pathfinder Player Companion: Adventurer's Armory
+# Only the 2nd printing of this book or the 1st printing augmented by the current errata (released 7/21/11) are legal for play in Pathfinder Society Organized Play.
+# Everything in this book is legal for play with the following exceptions: a pseudodragon is not legal for purchase unless you're a wizard with the Improved Familiar feat, elephants are never legal for play, and armored kilts are not legal.
+
+# Data Files
+ABILITY:pfs_aa_equip_armorshields.lst|PRECAMPAIGN:1,Adventurer's Armory
+EQUIPMENT:pfs_aa_equip.lst|PRECAMPAIGN:1,Adventurer's Armory
+
+#
+# End
+#

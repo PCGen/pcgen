@@ -1,0 +1,12 @@
+# CVS $Revision: 21741 $ $Author: zaister $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
+# Original Entry by: Stefan Radermacher & Andrew Maitland
+
+# Feat Name				Type			Visible	Multiple Requirements
+# Ability Name					Type			!PRECHARACTERTYPE		Multiple Requirements
+CATEGORY=FEAT|Cooperative Crafting.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=FEAT|Blood of Heroes.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=FEAT|Hero's Fortune.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=FEAT|Luck of Heroes.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+
+CATEGORY=FEAT|Master Alchemist.MOD									PREMULT:1,[PRECLASS:1,Alchemist=1],[PREABILITY:1,CATEGORY=Archetype,Rogue Archetype ~ Poisoner]

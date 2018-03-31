@@ -1,0 +1,31 @@
+# CVS $Revision: $ $Author: $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
+SOURCELONG:Guide to the River Kingdoms	SOURCESHORT:GTTRK	SOURCEWEB:http://paizo.com/pathfinder/pathfinderChronicles/pathfinderRPG/v5748btpy87d8	SOURCEDATE:2010-03
+# Original Entry by: Stefan Radermacher
+
+# Ability Name			Bonus Ability Pool
+CATEGORY=Internal|Default.MOD	BONUS:ABILITYPOOL|Region of Origin|1|TYPE=Background
+
+###Block: Regional Affinities
+# Ability Name							Product Identity?	Category of Ability	Type		Visible		Template										Source Page
+River Kingdoms (Artume)						NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	TEMPLATE:Regional Affinity (Artume)						SOURCEPAGE:p.10
+River Kingdoms (Cordelon)					NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	TEMPLATE:Regional Affinity (Cordelon)					SOURCEPAGE:p.11
+River Kingdoms (Daggermark)					NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	TEMPLATE:Regional Affinity (Daggermark)					SOURCEPAGE:p.12
+River Kingdoms (Gralton)					NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	TEMPLATE:Regional Affinity (Gralton)					SOURCEPAGE:p.16
+River Kingdoms (Heibarr)					NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	TEMPLATE:Regional Affinity (Heibarr)					SOURCEPAGE:p.20
+River Kingdoms (Hymbria)					NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	TEMPLATE:Regional Affinity (Hymbria)					SOURCEPAGE:p.21
+River Kingdoms (Lambreth)					NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	TEMPLATE:Regional Affinity (Lambreth)					SOURCEPAGE:p.22
+River Kingdoms (Liberthan)					NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	TEMPLATE:Regional Affinity (Liberthan)					SOURCEPAGE:p.26
+River Kingdoms (Loric Fells)					NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	TEMPLATE:Regional Affinity (Loric Fells)					SOURCEPAGE:p.27
+River Kingdoms (Mivon)						NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	TEMPLATE:Regional Affinity (Mivon)						SOURCEPAGE:p.28
+River Kingdoms (Mosswater)					NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	TEMPLATE:Regional Affinity (Mosswater)					SOURCEPAGE:p.32
+River Kingdoms (Nystra)						NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	TEMPLATE:Regional Affinity (Nystra)						SOURCEPAGE:p.33
+River Kingdoms (Outsea)						NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	TEMPLATE:Regional Affinity (Outsea)						SOURCEPAGE:p.34
+River Kingdoms (Pitax)						NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	TEMPLATE:Regional Affinity (Pitax)						SOURCEPAGE:p.38
+River Kingdoms (Protectorate of the Black Marquis)	NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	TEMPLATE:Regional Affinity (Protectorate of the Black Marquis)	SOURCEPAGE:p.42
+River Kingdoms (Riverton)					NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	TEMPLATE:Regional Affinity (Riverton)					SOURCEPAGE:p.44
+River Kingdoms (Scrawny Crossing)				NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	TEMPLATE:Regional Affinity (Scrawny Crossing)				SOURCEPAGE:p.45
+River Kingdoms (Sevenarches)					NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	TEMPLATE:Regional Affinity (Sevenarches)					SOURCEPAGE:p.46
+River Kingdoms (The Stolen Lands)				NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	TEMPLATE:Regional Affinity (The Stolen Lands)				SOURCEPAGE:p.50
+River Kingdoms (Touvette)					NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	TEMPLATE:Regional Affinity (Touvette)					SOURCEPAGE:p.54
+River Kingdoms (Tymon)						NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	TEMPLATE:Regional Affinity (Tymon)						SOURCEPAGE:p.56
+River Kingdoms (Uringen)					NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	TEMPLATE:Regional Affinity (Uringen)					SOURCEPAGE:p.60
