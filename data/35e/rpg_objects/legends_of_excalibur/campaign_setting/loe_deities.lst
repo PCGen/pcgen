@@ -5,7 +5,7 @@ SOURCELONG:Legends of Excalibur - Arthurian Adventures	SOURCESHORT:Excalibur	SOU
 # Original Entry by: dlm1065
 
 # Deity Name	Description of Deity/Title	FACT				Source Page
-None			DESC:None				FACT:Symbol|None		SOURCEPAGE:Non file in RSRD why none
+None			DESC:None				FACT:Symbol|None		SOURCEPAGE:Non file in RSRD why none	GROUP:UNSELECTED
 One God		DESC:The One True God		FACT:Symbol|Crusifix	SOURCEPAGE:p50
 Old Faith		DESC:The older pagan faiths	FACT:Symbol|None		SOURCEPAGE:p50
 # DOMAINS:ANY|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE
