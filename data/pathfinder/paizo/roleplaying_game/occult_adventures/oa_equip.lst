@@ -1,45 +1,48 @@
+# update to add SPROP descriptions, add some CHARGES and BONUS, add splash weapon props, fix alchemical TYPE entries
+# todo: TYPE needs to be changed to fit in with existing gear instead of creating a new one, CHARGES 5 need fixing (set to 3 workaround)
+# kits were not implemented fully
 
-
-Artist's poster				SOURCEPAGE:p.248	TYPE:Adventuring Gear	COST:15	WT:0
-Aura goggles				SOURCEPAGE:p.248	TYPE:Adventuring Gear	COST:15	WT:1
-Automatic writing planchette		SOURCEPAGE:p.248	TYPE:Adventuring Gear	COST:25	WT:0
-Censer					SOURCEPAGE:p.248	TYPE:Adventuring Gear	COST:5	WT:.5
-Dowsing rod					SOURCEPAGE:p.248	TYPE:Adventuring Gear	COST:10	WT:1
-Fraudulent medium's kit			SOURCEPAGE:p.248	TYPE:Adventuring Gear	COST:50	WT:10
-Hoodwink cowl				SOURCEPAGE:p.249	TYPE:Adventuring Gear	COST:75	WT:3
-Hypnotist's locket (locket)		SOURCEPAGE:p.249	TYPE:Adventuring Gear	COST:15	WT:1
-Hypnotist's locket (pocket watch)	SOURCEPAGE:p.249	TYPE:Adventuring Gear	COST:250	WT:1
+Artist's poster				SOURCEPAGE:p.248	TYPE:Adventuring Gear	COST:15	WT:0	SPROP:Placing a poster within a settlement grants creatures a +1 circumstance bonus on Diplomacy checks to gather information regarding the subject of the poster.
+Aura goggles				SOURCEPAGE:p.248	TYPE:Adventuring Gear	COST:15	WT:1	SPROP:To provide any benefit, the goggles must be continuously worn for 1 hour, during which time the wearer takes a –2 penalty on all sight-based Perception checks. After this 1-hour period, the user can remove the goggles to gain a +2 circumstance bonus on Perception checks for the read aura occult skill unlock. This benefit fades after 1 hour.
+Automatic writing planchette		SOURCEPAGE:p.248	TYPE:Adventuring Gear	COST:25	WT:0	SPROP:the device scribbles out mysterious messages when employed by a creature using the automatic writing occult skill unlock, and provides a +2 circumstance bonus on the Linguistics check.
+Censer					SOURCEPAGE:p.248	TYPE:Adventuring Gear	COST:5	WT:.5	SPROP:a censer can hold up to 10 pieces of incense, and burns 1 piece per hour when lit.
+Dowsing rod					SOURCEPAGE:p.248	TYPE:Adventuring Gear	COST:10	WT:1	SPROP:provide a +2 circumstance bonus on Survival checks for the dowsing occult skill unlock.
+Fraudulent medium's kit			SOURCEPAGE:p.248	TYPE:Adventuring Gear	COST:50	WT:10	SPROP:provides a +2 circumstance bonus on Bluff, Escape Artist, and Sleight of Hand checks to imitate seances, spirit writing, or other occult practice
+Hoodwink cowl				SOURCEPAGE:p.249	TYPE:Adventuring Gear	COST:75	WT:3	SPROP:A creature wearing a hoodwink cowl is blinded and deafened, and it takes a –10 penalty on all other Perception checks.
+Hypnotist's locket (locket)		SOURCEPAGE:p.249	TYPE:Adventuring Gear	COST:15	WT:1	SPROP:a hypnotist’s locket grants a +2 circumstance bonus on Diplomacy checks for the hypnotism occult skill unlock.
+Hypnotist's locket (pocket watch)	SOURCEPAGE:p.249	TYPE:Adventuring Gear	COST:250	WT:1  	SPROP:a hypnotist’s locket grants a +2 circumstance bonus on Diplomacy checks for the hypnotism occult skill unlock.
 Incense (10 sticks)			SOURCEPAGE:p.249	TYPE:Adventuring Gear	COST:.7	WT:0
-Kineticist's kit				SOURCEPAGE:p.249	TYPE:Adventuring Gear	COST:8	WT:22
-Medium's kit				SOURCEPAGE:p.249	TYPE:Adventuring Gear	COST:40	WT:14
-Mesmerist's kit				SOURCEPAGE:p.249	TYPE:Adventuring Gear	COST:35	WT:26.5
-Occult reference material		SOURCEPAGE:p.249	TYPE:Adventuring Gear	COST:80	WT:1
+Kineticist's kit				SOURCEPAGE:p.249	TYPE:Adventuring Gear	COST:8	WT:22	SPROP:This kit includes a backpack, a belt pouch, a blanket, torches (10), trail rations (5 days), and a waterskin.
+Medium's kit				SOURCEPAGE:p.249	TYPE:Adventuring Gear	COST:40	WT:14	SPROP:includes an automatic writing planchette, candles (10), candlesticks UE (10), holly and mistletoe, incense(10 sticks), a scholar’s outfit, a spell component pouch, and a wooden holy symbol.
+Mesmerist's kit				SOURCEPAGE:p.249	TYPE:Adventuring Gear	COST:35	WT:26.5	SPROP:includes a backpack, a bedroll, a belt pouch, an entertainer’s outfit, flint and steel, a hypnotist’s locket, ink (1 ounce), an inkpen, an iron pot, stationery UE , torches (10), trail rations (5 days), and a waterskin.
+Occult reference material		SOURCEPAGE:p.249	TYPE:Adventuring Gear	COST:80	WT:1	SPROP:When used as a reference (an action that typically requires 1d4 minutes of searching the text), occult reference material grants a +2 circumstance bonus on Knowledge checks related to the occult topic covered by that manual.
 Occultist's implement			SOURCEPAGE:p.249	TYPE:Adventuring Gear	COST:10	WT:.5
-Occultist's kit				SOURCEPAGE:p.249	TYPE:Adventuring Gear	COST:45	WT:32.5
+Occultist's kit				SOURCEPAGE:p.249	TYPE:Adventuring Gear	COST:45	WT:32.5 	SPROP:ncludes a backpack, a bedroll, a belt pouch, chalk (10 pieces), flint and steel, ink (1 ounce), an inkpen, an iron pot, a journal UE , occultist’s implements (2), torches (10), trail rations (5 days), and a waterskin.
 Performer's token				SOURCEPAGE:p.249	TYPE:Adventuring Gear	COST:.2	WT:0
-Phrenologist's kit			SOURCEPAGE:p.249	TYPE:Adventuring Gear	COST:50	WT:5
-Portable solarium				SOURCEPAGE:p.249	TYPE:Adventuring Gear	COST:800	WT:35
-Portable sweat lodge			SOURCEPAGE:p.250	TYPE:Adventuring Gear	COST:25	WT:25
-Prismatic crystal				SOURCEPAGE:p.250	TYPE:Adventuring Gear	COST:30	WT:.5
-Prognostication manual			SOURCEPAGE:p.250	TYPE:Adventuring Gear	COST:30	WT:3
-Psychic's kit				SOURCEPAGE:p.250	TYPE:Adventuring Gear	COST:35	WT:27
-Psychometrist's gloves			SOURCEPAGE:p.250	TYPE:Adventuring Gear	COST:10	WT:5
+Phrenologist's kit			SOURCEPAGE:p.249	TYPE:Adventuring Gear	COST:50	WT:5	SPROP:The kit provides a +2 circumstance bonus on Knowledge (arcana) checks for the phrenology occult skill unlock.
+Portable solarium				SOURCEPAGE:p.249	TYPE:Adventuring Gear	COST:800	WT:35	SPROP:Subjects who bask in the filtered light for an 8-hour rest period recover 1 additional hit point per level or 1 additional ability score point if their caregivers succeed at the required Heal check
+Portable sweat lodge			SOURCEPAGE:p.250	TYPE:Adventuring Gear	COST:25	WT:25	SPROP:provides a +2 circumstance bonus on Heal checks for the faith healing occult skill unlock
+Prismatic crystal				SOURCEPAGE:p.250	TYPE:Adventuring Gear	COST:30	WT:.5	SPROP:A prismatic crystal can be used as a focus for the read aura occult skill unlock to reduce the time needed to read an aura from 10 minutes to 5 minutes
+Prognostication manual			SOURCEPAGE:p.250	TYPE:Adventuring Gear	COST:30	WT:3	SPROP:Using such a book while reading a creature’s fortune reduces the time needed to read that fortune by 2 minutes. When used as part of a Sense Motive check for the prognostication occult skill unlock, this book grants a +2 circumstance bonus
+Psychic's kit				SOURCEPAGE:p.250	TYPE:Adventuring Gear	COST:35	WT:27	SPROP:includes a backpack, a bedroll, a belt pouch, flint and steel, a prismatic crystal, torches (10), trail rations (5 days),
+and a waterskin. 
+Psychometrist's gloves			SOURCEPAGE:p.250	TYPE:Adventuring Gear	COST:10	WT:5	SPROP:After an 8-hour period, the user can remove the gloves to gain a +2 circumstance bonus on Appraise checks for the psychometry occult skill unlock. This benefit fades after 1 hour.
 Ritual bell					SOURCEPAGE:p.250	TYPE:Adventuring Gear	COST:2	WT:1
-Spirit trumpet				SOURCEPAGE:p.250	TYPE:Adventuring Gear	COST:25	WT:1
-Spiritualist's kit			SOURCEPAGE:p.250	TYPE:Adventuring Gear	COST:50	WT:34
-Straitjacket (common)			SOURCEPAGE:p.250	TYPE:Adventuring Gear	COST:5	WT:1
-Straitjacket (masterwork)		SOURCEPAGE:p.250	TYPE:Adventuring Gear	COST:50	WT:1
-Talking board				SOURCEPAGE:p.251	TYPE:Adventuring Gear	COST:15	WT:2
-Ventriloquist's dummy			SOURCEPAGE:p.251	TYPE:Adventuring Gear	COST:100	WT:7
+Spirit trumpet				SOURCEPAGE:p.250	TYPE:Adventuring Gear	COST:25	WT:1	SPROP:When used to channel a haunt capable of communication (see page 230), a spirit trumpet doubles the rate of communication with the haunt, and grants the user a +4 circumstance bonus on Linguistics checks to decipher the cryptic messages.
+Spiritualist's kit			SOURCEPAGE:p.250	TYPE:Adventuring Gear	COST:50	WT:34	SPROP:includes a backpack, a bedroll, a belt pouch, a censer, a flask of ectoplasmic residue, flint and steel, incense (10 sticks), an iron pot, magnetized paper, torches (10), trail rations (5 days), and a waterskin.
+Straitjacket (common)			SOURCEPAGE:p.250	TYPE:Adventuring Gear	COST:5	WT:1	SPROP:A creature wearing a straitjacket gains the grappled condition, except it is able to move. Escaping from the straitjacket requires a successful DC 28 Escape Artist check.
+Straitjacket (masterwork)		SOURCEPAGE:p.250	TYPE:Adventuring Gear	COST:50	WT:1	SPROP:A creature wearing a straitjacket gains the grappled condition, except it is able to move. Escaping from the straitjacket requires a successful DC 30 Escape Artist check.
+Talking board				SOURCEPAGE:p.251	TYPE:Adventuring Gear	COST:15	WT:2	SPROP:A talking board can be used in place of a pencil and paper or a writing planchette when attempting a Linguistics check with the automatic writing occult skill unlock, and provides a +2 circumstance bonus on such checks
+Ventriloquist's dummy			SOURCEPAGE:p.251	TYPE:Adventuring Gear	COST:100	WT:7	SPROP:When used as part of a routine, a ventriloquist’s dummy adds a +2 circumstance bonus on Perform (comedy) checks.
 Wind chime					SOURCEPAGE:p.251	TYPE:Adventuring Gear	COST:1	WT:1
 
 #
-Ectoplasmic residue	SOURCEPAGE:p.252	TYPE:Alchemical Item	COST:20	WT:2	QUALITY:CraftDC|25
-Magnetized paper		SOURCEPAGE:p.252	TYPE:Alchemical Item	COST:11	WT:1	QUALITY:CraftDC|15
-Snake oil			SOURCEPAGE:p.252	TYPE:Alchemical Item	COST:20	WT:0	QUALITY:CraftDC|20
+Ectoplasmic residue	PROFICIENCY:WEAPON|Splash Weapon	SOURCEPAGE:p.252	TYPE:Goods.Alchemical.Consumable.Weapon.Ranged.Thrown.Splash.Flask	COST:20	WT:2	QUALITY:CraftDC|25	SPROP:ranged touch attack DC13 Will, shaken 1d4 rounds, splash 1 round	 RANGE:10	SIZE:M
+Magnetized paper		SOURCEPAGE:p.252	TYPE:Alchemical.Goods.Consumable	COST:11	WT:1	QUALITY:CraftDC|15	SPROP:these sheets add a 5% bonus to the chance of creating meaningful writing for the automatic writing occult skill unlock. 7 Sheets per pack.
+Snake oil			SOURCEPAGE:p.252	TYPE:Alchemical.Goods.Consumble.Flask	COST:20	WT:0	QUALITY:CraftDC|20	SPROP:This mildly toxic liniment numbs flesh and can soothe injuries.
 
-Ring of Psychic Mastery		COST:50000	SOURCEPAGE:p.252	TYPE:Magic.SLOT_Ring.Ring
-Ring of the hidden psyche	COST:160000	SOURCEPAGE:p.252	TYPE:Magic.SLOT_Ring.Ring
+Ring of Psychic Mastery		COST:50000	SOURCEPAGE:p.252	TYPE:Magic.SLOT_Ring.Ring	SPROP:A ring of psychic mastery grants the caster 1 additional psychic spell per day for each spell level from 1st to 4th that she is capable of casting.
+Ring of the hidden psyche	COST:160000	SOURCEPAGE:p.252	TYPE:Magic.SLOT_Ring.Ring	SPROP:The wearer’s soul instantly enters the ring upon the wearer’s death, even if her body is utterly destroyed.
 
 
 #Lesser Medium Rods Price
@@ -63,61 +66,61 @@ Traumatic metamagic rod			KEY:Traumatic metamagic rod				COST:32500		TYPE:Rod.Ma
 #Greater Major Rods Price
 Fearsome metamagic rod, greater	KEY:Fearsome metamagic rod (Greater)		COST:73000		TYPE:Rod.Magic.Greater Major	WT:1
 Traumatic metamagic rod, greater	KEY:Traumatic metamagic rod (Greater)		COST:73000		TYPE:Rod.Magic.Greater Major	WT:1
-Hollow rod					KEY:Hollow rod						COST:121500		TYPE:Rod.Magic.Greater Major	WT:1
-Caduceus rod				KEY:Caduceus rod					COST:142000		TYPE:Rod.Magic.Greater Major	WT:1
-
-Vril Staff		COST:200000	TYPE:Magic.Staff	SPROP:Mage hand (1 charge)  *  Cure light wounds (1 charge)  *  Cure moderate wounds (2 charges)  *  Telekinesis (2 charges)  *  Repulsion (3 charges) If the wielder of a vril staff is a spellcaster, as a standard action, she can expend 1 charge and sacrifice a prepared spell or unused spell slot of 1st level or higher to channel the power through the staff as a blast of raw magical energy known as vril. This ray resolves as a ranged touch attack with a range of 30 feet, and the wielder chooses whether it deals damage or heals. The amount of damage dealt or healed by the ray is equal to 1d6 points per level of the spell sacrificed + 1 point per caster level of the wielder. In the hands of a kineticist, the staff functions differently. By spending 1 charge from the staff as part of her kinetic blast, the kineticist can use a new basic energy blast called a vril blast. This blast deals untyped damage. A vril blast works only with form and substance infusions that specify that they work on any blast. If the kineticist instead spends 3 charges, her vril blast's intensity increases and it ignores spell resistance. A kineticist can use a vril staff without attempting a Use Magic Device check. A spellcaster can recharge a vril staff normally. A kineticist can restore a single charge to a vril staff by accepting 3 points of burn.
+Hollow rod					KEY:Hollow rod						COST:121500		TYPE:Rod.Magic.Greater Major	WT:1	SPROP:Three times per day, a kineticist can utilize the hollow rod in conjunction with a blast wild talent or the kinetic healer wild talent to augment that talent’s destructive or healing capabilities, treating the wild talent as maximized  	EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]
+Caduceus rod				KEY:Caduceus rod					COST:142000		TYPE:Rod.Magic.Greater Major	WT:1	EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SPROP:+5 insight bonus on Craft (alchemy) checks and a +1 insight bonus on attack and damage rolls with alchemical items, including alchemists’ bombs. When it’s held in hand, the caduceus rod powers can be invoked five times per day		BONUS:SKILL|Craft (alchemy)|5|TYPE=Insight
+Vril Staff		COST:200000	TYPE:Magic.Staff	EQMOD:Special Ability ~ Staff Charges|CHARGES[10]	SPROP:Mage hand (1 charge)  *  Cure light wounds (1 charge)  *  Cure moderate wounds (2 charges)  *  Telekinesis (2 charges)  *  Repulsion (3 charges) If the wielder of a vril staff is a spellcaster, as a standard action, she can expend 1 charge and sacrifice a prepared spell or unused spell slot of 1st level or higher to channel the power through the staff as a blast of raw magical energy known as vril. This ray resolves as a ranged touch attack with a range of 30 feet, and the wielder chooses whether it deals damage or heals. The amount of damage dealt or healed by the ray is equal to 1d6 points per level of the spell sacrificed + 1 point per caster level of the wielder. In the hands of a kineticist, the staff functions differently. By spending 1 charge from the staff as part of her kinetic blast, the kineticist can use a new basic energy blast called a vril blast. This blast deals untyped damage. A vril blast works only with form and substance infusions that specify that they work on any blast. If the kineticist instead spends 3 charges, her vril blast's intensity increases and it ignores spell resistance. A kineticist can use a vril staff without attempting a Use Magic Device check. A spellcaster can recharge a vril staff normally. A kineticist can restore a single charge to a vril staff by accepting 3 points of burn.
 
 ###Block: Wondrous Items
-Animal divining pot						KEY:Animal divining pot						WT:5	SOURCEPAGE:p.256		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:1400
-Candle of spirit protection					KEY:Candle of spirit protection				WT:1	SOURCEPAGE:p.256		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:1500
-Dreamcatcher							KEY:Dreamcatcher							WT:2	SOURCEPAGE:p.257		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:2800
-False coin								KEY:False coin							WT:0	SOURCEPAGE:p.257		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:375
+Animal divining pot						KEY:Animal divining pot						WT:5	SOURCEPAGE:p.256		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:1400	SPROP:the user can communicate with the animal through whispers, as speak with animals. This ability functions three times per day
+Candle of spirit protection					KEY:Candle of spirit protection				WT:1	SOURCEPAGE:p.256		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:1500	SPROP:When it’s lit, fine lines of smoke coil out, creating a circular line of smoke in a 10-foot radius around the candle. This area is protected against intrusion by astrally projected creatures, ethereal creatures, haunts, incorporeal creatures, mediums channeling a spirit, and phantoms.
+Dreamcatcher							KEY:Dreamcatcher							WT:2	SOURCEPAGE:p.257		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:2800	SPROP:The owner gains a +2 sacred bonus on saving throws while asleep. Further, any ability damage or ability drain he takes during this time is reduced by 1 point (to a minimum of 0 points).
+False coin								KEY:False coin							WT:0	SOURCEPAGE:p.257		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:375	SPROP:gives the activator a +2 insight bonus on Bluff, Diplomacy, Intimidate, and Sense Motive checks against the coin’s current possessor. In addition, the possessor takes a –1 penalty on saving throws against spells with the emotion, fear, or scrying descriptors cast by the coin’s activator.
 Flying skiff							KEY:Flying skiff							WT:2500	SOURCEPAGE:p.257		TYPE:Magic.Wondrous Item.Greater Major Wondrous Item		COST:180000
 Flying sled								KEY:Flying sled							WT:100	SOURCEPAGE:p.257		TYPE:Magic.Wondrous Item.Greater Major Wondrous Item		COST:80000
-Four-leaf clover							KEY:Four-leaf clover						WT:0	SOURCEPAGE:p.258		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:3750
-Ganji doll								KEY:Ganji doll							WT:.5	SOURCEPAGE:p.258		TYPE:Magic.Wondrous Item.Lesser Medium Wondrous Item		COST:16000
-Ganji doll, greater						KEY:Ganji doll (Greater)					WT:.5	SOURCEPAGE:p.258		TYPE:Magic.Wondrous Item.Lesser Major Wondrous Item		COST:36000
-Ghost powder							KEY:Ghost powder							WT:.5	SOURCEPAGE:p.258		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:1400
+Four-leaf clover							KEY:Four-leaf clover						WT:0	SOURCEPAGE:p.258		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:3750	SPROP:before attempting a single ability check, saving throw, or skill check. She gains a +2 luck bonus on that check. This ability functions three times per day, and requires a free action that the owner can perform even when it’s not her turn.	EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]
+Ganji doll								KEY:Ganji doll							WT:.5	SOURCEPAGE:p.258		TYPE:Magic.Wondrous Item.Lesser Medium Wondrous Item		COST:16000		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SPROP:Affects bound target (-2 save) with Blind, Damage, Touch Spell.
+Ganji doll, greater						KEY:Ganji doll (Greater)					WT:.5	SOURCEPAGE:p.258		TYPE:Magic.Wondrous Item.Lesser Major Wondrous Item		COST:36000	 EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SPROP:Affects bound target (-2 save) with Damage, Locate Creature, Suggestion.
+Ghost powder							KEY:Ghost powder							WT:.5	SOURCEPAGE:p.258		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:1400	SPROP:ethereal and incorporeal creatures are blocked as though the line were a wall of force
 Incense of corporeality						KEY:Incense of corporeality					WT:.5	SOURCEPAGE:p.259		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:1400
-Incense of open thoughts					KEY:Incense of open thoughts					WT:1	SOURCEPAGE:p.259		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:2800
+Incense of open thoughts					KEY:Incense of open thoughts					WT:1	SOURCEPAGE:p.259		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:2800	SPROP:creatures inhaling its fumes become unusually receptive to thought, +5 insight bonus on Diplomacy and Sense Motive checks and imposes a –5 penalty on Bluff and Intimidate checks and a –2 penalty on saving throws against mind-affecting effects.
 Indomitable jewel							KEY:Indomitable jewel						WT:1	SOURCEPAGE:p.259		TYPE:Magic.Wondrous Item.Lesser Medium Wondrous Item		COST:12000
-Kineticist's diadem						KEY:Kineticist's diadem						WT:0	SOURCEPAGE:p.259		TYPE:Magic.Wondrous Item.Greater Major Wondrous Item		COST:50000
-Kineticist's diadem, greater					KEY:Kineticist's diadem (Greater)				WT:0	SOURCEPAGE:p.259		TYPE:Magic.Wondrous Item.Greater Major Wondrous Item		COST:98000
-Kineticist's diadem, lesser					KEY:Kineticist's diadem (Lesser)				WT:0	SOURCEPAGE:p.259		TYPE:Magic.Wondrous Item.Greater Medium Wondrous Item		COST:18000
-Lithomancy stones							KEY:Lithomancy stones						WT:2	SOURCEPAGE:p.260		TYPE:Magic.Wondrous Item.Lesser Medium Wondrous Item		COST:12000
-Lucky horseshoe							KEY:Lucky horseshoe						WT:2	SOURCEPAGE:p.260		TYPE:Magic.Wondrous Item.Greater Minor Wondrous Item		COST:6800
-Lucky horseshoe, communal					KEY:Lucky horseshoe (Communal)				WT:2	SOURCEPAGE:p.260		TYPE:Magic.Wondrous Item.Lesser Medium Wondrous Item		COST:15000
-Magic talking board						KEY:Magic talking board						WT:2	SOURCEPAGE:p.260		TYPE:Magic.Wondrous Item.Greater Medium Wondrous Item		COST:20000
-Mask of the mesmerist						KEY:Mask of the mesmerist					WT:4	SOURCEPAGE:p.261		TYPE:Magic.Wondrous Item.Greater Medium Wondrous Item		COST:25000
+Kineticist's diadem						KEY:Kineticist's diadem						WT:0	SOURCEPAGE:p.259		TYPE:Magic.Wondrous Item.Greater Major Wondrous Item		COST:50000 	SPROP:increases the damage dealt by the kineticist’s simple and composite blasts by 2d6 points
+Kineticist's diadem, greater					KEY:Kineticist's diadem (Greater)				WT:0	SOURCEPAGE:p.259		TYPE:Magic.Wondrous Item.Greater Major Wondrous Item		COST:98000	SPROP:increases the damage dealt by the kineticist’s simple and composite blasts by 3d6 points
+Kineticist's diadem, lesser					KEY:Kineticist's diadem (Lesser)				WT:0	SOURCEPAGE:p.259		TYPE:Magic.Wondrous Item.Greater Medium Wondrous Item		COST:18000	SPROP:increases the damage dealt by the kineticist’s simple and composite blasts by 1d6 points
+Lithomancy stones							KEY:Lithomancy stones						WT:2	SOURCEPAGE:p.260		TYPE:Magic.Wondrous Item.Lesser Medium Wondrous Item		COST:12000	SPROP:Once per day, the possessor can frame a question in her mind, cast the stones upon the ground, and attempt a reading with a Knowledge (planes) check to find the answer to her question.
+Lucky horseshoe							KEY:Lucky horseshoe						WT:2	SOURCEPAGE:p.260		TYPE:Magic.Wondrous Item.Greater Minor Wondrous Item		COST:6800	SPROP:+1 luck bonus on saving throws. Once per day, she can invoke the lucky horseshoe’s power to gain a +4 luck bonus on a single saving throw	EQMOD:Special Ability ~ Uses per Day / 1|CHARGES[1]	BONUS:SAVE|ALL|1+Global_LuckBonus|TYPE=Luck
+Lucky horseshoe, communal					KEY:Lucky horseshoe (Communal)				WT:2	SOURCEPAGE:p.260		TYPE:Magic.Wondrous Item.Lesser Medium Wondrous Item		COST:15000	SPROP:spend at least 8 consecutive hours within the building to gain effect of Lucky Horseshoe
+Magic talking board						KEY:Magic talking board						WT:2	SOURCEPAGE:p.260		TYPE:Magic.Wondrous Item.Greater Medium Wondrous Item		COST:20000	SPROP:When used for the automatic writing skill unlock in place of a mundane talking board, a magic talking board provides a +5 circumstance bonus on the Linguistics check.
+Mask of the mesmerist						KEY:Mask of the mesmerist					WT:4	SOURCEPAGE:p.261		TYPE:Magic.Wondrous Item.Greater Medium Wondrous Item		COST:25000	SPROP:A mesmerist wearing this mask increases the range of his hypnotic stare ability by 10 feet as the mask allows him to better focus on his targets. Creatures under the effects of the wearer’s hypnotic stare take a –2 penalty on all attack
+rolls against the wearer.
 Orgone accumulator						KEY:Orgone accumulator						WT:150	SOURCEPAGE:p.261		TYPE:Magic.Wondrous Item.Lesser Major Wondrous Item		COST:48000
 Sensory deprivation hood					KEY:Sensory deprivation hood					WT:5	SOURCEPAGE:p.261		TYPE:Magic.Wondrous Item.Greater Medium Wondrous Item		COST:27500
-Shrunken head							KEY:Shrunken head							WT:1	SOURCEPAGE:p.262		TYPE:Magic.Wondrous Item.Greater Major Wondrous Item		COST:90000
+Shrunken head							KEY:Shrunken head							WT:1	SOURCEPAGE:p.262		TYPE:Magic.Wondrous Item.Greater Major Wondrous Item		COST:90000	SPROP:Once per day as an immediate action, the owner can make the head absorb a mind-affecting spell of up to 5th level that was targeting the owner. As a standard action, the wielder can unleash this energy as enervation, with the ray imposing 1 negative level per level of spell absorbed. used as an additional focus component for a spell with the fear subtype, increases any save DC associated with the spell by 1.
 Soultheft glass							KEY:Soultheft glass						WT:1	SOURCEPAGE:p.262		TYPE:Magic.Wondrous Item.Lesser Major Wondrous Item		COST:33000
 Spirit mirror							KEY:Spirit mirror							WT:4	SOURCEPAGE:p.262		TYPE:Magic.Wondrous Item.Greater Medium Wondrous Item		COST:18900
-Spirit revivification incense					KEY:Spirit revivification incense				WT:0	SOURCEPAGE:p.263		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:800
-Spirit slate							KEY:Spirit slate							WT:2	SOURCEPAGE:p.263		TYPE:Magic.Wondrous Item.Lesser Medium Wondrous Item		COST:12000
-Talisman of arrow protection, greater			KEY:Talisman of arrow protection (Greater)		WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Greater Minor Wondrous Item		COST:6000
-Talisman of arrow protection, lesser			KEY:Talisman of arrow protection (Lesser)			WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:600
-Talisman of beneficial winds, greater			KEY:Talisman of beneficial winds (Greater)		WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:500
-Talisman of beneficial winds, lesser			KEY:Talisman of beneficial winds (Lesser)			WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:50
-Talisman of danger sense, greater				KEY:Talisman of danger sense (Greater)			WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Greater Minor Wondrous Item		COST:7500
-Talisman of danger sense, lesser				KEY:Talisman of danger sense (Lesser)			WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:750
-Talisman of freedom, greater					KEY:Talisman of freedom (Greater)				WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Lesser Medium Wondrous Item		COST:9000
-Talisman of freedom, lesser					KEY:Talisman of freedom (Lesser)				WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:900
-Talisman of good fortune, greater				KEY:Talisman of good fortune (Greater)			WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Lesser Medium Wondrous Item		COST:16800
-Talisman of good fortune, lesser				KEY:Talisman of good fortune (Lesser)			WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:1680
-Talisman of healing power, greater				KEY:Talisman of healing power (Greater)			WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Greater Medium Wondrous Item		COST:24000
-Talisman of healing power, lesser				KEY:Talisman of healing power (Lesser)			WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:2400
-Talisman of life's breath, greater				KEY:Talisman of life's breath (Greater)			WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Lesser Major Wondrous Item		COST:35000
-Talisman of life's breath, lesser				KEY:Talisman of life's breath (Lesser)			WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:3500
-Talisman of protection from flames, greater		KEY:Talisman of protection from flames (Greater)	WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Lesser Medium Wondrous Item		COST:12500
-Talisman of protection from flames, lesser		KEY:Talisman of protection from flames (Lesser)		WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:1250
-Talisman of sealed summons, greater				KEY:Talisman of sealed summons (Greater)			WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Greater Minor Wondrous Item		COST:4500
-Talisman of sealed summons, lesser				KEY:Talisman of sealed summons (Lesser)			WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:450
-Talisman of warrior's courage, greater			KEY:Talisman of warrior's courage (Greater)		WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Greater Minor Wondrous Item		COST:4500
-Talisman of warrior's courage, lesser			KEY:Talisman of warrior's courage (Lesser)		WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:450
-Thaumaturgic powder						KEY:Thaumaturgic powder						WT:0	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Greater Minor Wondrous Item		COST:4000
+Spirit revivification incense					KEY:Spirit revivification incense				WT:0	SOURCEPAGE:p.263		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:800	SPROP:A spiritualist can burn the incense as part of her ritual to manifest her phantom, in which case the manifested phantom returns with its maximum number of hit points, regardless of previous damage incurred.
+Spirit slate							KEY:Spirit slate							WT:2	SOURCEPAGE:p.263		TYPE:Magic.Wondrous Item.Lesser Medium Wondrous Item		COST:12000	SPROP:this can obtain answers to specific questions regarding a dead creature if the user has access to at least a fragment of bone from the deceased’s body. The device can be used up to 3 times per day.	EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]
+Talisman of arrow protection, greater			KEY:Talisman of arrow protection (Greater)		WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Greater Minor Wondrous Item		COST:6000	SPROP:The first time that the wearer is hit by two or more ranged attacks in a single round, he is immediately affected by protection from arrows	EQMOD:Special Ability ~ Uses per Day / 1|CHARGES[1]
+Talisman of arrow protection, lesser			KEY:Talisman of arrow protection (Lesser)			WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:600	SPROP:The first time that the wearer is hit by two or more ranged attacks in a single round, he is immediately affected by protection from arrows
+Talisman of beneficial winds, greater			KEY:Talisman of beneficial winds (Greater)		WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:500	EQMOD:Special Ability ~ Uses per Day / 1|CHARGES[1]	SPROP:The first time that the wearer falls at least 5 feet, he is automatically affected by feather fall.
+Talisman of beneficial winds, lesser			KEY:Talisman of beneficial winds (Lesser)			WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:50	SPROP:The first time that the wearer falls at least 5 feet, he is automatically affected by feather fall.
+Talisman of danger sense, greater				KEY:Talisman of danger sense (Greater)			WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Greater Minor Wondrous Item		COST:7500	EQMOD:Special Ability ~ Uses per Day / 1|CHARGES[1]	SPROP:. The first time the wearer rolls initiative, she is immediately affected by anticipate peril.
+Talisman of danger sense, lesser				KEY:Talisman of danger sense (Lesser)			WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:750	SPROP:. The first time the wearer rolls initiative, she is immediately affected by anticipate peril.
+Talisman of freedom, greater					KEY:Talisman of freedom (Greater)				WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Lesser Medium Wondrous Item		COST:9000	EQMOD:Special Ability ~ Uses per Day / 1|CHARGES[1]	SPROP:The first time that the wearer becomes grappled, entangled, or paralyzed, he is automatically affected by freedom of movement for 3 rounds.
+Talisman of freedom, lesser					KEY:Talisman of freedom (Lesser)				WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:900	SPROP:The first time that the wearer becomes grappled, entangled, or paralyzed, he is automatically affected by freedom of movement for 3 rounds.
+Talisman of good fortune, greater				KEY:Talisman of good fortune (Greater)			WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Lesser Medium Wondrous Item		COST:16800	EQMOD:Special Ability ~ Uses per Day / 1|CHARGES[1]	SPROP:The first time that the wearer rolls a natural 1 on a d20 roll (such as on an ability check, attack roll, saving throw, or skill check), he can immediately roll again and take the new result instead
+Talisman of good fortune, lesser				KEY:Talisman of good fortune (Lesser)			WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:1680	SPROP:The first time that the wearer rolls a natural 1 on a d20 roll (such as on an ability check, attack roll, saving throw, or skill check), he can immediately roll again and take the new result instead
+Talisman of healing power, greater				KEY:Talisman of healing power (Greater)			WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Greater Medium Wondrous Item		COST:24000	EQMOD:Special Ability ~ Uses per Day / 1|CHARGES[1]	SPROP:The first time that the wearer is reduced to fewer than 1/2 his maximum hit points, he automatically heals 4d8+7 hit points
+Talisman of healing power, lesser				KEY:Talisman of healing power (Lesser)			WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:2400	SPROP:The first time that the wearer is reduced to fewer than 1/2 his maximum hit points, he automatically heals 4d8+7 hit points
+Talisman of life's breath, greater				KEY:Talisman of life's breath (Greater)			WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Lesser Major Wondrous Item		COST:35000	EQMOD:Special Ability ~ Uses per Day / 1|CHARGES[1]	SPROP:The first time that the wearer dies, he is automatically affected by breath of life.
+Talisman of life's breath, lesser				KEY:Talisman of life's breath (Lesser)			WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:3500	SPROP:The first time that the wearer dies, he is automatically affected by breath of life.
+Talisman of protection from flames, greater		KEY:Talisman of protection from flames (Greater)	WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Lesser Medium Wondrous Item		COST:12500	EQMOD:Special Ability ~ Uses per Day / 1|CHARGES[1]	SPROP:The first time that the wearer takes 5 or more points of fire damage in a single round, he is automatically affected by protection from energy .
+Talisman of protection from flames, lesser		KEY:Talisman of protection from flames (Lesser)		WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:1250	SPROP:The first time that the wearer takes 5 or more points of fire damage in a single round, he is automatically affected by protection from energy.
+Talisman of sealed summons, greater				KEY:Talisman of sealed summons (Greater)			WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Greater Minor Wondrous Item		COST:4500	EQMOD:Special Ability ~ Uses per Day / 1|CHARGES[1]	SPROP:The first time that the wearer is hit by a natural attack from an evil summoned creature, the wearer is automatically affected by protection from evil.
+Talisman of sealed summons, lesser				KEY:Talisman of sealed summons (Lesser)			WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:450	SPROP:The first time that the wearer is hit by a natural attack from an evil summoned creature, the wearer is automatically affected by protection from evil.
+Talisman of warrior's courage, greater			KEY:Talisman of warrior's courage (Greater)		WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Greater Minor Wondrous Item		COST:4500	EQMOD:Special Ability ~ Uses per Day / 1|CHARGES[1]	SPROP:The first time that the wearer would gain the frightened or panicked condition, he gains the shaken condition instead.
+Talisman of warrior's courage, lesser			KEY:Talisman of warrior's courage (Lesser)		WT:1	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:450	SPROP:The first time that the wearer would gain the frightened or panicked condition, he gains the shaken condition instead.
+Thaumaturgic powder						KEY:Thaumaturgic powder						WT:0	SOURCEPAGE:p.264		TYPE:Magic.Wondrous Item.Greater Minor Wondrous Item		COST:4000	SPROP:The scribed circle acts as the perfectly scribed special diagram of a magic circle against chaos, evil, good, or law and bars extradimensional movement as if the user had attached dimensional anchor to the magic circle.
 Tin cap								KEY:Tin cap								WT:2	SOURCEPAGE:p.265		TYPE:Magic.Wondrous Item.Lesser Medium Wondrous Item		COST:15000
 Tome of origami animals						KEY:Tome of origami animals					WT:15	SOURCEPAGE:p.265		TYPE:Magic.Wondrous Item.Lesser Medium Wondrous Item		COST:13500
 Waxen image								KEY:Waxen image							WT:.5	SOURCEPAGE:p.265		TYPE:Magic.Wondrous Item.Lesser Minor Wondrous Item		COST:500
@@ -125,9 +128,8 @@ Waxen image								KEY:Waxen image							WT:.5	SOURCEPAGE:p.265		TYPE:Magic.Wond
 # Cursed
 Haunted Doll							KEY:Haunted Doll							WT:1	SOURCEPAGE:p.265		TYPE:Magic.Wondrous Item.Cursed
 Maniac Hand																	WT:2	SOURCEPAGE:p.266		TYPE:Magic.Wondrous Item.Cursed
-Mirror of Soul Snaring															WT:45	SOURCEPAGE:p.266		TYPE:Magic.Wondrous Item.Cursed
-Monkey's Paw																WT:.5	SOURCEPAGE:p.267		TYPE:Magic.Wondrous Item.Cursed
-
+Mirror of Soul Snaring															WT:45	SOURCEPAGE:p.266		TYPE:Magic.Wondrous Item.Cursed		SPROP:A mirror of soul snaring has 15 extradimensional compartments within it. Any creature coming within 30 feet of the device and looking at its own reflection must succeed at a DC 23 Will save or have its soul sucked into one of the compartments.
+Monkey's Paw																WT:.5	SOURCEPAGE:p.267		TYPE:Magic.Wondrous Item.Cursed 	SPROP:This mummified monkey’s hand bears the power to grant three wishes, but at a terrible cost. The paw can grant any request within the power of a wish spell, but the paw’s curse twists the results to bring about despair.
 # Artifact
 Portal Network																WT:64000	SOURCEPAGE:p.267	TYPE:Magic.Artifact
 Primordial Symbol																WT:1	SOURCEPAGE:p.268	TYPE:Magic.Artifact
@@ -137,5 +139,3 @@ Thought Record																WT:2	SOURCEPAGE:p.269	TYPE:Magic.Artifact
 
 # Kinetic Blast
 Kinetic Blast	WT:0	KEY:Kinetic Blast	PROFICIENCY:WEAPON|Kinetic Blast	DAMAGE:1d6	TYPE:Weapon.Ranged.Kinetic Blast	SPROP:See Kinetic Blast
-
-
