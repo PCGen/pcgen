@@ -2751,11 +2751,22 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		return maxNonEpicLevel;
 	}
 
+	/**
+	 * Indicates if this GameMode uses Deity and Domain objects.
+	 * 
+	 * @param b
+	 *            The value indicating whether this GameMode uses Deity and Domain objects
+	 */
 	public void hasDeityDomain(boolean b)
 	{
 		hasDeityDomain = b;
 	}
-	
+
+	/**
+	 * Returns true if this GameMode uses Deity and Domain objects.
+	 * 
+	 * @return true if this GameMode uses Deity and Domain objects; false otherwise
+	 */
 	public boolean hasDeityDomain()
 	{
 		return hasDeityDomain;
