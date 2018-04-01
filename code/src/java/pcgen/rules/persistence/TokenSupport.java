@@ -318,20 +318,29 @@ public class TokenSupport
 		return set.toArray(new String[set.size()]);
 	}
 
+	/**
+	 * Unparses an object into the LST tokens that would build the object.
+	 * 
+	 * @param context
+	 *            The LoadContext used to interpret the contents of the object
+	 * @param loadable
+	 *            The Loadable object to be unparsed
+	 * @return A Collection of Strings indicating the tokens that would build the object
+	 */
 	public <T extends Loadable, R extends Loadable> Collection<String> unparse(
-		LoadContext context, T cdo)
+		LoadContext context, T loadable)
 	{
 		Collection<String> set = new WeightedCollection<>(
                 String.CASE_INSENSITIVE_ORDER);
 		@SuppressWarnings("unchecked")
-		Class<T> cl = (Class<T>) cdo.getClass();
+		Class<T> cl = (Class<T>) loadable.getClass();
 		for (CDOMInterfaceToken<?, ?> ifToken : TokenLibrary.getInterfaceTokens())
 		{
 			if (ifToken.getClass().isAssignableFrom(cl))
 			{
 				@SuppressWarnings("unchecked")
 				CDOMInterfaceToken<?, T> token = (CDOMInterfaceToken<?, T>) ifToken;
-				String[] s = token.unparse(context, cdo);
+				String[] s = token.unparse(context, loadable);
 				if (s != null)
 				{
 					for (String aString : s)
@@ -345,7 +354,7 @@ public class TokenSupport
 		while (it.hasNext())
 		{
 			CDOMPrimaryToken<? super T> token = it.next();
-			String[] s = token.unparse(context, cdo);
+			String[] s = token.unparse(context, loadable);
 			if (s != null)
 			{
 				for (String aString : s)

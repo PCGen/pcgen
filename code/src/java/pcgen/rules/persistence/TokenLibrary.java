@@ -627,8 +627,8 @@ public final class TokenLibrary implements PluginLoader
 	 * Returns the CDOMInterfaceToken of the given name. null is returned if there is no
 	 * CDOMInterfaceToken of the given name.
 	 * 
-	 * @param The
-	 *            name of the CDOMInterfaceToken to be returned
+	 * @param name
+	 *            The name of the CDOMInterfaceToken to be returned
 	 * @return The CDOMInterfaceToken of the given name
 	 */
 	public static CDOMInterfaceToken<?, ?> getInterfaceToken(String name)

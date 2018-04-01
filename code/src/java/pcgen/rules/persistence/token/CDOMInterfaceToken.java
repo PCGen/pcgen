@@ -26,8 +26,10 @@ import pcgen.rules.context.LoadContext;
  * Note: While the interface of this class only enforces T, it should be expected that the
  * objects processed by this CDOMInterfaceToken also extend Loadable.
  * 
- * @param <T>
- *            The Interface being used for purposes of this CDOMInterfaceToken.
+ * @param <R>
+ *            The read Interface being used for purposes of this CDOMInterfaceToken.
+ * @param <W>
+ *            The write Interface being used for purposes of this CDOMInterfaceToken.
  */
 public interface CDOMInterfaceToken<R, W> extends CDOMToken<W>
 {

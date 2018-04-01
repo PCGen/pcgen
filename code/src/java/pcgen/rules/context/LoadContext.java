@@ -209,7 +209,7 @@ public interface LoadContext
 	 * will be run if commit() is called or forgotten with no action if rollback() is
 	 * called.
 	 * 
-	 * @param commitTask
+	 * @param controller
 	 *            The DeferredMethodController to be added to this LoadContext
 	 */
 	public void addDeferredMethodController(DeferredMethodController<?> controller);
