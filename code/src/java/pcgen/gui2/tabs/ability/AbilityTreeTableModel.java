@@ -59,12 +59,10 @@ public class AbilityTreeTableModel extends AbstractTreeTableModel implements Sor
 {
 
 	private final CharacterFacade character;
-	//private final ListFacade<AbilityCategoryFacade> categories;
 
 	public AbilityTreeTableModel(CharacterFacade character, ListFacade<AbilityCategoryFacade> categories)
 	{
 		this.character = character;
-		//this.categories = categories;
 		this.setRoot(new RootTreeTableNode(categories));
 	}
 
@@ -185,12 +183,10 @@ public class AbilityTreeTableModel extends AbstractTreeTableModel implements Sor
 	private class CategoryTreeTableNode extends DefaultSortableTreeTableNode implements ListListener<AbilityFacade>
 	{
 
-		private final AbilityCategoryFacade category;
 		private final ListFacade<AbilityFacade> abilities;
 
 		public CategoryTreeTableNode(AbilityCategoryFacade category)
 		{
-			this.category = category;
 			setUserObject(category);
 			setValues(Collections.singletonList(category));
 			this.abilities = new SortedListFacade<>(Comparators.toStringIgnoreCaseComparator(),

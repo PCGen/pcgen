@@ -17,11 +17,11 @@
  */
 package plugin.lsttokens.variable;
 
-import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.exception.LegalVariableException;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.content.DatasetVariable;
 import pcgen.cdom.formula.scope.GlobalScope;
+import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -73,7 +73,7 @@ public class GlobalToken extends AbstractNonEmptyToken<DatasetVariable>
 				+ " does not support format " + format + ", found in " + value
 				+ " due to " + e.getMessage());
 		}
-		LegalScope scope = context.getActiveScope();
+		PCGenScope scope = context.getActiveScope();
 
 		if (!DatasetVariable.isLegalName(varName))
 		{
@@ -83,8 +83,8 @@ public class GlobalToken extends AbstractNonEmptyToken<DatasetVariable>
 
 		try
 		{
-			context.getVariableContext().assertLegalVariableID(scope, formatManager,
-				varName);
+			context.getVariableContext().assertLegalVariableID(varName, scope,
+				formatManager);
 		}
 		catch (LegalVariableException e)
 		{
@@ -100,7 +100,7 @@ public class GlobalToken extends AbstractNonEmptyToken<DatasetVariable>
 	@Override
 	public String[] unparse(LoadContext context, DatasetVariable dv)
 	{
-		LegalScope scope = dv.getScope();
+		PCGenScope scope = dv.getScope();
 		if (scope != null && !scope.getName().equals(GlobalScope.GLOBAL_SCOPE_NAME))
 		{
 			//is a local variable

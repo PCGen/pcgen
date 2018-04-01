@@ -20,11 +20,11 @@ package plugin.lsttokens.race;
 import java.util.Collection;
 
 import pcgen.base.calculation.FormulaModifier;
-import pcgen.base.formula.base.LegalScope;
 import pcgen.base.math.OrderedPair;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.content.VarModifier;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Race;
@@ -42,7 +42,6 @@ public class FaceToken extends AbstractNonEmptyToken<Race> implements
 {
 
 	private static final int MOD_PRIORITY = 10;
-	private static final String VAR_NAME = "Face";
 	private static final String MOD_IDENTIFICATION = "SET";
 
 	@Override
@@ -67,7 +66,7 @@ public class FaceToken extends AbstractNonEmptyToken<Race> implements
 		FormatManager<OrderedPair> formatManager =
 				(FormatManager<OrderedPair>) context.getReferenceContext()
 					.getFormatManager("ORDEREDPAIR");
-		LegalScope scope = context.getActiveScope();
+		PCGenScope scope = context.getActiveScope();
 		FormulaModifier<OrderedPair> modifier;
 		try
 		{
@@ -93,15 +92,16 @@ public class FaceToken extends AbstractNonEmptyToken<Race> implements
 				+ " but second item cannot be negative");
 		}
 
-		if (!context.getVariableContext().isLegalVariableID(scope, VAR_NAME))
+		String varName = CControl.FACE.getDefaultValue();
+		if (!context.getVariableContext().isLegalVariableID(scope, varName))
 		{
 			return new ParseResult.Fail(getTokenName()
-				+ " internal error: found invalid var name: " + VAR_NAME
+				+ " internal error: found invalid var name: " + varName
 				+ ", Modified on " + race.getClass().getSimpleName() + ' '
 				+ race.getKeyName());
 		}
 		VarModifier<OrderedPair> vm =
-				new VarModifier<>(VAR_NAME, scope, modifier);
+				new VarModifier<>(varName, scope, modifier);
 		context.getObjectContext().addToList(race, ListKey.MODIFY, vm);
 		return ParseResult.SUCCESS;
 	}
@@ -118,7 +118,7 @@ public class FaceToken extends AbstractNonEmptyToken<Race> implements
 			for (VarModifier<?> vm : added)
 			{
 				FormulaModifier<?> modifier = vm.getModifier();
-				if (VAR_NAME.equals(vm.getVarName())
+				if (CControl.FACE.getDefaultValue().equals(vm.getVarName())
 					&& (!vm.getLegalScope().getParentScope().isPresent())
 					&& (modifier.getIdentification()
 						.equals(MOD_IDENTIFICATION)))

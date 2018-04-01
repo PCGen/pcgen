@@ -66,7 +66,6 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 	private final CharacterLevelsFacade levels;
 	private final ListSelectionModel selectionModel;
 	private FilteredTreeViewTable<CharacterFacade, SkillFacade> table;
-	private boolean displayCostTrees = false;
 
 	public SkillTreeViewModel(CharacterFacade character, ListSelectionModel selectionModel)
 	{
@@ -313,11 +312,6 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 			}
 			path.add(pobj.getDisplayType());
 			return Arrays.asList(createTreeViewPath(pobj, path.toArray()));
-//
-//			return Arrays.asList(
-//					new TreeViewPath<SkillFacade>(pobj,
-//												  null,
-//												  pobj.getType()));
 		}
 
 	};

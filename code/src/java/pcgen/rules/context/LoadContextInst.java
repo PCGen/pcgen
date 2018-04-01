@@ -24,13 +24,11 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
-import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.inst.NEPFormula;
 import pcgen.base.text.ParsingSeparator;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.GroupDefinition;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.base.PrimitiveCollection;
@@ -87,7 +85,10 @@ abstract class LoadContextInst implements LoadContext
 	//Per file
 	private CDOMObject stateful;
 	
-	private LegalScope legalScope = null;
+	/**
+	 * The current PCGenScope for this LoadContext.
+	 */
+	private PCGenScope legalScope = null;
 
 	static
 	{
@@ -273,9 +274,10 @@ abstract class LoadContextInst implements LoadContext
 	@Override
 	public void resolvePostValidationTokens()
 	{
-		Collection<? extends ReferenceManufacturer> mfgs = getReferenceContext()
+		Collection<? extends ReferenceManufacturer<?>> mfgs = getReferenceContext()
 				.getAllManufacturers();
-		for (PostValidationToken<? extends Loadable> token : TokenLibrary.getPostValidationTokens())
+		for (PostValidationToken<? extends Loadable> token : TokenLibrary
+			.getPostValidationTokens())
 		{
 			processPostVal(token, mfgs);
 		}
@@ -532,7 +534,7 @@ abstract class LoadContextInst implements LoadContext
 	}
 
 	@Override
-	public LegalScope getActiveScope()
+	public PCGenScope getActiveScope()
 	{
 		if (legalScope == null)
 		{
@@ -566,10 +568,10 @@ abstract class LoadContextInst implements LoadContext
 	}
 
 	@Override
-	public <T> NEPFormula<T> getValidFormula(FormatManager<T> formatManager, String instructions)
+	public <T> NEPFormula<T> getValidFormula(FormatManager<T> formatManager,
+		String instructions)
 	{
-		return FormulaFactory.getValidFormula(instructions, var.getManagerFactory(),
-			var.getDummySetup().getFormulaManager(), getActiveScope(), formatManager);
+		return var.getValidFormula(getActiveScope(), formatManager, instructions);
 	}
 
 	private class DerivedLoadContext implements LoadContext
@@ -583,9 +585,12 @@ abstract class LoadContextInst implements LoadContext
 		/**
 		 * The derived Scope for this DerivedLoadContext
 		 */
-		private final LegalScope derivedScope;
+		private final PCGenScope derivedScope;
 
-		public DerivedLoadContext(LoadContext parent, LegalScope scope)
+		/**
+		 * Constructs a new LoadContext derived from the given LoadContext
+		 */
+		public DerivedLoadContext(LoadContext parent, PCGenScope scope)
 		{
 			this.derivedScope = scope;
 			this.parent = parent;
@@ -805,7 +810,7 @@ abstract class LoadContextInst implements LoadContext
 		}
 
 		@Override
-		public LegalScope getActiveScope()
+		public PCGenScope getActiveScope()
 		{
 			return derivedScope;
 		}

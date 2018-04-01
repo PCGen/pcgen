@@ -20,12 +20,12 @@ package plugin.lsttokens;
 import java.util.Set;
 import java.util.TreeSet;
 
-import pcgen.base.formula.base.LegalScope;
 import pcgen.base.lang.CaseInsensitiveString;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.MapKey;
+import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.MapChanges;
 import pcgen.rules.context.VariableContext;
@@ -65,7 +65,7 @@ public class InfoVarsLst extends AbstractTokenWithSeparator<CDOMObject>
 		VariableContext varContext = context.getVariableContext();
 		for (String name : val)
 		{
-			LegalScope scope = context.getActiveScope();
+			PCGenScope scope = context.getActiveScope();
 			if (!varContext.isLegalVariableID(scope, name))
 			{
 				return new ParseResult.Fail(getTokenName()

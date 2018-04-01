@@ -19,9 +19,9 @@ package pcgen.rules.persistence.token;
 
 import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.formula.base.FormulaManager;
-import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.util.FormatManager;
+import pcgen.cdom.formula.scope.PCGenScope;
 
 /**
  * A ModifierFactory is an object designed to build Modifier objects.
@@ -67,13 +67,13 @@ public interface ModifierFactory<T>
 	 *            The FormulaManager used, if necessary, to initialize the
 	 *            FormulaModifier to be returned
 	 * @param varScope
-	 *            The VariableScope for the FormulaModifier to be returned
+	 *            The PCGenScope for the FormulaModifier to be returned
 	 * @param formatManager
 	 *            The FormatManager for the FormulaModifier to be returned
 	 * @return a FormulaModifier with the given instructions
 	 */
 	public FormulaModifier<T> getModifier(String instructions,
-		ManagerFactory managerFactory, FormulaManager formulaManager, LegalScope varScope,
+		ManagerFactory managerFactory, FormulaManager formulaManager, PCGenScope varScope,
 		FormatManager<T> formatManager);
 
 	/**

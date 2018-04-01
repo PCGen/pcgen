@@ -25,6 +25,7 @@ import pcgen.base.format.OrderedPairManager;
 import pcgen.base.math.OrderedPair;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.util.CControl;
 import pcgen.core.Race;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
@@ -180,7 +181,7 @@ public class FaceTokenTest extends AbstractCDOMTokenTestCase<Race>
 	{
 		super.additionalSetup(context);
 		context.getVariableContext().assertLegalVariableID(
-			context.getActiveScope(), opManager, "Face");
+			CControl.FACE.getDefaultValue(), context.getActiveScope(), opManager);
 	}
 	
 	

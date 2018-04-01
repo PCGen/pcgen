@@ -84,6 +84,8 @@ public final class FactSetKey<T>
 	public static <T> FactSetKey<T> getConstant(String name,
 		FormatManager<T> fmtManager)
 	{
+		//This cast is checked by the "else" below
+		@SuppressWarnings("unchecked")
 		FactSetKey<T> key = (FactSetKey<T>) typeMap.get(name);
 		if (key == null)
 		{
@@ -152,6 +154,7 @@ public final class FactSetKey<T>
 	 *            this FactSetKey
 	 * @return An object cast to the format of item stored by this FactSetKey
 	 */
+	@SuppressWarnings("unchecked")
 	public T cast(Object obj)
 	{
 		return (T) obj;

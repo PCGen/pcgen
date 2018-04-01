@@ -406,19 +406,6 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 			return isAvailModel ? "TemplateTreeAvail" : "TemplateTreeSelected";  //$NON-NLS-1$//$NON-NLS-2$
 		}
 
-//		@Override
-//		protected void refreshTableData()
-//		{
-//			if (isAvailModel)
-//			{
-//				availableTable.refreshModelData();
-//			}
-//			else
-//			{
-//				selectedTable.refreshModelData();
-//			}
-//		}
-
 		@Override
 		public Object getDataInternal(TemplateFacade obj, int column)
 		{

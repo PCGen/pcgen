@@ -134,7 +134,7 @@ public class GameModePanel extends ConvertSubPanel
 			SpringLayout.WEST, panel);
 
 		List<GameMode> games = SystemCollections.getUnmodifiableGameModeList();
-		gameModeCombo = new JComboBoxEx(games.toArray());
+		gameModeCombo = new JComboBoxEx<>(games.toArray());
 		gameModeCombo.addActionListener(new ActionListener()
 		{
 			@Override

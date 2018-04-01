@@ -17,11 +17,12 @@
 package pcgen.testsupport;
 
 import junit.framework.TestCase;
-import pcgen.base.solver.Modifier;
+import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.VariableKey;
+import pcgen.cdom.formula.local.ModifierDecoration;
 import pcgen.cdom.inst.CodeControl;
 import pcgen.cdom.util.CControl;
 import pcgen.core.GameMode;
@@ -200,8 +201,8 @@ public abstract class AbstractCharacterUsingTestCase extends TestCase {
 		CodeControl ai = ref.constructCDOMObject(CodeControl.class, "Controller");
 		String channelName = ChannelUtilities.createVarName("AlignmentInput");
 		context.getVariableContext().assertLegalVariableID(
-			context.getActiveScope(), fmtManager,
-			channelName);
+			channelName, context.getActiveScope(),
+			fmtManager);
 		String controlName = '*' + CControl.ALIGNMENTINPUT.getName();
 		ai.put(ObjectKey.getKeyFor(String.class, controlName), "AlignmentInput");
 	}
@@ -210,7 +211,8 @@ public abstract class AbstractCharacterUsingTestCase extends TestCase {
 	{
 		Class<T> cl = fmtManager.getManagedClass();
 		ModifierFactory<T> m = TokenLibrary.getModifier(cl, "SET");
-		Modifier<T> defaultModifier = m.getFixedModifier(fmtManager, "NONE");
-		context.getVariableContext().addDefault(cl, defaultModifier);
+		FormulaModifier<T> defaultModifier = m.getFixedModifier(fmtManager, "NONE");
+		context.getVariableContext().addDefault(cl,
+			new ModifierDecoration<>(defaultModifier));
 	}
 }

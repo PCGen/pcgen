@@ -157,6 +157,7 @@ public abstract class AbstractAssociationFacet<IDT extends PCGenIdentifier, S, A
 	 */
 	public Map<S, A> removeAll(IDT id)
 	{
+		@SuppressWarnings("unchecked")
 		Map<S, A> componentMap = (Map<S, A>) removeCache(id);
 		if (componentMap == null)
 		{
@@ -281,6 +282,7 @@ public abstract class AbstractAssociationFacet<IDT extends PCGenIdentifier, S, A
 	 *         null if no information has been set in this
 	 *         AbstractAssociationFacet for the item.
 	 */
+	@SuppressWarnings("unchecked")
 	protected Map<S, A> getCachedMap(IDT id)
 	{
 		return (Map<S, A>) getCache(id);

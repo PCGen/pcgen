@@ -314,25 +314,16 @@ public class HitPointFacet extends
 						+ (int) bonusCheckingFacet.getBonus(id, "HD", "MAX;CLASS."
 							+ pcc.getKeyName());
 
-			if (SettingsHandler.getGame().getHPFormula().isEmpty())
+			if (first && maximizeHPatFirstLevel(pcc, level))
 			{
-				if (first
-					&& level == 1
-					&& SettingsHandler.isHPMaxAtFirstLevel()
-					&& (!SettingsHandler.isHPMaxAtFirstPCClassLevelOnly() || pcc
-						.isType("PC")))
+				roll = max;
+			}
+			else
+			{
+				PlayerCharacter pc = trackingFacet.getPC(id);
+				if (!pc.isImporting())
 				{
-					roll = max;
-				}
-				else
-				{
-					PlayerCharacter pc = trackingFacet.getPC(id);
-					if (!pc.isImporting())
-					{
-						roll =
-								rollHP(min, max,
-										levelFacet.getTotalLevels(id));
-					}
+					roll = rollHP(min, max, levelFacet.getTotalLevels(id));
 				}
 			}
 
@@ -340,6 +331,13 @@ public class HitPointFacet extends
 		}
 		PCClassLevel classLevel = classFacet.getClassLevel(id, pcc, level - 1);
 		set(id, classLevel, roll);
+	}
+
+	private boolean maximizeHPatFirstLevel(PCClass pcc, int level)
+	{
+		boolean classAllowsMaxHP =
+				!SettingsHandler.isHPMaxAtFirstPCClassLevelOnly() || pcc.isType("PC");
+		return (level == 1) && SettingsHandler.isHPMaxAtFirstLevel() && classAllowsMaxHP;
 	}
 
 	public void setClassFacet(ClassFacet classFacet)

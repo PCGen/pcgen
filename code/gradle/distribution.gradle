@@ -39,16 +39,6 @@ ext {
         }
     }
 
-// Redundancy this is root above ziproot
-//    rootDistsImage = copySpec {
-//        from('.') {
-//            include 'pcgen.exe'
-//		include 'pcgen.jar'
-//		include 'pcgen-batch-convert.jar'
-//		include 'pcgen.sh'
-//       }
-//    }
-
     programDistsImage = copySpec {
         from("$buildDir/libs") {
             include 'pcgen-*.jar'
@@ -83,7 +73,7 @@ ext {
     }
 }
 
-task fullZip(type: Zip, dependsOn: ['converterJar', 'copyToLibs', 'copyToRoot']) {
+task fullZip(type: Zip, dependsOn: ['converterJar', 'copyToLibs', 'copyToOutput']) {
     classifier = 'full'
     into(zipRootFolder) {
         with dataDistsImage
@@ -93,10 +83,6 @@ task fullZip(type: Zip, dependsOn: ['converterJar', 'copyToLibs', 'copyToRoot'])
         with autobuildSpec
         with charactersImage
     }
-// Redundancy, not required with copyToRoot above
-//    into("") {
-//        with rootDistsImage
-//    }
 }
 
 task dataZip(type: Zip) {

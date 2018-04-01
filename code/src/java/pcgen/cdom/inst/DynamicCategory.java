@@ -17,12 +17,6 @@
  */
 package pcgen.cdom.inst;
 
-import java.util.Optional;
-
-import pcgen.base.formula.base.LegalScope;
-import pcgen.cdom.formula.scope.GlobalScope;
-import pcgen.cdom.helper.SpringHelper;
-
 /**
  * A DynamicCategory is a method for keeping different Formats of Dynamic objects
  * separated.
@@ -38,12 +32,8 @@ import pcgen.cdom.helper.SpringHelper;
  * 
  * This is a simple, non-hierarchical Category.
  */
-public final class DynamicCategory extends AbstractCategory<Dynamic> implements
-		LegalScope
+public final class DynamicCategory extends AbstractCategory<Dynamic>
 {
-	private final Optional<LegalScope> parentScope =
-			Optional.of(SpringHelper.getBean(GlobalScope.class));
-
 	@Override
 	public Class<Dynamic> getReferenceClass()
 	{
@@ -54,12 +44,6 @@ public final class DynamicCategory extends AbstractCategory<Dynamic> implements
 	public String getReferenceDescription()
 	{
 		return getKeyName() + " (Dynamic)";
-	}
-
-	@Override
-	public Optional<LegalScope> getParentScope()
-	{
-		return parentScope;
 	}
 
 	@Override

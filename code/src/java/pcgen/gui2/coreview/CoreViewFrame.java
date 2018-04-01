@@ -57,14 +57,14 @@ import pcgen.util.Logging;
 public class CoreViewFrame extends JFrame
 {
 
-	private final JComboBoxEx perspectiveChooser;
+	private final JComboBoxEx<CorePerspective> perspectiveChooser;
 	private final JTreeViewTable<CoreViewNodeFacade> viewTable;
 
 	public CoreViewFrame(Frame frame, CharacterFacade character)
 	{
 		viewTable = new JTreeViewTable<>();
 
-		perspectiveChooser = new JComboBoxEx();
+		perspectiveChooser = new JComboBoxEx<>();
 		for (CorePerspective pers : CorePerspective.getAllConstants())
 		{
 			perspectiveChooser.addItem(pers);
@@ -121,6 +121,7 @@ public class CoreViewFrame extends JFrame
 			this.coreViewTreeViewModel = coreViewTreeViewModel;
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			CorePerspective perspective =

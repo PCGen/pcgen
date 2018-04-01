@@ -48,7 +48,6 @@ public final class LookAndFeelManager
 	private static final String CROSS_LAF_CLASS = UIManager.getCrossPlatformLookAndFeelClassName();
 	private static final LookAndFeelHandler[] lafHandlers;
 	private static final Map<String, LookAndFeelHandler> lafMap = new HashMap<>();
-	private static final LookAndFeelManager instance = new LookAndFeelManager();
 
 	static
 	{
@@ -131,16 +130,6 @@ public final class LookAndFeelManager
 	{
 	}
 
-//
-//	public static LookAndFeelManager getInstance()
-//	{
-//		if (instance == null)
-//		{
-//			instance = new LookAndFeelManager();
-//		}
-//		return instance;
-//	}
-	
 	/**
 	 * Initialise the look and feel to be used for this session. The look and 
 	 * feel used will be the one saved in the preferences, or if none is 
@@ -199,7 +188,6 @@ public final class LookAndFeelManager
 	{
 		try
 		{
-			//path += File.separator + selectedTheme;
 			LookAndFeel laf = createSkinLAF(selectedTheme);
 			UIManager.setLookAndFeel(laf);
 
@@ -215,7 +203,6 @@ public final class LookAndFeelManager
 				try
 				{
 					//fall back to old theme
-					//path += File.separator + currentTheme;
 					LookAndFeel laf = createSkinLAF(currentTheme);
 					UIManager.setLookAndFeel(laf);
 				}
@@ -247,16 +234,6 @@ public final class LookAndFeelManager
 			try
 			{
 				UIManager.setLookAndFeel(className);
-				// Fix colors; themes which inherit from
-				// MetalTheme change the colors because it's a
-				// static member of MetalTheme (!), so when you
-				// change back & forth, colors get wonked.
-//				final LookAndFeel laf = UIManager.getLookAndFeel();
-//				if (laf instanceof MetalLookAndFeel)
-//				{
-//					MetalLookAndFeel.setCurrentTheme(new DefaultMetalTheme());
-//				}
-
 				ConfigurationSettings.setSystemProperty("lookAndFeel", name);
 				currentLAF = name;
 			}

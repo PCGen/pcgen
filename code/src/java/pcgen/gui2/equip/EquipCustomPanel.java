@@ -89,8 +89,8 @@ public class EquipCustomPanel extends FlippingSplitPane
 	private final JButton costButton;
 	private final JButton weightButton;
 	private final JButton damageButton;
-	private final JComboBox headCombo;
-	private final JComboBox sizeCombo;
+	private final JComboBox<EquipmentHead> headCombo;
+	private final JComboBox<SizeAdjustmentFacade> sizeCombo;
 	private final JButton addButton;
 	private final JButton removeButton;
 	private final InfoPane equipModInfoPane;
@@ -135,8 +135,8 @@ public class EquipCustomPanel extends FlippingSplitPane
 		this.costButton = new JButton();
 		this.weightButton = new JButton();
 		this.damageButton = new JButton();
-		this.headCombo = new JComboBox();
-		this.sizeCombo = new JComboBox();
+		this.headCombo = new JComboBox<>();
+		this.sizeCombo = new JComboBox<>();
 		this.addButton = new JButton();
 		this.removeButton = new JButton();
 		this.equipModInfoPane = new InfoPane(LanguageBundle.getString("in_igEqModInfo")); //$NON-NLS-1$

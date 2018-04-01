@@ -754,7 +754,6 @@ public class CharacterAbilities
 				Logging.debugPrint("Got granted ability added of "
 					+ dfce.getCDOMObject());
 			}
-			//Ability ability = dfce.getCDOMObject();
 			rebuildAbilityLists();
 		}
 
@@ -776,7 +775,6 @@ public class CharacterAbilities
 				Logging.debugPrint("Got granted ability removed of "
 					+ dfce.getCDOMObject());
 			}
-			//Ability ability = dfce.getCDOMObject();
 			rebuildAbilityLists();
 		}
 	}

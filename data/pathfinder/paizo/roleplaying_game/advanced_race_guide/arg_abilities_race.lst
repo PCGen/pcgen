@@ -744,7 +744,12 @@ Blood Drinker Monstrous Humanoid	CATEGORY:Special Ability	TYPE:BloodDrinkerType.
 ###Block: Drow Nobility Internal
 # Detect Magic becomes a Constant at IMPROVED tier.
 # Ability Name								Innate Spells
-CATEGORY=Special Ability|Drow ~ Spell-Like Abilities.MOD	SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Dancing Lights|Darkness|Faerie Fire|PREVAREQ:DrowNobilityTier,1	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=TL|Detect Magic|PREVARGTEQ:DrowNobilityTier,1	SPELLS:Innate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=TL|Feather Fall|Levitate|PREVAREQ:DrowNobilityTier,1	SPELLS:Innate|TIMES=2|TIMEUNIT=Day|CASTERLEVEL=TL|Dancing Lights|Deeper Darkness|Faerie Fire|Feather Fall|Levitate|PREVAREQ:DrowNobilityTier,2	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=TL|Dancing Lights|Deeper Darkness|Faerie Fire|Feather Fall|Levitate|PREVAREQ:DrowNobilityTier,3
+CATEGORY=Special Ability|Drow ~ Spell-Like Abilities.MOD	ABILITY:Internal|AUTOMATIC|Drow Nobility Tier 1|PREVAREQ:DrowNobilityTier,1	ABILITY:Internal|AUTOMATIC|Drow Nobility Tier 2|PREVAREQ:DrowNobilityTier,2	ABILITY:Internal|AUTOMATIC|Drow Nobility Tier 3|PREVAREQ:DrowNobilityTier,3
+
+Drow Nobility Tier 1	CATEGORY:Internal	BONUS:VAR|DrowInnateSpells|1	ABILITY:Spell-Like Ability|AUTOMATIC|Dancing Lights|Darkness|Faerie Fire|Detect Magic|Feather Fall|Levitate			BONUS:VAR|Dancing_Lights_Times,Darkness_Times,Faerie_Fire_Times,Feather_Fall_Times,Levitate_Times|1|TYPE=Base	BONUS:VAR|Detect_Magic_Times|-10
+Drow Nobility Tier 2	CATEGORY:Internal	BONUS:VAR|DrowInnateSpells|1	ABILITY:Spell-Like Ability|AUTOMATIC|Dancing Lights|Deeper Darkness|Faerie Fire|Detect Magic|Feather Fall|Levitate	BONUS:VAR|Dancing_Lights_Times,Deeper_Darkness_Times,Faerie_Fire_Times,Feather_Fall_Times,Levitate_Times|2|TYPE=Base	BONUS:VAR|Detect_Magic_Times|-10
+Drow Nobility Tier 3	CATEGORY:Internal	BONUS:VAR|DrowInnateSpells|1	ABILITY:Spell-Like Ability|AUTOMATIC|Dancing Lights|Deeper Darkness|Faerie Fire|Detect Magic|Feather Fall|Levitate	BONUS:VAR|Detect_Magic_Times,Dancing_Lights_Times,Deeper_Darkness_Times,Faerie_Fire_Times,Feather_Fall_Times,Levitate_Times|-10
+
 
 ###Block: Kobold Dragon Scaled Colors
 # Ability Name	Unique Key				Category of Ability		Type								Required Race				Description																										Ability									Modify VAR									Source Page

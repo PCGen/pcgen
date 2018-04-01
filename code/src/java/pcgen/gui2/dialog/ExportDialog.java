@@ -104,10 +104,10 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 
 	private final PCGenFrame pcgenFrame;
 	private final FacadeComboBoxModel<CharacterFacade> characterBoxModel;
-	private final JComboBox characterBox;
+	private final JComboBox<CharacterFacade> characterBox;
 	private final JCheckBox partyBox;
-	private final JComboBox exportBox;
-	private final JList fileList;
+	private final JComboBox<SheetFilter> exportBox;
+	private final JList<URI> fileList;
 	private final JProgressBar progressBar;
 	private final JButton exportButton;
 	private final JButton closeButton;
@@ -120,10 +120,10 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 		this.pcgenFrame = parent;
 		this.characterBoxModel = new FacadeComboBoxModel<>(CharacterManager.getCharacters(),
                 parent.getSelectedCharacterRef());
-		this.characterBox = new JComboBox(characterBoxModel);
+		this.characterBox = new JComboBox<>(characterBoxModel);
 		this.partyBox = new JCheckBox("Entire Party");
-		this.exportBox = new JComboBox(SheetFilter.values());
-		this.fileList = new JList();
+		this.exportBox = new JComboBox<>(SheetFilter.values());
+		this.fileList = new JList<>();
 		this.progressBar = new JProgressBar();
 		this.exportButton = new JButton("Export");
 		this.closeButton = new JButton("Close");
@@ -150,10 +150,12 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 		{
 
 			@Override
-			public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus)
+			public Component getListCellRendererComponent(JList<? extends Object> list,
+				Object value, int index, boolean isSelected, boolean cellHasFocus)
 			{
 				CharacterFacade character = (CharacterFacade) value;
-				return super.getListCellRendererComponent(list, character.getNameRef().get(), index, isSelected, cellHasFocus);
+				return super.getListCellRendererComponent(list,
+					character.getNameRef().get(), index, isSelected, cellHasFocus);
 			}
 
 		});
@@ -304,7 +306,7 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 		}
 		fcExport.setCurrentDirectory(baseDir);
 
-		URI uri = (URI) fileList.getSelectedValue();
+		URI uri = fileList.getSelectedValue();
 		String extension = ExportUtilities.getOutputExtension(uri.toString(), pdf);
 		if (pdf)
 		{
@@ -493,7 +495,7 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 			osDir = new File(ConfigurationSettings.getOutputSheetsDir(), outputSheetDirectory);
 		}
 		URI osPath = new File(osDir, ((SheetFilter) exportBox.getSelectedItem()).getPath()).toURI();
-		URI uri = (URI) fileList.getSelectedValue();
+		URI uri = fileList.getSelectedValue();
 		return new File(osPath.resolve(uri));
 	}
 
@@ -556,7 +558,7 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 			Collections.sort(files);
 					
 			URI osPath = new File(outputSheetsDir).toURI();
-			Object[] uriList = new Object[files.size()];
+			URI[] uriList = new URI[files.size()];
 			for (int i = 0; i < uriList.length; i++)
 			{
 				uriList[i] = osPath.relativize(files.get(i).toURI());
@@ -628,7 +630,8 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 			catch (ExecutionException ex)
 			{
 				Logging.errorPrint("Could not export " + name, ex.getCause());
-				pcgenFrame.showErrorMessage("Could not export " + name, "Error occurred while exporting. See log for details.");
+				pcgenFrame.showErrorMessage("Could not export " + name,
+					"Error occurred while exporting. See log for details.");
 			}
 			finally
 			{

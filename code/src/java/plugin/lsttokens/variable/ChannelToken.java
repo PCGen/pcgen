@@ -17,11 +17,11 @@
  */
 package plugin.lsttokens.variable;
 
-import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.exception.LegalVariableException;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.DatasetVariable;
+import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.output.channel.ChannelUtilities;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.VariableContext;
@@ -95,7 +95,7 @@ public class ChannelToken extends AbstractNonEmptyToken<DatasetVariable>
 				+ " does not support format " + format + ", found in " + value
 				+ " due to " + e.getMessage());
 		}
-		LegalScope lvs = varContext.getScope(fullscope);
+		PCGenScope lvs = varContext.getScope(fullscope);
 		if (!DatasetVariable.isLegalName(varName))
 		{
 			return new ParseResult.Fail(varName
@@ -104,7 +104,7 @@ public class ChannelToken extends AbstractNonEmptyToken<DatasetVariable>
 		String channelName = ChannelUtilities.createVarName(varName);
 		try
 		{
-			varContext.assertLegalVariableID(lvs, formatManager, channelName);
+			varContext.assertLegalVariableID(channelName, lvs, formatManager);
 		}
 		catch (LegalVariableException e)
 		{

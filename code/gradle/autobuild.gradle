@@ -37,7 +37,7 @@ task copySite(type: Copy) {
 task copyInstaller(type: Copy) {
     // Ensure this always runs - we don't want an outdated installer
     outputs.upToDateWhen { false }
-    from "${projectDir}/build/release/"
+    from "${releaseDir}"
     into "${destAutobuildDir}/downloads/"
 }
 

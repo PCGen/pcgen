@@ -60,7 +60,7 @@ public class FilteredTreeViewTable<C, E> extends JTreeViewTable<E> implements Fi
 
 	public FilteredTreeViewTable()
 	{
-		RowSorter rowSorter = new SortableTableRowSorter()
+		RowSorter<SortableTableModel> rowSorter = new SortableTableRowSorter()
 		{
 
 			@Override
@@ -113,7 +113,7 @@ public class FilteredTreeViewTable<C, E> extends JTreeViewTable<E> implements Fi
 	@Override
 	public void setTreeViewModel(TreeViewModel<E> viewModel)
 	{
-		FilteredTreeViewModel oldModel = filteredModel;
+		FilteredTreeViewModel<C, E> oldModel = filteredModel;
 		filteredModel = new FilteredTreeViewModel<>();
 		filteredModel.setBaseModel(viewModel);
 		if (filter != null)
@@ -129,57 +129,6 @@ public class FilteredTreeViewTable<C, E> extends JTreeViewTable<E> implements Fi
 		sortModel();
 	}
 	
-//	private CharacterInfoTab parentTab()
-//	{
-//		Container parent = this;
-//		do
-//		{
-//			parent = parent.getParent();
-//		}
-//		while (parent != null && !(parent instanceof CharacterInfoTab));
-//		return (CharacterInfoTab) parent;
-//	}
-//	
-//	@Override
-//	public void setTreeViewModel(TreeViewModel<E> viewModel)
-//	{
-//		CharacterInfoTab tab = parentTab();
-//		String id = "";
-//		if (tab != null)
-//		{
-//			id = tab.getClass().getName();
-//		}
-//
-//		StopWatch watch = new StopWatch(id);
-//		FilteredTreeViewModel oldModel = filteredModel;
-//		filteredModel = new FilteredTreeViewModel<C, E>();
-//		watch.start("setBaseModel");
-//		filteredModel.setBaseModel(viewModel);
-//		watch.stop();
-//		if (filter != null)
-//		{
-//			watch.start("setFilter");
-//			filteredModel.setFilter(filter);
-//			watch.stop();
-//			watch.start("setContext");
-//			filteredModel.setContext(context);
-//			watch.stop();
-//		}
-//		watch.start("super.setTreeViewModel");
-//		super.setTreeViewModel(filteredModel);
-//		watch.stop();
-//		if (oldModel != null)
-//		{
-//			watch.start("oldModel.setBaseModel");
-//			oldModel.setBaseModel(null);
-//			watch.stop();
-//		}
-//		watch.start("sortModel");
-//		sortModel();
-//		watch.stop();
-//		System.out.println(watch.prettyPrint());
-//	}
-
 	@Override
 	public void setSearchEnabled(boolean searchMode)
 	{

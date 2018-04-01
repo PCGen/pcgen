@@ -336,6 +336,7 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 	 *         null if no information has been set in this
 	 *         AbstractItemConvertingFacet for the Player Character.
 	 */
+	@SuppressWarnings("unchecked")
 	protected Map<S, Target> getCachedMap(CharID id)
 	{
 		return (Map<S, Target>) getCache(id);
