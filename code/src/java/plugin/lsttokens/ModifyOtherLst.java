@@ -48,6 +48,10 @@ import pcgen.rules.persistence.token.CDOMInterfaceToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
+/**
+ * Implements the MODIFYOTHER token for remotely modifying variables in the new variable
+ * system.
+ */
 public class ModifyOtherLst extends AbstractTokenWithSeparator<VarHolder> implements
 		CDOMInterfaceToken<VarContainer, VarHolder>, CDOMPrimaryToken<VarHolder>
 {
