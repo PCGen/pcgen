@@ -717,7 +717,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		{
 			FormatManager<?> opManager =
 					context.getReferenceContext().getFormatManager("ORDEREDPAIR");
-			defineVariable(varContext, opManager, "Face");
+			defineVariable(varContext, opManager, CControl.FACE.getDefaultValue());
 		}
 		if (!gameMode.getAlignmentText().isEmpty())
 		{
