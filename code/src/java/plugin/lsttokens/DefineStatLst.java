@@ -19,12 +19,14 @@ package plugin.lsttokens;
 
 import java.util.TreeSet;
 
+import org.apache.commons.lang3.StringUtils;
+
 import pcgen.base.formula.Formula;
 import pcgen.base.text.ParsingSeparator;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
-import pcgen.cdom.base.Ungranted;
+import pcgen.cdom.base.Granted;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.helper.StatLock;
 import pcgen.cdom.reference.CDOMSingleRef;
@@ -33,8 +35,6 @@ import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
-
-import org.apache.commons.lang3.StringUtils;
 
 /**
  * The Class {@code DefineStatLst} parses the DEFINESTAT tag. Valid sub tags are:
@@ -67,7 +67,7 @@ public class DefineStatLst implements CDOMPrimaryToken<CDOMObject>
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
 			String value)
 	{
-		if (obj instanceof Ungranted)
+		if (!(obj instanceof Granted))
 		{
 			return new ParseResult.Fail("Cannot use " + getTokenName()
 				+ " on an Ungranted object type: "

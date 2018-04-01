@@ -23,6 +23,7 @@ import pcgen.base.formula.Formula;
 import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.ChooseSelectionActor;
+import pcgen.cdom.base.Granted;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -33,7 +34,7 @@ import pcgen.facade.core.InfoFacade;
  * {@code Domain}.
  */
 @SuppressWarnings("serial")
-public final class Domain extends PObject implements InfoFacade, ChooseDriver
+public final class Domain extends PObject implements InfoFacade, ChooseDriver, Granted
 {
 	@Override
 	public ChooseInformation<?> getChooseInfo()

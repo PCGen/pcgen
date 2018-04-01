@@ -18,7 +18,7 @@
 package plugin.lsttokens;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.Ungranted;
+import pcgen.cdom.base.Granted;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.spell.Spell;
 import pcgen.io.EntityEncoder;
@@ -47,7 +47,7 @@ public class TempdescLst extends AbstractNonEmptyToken<CDOMObject> implements
 	protected ParseResult parseNonEmptyToken(LoadContext context,
 		CDOMObject obj, String value)
 	{
-		if ((obj instanceof Ungranted) && !(obj instanceof Spell))
+		if (!(obj instanceof Granted) && !(obj instanceof Spell))
 		{
 			return new ParseResult.Fail("Cannot use " + getTokenName()
 				+ " on an Ungranted object type: "

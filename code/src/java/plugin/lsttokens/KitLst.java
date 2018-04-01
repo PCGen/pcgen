@@ -32,9 +32,9 @@ import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.base.ConcreteTransitionChoice;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.base.Granted;
 import pcgen.cdom.base.NonInteractive;
 import pcgen.cdom.base.TransitionChoice;
-import pcgen.cdom.base.Ungranted;
 import pcgen.cdom.choiceset.QualifiedDecorator;
 import pcgen.cdom.choiceset.ReferenceChoiceSet;
 import pcgen.cdom.enumeration.ListKey;
@@ -69,7 +69,7 @@ public class KitLst extends AbstractTokenWithSeparator<CDOMObject> implements
 	protected ParseResult parseTokenWithSeparator(LoadContext context,
 		CDOMObject obj, String value)
 	{
-		if (obj instanceof Ungranted)
+		if (!(obj instanceof Granted))
 		{
 			return new ParseResult.Fail("Cannot use " + getTokenName()
 				+ " on an Ungranted object type: "

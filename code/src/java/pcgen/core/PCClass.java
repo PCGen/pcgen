@@ -35,6 +35,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.Granted;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.KnownSpellIdentifier;
@@ -84,7 +85,7 @@ import pcgen.util.enumeration.AttackType;
 /**
  * {@code PCClass}.
  */
-public class PCClass extends PObject implements ClassFacade, Cloneable
+public class PCClass extends PObject implements ClassFacade, Cloneable, Granted
 {
 
 	public static final CDOMReference<DomainList> ALLOWED_DOMAINS;

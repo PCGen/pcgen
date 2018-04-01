@@ -25,6 +25,7 @@ import java.util.List;
 
 import pcgen.base.formula.Formula;
 import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.Granted;
 import pcgen.cdom.enumeration.KitApply;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.MapKey;
@@ -45,7 +46,7 @@ import pcgen.util.enumeration.Visibility;
 /**
  * {@code Kit}.
  */
-public final class Kit extends PObject implements Comparable<Object>, KitFacade
+public final class Kit extends PObject implements Comparable<Object>, KitFacade, Granted
 {
 	private int selectValue = -1;
 

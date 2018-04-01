@@ -24,6 +24,7 @@ import pcgen.base.formula.Formula;
 import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.ChooseSelectionActor;
+import pcgen.cdom.base.Granted;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -32,7 +33,8 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.facade.core.TemplateFacade;
 import pcgen.util.enumeration.View;
 
-public final class PCTemplate extends PObject implements TemplateFacade, ChooseDriver
+public final class PCTemplate extends PObject
+		implements TemplateFacade, ChooseDriver, Granted
 {
 	/**
 	 * Get the total adjustment to Challenge rating of a character at a given

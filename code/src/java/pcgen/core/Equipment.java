@@ -46,6 +46,7 @@ import pcgen.base.lang.StringUtil;
 import pcgen.base.util.FixedStringList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.Granted;
 import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.CharID;
@@ -98,7 +99,7 @@ import pcgen.util.enumeration.Visibility;
 import org.apache.commons.lang3.StringUtils;
 
 public final class Equipment extends PObject implements Serializable,
-		Comparable<Object>, VariableContainer, EquipmentFacade, VarScoped
+		Comparable<Object>, VariableContainer, EquipmentFacade, VarScoped, Granted
 {
 
 	private static final long serialVersionUID = 1;

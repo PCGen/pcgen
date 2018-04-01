@@ -18,15 +18,11 @@
  */
 package pcgen.core;
 
-import pcgen.cdom.base.Ungranted;
-
-
 /**
  * {@code WeaponProf}.
  * 
  */
-public final class WeaponProf extends PObject implements Comparable<Object>,
-		Ungranted
+public final class WeaponProf extends PObject implements Comparable<Object>
 {
 	/**
 	 * Compares keyName only.

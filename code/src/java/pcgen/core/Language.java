@@ -22,7 +22,6 @@ import java.util.List;
 
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.base.Ungranted;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.list.LanguageList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
@@ -34,7 +33,7 @@ import pcgen.facade.core.LanguageFacade;
  * {@code Language}.
  */
 public final class Language extends PObject implements Comparable<Object>,
-		LanguageFacade, Ungranted, Cloneable
+		LanguageFacade, Cloneable
 {
 	public static final CDOMReference<LanguageList> STARTING_LIST;
 

@@ -18,6 +18,7 @@
 package pcgen.core;
 
 import pcgen.base.formula.base.VarScoped;
+import pcgen.cdom.base.Granted;
 import pcgen.cdom.base.NonInteractive;
 import pcgen.cdom.base.SortKeyRequired;
 import pcgen.cdom.enumeration.IntegerKey;
@@ -25,7 +26,7 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.facade.core.StatFacade;
 
 public final class PCStat extends PObject implements StatFacade,
-		NonInteractive, SortKeyRequired, VarScoped
+		NonInteractive, SortKeyRequired, VarScoped, Granted
 {
 	@Override
 	public int getMinValue()

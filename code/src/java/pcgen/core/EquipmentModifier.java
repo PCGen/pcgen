@@ -27,6 +27,7 @@ import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.base.Granted;
 import pcgen.cdom.content.SpellResistance;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -44,7 +45,8 @@ import pcgen.util.Delta;
 /**
  * Definition and games rules for an equipment modifier.
  */
-public final class EquipmentModifier extends PObject implements Comparable<Object>, EquipModFacade, Cloneable
+public final class EquipmentModifier extends PObject
+		implements Comparable<Object>, EquipModFacade, Cloneable, Granted
 {
 	private static final String PERCENT_CHOICE_PATTERN = Pattern
 								.quote(Constants.LST_PERCENT_CHOICE);
