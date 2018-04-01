@@ -22,6 +22,7 @@ package pcgen.core;
 import java.util.ArrayList;
 import java.util.List;
 
+import pcgen.cdom.base.Granted;
 import pcgen.cdom.base.NonInteractive;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -43,7 +44,7 @@ import pcgen.rules.context.RuntimeLoadContext;
  * {@code Campaign} is a source or campaign defined in a *.pcc file.
  *
  */
-public class Campaign extends PObject implements CampaignFacade, NonInteractive
+public class Campaign extends PObject implements CampaignFacade, NonInteractive, Granted
 {
 
 	public Campaign()

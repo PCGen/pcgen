@@ -18,16 +18,10 @@
  */
 package pcgen.core;
 
-import pcgen.cdom.base.Ungranted;
-
-
 /**
  * {@code ShieldProf}.
- *
- * DO NOT DELETE (waiting for use)
  */
-public final class ShieldProf extends PObject implements Comparable<Object>,
-		Ungranted
+public final class ShieldProf extends PObject implements Comparable<Object>
 {
 	/**
 	 * Compares keyName only

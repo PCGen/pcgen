@@ -32,8 +32,8 @@ import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.Granted;
 import pcgen.cdom.base.Loadable;
-import pcgen.cdom.base.Ungranted;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.core.prereq.Prerequisite;
@@ -66,7 +66,7 @@ public class SpellknownLst extends AbstractSpellListToken implements
 	protected ParseResult parseTokenWithSeparator(LoadContext context,
 		CDOMObject obj, String value)
 	{
-		if (obj instanceof Ungranted)
+		if (!(obj instanceof Granted))
 		{
 			return new ParseResult.Fail("Cannot use " + getTokenName()
 				+ " on an Ungranted object type: "

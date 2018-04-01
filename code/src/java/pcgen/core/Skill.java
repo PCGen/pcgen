@@ -29,6 +29,7 @@ import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.ChooseSelectionActor;
+import pcgen.cdom.base.Granted;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -42,7 +43,7 @@ import pcgen.facade.core.SkillFacade;
  * 
  */
 public final class Skill extends PObject implements SkillFacade, ChooseDriver,
-		VarScoped
+		VarScoped, Granted
 {
 	public String getKeyStatAbb()
 	{

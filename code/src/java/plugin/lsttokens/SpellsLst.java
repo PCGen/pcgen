@@ -38,7 +38,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
-import pcgen.cdom.base.Ungranted;
+import pcgen.cdom.base.Granted;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
@@ -76,7 +76,7 @@ public class SpellsLst extends AbstractNonEmptyToken<CDOMObject> implements
 	protected ParseResult parseNonEmptyToken(LoadContext context,
 		CDOMObject obj, String sourceLine)
 	{
-		if (obj instanceof Ungranted)
+		if (!(obj instanceof Granted))
 		{
 			return new ParseResult.Fail("Cannot use " + getTokenName()
 				+ " on an Ungranted object type: "

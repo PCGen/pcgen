@@ -29,7 +29,7 @@ import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.base.Ungranted;
+import pcgen.cdom.base.Granted;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.inst.Dynamic;
 import pcgen.cdom.inst.DynamicCategory;
@@ -60,7 +60,7 @@ public class GrantLst extends AbstractTokenWithSeparator<CDOMObject> implements
 	protected ParseResult parseTokenWithSeparator(LoadContext context,
 		CDOMObject obj, String value)
 	{
-		if (obj instanceof Ungranted)
+		if (!(obj instanceof Granted))
 		{
 			return new ParseResult.Fail("Cannot use " + getTokenName()
 				+ " on an Ungranted object type: "

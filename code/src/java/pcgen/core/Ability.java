@@ -25,6 +25,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Categorized;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.Granted;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Type;
@@ -39,7 +40,7 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
  */
 @SuppressWarnings("serial")
 public final class Ability extends PObject implements Categorized<Ability>,
-		AbilityFacade
+		AbilityFacade, Granted
 {
 	/**
 	 * Get the category of this ability

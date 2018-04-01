@@ -32,13 +32,14 @@ import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.TripleKeyMapToList;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.Granted;
 import pcgen.cdom.base.NonInteractive;
 import pcgen.cdom.enumeration.NumericPCAttribute;
 import pcgen.cdom.enumeration.PCAttribute;
 import pcgen.cdom.enumeration.Region;
 import pcgen.util.Logging;
 
-public final class BioSet extends PObject implements NonInteractive
+public final class BioSet extends PObject implements NonInteractive, Granted
 {
 	private DoubleKeyMap<Region, Integer, AgeSet> ageMap = new DoubleKeyMap<>();
 

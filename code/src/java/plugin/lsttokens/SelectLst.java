@@ -20,7 +20,7 @@ package plugin.lsttokens;
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.FormulaFactory;
-import pcgen.cdom.base.Ungranted;
+import pcgen.cdom.base.Granted;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -42,7 +42,7 @@ public class SelectLst implements CDOMPrimaryToken<CDOMObject>
 	public ParseResult parseToken(LoadContext context, CDOMObject cdo,
 		String value)
 	{
-		if (cdo instanceof Ungranted)
+		if (!(cdo instanceof Granted))
 		{
 			return new ParseResult.Fail("Cannot use " + getTokenName()
 				+ " on an Ungranted object type: "

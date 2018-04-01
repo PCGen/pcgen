@@ -17,6 +17,7 @@
  */
 package pcgen.core;
 
+import pcgen.cdom.base.Granted;
 import pcgen.cdom.base.NonInteractive;
 import pcgen.cdom.base.SortKeyRequired;
 import pcgen.cdom.enumeration.StringKey;
@@ -25,7 +26,7 @@ import pcgen.cdom.enumeration.StringKey;
  * Represents an Alignment (LG, NG, etc).
  */
 public final class PCAlignment extends PObject implements
-		NonInteractive, SortKeyRequired
+		NonInteractive, SortKeyRequired, Granted
 {
 	@Override
 	public String getSortKey()

@@ -21,6 +21,7 @@ package pcgen.core;
 import java.util.List;
 
 import pcgen.base.formula.base.VarScoped;
+import pcgen.cdom.base.Granted;
 import pcgen.core.analysis.BonusActivation;
 import pcgen.core.bonus.BonusObj;
 import pcgen.facade.core.SizeAdjustmentFacade;
@@ -30,7 +31,7 @@ import pcgen.facade.core.SizeAdjustmentFacade;
  *
  */
 public final class SizeAdjustment extends PObject implements
-		SizeAdjustmentFacade, VarScoped
+		SizeAdjustmentFacade, VarScoped, Granted
 {
 	/**
 	 * Activates (checks PrereqToUse) and returns list of BonusObj's

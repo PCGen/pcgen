@@ -25,6 +25,7 @@ import java.util.TreeSet;
 
 import pcgen.base.util.Indirect;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Granted;
 import pcgen.cdom.enumeration.FactSetKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.list.DomainList;
@@ -35,7 +36,7 @@ import pcgen.facade.core.DeityFacade;
 /**
  * {@code Deity}.
  */
-public final class Deity extends PObject implements DeityFacade
+public final class Deity extends PObject implements DeityFacade, Granted
 {
 	public static final CDOMReference<DomainList> DOMAINLIST;
 

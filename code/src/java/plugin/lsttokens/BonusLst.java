@@ -24,7 +24,7 @@ import java.util.TreeSet;
 import java.util.regex.Pattern;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.Ungranted;
+import pcgen.cdom.base.Granted;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.AbilityCategory;
 import pcgen.core.EquipmentModifier;
@@ -63,7 +63,7 @@ public class BonusLst implements CDOMPrimaryToken<CDOMObject>,
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
 		String value)
 	{
-		if (obj instanceof Ungranted)
+		if (!(obj instanceof Granted))
 		{
 			return new ParseResult.Fail("Cannot use " + getTokenName()
 				+ " on an Ungranted object type: "
