@@ -42,7 +42,6 @@ public class FaceToken extends AbstractNonEmptyToken<Race> implements
 {
 
 	private static final int MOD_PRIORITY = 10;
-	private static final String VAR_NAME = "Face";
 	private static final String MOD_IDENTIFICATION = "SET";
 
 	@Override
@@ -93,15 +92,16 @@ public class FaceToken extends AbstractNonEmptyToken<Race> implements
 				+ " but second item cannot be negative");
 		}
 
-		if (!context.getVariableContext().isLegalVariableID(scope, VAR_NAME))
+		String varName = CControl.FACE.getDefaultValue();
+		if (!context.getVariableContext().isLegalVariableID(scope, varName))
 		{
 			return new ParseResult.Fail(getTokenName()
-				+ " internal error: found invalid var name: " + VAR_NAME
+				+ " internal error: found invalid var name: " + varName
 				+ ", Modified on " + race.getClass().getSimpleName() + ' '
 				+ race.getKeyName());
 		}
 		VarModifier<OrderedPair> vm =
-				new VarModifier<>(VAR_NAME, scope, modifier);
+				new VarModifier<>(varName, scope, modifier);
 		context.getObjectContext().addToList(race, ListKey.MODIFY, vm);
 		return ParseResult.SUCCESS;
 	}
@@ -118,7 +118,7 @@ public class FaceToken extends AbstractNonEmptyToken<Race> implements
 			for (VarModifier<?> vm : added)
 			{
 				FormulaModifier<?> modifier = vm.getModifier();
-				if (VAR_NAME.equals(vm.getVarName())
+				if (CControl.FACE.getDefaultValue().equals(vm.getVarName())
 					&& (!vm.getLegalScope().getParentScope().isPresent())
 					&& (modifier.getIdentification()
 						.equals(MOD_IDENTIFICATION)))

@@ -46,7 +46,7 @@ public final class CControl
 
 	public static final String EDR = "EDR";
 
-	public static final String FACE = "FACE";
+	public static final CControl FACE = new CControl("FACE", "Face");
 
 	public static final String EQRANGE = "EQRANGE";
 
