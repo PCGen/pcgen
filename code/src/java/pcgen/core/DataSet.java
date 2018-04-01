@@ -76,8 +76,6 @@ public class DataSet implements DataSetFacade
 	private final DefaultListFacade<KitFacade> kits;
 	private final DefaultListFacade<StatFacade> stats;
 	private final AbilityMap abilityMap;
-//	private DefaultListFacade<AbilityCategoryFacade> categories;
-//	private Map<AbilityCategoryFacade, ListFacade<AbilityFacade>> abilityMap;
 	private final LoadContext context;
 	private final GameMode gameMode;
 	private final ListFacade<CampaignFacade> campaigns;
@@ -98,8 +96,6 @@ public class DataSet implements DataSetFacade
 		templates = new DefaultListFacade<>();
 		alignments = new DefaultListFacade<>();
 		stats = new DefaultListFacade<>();
-//		categories = new DefaultListFacade<AbilityCategoryFacade>();
-//		abilityMap = new HashMap<AbilityCategoryFacade, ListFacade<AbilityFacade>>();
 		abilityMap = new AbilityMap();
 		bodyStructures = new DefaultListFacade<>();
 		equipment = new DefaultListFacade<>();
@@ -167,16 +163,10 @@ public class DataSet implements DataSetFacade
 		{
 			stats.addElement(stat);
 		}
-//		List<AbilityCategory> displayOrderCategories =
-//				new ArrayList<AbilityCategory>(
-//					gameMode.getAllAbilityCategories());
-//		Collections.sort(displayOrderCategories,
-//			new AbilityCategoryComparator());
 		for (AbilityCategory category : gameMode.getAllAbilityCategories())
 		{
 			if (category.isVisibleTo(View.VISIBLE_DISPLAY))
 			{
-//				categories.addElement(category);
 				List<Ability> abList = new ArrayList<>(Globals.getContext()
 					.getReferenceContext().getManufacturerId(category).getAllObjects());
 				Globals.sortPObjectListByName(abList);
@@ -293,9 +283,6 @@ public class DataSet implements DataSetFacade
         return abilityMap;
     }
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.DataSetFacade#getPrereqAbilities(pcgen.core.facade.AbilityFacade)
-	 */
     @Override
 	public List<AbilityFacade> getPrereqAbilities(AbilityFacade abilityFacade)
 	{
@@ -425,9 +412,6 @@ public class DataSet implements DataSetFacade
 		return speakLanguageSkill;
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.DataSetFacade#getEquipmentLocations()
-	 */
     @Override
 	public ListFacade<BodyStructureFacade> getEquipmentLocations()
 	{
@@ -547,9 +531,6 @@ public class DataSet implements DataSetFacade
 	class PCClassComparator implements Comparator<PCClass>
 	{
 
-		/* (non-Javadoc)
-		 * @see java.util.Comparator#compare(java.lang.Object, java.lang.Object)
-		 */
         @Override
 		public int compare(PCClass c1, PCClass c2)
 		{
@@ -722,5 +703,11 @@ public class DataSet implements DataSetFacade
 				", campaigns=" +
 				campaigns +
 				"]";
+	}
+
+	@Override
+	public boolean hasDeityDomain()
+	{
+		return gameMode.hasDeityDomain();
 	}
 }

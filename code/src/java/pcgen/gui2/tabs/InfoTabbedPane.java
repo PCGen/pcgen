@@ -81,6 +81,7 @@ public final class InfoTabbedPane extends JTabbedPane
 	private final Map<CharacterFacade, Integer> tabSelectionMap;
 	private final TabModelService modelService;
 	private final List<CharacterInfoTab> fullTabList = new ArrayList<>();
+	private final DomainInfoTab domainInfoTab;
 	private CharacterFacade currentCharacter = null;
 
 	public InfoTabbedPane()
@@ -88,6 +89,7 @@ public final class InfoTabbedPane extends JTabbedPane
 		this.stateMap = new DoubleKeyMap<>();
 		this.tabSelectionMap = new WeakHashMap<>();
 		this.modelService = new TabModelService();
+		this.domainInfoTab = new DomainInfoTab();
 		initComponent();
 	}
 
@@ -119,7 +121,7 @@ public final class InfoTabbedPane extends JTabbedPane
 		addTab(new ClassInfoTab());
 		addTab(new SkillInfoTab());
 		addTab(new AbilitiesInfoTab());
-		addTab(new DomainInfoTab());
+		addTab(domainInfoTab);
 		addTab(new SpellsInfoTab());
 		addTab(new InventoryInfoTab());
 		addTab(new DescriptionInfoTab());
@@ -212,6 +214,10 @@ public final class InfoTabbedPane extends JTabbedPane
 				}
 
 			}
+		}
+		if (character != null)
+		{
+			domainInfoTab.setVisible(character.getDataSet().hasDeityDomain());
 		}
 	}
 
