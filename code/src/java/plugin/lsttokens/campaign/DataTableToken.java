@@ -26,7 +26,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
- * Class deals with DEITY Token
+ * Class deals with DATATABLE Token
  */
 public class DataTableToken extends AbstractBasicCampaignToken implements
 		CDOMPrimaryToken<Campaign>

@@ -866,7 +866,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		private final CharacterComboBoxModel<GenderFacade> genderModel;
 		private final CharacterComboBoxModel<HandedFacade> handsModel;
 		private CharacterComboBoxModel<PCAlignment> alignmentModel;
-		private final CharacterComboBoxModel<DeityFacade> deityModel;
+		private CharacterComboBoxModel<DeityFacade> deityModel;
 		private final DeferredCharacterComboBoxModel<RaceFacade> raceModel;
 		private final CharacterComboBoxModel<SimpleFacade> ageCatModel;
 		private final FacadeComboBoxModel<ClassFacade> classModel;
@@ -929,17 +929,21 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 				};
 			}
 
-			//initialize deity model
-			deityModel = new CharacterComboBoxModel<DeityFacade>(dataset.getDeities(), character.getDeityRef())
+			if (dataset.hasDeityDomain())
 			{
-
-				@Override
-				public void setSelectedItem(Object anItem)
+				//initialize deity model
+				deityModel = new CharacterComboBoxModel<DeityFacade>(dataset.getDeities(),
+					character.getDeityRef())
 				{
-					character.setDeity((DeityFacade) anItem);
-				}
 
-			};
+					@Override
+					public void setSelectedItem(Object anItem)
+					{
+						character.setDeity((DeityFacade) anItem);
+					}
+
+				};
+			}
 
 			//initialize race model
 			raceModel = new DeferredCharacterComboBoxModel<RaceFacade>(dataset.getRaces(), character.getRaceRef())
@@ -994,7 +998,12 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 				alignmentComboBox.setModel(alignmentModel);
 				alignmentComboBox.setVisible(true);
 			}
-			deityComboBox.setModel(deityModel);
+			boolean hasDeityDomain = character.getDataSet().hasDeityDomain();
+			deityComboBox.setVisible(hasDeityDomain);
+			if (hasDeityDomain)
+			{
+				deityComboBox.setModel(deityModel);
+			}
 			raceComboBox.setModel(raceModel);
 			raceComboBox.addFocusListener(raceModel);
 			ageComboBox.setModel(ageCatModel);
