@@ -25,7 +25,7 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.ObjectWrapperFacet;
-import pcgen.cdom.facet.analysis.ResultFacet;
+import pcgen.cdom.helper.InfoUtilities;
 import freemarker.template.TemplateHashModel;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
@@ -80,10 +80,11 @@ public class InfoModel implements TemplateHashModel
 		CaseInsensitiveString cis = new CaseInsensitiveString(key);
 		MessageFormat info = cdo.get(MapKey.INFO, cis);
 
-		StringBuffer sb = new StringBuffer(100);
+		StringBuffer sb = new StringBuffer(200);
 		if (info != null)
 		{
-			info.format(getVars(cis), sb, null);
+			Object[] infoVars = InfoUtilities.getInfoVars(id, cdo, cis);
+			info.format(infoVars, sb, null);
 		}
 		else
 		{
@@ -100,27 +101,6 @@ public class InfoModel implements TemplateHashModel
 				sb.toString());
 	}
 
-	private Object[] getVars(CaseInsensitiveString cis)
-	{
-		String[] vars = cdo.get(MapKey.INFOVARS, cis);
-		int varCount = vars != null ? vars.length : 0;
-		Object[] replacedvars = new Object[varCount];
-		if (varCount == 0)
-		{
-			return replacedvars;
-		}
-		ResultFacet resultFacet = FacetLibrary.getFacet(ResultFacet.class);
-		for (int i = 0; i < varCount; i++)
-		{
-			String varIdent = vars[i];
-			replacedvars[i] = resultFacet.getLocalVariable(id, cdo, varIdent);
-		}
-		return replacedvars;
-	}
-
-	/**
-	 * @see freemarker.template.TemplateHashModel#isEmpty()
-	 */
 	@Override
 	public boolean isEmpty() throws TemplateModelException
 	{

@@ -72,7 +72,6 @@ public final class PrerequisiteUtilities
 	 * @param includeHeader Whether to wrap the generated string in html tags.
 	 * @return An HTML representation of whether a set of PreRequisites passed for a given PC and Source.
 	 */
-	//TODO All uses of this miss PRE REQ
 	public static String preReqHTMLStringsForList(
 		final PlayerCharacter aPC,
 		final CDOMObject aObj,

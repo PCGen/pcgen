@@ -31,7 +31,6 @@ import java.util.Set;
 
 import pcgen.base.formula.Formula;
 import pcgen.base.formula.base.VarScoped;
-import pcgen.base.formula.inst.NEPFormula;
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.DoubleKeyMapToList;
 import pcgen.base.util.Indirect;
@@ -48,6 +47,7 @@ import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.VariableKey;
+import pcgen.cdom.helper.InfoBoolean;
 import pcgen.cdom.util.FactSetKeyMapToList;
 import pcgen.cdom.util.ListKeyMapToList;
 import pcgen.cdom.util.MapKeyMap;
@@ -1235,37 +1235,37 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	@Override
 	public boolean isAvailable(PlayerCharacter aPC)
 	{
-		List<NEPFormula<Boolean>> prerequisites = getListFor(ListKey.ALLOW);
+		List<InfoBoolean> prerequisites = getListFor(ListKey.ALLOW);
 		if ((prerequisites == null) || prerequisites.isEmpty())
 		{
 			return true;
 		}
-		for (NEPFormula<Boolean> formula : prerequisites)
+		for (InfoBoolean info : prerequisites)
 		{
-			if (!aPC.solve(formula))
+			if (!aPC.solve(info.getFormula()))
 			{
 				return false;
 			}
 		}
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isActive(PlayerCharacter aPC)
 	{
-		List<NEPFormula<Boolean>> requirements = getListFor(ListKey.ENABLE);
+		List<InfoBoolean> requirements = getListFor(ListKey.ENABLE);
 		if ((requirements == null) || requirements.isEmpty())
 		{
 			return true;
 		}
-		for (NEPFormula<Boolean> formula : requirements)
+		for (InfoBoolean info  : requirements)
 		{
-			if (!aPC.solve(formula))
+			if (!aPC.solve(info.getFormula()))
 			{
 				return false;
 			}
 		}
-		return false;
+		return true;
 	}
 
 	/*

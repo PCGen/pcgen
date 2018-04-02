@@ -31,6 +31,7 @@ import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.helper.AllowUtilities;
 import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.kit.BaseKit;
 import pcgen.core.kit.KitStat;
@@ -400,8 +401,11 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 
 	private String getPreReqHTMLStrings(PlayerCharacter aPC)
 	{
-		return PrerequisiteUtilities.preReqHTMLStringsForList(aPC, this,
-			getPrerequisiteList(), false);
+		StringBuilder sb = new StringBuilder();
+		sb.append(PrerequisiteUtilities.preReqHTMLStringsForList(aPC, this,
+			getPrerequisiteList(), false));
+		sb.append(AllowUtilities.getAllowInfo(aPC, this));
+		return sb.toString();
 	}
 
 	public static void applyKit(final Kit aKit, final PlayerCharacter aPC)
