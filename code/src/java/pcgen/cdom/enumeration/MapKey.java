@@ -56,6 +56,7 @@ public final class MapKey<K, V>
 	public static final MapKey<String, KitTable> KIT_TABLE = new MapKey<>();
 	
 	public static final MapKey<String, Integer> CRMOD = new MapKey<>();
+	//TODO Ugh, using this stinks due to CIS
 	public static final MapKey<CaseInsensitiveString, MessageFormat> INFO = new MapKey<>();
 	public static final MapKey<CaseInsensitiveString, String[]> INFOVARS = new MapKey<>();
 

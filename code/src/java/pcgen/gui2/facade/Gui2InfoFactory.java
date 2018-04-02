@@ -60,6 +60,7 @@ import pcgen.cdom.enumeration.RaceSubType;
 import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.helper.AllowUtilities;
 import pcgen.cdom.helper.Aspect;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.cdom.util.CControl;
@@ -240,6 +241,13 @@ public class Gui2InfoFactory implements InfoFactory
 				infoText.appendLineBreak();
 				infoText.appendI18nElement("in_requirements", bString); //$NON-NLS-1$
 			}
+			String aString = AllowUtilities.getAllowInfo(pc, race);
+			if (!aString.isEmpty())
+			{
+				infoText.appendLineBreak();
+				infoText.appendI18nElement("in_requirements", aString); //$NON-NLS-1$
+			}
+
 			String desc = pc.getDescription(race);
 			if (!desc.isEmpty())
 			{
@@ -382,6 +390,17 @@ public class Gui2InfoFactory implements InfoFactory
 			b.appendLineBreak();
 			b.appendI18nElement("in_requirements", aString); //$NON-NLS-1$
 		}
+		aString = AllowUtilities.getAllowInfo(pc, aClass);
+		if (isSubClass && aString.isEmpty())
+		{
+			aString = AllowUtilities.getAllowInfo(pc, parentClass);
+		}
+		if (!aString.isEmpty())
+		{
+			b.appendLineBreak();
+			b.appendI18nElement("in_requirements", aString); //$NON-NLS-1$
+		}
+
 		//Description
 		String desc = pc.getDescription(aClass);
 		if (!desc.isEmpty())
@@ -463,6 +482,13 @@ public class Gui2InfoFactory implements InfoFactory
 		{
 			infoText.appendI18nFormattedElement("in_InfoRequirements", //$NON-NLS-1$
 				bString);
+		}
+
+		aString = AllowUtilities.getAllowInfo(pc, skill);
+		if (!aString.isEmpty())
+		{
+			infoText.appendLineBreak();
+			infoText.appendI18nElement("in_requirements", aString); //$NON-NLS-1$
 		}
 
 		//Description
@@ -558,6 +584,13 @@ public class Gui2InfoFactory implements InfoFactory
 				cString);
 		}
 
+		String aString = AllowUtilities.getAllowInfo(pc, ability);
+		if (!aString.isEmpty())
+		{
+			infoText.appendLineBreak();
+			infoText.appendI18nElement("in_requirements", aString); //$NON-NLS-1$
+		}
+
 		infoText.appendLineBreak();
 		infoText.appendI18nFormattedElement("in_InfoDescription", //$NON-NLS-1$
 			getDescription(abilityFacade));
@@ -646,6 +679,13 @@ public class Gui2InfoFactory implements InfoFactory
 				aString);
 		}
 
+		aString = AllowUtilities.getAllowInfo(pc, aDeity);
+		if (!aString.isEmpty())
+		{
+			infoText.appendLineBreak();
+			infoText.appendI18nElement("in_requirements", aString); //$NON-NLS-1$
+		}
+
 		aString = aDeity.getSource();
 		if (!aString.isEmpty())
 		{
@@ -704,6 +744,13 @@ public class Gui2InfoFactory implements InfoFactory
 				infoText.appendI18nFormattedElement(
 					"in_domainRequirements", //$NON-NLS-1$
 					aString);
+			}
+
+			aString = AllowUtilities.getAllowInfo(pc, aDomain);
+			if (!aString.isEmpty())
+			{
+				infoText.appendLineBreak();
+				infoText.appendI18nElement("in_requirements", aString); //$NON-NLS-1$
 			}
 
 			aString =
@@ -817,6 +864,13 @@ public class Gui2InfoFactory implements InfoFactory
 		{
 			b.appendLineBreak();
 			b.appendI18nElement("in_igInfoLabelTextReq", cString); //$NON-NLS-1$
+		}
+
+		String aString = AllowUtilities.getAllowInfo(pc, equip);
+		if (!aString.isEmpty())
+		{
+			b.appendLineBreak();
+			b.appendI18nElement("in_requirements", aString); //$NON-NLS-1$
 		}
 
 		BigDecimal cost = equip.getCost(pc);
@@ -1134,6 +1188,13 @@ public class Gui2InfoFactory implements InfoFactory
 			b.appendI18nElement("in_igInfoLabelTextReq", cString); //$NON-NLS-1$
 		}
 
+		String aString = AllowUtilities.getAllowInfo(pc, equipMod);
+		if (!aString.isEmpty())
+		{
+			b.appendLineBreak();
+			b.appendI18nElement("in_requirements", aString); //$NON-NLS-1$
+		}
+
 		String bString = equipMod.getSource();
 		if (!bString.isEmpty())
 		{
@@ -1244,6 +1305,13 @@ public class Gui2InfoFactory implements InfoFactory
 			infoText.appendI18nElement("in_requirements", aString); //$NON-NLS-1$
 		}
 
+		aString = AllowUtilities.getAllowInfo(pc, template);
+		if (!aString.isEmpty())
+		{
+			infoText.appendLineBreak();
+			infoText.appendI18nElement("in_requirements", aString); //$NON-NLS-1$
+		}
+
 		aString = template.getSource();
 		if (!aString.isEmpty())
 		{
@@ -1274,6 +1342,13 @@ public class Gui2InfoFactory implements InfoFactory
 		String aString =
 				PrerequisiteUtilities.preReqHTMLStringsForList(pc, null,
 					kit.getPrerequisiteList(), false);
+		if (!aString.isEmpty())
+		{
+			infoText.appendLineBreak();
+			infoText.appendI18nElement("in_requirements", aString); //$NON-NLS-1$
+		}
+
+		aString = AllowUtilities.getAllowInfo(pc, kit);
 		if (!aString.isEmpty())
 		{
 			infoText.appendLineBreak();
@@ -1445,6 +1520,13 @@ public class Gui2InfoFactory implements InfoFactory
 			infoText.appendI18nElement("in_requirements", aString); //$NON-NLS-1$
 		}
 
+		aString = AllowUtilities.getAllowInfo(pc, originObj);
+		if (!aString.isEmpty())
+		{
+			infoText.appendLineBreak();
+			infoText.appendI18nElement("in_requirements", aString); //$NON-NLS-1$
+		}
+
 		infoText.appendLineBreak();
 		infoText.appendI18nElement(
 			"in_itmInfoLabelTextSource", //$NON-NLS-1$
@@ -1584,18 +1666,21 @@ public class Gui2InfoFactory implements InfoFactory
 			.intValue();
 	}
 
-	/**
-	 * @see pcgen.core.facade.InfoFactory#getPreReqHTML(pcgen.core.facade.RaceFacade)
-	 */
 	@Override
-	public String getPreReqHTML(RaceFacade race)
+	public String getPreReqHTML(RaceFacade raceFacade)
 	{
-		if (!(race instanceof Race))
+		if (!(raceFacade instanceof Race))
 		{
 			return EMPTY_STRING;
 		}
-		return PrerequisiteUtilities.preReqHTMLStringsForList(pc, null,
-			((Race) race).getPrerequisiteList(), true);
+		StringBuilder sb = new StringBuilder();
+		sb.append("<html>");
+		Race race = (Race) raceFacade;
+		sb.append(PrerequisiteUtilities.preReqHTMLStringsForList(pc, null,
+			race.getPrerequisiteList(), false));
+		sb.append(AllowUtilities.getAllowInfo(pc, race));
+		sb.append("</html>");
+		return sb.toString();
 	}
 
 	/**
@@ -1703,18 +1788,21 @@ public class Gui2InfoFactory implements InfoFactory
 		return TemplateModifier.modifierString(template, pc);
 	}
 
-	/**
-	 * @see pcgen.core.facade.InfoFactory#getPreReqHTML(pcgen.core.facade.TemplateFacade)
-	 */
 	@Override
-	public String getPreReqHTML(TemplateFacade template)
+	public String getPreReqHTML(TemplateFacade templateFacade)
 	{
-		if (!(template instanceof PCTemplate))
+		if (!(templateFacade instanceof PCTemplate))
 		{
 			return EMPTY_STRING;
 		}
-		return PrerequisiteUtilities.preReqHTMLStringsForList(pc, null,
-			((PCTemplate) template).getPrerequisiteList(), true);
+		StringBuilder sb = new StringBuilder();
+		sb.append("<html>");
+		PCTemplate template = (PCTemplate) templateFacade;
+		sb.append(PrerequisiteUtilities.preReqHTMLStringsForList(pc, null,
+			template.getPrerequisiteList(), false));
+		sb.append(AllowUtilities.getAllowInfo(pc, template));
+		sb.append("</html>");
+		return sb.toString();
 	}
 
 	@Override
@@ -1810,13 +1898,20 @@ public class Gui2InfoFactory implements InfoFactory
 		b.appendI18nElement("in_descrip", pc.parseSpellString(cs,  //$NON-NLS-1$
 			pc.getDescription(aSpell)));
 
-		final String cString = PrerequisiteUtilities.preReqHTMLStringsForList(pc, null,
+		String cString = PrerequisiteUtilities.preReqHTMLStringsForList(pc, null,
 		aSpell.getPrerequisiteList(), false);
 		if (!cString.isEmpty())
 		{
 			b.appendLineBreak();
 			b.appendI18nElement("in_requirements", cString); //$NON-NLS-1$
 		}
+		cString = AllowUtilities.getAllowInfo(pc, aSpell);
+		if (!cString.isEmpty())
+		{
+			b.appendLineBreak();
+			b.appendI18nElement("in_requirements", cString); //$NON-NLS-1$
+		}
+
 		b.appendLineBreak();
 
 		String spellSource = SourceFormat.getFormattedString(aSpell,

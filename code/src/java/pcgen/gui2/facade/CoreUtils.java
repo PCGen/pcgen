@@ -31,14 +31,15 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Identified;
 import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.helper.AllowUtilities;
 import pcgen.cdom.meta.CorePerspective;
 import pcgen.cdom.meta.CorePerspectiveDB;
 import pcgen.cdom.meta.CoreViewNodeBase;
 import pcgen.cdom.meta.FacetView;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.QualifiedObject;
-import pcgen.facade.core.CoreViewNodeFacade;
 import pcgen.core.prereq.PrerequisiteUtilities;
+import pcgen.facade.core.CoreViewNodeFacade;
 import pcgen.util.Logging;
 
 class CoreUtils
@@ -194,8 +195,13 @@ class CoreUtils
 			{
 				source = ((CDOMObject) object);
 			}
-			return PrerequisiteUtilities.preReqHTMLStringsForList(pc, source,
-				((PrereqObject) object).getPrerequisiteList(), true);
+			StringBuilder sb = new StringBuilder();
+			sb.append("<html>");
+			sb.append(PrerequisiteUtilities.preReqHTMLStringsForList(pc, source,
+				source.getPrerequisiteList(), false));
+			sb.append(AllowUtilities.getAllowInfo(pc, source));
+			sb.append("</html>");
+			return sb.toString();
 		}
 		return "";
 	}
