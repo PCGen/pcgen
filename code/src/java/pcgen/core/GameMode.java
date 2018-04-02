@@ -2754,12 +2754,12 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	/**
 	 * Indicates if this GameMode uses Deity and Domain objects.
 	 * 
-	 * @param b
+	 * @param usesDeityDomain
 	 *            The value indicating whether this GameMode uses Deity and Domain objects
 	 */
-	public void hasDeityDomain(boolean b)
+	public void hasDeityDomain(boolean usesDeityDomain)
 	{
-		hasDeityDomain = b;
+		hasDeityDomain = usesDeityDomain;
 	}
 
 	/**
