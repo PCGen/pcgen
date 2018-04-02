@@ -22,6 +22,7 @@ import org.junit.Test;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.list.CompanionList;
 import pcgen.core.Campaign;
+import pcgen.core.Equipment;
 import pcgen.core.EquipmentModifier;
 import pcgen.core.PCCheck;
 import pcgen.core.PCStat;
@@ -104,6 +105,8 @@ public abstract class AbstractGrantedListTokenTest<T extends CDOMObject>
 	public void testFromEqMod() throws PersistenceLayerException
 	{
 		EquipmentModifier source = create(EquipmentModifier.class, "Source");
+		Equipment e = create(Equipment.class, "Parent");
+		source.setVariableParent(e);
 		T granted = createGrantedObject();
 		processToken(source);
 		assertEquals(0, getCount());

@@ -731,7 +731,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 				GlobalModifiers modifiers =
 						context.getReferenceContext().constructNowIfNecessary(
 							GlobalModifiers.class, GlobalModifierLoader.GLOBAL_MODIFIERS);
-				modifiers.addToListFor(ListKey.GRANTEDVARS, varName);
+				modifiers.addGrantedVariable(varName);
 			}
 		}
 	}
