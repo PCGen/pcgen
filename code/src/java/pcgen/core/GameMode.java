@@ -195,6 +195,11 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	
 	/** A container for feat settings for this game mode. */
 	private AbilityCategory featTemplate;
+	
+	/**
+	 * Indicates that the GameMode uses Deity and Domain
+	 */
+	private boolean hasDeityDomain = true;
 
 	/**
 	 * Creates a new instance of GameMode.
@@ -2744,5 +2749,26 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	public int getMaxNonEpicLevel()
 	{
 		return maxNonEpicLevel;
+	}
+
+	/**
+	 * Indicates if this GameMode uses Deity and Domain objects.
+	 * 
+	 * @param usesDeityDomain
+	 *            The value indicating whether this GameMode uses Deity and Domain objects
+	 */
+	public void hasDeityDomain(boolean usesDeityDomain)
+	{
+		hasDeityDomain = usesDeityDomain;
+	}
+
+	/**
+	 * Returns true if this GameMode uses Deity and Domain objects.
+	 * 
+	 * @return true if this GameMode uses Deity and Domain objects; false otherwise
+	 */
+	public boolean hasDeityDomain()
+	{
+		return hasDeityDomain;
 	}
 }
