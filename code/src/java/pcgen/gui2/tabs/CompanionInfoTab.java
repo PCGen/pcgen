@@ -83,6 +83,7 @@ import pcgen.gui2.tabs.models.HtmlSheetSupport;
 import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.DisplayAwareTab;
+import pcgen.gui2.util.JTableEx;
 import pcgen.gui2.util.JTreeTable;
 import pcgen.gui2.util.treetable.AbstractTreeTableModel;
 import pcgen.gui2.util.treetable.DefaultTreeTableNode;
@@ -662,7 +663,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			super(JOptionPane.getFrameForComponent(CompanionInfoTab.this), true);
 			this.model = new FilteredCompanionList();
 			this.selectButton = new JButton();
-			this.raceTable = new FilteredTreeViewTable();
+			this.raceTable = new FilteredTreeViewTable<>();
 			initComponents();
 			pack();
 		}
@@ -715,7 +716,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			if (!"null".equals(e.getActionCommand()))
 			{
 				if ("SELECT".equals(e.getActionCommand()) || (
-						e.getID() == JTreeTable.ACTION_DOUBLECLICK))
+						e.getID() == JTableEx.ACTION_DOUBLECLICK))
 				{
 					newCompanion = CharacterManager.createNewCharacter(character.getUIDelegate(), character.getDataSet());
 					CompanionStubFacade selected = (CompanionStubFacade) raceTable.getSelectedObject();
@@ -943,7 +944,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 				CompanionNode child = new CompanionNode(companion);
 				if (children == null)
 				{
-					children = new Vector();
+					children = new Vector<>();
 				}
 				@SuppressWarnings("unchecked")
 				int insertIndex = Collections.binarySearch(children, child, Comparators.toStringIgnoreCaseCollator());

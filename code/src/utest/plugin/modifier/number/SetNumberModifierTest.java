@@ -25,21 +25,19 @@ import org.junit.Test;
 import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.format.NumberManager;
 import pcgen.base.formula.base.EvaluationManager;
-import pcgen.base.formula.base.LegalScope;
+import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.ManagerFactory;
-import pcgen.base.formula.inst.SimpleLegalScope;
-import pcgen.base.formula.inst.SimpleVariableStore;
-import pcgen.base.solver.IndividualSetup;
-import pcgen.base.solver.SplitFormulaSetup;
+import pcgen.base.formula.inst.ScopeManagerInst;
+import pcgen.base.solver.FormulaSetupFactory;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.formula.scope.GlobalScope;
+import pcgen.cdom.formula.scope.PCGenScope;
 import plugin.modifier.testsupport.EvalManagerUtilities;
 
 public class SetNumberModifierTest
 {
 
-	private LegalScope varScope =
-			new SimpleLegalScope(GlobalScope.GLOBAL_SCOPE_NAME);
+	private final PCGenScope varScope = new GlobalScope();
 	FormatManager<Number> numManager = new NumberManager();
 
 	@Test
@@ -212,18 +210,20 @@ public class SetNumberModifierTest
 	@Test
 	public void testGetFormulaModifier()
 	{
-		SplitFormulaSetup setup = new SplitFormulaSetup();
-		setup.loadBuiltIns();
-		setup.getLegalScopeManager().registerScope(varScope);
-		IndividualSetup iSetup = new IndividualSetup(setup, new SimpleVariableStore());
+		FormulaSetupFactory formulaSetupFactory = new FormulaSetupFactory();
+		ScopeManagerInst legalScopeManager = new ScopeManagerInst();
+		formulaSetupFactory.setLegalScopeManagerSupplier(() -> legalScopeManager);
+		FormulaManager formulaManager = formulaSetupFactory.generate();
+		legalScopeManager.registerScope(varScope);
 		SetModifierFactory factory = new SetModifierFactory();
-		FormulaModifier<Number> modifier =
-				factory.getModifier("6+5", new ManagerFactory(){}, iSetup.getFormulaManager(), varScope, numManager);
+		FormulaModifier<Number> modifier = factory.getModifier("6+5", new ManagerFactory()
+		{
+		}, formulaManager, varScope, numManager);
 		modifier.addAssociation("PRIORITY=35");
 		assertEquals((35L<<32)+factory.getInherentPriority(), modifier.getPriority());
 		assertEquals(numManager, modifier.getVariableFormat());
 		EvaluationManager evalManager = EvalManagerUtilities.getInputEM(4.3);
 		assertEquals(11, modifier.process(
-			evalManager.getWith(EvaluationManager.FMANAGER, iSetup.getFormulaManager())));
+			evalManager.getWith(EvaluationManager.FMANAGER, formulaManager)));
 	}
 }

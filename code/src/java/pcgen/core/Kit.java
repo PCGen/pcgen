@@ -358,7 +358,7 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 		StringBuilder info = new StringBuilder(255);
 		info.append("<html>");
 		info.append("<b><font size=+1>");
-		info.append(OutputNameFormatting.piString(this, false));
+		info.append(OutputNameFormatting.piString(this));
 		info.append("</font></b><br>\n");
 
 		String aString = getPreReqHTMLStrings(aPC);

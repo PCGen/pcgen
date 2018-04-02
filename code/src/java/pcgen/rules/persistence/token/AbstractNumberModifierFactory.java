@@ -20,15 +20,15 @@ package pcgen.rules.persistence.token;
 import pcgen.base.calculation.BasicCalculation;
 import pcgen.base.calculation.CalculationModifier;
 import pcgen.base.calculation.FormulaCalculation;
-import pcgen.base.calculation.NEPCalculation;
 import pcgen.base.calculation.FormulaModifier;
+import pcgen.base.calculation.NEPCalculation;
 import pcgen.base.formula.base.FormulaManager;
-import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.inst.NEPFormula;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.ProcessCalculation;
+import pcgen.cdom.formula.scope.PCGenScope;
 
 public abstract class AbstractNumberModifierFactory<T>
 		implements ModifierFactory<T>, BasicCalculation<T>
@@ -36,7 +36,7 @@ public abstract class AbstractNumberModifierFactory<T>
 
 	@Override
 	public FormulaModifier<T> getModifier(String instructions,
-		ManagerFactory managerFactory, FormulaManager formulaManager, LegalScope varScope,
+		ManagerFactory managerFactory, FormulaManager formulaManager, PCGenScope varScope,
 		FormatManager<T> formatManager)
 	{
 		try

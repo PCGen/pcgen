@@ -116,9 +116,8 @@ public class UserChooseInformation implements ChooseInformation<String>,
 		}
 	}
 
-	private static void applyChoice(ChooseDriver owner, PlayerCharacter pc, String
-			choice,
-	                                ChooseSelectionActor<String> csa)
+	private static void applyChoice(ChooseDriver owner, PlayerCharacter pc, String choice,
+		ChooseSelectionActor<String> csa)
 	{
 		csa.applyChoice(owner, choice, pc);
 	}

@@ -20,11 +20,11 @@ package plugin.lsttokens.template;
 import java.util.Collection;
 
 import pcgen.base.calculation.FormulaModifier;
-import pcgen.base.formula.base.LegalScope;
 import pcgen.base.math.OrderedPair;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.content.VarModifier;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.PCTemplate;
@@ -41,7 +41,6 @@ public class FaceToken extends AbstractNonEmptyToken<PCTemplate> implements
 		CDOMPrimaryToken<PCTemplate>
 {
 
-	private static final String VAR_NAME = "Face";
 	private static final int MOD_PRIORITY = 100;
 	private static final String MOD_IDENTIFICATION = "SET";
 
@@ -74,7 +73,7 @@ public class FaceToken extends AbstractNonEmptyToken<PCTemplate> implements
 		FormatManager<OrderedPair> formatManager =
 				(FormatManager<OrderedPair>) context.getReferenceContext()
 					.getFormatManager("ORDEREDPAIR");
-		LegalScope scope = context.getActiveScope();
+		PCGenScope scope = context.getActiveScope();
 		FormulaModifier<OrderedPair> modifier;
 		try
 		{
@@ -99,7 +98,7 @@ public class FaceToken extends AbstractNonEmptyToken<PCTemplate> implements
 			return new ParseResult.Fail(getTokenName() + " had value " + value
 				+ " but second item cannot be negative");
 		}
-		String varName = VAR_NAME;
+		String varName = CControl.FACE.getDefaultValue();
 		if (!context.getVariableContext().isLegalVariableID(scope, varName))
 		{
 			return new ParseResult.Fail(getTokenName()
@@ -125,7 +124,7 @@ public class FaceToken extends AbstractNonEmptyToken<PCTemplate> implements
 			for (VarModifier<?> vm : added)
 			{
 				FormulaModifier<?> modifier = vm.getModifier();
-				if (VAR_NAME.equals(vm.getVarName())
+				if (CControl.FACE.getDefaultValue().equals(vm.getVarName())
 					&& (!vm.getLegalScope().getParentScope().isPresent())
 					&& (modifier.getIdentification()
 						.equals(MOD_IDENTIFICATION)))

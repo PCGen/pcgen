@@ -215,6 +215,7 @@ public abstract class AbstractListFacet<IDT extends PCGenIdentifier, T> extends
 	 */
 	public Collection<T> removeAll(IDT id)
 	{
+		@SuppressWarnings("unchecked")
 		Collection<T> componentSet = (Collection<T>) removeCache(id);
 		if (componentSet == null)
 		{
@@ -336,6 +337,7 @@ public abstract class AbstractListFacet<IDT extends PCGenIdentifier, T> extends
 	 *         PCGenIdentifier; null if no information has been set in this
 	 *         AbstractListFacet for the Player Character.
 	 */
+	@SuppressWarnings("unchecked")
 	protected Collection<T> getCachedSet(IDT id)
 	{
 		return (Collection<T>) getCache(id);

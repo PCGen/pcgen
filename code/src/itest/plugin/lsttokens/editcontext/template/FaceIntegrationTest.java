@@ -24,6 +24,7 @@ import org.junit.Test;
 import pcgen.base.format.OrderedPairManager;
 import pcgen.base.math.OrderedPair;
 import pcgen.base.util.FormatManager;
+import pcgen.cdom.util.CControl;
 import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
@@ -52,9 +53,10 @@ public class FaceIntegrationTest extends
 		super.setUp();
 		TokenRegistration.register(m);
 		primaryContext.getVariableContext().assertLegalVariableID(
-			primaryContext.getActiveScope(), opManager, "Face");
+			CControl.FACE.getDefaultValue(), primaryContext.getActiveScope(), opManager);
 		secondaryContext.getVariableContext().assertLegalVariableID(
-			secondaryContext.getActiveScope(), opManager, "Face");
+			CControl.FACE.getDefaultValue(), secondaryContext.getActiveScope(),
+			opManager);
 	}
 
 	@Override

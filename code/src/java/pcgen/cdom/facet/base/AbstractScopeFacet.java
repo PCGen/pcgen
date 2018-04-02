@@ -47,6 +47,7 @@ public class AbstractScopeFacet<IDT extends PCGenIdentifier, S, T> extends
 		return map;
 	}
 
+	@SuppressWarnings("unchecked")
 	private Map<S, Map<T, Set<Object>>> getInfo(IDT id)
 	{
 		return (Map<S, Map<T, Set<Object>>>) getCache(id);

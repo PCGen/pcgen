@@ -38,27 +38,11 @@ public class DefaultSortableTreeTableModel extends DefaultTreeTableModel
         super(root);
     }
 
-//    public DefaultSortableTreeTableModel(TableModel model)
-//    {
-//        super(model);
-//    }
-//
-//    public DefaultSortableTreeTableModel(TreeTableModel model)
-//    {
-//        super(model);
-//    }
-
     @Override
     protected TreeTableNode createDefaultTreeTableNode()
     {
         return new DefaultSortableTreeTableNode();
     }
-
-//    @Override
-//    protected TreeTableNode createDefaultTreeTableNode(TreeNode node)
-//    {
-//        return new DefaultSortableTreeTableNode(node);
-//    }
 
 	@Override
     public void sortModel(Comparator<Row> comparator)

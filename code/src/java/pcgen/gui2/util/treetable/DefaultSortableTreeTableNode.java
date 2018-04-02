@@ -40,20 +40,6 @@ public class DefaultSortableTreeTableNode extends DefaultTreeTableNode
         setValues(data);
     }
 
-//    public DefaultSortableTreeTableNode(TreeNode node)
-//    {
-//        this();
-//        if (node instanceof TreeTableNode)
-//        {
-//            TreeTableNode treeTableNode = (TreeTableNode) node;
-//            setValues(treeTableNode.getValues());
-//        }
-//        for (int x = 0; x < node.getChildCount(); x++)
-//        {
-//            add(new DefaultSortableTreeTableNode(node.getChildAt(x)));
-//        }
-//    }
-
 	@Override
     @SuppressWarnings("unchecked")
     public void sortChildren(Comparator<Row> comparator)

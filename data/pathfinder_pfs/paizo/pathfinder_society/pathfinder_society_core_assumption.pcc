@@ -48,6 +48,8 @@ DESC:The Pathfinder Roleplaying Game puts you in the role of a brave adventurer 
 # Pathfinder Society Additional Resource Guide October 1, 2014
 
 PCC:@/pathfinder/paizo/roleplaying_game/core_rulebook/core_rulebook.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/core_rulebook/_pfs/_.pcc
+
 
 PCC:@/pathfinder_pfs/paizo/pathfinder_society/roleplaying_guild_guide/_roleplaying_guild_guide.pcc
 PCC:@/pathfinder_pfs/paizo/pathfinder_society/pfs_chronicle_sheets/pfs_chronicle_sheets.pcc

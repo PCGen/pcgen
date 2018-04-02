@@ -151,6 +151,7 @@ public class FollowerLimitFacet extends AbstractStorageFacet<CharID> implements
 	 *         null if no information has been set in this FollowerLimitFacet
 	 *         for the Player Character
 	 */
+	@SuppressWarnings("unchecked")
 	private Map<CompanionList, Map<FollowerLimit, Set<CDOMObject>>> getCachedMap(
 			CharID id)
 	{

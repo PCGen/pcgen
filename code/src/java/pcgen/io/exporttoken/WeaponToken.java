@@ -2623,7 +2623,7 @@ public class WeaponToken extends Token
 			sb.append('/');
 			if (!"0d0".equalsIgnoreCase(damString))
 			{
-				if (bonusOnly)
+				if (!bonusOnly)
 				{
 					sb.append(damString);
 				}

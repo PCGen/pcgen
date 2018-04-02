@@ -72,6 +72,12 @@ public final class AssociationListKey<T>
 		// Only allow instantiation here
 	}
 
+	/**
+	 * Casts an object with the Generics on this AssociationListKey.
+	 * 
+	 * @return An object cast to the Generics on this AssociationListKey
+	 */
+	@SuppressWarnings("unchecked")
 	public T cast(Object obj)
 	{
 		return (T) obj;

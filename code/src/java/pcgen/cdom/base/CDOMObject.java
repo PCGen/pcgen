@@ -326,7 +326,9 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		{
 			return null;
 		}
-		return (Indirect<FT>) factChar.get(key);
+		@SuppressWarnings("unchecked")
+		Indirect<FT> indirect = (Indirect<FT>) factChar.get(key);
+		return indirect;
 	}
 
 	public final <FT> FT getResolved(FactKey<FT> key)
@@ -335,6 +337,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		{
 			return null;
 		}
+		@SuppressWarnings("unchecked")
 		Indirect<FT> indirect = (Indirect<FT>) factChar.get(key);
 		if (indirect == null)
 		{

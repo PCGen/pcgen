@@ -303,18 +303,17 @@ public class FilterBar<C, E> extends JPanel implements DisplayableFilter<C, E>
 									  SizeRequirements[] xChildren, SizeRequirements[] yChildren,
 									  int start, int end, boolean ltr)
 		{
-			SizeRequirements[] children = (SizeRequirements[]) ArrayUtils.subarray(xChildren, start, end);
+			SizeRequirements[] children = ArrayUtils.subarray(xChildren, start, end);
 			int[] xOffsets = new int[children.length];
 			int[] xSpans = new int[children.length];
 			SizeRequirements.calculateTiledPositions(maxwidth, null, children, xOffsets, xSpans, ltr);
 
-			children = (SizeRequirements[]) ArrayUtils.subarray(yChildren, start, end);
+			children = ArrayUtils.subarray(yChildren, start, end);
 			int[] yOffsets = new int[children.length];
 			int[] ySpans = new int[children.length];
 			SizeRequirements total = new SizeRequirements(rowheight, rowheight, rowheight, 0.5f);
 			SizeRequirements.calculateAlignedPositions(rowheight, total, children, yOffsets, ySpans, ltr);
 
-			Insets in = target.getInsets();
 			for (int i = 0; i < children.length; i++)
 			{
 				Component c = target.getComponent(i + start);

@@ -49,13 +49,13 @@ import pcgen.system.LanguageBundle;
 @SuppressWarnings("serial")
 public class SpellChoicePanel extends JPanel
 {
-	private final JComboBox classComboBox;
-	private final JComboBox spellLevelComboBox;
+	private final JComboBox<InfoFacade> classComboBox;
+	private final JComboBox<Integer> spellLevelComboBox;
 	private final JComboBox spellComboBox;
-	private final JComboBox variantComboBox;
-	private final JComboBox casterLevelComboBox;
-	private final JComboBox spellTypeComboBox;
-	private final JList metamagicList;
+	private final JComboBox<String> variantComboBox;
+	private final JComboBox<Integer> casterLevelComboBox;
+	private final JComboBox<String> spellTypeComboBox;
+	private final JList<AbilityFacade> metamagicList;
 	
 	private CharacterComboBoxModel<InfoFacade> classModel;
 	private CharacterComboBoxModel<Integer> spellLevelModel;
@@ -74,13 +74,13 @@ public class SpellChoicePanel extends JPanel
 	{
 		this.spellBuilderFacade = spellBuilderFacade;
 		
-		this.classComboBox = new JComboBox();
-		this.spellLevelComboBox = new JComboBox();
-		this.spellComboBox = new JComboBox();
-		this.variantComboBox = new JComboBox();
-		this.casterLevelComboBox = new JComboBox();
-		this.spellTypeComboBox = new JComboBox();
-		this.metamagicList = new JList();
+		this.classComboBox = new JComboBox<>();
+		this.spellLevelComboBox = new JComboBox<>();
+		this.spellComboBox = new JComboBox<>();
+		this.variantComboBox = new JComboBox<>();
+		this.casterLevelComboBox = new JComboBox<>();
+		this.spellTypeComboBox = new JComboBox<>();
+		this.metamagicList = new JList<>();
 
 		initModels();
 		initComponents();
@@ -209,10 +209,7 @@ public class SpellChoicePanel extends JPanel
 
 		gbc.gridwidth = GridBagConstraints.REMAINDER;
 		gbc.fill = GridBagConstraints.BOTH;
-		if (insets != null)
-		{
-			gbc.insets = insets;
-		}
+		gbc.insets = insets;
 		panel.add(comp, gbc);
 	}
 
@@ -224,9 +221,9 @@ public class SpellChoicePanel extends JPanel
 			CharacterComboBoxModel<String>
 	{
 
-		private final JComboBox box;
+		private final JComboBox<String> box;
 
-		DisablingCharacterComboBoxModel(JComboBox box)
+		DisablingCharacterComboBoxModel(JComboBox<String> box)
 		{
 			this.box = box;
 		}
@@ -256,7 +253,7 @@ public class SpellChoicePanel extends JPanel
 				return;
 			}
 
-			List selectedValues = metamagicList.getSelectedValuesList();
+			List<AbilityFacade> selectedValues = metamagicList.getSelectedValuesList();
 			spellBuilderFacade.setSelectedMetamagicFeats(selectedValues.toArray());
 		}
 

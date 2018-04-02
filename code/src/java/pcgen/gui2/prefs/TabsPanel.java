@@ -101,7 +101,7 @@ public class TabsPanel extends PCGenPrefsPanel
 		this.add(label);
 		Utility.buildConstraints(c, 2, 0, 1, 1, 0, 0);
 		mainTabPlacementCombo =
-				new JComboBoxEx(new String[]{in_tabPosTop, in_tabPosBottom,
+				new JComboBoxEx<>(new String[]{in_tabPosTop, in_tabPosBottom,
 					in_tabPosLeft, in_tabPosRight});
 		gridbag.setConstraints(mainTabPlacementCombo, c);
 		this.add(mainTabPlacementCombo);
@@ -112,7 +112,7 @@ public class TabsPanel extends PCGenPrefsPanel
 		this.add(label);
 		Utility.buildConstraints(c, 2, 1, 1, 1, 0, 0);
 		charTabPlacementCombo =
-				new JComboBoxEx(new String[]{in_tabPosTop, in_tabPosBottom,
+				new JComboBoxEx<>(new String[]{in_tabPosTop, in_tabPosBottom,
 					in_tabPosLeft, in_tabPosRight});
 		gridbag.setConstraints(charTabPlacementCombo, c);
 		this.add(charTabPlacementCombo);
@@ -123,7 +123,7 @@ public class TabsPanel extends PCGenPrefsPanel
 		this.add(label);
 		Utility.buildConstraints(c, 2, 2, 1, 1, 0, 0);
 		tabLabelsCombo =
-				new JComboBoxEx(new String[]{in_tabLabelPlain, in_tabLabelEpic,
+				new JComboBoxEx<>(new String[]{in_tabLabelPlain, in_tabLabelEpic,
 					in_tabLabelRace, in_tabLabelNetHack, in_tabLabelFull});
 		gridbag.setConstraints(tabLabelsCombo, c);
 		this.add(tabLabelsCombo);

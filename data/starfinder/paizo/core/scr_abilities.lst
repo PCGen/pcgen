@@ -191,11 +191,11 @@ CATEGORY=Internal|Default.MOD	DEFINE:DroneModFlightSystemTaken|0		DEFINE:DroneWe
 CATEGORY=Internal|Default.MOD	DEFINE:DroneResistanceTaken|0	
 CATEGORY=Internal|Default.MOD	DEFINE:DroneResistanceBase|0
 CATEGORY=Internal|Default.MOD	DEFINE:DroneModEnergyShieldTaken|0
-CATEGORY=Internal|Default.MOD		DEFINE:DroneModFlightSystemTaken|0	DEFINE:DroneDR|0	DEFINE:DroneResistance_Acid|0		DEFINE:DroneResistance_Cold|0		DEFINE:DroneResistance_Sonic|0	DEFINE:DroneResistance_Elec|0		DEFINE:DroneResistance_Fire|0	DEFINE:DroneGreaterResistanceTaken|0	
-CATEGORY=Internal|Default.MOD		DEFINE:MysticChannelSkillBonus|0	DEFINE:MysticHighestConnectionPowerLVL|0	DEFINE:MysticHighestCastableConnectionLVL|0	DEFINE:MysticHighestCastableLVL|0
-CATEGORY=Internal|Default.MOD		DEFINE:OperativeEdgeBonus|0		DEFINE:StellarRevelationCount|0		DEFINE:FightingStyleLVL_Secondary|0	DEFINE:FightingStyleLVL_Primary|0
-CATEGORY=Internal|Default.MOD		DEFINE:FightingStyleLVL_Sharpshoot|0	DEFINE:FightingStyleLVL_HitAndRun|0	DEFINE:FightingStyleLVL_Guard|0	DEFINE:FightingStyleLVL_Blitz|0	DEFINE:FightingStyleLVL_Bombard|0	DEFINE:FightingStyleLVL_ArcaneAssailant|0	DEFINE:FightingStyleLVL_ArmorStorm|0
-CATEGORY=Internal|Default.MOD		DEFINE:PhrenicAdeptLVL|0	DEFINE:StarfinderForerunnerLVL|0
+CATEGORY=Internal|Default.MOD	DEFINE:DroneModFlightSystemTaken|0	DEFINE:DroneDR|0	DEFINE:DroneResistance_Acid|0		DEFINE:DroneResistance_Cold|0		DEFINE:DroneResistance_Sonic|0	DEFINE:DroneResistance_Elec|0		DEFINE:DroneResistance_Fire|0	DEFINE:DroneGreaterResistanceTaken|0	
+CATEGORY=Internal|Default.MOD	DEFINE:MysticChannelSkillBonus|0	DEFINE:MysticHighestConnectionPowerLVL|0	DEFINE:MysticHighestCastableConnectionLVL|0	DEFINE:MysticHighestCastableLVL|0
+CATEGORY=Internal|Default.MOD	DEFINE:OperativeEdgeBonus|0		DEFINE:StellarRevelationCount|0		DEFINE:FightingStyleLVL_Secondary|0	DEFINE:FightingStyleLVL_Primary|0
+CATEGORY=Internal|Default.MOD	DEFINE:FightingStyleLVL_Sharpshoot|0	DEFINE:FightingStyleLVL_HitAndRun|0	DEFINE:FightingStyleLVL_Guard|0	DEFINE:FightingStyleLVL_Blitz|0	DEFINE:FightingStyleLVL_Bombard|0	DEFINE:FightingStyleLVL_ArcaneAssailant|0	DEFINE:FightingStyleLVL_ArmorStorm|0
+CATEGORY=Internal|Default.MOD	DEFINE:PhrenicAdeptLVL|0	DEFINE:StarfinderForerunnerLVL|0
 
 # Workaround because BONUS:SKILL|TYPE=Base|OperativeEdgeBonus isn't working
 CATEGORY=Internal|Default.MOD	BONUS:SKILL|Display ~ Acrobatics|OperativeEdgeBonus
@@ -406,17 +406,6 @@ Movement / Climb 55	MOVE:Climb,55	CATEGORY:Internal
 Movement / Climb 65	MOVE:Climb,65	CATEGORY:Internal
 
 ###BLOCK-------------------------------------------------------------------------------------------------------------
-
-Hands ~ 01	TEMPLATE:Hands ~ 01	CATEGORY:Internal
-Hands ~ 02	TEMPLATE:Hands ~ 02	CATEGORY:Internal
-Hands ~ 03	TEMPLATE:Hands ~ 03	CATEGORY:Internal
-Hands ~ 04	TEMPLATE:Hands ~ 04	CATEGORY:Internal
-Hands ~ 05	TEMPLATE:Hands ~ 05	CATEGORY:Internal
-Hands ~ 06	TEMPLATE:Hands ~ 06	CATEGORY:Internal
-Hands ~ 07	TEMPLATE:Hands ~ 07	CATEGORY:Internal
-Hands ~ 08	TEMPLATE:Hands ~ 08	CATEGORY:Internal
-Hands ~ 09	TEMPLATE:Hands ~ 09	CATEGORY:Internal
-Hands ~ 10	TEMPLATE:Hands ~ 10	CATEGORY:Internal
 
 
 ###BLOCK-------------------------------------------------------------------------------------------------------------

@@ -146,7 +146,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		this.wealthLabel = new JFormattedTextField(NumberFormat.getNumberInstance());
 		this.goldField = new JFormattedTextField(NumberFormat.getNumberInstance());
 		this.goldModField = new JFormattedTextField(NumberFormat.getNumberInstance());
-		this.buySellRateBox = new JComboBox();
+		this.buySellRateBox = new JComboBox<>();
 		this.fundsAddButton = new JButton();
 		this.fundsSubtractButton = new JButton();
 		this.allowDebt = new JCheckBox();
@@ -262,7 +262,6 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		middleGbc.gridwidth = 1;
 		middleGbc.fill = GridBagConstraints.HORIZONTAL;
 		middleGbc.anchor = GridBagConstraints.LINE_END;
-		//middleGbc.weightx = 1.0f;
 
 		GridBagConstraints rightGbc = new GridBagConstraints();
 		rightGbc.insets = new Insets(2, 10, 2, panelInsets.right);
@@ -403,7 +402,6 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	@Override
 	public void storeModels(ModelMap models)
 	{
-//		models.get(AvailableTreeViewModel.class).uninstall();
 		models.get(EquipInfoHandler.class).uninstall();
 		models.get(AddAction.class).uninstall();
 		models.get(RemoveAction.class).uninstall();
@@ -942,16 +940,8 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		{
 		}
 		
-//		@Override
-//		protected void refreshTableData()
-//		{
-//			availableTable.refreshModelData();
-//		}
-
-//		@Override
 		public void install()
 		{
-//			super.install();
 			availableTable.setTreeViewModel(this);
 		}
 	}
@@ -1051,7 +1041,6 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		TYPE_NAME(LanguageBundle.getString("in_typeName")), //$NON-NLS-1$
 		TYPE_SUBTYPE_NAME(LanguageBundle.getString("in_typeSubtypeName")), //$NON-NLS-1$
 		SOURCE_NAME(LanguageBundle.getString("in_sourceName")); //$NON-NLS-1$
-		//SOURCE_NAME("Source/Name");
 		private final String name;
 
 		private EquipmentTreeView(String name)
@@ -1160,61 +1149,6 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		public void install()
 		{
 			availableTable.setContext(character);
-		}
-
-	}
-
-	private class PurchaseTransferHandler extends TransferHandler
-	{
-
-		private final CharacterFacade character;
-
-		public PurchaseTransferHandler(CharacterFacade character)
-		{
-			this.character = character;
-		}
-
-		@Override
-		public int getSourceActions(JComponent c)
-		{
-			return MOVE;
-		}
-
-		@Override
-		protected Transferable createTransferable(JComponent c)
-		{
-			List<?> data = purchasedTable.getSelectedData();
-
-			if (data == null)
-			{
-				return null;
-			}
-			Iterator<?> it = data.iterator();
-			while (it.hasNext())
-			{
-				if (!(it.next() instanceof EquipmentFacade))
-				{
-					it.remove();
-				}
-			}
-			if (data.isEmpty())
-			{
-				return null;
-			}
-
-			EquipmentFacade[] equipArray = data.toArray(new EquipmentFacade[data.size()]);
-			return new EquipmentSelection(equipArray);
-		}
-
-		@Override
-		public boolean canImport(TransferSupport support)
-		{
-			if (!support.isDataFlavorSupported(equipmentArrayFlavor))
-			{
-				return false;
-			}
-			support.setShowDropLocation(false);
-			return true;
 		}
 
 	}
@@ -1410,7 +1344,6 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			{
 				setToolTipText(LanguageBundle.getString("in_igBuyNMenuDesc")); //$NON-NLS-1$
 			}
-			//			setMnemonic(LanguageBundle.getMnemonic("in_mn_center"));
 			setIcon(Icons.Add16.getImageIcon());
 
 			addActionListener(this);
@@ -1505,7 +1438,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			{
 				if (dest != character)
 				{
-					copyMenu.add(new CopyItemMenuItem(character, dest, targets));
+					copyMenu.add(new CopyItemMenuItem(dest, targets));
 					copyMenu.setEnabled(true);
 				}
 			}
@@ -1560,7 +1493,6 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			{
 				setToolTipText(LanguageBundle.getString("in_igSellNMenuDesc")); //$NON-NLS-1$
 			}
-			//			setMnemonic(LanguageBundle.getMnemonic("in_mn_center"));
 			setIcon(Icons.Remove16.getImageIcon());
 
 			addActionListener(this);
@@ -1694,14 +1626,12 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	private class CopyItemMenuItem extends JMenuItem implements ActionListener
 	{
 
-		private final CharacterFacade character;
 		private final CharacterFacade destination;
 		private final List<EquipmentFacade> targets;
 
-		CopyItemMenuItem(CharacterFacade character, CharacterFacade destination, List<EquipmentFacade> targets)
+		CopyItemMenuItem(CharacterFacade destination, List<EquipmentFacade> targets)
 		{
 			super(destination.getNameRef().get());
-			this.character = character;
 			this.destination = destination;
 			this.targets = targets;
 
