@@ -247,7 +247,7 @@ task copyToLibs(type: Copy) {
 }
 
 import org.apache.tools.ant.filters.FixCrLfFilter;
-task copyToOutput(type: Copy, dependsOn: [copyToLibs, jar, 
+task copyToOutput(type: Copy, dependsOn: [createExe, copyToLibs, jar, 
         converterJar]) {
     from "$buildDir/libs/pcgen-${version}.jar"
     from "$buildDir/libs/pcgen-${version}-batch-convert.jar"
