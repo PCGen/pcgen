@@ -36,7 +36,7 @@ public class SuppressDeityDomainToken implements GameModeLstToken
 	@Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
-		Boolean set;
+		Boolean suppressDeityDomain;
 		char firstChar = value.charAt(0);
 		if (firstChar == 'y' || firstChar == 'Y')
 		{
@@ -46,7 +46,7 @@ public class SuppressDeityDomainToken implements GameModeLstToken
 					"You should use 'YES' as the " + getTokenName() + ": " + value);
 				return false;
 			}
-			set = Boolean.TRUE;
+			suppressDeityDomain = Boolean.TRUE;
 		}
 		else
 		{
@@ -62,9 +62,9 @@ public class SuppressDeityDomainToken implements GameModeLstToken
 					+ ": " + value);
 				return false;
 			}
-			set = Boolean.FALSE;
+			suppressDeityDomain = Boolean.FALSE;
 		}
-		gameMode.hasDeityDomain(!set);
+		gameMode.hasDeityDomain(!suppressDeityDomain);
 		return true;
 	}
 }
