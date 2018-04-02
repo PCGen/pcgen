@@ -56,18 +56,18 @@ public class GrantedVarFacet extends AbstractSourcedListFacet<CharID, CDOMObject
 	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
-		String[] list = cdo.getGrantedVariableArray();
-		if (list.length == 0)
+		String[] grantedVariables = cdo.getGrantedVariableArray();
+		if (grantedVariables.length == 0)
 		{
 			return;
 		}
 		Object source = dfce.getSource();
 		CharID id = dfce.getCharID();
 		ScopeInstance inst = scopeFacet.get(id, cdo);
-		for (String s : list)
+		for (String VariableName : grantedVariables)
 		{
 			VariableID<?> varID = loadContextFacet.get(id.getDatasetID()).get()
-				.getVariableContext().getVariableID(inst, s);
+				.getVariableContext().getVariableID(inst, VariableName);
 			processAdd(id, varID, source);
 		}
 	}

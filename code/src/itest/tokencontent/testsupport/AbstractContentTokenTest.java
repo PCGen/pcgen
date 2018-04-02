@@ -175,8 +175,8 @@ public abstract class AbstractContentTokenTest extends AbstractTokenModelTest
 	public void testFromEqMod() throws PersistenceLayerException
 	{
 		EquipmentModifier source = create(EquipmentModifier.class, "Source");
-		Equipment e = create(Equipment.class, "Parent");
-		source.setVariableParent(e);
+		Equipment equipment = create(Equipment.class, "Parent");
+		source.setVariableParent(equipment);
 		processToken(source);
 		assertEquals(baseCount(), targetFacetCount());
 		activeEqModFacet.add(id, source, this);

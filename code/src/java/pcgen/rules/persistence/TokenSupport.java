@@ -98,15 +98,18 @@ public class TokenSupport
 		throws PersistenceLayerException
 	{
 		//Interface tokens override everything else... even if NOT VALID!
-		CDOMInterfaceToken<?, ?> ifToken = TokenLibrary.getInterfaceToken(tokenName);
-		if (ifToken != null)
+		CDOMInterfaceToken<?, ?> interfaceToken =
+				TokenLibrary.getInterfaceToken(tokenName);
+		if (interfaceToken != null)
 		{
-			if (ifToken.getTokenClass().isAssignableFrom(target.getClass()))
+			if (interfaceToken.getTokenClass().isAssignableFrom(target.getClass()))
 			{
 				//Must be true to be consistent with if above
 				@SuppressWarnings("unchecked")
-				CDOMInterfaceToken<?, T> token = (CDOMInterfaceToken<?, T>) ifToken;
-				return processInterfaceToken(context, target, tokenName, tokenValue, token);
+				CDOMInterfaceToken<?, T> token =
+						(CDOMInterfaceToken<?, T>) interfaceToken;
+				return processInterfaceToken(context, target, tokenName, tokenValue,
+					token);
 			}
 			else
 			{
@@ -174,14 +177,14 @@ public class TokenSupport
 	}
 
 	private <R, W> boolean processInterfaceToken(LoadContext context, W target,
-		String tokenName, String tokenValue, CDOMInterfaceToken<R, W> ifToken)
+		String tokenName, String tokenValue, CDOMInterfaceToken<R, W> interfaceToken)
 	{
-		StagingInfo<R, W> info = stagingFactory.produceStaging(ifToken.getReadInterface(),
-			ifToken.getTokenClass());
+		StagingInfo<R, W> info = stagingFactory.produceStaging(
+			interfaceToken.getReadInterface(), interfaceToken.getTokenClass());
 		ParseResult parse;
 		try
 		{
-			parse = ifToken.parseToken(context, info.getWriteProxy(), tokenValue);
+			parse = interfaceToken.parseToken(context, info.getWriteProxy(), tokenValue);
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -334,12 +337,13 @@ public class TokenSupport
                 String.CASE_INSENSITIVE_ORDER);
 		@SuppressWarnings("unchecked")
 		Class<T> cl = (Class<T>) loadable.getClass();
-		for (CDOMInterfaceToken<?, ?> ifToken : TokenLibrary.getInterfaceTokens())
+		for (CDOMInterfaceToken<?, ?> interfaceToken : TokenLibrary.getInterfaceTokens())
 		{
-			if (ifToken.getClass().isAssignableFrom(cl))
+			if (interfaceToken.getClass().isAssignableFrom(cl))
 			{
 				@SuppressWarnings("unchecked")
-				CDOMInterfaceToken<?, T> token = (CDOMInterfaceToken<?, T>) ifToken;
+				CDOMInterfaceToken<?, T> token =
+						(CDOMInterfaceToken<?, T>) interfaceToken;
 				String[] s = token.unparse(context, loadable);
 				if (s != null)
 				{

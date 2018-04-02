@@ -65,13 +65,6 @@ public class ModifyLstTest extends AbstractGlobalTokenTestCase
 		return token;
 	}
 
-//	@Test
-//	public void testInvalidObject() throws PersistenceLayerException
-//	{
-//		assertFalse(token.parseToken(primaryContext, new PCTemplate(),
-//				"MyVar|ADD|3").passed());
-//	}
-
 	@Test
 	public void testInvalidInputEmpty() throws PersistenceLayerException
 	{
