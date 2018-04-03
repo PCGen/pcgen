@@ -6,9 +6,9 @@ Bleachling	SUBRACE:Bleachling	VISIBLE:NO
 Feychild	SUBRACE:Feychild		VISIBLE:NO
 
 #
-SIZE ~ Tiny		FACT:BaseSize|T	VISIBLE:NO
-SIZE ~ Small	FACT:BaseSize|S	VISIBLE:NO
-SIZE ~ Medium	FACT:BaseSize|M	VISIBLE:NO
+SIZE ~ Tiny		VISIBLE:NO
+SIZE ~ Small	VISIBLE:NO
+SIZE ~ Medium	VISIBLE:NO
 
 
 

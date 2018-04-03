@@ -4,8 +4,8 @@
 
 # CRITMULT
 # CRITRANGE
-# 
-LEGS:Race_Legs
+# Legs deactivated PRELEGS - Which is currently used for BONUS:LOADMULT - need to do a table.
+#LEGS:Race_Legs
 CREATUREHANDS:Race_Hands
 # 
 # FUMBLERANGE
