@@ -154,10 +154,11 @@ public class TokenSupport
 				{
 					return true;
 				}
-				if (Logging.isLoggable(Logging.LST_INFO))
+				if (Logging.isLoggable(Logging.LST_ERROR))
 				{
-					Logging.addParseMessage(Logging.LST_INFO,
-						"Failed in parsing typeStr: " + tokenName + ' ' + tokenValue);
+					Logging.addParseMessage(Logging.LST_ERROR,
+						"Failed in parsing typeStr: " + tokenName + ' ' + tokenValue
+							+ " for " + cl.getName() + ' ' + target.getDisplayName());
 				}
 			}
 		}
@@ -205,7 +206,8 @@ public class TokenSupport
 		if (Logging.isLoggable(Logging.LST_INFO))
 		{
 			Logging.addParseMessage(Logging.LST_INFO,
-				"Failed in parsing token: " + tokenName + ' ' + tokenValue);
+				"Failed in parsing token: " + tokenName + ' ' + tokenValue + " for "
+					+ target.getClass().getName() + ' ' + target);
 		}
 		return false;
 	}
@@ -259,7 +261,8 @@ public class TokenSupport
 		String tokenName, String key, String value)
 	{
 		ComplexParseResult cpr = new ComplexParseResult();
-		List<? extends CDOMToken<T>> tokenList = getTokens((Class<T>) cdo.getClass(), tokenName, key);
+		Class<T> cl = (Class<T>) cdo.getClass();
+		List<? extends CDOMToken<T>> tokenList = getTokens(cl, tokenName, key);
 		if (tokenList != null)
 		{
 			for (CDOMToken<T> token : tokenList)
@@ -276,8 +279,8 @@ public class TokenSupport
 		/*
 		 * CONSIDER Better option than toString, given that T != CDOMObject
 		 */
-		cpr.addErrorMessage("Illegal " + tokenName
-			+ " subtoken '" + key + "' '" + value + "' for " + cdo.toString());
+		cpr.addErrorMessage("Illegal " + tokenName + " subtoken '" + key + "' '" + value
+			+ "' for " + cl.getName() + ' ' + cdo);
 		return cpr;
 	}
 
