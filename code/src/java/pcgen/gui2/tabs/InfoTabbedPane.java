@@ -219,7 +219,7 @@ public final class InfoTabbedPane extends JTabbedPane
 		}
 		if (character != null)
 		{
-			if (!character.getDataSet().hasDeityDomain())
+			if (character.getDataSet().hasDeityDomain())
 			{
 				TabTitle tabTitle = domainInfoTab.getTabTitle();
 				String title = (String) tabTitle.getValue(TabTitle.TITLE);
