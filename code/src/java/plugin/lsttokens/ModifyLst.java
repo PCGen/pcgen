@@ -65,6 +65,7 @@ public class ModifyLst extends AbstractTokenWithSeparator<VarHolder> implements
 	protected ParseResult parseTokenWithSeparator(LoadContext context,
 		VarHolder obj, String value)
 	{
+		//TODO These instanceof checks will fail - the VarHolder is a proxy :(
 		if (obj instanceof Ungranted)
 		{
 			return new ParseResult.Fail(getTokenName()
@@ -91,8 +92,7 @@ public class ModifyLst extends AbstractTokenWithSeparator<VarHolder> implements
 		{
 			return new ParseResult.Fail(
 				getTokenName() + " found invalid var name: " + varName
-					+ "(scope: " + scope.getName() + ") Modified on "
-					+ obj.getClass().getSimpleName() + ' ' + obj);
+					+ "(scope: " + scope.getName() + ")");
 		}
 		if (!sep.hasNext())
 		{
