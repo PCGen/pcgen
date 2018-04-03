@@ -73,6 +73,7 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<VarHolder> implem
 	protected ParseResult parseTokenWithSeparator(LoadContext context,
 		VarHolder obj, String value)
 	{
+		//TODO These instanceof checks will fail - the VarHolder is a proxy :(
 		if (obj instanceof Ungranted)
 		{
 			return new ParseResult.Fail(getTokenName()
@@ -203,8 +204,7 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<VarHolder> implem
 		if (!context.getVariableContext().isLegalVariableID(scope, varName))
 		{
 			return new ParseResult.Fail(getTokenName() + " found invalid var name: "
-				+ varName + "(scope: " + LegalScope.getFullName(scope) + ") Modified on "
-				+ obj.getClass().getSimpleName() + ' ' + obj);
+				+ varName + "(scope: " + LegalScope.getFullName(scope) + ")");
 		}
 		if (!sep.hasNext())
 		{
