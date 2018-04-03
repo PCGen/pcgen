@@ -28,4 +28,4 @@ Cannon.MOD				TYPE:PFSLegal	PREABILITY:1,CATEGORY=FEAT,Gunsmithing
 Black Powder (Dose).MOD		TYPE:PFSLegal
 Black Powder (Keg).MOD		TYPE:PFSLegal
 Cannon Ball.MOD			TYPE:PFSLegal
-Firearm Bullet.MOD		TYPE:PFSLegal
+Bullet (Firearm).MOD		TYPE:PFSLegal
