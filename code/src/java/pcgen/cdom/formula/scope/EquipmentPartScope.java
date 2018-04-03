@@ -30,6 +30,11 @@ import pcgen.rules.context.LoadContext;
 public class EquipmentPartScope implements PCGenScope
 {
 	/**
+	 * Full scope name as used in PCGen.
+	 */
+	public static final String PC_EQUIPMENT_PART = "PC.EQUIPMENT.PART";
+
+	/**
 	 * The parent of this scope (once loaded)
 	 */
 	private Optional<PCGenScope> parent;

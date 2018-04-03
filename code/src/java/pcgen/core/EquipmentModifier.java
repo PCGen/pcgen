@@ -31,6 +31,7 @@ import pcgen.cdom.content.SpellResistance;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.formula.scope.EquipmentPartScope;
 import pcgen.core.analysis.BonusCalc;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
@@ -309,7 +310,7 @@ public final class EquipmentModifier extends PObject
 	@Override
 	public String getLocalScopeName()
 	{
-		return "PC.EQUIPMENT.PART";
+		return EquipmentPartScope.PC_EQUIPMENT_PART;
 	}
 
 	private VarScoped variableParent;

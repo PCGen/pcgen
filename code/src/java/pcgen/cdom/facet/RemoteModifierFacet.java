@@ -213,10 +213,10 @@ public class RemoteModifierFacet extends
 	}
 
 	/*
-	 * In Ability: MODIFYOTHER:EQUIPMENT|GROUP=Martial|EqCritRange|ADD|1
+	 * In Ability: MODIFYOTHER:PC.EQUIPMENT|GROUP=Martial|EqCritRange|ADD|1
 	 * 
 	 * In Global:
-	 * MODIFYOTHER:EQUIPMENT.PART|ALL|CritRange|SOLVE|value()+EqCritRange
+	 * MODIFYOTHER:PC.EQUIPMENT.PART|ALL|CritRange|SOLVE|value()+EqCritRange
 	 * |PRIORITY=10000
 	 * 
 	 * effectively we are solving APPLYTO:EQUIPMENT|PC[GROUP=Martial]|...

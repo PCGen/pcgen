@@ -22,6 +22,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.analysis.ResultFacet;
+import pcgen.cdom.formula.scope.EquipmentPartScope;
 
 /**
  * An EquipmentHead is a CDOMObject that represents characteristics of a single
@@ -131,7 +132,7 @@ public final class EquipmentHead extends CDOMObject
 	@Override
 	public String getLocalScopeName()
 	{
-		return "PC.EQUIPMENT.PART";
+		return EquipmentPartScope.PC_EQUIPMENT_PART;
 	}
 
 	@Override
