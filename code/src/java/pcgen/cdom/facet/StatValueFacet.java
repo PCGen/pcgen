@@ -217,10 +217,17 @@ public class StatValueFacet extends AbstractScopeFacet<CharID, PCStat, Number>
 		String varName = ChannelUtilities.createVarName(channelName);
 		ScopeInstanceFactory instFactory = SCOPE_FACET.get(id);
 		ScopeInstance scopeInst = instFactory.get(stat.getLocalScopeName(), stat);
-		VariableID<Number> varID =
-				(VariableID<Number>) loadContextFacet.get(id.getDatasetID()).get()
+		try {
+			VariableID<Number> varID =
+					(VariableID<Number>) loadContextFacet.get(id.getDatasetID()).get()
 					.getVariableContext().getVariableID(scopeInst, varName);
-		return varID;
+			return varID;
+		}
+		catch (NullPointerException e)
+		{
+			throw new IllegalArgumentException("Attempt to get channel " + channelName
+				+ " for a STAT was unsuccessful. Was a CHANNEL defined in the Variable file?");
+		}
 	}
 
 }
