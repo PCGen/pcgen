@@ -82,6 +82,7 @@ public final class InfoTabbedPane extends JTabbedPane
 	private final TabModelService modelService;
 	private final List<CharacterInfoTab> fullTabList = new ArrayList<>();
 	private final DomainInfoTab domainInfoTab;
+	private int domainTabLocation;
 	private CharacterFacade currentCharacter = null;
 
 	public InfoTabbedPane()
@@ -121,6 +122,7 @@ public final class InfoTabbedPane extends JTabbedPane
 		addTab(new ClassInfoTab());
 		addTab(new SkillInfoTab());
 		addTab(new AbilitiesInfoTab());
+		domainTabLocation = getTabCount();
 		addTab(domainInfoTab);
 		addTab(new SpellsInfoTab());
 		addTab(new InventoryInfoTab());
@@ -217,7 +219,18 @@ public final class InfoTabbedPane extends JTabbedPane
 		}
 		if (character != null)
 		{
-			domainInfoTab.setVisible(character.getDataSet().hasDeityDomain());
+			if (!character.getDataSet().hasDeityDomain())
+			{
+				TabTitle tabTitle = domainInfoTab.getTabTitle();
+				String title = (String) tabTitle.getValue(TabTitle.TITLE);
+				String tooltip = (String) tabTitle.getValue(TabTitle.TOOLTIP);
+				Icon icon = (Icon) tabTitle.getValue(TabTitle.ICON);
+				insertTab(title, icon, domainInfoTab, tooltip, domainTabLocation);
+			}
+			else
+			{
+				remove(domainInfoTab);
+			}
 		}
 	}
 
