@@ -100,8 +100,8 @@ public class InputFunctionTest extends AbstractFormulaTestCase
 				instFactory.getGlobalInstance(GlobalScope.GLOBAL_SCOPE_NAME);
 		context.getVariableContext().assertLegalVariableID(ChannelUtilities.createVarName("STR"),
 			globalInstance.getLegalScope(), numberManager);
-		VariableChannel<Number> strChannel =
-				(VariableChannel<Number>) ChannelUtilities.getGlobalChannel(id, "STR");
+		VariableChannel<Number> strChannel = (VariableChannel<Number>) context
+			.getVariableContext().getGlobalChannel(id, "STR");
 		String formula = "input(\"STR\")";
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, numberManager, null);

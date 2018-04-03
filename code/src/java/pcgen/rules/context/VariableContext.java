@@ -26,6 +26,7 @@ import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.base.ScopeInstance;
+import pcgen.base.formula.base.VarScoped;
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.base.WriteableFunctionLibrary;
@@ -43,7 +44,11 @@ import pcgen.base.solver.SolverManager;
 import pcgen.base.util.ComplexResult;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.formula.PluginFunctionLibrary;
+import pcgen.cdom.formula.VariableChannel;
+import pcgen.cdom.formula.VariableChannelFactory;
+import pcgen.cdom.formula.VariableChannelFactoryInst;
 import pcgen.cdom.formula.scope.LegalScopeUtilities;
 import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.rules.persistence.MasterModifierFactory;
@@ -54,9 +59,8 @@ import pcgen.util.Logging;
  * and (in some cases) subsequently while the data set associated with the parent
  * LoadContext is operating.
  */
-public class VariableContext implements VariableLibrary
+public class VariableContext implements VariableChannelFactory, VariableLibrary
 {
-
 	/**
 	 * This is the FormulaSetupFactory for this VariableContext. This is used to generate
 	 * a FormulaManager for each PC.
@@ -121,6 +125,13 @@ public class VariableContext implements VariableLibrary
 	 * from plugins.
 	 */
 	private FormulaManager loadFormulaManager = null;
+
+	/**
+	 * Contains a VariableChannelFactory used to develop VariableChannels for this
+	 * VariableContext.
+	 */
+	private VariableChannelFactoryInst variableChannelFactory =
+			new VariableChannelFactoryInst();
 
 	/**
 	 * Constructs a new VariableContext with the given ManagerFactory.
@@ -399,5 +410,29 @@ public class VariableContext implements VariableLibrary
 	}
 	/*
 	 * End: (Delegated) Items part of VariableLibrary interface
+	 */
+
+	/*
+	 * Begin: (Delegated) Items part of VariableChannelFactory interface
+	 */
+	@Override
+	public VariableChannel<?> getChannel(CharID id, VarScoped owner, String name)
+	{
+		return variableChannelFactory.getChannel(id, owner, name);
+	}
+
+	@Override
+	public VariableChannel<?> getGlobalChannel(CharID id, String name)
+	{
+		return variableChannelFactory.getGlobalChannel(id, name);
+	}
+
+	@Override
+	public void disconnect(VariableChannel<?> variableChannel)
+	{
+		variableChannelFactory.disconnect(variableChannel);
+	}
+	/*
+	 * End: (Delegated) Items part of VariableChannelFactory interface
 	 */
 }
