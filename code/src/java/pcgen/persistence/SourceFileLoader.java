@@ -50,6 +50,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.formula.scope.EquipmentPartScope;
 import pcgen.cdom.formula.scope.GlobalScope;
 import pcgen.cdom.inst.GlobalModifiers;
 import pcgen.cdom.util.CControl;
@@ -148,7 +149,8 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	private final LstObjectFileLoader<Equipment> equipmentLoader =
 			new GenericLocalVariableLoader<>(Equipment.class, "PC.EQUIPMENT");
 	private final LstObjectFileLoader<EquipmentModifier> eqModLoader =
-			new GenericLocalVariableLoader<>(EquipmentModifier.class, "PC.EQUIPMENT.PART");
+			new GenericLocalVariableLoader<>(EquipmentModifier.class,
+				EquipmentPartScope.PC_EQUIPMENT_PART);
 	private final LstObjectFileLoader<Race> raceLoader = new GenericLoader<>(Race.class);
 	private final LstObjectFileLoader<Skill> skillLoader =
 			new GenericLocalVariableLoader<>(Skill.class, "PC.SKILL");
