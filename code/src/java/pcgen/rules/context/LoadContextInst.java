@@ -854,7 +854,7 @@ abstract class LoadContextInst implements LoadContext
 			else if (toScope.getParentScope().get().equals(derivedScope))
 			{
 				//Direct drop from this
-				return new DerivedLoadContext(this, derivedScope);
+				return new DerivedLoadContext(this, toScope);
 			}
 			//Random jump to somewhere else...
 			return LoadContextInst.this.dropIntoContext(toScope);
