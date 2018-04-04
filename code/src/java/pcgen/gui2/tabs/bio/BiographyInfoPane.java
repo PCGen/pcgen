@@ -204,7 +204,10 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			{
 				bioItems.add(new AlignmentItem(character));
 			}
-			bioItems.add(new DeityItem(character));
+			if (character.getDataSet().hasDeityDomain())
+			{
+				bioItems.add(new DeityItem(character));
+			}
 			bioItems.add(new AgeItem(character));
 			bioItems.add(new SkinColorItem(character));
 			bioItems.add(new HairColorItem(character));
@@ -767,7 +770,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			{
 				throw new IllegalStateException("The CharacterComboBoxModel has already been set"); //$NON-NLS-1$
 			}
-			this.combobox = new JComboBox(model);
+			this.combobox = new JComboBox<>(model);
 			combobox.setPreferredSize(new Dimension(10, templateTextField.getPreferredSize().height));
 		}
 

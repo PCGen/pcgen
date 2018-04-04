@@ -39,6 +39,7 @@ import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.list.AbilityList;
 import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.util.CControl;
 import pcgen.core.analysis.BonusAddition;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
@@ -149,7 +150,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 		OrderedPairManager opManager = new OrderedPairManager();
 		LoadContext context = Globals.getContext();
 		context.getVariableContext().assertLegalVariableID(
-			context.getActiveScope(), opManager, "Face");
+			CControl.FACE.getDefaultValue(), context.getActiveScope(), opManager);
 		Race race = new Race();
 		race.setName("TestRace");
 		race.put(ObjectKey.CHALLENGE_RATING, new ChallengeRating(FormulaFactory.getFormulaFor(5)));

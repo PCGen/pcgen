@@ -6,7 +6,7 @@ package pcgen;
 
 import java.util.Collection;
 
-import pcgen.base.solver.Modifier;
+import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.UserSelection;
@@ -17,6 +17,7 @@ import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.VariableKey;
+import pcgen.cdom.formula.local.ModifierDecoration;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -194,9 +195,9 @@ public abstract class AbstractCharacterTestCase extends PCGenTestCase
 	{
 		Class<T> cl = fmtManager.getManagedClass();
 		ModifierFactory<T> m = TokenLibrary.getModifier(cl, "SET");
-		Modifier<T> 
-			defaultModifier = m.getFixedModifier(fmtManager, "NONE");
-		context.getVariableContext().addDefault(cl, defaultModifier);
+		FormulaModifier<T> defaultModifier = m.getFixedModifier(fmtManager, "NONE");
+		context.getVariableContext().addDefault(cl,
+			new ModifierDecoration<>(defaultModifier));
 	}
 
 	protected void additionalSetUp() throws Exception

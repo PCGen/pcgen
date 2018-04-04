@@ -360,8 +360,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		String formula = "lookup(\"TABLE[NUMBER]\",\"A\",\"That\",ResultColumn)";
 		SimpleNode node = TestUtilities.doParse(formula);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
-		FormulaSemantics semantics = getManagerFactory()
-			.generateFormulaSemantics(getFormulaManager(), getGlobalScope());
+		FormulaSemantics semantics = generateFormulaSemantics(numberManager);
 		semantics = semantics.getWith(ManagerKey.CONTEXT, context);
 		semanticsVisitor.visit(node, semantics);
 		if (semantics.isValid())
@@ -393,8 +392,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		String formula = "lookup(\"NUMBER\",\"A\",\"That\",ResultColumn)";
 		SimpleNode node = TestUtilities.doParse(formula);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
-		FormulaSemantics semantics = getManagerFactory()
-			.generateFormulaSemantics(getFormulaManager(), getGlobalScope());
+		FormulaSemantics semantics = generateFormulaSemantics(numberManager);
 		semantics = semantics.getWith(ManagerKey.CONTEXT, context);
 		semanticsVisitor.visit(node, semantics);
 		if (semantics.isValid())
@@ -426,8 +424,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		String formula = "lookup(\"TABLE[STRING]\",55,\"That\",ResultColumn)";
 		SimpleNode node = TestUtilities.doParse(formula);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
-		FormulaSemantics semantics = getManagerFactory()
-			.generateFormulaSemantics(getFormulaManager(), getGlobalScope());
+		FormulaSemantics semantics = generateFormulaSemantics(numberManager);
 		semantics = semantics.getWith(ManagerKey.CONTEXT, context);
 		semanticsVisitor.visit(node, semantics);
 		if (semantics.isValid())
@@ -459,8 +456,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		String formula = "lookup(get(\"TABLE[STRING]\",\"A\"),\"That\",ResultColumn)";
 		SimpleNode node = TestUtilities.doParse(formula);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
-		FormulaSemantics semantics = getManagerFactory()
-			.generateFormulaSemantics(getFormulaManager(), getGlobalScope());
+		FormulaSemantics semantics = generateFormulaSemantics(numberManager);
 		semantics = semantics.getWith(ManagerKey.CONTEXT, context);
 		semanticsVisitor.visit(node, semantics);
 		if (!semantics.isValid())
@@ -497,8 +493,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		String formula = "lookup(get(\"TABLE[STRING]\",\"A\"),\"That\",get(\"COLUMN[NUMBER]\",\"Value\"))";
 		SimpleNode node = TestUtilities.doParse(formula);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
-		FormulaSemantics semantics = getManagerFactory()
-			.generateFormulaSemantics(getFormulaManager(), getGlobalScope());
+		FormulaSemantics semantics = generateFormulaSemantics(numberManager);
 		semantics = semantics.getWith(ManagerKey.CONTEXT, context);
 		semanticsVisitor.visit(node, semantics);
 		if (!semantics.isValid())
@@ -536,8 +531,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		String formula = "lookup(\"TABLE[STRING]\",\"A\",\"That\",ResultColumn,\"TooMuch\")";
 		SimpleNode node = TestUtilities.doParse(formula);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
-		FormulaSemantics semantics = getManagerFactory()
-			.generateFormulaSemantics(getFormulaManager(), getGlobalScope());
+		FormulaSemantics semantics = generateFormulaSemantics(numberManager);
 		semantics = semantics.getWith(ManagerKey.CONTEXT, context);
 		semanticsVisitor.visit(node, semantics);
 		if (semantics.isValid())
@@ -768,8 +762,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		assertEquals(formula, rv.toString());
 
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
-		FormulaSemantics semantics = getManagerFactory()
-			.generateFormulaSemantics(getFormulaManager(), getGlobalScope());
+		FormulaSemantics semantics = generateFormulaSemantics(numberManager);
 		semantics = semantics.getWith(ManagerKey.CONTEXT, context);
 		semanticsVisitor.visit(node, semantics);
 		if (!semantics.isValid())

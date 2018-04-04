@@ -25,6 +25,7 @@ import pcgen.base.formatmanager.SimpleFormatManagerLibrary;
 import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ScopeInstance;
+import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.operator.number.NumberMinus;
@@ -34,10 +35,8 @@ import pcgen.base.formula.visitor.SemanticsVisitor;
 import pcgen.cdom.formula.ManagerKey;
 import pcgen.cdom.formula.scope.GlobalScope;
 import pcgen.core.Skill;
-import pcgen.rules.context.ConsolidatedListCommitStrategy;
-import pcgen.rules.context.LoadContext;
-import pcgen.rules.context.RuntimeLoadContext;
-import pcgen.rules.context.RuntimeReferenceContext;
+import pcgen.rules.context.VariableContext;
+import plugin.function.testsupport.AbstractFormulaTestCase;
 
 /**
  * Test getOther() function in the new formula system
@@ -80,11 +79,7 @@ public class GetOtherFunctionTest extends AbstractFormulaTestCase
 		String formula = "getOther(\"PC.SKILL\",3,3)";
 		SimpleNode node = TestUtilities.doParse(formula);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
-		FormulaSemantics semantics = generateFormulaSemantics(
-			getFormulaManager(), getGlobalScope(), null);
-		LoadContext context = new RuntimeLoadContext(
-			RuntimeReferenceContext.createRuntimeReferenceContext(),
-			new ConsolidatedListCommitStrategy());
+		FormulaSemantics semantics = generateFormulaSemantics(null);
 		semanticsVisitor.visit(node, semantics.getWith(ManagerKey.CONTEXT, context));
 		if (semantics.isValid())
 		{
@@ -100,11 +95,7 @@ public class GetOtherFunctionTest extends AbstractFormulaTestCase
 				"getOther(\"PC.SKILL\", \"SkillKey\",\"Stuff\")";
 		SimpleNode node = TestUtilities.doParse(formula);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
-		FormulaSemantics semantics = generateFormulaSemantics
-			(getFormulaManager(), getGlobalScope(), null);
-		LoadContext context = new RuntimeLoadContext(
-			RuntimeReferenceContext.createRuntimeReferenceContext(),
-			new ConsolidatedListCommitStrategy());
+		FormulaSemantics semantics = generateFormulaSemantics(null);
 		Object result = semanticsVisitor.visit(node,
 			semantics.getWith(ManagerKey.CONTEXT, context));
 		if (semantics.isValid() && (result instanceof Number))
@@ -118,18 +109,14 @@ public class GetOtherFunctionTest extends AbstractFormulaTestCase
 	public void testBasic()
 	{
 		VariableLibrary vl = getVariableLibrary();
-		LegalScope skillScope = getScopeLibrary().getScope("PC.SKILL");
+		LegalScope skillScope = context.getVariableContext().getScope("PC.SKILL");
 		vl.assertLegalVariableID("LocalVar", skillScope, numberManager);
 
 		String formula =
 				"getOther(\"PC.SKILL\",\"SkillKey\",LocalVar)";
 		SimpleNode node = TestUtilities.doParse(formula);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
-		FormulaSemantics semantics = generateFormulaSemantics(
-			getFormulaManager(), getGlobalScope(), null);
-		LoadContext context = new RuntimeLoadContext(
-			RuntimeReferenceContext.createRuntimeReferenceContext(),
-			new ConsolidatedListCommitStrategy());
+		FormulaSemantics semantics = generateFormulaSemantics(null);
 		semanticsVisitor.visit(node, semantics.getWith(ManagerKey.CONTEXT, context));
 		if (!semantics.isValid())
 		{
@@ -139,11 +126,12 @@ public class GetOtherFunctionTest extends AbstractFormulaTestCase
 		isStatic(formula, node, false);
 		Skill skill = new Skill();
 		skill.setName("SkillKey");
-		ScopeInstance scopeInst = getInstanceFactory().get("PC.SKILL", skill);
+		ScopeInstance scopeInst =
+				getFormulaManager().getScopeInstanceFactory().get("PC.SKILL", skill);
 		VariableID varID = vl.getVariableID(scopeInst, "LocalVar");
 		getVariableStore().put(varID, 2);
 		context.getReferenceContext().importObject(skill);
-		evaluatesTo(formula, node, 2, context);
+		evaluatesTo(formula, node, 2);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertEquals(formula, rv.toString());
@@ -153,21 +141,17 @@ public class GetOtherFunctionTest extends AbstractFormulaTestCase
 	public void testDynamic()
 	{
 		VariableLibrary vl = getVariableLibrary();
-		LegalScope skillScope = getScopeLibrary().getScope("PC.SKILL");
-		LegalScope globalScope =
-				getScopeLibrary().getScope(GlobalScope.GLOBAL_SCOPE_NAME);
+		VariableContext variableContext = context.getVariableContext();
+		LegalScope skillScope = variableContext.getScope("PC.SKILL");
+		LegalScope globalScope = variableContext.getScope(GlobalScope.GLOBAL_SCOPE_NAME);
 		vl.assertLegalVariableID("LocalVar", skillScope, numberManager);
-		LoadContext context = new RuntimeLoadContext(
-			RuntimeReferenceContext.createRuntimeReferenceContext(),
-			new ConsolidatedListCommitStrategy());
 		vl.assertLegalVariableID("SkillVar", globalScope, context.getManufacturer("SKILL"));
 
 		String formula =
 				"getOther(\"PC.SKILL\",SkillVar,LocalVar)";
 		SimpleNode node = TestUtilities.doParse(formula);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
-		FormulaSemantics semantics = generateFormulaSemantics(
-			getFormulaManager(), getGlobalScope(), null);
+		FormulaSemantics semantics = generateFormulaSemantics(null);
 		semanticsVisitor.visit(node, semantics.getWith(ManagerKey.CONTEXT, context));
 		if (!semantics.isValid())
 		{
@@ -179,23 +163,25 @@ public class GetOtherFunctionTest extends AbstractFormulaTestCase
 		skill.setName("SkillKey");
 		Skill skillalt = new Skill();
 		skillalt.setName("SkillAlt");
-		ScopeInstance scopeInste = getInstanceFactory().get("PC.SKILL", skill);
+		ScopeInstanceFactory scopeInstanceFactory =
+				getFormulaManager().getScopeInstanceFactory();
+		ScopeInstance scopeInste = scopeInstanceFactory.get("PC.SKILL", skill);
 		VariableID varIDe = vl.getVariableID(scopeInste, "LocalVar");
 		getVariableStore().put(varIDe, 2);
-		ScopeInstance scopeInsta = getInstanceFactory().get("PC.SKILL", skillalt);
+		ScopeInstance scopeInsta = scopeInstanceFactory.get("PC.SKILL", skillalt);
 		VariableID varIDa = vl.getVariableID(scopeInsta, "LocalVar");
 		getVariableStore().put(varIDa, 3);
 		ScopeInstance globalInst =
-				getInstanceFactory().getGlobalInstance(GlobalScope.GLOBAL_SCOPE_NAME);
+				scopeInstanceFactory.getGlobalInstance(GlobalScope.GLOBAL_SCOPE_NAME);
 		VariableID varIDq = vl.getVariableID(globalInst, "SkillVar");
 		getVariableStore().put(varIDq, skill);
 		context.getReferenceContext().importObject(skill);
 		context.getReferenceContext().importObject(skillalt);
-		evaluatesTo(formula, node, 2, context);
+		evaluatesTo(formula, node, 2);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertEquals(formula, rv.toString());
 		getVariableStore().put(varIDq, skillalt);
-		evaluatesTo(formula, node, 3, context);
+		evaluatesTo(formula, node, 3);
 	}
 }

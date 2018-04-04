@@ -18,13 +18,12 @@
 package tokenmodel.testsupport;
 
 import junit.framework.TestCase;
-import pcgen.base.solver.Modifier;
+import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.content.fact.FactDefinition;
 import pcgen.cdom.enumeration.CharID;
-import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.facet.DirectAbilityFacet;
@@ -46,6 +45,7 @@ import pcgen.cdom.facet.model.SkillFacet;
 import pcgen.cdom.facet.model.StatFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.cdom.facet.model.WeaponProfModelFacet;
+import pcgen.cdom.formula.local.ModifierDecoration;
 import pcgen.cdom.inst.CodeControl;
 import pcgen.cdom.inst.GlobalModifiers;
 import pcgen.cdom.util.CControl;
@@ -253,7 +253,7 @@ public abstract class AbstractTokenModelTest extends TestCase
 		AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
 		GlobalModifiers mods = ref.constructNowIfNecessary(GlobalModifiers.class,
 			GlobalModifierLoader.GLOBAL_MODIFIERS);
-		mods.addToListFor(ListKey.GRANTEDVARS, ChannelUtilities.createVarName("AlignmentInput"));
+		mods.addGrantedVariable(ChannelUtilities.createVarName("AlignmentInput"));
 		lg = BuildUtilities.createAlignment("Lawful Good", "LG");
 		ref.importObject(lg);
 		ln = BuildUtilities.createAlignment("Lawful Neutral", "LN");
@@ -316,7 +316,7 @@ public abstract class AbstractTokenModelTest extends TestCase
 		CodeControl ai = ref.constructCDOMObject(CodeControl.class, "Controller");
 		String channelName = ChannelUtilities.createVarName("AlignmentInput");
 		context.getVariableContext().assertLegalVariableID(
-			context.getActiveScope(), fmtManager, channelName);
+			channelName, context.getActiveScope(), fmtManager);
 		String controlName = '*' + CControl.ALIGNMENTINPUT.getName();
 		ai.put(ObjectKey.getKeyFor(String.class, controlName), "AlignmentInput");
 	}
@@ -325,8 +325,9 @@ public abstract class AbstractTokenModelTest extends TestCase
 	{
 		Class<T> cl = fmtManager.getManagedClass();
 		ModifierFactory<T> m = TokenLibrary.getModifier(cl, "SET");
-		Modifier<T> defaultModifier = m.getFixedModifier(fmtManager, "NONE");
-		context.getVariableContext().addDefault(cl, defaultModifier);
+		FormulaModifier<T> defaultModifier = m.getFixedModifier(fmtManager, "NONE");
+		context.getVariableContext().addDefault(cl,
+			new ModifierDecoration<>(defaultModifier));
 	}
 
 	public abstract CDOMToken<?> getToken();

@@ -23,9 +23,8 @@ import org.junit.Test;
 
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.util.FormatManager;
-import pcgen.cdom.base.CDOMObject;
-import pcgen.core.Campaign;
-import pcgen.core.PCTemplate;
+import pcgen.cdom.base.VarHolder;
+import pcgen.core.Skill;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
@@ -37,8 +36,8 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 
 public class ModifyLstTest extends AbstractGlobalTokenTestCase
 {
-	static CDOMPrimaryToken<CDOMObject> token = new ModifyLst();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
+	private static ModifyLst token = new ModifyLst();
+	private static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
@@ -49,28 +48,21 @@ public class ModifyLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Override
-	public CDOMLoader<PCTemplate> getLoader()
+	public CDOMLoader<Skill> getLoader()
 	{
 		return loader;
 	}
 
 	@Override
-	public Class<PCTemplate> getCDOMClass()
+	public Class<Skill> getCDOMClass()
 	{
-		return PCTemplate.class;
+		return Skill.class;
 	}
 
 	@Override
-	public CDOMPrimaryToken<CDOMObject> getToken()
+	public CDOMPrimaryToken<VarHolder> getToken()
 	{
 		return token;
-	}
-
-	@Test
-	public void testInvalidObject() throws PersistenceLayerException
-	{
-		assertFalse(token.parseToken(primaryContext, new Campaign(),
-				"MyVar|ADD|3").passed());
 	}
 
 	@Test
@@ -234,8 +226,8 @@ public class ModifyLstTest extends AbstractGlobalTokenTestCase
 		super.additionalSetup(context);
 		FormatManager<?> formatManager = context.getReferenceContext().getFormatManager("NUMBER");
 		LegalScope scope = context.getActiveScope();
-		context.getVariableContext().assertLegalVariableID(scope, formatManager, "MyVar");
-		context.getVariableContext().assertLegalVariableID(scope, formatManager, "OtherVar");
+		context.getVariableContext().assertLegalVariableID("MyVar", scope, formatManager);
+		context.getVariableContext().assertLegalVariableID("OtherVar", scope, formatManager);
 	}
 
 }

@@ -41,8 +41,12 @@ import pcgen.output.channel.ChannelUtilities;
 public class StatValueFacet extends AbstractScopeFacet<CharID, PCStat, Number>
 {
 
-	private static final VariableLibraryFacet VARLIB_FACET =
-			FacetLibrary.getFacet(VariableLibraryFacet.class);
+	/**
+	 * The global LoadContextFacet used to get VariableIDs
+	 */
+	private final LoadContextFacet loadContextFacet =
+			FacetLibrary.getFacet(LoadContextFacet.class);
+
 	private static final ScopeFacet SCOPE_FACET = FacetLibrary.getFacet(ScopeFacet.class);
 	private static final VariableStoreFacet RESULT_FACET =
 			FacetLibrary.getFacet(VariableStoreFacet.class);
@@ -213,9 +217,18 @@ public class StatValueFacet extends AbstractScopeFacet<CharID, PCStat, Number>
 		String varName = ChannelUtilities.createVarName(channelName);
 		ScopeInstanceFactory instFactory = SCOPE_FACET.get(id);
 		ScopeInstance scopeInst = instFactory.get(stat.getLocalScopeName(), stat);
-		VariableID<Number> varID = (VariableID<Number>) VARLIB_FACET
-			.getVariableID(id.getDatasetID(), scopeInst, varName);
-		return varID;
+		try
+		{
+			VariableID<Number> varID =
+					(VariableID<Number>) loadContextFacet.get(id.getDatasetID()).get()
+					.getVariableContext().getVariableID(scopeInst, varName);
+			return varID;
+		}
+		catch (NullPointerException e)
+		{
+			throw new IllegalArgumentException("Attempt to get channel " + channelName
+				+ " for a STAT was unsuccessful. Was a CHANNEL defined in the Variable file?");
+		}
 	}
 
 }

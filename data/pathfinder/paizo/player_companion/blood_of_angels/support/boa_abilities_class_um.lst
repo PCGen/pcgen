@@ -3,7 +3,7 @@ SOURCELONG:Blood of Angels	SOURCESHORT:BOA	SOURCEWEB:http://paizo.com/products/b
 
 ###Block: Crossblooded Bloodlines -- Goes in UM or UM support _abilities_class.lst
 
-Martyred Bloodline		CATEGORY:Crossblooded Bloodline		TYPE:SorcererBloodlineChoice		BONUS:VAR|Sorcerer_Martyred_BloodlineLVL|BloodlineLVL		BONUS:VAR|Sorcerer_Martyred_BloodlineProgressionLVL|BloodlineProgressionLVL		BONUS:VAR|Sorcerer_Martyred_BloodlineArcana1|if(Sorcerer_CF_BloodlineArcana==0,1,0)		BONUS:VAR|Sorcerer_Martyred_BloodlinePower1Times|BloodlinePowerTimes+BloodlinePower1TimesBonus		ABILITY:Internal|AUTOMATIC|Martyred Bloodline ~ Feat Tracker		ABILITY:Special Ability|AUTOMATIC|Sorcerer Bloodline ~ Martyred
+Martyred Bloodline		CATEGORY:Crossblooded Bloodline		TYPE:SorcererBloodlineChoice		BONUS:VAR|Sorcerer_Martyred_BloodlineLVL|BloodlineLVL		BONUS:VAR|Sorcerer_Martyred_BloodlineProgressionLVL|BloodlineProgressionLVL		BONUS:VAR|Sorcerer_Martyred_BloodlineArcana1|if(Sorcerer_CF_BloodlineArcana==0,1,0)		BONUS:VAR|Sorcerer_Martyred_BloodlineClassSkill1|if(Sorcerer_CF_BloodlineClassSkill==0,1,0)		BONUS:VAR|Sorcerer_Martyred_BloodlinePower1Times|BloodlinePowerTimes+BloodlinePower1TimesBonus		ABILITY:Internal|AUTOMATIC|Martyred Bloodline ~ Feat Tracker		ABILITY:Special Ability|AUTOMATIC|Sorcerer Bloodline ~ Martyred
 
 ###Block: Eldritch Heritage Bloodlines -- Goes in UM or UM support _abilities.lst
 

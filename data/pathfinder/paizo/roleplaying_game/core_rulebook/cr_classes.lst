@@ -287,7 +287,7 @@ CLASS:Ranger	HD:10		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.64	ABILITY:Internal|AU
 # Class Name	Skill Pts/Lvl
 CLASS:Ranger	STARTSKILLPTS:6
 # Class Name	Spell Stat		Automatically Known Spell Levels			Craft Level Mult.	Caster level
-CLASS:Ranger	SPELLSTAT:WIS	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:CL-3	BONUS:CASTERLEVEL|Ranger|Caster_Level_BL_Stripped_Ranger|PRECLASS:1,Ranger=4
+CLASS:Ranger	SPELLSTAT:WIS	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:CL-3	BONUS:CASTERLEVEL|Ranger|Caster_Level_Ranger|PRECLASS:1,Ranger=4
 ###Block:Proficiencies
 1	ABILITY:Class|AUTOMATIC|Ranger
 ###Block: Progression Abilities

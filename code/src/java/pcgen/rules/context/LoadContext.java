@@ -21,8 +21,8 @@ import java.net.URI;
 import java.util.Collection;
 import java.util.List;
 
-import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.inst.NEPFormula;
+import pcgen.base.proxy.DeferredMethodController;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
@@ -30,6 +30,7 @@ import pcgen.cdom.base.GroupDefinition;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.base.PrimitiveCollection;
 import pcgen.cdom.enumeration.DataSetID;
+import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.SelectionCreator;
 import pcgen.core.Campaign;
@@ -129,7 +130,17 @@ public interface LoadContext
 
 	public <T> String[] unparseSubtoken(T cdo, String tokenName);
 
-	public <T> Collection<String> unparse(T cdo);
+	/**
+	 * Unparses the given Object into a Collection of String objects, for each token that
+	 * would be on the object.
+	 * 
+	 * @param loadable
+	 *            The loadable object to be unparsed into the tokens used to persist the
+	 *            object
+	 * @return A Collection of Strings representing the tokens that are part of the
+	 *         persistent format of the given Loadable
+	 */
+	public <T extends Loadable> Collection<String> unparse(T loadable);
 
 	/*
 	 * Output Messages
@@ -174,11 +185,11 @@ public interface LoadContext
 	VariableContext getVariableContext();
 
 	/**
-	 * Returns the currently active LegalScope.
+	 * Returns the currently active PCGenScope.
 	 * 
-	 * @return The currently active LegalScope
+	 * @return The currently active PCGenScope
 	 */
-	public LegalScope getActiveScope();
+	public PCGenScope getActiveScope();
 
 	/**
 	 * Directly returns a valid formula with the Format of the given FormatManager.
@@ -192,4 +203,14 @@ public interface LoadContext
 	 */
 	public <T> NEPFormula<T> getValidFormula(FormatManager<T> formatManager,
 		String instructions);
+
+	/**
+	 * Adds a DeferredMethodController to this LoadContext. This DeferredMethodController
+	 * will be run if commit() is called or forgotten with no action if rollback() is
+	 * called.
+	 * 
+	 * @param controller
+	 *            The DeferredMethodController to be added to this LoadContext
+	 */
+	public void addDeferredMethodController(DeferredMethodController<?> controller);
 }

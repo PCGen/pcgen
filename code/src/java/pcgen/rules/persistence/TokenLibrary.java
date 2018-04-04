@@ -19,8 +19,11 @@ package pcgen.rules.persistence;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Set;
 import java.util.TreeSet;
@@ -38,6 +41,7 @@ import pcgen.persistence.lst.LstToken;
 import pcgen.persistence.lst.prereq.PreMultParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 import pcgen.rules.persistence.token.CDOMCompatibilityToken;
+import pcgen.rules.persistence.token.CDOMInterfaceToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.CDOMSubToken;
@@ -69,6 +73,12 @@ public final class TokenLibrary implements PluginLoader
             new DoubleKeyMap<>();
 	private static final DoubleKeyMap<Class<?>, String, ModifierFactory<?>> modifierMap =
             new DoubleKeyMap<>();
+	
+	/**
+	 * Contains the interface tokens mapped by the token name.
+	 */
+	private static final Map<String, CDOMInterfaceToken<?, ?>> IF_TOKEN_MAP =
+			new HashMap<>();
 	private static final Set<TokenFamily> TOKEN_FAMILIES = new TreeSet<>();
 	private static final CaseInsensitiveMap<Class<? extends BonusObj>> BONUS_TAG_MAP =
             new CaseInsensitiveMap<>();
@@ -217,6 +227,20 @@ public final class TokenLibrary implements PluginLoader
 				CDOMCompatibilityToken<PCClass> clTok =
 						(CDOMCompatibilityToken<PCClass>) tok;
 				addToTokenMap(new ClassWrappedToken(clTok));
+			}
+		}
+		if (newToken instanceof CDOMInterfaceToken)
+		{
+			CDOMInterfaceToken<?, ?> tok = (CDOMInterfaceToken<?, ?>) newToken;
+			CDOMInterfaceToken<?, ?> existingToken =
+					IF_TOKEN_MAP.put(tok.getTokenName(), tok);
+			if (existingToken != null)
+			{
+				Logging.errorPrint("Duplicate "
+						+ tok.getTokenClass().getSimpleName()
+						+ " Token found for interface token " + tok.getTokenName()
+						+ ". Classes were " + existingToken.getClass().getName()
+						+ " and " + newToken.getClass().getName());
 			}
 		}
 		loadFamily(TokenFamily.CURRENT, newToken);
@@ -597,5 +621,28 @@ public final class TokenLibrary implements PluginLoader
 	public static Class<? extends BonusObj> getBonus(String bonusName)
 	{
 		return BONUS_TAG_MAP.get(bonusName);
+	}
+
+	/**
+	 * Returns the CDOMInterfaceToken of the given name. null is returned if there is no
+	 * CDOMInterfaceToken of the given name.
+	 * 
+	 * @param name
+	 *            The name of the CDOMInterfaceToken to be returned
+	 * @return The CDOMInterfaceToken of the given name
+	 */
+	public static CDOMInterfaceToken<?, ?> getInterfaceToken(String name)
+	{
+		return IF_TOKEN_MAP.get(name);
+	}
+
+	/**
+	 * Returns a Collection of the CDOMInterfaceToken objects in this TokenLibrary.
+	 * 
+	 * @return A Collection of the CDOMInterfaceToken objects in this TokenLibrary
+	 */
+	public static Collection<CDOMInterfaceToken<?, ?>> getInterfaceTokens()
+	{
+		return Collections.unmodifiableCollection(IF_TOKEN_MAP.values());
 	}
 }

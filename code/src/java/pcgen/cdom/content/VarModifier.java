@@ -19,6 +19,7 @@ package pcgen.cdom.content;
 
 import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.formula.base.LegalScope;
+import pcgen.cdom.formula.scope.PCGenScope;
 
 /**
  * A VarModifier is a container for all the information necessary to modify a
@@ -32,6 +33,11 @@ import pcgen.base.formula.base.LegalScope;
  */
 public class VarModifier<T>
 {
+	/**
+	 * This is an empty array of VarModifier objects, available for use by a
+	 * VarContainer.
+	 */
+	public static final VarModifier<?>[] EMPTY_VARMODIFIER = new VarModifier[0];
 
 	/**
 	 * The name of the Variable to be modified when this VarModifier is applied.
@@ -39,10 +45,10 @@ public class VarModifier<T>
 	private final String varName;
 
 	/**
-	 * The Scope of the variable to be modified when this VarModifier is
+	 * The PCGenScope of the variable to be modified when this VarModifier is
 	 * applied.
 	 */
-	private final LegalScope legalScope;
+	private final PCGenScope legalScope;
 
 	/**
 	 * The FormulaModifier to be applied to the Variable when this VarModifier is
@@ -58,14 +64,14 @@ public class VarModifier<T>
 	 *            The name of the Variable to be modified when this VarModifier
 	 *            is applied
 	 * @param legalScope
-	 *            the LegalScope in which the Modifier is applied
+	 *            the PCGenScope in which the Modifier is applied
 	 * @param modifier
 	 *            The FormulaModifier to be applied to the Variable when this
 	 *            VarModifier is applied
 	 * @throws IllegalArgumentException
 	 *             if any of the parameters are null
 	 */
-	public VarModifier(String varName, LegalScope legalScope,
+	public VarModifier(String varName, PCGenScope legalScope,
 		FormulaModifier<T> modifier)
 	{
 		if (varName == null)
@@ -74,7 +80,7 @@ public class VarModifier<T>
 		}
 		if (legalScope == null)
 		{
-			throw new IllegalArgumentException("LegalScope cannot be null");
+			throw new IllegalArgumentException("PCGenScope cannot be null");
 		}
 		if (modifier == null)
 		{
@@ -96,11 +102,11 @@ public class VarModifier<T>
 	}
 
 	/**
-	 * Retrieves the LegalScope for this VarModifier.
+	 * Retrieves the PCGenScope for this VarModifier.
 	 * 
-	 * @return the LegalScope for this VarModifier
+	 * @return the PCGenScope for this VarModifier
 	 */
-	public LegalScope getLegalScope()
+	public PCGenScope getLegalScope()
 	{
 		return legalScope;
 	}

@@ -42,19 +42,6 @@ public class DefaultTreeTableNode extends DefaultMutableTreeNode implements Tree
 		setValues(data);
 	}
 
-//	public DefaultTreeTableNode(TreeNode node)
-//	{
-//		this();
-//		if (node instanceof TreeTableNode)
-//		{
-//			TreeTableNode treeTableNode = (TreeTableNode) node;
-//			setValues(treeTableNode.getValues());
-//		}
-//		for (int x = 0; x < node.getChildCount(); x++)
-//		{
-//			add(new DefaultTreeTableNode(node.getChildAt(x)));
-//		}
-//	}
 	@Override
 	public Object getValueAt(int column)
 	{

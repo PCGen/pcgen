@@ -24,13 +24,12 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
-import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.inst.NEPFormula;
+import pcgen.base.proxy.DeferredMethodController;
 import pcgen.base.text.ParsingSeparator;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.GroupDefinition;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.base.PrimitiveCollection;
@@ -81,13 +80,21 @@ abstract class LoadContextInst implements LoadContext
 
 	private final List<Object> dontForget = new ArrayList<>();
 
+	/**
+	 * The List of CommitTask objects for this LoadContext.
+	 */
+	private final List<DeferredMethodController<?>> commitTasks = new ArrayList<>();
+
 	//Per file
 	private URI sourceURI;
 
 	//Per file
 	private CDOMObject stateful;
 	
-	private LegalScope legalScope = null;
+	/**
+	 * The current PCGenScope for this LoadContext.
+	 */
+	private PCGenScope legalScope = null;
 
 	static
 	{
@@ -195,6 +202,11 @@ abstract class LoadContextInst implements LoadContext
 	{
 		getListContext().commit();
 		getObjectContext().commit();
+		for (DeferredMethodController<?> task : commitTasks)
+		{
+			task.run();
+		}
+		commitTasks.clear();
 	}
 
 	@Override
@@ -202,6 +214,7 @@ abstract class LoadContextInst implements LoadContext
 	{
 		getListContext().rollback();
 		getObjectContext().rollback();
+		commitTasks.clear();
 	}
 
 	@Override
@@ -273,9 +286,10 @@ abstract class LoadContextInst implements LoadContext
 	@Override
 	public void resolvePostValidationTokens()
 	{
-		Collection<? extends ReferenceManufacturer> mfgs = getReferenceContext()
+		Collection<? extends ReferenceManufacturer<?>> mfgs = getReferenceContext()
 				.getAllManufacturers();
-		for (PostValidationToken<? extends Loadable> token : TokenLibrary.getPostValidationTokens())
+		for (PostValidationToken<? extends Loadable> token : TokenLibrary
+			.getPostValidationTokens())
 		{
 			processPostVal(token, mfgs);
 		}
@@ -370,7 +384,7 @@ abstract class LoadContextInst implements LoadContext
 	}
 
 	@Override
-	public <T> Collection<String> unparse(T cdo)
+	public <T extends Loadable> Collection<String> unparse(T cdo)
 	{
 		return support.unparse(this, cdo);
 	}
@@ -532,7 +546,7 @@ abstract class LoadContextInst implements LoadContext
 	}
 
 	@Override
-	public LegalScope getActiveScope()
+	public PCGenScope getActiveScope()
 	{
 		if (legalScope == null)
 		{
@@ -553,6 +567,12 @@ abstract class LoadContextInst implements LoadContext
 		return dropIntoContext(subScope);
 	}
 
+	@Override
+	public void addDeferredMethodController(DeferredMethodController<?> commitTask)
+	{
+		commitTasks.add(commitTask);
+	}
+
 	private LoadContext dropIntoContext(PCGenScope lvs)
 	{
 		Optional<PCGenScope> parent = lvs.getParentScope();
@@ -566,10 +586,10 @@ abstract class LoadContextInst implements LoadContext
 	}
 
 	@Override
-	public <T> NEPFormula<T> getValidFormula(FormatManager<T> formatManager, String instructions)
+	public <T> NEPFormula<T> getValidFormula(FormatManager<T> formatManager,
+		String instructions)
 	{
-		return FormulaFactory.getValidFormula(instructions, var.getManagerFactory(),
-			var.getDummySetup().getFormulaManager(), getActiveScope(), formatManager);
+		return var.getValidFormula(getActiveScope(), formatManager, instructions);
 	}
 
 	private class DerivedLoadContext implements LoadContext
@@ -583,9 +603,12 @@ abstract class LoadContextInst implements LoadContext
 		/**
 		 * The derived Scope for this DerivedLoadContext
 		 */
-		private final LegalScope derivedScope;
+		private final PCGenScope derivedScope;
 
-		public DerivedLoadContext(LoadContext parent, LegalScope scope)
+		/**
+		 * Constructs a new LoadContext derived from the given LoadContext
+		 */
+		public DerivedLoadContext(LoadContext parent, PCGenScope scope)
 		{
 			this.derivedScope = scope;
 			this.parent = parent;
@@ -787,7 +810,7 @@ abstract class LoadContextInst implements LoadContext
 		}
 
 		@Override
-		public <T> Collection<String> unparse(T cdo)
+		public <T extends Loadable> Collection<String> unparse(T cdo)
 		{
 			return support.unparse(this, cdo);
 		}
@@ -805,7 +828,7 @@ abstract class LoadContextInst implements LoadContext
 		}
 
 		@Override
-		public LegalScope getActiveScope()
+		public PCGenScope getActiveScope()
 		{
 			return derivedScope;
 		}
@@ -831,7 +854,7 @@ abstract class LoadContextInst implements LoadContext
 			else if (toScope.getParentScope().get().equals(derivedScope))
 			{
 				//Direct drop from this
-				return new DerivedLoadContext(this, derivedScope);
+				return new DerivedLoadContext(this, toScope);
 			}
 			//Random jump to somewhere else...
 			return LoadContextInst.this.dropIntoContext(toScope);
@@ -861,5 +884,11 @@ abstract class LoadContextInst implements LoadContext
 		{
 			return parent.getValidFormula(formatManager, instructions);
 		}
-}
+
+		@Override
+		public void addDeferredMethodController(DeferredMethodController<?> controller)
+		{
+			parent.addDeferredMethodController(controller);
+		}
+	}
 }

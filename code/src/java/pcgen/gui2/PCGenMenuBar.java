@@ -83,11 +83,7 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 	private JMenu createEditMenu()
 	{
 		PCGMenu menu = new PCGMenu(actionMap.get(PCGenActionMap.EDIT_COMMAND));
-//		menu.add(actionMap.get(PCGenActionMap.UNDO_COMMAND));
-//		menu.add(actionMap.get(PCGenActionMap.REDO_COMMAND));
-//		menu.addSeparator();
 		menu.add(new PCGMenuItem(actionMap.get(PCGenActionMap.ADD_KIT_COMMAND)));
-		//menu.add(actionMap.get(PCGenActionMap.GENERATE_COMMAND));
 		menu.addSeparator();
 		menu.add(equipmentMenu);
 		menu.add(tempMenu);
@@ -122,7 +118,6 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 		filtersMenu.add(new PCGMenuItem(actionMap.get(PCGenActionMap.EQUIPMENT_FILTERS_COMMAND)));
 		filtersMenu.add(new PCGMenuItem(actionMap.get(PCGenActionMap.SPELL_FILTERS_COMMAND)));
 		filtersMenu.add(new PCGMenuItem(actionMap.get(PCGenActionMap.TEMPLATE_FILTERS_COMMAND)));
-		//menu.add(filtersMenu);
 		
 		PCGMenu generatorsMenu = new PCGMenu(actionMap.get(PCGenActionMap.GENERATORS_COMMAND));
 		generatorsMenu.add(new PCGMenuItem(actionMap.get(PCGenActionMap.TREASURE_GENERATORS_COMMAND)));
@@ -135,8 +130,6 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 		generatorsMenu.add(new PCGMenuItem(actionMap.get(PCGenActionMap.EQUIPMENT_GENERATORS_COMMAND)));
 		generatorsMenu.add(new PCGMenuItem(actionMap.get(PCGenActionMap.SPELL_GENERATORS_COMMAND)));
 		generatorsMenu.add(new PCGMenuItem(actionMap.get(PCGenActionMap.TEMPLATE_GENERATORS_COMMAND)));
-		//menu.add(generatorsMenu);
-		//menu.addSeparator();
 		menu.add(new PCGMenuItem(actionMap.get(PCGenActionMap.PREFERENCES_COMMAND)));
 		menu.addSeparator();
 		menu.add(new PCGMenuItem(actionMap.get(PCGenActionMap.GMGEN_COMMAND)));
@@ -146,15 +139,12 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 		menu.add(new PCGMenuItem(actionMap.get(PCGenActionMap.CALCULATOR_COMMAND)));
 		menu.add(new PCGMenuItem(actionMap.get(PCGenActionMap.COREVIEW_COMMAND)));
 		menu.add(new PCGMenuItem(actionMap.get(PCGenActionMap.SOLVERVIEW_COMMAND)));
-		//menu.add(new ComboListMenu<File>(actionMap.get(PCGenActionMap.CSHEET_COMMAND),
-		//		frame.getCharacterSheets()));
 		return menu;
 	}
 	
 	private JMenu createHelpMenu()
 	{
 		PCGMenu menu = new PCGMenu(actionMap.get(PCGenActionMap.HELP_COMMAND));
-		//menu.add(new PCGMenuItem(actionMap.get(PCGenActionMap.HELP_CONTEXT_COMMAND)));
 		menu.add(new PCGMenuItem(actionMap.get(PCGenActionMap.HELP_DOCS_COMMAND)));
 		menu.addSeparator();
 		menu.add(new PCGMenuItem(actionMap.get(PCGenActionMap.HELP_OGL_COMMAND)));

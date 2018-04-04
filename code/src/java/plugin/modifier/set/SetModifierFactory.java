@@ -22,10 +22,10 @@ import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaManager;
-import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
+import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.rules.persistence.token.AbstractFixedSetModifierFactory;
 
 /**
@@ -52,7 +52,7 @@ public class SetModifierFactory<T> extends AbstractFixedSetModifierFactory<T[]>
 
 	@Override
 	public FormulaModifier<T[]> getModifier(String instructions,
-		ManagerFactory managerFactory, FormulaManager ignored, LegalScope varScope,
+		ManagerFactory managerFactory, FormulaManager ignored, PCGenScope varScope,
 		FormatManager<T[]> formatManager)
 	{
 		Indirect<T[]> indirect = formatManager.convertIndirect(instructions);

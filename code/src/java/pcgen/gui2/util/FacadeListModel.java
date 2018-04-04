@@ -27,7 +27,7 @@ import pcgen.facade.util.ListFacade;
 
 
 @SuppressWarnings("serial")
-public class FacadeListModel<E> extends AbstractListModel implements ListListener<E>
+public class FacadeListModel<E> extends AbstractListModel<E> implements ListListener<E>
 {
 
 	private DelegatingListFacade<E> delegate;
@@ -56,7 +56,7 @@ public class FacadeListModel<E> extends AbstractListModel implements ListListene
 	}
 
 	@Override
-	public Object getElementAt(int index)
+	public E getElementAt(int index)
 	{
 		return delegate.getElementAt(index);
 	}

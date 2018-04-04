@@ -23,6 +23,7 @@ import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.DatasetVariable;
 import pcgen.cdom.formula.scope.GlobalScope;
+import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.VariableContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
@@ -95,7 +96,7 @@ public class LocalToken extends AbstractNonEmptyToken<DatasetVariable>
 				+ " does not support format " + format + ", found in " + value
 				+ " due to " + e.getMessage());
 		}
-		LegalScope lvs = varContext.getScope(fullscope);
+		PCGenScope lvs = varContext.getScope(fullscope);
 		if (lvs == null)
 		{
 			return new ParseResult.Fail("Could not find scope: " + fullscope);
@@ -108,7 +109,7 @@ public class LocalToken extends AbstractNonEmptyToken<DatasetVariable>
 		}
 		try
 		{
-			varContext.assertLegalVariableID(lvs, formatManager, varName);
+			varContext.assertLegalVariableID(varName, lvs, formatManager);
 		}
 		catch (LegalVariableException e)
 		{
@@ -124,7 +125,7 @@ public class LocalToken extends AbstractNonEmptyToken<DatasetVariable>
 	@Override
 	public String[] unparse(LoadContext context, DatasetVariable dv)
 	{
-		LegalScope scope = dv.getScope();
+		PCGenScope scope = dv.getScope();
 		if (scope == null || scope.getName().equals(GlobalScope.GLOBAL_SCOPE_NAME))
 		{
 			//Global variable

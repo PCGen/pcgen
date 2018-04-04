@@ -23,7 +23,7 @@ import org.junit.Test;
 
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.util.FormatManager;
-import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.VarHolder;
 import pcgen.core.Campaign;
 import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
@@ -37,7 +37,7 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 
 public class ModifyOtherLstTest extends AbstractGlobalTokenTestCase
 {
-	static CDOMPrimaryToken<CDOMObject> token = new ModifyOtherLst();
+	static CDOMPrimaryToken<VarHolder> token = new ModifyOtherLst();
 	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
@@ -61,7 +61,7 @@ public class ModifyOtherLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Override
-	public CDOMPrimaryToken<CDOMObject> getToken()
+	public CDOMPrimaryToken<VarHolder> getToken()
 	{
 		return token;
 	}
@@ -267,7 +267,7 @@ public class ModifyOtherLstTest extends AbstractGlobalTokenTestCase
 		super.additionalSetup(context);
 		FormatManager<?> formatManager = context.getReferenceContext().getFormatManager("NUMBER");
 		LegalScope scope = context.getActiveScope();
-		context.getVariableContext().assertLegalVariableID(scope, formatManager, "MyVar");
-		context.getVariableContext().assertLegalVariableID(scope, formatManager, "OtherVar");
+		context.getVariableContext().assertLegalVariableID("MyVar", scope, formatManager);
+		context.getVariableContext().assertLegalVariableID("OtherVar", scope, formatManager);
 	}
 }

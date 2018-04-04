@@ -45,6 +45,7 @@ public class AbstractSubScopeFacet<S1, S2, T> extends
 		return map;
 	}
 
+	@SuppressWarnings("unchecked")
 	private Map<S1, Map<S2, Map<T, Set<Object>>>> getInfo(CharID id)
 	{
 		return (Map<S1, Map<S2, Map<T, Set<Object>>>>) getCache(id);

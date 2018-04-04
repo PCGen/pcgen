@@ -112,9 +112,6 @@ public class DefaultDynamicTableColumnModel extends DefaultTableColumnModel
         {
             if (listeners[i] == DynamicTableColumnModelListener.class)
             {
-                // Lazily create the event:
-                // if (e == null)
-                //  e = new ChangeEvent(this);
                 ((DynamicTableColumnModelListener) listeners[i + 1]).availableColumnAdded(e);
             }
         }
@@ -138,9 +135,6 @@ public class DefaultDynamicTableColumnModel extends DefaultTableColumnModel
         {
             if (listeners[i] == DynamicTableColumnModelListener.class)
             {
-                // Lazily create the event:
-                // if (e == null)
-                //  e = new ChangeEvent(this);
                 ((DynamicTableColumnModelListener) listeners[i + 1]).availableColumnRemove(e);
             }
         }

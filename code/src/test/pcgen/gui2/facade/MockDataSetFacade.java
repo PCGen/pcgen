@@ -301,4 +301,10 @@ public class MockDataSetFacade implements DataSetFacade
 		return abilityMap;
 	}
 
+	@Override
+	public boolean hasDeityDomain()
+	{
+		return game.hasDeityDomain();
+	}
+
 }

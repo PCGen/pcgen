@@ -85,17 +85,6 @@ public class HouseRulesPanel extends PCGenPrefsPanel
 		c.anchor = GridBagConstraints.WEST;
 		c.insets = new Insets(2, 2, 2, 2);
 
-//		Utility.buildConstraints(c, 0, 0, 3, 1, 0, 0);
-//		label =
-//				new JLabel(LanguageBundle
-//					.getString("in_Prefs_hrCrossSkillCost")
-//					+ ": ");
-//		gridbag.setConstraints(label, c);
-//		mainPanel.add(label);
-		//		Utility.buildConstraints(c, 2, 0, 1, 1, 0, 0);
-		//		gridbag.setConstraints(crossClassSkillCostCombo, c);
-		//		this.add(crossClassSkillCostCombo);
-
 		// build a list of checkboxes from the current gameMode Rules
 		int gridNum = 1;
 		GameMode gameMode = SettingsHandler.getGame();
@@ -131,10 +120,6 @@ public class HouseRulesPanel extends PCGenPrefsPanel
 			hrBoxes[boxNum].setActionCommand(aKey);
 
 			Utility.buildConstraints(c, 0, gridNum, 2, 1, 0, 0);
-//			label = new JLabel(aKey);
-//			gridbag.setConstraints(label, c);
-//			mainPanel.add(label);
-//			Utility.buildConstraints(c, 2, gridNum, 1, 1, 0, 0);
 			gridbag.setConstraints(hrBoxes[boxNum], c);
 			mainPanel.add(hrBoxes[boxNum]);
 			++boxNum;
@@ -251,13 +236,8 @@ public class HouseRulesPanel extends PCGenPrefsPanel
 			Border aBord = BorderFactory.createEtchedBorder();
 			subPanel.setBorder(aBord);
 
-//			JLabel label = new JLabel(aDesc);
 			cc.anchor = GridBagConstraints.LINE_START;
 			Utility.buildConstraints(cc, 0, 0, 2, 1, 2, 0);
-//			gridbag.setConstraints(label, cc);
-//			subPanel.add(label);
-//			cc.anchor = GridBagConstraints.EAST;
-//			Utility.buildConstraints(cc, 2, 0, 1, 1, 1, 0);
 			hrRadio[i].setText(MessageFormat.format(HOUSE_RULE_STR, aDesc, aKey));
 			gridbag.setConstraints(hrRadio[i], cc);
 			subPanel.add(hrRadio[i]);

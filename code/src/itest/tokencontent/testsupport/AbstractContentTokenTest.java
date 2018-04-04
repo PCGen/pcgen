@@ -32,6 +32,7 @@ import pcgen.core.Ability;
 import pcgen.core.Campaign;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
+import pcgen.core.Equipment;
 import pcgen.core.EquipmentModifier;
 import pcgen.core.PCCheck;
 import pcgen.core.PCClass;
@@ -174,6 +175,8 @@ public abstract class AbstractContentTokenTest extends AbstractTokenModelTest
 	public void testFromEqMod() throws PersistenceLayerException
 	{
 		EquipmentModifier source = create(EquipmentModifier.class, "Source");
+		Equipment equipment = create(Equipment.class, "Parent");
+		source.setVariableParent(equipment);
 		processToken(source);
 		assertEquals(baseCount(), targetFacetCount());
 		activeEqModFacet.add(id, source, this);

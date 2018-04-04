@@ -244,30 +244,6 @@ public class JTreeTable extends JTableEx
 	}
 
 	/**
-	 * Makes sure all the path components in path are expanded (except
-	 * for the last path component) and scrolls so that the
-	 * node identified by the path is displayed. Only works when this
-	 * {@code JTree} is contained in a {@code JScrollPane}.
-	 *
-	 * @param path  the {@code TreePath} identifying the node to
-	 *         bring into view
-	 */
-	private void scrollPathToVisible(TreePath path)
-	{
-		if (path != null)
-		{
-			tree.makeVisible(path);
-
-			Rectangle bounds = tree.getPathBounds(path);
-
-			if (bounds != null)
-			{
-				scrollRectToVisible(bounds);
-			}
-		}
-	}
-
-	/**
 	 * This is a wrapper class takes a TreeTableModel and implements
 	 * the table model interface. The implementation is trivial, with
 	 * all of the event dispatching support provided by the superclass:
@@ -559,12 +535,9 @@ public class JTreeTable extends JTableEx
 		public void setRowHeight(int aRowHeight)
 		{
 			super.setRowHeight(aRowHeight);
-			if (aRowHeight > 0)
+			if ((aRowHeight > 0) && (JTreeTable.this.getRowHeight() != aRowHeight))
 			{
-				if ((JTreeTable.this != null) && (JTreeTable.this.getRowHeight() != aRowHeight))
-				{
-					JTreeTable.this.setRowHeight(aRowHeight);
-				}
+				JTreeTable.this.setRowHeight(aRowHeight);
 			}
 		}
 

@@ -213,7 +213,6 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 
 		private final ListFacade<? extends TreeView<AbilityFacade>> treeviews;
 		private final CharacterFacade character;
-		private final ListFacade<AbilityCategoryFacade> categories;
 		private final ListSelectionModel selectionModel;
 		private final List<? extends DataViewColumn> dataColumns;
 		private final InfoFactory infoFactory;
@@ -221,13 +220,11 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 		private final DelegatingListFacade<AbilityFacade> delegate;
 
 		public AvailableAbilityTreeViewModel(CharacterFacade character,
-				ListFacade<AbilityCategoryFacade> categories,
 				ListSelectionModel selectionModel, String tableTitle)
 		{
 			this.character = character;
 			this.title = tableTitle;
 			this.treeviews = new DefaultListFacade<>(AbilityTreeViews.createTreeViewList(character));
-			this.categories = categories;
 			this.selectionModel = selectionModel;
 			this.infoFactory = character.getInfoFactory();
 			this.delegate = new DelegatingListFacade<>();
@@ -343,12 +340,6 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 			return title;
 		}
 
-//		@Override
-//		protected void refreshTableData()
-//		{
-//			availableTreeViewPanel.refreshModelData();
-//		}
-
 		@Override
 		public Object getDataInternal(AbilityFacade obj, int column)
 		{
@@ -381,14 +372,12 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 	{
 
 		private final CharacterFacade character;
-		private final ListFacade<AbilityCategoryFacade> categories;
 		private String text;
 		private String title;
 
-		public InfoHandler(CharacterFacade character, ListFacade<AbilityCategoryFacade> categories)
+		public InfoHandler(CharacterFacade character)
 		{
 			this.character = character;
-			this.categories = categories;
 			this.text = ""; //$NON-NLS-1$
 			this.title = LanguageBundle.getString("in_abInfo"); //$NON-NLS-1$
 		}
@@ -461,121 +450,6 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 		}
 
 	}
-//
-//	private final class AbilityTransferHandler extends TransferHandler
-//	{
-//
-//		private CharacterFacade character;
-//
-//		public AbilityTransferHandler(CharacterFacade character)
-//		{
-//			this.character = character;
-//		}
-//
-//		private final DataFlavor abilityFlavor = new DataFlavor(DataFlavor.javaJVMLocalObjectMimeType +
-//				";class=" +
-//				AbilityFacade.class.getName(),
-//																null);
-//
-//		@Override
-//		public int getSourceActions(JComponent c)
-//		{
-//			if (selectedAbility != null)
-//			{
-//				if (selectedTreeViewPanel.isAncestorOf(c))
-//				{
-//					return MOVE;
-//				}
-//				if (selectedAbility.isMult())
-//				{
-//					return COPY;
-//				}
-//				if (!character.hasAbility(selectedCatagory, selectedAbility))
-//				{
-//					return MOVE;
-//				}
-//			}
-//			return NONE;
-//		}
-//
-//		@Override
-//		protected Transferable createTransferable(JComponent c)
-//		{
-//			final AbilityFacade transferAbility = selectedAbility;
-//			return new Transferable()
-//			{
-//
-//				public DataFlavor[] getTransferDataFlavors()
-//				{
-//					return new DataFlavor[]
-//							{
-//								abilityFlavor
-//							};
-//				}
-//
-//				public boolean isDataFlavorSupported(DataFlavor flavor)
-//				{
-//					return abilityFlavor == flavor;
-//				}
-//
-//				public Object getTransferData(DataFlavor flavor) throws UnsupportedFlavorException, IOException
-//				{
-//					if (!isDataFlavorSupported(flavor))
-//					{
-//						throw new UnsupportedFlavorException(flavor);
-//					}
-//					return transferAbility;
-//				}
-//
-//			};
-//		}
-//
-//		@Override
-//		public boolean canImport(JComponent comp, DataFlavor[] transferFlavors)
-//		{
-//			return transferFlavors[0] == abilityFlavor;
-//		}
-//
-//		@Override
-//		public boolean importData(JComponent comp, Transferable t)
-//		{
-//			if (selectedTreeViewPanel.isAncestorOf(comp))
-//			{
-//				try
-//				{
-//					AbilityFacade ability = (AbilityFacade) t.getTransferData(abilityFlavor);
-//					// TODO: add some extra logic
-//					character.addAbility(selectedCatagory, ability);
-//					return true;
-//				}
-//				catch (UnsupportedFlavorException ex)
-//				{
-//					Logger.getLogger(AbilityChooserTab.class.getName()).log(Level.SEVERE,
-//																			null,
-//																			ex);
-//				}
-//				catch (IOException ex)
-//				{
-//					Logger.getLogger(AbilityChooserTab.class.getName()).log(Level.SEVERE,
-//																			null,
-//																			ex);
-//				}
-//				return false;
-//			}
-//			return true;
-//		}
-//
-//		@Override
-//		protected void exportDone(JComponent source, Transferable data,
-//								  int action)
-//		{
-//			if (action == COPY)
-//			{
-//				return;
-//			}
-//		}
-//
-//	}
 
 	public Hashtable<Object, Object> createState(CharacterFacade character,
 			ListFacade<AbilityCategoryFacade> categories,
@@ -590,10 +464,8 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 		state.put(ListSelectionModel.class, listModel);
 		state.put(AbilityTreeTableModel.class, new AbilityTreeTableModel(character, categories));
 		state.put(AvailableAbilityTreeViewModel.class,
-				new AvailableAbilityTreeViewModel(character, fullCategoryList,
-						listModel, title));
-		//state.put(AbilityTransferHandler.class, new AbilityTransferHandler(character));
-		state.put(InfoHandler.class, new InfoHandler(character, categories));
+			new AvailableAbilityTreeViewModel(character, listModel, title));
+		state.put(InfoHandler.class, new InfoHandler(character));
 		state.put(TreeRendererHandler.class, new TreeRendererHandler(character));
 		state.put(AddAction.class, new AddAction(character));
 		state.put(RemoveAction.class, new RemoveAction(character));
@@ -617,16 +489,12 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 	@Override
 	public void restoreState(Hashtable<?, ?> state)
 	{
-		//AbilityTransferHandler handler = (AbilityTransferHandler) state.get(AbilityTransferHandler.class);
 		((CategoryFilterHandler) state.get(CategoryFilterHandler.class)).install();
 		((AbilityFilterHandler) state.get(AbilityFilterHandler.class)).install();
 		categoryTable.setModel((CategoryTableModel) state.get(CategoryTableModel.class));
 		categoryTable.setSelectionModel((ListSelectionModel) state.get(ListSelectionModel.class));
-		//selectedTreeViewPanel.setTransferHandler(handler);
-		//availableTreeViewPanel.setTransferHandler(handler);
 		((TreeRendererHandler) state.get(TreeRendererHandler.class)).install();
 		selectedTreeViewPanel.setTreeTableModel((AbilityTreeTableModel) state.get(AbilityTreeTableModel.class));
-//		selectedTreeViewPanel.sortModel();
 		((AvailableAbilityTreeViewModel) state.get(AvailableAbilityTreeViewModel.class)).install();
 		addButton.setAction((AddAction) state.get(AddAction.class));
 		removeButton.setAction((RemoveAction) state.get(RemoveAction.class));

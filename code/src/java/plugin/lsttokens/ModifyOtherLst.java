@@ -34,19 +34,26 @@ import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.ObjectGrouping;
+import pcgen.cdom.base.Ungranted;
+import pcgen.cdom.base.VarContainer;
+import pcgen.cdom.base.VarHolder;
 import pcgen.cdom.content.RemoteModifier;
 import pcgen.cdom.content.VarModifier;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.core.Campaign;
-import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMInterfaceToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
-import pcgen.util.Logging;
 
-public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
-		implements CDOMPrimaryToken<CDOMObject>
+/**
+ * Implements the MODIFYOTHER token for remotely modifying variables in the new variable
+ * system.
+ */
+public class ModifyOtherLst extends AbstractTokenWithSeparator<VarHolder> implements
+		CDOMInterfaceToken<VarContainer, VarHolder>, CDOMPrimaryToken<VarHolder>
 {
 
 	@Override
@@ -64,8 +71,14 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 	//MODIFYOTHER:EQUIPMENT|GROUP=Martial|EqCritRange|ADD|1
 	@Override
 	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		CDOMObject obj, String value)
+		VarHolder obj, String value)
 	{
+		//TODO These instanceof checks will fail - the VarHolder is a proxy :(
+		if (obj instanceof Ungranted)
+		{
+			return new ParseResult.Fail(getTokenName()
+				+ " may not be used in Ungranted objects.");
+		}
 		if (obj instanceof Campaign)
 		{
 			return new ParseResult.Fail(getTokenName()
@@ -82,7 +95,7 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 		 * is "" and thus would have failed the tests imposed by
 		 * AbstractTokenWithSeparator
 		 */
-		final LegalScope lvs = context.getVariableContext().getScope(scopeName);
+		PCGenScope lvs = context.getVariableContext().getScope(scopeName);
 		if (lvs == null)
 		{
 			return new ParseResult.Fail(getTokenName()
@@ -100,9 +113,9 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 	}
 
 	private <GT extends VarScoped> ParseResult continueParsing(
-		LoadContext context, CDOMObject obj, String value, ParsingSeparator sep)
+		LoadContext context, VarHolder obj, String value, ParsingSeparator sep)
 	{
-		final LegalScope scope = context.getActiveScope();
+		PCGenScope scope = context.getActiveScope();
 		final String groupingName = sep.next();
 		ObjectGrouping group;
 		if (groupingName.startsWith("GROUP="))
@@ -120,7 +133,7 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 				}
 
 				@Override
-				public LegalScope getScope()
+				public PCGenScope getScope()
 				{
 					return scope;
 				}
@@ -144,7 +157,7 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 				}
 
 				@Override
-				public LegalScope getScope()
+				public PCGenScope getScope()
 				{
 					return scope;
 				}
@@ -169,7 +182,7 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 				}
 
 				@Override
-				public LegalScope getScope()
+				public PCGenScope getScope()
 				{
 					return scope;
 				}
@@ -191,8 +204,7 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 		if (!context.getVariableContext().isLegalVariableID(scope, varName))
 		{
 			return new ParseResult.Fail(getTokenName() + " found invalid var name: "
-				+ varName + "(scope: " + LegalScope.getFullName(scope) + ") Modified on "
-				+ obj.getClass().getSimpleName() + ' ' + obj.getKeyName());
+				+ varName + "(scope: " + LegalScope.getFullName(scope) + ")");
 		}
 		if (!sep.hasNext())
 		{
@@ -245,45 +257,28 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 		}
 		VarModifier<?> vm = new VarModifier<>(varName, scope, modifier);
 		RemoteModifier<?> rm = new RemoteModifier<>(group, vm);
-		context.getObjectContext().addToList(obj, ListKey.REMOTE_MODIFIER, rm);
+		obj.addRemoteModifier(rm);
 		return ParseResult.SUCCESS;
 	}
 
 	@Override
-	public String[] unparse(LoadContext context, CDOMObject obj)
+	public String[] unparse(LoadContext context, VarHolder obj)
 	{
-		Changes<RemoteModifier<?>> changes =
-				context.getObjectContext().getListChanges(obj,
-					ListKey.REMOTE_MODIFIER);
-		if (changes.hasRemovedItems())
-		{
-			Logging.errorPrint(getTokenName()
-				+ " does not support removed items");
-			return null;
-		}
-		if (changes.includesGlobalClear())
-		{
-			Logging.errorPrint(getTokenName() + " does not support .CLEAR");
-			return null;
-		}
-		Collection<RemoteModifier<?>> added = changes.getAdded();
+		RemoteModifier<?>[] added = obj.getRemoteModifierArray();
 		List<String> modifiers = new ArrayList<>();
-		if (added != null && !added.isEmpty())
+		for (RemoteModifier<?> rm : added)
 		{
-			for (RemoteModifier<?> rm : added)
-			{
-				VarModifier<?> vm = rm.getVarModifier();
-				StringBuilder sb = new StringBuilder();
-				ObjectGrouping og = rm.getGrouping();
-				sb.append(LegalScope.getFullName(og.getScope()));
-				sb.append(Constants.PIPE);
-				sb.append(og.getIdentifier());
-				sb.append(Constants.PIPE);
-				sb.append(vm.getVarName());
-				sb.append(Constants.PIPE);
-				sb.append(unparseModifier(vm));
-				modifiers.add(sb.toString());
-			}
+			VarModifier<?> vm = rm.getVarModifier();
+			StringBuilder sb = new StringBuilder();
+			ObjectGrouping og = rm.getGrouping();
+			sb.append(LegalScope.getFullName(og.getScope()));
+			sb.append(Constants.PIPE);
+			sb.append(og.getIdentifier());
+			sb.append(Constants.PIPE);
+			sb.append(vm.getVarName());
+			sb.append(Constants.PIPE);
+			sb.append(unparseModifier(vm));
+			modifiers.add(sb.toString());
 		}
 		if (modifiers.isEmpty())
 		{
@@ -311,8 +306,14 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 	}
 
 	@Override
-	public Class<CDOMObject> getTokenClass()
+	public Class<VarHolder> getTokenClass()
 	{
-		return CDOMObject.class;
+		return VarHolder.class;
+	}
+
+	@Override
+	public Class<VarContainer> getReadInterface()
+	{
+		return VarContainer.class;
 	}
 }

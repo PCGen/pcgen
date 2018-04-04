@@ -24,11 +24,11 @@ import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FormulaSemantics;
-import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.inst.ComplexNEPFormula;
 import pcgen.base.formula.inst.NEPFormula;
 import pcgen.base.util.FormatManager;
+import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 
@@ -365,7 +365,7 @@ public final class FormulaFactory
 	 * @param formulaManager
 	 *            The FormulaManager to be used for validating the NEPExpression
 	 * @param varScope
-	 *            The LegalScope in which the NEPFormula is established and
+	 *            The PCGenScope in which the NEPFormula is established and
 	 *            checked
 	 * @param formatManager
 	 *            The FormatManager in which the NEPFormula is established and
@@ -373,7 +373,7 @@ public final class FormulaFactory
 	 * @return a "valid" NEPFormula for the given expression
 	 */
 	public static <T> NEPFormula<T> getValidFormula(String expression,
-		ManagerFactory managerFactory, FormulaManager formulaManager, LegalScope varScope,
+		ManagerFactory managerFactory, FormulaManager formulaManager, PCGenScope varScope,
 		FormatManager<T> formatManager)
 	{
 		NEPFormula<T> formula = getNEPFormulaFor(formatManager, expression);

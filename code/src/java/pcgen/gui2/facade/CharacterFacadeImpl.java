@@ -34,16 +34,18 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+
 import javax.swing.undo.UndoManager;
+
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
+
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.CNAbility;
-import pcgen.cdom.content.VarModifier;
 import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.EquipmentLocation;
@@ -67,7 +69,6 @@ import pcgen.cdom.facet.fact.XPFacet;
 import pcgen.cdom.facet.model.LanguageFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.cdom.helper.ClassSource;
-import pcgen.cdom.inst.EquipmentHead;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.meta.CorePerspective;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
@@ -176,9 +177,9 @@ import pcgen.io.ExportException;
 import pcgen.io.ExportHandler;
 import pcgen.io.PCGIOHandler;
 import pcgen.output.channel.ChannelCompatibility;
-import pcgen.output.channel.ChannelUtilities;
 import pcgen.pluginmgr.PluginManager;
 import pcgen.pluginmgr.messages.PlayerCharacterWasClosedMessage;
+import pcgen.rules.context.LoadContext;
 import pcgen.system.CharacterManager;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
@@ -426,10 +427,12 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		GameMode game = (GameMode) dataSet.getGameMode();
 		if (!game.getAlignmentText().isEmpty())
 		{
-			String channelName = ControlUtilities.getControlToken(Globals.getContext(),
-				CControl.ALIGNMENTINPUT);
-			alignment = (WriteableReferenceFacade<PCAlignment>) ChannelUtilities
-					.getGlobalChannel(theCharacter.getCharID(), channelName);
+			LoadContext context = Globals.getContext();
+			String channelName =
+					ControlUtilities.getControlToken(context, CControl.ALIGNMENTINPUT);
+			alignment =
+					(WriteableReferenceFacade<PCAlignment>) context.getVariableContext()
+						.getGlobalChannel(theCharacter.getCharID(), channelName);
 		}
 		age = new DefaultReferenceFacade<>(charDisplay.getAge());
 		ageCategory = new DefaultReferenceFacade<>();
@@ -1609,7 +1612,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			return 0;
 		}
 
-		//return Integer.valueOf(currentStatAnalysis.getTotalStatFor(aStat) - currentStatAnalysis.getBaseStatFor(aStat));
 		int rBonus = (int) theCharacter.getRaceBonusTo("STAT", activeStat.getKeyName()); //$NON-NLS-1$
 		rBonus += (int) theCharacter.getBonusDueToType("STAT", activeStat.getKeyName(), "RACIAL");
 
@@ -1632,7 +1634,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			return 0;
 		}
 
-		//return Integer.valueOf(currentStatAnalysis.getTotalStatFor(aStat) - currentStatAnalysis.getBaseStatFor(aStat));
 		int iRace = (int) theCharacter.getRaceBonusTo("STAT", activeStat.getKeyName()); //$NON-NLS-1$
 		iRace += (int) theCharacter.getBonusDueToType("STAT", activeStat.getKeyName(), "RACIAL");
 
@@ -1803,14 +1804,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 
 	private void refreshStatScores()
 	{
-//		for (StatFacade stat : statScoreMap.keySet())
-//		{
-//			WriteableReferenceFacade<Integer> score = statScoreMap.get(stat);
-//			if (stat instanceof PCStat)
-//			{
-//				score.set(theCharacter.getTotalStatFor((PCStat) stat));
-//			}
-//		}
 		if (charLevelsFacade != null)
 		{
 			charLevelsFacade.fireSkillBonusEvent(this, 0, true);
@@ -1949,7 +1942,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		xpForNextlevel.set(charDisplay.minXPForNextECL());
 		xpTableName.set(charDisplay.getXPTableName());
 		hpRef.set(theCharacter.hitPoints());
-		alignment.set(charDisplay.getPCAlignment());
 		refreshAvailableTempBonuses();
 		companionSupportFacade.refreshCompanionData();
 
@@ -2657,7 +2649,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			{
 				Logging.log(Logging.DEBUG, "Starting export at serial " + theCharacter.getSerial() + " to " + theHandler.getTemplateFile());
 				PlayerCharacter exportPc =  getExportCharacter();
-				//PlayerCharacter exportPc =  theCharacter;
 				theHandler.write(exportPc, buf);
 				Logging.log(Logging.DEBUG, "Finished export at serial " + theCharacter.getSerial() + " to " + theHandler.getTemplateFile());
 				return;
@@ -3533,27 +3524,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		if (!newEquip.containsKey(ObjectKey.BASE_ITEM))
 		{
 			newEquip.put(ObjectKey.BASE_ITEM, CDOMDirectSingleRef.getRef(aEq));
-		}
-
-		List<VarModifier<?>> modifiers = newEquip.getListFor(ListKey.MODIFY);
-		if (modifiers != null)
-		{
-			for (VarModifier<?> vm : modifiers)
-			{
-				theCharacter.addModifier(vm, newEquip, newEquip);
-			}
-		}
-
-		for (EquipmentHead head : newEquip.getEquipmentHeads())
-		{
-			modifiers = head.getListFor(ListKey.MODIFY);
-			if (modifiers != null)
-			{
-				for (VarModifier<?> vm : modifiers)
-				{
-					theCharacter.addModifier(vm, head, head);
-				}
-			}
 		}
 
 		EquipmentBuilderFacadeImpl builder =

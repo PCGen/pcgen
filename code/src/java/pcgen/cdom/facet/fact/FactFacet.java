@@ -70,6 +70,7 @@ public class FactFacet extends AbstractStorageFacet<CharID>
 	 *         null if no information has been set in this FactFacet for the
 	 *         Player Character.
 	 */
+	@SuppressWarnings("unchecked")
 	private Map<PCStringKey, String> getInfo(CharID id)
 	{
 		return (Map<PCStringKey, String>) getCache(id);

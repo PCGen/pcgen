@@ -18,79 +18,40 @@
 package pcgen.cdom.facet.model;
 
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
-import pcgen.core.Equipment;
+import pcgen.cdom.inst.EquipmentHead;
 import pcgen.core.EquipmentModifier;
 
 /**
- * ActiveEqModFacet is a Facet that tracks the EqMods that are on Equipment
- * equipped by the PlayerCharacter.
- * 
+ * ActiveEqModFacet is a Facet that tracks the EqMods that are on EquipmentHeads active on
+ * the PlayerCharacter.
  */
-public class ActiveEqModFacet extends
-		AbstractSourcedListFacet<CharID, EquipmentModifier> implements
-		DataFacetChangeListener<CharID, Equipment>
+public class ActiveEqModFacet extends AbstractSourcedListFacet<CharID, EquipmentModifier>
+		implements DataFacetChangeListener<CharID, EquipmentHead>
 {
 
-	/**
-	 * Adds the EqMods associated with a piece of Equipment which is equipped by
-	 * a Player Character.
-	 * 
-	 * Triggered when one of the Facets to which ActiveEqModFacet listens fires
-	 * a DataFacetChangeEvent to indicate a piece of Equipment was equipped by a
-	 * Player Character.
-	 * 
-	 * @param dfce
-	 *            The DataFacetChangeEvent containing the information about the
-	 *            change
-	 */
 	@Override
-	public void dataAdded(DataFacetChangeEvent<CharID, Equipment> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, EquipmentHead> dfce)
 	{
-		/*
-		 * In theory, this doesn't need to check for additions/removals from the
-		 * EqMod list, because such changes can't happen to equipment that is
-		 * currently equipped by the PC (new equipment is a clone, not the
-		 * original item)
-		 */
 		CharID id = dfce.getCharID();
-		Equipment eq = dfce.getCDOMObject();
-		for (EquipmentModifier eqMod : eq.getEqModifierList(true))
+		EquipmentHead head = dfce.getCDOMObject();
+		for (EquipmentModifier eqMod : head.getSafeListFor(ListKey.EQMOD))
 		{
-			add(id, eqMod, eq);
-		}
-		for (EquipmentModifier eqMod : eq.getEqModifierList(false))
-		{
-			add(id, eqMod, eq);
+			add(id, eqMod, head);
 		}
 	}
 
-	/**
-	 * Removes the EqMods associated with a piece of Equipment which is
-	 * unequipped by a Player Character.
-	 * 
-	 * Triggered when one of the Facets to which ActiveEqModFacet listens fires
-	 * a DataFacetChangeEvent to indicate a piece of Equipment was unequipped by
-	 * a Player Character.
-	 * 
-	 * @param dfce
-	 *            The DataFacetChangeEvent containing the information about the
-	 *            change
-	 */
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<CharID, Equipment> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, EquipmentHead> dfce)
 	{
 		CharID id = dfce.getCharID();
-		Equipment eq = dfce.getCDOMObject();
-		for (EquipmentModifier eqMod : eq.getEqModifierList(true))
+		EquipmentHead head = dfce.getCDOMObject();
+		for (EquipmentModifier eqMod : head.getSafeListFor(ListKey.EQMOD))
 		{
-			remove(id, eqMod, eq);
-		}
-		for (EquipmentModifier eqMod : eq.getEqModifierList(false))
-		{
-			remove(id, eqMod, eq);
+			remove(id, eqMod, head);
 		}
 	}
 }

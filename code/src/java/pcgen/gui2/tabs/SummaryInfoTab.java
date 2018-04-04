@@ -170,26 +170,26 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		this.racePanel = new JPanel();
 		this.classPanel = new JPanel();
 		this.characterNameField = new JTextField();
-		this.characterTypeComboBox = new JComboBox();
+		this.characterTypeComboBox = new JComboBox<>();
 		this.random = new JButton();
 		FontManipulation.xsmall(random);
 		this.playerNameField = new JTextField();
 		this.expField = new JFormattedTextField(NumberFormat.getIntegerInstance());
 		this.nextlevelField = new JFormattedTextField(NumberFormat.getIntegerInstance());
-		this.xpTableComboBox = new JComboBox();
+		this.xpTableComboBox = new JComboBox<>();
 		this.expmodField = new JFormattedTextField(NumberFormat.getIntegerInstance());
 		this.addLevelsField = new JFormattedTextField(NumberFormat.getIntegerInstance());
 		this.removeLevelsField = new JFormattedTextField(NumberFormat.getIntegerInstance());
 		this.statsTable = new JTable();
 		this.classLevelTable = new JTable();
 		this.languageTable = new JTable();
-		this.genderComboBox = new JComboBox();
-		this.handsComboBox = new JComboBox();
-		this.alignmentComboBox = new JComboBox();
-		this.deityComboBox = new JComboBox();
-		this.raceComboBox = new JComboBox();
-		this.ageComboBox = new JComboBox();
-		this.classComboBox = new JComboBox();
+		this.genderComboBox = new JComboBox<>();
+		this.handsComboBox = new JComboBox<>();
+		this.alignmentComboBox = new JComboBox<>();
+		this.deityComboBox = new JComboBox<>();
+		this.raceComboBox = new JComboBox<>();
+		this.ageComboBox = new JComboBox<>();
+		this.classComboBox = new JComboBox<>();
 		this.tabLabelField = new JTextField();
 		this.ageField = new JFormattedTextField(NumberFormat.getIntegerInstance());
 		this.generateRollsButton = new JButton();
@@ -272,12 +272,6 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		panel.setLayout(new BorderLayout());
 		todoPane.setOpaque(false);
 		todoPane.setContentType("text/html"); //$NON-NLS-1$
-		// An HTMLDocument font size and family already defaults to the UI font default, no need to add that on top.
-//		String bodyRule =
-//				"body { font-family: " + textFont.getFamily() + "; " + "font-size: " + //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-//				textFont.getSize() + "pt; }"; //$NON-NLS-1$
-//		((HTMLDocument) todoPane.getDocument()).getStyleSheet().addRule(
-//				bodyRule);
 		todoPane.setEditable(false);
 
 		JScrollPane scroll = new JScrollPane(todoPane);
@@ -431,7 +425,6 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			rightPanel.add(hpPanel, gbc);
 		}
 		gbc.insets.bottom = 0;
-		//gbc.ipady = 20;
 		GridBagConstraints leftgbc = new GridBagConstraints();
 		leftgbc.insets = new Insets(0, classPanelInsets.left, 0, 0);
 		leftgbc.gridwidth = 2;
@@ -873,7 +866,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		private final CharacterComboBoxModel<GenderFacade> genderModel;
 		private final CharacterComboBoxModel<HandedFacade> handsModel;
 		private CharacterComboBoxModel<PCAlignment> alignmentModel;
-		private final CharacterComboBoxModel<DeityFacade> deityModel;
+		private CharacterComboBoxModel<DeityFacade> deityModel;
 		private final DeferredCharacterComboBoxModel<RaceFacade> raceModel;
 		private final CharacterComboBoxModel<SimpleFacade> ageCatModel;
 		private final FacadeComboBoxModel<ClassFacade> classModel;
@@ -936,17 +929,21 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 				};
 			}
 
-			//initialize deity model
-			deityModel = new CharacterComboBoxModel<DeityFacade>(dataset.getDeities(), character.getDeityRef())
+			if (dataset.hasDeityDomain())
 			{
-
-				@Override
-				public void setSelectedItem(Object anItem)
+				//initialize deity model
+				deityModel = new CharacterComboBoxModel<DeityFacade>(dataset.getDeities(),
+					character.getDeityRef())
 				{
-					character.setDeity((DeityFacade) anItem);
-				}
 
-			};
+					@Override
+					public void setSelectedItem(Object anItem)
+					{
+						character.setDeity((DeityFacade) anItem);
+					}
+
+				};
+			}
 
 			//initialize race model
 			raceModel = new DeferredCharacterComboBoxModel<RaceFacade>(dataset.getRaces(), character.getRaceRef())
@@ -1001,7 +998,12 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 				alignmentComboBox.setModel(alignmentModel);
 				alignmentComboBox.setVisible(true);
 			}
-			deityComboBox.setModel(deityModel);
+			boolean hasDeityDomain = character.getDataSet().hasDeityDomain();
+			deityComboBox.setVisible(hasDeityDomain);
+			if (hasDeityDomain)
+			{
+				deityComboBox.setModel(deityModel);
+			}
 			raceComboBox.setModel(raceModel);
 			raceComboBox.addFocusListener(raceModel);
 			ageComboBox.setModel(ageCatModel);
@@ -1484,16 +1486,6 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		 * Create a new label handler.
 		 *
 		 * @param label The label to be managed
-		 */
-		public LabelHandler(JLabel label)
-		{
-			this(label, null);
-		}
-
-		/**
-		 * Create a new label handler.
-		 *
-		 * @param label The label to be managed
 		 * @param ref   the ReferenceFacade that this handler should listen to.
 		 */
 		LabelHandler(JLabel label, ReferenceFacade<String> ref)
@@ -1701,13 +1693,6 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		@Override
 		public Component getComponentBefore(Container aContainer, Component aComponent)
 		{
-//			if (aComponent == generateRollsButton)
-//			{
-//				int column = statsTable.getColumn("EDITABLE").getModelIndex();
-//				statsTable.editCellAt(statsTable.getRowCount()-1, column);
-//				JSpinner spinner = (JSpinner) statsTable.getEditorComponent();
-//				return ((JSpinner.DefaultEditor) spinner.getEditor()).getTextField();
-//			}
 			return super.getComponentBefore(aContainer, aComponent);
 		}
 

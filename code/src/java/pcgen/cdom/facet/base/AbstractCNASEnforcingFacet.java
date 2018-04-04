@@ -138,6 +138,7 @@ public class AbstractCNASEnforcingFacet extends
 		return returnList;
 	}
 
+	@SuppressWarnings("unchecked")
 	protected List<List<SourcedCNAS>> getList(CharID id)
 	{
 		return (List<List<SourcedCNAS>>) this.getCache(id);

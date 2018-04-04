@@ -355,4 +355,10 @@ public class DelegatingDataSet implements DataSetFacade
 		delegate.refreshEquipment();
 	}
 
+	@Override
+	public boolean hasDeityDomain()
+	{
+		return delegate.hasDeityDomain();
+	}
+
 }
