@@ -329,7 +329,7 @@ task genDataList doLast {
         }
         out.append("SubSection \"$it.name\"\n")
         String dir = it.name
-        it.eachFile {
+        it.eachDir {
             String pubname
             if(publisherMap.get(it.name) != null){
                 pubname = publisherMap.get(it.name)
