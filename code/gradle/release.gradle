@@ -323,7 +323,7 @@ task genDataList doLast {
     File out =new File("$projectDir/installers/win-installer/includes/data.nsh")
     out.delete()
     new File("${projectDir}/data").eachDir{ 
-        if (it == 'homebrew' || it == 'readme.md' || it == 'zen_test' || it == 'customsources')
+        if (it.name == 'homebrew' || it.name == 'readme.md' || it.name == 'zen_test' || it.name == 'customsources')
         {
             next;
         }
