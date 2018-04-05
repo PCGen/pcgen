@@ -322,14 +322,23 @@ task genDataList doLast {
     publisherMap.put("wizards_of_the_coast","Wizards of the Coast");
     File out =new File("$projectDir/installers/win-installer/includes/data.nsh")
     out.delete()
+    //List of folder names to ignore.
+    List<String> ignoreList = new ArrayList<String>();
+    ignoreList.add("homebrew");
+    ignoreList.add("zen_test");
+    ignoreList.add("customsources");
     new File("${projectDir}/data").eachDir{ 
-        if (it.name == 'homebrew' || it.name == 'readme.md' || it.name == 'zen_test' || it.name == 'customsources')
+        if (ignoreList.contains(it.name))
         {
-            next;
+            return
         }
         out.append("SubSection \"$it.name\"\n")
         String dir = it.name
         it.eachDir {
+            if (ignoreList.contains(it.name))
+            {
+                return
+            }
             String pubname
             if(publisherMap.get(it.name) != null){
                 pubname = publisherMap.get(it.name)
