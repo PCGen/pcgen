@@ -95,7 +95,6 @@ ext {
         from("${projectDir}/data") {
             include 'customsources/**'
             include 'homebrew/**'
-            include 'publisher_logos/**'
         }
         into ('/data')
     }
@@ -104,7 +103,6 @@ ext {
         from("${projectDir}/data") {
             exclude 'customsources/**'
             exclude 'homebrew/**'
-            exclude 'publisher_logos/**'
         }
         into ('/data')
     }
