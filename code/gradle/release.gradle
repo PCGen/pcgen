@@ -334,6 +334,7 @@ task genDataList doLast {
         }
         out.append("SubSection \"$it.name\"\n")
         String dir = it.name
+        int subFolders=0
         it.eachDir {
             if (ignoreList.contains(it.name))
             {
@@ -371,6 +372,19 @@ task genDataList doLast {
             out.append("\tSetOutPath \"\$INSTDIR\\\${APPDIR}\\data\\${dir}\\${it.name}\"\n");
             out.append("\tFile /r \"\${SrcDir}\\PCGen_\${SIMPVER}_opt\\data\\${dir}\\${it.name}\\*.*\"\n");
 
+            out.append("\tSectionEnd\n\n");
+            subFolders++
+        }
+        if(subFolders == 0){
+            String pubname
+            if(publisherMap.get(it.name) != null){
+                pubname = publisherMap.get(it.name)
+            }else{
+                pubname = it.name
+            }
+            out.append("\tSection \"$pubname\"\n")
+            out.append("\tSetOutPath \"\$INSTDIR\\\${APPDIR}\\data\\${dir}\"\n");
+            out.append("\tFile /r \"\${SrcDir}\\PCGen_\${SIMPVER}_opt\\data\\${dir}\\*.*\"\n");
             out.append("\tSectionEnd\n\n");
         }
         out.append("SubSectionEnd\n\n");
