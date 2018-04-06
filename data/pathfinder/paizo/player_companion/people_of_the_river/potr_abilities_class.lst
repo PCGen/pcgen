@@ -85,7 +85,7 @@ Rat's Resilience								KEY:River Rat ~ Rat's Resilience					CATEGORY:Special Ab
 CATEGORY=Internal|Bloodline Tracker.MOD	DEFINE:Sorcerer_BonusSpell_MagneticField_L7|0
 
 ###Block: Bloodline Bonus Spells
-Magnetic Field		KEY:Sorcerer Bonus Spell ~ Magnetic Field		CATEGORY:Internal		TYPE:Sorcerer Bloodline Bonus Spell		PREVARGTEQ:Sorcerer_BonusSpell_MagneticField_L7,1		PREVARGTEQ:BloodlineCasterLVL,15		SPELLKNOWN:CLASS|Sorcerer=7|Magnetic Field
+Magnetic Field		KEY:Sorcerer Bonus Spell L7 ~ Magnetic Field		CATEGORY:Internal		TYPE:Sorcerer Bloodline Bonus Spell		PREVARGTEQ:Sorcerer_BonusSpell_MagneticField_L7,1		PREVARGTEQ:BloodlineCasterLVL,15		SPELLKNOWN:CLASS|Sorcerer=7|Magnetic Field
 
 
 ###Block: Nanite Sorcerer Bloodline

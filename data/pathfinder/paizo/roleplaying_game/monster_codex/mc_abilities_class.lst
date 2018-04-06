@@ -118,7 +118,7 @@ CATEGORY=Internal|Bloodline Tracker.MOD	DEFINE:Sorcerer_BonusSpell_HungryEarth_L
 
 
 ###Block: Bloodline Bonus Spells
-Hungry Earth		KEY:Sorcerer Bonus Spell ~ Hungry Earth		CATEGORY:Internal		TYPE:Sorcerer Bloodline Bonus Spell		PREVARGTEQ:Sorcerer_BonusSpell_HungryEarth_L5,1		PREVARGTEQ:BloodlineCasterLVL,11		SPELLKNOWN:CLASS|Sorcerer=5|Hungry Earth
+Hungry Earth		KEY:Sorcerer Bonus Spell L5 ~ Hungry Earth		CATEGORY:Internal		TYPE:Sorcerer Bloodline Bonus Spell		PREVARGTEQ:Sorcerer_BonusSpell_HungryEarth_L5,1		PREVARGTEQ:BloodlineCasterLVL,11		SPELLKNOWN:CLASS|Sorcerer=5|Hungry Earth
 
 
 ###Block: Ghoul Sorcerer Bloodline

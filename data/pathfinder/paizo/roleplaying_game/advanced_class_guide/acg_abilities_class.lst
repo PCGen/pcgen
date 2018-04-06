@@ -3401,7 +3401,7 @@ CATEGORY=Internal|Bloodline Tracker.MOD	DEFINE:Sorcerer_BonusSpell_MoltenOrb_L2|
 
 
 ###Block: Bloodline Bonus Spells
-Molten Orb		KEY:Sorcerer Bonus Spell ~ Molten Orb		CATEGORY:Internal		TYPE:Sorcerer Bloodline Bonus Spell		PREVARGTEQ:Sorcerer_BonusSpell_MoltenOrb_L2,1		PREVARGTEQ:BloodlineCasterLVL,5		SPELLKNOWN:CLASS|Sorcerer=2|Molten Orb
+Molten Orb		KEY:Sorcerer Bonus Spell L2 ~ Molten Orb		CATEGORY:Internal		TYPE:Sorcerer Bloodline Bonus Spell		PREVARGTEQ:Sorcerer_BonusSpell_MoltenOrb_L2,1		PREVARGTEQ:BloodlineCasterLVL,5		SPELLKNOWN:CLASS|Sorcerer=2|Molten Orb
 
 
 

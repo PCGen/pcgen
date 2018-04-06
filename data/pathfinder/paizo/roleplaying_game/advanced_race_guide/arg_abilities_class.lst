@@ -1147,4 +1147,4 @@ CATEGORY=Internal|Bloodline Tracker.MOD	DEFINE:Sorcerer_BonusSpell_MiasmaticForm
 
 
 ###Block: Bloodline Bonus Spells
-Miasmatic Form		KEY:Sorcerer Bonus Spell ~ Miasmatic Form		CATEGORY:Internal		TYPE:Sorcerer Bloodline Bonus Spell		PREVARGTEQ:Sorcerer_BonusSpell_MiasmaticForm_L4,1		PREVARGTEQ:BloodlineCasterLVL,9		SPELLKNOWN:CLASS|Sorcerer=4|Miasmatic Form
+Miasmatic Form		KEY:Sorcerer Bonus Spell L4 ~ Miasmatic Form		CATEGORY:Internal		TYPE:Sorcerer Bloodline Bonus Spell		PREVARGTEQ:Sorcerer_BonusSpell_MiasmaticForm_L4,1		PREVARGTEQ:BloodlineCasterLVL,9		SPELLKNOWN:CLASS|Sorcerer=4|Miasmatic Form
