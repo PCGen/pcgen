@@ -16,9 +16,8 @@ script: ./gradlew clean build test compileSlowtest datatest pfinttest allReports
 
 before_install:
     - sudo apt-get update
-    - sudo apt-get install lib32z1 lib32ncurses5 nsis perl
+    - sudo apt-get install lib32z1 lib32ncurses5 nsis
     - export PERL_MM_USE_DEFAULT=1
-    - sudo cpan Readonly
     - chmod +x gradlew
     - if [[ $TRAVIS_OS_NAME == 'linux' ]]; then sudo apt-get install scons mingw32 mingw32-binutils zlib1g-dev libcppunit-dev; fi
     - if [[ $TRAVIS_OS_NAME == 'osx' ]]; then brew update; fi
