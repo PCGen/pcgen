@@ -14,7 +14,7 @@
 !define APPDIR "${LONGVER}"
 !define TargetVer "1.7"
 !define OverVer "1.9"
-!define OutName "pcgen${LONGVER}_win_install"
+!define OutName "pcgen-${LONGVER}_win_install"
 
 ;Change the icons
 !include "MUI2.nsh"
