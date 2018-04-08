@@ -1635,9 +1635,41 @@ Harmonic Self	KEY:Karmic Monk ~ Harmonic Self	CATEGORY:Special Ability	TYPE:Karm
 CATEGORY=Internal|Bloodline Tracker.MOD		DEFINE:Sorcerer_BloodlineFeat_IntuitiveSpell|0
 CATEGORY=Internal|Bloodline Tracker.MOD		DEFINE:Sorcerer_BloodlineFeat_LogicalSpell|0
 
+# Bonus Spell Variable DEFINEs
+CATEGORY=Internal|Bloodline Tracker.MOD		DEFINE:Sorcerer_BonusSpell_GhostWhip_L2|0
+CATEGORY=Internal|Bloodline Tracker.MOD		DEFINE:Sorcerer_BonusSpell_EctoplasmicSnare_L3|0
+CATEGORY=Internal|Bloodline Tracker.MOD		DEFINE:Sorcerer_BonusSpell_SpiritBoundBlade_L4|0
+CATEGORY=Internal|Bloodline Tracker.MOD		DEFINE:Sorcerer_BonusSpell_WallOfEctoplasm_L5|0
+CATEGORY=Internal|Bloodline Tracker.MOD		DEFINE:Sorcerer_BonusSpell_EctoplasmicEruption_L7|0
+CATEGORY=Internal|Bloodline Tracker.MOD		DEFINE:Sorcerer_BonusSpell_MindThrustI_L1|0
+CATEGORY=Internal|Bloodline Tracker.MOD		DEFINE:Sorcerer_BonusSpell_IdInsinuationI_L2|0
+CATEGORY=Internal|Bloodline Tracker.MOD		DEFINE:Sorcerer_BonusSpell_EgoWhipI_L3|0
+CATEGORY=Internal|Bloodline Tracker.MOD		DEFINE:Sorcerer_BonusSpell_IntellectFortressI_L4|0
+CATEGORY=Internal|Bloodline Tracker.MOD		DEFINE:Sorcerer_BonusSpell_PsychicCrushI_L5|0
+CATEGORY=Internal|Bloodline Tracker.MOD		DEFINE:Sorcerer_BonusSpell_MentalBarrierV_L6|0
+CATEGORY=Internal|Bloodline Tracker.MOD		DEFINE:Sorcerer_BonusSpell_TowerofIronWillIII_L7|0
+CATEGORY=Internal|Bloodline Tracker.MOD		DEFINE:Sorcerer_BonusSpell_Bilocation_L8|0
+CATEGORY=Internal|Bloodline Tracker.MOD		DEFINE:Sorcerer_BonusSpell_Microcosm_L9|0
+
 ###Block: Bloodline Feats
 Intuitive Spell		KEY:Sorcerer Bloodline Feat ~ Intuitive Spell		CATEGORY:Internal		TYPE:Sorcerer Bloodline Feat		PREVARGTEQ:Sorcerer_BloodlineFeat_IntuitiveSpell,1		ABILITY:FEAT|AUTOMATIC|Intuitive Spell		DESC:You can avoid the need for thought components by trusting your instincts.		SOURCEPAGE:p.136		BENEFIT:An intuitive spell can be cast with no thought components. Spells without thought components are not affected. An intuitive spell uses up a spell slot 1 level higher than the spell's actual level.
 Logical Spell		KEY:Sorcerer Bloodline Feat ~ Logical Spell		CATEGORY:Internal		TYPE:Sorcerer Bloodline Feat		PREVARGTEQ:Sorcerer_BloodlineFeat_LogicalSpell,1		ABILITY:FEAT|AUTOMATIC|Logical Spell		DESC:You can eschew emotional components by exercising logic.		SOURCEPAGE:p.137		BENEFIT:A logical spell can be cast without emotion components. Spells that don't require emotion components are not affected. A logical spell uses up a spell slot 1 level higher than the spell's actual level.
+
+###Block: Bloodline Bonus Spells
+Ghost Whip				KEY:Sorcerer Bonus Spell L2 ~ Ghost Whip				CATEGORY:Internal		TYPE:Sorcerer Bloodline Bonus Spell		PREVARGTEQ:Sorcerer_BonusSpell_GhostWhip_L2,1			PREVARGTEQ:BloodlineCasterLVL,5		SPELLKNOWN:CLASS|Sorcerer=2|Ghost Whip
+Ectoplasmic Snare			KEY:Sorcerer Bonus Spell L3 ~ Ectoplasmic Snare			CATEGORY:Internal		TYPE:Sorcerer Bloodline Bonus Spell		PREVARGTEQ:Sorcerer_BonusSpell_EctoplasmicSnare_L3,1		PREVARGTEQ:BloodlineCasterLVL,7		SPELLKNOWN:CLASS|Sorcerer=3|Ectoplasmic Snare
+Spirit-Bound Blade		KEY:Sorcerer Bonus Spell L4 ~ Spirit-Bound Blade		CATEGORY:Internal		TYPE:Sorcerer Bloodline Bonus Spell		PREVARGTEQ:Sorcerer_BonusSpell_SpiritBoundBlade_L4,1		PREVARGTEQ:BloodlineCasterLVL,9		SPELLKNOWN:CLASS|Sorcerer=4|Spirit-Bound Blade
+Wall Of Ectoplasm			KEY:Sorcerer Bonus Spell L5 ~ Wall Of Ectoplasm			CATEGORY:Internal		TYPE:Sorcerer Bloodline Bonus Spell		PREVARGTEQ:Sorcerer_BonusSpell_WallOfEctoplasm_L5,1		PREVARGTEQ:BloodlineCasterLVL,11		SPELLKNOWN:CLASS|Sorcerer=5|Wall Of Ectoplasm
+Ectoplasmic Eruption		KEY:Sorcerer Bonus Spell L7 ~ Ectoplasmic Eruption		CATEGORY:Internal		TYPE:Sorcerer Bloodline Bonus Spell		PREVARGTEQ:Sorcerer_BonusSpell_EctoplasmicEruption_L7,1	PREVARGTEQ:BloodlineCasterLVL,15		SPELLKNOWN:CLASS|Sorcerer=7|Ectoplasmic Eruption
+Mind Thrust I			KEY:Sorcerer Bonus Spell L1 ~ Mind Thrust I			CATEGORY:Internal		TYPE:Sorcerer Bloodline Bonus Spell		PREVARGTEQ:Sorcerer_BonusSpell_MindThrustI_L1,1			PREVARGTEQ:BloodlineCasterLVL,3		SPELLKNOWN:CLASS|Sorcerer=1|Mind Thrust I
+Id Insinuation I			KEY:Sorcerer Bonus Spell L2 ~ Id Insinuation I			CATEGORY:Internal		TYPE:Sorcerer Bloodline Bonus Spell		PREVARGTEQ:Sorcerer_BonusSpell_IdInsinuationI_L2,1		PREVARGTEQ:BloodlineCasterLVL,5		SPELLKNOWN:CLASS|Sorcerer=2|Id Insinuation I
+Ego Whip I				KEY:Sorcerer Bonus Spell L3 ~ Ego Whip I				CATEGORY:Internal		TYPE:Sorcerer Bloodline Bonus Spell		PREVARGTEQ:Sorcerer_BonusSpell_EgoWhipI_L3,1			PREVARGTEQ:BloodlineCasterLVL,7		SPELLKNOWN:CLASS|Sorcerer=3|Ego Whip I
+Intellect Fortress I		KEY:Sorcerer Bonus Spell L4 ~ Intellect Fortress I		CATEGORY:Internal		TYPE:Sorcerer Bloodline Bonus Spell		PREVARGTEQ:Sorcerer_BonusSpell_IntellectFortressI_L4,1	PREVARGTEQ:BloodlineCasterLVL,9		SPELLKNOWN:CLASS|Sorcerer=4|Intellect Fortress I
+Psychic Crush I			KEY:Sorcerer Bonus Spell L5 ~ Psychic Crush I			CATEGORY:Internal		TYPE:Sorcerer Bloodline Bonus Spell		PREVARGTEQ:Sorcerer_BonusSpell_PsychicCrushI_L5,1		PREVARGTEQ:BloodlineCasterLVL,11		SPELLKNOWN:CLASS|Sorcerer=5|Psychic Crush I
+Mental Barrier V			KEY:Sorcerer Bonus Spell L6 ~ Mental Barrier V			CATEGORY:Internal		TYPE:Sorcerer Bloodline Bonus Spell		PREVARGTEQ:Sorcerer_BonusSpell_MentalBarrierV_L6,1		PREVARGTEQ:BloodlineCasterLVL,13		SPELLKNOWN:CLASS|Sorcerer=6|Mental Barrier V
+Tower Of Iron Will III		KEY:Sorcerer Bonus Spell L7 ~ Tower Of Iron Will III		CATEGORY:Internal		TYPE:Sorcerer Bloodline Bonus Spell		PREVARGTEQ:Sorcerer_BonusSpell_TowerofIronWillIII_L7,1	PREVARGTEQ:BloodlineCasterLVL,15		SPELLKNOWN:CLASS|Sorcerer=7|Tower of Iron Will III
+Bilocation				KEY:Sorcerer Bonus Spell L8 ~ Bilocation				CATEGORY:Internal		TYPE:Sorcerer Bloodline Bonus Spell		PREVARGTEQ:Sorcerer_BonusSpell_Bilocation_L8,1			PREVARGTEQ:BloodlineCasterLVL,17		SPELLKNOWN:CLASS|Sorcerer=8|Bilocation
+Microcosm				KEY:Sorcerer Bonus Spell L9 ~ Microcosm				CATEGORY:Internal		TYPE:Sorcerer Bloodline Bonus Spell		PREVARGTEQ:Sorcerer_BonusSpell_Microcosm_L9,1			PREVARGTEQ:BloodlineCasterLVL,19		SPELLKNOWN:CLASS|Sorcerer=9|Microcosm
 
 
 ###Block: Ectoplasm Sorcerer Bloodline

@@ -1922,3 +1922,12 @@ Commonplace Guns						KEY:Optional Rules Firearms ~ Commonplace Guns	CATEGORY:In
 Guns Everywhere						KEY:Optional Rules Firearms ~ Guns Everywhere	CATEGORY:Internal		TYPE:OptionalRules.FirearmsRule	PREMULT:1,[!PREABILITY:1,CATEGORY=Internal,TYPE.FirearmsRule],[PREABILITY:1,CATEGORY=Internal,Optional Rules Firearms ~ Guns Everywhere]	DESC:Guns are commonplace. Early firearms are seen as antiques, and advanced firearms are widespread. Firearms are simple weapons, and early firearms, advanced guns, and their ammunition are bought or crafted for 10%% of the cost listed in this chapter. The gunslinger loses the gunsmith class feature and instead gains the gun training class feature at 1st level.																																						ABILITY:Gunslinger Class Feature|AUTOMATIC|Gunslinger ~ Gun Training|PREVAREQ:Gunslinger_CF_GunTraining,0|PRECLASS:1,Gunslinger=1		BONUS:VAR|Gunslinger_CF_Gunsmith|1	COST:0
 
 CATEGORY=Internal|Weapon Prof ~ Simple.MOD																																																																																																																																												ABILITY:Internal|AUTOMATIC|Exotic Weapon Proficiency ~ Firearms|PREABILITY:1,CATEGORY=Internal,Optional Rules Firearms ~ Guns Everywhere
+
+
+###Block: Bloodline Support - Bonus Feat Variable DEFINEs
+CATEGORY=Internal|Bloodline Tracker.MOD	DEFINE:Sorcerer_BonusSpell_TarPool_L6|0
+CATEGORY=Internal|Bloodline Tracker.MOD	DEFINE:Sorcerer_BonusSpell_MomentofGreatness_L1|0
+
+###Block: Bloodline Bonus Spells
+Tar Pool				KEY:Sorcerer Bonus Spell L6 ~ Tar Pool				CATEGORY:Internal		TYPE:Sorcerer Bloodline Bonus Spell		PREVARGTEQ:Sorcerer_BonusSpell_TarPool_L6,1			PREVARGTEQ:BloodlineCasterLVL,13		SPELLKNOWN:CLASS|Sorcerer=6|Tar Pool
+Moment of Greatness		KEY:Sorcerer Bonus Spell L1 ~ Moment of Greatness		CATEGORY:Internal		TYPE:Sorcerer Bloodline Bonus Spell		PREVARGTEQ:Sorcerer_BonusSpell_MomentofGreatness_L1,1		PREVARGTEQ:BloodlineCasterLVL,3		SPELLKNOWN:CLASS|Sorcerer=1|Moment of Greatness
