@@ -22,7 +22,8 @@
 # EDR
 # 
 FACE:Face
-# 
+#REGEX to find all common forms of Face in the code: FACE:([0-9]\.[0-9],[0-9]\.[0-9]|[0-9]+,[0-9]+|[0-9]\.[0-9]|[0-9]+)
+
 # EQRANGE
 # 
 # SIZEMODDEFENSE
