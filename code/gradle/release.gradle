@@ -331,6 +331,7 @@ task genDataList doLast {
     out.delete()
     //List of folder names to ignore.
     List<String> ignoreList = new ArrayList<String>();
+    ignoreList.add("homebrew");
     ignoreList.add("zen_test");
     ignoreList.add("customsources");
     new File("${projectDir}/data").eachDir{ 
