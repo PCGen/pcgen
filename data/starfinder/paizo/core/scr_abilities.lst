@@ -1205,8 +1205,8 @@ No new AI		KEY:Mechanic Control Net Selection ~ No AI		TYPE:Mechanic Control Net
 Drone	CATEGORY:Race		ABILITY:Race|AUTOMATIC|RaceType ~ Construct	BONUS:COMBAT|AC|AC_DroneEAC|TYPE=EAC_Armor	BONUS:COMBAT|AC|AC_DroneKAC|TYPE=KAC_Armor		BONUS:VAR|AC_DroneEAC,AC_DroneKAC|DroneArmorClass			BONUS:VAR|EffectiveLVL|DroneMasterLVL	BONUS:VAR|SkillCap_Level|EffectiveLVL		BONUS:VAR|PC_Hands|DroneWeaponMount	BONUS:ABILITYPOOL|Initial Drone Proficiency|1
 
 # Initial Drone Proficiency
-Basic Melee Weapons	KEY:Initial Drone Proficiency ~ Basic Melee Weapons	CATEGORY:Internal	ABILITY:Proficiency|AUTOMATIC|Weapon Prof ~ Basic Melee Weapons	ABILITY:Proficiency|AUTOMATIC|Weapon Specialization ~ Basic Melee Weapons|PREVARGTEQ:DroneMasterLVL,3
-Small Arms			KEY:Initial Drone Proficiency ~ Small Arms		CATEGORY:Internal	ABILITY:Proficiency|AUTOMATIC|Weapon Prof ~ Small Arms		ABILITY:Proficiency|AUTOMATIC|Weapon Specialization ~ Small Arms|PREVARGTEQ:DroneMasterLVL,3
+Basic Melee Weapons	KEY:Initial Drone Proficiency ~ Basic Melee Weapons	TYPE:Initial Drone Proficiency	CATEGORY:Class Feature	ABILITY:Proficiency|AUTOMATIC|Weapon Prof ~ Basic Melee Weapons	ABILITY:Proficiency|AUTOMATIC|Weapon Specialization ~ Basic Melee Weapons|PREVARGTEQ:DroneMasterLVL,3
+Small Arms			KEY:Initial Drone Proficiency ~ Small Arms		TYPE:Initial Drone Proficiency	CATEGORY:Class Feature	ABILITY:Proficiency|AUTOMATIC|Weapon Prof ~ Small Arms		ABILITY:Proficiency|AUTOMATIC|Weapon Specialization ~ Small Arms|PREVARGTEQ:DroneMasterLVL,3
 
 #
 Drone Flight System	CATEGORY:Internal	BONUS:VAR|Fly|Walk
