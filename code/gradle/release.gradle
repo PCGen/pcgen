@@ -146,6 +146,8 @@ task layoutNsisBase(type: Copy, dependsOn: [createExe, copyToLibs,
     }
     from ("${projectDir}/code") {
         include 'pcgen.sh'
+        filter(FixCrLfFilter, eol:FixCrLfFilter.CrLf.newInstance("lf"))
+        fileMode 0755
     }
 
     with baseLibs
@@ -326,7 +328,6 @@ task genDataList doLast {
     out.delete()
     //List of folder names to ignore.
     List<String> ignoreList = new ArrayList<String>();
-    ignoreList.add("homebrew");
     ignoreList.add("zen_test");
     ignoreList.add("customsources");
     new File("${projectDir}/data").eachDir{ 
