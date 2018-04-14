@@ -11,3 +11,5 @@ ABILITYCATEGORY:Shadow Bloodrager Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES	ED
 
 ABILITYCATEGORY:Nightblade Archetype	TYPE:NightbladeArchetype		CATEGORY:Archetype	EDITABLE:YES	EDITPOOL:NO	DISPLAYLOCATION:Class Features
 
+ABILITYCATEGORY:Nightblade Increase Known Spells Level Choice	TYPE:Nightblade Increase Known Spells Level Choice		CATEGORY:Special Ability	EDITABLE:YES	EDITPOOL:NO	DISPLAYLOCATION:Class Features
+
