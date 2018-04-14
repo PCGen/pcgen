@@ -261,12 +261,12 @@ task copyToOutput(type: Copy, dependsOn: [createExe, copyToLibs, jar,
     rename "(.+)-$version(.+)", '$1$2'
 }
 
-task syncLibsToOutput(type: Sync, dependsOn: [copyToLibs, jar, converterJar]) {
-    outputs.dir("$outputDir/libs")
+task syncLibsToRoot(type: Sync, dependsOn: [copyToLibs, jar, converterJar]) {
+    outputs.dir("$projectDir/libs")
     inputs.files(fileTree("$buildDir/libs"))
 
     from "$buildDir/libs"
-    into "$outputDir/libs"
+    into "$projectDir/libs"
     exclude "pcgen-*.jar"
 }
 
@@ -275,14 +275,21 @@ task cleanOutput(type: Delete) {
     delete outputDir
 }
 
+task cleanRoot(type: Delete) {
+    description="Clean up things copied to the root folder by the build"
+    delete "$projectDir/libs"
+    delete "$projectDir/jre"
+}
+
 build {
-    it.dependsOn 'copyToOutput', 'syncLibsToOutput'
+    it.dependsOn 'copyToOutput', 'syncLibsToRoot'
     mustRunAfter clean
 }
 
 clean {
     it.dependsOn 'clean-plugins'
     it.dependsOn 'cleanOutput'
+    it.dependsOn 'cleanRoot'
 }
 
 test {
