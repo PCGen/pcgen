@@ -34,8 +34,8 @@ public class ExClassIntegrationTest extends
 		AbstractIntegrationTestCase<PCClass>
 {
 
-	static ExclassToken token = new ExclassToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
+	private static ExclassToken token = new ExclassToken();
+	private static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

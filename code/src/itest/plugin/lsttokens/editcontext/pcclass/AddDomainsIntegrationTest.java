@@ -34,8 +34,8 @@ public class AddDomainsIntegrationTest extends
 		AbstractListIntegrationTestCase<PCClass, Domain>
 {
 
-	static AdddomainsToken token = new AdddomainsToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
+	private static AdddomainsToken token = new AdddomainsToken();
+	private static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

@@ -32,8 +32,8 @@ public class CostdoubleIntegrationTest extends
 		AbstractIntegrationTestCase<EquipmentModifier>
 {
 
-	static CostdoubleToken token = new CostdoubleToken();
-	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<>();
+	private static CostdoubleToken token = new CostdoubleToken();
+	private static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<EquipmentModifier> getCDOMClass()

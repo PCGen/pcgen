@@ -31,8 +31,8 @@ public class StartSkillPtsIntegrationTest extends
 		AbstractFormulaIntegrationTestCase<PCClass>
 {
 
-	static StartskillptsToken token = new StartskillptsToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
+	private static StartskillptsToken token = new StartskillptsToken();
+	private static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

@@ -32,8 +32,8 @@ public class MonsterClassIntegrationTest extends
 		AbstractIntegrationTestCase<Race>
 {
 
-	static MonsterclassToken token = new MonsterclassToken();
-	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
+	private static MonsterclassToken token = new MonsterclassToken();
+	private static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Race> getCDOMClass()

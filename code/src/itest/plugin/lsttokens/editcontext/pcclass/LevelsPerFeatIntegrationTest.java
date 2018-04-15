@@ -31,8 +31,8 @@ public class LevelsPerFeatIntegrationTest extends
 		AbstractIntegerIntegrationTestCase<PCClass>
 {
 
-	static LevelsperfeatToken token = new LevelsperfeatToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
+	private static LevelsperfeatToken token = new LevelsperfeatToken();
+	private static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

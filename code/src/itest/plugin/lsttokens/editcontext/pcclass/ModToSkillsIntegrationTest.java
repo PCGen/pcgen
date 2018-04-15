@@ -34,8 +34,8 @@ public class ModToSkillsIntegrationTest extends
 		AbstractIntegrationTestCase<PCClass>
 {
 
-	static ModtoskillsToken token = new ModtoskillsToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
+	private static ModtoskillsToken token = new ModtoskillsToken();
+	private static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

@@ -28,8 +28,8 @@ public class LegsIntegrationTest extends
 		AbstractIntegerIntegrationTestCase<Race>
 {
 
-	static LegsToken token = new LegsToken();
-	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
+	private static LegsToken token = new LegsToken();
+	private static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Race> getCDOMClass()

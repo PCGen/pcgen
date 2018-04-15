@@ -37,8 +37,8 @@ public class SpellStatIntegrationTest extends
 		AbstractIntegrationTestCase<PCClass>
 {
 
-	static SpellstatToken token = new SpellstatToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
+	private static SpellstatToken token = new SpellstatToken();
+	private static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
 	@Before
