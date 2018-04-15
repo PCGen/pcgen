@@ -19,6 +19,7 @@ import java.util.Objects;
 
 import pcgen.base.calculation.AbstractNEPCalculation;
 import pcgen.base.calculation.BasicCalculation;
+import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.util.Indirect;
 
@@ -84,5 +85,11 @@ public final class IndirectCalculation<T> extends AbstractNEPCalculation<T>
 				&& other.obj.equals(obj);
 		}
 		return false;
+	}
+
+	@Override
+	public void getDependencies(DependencyManager fdm)
+	{
+		//CONSIDER: How does DependencyManager want to know about Indirect?
 	}
 }

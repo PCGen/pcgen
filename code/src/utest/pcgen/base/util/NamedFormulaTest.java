@@ -26,6 +26,7 @@ import pcgen.cdom.base.FormulaFactory;
 public class NamedFormulaTest
 {
 
+	@SuppressWarnings("unused")
 	@Test
 	public void testNullConstructor()
 	{

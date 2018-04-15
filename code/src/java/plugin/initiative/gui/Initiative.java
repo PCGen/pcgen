@@ -103,17 +103,17 @@ public class Initiative extends javax.swing.JPanel
 	public final InitHolderList initList = new InitHolderList();
 	private final JButton bCast = new JButton();
 	private final JButton bOpposedSkill = new JButton();
-	private javax.swing.JButton bCombatantReRoll;
+	private JButton bCombatantReRoll;
 	private final JButton bDamage = new JButton();
-	private javax.swing.JButton bDelete;
+	private JButton bDelete;
 	private final JButton bEvent = new JButton();
 	private final JButton bHeal = new JButton();
 	private final JButton bKill = new JButton();
-	private javax.swing.JButton bNextInit;
+	private JButton bNextInit;
 	private final JButton bRaise = new JButton();
-	private javax.swing.JButton bRoll;
+	private JButton bRoll;
 	private final JButton bRefresh = new JButton();
-	private final javax.swing.JButton bDuplicateCombatant = new JButton();
+	private final JButton bDuplicateCombatant = new JButton();
 
 	// End of variables declaration                   
 	//** Dynamic Components **
@@ -1955,7 +1955,7 @@ public class Initiative extends javax.swing.JPanel
 	 * @param e
 	 *            {@code ListSelectionEvent} which fired this method
 	 */
-	private void listSelectionChaned(ListSelectionEvent e)
+	private void listSelectionChanged(ListSelectionEvent e)
 	{
 		final int row = combatantTable.getSelectedRow();
 
@@ -1998,7 +1998,7 @@ public class Initiative extends javax.swing.JPanel
 	}
 
 	                                           
-	private void TablePopupActionPerformed(java.awt.event.ActionEvent evt)
+	private void TablePopupActionPerformed(ActionEvent evt)
 	{
 		                                           
 		checkAndFixColumns(tablePopupCBName.getState(), "Name");
@@ -2064,7 +2064,7 @@ public class Initiative extends javax.swing.JPanel
 
             @Override
 				public void columnSelectionChanged(
-					javax.swing.event.ListSelectionEvent e)
+					ListSelectionEvent e)
 				{
 					colModSelectionChanged(e);
 				}
@@ -2072,66 +2072,66 @@ public class Initiative extends javax.swing.JPanel
 	}
 
 	                                         
-	private void bAddCombatantActionPerformed(java.awt.event.ActionEvent evt)
+	private void bAddCombatantActionPerformed(ActionEvent evt)
 	{
 		                                              
 		addCombatant();
 	}
 
-	private void bCastActionPerformed(java.awt.event.ActionEvent evt)
+	private void bCastActionPerformed(ActionEvent evt)
 	{
 		castSpell();
 		focusNextInit();
 	}
 
 	                                       
-	private void bCombatantReRollActionPerformed(java.awt.event.ActionEvent evt)
+	private void bCombatantReRollActionPerformed(ActionEvent evt)
 	{
 		                                                 
 		rerollCombatant();
 		focusNextInit();
 	}
 
-	private void bDamageActionPerformed(java.awt.event.ActionEvent evt)
+	private void bDamageActionPerformed(ActionEvent evt)
 	{
 		damageCombatant();
 		focusNextInit();
 	}
 
 	                                            
-	private void bDeleteActionPerformed(java.awt.event.ActionEvent evt)
+	private void bDeleteActionPerformed(ActionEvent evt)
 	{
 		                                        
 		deleteCombatant();
 		focusNextInit();
 	}
 
-	private void bEventActionPerformed(java.awt.event.ActionEvent evt)
+	private void bEventActionPerformed(ActionEvent evt)
 	{
 		startEvent();
 		focusNextInit();
 	}
 
-	private void bHealActionPerformed(java.awt.event.ActionEvent evt)
+	private void bHealActionPerformed(ActionEvent evt)
 	{
 		healCombatant();
 		focusNextInit();
 	}
 
-	private void bKillActionPerformed(java.awt.event.ActionEvent evt)
+	private void bKillActionPerformed(ActionEvent evt)
 	{
 		killCombatant();
 		focusNextInit();
 	}
 
 	                                        
-	private void bNextInitActionPerformed(java.awt.event.ActionEvent evt)
+	private void bNextInitActionPerformed(ActionEvent evt)
 	{
 		                                          
 		nextInit();
 	}
 
-	private void bRaiseActionPerformed(java.awt.event.ActionEvent evt)
+	private void bRaiseActionPerformed(ActionEvent evt)
 	{
 		raiseCombatant();
 		refreshTable();
@@ -2139,7 +2139,7 @@ public class Initiative extends javax.swing.JPanel
 	}
 
 	                                                
-	private void bRefocusActionPerformed(java.awt.event.ActionEvent evt)
+	private void bRefocusActionPerformed(ActionEvent evt)
 	{
 		                                         
 		refocusCombatant();
@@ -2147,7 +2147,7 @@ public class Initiative extends javax.swing.JPanel
 	}
 
 	                                             
-	private void bRollActionPerformed(java.awt.event.ActionEvent evt)
+	private void bRollActionPerformed(ActionEvent evt)
 	{
 		                                      
 		roll();
@@ -2155,12 +2155,12 @@ public class Initiative extends javax.swing.JPanel
 	}
 
 	                                          
-	private void bSaveActionPerformed(java.awt.event.ActionEvent evt)
+	private void bSaveActionPerformed(ActionEvent evt)
 	{
 		rollSave();
 	}
 
-	private void bStabilizeActionPerformed(java.awt.event.ActionEvent evt)
+	private void bStabilizeActionPerformed(ActionEvent evt)
 	{
 		stabilizeCombatant();
 		refreshTable();
@@ -2312,7 +2312,7 @@ public class Initiative extends javax.swing.JPanel
 		// TODO:  Method does nothing?
 	}
 
-	private void colModSelectionChanged(javax.swing.event.ListSelectionEvent evt)
+	private void colModSelectionChanged(ListSelectionEvent evt)
 	{
 		// TODO:  Method does nothing?
 	}
@@ -2418,12 +2418,12 @@ public class Initiative extends javax.swing.JPanel
 		tablePopupCBType = new javax.swing.JCheckBoxMenuItem();
 		final javax.swing.JToolBar topToolbar = new javax.swing.JToolBar();
 		final javax.swing.JPanel buttonPanelTop = new javax.swing.JPanel();
-		bRoll = new javax.swing.JButton();
+		bRoll = new JButton();
 		final JButton bAddCombatant = new JButton();
-		bNextInit = new javax.swing.JButton();
+		bNextInit = new JButton();
 		final JButton bRefocus = new JButton();
-		bCombatantReRoll = new javax.swing.JButton();
-		bDelete = new javax.swing.JButton();
+		bCombatantReRoll = new JButton();
+		bDelete = new JButton();
 		final javax.swing.JPanel jPanel2 = new javax.swing.JPanel();
 		lCounter = new javax.swing.JLabel();
 		jSplitPane1 = new FlippingSplitPane();
@@ -2733,7 +2733,7 @@ public class Initiative extends javax.swing.JPanel
 		});
 		columnList = getColumnOrder();
 		combatantTable.getSelectionModel().addListSelectionListener(
-				this::listSelectionChaned);
+				this::listSelectionChanged);
 
 		TableColumn typeColumn = combatantTable.getColumn("Type");
 		// These are the combobox values
@@ -2907,14 +2907,14 @@ public class Initiative extends javax.swing.JPanel
 		columnList = getColumnOrder();
 	}
 
-	private void showDeadActionPerformed(java.awt.event.ActionEvent evt)
+	private void showDeadActionPerformed(ActionEvent evt)
 	{
 		checkDeadTabs();
 		refreshTable();
 		focusNextInit();
 	}
 
-	private void showEventsActionPerformed(java.awt.event.ActionEvent evt)
+	private void showEventsActionPerformed(ActionEvent evt)
 	{
 		refreshTable();
 		focusNextInit();
