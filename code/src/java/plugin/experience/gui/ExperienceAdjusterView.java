@@ -73,14 +73,12 @@ public class ExperienceAdjusterView extends JPanel
 	/** The multiplier label. */
 	private JLabel experienceMultLabel;
 
-	/** The Name for the eperience multiplier label. */
+	/** The Name for the experience multiplier label. */
 	private JLabel experienceMultNameLabel;
-	private JLabel spCharLabel;
 
 	//Various components to shape the form properly
 	private JLabel jLabel4;
 	private JLabel jLabel5;
-	private JLabel jLabel7;
 
 	/** The GUI component that holds the list of PC combatants. */
 	private JList characterList;
@@ -94,7 +92,6 @@ public class ExperienceAdjusterView extends JPanel
 	private JPanel jPanel7;
 	private JPanel jPanel8;
 	private JScrollPane scrollPaneChar;
-	private JScrollPane scrollPaneEnemy;
 
 	/** The <b>Experience Multiplier</b> slider. */
 	private JSlider experienceMultSlider;
@@ -291,13 +288,13 @@ public class ExperienceAdjusterView extends JPanel
 		jPanel5 = new JPanel();
 		panelChar = new JPanel();
 		characterList = new JList();
-		spCharLabel = new JLabel();
+		JLabel spCharLabel = new JLabel();
 		jPanel1 = new JPanel();
 		jLabel4 = new JLabel();
 		enemyList = new JList();
 		jPanel6 = new JPanel();
 		jPanel7 = new JPanel();
-		jLabel7 = new JLabel();
+		JLabel jLabel7 = new JLabel();
 		experienceToAdd = new JTextField(6);
 		addExperienceToCharButton = new JButton();
 		jPanel8 = new JPanel();
@@ -311,7 +308,7 @@ public class ExperienceAdjusterView extends JPanel
 		addEnemyButton = new JButton();
 		removeEnemyButton = new JButton();
 		scrollPaneChar = new JScrollPane(characterList);
-		scrollPaneEnemy = new JScrollPane(enemyList);
+		JScrollPane scrollPaneEnemy = new JScrollPane(enemyList);
 
 		setLayout(new GridLayout(0, 1));
 
