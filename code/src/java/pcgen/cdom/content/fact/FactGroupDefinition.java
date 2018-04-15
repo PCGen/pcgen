@@ -21,8 +21,13 @@ import pcgen.base.util.FormatManager;
 import pcgen.base.util.ObjectContainer;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.GroupDefinition;
+import pcgen.cdom.base.Loadable;
 import pcgen.cdom.enumeration.GroupingState;
+import pcgen.cdom.grouping.GroupingCollection;
+import pcgen.cdom.grouping.GroupingDefinition;
+import pcgen.cdom.grouping.GroupingInfo;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.ChoiceSetLoadUtilities;
 
 /**
  * A FactGroupDefinition is a GroupDefinition built around a Fact, specifically
@@ -38,7 +43,7 @@ import pcgen.rules.context.LoadContext;
  *            of the fact)
  */
 public class FactGroupDefinition<T extends CDOMObject, F> implements
-		GroupDefinition<T>
+		GroupDefinition<T>, GroupingDefinition<T>
 {
 
 	/**
@@ -92,5 +97,37 @@ public class FactGroupDefinition<T extends CDOMObject, F> implements
 	public ObjectContainer<T> getPrimitive(LoadContext context, String value)
 	{
 		return new FactGroup<>(context, def, value);
+	}
+
+	@Override
+	public String getIdentification()
+	{
+		return def.getFactName();
+	}
+
+	@Override
+	public Class<?> getUsableLocation()
+	{
+		return def.getUsableLocation();
+	}
+
+	@Override
+	public GroupingCollection<T> process(LoadContext context, GroupingInfo<T> info)
+	{
+		FactGrouping<T, F> groupGrouping = new FactGrouping<>(def, info);
+		if (info.hasChild())
+		{
+			GroupingCollection<? extends Loadable> childCollection =
+					ChoiceSetLoadUtilities.getDynamicGroup(context, info.getChild());
+			groupGrouping.setChild(childCollection);
+		}
+		return groupGrouping;
+	}
+
+	@Override
+	public boolean requiresDirect()
+	{
+		//FACTs can't go to a parent - they are precise by their definitions
+		return true;
 	}
 }

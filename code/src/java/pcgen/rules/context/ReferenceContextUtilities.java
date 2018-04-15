@@ -138,6 +138,7 @@ public final class ReferenceContextUtilities
 			className = firstToken.substring(0, equalLoc);
 			categoryName = firstToken.substring(equalLoc + 1);
 		}
+		//CONSIDER Dynamic fails here
 		Class<? extends Loadable> c = StringPClassUtil.getClassFor(className);
 		if (c == null)
 		{

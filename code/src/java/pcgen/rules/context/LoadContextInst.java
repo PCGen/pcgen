@@ -39,6 +39,10 @@ import pcgen.cdom.facet.FacetInitialization;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.formula.scope.GlobalScope;
 import pcgen.cdom.formula.scope.PCGenScope;
+import pcgen.cdom.grouping.GroupingCollection;
+import pcgen.cdom.grouping.GroupingInfo;
+import pcgen.cdom.grouping.GroupingInfoFactory;
+import pcgen.cdom.grouping.GroupingInfoFactory.GroupingStateException;
 import pcgen.cdom.inst.ObjectCache;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.SelectionCreator;
@@ -592,6 +596,27 @@ abstract class LoadContextInst implements LoadContext
 		return var.getValidFormula(getActiveScope(), formatManager, instructions);
 	}
 
+	@Override
+	public <T> GroupingCollection<? extends Loadable> getGrouping(
+		PCGenScope scope, String groupingName)
+	{
+		try
+		{
+			GroupingInfo<?> info =
+					new GroupingInfoFactory(this).process(scope, groupingName);
+			return ChoiceSetLoadUtilities.getDynamicGroup(this, info);
+		}
+		catch (GroupingStateException e)
+		{
+			Logging.errorPrint("Error in parsing Group: " + e.getMessage());
+			return null;
+		}
+	}
+
+	/**
+	 * A DerivedLoadContext holds an inner scope, but serves the same functions (via
+	 * delegation) as the original parent.
+	 */
 	private class DerivedLoadContext implements LoadContext
 	{
 
@@ -889,6 +914,13 @@ abstract class LoadContextInst implements LoadContext
 		public void addDeferredMethodController(DeferredMethodController<?> controller)
 		{
 			parent.addDeferredMethodController(controller);
+		}
+
+		@Override
+		public <T> GroupingCollection<? extends Loadable> getGrouping(
+			PCGenScope scope, String groupingName)
+		{
+			return parent.getGrouping(scope, groupingName);
 		}
 	}
 }
