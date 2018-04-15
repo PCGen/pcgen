@@ -23,6 +23,7 @@ import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaFunction;
 import pcgen.base.formula.base.FormulaSemantics;
+import pcgen.base.formula.exception.SemanticsFailureException;
 import pcgen.base.formula.parse.ASTQuotString;
 import pcgen.base.formula.parse.Node;
 import pcgen.base.formula.visitor.DependencyVisitor;
@@ -64,22 +65,21 @@ public class GetFunction implements FormulaFunction
 		int argCount = args.length;
 		if (argCount != 2)
 		{
-			semantics.setInvalid("Function " + getFunctionName()
+			throw new SemanticsFailureException("Function " + getFunctionName()
 				+ " received incorrect # of arguments, expected: 2 got " + args.length
 				+ ' ' + Arrays.asList(args));
-			return null;
 		}
 		if (!(args[0] instanceof ASTQuotString))
 		{
 			//Error
-			semantics.setInvalid("Parse Error: Invalid first argument: Must be a String");
-			return null;
+			throw new SemanticsFailureException(
+				"Parse Error: Invalid first argument: Must be a String");
 		}
 		if (!(args[1] instanceof ASTQuotString))
 		{
 			//Error
-			semantics.setInvalid("Parse Error: Invalid first argument: Must be a String");
-			return null;
+			throw new SemanticsFailureException(
+				"Parse Error: Invalid first argument: Must be a String");
 		}
 
 		//This will be a format

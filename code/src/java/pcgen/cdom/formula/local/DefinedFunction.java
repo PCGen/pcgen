@@ -23,6 +23,7 @@ import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaFunction;
 import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.VarScoped;
+import pcgen.base.formula.exception.SemanticsFailureException;
 import pcgen.base.formula.parse.Node;
 import pcgen.base.formula.visitor.DependencyVisitor;
 import pcgen.base.formula.visitor.EvaluateVisitor;
@@ -93,10 +94,9 @@ public class DefinedFunction implements FormulaFunction
 		{
 			return formatManager;
 		}
-		semantics.setInvalid(
+		throw new SemanticsFailureException(
 			"Function " + name + "() received incorrect # of arguments, expected: 0 got "
 				+ args.length + " " + Arrays.asList(args));
-		return null;
 	}
 
 	@Override

@@ -28,6 +28,7 @@ import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.VariableLibrary;
+import pcgen.base.formula.exception.SemanticsFailureException;
 import pcgen.base.formula.operator.number.NumberMinus;
 import pcgen.base.formula.parse.SimpleNode;
 import pcgen.base.formula.visitor.ReconstructionVisitor;
@@ -38,10 +39,6 @@ import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.formula.ManagerKey;
 import pcgen.cdom.formula.scope.GlobalScope;
 import pcgen.core.Skill;
-import pcgen.rules.context.ConsolidatedListCommitStrategy;
-import pcgen.rules.context.LoadContext;
-import pcgen.rules.context.RuntimeLoadContext;
-import pcgen.rules.context.RuntimeReferenceContext;
 import pcgen.util.enumeration.Visibility;
 import plugin.function.testsupport.AbstractFormulaTestCase;
 
@@ -80,11 +77,15 @@ public class GetFactFunctionTest extends AbstractFormulaTestCase
 		SimpleNode simpleNode = TestUtilities.doParse(s);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = generateFormulaSemantics(null);
-		semanticsVisitor.visit(simpleNode, semantics.getWith(ManagerKey.CONTEXT, context));
-		if (semantics.isValid())
+		try
 		{
-			TestCase.fail(
-				"Expected Invalid Formula: " + s + " but was valid");
+			semanticsVisitor.visit(simpleNode,
+				semantics.getWith(ManagerKey.CONTEXT, context));
+			TestCase.fail("Expected Invalid Formula: " + s + " but was valid");
+		}
+		catch (SemanticsFailureException e)
+		{
+			//Expected
 		}
 	}
 
@@ -103,11 +104,14 @@ public class GetFactFunctionTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = generateFormulaSemantics(null);
-		semanticsVisitor.visit(node, semantics.getWith(ManagerKey.CONTEXT, context));
-		if (semantics.isValid())
+		try
 		{
-			TestCase.fail(
-				"Expected Invalid Formula: " + formula + " but was valid");
+			semanticsVisitor.visit(node, semantics.getWith(ManagerKey.CONTEXT, context));
+			TestCase.fail("Expected Invalid Formula: " + formula + " but was valid");
+		}
+		catch (SemanticsFailureException e)
+		{
+			//Expected
 		}
 	}
 
@@ -119,15 +123,18 @@ public class GetFactFunctionTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = generateFormulaSemantics(null);
-		LoadContext context = new RuntimeLoadContext(
-			RuntimeReferenceContext.createRuntimeReferenceContext(),
-			new ConsolidatedListCommitStrategy());
-		Object result = semanticsVisitor.visit(node,
-			semantics.getWith(ManagerKey.CONTEXT, context));
-		if (semantics.isValid() && (result instanceof Number))
+		try
 		{
-			TestCase.fail(
-				"Expected Invalid Formula: " + formula + " but was valid");
+			Object result = semanticsVisitor.visit(node,
+				semantics.getWith(ManagerKey.CONTEXT, context));
+			if (result instanceof Number)
+			{
+				TestCase.fail("Expected Invalid Formula: " + formula + " but was valid");
+			}
+		}
+		catch (SemanticsFailureException e)
+		{
+			//Expected
 		}
 	}
 
@@ -148,11 +155,6 @@ public class GetFactFunctionTest extends AbstractFormulaTestCase
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = generateFormulaSemantics(null);
 		semanticsVisitor.visit(node, semantics.getWith(ManagerKey.CONTEXT, context));
-		if (!semantics.isValid())
-		{
-			TestCase.fail("Expected Valid Formula: " + formula
-				+ " but was told: " + semantics.getReport());
-		}
 		isStatic(formula, node, true);
 		Skill equip = new Skill();
 		equip.setName("SkillKey");
@@ -189,11 +191,6 @@ public class GetFactFunctionTest extends AbstractFormulaTestCase
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = generateFormulaSemantics(null);
 		semanticsVisitor.visit(node, semantics.getWith(ManagerKey.CONTEXT, context));
-		if (!semantics.isValid())
-		{
-			TestCase.fail("Expected Valid Formula: " + formula
-				+ " but was told: " + semantics.getReport());
-		}
 		isStatic(formula, node, false);
 		Skill skill = new Skill();
 		skill.setName("SkillKey");
