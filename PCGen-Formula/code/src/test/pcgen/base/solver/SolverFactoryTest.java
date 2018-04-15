@@ -113,6 +113,7 @@ public class SolverFactoryTest extends TestCase
 			factory.validateDefaults().get());
 	}
 
+	@SuppressWarnings({"unchecked", "rawtypes"})
 	@Test
 	public void testIllegalAddSolverFormatGenerics()
 	{

@@ -16,8 +16,8 @@
 package pcgen.base.formula.exception;
 
 /**
- * A SemanticsException is an Exception thrown while a FormulaSemantics is processing to
- * indicate a failure in the semantics rules of a formula.
+ * A SemanticsFailureException is an Exception thrown while a FormulaSemantics is
+ * processing to indicate a failure in the semantics rules of a formula.
  * 
  * This could mean an assertion of a Number was made, but no variable with an appropriate
  * name of format Number existed.

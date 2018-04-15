@@ -30,6 +30,7 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 	{
 	};
 
+	@SuppressWarnings("unused")
 	public void testConstructor()
 	{
 		try
@@ -315,7 +316,7 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 	@Test
 	public void testAssertionNumberDirect() throws SemanticsException
 	{
-		ComplexNEPFormula five = new ComplexNEPFormula("5", numberMgr);
+		ComplexNEPFormula<Number> five = new ComplexNEPFormula<>("5", numberMgr);
 		FormulaSemantics fs = getSemantics();
 		five.isValid(fs);
 	}
@@ -323,7 +324,7 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 	@Test
 	public void testAssertionNumberAsString() throws SemanticsException
 	{
-		ComplexNEPFormula fourString = new ComplexNEPFormula("\"4\"", stringMgr);
+		ComplexNEPFormula<String> fourString = new ComplexNEPFormula<>("\"4\"", stringMgr);
 		FormulaSemantics fs = getSemantics();
 		fourString.isValid(fs);
 		try
@@ -341,7 +342,8 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 	@Test
 	public void testAssertionNotANumber()
 	{
-		ComplexNEPFormula notANumber = new ComplexNEPFormula("\"4,4\"", numberMgr);
+		ComplexNEPFormula<Number> notANumber =
+				new ComplexNEPFormula<>("\"4,4\"", numberMgr);
 
 		FormulaSemantics fs = getSemantics();
 		try
@@ -359,7 +361,7 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 	@Test
 	public void testAssertionFailMismatch()
 	{
-		ComplexNEPFormula fiveMismatch = new ComplexNEPFormula("5", stringMgr);
+		ComplexNEPFormula<String> fiveMismatch = new ComplexNEPFormula<>("5", stringMgr);
 		FormulaSemantics fs = getSemantics();
 		try
 		{
@@ -375,7 +377,8 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 	@Test
 	public void testAssertionNumberAsStringConverted() throws SemanticsException
 	{
-		ComplexNEPFormula longWayAround = new ComplexNEPFormula("\"4\"", numberMgr);
+		ComplexNEPFormula<Number> longWayAround =
+				new ComplexNEPFormula<>("\"4\"", numberMgr);
 		FormulaSemantics fs = getSemantics();
 		try
 		{
@@ -387,7 +390,8 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 		{
 			//Expected
 		}
-		longWayAround.isValid(fs.getWith(FormulaSemantics.ASSERTED, Optional.of(numberMgr)));
+		longWayAround
+			.isValid(fs.getWith(FormulaSemantics.ASSERTED, Optional.of(numberMgr)));
 	}
 
 	private FormulaSemantics getSemantics()

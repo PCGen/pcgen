@@ -96,7 +96,10 @@ public class IsEmptyFunctionTest extends AbstractFormulaTestCase
 		ScopeInstance globalInst = getInstanceFactory().getGlobalInstance("Global");
 		variableLibrary.assertLegalVariableID(formula, globalInst.getLegalScope(),
 			manager);
-		return (VariableID<Number[]>) variableLibrary.getVariableID(globalInst, formula);
+		@SuppressWarnings("unchecked")
+		VariableID<Number[]> variableID =
+				(VariableID<Number[]>) variableLibrary.getVariableID(globalInst, formula);
+		return variableID;
 	}
 
 }

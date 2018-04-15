@@ -47,6 +47,7 @@ public class VariableLibraryTest extends TestCase
 		variableLibrary = new VariableManager(legalScopeManager);
 	}
 
+	@SuppressWarnings("unused")
 	@Test
 	public void testNullConstructor()
 	{
@@ -389,7 +390,7 @@ public class VariableLibraryTest extends TestCase
 		variableLibrary.assertLegalVariableID("Walk", globalScope, numberManager);
 		variableLibrary.assertLegalVariableID("Float", eqScope, numberManager);
 		variableLibrary.assertLegalVariableID("Hover", eqPartScope, numberManager);
-		VariableID vid = variableLibrary.getVariableID(globalInst, "Walk");
+		VariableID<?> vid = variableLibrary.getVariableID(globalInst, "Walk");
 		assertEquals("Walk", vid.getName());
 		assertEquals(globalInst, vid.getScope());
 		assertEquals(Number.class, vid.getVariableFormat());
@@ -481,13 +482,13 @@ public class VariableLibraryTest extends TestCase
 		ScopeInstance abInst = instanceFactory.get("Global.Ability", ab);
 
 		variableLibrary.assertLegalVariableID("Walk", eqScope, numberManager);
-		VariableID vidm = variableLibrary.getVariableID(eqInst, "Walk");
+		VariableID<?> vidm = variableLibrary.getVariableID(eqInst, "Walk");
 		assertEquals("Walk", vidm.getName());
 		assertEquals(eqInst, vidm.getScope());
 		assertEquals(Number.class, vidm.getVariableFormat());
 
 		variableLibrary.assertLegalVariableID("Walk", abScope, booleanManager);
-		VariableID vidf = variableLibrary.getVariableID(abInst, "Walk");
+		VariableID<?> vidf = variableLibrary.getVariableID(abInst, "Walk");
 		assertEquals("Walk", vidf.getName());
 		assertEquals(abInst, vidf.getScope());
 		assertEquals(Boolean.class, vidf.getVariableFormat());

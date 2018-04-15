@@ -67,17 +67,17 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 		manager = new DynamicSolverManager(getFormulaManager(), managerFactory,
 			getSolverFactory(), getVariableStore());
 		limbManager = new LimbManager();
-		getSolverFactory().addSolverFormat(Limb.class, new Modifier()
+		getSolverFactory().addSolverFormat(Limb.class, new Modifier<Limb>()
 		{
 
 			@Override
-			public Object process(EvaluationManager manager)
+			public Limb process(EvaluationManager evaluationManager)
 			{
 				return limbManager.convert("Head");
 			}
 
 			@Override
-			public void getDependencies(DependencyManager fdm)
+			public void getDependencies(DependencyManager dependencyManager)
 			{
 			}
 
@@ -88,7 +88,7 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 			}
 
 			@Override
-			public FormatManager getVariableFormat()
+			public FormatManager<Limb> getVariableFormat()
 			{
 				return limbManager;
 			}
@@ -107,6 +107,7 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 		});
 	}
 
+	@SuppressWarnings("unused")
 	@Test
 	public void testIllegalConstruction()
 	{
@@ -176,8 +177,10 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 				new ComplexNEPFormula<Number>("dynamic(active, quantity)", FormatUtilities.NUMBER_MANAGER);
 		Modifier<Number> dynamicMod = AbstractModifier.add(dynamicformula, 100);
 
+		@SuppressWarnings("unchecked")
 		VariableID<Limb> active = (VariableID<Limb>) getVarLibrary()
 			.getVariableID(getGlobalScopeInst(), "Active");
+		@SuppressWarnings("unchecked")
 		VariableID<Number> result = (VariableID<Number>) getVarLibrary()
 			.getVariableID(getGlobalScopeInst(), "Result");
 
@@ -186,8 +189,10 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 		Limb fingers = limbManager.convert("Fingers");
 		ScopeInstance fingersInst = getScopeInstance("Global.LIMB", fingers);
 
+		@SuppressWarnings("unchecked")
 		VariableID<Number> handsID =
 				(VariableID<Number>) getVarLibrary().getVariableID(handsInst, "Quantity");
+		@SuppressWarnings("unchecked")
 		VariableID<Number> fingersID = (VariableID<Number>) getVarLibrary()
 			.getVariableID(fingersInst, "Quantity");
 
@@ -221,8 +226,9 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 	@Test
 	public void testTrivial()
 	{
-		getVariableLibrary().assertLegalVariableID("Limbs", getInstanceFactory().getScope("Global"),
-			FormatUtilities.NUMBER_MANAGER);
+		getVariableLibrary().assertLegalVariableID("Limbs",
+			getInstanceFactory().getScope("Global"), FormatUtilities.NUMBER_MANAGER);
+		@SuppressWarnings("unchecked")
 		VariableID<Number> limbs = (VariableID<Number>) getVariableLibrary()
 			.getVariableID(getGlobalScopeInst(), "Limbs");
 		manager.solveChildren(limbs);
@@ -394,8 +400,10 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 
 		WriteableVariableStore store = getVariableStore();
 
+		@SuppressWarnings("unchecked")
 		VariableID<Limb> activeID = (VariableID<Limb>) getVarLibrary()
 			.getVariableID(getGlobalScopeInst(), "EquipVar");
+		@SuppressWarnings("unchecked")
 		VariableID<Number> resultID = (VariableID<Number>) getVarLibrary()
 			.getVariableID(getGlobalScopeInst(), "ResultVar");
 
@@ -404,8 +412,10 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 		Limb equipalt  = limbManager.convert("EquipAlt");
 		ScopeInstance altInst = getScopeInstance("Global.LIMB", equipalt);
 
+		@SuppressWarnings("unchecked")
 		VariableID<Number> equipID =
 				(VariableID<Number>) getVarLibrary().getVariableID(equipInst, "LocalVar");
+		@SuppressWarnings("unchecked")
 		VariableID<Number> altID =
 				(VariableID<Number>) getVarLibrary().getVariableID(altInst, "LocalVar");
 

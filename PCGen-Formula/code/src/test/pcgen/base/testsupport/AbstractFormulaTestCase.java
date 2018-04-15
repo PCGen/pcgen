@@ -67,11 +67,11 @@ public abstract class AbstractFormulaTestCase extends TestCase
 		legalScopeLibrary.registerScope(new SimpleLegalScope("Global"));
 		setup.setLegalScopeManagerSupplier(() -> legalScopeLibrary);
 		SolverFactory solverFactory = new SolverFactory();
-		solverFactory.addSolverFormat(Number.class, new Modifier()
+		solverFactory.addSolverFormat(Number.class, new Modifier<Number>()
 		{
 
 			@Override
-			public Object process(EvaluationManager manager)
+			public Number process(EvaluationManager manager)
 			{
 				return 0;
 			}
@@ -88,7 +88,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 			}
 
 			@Override
-			public FormatManager getVariableFormat()
+			public FormatManager<Number> getVariableFormat()
 			{
 				return FormatUtilities.NUMBER_MANAGER;
 			}
@@ -105,11 +105,11 @@ public abstract class AbstractFormulaTestCase extends TestCase
 				return "0";
 			}
 		});
-		solverFactory.addSolverFormat(String.class, new Modifier()
+		solverFactory.addSolverFormat(String.class, new Modifier<String>()
 		{
 
 			@Override
-			public Object process(EvaluationManager manager)
+			public String process(EvaluationManager manager)
 			{
 				return "";
 			}
@@ -126,7 +126,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 			}
 
 			@Override
-			public FormatManager getVariableFormat()
+			public FormatManager<String> getVariableFormat()
 			{
 				return FormatUtilities.STRING_MANAGER;
 			}
@@ -256,8 +256,10 @@ public abstract class AbstractFormulaTestCase extends TestCase
 		VariableLibrary variableLibrary = getVariableLibrary();
 		variableLibrary.assertLegalVariableID(formula,
 			getInstanceFactory().getScope("Global"), FormatUtilities.NUMBER_MANAGER);
-		return (VariableID<Number>) variableLibrary.getVariableID(getGlobalScopeInst(),
-			formula);
+		@SuppressWarnings("unchecked")
+		VariableID<Number> variableID = (VariableID<Number>) variableLibrary
+			.getVariableID(getGlobalScopeInst(), formula);
+		return variableID;
 	}
 
 	protected VariableID<Boolean> getBooleanVariable(String formula)
@@ -265,8 +267,10 @@ public abstract class AbstractFormulaTestCase extends TestCase
 		VariableLibrary variableLibrary = getVariableLibrary();
 		variableLibrary.assertLegalVariableID(formula,
 			getInstanceFactory().getScope("Global"), FormatUtilities.BOOLEAN_MANAGER);
-		return (VariableID<Boolean>) variableLibrary.getVariableID(getGlobalScopeInst(),
-			formula);
+		@SuppressWarnings("unchecked")
+		VariableID<Boolean> variableID = (VariableID<Boolean>) variableLibrary
+			.getVariableID(getGlobalScopeInst(), formula);
+		return variableID;
 	}
 
 	protected WriteableFunctionLibrary getFunctionLibrary()

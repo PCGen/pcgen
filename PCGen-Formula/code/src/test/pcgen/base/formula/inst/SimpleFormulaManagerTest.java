@@ -43,6 +43,7 @@ public class SimpleFormulaManagerTest extends TestCase
 		siFactory = new SimpleScopeInstanceFactory(legalScopeManager);
 	}
 
+	@SuppressWarnings("unused")
 	@Test
 	public void testDoubleConstructor()
 	{

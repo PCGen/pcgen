@@ -62,10 +62,19 @@ public class SimpleVariableStoreTest extends TestCase
 		{
 			//yep
 		}
+	}
+
+	@SuppressWarnings({"unchecked", "rawtypes"})
+	public void testGenericsViolation()
+	{
+		SimpleVariableStore varStore = new SimpleVariableStore();
+		NumberManager numberManager = new NumberManager();
+		ScopeInstance globalInst = instanceFactory.getGlobalInstance("Global");
+		VariableID vid = new VariableID<>(globalInst, numberManager, "test");
 		try
 		{
 			//Intentionally break generics
-			varStore.put((VariableID) vid, "NotANumber!");
+			varStore.put(vid, "NotANumber!");
 			fail();
 		}
 		catch (IllegalArgumentException e)
@@ -79,7 +88,7 @@ public class SimpleVariableStoreTest extends TestCase
 		SimpleVariableStore varStore = new SimpleVariableStore();
 		NumberManager numberManager = FormatUtilities.NUMBER_MANAGER;
 		ScopeInstance globalInst = instanceFactory.getGlobalInstance("Global");
-		VariableID vid = new VariableID(globalInst, numberManager, "test");
+		VariableID<Number> vid = new VariableID<>(globalInst, numberManager, "test");
 		assertFalse(varStore.containsKey(vid));
 		assertNull(varStore.put(vid, Integer.valueOf(9)));
 		assertTrue(varStore.containsKey(vid));
@@ -94,12 +103,12 @@ public class SimpleVariableStoreTest extends TestCase
 		SimpleVariableStore varStore = new SimpleVariableStore();
 		NumberManager numberManager = new NumberManager();
 		ScopeInstance globalInst = instanceFactory.getGlobalInstance("Global");
-		VariableID vid1 = new VariableID(globalInst, numberManager, "test");
-		VariableID vid2 = new VariableID(globalInst, numberManager, "test");
-		VariableID vid3 = new VariableID(globalInst, numberManager, "test2");
+		VariableID<Number> vid1 = new VariableID<>(globalInst, numberManager, "test");
+		VariableID<Number> vid2 = new VariableID<>(globalInst, numberManager, "test");
+		VariableID<Number> vid3 = new VariableID<>(globalInst, numberManager, "test2");
 		legalScopeManager.registerScope(new SimpleLegalScope("Global2"));
 		ScopeInstance globalInst2 = instanceFactory.getGlobalInstance("Global2");
-		VariableID vid4 = new VariableID(globalInst2, numberManager, "test");
+		VariableID<Number> vid4 = new VariableID<>(globalInst2, numberManager, "test");
 		assertNull(varStore.put(vid1, Integer.valueOf(9)));
 		assertTrue(varStore.containsKey(vid1));
 		assertTrue(varStore.containsKey(vid2));

@@ -40,7 +40,7 @@ import pcgen.base.util.FormatManager;
 public class SolverTest extends TestCase
 {
 	private final FormatManager<Number[]> NAF =
-			new ArrayFormatManager(FormatUtilities.NUMBER_MANAGER, '\n', ',');
+			new ArrayFormatManager<>(FormatUtilities.NUMBER_MANAGER, '\n', ',');
 
 	private FormulaManager formulaManager;
 	private ManagerFactory managerFactory = new ManagerFactory(){};
@@ -67,6 +67,7 @@ public class SolverTest extends TestCase
 		evalManager = managerFactory.generateEvaluationManager(formulaManager);
 	}
 
+	@SuppressWarnings("unused")
 	@Test
 	public void testIllegalConstruction()
 	{
@@ -116,6 +117,14 @@ public class SolverTest extends TestCase
 		{
 			//ok
 		}
+	}
+
+	@SuppressWarnings({"unchecked", "rawtypes"})
+	@Test
+	public void testIllegalAddGenericsViolation()
+	{
+		Modifier<Number> mod = AbstractModifier.add(1, 100);
+		Solver<Number> solver = new Solver<Number>(mod);
 		Modifier<String> badm = AbstractModifier.setString();
 		try
 		{

@@ -30,15 +30,17 @@ import pcgen.base.util.FormatManager;
 
 public class ArrayComponentModifierTest extends AbstractFormulaTestCase
 {
-	private final FormatManager<Number[]> NAF = new ArrayFormatManager(FormatUtilities.NUMBER_MANAGER, '\n', ',');
+	private final FormatManager<Number[]> NAF =
+			new ArrayFormatManager<>(FormatUtilities.NUMBER_MANAGER, '\n', ',');
 
+	@SuppressWarnings("unused")
 	@Test
 	public void testConstructor()
 	{
 		try
 		{
-			Modifier cm = AbstractModifier.setNumber(3, 100);
-			new ArrayComponentModifier(null, 5, cm);
+			Modifier<Number> cm = AbstractModifier.setNumber(3, 100);
+			new ArrayComponentModifier<>(null, 5, cm);
 			fail();
 		}
 		catch (IllegalArgumentException | NullPointerException e)
@@ -47,7 +49,7 @@ public class ArrayComponentModifierTest extends AbstractFormulaTestCase
 		}
 		try
 		{
-			new ArrayComponentModifier(NAF, 5, null);
+			new ArrayComponentModifier<>(NAF, 5, null);
 			fail();
 		}
 		catch (IllegalArgumentException | NullPointerException e)
@@ -56,8 +58,8 @@ public class ArrayComponentModifierTest extends AbstractFormulaTestCase
 		}
 		try
 		{
-			Modifier cm = AbstractModifier.setNumber(3, 100);
-			new ArrayComponentModifier(NAF, -5, cm);
+			Modifier<Number> cm = AbstractModifier.setNumber(3, 100);
+			new ArrayComponentModifier<>(NAF, -5, cm);
 			fail();
 		}
 		catch (IllegalArgumentException | NullPointerException e)
@@ -69,16 +71,16 @@ public class ArrayComponentModifierTest extends AbstractFormulaTestCase
 	@Test
 	public void testGetUserPriority()
 	{
-		Modifier cm = AbstractModifier.setNumber(3, 100);
-		ArrayComponentModifier acm = new ArrayComponentModifier(NAF, 5, cm);
+		Modifier<Number> cm = AbstractModifier.setNumber(3, 100);
+		ArrayComponentModifier<Number> acm = new ArrayComponentModifier<>(NAF, 5, cm);
 		assertEquals((100L << 32), acm.getPriority());
 	}
 
 	@Test
 	public void testGetVariableFormat()
 	{
-		Modifier cm = AbstractModifier.setNumber(3, 100);
-		ArrayComponentModifier acm = new ArrayComponentModifier(NAF, 5, cm);
+		Modifier<Number> cm = AbstractModifier.setNumber(3, 100);
+		ArrayComponentModifier<Number> acm = new ArrayComponentModifier<>(NAF, 5, cm);
 		assertEquals(NAF, acm.getVariableFormat());
 		assertEquals(Number[].class, acm.getVariableFormat().getManagedClass());
 	}
@@ -86,24 +88,24 @@ public class ArrayComponentModifierTest extends AbstractFormulaTestCase
 	@Test
 	public void testGetIdentification()
 	{
-		Modifier cm = AbstractModifier.setNumber(3, 100);
-		ArrayComponentModifier acm = new ArrayComponentModifier(NAF, 5, cm);
+		Modifier<Number> cm = AbstractModifier.setNumber(3, 100);
+		ArrayComponentModifier<Number> acm = new ArrayComponentModifier<>(NAF, 5, cm);
 		assertEquals("Set (component)", acm.getIdentification());
 	}
 
 	@Test
 	public void testGetInstructions()
 	{
-		Modifier cm = AbstractModifier.setNumber(3, 100);
-		ArrayComponentModifier acm = new ArrayComponentModifier(NAF, 5, cm);
+		Modifier<Number> cm = AbstractModifier.setNumber(3, 100);
+		ArrayComponentModifier<Number> acm = new ArrayComponentModifier<>(NAF, 5, cm);
 		assertEquals("To [5]: +3", acm.toString());
 	}
 
 	@Test
 	public void testProcess()
 	{
-		Modifier cm = AbstractModifier.setNumber(6, 100);
-		ArrayComponentModifier acm = new ArrayComponentModifier(NAF, 5, cm);
+		Modifier<Number> cm = AbstractModifier.setNumber(6, 100);
+		ArrayComponentModifier<Number> acm = new ArrayComponentModifier<>(NAF, 5, cm);
 		Number[] array = {1, 2, 3, 4, 5, 6, 7};
 		EvaluationManager manager = generateManager(array);
 		Object[] result = acm.process(manager);
@@ -116,8 +118,8 @@ public class ArrayComponentModifierTest extends AbstractFormulaTestCase
 	@Test
 	public void testProcessOutOfBounds()
 	{
-		Modifier cm = AbstractModifier.setNumber(77, 100);
-		ArrayComponentModifier acm = new ArrayComponentModifier(NAF, 5, cm);
+		Modifier<Number> cm = AbstractModifier.setNumber(77, 100);
+		ArrayComponentModifier<Number> acm = new ArrayComponentModifier<>(NAF, 5, cm);
 		Number[] array = {1, 2, 3, 4};
 		//Should be no effect
 		EvaluationManager manager = generateManager(array);

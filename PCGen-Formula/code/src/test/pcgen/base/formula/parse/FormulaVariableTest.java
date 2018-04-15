@@ -125,7 +125,7 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, false);
-		hasABVars(formula, node);
+		hasABVars(node);
 		//Note integer math
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Integer.valueOf(10));
 		Object rv =
@@ -142,7 +142,7 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, false);
-		hasABVars(formula, node);
+		hasABVars(node);
 		//Note integer math
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(-4.7));
 		Object rv =
@@ -160,7 +160,7 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, false);
-		hasABCVars(formula, node);
+		hasABCVars(node);
 		//Note integer math
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(-2.5));
 		Object rv =
@@ -197,7 +197,7 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, false);
-		hasABVars(formula, node);
+		hasABVars(node);
 		//Note integer math
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(1.1));
 		Object rv =
@@ -214,7 +214,7 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, false);
-		hasABVars(formula, node);
+		hasABVars(node);
 		//Note integer math
 		evaluatesTo(booleanManager, formula, node, Boolean.FALSE);
 		Object rv =
@@ -242,7 +242,7 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, false);
-		hasABVars(formula, node);
+		hasABVars(node);
 		//Note integer math
 		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
 		Object rv =
@@ -259,7 +259,7 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, booleanManager, Optional.empty());
 		isStatic(formula, node, false);
-		hasABVars(formula, node);
+		hasABVars(node);
 		//Note integer math
 		evaluatesTo(booleanManager, formula, node, Boolean.TRUE);
 		Object rv =
@@ -287,7 +287,7 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, false);
-		hasABCVars(formula, node);
+		hasABCVars(node);
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(1.8));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
@@ -304,14 +304,14 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
 		isStatic(formula, node, false);
-		hasABCVars(formula, node);
+		hasABCVars(node);
 		evaluatesTo(FormatUtilities.NUMBER_MANAGER, formula, node, Double.valueOf(2));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
 	}
 
-	private void hasABCVars(String formula, SimpleNode node)
+	private void hasABCVars(SimpleNode node)
 	{
 		List<VariableID<?>> vars = getVariables(node);
 		assertEquals(3, vars.size());
@@ -366,7 +366,7 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 		assertEquals(getGlobalScopeInst(), var2.getScope());
 	}
 
-	private void hasABVars(String formula, SimpleNode node)
+	private void hasABVars(SimpleNode node)
 	{
 		List<VariableID<?>> vars = getVariables(node);
 		assertEquals(2, vars.size());

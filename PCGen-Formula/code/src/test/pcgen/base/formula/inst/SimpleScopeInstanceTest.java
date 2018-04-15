@@ -42,6 +42,7 @@ public class SimpleScopeInstanceTest extends TestCase
 		localInst = new SimpleScopeInstance(scopeInst, local, LOCAL_VS);
 	}
 
+	@SuppressWarnings("unused")
 	@Test
 	public void testConstructor()
 	{
@@ -82,7 +83,6 @@ public class SimpleScopeInstanceTest extends TestCase
 			//ok
 		}
 		SimpleLegalScope sublocal = new SimpleLegalScope(local, "SubLocal");
-		SimpleScopeInstance globalInst = new SimpleScopeInstance(null, scope, GLOBAL_VS);
 		try
 		{
 			new SimpleScopeInstance(null, local, new GlobalVarScoped("Ignored"));
@@ -92,12 +92,11 @@ public class SimpleScopeInstanceTest extends TestCase
 		{
 			//ok
 		}
-		SimpleScopeInstance localInst = new SimpleScopeInstance(globalInst, local, LOCAL_VS);
-		assertEquals(globalInst, localInst.getParentScope());
+		assertEquals(scopeInst, localInst.getParentScope());
 		assertEquals(local, localInst.getLegalScope());
 		try
 		{
-			new SimpleScopeInstance(globalInst, null, new GlobalVarScoped("Ignored"));
+			new SimpleScopeInstance(scopeInst, null, new GlobalVarScoped("Ignored"));
 			fail("LegalScope cannot be null");
 		}
 		catch (IllegalArgumentException | NullPointerException e)
@@ -106,7 +105,7 @@ public class SimpleScopeInstanceTest extends TestCase
 		}
 		try
 		{
-			new SimpleScopeInstance(globalInst, local, null);
+			new SimpleScopeInstance(scopeInst, local, null);
 			fail("Description cannot be null");
 		}
 		catch (IllegalArgumentException | NullPointerException e)
@@ -115,7 +114,7 @@ public class SimpleScopeInstanceTest extends TestCase
 		}
 		try
 		{
-			new SimpleScopeInstance(globalInst, sublocal, new GlobalVarScoped("Ignored"));
+			new SimpleScopeInstance(scopeInst, sublocal, new GlobalVarScoped("Ignored"));
 			fail("LegalScope must be a direct child of the scope of the provided instance");
 		}
 		catch (IllegalArgumentException e)

@@ -45,6 +45,7 @@ public class SimpleScopeInstanceFactoryTest extends TestCase
 		legalScopeManager.registerScope(local);
 	}
 
+	@SuppressWarnings("unused")
 	@Test
 	public void testConstructor()
 	{

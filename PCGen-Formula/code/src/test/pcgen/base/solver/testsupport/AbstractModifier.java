@@ -69,7 +69,7 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 	private static final FormatManager<Number> NUMBER_FORMAT = new NumberManager();
 	private static final FormatManager<String> STRING_FORMAT = new StringManager();
 	private static final FormatManager<Number[]> NUMBER_ARR_FORMAT =
-			new ArrayFormatManager(NUMBER_FORMAT, '\n', ',');
+			new ArrayFormatManager<>(NUMBER_FORMAT, '\n', ',');
 
 	private final FormatManager<T> format;
 	private final int priority;
@@ -115,7 +115,7 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 	{
 		if (o instanceof AbstractModifier)
 		{
-			AbstractModifier am = (AbstractModifier) o;
+			AbstractModifier<?> am = (AbstractModifier<?>) o;
 			return format.equals(am.format) && inherent == am.inherent
 				&& priority == am.priority;
 		}
@@ -227,7 +227,7 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 	}
 
 
-	public static AbstractModifier<Number> add(final ComplexNEPFormula value, int priority)
+	public static AbstractModifier<Number> add(final ComplexNEPFormula<?> value, int priority)
 	{
 		return new AbstractModifier<Number>(2, NUMBER_FORMAT, priority)
 		{
@@ -243,7 +243,6 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 			{
 				value.getDependencies(fdm);
 			}
-			
 
 			@Override
 			public String getInstructions()

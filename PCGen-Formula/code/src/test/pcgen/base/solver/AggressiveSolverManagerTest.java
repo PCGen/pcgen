@@ -43,6 +43,7 @@ public class AggressiveSolverManagerTest extends AbstractSolverManagerTest
 			getSolverFactory(), getVariableStore());
 	}
 
+	@SuppressWarnings("unused")
 	@Test
 	public void testIllegalConstruction()
 	{
@@ -88,8 +89,9 @@ public class AggressiveSolverManagerTest extends AbstractSolverManagerTest
 	@Test
 	public void testTrivial()
 	{
-		getVariableLibrary().assertLegalVariableID("Limbs", getInstanceFactory().getScope("Global"),
-			FormatUtilities.NUMBER_MANAGER);
+		getVariableLibrary().assertLegalVariableID("Limbs",
+			getInstanceFactory().getScope("Global"), FormatUtilities.NUMBER_MANAGER);
+		@SuppressWarnings("unchecked")
 		VariableID<Number> limbs = (VariableID<Number>) getVariableLibrary()
 			.getVariableID(getGlobalScopeInst(), "Limbs");
 		manager.solveChildren(limbs);
@@ -107,7 +109,9 @@ public class AggressiveSolverManagerTest extends AbstractSolverManagerTest
 		WriteableVariableStore store = getVariableStore();
 		LegalScope globalScope = getInstanceFactory().getScope("Global");
 		ScopeInstance globalScopeInst = getGlobalScopeInst();
-		getVariableLibrary().assertLegalVariableID("STR", globalScope, FormatUtilities.NUMBER_MANAGER);
+		getVariableLibrary().assertLegalVariableID("STR", globalScope,
+			FormatUtilities.NUMBER_MANAGER);
+		@SuppressWarnings("unchecked")
 		VariableID<Number> str =
 				(VariableID<Number>) getVariableLibrary().getVariableID(globalScopeInst,
 					"STR");
@@ -119,9 +123,12 @@ public class AggressiveSolverManagerTest extends AbstractSolverManagerTest
 		SimpleLegalScope localScope = new SimpleLegalScope(globalScope, "STAT");
 		getScopeLibrary().registerScope(localScope);
 
-		ScopeInstance strInst = getInstanceFactory().get("Global.STAT", new MockStat("Strength"));
+		ScopeInstance strInst =
+				getInstanceFactory().get("Global.STAT", new MockStat("Strength"));
 
-		getVariableLibrary().assertLegalVariableID("Mod", localScope, FormatUtilities.NUMBER_MANAGER);
+		getVariableLibrary().assertLegalVariableID("Mod", localScope,
+			FormatUtilities.NUMBER_MANAGER);
+		@SuppressWarnings("unchecked")
 		VariableID<Number> mod =
 				(VariableID<Number>) getVariableLibrary().getVariableID(strInst, "Mod");
 		
@@ -129,7 +136,8 @@ public class AggressiveSolverManagerTest extends AbstractSolverManagerTest
 		manager.addModifier(mod, modifier, strInst);
 		assertEquals(3, store.get(mod));
 
-		ComplexNEPFormula formula = new ComplexNEPFormula("mod", FormatUtilities.NUMBER_MANAGER);
+		ComplexNEPFormula<Number> formula =
+				new ComplexNEPFormula<>("mod", FormatUtilities.NUMBER_MANAGER);
 		Modifier<Number> modMod = AbstractModifier.add(formula, 100);
 
 		manager.addModifier(str, modMod, strInst);
