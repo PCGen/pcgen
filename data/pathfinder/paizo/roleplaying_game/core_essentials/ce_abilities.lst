@@ -104,7 +104,7 @@ Spell-Like Ability LVL 9 ~ Arcane	CATEGORY:Spell-Like Ability	TYPE:SpellLikeAbil
 
 
 # Level 2 - Divine
-Daylight	CATEGORY:SLA	TYPE:SLA.DivineLVL2	FACT:SLA_DivineLVL2|True	SPELLS:Innate|TIMES=Daylight_Times|CASTERLEVEL=Daylight_CasterLevel|Daylight
+Daylight	CATEGORY:SLA	TYPE:SLA.DivineLVL2	FACT:SLA_DivineLVL2|True	DEFINE:Daylight_CasterLevel|0	DEFINE:Daylight_Times|0	SPELLS:Innate|TIMES=Daylight_Times|CASTERLEVEL=Daylight_CasterLevel|Daylight
 
 
 
