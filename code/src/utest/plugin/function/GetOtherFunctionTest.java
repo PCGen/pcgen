@@ -28,6 +28,7 @@ import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.VariableLibrary;
+import pcgen.base.formula.exception.SemanticsFailureException;
 import pcgen.base.formula.operator.number.NumberMinus;
 import pcgen.base.formula.parse.SimpleNode;
 import pcgen.base.formula.visitor.ReconstructionVisitor;
@@ -80,11 +81,14 @@ public class GetOtherFunctionTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = generateFormulaSemantics(null);
-		semanticsVisitor.visit(node, semantics.getWith(ManagerKey.CONTEXT, context));
-		if (semantics.isValid())
+		try
 		{
-			TestCase.fail(
-				"Expected Invalid Formula: " + formula + " but was valid");
+			semanticsVisitor.visit(node, semantics.getWith(ManagerKey.CONTEXT, context));
+			TestCase.fail("Expected Invalid Formula: " + formula + " but was valid");
+		}
+		catch (SemanticsFailureException e)
+		{
+			//Expected
 		}
 	}
 
@@ -98,10 +102,16 @@ public class GetOtherFunctionTest extends AbstractFormulaTestCase
 		FormulaSemantics semantics = generateFormulaSemantics(null);
 		Object result = semanticsVisitor.visit(node,
 			semantics.getWith(ManagerKey.CONTEXT, context));
-		if (semantics.isValid() && (result instanceof Number))
+		try
 		{
-			TestCase.fail(
-				"Expected Invalid Formula: " + formula + " but was valid");
+			if (result instanceof Number)
+			{
+				TestCase.fail("Expected Invalid Formula: " + formula + " but was valid");
+			}
+		}
+		catch (SemanticsFailureException e)
+		{
+			//Also okay
 		}
 	}
 
@@ -118,11 +128,6 @@ public class GetOtherFunctionTest extends AbstractFormulaTestCase
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = generateFormulaSemantics(null);
 		semanticsVisitor.visit(node, semantics.getWith(ManagerKey.CONTEXT, context));
-		if (!semantics.isValid())
-		{
-			TestCase.fail("Expected Valid Formula: " + formula
-				+ " but was told: " + semantics.getReport());
-		}
 		isStatic(formula, node, false);
 		Skill skill = new Skill();
 		skill.setName("SkillKey");
@@ -153,11 +158,6 @@ public class GetOtherFunctionTest extends AbstractFormulaTestCase
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = generateFormulaSemantics(null);
 		semanticsVisitor.visit(node, semantics.getWith(ManagerKey.CONTEXT, context));
-		if (!semantics.isValid())
-		{
-			TestCase.fail("Expected Valid Formula: " + formula
-				+ " but was told: " + semantics.getReport());
-		}
 		isStatic(formula, node, false);
 		Skill skill = new Skill();
 		skill.setName("SkillKey");
