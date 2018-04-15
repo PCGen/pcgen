@@ -180,11 +180,6 @@ public final class AspectName implements TypeSafeConstant,
 		}
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Comparable#compareTo(java.lang.Object)
-	 */
 	@Override
 	public int compareTo(AspectName aspectName)
 	{

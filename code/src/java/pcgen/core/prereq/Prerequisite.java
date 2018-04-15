@@ -216,11 +216,6 @@ public class Prerequisite implements Cloneable
 		return subKey;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString()
 	{
@@ -325,11 +320,6 @@ public class Prerequisite implements Cloneable
 		this.overrideQualify = override;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see java.lang.Object#clone()
-	 */
 	@Override
 	public Prerequisite clone() throws CloneNotSupportedException
 	{

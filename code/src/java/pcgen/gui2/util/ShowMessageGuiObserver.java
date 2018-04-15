@@ -40,11 +40,6 @@ public class ShowMessageGuiObserver implements Observer
 		this.uiDelegate = uiDelegate;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
-	 */
 	@Override
 	public void update(Observable o, Object arg)
 	{
