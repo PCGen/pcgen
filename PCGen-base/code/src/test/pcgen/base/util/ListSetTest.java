@@ -290,14 +290,17 @@ public class ListSetTest extends TestCase
 		assertNotNull(iter);
 		assertTrue(iter.hasNext());
 		Object o1 = iter.next();
+		//Yes, this needs to be an identity test, not .equals
 		assertTrue(o1 == one || o1 == three || o1 == five);
 		assertTrue(total.remove(o1));
 		assertTrue(iter.hasNext());
 		Object o2 = iter.next();
+		//Yes, this needs to be an identity test, not .equals
 		assertTrue(o2 == one || o2 == three || o2 == five);
 		assertTrue(total.remove(o2));
 		assertTrue(iter.hasNext());
 		Object o3 = iter.next();
+		//Yes, this needs to be an identity test, not .equals
 		assertTrue(o3 == one || o3 == three || o3 == five);
 		assertTrue(total.remove(o3));
 		assertTrue(total.isEmpty());
@@ -350,16 +353,19 @@ public class ListSetTest extends TestCase
 		assertNotNull(iter);
 		assertTrue(iter.hasNext());
 		Object o1 = iter.next();
+		//Yes, this needs to be an identity test, not .equals
 		assertTrue(o1 == one || o1 == three || o1 == five);
 		assertTrue(total.remove(o1));
 		assertTrue(iter.hasNext());
 		Object o2 = iter.next();
+		//Yes, this needs to be an identity test, not .equals
 		assertTrue(o2 == one || o2 == three || o2 == five);
 		assertTrue(total.remove(o2));
 		iter.remove();
 		assertFalse(set.contains(o2));
 		assertTrue(iter.hasNext());
 		Object o3 = iter.next();
+		//Yes, this needs to be an identity test, not .equals
 		assertTrue(o3 == one || o3 == three || o3 == five);
 		assertTrue(total.remove(o3));
 		assertTrue(total.isEmpty());
@@ -408,7 +414,7 @@ public class ListSetTest extends TestCase
 		assertTrue(ls.contains(Integer.valueOf(2)));
 		assertEquals(2, ls.size());
 		assertFalse(ls.isEmpty());
-		//prove isolaation
+		//prove isolation
 		list.remove(Integer.valueOf(1));
 		assertTrue(ls.contains(Integer.valueOf(1)));
 		assertTrue(ls.contains(Integer.valueOf(2)));

@@ -321,11 +321,12 @@ public class TripleKeyMapToListTest extends TestCase
 		assertEquals(5, dkm.getListFor(i1, d1, L1).size());
 	}
 
+	@SuppressWarnings("unused")
 	public void testNullInConstructor()
 	{
 		try
 		{
-			new TripleKeyMapToList(null, HashMap.class, HashMap.class);
+			new TripleKeyMapToList<>(null, HashMap.class, HashMap.class);
 			fail();
 		}
 		catch (IllegalArgumentException | NullPointerException e)
@@ -334,7 +335,7 @@ public class TripleKeyMapToListTest extends TestCase
 		}
 		try
 		{
-			new TripleKeyMapToList(HashMap.class, null, HashMap.class);
+			new TripleKeyMapToList<>(HashMap.class, null, HashMap.class);
 			fail();
 		}
 		catch (IllegalArgumentException | NullPointerException e)
@@ -343,7 +344,7 @@ public class TripleKeyMapToListTest extends TestCase
 		}
 		try
 		{
-			new TripleKeyMapToList(HashMap.class, HashMap.class, null);
+			new TripleKeyMapToList<>(HashMap.class, HashMap.class, null);
 			fail();
 		}
 		catch (IllegalArgumentException | NullPointerException e)
@@ -352,11 +353,12 @@ public class TripleKeyMapToListTest extends TestCase
 		}
 	}
 
+	@SuppressWarnings("unused")
 	public void testBadClassInConstructor()
 	{
 		try
 		{
-			new TripleKeyMapToList(StrangeMap.class, HashMap.class,
+			new TripleKeyMapToList<>(StrangeMap.class, HashMap.class,
 				HashMap.class);
 			fail();
 		}
@@ -366,7 +368,7 @@ public class TripleKeyMapToListTest extends TestCase
 		}
 		try
 		{
-			new TripleKeyMapToList(HashMap.class, StrangeMap.class,
+			new TripleKeyMapToList<>(HashMap.class, StrangeMap.class,
 				HashMap.class);
 			fail();
 		}
@@ -376,7 +378,7 @@ public class TripleKeyMapToListTest extends TestCase
 		}
 		try
 		{
-			new TripleKeyMapToList(HashMap.class, HashMap.class,
+			new TripleKeyMapToList<>(HashMap.class, HashMap.class,
 				StrangeMap.class);
 			fail();
 		}
@@ -386,11 +388,12 @@ public class TripleKeyMapToListTest extends TestCase
 		}
 	}
 
+	@SuppressWarnings("unused")
 	public void testBadClassInConstructor2()
 	{
 		try
 		{
-			new TripleKeyMapToList(NoPublicZeroArgConstructorMap.class,
+			new TripleKeyMapToList<>(NoPublicZeroArgConstructorMap.class,
 				HashMap.class, HashMap.class);
 			fail();
 		}
@@ -400,7 +403,7 @@ public class TripleKeyMapToListTest extends TestCase
 		}
 		try
 		{
-			new TripleKeyMapToList(HashMap.class,
+			new TripleKeyMapToList<>(HashMap.class,
 				NoPublicZeroArgConstructorMap.class, HashMap.class);
 			fail();
 		}
@@ -410,7 +413,7 @@ public class TripleKeyMapToListTest extends TestCase
 		}
 		try
 		{
-			new TripleKeyMapToList(HashMap.class, HashMap.class,
+			new TripleKeyMapToList<>(HashMap.class, HashMap.class,
 				NoPublicZeroArgConstructorMap.class);
 			fail();
 		}
@@ -420,17 +423,19 @@ public class TripleKeyMapToListTest extends TestCase
 		}
 	}
 
+	@SuppressWarnings("unused")
 	public void testGoodConstructor()
 	{
-		new TripleKeyMapToList(HashMap.class, HashMap.class,
+		new TripleKeyMapToList<>(HashMap.class, HashMap.class,
 			IdentityHashMap.class);
 	}
 
+	@SuppressWarnings("unused")
 	public void testBadClassInConstructor3()
 	{
 		try
 		{
-			new TripleKeyMapToList(NoZeroArgConstructorMap.class,
+			new TripleKeyMapToList<>(NoZeroArgConstructorMap.class,
 				HashMap.class, HashMap.class);
 			fail();
 		}
@@ -440,7 +445,7 @@ public class TripleKeyMapToListTest extends TestCase
 		}
 		try
 		{
-			new TripleKeyMapToList(HashMap.class,
+			new TripleKeyMapToList<>(HashMap.class,
 				NoZeroArgConstructorMap.class, HashMap.class);
 			fail();
 		}
@@ -450,7 +455,7 @@ public class TripleKeyMapToListTest extends TestCase
 		}
 		try
 		{
-			new TripleKeyMapToList(HashMap.class, HashMap.class,
+			new TripleKeyMapToList<>(HashMap.class, HashMap.class,
 				NoZeroArgConstructorMap.class);
 			fail();
 		}

@@ -68,6 +68,7 @@ public class DefaultDirectionalHyperEdgeTest extends TestCase
 				);
 	}
 
+	@SuppressWarnings("unused")
 	public void testDefaultDirectionalHyperEdge()
 	{
 		try
@@ -81,10 +82,7 @@ public class DefaultDirectionalHyperEdgeTest extends TestCase
 		}
 		try
 		{
-			new DefaultDirectionalHyperEdge<>(
-					null,
-					new ArrayList<>()
-			);
+			new DefaultDirectionalHyperEdge<>(null, new ArrayList<>());
 			fail();
 		}
 		catch (IllegalArgumentException iae)
@@ -93,10 +91,7 @@ public class DefaultDirectionalHyperEdgeTest extends TestCase
 		}
 		try
 		{
-			new DefaultDirectionalHyperEdge<>(
-					new ArrayList<>(),
-					null
-			);
+			new DefaultDirectionalHyperEdge<>(new ArrayList<>(), null);
 			fail();
 		}
 		catch (IllegalArgumentException iae)

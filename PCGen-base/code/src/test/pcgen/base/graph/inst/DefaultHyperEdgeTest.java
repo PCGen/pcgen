@@ -63,6 +63,7 @@ public class DefaultHyperEdgeTest extends TestCase
 						node4, node6}));
 	}
 
+	@SuppressWarnings("unused")
 	public void testDefaultHyperEdge()
 	{
 		try

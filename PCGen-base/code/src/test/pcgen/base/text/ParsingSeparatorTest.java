@@ -6,6 +6,7 @@ import junit.framework.TestCase;
 
 public class ParsingSeparatorTest extends TestCase
 {
+	@SuppressWarnings("unused")
 	public void testConstructor()
 	{
 		try

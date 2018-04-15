@@ -24,7 +24,7 @@ import java.util.Set;
 public class NoZeroArgConstructorMap<K, V> implements Map<K, V>
 {
 
-	public NoZeroArgConstructorMap(String s)
+	public NoZeroArgConstructorMap(@SuppressWarnings("unused") String s)
 	{
 		// Just need to avoid a zero argument constructor
 	}

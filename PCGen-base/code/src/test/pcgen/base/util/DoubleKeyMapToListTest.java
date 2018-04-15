@@ -64,16 +64,18 @@ public class DoubleKeyMapToListTest extends TestCase
 		dkm.addToListFor(Integer.valueOf(5), Double.valueOf(6), null);
 	}
 
+	@SuppressWarnings("unused")
 	public void testGoodConstructor()
 	{
-		new DoubleKeyMapToList(HashMap.class, IdentityHashMap.class);
+		new DoubleKeyMapToList<>(HashMap.class, IdentityHashMap.class);
 	}
 
+	@SuppressWarnings("unused")
 	public void testNullInConstructor()
 	{
 		try
 		{
-			new DoubleKeyMapToList(null, HashMap.class);
+			new DoubleKeyMapToList<>(null, HashMap.class);
 			fail();
 		}
 		catch (IllegalArgumentException | NullPointerException e)
@@ -82,7 +84,7 @@ public class DoubleKeyMapToListTest extends TestCase
 		}
 		try
 		{
-			new DoubleKeyMapToList(HashMap.class, null);
+			new DoubleKeyMapToList<>(HashMap.class, null);
 			fail();
 		}
 		catch (IllegalArgumentException | NullPointerException e)
@@ -91,11 +93,12 @@ public class DoubleKeyMapToListTest extends TestCase
 		}
 	}
 
+	@SuppressWarnings("unused")
 	public void testBadClassInConstructor()
 	{
 		try
 		{
-			new DoubleKeyMapToList(StrangeMap.class, HashMap.class);
+			new DoubleKeyMapToList<>(StrangeMap.class, HashMap.class);
 			fail();
 		}
 		catch (IllegalArgumentException e)
@@ -104,7 +107,7 @@ public class DoubleKeyMapToListTest extends TestCase
 		}
 		try
 		{
-			new DoubleKeyMapToList(HashMap.class, StrangeMap.class);
+			new DoubleKeyMapToList<>(HashMap.class, StrangeMap.class);
 			fail();
 		}
 		catch (IllegalArgumentException e)
@@ -114,11 +117,12 @@ public class DoubleKeyMapToListTest extends TestCase
 	}
 
 
+	@SuppressWarnings("unused")
 	public void testBadClassInConstructor2()
 	{
 		try
 		{
-			new DoubleKeyMapToList(NoPublicZeroArgConstructorMap.class, HashMap.class);
+			new DoubleKeyMapToList<>(NoPublicZeroArgConstructorMap.class, HashMap.class);
 			fail();
 		}
 		catch (IllegalArgumentException e)
@@ -127,7 +131,7 @@ public class DoubleKeyMapToListTest extends TestCase
 		}
 		try
 		{
-			new DoubleKeyMapToList(HashMap.class, NoPublicZeroArgConstructorMap.class);
+			new DoubleKeyMapToList<>(HashMap.class, NoPublicZeroArgConstructorMap.class);
 			fail();
 		}
 		catch (IllegalArgumentException e)
@@ -137,11 +141,12 @@ public class DoubleKeyMapToListTest extends TestCase
 	}
 
 
+	@SuppressWarnings("unused")
 	public void testBadClassInConstructor3()
 	{
 		try
 		{
-			new DoubleKeyMapToList(NoZeroArgConstructorMap.class, HashMap.class);
+			new DoubleKeyMapToList<>(NoZeroArgConstructorMap.class, HashMap.class);
 			fail();
 		}
 		catch (IllegalArgumentException e)
@@ -150,7 +155,7 @@ public class DoubleKeyMapToListTest extends TestCase
 		}
 		try
 		{
-			new DoubleKeyMapToList(HashMap.class, NoZeroArgConstructorMap.class);
+			new DoubleKeyMapToList<>(HashMap.class, NoZeroArgConstructorMap.class);
 			fail();
 		}
 		catch (IllegalArgumentException e)

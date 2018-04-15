@@ -29,6 +29,7 @@ public class CompoundFormatManagerTest extends TestCase
 	private final BooleanManager booleanManager = new BooleanManager();
 	private final StringManager stringManager = new StringManager();
 
+	@SuppressWarnings("unused")
 	public void testConstructor()
 	{
 		try

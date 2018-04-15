@@ -22,14 +22,15 @@ import pcgen.testsupport.MockObjectDatabase;
 
 public class GenericFormatManagerTest extends TestCase
 {
-	private GenericFormatManager manager;
+	private GenericFormatManager<Object> manager;
 	private MockObjectDatabase database;
 
+	@Override
 	public void setUp() throws Exception
 	{
 		super.setUp();
 		database = new MockObjectDatabase();
-		manager = new GenericFormatManager(database, Object.class, "KEYED");
+		manager = new GenericFormatManager<>(database, Object.class, "KEYED");
 	}
 
 	public void testConvertFailNull()
@@ -151,10 +152,5 @@ public class GenericFormatManagerTest extends TestCase
 	public void testIsDirect()
 	{
 		assertEquals(database.isDirect(), manager.isDirect());
-	}
-
-	private class Keyed
-	{
-
 	}
 }

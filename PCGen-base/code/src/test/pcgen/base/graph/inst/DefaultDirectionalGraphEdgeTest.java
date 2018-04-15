@@ -51,6 +51,7 @@ public class DefaultDirectionalGraphEdgeTest extends TestCase
 		edge5 = new DefaultDirectionalGraphEdge<>(node4, node4);
 	}
 
+	@SuppressWarnings("unused")
 	public void testDefaultGraphEdge()
 	{
 		try
@@ -157,7 +158,7 @@ public class DefaultDirectionalGraphEdgeTest extends TestCase
 
 	public void testGetSourceNode()
 	{
-		List l;
+		List<Double> l;
 		l = edge1.getSourceNodes();
 		assertEquals(1, l.size());
 		assertTrue(l.contains(node1));
@@ -177,7 +178,7 @@ public class DefaultDirectionalGraphEdgeTest extends TestCase
 
 	public void testGetSinkNode()
 	{
-		List l;
+		List<Double> l;
 		l = edge1.getSinkNodes();
 		assertEquals(1, l.size());
 		assertTrue(l.contains(node2));

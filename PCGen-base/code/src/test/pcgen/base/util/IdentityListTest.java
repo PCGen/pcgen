@@ -276,9 +276,11 @@ public class IdentityListTest extends TestCase
 		assertNotNull(iter);
 		assertTrue(iter.hasNext());
 		Object o1 = iter.next();
+		//Yes, this needs to be an identity test, not .equals
 		assertTrue(o1 == a1);
 		assertTrue(iter.hasNext());
 		Object o2 = iter.next();
+		//Yes, this needs to be an identity test, not .equals
 		assertTrue(o2 == b2);
 		assertFalse(iter.hasNext());
 		try
@@ -314,14 +316,17 @@ public class IdentityListTest extends TestCase
 		assertNotNull(iter);
 		assertTrue(iter.hasNext());
 		Object o1 = iter.next();
+		//Yes, this needs to be an identity test, not .equals
 		assertTrue(o1 == a1);
 		assertTrue(iter.hasNext());
 		Object o2 = iter.next();
+		//Yes, this needs to be an identity test, not .equals
 		assertTrue(o2 == b1);
 		iter.remove();
 		assertFalse(ls.contains(o2));
 		assertTrue(ls.contains(a1));
 		Object o3 = iter.next();
+		//Yes, this needs to be an identity test, not .equals
 		assertTrue(o3 == b2);
 		assertFalse(iter.hasNext());
 		try

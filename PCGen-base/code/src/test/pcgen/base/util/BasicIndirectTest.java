@@ -32,6 +32,7 @@ public class BasicIndirectTest extends TestCase
 	private BasicIndirect<String> indirectString = new BasicIndirect<>(
 			new StringManager(), "Hello!");
 
+	@SuppressWarnings("unused")
 	@Test
 	public void testConstructor()
 	{
@@ -63,6 +64,12 @@ public class BasicIndirectTest extends TestCase
 		{
 			//expected
 		}
+	}
+
+	@SuppressWarnings({"unused", "unchecked", "rawtypes"})
+	@Test
+	public void testConstructorGenericsViolation()
+	{
 		try
 		{
 			Object o = 4;

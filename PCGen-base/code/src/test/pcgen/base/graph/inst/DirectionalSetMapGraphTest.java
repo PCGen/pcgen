@@ -297,7 +297,7 @@ public class DirectionalSetMapGraphTest extends
 	}
 
 	@Override
-	Graph<Integer, DirectionalEdge<Integer>> getStrategy()
+	public Graph<Integer, DirectionalEdge<Integer>> getStrategy()
 	{
 		return strategy;
 	}
@@ -326,7 +326,9 @@ public class DirectionalSetMapGraphTest extends
 		// But that an instance test will fail
 		for (Integer i : strategy.getNodeList())
 		{
+			//Note: Must be INSTANCE IDENTITY, not .equals
 			assertTrue(i == node || i == node2);
+			//Note: Must be INSTANCE IDENTITY, not .equals
 			assertTrue(i != falseNode1);
 		}
 		assertTrue(node == strategy.getInternalizedNode(node));

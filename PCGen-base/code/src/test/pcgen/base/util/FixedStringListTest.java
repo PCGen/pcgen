@@ -29,6 +29,7 @@ import pcgen.base.lang.StringUtil;
 public class FixedStringListTest extends TestCase
 {
 
+	@SuppressWarnings("unused")
 	@Test
 	public void testConstructor()
 	{
@@ -58,7 +59,7 @@ public class FixedStringListTest extends TestCase
 		}
 		try
 		{
-			new FixedStringList((Collection) null);
+			new FixedStringList((Collection<String>) null);
 			fail();
 		}
 		catch (IllegalArgumentException | NullPointerException e)

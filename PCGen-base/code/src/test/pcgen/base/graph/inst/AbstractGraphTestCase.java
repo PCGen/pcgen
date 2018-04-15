@@ -556,6 +556,6 @@ public abstract class AbstractGraphTestCase<T extends Edge<Integer>> extends
 	/**
 	 * @return Returns the strategy.
 	 */
-	abstract Graph<Integer, T> getStrategy();
+	public abstract Graph<Integer, T> getStrategy();
 
 }

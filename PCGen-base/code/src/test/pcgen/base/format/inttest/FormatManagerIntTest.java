@@ -30,7 +30,7 @@ public class FormatManagerIntTest extends TestCase
 	private final BooleanManager booleanManager = new BooleanManager();
 	private final StringManager stringManager = new StringManager();
 
-	public void testInvalidConvert()
+	public void testInvalidConvertSimple()
 	{
 		CompoundFormatManager<Number> compoundManager =
 				new CompoundFormatManager<>(numberManager, '|');
@@ -57,16 +57,16 @@ public class FormatManagerIntTest extends TestCase
 		{
 			//ok
 		}
-		try
-		{
-			manager.convert("3|LEVEL=Hard|SOUND=Bell");
-			fail("Should not be able to convert instructions"
-				+ " with an undefined association");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
+	}
+
+	public void testInvalidConvertSeparatorIssues()
+	{
+		CompoundFormatManager<Number> compoundManager =
+				new CompoundFormatManager<>(numberManager, '|');
+		compoundManager.addSecondary(booleanManager, "Allowed", false);
+		compoundManager.addSecondary(stringManager, "Level", true);
+		ArrayFormatManager<Compound> manager =
+				new ArrayFormatManager<>(compoundManager, '\n', ',');
 		try
 		{
 			manager.convert("3|LEVEL=Hard|");
@@ -121,6 +121,26 @@ public class FormatManagerIntTest extends TestCase
 			manager.convert("3,4,|LEVEL=Hard|ALLOWED=false");
 			fail("Should not be able to convert instructions"
 				+ " with trailing separator");
+		}
+		catch (IllegalArgumentException e)
+		{
+			//ok
+		}
+	}
+
+	public void testInvalidConvertAssociationIssues()
+	{
+		CompoundFormatManager<Number> compoundManager =
+				new CompoundFormatManager<>(numberManager, '|');
+		compoundManager.addSecondary(booleanManager, "Allowed", false);
+		compoundManager.addSecondary(stringManager, "Level", true);
+		ArrayFormatManager<Compound> manager =
+				new ArrayFormatManager<>(compoundManager, '\n', ',');
+		try
+		{
+			manager.convert("3|LEVEL=Hard|SOUND=Bell");
+			fail("Should not be able to convert instructions"
+				+ " with an undefined association");
 		}
 		catch (IllegalArgumentException e)
 		{

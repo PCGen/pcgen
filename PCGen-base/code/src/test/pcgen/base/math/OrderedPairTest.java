@@ -20,6 +20,7 @@ import junit.framework.TestCase;
 
 public class OrderedPairTest extends TestCase
 {
+	@SuppressWarnings("unused")
 	public void testConstructorXNull()
 	{
 		try
@@ -33,6 +34,7 @@ public class OrderedPairTest extends TestCase
 		}
 	}
 
+	@SuppressWarnings("unused")
 	public void testConstructorYNull()
 	{
 		try

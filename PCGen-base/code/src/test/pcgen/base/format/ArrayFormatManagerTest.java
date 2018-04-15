@@ -33,11 +33,12 @@ public class ArrayFormatManagerTest extends TestCase
 	private ArrayFormatManager<Number> manager = new ArrayFormatManager<>(
 		new NumberManager(), '\n', ',');
 
+	@SuppressWarnings("unused")
 	public void testConstructor()
 	{
 		try
 		{
-			new ArrayFormatManager(null, '\n', ',');
+			new ArrayFormatManager<>(null, '\n', ',');
 			fail("null value should fail");
 		}
 		catch (IllegalArgumentException | NullPointerException e)
@@ -238,7 +239,7 @@ public class ArrayFormatManagerTest extends TestCase
 		assertTrue(manager.isDirect());
 		assertTrue(new ArrayFormatManager<>(new BooleanManager(), '\n', ',').isDirect());
 		assertTrue(new ArrayFormatManager<>(new StringManager(), '\n', ',').isDirect());
-		assertFalse(new ArrayFormatManager<>(new FormatManager() {
+		assertFalse(new ArrayFormatManager<>(new FormatManager<Object>() {
 
 			@Override
 			public Object convert(String inputStr)
@@ -247,7 +248,7 @@ public class ArrayFormatManagerTest extends TestCase
 			}
 
 			@Override
-			public Indirect convertIndirect(String inputStr)
+			public Indirect<Object> convertIndirect(String inputStr)
 			{
 				return null;
 			}
@@ -265,7 +266,7 @@ public class ArrayFormatManagerTest extends TestCase
 			}
 
 			@Override
-			public Class getManagedClass()
+			public Class<Object> getManagedClass()
 			{
 				return Object.class;
 			}
@@ -277,7 +278,7 @@ public class ArrayFormatManagerTest extends TestCase
 			}
 
 			@Override
-			public FormatManager getComponentManager()
+			public FormatManager<?> getComponentManager()
 			{
 				return null;
 			}}, '\n', ',').isDirect());

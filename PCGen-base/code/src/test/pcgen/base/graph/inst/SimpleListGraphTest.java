@@ -52,11 +52,8 @@ public class SimpleListGraphTest extends AbstractGraphTestCase<Edge<Integer>>
 		strategy = new SimpleListGraph<>();
 	}
 
-	/**
-	 * @return Returns the strategy.
-	 */
 	@Override
-	Graph<Integer, Edge<Integer>> getStrategy()
+	public Graph<Integer, Edge<Integer>> getStrategy()
 	{
 		return strategy;
 	}

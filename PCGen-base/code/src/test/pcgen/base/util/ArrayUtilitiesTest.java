@@ -26,7 +26,6 @@ import pcgen.testsupport.TestSupport;
 public class ArrayUtilitiesTest extends TestCase
 {
 
-	private final Integer one = 1;
 	private final Integer two = 2;
 	private final Integer three = 3;
 	private final Integer four = 4;

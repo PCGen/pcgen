@@ -53,11 +53,8 @@ public class SimpleListMapGraphTest extends
 		strategy = new SimpleListMapGraph<>();
 	}
 
-	/**
-	 * @return Returns the strategy.
-	 */
 	@Override
-	Graph<Integer, Edge<Integer>> getStrategy()
+	public Graph<Integer, Edge<Integer>> getStrategy()
 	{
 		return strategy;
 	}
@@ -85,7 +82,9 @@ public class SimpleListMapGraphTest extends
 		//But that an instance test will fail
 		for (Integer i : strategy.getNodeList())
 		{
+			//Note: Must be INSTANCE IDENTITY, not .equals
 			assertTrue(i == node || i == node2);
+			//Note: Must be INSTANCE IDENTITY, not .equals
 			assertTrue(i != falseNode1);
 		}
 		assertTrue(node == strategy.getInternalizedNode(node));

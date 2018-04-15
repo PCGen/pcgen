@@ -59,11 +59,12 @@ public class DoubleKeyMapTest extends TestCase
 		dkm.put(Integer.valueOf(5), Double.valueOf(6), null);
 	}
 
+	@SuppressWarnings("unused")
 	public void testNullInConstructor()
 	{
 		try
 		{
-			new DoubleKeyMap(null, HashMap.class);
+			new DoubleKeyMap<>(null, HashMap.class);
 			fail();
 		}
 		catch (IllegalArgumentException | NullPointerException e)
@@ -72,7 +73,7 @@ public class DoubleKeyMapTest extends TestCase
 		}
 		try
 		{
-			new DoubleKeyMap(HashMap.class, null);
+			new DoubleKeyMap<>(HashMap.class, null);
 			fail();
 		}
 		catch (IllegalArgumentException | NullPointerException e)
@@ -81,11 +82,12 @@ public class DoubleKeyMapTest extends TestCase
 		}
 	}
 
+	@SuppressWarnings("unused")
 	public void testBadClassInConstructor()
 	{
 		try
 		{
-			new DoubleKeyMap(StrangeMap.class, HashMap.class);
+			new DoubleKeyMap<>(StrangeMap.class, HashMap.class);
 			fail();
 		}
 		catch (IllegalArgumentException e)
@@ -94,7 +96,7 @@ public class DoubleKeyMapTest extends TestCase
 		}
 		try
 		{
-			new DoubleKeyMap(HashMap.class, StrangeMap.class);
+			new DoubleKeyMap<>(HashMap.class, StrangeMap.class);
 			fail();
 		}
 		catch (IllegalArgumentException e)
@@ -104,11 +106,12 @@ public class DoubleKeyMapTest extends TestCase
 	}
 
 
+	@SuppressWarnings("unused")
 	public void testBadClassInConstructor2()
 	{
 		try
 		{
-			new DoubleKeyMap(NoPublicZeroArgConstructorMap.class, HashMap.class);
+			new DoubleKeyMap<>(NoPublicZeroArgConstructorMap.class, HashMap.class);
 			fail();
 		}
 		catch (IllegalArgumentException e)
@@ -117,7 +120,7 @@ public class DoubleKeyMapTest extends TestCase
 		}
 		try
 		{
-			new DoubleKeyMap(HashMap.class, NoPublicZeroArgConstructorMap.class);
+			new DoubleKeyMap<>(HashMap.class, NoPublicZeroArgConstructorMap.class);
 			fail();
 		}
 		catch (IllegalArgumentException e)
@@ -127,11 +130,12 @@ public class DoubleKeyMapTest extends TestCase
 	}
 
 
+	@SuppressWarnings("unused")
 	public void testBadClassInConstructor3()
 	{
 		try
 		{
-			new DoubleKeyMap(NoZeroArgConstructorMap.class, HashMap.class);
+			new DoubleKeyMap<>(NoZeroArgConstructorMap.class, HashMap.class);
 			fail();
 		}
 		catch (IllegalArgumentException e)
@@ -140,7 +144,7 @@ public class DoubleKeyMapTest extends TestCase
 		}
 		try
 		{
-			new DoubleKeyMap(HashMap.class, NoZeroArgConstructorMap.class);
+			new DoubleKeyMap<>(HashMap.class, NoZeroArgConstructorMap.class);
 			fail();
 		}
 		catch (IllegalArgumentException e)

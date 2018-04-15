@@ -35,6 +35,7 @@ public class NodeChangeEventTest extends TestCase
 		// No setup required
 	}
 
+	@SuppressWarnings("unused")
 	public void testEdgeChangeEvent()
 	{
 		try

@@ -24,6 +24,7 @@ import org.junit.Test;
 public class NamedValueTest extends TestCase
 {
 
+	@SuppressWarnings("unused")
 	@Test
 	public void testNullConstructor()
 	{

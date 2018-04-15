@@ -48,6 +48,7 @@ public class DefaultGraphEdgeTest extends TestCase
 		edge5 = new DefaultGraphEdge<>(node4, node4);
 	}
 
+	@SuppressWarnings("unused")
 	public void testDefaultGraphEdge()
 	{
 		try

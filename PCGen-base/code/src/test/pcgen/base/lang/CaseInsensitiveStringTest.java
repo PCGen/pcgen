@@ -24,6 +24,7 @@ import org.junit.Test;
 public class CaseInsensitiveStringTest extends TestCase
 {
 
+	@SuppressWarnings("unused")
 	@Test
 	public void testNullConstructor()
 	{
@@ -86,11 +87,14 @@ public class CaseInsensitiveStringTest extends TestCase
 		assertFalse(cis2.equals(cis1));
 	}
 
+	@SuppressWarnings("unlikely-arg-type")
 	@Test
 	public void testString()
 	{
 		CaseInsensitiveString cis1 = new CaseInsensitiveString("Foo");
+		//Should fail both ways
 		assertFalse(cis1.equals("Foo"));
+		assertFalse("Foo".equals(cis1));
 	}
 
 	@Test

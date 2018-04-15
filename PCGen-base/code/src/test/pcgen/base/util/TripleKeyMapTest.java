@@ -429,11 +429,12 @@ public class TripleKeyMapTest extends TestCase
 
 	// TODO Need a test that respects order/behavior of underlying lists for
 	// class constructor
+	@SuppressWarnings("unused")
 	public void testNullInConstructor()
 	{
 		try
 		{
-			new TripleKeyMap(null, HashMap.class, HashMap.class);
+			new TripleKeyMap<>(null, HashMap.class, HashMap.class);
 			fail();
 		}
 		catch (IllegalArgumentException | NullPointerException e)
@@ -442,7 +443,7 @@ public class TripleKeyMapTest extends TestCase
 		}
 		try
 		{
-			new TripleKeyMap(HashMap.class, null, HashMap.class);
+			new TripleKeyMap<>(HashMap.class, null, HashMap.class);
 			fail();
 		}
 		catch (IllegalArgumentException | NullPointerException e)
@@ -451,7 +452,7 @@ public class TripleKeyMapTest extends TestCase
 		}
 		try
 		{
-			new TripleKeyMap(HashMap.class, HashMap.class, null);
+			new TripleKeyMap<>(HashMap.class, HashMap.class, null);
 			fail();
 		}
 		catch (IllegalArgumentException | NullPointerException e)
@@ -460,11 +461,12 @@ public class TripleKeyMapTest extends TestCase
 		}
 	}
 
+	@SuppressWarnings("unused")
 	public void testBadClassInConstructor()
 	{
 		try
 		{
-			new TripleKeyMap(StrangeMap.class, HashMap.class, HashMap.class);
+			new TripleKeyMap<>(StrangeMap.class, HashMap.class, HashMap.class);
 			fail();
 		}
 		catch (IllegalArgumentException e)
@@ -473,7 +475,7 @@ public class TripleKeyMapTest extends TestCase
 		}
 		try
 		{
-			new TripleKeyMap(HashMap.class, StrangeMap.class, HashMap.class);
+			new TripleKeyMap<>(HashMap.class, StrangeMap.class, HashMap.class);
 			fail();
 		}
 		catch (IllegalArgumentException e)
@@ -482,7 +484,7 @@ public class TripleKeyMapTest extends TestCase
 		}
 		try
 		{
-			new TripleKeyMap(HashMap.class, HashMap.class, StrangeMap.class);
+			new TripleKeyMap<>(HashMap.class, HashMap.class, StrangeMap.class);
 			fail();
 		}
 		catch (IllegalArgumentException e)
@@ -492,11 +494,12 @@ public class TripleKeyMapTest extends TestCase
 	}
 
 
+	@SuppressWarnings("unused")
 	public void testBadClassInConstructor2()
 	{
 		try
 		{
-			new TripleKeyMap(NoPublicZeroArgConstructorMap.class, HashMap.class, HashMap.class);
+			new TripleKeyMap<>(NoPublicZeroArgConstructorMap.class, HashMap.class, HashMap.class);
 			fail();
 		}
 		catch (IllegalArgumentException e)
@@ -505,7 +508,7 @@ public class TripleKeyMapTest extends TestCase
 		}
 		try
 		{
-			new TripleKeyMap(HashMap.class, NoPublicZeroArgConstructorMap.class, HashMap.class);
+			new TripleKeyMap<>(HashMap.class, NoPublicZeroArgConstructorMap.class, HashMap.class);
 			fail();
 		}
 		catch (IllegalArgumentException e)
@@ -514,7 +517,7 @@ public class TripleKeyMapTest extends TestCase
 		}
 		try
 		{
-			new TripleKeyMap(HashMap.class, HashMap.class, NoPublicZeroArgConstructorMap.class);
+			new TripleKeyMap<>(HashMap.class, HashMap.class, NoPublicZeroArgConstructorMap.class);
 			fail();
 		}
 		catch (IllegalArgumentException e)
@@ -524,11 +527,12 @@ public class TripleKeyMapTest extends TestCase
 	}
 
 
+	@SuppressWarnings("unused")
 	public void testBadClassInConstructor3()
 	{
 		try
 		{
-			new TripleKeyMap(NoZeroArgConstructorMap.class, HashMap.class, HashMap.class);
+			new TripleKeyMap<>(NoZeroArgConstructorMap.class, HashMap.class, HashMap.class);
 			fail();
 		}
 		catch (IllegalArgumentException e)
@@ -537,7 +541,7 @@ public class TripleKeyMapTest extends TestCase
 		}
 		try
 		{
-			new TripleKeyMap(HashMap.class, NoZeroArgConstructorMap.class, HashMap.class);
+			new TripleKeyMap<>(HashMap.class, NoZeroArgConstructorMap.class, HashMap.class);
 			fail();
 		}
 		catch (IllegalArgumentException e)
@@ -546,7 +550,7 @@ public class TripleKeyMapTest extends TestCase
 		}
 		try
 		{
-			new TripleKeyMap(HashMap.class, HashMap.class, NoZeroArgConstructorMap.class);
+			new TripleKeyMap<>(HashMap.class, HashMap.class, NoZeroArgConstructorMap.class);
 			fail();
 		}
 		catch (IllegalArgumentException e)

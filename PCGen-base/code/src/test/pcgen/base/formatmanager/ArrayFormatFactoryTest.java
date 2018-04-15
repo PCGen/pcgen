@@ -74,6 +74,7 @@ public class ArrayFormatFactoryTest extends TestCase
 
 	public void testConvert()
 	{
+		@SuppressWarnings("unchecked")
 		FormatManager<Number[]> manager =
 				(FormatManager<Number[]>) factory.build("NUMBER", library);
 		assertTrue(Arrays.equals(new Number[]{}, manager.convert(null)));

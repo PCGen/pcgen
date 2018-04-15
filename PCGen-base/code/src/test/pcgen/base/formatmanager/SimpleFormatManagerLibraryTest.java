@@ -141,6 +141,7 @@ public class SimpleFormatManagerLibraryTest extends TestCase
 	{
 		assertTrue(library.hasFormatManager("NUMBER"));
 		assertTrue(library.hasFormatManager("ARRAY[NUMBER]"));
+		@SuppressWarnings("unchecked")
 		FormatManager<Number[]> manager =
 				(FormatManager<Number[]>) library
 					.getFormatManager("ARRAY[NUMBER]");
@@ -155,6 +156,7 @@ public class SimpleFormatManagerLibraryTest extends TestCase
 
 	public void testUnconvert()
 	{
+		@SuppressWarnings("unchecked")
 		FormatManager<Number[]> manager =
 				(FormatManager<Number[]>) library
 					.getFormatManager("ARRAY[NUMBER]");
@@ -170,6 +172,7 @@ public class SimpleFormatManagerLibraryTest extends TestCase
 
 	public void testConvertIndirect()
 	{
+		@SuppressWarnings("unchecked")
 		FormatManager<Number[]> manager =
 				(FormatManager<Number[]>) library
 					.getFormatManager("ARRAY[NUMBER]");

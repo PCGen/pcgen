@@ -28,12 +28,13 @@ import pcgen.testsupport.StrangeMap;
 
 public class GenericMapToListTest extends TestCase
 {
+	@SuppressWarnings("unused")
 	@Test
 	public void testConstructorNoZeroArg()
 	{
 		try
 		{
-			new GenericMapToList(NoZeroArgConstructorMap.class);
+			new GenericMapToList<>(NoZeroArgConstructorMap.class);
 			fail("Expected InstantiationException");
 		}
 		catch (ReflectiveOperationException e)
@@ -42,12 +43,13 @@ public class GenericMapToListTest extends TestCase
 		}
 	}
 
+	@SuppressWarnings("unused")
 	@Test
 	public void testConstructorPrivate()
 	{
 		try
 		{
-			new GenericMapToList(NoPublicZeroArgConstructorMap.class);
+			new GenericMapToList<>(NoPublicZeroArgConstructorMap.class);
 			fail("Expected IllegalAccessException");
 		}
 		catch (NoSuchMethodException e)
@@ -60,11 +62,12 @@ public class GenericMapToListTest extends TestCase
 		}
 	}
 
+	@SuppressWarnings("unused")
 	public void testBadClassInConstructor()
 	{
 		try
 		{
-			new GenericMapToList(StrangeMap.class);
+			new GenericMapToList<>(StrangeMap.class);
 			fail();
 		}
 		catch (NoSuchMethodException e)
