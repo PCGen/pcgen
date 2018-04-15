@@ -34,10 +34,6 @@ public class PCGTrackerView extends JPanel
 	private JButton saveAsButton;
 	private JButton saveButton;
 	private JList loadedList;
-	private JPanel jPanel2;
-
-	// Variables declaration - do not modify//GEN-BEGIN:variables
-	private JScrollPane jScrollPane1;
 
 	/** Creates new form PCGTrackerView */
 	public PCGTrackerView()
@@ -93,13 +89,13 @@ public class PCGTrackerView extends JPanel
 	 */
 	private void initComponents()
 	{ //GEN-BEGIN:initComponents
-		jPanel2 = new JPanel();
+		JPanel jPanel2 = new JPanel();
 		removeButton = new JButton();
 		saveButton = new JButton();
 		saveAsButton = new JButton();
 		loadButton = new JButton();
-		jScrollPane1 = new JScrollPane();
-		loadedList = new JList();
+		JScrollPane jScrollPane1 = new JScrollPane();
+		loadedList = new JList<>();
 
 		setLayout(new java.awt.BorderLayout());
 
