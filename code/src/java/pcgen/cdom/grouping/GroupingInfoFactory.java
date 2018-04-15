@@ -104,11 +104,11 @@ public class GroupingInfoFactory
 			throw new GroupingStateException(
 				"Unable to determine FormatManager for Scope: " + fullScopeName);
 		}
-		return continueTypeSafeProcessing(formatManager, instructions);
+		return continueTypeSafeProcessing(formatManager);
 	}
 
 	private <T extends Loadable> GroupingInfo<T> continueTypeSafeProcessing(
-		ReferenceManufacturer<T> formatManager, String instructions)
+		ReferenceManufacturer<T> formatManager)
 		throws GroupingStateException
 	{
 		GroupingInfo<T> topInfo = new GroupingInfo<>();
