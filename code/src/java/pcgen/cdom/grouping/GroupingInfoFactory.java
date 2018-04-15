@@ -304,9 +304,9 @@ public class GroupingInfoFactory
 		 * @param message
 		 *            The message for the GroupingMismatchException
 		 */
-		public GroupingMismatchException(String base)
+		public GroupingMismatchException(String message)
 		{
-			super(base);
+			super(message);
 		}
 
 	}

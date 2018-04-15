@@ -72,6 +72,9 @@ public class GroupGroupingToken<T extends Loadable> implements GroupingDefinitio
 
 	/**
 	 * GroupGrouping serves as the GroupingCollection for the "GROUP=x" Grouping.
+	 * 
+	 * @param <T>
+	 *            The Format of the object type contained by this GroupGrouping
 	 */
 	private static class GroupGrouping<T extends Loadable> implements GroupingCollection<T>
 	{

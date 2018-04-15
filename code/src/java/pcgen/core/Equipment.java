@@ -98,6 +98,9 @@ import pcgen.util.enumeration.Load;
 import pcgen.util.enumeration.View;
 import pcgen.util.enumeration.Visibility;
 
+/**
+ * Represents Equipment for a PC.
+ */
 public final class Equipment extends PObject implements Serializable,
 		Comparable<Object>, VariableContainer, EquipmentFacade, PCGenScoped
 {
@@ -6663,7 +6666,7 @@ public final class Equipment extends PObject implements Serializable,
 	@Override
 	public List<String> getChildTypes()
 	{
-		return Arrays.asList(new String[] { "EQUIPMENT.PART" });
+		return Arrays.asList(new String[]{"EQUIPMENT.PART"});
 	}
 
 	@Override

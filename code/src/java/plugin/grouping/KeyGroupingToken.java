@@ -71,6 +71,9 @@ public class KeyGroupingToken<T extends Loadable & PCGenScoped>
 
 	/**
 	 * KeyGrouping serves as the GroupingCollection for the "GROUP=x" Grouping.
+	 * 
+	 * @param <T>
+	 *            The Format of the object type contained by this KeyGrouping
 	 */
 	private static class KeyGrouping<T extends Loadable> implements GroupingCollection<T>
 	{

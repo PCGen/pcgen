@@ -229,5 +229,5 @@ public interface LoadContext
 	 *         instructions
 	 */
 	public <T> GroupingCollection<? extends Loadable> getGrouping(
-		PCGenScope scope, String groupingName);
+		PCGenScope scope, String instructions);
 }

@@ -75,6 +75,9 @@ public class AllGroupingToken<T extends Loadable> implements GroupingDefinition<
 
 	/**
 	 * AllGrouping serves as the GroupingCollection for the "ALL" Grouping.
+	 * 
+	 * @param <T>
+	 *            The Format of the object type contained by this AllGrouping
 	 */
 	private static class AllGrouping<T extends Loadable> implements GroupingCollection<T>
 	{

@@ -21,6 +21,9 @@ import pcgen.rules.context.LoadContext;
 /**
  * A GroupingDefinition defines a parser capable of processing the persistent format of a
  * grouping of objects (e.g. "ALL" or "GROUP=x").
+ * 
+ * @param <T>
+ *            The format of the object that this GroupingDefinition can process.
  */
 public interface GroupingDefinition<T extends Loadable>
 {
