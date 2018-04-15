@@ -392,7 +392,7 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 			return;
 		}
 
-		if (outFile.exists() && SettingsHandler.getAlwaysOverwrite() == false)
+		if (outFile.exists() && !SettingsHandler.getAlwaysOverwrite())
 		{
 			int reallyClose = JOptionPane.showConfirmDialog(this,
 															"The file " + outFile.getName()
