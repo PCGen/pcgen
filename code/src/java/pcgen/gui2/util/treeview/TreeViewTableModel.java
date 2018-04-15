@@ -327,7 +327,8 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 					else
 					{
 			        	Vector nonGenericChildren = children;
-						int index = Collections.binarySearch(nonGenericChildren, child, mostRecentComparator);
+						int index = Collections.binarySearch(nonGenericChildren, child,
+							mostRecentComparator);
 						if (index < 0)
 						{
 							insert(child, -(index + 1));
