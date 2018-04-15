@@ -116,11 +116,11 @@ public class GroupingInfoFactory
 		topInfo.setIdentity(refId);
 		activeInfo = topInfo;
 		consumeGrouping();
-		if (fullTokenizer.hasMoreElements())
+		if (fullTokenizer.hasNext())
 		{
 			throw new GroupingStateException("After " + fullTokenizer.getConsumed()
 				+ " expected end of string, but had additional content: "
-				+ fullTokenizer.nextElement());
+				+ fullTokenizer.next());
 		}
 		return topInfo;
 	}
@@ -128,25 +128,25 @@ public class GroupingInfoFactory
 	//Consumes a grouping (with potential child)
 	private void consumeGrouping() throws GroupingStateException
 	{
-		if (!fullTokenizer.hasMoreElements())
+		if (!fullTokenizer.hasNext())
 		{
 			throw new GroupingStateException(
 				"Expected a Grouping, but string ended: " + fullTokenizer.getConsumed());
 		}
-		String item = fullTokenizer.nextElement();
+		String item = fullTokenizer.next();
 		if (isSeparator(item))
 		{
 			throw new GroupingStateException("Expected text, but " + item + " was found: "
 				+ fullTokenizer.getConsumed());
 		}
-		if (fullTokenizer.hasMoreElements())
+		if (fullTokenizer.hasNext())
 		{
 			String next = fullTokenizer.peek();
 			if ("=".equals(next))
 			{
 				activeInfo.setCharacteristic(item);
 				//Skip the Equals
-				fullTokenizer.nextElement();
+				fullTokenizer.next();
 				consumeTarget();
 				allowChild();
 			}
@@ -183,13 +183,13 @@ public class GroupingInfoFactory
 	//Consumes a target (item after '=')
 	private void consumeTarget() throws GroupingStateException
 	{
-		if (!fullTokenizer.hasMoreElements())
+		if (!fullTokenizer.hasNext())
 		{
 			throw new GroupingStateException(
 				"Expected target after '=', but string ended: "
 					+ fullTokenizer.getConsumed());
 		}
-		String expectedTarget = fullTokenizer.nextElement();
+		String expectedTarget = fullTokenizer.next();
 		if (isSeparator(expectedTarget))
 		{
 			throw new GroupingStateException("Expected target type, but " + expectedTarget
@@ -201,12 +201,12 @@ public class GroupingInfoFactory
 	//Allows and consumes a child, if present (is not required)
 	private void allowChild() throws GroupingStateException
 	{
-		if (!fullTokenizer.hasMoreElements())
+		if (!fullTokenizer.hasNext())
 		{
 			//This is allow, not require
 			return;
 		}
-		String expectedOpenBracket = fullTokenizer.nextElement();
+		String expectedOpenBracket = fullTokenizer.next();
 		if (!"[".equals(expectedOpenBracket))
 		{
 			throw new GroupingMismatchException(
@@ -237,12 +237,12 @@ public class GroupingInfoFactory
 	//Consumes the close bracket at the end of a grouping
 	private void consumeCloseBracket() throws GroupingStateException
 	{
-		if (!fullTokenizer.hasMoreElements())
+		if (!fullTokenizer.hasNext())
 		{
 			throw new GroupingStateException(
 				"Expected a ']', but string ended: " + fullTokenizer.getConsumed());
 		}
-		String expectedCloseBracket = fullTokenizer.nextElement();
+		String expectedCloseBracket = fullTokenizer.next();
 		if (!"]".equals(expectedCloseBracket))
 		{
 			throw new GroupingMismatchException("Expected ']' but found: "

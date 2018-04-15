@@ -15,14 +15,14 @@
  */
 package pcgen.cdom.grouping;
 
-import java.util.Enumeration;
+import java.util.Iterator;
 import java.util.StringTokenizer;
 
 /**
  * A GroupingTokenizer is a specialized Tokenizer designed to split Groupings into the
  * underlying elements.
  */
-public class GroupingTokenizer implements Enumeration<String>
+public class GroupingTokenizer implements Iterator<String>
 {
 
 	/**
@@ -62,13 +62,13 @@ public class GroupingTokenizer implements Enumeration<String>
 	}
 
 	@Override
-	public boolean hasMoreElements()
+	public boolean hasNext()
 	{
 		return peeked || underlying.hasMoreTokens();
 	}
 
 	@Override
-	public String nextElement()
+	public String next()
 	{
 		if (peeked)
 		{
