@@ -28,8 +28,8 @@ public class DescriptorIntegrationTest extends
 		AbstractTypeSafeListIntegrationTestCase<Spell>
 {
 
-	static DescriptorToken token = new DescriptorToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
+	private static DescriptorToken token = new DescriptorToken();
+	private static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Spell> getCDOMClass()

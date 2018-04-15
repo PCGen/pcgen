@@ -58,14 +58,6 @@ public class Prerequisite implements Cloneable
 	private String categoryName;
 
 	/**
-	 * Instantiates a new prerequisite.
-	 */
-	public Prerequisite()
-	{
-		// Empty Constructor
-	}
-
-	/**
 	 * @return Returns the totalValues.
 	 */
 	public final boolean isTotalValues()

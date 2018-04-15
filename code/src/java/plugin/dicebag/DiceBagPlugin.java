@@ -83,16 +83,6 @@ public class DiceBagPlugin implements InteractivePlugin
 
 	/**
 	 * <p>
-	 * Default (and only) constructor. Initializes the plugin.
-	 * </p>
-	 */
-	public DiceBagPlugin()
-	{
-		// Do Nothing
-	}
-
-	/**
-	 * <p>
 	 * Adds view panel via TabAddMessage and initializes the menu items.
 	 * </p>
 	 */

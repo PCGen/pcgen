@@ -20,12 +20,6 @@
 
 public class XMLFilter implements java.io.FilenameFilter
 {
-	/** Creates a new instance of XMLFilter */
-	public XMLFilter()
-	{
-		// Empty Constructor
-	}
-
 	/**
 	 * Return true if filter matches *.xml
 	 * 

@@ -41,10 +41,10 @@ public class FaceIntegrationTest extends
 		AbstractIntegrationTestCase<PCTemplate>
 {
 
-	static FaceToken token = new FaceToken();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
+	private static FaceToken token = new FaceToken();
+	private static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
-	static ModifierFactory<OrderedPair> m = new SetModifierFactory();
+	private static ModifierFactory<OrderedPair> m = new SetModifierFactory();
 	private FormatManager<OrderedPair> opManager = new OrderedPairManager();
 
 	@Override

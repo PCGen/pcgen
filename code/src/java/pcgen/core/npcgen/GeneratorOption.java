@@ -33,14 +33,6 @@ public abstract class GeneratorOption
 	private String theName = Constants.EMPTY_STRING;
 
 	/**
-	 * Default constructor.
-	 */
-	public GeneratorOption()
-	{
-		// Do nothing
-	}
-
-	/**
 	 * Sets the display name for this option.
 	 * 
 	 * @param aName The display name

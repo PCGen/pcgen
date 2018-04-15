@@ -117,11 +117,7 @@ public class KitLangBonus extends BaseKit
 					+ (langList.size() - allowedCount) + " had to be ignored.");
 		}
 
-		if (!theLanguages.isEmpty())
-		{
-			return true;
-		}
-		return false;
+		return !theLanguages.isEmpty();
 	}
 
 	/* (non-Javadoc)

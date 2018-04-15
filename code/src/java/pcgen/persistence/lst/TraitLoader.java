@@ -35,14 +35,6 @@ public class TraitLoader extends LstLineFileLoader
 {
 	private int traitType = -1;
 
-	/**
-	 * Constructor for TraitLoader.
-	 */
-	public TraitLoader()
-	{
-		super();
-	}
-
 	@Override
 	public void loadLstFile(LoadContext context, URI fileName) throws PersistenceLayerException
 	{
