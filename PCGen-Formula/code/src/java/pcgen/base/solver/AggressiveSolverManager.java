@@ -90,6 +90,12 @@ public class AggressiveSolverManager implements SolverManager
 	private final SolverFactory solverFactory;
 
 	/**
+	 * The Stack, used during processing, to identify what items are being processed and
+	 * to detect loops.
+	 */
+	private Stack<VariableID<?>> varStack = new Stack<>();
+
+	/**
 	 * Constructs a new AggressiveSolverManager which will use the given FormulaMananger
 	 * and store results in the given VariableStore.
 	 * 
@@ -346,8 +352,6 @@ public class AggressiveSolverManager implements SolverManager
 			}
 		}
 	}
-
-	private Stack<VariableID<?>> varStack = new Stack<>();
 
 	/**
 	 * Processes a single Solver represented by the given VariableID. Returns true if the

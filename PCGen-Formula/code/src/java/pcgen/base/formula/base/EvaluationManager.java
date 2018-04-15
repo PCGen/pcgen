@@ -40,6 +40,29 @@ public final class EvaluationManager
 	private final Map<TypedKey<?>, Object> map = new HashMap<TypedKey<?>, Object>();
 
 	/**
+	 * A TypedKey used for storing the FormulaManager contained in this EvaluationManager.
+	 */
+	public static final TypedKey<FormulaManager> FMANAGER = new TypedKey<>();
+
+	/**
+	 * A TypedKey used for storing the ScopeInstance contained in this EvaluationManager.
+	 */
+	public static final TypedKey<ScopeInstance> INSTANCE = new TypedKey<>();
+
+	/**
+	 * A TypedKey used for storing the Format (as a Class) asserted by the current context
+	 * of a formula.
+	 */
+	public static final TypedKey<Optional<FormatManager<?>>> ASSERTED =
+			new TypedKey<>(Optional.empty());
+
+	/**
+	 * A TypedKey used for storing the Input Object contained in this EvaluationManager.
+	 */
+	public static final TypedKey<Object> INPUT = new TypedKey<>();
+
+
+	/**
 	 * Returns a new EvaluationManager that has all the characteristics of this
 	 * EvaluationManager, except the given key set to the given value.
 	 * 
@@ -73,27 +96,5 @@ public final class EvaluationManager
 		Object value = map.get(Objects.requireNonNull(key));
 		return (value == null) ? key.getDefaultValue() : key.cast(value);
 	}
-
-	/**
-	 * A TypedKey used for storing the FormulaManager contained in this EvaluationManager.
-	 */
-	public static final TypedKey<FormulaManager> FMANAGER = new TypedKey<>();
-
-	/**
-	 * A TypedKey used for storing the ScopeInstance contained in this EvaluationManager.
-	 */
-	public static final TypedKey<ScopeInstance> INSTANCE = new TypedKey<>();
-
-	/**
-	 * A TypedKey used for storing the Format (as a Class) asserted by the current context
-	 * of a formula.
-	 */
-	public static final TypedKey<Optional<FormatManager<?>>> ASSERTED =
-			new TypedKey<>(Optional.empty());
-
-	/**
-	 * A TypedKey used for storing the Input Object contained in this EvaluationManager.
-	 */
-	public static final TypedKey<Object> INPUT = new TypedKey<>();
 
 }

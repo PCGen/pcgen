@@ -14,9 +14,9 @@ public class ScopeManagerInstTest extends TestCase
 {
 
 	private ScopeManagerInst legalScopeManager;
-	SimpleLegalScope globalScope = new SimpleLegalScope("Global");
-	SimpleLegalScope subScope = new SimpleLegalScope(globalScope, "SubScope");
-	SimpleLegalScope otherScope = new SimpleLegalScope(globalScope, "OtherScope");
+	private SimpleLegalScope globalScope = new SimpleLegalScope("Global");
+	private SimpleLegalScope subScope = new SimpleLegalScope(globalScope, "SubScope");
+	private SimpleLegalScope otherScope = new SimpleLegalScope(globalScope, "OtherScope");
 
 	@Override
 	protected void setUp() throws Exception

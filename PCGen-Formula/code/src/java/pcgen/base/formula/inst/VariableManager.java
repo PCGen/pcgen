@@ -46,6 +46,14 @@ public class VariableManager implements VariableLibrary
 	private final LegalScopeManager legalScopeManager;
 
 	/**
+	 * Holds a map from variable names and LegalScope objects to the format for that
+	 * variable.
+	 */
+	@SuppressWarnings("PMD.LooseCoupling")
+	private DoubleKeyMap<String, LegalScope, FormatManager<?>> variableDefs =
+			new DoubleKeyMap<>(CaseInsensitiveMap.class, HashMap.class);
+
+	/**
 	 * Constructs a new VariableManager, which uses the given LegalScopeManager to ensure
 	 * variables are legal within a given scope.
 	 * 
@@ -57,14 +65,6 @@ public class VariableManager implements VariableLibrary
 	{
 		this.legalScopeManager = Objects.requireNonNull(legalScopeManager);
 	}
-
-	/**
-	 * Holds a map from variable names and LegalScope objects to the format for that
-	 * variable.
-	 */
-	@SuppressWarnings("PMD.LooseCoupling")
-	private DoubleKeyMap<String, LegalScope, FormatManager<?>> variableDefs =
-			new DoubleKeyMap<>(CaseInsensitiveMap.class, HashMap.class);
 
 	@Override
 	public void assertLegalVariableID(String varName, LegalScope legalScope,

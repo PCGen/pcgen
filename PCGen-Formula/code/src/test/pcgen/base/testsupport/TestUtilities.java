@@ -28,9 +28,12 @@ import pcgen.base.formula.parse.SimpleNode;
 
 public final class TestUtilities
 {
+	public static final double SMALL_ERROR = Math.pow(10, -10);
+
 
 	private TestUtilities()
 	{
+		//Do not instantiate utility class
 	}
 
 	public static SimpleNode doParse(String formula)
@@ -46,8 +49,6 @@ public final class TestUtilities
 			return null;
 		}
 	}
-
-	public static final double SMALL_ERROR = Math.pow(10, -10);
 
 	public static boolean doubleEqual(double d1, double d2, double delta)
 	{

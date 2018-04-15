@@ -48,10 +48,35 @@ public class FormulaSemantics
 	private final Map<TypedKey<?>, Object> map = new HashMap<TypedKey<?>, Object>();
 
 	/**
+	 * A TypedKey used for storing the FormulaManager contained in this FormulaSemantics.
+	 */
+	public static final TypedKey<FormulaManager> FMANAGER = new TypedKey<>();
+
+	/**
+	 * A TypedKey used for storing the LegalScope contained in this FormulaSemantics.
+	 */
+	public static final TypedKey<LegalScope> SCOPE = new TypedKey<>();
+
+	/**
+	 * A TypedKey used for storing the Format currently asserted for the formula served by
+	 * this FormulaSemantics.
+	 */
+	public static final TypedKey<Optional<FormatManager<?>>> ASSERTED =
+			new TypedKey<>(Optional.empty());
+
+	/**
+	 * A TypedKey used for storing the Format of the input object for the formula served
+	 * by this FormulaSemantics.
+	 */
+	public static final TypedKey<Optional<FormatManager<?>>> INPUT_FORMAT =
+			new TypedKey<>(Optional.empty());
+
+	/**
 	 * Constructs a new FormulaSemantics object.
 	 */
 	public FormulaSemantics()
 	{
+		//Allow empty Map
 	}
 
 	/**
@@ -99,28 +124,4 @@ public class FormulaSemantics
 		Object value = map.get(Objects.requireNonNull(key));
 		return (value == null) ? key.getDefaultValue() : key.cast(value);
 	}
-
-	/**
-	 * A TypedKey used for storing the FormulaManager contained in this FormulaSemantics.
-	 */
-	public static final TypedKey<FormulaManager> FMANAGER = new TypedKey<>();
-
-	/**
-	 * A TypedKey used for storing the LegalScope contained in this FormulaSemantics.
-	 */
-	public static final TypedKey<LegalScope> SCOPE = new TypedKey<>();
-
-	/**
-	 * A TypedKey used for storing the Format currently asserted for the formula served by
-	 * this FormulaSemantics.
-	 */
-	public static final TypedKey<Optional<FormatManager<?>>> ASSERTED =
-			new TypedKey<>(Optional.empty());
-
-	/**
-	 * A TypedKey used for storing the Format of the input object for the formula served
-	 * by this FormulaSemantics.
-	 */
-	public static final TypedKey<Optional<FormatManager<?>>> INPUT_FORMAT =
-			new TypedKey<>(Optional.empty());
 }

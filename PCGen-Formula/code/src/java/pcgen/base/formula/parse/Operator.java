@@ -47,12 +47,12 @@ public enum Operator
 	EXP("^"),
 	REM("%");
 
+	private final String symbol;
+
 	public String getSymbol()
 	{
 		return symbol;
 	}
-
-	private final String symbol;
 
 	private Operator(String op)
 	{
