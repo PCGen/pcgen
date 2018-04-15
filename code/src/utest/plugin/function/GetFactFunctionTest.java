@@ -141,7 +141,7 @@ public class GetFactFunctionTest extends AbstractFormulaTestCase
 	@Test
 	public void testBasic()
 	{
-		FactDefinition fd = new FactDefinition();
+		FactDefinition<?, String> fd = new FactDefinition<>();
 		fd.setName("SKILL.Stuff");
 		fd.setFactName("Stuff");
 		fd.setUsableLocation(Skill.class);
@@ -159,7 +159,7 @@ public class GetFactFunctionTest extends AbstractFormulaTestCase
 		Skill equip = new Skill();
 		equip.setName("SkillKey");
 		FactKey<String> fk = FactKey.getConstant("Stuff", STRING_MANAGER);
-		equip.put(fk, new BasicIndirect(STRING_MANAGER, "Wow!"));
+		equip.put(fk, new BasicIndirect<>(STRING_MANAGER, "Wow!"));
 
 		context.getReferenceContext().importObject(equip);
 		evaluatesTo(formula, node, "Wow!");
@@ -177,7 +177,7 @@ public class GetFactFunctionTest extends AbstractFormulaTestCase
 		vl.assertLegalVariableID("SkillVar", globalScope,
 			context.getManufacturer("SKILL"));
 
-		FactDefinition fd = new FactDefinition();
+		FactDefinition<?, String> fd = new FactDefinition<>();
 		fd.setName("SKILL.Stuff");
 		fd.setFactName("Stuff");
 		fd.setUsableLocation(Skill.class);
@@ -203,8 +203,8 @@ public class GetFactFunctionTest extends AbstractFormulaTestCase
 		context.getReferenceContext().importObject(skill);
 		context.getReferenceContext().importObject(skillalt);
 		FactKey<String> fk = FactKey.getConstant("Stuff", STRING_MANAGER);
-		skill.put(fk, new BasicIndirect(STRING_MANAGER, "Wow!"));
-		skillalt.put(fk, new BasicIndirect(STRING_MANAGER, "Zers!"));
+		skill.put(fk, new BasicIndirect<>(STRING_MANAGER, "Wow!"));
+		skillalt.put(fk, new BasicIndirect<>(STRING_MANAGER, "Zers!"));
 
 		evaluatesTo(formula, node, "Wow!");
 		Object rv =

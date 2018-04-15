@@ -24,7 +24,10 @@ public class StrangeMap<K, V> extends HashMap<K, V>
 {
 	public StrangeMap(String s)
 	{
-
+		/*
+		 * Ignore this constructor - the point is to have a Map that doens't have a
+		 * zero-arg constructor.
+		 */
 	}
 
 }

@@ -69,12 +69,9 @@ public class PreMultParserTest extends EnUsLocaleDependentTestCase
 
 		try
 		{
-			Prerequisite prereq =
-					parser
-						.parse(
-							"mult",
-							"1,[PREPROFWITHARMOR:1,TYPE.Medium],[PREFEAT:1,Armor Proficiency (Medium)",
-							false, false);
+			parser.parse("mult",
+				"1,[PREPROFWITHARMOR:1,TYPE.Medium],[PREFEAT:1,Armor Proficiency (Medium)",
+				false, false);
 			fail("Expected unbalanced bracket to be detected.");
 		}
 		catch (PersistenceLayerException e)

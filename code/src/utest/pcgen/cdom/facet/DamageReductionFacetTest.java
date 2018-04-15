@@ -73,7 +73,7 @@ public class DamageReductionFacetTest extends
 		drFacet.setBonusCheckingFacet(new BonusCheckingFacet()
 		{
 			@Override
-			public double getBonus(CharID id, String bonusType, String bonusName)
+			public double getBonus(CharID charID, String bonusType, String bonusName)
 			{
 				return 0.0d;
 			}	

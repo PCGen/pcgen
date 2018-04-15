@@ -68,6 +68,7 @@ public class DividingFormulaTest
 		testBrokenCalls(f);
 	}
 
+	@SuppressWarnings("unused")
 	@Test
 	public void testZero()
 	{

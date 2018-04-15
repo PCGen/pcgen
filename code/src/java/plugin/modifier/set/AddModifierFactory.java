@@ -109,6 +109,11 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 			return toAdd;
 		}
 
+		@Override
+		public void getDependencies(DependencyManager fdm)
+		{
+			//Since this already knows the toSet objects, it has no dependencies
+		}
 	}
 
 	/**
@@ -142,6 +147,11 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 			return toAdd.get();
 		}
 
+		@Override
+		public void getDependencies(DependencyManager fdm)
+		{
+			//CONSIDER: How does DependencyManager want to know about Indirect?
+		}
 	}
 
 	/**
@@ -189,12 +199,6 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 		public FormatManager<T[]> getVariableFormat()
 		{
 			return fmtManager;
-		}
-
-		@Override
-		@SuppressWarnings("PMD.EmptyMethodInAbstractClassShouldBeAbstract")
-		public void getDependencies(DependencyManager fdm)
-		{
 		}
 
 		@Override
