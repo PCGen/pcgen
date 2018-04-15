@@ -1515,18 +1515,12 @@ public class PCClass extends PObject implements ClassFacade, Cloneable
 		return super.qualifies(aPC, owner);
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.ClassFacade#getBaseStat()
-	 */
     @Override
 	public String getBaseStat()
 	{
 		return getSpellBaseStat();
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.ClassFacade#getHD()
-	 */
     @Override
 	public String getHD()
 	{
@@ -1534,9 +1528,6 @@ public class PCClass extends PObject implements ClassFacade, Cloneable
 		return String.valueOf(hd.getDie());
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.ClassFacade#getTypes()
-	 */
     @Override
 	public String[] getTypes()
 	{

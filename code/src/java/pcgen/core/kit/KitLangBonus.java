@@ -120,18 +120,12 @@ public class KitLangBonus extends BaseKit
 		return !theLanguages.isEmpty();
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.kit.BaseKit#getObjectName()
-	 */
 	@Override
 	public String getObjectName()
 	{
 		return "Languages";
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString()
 	{
