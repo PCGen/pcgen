@@ -49,24 +49,12 @@ public abstract class AbstractSetModifierFactory<T> implements
 		return argument;
 	}
 
-	/**
-	 * Returns the inherent priority of an AbstractSetModifierFactory. This is
-	 * used if two Modifiers have the same User Priority. Lower values are
-	 * processed first.
-	 * 
-	 * @see pcgen.base.calculation.CalculationInfo#getInherentPriority()
-	 */
 	@Override
 	public int getInherentPriority()
 	{
 		return 0;
 	}
 
-	/**
-	 * Returns an Identifier for this type of Modifier
-	 * 
-	 * @see pcgen.base.calculation.CalculationInfo#getIdentification()
-	 */
 	@Override
 	public String getIdentification()
 	{

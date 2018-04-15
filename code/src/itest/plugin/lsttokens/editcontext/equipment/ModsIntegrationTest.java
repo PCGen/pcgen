@@ -30,8 +30,8 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class ModsIntegrationTest extends AbstractIntegrationTestCase<Equipment>
 {
-	static ModsToken token = new ModsToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
+	private static ModsToken token = new ModsToken();
+	private static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()

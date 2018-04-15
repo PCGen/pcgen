@@ -30,10 +30,6 @@ import freemarker.template.TemplateModelException;
  */
 public class CNAbilitySelectionWrapper implements PCGenObjectWrapper
 {
-	/**
-	 * @see pcgen.output.base.PCGenObjectWrapper#wrap(pcgen.cdom.enumeration.CharID,
-	 *      java.lang.Object)
-	 */
 	@Override
 	public TemplateModel wrap(CharID id, Object o)
 		throws TemplateModelException

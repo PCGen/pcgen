@@ -38,11 +38,6 @@ import pcgen.output.model.CollectionModel;
  */
 public class TypeActor implements OutputActor<CDOMObject>
 {
-
-	/**
-	 * @see pcgen.output.base.OutputActor#process(pcgen.cdom.enumeration.CharID,
-	 * java.lang.Object)
-	 */
 	@Override
 	public TemplateModel process(CharID id, CDOMObject d)
 			throws TemplateModelException

@@ -112,6 +112,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 	private final JEditorPane infoPane;
 	private final JButton loadButton;
 	private CompanionDialog companionDialog = null;
+	private Object selectedElement;
 	
 	public CompanionInfoTab()
 	{
@@ -557,8 +558,6 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 		{
 			return null;
 		}
-		
-		private Object selectedElement;
 		
 		@Override
 		public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row, int column)

@@ -30,6 +30,9 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 public class CSkillTokenTest extends
 		AbstractListTokenTestCase<PCClassLevel, Skill>
 {
+	private static CDOMPrimaryToken<PCClassLevel> token = new CskillToken();
+	private static CDOMTokenLoader<PCClassLevel> loader =
+			new CDOMTokenLoader<>();
 
 	@Override
 	public char getJoinCharacter()
@@ -66,10 +69,6 @@ public class CSkillTokenTest extends
 	{
 		return true;
 	}
-
-	static CDOMPrimaryToken<PCClassLevel> token = new CskillToken();
-	static CDOMTokenLoader<PCClassLevel> loader =
-			new CDOMTokenLoader<>();
 
 	@Override
 	public CDOMLoader<PCClassLevel> getLoader()

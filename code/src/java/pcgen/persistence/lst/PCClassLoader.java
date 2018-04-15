@@ -40,9 +40,6 @@ import pcgen.util.Logging;
 
 public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 {
-	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(LoadContext, pcgen.cdom.base.CDOMObject, String, SourceEntry)
-	 */
 	@Override
 	public PCClass parseLine(LoadContext context, PCClass target,
 		String lstLine, SourceEntry source) throws PersistenceLayerException
@@ -479,9 +476,6 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 		}
 	}
 
-	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectKeyed(LoadContext, String)
-	 */
 	@Override
 	protected PCClass getObjectKeyed(LoadContext context, String aKey)
 	{

@@ -28,8 +28,8 @@ public class PageUsageIntegrationTest extends
 		AbstractFormulaIntegrationTestCase<Equipment>
 {
 
-	static PageUsageToken token = new PageUsageToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
+	private static PageUsageToken token = new PageUsageToken();
+	private static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()

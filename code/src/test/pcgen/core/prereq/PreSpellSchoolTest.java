@@ -32,6 +32,14 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 public class PreSpellSchoolTest extends AbstractCharacterTestCase
 {
 
+	private Spell burning = null;
+	private Spell fireball = null;
+	private Spell lightning = null;
+	private Spell heal = null;
+	private Spell cure = null;
+	private PCClass wiz;
+	private PCClass cle;
+
 	public static void main(final String[] args)
 	{
 		TestRunner.run(PreSpellSchoolTest.class);
@@ -45,14 +53,6 @@ public class PreSpellSchoolTest extends AbstractCharacterTestCase
 		return new TestSuite(PreSpellSchoolTest.class);
 	}
 
-	Spell burning = null;
-	Spell fireball = null;
-	Spell lightning = null;
-	Spell heal = null;
-	Spell cure = null;
-	private PCClass wiz;
-	private PCClass cle;
-
 	@Override
 	protected void setUp() throws Exception
 	{
@@ -60,11 +60,6 @@ public class PreSpellSchoolTest extends AbstractCharacterTestCase
 		Globals.getContext().loadCampaignFacets();
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see junit.framework.TestCase#setUp()
-	 */
 	@Override
 	protected void additionalSetUp() throws Exception
 	{
