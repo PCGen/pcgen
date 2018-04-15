@@ -32,11 +32,6 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 public class PreSpellDescriptorTest extends AbstractCharacterTestCase
 {
 
-	private Spell burning = null;
-	private Spell fireball = null;
-	private Spell lightning = null;
-	private Spell heal = null;
-	private Spell cure = null;
 	private PCClass wiz;
 	private PCClass cle;
 
@@ -75,31 +70,31 @@ public class PreSpellDescriptorTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(cle.getOriginalClassLevel(1), "CAST", "1,1");
 		context.unconditionallyProcess(cle.getOriginalClassLevel(2), "CAST", "1,1,1");
 
-		fireball = new Spell();
+		Spell fireball = new Spell();
 		fireball.setName("Fireball");
 		context.getReferenceContext().importObject(fireball);
 		context.unconditionallyProcess(fireball, "CLASSES", "Wizard=2");
 		context.unconditionallyProcess(fireball, "DESCRIPTOR", "Fire");
 
-		lightning = new Spell();
+		Spell lightning = new Spell();
 		lightning.setName("Lightning Bolt");
 		context.getReferenceContext().importObject(lightning);
 		context.unconditionallyProcess(lightning, "CLASSES", "Wizard=2");
 		context.unconditionallyProcess(lightning, "DESCRIPTOR", "Useful");
 
-		burning = new Spell();
+		Spell burning = new Spell();
 		burning.setName("Burning Hands");
 		context.getReferenceContext().importObject(burning);
 		context.unconditionallyProcess(burning, "CLASSES", "Wizard=1");
 		context.unconditionallyProcess(burning, "DESCRIPTOR", "Fire");
 
-		heal = new Spell();
+		Spell heal = new Spell();
 		heal.setName("Heal");
 		context.getReferenceContext().importObject(heal);
 		context.unconditionallyProcess(heal, "CLASSES", "Cleric=2");
 		context.unconditionallyProcess(heal, "DESCRIPTOR", "Useful");
 
-		cure = new Spell();
+		Spell cure = new Spell();
 		cure.setName("Cure Light Wounds");
 		context.getReferenceContext().importObject(cure);
 		context.unconditionallyProcess(cure, "CLASSES", "Cleric=1");
