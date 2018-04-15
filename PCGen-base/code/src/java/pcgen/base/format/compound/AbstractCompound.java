@@ -101,7 +101,7 @@ abstract class AbstractCompound implements Compound
 	 * 
 	 * @return The FormatManager for this Compound
 	 */
-	FormatManager<Compound> getFormatManager()
+	protected FormatManager<Compound> getFormatManager()
 	{
 		return formatManager;
 	}

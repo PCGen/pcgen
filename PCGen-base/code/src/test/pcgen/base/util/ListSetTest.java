@@ -66,9 +66,9 @@ public class ListSetTest extends TestCase
 	@Test
 	public void testArchitecture()
 	{
-		assertFalse(
-				"ListSet must not implement List, as it does not always return true to add(), as defined by the List interface",
-				ls instanceof List);
+		assertFalse("ListSet must not implement List, "
+			+ "as it does not always return true to add(), "
+			+ "as defined by the List interface", ls instanceof List);
 	}
 
 	@Test

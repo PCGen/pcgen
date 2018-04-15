@@ -196,9 +196,9 @@ public class CompoundFormatManager<T> implements DispatchingFormatManager<Compou
 		}
 		String secondaryFormats =
 				c.getSecondaryNames().stream()
-										   .map(c::getSecondary)
-										   .map(Object::toString)
-										   .collect(StringUtil.joining(separator));
+									 .map(c::getSecondary)
+									 .map(Object::toString)
+									 .collect(StringUtil.joining(separator));
 		return new Tuple<>(c.getPrimaryUnconverted(), separator + secondaryFormats);
 	}
 

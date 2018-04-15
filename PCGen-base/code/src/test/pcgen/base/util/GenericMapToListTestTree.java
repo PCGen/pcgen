@@ -27,7 +27,7 @@ import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.Test;
 
-public class GenericMapToListTest_Tree extends TestCase
+public class GenericMapToListTestTree extends TestCase
 {
 
 	private static final Character CONST_E = 'E';

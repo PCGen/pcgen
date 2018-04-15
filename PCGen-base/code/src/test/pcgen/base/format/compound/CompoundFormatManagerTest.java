@@ -56,7 +56,7 @@ public class CompoundFormatManagerTest extends TestCase
 			manager.getIdentifierType());
 	}
 
-	public void testInvalidConvert()
+	public void testInvalidConvertSimpleFail()
 	{
 		CompoundFormatManager<Number> manager =
 				new CompoundFormatManager<>(numberManager, '|');
@@ -103,16 +103,14 @@ public class CompoundFormatManagerTest extends TestCase
 		{
 			//ok
 		}
-		try
-		{
-			manager.convert("3|LEVEL=Hard|SOUND=Bell");
-			fail("Should not be able to convert instructions"
-				+ " with an undefined association");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
+	}
+	
+	public void testInvalidConvertBadSeparator()
+	{
+		CompoundFormatManager<Number> manager =
+				new CompoundFormatManager<>(numberManager, '|');
+		manager.addSecondary(booleanManager, "Allowed", false);
+		manager.addSecondary(stringManager, "Level", true);
 		try
 		{
 			manager.convert("3|LEVEL=Hard|");
@@ -138,6 +136,24 @@ public class CompoundFormatManagerTest extends TestCase
 			manager.convert("3||LEVEL=Hard|ALLOWED=false");
 			fail("Should not be able to convert instructions"
 				+ " with an double separator");
+		}
+		catch (IllegalArgumentException e)
+		{
+			//ok
+		}
+	}
+	
+	public void testInvalidConvertBadAssociation()
+	{
+		CompoundFormatManager<Number> manager =
+				new CompoundFormatManager<>(numberManager, '|');
+		manager.addSecondary(booleanManager, "Allowed", false);
+		manager.addSecondary(stringManager, "Level", true);
+		try
+		{
+			manager.convert("3|LEVEL=Hard|SOUND=Bell");
+			fail("Should not be able to convert instructions"
+				+ " with an undefined association");
 		}
 		catch (IllegalArgumentException e)
 		{

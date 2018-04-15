@@ -148,7 +148,7 @@ public class FormatManagerIntTest extends TestCase
 		}
 	}
 
-	public void testInvalidConvertIndirect()
+	public void testInvalidConvertIndirectSimple()
 	{
 		CompoundFormatManager<Number> compoundManager =
 				new CompoundFormatManager<>(numberManager, '|');
@@ -175,16 +175,16 @@ public class FormatManagerIntTest extends TestCase
 		{
 			//ok
 		}
-		try
-		{
-			manager.convert("3|LEVEL=Hard|SOUND=Bell");
-			fail("Should not be able to convert instructions"
-				+ " with an undefined association");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
+	}
+
+	public void testInvalidConvertIndirectSeparator()
+	{
+		CompoundFormatManager<Number> compoundManager =
+				new CompoundFormatManager<>(numberManager, '|');
+		compoundManager.addSecondary(booleanManager, "Allowed", false);
+		compoundManager.addSecondary(stringManager, "Level", true);
+		ArrayFormatManager<Compound> manager =
+				new ArrayFormatManager<>(compoundManager, '\n', ',');
 		try
 		{
 			manager.convertIndirect("3|LEVEL=Hard|");
@@ -239,6 +239,26 @@ public class FormatManagerIntTest extends TestCase
 			manager.convertIndirect("3,4,|LEVEL=Hard|ALLOWED=false");
 			fail("Should not be able to convert instructions"
 				+ " with trailing separator");
+		}
+		catch (IllegalArgumentException e)
+		{
+			//ok
+		}
+	}
+
+	public void testInvalidConvertIndirectBadAssociations()
+	{
+		CompoundFormatManager<Number> compoundManager =
+				new CompoundFormatManager<>(numberManager, '|');
+		compoundManager.addSecondary(booleanManager, "Allowed", false);
+		compoundManager.addSecondary(stringManager, "Level", true);
+		ArrayFormatManager<Compound> manager =
+				new ArrayFormatManager<>(compoundManager, '\n', ',');
+		try
+		{
+			manager.convert("3|LEVEL=Hard|SOUND=Bell");
+			fail("Should not be able to convert instructions"
+				+ " with an undefined association");
 		}
 		catch (IllegalArgumentException e)
 		{

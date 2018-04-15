@@ -4,11 +4,6 @@ import static org.junit.Assert.fail;
 import org.junit.Before;
 import org.junit.Test;
 
-import pcgen.base.proxy.ItemProcessor;
-import pcgen.base.proxy.ListProcessor;
-import pcgen.base.proxy.MapProcessor;
-import pcgen.base.proxy.StagingInfoFactory;
-
 public class StagingProxyFactoryTest
 {
 
@@ -23,7 +18,7 @@ public class StagingProxyFactoryTest
 	}
 
 	@Test
-	public void testInvalidClass()
+	public void testInvalidClassInterfaceRequired()
 	{
 		try
 		{
@@ -43,6 +38,34 @@ public class StagingProxyFactoryTest
 		{
 			//Expected
 		}
+	}
+
+	@Test
+	public void testInvalidClassAvoidNulls()
+	{
+		try
+		{
+			factory.produceStaging(GetListOnly.class, null);
+			fail("Can't take null item");
+		}
+		catch (IllegalArgumentException | NullPointerException e)
+		{
+			//Expected
+		}
+		try
+		{
+			factory.produceStaging(null, AddListOnly.class);
+			fail();
+		}
+		catch (IllegalArgumentException | NullPointerException e)
+		{
+			//Expected
+		}
+	}
+
+	@Test
+	public void testInvalidClassMethodsRequired()
+	{
 		try
 		{
 			factory.produceStaging(NoMethodInterface.class, SetItemOnly.class);
@@ -70,28 +93,15 @@ public class StagingProxyFactoryTest
 		{
 			//Expected
 		}
-		try
-		{
-			factory.produceStaging(GetListOnly.class, null);
-			fail("Can't take null item");
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//Expected
-		}
-		try
-		{
-			factory.produceStaging(null, AddListOnly.class);
-			fail();
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//Expected
-		}
+	}
+
+	@Test
+	public void testInvalidClassCheckReturnTypes()
+	{
 		try
 		{
 			factory.produceStaging(GetItemOnly.class, SetShouldBeVoid.class);
-			fail();
+			fail("Set Methods Should be void");
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -100,7 +110,7 @@ public class StagingProxyFactoryTest
 		try
 		{
 			factory.produceStaging(GetListOnly.class, AddShouldBeVoid.class);
-			fail();
+			fail("Add methods should be void");
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -109,16 +119,21 @@ public class StagingProxyFactoryTest
 		try
 		{
 			factory.produceStaging(GetMapOnly.class, PutShouldBeVoid.class);
-			fail();
+			fail("Put method should be void");
 		}
 		catch (IllegalArgumentException e)
 		{
 			//Expected
 		}
+	}
+
+	@Test
+	public void testInvalidClassParameterCountCheck()
+	{
 		try
 		{
 			factory.produceStaging(GetShouldHaveNoParams.class, SetItemOnly.class);
-			fail();
+			fail("Get Should have no parameters");
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -127,16 +142,21 @@ public class StagingProxyFactoryTest
 		try
 		{
 			factory.produceStaging(GetItemOnly.class, SetItemShouldHaveOneParam.class);
-			fail();
+			fail("Set Should have one parameter");
 		}
 		catch (IllegalArgumentException e)
 		{
 			//Expected
 		}
+	}
+
+	@Test
+	public void testInvalidClassMismatch()
+	{
 		try
 		{
 			factory.produceStaging(GetItemOnly.class, SetDupeName.class);
-			fail();
+			fail("Cannot have method set methods with two types");
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -145,16 +165,21 @@ public class StagingProxyFactoryTest
 		try
 		{
 			factory.produceStaging(GetNumber.class, SetItemOnly.class);
-			fail();
+			fail("Set and Get Methods did not match format");
 		}
 		catch (IllegalArgumentException e)
 		{
 			//Expected
 		}
+	}
+
+	@Test
+	public void testInvalidClassAvoidExtras()
+	{
 		try
 		{
 			factory.produceStaging(GetItemOnly.class, LeftoverWrite.class);
-			fail();
+			fail("Leftover Method on write interface prohibited");
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -163,16 +188,21 @@ public class StagingProxyFactoryTest
 		try
 		{
 			factory.produceStaging(LeftoverRead.class, SetItemOnly.class);
-			fail();
+			fail("Leftover method on read interface prohibited");
 		}
 		catch (IllegalArgumentException e)
 		{
 			//Expected
 		}
+	}
+
+	@Test
+	public void testInvalidClassMixedTypes()
+	{
 		try
 		{
 			factory.produceStaging(GetItemOnly.class, DupePropertyName.class);
-			fail();
+			fail("Cannot have both set and add for a given property");
 		}
 		catch (IllegalArgumentException e)
 		{

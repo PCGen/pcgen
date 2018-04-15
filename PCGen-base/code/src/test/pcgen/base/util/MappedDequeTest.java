@@ -31,10 +31,10 @@ public class MappedDequeTest extends TestCase
 	private static final Character CONST_E = 'E';
 	private static final Character CONST_F = 'F';
 
-	private TypedKey<Character> KEY1 = new TypedKey<>();
-	private TypedKey<Character> KEY2 = new TypedKey<>();
-	private TypedKey<String> KEY3 = new TypedKey<>();
-	private TypedKey<Character> KEY4 = new TypedKey<>(CONST_F);
+	private TypedKey<Character> key1 = new TypedKey<>();
+	private TypedKey<Character> key2 = new TypedKey<>();
+	private TypedKey<String> key3 = new TypedKey<>();
+	private TypedKey<Character> key4 = new TypedKey<>(CONST_F);
 
 	private MappedDeque deque;
 
@@ -106,90 +106,90 @@ public class MappedDequeTest extends TestCase
 	@Test
 	public void testPushPopPeek()
 	{
-		assertNull(deque.peek(KEY1));
-		deque.push(KEY1, CONST_A);
-		assertEquals(CONST_A, deque.peek(KEY1));
-		assertNull(deque.peek(KEY2));
-		deque.push(KEY1, CONST_B);
-		assertEquals(CONST_B, deque.peek(KEY1));
-		assertNull(deque.peek(KEY2));
-		deque.push(KEY2, CONST_C);
-		assertEquals(CONST_B, deque.peek(KEY1));
-		assertEquals(CONST_C, deque.peek(KEY2));
+		assertNull(deque.peek(key1));
+		deque.push(key1, CONST_A);
+		assertEquals(CONST_A, deque.peek(key1));
+		assertNull(deque.peek(key2));
+		deque.push(key1, CONST_B);
+		assertEquals(CONST_B, deque.peek(key1));
+		assertNull(deque.peek(key2));
+		deque.push(key2, CONST_C);
+		assertEquals(CONST_B, deque.peek(key1));
+		assertEquals(CONST_C, deque.peek(key2));
 		MappedDeque alt = new MappedDeque();
 		//independence
-		alt.push(KEY2, CONST_D);
-		assertEquals(CONST_B, deque.peek(KEY1));
-		assertEquals(CONST_C, deque.peek(KEY2));
-		assertEquals(CONST_D, alt.peek(KEY2));
+		alt.push(key2, CONST_D);
+		assertEquals(CONST_B, deque.peek(key1));
+		assertEquals(CONST_C, deque.peek(key2));
+		assertEquals(CONST_D, alt.peek(key2));
 		//it's a Deque
-		assertEquals(CONST_B, deque.pop(KEY1));
-		assertEquals(CONST_A, deque.peek(KEY1));
+		assertEquals(CONST_B, deque.pop(key1));
+		assertEquals(CONST_A, deque.peek(key1));
 		//null value is legal
-		deque.push(KEY1, null);
-		assertNull(deque.peek(KEY1));
-		assertNull(deque.pop(KEY1));
-		assertEquals(CONST_A, deque.peek(KEY1));
+		deque.push(key1, null);
+		assertNull(deque.peek(key1));
+		assertNull(deque.pop(key1));
+		assertEquals(CONST_A, deque.peek(key1));
 		//Pop to empty
-		assertEquals(CONST_A, deque.pop(KEY1));
-		assertNull(deque.peek(KEY1));
+		assertEquals(CONST_A, deque.pop(key1));
+		assertNull(deque.peek(key1));
 	}
 
 	@Test
 	public void testSet()
 	{
-		assertNull(deque.peek(KEY1));
-		deque.push(KEY1, CONST_A);
-		assertEquals(CONST_A, deque.peek(KEY1));
-		assertNull(deque.peek(KEY2));
-		deque.push(KEY1, CONST_E);
-		assertEquals(CONST_E, deque.peek(KEY1));
-		assertNull(deque.peek(KEY2));
+		assertNull(deque.peek(key1));
+		deque.push(key1, CONST_A);
+		assertEquals(CONST_A, deque.peek(key1));
+		assertNull(deque.peek(key2));
+		deque.push(key1, CONST_E);
+		assertEquals(CONST_E, deque.peek(key1));
+		assertNull(deque.peek(key2));
 		//Set so we should never see E again
-		deque.set(KEY1, CONST_B);
-		assertEquals(CONST_B, deque.peek(KEY1));
-		assertNull(deque.peek(KEY2));
-		deque.push(KEY2, CONST_C);
-		assertEquals(CONST_B, deque.peek(KEY1));
-		assertEquals(CONST_C, deque.peek(KEY2));
+		deque.set(key1, CONST_B);
+		assertEquals(CONST_B, deque.peek(key1));
+		assertNull(deque.peek(key2));
+		deque.push(key2, CONST_C);
+		assertEquals(CONST_B, deque.peek(key1));
+		assertEquals(CONST_C, deque.peek(key2));
 		MappedDeque alt = new MappedDeque();
 		//independence
-		alt.push(KEY2, CONST_D);
-		assertEquals(CONST_B, deque.peek(KEY1));
-		assertEquals(CONST_C, deque.peek(KEY2));
-		assertEquals(CONST_D, alt.peek(KEY2));
+		alt.push(key2, CONST_D);
+		assertEquals(CONST_B, deque.peek(key1));
+		assertEquals(CONST_C, deque.peek(key2));
+		assertEquals(CONST_D, alt.peek(key2));
 		//it's a Deque - but E was overwritten
-		assertEquals(CONST_B, deque.pop(KEY1));
-		assertEquals(CONST_A, deque.peek(KEY1));
+		assertEquals(CONST_B, deque.pop(key1));
+		assertEquals(CONST_A, deque.peek(key1));
 		//null value is legal
-		deque.push(KEY1, null);
-		assertNull(deque.peek(KEY1));
-		assertNull(deque.pop(KEY1));
-		assertEquals(CONST_A, deque.peek(KEY1));
+		deque.push(key1, null);
+		assertNull(deque.peek(key1));
+		assertNull(deque.pop(key1));
+		assertEquals(CONST_A, deque.peek(key1));
 		//Pop to empty
-		assertEquals(CONST_A, deque.pop(KEY1));
-		assertNull(deque.peek(KEY1));
+		assertEquals(CONST_A, deque.pop(key1));
+		assertNull(deque.peek(key1));
 		//Set also works if never set
-		deque.set(KEY3, CONST_A.toString());
-		assertEquals(CONST_A.toString(), deque.peek(KEY3));
-		assertEquals(CONST_A.toString(), deque.pop(KEY3));
-		assertNull(deque.peek(KEY3));
+		deque.set(key3, CONST_A.toString());
+		assertEquals(CONST_A.toString(), deque.peek(key3));
+		assertEquals(CONST_A.toString(), deque.pop(key3));
+		assertNull(deque.peek(key3));
 	}
 
 	@Test
 	public void testPop()
 	{
-		assertNull(KEY1.getDefaultValue());
+		assertNull(key1.getDefaultValue());
 		//Thus this also null
-		assertNull(deque.pop(KEY1));
+		assertNull(deque.pop(key1));
 		//But KEY2 has a default value, so it works here
-		assertEquals(KEY4.getDefaultValue(), deque.pop(KEY4));
+		assertEquals(key4.getDefaultValue(), deque.pop(key4));
 		//as well as after push/pop and set/pop
-		deque.push(KEY4, CONST_E);
-		assertEquals(CONST_E, deque.pop(KEY4));
-		assertEquals(KEY4.getDefaultValue(), deque.pop(KEY4));
-		deque.set(KEY4, CONST_D);
-		assertEquals(CONST_D, deque.pop(KEY4));
-		assertEquals(KEY4.getDefaultValue(), deque.pop(KEY4));
+		deque.push(key4, CONST_E);
+		assertEquals(CONST_E, deque.pop(key4));
+		assertEquals(key4.getDefaultValue(), deque.pop(key4));
+		deque.set(key4, CONST_D);
+		assertEquals(CONST_D, deque.pop(key4));
+		assertEquals(key4.getDefaultValue(), deque.pop(key4));
 	}
 }

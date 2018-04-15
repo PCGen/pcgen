@@ -26,14 +26,14 @@ import pcgen.testsupport.TestSupport;
 public class EdgeUtilitiesTest extends TestCase
 {
 
+	private DefaultHyperEdge<Integer> edge1;
+
+	private Integer node1, node2, node3;
+
 	public void testConstructor()
 	{
 		TestSupport.invokePrivateConstructor(EdgeUtilities.class);
 	}
-
-	private DefaultHyperEdge<Integer> edge1;
-
-	private Integer node1, node2, node3;
 
 	@Override
 	protected void setUp() throws Exception

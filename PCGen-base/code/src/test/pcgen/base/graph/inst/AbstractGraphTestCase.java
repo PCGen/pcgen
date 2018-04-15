@@ -488,7 +488,7 @@ public abstract class AbstractGraphTestCase<T extends Edge<Integer>> extends
 		T edge1 = getLegalEdge(node1, node3);
 		T edge2 = getLegalEdge(node3, node4);
 		Graph<Integer, T> testGraph = getStrategy();
-		assertFalse(testGraph.equals(null));
+		assertNotNull(testGraph);
 		assertFalse(testGraph.equals(node1));
 		assertTrue(testGraph.equals(master));
 		assertEquals(testGraph.hashCode(), master.hashCode());

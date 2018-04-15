@@ -306,8 +306,8 @@ public class DirectionalSetMapGraphTest extends
 	{
 		Integer node = new Integer(1);
 		Integer node2 = new Integer(2);
-		Integer falseNode1 = new Integer(1); // MUST NOT BE
-												// Integer.valueOf(1)!!!!!
+		//This must be NEW integer to test Instances not equals equality
+		Integer falseNode1 = new Integer(1);
 		assertFalse(strategy.containsNode(node));
 		assertFalse(strategy.containsNode(node2));
 		assertFalse(strategy.containsNode(falseNode1));
