@@ -39,19 +39,6 @@ public class EnableLst extends AbstractTokenWithSeparator<CDOMObject>
 		String value)
 	{
 		return new ParseResult.Fail("Not supported since it is not monitored in an ongoing fashion");
-//		int pipeLoc = value.indexOf(Constants.PIPE);
-//		if (pipeLoc == -1)
-//		{
-//			return new ParseResult.Fail(getTokenName()
-//				+ " expecting '|', format is: InfoName|Formula value was: "
-//				+ value);
-//		}
-//		String infoName = value.substring(0, pipeLoc);
-//		String formulaString = value.substring(pipeLoc + 1);
-//		NEPFormula<Boolean> formula =
-//				context.getValidFormula(FormatUtilities.BOOLEAN_MANAGER, formulaString);
-//		obj.addToListFor(ListKey.ENABLE, new InfoBoolean(infoName, formula));
-//		return ParseResult.SUCCESS;
 	}
 
 	@Override
