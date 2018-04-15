@@ -33,8 +33,8 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 public class AspectIntegrationTest extends
 		AbstractIntegrationTestCase<Ability>
 {
-	static AspectToken token = new AspectToken();
-	static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<>();
+	private static AspectToken token = new AspectToken();
+	private static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Ability> getCDOMClass()

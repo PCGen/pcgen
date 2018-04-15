@@ -34,8 +34,8 @@ public class CompanionListIntegrationTest extends
 		AbstractListIntegrationTestCase<CDOMObject, Race>
 {
 
-	static CompanionListLst token = new CompanionListLst();
-	static CDOMTokenLoader<CDOMObject> loader =
+	private static CompanionListLst token = new CompanionListLst();
+	private static CDOMTokenLoader<CDOMObject> loader =
             new CDOMTokenLoader<>();
 
 	@Override

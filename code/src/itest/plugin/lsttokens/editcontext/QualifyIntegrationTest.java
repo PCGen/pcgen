@@ -36,8 +36,8 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 public class QualifyIntegrationTest extends
 		AbstractIntegrationTestCase<CDOMObject>
 {
-	static QualifyToken token = new QualifyToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
+	private static QualifyToken token = new QualifyToken();
+	private static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Ability> getCDOMClass()

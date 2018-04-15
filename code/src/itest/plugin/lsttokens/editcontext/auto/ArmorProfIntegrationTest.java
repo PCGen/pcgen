@@ -37,9 +37,9 @@ public class ArmorProfIntegrationTest extends
 		AbstractListIntegrationTestCase<CDOMObject, ArmorProf>
 {
 
-	static ArmorProfToken ft = new ArmorProfToken();
-	static AutoLst token = new AutoLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
+	private static ArmorProfToken ft = new ArmorProfToken();
+	private static AutoLst token = new AutoLst();
+	private static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

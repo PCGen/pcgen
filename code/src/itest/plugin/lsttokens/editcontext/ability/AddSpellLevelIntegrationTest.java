@@ -30,8 +30,8 @@ public class AddSpellLevelIntegrationTest extends
 		AbstractIntegerIntegrationTestCase<Ability>
 {
 
-	static AddspelllevelToken token = new AddspelllevelToken();
-	static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<>();
+	private static AddspelllevelToken token = new AddspelllevelToken();
+	private static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Ability> getCDOMClass()
