@@ -98,7 +98,7 @@ import pcgen.util.enumeration.View;
 import pcgen.util.enumeration.Visibility;
 
 public final class Equipment extends PObject implements Serializable, Comparable<Object>,
-		VariableContainer, EquipmentFacade, VarScoped
+		VariableContainer, EquipmentFacade, VarScoped, Cloneable
 {
 
 	private static final long serialVersionUID = 1;
