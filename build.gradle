@@ -20,7 +20,7 @@ plugins {
     id 'application'
     id 'build-dashboard'
     id 'checkstyle'
-    id 'findbugs'
+    id 'com.github.spotbugs' version '1.6.0'
     id 'java'
     id 'maven'
     id 'pmd'
@@ -198,11 +198,8 @@ dependencies {
     slowtestCompile sourceSets.test.output
 
     slowtestRuntime configurations.testRuntime
-
-    findbugs 'com.google.code.findbugs:findbugs:3.0.1'
-    findbugs configurations.findbugsPlugins.dependencies
-
-    findbugsPlugins 'com.mebigfatguy.fb-contrib:fb-contrib:7.2.0'
+   
+	spotbugs 'com.github.spotbugs:spotbugs:3.1.1'
 }
 
 ant.importBuild 'build-gradle.xml'

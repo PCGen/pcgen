@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<FindBugsFilter>
+<SpotBugsFilter>
    <Match>
         <!-- high number of false positive -->
         <Bug pattern="PSC_PRESIZE_COLLECTIONS" />
@@ -25,4 +25,4 @@
             <Bug code="IJU" />
         </Not>
     </Match>
-</FindBugsFilter>
+</SpotBugsFilter>

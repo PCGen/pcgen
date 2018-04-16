@@ -27,22 +27,22 @@ pmd {
 	toolVersion = "6.0.0"
 }
 
-findbugs {
+spotbugs {
+	toolVersion = '3.1.1'
 	ignoreFailures = true
-//	effort = 'max'
 	sourceSets = []
 }
 
-task findbugs(type: FindBugs) {
-   pluginClasspath = project.configurations.findbugsPlugins
+task spotbugs(type: com.github.spotbugs.SpotBugsTask) {
+   pluginClasspath = project.configurations.spotbugsPlugins
 }
 
-tasks.withType(FindBugs) {
+tasks.withType(com.github.spotbugs.SpotBugsTask) {
 	reports {
 		xml.enabled false
 		html.enabled true
 		html.stylesheet resources.text.fromFile('code/standards/fancy-hist.xsl')
-		excludeFilterConfig resources.text.fromFile('code/standards/findbugs_ignore.xml')
+		excludeFilterConfig resources.text.fromFile('code/standards/spotbugs_ignore.xml')
 		reportLevel 'low'
 		// While these can be filtered out later, there is a minor speedup to disabling them here.
 		omitVisitors = ['Naming', 'CrossSiteScripting', 'DontUseEnum', 'FinalParameters', 'ImmatureClass',
@@ -60,4 +60,4 @@ gradleLint.rules = [
 	'all-nebula-renames',
 ]
 
-task allReports { dependsOn = ['checkstyleMain', 'pmdMain', 'findbugsMain', 'lintGradle'] }
+task allReports { dependsOn = ['checkstyleMain', 'pmdMain', 'spotbugsMain', 'lintGradle'] }
