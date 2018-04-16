@@ -55,3 +55,5 @@ pcgen-batch-convert.jar
 
 .classpath
 .project
+/.pmd
+/.ruleset
