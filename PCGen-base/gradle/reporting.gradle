@@ -23,7 +23,7 @@ checkstyle {
 pmd {
     // turn off the default rules
     ruleSets = []
-	ruleSetFiles = files('code/standards/pmdruleset.xml')
+	ruleSetFiles = files('code/standards/ruleset.xml')
 	sourceSets = [] // This ensures pmd does not run on a normal build, use pmdmain to execute
 	toolVersion = "5.8.1"
 }
