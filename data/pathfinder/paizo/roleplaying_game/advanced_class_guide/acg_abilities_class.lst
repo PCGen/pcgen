@@ -1539,7 +1539,7 @@ CATEGORY=Internal|Panache Tracker.MOD	DEFINE:PanacheMaxFavoredBonus|0
 CATEGORY=Internal|Panache Tracker.MOD	BONUS:VAR|PanachePoints|PanachePointsBase
 CATEGORY=Internal|Panache Tracker.MOD	BONUS:VAR|Panache_Max|PanachePointsBase
 CATEGORY=Internal|Panache Tracker.MOD	BONUS:VAR|PanachePoints|PanachePointsFavoredBonus/4
-CATEGORY=Internal|Panache Tracker.MOD	BONUS:VAR|Panache_Max|PanacheMaxFavoredBonus/4
+CATEGORY=Internal|Panache Tracker.MOD	BONUS:VAR|Panache_Max|PanachePointsFavoredBonus/4
 CATEGORY=Special Ability|Swashbuckler ~ Panache.MOD	BONUS:VAR|PanachePointsBase|max(CHA,1)|TYPE=Base
 
 ###Block: Swashbuckler Finesse and Slashing Grace Support
