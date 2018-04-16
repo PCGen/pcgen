@@ -8,10 +8,16 @@
  * Full build: gradle all 
  */
 
-apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: "jacoco"
-apply plugin: 'ivy-publish'
+plugins {
+	id 'java'
+	id 'eclipse'
+	id "jacoco"
+	id 'ivy-publish'
+	id 'checkstyle'
+	id 'pmd'
+	id 'jdepend'
+    id "com.github.spotbugs" version '1.6.1'
+}
 
 group = 'net.sourceforge.pcgen'
 description = """PCGen base library"""

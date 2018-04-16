@@ -421,15 +421,15 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 			//			System.err.println("Not equal node list");
 			//			System.err.println(nodeMap.keySet());
 			//			System.err.println(otherNodeList);
-			ArrayList<N> al = new ArrayList<>(nodeMap.keySet());
-			al.removeAll(otherNodeList);
+			//ArrayList<N> al = new ArrayList<>(nodeMap.keySet());
+			//al.removeAll(otherNodeList);
 			//			for (Object o : al)
 			//			{
 			//				System.err.println("1- " + o.hashCode() + " " + o);
 			//			}
 			//			System.err.println("?!?");
-			ArrayList<N> al2 = new ArrayList<>(otherGraph.getNodeList());
-			al2.removeAll(otherNodeList);
+			//ArrayList<N> al2 = new ArrayList<>(otherGraph.getNodeList());
+			//al2.removeAll(otherNodeList);
 			//			for (Object o : al2)
 			//			{
 			//				System.err.println("2- " + o.hashCode() + " " + o);
