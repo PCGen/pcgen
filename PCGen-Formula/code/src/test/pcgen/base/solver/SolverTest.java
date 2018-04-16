@@ -123,7 +123,7 @@ public class SolverTest extends TestCase
 	@Test
 	public void testIllegalAddGenericsViolation()
 	{
-		Modifier<Number> mod = AbstractModifier.add(1, 100);
+		Modifier<Number> mod = AbstractModifier.setNumber(6, 0);
 		Solver<Number> solver = new Solver<Number>(mod);
 		Modifier<String> badm = AbstractModifier.setString();
 		try
