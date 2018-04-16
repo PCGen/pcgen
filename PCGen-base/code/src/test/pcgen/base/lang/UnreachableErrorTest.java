@@ -21,6 +21,9 @@ import junit.framework.TestCase;
 
 import org.junit.Test;
 
+/**
+ * Test the UnreachableError class
+ */
 public class UnreachableErrorTest extends TestCase
 {
 

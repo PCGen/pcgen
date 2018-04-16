@@ -18,6 +18,9 @@ package pcgen.base.format;
 
 import junit.framework.TestCase;
 
+/**
+ * Test the StringManager class
+ */
 public class StringManagerTest extends TestCase
 {
 	private StringManager manager = new StringManager();

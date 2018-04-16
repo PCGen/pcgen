@@ -1,10 +1,36 @@
+/*
+ * Copyright (c) 2018 Tom Parker <thpr@users.sourceforge.net>
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
 package pcgen.base.proxy;
+
 import static org.junit.Assert.fail;
 
 import org.junit.Before;
 import org.junit.Test;
 
-public class StagingProxyFactoryTest
+import pcgen.base.proxy.ItemProcessor;
+import pcgen.base.proxy.ListProcessor;
+import pcgen.base.proxy.MapProcessor;
+import pcgen.base.proxy.StagingInfoFactory;
+
+/**
+ * Test the StagingInfoFactory class
+ */
+public class StagingInfoFactoryTest
 {
 
 	private StagingInfoFactory factory = new StagingInfoFactory();
@@ -18,7 +44,7 @@ public class StagingProxyFactoryTest
 	}
 
 	@Test
-	public void testInvalidClassInterfaceRequired()
+	public void testInvalidClass()
 	{
 		try
 		{
@@ -38,34 +64,6 @@ public class StagingProxyFactoryTest
 		{
 			//Expected
 		}
-	}
-
-	@Test
-	public void testInvalidClassAvoidNulls()
-	{
-		try
-		{
-			factory.produceStaging(GetListOnly.class, null);
-			fail("Can't take null item");
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//Expected
-		}
-		try
-		{
-			factory.produceStaging(null, AddListOnly.class);
-			fail();
-		}
-		catch (IllegalArgumentException | NullPointerException e)
-		{
-			//Expected
-		}
-	}
-
-	@Test
-	public void testInvalidClassMethodsRequired()
-	{
 		try
 		{
 			factory.produceStaging(NoMethodInterface.class, SetItemOnly.class);
@@ -93,15 +91,28 @@ public class StagingProxyFactoryTest
 		{
 			//Expected
 		}
-	}
-
-	@Test
-	public void testInvalidClassCheckReturnTypes()
-	{
+		try
+		{
+			factory.produceStaging(GetListOnly.class, null);
+			fail("Can't take null item");
+		}
+		catch (IllegalArgumentException | NullPointerException e)
+		{
+			//Expected
+		}
+		try
+		{
+			factory.produceStaging(null, AddListOnly.class);
+			fail();
+		}
+		catch (IllegalArgumentException | NullPointerException e)
+		{
+			//Expected
+		}
 		try
 		{
 			factory.produceStaging(GetItemOnly.class, SetShouldBeVoid.class);
-			fail("Set Methods Should be void");
+			fail();
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -110,7 +121,7 @@ public class StagingProxyFactoryTest
 		try
 		{
 			factory.produceStaging(GetListOnly.class, AddShouldBeVoid.class);
-			fail("Add methods should be void");
+			fail();
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -119,21 +130,16 @@ public class StagingProxyFactoryTest
 		try
 		{
 			factory.produceStaging(GetMapOnly.class, PutShouldBeVoid.class);
-			fail("Put method should be void");
+			fail();
 		}
 		catch (IllegalArgumentException e)
 		{
 			//Expected
 		}
-	}
-
-	@Test
-	public void testInvalidClassParameterCountCheck()
-	{
 		try
 		{
 			factory.produceStaging(GetShouldHaveNoParams.class, SetItemOnly.class);
-			fail("Get Should have no parameters");
+			fail();
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -142,21 +148,16 @@ public class StagingProxyFactoryTest
 		try
 		{
 			factory.produceStaging(GetItemOnly.class, SetItemShouldHaveOneParam.class);
-			fail("Set Should have one parameter");
+			fail();
 		}
 		catch (IllegalArgumentException e)
 		{
 			//Expected
 		}
-	}
-
-	@Test
-	public void testInvalidClassMismatch()
-	{
 		try
 		{
 			factory.produceStaging(GetItemOnly.class, SetDupeName.class);
-			fail("Cannot have method set methods with two types");
+			fail();
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -165,21 +166,16 @@ public class StagingProxyFactoryTest
 		try
 		{
 			factory.produceStaging(GetNumber.class, SetItemOnly.class);
-			fail("Set and Get Methods did not match format");
+			fail();
 		}
 		catch (IllegalArgumentException e)
 		{
 			//Expected
 		}
-	}
-
-	@Test
-	public void testInvalidClassAvoidExtras()
-	{
 		try
 		{
 			factory.produceStaging(GetItemOnly.class, LeftoverWrite.class);
-			fail("Leftover Method on write interface prohibited");
+			fail();
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -188,21 +184,16 @@ public class StagingProxyFactoryTest
 		try
 		{
 			factory.produceStaging(LeftoverRead.class, SetItemOnly.class);
-			fail("Leftover method on read interface prohibited");
+			fail();
 		}
 		catch (IllegalArgumentException e)
 		{
 			//Expected
 		}
-	}
-
-	@Test
-	public void testInvalidClassMixedTypes()
-	{
 		try
 		{
 			factory.produceStaging(GetItemOnly.class, DupePropertyName.class);
-			fail("Cannot have both set and add for a given property");
+			fail();
 		}
 		catch (IllegalArgumentException e)
 		{

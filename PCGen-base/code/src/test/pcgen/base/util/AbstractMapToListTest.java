@@ -27,6 +27,9 @@ import junit.framework.TestCase;
 
 import org.junit.Test;
 
+/**
+ * Shared Tests for testing classes that extend AbstractMapToList 
+ */
 public abstract class AbstractMapToListTest extends TestCase
 {
 

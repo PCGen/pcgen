@@ -23,6 +23,9 @@ import pcgen.base.graph.base.Edge;
 import pcgen.base.graph.inst.DefaultHyperEdge;
 import pcgen.testsupport.TestSupport;
 
+/**
+ * Test the EdgeUtilities class
+ */
 public class EdgeUtilitiesTest extends TestCase
 {
 

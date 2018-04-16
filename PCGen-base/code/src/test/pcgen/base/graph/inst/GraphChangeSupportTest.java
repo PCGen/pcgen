@@ -27,6 +27,9 @@ import pcgen.base.graph.base.Graph;
 import pcgen.base.graph.base.GraphChangeListener;
 import pcgen.base.graph.base.NodeChangeEvent;
 
+/**
+ * Test the GraphChangeSupport class
+ */
 public class GraphChangeSupportTest extends TestCase
 {
 

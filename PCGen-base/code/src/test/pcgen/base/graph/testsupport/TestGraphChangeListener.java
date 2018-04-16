@@ -22,20 +22,42 @@ import pcgen.base.graph.base.EdgeChangeEvent;
 import pcgen.base.graph.base.GraphChangeListener;
 import pcgen.base.graph.base.NodeChangeEvent;
 
+/**
+ * A "transparent" GraphChangeListener that is available for tests to use to diagnose
+ * other classes
+ */
 public class TestGraphChangeListener<T, ET extends Edge<T>> implements
 		GraphChangeListener<T, ET>
 {
 
+	/**
+	 * Last Added Node, public for diagnostics
+	 */
 	public T lastAddNode;
 
+	/**
+	 * Last Added edge, public for diagnostics
+	 */
 	public ET lastAddEdge;
 
+	/**
+	 * Last Removed Node, public for diagnostics
+	 */
 	public T lastRemoveNode;
 
+	/**
+	 * Last Removed Edge, public for diagnostics
+	 */
 	public ET lastRemoveEdge;
 
+	/**
+	 * Added Node Count, public for diagnostics
+	 */
 	public int nodeCount = 0;
 
+	/**
+	 * Added Edge Count, public for diagnostics
+	 */
 	public int edgeCount = 0;
 
 	/*

@@ -27,6 +27,11 @@ import pcgen.base.graph.base.Graph;
 import pcgen.base.graph.base.GraphChangeListener;
 import pcgen.base.graph.testsupport.TestGraphChangeListener;
 
+/**
+ * Shared class for testing various implementations of Graph
+ * 
+ * @param <T> The type of Edge in the Graph being tested
+ */
 public abstract class AbstractGraphTestCase<T extends Edge<Integer>> extends
 		TestCase
 {

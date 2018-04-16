@@ -23,6 +23,9 @@ import java.util.List;
 
 import junit.framework.TestCase;
 
+/**
+ * Test the DefaultHyperEdge class
+ */
 public class DefaultHyperEdgeTest extends TestCase
 {
 

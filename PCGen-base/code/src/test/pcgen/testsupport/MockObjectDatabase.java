@@ -10,6 +10,9 @@ import pcgen.base.util.Indirect;
 
 public class MockObjectDatabase implements ObjectDatabase
 {
+	/**
+	 * The underlying Map of identifiers to objects
+	 */
 	public DoubleKeyMap<Class<?>, String, Object> map = new DoubleKeyMap<>();
 
 	@SuppressWarnings("unchecked")

@@ -24,6 +24,9 @@ import pcgen.base.graph.base.GraphEdge;
 
 import junit.framework.TestCase;
 
+/**
+ * Test the DefaultDirectionalGraphEdge class
+ */
 public class DefaultDirectionalGraphEdgeTest extends TestCase
 {
 

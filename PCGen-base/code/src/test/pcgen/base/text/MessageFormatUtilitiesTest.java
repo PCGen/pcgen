@@ -22,6 +22,9 @@ import java.text.MessageFormat;
 import junit.framework.TestCase;
 import pcgen.testsupport.TestSupport;
 
+/**
+ * Test the MessageFormatUtilities class
+ */
 public class MessageFormatUtilitiesTest extends TestCase
 {
 

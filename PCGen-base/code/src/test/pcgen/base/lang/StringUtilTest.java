@@ -25,6 +25,9 @@ import java.util.Comparator;
 import junit.framework.TestCase;
 import pcgen.testsupport.TestSupport;
 
+/**
+ * Test the StringUtil class
+ */
 public class StringUtilTest extends TestCase
 {
 

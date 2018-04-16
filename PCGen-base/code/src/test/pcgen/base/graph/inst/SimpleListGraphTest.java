@@ -22,6 +22,9 @@ import java.util.Arrays;
 import pcgen.base.graph.base.Edge;
 import pcgen.base.graph.base.Graph;
 
+/**
+ * Test the SimpleListGraph class
+ */
 public class SimpleListGraphTest extends AbstractGraphTestCase<Edge<Integer>>
 {
 
