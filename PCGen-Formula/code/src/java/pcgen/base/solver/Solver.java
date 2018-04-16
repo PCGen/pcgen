@@ -25,6 +25,7 @@ import java.util.Optional;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.Identified;
 import pcgen.base.formula.base.ScopeInstance;
+import pcgen.base.spotbugs.SuppressFBWarnings;
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.HashMapToList;
 import pcgen.base.util.TreeMapToList;
@@ -183,6 +184,7 @@ public class Solver<T>
 	 *            this Solver
 	 * @return The resulting value after all Modifier objects are processed
 	 */
+	@SuppressFBWarnings("NP_NULL_PARAM_DEREF_ALL_TARGETS_DANGEROUS")
 	public T process(EvaluationManager evalManager)
 	{
 		EvaluationManager assertedManager = evalManager.getWith(
@@ -213,6 +215,7 @@ public class Solver<T>
 	 * @return A list of ProcessStep objects indicating the operations that take place in
 	 *         this Solver when process() is called
 	 */
+	@SuppressFBWarnings("NP_NULL_PARAM_DEREF_ALL_TARGETS_DANGEROUS")
 	public List<ProcessStep<T>> diagnose(EvaluationManager evalManager)
 	{
 		EvaluationManager assertedManager = evalManager.getWith(

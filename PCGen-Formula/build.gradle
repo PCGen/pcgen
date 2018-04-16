@@ -7,6 +7,7 @@
  * Incremental dev build: gradle build 
  * Full build: gradle all 
  */
+
 plugins {
     id "ca.coglinc2.javacc" version "3.0.0"
     id 'java'
@@ -16,6 +17,7 @@ plugins {
     id 'checkstyle'
     id 'pmd'
     id 'com.github.ben-manes.versions' version '0.20.0'
+    id 'com.github.spotbugs' version '1.6.5'
 }
 
 group = 'net.sourceforge.pcgen'
@@ -49,7 +51,7 @@ dependencies {
     // relative path to what you need.
     //compile files("../../pcgen-base/PCGen-base/build/libs/PCgen-base-1.0.jar")
     
-    compile group: 'net.sourceforge.pcgen', name: 'PCGen-base', version:'1.0.148'
+    compile group: 'net.sourceforge.pcgen', name: 'PCGen-base', version:'1.0.153'
     testCompile group: 'junit', name: 'junit', version: '4.+'
 }
 
@@ -112,7 +114,6 @@ compileJjtree {
 compileJavacc {
     inputDirectory = file('code/src/javacc/')
     outputDirectory = file('code/src/java/')
-    //include '**/*.java'
 }
 
 // Calculate the version number - runs in the parse phase
@@ -137,6 +138,11 @@ jar {
     }
 }
 
+//Workaround, see: https://github.com/spotbugs/spotbugs-gradle-plugin/issues/32
+ext {
+    SpotBugsTask = com.github.spotbugs.SpotBugsTask
+}
+
 task sourceJar(type: Jar) {
     from sourceSets.main.java
     classifier "sources"
@@ -153,7 +159,6 @@ publishing {
         ivy {
             name "fileRepo"
             url '/home/pcgen1/public_html/librepo'
-            //url 'D:/Projects/pcgen-base/librepo'
         }
     }
     publications {
@@ -175,6 +180,14 @@ publishing {
                 asNode().info[0].appendNode('description', description)
             }
         }
+    }
+}
+
+//We end up with an unneeded task with SpotBugs and JavaCC that causes a failure
+//see: https://github.com/spotbugs/spotbugs-gradle-plugin/issues/70
+tasks.whenTaskAdded {task ->
+    if(task.name.contains("spotbugsJavacc")) {
+        task.enabled = false
     }
 }
 
