@@ -8,11 +8,6 @@
  * Author: James Dempsey 
  */
 
-//apply plugin: 'checkstyle'
-//apply plugin: 'pmd'
-//apply plugin: 'jdepend'
-//apply plugin: "com.github.spotbugs" version '1.6.1'
-
 checkstyle {
 	configFile = new File('code/standards/checkstyle.xml')
 	ignoreFailures = true
@@ -34,6 +29,7 @@ spotbugs {
 	omitVisitors = ['Naming', 'CrossSiteScripting', 'DontUseEnum', 'DoInsideDoPrivileged']
 	reportLevel = 'low'
 	ignoreFailures = 'true'
+	toolVersion = "3.1.2"
 }
 
 jdepend {
