@@ -22,11 +22,6 @@ import static org.junit.Assert.fail;
 import org.junit.Before;
 import org.junit.Test;
 
-import pcgen.base.proxy.ItemProcessor;
-import pcgen.base.proxy.ListProcessor;
-import pcgen.base.proxy.MapProcessor;
-import pcgen.base.proxy.StagingInfoFactory;
-
 /**
  * Test the StagingInfoFactory class
  */
