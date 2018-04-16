@@ -21,7 +21,7 @@ checkstyle {
 pmd {
 	// turn off the default rules
 	ruleSets = []
-	ruleSetFiles = files('code/standards/pmdruleset.xml')
+	ruleSetFiles = files('code/standards/ruleset.xml')
 	consoleOutput = true
 	sourceSets = []
 	toolVersion = "6.0.0"
