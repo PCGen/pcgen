@@ -27,6 +27,9 @@ import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * Test GenericMapToList using an IdentityHashMap as the underlying Map
+ */
 public class GenericMapToListIdentityHashTest extends TestCase
 {
 

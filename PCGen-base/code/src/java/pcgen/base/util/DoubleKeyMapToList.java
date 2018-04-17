@@ -455,7 +455,7 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 		DoubleKeyMapToList<K1, K2, V> dkm =
 				(DoubleKeyMapToList<K1, K2, V>) super.clone();
 		dkm.mtmtl = createGlobalMap();
-		for (Map.Entry<K1, MapToList<K2,V>> entry : mtmtl.entrySet())
+		for (Map.Entry<K1, MapToList<K2, V>> entry : mtmtl.entrySet())
 		{
 			MapToList<K2, V> currentMTL = entry.getValue();
 			MapToList<K2, V> newMTL =
