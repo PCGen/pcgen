@@ -505,21 +505,32 @@ CATEGORY=Internal|Race Traits ~ Wyrwood.MOD					ABILITY:Special Ability|AUTOMATI
 Senses							KEY:Wyrwood ~ Senses			CATEGORY:Special Ability	TYPE:Wyrwood Race Trait.SpecialQuality.WyrwoodRacialDefault		DESC:Wyrwoods have low-light vision and can see in the dark up to 60 feet.		BONUS:VAR|DarkvisionRange|60|TYPE=Base	BONUS:VAR|HasLowlightVision|1|TYPE=Base		SOURCEPAGE:p.237
 
 
-#Race Traits ~ Wyvaran
-# Ability Name						Category of Ability
-Race Traits ~ Wyvaran					CATEGORY:Internal		DEFINE:WyvaranDraconicLanguage|0
+# ==============================
+# Wyvaran
+# ==============================
 
-CATEGORY=Internal|Race Traits ~ Wyvaran.MOD					ABILITY:Special Ability|AUTOMATIC|Wyvaran ~ Flight|!PREABILITY:1,CATEGORY=Special Ability,TYPE.WyvaranFlight
-CATEGORY=Internal|Race Traits ~ Wyvaran.MOD					ABILITY:Special Ability|AUTOMATIC|Wyvaran ~ Language|!PREABILITY:1,CATEGORY=Special Ability,TYPE.WyvaranDraconicLanguage
-CATEGORY=Internal|Race Traits ~ Wyvaran.MOD					ABILITY:Special Ability|AUTOMATIC|Wyvaran ~ Senses|!PREABILITY:1,CATEGORY=Special Ability,TYPE.WyvaranSenses
-CATEGORY=Internal|Race Traits ~ Wyvaran.MOD					ABILITY:Special Ability|AUTOMATIC|Wyvaran ~ Slapping Tail|!PREABILITY:1,CATEGORY=Special Ability,TYPE.WyvaranSlappingTail
+###Block: Racial Abilities
+Race Traits ~ Wyvaran		CATEGORY:Internal
+CATEGORY=Internal|Race Traits ~ Wyvaran.MOD		DEFINE:Wyvaran_ReplaceAbilityScores|0									ABILITY:Wyvaran Racial Trait|AUTOMATIC|Wyvaran ~ Ability Scores|PREVAREQ:Wyvaran_ReplaceAbilityScores,0
+CATEGORY=Internal|Race Traits ~ Wyvaran.MOD		DEFINE:Wyvaran_ReplaceType|0											ABILITY:Wyvaran Racial Trait|AUTOMATIC|Wyvaran ~ Type|PREVAREQ:Wyvaran_ReplaceType,0
+CATEGORY=Internal|Race Traits ~ Wyvaran.MOD		DEFINE:Wyvaran_ReplaceSize|0											ABILITY:Wyvaran Racial Trait|AUTOMATIC|Wyvaran ~ Size|PREVAREQ:Wyvaran_ReplaceSize,0
+CATEGORY=Internal|Race Traits ~ Wyvaran.MOD		DEFINE:Wyvaran_ReplaceSpeed|0											ABILITY:Wyvaran Racial Trait|AUTOMATIC|Wyvaran ~ Speed|PREVAREQ:Wyvaran_ReplaceSpeed,0
+CATEGORY=Internal|Race Traits ~ Wyvaran.MOD		DEFINE:Wyvaran_ReplaceFlight|0										ABILITY:Wyvaran Racial Trait|AUTOMATIC|Wyvaran ~ Flight|PREVAREQ:Wyvaran_ReplaceFlight,0
+CATEGORY=Internal|Race Traits ~ Wyvaran.MOD		DEFINE:Wyvaran_ReplaceSlappingTail|0									ABILITY:Wyvaran Racial Trait|AUTOMATIC|Wyvaran ~ Slapping Tail|PREVAREQ:Wyvaran_ReplaceSlappingTail,0
+CATEGORY=Internal|Race Traits ~ Wyvaran.MOD		DEFINE:Wyvaran_ReplaceDarkvision|0										ABILITY:Wyvaran Racial Trait|AUTOMATIC|Wyvaran ~ Darkvision|PREVAREQ:Wyvaran_ReplaceDarkvision,0
+CATEGORY=Internal|Race Traits ~ Wyvaran.MOD		DEFINE:Wyvaran_ReplaceLowLightVision|0									ABILITY:Wyvaran Racial Trait|AUTOMATIC|Wyvaran ~ Low-Light Vision|PREVAREQ:Wyvaran_ReplaceLowLightVision,0
+CATEGORY=Internal|Race Traits ~ Wyvaran.MOD		DEFINE:Wyvaran_ReplaceLanguages|0		DEFINE:Wyvaran_ReplaceBaseLanguages|0		ABILITY:Wyvaran Racial Trait|AUTOMATIC|Wyvaran ~ Languages|PREVAREQ:Wyvaran_ReplaceLanguages,0
 
-###Block: Default Wyvaran Abilities
-# Ability Name		Unique Key					Category of Ability		Type											Description																																	Bonus															Source Page
-Flight							KEY:Wyvaran ~ Flight			CATEGORY:Special Ability	TYPE:Wyvaran Race Trait.SpecialQuality.WyvaranRacialDefault		DESC:Wyvarans have dragonlike wings that grant them a fly speed of 30 feet with clumsy maneuverability.																	ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability	MOVE:Fly,30			BONUS:VAR|Manueverability|1		SOURCEPAGE:p.238
-Language							KEY:Wyvaran ~ Language			CATEGORY:Special Ability	TYPE:Wyvaran Race Trait.SpecialQuality.WyvaranRacialDefault		BONUS:VAR|WyvaranDraconicLanguage|1																																																	SOURCEPAGE:p.238
-Senses							KEY:Wyvaran ~ Senses			CATEGORY:Special Ability	TYPE:Wyvaran Race Trait.SpecialQuality.WyvaranRacialDefault		DESC:Wyvaran have low-light vision and can see in the dark up to 60 feet.																						BONUS:VAR|DarkvisionRange|60|TYPE=Base	BONUS:VAR|HasLowlightVision|1|TYPE=Base							SOURCEPAGE:p.238
-Slapping Tail						KEY:Wyvaran ~ Slapping Tail		CATEGORY:Special Ability	TYPE:Wyvaran Race Trait.SpecialQuality.WyvaranRacialDefault		DESC:Wyvarans have a tail attack they can use only when making attacks of opportunity. This slapping tail attack deals a number of points of damage equal to 1d8 + the wyvaran’s Strength modifier.		ABILITY:Internal|AUTOMATIC|Tail Slap														SOURCEPAGE:p.238
+###Block: Racial Defaults
++2 Dexterity, +2 Wisdom, -2 Intelligence		KEY:Wyvaran ~ Ability Scores		CATEGORY:Special Ability		TYPE:RacialTraits.Wyvaran Racial Trait.Wyvaran Racial Default.SpecialQuality.Racial Ability Scores		DESC:Wyvarans have a reptilian grace and a strong will, but are a little dim-witted.		SOURCEPAGE:p.281		SOURCELONG:Bestiary 4		SOURCESHORT:B4		SOURCEWEB:http://paizo.com/products/btpy91ds?Pathfinder-Roleplaying-Game-Bestiary-4		SOURCEDATE:2013-10		BONUS:STAT|DEX,WIS|2|TYPE=Racial		BONUS:STAT|INT|-2|TYPE=Racial
+Dragon		KEY:Wyvaran ~ Type		CATEGORY:Special Ability		TYPE:RacialTraits.Wyvaran Racial Trait.Wyvaran Racial Default.SpecialQuality.Racial Type.Racial Subtype		DESC:Wyvarans have the dragon type.		SOURCEPAGE:p.254		SOURCELONG:Inner Sea Races		SOURCESHORT:ISR		SOURCEWEB:http://paizo.com/products/btpy9g9v?Pathfinder-Campaign-Setting-Inner-Sea-Races		SOURCEDATE:2015-09		TEMPLATE:Dragon
+Medium		KEY:Wyvaran ~ Size		CATEGORY:Special Ability		TYPE:RacialTraits.Wyvaran Racial Trait.Wyvaran Racial Default.SpecialQuality.Racial Size		DESC:Wyvarans are Medium creatures and have no bonuses or penalties due to their size.		SOURCEPAGE:p.254		SOURCELONG:Inner Sea Races		SOURCESHORT:ISR		SOURCEWEB:http://paizo.com/products/btpy9g9v?Pathfinder-Campaign-Setting-Inner-Sea-Races		SOURCEDATE:2015-09
+Normal Speed		KEY:Wyvaran ~ Speed		CATEGORY:Special Ability		TYPE:RacialTraits.Wyvaran Racial Trait.Wyvaran Racial Default.SpecialQuality.Racial Speed		DESC:Wyvarans have a base speed of 30 feet.		SOURCEPAGE:p.281		SOURCELONG:Bestiary 4		SOURCESHORT:B4		SOURCEWEB:http://paizo.com/products/btpy91ds?Pathfinder-Roleplaying-Game-Bestiary-4		SOURCEDATE:2013-10
+Flight		KEY:Wyvaran ~ Flight		CATEGORY:Special Ability		TYPE:RacialTraits.Wyvaran Racial Trait.Wyvaran Racial Default.SpecialQuality		DESC:Wyvarans have dragonlike wings that grant them a fly speed of 30 feet with clumsy maneuverability.		SOURCEPAGE:p.281		SOURCELONG:Bestiary 4		SOURCESHORT:B4		SOURCEWEB:http://paizo.com/products/btpy91ds?Pathfinder-Roleplaying-Game-Bestiary-4		SOURCEDATE:2013-10		MOVE:Fly,30		BONUS:VAR|Manueverability|1|TYPE=Base
+Slapping Tail		KEY:Wyvaran ~ Slapping Tail		CATEGORY:Special Ability		TYPE:RacialTraits.Wyvaran Racial Trait.Wyvaran Racial Default.SpecialAttack.Extraordinary		DESC:Wyvarans have a tail attack they can only use when making attacks of opportunity. This slapping tail attack deals 1d8 points of damage plus the wyvaran's Strength modifier.		SOURCEPAGE:p.281		SOURCELONG:Bestiary 4		SOURCESHORT:B4		SOURCEWEB:http://paizo.com/products/btpy91ds?Pathfinder-Roleplaying-Game-Bestiary-4		SOURCEDATE:2013-10		ABILITY:Internal|AUTOMATIC|Tail Slap
+Darkvision		KEY:Wyvaran ~ Low-Light Vision		CATEGORY:Special Ability		TYPE:RacialTraits.Wyvaran Racial Trait.Wyvaran Racial Default.SpecialQuality.Racial Vision.Vision		DESC:Wyvarans can see in the dark up to 60 feet.		SOURCEPAGE:p.281		SOURCELONG:Bestiary 4		SOURCESHORT:B4		SOURCEWEB:http://paizo.com/products/btpy91ds?Pathfinder-Roleplaying-Game-Bestiary-4		SOURCEDATE:2013-10		DEFINE:Wyvaran_Darkvision_Range|0		BONUS:VAR|Wyvaran_Darkvision_Range|60|TYPE=Base		VISION:Darkvision (Wyvaran_Darkvision_Range)		ASPECT:Vision|Darkvision %1 ft.|Wyvaran_Darkvision_Range
+Low-Light Vision		KEY:Wyvaran ~ Darkvision		CATEGORY:Special Ability		TYPE:RacialTraits.Wyvaran Racial Trait.Wyvaran Racial Default.SpecialQuality.Racial Vision.Vision		DESC:Wyvarans have low-light vision.		SOURCEPAGE:p.281		SOURCELONG:Bestiary 4		SOURCESHORT:B4		SOURCEWEB:http://paizo.com/products/btpy91ds?Pathfinder-Roleplaying-Game-Bestiary-4		SOURCEDATE:2013-10		DEFINE:Wyvaran_Darkvision_Range|0		BONUS:VAR|Wyvaran_Darkvision_Range|60|TYPE=Base		VISION:Darkvision (Wyvaran_Darkvision_Range)		ASPECT:Vision|Darkvision %1 ft.|Wyvaran_Darkvision_Range
+Languages		KEY:Wyvaran ~ Languages		CATEGORY:Special Ability		TYPE:RacialTraits.Wyvaran Racial Trait.Wyvaran Racial Default.SpecialQuality.Racial Language		DESC:Wyvarans speak Common and Draconic. A wyvaran with a high Intelligence score can choose from the following: Dwarven, Elven, Gnome, Goblin, and Orc.		SOURCEPAGE:p.281		SOURCELONG:Bestiary 4		SOURCESHORT:B4		SOURCEWEB:http://paizo.com/products/btpy91ds?Pathfinder-Roleplaying-Game-Bestiary-4		SOURCEDATE:2013-10		AUTO:LANG|Common|Draconic|PREVAREQ:Wyvaran_ReplaceBaseLanguages,0		TEMPLATE:Race Bonus Language ~ Dwarven|Race Bonus Language ~ Elven|Race Bonus Language ~ Gnome|Race Bonus Language ~ Goblin|Race Bonus Language ~ Orc
 
 
 ###Block: Changeling Mother's Gift Options

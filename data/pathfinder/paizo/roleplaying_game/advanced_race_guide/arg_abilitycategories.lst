@@ -75,6 +75,7 @@ ABILITYCATEGORY:Nagaji Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO	
 ABILITYCATEGORY:Samsaran Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:SamsaranRacialTrait														PLURAL:Samsaran Racial Traits		DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Strix Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:StrixRacialTrait															PLURAL:Strix Racial Traits		DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Wayang Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:WayangRacialTrait															PLURAL:Wayang Racial Traits		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Wyvaran Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:Wyvaran Racial Trait														PLURAL:Wayang Racial Traits		DISPLAYLOCATION:Racial Abilities
 
 
 ABILITYCATEGORY:Paladin Energy Resistance			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Internal			TYPE:PaladinFavoredEnergyResistance																			DISPLAYLOCATION:Class Features
