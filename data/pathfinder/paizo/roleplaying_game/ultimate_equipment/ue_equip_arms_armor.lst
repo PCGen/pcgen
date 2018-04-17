@@ -176,70 +176,46 @@ Barding (O-yoroi)																	PROFICIENCY:ARMOR|Barding (Heavy)	TYPE:Armor.H
 Barding (Stone Plate)																PROFICIENCY:ARMOR|Barding (Heavy)	TYPE:Armor.Heavy.ArmorProfHeavy.Standard.Nonmetal.Barding.Mount										COST:3600	WT:75		ACCHECK:-6					EQMOD:Material ~ Stone								MAXDEX:1								SOURCEPAGE:p.80	SPELLFAILURE:35		BONUS:COMBAT|AC|9|TYPE=Armor|PREVAREQ:DisableArmorBonus,0
 Barding (Haramaki).COPY=Barding (Haramaki/Large)
 Barding (Haramaki/Large).MOD																																									COST:12	WT:2																								SIZE:L
-Barding (Padded).COPY=Barding (Padded/Large)
-Barding (Padded/Large).MOD																																									COST:20	WT:20																								SIZE:L
 Barding (Quilted Cloth).COPY=Barding (Quilted Cloth/Large)
 Barding (Quilted Cloth/Large).MOD																																								COST:400	WT:30																								SIZE:L
 Barding (Silken Ceremonial).COPY=Barding (Silken Ceremonial/Large)
 Barding (Silken Ceremonial/Large).MOD																																							COST:120	WT:8																								SIZE:L
 Barding (Lamellar Cuirass).COPY=Barding (Lamellar Cuirass/Large)
 Barding (Lamellar Cuirass/Large).MOD																																							COST:60	WT:16																								SIZE:L
-Barding (Leather).COPY=Barding (Leather/Large)
-Barding (Leather/Large).MOD																																									COST:40	WT:30																								SIZE:L
 Barding (Parade).COPY=Barding (Parade/Large)
 Barding (Parade/Large).MOD																																									COST:100	WT:40																								SIZE:L
-Barding (Studded Leather).COPY=Barding (Studded Leather/Large)
-Barding (Studded Leather/Large).MOD																																								COST:100	WT:40																								SIZE:L
 Barding (Wooden).COPY=Barding (Wooden/Large)
 Barding (Wooden/Large).MOD																																									COST:80	WT:50																								SIZE:L
-Barding (Chain Shirt).COPY=Barding (Chain Shirt/Large)
-Barding (Chain Shirt/Large).MOD																																								COST:400	WT:100																							SIZE:L
 Barding (Lamellar/Leather).COPY=Barding (Lamellar/Leather/Large)
 Barding (Lamellar/Leather/Large).MOD																																							COST:240	WT:50																								SIZE:L
 Barding (Armored Coat).COPY=Barding (Armored Coat/Large)
 Barding (Armored Coat/Large).MOD																																								COST:200	WT:40																								SIZE:L
-Barding (Hide).COPY=Barding (Hide/Large)
-Barding (Hide/Large).MOD																																									COST:60	WT:50																								SIZE:L
 Barding (Do-maru).COPY=Barding (Do-maru/Large)
 Barding (Do-maru/Large).MOD																																									COST:800	WT:60																								SIZE:L
 Barding (Kikko).COPY=Barding (Kikko/Large)
 Barding (Kikko/Large).MOD																																									COST:120	WT:50																								SIZE:L
 Barding (Lemellar/Horn).COPY=Barding (Lemellar/Horn/Large)
 Barding (Lemellar/Horn/Large).MOD																																								COST:400	WT:60																								SIZE:L
-Barding (Scale Mail).COPY=Barding (Scale Mail/Large)
-Barding (Scale Mail/Large).MOD																																								COST:200	WT:60																								SIZE:L
 Barding (Agile Breastplate).COPY=Barding (Agile Breastplate/Large)
 Barding (Agile Breastplate/Large).MOD																																							COST:800	WT:50																								SIZE:L
-Barding (Chainmail).COPY=Barding (Chainmail/Large)
-Barding (Chainmail/Large).MOD																																									COST:600	WT:80																								SIZE:L
-Barding (Breastplate).COPY=Barding (Breastplate/Large)
-Barding (Breastplate/Large).MOD																																								COST:800	WT:60																								SIZE:L
 Barding (Four-mirror).COPY=Barding (Four-mirror/Large)
 Barding (Four-mirror/Large).MOD																																								COST:180	WT:90																								SIZE:L
 Barding (Lamellar/Steel).COPY=Barding (Lamellar/Steel/Large)
 Barding (Lamellar/Steel/Large).MOD																																								COST:600	WT:70																								SIZE:L
 Barding (Mountain Pattern).COPY=Barding (Mountain Pattern/Large)
 Barding (Mountain Pattern/Large).MOD																																							COST:1000	WT:80																								SIZE:L
-Barding (Splint Mail).COPY=Barding (Splint Mail/Large)
-Barding (Splint Mail/Large).MOD																																								COST:800	WT:90																								SIZE:L
 Barding (Kusari Gusoku).COPY=Barding (Kusari Gusoku/Large)
 Barding (Kusari Gusoku/Large).MOD																																								COST:1400	WT:90																								SIZE:L
-Barding (Banded Mail).COPY=Barding (Banded Mail/Large)
-Barding (Banded Mail/Large).MOD																																								COST:1000	WT:70																								SIZE:L
 Barding (Lamellar/Iron).COPY=Barding (Lamellar/Iron/Large)
 Barding (Lamellar/Iron/Large).MOD																																								COST:800	WT:80																								SIZE:L
 Barding (Tatami-do).COPY=Barding (Tatami-do/Large)
 Barding (Tatami-do/Large).MOD																																									COST:4000	WT:90																								SIZE:L
 Barding (Agile Half-Plate).COPY=Barding (Agile Half-Plate/Large)
 Barding (Agile Half-Plate/Large).MOD																																							COST:3400	WT:110																							SIZE:L
-Barding (Half-Plate).COPY=Barding (Half-Plate/Large)
-Barding (Half-Plate/Large).MOD																																								COST:2400	WT:100																							SIZE:L
 Barding (Lamellar/Stone).COPY=Barding (Lamellar/Stone/Large)
 Barding (Lamellar/Stone/Large).MOD																																								COST:2000	WT:90																								SIZE:L
 Barding (O-yoroi).COPY=Barding (O-yoroi/Large)
 Barding (O-yoroi/Large).MOD																																									COST:6800	WT:90																								SIZE:L
-Barding (Full Plate).COPY=Barding (Full Plate/Large)
-Barding (Full Plate/Large).MOD																																								COST:6000	WT:90																								SIZE:L
 Barding (Stone Plate).COPY=Barding (Stone Plate/Large)
 Barding (Stone Plate/Large).MOD																																								COST:7200	WT:150																							SIZE:L
 
@@ -273,23 +249,27 @@ Metal Cartridge																							TYPE:FirearmGear.Ammo.Ammunition.Resizable
 Pellets (Handful)																							TYPE:FirearmGear.Ammo.Ammunition.Resizable.FirearmPellet											COST:1																											SOURCEPAGE:p.41
 Pellets (Handful/30)																						TYPE:FirearmGear.Ammo.Ammunition.Resizable.FirearmPellet											COST:30	WT:0.5				BASEQTY:30																				SOURCEPAGE:p.41
 #
-Arrow (Hushing)																							TYPE:Ammunition.Resizable.Standard.Arrow.Individual.Specific.Masterwork.Enhancement.Magic.Plus1					COST:547	WT:0.05				BASEQTY:1		EQMOD:Material ~ Steel.Material ~ Wood										MODS:NO					SOURCEPAGE:p.156																																				BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement
-Arrow (Hushing/Greater)																						TYPE:Ammunition.Resizable.Standard.Arrow.Individual.Specific.Masterwork.Enhancement.Magic.Plus1					COST:1047	WT:0.05				BASEQTY:1		EQMOD:Material ~ Steel.Material ~ Wood										MODS:NO					SOURCEPAGE:p.156																																				BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement
+#Arrow (Hushing)																							TYPE:Ammunition.Resizable.Standard.Arrow.Individual.Specific.Masterwork.Enhancement.Magic.Plus1					COST:547	WT:0.05				BASEQTY:1		EQMOD:Material ~ Steel.Material ~ Wood										MODS:NO					SOURCEPAGE:p.156																																				BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement
+#Arrow (Hushing/Greater)																						TYPE:Ammunition.Resizable.Standard.Arrow.Individual.Specific.Masterwork.Enhancement.Magic.Plus1					COST:1047	WT:0.05				BASEQTY:1		EQMOD:Material ~ Steel.Material ~ Wood										MODS:NO					SOURCEPAGE:p.156																																				BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement
 #
-#Arrow.COPY=Arrow (Hushing)
-#Arrow (Hushing).MOD	OUTPUTNAME:Hushing Arrow	EQMOD:Special Ability ~ Enhancement Cost|545.Special Ability ~ +1 ~ Ammunition												SOURCEPAGE:p.156					SPELLS:Magic Item|TIMES=1|Silence,13						SPROP:Creature struck affected by Silence.
-#Arrow.COPY=Arrow (Hushing/Greater)
-#Arrow (Hushing/Greater).MOD							OUTPUTNAME:Greater Hushing Arrow																															EQMOD:Special Ability ~ Enhancement Cost|1045.Special Ability ~ +1 ~ Ammunition												SOURCEPAGE:p.156					SPELLS:Magic Item|TIMES=1|Silence,16						SPROP:Creature struck affected by Silence.
+Arrow (Base).COPY=Arrow, Hushing		KEY:Arrow (Hushing)	EQMOD:Material ~ Steel.Material ~ Wood
+Arrow (Hushing).MOD		OUTPUTNAME:Hushing Arrow		COST:0	WT:0.05	VISIBLE:YES	EQMOD:Special Ability ~ +1 ~ Ammunition.Special Ability ~ Enhancement Cost|501	MODS:NO	SOURCEPAGE:p.156	DESC:.CLEAR	DESC:This +1 arrow makes no sound on release or as it flies through the air. A creature struck by a hushing arrow must succeed at a DC 13 Will save or be affected by silence (as the spell) for 5 rounds. The silence effect is not triggered by arrows that miss or those that strike an inanimate object.	QUALITY:Aura|faint illusion	QUALITY:Caster Level|5th	QUALITY:Slot|none	QUALITY:Construction Cost|277 gp	QUALITY:Construction Requirements|Craft Magic Arms and Armor, silence
+Arrow (Base).COPY=Arrow, Greater Hushing	KEY:Arrow (Hushing/Greater)	EQMOD:Material ~ Steel.Material ~ Wood
+Arrow (Hushing/Greater).MOD	OUTPUTNAME:Greater Hushing Arrow	COST:0	WT:0.05	VISIBLE:YES	EQMOD:Special Ability ~ +1 ~ Ammunition.Special Ability ~ Enhancement Cost|1001	MODS:NO	SOURCEPAGE:p.156	DESC:.CLEAR	DESC:This +1 arrow makes no sound on release or as it flies through the air. A creature struck by a greater hushing arrow must succeed at a DC 16 Will save or be affected by silence (as the spell) for 5 rounds. The silence effect is not triggered by arrows that miss or those that strike an inanimate object.	QUALITY:Aura|faint illusion	QUALITY:Caster Level|5th	QUALITY:Slot|none	QUALITY:Construction Cost|527 gp	QUALITY:Construction Requirements|Craft Magic Arms and Armor, Heighten Spell, silence
+Bolt (Base).COPY=Bolt, Hushing		KEY:Bolt (Hushing)	EQMOD:Material ~ Steel.Material ~ Wood
+Bolt (Hushing).MOD		OUTPUTNAME:Hushing Bolt		COST:0	WT:0.1	VISIBLE:YES	EQMOD:Special Ability ~ +1 ~ Ammunition.Special Ability ~ Enhancement Cost|501	MODS:NO	SOURCEPAGE:p.156	DESC:.CLEAR	DESC:This +1 bolt makes no sound on release or as it flies through the air. A creature struck by a hushing bolt must succeed at a DC 13 Will save or be affected by silence (as the spell) for 5 rounds. The silence effect is not triggered by bolts that miss or those that strike an inanimate object.	QUALITY:Aura|faint illusion	QUALITY:Caster Level|5th	QUALITY:Slot|none	QUALITY:Construction Cost|277 gp	QUALITY:Construction Requirements|Craft Magic Arms and Armor, silence
+Bolt (Base).COPY=Bolt, Greater Hushing	KEY:Bolt (Hushing/Greater)	EQMOD:Material ~ Steel.Material ~ Wood
+Bolt (Hushing/Greater).MOD	OUTPUTNAME:Greater Hushing Bolt	COST:0	WT:0.1	VISIBLE:YES	EQMOD:Special Ability ~ +1 ~ Ammunition.Special Ability ~ Enhancement Cost|1001	MODS:NO	SOURCEPAGE:p.156	DESC:.CLEAR	DESC:This +1 bolt makes no sound on release or as it flies through the air. A creature struck by a greater hushing bolt must succeed at a DC 16 Will save or be affected by silence (as the spell) for 5 rounds. The silence effect is not triggered by bolts that miss or those that strike an inanimate object.	QUALITY:Aura|faint illusion	QUALITY:Caster Level|5th	QUALITY:Slot|none	QUALITY:Construction Cost|527 gp	QUALITY:Construction Requirements|Craft Magic Arms and Armor, Heighten Spell, silence
 Arrow (Searing).MOD																																																																						SOURCEPAGE:p.159
 Arrow (Sizzling).MOD																																																																						SOURCEPAGE:p.160
 Arrow (Slaying).MOD																																																																						SOURCEPAGE:p.160
 Arrow (Slaying/Greater).MOD																																																																					SOURCEPAGE:p.160
 Arrow (Sleep).MOD																																																																							SOURCEPAGE:p.160
-Bolt (Crossbow).COPY=Bolt (Dust)
+Bolt (Base).COPY=Bolt, Dust	KEY:Bolt (Dust)	VISIBLE:YES	EQMOD:Material ~ Steel.Material ~ Wood
 Bolt (Dust).MOD										OUTPUTNAME:Dust Bolt																																								EQMOD:Special Ability ~ Bane ~ Weapon|Outsider (Water).Special Ability ~ Enhancement Cost|1729.Special Ability ~ +1 ~ Ammunition										SOURCEPAGE:p.154																																												SPROP:Any living creature struck begins dying of thirst as per Cup of Dust.
 Bolt (Screaming).MOD																																																																						SOURCEPAGE:p.159
 Bolt (Tangle).MOD																																																																							SOURCEPAGE:p.162
-Bullet (Sling).COPY=Bullet (Alchemist's)
+Sling Bullet (Base).COPY=Bullet, Alchemist's	KEY:Bullet (Alchemist's)	VISIBLE:YES	EQMOD:Material ~ Steel
 Bullet (Alchemist's).MOD								OUTPUTNAME:Alchemist's Bullet									TYPE:Container														CONTAINS:*1|Splash=1											EQMOD:Special Ability ~ Enhancement Cost|330.Special Ability ~ +1 ~ Ammunition														SOURCEPAGE:p.150																																																																						DESC:On successful hit, splash damage is dealt as normal.
 Bullet (Firearm).COPY=Bullet (Burrowing/Greater)
 Bullet (Burrowing/Greater).MOD							OUTPUTNAME:Greater Burrowing Bullet																																						EQMOD:Special Ability ~ Enhancement Cost|1721.Special Ability ~ +1 ~ Ammunition														SOURCEPAGE:p.153																																												SPROP:Target staggered for 1d3+2 rounds.
