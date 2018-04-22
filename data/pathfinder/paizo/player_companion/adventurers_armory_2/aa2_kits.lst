@@ -90,7 +90,7 @@ GEAR:Wine (Fine/Bottle)							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Chalk (1 Piece)							QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Outfit (Courtier's)						QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Jewelry								QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Flask (Empty)							QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Flask							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Flint and Steel							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Grooming Kit								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:TYPE=Goods.Instrument						QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Special Quality ~ Masterwork ~ Item
@@ -125,7 +125,7 @@ GEAR:Wine (Fine/Bottle)							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Chalk (1 Piece)							QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Outfit (Courtier's)						QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Jewelry								QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Flask (Empty)							QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Flask							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Flint and Steel							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Grooming Kit								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:TYPE=Goods.Instrument						QTY:1		SIZE:PC	LOCATION:Carried			EQMOD:Special Quality ~ Masterwork ~ Item
@@ -300,10 +300,10 @@ GEAR:Ioun Torch								QTY:1		SIZE:PC	LOCATION:Equipped
 GEAR:Mess Kit								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Mirror (Small/Steel)						QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Sack									QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Shovel or Spade							QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Shovel							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Rope (Silk/50 ft)							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Smelling Salts							QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Soap (per lb)							QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Soap							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Spell Component Pouch						QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Rations (Trail/Per Day)						QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Waterskin								QTY:1		SIZE:PC	LOCATION:Backpack
@@ -333,10 +333,10 @@ GEAR:Ioun Torch								QTY:1		SIZE:PC	LOCATION:Equipped
 GEAR:Mess Kit								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Mirror (Small/Steel)						QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Sack									QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Shovel or Spade							QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Shovel							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Rope (Silk/50 ft)							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Smelling Salts							QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Soap (per lb)							QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Soap							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Spell Component Pouch						QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Rations (Trail/Per Day)						QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Waterskin								QTY:1		SIZE:PC	LOCATION:Backpack
@@ -354,12 +354,12 @@ GEAR:Backpack								QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Banner (Simple)							QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Bedroll								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Pouch (Belt)								QTY:1		SIZE:PC	LOCATION:Equipped
-GEAR:Flask (Empty)							QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Flask							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Flint and Steel							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Mess Kit								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Pole (10 Ft)								QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Sack									QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Shovel or Spade							QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Shovel							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Signet Ring								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Rope (Silk/50 ft)							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Rations (Trail/Per Day)						QTY:5		SIZE:PC	LOCATION:Backpack
@@ -384,12 +384,12 @@ GEAR:Backpack								QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Banner (Simple)							QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Bedroll								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Pouch (Belt)								QTY:1		SIZE:PC	LOCATION:Equipped
-GEAR:Flask (Empty)							QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Flask							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Flint and Steel							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Mess Kit								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Pole (10 Ft)								QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Sack									QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Shovel or Spade							QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Shovel							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Signet Ring								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Rope (Silk/50 ft)							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Rations (Trail/Per Day)						QTY:5		SIZE:PC	LOCATION:Backpack
@@ -481,7 +481,7 @@ GEAR:Fishhook								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Flint and Steel							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Mess Kit								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Pole (10 Ft)								QTY:1		SIZE:PC	LOCATION:Carried
-GEAR:Shovel or Spade							QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Shovel							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Signal Whistle							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Rope (Silk/50 ft)							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Rations (Trail/Per Day)						QTY:5		SIZE:PC	LOCATION:Backpack
@@ -516,7 +516,7 @@ GEAR:Fishhook								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Flint and Steel							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Mess Kit								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Pole (10 Ft)								QTY:1		SIZE:PC	LOCATION:Carried
-GEAR:Shovel or Spade							QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Shovel							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Signal Whistle							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Rope (Silk/50 ft)							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Rations (Trail/Per Day)						QTY:5		SIZE:PC	LOCATION:Backpack
@@ -550,7 +550,7 @@ GEAR:Fishhook								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Flint and Steel							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Mess Kit								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Pole (10 Ft)								QTY:1		SIZE:PC	LOCATION:Carried
-GEAR:Shovel or Spade							QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Shovel							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Signal Whistle							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Rope (Silk/50 ft)							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Rations (Trail/Per Day)						QTY:5		SIZE:PC	LOCATION:Backpack
@@ -585,7 +585,7 @@ GEAR:Fishhook								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Flint and Steel							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Mess Kit								QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Pole (10 Ft)								QTY:1		SIZE:PC	LOCATION:Carried
-GEAR:Shovel or Spade							QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Shovel							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Signal Whistle							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Rope (Silk/50 ft)							QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Rations (Trail/Per Day)						QTY:5		SIZE:PC	LOCATION:Backpack

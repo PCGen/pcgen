@@ -29,7 +29,7 @@ STARTPACK:Pathfinder's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:12
 GEAR:Backpack			QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Bedroll			QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Pouch (Belt)			QTY:1		SIZE:PC	LOCATION:Equipped
-GEAR:Mug or Tankard (Clay)	QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Mug (Clay)	QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Dagger				QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Fishhook			QTY:2		SIZE:PC	LOCATION:Backpack
 GEAR:Flint and Steel		QTY:1		SIZE:PC	LOCATION:Backpack
@@ -44,7 +44,7 @@ STARTPACK:Pathfinder's Kit (Small)	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:
 GEAR:Backpack			QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Bedroll			QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Pouch (Belt)			QTY:1		SIZE:PC	LOCATION:Equipped
-GEAR:Mug or Tankard (Clay)	QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Mug (Clay)	QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Dagger				QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Fishhook			QTY:2		SIZE:PC	LOCATION:Backpack
 GEAR:Flint and Steel		QTY:1		SIZE:PC	LOCATION:Backpack

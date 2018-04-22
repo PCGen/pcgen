@@ -24,7 +24,7 @@ GEAR:Buoy (Common)			QTY:1	SIZE:PC
 GEAR:Chain (10 Ft)			QTY:3	SIZE:PC
 GEAR:Fishing Net (25 Sq Ft)		QTY:1	SIZE:PC
 GEAR:Bottle (Glass)			QTY:1	SIZE:PC
-GEAR:Soap (per lb)			QTY:1	SIZE:PC
+GEAR:Soap			QTY:1	SIZE:PC
 GEAR:Sunrod					QTY:3	SIZE:PC
 GEAR:Waterproof Bag			QTY:1	SIZE:PC
 GEAR:Lantern (Bullseye/Waterproof)	QTY:1	SIZE:PC

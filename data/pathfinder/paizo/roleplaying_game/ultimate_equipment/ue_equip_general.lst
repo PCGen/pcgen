@@ -438,7 +438,7 @@ Camouflage Netting															TYPE:Goods.Tools																COST:20	WT:5			
 Candle.MOD																																										SOURCEPAGE:p.61
 Candle.COPY=Candles (10)
 Candles (10).MOD																																		COST:0.1			BASEQTY:10
-Candle Lamp																	TYPE:Goods.General.Lightsource													COST:5	WT:1					SOURCEPAGE:p.61																																																				SPROP:A small lanternlike device with glass panels and a slot to hold a candle. It protects the candle from drafts and catches wax drippings. Provides the same light as a candle, but can be shuttered such that it only illuminates 1 to 3 adjacent squares. You can use a candle lamp to keep your hands warm.
+Candle Lamp																	TYPE:Goods.General.Light Source													COST:5	WT:1					SOURCEPAGE:p.61																																																				SPROP:A small lanternlike device with glass panels and a slot to hold a candle. It protects the candle from drafts and catches wax drippings. Provides the same light as a candle, but can be shuttered such that it only illuminates 1 to 3 adjacent squares. You can use a candle lamp to keep your hands warm.
 Candlestick																	TYPE:Goods.General															COST:0.01	WT:0.5				SOURCEPAGE:p.61
 Canteen																	TYPE:Goods.Container.General				CONTAINS:4|Liquid=4							COST:2	WT:1					SOURCEPAGE:p.61
 Canvas (Sq Yd).MOD																																								SOURCEPAGE:p.61
@@ -476,7 +476,7 @@ Filter Hood																	TYPE:Goods.Tools.Headgear.Resizable													COST
 Firewood (Per Day).MOD																																								SOURCEPAGE:p.64
 Fishhook.MOD																																									SOURCEPAGE:p.64
 Fishing Net (25 Sq Ft).MOD																																							SOURCEPAGE:p.64
-Flask (Empty).MOD																																									SOURCEPAGE:p.64
+Flask.MOD																																									SOURCEPAGE:p.64
 Flint and Steel.MOD																																								SOURCEPAGE:p.64
 Folding Chair																TYPE:Goods.General.Resizable														COST:2	WT:10					SOURCEPAGE:p.64
 Folding Ladder																TYPE:Goods.General															COST:2	WT:16					SOURCEPAGE:p.65
@@ -496,34 +496,34 @@ Hammock																	TYPE:Goods.General.Resizable														COST:0.1	WT:3	
 Harrow Deck																	TYPE:Goods.General															COST:100						SOURCEPAGE:p.66
 Helmet Candle																TYPE:Goods.General.Headgear														COST:2	WT:4					SOURCEPAGE:p.66
 Heritage Book																TYPE:Goods.Tools.Book															COST:50	WT:2					SOURCEPAGE:p.66																						BONUS:SKILL|Knowledge (Nobility)|2|TYPE=Circumstance																						SPROP:Consulting this book grants a +2 circumstance bonus on Knowledge (nobility) checks.
-Hip Flask																	TYPE:Goods.Container.General.Flask.Resizable	CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1			COST:1	WT:0.5				SOURCEPAGE:p.66
+Hip Flask																	TYPE:Goods.Container.General.Flask.Resizable	CONTAINS:1|Liquid=1|Spell Component=1|Poison=1			COST:1	WT:0.5				SOURCEPAGE:p.66
 Hollowed Pommel																TYPE:Goods.General															COST:5						SOURCEPAGE:p.66
 Holy Symbol (Wooden).MOD																																							SOURCEPAGE:p.66
 Holy Symbol (Wooden).COPY=Holy Symbol (Wooden/Compartment)
 Holy Symbol (Wooden/Compartment).MOD												TYPE:Container						CONTAINS:1|Vial=1|Flask=1						COST:6
 Holy Symbol (Wooden).COPY=Holy Symbol (Wooden/Flask)
-Holy Symbol (Wooden/Flask).MOD													TYPE:Container						CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1			COST:11
-Holy Symbol (Iron)															TYPE:Goods.Tools.SpellComponent.DivineFocus											COST:5	WT:1					SOURCEPAGE:p.66
+Holy Symbol (Wooden/Flask).MOD													TYPE:Container						CONTAINS:1|Liquid=1|Spell Component=1|Poison=1			COST:11
+Holy Symbol (Iron)															TYPE:Goods.Tools.Spell Component.Divine Focus											COST:5	WT:1					SOURCEPAGE:p.66
 Holy Symbol (Iron).COPY=Holy Symbol (Iron/Compartment)
 Holy Symbol (Iron/Compartment).MOD													TYPE:Container						CONTAINS:1|Vial=1|Flask=1						COST:10
 Holy Symbol (Iron).COPY=Holy Symbol (Iron/Flask)
-Holy Symbol (Iron/Flask).MOD														TYPE:Container						CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1			COST:15
+Holy Symbol (Iron/Flask).MOD														TYPE:Container						CONTAINS:1|Liquid=1|Spell Component=1|Poison=1			COST:15
 Holy Symbol (Silver).MOD																																							SOURCEPAGE:p.66
 Holy Symbol (Silver).COPY=Holy Symbol (Silver/Compartment)
 Holy Symbol (Silver/Compartment).MOD												TYPE:Container						CONTAINS:1|Vial=1|Flask=1						COST:30
 Holy Symbol (Silver).COPY=Holy Symbol (Silver/Flask)
-Holy Symbol (Silver/Flask).MOD													TYPE:Container						CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1			COST:35
-Holy Symbol (Gold)															TYPE:Goods.Tools.SpellComponent.DivineFocus											COST:100	WT:1					SOURCEPAGE:p.66
+Holy Symbol (Silver/Flask).MOD													TYPE:Container						CONTAINS:1|Liquid=1|Spell Component=1|Poison=1			COST:35
+Holy Symbol (Gold)															TYPE:Goods.Tools.Spell Component.Divine Focus											COST:100	WT:1					SOURCEPAGE:p.66
 Holy Symbol (Gold).COPY=Holy Symbol (Gold/Compartment)
 Holy Symbol (Gold/Compartment).MOD													TYPE:Container						CONTAINS:1|Vial=1|Flask=1						COST:105
 Holy Symbol (Gold).COPY=Holy Symbol (Gold/Flask)
-Holy Symbol (Gold/Flask).MOD														TYPE:Container						CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1			COST:110
-Holy Symbol (Platinum)															TYPE:Goods.Tools.SpellComponent.DivineFocus											COST:500	WT:1					SOURCEPAGE:p.66
+Holy Symbol (Gold/Flask).MOD														TYPE:Container						CONTAINS:1|Liquid=1|Spell Component=1|Poison=1			COST:110
+Holy Symbol (Platinum)															TYPE:Goods.Tools.Spell Component.Divine Focus											COST:500	WT:1					SOURCEPAGE:p.66
 Holy Symbol (Platinum).COPY=Holy Symbol (Platinum/Compartment)
 Holy Symbol (Platinum/Compartment).MOD												TYPE:Container						CONTAINS:1|Vial=1|Flask=1						COST:505
 Holy Symbol (Platinum).COPY=Holy Symbol (Platinum/Flask)
-Holy Symbol (Platinum/Flask).MOD													TYPE:Container						CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1			COST:510
-Holy Symbol (Tattoo)															TYPE:Goods.Tools.SpellComponent.DivineFocus											COST:100						SOURCEPAGE:p.66
+Holy Symbol (Platinum/Flask).MOD													TYPE:Container						CONTAINS:1|Liquid=1|Spell Component=1|Poison=1			COST:510
+Holy Symbol (Tattoo)															TYPE:Goods.Tools.Spell Component.Divine Focus											COST:100						SOURCEPAGE:p.66
 Holy Symbol (Tattoo).MOD														TYPE:Tattoo Head.Tattoo Shoulders.Tattoo Neck.Tattoo Chest.Tattoo Body.Tattoo Belt.Tattoo Wrist.Tattoo Hands.Tattoo Ring.Tattoo Feet
 Holy Text (Cheap)																TYPE:Goods.Tools.Book															COST:1	WT:1					SOURCEPAGE:66																																																				SPROP:A small, light book with no illustrations, printed or written on thin paper, and with a cover made of canvas or thin leather.
 Holy Text (Typical)															TYPE:Goods.Tools.Book															COST:25	WT:2					SOURCEPAGE:66																																																				SPROP:A typical holy text for an experienced adventuring priest. Durable, with a leather cover, chapter illustrations and quality paper.
@@ -540,9 +540,9 @@ Journal																	TYPE:Goods.Tools.Book															COST:10	WT:1					SOU
 Jug (Clay).MOD									OUTPUTNAME:Jug																														SOURCEPAGE:p.67
 Ladder (10 Ft).MOD																																								SOURCEPAGE:p.67
 Lamp (Common).MOD																																									SOURCEPAGE:p.67
-Lamp (Common/Waterproof)														TYPE:Goods.General.LightSource													COST:5.1	WT:1					SOURCEPAGE:p.156																															QUALITY:Bright Illumination|15 ft.	QUALITY:Shadowy Illumination|30 ft.	QUALITY:Duration|6 hr./pint					SPROP:Bright illumination (15'), shadowy illumination (30'), 6 hr./pint, holds enough air to burn underwater for 5 rounds before going dark.
-Lantern (Bullseye/Waterproof)														TYPE:Goods.General.LightSource													COST:17	WT:3					SOURCEPAGE:p.156																															QUALITY:Normal Illumination|60 ft. cone	QUALITY:Increases light level by 1 step|120 ft. cone	QUALITY:Duration|6 hr./pint	SPROP:Normal illumination (60'), plus 1 step (120'), 6 hr./pint, holds enough air to burn underwater for 5 rounds before going dark.
-Lantern (Hooded/Waterproof)														TYPE:Goods.General.LightSource													COST:12	WT:2					SOURCEPAGE:p.156																															QUALITY:Bright Illumination|30 ft.	QUALITY:Shadowy Illumination|60 ft.	QUALITY:Duration|6 hr./pint					SPROP:Bright illumination (30'), shadowy illumination (60'), 6 hr./pint, holds enough air to burn underwater for 5 rounds before going dark.
+Lamp (Common/Waterproof)														TYPE:Goods.General.Light Source													COST:5.1	WT:1					SOURCEPAGE:p.156																															QUALITY:Bright Illumination|15 ft.	QUALITY:Shadowy Illumination|30 ft.	QUALITY:Duration|6 hr./pint					SPROP:Bright illumination (15'), shadowy illumination (30'), 6 hr./pint, holds enough air to burn underwater for 5 rounds before going dark.
+Lantern (Bullseye/Waterproof)														TYPE:Goods.General.Light Source													COST:17	WT:3					SOURCEPAGE:p.156																															QUALITY:Normal Illumination|60 ft. cone	QUALITY:Increases light level by 1 step|120 ft. cone	QUALITY:Duration|6 hr./pint	SPROP:Normal illumination (60'), plus 1 step (120'), 6 hr./pint, holds enough air to burn underwater for 5 rounds before going dark.
+Lantern (Hooded/Waterproof)														TYPE:Goods.General.Light Source													COST:12	WT:2					SOURCEPAGE:p.156																															QUALITY:Bright Illumination|30 ft.	QUALITY:Shadowy Illumination|60 ft.	QUALITY:Duration|6 hr./pint					SPROP:Bright illumination (30'), shadowy illumination (60'), 6 hr./pint, holds enough air to burn underwater for 5 rounds before going dark.
 Lock (Simple).MOD																																									SOURCEPAGE:p.67
 Lock (Average).MOD																																								SOURCEPAGE:p.67
 Lock (Good).MOD																																									SOURCEPAGE:p.67
@@ -566,7 +566,8 @@ Mess Kit																	TYPE:Goods.General															COST:0.2	WT:1					SOUR
 Miner's Pick																TYPE:Goods.General															COST:3	WT:10					SOURCEPAGE:p.68
 Mirror (Small/Steel).MOD																																							SOURCEPAGE:p.68
 Mock Armor																	TYPE:Goods.Cloth.Clothing.Resizable													COST:90	WT:10					SOURCEPAGE:p.68	BONUS:SITUATION|Bluff=Conceal Identity|4|TYPE=Circumstance
-Mug or Tankard (Clay).MOD																																							SOURCEPAGE:p.68
+Mug (Clay).MOD																																							SOURCEPAGE:p.68
+Tankard.MOD																																							SOURCEPAGE:p.68
 Oil (1 Pint Flask).MOD																																								SOURCEPAGE:p.68
 Paper (Sheet).MOD																																									SOURCEPAGE:p.69
 Parchment (Sheet).MOD																																								SOURCEPAGE:p.69
@@ -601,7 +602,8 @@ Sewing Needle.MOD																																									SOURCEPAGE:p.71
 Sextant.MOD																	TYPE:Goods.Tools																COST:500	WT:2					SOURCEPAGE:p.71
 Shaving Kit																	TYPE:Goods.General															COST:1.5	WT:0.5				SOURCEPAGE:p.71
 Shield Sconce																TYPE:Goods.General															COST:1	WT:0.5				SOURCEPAGE:p.71																																																				SPROP:This metal frame holds a torch and is designed to be strapped to the front of a light, heavy, or tower shield, allowing you to carry a torch without giving up your shield or occupying your weapon hand.
-Shovel or Spade.MOD								OUTPUTNAME:Shovel, Common																												SOURCEPAGE:p.71
+Shovel.MOD																																				SOURCEPAGE:p.71
+Spade.MOD																																				SOURCEPAGE:p.71
 Shovel (Folding)									OUTPUTNAME:Shovel, Folding			TYPE:Goods.General															COST:10	WT:12					SOURCEPAGE:p.71
 Signal Horn.MOD																TYPE:Goods.General.Resizable														COST:1	WT:2					SOURCEPAGE:p.71
 Signal Whistle.MOD																																								SOURCEPAGE:p.71
@@ -615,7 +617,7 @@ Sledge.MOD																																										SOURCEPAGE:p.72
 Smoked Goggles.MOD															TYPE:Goods.General															COST:10	WT:0					SOURCEPAGE:p.72
 Snorkel (Common)									OUTPUTNAME:Snorkel, Common			TYPE:Goods.General															COST:0.5						SOURCEPAGE:p.72
 Snorkel (Masterwork)								OUTPUTNAME:Snorkel, Masterwork		TYPE:Goods.General.Masterwork														COST:5						SOURCEPAGE:p.72
-Soap (per lb).MOD																																									SOURCEPAGE:p.72
+Soap.MOD																																			COST:0.01	WT:0.5				SOURCEPAGE:p.72
 Rope (Spider Silk/50 ft.).MOD							OUTPUTNAME:Rope, Spider Silk (50 ft.)	TYPE:Goods.General															COST:100	WT:4					SOURCEPAGE:p.73
 Spyglass.MOD																																									SOURCEPAGE:p.73
 Stationery																	TYPE:Goods.General.Writing.Documents												COST:1						SOURCEPAGE:p.73
@@ -628,10 +630,10 @@ Survival Kit (Masterwork)														TYPE:Goods.General															COST:50	
 Swarmsuit.MOD																TYPE:Goods.General.Resizable														COST:20	WT:10					SOURCEPAGE:p.73
 #Tattoo 1 cp-20 gp -
 Teapot																	TYPE:Goods.General															COST:0.1	WT:1					SOURCEPAGE:p.74
-Tent.MOD										OUTPUTNAME:Tent, Small				TYPE:Goods.General.Resizable																					SOURCEPAGE:p.74
-Tent (Medium).MOD									OUTPUTNAME:Tent, Medium				TYPE:Goods.General.Resizable														COST:15	WT:30					SOURCEPAGE:p.74
-Tent (Large).MOD									OUTPUTNAME:Tent, Large				TYPE:Goods.General.Resizable														COST:30	WT:40					SOURCEPAGE:p.74
-Tent (Pavilion).MOD								OUTPUTNAME:Tent, Pavilion			TYPE:Goods.General.Resizable														COST:100	WT:50					SOURCEPAGE:p.74
+Tent (Small).MOD									OUTPUTNAME:Small Tent				TYPE:Goods.General.Resizable																					SOURCEPAGE:p.74
+Tent (Medium).MOD									OUTPUTNAME:Medium Tent				TYPE:Goods.General.Resizable														COST:15	WT:30					SOURCEPAGE:p.74
+Tent (Large).MOD									OUTPUTNAME:Large Tent				TYPE:Goods.General.Resizable														COST:30	WT:40					SOURCEPAGE:p.74
+Tent (Pavilion).MOD								OUTPUTNAME:Pavilion				TYPE:Goods.General.Resizable														COST:100	WT:50					SOURCEPAGE:p.74
 Thurible																	TYPE:Goods.General															COST:50	WT:3					SOURCEPAGE:p.74
 Torch.MOD																																										SOURCEPAGE:p.74
 Traveler's Dictionary															TYPE:Goods.Tools.Book															COST:50	WT:2					SOURCEPAGE:p.74
