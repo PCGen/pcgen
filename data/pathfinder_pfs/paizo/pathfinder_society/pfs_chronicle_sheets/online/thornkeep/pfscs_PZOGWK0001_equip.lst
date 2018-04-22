@@ -8,7 +8,7 @@ Arcanolembic																			TYPE:Magic.Wonderous.PFS			COST:2000	WT:2		PREABI
 #CONSTRUCTION
 #Requirements Brew Potion, Craft Wondrous Item, 5 ranks in Craft (alchemy); Cost 1,000 gp
 
-Gauntlet (Spiked).COPY=Gauntlet +1 (Spiked/Keen/three-fingered)											TYPE:PFS						COST:8305																	EQMOD:Special Ability ~ +1 ~ Weapon																																																				SPROP:(cost s/b 8305 gp) imparts a -2 penalty on attack rolls)	PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ PZOGWK0001-3
+Spiked Gauntlet (Base).COPY=+1 Keen Three-Fingered Spiked Gauntlet	KEY:Gauntlet +1 (Spiked/Keen/three-fingered)	OUTPUTNAME:+1 Keen Three-Fingered Spiked Gauntlet										TYPE:PFS																						VISIBLE:YES	EQMOD:Material ~ Steel.Special Ability ~ +1 ~ Weapon.Special Ability ~ Keen ~ Weapon																																																				SPROP:(cost s/b 8305 gp) imparts a -2 penalty on attack rolls)	PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ PZOGWK0001-3
 Bloodstone of Gultariix			TYPE:Magic.Wondrous.PFS		COST:200	WT:0.01		SPROP:when this dark crystal is dissolved into a potion, the potion is enhanced as if by the Extend Spell metamagic feat	PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ PZOGWK0001-3
 
 #

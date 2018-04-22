@@ -973,7 +973,7 @@ BIO
 		<weapon>
 			<common>
 				<name>
-					<short>*Gauntlet, Spiked</short>
+					<short>*Spiked Gauntlet</short>
 					<long>*Gauntlet, Spiked</long>
 				</name>
 				<category>Simple-Melee</category>
@@ -1612,7 +1612,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties>disarm, trip</special_properties>
-			<type>MAGIC.WEAPON.RESIZABLE.MELEE.TWOHANDED.MARTIAL.STANDARD.BLUDGEONING.FLAIL.WEAPON GROUP FLAILS.CUSTOM.DISARM.METAL.TRIP.MASTERWORK.ENHANCEMENT.PLUS1</type>
+			<type>MAGIC.WEAPON.RESIZABLE.MELEE.MARTIAL.TWOHANDED.BLUDGEONING.FLAIL.WEAPON GROUP FLAILS.CUSTOM.DISARM.METAL.TRIP.MASTERWORK.ENHANCEMENT.PLUS1</type>
 			<weight>10</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1638,14 +1638,14 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties>disarm, trip</special_properties>
-			<type>MAGIC.WEAPON.RESIZABLE.MELEE.TWOHANDED.MARTIAL.STANDARD.BLUDGEONING.FLAIL.WEAPON GROUP FLAILS.CUSTOM.TEMPORARY.DISARM.METAL.TRIP.MASTERWORK.ENHANCEMENT.PLUS1</type>
+			<type>MAGIC.WEAPON.RESIZABLE.MELEE.MARTIAL.TWOHANDED.BLUDGEONING.FLAIL.WEAPON GROUP FLAILS.CUSTOM.TEMPORARY.DISARM.METAL.TRIP.MASTERWORK.ENHANCEMENT.PLUS1</type>
 			<weight>0</weight>
 			<bonuslist></bonuslist>
 		</item>
 		<item>
 			<longname>Gauntlet, Spiked</longname>
 			<id></id>
-			<name>Gauntlet, Spiked</name>
+			<name>Spiked Gauntlet</name>
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -1664,7 +1664,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>WEAPON.RESIZABLE.MELEE.LIGHT.FINESSEABLE.SIMPLE.STANDARD.PIERCING.UNARMED.GAUNTLET.CLOSE.WEAPON GROUP NATURAL.WEAPON GROUP CLOSE.METAL</type>
+			<type>WEAPON.RESIZABLE.MELEE.SIMPLE.LIGHT.UNARMED.FINESSEABLE.PIERCING.GAUNTLET.CLOSE.WEAPON GROUP CLOSE.WEAPON GROUP NATURAL.METAL</type>
 			<weight>0</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1716,7 +1716,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>MAGIC.ARMOR.HEAVY.ARMORPROFHEAVY.SUIT.STANDARD.CUSTOM.METAL.MASTERWORK.ENHANCEMENT.PLUS1</type>
+			<type>MAGIC.ARMOR.HEAVY.ARMORPROFHEAVY.SUIT.CUSTOM.METAL.MASTERWORK.ENHANCEMENT.PLUS1</type>
 			<weight>50</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1976,7 +1976,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>WEAPON.RESIZABLE.MELEE.LIGHT.FINESSEABLE.RANGED.THROWN.SIMPLE.STANDARD.PIERCING.SLASHING.DAGGER.BLADELIGHT.WEAPON GROUP BLADES LIGHT.WEAPON GROUP THROWN.METAL</type>
+			<type>WEAPON.RESIZABLE.MELEE.SIMPLE.LIGHT.FINESSEABLE.RANGED.THROWN.PIERCING.SLASHING.DAGGER.BLADELIGHT.WEAPON GROUP BLADES LIGHT.WEAPON GROUP THROWN.METAL</type>
 			<weight>1</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -2002,7 +2002,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>WEAPON.RESIZABLE.SIMPLE.RANGED.STANDARD.PIERCING.THROWN.JAVELIN.SPEAR.WEAPON GROUP SPEARS.WEAPON GROUP THROWN.WOODEN</type>
+			<type>WEAPON.RESIZABLE.RANGED.SIMPLE.THROWN.PIERCING.JAVELIN.SPEAR.WEAPON GROUP SPEARS.WEAPON GROUP THROWN.WOODEN</type>
 			<weight>2</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -2028,7 +2028,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>WEAPON.RESIZABLE.SIMPLE.RANGED.STANDARD.PIERCING.THROWN.JAVELIN.SPEAR.WEAPON GROUP SPEARS.WEAPON GROUP THROWN.WOODEN</type>
+			<type>WEAPON.RESIZABLE.RANGED.SIMPLE.THROWN.PIERCING.JAVELIN.SPEAR.WEAPON GROUP SPEARS.WEAPON GROUP THROWN.WOODEN</type>
 			<weight>2</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -2054,7 +2054,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties>10 hp/inch, hardness 8</special_properties>
-			<type>WEAPON.RESIZABLE.MELEE.ONEHANDED.MARTIAL.STANDARD.SLASHING.SWORD.BLADEHEAVY.WEAPON GROUP BLADES HEAVY.CUSTOM.METAL.SILVER</type>
+			<type>WEAPON.RESIZABLE.MELEE.MARTIAL.ONEHANDED.SLASHING.SWORD.BLADEHEAVY.WEAPON GROUP BLADES HEAVY.CUSTOM.METAL.SILVER</type>
 			<weight>4</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -2369,7 +2369,7 @@ BIO
 					<short>M</short>
 				</size>
 				<special_properties>disarm, trip</special_properties>
-				<type>MAGIC.WEAPON.RESIZABLE.MELEE.TWOHANDED.MARTIAL.STANDARD.BLUDGEONING.FLAIL.WEAPON GROUP FLAILS.CUSTOM.DISARM.METAL.TRIP.MASTERWORK.ENHANCEMENT.PLUS1</type>
+				<type>MAGIC.WEAPON.RESIZABLE.MELEE.MARTIAL.TWOHANDED.BLUDGEONING.FLAIL.WEAPON GROUP FLAILS.CUSTOM.DISARM.METAL.TRIP.MASTERWORK.ENHANCEMENT.PLUS1</type>
 				<weight>10</weight>
 				<bonuslist></bonuslist>
 			</item>
@@ -2390,12 +2390,12 @@ BIO
 					<short>M</short>
 				</size>
 				<special_properties>disarm, trip</special_properties>
-				<type>MAGIC.WEAPON.RESIZABLE.MELEE.TWOHANDED.MARTIAL.STANDARD.BLUDGEONING.FLAIL.WEAPON GROUP FLAILS.CUSTOM.TEMPORARY.DISARM.METAL.TRIP.MASTERWORK.ENHANCEMENT.PLUS1</type>
+				<type>MAGIC.WEAPON.RESIZABLE.MELEE.MARTIAL.TWOHANDED.BLUDGEONING.FLAIL.WEAPON GROUP FLAILS.CUSTOM.TEMPORARY.DISARM.METAL.TRIP.MASTERWORK.ENHANCEMENT.PLUS1</type>
 				<weight>0</weight>
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Gauntlet, Spiked</name>
+				<name>Spiked Gauntlet</name>
 				<carried>1.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
@@ -2411,7 +2411,7 @@ BIO
 					<short>M</short>
 				</size>
 				<special_properties></special_properties>
-				<type>WEAPON.RESIZABLE.MELEE.LIGHT.FINESSEABLE.SIMPLE.STANDARD.PIERCING.UNARMED.GAUNTLET.CLOSE.WEAPON GROUP NATURAL.WEAPON GROUP CLOSE.METAL</type>
+				<type>WEAPON.RESIZABLE.MELEE.SIMPLE.LIGHT.UNARMED.FINESSEABLE.PIERCING.GAUNTLET.CLOSE.WEAPON GROUP CLOSE.WEAPON GROUP NATURAL.METAL</type>
 				<weight>0</weight>
 				<bonuslist></bonuslist>
 			</item>
@@ -2453,7 +2453,7 @@ BIO
 					<short>M</short>
 				</size>
 				<special_properties></special_properties>
-				<type>MAGIC.ARMOR.HEAVY.ARMORPROFHEAVY.SUIT.STANDARD.CUSTOM.METAL.MASTERWORK.ENHANCEMENT.PLUS1</type>
+				<type>MAGIC.ARMOR.HEAVY.ARMORPROFHEAVY.SUIT.CUSTOM.METAL.MASTERWORK.ENHANCEMENT.PLUS1</type>
 				<weight>50</weight>
 				<bonuslist></bonuslist>
 			</item>
@@ -2663,7 +2663,7 @@ BIO
 					<short>M</short>
 				</size>
 				<special_properties></special_properties>
-				<type>WEAPON.RESIZABLE.MELEE.LIGHT.FINESSEABLE.RANGED.THROWN.SIMPLE.STANDARD.PIERCING.SLASHING.DAGGER.BLADELIGHT.WEAPON GROUP BLADES LIGHT.WEAPON GROUP THROWN.METAL</type>
+				<type>WEAPON.RESIZABLE.MELEE.SIMPLE.LIGHT.FINESSEABLE.RANGED.THROWN.PIERCING.SLASHING.DAGGER.BLADELIGHT.WEAPON GROUP BLADES LIGHT.WEAPON GROUP THROWN.METAL</type>
 				<weight>1</weight>
 				<bonuslist></bonuslist>
 			</item>
@@ -2684,7 +2684,7 @@ BIO
 					<short>M</short>
 				</size>
 				<special_properties></special_properties>
-				<type>WEAPON.RESIZABLE.SIMPLE.RANGED.STANDARD.PIERCING.THROWN.JAVELIN.SPEAR.WEAPON GROUP SPEARS.WEAPON GROUP THROWN.WOODEN</type>
+				<type>WEAPON.RESIZABLE.RANGED.SIMPLE.THROWN.PIERCING.JAVELIN.SPEAR.WEAPON GROUP SPEARS.WEAPON GROUP THROWN.WOODEN</type>
 				<weight>2</weight>
 				<bonuslist></bonuslist>
 			</item>
@@ -2705,7 +2705,7 @@ BIO
 					<short>M</short>
 				</size>
 				<special_properties></special_properties>
-				<type>WEAPON.RESIZABLE.SIMPLE.RANGED.STANDARD.PIERCING.THROWN.JAVELIN.SPEAR.WEAPON GROUP SPEARS.WEAPON GROUP THROWN.WOODEN</type>
+				<type>WEAPON.RESIZABLE.RANGED.SIMPLE.THROWN.PIERCING.JAVELIN.SPEAR.WEAPON GROUP SPEARS.WEAPON GROUP THROWN.WOODEN</type>
 				<weight>2</weight>
 				<bonuslist></bonuslist>
 			</item>
@@ -2726,7 +2726,7 @@ BIO
 					<short>M</short>
 				</size>
 				<special_properties>10 hp/inch, hardness 8</special_properties>
-				<type>WEAPON.RESIZABLE.MELEE.ONEHANDED.MARTIAL.STANDARD.SLASHING.SWORD.BLADEHEAVY.WEAPON GROUP BLADES HEAVY.CUSTOM.METAL.SILVER</type>
+				<type>WEAPON.RESIZABLE.MELEE.MARTIAL.ONEHANDED.SLASHING.SWORD.BLADEHEAVY.WEAPON GROUP BLADES HEAVY.CUSTOM.METAL.SILVER</type>
 				<weight>4</weight>
 				<bonuslist></bonuslist>
 			</item>

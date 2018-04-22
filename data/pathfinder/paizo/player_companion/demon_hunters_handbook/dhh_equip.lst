@@ -20,7 +20,7 @@ Slime slow				KEY:Slime slow				TYPE:Gear	COST:15	WT:0.5	SOURCEPAGE:p.18
 
 ###Block: Magic Items
 # Equipment Name
-Dagger.COPY=Dagger of Repossession
+Dagger (Base).COPY=Dagger of Repossession	VISIBLE:YES	EQMOD:Material ~ Steel
 
 ###Block:
 # Equipment Name			Product Identity?	Type					Cost		Weight	Source, Long Desc.			Source, Short Desc.	Source Page
