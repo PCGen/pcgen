@@ -34,6 +34,7 @@ import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.base.WriteableFunctionLibrary;
 import pcgen.base.formula.base.WriteableVariableStore;
+import pcgen.base.formula.exception.SemanticsFailureException;
 import pcgen.base.formula.parse.SimpleNode;
 import pcgen.base.formula.visitor.DependencyVisitor;
 import pcgen.base.formula.visitor.EvaluateVisitor;
@@ -94,11 +95,6 @@ public abstract class AbstractFormulaTestCase extends TestCase
 		FormulaSemantics semantics = generateFormulaSemantics(assertedFormat);
 		FormatManager<?> resultFormat =
 				(FormatManager<?>) semanticsVisitor.visit(node, semantics);
-		if (!semantics.isValid())
-		{
-			TestCase.fail("Expected Valid Formula: " + formula + " but was told: "
-				+ semantics.getReport());
-		}
 		if (!formatManager.equals(resultFormat))
 		{
 			TestCase
@@ -153,10 +149,14 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	{
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = generateFormulaSemantics(assertedFormat);
-		semanticsVisitor.visit(node, semantics);
-		if (semantics.isValid())
+		try
 		{
+			semanticsVisitor.visit(node, semantics);
 			TestCase.fail("Expected Invalid Formula: " + formula + " but was valid");
+		}
+		catch (SemanticsFailureException e)
+		{
+			//Expected
 		}
 	}
 

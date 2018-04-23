@@ -730,7 +730,7 @@ Damaya		SORTKEY:12b	KEY:Lashunta Subrace ~ Damaya		CATEGORY:Racial Trait	TEMPLAT
 SIZE AND TYPE		SORTKEY:s1a	KEY:Shirren Default ~ SIZE AND TYPE			SOURCEPAGE:p.50	CATEGORY:Racial Trait	TYPE:Racial Trait.Shirren Racial Trait	DESC:Shirrens are Medium humanoids with the shirren subtype.
 BLINDSENSE			SORTKEY:s1b	KEY:Shirren Default ~ BLINDSENSE			SOURCEPAGE:p.50	CATEGORY:Racial Trait	TYPE:Racial Trait.Shirren Racial Trait	DESC:Shirrens' sensitive antennae grant them blindsense (vibration)-the ability to sense vibrations in the air-out to 30 feet. A shirren ignores the Stealth bonuses from any form of visual camouflage, invisibility, and the like when attempting a Perception check opposed by a creature's Stealth check. Even on a successful Perception check, any foe that can't be seen still has total concealment (50%% miss chance) against a shirren, and the shirren still has the normal miss chance when attacking foes that have concealment. A shirren is still flatfooted against attacks from creatures it can't see.	BONUS:VAR|Blindsense|30|TYPE=Base
 COMMUNALISM			SORTKEY:s1c	KEY:Shirren Default ~ COMMUNALISM			SOURCEPAGE:p.50	CATEGORY:Racial Trait	TYPE:Racial Trait.Shirren Racial Trait	DESC:Shirrens are used to working with others as part of a team. Once per day, as long as an ally is within 10 feet, a shirren can roll a single attack roll or skill check twice and take the higher result.
-CULTURAL FASCINATION	SORTKEY:s1d	KEY:Shirren Default ~ CULTURAL FASCINATION	SOURCEPAGE:p.50	CATEGORY:Racial Trait	TYPE:Racial Trait.Shirren Racial Trait	DESC:Shirrens are eager to learn about new cultures and societies. Shirrens receive a +2 racial bonus to Culture and Diplomacy checks.
+CULTURAL FASCINATION	SORTKEY:s1d	KEY:Shirren Default ~ CULTURAL FASCINATION	SOURCEPAGE:p.50	CATEGORY:Racial Trait	TYPE:Racial Trait.Shirren Racial Trait	DESC:Shirrens are eager to learn about new cultures and societies. Shirrens receive a +2 racial bonus to Culture and Diplomacy checks.	BONUS:SKILL|Culture,Diplomacy|2|TYPE=Racial
 LIMITED TELEPATHY		SORTKEY:s1e	KEY:Shirren Default ~ LIMITED TELEPATHY		SOURCEPAGE:p.50	CATEGORY:Racial Trait	TYPE:Racial Trait.Shirren Racial Trait	DESC:Shirrens can communicate telepathically with any creatures within 30 feet with whom they share a language. Conversing telepathically with multiple creatures simultaneously is just as difficult as listening to multiple people speak.
 
 # Vesk
@@ -1202,8 +1202,13 @@ No new AI		KEY:Mechanic Control Net Selection ~ No AI		TYPE:Mechanic Control Net
 +4 Increase to Drone Level		CATEGORY:Internal	TYPE:Mechanic AI Level Divestment	BONUS:VAR|DroneCompanionLVL|4		CHOOSE:NOCHOICE	MULT:YES	STACK:YES	COST:4
 +4 Increase to Exocortex Level	CATEGORY:Internal	TYPE:Mechanic AI Level Divestment	BONUS:VAR|ExocortexCompanionLVL|4	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	COST:4
 
-Drone	CATEGORY:Race		ABILITY:Race|AUTOMATIC|RaceType ~ Construct	BONUS:COMBAT|AC|AC_DroneEAC|TYPE=EAC_Armor	BONUS:COMBAT|AC|AC_DroneKAC|TYPE=KAC_Armor		BONUS:VAR|AC_DroneEAC,AC_DroneKAC|DroneArmorClass			BONUS:VAR|EffectiveLVL|DroneMasterLVL	BONUS:VAR|SkillCap_Level|EffectiveLVL		BONUS:VAR|PC_Hands|DroneWeaponMount
+Drone	CATEGORY:Race		ABILITY:Race|AUTOMATIC|RaceType ~ Construct	BONUS:COMBAT|AC|AC_DroneEAC|TYPE=EAC_Armor	BONUS:COMBAT|AC|AC_DroneKAC|TYPE=KAC_Armor		BONUS:VAR|AC_DroneEAC,AC_DroneKAC|DroneArmorClass			BONUS:VAR|EffectiveLVL|DroneMasterLVL	BONUS:VAR|SkillCap_Level|EffectiveLVL		BONUS:VAR|PC_Hands|DroneWeaponMount	BONUS:ABILITYPOOL|Initial Drone Proficiency|1
 
+# Initial Drone Proficiency
+Basic Melee Weapons	KEY:Initial Drone Proficiency ~ Basic Melee Weapons	TYPE:Initial Drone Proficiency	CATEGORY:Class Feature	ABILITY:Proficiency|AUTOMATIC|Weapon Prof ~ Basic Melee Weapons	ABILITY:Proficiency|AUTOMATIC|Weapon Specialization ~ Basic Melee Weapons|PREVARGTEQ:DroneMasterLVL,3
+Small Arms			KEY:Initial Drone Proficiency ~ Small Arms		TYPE:Initial Drone Proficiency	CATEGORY:Class Feature	ABILITY:Proficiency|AUTOMATIC|Weapon Prof ~ Small Arms		ABILITY:Proficiency|AUTOMATIC|Weapon Specialization ~ Small Arms|PREVARGTEQ:DroneMasterLVL,3
+
+#
 Drone Flight System	CATEGORY:Internal	BONUS:VAR|Fly|Walk
 
 ###BLOCK-------------------------------------------------------------------------------------------------------------

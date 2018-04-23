@@ -1,4 +1,3 @@
-
 *.ini
 
 batch-convert.jar
@@ -57,3 +56,5 @@ installers/win-installer/includes/data.nsh
 
 # IntelliJ IDE
 .idea/
+/.pmd
+/.ruleset

@@ -26,6 +26,7 @@ import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaFunction;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FormulaSemantics;
+import pcgen.base.formula.exception.SemanticsFailureException;
 import pcgen.base.formula.parse.ASTQuotString;
 import pcgen.base.formula.parse.Node;
 import pcgen.base.formula.visitor.DependencyVisitor;
@@ -81,10 +82,9 @@ public class LookupFunction implements FormulaFunction
 		int argCount = args.length;
 		if ((argCount < 3) || (argCount > 4))
 		{
-			semantics.setInvalid("Function " + getFunctionName()
+			throw new SemanticsFailureException("Function " + getFunctionName()
 				+ " received incorrect # of arguments, expected: 3-4 got " + args.length
 				+ ' ' + Arrays.asList(args));
-			return null;
 		}
 
 		LoadContext context = semantics.get(ManagerKey.CONTEXT);
@@ -94,15 +94,11 @@ public class LookupFunction implements FormulaFunction
 		Object format =
 				args[0].jjtAccept(visitor, semantics.getWith(FormulaSemantics.ASSERTED,
 					Optional.of(refContext.getManufacturer(DATATABLE_CLASS))));
-		if (!semantics.isValid())
-		{
-			return null;
-		}
 		if (!(format instanceof TableFormatManager))
 		{
-			semantics.setInvalid("Parse Error: Invalid Object: " + format.getClass()
-				+ " found in location requiring a TableFormatManager");
-			return null;
+			throw new SemanticsFailureException(
+				"Parse Error: Invalid Object: " + format.getClass()
+					+ " found in location requiring a TableFormatManager");
 		}
 		TableFormatManager tableFormatManager = (TableFormatManager) format;
 		FormatManager<?> lookupFormat = tableFormatManager.getLookupFormat();
@@ -111,17 +107,12 @@ public class LookupFunction implements FormulaFunction
 		@SuppressWarnings("PMD.PrematureDeclaration")
 		FormatManager<?> luFormat = (FormatManager<?>) args[1].jjtAccept(visitor,
 			semantics.getWith(FormulaSemantics.ASSERTED, Optional.of(lookupFormat)));
-		if (!semantics.isValid())
-		{
-			return null;
-		}
 		if (!lookupFormat.equals(luFormat))
 		{
-			semantics.setInvalid(
+			throw new SemanticsFailureException(
 				"Parse Error: Invalid Lookup Object: " + luFormat.getIdentifierType()
 					+ " found in location the Table Format says is a "
 					+ lookupFormat.getIdentifierType());
-			return null;
 		}
 
 		//Result Column
@@ -129,23 +120,18 @@ public class LookupFunction implements FormulaFunction
 		Object resultColumn =
 				args[2].jjtAccept(visitor, semantics.getWith(FormulaSemantics.ASSERTED,
 					Optional.of(refContext.getManufacturer(COLUMN_CLASS))));
-		if (!semantics.isValid())
-		{
-			return null;
-		}
 		if (!(resultColumn instanceof ColumnFormatManager))
 		{
-			semantics.setInvalid("Parse Error: Invalid Result Column Name: "
+			throw new SemanticsFailureException("Parse Error: Invalid Result Column Name: "
 				+ resultColumn.getClass() + " found in location requiring a Column");
-			return null;
 		}
 		ColumnFormatManager<?> cf = (ColumnFormatManager<?>) resultColumn;
 		if (argCount == 4)
 		{
 			if (!(args[3] instanceof ASTQuotString))
 			{
-				semantics.setInvalid("Parse Error: Invalid lookup type argument: Must be a String");
-				return null;
+				throw new SemanticsFailureException(
+					"Parse Error: Invalid lookup type argument: Must be a String");
 			}
 			ASTQuotString typeNode = (ASTQuotString) args[3];
 			String lookupTypeName = typeNode.getText();
@@ -154,18 +140,17 @@ public class LookupFunction implements FormulaFunction
 				LookupType lookupType = DataTable.LookupType.valueOf(lookupTypeName);
 				if (lookupType.requiresSorting() && !(lookupFormat instanceof ComparableManager))
 				{
-					semantics.setInvalid("Parse Error: Lookup type: " + lookupTypeName
-						+ " (which requries comparison) was requested on "
-						+ "a format that is not Comparable: "
-						+ lookupFormat.getIdentifierType());
-					return null;
+					throw new SemanticsFailureException(
+						"Parse Error: Lookup type: " + lookupTypeName
+							+ " (which requries comparison) was requested on "
+							+ "a format that is not Comparable: "
+							+ lookupFormat.getIdentifierType());
 				}
 			}
 			catch (IllegalArgumentException e)
 			{
-				semantics.setInvalid(
+				throw new SemanticsFailureException(
 					"Parse Error: Invalid lookup type: " + lookupTypeName);
-				return null;
 			}
 		}
 		return cf.getComponentManager();

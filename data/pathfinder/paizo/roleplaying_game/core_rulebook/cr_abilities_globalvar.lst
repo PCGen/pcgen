@@ -684,7 +684,7 @@ CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_ArmorProficiencyMedium|0
 CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_ShieldProficiency|0
 CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_BondedMount|0
 
-CATEGORY=Class|Paladin.MOD	DEFINE:AllowHolyAvenger|0				BONUS:VAR|AlignmentAuraLVL|PaladinLVL	BONUS:VAR|AllowHolyAvenger|1
+CATEGORY=Class|Paladin.MOD	DEFINE:AllowHolyAvenger|0				BONUS:VAR|AlignmentAuraLVL|PaladinLVL	BONUS:VAR|AllowHolyAvenger|1	DEFINE:HolyAvengerCL|0	BONUS:VAR|HolyAvengerCL|PaladinLVL	DEFINE:HolyAvengerSR|0	BONUS:VAR|HolyAvengerSR|5+PaladinLVL
 
 CATEGORY=Class|Paladin.MOD									BONUS:VAR|Paladin_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_ClassSkills=True
 CATEGORY=Class|Paladin.MOD									BONUS:VAR|Paladin_CF_BondedWeapon|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_BondedWeapon=True

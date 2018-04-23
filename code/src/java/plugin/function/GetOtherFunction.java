@@ -29,6 +29,7 @@ import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.TrainingStrategy;
 import pcgen.base.formula.base.VarScoped;
+import pcgen.base.formula.exception.SemanticsFailureException;
 import pcgen.base.formula.parse.ASTQuotString;
 import pcgen.base.formula.parse.Node;
 import pcgen.base.formula.visitor.DependencyVisitor;
@@ -70,19 +71,17 @@ public class GetOtherFunction implements FormulaFunction
 		int argCount = args.length;
 		if (argCount != 3)
 		{
-			semantics.setInvalid("Function " + getFunctionName()
+			throw new SemanticsFailureException("Function " + getFunctionName()
 				+ " received incorrect # of arguments, expected: 3 got " + args.length
 				+ ' ' + Arrays.asList(args));
-			return null;
 		}
 
 		Node scopeNode = args[0];
 		if (!(scopeNode instanceof ASTQuotString))
 		{
-			semantics.setInvalid("Parse Error: Invalid Scope Node: "
+			throw new SemanticsFailureException("Parse Error: Invalid Scope Node: "
 				+ scopeNode.getClass().getName() + " found in location requiring a"
 				+ " Static String (first arg cannot be evaluated)");
-			return null;
 		}
 		ASTQuotString qs = (ASTQuotString) scopeNode;
 		String legalScopeName = qs.getText();
@@ -91,9 +90,8 @@ public class GetOtherFunction implements FormulaFunction
 			.getScope(legalScopeName);
 		if (legalScope == null)
 		{
-			semantics.setInvalid("Parse Error: Invalid Scope Name: " + legalScopeName
-				+ " was not a defined scope");
-			return null;
+			throw new SemanticsFailureException("Parse Error: Invalid Scope Name: "
+				+ legalScopeName + " was not a defined scope");
 		}
 		FormatManager<?> formatManager;
 		try
@@ -103,23 +101,17 @@ public class GetOtherFunction implements FormulaFunction
 		}
 		catch (UnsupportedOperationException e)
 		{
-			semantics.setInvalid("Parse Error: Invalid Scope Name: " + legalScopeName
-				+ " found in location requiring a deterministic scope");
-			return null;
+			throw new SemanticsFailureException("Parse Error: Invalid Scope Name: "
+				+ legalScopeName + " found in location requiring a deterministic scope");
 		}
 		FormatManager<?> objectFormat = (FormatManager<?>) args[1].jjtAccept(visitor,
 			semantics.getWith(FormulaSemantics.ASSERTED, Optional.of(formatManager)));
-		if (!semantics.isValid())
-		{
-			return null;
-		}
 		if (!formatManager.equals(objectFormat))
 		{
-			semantics.setInvalid(
+			throw new SemanticsFailureException(
 				"Parse Error: Invalid Object Format: " + objectFormat.getIdentifierType()
 					+ " found in a getOther call that asserted "
 					+ formatManager.getIdentifierType());
-			return null;
 		}
 		if (VarScoped.class.isAssignableFrom(objectFormat.getManagedClass()))
 		{
@@ -128,9 +120,8 @@ public class GetOtherFunction implements FormulaFunction
 		}
 		else
 		{
-			semantics.setInvalid("Parse Error: Invalid Object Format: " + objectFormat
-				+ " is not capable of holding variables");
-			return null;
+			throw new SemanticsFailureException("Parse Error: Invalid Object Format: "
+				+ objectFormat + " is not capable of holding variables");
 		}
 	}
 

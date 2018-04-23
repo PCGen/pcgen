@@ -9,7 +9,7 @@ Investigator	CATEGORY:Class
 Shaman		CATEGORY:Class
 Skald			CATEGORY:Class
 Slayer		CATEGORY:Class
-Swashbuckler	CATEGORY:Class
+Swashbuckler	CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Panache Tracker
 Warpriest		CATEGORY:Class
 
 ###Block:

@@ -2988,6 +2988,31 @@ CATEGORY=Internal|Bloodline Tracker.MOD		DEFINE:Sorcerer_BloodlineFeat_Lingering
 CATEGORY=Internal|Bloodline Tracker.MOD		DEFINE:Sorcerer_BloodlineFeat_LingeringSpell|0
 CATEGORY=Internal|Bloodline Tracker.MOD		DEFINE:Sorcerer_BloodlineFeat_SickeningSpell|0
 
+# Bloodline Support - Bonus Spell Variable DEFINEs
+CATEGORY=Internal|Bloodline Tracker.MOD	DEFINE:Sorcerer_BonusSpell_AqueousOrb_L3|0
+CATEGORY=Internal|Bloodline Tracker.MOD	DEFINE:Sorcerer_BonusSpell_BlessingofFervor_L4|0
+CATEGORY=Internal|Bloodline Tracker.MOD	DEFINE:Sorcerer_BonusSpell_CallLightningStormStarsoul_L4|0
+CATEGORY=Internal|Bloodline Tracker.MOD	DEFINE:Sorcerer_BonusSpell_ClashingRocks_L9|0
+CATEGORY=Internal|Bloodline Tracker.MOD	DEFINE:Sorcerer_BonusSpell_CreatePit_L2|0
+CATEGORY=Internal|Bloodline Tracker.MOD	DEFINE:Sorcerer_BonusSpell_DragonsBreath_L4|0
+CATEGORY=Internal|Bloodline Tracker.MOD	DEFINE:Sorcerer_BonusSpell_ElementalAuraColdOnly_L3|0
+CATEGORY=Internal|Bloodline Tracker.MOD	DEFINE:Sorcerer_BonusSpell_ExpeditiousExcavation_L1|0
+CATEGORY=Internal|Bloodline Tracker.MOD	DEFINE:Sorcerer_BonusSpell_FeastofAshes_L2|0
+CATEGORY=Internal|Bloodline Tracker.MOD	DEFINE:Sorcerer_BonusSpell_Firebrand_L7|0
+CATEGORY=Internal|Bloodline Tracker.MOD	DEFINE:Sorcerer_BonusSpell_FireSnake_L5|0
+CATEGORY=Internal|Bloodline Tracker.MOD	DEFINE:Sorcerer_BonusSpell_FluidForm_L6|0
+CATEGORY=Internal|Bloodline Tracker.MOD	DEFINE:Sorcerer_BonusSpell_Geyser_L4|0
+CATEGORY=Internal|Bloodline Tracker.MOD	DEFINE:Sorcerer_BonusSpell_HydraulicPush_L1|0
+CATEGORY=Internal|Bloodline Tracker.MOD	DEFINE:Sorcerer_BonusSpell_MeteorSwarmDealingColdDamage_L9|0
+CATEGORY=Internal|Bloodline Tracker.MOD	DEFINE:Sorcerer_BonusSpell_Seamantle_L8|0
+CATEGORY=Internal|Bloodline Tracker.MOD	DEFINE:Sorcerer_BonusSpell_ShiftingSand_L3|0
+CATEGORY=Internal|Bloodline Tracker.MOD	DEFINE:Sorcerer_BonusSpell_Slipstream_L2|0
+CATEGORY=Internal|Bloodline Tracker.MOD	DEFINE:Sorcerer_BonusSpell_SummonMonsterIIIReptilesOnly_L3|0
+CATEGORY=Internal|Bloodline Tracker.MOD	DEFINE:Sorcerer_BonusSpell_SummonMonsterVIIReptilesOnly_L7|0
+CATEGORY=Internal|Bloodline Tracker.MOD	DEFINE:Sorcerer_BonusSpell_ThreefoldAspect_L4|0
+CATEGORY=Internal|Bloodline Tracker.MOD	DEFINE:Sorcerer_BonusSpell_WallofLava_L8|0
+CATEGORY=Internal|Bloodline Tracker.MOD	DEFINE:Sorcerer_BonusSpell_WorldWave_L9|0
+
 ###Block: Bloodline Feats
 Ectoplasmic Spell		KEY:Sorcerer Bloodline Feat ~ Ectoplasmic Spell		CATEGORY:Internal		TYPE:Sorcerer Bloodline Feat		PREVARGTEQ:Sorcerer_BloodlineFeat_EctoplasmicSpell,1		ABILITY:FEAT|AUTOMATIC|Ectoplasmic Spell		DESC:Your spells breach the gulf between dimensions, sending ghostly emanations into the ether.		SOURCEPAGE:p.158		BENEFIT:An ectoplasmic spell has full effect against incorporeal or ethereal creatures. An ectoplasmic spell uses up a spell slot one level higher than the spell's actual level.
 Enforcer		KEY:Sorcerer Bloodline Feat ~ Enforcer		CATEGORY:Internal		TYPE:Sorcerer Bloodline Feat		PREVARGTEQ:Sorcerer_BloodlineFeat_Enforcer,1		PRESKILL:1,Intimidate=1		ABILITY:FEAT|AUTOMATIC|Enforcer		DESC:You are skilled at causing fear in those you brutalize.		SOURCEPAGE:p.159		BENEFIT:Whenever you deal nonlethal damage with a melee weapon, you can make an Intimidate check to demoralize your target as a free action. If you are successful, the target is shaken for a number of rounds equal to the damage dealt. If your attack was a critical hit, your target is frightened for 1 round with a successful Intimidate check, as well as being shaken for a number of rounds equal to the damage dealt.
@@ -2999,6 +3024,31 @@ Heroic Recovery		KEY:Sorcerer Bloodline Feat ~ Heroic Recovery		CATEGORY:Interna
 Lingering Performance		KEY:Sorcerer Bloodline Feat ~ Lingering Performance		CATEGORY:Internal		TYPE:Sorcerer Bloodline Feat		PREVARGTEQ:Sorcerer_BloodlineFeat_LingeringPerformance,1		PREABILITY:1,CATEGORY=Special Ability,Bard ~ Bardic Performance		ABILITY:FEAT|AUTOMATIC|Lingering Performance		DESC:The effects of your bardic performance carry on, even after you have stopped performing.		SOURCEPAGE:p.164		BENEFIT:The bonuses and penalties from your bardic performance continue for 2 rounds after you cease performing. Any other requirement, such as range or specific conditions, must still be met for the effect to continue. If you begin a new bardic performance during this time, the effects of the previous performance immediately cease.
 Lingering Spell		KEY:Sorcerer Bloodline Feat ~ Lingering Spell		CATEGORY:Internal		TYPE:Sorcerer Bloodline Feat		PREVARGTEQ:Sorcerer_BloodlineFeat_LingeringSpell,1		ABILITY:FEAT|AUTOMATIC|Lingering Spell		DESC:You spell clings to existence, slowly fading from the world.		SOURCEPAGE:p.164		BENEFIT:You may cause an instantaneous spell that affects an area to persist until the beginning of your next turn. Those already in the area suffer no additional harm, but other creatures or objects entering the area are subject to its effects. A lingering spell with a visual manifestation obscures vision, providing concealment (20%% miss chance) beyond 5 feet and total concealment (50%% miss chance) beyond 20 feet. A lingering spell uses up a spell slot one level higher than the spell's actual level.
 Sickening Spell		KEY:Sorcerer Bloodline Feat ~ Sickening Spell		CATEGORY:Internal		TYPE:Sorcerer Bloodline Feat		PREVARGTEQ:Sorcerer_BloodlineFeat_SickeningSpell,1		ABILITY:FEAT|AUTOMATIC|Sickening Spell		DESC:You can sicken creatures with your spells.		SOURCEPAGE:p.169		BENEFIT:You can modify a spell to sicken a creature damaged by the spell. When a creature takes damage from this spell, they become sickened for a number of rounds equal to the original level of the spell. If the spell allows a saving throw, a successful save negates the sickening effect. If the spell does not allow a save, the target can make a Fortitude save to negate the sickening effect. If the spell effect also causes the creature to become sickened, the duration of this metamagic effect is added on to the duration of the spell. A sickening spell uses up a spell slot two levels higher than the spell's actual level. Spells that do not inflict damage do not benefit from this feat.
+
+###Block: Bloodline Bonus Spells
+Aqueous Orb						KEY:Sorcerer Bonus Spell L3 ~ Aqueous Orb						CATEGORY:Internal		TYPE:Sorcerer Bloodline Bonus Spell		PREVARGTEQ:Sorcerer_BonusSpell_AqueousOrb_L3,1					PREVARGTEQ:BloodlineCasterLVL,7		SPELLKNOWN:CLASS|Sorcerer=3|Aqueous Orb
+Blessing of Fervor				KEY:Sorcerer Bonus Spell L4 ~ Blessing of Fervor				CATEGORY:Internal		TYPE:Sorcerer Bloodline Bonus Spell		PREVARGTEQ:Sorcerer_BonusSpell_BlessingofFervor_L4,1				PREVARGTEQ:BloodlineCasterLVL,9		SPELLKNOWN:CLASS|Sorcerer=4|Blessing of Fervor
+Call Lightning Storm (Starsoul)		KEY:Sorcerer Bonus Spell L4 ~ Call Lightning Storm (Starsoul)		CATEGORY:Internal		TYPE:Sorcerer Bloodline Bonus Spell		PREVARGTEQ:Sorcerer_BonusSpell_CallLightningStormStarsoul_L4,1		PREVARGTEQ:BloodlineCasterLVL,9		SPELLKNOWN:CLASS|Sorcerer=4|Call Lightning Storm (Starsoul)
+Clashing Rocks					KEY:Sorcerer Bonus Spell L9 ~ Clashing Rocks					CATEGORY:Internal		TYPE:Sorcerer Bloodline Bonus Spell		PREVARGTEQ:Sorcerer_BonusSpell_ClashingRocks_L9,1				PREVARGTEQ:BloodlineCasterLVL,19		SPELLKNOWN:CLASS|Sorcerer=9|Clashing Rocks
+Create Pit						KEY:Sorcerer Bonus Spell L2 ~ Create Pit						CATEGORY:Internal		TYPE:Sorcerer Bloodline Bonus Spell		PREVARGTEQ:Sorcerer_BonusSpell_CreatePit_L2,1					PREVARGTEQ:BloodlineCasterLVL,5		SPELLKNOWN:CLASS|Sorcerer=2|Create Pit
+Dragon's Breath					KEY:Sorcerer Bonus Spell L4 ~ Dragon's Breath					CATEGORY:Internal		TYPE:Sorcerer Bloodline Bonus Spell		PREVARGTEQ:Sorcerer_BonusSpell_DragonsBreath_L4,1				PREVARGTEQ:BloodlineCasterLVL,9		SPELLKNOWN:CLASS|Sorcerer=4|Dragon's Breath
+Elemental Aura (Cold Only)			KEY:Sorcerer Bonus Spell L3 ~ Elemental Aura (Cold Only)			CATEGORY:Internal		TYPE:Sorcerer Bloodline Bonus Spell		PREVARGTEQ:Sorcerer_BonusSpell_ElementalAuraColdOnly_L3,1			PREVARGTEQ:BloodlineCasterLVL,7		SPELLKNOWN:CLASS|Sorcerer=3|Elemental Aura (Cold Only)
+Expeditious Excavation				KEY:Sorcerer Bonus Spell L1 ~ Expeditious Excavation				CATEGORY:Internal		TYPE:Sorcerer Bloodline Bonus Spell		PREVARGTEQ:Sorcerer_BonusSpell_ExpeditiousExcavation_L1,1			PREVARGTEQ:BloodlineCasterLVL,3		SPELLKNOWN:CLASS|Sorcerer=1|Expeditious Excavation
+Feast of Ashes					KEY:Sorcerer Bonus Spell L2 ~ Feast of Ashes					CATEGORY:Internal		TYPE:Sorcerer Bloodline Bonus Spell		PREVARGTEQ:Sorcerer_BonusSpell_FeastofAshes_L2,1				PREVARGTEQ:BloodlineCasterLVL,5		SPELLKNOWN:CLASS|Sorcerer=2|Feast of Ashes
+Fire Snake						KEY:Sorcerer Bonus Spell L5 ~ Fire Snake						CATEGORY:Internal		TYPE:Sorcerer Bloodline Bonus Spell		PREVARGTEQ:Sorcerer_BonusSpell_FireSnake_L5,1					PREVARGTEQ:BloodlineCasterLVL,11		SPELLKNOWN:CLASS|Sorcerer=5|Fire Snake
+Firebrand						KEY:Sorcerer Bonus Spell L7 ~ Firebrand						CATEGORY:Internal		TYPE:Sorcerer Bloodline Bonus Spell		PREVARGTEQ:Sorcerer_BonusSpell_Firebrand_L7,1					PREVARGTEQ:BloodlineCasterLVL,15		SPELLKNOWN:CLASS|Sorcerer=7|Firebrand
+Fluid Form						KEY:Sorcerer Bonus Spell L6 ~ Fluid Form						CATEGORY:Internal		TYPE:Sorcerer Bloodline Bonus Spell		PREVARGTEQ:Sorcerer_BonusSpell_FluidForm_L6,1					PREVARGTEQ:BloodlineCasterLVL,13		SPELLKNOWN:CLASS|Sorcerer=6|Fluid Form
+Geyser						KEY:Sorcerer Bonus Spell L4 ~ Geyser						CATEGORY:Internal		TYPE:Sorcerer Bloodline Bonus Spell		PREVARGTEQ:Sorcerer_BonusSpell_Geyser_L4,1					PREVARGTEQ:BloodlineCasterLVL,9		SPELLKNOWN:CLASS|Sorcerer=4|Geyser
+Hydraulic Push					KEY:Sorcerer Bonus Spell L1 ~ Hydraulic Push					CATEGORY:Internal		TYPE:Sorcerer Bloodline Bonus Spell		PREVARGTEQ:Sorcerer_BonusSpell_HydraulicPush_L1,1				PREVARGTEQ:BloodlineCasterLVL,3		SPELLKNOWN:CLASS|Sorcerer=1|Hydraulic Push
+Meteor Swarm (Dealing Cold Damage)		KEY:Sorcerer Bonus Spell L9 ~ Meteor Swarm (Dealing Cold Damage)		CATEGORY:Internal		TYPE:Sorcerer Bloodline Bonus Spell		PREVARGTEQ:Sorcerer_BonusSpell_MeteorSwarmDealingColdDamage_L9,1		PREVARGTEQ:BloodlineCasterLVL,19		SPELLKNOWN:CLASS|Sorcerer=9|Meteor Swarm (Dealing Cold Damage)
+Seamantle						KEY:Sorcerer Bonus Spell L8 ~ Seamantle						CATEGORY:Internal		TYPE:Sorcerer Bloodline Bonus Spell		PREVARGTEQ:Sorcerer_BonusSpell_Seamantle_L8,1					PREVARGTEQ:BloodlineCasterLVL,17		SPELLKNOWN:CLASS|Sorcerer=8|Seamantle
+Shifting Sand					KEY:Sorcerer Bonus Spell L3 ~ Shifting Sand					CATEGORY:Internal		TYPE:Sorcerer Bloodline Bonus Spell		PREVARGTEQ:Sorcerer_BonusSpell_ShiftingSand_L3,1				PREVARGTEQ:BloodlineCasterLVL,7		SPELLKNOWN:CLASS|Sorcerer=3|Shifting Sand
+Slipstream						KEY:Sorcerer Bonus Spell L2 ~ Slipstream						CATEGORY:Internal		TYPE:Sorcerer Bloodline Bonus Spell		PREVARGTEQ:Sorcerer_BonusSpell_Slipstream_L2,1					PREVARGTEQ:BloodlineCasterLVL,5		SPELLKNOWN:CLASS|Sorcerer=2|Slipstream
+Summon Monster III (Reptiles Only)		KEY:Sorcerer Bonus Spell L3 ~ Summon Monster III (Reptiles Only)		CATEGORY:Internal		TYPE:Sorcerer Bloodline Bonus Spell		PREVARGTEQ:Sorcerer_BonusSpell_SummonMonsterIIIReptilesOnly_L3,1		PREVARGTEQ:BloodlineCasterLVL,7		SPELLKNOWN:CLASS|Sorcerer=3|Summon Monster III (Reptiles Only)
+Summon Monster VII (Reptiles Only)		KEY:Sorcerer Bonus Spell L7 ~ Summon Monster VII (Reptiles Only)		CATEGORY:Internal		TYPE:Sorcerer Bloodline Bonus Spell		PREVARGTEQ:Sorcerer_BonusSpell_SummonMonsterVIIReptilesOnly_L7,1		PREVARGTEQ:BloodlineCasterLVL,15		SPELLKNOWN:CLASS|Sorcerer=7|Summon Monster VII (Reptiles Only)
+Threefold Aspect					KEY:Sorcerer Bonus Spell L4 ~ Threefold Aspect					CATEGORY:Internal		TYPE:Sorcerer Bloodline Bonus Spell		PREVARGTEQ:Sorcerer_BonusSpell_ThreefoldAspect_L4,1				PREVARGTEQ:BloodlineCasterLVL,9		SPELLKNOWN:CLASS|Sorcerer=4|Threefold Aspect
+Wall of Lava					KEY:Sorcerer Bonus Spell L8 ~ Wall of Lava					CATEGORY:Internal		TYPE:Sorcerer Bloodline Bonus Spell		PREVARGTEQ:Sorcerer_BonusSpell_WallofLava_L8,1					PREVARGTEQ:BloodlineCasterLVL,17		SPELLKNOWN:CLASS|Sorcerer=8|Wall of Lava
+World Wave						KEY:Sorcerer Bonus Spell L9 ~ World Wave						CATEGORY:Internal		TYPE:Sorcerer Bloodline Bonus Spell		PREVARGTEQ:Sorcerer_BonusSpell_WorldWave_L9,1					PREVARGTEQ:BloodlineCasterLVL,19		SPELLKNOWN:CLASS|Sorcerer=9|World Wave
 
 # Sorcerer bloodlines --------------------------------------------------------------------------------------------------------
 

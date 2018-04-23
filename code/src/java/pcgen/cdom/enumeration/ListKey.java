@@ -23,7 +23,6 @@ import java.util.HashSet;
 import java.util.Map;
 
 import pcgen.base.formula.Formula;
-import pcgen.base.formula.inst.NEPFormula;
 import pcgen.base.lang.UnreachableError;
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.cdom.base.CDOMReference;
@@ -41,6 +40,7 @@ import pcgen.cdom.helper.ArmorProfProvider;
 import pcgen.cdom.helper.Capacity;
 import pcgen.cdom.helper.EqModRef;
 import pcgen.cdom.helper.FollowerLimit;
+import pcgen.cdom.helper.InfoBoolean;
 import pcgen.cdom.helper.ShieldProfProvider;
 import pcgen.cdom.helper.StatLock;
 import pcgen.cdom.helper.WeaponProfProvider;
@@ -284,8 +284,8 @@ public final class ListKey<T>
 	public static final ListKey<CampaignSourceEntry> FILE_DYNAMIC = new ListKey<>();
 	public static final ListKey<CDOMReference<Dynamic>> GRANTED = new ListKey<>();
 	public static final ListKey<CampaignSourceEntry> FILE_DATATABLE = new ListKey<>();
-	public static final ListKey<NEPFormula<Boolean>> ENABLE = new ListKey<>();
-	public static final ListKey<NEPFormula<Boolean>> ALLOW = new ListKey<>();
+	public static final ListKey<InfoBoolean> ENABLE = new ListKey<>();
+	public static final ListKey<InfoBoolean> ALLOW = new ListKey<>();
 	public static final ListKey<String> GRANTEDVARS = new ListKey<>();
 
 	private static CaseInsensitiveMap<ListKey<?>> map = null;

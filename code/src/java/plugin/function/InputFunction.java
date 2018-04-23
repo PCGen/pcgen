@@ -25,6 +25,7 @@ import pcgen.base.formula.base.FormulaFunction;
 import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.VariableLibrary;
+import pcgen.base.formula.exception.SemanticsFailureException;
 import pcgen.base.formula.parse.ASTQuotString;
 import pcgen.base.formula.parse.FormulaParserTreeConstants;
 import pcgen.base.formula.parse.Node;
@@ -60,21 +61,19 @@ public class InputFunction implements FormulaFunction
 		int argCount = args.length;
 		if (argCount != 1)
 		{
-			semantics.setInvalid("Function " + getFunctionName()
+			throw new SemanticsFailureException("Function " + getFunctionName()
 				+ " received incorrect # of arguments, expected: 1 got "
 				+ args.length + ' ' + Arrays.asList(args));
-			return null;
 		}
 		//String node (name)
 		Node inputNode = args[0];
 		if (inputNode.getId() != FormulaParserTreeConstants.JJTQUOTSTRING)
 		{
-			semantics.setInvalid("Parse Error: Invalid Value: "
+			throw new SemanticsFailureException("Parse Error: Invalid Value: "
 				+ ((SimpleNode) inputNode).getText() + " found in "
 				+ inputNode.getClass().getName()
 				+ " found in location requiring a literal"
 				+ " String (cannot be evaluated)");
-			return null;
 		}
 		String inputName = ((SimpleNode) inputNode).getText();
 		String varName = ChannelUtilities.createVarName(inputName);
@@ -85,9 +84,8 @@ public class InputFunction implements FormulaFunction
 				varLib.getVariableFormat(scope, varName);
 		if (formatManager == null)
 		{
-			semantics
-				.setInvalid("Input Channel: " + varName + " was not found");
-			return null;
+			throw new SemanticsFailureException(
+				"Input Channel: " + varName + " was not found");
 		}
 		return formatManager;
 	}

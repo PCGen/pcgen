@@ -74,7 +74,7 @@ Waters of the whispering river																TYPE:Poison.PFS					COST:800			PRE
 Amulet.COPY=Sihedron medallion
 Sihedron medallion.MOD																		TYPE:Magic.Wondroud.PFS				COST:3800			PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ PZO9528															MODS:NO			SOURCELONG:PFS Module The Godmouth Heresy																BONUS:SAVE|ALL|1|TYPE=Resistance													SPROP:while worn, a Sihedron medallion grants its wearer a +1 resistance bonus on all saving throws. Once per day, it may be commanded to bestow the effects of false life on the wearer (CL 5th)-these effects end if the medallion is removed. Placed on the neck of a dead body, the Sihedron medallion preserves the body indefinitely with gentle repose.
 Dhat-gunchi paste																			TYPE:Poison.PFS					COST:0			PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ PZO9529																			SOURCELONG:PFS Module Cult of the Ebon Destroyers																																SPROP:DC 14; 1/round for 4 rounds; 1 Con and 1d2 Wis damage, 1 save
-Shuriken.COPY=Flaming Bracelet Chakrams +1
+Shuriken (Base).COPY=Flaming Bracelet Chakrams +1		VISIBLE:YES		EQMOD:Material ~ Steel
 Flaming Bracelet Chakrams +1.MOD																TYPE:PFS						COST:8310			PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ PZO9529					EQMOD:Special Ability ~ Flaming ~ Weapon.Special Ability ~ +1 ~ Weapon											SOURCELONG:PFS Module Cult of the Ebon Destroyers																																SPROP:(cost s/b 8,310 gp) treat as shuriken
 Padma blossom																			TYPE:Magic.Wonderous.Hand.PFS			COST:8000			PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ PZO9529																			SOURCELONG:PFS Module Cult of the Ebon Destroyers																																SPROP:while grasped, a padma blossom grants its holder a +3 competence bonus on concentration checks and suppresses the following on its holder: morale bonuses, fear effects, and the confused, dazed, or stunned conditions. Twice per day, the bearer can cast calm emotions at CL 3rd.
 
@@ -112,7 +112,7 @@ Sojourner in the Sunless Wastes																TYPE:Magic.Wonderous.PFS			COST:2
 # PFS Module PZO9537
 #
 
-Sword (Bastard).COPY=Iron Lash
+Bastard Sword (Base).COPY=Iron Lash		VISIBLE:YES
 Iron Lash.MOD																			TYPE:Magic.Wonderous.PFS			COST:90335			PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ PZO9537					EQMOD:Material ~ Cold Iron.Special Ability ~ +2 ~ Weapon.Special Ability ~ Unholy ~ Weapon										SOURCELONG:PFS Module The Moonscar																																			SPROP:(cost should be 90,335) This +2 cold iron bastard sword becomes a +2 unholy cold iron bastard sword in the hands of an antipaladin sworn to the demon lord Nocticula. In the hands of a good creature, Iron Lash bestows one permanent negative level as though it were unholy while granting none of the associated benefits of the unholy special ability.&nl;Once per day, the wielder of this sword can cast finger of death with a range of 60 feet, dealing 150 points of damage on a successful hit. If the target succeeds at a DC 20 Fortitude saving throw, the attack instead deals 3d6+15 points of damage. This is a death effect.
 
 #

@@ -236,9 +236,9 @@ Mule.FORGET
 Pack Animal (Donkey/Mule).MOD					OUTPUTNAME:Pack animal, donkey/mule																					WT:600																	SOURCEPAGE:p.16
 Ox.COPY=Pack Animal (Ox)
 Ox.FORGET
-Pack Animal (Ox).MOD						OUTPUTNAME:Pack animal, ox																						WT:1000																	SOURCEPAGE:p.16
+Pack Animal (Ox).MOD						OUTPUTNAME:Pack animal, ox																						WT:2000																	SOURCEPAGE:p.16
 
-Pack Animal (Yak)							OUTPUTNAME:Pack animal, yak									TYPE:Goods.Transportation.Mount.Container	CONTAINS:*690|Any		COST:24	WT:2000															SIZE:L	SOURCEPAGE:p.16
+Pack Animal (Yak)							OUTPUTNAME:Pack animal, yak									TYPE:Goods.Transportation.Mount.Container	CONTAINS:*690|Any		COST:24	WT:4000															SIZE:L	SOURCEPAGE:p.16
 Pseudodragon																				TYPE:Goods.Animal.Pet								COST:200	WT:7																		SOURCEPAGE:16								SPROP:Generally considered slavery to own one as a pet
 Rat																						TYPE:Goods.Animal.Pet								COST:0.01	WT:1																SIZE:T	SOURCEPAGE:16
 Rat (Blue)								OUTPUTNAME:Rat, blue										TYPE:Goods.Animal.Pet								COST:1	WT:1																SIZE:T	SOURCEPAGE:16
