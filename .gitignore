@@ -18,6 +18,11 @@ characters/*
 !characters/Everything.pcg
 !characters/Sorcerer.pcg
 !characters/SpecialWizard.pcg
+bin/
+code/bin/
+code/build/
+code/comp-manifest
+code/manifest
 
 # JVM Error log if Java craches
 hs_err_*.log
@@ -55,6 +60,9 @@ pcgen.jar
 /output/
 /build/
 /libs/
+output/
+build/
+libs/
 code/testsuite/output/
 .gradle/
 pcgen-batch-convert.jar
@@ -109,3 +117,25 @@ mods/
 code/manifest-tests
 .DS_Store
 
+Trunk.bat
+target/
+.settings/
+variable_report.csv
+variable_report.html
+
+data/customsources/*
+!data/customsources/readme-customsources.txt
+.nb-gradle/
+jre/
+installers/win-installer/project.nsh
+installers/win-installer/includes/constants.nsh
+.checkstyle
+installers/win-installer/includes/data.nsh
+.nb-gradle-properties
+
+# Eclipse IDE
+.classpath
+.project
+
+# IntelliJ IDE
+.idea/
