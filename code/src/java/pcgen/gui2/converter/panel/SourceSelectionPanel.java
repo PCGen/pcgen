@@ -96,10 +96,6 @@ public class SourceSelectionPanel extends ConvertSubPanel
 		}
 	}
 
-	public SourceSelectionPanel()
-	{
-	}
-
 	public String getPath()
 	{
 		return path.getAbsolutePath();

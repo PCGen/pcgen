@@ -25,13 +25,6 @@ import java.util.*;
  */
 public class SortedProperties extends Properties
 {
-	/**
-	 * Constructor
-	 */
-	public SortedProperties()
-	{
-		super();
-	}
 
 	/**
 	 * Store properties

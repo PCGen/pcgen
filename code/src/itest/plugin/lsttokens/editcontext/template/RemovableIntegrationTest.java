@@ -32,8 +32,8 @@ public class RemovableIntegrationTest extends
 		AbstractIntegrationTestCase<PCTemplate>
 {
 
-	static RemovableToken token = new RemovableToken();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
+	private static RemovableToken token = new RemovableToken();
+	private static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCTemplate> getCDOMClass()

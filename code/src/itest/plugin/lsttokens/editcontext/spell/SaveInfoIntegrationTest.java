@@ -28,8 +28,8 @@ public class SaveInfoIntegrationTest extends
 		AbstractTypeSafeListIntegrationTestCase<Spell>
 {
 
-	static SaveinfoToken token = new SaveinfoToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
+	private static SaveinfoToken token = new SaveinfoToken();
+	private static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Spell> getCDOMClass()

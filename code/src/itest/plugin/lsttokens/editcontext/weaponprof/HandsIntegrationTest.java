@@ -32,8 +32,8 @@ public class HandsIntegrationTest extends
 		AbstractIntegerIntegrationTestCase<WeaponProf>
 {
 
-	static HandsToken token = new HandsToken();
-	static CDOMTokenLoader<WeaponProf> loader = new CDOMTokenLoader<>();
+	private static HandsToken token = new HandsToken();
+	private static CDOMTokenLoader<WeaponProf> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<WeaponProf> getCDOMClass()
