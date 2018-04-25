@@ -35,8 +35,8 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 public class VisionIntegrationTest extends
 		AbstractIntegrationTestCase<CDOMObject>
 {
-	static VisionLst token = new VisionLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
+	private static VisionLst token = new VisionLst();
+	private static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Ability> getCDOMClass()

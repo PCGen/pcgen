@@ -34,8 +34,8 @@ public class MultIntegrationTest extends
 		AbstractIntegrationTestCase<Ability>
 {
 
-	static MultToken token = new MultToken();
-	static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<>();
+	private static MultToken token = new MultToken();
+	private static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Ability> getCDOMClass()

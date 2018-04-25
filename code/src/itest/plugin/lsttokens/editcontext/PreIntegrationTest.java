@@ -36,8 +36,8 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 public class PreIntegrationTest extends
 		AbstractIntegrationTestCase<CDOMObject>
 {
-	static PreLst token = new PreLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
+	private static PreLst token = new PreLst();
+	private static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Ability> getCDOMClass()

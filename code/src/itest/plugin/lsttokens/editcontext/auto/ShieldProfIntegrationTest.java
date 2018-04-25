@@ -37,9 +37,9 @@ public class ShieldProfIntegrationTest extends
 		AbstractListIntegrationTestCase<CDOMObject, ShieldProf>
 {
 
-	static ShieldProfToken ft = new ShieldProfToken();
-	static AutoLst token = new AutoLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
+	private static ShieldProfToken ft = new ShieldProfToken();
+	private static AutoLst token = new AutoLst();
+	private static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

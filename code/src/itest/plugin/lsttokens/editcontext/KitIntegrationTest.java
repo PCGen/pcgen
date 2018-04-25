@@ -32,8 +32,8 @@ public class KitIntegrationTest extends
 		AbstractListIntegrationTestCase<CDOMObject, Kit>
 {
 
-	static KitLst token = new KitLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
+	private static KitLst token = new KitLst();
+	private static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public String getPrefix()
