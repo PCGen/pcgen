@@ -26,6 +26,9 @@ import pcgen.base.graph.base.DirectionalEdge;
 
 import junit.framework.TestCase;
 
+/**
+ * Test the DefaultDirectionalHyperEdge class
+ */
 public class DefaultDirectionalHyperEdgeTest extends TestCase
 {
 

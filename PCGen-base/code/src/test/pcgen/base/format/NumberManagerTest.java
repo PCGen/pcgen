@@ -18,6 +18,9 @@ package pcgen.base.format;
 
 import junit.framework.TestCase;
 
+/**
+ * Test the NumberManager class
+ */
 public class NumberManagerTest extends TestCase
 {
 	private NumberManager manager = new NumberManager();

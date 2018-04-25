@@ -18,6 +18,9 @@ package pcgen.base.format;
 
 import junit.framework.TestCase;
 
+/**
+ * Test the BooleanManager class
+ */
 public class BooleanManagerTest extends TestCase
 {
 	private BooleanManager manager = new BooleanManager();

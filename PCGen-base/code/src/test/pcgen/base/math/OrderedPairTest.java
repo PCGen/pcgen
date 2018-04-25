@@ -18,6 +18,9 @@ package pcgen.base.math;
 
 import junit.framework.TestCase;
 
+/**
+ * Test the OrderedPair class
+ */
 public class OrderedPairTest extends TestCase
 {
 	@SuppressWarnings("unused")

@@ -23,6 +23,9 @@ import pcgen.base.format.NumberManager;
 import pcgen.base.format.StringManager;
 import pcgen.base.util.Indirect;
 
+/**
+ * Test the CompoundFormatManager class
+ */
 public class CompoundFormatManagerTest extends TestCase
 {
 	private final NumberManager numberManager = new NumberManager();

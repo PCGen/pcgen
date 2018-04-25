@@ -20,6 +20,9 @@ package pcgen.base.lang;
 import junit.framework.TestCase;
 import pcgen.testsupport.TestSupport;
 
+/**
+ * Test the ObjectUtil class
+ */
 public class ObjectUtilTest extends TestCase
 {
 

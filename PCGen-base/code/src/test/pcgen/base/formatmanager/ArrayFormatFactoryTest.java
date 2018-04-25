@@ -23,6 +23,9 @@ import pcgen.base.format.NumberManager;
 import pcgen.base.format.StringManager;
 import pcgen.base.util.FormatManager;
 
+/**
+ * Test the ArrayFormatFactory class
+ */
 public class ArrayFormatFactoryTest extends TestCase
 {
 	private static final Number[] ARR_N3_4_5 = {

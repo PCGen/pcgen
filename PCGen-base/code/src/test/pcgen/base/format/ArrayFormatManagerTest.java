@@ -22,6 +22,9 @@ import junit.framework.TestCase;
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
 
+/**
+ * Test the ArrayFormatManager class
+ */
 public class ArrayFormatManagerTest extends TestCase
 {
 	private static final Number[] ARR_N3_4_5 = {Integer.valueOf(-3), Integer.valueOf(4), Integer.valueOf(5)};

@@ -20,6 +20,9 @@ package pcgen.base.graph.base;
 import pcgen.base.graph.inst.SimpleListMapGraph;
 import junit.framework.TestCase;
 
+/**
+ * Test the NodeChangeEvent class
+ */
 public class NodeChangeEventTest extends TestCase
 {
 

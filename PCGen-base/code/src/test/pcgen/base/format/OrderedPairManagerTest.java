@@ -21,6 +21,9 @@ import java.math.BigDecimal;
 import junit.framework.TestCase;
 import pcgen.base.math.OrderedPair;
 
+/**
+ * Test the OrderedPairManager class
+ */
 public class OrderedPairManagerTest extends TestCase
 {
 	private OrderedPairManager manager = new OrderedPairManager();

@@ -22,6 +22,9 @@ import java.math.BigDecimal;
 import junit.framework.TestCase;
 import pcgen.testsupport.TestSupport;
 
+/**
+ * Test the NumberUtilities class
+ */
 public class NumberUtilitiesTest extends TestCase
 {
 

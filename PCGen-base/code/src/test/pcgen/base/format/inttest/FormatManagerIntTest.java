@@ -17,25 +17,22 @@ package pcgen.base.format.inttest;
 
 import junit.framework.TestCase;
 import pcgen.base.format.ArrayFormatManager;
-import pcgen.base.format.BooleanManager;
-import pcgen.base.format.NumberManager;
-import pcgen.base.format.StringManager;
 import pcgen.base.format.compound.Compound;
 import pcgen.base.format.compound.CompoundFormatManager;
+import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.util.Indirect;
 
+/**
+ * Integration testing between FormatManager objects
+ */
 public class FormatManagerIntTest extends TestCase
 {
-	private final NumberManager numberManager = new NumberManager();
-	private final BooleanManager booleanManager = new BooleanManager();
-	private final StringManager stringManager = new StringManager();
-
 	public void testInvalidConvertSimple()
 	{
 		CompoundFormatManager<Number> compoundManager =
-				new CompoundFormatManager<>(numberManager, '|');
-		compoundManager.addSecondary(booleanManager, "Allowed", false);
-		compoundManager.addSecondary(stringManager, "Level", true);
+				new CompoundFormatManager<>(FormatUtilities.NUMBER_MANAGER, '|');
+		compoundManager.addSecondary(FormatUtilities.BOOLEAN_MANAGER, "Allowed", false);
+		compoundManager.addSecondary(FormatUtilities.STRING_MANAGER, "Level", true);
 		ArrayFormatManager<Compound> manager =
 				new ArrayFormatManager<>(compoundManager, '\n', ',');
 		try
@@ -62,9 +59,9 @@ public class FormatManagerIntTest extends TestCase
 	public void testInvalidConvertSeparatorIssues()
 	{
 		CompoundFormatManager<Number> compoundManager =
-				new CompoundFormatManager<>(numberManager, '|');
-		compoundManager.addSecondary(booleanManager, "Allowed", false);
-		compoundManager.addSecondary(stringManager, "Level", true);
+				new CompoundFormatManager<>(FormatUtilities.NUMBER_MANAGER, '|');
+		compoundManager.addSecondary(FormatUtilities.BOOLEAN_MANAGER, "Allowed", false);
+		compoundManager.addSecondary(FormatUtilities.STRING_MANAGER, "Level", true);
 		ArrayFormatManager<Compound> manager =
 				new ArrayFormatManager<>(compoundManager, '\n', ',');
 		try
@@ -131,9 +128,9 @@ public class FormatManagerIntTest extends TestCase
 	public void testInvalidConvertAssociationIssues()
 	{
 		CompoundFormatManager<Number> compoundManager =
-				new CompoundFormatManager<>(numberManager, '|');
-		compoundManager.addSecondary(booleanManager, "Allowed", false);
-		compoundManager.addSecondary(stringManager, "Level", true);
+				new CompoundFormatManager<>(FormatUtilities.NUMBER_MANAGER, '|');
+		compoundManager.addSecondary(FormatUtilities.BOOLEAN_MANAGER, "Allowed", false);
+		compoundManager.addSecondary(FormatUtilities.STRING_MANAGER, "Level", true);
 		ArrayFormatManager<Compound> manager =
 				new ArrayFormatManager<>(compoundManager, '\n', ',');
 		try
@@ -151,9 +148,9 @@ public class FormatManagerIntTest extends TestCase
 	public void testInvalidConvertIndirectSimple()
 	{
 		CompoundFormatManager<Number> compoundManager =
-				new CompoundFormatManager<>(numberManager, '|');
-		compoundManager.addSecondary(booleanManager, "Allowed", false);
-		compoundManager.addSecondary(stringManager, "Level", true);
+				new CompoundFormatManager<>(FormatUtilities.NUMBER_MANAGER, '|');
+		compoundManager.addSecondary(FormatUtilities.BOOLEAN_MANAGER, "Allowed", false);
+		compoundManager.addSecondary(FormatUtilities.STRING_MANAGER, "Level", true);
 		ArrayFormatManager<Compound> manager =
 				new ArrayFormatManager<>(compoundManager, '\n', ',');
 		try
@@ -180,9 +177,9 @@ public class FormatManagerIntTest extends TestCase
 	public void testInvalidConvertIndirectSeparator()
 	{
 		CompoundFormatManager<Number> compoundManager =
-				new CompoundFormatManager<>(numberManager, '|');
-		compoundManager.addSecondary(booleanManager, "Allowed", false);
-		compoundManager.addSecondary(stringManager, "Level", true);
+				new CompoundFormatManager<>(FormatUtilities.NUMBER_MANAGER, '|');
+		compoundManager.addSecondary(FormatUtilities.BOOLEAN_MANAGER, "Allowed", false);
+		compoundManager.addSecondary(FormatUtilities.STRING_MANAGER, "Level", true);
 		ArrayFormatManager<Compound> manager =
 				new ArrayFormatManager<>(compoundManager, '\n', ',');
 		try
@@ -249,9 +246,9 @@ public class FormatManagerIntTest extends TestCase
 	public void testInvalidConvertIndirectBadAssociations()
 	{
 		CompoundFormatManager<Number> compoundManager =
-				new CompoundFormatManager<>(numberManager, '|');
-		compoundManager.addSecondary(booleanManager, "Allowed", false);
-		compoundManager.addSecondary(stringManager, "Level", true);
+				new CompoundFormatManager<>(FormatUtilities.NUMBER_MANAGER, '|');
+		compoundManager.addSecondary(FormatUtilities.BOOLEAN_MANAGER, "Allowed", false);
+		compoundManager.addSecondary(FormatUtilities.STRING_MANAGER, "Level", true);
 		ArrayFormatManager<Compound> manager =
 				new ArrayFormatManager<>(compoundManager, '\n', ',');
 		try
@@ -269,9 +266,9 @@ public class FormatManagerIntTest extends TestCase
 	public void testConvertNoArray()
 	{
 		CompoundFormatManager<Number> compoundManager =
-				new CompoundFormatManager<>(numberManager, '|');
-		compoundManager.addSecondary(booleanManager, "Allowed", false);
-		compoundManager.addSecondary(stringManager, "Level", true);
+				new CompoundFormatManager<>(FormatUtilities.NUMBER_MANAGER, '|');
+		compoundManager.addSecondary(FormatUtilities.BOOLEAN_MANAGER, "Allowed", false);
+		compoundManager.addSecondary(FormatUtilities.STRING_MANAGER, "Level", true);
 		ArrayFormatManager<Compound> manager =
 				new ArrayFormatManager<>(compoundManager, '\n', ',');
 		Compound[] c = manager.convert("3|LEVEL=Hard");
@@ -298,9 +295,9 @@ public class FormatManagerIntTest extends TestCase
 	public void testConvertCompoundArray()
 	{
 		CompoundFormatManager<Number> compoundManager =
-				new CompoundFormatManager<>(numberManager, '|');
-		compoundManager.addSecondary(booleanManager, "Allowed", false);
-		compoundManager.addSecondary(stringManager, "Level", true);
+				new CompoundFormatManager<>(FormatUtilities.NUMBER_MANAGER, '|');
+		compoundManager.addSecondary(FormatUtilities.BOOLEAN_MANAGER, "Allowed", false);
+		compoundManager.addSecondary(FormatUtilities.STRING_MANAGER, "Level", true);
 		ArrayFormatManager<Compound> manager =
 				new ArrayFormatManager<>(compoundManager, '\n', ',');
 		Compound[] c = manager.convert("3,4|LEVEL=Hard");
@@ -345,9 +342,9 @@ public class FormatManagerIntTest extends TestCase
 	public void testConvertIndirectNoArray()
 	{
 		CompoundFormatManager<Number> compoundManager =
-				new CompoundFormatManager<>(numberManager, '|');
-		compoundManager.addSecondary(booleanManager, "Allowed", false);
-		compoundManager.addSecondary(stringManager, "Level", true);
+				new CompoundFormatManager<>(FormatUtilities.NUMBER_MANAGER, '|');
+		compoundManager.addSecondary(FormatUtilities.BOOLEAN_MANAGER, "Allowed", false);
+		compoundManager.addSecondary(FormatUtilities.STRING_MANAGER, "Level", true);
 		ArrayFormatManager<Compound> manager =
 				new ArrayFormatManager<>(compoundManager, '\n', ',');
 		Indirect<Compound[]> in = manager.convertIndirect("3|LEVEL=Hard");
@@ -378,9 +375,9 @@ public class FormatManagerIntTest extends TestCase
 	public void testConvertIndirectCompoundArray()
 	{
 		CompoundFormatManager<Number> compoundManager =
-				new CompoundFormatManager<>(numberManager, '|');
-		compoundManager.addSecondary(booleanManager, "Allowed", false);
-		compoundManager.addSecondary(stringManager, "Level", true);
+				new CompoundFormatManager<>(FormatUtilities.NUMBER_MANAGER, '|');
+		compoundManager.addSecondary(FormatUtilities.BOOLEAN_MANAGER, "Allowed", false);
+		compoundManager.addSecondary(FormatUtilities.STRING_MANAGER, "Level", true);
 		ArrayFormatManager<Compound> manager =
 				new ArrayFormatManager<>(compoundManager, '\n', ',');
 		Indirect<Compound[]> i = manager.convertIndirect("3,4|LEVEL=Hard");

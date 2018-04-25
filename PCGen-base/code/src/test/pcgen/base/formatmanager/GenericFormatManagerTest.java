@@ -20,6 +20,9 @@ import junit.framework.TestCase;
 import pcgen.base.format.StringManager;
 import pcgen.testsupport.MockObjectDatabase;
 
+/**
+ * Test the GenericFormatManager class
+ */
 public class GenericFormatManagerTest extends TestCase
 {
 	private GenericFormatManager<Object> manager;

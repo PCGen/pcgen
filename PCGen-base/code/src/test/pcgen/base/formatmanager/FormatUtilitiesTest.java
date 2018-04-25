@@ -23,6 +23,9 @@ import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
 import pcgen.testsupport.TestSupport;
 
+/**
+ * Test the FormatUtilites class
+ */
 public class FormatUtilitiesTest extends TestCase
 {
 

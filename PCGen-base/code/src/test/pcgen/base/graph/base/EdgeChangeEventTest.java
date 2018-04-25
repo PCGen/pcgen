@@ -21,6 +21,9 @@ import pcgen.base.graph.inst.DefaultGraphEdge;
 import pcgen.base.graph.inst.SimpleListMapGraph;
 import junit.framework.TestCase;
 
+/**
+ * Test the EdgeChangeEvent class
+ */
 public class EdgeChangeEventTest extends TestCase
 {
 
