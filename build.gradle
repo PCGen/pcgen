@@ -31,14 +31,6 @@ plugins {
     id "com.dorongold.task-tree" version '1.3'
 }
 
-checkstyle {
-    toolVersion = '8.9'
-}
-
-pmd {
-    toolVersion = '6.2.0'
-}
-
 group = 'net.sourceforge.pcgen'
 
 description = """PCGen"""

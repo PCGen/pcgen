@@ -14,7 +14,7 @@ checkstyle {
 	configFile = new File('code/standards/checkstyle.xml')
 	ignoreFailures = true
 	showViolations = false
-	toolVersion = '8.7'
+	toolVersion = '8.9'
 	sourceSets = []
 }
 
@@ -24,7 +24,7 @@ pmd {
 	ruleSetFiles = files('code/standards/ruleset.xml')
 	consoleOutput = true
 	sourceSets = []
-	toolVersion = "6.0.0"
+	toolVersion = "6.2.0"
 }
 
 findbugs {
