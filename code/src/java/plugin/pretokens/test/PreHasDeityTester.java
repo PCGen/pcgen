@@ -48,11 +48,11 @@ public class PreHasDeityTester extends AbstractDisplayPrereqTest implements
 		if (prereq.getOperator().equals(PrerequisiteOperator.EQ)
 			|| prereq.getOperator().equals(PrerequisiteOperator.GTEQ))
 		{
-			runningTotal = flag == true ? 1 : 0;
+			runningTotal = flag ? 1 : 0;
 		}
 		else
 		{
-			runningTotal = flag == false ? 1 : 0;
+			runningTotal = flag ? 0 : 1;
 		}
 
 		return countedTotal(prereq, runningTotal);

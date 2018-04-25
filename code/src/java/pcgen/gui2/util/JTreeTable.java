@@ -199,7 +199,7 @@ public class JTreeTable extends JTableEx
 		int dx = getX();
 		int dy = getY();
 
-		for (parent = getParent(); !(parent == null) && !(parent instanceof JComponent)
+		for (parent = getParent(); (parent != null) && !(parent instanceof JComponent)
 				&& !(parent instanceof CellRendererPane); parent =
 						parent.getParent())
 		{

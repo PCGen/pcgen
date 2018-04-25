@@ -207,7 +207,7 @@ public class WeightedCollectionTest
 
 	@Test
 	public void testBadEquals() {
-		assertFalse(wc.equals(null));
+		assertNotNull(wc);
 		assertFalse(wc.equals(1));
 	}
 

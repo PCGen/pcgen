@@ -450,7 +450,6 @@ public class CharacterAbilities
 
 		// update the ability info
 		rebuildAbilityLists();
-		return;
 	}
 
 	/**

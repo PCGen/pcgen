@@ -224,7 +224,7 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<VarHolder> implem
 			FormatManager<?> format = context.getVariableContext()
 				.getVariableFormat(scope, varName);
 			modifier = context.getVariableContext().getModifier(
-				modIdentification, modInstructions.toString(), scope, format);
+				modIdentification, modInstructions, scope, format);
 		}
 		catch (IllegalArgumentException iae)
 		{
