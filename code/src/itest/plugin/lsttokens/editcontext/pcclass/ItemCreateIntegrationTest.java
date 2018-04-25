@@ -31,8 +31,8 @@ public class ItemCreateIntegrationTest extends
 		AbstractFormulaIntegrationTestCase<PCClass>
 {
 
-	static ItemcreateToken token = new ItemcreateToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
+	private static ItemcreateToken token = new ItemcreateToken();
+	private static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

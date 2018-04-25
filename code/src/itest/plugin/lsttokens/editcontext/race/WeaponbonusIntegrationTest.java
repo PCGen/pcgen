@@ -31,8 +31,8 @@ public class WeaponbonusIntegrationTest extends
 		AbstractListIntegrationTestCase<Race, WeaponProf>
 {
 
-	static WeaponbonusToken token = new WeaponbonusToken();
-	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
+	private static WeaponbonusToken token = new WeaponbonusToken();
+	private static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Race> getCDOMClass()

@@ -37,8 +37,8 @@ public class ProhibitSpellIntegrationTest extends
 		AbstractIntegrationTestCase<PCClass>
 {
 
-	static ProhibitspellToken token = new ProhibitspellToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
+	private static ProhibitspellToken token = new ProhibitspellToken();
+	private static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	PreRaceParser prerace = new PreRaceParser();
 	PreRaceWriter preracewriter = new PreRaceWriter();

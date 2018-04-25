@@ -28,8 +28,8 @@ public class LevelAdjustmentIntegrationTest extends
 		AbstractFormulaIntegrationTestCase<Race>
 {
 
-	static LeveladjustmentToken token = new LeveladjustmentToken();
-	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
+	private static LeveladjustmentToken token = new LeveladjustmentToken();
+	private static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Race> getCDOMClass()

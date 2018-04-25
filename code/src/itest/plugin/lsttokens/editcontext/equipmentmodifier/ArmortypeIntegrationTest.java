@@ -32,8 +32,8 @@ public class ArmortypeIntegrationTest extends
 		AbstractIntegrationTestCase<EquipmentModifier>
 {
 
-	static ArmortypeToken token = new ArmortypeToken();
-	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<>();
+	private static ArmortypeToken token = new ArmortypeToken();
+	private static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<EquipmentModifier> getCDOMClass()
