@@ -27,8 +27,8 @@ public class ReachIntegrationTest extends
 		AbstractIntegerIntegrationTestCase<Equipment>
 {
 
-	static ReachToken token = new ReachToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
+	private static ReachToken token = new ReachToken();
+	private static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()

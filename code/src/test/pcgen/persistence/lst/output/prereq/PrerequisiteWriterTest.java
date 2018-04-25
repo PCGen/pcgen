@@ -44,36 +44,6 @@ public class PrerequisiteWriterTest extends TestCase
 {
 	private static final StringManager STR_MGR = new StringManager();
 
-	/**
-	 * Constructs a test case with the given name.
-	 * @param name
-	 */
-	public PrerequisiteWriterTest(String name) {
-		super(name);
-	}
-	
-	/**
-	 * Main
-	 * @param args
-	 */
-	public static void main(String[] args)
-	{
-		junit.textui.TestRunner.run(PrerequisiteWriterTest.suite());
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		TestSuite suite = new TestSuite();
-		for (int i = 0; i < testparams.length >> 1; ++i)
-		{
-			suite.addTest(new PrerequisiteWriterTest(i));
-		}
-		return suite;
-	}
-
 	static String testparams[] = {
 	//
 	// Examples from the PCGen documentation - note that there are two columns for each entry below
@@ -428,11 +398,41 @@ public class PrerequisiteWriterTest extends TestCase
 	private String preString = "";
 	private String postString = "";
 
+	/**
+	 * Constructs a test case with the given name.
+	 * @param name
+	 */
+	public PrerequisiteWriterTest(String name) {
+		super(name);
+	}
+	
 	private PrerequisiteWriterTest(final int idx)
 	{
 		super("Test_" + testparams[idx << 1]);
 		preString = testparams[idx << 1];
 		postString = testparams[(idx << 1) + 1];
+	}
+
+	/**
+	 * Main
+	 * @param args
+	 */
+	public static void main(String[] args)
+	{
+		junit.textui.TestRunner.run(PrerequisiteWriterTest.suite());
+	}
+
+	/**
+	 * @return Test
+	 */
+	public static Test suite()
+	{
+		TestSuite suite = new TestSuite();
+		for (int i = 0; i < testparams.length >> 1; ++i)
+		{
+			suite.addTest(new PrerequisiteWriterTest(i));
+		}
+		return suite;
 	}
 
     @Override

@@ -51,9 +51,6 @@ public class UnitSetModel implements TemplateHashModel, TemplateScalarModel
 		this.unitSet = set;
 	}
 
-	/**
-	 * @see freemarker.template.TemplateHashModel#get(java.lang.String)
-	 */
 	@Override
 	public TemplateModel get(String key) throws TemplateModelException
 	{
@@ -78,18 +75,12 @@ public class UnitSetModel implements TemplateHashModel, TemplateScalarModel
 		return SimpleWrapperLibrary.wrap(unit);
 	}
 
-	/**
-	 * @see freemarker.template.TemplateHashModel#isEmpty()
-	 */
 	@Override
 	public boolean isEmpty() throws TemplateModelException
 	{
 		return false;
 	}
 
-	/**
-	 * @see freemarker.template.TemplateScalarModel#getAsString()
-	 */
 	@Override
 	public String getAsString() throws TemplateModelException
 	{

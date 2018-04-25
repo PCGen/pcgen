@@ -27,6 +27,7 @@ import pcgen.core.Equipment;
 public class NaturalEquipmentFacetTest extends
 		AbstractConsolidatingFacetTest<Equipment, Equipment>
 {
+	private static int n = 0;
 
 	private NaturalEquipmentFacet facet = new NaturalEquipmentFacet();
 
@@ -35,8 +36,6 @@ public class NaturalEquipmentFacetTest extends
 	{
 		return facet;
 	}
-
-	public static int n = 0;
 
 	@Override
 	protected Equipment getObject()

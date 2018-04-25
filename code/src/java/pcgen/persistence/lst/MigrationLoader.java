@@ -45,9 +45,6 @@ public class MigrationLoader extends LstLineFileLoader
 	private String invalidKeyPattern = ".*[,|\\||\\\\|:|;|%|\\*|=|\\[|\\]].*";
 	private String invalidSourceKeyPattern = ".*[\\||\\\\|;|%|\\*|=|\\[|\\]].*";
 
-	/**
-	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(pcgen.rules.context.LoadContext, java.lang.String, java.net.URI)
-	 */
 	@Override
 	public void parseLine(LoadContext context, String lstLine, URI sourceURI)
 		throws PersistenceLayerException

@@ -28,8 +28,8 @@ public class SpellFailureIntegrationTest extends
 		AbstractIntegerIntegrationTestCase<Equipment>
 {
 
-	static SpellfailureToken token = new SpellfailureToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
+	private static SpellfailureToken token = new SpellfailureToken();
+	private static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()

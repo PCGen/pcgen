@@ -108,6 +108,49 @@ public abstract class AbstractTokenModelTest extends TestCase
 	protected PlayerCharacter pc;
 	protected CharID id;
 
+	protected PCStat str;
+	protected PCStat cha;
+	protected PCStat dex;
+	protected PCStat wis;
+	protected PCStat intel;
+	protected PCAlignment lg;
+	protected PCAlignment ln;
+	protected PCAlignment le;
+	protected PCAlignment ng;
+	protected PCAlignment tn;
+	protected PCAlignment ne;
+	protected PCAlignment cg;
+	protected PCAlignment cn;
+	protected PCAlignment ce;
+	protected SizeAdjustment colossal;
+	protected SizeAdjustment gargantuan;
+	protected SizeAdjustment huge;
+	protected SizeAdjustment large;
+	protected SizeAdjustment medium;
+	protected SizeAdjustment small;
+	protected SizeAdjustment tiny;
+	protected SizeAdjustment diminutive;
+	protected SizeAdjustment fine;
+
+	protected DirectAbilityFacet directAbilityFacet;
+	protected ActiveEqModFacet activeEqModFacet;
+	protected BioSetFacet bioSetFacet;
+	protected CheckFacet checkFacet;
+	protected ClassFacet classFacet;
+	protected ClassLevelFacet classLevelFacet;
+	protected CompanionModFacet companionModFacet;
+	protected DeityFacet deityFacet;
+	protected DomainFacet domainFacet;
+	protected ExpandedCampaignFacet expandedCampaignFacet;
+	protected LanguageFacet languageFacet;
+	protected RaceInputFacet raceFacet;
+	protected SizeFacet sizeFacet;
+	protected SkillFacet skillFacet;
+	protected StatFacet statFacet;
+	protected TemplateFacet templateConsolidationFacet;
+	protected TemplateInputFacet templateInputFacet;
+	protected WeaponProfModelFacet weaponProfModelFacet;
+
 	public AbstractTokenModelTest()
 	{
 		super();
@@ -151,49 +194,6 @@ public abstract class AbstractTokenModelTest extends TestCase
 		pc = new PlayerCharacter();
 		id = pc.getCharID();
 	}
-
-	protected PCStat str;
-	protected PCStat cha;
-	protected PCStat dex;
-	protected PCStat wis;
-	protected PCStat intel;
-	protected PCAlignment lg;
-	protected PCAlignment ln;
-	protected PCAlignment le;
-	protected PCAlignment ng;
-	protected PCAlignment tn;
-	protected PCAlignment ne;
-	protected PCAlignment cg;
-	protected PCAlignment cn;
-	protected PCAlignment ce;
-	protected SizeAdjustment colossal;
-	protected SizeAdjustment gargantuan;
-	protected SizeAdjustment huge;
-	protected SizeAdjustment large;
-	protected SizeAdjustment medium;
-	protected SizeAdjustment small;
-	protected SizeAdjustment tiny;
-	protected SizeAdjustment diminutive;
-	protected SizeAdjustment fine;
-
-	protected DirectAbilityFacet directAbilityFacet;
-	protected ActiveEqModFacet activeEqModFacet;
-	protected BioSetFacet bioSetFacet;
-	protected CheckFacet checkFacet;
-	protected ClassFacet classFacet;
-	protected ClassLevelFacet classLevelFacet;
-	protected CompanionModFacet companionModFacet;
-	protected DeityFacet deityFacet;
-	protected DomainFacet domainFacet;
-	protected ExpandedCampaignFacet expandedCampaignFacet;
-	protected LanguageFacet languageFacet;
-	protected RaceInputFacet raceFacet;
-	protected SizeFacet sizeFacet;
-	protected SkillFacet skillFacet;
-	protected StatFacet statFacet;
-	protected TemplateFacet templateConsolidationFacet;
-	protected TemplateInputFacet templateInputFacet;
-	protected WeaponProfModelFacet weaponProfModelFacet;
 
 	protected void setUpContext() throws PersistenceLayerException
 	{

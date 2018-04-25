@@ -36,6 +36,11 @@ public abstract class AbstractIntegerIntegrationTestCase<T extends CDOMObject>
 		extends AbstractIntegrationTestCase<T>
 {
 
+	private static PreHDParser prehd = new PreHDParser();
+	private static PreHDWriter prehdwriter = new PreHDWriter();
+	private static PreLevelParser prelevel = new PreLevelParser();
+	private static PreLevelWriter prelevelwriter = new PreLevelWriter();
+
 	public abstract boolean isZeroAllowed();
 
 	public abstract boolean isNegativeAllowed();
@@ -43,11 +48,6 @@ public abstract class AbstractIntegerIntegrationTestCase<T extends CDOMObject>
 	public abstract boolean isPositiveAllowed();
 
 	public abstract boolean doesOverwrite();
-
-	PreHDParser prehd = new PreHDParser();
-	PreHDWriter prehdwriter = new PreHDWriter();
-	PreLevelParser prelevel = new PreLevelParser();
-	PreLevelWriter prelevelwriter = new PreLevelWriter();
 
 	@Override
 	@Before

@@ -28,8 +28,8 @@ public class BaseItemIntegrationTest extends
 		AbstractItemIntegrationTestCase<Equipment, Equipment>
 {
 
-	static BaseitemToken token = new BaseitemToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
+	private static BaseitemToken token = new BaseitemToken();
+	private static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()

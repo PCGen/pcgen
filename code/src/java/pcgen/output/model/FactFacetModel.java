@@ -72,9 +72,6 @@ public class FactFacetModel implements TemplateHashModel
 		this.facet = facet;
 	}
 
-	/**
-	 * @see freemarker.template.TemplateHashModel#get(java.lang.String)
-	 */
 	@Override
 	public TemplateModel get(String arg0) throws TemplateModelException
 	{
@@ -82,9 +79,6 @@ public class FactFacetModel implements TemplateHashModel
 		return WRAPPER_FACET.wrap(id, facet.get(id, key));
 	}
 
-	/**
-	 * @see freemarker.template.TemplateHashModel#isEmpty()
-	 */
 	@Override
 	public boolean isEmpty() throws TemplateModelException
 	{

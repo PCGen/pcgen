@@ -33,8 +33,8 @@ public class AltTypeIntegrationTest extends
 		AbstractTypeSafeListIntegrationTestCase<Equipment>
 {
 
-	static AlttypeToken token = new AlttypeToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
+	private static AlttypeToken token = new AlttypeToken();
+	private static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()

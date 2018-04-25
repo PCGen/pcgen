@@ -42,9 +42,6 @@ public class TraitLoader extends LstLineFileLoader
 		super.loadLstFile(context, fileName);
 	}
 
-	/**
-	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(LoadContext, String, URI)
-	 */
 	@Override
 	public void parseLine(LoadContext context, String lstLine, URI sourceURI)
 	{

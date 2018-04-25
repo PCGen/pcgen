@@ -46,13 +46,13 @@ import pcgen.output.publish.OutputDB;
 public final class FacetInitialization
 {
 
+	private static boolean isInitialized = false;
+	
 	private FacetInitialization()
 	{
 		//Do not instantiate
 	}
 
-	private static boolean isInitialized = false;
-	
 	public static synchronized void initialize()
 	{
 		if (!isInitialized)

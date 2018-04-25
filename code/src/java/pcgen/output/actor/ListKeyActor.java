@@ -52,10 +52,6 @@ public class ListKeyActor implements OutputActor<CDOMObject>
 		this.lk = lk;
 	}
 
-	/**
-	 * @see pcgen.output.base.OutputActor#process(pcgen.cdom.enumeration.CharID,
-	 *      java.lang.Object)
-	 */
 	@Override
 	public TemplateModel process(CharID id, CDOMObject d)
 		throws TemplateModelException
