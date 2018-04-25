@@ -418,7 +418,6 @@ public abstract class AbstractListMapGraph<N, ET extends Edge<N>> implements
 		int thisNodeSize = nodeList.size();
 		if (thisNodeSize != otherNodeList.size())
 		{
-			//			System.err.println("Not equal node count");
 			return false;
 		}
 		// (potentially wasteful, but defensive copy)
@@ -426,9 +425,6 @@ public abstract class AbstractListMapGraph<N, ET extends Edge<N>> implements
 		if (otherNodeList.retainAll(nodeList))
 		{
 			// Some nodes are not identical
-			//			System.err.println("Not equal node list");
-			//			System.err.println(nodeList);
-			//			System.err.println(otherNodeList);
 			return false;
 		}
 		// Here, the node lists are identical...
@@ -436,7 +432,6 @@ public abstract class AbstractListMapGraph<N, ET extends Edge<N>> implements
 		int thisEdgeSize = edgeList.size();
 		if (thisEdgeSize != otherEdgeList.size())
 		{
-			//			System.err.println("Not equal edge count");
 			return false;
 		}
 		// (potentially wasteful, but defensive copy)
@@ -444,9 +439,6 @@ public abstract class AbstractListMapGraph<N, ET extends Edge<N>> implements
 		if (otherEdgeList.retainAll(edgeList))
 		{
 			// Other Graph contains extra edges
-			//			System.err.println("not equal edge retain");
-			//			System.err.println(edgeList);
-			//			System.err.println(otherEdgeList);
 			return false;
 		}
 		return true;

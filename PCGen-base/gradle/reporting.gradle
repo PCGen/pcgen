@@ -8,10 +8,6 @@
  * Author: James Dempsey 
  */
 
-apply plugin: 'checkstyle'
-apply plugin: 'pmd'
-apply plugin: 'jdepend'
-
 checkstyle {
 	configFile = new File('code/standards/checkstyle.xml')
 	ignoreFailures = true
@@ -28,6 +24,14 @@ pmd {
 	toolVersion = "5.8.1"
 }
 
+spotbugs {
+	excludeFilter = file("$rootProject.projectDir/code/standards/spotbugs_ignore.xml")
+	omitVisitors = ['Naming', 'CrossSiteScripting', 'DontUseEnum', 'DoInsideDoPrivileged']
+	reportLevel = 'low'
+	ignoreFailures = 'true'
+	toolVersion = "3.1.2"
+}
+
 jdepend {
 	ignoreFailures = true
 	sourceSets = []
@@ -37,4 +41,4 @@ task wrapper(type: Wrapper) {
 	gradleVersion = '4.4.1'
 }
 
-task allReports { dependsOn = ['checkstyleMain', 'pmdMain', 'jdependMain'] }
+task allReports { dependsOn = ['checkstyleMain', 'pmdMain', 'spotbugsMain', 'jdependMain'] }

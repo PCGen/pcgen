@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FindBugsFilter>
+   <Match>
+        <!-- high number of false positive -->
+        <Bug pattern="PSC_PRESIZE_COLLECTIONS" />
+   </Match>
+   <Match>
+        <!-- We ignore serialization -->
+        <Bug pattern="SE_NO_SERIALVERSIONID,SE_COMPARATOR_SHOULD_BE_SERIALIZABLE" />
+   </Match>
+   <Match>
+        <!-- not relevent to pcgen -->
+        <Bug pattern="IJU_SETUP_NO_SUPER,DP_DO_INSIDE_DO_PRIVILEGED,DM_EXIT" />
+    </Match>
+    <Match>
+        <!-- we have other tools for code style -->
+        <!--NM_CLASS_NAMING_CONVENTION,MS_SHOULD_BE_FINAL,NM_METHOD_NAMING_CONVENTION,-->
+        <Bug pattern="DM_BOXED_PRIMITIVE_FOR_PARSING,SIC_INNER_SHOULD_BE_STATIC,ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD,ITC_INHERITANCE_TYPE_CHECKING" />
+    </Match>
+    <Match>
+        <!-- visibility concerns: we should eventually turn these on -->
+        <Bug pattern="MS_PKGPROTECT,OPM_OVERLY_PERMISSIVE_METHOD" />
+    </Match>
+    <Match>
+        <Class name="~.*\.*Test" />
+
+        <Not>
+            <!-- 'IJU' is the code for Bugs related to JUnit test code -->
+            <Bug code="IJU" />
+        </Not>
+    </Match>
+    <Match>
+        <Class name="~.*\.*TestCase" />
+
+        <Not>
+            <!-- 'IJU' is the code for Bugs related to JUnit test code -->
+            <Bug code="IJU" />
+        </Not>
+    </Match>
+    <Match>
+        <Class name="~.*testsupport.*" />
+
+        <Not>
+            <!-- 'IJU' is the code for Bugs related to JUnit test code -->
+            <Bug code="IJU" />
+        </Not>
+    </Match>
+</FindBugsFilter>

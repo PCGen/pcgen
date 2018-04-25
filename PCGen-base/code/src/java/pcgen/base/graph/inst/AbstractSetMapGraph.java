@@ -408,9 +408,6 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 		int thisNodeSize = nodeMap.size();
 		if (thisNodeSize != otherNodeList.size())
 		{
-			//			System.err.println("Not equal node count");
-			//			System.err.println(nodeMap.keySet());
-			//			System.err.println(otherNodeList);
 			return false;
 		}
 		// (potentially wasteful, but defensive copy)
@@ -418,24 +415,6 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 		if (otherNodeList.retainAll(nodeMap.keySet()))
 		{
 			// Some nodes are not identical
-			//			System.err.println("Not equal node list");
-			//			System.err.println(nodeMap.keySet());
-			//			System.err.println(otherNodeList);
-			ArrayList<N> al = new ArrayList<>(nodeMap.keySet());
-			al.removeAll(otherNodeList);
-			//			for (Object o : al)
-			//			{
-			//				System.err.println("1- " + o.hashCode() + " " + o);
-			//			}
-			//			System.err.println("?!?");
-			ArrayList<N> al2 = new ArrayList<>(otherGraph.getNodeList());
-			al2.removeAll(otherNodeList);
-			//			for (Object o : al2)
-			//			{
-			//				System.err.println("2- " + o.hashCode() + " " + o);
-			//			}
-			//			System.err.println(al.equals(al2));
-			//			System.err.println(al2.equals(al));
 			return false;
 		}
 		// Here, the node lists are identical...
@@ -443,9 +422,6 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 		int thisEdgeSize = edgeSet.size();
 		if (thisEdgeSize != otherEdgeList.size())
 		{
-			//			System.err.println("Not equal edge count");
-			//			System.err.println(edgeSet);
-			//			System.err.println(otherEdgeList);
 			return false;
 		}
 		// (potentially wasteful, but defensive copy)
@@ -453,9 +429,6 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 		if (otherEdgeList.retainAll(edgeSet))
 		{
 			// Other Graph contains extra edges
-			//			System.err.println("not equal edge retain");
-			//			System.err.println(edgeSet);
-			//			System.err.println(otherEdgeList);
 			return false;
 		}
 		return true;

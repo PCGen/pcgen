@@ -27,7 +27,10 @@ import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.Test;
 
-public class GenericMapToListTestIdentityHash extends TestCase
+/**
+ * Test GenericMapToList using an IdentityHashMap as the underlying Map
+ */
+public class GenericMapToListIdentityHashTest extends TestCase
 {
 
 	private static final Integer CONST_5 = Integer.valueOf(5);

@@ -27,7 +27,10 @@ import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.Test;
 
-public class GenericMapToListTestTree extends TestCase
+/**
+ * Test GenericMapToList using a TreeMap as the underlying Map
+ */
+public class GenericMapToListTreeTest extends TestCase
 {
 
 	private static final Character CONST_E = 'E';

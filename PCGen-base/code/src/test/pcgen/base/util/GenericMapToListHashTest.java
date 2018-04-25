@@ -19,7 +19,10 @@ package pcgen.base.util;
 
 import java.util.HashMap;
 
-public class GenericMapToListTestHash extends AbstractMapToListTest
+/**
+ * Test GenericMapToList using a HashMap as the underlying Map
+ */
+public class GenericMapToListHashTest extends AbstractMapToListTest
 {
 
 	@Override

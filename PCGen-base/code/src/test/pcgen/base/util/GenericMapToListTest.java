@@ -26,6 +26,15 @@ import pcgen.testsupport.NoPublicZeroArgConstructorMap;
 import pcgen.testsupport.NoZeroArgConstructorMap;
 import pcgen.testsupport.StrangeMap;
 
+/**
+ * Test the GenericMapToList class constructors.
+ * 
+ * Additional tests are in other classes which test specific implementations.
+ * 
+ * @see GenericMapToListHashTest
+ * @see GenericMapToListIdentityHashTest
+ * @see GenericMapToListTreeTest
+ */
 public class GenericMapToListTest extends TestCase
 {
 	@SuppressWarnings("unused")
