@@ -528,8 +528,8 @@ Dragon gland, wyrm			KEY:Dragon gland wyrm			QUALITY:ItemLevel|16	COST:181500	TY
 
 # Personal Upgrades
 Personal Upgrade Mk 1	QUALITY:ItemLevel|3	COST:1400	ABILITY:Internal|AUTOMATIC|Personal Upgrade 1	TYPE:Personal Upgrade.Personal Upgrade LVL 3
-Personal Upgrade Mk 2	QUALITY:ItemLevel|7	COST:1400	ABILITY:Internal|AUTOMATIC|Personal Upgrade 2	TYPE:Personal Upgrade.Personal Upgrade LVL 7
-Personal Upgrade Mk 3	QUALITY:ItemLevel|14	COST:1400	ABILITY:Internal|AUTOMATIC|Personal Upgrade 3	TYPE:Personal Upgrade.Personal Upgrade LVL 14
+Personal Upgrade Mk 2	QUALITY:ItemLevel|7	COST:6500	ABILITY:Internal|AUTOMATIC|Personal Upgrade 2	TYPE:Personal Upgrade.Personal Upgrade LVL 7
+Personal Upgrade Mk 3	QUALITY:ItemLevel|14	COST:75000	ABILITY:Internal|AUTOMATIC|Personal Upgrade 3	TYPE:Personal Upgrade.Personal Upgrade LVL 14
 
 
 
