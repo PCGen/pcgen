@@ -26,6 +26,7 @@ import pcgen.core.PCClass;
 public class DomainFacetTest extends
 		AbstractSingleSourceListFacetTest<Domain, ClassSource>
 {
+	private static int n = 0;
 	private DomainFacet facet = new DomainFacet();
 
 	@Override
@@ -41,8 +42,6 @@ public class DomainFacetTest extends
 	{
 		return facet;
 	}
-
-	private int n = 0;
 
 	@Override
 	protected Domain getTypeObj()

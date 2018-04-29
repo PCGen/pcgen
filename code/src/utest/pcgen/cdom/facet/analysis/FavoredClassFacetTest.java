@@ -31,6 +31,7 @@ import pcgen.core.Race;
 public class FavoredClassFacetTest extends
 		AbstractExtractingFacetTest<CDOMObject, PCClass>
 {
+	private static int n = 0;
 
 	private FavoredClassFacet facet = new FavoredClassFacet();
 	private PCClass[] target;
@@ -59,8 +60,6 @@ public class FavoredClassFacetTest extends
 	{
 		return facet;
 	}
-
-	public static int n = 0;
 
 	@Override
 	protected PCClass getObject()

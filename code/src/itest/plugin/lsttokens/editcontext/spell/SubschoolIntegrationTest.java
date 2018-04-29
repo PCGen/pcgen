@@ -28,8 +28,8 @@ public class SubschoolIntegrationTest extends
 		AbstractTypeSafeListIntegrationTestCase<Spell>
 {
 
-	static SubschoolToken token = new SubschoolToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
+	private static SubschoolToken token = new SubschoolToken();
+	private static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Spell> getCDOMClass()

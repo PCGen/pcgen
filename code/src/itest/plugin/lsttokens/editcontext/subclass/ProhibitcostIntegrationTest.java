@@ -30,8 +30,8 @@ public class ProhibitcostIntegrationTest extends
 		AbstractIntegerIntegrationTestCase<SubClass>
 {
 
-	static ProhibitcostToken token = new ProhibitcostToken();
-	static CDOMTokenLoader<SubClass> loader = new CDOMTokenLoader<>();
+	private static ProhibitcostToken token = new ProhibitcostToken();
+	private static CDOMTokenLoader<SubClass> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<SubClass> getCDOMClass()

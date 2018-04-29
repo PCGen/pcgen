@@ -95,11 +95,6 @@ public class TokenFamilyIterator<C> implements
 		subIterator = TokenFamily.CURRENT.getTokens(cl).iterator();
 	}
 
-	/**
-	 * Returns the next CDOMPrimaryToken
-	 * 
-	 * @see java.util.Iterator#next()
-	 */
 	@Override
 	public CDOMPrimaryToken<? super C> next()
 	{
@@ -171,9 +166,6 @@ public class TokenFamilyIterator<C> implements
 		return getNext();
 	}
 
-	/**
-	 * @see java.util.Iterator#hasNext()
-	 */
 	@Override
 	public boolean hasNext()
 	{
@@ -181,11 +173,6 @@ public class TokenFamilyIterator<C> implements
 		return nextToken != null;
 	}
 
-	/**
-	 * Unsupported
-	 * 
-	 * @see java.util.Iterator#remove()
-	 */
 	@Override
 	public void remove()
 	{

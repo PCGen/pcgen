@@ -16,9 +16,9 @@ Golden Eagle Epaulets																			TYPE:Magic.Wondrous.Shoulders		COST:3000
 
 ###Block: Weapons
 # Equipment Name					Cost		Weight	Modifier							Special Property
-Sword (Bastard).COPY=Talon Sword
+Bastard Sword (Base).COPY=Talon Sword		VISIBLE:YES
 Talon Sword.MOD					COST:35	WT:6		EQMOD:Material ~ Alchemical Silver.Special Ability ~ Defending ~ Melee.Special Ability ~ Enhancement Cost|1000.Special Ability ~ +2 ~ Weapon		SPROP:Its defending ability also protects your mount
-Sword (Bastard).COPY=Talonstrike Sword
+Bastard Sword (Base).COPY=Talonstrike Sword		VISIBLE:YES
 Talonstrike Sword.MOD				COST:35	WT:6		EQMOD:Material ~ Alchemical Silver.Special Ability ~ Defending ~ Melee.Special Ability ~ Enhancement Cost|20200.Special Ability ~ +2 ~ Weapon	SPROP:Its defending ability also protects your mount, and it can cast dimensional anchor on the target as a free action upon a successful hit
 #
 # End

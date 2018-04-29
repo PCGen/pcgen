@@ -28,8 +28,8 @@ public class CompsIntegrationTest extends
 		AbstractTypeSafeListIntegrationTestCase<Spell>
 {
 
-	static CompsToken token = new CompsToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
+	private static CompsToken token = new CompsToken();
+	private static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Spell> getCDOMClass()

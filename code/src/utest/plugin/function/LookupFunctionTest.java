@@ -32,6 +32,7 @@ import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.base.WriteableVariableStore;
+import pcgen.base.formula.exception.SemanticsFailureException;
 import pcgen.base.formula.operator.number.NumberMinus;
 import pcgen.base.formula.parse.SimpleNode;
 import pcgen.base.formula.visitor.EvaluateVisitor;
@@ -362,10 +363,14 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = generateFormulaSemantics(numberManager);
 		semantics = semantics.getWith(ManagerKey.CONTEXT, context);
-		semanticsVisitor.visit(node, semantics);
-		if (semantics.isValid())
+		try
 		{
+			semanticsVisitor.visit(node, semantics);
 			TestCase.fail("Expected Invalid Formula: " + formula);
+		}
+		catch (SemanticsFailureException e)
+		{
+			//Expected
 		}
 	}
 
@@ -394,10 +399,14 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = generateFormulaSemantics(numberManager);
 		semantics = semantics.getWith(ManagerKey.CONTEXT, context);
-		semanticsVisitor.visit(node, semantics);
-		if (semantics.isValid())
+		try
 		{
+			semanticsVisitor.visit(node, semantics);
 			TestCase.fail("Expected Invalid Formula: " + formula);
+		}
+		catch (SemanticsFailureException e)
+		{
+			//Expected
 		}
 	}
 
@@ -426,10 +435,14 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = generateFormulaSemantics(numberManager);
 		semantics = semantics.getWith(ManagerKey.CONTEXT, context);
-		semanticsVisitor.visit(node, semantics);
-		if (semantics.isValid())
+		try
 		{
+			semanticsVisitor.visit(node, semantics);
 			TestCase.fail("Expected Invalid Formula: " + formula);
+		}
+		catch (SemanticsFailureException e)
+		{
+			//Expected
 		}
 	}
 
@@ -459,11 +472,6 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		FormulaSemantics semantics = generateFormulaSemantics(numberManager);
 		semantics = semantics.getWith(ManagerKey.CONTEXT, context);
 		semanticsVisitor.visit(node, semantics);
-		if (!semantics.isValid())
-		{
-			TestCase.fail("Expected Valid Formula: " + formula
-				+ " but was told: " + semantics.getReport());
-		}
 		isStatic(formula, node, false);
 		evaluatesTo(formula, node, 2);
 		Object rv =
@@ -496,11 +504,6 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		FormulaSemantics semantics = generateFormulaSemantics(numberManager);
 		semantics = semantics.getWith(ManagerKey.CONTEXT, context);
 		semanticsVisitor.visit(node, semantics);
-		if (!semantics.isValid())
-		{
-			TestCase.fail("Expected Valid Formula: " + formula
-				+ " but was told: " + semantics.getReport());
-		}
 		isStatic(formula, node, false);
 		evaluatesTo(formula, node, 2);
 		Object rv =
@@ -533,10 +536,14 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = generateFormulaSemantics(numberManager);
 		semantics = semantics.getWith(ManagerKey.CONTEXT, context);
-		semanticsVisitor.visit(node, semantics);
-		if (semantics.isValid())
+		try
 		{
+			semanticsVisitor.visit(node, semantics);
 			TestCase.fail("Expected Invalid Formula: " + formula);
+		}
+		catch (SemanticsFailureException e)
+		{
+			//Expected
 		}
 	}
 
@@ -765,11 +772,6 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		FormulaSemantics semantics = generateFormulaSemantics(numberManager);
 		semantics = semantics.getWith(ManagerKey.CONTEXT, context);
 		semanticsVisitor.visit(node, semantics);
-		if (!semantics.isValid())
-		{
-			TestCase.fail("Expected Valid Formula: " + formula
-				+ " but was told: " + semantics.getReport());
-		}
 		evaluatesTo(formula, node, 4);
 
 		formula = "lookup(get(\"TABLE[NUMBER]\",\"B\"),3,ResultColumn)";

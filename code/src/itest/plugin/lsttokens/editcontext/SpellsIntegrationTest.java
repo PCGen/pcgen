@@ -44,8 +44,8 @@ import plugin.pretokens.writer.PreRaceWriter;
 public class SpellsIntegrationTest extends
 		AbstractIntegrationTestCase<CDOMObject>
 {
-	static SpellsLst token = new SpellsLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
+	private static SpellsLst token = new SpellsLst();
+	private static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	PreClassParser preclass = new PreClassParser();
 	PreClassWriter preclasswriter = new PreClassWriter();

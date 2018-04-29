@@ -34,8 +34,8 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class DrIntegrationTest extends AbstractIntegrationTestCase<CDOMObject>
 {
-	static DrLst token = new DrLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
+	private static DrLst token = new DrLst();
+	private static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Ability> getCDOMClass()

@@ -35,9 +35,6 @@ public final class FeatLoader extends AbilityLoader
 {
 	private boolean defaultFeatsLoaded = false;
 
-	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(LoadContext, CDOMObject, String, SourceEntry)
-	 */
 	@Override
 	public Ability parseLine(LoadContext context, Ability aFeat,
 		String lstLine, SourceEntry source) throws PersistenceLayerException
@@ -65,9 +62,6 @@ public final class FeatLoader extends AbilityLoader
 		return super.parseLine(context, feat, lstLine, source);
 	}
 
-	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#loadLstFile(LoadContext, CampaignSourceEntry)
-	 */
 	@Override
 	protected void loadLstFile(LoadContext context, CampaignSourceEntry sourceEntry)
 	{
@@ -120,9 +114,6 @@ public final class FeatLoader extends AbilityLoader
 		}
 	}
 
-	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectKeyed(LoadContext, java.lang.String)
-	 */
 	@Override
 	protected Ability getObjectKeyed(LoadContext context, final String aKey)
 	{

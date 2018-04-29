@@ -28,8 +28,8 @@ public class RangeIntegrationTest extends
 		AbstractIntegerIntegrationTestCase<Equipment>
 {
 
-	static RangeToken token = new RangeToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
+	private static RangeToken token = new RangeToken();
+	private static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()

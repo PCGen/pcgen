@@ -55,18 +55,12 @@ public class EQHeadPlusTotalTermEvaluator extends BaseEQTermEvaluator implements
 		return Integer.toString(eq.calcPlusForHead(primary));
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.term.TermEvaluator#isSourceDependant()
-	 */
 	@Override
 	public boolean isSourceDependant()
 	{
 		return false;
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.term.TermEvaluator#isStatic()
-	 */
 	public boolean isStatic()
 	{
 		return false;

@@ -34,8 +34,8 @@ public class SkillListIntegrationTest extends
 		AbstractListIntegrationTestCase<PCClass, ClassSkillList>
 {
 
-	static SkilllistToken token = new SkilllistToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
+	private static SkilllistToken token = new SkilllistToken();
+	private static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

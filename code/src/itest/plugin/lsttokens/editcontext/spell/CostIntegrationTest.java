@@ -31,8 +31,8 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class CostIntegrationTest extends AbstractIntegrationTestCase<Spell>
 {
-	static CostToken token = new CostToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
+	private static CostToken token = new CostToken();
+	private static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Spell> getCDOMClass()

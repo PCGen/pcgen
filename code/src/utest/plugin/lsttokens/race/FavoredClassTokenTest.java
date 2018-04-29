@@ -29,12 +29,11 @@ import pcgen.core.Race;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import plugin.lsttokens.testsupport.AbstractListTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractListInputTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
-public class FavoredClassTokenTest extends
-		AbstractListTokenTestCase<Race, PCClass>
+public class FavoredClassTokenTest extends AbstractListInputTokenTestCase<Race, PCClass>
 {
 
 	static FavclassToken token = new FavclassToken();

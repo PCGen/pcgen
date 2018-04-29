@@ -29,8 +29,8 @@ public class SourceShortIntegrationTest extends
 		AbstractStringIntegrationTestCase<CDOMObject>
 {
 
-	static SourceshortLst token = new SourceshortLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
+	private static SourceshortLst token = new SourceshortLst();
+	private static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Deity> getCDOMClass()

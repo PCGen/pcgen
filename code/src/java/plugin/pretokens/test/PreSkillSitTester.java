@@ -107,7 +107,7 @@ public class PreSkillSitTester extends AbstractPrerequisiteTest implements
 
 		// If we are looking for a negative test i.e. !PRESKILL and the PC
 		// doesn't have the skill we have to return a match
-		if (foundSkill == false)
+		if (!foundSkill)
 		{
 			if (prereq.getOperator() == PrerequisiteOperator.LT)
 			{

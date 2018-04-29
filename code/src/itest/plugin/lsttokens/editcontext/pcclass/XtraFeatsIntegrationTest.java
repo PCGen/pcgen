@@ -31,8 +31,8 @@ public class XtraFeatsIntegrationTest extends
 		AbstractIntegerIntegrationTestCase<PCClass>
 {
 
-	static XtrafeatsToken token = new XtrafeatsToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
+	private static XtrafeatsToken token = new XtrafeatsToken();
+	private static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

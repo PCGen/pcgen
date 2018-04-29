@@ -33,13 +33,13 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import plugin.lsttokens.testsupport.AbstractListTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractListInputTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreRaceParser;
 import plugin.pretokens.writer.PreRaceWriter;
 
-public class DomainTokenTest extends AbstractListTokenTestCase<PCClass, Domain>
+public class DomainTokenTest extends AbstractListInputTokenTestCase<PCClass, Domain>
 {
 
 	static DomainToken token = new DomainToken();

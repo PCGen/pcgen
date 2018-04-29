@@ -28,8 +28,8 @@ public class PreRaceTypeIntegrationTest extends
 		AbstractStringIntegrationTestCase<PCClass>
 {
 
-	static PreracetypeToken token = new PreracetypeToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
+	private static PreracetypeToken token = new PreracetypeToken();
+	private static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCClass> getCDOMClass()

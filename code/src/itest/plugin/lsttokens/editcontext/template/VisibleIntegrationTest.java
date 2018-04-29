@@ -32,8 +32,8 @@ public class VisibleIntegrationTest extends
 		AbstractIntegrationTestCase<PCTemplate>
 {
 
-	static VisibleToken token = new VisibleToken();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
+	private static VisibleToken token = new VisibleToken();
+	private static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCTemplate> getCDOMClass()

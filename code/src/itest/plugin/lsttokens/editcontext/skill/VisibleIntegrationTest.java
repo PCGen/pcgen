@@ -31,8 +31,8 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 public class VisibleIntegrationTest extends AbstractIntegrationTestCase<Skill>
 {
 
-	static VisibleToken token = new VisibleToken();
-	static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<>();
+	private static VisibleToken token = new VisibleToken();
+	private static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Skill> getCDOMClass()

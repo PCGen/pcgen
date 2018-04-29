@@ -82,6 +82,7 @@ import pcgen.core.Skill;
 import pcgen.core.SystemCollections;
 import pcgen.core.WeaponProf;
 import pcgen.core.analysis.EqModAttachment;
+import pcgen.core.analysis.RaceUtilities;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
@@ -826,6 +827,11 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		{
 			eq.setToCustomSize(null);
 			EqModAttachment.finishEquipment(eq);
+		}
+		if (RaceUtilities.getUnselectedRace() == null)
+		{
+			Logging.errorPrint(gameMode.getName()
+				+ " did not have required Race with 'Unselected' Group");
 		}
 	}
 

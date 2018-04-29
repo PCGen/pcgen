@@ -832,6 +832,7 @@ public class SpinningTabbedPane extends JTabbedPane
                     secundum = indices[1];
                     penultimatum = indices[indices.length - 2];
                     ultimatum = indices[indices.length - 1];
+    				break;
             }
 
             for (int indice : indices)

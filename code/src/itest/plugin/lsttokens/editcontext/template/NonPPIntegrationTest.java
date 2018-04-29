@@ -28,8 +28,8 @@ public class NonPPIntegrationTest extends
 		AbstractIntegerIntegrationTestCase<PCTemplate>
 {
 
-	static NonppToken token = new NonppToken();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
+	private static NonppToken token = new NonppToken();
+	private static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCTemplate> getCDOMClass()

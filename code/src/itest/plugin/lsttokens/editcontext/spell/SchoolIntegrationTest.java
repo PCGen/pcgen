@@ -28,8 +28,8 @@ public class SchoolIntegrationTest extends
 		AbstractTypeSafeListIntegrationTestCase<Spell>
 {
 
-	static SchoolToken token = new SchoolToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
+	private static SchoolToken token = new SchoolToken();
+	private static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Spell> getCDOMClass()

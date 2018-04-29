@@ -25,6 +25,7 @@ import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.ManagerFactory;
+import pcgen.base.formula.exception.SemanticsException;
 import pcgen.base.formula.inst.ComplexNEPFormula;
 import pcgen.base.formula.inst.NEPFormula;
 import pcgen.base.util.FormatManager;
@@ -297,12 +298,12 @@ public final class FormulaFactory
 		}
 
 		@Override
-		public void isValid(FormulaSemantics semantics)
+		public void isValid(FormulaSemantics semantics) throws SemanticsException
 		{
 			Class<?> expectedFormat = formatManager.getManagedClass();
 			if (!expectedFormat.isAssignableFrom(value.getClass()))
 			{
-				semantics.setInvalid("Parse Error: Invalid Value Format: "
+				throw new SemanticsException("Parse Error: Invalid Value Format: "
 					+ value.getClass() + " found in location requiring a "
 					+ expectedFormat + " (class cannot be evaluated)");
 			}
@@ -379,12 +380,15 @@ public final class FormulaFactory
 		NEPFormula<T> formula = getNEPFormulaFor(formatManager, expression);
 		FormulaSemantics semantics = managerFactory.generateFormulaSemantics(
 			formulaManager, varScope);
-		formula.isValid(semantics);
-		if (!semantics.isValid())
+		try
+		{
+			formula.isValid(semantics);
+		}
+		catch (SemanticsException e)
 		{
 			throw new IllegalArgumentException("Cannot create a Formula from: "
-				+ expression + ", due to: " + semantics.getReport()
-				+ " with format " + formatManager.getIdentifierType());
+				+ expression + ", due to: " + e.getLocalizedMessage() + " with format "
+				+ formatManager.getIdentifierType(), e);
 		}
 		return formula;
 	}

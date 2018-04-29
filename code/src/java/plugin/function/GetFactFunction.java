@@ -22,6 +22,7 @@ import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaFunction;
 import pcgen.base.formula.base.FormulaSemantics;
+import pcgen.base.formula.exception.SemanticsFailureException;
 import pcgen.base.formula.parse.ASTQuotString;
 import pcgen.base.formula.parse.Node;
 import pcgen.base.formula.visitor.DependencyVisitor;
@@ -63,52 +64,43 @@ public class GetFactFunction implements FormulaFunction
 	{
 		if (args.length != 3)
 		{
-			semantics.setInvalid("Function " + getFunctionName()
+			throw new SemanticsFailureException("Function " + getFunctionName()
 				+ " received incorrect # of arguments, expected: 3 got " + args.length
 				+ " " + Arrays.asList(args));
-			return null;
 		}
 
 		//Turn scope node into a scope name
 		Node scopeNode = args[0];
 		if (!(scopeNode instanceof ASTQuotString))
 		{
-			semantics.setInvalid("Parse Error: Invalid Format Node: "
+			throw new SemanticsFailureException("Parse Error: Invalid Format Node: "
 				+ scopeNode.getClass().getName() + " found in location requiring a"
 				+ " Static String (class cannot be evaluated)");
-			return null;
 		}
 		String formatName = ((ASTQuotString) scopeNode).getText();
 		LoadContext context = semantics.get(ManagerKey.CONTEXT);
 		FormatManager<?> formatManager = context.getManufacturer(formatName);
 		FormatManager<?> objectFormat = (FormatManager<?>) args[1].jjtAccept(visitor,
 			semantics.getWith(FormulaSemantics.ASSERTED, Optional.of(formatManager)));
-		if (!semantics.isValid())
-		{
-			return null;
-		}
 
 		if (!formatManager.equals(objectFormat))
 		{
-			semantics.setInvalid(
+			throw new SemanticsFailureException(
 				"Parse Error: Invalid Object Format: " + objectFormat.getIdentifierType()
 					+ " found in a getFact call that asserted "
 					+ formatManager.getIdentifierType());
-			return null;
 		}
 		if (!CDOMOBJECT_CLASS.isAssignableFrom(objectFormat.getManagedClass()))
 		{
-			semantics.setInvalid("Parse Error: Invalid Object Format: " + objectFormat
-				+ " is not capable of holding a Fact");
-			return null;
+			throw new SemanticsFailureException("Parse Error: Invalid Object Format: "
+				+ objectFormat + " is not capable of holding a Fact");
 		}
 		Node factNode = args[2];
 		if (!(factNode instanceof ASTQuotString))
 		{
-			semantics.setInvalid("Parse Error: Invalid Fact Node: "
+			throw new SemanticsFailureException("Parse Error: Invalid Fact Node: "
 				+ factNode.getClass().getName() + " found in location requiring a"
 				+ " Static String (class cannot be evaluated)");
-			return null;
 		}
 		String factName = ((ASTQuotString) factNode).getText();
 		FactDefinition<?, ?> factDef =
@@ -116,17 +108,15 @@ public class GetFactFunction implements FormulaFunction
 					FactDefinition.class, formatName + "." + factName);
 		if (factDef == null)
 		{
-			semantics.setInvalid(
+			throw new SemanticsFailureException(
 				"Parse Error: Invalid Fact: " + factName + " is not a valid FACT name");
-			return null;
 		}
 		Class<?> usable = factDef.getUsableLocation();
 		if (!usable.isAssignableFrom(objectFormat.getManagedClass()))
 		{
-			semantics.setInvalid("Parse Error: Invalid Fact: " + factDef.getDisplayName()
-				+ " works on " + usable + " but formula asserted it was in "
-				+ objectFormat.getIdentifierType());
-			return null;
+			throw new SemanticsFailureException("Parse Error: Invalid Fact: "
+				+ factDef.getDisplayName() + " works on " + usable
+				+ " but formula asserted it was in " + objectFormat.getIdentifierType());
 		}
 		return factDef.getFormatManager();
 	}

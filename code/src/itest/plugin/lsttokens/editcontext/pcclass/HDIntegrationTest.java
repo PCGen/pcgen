@@ -31,8 +31,8 @@ public class HDIntegrationTest extends
 		AbstractIntegerIntegrationTestCase<PCClass>
 {
 
-	static HdToken token = new HdToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
+	private static HdToken token = new HdToken();
+	private static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

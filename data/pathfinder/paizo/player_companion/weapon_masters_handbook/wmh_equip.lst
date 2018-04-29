@@ -8,12 +8,12 @@ War Flute			PROFICIENCY:WEAPON|War Flute		TYPE:Weapon.Melee.Specialized.OneHande
 
 ###Block: Specific Magic Weapons
 # Equipment Name							Product Identity?	Cost		Modifier
-Hammer (Light).COPY=Cailean Fighting Tankard
-Longsword.COPY=Crusader's Longsword
+Light Hammer (Base).COPY=Cailean Fighting Tankard	VISIBLE:YES	EQMOD:Material ~ Steel
+Longsword (Base).COPY=Crusader's Longsword		VISIBLE:YES		EQMOD:Material ~ Steel
 Pistol (Double-Barreled).COPY=Shieldmarshal's Pistol
-Scimitar.COPY=Valorous Blade
-Longbow (Composite).COPY=Windreader's Bow
-Spear.COPY=Spear of the Honored Ancestors
+Scimitar (Base).COPY=Valorous Blade		VISIBLE:YES		EQMOD:Material ~ Steel
+Composite Longbow (Base).COPY=Windreader's Bow		VISIBLE:YES		EQMOD:Material ~ Wood
+Spear (Base).COPY=Spear of the Honored Ancestors	VISIBLE:YES	EQMOD:Material ~ Steel.Material ~ Wood
 
 
 Cailean Fighting Tankard.MOD					NAMEISPI:YES	COST:10301	EQMOD:Special Ability ~ +1 ~ Weapon								SOURCEPAGE:p.30

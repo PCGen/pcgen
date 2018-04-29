@@ -28,8 +28,8 @@ public class XPCostIntegrationTest extends
 		AbstractIntegerIntegrationTestCase<Spell>
 {
 
-	static XpcostToken token = new XpcostToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
+	private static XpcostToken token = new XpcostToken();
+	private static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Spell> getCDOMClass()

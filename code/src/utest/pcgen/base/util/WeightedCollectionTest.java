@@ -51,6 +51,7 @@ public class WeightedCollectionTest
 		wc = new WeightedCollection<>();
 	}
 
+	@SuppressWarnings("unused")
 	@Test
 	public void testBadIntConstructor() {
 		try {
@@ -61,6 +62,7 @@ public class WeightedCollectionTest
 		}
 	}
 
+	@SuppressWarnings("unused")
 	@Test
 	public void testBadCollectionConstructor() {
 		try {
@@ -207,7 +209,7 @@ public class WeightedCollectionTest
 
 	@Test
 	public void testBadEquals() {
-		assertFalse(wc.equals(null));
+		assertNotNull(wc);
 		assertFalse(wc.equals(1));
 	}
 

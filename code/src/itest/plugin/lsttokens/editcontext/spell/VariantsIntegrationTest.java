@@ -28,8 +28,8 @@ public class VariantsIntegrationTest extends
 		AbstractTypeSafeListIntegrationTestCase<Spell>
 {
 
-	static VariantsToken token = new VariantsToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
+	private static VariantsToken token = new VariantsToken();
+	private static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Spell> getCDOMClass()

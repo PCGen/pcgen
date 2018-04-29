@@ -24,7 +24,7 @@ import plugin.lsttokens.equipment.AltcritmultToken;
 public class AltCritMultIntegrationTest extends
 		AbstractCritMultIntegrationTestCase
 {
-	static AltcritmultToken token = new AltcritmultToken();
+	private static AltcritmultToken token = new AltcritmultToken();
 
 	@Override
 	public CDOMPrimaryToken<Equipment> getToken()

@@ -36,8 +36,8 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 public class SizeIntegrationTest extends AbstractIntegrationTestCase<Race>
 {
 
-	static SizeToken token = new SizeToken();
-	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
+	private static SizeToken token = new SizeToken();
+	private static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Race> getCDOMClass()

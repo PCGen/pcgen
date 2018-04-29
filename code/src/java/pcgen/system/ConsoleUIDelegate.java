@@ -36,9 +36,6 @@ import pcgen.util.Logging;
 public class ConsoleUIDelegate implements UIDelegate
 {
 
-	/**
-	 * @see pcgen.core.facade.UIDelegate#maybeShowWarningConfirm(java.lang.String, java.lang.String, java.lang.String, pcgen.system.PropertyContext, java.lang.String)
-	 */
     @Override
 	public Boolean maybeShowWarningConfirm(String title, String message,
 		String checkBoxText, PropertyContext context, String contextProp)
@@ -47,36 +44,24 @@ public class ConsoleUIDelegate implements UIDelegate
 		return false;
 	}
 
-	/**
-	 * @see pcgen.core.facade.UIDelegate#showErrorMessage(java.lang.String, java.lang.String)
-	 */
     @Override
 	public void showErrorMessage(String title, String message)
 	{
 		Logging.log(Logging.ERROR, title + " - " + message);
 	}
 
-	/**
-	 * @see pcgen.core.facade.UIDelegate#showInfoMessage(java.lang.String, java.lang.String)
-	 */
     @Override
 	public void showInfoMessage(String title, String message)
 	{
 		Logging.log(Logging.INFO, title + " - " + message);
 	}
 
-	/**
-	 * @see pcgen.core.facade.UIDelegate#showLevelUpInfo(pcgen.core.facade.CharacterFacade, int)
-	 */
     @Override
 	public void showLevelUpInfo(CharacterFacade character, int oldLevel)
 	{
 		Logging.log(Logging.INFO, "Level up from " + oldLevel + " complete for character " + character);
 	}
 
-	/**
-	 * @see pcgen.core.facade.UIDelegate#showWarningConfirm(java.lang.String, java.lang.String)
-	 */
     @Override
 	public boolean showWarningConfirm(String title, String message)
 	{

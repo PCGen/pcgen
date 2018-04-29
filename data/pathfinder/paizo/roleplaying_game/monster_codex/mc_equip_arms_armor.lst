@@ -8,11 +8,11 @@ Slaver's Crossbow, Light	KEY:Slaver's Crossbow (Light)			PROFICIENCY:WEAPON|Slav
 
 Flindbar											PROFICIENCY:WEAPON|Flindbar					TYPE:Weapon.Resizable.Melee.OneHanded.Exotic.Standard.Bludgeoning.Piercing.Flail.Gnoll								COST:9	WT:6				CRITMULT:x2	CRITRANGE:1							DAMAGE:1d8				EQMOD:Special Quality ~ Disarm.Special Quality ~ Trip.Material ~ Steel										WIELD:OneHanded													SIZE:M	SOURCEPAGE:p.93
 
-Arrow.COPY=Snakebiter Arrow
-Battleaxe.COPY=Frostblood Axe
-Flail (Heavy).COPY=Serpent-Necked Flail
-Greataxe.COPY=Cave Dweller's Greataxe
-Shield (Heavy/Steel).COPY=Bloodfeast Shield
+Arrow (Base).COPY=Snakebiter Arrow	VISIBLE:YES	EQMOD:Material ~ Steel.Material ~ Wood
+Battleaxe (Base).COPY=Frostblood Axe	VISIBLE:YES	EQMOD:Material ~ Steel
+Heavy Flail (Base).COPY=Serpent-Necked Flail	VISIBLE:YES	EQMOD:Material ~ Steel
+Greataxe (Base).COPY=Cave Dweller's Greataxe	VISIBLE:YES	EQMOD:Material ~ Steel
+Heavy Steel Shield (Base).COPY=Bloodfeast Shield	VISIBLE:YES	EQMOD:Material ~ Steel
 
 Frostblood Axe.MOD			EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Frost ~ Weapon.Special Ability ~ Wounding ~ Weapon.Special Ability ~ Enhancement Cost|8000			SOURCEPAGE:p.69			SPROP:After killing a creature of at least 1 HD, wielder can cast divine favor on himself or bless on himself and his allies as an immediate action.
 Serpent-Necked Flail.MOD		EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Speed ~ Weapon																SOURCEPAGE:p.201			SPROP:Command work causes flail to change to masterwork mace form and back.

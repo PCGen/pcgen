@@ -30,8 +30,8 @@ public class BenefitIntegrationTest extends
 		AbstractTypeSafeListIntegrationTestCase<Ability>
 {
 
-	static BenefitToken token = new BenefitToken();
-	static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<>();
+	private static BenefitToken token = new BenefitToken();
+	private static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Ability> getCDOMClass()

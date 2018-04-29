@@ -34,8 +34,8 @@ public class CCSkillIntegrationTest extends
 		AbstractListIntegrationTestCase<CDOMObject, Skill>
 {
 
-	static CcskillLst token = new CcskillLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
+	private static CcskillLst token = new CcskillLst();
+	private static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCTemplate> getCDOMClass()

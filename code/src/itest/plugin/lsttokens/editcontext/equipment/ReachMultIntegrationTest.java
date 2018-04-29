@@ -28,8 +28,8 @@ public class ReachMultIntegrationTest extends
 		AbstractIntegerIntegrationTestCase<Equipment>
 {
 
-	static ReachMultToken token = new ReachMultToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
+	private static ReachMultToken token = new ReachMultToken();
+	private static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()

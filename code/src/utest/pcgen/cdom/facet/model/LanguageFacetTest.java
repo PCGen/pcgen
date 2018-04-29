@@ -27,6 +27,7 @@ public class LanguageFacetTest extends
 		AbstractConsolidatingFacetTest<Language, Language>
 {
 
+	private static int n = 0;
 	private LanguageFacet facet = new LanguageFacet();
 
 	@Override
@@ -34,8 +35,6 @@ public class LanguageFacetTest extends
 	{
 		return facet;
 	}
-
-	public static int n = 0;
 
 	@Override
 	protected Language getObject()

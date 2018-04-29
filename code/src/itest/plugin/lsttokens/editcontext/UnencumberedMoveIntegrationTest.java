@@ -34,8 +34,8 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 public class UnencumberedMoveIntegrationTest extends
 		AbstractIntegrationTestCase<CDOMObject>
 {
-	static UnencumberedmoveLst token = new UnencumberedmoveLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
+	private static UnencumberedmoveLst token = new UnencumberedmoveLst();
+	private static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Ability> getCDOMClass()

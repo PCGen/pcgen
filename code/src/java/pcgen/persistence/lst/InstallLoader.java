@@ -38,9 +38,6 @@ public class InstallLoader extends LstLineFileLoader
 {
 	private InstallableCampaign campaign = null;
 
-	/**
-	 * @see pcgen.persistence.lst.LstLineFileLoader#loadLstString(LoadContext, URI, String)
-	 */
 	@Override
 	public void loadLstString(LoadContext context, URI fileName, String lstData) throws PersistenceLayerException
 	{
@@ -49,9 +46,6 @@ public class InstallLoader extends LstLineFileLoader
 		super.loadLstString(context, fileName, lstData);
 	}
 
-	/**
-	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(java.lang.String, java.net.URI)
-	 */
 	@Override
 	public void parseLine(LoadContext context, String inputLine, URI sourceURI)
 		throws PersistenceLayerException

@@ -82,23 +82,18 @@ import plugin.primitive.language.LangBonusToken;
 public abstract class AbstractTokenModelTest extends TestCase
 {
 
-	protected static final MultToken ABILITY_MULT_TOKEN =
-			new plugin.lsttokens.ability.MultToken();
+	protected static final MultToken ABILITY_MULT_TOKEN = new MultToken();
 	protected static final plugin.lsttokens.ChooseLst CHOOSE_TOKEN =
 			new plugin.lsttokens.ChooseLst();
 	protected static final plugin.lsttokens.choose.LangToken CHOOSE_LANG_TOKEN =
 			new plugin.lsttokens.choose.LangToken();
-	private static final VisibleToken ABILITY_VISIBLE_TOKEN =
-			new plugin.lsttokens.ability.VisibleToken();
+	private static final VisibleToken ABILITY_VISIBLE_TOKEN = new VisibleToken();
 	private static final AutoLst AUTO_TOKEN = new plugin.lsttokens.AutoLst();
-	protected static final LangToken AUTO_LANG_TOKEN =
-			new plugin.lsttokens.auto.LangToken();
+	protected static final LangToken AUTO_LANG_TOKEN = new LangToken();
 	private static final ProficiencyToken EQUIP_PROFICIENCY_TOKEN =
-			new plugin.lsttokens.equipment.ProficiencyToken();
-	private static final TypeLst EQUIP_TYPE_TOKEN =
-			new plugin.lsttokens.TypeLst();
-	private static final LangBonusToken LANGBONUS_PRIM =
-			new plugin.primitive.language.LangBonusToken();
+			new ProficiencyToken();
+	private static final TypeLst EQUIP_TYPE_TOKEN = new TypeLst();
+	private static final LangBonusToken LANGBONUS_PRIM = new LangBonusToken();
 	private static final plugin.qualifier.language.PCToken PC_QUAL =
 			new plugin.qualifier.language.PCToken();
 	private static final plugin.modifier.cdom.SetModifierFactory SMF =
@@ -107,6 +102,49 @@ public abstract class AbstractTokenModelTest extends TestCase
 	protected LoadContext context;
 	protected PlayerCharacter pc;
 	protected CharID id;
+
+	protected PCStat str;
+	protected PCStat cha;
+	protected PCStat dex;
+	protected PCStat wis;
+	protected PCStat intel;
+	protected PCAlignment lg;
+	protected PCAlignment ln;
+	protected PCAlignment le;
+	protected PCAlignment ng;
+	protected PCAlignment tn;
+	protected PCAlignment ne;
+	protected PCAlignment cg;
+	protected PCAlignment cn;
+	protected PCAlignment ce;
+	protected SizeAdjustment colossal;
+	protected SizeAdjustment gargantuan;
+	protected SizeAdjustment huge;
+	protected SizeAdjustment large;
+	protected SizeAdjustment medium;
+	protected SizeAdjustment small;
+	protected SizeAdjustment tiny;
+	protected SizeAdjustment diminutive;
+	protected SizeAdjustment fine;
+
+	protected DirectAbilityFacet directAbilityFacet;
+	protected ActiveEqModFacet activeEqModFacet;
+	protected BioSetFacet bioSetFacet;
+	protected CheckFacet checkFacet;
+	protected ClassFacet classFacet;
+	protected ClassLevelFacet classLevelFacet;
+	protected CompanionModFacet companionModFacet;
+	protected DeityFacet deityFacet;
+	protected DomainFacet domainFacet;
+	protected ExpandedCampaignFacet expandedCampaignFacet;
+	protected LanguageFacet languageFacet;
+	protected RaceInputFacet raceFacet;
+	protected SizeFacet sizeFacet;
+	protected SkillFacet skillFacet;
+	protected StatFacet statFacet;
+	protected TemplateFacet templateConsolidationFacet;
+	protected TemplateInputFacet templateInputFacet;
+	protected WeaponProfModelFacet weaponProfModelFacet;
 
 	public AbstractTokenModelTest()
 	{
@@ -151,49 +189,6 @@ public abstract class AbstractTokenModelTest extends TestCase
 		pc = new PlayerCharacter();
 		id = pc.getCharID();
 	}
-
-	protected PCStat str;
-	protected PCStat cha;
-	protected PCStat dex;
-	protected PCStat wis;
-	protected PCStat intel;
-	protected PCAlignment lg;
-	protected PCAlignment ln;
-	protected PCAlignment le;
-	protected PCAlignment ng;
-	protected PCAlignment tn;
-	protected PCAlignment ne;
-	protected PCAlignment cg;
-	protected PCAlignment cn;
-	protected PCAlignment ce;
-	protected SizeAdjustment colossal;
-	protected SizeAdjustment gargantuan;
-	protected SizeAdjustment huge;
-	protected SizeAdjustment large;
-	protected SizeAdjustment medium;
-	protected SizeAdjustment small;
-	protected SizeAdjustment tiny;
-	protected SizeAdjustment diminutive;
-	protected SizeAdjustment fine;
-
-	protected DirectAbilityFacet directAbilityFacet;
-	protected ActiveEqModFacet activeEqModFacet;
-	protected BioSetFacet bioSetFacet;
-	protected CheckFacet checkFacet;
-	protected ClassFacet classFacet;
-	protected ClassLevelFacet classLevelFacet;
-	protected CompanionModFacet companionModFacet;
-	protected DeityFacet deityFacet;
-	protected DomainFacet domainFacet;
-	protected ExpandedCampaignFacet expandedCampaignFacet;
-	protected LanguageFacet languageFacet;
-	protected RaceInputFacet raceFacet;
-	protected SizeFacet sizeFacet;
-	protected SkillFacet skillFacet;
-	protected StatFacet statFacet;
-	protected TemplateFacet templateConsolidationFacet;
-	protected TemplateInputFacet templateInputFacet;
-	protected WeaponProfModelFacet weaponProfModelFacet;
 
 	protected void setUpContext() throws PersistenceLayerException
 	{

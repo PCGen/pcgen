@@ -28,6 +28,7 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JSlider;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 import javax.swing.event.ChangeEvent;
@@ -46,60 +47,57 @@ import plugin.experience.ExperienceAdjusterModel;
  * {@code JTabbedPane} of the <code>GMGenSystemView</code>.<br>
  */
 // TODO use multi column list rather than a single line
-public class ExperienceAdjusterView extends javax.swing.JPanel
+public class ExperienceAdjusterView extends JPanel
 {
 	// TODO make this l&f / UIManager value dependent
 	private static final int BORDER_SIZE = 6;
 
 	/** Button to add an enemy to the experience calculation. */
-	private javax.swing.JButton addEnemyButton;
+	private JButton addEnemyButton;
 
 	/** The <b>Add Experience to Selected Character</b> button. */
-	private javax.swing.JButton addExperienceToCharButton;
+	private JButton addExperienceToCharButton;
 
 	/** The <b>Add Experience to Selected Group</b> button. */
-	private javax.swing.JButton addExperienceToPartyButton;
+	private JButton addExperienceToPartyButton;
 
 	/** The <b>Add Experience to Selected Character</b> button. */
-	private javax.swing.JButton adjustCRButton;
+	private JButton adjustCRButton;
 
 	/** Button to delete an enemy from the experience calculation. */
-	private javax.swing.JButton removeEnemyButton;
+	private JButton removeEnemyButton;
 
 	/** The <b>Total Experience from Combat:</b> label. */
-	private javax.swing.JLabel experienceFromCombat;
+	private JLabel experienceFromCombat;
 
 	/** The multiplier label. */
-	private javax.swing.JLabel experienceMultLabel;
+	private JLabel experienceMultLabel;
 
-	/** The Name for the eperience multiplier label. */
-	private javax.swing.JLabel experienceMultNameLabel;
-	private javax.swing.JLabel spCharLabel;
+	/** The Name for the experience multiplier label. */
+	private JLabel experienceMultNameLabel;
 
 	//Various components to shape the form properly
-	private javax.swing.JLabel jLabel4;
-	private javax.swing.JLabel jLabel5;
-	private javax.swing.JLabel jLabel7;
+	private JLabel jLabel4;
+	private JLabel jLabel5;
 
 	/** The GUI component that holds the list of PC combatants. */
-	private javax.swing.JList characterList;
+	private JList characterList;
 
 	/** The GUI component that holds the list of enemy combatants. */
-	private javax.swing.JList enemyList;
-	private javax.swing.JPanel jPanel1;
-	private javax.swing.JPanel panelChar;
-	private javax.swing.JPanel jPanel5;
-	private javax.swing.JPanel jPanel6;
-	private javax.swing.JPanel jPanel7;
-	private javax.swing.JPanel jPanel8;
-	private javax.swing.JScrollPane scrollPaneChar;
-	private javax.swing.JScrollPane scrollPaneEnemy;
+	private JList enemyList;
+	private JPanel jPanel1;
+	private JPanel panelChar;
+	private JPanel jPanel5;
+	private JPanel jPanel6;
+	private JPanel jPanel7;
+	private JPanel jPanel8;
+	private JScrollPane scrollPaneChar;
 
 	/** The <b>Experience Multiplier</b> slider. */
-	private javax.swing.JSlider experienceMultSlider;
+	private JSlider experienceMultSlider;
 
 	/** The user editable field that takes in experience to add. */
-	private javax.swing.JTextField experienceToAdd;
+	private JTextField experienceToAdd;
 
 	private ExperienceAdjusterModel model;
 
@@ -214,21 +212,21 @@ public class ExperienceAdjusterView extends javax.swing.JPanel
 
 	/** The multiplier label.
 	 * @return JLabel*/
-	public javax.swing.JLabel getExperienceMultLabel()
+	public JLabel getExperienceMultLabel()
 	{
 		return experienceMultLabel;
 	}
 
 	/** The Name for the experience multiplier label.
 	 * @return JLabel*/
-	public javax.swing.JLabel getExperienceMultNameLabel()
+	public JLabel getExperienceMultNameLabel()
 	{
 		return experienceMultNameLabel;
 	}
 
 	/** The <b>Experience Multiplier</b> slider.
 	 * @return JSlider*/
-	public javax.swing.JSlider getExperienceMultSlider()
+	public JSlider getExperienceMultSlider()
 	{
 		return experienceMultSlider;
 	}
@@ -287,30 +285,30 @@ public class ExperienceAdjusterView extends javax.swing.JPanel
 	{
 		java.awt.GridBagConstraints gridBagConstraints;
 
-		jPanel5 = new javax.swing.JPanel();
-		panelChar = new javax.swing.JPanel();
-		characterList = new javax.swing.JList();
-		spCharLabel = new javax.swing.JLabel();
-		jPanel1 = new javax.swing.JPanel();
-		jLabel4 = new javax.swing.JLabel();
-		enemyList = new javax.swing.JList();
-		jPanel6 = new javax.swing.JPanel();
-		jPanel7 = new javax.swing.JPanel();
-		jLabel7 = new javax.swing.JLabel();
-		experienceToAdd = new javax.swing.JTextField(6);
-		addExperienceToCharButton = new javax.swing.JButton();
-		jPanel8 = new javax.swing.JPanel();
-		jLabel5 = new javax.swing.JLabel();
-		experienceFromCombat = new javax.swing.JLabel();
-		experienceMultNameLabel = new javax.swing.JLabel();
-		experienceMultSlider = new javax.swing.JSlider();
-		addExperienceToPartyButton = new javax.swing.JButton();
-		experienceMultLabel = new javax.swing.JLabel();
-		adjustCRButton = new javax.swing.JButton();
-		addEnemyButton = new javax.swing.JButton();
-		removeEnemyButton = new javax.swing.JButton();
+		jPanel5 = new JPanel();
+		panelChar = new JPanel();
+		characterList = new JList();
+		JLabel spCharLabel = new JLabel();
+		jPanel1 = new JPanel();
+		jLabel4 = new JLabel();
+		enemyList = new JList();
+		jPanel6 = new JPanel();
+		jPanel7 = new JPanel();
+		JLabel jLabel7 = new JLabel();
+		experienceToAdd = new JTextField(6);
+		addExperienceToCharButton = new JButton();
+		jPanel8 = new JPanel();
+		jLabel5 = new JLabel();
+		experienceFromCombat = new JLabel();
+		experienceMultNameLabel = new JLabel();
+		experienceMultSlider = new JSlider();
+		addExperienceToPartyButton = new JButton();
+		experienceMultLabel = new JLabel();
+		adjustCRButton = new JButton();
+		addEnemyButton = new JButton();
+		removeEnemyButton = new JButton();
 		scrollPaneChar = new JScrollPane(characterList);
-		scrollPaneEnemy = new JScrollPane(enemyList);
+		JScrollPane scrollPaneEnemy = new JScrollPane(enemyList);
 
 		setLayout(new GridLayout(0, 1));
 

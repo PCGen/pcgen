@@ -28,8 +28,8 @@ public class DurationIntegrationTest extends
 		AbstractTypeSafeListIntegrationTestCase<Spell>
 {
 
-	static DurationToken token = new DurationToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
+	private static DurationToken token = new DurationToken();
+	private static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Spell> getCDOMClass()

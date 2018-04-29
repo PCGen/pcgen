@@ -23,6 +23,7 @@ import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaFunction;
 import pcgen.base.formula.base.FormulaSemantics;
+import pcgen.base.formula.exception.SemanticsFailureException;
 import pcgen.base.formula.parse.Node;
 import pcgen.base.formula.visitor.DependencyVisitor;
 import pcgen.base.formula.visitor.EvaluateVisitor;
@@ -55,26 +56,20 @@ public class KeyFunction implements FormulaFunction
 	{
 		if (args.length != 1)
 		{
-			semantics.setInvalid("Function " + getFunctionName()
+			throw new SemanticsFailureException("Function " + getFunctionName()
 				+ " received incorrect # of arguments, expected: 1 got " + args.length
 				+ " " + Arrays.asList(args));
-			return null;
 		}
 		FormatManager<?> objClass = (FormatManager<?>) args[0].jjtAccept(visitor,
 			semantics.getWith(FormulaSemantics.ASSERTED, Optional.empty()));
-		if (!semantics.isValid())
-		{
-			return null;
-		}
 		if (Identified.class.isAssignableFrom(objClass.getManagedClass()))
 		{
 			return FormatUtilities.STRING_MANAGER;
 		}
 		else
 		{
-			semantics.setInvalid("Parse Error: Invalid Object Format: " + objClass
-				+ " is not capable of being identified");
-			return null;
+			throw new SemanticsFailureException("Parse Error: Invalid Object Format: "
+				+ objClass + " is not capable of being identified");
 		}
 	}
 

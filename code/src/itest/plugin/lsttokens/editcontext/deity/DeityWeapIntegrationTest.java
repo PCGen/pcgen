@@ -31,8 +31,8 @@ public class DeityWeapIntegrationTest extends
 		AbstractListIntegrationTestCase<Deity, WeaponProf>
 {
 
-	static DeityweapToken token = new DeityweapToken();
-	static CDOMTokenLoader<Deity> loader = new CDOMTokenLoader<>();
+	private static DeityweapToken token = new DeityweapToken();
+	private static CDOMTokenLoader<Deity> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Deity> getCDOMClass()

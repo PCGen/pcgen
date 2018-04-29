@@ -523,7 +523,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		GridBagConstraints gbc = new GridBagConstraints();
 		{
 			JLabel label = createLabel("in_sumName"); //$NON-NLS-1$
-			gbc.anchor = java.awt.GridBagConstraints.WEST;
+			gbc.anchor = GridBagConstraints.WEST;
 			gbc.insets = new Insets(0, 0, 3, 0);
 			basicsPanel.add(label, gbc);
 
@@ -575,7 +575,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		GridBagConstraints gbc = new GridBagConstraints();
 		JLabel label = new JLabel(LanguageBundle.getString(text));
 		label.setFont(font);
-		gbc.anchor = java.awt.GridBagConstraints.WEST;
+		gbc.anchor = GridBagConstraints.WEST;
 		gbc.gridwidth = 2;
 		panel.add(label, gbc);
 
@@ -1215,9 +1215,6 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			character.getRollMethodRef().removeReferenceListener(this);
 		}
 
-		/**
-		 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
-		 */
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
@@ -1232,18 +1229,12 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			setEnabled(character.isStatRollEnabled());
 		}
 
-		/**
-		 * @see pcgen.core.facade.event.ListListener#elementAdded(pcgen.core.facade.event.ListEvent)
-		 */
 		@Override
 		public void elementAdded(ListEvent<CharacterLevelFacade> e)
 		{
 			update();
 		}
 
-		/**
-		 * @see pcgen.core.facade.event.ListListener#elementRemoved(pcgen.core.facade.event.ListEvent)
-		 */
 		@Override
 		public void elementRemoved(ListEvent<CharacterLevelFacade> e)
 		{
@@ -1307,9 +1298,6 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		{
 		}
 
-		/**
-		 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
-		 */
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
@@ -1530,9 +1518,6 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			reference.removeReferenceListener(this);
 		}
 
-		/**
-		 * @see pcgen.core.facade.event.ReferenceListener#referenceChanged(pcgen.core.facade.event.ReferenceEvent)
-		 */
 		@Override
 		public void referenceChanged(ReferenceEvent<String> e)
 		{
@@ -1588,27 +1573,18 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			character.getTodoList().removeListListener(this);
 		}
 
-		/**
-		 * @see pcgen.core.facade.event.ListListener#elementAdded(pcgen.core.facade.event.ListEvent)
-		 */
 		@Override
 		public void elementAdded(ListEvent<TodoFacade> e)
 		{
 			refreshTodoList();
 		}
 
-		/**
-		 * @see pcgen.core.facade.event.ListListener#elementRemoved(pcgen.core.facade.event.ListEvent)
-		 */
 		@Override
 		public void elementRemoved(ListEvent<TodoFacade> e)
 		{
 			refreshTodoList();
 		}
 
-		/**
-		 * @see pcgen.core.facade.event.ListListener#elementsChanged(pcgen.core.facade.event.ListEvent)
-		 */
 		@Override
 		public void elementsChanged(ListEvent<TodoFacade> e)
 		{

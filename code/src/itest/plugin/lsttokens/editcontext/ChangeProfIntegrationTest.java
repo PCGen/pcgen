@@ -35,8 +35,8 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 public class ChangeProfIntegrationTest extends
 		AbstractIntegrationTestCase<CDOMObject>
 {
-	static ChangeprofLst token = new ChangeprofLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
+	private static ChangeprofLst token = new ChangeprofLst();
+	private static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Ability> getCDOMClass()

@@ -28,8 +28,8 @@ public class StartFeatsIntegrationTest extends
 		AbstractIntegerIntegrationTestCase<Race>
 {
 
-	static StartfeatsToken token = new StartfeatsToken();
-	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
+	private static StartfeatsToken token = new StartfeatsToken();
+	private static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Race> getCDOMClass()

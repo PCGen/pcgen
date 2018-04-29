@@ -28,8 +28,8 @@ public class HitDieIntegrationTest extends
 		AbstractIntegerIntegrationTestCase<PCClassLevel>
 {
 
-	static HitdieLst token = new HitdieLst();
-	static CDOMTokenLoader<PCClassLevel> loader = new CDOMTokenLoader<>();
+	private static HitdieLst token = new HitdieLst();
+	private static CDOMTokenLoader<PCClassLevel> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCClassLevel> getCDOMClass()
