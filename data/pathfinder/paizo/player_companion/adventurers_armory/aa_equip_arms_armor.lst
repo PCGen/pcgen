@@ -108,7 +108,7 @@ Bola (Shoanti)										OUTPUTNAME:Shoanti Bola				PROFICIENCY:WEAPON|Shoanti Bo
 Sling Glove																		PROFICIENCY:WEAPON|Sling Glove		TYPE:Weapon.Exotic.Ranged.Thrown.Standard.Bludgeoning													COST:5	WT:2					CRITMULT:x2	CRITRANGE:1							DAMAGE:1d4				EQMOD:Material ~ Wood										RANGE:50						SOURCEPAGE:back cover
 Throwing Shield																	PROFICIENCY:WEAPON|Throwing Shield		TYPE:Weapon.Resizable.GladiatorWeapon.Melee.Ranged.Thrown.Exotic.Bludgeoning.Performance.Trip						COST:50						CRITMULT:x2	CRITRANGE:1							DAMAGE:1d6				EQMOD:Special Quality ~ Performance.Special Quality ~ Trip	WIELD:TwoHanded					RANGE:20						SOURCEPAGE:back cover
 # this item is mentioned in text to be treated as a halberd.
-Halberd.COPY=Horsechopper
+Halberd (Base).COPY=Horsechopper		VISIBLE:YES		EQMOD:Material ~ Steel
 Horsechopper.MOD																	PROFICIENCY:WEAPON|Horsechopper																																																															SOURCEPAGE:p.18
 
 # This item is mentioned in text, but no cost or weight are mentioned Therefore it is not appropriate to include the item in this source

@@ -102,11 +102,6 @@ public class CampaignURL implements Comparable<CampaignURL>
 		return urlDesc;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Comparable#compareTo(java.lang.Object)
-	 */
 	@Override
 	public int compareTo(final CampaignURL that)
 	{

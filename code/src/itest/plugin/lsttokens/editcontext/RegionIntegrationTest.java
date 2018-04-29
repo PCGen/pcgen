@@ -32,8 +32,8 @@ public class RegionIntegrationTest extends
 		AbstractTypeSafeListIntegrationTestCase<CDOMObject>
 {
 
-	static RegionLst token = new RegionLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
+	private static RegionLst token = new RegionLst();
+	private static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCClass> getCDOMClass()

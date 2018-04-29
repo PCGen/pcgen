@@ -196,7 +196,7 @@ Ring of X-Ray Vision.MOD													TYPE:GreaterMedium		COST:25000	WT:0					SOU
 Ring of the Ecclesiarch														TYPE:Magic.Ring.LesserMajor	COST:28500	WT:0					SOURCEPAGE:p.175	SPELLS:Magic Item|TIMES=ATWILL|Arcane Mark			BONUS:SKILL|Diplomacy,Knowledge (Religion)|5|TYPE=Competence								SPROP:Doubles number of followers you can attract.
 Ring of the Grasping Grave													TYPE:Magic.Ring.LesserMinor	COST:2000	WT:0					SOURCEPAGE:p.176																													SPROP:On successful melee touch attack, undead creature cannot be healed or aided by negative energy for 1d4 rounds.
 Ring of the Ram.MOD														TYPE:LesserMedium			COST:8600	WT:0					SOURCEPAGE:p.176
-Ring of the Sea Strider														TYPE:Magic.Ring.LesserMedium	COST:14000	WT:0		MOVE:Swim,30	SOURCEPAGE:p.176	SPELLS:Magic Item|TIMES=1|Dimension Door				BONUS:SKILL|Swim|8|TYPE=Racial
+Ring of the Sea Strider														TYPE:Magic.Ring.LesserMedium	COST:14000	WT:0		MOVE:Swim,30	SOURCEPAGE:p.176	SPELLS:Magic Item|TIMES=1|CASTERLEVEL=7|Dimension Door				BONUS:SKILL|Swim|8|TYPE=Racial
 Ring of the Sophisticate													TYPE:Magic.Ring.LesserMedium	COST:11000	WT:0					SOURCEPAGE:p.176	SPELLS:Magic Item|TIMES=1|Locate Creature|Locate Object	BONUS:SKILL|Sense Motive,Knowledge (Local)|4|TYPE=Competence								SPROP:Wearer instantly knows direction to nearest watering hole.
 Ring of the Troglodyte														TYPE:Magic.Ring.LesserMedium	COST:12000	WT:0					SOURCEPAGE:p.176																													SPROP:All creatures within 10-ft radius sickened for 1 round (DC 14 Fort negates).
 Scholar's Ring															TYPE:Magic.Ring.LesserMedium	COST:8700	WT:0					SOURCEPAGE:p.177											BONUS:SKILL|Knowledge (History)|5|TYPE=Competence										SPROP:Grants complete understanding as per Comprehend Languages
@@ -225,7 +225,7 @@ Rod (Immovable).MOD											TYPE:LesserMedium			COST:5000	WT:5		SOURCEPAGE:p.1
 Rod (Liberator's)					OUTPUTNAME:Liberator's Rod			TYPE:Magic.Rod.LesserMajor	COST:30000	WT:5		SOURCEPAGE:p.179
 Rod (Lordly Might).MOD											TYPE:GreaterMajor			COST:70000	WT:10		SOURCEPAGE:p.182
 Rod (Metal and Mineral Detection).MOD								TYPE:LesserMedium			COST:10500	WT:5		SOURCEPAGE:p.182
-Rod (Mind Mastery)				OUTPUTNAME:Rod of Mind Mastery		TYPE:Magic.Rod.GreaterMajor	COST:67000	WT:5		SOURCEPAGE:p.182										SPELLS:Magic Item|TIMES=3|Detect Thoughts	SPELLS:Magic Item|TIMES=1|Discern Lies
+Rod (Mind Mastery)				OUTPUTNAME:Rod of Mind Mastery		TYPE:Magic.Rod.GreaterMajor	COST:67000	WT:5		SOURCEPAGE:p.182										SPELLS:Magic Item|TIMES=3|CASTERLEVEL=7|Detect Thoughts	SPELLS:Magic Item|TIMES=1|CASTERLEVEL=7|Discern Lies
 Rod (Negation).MOD											TYPE:LesserMajor			COST:37000	WT:5		SOURCEPAGE:p.183
 Rod (Nettles)					OUTPUTNAME:Rod of Nettles			TYPE:Magic.Rod.GreaterMedium	COST:18000	WT:5		SOURCEPAGE:p.183
 Rod (Ruin)						OUTPUTNAME:Rod of Ruin				TYPE:Magic.Rod.GreaterMedium	COST:16000	WT:5		SOURCEPAGE:p.183
@@ -245,7 +245,7 @@ Rod (Trap-Stealer's)				OUTPUTNAME:Trap-Stealer's Rod			TYPE:Magic.Rod.GreaterMe
 Rod (Withering).MOD											TYPE:LesserMajor			COST:25000	WT:5		SOURCEPAGE:p.185
 Rod (Wonder).MOD												TYPE:GreaterMedium		COST:12000	WT:5		SOURCEPAGE:p.185
 Scepter of Heaven					OUTPUTNAME:Scepter of Heaven			TYPE:Magic.Rod.GreaterMajor	COST:74000	WT:3		SOURCEPAGE:p.186
-Suzerain Scepter					OUTPUTNAME:Suzerain Scepter			TYPE:Magic.Rod.LesserMajor	COST:20000	WT:5		SOURCEPAGE:p.186										SPELLS:Magic Item|TIMES=1|Good Hope																															BONUS:SKILL|Knowledge (Nobility),Diplomacy|5|TYPE=Competence
+Suzerain Scepter					OUTPUTNAME:Suzerain Scepter			TYPE:Magic.Rod.LesserMajor	COST:20000	WT:5		SOURCEPAGE:p.186										SPELLS:Magic Item|TIMES=1|CASTERLEVEL=7|Good Hope																															BONUS:SKILL|Knowledge (Nobility),Diplomacy|5|TYPE=Competence
 
 ###Block:Metamagic Rods
 # Equipment Name				Output Name									Type							Cost		Weight	Base Item for EQMOD	Modifier					Source Page

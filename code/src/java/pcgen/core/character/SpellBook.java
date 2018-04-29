@@ -257,9 +257,6 @@ public class SpellBook implements Cloneable
 		this.numSpells = numSpells;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#clone()
-	 */
 	@Override
 	public SpellBook clone()
 	{

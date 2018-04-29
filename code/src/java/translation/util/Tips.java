@@ -266,7 +266,8 @@ public final class Tips
 	                                 String translationName,
 	                                 String originalName)
 	{
-		int statUntranslated = 0, statTranslated = 0;
+		int statUntranslated = 0;
+		int statTranslated = 0;
 		// load stuff from the PO catalog file
 		Map<String, String> tipsTranslated = new HashMap<>();
 		BufferedReader translationReader = null;

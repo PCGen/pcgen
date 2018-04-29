@@ -67,9 +67,7 @@ public class PreRaceParserTest extends EnUsLocaleDependentTestCase
 		try
 		{
 			PreRaceParser parser = new PreRaceParser();
-			Prerequisite prereq =
-					parser.parse("race",
-						"1,,KEY_a", false, false);
+			parser.parse("race", "1,,KEY_a", false, false);
 			fail("Should have thrown a PersistenceLayerException.");
 		}
 		catch (PersistenceLayerException e)
@@ -88,9 +86,7 @@ public class PreRaceParserTest extends EnUsLocaleDependentTestCase
 		try
 		{
 			PreRaceParser parser = new PreRaceParser();
-			Prerequisite prereq =
-					parser.parse("race",
-						"1,KEY_a|Key_b", false, false);
+			parser.parse("race", "1,KEY_a|Key_b", false, false);
 			fail("Should have thrown a PersistenceLayerException.");
 		}
 		catch (PersistenceLayerException e)

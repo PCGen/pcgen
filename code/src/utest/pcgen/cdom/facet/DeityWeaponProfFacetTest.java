@@ -29,6 +29,7 @@ import pcgen.core.WeaponProf;
 public class DeityWeaponProfFacetTest extends
 		AbstractExtractingFacetTest<Deity, WeaponProf>
 {
+	private static int n = 0;
 
 	private DeityWeaponProfFacet facet = new DeityWeaponProfFacet();
 	private WeaponProf[] target;
@@ -57,8 +58,6 @@ public class DeityWeaponProfFacetTest extends
 	{
 		return facet;
 	}
-
-	public static int n = 0;
 
 	@Override
 	protected WeaponProf getObject()

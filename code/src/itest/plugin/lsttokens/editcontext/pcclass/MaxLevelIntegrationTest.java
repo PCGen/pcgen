@@ -34,8 +34,8 @@ public class MaxLevelIntegrationTest extends
 		AbstractIntegerIntegrationTestCase<PCClass>
 {
 
-	static MaxlevelToken token = new MaxlevelToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
+	private static MaxlevelToken token = new MaxlevelToken();
+	private static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

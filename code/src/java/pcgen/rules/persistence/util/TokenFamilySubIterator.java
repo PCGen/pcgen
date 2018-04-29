@@ -176,9 +176,6 @@ public class TokenFamilySubIterator<C> implements
 		return getNext();
 	}
 
-	/**
-	 * @see java.util.Iterator#hasNext()
-	 */
 	@Override
 	public boolean hasNext()
 	{
@@ -186,11 +183,6 @@ public class TokenFamilySubIterator<C> implements
 		return nextToken != null;
 	}
 
-	/**
-	 * Unsupported
-	 * 
-	 * @see java.util.Iterator#remove()
-	 */
 	@Override
 	public void remove()
 	{

@@ -58,14 +58,6 @@ public class Prerequisite implements Cloneable
 	private String categoryName;
 
 	/**
-	 * Instantiates a new prerequisite.
-	 */
-	public Prerequisite()
-	{
-		// Empty Constructor
-	}
-
-	/**
 	 * @return Returns the totalValues.
 	 */
 	public final boolean isTotalValues()
@@ -216,11 +208,6 @@ public class Prerequisite implements Cloneable
 		return subKey;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString()
 	{
@@ -325,11 +312,6 @@ public class Prerequisite implements Cloneable
 		this.overrideQualify = override;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see java.lang.Object#clone()
-	 */
 	@Override
 	public Prerequisite clone() throws CloneNotSupportedException
 	{

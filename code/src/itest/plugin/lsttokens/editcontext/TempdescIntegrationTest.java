@@ -29,8 +29,8 @@ public class TempdescIntegrationTest extends
 		AbstractStringIntegrationTestCase<CDOMObject>
 {
 
-	static TempdescLst token = new TempdescLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
+	private static TempdescLst token = new TempdescLst();
+	private static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Deity> getCDOMClass()

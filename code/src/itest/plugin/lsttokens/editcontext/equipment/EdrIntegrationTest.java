@@ -28,8 +28,8 @@ public class EdrIntegrationTest extends
 		AbstractIntegerIntegrationTestCase<Equipment>
 {
 
-	static EdrToken token = new EdrToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
+	private static EdrToken token = new EdrToken();
+	private static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()

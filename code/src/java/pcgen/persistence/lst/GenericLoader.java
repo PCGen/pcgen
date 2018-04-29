@@ -67,9 +67,6 @@ public class GenericLoader<T extends CDOMObject> extends
 		baseClass = cl;
 	}
 
-	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(LoadContext, CDOMObject, String, SourceEntry)
-	 */
 	@Override
 	public final T parseLine(LoadContext context, T object, String lstLine,
 			SourceEntry source) throws PersistenceLayerException
@@ -123,13 +120,6 @@ public class GenericLoader<T extends CDOMObject> extends
 		//Nothing by default
 	}
 
-	/**
-	 * Get the object with key aKey
-	 * @param aKey
-	 * 
-	 * @return PObject
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectKeyed(LoadContext, java.lang.String)
-	 */
 	@Override
 	protected final T getObjectKeyed(LoadContext context, String aKey)
 	{

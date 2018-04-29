@@ -33,8 +33,8 @@ public class StatIntegrationTest extends
 		AbstractItemIntegrationTestCase<Spell, PCStat>
 {
 
-	static StatToken token = new StatToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
+	private static StatToken token = new StatToken();
+	private static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
 
 	@Override
 	protected String getFirstConstant()

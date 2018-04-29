@@ -223,11 +223,7 @@ public final class KitSpells extends BaseKit
 			}
 		}
 
-		if (theSpells != null && !theSpells.isEmpty())
-		{
-			return true;
-		}
-		return false;
+		return (theSpells != null && !theSpells.isEmpty());
 	}
 
 	@Override

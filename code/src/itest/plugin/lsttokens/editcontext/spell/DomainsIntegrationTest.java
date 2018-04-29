@@ -39,8 +39,8 @@ import plugin.pretokens.writer.PreRaceWriter;
 public class DomainsIntegrationTest extends AbstractIntegrationTestCase<Spell>
 {
 
-	static DomainsToken token = new DomainsToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
+	private static DomainsToken token = new DomainsToken();
+	private static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
 
 	PreRaceParser prerace = new PreRaceParser();
 	PreRaceWriter preracewriter = new PreRaceWriter();

@@ -33,8 +33,8 @@ public class NameIsPiIntegrationTest extends
 		AbstractIntegrationTestCase<CDOMObject>
 {
 
-	static NameispiLst token = new NameispiLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
+	private static NameispiLst token = new NameispiLst();
+	private static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCClass> getCDOMClass()

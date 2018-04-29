@@ -36,10 +36,6 @@ public class CDOMReferenceWrapper implements PCGenObjectWrapper
 	private static final ObjectWrapperFacet WRAPPER_FACET = FacetLibrary
 		.getFacet(ObjectWrapperFacet.class);
 
-	/**
-	 * @see pcgen.output.base.PCGenObjectWrapper#wrap(pcgen.cdom.enumeration.CharID,
-	 *      java.lang.Object)
-	 */
 	@Override
 	public TemplateModel wrap(CharID id, Object o)
 		throws TemplateModelException

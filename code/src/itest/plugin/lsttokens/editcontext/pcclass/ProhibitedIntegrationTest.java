@@ -28,8 +28,8 @@ public class ProhibitedIntegrationTest extends
 		AbstractTypeSafeListIntegrationTestCase<PCClass>
 {
 
-	static ProhibitedToken token = new ProhibitedToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
+	private static ProhibitedToken token = new ProhibitedToken();
+	private static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCClass> getCDOMClass()

@@ -37,14 +37,6 @@ public class PreAbilityParser extends AbstractPrerequisiteListParser implements
 	private static final String CATEGORY_EQUALS = "CATEGORY=";
 
 	/**
-	 * Create a new PreFeatParser instance.
-	 */
-	public PreAbilityParser()
-	{
-		super();
-	}
-
-	/**
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */

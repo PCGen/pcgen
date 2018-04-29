@@ -28,4 +28,4 @@ Boot.COPY=Spade
 Boot.COPY=Stool
 
 #You also begin play with a placard bearing an apocalyptic slogan of your choice-this wooden sign can be used as a club.
-Club.COPY=Daring Doomsayer's Placard
+Club (Base).COPY=Daring Doomsayer's Placard	VISIBLE:YES	EQMOD:Material ~ Wood

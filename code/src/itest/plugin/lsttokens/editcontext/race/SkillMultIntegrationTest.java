@@ -28,8 +28,8 @@ public class SkillMultIntegrationTest extends
 		AbstractIntegerIntegrationTestCase<Race>
 {
 
-	static SkillmultToken token = new SkillmultToken();
-	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
+	private static SkillmultToken token = new SkillmultToken();
+	private static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Race> getCDOMClass()

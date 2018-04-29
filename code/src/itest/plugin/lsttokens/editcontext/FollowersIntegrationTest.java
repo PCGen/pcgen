@@ -35,8 +35,8 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 public class FollowersIntegrationTest extends
 		AbstractIntegrationTestCase<CDOMObject>
 {
-	static FollowersLst token = new FollowersLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
+	private static FollowersLst token = new FollowersLst();
+	private static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Ability> getCDOMClass()
