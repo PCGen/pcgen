@@ -565,4 +565,15 @@ public abstract class AbstractReferenceContext
 	 */
 	public abstract <T extends Loadable> ReferenceManufacturer<T> getManufacturerByFormatName(
 		String formatName, Class<T> cl);
+
+	/**
+	 * Returns the ReferenceManufacturer for a given Format name and class.
+	 * 
+	 * @param formatName
+	 *            The (persistent) name of the format for which the ReferenceManufacturer
+	 *            should be returned
+	 * @return The ReferenceManufacturer for a given Format name and class
+	 */
+	public abstract ReferenceManufacturer<?> getManufacturerByFormatName(
+		String formatName);
 }

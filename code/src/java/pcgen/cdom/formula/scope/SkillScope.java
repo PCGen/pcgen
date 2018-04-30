@@ -58,7 +58,7 @@ public class SkillScope implements PCGenScope
 	}
 
 	@Override
-	public FormatManager<?> getFormatManager(LoadContext context)
+	public FormatManager<Skill> getFormatManager(LoadContext context)
 	{
 		return context.getReferenceContext().getManufacturer(Skill.class);
 	}

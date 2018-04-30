@@ -21,6 +21,7 @@ import pcgen.cdom.facet.analysis.ChangeProfFacet;
 import pcgen.cdom.facet.analysis.LevelFacet;
 import pcgen.cdom.facet.input.ClassSkillListFacet;
 import pcgen.cdom.facet.input.DynamicFacet;
+import pcgen.cdom.facet.input.DynamicWatchingFacet;
 import pcgen.cdom.facet.input.MasterUsableSkillFacet;
 import pcgen.cdom.facet.model.ActiveEqHeadFacet;
 import pcgen.cdom.facet.model.ActiveEqModFacet;
@@ -85,6 +86,7 @@ public final class FacetInitialization
 		BioSetTrackingFacet bioSetTrackingFacet = FacetLibrary.getFacet(BioSetTrackingFacet.class);
 		CheckFacet checkFacet = FacetLibrary.getFacet(CheckFacet.class);
 
+		DynamicWatchingFacet dynamicWatchingFacet = FacetLibrary.getFacet(DynamicWatchingFacet.class);
 		DynamicFacet dynamicFacet = FacetLibrary.getFacet(DynamicFacet.class);
 		DynamicConsolidationFacet dynamicConsolidationFacet = FacetLibrary.getFacet(DynamicConsolidationFacet.class);
 		VarScopedFacet varScopedFacet = FacetLibrary.getFacet(VarScopedFacet.class);
@@ -125,6 +127,7 @@ public final class FacetInitialization
 
 		nwpFacet.addDataFacetChangeListener(weaponProfFacet);
 
+		dynamicWatchingFacet.addDataFacetChangeListener(dynamicFacet);
 		dynamicFacet.addScopeFacetChangeListener(dynamicConsolidationFacet);
 
 		charObjectFacet.addDataFacetChangeListener(naturalWeaponFacet);
@@ -176,7 +179,8 @@ public final class FacetInitialization
 
 		cdomObjectFacet.addDataFacetChangeListener(nwpFacet);
 		cdomSourceFacet.addDataFacetChangeListener(autoLangFacet);
-
+		cdomSourceFacet.addDataFacetChangeListener(dynamicWatchingFacet);
+		
 		charObjectFacet.addDataFacetChangeListener(varScopedFacet);
 		dynamicConsolidationFacet.addDataFacetChangeListener(varScopedFacet); //model done
 	}

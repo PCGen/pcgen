@@ -23,6 +23,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.net.URI;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
@@ -43,7 +44,6 @@ import java.util.stream.IntStream;
 import org.apache.commons.lang3.StringUtils;
 
 import pcgen.base.formula.Formula;
-import pcgen.base.formula.base.VarScoped;
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.FixedStringList;
 import pcgen.cdom.base.CDOMObject;
@@ -61,6 +61,7 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.analysis.ResultFacet;
+import pcgen.cdom.formula.PCGenScoped;
 import pcgen.cdom.helper.Capacity;
 import pcgen.cdom.inst.EqSizePenalty;
 import pcgen.cdom.inst.EquipmentHead;
@@ -97,8 +98,11 @@ import pcgen.util.enumeration.Load;
 import pcgen.util.enumeration.View;
 import pcgen.util.enumeration.Visibility;
 
-public final class Equipment extends PObject implements Serializable, Comparable<Object>,
-		VariableContainer, EquipmentFacade, VarScoped, Cloneable
+/**
+ * Represents Equipment for a PC.
+ */
+public final class Equipment extends PObject implements Serializable,
+		Comparable<Object>, VariableContainer, EquipmentFacade, PCGenScoped
 {
 
 	private static final long serialVersionUID = 1;
@@ -6647,5 +6651,31 @@ public final class Equipment extends PObject implements Serializable, Comparable
 	{
 		ResultFacet resultFacet = FacetLibrary.getFacet(ResultFacet.class);
 		return resultFacet.getLocalVariable(id, this, varName);
+	}
+
+	@Override
+	public CDOMObject getLocalChild(String childType, String childName)
+	{
+		if ("EQUIPMENT.PART".equals(childType))
+		{
+			return getEquipmentHead(Integer.parseInt(childName));
+		}
+		return null;
+	}
+
+	@Override
+	public List<String> getChildTypes()
+	{
+		return Arrays.asList(new String[]{"EQUIPMENT.PART"});
+	}
+
+	@Override
+	public List<PCGenScoped> getChildren(String childType)
+	{
+		if ("EQUIPMENT.PART".equals(childType))
+		{
+			return new ArrayList<>(heads);
+		}
+		return null;
 	}
 }

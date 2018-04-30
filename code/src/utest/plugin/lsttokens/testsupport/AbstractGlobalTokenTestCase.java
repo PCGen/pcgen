@@ -329,7 +329,7 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 		additionalSetup(context);
 		WeakReference<LoadContext> wr = new WeakReference<>(context);
 		CDOMObject item = context.getReferenceContext()
-			.constructCDOMObject(getCDOMClass(), "TestObj");
+				.constructCDOMObject(getCDOMClass(), "TestObj");
 		ParseResult pr = getToken().parseToken(context, item, getLegalValue());
 		if (!pr.passed())
 		{
