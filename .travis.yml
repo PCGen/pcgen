@@ -6,10 +6,10 @@ dist: trusty
 matrix:
   include:
     - os: linux
-      jdk: oraclejdk8
+      jdk: oraclejdk9
   allow_failures:  
       - os: osx
-        osx_image: xcode8
+        osx_image: xcode9
  
 script: ./gradlew clean build test compileSlowtest datatest pfinttest allReports buildDist buildNsis pcgenRelease
 # Do not use itest, requires release notes

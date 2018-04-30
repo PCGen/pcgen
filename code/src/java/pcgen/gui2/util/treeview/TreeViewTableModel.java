@@ -326,7 +326,9 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 					}
 					else
 					{
-						int index = Collections.binarySearch(children, child, mostRecentComparator);
+			        	Vector nonGenericChildren = children;
+						int index = Collections.binarySearch(nonGenericChildren, child,
+							mostRecentComparator);
 						if (index < 0)
 						{
 							insert(child, -(index + 1));
@@ -423,7 +425,8 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 				insertNodeInto(newchild, this, getChildCount());
 				return;
 			}
-			int index = Collections.binarySearch(children, newchild, mostRecentComparator);
+        	Vector nonGenericChildren = children;
+			int index = Collections.binarySearch(nonGenericChildren, newchild, mostRecentComparator);
 			if (index >= 0)
 			{
 				TreeViewNode child = (TreeViewNode) getChildAt(index);
@@ -478,7 +481,8 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 			}
 			if (children != null)
 			{
-				children.sort(comparator);
+	        	Vector nonGenericChildren = children;
+	        	nonGenericChildren.sort(comparator);
 				for (Object obj : children)
 				{
 					TreeViewNode child = (TreeViewNode) obj;
