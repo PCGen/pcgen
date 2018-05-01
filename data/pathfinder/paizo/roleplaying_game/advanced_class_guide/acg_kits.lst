@@ -82,7 +82,7 @@ GEAR:Spell Component Pouch	QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Torch				QTY:10	SIZE:PC	LOCATION:Backpack
 GEAR:Rations (Trail/Per Day)	QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Waterskin			QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Holy Symbol (Wooden)	QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Holy Symbol	EQMOD:Holy Symbol (Wooden)	QTY:1		SIZE:PC	LOCATION:Carried
 
 STARTPACK:Investigator's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:40
 GEAR:Alchemy Crafting Kit	QTY:1		SIZE:PC	LOCATION:Backpack
@@ -113,7 +113,7 @@ GEAR:Spell Component Pouch	QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Torch				QTY:10	SIZE:PC	LOCATION:Backpack
 GEAR:Rations (Trail/Per Day)	QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Waterskin			QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Holy Symbol (Wooden)	QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Holy Symbol	EQMOD:Holy Symbol (Wooden)	QTY:1		SIZE:PC	LOCATION:Carried
 
 STARTPACK:Skald's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:37
 GEAR:Backpack			QTY:1		SIZE:PC	LOCATION:Carried
@@ -197,7 +197,7 @@ GEAR:Spell Component Pouch	QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Torch				QTY:10	SIZE:PC	LOCATION:Backpack
 GEAR:Rations (Trail/Per Day)	QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Waterskin			QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Holy Symbol (Wooden)	QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Holy Symbol	EQMOD:Holy Symbol (Wooden)	QTY:1		SIZE:PC	LOCATION:Carried
 
 #
 # End

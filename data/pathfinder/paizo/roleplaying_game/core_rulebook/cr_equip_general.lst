@@ -52,10 +52,10 @@ Bracelets		TYPE:Wrist.Bracelet			COST:0	WT:0		SLOTS:2	MODS:REQUIRED
 Bracers		TYPE:Wrist.Bracer				COST:0	WT:0		SLOTS:2	MODS:REQUIRED
 # From "summary of magic item creation costs"
 Potion		TYPE:Potion.Consumable			COST:0	WT:0				MODS:REQUIRED
-Rod			TYPE:Rod					COST:0	WT:0				MODS:REQUIRED
-Scroll		TYPE:Scroll.Consumable			COST:0	WT:0				MODS:REQUIRED
-Staff			TYPE:Staff					COST:0	WT:0				MODS:REQUIRED
-Wand			TYPE:Wand					COST:0	WT:0				MODS:REQUIRED
+Rod			TYPE:Rod					COST:0	WT:5				MODS:REQUIRED
+Scroll		TYPE:Scroll.Consumable			COST:0	WT:0.01			MODS:REQUIRED
+Staff			TYPE:Staff					COST:0	WT:5				MODS:REQUIRED
+Wand			TYPE:Wand					COST:0	WT:0.0625			MODS:REQUIRED
 # From Magic Overview "Components"
 Spell Component	TYPE:Spell Component.Consumable	COST:0	WT:0				MODS:REQUIRED
 Spell Focus		TYPE:Spell Component.Focus		COST:0	WT:0				MODS:REQUIRED
@@ -115,8 +115,8 @@ Bucket				KEY:Bucket					OUTPUTNAME:Bucket					TYPE:Goods.Container.General				C
 Caltrops				KEY:Caltrops				OUTPUTNAME:Caltrops				TYPE:Goods.General															COST:1	WT:2		SOURCEPAGE:p.155	DESC:A caltrop is a four-pronged metal spike crafted so that one prong faces up no matter how the caltrop comes to rest. You scatter caltrops on the ground in the hope that your enemies step on them or are at least forced to slow down to avoid them. One 2-pound bag of caltrops covers an area 5 feet square.&nl;Each time a creature moves into an area covered by caltrops (or spends a round fighting while standing in such an area), it runs the risk of stepping on one. Make an attack roll for the caltrops (base attack bonus +0) against the creature. For this attack, the creature's shield, armor, and deflection bonuses do not count. If the creature is wearing shoes or other footwear, it gets a +2 armor bonus to AC. If the attack succeeds, the creature has stepped on a caltrop. The caltrop deals 1 point of damage, and the creature's speed is reduced by half because its foot is wounded. This movement penalty lasts for 24 hours, until the creature is successfully treated with a DC 15 Heal check, or until it receives at least 1 point of magical healing. A charging or running creature must immediately stop if it steps on a caltrop. Any creature moving at half speed or slower can pick its way through a bed of caltrops with no trouble.&nl;Caltrops may not work against unusual opponents.
 Candle				KEY:Candle					OUTPUTNAME:Candle					TYPE:Goods.General.Consumable.Light Source											COST:0.01			SOURCEPAGE:p.155	DESC:A candle dimly illuminates a small area, increasing the light level in a 5-foot radius by one step (darkness becomes dim light and dim light becomes normal light). A candle cannot increase the light level above normal light. A candle burns for 1 hour.	QUALITY:Increases light level by one step|5 ft.	QUALITY:Duration|1 hr.	QUALITY:Increases light level by one step|5 ft.	QUALITY:Duration|1 hr.
 Canvas (sq. yd.)			KEY:Canvas (sq yd)			OUTPUTNAME:Canvas (sq. yd.)			TYPE:Goods.General															COST:0.1	WT:1		SOURCEPAGE:p.158
-Scroll Case				KEY:Scroll Case				OUTPUTNAME:Scroll Case				TYPE:Goods.Container.General				CONTAINS:UNLIM|Total=10|Paper=10|Documents=10|Scroll=10	COST:1	WT:0.5	SOURCEPAGE:p.158
-Scroll Case.COPY=Map Case	KEY:Map Case				OUTPUTNAME:Map Case
+Case, Scroll			KEY:Scroll Case				OUTPUTNAME:Scroll Case				TYPE:Goods.Container.General				CONTAINS:UNLIM|Total=10|Paper=10|Documents=10|Scroll=10	COST:1	WT:0.5	SOURCEPAGE:p.158
+Scroll Case.COPY=Case, Map	KEY:Map Case				OUTPUTNAME:Map Case
 Chain (10 ft.)			KEY:Chain (10 ft)				OUTPUTNAME:Chain (10 ft.)			TYPE:Goods.General															COST:30	WT:2		SOURCEPAGE:p.155	DESC:Chain has hardness 10 and 5 hit points. It can be burst with a DC 26 Strength check.
 Chalk					KEY:Chalk (1 Piece)			OUTPUTNAME:Chalk					TYPE:Goods.General															COST:0.01			SOURCEPAGE:p.158
 Chest					KEY:Chest					OUTPUTNAME:Chest					TYPE:Goods.Container.General				CONTAINS:UNLIM|Any							COST:2	WT:25		SOURCEPAGE:p.158

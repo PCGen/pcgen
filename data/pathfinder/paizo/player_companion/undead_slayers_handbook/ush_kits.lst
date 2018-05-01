@@ -24,7 +24,7 @@ GEAR:Crowbar				QTY:1		SIZE:PC	LOCATION:Waterproof Bag
 GEAR:Shovel (Folding)			QTY:1		SIZE:PC	LOCATION:Waterproof Bag
 GEAR:Sunrod					QTY:4		SIZE:PC	LOCATION:Waterproof Bag
 GEAR:Spiritbane Spike			QTY:1		SIZE:PC	LOCATION:Waterproof Bag
-GEAR:Holy Symbol (Wooden)		QTY:1		SIZE:PC	LOCATION:Waterproof Bag
+GEAR:Holy Symbol	EQMOD:Holy Symbol (Wooden)		QTY:1		SIZE:PC	LOCATION:Waterproof Bag
 
 STARTPACK:Light Kit		TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:170
 GEAR:Ioun Torch				QTY:1		SIZE:PC	LOCATION:Carried
@@ -49,8 +49,8 @@ GEAR:Outfit (Entertainer's)		QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Harrow Deck				QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Magnet					QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Incense				QTY:10	SIZE:PC	LOCATION:Carried
-GEAR:Scroll (Prestidigitation)	QTY:2		SIZE:PC	LOCATION:Carried
-GEAR:Scroll (Augury)			QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Scroll of Prestidigitation	QTY:2		SIZE:PC	LOCATION:Carried
+GEAR:Scroll of Augury			QTY:1		SIZE:PC	LOCATION:Carried
 
 STARTPACK:Skeleton Slayer's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:120
 GEAR:Acid (Flask)				QTY:3		SIZE:PC	LOCATION:Carried
@@ -61,7 +61,7 @@ GEAR:Holy Water (Flask)			QTY:2		SIZE:PC	LOCATION:Carried
 GEAR:Tanglefoot Bag			QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Rope (Hemp/50 ft)			QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Crowbar				QTY:1		SIZE:PC	LOCATION:Carried
-GEAR:Holy Symbol (Wooden)		QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Holy Symbol	EQMOD:Holy Symbol (Wooden)		QTY:1		SIZE:PC	LOCATION:Carried
 
 STARTPACK:Undeath Aid Kit		TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:500
 GEAR:Waterproof Bag			QTY:1		SIZE:PC	LOCATION:Carried
@@ -82,7 +82,7 @@ GEAR:Rope (Hemp/50 ft)			QTY:1		SIZE:PC	LOCATION:Waterproof Bag
 GEAR:Crowbar				QTY:1		SIZE:PC	LOCATION:Waterproof Bag
 GEAR:Hammer					QTY:1		SIZE:PC	LOCATION:Waterproof Bag
 GEAR:Antiplague (Vial)			QTY:2		SIZE:PC	LOCATION:Waterproof Bag
-GEAR:Holy Symbol (Wooden)		QTY:1		SIZE:PC	LOCATION:Waterproof Bag
+GEAR:Holy Symbol	EQMOD:Holy Symbol (Wooden)		QTY:1		SIZE:PC	LOCATION:Waterproof Bag
 
 
 

@@ -100,7 +100,7 @@ GEAR:Spell Component Pouch	QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Torch				QTY:10	SIZE:PC	LOCATION:Backpack
 GEAR:Rations (Trail/Per Day)	QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Waterskin			QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Holy Symbol (Wooden)	QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Holy Symbol	EQMOD:Holy Symbol (Wooden)	QTY:1		SIZE:PC	LOCATION:Carried
 
 STARTPACK:Druid's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:14
 GEAR:Feed (Per Day)		QTY:5		SIZE:PC
@@ -161,7 +161,7 @@ GEAR:Spell Component Pouch	QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Torch				QTY:10	SIZE:PC	LOCATION:Backpack
 GEAR:Rations (Trail/Per Day)	QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Waterskin			QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Holy Symbol (Wooden)	QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Holy Symbol	EQMOD:Holy Symbol (Wooden)	QTY:1		SIZE:PC	LOCATION:Carried
 
 STARTPACK:Magus' Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:22
 GEAR:Backpack			QTY:1		SIZE:PC	LOCATION:Carried
@@ -216,7 +216,7 @@ GEAR:Soap		QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Torch				QTY:10	SIZE:PC	LOCATION:Backpack
 GEAR:Rations (Trail/Per Day)	QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Waterskin			QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Holy Symbol (Wooden)	QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Holy Symbol	EQMOD:Holy Symbol (Wooden)	QTY:1		SIZE:PC	LOCATION:Carried
 
 STARTPACK:Ranger's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:9
 GEAR:Backpack			QTY:1		SIZE:PC	LOCATION:Carried
@@ -306,7 +306,7 @@ GEAR:Cooking Kit			QTY:1	SIZE:PC
 GEAR:Rations (Trail/Per Day)	QTY:8	SIZE:PC
 
 STARTPACK:Chronicler's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:40
-GEAR:Case (Map or Scroll)	QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Map Case			QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Ink (1 oz Vial)		QTY:2		SIZE:PC	LOCATION:Backpack
 GEAR:Inkpen				QTY:2		SIZE:PC	LOCATION:Backpack
 GEAR:Paper (Sheet)		QTY:10	SIZE:PC	LOCATION:Backpack
@@ -402,7 +402,7 @@ GEAR:Tindertwig			QTY:1		LOCATION:Backpack
 GEAR:Oil (1 Pint Flask)		QTY:5		LOCATION:Backpack
 
 STARTPACK:Undead Slayer's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:402
-GEAR:Holy Symbol (Wooden)		QTY:1	LOCATION:Carried
+GEAR:Holy Symbol	EQMOD:Holy Symbol (Wooden)		QTY:1	LOCATION:Carried
 GEAR:Garlic (per lb)			QTY:1	LOCATION:Backpack
 GEAR:Hammer					QTY:1	LOCATION:Backpack
 GEAR:Holy Water (Flask)			QTY:2	LOCATION:Backpack
