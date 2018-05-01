@@ -1132,8 +1132,8 @@ BIO
 		<weapon>
 			<common>
 				<name>
-					<short>Oil (1 Pint Flask)</short>
-					<long>Oil (1 Pint Flask)</long>
+					<short>Oil</short>
+					<long>Oil</long>
 				</name>
 				<category>Non-Standard-Ranged</category>
 				<critical>
@@ -1913,7 +1913,7 @@ BIO
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
-			<contents>9.5 lbs., 1 Case (Map or Scroll), 1 Flint and Steel, 2 Inkpen, 1 Lantern (Bullseye), 1 Oil (1 Pint Flask), 1 Potion of Cure Light Wounds, 1 Rations (Trail/Per Day), 1 Rope of Climbing, 1 Sealing Wax</contents>
+			<contents>9.5 lbs., 1 Case (Map or Scroll), 1 Flint and Steel, 2 Inkpen, 1 Lantern (Bullseye), 1 Oil, 1 Potion of Cure Light Wounds, 1 Rations (Trail/Per Day), 1 Rope of Climbing, 1 Sealing Wax</contents>
 			<contents_num>9</contents_num>
 			<content_weight>9.5</content_weight>
 			<cost>50</cost>
@@ -2089,9 +2089,9 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Oil (1 Pint Flask)</longname>
+			<longname>Oil</longname>
 			<id></id>
-			<name>Oil (1 Pint Flask)</name>
+			<name>Oil</name>
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -2115,9 +2115,9 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Oil (1 Pint Flask)</longname>
+			<longname>Oil</longname>
 			<id></id>
-			<name>Oil (1 Pint Flask)</name>
+			<name>Oil</name>
 			<carried>0.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -2589,7 +2589,7 @@ BIO
 			<carried>0.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
-			<contents>31 lbs., 1 Oil (1 Pint Flask), 4 Rations (Trail/Per Day), 1 Grappling Hook, 1 Map Maker&#39;s Kit, 1 Tent</contents>
+			<contents>31 lbs., 1 Oil, 4 Rations (Trail/Per Day), 1 Grappling Hook, 1 Map Maker&#39;s Kit, 1 Tent</contents>
 			<contents_num>5</contents_num>
 			<content_weight>31</content_weight>
 			<cost>4</cost>
@@ -2977,7 +2977,7 @@ BIO
 				<carried>1.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
-				<contents>9.5 lbs., 1 Case (Map or Scroll), 1 Flint and Steel, 2 Inkpen, 1 Lantern (Bullseye), 1 Oil (1 Pint Flask), 1 Potion of Cure Light Wounds, 1 Rations (Trail/Per Day), 1 Rope of Climbing, 1 Sealing Wax</contents>
+				<contents>9.5 lbs., 1 Case (Map or Scroll), 1 Flint and Steel, 2 Inkpen, 1 Lantern (Bullseye), 1 Oil, 1 Potion of Cure Light Wounds, 1 Rations (Trail/Per Day), 1 Rope of Climbing, 1 Sealing Wax</contents>
 				<cost>50</cost>
 				<equipped>Y</equipped>
 				<location>Equipped</location>
@@ -3120,7 +3120,7 @@ BIO
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Oil (1 Pint Flask)</name>
+				<name>Oil</name>
 				<carried>1.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
@@ -3141,7 +3141,7 @@ BIO
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Oil (1 Pint Flask)</name>
+				<name>Oil</name>
 				<carried>0.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
@@ -3523,7 +3523,7 @@ BIO
 				<carried>0.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
-				<contents>31 lbs., 1 Oil (1 Pint Flask), 4 Rations (Trail/Per Day), 1 Grappling Hook, 1 Map Maker&#39;s Kit, 1 Tent</contents>
+				<contents>31 lbs., 1 Oil, 4 Rations (Trail/Per Day), 1 Grappling Hook, 1 Map Maker&#39;s Kit, 1 Tent</contents>
 				<cost>4</cost>
 				<equipped>N</equipped>
 				<location>Dog (Riding)</location>

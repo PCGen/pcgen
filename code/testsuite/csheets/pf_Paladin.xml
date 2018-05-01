@@ -1033,8 +1033,8 @@ BIO
 		<weapon>
 			<common>
 				<name>
-					<short>Holy Water (Flask)</short>
-					<long>Holy Water (Flask)</long>
+					<short>Holy Water</short>
+					<long>Holy Water</long>
 				</name>
 				<category>Non-Standard-Ranged</category>
 				<critical>
@@ -1727,7 +1727,7 @@ BIO
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
-			<contents>18 lbs., 1 Rope (Silk/50 ft.), 1 Antitoxin (Vial), 1 Flint and Steel, 1 Holy Symbol (Silver), 2 Holy Water (Flask), 3 Iron Spike, 1 Lantern (Bullseye), 2 Oil (1 Pint Flask), 2 Sunrod</contents>
+			<contents>18 lbs., 1 Rope (Silk/50 ft.), 1 Antitoxin (Vial), 1 Flint and Steel, 1 Holy Symbol (Silver), 2 Holy Water, 3 Iron Spike, 1 Lantern (Bullseye), 2 Oil (1 Pint Flask), 2 Sunrod</contents>
 			<contents_num>9</contents_num>
 			<content_weight>18</content_weight>
 			<cost>2</cost>
@@ -1825,9 +1825,9 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Holy Water (Flask)</longname>
+			<longname>Holy Water</longname>
 			<id></id>
-			<name>Holy Water (Flask)</name>
+			<name>Holy Water</name>
 			<carried>2.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -2462,7 +2462,7 @@ BIO
 				<carried>1.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
-				<contents>18 lbs., 1 Rope (Silk/50 ft.), 1 Antitoxin (Vial), 1 Flint and Steel, 1 Holy Symbol (Silver), 2 Holy Water (Flask), 3 Iron Spike, 1 Lantern (Bullseye), 2 Oil (1 Pint Flask), 2 Sunrod</contents>
+				<contents>18 lbs., 1 Rope (Silk/50 ft.), 1 Antitoxin (Vial), 1 Flint and Steel, 1 Holy Symbol (Silver), 2 Holy Water, 3 Iron Spike, 1 Lantern (Bullseye), 2 Oil (1 Pint Flask), 2 Sunrod</contents>
 				<cost>2</cost>
 				<equipped>Y</equipped>
 				<location>Equipped</location>
@@ -2542,7 +2542,7 @@ BIO
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Holy Water (Flask)</name>
+				<name>Holy Water</name>
 				<carried>2.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
