@@ -597,7 +597,7 @@ GEAR:Holly and Mistletoe						QTY:1		SIZE:PC	LOCATION:Equipped																	P
 STARTPACK:Elemental Explorer's Kit (Divine)			TYPE:Adventuring Kit	APPLY:INSTANT			TOTALCOST:2700
 GEAR:Waterproof Bag							QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Scroll of Comprehend Languages (Divine)				QTY:3		SIZE:PC	LOCATION:Waterproof Bag
-GEAR:Scroll of Planar Adaptation (Divine)				QTY:2		SIZE:PC	LOCATION:Waterproof Bag
+GEAR:Scroll (Planar Adaptation/Divine)				QTY:2		SIZE:PC	LOCATION:Waterproof Bag
 GEAR:Scroll of Plane Shift (Divine)					QTY:1		SIZE:PC	LOCATION:Waterproof Bag
 GEAR:Guidebook (Regional)						QTY:4		SIZE:PC	LOCATION:Backpack
 
@@ -605,7 +605,7 @@ GEAR:Guidebook (Regional)						QTY:4		SIZE:PC	LOCATION:Backpack
 STARTPACK:Elemental Explorer's Kit (Arcane)			TYPE:Adventuring Kit	APPLY:INSTANT			TOTALCOST:4700
 GEAR:Waterproof Bag							QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Scroll of Comprehend Languages (Arcane)				QTY:3		SIZE:PC	LOCATION:Waterproof Bag
-GEAR:Scroll of Planar Adaptation (Arcane)				QTY:2		SIZE:PC	LOCATION:Waterproof Bag
+GEAR:Scroll (Planar Adaptation/Arcane)				QTY:2		SIZE:PC	LOCATION:Waterproof Bag
 GEAR:Scroll of Plane Shift (Arcane)					QTY:1		SIZE:PC	LOCATION:Waterproof Bag
 GEAR:Guidebook (Regional)						QTY:4		SIZE:PC	LOCATION:Backpack
 
