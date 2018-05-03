@@ -1089,7 +1089,7 @@ BIO
 			<common>
 				<name>
 					<short>Oil</short>
-					<long>Oil</long>
+					<long>Oil, 1 Pint Flask</long>
 				</name>
 				<category>Non-Standard-Ranged</category>
 				<critical>
@@ -1767,7 +1767,7 @@ BIO
 				<long>Medium</long>
 				<short>M</short>
 			</size>
-			<special_properties></special_properties>
+			<special_properties>+5 alchemical bonus to Fortitude saves against poison for 1 hour</special_properties>
 			<type>GOODS.ALCHEMICAL.VIAL.CONSUMABLE</type>
 			<weight>0</weight>
 			<bonuslist></bonuslist>
@@ -1796,6 +1796,32 @@ BIO
 			<special_properties></special_properties>
 			<type>GOODS.GENERAL</type>
 			<weight>0</weight>
+			<bonuslist></bonuslist>
+		</item>
+		<item>
+			<longname>Holy Symbol, Silver</longname>
+			<id></id>
+			<name>Silver Holy Symbol</name>
+			<carried>1.0</carried>
+			<charges></charges>
+			<charges_used></charges_used>
+			<contents></contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
+			<cost>25</cost>
+			<equipped>N</equipped>
+			<location>Backpack</location>
+			<maxcharges>0</maxcharges>
+			<note></note>
+			<quantity>1</quantity>
+			<checkbox>1</checkbox>
+			<size>
+				<long>Medium</long>
+				<short>M</short>
+			</size>
+			<special_properties></special_properties>
+			<type>GOODS.TOOLS.SPELL COMPONENT.DIVINE FOCUS.HOLY SYMBOL</type>
+			<weight>1</weight>
 			<bonuslist></bonuslist>
 		</item>
 		<item>
@@ -1877,7 +1903,7 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Oil</longname>
+			<longname>Oil, 1 Pint Flask</longname>
 			<id></id>
 			<name>Oil</name>
 			<carried>2.0</carried>
@@ -2241,32 +2267,6 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Holy Symbol, Silver</longname>
-			<id></id>
-			<name>Silver Holy Symbol</name>
-			<carried>1.0</carried>
-			<charges></charges>
-			<charges_used></charges_used>
-			<contents></contents>
-			<contents_num>0</contents_num>
-			<content_weight>0</content_weight>
-			<cost>25</cost>
-			<equipped>N</equipped>
-			<location>Backpack</location>
-			<maxcharges>0</maxcharges>
-			<note></note>
-			<quantity>1</quantity>
-			<checkbox>1</checkbox>
-			<size>
-				<long>Medium</long>
-				<short>M</short>
-			</size>
-			<special_properties></special_properties>
-			<type>GOODS.TOOLS.SPELL COMPONENT.DIVINE FOCUS.HOLY SYMBOL</type>
-			<weight>1</weight>
-			<bonuslist></bonuslist>
-		</item>
-		<item>
 			<longname>Outfit, Traveler&#39;s</longname>
 			<id></id>
 			<name>Traveler&#39;s Outfit</name>
@@ -2293,7 +2293,7 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Rope, Silk (50 ft)</longname>
+			<longname>Rope, Silk (50 ft.)</longname>
 			<id></id>
 			<name>Silk Rope (50 ft.)</name>
 			<carried>1.0</carried>
@@ -2346,7 +2346,7 @@ BIO
 		</item>
 		<total>
 			<weight>98 lbs.</weight>
-			<value>7538.45 gp</value>
+			<value>7563.45 gp</value>
 			<load>Light</load>
 			<capacity>300</capacity>
 		</total>
@@ -2494,7 +2494,7 @@ BIO
 					<long>Medium</long>
 					<short>M</short>
 				</size>
-				<special_properties></special_properties>
+				<special_properties>+5 alchemical bonus to Fortitude saves against poison for 1 hour</special_properties>
 				<type>GOODS.ALCHEMICAL.VIAL.CONSUMABLE</type>
 				<weight>0</weight>
 				<bonuslist></bonuslist>
@@ -2518,6 +2518,27 @@ BIO
 				<special_properties></special_properties>
 				<type>GOODS.GENERAL</type>
 				<weight>0</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Silver Holy Symbol</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>25</cost>
+				<equipped>N</equipped>
+				<location>Backpack</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>GOODS.TOOLS.SPELL COMPONENT.DIVINE FOCUS.HOLY SYMBOL</type>
+				<weight>1</weight>
 				<bonuslist></bonuslist>
 			</item>
 			<item>
@@ -2875,27 +2896,6 @@ BIO
 				<special_properties></special_properties>
 				<type>GOODS.GENERAL.RESIZABLE</type>
 				<weight>4</weight>
-				<bonuslist></bonuslist>
-			</item>
-			<item>
-				<name>Silver Holy Symbol</name>
-				<carried>1.0</carried>
-				<charges></charges>
-				<charges_used></charges_used>
-				<contents></contents>
-				<cost>25</cost>
-				<equipped>N</equipped>
-				<location>Backpack</location>
-				<maxcharges>0</maxcharges>
-				<note></note>
-				<quantity>1</quantity>
-				<size>
-					<long>Medium</long>
-					<short>M</short>
-				</size>
-				<special_properties></special_properties>
-				<type>GOODS.TOOLS.SPELL COMPONENT.DIVINE FOCUS.HOLY SYMBOL</type>
-				<weight>1</weight>
 				<bonuslist></bonuslist>
 			</item>
 			<item>

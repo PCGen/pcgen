@@ -1133,7 +1133,7 @@ BIO
 			<common>
 				<name>
 					<short>Oil</short>
-					<long>Oil</long>
+					<long>Oil, 1 Pint Flask</long>
 				</name>
 				<category>Non-Standard-Ranged</category>
 				<critical>
@@ -2063,7 +2063,7 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Oil</longname>
+			<longname>Oil, 1 Pint Flask</longname>
 			<id></id>
 			<name>Oil</name>
 			<carried>1.0</carried>
@@ -2089,7 +2089,7 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Oil</longname>
+			<longname>Oil, 1 Pint Flask</longname>
 			<id></id>
 			<name>Oil</name>
 			<carried>0.0</carried>
@@ -2136,12 +2136,12 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties>Cures 1d8+1 points of damage</special_properties>
-			<type>MAGIC.POTION.CONSUMABLE.ENHANCEMENT</type>
+			<type>MAGIC.POTION.CONSUMABLE.COMBAT GEAR.ENHANCEMENT</type>
 			<weight>0</weight>
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Rations, Trail (Per Day)</longname>
+			<longname>Rations, Trail, Per Day</longname>
 			<id></id>
 			<name>Trail Ration</name>
 			<carried>1.0</carried>
@@ -2167,7 +2167,7 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Rations, Trail (Per Day)</longname>
+			<longname>Rations, Trail, Per Day</longname>
 			<id></id>
 			<name>Trail Ration</name>
 			<carried>0.0</carried>
@@ -3105,7 +3105,7 @@ BIO
 					<short>M</short>
 				</size>
 				<special_properties>Cures 1d8+1 points of damage</special_properties>
-				<type>MAGIC.POTION.CONSUMABLE.ENHANCEMENT</type>
+				<type>MAGIC.POTION.CONSUMABLE.COMBAT GEAR.ENHANCEMENT</type>
 				<weight>0</weight>
 				<bonuslist></bonuslist>
 			</item>

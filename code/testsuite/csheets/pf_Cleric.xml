@@ -1177,7 +1177,7 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Blanket</longname>
+			<longname>Blanket, Winter</longname>
 			<id></id>
 			<name>Blanket</name>
 			<carried>0.0</carried>
@@ -1385,6 +1385,32 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
+			<longname>Holy Symbol, Silver</longname>
+			<id></id>
+			<name>Silver Holy Symbol</name>
+			<carried>1.0</carried>
+			<charges></charges>
+			<charges_used></charges_used>
+			<contents></contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
+			<cost>25</cost>
+			<equipped>Y</equipped>
+			<location>Equipped</location>
+			<maxcharges>0</maxcharges>
+			<note></note>
+			<quantity>1</quantity>
+			<checkbox>1</checkbox>
+			<size>
+				<long>Medium</long>
+				<short>M</short>
+			</size>
+			<special_properties></special_properties>
+			<type>GOODS.TOOLS.SPELL COMPONENT.DIVINE FOCUS.HOLY SYMBOL</type>
+			<weight>1</weight>
+			<bonuslist></bonuslist>
+		</item>
+		<item>
 			<longname>Horse, Light (Combat Trained)</longname>
 			<id></id>
 			<name>Light Horse (Combat Trained)</name>
@@ -1432,12 +1458,12 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties>Cures 1d8+1 points of damage</special_properties>
-			<type>MAGIC.POTION.CONSUMABLE.ENHANCEMENT</type>
+			<type>MAGIC.POTION.CONSUMABLE.COMBAT GEAR.ENHANCEMENT</type>
 			<weight>0</weight>
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Rations, Trail (Per Day)</longname>
+			<longname>Rations, Trail, Per Day</longname>
 			<id></id>
 			<name>Trail Ration</name>
 			<carried>4.0</carried>
@@ -1540,35 +1566,9 @@ BIO
 			<weight>4</weight>
 			<bonuslist></bonuslist>
 		</item>
-		<item>
-			<longname>Holy Symbol, Silver</longname>
-			<id></id>
-			<name>Silver Holy Symbol</name>
-			<carried>1.0</carried>
-			<charges></charges>
-			<charges_used></charges_used>
-			<contents></contents>
-			<contents_num>0</contents_num>
-			<content_weight>0</content_weight>
-			<cost>25</cost>
-			<equipped>Y</equipped>
-			<location>Equipped</location>
-			<maxcharges>0</maxcharges>
-			<note></note>
-			<quantity>1</quantity>
-			<checkbox>1</checkbox>
-			<size>
-				<long>Medium</long>
-				<short>M</short>
-			</size>
-			<special_properties></special_properties>
-			<type>GOODS.TOOLS.SPELL COMPONENT.DIVINE FOCUS.HOLY SYMBOL</type>
-			<weight>1</weight>
-			<bonuslist></bonuslist>
-		</item>
 		<total>
 			<weight>59.5 lbs.</weight>
-			<value>901.6 gp</value>
+			<value>926.6 gp</value>
 			<load>Medium</load>
 			<capacity>100</capacity>
 		</total>
@@ -1869,6 +1869,27 @@ BIO
 				<bonuslist></bonuslist>
 			</item>
 			<item>
+				<name>Silver Holy Symbol</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>25</cost>
+				<equipped>Y</equipped>
+				<location>Equipped</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>GOODS.TOOLS.SPELL COMPONENT.DIVINE FOCUS.HOLY SYMBOL</type>
+				<weight>1</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
 				<name>Light Horse (Combat Trained)</name>
 				<carried>0.0</carried>
 				<charges></charges>
@@ -1906,7 +1927,7 @@ BIO
 					<short>M</short>
 				</size>
 				<special_properties>Cures 1d8+1 points of damage</special_properties>
-				<type>MAGIC.POTION.CONSUMABLE.ENHANCEMENT</type>
+				<type>MAGIC.POTION.CONSUMABLE.COMBAT GEAR.ENHANCEMENT</type>
 				<weight>0</weight>
 				<bonuslist></bonuslist>
 			</item>
@@ -1992,27 +2013,6 @@ BIO
 				<special_properties></special_properties>
 				<type>GOODS.GENERAL.RESIZABLE</type>
 				<weight>4</weight>
-				<bonuslist></bonuslist>
-			</item>
-			<item>
-				<name>Silver Holy Symbol</name>
-				<carried>1.0</carried>
-				<charges></charges>
-				<charges_used></charges_used>
-				<contents></contents>
-				<cost>25</cost>
-				<equipped>Y</equipped>
-				<location>Equipped</location>
-				<maxcharges>0</maxcharges>
-				<note></note>
-				<quantity>1</quantity>
-				<size>
-					<long>Medium</long>
-					<short>M</short>
-				</size>
-				<special_properties></special_properties>
-				<type>GOODS.TOOLS.SPELL COMPONENT.DIVINE FOCUS.HOLY SYMBOL</type>
-				<weight>1</weight>
 				<bonuslist></bonuslist>
 			</item>
 			</equipmentset>

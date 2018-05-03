@@ -12,28 +12,6 @@
 # RACE:Old Race	MAXVER:6.6.01	MAXDEVVER:6.6.01	NEWKEY:New Race
 
 EQUIPMENT:Musical Instrument (Harpsichord/Masterwork		MAXVER:6.07.08	NEWKEY:Musical Instrument (Harpsichord/Masterwork)
-EQUIPMENT:Artisan's Tools (Armor)					MAXVER:6.07.08	NEWKEY:Artisan's Tools
-EQUIPMENT:Artisan's Tools (Baskets)					MAXVER:6.07.08	NEWKEY:Artisan's Tools
-EQUIPMENT:Artisan's Tools (Books)					MAXVER:6.07.08	NEWKEY:Artisan's Tools
-EQUIPMENT:Artisan's Tools (Bows)					MAXVER:6.07.08	NEWKEY:Artisan's Tools
-EQUIPMENT:Artisan's Tools (Calligraphy)				MAXVER:6.07.08	NEWKEY:Artisan's Tools
-EQUIPMENT:Artisan's Tools (Carpentry)				MAXVER:6.07.08	NEWKEY:Artisan's Tools
-EQUIPMENT:Artisan's Tools (Cloth)					MAXVER:6.07.08	NEWKEY:Artisan's Tools
-EQUIPMENT:Artisan's Tools (Clothing)				MAXVER:6.07.08	NEWKEY:Artisan's Tools
-EQUIPMENT:Artisan's Tools (Gemcutting)				MAXVER:6.07.08	NEWKEY:Artisan's Tools
-EQUIPMENT:Artisan's Tools (Glass)					MAXVER:6.07.08	NEWKEY:Artisan's Tools
-EQUIPMENT:Artisan's Tools (Jewelry)					MAXVER:6.07.08	NEWKEY:Artisan's Tools
-EQUIPMENT:Artisan's Tools (Leather)					MAXVER:6.07.08	NEWKEY:Artisan's Tools
-EQUIPMENT:Artisan's Tools (Locks)					MAXVER:6.07.08	NEWKEY:Artisan's Tools
-EQUIPMENT:Artisan's Tools (Paintings)				MAXVER:6.07.08	NEWKEY:Artisan's Tools
-EQUIPMENT:Artisan's Tools (Pottery)					MAXVER:6.07.08	NEWKEY:Artisan's Tools
-EQUIPMENT:Artisan's Tools (Sculptures)				MAXVER:6.07.08	NEWKEY:Artisan's Tools
-EQUIPMENT:Artisan's Tools (Ships)					MAXVER:6.07.08	NEWKEY:Artisan's Tools
-EQUIPMENT:Artisan's Tools (Shoes)					MAXVER:6.07.08	NEWKEY:Artisan's Tools
-EQUIPMENT:Artisan's Tools (Stonemasonry)				MAXVER:6.07.08	NEWKEY:Artisan's Tools
-EQUIPMENT:Artisan's Tools (Tattoos					MAXVER:6.07.08	NEWKEY:Artisan's Tools
-EQUIPMENT:Artisan's Tools (Traps)					MAXVER:6.07.08	NEWKEY:Artisan's Tools
-EQUIPMENT:Artisan's Tools (Weaponsmithing)			MAXVER:6.07.08	NEWKEY:Artisan's Tools
 EQUIPMENT:Artisan's Tools (Armor/Masterwork)			MAXVER:6.07.08	NEWKEY:Artisan's Tools (Masterwork)
 EQUIPMENT:Artisan's Tools (Baskets/Masterwork)			MAXVER:6.07.08	NEWKEY:Artisan's Tools (Masterwork)
 EQUIPMENT:Artisan's Tools (Books/Masterwork)			MAXVER:6.07.08	NEWKEY:Artisan's Tools (Masterwork)
@@ -618,8 +596,6 @@ EQUIPMENT:Artisan's Tools (Stonemasonry)				MAXVER:6.07.08	NEWKEY:Artisan's Tool
 EQUIPMENT:Artisan's Tools (Tattoos)					MAXVER:6.07.08	NEWKEY:Artisan's Tools
 EQUIPMENT:Artisan's Tools (Traps)					MAXVER:6.07.08	NEWKEY:Artisan's Tools
 EQUIPMENT:Artisan's Tools (Weaponsmithing)			MAXVER:6.07.08	NEWKEY:Artisan's Tools
-EQUIPMENT:Holy Symbol (Wooden)					MAXVER:6.07.08	NEWKEY:Holy Symbol
-EQUIPMENT:Holy Symbol (Silver)					MAXVER:6.07.08	NEWKEY:Holy Symbol
 EQUIPMENT:Unholy Symbol (Wooden)					MAXVER:6.07.08	NEWKEY:Unholy Symbol
 EQUIPMENT:Unholy Symbol (Silver)					MAXVER:6.07.08	NEWKEY:Unholy Symbol
 
