@@ -108,7 +108,7 @@ Barrel				KEY:Barrel					OUTPUTNAME:Barrel					TYPE:Goods.Container.General				C
 Basket				KEY:Basket					OUTPUTNAME:Basket					TYPE:Goods.Container.General				CONTAINS:UNLIM|Any							COST:0.4	WT:1		SOURCEPAGE:p.158
 Bedroll				KEY:Bedroll					OUTPUTNAME:Bedroll				TYPE:Goods.General.Resizable														COST:0.1	WT:5		SOURCEPAGE:p.158
 Bell					KEY:Bell					OUTPUTNAME:Bell					TYPE:Goods.General															COST:1	WT:0		SOURCEPAGE:p.158
-Blanket, Winter			KEY:Blanket (Winter)			OUTPUTNAME:Blanket				TYPE:Goods.General.Resizable														COST:0.5	WT:3		SOURCEPAGE:p.158
+Blanket, Winter			KEY:Blanket (Winter)			OUTPUTNAME:Winter Blanket			TYPE:Goods.General.Resizable														COST:0.5	WT:3		SOURCEPAGE:p.158
 Block and Tackle			KEY:Block and Tackle			OUTPUTNAME:Block and Tackle			TYPE:Goods.General															COST:5	WT:5		SOURCEPAGE:p.158
 Bottle				KEY:Bottle (Glass)			OUTPUTNAME:Bottle					TYPE:Goods.Container.General				CONTAINS:1.5|Liquid=3							COST:2	WT:1		SOURCEPAGE:p.158
 Bucket				KEY:Bucket					OUTPUTNAME:Bucket					TYPE:Goods.Container.General				CONTAINS:UNLIM|Any							COST:0.5	WT:2		SOURCEPAGE:p.158

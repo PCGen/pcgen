@@ -1179,7 +1179,7 @@ BIO
 		<item>
 			<longname>Blanket, Winter</longname>
 			<id></id>
-			<name>Blanket</name>
+			<name>Winter Blanket</name>
 			<carried>0.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -1417,7 +1417,7 @@ BIO
 			<carried>0.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
-			<contents>43 lbs., 1 Military Saddle, 1 Waterskin, 1 Bedroll, 1 Blanket, 1 10 Bolts</contents>
+			<contents>43 lbs., 1 Military Saddle, 1 Waterskin, 1 Bedroll, 1 Winter Blanket, 1 10 Bolts</contents>
 			<contents_num>5</contents_num>
 			<content_weight>43</content_weight>
 			<cost>110</cost>
@@ -1701,7 +1701,7 @@ BIO
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Blanket</name>
+				<name>Winter Blanket</name>
 				<carried>0.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
@@ -1894,7 +1894,7 @@ BIO
 				<carried>0.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
-				<contents>43 lbs., 1 Military Saddle, 1 Waterskin, 1 Bedroll, 1 Blanket, 1 10 Bolts</contents>
+				<contents>43 lbs., 1 Military Saddle, 1 Waterskin, 1 Bedroll, 1 Winter Blanket, 1 10 Bolts</contents>
 				<cost>110</cost>
 				<equipped>N</equipped>
 				<location></location>
