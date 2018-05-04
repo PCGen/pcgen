@@ -105,7 +105,7 @@ Citrus (per lb)			OUTPUTNAME:Citrus (per lb.)			TYPE:Goods.Trade	COST:0.03	WT:1	
 Nuts (per lb)			OUTPUTNAME:Nuts (per lb.)			TYPE:Goods.Trade	COST:0.03	WT:1		SOURCEPAGE:p.93
 Peat (per 20 lbs)			OUTPUTNAME:Peat (per 20 lbs.)			TYPE:Goods.Trade	COST:0.03	WT:20		SOURCEPAGE:p.93
 Coffee Beans (per lb)		OUTPUTNAME:Coffee Beans (per lb.)		TYPE:Goods.Trade	COST:0.05	WT:1		SOURCEPAGE:p.93
-Coal (per 20 lbs)			OUTPUTNAME:Coal (per 20 lbs.)			TYPE:Goods.Trade	COST:0.05	WT:1		SOURCEPAGE:p.93
+Coal (per 20 lbs)			OUTPUTNAME:Coal (per 20 lbs.)			TYPE:Goods.Trade	COST:0.05	WT:20		SOURCEPAGE:p.93
 Masonry Stone (per lb)		OUTPUTNAME:Masonry Stone (per lb.)		TYPE:Goods.Trade	COST:0.05	WT:1		SOURCEPAGE:p.93
 Sugar (per lb)			OUTPUTNAME:Sugar (per lb.)			TYPE:Goods.Trade	COST:0.05	WT:1		SOURCEPAGE:p.93
 Iron (per lb).MOD			OUTPUTNAME:Iron (per lb.)			TYPE:Goods.Trade	COST:0.1	WT:1		SOURCEPAGE:p.93
