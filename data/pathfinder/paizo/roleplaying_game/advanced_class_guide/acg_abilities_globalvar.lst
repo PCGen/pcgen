@@ -2,7 +2,7 @@
 
 # Ability Name	Category of Ability
 Arcanist		CATEGORY:Class
-Bloodrager		CATEGORY:Class
+Bloodrager		CATEGORY:Class	DEFINE:BloodrageLVL|0	BONUS:VAR|BloodrageLVL|BloodragerLVL
 Brawler		CATEGORY:Class
 Hunter		CATEGORY:Class
 Investigator	CATEGORY:Class
