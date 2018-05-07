@@ -2,9 +2,9 @@
 
 ###Block: New FACT Archetype System
 # Ability Name	Category of Ability	Ability
-Gunslinger		CATEGORY:Class		ABILITY:Internal|AUTOMATIC|Gunslinger ~ Class Skill|PREVAREQ:Gunslinger_CF_ClassSkills,0	ABILITY:Special Ability|AUTOMATIC|Gunslinger ~ Proficiencies|PREVAREQ:Gunslinger_CF_Proficiencies,0
-Ninja			CATEGORY:Class		ABILITY:Internal|AUTOMATIC|Ninja ~ Class Skill|PREVAREQ:Ninja_CF_ClassSkills,0
-Samurai		CATEGORY:Class		ABILITY:Internal|AUTOMATIC|Samurai ~ Class Skill|PREVAREQ:Samurai_CF_ClassSkills,0
+Gunslinger		CATEGORY:Class		ABILITY:Gunslinger Archetype|AUTOMATIC|Archetype Gunslinger	ABILITY:Internal|AUTOMATIC|Gunslinger ~ Class Skill|PREVAREQ:Gunslinger_CF_ClassSkills,0	ABILITY:Special Ability|AUTOMATIC|Gunslinger ~ Proficiencies|PREVAREQ:Gunslinger_CF_Proficiencies,0
+Ninja			CATEGORY:Class		ABILITY:Ninja Archetype|AUTOMATIC|Archetype Ninja		ABILITY:Internal|AUTOMATIC|Ninja ~ Class Skill|PREVAREQ:Ninja_CF_ClassSkills,0
+Samurai		CATEGORY:Class		ABILITY:Samurai Archetype|AUTOMATIC|Archetype Samurai		ABILITY:Internal|AUTOMATIC|Samurai ~ Class Skill|PREVAREQ:Samurai_CF_ClassSkills,0
 
 
 ###Block:

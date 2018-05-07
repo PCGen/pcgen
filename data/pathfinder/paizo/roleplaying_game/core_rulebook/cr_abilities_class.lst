@@ -90,17 +90,17 @@ Bonus Skill Rank	KEY:Favored Class Bonus ~ Skill Rank	CATEGORY:Special Ability	T
 
 ###Block: New Class Grantor System - Supports Pathfinder Unchained, and eventually the EVANGELIST Prestige class.
 # Ability Name		Category of Ability	Define																	Ability																													Modify VAR
-Barbarian			CATEGORY:Class		DEFINE:Barbarian_CFP_Level|0	DEFINE:BarbarianClassSelection|0	DEFINE:Pool_Barbarian_Class_Selection|0	ABILITY:Class|AUTOMATIC|Barbarian ~ Standard Class|!PREABILITY:1,CATEGORY=CLASS,TYPE.AltBarbarianChoice													BONUS:VAR|Barbarian_CFP_Level|BarbarianLVL|TYPE=Base
-Bard				CATEGORY:Class		DEFINE:Bard_CFP_Level|0															ABILITY:Internal|AUTOMATIC|Class Skills ~ Bard|PREVAREQ:Bard_CF_ClassSkills,0																		BONUS:VAR|Bard_CFP_Level|BardLVL|TYPE=Base
-Cleric			CATEGORY:Class		DEFINE:Cleric_CFP_Level|0														ABILITY:Internal|AUTOMATIC|Class Skills ~ Cleric|PREVAREQ:Cleric_CF_ClassSkills,0																	BONUS:VAR|Cleric_CFP_Level|ClericLVL|TYPE=Base
-Druid				CATEGORY:Class		DEFINE:Druid_CFP_Level|0														ABILITY:Internal|AUTOMATIC|Class Skills ~ Druid|PREVAREQ:Druid_CF_ClassSkills,0																	BONUS:VAR|Druid_CFP_Level|DruidLVL|TYPE=Base
-Fighter			CATEGORY:Class		DEFINE:Fighter_CFP_Level|0														ABILITY:Internal|AUTOMATIC|Class Skills ~ Fighter|PREVAREQ:Fighter_CF_ClassSkills,0																	BONUS:VAR|Fighter_CFP_Level|FighterLVL|TYPE=Base
+Barbarian			CATEGORY:Class		DEFINE:Barbarian_CFP_Level|0	DEFINE:BarbarianClassSelection|0	DEFINE:Pool_Barbarian_Class_Selection|0	ABILITY:Barbarian Archetype|AUTOMATIC|Archetype Barbarian	ABILITY:Class|AUTOMATIC|Barbarian ~ Standard Class|!PREABILITY:1,CATEGORY=CLASS,TYPE.AltBarbarianChoice													BONUS:VAR|Barbarian_CFP_Level|BarbarianLVL|TYPE=Base
+Bard				CATEGORY:Class		DEFINE:Bard_CFP_Level|0															ABILITY:Bard Archetype|AUTOMATIC|Archetype Bard			ABILITY:Internal|AUTOMATIC|Class Skills ~ Bard|PREVAREQ:Bard_CF_ClassSkills,0																		BONUS:VAR|Bard_CFP_Level|BardLVL|TYPE=Base
+Cleric			CATEGORY:Class		DEFINE:Cleric_CFP_Level|0														ABILITY:Cleric Archetype|AUTOMATIC|Archetype Cleric		ABILITY:Internal|AUTOMATIC|Class Skills ~ Cleric|PREVAREQ:Cleric_CF_ClassSkills,0																	BONUS:VAR|Cleric_CFP_Level|ClericLVL|TYPE=Base
+Druid				CATEGORY:Class		DEFINE:Druid_CFP_Level|0														ABILITY:Druid Archetype|AUTOMATIC|Archetype Druid	ABILITY:Internal|AUTOMATIC|Class Skills ~ Druid|PREVAREQ:Druid_CF_ClassSkills,0																	BONUS:VAR|Druid_CFP_Level|DruidLVL|TYPE=Base
+Fighter			CATEGORY:Class		DEFINE:Fighter_CFP_Level|0														ABILITY:Fighter Archetype|AUTOMATIC|Archetype Fighter	ABILITY:Internal|AUTOMATIC|Class Skills ~ Fighter|PREVAREQ:Fighter_CF_ClassSkills,0																	BONUS:VAR|Fighter_CFP_Level|FighterLVL|TYPE=Base
 Monk				CATEGORY:Class		DEFINE:Monk_CFP_Level|0	DEFINE:Pool_Monk_Class_Selection|0									ABILITY:Class|AUTOMATIC|Monk ~ Standard Class|!PREABILITY:1,CATEGORY=CLASS,TYPE.AltMonkChoice															BONUS:VAR|Monk_CFP_Level|MonkLVL|TYPE=Base	BONUS:VAR|MonkFeatQualify|MonkLVL
-Paladin			CATEGORY:Class		DEFINE:Paladin_CFP_Level|0														ABILITY:Internal|AUTOMATIC|Class Skills ~ Paladin|PREVAREQ:Paladin_CF_ClassSkills,0																	BONUS:VAR|Paladin_CFP_Level|PaladinLVL|TYPE=Base
-Ranger			CATEGORY:Class		DEFINE:Ranger_CFP_Level|0														ABILITY:Internal|AUTOMATIC|Class Skills ~ Ranger|PREVAREQ:Ranger_CF_ClassSkills,0																	BONUS:VAR|Ranger_CFP_Level|RangerLVL|TYPE=Base
-Rogue				CATEGORY:Class		DEFINE:Rogue_CFP_Level|0	DEFINE:Pool_Rogue_Class_Selection|0								ABILITY:Internal|AUTOMATIC|Class Skills ~ Rogue|PREVAREQ:Rogue_CF_ClassSkills,0	ABILITY:Class|AUTOMATIC|Rogue ~ Standard Class|!PREABILITY:1,CATEGORY=CLASS,TYPE.AltRogueChoice	BONUS:VAR|Rogue_CFP_Level|RogueLVL|TYPE=Base
-Sorcerer			CATEGORY:Class		DEFINE:Sorcerer_CFP_Level|0														ABILITY:Internal|AUTOMATIC|Sorcerer ~ Class Skills|PREVAREQ:Sorcerer_CF_ClassSkills,0																BONUS:VAR|Sorcerer_CFP_Level|SorcererLVL|TYPE=Base
-Wizard			CATEGORY:Class		DEFINE:Wizard_CFP_Level|0														ABILITY:Internal|AUTOMATIC|Class Skills ~ Wizard|PREVAREQ:Wizard_CF_ClassSkills,0																	BONUS:VAR|Wizard_CFP_Level|WizardLVL|TYPE=Base
+Paladin			CATEGORY:Class		DEFINE:Paladin_CFP_Level|0														ABILITY:Paladin Archetype|AUTOMATIC|Archetype Paladin	ABILITY:Internal|AUTOMATIC|Class Skills ~ Paladin|PREVAREQ:Paladin_CF_ClassSkills,0																	BONUS:VAR|Paladin_CFP_Level|PaladinLVL|TYPE=Base
+Ranger			CATEGORY:Class		DEFINE:Ranger_CFP_Level|0														ABILITY:Ranger Archetype|AUTOMATIC|Archetype Ranger	ABILITY:Internal|AUTOMATIC|Class Skills ~ Ranger|PREVAREQ:Ranger_CF_ClassSkills,0																	BONUS:VAR|Ranger_CFP_Level|RangerLVL|TYPE=Base
+Rogue				CATEGORY:Class		DEFINE:Rogue_CFP_Level|0	DEFINE:Pool_Rogue_Class_Selection|0								ABILITY:Rogue Archetype|AUTOMATIC|Archetype Rogue	ABILITY:Internal|AUTOMATIC|Class Skills ~ Rogue|PREVAREQ:Rogue_CF_ClassSkills,0	ABILITY:Class|AUTOMATIC|Rogue ~ Standard Class|!PREABILITY:1,CATEGORY=CLASS,TYPE.AltRogueChoice	BONUS:VAR|Rogue_CFP_Level|RogueLVL|TYPE=Base
+Sorcerer			CATEGORY:Class		DEFINE:Sorcerer_CFP_Level|0														ABILITY:Sorcerer Archetype|AUTOMATIC|Archetype Sorcerer	ABILITY:Internal|AUTOMATIC|Sorcerer ~ Class Skills|PREVAREQ:Sorcerer_CF_ClassSkills,0																BONUS:VAR|Sorcerer_CFP_Level|SorcererLVL|TYPE=Base
+Wizard			CATEGORY:Class		DEFINE:Wizard_CFP_Level|0														ABILITY:Wizard Archetype|AUTOMATIC|Archetype Wizard	ABILITY:Internal|AUTOMATIC|Class Skills ~ Wizard|PREVAREQ:Wizard_CF_ClassSkills,0																	BONUS:VAR|Wizard_CFP_Level|WizardLVL|TYPE=Base
 
 Arcane Trickster		CATEGORY:Class		DEFINE:ArcaneTrickster_CFP_Level|0																																											BONUS:VAR|ArcaneTrickster_CFP_Level|ArcaneTricksterLVL|TYPE=Base
 Assassin			CATEGORY:Class		DEFINE:Assassin_CFP_Level|0																																												BONUS:VAR|Assassin_CFP_Level|AssassinLVL|TYPE=Base
@@ -2489,19 +2489,6 @@ Equipment ~ Heavy Armor Grants Gauntlet	CATEGORY:Internal																							
 #
 Archetype Display					CATEGORY:Internal						VISIBLE:NO
 
-CATEGORY=Internal|Archetype Display.MOD																																										ABILITY:Barbarian Archetype|AUTOMATIC|Archetype Barbarian|PRECLASS:1,Barbarian=1
-CATEGORY=Internal|Archetype Display.MOD																																										ABILITY:Bard Archetype|AUTOMATIC|Archetype Bard|PRECLASS:1,Bard=1
-CATEGORY=Internal|Archetype Display.MOD																																										ABILITY:Druid Archetype|AUTOMATIC|Archetype Druid|PRECLASS:1,Druid=1
-CATEGORY=Internal|Archetype Display.MOD																																										ABILITY:Fighter Archetype|AUTOMATIC|Archetype Fighter|PRECLASS:1,Fighter=1
-#monk archetype display moved to Standard Monk ability grant to prevent Unchained Monk archetype selection
-#CATEGORY=Internal|Archetype Display.MOD																																										ABILITY:Monk Archetype|AUTOMATIC|Archetype Monk|PRECLASS:1,Monk=1
-CATEGORY=Internal|Archetype Display.MOD																																										ABILITY:Paladin Archetype|AUTOMATIC|Archetype Paladin|PRECLASS:1,Paladin=1
-CATEGORY=Internal|Archetype Display.MOD																																										ABILITY:Ranger Archetype|AUTOMATIC|Archetype Ranger|PRECLASS:1,Ranger=1
-CATEGORY=Internal|Archetype Display.MOD																																										ABILITY:Rogue Archetype|AUTOMATIC|Archetype Rogue|PRECLASS:1,Rogue=1
-CATEGORY=Internal|Archetype Display.MOD																																										ABILITY:Wizard Archetype|AUTOMATIC|Archetype Wizard|PRECLASS:1,Wizard=1
-CATEGORY=Internal|Archetype Display.MOD																																										ABILITY:Sorcerer Archetype|AUTOMATIC|Archetype Sorcerer|PRECLASS:1,Sorcerer=1
-CATEGORY=Internal|Archetype Display.MOD																																										ABILITY:Cleric Archetype|AUTOMATIC|Archetype Cleric|PRECLASS:1,Cleric=1
-#CATEGORY=Internal|Archetype Display.MOD		ABILITY: Archetype|AUTOMATIC|Archetype |PRECLASS:1,=1
 
 # Bucket Displayers
 Archetype Barbarian				CATEGORY:Archetype	TYPE:BarbarianArchetype	VISIBLE:NO
