@@ -8,11 +8,6 @@
 # Ability Name						List of Known Class Spells by Level
 CATEGORY=Internal|Illusion Wizard Spells.MOD	SPELLKNOWN:CLASS|Wizard=0|Haunted Fey Aspect
 
-###Block: Archetype Display Support
-# Ability Name					Ability
-CATEGORY=Internal|Archetype Display.MOD	ABILITY:Gunslinger Archetype|AUTOMATIC|Archetype Gunslinger|PRECLASS:1,Gunslinger=1
-CATEGORY=Internal|Archetype Display.MOD	ABILITY:Ninja Archetype|AUTOMATIC|Archetype Ninja|PRECLASS:1,Ninja=1
-CATEGORY=Internal|Archetype Display.MOD	ABILITY:Samurai Archetype|AUTOMATIC|Archetype Samurai|PRECLASS:1,Samurai=1
 ###Block: Archetype Display Abilities
 # Ability Name					Category of Ability	Type					Visible	Define									Auto Weapon Prof			Modify VAR
 Archetype Gunslinger				CATEGORY:Archetype	TYPE:GunslingerArchetype	VISIBLE:NO
