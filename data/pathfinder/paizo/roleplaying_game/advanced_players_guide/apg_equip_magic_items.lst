@@ -214,7 +214,7 @@ Muleback Cords			TYPE:Magic.Wondrous.Shoulders	COST:1000	WT:0.25	SOURCEPAGE:p.30
 
 ###Block:N
 # Equipment Name		Type					Cost		Weight	Source Page		Modify VAR
-Necklass of Ki Serenity	TYPE:Magic.Wondrous.Necklace	COST:16000			SOURCEPAGE:p.308	BONUS:VAR|KiPoolLVL|4
+Necklace of Ki Serenity	TYPE:Magic.Wondrous.Necklace	COST:16000			SOURCEPAGE:p.308	BONUS:VAR|KiPoolLVL|4
 Necromancer's Athame	TYPE:Magic.Wondrous		COST:20000	WT:2		SOURCEPAGE:p.308
 
 ###Block:P
