@@ -98,17 +98,17 @@ Mod Spell Resistance							KEY:Companion ~ Spell Resistance (AC)		CATEGORY:Speci
 Mod Spell Resistance							KEY:Companion ~ Spell Resistance (SM)		CATEGORY:Special Ability																																																																																															ABILITY:Companion Class Feature|AUTOMATIC|Animal Companion ~ Spell Resistance|!PREABILITY:1,CATEGORY=Archetype,TYPE.CF_SpellResistanceSM
 
 Familiar									KEY:Companion ~ Familiar				CATEGORY:Special Ability																																																																																															
-	ABILITY:Familiar Class Feature|AUTOMATIC|Familiar ~ Intelligence Score|PREVARGTEQ:MasterLevel,1|PREVAREQ:CF_FamiliarIntelligenceScore,0
-	ABILITY:Familiar Class Feature|AUTOMATIC|Familiar ~ Natural Armor Bonus|PREVARGTEQ:MasterLevel,1|PREVAREQ:CF_FamiliarNaturalArmorBonus,0
-	ABILITY:Familiar Class Feature|AUTOMATIC|Familiar ~ Alertness|PREVARGTEQ:MasterLevel,1|PREVAREQ:CF_FamiliarAlertness,0
-	ABILITY:Familiar Class Feature|AUTOMATIC|Familiar ~ Improved Evasion|PREVARGTEQ:MasterLevel,1|PREVAREQ:CF_FamiliarImprovedEvasion,0
-	ABILITY:Familiar Class Feature|AUTOMATIC|Familiar ~ Scry on Familiar|PREVARGTEQ:MasterLevel,13|PREVAREQ:CF_FamiliarScryonFamiliar,0
-	ABILITY:Familiar Class Feature|AUTOMATIC|Familiar ~ Empathic Link|PREVARGTEQ:MasterLevel,1|PREVAREQ:CF_FamiliarEmpathicLink,0
-	ABILITY:Familiar Class Feature|AUTOMATIC|Familiar ~ Deliver Touch Spells|PREVARGTEQ:MasterLevel,3|PREVAREQ:CF_FamiliarDeliverTouchSpells,0
-	ABILITY:Familiar Class Feature|AUTOMATIC|Familiar ~ Speak with Master|PREVARGTEQ:MasterLevel,5|PREVAREQ:CF_FamiliarSpeakwithMaster,0
-	ABILITY:Familiar Class Feature|AUTOMATIC|Familiar ~ Speak with Animals of Its Kind|PREVARGTEQ:MasterLevel,7|PREVAREQ:CF_FamiliarSpeakwithAnimalsofItsKind,0
-	ABILITY:Familiar Class Feature|AUTOMATIC|Familiar ~ Spell Resistance|PREVARGTEQ:MasterLevel,11|PREVAREQ:CF_FamiliarSpellResistance,0
-	ABILITY:Familiar Class Feature|AUTOMATIC|Familiar ~ Share Spells|PREVARGTEQ:MasterLevel,1|PREVAREQ:CF_FamiliarShareSpells,0	
+CATEGORY=Special Ability|Companion ~ Familiar.MOD	ABILITY:Familiar Class Feature|AUTOMATIC|Familiar ~ Intelligence Score|PREVARGTEQ:MasterLevel,1|PREVAREQ:CF_FamiliarIntelligenceScore,0
+CATEGORY=Special Ability|Companion ~ Familiar.MOD	ABILITY:Familiar Class Feature|AUTOMATIC|Familiar ~ Natural Armor Bonus|PREVARGTEQ:MasterLevel,1|PREVAREQ:CF_FamiliarNaturalArmorBonus,0
+CATEGORY=Special Ability|Companion ~ Familiar.MOD	ABILITY:Familiar Class Feature|AUTOMATIC|Familiar ~ Alertness|PREVARGTEQ:MasterLevel,1|PREVAREQ:CF_FamiliarAlertness,0
+CATEGORY=Special Ability|Companion ~ Familiar.MOD	ABILITY:Familiar Class Feature|AUTOMATIC|Familiar ~ Improved Evasion|PREVARGTEQ:MasterLevel,1|PREVAREQ:CF_FamiliarImprovedEvasion,0
+CATEGORY=Special Ability|Companion ~ Familiar.MOD	ABILITY:Familiar Class Feature|AUTOMATIC|Familiar ~ Scry on Familiar|PREVARGTEQ:MasterLevel,13|PREVAREQ:CF_FamiliarScryonFamiliar,0
+CATEGORY=Special Ability|Companion ~ Familiar.MOD	ABILITY:Familiar Class Feature|AUTOMATIC|Familiar ~ Empathic Link|PREVARGTEQ:MasterLevel,1|PREVAREQ:CF_FamiliarEmpathicLink,0
+CATEGORY=Special Ability|Companion ~ Familiar.MOD	ABILITY:Familiar Class Feature|AUTOMATIC|Familiar ~ Deliver Touch Spells|PREVARGTEQ:MasterLevel,3|PREVAREQ:CF_FamiliarDeliverTouchSpells,0
+CATEGORY=Special Ability|Companion ~ Familiar.MOD	ABILITY:Familiar Class Feature|AUTOMATIC|Familiar ~ Speak with Master|PREVARGTEQ:MasterLevel,5|PREVAREQ:CF_FamiliarSpeakwithMaster,0
+CATEGORY=Special Ability|Companion ~ Familiar.MOD	ABILITY:Familiar Class Feature|AUTOMATIC|Familiar ~ Speak with Animals of Its Kind|PREVARGTEQ:MasterLevel,7|PREVAREQ:CF_FamiliarSpeakwithAnimalsofItsKind,0
+CATEGORY=Special Ability|Companion ~ Familiar.MOD	ABILITY:Familiar Class Feature|AUTOMATIC|Familiar ~ Spell Resistance|PREVARGTEQ:MasterLevel,11|PREVAREQ:CF_FamiliarSpellResistance,0
+CATEGORY=Special Ability|Companion ~ Familiar.MOD	ABILITY:Familiar Class Feature|AUTOMATIC|Familiar ~ Share Spells|PREVARGTEQ:MasterLevel,1|PREVAREQ:CF_FamiliarShareSpells,0	
 
 ###Block: Familiar Abilities
 # Ability Name				Unique Key							Category of Ability		Type														Description																																																																													Spell Res.				Source Page
