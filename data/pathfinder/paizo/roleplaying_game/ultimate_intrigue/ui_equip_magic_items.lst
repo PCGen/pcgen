@@ -21,7 +21,7 @@ Costume Bureau							TYPE:Magic.Wondrous.GreaterMinor				COST:7000		WT:175		SOUR
 Courier's Secure Pouch						TYPE:Magic.Wondrous.LesserMinor				COST:1600		WT:2			SOURCEPAGE:p.245
 Communique Ring							TYPE:Magic.Ring.GreaterMinor					COST:6000					SOURCEPAGE:p.241
 Deadened Shadows Cloak						TYPE:Magic.Wondrous.Cloak.GreaterMajor			COST:63250		WT:2			SOURCEPAGE:p.246
-Deck of Doors							TYPE:Magic.Wondrous.LesserMedium				COST:12150					SOURCEPAGE:p.246
+Deck of Doors							TYPE:Magic.Wondrous.LesserMedium				COST:12150			EQMOD:Special Ability ~ Charged Item / 54 Maximum|CHARGES[54]	SOURCEPAGE:p.246
 Fan of Flirting							TYPE:Magic.Wondrous.LesserMinor				COST:1700					SOURCEPAGE:p.246
 Ghost Needle							TYPE:Magic.Wondrous.Consumable.LesserMinor		COST:3600					SOURCEPAGE:p.246
 Glass of Veils							TYPE:Magic.Wondrous.GreaterMajor				COST:53000		WT:40			SOURCEPAGE:p.247
