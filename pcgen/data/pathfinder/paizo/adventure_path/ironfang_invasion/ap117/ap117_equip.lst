@@ -1,7 +1,0 @@
-SOURCELONG:Ironfang Invasion, Chapter 3 - Assault on Longshadow	SOURCESHORT:AP117	SOURCEWEB:http://paizo.com/products/btpy9p1h	SOURCEDATE:2017-04
-# ORIGINAL ENTRY: Gary Davies
-# ORIGINAL ENTRY DATE: 2017-06
-
-# New Magic Items
-# Equipment Name											Type										Cost		Weight								Source Page			Save bonus						Special Property
-Skelterhide												TYPE:Magic.Wondrous.Cloak						COST:4500	WT:1								SOURCEPAGE:p.30		BONUS:SAVE|Fortitude,Reflex|1|TYPE=Resistance		BONUS:SAVE|Will|2|TYPE=Resistance		SPROP:Once per round, the wearer can reroll the percentile dice when determining her actions while confused and choose the desired result. Once the cloak is donned, the wearer cannot speak or write; she can communicate only in unintelligible growls. The wearer still understands language as normal. If the wearer suffers from one or more permanent mental afflictions that alter her behavior, such as insanity or the effects of a helm of opposite alignment, for 15 minutes per day she can function as if unaffected by these conditions. This time does not need to be used all at once, but must be used in 1-minute increments.

@@ -1,9 +1,0 @@
-# CVS $Revision: $ $Author: $ -- Thu Sep 26 01:19:49 2013 -- reformated by prettylst.pl v1.50 (build 21406)
-# Author: Henk Slaaf
-SOURCELONG:Orcs of Golarion	SOURCESHORT:OOG	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy8fvz	SOURCEDATE:2010-12
-
-# Template Name						Visible	Source Page		Region
-Regional Affinity (Belkzen)				VISIBLE:NO	SOURCEPAGE:p.23	REGION:Belkzen
-Regional Affinity (Realm of the Mammoth Lords)	VISIBLE:NO	SOURCEPAGE:p.23	REGION:Realm of the Mammoth Lords
-Regional Affinity (Ustalav)				VISIBLE:NO	SOURCEPAGE:p.23	REGION:Ustalav
-Regional Affinity (River Kingdoms)			VISIBLE:NO	SOURCEPAGE:p.23	REGION:The River Kingdoms

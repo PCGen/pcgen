@@ -1,9 +1,0 @@
-# CVS $Revision: $ $Author: $ -- Wed Dec 10 01:48:21 2014 -- reformated by prettylst.pl v1.51 (build 25712)
-SOURCELONG:Orcs of Golarion	SOURCESHORT:OOG	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy8fvz	SOURCEDATE:2010-12
-# Original Entry by: Henk Slaaf
-
-# Spells: all spells on pages 28-29 except enemy's heart and shield the banner;
-
-# Spell Name		Type			!PRECHARACTERTYPE
-Enemy's Heart.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
-Shield the Banner.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC

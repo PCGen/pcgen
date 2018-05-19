@@ -1,8 +1,0 @@
-# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
-
-
-# Ability Category						Visible		Editable?		Change Pool?												Category of Object		Type of Object																					Display Location
-ABILITYCATEGORY:Technomancer Class Feature		VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO													CATEGORY:Special Ability	TYPE:Technomancer Class Feature																		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Technic Training Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability									ABILITYLIST:Techslinger ~ Technic Training Choice	PLURAL:Technic Training Choices	DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Techslinger Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_TechslingerBonusFeat		CATEGORY:FEAT			TYPE:GunslingerFeat.Combat.Grit.Techslinger										PLURAL:Techslinger Feats		DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Techslinger Bonus Feat Selection	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_TechslingerBonusFeatPoolChoice	CATEGORY:Internal			TYPE:Techslinger Bonus Feat Selection																	DISPLAYLOCATION:Feats

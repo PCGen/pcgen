@@ -1,3 +1,0 @@
-# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
-# Skill Name	Key Stat	Untrained?		Type					Bonus to skill
-Craft (Tattoos)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft.Base	BONUS:SKILL|Craft (Tattoos)|3|TYPE=ClassSkill|PRECSKILL:1,Craft (Tattoos)|PRESKILL:1,Craft (Tattoos)=1										TEMPDESC:Craft skill checks are made with a -2 circumstance penalty if improvised tools are used							TEMPBONUS:PC|SKILL|Craft (Tattoos)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=CraftToolsTattoos

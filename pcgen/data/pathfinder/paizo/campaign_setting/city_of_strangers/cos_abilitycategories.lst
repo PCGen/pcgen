@@ -1,5 +1,0 @@
-# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
-
-# Ability Category				Visible		Editable?		Change Pool?	Category of Object		Type of Object			Plural description for UI		Display Location
-ABILITYCATEGORY:Bloatmage Class Feature	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Bloatmage Class Feature	PLURAL:Bloatmage Class Features	DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Caulborn Race Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Caulborn Race Trait	PLURAL:Caulborn Race Traits		DISPLAYLOCATION:Racial Abilities

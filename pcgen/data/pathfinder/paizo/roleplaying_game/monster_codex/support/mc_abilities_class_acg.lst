@@ -1,6 +1,0 @@
-SOURCELONG:Monster Codex	SOURCESHORT:MC	SOURCEWEB:http://paizo.com/products/btpy9926	SOURCEDATE:2014-11
-
-
-###Block: Arcanist Bloodline Development Exploit -- Goes in ACG or ACG support _abilities_class.lst
-
-Ghoul Bloodline		CATEGORY:Arcanist Bloodline Development		TYPE:SorcererBloodlineChoice		BONUS:VAR|Sorcerer_Ghoul_BloodlineLVL|1|!PREABILITY:1,CATEGORY=Sorcerer Bloodline,Ghoul Bloodline|!PREABILITY:1,CATEGORY=Crossblooded Bloodline,Ghoul Bloodline		BONUS:VAR|Sorcerer_Ghoul_BloodlineLVL|ArcanistLVL|PREMULT:1,[PREABILITY:1,CATEGORY=Sorcerer Bloodline,Ghoul Bloodline],[PREABILITY:1,CATEGORY=Crossblooded Bloodline,Ghoul Bloodline]		BONUS:VAR|Sorcerer_Ghoul_BloodlinePower1LVL|1|!PREABILITY:1,CATEGORY=Sorcerer Bloodline,Ghoul Bloodline|!PREABILITY:1,CATEGORY=Crossblooded Bloodline,Ghoul Bloodline		ABILITY:Special Ability|AUTOMATIC|TYPE=Ghoul Bloodline ~ Power LVL 01		ABILITY:Special Ability|AUTOMATIC|Sorcerer Bloodline ~ Ghoul

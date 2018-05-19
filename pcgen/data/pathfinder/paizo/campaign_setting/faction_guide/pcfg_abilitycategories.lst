@@ -1,7 +1,0 @@
-# CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
-# SOURCELONG:Pathfinder Chronicles: Faction Guide	SOURCESHORT:PCFG	SOURCEWEB:http://paizo.com/products/btpy8emo?Pathfinder-Chronicles-Faction-Guide	SOURCEDATE:2010-06
-# ORIGINAL ENTRY: Gwen T. (evilpixie87)
-# ORIGINAL ENTRY DATE: 18 March 2017
-
-ABILITYCATEGORY:Ki Diversity Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:KiDiversityAbility			PLURAL:Ki Diversity Choices			DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Whispered Knowledge Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:WhisperedKnowledgeAbility	PLURAL:Whispered Knowledge Choices		DISPLAYLOCATION:Feats

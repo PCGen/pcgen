@@ -1,8 +1,0 @@
-SOURCELONG:Pathfinder Society Primer	SOURCESHORT:PFSP
-
-# Feats
-Planned Spontaneity	CATEGORY:FEAT	TYPE:General.WizardBonus	PRESKILL:1,Knowledge (Arcana)=9	PRESPELLCAST:MEMORIZE=Y	PRESPELLTYPE:1,ANY=4	DESC:You have a measure of flexibility when preparing spells.	BENEFIT:Once per day when you prepare spells, you can designate one spell slot from each of up to three different spell levels that are lower than the highest-level spell that you can cast. In each designated slot you can memorize two different spells of the respective level. You can cast either spell as normal, but when you do, the spell consumes both of the spells prepared in that spell slot.	SOURCEPAGE:p.13
-
-#
-# End
-#

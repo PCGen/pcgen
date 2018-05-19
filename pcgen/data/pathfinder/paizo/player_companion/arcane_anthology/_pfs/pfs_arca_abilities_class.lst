@@ -1,8 +1,0 @@
-# CVS $Revision: $ $Author: $ -- Thu May 12 15:10:23 2016 -- reformated by PCGen PrettyLST v6.06.00
-SOURCELONG:Arcane Anthology	SOURCESHORT:ArcA	SOURCEWEB:http://paizo.com/products/btpy9i8l	SOURCEDATE:2016-01
-
-CATEGORY=Archetype|Magus Archetype ~ Deep Marshal.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
-CATEGORY=Archetype|Rogue Archetype ~ Eldritch Scoundrel.MOD			!PRECLASS:1,Rogue ~ Unchained Class=1
-
-CATEGORY=Archetype|Anointing ~ Eldritch Enhancement.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
-CATEGORY=Special Ability|Masterpiece ~ Arrowsong's Lament.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC

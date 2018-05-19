@@ -1,9 +1,0 @@
-# CVS $Revision: 21640 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
-SOURCELONG:Heroes of the Street	SOURCESHORT:HotS	SOURCEWEB:http://paizo.com/products/btpy9ghc?Pathfinder-Player-Companion-Heroes-of-the-Streets	SOURCEDATE:2015-10
-# Original Entry By: Gwen T. (evilpixie87)
-
-CATEGORY=FEAT|Cunning Caster.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
-CATEGORY=FEAT|Guild Emissary.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
-CATEGORY=FEAT|Subtle Devices.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
-CATEGORY=FEAT|Throat Slicer.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
-CATEGORY=FEAT|Underworld Connections.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC

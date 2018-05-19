@@ -1,9 +1,0 @@
-# CVS $Revision: $ $Author: $ -- Mon May  9 15:19:00 2016 -- reformated by PCGen PrettyLST v6.06.00
-SOURCELONG:Blood of the Elements	SOURCESHORT:BOTE	SOURCEWEB:http://paizo.com/products/btpy978p	SOURCEDATE:2014-06
-# ORIGINAL ENTRY: Gwen T. (evilpixie87)
-# ORIGINAL ENTRY DATE: 4 April 2016
-
-
-# Spell Name	Type				Classes of caster							School			Sub-School			Descriptor				Components	Casting Time			Range			Target Area or Effect	Duration						Save Info					Spell Resistance		Source Page		Description
-Enshroud Thoughts	TYPE:Arcane.Divine	CLASSES:Alchemist,Bard,Inquisitor,Witch=2|Ranger=3	SCHOOL:Enchantment					DESCRIPTOR:Mind-Affecting	COMPS:V, S	CASTTIME:1 standard action	RANGE:Personal	TARGETAREA:You		DURATION:(10*CASTERLEVEL) minutes [D]	SAVEINFO:Will negates (harmless)	SPELLRES:Yes (harmless)	SOURCEPAGE:p.13	DESC:You become warded against the mental prying of others, including divination spells and enchantment spells like modify memory and memory lapse. If another creature attempts to target you with a mind-affecting spell that detects or alters your thoughts or memories, the caster must succeed at a caster level check against a DC of 11 + your caster level or the spell fails. Only spells that detect or alter your thoughts or memories are blocked by this spell; effects such as locate creature, detect evil, and clairaudience/clairvoyance continue to affect you as normal.
-Storm Step		TYPE:Arcane			CLASSES:Magus,Sorcerer,Wizard,Witch=3			SCHOOL:Conjuration	SUBSCHOOL:Teleportation	DESCRIPTOR:Electricity		COMPS:V, S	CASTTIME:1 standard action	RANGE:Close		TARGETAREA:You		DURATION:Instantaneous				SAVEINFO:Reflex halves			SPELLRES:Yes		SOURCEPAGE:p.13	DESC:You are able to transport yourself a short distance as a bolt of electricity. Creatures and objects in the path of your passage take (min(5,CASTERLEVEL/2))d8 points of electricity damage. A successful Reflex save halves the damage.

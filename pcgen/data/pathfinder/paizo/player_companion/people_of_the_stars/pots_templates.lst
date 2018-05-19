@@ -1,5 +1,0 @@
-# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
-
-# Template Name			Visible	Bonus Languages
-Bonus Language ~ Any Spoken	VISIBLE:NO	LANGBONUS:TYPE=Spoken
-Bonus Language ~ Kasatha	VISIBLE:NO	LANGBONUS:Draconic,Dwarven,Gnoll,Orc,Sphinx

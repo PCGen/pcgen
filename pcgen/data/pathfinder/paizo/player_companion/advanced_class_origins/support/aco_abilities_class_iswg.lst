@@ -1,8 +1,0 @@
-# CVS $Revision: 12957 $ $Author: jbaril $ -- Sun Jul  6 20:02:09 2014 -- reformated by prettylst.pl v1.51 (build 23662)
-SOURCELONG:Advanced Class Origins	SOURCESHORT:ACO	SOURCEWEB:http://paizo.com/products/btpy92zi	SOURCEDATE:2014-08
-
-# ==============================
-# New Arcane Exploits
-# ==============================
-
-Third Eye								KEY:Arcanist Exploit ~ Third Eye					CATEGORY:Special Ability	TYPE:ArcanistExploit.SpecialQuality.Supernatural	PREABILITY:1,CATEGORY=FEAT,Eye of the Arclord								SOURCEPAGE:p.7		DESC:The arcanist can open her eye of the Arclord one additional time each day by expending 1 point from her arcane reservoir. She can gain more uses, but each subsequent use costs 1 additional point from her reservoir (2 points for the second additional use, 3 points for the third use, and so on). The arcanist must have the Eye of the Arclord feat to select this exploit.

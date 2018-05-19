@@ -1,8 +1,0 @@
-# CVS $Revision: $ $Author: $ -- Thu May 12 15:10:23 2016 -- reformated by PCGen PrettyLST v6.06.00
-###Block: Anointings
-# Ability Category								Visible			Editable?		Change Pool?						Category of Object			Type of Object											Plural description for UI						Display Location
-ABILITYCATEGORY:Anointing						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Anointing										PLURAL:Anointings						DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Artifice Domain Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Artifice Domain Choice								PLURAL:Artifice Domain Choices			DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Discovery						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:FEAT			TYPE:Discovery										PLURAL:Wizard Discoveries				DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Eldritch Scoundrel Talent				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RogueTalent.Ninjatrick								PLURAL:Eldritch Scoundrel Talents			DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Advanced Eldritch Scoundrel Talent		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RogueTalent.Ninjatrick.RogueAdvancedTalent.AdvancedNinjaTrick	PLURAL:Advanced Eldritch Scoundrel Talents	DISPLAYLOCATION:Class Features

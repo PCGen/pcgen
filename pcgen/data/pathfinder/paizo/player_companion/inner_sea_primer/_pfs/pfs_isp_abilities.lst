@@ -1,6 +1,0 @@
-# CVS $Revision: 19436 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
-SOURCELONG:Inner Sea Primer	SOURCESHORT:ISP	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/companion/pathfinderRPG/v5748btpy8hih	SOURCEDATE:2010-11
-# Original Entry by:Stefan Radermacher
-
-# Ability Name							Clear Description	Description
-CATEGORY=Special Ability|Trait ~ Ustalavic Noble.MOD	DESC:.CLEAR		DESC:You come from an aristocratic family, though your family has long since lost any power or prestige it once had. You gain a +1 trait bonus on Diplomacy and Knowledge (nobility) checks. In PFS, you do NOT get starting gold increased by 100 gp - your "birthright," such as it is.

@@ -1,5 +1,0 @@
-# CVS $Revision: $ $Author: $ -- Thu May 12 14:50:48 2016 -- reformated by PCGen PrettyLST v6.06.00
-
-
-# Ability Category											Editable?		Change Pool?	Category of Object		Specific choices list								Display Location
-ABILITYCATEGORY:Masterpiece ~ Battle Song of the People's Revolt	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	ABILITYLIST:Masterpiece ~ Battle Song of the People's Revolt	DISPLAYLOCATION:Feats

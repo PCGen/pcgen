@@ -1,5 +1,0 @@
-# CVS $Revision: 21640 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
-# SOURCELONG:Bestiary 4	SOURCESHORT:B4	SOURCEWEB:http://paizo.com/products/btpy91ds?Pathfinder-Roleplaying-Game-Bestiary-4	SOURCEDATE:2013-10
-
-ABILITYCATEGORY:Hag Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HagRacialTrait							PLURAL:Hag Racial Traits				DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Shards Bonus					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ShardsBonus								PLURAL:Shards Bonuses					DISPLAYLOCATION:Racial Abilities

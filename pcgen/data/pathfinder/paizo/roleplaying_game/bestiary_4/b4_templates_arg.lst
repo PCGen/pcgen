@@ -1,8 +1,0 @@
-# CVS $Revision: 21640 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
-SOURCELONG:Bestiary 4	SOURCESHORT:B4	SOURCEWEB:http://paizo.com/products/btpy91ds?Pathfinder-Roleplaying-Game-Bestiary-4	SOURCEDATE:2013-10
-
-Default Language ~ Kitsune		VISIBLE:NO																																																																																														AUTO:LANG|Common|Sylvan		LANGBONUS:Aklo,Celestial,Elven,Gnome,Tengu,TYPE=ModernHumanLanguage
-Default Language ~ Nagaji		VISIBLE:NO																																																																																														AUTO:LANG|Common|Draconic	LANGBONUS:Abyssal,Aklo,Celestial,Draconic,Giant,Infernal,Sylvan,TYPE=ModernHumanLanguage
-Default Language ~ Samsaran		VISIBLE:NO																																																																																														AUTO:LANG|Common|Samsaran	LANGBONUS:Abyssal,Aquan,Auran,Celestial,Draconic,Giant,Ignan,Infernal,Tengu,Terran,TYPE=ModernHumanLanguage
-Default Language ~ Wayang		VISIBLE:NO																																																																																														AUTO:LANG|Common|Wayang		LANGBONUS:Abyssal,Aklo,Draconic,Goblin,Infernal,Samsaran,Tengu,TYPE=ModernHumanLanguage
-Bonus Language ~ Kasatha		VISIBLE:NO	LANGBONUS:Draconic,Dwarven,Gnoll,Orc,Sphinx

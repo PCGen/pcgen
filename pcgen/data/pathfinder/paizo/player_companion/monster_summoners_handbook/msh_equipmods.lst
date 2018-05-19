@@ -1,9 +1,0 @@
-SOURCELONG:Monster Summoner's Handbook	SOURCESHORT:MSH	SOURCEWEB:http://paizo.com/products/btpy9ela?Pathfinder-Player-Companion-Monster-Summoners-Handbook	SOURCEDATE:2015-07
-# ORIGINAL ENTRY: Gwen T. (evilpixie87)
-# ORIGINAL ENTRY DATE: 2 May 2017
-
-# ==============================
-# Weapon Ability
-# ==============================
-
-Summon Bane			KEY:Special Ability ~ Summon Bane ~ Weapon		TYPE:Weapon.Melee.Ranged		PLUS:1			VISIBLE:QUALIFY				SOURCEPAGE:p.21	PRETYPE:1,Enhancement	PRETYPE:2,Weapon,Melee,Ranged			SPROP:+2 enhancement bonus and does +2d6 bonus damage against summoned creatures.

@@ -1,6 +1,0 @@
-# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
-
-
-# Ability Category						Editable?		Change Pool?	Base Pool number					Category of Object		Type of Object				Display Location
-ABILITYCATEGORY:Against the Technic League Selection	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Against the Technic League	DISPLAYLOCATION:Traits
-ABILITYCATEGORY:Skymetal Smith Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Skymetal Smith			DISPLAYLOCATION:Traits

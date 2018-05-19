@@ -1,9 +1,0 @@
-# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
-SOURCELONG:Orcs of Golarion	SOURCESHORT:OOG	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy8fvz	SOURCEDATE:2010-12
-
-# Feats: all feats on pages 24-25 except Destroyer's Blessing and Fire God's Blessing;
-
-# Feat Name				Type			Visible
-# Ability Name					Type			!PRECHARACTERTYPE
-CATEGORY=FEAT|Destroyer's Blessing.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
-CATEGORY=FEAT|Fire God's Blessing.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC

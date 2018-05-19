@@ -1,6 +1,0 @@
-# CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
-SOURCELONG:Blood of the Beast	SOURCESHORT:BOTB	SOURCEWEB:http://paizo.com/products/btpy9oo8?Pathfinder-Player-Companion-Blood-of-the-Beast	SOURCEDATE:2016-12
-# ORIGINAL ENTRY: Gwen T. (evilpixie87)
-# ORIGINAL ENTRY DATE: 14 March 2017
-
-Companion Advancement (Snake (Riding Constrictor))	KEY:Companion Advancement ~ Snake (Riding Constrictor)		CATEGORY:Special Ability	TYPE:CompanionAdvancement	VISIBLE:DISPLAY	PRERACE:1,Companion (Snake (Riding Constrictor))													ABILITY:Special Ability|AUTOMATIC|Constrict																		BONUS:VAR|AC_Natural_Armor|-1|TYPE=Base.STACK

@@ -1,8 +1,0 @@
-# CVS $Revision: $ $Author: $ -- Tue Mar  1 13:39:00 2016 -- reformated by PCGen PrettyLST v6.06.00
-SOURCELONG:Knights of the Inner Sea	SOURCESHORT:KOTIS	SOURCEWEB:http://paizo.com/products/	SOURCEDATE:2012-09
-# Original Entry by:Stefan Radermacher
-
-###Block; New situations
-# Skill Name	Situational Skill
-Diplomacy.MOD	SITUATION:Improve attitude of oppressed subjects
-Sense Motive.MOD	SITUATION:Detect lies
