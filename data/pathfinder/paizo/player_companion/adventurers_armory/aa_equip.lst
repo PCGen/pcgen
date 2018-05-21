@@ -41,7 +41,7 @@ Hourglass (1 minute)																			TYPE:Goods.General								COST:20	WT:0.5	
 Hourglass (6 seconds)																			TYPE:Goods.General								COST:10	WT:0																		SOURCEPAGE:p.7
 Iron Spike																					TYPE:Goods.General								COST:0.05	WT:1																		SOURCEPAGE:p.7
 Iron Vial																					TYPE:Goods.General								COST:0.1	WT:1																		SOURCEPAGE:p.7								SPROP:hardness 5, 3 hit points, and break DC 14
-# Waterproof lantern is an EQMOD for Lantern (might be good to switch it to LightSource to apply to non core lantern?)
+# Waterproof lantern is an EQMOD for Lantern (might be good to switch it to Light Source to apply to non core lantern?)
 Lantern (Bullseye).MOD																			TYPE:Lantern
 Lantern (Hooded).MOD																			TYPE:Lantern
 Magnet																					TYPE:Goods.General								COST:0.5	WT:0.5																	SOURCEPAGE:p.7

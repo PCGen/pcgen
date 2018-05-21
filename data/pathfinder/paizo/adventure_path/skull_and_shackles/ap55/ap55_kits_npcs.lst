@@ -112,9 +112,9 @@ GEAR:Masterwork Rapier					LOCATION:Equipped
 GEAR:Bolts (Crossbow/10)		QTY:2		LOCATION:Carried
 GEAR:Crossbow (Heavy)					LOCATION:Carried
 GEAR:Dagger							LOCATION:Carried
-GEAR:Holy Symbol (Wooden)				LOCATION:Carried
-GEAR:Scroll (Cure Light Wounds)	QTY:2		LOCATION:Carried
-GEAR:Scroll (Cure Moderate Wounds)			LOCATION:Carried
+GEAR:Holy Symbol	EQMOD:Holy Symbol (Wooden)				LOCATION:Carried
+GEAR:Scroll of Cure Light Wounds	QTY:2		LOCATION:Carried
+GEAR:Scroll of Cure Moderate Wounds			LOCATION:Carried
 GEAR:Tindertwig				QTY:10	LOCATION:Carried
 GEAR:Coin (Gold Piece)			QTY:35	LOCATION:Not Carried
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Instant Armor

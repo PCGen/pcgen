@@ -18,7 +18,7 @@ Guardian		KEY:Special Ability ~ Guardian ~ Melee	TYPE:Weapon.Melee			PLUS:1			VI
 
 
 # Supposedly legal...
-Agile			KEY:Special Ability ~ Agile ~ Amulet of Mighty Fists	TYPE:AmuletOfMightyFists	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.50										PRETYPE:1,EQMOD=Special Ability ~ Amulet of Mighty Fists Base					BONUS:WEAPONPROF=TYPE.Natural|DAMAGE|(max(STR,DEX)-STR)|TYPE=NotRanged										SPROP:dex bonus to damage using Weapon Finesse and Finessable weapon																															ABILITY:Special Ability|AUTOMATIC|Unarmed Agile	SORTKEY:+1
+Agile			KEY:Special Ability ~ Agile ~ Amulet of Mighty Fists	TYPE:Amulet of Mighty Fists	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.50										PRETYPE:1,EQMOD=Special Ability ~ Amulet of Mighty Fists Base					BONUS:WEAPONPROF=TYPE.Natural|DAMAGE|(max(STR,DEX)-STR)|TYPE=NotRanged										SPROP:dex bonus to damage using Weapon Finesse and Finessable weapon																															ABILITY:Special Ability|AUTOMATIC|Unarmed Agile	SORTKEY:+1
 
 #
 ###END

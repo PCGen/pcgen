@@ -273,8 +273,26 @@ EQMOD ~ PurposePower_CastSevenAtWill																			CATEGORY:Intelligent Item
 
 
 # Other Objects granting abilities:
-Siren Move																								CATEGORY:Internal																																																																																																																																								MOVE:Swim,60
-Belt of Dwarvenkind ~ Languages																				CATEGORY:Special Ability	TYPE:WondrousItem																																																																																																																																						AUTO:LANG|Dwarven
+Pearl of the Sirines ~ Swim Speed				CATEGORY:Equipment	MOVE:Swim,60
+Belt of Dwarvenkind ~ Languages				CATEGORY:Equipment				AUTO:LANG|Dwarven
+Belt of Dwarvenkind ~ Skill Bonus ~ Dwarves		CATEGORY:Equipment							ASPECT:SkillBonus|+4 competence bonus on Charisma checks and Charisma-based skill checks as they relate to dealing with dwarves.
+Belt of Dwarvenkind ~ Skill Bonus ~ Gnomes/Halflings	CATEGORY:Equipment							ASPECT:SkillBonus|+2 competence bonus on Charisma checks and Charisma-based skill checks when dealing with gnomes and halflings.
+Belt of Dwarvenkind ~ Skill Penalty ~ Everyone Else	CATEGORY:Equipment							ASPECT:SkillBonus|-2 competence penalty on Charisma checks and Charisma-based skill checks when dealing with anyone else.
+Boots of the Winterlands ~ Snow Travel			CATEGORY:Equipment							ASPECT:CombatBonus|Travel across snow at your normal speed, leaving no tracks.
+Boots of the Winterlands ~ Slippery Ice			CATEGORY:Equipment							ASPECT:CombatBonus|Travel at normal speed across the most slippery ice without falling or slipping.
+Boots of the Winterlands ~ Save Bonus			CATEGORY:Equipment							ASPECT:SaveBonus|Boots of the winterlands warm the wearer, as if affected by an endure elements spell.
+Cloak of Arachnida ~ Spider Climb				CATEGORY:Equipment							ASPECT:CombatBonus|You can climb as if a spider climb spell had been placed upon you.
+Cloak of Arachnida ~ Web Immunity				CATEGORY:Equipment							ASPECT:CombatBonus|Immunity to entrapment by web spells or webs of any sort.
+Cloak of Arachnida ~ Web Move Speed				CATEGORY:Equipment							ASPECT:CombatBonus|You can move in webs at half your normal speed.
+Cloak of Arachnida ~ Save Bonus				CATEGORY:Equipment							ASPECT:SaveBonus|+2 luck bonus on all Fortitude saves against poison from spiders.
+Cloak of Displacement (Minor) ~ Miss Chance		CATEGORY:Equipment							ASPECT:CombatBonus|Attacks against you have a 20%% chance to miss.
+Horseshoes of a Zephyr ~ Movement				CATEGORY:Equipment							ASPECT:CombatBonus|You travel without actually touching the ground. You run above (always around 4 inches above) a roughly horizontal surface. This means that non-solid or unstable surfaces can be crossed, and that movement is possible without leaving tracks on any sort of ground.
+Periapt of Health ~ Immunities				CATEGORY:Equipment							ASPECT:SaveBonus|Immune to disease, including supernatural diseases.
+Periapt of Proof Against Poison ~ Immunities		CATEGORY:Equipment							ASPECT:SaveBonus|Immune to poison.
+Periapt of Wound Closure ~ Wound Stability		CATEGORY:Equipment							ASPECT:CombatBonus|You automatically become stable if your hit points drop below 0 (but not if the damage is enough to kill you).
+Periapt of Wound Closure ~ Healing Rate			CATEGORY:Equipment							ASPECT:CombatBonus|Your normal rate of healing is doubled and you heal wounds that would not do so normally.
+Periapt of Wound Closure ~ Bleed Immunity			CATEGORY:Equipment							ASPECT:CombatBonus|Hit point damage caused by bleeding is negated for you, but you are still susceptible to damage from bleeding that causes ability damage or drain.
+Stone of Good Luck ~ Ability Bonus				CATEGORY:Equipment							ASPECT:CombatBonus|+1 luck bonus on ability checks.
 
 
 SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08

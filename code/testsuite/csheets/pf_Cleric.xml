@@ -1047,7 +1047,7 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Outfit (Traveler&#39;s)</longname>
+			<longname>Outfit, Traveler&#39;s</longname>
 			<id></id>
 			<name>Traveler&#39;s Outfit</name>
 			<carried>1.0</carried>
@@ -1131,7 +1131,7 @@ BIO
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
-			<contents>9.5 lbs., 2 Amethyst, 1 10 Bolts, 1 Citrine, 10 Coin (Gold Piece), 5 Coin (Platinum Piece), 10 Coin (Silver Piece), 1 Light Crossbow, 1 Potion of Cure Light Wounds, 4 Rations (Trail/Per Day)</contents>
+			<contents>9.5 lbs., 2 Amethyst, 1 10 Bolts, 1 Citrine, 10 Gold Piece, 5 Platinum Piece, 10 Silver Piece, 1 Light Crossbow, 1 Potion of Cure Light Wounds, 4 Trail Ration</contents>
 			<contents_num>9</contents_num>
 			<content_weight>9.5</content_weight>
 			<cost>2</cost>
@@ -1162,7 +1162,7 @@ BIO
 			<content_weight>0</content_weight>
 			<cost>0.1</cost>
 			<equipped>N</equipped>
-			<location>Horse (Light/Combat Trained)</location>
+			<location>Light Horse (Combat Trained)</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>1</quantity>
@@ -1177,9 +1177,9 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Blanket (Winter)</longname>
+			<longname>Blanket, Winter</longname>
 			<id></id>
-			<name>Blanket (Winter)</name>
+			<name>Winter Blanket</name>
 			<carried>0.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -1188,7 +1188,7 @@ BIO
 			<content_weight>0</content_weight>
 			<cost>0.5</cost>
 			<equipped>N</equipped>
-			<location>Horse (Light/Combat Trained)</location>
+			<location>Light Horse (Combat Trained)</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>1</quantity>
@@ -1240,7 +1240,7 @@ BIO
 			<content_weight>0</content_weight>
 			<cost>1</cost>
 			<equipped>N</equipped>
-			<location>Horse (Light/Combat Trained)</location>
+			<location>Light Horse (Combat Trained)</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>1</quantity>
@@ -1281,9 +1281,9 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Coin (Gold Piece)</longname>
+			<longname>Coin, Gold Piece</longname>
 			<id></id>
-			<name>Coin (Gold Piece)</name>
+			<name>Gold Piece</name>
 			<carried>10.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -1307,9 +1307,9 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Coin (Platinum Piece)</longname>
+			<longname>Coin, Platinum Piece</longname>
 			<id></id>
-			<name>Coin (Platinum Piece)</name>
+			<name>Platinum Piece</name>
 			<carried>5.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -1333,9 +1333,9 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Coin (Silver Piece)</longname>
+			<longname>Coin, Silver Piece</longname>
 			<id></id>
-			<name>Coin (Silver Piece)</name>
+			<name>Silver Piece</name>
 			<carried>10.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -1385,9 +1385,9 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Holy Symbol (Silver)</longname>
+			<longname>Holy Symbol, Silver</longname>
 			<id></id>
-			<name>Holy Symbol (Silver)</name>
+			<name>Silver Holy Symbol</name>
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -1406,18 +1406,18 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>GOODS.TOOLS.SPELLCOMPONENT.DIVINEFOCUS</type>
+			<type>GOODS.TOOLS.SPELL COMPONENT.DIVINE FOCUS.HOLY SYMBOL</type>
 			<weight>1</weight>
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Horse (Light/Combat Trained)</longname>
+			<longname>Horse, Light (Combat Trained)</longname>
 			<id></id>
-			<name>Horse (Light/Combat Trained)</name>
+			<name>Light Horse (Combat Trained)</name>
 			<carried>0.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
-			<contents>43 lbs., 1 Saddle (Military), 1 Waterskin (Filled), 1 Bedroll, 1 Blanket (Winter), 1 10 Bolts</contents>
+			<contents>43 lbs., 1 Military Saddle, 1 Waterskin, 1 Bedroll, 1 Winter Blanket, 1 10 Bolts</contents>
 			<contents_num>5</contents_num>
 			<content_weight>43</content_weight>
 			<cost>110</cost>
@@ -1458,14 +1458,14 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties>Cures 1d8+1 points of damage</special_properties>
-			<type>MAGIC.POTION.CONSUMABLE</type>
+			<type>MAGIC.POTION.CONSUMABLE.COMBAT GEAR.ENHANCEMENT</type>
 			<weight>0</weight>
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Rations (Trail/Per Day)</longname>
+			<longname>Rations, Trail, Per Day</longname>
 			<id></id>
-			<name>Rations (Trail/Per Day)</name>
+			<name>Trail Ration</name>
 			<carried>4.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -1489,9 +1489,9 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Saddle (Military)</longname>
+			<longname>Saddle, Military</longname>
 			<id></id>
-			<name>Saddle (Military)</name>
+			<name>Military Saddle</name>
 			<carried>0.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -1500,7 +1500,7 @@ BIO
 			<content_weight>0</content_weight>
 			<cost>20</cost>
 			<equipped>N</equipped>
-			<location>Horse (Light/Combat Trained)</location>
+			<location>Light Horse (Combat Trained)</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>1</quantity>
@@ -1541,9 +1541,9 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Waterskin (Filled)</longname>
+			<longname>Waterskin, Filled</longname>
 			<id></id>
-			<name>Waterskin (Filled)</name>
+			<name>Waterskin</name>
 			<carried>0.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -1552,7 +1552,7 @@ BIO
 			<content_weight>0</content_weight>
 			<cost>1</cost>
 			<equipped>N</equipped>
-			<location>Horse (Light/Combat Trained)</location>
+			<location>Light Horse (Combat Trained)</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>1</quantity>
@@ -1663,7 +1663,7 @@ BIO
 				<carried>1.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
-				<contents>9.5 lbs., 2 Amethyst, 1 10 Bolts, 1 Citrine, 10 Coin (Gold Piece), 5 Coin (Platinum Piece), 10 Coin (Silver Piece), 1 Light Crossbow, 1 Potion of Cure Light Wounds, 4 Rations (Trail/Per Day)</contents>
+				<contents>9.5 lbs., 2 Amethyst, 1 10 Bolts, 1 Citrine, 10 Gold Piece, 5 Platinum Piece, 10 Silver Piece, 1 Light Crossbow, 1 Potion of Cure Light Wounds, 4 Trail Ration</contents>
 				<cost>2</cost>
 				<equipped>N</equipped>
 				<location>Carried</location>
@@ -1687,7 +1687,7 @@ BIO
 				<contents></contents>
 				<cost>0.1</cost>
 				<equipped>N</equipped>
-				<location>Horse (Light/Combat Trained)</location>
+				<location>Light Horse (Combat Trained)</location>
 				<maxcharges>0</maxcharges>
 				<note></note>
 				<quantity>1</quantity>
@@ -1701,14 +1701,14 @@ BIO
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Blanket (Winter)</name>
+				<name>Winter Blanket</name>
 				<carried>0.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
 				<contents></contents>
 				<cost>0.5</cost>
 				<equipped>N</equipped>
-				<location>Horse (Light/Combat Trained)</location>
+				<location>Light Horse (Combat Trained)</location>
 				<maxcharges>0</maxcharges>
 				<note></note>
 				<quantity>1</quantity>
@@ -1750,7 +1750,7 @@ BIO
 				<contents></contents>
 				<cost>1</cost>
 				<equipped>N</equipped>
-				<location>Horse (Light/Combat Trained)</location>
+				<location>Light Horse (Combat Trained)</location>
 				<maxcharges>0</maxcharges>
 				<note></note>
 				<quantity>1</quantity>
@@ -1785,7 +1785,7 @@ BIO
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Coin (Gold Piece)</name>
+				<name>Gold Piece</name>
 				<carried>10.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
@@ -1806,7 +1806,7 @@ BIO
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Coin (Platinum Piece)</name>
+				<name>Platinum Piece</name>
 				<carried>5.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
@@ -1827,7 +1827,7 @@ BIO
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Coin (Silver Piece)</name>
+				<name>Silver Piece</name>
 				<carried>10.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
@@ -1869,7 +1869,7 @@ BIO
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Holy Symbol (Silver)</name>
+				<name>Silver Holy Symbol</name>
 				<carried>1.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
@@ -1885,16 +1885,16 @@ BIO
 					<short>M</short>
 				</size>
 				<special_properties></special_properties>
-				<type>GOODS.TOOLS.SPELLCOMPONENT.DIVINEFOCUS</type>
+				<type>GOODS.TOOLS.SPELL COMPONENT.DIVINE FOCUS.HOLY SYMBOL</type>
 				<weight>1</weight>
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Horse (Light/Combat Trained)</name>
+				<name>Light Horse (Combat Trained)</name>
 				<carried>0.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
-				<contents>43 lbs., 1 Saddle (Military), 1 Waterskin (Filled), 1 Bedroll, 1 Blanket (Winter), 1 10 Bolts</contents>
+				<contents>43 lbs., 1 Military Saddle, 1 Waterskin, 1 Bedroll, 1 Winter Blanket, 1 10 Bolts</contents>
 				<cost>110</cost>
 				<equipped>N</equipped>
 				<location></location>
@@ -1927,12 +1927,12 @@ BIO
 					<short>M</short>
 				</size>
 				<special_properties>Cures 1d8+1 points of damage</special_properties>
-				<type>MAGIC.POTION.CONSUMABLE</type>
+				<type>MAGIC.POTION.CONSUMABLE.COMBAT GEAR.ENHANCEMENT</type>
 				<weight>0</weight>
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Rations (Trail/Per Day)</name>
+				<name>Trail Ration</name>
 				<carried>4.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
@@ -1953,14 +1953,14 @@ BIO
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Saddle (Military)</name>
+				<name>Military Saddle</name>
 				<carried>0.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
 				<contents></contents>
 				<cost>20</cost>
 				<equipped>N</equipped>
-				<location>Horse (Light/Combat Trained)</location>
+				<location>Light Horse (Combat Trained)</location>
 				<maxcharges>0</maxcharges>
 				<note></note>
 				<quantity>1</quantity>
@@ -1995,14 +1995,14 @@ BIO
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Waterskin (Filled)</name>
+				<name>Waterskin</name>
 				<carried>0.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
 				<contents></contents>
 				<cost>1</cost>
 				<equipped>N</equipped>
-				<location>Horse (Light/Combat Trained)</location>
+				<location>Light Horse (Combat Trained)</location>
 				<maxcharges>0</maxcharges>
 				<note></note>
 				<quantity>1</quantity>

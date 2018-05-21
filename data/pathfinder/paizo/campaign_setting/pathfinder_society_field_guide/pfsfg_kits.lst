@@ -84,7 +84,7 @@ STARTPACK:Pathfinder's Kit	APPLY:INSTANT	TOTALCOST:12
 GEAR:Backpack			QTY:1	SIZE:PC	LOCATION:Not Carried
 GEAR:Bedroll			QTY:1	SIZE:PC	LOCATION:Not Carried
 GEAR:Pouch (Belt)			QTY:1	SIZE:PC	LOCATION:Not Carried
-GEAR:Mug or Tankard (Clay)	QTY:1	SIZE:PC	LOCATION:Not Carried
+GEAR:Mug (Clay)	QTY:1	SIZE:PC	LOCATION:Not Carried
 GEAR:Dagger				QTY:1	SIZE:PC	LOCATION:Not Carried
 GEAR:Fishhook			QTY:2	SIZE:PC	LOCATION:Not Carried
 GEAR:Flint and Steel		QTY:1	SIZE:PC	LOCATION:Not Carried
