@@ -88,7 +88,7 @@ COMPANIONLIST:Follower|ANY
 #KIT:scr_kits_starship.lst
 
 
-HIDETYPE:SKILL|ACHECK|BASE|Strength|Dexterity|Intelligence|Wisdom|Charisma
+HIDETYPE:SKILL|ACHECK|BASE|Strength|Dexterity|Intelligence|Wisdom|Charisma|Resizable
 HIDETYPE:EQUIP|Weapon Atk Modifier Dex|PROJECTILE|P|SHOCK|E|PLASMA|E & F|F|LASER|FLAME|C|CRYO|So|SONIC|PLASMA|A & P|UNCATEGORIZED|B|S|P
 HIDETYPE:EQUIP|Atk Modifier Dex|B & F|B & So|F & P|Weapon Atk Modifier Str|Weapon Dmg Modifier Str|Advanced Melee
 
