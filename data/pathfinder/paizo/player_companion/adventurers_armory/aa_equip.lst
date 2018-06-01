@@ -77,10 +77,10 @@ String (50 ft.)																				TYPE:Goods.General								COST:0.01	WT:0.5			
 Twine (50 ft.)																				TYPE:Goods.General								COST:0.01	WT:0.5																	SOURCEPAGE:p.8
 #TODO this is supposed to vary by ink/size between 1cp to 10gp per color
 Tattoo																					TYPE:Goods.Service								COST:1	WT:0																		SOURCEPAGE:p.8
-Tent (Small)						OUTPUTNAME:Tent, Small (1 person)								TYPE:Goods.General								COST:10	WT:5																		SOURCEPAGE:p.8								SPROP:Setup time of 20 min.
-Tent (Medium)					OUTPUTNAME:Tent, Medium (2 people)								TYPE:Goods.General								COST:15	WT:10																		SOURCEPAGE:p.8								SPROP:Setup time of 30 min.
-Tent (Large)						OUTPUTNAME:Tent, Large (4 people)								TYPE:Goods.General								COST:30	WT:20																		SOURCEPAGE:p.8								SPROP:Setup time of 45 min.
-Tent (Pavilion)					OUTPUTNAME:Tent, Pavilion (10 people)							TYPE:Goods.General								COST:100	WT:50																		SOURCEPAGE:p.8								SPROP:Setup time of 90 min.
+Tent (Small).MOD																						COST:10	WT:15																		SOURCEPAGE:p.8								SPROP:Setup time of 20 min.
+Tent (Medium)					OUTPUTNAME:Tent, Medium (2 people)								TYPE:Goods.General.Resizable								COST:15	WT:20																		SOURCEPAGE:p.8								SPROP:Setup time of 30 min.
+Tent (Large)						OUTPUTNAME:Tent, Large (4 people)								TYPE:Goods.General.Resizable								COST:30	WT:40																		SOURCEPAGE:p.8								SPROP:Setup time of 45 min.
+Tent (Pavilion)					OUTPUTNAME:Tent, Pavilion (10 people)							TYPE:Goods.General.Resizable								COST:100	WT:50																		SOURCEPAGE:p.8								SPROP:Setup time of 90 min.
 #TODO: Done up to there VL
 Thurible (Censer)																				TYPE:Goods.General								COST:50	WT:3																		SOURCEPAGE:p.8								SPROP:When filled: 30ft smoke for 1 hr, +2 fortitude save
 Thurible Herbs																				TYPE:Goods.General.Consumable							COST:0.2	WT:0																		SOURCEPAGE:p.8								SPROP:Used to fill Thurible
