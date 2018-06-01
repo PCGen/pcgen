@@ -550,7 +550,7 @@ Survival Kit (Masterwork)														TYPE:Goods.General															COST:50	
 Swarmsuit.MOD																TYPE:Goods.General.Resizable														COST:20	WT:10					SOURCEPAGE:p.73
 #Tattoo 1 cp-20 gp -
 Teapot																	TYPE:Goods.General															COST:0.1	WT:1					SOURCEPAGE:p.74
-Tent (Small).MOD									OUTPUTNAME:Small Tent				TYPE:Goods.General.Resizable																					SOURCEPAGE:p.74
+Tent (Small).MOD									OUTPUTNAME:Small Tent				TYPE:Goods.General.Resizable														COST:10	WT:20					SOURCEPAGE:p.74
 Tent (Medium).MOD									OUTPUTNAME:Medium Tent				TYPE:Goods.General.Resizable														COST:15	WT:30					SOURCEPAGE:p.74
 Tent (Large).MOD									OUTPUTNAME:Large Tent				TYPE:Goods.General.Resizable														COST:30	WT:40					SOURCEPAGE:p.74
 Tent (Pavilion).MOD								OUTPUTNAME:Pavilion				TYPE:Goods.General.Resizable														COST:100	WT:50					SOURCEPAGE:p.74
