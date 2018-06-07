@@ -69,4 +69,10 @@ public class DeityToken extends AbstractQualifiedChooseToken<Deity>
 		return super.parseTokenWithSeparator(context, context.getReferenceContext()
 				.getManufacturer(DEITY_CLASS), obj, value);
 	}
+
+	@Override
+	protected String getPersistentFormat()
+	{
+		return "DEITY";
+	}
 }

@@ -50,9 +50,9 @@ public class DefaultsPanel extends PCGenPrefsPanel
 {
 	private static final String DEFAULT_PREVIEW_SHEET_KEY = "CharacterSheetInfoTab.defaultPreviewSheet.";
 	private static final String in_defaults = LanguageBundle.getString("in_Prefs_defaults");
-	private final JComboBoxEx xpTableCombo = new JComboBoxEx();
-	private final JComboBoxEx characterTypeCombo = new JComboBoxEx();
-	private final JComboBoxEx previewSheetCombo = new JComboBoxEx();
+	private final JComboBoxEx<String> xpTableCombo = new JComboBoxEx<>();
+	private final JComboBoxEx<String> characterTypeCombo = new JComboBoxEx<>();
+	private final JComboBoxEx<String> previewSheetCombo = new JComboBoxEx<>();
 
 	/**
 	 * Instantiates a new defaults panel.
@@ -72,7 +72,6 @@ public class DefaultsPanel extends PCGenPrefsPanel
 		this.setLayout(gridbag);
 		c = new GridBagConstraints();
 		c.fill = GridBagConstraints.HORIZONTAL;
-//		c.anchor = GridBagConstraints.NORTHWEST;
 		c.insets = new Insets(2, 2, 2, 2);
 
 		Utility.buildConstraints(c, 0, 0, 2, 1, 0, 0);
@@ -175,7 +174,7 @@ public class DefaultsPanel extends PCGenPrefsPanel
             });
 			//String[] files = sheetDir.list();
 			previewSheetCombo.removeAllItems();
-			previewSheetCombo.setModel(new DefaultComboBoxModel(files));
+			previewSheetCombo.setModel(new DefaultComboBoxModel<>(files));
 			previewSheetCombo.sortItems();
 			previewSheetCombo.setSelectedItem(previewSheet);
 		}

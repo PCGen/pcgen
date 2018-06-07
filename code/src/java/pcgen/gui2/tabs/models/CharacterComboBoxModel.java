@@ -26,7 +26,8 @@ import pcgen.facade.util.event.ReferenceListener;
 import pcgen.facade.util.ListFacade;
 import pcgen.gui2.util.FacadeListModel;
 
-public abstract class CharacterComboBoxModel<E> extends FacadeListModel<E> implements ComboBoxModel, ReferenceListener<E>
+public abstract class CharacterComboBoxModel<E> extends FacadeListModel<E>
+		implements ComboBoxModel<E>, ReferenceListener<E>
 {
 
 	private ReferenceFacade<E> reference = null;

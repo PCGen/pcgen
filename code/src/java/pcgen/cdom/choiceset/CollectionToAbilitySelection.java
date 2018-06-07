@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 import java.util.Stack;
 
@@ -34,35 +35,48 @@ import pcgen.cdom.base.PrimitiveFilter;
 import pcgen.cdom.content.AbilitySelection;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
 import pcgen.util.Logging;
 
+/**
+ * A CollectionToAbilitySelection wraps a PrimitiveCollection of Ability objects and
+ * provide AbilitySelection objects.
+ */
 public class CollectionToAbilitySelection implements
 		PrimitiveChoiceSet<AbilitySelection>
 {
+	/**
+	 * The underlying collection of Ability objects that are legal to choose from.
+	 */
 	private final PrimitiveCollection<Ability> collection;
 	
-	private final CDOMSingleRef<AbilityCategory> category;
+	/**
+	 * The AbilityCategory from which the Ability objects are drawn.
+	 */
+	private final AbilityCategory category;
 
+	/**
+	 * An infinite loop detection (it's possible a poorly written Ability can CHOOSE
+	 * itself, thus this would result in an infinite loop of resolution).
+	 */
 	private static Stack<Ability> infiniteLoopDetectionStack = new Stack<>();
 
-	public CollectionToAbilitySelection(CDOMSingleRef<AbilityCategory> cat, PrimitiveCollection<Ability> coll)
+	/**
+	 * Constructs a new CollectionToAbilitySelection for the given AbilityCategory and
+	 * PrimitiveCollection.
+	 * 
+	 * @param category
+	 *            The AbilityCategory from which the Ability objects are drawn
+	 * @param collection
+	 *            The underlying collection of Ability objects that are legal to choose
+	 *            from
+	 */
+	public CollectionToAbilitySelection(AbilityCategory category, PrimitiveCollection<Ability> collection)
 	{
-		if (cat == null)
-		{
-			throw new IllegalArgumentException(
-					"Category must not be null");
-		}
-		if (coll == null)
-		{
-			throw new IllegalArgumentException(
-					"PrimitiveCollection must not be null");
-		}
-		category = cat;
-		collection = coll;
+		this.category = Objects.requireNonNull(category);
+		this.collection = Objects.requireNonNull(collection);
 	}
 
 	@Override
@@ -224,7 +238,7 @@ public class CollectionToAbilitySelection implements
 		sb.append('\n');
 	}
 
-	public CDOMSingleRef<AbilityCategory> getCategory()
+	public AbilityCategory getCategory()
 	{
 		return category;
 	}

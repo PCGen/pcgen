@@ -1,7 +1,7 @@
 ﻿# CVS $Revision$ $Author$ -- Wed Nov 20 08:25:04 2013 -- reformated by prettylst.pl v1.50 (build 21703)
 CAMPAIGN:Advanced Class Origins
 GAMEMODE:Pathfinder|Pathfinder_PFS
-TYPE:Paizo Publishing.Pathfinder RPG.Player Companion
+TYPE:Paizo Publishing.Pathfinder Player Companion
 STATUS:BETA
 RANK:3
 GENRE:Fantasy
@@ -11,7 +11,7 @@ PRECAMPAIGN:2,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Advanced Class Guide
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
-SOURCELONG:Advanced Class Origins
+SOURCELONG:Pathfinder Player Companion: Advanced Class Origins
 SOURCESHORT:ACO
 SOURCEWEB:http://paizo.com/products/btpy965z
 SOURCEDATE:2014-10

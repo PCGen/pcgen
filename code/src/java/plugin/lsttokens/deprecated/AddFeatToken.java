@@ -63,19 +63,18 @@ public class AddFeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 			if (!count.isValid())
 			{
 				return new ParseResult.Fail("Count in " + getTokenName()
-					+ " was not valid: " + count.toString(), context);
+					+ " was not valid: " + count.toString());
 			}
 			if (count.isStatic() && count.resolveStatic().doubleValue() <= 0)
 			{
-				return new ParseResult.Fail("Count in ADD:FEAT must be > 0",
-					context);
+				return new ParseResult.Fail("Count in ADD:FEAT must be > 0");
 			}
 			activeValue = sep.next();
 		}
 		if (sep.hasNext())
 		{
 			return new ParseResult.Fail(
-				"ADD:FEAT had too many pipe separated items: " + value, context);
+				"ADD:FEAT had too many pipe separated items: " + value);
 		}
 		try
 		{

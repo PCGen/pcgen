@@ -379,26 +379,6 @@ public class JTreeViewTable<T> extends JTreeTable
 	}
 
 	/**
-	 * Find the named view.
-	 *
-	 * @param views The list of TreeViews.
-	 * @param viewName The name of the desired view.
-	 * @return The matching view, or the first one if none match.
-	 */
-	private TreeView<? super T> findViewByName(
-			ListFacade<? extends TreeView<T>> views, String viewName)
-	{
-		for (TreeView<T> treeView : views)
-		{
-			if (treeView.getViewName().equals(viewName))
-			{
-				return treeView;
-			}
-		}
-		return views.getElementAt(0);
-	}
-
-	/**
 	 * This is the popup menu for the CornerButton which allows selection of the
 	 * selected tree view as well as the visible columns for the table.
 	 */

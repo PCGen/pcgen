@@ -13,6 +13,7 @@ import pcgen.core.PCStat;
 import pcgen.core.SettingsHandler;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.util.TestHelper;
+import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
  * EvaluatorFactory Tester.
@@ -12569,8 +12570,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		SettingsHandler.setGame(SettingsHandler.getPCGenOption("game", "35e")); //$NON-NLS-1$
 		SettingsHandler.game.clearLoadContext();
 	
-		Globals.createEmptyRace();
-	
+		BuildUtilities.buildUnselectedRace(Globals.getContext());
 		AbstractReferenceContext rc = Globals.getContext().getReferenceContext();
 		PCStat str = rc.constructCDOMObject(PCStat.class, "Strength");
 		str.setKeyName("STR");

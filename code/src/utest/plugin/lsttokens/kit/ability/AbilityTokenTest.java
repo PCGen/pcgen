@@ -17,17 +17,19 @@
  */
 package plugin.lsttokens.kit.ability;
 
+import java.net.URISyntaxException;
+
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.kit.KitAbilities;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMSubLineLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
+import plugin.lsttokens.testsupport.BuildUtilities;
 
 public class AbilityTokenTest extends AbstractKitTokenTestCase<KitAbilities>
 {
@@ -35,6 +37,18 @@ public class AbilityTokenTest extends AbstractKitTokenTestCase<KitAbilities>
 	static AbilityToken token = new AbilityToken();
 	static CDOMSubLineLoader<KitAbilities> loader = new CDOMSubLineLoader<>(
 			"SKILL", KitAbilities.class);
+
+	@Override
+	public void setUp() throws PersistenceLayerException, URISyntaxException
+	{
+		super.setUp();
+		Ability a = BuildUtilities.getFeatCat().newInstance();
+		a.setName("Dummy");
+		primaryContext.getReferenceContext().importObject(a);
+		Ability b = BuildUtilities.getFeatCat().newInstance();
+		b.setName("Dummy");
+		secondaryContext.getReferenceContext().importObject(b);
+	}
 
 	@Override
 	public Class<KitAbilities> getCDOMClass()
@@ -64,25 +78,17 @@ public class AbilityTokenTest extends AbstractKitTokenTestCase<KitAbilities>
 	@Test
 	public void testRoundRobinSimple() throws PersistenceLayerException
 	{
-		Ability ab = primaryContext.getReferenceContext().constructCDOMObject(Ability.class,
-				"Fireball");
-		primaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
-		ab = secondaryContext.getReferenceContext()
-				.constructCDOMObject(Ability.class, "Fireball");
-		secondaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
+		BuildUtilities.buildFeat(primaryContext, "Fireball");
+		BuildUtilities.buildFeat(secondaryContext, "Fireball");
 		runRoundRobin("CATEGORY=FEAT|Fireball");
 	}
 
 	@Test
 	public void testRoundRobinType() throws PersistenceLayerException
 	{
-		Ability ab = primaryContext.getReferenceContext().constructCDOMObject(Ability.class,
-				"Fireball");
-		primaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
+		Ability ab = BuildUtilities.buildFeat(primaryContext, "Fireball");
 		ab.addToListFor(ListKey.TYPE, Type.getConstant("Test"));
-		ab = secondaryContext.getReferenceContext()
-				.constructCDOMObject(Ability.class, "Fireball");
-		secondaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
+		ab = BuildUtilities.buildFeat(secondaryContext, "Fireball");
 		ab.addToListFor(ListKey.TYPE, Type.getConstant("Test"));
 		runRoundRobin("CATEGORY=FEAT|TYPE=Test");
 	}
@@ -90,16 +96,10 @@ public class AbilityTokenTest extends AbstractKitTokenTestCase<KitAbilities>
 	@Test
 	public void testRoundRobinTwo() throws PersistenceLayerException
 	{
-		Ability ab = primaryContext.getReferenceContext().constructCDOMObject(Ability.class,
-				"Fireball");
-		primaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
-		ab = secondaryContext.getReferenceContext()
-				.constructCDOMObject(Ability.class, "Fireball");
-		secondaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
-		ab = primaryContext.getReferenceContext().constructCDOMObject(Ability.class, "English");
-		primaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
-		ab = secondaryContext.getReferenceContext().constructCDOMObject(Ability.class, "English");
-		secondaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
+		BuildUtilities.buildFeat(primaryContext, "Fireball");
+		BuildUtilities.buildFeat(secondaryContext, "Fireball");
+		BuildUtilities.buildFeat(primaryContext, "English");
+		BuildUtilities.buildFeat(secondaryContext, "English");
 		runRoundRobin("CATEGORY=FEAT|English" + getJoinCharacter() + "Fireball");
 	}
 

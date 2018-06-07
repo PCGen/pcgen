@@ -20,18 +20,12 @@ import pcgen.io.exporttoken.AbilityListToken;
 public class FeatAllListToken extends AbilityListToken
 {
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return "FEATALLLIST"; //$NON-NLS-1$
 	}
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-	 */
 	@Override
 	public String getToken(String tokenSource, PlayerCharacter pc,
 						   ExportHandler eh)
@@ -43,9 +37,6 @@ public class FeatAllListToken extends AbilityListToken
 		return getTokenForCategory(pc, aTok, tokenString, AbilityCategory.FEAT);
 	}
 
-	/**
-	 * @see pcgen.io.exporttoken.AbilityListToken#getAbilityList(pcgen.core.PlayerCharacter, pcgen.core.AbilityCategory)
-	 */
 	@Override
 	protected MapToList<Ability, CNAbility> getAbilityList(PlayerCharacter pc,
 										   final AbilityCategory aCategory)

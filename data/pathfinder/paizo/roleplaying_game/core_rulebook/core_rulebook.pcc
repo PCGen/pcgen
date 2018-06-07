@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 CAMPAIGN:Core Rulebook
 KEY:Core Rulebook
-GAMEMODE:Pathfinder|Pathfinder_PFS
+GAMEMODE:Pathfinder
 TYPE:Paizo Publishing.Pathfinder RPG
 RANK:0
 STATUS:RELEASE
@@ -40,7 +40,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Core Rulebook" Copyright 
 
 # Data Files
 PCC:@/homebrew/conversion_support/conversion_support.pcc
-PCC:@/pathfinder/paizo/roleplaying_game/core_essentials/core_essentials.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/core_essentials/_core_essentials.pcc
 
 
 
@@ -91,7 +91,7 @@ RACE:cr_races_companion.lst
 HIDETYPE:FEAT|SpecialQuality|SpecialAttack|Extraordinary|SpellLike|Supernatural|AttackOption|Aura|Immunity|ModifyAC|Resistance|Weakness
 HIDETYPE:FEAT|WizardBonus|SkillFocus|WeaponFocus
 HIDETYPE:FEAT|AberrantBloodline|AbyssalBloodline|ArcaneBloodline|CelestialBloodline|DestinedBloodline|DraconicBloodline|ElementalBloodline|FeyBloodline|InfernalBloodline|UndeadBloodline
-HIDETYPE:EQUIP|AmuletOfMightyFists
+HIDETYPE:EQUIP|Amulet of Mighty Fists
 
 # Hide key stat types for skills
 HIDETYPE:SKILL|Strength|Dexterity|Constitution|Intelligence|Wisdom|Charisma|Base|Background

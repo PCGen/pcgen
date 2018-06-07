@@ -71,7 +71,7 @@ public class DefineStatLst implements CDOMPrimaryToken<CDOMObject>
 		{
 			return new ParseResult.Fail("Cannot use " + getTokenName()
 				+ " on an Ungranted object type: "
-				+ obj.getClass().getSimpleName(), context);
+				+ obj.getClass().getSimpleName());
 		}
 		ParsingSeparator sep = new ParsingSeparator(value, '|');
 		sep.addGroupingPair('[', ']');
@@ -79,7 +79,7 @@ public class DefineStatLst implements CDOMPrimaryToken<CDOMObject>
 
 		if (!sep.hasNext())
 		{
-			return new ParseResult.Fail(getTokenName() + " may not be empty", context);
+			return new ParseResult.Fail(getTokenName() + " may not be empty");
 		}
 		String firstItem = sep.next();
 		
@@ -92,14 +92,13 @@ public class DefineStatLst implements CDOMPrimaryToken<CDOMObject>
 		{
 			return new ParseResult.Fail("Found unexpected sub tag " + firstItem + " in "
 				+ getTokenName() + Constants.COLON + value + ". Must be one of "
-				+ StringUtils.join(DefineStatSubToken.values(), ", ") + Constants.DOT,
-				context);
+				+ StringUtils.join(DefineStatSubToken.values(), ", ") + Constants.DOT);
 		}
 
 		if (!sep.hasNext())
 		{
 			return new ParseResult.Fail(getTokenName()
-				+ Constants.COLON+subToken+"| must be followed by a stat.", context);
+				+ Constants.COLON+subToken+"| must be followed by a stat.");
 		}
 		String statKey = sep.next();
 		CDOMSingleRef<PCStat> stat =
@@ -114,21 +113,21 @@ public class DefineStatLst implements CDOMPrimaryToken<CDOMObject>
 			if (!sep.hasNext())
 			{
 				return new ParseResult.Fail(getTokenName() + Constants.COLON + subToken
-					+ "| must be followed by both a stat and a value.", context);
+					+ "| must be followed by both a stat and a value.");
 			}
 			String formula = sep.next();
 			f = FormulaFactory.getFormulaFor(formula);
 			if (!f.isValid())
 			{
 				return new ParseResult.Fail("Formula in " + getTokenName()
-						+ " was not valid: " + f.toString(), context);
+						+ " was not valid: " + f.toString());
 			}
 		}
 		
 		if (sep.hasNext())
 		{
 			return new ParseResult.Fail(getTokenName() + Constants.COLON + value
-				+ " has too many pipe separated item.", context);
+				+ " has too many pipe separated item.");
 		}
 
 		switch (subToken)

@@ -21,8 +21,9 @@ import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VariableID;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.LoadContextFacet;
 import pcgen.cdom.facet.ScopeFacet;
-import pcgen.cdom.facet.VariableLibraryFacet;
 import pcgen.cdom.facet.VariableStoreFacet;
 import pcgen.util.Logging;
 
@@ -38,16 +39,19 @@ public class ResultFacet
 
 	private ScopeFacet scopeFacet;
 
-	private VariableLibraryFacet variableLibraryFacet;
-
 	private VariableStoreFacet variableStoreFacet;
+
+	/**
+	 * The global LoadContextFacet used to get VariableIDs
+	 */
+	private final LoadContextFacet loadContextFacet =
+			FacetLibrary.getFacet(LoadContextFacet.class);
 
 	public Object getGlobalVariable(CharID id, String varName)
 	{
 		ScopeInstance scope = scopeFacet.getGlobalScope(id);
-		VariableID<?> varID =
-				variableLibraryFacet.getVariableID(id.getDatasetID(), scope,
-						varName);
+		VariableID<?> varID = loadContextFacet.get(id.getDatasetID()).get()
+				.getVariableContext().getVariableID(scope, varName);
 		return variableStoreFacet.getValue(id, varID);
 	}
 
@@ -67,21 +71,14 @@ public class ResultFacet
 					+ " had no VariableScope");
 			return null;
 		}
-		VariableID<?> varID =
-				variableLibraryFacet.getVariableID(id.getDatasetID(), scope,
-						varName);
+		VariableID<?> varID = loadContextFacet.get(id.getDatasetID()).get()
+			.getVariableContext().getVariableID(scope, varName);
 		return variableStoreFacet.getValue(id, varID);
 	}
 
 	public void setScopeFacet(ScopeFacet scopeFacet)
 	{
 		this.scopeFacet = scopeFacet;
-	}
-
-	public void setVariableLibraryFacet(
-			VariableLibraryFacet variableLibraryFacet)
-	{
-		this.variableLibraryFacet = variableLibraryFacet;
 	}
 
 	public void setVariableStoreFacet(VariableStoreFacet variableStoreFacet)

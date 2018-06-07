@@ -34,8 +34,8 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 public class ProficiencyIntegrationTest extends
 		AbstractIntegrationTestCase<Equipment>
 {
-	static ProficiencyToken token = new ProficiencyToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
+	private static ProficiencyToken token = new ProficiencyToken();
+	private static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()

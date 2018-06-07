@@ -101,7 +101,6 @@ public class StatLockFacetTest extends
 	public void testGetLock()
 	{
 		Object source1 = new Object();
-		Object source2 = new Object();
 		PCStat stat = new PCStat();
 		stat.setName("Stat" + n++);
 		StatLock t1 = new StatLock(CDOMDirectSingleRef.getRef(stat), FormulaFactory.getFormulaFor(1));

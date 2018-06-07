@@ -17,7 +17,7 @@ Chest (Medium)			OUTPUTNAME:Chest, Medium			TYPE:Goods.General.Container			CONTA
 Chest (Large)			OUTPUTNAME:Chest, Large				TYPE:Goods.General.Container			CONTAINS:UNLIM|Any		COST:10	WT:100	SOURCEPAGE:p.182
 Chest (Huge)			OUTPUTNAME:Chest, Huge				TYPE:Goods.General.Container			CONTAINS:UNLIM|Any		COST:25	WT:250	SOURCEPAGE:p.182
 Earplugs											TYPE:Goods.General									COST:0.03	WT:0		SOURCEPAGE:p.182
-Hourglass (1 hour)		OUTPUTNAME:Hourglass, 1 hour			TYPE:Goods.General									COST:25	WT:1		SOURCEPAGE:p.182
+Hourglass (1 Hour)		OUTPUTNAME:Hourglass, 1 hour			TYPE:Goods.General									COST:25	WT:1		SOURCEPAGE:p.182
 Hourglass (1 minute)		OUTPUTNAME:Hourglass, 1 minute		TYPE:Goods.General									COST:20	WT:0.5	SOURCEPAGE:p.182
 Hourglass (6 seconds)		OUTPUTNAME:Hourglass, 6 seconds		TYPE:Goods.General									COST:10	WT:0		SOURCEPAGE:p.182
 Iron Spike											TYPE:Goods.General									COST:0.05	WT:1		SOURCEPAGE:p.182
@@ -30,13 +30,13 @@ Ring (Poison Pill)		OUTPUTNAME:Ring, Poison Pill			TYPE:Goods.General									CO
 Powder											TYPE:Goods.General									COST:0.01	WT:0.5	SOURCEPAGE:p.182
 Rice Paper (Sheet)		OUTPUTNAME:Rice Paper, Sheet			TYPE:Goods.General.Writing.Documents						COST:0.05	WT:0		SOURCEPAGE:p.182
 Rope (Spider Silk/50 ft.)	OUTPUTNAME:Rope, Spider Silk (50 ft.)	TYPE:Goods.General									COST:100	WT:4		SOURCEPAGE:p.182
-Scroll Case											TYPE:Goods.General.Container			CONTAINS:UNLIM|Scroll=10	COST:1	WT:0.5	SOURCEPAGE:p.182								SPROP:A leather or wooden scroll case easily holds four scrolls; you can cram more inside, but retrieving any of them becomes a full-round action rather than a move action.
+Scroll Case.MOD																	CONTAINS:UNLIM|Scroll=10					SOURCEPAGE:p.182	DESC:.CLEAR	DESC:A leather or wooden scroll case easily holds four scrolls; you can cram more inside but retrieving any of them becomes a full-round action rather than a move action. You must destroy the scroll case to damage its contents (hardness 2 for leather or 5 for wood, 2 hit points, Break DC 15). A scroll case is not water-tight.
 Signal Horn											TYPE:Goods.General									COST:1	WT:2		SOURCEPAGE:p.182
 Smoked Goggles										TYPE:Goods.General									COST:10	WT:0		SOURCEPAGE:p.182
 String (50 ft.)										TYPE:Goods.General									COST:0.01	WT:0.5	SOURCEPAGE:p.182
 Swarmsuit											TYPE:Goods.General.Resizable								COST:20	WT:10		SOURCEPAGE:p.182
 #Tattoo														TYPE:Goods.General													COST:1 cp to 20 gp
-Tent (Small)			OUTPUTNAME:Small Tent				TYPE:Goods.General.Resizable								COST:10	WT:20		SOURCEPAGE:p.182
+Tent (Small).MOD			OUTPUTNAME:Small Tent				TYPE:Goods.General.Resizable												SOURCEPAGE:p.182	DESC:.CLEAR	DESC:Tents come in a variety of sizes and accommodate between one and 10 people. A small tent holds one Medium creature and takes 20 minutes to assemble. Packing up a tent takes half as long as assembling it.
 Tent (Medium)			OUTPUTNAME:Medium Tent				TYPE:Goods.General.Resizable								COST:15	WT:30		SOURCEPAGE:p.182
 Tent (Large)			OUTPUTNAME:Large Tent				TYPE:Goods.General.Resizable								COST:30	WT:40		SOURCEPAGE:p.182
 Tent (Pavilion)			OUTPUTNAME:Pavilion				TYPE:Goods.General.Resizable								COST:100	WT:50		SOURCEPAGE:p.182

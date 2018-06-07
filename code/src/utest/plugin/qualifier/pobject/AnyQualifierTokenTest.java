@@ -24,6 +24,7 @@ import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
+import pcgen.core.analysis.RaceUtilities;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.LstToken;
 import pcgen.rules.persistence.CDOMLoader;
@@ -115,11 +116,12 @@ public class AnyQualifierTokenTest extends
 
 		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
 		Collection<?> set = info.getSet(pc);
-		assertEquals(4, set.size());
+		assertEquals(5, set.size());
 		assertTrue(set.contains(s1));
 		assertTrue(set.contains(s2));
 		assertTrue(set.contains(s3));
 		assertTrue(set.contains(primaryProf));
+		assertTrue(set.contains(RaceUtilities.getUnselectedRace()));
 	}
 
 	@Test

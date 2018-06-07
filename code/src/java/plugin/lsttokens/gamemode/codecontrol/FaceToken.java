@@ -26,7 +26,7 @@ public class FaceToken extends AbstractStringStoringToken<CodeControl>
 	@Override
 	public String getTokenName()
 	{
-		return CControl.FACE;
+		return CControl.FACE.getName();
 	}
 
 	@Override

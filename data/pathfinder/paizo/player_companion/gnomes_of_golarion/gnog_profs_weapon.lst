@@ -5,10 +5,10 @@ SOURCELONG:Gnomes of Golarion	SOURCESHORT:GNOG	SOURCEWEB:http://paizo.com/produc
 
 # Weapon Name		Type
 Flickmace			TYPE:Exotic.OneHanded.Melee.Bludgeoning.Reach.Trip.Weapon Group Flails
-Scarf (Bladed)		TYPE:Exotic.Weapon Group Flails
+Bladed Scarf	KEY:Scarf (Bladed)		TYPE:Exotic.Weapon Group Flails
 Battle Ladder		TYPE:Exotic.TwoHanded.Melee.Bludgeoning.Trip.Weapon Group Double
 Flailpole			TYPE:Exotic.TwoHanded.Melee.Bludgeoning.Disarm.Trip.Weapon Group Flails.Weapon Group Pole Arms
-Maul (Piston)		TYPE:Exotic.TwoHanded.Melee.Bludgeoning.Weapon Group Hammers
-Glaive (Ripsaw)		TYPE:Exotic.TwoHanded.Melee.Slashing.Weapon Group Pole Arms
+Piston Maul	KEY:Maul (Piston)		TYPE:Exotic.TwoHanded.Melee.Bludgeoning.Weapon Group Hammers
+Ripsaw Glaive	KEY:Glaive (Ripsaw)		TYPE:Exotic.TwoHanded.Melee.Slashing.Weapon Group Pole Arms
 Flask Thrower		TYPE:Exotic.Ranged.Weapon Group Thrown
-Javelin (Shrillshaft)	TYPE:Exotic.Ranged.Piercing.Weapon Group Thrown
+Shrillshaft Javelin	KEY:Javelin (Shrillshaft)	TYPE:Exotic.Ranged.Piercing.Weapon Group Thrown

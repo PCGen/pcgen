@@ -36,13 +36,11 @@ import pcgen.base.formatmanager.SimpleFormatManagerLibrary;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
-import pcgen.base.util.ObjectDatabase;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Categorized;
-import pcgen.cdom.base.CategorizedClassIdentity;
-import pcgen.cdom.base.Category;
 import pcgen.cdom.base.ClassIdentity;
 import pcgen.cdom.base.Loadable;
+import pcgen.cdom.base.SortKeyRequired;
 import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -50,6 +48,8 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SubClassCategory;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.format.table.ColumnFormatFactory;
+import pcgen.cdom.format.table.DataTable;
+import pcgen.cdom.format.table.TableColumn;
 import pcgen.cdom.format.table.TableFormatFactory;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.list.ClassSpellList;
@@ -61,6 +61,7 @@ import pcgen.cdom.reference.ManufacturableFactory;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.UnconstructedValidator;
 import pcgen.cdom.util.IntegerKeyComparator;
+import pcgen.cdom.util.SortKeyComparator;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -68,7 +69,26 @@ import pcgen.core.SubClass;
 import pcgen.util.Logging;
 import pcgen.util.StringPClassUtil;
 
-public abstract class AbstractReferenceContext implements ObjectDatabase
+/**
+ * An AbstractReferenceContext is responsible for dealing with References during load of a
+ * PCGen dataset from LST files.
+ * 
+ * Most of the function relates to 3 areas: (1) Managing the ReferenceManagers that
+ * actually hold the references to CDOMObjects (Skills, Languages, etc.) (2) Managing the
+ * overall loading process of the managers (e.g. resolving those references once load is
+ * complete) (3) Managing Formats available in the data
+ * 
+ * References are necessary because we need to be able to parse data that, for example,
+ * provides: AUTO:LANGUAGE|Draconic ... and we may or may not have loaded Language files.
+ * It would be impossible to load everything in order (there will be circular references).
+ * The result is that the loading system always refers to objects indirectly when they are
+ * referenced by a Token like AUTO:LANGUAGE. This indirect reference is a "CDOMReference"
+ * (and may refer to one or more CDOMObjects - groups are allowed). Once the load is
+ * complete, the references can be resolved to their actual underlying objects and any
+ * references that were made where an object of that name does not exist can be
+ * identified.
+ */
+public abstract class AbstractReferenceContext
 {
 
 	@SuppressWarnings("rawtypes")
@@ -76,7 +96,8 @@ public abstract class AbstractReferenceContext implements ObjectDatabase
 	private static final Class<DomainSpellList> DOMAINSPELLLIST_CLASS = DomainSpellList.class;
 	private static final Class<ClassSkillList> CLASSSKILLLIST_CLASS = ClassSkillList.class;
 	private static final Class<ClassSpellList> CLASSSPELLLIST_CLASS = ClassSpellList.class;
-	private static final Class<SubClass> SUBCLASS_CLASS = SubClass.class;
+	private static final Class<DataTable> DATA_TABLE_CLASS = DataTable.class;
+	private static final Class<TableColumn> TABLE_COLUMN_CLASS = TableColumn.class;
 
 	private DoubleKeyMap<Class<?>, Object, WeakReference<List<?>>> sortedMap =
             new DoubleKeyMap<>();
@@ -89,30 +110,33 @@ public abstract class AbstractReferenceContext implements ObjectDatabase
 	
 	private final SimpleFormatManagerLibrary fmtLibrary = new SimpleFormatManagerLibrary();
 
-	public AbstractReferenceContext()
+	public void initialize()
 	{
 		FormatUtilities.loadDefaultFormats(fmtLibrary);
 		fmtLibrary.addFormatManager(new DiceFormat());
-		fmtLibrary.addFormatManagerBuilder(new ColumnFormatFactory(this));
-		fmtLibrary.addFormatManagerBuilder(new TableFormatFactory(this));
+		fmtLibrary.addFormatManagerBuilder(new ColumnFormatFactory(
+			this.getManufacturer(AbstractReferenceContext.TABLE_COLUMN_CLASS)));
+		fmtLibrary.addFormatManagerBuilder(new TableFormatFactory(
+			this.getManufacturer(AbstractReferenceContext.DATA_TABLE_CLASS)));
 	}
 
 	public abstract <T extends Loadable> ReferenceManufacturer<T> getManufacturer(
 		Class<T> cl);
 	
-	public abstract <T extends Loadable> boolean hasManufacturer(Class<T> cl);
+	/**
+	 * Returns true if this AbstractReferenceContext has a Manufacturer for the given
+	 * ClassIdentity.
+	 * 
+	 * @param classIdentity
+	 *            The ClassIdentity to be checked to see if this AbstractReferenceContext
+	 *            has a Manufacturer for the ClassIdentity
+	 * @return true if this AbstractReferenceContext has a Manufacturer for the given
+	 *         ClassIdentity; false otherwise
+	 */
+	public abstract <T extends Loadable> boolean hasManufacturer(ClassIdentity<T> classIdentity);
 	
-	protected abstract <T extends Categorized<T>> boolean hasManufacturer(
-		Class<T> cl, Category<T> cat);
-
-	protected final <T extends Loadable> ReferenceManufacturer<T> getNewReferenceManufacturer(
-		Class<T> cl)
-	{
-		return constructReferenceManufacturer(cl);
-	}
-
 	protected abstract <T extends Loadable> ReferenceManufacturer<T> constructReferenceManufacturer(
-		Class<T> cl);
+		ClassIdentity<T> identity);
 
 	/**
 	 * Retrieve the Reference manufacturer that handles this class and category. Note that
@@ -138,22 +162,10 @@ public abstract class AbstractReferenceContext implements ObjectDatabase
 		return getManufacturer(c).getAllReference();
 	}
 
-	public <T extends Categorized<T>> CDOMGroupRef<T> getCDOMAllReference(
-		Class<T> c, Category<T> cat)
-	{
-		return getManufacturer(c, cat).getAllReference();
-	}
-
 	public <T extends Loadable> CDOMGroupRef<T> getCDOMTypeReference(
 			Class<T> c, String... val)
 	{
 		return getManufacturer(c).getTypeReference(val);
-	}
-
-	public <T extends Categorized<T>> CDOMGroupRef<T> getCDOMTypeReference(
-			Class<T> c, Category<T> cat, String... val)
-	{
-		return getManufacturer(c, cat).getTypeReference(val);
 	}
 
 	public <T extends Loadable> T constructCDOMObject(Class<T> c, String val)
@@ -161,8 +173,8 @@ public abstract class AbstractReferenceContext implements ObjectDatabase
 		T obj;
 		if (CATEGORIZED_CLASS.isAssignableFrom(c))
 		{
-			Class cl = c;
-			obj = (T) getManufacturer(cl, null).constructObject(val);
+			throw new UnsupportedOperationException(
+				"Categorized can't be built directly with null category");
 		}
 		else
 		{
@@ -184,39 +196,18 @@ public abstract class AbstractReferenceContext implements ObjectDatabase
 		return getManufacturer(c).getReference(val);
 	}
 
-	public <T extends Categorized<T>> CDOMSingleRef<T> getCDOMReference(
-			Class<T> c, Category<T> cat, String val)
-	{
-		return getManufacturer(c, cat).getReference(val);
-	}
-
 	public <T extends Loadable> void reassociateKey(String key, T obj)
 	{
-		if (CATEGORIZED_CLASS.isAssignableFrom(obj.getClass()))
-		{
-			Class cl = obj.getClass();
-			reassociateCategorizedKey(key, obj, cl);
-		}
-		else
-		{
-			getManufacturer((Class<T>) obj.getClass()).renameObject(key, obj);
-		}
+		@SuppressWarnings("unchecked")
+		ClassIdentity<T> identity = (ClassIdentity<T>) obj.getClassIdentity();
+		getManufacturerId(identity).renameObject(key, obj);
 	}
 
-	private <T extends Categorized<T>> void reassociateCategorizedKey(
-			String key, Loadable orig, Class<T> cl)
-	{
-		T obj = (T) orig;
-		getManufacturer(cl, obj.getCDOMCategory()).renameObject(key, obj);
-	}
-
-	@Override
 	public <T extends Loadable> T get(Class<T> c, String val)
 	{
 		return silentlyGetConstructedCDOMObject(c, val);
 	}
 
-	@Override
 	public <T extends Loadable> Indirect<T> getIndirect(Class<T> c, String val)
 	{
 		return getCDOMReference(c, val);
@@ -228,80 +219,31 @@ public abstract class AbstractReferenceContext implements ObjectDatabase
 		return getManufacturer(c).getActiveObject(val);
 	}
 
-	public <T extends Categorized<T>> T silentlyGetConstructedCDOMObject(
-		Class<T> c, Category<T> cat, String val)
-	{
-		return getManufacturer(c, cat).getActiveObject(val);
-	}
-
-	public <T extends Categorized<T>> void reassociateCategory(Category<T> cat,
-		T obj)
-	{
-		Category<T> oldCat = obj.getCDOMCategory();
-		if (oldCat == null && cat == null || oldCat != null
-				&& oldCat.equals(cat))
-		{
-			Logging.errorPrint("Worthless Category change encountered: "
-					+ obj.getDisplayName() + " " + oldCat);
-		}
-		reassociateCategory(getGenericClass(obj), obj, oldCat, cat);
-	}
-
 	@SuppressWarnings("unchecked")
 	protected <T> Class<T> getGenericClass(T obj)
 	{
 		return (Class<T>) obj.getClass();
 	}
 
-	private <T extends Categorized<T>> void reassociateCategory(
-			Class<T> cl, T obj, Category<T> oldCat, Category<T> cat)
-	{
-		getManufacturer(cl, oldCat).forgetObject(obj);
-		obj.setCDOMCategory(cat);
-		getManufacturer(cl, cat).addObject(obj, obj.getKeyName());
-	}
-
 	public <T extends Loadable> void importObject(T orig)
 	{
-		if (CATEGORIZED_CLASS.isAssignableFrom(orig.getClass()))
-		{
-			Class cl = orig.getClass();
-			importCategorized(orig, cl);
-		}
-		else
-		{
-			getManufacturer((Class<T>) orig.getClass()).addObject(orig,
-					orig.getKeyName());
-		}
-	}
-
-	private <T extends Categorized<T>> void importCategorized(Loadable orig,
-		Class<T> cl)
-	{
-		T obj = (T) orig;
-		getManufacturer(cl, obj.getCDOMCategory()).addObject(obj,
-				obj.getKeyName());
+		/*
+		 * Assume a class will behave well and return its own identity. This is made to
+		 * avoid having to have Loadable<T>
+		 */
+		@SuppressWarnings("unchecked")
+		ClassIdentity<T> identity = (ClassIdentity<T>) orig.getClassIdentity();
+		ReferenceManufacturer<T> mfg = getManufacturerId(identity);
+		mfg.addObject(orig, orig.getKeyName());
 	}
 
 	public <T extends Loadable> boolean forget(T obj)
 	{
-		if (CATEGORIZED_CLASS.isAssignableFrom(obj.getClass()))
+		@SuppressWarnings("unchecked")
+		ClassIdentity<T> identity = (ClassIdentity<T>) obj.getClassIdentity();
+		if (hasManufacturer(identity))
 		{
-			Class cl = obj.getClass();
-			Categorized cdo = (Categorized) obj;
-			if (hasManufacturer(cl, cdo.getCDOMCategory()))
-			{
-                // Work around a bug in the Eclipse 3.7.0/1 compiler by explicitly extracting a Category<?>
-                return getManufacturer(cl, (Category<?>) cdo.getCDOMCategory()).forgetObject(obj);
-			}
-		}
-		else
-		{
-			if (hasManufacturer(obj.getClass()))
-			{
-				return getManufacturer((Class<T>) obj.getClass()).forgetObject(
-						obj);
-			}
+			return getManufacturerId(identity).forgetObject(obj);
 		}
 		return false;
 	}
@@ -319,11 +261,6 @@ public abstract class AbstractReferenceContext implements ObjectDatabase
 		// }
 	}
 
-	public <T extends Loadable> List<T> getOrderSortedCDOMObjects(Class<T> c)
-	{
-		return getManufacturer(c).getOrderSortedObjects();
-	}
-
 	public Set<Object> getAllConstructedObjects()
 	{
 		Set<Object> set = new HashSet<>();
@@ -339,7 +276,7 @@ public abstract class AbstractReferenceContext implements ObjectDatabase
 	public <T extends Loadable> boolean containsConstructedCDOMObject(
 			Class<T> c, String s)
 	{
-		return getManufacturer(c).containsObject(s);
+		return getManufacturer(c).containsObjectKeyed(s);
 	}
 
 	public void buildDerivedObjects()
@@ -419,14 +356,26 @@ public abstract class AbstractReferenceContext implements ObjectDatabase
 				}
 				if (needSelf)
 				{
-					SubClass self = constructCDOMObject(SUBCLASS_CLASS, key);
-					reassociateCategory(SUBCLASS_CLASS, self, null, cat);
+					SubClass self = cat.newInstance();
+					self.setKeyName(key);
+					importObject(self);
 				}
 			}
 		}
 	}
 
-	public <T extends CDOMObject> CDOMSingleRef<T> getCDOMDirectReference(T obj)
+	/**
+	 * Returns a CDOMSingleRef for the given Object.
+	 * 
+	 * If possible an internal reference to the object will be returned; otherwise a
+	 * direct reference may be returned. This possible use of a direct reference allows
+	 * this method to be used before OR after reference resolution.
+	 * 
+	 * @param obj
+	 *            The object for which a CDOMSingleRef should be returned
+	 * @return A CDOMSingleRef for the given Object
+	 */
+	public <T extends Loadable> CDOMSingleRef<T> getCDOMDirectReference(T obj)
 	{
 		@SuppressWarnings("unchecked")
 		CDOMSingleRef<T> ref = (CDOMSingleRef<T>) directRefCache.get(obj);
@@ -473,7 +422,7 @@ public abstract class AbstractReferenceContext implements ObjectDatabase
 		ManufacturableFactory<T> factory = rs.getFactory();
 		ManufacturableFactory<T> parent = factory.getParent();
 		ReferenceManufacturer<T> manufacturer = (parent == null) ? null
-				: getManufacturer(parent);
+				: getManufacturerFac(parent);
 		return factory.populate(manufacturer, rs, validator)
 				&& rs.resolveReferences(validator);
 	}
@@ -496,26 +445,15 @@ public abstract class AbstractReferenceContext implements ObjectDatabase
 		return getManufacturer(c).getConstructedObjectCount();
 	}
 
-	public <T extends Loadable> T getItemInOrder(Class<T> cl, int item)
-	{
-		return getManufacturer(cl).getItemInOrder(item);
-	}
-
-	public <T extends Loadable> ReferenceManufacturer<T> getManufacturer(
-			ClassIdentity<T> identity)
-	{
-		Class cl = identity.getChoiceClass();
-		if (Categorized.class.isAssignableFrom(cl))
-		{
-			//Do categorized.
-			Category category = ((CategorizedClassIdentity) identity).getCategory();
-			return (ReferenceManufacturer<T>) getManufacturer(cl, category);
-		}
-		else
-		{
-			return getManufacturer(cl);
-		}
-	}
+	/**
+	 * Returns the ReferenceManufacturer for the given ClassIdentity.
+	 * 
+	 * @param classIdentity
+	 *            The ClassIdentity for which the ReferenceManufacturer should be returned
+	 * @return The ReferenceManufacturer for the given ClassIdentity
+	 */
+	public abstract <T extends Loadable> ReferenceManufacturer<T> getManufacturerId(
+			ClassIdentity<T> classIdentity);
 
 	public <T extends CDOMObject> List<T> getSortedList(Class<T> cl,
 		IntegerKey key)
@@ -552,14 +490,21 @@ public abstract class AbstractReferenceContext implements ObjectDatabase
 		return new ArrayList<>(tm);
 	}
 
-	public abstract <T extends Categorized<T>> ReferenceManufacturer<T> getManufacturer(
-		Class<T> cl, Category<T> cat);
-
-	public abstract <T extends Loadable> ReferenceManufacturer<T> getManufacturer(
+	/**
+	 * Returns the ReferenceManufacturer for the given ManufacturableFactory.
+	 * 
+	 * Note: Use of this method should be avoided if possible. getManufacturerId is
+	 * preferred; this method is only present for current backward compatibility to how
+	 * parent/child ability categories function, and will be removed when it is practical
+	 * to do so.
+	 * 
+	 * @param factory
+	 *            The ManufacturableFactory for which the ReferenceManufacturer should be
+	 *            returned
+	 * @return The ReferenceManufacturer for the given ManufacturableFactory
+	 */
+	public abstract <T extends Loadable> ReferenceManufacturer<T> getManufacturerFac(
 		ManufacturableFactory<T> factory);
-
-	public abstract <T extends Categorized<T>> ReferenceManufacturer<T> getManufacturer(
-		Class<T> cl, Class<? extends Category<T>> catClass, String category);
 
 	abstract <T extends CDOMObject> T performCopy(T object, String copyName);
 
@@ -591,4 +536,44 @@ public abstract class AbstractReferenceContext implements ObjectDatabase
 		}
 		fmtLibrary.addFormatManager(mgr);
 	}
+
+	/**
+	 * Returns a sorted list of items, as sorted by the sort key.
+	 * 
+	 * @param cl
+	 *            The Class of object to return
+	 * @return The List of items, sorted by their sort key
+	 */
+	public <T extends Loadable & SortKeyRequired> List<T> getSortkeySortedCDOMObjects(
+		Class<T> cl)
+	{
+		List<T> items = new ArrayList<>(getConstructedCDOMObjects(cl));
+		items.sort(SortKeyComparator.getInstance());
+		return items;
+	}
+
+  /**
+   * Returns the ReferenceManufacturer for a given Format name and class.
+	 * 
+	 * @param formatName
+	 *            The (persistent) name of the format for which the ReferenceManufacturer
+	 *            should be returned
+	 * @param cl
+	 *            The class, indicating additional information about the
+	 *            ReferenceManufacturer to be returned
+	 * @return The ReferenceManufacturer for a given Format name and class
+	 */
+	public abstract <T extends Loadable> ReferenceManufacturer<T> getManufacturerByFormatName(
+		String formatName, Class<T> cl);
+
+	/**
+	 * Returns the ReferenceManufacturer for a given Format name and class.
+	 * 
+	 * @param formatName
+	 *            The (persistent) name of the format for which the ReferenceManufacturer
+	 *            should be returned
+	 * @return The ReferenceManufacturer for a given Format name and class
+	 */
+	public abstract ReferenceManufacturer<?> getManufacturerByFormatName(
+		String formatName);
 }

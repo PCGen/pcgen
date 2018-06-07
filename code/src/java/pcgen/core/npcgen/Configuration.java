@@ -139,7 +139,8 @@ public class Configuration
 				ret.add((AlignGeneratorOption)opt);
 			}
 		}
-		for (final PCAlignment align : Globals.getContext().getReferenceContext().getOrderSortedCDOMObjects(PCAlignment.class))
+		for (PCAlignment align : Globals.getContext().getReferenceContext()
+			.getSortkeySortedCDOMObjects(PCAlignment.class))
 		{
 			boolean included = false;
 			for (AlignGeneratorOption option : ret)

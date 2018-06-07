@@ -52,10 +52,6 @@ public class IntegerKeyActor implements OutputActor<CDOMObject>
 		this.ik = ik;
 	}
 
-	/**
-	 * @see pcgen.output.base.OutputActor#process(pcgen.cdom.enumeration.CharID,
-	 *      java.lang.Object)
-	 */
 	@Override
 	public TemplateModel process(CharID id, CDOMObject d)
 		throws TemplateModelException

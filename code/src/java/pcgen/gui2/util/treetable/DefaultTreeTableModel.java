@@ -40,54 +40,10 @@ public class DefaultTreeTableModel extends AbstractTreeTableModel
         super(root);
     }
 
-//    public DefaultTreeTableModel(TableModel tableModel)
-//    {
-//        super(null);
-//        TreeTableNode rootNode = createDefaultTreeTableNode();
-//        columnCount = tableModel.getColumnCount();
-//        for (int x = 0; x < tableModel.getRowCount(); x++)
-//        {
-//            TreeTableNode child = createDefaultTreeTableNode();
-//            rootNode.insert(child, x);
-//            for (int y = 0; y < columnCount; y++)
-//            {
-//                child.setValueAt(tableModel.getValueAt(x, y), y);
-//            }
-//        }
-//        columnClasses = new ArrayList<Class<?>>(columnCount);
-//        columnNames = new ArrayList<String>(columnCount);
-//        for (int x = 0; x < columnCount; x++)
-//        {
-//            columnClasses.add(tableModel.getColumnClass(x));
-//            columnNames.add(tableModel.getColumnName(x));
-//        }
-//        setRoot(rootNode);
-//    }
-
-//    public DefaultTreeTableModel(TreeTableModel treeTableModel)
-//    {
-//        super(null);
-//        TreeTableNode rootNode = createDefaultTreeTableNode((TreeNode) treeTableModel.getRoot());
-//        columnCount = treeTableModel.getColumnCount();
-//        columnClasses = new ArrayList<Class<?>>(columnCount);
-//        columnNames = new ArrayList<String>(columnCount);
-//        for (int x = 0; x < columnCount; x++)
-//        {
-//            columnClasses.add(treeTableModel.getColumnClass(x));
-//            columnNames.add(treeTableModel.getColumnName(x));
-//        }
-//        setRoot(rootNode);
-//    }
-
     protected TreeTableNode createDefaultTreeTableNode()
     {
         return new DefaultTreeTableNode();
     }
-
-//    protected TreeTableNode createDefaultTreeTableNode(TreeNode node)
-//    {
-//        return new DefaultTreeTableNode(node);
-//    }
 
 	@Override
     public int getColumnCount()

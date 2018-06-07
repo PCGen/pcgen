@@ -71,7 +71,7 @@ public class CskillLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		{
 			return new ParseResult.Fail("Cannot use " + getTokenName()
 				+ " on an Ungranted object type: "
-				+ obj.getClass().getSimpleName(), context);
+				+ obj.getClass().getSimpleName());
 		}
 		boolean first = true;
 		boolean foundAny = false;
@@ -87,7 +87,7 @@ public class CskillLst extends AbstractTokenWithSeparator<CDOMObject> implements
 				{
 					return new ParseResult.Fail("  Non-sensical "
 							+ getTokenName()
-							+ ": .CLEAR was not the first list item", context);
+							+ ": .CLEAR was not the first list item");
 				}
 				context.getObjectContext().removeList(obj, ListKey.CSKILL);
 			}
@@ -113,7 +113,7 @@ public class CskillLst extends AbstractTokenWithSeparator<CDOMObject> implements
 					{
 						return new ParseResult.Fail(
 								"  Error was encountered while parsing "
-										+ getTokenName(), context);
+										+ getTokenName());
 					}
 					context.getObjectContext().removeFromList(obj,
 							ListKey.CSKILL, ref);
@@ -148,7 +148,7 @@ public class CskillLst extends AbstractTokenWithSeparator<CDOMObject> implements
 						if (ref == null)
 						{
 							return new ParseResult.Fail("  Error was encountered "
-								+ "while parsing " + getTokenName(), context);
+								+ "while parsing " + getTokenName());
 						}
 						context.getObjectContext().addToList(obj,
 								ListKey.CSKILL, ref);
@@ -160,7 +160,7 @@ public class CskillLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		if (foundAny && foundOther)
 		{
 			return new ParseResult.Fail("Non-sensical " + getTokenName()
-					+ ": Contains ANY and a specific reference: " + value, context);
+					+ ": Contains ANY and a specific reference: " + value);
 		}
 		return ParseResult.SUCCESS;
 	}
@@ -170,7 +170,7 @@ public class CskillLst extends AbstractTokenWithSeparator<CDOMObject> implements
 	{
 		if (tokText.endsWith(Constants.PERCENT))
 		{
-			return new PatternMatchingReference<>(Skill.class, context.getReferenceContext()
+			return new PatternMatchingReference<>(context.getReferenceContext()
 					.getCDOMAllReference(SKILL_CLASS), tokText);
 		}
 		else

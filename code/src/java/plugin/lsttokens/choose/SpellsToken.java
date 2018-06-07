@@ -135,4 +135,10 @@ public class SpellsToken extends AbstractQualifiedChooseToken<Spell>
 		return sb.toString();
 	}
 
+	@Override
+	protected String getPersistentFormat()
+	{
+		return "SPELL";
+	}
+
 }

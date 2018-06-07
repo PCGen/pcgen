@@ -48,13 +48,13 @@ public class RegionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		{
 			return new ParseResult.Fail("Cannot use " + getTokenName()
 				+ " on an Ungranted object type: "
-				+ obj.getClass().getSimpleName(), context);
+				+ obj.getClass().getSimpleName());
 		}
 		if (obj instanceof NonInteractive)
 		{
 			return new ParseResult.Fail("Cannot use " + getTokenName()
 				+ " on an Non-Interactive object type: "
-				+ obj.getClass().getSimpleName(), context);
+				+ obj.getClass().getSimpleName());
 		}
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		String item = tok.nextToken();
@@ -62,20 +62,20 @@ public class RegionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		if (!count.isValid())
 		{
 			return new ParseResult.Fail("Count in " + getTokenName()
-					+ " was not valid: " + count.toString(), context);
+					+ " was not valid: " + count.toString());
 		}
 		if (count.isStatic())
 		{
 			if (!tok.hasMoreTokens())
 			{
 				return new ParseResult.Fail(getTokenName()
-						+ " cannot have only a count: " + value, context);
+						+ " cannot have only a count: " + value);
 			}
 			item = tok.nextToken();
 			if (count.resolveStatic().intValue() <= 0)
 			{
 				return new ParseResult.Fail("Count in "
-						+ getTokenName() + " must be > 0: " + value, context);
+						+ getTokenName() + " must be > 0: " + value);
 			}
 		}
 		else

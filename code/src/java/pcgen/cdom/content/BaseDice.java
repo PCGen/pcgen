@@ -66,12 +66,6 @@ public class BaseDice implements Loadable
 	}
 
 	@Override
-	public String getLSTformat()
-	{
-		return getDisplayName();
-	}
-
-	@Override
 	public boolean isInternal()
 	{
 		return false;

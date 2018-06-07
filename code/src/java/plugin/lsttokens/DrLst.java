@@ -64,7 +64,7 @@ public class DrLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		{
 			return new ParseResult.Fail("Cannot use " + getTokenName()
 				+ " on an Ungranted object type: "
-				+ obj.getClass().getSimpleName(), context);
+				+ obj.getClass().getSimpleName());
 		}
 		if (Constants.LST_DOT_CLEAR.equals(value))
 		{
@@ -93,7 +93,7 @@ public class DrLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		if (!formula.isValid())
 		{
 			return new ParseResult.Fail("Formula in " + getTokenName()
-					+ " was not valid: " + formula.toString(), context);
+					+ " was not valid: " + formula.toString());
 		}
 		DamageReduction dr = new DamageReduction(formula, values[1]);
 

@@ -32,8 +32,8 @@ public class FavoredClassIntegrationTest extends
 		AbstractListIntegrationTestCase<Race, PCClass>
 {
 
-	static FavclassToken token = new FavclassToken();
-	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
+	private static FavclassToken token = new FavclassToken();
+	private static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Race> getCDOMClass()

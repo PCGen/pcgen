@@ -35,9 +35,6 @@ public class FormatcatToken extends AbstractNonEmptyToken<EquipmentModifier>
 		implements CDOMPrimaryToken<EquipmentModifier>
 {
 
-	/**
-	 * @see pcgen.persistence.lst.LstToken#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
@@ -56,7 +53,7 @@ public class FormatcatToken extends AbstractNonEmptyToken<EquipmentModifier>
 		catch (IllegalArgumentException iae)
 		{
 			return new ParseResult.Fail("Invalid Format provided in " + getTokenName()
-					+ ": " + value, context);
+					+ ": " + value);
 		}
 		return ParseResult.SUCCESS;
 	}

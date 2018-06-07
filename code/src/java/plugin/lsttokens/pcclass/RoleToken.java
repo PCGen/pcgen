@@ -67,7 +67,7 @@ public class RoleToken extends AbstractNonEmptyToken<PCClass> implements
 			else
 			{
 				return new ParseResult.Fail(getTokenName() + " '" + role
-					+ "' is not a known monster role for this game mode.", context);
+					+ "' is not a known monster role for this game mode.");
 			}
 		}
 		

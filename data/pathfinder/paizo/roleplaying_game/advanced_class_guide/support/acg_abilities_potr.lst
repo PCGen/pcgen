@@ -1,4 +1,2 @@
 
-CATEGORY=Special Ability|Sorcerer Bloodline ~ Nanite.MOD		ABILITY:Internal|AUTOMATIC|Nanite Bloodline Tracker ~ Arcanist Bloodline Development|PREABILITY:1,CATEGORY=Internal,Arcanist Bloodline Development Selection(Sorcerer Bloodline ~ Nanite)
-
-Nanite Bloodline Tracker ~ Arcanist Bloodline Development		CATEGORY:Internal	BONUS:VAR|Sorcerer_Nanite_BloodlineLVL|1	ABILITY:Special Ability|AUTOMATIC|TYPE=Nanite Bloodline ~ Power LVL 01
+Nanite Bloodline	CATEGORY:Arcanist Bloodline Development	TYPE:SorcererBloodlineChoice	BONUS:VAR|Sorcerer_Nanite_BloodlineLVL|1	ABILITY:Special Ability|AUTOMATIC|TYPE=Nanite Bloodline ~ Power LVL 01	ABILITY:Special Ability|AUTOMATIC|Sorcerer Bloodline ~ Nanite

@@ -41,11 +41,6 @@ public class DeityToken extends AbstractTokenWithSeparator<PCClass> implements
 
 	private static final Class<Deity> DEITY_CLASS = Deity.class;
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see pcgen.persistence.lst.LstToken#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{

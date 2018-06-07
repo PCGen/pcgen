@@ -34,10 +34,10 @@ Vampiric		KEY:Special Ability ~ Vampiric ~ Weapon	TYPE:Weapon	PLUS:2			VISIBLE:Q
 
 
 #Old KEYs
-Driving		TYPE:Weapon	PLUS:1			VISIBLE:NO	SOURCEPAGE:p.30	PRETYPE:1,Ranged	PRETYPE:1,Enhancement
-Heart-Piercing	TYPE:Weapon	PLUS:5			VISIBLE:NO	SOURCEPAGE:p.30	PRETYPE:2,Ranged,Piercing	PRETYPE:1,Enhancement
-Leveraging		TYPE:Weapon	PLUS:1			VISIBLE:NO	SOURCEPAGE:p.30	PRETYPE:1,Melee	PRETYPE:1,Enhancement
-Liberating		TYPE:Weapon			COST:7000	VISIBLE:NO	SOURCEPAGE:p.30	PRETYPE:1,Enhancement
-Quaking		TYPE:Weapon	PLUS:2			VISIBLE:NO	SOURCEPAGE:p.30	PRETYPE:2,Melee,Bludgeoning	PRETYPE:1,Enhancement
-Sharding		TYPE:Weapon	PLUS:2			VISIBLE:NO	SOURCEPAGE:p.30	PRETYPE:1,Melee,Thrown	PRETYPE:1,Enhancement
-Vampiric		TYPE:Weapon	PLUS:2			VISIBLE:NO	SOURCEPAGE:p.30	PRETYPE:1,Melee	PRETYPE:1,Enhancement
+Special Ability ~ Driving ~ Weapon.COPY=Driving				VISIBLE:NO
+Special Ability ~ Heart-Piercing ~ Weapon.COPY=Heart-Piercing	VISIBLE:NO
+Special Ability ~ Leveraging ~ Weapon.COPY=Leveraging			VISIBLE:NO
+Special Ability ~ Liberating ~ Weapon.COPY=Liberating			VISIBLE:NO
+Special Ability ~ Quaking ~ Weapon.COPY=Quaking				VISIBLE:NO
+Special Ability ~ Sharding ~ Weapon.COPY=Sharding			VISIBLE:NO
+Special Ability ~ Vampiric ~ Weapon.COPY=Vampiric			VISIBLE:NO

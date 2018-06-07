@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.equipment;
 
+import pcgen.cdom.formula.scope.EquipmentPartScope;
 import pcgen.cdom.inst.EquipmentHead;
 import pcgen.core.Equipment;
 import pcgen.persistence.PersistenceLayerException;
@@ -80,7 +81,8 @@ public class PartToken extends AbstractNonEmptyToken<Equipment> implements
 		String tokenName = partToken.substring(0, colonLoc);
 		String tokenValue = partToken.substring(colonLoc + 1);
 
-		LoadContext subContext = context.dropIntoContext("EQUIPMENT.PART");
+		LoadContext subContext =
+				context.dropIntoContext(EquipmentPartScope.PC_EQUIPMENT_PART);
 
 		boolean processToken;
 		try

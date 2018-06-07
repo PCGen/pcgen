@@ -76,7 +76,7 @@ public class HidetypeToken extends AbstractTokenWithSeparator<Campaign>
 		{
 			return new ParseResult.Fail(getTokenName()
 					+ " did not understand: " + value + " in "
-					+ campaign.getKeyName(), context);
+					+ campaign.getKeyName());
 		}
 		StringTokenizer st = new StringTokenizer(types, Constants.PIPE);
 		while (st.hasMoreTokens())

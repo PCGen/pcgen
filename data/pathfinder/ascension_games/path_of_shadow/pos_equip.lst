@@ -1,27 +1,27 @@
 
-Breastplate.COPY=Entropic Raiment
+Breastplate (Base).COPY=Entropic Raiment		VISIBLE:YES		EQMOD:Material ~ Steel
 Entropic Raiment.MOD		SOURCEPAGE:p.69	TYPE:Greater Major Armor	COST:99350	SPROP:+4 deathless undead controlling breastplate	EQMOD:Special Ability ~ +4 ~ Armor
-Studded Leather.COPY=Infiltrator's Armor
+Studded Leather (Base).COPY=Infiltrator's Armor		VISIBLE:YES		EQMOD:Material ~ Leather|Material ~ Steel
 Infiltrator's Armor		SOURCEPAGE:p.70	TYPE:Lesser Major Armor		COST:17025	SPROP:+2 blending glamered shadow studded leather, cast Snuff at will	EQMOD:Special Ability ~ +2 ~ Armor
-Shield (Light/Steel).COPY=Penumbral Ward
+Light Steel Shield (Base).COPY=Penumbral Ward		VISIBLE:YES		EQMOD:Material ~ Steel
 Penumbral Ward.MOD		SOURCEPAGE:p.70	TYPE:Lesser Major Armor		COST:33159	SPROP:+2 ghost touch gloom light steel shield	EQMOD:Special Ability ~ +2 ~ Armor.Special Ability ~ Ghost Touch ~ Weapon
 
 
 Arrow of Forgotten Graves	COST:450	TYPE:Lesser Minor
 
-Dagger.COPY=Hidden Blade
+Dagger (Base).COPY=Hidden Blade	VISIBLE:YES	EQMOD:Material ~ Steel
 Hidden Blade.MOD			COST:18302	TYPE:Greater Medium	SPROP:+2 concealed sneaky dagger	EQMOD:Special Ability ~ +2 ~ Weapon.Special Ability ~ Concealed ~ Weapon
 
-Shortbow (Composite).COPY=Phantom Pain
+Composite Shortbow (Base).COPY=Phantom Pain		VISIBLE:YES		EQMOD:Material ~ Wood
 Phantom Pain.MOD			COST:53875	TYPE:Greater Major	EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Necrotic ~ Weapon	SPROP:+1 adaptive endless ammunition necrotic composite shortbow
 
-Chain (Spiked).COPY=Tormentor's Shackle
+Spiked Chain (Base).COPY=Tormentor's Shackle		VISIBLE:YES		EQMOD:Material ~ Steel
 Tormentor's Shackle.MOD		COST:75325	TYPE:Greater Major	SPROP:+3 cruel ominous spiked chain	EQMOD:Special Ability ~ +3 ~ Weapon
 
-Scythe.COPY=Twilight Reaver
+Scythe (Base).COPY=Twilight Reaver		VISIBLE:YES
 Twilight Reaver.MOD			COST:83336	TYPE:Greater Major	SPROP:+2 cold iron keen greater umbral scythe	EQMOD:Special Ability ~ +2 ~ Weapon.Material ~ Cold Iron.Special Ability ~ Keen ~ Weapon.Special Ability ~ Umbral / Greater ~ Weapon
 
-Longsword.COPY=Edge of Oblivion
+Longsword (Base).COPY=Edge of Oblivion		VISIBLE:YES		EQMOD:Material ~ Steel
 Edge of Oblivion.MOD			COST:213015	TYPE:Greater Major	SPROP:+3 adamantine necrotic vorpal longsword (Cost is 213015) Rather than decapitating the victim on a natural 20 critical hit (as with a normal vorpal weapon), the edge of oblivion unleashes a burst of entropic power, aging the creature so far that it is reduced to a fine dust. A creature reduced to dust in this manner can only be revived via miracle, wish, or true resurrection. This ability allows the edge of oblivion to function on creatures that normally would not be slain by a vorpal weapon, such as aberrations, oozes, and undead; however, creatures that are immortal or immune to magical aging become immune to this effect instead. Nightshades, being made of entropy, are also immune to this effect.	EQMOD:Material ~ Adamantine ~ Weapon.Special Ability ~ Necrotic ~ Weapon.Special Ability ~ Vorpal ~ Melee.Special Ability ~ +3 ~ Weapon
 
 # Rings

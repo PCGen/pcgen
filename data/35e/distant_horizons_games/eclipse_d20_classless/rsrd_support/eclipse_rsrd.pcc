@@ -30,6 +30,8 @@ COPYRIGHT:PCGen dataset conversion for "Eclipse: The Codex Persona" Copyright 20
 LOGO:@/publisher_logos/DHG_OGL_Logo.jpg
 
 COVER:51254.jpg
+RACE:*/_universal/races.lst
+
 
 ABILITY:eclipse_rsrd_abilities.lst
 ABILITY:eclipse_rsrd_abilities_skills.lst
@@ -47,6 +49,7 @@ BONUS:ABILITYPOOL|Disadvantages|3|PREVARGTEQ:EclipseClass,1
 #Block: Core Files ---------------------------------------------------------
 #PCC:../eclipse.pcc
 #COMMENT: Direct Reference is best
+DATACONTROL:../eclipse__datacontrols.lst
 
 ABILITY:../eclipse_abilities.lst
 ABILITY:../eclipse_abilities_disadvantages.lst

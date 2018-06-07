@@ -41,14 +41,6 @@ public final class Hyperactive implements HyperlinkListener
 		{
 			final JEditorPane pane = (JEditorPane) e.getSource();
 
-//			if (e instanceof HTMLFrameHyperlinkEvent)
-//			{
-//				final HTMLFrameHyperlinkEvent evt = (HTMLFrameHyperlinkEvent) e;
-//				final HTMLDocument doc = (HTMLDocument) pane.getDocument();
-//				doc.processHTMLFrameHyperlinkEvent(evt);
-//			}
-//			else
-//			{
 			try
 			{
 				Utility.viewInBrowser(e.getURL());
@@ -60,7 +52,6 @@ public final class Hyperactive implements HyperlinkListener
 				Logging.errorPrint(
 						"Exception in Hyperactive::hyperlinkUpdate", t);
 			}
-//			}
 		}
 	}
 

@@ -357,6 +357,7 @@ public class ObjectKey<T>
 		return defaultValue;
 	}
 
+	@SuppressWarnings("unchecked")
 	public T cast(Object obj)
 	{
 		return (T) obj;

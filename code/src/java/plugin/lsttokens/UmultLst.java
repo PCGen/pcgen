@@ -59,7 +59,7 @@ public class UmultLst extends AbstractIntToken<CDOMObject> implements
 		{
 			return new ParseResult.Fail("Cannot use " + getTokenName()
 				+ " on an Ungranted object type: "
-				+ obj.getClass().getSimpleName(), context);
+				+ obj.getClass().getSimpleName());
 		}
 		if (Constants.LST_DOT_CLEAR.equals(value))
 		{

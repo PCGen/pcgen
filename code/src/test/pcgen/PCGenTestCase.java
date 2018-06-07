@@ -2,6 +2,7 @@ package pcgen;
 
 import java.math.BigDecimal;
 
+import junit.framework.TestCase;
 import pcgen.core.GameMode;
 import pcgen.core.LevelInfo;
 import pcgen.core.SettingsHandler;
@@ -17,8 +18,6 @@ import pcgen.util.testchecker.CompareEqualObject;
 import pcgen.util.testchecker.CompareEqualString;
 import pcgen.util.testchecker.CompareGreaterThan;
 import pcgen.util.testchecker.CompareNull;
-
-import junit.framework.TestCase;
 
 /**
  * Test case base for PCGen.  This addresses a common bug with JUnit whereby

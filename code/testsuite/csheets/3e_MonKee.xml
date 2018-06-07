@@ -32,7 +32,7 @@ BIO
 			<levels_total>8</levels_total>
 			<levels_ecl>8</levels_ecl>
 			<!-- shortform below should be removed - it can be derived from class info above -->
-			<shortform> Mnk8                   </shortform>
+			<shortform>Mnk8</shortform>
 			<!-- CLASSLIST is not extracted because we can derive it from the information above -->
 		</classes>
 		<deity>
@@ -41,7 +41,6 @@ BIO
 			<description></description>
 			<domainlist></domainlist>
 			<favoredweapon></favoredweapon>
-<!-->			<followeralignment></followeralignment>  This is no longer valid and keeps throwing out errors-->
 			<holyitem></holyitem>
 			<pantheonlist></pantheonlist>
 			<source></source>
@@ -933,11 +932,13 @@ BIO
 	  ====================================
 	  ====================================-->
 	<class_features>
-
 	<!-- Bard -->
 
-	<!-- Barbarian of 15th Level -->
-	<!-- Character Rage -->
+
+	<!-- Pathfinder -->
+		<!-- Character Rage -->
+		<!-- Character Rage -->
+
 	<!-- Turning ability -->
 
 		<stunning_fist>
@@ -945,14 +946,18 @@ BIO
 			<uses_per_day>8</uses_per_day>
 		</stunning_fist>
 	<!-- 3.0 stunning fist -->
+
 	<!-- 3.5 stunning fist -->
 
 		<wholeness_of_body>
 			<hp_per_day>16</hp_per_day>
 		</wholeness_of_body>
 	<!-- 3.0 wholeness of body -->
+
 	<!-- 3.5 wholeness of body -->
+
 	<!-- Psionics -->
+
 
 
 
@@ -960,7 +965,6 @@ BIO
 			<score>9</score>
 			<max_cohort_level>6.0</max_cohort_level>
 		</leadership>
-
 	</class_features>
 	<!--
 	  ====================================
@@ -976,10 +980,8 @@ BIO
 			<capacity>150</capacity>
 		</total>
 		<equipmentsets>
-
-      <equipmentset name="Default Set">
+		<equipmentset name="Default Set">
 			</equipmentset>
-
       </equipmentsets>
 	</equipment>
 	<weight_allowance>
@@ -1052,6 +1054,7 @@ BIO
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 		</feat>
+
 		<!-- Auto feats -->
 		<feat>
 			<name>Deflect Arrows</name>
@@ -1083,6 +1086,7 @@ BIO
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 		</feat>
+
 		<!-- Virtual Feats -->
 		<!-- End Virtual Feats -->
 		<!-- Hidden feats (all feats less the virtual, automatic and visible ones) -->
@@ -1095,8 +1099,9 @@ BIO
 			ABILITY OBJECTS
 	  ====================================
 	  ====================================-->
+
 	<ability_objects>
-	<!-- Visible Automatic "Special Ability" Ability Objects -->
+		<!-- Visible Automatic "Special Ability" Ability Objects -->
 		<ability_object>
 			<name>1 extra feat at 1st level.</name>
 			<description>1 extra feat at 1st level.</description>
@@ -1218,7 +1223,7 @@ BIO
 			<virtual>F</virtual>
 			<category>Special Ability</category>
 		</ability_object>
-	<!-- Hidden Automatic "Special Ability" Ability Objects -->
+		<!-- Hidden Automatic "Special Ability" Ability Objects -->
 		<ability_object>
 			<name>All Automatic Proficiencies</name>
 			<description></description>
@@ -1274,7 +1279,7 @@ BIO
 			<virtual>F</virtual>
 			<category>Special Ability</category>
 		</ability_object>
-	<!-- Visible Automatic "Internal" Ability Objects -->
+		<!-- Visible Automatic "Internal" Ability Objects -->
 		<ability_object>
 			<name>Default</name>
 			<description></description>
@@ -1315,15 +1320,12 @@ BIO
 			MISCELLANEOUS
 	  ====================================
 	  ====================================-->
-	<!-- Domains -->
+
 	<weapon_proficiencies>Club, Crossbow (Heavy), Crossbow (Light), Dagger, Gauntlet, Grapple, Handaxe, Javelin, Kama, Nunchaku, Quarterstaff, Shuriken, Siangham, Sling, Spells(Ray), Unarmed Strike</weapon_proficiencies>
 	<languages>Common</languages>
 
 
 	<misc>
-
-
-
 	</misc>
 	<!--
 	  ====================================
@@ -1331,11 +1333,8 @@ BIO
 			COMPANIONS
 	  ====================================
 	  ====================================-->
+
 	<companions>
-
-
-
-
 	</companions>
 	<!--
 	  ====================================

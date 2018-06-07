@@ -251,7 +251,7 @@ public final class KitSkill extends BaseKit
 			if (!controller.conditionallyApply(pc, lang))
 			{
 				Logging.errorPrint("Failed to apply Language into Skill: "
-						+ lang.getLSTformat());
+						+ lang.getKeyName());
 			}
 		}
 

@@ -564,9 +564,6 @@ public class AttackDialog extends JDialog
 			}
 		}
 
-		/**
-		 * @see javax.swing.table.TableModel#isCellEditable(int, int)
-		 */
         @Override
 		public boolean isCellEditable(int row, int column)
 		{
@@ -574,9 +571,6 @@ public class AttackDialog extends JDialog
 				.booleanValue();
 		}
 
-		/**
-		 * @see javax.swing.table.TableModel#getColumnClass(int)
-		 */
         @Override
 		public Class getColumnClass(int columnIndex)
 		{

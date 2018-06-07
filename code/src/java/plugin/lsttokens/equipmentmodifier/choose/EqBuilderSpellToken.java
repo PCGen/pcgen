@@ -54,28 +54,28 @@ public class EqBuilderSpellToken implements
 		if (value.indexOf('[') != -1)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not contain [] : " + value, context);
+					+ " arguments may not contain [] : " + value);
 		}
 		if (value.charAt(0) == '|')
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not start with | : " + value, context);
+					+ " arguments may not start with | : " + value);
 		}
 		if (value.charAt(value.length() - 1) == '|')
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not end with | : " + value, context);
+					+ " arguments may not end with | : " + value);
 		}
 		if (value.indexOf("||") != -1)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments uses double separator || : " + value, context);
+					+ " arguments uses double separator || : " + value);
 		}
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		if (tok.countTokens() != 3)
 		{
 			return new ParseResult.Fail("COUNT:" + getTokenName()
-					+ " requires three arguments: " + value, context);
+					+ " requires three arguments: " + value);
 		}
 		tok.nextToken();
 		if (tok.hasMoreTokens())
@@ -88,7 +88,7 @@ public class EqBuilderSpellToken implements
 			catch (NumberFormatException nfe)
 			{
 				return new ParseResult.Fail("CHOOSE:" + getTokenName()
-						+ " second argument must be an Integer : " + value, context);
+						+ " second argument must be an Integer : " + value);
 			}
 		}
 		if (tok.hasMoreTokens())
@@ -103,15 +103,14 @@ public class EqBuilderSpellToken implements
 				catch (NumberFormatException nfe)
 				{
 					return new ParseResult.Fail("CHOOSE:" + getTokenName()
-						+ " third argument must be an Integer or 'MAXLEVEL': " + value,
-						context);
+						+ " third argument must be an Integer or 'MAXLEVEL': " + value);
 				}
 			}
 		}
 		if (tok.hasMoreTokens())
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " must have 1 to 3 | delimited arguments: " + value, context);
+					+ " must have 1 to 3 | delimited arguments: " + value);
 		}
 		StringBuilder sb = new StringBuilder(value.length() + 20);
 		sb.append(getTokenName()).append('|').append(value);

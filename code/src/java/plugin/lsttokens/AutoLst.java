@@ -44,13 +44,13 @@ public class AutoLst extends AbstractNonEmptyToken<CDOMObject> implements
 		{
 			return new ParseResult.Fail("Cannot use " + getTokenName()
 				+ " on an Ungranted object type: "
-				+ obj.getClass().getSimpleName(), context);
+				+ obj.getClass().getSimpleName());
 		}
 		int pipeLoc = value.indexOf(Constants.PIPE);
 		if (pipeLoc == -1)
 		{
 			return new ParseResult.Fail(getTokenName()
-					+ " requires a SubToken", context);
+					+ " requires a SubToken");
 		}
 		return context.processSubToken(obj, getTokenName(), value.substring(0,
 				pipeLoc), value.substring(pipeLoc + 1));

@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import pcgen.base.formula.base.Function;
+import pcgen.base.formula.base.FormulaFunction;
 import pcgen.system.PluginLoader;
 import pcgen.util.Logging;
 
@@ -30,7 +30,7 @@ public final class PluginFunctionLibrary implements PluginLoader
 
 	private static PluginFunctionLibrary instance = null;
 
-	private static ArrayList<Function> list = new ArrayList<>();
+	private static ArrayList<FormulaFunction> list = new ArrayList<>();
 
 	private PluginFunctionLibrary()
 	{
@@ -50,10 +50,10 @@ public final class PluginFunctionLibrary implements PluginLoader
 	public void loadPlugin(Class<?> clazz) throws Exception
 	{
 		Object token = clazz.newInstance();
-		if (token instanceof Function)
+		if (token instanceof FormulaFunction)
 		{
-			Function tok = (Function) token;
-			Function existing = existingFunction(tok.getFunctionName());
+			FormulaFunction tok = (FormulaFunction) token;
+			FormulaFunction existing = existingFunction(tok.getFunctionName());
 			if (existing != null)
 			{
 				Logging.errorPrint("Duplicate Function "
@@ -68,9 +68,9 @@ public final class PluginFunctionLibrary implements PluginLoader
 		}
 	}
 
-	private Function existingFunction(String name)
+	private FormulaFunction existingFunction(String name)
 	{
-		for (Function f : list)
+		for (FormulaFunction f : list)
 		{
 			if (f.getFunctionName().equalsIgnoreCase(name))
 			{
@@ -83,10 +83,10 @@ public final class PluginFunctionLibrary implements PluginLoader
 	@Override
 	public Class<?>[] getPluginClasses()
 	{
-		return new Class[]{Function.class};
+		return new Class[]{FormulaFunction.class};
 	}
 
-	public List<Function> getFunctions()
+	public List<FormulaFunction> getFunctions()
 	{
 		return Collections.unmodifiableList(list);
 	}

@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 CAMPAIGN:Pathfinder RPG Core Supplements
 KEY:Pathfinder RPG Core Supplements
-GAMEMODE:Pathfinder|Pathfinder_PFS
+GAMEMODE:Pathfinder
 TYPE:Paizo Publishing
 RANK:3
 STATUS:RELEASE
@@ -49,6 +49,14 @@ PCC:@/pathfinder/paizo/roleplaying_game/ultimate_equipment/ultimate_equipment.pc
 # Using new file style
 PCC:@/pathfinder/paizo/roleplaying_game/ultimate_campaign/_ultimate_campaign.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/advanced_class_guide/_advanced_class_guide.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/bestiary_4/_bestiary_4.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/ultimate_intrigue/_ultimate_intrigue.pcc
+
+FORWARDREF:SPELL|Telepathy
+FORWARDREF:CLASSSPELLLIST|Medium,Mesmerist,Occultist,Psychic,Spiritualist
+FORWARDREF:ABILITY=Special Ability|Mythic Power,Surge
+
+
 
 # ENTRY DATE: 2015-01
 # LST MONKEY: PCGen Team
@@ -66,6 +74,7 @@ PCC:@/pathfinder/paizo/roleplaying_game/advanced_class_guide/_advanced_class_gui
 # Bestiary
 # Bestiary 2
 # Bestiary 3
+# Bestiary 4
 # Advanced Player's Guide
 # Advanced Race Guide
 # Advanced Class Guide
@@ -73,3 +82,4 @@ PCC:@/pathfinder/paizo/roleplaying_game/advanced_class_guide/_advanced_class_gui
 # Ultimate Magic
 # Ultimate Campaign
 # Ultimate Equipment
+# Ultimate Intrigue

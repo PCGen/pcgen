@@ -23,17 +23,18 @@ import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.ability.StackToken;
 import plugin.lsttokens.choose.NoChoiceToken;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.TokenRegistration;
+import util.TestURI;
 
 public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTest
 {
 
-	private static final plugin.lsttokens.AbilityLst ABILITY_TOKEN =
+	protected static final plugin.lsttokens.AbilityLst ABILITY_TOKEN =
 			new plugin.lsttokens.AbilityLst();
 	protected static final plugin.lsttokens.deprecated.AutoFeatToken AUTO_FEAT_TOKEN =
 			new plugin.lsttokens.deprecated.AutoFeatToken();
@@ -54,12 +55,11 @@ public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTe
 
 	public Ability getMultNo(String s)
 	{
-		Ability a = create(Ability.class, s);
-		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, a);
+		Ability a = BuildUtilities.buildFeat(context, s);
 		ParseResult result = TYPE_TOKEN.parseToken(context, a, "Selectable");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		return a;
@@ -67,24 +67,23 @@ public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTe
 
 	public Ability getMultYesStackNo(String s, String target)
 	{
-		Ability a = create(Ability.class, s);
-		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, a);
+		Ability a = BuildUtilities.buildFeat(context, s);
 		ParseResult result = AUTO_FEAT_TOKEN.parseToken(context, a, "FEAT|%LIST");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		result = ABILITY_MULT_TOKEN.parseToken(context, a, "YES");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		result = CHOOSE_FEATSELECTION_TOKEN.parseToken(context, a, target);
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		return a;
@@ -92,30 +91,29 @@ public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTe
 
 	public Ability getMultYesStackYes(String s, String target)
 	{
-		Ability a = create(Ability.class, s);
-		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, a);
+		Ability a = BuildUtilities.buildFeat(context, s);
 		ParseResult result = AUTO_FEAT_TOKEN.parseToken(context, a, "FEAT|%LIST");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		result = ABILITY_MULT_TOKEN.parseToken(context, a, "YES");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		result = ABILITY_STACK_TOKEN.parseToken(context, a, "YES");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		result = CHOOSE_FEATSELECTION_TOKEN.parseToken(context, a, target);
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		return a;
@@ -123,18 +121,17 @@ public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTe
 
 	public Ability getMultYesStackNoChooseNoChoice(String s)
 	{
-		Ability a = create(Ability.class, s);
-		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, a);
+		Ability a = BuildUtilities.buildFeat(context, s);
 		ParseResult result = ABILITY_MULT_TOKEN.parseToken(context, a, "YES");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		result = CHOOSE_NOCHOICE_TOKEN.parseToken(context, a, null);
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		return a;
@@ -142,24 +139,23 @@ public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTe
 
 	public Ability getMultYesStackYesChooseNoChoice(String s)
 	{
-		Ability a = create(Ability.class, s);
-		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, a);
+		Ability a = BuildUtilities.buildFeat(context, s);
 		ParseResult result = ABILITY_MULT_TOKEN.parseToken(context, a, "YES");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		result = ABILITY_STACK_TOKEN.parseToken(context, a, "YES");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		result = CHOOSE_NOCHOICE_TOKEN.parseToken(context, a, null);
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		return a;
@@ -171,9 +167,9 @@ public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTe
 		Ability parent = getGrantor("MultNo");
 		finishLoad();
 		applyParent(parent);
-		assertTrue(pc.hasAbilityKeyed(AbilityCategory.FEAT, "Parent"));
-		assertTrue(pc.hasAbilityKeyed(AbilityCategory.FEAT, "Grantor"));
-		assertTrue(pc.hasAbilityKeyed(AbilityCategory.FEAT, "MultNo"));
+		assertTrue(pc.hasAbilityKeyed(BuildUtilities.getFeatCat(), "Parent"));
+		assertTrue(pc.hasAbilityKeyed(BuildUtilities.getFeatCat(), "Grantor"));
+		assertTrue(pc.hasAbilityKeyed(BuildUtilities.getFeatCat(), "MultNo"));
 	}
 
 	public void testNaturalParens()
@@ -182,9 +178,9 @@ public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTe
 		Ability parent = getGrantor("Natural (Parens)");
 		finishLoad();
 		applyParent(parent);
-		assertTrue(pc.hasAbilityKeyed(AbilityCategory.FEAT, "Parent"));
-		assertTrue(pc.hasAbilityKeyed(AbilityCategory.FEAT, "Grantor"));
-		assertTrue(pc.hasAbilityKeyed(AbilityCategory.FEAT, "Natural (Parens)"));
+		assertTrue(pc.hasAbilityKeyed(BuildUtilities.getFeatCat(), "Parent"));
+		assertTrue(pc.hasAbilityKeyed(BuildUtilities.getFeatCat(), "Grantor"));
+		assertTrue(pc.hasAbilityKeyed(BuildUtilities.getFeatCat(), "Natural (Parens)"));
 	}
 
 	public void testMultYes()
@@ -194,10 +190,10 @@ public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTe
 		Ability parent = getGrantor("MultYes (Target)");
 		finishLoad();
 		applyParent(parent);
-		assertTrue(pc.hasAbilityKeyed(AbilityCategory.FEAT, "Parent"));
-		assertTrue(pc.hasAbilityKeyed(AbilityCategory.FEAT, "Grantor"));
-		assertTrue(pc.hasAbilityKeyed(AbilityCategory.FEAT, "MultYes"));
-		assertTrue(pc.hasAbilityKeyed(AbilityCategory.FEAT, "Target"));
+		assertTrue(pc.hasAbilityKeyed(BuildUtilities.getFeatCat(), "Parent"));
+		assertTrue(pc.hasAbilityKeyed(BuildUtilities.getFeatCat(), "Grantor"));
+		assertTrue(pc.hasAbilityKeyed(BuildUtilities.getFeatCat(), "MultYes"));
+		assertTrue(pc.hasAbilityKeyed(BuildUtilities.getFeatCat(), "Target"));
 	}
 
 	public void testMultYesTargetParens()
@@ -207,10 +203,10 @@ public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTe
 		Ability parent = getGrantor("MultYes (Target (Parens))");
 		finishLoad();
 		applyParent(parent);
-		assertTrue(pc.hasAbilityKeyed(AbilityCategory.FEAT, "Parent"));
-		assertTrue(pc.hasAbilityKeyed(AbilityCategory.FEAT, "Grantor"));
-		assertTrue(pc.hasAbilityKeyed(AbilityCategory.FEAT, "MultYes"));
-		assertTrue(pc.hasAbilityKeyed(AbilityCategory.FEAT, "Target (Parens)"));
+		assertTrue(pc.hasAbilityKeyed(BuildUtilities.getFeatCat(), "Parent"));
+		assertTrue(pc.hasAbilityKeyed(BuildUtilities.getFeatCat(), "Grantor"));
+		assertTrue(pc.hasAbilityKeyed(BuildUtilities.getFeatCat(), "MultYes"));
+		assertTrue(pc.hasAbilityKeyed(BuildUtilities.getFeatCat(), "Target (Parens)"));
 	}
 
 	public void testMultYesNC()
@@ -219,9 +215,9 @@ public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTe
 		Ability parent = getGrantor("MultYesNC");
 		finishLoad();
 		applyParent(parent);
-		assertTrue(pc.hasAbilityKeyed(AbilityCategory.FEAT, "Parent"));
-		assertTrue(pc.hasAbilityKeyed(AbilityCategory.FEAT, "Grantor"));
-		assertTrue(pc.hasAbilityKeyed(AbilityCategory.FEAT, "MultYesNC"));
+		assertTrue(pc.hasAbilityKeyed(BuildUtilities.getFeatCat(), "Parent"));
+		assertTrue(pc.hasAbilityKeyed(BuildUtilities.getFeatCat(), "Grantor"));
+		assertTrue(pc.hasAbilityKeyed(BuildUtilities.getFeatCat(), "MultYesNC"));
 	}
 
 	public void testStackYes()
@@ -231,10 +227,10 @@ public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTe
 		Ability parent = getGrantor("MultYesStackYes (Target)");
 		finishLoad();
 		applyParent(parent);
-		assertTrue(pc.hasAbilityKeyed(AbilityCategory.FEAT, "Parent"));
-		assertTrue(pc.hasAbilityKeyed(AbilityCategory.FEAT, "Grantor"));
-		assertTrue(pc.hasAbilityKeyed(AbilityCategory.FEAT, "MultYesStackYes"));
-		assertTrue(pc.hasAbilityKeyed(AbilityCategory.FEAT, "Target"));
+		assertTrue(pc.hasAbilityKeyed(BuildUtilities.getFeatCat(), "Parent"));
+		assertTrue(pc.hasAbilityKeyed(BuildUtilities.getFeatCat(), "Grantor"));
+		assertTrue(pc.hasAbilityKeyed(BuildUtilities.getFeatCat(), "MultYesStackYes"));
+		assertTrue(pc.hasAbilityKeyed(BuildUtilities.getFeatCat(), "Target"));
 	}
 
 	public void testStackYesNC()
@@ -243,14 +239,14 @@ public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTe
 		Ability parent = getGrantor("MultYesStackYesNC");
 		finishLoad();
 		applyParent(parent);
-		assertTrue(pc.hasAbilityKeyed(AbilityCategory.FEAT, "Parent"));
-		assertTrue(pc.hasAbilityKeyed(AbilityCategory.FEAT, "Grantor"));
-		assertTrue(pc.hasAbilityKeyed(AbilityCategory.FEAT, "MultYesStackYesNC"));
+		assertTrue(pc.hasAbilityKeyed(BuildUtilities.getFeatCat(), "Parent"));
+		assertTrue(pc.hasAbilityKeyed(BuildUtilities.getFeatCat(), "Grantor"));
+		assertTrue(pc.hasAbilityKeyed(BuildUtilities.getFeatCat(), "MultYesStackYesNC"));
 	}
 
 	private void applyParent(Ability parent)
 	{
-		CNAbility cna = CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.NORMAL, parent);
+		CNAbility cna = CNAbilityFactory.getCNAbility(BuildUtilities.getFeatCat(), Nature.NORMAL, parent);
 		CNAbilitySelection cnas = new CNAbilitySelection(cna);
 		pc.addAbility(cnas, UserSelection.getInstance(), this);
 	}
@@ -273,7 +269,7 @@ public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTe
 					getGrantPrefix() + "Grantor (" + s + ")");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		return parent;

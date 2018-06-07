@@ -23,7 +23,6 @@ import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.ChooseSelectionActor;
-import pcgen.cdom.base.ClassIdentity;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.NonInteractive;
@@ -64,13 +63,13 @@ public class ChooseLst extends AbstractNonEmptyToken<CDOMObject> implements
 		{
 			return new ParseResult.Fail("Cannot use " + getTokenName()
 				+ " on an Ungranted object type: "
-				+ obj.getClass().getSimpleName(), context);
+				+ obj.getClass().getSimpleName());
 		}
 		if (obj instanceof NonInteractive)
 		{
 			return new ParseResult.Fail("Cannot use " + getTokenName()
 				+ " on an Non-Interactive object type: "
-				+ obj.getClass().getSimpleName(), context);
+				+ obj.getClass().getSimpleName());
 		}
 		String key;
 		String val;
@@ -104,7 +103,7 @@ public class ChooseLst extends AbstractNonEmptyToken<CDOMObject> implements
 			{
 				return new ParseResult.Fail(
 					getTokenName() + " is not supported for "
-						+ obj.getClass().getSimpleName(), context);
+						+ obj.getClass().getSimpleName());
 			}
 		}
 
@@ -114,13 +113,13 @@ public class ChooseLst extends AbstractNonEmptyToken<CDOMObject> implements
 			if (maxCount == null || maxCount.isEmpty())
 			{
 				return new ParseResult.Fail(
-					"NUMCHOICES in CHOOSE must be a formula: " + value, context);
+					"NUMCHOICES in CHOOSE must be a formula: " + value);
 			}
 			Formula f = FormulaFactory.getFormulaFor(maxCount);
 			if (!f.isValid())
 			{
 				return new ParseResult.Fail("Number of Choices in "
-						+ getTokenName() + " was not valid: " + f.toString(), context);
+						+ getTokenName() + " was not valid: " + f.toString());
 			}
 			context.getObjectContext().put(obj, FormulaKey.NUMCHOICES, f);
 			pipeLoc = val.indexOf(Constants.PIPE);
@@ -199,14 +198,14 @@ public class ChooseLst extends AbstractNonEmptyToken<CDOMObject> implements
 		}
 		if (newChoose != null)
 		{
-			ClassIdentity<?> chooseClass = newChoose.getClassIdentity();
+			Class<?> chooseClass = newChoose.getReferenceClass();
 			List<ChooseSelectionActor<?>> newactors =
 					obj.getListFor(ListKey.NEW_CHOOSE_ACTOR);
 			if (newactors != null)
 			{
 				for (ChooseSelectionActor<?> csa : newactors)
 				{
-					if (!chooseClass.getChoiceClass().equals(csa.getChoiceClass()))
+					if (!chooseClass.equals(csa.getChoiceClass()))
 					{
 						Logging.errorPrint("CHOOSE of type "
 							+ chooseClass.getName() + " on "

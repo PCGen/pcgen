@@ -19,10 +19,10 @@ Unseen			KEY:Special Ability ~ Unseen ~ Melee			TYPE:Weapon.Melee				PLUS:2	VISI
 
 
 #Old KEYs
-Liberating			KEY:LIBERATING		TYPE:Weapon.Melee				PLUS:2	VISIBLE:NO	SOURCEPAGE:p.237	PRETYPE:3,Enhancement,Weapon,Melee				SPROP:Aids wielder in detecting when a creature is under an enchantment. Striking a mentally controlled deals nonlethal damage, grants new save with a bonus. 
-Peaceful			KEY:PEACEFUL		TYPE:Ammunition.Weapon.Melee.Ranged	PLUS:2	VISIBLE:NO	SOURCEPAGE:p.237	PRETYPE:1,Enhancement						SPROP:A creature that has taken nonlethal damage from a peaceful weapon becomes shaken for 1 round each time it deals lethal damage to another living creature.
-Silencing			KEY:SILENCING		TYPE:Ammunition.Weapon.Melee.Ranged	PLUS:2	VISIBLE:NO	SOURCEPAGE:p.237	PRETYPE:1,Enhancement						SPROP:A silencing weapon makes no noise when drawn or when used to attack. Targets struck can be muffled, somewhat. Critical hits silence target.
-Slithering			KEY:SLITHERING		TYPE:Weapon.Melee				PLUS:1	VISIBLE:NO	SOURCEPAGE:p.237	PRETYPE:3,Enhancement,Weapon,Melee				SPROP:Weapon ignores half of AC bonus from cover, half of penalty from squeezing, and is harder to disarm or sunder.
-Truthful			KEY:TRUTHFUL		TYPE:Weapon.Melee				PLUS:2	VISIBLE:NO	SOURCEPAGE:p.238	PRETYPE:3,Enhancement,Weapon,Melee				SPROP:Weapon ignores miss chance provided by illusions, such as blur, and acts as a dispelling weapon against figments and shadow conjuration effects.
-Umbral			KEY:UMBRAL			TYPE:Weapon.Melee				PLUS:3	VISIBLE:NO	SOURCEPAGE:p.238	PRETYPE:3,Enhancement,Weapon,Melee				SPROP:Weapon is considered to have concealment for the purposes of attacks or effects directed at the weapon, grants wielder darkvision, 30 ft, while held, radiates 20-ft radius of darkness on command.
-Unseen			KEY:UNSEEN			TYPE:Weapon.Melee				PLUS:2	VISIBLE:NO	SOURCEPAGE:p.238	PRETYPE:3,Enhancement,Weapon,Melee				SPROP:Weapon, and scabbard, become invisible on command, may deny unaware target Dex bonus to AC on first strike, has total concealment against attacks or effects directed at the weapon.
+Special Ability ~ Liberating ~ Melee.COPY=LIBERATING	VISIBLE:NO
+Special Ability ~ Peaceful ~ Weapon.COPY=PEACEFUL	VISIBLE:NO
+Special Ability ~ Silencing ~ Weapon.COPY=SILENCING	VISIBLE:NO
+Special Ability ~ Slithering ~ Melee.COPY=SLITHERING	VISIBLE:NO
+Special Ability ~ Truthful ~ Melee.COPY=TRUTHFUL	VISIBLE:NO
+Special Ability ~ Umbral ~ Melee.COPY=UMBRAL		VISIBLE:NO
+Special Ability ~ Unseen ~ Melee.COPY=UNSEEN		VISIBLE:NO

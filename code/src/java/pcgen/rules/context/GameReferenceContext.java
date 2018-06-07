@@ -22,16 +22,14 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-import pcgen.base.util.DoubleKeyMap;
+import pcgen.cdom.base.BasicClassIdentity;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Categorized;
-import pcgen.cdom.base.Category;
+import pcgen.cdom.base.ClassIdentity;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.reference.ManufacturableFactory;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.SimpleReferenceManufacturer;
-import pcgen.cdom.reference.TransparentCategorizedFactory;
-import pcgen.cdom.reference.TransparentCategorizedReferenceManufacturer;
 import pcgen.cdom.reference.TransparentFactory;
 import pcgen.cdom.reference.UnconstructedValidator;
 
@@ -47,10 +45,12 @@ import pcgen.cdom.reference.UnconstructedValidator;
  */
 public class GameReferenceContext extends AbstractReferenceContext
 {
-	private final Map<Class<?>, ReferenceManufacturer<?>> map = new HashMap<>();
+	private final Map<String, ReferenceManufacturer<?>> mapByPers = new HashMap<>();
 
-	private final DoubleKeyMap<Class<?>, String, TransparentCategorizedReferenceManufacturer<? extends Loadable>> catmap = new DoubleKeyMap<>();
-
+	private GameReferenceContext()
+	{
+	}
+	
 	@Override
 	public <T extends Loadable> ReferenceManufacturer<T> getManufacturer(
 			Class<T> cl)
@@ -60,62 +60,28 @@ public class GameReferenceContext extends AbstractReferenceContext
 			throw new InternalError(cl
 					+ " is categorized but was fetched without a category");
 		}
-		@SuppressWarnings("unchecked")
-		ReferenceManufacturer<T> mfg = (ReferenceManufacturer<T>) map.get(cl);
-		if (mfg == null)
-		{
-			mfg = constructReferenceManufacturer(cl);
-			map.put(cl, mfg);
-		}
-		return mfg;
+		ClassIdentity<T> identity = BasicClassIdentity.getIdentity(cl);
+		return getManufacturerId(identity);
 	}
 
 	@Override
 	protected <T extends Loadable> ReferenceManufacturer<T> constructReferenceManufacturer(
-		Class<T> cl)
+		ClassIdentity<T> identity)
 	{
-		return new SimpleReferenceManufacturer<>(new TransparentFactory<>(cl));
+		return new SimpleReferenceManufacturer<>(new TransparentFactory<>(
+			identity.getPersistentFormat(), identity.getReferenceClass()));
 	}
 
 	@Override
 	public Collection<ReferenceManufacturer<?>> getAllManufacturers()
 	{
-		ArrayList<ReferenceManufacturer<?>> returnList = new ArrayList<>(
-                map.values());
-		for (Class<?> cl : catmap.getKeySet())
-		{
-			returnList.addAll(catmap.values(cl));
-		}
-		return returnList;
-	}
-
-	@Override
-	public <T extends Categorized<T>> ReferenceManufacturer<T> getManufacturer(
-			Class<T> cl, Class<? extends Category<T>> catClass, String cat)
-	{
-		@SuppressWarnings("unchecked")
-		TransparentCategorizedReferenceManufacturer<T> mfg = (TransparentCategorizedReferenceManufacturer<T>) catmap
-				.get(cl, cat);
-		if (mfg == null)
-		{
-			mfg = new TransparentCategorizedReferenceManufacturer<>(new TransparentCategorizedFactory<>(cl, cat), catClass, cat);
-			catmap.put(cl, cat, mfg);
-		}
-		return mfg;
+		return new ArrayList<>(mapByPers.values());
 	}
 
 	@Override
 	public boolean validate(UnconstructedValidator validator)
 	{
 		return true;
-	}
-
-	@Override
-	public <T extends Categorized<T>> ReferenceManufacturer<T> getManufacturer(
-			Class<T> cl, Category<T> cat)
-	{
-		Class<? extends Category<T>> catClass = getGenericClass(cat);
-		return getManufacturer(cl, catClass, cat.getKeyName());
 	}
 
 	@Override
@@ -133,24 +99,59 @@ public class GameReferenceContext extends AbstractReferenceContext
 	}
 
 	@Override
-	public <T extends Loadable> boolean hasManufacturer(Class<T> cl)
+	public <T extends Loadable> boolean hasManufacturer(ClassIdentity<T> cl)
 	{
 		return false;
 	}
 
 	@Override
-	protected <T extends Categorized<T>> boolean hasManufacturer(
-			Class<T> cl, Category<T> cat)
-	{
-		return false;
-	}
-
-	@Override
-	public <T extends Loadable> ReferenceManufacturer<T> getManufacturer(
+	public <T extends Loadable> ReferenceManufacturer<T> getManufacturerFac(
 			ManufacturableFactory<T> factory)
 	{
 		throw new UnsupportedOperationException(
 				"GameReferenceContext cannot provide a factory based manufacturer");
 	}
 
+	/**
+	 * Return a new GameReferenceContext. This ReferenceContext is initialized as per
+	 * the rules of AbstractReferenceContext.
+	 * 
+	 * @return A new GameReferenceContext
+	 */
+	public static GameReferenceContext createGameReferenceContext()
+	{
+		GameReferenceContext context = new GameReferenceContext();
+		context.initialize();
+		return context;
+	}
+
+	@Override
+	public <T extends Loadable> ReferenceManufacturer<T> getManufacturerId(
+		ClassIdentity<T> identity)
+	{
+		String persistent = identity.getPersistentFormat();
+		return getManufacturerByFormatName(persistent, identity.getReferenceClass());
+	}
+
+	@Override
+	public <T extends Loadable> ReferenceManufacturer<T> getManufacturerByFormatName(
+		String formatName, Class<T> refClass)
+	{
+		@SuppressWarnings("unchecked")
+		ReferenceManufacturer<T> mfg = (ReferenceManufacturer<T>) mapByPers.get(formatName);
+		if (mfg == null)
+		{
+			mfg = new SimpleReferenceManufacturer<>(
+				new TransparentFactory<>(formatName, refClass));
+			mapByPers.put(formatName, mfg);
+		}
+		return mfg;
+	}
+
+	@Override
+	public ReferenceManufacturer<?> getManufacturerByFormatName(String formatName)
+	{
+		throw new UnsupportedOperationException(
+			"GameReferenceContext cannot get Format by name without knowing underlying class");
+	}
 }

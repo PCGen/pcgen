@@ -12,8 +12,8 @@ Treasonous	KEY:Special Ability ~ Treasonous ~ Weapon		TYPE:Weapon	PLUS:2	VISIBLE
 
 
 #Old KEYs
-Fervent		TYPE:Weapon	PLUS:1	VISIBLE:NO	SOURCEPAGE:p.30	PRETYPE:1,Enhancement
-Heretical		TYPE:Weapon	PLUS:2	VISIBLE:NO	SOURCEPAGE:p.30	PRETYPE:1,Enhancement
-Kinslayer		TYPE:Weapon	PLUS:1	VISIBLE:NO	SOURCEPAGE:p.30	PRETYPE:1,Enhancement
-Patriotic		TYPE:Weapon	PLUS:1	VISIBLE:NO	SOURCEPAGE:p.30	PRETYPE:1,Enhancement
-Treasonous		TYPE:Weapon	PLUS:2	VISIBLE:NO	SOURCEPAGE:p.30	PRETYPE:1,Enhancement
+Special Ability ~ Fervent ~ Weapon.COPY=Fervent			VISIBLE:NO
+Special Ability ~ Heretical ~ Weapon.COPY=Heretical		VISIBLE:NO
+Special Ability ~ Kinslayer ~ Weapon.COPY=Kinslayer		VISIBLE:NO
+Special Ability ~ Patriotic ~ Weapon.COPY=Patriotic		VISIBLE:NO
+Special Ability ~ Treasonous ~ Weapon.COPY=Treasonous		VISIBLE:NO

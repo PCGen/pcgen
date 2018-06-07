@@ -25,6 +25,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Deity;
 import pcgen.core.PlayerCharacter;
+import pcgen.output.channel.ChannelCompatibility;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
@@ -55,7 +56,7 @@ public class PreAlignTest extends AbstractCharacterTestCase
 	public void testNegative() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
-		character.setAlignment(ng);
+		ChannelCompatibility.setCurrentAlignment(character.getCharID(), ng);
 
 		Prerequisite prereq;
 
@@ -78,7 +79,7 @@ public class PreAlignTest extends AbstractCharacterTestCase
 	public void testAbbrev() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
-		character.setAlignment(ng);
+		ChannelCompatibility.setCurrentAlignment(character.getCharID(), ng);
 
 		Prerequisite prereq = new Prerequisite();
 		prereq.setKind("align");
@@ -113,7 +114,7 @@ public class PreAlignTest extends AbstractCharacterTestCase
 	public void testDeity() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
-		character.setAlignment(ng);
+		ChannelCompatibility.setCurrentAlignment(character.getCharID(), ng);
 		character.setDeity(deity);
 		assertEquals("Deity should have been set for character.", deity,
 			character.getDeity());
@@ -124,7 +125,7 @@ public class PreAlignTest extends AbstractCharacterTestCase
 		assertTrue("Number 3 should match deity's alignment of NG",
 			PrereqHandler.passes(prereq, character, null));
 
-		character.setAlignment(cg);
+		ChannelCompatibility.setCurrentAlignment(character.getCharID(), cg);
 
 		assertFalse("Number 6 should not match deity's alignment of NG",
 			PrereqHandler.passes(prereq, character, null));
@@ -133,7 +134,7 @@ public class PreAlignTest extends AbstractCharacterTestCase
 	public void testMulti() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
-		character.setAlignment(ng);
+		ChannelCompatibility.setCurrentAlignment(character.getCharID(), ng);
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		Prerequisite prereq = factory.parse("PREALIGN:LE,NG,NE");

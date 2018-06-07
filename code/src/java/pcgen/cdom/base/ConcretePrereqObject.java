@@ -260,7 +260,18 @@ public class ConcretePrereqObject implements Cloneable, PrereqObject
 	 */
 	public boolean qualifies(final PlayerCharacter aPC, Object owner)
 	{
-		return !hasPrerequisites()
-				|| PrereqHandler.passesAll(getPrerequisiteList(), aPC, owner);
+		return !hasPrerequisites() || PrereqHandler.passesAll(this, aPC, owner);
+	}
+
+	@Override
+	public boolean isAvailable(PlayerCharacter aPC)
+	{
+		return true;
+	}
+
+	@Override
+	public boolean isActive(PlayerCharacter aPC)
+	{
+		return true;
 	}
 }

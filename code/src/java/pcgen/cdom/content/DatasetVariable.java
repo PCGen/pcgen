@@ -17,8 +17,12 @@
  */
 package pcgen.cdom.content;
 
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import pcgen.base.util.FormatManager;
+import pcgen.cdom.formula.scope.PCGenScope;
 
 /**
  * A DatasetVariable is a variable within the new formula system, as defined by
@@ -34,14 +38,14 @@ public class DatasetVariable extends UserContent
 		.compile("\\A[A-Za-z]\\w*\\z");
 
 	/**
-	 * The name of the format of this variable
+	 * The format of this variable.
 	 */
-	private String format;
+	private FormatManager<?> format;
 
 	/**
-	 * The name of the scope in which the variable is legal
+	 * The PCGenScope in which the variable is legal.
 	 */
-	private String scopeName;
+	private PCGenScope scope;
 
 	@Override
 	public String getDisplayName()
@@ -50,35 +54,24 @@ public class DatasetVariable extends UserContent
 	}
 
 	/**
-	 * Not designed to be used for this object.
-	 * 
-	 * @see pcgen.cdom.base.Loadable#getLSTformat()
-	 */
-	@Override
-	public String getLSTformat()
-	{
-		return null;
-	}
-
-	/**
-	 * Sets the scope name in which the variable is legal.
+	 * Sets the PCGenScope in which the variable is legal.
 	 * 
 	 * @param scope
-	 *            the scope name in which the variable is legal
+	 *            The PCGenScope in which the variable is legal
 	 */
-	public void setScopeName(String scope)
+	public void setScope(PCGenScope scope)
 	{
-		scopeName = scope;
+		this.scope = Objects.requireNonNull(scope);
 	}
 
 	/**
-	 * Returns the scope name in which the variable is legal.
+	 * Returns the PCGenScope in which the variable is legal.
 	 * 
-	 * @return the scope name in which the variable is legal
+	 * @return The PCGenScope in which the variable is legal
 	 */
-	public String getScopeName()
+	public PCGenScope getScope()
 	{
-		return scopeName;
+		return scope;
 	}
 
 	/**
@@ -98,17 +91,23 @@ public class DatasetVariable extends UserContent
 	}
 
 	/**
-	 * Returns the name of the Format for this DatasetVariable.
+	 * Returns the Format for this DatasetVariable.
 	 * 
-	 * @return the name of the Format for this DatasetVariable
+	 * @return The Format for this DatasetVariable
 	 */
-	public String getFormat()
+	public FormatManager<?> getFormat()
 	{
 		return format;
 	}
 
-	public void setFormat(String format)
+	/**
+	 * Sets the Format for this DatasetVariable.
+	 * 
+	 * @param format
+	 *            The Format for this DatasetVariable
+	 */
+	public void setFormat(FormatManager<?> format)
 	{
-		this.format = format;
+		this.format = Objects.requireNonNull(format);
 	}
 }

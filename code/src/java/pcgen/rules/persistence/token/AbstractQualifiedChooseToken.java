@@ -77,7 +77,7 @@ public abstract class AbstractQualifiedChooseToken<T extends CDOMObject>
 				if (title == null || title.isEmpty())
 				{
 					return new ParseResult.Fail(getParentToken() + ":"
-						+ getTokenName() + " had TITLE= but no title: " + value, context);
+						+ getTokenName() + " had TITLE= but no title: " + value);
 				}
 			}
 			else
@@ -102,7 +102,8 @@ public abstract class AbstractQualifiedChooseToken<T extends CDOMObject>
 			return cpr;
 		}
 		PrimitiveChoiceSet<T> pcs = new CollectionToChoiceSet<>(coll);
-		BasicChooseInformation<T> tc = new BasicChooseInformation<>(getTokenName(), pcs);
+		BasicChooseInformation<T> tc =
+				new BasicChooseInformation<>(getTokenName(), pcs, getPersistentFormat());
 		tc.setTitle(title);
 		tc.setChoiceActor(this);
 		context.getObjectContext().put(obj, ObjectKey.CHOOSE_INFO, tc);
@@ -203,6 +204,8 @@ public abstract class AbstractQualifiedChooseToken<T extends CDOMObject>
 		 */
 		return true;
 	}
+
+	protected abstract String getPersistentFormat();
 
 	protected abstract String getDefaultTitle();
 

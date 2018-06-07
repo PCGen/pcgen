@@ -68,9 +68,9 @@ BIO
 		</skin>
 		<cr>2</cr>
 		<face>
-		<face>5 ft.</face>
+		<face>5 ft. by 5 ft.</face>
 			<short>5 ft.</short>
-			<squares>1</squares>
+			<squares>1 x 1</squares>
 		</face>
 		<favoredlist></favoredlist>
 		<followerlist></followerlist>
@@ -861,7 +861,7 @@ BIO
 		<weapon>
 			<common>
 				<name>
-					<short>Crossbow, Light</short>
+					<short>Light Crossbow</short>
 					<long>Crossbow, Light</long>
 				</name>
 				<category>Simple-Ranged</category>
@@ -916,7 +916,7 @@ BIO
 		<weapon>
 			<common>
 				<name>
-					<short>*Shield, Light Steel</short>
+					<short>*Light Steel Shield</short>
 					<long>*Shield, Light Steel</long>
 				</name>
 				<category>Non-Standard-Melee</category>
@@ -969,7 +969,7 @@ BIO
 			<wt>30</wt>
 		</armor>
 		<shield>
-			<name>*Shield, Light Steel</name>
+			<name>*Light Steel Shield</name>
 			<acbonus>+1</acbonus>
 			<accheck>-1</accheck>
 			<baseac>+1</baseac>
@@ -993,7 +993,10 @@ BIO
 	<!-- Bard -->
 
 
-	<!-- Character Rage -->
+	<!-- Pathfinder -->
+		<!-- Character Rage -->
+		<!-- Character Rage -->
+
 	<!-- Turning ability -->
 
 	<!-- 3.0 stunning fist -->
@@ -1039,12 +1042,12 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>WEAPON.RESIZABLE.MELEE.ONEHANDED.SIMPLE.STANDARD.BLUDGEONING.PIERCING.MACE.FLAIL.WEAPON GROUP FLAILS.CUSTOM.METAL.MASTERWORK</type>
+			<type>WEAPON.RESIZABLE.MELEE.SIMPLE.ONEHANDED.BLUDGEONING.PIERCING.MACE.FLAIL.WEAPON GROUP FLAILS.CUSTOM.METAL.MASTERWORK</type>
 			<weight>6</weight>
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Outfit (Traveler&#39;s)</longname>
+			<longname>Outfit, Traveler&#39;s</longname>
 			<id></id>
 			<name>Traveler&#39;s Outfit</name>
 			<carried>1.0</carried>
@@ -1091,7 +1094,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>ARMOR.MEDIUM.ARMORPROFMEDIUM.SUIT.STANDARD.METAL</type>
+			<type>ARMOR.MEDIUM.ARMORPROFMEDIUM.SUIT.METAL</type>
 			<weight>30</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1128,7 +1131,7 @@ BIO
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
-			<contents>9.5 lbs., 2 Amethyst, 1 Bolts, Crossbow (10), 1 Citrine, 10 Coin (Gold Piece), 5 Coin (Platinum Piece), 10 Coin (Silver Piece), 1 Crossbow, Light, 1 Potion of Cure Light Wounds, 4 Rations (Trail/Per Day)</contents>
+			<contents>9.5 lbs., 2 Amethyst, 1 10 Bolts, 1 Citrine, 10 Gold Piece, 5 Platinum Piece, 10 Silver Piece, 1 Light Crossbow, 1 Potion of Cure Light Wounds, 4 Trail Ration</contents>
 			<contents_num>9</contents_num>
 			<content_weight>9.5</content_weight>
 			<cost>2</cost>
@@ -1159,7 +1162,7 @@ BIO
 			<content_weight>0</content_weight>
 			<cost>0.1</cost>
 			<equipped>N</equipped>
-			<location>Horse (Light/Combat Trained)</location>
+			<location>Light Horse (Combat Trained)</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>1</quantity>
@@ -1174,9 +1177,9 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Blanket (Winter)</longname>
+			<longname>Blanket, Winter</longname>
 			<id></id>
-			<name>Blanket (Winter)</name>
+			<name>Winter Blanket</name>
 			<carried>0.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -1185,7 +1188,7 @@ BIO
 			<content_weight>0</content_weight>
 			<cost>0.5</cost>
 			<equipped>N</equipped>
-			<location>Horse (Light/Combat Trained)</location>
+			<location>Light Horse (Combat Trained)</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>1</quantity>
@@ -1202,7 +1205,7 @@ BIO
 		<item>
 			<longname>Bolts, Crossbow (10)</longname>
 			<id></id>
-			<name>Bolts, Crossbow (10)</name>
+			<name>10 Bolts</name>
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -1221,14 +1224,14 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>AMMUNITION.RESIZABLE.STANDARD.BOLT.METAL.WOODEN</type>
+			<type>AMMUNITION.RESIZABLE.BOLT.STACK.METAL.WOODEN</type>
 			<weight>1</weight>
 			<bonuslist></bonuslist>
 		</item>
 		<item>
 			<longname>Bolts, Crossbow (10)</longname>
 			<id></id>
-			<name>Bolts, Crossbow (10)</name>
+			<name>10 Bolts</name>
 			<carried>0.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -1237,7 +1240,7 @@ BIO
 			<content_weight>0</content_weight>
 			<cost>1</cost>
 			<equipped>N</equipped>
-			<location>Horse (Light/Combat Trained)</location>
+			<location>Light Horse (Combat Trained)</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>1</quantity>
@@ -1247,7 +1250,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>AMMUNITION.RESIZABLE.STANDARD.BOLT.METAL.WOODEN</type>
+			<type>AMMUNITION.RESIZABLE.BOLT.STACK.METAL.WOODEN</type>
 			<weight>1</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1278,9 +1281,9 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Coin (Gold Piece)</longname>
+			<longname>Coin, Gold Piece</longname>
 			<id></id>
-			<name>Coin (Gold Piece)</name>
+			<name>Gold Piece</name>
 			<carried>10.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -1304,9 +1307,9 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Coin (Platinum Piece)</longname>
+			<longname>Coin, Platinum Piece</longname>
 			<id></id>
-			<name>Coin (Platinum Piece)</name>
+			<name>Platinum Piece</name>
 			<carried>5.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -1330,9 +1333,9 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Coin (Silver Piece)</longname>
+			<longname>Coin, Silver Piece</longname>
 			<id></id>
-			<name>Coin (Silver Piece)</name>
+			<name>Silver Piece</name>
 			<carried>10.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -1358,7 +1361,7 @@ BIO
 		<item>
 			<longname>Crossbow, Light</longname>
 			<id></id>
-			<name>Crossbow, Light</name>
+			<name>Light Crossbow</name>
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -1377,14 +1380,14 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>WEAPON.RESIZABLE.SIMPLE.RANGED.STANDARD.PIERCING.CONTAINER.PROJECTILE.CROSSBOW.WEAPON GROUP CROSSBOWS.WOODEN</type>
+			<type>WEAPON.RESIZABLE.RANGED.SIMPLE.CONTAINER.PROJECTILE.PIERCING.CROSSBOW.WEAPON GROUP CROSSBOWS.WOODEN</type>
 			<weight>4</weight>
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Holy Symbol (Silver)</longname>
+			<longname>Holy Symbol, Silver</longname>
 			<id></id>
-			<name>Holy Symbol (Silver)</name>
+			<name>Silver Holy Symbol</name>
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -1403,18 +1406,18 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>GOODS.TOOLS.SPELLCOMPONENT.DIVINEFOCUS</type>
+			<type>GOODS.TOOLS.SPELL COMPONENT.DIVINE FOCUS.HOLY SYMBOL</type>
 			<weight>1</weight>
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Horse (Light/Combat Trained)</longname>
+			<longname>Horse, Light (Combat Trained)</longname>
 			<id></id>
-			<name>Horse (Light/Combat Trained)</name>
+			<name>Light Horse (Combat Trained)</name>
 			<carried>0.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
-			<contents>43 lbs., 1 Saddle (Military), 1 Waterskin (Filled), 1 Bedroll, 1 Blanket (Winter), 1 Bolts, Crossbow (10)</contents>
+			<contents>43 lbs., 1 Military Saddle, 1 Waterskin, 1 Bedroll, 1 Winter Blanket, 1 10 Bolts</contents>
 			<contents_num>5</contents_num>
 			<content_weight>43</content_weight>
 			<cost>110</cost>
@@ -1455,14 +1458,14 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties>Cures 1d8+1 points of damage</special_properties>
-			<type>MAGIC.POTION.CONSUMABLE</type>
+			<type>MAGIC.POTION.CONSUMABLE.COMBAT GEAR.ENHANCEMENT</type>
 			<weight>0</weight>
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Rations (Trail/Per Day)</longname>
+			<longname>Rations, Trail, Per Day</longname>
 			<id></id>
-			<name>Rations (Trail/Per Day)</name>
+			<name>Trail Ration</name>
 			<carried>4.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -1486,9 +1489,9 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Saddle (Military)</longname>
+			<longname>Saddle, Military</longname>
 			<id></id>
-			<name>Saddle (Military)</name>
+			<name>Military Saddle</name>
 			<carried>0.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -1497,7 +1500,7 @@ BIO
 			<content_weight>0</content_weight>
 			<cost>20</cost>
 			<equipped>N</equipped>
-			<location>Horse (Light/Combat Trained)</location>
+			<location>Light Horse (Combat Trained)</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>1</quantity>
@@ -1514,7 +1517,7 @@ BIO
 		<item>
 			<longname>Shield, Light Steel</longname>
 			<id></id>
-			<name>Shield, Light Steel</name>
+			<name>Light Steel Shield</name>
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -1533,14 +1536,14 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>SHIELD.LIGHT.STANDARD.CLOSE.WEAPON.RESIZABLE.MELEE.SHIELDBASH.METAL</type>
+			<type>SHIELD.LIGHT.WEAPON.RESIZABLE.MELEE.SHIELDBASH.CLOSE.WEAPON GROUP CLOSE.METAL</type>
 			<weight>6</weight>
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Waterskin (Filled)</longname>
+			<longname>Waterskin, Filled</longname>
 			<id></id>
-			<name>Waterskin (Filled)</name>
+			<name>Waterskin</name>
 			<carried>0.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -1549,7 +1552,7 @@ BIO
 			<content_weight>0</content_weight>
 			<cost>1</cost>
 			<equipped>N</equipped>
-			<location>Horse (Light/Combat Trained)</location>
+			<location>Light Horse (Combat Trained)</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>1</quantity>
@@ -1588,7 +1591,7 @@ BIO
 					<short>M</short>
 				</size>
 				<special_properties></special_properties>
-				<type>WEAPON.RESIZABLE.MELEE.ONEHANDED.SIMPLE.STANDARD.BLUDGEONING.PIERCING.MACE.FLAIL.WEAPON GROUP FLAILS.CUSTOM.METAL.MASTERWORK</type>
+				<type>WEAPON.RESIZABLE.MELEE.SIMPLE.ONEHANDED.BLUDGEONING.PIERCING.MACE.FLAIL.WEAPON GROUP FLAILS.CUSTOM.METAL.MASTERWORK</type>
 				<weight>6</weight>
 				<bonuslist></bonuslist>
 			</item>
@@ -1630,7 +1633,7 @@ BIO
 					<short>M</short>
 				</size>
 				<special_properties></special_properties>
-				<type>ARMOR.MEDIUM.ARMORPROFMEDIUM.SUIT.STANDARD.METAL</type>
+				<type>ARMOR.MEDIUM.ARMORPROFMEDIUM.SUIT.METAL</type>
 				<weight>30</weight>
 				<bonuslist></bonuslist>
 			</item>
@@ -1660,7 +1663,7 @@ BIO
 				<carried>1.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
-				<contents>9.5 lbs., 2 Amethyst, 1 Bolts, Crossbow (10), 1 Citrine, 10 Coin (Gold Piece), 5 Coin (Platinum Piece), 10 Coin (Silver Piece), 1 Crossbow, Light, 1 Potion of Cure Light Wounds, 4 Rations (Trail/Per Day)</contents>
+				<contents>9.5 lbs., 2 Amethyst, 1 10 Bolts, 1 Citrine, 10 Gold Piece, 5 Platinum Piece, 10 Silver Piece, 1 Light Crossbow, 1 Potion of Cure Light Wounds, 4 Trail Ration</contents>
 				<cost>2</cost>
 				<equipped>N</equipped>
 				<location>Carried</location>
@@ -1684,7 +1687,7 @@ BIO
 				<contents></contents>
 				<cost>0.1</cost>
 				<equipped>N</equipped>
-				<location>Horse (Light/Combat Trained)</location>
+				<location>Light Horse (Combat Trained)</location>
 				<maxcharges>0</maxcharges>
 				<note></note>
 				<quantity>1</quantity>
@@ -1698,14 +1701,14 @@ BIO
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Blanket (Winter)</name>
+				<name>Winter Blanket</name>
 				<carried>0.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
 				<contents></contents>
 				<cost>0.5</cost>
 				<equipped>N</equipped>
-				<location>Horse (Light/Combat Trained)</location>
+				<location>Light Horse (Combat Trained)</location>
 				<maxcharges>0</maxcharges>
 				<note></note>
 				<quantity>1</quantity>
@@ -1719,7 +1722,7 @@ BIO
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Bolts, Crossbow (10)</name>
+				<name>10 Bolts</name>
 				<carried>1.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
@@ -1735,19 +1738,19 @@ BIO
 					<short>M</short>
 				</size>
 				<special_properties></special_properties>
-				<type>AMMUNITION.RESIZABLE.STANDARD.BOLT.METAL.WOODEN</type>
+				<type>AMMUNITION.RESIZABLE.BOLT.STACK.METAL.WOODEN</type>
 				<weight>1</weight>
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Bolts, Crossbow (10)</name>
+				<name>10 Bolts</name>
 				<carried>0.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
 				<contents></contents>
 				<cost>1</cost>
 				<equipped>N</equipped>
-				<location>Horse (Light/Combat Trained)</location>
+				<location>Light Horse (Combat Trained)</location>
 				<maxcharges>0</maxcharges>
 				<note></note>
 				<quantity>1</quantity>
@@ -1756,7 +1759,7 @@ BIO
 					<short>M</short>
 				</size>
 				<special_properties></special_properties>
-				<type>AMMUNITION.RESIZABLE.STANDARD.BOLT.METAL.WOODEN</type>
+				<type>AMMUNITION.RESIZABLE.BOLT.STACK.METAL.WOODEN</type>
 				<weight>1</weight>
 				<bonuslist></bonuslist>
 			</item>
@@ -1782,7 +1785,7 @@ BIO
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Coin (Gold Piece)</name>
+				<name>Gold Piece</name>
 				<carried>10.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
@@ -1803,7 +1806,7 @@ BIO
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Coin (Platinum Piece)</name>
+				<name>Platinum Piece</name>
 				<carried>5.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
@@ -1824,7 +1827,7 @@ BIO
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Coin (Silver Piece)</name>
+				<name>Silver Piece</name>
 				<carried>10.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
@@ -1845,7 +1848,7 @@ BIO
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Crossbow, Light</name>
+				<name>Light Crossbow</name>
 				<carried>1.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
@@ -1861,12 +1864,12 @@ BIO
 					<short>M</short>
 				</size>
 				<special_properties></special_properties>
-				<type>WEAPON.RESIZABLE.SIMPLE.RANGED.STANDARD.PIERCING.CONTAINER.PROJECTILE.CROSSBOW.WEAPON GROUP CROSSBOWS.WOODEN</type>
+				<type>WEAPON.RESIZABLE.RANGED.SIMPLE.CONTAINER.PROJECTILE.PIERCING.CROSSBOW.WEAPON GROUP CROSSBOWS.WOODEN</type>
 				<weight>4</weight>
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Holy Symbol (Silver)</name>
+				<name>Silver Holy Symbol</name>
 				<carried>1.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
@@ -1882,16 +1885,16 @@ BIO
 					<short>M</short>
 				</size>
 				<special_properties></special_properties>
-				<type>GOODS.TOOLS.SPELLCOMPONENT.DIVINEFOCUS</type>
+				<type>GOODS.TOOLS.SPELL COMPONENT.DIVINE FOCUS.HOLY SYMBOL</type>
 				<weight>1</weight>
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Horse (Light/Combat Trained)</name>
+				<name>Light Horse (Combat Trained)</name>
 				<carried>0.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
-				<contents>43 lbs., 1 Saddle (Military), 1 Waterskin (Filled), 1 Bedroll, 1 Blanket (Winter), 1 Bolts, Crossbow (10)</contents>
+				<contents>43 lbs., 1 Military Saddle, 1 Waterskin, 1 Bedroll, 1 Winter Blanket, 1 10 Bolts</contents>
 				<cost>110</cost>
 				<equipped>N</equipped>
 				<location></location>
@@ -1924,12 +1927,12 @@ BIO
 					<short>M</short>
 				</size>
 				<special_properties>Cures 1d8+1 points of damage</special_properties>
-				<type>MAGIC.POTION.CONSUMABLE</type>
+				<type>MAGIC.POTION.CONSUMABLE.COMBAT GEAR.ENHANCEMENT</type>
 				<weight>0</weight>
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Rations (Trail/Per Day)</name>
+				<name>Trail Ration</name>
 				<carried>4.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
@@ -1950,14 +1953,14 @@ BIO
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Saddle (Military)</name>
+				<name>Military Saddle</name>
 				<carried>0.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
 				<contents></contents>
 				<cost>20</cost>
 				<equipped>N</equipped>
-				<location>Horse (Light/Combat Trained)</location>
+				<location>Light Horse (Combat Trained)</location>
 				<maxcharges>0</maxcharges>
 				<note></note>
 				<quantity>1</quantity>
@@ -1971,7 +1974,7 @@ BIO
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Shield, Light Steel</name>
+				<name>Light Steel Shield</name>
 				<carried>1.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
@@ -1987,19 +1990,19 @@ BIO
 					<short>M</short>
 				</size>
 				<special_properties></special_properties>
-				<type>SHIELD.LIGHT.STANDARD.CLOSE.WEAPON.RESIZABLE.MELEE.SHIELDBASH.METAL</type>
+				<type>SHIELD.LIGHT.WEAPON.RESIZABLE.MELEE.SHIELDBASH.CLOSE.WEAPON GROUP CLOSE.METAL</type>
 				<weight>6</weight>
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Waterskin (Filled)</name>
+				<name>Waterskin</name>
 				<carried>0.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
 				<contents></contents>
 				<cost>1</cost>
 				<equipped>N</equipped>
-				<location>Horse (Light/Combat Trained)</location>
+				<location>Light Horse (Combat Trained)</location>
 				<maxcharges>0</maxcharges>
 				<note></note>
 				<quantity>1</quantity>
@@ -2572,17 +2575,6 @@ BIO
 			<category>Internal</category>
 		</ability_object>
 		<ability_object>
-			<name>FACE_5</name>
-			<description></description>
-			<type></type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Internal</category>
-		</ability_object>
-		<ability_object>
 			<name>REACH_5</name>
 			<description></description>
 			<type></type>
@@ -2611,7 +2603,7 @@ BIO
 			<power>You see truth in the pure and burning light of the sun, and can call upon its blessing or wrath to work great deeds.</power>
 		</domain>
 	</domains>
-	<weapon_proficiencies>Bayonet, Blowgun, Cestus, Club, Crossbow (Heavy), Crossbow (Light), Dagger, Dagger (Punching), Dart, Gauntlet, Gauntlet (Spiked), Grapple, Javelin, Longspear, Mace (Heavy), Mace (Light), Mere Club, Morningstar, Quarterstaff, Rock, Scimitar, Shortspear, Sickle, Sling, Spear, Spear (Boar), Spells (Ray), Spells (Touch), Splash Weapon, Stake, Unarmed Strike</weapon_proficiencies>
+	<weapon_proficiencies>Bayonet, Blowgun, Cestus, Club, Heavy Crossbow, Light Crossbow, Dagger, Punching Dagger, Dart, Gauntlet, Spiked Gauntlet, Grapple, Javelin, Longspear, Heavy Mace, Light Mace, Mere Club, Morningstar, Quarterstaff, Rock, Scimitar, Shortspear, Sickle, Sling, Spear, Boar Spear, Ray Spells, Touch Spells, Splash Weapon, Stake, Unarmed Strike</weapon_proficiencies>
 	<languages>Celestial, Common</languages>
 
 

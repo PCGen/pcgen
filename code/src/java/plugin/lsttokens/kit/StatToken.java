@@ -78,20 +78,20 @@ public class StatToken extends AbstractTokenWithSeparator<KitStat> implements
 			if (equalLoc == -1)
 			{
 				return new ParseResult.Fail("Illegal " + getTokenName()
-						+ " did not have Stat=X format: " + value, context);
+						+ " did not have Stat=X format: " + value);
 			}
 			if (equalLoc != token.lastIndexOf('='))
 			{
 				return new ParseResult.Fail("Illegal " + getTokenName()
 						+ " had two equal signs, is not Stat=X format: "
-						+ value, context);
+						+ value);
 			}
 			String statName = token.substring(0, equalLoc);
 			if (statName.isEmpty())
 			{
 				return new ParseResult.Fail("Illegal " + getTokenName()
 					+ " had no stat, is not Stat=X format: "
-					+ value, context);
+					+ value);
 			}
 			CDOMSingleRef<PCStat> stat =
 					context.getReferenceContext().getCDOMReference(
@@ -99,13 +99,13 @@ public class StatToken extends AbstractTokenWithSeparator<KitStat> implements
 			String formula = token.substring(equalLoc + 1);
 			if (formula.isEmpty())
 			{
-				return new ParseResult.Fail("Unable to find STAT value: " + value, context);
+				return new ParseResult.Fail("Unable to find STAT value: " + value);
 			}
 			Formula statValue = FormulaFactory.getFormulaFor(formula);
 			if (!statValue.isValid())
 			{
 				return new ParseResult.Fail("StatValue in " + getTokenName()
-						+ " was not valid: " + statValue.toString(), context);
+						+ " was not valid: " + statValue.toString());
 			}
 			kitStat.addStat(stat, statValue);
 		}

@@ -23,11 +23,14 @@ import org.junit.Test;
 
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.util.FormatManager;
-import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.VarHolder;
 import pcgen.core.Campaign;
 import pcgen.core.PCTemplate;
+import pcgen.core.Skill;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
+import pcgen.rules.persistence.TokenLibrary;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
@@ -36,7 +39,7 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 
 public class ModifyOtherLstTest extends AbstractGlobalTokenTestCase
 {
-	static CDOMPrimaryToken<CDOMObject> token = new ModifyOtherLst();
+	static CDOMPrimaryToken<VarHolder> token = new ModifyOtherLst();
 	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
@@ -45,13 +48,9 @@ public class ModifyOtherLstTest extends AbstractGlobalTokenTestCase
 		super.setUp();
 		TokenRegistration.register(new plugin.modifier.number.AddModifierFactory());
 		TokenRegistration.register(new plugin.modifier.number.MultiplyModifierFactory());
-		FormatManager<?> formatManager = primaryContext.getReferenceContext().getFormatManager("NUMBER");
-		LegalScope pscope = primaryContext.getActiveScope().getLegalScope();
-		LegalScope sscope = primaryContext.getActiveScope().getLegalScope();
-		primaryContext.getVariableContext().assertLegalVariableID(pscope, formatManager, "MyVar");
-		secondaryContext.getVariableContext().assertLegalVariableID(sscope, formatManager, "MyVar");
-		primaryContext.getVariableContext().assertLegalVariableID(pscope, formatManager, "OtherVar");
-		secondaryContext.getVariableContext().assertLegalVariableID(sscope, formatManager, "OtherVar");
+		TokenLibrary.addToGroupingMap(new plugin.grouping.KeyGroupingToken<>());
+		TokenLibrary.addToGroupingMap(new plugin.grouping.GroupGroupingToken<>());
+		TokenLibrary.addToGroupingMap(new plugin.grouping.AllGroupingToken<>());
 	}
 
 	@Override
@@ -67,7 +66,7 @@ public class ModifyOtherLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Override
-	public CDOMPrimaryToken<CDOMObject> getToken()
+	public CDOMPrimaryToken<VarHolder> getToken()
 	{
 		return token;
 	}
@@ -76,7 +75,7 @@ public class ModifyOtherLstTest extends AbstractGlobalTokenTestCase
 	public void testInvalidObject() throws PersistenceLayerException
 	{
 		assertFalse(token.parseToken(primaryContext, new Campaign(),
-				"SKILL|Foo|MyVar|ADD|3").passed());
+				"PC.SKILL|Foo|MyVar|ADD|3").passed());
 	}
 
 	@Test
@@ -89,70 +88,70 @@ public class ModifyOtherLstTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testInvalidInputOneItem() throws PersistenceLayerException
 	{
-		assertFalse(parse("SKILL"));
+		assertFalse(parse("PC.SKILL"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputTwoItems() throws PersistenceLayerException
 	{
-		assertFalse(parse("SKILL|Foo"));
+		assertFalse(parse("PC.SKILL|Foo"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputThreeItems() throws PersistenceLayerException
 	{
-		assertFalse(parse("SKILL|Foo|MyVar"));
+		assertFalse(parse("PC.SKILL|Foo|MyVar"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputFourItems() throws PersistenceLayerException
 	{
-		assertFalse(parse("SKILL|Foo|MyVar|ADD"));
+		assertFalse(parse("PC.SKILL|Foo|MyVar|ADD"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputDoublePipe() throws PersistenceLayerException
 	{
-		assertFalse(parse("SKILL|Foo|MyVar||ADD|3"));
+		assertFalse(parse("PC.SKILL|Foo|MyVar||ADD|3"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputNoValue() throws PersistenceLayerException
 	{
-		assertFalse(parse("SKILL|Foo|MyVar|ADD|"));
+		assertFalse(parse("PC.SKILL|Foo|MyVar|ADD|"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputNoVar() throws PersistenceLayerException
 	{
-		assertFalse(parse("SKILL|Foo|ADD|3"));
+		assertFalse(parse("PC.SKILL|Foo|ADD|3"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputNoModifier() throws PersistenceLayerException
 	{
-		assertFalse(parse("SKILL|Foo|MyVar||3"));
+		assertFalse(parse("PC.SKILL|Foo|MyVar||3"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputInvalidVarName() throws PersistenceLayerException
 	{
-		assertFalse(parse("SKILL|Foo|IllegalVar|ADD|3"));
+		assertFalse(parse("PC.SKILL|Foo|IllegalVar|ADD|3"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputInvalidMod() throws PersistenceLayerException
 	{
-		assertFalse(parse("SKILL|Foo|MyVar|TRUFFLE|3"));
+		assertFalse(parse("PC.SKILL|Foo|MyVar|TRUFFLE|3"));
 		assertNoSideEffects();
 	}
 
@@ -166,104 +165,115 @@ public class ModifyOtherLstTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testInvalidInputInvalidNoPriority() throws PersistenceLayerException
 	{
-		assertFalse(parse("SKILL|Foo|MyVar|ADD|3|PRIORITY="));
+		assertFalse(parse("PC.SKILL|Foo|MyVar|ADD|3|PRIORITY="));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputInvalidNegativePriority() throws PersistenceLayerException
 	{
-		assertFalse(parse("SKILL|Foo|MyVar|ADD|3|PRIORITY=-1000"));
+		assertFalse(parse("PC.SKILL|Foo|MyVar|ADD|3|PRIORITY=-1000"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputInvalidNonNumberPriority() throws PersistenceLayerException
 	{
-		assertFalse(parse("SKILL|Foo|MyVar|ADD|3|PRIORITY=String"));
+		assertFalse(parse("PC.SKILL|Foo|MyVar|ADD|3|PRIORITY=String"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputInvalidTooManyArgs() throws PersistenceLayerException
 	{
-		assertFalse(parse("SKILL|Foo|MyVar|ADD|3|PRIORITY=3|Yes"));
+		assertFalse(parse("PC.SKILL|Foo|MyVar|ADD|3|PRIORITY=3|Yes"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputInvalidIllegalSourceVar() throws PersistenceLayerException
 	{
-		assertFalse(parse("SKILL|Foo|MyVar|ADD|IllegalVar"));
+		assertFalse(parse("PC.SKILL|Foo|MyVar|ADD|IllegalVar"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputInvalidNotPriority1() throws PersistenceLayerException
 	{
-		assertFalse(parse("SKILL|Foo|MyVar|ADD|3|OTHER=3"));
+		assertFalse(parse("PC.SKILL|Foo|MyVar|ADD|3|OTHER=3"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputInvalidNotPriority2() throws PersistenceLayerException
 	{
-		assertFalse(parse("SKILL|Foo|MyVar|ADD|3|OTHERSTRING=3"));
+		assertFalse(parse("PC.SKILL|Foo|MyVar|ADD|3|OTHERSTRING=3"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputBadVar() throws PersistenceLayerException
 	{
-		assertFalse(parse("SKILL|Foo|4|ADD|3"));
+		assertFalse(parse("PC.SKILL|Foo|4|ADD|3"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testRoundRobinAdd() throws PersistenceLayerException
 	{
-		runRoundRobin("SKILL|Foo|MyVar|ADD|3");
+		runRoundRobin("PC.SKILL|Foo|MyVar|ADD|3");
 	}
 
 	@Test
 	public void testRoundRobinAddGroup() throws PersistenceLayerException
 	{
-		runRoundRobin("SKILL|GROUP=Foo|MyVar|ADD|3");
+		runRoundRobin("PC.SKILL|GROUP=Foo|MyVar|ADD|3");
 	}
 
 	@Test
 	public void testRoundRobinAddAll() throws PersistenceLayerException
 	{
-		runRoundRobin("SKILL|ALL|MyVar|ADD|3");
+		runRoundRobin("PC.SKILL|ALL|MyVar|ADD|3");
 	}
 
 	@Test
 	public void testRoundRobinMultiply() throws PersistenceLayerException
 	{
-		runRoundRobin("SKILL|Foo|MyVar|MULTIPLY|OtherVar");
+		runRoundRobin("PC.SKILL|Foo|MyVar|MULTIPLY|OtherVar");
 	}
 
 	@Test
 	public void testRoundRobinPriority() throws PersistenceLayerException
 	{
-		runRoundRobin("SKILL|Foo|MyVar|ADD|3|PRIORITY=1090");
+		runRoundRobin("PC.SKILL|Foo|MyVar|ADD|3|PRIORITY=1090");
 	}
 
 	@Override
 	protected String getLegalValue()
 	{
-		return "SKILL|Foo|MyVar|ADD|3";
+		return "PC.SKILL|Foo|MyVar|ADD|3";
 	}
 
 	@Override
 	protected String getAlternateLegalValue()
 	{
-		return "SKILL|Foo|OtherVar|MULTIPLY|3|PRIORITY=1000";
+		return "PC.SKILL|Foo|OtherVar|MULTIPLY|3|PRIORITY=1000";
 	}
 
 	@Override
 	protected ConsolidationRule getConsolidationRule()
 	{
 		return ConsolidationRule.SEPARATE;
+	}
+
+	@Override
+	protected void additionalSetup(LoadContext context)
+	{
+		super.additionalSetup(context);
+		FormatManager<?> formatManager = context.getReferenceContext().getFormatManager("NUMBER");
+		LegalScope scope = context.getActiveScope();
+		context.getVariableContext().assertLegalVariableID("MyVar", scope, formatManager);
+		context.getVariableContext().assertLegalVariableID("OtherVar", scope, formatManager);
+		context.getReferenceContext().constructCDOMObject(Skill.class, "Dummy");
 	}
 }

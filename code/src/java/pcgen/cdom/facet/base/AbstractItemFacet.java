@@ -91,6 +91,7 @@ public abstract class AbstractItemFacet<IDT extends PCGenIdentifier, T> extends
 	 */
 	public T remove(IDT id)
 	{
+		@SuppressWarnings("unchecked")
 		T old = (T) removeCache(id);
 		if (old != null)
 		{
@@ -110,6 +111,7 @@ public abstract class AbstractItemFacet<IDT extends PCGenIdentifier, T> extends
 	 * @return the item value for this AbstractItemFacet and the Player
 	 *         Character represented by the given PCGenIdentifier.
 	 */
+	@SuppressWarnings("unchecked")
 	public T get(IDT id)
 	{
 		return (T) getCache(id);

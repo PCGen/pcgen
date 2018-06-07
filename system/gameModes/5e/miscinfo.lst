@@ -237,12 +237,12 @@ WIELDCATEGORY:None		HANDS:0
 #
 # Dice rolling methods for character creation
 #
-ROLLMETHOD:3d6						METHOD:3d6
-ROLLMETHOD:4d4						METHOD:4d4
-ROLLMETHOD:4d6 drop lowest				METHOD:roll(4,6,top(3))
-ROLLMETHOD:4d6, reroll 1's				METHOD:roll(4,6,reroll(1))
-ROLLMETHOD:4d6, reroll 1's, drop the lowest	METHOD:roll(4,6,top(3),reroll(1))
-ROLLMETHOD:5d6 drop 2 lowest				METHOD:roll(5,6,top(3))
+ROLLMETHOD:3d6						SORTKEY:A1	METHOD:3d6
+ROLLMETHOD:4d4						SORTKEY:A2	METHOD:4d4
+ROLLMETHOD:4d6 drop lowest				SORTKEY:A3	METHOD:roll(4,6,top(3))
+ROLLMETHOD:4d6, reroll 1's				SORTKEY:A4	METHOD:roll(4,6,reroll(1))
+ROLLMETHOD:4d6, reroll 1's, drop the lowest	SORTKEY:A5	METHOD:roll(4,6,top(3),reroll(1))
+ROLLMETHOD:5d6 drop 2 lowest				SORTKEY:A6	METHOD:roll(5,6,top(3))
 
 # Unit Set
 UNITSET:Imperial	HEIGHTUNIT:ftin	HEIGHTFACTOR:1		HEIGHTPATTERN:#		DISTANCEUNIT:ft.	DISTANCEFACTOR:1		DISTANCEPATTERN:#		WEIGHTUNIT:lbs.	WEIGHTFACTOR:1	WEIGHTPATTERN:#.##

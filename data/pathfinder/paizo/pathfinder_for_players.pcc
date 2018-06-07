@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 CAMPAIGN:Pathfinder RPG for Players
 KEY:Pathfinder RPG for Players
-GAMEMODE:Pathfinder|Pathfinder_PFS
+GAMEMODE:Pathfinder
 TYPE:Paizo Publishing
 RANK:3
 STATUS:RELEASE
@@ -34,6 +34,21 @@ URL:Paizo Publishing|http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathf
 
 PCC:@/pathfinder/paizo/roleplaying_game/core_rulebook/core_rulebook.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/advanced_players_guide/advanced_players_guide.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/advanced_race_guide/advanced_race_guide.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/ultimate_combat/_ultimate_combat.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/ultimate_magic/_ultimate_magic.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/ultimate_equipment/ultimate_equipment.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/ultimate_intrigue/_ultimate_intrigue.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/ultimate_campaign/_ultimate_campaign.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/advanced_class_guide/_advanced_class_guide.pcc
 
-FORWARDREF:RACE|Orc
-FORWARDREF:CLASSSPELLLIST|Magus
+# Using new file style
+
+
+
+
+
+
+FORWARDREF:RACE|Orc,Companion (Bat (Dire)),Companion (Dinosaur (Ankylosaurus)),Companion (Dinosaur (Brachiosaurus)),Companion (Dinosaur (Pteranodon)),Companion (Dinosaur (Stegosaurus)),Companion (Dinosaur (Triceratops)),Companion (Dinosaur (Tyrannosaurus)),Companion (Elephant (Mastodon)),Companion (Elephant),Companion (Herd Animal (Aurochs)),Companion (Herd Animal (Bison)),Companion (Rhinoceros)
+FORWARDREF:CLASSSPELLLIST|Magus,Medium,Mesmerist,Occultist,Psychic,Spiritualist
+FORWARDREF:SPELL|Telepathy

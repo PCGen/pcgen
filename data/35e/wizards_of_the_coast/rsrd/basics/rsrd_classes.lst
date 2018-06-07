@@ -11,7 +11,7 @@ CLASS:Barbarian	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate
 ###Block:
 1	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.BarbarianProficiencies
 1	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Fast Movement|!PREABILITY:1,CATEGORY=ACF,TYPE.BarbarianFastMovement
-1	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Illiteracy|PREVAREQ:TL,IlliteracyLVL
+1	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Illiteracy
 1	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Rage|!PREABILITY:1,CATEGORY=ACF,TYPE.BarbarianRage
 2	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Uncanny Dodge|!PREABILITY:1,CATEGORY=ACF,TYPE.BarbarianUncannyDodge
 3	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Trap Sense|!PREABILITY:1,CATEGORY=ACF,TYPE.BarbarianTrapSense

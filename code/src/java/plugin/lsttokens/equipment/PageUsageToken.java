@@ -37,9 +37,6 @@ public class PageUsageToken extends AbstractNonEmptyToken<Equipment> implements
 		CDOMPrimaryToken<Equipment>
 {
 
-	/**
-	 * @see pcgen.persistence.lst.LstToken#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
@@ -54,7 +51,7 @@ public class PageUsageToken extends AbstractNonEmptyToken<Equipment> implements
 		if (!formula.isValid())
 		{
 			return new ParseResult.Fail("Formula in " + getTokenName()
-					+ " was not valid: " + formula.toString(), context);
+					+ " was not valid: " + formula.toString());
 		}
 		context.getObjectContext().put(eq, FormulaKey.PAGE_USAGE, formula);
 		return ParseResult.SUCCESS;

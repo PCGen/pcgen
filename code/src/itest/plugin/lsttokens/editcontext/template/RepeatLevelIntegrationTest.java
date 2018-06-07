@@ -43,8 +43,8 @@ public class RepeatLevelIntegrationTest extends
 		AbstractIntegrationTestCase<PCTemplate>
 {
 
-	static RepeatlevelToken token = new RepeatlevelToken();
-	static CDOMTokenLoader<PCTemplate> loader =
+	private static RepeatlevelToken token = new RepeatlevelToken();
+	private static CDOMTokenLoader<PCTemplate> loader =
             new CDOMTokenLoader<>();
 
 	private static boolean classSetUpFired = false;

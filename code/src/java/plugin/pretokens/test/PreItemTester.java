@@ -38,9 +38,6 @@ public class PreItemTester extends AbstractDisplayPrereqTest implements
 		PrerequisiteTest
 {
 
-	/**
-	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
-	 */
 	// TODO Refactor this with all the equipment tests.
 	@Override
 	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)

@@ -26,9 +26,11 @@ import pcgen.persistence.SourceFileLoader;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.GenericLoader;
 import pcgen.persistence.lst.PCClassLoader;
+import pcgen.persistence.lst.SimpleLoader;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
+import util.TestURI;
 
 /**
  * The Class <code>ChallengeRatingPathfinderTest</code> checks the calculation
@@ -71,13 +73,26 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	@Override
 	protected void additionalSetUp() throws Exception
 	{
-		SettingsHandler.getGame().setCRSteps("1/2|1/3|1/4|1/6|1/8");
-		SettingsHandler.getGame().setCRThreshold("BASECR");
-		SettingsHandler.getGame().setMonsterRoleList(new ArrayList<>(Arrays.asList("Combat", "Skill", "Druid")));
-		SettingsHandler.getGame().addClassType("PC			CRFORMULA:CL	ISMONSTER:NO	CRMOD:-1	CRMODPRIORITY:1");
-		SettingsHandler.getGame().addClassType("NPC			CRFORMULA:CL	ISMONSTER:NO	CRMOD:-2	CRMODPRIORITY:2");
-		SettingsHandler.getGame().addClassType("Monster		CRFORMULA:0		ISMONSTER:YES");
-		SettingsHandler.getGame().addClassType("Companion	CRFORMULA:NONE	ISMONSTER:YES");
+		GameMode gameMode = SettingsHandler.getGame();
+		gameMode.addCRstep(0, "1/2");
+		gameMode.addCRstep(-1, "1/3");
+		gameMode.addCRstep(-2, "1/4");
+		gameMode.addCRstep(-3, "1/6");
+		gameMode.addCRstep(-4, "1/8");
+		gameMode.setCRThreshold("BASECR");
+		gameMode.setMonsterRoleList(new ArrayList<>(Arrays.asList("Combat", "Skill", "Druid")));
+		SimpleLoader<ClassType> methodLoader = new SimpleLoader<>(ClassType.class);
+		LoadContext modeContext = gameMode.getModeContext();
+		methodLoader.parseLine(modeContext,
+			"PC			CRFORMULA:CL	ISMONSTER:NO	CRMOD:-1	CRMODPRIORITY:1",
+			TestURI.getURI());
+		methodLoader.parseLine(modeContext,
+			"NPC			CRFORMULA:CL	ISMONSTER:NO	CRMOD:-2	CRMODPRIORITY:2",
+			TestURI.getURI());
+		methodLoader.parseLine(modeContext,
+			"Monster		CRFORMULA:0		ISMONSTER:YES", TestURI.getURI());
+		methodLoader.parseLine(modeContext, "Companion	CRFORMULA:NONE	ISMONSTER:YES",
+			TestURI.getURI());
 		
 		LoadContext context = Globals.getContext();
 

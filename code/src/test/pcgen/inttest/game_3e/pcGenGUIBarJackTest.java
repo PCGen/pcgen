@@ -19,15 +19,15 @@
  */
 package pcgen.inttest.game_3e;
 
-import pcgen.inttest.pcGenGUITestCase;
 import junit.framework.Test;
 import junit.framework.TestSuite;
+import pcgen.inttest.PcgenFtlTestCase;
 
 /**
  * Tests a 3e 4th lvl Gnome Barbarian
  */
 @SuppressWarnings("nls")
-public class pcGenGUIBarJackTest extends pcGenGUITestCase
+public class pcGenGUIBarJackTest extends PcgenFtlTestCase
 {
 
 	/**
@@ -45,7 +45,7 @@ public class pcGenGUIBarJackTest extends pcGenGUITestCase
 	 */
 	public pcGenGUIBarJackTest()
 	{
-		// Empty Constructor
+		super("3e_barjack");
 	}
 
 	/**

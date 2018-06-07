@@ -1,0 +1,57 @@
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+CAMPAIGN:Faiths of Corruption
+GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing.Pathfinder Player Companion
+RANK:3
+STATUS:BETA
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder|Golarion
+PRECAMPAIGN:2,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Advanced Player's Guide
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+SOURCELONG:Pathfinder Player Companion: Faiths of Corruption
+SOURCESHORT:FOC
+SOURCEWEB:http://paizo.com/products/btpy8odc
+SOURCEDATE:2011-10
+ISOGL:YES
+
+COVER:faiths_of_corruption.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy8odc|Buy this publication from Paizo Publishing!
+DESC:Morality is the shield of the weak. Followers of the evil gods know the truth - that the world is a harsh and uncaring place, and that only strength and cunning matter. From the crafty acolytes of the assassin god Norgorber to the howling hordes of Lamashtu the Demon Queen, the servants of dark gods need not fear the night, for they strive to be the most terrifying thing in it. Some may seek to justify their actions, yet others flock to blood-soaked banners with bitter joy, desiring nothing more than the chance to join in the fiery destruction of all things.
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder Player Companion: Faiths of Corruption Copyright 2011, Paizo Inc.; Author: Colin McComb.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Faiths of Corruption" Copyright 2013, PCGen Data Team (including, but not limited to Stefan Radermacher, Paul Grosse, and Andrew Maitland)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# PFS Rules
+#
+
+
+# Data files
+ABILITY:foc_abilities.lst
+DEITY:foc_deities.lst
+ABILITY:foc_feats.lst
+SKILL:foc_skills.lst
+SPELL:foc_spells.lst
+
+# Out of set data files
+WEAPONPROF:@/pathfinder/paizo/campaign_setting/inner_sea_world_guide/iswg_profs_weapon.lst
+
+# Forward References
+FORWARDREF:DOMAIN|Scalykind,Void
+
+# Data Beta Review by Andrew Maitland
+# License Review by Paul Grosse
+#
+# End
+#

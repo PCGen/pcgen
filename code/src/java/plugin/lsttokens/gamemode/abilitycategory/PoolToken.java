@@ -42,7 +42,7 @@ public class PoolToken extends AbstractNonEmptyToken<AbilityCategory> implements
 		if (!formula.isValid())
 		{
 			return new ParseResult.Fail("Formula in " + getTokenName()
-					+ " was not valid: " + formula.toString(), context);
+					+ " was not valid: " + formula.toString());
 		}
 		ac.setPoolFormula(formula);
 		return ParseResult.SUCCESS;

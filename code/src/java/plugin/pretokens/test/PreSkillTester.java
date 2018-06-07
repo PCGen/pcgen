@@ -43,9 +43,6 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 		PrerequisiteTest
 {
 
-	/**
-	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
-	 */
 	@Override
 	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
 	{
@@ -200,7 +197,7 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 
 		// If we are looking for a negative test i.e. !PRESKILL and the PC
 		// doesn't have the skill we have to return a match
-		if (foundSkill == false)
+		if (!foundSkill)
 		{
 			if (prereq.getOperator() == PrerequisiteOperator.LT)
 			{
@@ -241,9 +238,6 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 		return "SKILL"; //$NON-NLS-1$
 	}
 
-	/**
-	 * @see pcgen.core.prereq.PrerequisiteTest#toHtmlString(pcgen.core.prereq.Prerequisite)
-	 */
 	@Override
 	public String toHtmlString(final Prerequisite prereq)
 	{

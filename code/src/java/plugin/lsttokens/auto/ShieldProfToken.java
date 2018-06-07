@@ -97,13 +97,13 @@ public class ShieldProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 								"Invalid " + getTokenName() + ": " + value
 									+ "  PRExxx must be at the END of the Token";
 						Logging.errorPrint(errorText);
-						return new ParseResult.Fail(errorText, context);
+						return new ParseResult.Fail(errorText);
 					}
 					prereq = getPrerequisite(token);
 					if (prereq == null)
 					{
 						return new ParseResult.Fail("Error generating Prerequisite "
-								+ prereq + " in " + getFullName(), context);
+								+ prereq + " in " + getFullName());
 					}
 					int preStart = value.indexOf(token) - 1;
 					shieldProf = value.substring(0, preStart);
@@ -115,7 +115,7 @@ public class ShieldProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 		{
 			return new ParseResult.Fail(
 				"Use of [] for Prerequisites has been removed. "
-					+ "Please use | based standard", context);
+					+ "Please use | based standard");
 		}
 
 		ParseResult pr = checkForIllegalSeparator('|', shieldProf);
@@ -182,7 +182,7 @@ public class ShieldProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 		if (foundAny && foundOther)
 		{
 			return new ParseResult.Fail("Non-sensical " + getFullName()
-					+ ": Contains ANY and a specific reference: " + value, context);
+					+ ": Contains ANY and a specific reference: " + value);
 		}
 
 		if (!shieldProfs.isEmpty() || !equipTypes.isEmpty())

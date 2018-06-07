@@ -52,10 +52,6 @@ public class StringKeyActor implements OutputActor<CDOMObject>
 		this.sk = sk;
 	}
 
-	/**
-	 * @see pcgen.output.base.OutputActor#process(pcgen.cdom.enumeration.CharID,
-	 *      java.lang.Object)
-	 */
 	@Override
 	public TemplateModel process(CharID id, CDOMObject d)
 		throws TemplateModelException

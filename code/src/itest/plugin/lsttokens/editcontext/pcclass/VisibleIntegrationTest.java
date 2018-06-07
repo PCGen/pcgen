@@ -34,8 +34,8 @@ public class VisibleIntegrationTest extends
 		AbstractIntegrationTestCase<PCClass>
 {
 
-	static VisibleToken token = new VisibleToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
+	private static VisibleToken token = new VisibleToken();
+	private static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

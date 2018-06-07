@@ -14,10 +14,10 @@ CATEGORY=Internal|Default.MOD								BONUS:VAR|Caster_Level_Highest|max(Caster_L
 CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Age|PREVAREQ:UseAgeRules,1		DEFINE:UseAgeRules|0	BONUS:VAR|UseAgeRules|1|TYPE=Bool|PRECHARACTERTYPE:1,PC,NPC		DEFINE:AgeProgression|0	DEFINE:LEGS|0
 
 ###Block: Age Adjustments
-Age	CATEGORY:Internal		DEFINE:UseAgeRulesYoung|0	DEFINE:UseAgeRulesNegateAgePenalties|0	BONUS:VAR|AgeProgression|1|PREAGESET:1,Young	BONUS:VAR|AgeProgression|1|PREAGESET:1,Adult	BONUS:VAR|AgeProgression|1|PREAGESET:1,Middle-Aged	BONUS:VAR|AgeProgression|1|PREAGESET:1,Old	BONUS:VAR|AgeProgression|1|PREAGESET:1,Venerable
+Age	CATEGORY:Internal		DEFINE:UseAgeRulesNegateAgePenalties|0	BONUS:VAR|AgeProgression|1|PREAGESET:1,Youth	BONUS:VAR|AgeProgression|1|PREAGESET:1,Adult	BONUS:VAR|AgeProgression|1|PREAGESET:1,Middle-Aged	BONUS:VAR|AgeProgression|1|PREAGESET:1,Old	BONUS:VAR|AgeProgression|1|PREAGESET:1,Venerable
 
 # Determines which Age category ability to grant
-CATEGORY=Internal|Age.MOD	ABILITY:Internal|AUTOMATIC|Age ~ Young|PREVAREQ:AgeProgression,1
+CATEGORY=Internal|Age.MOD	ABILITY:Internal|AUTOMATIC|Age ~ Youth|PREVAREQ:AgeProgression,1
 CATEGORY=Internal|Age.MOD	ABILITY:Internal|AUTOMATIC|Age ~ Adult|PREVAREQ:AgeProgression,2
 CATEGORY=Internal|Age.MOD	ABILITY:Internal|AUTOMATIC|Age ~ Middle-Aged|PREVAREQ:AgeProgression,3
 CATEGORY=Internal|Age.MOD	ABILITY:Internal|AUTOMATIC|Age ~ Old|PREVAREQ:AgeProgression,4
@@ -25,7 +25,7 @@ CATEGORY=Internal|Age.MOD	ABILITY:Internal|AUTOMATIC|Age ~ Venerable|PREVAREQ:Ag
 
 
 ###Block: Game Specific bonuses - Bonuses and Penalties assigned by each age category.
-Age ~ Young		CATEGORY:Internal	BONUS:STAT|DEX|2|PREVAREQ:UseAgeRulesYoung,1	BONUS:STAT|STR,CON,WIS|-2|PREVAREQ:UseAgeRulesYoung,1
+Age ~ Youth		CATEGORY:Internal	BONUS:STAT|STR,CON,WIS|-2|PREVAREQ:UseAgeRulesNegateAgePenalties,0	BONUS:STAT|DEX|2|TYPE=Age
 Age ~ Adult		CATEGORY:Internal	
 Age ~ Middle-Aged	CATEGORY:Internal	BONUS:STAT|STR,DEX,CON|-1|TYPE=Age|PREVAREQ:UseAgeRulesNegateAgePenalties,0	BONUS:STAT|INT,WIS,CHA|1|TYPE=Age
 Age ~ Old		CATEGORY:Internal	BONUS:STAT|STR,DEX,CON|-3|TYPE=Age|PREVAREQ:UseAgeRulesNegateAgePenalties,0	BONUS:STAT|INT,WIS,CHA|2|TYPE=Age
@@ -33,7 +33,6 @@ Age ~ Venerable	CATEGORY:Internal	BONUS:STAT|STR,DEX,CON|-6|TYPE=Age|PREVAREQ:Us
 
 ###Block: Age rules
 Rules ~ Use Age Rules (Monsters)		COST:0	CATEGORY:Internal	TYPE:OptionalRules	BONUS:VAR|UseAgeRules|1|TYPE=Bool
-Rules ~ Use Age Rules (Young)			COST:0	CATEGORY:Internal	TYPE:OptionalRules	BONUS:VAR|UseAgeRulesYoung|1|TYPE=Bool
 Rules ~ Use Age Rules (Negate Penalties)	COST:0	CATEGORY:Internal	TYPE:OptionalRules	BONUS:VAR|UseAgeRulesNegateAgePenalties|1|TYPE=Bool
 
 
@@ -105,7 +104,7 @@ Spell-Like Ability LVL 9 ~ Arcane	CATEGORY:Spell-Like Ability	TYPE:SpellLikeAbil
 
 
 # Level 2 - Divine
-Daylight	CATEGORY:SLA	TYPE:SLA.DivineLVL2	FACT:SLA_DivineLVL2|True	SPELLS:Innate|TIMES=Daylight_Times|CASTERLEVEL=Daylight_CasterLevel|Daylight
+Daylight	CATEGORY:SLA	TYPE:SLA.DivineLVL2	FACT:SLA_DivineLVL2|True	DEFINE:Daylight_CasterLevel|0	DEFINE:Daylight_Times|0	SPELLS:Innate|TIMES=Daylight_Times|CASTERLEVEL=Daylight_CasterLevel|Daylight
 
 
 
@@ -386,7 +385,6 @@ Dominate					CATEGORY:Ability Focus	TYPE:Ability Focus
 Frightful Gaze				CATEGORY:Ability Focus	TYPE:Ability Focus
 
 
-Witch Hex					CATEGORY:Ability Focus	TYPE:Ability Focus
 
 
 Malevolence					CATEGORY:Ability Focus	TYPE:Ability Focus

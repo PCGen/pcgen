@@ -48,7 +48,7 @@ public class StattablehiddencolumnsToken extends
 		if (!Tab.SUMMARY.equals(ti.getTab()))
 		{
 			return new ParseResult.Fail(getTokenName()
-					+ " may only be used on the " + Tab.SUMMARY + " Tab", context);
+					+ " may only be used on the " + Tab.SUMMARY + " Tab");
 		}
 		ti.clearHiddenColumns();
 
@@ -63,7 +63,7 @@ public class StattablehiddencolumnsToken extends
 			catch (NumberFormatException nfe)
 			{
 				return new ParseResult.Fail(getTokenName()
-						+ " misunderstood Integer: " + token + " in " + value, context);
+						+ " misunderstood Integer: " + token + " in " + value);
 			}
 		}
 		return ParseResult.SUCCESS;

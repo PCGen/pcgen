@@ -27,7 +27,6 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.reference.CDOMSingleRef;
-import pcgen.cdom.reference.CategorizedCDOMReference;
 import pcgen.cdom.reference.Qualifier;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.ReferenceUtilities;
@@ -38,7 +37,6 @@ import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ComplexParseResult;
 import pcgen.rules.persistence.token.ParseResult;
-import pcgen.util.StringPClassUtil;
 
 public class ForwardRefToken extends AbstractTokenWithSeparator<Campaign>
 		implements CDOMPrimaryToken<Campaign>
@@ -65,7 +63,7 @@ public class ForwardRefToken extends AbstractTokenWithSeparator<Campaign>
 		{
 			return new ParseResult.Fail(getTokenName()
 					+ " requires at least two arguments, "
-					+ "ReferenceType and Key: " + value, context);
+					+ "ReferenceType and Key: " + value);
 		}
 		if (value.lastIndexOf('|') != pipeLoc)
 		{
@@ -77,27 +75,31 @@ public class ForwardRefToken extends AbstractTokenWithSeparator<Campaign>
 			return cpr;
 		}
 		String firstToken = value.substring(0, pipeLoc);
+		if ("FEAT".equals(firstToken))
+		{
+			firstToken = "ABILITY=FEAT";
+		}
 		ReferenceManufacturer<? extends Loadable> rm =
 				context.getManufacturer(firstToken);
 		if (rm == null)
 		{
 			return new ParseResult.Fail(getTokenName()
-					+ " unable to generate manufacturer for type: " + value, context);
+					+ " unable to generate manufacturer for type: " + firstToken);
 		}
 
 		String rest = value.substring(pipeLoc + 1);
-		if (hasIllegalSeparator(',', rest))
+		ParseResult pr = checkForIllegalSeparator(',', rest);
+		if (!pr.passed())
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " keys are comma separated", context);
+			return pr;
 		}
 		StringTokenizer st = new StringTokenizer(rest, Constants.COMMA);
 		while (st.hasMoreTokens())
 		{
 			CDOMSingleRef<? extends Loadable> ref = rm.getReference(st
 					.nextToken());
-			context.getObjectContext().addToList(obj, ListKey.FORWARDREF, new Qualifier(rm
-					.getReferenceClass(), ref));
+			context.getObjectContext().addToList(obj, ListKey.FORWARDREF,
+				new Qualifier(ref));
 		}
 
 		return ParseResult.SUCCESS;
@@ -116,23 +118,8 @@ public class ForwardRefToken extends AbstractTokenWithSeparator<Campaign>
 		HashMapToList<String, CDOMSingleRef<?>> map = new HashMapToList<>();
 		for (Qualifier qual : quals)
 		{
-			Class<? extends Loadable> cl = qual.getQualifiedClass();
-			String s = StringPClassUtil.getStringFor(cl);
 			CDOMSingleRef<?> ref = qual.getQualifiedReference();
-			String key = s;
-			if (ref instanceof CategorizedCDOMReference)
-			{
-				String cat = ((CategorizedCDOMReference<?>) ref)
-						.getLSTCategory();
-				if (Constants.FEAT_CATEGORY.equals(cat))
-				{
-					key = Constants.FEAT_CATEGORY;
-				}
-				else
-				{
-					key += '=' + cat;
-				}
-			}
+			String key = ref.getPersistentFormat();
 			map.addToListFor(key, ref);
 		}
 		Set<CDOMSingleRef<?>> set = new TreeSet<>(

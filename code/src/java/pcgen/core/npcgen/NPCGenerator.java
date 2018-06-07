@@ -57,6 +57,7 @@ import pcgen.core.character.CharacterSpell;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.spell.Spell;
 import pcgen.gui2.UIPropertyContext;
+import pcgen.output.channel.ChannelCompatibility;
 import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.enumeration.Visibility;
@@ -334,8 +335,8 @@ public final class NPCGenerator
 			// User has not specified a weighting for feats for this class
 			// Assume General feats are 5 times as likely to be selected as
 			// any other type
-			for (Ability ability : Globals.getContext().getReferenceContext().getManufacturer(
-					Ability.class, AbilityCategory.FEAT).getAllObjects())
+			for (Ability ability : Globals.getContext().getReferenceContext()
+				.getManufacturerId(AbilityCategory.FEAT).getAllObjects())
 			{
 				int weight = 1;
 				if (ability.getSafe(ObjectKey.VISIBILITY) != Visibility.DEFAULT)
@@ -554,7 +555,7 @@ public final class NPCGenerator
 				{
 					Logging
 						.debugPrint("NPCGenerator: Selected " + randAlign + " for alignment " + align); //$NON-NLS-1$//$NON-NLS-2$
-					aPC.setAlignment(randAlign);
+					ChannelCompatibility.setCurrentAlignment(aPC.getCharID(), randAlign);
 				}
 				
 				final Race r = getRace(aRace);
@@ -571,7 +572,7 @@ public final class NPCGenerator
 					break;
 				}
 			}
-			if ( aPC.getRace() == Globals.s_EMPTYRACE )
+			if (aPC.getRace().isUnselected())
 			{
 				Logging.errorPrint("Unable to select race");
 				return;

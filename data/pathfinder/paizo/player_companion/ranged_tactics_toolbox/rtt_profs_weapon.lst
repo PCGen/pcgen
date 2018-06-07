@@ -23,5 +23,5 @@ Throwing Arrow Cord	TYPE:Martial.Ranged.Piercing.Thrown.Weapon Group Thrown					
 # EXOTIC
 # --ranged
 Knobkerrie			TYPE:Exotic.Melee.Ranged.Thrown.Bludgeoning.Club.Weapon Group Thrown
-Crank Crossbow (Heavy)	TYPE:Exotic.Ranged.Piercing.Crossbow.Archery.Weapon Group Crossbows				HANDS:2
-Crank Crossbow (Light)	TYPE:Exotic.Ranged.Piercing.Crossbow.Archery.Weapon Group Crossbows				HANDS:2
+Heavy Crank Crossbow	KEY:Crank Crossbow (Heavy)	TYPE:Exotic.Ranged.Piercing.Crossbow.Archery.Weapon Group Crossbows				HANDS:2
+Light Crank Crossbow	KEY:Crank Crossbow (Light)	TYPE:Exotic.Ranged.Piercing.Crossbow.Archery.Weapon Group Crossbows				HANDS:2

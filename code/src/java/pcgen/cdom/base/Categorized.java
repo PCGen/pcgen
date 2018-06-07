@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007 Tom Parker <thpr@users.sourceforge.net>
+ * Copyright (c) 2007-18 Tom Parker <thpr@users.sourceforge.net>
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -29,17 +29,24 @@ package pcgen.cdom.base;
 public interface Categorized<T extends Categorized<T>> extends Loadable
 {
 	/**
-	 * Returns the Category of the Categorized
+	 * Returns the Category of the Categorized object.
 	 * 
 	 * @return the Category of the Categorized
 	 */
 	public Category<T> getCDOMCategory();
 
 	/**
-	 * Sets the Category of the Categorized
+	 * Sets the Category of the Categorized object.
 	 * 
-	 * @param cat
+	 * @param category
 	 *            The Category the Categorized should be set to
 	 */
-	public void setCDOMCategory(Category<T> cat);
+	public void setCDOMCategory(Category<T> category);
+	
+	@Override
+	public default ClassIdentity<? extends Loadable> getClassIdentity()
+	{
+		return getCDOMCategory();
+	}
+
 }

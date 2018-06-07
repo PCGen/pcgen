@@ -19,5 +19,5 @@ Resizing				KEY:Special Ability ~ Resizing ~ Weapon		TYPE:Weapon.Melee.Ranged	CO
 
 
 #Old KEYs
-Fitting				KEY:FITTING			TYPE:Armor.Shield			COST:2000	VISIBLE:NO				SOURCEPAGE:Rear Inside Cover			PREMULT:2,[PRETYPE:1,Enhancement],[PRETYPE:1,Armor,Shield]			SPROP:Instantly shrinks or grows to suit the size of any creature that picks it up.
-Resizing				KEY:Resizing		TYPE:Weapon.Melee.Ranged	COST:4000	VISIBLE:NO				SOURCEPAGE:Rear Inside Cover			PRETYPE:1,Enhancement	PRETYPE:2,Weapon,Melee,Ranged				SPROP:Instantly shrinks or grows to suit the size of any creature that picks it up.
+Special Ability ~ Fitting ~ Armor.COPY=FITTING		VISIBLE:NO
+Special Ability ~ Resizing ~ Weapon.COPY=Resizing	VISIBLE:NO

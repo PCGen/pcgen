@@ -56,7 +56,7 @@ public class CountToken extends AbstractToken implements
 			Integer quan = Integer.valueOf(value);
 			if (quan.intValue() <= 0)
 			{
-				return new ParseResult.Fail(getTokenName() + " expected an integer > 0", context);
+				return new ParseResult.Fail(getTokenName() + " expected an integer > 0");
 			}
 			kitAbil.setCount(quan);
 			return ParseResult.SUCCESS;
@@ -65,7 +65,7 @@ public class CountToken extends AbstractToken implements
 		{
 			return new ParseResult.Fail(getTokenName()
 				+ " expected an integer.  Tag must be of the form: "
-				+ getTokenName() + ":<int>", context);
+				+ getTokenName() + ":<int>");
 		}
 	}
 

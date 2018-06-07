@@ -489,6 +489,12 @@ SKILL:Stealth			RANK:3
 ABILITY:CATEGORY=FEAT|Lightning Reflexes
 ABILITY:CATEGORY=FEAT|Weapon Finesse
 
+STARTPACK:Familiar ~ Snapping Turtle	TYPE:Companion	VISIBLE:NO
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=11|CHA=10
+SKILL:Perception	RANK:1
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+
 
 ###Block:
 STARTPACK:Familiar ~ Scorpion (Greensting)	TYPE:Default Monster.Vermin	VISIBLE:NO	SOURCEPAGE:p.242

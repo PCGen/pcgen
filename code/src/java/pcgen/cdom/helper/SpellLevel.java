@@ -16,8 +16,8 @@
  */
 package pcgen.cdom.helper;
 
-import pcgen.core.Globals;
 import pcgen.core.PCClass;
+import pcgen.rules.context.LoadContext;
 
 public class SpellLevel implements Comparable<SpellLevel>
 {
@@ -55,7 +55,7 @@ public class SpellLevel implements Comparable<SpellLevel>
 		return sb.toString();
 	}
 
-	public static SpellLevel decodeChoice(String persistentFormat)
+	public static SpellLevel decodeChoice(LoadContext context, String persistentFormat)
 	{
 		int loc = persistentFormat.indexOf(";LEVEL.");
 		String classString;
@@ -80,7 +80,7 @@ public class SpellLevel implements Comparable<SpellLevel>
 			levelString = persistentFormat.substring(loc + 7);
 		}
 		PCClass pcc =
-				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
+				context.getReferenceContext().silentlyGetConstructedCDOMObject(
 					PCClass.class, classString);
 		try
 		{

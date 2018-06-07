@@ -10,9 +10,6 @@ ABILITYCATEGORY:PFSChronicle							VISIBLE:YES		EDITABLE:YES								CATEGORY:PFS
 ABILITYCATEGORY:Ally of Belhaim Perform Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AllyOfBelhaimPerformChoice																										DISPLAYLOCATION:Chronicles
 
 # These ability pools hold the chronicle sheet boons
-ABILITYCATEGORY:Chronicle_S07-01						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S07-01											DISPLAYNAME:PFS Scenario #7-01: Between the Lines									DISPLAYLOCATION:Chronicles
-ABILITYCATEGORY:Chronicle_S07-02						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S07-02											DISPLAYNAME:PFS Scenario #7-02: Six Seconds to Midnight									DISPLAYLOCATION:Chronicles
-
 ABILITYCATEGORY:Chronicle_S08-01						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S08-01											DISPLAYNAME:PFS Scenario #8-01: Portent's Peril									DISPLAYLOCATION:Chronicles
 ABILITYCATEGORY:Chronicle_S08-05						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S08-05											DISPLAYNAME:PFS Scenario #8-05: Ungrounded but Unbroken									DISPLAYLOCATION:Chronicles
 

@@ -1426,17 +1426,26 @@ ALIGN:CG
 RACE:Dragon (Faerie)	!PRERACE:1,%
 NAME:Faerie Dragon
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
-#SKILL:Acrobatics		RANK:8
-#SKILL:Bluff			RANK:9
-#SKILL:Diplomacy		RANK:9
-#SKILL:Fly			RANK:23
-#SKILL:Perception		RANK:8
-#SKILL:Sense Motive	RANK:8
-#SKILL:Stealth		RANK:17
-#SKILL:Swim			RANK:13
-#SKILL:Use Magic Device	RANK:9
-#ABILITY:CATEGORY=FEAT|Acrobatic
-#ABILITY:CATEGORY=FEAT|Dodge
+LANGBONUS:Common|Elven|Sylvan
+SKILL:Acrobatics		RANK:3
+SKILL:Bluff			RANK:3
+SKILL:Diplomacy		RANK:3
+SKILL:Fly			RANK:3
+SKILL:Perception		RANK:3
+SKILL:Sense Motive	RANK:3
+SKILL:Stealth		RANK:3
+SKILL:Swim			RANK:3
+SKILL:Use Magic Device	RANK:3
+ABILITY:CATEGORY=FEAT|Acrobatic
+ABILITY:CATEGORY=FEAT|Dodge
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Grease
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Silent Image
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Sleep
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dancing Lights
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Flare
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Ghost Sound
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mage Hand
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Open/Close
 
 
 STARTPACK:Dragonne Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragonne],[!PRERACE:1,%]	SOURCEPAGE:p.104

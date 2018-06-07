@@ -28,7 +28,7 @@ Cannon												PROFICIENCY:WEAPON|Firearms														TYPE:Weapon.Ranged.Si
 Black Powder (Dose)				OUTPUTNAME:Black Powder, [NAME]																			TYPE:Ammunition.Resizable.Standard.BlackPowder																COST:10	WT:0							BASEQTY:1																															SOURCEPAGE:p.292
 Black Powder (Keg)				OUTPUTNAME:Black Powder, [NAME]																			TYPE:Ammunition.Resizable.Standard.BlackPowder																COST:1000	WT:5							BASEQTY:100																															SOURCEPAGE:p.292
 Cannon Ball																														TYPE:Ammunition.Resizable.Standard.Bullet																	COST:30	WT:25							BASEQTY:1																															SOURCEPAGE:p.293
-Firearm Bullet																													TYPE:Ammunition.Resizable.Standard.Bullet																	COST:1	WT:0							BASEQTY:1																															SOURCEPAGE:p.293
+Bullet (Firearm)																													TYPE:Ammunition.Resizable.Standard.Bullet																	COST:1	WT:0							BASEQTY:1																															SOURCEPAGE:p.293
 
 
 ###Block: Weapon Groups

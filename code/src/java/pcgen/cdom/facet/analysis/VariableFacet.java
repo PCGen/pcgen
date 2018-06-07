@@ -57,8 +57,6 @@ public class VariableFacet extends AbstractStorageFacet<CharID> implements
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
@@ -83,8 +81,6 @@ public class VariableFacet extends AbstractStorageFacet<CharID> implements
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)
@@ -125,6 +121,7 @@ public class VariableFacet extends AbstractStorageFacet<CharID> implements
 	 *         null if no information has been set in this VariableFacet for the
 	 *         Player Character
 	 */
+	@SuppressWarnings("unchecked")
 	private Map<VariableKey, Map<Formula, Set<CDOMObject>>> getCachedMap(
 			CharID id)
 	{

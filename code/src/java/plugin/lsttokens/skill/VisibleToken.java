@@ -56,7 +56,7 @@ public class VisibleToken extends AbstractNonEmptyToken<Skill> implements
 			else
 			{
 				return new ParseResult.Fail("Misunderstood text after pipe on Tag: "
-						+ value, context);
+						+ value);
 			}
 		}
 		Visibility vis;
@@ -104,7 +104,7 @@ public class VisibleToken extends AbstractNonEmptyToken<Skill> implements
 			if (vis.equals(Visibility.OUTPUT_ONLY))
 			{
 				return new ParseResult.Fail("|READONLY suffix not valid with "
-						+ getTokenName() + " EXPORT or CSHEET", context);
+						+ getTokenName() + " EXPORT or CSHEET");
 			}
 			context.getObjectContext().put(skill, ObjectKey.READ_ONLY,
 					Boolean.TRUE);

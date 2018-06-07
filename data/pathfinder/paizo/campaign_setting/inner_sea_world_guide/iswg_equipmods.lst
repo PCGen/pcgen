@@ -11,6 +11,6 @@ Paueliel Wood	KEY:Material ~ Paueliel Wood				TYPE:BaseMaterial.MasterworkQualit
 
 
 #Old KEYs
-Leaf			KEY:LEAF		NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:NO																	!PRETYPE:1,EQMODTYPE=Mundane	!PRETYPE:1,Metal,Wooden
-Stone			KEY:STONE		NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:NO																	!PRETYPE:1,EQMODTYPE=Mundane	!PRETYPE:1,Metal,Wooden
-Paueliel Wood	KEY:PAUELIEL				TYPE:BaseMaterial.MasterworkQuality.Ammunition.Weapon.Shield				COST:WT*15	VISIBLE:NO	ITYPE:Wooden.Paueliel.Masterwork	REPLACES:MWORKA,MWORKW	SOURCEPAGE:p.255	PRETYPE:1,Wooden										BONUS:EQM|WEIGHTDIV|2	BONUS:EQMARMOR|ACCHECK|2|TYPE=Enhancement|PRETYPE:1,Shield	BONUS:ITEMCOST|TYPE.Ammunition|6	BONUS:ITEMCOST|TYPE.Weapon|300	BONUS:ITEMCOST|TYPE.Shield|150	BONUS:WEAPON|TOHIT|1|TYPE=Enhancement|PRETYPE:1,Weapon	SPROP:10 hp/inch, hardness 7	ASSIGNTOALL:YES
+Material ~ Leaf.COPY=LEAF			VISIBLE:NO
+Material ~ Stone.COPY=STONE			VISIBLE:NO
+Material ~ Paueliel Wood.COPY=PAUELIEL	VISIBLE:NO

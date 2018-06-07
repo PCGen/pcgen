@@ -57,8 +57,8 @@ public class FeatToken<T> implements PrimitiveToken<T>
 		{
 			return false;
 		}
-		ref = context.getReferenceContext().getCDOMReference(Ability.class, AbilityCategory.FEAT,
-				value);
+		ref = context.getReferenceContext().getManufacturerId(AbilityCategory.FEAT)
+			.getReference(value);
 		refClass = cl;
 		return true;
 	}

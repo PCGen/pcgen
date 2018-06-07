@@ -1,8 +1,8 @@
 # CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
-CAMPAIGN:Quests and Campaigns
-KEY:PF - Quests and Campaigns
+CAMPAIGN:Quests & Campaigns
+KEY:Quests and Campaigns
 GAMEMODE:Pathfinder|Pathfinder_PFS
-TYPE:Paizo Publishing.Pathfinder RPG.Player Companion
+TYPE:Paizo Publishing.Pathfinder Player Companion
 RANK:3
 STATUS:BETA
 GENRE:Fantasy
@@ -12,9 +12,9 @@ PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/
-SOURCELONG:Pathfinder Player Companion: Quests and Campaigns
-SOURCESHORT:QaC
-SOURCEWEB:http://paizo.com/products/btpy8yw2?Pathfinder-Player-Companion-Quests-Campaigns
+SOURCELONG:Pathfinder Player Companion: Quests & Campaigns
+SOURCESHORT:QAC
+SOURCEWEB:http://paizo.com/products/btpy8yw2
 SOURCEDATE:2013-12
 ISOGL:YES
 
@@ -22,7 +22,7 @@ COVER:PZO9433_180.jpeg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
-URL:Paizo Publishing|http://paizo.com/products/btpy8yw2?Pathfinder-Player-Companion-Quests-Campaigns|Buy this publication from Paizo Publishing!
+URL:Paizo Publishing|http://paizo.com/products/btpy8yw2|Buy this publication from Paizo Publishing!
 
 DESC:All great characters are made even greater by the adventures they undertake, and yours is no exception! Pathfinder Player Companion: Quests & Campaigns takes your adventurer from zero to hero, providing all manner of tools to aid in the creation and development of your character's own legend. From tables to aid in character creation to feats that point your newly forged champion toward even greater power, this volume offers countless sources of inspiration to prepare you for new and amazing adventures.
 
@@ -30,7 +30,7 @@ INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., whi
 
 COPYRIGHT:Open Game License v 1.0a Copyright 2000,Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, and Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
-COPYRIGHT:Pathfinder Player Companion: Quests and Campaigns, Copyright 2013, Paizo Publishing, LLC; Authors: Judy Bauer, Neal Litherland, Ryan Macklin, and David N. Ross.
+COPYRIGHT:Pathfinder Player Companion: Quests & Campaigns, Copyright 2013, Paizo Publishing, LLC; Authors: Judy Bauer, Neal Litherland, Ryan Macklin, and David N. Ross.
 COPYRIGHT:PCGen dataset conversion for "Player Companion: Quests and Campaigns" Copyright 2015, PCGen Data Team (including, but not limited to Andrew Maitland)
 
 # Do not remove the EXTRAFILE comment.

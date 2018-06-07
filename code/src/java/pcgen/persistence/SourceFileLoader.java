@@ -34,6 +34,7 @@ import java.util.TreeSet;
 import java.util.logging.Handler;
 import java.util.logging.LogRecord;
 
+import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.util.AbstractMapToList;
 import pcgen.base.util.FormatManager;
@@ -49,6 +50,9 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.formula.scope.EquipmentPartScope;
+import pcgen.cdom.formula.scope.GlobalScope;
+import pcgen.cdom.inst.GlobalModifiers;
 import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Ability;
@@ -78,6 +82,7 @@ import pcgen.core.Skill;
 import pcgen.core.SystemCollections;
 import pcgen.core.WeaponProf;
 import pcgen.core.analysis.EqModAttachment;
+import pcgen.core.analysis.RaceUtilities;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
@@ -87,6 +92,7 @@ import pcgen.facade.core.SourceSelectionFacade;
 import pcgen.facade.core.UIDelegate;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.io.PCGFile;
+import pcgen.output.channel.ChannelUtilities;
 import pcgen.persistence.lst.AbilityCategoryLoader;
 import pcgen.persistence.lst.AbilityLoader;
 import pcgen.persistence.lst.BioSetLoader;
@@ -141,19 +147,26 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	private final LstObjectFileLoader abilityLoader = new AbilityLoader();
 	private final LstObjectFileLoader featLoader = new FeatLoader();
 	private final LstObjectFileLoader<PCTemplate> templateLoader = new GenericLoader<>(PCTemplate.class);
-	private final LstObjectFileLoader<Equipment> equipmentLoader = new GenericLocalVariableLoader<>(Equipment.class, "EQUIPMENT");
-	private final LstObjectFileLoader<EquipmentModifier> eqModLoader = new GenericLocalVariableLoader<>(EquipmentModifier.class, "EQUIPMENT.PART");
+	private final LstObjectFileLoader<Equipment> equipmentLoader =
+			new GenericLocalVariableLoader<>(Equipment.class, "PC.EQUIPMENT");
+	private final LstObjectFileLoader<EquipmentModifier> eqModLoader =
+			new GenericLocalVariableLoader<>(EquipmentModifier.class,
+				EquipmentPartScope.PC_EQUIPMENT_PART);
 	private final LstObjectFileLoader<Race> raceLoader = new GenericLoader<>(Race.class);
-	private final LstObjectFileLoader<Skill> skillLoader = new GenericLocalVariableLoader<>(Skill.class, "SKILL");
+	private final LstObjectFileLoader<Skill> skillLoader =
+			new GenericLocalVariableLoader<>(Skill.class, "PC.SKILL");
 	private final LstObjectFileLoader<WeaponProf> wProfLoader = new GenericLoader<>(WeaponProf.class);
 	private final LstObjectFileLoader<ArmorProf> aProfLoader = new GenericLoader<>(ArmorProf.class);
 	private final LstObjectFileLoader<ShieldProf> sProfLoader = new GenericLoader<>(ShieldProf.class);
 	private final LstObjectFileLoader<Deity> deityLoader = new GenericLoader<>(Deity.class);
 	private final LstObjectFileLoader<Domain> domainLoader = new GenericLoader<>(Domain.class);
-	private final LstObjectFileLoader<PCCheck> savesLoader = new GenericLocalVariableLoader<>(PCCheck.class, "SAVE");
+	private final LstObjectFileLoader<PCCheck> savesLoader =
+			new GenericLocalVariableLoader<>(PCCheck.class, "PC.SAVE");
 	private final LstObjectFileLoader<PCAlignment> alignmentLoader = new GenericLoader<>(PCAlignment.class);
-	private final LstObjectFileLoader<PCStat> statLoader = new GenericLocalVariableLoader<>(PCStat.class, "STAT");
-	private final LstObjectFileLoader<SizeAdjustment> sizeLoader = new GenericLocalVariableLoader<>(SizeAdjustment.class, "SIZE");
+	private final LstObjectFileLoader<PCStat> statLoader =
+			new GenericLocalVariableLoader<>(PCStat.class, "PC.STAT");
+	private final LstObjectFileLoader<SizeAdjustment> sizeLoader =
+			new GenericLocalVariableLoader<>(SizeAdjustment.class, "PC.SIZE");
 	private final LstObjectFileLoader<Spell> spellLoader = new GenericLoader<>(Spell.class);
 	private final LstLineFileLoader dataControlLoader = new CDOMControlLoader();
 	private final VariableLoader variableLoader = new VariableLoader();
@@ -452,7 +465,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		context.setSourceURI(uri);
 		SourceEntry source =
 				new CampaignSourceEntry(new Campaign(), uri);
-		LoadContext subContext = context.dropIntoContext("EQUIPMENT");
+		LoadContext subContext = context.dropIntoContext("PC.EQUIPMENT");
 		String aLine;
 		aLine =
 				"Add Type\tKEY:ADDTYPE\tTYPE:ALL\tCOST:0\tNAMEOPT:NONAME\tSOURCELONG:PCGen Internal\tCHOOSE:EQBUILDER.EQTYPE|COUNT=ALL|TITLE=desired TYPE(s)";
@@ -504,7 +517,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 			// Load custom items
 			loadCustomItems(context);
 
-			finishLoad(selectedCampaigns, context);
+			finishLoad(selectedGame, selectedCampaigns, context);
 			// Check for valid race types
 			//			checkRaceTypes();
 
@@ -591,7 +604,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		dynamicLoader.loadLstFiles(context, fileLists.getListFor(ListKey.FILE_DYNAMIC));
 		//Load Variables (foundation for other items)
 		variableLoader.loadLstFiles(context, fileLists.getListFor(ListKey.FILE_VARIABLE));
-		defineBuiltinVariables(context);
+		defineBuiltinVariables(gamemode, context);
 		List<CampaignSourceEntry> globalModFileList =
 				fileLists.getListFor(ListKey.FILE_GLOBALMOD);
 		if (globalModFileList.isEmpty())
@@ -610,6 +623,13 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		// load ability categories first as they used to only be at the game mode
 		abilityCategoryLoader.loadLstFiles(context, fileLists.getListFor(ListKey.FILE_ABILITY_CATEGORY));
 
+		//Force all AbilityCategory objects to be imported as manufacturers
+		for (AbilityCategory ac : context.getReferenceContext()
+				.getConstructedCDOMObjects(AbilityCategory.class))
+		{
+			context.getReferenceContext().getManufacturerId(ac);
+		}
+		
 		for (Campaign c : loaded)
 		{
 			c.applyTo(context.getReferenceContext());
@@ -673,9 +693,6 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		bioLoader.setGameMode(gamemode.getName());
 		bioLoader.loadLstFiles(context, fileLists.getListFor(ListKey.FILE_BIO_SET));
 
-		// Check for the default deities
-		checkRequiredDeities(specificGameModeDir, context);
-
 		// Add default EQ mods
 		addDefaultEquipmentMods(context);
 
@@ -689,22 +706,44 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		System.gc();
 	}
 
-	private void defineBuiltinVariables(LoadContext context)
+	/**
+	 * Places the built in variables, if required, into the given LoadContext.
+	 * 
+	 * @param context
+	 *            The LoadContext in which the built in variables will be loaded, if
+	 *            necessary
+	 */
+	public static void defineBuiltinVariables(GameMode gameMode, LoadContext context)
 	{
+		VariableContext varContext = context.getVariableContext();
 		if (!ControlUtilities.hasControlToken(context, CControl.FACE))
 		{
-			VariableContext varContext = context.getVariableContext();
 			FormatManager<?> opManager =
 					context.getReferenceContext().getFormatManager("ORDEREDPAIR");
-			defineVariable(varContext, opManager, "Face");
+			defineVariable(varContext, opManager, CControl.FACE.getDefaultValue());
+		}
+		if (!gameMode.getAlignmentText().isEmpty())
+		{
+			if (!ControlUtilities.hasControlToken(context, CControl.ALIGNMENTINPUT))
+			{
+				FormatManager<?> alignManager =
+						context.getReferenceContext().getFormatManager("ALIGNMENT");
+				String varName = ChannelUtilities
+					.createVarName(CControl.ALIGNMENTINPUT.getDefaultValue());
+				defineVariable(varContext, alignManager, varName);
+				GlobalModifiers modifiers =
+						context.getReferenceContext().constructNowIfNecessary(
+							GlobalModifiers.class, GlobalModifierLoader.GLOBAL_MODIFIERS);
+				modifiers.addGrantedVariable(varName);
+			}
 		}
 	}
 
-	private void defineVariable(VariableContext varContext,
+	private static void defineVariable(VariableContext varContext,
 		FormatManager<?> formatManager, String varName)
 	{
-		LegalScope varScope = varContext.getScope("Global");
-		varContext.assertLegalVariableID(varScope, formatManager, varName);
+		LegalScope varScope = varContext.getScope(GlobalScope.GLOBAL_SCOPE_NAME);
+		varContext.assertLegalVariableID(varName, varScope, formatManager);
 	}
 
 	/**
@@ -752,7 +791,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		}
 	}
 
-	private void finishLoad(final List<Campaign> aSelectedCampaignsList,
+	private void finishLoad(GameMode gameMode, List<Campaign> aSelectedCampaignsList,
 		LoadContext context)
 	{
 		createLangBonusObject(context);
@@ -767,12 +806,32 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		context.resolvePostValidationTokens();
 		context.resolvePostDeferredTokens();
 		context.getVariableContext().validateDefaults();
+		//Test for items we know we use (temporary)
+		//Alignment
+		if (!gameMode.getAlignmentText().isEmpty() && !context.getVariableContext()
+			.hasSolver(refContext.getManufacturer(PCAlignment.class)))
+		{
+			Logging.errorPrint("GameMode " + gameMode.getName() + " has Alignment text - "
+				+ "Thus it  requires a default value for ALIGNMENT format");
+		}
+		//Face
+		if (!context.getVariableContext().hasSolver(FormatUtilities.ORDEREDPAIR_MANAGER))
+		{
+			Logging.errorPrint(gameMode.getName()
+				+ " did not have required default value for ORDEREDPAIR format");
+		}
+
 		ReferenceContextUtilities.validateAssociations(refContext, validator);
 		for (Equipment eq : refContext
 			.getConstructedCDOMObjects(Equipment.class))
 		{
 			eq.setToCustomSize(null);
 			EqModAttachment.finishEquipment(eq);
+		}
+		if (RaceUtilities.getUnselectedRace() == null)
+		{
+			Logging.errorPrint(gameMode.getName()
+				+ " did not have required Race with 'Unselected' Group");
 		}
 	}
 
@@ -785,17 +844,15 @@ public class SourceFileLoader extends PCGenTask implements Observer
 			 * Yes, these are thrown away... just need to make sure the
 			 * manufacturer was built.
 			 */
-			context.getReferenceContext().getManufacturer(Ability.class, cat);
+			context.getReferenceContext().getManufacturerId(cat);
 		}
 	}
 
 	public static void createLangBonusObject(LoadContext context)
 	{
-		Ability a =
-				context.getReferenceContext().constructCDOMObject(
-					Ability.class, "*LANGBONUS");
-		context.getReferenceContext().reassociateCategory(
-			AbilityCategory.LANGBONUS, a);
+		Ability a = AbilityCategory.LANGBONUS.newInstance();
+		a.setKeyName("*LANGBONUS");
+		context.getReferenceContext().importObject(a);
 		a.put(ObjectKey.INTERNAL, true);
 		context.unconditionallyProcess(a, "CHOOSE", "LANG|!PC,LANGBONUS");
 		context.unconditionallyProcess(a, "VISIBLE", "NO");
@@ -886,34 +943,6 @@ public class SourceFileLoader extends PCGenTask implements Observer
 			{
 				logError(
 					"Error when closing infile after loading custom items", ex);
-			}
-		}
-	}
-
-	/**
-	 * This method checks to make sure that the deities required for the current
-	 * mode have been loaded into the Globals as Deities. Prior to calling this
-	 * method, deities are stored as simple String objects.
-	 *
-	 * @throws PersistenceLayerException
-	 *             if something bizarre occurs, such as this method being
-	 *             invoked more than once, a change to DeityLoader, or an
-	 *             invalid LST file containing the default deities.
-	 */
-	private void checkRequiredDeities(File dir, LoadContext context)
-		throws PersistenceLayerException
-	{
-		context.setSourceURI(new File(dir, "miscinfo.lst").toURI());
-		//
-		// Add in the default deities (unless they're already there)
-		//
-		final List<String> gDeities = Globals.getGlobalDeityList();
-
-		if ((gDeities != null) && (!gDeities.isEmpty()))
-		{
-			for (String aLine : gDeities)
-			{
-				deityLoader.parseLine(context, null, aLine, globalCampaign);
 			}
 		}
 	}

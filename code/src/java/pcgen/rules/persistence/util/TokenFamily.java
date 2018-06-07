@@ -368,9 +368,6 @@ public final class TokenFamily implements Comparable<TokenFamily>
 		return Collections.unmodifiableCollection(typeMap.values());
 	}
 
-	/**
-	 * @see java.lang.Comparable#compareTo(java.lang.Object)
-	 */
 	@Override
 	public int compareTo(TokenFamily tf)
 	{
@@ -382,18 +379,12 @@ public final class TokenFamily implements Comparable<TokenFamily>
 	 * Safe (meaning it can only build one object per Revision)
 	 */
 
-	/**
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString()
 	{
 		return "Token Family: " + rev.toString();
 	}
 
-	/**
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{
@@ -401,9 +392,6 @@ public final class TokenFamily implements Comparable<TokenFamily>
 				&& compareTo((TokenFamily) obj) == 0;
 	}
 
-	/**
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{

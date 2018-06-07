@@ -28,8 +28,8 @@ public class CastTimeIntegrationTest extends
 		AbstractTypeSafeListIntegrationTestCase<Spell>
 {
 
-	static CasttimeToken token = new CasttimeToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
+	private static CasttimeToken token = new CasttimeToken();
+	private static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Spell> getCDOMClass()

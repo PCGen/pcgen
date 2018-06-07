@@ -26,7 +26,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
- * Class deals with DEITY Token
+ * Class deals with DATATABLE Token
  */
 public class DataTableToken extends AbstractBasicCampaignToken implements
 		CDOMPrimaryToken<Campaign>
@@ -50,12 +50,12 @@ public class DataTableToken extends AbstractBasicCampaignToken implements
 		if (!cse.getIncludeItems().isEmpty())
 		{
 			return new ParseResult.Fail(getTokenName() + " does not allow INCLUDE: "
-				+ value, context);
+				+ value);
 		}
 		if (!cse.getExcludeItems().isEmpty())
 		{
 			return new ParseResult.Fail(getTokenName() + " does not allow EXCLUDE: "
-				+ value, context);
+				+ value);
 		}
 		context.getObjectContext().addToList(campaign, ListKey.FILE_DATATABLE, cse);
 		return ParseResult.SUCCESS;

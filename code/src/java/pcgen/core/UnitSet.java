@@ -328,12 +328,6 @@ public final class UnitSet implements Loadable
 	}
 
     @Override
-	public String getLSTformat()
-	{
-		return getDisplayName();
-	}
-
-    @Override
 	public boolean isInternal()
 	{
 		return isInternal;

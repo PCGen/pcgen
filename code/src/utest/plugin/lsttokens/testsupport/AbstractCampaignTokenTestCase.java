@@ -18,14 +18,15 @@
 package plugin.lsttokens.testsupport;
 
 import java.net.URI;
-import java.net.URISyntaxException;
 
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
+import util.TestURI;
 
 public abstract class AbstractCampaignTokenTestCase extends
 		AbstractCDOMTokenTestCase<Campaign>
@@ -41,15 +42,6 @@ public abstract class AbstractCampaignTokenTestCase extends
 	public Character getSeparator()
 	{
 		return null;
-	}
-
-	@Override
-	public void setUp() throws PersistenceLayerException, URISyntaxException
-	{
-		super.setUp();
-		URI uri = new URI("http://www.sourceforge.net");
-		primaryContext.setSourceURI(uri);
-		secondaryContext.setSourceURI(uri);
 	}
 
 	@Test
@@ -279,5 +271,13 @@ public abstract class AbstractCampaignTokenTestCase extends
 	protected ConsolidationRule getConsolidationRule()
 	{
 		return ConsolidationRule.SEPARATE;
+	}
+
+	@Override
+	protected void additionalSetup(LoadContext context)
+	{
+		super.additionalSetup(context);
+		URI uri = TestURI.getURI();
+		context.setSourceURI(uri);
 	}
 }

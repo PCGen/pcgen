@@ -56,7 +56,7 @@ public class XtrafeatsToken implements CDOMPrimaryToken<PCClass>
 			else if (featCount <= 0)
 			{
 				return new ParseResult.Fail("Number in " + getTokenName()
-						+ " must be greater than zero: " + value, context);
+						+ " must be greater than zero: " + value);
 			}
 			context.getObjectContext().put(pcc, IntegerKey.START_FEATS, featCount);
 			return ParseResult.SUCCESS;
@@ -64,7 +64,7 @@ public class XtrafeatsToken implements CDOMPrimaryToken<PCClass>
 		catch (NumberFormatException nfe)
 		{
 			return new ParseResult.Fail("Invalid Number in " + getTokenName() + ": "
-					+ value, context);
+					+ value);
 		}
 	}
 

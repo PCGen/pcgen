@@ -30,7 +30,6 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.list.DomainList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
-import pcgen.facade.core.AlignmentFacade;
 import pcgen.facade.core.DeityFacade;
 
 /**
@@ -62,7 +61,7 @@ public final class Deity extends PObject implements DeityFacade
 	}
 
     @Override
-	public AlignmentFacade getAlignment()
+	public PCAlignment getAlignment()
 	{
 		CDOMSingleRef<PCAlignment> ref = get(ObjectKey.ALIGNMENT);
 		if (ref == null)

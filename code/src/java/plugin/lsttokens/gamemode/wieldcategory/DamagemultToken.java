@@ -55,13 +55,13 @@ public class DamagemultToken extends AbstractTokenWithSeparator<WieldCategory>
 			if (equalLoc == -1)
 			{
 				return new ParseResult.Fail("No = in part of token, found: "
-						+ set + " in " + value, context);
+						+ set + " in " + value);
 			}
 			if (equalLoc != set.lastIndexOf('='))
 			{
 				return new ParseResult.Fail(
 						"Too many = in part of token, found: " + set + " in "
-								+ value, context);
+								+ value);
 			}
 			String hands = set.substring(0, equalLoc);
 			int numHands;
@@ -73,7 +73,7 @@ public class DamagemultToken extends AbstractTokenWithSeparator<WieldCategory>
 			{
 				return new ParseResult.Fail(getTokenName()
 						+ " expected an integer before '='.  Found: " + hands
-						+ " in " + value, context);
+						+ " in " + value);
 			}
 			String multiplier = set.substring(equalLoc + 1);
 			float mult;
@@ -85,7 +85,7 @@ public class DamagemultToken extends AbstractTokenWithSeparator<WieldCategory>
 			{
 				return new ParseResult.Fail(getTokenName()
 						+ " expected an float after '='.  Found: " + hands
-						+ " in " + value, context);
+						+ " in " + value);
 			}
 			wc.addDamageMult(numHands, mult);
 		}

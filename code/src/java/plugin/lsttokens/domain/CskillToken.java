@@ -78,7 +78,7 @@ public class CskillToken extends AbstractTokenWithSeparator<Domain> implements
 				{
 					return new ParseResult.Fail("  Non-sensical "
 							+ getTokenName()
-							+ ": .CLEAR was not the first list item", context);
+							+ ": .CLEAR was not the first list item");
 				}
 				context.getObjectContext()
 						.removeList(obj, ListKey.LOCALCSKILL);
@@ -105,7 +105,7 @@ public class CskillToken extends AbstractTokenWithSeparator<Domain> implements
 					{
 						return new ParseResult.Fail(
 								"  Error was encountered while parsing "
-										+ getTokenName(), context);
+										+ getTokenName());
 					}
 					context.getObjectContext().removeFromList(obj,
 							ListKey.LOCALCSKILL, ref);
@@ -142,7 +142,7 @@ public class CskillToken extends AbstractTokenWithSeparator<Domain> implements
 						{
 							return new ParseResult.Fail(
 									"  Error was encountered while parsing "
-											+ getTokenName(), context);
+											+ getTokenName());
 						}
 						context.getObjectContext().addToList(obj,
 								ListKey.LOCALCSKILL, ref);
@@ -154,7 +154,7 @@ public class CskillToken extends AbstractTokenWithSeparator<Domain> implements
 		if (foundAny && foundOther)
 		{
 			return new ParseResult.Fail("Non-sensical " + getTokenName()
-					+ ": Contains ANY and a specific reference: " + value, context);
+					+ ": Contains ANY and a specific reference: " + value);
 		}
 		return ParseResult.SUCCESS;
 	}
@@ -164,7 +164,7 @@ public class CskillToken extends AbstractTokenWithSeparator<Domain> implements
 	{
 		if (tokText.endsWith(Constants.PERCENT))
 		{
-			return new PatternMatchingReference<>(Skill.class, context.getReferenceContext()
+			return new PatternMatchingReference<>(context.getReferenceContext()
 					.getCDOMAllReference(SKILL_CLASS), tokText);
 		}
 		else

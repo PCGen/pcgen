@@ -32,14 +32,6 @@ public final class LevelInfo
 	private String minXPString = "0";
 
 	/**
-	 * Default constructor for LevelInfo. Initialises everything to zero.
-	 */
-	public LevelInfo()
-	{
-	    // Empty Constructor
-	}
-
-	/**
 	 * Sets the levelString that this LevelInfo object describes.
 	 * @param arg The level to be set (should be a number or variable)
 	 */

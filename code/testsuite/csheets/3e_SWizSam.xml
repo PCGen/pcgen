@@ -32,7 +32,7 @@ BIO
 			<levels_total>1</levels_total>
 			<levels_ecl>1</levels_ecl>
 			<!-- shortform below should be removed - it can be derived from class info above -->
-			<shortform> Tra1                   </shortform>
+			<shortform>Tra1</shortform>
 			<!-- CLASSLIST is not extracted because we can derive it from the information above -->
 		</classes>
 		<deity>
@@ -41,7 +41,6 @@ BIO
 			<description>Due to closed content PCGEN cannot provide a list of deities, sorry but you need to homebrew your own list; Please see the Documentation for how to do so - http://www.pcgen-test.org/autobuilds/pcgen-docs/listfilepages/lstfileclass/lfc_lesson14_deities.html</description>
 			<domainlist>Air, Animal, Chaos, Death, Destruction, Earth, Evil, Fire, Good, Healing, Knowledge, Law, Luck, Magic, Plant, Protection, Strength, Sun, Travel, Trickery, War, Water</domainlist>
 			<favoredweapon>ANY</favoredweapon>
-<!-->			<followeralignment></followeralignment>  This is no longer valid and keeps throwing out errors-->
 			<holyitem>None</holyitem>
 			<pantheonlist></pantheonlist>
 			<source>Wizards of the Coast - System Reference Document, srdbasiccharacterclassesi</source>
@@ -909,17 +908,25 @@ BIO
 	  ====================================
 	  ====================================-->
 	<class_features>
-
 	<!-- Bard -->
 
-	<!-- Barbarian of 15th Level -->
-	<!-- Character Rage -->
+
+	<!-- Pathfinder -->
+		<!-- Character Rage -->
+		<!-- Character Rage -->
+
 	<!-- Turning ability -->
+
 	<!-- 3.0 stunning fist -->
+
 	<!-- 3.5 stunning fist -->
+
 	<!-- 3.0 wholeness of body -->
+
 	<!-- 3.5 wholeness of body -->
+
 	<!-- Psionics -->
+
 
 
 
@@ -938,10 +945,8 @@ BIO
 			<capacity>75</capacity>
 		</total>
 		<equipmentsets>
-
-      <equipmentset name="Default Set">
+		<equipmentset name="Default Set">
 			</equipmentset>
-
       </equipmentsets>
 	</equipment>
 	<weight_allowance>
@@ -984,6 +989,7 @@ BIO
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 		</feat>
+
 		<!-- Auto feats -->
 		<feat>
 			<name>Scribe Scroll</name>
@@ -995,6 +1001,7 @@ BIO
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 		</feat>
+
 		<!-- Virtual Feats -->
 		<!-- End Virtual Feats -->
 		<!-- Hidden feats (all feats less the virtual, automatic and visible ones) -->
@@ -1007,8 +1014,9 @@ BIO
 			ABILITY OBJECTS
 	  ====================================
 	  ====================================-->
+
 	<ability_objects>
-	<!-- Visible Automatic "Special Ability" Ability Objects -->
+		<!-- Visible Automatic "Special Ability" Ability Objects -->
 		<ability_object>
 			<name>+1 racial bonus on all saving throws.</name>
 			<description>+1 racial bonus on all saving throws.</description>
@@ -1086,7 +1094,7 @@ BIO
 			<virtual>F</virtual>
 			<category>Special Ability</category>
 		</ability_object>
-	<!-- Hidden Automatic "Special Ability" Ability Objects -->
+		<!-- Hidden Automatic "Special Ability" Ability Objects -->
 		<ability_object>
 			<name>All Automatic Proficiencies</name>
 			<description></description>
@@ -1109,7 +1117,7 @@ BIO
 			<virtual>F</virtual>
 			<category>Special Ability</category>
 		</ability_object>
-	<!-- Visible Automatic "Internal" Ability Objects -->
+		<!-- Visible Automatic "Internal" Ability Objects -->
 		<ability_object>
 			<name>Default</name>
 			<description></description>
@@ -1150,17 +1158,13 @@ BIO
 			MISCELLANEOUS
 	  ====================================
 	  ====================================-->
-	<!-- Domains -->
+
 	<weapon_proficiencies>Club, Crossbow (Heavy), Crossbow (Light), Dagger, Gauntlet, Grapple, Quarterstaff, Spells(Ray), Unarmed Strike</weapon_proficiencies>
 	<languages>Common, Halfling</languages>
-
 
 	<prohibited_schools>Enchantment,Illusion</prohibited_schools>
 
 	<misc>
-
-
-
 	</misc>
 	<!--
 	  ====================================
@@ -1168,11 +1172,8 @@ BIO
 			COMPANIONS
 	  ====================================
 	  ====================================-->
+
 	<companions>
-
-
-
-
 	</companions>
 	<!--
 	  ====================================
@@ -1186,10 +1187,9 @@ BIO
 <!-- ### END Innate spells ### -->
 		<!-- ### BEGIN Known spells ### -->
 		<known_spells>
-
 		<class number="0" spelllistclass="Wizard" spellcastertype="Arcane">
 			<level number="0" known="0" cast="3+1">
-				<spell>
+					<spell>
 						<name>Arcane Mark</name>
 						<outputname>Arcane Mark</outputname>
 						<times_memorized>1</times_memorized>
@@ -1218,7 +1218,7 @@ BIO
 						<description>Inscribes a personal rune (visible or invisible).</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Dancing Lights</name>
 						<outputname>Dancing Lights</outputname>
 						<times_memorized>1</times_memorized>
@@ -1247,7 +1247,7 @@ BIO
 						<description>Figment torches or other lights.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Detect Magic</name>
 						<outputname>Detect Magic</outputname>
 						<times_memorized>1</times_memorized>
@@ -1276,7 +1276,7 @@ BIO
 						<description>Detects spells and magic items within 60 ft.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Detect Poison</name>
 						<outputname>Detect Poison</outputname>
 						<times_memorized>1</times_memorized>
@@ -1305,7 +1305,7 @@ BIO
 						<description>Detects poison in one creature or small object.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Disrupt Undead</name>
 						<outputname>Disrupt Undead</outputname>
 						<times_memorized>1</times_memorized>
@@ -1334,7 +1334,7 @@ BIO
 						<description>Deals 1d6 damage to one undead.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Flare</name>
 						<outputname>Flare</outputname>
 						<times_memorized>1</times_memorized>
@@ -1363,7 +1363,7 @@ BIO
 						<description>Dazzles one creature (-1 attack).</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Light</name>
 						<outputname>Light</outputname>
 						<times_memorized>1</times_memorized>
@@ -1392,7 +1392,7 @@ BIO
 						<description>Object shines like a torch.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Mage Hand</name>
 						<outputname>Mage Hand</outputname>
 						<times_memorized>1</times_memorized>
@@ -1421,7 +1421,7 @@ BIO
 						<description>5-pound telekinesis.</description>
 						<bonusspell>*</bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Mending</name>
 						<outputname>Mending</outputname>
 						<times_memorized>1</times_memorized>
@@ -1450,7 +1450,7 @@ BIO
 						<description>Makes minor repairs on an object.</description>
 						<bonusspell>*</bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Open/Close</name>
 						<outputname>Open/Close</outputname>
 						<times_memorized>1</times_memorized>
@@ -1479,7 +1479,7 @@ BIO
 						<description>Opens or closes small or light things.</description>
 						<bonusspell>*</bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Prestidigitation</name>
 						<outputname>Prestidigitation</outputname>
 						<times_memorized>1</times_memorized>
@@ -1508,7 +1508,7 @@ BIO
 						<description>Performs minor tricks.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Ray of Frost</name>
 						<outputname>Ray of Frost</outputname>
 						<times_memorized>1</times_memorized>
@@ -1537,7 +1537,7 @@ BIO
 						<description>Ray deals 1d3 cold damage.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Read Magic</name>
 						<outputname>Read Magic</outputname>
 						<times_memorized>1</times_memorized>
@@ -1566,7 +1566,7 @@ BIO
 						<description>Read scrolls and spellbooks.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Resistance</name>
 						<outputname>Resistance</outputname>
 						<times_memorized>1</times_memorized>
@@ -1597,7 +1597,7 @@ BIO
 					</spell>
 			</level>
 			<level number="1" known="0" cast="2+1">
-				<spell>
+					<spell>
 						<name>Cause Fear</name>
 						<outputname>Cause Fear</outputname>
 						<times_memorized>1</times_memorized>
@@ -1626,7 +1626,7 @@ BIO
 						<description>One creature flees for 1d4 rounds.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Chill Touch</name>
 						<outputname>Chill Touch</outputname>
 						<times_memorized>1</times_memorized>
@@ -1655,7 +1655,7 @@ BIO
 						<description>(CASTERLEVEL) touches deal 1d6 damage and possibly 1 Str damage.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Comprehend Languages</name>
 						<outputname>Comprehend Languages</outputname>
 						<times_memorized>1</times_memorized>
@@ -1684,7 +1684,7 @@ BIO
 						<description>Understands all spoken and written languages.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Detect Secret Doors</name>
 						<outputname>Detect Secret Doors</outputname>
 						<times_memorized>1</times_memorized>
@@ -1713,7 +1713,7 @@ BIO
 						<description>Reveals hidden doors within 60 ft.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Detect Undead</name>
 						<outputname>Detect Undead</outputname>
 						<times_memorized>1</times_memorized>

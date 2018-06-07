@@ -50,14 +50,6 @@ public final class RandomChooser implements ChooserInterface, ChoiceHandler
 	private boolean pickAll = false;
 	
 	/**
-	 * Chooser constructor.
-	 */
-	public RandomChooser()
-	{
-		//Empty constructor
-	}
-
-	/**
 	 * Sets the AllowsDups attribute of the Chooser object
 	 *
 	 * @param aBool  The new AllowsDups value

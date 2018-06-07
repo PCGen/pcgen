@@ -32,8 +32,8 @@ public class VisibleIntegrationTest extends
 		AbstractIntegrationTestCase<EquipmentModifier>
 {
 
-	static VisibleToken token = new VisibleToken();
-	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<>();
+	private static VisibleToken token = new VisibleToken();
+	private static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<EquipmentModifier> getCDOMClass()

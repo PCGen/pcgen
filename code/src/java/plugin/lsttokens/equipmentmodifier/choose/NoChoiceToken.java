@@ -49,7 +49,7 @@ public class NoChoiceToken implements CDOMSecondaryToken<EquipmentModifier>
 			return ParseResult.SUCCESS;
 		}
 		return new ParseResult.Fail("CHOOSE:" + getTokenName()
-				+ " must not have arguments: " + value, context);
+				+ " must not have arguments: " + value);
 	}
 
 	@Override

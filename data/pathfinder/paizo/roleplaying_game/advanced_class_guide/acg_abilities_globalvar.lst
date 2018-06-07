@@ -2,14 +2,14 @@
 
 # Ability Name	Category of Ability
 Arcanist		CATEGORY:Class
-Bloodrager		CATEGORY:Class
+Bloodrager		CATEGORY:Class	DEFINE:BloodrageLVL|0	BONUS:VAR|BloodrageLVL|BloodragerLVL
 Brawler		CATEGORY:Class
 Hunter		CATEGORY:Class
 Investigator	CATEGORY:Class
 Shaman		CATEGORY:Class
 Skald			CATEGORY:Class
 Slayer		CATEGORY:Class
-Swashbuckler	CATEGORY:Class
+Swashbuckler	CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Panache Tracker
 Warpriest		CATEGORY:Class
 
 ###Block:

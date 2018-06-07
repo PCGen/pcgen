@@ -42,9 +42,7 @@ public class InfoPaneHandler implements ReferenceListener<Object>,
 		ListListener<CharacterLevelFacade>
 {
 
-	private boolean installed = false;
 	private HtmlSheetSupport support;
-	private String currentInfoTemplateFile;
 	private CharacterFacade character;
 
 	/**
@@ -85,7 +83,6 @@ public class InfoPaneHandler implements ReferenceListener<Object>,
 	public void install()
 	{
 		support.install();
-		installed = true;
 		scheduleRefresh();
 	}
 
@@ -96,7 +93,10 @@ public class InfoPaneHandler implements ReferenceListener<Object>,
 	{
 		character.getRaceRef().addReferenceListener(this);
 		character.getGenderRef().addReferenceListener(this);
-		character.getAlignmentRef().addReferenceListener(this);
+		if (!character.getDataSet().getAlignments().isEmpty())
+		{
+			character.getAlignmentRef().addReferenceListener(this);
+		}
 		for (StatFacade stat : character.getDataSet().getStats())
 		{
 			character.getScoreBaseRef(stat).addReferenceListener(this);
@@ -122,7 +122,6 @@ public class InfoPaneHandler implements ReferenceListener<Object>,
 	public void uninstall()
 	{
 		support.uninstall();
-		installed = false;
 	}
 
 	/**
@@ -169,232 +168,4 @@ public class InfoPaneHandler implements ReferenceListener<Object>,
 	{
 		scheduleRefresh();
 	}
-//
-//	/**
-//	 * A cache for images loaded onto the info pane.
-//	 */
-//	private static class ImageCache extends Dictionary<URL, Image>
-//	{
-//
-//		private HashMap<URL, Image> cache = new HashMap<URL, Image>();
-//
-//		@Override
-//		public int size()
-//		{
-//			return cache.size();
-//		}
-//
-//		@Override
-//		public boolean isEmpty()
-//		{
-//			return cache.isEmpty();
-//		}
-//
-//		@Override
-//		public Enumeration<URL> keys()
-//		{
-//			return Collections.enumeration(cache.keySet());
-//		}
-//
-//		@Override
-//		public Enumeration<Image> elements()
-//		{
-//			return Collections.enumeration(cache.values());
-//		}
-//
-//		@Override
-//		public Image get(Object key)
-//		{
-//			if (!(key instanceof URL))
-//			{
-//				return null;
-//			}
-//			URL src = (URL) key;
-//			if (!cache.containsKey(src))
-//			{
-//				Image newImage = Toolkit.getDefaultToolkit().createImage(src);
-//				if (newImage != null)
-//				{
-//					// Force the image to be loaded by using an ImageIcon.
-//					ImageIcon ii = new ImageIcon();
-//					ii.setImage(newImage);
-//				}
-//				cache.put(src, newImage);
-//			}
-//			return cache.get(src);
-//		}
-//
-//		@Override
-//		public Image put(URL key, Image value)
-//		{
-//			return cache.put(key, value);
-//		}
-//
-//		@Override
-//		public Image remove(Object key)
-//		{
-//			return cache.remove(key);
-//		}
-//
-//	}
-//
-//	private class TempInfoPaneRefresher implements Runnable
-//	{
-//
-//		private File templateFile = new File(currentInfoTemplateFile);
-//
-//		public void run()
-//		{
-//			try
-//			{
-//				SwingUtilities.invokeAndWait(new Runnable()
-//				{
-//
-//					public void run()
-//					{
-//						StringWriter writer = new StringWriter();
-//						character.export(new ExportHandler(templateFile), new BufferedWriter(writer));
-//						StringReader reader = new StringReader(writer.toString());
-//						EditorKit kit = htmlPane.getEditorKit();
-//						HTMLDocument doc = new HTMLDocument();
-//						try
-//						{
-//							doc.setBase(templateFile.getParentFile().toURL());
-//							// XXX - This is a hack specific to Sun's JDK 5.0 and in no
-//							// way should be trusted to work in future java releases
-//							// (though it still might) - Connor Petty
-//							doc.putProperty("imageCache", cache);
-//							kit.read(reader, doc, 0);
-//						}
-//						catch (IOException ex)
-//						{
-//							Logging.errorPrint("Could not get parent of load template file " +
-//									"for info panel.", ex);
-//						}
-//						catch (BadLocationException ex)
-//						{
-//							//This should never happen
-//						}
-//						if (installed)
-//						{
-//							htmlPane.setDocument(doc);
-//						}
-//					}
-//
-//				});
-//			}
-//			catch (InterruptedException ex)
-//			{
-//				//do nothing
-//			}
-//			catch (InvocationTargetException ex)
-//			{
-//				//do nothing
-//			}
-//		}
-//
-//	}
-//
-//	private class InfoRefreshTask extends FutureTask<HTMLDocument>
-//	{
-//
-//		public InfoRefreshTask()
-//		{
-//			super(new DocumentBuilder());
-//		}
-//
-//		@Override
-//		protected void done()
-//		{
-//			try
-//			{
-//				final HTMLDocument doc = get();
-//				if (!isCancelled())
-//				{
-//					SwingUtilities.invokeLater(new Runnable()
-//					{
-//
-//						public void run()
-//						{
-//							if (installed)
-//							{
-//								htmlPane.setDocument(doc);
-//							}
-//						}
-//
-//					});
-//				}
-//			}
-//			catch (InterruptedException ex)
-//			{
-//				//This can't happen
-//			}
-//			catch (ExecutionException ex)
-//			{
-//				try
-//				{
-//					throw ex.getCause();
-//				}
-//				catch (InterruptedIOException e)
-//				{
-//					//this is normal ignore it
-//				}
-//				catch (IOException e)
-//				{
-//				}
-//				catch (Throwable e)
-//				{
-//					Logging.errorPrint("Unexpected error occurred", e);
-//				}
-//
-//			}
-//		}
-//
-//	}
-//
-//	private class DocumentBuilder implements Callable<HTMLDocument>, Runnable
-//	{
-//
-//		private File templateFile = new File(currentInfoTemplateFile);
-//		private PipedWriter writer = new PipedWriter();
-//
-//		public HTMLDocument call() throws Exception
-//		{
-//			PipedReader reader = new PipedReader(writer);
-//			new Thread(this).start();
-//
-//			EditorKit kit = htmlPane.getEditorKit();
-//			HTMLDocument doc = new HTMLDocument();
-//			doc.setBase(templateFile.getParentFile().toURL());
-//			// XXX - This is a hack specific to Sun's JDK 5.0 and in no
-//			// way should be trusted to work in future java releases
-//			// (though it still might) - Connor Petty
-//			doc.putProperty("imageCache", cache);
-//			kit.read(reader, doc, 0);
-//			reader.close();
-//			return doc;
-//		}
-//
-//		public void run()
-//		{
-//			BufferedWriter bw = new BufferedWriter(writer, 1);
-//			try
-//			{
-//				character.export(new ExportHandler(templateFile), bw);
-//			}
-//			finally
-//			{
-//				try
-//				{
-//					bw.close();
-//				}
-//				catch (IOException ex)
-//				{
-//					Logging.errorPrint("Unable to close PipedWriter", ex);
-//				}
-//			}
-//		}
-//
-//	}
-
 }

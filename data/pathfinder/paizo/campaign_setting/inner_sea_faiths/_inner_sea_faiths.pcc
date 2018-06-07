@@ -42,6 +42,8 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Campaign Setting: Inner Sea F
 
 ABILITY:isf_abilities_faith.lst
 ABILITY:isf_abilities_feat.lst
+ABILITYCATEGORY:isf_abilitycategories.lst
+SPELL:isf_spells.lst
 
 
 # ENTRY DATE: 2016-05-23?

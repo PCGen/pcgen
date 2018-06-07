@@ -32,9 +32,6 @@ public class PreDomainTester extends AbstractDisplayPrereqTest
 
 	private static final Class<Domain> DOMAIN_CLASS = Domain.class;
 
-	/**
-	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
-	 */
 	@Override
 	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
 	{

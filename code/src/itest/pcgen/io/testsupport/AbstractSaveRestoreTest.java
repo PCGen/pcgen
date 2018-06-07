@@ -17,14 +17,16 @@
  */
 package pcgen.io.testsupport;
 
-import compare.InequalityTesterInst;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.math.BigDecimal;
-import java.net.URI;
 import java.util.Collections;
+
+import compare.InequalityTesterInst;
 import junit.framework.TestCase;
+import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.test.InequalityTester;
+import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.Loadable;
@@ -44,7 +46,6 @@ import pcgen.cdom.facet.TemplateSelectionFacet;
 import pcgen.cdom.facet.WeaponProfFacet;
 import pcgen.cdom.facet.base.AbstractStorageFacet;
 import pcgen.cdom.facet.model.ActiveEqModFacet;
-import pcgen.cdom.facet.model.AlignmentFacet;
 import pcgen.cdom.facet.model.BioSetFacet;
 import pcgen.cdom.facet.model.CheckFacet;
 import pcgen.cdom.facet.model.ClassFacet;
@@ -58,7 +59,9 @@ import pcgen.cdom.facet.model.SizeFacet;
 import pcgen.cdom.facet.model.SkillFacet;
 import pcgen.cdom.facet.model.StatFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
-import pcgen.core.AbilityCategory;
+import pcgen.cdom.formula.local.ModifierDecoration;
+import pcgen.cdom.inst.CodeControl;
+import pcgen.cdom.util.CControl;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.Language;
@@ -72,69 +75,23 @@ import pcgen.core.SizeAdjustment;
 import pcgen.gui2.facade.MockUIDelegate;
 import pcgen.io.PCGIOHandler;
 import pcgen.io.PCGVer2Creator;
+import pcgen.output.channel.ChannelUtilities;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.persistence.lst.LevelLoader;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.TokenLibrary;
+import pcgen.rules.persistence.token.ModifierFactory;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.RandomChooser;
 import plugin.bonustokens.Feat;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.TokenRegistration;
+import util.TestURI;
 
 public abstract class AbstractSaveRestoreTest extends TestCase
 {
-
-	protected LoadContext context;
-	protected PlayerCharacter pc;
-	protected PlayerCharacter reloadedPC;
-	protected CharID id;
-	private static URI URI;
-	private static boolean setup = false;
-
-	public static void setUpBeforeClass() throws Exception
-	{
-		if (!setup)
-		{
-			setup = true;
-			TokenRegistration.register(new plugin.lsttokens.level.LevelToken());
-			TokenRegistration.register(new plugin.lsttokens.level.MinxpToken());
-			TokenRegistration.register(new plugin.lsttokens.level.CskillmaxToken());
-			TokenRegistration.register(new plugin.lsttokens.level.CcskillmaxToken());
-			SettingsHandler.setGame("3.5");
-			GameMode mode = SettingsHandler.getGame();
-			mode.setBonusFeatLevels("3|3");
-			LevelLoader
-				.parseLine(
-					mode,
-					"LEVEL:LEVEL	MINXP:(LEVEL*LEVEL-LEVEL)*500		CSKILLMAX:LEVEL+ClassSkillMax+3	CCSKILLMAX:(LEVEL+CrossClassSkillMax+3)/2",
-					0, URI, "Default");
-			mode.setAlignmentText("Alignment");
-		}
-	}
-
-	@Override
-	protected void setUp() throws Exception
-	{
-		URI = new URI("file:/Test%20Case");
-		super.setUp();
-		setUpBeforeClass();
-		setUpContext();
-	}
-
-	
-	@Override
-	protected void tearDown() throws Exception
-	{
-		ChooserFactory.popChooserClassname();
-		super.tearDown();
-	}
-
-	protected <T extends Loadable> T create(Class<T> cl, String key)
-	{
-		return context.getReferenceContext().constructCDOMObject(cl, key);
-	}
 
 	private static final plugin.lsttokens.ability.MultToken ABILITY_MULT_TOKEN =
 			new plugin.lsttokens.ability.MultToken();
@@ -156,6 +113,56 @@ public abstract class AbstractSaveRestoreTest extends TestCase
 			new plugin.primitive.language.LangBonusToken();
 	private static final plugin.qualifier.language.PCToken PC_QUAL =
 			new plugin.qualifier.language.PCToken();
+	private static final plugin.modifier.cdom.SetModifierFactory SMF =
+			new plugin.modifier.cdom.SetModifierFactory();
+
+	protected LoadContext context;
+	protected PlayerCharacter pc;
+	protected PlayerCharacter reloadedPC;
+	protected CharID id;
+	private static boolean setup = false;
+
+	public static void setUpBeforeClass() throws Exception
+	{
+		if (!setup)
+		{
+			setup = true;
+			TokenRegistration.register(new plugin.lsttokens.level.LevelToken());
+			TokenRegistration.register(new plugin.lsttokens.level.MinxpToken());
+			TokenRegistration.register(new plugin.lsttokens.level.CskillmaxToken());
+			TokenRegistration.register(new plugin.lsttokens.level.CcskillmaxToken());
+			SettingsHandler.setGame("3.5");
+			GameMode mode = SettingsHandler.getGame();
+			mode.setBonusFeatLevels("3|3");
+			LevelLoader
+				.parseLine(
+					mode,
+					"LEVEL:LEVEL	MINXP:(LEVEL*LEVEL-LEVEL)*500		CSKILLMAX:LEVEL+ClassSkillMax+3	CCSKILLMAX:(LEVEL+CrossClassSkillMax+3)/2",
+					0, TestURI.getURI(), "Default");
+			mode.setAlignmentText("Alignment");
+		}
+	}
+
+	@Override
+	protected void setUp() throws Exception
+	{
+		super.setUp();
+		setUpBeforeClass();
+		setUpContext();
+	}
+
+	
+	@Override
+	protected void tearDown() throws Exception
+	{
+		ChooserFactory.popChooserClassname();
+		super.tearDown();
+	}
+
+	protected <T extends Loadable> T create(Class<T> cl, String key)
+	{
+		return context.getReferenceContext().constructCDOMObject(cl, key);
+	}
 
 	protected void finishLoad()
 	{
@@ -201,7 +208,6 @@ public abstract class AbstractSaveRestoreTest extends TestCase
 
 	protected DirectAbilityFacet directAbilityFacet;
 	protected ActiveEqModFacet activeEqModFacet;
-	protected AlignmentFacet alignmentFacet;
 	protected BioSetFacet bioSetFacet;
 	protected CheckFacet checkFacet;
 	protected ClassFacet classFacet;
@@ -234,11 +240,11 @@ public abstract class AbstractSaveRestoreTest extends TestCase
 		TokenRegistration.register(EQUIP_PROFICIENCY_TOKEN);
 		TokenRegistration.register(LANGBONUS_PRIM);
 		TokenRegistration.register(PC_QUAL);
+		TokenRegistration.register(SMF);
 		TokenRegistration.register(Feat.class);
 
 		directAbilityFacet = FacetLibrary.getFacet(DirectAbilityFacet.class);
 		activeEqModFacet = FacetLibrary.getFacet(ActiveEqModFacet.class);
-		alignmentFacet = FacetLibrary.getFacet(AlignmentFacet.class);
 		bioSetFacet = FacetLibrary.getFacet(BioSetFacet.class);
 		checkFacet = FacetLibrary.getFacet(CheckFacet.class);
 		classFacet = FacetLibrary.getFacet(ClassFacet.class);
@@ -257,22 +263,22 @@ public abstract class AbstractSaveRestoreTest extends TestCase
 		templateConsolidationFacet = FacetLibrary.getFacet(TemplateFacet.class);
 		weaponProfFacet = FacetLibrary.getFacet(WeaponProfFacet.class);
 
-		Globals.createEmptyRace();
 		Globals.setUseGUI(false);
 		Globals.emptyLists();
 
 		GameMode gamemode = SettingsHandler.getGame();
 		gamemode.clearLoadContext();
-		str = BuildUtilities.createStat("Strength", "STR");
+		BuildUtilities.buildUnselectedRace(Globals.getContext());
+		str = BuildUtilities.createStat("Strength", "STR", "A");
 		str.put(VariableKey.getConstant("LOADSCORE"),
 			FormulaFactory.getFormulaFor("STRSCORE"));
 		str.put(VariableKey.getConstant("OFFHANDLIGHTBONUS"),
 			FormulaFactory.getFormulaFor(2));
-		dex = BuildUtilities.createStat("Dexterity", "DEX");
-		con = BuildUtilities.createStat("Constitution", "CON");
-		intel = BuildUtilities.createStat("Intelligence", "INT");
-		wis = BuildUtilities.createStat("Wisdom", "WIS");
-		cha = BuildUtilities.createStat("Charisma", "CHA");
+		dex = BuildUtilities.createStat("Dexterity", "DEX", "B");
+		con = BuildUtilities.createStat("Constitution", "CON", "C");
+		intel = BuildUtilities.createStat("Intelligence", "INT", "D");
+		wis = BuildUtilities.createStat("Wisdom", "WIS", "E");
+		cha = BuildUtilities.createStat("Charisma", "CHA", "F");
 
 		AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
 		lg = BuildUtilities.createAlignment("Lawful Good", "LG");
@@ -321,9 +327,33 @@ public abstract class AbstractSaveRestoreTest extends TestCase
 		FactDefinition<?, String> fd =
 				BuildUtilities.createFact(context, "SpellType", PCClass.class);
 		fd.setSelectable(true);
-		context.getReferenceContext().importObject(AbilityCategory.FEAT);
+		context.getReferenceContext().importObject(BuildUtilities.getFeatCat());
 		SourceFileLoader.createLangBonusObject(Globals.getContext());
 		ChooserFactory.setDelegate(new MockUIDelegate());
+		FormatManager<?> fmtManager = ref.getFormatManager("ALIGNMENT");
+		proc(fmtManager);
+		setAlignmentInputCodeControl(context, fmtManager, ref);
+	}
+
+	private void setAlignmentInputCodeControl(LoadContext context,
+		FormatManager<?> fmtManager, AbstractReferenceContext ref)
+	{
+		CodeControl ai = ref.constructCDOMObject(CodeControl.class, "Controller");
+		String channelName = ChannelUtilities.createVarName("AlignmentInput");
+		context.getVariableContext().assertLegalVariableID(
+			channelName, context.getActiveScope(),
+			fmtManager);
+		String controlName = '*' + CControl.ALIGNMENTINPUT.getName();
+		ai.put(ObjectKey.getKeyFor(String.class, controlName), "AlignmentInput");
+	}
+
+	private <T> void proc(FormatManager<T> fmtManager)
+	{
+		Class<T> cl = fmtManager.getManagedClass();
+		ModifierFactory<T> m = TokenLibrary.getModifier(cl, "SET");
+		FormulaModifier<T> defaultModifier = m.getFixedModifier(fmtManager, "NONE");
+		context.getVariableContext().addDefault(cl,
+			new ModifierDecoration<>(defaultModifier));
 	}
 
 	protected void runRoundRobin(Runnable preEqualityCleanup)
@@ -411,5 +441,4 @@ public abstract class AbstractSaveRestoreTest extends TestCase
 		pc.setStringFor(PCStringKey.PERSONALITY2, "");
 		pc.setStringFor(PCStringKey.TABNAME, "");
 	}
-
 }

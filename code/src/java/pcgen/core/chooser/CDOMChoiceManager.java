@@ -269,7 +269,7 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 			if (ch == null)
 			{
 				Logging.errorPrint("Error finding "
-					+ info.getClassIdentity().getName() + " " + choice
+					+ info.getReferenceClass().getSimpleName() + " " + choice
 					+ ": Not Found");
 			}
 			else

@@ -64,12 +64,12 @@ public class CompanionmodToken extends AbstractTokenWithSeparator<Campaign>
 		if (!cse.getIncludeItems().isEmpty())
 		{
 			return new ParseResult.Fail(getTokenName() + " does not allow INCLUDE: "
-				+ value, context);
+				+ value);
 		}
 		if (!cse.getExcludeItems().isEmpty())
 		{
 			return new ParseResult.Fail(getTokenName() + " does not allow EXCLUDE: "
-				+ value, context);
+				+ value);
 		}
 		context.getObjectContext().addToList(campaign, ListKey.FILE_COMPANION_MOD, cse);
 		return ParseResult.SUCCESS;

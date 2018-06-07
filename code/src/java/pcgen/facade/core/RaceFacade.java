@@ -38,4 +38,9 @@ public interface RaceFacade extends InfoFacade
 	 * @return A list of the race's racesubtype names.
 	 */
 	public List<String> getRaceSubTypes();
+
+	/**
+	 * Indicate if the race is the "unselected" race
+	 */
+	public boolean isUnselected();
 }

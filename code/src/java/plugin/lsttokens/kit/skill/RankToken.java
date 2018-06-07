@@ -59,14 +59,14 @@ public class RankToken extends AbstractNonEmptyToken<KitSkill> implements
 			if (rank.compareTo(BigDecimal.ZERO) < 0)
 			{
 				return new ParseResult.Fail(getTokenName()
-					+ " must be a positive number: " + value, context);
+					+ " must be a positive number: " + value);
 			}
 			kitSkill.setRank(rank);
 			return ParseResult.SUCCESS;
 		}
 		catch (NumberFormatException e)
 		{
-			return new ParseResult.Fail(getTokenName() + " expected a number: " + value, context);
+			return new ParseResult.Fail(getTokenName() + " expected a number: " + value);
 		}
 	}
 

@@ -1,18 +1,23 @@
 CAMPAIGN:Heroes of the Wild
 GAMEMODE:Pathfinder|Pathfinder_PFS
-TYPE:Paizo Publishing.Pathfinder RPG.Player Companion
+TYPE:Paizo Publishing.Pathfinder Player Companion
 RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:4,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+PRECAMPAIGN:1,INCLUDES=Bestiary
+PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:1,INCLUDES=Ultimate Magic
+PRECAMPAIGN:1,INCLUDES=Ultimate Equipment
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/
 SOURCELONG:Pathfinder Player Companion: Heroes of the Wild
 SOURCESHORT:HOTW
-SOURCEWEB:http://paizo.com/products/btpy9cro?Pathfinder-Player-Companion-Heroes-of-the-Wild
+SOURCEWEB:http://paizo.com/products/btpy9cro
 SOURCEDATE:2015-04
 ISOGL:YES
 
@@ -21,7 +26,7 @@ LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
 URL:Paizo Publishing|http://paizo.com/products/btpy9cro|Buy this publication from Paizo Publishing!
-DESC:From the frigid northlands of the Crown of the World to the steaming jungles of the Mwangi Expanse, the wilds of Golarion are as legendary as they are formidable—to say nothing of the adventurers who hail from these untamed regions! Embrace the laws of the wildlands, earn the respect of hardened wilderness natives, and command the powers of nature with Pathfinder Player Companion: Heroes of the Wild! Featuring dozens of all-new rules for wild characters—including feats, magic items, spells, and much more—Heroes of the Wild contains everything you need to make your characters as fierce and formidable as the wild itself!
+DESC:From the frigid northlands of the Crown of the World to the steaming jungles of the Mwangi Expanse, the wilds of Golarion are as legendary as they are formidable--to say nothing of the adventurers who hail from these untamed regions! Embrace the laws of the wildlands, earn the respect of hardened wilderness natives, and command the powers of nature with Pathfinder Player Companion: Heroes of the Wild! Featuring dozens of all-new rules for wild characters--including feats, magic items, spells, and much more--Heroes of the Wild contains everything you need to make your characters as fierce and formidable as the wild itself!
 
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.

@@ -68,7 +68,6 @@ public final class TipOfTheDay extends JDialog implements ActionListener
 	public TipOfTheDay(PCGenFrame frame)
 	{
 		super(frame, true);
-		//IconUtilitities.maybeSetIcon(this, "TipOfTheDay16.gif");
 
 		setTitle(LanguageBundle.getString("in_tod_title")); //$NON-NLS-1$
 

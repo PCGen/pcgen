@@ -91,7 +91,7 @@ Ravener		HITDIE:8|CLASS.TYPE=Monster	CR:2			TEMPLATE:Undead	SOURCEPAGE:p.230	PRE
 # NEEDS DATA WORK: BONUS:COMBAT|TOHIT|4 should be BONUS:WEAPON|TOHIT|4,
 # NEEDS DATA WORK:   but I couldn't get that to work.
 # Template Name			Size		Face/Space	Reach		Define				Combat bonus							Add to base move			Stat bonus								Modify VAR					Wield Category bonus
-Spriggan Size Alteration	SIZE:L	FACE:10	REACH:10	DEFINE:SizeAlterationActive|0	BONUS:COMBAT|TOHIT|4	BONUS:COMBAT|DAMAGESIZE|2	BONUS:MOVEADD|TYPE.Walk|10	BONUS:STAT|STR|12	BONUS:STAT|DEX|-2	BONUS:STAT|CON|6	BONUS:VAR|SizeAlterationActive|1	BONUS:WIELDCATEGORY|ALL|2
+Spriggan Size Alteration	SIZE:L			REACH:10	DEFINE:SizeAlterationActive|0	BONUS:COMBAT|TOHIT|4	BONUS:COMBAT|DAMAGESIZE|2	BONUS:MOVEADD|TYPE.Walk|10	BONUS:STAT|STR|12	BONUS:STAT|DEX|-2	BONUS:STAT|CON|6	BONUS:VAR|SizeAlterationActive|1	BONUS:WIELDCATEGORY|ALL|2
 
 
 ###Block: Worm that Walks template

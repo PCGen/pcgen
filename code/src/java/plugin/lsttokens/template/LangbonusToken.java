@@ -72,7 +72,7 @@ public class LangbonusToken extends AbstractTokenWithSeparator<PCTemplate>
 				{
 					return new ParseResult.Fail("Non-sensical situation was "
 							+ "encountered while parsing " + getTokenName()
-							+ ": When used, .CLEAR must be the first argument", context);
+							+ ": When used, .CLEAR must be the first argument");
 				}
 				context.getListContext().removeAllFromList(getTokenName(),
 						template, Language.STARTING_LIST);
@@ -89,7 +89,7 @@ public class LangbonusToken extends AbstractTokenWithSeparator<PCTemplate>
 									+ ": "
 									+ value
 									+ " had an invalid .CLEAR. reference: "
-									+ clearText, context);
+									+ clearText);
 				}
 				context.getListContext().removeFromList(getTokenName(),
 						template, Language.STARTING_LIST, lang);
@@ -120,7 +120,7 @@ public class LangbonusToken extends AbstractTokenWithSeparator<PCTemplate>
 				{
 					return new ParseResult.Fail("  Error was encountered while parsing "
 							+ getTokenName() + ": " + value
-							+ " had an invalid reference: " + tokText, context);
+							+ " had an invalid reference: " + tokText);
 				}
 				context.getListContext().addToList(getTokenName(), template,
 						Language.STARTING_LIST, lang);
@@ -130,7 +130,7 @@ public class LangbonusToken extends AbstractTokenWithSeparator<PCTemplate>
 		if (foundAny && foundOther)
 		{
 			return new ParseResult.Fail("Non-sensical " + getTokenName()
-					+ ": Contains ANY and a specific reference: " + value, context);
+					+ ": Contains ANY and a specific reference: " + value);
 		}
 		return ParseResult.SUCCESS;
 	}

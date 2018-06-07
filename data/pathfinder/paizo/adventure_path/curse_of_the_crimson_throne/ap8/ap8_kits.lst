@@ -164,7 +164,7 @@ ABILITY:CATEGORY=Rogue Talent|Rogue Talent ~ Trap Spotter
 ABILITY:CATEGORY=Rogue Talent|Rogue Talent ~ Surprise Attack
 ABILITY:CATEGORY=Rogue Talent|Rogue Talent ~ Finesse Rogue
 CLASS:Sorcerer	LEVEL:2
-ABILITY:CATEGORY=Sorcerer Bloodline|Sorcerer Bloodline ~ Undead
+ABILITY:CATEGORY=Special Ability|Sorcerer Bloodline ~ Undead
 STAT:STR=12|DEX=14|CON=16|INT=10|WIS=8|CHA=14
 SKILL:Acrobatics		RANK:8
 SKILL:Bluff			RANK:8

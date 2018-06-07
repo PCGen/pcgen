@@ -63,8 +63,7 @@ public class ReachToken extends AbstractIntToken<PCTemplate> implements
 		if (ControlUtilities.hasControlToken(context, CControl.PCREACH))
 		{
 			return new ParseResult.Fail(getTokenName()
-				+ " is disabled when PCREACH control is used: " + value,
-				context);
+				+ " is disabled when PCREACH control is used: " + value);
 		}
 		return super.parseToken(context, obj, value);
 	}

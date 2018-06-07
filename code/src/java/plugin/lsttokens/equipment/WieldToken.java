@@ -53,7 +53,7 @@ public class WieldToken extends AbstractNonEmptyToken<Equipment> implements
 		if (wc == null)
 		{
 			return new ParseResult.Fail("In " + getTokenName()
-					+ " unable to find WieldCategory for " + value, context);
+					+ " unable to find WieldCategory for " + value);
 		}
 		context.getObjectContext().put(eq, ObjectKey.WIELD, wc);
 		return ParseResult.SUCCESS;

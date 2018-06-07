@@ -25,6 +25,9 @@ INFOTEXT:The Campaign Setting
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
+DATACONTROL:*/_universal/datacontrols_no_align.lst
+RACE:*/_universal/races.lst
+
 
 # SUPPORT FILES:
 SIZE:@/35e/wizards_of_the_coast/rsrd/basics/rsrd__size.lst

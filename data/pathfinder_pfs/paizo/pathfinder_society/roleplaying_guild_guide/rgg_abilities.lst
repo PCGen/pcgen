@@ -12,7 +12,7 @@ CATEGORY=Internal|Default.MOD								DEFINE:Society_Faction_Pool|0	DEFINE:PFS_Sy
 # PATHFINDER SOCIETY FACTIONS #
 ###############################
 
-Society Faction			KEY:Faction Access ~ Society Faction	CATEGORY:Background		SORTKEY:Faction_1	TYPE:Faction Selection		VISIBLE:YES		NAMEISPI:YES	COST:1	MULT:YES	CHOOSE:ABILITYSELECTION|Background|TYPE=Active Faction 		ABILITY:Society Faction|AUTOMATIC|%LIST			ASPECT:NAME|%1|%CHOICE	DESC:Your current faction is %1|%LIST
+Society Faction			KEY:Faction Access ~ Society Faction	CATEGORY:Background		SORTKEY:Faction_1	TYPE:Faction Selection		VISIBLE:YES		NAMEISPI:YES	COST:1	MULT:YES	CHOOSE:ABILITYSELECTION|Background|TYPE=Active Faction		ABILITY:Society Faction|AUTOMATIC|%LIST			ASPECT:NAME|%1|%CHOICE	DESC:Your current faction is %1|%LIST
 Retired Factions			KEY:Faction Access ~ Retired Faction	CATEGORY:Background		SORTKEY:Faction_2	TYPE:Faction Selection		VISIBLE:YES		SORTKEY:1		COST:0	MULT:YES	CHOOSE:ABILITYSELECTION|Background|TYPE=Retired Faction		ABILITY:Society Faction|AUTOMATIC|%LIST												DESC:You at one time belonged to the %1, but that faction was retired by a later version of the Guide to Organized Play or Guild Guide. You retain access to faction-specific traits, prestige awards and items.
 Changed Factions			KEY:Faction Access ~ Changed Faction	CATEGORY:Background		SORTKEY:Faction_3	TYPE:Faction Selection		VISIBLE:YES		SORTKEY:1		COST:0	MULT:YES	CHOOSE:ABILITY|Background|TYPE=All Factions														DESC:You at one time belonged to the %1, but chose to change factions. You retain access to faction-specific traits, but not faction-specific prestige awards and items.
 

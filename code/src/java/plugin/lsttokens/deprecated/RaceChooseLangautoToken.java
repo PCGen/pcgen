@@ -58,8 +58,7 @@ public class RaceChooseLangautoToken extends AbstractTokenWithSeparator<Race>
 			{
 				Logging.replayParsedMessages();
 				return new ParseResult.Fail(
-					"Internal Error in delegation of CHOOSE:LANGAUTO to CHOOSE:LANGUAGE",
-					context);
+					"Internal Error in delegation of CHOOSE:LANGAUTO to CHOOSE:LANGUAGE");
 			}
 		}
 		catch (PersistenceLayerException e)
@@ -67,7 +66,7 @@ public class RaceChooseLangautoToken extends AbstractTokenWithSeparator<Race>
 			Logging.replayParsedMessages();
 			return new ParseResult.Fail(
 				"Error in delegation of CHOOSE:LANGAUTO to CHOOSE:LANG: "
-					+ e.getLocalizedMessage(), context);
+					+ e.getLocalizedMessage());
 		}
 		try
 		{
@@ -75,8 +74,7 @@ public class RaceChooseLangautoToken extends AbstractTokenWithSeparator<Race>
 			{
 				Logging.replayParsedMessages();
 				return new ParseResult.Fail(
-					"Internal Error in delegation of CHOOSE:LANGAUTO to AUTO:LANG",
-					context);
+					"Internal Error in delegation of CHOOSE:LANGAUTO to AUTO:LANG");
 			}
 		}
 		catch (PersistenceLayerException e)
@@ -84,7 +82,7 @@ public class RaceChooseLangautoToken extends AbstractTokenWithSeparator<Race>
 			Logging.replayParsedMessages();
 			return new ParseResult.Fail(
 				"Error in delegation of CHOOSE:LANGAUTO to AUTO:LANG: "
-					+ e.getLocalizedMessage(), context);
+					+ e.getLocalizedMessage());
 		}
 		return ParseResult.SUCCESS;
 	}

@@ -28,6 +28,7 @@ DATACONTROL:srd5__datacontrols.lst
 ALIGNMENT:srd5__align.lst
 SAVE:srd5__saves.lst
 STAT:srd5__stats.lst
+SIZE:srd5__sizes.lst
 
 #
 ABILITY:srd5_abilities.lst

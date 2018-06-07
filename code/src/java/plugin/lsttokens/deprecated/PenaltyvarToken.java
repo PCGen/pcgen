@@ -40,7 +40,7 @@ public class PenaltyvarToken implements CDOMCompatibilityToken<PCStat>,
 	@Override
 	public ParseResult parseToken(LoadContext context, PCStat obj, String value)
 	{
-		return new ParseResult.Fail(getMessage(obj, value), context);
+		return new ParseResult.Fail(getMessage(obj, value));
 	}
 
 	@Override

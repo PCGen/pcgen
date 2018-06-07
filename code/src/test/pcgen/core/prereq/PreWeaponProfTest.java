@@ -29,7 +29,6 @@ import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
 import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
@@ -40,6 +39,7 @@ import pcgen.persistence.lst.FeatLoader;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
+import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
  * <code>PreWeaponProfTest</code> tests that the PREWEAPONPROF tag is
@@ -231,12 +231,12 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 			prereq, character, null));
 		
 		final Ability martialProf = 
-			TestHelper.makeAbility("Weapon Proficiency (Martial)", AbilityCategory.FEAT, "General");
+			TestHelper.makeAbility("Weapon Proficiency (Martial)", BuildUtilities.getFeatCat(), "General");
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO",
 				"WEAPONPROF|TYPE.Martial");
 		assertTrue(Globals.getContext().getReferenceContext().resolveReferences(null));
 		
-		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, martialProf, null);
+		AbstractCharacterTestCase.applyAbility(character, BuildUtilities.getFeatCat(), martialProf, null);
 
 		assertTrue("Character has the Longsword proficiency.", 
 					PrereqHandler.passes(prereq, character, null));
@@ -287,7 +287,7 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 		final String barStr =
 			"Bar	TYPE:General	DESC:See Text	BONUS:HP|CURRENTMAX|50";
 		featLoader.parseLine(Globals.getContext(), bar, barStr, cse);
-		addAbility(AbilityCategory.FEAT, bar);
+		addAbility(BuildUtilities.getFeatCat(), bar);
 		
 		assertEquals("Character should have 50 bonus hp added.",
 					baseHp+50,
@@ -300,7 +300,7 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 		final String fooStr =
 			"Foo	TYPE:General	DESC:See Text	BONUS:HP|CURRENTMAX|50|PREWEAPONPROF:1,Longsword";
 		featLoader.parseLine(Globals.getContext(), foo, fooStr, cse);
-		addAbility(AbilityCategory.FEAT, foo);
+		addAbility(BuildUtilities.getFeatCat(), foo);
 		
 		assertEquals("Character has the longsword proficiency so the bonus should be added",
 					baseHp+50+50,

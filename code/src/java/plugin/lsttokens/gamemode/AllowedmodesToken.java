@@ -19,6 +19,7 @@
 package plugin.lsttokens.gamemode;
 
 import java.net.URI;
+import java.util.StringTokenizer;
 
 import pcgen.core.GameMode;
 import pcgen.persistence.lst.GameModeLstToken;
@@ -38,7 +39,11 @@ public class AllowedmodesToken implements GameModeLstToken
     @Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
-		gameMode.setAllowedModes(value);
+		StringTokenizer aTok = new StringTokenizer(value, "|");
+		while (aTok.hasMoreTokens())
+		{
+			gameMode.addAllowedMode(aTok.nextToken());
+		}
 		return true;
 	}
 }

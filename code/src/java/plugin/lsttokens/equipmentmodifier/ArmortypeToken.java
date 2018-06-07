@@ -59,13 +59,13 @@ public class ArmortypeToken extends
 		if (pipeLoc == -1)
 		{
 			return new ParseResult.Fail(getTokenName()
-					+ " has no PIPE character: Must be of the form old|new", context);
+					+ " has no PIPE character: Must be of the form old|new");
 		}
 		else if (pipeLoc != value.lastIndexOf(Constants.PIPE))
 		{
 			return new ParseResult.Fail(getTokenName()
 					+ " has too many PIPE characters: "
-					+ "Must be of the form old|new", context);
+					+ "Must be of the form old|new");
 		}
 		else
 		{

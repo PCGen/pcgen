@@ -51,9 +51,6 @@ public class PreTypeTester extends AbstractDisplayPrereqTest implements
 		return "TYPE"; //$NON-NLS-1$
 	}
 
-	/**
-	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.prereq.Prerequisite, pcgen.core.Equipment)
-	 */
 	@Override
 	public int passes(final Prerequisite prereq, final Equipment equipment,
 		CharacterDisplay display) throws PrerequisiteException
@@ -88,9 +85,6 @@ public class PreTypeTester extends AbstractDisplayPrereqTest implements
 		return runningTotal;
 	}
 
-	/**
-	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.prereq.Prerequisite, pcgen.core.PlayerCharacter)
-	 */
 	@Override
 	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
 	{
@@ -121,9 +115,6 @@ public class PreTypeTester extends AbstractDisplayPrereqTest implements
 		return countedTotal(prereq, runningTotal);
 	}
 
-	/**
-	 * @see pcgen.core.prereq.PrerequisiteTest#toHtmlString(pcgen.core.prereq.Prerequisite)
-	 */
 	@Override
 	public String toHtmlString(final Prerequisite prereq)
 	{

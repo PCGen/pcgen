@@ -4,8 +4,8 @@ SOURCELONG:Halflings of Golarion	SOURCESHORT:HAOG	SOURCEWEB:http://paizo.com/pro
 #ORIGINAL ENTRY DATE: 2012/12/29
 
 # Weapon Name		Type														Nb Hands
-Sling (Stiched)		TYPE:Exotic.Light.Melee.Bludgeoning.MeleeBludgeoning
-Sling (Double)		TYPE:Exotic.Ranged.TwoHanded.DoubleWeapon.Bludgeoning.RangedBludgeoning.Halfling	HANDS:2
+Stiched Sling	KEY:Sling (Stiched)		TYPE:Exotic.Light.Melee.Bludgeoning.MeleeBludgeoning
+Double Sling	KEY:Sling (Double)		TYPE:Exotic.Ranged.TwoHanded.DoubleWeapon.Bludgeoning.RangedBludgeoning.Halfling	HANDS:2
 
 
 # Weapon Groups

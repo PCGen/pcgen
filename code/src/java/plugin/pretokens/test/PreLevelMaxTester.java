@@ -30,9 +30,6 @@ public class PreLevelMaxTester extends AbstractDisplayPrereqTest implements
 		PrerequisiteTest
 {
 
-	/**
-	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
-	 */
 	@Override
 	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
 	{
@@ -53,9 +50,6 @@ public class PreLevelMaxTester extends AbstractDisplayPrereqTest implements
 		return "LEVELMAX"; //$NON-NLS-1$
 	}
 
-	/**
-	 * @see pcgen.core.prereq.AbstractPrerequisiteTest#toHtmlString()
-	 */
 	@Override
 	public String toHtmlString(final Prerequisite prereq)
 	{

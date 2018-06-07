@@ -44,8 +44,8 @@ public class LevelIntegrationTest extends
 		AbstractIntegrationTestCase<PCTemplate>
 {
 
-	static LevelToken token = new LevelToken();
-	static CDOMTokenLoader<PCTemplate> loader =
+	private static LevelToken token = new LevelToken();
+	private static CDOMTokenLoader<PCTemplate> loader =
             new CDOMTokenLoader<>();
 
 	private static boolean classSetUpFired = false;

@@ -37,11 +37,6 @@ public class EqBuilderEqTypeToken implements
 		CDOMSecondaryToken<EquipmentModifier>
 {
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see pcgen.persistence.lst.LstToken#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
@@ -66,53 +61,53 @@ public class EqBuilderEqTypeToken implements
 		if (value.indexOf(',') != -1)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not contain , : " + value, context);
+					+ " arguments may not contain , : " + value);
 		}
 		if (value.indexOf('[') != -1)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not contain [] : " + value, context);
+					+ " arguments may not contain [] : " + value);
 		}
 		if (value.charAt(0) == '|')
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not start with | : " + value, context);
+					+ " arguments may not start with | : " + value);
 		}
 		if (value.charAt(value.length() - 1) == '|')
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not end with | : " + value, context);
+					+ " arguments may not end with | : " + value);
 		}
 		if (value.contains("||"))
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments uses double separator || : " + value, context);
+					+ " arguments uses double separator || : " + value);
 		}
 		int pipeLoc = value.indexOf(Constants.PIPE);
 		if (pipeLoc == -1)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 							+ " must have two or more | delimited arguments : "
-							+ value, context);
+							+ value);
 		}
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		if (tok.countTokens() != 2)
 		{
 			return new ParseResult.Fail("COUNT:" + getTokenName()
-					+ " requires two arguments: " + value, context);
+					+ " requires two arguments: " + value);
 		}
 		// New format: CHOOSE:EQBUILDER.EQTYPE|COUNT=ALL|TITLE=desired TYPE(s)
 		String first = tok.nextToken();
 		if (!first.startsWith("COUNT="))
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " must have COUNT= as its first argument : " + value, context);
+					+ " must have COUNT= as its first argument : " + value);
 		}
 		String second = tok.nextToken();
 		if (!second.startsWith("TITLE="))
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " must have TITLE= as its second argument : " + value, context);
+					+ " must have TITLE= as its second argument : " + value);
 		}
 		StringBuilder sb = new StringBuilder(value.length() + 20);
 		sb.append(first).append('|').append(second.substring(6));

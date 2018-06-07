@@ -17,23 +17,23 @@
  */
 package pcgen.cdom.facet.model;
 
-import pcgen.base.formula.base.VarScoped;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
+import pcgen.cdom.formula.PCGenScoped;
 
-public class VarScopedFacet extends AbstractSourcedListFacet<CharID, VarScoped>
-		implements DataFacetChangeListener<CharID, VarScoped>
+public class VarScopedFacet extends AbstractSourcedListFacet<CharID, PCGenScoped>
+		implements DataFacetChangeListener<CharID, PCGenScoped>
 {
 	@Override
-	public void dataAdded(DataFacetChangeEvent<CharID, VarScoped> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, PCGenScoped> dfce)
 	{
 		add(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
 	}
 
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<CharID, VarScoped> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, PCGenScoped> dfce)
 	{
 		remove(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
 	}

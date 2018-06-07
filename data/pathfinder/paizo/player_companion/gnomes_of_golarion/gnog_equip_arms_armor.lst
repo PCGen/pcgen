@@ -6,8 +6,8 @@ SOURCELONG:Gnomes of Golarion	SOURCESHORT:GNOG	SOURCEWEB:http://paizo.com/produc
 
 ###Block: Shields
 # Equipment Name		Output Name				Required Weapon Proficiency		Required Shield Proficiency		Type																Alt Type							Cost		Weight	Slot Needed	AC Penalty Check	Crit Mult	Crit Range	Alt Crit Mult	Alt Crit Range	Damage	Alt Damage		Modifier			Alt EQModifier		Wield Category	Reach Multiplier	Size		Source Page		% of Spell Failure	Combat bonus
-Snarlshield (Steel)												PROFICIENCY:SHIELD|Shield (Heavy)	TYPE:Shield.Heavy.Standard.Close.Disarm																		COST:50	WT:20				ACCHECK:-3		CRITMULT:x2	CRITRANGE:1							DAMAGE:1d4				EQMOD:Special Quality ~ Disarm.Material ~ Steel					WIELD:OneHanded				SIZE:M	SOURCEPAGE:p.22	SPELLFAILURE:15		BONUS:COMBAT|AC|2|TYPE=Shield
-Snarlshield (Wooden)												PROFICIENCY:SHIELD|Shield (Heavy)	TYPE:Shield.Heavy.Standard.Close.Disarm																		COST:37	WT:15				ACCHECK:-3		CRITMULT:x2	CRITRANGE:1							DAMAGE:1d4				EQMOD:Special Quality ~ Disarm.Material ~ Wood						WIELD:OneHanded				SIZE:M	SOURCEPAGE:p.22	SPELLFAILURE:15		BONUS:COMBAT|AC|2|TYPE=Shield
+Snarlshield, Steel			KEY:Snarlshield (Steel)												PROFICIENCY:SHIELD|Shield (Heavy)	TYPE:Shield.Heavy.Standard.Close.Disarm																		COST:50	WT:20				ACCHECK:-3		CRITMULT:x2	CRITRANGE:1							DAMAGE:1d4				EQMOD:Special Quality ~ Disarm.Material ~ Steel					WIELD:OneHanded				SIZE:M	SOURCEPAGE:p.22	SPELLFAILURE:15		BONUS:COMBAT|AC|2|TYPE=Shield
+Snarlshield, Wooden			KEY:Snarlshield (Wooden)												PROFICIENCY:SHIELD|Shield (Heavy)	TYPE:Shield.Heavy.Standard.Close.Disarm																		COST:37	WT:15				ACCHECK:-3		CRITMULT:x2	CRITRANGE:1							DAMAGE:1d4				EQMOD:Special Quality ~ Disarm.Material ~ Wood						WIELD:OneHanded				SIZE:M	SOURCEPAGE:p.22	SPELLFAILURE:15		BONUS:COMBAT|AC|2|TYPE=Shield
 
 ####Block: Melee Weapons
 Flickmace								PROFICIENCY:WEAPON|Flickmace								TYPE:Weapon.Resizable.Melee.OneHanded.Exotic.Standard.Bludgeoning.Mace.Hammer.Reach.Trip										COST:20	WT:10							CRITMULT:x2	CRITRANGE:1							DAMAGE:1d8				EQMOD:Material ~ Steel							WIELD:OneHanded				SIZE:M	SOURCEPAGE:p.22

@@ -32,8 +32,8 @@ public class ChargesIntegrationTest extends
 		AbstractIntegrationTestCase<EquipmentModifier>
 {
 
-	static ChargesToken token = new ChargesToken();
-	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<>();
+	private static ChargesToken token = new ChargesToken();
+	private static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<EquipmentModifier> getCDOMClass()

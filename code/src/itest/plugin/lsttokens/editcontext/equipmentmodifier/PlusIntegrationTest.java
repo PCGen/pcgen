@@ -28,8 +28,8 @@ public class PlusIntegrationTest extends
 		AbstractIntegerIntegrationTestCase<EquipmentModifier>
 {
 
-	static PlusToken token = new PlusToken();
-	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<>();
+	private static PlusToken token = new PlusToken();
+	private static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<EquipmentModifier> getCDOMClass()

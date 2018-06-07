@@ -222,11 +222,6 @@ public final class Type implements TypeSafeConstant, Comparable<Type>
 		typeMap.clear();
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Comparable#compareTo(java.lang.Object)
-	 */
 	@Override
 	public int compareTo(Type type)
 	{

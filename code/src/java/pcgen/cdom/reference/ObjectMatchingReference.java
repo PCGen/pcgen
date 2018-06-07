@@ -76,11 +76,11 @@ public class ObjectMatchingReference<T extends CDOMObject, V> extends
 	 *             if the starting group is null or the provided pattern does
 	 *             not end with the PCGen pattern characters
 	 */
-	public ObjectMatchingReference(String unparse, Class<T> objClass,
+	public ObjectMatchingReference(String unparse, 
 			CDOMGroupRef<T> startingGroup, ObjectKey<V> targetKey,
 			V expectedValue)
 	{
-		super(objClass, unparse);
+		super(unparse);
 		if (startingGroup == null)
 		{
 			throw new IllegalArgumentException(
@@ -282,5 +282,23 @@ public class ObjectMatchingReference<T extends CDOMObject, V> extends
 	public String getChoice()
 	{
 		return null;
+	}
+
+	@Override
+	public Class<T> getReferenceClass()
+	{
+		return all.getReferenceClass();
+	}
+
+	@Override
+	public String getReferenceDescription()
+	{
+		return all.getReferenceDescription() + " (Object " + key + " = " + value + ")";
+	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+		return all.getPersistentFormat();
 	}
 }

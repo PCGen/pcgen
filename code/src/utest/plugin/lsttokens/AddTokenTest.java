@@ -139,7 +139,7 @@ public class AddTokenTest extends AbstractGlobalTokenTestCase
 	protected String getLegalValue()
 	{
 		// Not worth it, nothing ever unparses
-		return null;
+		return Constants.LST_DOT_CLEAR;
 	}
 
 	@Override

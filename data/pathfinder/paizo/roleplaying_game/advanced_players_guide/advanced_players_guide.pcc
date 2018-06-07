@@ -69,7 +69,7 @@ RACE:apg_races_companion.lst
 
 
 #Hide internal feat types
-HIDETYPE:FEAT|AquaticBloodline|BorealBloodline|DeepearthBloodline|DreamspunBloodline|ProteanBloodline|SerpentineBloodline|ShadowBloodline|StarsoulBloodline|StormbornBloodline|VerdantBloodline
+HIDETYPE:FEAT|AquaticBloodline|BorealBloodline|DeepEarthBloodline|DreamspunBloodline|ProteanBloodline|SerpentineBloodline|ShadowBloodline|StarsoulBloodline|StormbornBloodline|VerdantBloodline
 HIDETYPE:FEAT|DruidShamanBear|DruidShamanEagle|DruidShamanLion|DruidShamanSerpent|DruidShamanWolf
 HIDETYPE:FEAT|MartialWeaponProficiency|MountedMastery|OracleWeaponmastery
 HIDETYPE:FEAT|Trait|BasicTrait|RevelationTargetOneOnly

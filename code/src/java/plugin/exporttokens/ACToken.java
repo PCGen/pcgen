@@ -28,9 +28,6 @@ import pcgen.io.exporttoken.Token;
  */
 public class ACToken extends Token
 {
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{

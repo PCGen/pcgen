@@ -26,6 +26,7 @@ import pcgen.util.enumeration.Load;
 import plugin.lsttokens.UnencumberedmoveLst;
 
 import tokencontent.testsupport.AbstractContentTokenTest;
+import util.TestURI;
 
 public class GlobalUnencumberedMoveArmorTest extends AbstractContentTokenTest
 {
@@ -46,7 +47,7 @@ public class GlobalUnencumberedMoveArmorTest extends AbstractContentTokenTest
 		ParseResult result = token.parseToken(context, source, "LightArmor");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();

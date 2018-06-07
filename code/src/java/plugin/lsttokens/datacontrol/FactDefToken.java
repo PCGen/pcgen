@@ -52,15 +52,14 @@ public class FactDefToken extends AbstractTokenWithSeparator<FactDefinition>
 		if (!aTok.hasMoreTokens())
 		{
 			return new ParseResult.Fail(getTokenName()
-				+ " expects 2 PIPE separated values, found 1 in: " + value,
-				context);
+				+ " expects 2 PIPE separated values, found 1 in: " + value);
 		}
 		String factName = aTok.nextToken();
 		if (aTok.hasMoreTokens())
 		{
 			return new ParseResult.Fail(getTokenName()
 				+ " expects 3 PIPE separated values, found too many in: "
-				+ value, context);
+				+ value);
 		}
 		Class<? extends Loadable> cl;
 		if ("GLOBAL".equals(usableLocation))

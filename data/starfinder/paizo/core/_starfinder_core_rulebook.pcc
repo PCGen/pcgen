@@ -1,6 +1,6 @@
 CAMPAIGN:Starfinder Core Rulebook
 KEY:Starfinder Core Rulebook
-RANK:1
+RANK:0
 BOOKTYPE:Core Rules
 !PRECAMPAIGN:1,BOOKTYPE=Core Rules,[Starfinder Core Rulebook]
 GAMEMODE:Starfinder
@@ -13,7 +13,7 @@ PUBNAMELONG:Paizo
 PUBNAMESHORT:PZO
 PUBNAMEWEB:http://www.paizo.com
 COPYRIGHT:Copyright 2017, Paizo, Inc.
-
+#COMMENT: CORE BOOK
 
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -23,6 +23,9 @@ COPYRIGHT:Open Game License v 1.0a &copy; 2000, Wizards of the Coast, Inc.System
 COPYRIGHT:PCGen dataset conversion for "Pathfinder Starfinder Core Rulebook" & "Starfinder Game System Support" Copyright 2017, PCGen Data team (Including, but not limited to Andrew Maitland (LegacyKing), Gwen T. Thebich (), Gary Davies, and Paul Grosse).
 COPYRIGHT:PCGen Starfinder Playtesters - Andrew Maitland (LegacyKing), Gwen T. (EvilPixie87), Jodie T. Noblit, Elizabeth Mysliwiek, Luke Kinsky, Chis Moses, Dominik D., Maurizio Damonte, Rob Reed, and Gary Davies.
 
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
 # COVER should be cover_gameMode_pub_book.file
 #COVER:../../_artwork/cover_sf_paizo_scr.jpg
 COVER:*/_images/starfinder/PZO7101E_cover.png
@@ -30,6 +33,8 @@ COVER:*/_images/starfinder/PZO7101E_cover.png
 LOGO:*/_images/logo/Paizo_Publishing.png
 
 INFOTEXT:Starfinder Core Rulebook
+
+RACE:*/_universal/races.lst
 
 
 ALIGNMENT:scr__align.lst
@@ -83,7 +88,7 @@ COMPANIONLIST:Follower|ANY
 #KIT:scr_kits_starship.lst
 
 
-HIDETYPE:SKILL|ACHECK|BASE|Strength|Dexterity|Intelligence|Wisdom|Charisma
+HIDETYPE:SKILL|ACHECK|BASE|Strength|Dexterity|Intelligence|Wisdom|Charisma|Resizable
 HIDETYPE:EQUIP|Weapon Atk Modifier Dex|PROJECTILE|P|SHOCK|E|PLASMA|E & F|F|LASER|FLAME|C|CRYO|So|SONIC|PLASMA|A & P|UNCATEGORIZED|B|S|P
 HIDETYPE:EQUIP|Atk Modifier Dex|B & F|B & So|F & P|Weapon Atk Modifier Str|Weapon Dmg Modifier Str|Advanced Melee
 

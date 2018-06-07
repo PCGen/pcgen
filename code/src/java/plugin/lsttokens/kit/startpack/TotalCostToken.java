@@ -70,13 +70,13 @@ public class TotalCostToken extends AbstractNonEmptyToken<Kit> implements
 		if (looksLikeAPrerequisite(activeValue))
 		{
 			return new ParseResult.Fail("Cannot have only PRExxx subtoken in "
-					+ getTokenName(), context);
+					+ getTokenName());
 		}
 		Formula f = FormulaFactory.getFormulaFor(activeValue);
 		if (!f.isValid())
 		{
 			return new ParseResult.Fail("Formula in " + getTokenName()
-					+ " was not valid: " + f.toString(), context);
+					+ " was not valid: " + f.toString());
 		}
 		List<Prerequisite> prereqs = new ArrayList<>();
 
@@ -87,7 +87,7 @@ public class TotalCostToken extends AbstractNonEmptyToken<Kit> implements
 			if (prereq == null)
 			{
 				return new ParseResult.Fail("   (Did you put total costs after the "
-					+ "PRExxx tags in " + getTokenName() + ":?)", context);
+					+ "PRExxx tags in " + getTokenName() + ":?)");
 			}
 			prereqs.add(prereq);
 		}

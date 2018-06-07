@@ -60,18 +60,12 @@ public class SpellMemToken extends Token
 	/** token name */
 	public static final String TOKENNAME = "SPELLMEM";
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return TOKENNAME;
 	}
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-	 */
 	@Override
 	public String getToken(String tokenSource, PlayerCharacter aPC,
 		ExportHandler eh)
@@ -257,7 +251,8 @@ public class SpellMemToken extends Token
 						}
 						else if ("CONCENTRATION".equals(aLabel))
 						{
-							if (SettingsHandler.getGame().getSpellBaseConcentration() != "")
+							if (SettingsHandler.getGame().getSpellBaseConcentration()
+								.length() > 0)
 							{
 								int concentration = aPC.getConcentration(aSpell, selectedCSpell, si);
 								retValue.append(Delta.toString(concentration));

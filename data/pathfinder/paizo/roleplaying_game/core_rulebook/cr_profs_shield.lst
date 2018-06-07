@@ -5,6 +5,6 @@ SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloa
 
 # Shield Name
 Buckler
-Shield (Light)
-Shield (Heavy)
+Light Shield	KEY:Shield (Light)
+Heavy Shield	KEY:Shield (Heavy)
 Tower Shield

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007 Tom Parker <thpr@users.sourceforge.net>
+ * Copyright (c) 2007-18 Tom Parker <thpr@users.sourceforge.net>
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -18,6 +18,7 @@
 package pcgen.cdom.reference;
 
 import java.util.Collection;
+import java.util.Objects;
 
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.enumeration.GroupingState;
@@ -41,21 +42,38 @@ public class CDOMTransparentAllRef<T extends Loadable> extends CDOMGroupRef<T> i
 {
 
 	/**
+	 * The Class that indicates the types of objects contained in this
+	 * CDOMTransparentAllRef.
+	 */
+	private final Class<T> refClass;
+
+	/**
 	 * Holds the reference to which this CDOMTransparentAllRef will delegate
 	 * behavior.
 	 */
 	private CDOMGroupRef<T> subReference = null;
 
 	/**
+	 * The String representation of the Format of objects in this CDOMTransparentSingleRef (e.g.
+	 * "ABILITY=FEAT").
+	 */
+	private final String formatRepresentation;
+
+	/**
 	 * Constructs a new CDOMTransparentAllRef for the given Class.
 	 * 
+	 * @param formatRepresentation
+	 *            the persistent representation of the ClassIdentity of the objects to be
+	 *            stored in this CDOMTransparentAllRef
 	 * @param objClass
 	 *            The Class of the underlying objects contained by this
 	 *            CDOMTransparentTypeRef.
 	 */
-	public CDOMTransparentAllRef(Class<T> objClass)
+	public CDOMTransparentAllRef(String formatRepresentation, Class<T> objClass)
 	{
-		super(objClass, "ALL");
+		super("ALL");
+		this.formatRepresentation = Objects.requireNonNull(formatRepresentation);
+		refClass = objClass;
 	}
 
 	/**
@@ -241,6 +259,26 @@ public class CDOMTransparentAllRef<T extends Loadable> extends CDOMGroupRef<T> i
 	@Override
 	public String getChoice()
 	{
-		return subReference == null ? null : subReference.getChoice();
+		return (subReference == null) ? null : subReference.getChoice();
+	}
+
+	@Override
+	public Class<T> getReferenceClass()
+	{
+		return refClass;
+	}
+
+	@Override
+	public String getReferenceDescription()
+	{
+		return (subReference == null) ? "ALL " + refClass.getSimpleName()
+			: subReference.getReferenceDescription();
+	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+		// TODO Auto-generated method stub
+		return formatRepresentation;
 	}
 }

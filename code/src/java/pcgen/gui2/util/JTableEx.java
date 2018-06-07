@@ -160,7 +160,7 @@ public class JTableEx extends JTable
 			}
 			else
 			{
-				setRowSorter(new TableRowSorter(model));
+				setRowSorter(new TableRowSorter<>(model));
 			}
 		}
 		firePropertyChange("autoCreateRowSorter", oldValue,
@@ -169,7 +169,7 @@ public class JTableEx extends JTable
 
 	public void sortModel()
 	{
-		RowSorter rowSorter = getRowSorter();
+		RowSorter<?> rowSorter = getRowSorter();
 		if (rowSorter != null)
 		{
 			rowSorter.setSortKeys(getRowSorter().getSortKeys());
@@ -205,7 +205,7 @@ public class JTableEx extends JTable
 				}
 				else
 				{
-					super.setRowSorter(new TableRowSorter(dataModel));
+					super.setRowSorter(new TableRowSorter<>(dataModel));
 				}
 			}
 		}

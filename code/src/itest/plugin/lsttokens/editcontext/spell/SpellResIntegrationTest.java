@@ -28,8 +28,8 @@ public class SpellResIntegrationTest extends
 		AbstractTypeSafeListIntegrationTestCase<Spell>
 {
 
-	static SpellresToken token = new SpellresToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
+	private static SpellresToken token = new SpellresToken();
+	private static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Spell> getCDOMClass()

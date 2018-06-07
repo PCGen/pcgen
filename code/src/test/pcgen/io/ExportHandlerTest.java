@@ -53,6 +53,7 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.EquipSet;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
+import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
  * <code>SkillTokenTest</code> contains tests to verify that the
@@ -263,39 +264,39 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		PlayerCharacter pc = getCharacter();
 		Ability dummyFeat1 = new Ability();
 		dummyFeat1.setName("1");
-		dummyFeat1.setCDOMCategory(AbilityCategory.FEAT);
+		dummyFeat1.setCDOMCategory(BuildUtilities.getFeatCat());
 		
 		Ability dummyFeat2 = new Ability();
 		dummyFeat2.setName("2");
-		dummyFeat2.setCDOMCategory(AbilityCategory.FEAT);
+		dummyFeat2.setCDOMCategory(BuildUtilities.getFeatCat());
 		
 		Ability dummyFeat3 = new Ability();
 		dummyFeat3.setName("3");
-		dummyFeat3.setCDOMCategory(AbilityCategory.FEAT);
+		dummyFeat3.setCDOMCategory(BuildUtilities.getFeatCat());
 		
 		Ability dummyFeat4 = new Ability();
 		dummyFeat4.setName("4");
-		dummyFeat4.setCDOMCategory(AbilityCategory.FEAT);
+		dummyFeat4.setCDOMCategory(BuildUtilities.getFeatCat());
 		
 		Ability dummyFeat5 = new Ability();
 		dummyFeat5.setName("5");
-		dummyFeat5.setCDOMCategory(AbilityCategory.FEAT);
+		dummyFeat5.setCDOMCategory(BuildUtilities.getFeatCat());
 		
 		Ability dummyFeat6 = new Ability();
 		dummyFeat6.setName("6");
-		dummyFeat6.setCDOMCategory(AbilityCategory.FEAT);
+		dummyFeat6.setCDOMCategory(BuildUtilities.getFeatCat());
 		
 		Ability dummyFeat7 = new Ability();
 		dummyFeat7.setName("7");
-		dummyFeat7.setCDOMCategory(AbilityCategory.FEAT);	
+		dummyFeat7.setCDOMCategory(BuildUtilities.getFeatCat());	
 		
-		addAbility(AbilityCategory.FEAT, dummyFeat1);
-		addAbility(AbilityCategory.FEAT, dummyFeat2);
-		addAbility(AbilityCategory.FEAT, dummyFeat3);
-		addAbility(AbilityCategory.FEAT, dummyFeat4);
-		addAbility(AbilityCategory.FEAT, dummyFeat5);
-		addAbility(AbilityCategory.FEAT, dummyFeat6);
-		addAbility(AbilityCategory.FEAT, dummyFeat7);
+		addAbility(BuildUtilities.getFeatCat(), dummyFeat1);
+		addAbility(BuildUtilities.getFeatCat(), dummyFeat2);
+		addAbility(BuildUtilities.getFeatCat(), dummyFeat3);
+		addAbility(BuildUtilities.getFeatCat(), dummyFeat4);
+		addAbility(BuildUtilities.getFeatCat(), dummyFeat5);
+		addAbility(BuildUtilities.getFeatCat(), dummyFeat6);
+		addAbility(BuildUtilities.getFeatCat(), dummyFeat7);
 		
 		assertEquals("Test for evaluates correctly", "----------------",
 			evaluateToken(
@@ -351,7 +352,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		LoadContext context = Globals.getContext();
 		Ability dummyFeat = new Ability();
 		dummyFeat.setName("DummyFeat");
-		dummyFeat.setCDOMCategory(AbilityCategory.FEAT);
+		dummyFeat.setCDOMCategory(BuildUtilities.getFeatCat());
 		final PlayerCharacter pc = getCharacter();
 
 		// Create a variable
@@ -361,7 +362,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		// Create a bonus to it
 		Ability dummyFeat2 = new Ability();
 		dummyFeat2.setName("DummyFeat2");
-		dummyFeat2.setCDOMCategory(AbilityCategory.FEAT);
+		dummyFeat2.setCDOMCategory(BuildUtilities.getFeatCat());
 		final BonusObj aBonus = Bonus.newBonus(context, "VAR|NegLevels|7");
 		
 		if (aBonus != null)
@@ -381,8 +382,8 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		dummyFeat4.setName("DummyFeat4");
 		dummyFeat4.setCDOMCategory(cat2);
 		
-		addAbility(AbilityCategory.FEAT, dummyFeat);
-		addAbility(AbilityCategory.FEAT, dummyFeat2);
+		addAbility(BuildUtilities.getFeatCat(), dummyFeat);
+		addAbility(BuildUtilities.getFeatCat(), dummyFeat2);
 		addAbility(cat, dummyFeat3);
 		addAbility(cat2, dummyFeat4);
 		

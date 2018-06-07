@@ -73,7 +73,7 @@ public class KitClass extends BaseKit
 		theOrigSubClass = aPC.getSubClassName(theClass);
 		applySubClass(aPC);
 
-		if (!PrereqHandler.passesAll(theClass.getPrerequisiteList(), aPC, aKit))
+		if (!PrereqHandler.passesAll(theClass, aPC, aKit))
 		{
 			PrereqHandler.toHtmlString(theClass.getPrerequisiteList());
 			warnings.add("CLASS: Not qualified for class \""

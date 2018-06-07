@@ -34,8 +34,8 @@ public class MemorizeIntegrationTest extends
 		AbstractIntegrationTestCase<PCClass>
 {
 
-	static MemorizeToken token = new MemorizeToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
+	private static MemorizeToken token = new MemorizeToken();
+	private static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

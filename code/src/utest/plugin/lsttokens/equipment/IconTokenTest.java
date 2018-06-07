@@ -17,12 +17,16 @@
  */
 package plugin.lsttokens.equipment;
 
+import java.net.URI;
+
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Equipment;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractStringTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import util.TestURI;
 
 /**
  * The Class {@code IconTokenTest} tests the equipment ICON token.
@@ -62,4 +66,11 @@ public class IconTokenTest extends AbstractStringTokenTestCase<Equipment>
 		return false;
 	}
 
+	@Override
+	protected void additionalSetup(LoadContext context)
+	{
+		super.additionalSetup(context);
+		URI uri = TestURI.getURI();
+		context.setSourceURI(uri);
+	}
 }

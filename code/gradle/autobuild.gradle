@@ -30,14 +30,14 @@ task copySite(type: Copy) {
     outputs.upToDateWhen { false }
     from "${projectDir}/code/gradle/site"
     into "${destAutobuildDir}"
-    expand(copyright: '2017', version: version, timestamp: buildTimestamp,
+    expand(copyright: '2018', version: version, timestamp: buildTimestamp,
         simpleVersion: version.replaceAll('-SNAPSHOT', '').replaceAll(/\./, ''))
 }
 
 task copyInstaller(type: Copy) {
     // Ensure this always runs - we don't want an outdated installer
     outputs.upToDateWhen { false }
-    from "${projectDir}/build/release/"
+    from "${releaseDir}"
     into "${destAutobuildDir}/downloads/"
 }
 

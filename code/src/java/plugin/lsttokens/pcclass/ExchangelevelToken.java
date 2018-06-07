@@ -57,7 +57,7 @@ public class ExchangelevelToken extends AbstractTokenWithSeparator<PCClass>
 		if (tok.countTokens() != 4)
 		{
 			return new ParseResult.Fail(getTokenName()
-					+ " must have 4 | delimited arguments : " + value, context);
+					+ " must have 4 | delimited arguments : " + value);
 		}
 
 		String classString = tok.nextToken();
@@ -72,7 +72,7 @@ public class ExchangelevelToken extends AbstractTokenWithSeparator<PCClass>
 		catch (NumberFormatException nfe)
 		{
 			return new ParseResult.Fail(getTokenName() + " expected an integer: "
-					+ mindlString, context);
+					+ mindlString);
 		}
 		String maxdlString = tok.nextToken();
 		int maxdl;
@@ -83,7 +83,7 @@ public class ExchangelevelToken extends AbstractTokenWithSeparator<PCClass>
 		catch (NumberFormatException nfe)
 		{
 			return new ParseResult.Fail(getTokenName() + " expected an integer: "
-					+ maxdlString, context);
+					+ maxdlString);
 		}
 		String minremString = tok.nextToken();
 		int minrem;
@@ -94,7 +94,7 @@ public class ExchangelevelToken extends AbstractTokenWithSeparator<PCClass>
 		catch (NumberFormatException nfe)
 		{
 			return new ParseResult.Fail(getTokenName() + " expected an integer: "
-					+ minremString, context);
+					+ minremString);
 		}
 		try
 		{

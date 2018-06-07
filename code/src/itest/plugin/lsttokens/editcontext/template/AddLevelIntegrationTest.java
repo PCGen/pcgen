@@ -33,8 +33,8 @@ public class AddLevelIntegrationTest extends
 		AbstractIntegrationTestCase<PCTemplate>
 {
 
-	static AddLevelToken token = new AddLevelToken();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
+	private static AddLevelToken token = new AddLevelToken();
+	private static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCTemplate> getCDOMClass()

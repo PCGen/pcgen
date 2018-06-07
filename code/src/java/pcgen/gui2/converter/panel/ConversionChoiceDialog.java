@@ -55,7 +55,7 @@ public class ConversionChoiceDialog extends JDialog implements
 	/** The result selected by the user. */
 	private int result = -1;
 
-	private JComboBox choiceCombo;
+	private JComboBox<String> choiceCombo;
 	private final int defaultChoice;
 	
 	/**
@@ -104,7 +104,7 @@ public class ConversionChoiceDialog extends JDialog implements
 		gbc.insets = new Insets(10, 10, 5, 10);
 		add(introLabel, gbc);
 
-		choiceCombo = new JComboBox();
+		choiceCombo = new JComboBox<>();
 		for (String choice : choices)
 		{
 			choiceCombo.addItem(choice);

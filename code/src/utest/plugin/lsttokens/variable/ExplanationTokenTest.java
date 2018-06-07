@@ -17,9 +17,10 @@
  */
 package plugin.lsttokens.variable;
 
+import java.util.Objects;
+
 import org.junit.Test;
 
-import pcgen.base.lang.ObjectUtil;
 import pcgen.cdom.content.DatasetVariable;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
@@ -94,14 +95,13 @@ public class ExplanationTokenTest extends
 		assertEquals("Display Name not equal " + dv1 + " and " + dv2, dv1
 				.getDisplayName(), dv2.getDisplayName());
 		assertTrue("Format not equal " + dv1 + " and " + dv2,
-			ObjectUtil.compareWithNull(dv1.getFormat(), dv2.getFormat()));
+			Objects.equals(dv1.getFormat(), dv2.getFormat()));
 		assertTrue("Scope Name not equal " + dv1 + " and " + dv2,
-			ObjectUtil.compareWithNull(dv1.getScopeName(), dv2.getScopeName()));
+			Objects.equals(dv1.getScope(), dv2.getScope()));
 		assertTrue("Source URI not equal " + dv1 + " and " + dv2,
-			ObjectUtil.compareWithNull(dv1.getSourceURI(), dv2.getSourceURI()));
+			Objects.equals(dv1.getSourceURI(), dv2.getSourceURI()));
 		assertTrue(
 			"Explanation not equal " + dv1 + " and " + dv2,
-			ObjectUtil.compareWithNull(dv1.getExplanation(),
-				dv2.getExplanation()));
+			Objects.equals(dv1.getExplanation(), dv2.getExplanation()));
 	}
 }

@@ -47,7 +47,7 @@ public class ChangeProfFacetTest extends
 	{
 		super.setUp();
 		context =
-			new RuntimeLoadContext(new RuntimeReferenceContext(),
+			new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),
 				new ConsolidatedListCommitStrategy());
 		CDOMObject cdo1 = new PCTemplate();
 		cdo1.setName("Template1");

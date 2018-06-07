@@ -108,7 +108,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		this.trainedFilterButton = new FilterButton<>("SkillTrained");
 		this.tabTitle = new TabTitle(Tab.SKILLS);
 		this.htmlPane = new JEditorPane();
-		this.skillFilterBox = new JComboBox();
+		this.skillFilterBox = new JComboBox<>();
 		initComponents();
 	}
 
@@ -728,7 +728,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			this.character = character;
 			this.skillSheetHandler = skillSheetHandler;
 
-			model = new DefaultComboBoxModel(new SkillFilter[]
+			model = new DefaultComboBoxModel<>(new SkillFilter[]
 			{
 				SkillFilter.Ranks, SkillFilter.NonDefault,
 				SkillFilter.Usable, SkillFilter.All

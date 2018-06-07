@@ -63,8 +63,7 @@ public class AccheckToken extends AbstractIntToken<Equipment> implements
 		if (ControlUtilities.hasControlToken(context, CControl.EQACCHECK))
 		{
 			return new ParseResult.Fail(getTokenName()
-				+ " is disabled when EQACCHECK control is used: " + value,
-				context);
+				+ " is disabled when EQACCHECK control is used: " + value);
 		}
 		return super.parseToken(context, obj, value);
 	}

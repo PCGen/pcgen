@@ -90,19 +90,19 @@ public class ClassSkillsLevelToken extends AbstractNonEmptyToken<PCClassLevel> i
 			if (!count.isValid())
 			{
 				return new ParseResult.Fail("Count in " + getTokenName()
-						+ " was not valid: " + count.toString(), context);
+						+ " was not valid: " + count.toString());
 			}
 			if (count.isStatic() && count.resolveStatic().doubleValue() <= 0)
 			{
 				return new ParseResult.Fail("Count in " + getFullName()
-								+ " must be > 0", context);
+								+ " must be > 0");
 			}
 			activeValue = sep.next();
 		}
 		if (sep.hasNext())
 		{
 			return new ParseResult.Fail(getFullName()
-					+ " had too many pipe separated items: " + value, context);
+					+ " had too many pipe separated items: " + value);
 		}
 		ParseResult pr = checkSeparatorsAndNonEmpty(',', activeValue);
 		if (!pr.passed())
@@ -129,7 +129,7 @@ public class ClassSkillsLevelToken extends AbstractNonEmptyToken<PCClassLevel> i
 				{
 					ObjectMatchingReference<Skill, Boolean> omr =
 							new ObjectMatchingReference<>(tokText,
-									SKILL_CLASS, allRef, ObjectKey.USE_UNTRAINED,
+									allRef, ObjectKey.USE_UNTRAINED,
 									Boolean.TRUE);
 					omr.returnIncludesNulls(true);
 					refs.add(omr);
@@ -137,13 +137,13 @@ public class ClassSkillsLevelToken extends AbstractNonEmptyToken<PCClassLevel> i
 				else if (Constants.LST_TRAINED.equals(tokText))
 				{
 					refs.add(new ObjectMatchingReference<>(
-							tokText, SKILL_CLASS, allRef,
+							tokText, allRef,
 							ObjectKey.USE_UNTRAINED, Boolean.FALSE));
 				}
 				else if (Constants.LST_EXCLUSIVE.equals(tokText))
 				{
 					refs.add(new ObjectMatchingReference<>(
-							tokText, SKILL_CLASS, allRef, ObjectKey.EXCLUSIVE,
+							tokText, allRef, ObjectKey.EXCLUSIVE,
 							Boolean.TRUE));
 				}
 				else if (Constants.LST_NONEXCLUSIVE.equals(tokText)
@@ -151,7 +151,7 @@ public class ClassSkillsLevelToken extends AbstractNonEmptyToken<PCClassLevel> i
 				{
 					ObjectMatchingReference<Skill, Boolean> omr =
 							new ObjectMatchingReference<>(tokText,
-									SKILL_CLASS, allRef, ObjectKey.EXCLUSIVE, Boolean.FALSE);
+									allRef, ObjectKey.EXCLUSIVE, Boolean.FALSE);
 					omr.returnIncludesNulls(true);
 					refs.add(omr);
 				}
@@ -160,8 +160,7 @@ public class ClassSkillsLevelToken extends AbstractNonEmptyToken<PCClassLevel> i
 					if (autoRank != null)
 					{
 						return new ParseResult.Fail("Cannot have two "
-							+ "AUTORANK= items in " + getFullName() + ": " + value,
-							context);
+							+ "AUTORANK= items in " + getFullName() + ": " + value);
 					}
 					String rankString = tokText.substring(9);
 					try
@@ -171,13 +170,13 @@ public class ClassSkillsLevelToken extends AbstractNonEmptyToken<PCClassLevel> i
 						{
 							return new ParseResult.Fail("Expected AUTORANK= to be"
 									+ " greater than zero, found: "
-									+ autoRank, context);
+									+ autoRank);
 						}
 					}
 					catch (NumberFormatException e)
 					{
 						return new ParseResult.Fail("Expected AUTORANK= to have"
-								+ " an integer value, found: " + rankString, context);
+								+ " an integer value, found: " + rankString);
 					}
 				}
 				else
@@ -191,7 +190,7 @@ public class ClassSkillsLevelToken extends AbstractNonEmptyToken<PCClassLevel> i
 										+ ": "
 										+ value
 										+ " had an invalid reference: "
-										+ tokText, context);
+										+ tokText);
 					}
 					refs.add(skref);
 				}
@@ -201,14 +200,14 @@ public class ClassSkillsLevelToken extends AbstractNonEmptyToken<PCClassLevel> i
 		if (refs.isEmpty())
 		{
 			return new ParseResult.Fail("Non-sensical " + getFullName()
-					+ ": Contains no skill reference: " + value, context);
+					+ ": Contains no skill reference: " + value);
 		}
 
 		ReferenceChoiceSet<Skill> rcs = new ReferenceChoiceSet<>(refs);
 		if (!rcs.getGroupingState().isValid())
 		{
 			return new ParseResult.Fail("Non-sensical " + getFullName()
-					+ ": Contains ANY and a specific reference: " + value, context);
+					+ ": Contains ANY and a specific reference: " + value);
 		}
 		ChoiceSet<Skill> cs = new ChoiceSet<>(getTokenName(), rcs, true);
 		PersistentTransitionChoice<Skill> tc = new ConcretePersistentTransitionChoice<>(

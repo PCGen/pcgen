@@ -26,6 +26,7 @@ import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.MovecloneLst;
 
 import tokencontent.testsupport.AbstractContentTokenTest;
+import util.TestURI;
 
 public class GlobalMoveCloneTest extends AbstractContentTokenTest
 {
@@ -46,7 +47,7 @@ public class GlobalMoveCloneTest extends AbstractContentTokenTest
 		ParseResult result = token.parseToken(context, source, "Walk,Fly,*2");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();

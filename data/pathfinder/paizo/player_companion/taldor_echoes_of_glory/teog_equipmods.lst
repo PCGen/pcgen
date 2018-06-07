@@ -8,4 +8,4 @@ Pitfall	KEY:Special Ability ~ Pitfall ~ Weapon		TYPE:Weapon	PLUS:1	VISIBLE:QUALI
 
 
 #Old KEYs
-Pitfall		TYPE:Weapon	PLUS:1	VISIBLE:NO	SOURCEPAGE:p.27	PRETYPE:1,Enhancement	SPROP:When holding a pitfall weapon, apply the weapon's enhancement bonus to your initiative checks, Reflex saves made to avoid traps, and AC against attacks made by traps.
+Special Ability ~ Pitfall ~ Weapon.COPY=Pitfall		VISIBLE:NO

@@ -83,7 +83,7 @@ public class LevelToken extends AbstractTokenWithSeparator<PCTemplate>
 		if (plusLoc == 0)
 		{
 			return new ParseResult.Fail("Malformed " + getTokenName()
-				+ " Level cannot start with +: " + value, context);
+				+ " Level cannot start with +: " + value);
 		}
 		int lvl;
 		try
@@ -105,21 +105,21 @@ public class LevelToken extends AbstractTokenWithSeparator<PCTemplate>
 		catch (NumberFormatException ex)
 		{
 			return new ParseResult.Fail("Misunderstood Level value: " + levelStr
-					+ " in " + getTokenName(), context);
+					+ " in " + getTokenName());
 		}
 
 		if (!tok.hasMoreTokens())
 		{
 			return new ParseResult.Fail("Invalid " + getTokenName()
 					+ ": requires 3 colon separated elements (has one): "
-					+ value, context);
+					+ value);
 		}
 		String typeStr = tok.nextToken();
 		if (!tok.hasMoreTokens())
 		{
 			return new ParseResult.Fail("Invalid " + getTokenName()
 					+ ": requires 3 colon separated elements (has two): "
-					+ value, context);
+					+ value);
 		}
 		String argument = tok.nextToken();
 		PCTemplate derivative = new PCTemplate();
@@ -137,7 +137,7 @@ public class LevelToken extends AbstractTokenWithSeparator<PCTemplate>
 		}
 		catch (PersistenceLayerException e)
 		{
-			return new ParseResult.Fail(e.getMessage(), context);
+			return new ParseResult.Fail(e.getMessage());
 		}
 		return ParseResult.INTERNAL_ERROR;
 	}

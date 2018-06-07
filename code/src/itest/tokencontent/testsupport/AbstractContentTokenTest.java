@@ -23,14 +23,16 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.UserSelection;
 import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.enumeration.Nature;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.inst.PCClassLevel;
+import pcgen.cdom.list.CompanionList;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
+import pcgen.core.Equipment;
 import pcgen.core.EquipmentModifier;
 import pcgen.core.PCCheck;
 import pcgen.core.PCClass;
@@ -38,7 +40,9 @@ import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 import pcgen.core.character.CompanionMod;
+import pcgen.output.channel.ChannelCompatibility;
 import pcgen.persistence.PersistenceLayerException;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 
 public abstract class AbstractContentTokenTest extends AbstractTokenModelTest
@@ -46,12 +50,11 @@ public abstract class AbstractContentTokenTest extends AbstractTokenModelTest
 	@Test
 	public void testFromAbility() throws PersistenceLayerException
 	{
-		Ability source = create(Ability.class, "Source");
-		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, source);
+		Ability source = BuildUtilities.buildFeat(context, "Source");
 		processToken(source);
 		assertEquals(baseCount(), targetFacetCount());
-		CNAbilitySelection cas =
-				new CNAbilitySelection(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.AUTOMATIC, source));
+		CNAbilitySelection cas = new CNAbilitySelection(CNAbilityFactory
+			.getCNAbility(BuildUtilities.getFeatCat(), Nature.AUTOMATIC, source));
 		directAbilityFacet.add(id, cas, UserSelection.getInstance());
 		assertTrue(containsExpected());
 		assertEquals(baseCount() + 1, targetFacetCount());
@@ -64,10 +67,10 @@ public abstract class AbstractContentTokenTest extends AbstractTokenModelTest
 	{
 		processToken(lg);
 		assertEquals(baseCount(), targetFacetCount());
-		alignmentFacet.set(id, lg);
+		ChannelCompatibility.setCurrentAlignment(pc.getCharID(), lg);
 		assertTrue(containsExpected());
 		assertEquals(baseCount() + 1, targetFacetCount());
-		alignmentFacet.set(id, ng);
+		ChannelCompatibility.setCurrentAlignment(pc.getCharID(), ng);
 		assertEquals(baseCount(), targetFacetCount());
 	}
 
@@ -126,7 +129,11 @@ public abstract class AbstractContentTokenTest extends AbstractTokenModelTest
 	@Test
 	public void testFromCompanionMod() throws PersistenceLayerException
 	{
-		CompanionMod source = create(CompanionMod.class, "Source");
+		CompanionList cat = create(CompanionList.class, "Category");
+		context.getReferenceContext().importObject(cat);
+		CompanionMod source = cat.newInstance();
+		cat.setKeyName("Source");
+		context.getReferenceContext().importObject(source);
 		processToken(source);
 		assertEquals(baseCount(), targetFacetCount());
 		companionModFacet.add(id, source);
@@ -168,6 +175,8 @@ public abstract class AbstractContentTokenTest extends AbstractTokenModelTest
 	public void testFromEqMod() throws PersistenceLayerException
 	{
 		EquipmentModifier source = create(EquipmentModifier.class, "Source");
+		Equipment equipment = create(Equipment.class, "Parent");
+		source.setVariableParent(equipment);
 		processToken(source);
 		assertEquals(baseCount(), targetFacetCount());
 		activeEqModFacet.add(id, source, this);
@@ -201,6 +210,7 @@ public abstract class AbstractContentTokenTest extends AbstractTokenModelTest
 	public void testFromStat() throws PersistenceLayerException
 	{
 		PCStat source = create(PCStat.class, "Source");
+		source.put(StringKey.SORT_KEY, "Source");
 		processToken(source);
 		assertTrue(containsExpected());
 		assertEquals(baseCount() + 1, targetFacetCount());

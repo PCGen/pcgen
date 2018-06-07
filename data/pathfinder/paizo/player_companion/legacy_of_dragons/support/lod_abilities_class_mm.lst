@@ -1,0 +1,8 @@
+# CVS $Revision: 21640 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Legacy of Dragons	SOURCESHORT:LoD	SOURCEWEB:http://paizo.com/products/btpy9nfl?Pathfinder-Player-Companion-Legacy-of-Dragons	SOURCEDATE:2016-08
+# Original Entry By: Gwen T. (evilpixie87)
+
+CATEGORY=Special Ability|Discovery ~ Elemental Mutagen (Air).MOD		PREVARLT:DragonbloodMutagenDiscovery,1
+CATEGORY=Special Ability|Discovery ~ Elemental Mutagen (Earth).MOD	PREVARLT:DragonbloodMutagenDiscovery,1
+CATEGORY=Special Ability|Discovery ~ Elemental Mutagen (Fire).MOD		PREVARLT:DragonbloodMutagenDiscovery,1
+CATEGORY=Special Ability|Discovery ~ Elemental Mutagen (Water).MOD	PREVARLT:DragonbloodMutagenDiscovery,1

@@ -165,11 +165,6 @@ public final class DisplayLocation implements TypeSafeConstant,
 		typeMap.clear();
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Comparable#compareTo(java.lang.Object)
-	 */
 	@Override
 	public int compareTo(DisplayLocation type)
 	{

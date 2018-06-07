@@ -219,7 +219,7 @@ WIELDCATEGORY:TooLarge							DOWN:TwoHanded|OneHanded	ZERO:TwoHanded
 #
 # Dice rolling methods for character creation
 #
-#ROLLMETHOD:5d6 drop 2 lowest				METHOD:roll(5,6,top(3))
+#ROLLMETHOD:5d6 drop 2 lowest				SORTKEY:A1	METHOD:roll(5,6,top(3))
 
 # Unit Set
 UNITSET:Imperial		HEIGHTUNIT:ftin	HEIGHTFACTOR:1	HEIGHTPATTERN:#		DISTANCEUNIT:ft.	DISTANCEFACTOR:1	DISTANCEPATTERN:#.##	WEIGHTUNIT:lbs.	WEIGHTFACTOR:1	WEIGHTPATTERN:#.##

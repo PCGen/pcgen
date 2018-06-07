@@ -275,10 +275,6 @@ public class ChronicleEntry implements ChronicleEntryFacade, Cloneable
 		{
 			return false;
 		}
-		if (xpField != other.xpField)
-		{
-			return false;
-		}
-		return true;
+		return xpField == other.xpField;
 	}
 }

@@ -30,7 +30,7 @@ public abstract class AbstractDamageIntegrationTestCase extends
 		AbstractIntegrationTestCase<Equipment>
 {
 
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
+	private static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()

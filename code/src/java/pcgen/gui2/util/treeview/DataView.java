@@ -29,7 +29,6 @@ public interface DataView<E>
      * list is editable as well.
      * @return editable list
      */
-//    List<?> getData(E obj);
 	Object getData(E element, int column);
 	
 	void setData(Object value, E element, int column);

@@ -36,9 +36,9 @@ public class EquipIntegrationTest extends
 		AbstractListIntegrationTestCase<CDOMObject, Equipment>
 {
 
-	static EquipToken ft = new EquipToken();
-	static AutoLst token = new AutoLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
+	private static EquipToken ft = new EquipToken();
+	private static AutoLst token = new AutoLst();
+	private static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

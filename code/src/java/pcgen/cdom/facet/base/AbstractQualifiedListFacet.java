@@ -382,6 +382,7 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 	 *         null if no information has been set in this
 	 *         AbstractQualifiedListFacet for the Player Character.
 	 */
+	@SuppressWarnings("unchecked")
 	private Map<T, Set<Object>> getCachedMap(CharID id)
 	{
 		return (Map<T, Set<Object>>) getCache(id);

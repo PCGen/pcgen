@@ -28,7 +28,8 @@ public class SetModifierFactory extends AbstractFixedSetModifierFactory<Boolean>
 	/**
 	 * Identifies that this SetModifier acts upon Boolean objects.
 	 * 
-	 * @see pcgen.base.calculation.CalculationInfo#getVariableFormat()
+	 * @return The Format (Boolean.class) of object upon which Modifiers built by this
+	 *         SetModifierFactory can operate
 	 */
 	@Override
 	public Class<Boolean> getVariableFormat()

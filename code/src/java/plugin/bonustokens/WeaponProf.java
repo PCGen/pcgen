@@ -33,7 +33,7 @@ public final class WeaponProf extends MultiTagBonusObj
 			{"CRITMULTADD", "CRITRANGEADD", "CRITRANGEDOUBLE", "DAMAGE",
 				"DAMAGE-SHORTRANGE", "DAMAGESIZE", "PCSIZE", "REACH", "TOHIT",
 				"TOHIT-SHORTRANGE", "TOHITOVERSIZE", "WEAPONBAB",
-				"WIELDCATEGORY"};
+				"WIELDCATEGORY", "STATDAMAGE"};
 
 	/**
 	 * Return the bonus tag handled by this class.

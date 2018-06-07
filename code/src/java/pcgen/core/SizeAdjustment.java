@@ -48,6 +48,6 @@ public final class SizeAdjustment extends PObject implements
 	@Override
 	public String getLocalScopeName()
 	{
-		return "SIZE";
+		return "PC.SIZE";
 	}
 }

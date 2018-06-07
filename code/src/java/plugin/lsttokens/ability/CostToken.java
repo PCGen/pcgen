@@ -51,7 +51,7 @@ public class CostToken extends AbstractNonEmptyToken<Ability> implements
 		}
 		catch (NumberFormatException e)
 		{
-			return new ParseResult.Fail(getTokenName() + " expected a number: " + value, context);
+			return new ParseResult.Fail(getTokenName() + " expected a number: " + value);
 		}
 	}
 

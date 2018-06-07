@@ -17,19 +17,12 @@
  */
 package pcgen.cdom.inst;
 
-import java.util.List;
-
-import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VarScoped;
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.content.VarModifier;
 import pcgen.cdom.enumeration.CharID;
-import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.facet.FacetLibrary;
-import pcgen.cdom.facet.ScopeFacet;
-import pcgen.cdom.facet.SolverManagerFacet;
 import pcgen.cdom.facet.analysis.ResultFacet;
-import pcgen.core.EquipmentModifier;
+import pcgen.cdom.formula.scope.EquipmentPartScope;
 
 /**
  * An EquipmentHead is a CDOMObject that represents characteristics of a single
@@ -38,9 +31,6 @@ import pcgen.core.EquipmentModifier;
  */
 public final class EquipmentHead extends CDOMObject
 {
-	private static final SolverManagerFacet SOLVER_FACET = FacetLibrary
-			.getFacet(SolverManagerFacet.class);
-	private static final ScopeFacet SCOPE_FACET = FacetLibrary.getFacet(ScopeFacet.class);
 
 	/*
 	 * Note: The equality issue referenced below (and the reason for the
@@ -139,36 +129,10 @@ public final class EquipmentHead extends CDOMObject
 		return false;
 	}
 
-	public void removeVarModifiers(CharID id, EquipmentModifier aMod)
-	{
-		List<VarModifier<?>> modifiers = aMod.getListFor(ListKey.MODIFY);
-		if (modifiers != null)
-		{
-			ScopeInstance inst = SCOPE_FACET.get(id, aMod.getLocalScopeName(), aMod);
-			for (VarModifier<?> vm : modifiers)
-			{
-				SOLVER_FACET.addModifier(id, vm, this, inst);
-			}
-		}
-	}
-
-	public void addVarModifiers(CharID id, EquipmentModifier aMod)
-	{
-		List<VarModifier<?>> modifiers = aMod.getListFor(ListKey.MODIFY);
-		if (modifiers != null)
-		{
-			ScopeInstance inst = SCOPE_FACET.get(id, aMod.getLocalScopeName(), aMod);
-			for (VarModifier<?> vm : modifiers)
-			{
-				SOLVER_FACET.addModifier(id, vm, this, inst);
-			}
-		}
-	}
-
 	@Override
 	public String getLocalScopeName()
 	{
-		return "EQUIPMENT.PART";
+		return EquipmentPartScope.PC_EQUIPMENT_PART;
 	}
 
 	@Override

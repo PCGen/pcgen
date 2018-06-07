@@ -7,6 +7,6 @@ Starknife		TYPE:Martial.Melee.OneHanded.Piercing.Sword
 Klar			TYPE:Martial.Melee.OneHanded.Slashing
 Earth Breaker	TYPE:Martial.Melee.Bludgeoning.MeleeTwoHanded
 Sawtooth Sabre	TYPE:Exotic.Melee.OneHanded.Slashing.Sword
-Scarf (Bladed)	TYPE:Exotic.Melee.Slashing.MeleeTwoHanded
+Bladed Scarf	KEY:Scarf (Bladed)	TYPE:Exotic.Melee.Slashing.MeleeTwoHanded
 Shoanti Bola	TYPE:Exotic.Ranged.Bludgeoning.Piercing.Thrown.Trip
 Totem Spear		TYPE:Exotic.Melee.Piercing.Bludgeoning.MeleeTwoHanded.Reach.Spear

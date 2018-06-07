@@ -89,19 +89,19 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 			if (!count.isValid())
 			{
 				return new ParseResult.Fail("Count in " + getTokenName()
-						+ " was not valid: " + count.toString(), context);
+						+ " was not valid: " + count.toString());
 			}
 			if (count.isStatic() && count.resolveStatic().doubleValue() <= 0)
 			{
 				return new ParseResult.Fail("Count in " + getFullName()
-								+ " must be > 0", context);
+								+ " must be > 0");
 			}
 			activeValue = sep.next();
 		}
 		if (sep.hasNext())
 		{
 			return new ParseResult.Fail(getFullName()
-					+ " had too many pipe separated items: " + value, context);
+					+ " had too many pipe separated items: " + value);
 		}
 		ParseResult pr = checkSeparatorsAndNonEmpty(',', activeValue);
 		if (!pr.passed())
@@ -120,7 +120,7 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 			{
 				return new ParseResult.Fail("  Error was encountered while parsing "
 						+ getFullName() + ": " + value
-						+ " had an invalid reference: " + tokText, context);
+						+ " had an invalid reference: " + tokText);
 			}
 			refs.add(lang);
 		}

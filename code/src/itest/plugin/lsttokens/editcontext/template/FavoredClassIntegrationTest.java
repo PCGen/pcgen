@@ -19,12 +19,14 @@ package plugin.lsttokens.editcontext.template;
 
 import org.junit.Test;
 
+import pcgen.cdom.base.Categorized;
+import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.SubClassCategory;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
-import pcgen.core.SubClass;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractListIntegrationTestCase;
@@ -36,8 +38,8 @@ public class FavoredClassIntegrationTest extends
 		AbstractListIntegrationTestCase<PCTemplate, PCClass>
 {
 
-	static FavoredclassToken token = new FavoredclassToken();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
+	private static FavoredclassToken token = new FavoredclassToken();
+	private static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCTemplate> getCDOMClass()
@@ -120,16 +122,22 @@ public class FavoredClassIntegrationTest extends
 		construct(primaryContext, "TestWP2");
 		construct(secondaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP2");
-		SubClass obj = primaryContext.getReferenceContext().constructCDOMObject(SubClass.class,
-				"Sub");
 		SubClassCategory cat = SubClassCategory.getConstant("TestWP2");
-		primaryContext.getReferenceContext().reassociateCategory(cat, obj);
-		obj = secondaryContext.getReferenceContext().constructCDOMObject(SubClass.class, "Sub");
-		secondaryContext.getReferenceContext().reassociateCategory(cat, obj);
+		construct(primaryContext, cat, "Sub");
+		construct(secondaryContext, cat, "Sub");
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, "TestWP1");
 		commit(modCampaign, tc, "TestWP2.Sub");
 		completeRoundRobin(tc);
+	}
+
+	private <T extends Categorized<T>> T construct(LoadContext context, Category<T> cat,
+		String name)
+	{
+		T obj = cat.newInstance();
+		obj.setName(name);
+		context.getReferenceContext().importObject(obj);
+		return obj;
 	}
 
 }

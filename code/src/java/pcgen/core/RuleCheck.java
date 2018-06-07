@@ -101,12 +101,6 @@ public final class RuleCheck implements Loadable
 		return ruleKey;
 	}
 
-    @Override
-	public String getLSTformat()
-	{
-		return getKeyName();
-	}
-
 	/**
 	 * Sets the Name (and key if not already set)
 	 * 

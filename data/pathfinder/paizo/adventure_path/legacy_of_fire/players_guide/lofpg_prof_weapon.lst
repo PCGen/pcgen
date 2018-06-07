@@ -4,7 +4,7 @@ SOURCELONG:Legacy of Fire Player's Guide	SOURCESHORT:LOFPG	SOURCEWEB:http://paiz
 # One-Handed Melee Weapons
 # Weapon Name		Type
 Battle Poi			TYPE:Exotic.Melee.Standard.Fire
-Madu (Shield Bash)	TYPE:Weapon.Exotic.Melee.Standard.Piercing
+Madu	KEY:Madu (Shield Bash)	TYPE:Weapon.Exotic.Melee.Standard.Piercing
 Rope Gauntlets		TYPE:Exotic.Melee.Standard.Bludgeoning
 Scorpion Whip		TYPE:Exotic.Melee.Standard.Slashing
 
@@ -15,4 +15,4 @@ Meteor Hammer		TYPE:Exotic.Melee.Standard.Bludgeoning
 Sling Glove			TYPE:Exotic.Ranged.Standard.Bludgeoning
 
 # DEITYWEAP
-Scarf (Bladed)		TYPE:Exotic
+Bladed Scarf	KEY:Scarf (Bladed)		TYPE:Exotic

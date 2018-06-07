@@ -16,11 +16,15 @@
 package pcgen.cdom.base;
 
 /**
- * This is a "tag" used in the SORTKEY token to identify when a SORTKEY is a
- * required part of an object. This avoids implicit sorting of certain files
- * (stat, et al).
+ * This is used identify when a SORTKEY is a required part of an object. This avoids
+ * implicit sorting of certain files (stat, et al).
  */
 public interface SortKeyRequired
 {
-
+	/**
+	 * Returns the Sort Key for this object.
+	 * 
+	 * @return The Sort Key for this object
+	 */
+	public String getSortKey();
 }

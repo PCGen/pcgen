@@ -83,9 +83,8 @@ public class DynamicLoader extends SimpleLoader<Dynamic>
 			return null;
 		}
 		//Only load once / allow duplicates in different files
-		Dynamic d =
-				context.getReferenceContext().silentlyGetConstructedCDOMObject(
-					DYNAMIC_CLASS, dynamicCategory, name);
+		Dynamic d = context.getReferenceContext().getManufacturerId(dynamicCategory)
+			.getActiveObject(name);
 		if (d == null)
 		{
 			d = new Dynamic();

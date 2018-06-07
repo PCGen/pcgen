@@ -123,6 +123,8 @@ Concussion Bomb	PROFICIENCY:WEAPON|Concussion Bomb	TYPE:Weapon.Ranged.Thrown.Hur
 Flash Bomb		PROFICIENCY:WEAPON|Flash Bomb		TYPE:Weapon.Ranged.Thrown.HurledForte.Exotic				COST:25	WT:1		SLOTS:1			DAMAGE:3d6	EQMOD:BLAST|1								SIZE:D	SOURCEPAGE:p.181	SOURCEPAGE:p.181
 Greek Fire		PROFICIENCY:WEAPON|Greek Fire		TYPE:Weapon.Ranged.Thrown.HurledForte.Exotic				COST:20	WT:1		SLOTS:1	CRITRANGE:1	DAMAGE:3d6	EQMOD:INACCURATE								SIZE:D	SOURCEPAGE:p.181	SOURCEPAGE:p.181
 
+Unarmed Strike	PROFICIENCY:WEAPON|Unarmed Strike	TYPE:Weapon.Natural.Melee.Simple.Unarmed.Subdual.Standard.Monk.Bludgeoning													COST:0	WT:0		CRITMULT:x2	CRITRANGE:1							DAMAGE:1d3														SIZE:M		MODS:NO	
+
 ###Block: Bows
 # - Arrows and Bolts
 # Equipment Name			Required Weapon Proficiency			Type						Cost		Weight	Slot Needed	Crit Range	Damage	Modifier				Range		Size		Source Page		Quality and value								Special Property

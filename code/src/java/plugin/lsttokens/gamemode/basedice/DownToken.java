@@ -53,7 +53,7 @@ public class DownToken extends AbstractTokenWithSeparator<BaseDice> implements
 			catch (IllegalArgumentException e)
 			{
 				return new ParseResult.Fail("Invalid Roll provided: " + roll
-						+ " in " + value, context);
+						+ " in " + value);
 			}
 		}
 		return ParseResult.SUCCESS;

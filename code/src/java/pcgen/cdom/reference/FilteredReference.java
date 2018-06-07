@@ -21,9 +21,9 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
+import java.util.StringJoiner;
 import java.util.TreeSet;
 
-import pcgen.base.util.ObjectContainer;
 import pcgen.cdom.base.PrimitiveCollection;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.primitive.PrimitiveUtilities;
@@ -33,16 +33,11 @@ public class FilteredReference<T> extends CDOMGroupRef<T>
 
 	private final Set<CDOMSingleRef<? super T>> filterSet = new HashSet<>();
 
-	private final ObjectContainer<T> baseSet;
+	private final CDOMGroupRef<T> baseSet;
 
-	public FilteredReference(Class<T> objClass, ObjectContainer<T> allRef)
+	public FilteredReference(CDOMGroupRef<T> allRef)
 	{
-		super(objClass, "Filtered Reference");
-		if (objClass == null)
-		{
-			throw new IllegalArgumentException(
-					"Class for FilteredReference cannot be null");
-		}
+		super("Filtered Reference");
 		if (allRef == null)
 		{
 			throw new IllegalArgumentException(
@@ -155,5 +150,27 @@ public class FilteredReference<T> extends CDOMGroupRef<T>
 	public String getChoice()
 	{
 		return null;
+	}
+
+	@Override
+	public Class<T> getReferenceClass()
+	{
+		return baseSet.getReferenceClass();
+	}
+
+	@Override
+	public String getReferenceDescription()
+	{
+		StringJoiner joiner = new StringJoiner(", ",
+			baseSet.getReferenceDescription() + " except: [", "]");
+		filterSet.stream().map(r -> r.getReferenceDescription())
+			.forEach(d -> joiner.add(d));
+		return joiner.toString();
+	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+		return baseSet.getPersistentFormat();
 	}
 }

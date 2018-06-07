@@ -49,7 +49,7 @@ public class SrLst implements CDOMPrimaryToken<CDOMObject>
 		{
 			return new ParseResult.Fail("Cannot use " + getTokenName()
 				+ " on an Ungranted object type: "
-				+ obj.getClass().getSimpleName(), context);
+				+ obj.getClass().getSimpleName());
 		}
 		if (Constants.LST_DOT_CLEAR.equals(value))
 		{
@@ -61,7 +61,7 @@ public class SrLst implements CDOMPrimaryToken<CDOMObject>
 			if (!formula.isValid())
 			{
 				return new ParseResult.Fail("Formula in " + getTokenName()
-						+ " was not valid: " + formula.toString(), context);
+						+ " was not valid: " + formula.toString());
 			}
 			context.getObjectContext().put(obj, ObjectKey.SR,
 					new SpellResistance(formula));

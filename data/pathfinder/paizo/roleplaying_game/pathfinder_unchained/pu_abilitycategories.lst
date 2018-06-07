@@ -48,9 +48,13 @@ ABILITYCATEGORY:Variant Multiclass				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	
 
 ABILITYCATEGORY:Signature Skill 5 Ranks			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:Signature Skill 05					PLURAL:Signature Skills					DISPLAYLOCATION:Feats
 
+###Block: Unchained Archetype Support
+ABILITYCATEGORY:Unchained Monk Archetype		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Archetype	TYPE:Unchained Monk Archetype			PLURAL:Unchained Monk Archetypes			DISPLAYLOCATION:Archetype
 
-
-
+ABILITYCATEGORY:ABP Physical Prowess			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_ABPPhysicalProwess		CATEGORY:Special Ability	TYPE:ABP Physical Prowess				PLURAL:ABP Physical Prowess				DISPLAYLOCATION:Automatic Bonus Progression
+ABILITYCATEGORY:ABP Mental Prowess				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_ABPMentalProwess		CATEGORY:Special Ability	TYPE:ABP Mental Prowess					PLURAL:ABP Mental Prowess				DISPLAYLOCATION:Automatic Bonus Progression
+ABILITYCATEGORY:ABP Legendary Gifts				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_ABPLegendaryGifts		CATEGORY:Special Ability	TYPE:ABP Legendary Gifts				PLURAL:ABP Legendary Gifts				DISPLAYLOCATION:Automatic Bonus Progression
+ABILITYCATEGORY:ABP Legendary Ability			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_ABPLegendaryGiftsAbility	CATEGORY:Special Ability	TYPE:ABP Legendary Ability				PLURAL:ABP Legendary Abilities			DISPLAYLOCATION:Automatic Bonus Progression
 
 #
 # End

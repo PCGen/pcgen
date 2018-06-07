@@ -17,48 +17,49 @@
  */
 package pcgen.cdom.formula.scope;
 
-import pcgen.base.formula.base.LegalScope;
+import java.util.Optional;
+
+import pcgen.base.util.FormatManager;
+import pcgen.rules.context.LoadContext;
 
 /**
  * The EquipmentScope is for variables that are local to a piece of Equipment.
  * Note that certain items may be more appropriate on a specific part of the
  * Equipment (see EquipmentPartScope).
  */
-public class EquipmentScope implements LegalScope
+public class EquipmentScope implements PCGenScope
 {
 	/**
 	 * The parent of this scope (once loaded)
 	 */
-	private LegalScope parent;
+	private Optional<PCGenScope> parent;
 
-	/**
-	 * The String representation of the objects covered by this Scope
-	 * 
-	 * @see pcgen.base.formula.base.LegalScope#getName()
-	 */
 	@Override
 	public String getName()
 	{
 		return "EQUIPMENT";
 	}
 
-	/**
-	 * @see pcgen.base.formula.base.LegalScope#getParentScope()
-	 */
 	@Override
-	public LegalScope getParentScope()
+	public Optional<PCGenScope> getParentScope()
 	{
 		return parent;
 	}
 
 	/**
-	 * Sets the parent LegalScope for this EquipmentScope.
+	 * Sets the parent PCGenScope for this EquipmentScope.
 	 * 
 	 * @param parent
-	 *            The parent LegalScope for this EquipmentScope
+	 *            The parent PCGenScope for this EquipmentScope
 	 */
-	public void setParent(LegalScope parent)
+	public void setParent(PCGenScope parent)
 	{
-		this.parent = parent;
+		this.parent = Optional.of(parent);
+	}
+
+	@Override
+	public FormatManager<?> getFormatManager(LoadContext context)
+	{
+		throw new UnsupportedOperationException("Equipment Part does not have a format");
 	}
 }

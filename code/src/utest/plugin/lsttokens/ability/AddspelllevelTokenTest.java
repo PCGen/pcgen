@@ -19,9 +19,11 @@ package plugin.lsttokens.ability;
 
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Ability;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractIntegerTokenTestCase;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class AddspelllevelTokenTest extends AbstractIntegerTokenTestCase<Ability>
@@ -72,4 +74,12 @@ public class AddspelllevelTokenTest extends AbstractIntegerTokenTestCase<Ability
 		return true;
 	}
 
+	@Override
+	protected Ability get(LoadContext context, String name)
+	{
+		Ability a = BuildUtilities.getFeatCat().newInstance();
+		a.setName(name);
+		context.getReferenceContext().importObject(a);
+		return a;
+	}
 }

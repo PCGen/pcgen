@@ -258,27 +258,6 @@ public class LookAndFeelPanel extends PCGenPrefsPanel
 			laf[i].setSelected(oldLAF.equals(laf[i].getText()));
 		}
 		skinnedLookFeel.setSelected(oldLAF.equals("Skinned"));
-//		int crossIndex = UIFactory.indexOfCrossPlatformLookAndFeel();
-//
-//		if (SettingsHandler.getLookAndFeel() < laf.length)
-//		{
-//			laf[SettingsHandler.getLookAndFeel()].setSelected(true);
-//		}
-//		else if (SettingsHandler.getLookAndFeel() == laf.length)
-//		{
-//			if ((SkinLFResourceChecker.getMissingResourceCount() == 0))
-//			{
-//				skinnedLookFeel.setSelected(true);
-//			}
-//			else
-//			{
-//				laf[crossIndex].setSelected(true);
-//			}
-//		}
-//		else
-//		{
-//			laf[crossIndex].setSelected(true);
-//		}
 	}
 
 	private final class PrefsButtonListener implements ActionListener

@@ -37,9 +37,9 @@ public class SpellCasterIntegrationTest extends
 		AbstractIntegrationTestCase<CDOMObject>
 {
 
-	static SpellCasterToken ft = new SpellCasterToken();
-	static AddLst token = new AddLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
+	private static SpellCasterToken ft = new SpellCasterToken();
+	private static AddLst token = new AddLst();
+	private static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

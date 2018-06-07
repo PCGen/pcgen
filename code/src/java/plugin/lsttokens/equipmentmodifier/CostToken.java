@@ -47,7 +47,7 @@ public class CostToken extends AbstractNonEmptyToken<EquipmentModifier>
 		if (!formula.isValid())
 		{
 			return new ParseResult.Fail("Formula in " + getTokenName()
-					+ " was not valid: " + formula.toString(), context);
+					+ " was not valid: " + formula.toString());
 		}
 		context.getObjectContext().put(mod, FormulaKey.COST, formula);
 		return ParseResult.SUCCESS;

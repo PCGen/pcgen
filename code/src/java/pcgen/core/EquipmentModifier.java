@@ -31,6 +31,7 @@ import pcgen.cdom.content.SpellResistance;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.formula.scope.EquipmentPartScope;
 import pcgen.core.analysis.BonusCalc;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
@@ -44,7 +45,8 @@ import pcgen.util.Delta;
 /**
  * Definition and games rules for an equipment modifier.
  */
-public final class EquipmentModifier extends PObject implements Comparable<Object>, EquipModFacade, Cloneable
+public final class EquipmentModifier extends PObject
+		implements Comparable<Object>, EquipModFacade, Cloneable
 {
 	private static final String PERCENT_CHOICE_PATTERN = Pattern
 								.quote(Constants.LST_PERCENT_CHOICE);
@@ -67,8 +69,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 
 		for (BonusObj bonus : getBonusList(caller))
 		{
-			if (PrereqHandler.passesAll(bonus.getPrerequisiteList(), caller,
-					aPC))
+			if (PrereqHandler.passesAll(bonus, caller, aPC))
 			{
 				aPC.setApplied(bonus, true);
 				aList.add(bonus);
@@ -309,7 +310,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	@Override
 	public String getLocalScopeName()
 	{
-		return "EQUIPMENT.PART";
+		return EquipmentPartScope.PC_EQUIPMENT_PART;
 	}
 
 	private VarScoped variableParent;

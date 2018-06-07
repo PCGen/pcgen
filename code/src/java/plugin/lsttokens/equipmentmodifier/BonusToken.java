@@ -50,7 +50,7 @@ public class BonusToken implements CDOMPrimaryToken<EquipmentModifier>
 		if (bon == null)
 		{
 			return new ParseResult.Fail(getTokenName() + " was given invalid bonus: "
-					+ value, context);
+					+ value);
 		}
 		bon.setTokenSource(getTokenName());
 		context.getObjectContext().addToList(mod, ListKey.BONUS, bon);

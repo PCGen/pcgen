@@ -184,13 +184,6 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 				LanguageBundle.getString("in_Prefs_restartRequired"), //$NON-NLS-1$
 				Constants.APPLICATION_NAME, JOptionPane.INFORMATION_MESSAGE);
 		}
-		
-		// Now get any panels affected to refresh
-//		CharacterInfo ci = PCGen_Frame1.getCharacterPane();
-//		if (ci != null)
-//		{
-//			ci.refresh();
-//		}
 	}
 
 	private void applyOptionValuesToControls()

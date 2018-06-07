@@ -13,14 +13,11 @@ ABILITYCATEGORY:Sentinel Class Feature	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO	
 #ABILITYCATEGORY:Evangelist Aligned Class	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Evangelist Aligned Class											DISPLAYLOCATION:Class Features
 # select any previously held class
 
-ABILITYCATEGORY:Evangelist Divine Boon	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Evangelist Divine Boon											DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Exalted Divine Boon		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Exalted Divine Boon											DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Sentinel Divine Boon	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Sentinel Divine Boon											DISPLAYLOCATION:Class Features
 
 ABILITYCATEGORY:Arcane Depth			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Arcane Depth													DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Evangelist Aligned Class			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Aligned Class	DISPLAYLOCATION:Class Features	TYPE:Aligned Class
 
-
+ABILITYCATEGORY:Norgorber Aspect Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:NorgorberAspectChoice									DISPLAYLOCATION:Class Features
 
 #
 # End

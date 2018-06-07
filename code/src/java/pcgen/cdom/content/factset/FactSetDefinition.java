@@ -61,9 +61,6 @@ public class FactSetDefinition<T extends CDOMObject, F> extends
 		getFactSetKey();
 	}
 
-	/**
-	 * @see pcgen.cdom.content.ContentDefinition#activateOutput(DataSetID)
-	 */
 	@Override
 	protected void activateOutput(DataSetID dsID)
 	{
@@ -81,9 +78,6 @@ public class FactSetDefinition<T extends CDOMObject, F> extends
 		}
 	}
 
-	/**
-	 * @see pcgen.cdom.content.ContentDefinition#activateTokens(pcgen.rules.context.LoadContext)
-	 */
 	@Override
 	protected void activateTokens(LoadContext context)
 	{
@@ -121,18 +115,12 @@ public class FactSetDefinition<T extends CDOMObject, F> extends
 		factSetName = name;
 	}
 
-	/**
-	 * @see pcgen.cdom.content.factset.FactSetInfo#getFactSetName()
-	 */
 	@Override
 	public String getFactSetName()
 	{
 		return factSetName;
 	}
 
-	/**
-	 * @see pcgen.cdom.content.factset.FactSetInfo#getFactSetKey()
-	 */
 	@Override
 	public FactSetKey<F> getFactSetKey()
 	{

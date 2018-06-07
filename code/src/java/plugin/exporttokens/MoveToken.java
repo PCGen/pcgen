@@ -33,18 +33,12 @@ import pcgen.io.exporttoken.MovementToken;
 //MOVE.x.RATE produce the appropriate parts.
 public class MoveToken extends AbstractExportToken
 {
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return "MOVE";
 	}
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-	 */
 	@Override
 	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)

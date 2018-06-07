@@ -29,6 +29,7 @@ import pcgen.core.PCTemplate;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.io.testsupport.AbstractSaveRestoreTest;
+import pcgen.output.channel.ChannelCompatibility;
 import plugin.lsttokens.pcclass.HdToken;
 
 public class BasicSaveRestoreTest extends AbstractSaveRestoreTest
@@ -66,7 +67,7 @@ public class BasicSaveRestoreTest extends AbstractSaveRestoreTest
 	public void testAlignment()
 	{
 		finishLoad();
-		pc.setAlignment(le);
+		ChannelCompatibility.setCurrentAlignment(pc.getCharID(), le);
 		runRoundRobin(null);
 	}
 

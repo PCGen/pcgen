@@ -95,8 +95,6 @@ public class GameModePanel extends ConvertSubPanel
 //		Globals.emptyLists();
 		Globals.sortPObjectListByName(Globals.getCampaignList());
 
-		Globals.createEmptyRace();
-
 		return saveGameMode(pc);
 	}
 
@@ -136,7 +134,7 @@ public class GameModePanel extends ConvertSubPanel
 			SpringLayout.WEST, panel);
 
 		List<GameMode> games = SystemCollections.getUnmodifiableGameModeList();
-		gameModeCombo = new JComboBoxEx(games.toArray());
+		gameModeCombo = new JComboBoxEx<>(games.toArray());
 		gameModeCombo.addActionListener(new ActionListener()
 		{
 			@Override

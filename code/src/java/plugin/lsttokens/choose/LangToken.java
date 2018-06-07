@@ -69,4 +69,10 @@ public class LangToken extends AbstractQualifiedChooseToken<Language>
 		return super.parseTokenWithSeparator(context, context.getReferenceContext()
 				.getManufacturer(LANGUAGE_CLASS), obj, value);
 	}
+
+	@Override
+	protected String getPersistentFormat()
+	{
+		return "LANGUAGE";
+	}
 }

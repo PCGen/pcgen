@@ -31,7 +31,8 @@ public class SetModifierFactory extends AbstractFixedSetModifierFactory<String>
 	 * Identifies that the Modifier objects built by this SetModifierFactory act
 	 * upon java.lang.String objects.
 	 * 
-	 * @see pcgen.base.calculation.CalculationInfo#getVariableFormat()
+	 * @return The Format (String.class) of object upon which Modifiers built by this
+	 *         SetModifierFactory can operate
 	 */
 	@Override
 	public Class<String> getVariableFormat()

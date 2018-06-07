@@ -61,7 +61,7 @@ OPTION:gameMode.Pathfinder_PFS.xpTableName=PFS Rules
 # Tian characters receive the languages Tien and Common for free.
 
 # This is included in the multi-set Pathfinder Society Core Assumption
-# PCC:@/pathfinder/paizo/roleplaying_game/core_rulebook/core_rulebook.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/core_rulebook/_pfs/_.pcc
 
 ########################
 # Blocked Resources    #

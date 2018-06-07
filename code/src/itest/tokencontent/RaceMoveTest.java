@@ -28,6 +28,7 @@ import plugin.lsttokens.race.MoveToken;
 
 import org.junit.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
+import util.TestURI;
 
 public class RaceMoveTest extends AbstractTokenModelTest
 {
@@ -60,7 +61,7 @@ public class RaceMoveTest extends AbstractTokenModelTest
 		ParseResult result = token.parseToken(context, source, "Fly,30");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();

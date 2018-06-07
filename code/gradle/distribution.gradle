@@ -27,7 +27,9 @@ ext {
             include 'outputsheets/**'
             include 'system/**'
             include 'preview/**'
-		exclude 'data/zen_test'
+            include 'vendordata/**'
+            include 'homebrewdata/**'
+            exclude 'data/zen_test'
         }
     }
 
@@ -36,16 +38,6 @@ ext {
             include 'docs/**'
         }
     }
-
-// Redundancy this is root above ziproot
-//    rootDistsImage = copySpec {
-//        from('.') {
-//            include 'pcgen.exe'
-//		include 'pcgen.jar'
-//		include 'pcgen-batch-convert.jar'
-//		include 'pcgen.sh'
-//       }
-//    }
 
     programDistsImage = copySpec {
         from("$buildDir/libs") {
@@ -60,6 +52,12 @@ ext {
         }
         from('code') {
             include 'LICENSE'
+            include 'pcgen.sh'
+            eachFile{ file ->
+                if(file.getName().endsWith(".sh")) {
+                    file.setMode(0755)
+                }
+            }
         }
         from("$buildDir/launch4j") {
             include 'pcgen.exe'
@@ -80,7 +78,7 @@ ext {
     }
 }
 
-task fullZip(type: Zip, dependsOn: ['converterJar', 'copyToLibs', 'copyToRoot']) {
+task fullZip(type: Zip, dependsOn: ['converterJar', 'copyToLibs', 'copyToOutput']) {
     classifier = 'full'
     into(zipRootFolder) {
         with dataDistsImage
@@ -90,10 +88,6 @@ task fullZip(type: Zip, dependsOn: ['converterJar', 'copyToLibs', 'copyToRoot'])
         with autobuildSpec
         with charactersImage
     }
-// Redundancy, not required with copyToRoot above
-//    into("") {
-//        with rootDistsImage
-//    }
 }
 
 task dataZip(type: Zip) {

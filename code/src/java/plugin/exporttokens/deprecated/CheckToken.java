@@ -118,7 +118,7 @@ public class CheckToken extends Token
 			int i = Integer.parseInt(saveType);
 
 			List<PCCheck> checkList = Globals.getContext().getReferenceContext()
-					.getOrderSortedCDOMObjects(PCCheck.class);
+					.getSortkeySortedCDOMObjects(PCCheck.class);
 			if ((i >= 0) && (i < checkList.size()))
 			{
 				return checkList.get(i);

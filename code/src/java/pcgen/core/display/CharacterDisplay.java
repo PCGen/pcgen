@@ -116,7 +116,6 @@ import pcgen.cdom.facet.fact.WeightFacet;
 import pcgen.cdom.facet.fact.XPFacet;
 import pcgen.cdom.facet.input.ProhibitedSchoolFacet;
 import pcgen.cdom.facet.input.UserSpecialAbilityFacet;
-import pcgen.cdom.facet.model.AlignmentFacet;
 import pcgen.cdom.facet.model.ArmorProfProviderFacet;
 import pcgen.cdom.facet.model.BioSetFacet;
 import pcgen.cdom.facet.model.ClassFacet;
@@ -164,6 +163,7 @@ import pcgen.core.character.Follower;
 import pcgen.core.character.SpellBook;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.spell.Spell;
+import pcgen.output.channel.ChannelCompatibility;
 import pcgen.util.enumeration.Load;
 import pcgen.util.enumeration.View;
 import pcgen.util.enumeration.VisionType;
@@ -238,7 +238,6 @@ public class CharacterDisplay
 	private StatCalcFacet statCalcFacet = FacetLibrary.getFacet(StatCalcFacet.class);
 	private EquipmentFacet equipmentFacet = FacetLibrary.getFacet(EquipmentFacet.class);
 	private EquipSetFacet equipSetFacet = FacetLibrary.getFacet(EquipSetFacet.class);
-	private AlignmentFacet alignmentFacet = FacetLibrary.getFacet(AlignmentFacet.class);
 	private SkillFacet skillFacet = FacetLibrary.getFacet(SkillFacet.class);
 	private DomainFacet domainFacet = FacetLibrary.getFacet(DomainFacet.class);
 	private ChallengeRatingFacet crFacet = FacetLibrary.getFacet(ChallengeRatingFacet.class);
@@ -780,7 +779,7 @@ public class CharacterDisplay
 	 */
 	public PCAlignment getPCAlignment()
 	{
-		return alignmentFacet.get(id);
+		return ChannelCompatibility.getCurrentAlignment(id);
 	}
 
 	public Object getGlobal(String varName)
@@ -1425,9 +1424,12 @@ public class CharacterDisplay
 
 	private String getDisplayRaceName()
 	{
-		final String raceName = getRace().toString();
-
-		return (raceName.equals(Constants.NONESELECTED) ? "Nothing" : raceName);
+		Race race = getRace();
+		if (race.isUnselected())
+		{
+			return "Nothing";
+		}
+		return getRace().toString();
 	}
 
 	private String getFullDisplayClassName()

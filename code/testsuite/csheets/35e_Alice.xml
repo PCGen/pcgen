@@ -39,7 +39,7 @@ BIO
 			<levels_total>4</levels_total>
 			<levels_ecl>4</levels_ecl>
 			<!-- shortform below should be removed - it can be derived from class info above -->
-			<shortform> Bas1  Ali3                 </shortform>
+			<shortform>Bas1,Ali3</shortform>
 			<!-- CLASSLIST is not extracted because we can derive it from the information above -->
 		</classes>
 		<deity>
@@ -48,7 +48,6 @@ BIO
 			<description></description>
 			<domainlist>Bar Ball, Domain Add Feat, Domain Test Skill, Domain Test Skill List, Dungeon Crawl, Foo Ball, Test Spells Domain</domainlist>
 			<favoredweapon>Fine Wine Blade|Deity Weapon Second Puni|Deity Weapon Puni</favoredweapon>
-<!-->			<followeralignment></followeralignment>  This is no longer valid and keeps throwing out errors-->
 			<holyitem></holyitem>
 			<pantheonlist></pantheonlist>
 			<source>PCGen Team - PCGen Testing Set</source>
@@ -1138,17 +1137,25 @@ BIO
 	  ====================================
 	  ====================================-->
 	<class_features>
-
 	<!-- Bard -->
 
-	<!-- Barbarian of 15th Level -->
-	<!-- Character Rage -->
+
+	<!-- Pathfinder -->
+		<!-- Character Rage -->
+		<!-- Character Rage -->
+
 	<!-- Turning ability -->
+
 	<!-- 3.0 stunning fist -->
+
 	<!-- 3.5 stunning fist -->
+
 	<!-- 3.0 wholeness of body -->
+
 	<!-- 3.5 wholeness of body -->
+
 	<!-- Psionics -->
+
 
 
 
@@ -1245,73 +1252,71 @@ BIO
 			<capacity>115</capacity>
 		</total>
 		<equipmentsets>
-
-      <equipmentset name="Default Set">
-		<item>
-					<name>Heavy Armor</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>0</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>ARMOR.HEAVY</type>
-					<weight>0</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Light Shield</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>0</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>SHIELD.LIGHT.WEAPON.MELEE</type>
-					<weight>0</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Tentacles of the Fey</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>0</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>WEAPON.MELEE.RANGED.SLASHING.BLUDGEONING.PIERCING.NATURAL</type>
-					<weight>0</weight>
-					<bonuslist></bonuslist>
-				</item>
+		<equipmentset name="Default Set">
+			<item>
+				<name>Heavy Armor</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>0</cost>
+				<equipped>Y</equipped>
+				<location>Equipped</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>ARMOR.HEAVY</type>
+				<weight>0</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Light Shield</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>0</cost>
+				<equipped>Y</equipped>
+				<location>Equipped</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>SHIELD.LIGHT.WEAPON.MELEE</type>
+				<weight>0</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Tentacles of the Fey</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>0</cost>
+				<equipped>Y</equipped>
+				<location>Equipped</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>WEAPON.MELEE.RANGED.SLASHING.BLUDGEONING.PIERCING.NATURAL</type>
+				<weight>0</weight>
+				<bonuslist></bonuslist>
+			</item>
 			</equipmentset>
-
       </equipmentsets>
 	</equipment>
 	<weight_allowance>
@@ -1568,6 +1573,7 @@ BIO
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 		</feat>
+
 		<!-- Auto feats -->
 		<feat>
 			<name>Simple Weapon Proficiency</name>
@@ -1579,6 +1585,7 @@ BIO
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 		</feat>
+
 		<!-- Virtual Feats -->
 		<!-- End Virtual Feats -->
 		<!-- Hidden feats (all feats less the virtual, automatic and visible ones) -->
@@ -1591,8 +1598,9 @@ BIO
 			ABILITY OBJECTS
 	  ====================================
 	  ====================================-->
+
 	<ability_objects>
-	<!-- Visible Automatic "Special Ability" Ability Objects -->
+		<!-- Visible Automatic "Special Ability" Ability Objects -->
 		<ability_object>
 			<name>ALICE ~ Move Add 1</name>
 			<description></description>
@@ -1648,7 +1656,7 @@ BIO
 			<virtual>F</virtual>
 			<category>Special Ability</category>
 		</ability_object>
-	<!-- Visible Automatic "Internal" Ability Objects -->
+		<!-- Visible Automatic "Internal" Ability Objects -->
 		<ability_object>
 			<name>Default</name>
 			<description></description>
@@ -1678,15 +1686,11 @@ BIO
 			<power>This has a Spells</power>
 		</domain>
 	</domains>
-	<!-- Domains -->
 	<weapon_proficiencies>Bob Racial Weapon, Dagger, Extra Blade, Jim Long Blade, Simple Weapon Four, Simple Weapon One, Simple Weapon Three, Simple Weapon Two, Spear, Suns Weapon Of Choice, Tentacles of the Fey, Unarmed Strike</weapon_proficiencies>
 	<languages>Common, MonKee Language</languages>
 
 
 	<misc>
-
-
-
 	</misc>
 	<!--
 	  ====================================
@@ -1694,11 +1698,8 @@ BIO
 			COMPANIONS
 	  ====================================
 	  ====================================-->
+
 	<companions>
-
-
-
-
 	</companions>
 	<!--
 	  ====================================
@@ -1709,43 +1710,41 @@ BIO
 	<spells>
 		<!-- ### BEGIN Innate spells ### -->
 	<spells_innate>
-
 		<racial_innate>
-			<spell>
-					<name>Spells Test</name>
-					<outputname>Spells Test</outputname>
-					<times_memorized>1</times_memorized>
-					<range></range>
-					<components></components>
-					<castingtime></castingtime>
-					<casterlevel>1</casterlevel>
-					<dc></dc>
-					<duration>As long as you want up to 10 days [Should be CL x 10]</duration>
-					<effect>What ever you want here, 1 [casterlevel], 10 [casterlevel x 10], 1 [min casterlevel ,10]</effect>
-					<target>Anywhere but here</target>
-					<saveinfo></saveinfo>
-					<school>
-						<school>Evocation</school>
-						<subschool>BlowThingsUp</subschool>
-						<descriptor>DangerousFubarStuff, I wouldn&#39;t touch it if I were you</descriptor>
-						<fullschool>Evocation (BlowThingsUp) [DangerousFubarStuff, I wouldn&#39;t touch it if I were you]</fullschool>
-					</school>
-					<source>
-						<sourcelevel></sourcelevel>
-						<source>PCGen Team - PCGen Testing Set, test</source>
-						<sourcepage>test</sourcepage>
-						<sourceshort>PTS</sourceshort>
-					</source>
-					<spell_resistance></spell_resistance>
-					<description>What ever you want here, (CASTERLEVEL) [casterlevel], (CASTERLEVEL*10) [casterlevel x 10], (min(CASTERLEVEL,10)) [min casterlevel ,10]</description>
-					<bonusspell></bonusspell>
-				</spell>
+					<spell>
+						<name>Spells Test</name>
+						<outputname>Spells Test</outputname>
+						<times_memorized>1</times_memorized>
+						<range></range>
+						<components></components>
+						<castingtime></castingtime>
+						<casterlevel>1</casterlevel>
+						<dc></dc>
+						<duration>As long as you want up to 10 days [Should be CL x 10]</duration>
+						<effect>What ever you want here, 1 [casterlevel], 10 [casterlevel x 10], 1 [min casterlevel ,10]</effect>
+						<target>Anywhere but here</target>
+						<saveinfo></saveinfo>
+						<school>
+							<school>Evocation</school>
+							<subschool>BlowThingsUp</subschool>
+							<descriptor>DangerousFubarStuff, I wouldn&#39;t touch it if I were you</descriptor>
+							<fullschool>Evocation (BlowThingsUp) [DangerousFubarStuff, I wouldn&#39;t touch it if I were you]</fullschool>
+						</school>
+						<source>
+							<sourcelevel></sourcelevel>
+							<source>PCGen Team - PCGen Testing Set, test</source>
+							<sourcepage>test</sourcepage>
+							<sourceshort>PTS</sourceshort>
+						</source>
+						<spell_resistance></spell_resistance>
+						<description>What ever you want here, (CASTERLEVEL) [casterlevel], (CASTERLEVEL*10) [casterlevel x 10], (min(CASTERLEVEL,10)) [min casterlevel ,10]</description>
+						<bonusspell></bonusspell>
+					</spell>
 		</racial_innate>
 
 		<class_innate>
-
 			<spellbook number="2" name="YourTest">
-				<spell>
+					<spell>
 						<name>Same Spell Test</name>
 						<outputname>Same Spell Test</outputname>
 						<times_memorized>3</times_memorized>
@@ -1775,17 +1774,15 @@ BIO
 						<bonusspell></bonusspell>
 					</spell>
 			</spellbook>
-
 		</class_innate>
 		</spells_innate>
 <!-- ### END Innate spells ### -->
 		<!-- ### BEGIN Known spells ### -->
 		<known_spells>
-
 		<class number="1" spelllistclass="Alice Class" spellcastertype="Arcane">
 			<level number="0" known="0" cast="0"/>
 			<level number="1" known="0" cast="1">
-				<spell>
+					<spell>
 						<name>Alice Class Known Spell</name>
 						<outputname>Alice Class Known Spell</outputname>
 						<times_memorized>1</times_memorized>
@@ -1814,7 +1811,7 @@ BIO
 						<description>This is a Test of the Known Spells on a Class Called &#39;Alice Class&#39;</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Alice Known Spell</name>
 						<outputname>Alice Known Spell</outputname>
 						<times_memorized>1</times_memorized>
@@ -1848,7 +1845,7 @@ BIO
 			<level number="3" known="0" cast="0"/>
 			<level number="4" known="0" cast="0"/>
 			<level number="5" known="0" cast="1">
-				<spell>
+					<spell>
 						<name>Alice Adds Spell Through SPELLLEVEL</name>
 						<outputname>Alice Adds Spell Through SPELLLEVEL</outputname>
 						<times_memorized>1</times_memorized>
@@ -1889,47 +1886,44 @@ BIO
 		<!-- ### END Known spells ### -->
 		<!-- ### BEGIN memorized spells ### -->
 	<memorized_spells>
-			<!-- ### BEGIN innate memorized spell section -->	
-<!-- ### BEGIN innate memorized spells ### -->
-
+		<!-- ### BEGIN innate memorized spell section -->	
+		<!-- ### BEGIN innate memorized spells ### -->
 		<racial_innate_memorized>
-			<spell>
-					<name>Spells Test</name>
-					<outputname>Spells Test</outputname>
-					<times_memorized>1</times_memorized>
-					<range></range>
-					<components></components>
-					<castingtime></castingtime>
-					<casterlevel>1</casterlevel>
-					<dc></dc>
-					<duration>As long as you want up to 10 days [Should be CL x 10]</duration>
-					<effect>What ever you want here, 1 [casterlevel], 10 [casterlevel x 10], 1 [min casterlevel ,10]</effect>
-					<target>Anywhere but here</target>
-					<saveinfo></saveinfo>
-					<school>
-						<school>Evocation</school>
-						<subschool>BlowThingsUp</subschool>
-						<descriptor>DangerousFubarStuff, I wouldn&#39;t touch it if I were you</descriptor>
-						<fullschool>Evocation (BlowThingsUp) [DangerousFubarStuff, I wouldn&#39;t touch it if I were you]</fullschool>
-					</school>
-					<source>
-						<sourcelevel></sourcelevel>
-						<source>PCGen Team - PCGen Testing Set, test</source>
-						<sourcepage>test</sourcepage>
-						<sourceshort>PTS</sourceshort>
-					</source>
-					<spell_resistance></spell_resistance>
-					<description>What ever you want here, (CASTERLEVEL) [casterlevel], (CASTERLEVEL*10) [casterlevel x 10], (min(CASTERLEVEL,10)) [min casterlevel ,10]</description>
-					<bonusspell></bonusspell>
-				</spell>
+					<spell>
+						<name>Spells Test</name>
+						<outputname>Spells Test</outputname>
+						<times_memorized>1</times_memorized>
+						<range></range>
+						<components></components>
+						<castingtime></castingtime>
+						<casterlevel>1</casterlevel>
+						<dc></dc>
+						<duration>As long as you want up to 10 days [Should be CL x 10]</duration>
+						<effect>What ever you want here, 1 [casterlevel], 10 [casterlevel x 10], 1 [min casterlevel ,10]</effect>
+						<target>Anywhere but here</target>
+						<saveinfo></saveinfo>
+						<school>
+							<school>Evocation</school>
+							<subschool>BlowThingsUp</subschool>
+							<descriptor>DangerousFubarStuff, I wouldn&#39;t touch it if I were you</descriptor>
+							<fullschool>Evocation (BlowThingsUp) [DangerousFubarStuff, I wouldn&#39;t touch it if I were you]</fullschool>
+						</school>
+						<source>
+							<sourcelevel></sourcelevel>
+							<source>PCGen Team - PCGen Testing Set, test</source>
+							<sourcepage>test</sourcepage>
+							<sourceshort>PTS</sourceshort>
+						</source>
+						<spell_resistance></spell_resistance>
+						<description>What ever you want here, (CASTERLEVEL) [casterlevel], (CASTERLEVEL*10) [casterlevel x 10], (min(CASTERLEVEL,10)) [min casterlevel ,10]</description>
+						<bonusspell></bonusspell>
+					</spell>
 		</racial_innate_memorized>
-
-<!-- ### END innate memorized spells ### -->
-			<!-- ### BEGIN class innate memorized spells ### -->
-			<class_innate_memorized>
-
+		<!-- ### END innate memorized spells ### -->
+		<!-- ### BEGIN class innate memorized spells ### -->
+		<class_innate_memorized>
 			<spellbook number="2" name="YourTest">
-				<spell>
+					<spell>
 						<name>Same Spell Test</name>
 						<outputname>Same Spell Test</outputname>
 						<times_memorized>3</times_memorized>
@@ -1959,48 +1953,45 @@ BIO
 						<bonusspell></bonusspell>
 					</spell>
 			</spellbook>
-
 		</class_innate_memorized>
 			<!-- ### END class innate memorized spells ### -->
-<!-- ### END innate memorized spell section -->
-			<!-- ### BEGIN class Spellbook memorized spells ### -->
-<!-- FOR,1,COUNT[SPELLRACE],COUNT[SPELLRACE],1,1 -->
-<!-- FOR,0,COUNT[SPELLSINBOOK0.2.0],COUNT[SPELLSINBOOK0.2.0],1,1 -->
+		<!-- ### END innate memorized spell section -->
+	
+		<!-- ### BEGIN class Spellbook memorized spells ### -->
 <!-- Either we do not have a innate race, or if we do we do not have any 0 level spell for the innate race -->
-			<spellbook number="2" name="YourTest">
-
+		<spellbook number="2" name="YourTest">
 			<class number="1" spelllistclass="Alice Class">
 				<level number="0" spellcount="0"/>
 				<level number="1" spellcount="1">
 					<spell>
-							<name>Same Spell Test</name>
-							<outputname>Same Spell Test</outputname>
-							<times_memorized>3</times_memorized>
-							<range></range>
-							<components></components>
-							<castingtime></castingtime>
-							<casterlevel>3</casterlevel>
-							<dc></dc>
-							<duration>As long as you want up to 30 days [Should be CL x 10]</duration>
-							<effect>What ever you want here, 3 [casterlevel], 30 [casterlevel x 10], 3 [min casterlevel ,10]</effect>
-							<target>Anywhere but here</target>
-							<saveinfo></saveinfo>
-							<school>
-								<school>Evocation</school>
-								<subschool>BlowThingsUp</subschool>
-								<descriptor>DangerousFubarStuff, I wouldn&#39;t touch it if I were you</descriptor>
-								<fullschool>Evocation (BlowThingsUp) [DangerousFubarStuff, I wouldn&#39;t touch it if I were you]</fullschool>
-							</school>
-							<source>
-								<sourcelevel></sourcelevel>
-								<source>PCGen Team - PCGen Testing Set, test</source>
-								<sourcepage>test</sourcepage>
-								<sourceshort>PTS</sourceshort>
-							</source>
-							<spell_resistance></spell_resistance>
-							<description>What ever you want here, (CASTERLEVEL) [casterlevel], (CASTERLEVEL*10) [casterlevel x 10], (min(CASTERLEVEL,10)) [min casterlevel ,10]</description>
-							<bonusspell>*</bonusspell>
-						</spell>
+						<name>Same Spell Test</name>
+						<outputname>Same Spell Test</outputname>
+						<times_memorized>3</times_memorized>
+						<range></range>
+						<components></components>
+						<castingtime></castingtime>
+						<casterlevel>3</casterlevel>
+						<dc></dc>
+						<duration>As long as you want up to 30 days [Should be CL x 10]</duration>
+						<effect>What ever you want here, 3 [casterlevel], 30 [casterlevel x 10], 3 [min casterlevel ,10]</effect>
+						<target>Anywhere but here</target>
+						<saveinfo></saveinfo>
+						<school>
+							<school>Evocation</school>
+							<subschool>BlowThingsUp</subschool>
+							<descriptor>DangerousFubarStuff, I wouldn&#39;t touch it if I were you</descriptor>
+							<fullschool>Evocation (BlowThingsUp) [DangerousFubarStuff, I wouldn&#39;t touch it if I were you]</fullschool>
+						</school>
+						<source>
+							<sourcelevel></sourcelevel>
+							<source>PCGen Team - PCGen Testing Set, test</source>
+							<sourcepage>test</sourcepage>
+							<sourceshort>PTS</sourceshort>
+						</source>
+						<spell_resistance></spell_resistance>
+						<description>What ever you want here, (CASTERLEVEL) [casterlevel], (CASTERLEVEL*10) [casterlevel x 10], (min(CASTERLEVEL,10)) [min casterlevel ,10]</description>
+						<bonusspell>*</bonusspell>
+					</spell>
 				</level>
 				<level number="2" spellcount="0"/>
 				<level number="3" spellcount="0"/>
@@ -2011,11 +2002,19 @@ BIO
 				<level number="8" spellcount="0"/>
 				<level number="9" spellcount="0"/>
 			</class>
-
-
+			<class number="2" spelllistclass="">
+				<level number="0" spellcount="0"/>
+				<level number="1" spellcount="0"/>
+				<level number="2" spellcount="0"/>
+				<level number="3" spellcount="0"/>
+				<level number="4" spellcount="0"/>
+				<level number="5" spellcount="0"/>
+				<level number="6" spellcount="0"/>
+				<level number="7" spellcount="0"/>
+				<level number="8" spellcount="0"/>
+				<level number="9" spellcount="0"/>
+			</class>
 		</spellbook>
-<!-- END FOR,0,COUNT[SPELLSINBOOK0.2.0],COUNT[SPELLSINBOOK0.2.0],1,1 -->
-<!-- END FOR,1,COUNT[SPELLRACE],COUNT[SPELLRACE],1,1 -->
 	</memorized_spells>
 <!-- ### END class Spellbook memorized spells ### -->
 	</spells>

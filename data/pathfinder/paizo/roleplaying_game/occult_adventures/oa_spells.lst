@@ -19,6 +19,7 @@ Catatonia				TYPE:Arcane.Divine.Psychic	CLASSES:Alchemist,Bard,Medium,Mesmerist,
 Charge Object			TYPE:Psychic			CLASSES:Medium,Mesmerist,Psychic,Spiritualist=1										SCHOOL:Transmutation											COMPS:V, S						CASTTIME:10 minutes		RANGE:Touch		TARGETAREA:Object touched											DURATION:Permanent							SAVEINFO:None; see text								SPELLRES:No			SOURCEPAGE:p.161	DESC:Infuse psychic energy and ownership history into an item.
 Cognitive Block			TYPE:Psychic			CLASSES:Medium,Mesmerist=2|Psychic=3													SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Mind-affecting		COMPS:V						CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One creature												DURATION:(CASTERLEVEL) rounds [D]					SAVEINFO:Will negates								SPELLRES:Yes		SOURCEPAGE:p.161	DESC:Add a thought component to all of the target's spells.
 Condensed Ether			TYPE:Arcane.Psychic		CLASSES:Psychic=4|Sorcerer,Wizard=5														SCHOOL:Transmutation											COMPS:V, S, M (crushed amber)			CASTTIME:1 standard action	RANGE:Medium	TARGETAREA:20-ft.-radius spread										DURATION:(CASTERLEVEL) minutes					SAVEINFO:None									SPELLRES:No			SOURCEPAGE:p.162	DESC:Creates a planar conjunction that slows movement, penalizes AC and Reflex saves, and imposes a miss chance on ranged attacks.
+Contagious Zeal			TYPE:Arcane.Divine.Psychic	CLASSES:Bard=2|Cleric,Inquisitor,Psychic,Sorcerer,Spiritualist,Wizard=3								SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Emotion|Mind-Affecting	COMPS:V, S						CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One creature												DURATION:(CASTERLEVEL) rounds						SAVEINFO:Will negates (harmless)						SPELLRES:Yes (harmless)	SOURCEPAGE:p.162	DESC:The target gains a +2 morale bonus on attack rolls and weapon damage rolls, 1d6 temporary hit points, and a +4 morale bonus on saving throws against fear effects and to the DC of Intimidate checks attempted against her. Once per round, the target can select one other creature to gain this bonus as well. The chosen creature can be no farther from the target than (25+(CASTERLEVEL*5)/2) feet, and a creature can’t be selected more than once in this way. Such allies gain only the bonuses and temporary hit points; they don't continue to spread it to other creatures. The additional creatures' bonuses and temporary hit points share the original spell's duration, so when that duration ends, all affected creatures lose their bonuses and any remaining temporary hit points from this spell.
 Create Mindscape			TYPE:Arcane.Psychic		CLASSES:Medium,Mesmerist,Psychic=4|Sorcerer,Wizard=5											SCHOOL:Illusion		SUBSCHOOL:Phantasm	DESCRIPTOR:Mind-affecting		COMPS:V, S						CASTTIME:1 round			RANGE:Long		TARGETAREA:One creature												DURATION:(CASTERLEVEL*10) minutes					SAVEINFO:Will disbelief; see text						SPELLRES:Yes		SOURCEPAGE:p.162	DESC:Form an immersive mindscape.
 Create Mindscape (Greater)	TYPE:Arcane.Psychic		CLASSES:Mesmerist,Psychic=6|Sorcerer,Wizard=7												SCHOOL:Illusion		SUBSCHOOL:Phantasm	DESCRIPTOR:Mind-affecting		COMPS:V, S						CASTTIME:1 round			RANGE:Long		TARGETAREA:(CASTERLEVEL) creatures										DURATION:(CASTERLEVEL) days						SAVEINFO:Will disbelief; see text						SPELLRES:Yes		SOURCEPAGE:p.163	DESC:As create mindscape, but affecting more creatures, having a longer duration, and allowing magic alteration.
 Decrepit Disguise			TYPE:Arcane.Psychic		CLASSES:Bard,Medium,Mesmerist,Psychic,Sorcerer,Wizard=1									SCHOOL:Illusion		SUBSCHOOL:Glamer								COMPS:V						CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One object of no more than (CASTERLEVEL*10) cu. ft.					DURATION:(CASTERLEVEL) days						SAVEINFO:None (object) or Will disbelief (if interacted with)	SPELLRES:No			SOURCEPAGE:p.163	DESC:Make an object seem worthless.
@@ -82,7 +83,7 @@ Mind Thrust VI			TYPE:Psychic			CLASSES:Psychic=6																	SCHOOL:Divinat
 Mindlink				TYPE:Arcane.Divine.Psychic	CLASSES:Medium,Mesmerist,Psychic,Shaman,Sorcerer,Spiritualist,Wizard=1						SCHOOL:Divination						DESCRIPTOR:Mind-affecting		COMPS:V						CASTTIME:1 standard action	RANGE:Touch		TARGETAREA:Creature touched											DURATION:Instantaneous							SAVEINFO:Will negates (harmless)						SPELLRES:Yes		SOURCEPAGE:p.177	DESC:Communicate a great deal of information in an instant.
 Mindscape Door			TYPE:Arcane.Psychic		CLASSES:Medium,Mesmerist,Psychic=3|Sorcerer,Wizard=4											SCHOOL:Illusion		SUBSCHOOL:Phantasm	DESCRIPTOR:Mind-affecting		COMPS:V, S						CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One illusory portal										DURATION:(CASTERLEVEL*10) minutes					SAVEINFO:Will negates (see text)						SPELLRES:No			SOURCEPAGE:p.177	DESC:Create a portal allowing entry to and exit from a mindscape.
 Mindwipe				TYPE:Arcane.Psychic		CLASSES:Medium,Mesmerist,Psychic,Sorcerer,Spiritualist,Wizard=4							SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Mind-affecting		COMPS:V						CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One creature												DURATION:Instantaneous; see text					SAVEINFO:Will negates								SPELLRES:Yes		SOURCEPAGE:p.178	DESC:Erase a portion of the target's mind and experiences, inflicting negative levels.
-Node Of Blasting			TYPE:Psychic			CLASSES:Medium,Mesmerist,Psychic=3												SCHOOL:Abjuration						DESCRIPTOR:Mind-affecting		COMPS:V						CASTTIME:1 standard action	RANGE:Touch		TARGETAREA:One touched object weighing no more than 10 lbs.						DURATION:Permanent until discharged [D]				SAVEINFO:Will partial; see text						SPELLRES:No			SOURCEPAGE:p.178	DESC:Place a trap on an object to mentally damage a creature that touches it.
+Node of Blasting			TYPE:Psychic			CLASSES:Medium,Mesmerist,Psychic=3												SCHOOL:Abjuration						DESCRIPTOR:Mind-affecting		COMPS:V						CASTTIME:1 standard action	RANGE:Touch		TARGETAREA:One touched object weighing no more than 10 lbs.						DURATION:Permanent until discharged [D]				SAVEINFO:Will partial; see text						SPELLRES:No			SOURCEPAGE:p.178	DESC:Place a trap on an object to mentally damage a creature that touches it.
 Object Possession			TYPE:Arcane.Psychic		CLASSES:Medium=4|Mesmerist,Psychic,Sorcerer,Spiritualist,Witch,Wizard=5						SCHOOL:Necromancy												COMPS:V, S						CASTTIME:1 standard action	RANGE:Close		TARGETAREA:Unattended Large or smaller object (minimum Tiny)					DURATION:(CASTERLEVEL*10) minutes [D]				SAVEINFO:None									SPELLRES:No			SOURCEPAGE:p.179	DESC:As lesser object possession, but with a larger object.
 Object Possession (Greater)	TYPE:Arcane.Psychic		CLASSES:Psychic,Spiritualist=6|Sorcerer,Witch,Wizard=7								SCHOOL:Necromancy												COMPS:V, S						CASTTIME:1 standard action	RANGE:Medium	TARGETAREA:Unattended Gargantuan or smaller object (minimum Tiny) or construct		DURATION:(CASTERLEVEL*10) minutes [D]				SAVEINFO:None									SPELLRES:No			SOURCEPAGE:p.179	DESC:As possess object, but the object is more powerful and you can possess a construct.
 Object Possession (Lesser)	TYPE:Arcane.Psychic		CLASSES:Medium=2|Mesmerist,Psychic,Spiritualist=3|Sorcerer,Witch,Wizard=4						SCHOOL:Necromancy												COMPS:V, S						CASTTIME:1 standard action	RANGE:Touch		TARGETAREA:Unattended Tiny or Small object								DURATION:(CASTERLEVEL) minutes [D]					SAVEINFO:None									SPELLRES:No			SOURCEPAGE:p.179	DESC:Project your soul into an object, animating it.
@@ -135,36 +136,68 @@ Thought Shield III		TYPE:Psychic			CLASSES:Psychic=4																	SCHOOL:Abju
 Thought Shield IV			TYPE:Psychic			CLASSES:Psychic=5																	SCHOOL:Abjuration												COMPS:V						CASTTIME:1 immediate action	RANGE:Personal	TARGETAREA:You													DURATION:1 round								SAVEINFO:None									SPELLRES:No			SOURCEPAGE:p.190	DESC:As thought shield III, but stun for 1d4 rounds and resist psychic crush spells.
 Thought Shield V			TYPE:Psychic			CLASSES:Psychic=6																	SCHOOL:Abjuration												COMPS:V						CASTTIME:1 immediate action	RANGE:Personal	TARGETAREA:You													DURATION:(CASTERLEVEL) rounds; see text				SAVEINFO:None									SPELLRES:No			SOURCEPAGE:p.190	DESC:As thought shield IV, but lasts 1 round per level.
 Thoughtsense			TYPE:Arcane.Psychic		CLASSES:Medium,Mesmerist,Psychic,Spiritualist=4|Sorcerer,Wizard=5									SCHOOL:Divination						DESCRIPTOR:Mind-affecting		COMPS:V, M (a bit of dried brain tissue)	CASTTIME:1 standard action	RANGE:Personal	TARGETAREA:You													DURATION:(CASTERLEVEL) minutes					SAVEINFO:None									SPELLRES:No			SOURCEPAGE:p.190	DESC:Automatically detect nearby conscious creatures.
-Tower Of Iron Will I		TYPE:Psychic			CLASSES:Psychic=5																	SCHOOL:Abjuration												COMPS:V						CASTTIME:1 immediate action	RANGE:10 ft.	TARGETAREA:10-ft.-radius emanation centered on you							DURATION:1 round								SAVEINFO:None									SPELLRES:Yes (harmless)	SOURCEPAGE:p.190	DESC:As an immediate action, gives creatures in a 10-ft. radius spell resistance against psychic magic and mind-affecting effects.
-Tower Of Iron Will II		TYPE:Psychic			CLASSES:Psychic=6																	SCHOOL:Abjuration												COMPS:V						CASTTIME:1 immediate action	RANGE:10 ft.	TARGETAREA:10-ft.-radius emanation centered on you							DURATION:2 rounds								SAVEINFO:None									SPELLRES:Yes (harmless)	SOURCEPAGE:p.190	DESC:As tower of iron will I, but lasts 2 rounds.
-Tower Of Iron Will III		TYPE:Psychic			CLASSES:Psychic=7																	SCHOOL:Abjuration												COMPS:V						CASTTIME:1 immediate action	RANGE:10 ft.	TARGETAREA:10-ft.-radius emanation centered on you							DURATION:3 rounds								SAVEINFO:None									SPELLRES:Yes (harmless)	SOURCEPAGE:p.190	DESC:As tower of iron will I, but lasts 3 rounds.
-Tower Of Iron Will IV		TYPE:Psychic			CLASSES:Psychic=8																	SCHOOL:Abjuration												COMPS:V						CASTTIME:1 immediate action	RANGE:10 ft.	TARGETAREA:10-ft.-radius emanation centered on you							DURATION:4 rounds								SAVEINFO:None									SPELLRES:Yes (harmless)	SOURCEPAGE:p.190	DESC:As tower of iron will I, but lasts 4 rounds.
-Tower Of Iron Will V		TYPE:Psychic			CLASSES:Psychic=9																	SCHOOL:Abjuration												COMPS:V						CASTTIME:1 immediate action	RANGE:10 ft.	TARGETAREA:10-ft.-radius emanation centered on you							DURATION:5 rounds								SAVEINFO:None									SPELLRES:Yes (harmless)	SOURCEPAGE:p.190	DESC:As tower of iron will I, but lasts 5 rounds.
+Tower of Iron Will I		TYPE:Psychic			CLASSES:Psychic=5																	SCHOOL:Abjuration												COMPS:V						CASTTIME:1 immediate action	RANGE:10 ft.	TARGETAREA:10-ft.-radius emanation centered on you							DURATION:1 round								SAVEINFO:None									SPELLRES:Yes (harmless)	SOURCEPAGE:p.190	DESC:As an immediate action, gives creatures in a 10-ft. radius spell resistance against psychic magic and mind-affecting effects.
+Tower of Iron Will II		TYPE:Psychic			CLASSES:Psychic=6																	SCHOOL:Abjuration												COMPS:V						CASTTIME:1 immediate action	RANGE:10 ft.	TARGETAREA:10-ft.-radius emanation centered on you							DURATION:2 rounds								SAVEINFO:None									SPELLRES:Yes (harmless)	SOURCEPAGE:p.190	DESC:As tower of iron will I, but lasts 2 rounds.
+Tower of Iron Will III		TYPE:Psychic			CLASSES:Psychic=7																	SCHOOL:Abjuration												COMPS:V						CASTTIME:1 immediate action	RANGE:10 ft.	TARGETAREA:10-ft.-radius emanation centered on you							DURATION:3 rounds								SAVEINFO:None									SPELLRES:Yes (harmless)	SOURCEPAGE:p.190	DESC:As tower of iron will I, but lasts 3 rounds.
+Tower of Iron Will IV		TYPE:Psychic			CLASSES:Psychic=8																	SCHOOL:Abjuration												COMPS:V						CASTTIME:1 immediate action	RANGE:10 ft.	TARGETAREA:10-ft.-radius emanation centered on you							DURATION:4 rounds								SAVEINFO:None									SPELLRES:Yes (harmless)	SOURCEPAGE:p.190	DESC:As tower of iron will I, but lasts 4 rounds.
+Tower of Iron Will V		TYPE:Psychic			CLASSES:Psychic=9																	SCHOOL:Abjuration												COMPS:V						CASTTIME:1 immediate action	RANGE:10 ft.	TARGETAREA:10-ft.-radius emanation centered on you							DURATION:5 rounds								SAVEINFO:None									SPELLRES:Yes (harmless)	SOURCEPAGE:p.190	DESC:As tower of iron will I, but lasts 5 rounds.
 Unshakable Zeal			TYPE:Arcane.Divine.Psychic	CLASSES:Bard=5|Inquisitor,Spiritualist=6|Psychic=7											SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Emotion, Mind-affecting	COMPS:S, F (a silver circlet)			CASTTIME:1 standard action	RANGE:Touch		TARGETAREA:Creature touched											DURATION:(CASTERLEVEL) hours						SAVEINFO:Will negates (harmless)						SPELLRES:Yes (harmless)	SOURCEPAGE:p.190	DESC:Grant benefits on future attempts after failed checks, and protect against fear and emotion effects.
-Wall Of Ectoplasm			TYPE:Arcane.Divine.Psychic	CLASSES:Cleric,Psychic,Sorcerer,Spiritualist,Wizard=5											SCHOOL:Evocation												COMPS:V, S, M (small bit of gauze)		CASTTIME:1 standard action	RANGE:Close		TARGETAREA:Opaque sheet of ectoplasm up to (CASTERLEVEL*10) ft. square or a sphere or hemisphere with a radius of up to (CASTERLEVEL) ft.	DURATION:(CASTERLEVEL) minutes	SAVEINFO:None, and Will negates; see text	SPELLRES:Yes		SOURCEPAGE:p.190	DESC:Wall of spirits blocks movement on Material Plane and Ethereal Plane and causes fear.
+Wall of Ectoplasm			TYPE:Arcane.Divine.Psychic	CLASSES:Cleric,Psychic,Sorcerer,Spiritualist,Wizard=5											SCHOOL:Evocation												COMPS:V, S, M (small bit of gauze)		CASTTIME:1 standard action	RANGE:Close		TARGETAREA:Opaque sheet of ectoplasm up to (CASTERLEVEL*10) ft. square or a sphere or hemisphere with a radius of up to (CASTERLEVEL) ft.	DURATION:(CASTERLEVEL) minutes	SAVEINFO:None, and Will negates; see text	SPELLRES:Yes		SOURCEPAGE:p.190	DESC:Wall of spirits blocks movement on Material Plane and Ethereal Plane and causes fear.
 Withdraw Affliction		TYPE:Arcane.Divine.Psychic	CLASSES:Psychic,Shaman,Spiritualist=6|Witch=7												SCHOOL:Necromancy												COMPS:V, S						CASTTIME:1 standard action	RANGE:Touch		TARGETAREA:One afflicted creature										DURATION:Instantaneous							SAVEINFO:None									SPELLRES:Yes		SOURCEPAGE:p.191	DESC:Remove an affliction and inflict it on another creature.
 
+###Block: Knacks - 0-Level Spiritualist Spells: 
+Bleed.MOD					TYPE:Psychic	CLASSES:Spiritualist=0
+daze.MOD					TYPE:Psychic	CLASSES:Spiritualist=0
+detect magic.MOD				TYPE:Psychic	CLASSES:Spiritualist=0
+detect psychic significance.MOD	TYPE:Psychic	CLASSES:Spiritualist=0
+grave words.MOD				TYPE:Psychic	CLASSES:Spiritualist=0
+guidance.MOD				TYPE:Psychic	CLASSES:Spiritualist=0
+light.MOD					TYPE:Psychic	CLASSES:Spiritualist=0
+mage hand.MOD				TYPE:Psychic	CLASSES:Spiritualist=0
+mending.MOD					TYPE:Psychic	CLASSES:Spiritualist=0
+message.MOD					TYPE:Psychic	CLASSES:Spiritualist=0
+open/close.MOD				TYPE:Psychic	CLASSES:Spiritualist=0
+read magic.MOD				TYPE:Psychic	CLASSES:Spiritualist=0
+resistance.MOD				TYPE:Psychic	CLASSES:Spiritualist=0
+stabilize.MOD				TYPE:Psychic	CLASSES:Spiritualist=0
+telekinetic projectile.MOD		TYPE:Psychic	CLASSES:Spiritualist=0
+virtue.MOD					TYPE:Psychic	CLASSES:Spiritualist=0
+
+
 #Core/APG
-Aid.MOD					TYPE:Psychic	CLASSES:Medium=2
+Aid.MOD					TYPE:Psychic	CLASSES:Medium,Spiritualist=2
+Alarm.MOD					TYPE:Psychic	CLASSES:Spiritualist=1
+Alter Winds.MOD				TYPE:Psychic	CLASSES:Spiritualist=1
 Alter Self.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=2
+Analyze Dweomer.MOD			TYPE:Psychic	CLASSES:Spiritualist=6
 Animal Messenger.MOD			TYPE:Psychic	CLASSES:Mesmerist=2
 Animal Trance.MOD				TYPE:Psychic	CLASSES:Mesmerist=2
+Animate Dead.MOD				TYPE:Psychic	CLASSES:Spiritualist=3
+Animate Dead (Lesser).MOD		TYPE:Psychic	CLASSES:Spiritualist=2
 Animate Rope.MOD				TYPE:Psychic	CLASSES:Mesmerist=1
 Ant Haul.MOD				TYPE:Psychic	CLASSES:Medium=1
+Anti-Incorporeal Shell.MOD		TYPE:Psychic	CLASSES:Spiritualist=4
+Anticipate Peril.MOD			TYPE:Psychic	CLASSES:Spiritualist=1
 Arcane Eye.MOD				TYPE:Psychic	CLASSES:Mesmerist=4
-Augury.MOD					TYPE:Psychic	CLASSES:Medium=2
+Augury.MOD					TYPE:Psychic	CLASSES:Medium,Spiritualist=2
+Aura of Doom.MOD				TYPE:Psychic	CLASSES:Spiritualist=4
+Aura Sight.MOD				TYPE:Psychic	CLASSES:Spiritualist=3
 
 Bane.MOD					TYPE:Psychic	CLASSES:Mesmerist=1
+Banishment.MOD				TYPE:Psychic	CLASSES:Spiritualist=6
+Banshee Blast.MOD				TYPE:Psychic	CLASSES:Spiritualist=6
 Bear's Endurance.MOD			TYPE:Psychic	CLASSES:Medium=2
 Beguiling Gift.MOD			TYPE:Psychic	CLASSES:Mesmerist=1
-Bestow Curse.MOD				TYPE:Psychic	CLASSES:Medium=2|Mesmerist=3
-Bleed.MOD					TYPE:Psychic	CLASSES:Medium,Mesmerist=0
-Blindness/Deafness.MOD			TYPE:Psychic	CLASSES:Mesmerist=2
+Bestow Curse.MOD				TYPE:Psychic	CLASSES:Medium=2|Mesmerist,Spiritualist=3
+Black Tentacles.MOD			TYPE:Psychic	CLASSES:Spiritualist=4
+Bleed.MOD					TYPE:Psychic	CLASSES:Medium,Mesmerist,Spiritualist=0
+Blindness/Deafness.MOD			TYPE:Psychic	CLASSES:Mesmerist=2|Spiritualist=3
 Blood Biography.MOD			TYPE:Psychic	CLASSES:Medium=2
-Blur.MOD					TYPE:Psychic	CLASSES:Medium,Mesmerist=2
+Blur.MOD					TYPE:Psychic	CLASSES:Medium,Mesmerist,Spiritualist=2
 Borrow Fortune.MOD			TYPE:Psychic	CLASSES:Medium=3
 Borrow Skill.MOD				TYPE:Psychic	CLASSES:Medium=1
-Break Enchantment.MOD			TYPE:Psychic	CLASSES:Medium,Mesmerist=4
+Break Enchantment.MOD			TYPE:Psychic	CLASSES:Medium,Mesmerist=4|Spiritualist=5
+Breath of Life.MOD			TYPE:Psychic	CLASSES:Spiritualist=5
 Bull's Strength.MOD			TYPE:Psychic	CLASSES:Medium=2
 Burning Gaze.MOD				TYPE:Psychic	CLASSES:Mesmerist=2
 
@@ -174,91 +207,126 @@ Cast Out.MOD				TYPE:Psychic	CLASSES:Medium=2
 Castigate.MOD				TYPE:Psychic	CLASSES:Mesmerist=2
 Castigate (Mass).MOD			TYPE:Psychic	CLASSES:Mesmerist=5
 Cat's Grace.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=2
-Cause Fear.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=1
+Cause Fear.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist,Spiritualist=1
 Charm Monster.MOD				TYPE:Psychic	CLASSES:Mesmerist=3
 Charm Monster (Mass).MOD		TYPE:Psychic	CLASSES:Mesmerist=6
 Charm Person.MOD				TYPE:Psychic	CLASSES:Mesmerist=1
-Clairaudience/Clairvoyance.MOD	TYPE:Psychic	CLASSES:Medium=2|Mesmerist=3
-Cloak Of Dreams.MOD			TYPE:Psychic	CLASSES:Mesmerist=5
+Chill Touch.MOD				TYPE:Psychic	CLASSES:Spiritualist=1
+Circle of Death.MOD			TYPE:Psychic	CLASSES:Spiritualist=6
+Clairaudience/Clairvoyance.MOD	TYPE:Psychic	CLASSES:Medium=2|Mesmerist,Spiritualist=3
+Cloak of Dreams.MOD			TYPE:Psychic	CLASSES:Mesmerist=5
+Cloak of Winds.MOD			TYPE:Psychic	CLASSES:Spiritualist=3
+Cloudkill.MOD				TYPE:Psychic	CLASSES:Spiritualist=5
 Color Spray.MOD				TYPE:Psychic	CLASSES:Mesmerist=1
 Command.MOD					TYPE:Psychic	CLASSES:Medium,Mesmerist=1
 Command (Greater).MOD			TYPE:Psychic	CLASSES:Medium,Mesmerist=4
 Command Undead.MOD			TYPE:Psychic	CLASSES:Mesmerist=2[PREABILITY:1,CATEGORY=Special Ability,Spirit Walker ~ Spells]
-Comprehend Languages.MOD		TYPE:Psychic	CLASSES:Medium,Mesmerist=1
+Contact Other Plane.MOD			TYPE:Psychic	CLASSES:Spiritualist=5
+Comprehend Languages.MOD		TYPE:Psychic	CLASSES:Medium,Mesmerist,Spiritualist=1
 Confess.MOD					TYPE:Psychic	CLASSES:Mesmerist=2
-Confusion.MOD				TYPE:Psychic	CLASSES:Mesmerist=3
+Confusion.MOD				TYPE:Psychic	CLASSES:Mesmerist=3|Spiritualist=4
 Confusion (Lesser).MOD			TYPE:Psychic	CLASSES:Medium,Mesmerist=1
 Create Treasure Map.MOD			TYPE:Psychic	CLASSES:Medium=2
-Crushing Despair.MOD			TYPE:Psychic	CLASSES:Mesmerist=3
-Cup Of Dust.MOD				TYPE:Psychic	CLASSES:Mesmerist=3
+Create Undead.MOD				TYPE:Psychic	CLASSES:Spiritualist=6
+Crushing Despair.MOD			TYPE:Psychic	CLASSES:Mesmerist=3|Spiritualist=4
+Cup of Dust.MOD				TYPE:Psychic	CLASSES:Mesmerist=3
+Cure Critical Wounds.MOD		TYPE:Psychic	CLASSES:Spiritualist=4
+Cure Light Wounds.MOD			TYPE:Psychic	CLASSES:Spiritualist=1
+Cure Moderate Wounds.MOD		TYPE:Psychic	CLASSES:Spiritualist=2
+Cure Serious Wounds.MOD			TYPE:Psychic	CLASSES:Spiritualist=3
+Curse (Major).MOD				TYPE:Psychic	CLASSES:Spiritualist=5
 
 Dancing Lights.MOD			TYPE:Psychic	CLASSES:Medium,Mesmerist=0
 Darkvision.MOD				TYPE:Psychic	CLASSES:Medium=2
-Daze.MOD					TYPE:Psychic	CLASSES:Medium,Mesmerist=0
+Daze.MOD					TYPE:Psychic	CLASSES:Medium,Mesmerist,Spiritualist=0
 Daze Monster.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=2
-Death Ward.MOD				TYPE:Psychic	CLASSES:Medium=4
-Deathwatch.MOD				TYPE:Psychic	CLASSES:Medium=1
+Death Knell.MOD				TYPE:Psychic	CLASSES:Spiritualist=2
+Death Ward.MOD				TYPE:Psychic	CLASSES:Medium,Spiritualist=4
+Deathwatch.MOD				TYPE:Psychic	CLASSES:Medium,Spiritualist=1
+Debilitating Portent.MOD		TYPE:Psychic	CLASSES:Spiritualist=4
+Decompose Corpse.MOD			TYPE:Psychic	CLASSES:Spiritualist=1
 Deep Slumber.MOD				TYPE:Psychic	CLASSES:Mesmerist=3
 Delay Poison.MOD				TYPE:Psychic	CLASSES:Mesmerist=2
 Demand.MOD					TYPE:Psychic	CLASSES:Mesmerist=6
 Denounce.MOD				TYPE:Psychic	CLASSES:Mesmerist=4
-Detect Magic.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=0
+Detect Chaos.MOD				TYPE:Psychic	CLASSES:Spiritualist=1
+Detect Evil.MOD				TYPE:Psychic	CLASSES:Spiritualist=1
+Detect Good.MOD				TYPE:Psychic	CLASSES:Spiritualist=1
+Detect Law.MOD				TYPE:Psychic	CLASSES:Spiritualist=1
+Detect Magic.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist,Spiritualist=0
 Detect Poison.MOD				TYPE:Psychic	CLASSES:Mesmerist=0
-Detect Scrying.MOD			TYPE:Psychic	CLASSES:Medium=3|Mesmerist=4
+Detect Scrying.MOD			TYPE:Psychic	CLASSES:Medium=3|Mesmerist,Spiritualist=4
 Detect Secret Doors.MOD			TYPE:Psychic	CLASSES:Mesmerist=1
-Detect Thoughts.MOD			TYPE:Psychic	CLASSES:Medium,Mesmerist=2
-Detect Undead.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=1
-Dimension Door.MOD			TYPE:Psychic	CLASSES:Medium=3|Mesmerist=4
-Dimensional Anchor.MOD			TYPE:Psychic	CLASSES:Medium=3
+Detect Thoughts.MOD			TYPE:Psychic	CLASSES:Medium,Mesmerist,Spiritualist=2
+Detect Undead.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist,Spiritualist=1
+Dimension Door.MOD			TYPE:Psychic	CLASSES:Medium=3|Mesmerist,Spiritualist=4
+Dimensional Anchor.MOD			TYPE:Psychic	CLASSES:Medium=3|Spiritualist=4
 Discern Lies.MOD				TYPE:Psychic	CLASSES:Medium=3
+Discern Next of Kin.MOD			TYPE:Psychic	CLASSES:Spiritualist=1
+Disfiguring Touch.MOD			TYPE:Psychic	CLASSES:Spiritualist=2
 Disguise Self.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=1
-Dismissal.MOD				TYPE:Psychic	CLASSES:Medium=4
-Dispel Magic.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=3
-Displacement.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=3
-Divination.MOD				TYPE:Psychic	CLASSES:Medium=3
+Disintegrate.MOD				TYPE:Psychic	CLASSES:Spiritualist=6
+Dismissal.MOD				TYPE:Psychic	CLASSES:Medium=4|Spiritualist=5
+Dispel Magic.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist,Spiritualist=3
+Dispel Magic (Greater).MOD		TYPE:Psychic	CLASSES:Spiritualist=6
+Displacement.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist,Spiritualist=3
+Disrupting Weapon.MOD			TYPE:Psychic	CLASSES:Spiritualist=5
+Divination.MOD				TYPE:Psychic	CLASSES:Medium=3|Spiritualist=4
 Dominate Animal.MOD			TYPE:Psychic	CLASSES:Mesmerist=3
-Dominate Person.MOD			TYPE:Psychic	CLASSES:Mesmerist=4
-Doom.MOD					TYPE:Psychic	CLASSES:Mesmerist=1
-Dream.MOD					TYPE:Psychic	CLASSES:Medium=3|Mesmerist=4
+Dominate Person.MOD			TYPE:Psychic	CLASSES:Mesmerist=4|Spiritualist=5
+Doom.MOD					TYPE:Psychic	CLASSES:Mesmerist,Spiritualist=1
+Dream.MOD					TYPE:Psychic	CLASSES:Medium=3|Mesmerist=4|Spiritualist=5
 
 Eagle's Splendor.MOD			TYPE:Psychic	CLASSES:Medium,Mesmerist=2
 Elemental Speech.MOD			TYPE:Psychic	CLASSES:Mesmerist=3
-Enervation.MOD				TYPE:Psychic	CLASSES:Mesmerist=4
+Endure Elements.MOD			TYPE:Psychic	CLASSES:Spiritualist=1
+Enemy Hammer.MOD				TYPE:Psychic	CLASSES:Spiritualist=6
+Enervation.MOD				TYPE:Psychic	CLASSES:Mesmerist,Spiritualist=4
 Enlarge Person.MOD			TYPE:Psychic	CLASSES:Medium=1
 Enter Image.MOD				TYPE:Psychic	CLASSES:Medium=3|Mesmerist=2
 Enthrall.MOD				TYPE:Psychic	CLASSES:Mesmerist=2
 Euphoric Tranquility.MOD		TYPE:Psychic	CLASSES:Mesmerist=6
-Expeditious Retreat.MOD			TYPE:Psychic	CLASSES:Medium,Mesmerist=1
-Eyebite.MOD					TYPE:Psychic	CLASSES:Mesmerist=6
+Expeditious Retreat.MOD			TYPE:Psychic	CLASSES:Medium,Mesmerist,Spiritualist=1
+Eyebite.MOD					TYPE:Psychic	CLASSES:Mesmerist,Spiritualist=6
 
 Faerie Fire.MOD				TYPE:Psychic	CLASSES:Mesmerist=1
-False Life.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=2
-False Vision.MOD				TYPE:Psychic	CLASSES:Medium=4|Mesmerist=5
-Fear.MOD					TYPE:Psychic	CLASSES:Medium=4|Mesmerist=3
-Feeblemind.MOD				TYPE:Psychic	CLASSES:Medium=4|Mesmerist=5
+False Life.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist,Spiritualist=2
+False Life (Greater).MOD		TYPE:Psychic	CLASSES:Spiritualist=4
+False Vision.MOD				TYPE:Psychic	CLASSES:Medium=4|Mesmerist,Spiritualist=5
+Feather Fall.MOD				TYPE:Psychic	CLASSES:Spiritualist=1
+Fear.MOD					TYPE:Psychic	CLASSES:Mesmerist=3|Medium,Spiritualist=4
+Feast on Fear.MOD				TYPE:Psychic	CLASSES:Spiritualist=5
+Feeblemind.MOD				TYPE:Psychic	CLASSES:Medium=4|Mesmerist,Spiritualist=5
+Fickle Winds.MOD				TYPE:Psychic	CLASSES:Spiritualist=5
+Find the Path.MOD				TYPE:Psychic	CLASSES:Spiritualist=6
 Find Traps.MOD				TYPE:Psychic	CLASSES:Medium=2
 Flare.MOD					TYPE:Psychic	CLASSES:Medium,Mesmerist=0
-Fly.MOD					TYPE:Psychic	CLASSES:Medium=3
-Foe To Friend.MOD				TYPE:Psychic	CLASSES:Mesmerist=5
+Fly.MOD					TYPE:Psychic	CLASSES:Medium,Spiritualist=3
+Foe to Friend.MOD				TYPE:Psychic	CLASSES:Mesmerist=5
+Force Punch.MOD				TYPE:Psychic	CLASSES:Spiritualist=3
 Fox's Cunning.MOD				TYPE:Psychic	CLASSES:Medium=2
-Freedom Of Movement.MOD			TYPE:Psychic	CLASSES:Medium,Mesmerist=4
+Freedom of Movement.MOD			TYPE:Psychic	CLASSES:Medium,Mesmerist,Spiritualist=4
 
-Gaseous Form.MOD				TYPE:Psychic	CLASSES:Medium=3
+Gaseous Form.MOD				TYPE:Psychic	CLASSES:Medium,Spiritualist=3
 Geas (Lesser).MOD				TYPE:Psychic	CLASSES:Mesmerist=3
 Geas/Quest.MOD				TYPE:Psychic	CLASSES:Mesmerist=6
-Gentle Repose.MOD				TYPE:Psychic	CLASSES:Medium=2
-Getaway.MOD					TYPE:Psychic	CLASSES:Mesmerist=6
+Gentle Repose.MOD				TYPE:Psychic	CLASSES:Medium,Spiritualist=2
+Getaway.MOD					TYPE:Psychic	CLASSES:Mesmerist,Spiritualist=6
 Ghost Sound.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=0
+Ghoul Touch.MOD				TYPE:Psychic	CLASSES:Spiritualist=2
 Glibness.MOD				TYPE:Psychic	CLASSES:Mesmerist=3
 Glitterdust.MOD				TYPE:Psychic	CLASSES:Mesmerist=2
 Grease.MOD					TYPE:Psychic	CLASSES:Mesmerist=1
-Guidance.MOD				TYPE:Psychic	CLASSES:Medium=0
+Guidance.MOD				TYPE:Psychic	CLASSES:Medium,Spiritualist=0
 
 Hallucinatory Terrain.MOD		TYPE:Psychic	CLASSES:Mesmerist=4
 Halt Undead.MOD				TYPE:Psychic	CLASSES:Mesmerist=3[PREABILITY:1,CATEGORY=Special Ability,Spirit Walker ~ Spells]
-Haste.MOD					TYPE:Psychic	CLASSES:Medium=2
-Helping Hand.MOD				TYPE:Psychic	CLASSES:Medium=2
-Heroism.MOD					TYPE:Psychic	CLASSES:Medium=2
+Harm.MOD					TYPE:Psychic	CLASSES:Spiritualist=6
+Haste.MOD					TYPE:Psychic	CLASSES:Medium=2|Spiritualist=3
+Heal.MOD					TYPE:Psychic	CLASSES:Spiritualist=6
+Helping Hand.MOD				TYPE:Psychic	CLASSES:Medium=2|Spiritualist=3
+Heroism.MOD					TYPE:Psychic	CLASSES:Medium=2|Spiritualist=3
+Heroism (Greater).MOD			TYPE:Psychic	CLASSES:Spiritualist=6
 Hidden Speech.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=2
 Hide From Undead.MOD			TYPE:Psychic	CLASSES:Mesmerist=1[PREABILITY:1,CATEGORY=Special Ability,Spirit Walker ~ Spells]
 Hideous Laughter.MOD			TYPE:Psychic	CLASSES:Medium=2|Mesmerist=1
@@ -267,20 +335,28 @@ Hold Monster.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=4
 Hold Person.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=2
 Hold Person (Mass).MOD			TYPE:Psychic	CLASSES:Mesmerist=6
 Honeyed Tongue.MOD			TYPE:Psychic	CLASSES:Mesmerist=2
+Hostile Levitation.MOD			TYPE:Psychic	CLASSES:Spiritualist=3
+Howling Agony.MOD				TYPE:Psychic	CLASSES:Spiritualist=3
 Hypnotic Pattern.MOD			TYPE:Psychic	CLASSES:Mesmerist=2
 Hypnotism.MOD				TYPE:Psychic	CLASSES:Mesmerist=1
 
-Identify.MOD				TYPE:Psychic	CLASSES:Medium=1
+Identify.MOD				TYPE:Psychic	CLASSES:Medium,Spiritualist=1
 Ill Omen.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=1
 Illusory Script.MOD			TYPE:Psychic	CLASSES:Mesmerist=3
 Illusory Wall.MOD				TYPE:Psychic	CLASSES:Mesmerist=4
+Imbue with Spell Ability.MOD		TYPE:Psychic	CLASSES:Spiritualist=4
+Inflict Critical Wounds.MOD		TYPE:Psychic	CLASSES:Spiritualist=4
+Inflict Light Wounds.MOD		TYPE:Psychic	CLASSES:Spiritualist=1
+Inflict Moderate Wounds.MOD		TYPE:Psychic	CLASSES:Spiritualist=2
+Inflict Serious Wounds.MOD		TYPE:Psychic	CLASSES:Spiritualist=3
 Innocence.MOD				TYPE:Psychic	CLASSES:Mesmerist=1
 Insanity.MOD				TYPE:Psychic	CLASSES:Mesmerist=6
 Invigorate.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=1
 Invigorate (Mass).MOD			TYPE:Psychic	CLASSES:Mesmerist=3
-Invisibility.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=2
-Invisibility (Greater).MOD		TYPE:Psychic	CLASSES:Medium=3|Mesmerist=4
+Invisibility.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist,Spiritualist=2
+Invisibility (Greater).MOD		TYPE:Psychic	CLASSES:Medium=3|Mesmerist,Spiritualist=4
 Invisibility (Mass).MOD			TYPE:Psychic	CLASSES:Mesmerist=6
+Invisibility Purge.MOD			TYPE:Psychic	CLASSES:Spiritualist=3
 Invisibility Sphere.MOD			TYPE:Psychic	CLASSES:Mesmerist=3
 Irresistible Dance.MOD			TYPE:Psychic	CLASSES:Mesmerist=6
 
@@ -288,145 +364,203 @@ Jester's Jaunt.MOD			TYPE:Psychic	CLASSES:Mesmerist=3
 
 Knock.MOD					TYPE:Psychic	CLASSES:Medium,Mesmerist=2
 
-Legend Lore.MOD				TYPE:Psychic	CLASSES:Medium=4
-Levitate.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=2
-Light.MOD					TYPE:Psychic	CLASSES:Medium,Mesmerist=0
-Locate Creature.MOD			TYPE:Psychic	CLASSES:Medium=3|Mesmerist=4
-Locate Object.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=2
+Leashed Shackles.MOD			TYPE:Psychic	CLASSES:Spiritualist=6
+Legend Lore.MOD				TYPE:Psychic	CLASSES:Medium=4|Spiritualist=6
+Levitate.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist,Spiritualist=2
+Life Pact.MOD				TYPE:Psychic	CLASSES:Spiritualist=2
+Light.MOD					TYPE:Psychic	CLASSES:Medium,Mesmerist,Spiritualist=0
+Locate Creature.MOD			TYPE:Psychic	CLASSES:Medium=3|Mesmerist,Spiritualist=4
+Locate Object.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist,Spiritualist=2
 Lullaby.MOD					TYPE:Psychic	CLASSES:Mesmerist=0
 
-Mage Hand.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=0
-Mage's Private Sanctum.MOD		TYPE:Psychic	CLASSES:Medium=4|Mesmerist=5
+Mage Armor.MOD				TYPE:Psychic	CLASSES:Spiritualist=1
+Mage Hand.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist,Spiritualist=0
+Mage's Faithful Hound.MOD		TYPE:Psychic	CLASSES:Spiritualist=5
+Mage's Private Sanctum.MOD		TYPE:Psychic	CLASSES:Medium=4|Mesmerist,Spiritualist=5
 Magic Aura.MOD				TYPE:Psychic	CLASSES:Medium=2|Mesmerist=1
-Magic Circle Against Chaos.MOD	TYPE:Psychic	CLASSES:Medium=3
-Magic Circle Against Evil.MOD		TYPE:Psychic	CLASSES:Medium=3
-Magic Circle Against Good.MOD		TYPE:Psychic	CLASSES:Medium=3
-Magic Circle Against Law.MOD		TYPE:Psychic	CLASSES:Medium=3
+Magic Circle against Chaos.MOD	TYPE:Psychic	CLASSES:Medium,Spiritualist=3
+Magic Circle against Evil.MOD		TYPE:Psychic	CLASSES:Medium,Spiritualist=3
+Magic Circle against Good.MOD		TYPE:Psychic	CLASSES:Medium,Spiritualist=3
+Magic Circle against Law.MOD		TYPE:Psychic	CLASSES:Medium,Spiritualist=3
+Magic Fang.MOD				TYPE:Psychic	CLASSES:Spiritualist=1
+Magic Fang (Greater).MOD		TYPE:Psychic	CLASSES:Spiritualist=3
 Magic Mouth.MOD				TYPE:Psychic	CLASSES:Mesmerist=1
 Major Image.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=3
 Memory Lapse.MOD				TYPE:Psychic	CLASSES:Mesmerist=1
-Message.MOD					TYPE:Psychic	CLASSES:Medium,Mesmerist=0
-Mind Fog.MOD				TYPE:Psychic	CLASSES:Mesmerist=5
+Mending.MOD					TYPE:Psychic	CLASSES:Spiritualist=0
+Message.MOD					TYPE:Psychic	CLASSES:Medium,Mesmerist,Spiritualist=0
+Mind Fog.MOD				TYPE:Psychic	CLASSES:Mesmerist,Spiritualist=5
+Mindlocked Messenger.MOD		TYPE:Psychic	CLASSES:Spiritualist=3
+Minor Creation.MOD			TYPE:Psychic	CLASSES:Spiritualist=3
 Minor Image.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=2
 Mirage Arcana.MOD				TYPE:Psychic	CLASSES:Mesmerist=5
 Mirror Image.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=2
-Misdirection.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=2
-Mislead.MOD					TYPE:Psychic	CLASSES:Mesmerist=5
+Mirror Transport.MOD			TYPE:Psychic	CLASSES:Spiritualist=4
+Misdirection.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist,Spiritualist=2
+Mislead.MOD					TYPE:Psychic	CLASSES:Mesmerist=5|Spiritualist=6
 Modify Memory.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=4
 
-Nightmare.MOD				TYPE:Psychic	CLASSES:Medium=4|Mesmerist=5
-Nondetection.MOD				TYPE:Psychic	CLASSES:Medium=2|Mesmerist=3
+Neutralize Poison.MOD			TYPE:Psychic	CLASSES:Spiritualist=4
+Nightmare.MOD				TYPE:Psychic	CLASSES:Medium=4|Mesmerist,Spiritualist=5
+Nondetection.MOD				TYPE:Psychic	CLASSES:Medium=2|Mesmerist,Spiritualist=3
 
-Obscure Object.MOD			TYPE:Psychic	CLASSES:Mesmerist=1
-Obscuring Mist.MOD			TYPE:Psychic	CLASSES:Mesmerist=1
-Open/Close.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=0
+Obscure Object.MOD			TYPE:Psychic	CLASSES:Mesmerist=1|Spiritualist=3
+Obscuring Mist.MOD			TYPE:Psychic	CLASSES:Mesmerist,Spiritualist=1
+Open/Close.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist,Spiritualist=0
+Overland Flight.MOD			TYPE:Psychic	CLASSES:Spiritualist=5
 Owl's Wisdom.MOD				TYPE:Psychic	CLASSES:Medium=2
 
+Pain Strike.MOD				TYPE:Psychic	CLASSES:Spiritualist=3
+Pain Strike (Mass).MOD			TYPE:Psychic	CLASSES:Spiritualist=5
 Passwall.MOD				TYPE:Psychic	CLASSES:Mesmerist=5
 Perceive Cues.MOD				TYPE:Psychic	CLASSES:Mesmerist=2
 Permanent Image.MOD			TYPE:Psychic	CLASSES:Mesmerist=6
 Persistent Image.MOD			TYPE:Psychic	CLASSES:Medium=4|Mesmerist=5
-Phantasmal Killer.MOD			TYPE:Psychic	CLASSES:Medium=3|Mesmerist=4
+Phantasmal Killer.MOD			TYPE:Psychic	CLASSES:Medium=3|Mesmerist,Spiritualist=4
 Phantasmal Revenge.MOD			TYPE:Psychic	CLASSES:Mesmerist=6
-Phantasmal Web.MOD			TYPE:Psychic	CLASSES:Mesmerist=5
-Phantom Trap.MOD				TYPE:Psychic	CLASSES:Mesmerist=2
-Planar Adaptation.MOD			TYPE:Psychic	CLASSES:Medium=4
+Phantasmal Web.MOD			TYPE:Psychic	CLASSES:Mesmerist,Spiritualist=5
+Phantom Blood.MOD				TYPE:Psychic	CLASSES:Spiritualist=1
+Phantom Chariot.MOD			TYPE:Psychic	CLASSES:Spiritualist=4
+Phantom Driver.MOD			TYPE:Psychic	CLASSES:Spiritualist=3
+Phantom Steed.MOD				TYPE:Psychic	CLASSES:Spiritualist=2
+Phantom Steed (Communal).MOD		TYPE:Psychic	CLASSES:Spiritualist=4
+Phantom Trap.MOD				TYPE:Psychic	CLASSES:Mesmerist,Spiritualist=2
+Pilfering Hand.MOD			TYPE:Psychic	CLASSES:Spiritualist=2
+Planar Adaptation.MOD			TYPE:Psychic	CLASSES:Medium=4|Spiritualist=5
 Planar Ally (Lesser).MOD		TYPE:Psychic	CLASSES:Medium=3
 Planar Binding (Lesser).MOD		TYPE:Psychic	CLASSES:Medium=4
-Plane Shift.MOD				TYPE:Psychic	CLASSES:Medium=4
+Plane Shift.MOD				TYPE:Psychic	CLASSES:Medium=4|Spiritualist=5
 Poison.MOD					TYPE:Psychic	CLASSES:Mesmerist=4
 Power Word Blind.MOD			TYPE:Psychic	CLASSES:Mesmerist=6
 Prestidigitation.MOD			TYPE:Psychic	CLASSES:Medium,Mesmerist=0
 Programmed Image.MOD			TYPE:Psychic	CLASSES:Mesmerist=6
 Project Image.MOD				TYPE:Psychic	CLASSES:Mesmerist=6
-Protection From Chaos.MOD		TYPE:Psychic	CLASSES:Medium=1
-Protection From Evil.MOD		TYPE:Psychic	CLASSES:Medium=1
-Protection From Good.MOD		TYPE:Psychic	CLASSES:Medium=1
-Protection From Law.MOD			TYPE:Psychic	CLASSES:Medium=1
-Prying Eyes.MOD				TYPE:Psychic	CLASSES:Mesmerist=5
+Protection from Arrows.MOD		TYPE:Psychic	CLASSES:Spiritualist=2
+Protection from Chaos.MOD		TYPE:Psychic	CLASSES:Medium,Spiritualist=1
+Protection from Energy.MOD		TYPE:Psychic	CLASSES:Spiritualist=3
+Protection from Evil.MOD		TYPE:Psychic	CLASSES:Medium,Spiritualist=1
+Protection from Good.MOD		TYPE:Psychic	CLASSES:Medium,Spiritualist=1
+Protection from Law.MOD			TYPE:Psychic	CLASSES:Medium,Spiritualist=1
+Protective Penumbra.MOD			TYPE:Psychic	CLASSES:Spiritualist=2
+Prying Eyes.MOD				TYPE:Psychic	CLASSES:Mesmerist,Spiritualist=5
 Pyrotechnics.MOD				TYPE:Psychic	CLASSES:Mesmerist=2
 
 Rage.MOD					TYPE:Psychic	CLASSES:Mesmerist=2
-Ray Of Enfeeblement.MOD			TYPE:Psychic	CLASSES:Mesmerist=1
-Ray Of Exhaustion.MOD			TYPE:Psychic	CLASSES:Mesmerist=3
-Read Magic.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=0
+Raise Dead.MOD				TYPE:Psychic	CLASSES:Spiritualist=5
+Ray of Enfeeblement.MOD			TYPE:Psychic	CLASSES:Mesmerist=1
+Ray of Exhaustion.MOD			TYPE:Psychic	CLASSES:Mesmerist,Spiritualist=3
+Read Magic.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist,Spiritualist=0
 Reduce Person.MOD				TYPE:Psychic	CLASSES:Medium=1
 Reincarnate.MOD				TYPE:Psychic	CLASSES:Medium=4
-Remove Blindness/Deafness.MOD		TYPE:Psychic	CLASSES:Mesmerist=3
-Remove Curse.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=3
-Remove Fear.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=1
-Resistance.MOD				TYPE:Psychic	CLASSES:Medium=0
-Restoration.MOD				TYPE:Psychic	CLASSES:Mesmerist=4
-Restoration (Lesser).MOD		TYPE:Psychic	CLASSES:Mesmerist=2
+Remove Blindness/Deafness.MOD		TYPE:Psychic	CLASSES:Mesmerist,Spiritualist=3
+Remove Curse.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist,Spiritualist=3
+Remove Disease.MOD			TYPE:Psychic	CLASSES:Spiritualist=3
+Remove Fear.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist,Spiritualist=1
+Remove Paralysis.MOD			TYPE:Psychic	CLASSES:Spiritualist=2
+Remove Sickness.MOD			TYPE:Psychic	CLASSES:Spiritualist=1
+Repair Undead (Mass).MOD		TYPE:Psychic	CLASSES:Spiritualist=5
+Repulsion					TYPE:Psychic	CLASSES:Spiritualist=6
+Resist Energy.MOD				TYPE:Psychic	CLASSES:Spiritualist=2
+Resistance.MOD				TYPE:Psychic	CLASSES:Medium,Spiritualist=0
+Restoration.MOD				TYPE:Psychic	CLASSES:Mesmerist,Spiritualist=4
+Restoration (Lesser).MOD		TYPE:Psychic	CLASSES:Mesmerist,Spiritualist=2
 Rope Trick.MOD				TYPE:Psychic	CLASSES:Medium=2
 
-Scare.MOD					TYPE:Psychic	CLASSES:Medium,Mesmerist=2
-Scrying.MOD					TYPE:Psychic	CLASSES:Medium,Mesmerist=3
+Sanctify Corpse.MOD			TYPE:Psychic	CLASSES:Spiritualist=1
+Sanctuary.MOD				TYPE:Psychic	CLASSES:Spiritualist=1
+Sands of Time.MOD				TYPE:Psychic	CLASSES:Spiritualist=3
+Scare.MOD					TYPE:Psychic	CLASSES:Medium,Mesmerist,Spiritualist=2
+Scrying.MOD					TYPE:Psychic	CLASSES:Medium,Mesmerist=3|Spiritualist=5
 Scrying (Greater).MOD			TYPE:Psychic	CLASSES:Mesmerist=6
-Secret Chest.MOD				TYPE:Psychic	CLASSES:Mesmerist=5
+Secret Chest.MOD				TYPE:Psychic	CLASSES:Mesmerist,Spiritualist=5
 Secret Page.MOD				TYPE:Psychic	CLASSES:Mesmerist=3
-See Invisibility.MOD			TYPE:Psychic	CLASSES:Mesmerist=3
-Seek Thoughts.MOD				TYPE:Psychic	CLASSES:Medium=2|Mesmerist=3
+See Invisibility.MOD			TYPE:Psychic	CLASSES:Spiritualist=2|Mesmerist=3
+Seek Thoughts.MOD				TYPE:Psychic	CLASSES:Medium=2|Mesmerist,Spiritualist=3
 Seeming.MOD					TYPE:Psychic	CLASSES:Medium=4|Mesmerist=5
-Sending.MOD					TYPE:Psychic	CLASSES:Medium,Mesmerist=3
-Shadow Conjuration.MOD			TYPE:Psychic	CLASSES:Mesmerist=4
-Shadow Evocation.MOD			TYPE:Psychic	CLASSES:Mesmerist=5
-Shadow Walk.MOD				TYPE:Psychic	CLASSES:Mesmerist=5
+Sending.MOD					TYPE:Psychic	CLASSES:Medium,Mesmerist=3|Spiritualist=5
+Shadow Conjuration.MOD			TYPE:Psychic	CLASSES:Mesmerist,Spiritualist=4
+Shadow Evocation.MOD			TYPE:Psychic	CLASSES:Mesmerist,Spiritualist=5
+Shadow Step.MOD				TYPE:Psychic	CLASSES:Spiritualist=4
+Shadow Walk.MOD				TYPE:Psychic	CLASSES:Mesmerist=5|Spiritualist=6
 Share Language.MOD			TYPE:Psychic	CLASSES:Medium,Mesmerist=1
 Share Language (Communal)		TYPE:Psychic	CLASSES:Mesmerist=2
 Share Senses.MOD				TYPE:Psychic	CLASSES:Medium=3
+Shield.MOD					TYPE:Psychic	CLASSES:Spiritualist=1
 Sift.MOD					TYPE:Psychic	CLASSES:Medium=0
 Silence.MOD					TYPE:Psychic	CLASSES:Mesmerist=2
 Silent Image.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=1
+Slay Living.MOD				TYPE:Psychic	CLASSES:Spiritualist=5
 Sleep.MOD					TYPE:Psychic	CLASSES:Mesmerist=1
 Sleepwalk.MOD				TYPE:Psychic	CLASSES:Mesmerist=4
-Slow.MOD					TYPE:Psychic	CLASSES:Medium=2
-Solid Fog.MOD				TYPE:Psychic	CLASSES:Mesmerist=4
-Speak With Dead.MOD			TYPE:Psychic	CLASSES:Medium=2
-Spectral Hand.MOD				TYPE:Psychic	CLASSES:Medium=2
+Slow.MOD					TYPE:Psychic	CLASSES:Medium=2|Spiritualist=3
+Solid Fog.MOD				TYPE:Psychic	CLASSES:Mesmerist,Spiritualist=4
+Speak with Dead.MOD			TYPE:Psychic	CLASSES:Medium=2|Spiritualist=3
+Speak with Haunt.MOD			TYPE:Psychic	CLASSES:Spiritualist=4
+Spectral Hand.MOD				TYPE:Psychic	CLASSES:Medium,Spiritualist=2
+Spell Immunity.MOD			TYPE:Psychic	CLASSES:Spiritualist=4
+Spell Resistance.MOD			TYPE:Psychic	CLASSES:Spiritualist=5
 Spider Climb.MOD				TYPE:Psychic	CLASSES:Medium=2
-Spiritual Ally.MOD			TYPE:Psychic	CLASSES:Medium=4
-Spiritual Weapon.MOD			TYPE:Psychic	CLASSES:Medium=2
+Spiritual Ally.MOD			TYPE:Psychic	CLASSES:Medium,Spiritualist=4
+Spiritual Weapon.MOD			TYPE:Psychic	CLASSES:Medium,Spiritualist=2
 Spite.MOD					TYPE:Psychic	CLASSES:Mesmerist=3
-Stabilize.MOD				TYPE:Psychic	CLASSES:Medium=0
-Status.MOD					TYPE:Psychic	CLASSES:Medium=2
+Stabilize.MOD				TYPE:Psychic	CLASSES:Medium,Spiritualist=0
+Status.MOD					TYPE:Psychic	CLASSES:Medium,Spiritualist=2
+Stricken Heart.MOD			TYPE:Psychic	CLASSES:Spiritualist=2
+Suffocation.MOD				TYPE:Psychic	CLASSES:Spiritualist=5
 Suggestion.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=2
 Suggestion (Mass).MOD			TYPE:Psychic	CLASSES:Mesmerist=5
-Summon Monster I.MOD			TYPE:Psychic	CLASSES:Medium=1
-Summon Monster II.MOD			TYPE:Psychic	CLASSES:Medium=2
-Summon Monster IV.MOD			TYPE:Psychic	CLASSES:Medium=3
-Summon Monster V.MOD			TYPE:Psychic	CLASSES:Medium=4
-Symbol Of Pain.MOD			TYPE:Psychic	CLASSES:Mesmerist=5
-Symbol Of Persuasion.MOD		TYPE:Psychic	CLASSES:Mesmerist=6
-Symbol Of Sleep.MOD			TYPE:Psychic	CLASSES:Mesmerist=5
+Summon Monster I.MOD			TYPE:Psychic	CLASSES:Medium,Spiritualist=1
+Summon Monster II.MOD			TYPE:Psychic	CLASSES:Medium,Spiritualist=2
+Summon Monster III.MOD			TYPE:Psychic	CLASSES:Spiritualist=3
+Summon Monster IV.MOD			TYPE:Psychic	CLASSES:Medium=3|Spiritualist=4
+Summon Monster V.MOD			TYPE:Psychic	CLASSES:Medium=4|Spiritualist=5
+Summon Monster VI.MOD			TYPE:Psychic	CLASSES:Spiritualist=6
+Surmount Affliction.MOD			TYPE:Psychic	CLASSES:Spiritualist=2
+Symbol of Pain.MOD			TYPE:Psychic	CLASSES:Mesmerist=5
+Symbol of Persuasion.MOD		TYPE:Psychic	CLASSES:Mesmerist=6
+Symbol of Sleep.MOD			TYPE:Psychic	CLASSES:Mesmerist=5
 
-Telepathic Bond.MOD			TYPE:Psychic	CLASSES:Medium,Mesmerist=4
-Teleport
-Tongues.MOD					TYPE:Psychic	CLASSES:Medium,Mesmerist=2
-Touch Of Fatigue.MOD			TYPE:Psychic	CLASSES:Mesmerist=0
-Touch Of Gracelessness.MOD		TYPE:Psychic	CLASSES:Mesmerist=1
-Touch Of Idiocy.MOD			TYPE:Psychic	CLASSES:Medium,Mesmerist=2
-True Seeing.MOD				TYPE:Psychic	CLASSES:Medium=4|Mesmerist=6
+Telekinesis.MOD				TYPE:Psychic	CLASSES:Spiritualist=5
+Telekinetic Charge.MOD			TYPE:Psychic	CLASSES:Spiritualist=4
+Telepathic Bond.MOD			TYPE:Psychic	CLASSES:Medium,Mesmerist=4|Spiritualist=5
+Teleport.MOD				TYPE:Psychic	CLASSES:Spiritualist=5
+Terrible Remorse.MOD			TYPE:Psychic	CLASSES:Spiritualist=4
+Tongues.MOD					TYPE:Psychic	CLASSES:Medium,Mesmerist=2|Spiritualist=3
+Touch of Fatigue.MOD			TYPE:Psychic	CLASSES:Mesmerist=0
+Touch of Gracelessness.MOD		TYPE:Psychic	CLASSES:Mesmerist,Spiritualist=1
+Touch of Idiocy.MOD			TYPE:Psychic	CLASSES:Medium,Mesmerist,Spiritualist=2
+Transformation.MOD			TYPE:Psychic	CLASSES:Spiritualist=6
+True Seeing.MOD				TYPE:Psychic	CLASSES:Medium=4|Mesmerist,Spiritualist=6
 True Strike.MOD				TYPE:Psychic	CLASSES:Medium=1
+Twilight Haze.MOD				TYPE:Psychic	CLASSES:Spiritualist=2
+Twilight Knife.MOD			TYPE:Psychic	CLASSES:Spiritualist=3
 
+Undead Anatomy I.MOD			TYPE:Psychic	CLASSES:Spiritualist=3
+Undead Anatomy II.MOD			TYPE:Psychic	CLASSES:Spiritualist=5
+Undead Anatomy III.MOD			TYPE:Psychic	CLASSES:Spiritualist=6
+Undeath to Death.MOD			TYPE:Psychic	CLASSES:Spiritualist=6
 Undetectable Alignment.MOD		TYPE:Psychic	CLASSES:Mesmerist=1
-Unseen Servant.MOD			TYPE:Psychic	CLASSES:Medium,Mesmerist=1
-Unwilling Shield.MOD			TYPE:Psychic	CLASSES:Mesmerist=5
+Unliving Rage.MOD				TYPE:Psychic	CLASSES:Spiritualist=3
+Unseen Servant.MOD			TYPE:Psychic	CLASSES:Medium,Mesmerist,Spiritualist=1
+Unwilling Shield.MOD			TYPE:Psychic	CLASSES:Mesmerist=5|Spiritualist=6
 Unwitting Ally.MOD			TYPE:Psychic	CLASSES:Mesmerist=0
 
-Vampiric Touch.MOD			TYPE:Psychic	CLASSES:Medium,Mesmerist=3
+Vampiric Shadow Shield.MOD		TYPE:Psychic	CLASSES:Spiritualist=5
+Vampiric Touch.MOD			TYPE:Psychic	CLASSES:Medium,Mesmerist,Spiritualist=3
 Vanish.MOD					TYPE:Psychic	CLASSES:Mesmerist=1
 Veil.MOD					TYPE:Psychic	CLASSES:Mesmerist=6
-Ventriloquism.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=1
-Virtue.MOD					TYPE:Psychic	CLASSES:Medium=0
+Ventriloquism.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist,Spiritualist=1
+Virtue.MOD					TYPE:Psychic	CLASSES:Medium,Spiritualist=0
 
+Wall of Sound.MOD				TYPE:Psychic	CLASSES:Spiritualist=5
 Water Walk.MOD				TYPE:Psychic	CLASSES:Medium=2
-Waves Of Exhaustion.MOD			TYPE:Psychic	CLASSES:Mesmerist=6
-Waves Of Fatigue.MOD			TYPE:Psychic	CLASSES:Mesmerist=5
+Waves of Exhaustion.MOD			TYPE:Psychic	CLASSES:Mesmerist=6
+Waves of Fatigue.MOD			TYPE:Psychic	CLASSES:Mesmerist,Spiritualist=5
 Whispering Wind.MOD			TYPE:Psychic	CLASSES:Medium,Mesmerist=2
+Wind Wall.MOD				TYPE:Psychic	CLASSES:Spiritualist=3
 
-Zone Of Silence.MOD			TYPE:Psychic	CLASSES:Mesmerist=4
-Zone Of Truth.MOD				TYPE:Psychic	CLASSES:Medium=2
+Zone of Silence.MOD			TYPE:Psychic	CLASSES:Mesmerist=4
+Zone of Truth.MOD				TYPE:Psychic	CLASSES:Medium=2
 
 ###Block: Occultist Spells
 
@@ -1989,3 +2123,44 @@ wish.MOD		CLASSES:Psychic=9
 
 #Mesmerist 3
 #Isolate.MOD			TYPE:Psychic	CLASSES:Mesmerist=3
+
+# Psychic Detective
+Arcane mark.MOD				CLASSES:Psychic Detective=0
+bleed.MOD					CLASSES:Psychic Detective=0
+dancing lights.MOD			CLASSES:Psychic Detective=0
+daze.MOD					CLASSES:Psychic Detective=0
+detect magic.MOD				CLASSES:Psychic Detective=0
+detect poison.MOD				CLASSES:Psychic Detective=0
+detect psychic significance.MOD	CLASSES:Psychic Detective=0
+flare.MOD					CLASSES:Psychic Detective=0
+ghost sound.MOD				CLASSES:Psychic Detective=0
+grave words.MOD				CLASSES:Psychic Detective=0
+haunted fey aspect.MOD			CLASSES:Psychic Detective=0
+know direction.MOD			CLASSES:Psychic Detective=0
+light.MOD					CLASSES:Psychic Detective=0
+lullaby.MOD					CLASSES:Psychic Detective=0
+mage hand.MOD				CLASSES:Psychic Detective=0
+mending.MOD					CLASSES:Psychic Detective=0
+message.MOD					CLASSES:Psychic Detective=0
+open/close.MOD				CLASSES:Psychic Detective=0
+prestidigitation.MOD			CLASSES:Psychic Detective=0
+read magic.MOD				CLASSES:Psychic Detective=0
+resistance.MOD				CLASSES:Psychic Detective=0
+sift.MOD					CLASSES:Psychic Detective=0
+stabilize.MOD				CLASSES:Psychic Detective=0
+telekinetic projectile.MOD		CLASSES:Psychic Detective=0
+virtue.MOD					CLASSES:Psychic Detective=0
+#Psychic Detective=1|
+Detect Chaos.MOD				CLASSES:Psychic Detective=1
+Detect Good.MOD				CLASSES:Psychic Detective=1
+Detect Law.MOD				CLASSES:Psychic Detective=1
+Find Traps.MOD				CLASSES:Psychic Detective=1
+# Psychic Detective=3|
+Calm Spirit.MOD				CLASSES:Psychic Detective=3
+Daylight.MOD				CLASSES:Psychic Detective=3
+# Psychic Detective=4|
+Modify Memory.MOD				CLASSES:Psychic Detective=4
+# Psychic Detective=6
+Banishment.MOD				CLASSES:Psychic Detective=6
+Moment of Prescience.MOD		CLASSES:Psychic Detective=6
+Scrying (Greater).MOD			CLASSES:Psychic Detective=6

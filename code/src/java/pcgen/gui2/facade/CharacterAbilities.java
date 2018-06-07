@@ -450,7 +450,6 @@ public class CharacterAbilities
 
 		// update the ability info
 		rebuildAbilityLists();
-		return;
 	}
 
 	/**
@@ -670,9 +669,8 @@ public class CharacterAbilities
 		}
 
 		//TODO Why do we regrab the context-based Ability when an Ability was passed in?
-		Ability ability =
-				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
-					Ability.class, theCategory, aKey);
+		Ability ability = Globals.getContext().getReferenceContext()
+			.getManufacturerId(theCategory).getActiveObject(aKey);
 		if (ability != null
 			&& !ability.qualifies(theCharacter, ability)
 			&& (!Globals.checkRule(RuleConstants.FEATPRE) || !AbilityUtilities
@@ -755,7 +753,6 @@ public class CharacterAbilities
 				Logging.debugPrint("Got granted ability added of "
 					+ dfce.getCDOMObject());
 			}
-			//Ability ability = dfce.getCDOMObject();
 			rebuildAbilityLists();
 		}
 
@@ -777,7 +774,6 @@ public class CharacterAbilities
 				Logging.debugPrint("Got granted ability removed of "
 					+ dfce.getCDOMObject());
 			}
-			//Ability ability = dfce.getCDOMObject();
 			rebuildAbilityLists();
 		}
 	}

@@ -1,5 +1,3 @@
-# CVS $Revision$ $Author$ -- Tue Jul 13 18:47:20 2004 -- reformated by prettylst.pl v1.32 (build 375)
-# Original entry by Ratheof Blithwyn
 CAMPAIGN:FFG - Dawnforge - Age of Legend - Player's Companion
 GAMEMODE:35e
 RANK:6
@@ -49,6 +47,7 @@ SPELL:agelegend_spells.lst
 TEMPLATE:agelegend_templates.lst
 
 HIDETYPE:FEAT|ForestWightTalentFeat|ForestWightTransformationFeat|OrcTrustingEars|TieflingCovertCasting|TieflingCombatManeuver|TieflingMartialTraining
+# Original entry by Ratheof Blithwyn
 
 #
 # End

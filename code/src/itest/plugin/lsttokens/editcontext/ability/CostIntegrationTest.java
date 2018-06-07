@@ -18,18 +18,20 @@
 package plugin.lsttokens.editcontext.ability;
 
 import pcgen.core.Ability;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.ability.CostToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractBigDecimalIntegrationTestCase;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class CostIntegrationTest extends
 		AbstractBigDecimalIntegrationTestCase<Ability>
 {
 
-	static CostToken token = new CostToken();
-	static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<>();
+	private static CostToken token = new CostToken();
+	private static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Ability> getCDOMClass()
@@ -65,5 +67,14 @@ public class CostIntegrationTest extends
 	public boolean isZeroAllowed()
 	{
 		return true;
+	}
+
+	@Override
+	protected Ability construct(LoadContext context, String name)
+	{
+		Ability a = BuildUtilities.getFeatCat().newInstance();
+		a.setName(name);
+		context.getReferenceContext().importObject(a);
+		return a;
 	}
 }

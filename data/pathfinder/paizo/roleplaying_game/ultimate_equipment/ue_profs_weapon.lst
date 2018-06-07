@@ -18,8 +18,8 @@ Mere Club					TYPE:Simple.Melee.OneHanded.Bludgeoning.Piercing.Fragile
 Boar Spear					TYPE:Simple.Melee.TwoHanded.Piercing
 
 # -- Ranged
-Underwater Crossbow (Heavy)		TYPE:Simple.Ranged.Piercing
-Underwater Crossbow (Light)		TYPE:Simple.Ranged.Piercing
+Underwater Heavy Crossbow	KEY:Underwater Crossbow (Heavy)		TYPE:Simple.Ranged.Piercing
+Underwater Light Crossbow	KEY:Underwater Crossbow (Light)		TYPE:Simple.Ranged.Piercing
 
 ####Block: Martial Weapons
 #------light---------
@@ -35,7 +35,7 @@ Tonfa						TYPE:Martial.Melee.Light.Bludgeoning.Eastern.LightMartial
 #-----one handed -------
 Double Chicken Saber			TYPE:Martial.Melee.OneHanded.Slashing.Eastern.OneHandedMartial
 Klar						TYPE:Martial.Melee.OneHanded.Slashing.OneHandedMartial
-Broadsword (Nine Ring)			TYPE:Martial.Melee.OneHanded.Slashing.Eastern.OneHandedMartial
+Nine Ring Broadsword	KEY:Broadsword (Nine Ring)			TYPE:Martial.Melee.OneHanded.Slashing.Eastern.OneHandedMartial
 Scizore					TYPE:Martial.Melee.OneHanded.Piercing.OneHandedMartial
 Terbutje					TYPE:Martial.Melee.OneHanded.Slashing.OneHandedMartial.Fragile
 
@@ -53,7 +53,7 @@ Rhomphaia					TYPE:Martial.Melee.TwoHanded.Piercing.Slashing
 Sansetsukon					TYPE:Martial.Melee.TwoHanded.Bludgeoning.Eastern
 Tepoztopilli				TYPE:Martial.Melee.TwoHanded.Piercing.Slashing.Fragile
 Tiger Fork					TYPE:Martial.Melee.TwoHanded.Piercing.Eastern
-Sword (Tri-Point Double-Edged)	TYPE:Martial.Melee.TwoHanded.Piercing.Eastern
+Tri-Point Double-Edged Sword	KEY:Sword (Tri-Point Double-Edged)	TYPE:Martial.Melee.TwoHanded.Piercing.Eastern
 
 # -- Ranged
 Amentum					TYPE:Martial.Ranged.Piercing
@@ -77,12 +77,12 @@ Pata						TYPE:Exotic.Melee.Light.Piercing
 Quadrens					TYPE:Exotic.Melee.Light.Piercing
 Scorpion Whip				TYPE:Exotic.Melee.Light.Slashing
 Sica						TYPE:Exotic.Melee.Light.Slashing
-Swordbreaker (Dagger)			TYPE:Exotic.Melee.Light.Slashing
-Tekko-Kagi (Iron Claw)			TYPE:Eastern.Exotic.Melee.Light.Piercing
+Swordbreaker Dagger	KEY:Swordbreaker (Dagger)			TYPE:Exotic.Melee.Light.Slashing
+Tekko-Kagi	KEY:Tekko-Kagi (Iron Claw)			TYPE:Eastern.Exotic.Melee.Light.Piercing
 Wakizashi					TYPE:Eastern.Exotic.Melee.Light.Piercing.Slashing
 
 #-----one handed -------
-Terbutje (Great)				TYPE:Martial.TwoHanded.Exotic.Melee.OneHanded.Slashing.Fragile
+Great Terbutje	KEY:Terbutje (Great)				TYPE:Martial.TwoHanded.Exotic.Melee.OneHanded.Slashing.Fragile
 Hooked Axe					TYPE:Exotic.Melee.OneHanded.Slashing
 Katana					TYPE:Melee.Martial.TwoHanded.Exotic.Slashing.Deadly.Tengu.Sword.Eastern
 Nine-Section Whip				TYPE:Eastern.Exotic.Melee.OneHanded.Bludgeoning
@@ -96,17 +96,17 @@ Urumi						TYPE:Eastern.Exotic.Melee.OneHanded.Slashing
 #-----two handed -------
 Bo Staff					TYPE:Eastern.Exotic.Melee.TwoHanded.Bludgeoning
 Chain Spear					TYPE:Exotic.Melee.Slashing
-Katana (Double Walking Stick)		TYPE:Eastern.Exotic.Melee.Bludgeoning
-Kama (Double-Chained)			TYPE:Eastern.Exotic.Melee.Slashing
+Double Walking Stick Katana	KEY:Katana (Double Walking Stick)		TYPE:Eastern.Exotic.Melee.Bludgeoning
+Double-Chained Kama	KEY:Kama (Double-Chained)			TYPE:Eastern.Exotic.Melee.Slashing
 Flying Blade				TYPE:Exotic.Melee.TwoHanded.Slashing
-Kusarigama (Sickle and Chain)		TYPE:Eastern.Exotic.Melee.Bludgeoning
+Kusarigama	KEY:Kusarigama (Sickle and Chain)		TYPE:Eastern.Exotic.Melee.Bludgeoning
 Meteor Hammer				TYPE:Eastern.Exotic.Melee.TwoHanded.Bludgeoning
-Sword (Seven-Branched)			TYPE:Eastern.Exotic.Melee.TwoHanded.Slashing
+Seven-Branched Sword	KEY:Sword (Seven-Branched)			TYPE:Eastern.Exotic.Melee.TwoHanded.Slashing
 Tetsubo					TYPE:Eastern.Exotic.Melee.TwoHanded.Bludgeoning
 
 # -- Ranged
 Aklys						TYPE:Exotic.Melee.Light.Ranged.Thrown.Bludgeoning
-Crossbow (Repeating Hand)		TYPE:Exotic.Ranged.Piercing
+Repeating Hand Crossbow	KEY:Crossbow (Repeating Hand)		TYPE:Exotic.Ranged.Piercing
 Dan Bong					TYPE:Eastern.Exotic.Melee.Light.Ranged.Thrown.Bludgeoning
 Harpoon					TYPE:Exotic.Melee.TwoHanded.Ranged.Thrown.Piercing
 Kestros					TYPE:Exotic.Ranged.Piercing
@@ -125,11 +125,11 @@ Firearms					TYPE:Exotic
 Buckler Gun					TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm
 Pepperbox					TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm
 Pistol					TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm.Pistol
-Pistol (Coat)				TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm.Pistol
-Pistol (Dagger)				TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm.Pistol
-Pistol (Double-Barreled)		TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm.Pistol
-Pistol (Dragon)				TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm.Pistol
-Pistol (Sword Cane)			TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm.Pistol
+Coat Pistol	KEY:Pistol (Coat)				TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm.Pistol
+Dagger Pistol	KEY:Pistol (Dagger)				TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm.Pistol
+Double-Barreled Pistol	KEY:Pistol (Double-Barreled)		TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm.Pistol
+Dragon Pistol	KEY:Pistol (Dragon)				TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm.Pistol
+Sword Cane Pistol	KEY:Pistol (Sword Cane)			TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm.Pistol
 
 # Early Two-Handed Firearms
 Blunderbuss					TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm			HANDS:2
@@ -137,9 +137,9 @@ Culverin					TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm			HANDS:2
 Double Hackbut				TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm			HANDS:2
 Fire Lance					TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm			HANDS:2
 Musket					TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm.Musket		HANDS:2
-Musket (Axe)				TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm.Musket		HANDS:2
-Musket (Double-Barreled)		TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm.Musket		HANDS:2
-Musket (Warhammer)			TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm.Musket		HANDS:2
+Axe Musket	KEY:Musket (Axe)				TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm.Musket		HANDS:2
+Double-Barreled Musket	KEY:Musket (Double-Barreled)		TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm.Musket		HANDS:2
+Warhammer Musket	KEY:Musket (Warhammer)			TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm.Musket		HANDS:2
 
 ###Block: Advanced Firearms
 # One-Handed

@@ -18,7 +18,7 @@ Guardian		KEY:Special Ability ~ Guardian ~ Melee	TYPE:Weapon.Melee			PLUS:1			VI
 
 
 # Supposedly legal...
-Agile			KEY:Special Ability ~ Agile ~ Amulet of Mighty Fists	TYPE:AmuletOfMightyFists	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.50										PRETYPE:1,EQMOD=Special Ability ~ Amulet of Mighty Fists Base					BONUS:WEAPONPROF=TYPE.Natural|DAMAGE|(max(STR,DEX)-STR)|TYPE=NotRanged										SPROP:dex bonus to damage using Weapon Finesse and Finessable weapon																															ABILITY:Special Ability|AUTOMATIC|Unarmed Agile	SORTKEY:+1
+Agile			KEY:Special Ability ~ Agile ~ Amulet of Mighty Fists	TYPE:Amulet of Mighty Fists	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.50										PRETYPE:1,EQMOD=Special Ability ~ Amulet of Mighty Fists Base					BONUS:WEAPONPROF=TYPE.Natural|DAMAGE|(max(STR,DEX)-STR)|TYPE=NotRanged										SPROP:dex bonus to damage using Weapon Finesse and Finessable weapon																															ABILITY:Special Ability|AUTOMATIC|Unarmed Agile	SORTKEY:+1
 
 #
 ###END
@@ -28,10 +28,10 @@ Agile			KEY:Special Ability ~ Agile ~ Amulet of Mighty Fists	TYPE:AmuletOfMighty
 
 
 #Old KEYs
-Bitter		KEY:BITTER		TYPE:Armor				PLUS:1			VISIBLE:NO	SOURCEPAGE:p.50																																									SPROP:if wearer grappled by bite, creature must make DC 14 Fortitude save or end the grapple, if victim swallowed and still alive, attacker must make DC 14 Fortitude save or be nauseated for 1 round and may vomit up the victim as a standard action
-Comfort		KEY:COMFORT		TYPE:Armor						COST:5000	VISIBLE:NO	SOURCEPAGE:p.50																BONUS:MISC|ACCHECK|-1																						SPROP:always clean, can sleep in as if light armor, no penalty to resist extreme heat, counts as cold-weather clothes, armor check penalty reduced by 1
-Trapwarding		KEY:TRAPWARDING	TYPE:Armor				PLUS:1			VISIBLE:NO	SOURCEPAGE:p.50																																									SPROP:luck bonus on all saves against traps equal to the armor's enhancement bonus
-Agile			KEY:AGILE		TYPE:Weapon.Melee			PLUS:1			VISIBLE:NO	SOURCEPAGE:p.50	PREMULT:1,[PRETYPE:1,Finesseable],[PREWIELD:1,Light]	PRETYPE:3,Enhancement,Weapon,Melee																	BONUS:WEAPON|DAMAGE|(max(STR,DEX)-STR)|TYPE=NotRanged	SPROP:dex bonus to damage using Weapon Finesse and Finessable weapon
-Dueling		KEY:DUELING		TYPE:Weapon.Melee			PLUS:1			VISIBLE:NO	SOURCEPAGE:p.50										PRETYPE:3,Enhancement,Weapon,Melee																										SPROP:luck bonus equal to twice its enhancement bonus to CMB and to CMD versus disarm, trip, reposition and dirty tricks using this weapon
-Guardian		KEY:GUARDIAN	TYPE:Weapon.Melee			PLUS:1			VISIBLE:NO	SOURCEPAGE:p.51										PRETYPE:3,Enhancement,Weapon,Melee																										SPROP:swift action to transfer some or all of the weapons enhancement bonus to saving throws that stacks with all others
-Agile			KEY:Agile_AMF	TYPE:AmuletOfMightyFists	PLUS:1			VISIBLE:NO	SOURCEPAGE:p.50										PRETYPE:1,EQMOD=MightyFist_AMF					BONUS:WEAPONPROF=TYPE.Natural|DAMAGE|(max(STR,DEX)-STR)|TYPE=NotRanged										SPROP:dex bonus to damage using Weapon Finesse and Finessable weapon																															ABILITY:Special Ability|AUTOMATIC|Unarmed Agile	SORTKEY:+1
+Special Ability ~ Bitter ~ Armor.COPY=BITTER				VISIBLE:NO
+Special Ability ~ Comfort ~ Armor.COPY=COMFORT				VISIBLE:NO
+Special Ability ~ Trapwarding ~ Armor.COPY=TRAPWARDING		VISIBLE:NO
+Special Ability ~ Agile ~ Melee.COPY=AGILE				VISIBLE:NO
+Special Ability ~ Dueling / Luck Bonus ~ Melee.COPY=DUELING		VISIBLE:NO
+Special Ability ~ Guardian ~ Melee.COPY=GUARDIAN			VISIBLE:NO
+Special Ability ~ Agile ~ Amulet of Mighty Fists.COPY=Agile_AMF	VISIBLE:NO

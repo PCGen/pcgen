@@ -32,8 +32,8 @@ public class UseuntrainedIntegrationTest extends
 		AbstractIntegrationTestCase<Skill>
 {
 
-	static UseuntrainedToken token = new UseuntrainedToken();
-	static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<>();
+	private static UseuntrainedToken token = new UseuntrainedToken();
+	private static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Skill> getCDOMClass()

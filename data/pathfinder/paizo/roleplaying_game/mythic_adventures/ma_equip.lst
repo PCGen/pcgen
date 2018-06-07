@@ -4,25 +4,25 @@
 ###Block: Base Item.COPY= New Item
 # Shields and Armor
 # Equipment Name
-Shield (Heavy/Steel).COPY=Bastion of the Inheritor
-Leather.COPY=Spiritwalk Armor
-Breastplate.COPY=Stalwart Breastplate
+Heavy Steel Shield (Base).COPY=Bastion of the Inheritor		VISIBLE:YES		EQMOD:Material ~ Steel
+Leather Armor (Base).COPY=Spiritwalk Armor		VISIBLE:YES		EQMOD:Material ~ Leather
+Breastplate (Base).COPY=Stalwart Breastplate		VISIBLE:YES		EQMOD:Material ~ Steel
 # Weapons
-Longbow (Composite).COPY=Bow of Erastil
-Greataxe.COPY=Brutal Axe
-Warhammer.COPY=Chaos Hammer
-Dagger.COPY=Dagger of a Thousand Bites
-Longbow.COPY=Dragonbreath Bow
-Scimitar.COPY=Fire Goddess's Blade
+Composite Longbow (Base).COPY=Bow of Erastil		VISIBLE:YES		EQMOD:Material ~ Wood
+Greataxe (Base).COPY=Brutal Axe		VISIBLE:YES
+Warhammer (Base).COPY=Chaos Hammer		VISIBLE:YES		EQMOD:Material ~ Steel
+Dagger (Base).COPY=Dagger of a Thousand Bites	VISIBLE:YES	EQMOD:Material ~ Steel
+Longbow (Base).COPY=Dragonbreath Bow		VISIBLE:YES		EQMOD:Material ~ Wood
+Scimitar (Base).COPY=Fire Goddess's Blade		VISIBLE:YES		EQMOD:Material ~ Steel
 Pepperbox.COPY=Gun with no Name
-Pick (Heavy).COPY=Pick of Stonecleaving
-Longsword.COPY=Sacred Avenger
-Quarterstaff.COPY=Shadow Spike
-Dagger.COPY=Shadow's Touch
-Spear.COPY=Skirmishing Spear
-Quarterstaff.COPY=Spellbreaker
-Spear.COPY=Stormcaller
-Longsword.COPY=Sword of Inner Fire
+Heavy Pick (Base).COPY=Pick of Stonecleaving		VISIBLE:YES
+Longsword (Base).COPY=Sacred Avenger		VISIBLE:YES
+Quarterstaff (Base).COPY=Shadow Spike	VISIBLE:YES	EQMOD:Material ~ Wood	ALTEQMOD:Material ~ Wood
+Dagger (Base).COPY=Shadow's Touch	VISIBLE:YES	EQMOD:Material ~ Steel
+Spear (Base).COPY=Skirmishing Spear	VISIBLE:YES	EQMOD:Material ~ Steel.Material ~ Wood
+Quarterstaff (Base).COPY=Spellbreaker	VISIBLE:YES	EQMOD:Material ~ Wood	ALTEQMOD:Material ~ Wood
+Spear (Base).COPY=Stormcaller	VISIBLE:YES	EQMOD:Material ~ Steel.Material ~ Wood
+Longsword (Base).COPY=Sword of Inner Fire		VISIBLE:YES		EQMOD:Material ~ Steel
 
 ###Block: Specific Arms and Armor modifications
 # Verify COST:22170
@@ -117,13 +117,13 @@ Torc of Truespeech							TYPE:Magic.Wondrous.Amulet		COST:60000	WT:2		SOURCEPAGE
 
 ###Block: Artifacts
 # Equipment Name						Product Identity?	Type										Weight	Modifier					Source Page		Stat bonus					Weapon prop. bonus
-Shield (Heavy/Steel).COPY=Aegis
-Greataxe.COPY=Black Iron Axe
-Longspear.COPY=Screaming Spear of the Sun
-Greatsword.COPY=Sword of the Mists
-Kukri.COPY=Witherfang
-Dagger.COPY=Legendsbane
-Mace (Light).COPY=Scepter of the Shining Lord
+Heavy Steel Shield (Base).COPY=Aegis		VISIBLE:YES		EQMOD:Material ~ Steel
+Greataxe (Base).COPY=Black Iron Axe		VISIBLE:YES		EQMOD:Material ~ Steel
+Longspear (Base).COPY=Screaming Spear of the Sun	VISIBLE:YES	EQMOD:Material ~ Steel
+Greatsword (Base).COPY=Sword of the Mists		VISIBLE:YES		EQMOD:Material ~ Steel
+Kukri (Base).COPY=Witherfang	VISIBLE:YES	EQMOD:Material ~ Steel
+Dagger (Base).COPY=Legendsbane	VISIBLE:YES	EQMOD:Material ~ Steel
+Light Mace (Base).COPY=Scepter of the Shining Lord	VISIBLE:YES	EQMOD:Material ~ Steel
 
 Aegis.MOD										TYPE:Artifact.Minor						WT:15		EQMOD:Special Ability ~ Determination ~ Armor.Special Ability ~ +4 ~ Shield			SOURCEPAGE:p.
 Black Iron Axe.MOD								TYPE:Artifact.Minor						WT:12		EQMOD:Special Ability ~ Keen ~ Weapon.Special Ability ~ +5 ~ Weapon.Special Ability ~ Vorpal ~ Melee		SOURCEPAGE:p.							BONUS:WEAPON|TOHIT,DAMAGE|1|TYPE=Enhancement.STACK

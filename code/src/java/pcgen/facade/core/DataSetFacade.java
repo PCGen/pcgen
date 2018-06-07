@@ -20,6 +20,7 @@ package pcgen.facade.core;
 
 import java.util.List;
 
+import pcgen.core.PCAlignment;
 import pcgen.facade.core.generator.StatGenerationFacade;
 import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.MapFacade;
@@ -56,7 +57,7 @@ public interface DataSetFacade
 
 	public GameModeFacade getGameMode();
 
-	public ListFacade<AlignmentFacade> getAlignments();
+	public ListFacade<PCAlignment> getAlignments();
 
 	public ListFacade<StatFacade> getStats();
 
@@ -97,4 +98,11 @@ public interface DataSetFacade
 	 * Update the equipment list from the global equipment list. 
 	 */
 	public void refreshEquipment();
+
+	/**
+	 * Returns true if the DataSet understands Deities and Domains.
+	 * 
+	 * @return true if the DataSet understands Deities and Domains; false otherwise
+	 */
+	public boolean hasDeityDomain();
 }

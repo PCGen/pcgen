@@ -31,8 +31,8 @@ public class KnownSpellsFromSpecialtyIntegrationTest extends
 		AbstractIntegerIntegrationTestCase<PCClass>
 {
 
-	static KnownspellsfromspecialtyToken token = new KnownspellsfromspecialtyToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
+	private static KnownspellsfromspecialtyToken token = new KnownspellsfromspecialtyToken();
+	private static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

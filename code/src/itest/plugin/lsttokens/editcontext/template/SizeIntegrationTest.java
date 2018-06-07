@@ -37,8 +37,8 @@ public class SizeIntegrationTest extends
 		AbstractIntegrationTestCase<PCTemplate>
 {
 
-	static SizeToken token = new SizeToken();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
+	private static SizeToken token = new SizeToken();
+	private static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCTemplate> getCDOMClass()

@@ -30,8 +30,8 @@ ABILITYCATEGORY:Elemental Resistance Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOO
 
 ###Block: Featured Races ability categories
 # Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location
-ABILITYCATEGORY:Angelic Flesh Option	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AngelicFleshOption		PLURAL:Angelic Flesh Options		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Heavenly Radiance Option	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HeavenlyRadianceOption	PLURAL:Heavenly Radiance Options	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Angelic Flesh Option	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AngelicFleshOption		PLURAL:Angelic Flesh Options		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Heavenly Radiance Option	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HeavenlyRadianceOption	PLURAL:Heavenly Radiance Options	DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Catfolk Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:CatfolkRacialTrait		PLURAL:Catfolk Racial Traits		DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Catfolk Exemplar Option	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:CatfolkExemplarOption	PLURAL:Catfolk Exemplar Options	DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Catfolk Curiosity		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Catfolk Curiosity		PLURAL:Catfolk Curiosity		DISPLAYLOCATION:Racial Abilities
@@ -75,6 +75,7 @@ ABILITYCATEGORY:Nagaji Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO	
 ABILITYCATEGORY:Samsaran Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:SamsaranRacialTrait														PLURAL:Samsaran Racial Traits		DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Strix Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:StrixRacialTrait															PLURAL:Strix Racial Traits		DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Wayang Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:WayangRacialTrait															PLURAL:Wayang Racial Traits		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Wyvaran Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:Wyvaran Racial Trait														PLURAL:Wayang Racial Traits		DISPLAYLOCATION:Racial Abilities
 
 
 ABILITYCATEGORY:Paladin Energy Resistance			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Internal			TYPE:PaladinFavoredEnergyResistance																			DISPLAYLOCATION:Class Features

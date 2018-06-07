@@ -20,6 +20,7 @@ package pcgen.output.testsupport;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.StringWriter;
+import java.util.Locale;
 import java.util.Map;
 
 import junit.framework.TestCase;
@@ -41,6 +42,7 @@ public abstract class AbstractOutputTestCase extends TestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
+		Locale.setDefault(Locale.US);
 		dsid = DataSetID.getID();
 		FacetLibrary.getFacet(ObjectWrapperFacet.class).initialize(dsid);
 		id = CharID.getID(dsid);

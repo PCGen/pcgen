@@ -282,9 +282,9 @@ WIELDCATEGORY:OneHandOnlyTooLarge							DOWN:OneHandOnly
 #
 # Dice rolling methods for character creation
 #
-ROLLMETHOD:Standard (4d6 drop lowest)	METHOD:roll(4,6,top(3))
-ROLLMETHOD:Classic (3d6)			METHOD:3d6
-ROLLMETHOD:Heroic (2d6+6)			METHOD:2d6+6
+ROLLMETHOD:Standard (4d6 drop lowest)	SORTKEY:A1	METHOD:roll(4,6,top(3))
+ROLLMETHOD:Classic (3d6)			SORTKEY:A2	METHOD:3d6
+ROLLMETHOD:Heroic (2d6+6)			SORTKEY:A3	METHOD:2d6+6
 
 # Unit Set
 UNITSET:Imperial	HEIGHTUNIT:ftin	HEIGHTFACTOR:1	HEIGHTPATTERN:#	DISTANCEUNIT:ft.	DISTANCEFACTOR:1		DISTANCEPATTERN:#.##	WEIGHTUNIT:lbs.	WEIGHTFACTOR:1	WEIGHTPATTERN:#.##

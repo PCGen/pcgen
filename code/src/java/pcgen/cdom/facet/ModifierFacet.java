@@ -19,46 +19,48 @@ package pcgen.cdom.facet;
 
 import java.util.List;
 
+import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VarScoped;
+import pcgen.base.solver.Modifier;
+import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.content.VarModifier;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
-import pcgen.cdom.inst.EquipmentHead;
-import pcgen.core.Equipment;
+import pcgen.cdom.facet.model.VarScopedFacet;
+import pcgen.cdom.formula.local.DefinedWrappingModifier;
+import pcgen.cdom.formula.local.ModifierDecoration;
+import pcgen.cdom.formula.scope.PCGenScope;
+import pcgen.rules.context.LoadContext;
 
 /**
  * ModifierFacet checks each item added to a PlayerCharacter to see if it has
  * MODIFY: entries on the object, and if so, adds them to the Solver system.
  */
-public class ModifierFacet implements
-		DataFacetChangeListener<CharID, CDOMObject>
+public class ModifierFacet implements DataFacetChangeListener<CharID, VarScoped>
 {
 	private ScopeFacet scopeFacet;
 
-	private CDOMObjectConsolidationFacet consolidationFacet;
+	private VarScopedFacet varScopedFacet;
 
 	private SolverManagerFacet solverManagerFacet;
+	
+	private LoadContextFacet loadContextFacet =
+			FacetLibrary.getFacet(LoadContextFacet.class);
 
-	/**
-	 * Triggered when one of the Facets to which ModifierFacet listens fires a
-	 * DataFacetChangeEvent to indicate a CDOMObject was added to a Player
-	 * Character.
-	 * 
-	 * @param dfce
-	 *            The DataFacetChangeEvent containing the information about the
-	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
-	 */
 	@Override
-	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, VarScoped> dfce)
 	{
 		CharID id = dfce.getCharID();
-		CDOMObject obj = dfce.getCDOMObject();
+		VarScoped vs = dfce.getCDOMObject();
+		if (!(vs instanceof CDOMObject))
+		{
+			return;
+		}
+		CDOMObject obj = (CDOMObject) vs;
 		List<VarModifier<?>> modifiers = obj.getListFor(ListKey.MODIFY);
 		if (modifiers != null)
 		{
@@ -68,48 +70,44 @@ public class ModifierFacet implements
 				processAddition(id, obj, vm, inst);
 			}
 		}
-		if (obj instanceof Equipment)
-		{
-			Equipment equip = (Equipment) obj;
-			for (EquipmentHead head : equip.getEquipmentHeads())
-			{
-				ScopeInstance inst = scopeFacet.get(id, head);
-				modifiers = head.getListFor(ListKey.MODIFY);
-				if (modifiers != null)
-				{
-					for (VarModifier<?> vm : modifiers)
-					{
-						processAddition(id, head, vm, inst);
-					}
-				}
-			}
-		}
 	}
 
 	private <T> void processAddition(CharID id, VarScoped obj, VarModifier<T> vm,
 		ScopeInstance inst)
 	{
-		solverManagerFacet.addModifier(id, vm, obj, inst);
+		solverManagerFacet.addModifier(id, vm, obj,
+			getModifier(id, inst, vm.getModifier(), obj), inst);
 	}
 
-	/**
-	 * Triggered when one of the Facets to which ModifierFacet listens fires a
-	 * DataFacetChangeEvent to indicate a CDOMObject was removed from a Player
-	 * Character.
-	 * 
-	 * Long term this method needs to be symmetric with dataAdded.
-	 * 
-	 * @param dfce
-	 *            The DataFacetChangeEvent containing the information about the
-	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
-	 */
+	private <T> Modifier<T> getModifier(CharID id, ScopeInstance source,
+		FormulaModifier<T> modifier, VarScoped thisValue)
+	{
+		PCGenScope legalScope = (PCGenScope) source.getLegalScope();
+		LoadContext context = loadContextFacet.get(id.getDatasetID()).get();
+		Modifier<T> returnValue;
+		try
+		{
+			FormatManager<?> formatManager = legalScope.getFormatManager(context);
+			returnValue = new DefinedWrappingModifier<>(modifier, "this", thisValue,
+				formatManager);
+		}
+		catch (UnsupportedOperationException e)
+		{
+			returnValue = new ModifierDecoration<>(modifier);
+		}
+		return returnValue;
+	}
+
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, VarScoped> dfce)
 	{
 		CharID id = dfce.getCharID();
-		CDOMObject obj = dfce.getCDOMObject();
+		VarScoped vs = dfce.getCDOMObject();
+		if (!(vs instanceof CDOMObject))
+		{
+			return;
+		}
+		CDOMObject obj = (CDOMObject) vs;
 		List<VarModifier<?>> modifiers = obj.getListFor(ListKey.MODIFY);
 		if (modifiers != null)
 		{
@@ -119,28 +117,13 @@ public class ModifierFacet implements
 				processRemoval(id, obj, vm, inst);
 			}
 		}
-		if (obj instanceof Equipment)
-		{
-			Equipment equip = (Equipment) obj;
-			for (EquipmentHead head : equip.getEquipmentHeads())
-			{
-				ScopeInstance inst = scopeFacet.get(id, head);
-				modifiers = head.getListFor(ListKey.MODIFY);
-				if (modifiers != null)
-				{
-					for (VarModifier<?> vm : modifiers)
-					{
-						processRemoval(id, equip, vm, inst);
-					}
-				}
-			}
-		}
 	}
 
 	private <T> void processRemoval(CharID id, VarScoped obj, VarModifier<T> vm,
 		ScopeInstance inst)
 	{
-		solverManagerFacet.removeModifier(id, vm, obj, inst);
+		solverManagerFacet.removeModifier(id, vm, obj,
+			getModifier(id, inst, vm.getModifier(), obj), inst);
 	}
 
 	public void setScopeFacet(ScopeFacet scopeFacet)
@@ -153,10 +136,9 @@ public class ModifierFacet implements
 		this.solverManagerFacet = solverManagerFacet;
 	}
 
-	public void setConsolidationFacet(
-		CDOMObjectConsolidationFacet consolidationFacet)
+	public void setVarScopedFacet(VarScopedFacet varScopedFacet)
 	{
-		this.consolidationFacet = consolidationFacet;
+		this.varScopedFacet = varScopedFacet;
 	}
 
 	/**
@@ -167,6 +149,6 @@ public class ModifierFacet implements
 	 */
 	public void init()
 	{
-		consolidationFacet.addDataFacetChangeListener(this);
+		varScopedFacet.addDataFacetChangeListener(this);
 	}
 }

@@ -70,4 +70,10 @@ public class TemplateToken extends AbstractQualifiedChooseToken<PCTemplate>
 		return super.parseTokenWithSeparator(context, context.getReferenceContext()
 				.getManufacturer(PCTEMPLATE_CLASS), obj, value);
 	}
+
+	@Override
+	protected String getPersistentFormat()
+	{
+		return "PCTEMPLATE";
+	}
 }

@@ -57,7 +57,7 @@ public class QtyToken extends AbstractNonEmptyToken<KitFunds> implements
 		if (!formula.isValid())
 		{
 			return new ParseResult.Fail("Formula in " + getTokenName()
-					+ " was not valid: " + formula.toString(), context);
+					+ " was not valid: " + formula.toString());
 		}
 		kitFunds.setQuantity(formula);
 		return ParseResult.SUCCESS;

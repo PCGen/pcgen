@@ -25,8 +25,10 @@ import pcgen.base.format.OrderedPairManager;
 import pcgen.base.math.OrderedPair;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.util.CControl;
 import pcgen.core.Race;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ModifierFactory;
@@ -49,10 +51,6 @@ public class FaceTokenTest extends AbstractCDOMTokenTestCase<Race>
 	{
 		super.setUp();
 		TokenRegistration.register(m);
-		primaryContext.getVariableContext().assertLegalVariableID(
-			primaryContext.getActiveScope().getLegalScope(), opManager, "Face");
-		secondaryContext.getVariableContext().assertLegalVariableID(
-			secondaryContext.getActiveScope().getLegalScope(), opManager, "Face");
 	}
 
 	@Override
@@ -177,4 +175,14 @@ public class FaceTokenTest extends AbstractCDOMTokenTestCase<Race>
 	{
 		return ConsolidationRule.OVERWRITE;
 	}
+
+	@Override
+	protected void additionalSetup(LoadContext context)
+	{
+		super.additionalSetup(context);
+		context.getVariableContext().assertLegalVariableID(
+			CControl.FACE.getDefaultValue(), context.getActiveScope(), opManager);
+	}
+	
+	
 }

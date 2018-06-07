@@ -13,7 +13,7 @@ Arcanist SpellBook		VISIBLE:NO	KIT:1|Arcanist Spellbook
 
 ###Block: Templates for Warpriest
 # Template Name			Bonus Languages					Temporary effect description			Temporary Bonus
-Sacred Weapon ~ Warpriest								TEMPDESC:Your BAB is your class levels.	TEMPBONUS:EQ|Weapon,Melee,OneHanded|WEAPON|TOHIT|TL-BAB|TYPE=Temporary
+Sacred Weapon ~ Warpriest								TEMPDESC:Your BAB is your class levels.	TEMPBONUS:EQ|Weapon|WEAPON|TOHIT|TL-BAB|TYPE=Temporary
 
 Warpriest ~ Bonus Languages	LANGBONUS:Abyssal,Celestial,Infernal
 

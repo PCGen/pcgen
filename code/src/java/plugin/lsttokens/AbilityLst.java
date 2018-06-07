@@ -127,7 +127,7 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 		{
 			return new ParseResult.Fail("Cannot use " + getTokenName()
 				+ " on an Ungranted object type: "
-				+ obj.getClass().getSimpleName(), context);
+				+ obj.getClass().getSimpleName());
 		}
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		String cat = tok.nextToken();
@@ -136,7 +136,7 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 		if (!tok.hasMoreTokens())
 		{
 			return new ParseResult.Fail(getTokenName() + " must have a Nature, "
-				+ "Format is: CATEGORY|NATURE|AbilityName: " + value, context);
+				+ "Format is: CATEGORY|NATURE|AbilityName: " + value);
 		}
 		final String natureKey = tok.nextToken();
 		Nature nature;
@@ -147,19 +147,19 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 		catch (IllegalArgumentException iae)
 		{
 			return new ParseResult.Fail(getTokenName()
-				+ " refers to invalid Ability Nature: " + natureKey, context);
+				+ " refers to invalid Ability Nature: " + natureKey);
 		}
 		if (Nature.ANY.equals(nature))
 		{
 			return new ParseResult.Fail(getTokenName()
 					+ " refers to ANY Ability Nature, cannot be used in "
-					+ getTokenName() + ": " + value, context);
+					+ getTokenName() + ": " + value);
 		}
 		if (!tok.hasMoreTokens())
 		{
 			return new ParseResult.Fail(getTokenName()
 				+ " must have abilities, Format is: "
-				+ "CATEGORY|NATURE|AbilityName: " + value, context);
+				+ "CATEGORY|NATURE|AbilityName: " + value);
 		}
 
 		String token = tok.nextToken();
@@ -167,7 +167,7 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 		if (looksLikeAPrerequisite(token))
 		{
 			return new ParseResult.Fail("Cannot have only PRExxx subtoken in "
-				+ getTokenName() + ": " + value, context);
+				+ getTokenName() + ": " + value);
 		}
 
 		String lkString = "GA_CA_" + cat + '_' + natureKey;
@@ -182,13 +182,12 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 		boolean first = true;
 		boolean removed = false;
 
-		ReferenceManufacturer<Ability> rm = context.getReferenceContext().getManufacturer(
-				ABILITY_CLASS, ABILITY_CATEGORY_CLASS, cat);
+		ReferenceManufacturer<Ability> rm = context.getReferenceContext()
+			.getManufacturerByFormatName("ABILITY=" + cat, ABILITY_CLASS);
 		if (rm == null)
 		{
 			return new ParseResult.Fail(
-				"Could not get Reference Manufacturer for Category: " + cat,
-				context);
+				"Could not get Reference Manufacturer for Category: " + cat);
 		}
 
 		boolean prereqsAllowed = true;
@@ -200,7 +199,7 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 				if (!first)
 				{
 					return new ParseResult.Fail("  Non-sensical " + getTokenName()
-						+ ": .CLEAR was not the first list item: " + value, context);
+						+ ": .CLEAR was not the first list item: " + value);
 				}
 				context.getListContext().removeAllFromList(getTokenName(), obj,
 					abilList);
@@ -290,7 +289,7 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 		{
 			return new ParseResult.Fail(
 				"Cannot use PREREQs when using .CLEAR, .CLEAR., or %LIST in "
-					+ getTokenName(), context);
+					+ getTokenName());
 		}
 
 		while (true)
@@ -299,7 +298,7 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 			if (prereq == null)
 			{
 				return new ParseResult.Fail("   (Did you put feats after the "
-					+ "PRExxx tags in " + getTokenName() + ":?)", context);
+					+ "PRExxx tags in " + getTokenName() + ":?)");
 			}
 			for (PrereqObject edge : edgeList)
 			{

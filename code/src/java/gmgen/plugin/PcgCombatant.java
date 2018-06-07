@@ -27,6 +27,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.apache.commons.lang3.StringUtils;
+import org.jdom2.Element;
+
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
@@ -34,6 +37,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.PCAttribute;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.util.SortKeyComparator;
 import pcgen.core.Domain;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
@@ -54,9 +58,6 @@ import pcgen.pluginmgr.PCGenMessageHandler;
 import pcgen.pluginmgr.messages.RequestOpenPlayerCharacterMessage;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.View;
-
-import org.apache.commons.lang3.StringUtils;
-import org.jdom2.Element;
 
 /**
  */
@@ -391,11 +392,6 @@ public class PcgCombatant extends Combatant
 		protected String htmlString;
 		protected int serial = 0;
 
-		public PcRenderer()
-		{
-			// Do Nothing
-		}
-
 		/**
 		 * <p>
 		 * This sets the text of the JTextPane for the specified PC. It uses an
@@ -697,7 +693,7 @@ public class PcgCombatant extends Combatant
 				.append("<font class='type'>Sv:</font> ");
 			boolean firstChk = true;
 			for (PCCheck chk : Globals.getContext().getReferenceContext()
-					.getOrderSortedCDOMObjects(PCCheck.class))
+					.getSortkeySortedCDOMObjects(PCCheck.class))
 			{
 				if (!firstChk)
 				{
@@ -714,7 +710,10 @@ public class PcgCombatant extends Combatant
 			}
 			statBuf.append(";<br>");
 
-			for (PCStat stat : pcOut.getUnmodifiableStatList())
+			List<PCStat> statList = new ArrayList<>(pcOut.getUnmodifiableStatList());
+			statList.sort(SortKeyComparator.getInstance());
+			
+			for (PCStat stat : statList)
 			{
 				String statAbb = stat.getKeyName();
 				if (display.isNonAbility(stat))

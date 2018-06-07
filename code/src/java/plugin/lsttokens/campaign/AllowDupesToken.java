@@ -60,7 +60,7 @@ public class AllowDupesToken extends AbstractNonEmptyToken<Campaign> implements
 		}
 		else
 		{
-			return new ParseResult.Fail("Token must be SPELL or LANGUAGE", context);
+			return new ParseResult.Fail("Token must be SPELL or LANGUAGE");
 		}
 	}
 

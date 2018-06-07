@@ -2,45 +2,45 @@
 
 # Armor
 # Equipment Name
-Splint Mail.COPY=Backbreaker Mail
+Splint Mail (Base).COPY=Backbreaker Mail		VISIBLE:YES		EQMOD:Material ~ Steel
 Armored Coat.COPY=Blackjacket
-Shield (Heavy/Wooden).COPY=Broadside Bulwark
-Full Plate.COPY=Crag Linnorm Plate
+Heavy Wooden Shield (Base).COPY=Broadside Bulwark		VISIBLE:YES		EQMOD:Material ~ Wood
+Full Plate (Base).COPY=Crag Linnorm Plate		VISIBLE:YES
 Parade.COPY=Eagle Knight Dress Uniform
 Leaf Armor.COPY=Ekujae Jungle Armor
 Hellknight Plate.COPY=Gelugon Plate
-Hide.COPY=Ghoul Hide
-Shield (Tower).COPY=Guard of Man
+Hide Armor (Base).COPY=Ghoul Hide		VISIBLE:YES		EQMOD:Material ~ Leather
+Tower Shield (Base).COPY=Guard of Man		VISIBLE:YES		EQMOD:Material ~ Wood
 Klar.COPY=Lyrune-Quah Klar
-Hide.COPY=Mammoth Hide
-Studded Leather.COPY=Mosswater Stained Leather
-Breastplate.COPY=Numerian Resistance Plate
+Hide Armor (Base).COPY=Mammoth Hide		VISIBLE:YES		EQMOD:Material ~ Leather
+Studded Leather (Base).COPY=Mosswater Stained Leather		VISIBLE:YES		EQMOD:Material ~ Leather|Material ~ Steel
+Breastplate (Base).COPY=Numerian Resistance Plate		VISIBLE:YES		EQMOD:Material ~ Steel
 Madu (Leather).COPY=Okeno Madu
-Leather.COPY=Scouting Leather
-Chain Shirt.COPY=Truefaith Vestments
+Leather Armor (Base).COPY=Scouting Leather		VISIBLE:YES		EQMOD:Material ~ Leather
+Chain Shirt (Base).COPY=Truefaith Vestments		VISIBLE:YES		EQMOD:Material ~ Steel
 Stoneplate.COPY=Tunnel Defender Stoneplate
 Field Plate.COPY=War Commander's Field Plate
-Half-Plate.COPY=Xill Carapace Armor
+Half-Plate (Base).COPY=Xill Carapace Armor		VISIBLE:YES		EQMOD:Material ~ Steel
 
 # Weapons
-Curve blade (Elven).COPY=Calistrian Kiss
+Elven Curve blade (Base).COPY=Calistrian Kiss		VISIBLE:YES		EQMOD:Material ~ Steel
 Sawtooth Sabre.COPY=Crimson Bluff
 Earth Breaker.COPY=Earth Breaker of Righted Injustice
 War Razor.COPY=Final Word
-Whip.COPY=Greenblood Scourge
-Starknife.COPY=Hunter's Starknife
+Whip (Base).COPY=Greenblood Scourge		VISIBLE:YES		EQMOD:Material ~ Leather
+Starknife (Base).COPY=Hunter's Starknife		VISIBLE:YES		EQMOD:Material ~ Steel
 Temple Sword.COPY=Monastic Warden
 Pistol.COPY=Peacekeeping Pistol
 Falcata.COPY=Purging Falcata
-Quarterstaff.COPY=Quarterstaff of Contemplation
+Quarterstaff (Base).COPY=Quarterstaff of Contemplation	VISIBLE:YES	EQMOD:Material ~ Wood	ALTEQMOD:Material ~ Wood
 Khopesh.COPY=Risen Blade
 Aldori Dueling Sword.COPY=Rostland Edge
 Bolas (Shoanti).COPY=Shadde-Quah Spirit Bolas
-Chain (Spiked).COPY=Shadowbound Chains
-Greatsword.COPY=Shearing Sword
+Spiked Chain (Base).COPY=Shadowbound Chains		VISIBLE:YES
+Greatsword (Base).COPY=Shearing Sword		VISIBLE:YES		EQMOD:Material ~ Steel
 Urumi.COPY=Steadfast Urumi
 Bladed Scarf.COPY=Wanderer's Scarf
-Shortspear.COPY=Wendifisa Spear
+Shortspear (Base).COPY=Wendifisa Spear	VISIBLE:YES	EQMOD:Material ~ Steel
 
 
 ###Block: Armor Specific

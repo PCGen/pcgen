@@ -4,9 +4,10 @@ SOURCELONG:Curse of the Crimson Throne, Chapter 3 - Escape from Old Korvosa	SOUR
 # Note:
 # For the offical Pathfinder RPG version of the temple sword, load the Pathfinder RPG Advanced Player's Guide dataset.
 # For the offical Pathfinder RPG version of the urumi, load the Pathfinder RPG Ultimate Combat dataset.
+# For the official Pathfinder RPG version of the Tri-Bladed Katar, load the Pathfinder RPG Player Companion: Adventurer's Armory 2 dataset.
 
 # Light melee weapons
 # Equipment Name		Output Name			Required Weapon Proficiency			Type											Cost		Weight	Crit Mult	Crit Range	Damage	Wield Category	Size		Source Page
 Bichhwa			OUTPUTNAME:Bich'hwa	PROFICIENCY:WEAPON|Bichhwa			TYPE:Weapon.Resizable.Melee.Finesseable.Exotic.Piercing.Slashing	COST:5	WT:2		CRITMULT:x2	CRITRANGE:2	DAMAGE:1d4	WIELD:Light		SIZE:M	SOURCEPAGE:p.83
-Katar (Tri-Bladed)					PROFICIENCY:WEAPON|Katar (Tri-Bladed)	TYPE:Weapon.Resizable.Melee.Finesseable.Exotic.Piercing		COST:6	WT:2		CRITMULT:x4	CRITRANGE:1	DAMAGE:1d4	WIELD:Light		SIZE:M	SOURCEPAGE:p.83
+#Katar (Tri-Bladed)					PROFICIENCY:WEAPON|Katar (Tri-Bladed)	TYPE:Weapon.Resizable.Melee.Finesseable.Exotic.Piercing		COST:6	WT:2		CRITMULT:x4	CRITRANGE:1	DAMAGE:1d4	WIELD:Light		SIZE:M	SOURCEPAGE:p.83
 Pata								PROFICIENCY:WEAPON|Pata				TYPE:Weapon.Resizable.Melee.Finesseable.Exotic.Piercing		COST:14	WT:3		CRITMULT:x3	CRITRANGE:1	DAMAGE:1d6	WIELD:Light		SIZE:M	SOURCEPAGE:p.83

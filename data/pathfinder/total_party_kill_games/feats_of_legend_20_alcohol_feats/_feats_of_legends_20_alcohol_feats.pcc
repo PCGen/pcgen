@@ -1,0 +1,44 @@
+CAMPAIGN:Feats of Legend: 20 Alcohol Feats
+GAMEMODE:Pathfinder
+RANK:4
+GENRE:Fantasy
+BOOKTYPE:BETA
+SETTING:Pathfinder
+TYPE:TPK Games.Feats of Legend
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+PUBNAMELONG:Total Party Kill Games
+PUBNAMESHORT:TPK
+PUBNAMEWEB:https://www.totalpartykill.games/
+SOURCELONG:Feats of Legend: 20 Alcohol Feats
+SOURCESHORT:FoLAF
+SOURCEWEB:https://www.totalpartykill.games/
+SOURCEDATE:2017-01
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:System Reference Document 5.0 Copyright 2016, Wizards of the Coast, Inc.; Authors Mike Mearls, Jeremy Crawford, Chris Perkins, Rodney Thompson, Peter Lee, James Wyatt, Robert J. Schwalb, Bruce R. Cordell, Chris Sims, and Steve Townshend, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder RPG Core Rulebook. Copyright 2009, Paizo Inc.; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:Feats of Legend: 20 Alcohol Feats. Copyright, 2017 Total Party Kill Games. Author(s): Neal Litherland.
+COPYRIGHT:PCGen dataset conversion for "Feats of Legend: 20 Alcohol Feats", Copyright 2018, PCGen Data Team (including, but not limited to, Andy Lijewski)
+COVER:20alcoholfeats.jpg
+LOGO:@/_images/logo/HighResTPKLogo.png
+
+DESC:Feats of Legend returns with an all-new take on Alcohol Feats!  Within these pages are 20 alcohol feats that will breathe life into your NPCs, adversaries and dwarves, gunslingers or barbarians (and more!).
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+ABILITY:folaf_feats.lst
+TEMPLATE:folaf_templates.lst
+
+# ENTRY DATE: 2018-03
+# LST MONKEY: Andy Lijewski
+# LICENSE MONKEY: Paul Grosse
+# RELEASE REVIEW #
+# BETA: Andrew Maitland
+# RELEASE:
+# Built for PCGen Version: 6.07.07
+# Updated to work with version: -
+# MINVER:6.7
+# MINDEVVER:6.07.7
+# COMMENTS:

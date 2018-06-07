@@ -28,7 +28,6 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.KnownSpellFacet;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -39,6 +38,7 @@ import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.PCClassLoader;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
+import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
  * The Class <code>SpellLevelTest</code> checks the SpellLevel class.
@@ -82,8 +82,7 @@ public class SpellLevelTest extends AbstractCharacterTestCase
 		AbilityLoader abilityLoader = new AbilityLoader();
 		abilityLoader.parseLine(context, null, abilityLine, source);
 		Ability ab1 = Globals.getContext().getReferenceContext()
-				.silentlyGetConstructedCDOMObject(Ability.class,
-						AbilityCategory.FEAT, "Spell bonanza");
+			.getManufacturerId(BuildUtilities.getFeatCat()).getActiveObject("Spell bonanza");
 
 		// Do the post parsing cleanup
 		context.resolveDeferredTokens();
@@ -97,7 +96,7 @@ public class SpellLevelTest extends AbstractCharacterTestCase
 		Collection<Integer> levels = listManagerFacet.getScopes2(aPC.getCharID(), pcc.get(ObjectKey.CLASS_SPELLLIST));
 		assertEquals("Initial number of spell levels incorrect", 0, levels.size());
 		
-		addAbility(AbilityCategory.FEAT, ab1);
+		addAbility(BuildUtilities.getFeatCat(), ab1);
 
 		// Now for the tests
 		levels = listManagerFacet.getScopes2(aPC.getCharID(), pcc.get(ObjectKey.CLASS_SPELLLIST));

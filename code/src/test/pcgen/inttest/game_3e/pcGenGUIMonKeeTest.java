@@ -19,9 +19,9 @@
  */
 package pcgen.inttest.game_3e;
 
-import pcgen.inttest.pcGenGUITestCase;
 import junit.framework.Test;
 import junit.framework.TestSuite;
+import pcgen.inttest.PcgenFtlTestCase;
 
 /**
  * Tests a 3e 8th level Human Monk.
@@ -29,7 +29,7 @@ import junit.framework.TestSuite;
  * See PCG file for details.
  */
 @SuppressWarnings("nls")
-public class pcGenGUIMonKeeTest extends pcGenGUITestCase
+public class pcGenGUIMonKeeTest extends PcgenFtlTestCase
 {
 	/**
 	 * Run the tests.

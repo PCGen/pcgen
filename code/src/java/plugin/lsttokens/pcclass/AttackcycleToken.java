@@ -60,7 +60,7 @@ public class AttackcycleToken extends AbstractTokenWithSeparator<PCClass>
 		if (aTok.countTokens() % 2 != 0)
 		{
 			return new ParseResult.Fail(getTokenName()
-					+ " must have an even number of arguments.", context);
+					+ " must have an even number of arguments.");
 		}
 
 		while (aTok.hasMoreTokens())
@@ -69,7 +69,7 @@ public class AttackcycleToken extends AbstractTokenWithSeparator<PCClass>
 			if (AttackType.GRAPPLE.equals(at))
 			{
 				return new ParseResult.Fail("Error: Cannot Set Attack Cycle "
-						+ "for GRAPPLE Attack Type", context);
+						+ "for GRAPPLE Attack Type");
 			}
 			String cycle = aTok.nextToken();
 			try
@@ -78,7 +78,7 @@ public class AttackcycleToken extends AbstractTokenWithSeparator<PCClass>
 				if (i <= 0)
 				{
 					return new ParseResult.Fail("Invalid " + getTokenName() + ": " + value
-							+ " Cycle " + cycle + " must be a positive integer.", context);
+							+ " Cycle " + cycle + " must be a positive integer.");
 				}
 				context.getObjectContext().put(pcc, MapKey.ATTACK_CYCLE, at, i);
 				/*
@@ -102,7 +102,7 @@ public class AttackcycleToken extends AbstractTokenWithSeparator<PCClass>
 			catch (NumberFormatException e)
 			{
 				return new ParseResult.Fail("Invalid " + getTokenName() + ": " + value
-						+ " Cycle " + cycle + " must be a (positive) integer.", context);
+						+ " Cycle " + cycle + " must be a (positive) integer.");
 			}
 		}
 		return ParseResult.SUCCESS;

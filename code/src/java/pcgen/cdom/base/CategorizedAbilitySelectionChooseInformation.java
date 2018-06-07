@@ -19,7 +19,6 @@ package pcgen.cdom.base;
 
 import pcgen.cdom.choiceset.CollectionToAbilitySelection;
 import pcgen.cdom.content.AbilitySelection;
-import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.AbilityCategory;
 
 /**
@@ -47,14 +46,14 @@ public class CategorizedAbilitySelectionChooseInformation extends
 	public CategorizedAbilitySelectionChooseInformation(String name,
 		CollectionToAbilitySelection choice)
 	{
-		super(name, choice);
+		super(name, choice, choice.getCategory().getPersistentFormat());
 		this.casChoiceSet = choice;
 	}
 	
 	/**
 	 * @return The ability category of the choices. 
 	 */
-	public CDOMSingleRef<AbilityCategory> getCategory()
+	public AbilityCategory getCategory()
 	{
 		return casChoiceSet.getCategory();
 	}

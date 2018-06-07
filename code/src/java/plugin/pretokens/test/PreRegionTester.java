@@ -43,9 +43,6 @@ public class PreRegionTester extends AbstractDisplayPrereqTest implements Prereq
 		return passes(prereq, display, equipment);
 	}
 
-	/**
-	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
-	 */
 	@Override
 	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
 		throws PrerequisiteException

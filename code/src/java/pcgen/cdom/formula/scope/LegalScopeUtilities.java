@@ -17,7 +17,7 @@
  */
 package pcgen.cdom.formula.scope;
 
-import pcgen.base.formula.base.LegalScopeLibrary;
+import pcgen.base.formula.inst.ScopeManagerInst;
 import pcgen.cdom.helper.SpringHelper;
 
 public final class LegalScopeUtilities
@@ -28,7 +28,7 @@ public final class LegalScopeUtilities
 		//Do not construct utility class
 	}
 
-	public static void loadLegalScopeLibrary(LegalScopeLibrary library)
+	public static void loadLegalScopeLibrary(ScopeManagerInst library)
 	{
 		library.registerScope(SpringHelper.getBean(GlobalScope.class));
 		library.registerScope(SpringHelper.getBean(EquipmentScope.class));

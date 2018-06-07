@@ -28,6 +28,7 @@ import plugin.lsttokens.pcclass.LangbonusToken;
 
 import org.junit.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
+import util.TestURI;
 
 public class PCClassLangbonusTest extends AbstractTokenModelTest
 {
@@ -44,7 +45,7 @@ public class PCClassLangbonusTest extends AbstractTokenModelTest
 		ParseResult result = token.parseToken(context, source, "Granted");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();

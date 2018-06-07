@@ -1,6 +1,6 @@
 CAMPAIGN:People of the Sands
 GAMEMODE:Pathfinder|Pathfinder_PFS
-TYPE:Paizo Publishing.Pathfinder RPG.Player Companion
+TYPE:Paizo Publishing.Pathfinder Player Companion
 RANK:3
 GENRE:Fantasy
 STATUS:BETA
@@ -11,9 +11,9 @@ PRECAMPAIGN:1,INCLUDES=Inner Sea Primer
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
-SOURCELONG:People of the Sands
+SOURCELONG:Pathfinder Player Companion: People of the Sands
 SOURCESHORT:PSand
-SOURCEWEB:http://paizo.com/products/btpy92lx?Pathfinder-Player-Companion-People-of-the-Sands
+SOURCEWEB:http://paizo.com/products/btpy92lx
 SOURCEDATE:2014-02
 ISOGL:YES
 
@@ -21,13 +21,13 @@ COVER:people_of_the_sands.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
-URL:Paizo Publishing|http://paizo.com/products/btpy92lx?Pathfinder-Player-Companion-People-of-the-Sands|Buy this publication from Paizo Publishing!
+URL:Paizo Publishing|http://paizo.com/products/btpy92lx|Buy this publication from Paizo Publishing!
 DESC:Welcome to the sprawling, sunbaked deserts of Garund. Whether you plan to raid ancient temples hidden beneath the sand for priceless treasures, venture through the endless wastes in search of rare flowers that promise everlasting youth, or smite evil cults that worship repugnant deities, the desert calls upon you to answer your destiny and claim your glory!
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
-COPYRIGHT:Genie, Marid from the Tome of Horrors Complete © 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
-COPYRIGHT:Pathfinder Player Companion: People of the Sands © 2013, Paizo Publishing, LLC; Authors: Shaun Hocking, Rob McCreary, and Jason Nelson.
+COPYRIGHT:Genie, Marid from the Tome of Horrors Complete (c) 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Pathfinder Player Companion: People of the Sands (c) 2013, Paizo Publishing, LLC; Authors: Shaun Hocking, Rob McCreary, and Jason Nelson.
 COPYRIGHT:PCGen dataset conversion for "Pathfinder Companion: People of the Sands" Copyright 2017, PCGen Data team (Including, but not limited to Gwen T.)
 
 # Do not remove the EXTRAFILE comment.
@@ -43,6 +43,10 @@ EQUIPMOD:psand_equipmods.lst
 SKILL:psand_skills.lst
 SPELL:psand_spells.lst
 TEMPLATE:psand_templates.lst
+
+# support
+ABILITY:support/psand_abilities_class_um.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
+ABILITY:support/psand_abilities_class_acg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
 
 # ENTRY DATE: 2017-07-30
 # LST MONKEY: Gwen T.

@@ -1,19 +1,17 @@
 /*
  * Copyright (c) 2008 Tom Parker <thpr@users.sourceforge.net>
  * 
- * This program is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
+ * This program is free software; you can redistribute it and/or modify it under the terms
+ * of the GNU Lesser General Public License as published by the Free Software Foundation;
+ * either version 2.1 of the License, or (at your option) any later version.
  * 
- * This program is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
+ * This program is distributed in the hope that it will be useful, but WITHOUT ANY
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
  * 
- * You should have received a copy of the GNU Lesser General Public License
- * along with this library; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ * You should have received a copy of the GNU Lesser General Public License along with
+ * this library; if not, write to the Free Software Foundation, Inc., 51 Franklin Street,
+ * Fifth Floor, Boston, MA 02110-1301, USA
  */
 package plugin.lsttokens.pcclass;
 
@@ -36,7 +34,6 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
-import pcgen.util.Logging;
 import pcgen.util.enumeration.ProhibitedSpellType;
 
 /**
@@ -59,30 +56,17 @@ public class ProhibitspellToken extends AbstractTokenWithSeparator<PCClass>
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		PCClass pcc, String value)
-	{
-		SpellProhibitor sp = subParse(value);
-		if (sp == null)
-		{
-			return ParseResult.INTERNAL_ERROR;
-		}
-		context.getObjectContext().addToList(pcc, ListKey.SPELL_PROHIBITOR, sp);
-		return ParseResult.SUCCESS;
-	}
-
-	public SpellProhibitor subParse(String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, PCClass pcc,
+		String value)
 	{
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
-
 		String token = tok.nextToken();
 
 		int dotLoc = token.indexOf(Constants.DOT);
 		if (dotLoc == -1)
 		{
-			Logging.errorPrint(getTokenName()
-					+ " has no . separator for arguments: " + value);
-			return null;
+			return new ParseResult.Fail(
+				getTokenName() + " has no . separator for arguments: " + value);
 		}
 		String pstString = token.substring(0, dotLoc);
 		ProhibitedSpellType type;
@@ -93,110 +77,69 @@ public class ProhibitspellToken extends AbstractTokenWithSeparator<PCClass>
 		}
 		catch (IllegalArgumentException e)
 		{
-			Logging
-					.errorPrint(getTokenName()
-							+ " encountered an invalid Prohibited Spell Type: "
-							+ value);
-			Logging.errorPrint("  Legal values are: "
-					+ StringUtil.join(Arrays.asList(ProhibitedSpellType
-							.values()), ", "));
-			return null;
+			return new ParseResult.Fail(
+				getTokenName() + " encountered an invalid Prohibited Spell Type: " + value
+					+ "\n  Legal values are: "
+					+ StringUtil.join(Arrays.asList(ProhibitedSpellType.values()), ", "));
 		}
 
-		SpellProhibitor spellProb =
-				typeSafeParse(type, token.substring(dotLoc + 1));
-		if (spellProb == null)
-		{
-			Logging.errorPrint("  entire token value was: " + value);
-			return null;
-		}
-		if (!tok.hasMoreTokens())
-		{
-			// No prereqs, so we're done
-			return spellProb;
-		}
-		token = tok.nextToken();
-
-		while (true)
-		{
-			Prerequisite prereq = getPrerequisite(token);
-			if (prereq == null)
-			{
-				Logging
-						.errorPrint("   (Did you put more than one limit, or items after the "
-								+ "PRExxx tags in " + getTokenName() + ":?)");
-				return null;
-			}
-			spellProb.addPrerequisite(prereq);
-			if (!tok.hasMoreTokens())
-			{
-				break;
-			}
-			token = tok.nextToken();
-		}
-		return spellProb;
-	}
-
-	private SpellProhibitor typeSafeParse(ProhibitedSpellType type, String args)
-	{
+		String args = token.substring(dotLoc + 1);
 		SpellProhibitor spellProb = new SpellProhibitor();
 		spellProb.setType(type);
 		if (args.isEmpty())
 		{
-			Logging.errorPrint(getTokenName() + ' ' + type
-					+ " has no arguments");
-			return null;
+			return new ParseResult.Fail(
+				getTokenName() + ' ' + type + " has no arguments");
 		}
 
-		String joinChar = getJoinChar(type, new LinkedList<>());
-		if (args.indexOf(joinChar) == 0)
+		char joinChar = getJoinChar(type, new LinkedList<>());
+		ParseResult pr = checkForIllegalSeparator(joinChar, args);
+		if (!pr.passed())
 		{
-			Logging.errorPrint(getTokenName()
-					+ " arguments may not start with " + joinChar);
-			return null;
-		}
-		if (args.lastIndexOf(joinChar) == args.length() - 1)
-		{
-			Logging.errorPrint(getTokenName() + " arguments may not end with "
-					+ joinChar);
-			return null;
-		}
-		if (args.indexOf(joinChar + joinChar) != -1)
-		{
-			Logging
-					.errorPrint(getTokenName()
-							+ " arguments uses double separator " + joinChar
-							+ joinChar);
-			return null;
+			return pr;
 		}
 
-		StringTokenizer elements = new StringTokenizer(args, joinChar);
+		StringTokenizer elements =
+				new StringTokenizer(args, Character.toString(joinChar));
 		while (elements.hasMoreTokens())
 		{
 			String aValue = elements.nextToken();
 			if (type.equals(ProhibitedSpellType.ALIGNMENT)
-					&& (!aValue.equalsIgnoreCase("GOOD"))
-					&& (!aValue.equalsIgnoreCase("EVIL"))
-					&& (!aValue.equalsIgnoreCase("LAWFUL"))
-					&& (!aValue.equalsIgnoreCase("CHAOTIC")))
+				&& (!aValue.equalsIgnoreCase("GOOD"))
+				&& (!aValue.equalsIgnoreCase("EVIL"))
+				&& (!aValue.equalsIgnoreCase("LAWFUL"))
+				&& (!aValue.equalsIgnoreCase("CHAOTIC")))
 			{
-				Logging.errorPrint("Illegal PROHIBITSPELL:ALIGNMENT subtag '"
-						+ aValue + '\'');
-				return null;
+				return new ParseResult.Fail(
+					"Illegal PROHIBITSPELL:ALIGNMENT subtag '" + aValue + '\'');
 			}
 			else
 			{
 				spellProb.addValue(aValue);
 			}
 		}
-		return spellProb;
+		while (tok.hasMoreTokens())
+		{
+			token = tok.nextToken();
+			Prerequisite prereq = getPrerequisite(token);
+			if (prereq == null)
+			{
+				return new ParseResult.Fail(
+					"   (Did you put more than one limit, or items after the "
+						+ "PRExxx tags in " + getTokenName() + ":?), value was:" + value);
+			}
+			spellProb.addPrerequisite(prereq);
+		}
+
+		context.getObjectContext().addToList(pcc, ListKey.SPELL_PROHIBITOR, spellProb);
+		return ParseResult.SUCCESS;
 	}
 
 	@Override
 	public String[] unparse(LoadContext context, PCClass pcc)
 	{
-		Changes<SpellProhibitor> changes = context.getObjectContext()
-				.getListChanges(pcc, ListKey.SPELL_PROHIBITOR);
+		Changes<SpellProhibitor> changes =
+				context.getObjectContext().getListChanges(pcc, ListKey.SPELL_PROHIBITOR);
 		Collection<SpellProhibitor> added = changes.getAdded();
 		if (added == null || added.isEmpty())
 		{
@@ -211,25 +154,22 @@ public class ProhibitspellToken extends AbstractTokenWithSeparator<PCClass>
 			sb.append(pst.toString().toUpperCase());
 			sb.append('.');
 			Collection<String> valueSet = sp.getValueList();
-			String joinChar = getJoinChar(pst, valueSet);
+			char joinChar = getJoinChar(pst, valueSet);
 			sb.append(StringUtil.join(new TreeSet<>(valueSet), joinChar));
 
 			if (sp.hasPrerequisites())
 			{
 				sb.append(Constants.PIPE);
-				sb.append(getPrerequisiteString(context, sp
-						.getPrerequisiteList()));
+				sb.append(getPrerequisiteString(context, sp.getPrerequisiteList()));
 			}
 			list.add(sb.toString());
 		}
 		return list.toArray(new String[list.size()]);
 	}
 
-	private <T> String getJoinChar(ProhibitedSpellType pst,
-			Collection<String> spValues)
+	private <T> char getJoinChar(ProhibitedSpellType pst, Collection<String> spValues)
 	{
-		return pst.getRequiredCount(spValues) == 1 ? Constants.COMMA
-				: Constants.DOT;
+		return pst.getRequiredCount(spValues) == 1 ? ',' : '.';
 	}
 
 	@Override

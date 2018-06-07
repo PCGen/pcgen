@@ -17,14 +17,16 @@
  */
 package plugin.lsttokens.datacontrol;
 
-import pcgen.base.solver.Modifier;
+import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.DefaultVarValue;
+import pcgen.cdom.formula.local.ModifierDecoration;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.context.VariableContext;
+import pcgen.rules.persistence.TokenLibrary;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ModifierFactory;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
@@ -67,7 +69,7 @@ public class DefaultVariableValueToken extends
 		if (value.lastIndexOf(separator) != pipeLoc)
 		{
 			return new ParseResult.Fail(getTokenName()
-				+ " requires only a type and a value, found: " + value, context);
+				+ " requires only a type and a value, found: " + value);
 		}
 		String formatName = value.substring(0, pipeLoc);
 		String formatValue;
@@ -88,7 +90,7 @@ public class DefaultVariableValueToken extends
 		catch (NullPointerException | IllegalArgumentException e)
 		{
 			return new ParseResult.Fail(getTokenName()
-				+ " found an unsupported format: " + formatName, context);
+				+ " found an unsupported format: " + formatName);
 		}
 		dvv.setFormatManager(fmtManager);
 		return subProcess(context, dvv, formatValue, fmtManager);
@@ -98,22 +100,28 @@ public class DefaultVariableValueToken extends
 		DefaultVarValue dvv, String defaultValue, FormatManager<T> fmtManager)
 	{
 		Class<T> cl = fmtManager.getManagedClass();
-		Modifier<T> defaultModifier;
-		VariableContext varContext = context.getVariableContext();
+		ModifierFactory<T> m = TokenLibrary.getModifier(cl, "SET");
+		if (m == null)
+		{
+			return new ParseResult.Fail("ModifierType "
+				+ fmtManager.getIdentifierType() + " requires a SET modifier");
+		}
+		FormulaModifier<T> defaultModifier;
 		try
 		{
-			defaultModifier = varContext.getModifier("SET", defaultValue, 0,
-				varContext.getScope("GLOBAL"), fmtManager);
+			defaultModifier = context.getVariableContext().getModifier("SET",
+				defaultValue, context.getActiveScope(), fmtManager);
 		}
 		catch (IllegalArgumentException e)
 		{
-			return new ParseResult.Fail("ModifierType "
-				+ fmtManager.getIdentifierType()
-				+ " could not be initialized to a default value of: "
-				+ defaultValue, context);
+			return new ParseResult.Fail("ModifierType " + fmtManager.getIdentifierType()
+				+ " could not be initialized to a default value of: " + defaultValue
+				+ " due to " + e.getLocalizedMessage());
 		}
+		defaultModifier.addAssociation("PRIORITY=0");
 		dvv.setModifier(defaultModifier);
-		varContext.addDefault(cl, defaultModifier);
+		context.getVariableContext().addDefault(cl,
+			new ModifierDecoration<>(defaultModifier));
 		return ParseResult.SUCCESS;
 	}
 
@@ -126,5 +134,4 @@ public class DefaultVariableValueToken extends
 		sb.append(dvv.getModifier().getInstructions());
 		return new String[]{sb.toString()};
 	}
-
 }

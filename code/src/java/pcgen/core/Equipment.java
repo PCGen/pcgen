@@ -23,6 +23,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.net.URI;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
@@ -40,8 +41,9 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import org.apache.commons.lang3.StringUtils;
+
 import pcgen.base.formula.Formula;
-import pcgen.base.formula.base.VarScoped;
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.FixedStringList;
 import pcgen.cdom.base.CDOMObject;
@@ -59,6 +61,7 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.analysis.ResultFacet;
+import pcgen.cdom.formula.PCGenScoped;
 import pcgen.cdom.helper.Capacity;
 import pcgen.cdom.inst.EqSizePenalty;
 import pcgen.cdom.inst.EquipmentHead;
@@ -95,10 +98,11 @@ import pcgen.util.enumeration.Load;
 import pcgen.util.enumeration.View;
 import pcgen.util.enumeration.Visibility;
 
-import org.apache.commons.lang3.StringUtils;
-
+/**
+ * Represents Equipment for a PC.
+ */
 public final class Equipment extends PObject implements Serializable,
-		Comparable<Object>, VariableContainer, EquipmentFacade, VarScoped
+		Comparable<Object>, VariableContainer, EquipmentFacade, PCGenScoped
 {
 
 	private static final long serialVersionUID = 1;
@@ -2157,8 +2161,7 @@ public final class Equipment extends PObject implements Serializable,
 		if (Visibility.QUALIFY.equals(vis))
 		{
 			bonusPrimary = true;
-			if (PrereqHandler
-				.passesAll(eqMod.getPrerequisiteList(), this, null))
+			if (PrereqHandler.passesAll(eqMod, this, null))
 			{
 				return true;
 			}
@@ -2169,8 +2172,7 @@ public final class Equipment extends PObject implements Serializable,
 			if (isDouble())
 			{
 				bonusPrimary = false;
-				return PrereqHandler.passesAll(eqMod.getPrerequisiteList(),
-					this, null);
+				return PrereqHandler.passesAll(eqMod, this, null);
 			}
 			return false;
 		}
@@ -2195,8 +2197,7 @@ public final class Equipment extends PObject implements Serializable,
 		if (Visibility.QUALIFY.equals(vis))
 		{
 			bonusPrimary = primaryHead;
-			return PrereqHandler.passesAll(eqMod.getPrerequisiteList(),
-				this, pc);
+			return PrereqHandler.passesAll(eqMod, this, pc);
 		}
 
 		return vis.isVisibleTo(v);
@@ -2461,10 +2462,6 @@ public final class Equipment extends PObject implements Serializable,
 			                            .forEach(aMod ->
 			                            {
 				                            head.removeFromListFor(ListKey.EQMOD, aMod);
-				                            head.removeVarModifiers(
-						                            aPC.getCharID(),
-						                            aMod
-				                            );
 				                            if (bPrimary)
 				                            {
 					                            usePrimaryCache = false;
@@ -2485,7 +2482,6 @@ public final class Equipment extends PObject implements Serializable,
 			    .forEach(aMod ->
 			    {
 				    head.removeFromListFor(ListKey.EQMOD, aMod);
-				    head.removeVarModifiers(aPC.getCharID(), aMod);
 				    if (bPrimary)
 				    {
 					    usePrimaryCache = false;
@@ -2505,7 +2501,6 @@ public final class Equipment extends PObject implements Serializable,
 			    .forEach(aMod ->
 			    {
 				    head.removeFromListFor(ListKey.EQMOD, aMod);
-				    head.removeVarModifiers(aPC.getCharID(), aMod);
 				    if (bPrimary)
 				    {
 					    usePrimaryCache = false;
@@ -2543,7 +2538,6 @@ public final class Equipment extends PObject implements Serializable,
 			}
 
 			head.addToListFor(ListKey.EQMOD, aMod);
-			head.addVarModifiers(aPC.getCharID(), aMod);
 			if (bPrimary)
 			{
 				usePrimaryCache = false;
@@ -2580,7 +2574,6 @@ public final class Equipment extends PObject implements Serializable,
 			if (allRemoved)
 			{
 				head.removeFromListFor(ListKey.EQMOD, aMod);
-				head.removeVarModifiers(aPC.getCharID(), aMod);
 				if (bPrimary)
 				{
 					usePrimaryCache = false;
@@ -2783,7 +2776,7 @@ public final class Equipment extends PObject implements Serializable,
 		bonusPrimary = bPrimary;
 
 		return getSafe(ObjectKey.MOD_CONTROL).getModifiersAllowed()
-			&& PrereqHandler.passesAll(eqMod.getPrerequisiteList(), this, pc);
+			&& PrereqHandler.passesAll(eqMod, this, pc);
 	}
 
 	/**
@@ -3247,7 +3240,7 @@ public final class Equipment extends PObject implements Serializable,
 	 */
 	public boolean meetsPreReqs(PlayerCharacter pc)
 	{
-		return PrereqHandler.passesAll(getPrerequisiteList(), this, pc);
+		return PrereqHandler.passesAll(this, this, pc);
 	}
 
 	/**
@@ -3463,7 +3456,6 @@ public final class Equipment extends PObject implements Serializable,
 		{
 			EquipmentHead head = getEquipmentHead(bPrimary ? 1 : 2);
 			head.removeFromListFor(ListKey.EQMOD, aMod);
-			head.removeVarModifiers(pc.getCharID(), aMod);
 			if (bPrimary)
 			{
 				usePrimaryCache = false;
@@ -3516,10 +3508,6 @@ public final class Equipment extends PObject implements Serializable,
 			                                {
 				                                head.addToListFor(ListKey.EQMOD,
 						                                baseMod);
-				                                head.addVarModifiers(
-						                                pc.getCharID(),
-						                                baseMod
-				                                );
 			                                }));
 		}
 
@@ -3533,7 +3521,6 @@ public final class Equipment extends PObject implements Serializable,
 			        .forEach(baseMod ->
 			        {
 				        head.addToListFor(ListKey.EQMOD, baseMod);
-				        head.addVarModifiers(pc.getCharID(), baseMod);
 			        });
 		}
 		else if (eqMod.isType("MagicalEnhancement"))
@@ -3546,7 +3533,6 @@ public final class Equipment extends PObject implements Serializable,
 			        .forEach(baseMod ->
 			        {
 				        head.addToListFor(ListKey.EQMOD, baseMod);
-				        head.addVarModifiers(pc.getCharID(), baseMod);
 			        });
 		}
 	}
@@ -5068,8 +5054,7 @@ public final class Equipment extends PObject implements Serializable,
 	{
 		for (final BonusObj bonus : getRawBonusList(aPC))
 		{
-			aPC.setApplied(bonus, PrereqHandler.passesAll(bonus
-				.getPrerequisiteList(), this, aPC));
+			aPC.setApplied(bonus, PrereqHandler.passesAll(bonus, this, aPC));
 		}
 	}
 
@@ -6659,12 +6644,38 @@ public final class Equipment extends PObject implements Serializable,
 	@Override
 	public String getLocalScopeName()
 	{
-		return "EQUIPMENT";
+		return "PC.EQUIPMENT";
 	}
 
 	public Object getLocalVariable(CharID id, String varName)
 	{
 		ResultFacet resultFacet = FacetLibrary.getFacet(ResultFacet.class);
 		return resultFacet.getLocalVariable(id, this, varName);
+	}
+
+	@Override
+	public CDOMObject getLocalChild(String childType, String childName)
+	{
+		if ("EQUIPMENT.PART".equals(childType))
+		{
+			return getEquipmentHead(Integer.parseInt(childName));
+		}
+		return null;
+	}
+
+	@Override
+	public List<String> getChildTypes()
+	{
+		return Arrays.asList(new String[]{"EQUIPMENT.PART"});
+	}
+
+	@Override
+	public List<PCGenScoped> getChildren(String childType)
+	{
+		if ("EQUIPMENT.PART".equals(childType))
+		{
+			return new ArrayList<>(heads);
+		}
+		return null;
 	}
 }

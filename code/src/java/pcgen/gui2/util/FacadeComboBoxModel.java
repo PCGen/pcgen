@@ -30,8 +30,8 @@ import pcgen.facade.util.DelegatingListFacade;
 import pcgen.facade.util.ListFacade;
 
 
-public class FacadeComboBoxModel<E> extends AbstractListModel
-		implements ComboBoxModel, ListListener<E>, ReferenceListener<E>
+public class FacadeComboBoxModel<E> extends AbstractListModel<E>
+		implements ComboBoxModel<E>, ListListener<E>, ReferenceListener<E>
 {
 
 	private DelegatingListFacade<E> delegate;
@@ -77,7 +77,7 @@ public class FacadeComboBoxModel<E> extends AbstractListModel
 	}
 
 	@Override
-	public Object getElementAt(int index)
+	public E getElementAt(int index)
 	{
 		return delegate.getElementAt(index);
 	}

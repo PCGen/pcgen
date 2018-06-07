@@ -1,0 +1,54 @@
+# CVS $Revision$ $Author$ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
+CAMPAIGN:Bastards of Golarion
+GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing.Pathfinder Player Companion
+RANK:3
+STATUS:ALPHA
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder Player Companion
+STATUS:BETA
+PRECAMPAIGN:4,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic
+PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+SOURCELONG:Pathfinder Player Companion: Bastards of Golarion
+SOURCESHORT:BOG
+SOURCEWEB:http://paizo.com/products/btpy93na
+SOURCEDATE:2014-02
+ISOGL:YES
+
+COVER:bastards_of_golarion.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy93na|Buy this publication from Paizo Publishing!
+
+DESC:Unlock the powers of your ancestors and combine the might of two worlds with Pathfinder Player Companion: Bastards of Golarion! Whether you're the abandoned progeny of elven royalty or the feared result of hag trickery, your lineage is both strange and storied, and you must channel the brawn and guile of your forebears to prove yourself to a harsh and uncaring world--no matter the costs.
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+
+COPYRIGHT:Open Game License v 1.0a Copyright 2000,Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, and Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder Player Companion: Bastards of Golarion Copyright 2014, Paizo Publishing, LLC; Authors: Judy Bauer, Neal Litherland, Ryan Macklin, and David N. Ross.
+
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Bastards of Golarion" Copyright 2013, PCGen Data Team (including, but not limited to Andrew Wilson, Gwen T.)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# Data files
+
+ABILITY:bog_abilities.lst
+ABILITY:bog_abilities_class.lst
+ABILITY:bog_abilities_race.lst
+ABILITY:bog_feats.lst
+ABILITYCATEGORY:bog_abilitycategories.lst
+CLASS:bog_classes.lst
+EQUIPMENT:bog_equip_general.lst
+LANGUAGE:bog_languages.lst
+RACE:bog_races.lst
+SPELL:bog_spells.lst
+TEMPLATE:bog_templates.lst
+

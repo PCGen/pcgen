@@ -32,11 +32,12 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.Status;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.helper.AllowUtilities;
 import pcgen.core.Campaign;
+import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.facade.core.CampaignFacade;
 import pcgen.facade.core.CampaignInfoFactory;
 import pcgen.facade.core.SourceSelectionFacade;
-import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.gui2.util.HtmlInfoBuilder;
 import pcgen.persistence.PersistenceManager;
 import pcgen.persistence.lst.CampaignSourceEntry;
@@ -181,6 +182,13 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 			infoText.appendI18nFormattedElement("in_InfoRequirements", preString); //$NON-NLS-1$
 		}
 		
+		String aString = AllowUtilities.getAllowInfo(null, aCamp);
+		if (!aString.isEmpty())
+		{
+			infoText.appendLineBreak();
+			infoText.appendI18nElement("in_requirements", aString); //$NON-NLS-1$
+		}
+
 		boolean infoDisplayed = false;
 		List<String> info = aCamp.getListFor(ListKey.INFO_TEXT);
 		if (info != null)
@@ -322,11 +330,13 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 
 		PersistenceManager pman = PersistenceManager.getInstance();
 		List<URI> oldList = setSourcesForPrereqTesting(testList, pman);
-		String preReqHtml = PrerequisiteUtilities.preReqHTMLStringsForList(null,
-			null, aCamp.getPrerequisiteList(), false);
+		StringBuilder sb = new StringBuilder();
+		sb.append(PrerequisiteUtilities.preReqHTMLStringsForList(null, null,
+			aCamp.getPrerequisiteList(), false));
+		sb.append(AllowUtilities.getAllowInfo(null, aCamp));
 		pman.setChosenCampaignSourcefiles(oldList);
 		
-		return preReqHtml;
+		return sb.toString();
 	}
 
 }

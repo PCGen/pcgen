@@ -32,8 +32,8 @@ public class HitDiceAdvancementIntegrationTest extends
 		AbstractIntegrationTestCase<Race>
 {
 
-	static HitdiceadvancementToken token = new HitdiceadvancementToken();
-	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
+	private static HitdiceadvancementToken token = new HitdiceadvancementToken();
+	private static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Race> getCDOMClass()

@@ -66,7 +66,7 @@ public class SpellstatToken extends AbstractNonEmptyToken<PCClass> implements
 		if (pcs == null)
 		{
 			return new ParseResult.Fail("Invalid Stat Abbreviation in " + getTokenName()
-					+ ": " + value, context);
+					+ ": " + value);
 		}
 		context.getObjectContext().put(pcc, ObjectKey.SPELL_STAT, pcs);
 		return ParseResult.SUCCESS;

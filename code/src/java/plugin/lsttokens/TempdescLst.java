@@ -51,7 +51,7 @@ public class TempdescLst extends AbstractNonEmptyToken<CDOMObject> implements
 		{
 			return new ParseResult.Fail("Cannot use " + getTokenName()
 				+ " on an Ungranted object type: "
-				+ obj.getClass().getSimpleName(), context);
+				+ obj.getClass().getSimpleName());
 		}
 		context.getObjectContext().put(obj, StringKey.TEMP_DESCRIPTION,
 				EntityEncoder.decode(value));

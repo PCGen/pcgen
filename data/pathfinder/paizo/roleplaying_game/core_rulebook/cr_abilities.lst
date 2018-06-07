@@ -15,7 +15,7 @@ Negate Aging Penalties		CATEGORY:Internal		DEFINE:NegatedAgePenalty|0											
 
 ###Block: Aspect Displays
 # Ability Name				Category of Ability	Aspects
-Aspect Combat Bonus ~ Mobility	CATEGORY:Internal		ASPECT:CombatBonus|+4 dodge bonus to Armor Class against attacks of opportunity caused when you move out of or within a threatened area. A condition that makes you lose your Dexterity bonus to Armor Class (if any) also makes you lose dodge bonuses. Dodge bonuses stack with each other, unlike most types of bonuses.
+Aspect Combat Bonus ~ Mobility	CATEGORY:Internal		ASPECT:CombatBonus|+%1 dodge bonus to Armor Class against attacks of opportunity caused when you move out of or within a threatened area. A condition that makes you lose your Dexterity bonus to Armor Class (if any) also makes you lose dodge bonuses. Dodge bonuses stack with each other, unlike most types of bonuses.	DEFINE:Feat_Mobility_DodgeBonus|0	BONUS:VAR|Feat_Mobility_DodgeBonus|4|TYPE=Base
 Aspect Combat Bonus ~ Encumbrance	CATEGORY:Internal		ASPECT:CombatBonus|Encumbrance rule effect, reduced speed and penalties applied, see - http://paizo.com/pathfinderRPG/prd/coreRulebook/additionalRules.html#carrying-capacity
 
 ###Block: Curses
@@ -273,8 +273,26 @@ EQMOD ~ PurposePower_CastSevenAtWill																			CATEGORY:Intelligent Item
 
 
 # Other Objects granting abilities:
-Siren Move																								CATEGORY:Internal																																																																																																																																								MOVE:Swim,60
-Belt of Dwarvenkind ~ Languages																				CATEGORY:Special Ability	TYPE:WondrousItem																																																																																																																																						AUTO:LANG|Dwarven
+Pearl of the Sirines ~ Swim Speed				CATEGORY:Equipment	MOVE:Swim,60
+Belt of Dwarvenkind ~ Languages				CATEGORY:Equipment				AUTO:LANG|Dwarven
+Belt of Dwarvenkind ~ Skill Bonus ~ Dwarves		CATEGORY:Equipment							ASPECT:SkillBonus|+4 competence bonus on Charisma checks and Charisma-based skill checks as they relate to dealing with dwarves.
+Belt of Dwarvenkind ~ Skill Bonus ~ Gnomes/Halflings	CATEGORY:Equipment							ASPECT:SkillBonus|+2 competence bonus on Charisma checks and Charisma-based skill checks when dealing with gnomes and halflings.
+Belt of Dwarvenkind ~ Skill Penalty ~ Everyone Else	CATEGORY:Equipment							ASPECT:SkillBonus|-2 competence penalty on Charisma checks and Charisma-based skill checks when dealing with anyone else.
+Boots of the Winterlands ~ Snow Travel			CATEGORY:Equipment							ASPECT:CombatBonus|Travel across snow at your normal speed, leaving no tracks.
+Boots of the Winterlands ~ Slippery Ice			CATEGORY:Equipment							ASPECT:CombatBonus|Travel at normal speed across the most slippery ice without falling or slipping.
+Boots of the Winterlands ~ Save Bonus			CATEGORY:Equipment							ASPECT:SaveBonus|Boots of the winterlands warm the wearer, as if affected by an endure elements spell.
+Cloak of Arachnida ~ Spider Climb				CATEGORY:Equipment							ASPECT:CombatBonus|You can climb as if a spider climb spell had been placed upon you.
+Cloak of Arachnida ~ Web Immunity				CATEGORY:Equipment							ASPECT:CombatBonus|Immunity to entrapment by web spells or webs of any sort.
+Cloak of Arachnida ~ Web Move Speed				CATEGORY:Equipment							ASPECT:CombatBonus|You can move in webs at half your normal speed.
+Cloak of Arachnida ~ Save Bonus				CATEGORY:Equipment							ASPECT:SaveBonus|+2 luck bonus on all Fortitude saves against poison from spiders.
+Cloak of Displacement (Minor) ~ Miss Chance		CATEGORY:Equipment							ASPECT:CombatBonus|Attacks against you have a 20%% chance to miss.
+Horseshoes of a Zephyr ~ Movement				CATEGORY:Equipment							ASPECT:CombatBonus|You travel without actually touching the ground. You run above (always around 4 inches above) a roughly horizontal surface. This means that non-solid or unstable surfaces can be crossed, and that movement is possible without leaving tracks on any sort of ground.
+Periapt of Health ~ Immunities				CATEGORY:Equipment							ASPECT:SaveBonus|Immune to disease, including supernatural diseases.
+Periapt of Proof Against Poison ~ Immunities		CATEGORY:Equipment							ASPECT:SaveBonus|Immune to poison.
+Periapt of Wound Closure ~ Wound Stability		CATEGORY:Equipment							ASPECT:CombatBonus|You automatically become stable if your hit points drop below 0 (but not if the damage is enough to kill you).
+Periapt of Wound Closure ~ Healing Rate			CATEGORY:Equipment							ASPECT:CombatBonus|Your normal rate of healing is doubled and you heal wounds that would not do so normally.
+Periapt of Wound Closure ~ Bleed Immunity			CATEGORY:Equipment							ASPECT:CombatBonus|Hit point damage caused by bleeding is negated for you, but you are still susceptible to damage from bleeding that causes ability damage or drain.
+Stone of Good Luck ~ Ability Bonus				CATEGORY:Equipment							ASPECT:CombatBonus|+1 luck bonus on ability checks.
 
 
 SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
@@ -289,7 +307,7 @@ CATEGORY=Internal|Default.MOD																																																			
 
 ###Block: Abilities
 # Ability Name	Category of Ability		Type								Visible
-Tongues		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Communicate	VISIBLE:YES
+Tongues		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Communicate	VISIBLE:NO
 
 ###Block: Specials
 # Ability Name	Category of Ability		Type				Visible	Define			Description																																																	Combat bonus				Bonus to HP					Save bonus							Bonus to skill															Source Page
@@ -404,9 +422,9 @@ Add Language		SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQual
 
 
 ###Block: House Rules / Homebrew Support
-# Ability Name					Category of Ability	Type				Define					Description																Modify VAR							Cost
-Rule - Bypass the Trait Restrictions	CATEGORY:Internal		TYPE:OptionalRules	DEFINE:BypassTraitRestriction|0	DESC:This allows the PC to bypass the restrictions on taking only 1 trait from any given category.	BONUS:VAR|BypassTraitRestriction|1|TYPE=Rule	COST:0
-
+# Ability Name					Category of Ability	Type				Define						Description																Modify VAR								Cost
+Rule - Bypass the Trait Restrictions	CATEGORY:Internal		TYPE:OptionalRules	DEFINE:BypassTraitRestriction|0		DESC:This allows the PC to bypass the restrictions on taking only 1 trait from any given category.	BONUS:VAR|BypassTraitRestriction|1|TYPE=Rule		COST:0
+Rule - Using Weapons with Natural Attacks	CATEGORY:Internal		TYPE:OptionalRules	DEFINE:UseWeaponsWithNaturalAttacks|0	DESC:This changes the Natural Primary attacks to Secondary while using weapons.				BONUS:VAR|UseWeaponsWithNaturalAttacks|1|TYPE=Rule	COST:0
 
 
 ###Block: Ioun Stone Support
@@ -468,16 +486,16 @@ Handle Animal				CATEGORY:Class Skill	CSKILL:Handle Animal
 Heal						CATEGORY:Class Skill	CSKILL:Heal						
 Intimidate					CATEGORY:Class Skill	CSKILL:Intimidate					
 Knowledge					CATEGORY:Class Skill	CSKILL:TYPE=Knowledge				
-Knowledge (Arcana)			CATEGORY:Class Skill	CSKILL:Knowledge (Arcana)			
-Knowledge (Dungeoneering)		CATEGORY:Class Skill	CSKILL:Knowledge (Dungeoneering)		
-Knowledge (Engineering)			CATEGORY:Class Skill	CSKILL:Knowledge (Engineering)			
-Knowledge (Geography)			CATEGORY:Class Skill	CSKILL:Knowledge (Geography)			
-Knowledge (History)			CATEGORY:Class Skill	CSKILL:Knowledge (History)			
-Knowledge (Local)				CATEGORY:Class Skill	CSKILL:Knowledge (Local)				
-Knowledge (Nature)			CATEGORY:Class Skill	CSKILL:Knowledge (Nature)			
-Knowledge (Nobility)			CATEGORY:Class Skill	CSKILL:Knowledge (Nobility)			
-Knowledge (Planes)			CATEGORY:Class Skill	CSKILL:Knowledge (Planes)			
-Knowledge (Religion)			CATEGORY:Class Skill	CSKILL:Knowledge (Religion)			
+Knowledge (Arcana)			CATEGORY:Class Skill	CSKILL:Knowledge (Arcana)		TYPE:Knowledge	
+Knowledge (Dungeoneering)		CATEGORY:Class Skill	CSKILL:Knowledge (Dungeoneering)	TYPE:Knowledge	
+Knowledge (Engineering)			CATEGORY:Class Skill	CSKILL:Knowledge (Engineering)	TYPE:Knowledge		
+Knowledge (Geography)			CATEGORY:Class Skill	CSKILL:Knowledge (Geography)		TYPE:Knowledge	
+Knowledge (History)			CATEGORY:Class Skill	CSKILL:Knowledge (History)		TYPE:Knowledge	
+Knowledge (Local)				CATEGORY:Class Skill	CSKILL:Knowledge (Local)		TYPE:Knowledge		
+Knowledge (Nature)			CATEGORY:Class Skill	CSKILL:Knowledge (Nature)		TYPE:Knowledge	
+Knowledge (Nobility)			CATEGORY:Class Skill	CSKILL:Knowledge (Nobility)		TYPE:Knowledge	
+Knowledge (Planes)			CATEGORY:Class Skill	CSKILL:Knowledge (Planes)		TYPE:Knowledge	
+Knowledge (Religion)			CATEGORY:Class Skill	CSKILL:Knowledge (Religion)		TYPE:Knowledge	
 Knowledge (Untrained)			CATEGORY:Class Skill	CSKILL:Knowledge (Untrained)			
 Linguistics					CATEGORY:Class Skill	CSKILL:Linguistics					
 Perception					CATEGORY:Class Skill	CSKILL:Perception					

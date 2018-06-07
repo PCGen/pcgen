@@ -17,8 +17,11 @@
  */
 package pcgen.cdom.content;
 
+import java.util.Objects;
+
 import pcgen.base.calculation.AbstractNEPCalculation;
 import pcgen.base.calculation.BasicCalculation;
+import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.util.FormatManager;
 	
@@ -36,7 +39,7 @@ public final class ProcessCalculation<T> extends AbstractNEPCalculation<T>
 	 * ProcessCalculation when it is processed.
 	 */
 	private final T obj;
-	
+
 	/**
 	 * The FormatManager to manage objects that this ProcessCalculation operates
 	 * upon.
@@ -53,13 +56,15 @@ public final class ProcessCalculation<T> extends AbstractNEPCalculation<T>
 	 * @param calc
 	 *            The BasicCalculation which defines the operation to be
 	 *            performed when this ProcessCalculation is processed
+	 * @param fmtManager
+	 *            The FormatManager for the calculation this can perform
 	 */
 	public ProcessCalculation(T object, BasicCalculation<T> calc,
 		FormatManager<T> fmtManager)
 	{
 		super(calc);
-		this.obj = object;
-		this.formatManager = fmtManager;
+		this.obj = Objects.requireNonNull(object);
+		this.formatManager = Objects.requireNonNull(fmtManager);
 	}
 
 	@Override
@@ -92,5 +97,11 @@ public final class ProcessCalculation<T> extends AbstractNEPCalculation<T>
 				&& other.obj.equals(obj);
 		}
 		return false;
+	}
+
+	@Override
+	public void getDependencies(DependencyManager fdm)
+	{
+		//Since this is direct (already has the object), it has no dependencies
 	}
 }

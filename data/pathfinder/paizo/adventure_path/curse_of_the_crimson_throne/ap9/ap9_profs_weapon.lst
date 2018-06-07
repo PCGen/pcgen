@@ -7,5 +7,5 @@ SOURCELONG:Curse of the Crimson Throne, Chapter 3 - Escape from Old Korvosa	SOUR
 
 # Weapon Name		Type
 Bichhwa			TYPE:Weapon.Melee.Finesseable.Exotic.Piercing.Slashing
-Katar (Tri-Bladed)	TYPE:Weapon.Melee.Finesseable.Exotic.Piercing
+#Katar (Tri-Bladed)	TYPE:Weapon.Melee.Finesseable.Exotic.Piercing
 Pata				TYPE:Weapon.Melee.Finesseable.Exotic.Piercing

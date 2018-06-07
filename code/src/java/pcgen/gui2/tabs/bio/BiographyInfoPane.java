@@ -53,15 +53,15 @@ import org.apache.commons.lang3.StringUtils;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.BiographyField;
-import pcgen.facade.core.AlignmentFacade;
+import pcgen.core.PCAlignment;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.DeityFacade;
 import pcgen.facade.core.GenderFacade;
 import pcgen.facade.core.HandedFacade;
 import pcgen.facade.core.SimpleFacade;
+import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
-import pcgen.facade.util.ListFacade;
 import pcgen.gui2.tabs.CharacterInfoTab;
 import pcgen.gui2.tabs.TabTitle;
 import pcgen.gui2.tabs.models.CharacterComboBoxModel;
@@ -200,8 +200,14 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			bioItems.add(new PlayerNameItem(character));
 			bioItems.add(new GenderItem(character));
 			bioItems.add(new HandedItem(character));
-			bioItems.add(new AlignmentItem(character));
-			bioItems.add(new DeityItem(character));
+			if (!character.getDataSet().getAlignments().isEmpty())
+			{
+				bioItems.add(new AlignmentItem(character));
+			}
+			if (character.getDataSet().hasDeityDomain())
+			{
+				bioItems.add(new DeityItem(character));
+			}
 			bioItems.add(new AgeItem(character));
 			bioItems.add(new SkinColorItem(character));
 			bioItems.add(new HairColorItem(character));
@@ -411,13 +417,13 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 		public AlignmentItem(final CharacterFacade character)
 		{
 			super("in_alignString", BiographyField.ALIGNMENT, character); //$NON-NLS-1$
-			CharacterComboBoxModel<AlignmentFacade> alignmentModel = new CharacterComboBoxModel<AlignmentFacade>()
+			CharacterComboBoxModel<PCAlignment> alignmentModel = new CharacterComboBoxModel<PCAlignment>()
 			{
 
 				@Override
 				public void setSelectedItem(Object anItem)
 				{
-					character.setAlignment((AlignmentFacade) anItem);
+					character.setAlignment((PCAlignment) anItem);
 				}
 
 			};
@@ -764,7 +770,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			{
 				throw new IllegalStateException("The CharacterComboBoxModel has already been set"); //$NON-NLS-1$
 			}
-			this.combobox = new JComboBox(model);
+			this.combobox = new JComboBox<>(model);
 			combobox.setPreferredSize(new Dimension(10, templateTextField.getPreferredSize().height));
 		}
 

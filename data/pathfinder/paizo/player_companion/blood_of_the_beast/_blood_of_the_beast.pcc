@@ -1,0 +1,82 @@
+CAMPAIGN:Blood of the Beast
+GAMEMODE:Pathfinder
+RANK:3
+TYPE:Paizo Publishing.Pathfinder Player Companion
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder|Golarion
+STATUS:Alpha
+PRECAMPAIGN:9,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic,INCLUDES=Ultimate Combat,INCLUDES=Ultimate Intrigue,INCLUDES=Advanced Race Guide,INCLUDES=Advanced Class Guide,INCLUDES=Occult Adventures
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+#PUBNAMEWEB:http://www.paizo.com
+SOURCELONG:Pathfinder Player Companion: Blood of the Beast
+SOURCESHORT:BOTB
+SOURCEWEB:http://paizo.com/products/btpy9oo8?Pathfinder-Player-Companion-Blood-of-the-Beast
+SOURCEDATE:2016-12
+ISOGL:YES
+
+COVER:blood_of_the_beast.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy9oo8?Pathfinder-Player-Companion-Blood-of-the-Beast|Buy this publication from Paizo Publishing!
+DESC:Embrace the Beast Within! Anthropomorphic animal races have been a staple of fantasy gaming for decades, and Pathfinder Player Companion: Blood of the Beast presents all the tools you need to play members of some the Pathfinder Roleplaying Game's most iconic bestial races. Packed full of character options for members of all classes, as well as some that members of other races can adopt, Blood of the Beast is sure to spice up any campaign!
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc.; Authors: Jonathan Tweet, Monte Cook, and Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Grippli from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc; Author Scott Greene, based on original material by Gary Gygax
+COPYRIGHT:Pathfinder Player Companion: Blood of the Beast Copyright 2016, Paizo Inc.; Authors: Alexander Augunas, John Compton, and Crystal Frasier.
+COPYRIGHT:PCGen dataset conversion for "Player Companion: Blood of the Beast" Copyright 2017, PCgen Data team (including but not limited to Gwen T. (evilpixie87))
+
+ABILITY:botb_abilities.lst
+ABILITY:botb_abilities_class.lst
+ABILITY:botb_abilities_companion.lst
+ABILITY:botb_abilities_race.lst
+ABILITYCATEGORY:botb_abilitycategories.lst
+ABILITY:botb_feats.lst
+EQUIPMOD:botb_equipmods.lst
+KIT:botb_kits_companion.lst
+LANGUAGE:botb_languages.lst
+RACE:botb_races_companion.lst
+SKILL:botb_skills.lst
+SPELL:botb_spells.lst
+TEMPLATE:botb_templates.lst
+
+FORWARDREF:ABILITY=Internal|Combat Trick Tracker
+FORWARDREF:SPELL|Accept Affliction,Angelic Aspect,Angelic Aspect (Lesser),Burst of Radiance,Celestial Healing,Celestial Healing (Greater),Eaglesoul,Hymn of Mercy,Martyr's Bargain,Shield of the Dawnflower,Shield of the Dawnflower (Greater),Touch of Mercy
+
+# Support
+ABILITY:support/botb_abilities_class_bos.lst|PRECAMPAIGN:1,INCLUDES=Blood of Shadows
+ABILITY:support/botb_abilities_class_mm.lst|PRECAMPAIGN:1,INCLUDES=Magical Marketplace
+ABILITY:support/botb_abilities_class_pu.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Unchained
+ABILITY:support/botb_abilities_class_pu_fap.lst|PRECAMPAIGN:2,INCLUDES=Faiths and Philosophies,INCLUDES=Pathfinder Unchained
+ABILITY:support/botb_abilities_race_botm.lst|PRECAMPAIGN:1,INCLUDES=Blood of the Moon
+ABILITY:support/botb_abilities_race_pu.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Unchained
+ABILITY:support/botb_feats_boa.lst|PRECAMPAIGN:1,INCLUDES=Blood of Angels
+ABILITY:support/botb_feats_bog.lst|PRECAMPAIGN:1,INCLUDES=Bastards of Golarion
+ABILITY:support/botb_feats_bos.lst|PRECAMPAIGN:1,INCLUDES=Blood of Shadows
+ABILITY:support/botb_feats_dep.lst|PRECAMPAIGN:1,INCLUDES=Dragon Empires Primer
+ABILITY:support/botb_feats_dh.lst|PRECAMPAIGN:1,INCLUDES=Dungeoneer's Handbook
+ABILITY:support/botb_feats_fap.lst|PRECAMPAIGN:1,INCLUDES=Faiths and Philosophies
+ABILITY:support/botb_feats_mtt.lst|PRECAMPAIGN:1,INCLUDES=Melee Tactics Toolbox
+ABILITY:support/botb_feats_potr.lst|PRECAMPAIGN:1,INCLUDES=People of the River
+ABILITY:support/botb_feats_rtt.lst|PRECAMPAIGN:1,INCLUDES=Ranged Tactics Toolbox
+
+
+
+
+
+INFOTEXT:Supports 6.07.01
+# ENTRY DATE: 2015-01 (Unknown)
+# LST MONKEY: Gwen T. (evilpixie87)
+# RELEASE REVIEW #
+# LICENSE: Paul Grosse
+# BETA: Andrew Maitland (LegacyKing)
+# RELEASE:
+# Built for PCGen Version: 6.07.03
+# Updated to work with version: -
+# MINVER:6.7
+# MINDEVVER:6.07.1
+# COMMENTS:

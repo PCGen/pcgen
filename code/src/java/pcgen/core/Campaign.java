@@ -97,7 +97,7 @@ public class Campaign extends PObject implements CampaignFacade, NonInteractive
 	}
 
 	private ConsolidatedListCommitStrategy masterLCS = new ConsolidatedListCommitStrategy();
-	private GameReferenceContext gameRefContext = new GameReferenceContext();
+	private GameReferenceContext gameRefContext = GameReferenceContext.createGameReferenceContext();
 	private LoadContext context = new RuntimeLoadContext(gameRefContext, masterLCS);
 
 	public LoadContext getCampaignContext()

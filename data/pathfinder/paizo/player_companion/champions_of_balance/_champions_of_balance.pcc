@@ -1,20 +1,20 @@
 # CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 CAMPAIGN:Champions of Balance
 GAMEMODE:Pathfinder|Pathfinder_PFS
-TYPE:Paizo Publishing.Pathfinder RPG.Player Companion
+TYPE:Paizo Publishing.Pathfinder Player Companion
 RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
 PRECAMPAIGN:4,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic
-PRECAMPAIGN:1,INCLUDES=Dragon Empires Gazetteer
+#PRECAMPAIGN:1,INCLUDES=Dragon Empires Gazetteer
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/
-SOURCELONG:Champions of Balance
+SOURCELONG:Pathfinder Player Companion: Champions of Balance
 SOURCESHORT:COB
-SOURCEWEB:http://paizo.com/products/btpy93nc?Pathfinder-Player-Companion-Champions-of-Balance
+SOURCEWEB:http://paizo.com/products/btpy93nc
 SOURCEDATE:2014-03
 ISOGL:YES
 
@@ -23,7 +23,7 @@ LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
 URL:Paizo Publishing|http://paizo.com/products/btpy93nc|Buy this publication from Paizo Publishing!
-DESC:Even the Odds! Whether you fight for law, chaos, or a philosophy in between, Pathfinder Player Companion: Champions of Balance allows you to tip the scales in your favor!
+DESC:Whether you fight for law, chaos, or a philosophy in between, Pathfinder Player Companion: Champions of Balance allows you to tip the scales in your favor! Make sure your resolve is known by claiming the new options in this book designed specifically for neutral characters--hone your pragmatic battle prowess with new combat feats, overwhelm your extremist rivals with never-before-seen items, and even command opposing forces from the Outer Planes with powerful new summoning magic.
 
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
 COPYRIGHT:Open Game License v 1.0a Copyright 2000,Wizards of the Coast, Inc.
@@ -33,6 +33,11 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Champions o
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
+
+#support
+DEITY:support/cob_deities_deg.lst|PRECAMPAIGN:1,INCLUDES=Dragon Empires Gazetteer
+ABILITY:support/cob_abilities_class_um.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
+ABILITY:support/cob_abilities_class_acg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
 
 ABILITY:cob_abilities.lst
 ABILITY:cob_abilities_class.lst

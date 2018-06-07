@@ -81,7 +81,7 @@ public abstract class AbstractSubAssociationFacet<IDT extends PCGenIdentifier, S
 			Map<S2, A> subMap = map.get(obj1);
 			if (subMap != null)
 			{
-				map.remove(obj2);
+				subMap.remove(obj2);
 				if (subMap.isEmpty())
 				{
 					map.remove(obj1);
@@ -92,8 +92,8 @@ public abstract class AbstractSubAssociationFacet<IDT extends PCGenIdentifier, S
 
 	public Map<S1, Map<S2, A>> removeAll(IDT id)
 	{
-		Map<S1, Map<S2, A>> componentMap =
-				(Map<S1, Map<S2, A>>) removeCache(id);
+		@SuppressWarnings("unchecked")
+		Map<S1, Map<S2, A>> componentMap = (Map<S1, Map<S2, A>>) removeCache(id);
 		if (componentMap == null)
 		{
 			return Collections.emptyMap();
@@ -107,6 +107,7 @@ public abstract class AbstractSubAssociationFacet<IDT extends PCGenIdentifier, S
 		return map == null || map.isEmpty();
 	}
 
+	@SuppressWarnings("unchecked")
 	protected Map<S1, Map<S2, A>> getCachedMap(IDT id)
 	{
 		return (Map<S1, Map<S2, A>>) getCache(id);

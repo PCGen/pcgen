@@ -33,8 +33,6 @@ Surface Scout					CATEGORY:FEAT				TYPE:General			PRERACE:1,Drow,RACESUBTYPE=Dro
 Wayang Soothsayer					CATEGORY:FEAT				TYPE:General			PRERACE:1,Wayang,RACESUBTYPE=Wayang				PREMULT:1,[PREVAREQ:TL,1],[PREVAREQ:TL,11]													PRETEXT:Wayang.																															DESC:You embody the ideals of wayang society and culture.														SOURCEPAGE:p.11			BENEFIT:You gain the shadow speaker racial trait. If you already have the shadow speaker racial trait, you can increase the number of times per day that you can use shadow speaker by 1, and increase the insight bonus granted from each type of use by 1.				ABILITY:Special Ability|AUTOMATIC|Wayang ~ Shadow Speaker
 
 
-CATEGORY=FEAT|Extra Revelation.MOD		BONUS:ABILITYPOOL|Shadow Mystery Revelation|1|PREVARGTEQ:ShadowMysteriesQualify,1
-
 CATEGORY=FEAT|Blind-Fight.MOD			TYPE:ShadowBloodRagerBloodline
 CATEGORY=FEAT|Combat Reflexes.MOD		TYPE:ShadowBloodRagerBloodline
 CATEGORY=FEAT|Improved Initiative.MOD	TYPE:ShadowBloodRagerBloodline

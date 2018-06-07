@@ -36,6 +36,7 @@ import plugin.lsttokens.spell.ClassesToken;
 
 import org.junit.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
+import util.TestURI;
 
 public class SpellClassesTest extends AbstractTokenModelTest
 {
@@ -62,7 +63,7 @@ public class SpellClassesTest extends AbstractTokenModelTest
 		ParseResult result = token.parseToken(context, sp, "Dragon=1");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();

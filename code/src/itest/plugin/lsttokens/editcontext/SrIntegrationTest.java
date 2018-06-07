@@ -34,8 +34,8 @@ public class SrIntegrationTest extends
 		AbstractFormulaIntegrationTestCase<CDOMObject>
 {
 
-	static SrLst token = new SrLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
+	private static SrLst token = new SrLst();
+	private static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()

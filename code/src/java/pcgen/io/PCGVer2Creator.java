@@ -2503,7 +2503,7 @@ public final class PCGVer2Creator
 			{
 				buffer.append(del);
 				buffer.append(IOConstants.TAG_WEAPON).append(':');
-				buffer.append(EntityEncoder.encode(profs.get(i).getLSTformat()));
+				buffer.append(EntityEncoder.encode(profs.get(i).getKeyName()));
 				del = "|"; //$NON-NLS-1$
 			}
 

@@ -330,6 +330,7 @@ public abstract class AbstractSingleSourceListFacet<T, ST> extends
 	 *         null if no information has been set in this
 	 *         AbstractSingleSourceListFacet for the Player Character.
 	 */
+	@SuppressWarnings("unchecked")
 	protected Map<T, ST> getCachedMap(CharID id)
 	{
 		return (Map<T, ST>) getCache(id);

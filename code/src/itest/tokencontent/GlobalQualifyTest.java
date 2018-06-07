@@ -20,6 +20,7 @@ package tokencontent;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.analysis.QualifyFacet;
+import pcgen.cdom.list.CompanionList;
 import pcgen.core.Campaign;
 import pcgen.core.EquipmentModifier;
 import pcgen.core.PCAlignment;
@@ -34,6 +35,7 @@ import plugin.lsttokens.QualifyToken;
 
 import org.junit.Test;
 import tokencontent.testsupport.AbstractContentTokenTest;
+import util.TestURI;
 
 public class GlobalQualifyTest extends AbstractContentTokenTest
 {
@@ -55,7 +57,7 @@ public class GlobalQualifyTest extends AbstractContentTokenTest
 		ParseResult result = token.parseToken(context, source, "RACE|Dwarf");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();
@@ -114,7 +116,11 @@ public class GlobalQualifyTest extends AbstractContentTokenTest
 	@Test
 	public void testFromCompanionMod() throws PersistenceLayerException
 	{
-		CompanionMod source = create(CompanionMod.class, "Source");
+		CompanionList cat = create(CompanionList.class, "Category");
+		context.getReferenceContext().importObject(cat);
+		CompanionMod source = cat.newInstance();
+		cat.setKeyName("Source");
+		context.getReferenceContext().importObject(source);
 		ParseResult result = token.parseToken(context, source, "RACE|Dwarf");
 		assertFalse(result.passed());
 	}

@@ -30,7 +30,6 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillArmorCheck;
 import pcgen.cdom.helper.Aspect;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.bonus.Bonus;
@@ -40,6 +39,7 @@ import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.io.ExportHandler;
 import pcgen.util.TestHelper;
 import pcgen.util.enumeration.Visibility;
+import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
  * <code>AbilityTokenTest</code> tests the functioning of the ABILITY 
@@ -69,7 +69,8 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 		PlayerCharacter character = getCharacter();
 
 		// Make some ability categories and add them to the game mode
-		Ability ab1 = TestHelper.makeAbility("Perform (Dance)", AbilityCategory.FEAT, "General.Fighter");
+		Ability ab1 = TestHelper.makeAbility("Perform (Dance)",
+			BuildUtilities.getFeatCat(), "General.Fighter");
 		ab1.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 		ab1.put(ObjectKey.VISIBILITY, Visibility.DEFAULT);
 		List<Aspect> colourList = new ArrayList<>();
@@ -94,7 +95,7 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 		List<Aspect> ageList = new ArrayList<>();
 		ageList.add(new Aspect("Age In Years", "2000"));
 		ab1.addToMapFor(MapKey.ASPECT, AspectName.getConstant("Age In Years"), ageList);
-		addAbility(AbilityCategory.FEAT, ab1);
+		addAbility(BuildUtilities.getFeatCat(), ab1);
 
 		TestHelper.makeSkill("Bluff", "Charisma", cha, true,
 			SkillArmorCheck.NONE);
@@ -102,7 +103,7 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 			SkillArmorCheck.NONE);
 
 		skillFocus =
-				TestHelper.makeAbility("Skill Focus", AbilityCategory.FEAT, "General");
+				TestHelper.makeAbility("Skill Focus", BuildUtilities.getFeatCat(), "General");
 		BonusObj aBonus = Bonus.newBonus(Globals.getContext(), "SKILL|LIST|3");
 		if (aBonus != null)
 		{
@@ -110,8 +111,10 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 		}
 		skillFocus.put(ObjectKey.MULTIPLE_ALLOWED, true);
 		Globals.getContext().unconditionallyProcess(skillFocus, "CHOOSE", "SKILL|ALL");
-		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, skillFocus, "KEY_Bluff");
-		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, skillFocus, "KEY_Listen");
+		AbstractCharacterTestCase.applyAbility(character, BuildUtilities.getFeatCat(),
+			skillFocus, "KEY_Bluff");
+		AbstractCharacterTestCase.applyAbility(character, BuildUtilities.getFeatCat(),
+			skillFocus, "KEY_Listen");
 		character.calcActiveBonuses();
 	}
 

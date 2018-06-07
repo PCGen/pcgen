@@ -51,8 +51,6 @@ import pcgen.cdom.base.Constants;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
-import pcgen.core.utils.MessageType;
-import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui2.tabs.CharacterInfoTab;
 import pcgen.gui2.tabs.TabTitle;
 import pcgen.gui2.tools.Icons;
@@ -72,7 +70,6 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 	private final ThumbnailPane tnPane;
 	private final JButton loadButton;
 	private final JButton clearButton;
-	private final JButton purchaseButton;
 	private final JSlider zoomSlider;
 	private JFileChooser chooser = null;
 
@@ -83,7 +80,6 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 		this.portraitPane = new PortraitPane();
 		this.loadButton = new JButton();
 		this.clearButton = new JButton();
-		this.purchaseButton = new JButton();
 		this.zoomSlider = new JSlider(SwingConstants.VERTICAL);
 		initComponents();
 	}
@@ -214,49 +210,15 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 
 	}
 
-	private class PurchaseAction extends AbstractAction
-	{
-
-		private final CharacterFacade character;
-
-		public PurchaseAction(CharacterFacade character)
-		{
-			super(LanguageBundle.getString("in_buyPortrait")); //$NON-NLS-1$
-			this.character = character;
-			putValue(SHORT_DESCRIPTION, LanguageBundle.getString("in_buyPortraitTipString")); //$NON-NLS-1$
-		}
-
-		@Override
-		public void actionPerformed(ActionEvent e)
-		{
-			try
-			{
-				Utility
-						.viewInBrowser("https://www.e-junkie.com/ecom/gb.php?cl=154598&c=ib&aff=154875"); //$NON-NLS-1$
-			}
-			catch (IOException ex)
-			{
-				Logging.errorPrint(
-						"Could not open affiliate site in external browser.", ex);
-				ShowMessageDelegate.showMessageDialog(
-						"Could not open affiliate site in external browser.",
-						Constants.APPLICATION_NAME, MessageType.ERROR);
-			}
-		}
-
-	}
-
 	private class PortraitHandler extends MouseAdapter implements ReferenceListener<Object>, ChangeListener
 	{
 
 		private final CharacterFacade character;
 		private Rectangle cropRect;
-//		private final PortraitPane.MouseHandler mouseHandler;
 		private BufferedImage portrait;
 		private float scale;
 		private boolean movingRect = false;
 		private Point cropOffset = null;
-//		private BoundedRangeModel boundedRangeModel;
 
 		public PortraitHandler(CharacterFacade character)
 		{
@@ -266,7 +228,6 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 			{
 				cropRect = new Rectangle(0, 0, 100, 100);
 			}
-//			this.mouseHandler = portraitPane.createMouseHandler(character);
 		}
 
 		public void install()
@@ -362,7 +323,8 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 		{
 			if (movingRect)
 			{
-				int x, y;
+				int x;
+				int y;
 				if (scale < 1)
 				{
 					x = (int) (e.getX() / scale - cropOffset.x);

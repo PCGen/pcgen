@@ -309,7 +309,7 @@ public class SavingThrowDialog extends javax.swing.JDialog
 			PlayerCharacter pc = pcgcbt.getPC();
 			new PlayerCharacterOutput(pc);
 			List<PCCheck> checkList = Globals.getContext().getReferenceContext()
-					.getOrderSortedCDOMObjects(PCCheck.class);
+					.getSortkeySortedCDOMObjects(PCCheck.class);
 
 			if (saveType == FORT_SAVE)
 			{

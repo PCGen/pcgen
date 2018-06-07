@@ -58,8 +58,6 @@ public class PreWeaponProfTester extends AbstractDisplayPrereqTest
 	 * <p>
 	 * &nbsp; {@code PREWEAPONPROF:1,DEITYWEAPON} <br>
 	 * &nbsp; &nbsp; Weapon Prof in question must be one of the chosen deity's favored weapons.
-	 * 
-	 * @see pcgen.core.prereq.AbstractPrerequisiteTest#passes(pcgen.core.prereq.Prerequisite, pcgen.core.PlayerCharacter, CDOMObject)
 	 */
 	@Override
 	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
@@ -133,9 +131,6 @@ public class PreWeaponProfTester extends AbstractDisplayPrereqTest
 		return countedTotal(prereq, runningTotal);
 	}
 
-	/**
-	 * @see pcgen.core.prereq.PrerequisiteTest#kindHandled()
-	 */
     @Override
 	public String kindHandled()
 	{

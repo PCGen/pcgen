@@ -32,7 +32,6 @@ import pcgen.cdom.choiceset.CollectionToAbilitySelection;
 import pcgen.cdom.content.AbilitySelection;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -88,7 +87,7 @@ public class ChooseFeatSelectionToken extends AbstractTokenWithSeparator<CDOMObj
 				{
 					return new ParseResult.Fail(
 						getParentToken() + Constants.COLON + getTokenName()
-							+ " had TITLE= but no title: " + value, context);
+							+ " had TITLE= but no title: " + value);
 				}
 				activeValue = value.substring(0, pipeLoc);
 			}
@@ -108,14 +107,14 @@ public class ChooseFeatSelectionToken extends AbstractTokenWithSeparator<CDOMObj
 		if (!prim.getGroupingState().isValid())
 		{
 			return new ParseResult.Fail("Non-sensical " + getFullName()
-				+ ": Contains ANY and a specific reference: " + value, context);
+				+ ": Contains ANY and a specific reference: " + value);
 		}
 		PrimitiveChoiceSet<AbilitySelection> pcs =
-				new CollectionToAbilitySelection(CDOMDirectSingleRef.getRef(AbilityCategory.FEAT), prim);
+				new CollectionToAbilitySelection(AbilityCategory.FEAT, prim);
 		//be tricky for compatibility
 		BasicChooseInformation<AbilitySelection> tc =
 				new BasicChooseInformation<>(
-						"ABILITYSELECTION", pcs);
+						"ABILITYSELECTION", pcs, AbilityCategory.FEAT.getPersistentFormat());
 		tc.setTitle(title);
 		tc.setChoiceActor(this);
 		context.getObjectContext().put(obj, ObjectKey.CHOOSE_INFO, tc);
@@ -189,8 +188,6 @@ public class ChooseFeatSelectionToken extends AbstractTokenWithSeparator<CDOMObj
 		return true;
 	}
 
-	private static final Class<Ability> ABILITY_CLASS = Ability.class;
-
 	@Override
 	public String getTokenName()
 	{
@@ -202,8 +199,8 @@ public class ChooseFeatSelectionToken extends AbstractTokenWithSeparator<CDOMObj
 		CDOMObject obj, String value)
 	{
 		return parseTokenWithSeparator(context,
-			context.getReferenceContext().getManufacturer(ABILITY_CLASS, AbilityCategory.FEAT),
-			obj, value);
+			context.getReferenceContext().getManufacturerId(AbilityCategory.FEAT), obj,
+			value);
 	}
 
 	@Override
@@ -226,17 +223,15 @@ public class ChooseFeatSelectionToken extends AbstractTokenWithSeparator<CDOMObj
 	@Override
 	public AbilitySelection decodeChoice(LoadContext context, String s)
 	{
-		Ability ability =
-				context.getReferenceContext().silentlyGetConstructedCDOMObject(
-					Ability.class, AbilityCategory.FEAT, s);
+		Ability ability = context.getReferenceContext()
+			.getManufacturerId(AbilityCategory.FEAT).getActiveObject(s);
 
 		if (ability == null)
 		{
 			List<String> choices = new ArrayList<>();
 			String baseKey = AbilityUtilities.getUndecoratedName(s, choices);
-			ability =
-					context.getReferenceContext().silentlyGetConstructedCDOMObject(
-						Ability.class, AbilityCategory.FEAT, baseKey);
+			ability = context.getReferenceContext()
+				.getManufacturerId(AbilityCategory.FEAT).getActiveObject(baseKey);
 			if (ability == null)
 			{
 				throw new IllegalArgumentException("String in decodeChoice "

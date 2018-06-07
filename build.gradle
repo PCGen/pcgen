@@ -11,23 +11,36 @@
  * Run the character integration tests: gradle inttest
  */
 
-import org.apache.tools.ant.taskdefs.condition.Os
+// import Ant helper static values to differ system families
+import static org.apache.tools.ant.taskdefs.condition.Os.*
 
 plugins {
-    id 'com.gradle.build-scan' version '1.8'
-
+    id 'com.gradle.build-scan' version '1.13.1'
+    id 'eclipse'
     id 'application'
     id 'build-dashboard'
     id 'checkstyle'
-    id 'findbugs'
+    id "com.github.spotbugs" version '1.6.2'
     id 'java'
     id 'maven'
     id 'pmd'
-    id "de.undercouch.download" version "3.2.0"
-    id 'edu.sc.seis.launch4j' version '2.4.1'
-    id 'com.github.ben-manes.versions' version '0.15.0'
-    id 'nebula.lint' version '8.3.1'
-    id "com.dorongold.task-tree" version "1.3"
+    id "de.undercouch.download" version '3.4.2'
+    id 'edu.sc.seis.launch4j' version '2.4.3'
+    id 'com.github.ben-manes.versions' version '0.17.0'
+    id 'nebula.lint' version '9.3.1'
+    id "com.dorongold.task-tree" version '1.3'
+}
+
+checkstyle {
+    toolVersion = '8.7'
+}
+
+pmd {
+    toolVersion = '6.0.0'
+}
+
+spotbugs {
+	toolVersion = '3.1.3'
 }
 
 group = 'net.sourceforge.pcgen'
@@ -36,11 +49,15 @@ description = """PCGen"""
 
 defaultTasks 'build'
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+sourceCompatibility = "1.9"
+targetCompatibility = "1.9"
 
 ext {
     binDir = "code/bin"
+    //Folder where the build stuff is placed.
+    outputDir = "$projectDir/output"
+    //Installer is placed here
+    releaseDir = "${buildDir}/release"
 }
 
 //The gradle plugin for netbeans sets the 'mainClass' property instead of 'mainClassName'
@@ -141,39 +158,38 @@ compileJava {
     it.dependsOn 'copyMasterSheets'
 }
 
-
 dependencies {
     compile group: 'cobra', name: 'cobra', version:'0.98.4-pcgen'
     compile group: 'commons-io', name: 'commons-io', version:'2.6'
-    compile group: 'org.springframework', name: 'spring-core', version:'4.3.10.RELEASE'
-    compile group: 'org.springframework', name: 'spring-beans', version:'4.3.10.RELEASE'
+    compile group: 'org.springframework', name: 'spring-core', version:'5.0.3.RELEASE'
+    compile group: 'org.springframework', name: 'spring-beans', version:'5.0.3.RELEASE'
+    compile group: 'org.springframework', name: 'spring-web', version:'5.0.3.RELEASE'
     compile group: 'skinlf', name: 'skinlf', version: '1.2.3'
-    compile group: 'org.apache.commons', name: 'commons-lang3', version:'3.6'
+    compile group: 'org.apache.commons', name: 'commons-lang3', version:'3.7'
     compile group: 'org.apache.xmlgraphics', name: 'fop', version:'2.2'
     compile group: 'org.apache.commons', name: 'commons-collections4', version: '4.1'
     compile group: 'jep', name: 'jep', version:'2.4.1'
-    compile group: 'org.freemarker', name: 'freemarker', version:'2.3.26-incubating'
+    compile group: 'org.freemarker', name: 'freemarker', version:'2.3.27-incubating'
     compile group: 'org.jdom', name: 'jdom2', version:'2.0.6'
     compile group: 'xalan', name: 'xalan', version:'2.7.2'
     compile group: 'net.sourceforge.argparse4j', name: 'argparse4j', version: '0.8.1'
     compile group: 'org.mozilla', name: 'rhino', version:'1.7.7.2'
 
     gradleLint.ignore('unused-dependency') {
-	// Eclipse requires this to be in the standard path for some unknown reason.
-	compile group: 'org.xmlunit', name: 'xmlunit-core', version:'2.5.0'
-	compile group: 'org.xmlunit', name: 'xmlunit-legacy', version:'2.5.0'
-        compile group: 'net.sourceforge.pcgen', name: 'PCGen-base', version:'1.0.119'
-        compile group: 'net.sourceforge.pcgen', name: 'PCGen-Formula', version:'1.0.136'
+        // Eclipse requires this to be in the standard path for some unknown reason.
+        compile group: 'org.xmlunit', name: 'xmlunit-core', version:'2.5.1'
+        compile group: 'net.sourceforge.pcgen', name: 'PCGen-base', version:'1.0.134'
+        compile group: 'net.sourceforge.pcgen', name: 'PCGen-Formula', version:'1.0.167'
         compile group: 'xml-apis', name: 'xml-apis', version:'1.3.04'
     }
 
-    compileOnly group: 'org.jetbrains', name: 'annotations', version:'15.0'
+    compileOnly group: 'org.jetbrains', name: 'annotations', version:'16.0.1'
     compileOnly group: 'com.yuvimasory', name: 'orange-extensions', version: '1.3.0'
 
     testCompile group: 'junit', name: 'junit', version:'4.12'
     testCompile group: 'org.hamcrest', name: 'hamcrest-core', version: '1.3'
     testCompile group: 'org.hamcrest', name: 'hamcrest-library', version: '1.3'
-    testCompile group: 'org.xmlunit', name: 'xmlunit-matchers', version:'2.5.0'
+    testCompile group: 'org.xmlunit', name: 'xmlunit-matchers', version:'2.5.1'
 
     itestCompile sourceSets.main.output
     itestCompile configurations.testCompile
@@ -186,11 +202,9 @@ dependencies {
     slowtestCompile sourceSets.test.output
 
     slowtestRuntime configurations.testRuntime
-
-    findbugs 'com.google.code.findbugs:findbugs:3.0.1'
-    findbugs configurations.findbugsPlugins.dependencies
-
-    findbugsPlugins 'com.mebigfatguy.fb-contrib:fb-contrib:7.0.5'
+   
+	spotbugs 'com.github.spotbugs:spotbugs:3.1.3'
+	spotbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.7.1'
 }
 
 ant.importBuild 'build-gradle.xml'
@@ -211,14 +225,14 @@ jar {
     it.dependsOn 'jar-all-plugins'
     manifest {
         attributes 'Implementation-Title': 'PCGen', 'Implementation-Version': version,
-        	'Main-Class': 'pcgen.system.Main', 'Class-Path': classpath
+                'Main-Class': 'pcgen.system.Main', 'Class-Path': classpath
     }
 }
 
 task converterJar(type: Jar, dependsOn: jar) {
     manifest {
         attributes 'Implementation-Title': 'PCGen Data Converter', 'Implementation-Version': version,
-        	'Main-Class': 'pcgen.gui2.converter.PCGenDataConvert', 'Class-Path': 'pcgen.jar' + classpath
+                'Main-Class': 'pcgen.gui2.converter.PCGenDataConvert', 'Class-Path': 'pcgen.jar' + classpath
     }
 
     classifier = 'batch-convert'
@@ -236,8 +250,8 @@ task copyToLibs(type: Copy) {
 }
 
 import org.apache.tools.ant.filters.FixCrLfFilter;
-task copyToRoot(type: Copy, dependsOn: [cleanCreateExe, createExe, copyToLibs, 
-        jar, converterJar]) {
+task copyToOutput(type: Copy, dependsOn: [createExe, copyToLibs, jar, 
+        converterJar]) {
     from "$buildDir/libs/pcgen-${version}.jar"
     from "$buildDir/libs/pcgen-${version}-batch-convert.jar"
     from "$buildDir/launch4j/pcgen.exe"
@@ -245,7 +259,7 @@ task copyToRoot(type: Copy, dependsOn: [cleanCreateExe, createExe, copyToLibs,
         filter(FixCrLfFilter, eol:FixCrLfFilter.CrLf.newInstance("lf"))
         fileMode 0755
     }
-    into "$projectDir/output"
+    into outputDir
 
     rename "(.+)-$version(.+)", '$1$2'
 }
@@ -259,24 +273,25 @@ task syncLibsToRoot(type: Sync, dependsOn: [copyToLibs, jar, converterJar]) {
     exclude "pcgen-*.jar"
 }
 
+task cleanOutput(type: Delete) {
+    description="Clean up things copied to the output folder by the build"
+    delete outputDir
+}
+
 task cleanRoot(type: Delete) {
     description="Clean up things copied to the root folder by the build"
-    delete "$projectDir/pcgen.jar"
-    delete "$projectDir/pcgen-batch-convert.jar"
-    delete "$projectDir/batch-convert.jar"
-    delete "$projectDir/pcgen.sh"
-    delete "$projectDir/output"
     delete "$projectDir/libs"
-    delete "$projectDir/autobuild.properties"
+    delete "$projectDir/jre"
 }
 
 build {
-    it.dependsOn 'copyToRoot', 'syncLibsToRoot'
+    it.dependsOn 'copyToOutput', 'syncLibsToRoot'
     mustRunAfter clean
 }
 
 clean {
     it.dependsOn 'clean-plugins'
+    it.dependsOn 'cleanOutput'
     it.dependsOn 'cleanRoot'
 }
 
@@ -340,7 +355,7 @@ task all(dependsOn: ['build', 'slowtest', 'javadoc', 'buildNsis', 'allReports'])
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '4.2.1'
+    gradleVersion = '4.6'
 }
 
 allprojects {
@@ -357,21 +372,21 @@ allprojects {
 }
 
 dependencyUpdates.resolutionStrategy = {
-  componentSelection { rules ->
-    rules.all { ComponentSelection selection ->
-      if (['atlassian'].any { qualifier ->
-        selection.candidate.version ==~ /(?i).*[.-]${qualifier}[.\d-]*/
-      }) {
-        selection.reject('unofficial release')
-      }
-      if (selection.candidate.version == '2.0.2' && selection.candidate.name == 'xml-apis') {
-	selection.reject('older than current')
-      }
-      if (selection.candidate.version == '2.24' && selection.candidate.name == 'jep') {
-	selection.reject('older than current')
-      }
+    componentSelection { rules ->
+        rules.all { ComponentSelection selection ->
+            if (['atlassian'].any { qualifier ->
+                    selection.candidate.version ==~ /(?i).*[.-]${qualifier}[.\d-]*/
+                }) {
+                selection.reject('unofficial release')
+            }
+            if (selection.candidate.version == '2.0.2' && selection.candidate.name == 'xml-apis') {
+                selection.reject('older than current')
+            }
+            if (selection.candidate.version == '2.24' && selection.candidate.name == 'jep') {
+                selection.reject('older than current')
+            }
+        }
     }
-  }
 }
 
 apply from: 'code/gradle/autobuild.gradle'

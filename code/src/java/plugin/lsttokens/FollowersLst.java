@@ -82,12 +82,12 @@ public class FollowersLst implements CDOMPrimaryToken<CDOMObject>
 		{
 			return new ParseResult.Fail("Cannot use " + getTokenName()
 				+ " on an Ungranted object type: "
-				+ obj.getClass().getSimpleName(), context);
+				+ obj.getClass().getSimpleName());
 		}
 		if ((value == null) || value.isEmpty())
 		{
 			return new ParseResult.Fail("Argument in " + getTokenName()
-					+ " cannot be empty", context);
+					+ " cannot be empty");
 		}
 		ParsingSeparator sep = new ParsingSeparator(value, '|');
 		sep.addGroupingPair('[', ']');
@@ -97,24 +97,24 @@ public class FollowersLst implements CDOMPrimaryToken<CDOMObject>
 		if (followerType.isEmpty())
 		{
 			return new ParseResult.Fail("Follower Type in " + getTokenName()
-					+ " cannot be empty", context);
+					+ " cannot be empty");
 		}
 		if (!sep.hasNext())
 		{
 			return new ParseResult.Fail(getTokenName() + " has no PIPE character: "
-				+ "Must be of the form <follower type>|<formula>", context);
+				+ "Must be of the form <follower type>|<formula>");
 		}
 		String followerNumber = sep.next();
 		if (sep.hasNext())
 		{
 			return new ParseResult.Fail(getTokenName()
 					+ " has too many PIPE characters: "
-					+ "Must be of the form <follower type>|<formula", context);
+					+ "Must be of the form <follower type>|<formula");
 		}
 		if (followerNumber.isEmpty())
 		{
 			return new ParseResult.Fail("Follower Count in " + getTokenName()
-					+ " cannot be empty", context);
+					+ " cannot be empty");
 		}
 		CDOMSingleRef<CompanionList> cl = context.getReferenceContext().getCDOMReference(
 				CompanionList.class, followerType);
@@ -122,7 +122,7 @@ public class FollowersLst implements CDOMPrimaryToken<CDOMObject>
 		if (!num.isValid())
 		{
 			return new ParseResult.Fail("Number of Followers in "
-					+ getTokenName() + " was not valid: " + num.toString(), context);
+					+ getTokenName() + " was not valid: " + num.toString());
 		}
 		context.getObjectContext().addToList(obj, ListKey.FOLLOWERS,
 				new FollowerLimit(cl, num));

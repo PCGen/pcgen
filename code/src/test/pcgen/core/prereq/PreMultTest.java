@@ -25,7 +25,6 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
@@ -144,37 +143,37 @@ public class PreMultTest extends AbstractCharacterTestCase
 		metamagic1.addToListFor(ListKey.TYPE, Type.getConstant("METAMAGIC"));
 		metamagic1.setName("MM1");
 		metamagic1.put(StringKey.KEY_NAME, "MM1");
-		metamagic1.setCDOMCategory(AbilityCategory.FEAT);
+		metamagic1.setCDOMCategory(BuildUtilities.getFeatCat());
 
 		final Ability metamagic2 = new Ability();
 		metamagic2.addToListFor(ListKey.TYPE, Type.getConstant("METAMAGIC"));
 		metamagic2.setName("MM2");
 		metamagic2.put(StringKey.KEY_NAME, "MM2");
-		metamagic2.setCDOMCategory(AbilityCategory.FEAT);
+		metamagic2.setCDOMCategory(BuildUtilities.getFeatCat());
 
 		final Ability metamagic3 = new Ability();
 		metamagic3.addToListFor(ListKey.TYPE, Type.getConstant("METAMAGIC"));
 		metamagic3.setName("MM3");
 		metamagic3.put(StringKey.KEY_NAME, "MM3");
-		metamagic3.setCDOMCategory(AbilityCategory.FEAT);
+		metamagic3.setCDOMCategory(BuildUtilities.getFeatCat());
 
 		final Ability item1 = new Ability();
 		item1.addToListFor(ListKey.TYPE, Type.getConstant("ItemCreation"));
 		item1.setName("IC1");
 		item1.put(StringKey.KEY_NAME, "IC1");
-		item1.setCDOMCategory(AbilityCategory.FEAT);
+		item1.setCDOMCategory(BuildUtilities.getFeatCat());
 
 		final Ability item2 = new Ability();
 		item2.addToListFor(ListKey.TYPE, Type.getConstant("ItemCreation"));
 		item2.setName("IC2");
 		item2.put(StringKey.KEY_NAME, "IC2");
-		item2.setCDOMCategory(AbilityCategory.FEAT);
+		item2.setCDOMCategory(BuildUtilities.getFeatCat());
 
 		final Ability item3 = new Ability();
 		item3.addToListFor(ListKey.TYPE, Type.getConstant("ItemCreation"));
 		item3.setName("IC3");
 		item3.put(StringKey.KEY_NAME, "IC3");
-		item3.setCDOMCategory(AbilityCategory.FEAT);
+		item3.setCDOMCategory(BuildUtilities.getFeatCat());
 
 		final PlayerCharacter character = getCharacter();
 
@@ -188,35 +187,35 @@ public class PreMultTest extends AbstractCharacterTestCase
 		int passes = test.passes(prereq, character, null);
 		assertEquals("No feats should not pass", 0, passes);
 
-		addAbility(AbilityCategory.FEAT, metamagic1);
+		addAbility(BuildUtilities.getFeatCat(), metamagic1);
 		passes = test.passes(prereq, character, null);
 		assertEquals("One feat should not pass", 0, passes);
 
-		addAbility(AbilityCategory.FEAT, metamagic2);
+		addAbility(BuildUtilities.getFeatCat(), metamagic2);
 		passes = test.passes(prereq, character, null);
 		assertEquals("Two feats should not pass", 0, passes);
 
-		addAbility(AbilityCategory.FEAT, metamagic3);
+		addAbility(BuildUtilities.getFeatCat(), metamagic3);
 		passes = test.passes(prereq, character, null);
 		assertEquals("Three feats should pass", 1, passes);
 
-		removeAbility(AbilityCategory.FEAT, metamagic3);
-		addAbility(AbilityCategory.FEAT, item1);
+		removeAbility(BuildUtilities.getFeatCat(), metamagic3);
+		addAbility(BuildUtilities.getFeatCat(), item1);
 		passes = test.passes(prereq, character, null);
 		assertEquals("Three feats should pass", 1, passes);
 
-		addAbility(AbilityCategory.FEAT, item2);
-		addAbility(AbilityCategory.FEAT, item3);
-		addAbility(AbilityCategory.FEAT, metamagic3);
+		addAbility(BuildUtilities.getFeatCat(), item2);
+		addAbility(BuildUtilities.getFeatCat(), item3);
+		addAbility(BuildUtilities.getFeatCat(), metamagic3);
 		passes = test.passes(prereq, character, null);
 		assertEquals("Six feats should pass", 1, passes);
 
-		removeAbility(AbilityCategory.FEAT, metamagic3);
-		removeAbility(AbilityCategory.FEAT, item3);
-		removeAbility(AbilityCategory.FEAT, item2);
-		removeAbility(AbilityCategory.FEAT, item1);
-		removeAbility(AbilityCategory.FEAT, metamagic2);
-		removeAbility(AbilityCategory.FEAT, metamagic1);
+		removeAbility(BuildUtilities.getFeatCat(), metamagic3);
+		removeAbility(BuildUtilities.getFeatCat(), item3);
+		removeAbility(BuildUtilities.getFeatCat(), item2);
+		removeAbility(BuildUtilities.getFeatCat(), item1);
+		removeAbility(BuildUtilities.getFeatCat(), metamagic2);
+		removeAbility(BuildUtilities.getFeatCat(), metamagic1);
 	}
 
 	/**

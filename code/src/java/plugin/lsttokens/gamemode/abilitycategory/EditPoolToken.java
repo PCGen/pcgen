@@ -43,7 +43,7 @@ public class EditPoolToken extends AbstractNonEmptyToken<AbilityCategory>
 			if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
 			{
 				return new ParseResult.Fail("You should use 'YES' as the "
-						+ getTokenName() + ": " + value, context);
+						+ getTokenName() + ": " + value);
 			}
 			set = Boolean.TRUE;
 		}
@@ -53,13 +53,13 @@ public class EditPoolToken extends AbstractNonEmptyToken<AbilityCategory>
 			{
 				return new ParseResult.Fail(
 						"You should use 'YES' or 'NO' as the " + getTokenName()
-								+ ": " + value, context);
+								+ ": " + value);
 			}
 			if (value.length() > 1 && !value.equalsIgnoreCase("NO"))
 			{
 				return new ParseResult.Fail(
 						"You should use 'YES' or 'NO' as the " + getTokenName()
-								+ ": " + value, context);
+								+ ": " + value);
 			}
 			set = Boolean.FALSE;
 		}

@@ -435,8 +435,8 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 		if (metaAllowed)
 		{
 			List<Ability> metamagicFeats = new ArrayList<>();
-			for (Ability anAbility : Globals.getContext().getReferenceContext().getManufacturer(
-				Ability.class, AbilityCategory.FEAT).getAllObjects())
+			for (Ability anAbility : Globals.getContext().getReferenceContext()
+				.getManufacturerId(AbilityCategory.FEAT).getAllObjects())
 			{
 				if (anAbility.isType("Metamagic"))
 				{
@@ -457,12 +457,6 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 
 		if ((levelInfo == null) || (levelInfo.isEmpty()))
 		{
-			//			Logging.errorPrint("Spell: "
-			//				+ aSpell.getKeyName()
-			//				+ "("
-			//				+ SourceFormat.getFormattedString(aSpell,
-			//					Globals.getSourceDisplay(), true) + ") has no home");
-
 			return;
 		}
 

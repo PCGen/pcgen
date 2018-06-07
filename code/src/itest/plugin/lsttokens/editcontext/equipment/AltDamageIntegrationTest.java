@@ -24,7 +24,7 @@ import plugin.lsttokens.equipment.AltdamageToken;
 public class AltDamageIntegrationTest extends AbstractDamageIntegrationTestCase
 {
 
-	public static AltdamageToken token = new AltdamageToken();
+	private static AltdamageToken token = new AltdamageToken();
 
 	@Override
 	public CDOMPrimaryToken<Equipment> getToken()

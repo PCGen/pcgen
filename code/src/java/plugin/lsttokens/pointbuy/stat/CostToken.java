@@ -51,7 +51,7 @@ public class CostToken extends AbstractNonEmptyToken<PointBuyCost> implements
 		{
 			return new ParseResult.Fail(getTokenName()
 					+ " expected an integer.  Tag must be of the form: "
-					+ getTokenName() + ":<int>", context);
+					+ getTokenName() + ":<int>");
 		}
 	}
 

@@ -79,7 +79,7 @@ CATEGORY=Special Ability|Slayer ~ Stalker.MOD																																			
 
 # Elf Swashbuckler Panache
 Bonus Panache									KEY:Elf ~ Favored Class Bonus ~ Panache			CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSwashbuckler	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Swashbuckler	PRECLASS:1,Swashbuckler=1	PRERACE:1,Elf%,RACESUBTYPE=Elf	DEFINE:ElfSwashbucklerFavClassBonus|0	DESC:Increase the total number of points in the swashbuckler's panache pool by 1/4.																																											STACK:YES	MULT:YES	CHOOSE:NOCHOICE																														BONUS:VAR|ElfSwashbucklerFavClassBonus|1
-CATEGORY=Special Ability|Swashbuckler ~ Panache.MOD																																																																																																																																																						BONUS:VAR|PanachePointsFavoredBonus|ElfSwashbucklerFavClassBonus
+CATEGORY=Internal|Panache Tracker.MOD																																																																																																																																																						BONUS:VAR|PanachePointsFavoredBonus|ElfSwashbucklerFavClassBonus
 
 # Elf Warpriest Blessings
 Bonus Blessings									KEY:Elf ~ Favored Class Bonus ~ Blessings			CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWarpriest		VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Warpriest		PRECLASS:1,Warpriest=1		PRERACE:1,Elf%,RACESUBTYPE=Elf	DEFINE:ElfWarpriestFavClassBonus|0		DESC:Add 1/2 to the number of times per day the warpriest can use blessings, but he can use these additional blessings on only those from the Air, Animal, Charm, Magic, Plant, or Sun domains																									STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ABILITY:Special Ability|AUTOMATIC|Warpriest ~ Favored Class Blessings|PREVARGTEQ:ElfWarpriestFavClassBonus,2											BONUS:VAR|ElfWarpriestFavClassBonus|1
@@ -280,7 +280,7 @@ CATEGORY=Special Ability|Slayer ~ Slayer Talents.MOD																												
 
 # Human Swashbuckler Panache
 Bonus Panache							KEY:Human ~ Favored Class Bonus ~ Panache					CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSwashbuckler	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Swashbuckler	PRECLASS:1,Swashbuckler=1	PRERACE:1,Human%,RACESUBTYPE=Human	DEFINE:HumanSwashbucklerFavClassBonus|0	DESC:Increase the total number of points in the swashbuckler's panache pool by 1/4.																						STACK:YES	MULT:YES	CHOOSE:NOCHOICE													BONUS:VAR|HumanSwashbucklerFavClassBonus|1
-CATEGORY=Special Ability|Swashbuckler ~ Panache.MOD																																																																																																																BONUS:VAR|PanachePointsFavoredBonus|HumanSwashbucklerFavClassBonus
+CATEGORY=Internal|Panache Tracker.MOD																																																																																																																BONUS:VAR|PanachePointsFavoredBonus|HumanSwashbucklerFavClassBonus
 
 # Human Warpriest Combat Feat
 Bonus Combat Feat							KEY:Human ~ Favored Class Bonus ~ Combat Feat				CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWarpriest		VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Warpriest		PRECLASS:1,Warpriest=1		PRERACE:1,Human%,RACESUBTYPE=Human	DEFINE:HumanWarpriestFavClassBonus|0	DESC:Gain 1/6 of a new bonus combat feat.																													STACK:YES	MULT:YES	CHOOSE:NOCHOICE													BONUS:VAR|HumanWarpriestFavClassBonus|1

@@ -43,7 +43,7 @@ public class RemoveLst extends AbstractNonEmptyToken<CDOMObject> implements
 		if (pipeLoc == -1)
 		{
 			return new ParseResult.Fail(getTokenName()
-					+ " requires a SubToken", context);
+					+ " requires a SubToken");
 		}
 		String key = value.substring(0, pipeLoc);
 		return context.processSubToken(obj, getTokenName(), key, value.substring(pipeLoc + 1));

@@ -41,7 +41,7 @@ Magi Staff of the Necromancer					TYPE:Artifact.Minor		EQMOD:Special Ability ~ C
 Magi Staff of the Scholar					TYPE:Artifact.Minor		EQMOD:Special Ability ~ Charged Item / 50 Maximum|CHARGES[50]	COST:0	WT:5				SOURCEPAGE:p.49																																											BONUS:MISC|SR|23
 Rift-Born Sphere							TYPE:Artifact.Minor								COST:0	WT:0				SOURCEPAGE:p.44
 Sphere of Bleeding Snowflakes					TYPE:Artifact.Minor								COST:0	WT:0				SOURCEPAGE:p.43
-Twin Spheres 							TYPE:Artifact.Minor								COST:0	WT:0				SOURCEPAGE:p.43
+Twin Spheres							TYPE:Artifact.Minor								COST:0	WT:0				SOURCEPAGE:p.43
 
 # ==============================
 # New Major Artifacts
@@ -55,4 +55,4 @@ Staff of Elemental Castigation				TYPE:Artifact.Major		EQMOD:Special Ability ~ C
 # New Cursed Items
 # ==============================
 
-Horn of Mayhem							TYPE:Magic.Wondrous.Instrument.Cursed					COST:0	WT:2				SOURCEPAGE:p.38				SPROP:When sounded, this horn emits an ear-splitting shriek that drives man and beast mad. 
+Horn of Mayhem							TYPE:Magic.Wondrous.Instrument.Cursed					COST:0	WT:2				SOURCEPAGE:p.38				SPROP:When sounded, this horn emits an ear-splitting shriek that drives man and beast mad.

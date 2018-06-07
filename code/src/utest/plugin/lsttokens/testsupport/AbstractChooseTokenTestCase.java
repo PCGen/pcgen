@@ -1446,7 +1446,8 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 				primaryContext.getChoiceSet(getManufacturer(), value));
 		assertNotNull(pcs);
 		assertEquals(valid, pcs.getGroupingState().isValid());
-		BasicChooseInformation<TC> cs = new BasicChooseInformation<>(getSubToken().getTokenName(), pcs);
+		BasicChooseInformation<TC> cs = new BasicChooseInformation<>(
+			getSubToken().getTokenName(), pcs, getManufacturer().getIdentifierType());
 		cs.setTitle(getChoiceTitle());
 		primaryProf.put(ObjectKey.CHOOSE_INFO, cs);
 	}
@@ -1726,5 +1727,4 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 	{
 		return true;
 	}
-
 }

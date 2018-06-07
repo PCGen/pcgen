@@ -25,5 +25,5 @@ package pcgen.cdom.base;
 public interface AssociatedPrereqObject extends AssociatedObject, PrereqObject,
 		QualifyingObject
 {
-
+	//Intentionally empty - this consolidates multiple interfaces
 }

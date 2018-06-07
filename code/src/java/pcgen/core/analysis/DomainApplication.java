@@ -100,7 +100,7 @@ public final class DomainApplication
 			Collection<AssociatedPrereqObject> assoc = d.getListAssociations(Spell.SPELLS, ref);
 			for (AssociatedPrereqObject apo : assoc)
 			{
-				if (!PrereqHandler.passesAll(apo.getPrerequisiteList(), pc, d))
+				if (!PrereqHandler.passesAll(apo, pc, d))
 				{
 					continue;
 				}

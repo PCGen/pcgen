@@ -11,11 +11,11 @@ Firearms				TYPE:Exotic
 Buckler Gun				TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.OneHandedFireArm
 Pepperbox				TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.OneHandedFireArm
 Pistol				TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.OneHandedFireArm.Pistol
-Pistol (Coat)			TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.OneHandedFireArm.Pistol
-Pistol (Dagger)			TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.OneHandedFireArm.Pistol
-Pistol (Double-Barreled)	TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.OneHandedFireArm.Pistol
-Pistol (Dragon)			TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.OneHandedFireArm.Pistol
-Pistol (Sword Cane)		TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.OneHandedFireArm.Pistol
+Coat Pistol	KEY:Pistol (Coat)			TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.OneHandedFireArm.Pistol
+Dagger Pistol	KEY:Pistol (Dagger)			TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.OneHandedFireArm.Pistol
+Double-Barreled Pistol	KEY:Pistol (Double-Barreled)	TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.OneHandedFireArm.Pistol
+Dragon Pistol	KEY:Pistol (Dragon)			TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.OneHandedFireArm.Pistol
+Sword Cane Pistol	KEY:Pistol (Sword Cane)		TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.OneHandedFireArm.Pistol
 
 # Early Two-Handed Firearms
 Blunderbuss				TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.TwoHandedFireArm			HANDS:2
@@ -23,9 +23,9 @@ Culverin				TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.T
 Double Hackbut			TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.TwoHandedFireArm			HANDS:2
 Fire Lance				TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.TwoHandedFireArm			HANDS:2
 Musket				TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.TwoHandedFireArm.Musket	HANDS:2
-Musket (Axe)			TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.TwoHandedFireArm.Musket	HANDS:2
-Musket (Double-Barreled)	TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.TwoHandedFireArm.Musket	HANDS:2
-Musket (Warhammer)		TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.TwoHandedFireArm.Musket	HANDS:2
+Axe Musket	KEY:Musket (Axe)			TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.TwoHandedFireArm.Musket	HANDS:2
+Double-Barreled Musket	KEY:Musket (Double-Barreled)	TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.TwoHandedFireArm.Musket	HANDS:2
+Warhammer Musket	KEY:Musket (Warhammer)		TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.TwoHandedFireArm.Musket	HANDS:2
 
 ###Block: Advanced Firearms
 # One-Handed
@@ -51,7 +51,7 @@ Tonfa						TYPE:Eastern.Melee.Martial.Light.Blocking.Monk.LightMartial
 Wushu Dart					TYPE:Eastern.Melee.Martial.Light.Monk.LightMartial
 
 # One-Handed Melee
-Broadsword (Nine Ring)			TYPE:Eastern.Melee.Martial.OneHanded.Monk.Tengu.Sword.OneHandedMartial
+Nine Ring Broadsword	KEY:Broadsword (Nine Ring)			TYPE:Eastern.Melee.Martial.OneHanded.Monk.Tengu.Sword.OneHandedMartial
 Double Chicken Saber			TYPE:Eastern.Melee.Martial.OneHanded.Disarm.Monk.Tengu.Sword.OneHandedMartial
 Sibat						TYPE:Eastern.Melee.Martial.OneHanded.Spear.OneHandedMartial
 
@@ -61,7 +61,7 @@ Monk's Spade				TYPE:Eastern.Melee.Martial.TwoHanded.Double.Monk.Polearm
 Naginata					TYPE:Eastern.Melee.Martial.TwoHanded.Reach
 Nodachi					TYPE:Eastern.Melee.Martial.TwoHanded.Brace.Polearm
 Sansetsukon					TYPE:Eastern.Melee.Martial.TwoHanded.Blocking.Disarm.Monk
-Sword (Tri-Point Double-Edged)	TYPE:Eastern.Melee.Martial.TwoHanded.Reach.Tengu.Sword
+Tri-Point Double-Edged Sword	KEY:Sword (Tri-Point Double-Edged)	TYPE:Eastern.Melee.Martial.TwoHanded.Reach.Tengu.Sword
 Tiger Fork					TYPE:Eastern.Melee.Martial.TwoHanded.Brace.Monk.Polearm.Spear
 
 # Ranged
@@ -75,7 +75,7 @@ Poisoned Sand Tube			TYPE:Eastern.Ranged.Martial
 Dan Bong				TYPE:Eastern.Melee.Exotic.Light.Bludgeoning.Blocking.Monk.Ranged.Thrown
 Emei Piercer			TYPE:Eastern.Melee.Exotic.Light.Piercing.Monk
 Fighting Fan			TYPE:Eastern.Melee.Exotic.Light.Slashing.Piercing.Distracting.Monk
-Tekko-Kagi (Iron Claw)		TYPE:Eastern.Melee.Exotic.Light.Piercing.Disarm
+Tekko-Kagi	KEY:Tekko-Kagi (Iron Claw)		TYPE:Eastern.Melee.Exotic.Light.Piercing.Disarm
 Wakizashi				TYPE:Eastern.Melee.Exotic.Light.Piercing.Slashing.Deadly.Tengu.Sword
 # One-Handed
 Katana				TYPE:Eastern.Melee.Martial.OneHanded.Exotic.Slashing.Deadly.Tengu.Sword
@@ -84,12 +84,12 @@ Urumi					TYPE:Eastern.Melee.Exotic.OneHanded.Slashing.Distracting
 
 # Two-Handed
 Bo Staff				TYPE:Eastern.Melee.Exotic.TwoHanded.Bludgeoning.Blocking.Double.Monk
-Kama (Double-Chained)		TYPE:Eastern.Melee.Exotic.TwoHanded.Slashing.Double.Monk.Reach.Trip
-Katana (Double Walking Stick)	TYPE:Eastern.Melee.Exotic.TwoHanded.Bludgeoning.Double.Tengu.Sword
-Kusarigama (Sickle and Chain)	TYPE:Eastern.Melee.Exotic.TwoHanded.Slashing.Bludgeoning.Double.Monk.Reach.Trip.Grapple
+Double-Chained Kama	KEY:Kama (Double-Chained)		TYPE:Eastern.Melee.Exotic.TwoHanded.Slashing.Double.Monk.Reach.Trip
+Double Walking Stick Katana	KEY:Katana (Double Walking Stick)	TYPE:Eastern.Melee.Exotic.TwoHanded.Bludgeoning.Double.Tengu.Sword
+Kusarigama	KEY:Kusarigama (Sickle and Chain)	TYPE:Eastern.Melee.Exotic.TwoHanded.Slashing.Bludgeoning.Double.Monk.Reach.Trip.Grapple
 Kyoketsu Shoge			TYPE:Eastern.Melee.Exotic.TwoHanded.Slashing.Piercing.Disarm.Grapple.Monk.Reach.Ranged.Thrown
 Meteor Hammer			TYPE:Eastern.Melee.Exotic.TwoHanded.Bludgeoning.Reach.Trip
-Sword (Seven-Branched)		TYPE:Eastern.Melee.Exotic.TwoHanded.Slashing.Disarm.Monk.Tengu.Sword
+Seven-Branched Sword	KEY:Sword (Seven-Branched)		TYPE:Eastern.Melee.Exotic.TwoHanded.Slashing.Disarm.Monk.Tengu.Sword
 Tetsubo				TYPE:Eastern.Melee.Exotic.TwoHanded.Bludgeoning
 
 # Ranged
@@ -161,38 +161,38 @@ Atlatl					TYPE:StoneAge.Martial.Piercing.Ranged.Thrown
 #Exotic
 #One-Handed Melee
 Taiaha					TYPE:StoneAge.Exotic.Bludgeoning.Piercing.Double
-Terbutje (Great)				TYPE:StoneAge.Exotic.Slashing.Fragile
+Great Terbutje	KEY:Terbutje (Great)				TYPE:StoneAge.Exotic.Slashing.Fragile
 Wahaika					TYPE:StoneAge.Exotic.Bludgeoning.Disarm
 
 # Siege Engines
 #Direct-Fire Engines	Cost		Dmg		Critical			Range		Type1 Crew Aim Load Speed
 # Large Siege Engines
-Ballista (Light)				TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Piercing
+Light Ballista	KEY:Ballista (Light)				TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Piercing
 Cannon					TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.SiegeFirearm.Bludgeoning.Piercing.Firearm
 # Huge Siege Engines
-Ballista (Heavy)				TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Piercing
-Cannon (Fiend's Mouth)			TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.SiegeFirearm.Bludgeoning.Piercing.Firearm
+Heavy Ballista	KEY:Ballista (Heavy)				TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Piercing
+Fiend's Mouth Cannon	KEY:Cannon (Fiend's Mouth)			TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.SiegeFirearm.Bludgeoning.Piercing.Firearm
 Firedrake					TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Fire
 # Gargantuan Siege Engines
-Ballista (Gate Breaker)			TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
+Gate Breaker Ballista	KEY:Ballista (Gate Breaker)			TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
 Firewyrm					TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Fire
 
 # Large Siege Engines
-Bombard (Light)				TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.SiegeFirearm.Bludgeoning.Piercing.Firearm
-Catapult (Light)				TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
-Trebuchet (Light)				TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
+Light Bombard	KEY:Bombard (Light)				TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.SiegeFirearm.Bludgeoning.Piercing.Firearm
+Light Catapult	KEY:Catapult (Light)				TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
+Light Trebuchet	KEY:Trebuchet (Light)				TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
 
 # Huge Siege Engines
-Bombard (Standard)			TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.SiegeFirearm.Bludgeoning.Piercing.Firearm
-Catapult (Standard)			TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
+Bombard	KEY:Bombard (Standard)			TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.SiegeFirearm.Bludgeoning.Piercing.Firearm
+Catapult	KEY:Catapult (Standard)			TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
 Springal (Arrow)				TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Piercing
 Springal (Rocket)				TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Fire
-Trebuchet (Standard)			TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
+Trebuchet	KEY:Trebuchet (Standard)			TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
 
 #Gargantuan Siege Engines
-Bombard (Heavy)				TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.SiegeFirearm.Bludgeoning.Piercing.Firearm
-Catapult (Heavy)				TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
-Trebuchet (Heavy)				TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
+Heavy Bombard	KEY:Bombard (Heavy)				TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.SiegeFirearm.Bludgeoning.Piercing.Firearm
+Heavy Catapult	KEY:Catapult (Heavy)				TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
+Heavy Trebuchet	KEY:Trebuchet (Heavy)				TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
 
 ###Bock: Weapon Groups:
 Hooked Axe.MOD				TYPE:Axe.Weapon Group Axes.Polearm.Weapon Group Pole Arms

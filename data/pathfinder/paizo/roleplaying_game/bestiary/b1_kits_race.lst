@@ -3260,7 +3260,7 @@ GEAR:Crossbow (Hand)					SIZE:M	LOCATION:Carried
 GEAR:Bolt (Crossbow)			QTY:20			LOCATION:Carried
 GEAR:Poison (Drow Poison)		QTY:4				LOCATION:Carried
 GEAR:Potion of Invisibility						LOCATION:Carried
-GEAR:Scroll (Dispel Magic/Divine)					LOCATION:Carried
+GEAR:Scroll of Dispel Magic (Divine)					LOCATION:Carried
 GEAR:Wand of Cure Light Wounds					LOCATION:Carried
 
 STARTPACK:Dryad Default	TYPE:Default Monster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dryad],[!PRERACE:1,%]	SOURCEPAGE:p.116
@@ -6873,8 +6873,8 @@ GEAR:Boots of Levitation			LOCATION:Equipped
 GEAR:Headband of Vast Intelligence +2	LOCATION:Equipped
 GEAR:Ring of Protection +2			LOCATION:Equipped
 GEAR:Potion of Invisibility			LOCATION:Carried
-GEAR:Scroll (Dominate Person)			LOCATION:Carried
-GEAR:Scroll (Teleport)				LOCATION:Carried
+GEAR:Scroll of Dominate Person			LOCATION:Carried
+GEAR:Scroll of Teleport				LOCATION:Carried
 LANGBONUS:Abyssal|Aklo|Aquan
 SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Circle of Death
 SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Fireball

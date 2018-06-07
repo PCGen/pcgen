@@ -25,6 +25,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Ability;
 import pcgen.core.PCStat;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.DefineStatLst;
@@ -36,8 +37,8 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 public class DefineStatIntegrationTest extends
 		AbstractIntegrationTestCase<CDOMObject>
 {
-	static DefineStatLst token = new DefineStatLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
+	private static DefineStatLst token = new DefineStatLst();
+	private static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
@@ -169,5 +170,14 @@ public class DefineStatIntegrationTest extends
 		commit(testCampaign, tc, "LOCK|STR|4");
 		commit(modCampaign, tc, "UNLOCK|STR");
 		completeRoundRobin(tc);
+	}
+
+	@Override
+	protected Ability construct(LoadContext context, String name)
+	{
+		Ability a = BuildUtilities.getFeatCat().newInstance();
+		a.setName(name);
+		context.getReferenceContext().importObject(a);
+		return a;
 	}
 }

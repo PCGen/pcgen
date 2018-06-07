@@ -17,47 +17,49 @@
  */
 package pcgen.cdom.formula.scope;
 
-import pcgen.base.formula.base.LegalScope;
+import java.util.Optional;
+
+import pcgen.base.util.FormatManager;
+import pcgen.core.SizeAdjustment;
+import pcgen.rules.context.LoadContext;
 
 /**
  * Defines a Scope that covers variables local to SizeAdjustment objects
  */
-public class SizeScope implements LegalScope
+public class SizeScope implements PCGenScope
 {
 
 	/**
 	 * The parent of this scope (once loaded)
 	 */
-	private LegalScope parent;
+	private Optional<PCGenScope> parent;
 
-	/**
-	 * The String representation of the objects covered by this Scope
-	 * 
-	 * @see pcgen.base.formula.base.LegalScope#getName()
-	 */
 	@Override
 	public String getName()
 	{
 		return "SIZE";
 	}
 
-	/**
-	 * @see pcgen.base.formula.base.LegalScope#getParentScope()
-	 */
 	@Override
-	public LegalScope getParentScope()
+	public Optional<PCGenScope> getParentScope()
 	{
 		return parent;
 	}
 
 	/**
-	 * Sets the parent LegalScope for this SizeAdjustmentScope.
+	 * Sets the parent PCGenScope for this SizeAdjustmentScope.
 	 * 
 	 * @param parent
-	 *            The parent LegalScope for this SizeAdjustmentScope
+	 *            The parent PCGenScope for this SizeAdjustmentScope
 	 */
-	public void setParent(LegalScope parent)
+	public void setParent(PCGenScope parent)
 	{
-		this.parent = parent;
+		this.parent = Optional.of(parent);
+	}
+
+	@Override
+	public FormatManager<SizeAdjustment> getFormatManager(LoadContext context)
+	{
+		return context.getReferenceContext().getManufacturer(SizeAdjustment.class);
 	}
 }

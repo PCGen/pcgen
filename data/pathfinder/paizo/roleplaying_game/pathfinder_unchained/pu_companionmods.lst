@@ -21,6 +21,7 @@ FOLLOWER:EidolonCompanionLVL=1	TYPE:Eidolon	BONUS:VAR|EidolonSubtype_Demon|maste
 FOLLOWER:EidolonCompanionLVL=1	TYPE:Eidolon	BONUS:VAR|EidolonSubtype_Devil|mastervar("EidolonSubtype_Devil")
 FOLLOWER:EidolonCompanionLVL=1	TYPE:Eidolon	BONUS:VAR|EidolonSubtype_Div|mastervar("EidolonSubtype_Div")
 FOLLOWER:EidolonCompanionLVL=1	TYPE:Eidolon	BONUS:VAR|EidolonSubtype_Elemental|mastervar("EidolonSubtype_Elemental")
+FOLLOWER:EidolonCompanionLVL=1	TYPE:Eidolon	BONUS:VAR|EidolonSubtype_Fey|mastervar("EidolonSubtype_Fey")
 FOLLOWER:EidolonCompanionLVL=1	TYPE:Eidolon	BONUS:VAR|EidolonSubtype_Inevitable|mastervar("EidolonSubtype_Inevitable")
 FOLLOWER:EidolonCompanionLVL=1	TYPE:Eidolon	BONUS:VAR|EidolonSubtype_Protean|mastervar("EidolonSubtype_Protean")
 FOLLOWER:EidolonCompanionLVL=1	TYPE:Eidolon	BONUS:VAR|EidolonSubtype_Psychopomp|mastervar("EidolonSubtype_Psychopomp")

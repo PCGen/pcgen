@@ -1,19 +1,17 @@
 /*
  * Copyright 2008 (C) Thomas Parker <thpr@users.sourceforge.net>
  *
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 2.1 of the License, or (at your option) any later version.
+ * This library is free software; you can redistribute it and/or modify it under the terms
+ * of the GNU Lesser General Public License as published by the Free Software Foundation;
+ * either version 2.1 of the License, or (at your option) any later version.
  *
- * This library is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Lesser General Public License for more details.
+ * This library is distributed in the hope that it will be useful, but WITHOUT ANY
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
  *
- * You should have received a copy of the GNU Lesser General Public
- * License along with this library; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * You should have received a copy of the GNU Lesser General Public License along with
+ * this library; if not, write to the Free Software Foundation, Inc., 59 Temple Place,
+ * Suite 330, Boston, MA 02111-1307 USA
  */
 package plugin.lsttokens.ability;
 
@@ -35,13 +33,12 @@ import pcgen.rules.context.PatternChanges;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
-import pcgen.util.Logging;
 
 /**
  * This class deals with the BENEFIT Token
  */
-public class BenefitToken extends AbstractNonEmptyToken<Ability> implements
-		CDOMPrimaryToken<Ability>
+public class BenefitToken extends AbstractNonEmptyToken<Ability>
+		implements CDOMPrimaryToken<Ability>
 {
 
 	@Override
@@ -61,16 +58,64 @@ public class BenefitToken extends AbstractNonEmptyToken<Ability> implements
 		}
 		if (value.startsWith(Constants.LST_DOT_CLEAR_DOT))
 		{
-			context.getObjectContext().removePatternFromList(ability,
-					ListKey.BENEFIT, value.substring(7));
+			context.getObjectContext().removePatternFromList(ability, ListKey.BENEFIT,
+				value.substring(7));
 			return ParseResult.SUCCESS;
 		}
 
-		Description ben = parseBenefit(value);
-		if (ben == null)
+		ParseResult pr = checkNonEmpty(value);
+		if (!pr.passed())
 		{
-			return ParseResult.INTERNAL_ERROR;
+			return pr;
 		}
+		pr = checkForIllegalSeparator('|', value);
+		if (!pr.passed())
+		{
+			return pr;
+		}
+		final StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
+
+		String firstToken = tok.nextToken();
+		if (PreParserFactory.isPreReqString(firstToken))
+		{
+			return new ParseResult.Fail(
+				"Invalid " + getTokenName() + "(PRExxx can not be only value): " + value);
+		}
+		String ds = EntityEncoder.decode(firstToken);
+		if (!StringUtil.hasBalancedParens(ds))
+		{
+			return new ParseResult.Fail(
+				getTokenName() + " encountered imbalanced Parenthesis: " + value);
+		}
+
+		Description ben = new Description(ds);
+
+		boolean isPre = false;
+		while (tok.hasMoreTokens())
+		{
+			final String token = tok.nextToken();
+			if (PreParserFactory.isPreReqString(token))
+			{
+				Prerequisite prereq = getPrerequisite(token);
+				if (prereq == null)
+				{
+					return new ParseResult.Fail(
+						getTokenName() + " had invalid prerequisite : " + token);
+				}
+				ben.addPrerequisite(prereq);
+				isPre = true;
+			}
+			else
+			{
+				if (isPre)
+				{
+					return new ParseResult.Fail("Invalid " + getTokenName()
+						+ "(PRExxx must be at the END of the Token): " + value);
+				}
+				ben.addVariable(token);
+			}
+		}
+
 		context.getObjectContext().addToList(ability, ListKey.BENEFIT, ben);
 		return ParseResult.SUCCESS;
 	}
@@ -79,7 +124,7 @@ public class BenefitToken extends AbstractNonEmptyToken<Ability> implements
 	public String[] unparse(LoadContext context, Ability ability)
 	{
 		PatternChanges<Description> changes = context.getObjectContext()
-				.getListPatternChanges(ability, ListKey.BENEFIT);
+			.getListPatternChanges(ability, ListKey.BENEFIT);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;
@@ -90,9 +135,8 @@ public class BenefitToken extends AbstractNonEmptyToken<Ability> implements
 		{
 			if (removedItems != null && !removedItems.isEmpty())
 			{
-				context.addWriteMessage("Non-sensical relationship in "
-						+ getTokenName()
-						+ ": global .CLEAR and local .CLEAR. performed");
+				context.addWriteMessage("Non-sensical relationship in " + getTokenName()
+					+ ": global .CLEAR and local .CLEAR. performed");
 				return null;
 			}
 			list.add(Constants.LST_DOT_CLEAR);
@@ -117,70 +161,6 @@ public class BenefitToken extends AbstractNonEmptyToken<Ability> implements
 			return null;
 		}
 		return list.toArray(new String[list.size()]);
-	}
-
-	/**
-	 * Parses the BENEFIT tag into a Description object.
-	 * 
-	 * @param aDesc
-	 *            The LST tag
-	 * @return A <tt>Description</tt> object
-	 */
-	public Description parseBenefit(final String aDesc)
-	{
-		if (isEmpty(aDesc) || hasIllegalSeparator('|', aDesc))
-		{
-			return null;
-		}
-		final StringTokenizer tok = new StringTokenizer(aDesc, Constants.PIPE);
-
-		String firstToken = tok.nextToken();
-		if (PreParserFactory.isPreReqString(firstToken))
-		{
-			Logging.errorPrint("Invalid " + getTokenName() + ": " + aDesc);
-			Logging.errorPrint("  PRExxx can not be only value");
-			return null;
-		}
-		String ds = EntityEncoder.decode(firstToken);
-		if (!StringUtil.hasBalancedParens(ds))
-		{
-			Logging.log(Logging.LST_ERROR, getTokenName()
-					+ " encountered imbalanced Parenthesis: " + aDesc);
-			return null;
-		}
-		Description desc = new Description(ds);
-
-		boolean isPre = false;
-		while (tok.hasMoreTokens())
-		{
-			final String token = tok.nextToken();
-			if (PreParserFactory.isPreReqString(token))
-			{
-				Prerequisite prereq = getPrerequisite(token);
-				if (prereq == null)
-				{
-					Logging.errorPrint(getTokenName()
-							+ " had invalid prerequisite : " + token);
-					return null;
-				}
-				desc.addPrerequisite(prereq);
-				isPre = true;
-			}
-			else
-			{
-				if (isPre)
-				{
-					Logging.errorPrint("Invalid " + getTokenName() + ": "
-							+ aDesc);
-					Logging
-							.errorPrint("  PRExxx must be at the END of the Token");
-					return null;
-				}
-				desc.addVariable(token);
-			}
-		}
-
-		return desc;
 	}
 
 	@Override

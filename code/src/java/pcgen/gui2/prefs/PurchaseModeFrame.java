@@ -192,7 +192,7 @@ public final class PurchaseModeFrame extends JDialog
 		purchaseScoreMinEdit = new JTextField(3);
 		purchaseScoreMaxEdit = new JTextField(3);
 		statusBar = new JLabel();
-		currentPurchaseMethods = new JComboBoxEx();
+		currentPurchaseMethods = new JComboBoxEx<>();
 		currentPurchaseMethods.setAutoSort(true);
 		purchaseMethodPointsEdit = new JTextField(4);
 		removeMethodButton = new JButton();
@@ -449,7 +449,7 @@ public final class PurchaseModeFrame extends JDialog
 				.getConstructedCDOMObjects(PointBuyMethod.class);
 		if (!methods.isEmpty())
 		{
-			currentPurchaseMethods.setModel(new DefaultComboBoxModel(methods.toArray()));
+			currentPurchaseMethods.setModel(new DefaultComboBoxModel<>(methods.toArray()));
 		}
 		currentPurchaseMethodsActionPerformed(); // Get into correct state
 	}
@@ -1079,13 +1079,10 @@ public final class PurchaseModeFrame extends JDialog
 				nrRows = Math.abs(nrRows);
 				System.arraycopy(currentValues, 0, newValues, nrRows, currentValues.length);
 
-				//final int tblStart = ((Integer) currentValues[0][1]).intValue();
 				for (int i = 0; i < nrRows; ++i)
 				{
 					final int score = i + currentPurchaseScoreMin;
 					newValues[i][0] = score;
-
-//					newValues[i][1] = Integer.valueOf(tblStart - nrRows + i);
 				}
 			}
 

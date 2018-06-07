@@ -17,9 +17,7 @@
  */
 package plugin.lsttokens.paper;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -97,18 +95,6 @@ public class SortKeyToken extends AbstractNonEmptyToken<PaperInfo> implements
 						+ keyName, context);
 				returnValue = false;
 			}
-		}
-		List<PaperInfo> coll = new ArrayList<>(keys.values());
-		List<PaperInfo> sorted =
-				context.getReferenceContext().getOrderSortedCDOMObjects(
-					PaperInfo.class);
-		//Remove this check after 6.6
-		if (!coll.equals(sorted))
-		{
-			Logging.errorPrint(
-				"SORTKEY sorting in PaperInfo did not match file order",
-				context);
-			returnValue = false;
 		}
 		return returnValue;
 	}

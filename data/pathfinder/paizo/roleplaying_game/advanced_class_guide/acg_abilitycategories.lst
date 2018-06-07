@@ -32,6 +32,7 @@ ABILITYCATEGORY:Warpriest Archetype		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		F
 # Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI			Display Location
 ABILITYCATEGORY:Arcanist Exploit			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ArcanistExploit			PLURAL:Arcanist Exploits			DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Arcanist Bloodline			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:ArcanistBloodline			PLURAL:Arcanist Bloodlines			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Arcanist Bloodline Development	VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Arcanist Bloodline Development
 #ABILITYCATEGORY:Arcanist Draconic Bloodline	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ArcanistDraconicBloodline	PLURAL:Arcanist Draconic Bloodlines		DISPLAYLOCATION:Class Features
 #ABILITYCATEGORY:Arcanist Elemental Bloodline	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ArcanistElementalBloodline	PLURAL:Arcanist Elemental Bloodlines	DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Arcanist School			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ArcanistSchool										DISPLAYLOCATION:Class Features
@@ -170,7 +171,7 @@ ABILITYCATEGORY:Witch Channel Energy				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YE
 ABILITYCATEGORY:Inspired Investigator Talent			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:InspiredInvestigatorTalent										PLURAL:Inspired Investigator Talent				DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Blade Adept Blade Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Internal			TYPE:AdeptBladeChoice																					DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Blade Adept Arcana					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Internal			TYPE:BladeAdeptArcana																					DISPLAYLOCATION:Class Features
-#ABILITYCATEGORY:Blood Arcanist Bloodline				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SorcererBloodline					PLURAL:Sorcerer Bloodlines						DISPLAYLOCATION:Class Features
+#ABILITYCATEGORY:Blood Arcanist Bloodline				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Sorcerer Bloodline					PLURAL:Sorcerer Bloodlines						DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Elemental Master Type				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:ArcanistElement												PLURAL:Elemental Master Types					DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Arcanist Savant School				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:ArcanistSavantSchool											PLURAL:Arcanist Savant Schools				DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Arcanist Savant Opposition School		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:ArcanistSavantOppositionSchool										PLURAL:Arcanist Savant Opposition Schools			DISPLAYLOCATION:Class Features
@@ -195,7 +196,8 @@ ABILITYCATEGORY:Forgepriest Bonus Item Creation Feat		VISIBLE:QUALIFY	EDITABLE:Y
 ABILITYCATEGORY:Crossbow Training Selection		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Internal			ABILITYLIST:Crossbow Training Selection													PLURAL:Crossbow Training Selections		DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Savant Flexible Enhancement Bonus		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Special Ability			TYPE:Savant Flexible Enhancement Bonus															DISPLAYLOCATION:Class Features
 
-
+###Block:
+ABILITYCATEGORY:Evolved Companion	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO	FRACTIONALPOOL:NO	CATEGORY:Internal	TYPE:Evolved Companion	DISPLAYLOCATION:Feats
 
 #
 # End

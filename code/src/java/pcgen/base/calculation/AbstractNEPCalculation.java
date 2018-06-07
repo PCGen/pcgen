@@ -17,8 +17,6 @@
  */
 package pcgen.base.calculation;
 
-import pcgen.base.formula.base.DependencyManager;
-
 /**
  * An AbstractNEPCalculationis a basic template for creating a NEPCalculation.
  * No attempt is made to implement the process method (since a calculation with
@@ -55,21 +53,9 @@ public abstract class AbstractNEPCalculation<T> implements NEPCalculation<T>
 	}
 
 	@Override
-	public Class<T> getVariableFormat()
-	{
-		return basicCalc.getVariableFormat();
-	}
-
-	@Override
 	public String getIdentification()
 	{
 		return basicCalc.getIdentification();
-	}
-
-	@Override
-	@SuppressWarnings({"PMD.EmptyMethodInAbstractClassShouldBeAbstract", "NoopMethodInAbstractClass"})
-	public void getDependencies(DependencyManager fdm)
-	{
 	}
 
 	@Override

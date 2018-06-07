@@ -90,7 +90,7 @@ public class AdddomainsToken extends AbstractTokenWithSeparator<PCClass>
 				if (tokString.indexOf(']') != -1)
 				{
 					return new ParseResult.Fail("Invalid " + getTokenName()
-							+ " must have '[' if it contains a PREREQ tag", context);
+							+ " must have '[' if it contains a PREREQ tag");
 				}
 				domainKey = tokString;
 			}
@@ -99,7 +99,7 @@ public class AdddomainsToken extends AbstractTokenWithSeparator<PCClass>
 				if (tokString.indexOf(']') != tokString.length() - 1)
 				{
 					return new ParseResult.Fail("Invalid " + getTokenName()
-							+ " must end with ']' if it contains a PREREQ tag", context);
+							+ " must end with ']' if it contains a PREREQ tag");
 				}
 				domainKey = tokString.substring(0, openBracketLoc);
 				String prereqString = tokString.substring(openBracketLoc + 1,
@@ -107,13 +107,13 @@ public class AdddomainsToken extends AbstractTokenWithSeparator<PCClass>
 				if (prereqString.isEmpty())
 				{
 					return new ParseResult.Fail(getTokenName()
-							+ " cannot have empty prerequisite : " + value, context);
+							+ " cannot have empty prerequisite : " + value);
 				}
 				prereq = getPrerequisite(prereqString);
 				if (prereq == null)
 				{
 					return new ParseResult.Fail(getTokenName()
-							+ " had invalid prerequisite : " + prereqString, context);
+							+ " had invalid prerequisite : " + prereqString);
 				}
 				Logging.deprecationPrint(getTokenName()
 					+ " using PRExxx in brackets is deprecated: " + value
@@ -157,7 +157,7 @@ public class AdddomainsToken extends AbstractTokenWithSeparator<PCClass>
 			if (prereq == null)
 			{
 				return new ParseResult.Fail(getTokenName()
-						+ " had invalid prerequisite : " + tokString, context);
+						+ " had invalid prerequisite : " + tokString);
 			}
 			for (AssociatedPrereqObject apo : apoList)
 			{

@@ -96,9 +96,6 @@ public class FactGroup<T extends CDOMObject, F> implements ObjectContainer<T>
 		}
 	}
 
-	/**
-	 * @see pcgen.base.util.ObjectContainer#getContainedObjects()
-	 */
 	@Override
 	public Collection<T> getContainedObjects()
 	{
@@ -117,9 +114,6 @@ public class FactGroup<T extends CDOMObject, F> implements ObjectContainer<T>
 		return Collections.unmodifiableCollection(cache);
 	}
 
-	/**
-	 * @see pcgen.base.util.ObjectContainer#getLSTformat(boolean)
-	 */
 	@Override
 	public String getLSTformat(boolean useAny)
 	{
@@ -127,9 +121,6 @@ public class FactGroup<T extends CDOMObject, F> implements ObjectContainer<T>
 			+ def.getFormatManager().unconvert(toMatch.get());
 	}
 
-	/**
-	 * @see pcgen.base.util.ObjectContainer#contains(java.lang.Object)
-	 */
 	@Override
 	public boolean contains(T obj)
 	{
@@ -137,9 +128,6 @@ public class FactGroup<T extends CDOMObject, F> implements ObjectContainer<T>
 		return fact != null && fact.get().equals(toMatch.get());
 	}
 
-	/**
-	 * @see pcgen.base.util.ObjectContainer#getReferenceClass()
-	 */
 	@Override
 	public Class<T> getReferenceClass()
 	{

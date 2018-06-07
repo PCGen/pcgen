@@ -54,20 +54,20 @@ public class FactSetLst extends AbstractTokenWithSeparator<CDOMObject> implement
 		if (pipeLoc == -1)
 		{
 			return new ParseResult.Fail(getTokenName() + " expecting '|', format is: "
-				+ "Fact identification|Fact value ... was: " + value, context);
+				+ "Fact identification|Fact value ... was: " + value);
 		}
 		String factID = value.substring(0, pipeLoc);
 		if (factID.isEmpty())
 		{
 			return new ParseResult.Fail(getTokenName()
 				+ " expecting non-empty identification, "
-				+ "format is: Fact identification|Fact value ... was: " + value, context);
+				+ "format is: Fact identification|Fact value ... was: " + value);
 		}
 		String factStr = value.substring(pipeLoc + 1);
 		if (factStr.isEmpty())
 		{
 			return new ParseResult.Fail(getTokenName() + " expecting non-empty value, "
-				+ "format is: Fact identification|Fact value ... was: " + value, context);
+				+ "format is: Fact identification|Fact value ... was: " + value);
 		}
 		return context.processSubToken(cdo, getTokenName(), factID, factStr);
 	}

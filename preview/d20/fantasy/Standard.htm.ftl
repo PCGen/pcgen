@@ -143,7 +143,7 @@ $Date: 2014-06-12 11:36:12 +1000 (Thu, 12 Jun 2014) $
 			  <td colspan="1" class="h">${pcstring('RACE')}</td>
 		</#if>
 
-  <td class="h">${pcstring('SIZELONG')} / ${pcstring('FACE')}</td>
+  <td class="h">${pcstring('SIZELONG')} / ${pcstring('FACE.SHORT')}</td>
   <td class="h">${pcstring('HEIGHT')}</td>
   <td class="h">${pcstring('WEIGHT')}</td>
 <#if (pcvar("COUNT[VISION]") > 0) >
@@ -1248,7 +1248,7 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
     </table>
 <!-- STOP Weight Table -->
 <!-- START Illumination Table -->
-<#if (pcvar("COUNT[EQTYPE.LightSource]") > 0)>
+<#if (pcvar("COUNT[EQTYPE.LightSource.ADD.Light Source]") > 0)>
 <br/>
     <table width="100%" cellspacing="0" cellpadding="3" summary="Illumination">
      <tr>
@@ -1260,12 +1260,12 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
        	<td width="15%" class="border8"><b>Shadowy</b></td>
      	<td width="15%" class="border8"><b>Duration</b></td>
      </tr>
-<@loop from=0 to=pcvar('COUNT[EQTYPE.LightSource]-1') ; light , light_has_next>
+<@loop from=0 to=pcvar('COUNT[EQTYPE.LightSource.ADD.Light Source]-1') ; light , light_has_next>
 <#if (light % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
-      	<td class="border8">${pcstring('EQTYPE.LightSource.${light}.NAME')}</td>
-      	<td class="border8">${pcstring('EQTYPE.LightSource.${light}.QUALITY.Bright Illumination')}</td>
-       	<td class="border8">${pcstring('EQTYPE.LightSource.${light}.QUALITY.Shadowy Illumination')}</td>
-     	<td class="border8">${pcstring('EQTYPE.LightSource.${light}.QUALITY.Duration')}</td>
+      	<td class="border8">${pcstring('EQTYPE.LightSource.ADD.Light Source.${light}.NAME')}</td>
+      	<td class="border8">${pcstring('EQTYPE.LightSource.ADD.Light Source.${light}.QUALITY.Bright Illumination')}</td>
+       	<td class="border8">${pcstring('EQTYPE.LightSource.ADD.Light Source.${light}.QUALITY.Shadowy Illumination')}</td>
+     	<td class="border8">${pcstring('EQTYPE.LightSource.ADD.Light Source.${light}.QUALITY.Duration')}</td>
      </tr>
 </@loop>
     </table>

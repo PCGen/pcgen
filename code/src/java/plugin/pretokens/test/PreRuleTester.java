@@ -41,9 +41,6 @@ public class PreRuleTester extends AbstractPrerequisiteTest implements Prerequis
 		return "RULE"; //$NON-NLS-1$
 	}
 
-	/**
-	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.prereq.Prerequisite, pcgen.core.Equipment)
-	 */
 	@Override
 	public int passes(final Prerequisite prereq, final Equipment equipment,
 		PlayerCharacter aPC) throws PrerequisiteException
@@ -80,9 +77,6 @@ public class PreRuleTester extends AbstractPrerequisiteTest implements Prerequis
 			targetNumber));
 	}
 
-	/**
-	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.prereq.Prerequisite, pcgen.core.PlayerCharacter)
-	 */
 	@Override
 	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
 		throws PrerequisiteException

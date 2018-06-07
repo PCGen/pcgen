@@ -38,6 +38,7 @@ import plugin.lsttokens.spell.DomainsToken;
 
 import org.junit.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
+import util.TestURI;
 
 public class SpellDomainsTest extends AbstractTokenModelTest
 {
@@ -68,7 +69,7 @@ public class SpellDomainsTest extends AbstractTokenModelTest
 		ParseResult result = token.parseToken(context, sp, "Source=1");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();

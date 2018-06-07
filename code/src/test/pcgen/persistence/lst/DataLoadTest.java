@@ -143,6 +143,10 @@ public class DataLoadTest implements PCGenTaskListener
 		errors = new ArrayList<>();
 		loader.addPCGenTaskListener(this);
 		loader.execute();
+		GameMode selectedGame = SystemCollections
+			.getGameModeNamed(sourceSelection.getGameMode().get().getName());
+		selectedGame.clearLoadContext();
+		loader = null;
 
 		List<String> errorList = new ArrayList<>();
 		List<String> warningList = new ArrayList<>();

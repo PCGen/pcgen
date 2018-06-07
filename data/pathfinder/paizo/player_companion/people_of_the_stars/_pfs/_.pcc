@@ -1,5 +1,6 @@
 # CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 CAMPAIGN:People of the Stars (PFS)
+KEY:PFS ~ People of the Stars
 #GAMEMODE:Pathfinder
 TYPE:Paizo Publishing PFS.Pathfinder Player Companion
 RANK:3
@@ -13,23 +14,27 @@ PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
-SOURCELONG:People of the Stars
+SOURCELONG:Pathfinder Player Companion: People of the Stars
 SOURCESHORT:PotS
-#SOURCEWEB:http://paizo.com/products/xxx
-#SOURCEDATE:2009-01
+SOURCEWEB:http://paizo.com/products/btpy98i4
+SOURCEDATE:2014-08
 ISOGL:YES
 
 #COVER:xxx.jpeg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
-#URL:Paizo Publishing|http://paizo.com/products/xxx|Buy this publication from Paizo Publishing!
-#DESC:
+URL:Paizo Publishing|http://paizo.com/products/btpy98i4|Buy this publication from Paizo Publishing!
+DESC:Travel to other planets and harness the powers of the stars with Pathfinder Player Companion: People of the Stars! Whether you want to play a Golarion native daring the depths of outer space or an alien being exploring your own mysterious homeworld, you can unlock the secrets of the stars with the new rules, advice, and fantastic setting details in this volume.
 
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
-#COPYRIGHT:Pathfinder Companion: People of the Stars. xxx
+COPYRIGHT:Bat, Mobat from the Tome of Horrors Complete (c) 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Authors: Scott Greene and Clark Peterson, based on original material by Gary Gygax.
+COPYRIGHT:Death Worm from the Tome of Horrors Complete (c) 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene and Erica Balsley.
+COPYRIGHT:Nereid from the Tome of Horrors Complete (c) 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Skulk from the Tome of Horrors Complete (c) 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Simon Muth.
+COPYRIGHT:Pathfinder Player Companion: People of the Stars (c) 2014, Paizo Inc.; Authors: Ethan Day-Jones, Jim Groves, Jonathan H. Keith, Andrew Romine, David N. Ross, and James L. Sutter.
 COPYRIGHT:PCGen dataset conversion for "Pathfinder Companion: People of the Stars" Copyright 2010-2015, PCGen Data team (Including, but not limited to Andrew Maitland)
 
 # Do not remove the EXTRAFILE comment.

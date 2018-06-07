@@ -75,7 +75,7 @@ public class UserInputToken implements CDOMSecondaryToken<CDOMObject>
 				{
 					return new ParseResult.Fail("If CHOOSE:" + getTokenName()
 						+ " contains a pipe, "
-						+ "first argument must be an Integer : " + value, context);
+						+ "first argument must be an Integer : " + value);
 				}
 				Formula count = FormulaFactory.getFormulaFor(firstarg);
 				context.getObjectContext().put(obj, FormulaKey.NUMCHOICES, count);
@@ -86,7 +86,7 @@ public class UserInputToken implements CDOMSecondaryToken<CDOMObject>
 			{
 				return new ParseResult.Fail("CHOOSE:" + getTokenName() + " in "
 					+ obj.getClass() + ' ' + obj.getKeyName()
-					+ " had invalid arguments: " + value, context);
+					+ " had invalid arguments: " + value);
 			}
 			String title = titleString.substring(6);
 			if (title.startsWith("\""))

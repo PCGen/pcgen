@@ -1,6 +1,6 @@
 # CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 CAMPAIGN:Killshot - The Director's Cut
-RANK:1
+RANK:0
 GAMEMODE:Killshot
 GENRE:Modern
 BOOKTYPE:Core Rules
@@ -30,7 +30,11 @@ URL:Paizo.com|http://paizo.com/products/btpy8v0p?Killshot-The-Directors-Cut|Buy 
 COPYRIGHT:Copyright (c) 2012 by Todd Crapper. The Killshot RPG, the Optional System dice mechanic, and Broken Ruler Games are all creations and property of Todd Crapper working under the pseudonym "The Warden." This work is made available under the terms of the Creative Commons Attribution-ShareAlike 3.0 Uported License, http://creativecommons.org/licenses/by-sa/3.0/
 COPYRIGHT:PCGen dataset conversion for "The Killshot RPG" Copyright 2013, PCGen Data Team (Including, but not limited to Andrew Maitland (LegacyKing)) used under a Creative Commons Attribution-ShareAlike license: http://creativecommons.org/licenses/by-sa/3.0/. This PCGen Dataset conversion is licensed under the same Creative Commons Attribution-ShareAlike license: http://creativecommons.org/licenses/by-sa/3.0/.
 
+DATACONTROL:*/_universal/datacontrols_no_align.lst
+RACE:*/_universal/races.lst
+
 STAT:killshot__stats.lst
+SIZE:killshot__sizes.lst
 
 ABILITY:killshot_abilities.lst
 ABILITY:killshot_abilities_focus.lst

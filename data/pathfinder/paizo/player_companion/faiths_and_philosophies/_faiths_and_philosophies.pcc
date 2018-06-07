@@ -1,7 +1,8 @@
 # CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- #reformated by PCGen PrettyLST v6.06.00
-CAMPAIGN:Faiths and Philosophies
+CAMPAIGN:Faiths & Philosophies
+KEY:Faiths and Philosophies
 GAMEMODE:Pathfinder|Pathfinder_PFS
-TYPE:Paizo Publishing.Pathfinder RPG.Player Companion
+TYPE:Paizo Publishing.Pathfinder Player Companion
 RANK:3
 STATUS:BETA
 GENRE:Fantasy
@@ -10,9 +11,9 @@ SETTING:Pathfinder|Golarion
 PRECAMPAIGN:4,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:http://paizo.com/
-SOURCELONG:Faiths and Philosophies
+SOURCELONG:Pathfinder Player Companion: Faiths & Philosophies
 SOURCESHORT:FAP
-SOURCEWEB:http://paizo.com/products/btpy8yw8?Pathfinder-Player-Companion-Faiths-Philosophies
+SOURCEWEB:http://paizo.com/products/btpy8yw8
 SOURCEDATE:2013-08
 ISOGL:YES
 
@@ -21,7 +22,7 @@ LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
 URL:Paizo Publishing|http://paizo.com/products/btpy8yw8|Buy this publication from Paizo Publishing!
-DESC:There’s more to faith than simply choosing a god. In the Pathfinder campaign setting, dozens of different religions, traditions, and philosophies war for people’s hearts and minds—sometimes with reasoned arguments, and sometimes with bloodied swords. Whether as a servant of a powerful deity, a devotee of a world-shaping philosophy, or a zealous atheist, it’s time to claim the power of your convictions with this guide to devotion—religious or otherwise.
+DESC:There's more to faith than simply choosing a god. In the Pathfinder campaign setting, dozens of different religions, traditions, and philosophies war for people's hearts and minds--sometimes with reasoned arguments, and sometimes with bloodied swords. Whether as a servant of a powerful deity, a devotee of a world-shaping philosophy, or a zealous atheist, it's time to claim the power of your convictions with this guide to devotion--religious or otherwise. Beliefs are nothing without champions. With Faiths & Philosophies, characters of every class can make their convictions work for them.
 
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
 COPYRIGHT:Open Game License v 1.0a Copyright 2000,Wizards of the Coast, Inc.
@@ -35,6 +36,7 @@ ABILITY:fap_abilities_class.lst
 ABILITY:fap_abilities_race.lst
 ABILITY:fap_feats.lst
 ABILITYCATEGORY:fap_abilitycategories.lst
+CLASS:fap_classes.lst
 COMPANIONMOD:fap_companionmods.lst
 DEITY:fap_deities.lst
 DOMAIN:fap_domains.lst

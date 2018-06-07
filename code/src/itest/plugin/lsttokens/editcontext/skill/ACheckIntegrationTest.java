@@ -31,8 +31,8 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 public class ACheckIntegrationTest extends AbstractIntegrationTestCase<Skill>
 {
 
-	static AcheckToken token = new AcheckToken();
-	static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<>();
+	private static AcheckToken token = new AcheckToken();
+	private static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Skill> getCDOMClass()

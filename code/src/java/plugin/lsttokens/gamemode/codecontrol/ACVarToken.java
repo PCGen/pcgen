@@ -42,7 +42,7 @@ public class ACVarToken extends AbstractNonEmptyToken<CodeControl> implements
 		if (pipeLoc == -1)
 		{
 			return new ParseResult.Fail(
-				getTokenName() + " requires a SubToken", context);
+				getTokenName() + " requires a SubToken");
 		}
 		String acType = value.substring(0, pipeLoc);
 		String varName = value.substring(pipeLoc + 1);

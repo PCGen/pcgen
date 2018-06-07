@@ -26,6 +26,7 @@ import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.DefineLst;
 
 import tokencontent.testsupport.AbstractContentTokenTest;
+import util.TestURI;
 
 public class GlobalDefineVariableTest extends AbstractContentTokenTest
 {
@@ -46,7 +47,7 @@ public class GlobalDefineVariableTest extends AbstractContentTokenTest
 		ParseResult result = token.parseToken(context, source, "This|0");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();

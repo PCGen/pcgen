@@ -20,6 +20,7 @@ package pcgen.gui2.facade;
 import org.junit.Test;
 
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.base.BasicClassIdentity;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.list.CompanionList;
@@ -69,7 +70,9 @@ public class CompanionSupportFacadeImplTest extends AbstractCharacterTestCase
 		companionRace = TestHelper.makeRace("Weasel");
 
 		CDOMReference<Race> race  = new CDOMDirectSingleRef<>(companionRace);
-		CDOMSingleRef<CompanionList> ref  = new CDOMSimpleSingleRef<>(CompanionList.class, companionList.getKeyName());
+		CDOMSingleRef<CompanionList> ref = new CDOMSimpleSingleRef<>(
+			BasicClassIdentity.getIdentity(CompanionList.class),
+			companionList.getKeyName());
 		FollowerOption option = new FollowerOption(race, ref);
 		masterRace.addToListFor(ListKey.COMPANIONLIST, option);
 	}

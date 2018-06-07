@@ -2504,6 +2504,7 @@ public class WeaponToken extends Token
 				(int) pc.getDisplay().getStatBonusTo("COMBAT", "DAMAGE.MELEE");
 		// TODO: remove this old syntax
 		meleeDamageStatBonus += (int) pc.getDisplay().getStatBonusTo("DAMAGE", "TYPE.MELEE");
+		meleeDamageStatBonus += (int) pc.getTotalBonusTo("WEAPONPROF=" + profName, "STATDAMAGE");
 		double meleeDamageMult =
 				pc.getTotalBonusTo("COMBAT", "DAMAGEMULT:" + hands);
 		meleeDamageMult +=
@@ -2623,7 +2624,7 @@ public class WeaponToken extends Token
 			sb.append('/');
 			if (!"0d0".equalsIgnoreCase(damString))
 			{
-				if (bonusOnly)
+				if (!bonusOnly)
 				{
 					sb.append(damString);
 				}
@@ -2657,6 +2658,7 @@ public class WeaponToken extends Token
 			// TODO: remove this old syntax
 			bonus += (int) pc.getTotalBonusTo("DAMAGE", "TYPE." + type);
 		}
+		bonus += (int) pc.getTotalBonusTo("WEAPONPROF=" + getProfName(eq), "STATDAMAGE");
 		if (eq.isFinessable(pc) && !eq.isType("Finesseable"))
 		{
 			bonus += (int) pc.getTotalBonusTo("COMBAT", "DAMAGE.Finesseable");

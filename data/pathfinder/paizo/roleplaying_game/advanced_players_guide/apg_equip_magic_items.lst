@@ -4,7 +4,7 @@ SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/st
 
 ###Block: MINOR ARTIFACTS
 # Equipment Name			Required Weapon Proficiency	Type														Cost		Weight	Crit Mult	Crit Range	Damage	Modifier				Wield Category	Size		Source Page		Bonus Ability Pool						Stat bonus						Quality and value
-Beacon of True Faith							TYPE:Artifact.Minor.LightSource									COST:0	WT:2																		SOURCEPAGE:p.313																	QUALITY:Bright Illumination|20 ft.	QUALITY:Shadowy Illumination|40 ft.	QUALITY:Duration|Permanent
+Beacon of True Faith							TYPE:Artifact.Minor.Light Source									COST:0	WT:2																		SOURCEPAGE:p.313																	QUALITY:Bright Illumination|20 ft.	QUALITY:Shadowy Illumination|40 ft.	QUALITY:Duration|Permanent
 Hammer of Thunderbolts		PROFICIENCY:WEAPON|Warhammer	TYPE:Weapon.Resizable.Melee.OneHanded.Martial.Artifact.Minor.Bludgeoning.Hammer	COST:0	WT:15		CRITMULT:x3	CRITRANGE:1	DAMAGE:2d6	EQMOD:Special Ability ~ +3 ~ Weapon.Special Ability ~ Returning ~ Thrown.Material ~ Steel	WIELD:OneHanded	SIZE:L	SOURCEPAGE:p.314
 ##TODO: Add PRExxx for Girdle and additional capabilities.
 Knucklebone of Fickle Fortune						TYPE:Artifact.Minor											COST:0	WT:0.01																	SOURCEPAGE:p.314
@@ -101,8 +101,8 @@ Rod of Arson	TYPE:Magic.Rod.Cursed	COST:0	WT:5		BASEITEM:Rod		EQMOD:Special Abil
 
 ###Block: Magic Rings
 # Equipment Name			Output Name				Type			Cost		Modifier			Source Page		Bonus to skill								Special Property
-Dungeon Ring (Jailer)		OUTPUTNAME:Jailer's Ring	TYPE:Magic.Ring	COST:16000					SOURCEPAGE:p.292											SPROP:The jailer is aware of any wearer of a linked prisoner's ring like a constant status spell.
-Dungeon Ring (Prisoner)		OUTPUTNAME:Prisoner's Ring	TYPE:Magic.Ring	COST:250					SOURCEPAGE:p.292
+Dungeon Ring (Jailers)		OUTPUTNAME:Jailer's Ring	TYPE:Magic.Ring	COST:16000					SOURCEPAGE:p.292											SPROP:The jailer is aware of any wearer of a linked prisoner's ring like a constant status spell.
+Dungeon Ring (Prisoners)		OUTPUTNAME:Prisoner's Ring	TYPE:Magic.Ring	COST:250					SOURCEPAGE:p.292
 Ring of Arcane Signets							TYPE:Magic.Ring	COST:1000					SOURCEPAGE:p.292
 Ring of Delayed Doom							TYPE:Magic.Ring	COST:5000	EQMOD:Special Ability ~ Charged Item / 9 Maximum	SOURCEPAGE:p.292											SPROP:Whenever your mind or body first becomes subject to any harmful effect that allows a saving throw to resist or mitigate it, you may, as an immediate action, choose to delay the onset of that effect for 1 minute.
 Ring of Forcefangs							TYPE:Magic.Ring	COST:8000					SOURCEPAGE:p.292											SPROP:Negates any force spell or spell-like ability targeted at the wearer. Doing so gives the ring a number of charges equal to the spell level of the incoming force effect, to a maximum of 9 charges. On command, the wearer can use the ring?s charges to cast magic missile, per the spell of the same name, per charge but no more than five missiles per round.
@@ -214,7 +214,7 @@ Muleback Cords			TYPE:Magic.Wondrous.Shoulders	COST:1000	WT:0.25	SOURCEPAGE:p.30
 
 ###Block:N
 # Equipment Name		Type					Cost		Weight	Source Page		Modify VAR
-Necklass of Ki Serenity	TYPE:Magic.Wondrous.Necklace	COST:16000			SOURCEPAGE:p.308	BONUS:VAR|KiPoolLVL|4
+Necklace of Ki Serenity	TYPE:Magic.Wondrous.Necklace	COST:16000			SOURCEPAGE:p.308	BONUS:VAR|KiPoolLVL|4
 Necromancer's Athame	TYPE:Magic.Wondrous		COST:20000	WT:2		SOURCEPAGE:p.308
 
 ###Block:P

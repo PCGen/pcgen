@@ -126,7 +126,9 @@ public class FaceToken extends AbstractExportToken
 	{
 		OrderedPair face = getFace(display.getCharID());
 		String retString = "";
-		if (CoreUtility.doublesEqual(face.getPreciseY().doubleValue(), 0.0))
+		boolean endsWithZero =
+				CoreUtility.doublesEqual(face.getPreciseY().doubleValue(), 0.0);
+		if (endsWithZero || (hasFaceControl() && equalValues(face)))
 		{
 			retString =
 					Globals.getGameModeUnitSet().displayDistanceInUnitSet(
@@ -146,6 +148,12 @@ public class FaceToken extends AbstractExportToken
 						+ Globals.getGameModeUnitSet().getDistanceUnit();
 		}
 		return retString;
+	}
+
+	private static boolean equalValues(OrderedPair face)
+	{
+		return CoreUtility.doublesEqual(face.getPreciseX().doubleValue(),
+			face.getPreciseY().doubleValue());
 	}
 
 	/**
@@ -205,11 +213,12 @@ public class FaceToken extends AbstractExportToken
 	{
 		String varName =
 				ControlUtilities.getControlToken(Globals.getContext(), CControl.FACE);
-		if (varName == null)
-		{
-			varName = "Face";
-		}
 		ResultFacet resultFacet = FacetLibrary.getFacet(ResultFacet.class);
 		return (OrderedPair) resultFacet.getGlobalVariable(id, varName);
+	}
+
+	private static boolean hasFaceControl()
+	{
+		return ControlUtilities.hasControlToken(Globals.getContext(), CControl.FACE);
 	}
 }

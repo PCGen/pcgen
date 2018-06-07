@@ -30,11 +30,10 @@ import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import plugin.lsttokens.testsupport.AbstractListTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractListInputTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-public class KnownspellsTokenTest extends
-		AbstractListTokenTestCase<PCClass, Spell>
+public class KnownspellsTokenTest extends AbstractListInputTokenTestCase<PCClass, Spell>
 {
 
 	static KnownspellsToken token = new KnownspellsToken();

@@ -48,6 +48,7 @@ COMPANIONMOD:oa_companionmods.lst
 EQUIPMENT:oa_equip.lst
 ABILITY:oa_feats.lst
 KIT:oa_kits.lst
+WEAPONPROF:oa_profs_weapon.lst
 RACE:oa_races.lst
 SPELL:oa_spells.lst
 TEMPLATE:oa_templates.lst
@@ -55,7 +56,9 @@ TEMPLATE:oa_templates.lst
 #SPELL:occult_rituals.lst
 
 # Support
+ABILITY:support/oa_abilities_class_um.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
 SPELL:support/oa_spells_um.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
+ABILITY:support/oa_abilities_class_acg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
 SPELL:support/oa_spells_acg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
 ABILITY:support/oa_feats_uc.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Combat
 SPELL:support/oa_spells_uc.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Combat

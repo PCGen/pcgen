@@ -45,7 +45,7 @@ public class AppliedBonusFacetTest extends AbstractListFacetTest<BonusObj>
 	{
 		super.setUp();
 		context =
-				new RuntimeLoadContext(new RuntimeReferenceContext(),
+				new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),
 					new ConsolidatedListCommitStrategy());
 		addBonus(Combat.class);
 	}

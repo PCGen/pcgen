@@ -21,8 +21,10 @@ import java.net.URISyntaxException;
 
 import org.junit.Test;
 
+import pcgen.cdom.enumeration.SubClassCategory;
 import pcgen.core.SubClass;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractIntegrationTestCase;
@@ -34,8 +36,8 @@ public class ChoiceIntegrationTest extends
 		AbstractIntegrationTestCase<SubClass>
 {
 
-	static ChoiceToken token = new ChoiceToken();
-	static CDOMTokenLoader<SubClass> loader = new CDOMTokenLoader<>();
+	private static ChoiceToken token = new ChoiceToken();
+	private static CDOMTokenLoader<SubClass> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
@@ -92,4 +94,12 @@ public class ChoiceIntegrationTest extends
 		completeRoundRobin(tc);
 	}
 
+	@Override
+	protected SubClass construct(LoadContext context, String name)
+	{
+		SubClass a = SubClassCategory.getConstant("SCC").newInstance();
+		a.setName(name);
+		context.getReferenceContext().importObject(a);
+		return a;
+	}
 }

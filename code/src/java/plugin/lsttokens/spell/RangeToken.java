@@ -64,7 +64,7 @@ public class RangeToken extends AbstractTokenWithSeparator<Spell> implements
 				if (!first)
 				{
 					return new ParseResult.Fail("Non-sensical use of .CLEAR in "
-							+ getTokenName() + ": " + value, context);
+							+ getTokenName() + ": " + value);
 				}
 				context.getObjectContext().removeList(spell, ListKey.RANGE);
 			}
@@ -73,8 +73,7 @@ public class RangeToken extends AbstractTokenWithSeparator<Spell> implements
 				if (!StringUtil.hasBalancedParens(value))
 				{
 					return new ParseResult.Fail("Unbalanced parentheses in "
-						+ getTokenName() + " '" + value + "' used in spell " + spell,
-						context);
+						+ getTokenName() + " '" + value + "' used in spell " + spell);
 				}
 				context.getObjectContext().addToList(spell, ListKey.RANGE, tok);
 			}

@@ -114,16 +114,6 @@ public abstract class AbstractToken
 		return ParseResult.SUCCESS;
 	}
 
-	protected boolean hasIllegalSeparator(char separator, String value)
-	{
-		ParseResult pr = checkForIllegalSeparator(separator, value);
-		if (pr.passed())
-		{
-			pr.addMessagesToLog();
-		}
-		return !pr.passed();
-	}
-
 	/**
 	 * Checks that a string is non-empty.
 	 * @param value The string to check.
@@ -142,16 +132,6 @@ public abstract class AbstractToken
 				+ " may not have empty argument");
 		}
 		return ParseResult.SUCCESS;
-	}
-
-	protected boolean isEmpty(String value)
-	{
-		ParseResult pr = checkNonEmpty(value);
-		if (pr.passed())
-		{
-			pr.addMessagesToLog();
-		}
-		return !pr.passed();
 	}
 
 	/**

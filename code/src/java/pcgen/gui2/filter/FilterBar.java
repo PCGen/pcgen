@@ -247,8 +247,10 @@ public class FilterBar<C, E> extends JPanel implements DisplayableFilter<C, E>
 				Insets insets = target.getInsets();
 				int maxwidth = target.getWidth() - (insets.left + insets.right + getHgap() * 2);
 				int nmembers = target.getComponentCount();
-				int x = 0, y = insets.top + getVgap();
-				int rowh = 0, start = 0;
+				int x = 0;
+				int y = insets.top + getVgap();
+				int rowh = 0;
+				int start = 0;
 
 				boolean ltr = target.getComponentOrientation().isLeftToRight();
 				SizeRequirements[] xChildren = new SizeRequirements[nmembers];
@@ -303,18 +305,17 @@ public class FilterBar<C, E> extends JPanel implements DisplayableFilter<C, E>
 									  SizeRequirements[] xChildren, SizeRequirements[] yChildren,
 									  int start, int end, boolean ltr)
 		{
-			SizeRequirements[] children = (SizeRequirements[]) ArrayUtils.subarray(xChildren, start, end);
+			SizeRequirements[] children = ArrayUtils.subarray(xChildren, start, end);
 			int[] xOffsets = new int[children.length];
 			int[] xSpans = new int[children.length];
 			SizeRequirements.calculateTiledPositions(maxwidth, null, children, xOffsets, xSpans, ltr);
 
-			children = (SizeRequirements[]) ArrayUtils.subarray(yChildren, start, end);
+			children = ArrayUtils.subarray(yChildren, start, end);
 			int[] yOffsets = new int[children.length];
 			int[] ySpans = new int[children.length];
 			SizeRequirements total = new SizeRequirements(rowheight, rowheight, rowheight, 0.5f);
 			SizeRequirements.calculateAlignedPositions(rowheight, total, children, yOffsets, ySpans, ltr);
 
-			Insets in = target.getInsets();
 			for (int i = 0; i < children.length; i++)
 			{
 				Component c = target.getComponent(i + start);

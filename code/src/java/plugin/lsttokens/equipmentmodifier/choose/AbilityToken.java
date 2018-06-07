@@ -49,33 +49,33 @@ public class AbilityToken implements CDOMSecondaryToken<EquipmentModifier>
 		if (value == null)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " requires arguments", context);
+					+ " requires arguments");
 		}
 		if (value.indexOf('[') != -1)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not contain [] : " + value, context);
+					+ " arguments may not contain [] : " + value);
 		}
 		if (value.charAt(0) == '|')
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not start with | : " + value, context);
+					+ " arguments may not start with | : " + value);
 		}
 		if (value.charAt(value.length() - 1) == '|')
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not end with | : " + value, context);
+					+ " arguments may not end with | : " + value);
 		}
 		if (value.indexOf("||") != -1)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments uses double separator || : " + value, context);
+					+ " arguments uses double separator || : " + value);
 		}
 		int barLoc = value.indexOf('|');
 		if (barLoc == -1)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " requires a CATEGORY and arguments : " + value, context);
+					+ " requires a CATEGORY and arguments : " + value);
 		}
 		String cat = value.substring(0, barLoc);
 		Category<Ability> category = context.getReferenceContext()
@@ -84,7 +84,7 @@ public class AbilityToken implements CDOMSecondaryToken<EquipmentModifier>
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 							+ " found invalid CATEGORY: " + cat + " in value: "
-							+ value, context);
+							+ value);
 		}
 
 		StringBuilder sb = new StringBuilder(value.length() + 20);

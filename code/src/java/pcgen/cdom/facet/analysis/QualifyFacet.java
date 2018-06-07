@@ -22,6 +22,7 @@ import java.util.List;
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.ClassIdentity;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
@@ -54,8 +55,6 @@ public class QualifyFacet extends AbstractStorageFacet<CharID> implements
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
@@ -85,8 +84,6 @@ public class QualifyFacet extends AbstractStorageFacet<CharID> implements
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)
@@ -151,8 +148,7 @@ public class QualifyFacet extends AbstractStorageFacet<CharID> implements
 	 */
 	private static class CacheInfo
 	{
-		private HashMapToList<Class<? extends Loadable>, Qualifier> hml =
-                new HashMapToList<>();
+		private HashMapToList<String, Qualifier> hml = new HashMapToList<>();
 		private HashMapToList<CDOMObject, Qualifier> sourceMap =
                 new HashMapToList<>();
 
@@ -166,7 +162,7 @@ public class QualifyFacet extends AbstractStorageFacet<CharID> implements
 		 */
 		public void add(Qualifier q, CDOMObject source)
 		{
-			hml.addToListFor(q.getQualifiedClass(), q);
+			hml.addToListFor(q.getQualifiedReference().getPersistentFormat(), q);
 			sourceMap.addToListFor(source, q);
 		}
 
@@ -185,7 +181,8 @@ public class QualifyFacet extends AbstractStorageFacet<CharID> implements
 			{
 				for (Qualifier q : list)
 				{
-					hml.removeFromListFor(q.getQualifiedClass(), q);
+					hml.removeFromListFor(q.getQualifiedReference().getPersistentFormat(),
+						q);
 				}
 			}
 		}
@@ -202,8 +199,9 @@ public class QualifyFacet extends AbstractStorageFacet<CharID> implements
 		 */
 		public boolean isQualified(Loadable qualTestObject)
 		{
-			Class<? extends Loadable> cl = qualTestObject.getClass();
-			List<Qualifier> list = hml.getListFor(cl);
+			ClassIdentity<? extends Loadable> identity =
+					qualTestObject.getClassIdentity();
+			List<Qualifier> list = hml.getListFor(identity.getPersistentFormat());
 			if (list != null)
 			{
 				for (Qualifier q : list)

@@ -15,7 +15,7 @@ Stake					TYPE:Simple.Melee.Ranged.Light.Piercing.RangedPiercing.Weapon Group Cl
 
 # -- 2-handers
 Bayonet				TYPE:Simple.Melee.Piercing.MeleePiercing.TwoHanded.Weapon Group Close.Weapon Group Blades Light
-Spear (Boar)			TYPE:Simple.Melee,Piercing.MeleePiercing.Spear.TwoHanded.Weapon Group Spears
+Boar Spear	KEY:Spear (Boar)			TYPE:Simple.Melee,Piercing.MeleePiercing.Spear.TwoHanded.Weapon Group Spears
 
 # Martial
 # 1-handers
@@ -35,20 +35,20 @@ Pilum					TYPE:Martial.Ranged.Piercing.RangedPiercing.Spear.Weapon Group Spears
 
 # EXOTIC
 # -- light
-Dagger (Swordbreaker)		TYPE:Exotic.Melee.Light.Slashing.MeleeSlashing.Dagger.Tengu.SwordLike.Weapon Group Blades Light
+Swordbreaker Dagger	KEY:Dagger (Swordbreaker)		TYPE:Exotic.Melee.Light.Slashing.MeleeSlashing.Dagger.Tengu.SwordLike.Weapon Group Blades Light
 
 # -- 1-handers
 Falcata				TYPE:Exotic.Melee.Slashing.MeleeSlashing.Sword.Weapon Group Blades Heavy.SwordLike.Tengu
 Khopesh				TYPE:Exotic.Melee.Slashing.MeleeSlashing.Sword.Weapon Group Blades Heavy.SwordLike.Tengu
-Sword (Temple)			TYPE:Exotic.Melee.Slashing.MeleeSlashing.Sword.Monk.Weapon Group Blades Heavy.SwordLike.Tengu.Weapon Group Monk
+Temple Sword	KEY:Sword (Temple)			TYPE:Exotic.Melee.Slashing.MeleeSlashing.Sword.Monk.Weapon Group Blades Heavy.SwordLike.Tengu.Weapon Group Monk
 
 # -- 2-handers
-Spear (Chain)			TYPE:Exotic.Melee.Piercing.Slashing.MeleePiercing.MeleeSlashing.Spear.TwoHanded.Weapon Group Double.Weapon Group Flails.Weapon Group Spears
+Chain Spear	KEY:Spear (Chain)			TYPE:Exotic.Melee.Piercing.Slashing.MeleePiercing.MeleeSlashing.Spear.TwoHanded.Weapon Group Double.Weapon Group Flails.Weapon Group Spears
 Mancatcher				TYPE:Exotic.Melee.Piercing.MeleePiercing.Spear.TwoHanded.Weapon Group Pole Arms
 
 # -- ranged
 Boomerang				TYPE:Exotic.Ranged.Bludgeoning.RangedBludgeoning.Weapon Group Thrown
-Crossbow (Double)			TYPE:Exotic.Ranged.Piercing.RangedPiercing.Crossbow.Weapon Group Crossbows												HANDS:2
+Double Crossbow	KEY:Crossbow (Double)			TYPE:Exotic.Ranged.Piercing.RangedPiercing.Crossbow.Weapon Group Crossbows												HANDS:2
 Lasso					TYPE:Exotic.Ranged.Lasso.Weapon Group Thrown																	HANDS:2
 
 ###Weapon Groups:

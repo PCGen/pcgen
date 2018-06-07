@@ -58,8 +58,7 @@ public class MaxdexToken extends AbstractIntToken<Equipment> implements
 		if (ControlUtilities.hasControlToken(context, CControl.EQMAXDEX))
 		{
 			return new ParseResult.Fail(getTokenName()
-				+ " is disabled when MAXDEX control is used: " + value,
-				context);
+				+ " is disabled when MAXDEX control is used: " + value);
 		}
 		return super.parseToken(context, obj, value);
 	}

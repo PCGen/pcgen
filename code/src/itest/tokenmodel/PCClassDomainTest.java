@@ -27,6 +27,7 @@ import plugin.lsttokens.pcclass.DomainToken;
 
 import org.junit.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
+import util.TestURI;
 
 public class PCClassDomainTest extends AbstractTokenModelTest
 {
@@ -41,7 +42,7 @@ public class PCClassDomainTest extends AbstractTokenModelTest
 		ParseResult result = token.parseToken(context, source, "Granted");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();

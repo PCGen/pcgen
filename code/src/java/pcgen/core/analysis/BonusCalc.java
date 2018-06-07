@@ -285,7 +285,7 @@ public final class BonusCalc
 		}
 		else
 		{
-			if (!PrereqHandler.passesAll(aBonusObj.getPrerequisiteList(), (Equipment) obj, aPC))
+			if (!PrereqHandler.passesAll(aBonusObj, (Equipment) obj, aPC))
 			{
 				return 0;
 			}

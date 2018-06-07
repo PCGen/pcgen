@@ -65,7 +65,7 @@ public class KnownToken extends AbstractTokenWithSeparator<PCClassLevel> impleme
 				if (Integer.parseInt(tok) < 0)
 				{
 					return new ParseResult.Fail("Invalid Spell Count: " + tok
-							+ " is less than zero", context);
+							+ " is less than zero");
 				}
 			}
 			catch (NumberFormatException e)
@@ -76,7 +76,7 @@ public class KnownToken extends AbstractTokenWithSeparator<PCClassLevel> impleme
 			if (!formula.isValid())
 			{
 				return new ParseResult.Fail("Formula in " + getTokenName()
-						+ " was not valid: " + formula.toString(), context);
+						+ " was not valid: " + formula.toString());
 			}
 			context.getObjectContext().addToList(level, ListKey.KNOWN, formula);
 		}

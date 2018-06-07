@@ -231,11 +231,6 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 		columns.addColumn("RESULT", Integer.class, null, false, "Result");
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see javax.swing.table.TableModel#getValueAt(int, int)
-	 */
     @Override
 	public Object getValueAt(int rowIndex, int columnIndex)
 	{
@@ -304,9 +299,6 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 		rollAll();
 	}
 
-	/**
-	 * @see javax.swing.table.TableModel#setValueAt(java.lang.Object, int, int)
-	 */
     @Override
 	public void setValueAt(Object aValue, int rowIndex, int columnIndex)
 	{
@@ -322,9 +314,6 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 		}
 	}
 
-	/**
-	 * @see plugin.initiative.OpposedSkillBasicModel#addCombatant(gmgen.plugin.PcgCombatant)
-	 */
     @Override
 	public void addCombatant(PcgCombatant combatant)
 	{

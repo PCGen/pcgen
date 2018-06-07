@@ -70,11 +70,6 @@ public class CheckDialog extends DiceRollDialog
 		addComponent(m_dc, label);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see plugin.initiative.gui.DiceRollDialog#initComponents()
-	 */
     @Override
 	protected void initComponents()
 	{
@@ -87,11 +82,6 @@ public class CheckDialog extends DiceRollDialog
 		super.initComponents();
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see plugin.initiative.gui.DiceRollDialog#setResult(int)
-	 */
     @Override
 	protected void setResult(int result)
 	{
@@ -101,11 +91,6 @@ public class CheckDialog extends DiceRollDialog
 				: "") + "</b></body></html>");
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see plugin.initiative.gui.DiceRollDialog#initListeners()
-	 */
     @Override
 	protected void initListeners()
 	{

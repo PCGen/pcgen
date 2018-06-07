@@ -33,6 +33,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
@@ -257,16 +258,10 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 				AbilityCategory.class, "NEWCAT");
 		AbilityCategory sac = secondaryContext.getReferenceContext().constructCDOMObject(
 				AbilityCategory.class, "NEWCAT");
-		Ability ab = primaryContext.getReferenceContext().constructCDOMObject(Ability.class, "Abil3");
-		primaryContext.getReferenceContext().reassociateCategory(pac, ab);
-		ab = secondaryContext.getReferenceContext().constructCDOMObject(Ability.class,
-				"Abil3");
-		secondaryContext.getReferenceContext().reassociateCategory(sac, ab);
-		ab = primaryContext.getReferenceContext().constructCDOMObject(Ability.class, "Abil4");
-		primaryContext.getReferenceContext().reassociateCategory(pac, ab);
-		ab = secondaryContext.getReferenceContext().constructCDOMObject(Ability.class,
-				"Abil4");
-		secondaryContext.getReferenceContext().reassociateCategory(sac, ab);
+		BuildUtilities.buildAbility(primaryContext, pac, "Abil3");
+		BuildUtilities.buildAbility(primaryContext, pac, "Abil4");
+		BuildUtilities.buildAbility(secondaryContext, sac, "Abil3");
+		BuildUtilities.buildAbility(secondaryContext, sac, "Abil4");
 		runRoundRobin("FEAT|VIRTUAL|Abil1|Abil2", "NEWCAT|VIRTUAL|Abil3|Abil4");
 	}
 
@@ -329,12 +324,12 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 		runRoundRobin("FEAT|AUTOMATIC|Improved Critical(%LIST)|PRECLASS:1,Oracle=8");
 	}
 
-	//  
 	private static Ability construct(LoadContext context, String name)
 	{
-		Ability ab = context.getReferenceContext().constructCDOMObject(Ability.class, name);
-		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
-		return ab;
+		Ability a = BuildUtilities.getFeatCat().newInstance();
+		a.setName(name);
+		context.getReferenceContext().importObject(a);
+		return a;
 	}
 
 	@Test
@@ -569,4 +564,14 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 	{
 		return Constants.LST_DOT_CLEAR;
 	}
+
+	@Override
+	protected void additionalSetup(LoadContext context)
+	{
+		super.additionalSetup(context);
+		//We build dummy objects so that AbilityCategory.FEAT has been loaded properly
+		construct(context, "Dummy");
+	}
+
+	
 }

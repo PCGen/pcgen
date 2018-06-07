@@ -17,22 +17,24 @@
  */
 package plugin.modifier.number;
 
-import pcgen.base.calculation.BasicCalculation;
-import pcgen.base.format.NumberManager;
-import pcgen.base.formula.base.LegalScope;
-import pcgen.base.formula.base.ManagerFactory;
-import pcgen.base.formula.inst.SimpleLegalScope;
-import pcgen.base.solver.Modifier;
-import pcgen.base.util.FormatManager;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 import org.junit.Test;
+
+import pcgen.base.calculation.BasicCalculation;
+import pcgen.base.calculation.FormulaModifier;
+import pcgen.base.format.NumberManager;
+import pcgen.base.formula.base.ManagerFactory;
+import pcgen.base.util.FormatManager;
+import pcgen.cdom.formula.scope.GlobalScope;
+import pcgen.cdom.formula.scope.PCGenScope;
 import plugin.modifier.testsupport.EvalManagerUtilities;
-import static org.junit.Assert.*;
 
 public class DivideNumberModifierTest
 {
 
-	private final LegalScope varScope = new SimpleLegalScope(null, "Global");
+	private final PCGenScope varScope = new GlobalScope();
 	private final FormatManager<Number> numManager = new NumberManager();
 
 	@Test
@@ -41,7 +43,7 @@ public class DivideNumberModifierTest
 		try
 		{
 			DivideModifierFactory m = new DivideModifierFactory();
-			m.getModifier(100, null, new ManagerFactory(){}, null, null, null);
+			m.getModifier(null, new ManagerFactory(){}, null, null, null);
 			fail("Expected DivideModifierFactory with null divide value to fail");
 		}
 		catch (IllegalArgumentException | NullPointerException e)
@@ -194,10 +196,11 @@ public class DivideNumberModifierTest
 	public void testGetModifier()
 	{
 		DivideModifierFactory factory = new DivideModifierFactory();
-		Modifier<Number> modifier =
-				factory.getModifier(35, "4.3", new ManagerFactory(){}, null, varScope, numManager);
+		FormulaModifier<Number> modifier =
+				factory.getModifier("4.3", new ManagerFactory(){}, null, varScope, numManager);
+		modifier.addAssociation("PRIORITY=35");
 		assertEquals((35L <<32)+factory.getInherentPriority(), modifier.getPriority());
-		assertSame(Number.class, modifier.getVariableFormat());
+		assertEquals(numManager, modifier.getVariableFormat());
 		assertEquals(3.2, modifier.process(EvalManagerUtilities.getInputEM(13.76)));
 	}
 }

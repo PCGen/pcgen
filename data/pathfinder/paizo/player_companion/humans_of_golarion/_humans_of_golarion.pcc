@@ -2,7 +2,7 @@
 CAMPAIGN:Humans of Golarion
 KEY:Humans of Golarion
 GAMEMODE:Pathfinder|Pathfinder_PFS
-TYPE:Paizo Publishing.Pathfinder RPG.Player Companion
+TYPE:Paizo Publishing.Pathfinder Player Companion
 RANK:3
 STATUS:BETA
 GENRE:Fantasy
@@ -12,9 +12,9 @@ PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
-SOURCELONG:Humans of Golarion
-SOURCESHORT:HoG
-#SOURCEWEB:http://paizo.com/products/xxx
+SOURCELONG:Pathfinder Player Companion: Humans of Golarion
+SOURCESHORT:HOG
+SOURCEWEB:http://paizo.com/products/btpy8l3k
 SOURCEDATE:2014-08
 ISOGL:YES
 
@@ -22,13 +22,13 @@ COVER:PZO9417_180.jpeg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
-#URL:Paizo Publishing|http://paizo.com/products/xxx|Buy this publication from Paizo Publishing!
-#DESC:
+URL:Paizo Publishing|http://paizo.com/products/btpy8l3k|Buy this publication from Paizo Publishing!
+DESC:Brave, cunning, and adaptable, humanity dominates the countries of the Inner Sea. Discover the legendary history and secret ambitions of humankind, the most populous race of the Pathfinder campaign setting. With the potential to do anything they set their minds to, humans have become unrivaled heroes, infamous villains, and even deities--and now the course of humanity's future is in your hands. Learn of the varied and distinctive ethnicities of humankind, from rugged Ulfen vikings and scheming Chelish diplomats to noble Garundi travelers and mysterious Tian merchants, and master the unique skills and traditions they use to face the dangers of a world that refuses to be tamed.
 
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
-
+COPYRIGHT:Pathfinder Player Companion: Humans of Golarion. (c) 2011, Paizo Publishing, LLC; Authors: James Jacobs, Colin McComb, Sean K Reynolds, Amber Scott, and Larry Wilhelm.
 COPYRIGHT:PCGen dataset conversion for "Pathfinder Companion: Humans of Golarion" Copyright 2010-2015, PCGen Data team (Including, but not limited to Andrew Maitland)
 
 # Do not remove the EXTRAFILE comment.

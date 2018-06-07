@@ -95,13 +95,13 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 								"Invalid " + getTokenName() + ": " + value
 									+ "  PRExxx must be at the END of the Token";
 						Logging.errorPrint(errorText);
-						return new ParseResult.Fail(errorText, context);
+						return new ParseResult.Fail(errorText);
 					}
 					prereq = getPrerequisite(token);
 					if (prereq == null)
 					{
 						return new ParseResult.Fail("Error generating Prerequisite "
-								+ prereq + " in " + getFullName(), context);
+								+ prereq + " in " + getFullName());
 					}
 					int preStart = value.indexOf(token) - 1;
 					weaponProfs = value.substring(0, preStart);
@@ -119,7 +119,7 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 		{
 			return new ParseResult.Fail(
 				"Use of [] for Prerequisites has been removed. "
-					+ "Please use | based standard", context);
+					+ "Please use | based standard");
 		}
 
 		ParseResult pr = checkForIllegalSeparator('|', weaponProfs);
@@ -197,7 +197,7 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 		if (foundAny && foundOther)
 		{
 			return new ParseResult.Fail("Non-sensical " + getFullName()
-					+ ": Contains ANY and a specific reference: " + value, context);
+					+ ": Contains ANY and a specific reference: " + value);
 		}
 		if (!wpp.isEmpty())
 		{
@@ -224,7 +224,7 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 			if (prereq.getKey().startsWith("TYPE"))
 			{
 				return new ParseResult.Fail("AUTO:WEAPONPROF may not use PREWEAPONPROF requirements "
-						+ " other than specific named proficiencies.", context);
+						+ " other than specific named proficiencies.");
 			}
 		}
 

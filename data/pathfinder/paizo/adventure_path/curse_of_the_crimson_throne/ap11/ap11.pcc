@@ -51,4 +51,4 @@ KIT:ap11_kits_race.lst
 RACE:ap11_races.lst
 
 # Prevent unconstructed reference errors
-FORWARDREF:EQMOD|BANE_M
+#FORWARDREF:EQMOD|BANE_M

@@ -24,6 +24,7 @@ import org.junit.Test;
 import pcgen.base.format.OrderedPairManager;
 import pcgen.base.math.OrderedPair;
 import pcgen.base.util.FormatManager;
+import pcgen.cdom.util.CControl;
 import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
@@ -40,10 +41,10 @@ public class FaceIntegrationTest extends
 		AbstractIntegrationTestCase<PCTemplate>
 {
 
-	static FaceToken token = new FaceToken();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
+	private static FaceToken token = new FaceToken();
+	private static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
-	static ModifierFactory<OrderedPair> m = new SetModifierFactory();
+	private static ModifierFactory<OrderedPair> m = new SetModifierFactory();
 	private FormatManager<OrderedPair> opManager = new OrderedPairManager();
 
 	@Override
@@ -52,9 +53,10 @@ public class FaceIntegrationTest extends
 		super.setUp();
 		TokenRegistration.register(m);
 		primaryContext.getVariableContext().assertLegalVariableID(
-			primaryContext.getActiveScope().getLegalScope(), opManager, "Face");
+			CControl.FACE.getDefaultValue(), primaryContext.getActiveScope(), opManager);
 		secondaryContext.getVariableContext().assertLegalVariableID(
-			secondaryContext.getActiveScope().getLegalScope(), opManager, "Face");
+			CControl.FACE.getDefaultValue(), secondaryContext.getActiveScope(),
+			opManager);
 	}
 
 	@Override

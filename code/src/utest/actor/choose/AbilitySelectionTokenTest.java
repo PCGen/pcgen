@@ -22,7 +22,6 @@ import java.net.URISyntaxException;
 import pcgen.cdom.content.AbilitySelection;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
@@ -33,6 +32,8 @@ import org.junit.Before;
 import org.junit.Test;
 import plugin.lsttokens.choose.AbilitySelectionToken;
 import plugin.lsttokens.choose.StringToken;
+import plugin.lsttokens.testsupport.BuildUtilities;
+
 import static org.junit.Assert.*;
 
 /**
@@ -54,7 +55,7 @@ public class AbilitySelectionTokenTest
 		SettingsHandler.getGame().clearLoadContext();
 		context = Globals.getContext();
 		
-		context.getReferenceContext().importObject(AbilityCategory.FEAT);
+		context.getReferenceContext().importObject(BuildUtilities.getFeatCat());
 	}
 
 	@Test
@@ -106,8 +107,9 @@ public class AbilitySelectionTokenTest
 
 	protected Ability construct(String one)
 	{
-		Ability obj = context.getReferenceContext().constructCDOMObject(Ability.class, one);
-		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, obj);
-		return obj;
+		Ability a = BuildUtilities.getFeatCat().newInstance();
+		a.setName(one);
+		context.getReferenceContext().importObject(a);
+		return a;
 	}
 }

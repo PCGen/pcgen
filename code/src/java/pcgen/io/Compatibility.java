@@ -136,7 +136,7 @@ public final class Compatibility
 		}
 		PCClass applied = new PCClass();
 		ParseResult pr = context.processSubToken(applied, "ADD", key, count + choices);
-		pr.printMessages();
+		pr.printMessages(context.getSourceURI());
 		if (!pr.passed())
 		{
 			return null;

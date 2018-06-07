@@ -21,9 +21,11 @@ package pcgen.core.prereq;
 
 
 import java.util.Collection;
+import java.util.List;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.PrereqObject;
 import pcgen.core.Ability;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.Equipment;
@@ -92,6 +94,44 @@ public final class PrereqHandler
 		return true;
 	}
 
+	public static boolean passesAll(PrereqObject prereqObject, PlayerCharacter aPC,
+		Object caller)
+	{
+		if (!prereqObject.isAvailable(aPC) || !prereqObject.isActive(aPC))
+		{
+			return false;
+		}
+		Collection<Prerequisite> prereqList = prereqObject.getPrerequisiteList();
+		if (prereqList == null || prereqList.isEmpty())
+		{
+			return true;
+		}
+
+		if ((caller instanceof Ability) && (AbilityUtilities.isFeat(caller))
+			&& Globals.checkRule(RuleConstants.FEATPRE))
+		{
+			return true;
+		}
+
+		if (caller instanceof CDOMObject && aPC != null)
+		{
+			// Check for QUALIFY:
+			if (aPC.checkQualifyList((CDOMObject) caller))
+			{
+				return true;
+			}
+		}
+
+		for (Prerequisite prereq : prereqList)
+		{
+			if (!passes(prereq, aPC, caller))
+			{
+				return false;
+			}
+		}
+		return true;
+	}
+
 	/**
 	 *
 	 * @param prereqList The list of prerequisites to be tested.
@@ -104,6 +144,24 @@ public final class PrereqHandler
 		final Equipment equip,
 		PlayerCharacter aPC)
 	{
+		if (prereqList == null)
+		{
+			return true;
+		}
+		for (Prerequisite prereq : prereqList)
+		{
+			if (!passes(prereq, equip, aPC))
+			{
+				return false;
+			}
+		}
+		return true;
+	}
+
+	public static boolean passesAll(PrereqObject prereqObject, Equipment equip,
+		PlayerCharacter aPC)
+	{
+		List<Prerequisite> prereqList = prereqObject.getPrerequisiteList();
 		if (prereqList == null)
 		{
 			return true;

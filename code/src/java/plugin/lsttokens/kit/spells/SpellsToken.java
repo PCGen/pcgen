@@ -35,6 +35,7 @@ import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.kit.KitSpells;
 import pcgen.core.spell.Spell;
+import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
@@ -49,7 +50,6 @@ public class SpellsToken extends AbstractNonEmptyToken<KitSpells> implements
 		CDOMPrimaryToken<KitSpells>
 {
 	private static final Class<Spell> SPELL_CLASS = Spell.class;
-	private static final Class<Ability> ABILITY_CLASS = Ability.class;
 
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -81,88 +81,94 @@ public class SpellsToken extends AbstractNonEmptyToken<KitSpells> implements
 				if (kitSpell.getSpellBook() != null)
 				{
 					return new ParseResult.Fail("Cannot reset SPELLBOOK in SPELLS: "
-							+ value, context);
+							+ value);
 				}
 				String spellBook = field.substring(10);
 				if (spellBook.isEmpty())
 				{
 					return new ParseResult.Fail("Cannot set SPELLBOOK "
-							+ "to empty value in SPELLS: " + value, context);
+							+ "to empty value in SPELLS: " + value);
 				}
 				kitSpell.setSpellBook(spellBook);
 			}
-			else if (field.startsWith(Constants.LST_CLASS_EQUAL))
+			else
 			{
-				if (kitSpell.getCastingClass() != null)
+				AbstractReferenceContext refContext = context.getReferenceContext();
+				if (field.startsWith(Constants.LST_CLASS_EQUAL))
 				{
-					return new ParseResult.Fail("Cannot reset CLASS" + " in SPELLS: "
-							+ value, context);
-				}
-				String className = field.substring(6);
-				if (className.isEmpty())
-				{
-					return new ParseResult.Fail("Cannot set CLASS "
-							+ "to empty value in SPELLS: " + value, context);
-				}
-				else if (className.equalsIgnoreCase("Default"))
-				{
-					pr.addWarningMessage("Use of Default for CLASS= in KIT "
-									+ "SPELLS line is unnecessary: Ignoring");
+					if (kitSpell.getCastingClass() != null)
+					{
+						return new ParseResult.Fail("Cannot reset CLASS" + " in SPELLS: "
+								+ value);
+					}
+					String className = field.substring(6);
+					if (className.isEmpty())
+					{
+						return new ParseResult.Fail("Cannot set CLASS "
+								+ "to empty value in SPELLS: " + value);
+					}
+					else if (className.equalsIgnoreCase("Default"))
+					{
+						pr.addWarningMessage("Use of Default for CLASS= in KIT "
+							+ "SPELLS line is unnecessary: Ignoring");
+					}
+					else
+					{
+						kitSpell.setCastingClass(
+							refContext.getCDOMReference(PCClass.class, className));
+					}
 				}
 				else
 				{
-					kitSpell.setCastingClass(context.getReferenceContext().getCDOMReference(
-							PCClass.class, className));
-				}
-			}
-			else
-			{
-				int count = 1;
-				int equalLoc = field.indexOf(Constants.EQUALS);
-				if (equalLoc != -1)
-				{
-					String countStr = field.substring(equalLoc + 1);
-					try
+					int count = 1;
+					int equalLoc = field.indexOf(Constants.EQUALS);
+					if (equalLoc != -1)
 					{
-						count = Integer.parseInt(countStr);
+						String countStr = field.substring(equalLoc + 1);
+						try
+						{
+							count = Integer.parseInt(countStr);
+						}
+						catch (NumberFormatException e)
+						{
+							return new ParseResult.Fail("Expected an Integer COUNT,"
+									+ " but found: " + countStr + " in " + value);
+						}
+						field = field.substring(0, equalLoc);
 					}
-					catch (NumberFormatException e)
+					if (field.isEmpty())
 					{
-						return new ParseResult.Fail("Expected an Integer COUNT,"
-								+ " but found: " + countStr + " in " + value, context);
+						return new ParseResult.Fail("Expected an Spell in SPELLS"
+								+ " but found: " + value);
 					}
-					field = field.substring(0, equalLoc);
-				}
-				if (field.isEmpty())
-				{
-					return new ParseResult.Fail("Expected an Spell in SPELLS"
-							+ " but found: " + value, context);
-				}
-				StringTokenizer subTok = new StringTokenizer(field, "[]");
-				String filterString = subTok.nextToken();
+					StringTokenizer subTok = new StringTokenizer(field, "[]");
+					String filterString = subTok.nextToken();
 
-				// must satisfy all elements in a comma delimited list
-				CDOMReference<Spell> sp = null;
+					// must satisfy all elements in a comma delimited list
+					CDOMReference<Spell> sp = null;
 
-				sp = TokenUtilities.getTypeOrPrimitive(context, SPELL_CLASS,
-						filterString);
-				if (sp == null)
-				{
-					return new ParseResult.Fail("  encountered Invalid limit in "
-							+ getTokenName() + ": " + value, context);
+					sp = TokenUtilities.getTypeOrPrimitive(context, SPELL_CLASS,
+							filterString);
+					if (sp == null)
+					{
+						return new ParseResult.Fail("  encountered Invalid limit in "
+								+ getTokenName() + ": " + value);
+					}
+
+					KnownSpellIdentifier ksi = new KnownSpellIdentifier(sp, null);
+
+					ArrayList<CDOMSingleRef<Ability>> featList = new ArrayList<>();
+					while (subTok.hasMoreTokens())
+					{
+						String featName = subTok.nextToken();
+						AbilityCategory featCategory =
+								refContext.get(AbilityCategory.class, "FEAT");
+						CDOMSingleRef<Ability> feat = refContext
+							.getManufacturerId(featCategory).getReference(featName);
+						featList.add(feat);
+					}
+					kitSpell.addSpell(ksi, featList, count);
 				}
-
-				KnownSpellIdentifier ksi = new KnownSpellIdentifier(sp, null);
-
-				ArrayList<CDOMSingleRef<Ability>> featList = new ArrayList<>();
-				while (subTok.hasMoreTokens())
-				{
-					String featName = subTok.nextToken();
-					CDOMSingleRef<Ability> feat = context.getReferenceContext().getCDOMReference(
-							ABILITY_CLASS, AbilityCategory.FEAT, featName);
-					featList.add(feat);
-				}
-				kitSpell.addSpell(ksi, featList, count);
 			}
 		}
 		if (kitSpell.getSpellBook() == null)

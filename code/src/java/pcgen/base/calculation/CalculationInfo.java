@@ -36,15 +36,6 @@ public interface CalculationInfo<T>
 	public String getIdentification();
 
 	/**
-	 * Returns the Format (Class) of object upon which this calculation can
-	 * operate. May be a parent class if the calculation can act upon various
-	 * related classes such as java.lang.Number.
-	 * 
-	 * @return The Class of object upon which this calculation can operate
-	 */
-	public Class<T> getVariableFormat();
-
-	/**
 	 * Returns the inherent priority of this calculation. This is defined by the
 	 * developer, and sets the order of operations for a calculation where the
 	 * User Priority does not set an appropriate order.

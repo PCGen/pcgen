@@ -50,8 +50,7 @@ public class FumblerangeToken extends AbstractNonEmptyToken<Equipment>
 		if (ControlUtilities.hasControlToken(context, CControl.FUMBLERANGE))
 		{
 			return new ParseResult.Fail(getTokenName()
-				+ " is disabled when FUMBLERANGE control is used: " + value,
-				context);
+				+ " is disabled when FUMBLERANGE control is used: " + value);
 		}
 		if (Constants.LST_DOT_CLEAR.equals(value))
 		{

@@ -28,6 +28,7 @@ import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.Domain;
 import pcgen.core.PCClass;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractListContextTokenTestCase;
@@ -54,19 +55,12 @@ public class AddDomainsTokenTest extends
 		TokenRegistration.register(preracewriter);
 	}
 
-	private final PCClass primClass = new PCClass();
-	private final PCClass secClass = new PCClass();
-
 	@Override
-	protected PCClassLevel getPrimary(String name)
+	protected PCClassLevel get(LoadContext context, String name)
 	{
-		return primClass.getOriginalClassLevel(1);
-	}
-
-	@Override
-	protected PCClassLevel getSecondary(String name)
-	{
-		return secClass.getOriginalClassLevel(1);
+		PCClass pcc = context.getReferenceContext().constructNowIfNecessary(PCClass.class,
+			"Cl");
+		return pcc.getOriginalClassLevel(1);
 	}
 
 	@Override

@@ -1,19 +1,23 @@
 CAMPAIGN:People of the River
 GAMEMODE:Pathfinder|Pathfinder_PFS
-TYPE:Paizo Publishing.Pathfinder RPG.Player Companion
+TYPE:Paizo Publishing.Pathfinder Player Companion
 RANK:3
 GENRE:Fantasy
 STATUS:BETA
 BOOKTYPE:Supplement
 SETTING:Pathfinder Player Companion
-PRECAMPAIGN:4,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+PRECAMPAIGN:1,INCLUDES=Bestiary
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
+PRECAMPAIGN:1,INCLUDES=Ultimate Magic
 PRECAMPAIGN:1,INCLUDES=Inner Sea Primer
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
-SOURCELONG:People of the River
+SOURCELONG:Pathfinder Player Companion: People of the River
 SOURCESHORT:PotR
-SOURCEWEB:http://paizo.com/products/btpy978r?Pathfinder-Player-Companion-People-of-the-River
+SOURCEWEB:http://paizo.com/products/btpy978r
 SOURCEDATE:2014-08
 ISOGL:YES
 
@@ -21,7 +25,7 @@ COVER:people_of_the_river.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
-URL:Paizo Publishing|http://paizo.com/products/btpy92lx?Pathfinder-Player-Companion-People-of-the-Sands|Buy this publication from Paizo Publishing!
+URL:Paizo Publishing|http://paizo.com/products/btpy978r|Buy this publication from Paizo Publishing!
 DESC:You won't get lost if you follow the river, and Pathfinder Player Companion: People of the River will be your guide! Whether your character is a Kellid warlord intent on reclaiming his ancestral homeland or a Riverfolk sneak looking for her next score, this volume has you covered. In addition, this Pathfinder Player Companion features expanded details and new rules connected to the science-infused barbarian nation of Numeria and the chaotic realms of the River Kingdoms, making it the perfect resource for Pathfinder RPG players diving into the Iron Gods Adventure Path or Pathfinder Module: The Emerald Spire Superdungeon!
 
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
@@ -48,6 +52,9 @@ TEMPLATE:potr_templates.lst
 
 #support
 ABILITY:support/potr_abilities_class_boa.lst|PRECAMPAIGN:1,INCLUDES=Blood of Angels
+ABILITY:support/potr_abilities_class_um.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
+ABILITY:support/potr_abilities_class_acg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
+CLASS:support/potr_classes_acg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
 
 
 

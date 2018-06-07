@@ -63,10 +63,6 @@ public class GenericLocalVariableLoader<T extends CDOMObject> extends
 		this.varScope = varScope;
 	}
 
-	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#loadLstFiles(pcgen.rules.context.LoadContext,
-	 *      java.util.List)
-	 */
 	@Override
 	public void loadLstFiles(LoadContext context,
 		List<CampaignSourceEntry> fileList) throws PersistenceLayerException

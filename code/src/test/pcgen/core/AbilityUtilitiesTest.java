@@ -87,16 +87,16 @@ public class AbilityUtilitiesTest extends AbstractCharacterTestCase
 		Ability fencing = TestHelper.makeAbility("fencing", parent, "sport");
 		Ability reading = TestHelper.makeAbility("reading", parent, "interest");
 		//Throwaway is required to create it...
-		context.getReferenceContext().getManufacturer(Ability.class, typeChild);
+		context.getReferenceContext().getManufacturerId(typeChild);
 		context.getReferenceContext().validate(null);
 		context.getReferenceContext().resolveReferences(null);
 
-		Collection<Ability> allAbilities = context.getReferenceContext().getManufacturer(Ability.class, parent).getAllObjects();
+		Collection<Ability> allAbilities = context.getReferenceContext().getManufacturerId(parent).getAllObjects();
 		assertTrue("Parent missing ability 'fencing'", allAbilities.contains(fencing));
 		assertTrue("Parent missing ability 'reading'", allAbilities.contains(reading));
 		assertEquals("Incorrect number of abilities found for parent", 2, allAbilities.size());
 		
-		allAbilities = context.getReferenceContext().getManufacturer(Ability.class, typeChild).getAllObjects();
+		allAbilities = context.getReferenceContext().getManufacturerId(typeChild).getAllObjects();
 		assertTrue("TypeChild missing ability fencing", allAbilities.contains(fencing));
 		assertFalse("TypeChild shouldn't have ability 'reading'", allAbilities.contains(reading));
 		assertEquals("Incorrect number of abilities found for TypeChild", 1, allAbilities.size());

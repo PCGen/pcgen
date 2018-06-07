@@ -24,9 +24,9 @@ Shadowshooting			KEY:Special Ability ~ Shadowshooting ~ Ranged			TYPE:Weapon.Ran
 
 
 #Old KEYs
-Shadow Stuff		KEY:Shadow Stuff		TYPE:BaseMaterial.Weapon			COST:12500		ITYPE:ShadowStuff.Masterwork.Magic		SOURCEPAGE:22		SPROP:Malleable weapon. Must remain same basic type (melee or ranged, and light, one-handed, or two-handed). Deals minimum damage if target makes Will save.	VISIBLE:NO
-Beaming			KEY:Beaming				TYPE:Weapon.Ranged				PLUS:1		VISIBLE:NO			PRETYPE:3,Enhancement,Weapon,Ranged					SOURCEPAGE:p.21		SPROP:Creates orbs that fire searing light at foes
-Enervative			KEY:Shadow Stuff Enervative	TYPE:Weapon						COST:23500		VISIBLE:NO			PRETYPE:3,Enhancement,Weapon,ShadowStuff				SOURCEPAGE:p.22		SPROP:Deals negative level on critical hit with failed Will save
-Focused			KEY:Shadow Stuff Focused	TYPE:Weapon						COST:500		VISIBLE:NO			PRETYPE:3,Enhancement,Weapon,ShadowStuff				SOURCEPAGE:p.22		SPROP:As a swift action, can be used to increase the caster level of any spell of the shadow subschool or spell with the darkness or shadow descriptors by 1
-Lashing			KEY:Shadow Stuff Lashing	TYPE:Weapon.Melee.TwoHanded			COST:2000		VISIBLE:NO			PRETYPE:5,Enhancement,Weapon,ShadowStuff,Melee,TwoHanded	SOURCEPAGE:p.23		SPROP:Can increase reach by 5 feet on command
-Shadowshooting		KEY:Shadowshooting		TYPE:Weapon.Ranged				PLUS:1		VISIBLE:NO			PRETYPE:3,Enhancement,Weapon,Ranged					SOURCEPAGE:p.26		SPROP:Creates shadowstuff ammunition. If target makes Will save, weapon deals minimum damage for that round.
+Material ~ Shadowcraft.COPY=Shadow Stuff								VISIBLE:NO
+Special Ability ~ Beaming ~ Ranged.COPY=Beaming							VISIBLE:NO
+Special Quality ~ Shadowcraft / Enervative ~ Weapon.COPY=Shadow Stuff Enervative	VISIBLE:NO
+Special Quality ~ Shadowcraft / Focused ~ Melee.COPY=Shadow Stuff Focused		VISIBLE:NO
+Special Quality ~ Shadowcraft / Lashing ~ Melee.COPY=Shadow Stuff Lashing		VISIBLE:NO
+Special Ability ~ Shadowshooting ~ Ranged.COPY=Shadowshooting				VISIBLE:NO

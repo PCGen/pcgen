@@ -17,11 +17,13 @@
  */
 package pcgen.cdom.formula;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.TreeMap;
 
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.inst.SimpleVariableStore;
-import pcgen.base.util.HashMapToList;
+import pcgen.base.util.DoubleKeyMapToList;
 
 /**
  * A MonitorableVariableStore is a WriteableVariableStore that allows
@@ -32,10 +34,10 @@ public class MonitorableVariableStore extends SimpleVariableStore
 {
 
 	/**
-	 * The listeners, identified by which VariableID they are listening to.
+	 * The listeners, identified by priority and which VariableID they are listening to.
 	 */
-	private final HashMapToList<VariableID<?>, VariableListener<?>> listenerList =
-			new HashMapToList<>();
+	private final DoubleKeyMapToList<Integer, VariableID<?>, VariableListener<?>> listenerList =
+			new DoubleKeyMapToList<>(TreeMap.class, HashMap.class);
 
 	/**
 	 * Adds a VariableListener for the given VariableID.
@@ -50,11 +52,30 @@ public class MonitorableVariableStore extends SimpleVariableStore
 	public <T> void addVariableListener(VariableID<T> varID,
 		VariableListener<? super T> listener)
 	{
-		listenerList.addToListFor(varID, listener);
+		addVariableListener(0, varID, listener);
 	}
 
 	/**
-	 * Adds a VariableListener from the given VariableID.
+	 * Adds a VariableListener for the given VariableID with the given priority .
+	 * 
+	 * @param priority
+	 *            The lower the priority the earlier in the list the new
+	 *            listener will get advised of the change.
+	 * @param varID
+	 *            The VariableID for which the given VariableListener wishes to
+	 *            receive VariableChangeEvents
+	 * @param listener
+	 *            The VariableListener that will listen for changes to the given
+	 *            VariableID
+	 */
+	public <T> void addVariableListener(int priority, VariableID<T> varID,
+		VariableListener<? super T> listener)
+	{
+		listenerList.addToListFor(priority, varID, listener);
+	}
+
+	/**
+	 * Removes a VariableListener from the given VariableID.
 	 * 
 	 * @param varID
 	 *            The VariableID for which the given VariableListener is to be
@@ -64,9 +85,32 @@ public class MonitorableVariableStore extends SimpleVariableStore
 	 *            the given VariableID
 	 */
 	public <T> void removeVariableListener(VariableID<T> varID,
-		VariableListener<T> listener)
+		VariableListener<? super T> listener)
 	{
-		listenerList.removeFromListFor(varID, listener);
+		removeVariableListener(0, varID, listener);
+	}
+
+	/**
+	 * Removes a VariableListener so that it will no longer receive VariableChangeEvents
+	 * from this MonitorableVariableStore for the given VariableID. This will remove the
+	 * VariableListener from the given priority.
+	 * 
+	 * Note that if the given VariableListener has been registered under a
+	 * different priority, it will still receive events at that priority level.
+	 * 
+	 * @param priority
+	 *            The priority of the listener to be removed
+	 * @param varID
+	 *            The VariableID for which the given VariableListener is to be removed
+	 *            from the listener list
+	 * @param listener
+	 *            The VariableListener to be removed from the listener list for the given
+	 *            VariableID
+	 */
+	public <T> void removeVariableListener(int priority, VariableID<T> varID,
+		VariableListener<? super T> listener)
+	{
+		listenerList.removeFromListFor(0, varID, listener);
 	}
 
 	@Override
@@ -93,18 +137,21 @@ public class MonitorableVariableStore extends SimpleVariableStore
 	 */
 	public <T> void fireVariableChanged(VariableID<T> varID, T old, T value)
 	{
-		List<VariableListener<?>> listeners = listenerList.getListFor(varID);
-		VariableChangeEvent vcEvent = null;
-		if (listeners != null)
+		for (Integer priority : listenerList.getKeySet())
 		{
-			for (VariableListener<?> listener : listeners)
+			List<VariableListener<?>> listeners = listenerList.getListFor(priority, varID);
+			VariableChangeEvent vcEvent = null;
+			if (listeners != null)
 			{
-				// Lazily create event
-				if (vcEvent == null)
+				for (VariableListener<?> listener : listeners)
 				{
-					vcEvent = new VariableChangeEvent<>(this, varID, old, value);
+					// Lazily create event
+					if (vcEvent == null)
+					{
+						vcEvent = new VariableChangeEvent<>(this, varID, old, value);
+					}
+					listener.variableChanged(vcEvent);
 				}
-				listener.variableChanged(vcEvent);
 			}
 		}
 	}

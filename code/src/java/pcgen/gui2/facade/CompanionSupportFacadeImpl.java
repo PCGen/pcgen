@@ -26,7 +26,6 @@ import java.util.Map;
 import org.apache.commons.lang3.StringUtils;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.Constants;
 import pcgen.cdom.list.CompanionList;
 import pcgen.core.FollowerOption;
 import pcgen.core.Globals;
@@ -40,15 +39,15 @@ import pcgen.facade.core.CompanionStubFacade;
 import pcgen.facade.core.CompanionSupportFacade;
 import pcgen.facade.core.PartyFacade;
 import pcgen.facade.core.RaceFacade;
+import pcgen.facade.util.DefaultListFacade;
+import pcgen.facade.util.DefaultMapFacade;
+import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.MapFacade;
 import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
-import pcgen.facade.util.DefaultListFacade;
-import pcgen.facade.util.DefaultMapFacade;
-import pcgen.facade.util.ListFacade;
-import pcgen.facade.util.MapFacade;
 import pcgen.system.CharacterManager;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Tab;
@@ -193,7 +192,7 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 			Map<FollowerOption, CDOMObject> fMap = charDisplay.getAvailableFollowers(compList.getKeyName(), null);
 			for (FollowerOption followerOpt : fMap.keySet())
 			{
-				if (followerOpt.getRace() != Globals.s_EMPTYRACE && followerOpt.qualifies(theCharacter, null))
+				if (!followerOpt.getRace().isUnselected() && followerOpt.qualifies(theCharacter, null))
 				{
 					companions.add(new CompanionStub(followerOpt.getRace(), compList.getKeyName()));
 				}
@@ -390,8 +389,7 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 				// Note: When creating a companion we leave the linking to the create code.  
 				if (character.getMaster() == null
 					&& character.getRaceRef().get() != null
-					&& !Constants.NONESELECTED.equals(character.getRaceRef()
-						.get().getKeyName()))
+					&& !character.getRaceRef().get().isUnselected())
 				{
 					CompanionList compList = keyToCompanionListMap.get(companionType);
 					final Follower newMaster =

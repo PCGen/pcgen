@@ -17,12 +17,11 @@
  */
 package pcgen.rules.persistence.token;
 
-import pcgen.base.calculation.PCGenModifier;
+import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.formula.base.FormulaManager;
-import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ManagerFactory;
-import pcgen.base.solver.Modifier;
 import pcgen.base.util.FormatManager;
+import pcgen.cdom.formula.scope.PCGenScope;
 
 /**
  * A ModifierFactory is an object designed to build Modifier objects.
@@ -54,30 +53,45 @@ public interface ModifierFactory<T>
 	public Class<T> getVariableFormat();
 
 	/**
-	 * Returns a Modifier with the given user priority and instructions. The
-	 * instructions will be parsed, and an IllegalArgumentException thrown if
-	 * the instructions are not valid for this type of ModifierFactory.
+	 * Returns a FormulaModifier with the given instructions. The instructions
+	 * will be parsed, and an IllegalArgumentException thrown if the
+	 * instructions are not valid for this type of ModifierFactory.
 	 * 
-	 * @param userPriority
-	 *            The User Priority for the Modifier to be returned
 	 * @param instructions
-	 *            The String form of the instructions of the Modifier to be
+	 *            The String form of the instructions of the FormulaModifier to be
 	 *            returned
 	 * @param managerFactory
 	 *            The ManagerFactory to be used to support analyzing the
 	 *            instructions
 	 * @param formulaManager
 	 *            The FormulaManager used, if necessary, to initialize the
-	 *            Modifier to be returned
+	 *            FormulaModifier to be returned
 	 * @param varScope
-	 *            The VariableScope for the Modifier to be returned
+	 *            The PCGenScope for the FormulaModifier to be returned
 	 * @param formatManager
-	 *            The FormatManager for the Modifier to be returned
+	 *            The FormatManager for the FormulaModifier to be returned
+	 * @return a FormulaModifier with the given instructions
 	 */
-	public PCGenModifier<T> getModifier(int userPriority, String instructions,
-		ManagerFactory managerFactory, FormulaManager formulaManager, LegalScope varScope,
+	public FormulaModifier<T> getModifier(String instructions,
+		ManagerFactory managerFactory, FormulaManager formulaManager, PCGenScope varScope,
 		FormatManager<T> formatManager);
 
-	public Modifier<T> getFixedModifier(int userPriority,
-		FormatManager<T> formatManager, String instructions);
+	/**
+	 * Returns a FormulaModifier with the given instructions.
+	 * 
+	 * The instructions must be Fixed (does not require a calculation to determine what it
+	 * means), or this method will throw an exception.
+	 * 
+	 * The instructions will be parsed, and an IllegalArgumentException thrown if the
+	 * instructions are not valid for this type of ModifierFactory.
+	 * 
+	 * @param formatManager
+	 *            The FormatManager for the FormulaModifier to be returned
+	 * @param instructions
+	 *            The String form of the instructions of the FormulaModifier to be returned
+	 * 
+	 * @return a FormulaModifier with the given instructions
+	 */
+	public FormulaModifier<T> getFixedModifier(FormatManager<T> formatManager,
+		String instructions);
 }

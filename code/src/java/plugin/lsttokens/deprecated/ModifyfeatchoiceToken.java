@@ -78,8 +78,8 @@ public class ModifyfeatchoiceToken extends AbstractTokenWithSeparator<Ability>
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 
 		List<CDOMReference<Ability>> refs = new ArrayList<>();
-		ReferenceManufacturer<Ability> rm = context.getReferenceContext().getManufacturer(
-				ABILITY_CLASS, AbilityCategory.FEAT);
+		ReferenceManufacturer<Ability> rm =
+				context.getReferenceContext().getManufacturerId(AbilityCategory.FEAT);
 
 		while (tok.hasMoreTokens())
 		{

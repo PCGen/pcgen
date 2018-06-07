@@ -45,7 +45,7 @@ public class BonusToken implements CDOMPrimaryToken<EqSizePenalty>
 		if (bon == null)
 		{
 			return new ParseResult.Fail(getTokenName()
-					+ " was given invalid bonus: " + value, context);
+					+ " was given invalid bonus: " + value);
 		}
 		bon.setTokenSource(getTokenName());
 		esp.addBonus(bon);

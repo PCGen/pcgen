@@ -32,18 +32,12 @@ import pcgen.util.Logging;
 public class MindevverToken implements InstallLstToken
 {
 
-	/**
-	 * @see pcgen.persistence.lst.LstToken#getTokenName()
-	 */
     @Override
 	public String getTokenName()
 	{
 		return "MINDEVVER";
 	}
 
-	/**
-	 * @see pcgen.persistence.lst.InstallLstToken#parse(pcgen.core.Campaign, java.lang.String, java.net.URI)
-	 */
     @Override
 	public boolean parse(Campaign campaign, String value, URI sourceUri)
 	{

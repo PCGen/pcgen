@@ -176,70 +176,46 @@ Barding (O-yoroi)																	PROFICIENCY:ARMOR|Barding (Heavy)	TYPE:Armor.H
 Barding (Stone Plate)																PROFICIENCY:ARMOR|Barding (Heavy)	TYPE:Armor.Heavy.ArmorProfHeavy.Standard.Nonmetal.Barding.Mount										COST:3600	WT:75		ACCHECK:-6					EQMOD:Material ~ Stone								MAXDEX:1								SOURCEPAGE:p.80	SPELLFAILURE:35		BONUS:COMBAT|AC|9|TYPE=Armor|PREVAREQ:DisableArmorBonus,0
 Barding (Haramaki).COPY=Barding (Haramaki/Large)
 Barding (Haramaki/Large).MOD																																									COST:12	WT:2																								SIZE:L
-Barding (Padded).COPY=Barding (Padded/Large)
-Barding (Padded/Large).MOD																																									COST:20	WT:20																								SIZE:L
 Barding (Quilted Cloth).COPY=Barding (Quilted Cloth/Large)
 Barding (Quilted Cloth/Large).MOD																																								COST:400	WT:30																								SIZE:L
 Barding (Silken Ceremonial).COPY=Barding (Silken Ceremonial/Large)
 Barding (Silken Ceremonial/Large).MOD																																							COST:120	WT:8																								SIZE:L
 Barding (Lamellar Cuirass).COPY=Barding (Lamellar Cuirass/Large)
 Barding (Lamellar Cuirass/Large).MOD																																							COST:60	WT:16																								SIZE:L
-Barding (Leather).COPY=Barding (Leather/Large)
-Barding (Leather/Large).MOD																																									COST:40	WT:30																								SIZE:L
 Barding (Parade).COPY=Barding (Parade/Large)
 Barding (Parade/Large).MOD																																									COST:100	WT:40																								SIZE:L
-Barding (Studded Leather).COPY=Barding (Studded Leather/Large)
-Barding (Studded Leather/Large).MOD																																								COST:100	WT:40																								SIZE:L
 Barding (Wooden).COPY=Barding (Wooden/Large)
 Barding (Wooden/Large).MOD																																									COST:80	WT:50																								SIZE:L
-Barding (Chain Shirt).COPY=Barding (Chain Shirt/Large)
-Barding (Chain Shirt/Large).MOD																																								COST:400	WT:100																							SIZE:L
 Barding (Lamellar/Leather).COPY=Barding (Lamellar/Leather/Large)
 Barding (Lamellar/Leather/Large).MOD																																							COST:240	WT:50																								SIZE:L
 Barding (Armored Coat).COPY=Barding (Armored Coat/Large)
 Barding (Armored Coat/Large).MOD																																								COST:200	WT:40																								SIZE:L
-Barding (Hide).COPY=Barding (Hide/Large)
-Barding (Hide/Large).MOD																																									COST:60	WT:50																								SIZE:L
 Barding (Do-maru).COPY=Barding (Do-maru/Large)
 Barding (Do-maru/Large).MOD																																									COST:800	WT:60																								SIZE:L
 Barding (Kikko).COPY=Barding (Kikko/Large)
 Barding (Kikko/Large).MOD																																									COST:120	WT:50																								SIZE:L
 Barding (Lemellar/Horn).COPY=Barding (Lemellar/Horn/Large)
 Barding (Lemellar/Horn/Large).MOD																																								COST:400	WT:60																								SIZE:L
-Barding (Scale Mail).COPY=Barding (Scale Mail/Large)
-Barding (Scale Mail/Large).MOD																																								COST:200	WT:60																								SIZE:L
 Barding (Agile Breastplate).COPY=Barding (Agile Breastplate/Large)
 Barding (Agile Breastplate/Large).MOD																																							COST:800	WT:50																								SIZE:L
-Barding (Chainmail).COPY=Barding (Chainmail/Large)
-Barding (Chainmail/Large).MOD																																									COST:600	WT:80																								SIZE:L
-Barding (Breastplate).COPY=Barding (Breastplate/Large)
-Barding (Breastplate/Large).MOD																																								COST:800	WT:60																								SIZE:L
 Barding (Four-mirror).COPY=Barding (Four-mirror/Large)
 Barding (Four-mirror/Large).MOD																																								COST:180	WT:90																								SIZE:L
 Barding (Lamellar/Steel).COPY=Barding (Lamellar/Steel/Large)
 Barding (Lamellar/Steel/Large).MOD																																								COST:600	WT:70																								SIZE:L
 Barding (Mountain Pattern).COPY=Barding (Mountain Pattern/Large)
 Barding (Mountain Pattern/Large).MOD																																							COST:1000	WT:80																								SIZE:L
-Barding (Splint Mail).COPY=Barding (Splint Mail/Large)
-Barding (Splint Mail/Large).MOD																																								COST:800	WT:90																								SIZE:L
 Barding (Kusari Gusoku).COPY=Barding (Kusari Gusoku/Large)
 Barding (Kusari Gusoku/Large).MOD																																								COST:1400	WT:90																								SIZE:L
-Barding (Banded Mail).COPY=Barding (Banded Mail/Large)
-Barding (Banded Mail/Large).MOD																																								COST:1000	WT:70																								SIZE:L
 Barding (Lamellar/Iron).COPY=Barding (Lamellar/Iron/Large)
 Barding (Lamellar/Iron/Large).MOD																																								COST:800	WT:80																								SIZE:L
 Barding (Tatami-do).COPY=Barding (Tatami-do/Large)
 Barding (Tatami-do/Large).MOD																																									COST:4000	WT:90																								SIZE:L
 Barding (Agile Half-Plate).COPY=Barding (Agile Half-Plate/Large)
 Barding (Agile Half-Plate/Large).MOD																																							COST:3400	WT:110																							SIZE:L
-Barding (Half-Plate).COPY=Barding (Half-Plate/Large)
-Barding (Half-Plate/Large).MOD																																								COST:2400	WT:100																							SIZE:L
 Barding (Lamellar/Stone).COPY=Barding (Lamellar/Stone/Large)
 Barding (Lamellar/Stone/Large).MOD																																								COST:2000	WT:90																								SIZE:L
 Barding (O-yoroi).COPY=Barding (O-yoroi/Large)
 Barding (O-yoroi/Large).MOD																																									COST:6800	WT:90																								SIZE:L
-Barding (Full Plate).COPY=Barding (Full Plate/Large)
-Barding (Full Plate/Large).MOD																																								COST:6000	WT:90																								SIZE:L
 Barding (Stone Plate).COPY=Barding (Stone Plate/Large)
 Barding (Stone Plate/Large).MOD																																								COST:7200	WT:150																							SIZE:L
 
@@ -273,23 +249,27 @@ Metal Cartridge																							TYPE:FirearmGear.Ammo.Ammunition.Resizable
 Pellets (Handful)																							TYPE:FirearmGear.Ammo.Ammunition.Resizable.FirearmPellet											COST:1																											SOURCEPAGE:p.41
 Pellets (Handful/30)																						TYPE:FirearmGear.Ammo.Ammunition.Resizable.FirearmPellet											COST:30	WT:0.5				BASEQTY:30																				SOURCEPAGE:p.41
 #
-Arrow (Hushing)																							TYPE:Ammunition.Resizable.Standard.Arrow.Individual.Specific.Masterwork.Enhancement.Magic.Plus1					COST:547	WT:0.05				BASEQTY:1		EQMOD:Material ~ Steel.Material ~ Wood										MODS:NO					SOURCEPAGE:p.156																																				BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement
-Arrow (Hushing/Greater)																						TYPE:Ammunition.Resizable.Standard.Arrow.Individual.Specific.Masterwork.Enhancement.Magic.Plus1					COST:1047	WT:0.05				BASEQTY:1		EQMOD:Material ~ Steel.Material ~ Wood										MODS:NO					SOURCEPAGE:p.156																																				BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement
+#Arrow (Hushing)																							TYPE:Ammunition.Resizable.Standard.Arrow.Individual.Specific.Masterwork.Enhancement.Magic.Plus1					COST:547	WT:0.05				BASEQTY:1		EQMOD:Material ~ Steel.Material ~ Wood										MODS:NO					SOURCEPAGE:p.156																																				BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement
+#Arrow (Hushing/Greater)																						TYPE:Ammunition.Resizable.Standard.Arrow.Individual.Specific.Masterwork.Enhancement.Magic.Plus1					COST:1047	WT:0.05				BASEQTY:1		EQMOD:Material ~ Steel.Material ~ Wood										MODS:NO					SOURCEPAGE:p.156																																				BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement
 #
-#Arrow.COPY=Arrow (Hushing)
-#Arrow (Hushing).MOD	OUTPUTNAME:Hushing Arrow	EQMOD:Special Ability ~ Enhancement Cost|545.Special Ability ~ +1 ~ Ammunition												SOURCEPAGE:p.156					SPELLS:Magic Item|TIMES=1|Silence,13						SPROP:Creature struck affected by Silence.
-#Arrow.COPY=Arrow (Hushing/Greater)
-#Arrow (Hushing/Greater).MOD							OUTPUTNAME:Greater Hushing Arrow																															EQMOD:Special Ability ~ Enhancement Cost|1045.Special Ability ~ +1 ~ Ammunition												SOURCEPAGE:p.156					SPELLS:Magic Item|TIMES=1|Silence,16						SPROP:Creature struck affected by Silence.
+Arrow (Base).COPY=Arrow, Hushing		KEY:Arrow (Hushing)	EQMOD:Material ~ Steel.Material ~ Wood
+Arrow (Hushing).MOD		OUTPUTNAME:Hushing Arrow		COST:0	WT:0.05	VISIBLE:YES	EQMOD:Special Ability ~ +1 ~ Ammunition.Special Ability ~ Enhancement Cost|501	MODS:NO	SOURCEPAGE:p.156	DESC:.CLEAR	DESC:This +1 arrow makes no sound on release or as it flies through the air. A creature struck by a hushing arrow must succeed at a DC 13 Will save or be affected by silence (as the spell) for 5 rounds. The silence effect is not triggered by arrows that miss or those that strike an inanimate object.	QUALITY:Aura|faint illusion	QUALITY:Caster Level|5th	QUALITY:Slot|none	QUALITY:Construction Cost|277 gp	QUALITY:Construction Requirements|Craft Magic Arms and Armor, silence
+Arrow (Base).COPY=Arrow, Greater Hushing	KEY:Arrow (Hushing/Greater)	EQMOD:Material ~ Steel.Material ~ Wood
+Arrow (Hushing/Greater).MOD	OUTPUTNAME:Greater Hushing Arrow	COST:0	WT:0.05	VISIBLE:YES	EQMOD:Special Ability ~ +1 ~ Ammunition.Special Ability ~ Enhancement Cost|1001	MODS:NO	SOURCEPAGE:p.156	DESC:.CLEAR	DESC:This +1 arrow makes no sound on release or as it flies through the air. A creature struck by a greater hushing arrow must succeed at a DC 16 Will save or be affected by silence (as the spell) for 5 rounds. The silence effect is not triggered by arrows that miss or those that strike an inanimate object.	QUALITY:Aura|faint illusion	QUALITY:Caster Level|5th	QUALITY:Slot|none	QUALITY:Construction Cost|527 gp	QUALITY:Construction Requirements|Craft Magic Arms and Armor, Heighten Spell, silence
+Bolt (Base).COPY=Bolt, Hushing		KEY:Bolt (Hushing)	EQMOD:Material ~ Steel.Material ~ Wood
+Bolt (Hushing).MOD		OUTPUTNAME:Hushing Bolt		COST:0	WT:0.1	VISIBLE:YES	EQMOD:Special Ability ~ +1 ~ Ammunition.Special Ability ~ Enhancement Cost|501	MODS:NO	SOURCEPAGE:p.156	DESC:.CLEAR	DESC:This +1 bolt makes no sound on release or as it flies through the air. A creature struck by a hushing bolt must succeed at a DC 13 Will save or be affected by silence (as the spell) for 5 rounds. The silence effect is not triggered by bolts that miss or those that strike an inanimate object.	QUALITY:Aura|faint illusion	QUALITY:Caster Level|5th	QUALITY:Slot|none	QUALITY:Construction Cost|277 gp	QUALITY:Construction Requirements|Craft Magic Arms and Armor, silence
+Bolt (Base).COPY=Bolt, Greater Hushing	KEY:Bolt (Hushing/Greater)	EQMOD:Material ~ Steel.Material ~ Wood
+Bolt (Hushing/Greater).MOD	OUTPUTNAME:Greater Hushing Bolt	COST:0	WT:0.1	VISIBLE:YES	EQMOD:Special Ability ~ +1 ~ Ammunition.Special Ability ~ Enhancement Cost|1001	MODS:NO	SOURCEPAGE:p.156	DESC:.CLEAR	DESC:This +1 bolt makes no sound on release or as it flies through the air. A creature struck by a greater hushing bolt must succeed at a DC 16 Will save or be affected by silence (as the spell) for 5 rounds. The silence effect is not triggered by bolts that miss or those that strike an inanimate object.	QUALITY:Aura|faint illusion	QUALITY:Caster Level|5th	QUALITY:Slot|none	QUALITY:Construction Cost|527 gp	QUALITY:Construction Requirements|Craft Magic Arms and Armor, Heighten Spell, silence
 Arrow (Searing).MOD																																																																						SOURCEPAGE:p.159
 Arrow (Sizzling).MOD																																																																						SOURCEPAGE:p.160
 Arrow (Slaying).MOD																																																																						SOURCEPAGE:p.160
 Arrow (Slaying/Greater).MOD																																																																					SOURCEPAGE:p.160
 Arrow (Sleep).MOD																																																																							SOURCEPAGE:p.160
-Bolt (Crossbow).COPY=Bolt (Dust)
+Bolt (Base).COPY=Bolt, Dust	KEY:Bolt (Dust)	VISIBLE:YES	EQMOD:Material ~ Steel.Material ~ Wood
 Bolt (Dust).MOD										OUTPUTNAME:Dust Bolt																																								EQMOD:Special Ability ~ Bane ~ Weapon|Outsider (Water).Special Ability ~ Enhancement Cost|1729.Special Ability ~ +1 ~ Ammunition										SOURCEPAGE:p.154																																												SPROP:Any living creature struck begins dying of thirst as per Cup of Dust.
 Bolt (Screaming).MOD																																																																						SOURCEPAGE:p.159
 Bolt (Tangle).MOD																																																																							SOURCEPAGE:p.162
-Bullet (Sling).COPY=Bullet (Alchemist's)
+Sling Bullet (Base).COPY=Bullet, Alchemist's	KEY:Bullet (Alchemist's)	VISIBLE:YES	EQMOD:Material ~ Steel
 Bullet (Alchemist's).MOD								OUTPUTNAME:Alchemist's Bullet									TYPE:Container														CONTAINS:*1|Splash=1											EQMOD:Special Ability ~ Enhancement Cost|330.Special Ability ~ +1 ~ Ammunition														SOURCEPAGE:p.150																																																																						DESC:On successful hit, splash damage is dealt as normal.
 Bullet (Firearm).COPY=Bullet (Burrowing/Greater)
 Bullet (Burrowing/Greater).MOD							OUTPUTNAME:Greater Burrowing Bullet																																						EQMOD:Special Ability ~ Enhancement Cost|1721.Special Ability ~ +1 ~ Ammunition														SOURCEPAGE:p.153																																												SPROP:Target staggered for 1d3+2 rounds.
@@ -399,7 +379,7 @@ Chain (Spiked).MOD						OUTPUTNAME:Spiked Chain																																	
 Club.MOD																																																																	COST:0	WT:3																																																		SOURCEPAGE:p.25
 Curve Blade (Elven).MOD						OUTPUTNAME:Elven Curve Blade																																																					COST:80	WT:7																																																		SOURCEPAGE:p.27
 Dagger (Punching).MOD						OUTPUTNAME:Punching Dagger																																																					COST:2	WT:1																																																		SOURCEPAGE:p.34
-Dagger.MOD																																																																	COST:2	WT:1																																																		SOURCEPAGE:p.26
+Dagger (Base).MOD																																																																																																																				SOURCEPAGE:p.26
 Falchion.MOD																																																																COST:75	WT:8																																																		SOURCEPAGE:p.27
 Flail (Dire).MOD							OUTPUTNAME:Dire Flail																																																						COST:90	WT:10																																																		SOURCEPAGE:p.26
 Flail (Heavy).MOD							OUTPUTNAME:Heavy Flail																																																						COST:15	WT:10																																																		SOURCEPAGE:p.29
@@ -463,7 +443,7 @@ Falcata.MOD																																																																	COST
 Khopesh.MOD																																																																	COST:20	WT:8																										EQMOD:Material ~ Steel																							SOURCEPAGE:p.30
 Mancatcher.MOD																																																																COST:15	WT:10																										EQMOD:Material ~ Steel																							SOURCEPAGE:p.32
 Axe (Undercutting).MOD																																																																																																																			SOURCEPAGE:p.163
-Sword (Bastard).COPY=Bastard's Sting
+Bastard Sword (Base).COPY=Bastard's Sting		VISIBLE:YES
 Bastard's Sting.MOD																																																																																											EQMOD:Material ~ Adamantine ~ Weapon.Special Ability ~ Enhancement Cost|123000.Special Ability ~ +2 ~ Weapon.Material ~ Steel																SOURCEPAGE:p.150										SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=AntipaladinLVL|Unholy Blight,10+WIS+AntipaladinLVL/2|PREVARGTEQ:AntipaladinLVL,1																																												BONUS:WEAPON|DAMAGE,TOHIT|5|TYPE=Enhancement|PREVARGTEQ:AntipaladinLVL,1		SPROP:While wielded by an antipaladin, deals 2d6 points of negative energy damage to all living creatures that start their turn adjacent to the wielder.
 Battleaxe (Adamantine).MOD																																																																																																																		SOURCEPAGE:p.150
 Beaststrike Club.MOD																																																																																																																			SOURCEPAGE:p.150
@@ -472,51 +452,51 @@ Katana.COPY=Blade of the Rising Sun
 Blade of the Rising Sun.MOD																																																																																										EQMOD:Special Ability ~ Bane ~ Weapon|Undead.Special Ability ~ Glorious ~ Melee.Special Ability ~ Enhancement Cost|51800																	SOURCEPAGE:p.152																																																																																								SPROP:On critical threat, target surrounded by sunlight as per Faerie Fire for 1 turn. Deals 1d6 to undead.
 Katana.COPY=Blade of the Sword-Saint
 Blade of the Sword-Saint.MOD																																																																																										EQMOD:Special Ability ~ Ki Intensifying ~ Melee.Special Ability ~ Enhancement Cost|75300.Special Ability ~ +3 ~ Weapon																		SOURCEPAGE:p.152																																																																																								SPROP:Can be employed as though the wielder were unarmed.|PREVARGTEQ:MonkLVL,1
-Sword (Short).COPY=Cutthroat's Apprentice
+Short Sword (Base).COPY=Cutthroat's Apprentice		VISIBLE:YES		EQMOD:Material ~ Steel
 Cutthroat's Apprentice.MOD																																																																																										EQMOD:Special Ability ~ Dancing ~ Melee.Special Ability ~ Enhancement Cost|33900.Special Ability ~ +1 ~ Weapon																			SOURCEPAGE:p.153																																																																																								SPROP:Can be drawn as per Quick Draw feat. Dances 8 rounds 2/day. Provides flanking.
 Dagger (Adamantine).MOD																																																																																																																			SOURCEPAGE:p.150
 Dagger (Assassin's).MOD																																																																																																																			SOURCEPAGE:p.150
-Dagger.COPY=Dagger (Bloodthirst)
+Dagger (Base).COPY=Bloodthirst Dagger	KEY:Dagger (Bloodthirst)	VISIBLE:YES	EQMOD:Material ~ Steel
 Dagger (Bloodthirst).MOD					OUTPUTNAME:Bloodthirst Dagger																																																																																	EQMOD:Special Ability ~ Enhancement Cost|60800.Special Ability ~ +2 ~ Weapon.Special Ability ~ Wounding ~ Weapon																			SOURCEPAGE:p.152																																																																																								SPROP:Deals an additional +1 point of damage against the target for each bleeding wound the creature possesses (maximum +10).
 Dagger (Silver/Masterwork).MOD																																																																																																																	SOURCEPAGE:p.157
-Dagger.COPY=Dagger of Doubling
+Dagger (Base).COPY=Dagger of Doubling	VISIBLE:YES	EQMOD:Material ~ Steel
 Dagger of Doubling.MOD																																																																																											EQMOD:Special Ability ~ Enhancement Cost|10300.Special Ability ~ +1 ~ Weapon																				SOURCEPAGE:p.153																																																																																								SPROP:Can be split into 2 identical daggers.
 Dagger of Venom.MOD																																																																																																																			SOURCEPAGE:p.153
-Curve Blade (Elven).COPY=Demonsorrow Curve Blade
-Demonsorrow Curve Blade.MOD																																																																																										EQMOD:Special Ability ~ Bane ~ Weapon|Outsiders (Evil).Material ~ Cold Iron.Special Ability ~ Holy ~ Weapon.Special Ability ~ Enhancement Cost|90460.Special Ability ~ +3 ~ Weapon														SOURCEPAGE:p.153																																																																																								SPROP:Bars all creatures with the demon subtype within 60 ft from teleporting as per Dimensional Anchor.
-Rapier.COPY=Disarming Blade
+Elven Curve Blade (Base).COPY=Demonsorrow Curve Blade		VISIBLE:YES
+Demonsorrow Curve Blade.MOD																																																																																										EQMOD:Special Ability ~ Bane ~ Weapon|Evil Outsider Base.Material ~ Cold Iron.Special Ability ~ Holy ~ Weapon.Special Ability ~ Enhancement Cost|90460.Special Ability ~ +3 ~ Weapon														SOURCEPAGE:p.153																																																																																								SPROP:Bars all creatures with the demon subtype within 60 ft from teleporting as per Dimensional Anchor.
+Rapier (Base).COPY=Disarming Blade		VISIBLE:YES		EQMOD:Material ~ Steel
 Disarming Blade.MOD																																																																																											EQMOD:Special Ability ~ Dueling ~ Melee.Special Ability ~ Enhancement Cost|17800.Special Ability ~ +1 ~ Weapon																		SOURCEPAGE:p.153																																																																																								SPROP:Following a successful disarm attempt with the weapon, the wielder can move the disarmed weapon 5 feet in any direction as a swift action.
-Halberd.COPY=Dragon's Doom
-Dragon's Doom.MOD																																																																																												EQMOD:Special Ability ~ Bane ~ Weapon|Dragon|Special Ability ~ Enhancement Cost|40300.Special Ability ~ +2 ~ Weapon																		SOURCEPAGE:p.154																																																																																								SPROP:Head glows when a creature of the dragon type is within 100 ft of the weapon. 3/day, can ignore dragon's DR.
+Halberd (Base).COPY=Dragon's Doom		VISIBLE:YES		EQMOD:Material ~ Steel
+Dragon's Doom.MOD																																																																																												EQMOD:Special Ability ~ Bane ~ Weapon|Dragon Bane.Special Ability ~ Enhancement Cost|40300.Special Ability ~ +2 ~ Weapon																		SOURCEPAGE:p.154																																																																																								SPROP:Head glows when a creature of the dragon type is within 100 ft of the weapon. 3/day, can ignore dragon's DR.
 Dwarven Thrower.MOD																																																																																																																			SOURCEPAGE:p.154
-Flail (Heavy).COPY=Earthenflail
+Heavy Flail (Base).COPY=Earthenflail		VISIBLE:YES		EQMOD:Material ~ Steel
 Earthenflail.MOD																																																																																												EQMOD:Special Ability ~ +1 ~ Weapon																																																																																																															SPROP:Ignores the hardness of any object with hardness less than 20. As a swift action the wielder can suppress this property and cause the weapon to phase through earth and stone, thereby ignoring cover. Does no damage to earth and stone while this ability is active.
 Battle Aspergillum.COPY=Everflowing Aspergillum
 Everflowing Aspergillum.MOD																																																																																										EQMOD:Special Ability ~ Enhancement Cost|7800.Special Ability ~ +1 ~ Weapon																				SOURCEPAGE:p.154																																																																																								SPROP:The holy water in this battle aspergillum never runs dry.
-Trident.COPY=Fighter's Fork
+Trident (Base).COPY=Fighter's Fork		VISIBLE:YES		EQMOD:Material ~ Steel
 Fighter's Fork.MOD																																																																																											EQMOD:Special Ability ~ Enhancement Cost|7300.Special Ability ~ +1 ~ Weapon																				SOURCEPAGE:p.155																																																																																								SPROP:Can be commanded to lengthen or shorten its haft
 Flame Tongue.MOD																																																																																																																				SOURCEPAGE:p.155
 Frost Brand.MOD																																																																																																																				SOURCEPAGE:p.155
-Greataxe.COPY=Greataxe (Swift Obsidian)
+Greataxe (Base).COPY=Greataxe, Swift Obsidian		KEY:Greataxe (Swift Obsidian)		VISIBLE:YES		EQMOD:Material ~ Obsidian
 Greataxe (Swift Obsidian).MOD					OUTPUTNAME:Swift Obsidian Greataxe																																																																																EQMOD:Special Ability ~ Keen ~ Weapon.Special Ability ~ Enhancement Cost|11300.Special Ability ~ +1 ~ Weapon																			SOURCEPAGE:p.161																																																																																								SPROP:+10 to Speed when charging. 1/day +10 base speed to all allies within 30 ft.
-Guisarme.COPY=Guisarme (Dragoncatch)
-Guisarme (Dragoncatch).MOD					OUTPUTNAME:Dragoncatch Guisarme																																																																																EQMOD:Special Ability ~ Bane ~ Weapon|Dragon.Special Ability ~ Enhancement Cost|13300.Special Ability ~ +1 ~ Weapon																		SOURCEPAGE:p.154																																																																																								SPROP:Can be used to make a special trip maneuver against creatures using wings to fly.
-Warhammer.COPY=Ghoul's Lament
+Guisarme (Base).COPY=Guisarme, Dragoncatch		KEY:Guisarme (Dragoncatch)		VISIBLE:YES		EQMOD:Material ~ Steel
+Guisarme (Dragoncatch).MOD					OUTPUTNAME:Dragoncatch Guisarme																																																																																EQMOD:Special Ability ~ Bane ~ Weapon|Dragon Bane.Special Ability ~ Enhancement Cost|13300.Special Ability ~ +1 ~ Weapon																		SOURCEPAGE:p.154																																																																																								SPROP:Can be used to make a special trip maneuver against creatures using wings to fly.
+Warhammer (Base).COPY=Ghoul's Lament		VISIBLE:YES		EQMOD:Material ~ Steel
 Ghoul's Lament.MOD																																																																																											EQMOD:Special Ability ~ Disruption ~ Weapon.Special Ability ~ Ghost Touch ~ Weapon.Special Ability ~ Enhancement Cost|35300.Special Ability ~ +1 ~ Weapon																	SOURCEPAGE:p.155																																																																																								SPROP:3/day can knock an undead creature prone (Fort DC 20 negates).
-Sword (Short).COPY=Gloom Blade
+Short Sword (Base).COPY=Gloom Blade		VISIBLE:YES		EQMOD:Material ~ Steel
 Gloom Blade.MOD																																																																																												EQMOD:Special Ability ~ Enhancement Cost|8500.Special Quality ~ Masterwork ~ Weapon																				SOURCEPAGE:p.155																																																																																								SPROP:+1 in dim light, +2 in darkness, and bestows Blind-Fight feat in supernatural darkness.
 Guarding Blade.MOD																																																																																																																			SOURCEPAGE:p.155
-Warhammer.COPY=Hammer (Dwarfbond)
+Warhammer (Base).COPY=Hammer, Dwarfbond		KEY:Hammer (Dwarfbond)		VISIBLE:YES		EQMOD:Material ~ Steel
 Hammer (Dwarfbond).MOD						OUTPUTNAME:Dwarfbond Hammer																																																																																	EQMOD:Special Ability ~ Enhancement Cost|25300.Special Ability ~ +1 ~ Weapon																				SOURCEPAGE:p.154																																																																										BONUS:WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement|PRERACE:1,Dwarf,RACESUBTYPE=Dwarf	SPROP:When thrown will return just before thrower's next turn. Deals an extra 1d8 against creatures of the Giant subtype.|PRERACE:1,Dwarf,RACESUBTYPE=Dwarf
 Meteor Hammer.COPY=Hammer (Polarity)
 Hammer (Polarity).MOD						OUTPUTNAME:Polarity Hammer																																																																																	EQMOD:Special Ability ~ Enhancement Cost|12300.Special Ability ~ +1 ~ Weapon																				SOURCEPAGE:p.158																																																																																								SPROP:In meteor mode, +2 on drag or reposition combat maneuvers against metal targets. In fortress mode wielder can move any metal object within reach and gains additional +2 to AC against metal.
-Hammer (Light).COPY=Hammer (Ricochet)
+Light Hammer (Base).COPY=Hammer, Ricochet	KEY:Hammer (Ricochet)	OUTPUTNAME:Ricochet Hammer	VISIBLE:YES	EQMOD:Material ~ Steel
 Hammer (Ricochet).MOD																																																																																																																			SOURCEPAGE:p.159
 Scorpion Whip.COPY=Hellscourge
 Hellscourge.MOD																																																																																												EQMOD:Special Ability ~ Enhancement Cost|39300.Special Ability ~ +1 ~ Weapon.Special Ability ~ Unholy ~ Weapon																		SOURCEPAGE:p.156																																																			BONUS:SKILL|Intimidate|5																																	SPROP:Shaken creature struck becomes Frightened (DC 17 Will negates), Frightened or Panicked creature must cower 1d4 rounds.
 Holy Avenger.MOD																																																																																																																				SOURCEPAGE:p.156
 Javelin of Lightning.MOD																																																																																																																		SOURCEPAGE:p.156
-Kukri.COPY=Kukri (Bloodletting)
+Kukri (Base).COPY=Kukri, Bloodletting	KEY:Kukri (Bloodletting)	OUTPUTNAME:Bloodletting Kukri	VISIBLE:YES	EQMOD:Material ~ Steel
 Kukri (Bloodletting).MOD																																																																																										EQMOD:Special Ability ~ Enhancement Cost|6300.Special Ability ~ +1 ~ Weapon																				SOURCEPAGE:p.152																																																																																								SPROP:On successful critical hit, deals 2 points of bleed damage. Wielder gains temp hp equal to bleed damage dealt.
 Lance (Jousting).MOD																																																																																																																			SOURCEPAGE:p.156
 Lance (Shieldsplitter).MOD																																																																																																																		SOURCEPAGE:p.159
@@ -532,26 +512,26 @@ Mace (Boulderhead).MOD																																																										
 Mace of Smiting.MOD																																																																																																																			SOURCEPAGE:p.157
 Mace of Terror.MOD																																																																																																																			SOURCEPAGE:p.157
 Nine Lives Stealer.MOD																																																																																																																			SOURCEPAGE:p.157
-Quarterstaff.COPY=Quarterstaff (Hurricane)
+Quarterstaff (Base).COPY=Quarterstaff (Hurricane)	VISIBLE:YES	EQMOD:Material ~ Wood				ALTEQMOD:Material ~ Wood
 Quarterstaff (Hurricane).MOD					OUTPUTNAME:Hurricane Quarterstaff																																																																																EQMOD:Special Ability ~ Enhancement Cost|7820.Special Ability ~ +1 ~ Weapon							ALTEQMOD:Special Ability ~ +1 ~ Weapon											SOURCEPAGE:p.156										SPELLS:Magic Item|TIMES=1|Gust of Wind,13																																																																								SPROP:Monk or Ninja can spend 1 ki point to activate Gust of Wind property with DC %1.|12+WIS
-Quarterstaff.COPY=Quarterstaff of Vaulting
-Quarterstaff of Vaulting.MOD																																																																																										EQMOD:Material ~ Darkwood.Special Ability ~ Enhancement Cost|19100.Special Ability ~ +1 ~ Weapon						ALTEQMOD:Special Ability ~ +1 ~ Weapon											SOURCEPAGE:p.158																																																			BONUS:SKILL|Acrobatics|5|TYPE=Competence																															SPROP:Can use staff to vault over opponent's head instead of 5-ft step.
+Quarterstaff (Base).COPY=Quarterstaff of Vaulting	VISIBLE:YES
+Quarterstaff of Vaulting.MOD																																																																																										EQMOD:Material ~ Darkwood.Special Ability ~ Enhancement Cost|19100.Special Ability ~ +1 ~ Weapon						ALTEQMOD:Material ~ Darkwood.Special Ability ~ +1 ~ Weapon											SOURCEPAGE:p.158																																																			BONUS:SKILL|Acrobatics|5|TYPE=Competence																															SPROP:Can use staff to vault over opponent's head instead of 5-ft step.
 Rapier of Puncturing.MOD																																																																																																																		SOURCEPAGE:p.159
-Scimitar.COPY=Scimitar of the Spellthief
+Scimitar (Base).COPY=Scimitar of the Spellthief		VISIBLE:YES		EQMOD:Material ~ Steel
 Scimitar of the Spellthief.MOD																																																																																									EQMOD:Special Ability ~ Heartseeker ~ Melee.Special Ability ~ Keen ~ Weapon.Special Ability ~ Enhancement Cost|75800.Special Ability ~ +1 ~ Weapon.Special Ability ~ Spellstealing ~ Melee															SOURCEPAGE:p.159																																																			BONUS:SKILL|Spellcraft,Use Magic Device|2																															SPROP:Reveals magical auras by touch.
-Scythe.COPY=Scythe (Void)
+Scythe (Base).COPY=Scythe, Void		KEY:Scythe (Void)		VISIBLE:YES		EQMOD:Material ~ Steel
 Scythe (Void).MOD							OUTPUTNAME:Void Scythe																																																																																		EQMOD:Special Ability ~ Brilliant Energy ~ Weapon.Special Ability ~ Enhancement Cost|95300.Special Ability ~ +1 ~ Weapon																			SOURCEPAGE:p.163																																																																																								SPROP:Wielder can channel negative energy into the scythe to bestow negative levels.
 Shatterspike.MOD																																																																																																																				SOURCEPAGE:p.159
 Shifter's Sorrow.MOD																																																																																																																			SOURCEPAGE:p.160
-Sling.COPY=Sling (Frostbite)
+Sling (Base).COPY=Sling, Frostbite		KEY:Sling (Frostbite)		VISIBLE:YES		EQMOD:Material ~ Leather
 Sling (Frostbite).MOD						OUTPUTNAME:Frostbite Sling																																																																																	EQMOD:Special Ability ~ Frost ~ Weapon.Special Ability ~ Enhancement Cost|9380.Special Ability ~ +1 ~ Weapon																			SOURCEPAGE:p.155																																																																																								SPROP:3/day wielder can hurl a magic snowball for 1d6+6 nonlethal cold damage that leaves target fatigued.
-Dagger (Punching).COPY=Spider's Fang
+Punching Dagger (Base).COPY=Spider's Fang	VISIBLE:YES	EQMOD:Material ~ Steel
 Spider's Fang.MOD																																																																																												EQMOD:Special Ability ~ Keen ~ Weapon.Special Ability ~ Enhancement Cost|79100.Special Ability ~ +2 ~ Weapon.Special Ability ~ Wounding ~ Weapon																		SOURCEPAGE:p.160																																									BONUS:SITUATION|Acrobatics=Move Through|2|TYPE=Competence																																						SPROP:2/day can poison as per Poison spell (Fort DC 20 negates).
 Spirit Blade.MOD																																																																																																																				SOURCEPAGE:p.161
 Mere Club.COPY=Spirit Caller
 Spirit Caller.MOD																																																																																												EQMOD:Special Ability ~ Ghost Touch ~ Weapon.Special Ability ~ Enhancement Cost|25300.Special Ability ~ +1 ~ Weapon																			SOURCEPAGE:p.161																																																																																								SPROP:Incorporeal undead struck are drawn inside the club (DC 16 Will negates). When containing a spirit, the club glows from within and gains +2 Undead Bane properties.
 Starknife (Sparkwake).MOD																																																																																																																		SOURCEPAGE:p.161
-Glaive.COPY=Summoner's Sorrow
+Glaive (Base).COPY=Summoner's Sorrow		VISIBLE:YES
 Summoner's Sorrow.MOD																																																																																											EQMOD:Material ~ Cold Iron.Special Ability ~ Enhancement Cost|42800.Special Ability ~ +2 ~ Weapon																		SOURCEPAGE:p.161	SOURCEPAGE:p.161																																																																																					SPROP:2d6 against summoned creatures and wielder can make a dispel check to send away or destroy the creature. 1/day wielder can attempt Dismissal instead.
 Sun Blade (Short).MOD																																																																																																																			SOURCEPAGE:p.161
 Sun Blade (Bastard).MOD																																																																																																																			SOURCEPAGE:p.161
@@ -564,11 +544,11 @@ Sword (Ten-Ring).MOD						OUTPUTNAME:Ten Ring Sword																													
 Trident of Fish Command.MOD																																																																																																																		SOURCEPAGE:p.162
 Trident of Stability.MOD																																																																																																																		SOURCEPAGE:p.163
 Trident of Warning.MOD																																																																																																																			SOURCEPAGE:p.163
-Trident.COPY=Trident (Triton's)
-Trident (Triton's).MOD						OUTPUTNAME:Triton's Trident																																																																																	EQMOD:Special Ability ~ Bane ~ Weapon|Monstrous Humanoids.Special Ability ~ Enhancement Cost|15060.Special Ability ~ +1 ~ Weapon															SOURCEPAGE:p.162										SPELLS:Magic Item|TIMES=3|Hydraulic Push	SPELLS:Magic Item|TIMES=1|Hydraulic Torrent																																																																SPROP:CMB for either Hydraulic Push or Hydraulic Torrent is +6
-Sword (Bastard).COPY=Valor's Minion
+Trident (Base).COPY=Trident, Triton's		KEY:Trident (Triton's)		VISIBLE:YES		EQMOD:Material ~ Steel
+Trident (Triton's).MOD						OUTPUTNAME:Triton's Trident																																																																																	EQMOD:Special Ability ~ Bane ~ Weapon|Monstrous Humanoid Bane.Special Ability ~ Enhancement Cost|15060.Special Ability ~ +1 ~ Weapon															SOURCEPAGE:p.162										SPELLS:Magic Item|TIMES=3|Hydraulic Push	SPELLS:Magic Item|TIMES=1|Hydraulic Torrent																																																																SPROP:CMB for either Hydraulic Push or Hydraulic Torrent is +6
+Bastard Sword (Base).COPY=Valor's Minion		VISIBLE:YES		EQMOD:Material ~ Steel
 Valor's Minion.MOD																																																																																											EQMOD:Special Ability ~ Holy ~ Weapon.Special Ability ~ Enhancement Cost|41300.Special Ability ~ +2 ~ Weapon																			SOURCEPAGE:p.163																																																																																								SPROP:Whenever a wielder uses either the challenge or smite evil class feature, one additional use of that class feature can be sacrificed to treat the smite or challenge as three class levels higher.
-Falchion.COPY=Warbringer
+Falchion (Base).COPY=Warbringer		VISIBLE:YES		EQMOD:Material ~ Steel
 Warbringer.MOD																																																																																												EQMOD:Special Ability ~ Keen ~ Weapon.Special Ability ~ Enhancement Cost|61300.Special Ability ~ +3 ~ Weapon.Special Ability ~ Vicious ~ Melee																	SOURCEPAGE:p.163																																																																																								SPROP:On critical hit, wielder gains Rage 1 round, creature struck attacks nearest ally as per Murderous Command (DC 14 Will negates)
 Cursed Sword (-2)														PROFICIENCY:WEAPON|Longsword								TYPE:Magic.Cursed.Weapon.Resizable.Melee.OneHanded.Martial.Standard.Slashing.Sword.BladeHeavy																							COST:0	WT:4										CRITMULT:x2	CRITRANGE:2							DAMAGE:1d8					EQMOD:Material ~ Steel													WIELD:OneHanded						SIZE:M	SOURCEPAGE:p.342																																																														BONUS:WEAPONPROF=Longsword|TOHIT,DAMAGE|-2
 Berserking Sword														PROFICIENCY:WEAPON|Greatsword								TYPE:Magic.Cursed.Weapon.Resizable.Melee.TwoHanded.Martial.Standard.Slashing.Sword.BladeHeavy																							COST:0	WT:8										CRITMULT:x2	CRITRANGE:2							DAMAGE:2d6					EQMOD:Material ~ Steel													WIELD:TwoHanded						SIZE:M	SOURCEPAGE:p.343																																																														BONUS:WEAPONPROF=Greatsword|TOHIT,DAMAGE|2																			SPROP:Whenever used in battle the wielder goes berserk as per Barbarian's Rage ability.
@@ -625,7 +605,7 @@ Pilum.MOD																																																																	COST:5
 Boomerang.MOD																																																																COST:3	WT:3																																																		SOURCEPAGE:p.24
 Crossbow (Double).MOD						OUTPUTNAME:Double Crossbow																																																					COST:300	WT:18																																																		SOURCEPAGE:p.26
 Oathbow.MOD																																																																																																																					SOURCEPAGE:p.158
-Spear.COPY=Spear (Heartswood)
+Spear (Base).COPY=Heartswood Spear	KEY:Spear (Heartswood)	VISIBLE:YES	EQMOD:Material ~ Steel.Material ~ Wood
 Spear (Heartswood).MOD						OUTPUTNAME:Heartswood Spear																																																																																	EQMOD:Special Ability ~ Bane ~ Weapon|Undead.Special Ability ~ Enhancement Cost|50300.Special Ability ~ +2 ~ Weapon																		SOURCEPAGE:p.156																																																																																								SPROP:When swung as a staff, does bludgeoning damage and has Disrupting property.
 Cursed Backbiter Spear													PROFICIENCY:WEAPON|Shortspear								TYPE:Magic.Cursed.Weapon.Resizable.Melee.OneHanded.Ranged.Thrown.Simple.Standard.Piercing.Spear																							COST:0	WT:3										CRITMULT:x2	CRITRANGE:1							DAMAGE:1d6					EQMOD:Material ~ Steel.Material ~ Wood												WIELD:OneHanded	RANGE:20				SIZE:M	SOURCEPAGE:p.345																																																														BONUS:WEAPONPROF=Shortspear|TOHIT,DAMAGE|2																			SPROP:When attack roll is natural 1, deals damage to wielder.
 Deadly Returns Throwing Axe												PROFICIENCY:WEAPON|Axe (Throwing)							TYPE:Magic.Cursed.Weapon.Resizable.Melee.Light.Finesseable.Ranged.Thrown.Martial.Standard.Slashing.Axe																					COST:0	WT:2										CRITMULT:x2	CRITRANGE:1							DAMAGE:1d6					EQMOD:Special Ability ~ Returning ~ Thrown.Material ~ Steel											WIELD:Light		RANGE:10				SIZE:M	SOURCEPAGE:p.345																																																																																								SPROP:Only returns when wielder misses target. On return, attacks wielder.

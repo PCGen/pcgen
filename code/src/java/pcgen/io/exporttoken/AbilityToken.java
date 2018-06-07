@@ -340,15 +340,14 @@ public class AbilityToken extends Token
 		try
 		{
 			MapToList<Ability, CNAbility> mtl =
-                    new GenericMapToList<>(
-                            LinkedHashMap.class);
+					new GenericMapToList<>(LinkedHashMap.class);
 			for (Ability a : bList)
 			{
 				mtl.addAllToListFor(a, listOfAbilities.getListFor(a));
 			}
 			return mtl;
 		}
-		catch (InstantiationException | IllegalAccessException e)
+		catch (ReflectiveOperationException e)
 		{
 			throw new UnreachableError(e);
 		}
@@ -389,15 +388,14 @@ public class AbilityToken extends Token
 		try
 		{
 			MapToList<Ability, CNAbility> mtl =
-                    new GenericMapToList<>(
-                            LinkedHashMap.class);
+					new GenericMapToList<>(LinkedHashMap.class);
 			for (Ability a : bList)
 			{
 				mtl.addAllToListFor(a, listOfAbilities.getListFor(a));
 			}
 			return mtl;
 		}
-		catch (InstantiationException | IllegalAccessException e)
+		catch (ReflectiveOperationException e)
 		{
 			throw new UnreachableError(e);
 		}

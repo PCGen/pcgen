@@ -19,14 +19,12 @@
 package plugin.lsttokens.kit;
 
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.Constants;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Race;
 import pcgen.core.kit.KitRace;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.rules.persistence.token.ComplexParseResult;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
@@ -57,13 +55,6 @@ public class RaceToken extends AbstractNonEmptyToken<KitRace> implements
 	@Override
 	protected ParseResult parseNonEmptyToken(LoadContext context, KitRace kitRace, String value)
 	{
-		if (Constants.NONESELECTED.equals(value))
-		{
-			ComplexParseResult pr = new ComplexParseResult();
-			pr.addWarningMessage("NONESELECTED is not necessary in KIT RACE: "
-					+ "Token is not processed");
-			return pr;
-		}
 		CDOMSingleRef<Race> ref =
 				context.getReferenceContext().getCDOMReference(RACE_CLASS, value);
 		kitRace.setRace(ref);

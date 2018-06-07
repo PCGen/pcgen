@@ -22,7 +22,7 @@ Bottle (Stong Brandy)			TYPE:Goods.Food.Consumable.Goods.Liquid.Food					COST:10
 #Adventuring Gear
 
 Journal					TYPE:Goods.Tools.Book									COST:10	WT:1								SOURCEPAGE:p.48
-Lantern (Miner's)				TYPE:Goods.General.LightSource.Lantern						COST:15	WT:2								SOURCEPAGE:p.48
+Lantern (Miner's)				TYPE:Goods.General.Light Source.Lantern						COST:15	WT:2								SOURCEPAGE:p.48
 Measuring Cord (10 ft.)			TYPE:Goods.General									COST:1	WT:0.5							SOURCEPAGE:p.48
 Powder					TYPE:Goods.General.Consumable								COST:0.01	WT:0.5							SOURCEPAGE:p.48
 String (50 ft.)				TYPE:Goods.General									COST:0.01	WT:0.5							SOURCEPAGE:p.48

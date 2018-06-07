@@ -142,12 +142,6 @@ public final class PointBuyMethod implements BonusContainer, Loadable
 	}
 
     @Override
-	public String getLSTformat()
-	{
-		return getDisplayName();
-	}
-
-    @Override
 	public boolean isInternal()
 	{
 		return false;

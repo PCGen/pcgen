@@ -31,8 +31,8 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 public class NameoptIntegrationTest extends
 		AbstractIntegrationTestCase<EquipmentModifier>
 {
-	static NameoptToken token = new NameoptToken();
-	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<>();
+	private static NameoptToken token = new NameoptToken();
+	private static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<EquipmentModifier> getCDOMClass()

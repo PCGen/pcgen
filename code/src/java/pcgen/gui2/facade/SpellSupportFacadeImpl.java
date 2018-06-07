@@ -654,7 +654,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 
 		final HtmlInfoBuilder b = new HtmlInfoBuilder();
 		b.append("<table border=1><tr><td><font size=-2><b>"); //$NON-NLS-1$
-		b.append(OutputNameFormatting.piString(aClass, false)).append(" ["); //$NON-NLS-1$
+		b.append(OutputNameFormatting.piString(aClass)).append(" ["); //$NON-NLS-1$
 		b.append(String.valueOf(charDisplay.getLevel(aClass)
 			+ (int) pc.getTotalBonusTo("PCLEVEL", aClass.getKeyName()))); //$NON-NLS-1$
 		b.append("]</b></font></td>"); //$NON-NLS-1$

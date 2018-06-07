@@ -57,20 +57,20 @@ public class StartfeatsToken extends AbstractToken implements
 		{
 			return new ParseResult.Fail("Error encountered in "
 					+ getTokenName()
-					+ " was expecting value to be an integer, found: " + value, context);
+					+ " was expecting value to be an integer, found: " + value);
 		}
 
 		BonusObj bon = Bonus.newBonus(context, "FEAT|POOL|" + bonusValue);
 		if (bon == null)
 		{
 			return new ParseResult.Fail("Internal Error: " + getTokenName()
-					+ " had invalid bonus", context);
+					+ " had invalid bonus");
 		}
 		Prerequisite prereq = getPrerequisite("PREMULT:1,[PREHD:MIN=1],[PRELEVEL:MIN=1]");
 		if (prereq == null)
 		{
 			return new ParseResult.Fail("Internal Error: " + getTokenName()
-					+ " had invalid prerequisite", context);
+					+ " had invalid prerequisite");
 		}
 		bon.addPrerequisite(prereq);
 		bon.setTokenSource(getTokenName());

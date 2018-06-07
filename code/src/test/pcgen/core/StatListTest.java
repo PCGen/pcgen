@@ -29,6 +29,7 @@ import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
+import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
  * <code>StatListTest</code> checks the function of the 
@@ -58,13 +59,13 @@ public class StatListTest extends AbstractCharacterTestCase
 		unlocker = new PCTemplate();
 		unlocker.setName("unlocker");
 		unlocker.addToListFor(ListKey.UNLOCKED_STATS, strRef);
-		bonus = TestHelper.makeAbility("Bonus", AbilityCategory.FEAT, "General.Fighter");
+		bonus = TestHelper.makeAbility("Bonus", BuildUtilities.getFeatCat(), "General.Fighter");
 		BonusObj aBonus = Bonus.newBonus(context, "STAT|STR|7|TYPE=Enhancement");
 		if (aBonus != null)
 		{
 			bonus.addToListFor(ListKey.BONUS, aBonus);
 		}
-		lockedBonus = TestHelper.makeAbility("LockedBonus", AbilityCategory.FEAT, "General.Fighter");
+		lockedBonus = TestHelper.makeAbility("LockedBonus", BuildUtilities.getFeatCat(), "General.Fighter");
 		aBonus = Bonus.newBonus(context, "LOCKEDSTAT|STR|3|TYPE=Morale");
 		if (aBonus != null)
 		{
@@ -84,14 +85,14 @@ public class StatListTest extends AbstractCharacterTestCase
 		assertEquals("Starting STR should be 6", 6, pc.getBaseStatFor(str));
 
 		// Bonus should not affect base stat
-		addAbility(AbilityCategory.FEAT, bonus);
+		addAbility(BuildUtilities.getFeatCat(), bonus);
 		pc.calcActiveBonuses();
 		assertEquals("Stat should still be base", 6, pc.getBaseStatFor(str));
 		
 		pc.addTemplate(locker);
 		assertEquals("Stat should now be locked", 12, pc.getBaseStatFor(str));
 
-		addAbility(AbilityCategory.FEAT, lockedBonus);
+		addAbility(BuildUtilities.getFeatCat(), lockedBonus);
 		pc.calcActiveBonuses();
 		assertEquals("Stat should still be locked", 12, pc.getBaseStatFor(str));
 		
@@ -109,14 +110,14 @@ public class StatListTest extends AbstractCharacterTestCase
 		assertEquals("Starting STR should be 6", 6, pc.getTotalStatFor(str));
 
 		// Bonus should affect total stat
-		addAbility(AbilityCategory.FEAT, bonus);
+		addAbility(BuildUtilities.getFeatCat(), bonus);
 		pc.calcActiveBonuses();
 		assertEquals("Stat should have bonus", 13, pc.getTotalStatFor(str));
 		
 		pc.addTemplate(locker);
 		assertEquals("Stat should now be locked", 12, pc.getTotalStatFor(str));
 
-		addAbility(AbilityCategory.FEAT, lockedBonus);
+		addAbility(BuildUtilities.getFeatCat(), lockedBonus);
 		pc.calcActiveBonuses();
 		assertEquals("Stat should be locked but bonused", 15, pc.getTotalStatFor(str));
 

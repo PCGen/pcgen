@@ -114,8 +114,8 @@ public class SuppressBioFieldFacet extends AbstractStorageFacet<CharID>
 	@Override
 	public void copyContents(CharID source, CharID copy)
 	{
-		Set<BiographyField> set =
-				(Set<BiographyField>) getCache(source);
+		@SuppressWarnings("unchecked")
+		Set<BiographyField> set = (Set<BiographyField>) getCache(source);
 		if (set != null)
 		{
 			Set<BiographyField> copyset =

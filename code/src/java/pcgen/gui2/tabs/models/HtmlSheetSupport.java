@@ -207,58 +207,6 @@ public class HtmlSheetSupport
 
 	}
 
-//	private class DocumentBuilder implements Callable<HTMLDocument>, Runnable
-//	{
-//
-//		private PipedWriter writer = new PipedWriter();
-//
-//		public HTMLDocument call() throws Exception
-//		{
-//			PipedReader reader = new PipedReader(writer);
-//			createWriterThread().start();
-//
-//			EditorKit kit = htmlPane.getEditorKit();
-//			HTMLDocument doc = new HTMLDocument();
-//			doc.setBase(templateFile.getParentFile().toURL());
-//			// XXX - This is a hack specific to Sun's JDK 5.0 and in no
-//			// way should be trusted to work in future java releases
-//			// (though it still might) - Connor Petty
-//			doc.putProperty("imageCache", cache);
-//			kit.read(reader, doc, 0);
-//			reader.close();
-//			return doc;
-//		}
-//
-//		private Thread createWriterThread()
-//		{
-//			Thread thread = new Thread(this);
-//			thread.setName("html-sheet-thread-2");
-//			thread.setDaemon(true);
-//			thread.setPriority(Thread.NORM_PRIORITY);
-//			return thread;
-//		}
-//
-//		public void run()
-//		{
-//			BufferedWriter bw = new BufferedWriter(writer, 1);
-//			try
-//			{
-//				character.export(new ExportHandler(templateFile), bw);
-//			}
-//			finally
-//			{
-//				try
-//				{
-//					bw.close();
-//				}
-//				catch (IOException ex)
-//				{
-//					Logging.errorPrint("Unable to close PipedWriter", ex);
-//				}
-//			}
-//		}
-//
-//	}
 	/**
 	 * A cache for images loaded onto the info pane.
 	 */

@@ -70,12 +70,6 @@ public final class PointBuyCost extends ConcretePrereqObject implements
 	}
 
     @Override
-	public String getLSTformat()
-	{
-		return getDisplayName();
-	}
-
-    @Override
 	public boolean isInternal()
 	{
 		return false;

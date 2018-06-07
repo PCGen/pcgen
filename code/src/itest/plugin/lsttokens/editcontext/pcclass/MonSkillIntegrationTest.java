@@ -36,8 +36,8 @@ public class MonSkillIntegrationTest extends
 		AbstractIntegerIntegrationTestCase<PCClass>
 {
 
-	static MonskillToken token = new MonskillToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
+	private static MonskillToken token = new MonskillToken();
+	private static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	PreRaceParser prerace = new PreRaceParser();
 	PreRaceWriter preracewriter = new PreRaceWriter();

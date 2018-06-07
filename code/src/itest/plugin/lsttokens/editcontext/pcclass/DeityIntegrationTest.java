@@ -34,8 +34,8 @@ public class DeityIntegrationTest extends
 		AbstractListIntegrationTestCase<PCClass, Deity>
 {
 
-	static DeityToken token = new DeityToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
+	private static DeityToken token = new DeityToken();
+	private static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

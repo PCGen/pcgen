@@ -38,27 +38,18 @@ public class PCBaseCRTermEvaluator
 		this.originalText = expressionString;
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.term.TermEvaluator#resolve(pcgen.core.PlayerCharacter)
-	 */
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
 		return (float) pc.getDisplay().calcBaseCR();
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.term.TermEvaluator#isSourceDependant()
-	 */
 	@Override
 	public boolean isSourceDependant()
 	{
 		return false;
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.term.TermEvaluator#isStatic()
-	 */
 	public boolean isStatic()
 	{
 		return false;

@@ -53,7 +53,7 @@ public class DefineLst implements CDOMPrimaryToken<CDOMObject>
 		{
 			return new ParseResult.Fail("Cannot use " + getTokenName()
 				+ " on an Ungranted object type: "
-				+ obj.getClass().getSimpleName(), context);
+				+ obj.getClass().getSimpleName());
 		}
 		ParsingSeparator sep = new ParsingSeparator(value, '|');
 		sep.addGroupingPair('[', ']');
@@ -61,25 +61,25 @@ public class DefineLst implements CDOMPrimaryToken<CDOMObject>
 
 		if (!sep.hasNext())
 		{
-			return new ParseResult.Fail(getTokenName() + " may not be empty", context);
+			return new ParseResult.Fail(getTokenName() + " may not be empty");
 		}
 		String firstItem = sep.next();
 
 		if (firstItem.startsWith("UNLOCK."))
 		{
 			return new ParseResult.Fail("DEFINE:UNLOCK. has been deprecated, "
-				+ "please use DEFINESTAT:STAT| or DEFINESTAT:UNLOCK|", context);
+				+ "please use DEFINESTAT:STAT| or DEFINESTAT:UNLOCK|");
 		}
 		if (!sep.hasNext())
 		{
 			return new ParseResult.Fail(getTokenName() + " varName|varFormula"
-					+ "or LOCK.<stat>|value syntax requires an argument", context);
+					+ "or LOCK.<stat>|value syntax requires an argument");
 		}
 		String var = firstItem;
 		if (var.isEmpty())
 		{
 			return new ParseResult.Fail("Empty Variable Name found in "
-					+ getTokenName() + ": " + value, context);
+					+ getTokenName() + ": " + value);
 		}
 		try
 		{
@@ -87,7 +87,7 @@ public class DefineLst implements CDOMPrimaryToken<CDOMObject>
 			if (!f.isValid())
 			{
 				return new ParseResult.Fail("Formula in " + getTokenName()
-						+ " was not valid: " + f.toString(), context);
+						+ " was not valid: " + f.toString());
 			}
 			if ((!f.isStatic() || f.resolveStatic().intValue() != 0) && !(var.startsWith("MAXLEVELSTAT=")))
 			{
@@ -100,12 +100,12 @@ public class DefineLst implements CDOMPrimaryToken<CDOMObject>
 			if (sep.hasNext())
 			{
 				return new ParseResult.Fail(getTokenName() + ' ' + firstItem
-						+ " syntax requires only one argument: " + value, context);
+						+ " syntax requires only one argument: " + value);
 			}
 			if (value.startsWith("LOCK."))
 			{
 				return new ParseResult.Fail("DEFINE:LOCK. has been deprecated, "
-						+ "please use DEFINESTAT:LOCL| or DEFINESTAT:NONSTAT|", context);
+						+ "please use DEFINESTAT:LOCL| or DEFINESTAT:NONSTAT|");
 			}
 			else
 			{
@@ -118,7 +118,7 @@ public class DefineLst implements CDOMPrimaryToken<CDOMObject>
 		{
 			return new ParseResult.Fail("Illegal Formula found in "
 					+ getTokenName() + ": " + value + ' '
-					+ e.getLocalizedMessage(), context);
+					+ e.getLocalizedMessage());
 		}
 	}
 

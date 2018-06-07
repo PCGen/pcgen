@@ -54,7 +54,7 @@ public class CopySettingsPanel extends PCGenPrefsPanel
 	private static final String in_copy_settings =
 		LanguageBundle.getString("in_Prefs_copy");
 	
-	private final JComboBoxEx gameModeSelect = new JComboBoxEx();
+	private final JComboBoxEx gameModeSelect = new JComboBoxEx<>();
 	private final JButton copyButton =
 			new JButton(LanguageBundle.getString("in_copy"));
 

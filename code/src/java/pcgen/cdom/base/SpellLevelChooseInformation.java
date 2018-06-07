@@ -47,9 +47,6 @@ public class SpellLevelChooseInformation implements
 		ChooseInformation<SpellLevel>
 {
 
-	private static final ClassIdentity<SpellLevel> SPELLLEVEL_INFO =
-			BasicClassIdentity.getIdentity(SpellLevel.class);
-
 	private final List<SpellLevelInfo> info;
 
 	/**
@@ -222,9 +219,9 @@ public class SpellLevelChooseInformation implements
 	 * @return the Class contained within this ChoiceSet
 	 */
 	@Override
-	public ClassIdentity<SpellLevel> getClassIdentity()
+	public Class<SpellLevel> getReferenceClass()
 	{
-		return SPELLLEVEL_INFO;
+		return SpellLevel.class;
 	}
 
 	/**
@@ -319,5 +316,11 @@ public class SpellLevelChooseInformation implements
 		SpellLevel item)
 	{
 		choiceActor.removeChoice(pc, owner, item);
+	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+		return "INVALID*NOT*PERSISTENT*";
 	}
 }

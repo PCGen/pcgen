@@ -32,8 +32,8 @@ public class FormatcatIntegrationTest extends
 		AbstractIntegrationTestCase<EquipmentModifier>
 {
 
-	static FormatcatToken token = new FormatcatToken();
-	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<>();
+	private static FormatcatToken token = new FormatcatToken();
+	private static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<EquipmentModifier> getCDOMClass()

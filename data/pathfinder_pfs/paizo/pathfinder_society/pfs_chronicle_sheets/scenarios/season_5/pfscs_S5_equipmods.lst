@@ -8,4 +8,4 @@ Smine			KEY:Special Quality ~ PFS / Smine's Best ~ Weapon			TYPE:Weapon		ITYPE:W
 
 
 #Old KEYs
-Smine			KEY:PFS_SMIMES_BEST			TYPE:Weapon		ITYPE:Weapon	VISIBLE:NO		COST:0		PRETYPE:1,Metal		PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 5-06 ~ Smine's Best ~ applied	SPROP:+1 on performance combat checks and Intimidate checks made against creatures proficient with that weapon. Increase the weapon's hit point total by 5.
+Special Quality ~ PFS / Smine's Best ~ Weapon.COPY=PFS_SMIMES_BEST	VISIBLE:NO

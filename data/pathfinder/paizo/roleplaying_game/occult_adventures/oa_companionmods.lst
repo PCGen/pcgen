@@ -27,3 +27,12 @@ FOLLOWER:PhantomMasterLVL=14	TYPE:Phantom	HD:1
 FOLLOWER:PhantomMasterLVL=15	TYPE:Phantom	HD:1
 FOLLOWER:PhantomMasterLVL=17	TYPE:Phantom	HD:1
 FOLLOWER:PhantomMasterLVL=19	TYPE:Phantom	HD:1
+
+###Block: Emotional Focus Grantor
+FOLLOWER:PhantomEmotionalFocus_Anger=1		TYPE:Phantom	ABILITY:Special Ability|AUTOMATIC|Emotional Focus ~ Anger		
+FOLLOWER:PhantomEmotionalFocus_Dedication=1	TYPE:Phantom	ABILITY:Special Ability|AUTOMATIC|Emotional Focus ~ Dedication	
+FOLLOWER:PhantomEmotionalFocus_Despair=1		TYPE:Phantom	ABILITY:Special Ability|AUTOMATIC|Emotional Focus ~ Despair		
+FOLLOWER:PhantomEmotionalFocus_Fear=1		TYPE:Phantom	ABILITY:Special Ability|AUTOMATIC|Emotional Focus ~ Fear		
+FOLLOWER:PhantomEmotionalFocus_Hatred=1		TYPE:Phantom	ABILITY:Special Ability|AUTOMATIC|Emotional Focus ~ Hatred		
+FOLLOWER:PhantomEmotionalFocus_Jealousy=1		TYPE:Phantom	ABILITY:Special Ability|AUTOMATIC|Emotional Focus ~ Jealousy	
+FOLLOWER:PhantomEmotionalFocus_Zeal=1		TYPE:Phantom	ABILITY:Special Ability|AUTOMATIC|Emotional Focus ~ Zeal		

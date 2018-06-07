@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 Tom Parker <thpr@users.sourceforge.net>
+ * Copyright (c) 2016-18 Tom Parker <thpr@users.sourceforge.net>
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -21,9 +21,10 @@ import java.net.URI;
 
 import pcgen.cdom.base.Categorized;
 import pcgen.cdom.base.Category;
+import pcgen.cdom.base.ClassIdentity;
 import pcgen.cdom.reference.CDOMAllRef;
-import pcgen.cdom.reference.CDOMCategorizedSingleRef;
 import pcgen.cdom.reference.CDOMGroupRef;
+import pcgen.cdom.reference.CDOMSimpleSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.CDOMTypeRef;
 import pcgen.cdom.reference.ManufacturableFactory;
@@ -31,23 +32,32 @@ import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.UnconstructedValidator;
 import pcgen.util.Logging;
 
+/**
+ * An AbstractCategory is designed to facilitate the building of Category objects by
+ * sharing common infrastructure and behavior.
+ *
+ * @param <T>
+ *            The Class that this AbstractCategory will categorize
+ */
 public abstract class AbstractCategory<T extends Categorized<T>> implements
-		Category<T>
+		Category<T>, ManufacturableFactory<T>
 {
 
+	/**
+	 * The name for this AbstractCategory.
+	 */
 	private String categoryName;
+	
+	/**
+	 * The source URI for this AbstractCategory.
+	 */
 	private URI sourceURI;
-
-	@Override
-	public String toString()
-	{
-		return categoryName;
-	}
 
 	@Override
 	@SuppressWarnings("PMD.EmptyMethodInAbstractClassShouldBeAbstract")
 	public Category<T> getParentCategory()
 	{
+		//By default, no hierarchy
 		return null;
 	}
 
@@ -76,12 +86,6 @@ public abstract class AbstractCategory<T extends Categorized<T>> implements
 	}
 
 	@Override
-	public String getLSTformat()
-	{
-		return categoryName;
-	}
-
-	@Override
 	public boolean isInternal()
 	{
 		return false;
@@ -102,52 +106,55 @@ public abstract class AbstractCategory<T extends Categorized<T>> implements
 	@Override
 	public CDOMGroupRef<T> getAllReference()
 	{
-		return new CDOMAllRef<>(getReferenceClass());
+		return new CDOMAllRef<>(this);
 	}
 
 	@Override
 	public CDOMGroupRef<T> getTypeReference(String... types)
 	{
-		return new CDOMTypeRef<>(getReferenceClass(), types);
+		return new CDOMTypeRef<>(this, types);
 	}
 
 	@Override
-	public CDOMSingleRef<T> getReference(String ident)
+	public CDOMSingleRef<T> getReference(String identifier)
 	{
-		return new CDOMCategorizedSingleRef<>(getReferenceClass(), this, ident);
+		return new CDOMSimpleSingleRef<>(this, identifier);
 	}
 
 	@Override
 	public boolean isMember(T item)
 	{
-		return (item != null) && this.equals(item.getCDOMCategory());
+		return getReferenceClass().equals(item.getClass())
+				&& this.equals(item.getCDOMCategory());
 	}
 
 	@Override
-	public boolean resolve(ReferenceManufacturer<T> rm, String name,
-		CDOMSingleRef<T> value, UnconstructedValidator validator)
+	public boolean resolve(ReferenceManufacturer<T> rm, String key,
+		CDOMSingleRef<T> reference, UnconstructedValidator validator)
 	{
 		boolean returnGood = true;
-		T activeObj = rm.getObject(name);
+		T activeObj = rm.getObject(key);
 		if (activeObj == null)
 		{
 			// Wasn't constructed!
-			if (name.charAt(0) != '*' && !report(validator, name))
+			if (key.charAt(0) != '*' && reportUnconstructed(validator, key))
 			{
 				Logging.errorPrint("Unconstructed Reference: "
-					+ getReferenceDescription() + " " + name);
-				rm.fireUnconstuctedEvent(value);
+					+ getReferenceDescription() + " " + key);
+				rm.fireUnconstuctedEvent(reference);
 				returnGood = false;
 			}
-			activeObj = rm.buildObject(name);
+			activeObj = rm.buildObject(key);
 		}
-		value.addResolution(activeObj);
+		reference.addResolution(activeObj);
 		return returnGood;
 	}
 
-	protected boolean report(UnconstructedValidator validator, String key)
+	//Identify if an item needs to be reported as unconstructed
+	private boolean reportUnconstructed(UnconstructedValidator validator, String key)
 	{
-		return (validator != null) && validator.allow(getReferenceClass(), this, key);
+		return (validator == null)
+			|| !validator.allowUnconstructed(getReferenceIdentity(), key);
 	}
 
 	@Override
@@ -163,5 +170,40 @@ public abstract class AbstractCategory<T extends Categorized<T>> implements
 	public ManufacturableFactory<T> getParent()
 	{
 		return null;
+	}
+
+	@Override
+	public ClassIdentity<T> getReferenceIdentity()
+	{
+		return this;
+	}
+
+	@Override
+	public String getName()
+	{
+		return getKeyName();
+	}
+
+	@Override
+	public String toString()
+	{
+		return categoryName;
+	}
+	
+	@Override
+	public int hashCode()
+	{
+		return categoryName.hashCode() ^ getReferenceClass().hashCode();
+	}
+	
+	@Override
+	public boolean equals(Object o)
+	{
+		if (getClass().equals(o.getClass()))
+		{
+			AbstractCategory<?> other = (AbstractCategory<?>) o;
+			return categoryName.equals(other.categoryName);
+		}
+		return false;
 	}
 }

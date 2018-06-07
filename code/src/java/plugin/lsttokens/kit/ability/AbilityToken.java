@@ -69,20 +69,20 @@ public class AbilityToken extends AbstractNonEmptyToken<KitAbilities> implements
 		{
 			return new ParseResult.Fail(
 				"No pipe found.  ABILITY token "
-					+ "in a Kit requires CATEGORY=<cat>|<ability>,<ability>", context);
+					+ "in a Kit requires CATEGORY=<cat>|<ability>,<ability>");
 		}
 		String catString = value.substring(0, pipeLoc);
 		if (!catString.startsWith("CATEGORY="))
 		{
 			return new ParseResult.Fail(
 				"No CATEGORY= found.  ABILITY token "
-					+ "in a Kit requires CATEGORY=<cat>|<abilities>", context);
+					+ "in a Kit requires CATEGORY=<cat>|<abilities>");
 		}
 		if (catString.length() < 10)
 		{
 			return new ParseResult.Fail(
 				"No category found.  ABILITY token "
-					+ "in a Kit requires CATEGORY=<cat>|<abilities>", context);
+					+ "in a Kit requires CATEGORY=<cat>|<abilities>");
 		}
 		String acName = catString.substring(9);
 		
@@ -98,7 +98,8 @@ public class AbilityToken extends AbstractNonEmptyToken<KitAbilities> implements
 		kitAbil.setCategory(acRef);
 
 		String rest = value.substring(pipeLoc + 1);
-		if (isEmpty(rest) || hasIllegalSeparator('|', rest))
+		ParseResult pr = checkSeparatorsAndNonEmpty('|', rest);
+		if (!pr.passed())
 		{
 			return new ParseResult.Fail(
 				"No abilities found.  ABILITY token "
@@ -106,13 +107,12 @@ public class AbilityToken extends AbstractNonEmptyToken<KitAbilities> implements
 		}
 		StringTokenizer st = new StringTokenizer(rest, Constants.PIPE);
 
-		ReferenceManufacturer<Ability> rm = context.getReferenceContext().getManufacturer(
-				ABILITY_CLASS, ABILITY_CATEGORY_CLASS, acName);
+		ReferenceManufacturer<Ability> rm = context.getReferenceContext()
+			.getManufacturerByFormatName("ABILITY=" + acName, ABILITY_CLASS);
 		if (rm == null)
 		{
 			return new ParseResult.Fail(
-				"Could not get Reference Manufacturer for Category: " + acName,
-				context);
+				"Could not get Reference Manufacturer for Category: " + acName);
 		}
 
 		while (st.hasMoreTokens())

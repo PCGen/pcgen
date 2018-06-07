@@ -20,11 +20,11 @@ package actor.testsupport;
 import java.net.URISyntaxException;
 
 import pcgen.cdom.base.Persistent;
-import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
+import plugin.lsttokens.testsupport.BuildUtilities;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -40,7 +40,7 @@ public abstract class AbstractPersistentChoiceActorTestCase<T>
 	{
 		SettingsHandler.getGame().clearLoadContext();
 		context = Globals.getContext();
-		context.getReferenceContext().importObject(AbilityCategory.FEAT);
+		context.getReferenceContext().importObject(BuildUtilities.getFeatCat());
 //				new RuntimeLoadContext(new RuntimeReferenceContext(),
 //					new ConsolidatedListCommitStrategy());
 	}

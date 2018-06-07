@@ -63,7 +63,7 @@ public class DescriptorToken extends AbstractTokenWithSeparator<Spell>
 				if (!first)
 				{
 					return new ParseResult.Fail("  Non-sensical " + getTokenName()
-							+ ": .CLEAR was not the first list item: " + value, context);
+							+ ": .CLEAR was not the first list item: " + value);
 				}
 				context.getObjectContext().removeList(spell,
 						ListKey.SPELL_DESCRIPTOR);

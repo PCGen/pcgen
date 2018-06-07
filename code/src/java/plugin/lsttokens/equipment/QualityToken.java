@@ -51,24 +51,24 @@ public class QualityToken extends AbstractNonEmptyToken<Equipment> implements
 		if (pipeLoc == -1)
 		{
 			return new ParseResult.Fail(getTokenName() + " expecting '|', format is: "
-					+ "QualityType|Quality value was: " + value, context);
+					+ "QualityType|Quality value was: " + value);
 		}
 		if (pipeLoc != value.lastIndexOf(Constants.PIPE))
 		{
 			return new ParseResult.Fail(getTokenName() + " expecting only one '|', "
-					+ "format is: QualityType|Quality value was: " + value, context);
+					+ "format is: QualityType|Quality value was: " + value);
 		}
 		String key = value.substring(0, pipeLoc);
 		if (key.isEmpty())
 		{
 			return new ParseResult.Fail(getTokenName() + " expecting non-empty type, "
-					+ "format is: QualityType|Quality value was: " + value, context);
+					+ "format is: QualityType|Quality value was: " + value);
 		}
 		String val = value.substring(pipeLoc + 1);
 		if (val.isEmpty())
 		{
 			return new ParseResult.Fail(getTokenName() + " expecting non-empty value, "
-					+ "format is: QualityType|Quality value was: " + value, context);
+					+ "format is: QualityType|Quality value was: " + value);
 		}
 		context.getObjectContext().put(eq, MapKey.QUALITY, key, val);
 		return ParseResult.SUCCESS;

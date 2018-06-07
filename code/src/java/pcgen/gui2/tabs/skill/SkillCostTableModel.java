@@ -39,13 +39,11 @@ import pcgen.system.LanguageBundle;
 public class SkillCostTableModel extends AbstractTableModel implements ListSelectionListener
 {
 
-	private final CharacterFacade character;
 	private final CharacterLevelsFacade levels;
 	private ListSelectionModel selectionModel;
 
 	public SkillCostTableModel(CharacterFacade character, ListSelectionModel selectionModel)
 	{
-		this.character = character;
 		this.levels = character.getCharacterLevelsFacade();
 		this.selectionModel = selectionModel;
 		selectionModel.addListSelectionListener(this);

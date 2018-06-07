@@ -56,8 +56,6 @@ public class ListSkillCostFacet extends
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
@@ -79,7 +77,8 @@ public class ListSkillCostFacet extends
 				Collection<CDOMReference<Skill>> mods = cdo.getListMods(ref);
 				for (CDOMReference<Skill> skRef : mods)
 				{
-					for (AssociatedPrereqObject apo : (Iterable<AssociatedPrereqObject>) cdo.getListAssociations(ref, skRef))
+					for (AssociatedPrereqObject apo : (Iterable<AssociatedPrereqObject>) cdo
+						.getListAssociations(ref, skRef))
 					{
 						SkillCost sc =
 								apo.getAssociation(AssociationKey.SKILL_COST);
@@ -108,8 +107,6 @@ public class ListSkillCostFacet extends
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)

@@ -199,7 +199,7 @@ public class ClassSkillsTokenTest extends AbstractAddTokenTestCase<Skill>
 	{
 		List<CDOMReference<Skill>> refs = new ArrayList<>();
 		ObjectMatchingReference<Skill, Boolean> omr = new ObjectMatchingReference<>(
-				"UNTRAINED", Skill.class, getAllRef(), ObjectKey.USE_UNTRAINED,
+				"UNTRAINED", getAllRef(), ObjectKey.USE_UNTRAINED,
 				Boolean.TRUE);
 		omr.returnIncludesNulls(true);
 		refs.add(omr);
@@ -219,7 +219,7 @@ public class ClassSkillsTokenTest extends AbstractAddTokenTestCase<Skill>
 	{
 		List<CDOMReference<Skill>> refs = new ArrayList<>();
 		ObjectMatchingReference<Skill, Boolean> omr = new ObjectMatchingReference<>(
-				"TRAINED", Skill.class, getAllRef(), ObjectKey.USE_UNTRAINED,
+				"TRAINED", getAllRef(), ObjectKey.USE_UNTRAINED,
 				Boolean.FALSE);
 		omr.returnIncludesNulls(true);
 		refs.add(omr);
@@ -239,7 +239,7 @@ public class ClassSkillsTokenTest extends AbstractAddTokenTestCase<Skill>
 	{
 		List<CDOMReference<Skill>> refs = new ArrayList<>();
 		ObjectMatchingReference<Skill, Boolean> omr = new ObjectMatchingReference<>(
-				"EXCLUSIVE", Skill.class, getAllRef(), ObjectKey.EXCLUSIVE,
+				"EXCLUSIVE", getAllRef(), ObjectKey.EXCLUSIVE,
 				Boolean.TRUE);
 		omr.returnIncludesNulls(true);
 		refs.add(omr);
@@ -259,7 +259,7 @@ public class ClassSkillsTokenTest extends AbstractAddTokenTestCase<Skill>
 	{
 		List<CDOMReference<Skill>> refs = new ArrayList<>();
 		ObjectMatchingReference<Skill, Boolean> omr = new ObjectMatchingReference<>(
-				"NONEXCLUSIVE", Skill.class, getAllRef(), ObjectKey.EXCLUSIVE,
+				"NONEXCLUSIVE", getAllRef(), ObjectKey.EXCLUSIVE,
 				Boolean.FALSE);
 		omr.returnIncludesNulls(true);
 		refs.add(omr);

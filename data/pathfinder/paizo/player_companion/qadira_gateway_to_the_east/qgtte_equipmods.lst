@@ -8,4 +8,4 @@ Silversheen		KEY:Material ~ Silversheen	TYPE:BaseMaterial.MasterworkQuality.Weap
 
 
 #Old KEYs
-Silversheen		KEY:SSHEEN_WEAP	TYPE:BaseMaterial.MasterworkQuality.Weapon	COST:750	VISIBLE:NO	ITYPE:Metal.Silversheen.Masterwork	REPLACES:MWORKW	SOURCEPAGE:p.27	PRETYPE:1,Metal	SPROP:Count as an alchemical silver weapon, immune to all rust	ASSIGNTOALL:NO
+Material ~ Silversheen.COPY=SSHEEN_WEAP	VISIBLE:NO

@@ -26,16 +26,14 @@ import pcgen.cdom.enumeration.SubClassCategory;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.PCClass;
 import pcgen.core.Race;
-import pcgen.core.SubClass;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import plugin.lsttokens.testsupport.AbstractListTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractListInputTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
-public class FavoredClassTokenTest extends
-		AbstractListTokenTestCase<Race, PCClass>
+public class FavoredClassTokenTest extends AbstractListInputTokenTestCase<Race, PCClass>
 {
 
 	static FavclassToken token = new FavclassToken();
@@ -139,10 +137,8 @@ public class FavoredClassTokenTest extends
 	{
 		construct(primaryContext, "TestWP1");
 		assertTrue(parse("TestWP1.Two"));
-		SubClass obj = primaryContext.getReferenceContext().constructCDOMObject(SubClass.class,
-				"Two");
 		SubClassCategory cat = SubClassCategory.getConstant("TestWP2");
-		primaryContext.getReferenceContext().reassociateCategory(cat, obj);
+		constructCategorized(primaryContext, cat, "Two");
 		assertConstructionError();
 	}
 
@@ -151,13 +147,10 @@ public class FavoredClassTokenTest extends
 	{
 		construct(primaryContext, "TestWP1");
 		assertTrue(parse("TestWP1.Two"));
-		SubClass obj = primaryContext.getReferenceContext().constructCDOMObject(SubClass.class,
-				"Two");
 		SubClassCategory cat = SubClassCategory.getConstant("TestWP2");
-		primaryContext.getReferenceContext().reassociateCategory(cat, obj);
-		obj = primaryContext.getReferenceContext().constructCDOMObject(SubClass.class, "Two");
+		constructCategorized(primaryContext, cat, "Two");
 		cat = SubClassCategory.getConstant("TestWP1");
-		primaryContext.getReferenceContext().reassociateCategory(cat, obj);
+		constructCategorized(primaryContext, cat, "Two");
 		assertCleanConstruction();
 	}
 
@@ -170,12 +163,9 @@ public class FavoredClassTokenTest extends
 		construct(secondaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP2");
 		construct(secondaryContext, "TestWP3");
-		SubClass obj = primaryContext.getReferenceContext().constructCDOMObject(SubClass.class,
-				"Sub");
 		SubClassCategory cat = SubClassCategory.getConstant("TestWP2");
-		primaryContext.getReferenceContext().reassociateCategory(cat, obj);
-		obj = secondaryContext.getReferenceContext().constructCDOMObject(SubClass.class, "Sub");
-		secondaryContext.getReferenceContext().reassociateCategory(cat, obj);
+		constructCategorized(primaryContext, cat, "Sub");
+		constructCategorized(secondaryContext, cat, "Sub");
 		runRoundRobin("TestWP1" + getJoinCharacter() + "TestWP2.Sub"
 				+ getJoinCharacter() + "TestWP3");
 	}

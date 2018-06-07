@@ -31,9 +31,12 @@ Circlet of Petty Discord				TYPE:Magic.Wondrous.Headband			COST:84000		WT:0		SOU
 Gloves of Pulverizing Disruption			TYPE:Magic.Wondrous.Glove			COST:9400		WT:0		SOURCEPAGE:26
 Rime-Stride Boots						TYPE:Magic.Wondrous.Boot			COST:27000		WT:1		SOURCEPAGE:27
 Shadow Jumper's Tunic					TYPE:Magic.Wondrous.Shirt			COST:16200		WT:1		SOURCEPAGE:27
-Radiant Tattoo						TYPE:Magic.Wondrous				COST:1500		WT:0		SOURCEPAGE:27
+Radiant Tattoo						TYPE:Magic.Wondrous.Consumable		COST:1500		WT:0		SOURCEPAGE:27
 Viper Tattoo						TYPE:Magic.Wondrous				COST:18000		WT:0		SOURCEPAGE:27
-Weapon Tattoo						TYPE:Magic.Wondrous				COST:10000		WT:0		SOURCEPAGE:27
+Weapon Tattoo						TYPE:Magic.Wondrous.Tattoo Wrist		COST:10000		WT:0		SOURCEPAGE:27
+
+Radiant Tattoo.MOD					TYPE:Tattoo Head.Tattoo Shoulders.Tattoo Neck.Tattoo Chest.Tattoo Body.Tattoo Belt.Tattoo Wrist.Tattoo Hands.Tattoo Ring.Tattoo Feet
+Viper Tattoo.MOD						TYPE:Tattoo Chest.Tattoo Body.Tattoo Belt.Tattoo Wrist.Tattoo Hands.Tattoo Ring.Tattoo Feet
 
 # ==============================
 # New Poison

@@ -28,8 +28,8 @@ public class AccheckIntegrationTest extends
 		AbstractIntegerIntegrationTestCase<Equipment>
 {
 
-	static AccheckToken token = new AccheckToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
+	private static AccheckToken token = new AccheckToken();
+	private static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()

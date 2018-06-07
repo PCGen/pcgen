@@ -39,6 +39,7 @@ import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.list.AbilityList;
 import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.util.CControl;
 import pcgen.core.analysis.BonusAddition;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
@@ -49,6 +50,7 @@ import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.GenericLoader;
 import pcgen.persistence.lst.PCClassLoader;
 import pcgen.rules.context.LoadContext;
+import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
  * Test the PObject class.
@@ -148,7 +150,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 		OrderedPairManager opManager = new OrderedPairManager();
 		LoadContext context = Globals.getContext();
 		context.getVariableContext().assertLegalVariableID(
-			context.getActiveScope().getLegalScope(), opManager, "Face");
+			CControl.FACE.getDefaultValue(), context.getActiveScope(), opManager);
 		Race race = new Race();
 		race.setName("TestRace");
 		race.put(ObjectKey.CHALLENGE_RATING, new ChallengeRating(FormulaFactory.getFormulaFor(5)));
@@ -200,29 +202,30 @@ public class PObjectTest extends AbstractCharacterTestCase
 	public void testAssociatedBonus()
 	{
 		Ability pObj = new Ability();
-		pObj.setCDOMCategory(AbilityCategory.FEAT);
+		pObj.setCDOMCategory(BuildUtilities.getFeatCat());
 		pObj.setName("My PObject");
-		pObj.setCDOMCategory(AbilityCategory.FEAT);
+		pObj.setCDOMCategory(BuildUtilities.getFeatCat());
 		Globals.getContext().unconditionallyProcess(pObj, "CHOOSE", "LANG|ALL");
 		Globals.getContext().unconditionallyProcess(pObj, "MULT", "YES");
 		Globals.getContext().unconditionallyProcess(pObj, "STACK", "YES");
 		Globals.getContext().getReferenceContext().constructCDOMObject(Language.class, "TestPsion 1");
 
 		PlayerCharacter aPC = getCharacter();
-		CNAbility cna = AbstractCharacterTestCase.applyAbility(aPC, AbilityCategory.FEAT, pObj, "TestPsion 1");
+		CNAbility cna = AbstractCharacterTestCase.applyAbility(aPC,
+			BuildUtilities.getFeatCat(), pObj, "TestPsion 1");
 		pObj = cna.getAbility();
 		BonusAddition.applyBonus("SPELLKNOWN|CLASS=TestPsion;LEVEL=1|1", "TestPsion 1",
 			aPC, pObj);
 		aPC.calcActiveBonuses();
 		assertEquals("Should get 1 bonus known spells", 1, (int) aPC
 			.getTotalBonusTo("SPELLKNOWN", "CLASS.TestPsion;LEVEL.1"));
-		AbstractCharacterTestCase.applyAbility(aPC, AbilityCategory.FEAT, pObj, "TestPsion 1");
+		AbstractCharacterTestCase.applyAbility(aPC, BuildUtilities.getFeatCat(), pObj, "TestPsion 1");
 		BonusAddition.applyBonus("SPELLKNOWN|CLASS=TestPsion;LEVEL=1|1", "TestPsion 1",
 			aPC, pObj);
 		aPC.calcActiveBonuses();
 		assertEquals("Should get 4 bonus known spells", (2 * 2), (int) aPC
 			.getTotalBonusTo("SPELLKNOWN", "CLASS.TestPsion;LEVEL.1"));
-		AbstractCharacterTestCase.applyAbility(aPC, AbilityCategory.FEAT, pObj, "TestPsion 1");
+		AbstractCharacterTestCase.applyAbility(aPC, BuildUtilities.getFeatCat(), pObj, "TestPsion 1");
 		BonusAddition.applyBonus("SPELLKNOWN|CLASS=TestPsion;LEVEL=1|1", "TestPsion 1",
 			aPC, pObj);
 		aPC.calcActiveBonuses();
@@ -255,16 +258,15 @@ public class PObjectTest extends AbstractCharacterTestCase
 				"Toughness	CATEGORY:FEAT	TYPE:General	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:HP|CURRENTMAX|3", source);
 
 		Ability pObj = Globals.getContext().getReferenceContext()
-				.silentlyGetConstructedCDOMObject(Ability.class,
-						AbilityCategory.FEAT, "Toughness");
+			.getManufacturerId(BuildUtilities.getFeatCat()).getActiveObject("Toughness");
 		Globals.getContext().getReferenceContext().constructCDOMObject(Language.class, "Foo");
 		PlayerCharacter aPC = getCharacter();
 		int baseHP = aPC.hitPoints();
-		AbstractCharacterTestCase.applyAbility(aPC, AbilityCategory.FEAT, pObj, "");
+		AbstractCharacterTestCase.applyAbility(aPC, BuildUtilities.getFeatCat(), pObj, "");
 		aPC.calcActiveBonuses();
 		assertEquals("Should have added 3 HPs", baseHP + 3, aPC.hitPoints());
 
-		AbstractCharacterTestCase.applyAbility(aPC, AbilityCategory.FEAT, pObj, "");
+		AbstractCharacterTestCase.applyAbility(aPC, BuildUtilities.getFeatCat(), pObj, "");
 		aPC.calcActiveBonuses();
 		assertEquals("2 instances should have added 6 HPs", baseHP + 6, aPC
 			.hitPoints());
@@ -295,15 +297,14 @@ public class PObjectTest extends AbstractCharacterTestCase
 				null,
 				"Toughness	CATEGORY:FEAT	TYPE:General	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:HP|CURRENTMAX|3", source);
 		Ability pObj = Globals.getContext().getReferenceContext()
-				.silentlyGetConstructedCDOMObject(Ability.class,
-						AbilityCategory.FEAT, "Toughness");
+			.getManufacturerId(BuildUtilities.getFeatCat()).getActiveObject("Toughness");
 		PlayerCharacter aPC = getCharacter();
 		int baseHP = aPC.hitPoints();
-		AbstractCharacterTestCase.applyAbility(aPC, AbilityCategory.FEAT, pObj, "");
+		AbstractCharacterTestCase.applyAbility(aPC, BuildUtilities.getFeatCat(), pObj, "");
 		aPC.calcActiveBonuses();
 		assertEquals("Should have added 3 HPs", baseHP + 3, aPC.hitPoints());
 
-		AbstractCharacterTestCase.applyAbility(aPC, AbilityCategory.FEAT, pObj, "");
+		AbstractCharacterTestCase.applyAbility(aPC, BuildUtilities.getFeatCat(), pObj, "");
 		aPC.calcActiveBonuses();
 		assertEquals("2 instances should have added 6 HPs", baseHP + 6, aPC
 			.hitPoints());

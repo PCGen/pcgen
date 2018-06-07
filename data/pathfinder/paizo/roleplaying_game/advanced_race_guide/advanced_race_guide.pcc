@@ -42,6 +42,9 @@ COPYRIGHT:Pathfinder Roleplaying Game Advanced Race Guide Copyright 2012, Paizo 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+# support
+ABILITY:support/arg_abilities_class_um.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
+ABILITY:support/arg_abilities_class_acg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
 
 FORWARDREF:SPELL|Age Resistance (Lesser),Memory Lapse,Hydraulic Push
 
@@ -100,5 +103,5 @@ FORWARDREF:WEAPONPROF|Bomb,Sword Cane,Bardiche,Bec de Corbin,Bill,Glaive-Guisarm
 # Updated to work with version: -
 # MINVER:
 # MINDEVVER: 
-# COMMENTS: Errata applied (Update 1.0 — Release Date: 7/28/15)
+# COMMENTS: Errata applied (Update 1.0 ï¿½ Release Date: 7/28/15)
 

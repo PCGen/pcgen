@@ -35,9 +35,6 @@ public class PreKitTester extends AbstractDisplayPrereqTest implements Prerequis
 
 	private static final Class<Kit> KIT_CLASS = Kit.class;
 
-	/**
-	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
-	 */
 	@Override
 	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
 		throws PrerequisiteException

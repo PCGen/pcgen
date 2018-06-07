@@ -70,7 +70,7 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 	private final JLabel remainingLabel;
 	private final LangTreeViewModel treeViewModel;
 	private final FacadeListModel<LanguageFacade> listModel;
-	private final JListEx list;
+	private final JListEx<LanguageFacade> list;
 
 	public LanguageChooserDialog(Frame frame, LanguageChooserFacade chooser)
 	{
@@ -79,7 +79,7 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 		this.availTable = new JTreeViewTable<>();
 		this.remainingLabel = new JLabel();
 		this.treeViewModel = new LangTreeViewModel();
-		this.list = new JListEx();
+		this.list = new JListEx<>();
 		this.listModel = new FacadeListModel<>();
 
 		treeViewModel.setDelegate(chooser.getAvailableList());

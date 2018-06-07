@@ -31,7 +31,8 @@ public class DiceFormat implements FormatManager<Dice>
 	public Dice convert(String inputStr)
 	{
 		int dLoc = inputStr.indexOf("d");
-		int sides, quantity;
+		int sides;
+		int quantity;
 		if (dLoc == -1)
 		{
 			sides = 1;
@@ -104,10 +105,8 @@ public class DiceFormat implements FormatManager<Dice>
 	}
 
 	@Override
-	public boolean isDirect() {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean isDirect()
+	{
+		return true;
 	}
-
-
 }

@@ -211,24 +211,6 @@ public class ColorsPanel extends PCGenPrefsPanel
 				if (newColor != null)
 				{
 					source.setForeground(newColor);
-//
-//					if (source == prereqQualifyColor)
-//					{
-//						SettingsHandler
-//							.setPrereqQualifyColor(newColor.getRGB());
-//					}
-//					else if (source == prereqFailColor)
-//					{
-//						SettingsHandler.setPrereqFailColor(newColor.getRGB());
-//					}
-//					else if (source == featAutoColor)
-//					{
-//						SettingsHandler.setFeatAutoColor(newColor.getRGB());
-//					}
-//					else if (source == featVirtualColor)
-//					{
-//						SettingsHandler.setFeatVirtualColor(newColor.getRGB());
-//					}
 				}
 			}
 		}

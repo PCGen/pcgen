@@ -6,7 +6,7 @@ import pcgen.core.GameMode;
 import pcgen.persistence.lst.GameModeLstToken;
 
 /**
- * Class deals with DEITY Token
+ * Class deals with DISPLAYORDER Token
  */
 public class DisplayorderToken implements GameModeLstToken
 {

@@ -225,7 +225,6 @@ public abstract class AbstractAssociationFacetTest<CT, ST> extends
 	@Test
 	public void testObjRemoveUseless()
 	{
-		ST source1 = developSource(getTypeObj());
 		getFacet().remove(id, null);
 		testObjUnsetZeroCount();
 		testObjUnsetEmpty();

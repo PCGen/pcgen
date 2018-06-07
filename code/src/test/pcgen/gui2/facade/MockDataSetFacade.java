@@ -21,10 +21,10 @@ import java.util.List;
 
 import pcgen.core.AbilityCategory;
 import pcgen.core.GameMode;
+import pcgen.core.PCAlignment;
 import pcgen.core.PCClass;
 import pcgen.facade.core.AbilityCategoryFacade;
 import pcgen.facade.core.AbilityFacade;
-import pcgen.facade.core.AlignmentFacade;
 import pcgen.facade.core.BodyStructureFacade;
 import pcgen.facade.core.CampaignFacade;
 import pcgen.facade.core.ClassFacade;
@@ -100,7 +100,7 @@ public class MockDataSetFacade implements DataSetFacade
 	 * @see pcgen.core.facade.DataSetFacade#getAlignments()
 	 */
     @Override
-	public ListFacade<AlignmentFacade> getAlignments()
+	public ListFacade<PCAlignment> getAlignments()
 	{
 		// TODO Auto-generated method stub
 		return null;
@@ -299,6 +299,12 @@ public class MockDataSetFacade implements DataSetFacade
 	public MapFacade<AbilityCategoryFacade, ListFacade<AbilityFacade>> getAbilities()
 	{
 		return abilityMap;
+	}
+
+	@Override
+	public boolean hasDeityDomain()
+	{
+		return game.hasDeityDomain();
 	}
 
 }

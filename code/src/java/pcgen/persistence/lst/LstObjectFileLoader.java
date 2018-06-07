@@ -75,14 +75,6 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 	protected List<String> excludedObjects = new ArrayList<>();
 
 	/**
-	 * LstObjectFileLoader constructor.
-	 */
-	public LstObjectFileLoader()
-	{
-		super();
-	}
-
-	/**
 	 * This method loads the given list of LST files.
 	 * @param fileList containing the list of files to read
 	 * @throws PersistenceLayerException 

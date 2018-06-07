@@ -96,13 +96,13 @@ public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements
 					String errorText = "Invalid " + getTokenName() + ": " + value
 							+ "  PRExxx must be at the END of the Token";
 					Logging.errorPrint(errorText);
-					return new ParseResult.Fail(errorText, context);
+					return new ParseResult.Fail(errorText);
 				}
 				prereq = getPrerequisite(token);
 				if (prereq == null)
 				{
 					return new ParseResult.Fail("Error generating Prerequisite " + prereq
-						+ " in " + getFullName(), context);
+						+ " in " + getFullName());
 				}
 				int preStart = value.indexOf(token) - 1;
 				lang = value.substring(0, preStart);
@@ -121,7 +121,7 @@ public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements
 				{
 					return new ParseResult.Fail("Non-sensical situation was "
 						+ "encountered while parsing " + getTokenName()
-						+ ": When used, .CLEAR must be the first argument", context);
+						+ ": When used, .CLEAR must be the first argument");
 				}
 				context.getObjectContext().removeList(obj, ListKey.AUTO_LANGUAGE);
 			}
@@ -160,7 +160,7 @@ public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements
 				if (ref == null)
 				{
 					return new ParseResult.Fail("  Error was encountered while parsing "
-						+ getTokenName(), context);
+						+ getTokenName());
 				}
 				context.getObjectContext().addToList(obj, ListKey.AUTO_LANGUAGE,
 						new QualifiedObject<>(ref, prereq));
@@ -171,7 +171,7 @@ public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements
 		if (foundAny && foundOther)
 		{
 			return new ParseResult.Fail("Non-sensical " + getFullName()
-				+ ": Contains ANY and a specific reference: " + value, context);
+				+ ": Contains ANY and a specific reference: " + value);
 		}
 
 		return ParseResult.SUCCESS;

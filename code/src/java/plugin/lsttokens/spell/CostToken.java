@@ -58,7 +58,7 @@ public class CostToken extends AbstractNonEmptyToken<Spell> implements
 				if (cost.compareTo(BigDecimal.ZERO) <= 0)
 				{
 					return new ParseResult.Fail(getTokenName()
-						+ " requires a positive Integer", context);
+						+ " requires a positive Integer");
 				}
 				context.getObjectContext().put(spell, ObjectKey.COST, cost);
 			}
@@ -66,7 +66,7 @@ public class CostToken extends AbstractNonEmptyToken<Spell> implements
 			{
 				return new ParseResult.Fail(getTokenName()
 					+ " expected an integer.  Tag must be of the form: "
-					+ getTokenName() + ":<int>", context);
+					+ getTokenName() + ":<int>");
 			}
 		}
 		return ParseResult.SUCCESS;

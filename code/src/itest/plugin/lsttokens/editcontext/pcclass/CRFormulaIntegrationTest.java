@@ -31,8 +31,8 @@ public class CRFormulaIntegrationTest extends
 		AbstractFormulaIntegrationTestCase<PCClass>
 {
 
-	static CrformulaToken token = new CrformulaToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
+	private static CrformulaToken token = new CrformulaToken();
+	private static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

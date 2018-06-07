@@ -684,7 +684,7 @@ CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_ArmorProficiencyMedium|0
 CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_ShieldProficiency|0
 CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_BondedMount|0
 
-CATEGORY=Class|Paladin.MOD	DEFINE:AllowHolyAvenger|0				BONUS:VAR|AlignmentAuraLVL|PaladinLVL	BONUS:VAR|AllowHolyAvenger|1
+CATEGORY=Class|Paladin.MOD	DEFINE:AllowHolyAvenger|0				BONUS:VAR|AlignmentAuraLVL|PaladinLVL	BONUS:VAR|AllowHolyAvenger|1	DEFINE:HolyAvengerCL|0	BONUS:VAR|HolyAvengerCL|PaladinLVL	DEFINE:HolyAvengerSR|0	BONUS:VAR|HolyAvengerSR|5+PaladinLVL
 
 CATEGORY=Class|Paladin.MOD									BONUS:VAR|Paladin_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_ClassSkills=True
 CATEGORY=Class|Paladin.MOD									BONUS:VAR|Paladin_CF_BondedWeapon|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_BondedWeapon=True
@@ -868,6 +868,8 @@ CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_RogueTalents|0
 CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_TrapSense|0
 CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_MasterStrike|0
 CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_ClassSkills|0
+CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_WeaponProficiencies|0
+CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_ArmorProficiencies|0
 
 CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_TrapSense1|0
 CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_TrapSense2|0
@@ -937,6 +939,8 @@ CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_RogueTalents|1|TYPE=Boolean|P
 CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_TrapSense|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_TrapSense=True
 CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_MasterStrike|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_MasterStrike=True
 CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_ClassSkills=True
+CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_WeaponProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_WeaponProficiencies=True
+CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_ArmorProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_ArmorProficiencies=True
 # Old Style
 CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_UncannyDodge|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueUncannyDodge
 CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_ImprovedUncannyDodge|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueImprovedUncannyDodge
@@ -965,11 +969,18 @@ CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_RogueTalent20|1|TYPE=Boolean|
 ###Block:
 
 # Ability Name			Define						Modify VAR
-CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_WeaponProficiencies|0
 CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_ClassSkills|0
-CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_EschewMaterials|0
+CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_WeaponProficiencies|0
+CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_Spells|0
 CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_Bloodline|0
+CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_Cantrips|0
+CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_EschewMaterials|0
 
+CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineClassSkill|0
+
+CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineArcana|0
+
+CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlinePowers|0
 CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlinePower1|0
 CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlinePower3|0
 CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlinePower9|0
@@ -989,6 +1000,8 @@ CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineSpell8|0
 CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineSpell9|0
 
 CATEGORY=Class|Sorcerer.MOD								BONUS:VAR|Sorcerer_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_ClassSkills=True
+CATEGORY=Class|Sorcerer.MOD								BONUS:VAR|Sorcerer_CF_BloodlineArcana|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineArcana=True
+CATEGORY=Class|Sorcerer.MOD								BONUS:VAR|Sorcerer_CF_BloodlinePowers|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlinePowers=True
 CATEGORY=Class|Sorcerer.MOD								BONUS:VAR|Sorcerer_CF_BloodlinePower1|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlinePower1=True
 CATEGORY=Class|Sorcerer.MOD								BONUS:VAR|Sorcerer_CF_BloodlinePower3|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlinePower3=True
 CATEGORY=Class|Sorcerer.MOD								BONUS:VAR|Sorcerer_CF_BloodlinePower9|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlinePower9=True
@@ -1010,6 +1023,9 @@ CATEGORY=Class|Sorcerer.MOD								BONUS:VAR|Sorcerer_CF_BloodlineSpell7|1|TYPE=
 CATEGORY=Class|Sorcerer.MOD								BONUS:VAR|Sorcerer_CF_BloodlineSpell8|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineSpell8=True
 CATEGORY=Class|Sorcerer.MOD								BONUS:VAR|Sorcerer_CF_BloodlineSpell9|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineSpell9=True
 CATEGORY=Class|Sorcerer.MOD								BONUS:VAR|Sorcerer_CF_Bloodline|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_Bloodline=True
+CATEGORY=Class|Sorcerer.MOD								BONUS:VAR|Sorcerer_CF_BloodlineClassSkill|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineClassSkill=True
+CATEGORY=Class|Sorcerer.MOD								BONUS:VAR|Sorcerer_CF_Spells|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_Spells=True
+CATEGORY=Class|Sorcerer.MOD								BONUS:VAR|Sorcerer_CF_Cantrips|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_Cantrips=True
 
 # Old Style
 CATEGORY=Class|Sorcerer.MOD								BONUS:VAR|Sorcerer_CF_WeaponProficiencies|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SorcererWeaponProficiencies
@@ -1030,6 +1046,8 @@ CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_ArcaneBond|0
 CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_Cantrips|0
 CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_BonusFeats|0
 CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_SpellBook|0
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_Familiar|0
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_BondedObject|0
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_ClassSkills=True
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_ArcaneSchool|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_ArcaneSchool=True
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_WeaponProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_WeaponProficiencies=True
@@ -1038,6 +1056,8 @@ CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_ArcaneBond|1|TYPE=Boolean|P
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_Cantrips|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_Cantrips=True
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_BonusFeats|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_BonusFeats=True
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_SpellBook|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_SpellBook=True
+CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_Familiar|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_Familiar=True
+CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_BondedObject|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_BondedObject=True
 # Old Style
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_ArcaneSchool|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_WeaponProficiencies|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WizardWeaponProficiencies
@@ -1046,6 +1066,16 @@ CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_ArcaneBond|1|TYPE=Boolean|P
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_Cantrips|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WizardCantrips
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_BonusFeats|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WizardBonusFeats
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_SpellBook|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WizardSpellBook
+
+CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_AbjurationOppositionSchool|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_AbjurationOppositionSchool=True
+CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_ConjurationOppositionSchool|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_ConjurationOppositionSchool=True
+CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_DivinationOppositionSchool|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_DivinationOppositionSchool=True
+CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_EnchantmentOppositionSchool|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_EnchantmentOppositionSchool=True
+CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_EvocationOppositionSchool|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_EvocationOppositionSchool=True
+CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_IllusionOppositionSchool|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_IllusionOppositionSchool=True
+CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_NecromancyOppositionSchool|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_NecromancyOppositionSchool=True
+CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_TransmutationOppositionSchool|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_TransmutationOppositionSchool=True
+
 ###Block: Wizard School Replacement Support
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_AcidDart|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_AcidDart=True
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_AuraOfDespair|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_AuraOfDespair=True
@@ -1066,7 +1096,14 @@ CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_ProtectiveWard|1|TYPE=Boole
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_ScryingAdept|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_ScryingAdept=True
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_TelekineticFist|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_TelekineticFist=True
 
-
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_AbjurationOppositionSchool|0
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_ConjurationOppositionSchool|0
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_DivinationOppositionSchool|0
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_EnchantmentOppositionSchool|0
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_EvocationOppositionSchool|0
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_IllusionOppositionSchool|0
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_NecromancyOppositionSchool|0
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_TransmutationOppositionSchool|0
 
 CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_AcidDart|0
 CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_AuraOfDespair|0

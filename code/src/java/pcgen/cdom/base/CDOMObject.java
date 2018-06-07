@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007 Tom Parker <thpr@users.sourceforge.net>
+ * Copyright (c) 2007-18 Tom Parker <thpr@users.sourceforge.net>
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -36,6 +36,8 @@ import pcgen.base.util.DoubleKeyMapToList;
 import pcgen.base.util.Indirect;
 import pcgen.base.util.MapToList;
 import pcgen.base.util.ObjectContainer;
+import pcgen.cdom.content.RemoteModifier;
+import pcgen.cdom.content.VarModifier;
 import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.enumeration.FactSetKey;
 import pcgen.cdom.enumeration.FormulaKey;
@@ -45,6 +47,8 @@ import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.VariableKey;
+import pcgen.cdom.formula.PCGenScoped;
+import pcgen.cdom.helper.InfoBoolean;
 import pcgen.cdom.util.FactSetKeyMapToList;
 import pcgen.cdom.util.ListKeyMapToList;
 import pcgen.cdom.util.MapKeyMap;
@@ -55,8 +59,13 @@ import pcgen.core.analysis.BonusActivation;
 import pcgen.core.bonus.BonusObj;
 
 public abstract class CDOMObject extends ConcretePrereqObject implements
-		Cloneable, BonusContainer, Loadable, Reducible, VarScoped
+		Cloneable, BonusContainer, Loadable, Reducible, PCGenScoped, VarHolder
 {
+
+	/**
+	 * An Empty String array to support VarHolder
+	 */
+	private static final String[] EMPTY_STRING_ARRAY = new String[0];
 
 	private URI sourceURI = null;
 	
@@ -325,7 +334,9 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		{
 			return null;
 		}
-		return (Indirect<FT>) factChar.get(key);
+		@SuppressWarnings("unchecked")
+		Indirect<FT> indirect = (Indirect<FT>) factChar.get(key);
+		return indirect;
 	}
 
 	public final <FT> FT getResolved(FactKey<FT> key)
@@ -334,6 +345,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		{
 			return null;
 		}
+		@SuppressWarnings("unchecked")
 		Indirect<FT> indirect = (Indirect<FT>) factChar.get(key);
 		if (indirect == null)
 		{
@@ -905,12 +917,6 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 			: cdomListMods.getKeySet();
 	}
 
-	@Override
-	public final String getLSTformat()
-	{
-		return getKeyName();
-	}
-
 	public final void overlayCDOMObject(CDOMObject cdo)
 	{
 		addAllPrerequisites(cdo.getPrerequisiteList());
@@ -1220,4 +1226,143 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		return null;
 	}
 
+	@Override
+	public boolean hasPrerequisites()
+	{
+		return super.hasPrerequisites() || (getListFor(ListKey.ALLOW) != null)
+			|| (getListFor(ListKey.ENABLE) != null);
+	}
+
+	@Override
+	public boolean isAvailable(PlayerCharacter aPC)
+	{
+		List<InfoBoolean> prerequisites = getListFor(ListKey.ALLOW);
+		if ((prerequisites == null) || prerequisites.isEmpty())
+		{
+			return true;
+		}
+		for (InfoBoolean info : prerequisites)
+		{
+			if (!aPC.solve(info.getFormula()))
+			{
+				return false;
+			}
+		}
+		return true;
+	}
+
+	@Override
+	public boolean isActive(PlayerCharacter aPC)
+	{
+		List<InfoBoolean> requirements = getListFor(ListKey.ENABLE);
+		if ((requirements == null) || requirements.isEmpty())
+		{
+			return true;
+		}
+		for (InfoBoolean info  : requirements)
+		{
+			if (!aPC.solve(info.getFormula()))
+			{
+				return false;
+			}
+		}
+		return true;
+	}
+
+	/*
+	 * Begin implementation of methods for VarHolder interface
+	 */
+	@Override
+	public void addModifier(VarModifier<?> vm)
+	{
+		addToListFor(ListKey.MODIFY, vm);
+	}
+
+	@Override
+	public VarModifier<?>[] getModifierArray()
+	{
+		List<VarModifier<?>> list = getListFor(ListKey.MODIFY);
+		return (list == null) ? VarModifier.EMPTY_VARMODIFIER
+			: list.toArray(new VarModifier[list.size()]);
+	}
+
+	@Override
+	public void addRemoteModifier(RemoteModifier<?> vm)
+	{
+		addToListFor(ListKey.REMOTE_MODIFIER, vm);
+	}
+
+	@Override
+	public RemoteModifier<?>[] getRemoteModifierArray()
+	{
+		List<RemoteModifier<?>> list = getListFor(ListKey.REMOTE_MODIFIER);
+		return (list == null) ? RemoteModifier.EMPTY_REMOTEMODIFIER
+			: list.toArray(new RemoteModifier[list.size()]);
+	}
+
+	@Override
+	public void addGrantedVariable(String variableName)
+	{
+		addToListFor(ListKey.GRANTEDVARS, variableName);
+	}
+
+	@Override
+	public String[] getGrantedVariableArray()
+	{
+		List<String> list = getListFor(ListKey.GRANTEDVARS);
+		return (list == null) ? EMPTY_STRING_ARRAY
+			: list.toArray(new String[list.size()]);
+	}
+	/*
+	 * End implementation of methods supporting VarHolder.
+	 */
+
+	/**
+	 * Returns the local child of the given child type and child name. Returns null if no
+	 * such type or no child of that type with the given name exists.
+	 * 
+	 * @param childType
+	 *            The child type for which the child should be returned
+	 * @param childName
+	 *            The name of the child of the given type that should be returned
+	 * @return The local child of the given child type and child name
+	 */
+	@Override
+	@SuppressWarnings("PMD.EmptyMethodInAbstractClassShouldBeAbstract")
+	public PCGenScoped getLocalChild(String childType, String childName)
+	{
+		//none by default
+		return null;
+	}
+
+	/**
+	 * Returns the List of child types that this CDOMObject contains.
+	 * 
+	 * Contract for implementations of this method: Will not return null (return an empty
+	 * list instead).
+	 * 
+	 * @return The List of child types that this CDOMObject contains
+	 */
+	@Override
+	@SuppressWarnings("PMD.EmptyMethodInAbstractClassShouldBeAbstract")
+	public List<String> getChildTypes()
+	{
+		return Collections.emptyList();
+	}
+
+	/**
+	 * Returns the List of children of the given child type. Returns null if this
+	 * CDOMObject has no children of the given type.
+	 * 
+	 * @param childType
+	 *            The child type for which the list of children should be returned
+	 * @return The List of children of the given child type
+	 */
+	@Override
+	@SuppressWarnings("PMD.EmptyMethodInAbstractClassShouldBeAbstract")
+	public List<PCGenScoped> getChildren(String childType)
+	{
+		//none by default
+		return null;
+	}
 }

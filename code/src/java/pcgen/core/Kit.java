@@ -31,6 +31,7 @@ import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.helper.AllowUtilities;
 import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.kit.BaseKit;
 import pcgen.core.kit.KitStat;
@@ -305,8 +306,7 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 
 		for (BaseKit bk : getSafeListFor(ListKey.KIT_TASKS))
 		{
-			if (!PrereqHandler
-				.passesAll(bk.getPrerequisiteList(), tempPC, this))
+			if (!PrereqHandler.passesAll(bk, tempPC, this))
 			{
 				continue;
 			}
@@ -359,7 +359,7 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 		StringBuilder info = new StringBuilder(255);
 		info.append("<html>");
 		info.append("<b><font size=+1>");
-		info.append(OutputNameFormatting.piString(this, false));
+		info.append(OutputNameFormatting.piString(this));
 		info.append("</font></b><br>\n");
 
 		String aString = getPreReqHTMLStrings(aPC);
@@ -401,8 +401,11 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 
 	private String getPreReqHTMLStrings(PlayerCharacter aPC)
 	{
-		return PrerequisiteUtilities.preReqHTMLStringsForList(aPC, this,
-			getPrerequisiteList(), false);
+		StringBuilder sb = new StringBuilder();
+		sb.append(PrerequisiteUtilities.preReqHTMLStringsForList(aPC, this,
+			getPrerequisiteList(), false));
+		sb.append(AllowUtilities.getAllowInfo(aPC, this));
+		return sb.toString();
 	}
 
 	public static void applyKit(final Kit aKit, final PlayerCharacter aPC)
