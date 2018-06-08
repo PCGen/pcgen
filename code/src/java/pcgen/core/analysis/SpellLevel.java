@@ -100,8 +100,17 @@ public final class SpellLevel
 			List<Integer> levelList = wLevelInfo.getListFor(list);
 			if (levelList != null)
 			{
-				// We assume those calling this method know what they are doing!
-				return levelList.get(0);
+				// In specific situations, this list may not be sorted, so we won't assume it is
+				int lowestLevel = levelList.get(0);
+				for (int i = 1; i < levelList.size(); i++)
+				{
+					int level = levelList.get(i);
+					if (level < lowestLevel)
+					{
+						lowestLevel = level;
+					}
+				}
+				return lowestLevel;
 			}
 		}
 		return -1;
