@@ -8,15 +8,15 @@ Planar Traveler's Kit	TYPE:Gear.Kit	COST:350	WT:3		SOURCEPAGE:p.7
 
 ###Block: Gear
 # Equipment Name			Unique Key					Type		Cost		Weight	Source Page
-Angel quill arrowhead		KEY:Angel quill arrowhead		TYPE:Gear	COST:10	WT:0		SOURCEPAGE:p.18
-Caltrops, cold iron		KEY:Caltrops (cold iron)		TYPE:Gear	COST:2	WT:2		SOURCEPAGE:p.18
-Crusader's cross, standard	KEY:Crusader's cross (standard)	TYPE:Gear	COST:1	WT:0		SOURCEPAGE:p.18
-Crusader's cross, masterwork	KEY:Crusader's cross (masterwork)	TYPE:Gear	COST:50	WT:0		SOURCEPAGE:p.18
-Holy fountain firework		KEY:Holy fountain firework		TYPE:Gear	COST:110	WT:1		SOURCEPAGE:p.18
-Portable altar, standard	KEY:Portable altar (standard)		TYPE:Gear	COST:250	WT:40		SOURCEPAGE:p.18
-Portable altar, masterwork	KEY:Portable altar (masterwork)	TYPE:Gear	COST:400	WT:40		SOURCEPAGE:p.18
-Sun cinder				KEY:Sun cinder				TYPE:Gear	COST:25	WT:1		SOURCEPAGE:p.18
-Slime slow				KEY:Slime slow				TYPE:Gear	COST:15	WT:0.5	SOURCEPAGE:p.18
+Angel Quill Arrowhead		KEY:Angel Quill Qrrowhead		TYPE:Gear	COST:10	WT:0		SOURCEPAGE:p.18
+Caltrops (Cold Iron)		KEY:Caltrops (Cold Iron)		TYPE:Gear	COST:2	WT:2		SOURCEPAGE:p.18
+Crusader's Cross, Standard	KEY:Crusader's Cross (Standard)	TYPE:Gear	COST:1	WT:0		SOURCEPAGE:p.18
+Crusader's Cross, Masterwork	KEY:Crusader's Cross (Masterwork)	TYPE:Gear	COST:50	WT:0		SOURCEPAGE:p.18
+Holy Fountain Firework		KEY:Holy Fountain Firework		TYPE:Gear	COST:110	WT:1		SOURCEPAGE:p.18
+Portable Altar, Standard	KEY:Portable Altar (Standard)		TYPE:Gear	COST:250	WT:40		SOURCEPAGE:p.18
+Portable Altar, Masterwork	KEY:Portable Altar (Masterwork)	TYPE:Gear	COST:400	WT:40		SOURCEPAGE:p.18
+Sun Cinder				KEY:Sun Cinder				TYPE:Gear	COST:25	WT:1		SOURCEPAGE:p.18
+Slime Slow				KEY:Slime Slow				TYPE:Gear	COST:15	WT:0.5	SOURCEPAGE:p.18
 
 ###Block: Magic Items
 # Equipment Name
@@ -24,12 +24,12 @@ Dagger (Base).COPY=Dagger of Repossession	VISIBLE:YES	EQMOD:Material ~ Steel
 
 ###Block:
 # Equipment Name			Product Identity?	Type					Cost		Weight	Source, Long Desc.			Source, Short Desc.	Source Page
-Azata's Whimsy			NAMEISPI:YES	TYPE:SLOT_Neck.Magic.Amulet	COST:8000	WT:0												SOURCEPAGE:p.28
-Bastion Banner						TYPE:SLOT_None.Magic		COST:182000	WT:3												SOURCEPAGE:p.28
-Caltrop Bead (Iron)					TYPE:SLOT_None.Magic		COST:40	WT:2												SOURCEPAGE:p.28
-Caltrop Bead (Cold Iron)				TYPE:SLOT_None.Magic		COST:80	WT:2												SOURCEPAGE:p.28
+Azata's Whimsy			NAMEISPI:YES	TYPE:Wondrous.SLOT_Neck.Magic.Amulet	COST:8000	WT:0												SOURCEPAGE:p.28
+Bastion Banner						TYPE:Wondrous.SLOT_None.Magic		COST:182000	WT:3												SOURCEPAGE:p.28
+Caltrop Bead (Iron)					TYPE:Wondrous.SLOT_None.Magic		COST:40	WT:2												SOURCEPAGE:p.28
+Caltrop Bead (Cold Iron)				TYPE:Wondrous.SLOT_None.Magic		COST:80	WT:2												SOURCEPAGE:p.28
 Dagger of Repossession.MOD									COST:14702			SOURCELONG:Demon Hunter's Handbook	SOURCESHORT:DHH		SOURCEPAGE:p.29
-Dawnflower's Light					TYPE:SLOT_None.Magic		COST:40000	WT:2												SOURCEPAGE:p.29
-Deadlimb Pins						TYPE:SLOT_None.Magic		COST:60000	WT:1												SOURCEPAGE:p.29
-Thorned Manacles						TYPE:SLOT_Wrist.Magic.Bracers	COST:35600	WT:2												SOURCEPAGE:p.29
-Warding Lips						TYPE:SLOT_None.Magic		COST:1900	WT:0												SOURCEPAGE:p.29
+Dawnflower's Light					TYPE:Wondrous.SLOT_None.Magic		COST:40000	WT:2												SOURCEPAGE:p.29
+Deadlimb Pins						TYPE:Wondrous.SLOT_None.Magic		COST:60000	WT:1												SOURCEPAGE:p.29
+Thorned Manacles						TYPE:Wondrous.SLOT_Wrist.Magic.Bracers	COST:35600	WT:2												SOURCEPAGE:p.29
+Warding Lips						TYPE:Wondrous.SLOT_None.Magic		COST:1900	WT:0												SOURCEPAGE:p.29
