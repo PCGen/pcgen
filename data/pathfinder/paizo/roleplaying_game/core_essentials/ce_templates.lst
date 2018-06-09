@@ -210,25 +210,25 @@ Pincers 5 (Huge)			VISIBLE:NO	PRESIZEEQ:H																		NATURALATTACKS:Pincer
 Pincers 5 (Gargantuan)		VISIBLE:NO	PRESIZEEQ:G																		NATURALATTACKS:Pincers,Weapon.Natural.NaturalSecondary.Weapon Group Natural.Melee.NaturalSecondary.Finesseable.Bludgeoning,*5,2d8
 Pincers 5 (Colossal)		VISIBLE:NO	PRESIZEEQ:C																		NATURALATTACKS:Pincers,Weapon.Natural.NaturalSecondary.Weapon Group Natural.Melee.NaturalSecondary.Finesseable.Bludgeoning,*5,4d6
 # x6
-Pincers 6 (Fine)			VISIBLE:NO	PRESIZEEQ:F																		NATURALATTACKS:Pincers,Weapon.Natural.NaturalSecondary.Weapon Group Natural.Melee.NaturalSecondary.Finesseable.Bludgeoning,*6,1
-Pincers 6 (Diminutive)		VISIBLE:NO	PRESIZEEQ:D																		NATURALATTACKS:Pincers,Weapon.Natural.NaturalSecondary.Weapon Group Natural.Melee.NaturalSecondary.Finesseable.Bludgeoning,*6,1d2
-Pincers 6 (Tiny)			VISIBLE:NO	PRESIZEEQ:T																		NATURALATTACKS:Pincers,Weapon.Natural.NaturalSecondary.Weapon Group Natural.Melee.NaturalSecondary.Finesseable.Bludgeoning,*6,1d3
-Pincers 6 (Small)			VISIBLE:NO	PRESIZEEQ:S																		NATURALATTACKS:Pincers,Weapon.Natural.NaturalSecondary.Weapon Group Natural.Melee.NaturalSecondary.Finesseable.Bludgeoning,*6,1d4
-Pincers 6 (Medium)		VISIBLE:NO	PRESIZEEQ:M																		NATURALATTACKS:Pincers,Weapon.Natural.NaturalSecondary.Weapon Group Natural.Melee.NaturalSecondary.Finesseable.Bludgeoning,*6,1d6
-Pincers 6 (Large)			VISIBLE:NO	PRESIZEEQ:L																		NATURALATTACKS:Pincers,Weapon.Natural.NaturalSecondary.Weapon Group Natural.Melee.NaturalSecondary.Finesseable.Bludgeoning,*6,1d8
-Pincers 6 (Huge)			VISIBLE:NO	PRESIZEEQ:H																		NATURALATTACKS:Pincers,Weapon.Natural.NaturalSecondary.Weapon Group Natural.Melee.NaturalSecondary.Finesseable.Bludgeoning,*6,2d6
-Pincers 6 (Gargantuan)		VISIBLE:NO	PRESIZEEQ:G																		NATURALATTACKS:Pincers,Weapon.Natural.NaturalSecondary.Weapon Group Natural.Melee.NaturalSecondary.Finesseable.Bludgeoning,*6,2d8
-Pincers 6 (Colossal)		VISIBLE:NO	PRESIZEEQ:C																		NATURALATTACKS:Pincers,Weapon.Natural.NaturalSecondary.Weapon Group Natural.Melee.NaturalSecondary.Finesseable.Bludgeoning,*6,4d6
+Pincers 6 (Fine)			VISIBLE:EXPORT	PRESIZEEQ:F																		NATURALATTACKS:Pincers,Weapon.Natural.NaturalSecondary.Weapon Group Natural.Melee.NaturalSecondary.Finesseable.Bludgeoning,*6,1
+Pincers 6 (Diminutive)		VISIBLE:EXPORT	PRESIZEEQ:D																		NATURALATTACKS:Pincers,Weapon.Natural.NaturalSecondary.Weapon Group Natural.Melee.NaturalSecondary.Finesseable.Bludgeoning,*6,1d2
+Pincers 6 (Tiny)			VISIBLE:EXPORT	PRESIZEEQ:T																		NATURALATTACKS:Pincers,Weapon.Natural.NaturalSecondary.Weapon Group Natural.Melee.NaturalSecondary.Finesseable.Bludgeoning,*6,1d3
+Pincers 6 (Small)			VISIBLE:EXPORT	PRESIZEEQ:S																		NATURALATTACKS:Pincers,Weapon.Natural.NaturalSecondary.Weapon Group Natural.Melee.NaturalSecondary.Finesseable.Bludgeoning,*6,1d4
+Pincers 6 (Medium)		VISIBLE:EXPORT	PRESIZEEQ:M																		NATURALATTACKS:Pincers,Weapon.Natural.NaturalSecondary.Weapon Group Natural.Melee.NaturalSecondary.Finesseable.Bludgeoning,*6,1d6
+Pincers 6 (Large)			VISIBLE:EXPORT	PRESIZEEQ:L																		NATURALATTACKS:Pincers,Weapon.Natural.NaturalSecondary.Weapon Group Natural.Melee.NaturalSecondary.Finesseable.Bludgeoning,*6,1d8
+Pincers 6 (Huge)			VISIBLE:EXPORT	PRESIZEEQ:H																		NATURALATTACKS:Pincers,Weapon.Natural.NaturalSecondary.Weapon Group Natural.Melee.NaturalSecondary.Finesseable.Bludgeoning,*6,2d6
+Pincers 6 (Gargantuan)		VISIBLE:EXPORT	PRESIZEEQ:G																		NATURALATTACKS:Pincers,Weapon.Natural.NaturalSecondary.Weapon Group Natural.Melee.NaturalSecondary.Finesseable.Bludgeoning,*6,2d8
+Pincers 6 (Colossal)		VISIBLE:EXPORT	PRESIZEEQ:C																		NATURALATTACKS:Pincers,Weapon.Natural.NaturalSecondary.Weapon Group Natural.Melee.NaturalSecondary.Finesseable.Bludgeoning,*6,4d6
 # x7
-Pincers 7 (Fine)			VISIBLE:NO	PRESIZEEQ:F																		NATURALATTACKS:Pincers,Weapon.Natural.NaturalSecondary.Weapon Group Natural.Melee.NaturalSecondary.Finesseable.Bludgeoning,*7,1
-Pincers 7 (Diminutive)		VISIBLE:NO	PRESIZEEQ:D																		NATURALATTACKS:Pincers,Weapon.Natural.NaturalSecondary.Weapon Group Natural.Melee.NaturalSecondary.Finesseable.Bludgeoning,*7,1d2
-Pincers 7 (Tiny)			VISIBLE:NO	PRESIZEEQ:T																		NATURALATTACKS:Pincers,Weapon.Natural.NaturalSecondary.Weapon Group Natural.Melee.NaturalSecondary.Finesseable.Bludgeoning,*7,1d3
-Pincers 7 (Small)			VISIBLE:NO	PRESIZEEQ:S																		NATURALATTACKS:Pincers,Weapon.Natural.NaturalSecondary.Weapon Group Natural.Melee.NaturalSecondary.Finesseable.Bludgeoning,*7,1d4
-Pincers 7 (Medium)		VISIBLE:NO	PRESIZEEQ:M																		NATURALATTACKS:Pincers,Weapon.Natural.NaturalSecondary.Weapon Group Natural.Melee.NaturalSecondary.Finesseable.Bludgeoning,*7,1d6
-Pincers 7 (Large)			VISIBLE:NO	PRESIZEEQ:L																		NATURALATTACKS:Pincers,Weapon.Natural.NaturalSecondary.Weapon Group Natural.Melee.NaturalSecondary.Finesseable.Bludgeoning,*7,1d8
-Pincers 7 (Huge)			VISIBLE:NO	PRESIZEEQ:H																		NATURALATTACKS:Pincers,Weapon.Natural.NaturalSecondary.Weapon Group Natural.Melee.NaturalSecondary.Finesseable.Bludgeoning,*7,2d6
-Pincers 7 (Gargantuan)		VISIBLE:NO	PRESIZEEQ:G																		NATURALATTACKS:Pincers,Weapon.Natural.NaturalSecondary.Weapon Group Natural.Melee.NaturalSecondary.Finesseable.Bludgeoning,*7,2d8
-Pincers 7 (Colossal)		VISIBLE:NO	PRESIZEEQ:C																		NATURALATTACKS:Pincers,Weapon.Natural.NaturalSecondary.Weapon Group Natural.Melee.NaturalSecondary.Finesseable.Bludgeoning,*7,4d6
+Pincers 7 (Fine)			VISIBLE:EXPORT	PRESIZEEQ:F																		NATURALATTACKS:Pincers,Weapon.Natural.NaturalSecondary.Weapon Group Natural.Melee.NaturalSecondary.Finesseable.Bludgeoning,*7,1
+Pincers 7 (Diminutive)		VISIBLE:EXPORT	PRESIZEEQ:D																		NATURALATTACKS:Pincers,Weapon.Natural.NaturalSecondary.Weapon Group Natural.Melee.NaturalSecondary.Finesseable.Bludgeoning,*7,1d2
+Pincers 7 (Tiny)			VISIBLE:EXPORT	PRESIZEEQ:T																		NATURALATTACKS:Pincers,Weapon.Natural.NaturalSecondary.Weapon Group Natural.Melee.NaturalSecondary.Finesseable.Bludgeoning,*7,1d3
+Pincers 7 (Small)			VISIBLE:EXPORT	PRESIZEEQ:S																		NATURALATTACKS:Pincers,Weapon.Natural.NaturalSecondary.Weapon Group Natural.Melee.NaturalSecondary.Finesseable.Bludgeoning,*7,1d4
+Pincers 7 (Medium)		VISIBLE:EXPORT	PRESIZEEQ:M																		NATURALATTACKS:Pincers,Weapon.Natural.NaturalSecondary.Weapon Group Natural.Melee.NaturalSecondary.Finesseable.Bludgeoning,*7,1d6
+Pincers 7 (Large)			VISIBLE:EXPORT	PRESIZEEQ:L																		NATURALATTACKS:Pincers,Weapon.Natural.NaturalSecondary.Weapon Group Natural.Melee.NaturalSecondary.Finesseable.Bludgeoning,*7,1d8
+Pincers 7 (Huge)			VISIBLE:EXPORT	PRESIZEEQ:H																		NATURALATTACKS:Pincers,Weapon.Natural.NaturalSecondary.Weapon Group Natural.Melee.NaturalSecondary.Finesseable.Bludgeoning,*7,2d6
+Pincers 7 (Gargantuan)		VISIBLE:EXPORT	PRESIZEEQ:G																		NATURALATTACKS:Pincers,Weapon.Natural.NaturalSecondary.Weapon Group Natural.Melee.NaturalSecondary.Finesseable.Bludgeoning,*7,2d8
+Pincers 7 (Colossal)		VISIBLE:EXPORT	PRESIZEEQ:C																		NATURALATTACKS:Pincers,Weapon.Natural.NaturalSecondary.Weapon Group Natural.Melee.NaturalSecondary.Finesseable.Bludgeoning,*7,4d6
 # Tail Slap - 1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 4d6 B Secondary
 # x1 (default)
 Tail Slap 1 (Fine)		VISIBLE:NO	PRESIZEEQ:F																		NATURALATTACKS:Tail Slap,Weapon.Natural.NaturalSecondary.Weapon Group Natural.Melee.NaturalSecondary.Finesseable.Bludgeoning,*1,1
