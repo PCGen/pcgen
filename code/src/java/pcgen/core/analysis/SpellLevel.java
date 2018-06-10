@@ -22,6 +22,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.Collections;
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMList;
@@ -101,16 +102,7 @@ public final class SpellLevel
 			if (levelList != null)
 			{
 				// In specific situations, this list may not be sorted, so we won't assume it is
-				int lowestLevel = levelList.get(0);
-				for (int i = 1; i < levelList.size(); i++)
-				{
-					int level = levelList.get(i);
-					if (level < lowestLevel)
-					{
-						lowestLevel = level;
-					}
-				}
-				return lowestLevel;
+				return Collections.min(levelList);
 			}
 		}
 		return -1;
