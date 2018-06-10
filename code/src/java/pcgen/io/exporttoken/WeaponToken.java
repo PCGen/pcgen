@@ -1299,7 +1299,8 @@ public class WeaponToken extends Token
 			}
 		}
 
-		if (weaponString.indexOf("/") >-1) {
+		if (weaponString.indexOf("/") >-1) 
+		{
 			int i = weaponString.indexOf("/");
 			boolean progress = eq.getSafe(ObjectKey.ATTACKS_PROGRESS);
 			int bonusProgress = (int)eq.bonusTo(pc, "WEAPON", "ATTACKSPROGRESS", true);
