@@ -1310,7 +1310,7 @@ public class WeaponToken extends Token
 			}
 			if (!progress) // a natural weapon or other weapon with attack progression turned off
 			{
-				weaponString = weaponString.substring(0 , i);
+				weaponString = weaponString.substring(0, i);
 			}
 			
 		}
