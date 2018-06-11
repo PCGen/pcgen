@@ -14,3 +14,14 @@ MASTERBONUSRACE:Familiar (Penguin)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Fam
 MASTERBONUSRACE:Familiar (Petrifern)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Petrifern)
 MASTERBONUSRACE:Familiar (Pufferfish)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Pufferfish)
 MASTERBONUSRACE:Familiar (Wallaby)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Wallaby)
+
+
+FOLLOWER:LeshyStatBonus=1			TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Leshy Familiar ~ Stat Bonus
+FOLLOWER:PaladinIsChosenOne=1			TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Religious Mentor ~ Familiar	ABILITY:Archetype|AUTOMATIC|Familiar Archetype ~ Emissary
+FOLLOWER:FamiliarBondFeatActive=1		TYPE:Familiar	ABILITY:Archetype|AUTOMATIC|Familiar Archetype ~ Feat-Granted Familiar	BONUS:VAR|FamiliarGrantedBonus_1|-1|PREVAREQ:FamiliarBondFeatActive,1	BONUS:VAR|FamiliarGrantedBonus_2|-2|PREVAREQ:FamiliarBondFeatActive,1	BONUS:VAR|FamiliarGrantedBonus_3|-3|PREVAREQ:FamiliarBondFeatActive,1	BONUS:VAR|FamiliarGrantedBonus_4|-4|PREVAREQ:FamiliarBondFeatActive,1
+FOLLOWER:WisdomPatronFamiliar=1		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Wisdom Patron Familiar
+FOLLOWER:ApplySchoolFamiliar=1		TYPE:Familiar	ABILITY:Archetype|AUTOMATIC|Familiar Archetype ~ School Familiar
+FOLLOWER:DeceptionPatronFamiliar=1		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Deception Patron Familiar
+FOLLOWER:WizardIsSoulBinder=1			TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Soulbound Familiar ~ Lost Talents
+
+
