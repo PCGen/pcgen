@@ -946,7 +946,7 @@ BIO
 				</to_hit>
 				<feat></feat>
 				<hand>Primary</hand>
-				<num_attacks>4</num_attacks>
+				<num_attacks>1</num_attacks>
 				<reach>30</reach>
 				<size>M</size>
 				<special_properties></special_properties>
@@ -979,7 +979,7 @@ BIO
 				</to_hit>
 				<feat></feat>
 				<hand>Primary</hand>
-				<num_attacks>5</num_attacks>
+				<num_attacks>2</num_attacks>
 				<reach>20</reach>
 				<size>M</size>
 				<special_properties></special_properties>
@@ -1012,7 +1012,7 @@ BIO
 				</to_hit>
 				<feat></feat>
 				<hand>Primary</hand>
-				<num_attacks>4</num_attacks>
+				<num_attacks>1</num_attacks>
 				<reach>20</reach>
 				<size>M</size>
 				<special_properties></special_properties>
@@ -1045,7 +1045,7 @@ BIO
 				</to_hit>
 				<feat></feat>
 				<hand>Primary</hand>
-				<num_attacks>5</num_attacks>
+				<num_attacks>2</num_attacks>
 				<reach>20</reach>
 				<size>M</size>
 				<special_properties></special_properties>
