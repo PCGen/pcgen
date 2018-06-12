@@ -6112,54 +6112,13 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		return bonus;
 	}
 
-	/**
-	 * Bug fix in getNumAttacks()
-	 * Spotbugs Complained about incorrect combination of Math.min Math.max
-	 * And that it would always return 1.
-	 *
-	 * And it was correct, See below.
-	 *
-	 * return Math.min(Math.max(baseAttackBonus() / 5, 4), 1);
-	 * if BAB/5 < 4
-	 * return Math.min(Math.max(3, 4), 1);
-	 * return Math.min( 4, 1 );
-	 * return 1
-	 *
-	 * return Math.min(Math.max(baseAttackBonus() / 5, 4), 1);
-	 * if BAB/5 > 4
-	 * return Math.min(Math.max(5, 4), 1);
-	 * return Math.min(5, 1);
-	 * return 1;
-	 *
-	 * return Math.min(Math.max(baseAttackBonus() / 5, 4), 1);
-	 * if BAB/5 = 5
-	 * return Math.min(Math.max(5, 4), 1);
-	 * return Math.min(5, 1);
-	 * return 1;
-	 *
-	 * The fix seems to be:
-	 *
-	 * return Math.min(Math.max(baseAttackBonus() / 5, 1), 4);
-	 * if BAB/5 < 4
-	 * return Math.min(Math.max(3, 1), 4);
-	 * return Math.min( 3, 4 );
-	 * return 3
-	 *
-	 * return Math.min(Math.max(baseAttackBonus() / 5, 1), 4);
-	 * if BAB/5 > 4
-	 * return Math.min(Math.max(5, 1), 4);
-	 * return Math.min(5, 4);
-	 * return 4;
-	 * return Math.min(Math.max(baseAttackBonus() / 5, 1), 4);
-	 * if BAB/5 = 5
-	 * return Math.min(Math.max(5, 1), 4);
-	 * return Math.min(5, 4);
-	 * return 4;
+	/*
+	 * Return Number of attacks per round based on Base Attack Bonus
 	 */
 
 	public int getNumAttacks()
 	{
-		return Math.min(Math.max(baseAttackBonus() / 5, 1), 4);
+		return Math.min(Math.max((int) Math.ceil((double) baseAttackBonus() / 5), 1), 4);
 	}
 
 	/**
