@@ -93,7 +93,7 @@ Pulley												TYPE:Goods.Tools													COST:2	WT:10		SOURCEPAGE:p.182
 Saw													TYPE:Goods.Tools													COST:0.04	WT:2		SOURCEPAGE:p.182
 Sextant												TYPE:Goods.Tools													COST:500	WT:2		SOURCEPAGE:p.182
 #Alchemists formula Book - DO NOT DELETE
-Spellbook.COPY=Formula Book
+Spellbook (Wizard's/Blank).COPY=Formula Book
 Symptom Kit												TYPE:Goods.Tools													COST:25	WT:5		SOURCEPAGE:p.182
 Traveling Spellbook									TYPE:Goods.Tools.Book.Spellbook		NUMPAGES:50		PAGEUSAGE:max(SPELLLEVEL,1)	COST:10	WT:1		SOURCEPAGE:p.182
 
