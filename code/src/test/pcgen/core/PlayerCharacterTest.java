@@ -1321,9 +1321,10 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 *
 	 * @throws Exception
 	 *
-	 * @TODO Testing at epic levels 21+ needs to be fixed.
+	 * TODO Testing at epic levels 21+ needs to be fixed.
 	 */
-	public void testbaseAttackBonusAndgetNumAttacks() throws Exception {
+	public void testbaseAttackBonusAndgetNumAttacks() throws Exception 
+	{
 		readyToRun();
 		LoadContext context = Globals.getContext();
 		GameMode gamemode = SettingsHandler.getGame();
