@@ -13,7 +13,7 @@ public class PCGFileTest extends TestCase
 	/**
 	 * Constructs a new {@link PCGFileTest}.
 	 *
-	 * @see PCGenTestCase#PCGenTestCase()
+	 * @see pcgen.PCGenTestCase#PCGenTestCase()
 	 */
 	public PCGFileTest()
 	{
@@ -23,7 +23,7 @@ public class PCGFileTest extends TestCase
 	/**
 	 * Constructs a new {@link PCGFileTest} with the given <var>name</var>.
 	 *
-	 * @see PCGenTestCase#PCGenTestCase(String)
+	 * @see pcgen.PCGenTestCase#PCGenTestCase(String)
 	 */
 	public PCGFileTest(final String name)
 	{

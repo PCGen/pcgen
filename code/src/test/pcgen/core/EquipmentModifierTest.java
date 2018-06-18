@@ -59,7 +59,7 @@ public class EquipmentModifierTest extends TestCase
 	/**
 	 * Constructs a new <code>EquipmentModifierTest</code>.
 	 *
-	 * @see PCGenTestCase#PCGenTestCase()
+	 * @see pcgen.PCGenTestCase#PCGenTestCase()
 	 */
 	public EquipmentModifierTest()
 	{
@@ -84,7 +84,7 @@ public class EquipmentModifierTest extends TestCase
 	 *
 	 * @param name the test case name
 	 *
-	 * @see PCGenTestCase#PCGenTestCase()
+	 * @see pcgen.PCGenTestCase#PCGenTestCase(String)
 	 */
 	public EquipmentModifierTest(final String name)
 	{

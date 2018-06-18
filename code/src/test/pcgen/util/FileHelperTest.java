@@ -34,7 +34,7 @@ public class FileHelperTest extends TestCase
 	/**
 	 * Constructs a new <code>FileHelperTest</code>.
 	 *
-	 * @see PCGenTestCase#PCGenTestCase()
+	 * @see pcgen.PCGenTestCase#PCGenTestCase()
 	 */
 	public FileHelperTest()
 	{
@@ -47,7 +47,7 @@ public class FileHelperTest extends TestCase
 	 *
 	 * @param name the test case name
 	 *
-	 * @see PCGenTestCase#PCGenTestCase(String)
+	 * @see pcgen.PCGenTestCase#PCGenTestCase(String)
 	 */
 	public FileHelperTest(final String name)
 	{

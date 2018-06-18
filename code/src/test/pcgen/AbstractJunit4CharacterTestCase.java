@@ -249,7 +249,7 @@ abstract public class AbstractJunit4CharacterTestCase
 	/**
 	 * Constructs a new <code>AbstractCharacterTestCase</code>.
 	 *
-	 * @see PCGenTestCase#PCGenTestCase()
+	 * @see pcgen.PCGenTestCase#PCGenTestCase()
 	 */
 	public AbstractJunit4CharacterTestCase()
 	{

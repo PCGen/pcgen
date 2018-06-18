@@ -39,7 +39,7 @@ public class PJepTest extends AbstractCharacterTestCase
 	/**
 	 * Constructs a new <code>PJepTest</code>.
 	 *
-	 * @see PCGenTestCase#PCGenTestCase()
+	 * @see pcgen.PCGenTestCase#PCGenTestCase()
 	 */
 	public PJepTest()
 	{
@@ -51,7 +51,7 @@ public class PJepTest extends AbstractCharacterTestCase
 	 *
 	 * @param name the test case name
 	 *
-	 * @see PCGenTestCase#PCGenTestCase(String)
+	 * @see pcgen.PCGenTestCase#PCGenTestCase(String)
 	 */
 	public PJepTest(final String name)
 	{

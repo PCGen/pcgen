@@ -13,7 +13,7 @@ public class GlobalsTest extends PCGenTestCase
 	/**
 	 * Constructs a new <code>GlobalsTest</code>.
 	 *
-	 * @see PCGenTestCase#PCGenTestCase()
+	 * @see pcgen.PCGenTestCase#PCGenTestCase()
 	 */
 	public GlobalsTest()
 	{
@@ -24,7 +24,7 @@ public class GlobalsTest extends PCGenTestCase
 	 *
 	 * @param name the test case name
 	 *
-	 * @see PCGenTestCase#PCGenTestCase(String)
+	 * @see pcgen.PCGenTestCase#PCGenTestCase(String)
 	 */
 	public GlobalsTest(final String name)
 	{

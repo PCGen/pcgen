@@ -62,7 +62,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 	/**
 	 * Constructs a new <code>PObjectTest</code>.
 	 *
-	 * @see PCGenTestCase#PCGenTestCase()
+	 * @see pcgen.PCGenTestCase#PCGenTestCase()
 	 */
 	public PObjectTest()
 	{
@@ -74,7 +74,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 	 *
 	 * @param name the test case name
 	 *
-	 * @see PCGenTestCase#PCGenTestCase(String)
+	 * @see pcgen.PCGenTestCase#PCGenTestCase(String)
 	 */
 	public PObjectTest(final String name)
 	{

@@ -52,7 +52,7 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 	/**
 	 * Constructs a new <code>PCTemplateTest</code>.
 	 *
-	 * @see PCGenTestCase#PCGenTestCase()
+	 * @see pcgen.PCGenTestCase#PCGenTestCase()
 	 */
 	public PCTemplateTest()
 	{
@@ -64,7 +64,7 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 	 *
 	 * @param name the test case name
 	 *
-	 * @see PCGenTestCase#PCGenTestCase(String)
+	 * @see pcgen.PCGenTestCase#PCGenTestCase(String)
 	 */
 	public PCTemplateTest(final String name)
 	{
