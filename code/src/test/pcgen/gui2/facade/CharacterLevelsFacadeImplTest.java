@@ -33,7 +33,9 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.core.XPTable;
 import pcgen.core.pclevelinfo.PCLevelInfo;
+import pcgen.facade.core.CharacterLevelFacade;
 import pcgen.facade.core.DataSetFacade;
+import pcgen.facade.core.SkillFacade;
 import pcgen.facade.core.UIDelegate;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.rules.context.LoadContext;
@@ -107,7 +109,8 @@ public class CharacterLevelsFacadeImplTest extends AbstractJunit4CharacterTestCa
 	}
 
 	/**
-	 * Test method for {@link pcgen.gui2.facade.CharacterLevelsFacadeImpl#findNextLevelForSkill(pcgen.core.facade.SkillFacade, pcgen.core.facade.CharacterLevelFacade, float)}
+	 * Test method for {@link pcgen.gui2.facade.CharacterLevelsFacadeImpl#findNextLevelForSkill(SkillFacade, CharacterLevelFacade, float)}
+	 * 
 	 * to check level selection where class and cross-class skills cost the 
 	 * same for all classes.
 	 */
@@ -222,7 +225,7 @@ public class CharacterLevelsFacadeImplTest extends AbstractJunit4CharacterTestCa
 	}
 
 	/**
-	 * Test method for {@link pcgen.gui2.facade.CharacterLevelsFacadeImpl#findNextLevelForSkill(pcgen.core.facade.SkillFacade, pcgen.core.facade.CharacterLevelFacade, float)}
+	 * Test method for {@link pcgen.gui2.facade.CharacterLevelsFacadeImpl#findNextLevelForSkill(SkillFacade, CharacterLevelFacade, float)}
 	 * to check level selection where cross-class skills cost 2 points and class 
 	 * skills cost only 1. 
 	 */
@@ -329,7 +332,7 @@ public class CharacterLevelsFacadeImplTest extends AbstractJunit4CharacterTestCa
 	}
 
 	/**
-	 * Test method for {@link pcgen.gui2.facade.CharacterLevelsFacadeImpl#findNextLevelForSkill(pcgen.core.facade.SkillFacade, pcgen.core.facade.CharacterLevelFacade, float)}
+	 * Test method for {@link pcgen.gui2.facade.CharacterLevelsFacadeImpl#findNextLevelForSkill(SkillFacade, CharacterLevelFacade, float)}
 	 * to check level selection where cross-class skills cost 2 points and class 
 	 * skills cost only 1. 
 	 */
@@ -371,7 +374,7 @@ public class CharacterLevelsFacadeImplTest extends AbstractJunit4CharacterTestCa
 	}
 
 	/**
-	 * Test method for {@link pcgen.gui2.facade.CharacterLevelsFacadeImpl#findNextLevelForSkill(pcgen.core.facade.SkillFacade, pcgen.core.facade.CharacterLevelFacade, float)}
+	 * Test method for {@link pcgen.gui2.facade.CharacterLevelsFacadeImpl#findNextLevelForSkill(SkillFacade, CharacterLevelFacade, float)}
 	 * to check level selection for removing a skill rank where class and cross-class skills cost the 
 	 * same for all classes.
 	 */

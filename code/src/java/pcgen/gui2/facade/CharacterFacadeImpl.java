@@ -302,6 +302,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		undoManager = new UndoManager();
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#closeCharacter()
+	 */
 	@Override
 	public void closeCharacter()
 	{
@@ -315,7 +318,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 
 		characterAbilities.closeCharacter();
 		charLevelsFacade.closeCharacter();
-        companionSupportFacade.closeCharacter();
+		companionSupportFacade.closeCharacter();
 		PluginManager
 			.getInstance()
 			.getPostbox()
@@ -330,7 +333,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		 */
 		theCharacter = DUMMY_PC;
 		charDisplay = null;
-        dataSet.detachDelegates();
+		dataSet.detachDelegates();
 	}
 	
 
@@ -392,9 +395,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		}
 		handedness = new DefaultReferenceFacade<>();
 		gender = new DefaultReferenceFacade<>();
-        
-        availHands = new DefaultListFacade<>();
-        availGenders = new DefaultListFacade<>();
+
+		availHands = new DefaultListFacade<>();
+		availGenders = new DefaultListFacade<>();
 		for (Handed handed : Handed.values())
 		{
 			availHands.addElement(handed);
@@ -403,7 +406,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		{
 			availGenders.addElement(gender);
 		}
-        
+
 		if (charDisplay.getRace() != null)
 		{
 			for (HandedFacade handsFacade : availHands)
@@ -472,20 +475,20 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		charLevelsFacade.addHitPointListener(this);
 
 		deity =
-                new DefaultReferenceFacade<>(charDisplay.getDeity());
+				new DefaultReferenceFacade<>(charDisplay.getDeity());
 		domains = new DefaultListFacade<>();
 		maxDomains =
-                new DefaultReferenceFacade<>(
-                        theCharacter.getMaxCharacterDomains());
+				new DefaultReferenceFacade<>(
+						theCharacter.getMaxCharacterDomains());
 		remainingDomains =
-                new DefaultReferenceFacade<>(
-                        theCharacter.getMaxCharacterDomains() - domains.getSize());
+				new DefaultReferenceFacade<>(
+						theCharacter.getMaxCharacterDomains() - domains.getSize());
 		availDomains = new DefaultListFacade<>();
 		buildAvailableDomainsList();
 
 		templates =
-                new DefaultListFacade<>(
-                        charDisplay.getDisplayVisibleTemplateList());
+				new DefaultListFacade<>(
+						charDisplay.getDisplayVisibleTemplateList());
 		templateListener = new TemplateListener(); 
 		FacetLibrary.getFacet(TemplateFacet.class).addDataFacetChangeListener(templateListener);
 
@@ -551,7 +554,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * Initialise the equipment set facades, ensuring that the character has a 
+	 * Initialize the equipment set facades, ensuring that the character has a 
 	 * default equipment set. 
 	 */
 	private void initEquipSet()
@@ -666,20 +669,26 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		return charName.startsWith("Unnamed"); //$NON-NLS-1$
 	}
 
-    @Override
-    public ListFacade<HandedFacade> getAvailableHands()
-    {
-        return availHands;
-    }
-
-    @Override
-    public ListFacade<GenderFacade> getAvailableGenders()
-    {
-        return availGenders;
-    }
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#getAvailableHands()
+	 */
+	@Override
+	public ListFacade<HandedFacade> getAvailableHands()
+	{
+		return availHands;
+	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#addAbility(pcgen.core.facade.AbilityCategoryFacade, pcgen.core.facade.AbilityFacade)
+	 * @see pcgen.facade.core.CharacterFacade#getAvailableGenders()
+	 */
+	@Override
+	public ListFacade<GenderFacade> getAvailableGenders()
+	{
+		return availGenders;
+	}
+
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#addAbility(AbilityCategoryFacade, AbilityFacade)
 	 */
 	@Override
 	public void addAbility(AbilityCategoryFacade category, AbilityFacade ability)
@@ -694,7 +703,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#removeAbility(pcgen.core.facade.AbilityCategoryFacade, pcgen.core.facade.AbilityFacade)
+	 * @see pcgen.facade.core.CharacterFacade#removeAbility(AbilityCategoryFacade, AbilityFacade)
 	 */
 	@Override
 	public void removeAbility(AbilityCategoryFacade category, AbilityFacade ability)
@@ -706,7 +715,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#getAbilities(pcgen.core.facade.AbilityCategoryFacade)
+	 * @see pcgen.facade.core.CharacterFacade#getAbilities(AbilityCategoryFacade)
 	 */
 	@Override
 	public ListFacade<AbilityFacade> getAbilities(AbilityCategoryFacade category)
@@ -715,7 +724,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#getActiveAbilityCategories()
+	 * @see pcgen.facade.core.CharacterFacade#getActiveAbilityCategories()
 	 */
 	@Override
 	public ListFacade<AbilityCategoryFacade> getActiveAbilityCategories()
@@ -724,7 +733,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#getTotalSelections(pcgen.core.facade.AbilityCategoryFacade)
+	 * @see pcgen.facade.core.CharacterFacade#getTotalSelections(AbilityCategoryFacade)
 	 */
 	@Override
 	public int getTotalSelections(AbilityCategoryFacade category)
@@ -733,7 +742,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#getRemainingSelections(pcgen.core.facade.AbilityCategoryFacade)
+	 * @see pcgen.facade.core.CharacterFacade#getRemainingSelections(AbilityCategoryFacade)
 	 */
 	@Override
 	public int getRemainingSelections(AbilityCategoryFacade category)
@@ -741,12 +750,18 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		return characterAbilities.getRemainingSelections(category);
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#addAbilityCatSelectionListener(ChangeListener)
+	 */
 	@Override
 	public void addAbilityCatSelectionListener(ChangeListener listener)
 	{
 		characterAbilities.addAbilityCatSelectionListener(listener);
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#removeAbilityCatSelectionListener(ChangeListener)
+	 */
 	@Override
 	public void removeAbilityCatSelectionListener(ChangeListener listener)
 	{
@@ -754,7 +769,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#setRemainingSelection(pcgen.core.facade.AbilityCategoryFacade, int)
+	 * @see pcgen.facade.core.CharacterFacade#setRemainingSelection(AbilityCategoryFacade, int)
 	 */
 	@Override
 	public void setRemainingSelection(AbilityCategoryFacade category, int remaining)
@@ -763,7 +778,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#hasAbility(pcgen.core.facade.AbilityCategoryFacade, pcgen.core.facade.AbilityFacade)
+	 * @see pcgen.facade.core.CharacterFacade#hasAbility(AbilityCategoryFacade, AbilityFacade)
 	 */
 	@Override
 	public boolean hasAbility(AbilityCategoryFacade category, AbilityFacade ability)
@@ -772,7 +787,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#getAbilityNature(pcgen.core.facade.AbilityFacade)
+	 * @see pcgen.facade.core.CharacterFacade#getAbilityNature(AbilityFacade)
 	 */
 	@Override
 	public Nature getAbilityNature(AbilityFacade ability)
@@ -797,7 +812,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#addCharacterLevels(pcgen.core.facade.ClassFacade[])
+	 * @see pcgen.facade.core.CharacterFacade#addCharacterLevels(ClassFacade[])
 	 */
 	@Override
 	public void addCharacterLevels(ClassFacade[] classes)
@@ -897,7 +912,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#removeCharacterLevels(int)
+	 * @see pcgen.facade.core.CharacterFacade#removeCharacterLevels(int)
 	 */
 	@Override
 	public void removeCharacterLevels(int levels)
@@ -955,7 +970,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#getClassLevel(pcgen.core.facade.ClassFacade)
+	 * @see pcgen.facade.core.CharacterFacade#getClassLevel(ClassFacade)
 	 */
 	@Override
 	public int getClassLevel(ClassFacade c)
@@ -1222,7 +1237,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#getAvailableTempBonuses()
+	 * @see pcgen.facade.core.CharacterFacade#getAvailableTempBonuses()
 	 */
 	@Override
 	public ListFacade<TempBonusFacade> getAvailableTempBonuses()
@@ -1255,6 +1270,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#addTempBonus(TempBonusFacade)
+	 */
 	@Override
 	public void addTempBonus(TempBonusFacade bonusFacade)
 	{
@@ -1300,6 +1318,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		postLevellingUpdates();
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#removeTempBonus(TempBonusFacade)
+	 */
 	@Override
 	public void removeTempBonus(TempBonusFacade bonusFacade)
 	{
@@ -1322,6 +1343,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		postLevellingUpdates();
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#setTempBonusActive(TempBonusFacade, boolean)
+	 */
 	@Override
 	public void setTempBonusActive(TempBonusFacade bonusFacade, boolean active)
 	{
@@ -1343,7 +1367,10 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		appliedTempBonuses.modifyElement(tempBonus);
 		refreshStatScores();
 	}
-	
+
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#getTempBonuses()
+	 */
 	@Override
 	public ListFacade<TempBonusFacade> getTempBonuses()
 	{
@@ -1351,7 +1378,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#getAlignmentRef()
+	 * @see pcgen.facade.core.CharacterFacade#getAlignmentRef()
 	 */
 	@Override
 	public ReferenceFacade<PCAlignment> getAlignmentRef()
@@ -1360,7 +1387,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#setAlignment(pcgen.core.facade.AlignmentFacade)
+	 * @see pcgen.facade.core.CharacterFacade#setAlignment(PCAlignment)
 	 */
 	@Override
 	public void setAlignment(PCAlignment alignment)
@@ -1482,7 +1509,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#getDataSet()
+	 * @see pcgen.facade.core.CharacterFacade#getDataSet()
 	 */
 	@Override
 	public DataSetFacade getDataSet()
@@ -1491,7 +1518,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#getEquipmentSets()
+	 * @see pcgen.facade.core.CharacterFacade#getEquipmentSets()
 	 */
 	@Override
 	public ListFacade<EquipmentSetFacade> getEquipmentSets()
@@ -1500,7 +1527,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#getGenderRef()
+	 * @see pcgen.facade.core.CharacterFacade#getGenderRef()
 	 */
 	@Override
 	public ReferenceFacade<GenderFacade> getGenderRef()
@@ -1509,7 +1536,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#setGender(pcgen.cdom.enumeration.Gender)
+	 * @see pcgen.facade.core.CharacterFacade#setGender(GenderFacade)
 	 */
 	@Override
 	public void setGender(GenderFacade gender)
@@ -1538,7 +1565,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#getModTotal(pcgen.core.facade.StatFacade)
+	 * @see pcgen.facade.core.CharacterFacade#getModTotal(StatFacade)
 	 */
 	@Override
 	public int getModTotal(StatFacade stat)
@@ -1551,7 +1578,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#getScoreTotalRef(pcgen.core.facade.StatFacade)
+	 * @see pcgen.facade.core.CharacterFacade#getScoreBaseRef(StatFacade)
 	 */
 	@Override
 	public ReferenceFacade<Number> getScoreBaseRef(StatFacade stat)
@@ -1566,7 +1593,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#getScoreBase(pcgen.core.facade.StatFacade)
+	 * @see pcgen.facade.core.CharacterFacade#getScoreBase(StatFacade)
 	 */
 	@Override
 	public int getScoreBase(StatFacade stat)
@@ -1579,7 +1606,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#getScoreTotalString(pcgen.core.facade.StatFacade)
+	 * @see pcgen.facade.core.CharacterFacade#getScoreTotalString(StatFacade)
 	 */
 	@Override
 	public String getScoreTotalString(StatFacade stat)
@@ -1597,7 +1624,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#getScoreRaceBonus(pcgen.core.facade.StatFacade)
+	 * @see pcgen.facade.core.CharacterFacade#getScoreRaceBonus(StatFacade)
 	 */
 	@Override
 	public int getScoreRaceBonus(StatFacade stat)
@@ -1619,7 +1646,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#getScoreOtherBonus(pcgen.core.facade.StatFacade)
+	 * @see pcgen.facade.core.CharacterFacade#getScoreOtherBonus(StatFacade)
 	 */
 	@Override
 	public int getScoreOtherBonus(StatFacade stat)
@@ -1642,7 +1669,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#setScoreBase(pcgen.core.facade.StatFacade, int)
+	 * @see pcgen.facade.core.CharacterFacade#setScoreBase(StatFacade, int)
 	 */
 	@Override
 	public void setScoreBase(StatFacade stat, int score)
@@ -1736,7 +1763,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	 * 
 	 * @param score The new score being checked.
 	 * @param pcStat The stats being checked
-	 * @param pcPlayerLevels The number of non moster levels the character currently has.
+	 * @param pcPlayerLevels The number of non monster levels the character currently has.
 	 * @return An error message if the score is not valid.
 	 */
 	private String validateNewStatBaseScore(int score, PCStat pcStat, final int pcPlayerLevels)
@@ -1779,7 +1806,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#rollStats()
+	 * @see pcgen.facade.core.CharacterFacade#rollStats()
 	 */
 	@Override
 	public void rollStats()
@@ -1812,7 +1839,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#isStatRollEnabled()
+	 * @see pcgen.facade.core.CharacterFacade#isStatRollEnabled()
 	 */
 	@Override
 	public boolean isStatRollEnabled()
@@ -1843,7 +1870,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#getUndoManager()
+	 * @see pcgen.facade.core.CharacterFacade#getUndoManager()
 	 */
 	@Override
 	public UndoManager getUndoManager()
@@ -1852,7 +1879,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#getRaceRef()
+	 * @see pcgen.facade.core.CharacterFacade#getRaceRef()
 	 */
 	@Override
 	public ReferenceFacade<RaceFacade> getRaceRef()
@@ -1862,6 +1889,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 
 	/**
 	 * @return A reference to a list containing the character's race.
+	 * 
+	 * @see pcgen.facade.core.CharacterFacade#getRaceAsList()
 	 */
 	@Override
 	public ListFacade<RaceFacade> getRaceAsList()
@@ -1870,7 +1899,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#setRace(pcgen.core.facade.RaceFacade)
+	 * @see pcgen.facade.core.CharacterFacade#setRace(RaceFacade)
 	 */
 	@Override
 	public void setRace(RaceFacade race)
@@ -1962,7 +1991,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#getTabNameRef()
+	 * @see pcgen.facade.core.CharacterFacade#getTabNameRef()
 	 */
 	@Override
 	public ReferenceFacade<String> getTabNameRef()
@@ -1971,7 +2000,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#setTabName(java.lang.String)
+	 * @see pcgen.facade.core.CharacterFacade#setTabName(String)
 	 */
 	@Override
 	public void setTabName(String name)
@@ -1981,7 +2010,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#getNameRef()
+	 * @see pcgen.facade.core.CharacterFacade#getNameRef()
 	 */
 	@Override
 	public ReferenceFacade<String> getNameRef()
@@ -1990,7 +2019,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#setName(java.lang.String)
+	 * @see pcgen.facade.core.CharacterFacade#setName(String)
 	 */
 	@Override
 	public void setName(String name)
@@ -2011,6 +2040,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	 * Check  whether the field should be output. 
 	 * @param field The BiographyField to check export rules for.
 	 * @return true if the field should be output, false if it may not be.
+	 * 
+	 * @see pcgen.facade.core.CharacterFacade#getExportBioField(BiographyField)
 	 */
 	@Override
 	public boolean getExportBioField(BiographyField field)
@@ -2022,6 +2053,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	 * Set whether the field should be output. 
 	 * @param field The BiographyField to set export rules for.
 	 * @param export Should the field be shown in output.
+	 * 
+	 * @see pcgen.facade.core.CharacterFacade#setExportBioField(BiographyField, boolean)
 	 */
 	@Override
 	public void setExportBioField(BiographyField field, boolean export)
@@ -2029,12 +2062,18 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		theCharacter.setSuppressBioField(field, !export);
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#getSkinColorRef()
+	 */
 	@Override
 	public ReferenceFacade<String> getSkinColorRef()
 	{
 		return skinColor;
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#setSkinColor(String)
+	 */
 	@Override
 	public void setSkinColor(String color)
 	{
@@ -2042,12 +2081,18 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		theCharacter.setPCAttribute(PCAttribute.SKINCOLOR, color);
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#getHairColorRef()
+	 */
 	@Override
 	public ReferenceFacade<String> getHairColorRef()
 	{
 		return hairColor;
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#setHairColor(String)
+	 */
 	@Override
 	public void setHairColor(String color)
 	{
@@ -2055,12 +2100,18 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		theCharacter.setPCAttribute(PCAttribute.HAIRCOLOR, color);
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#getEyeColorRef()
+	 */
 	@Override
 	public ReferenceFacade<String> getEyeColorRef()
 	{
 		return eyeColor;
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#setEyeColor(String)
+	 */
 	@Override
 	public void setEyeColor(String color)
 	{
@@ -2068,12 +2119,18 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		theCharacter.setEyeColor(color);
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#getHeightRef()
+	 */
 	@Override
 	public ReferenceFacade<Integer> getHeightRef()
 	{
 		return heightRef;
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#setHeight(int)
+	 */
 	@Override
 	public void setHeight(int height)
 	{
@@ -2083,12 +2140,18 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		theCharacter.setHeight(heightInInches);
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#getWeightRef()
+	 */
 	@Override
 	public ReferenceFacade<Integer> getWeightRef()
 	{
 		return weightRef;
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#setWeight(int)
+	 */
 	@Override
 	public void setWeight(int weight)
 	{
@@ -2100,7 +2163,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#getDeityRef()
+	 * @see pcgen.facade.core.CharacterFacade#getDeityRef()
 	 */
 	@Override
 	public ReferenceFacade<DeityFacade> getDeityRef()
@@ -2109,7 +2172,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#setDeity(pcgen.core.facade.DeityFacade)
+	 * @see pcgen.facade.core.CharacterFacade#setDeity(DeityFacade)
 	 */
 	@Override
 	public void setDeity(DeityFacade deity)
@@ -2124,7 +2187,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#addDomain(pcgen.core.facade.DomainFacade)
+	 * @see pcgen.facade.core.CharacterFacade#addDomain(DomainFacade)
 	 */
 	@Override
 	public void addDomain(DomainFacade domainFacade)
@@ -2181,7 +2244,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#getDomains()
+	 * @see pcgen.facade.core.CharacterFacade#getDomains()
 	 */
 	@Override
 	public ListFacade<DomainFacade> getDomains()
@@ -2190,7 +2253,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#removeDomain(pcgen.core.facade.DomainFacade)
+	 * @see pcgen.facade.core.CharacterFacade#removeDomain(DomainFacade)
 	 */
 	@Override
 	public void removeDomain(DomainFacade domain)
@@ -2230,7 +2293,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#getMaxDomains()
+	 * @see pcgen.facade.core.CharacterFacade#getMaxDomains()
 	 */
 	@Override
 	public ReferenceFacade<Integer> getMaxDomains()
@@ -2239,7 +2302,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#getRemainingDomainSelectionsRef()
+	 * @see pcgen.facade.core.CharacterFacade#getRemainingDomainSelectionsRef()
 	 */
 	@Override
 	public ReferenceFacade<Integer> getRemainingDomainSelectionsRef()
@@ -2248,7 +2311,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#getAvailableDomains()
+	 * @see pcgen.facade.core.CharacterFacade#getAvailableDomains()
 	 */
 	@Override
 	public ListFacade<DomainFacade> getAvailableDomains()
@@ -2393,7 +2456,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#getEquipmentSetRef()
+	 * @see pcgen.facade.core.CharacterFacade#getEquipmentSetRef()
 	 */
 	@Override
 	public ReferenceFacade<EquipmentSetFacade> getEquipmentSetRef()
@@ -2402,7 +2465,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#setEquipmentSet(pcgen.core.facade.EquipmentSetFacade)
+	 * @see pcgen.facade.core.CharacterFacade#setEquipmentSet(EquipmentSetFacade)
 	 */
 	@Override
 	public void setEquipmentSet(EquipmentSetFacade set)
@@ -2515,7 +2578,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#getLanguages()
+	 * @see pcgen.facade.core.CharacterFacade#getLanguages()
 	 */
 	@Override
 	public ListFacade<LanguageFacade> getLanguages()
@@ -2523,6 +2586,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		return languages;
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#getLanguageChoosers()
+	 */
 	@Override
 	public ListFacade<LanguageChooserFacade> getLanguageChoosers()
 	{
@@ -2541,6 +2607,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		return chooserList;
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#removeLanguage(LanguageFacade)
+	 */
 	@Override
 	public void removeLanguage(LanguageFacade lang)
 	{
@@ -2578,7 +2647,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#getFileRef()
+	 * @see pcgen.facade.core.CharacterFacade#getFileRef()
 	 */
 	@Override
 	public ReferenceFacade<File> getFileRef()
@@ -2586,6 +2655,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		return file;
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#setFile(File)
+	 */
 	@Override
 	public void setFile(File file)
 	{
@@ -2604,7 +2676,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	
 	/**
 	 * Retrieve a copy of the current character suitable for export. This 
-	 * attempts to minimise the expensive cloning function, by returning the 
+	 * attempts to minimize the expensive cloning function, by returning the 
 	 * previously cloned character if the base character has not changed in 
 	 * the meantime. 
 	 * @return A copy of the current character.
@@ -2637,7 +2709,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 	
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#export(pcgen.io.ExportHandler, java.io.BufferedWriter)
+	 * @see pcgen.facade.core.CharacterFacade#export(ExportHandler, BufferedWriter)
 	 */
 	@Override
 	public void export(ExportHandler theHandler, BufferedWriter buf) throws ExportException
@@ -2688,6 +2760,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			+ " due to concurrent modifications.");
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#setDefaultOutputSheet(boolean, File)
+	 */
 	@Override
 	public void setDefaultOutputSheet(boolean pdf, File outputSheet)
 	{
@@ -2714,6 +2789,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		}
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#getDefaultOutputSheet(boolean)
+	 */
 	@Override
 	public String getDefaultOutputSheet(boolean pdf)
 	{
@@ -2743,7 +2821,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#getHandedRef()
+	 * @see pcgen.facade.core.CharacterFacade#getHandedRef()
 	 */
 	@Override
 	public ReferenceFacade<HandedFacade> getHandedRef()
@@ -2752,7 +2830,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#setHanded(java.lang.String)
+	 * @see pcgen.facade.core.CharacterFacade#setHanded(HandedFacade)
 	 */
 	@Override
 	public void setHanded(HandedFacade handedness)
@@ -2762,7 +2840,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#getPlayersNameRef()
+	 * @see pcgen.facade.core.CharacterFacade#getPlayersNameRef()
 	 */
 	@Override
 	public ReferenceFacade<String> getPlayersNameRef()
@@ -2771,7 +2849,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#setPlayersName(java.lang.String)
+	 * @see pcgen.facade.core.CharacterFacade#setPlayersName(String)
 	 */
 	@Override
 	public void setPlayersName(String name)
@@ -2781,7 +2859,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#isQualifiedFor(pcgen.core.facade.ClassFacade)
+	 * @see pcgen.facade.core.CharacterFacade#isQualifiedFor(ClassFacade)
 	 */
 	@Override
 	public boolean isQualifiedFor(ClassFacade c)
@@ -2793,6 +2871,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		return false;
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#getUIDelegate()
+	 */
 	@Override
 	public UIDelegate getUIDelegate()
 	{
@@ -2816,7 +2897,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#isAutomatic(pcgen.core.facade.LanguageFacade)
+	 * @see pcgen.facade.core.CharacterFacade#isAutomatic(LanguageFacade)
 	 */
 	@Override
 	public boolean isAutomatic(LanguageFacade language)
@@ -2828,6 +2909,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		return autoLanguagesCache.contains(language);
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#isRemovable(LanguageFacade)
+	 */
 	public boolean isRemovable(LanguageFacade language)
 	{
 		if (isAutomatic(language))
@@ -2845,7 +2929,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 	
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#getCharacterLevelsFacade()
+	 * @see pcgen.facade.core.CharacterFacade#getCharacterLevelsFacade()
 	 */
 	@Override
 	public CharacterLevelsFacade getCharacterLevelsFacade()
@@ -2853,6 +2937,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		return charLevelsFacade;
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#getDescriptionFacade()
+	 */
 	@Override
 	public DescriptionFacade getDescriptionFacade()
 	{
@@ -2860,7 +2947,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#setXP(int)
+	 * @see pcgen.facade.core.CharacterFacade#setXP(int)
 	 */
 	@Override
 	public void setXP(final int xp)
@@ -2874,7 +2961,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#getXPRef()
+	 * @see pcgen.facade.core.CharacterFacade#getXPRef()
 	 */
 	@Override
 	public ReferenceFacade<Integer> getXPRef()
@@ -2883,7 +2970,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#adjustXP(int)
+	 * @see pcgen.facade.core.CharacterFacade#adjustXP(int)
 	 */
 	@Override
 	public void adjustXP(final int xp)
@@ -2895,7 +2982,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#getXPForNextLevelRef()
+	 * @see pcgen.facade.core.CharacterFacade#getXPForNextLevelRef()
 	 */
 	@Override
 	public ReferenceFacade<Integer> getXPForNextLevelRef()
@@ -2903,12 +2990,18 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		return xpForNextlevel;
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#getXPTableNameRef()
+	 */
 	@Override
 	public ReferenceFacade<String> getXPTableNameRef()
 	{
 		return xpTableName;
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#setXPTable(String)
+	 */
 	@Override
 	public void setXPTable(String newTable)
 	{
@@ -2930,12 +3023,18 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		updateLevelTodo();
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#getCharacterTypeRef()
+	 */
 	@Override
 	public ReferenceFacade<String> getCharacterTypeRef()
 	{
 		return characterType;
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#setCharacterType(String)
+	 */
 	@Override
 	public void setCharacterType(String newType)
 	{
@@ -2948,12 +3047,18 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		characterAbilities.rebuildAbilityLists();
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#getPreviewSheetRef()
+	 */
 	@Override
 	public ReferenceFacade<String> getPreviewSheetRef()
 	{
 		return previewSheet;
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#setPreviewSheet(String)
+	 */
 	@Override
 	public void setPreviewSheet(String newSheet)
 	{
@@ -2961,12 +3066,18 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		theCharacter.setPreviewSheet(newSheet);
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#getSkillFilterRef()
+	 */
 	@Override
 	public ReferenceFacade<SkillFilter> getSkillFilterRef()
 	{
 		return skillFilter;
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#setSkillFilter(SkillFilter)
+	 */
 	@Override
 	public void setSkillFilter(SkillFilter newFilter)
 	{
@@ -2975,7 +3086,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#setAge(int)
+	 * @see pcgen.facade.core.CharacterFacade#setAge(int)
 	 */
 	@Override
 	public void setAge(final int age)
@@ -3013,7 +3124,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#getAgeRef()
+	 * @see pcgen.facade.core.CharacterFacade#getAgeRef()
 	 */
 	@Override
 	public ReferenceFacade<Integer> getAgeRef()
@@ -3022,7 +3133,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#getAgeCategories()
+	 * @see pcgen.facade.core.CharacterFacade#getAgeCategories()
 	 */
 	@Override
 	public ListFacade<SimpleFacade> getAgeCategories()
@@ -3030,6 +3141,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		return ageCategoryList;
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#setAgeCategory(SimpleFacade)
+	 */
 	@Override
 	public void setAgeCategory(final SimpleFacade ageCat)
 	{
@@ -3061,6 +3175,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		}
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#getAgeCategoryRef()
+	 */
 	@Override
 	public ReferenceFacade<SimpleFacade> getAgeCategoryRef()
 	{
@@ -3162,7 +3279,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * Idenitfy if the character can stil change purchase pool values - spent 
+	 * Identify if the character can still change purchase pool values - spent 
 	 * or available. This action is restricted by level. 
 	 * @return true if the character is allowed to change the purchase pool
 	 */
@@ -3186,7 +3303,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#getStatTotalLabelTextRef()
+	 * @see pcgen.facade.core.CharacterFacade#getStatTotalLabelTextRef()
 	 */
 	@Override
 	public ReferenceFacade<String> getStatTotalLabelTextRef()
@@ -3195,7 +3312,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#getStatTotalTextRef()
+	 * @see pcgen.facade.core.CharacterFacade#getStatTotalTextRef()
 	 */
 	@Override
 	public ReferenceFacade<String> getStatTotalTextRef()
@@ -3205,6 +3322,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 
 	/**
 	 * @return A reference to the label text for the character's modifier total
+	 * 
+	 * @see pcgen.facade.core.CharacterFacade#getModTotalLabelTextRef()
 	 */
 	@Override
 	public ReferenceFacade<String> getModTotalLabelTextRef()
@@ -3214,6 +3333,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 
 	/**
 	 * @return A reference to the text for the character's modifier total
+	 * 
+	 * @see pcgen.facade.core.CharacterFacade#getModTotalTextRef()
 	 */
 	@Override
 	public ReferenceFacade<String> getModTotalTextRef()
@@ -3222,7 +3343,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#getTodoList()
+	 * @see pcgen.facade.core.CharacterFacade#getTodoList()
 	 */
 	@Override
 	public ListFacade<TodoFacade> getTodoList()
@@ -3238,18 +3359,27 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		return theCharacter;
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#getTotalHPRef()
+	 */
 	@Override
 	public ReferenceFacade<Integer> getTotalHPRef()
 	{
 		return hpRef;
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#getRollMethodRef()
+	 */
 	@Override
 	public ReferenceFacade<Integer> getRollMethodRef()
 	{
 		return rollMethodRef;
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#refreshRollMethod()
+	 */
 	@Override
 	public void refreshRollMethod()
 	{
@@ -3305,6 +3435,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		scoreRef.set(newScore);
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#adjustFunds(BigDecimal)
+	 */
 	@Override
 	public void adjustFunds(BigDecimal modVal)
 	{
@@ -3313,6 +3446,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		updateWealthFields();
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#setFunds(BigDecimal)
+	 */
 	@Override
 	public void setFunds(BigDecimal newVal)
 	{
@@ -3320,24 +3456,36 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		updateWealthFields();
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#getFundsRef()
+	 */
 	@Override
 	public ReferenceFacade<BigDecimal> getFundsRef()
 	{
 		return fundsRef;
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#getWealthRef()
+	 */
 	@Override
 	public ReferenceFacade<BigDecimal> getWealthRef()
 	{
 		return wealthRef;
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#getWealthRef()
+	 */
 	@Override
 	public ReferenceFacade<GearBuySellFacade> getGearBuySellRef()
 	{
 		return gearBuySellSchemeRef;
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#setGearBuySellRef(GearBuySellFacade)
+	 */
 	@Override
 	public void setGearBuySellRef(GearBuySellFacade gearBuySell)
 	{
@@ -3358,12 +3506,18 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		wealthRef.set(theCharacter.totalValue());
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#setAllowDebt(boolean)
+	 */
 	@Override
 	public void setAllowDebt(boolean allowDebt)
 	{
 		this.allowDebt = allowDebt;
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#isAllowDebt()
+	 */
 	@Override
 	public boolean isAllowDebt()
 	{
@@ -3371,7 +3525,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#getPurchasedEquipment()
+	 * @see pcgen.facade.core.CharacterFacade#getPurchasedEquipment()
 	 */
 	@Override
 	public EquipmentListFacade getPurchasedEquipment()
@@ -3380,7 +3534,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#addPurchasedEquipment(pcgen.core.facade.EquipmentFacade, int)
+	 * @see pcgen.facade.core.CharacterFacade#addPurchasedEquipment(EquipmentFacade, int, boolean, boolean)
 	 */
 	@Override
 	public void addPurchasedEquipment(EquipmentFacade equipment, int quantity, boolean customize, boolean free)
@@ -3539,7 +3693,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#removePurchasedEquipment(pcgen.core.facade.EquipmentFacade, int)
+	 * @see pcgen.facade.core.CharacterFacade#removePurchasedEquipment(EquipmentFacade, int, boolean)
 	 */
 	@Override
 	public void removePurchasedEquipment(EquipmentFacade equipment, int quantity, boolean free)
@@ -3607,6 +3761,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#removePurchasedEquipment(EquipmentFacade, int, boolean)
+	 */
 	@Override
 	public void deleteCustomEquipment(EquipmentFacade eqFacade)
 	{
@@ -3642,7 +3799,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 	
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#isQualifiedFor(pcgen.core.facade.EquipmentFacade)
+	 * @see pcgen.facade.core.CharacterFacade#isQualifiedFor(EquipmentFacade)
 	 */
 	@Override
 	public boolean isQualifiedFor(EquipmentFacade equipment)
@@ -3659,7 +3816,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#getEquipmentSizedForCharacter(pcgen.core.facade.EquipmentFacade)
+	 * @see pcgen.facade.core.CharacterFacade#getEquipmentSizedForCharacter(EquipmentFacade)
 	 */
 	@Override
 	public EquipmentFacade getEquipmentSizedForCharacter(EquipmentFacade equipment)
@@ -3724,6 +3881,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	 * Whether we should automatically resize all purchased gear to match the 
 	 * character's size.
 	 * @return true if equipment should be auto resize.
+	 * 
+	 * @see pcgen.facade.core.CharacterFacade#isAutoResize()
 	 */
 	@Override
 	public boolean isAutoResize()
@@ -3736,6 +3895,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	 * the character's size.
 	 * 
 	 * @param autoResize The new value for auto resize equipment option.
+	 * 
+	 * @see pcgen.facade.core.CharacterFacade#setAutoResize(boolean)
 	 */
 	@Override
 	public void setAutoResize(boolean autoResize)
@@ -3744,7 +3905,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#createEquipmentSet(java.lang.String)
+	 * @see pcgen.facade.core.CharacterFacade#createEquipmentSet(String)
 	 */
 	@Override
 	public EquipmentSetFacade createEquipmentSet(String setName)
@@ -3761,7 +3922,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#deleteEquipmentSet(pcgen.core.facade.EquipmentSetFacade)
+	 * @see pcgen.facade.core.CharacterFacade#deleteEquipmentSet(EquipmentSetFacade)
 	 */
 	@Override
 	public void deleteEquipmentSet(EquipmentSetFacade set)
@@ -3777,18 +3938,27 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		equipmentSets.removeElement(set);
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#getCarriedWeightRef()
+	 */
 	@Override
 	public ReferenceFacade<String> getCarriedWeightRef()
 	{
 		return carriedWeightRef;
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#getLoadRef()
+	 */
 	@Override
 	public ReferenceFacade<String> getLoadRef()
 	{
 		return loadRef;
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#getWeightLimitRef()
+	 */
 	@Override
 	public ReferenceFacade<String> getWeightLimitRef()
 	{
@@ -3796,7 +3966,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.EquipmentListFacade.EquipmentListListener#quantityChanged(pcgen.core.facade.EquipmentListFacade.EquipmentListEvent)
+	 * @see pcgen.facade.core.EquipmentListFacade.EquipmentListListener#quantityChanged(EquipmentListEvent)
 	 */
 	@Override
 	public void quantityChanged(EquipmentListEvent e)
@@ -3805,7 +3975,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.event.ListListener#elementAdded(pcgen.core.facade.event.ListEvent)
+	 * @see pcgen.facade.util.event.ListListener#elementAdded(ListEvent)
 	 */
 	@Override
 	public void elementAdded(ListEvent<EquipmentFacade> e)
@@ -3814,7 +3984,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.event.ListListener#elementRemoved(pcgen.core.facade.event.ListEvent)
+	 * @see pcgen.facade.util.event.ListListener#elementRemoved(ListEvent)
 	 */
 	@Override
 	public void elementRemoved(ListEvent<EquipmentFacade> e)
@@ -3823,7 +3993,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.event.ListListener#elementsChanged(pcgen.core.facade.event.ListEvent)
+	 * @see pcgen.facade.util.event.ListListener#elementsChanged(ListEvent)
 	 */
 	@Override
 	public void elementsChanged(ListEvent<EquipmentFacade> e)
@@ -3832,7 +4002,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.event.ListListener#elementModified(pcgen.core.facade.event.ListEvent)
+	 * @see pcgen.facade.util.event.ListListener#elementModified(ListEvent)
 	 */
 	@Override
 	public void elementModified(ListEvent<EquipmentFacade> e)
@@ -3881,7 +4051,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterLevelsFacade.HitPointListener#hitPointsChanged(pcgen.core.facade.CharacterLevelsFacade.CharacterLevelEvent)
+	 * @see pcgen.facade.core.CharacterLevelsFacade.HitPointListener#hitPointsChanged(CharacterLevelEvent)
 	 */
 	@Override
 	public void hitPointsChanged(CharacterLevelEvent e)
@@ -3890,7 +4060,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#getInfoFactory()
+	 * @see pcgen.facade.core.CharacterFacade#getInfoFactory()
 	 */
 	@Override
 	public InfoFactory getInfoFactory()
@@ -3899,7 +4069,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#isQualifiedFor(pcgen.core.facade.InfoFacade)
+	 * @see pcgen.facade.core.CharacterFacade#isQualifiedFor(InfoFacade)
 	 */
 	@Override
 	public boolean isQualifiedFor(InfoFacade infoFacade)
@@ -3932,7 +4102,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#isQualifiedFor(pcgen.core.facade.DeityFacade)
+	 * @see pcgen.facade.core.CharacterFacade#isQualifiedFor(DeityFacade)
 	 */
 	@Override
 	public boolean isQualifiedFor(DeityFacade deityFacade)
@@ -3947,7 +4117,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 	
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#isQualifiedFor(pcgen.core.facade.DomainFacade)
+	 * @see pcgen.facade.core.CharacterFacade#isQualifiedFor(DomainFacade)
 	 */
 	@Override
 	public boolean isQualifiedFor(DomainFacade domainFacade)
@@ -3967,6 +4137,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		return true;
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#isQualifiedFor(TempBonusFacade)
+	 */
 	@Override
 	public boolean isQualifiedFor(TempBonusFacade tempBonusFacade)
 	{
@@ -3984,6 +4157,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		return true;
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#isQualifiedFor(SpellFacade, ClassFacade)
+	 */
 	@Override
 	public boolean isQualifiedFor(SpellFacade spellFacade,
 		ClassFacade classFacade)
@@ -4010,6 +4186,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		return true;
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#isQualifiedFor(EquipmentFacade, EquipModFacade)
+	 */
 	@Override
 	public boolean isQualifiedFor(EquipmentFacade equipFacade, EquipModFacade eqModFacade)
 	{
@@ -4026,7 +4205,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 	
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#addTemplate(pcgen.core.facade.TemplateFacade)
+	 * @see pcgen.facade.core.CharacterFacade#addTemplate(TemplateFacade)
 	 */
 	@Override
 	public void addTemplate(TemplateFacade templateFacade)
@@ -4075,7 +4254,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#removeTemplate(pcgen.core.facade.TemplateFacade)
+	 * @see pcgen.facade.core.CharacterFacade#removeTemplate(TemplateFacade)
 	 */
 	@Override
 	public void removeTemplate(TemplateFacade templateFacade)
@@ -4120,7 +4299,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#getTemplates()
+	 * @see pcgen.facade.core.CharacterFacade#getTemplates()
 	 */
 	@Override
 	public ListFacade<TemplateFacade> getTemplates()
@@ -4128,12 +4307,18 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		return templates;
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#addCharacterChangeListener(CharacterChangeListener)
+	 */
 	@Override
 	public void addCharacterChangeListener(CharacterChangeListener listener)
 	{
 		//TODO: implement this
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#removeCharacterChangeListener(CharacterChangeListener)
+	 */
 	@Override
 	public void removeCharacterChangeListener(CharacterChangeListener listener)
 	{
@@ -4141,7 +4326,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.core.facade.CharacterFacade#getSpellSupport()
+	 * @see pcgen.facade.core.CharacterFacade#getSpellSupport()
 	 */
 	@Override
 	public SpellSupportFacade getSpellSupport()
@@ -4149,12 +4334,18 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		return spellSupportFacade;
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#getPortraitRef()
+	 */
 	@Override
 	public ReferenceFacade<File> getPortraitRef()
 	{
 		return portrait;
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#setPortrait(File)
+	 */
 	@Override
 	public void setPortrait(File file)
 	{
@@ -4162,12 +4353,18 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		theCharacter.setPortraitPath(file == null ? null : file.getAbsolutePath());
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#getThumbnailCropRef()
+	 */
 	@Override
 	public ReferenceFacade<Rectangle> getThumbnailCropRef()
 	{
 		return cropRect;
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#setThumbnailCrop(Rectangle)
+	 */
 	@Override
 	public void setThumbnailCrop(Rectangle rect)
 	{
@@ -4175,18 +4372,27 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		theCharacter.setPortraitThumbnailRect(rect);
 	}
 
+	/**
+	 * @see pcgen.facade.core#CharacterFacade.isDirty()
+	 */
 	@Override
 	public boolean isDirty()
 	{
 		return theCharacter.isDirty();
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#getCompanionSupport()
+	 */
 	@Override
 	public CompanionSupportFacade getCompanionSupport()
 	{
 		return companionSupportFacade;
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#getCompanionType()
+	 */
 	@Override
 	public String getCompanionType()
 	{
@@ -4198,6 +4404,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		return null;
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#getMaster()
+	 */
 	@Override
 	public CharacterStubFacade getMaster()
 	{
@@ -4233,6 +4442,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			super(rect == null ? null : (Rectangle) rect.clone());
 		}
 
+		/**
+		 * @see pcgen.facade.util.DefaultReferenceFacade#get()
+		 */
 		@Override
 		public Rectangle get()
 		{
@@ -4244,6 +4456,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			return rect;
 		}
 
+		/**
+		 *   // @see pcgen.facade.util.DefaultReferenceFacade#set(E)
+		 */
 		@Override
 		public void set(Rectangle rect)
 		{
@@ -4266,12 +4481,18 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#getKits()
+	 */
 	@Override
 	public DefaultListFacade<KitFacade> getKits()
 	{
 		return kitList;
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#addKit(KitFacade)
+	 */
 	@Override
 	public void addKit(KitFacade obj)
 	{
@@ -4335,7 +4556,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	 * their approval to continue.
 	 * 
 	 * @param kit The kit being applied.
-	 * @param warnings The warnigns generated in the test application.
+	 * @param warnings The warnings generated in the test application.
 	 * @return true if the kit should be applied, false if not.
 	 */
 	private boolean showKitWarnings(Kit kit, List<String> warnings)
@@ -4469,6 +4690,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		return charges;
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#addNote(List)
+	 */
 	@Override
 	public void addNote(List<EquipmentFacade> targets)
 	{
@@ -4512,6 +4736,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	 */
 	public class LanguageListener implements DataFacetChangeListener<CharID, Language>
 	{
+		/**
+		 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(DataFacetChangeEvent)
+		 */
 		@Override
 		public void dataAdded(DataFacetChangeEvent<CharID, Language> dfce)
 		{
@@ -4522,6 +4749,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			refreshLanguageList();
 		}
 
+		/**
+		 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(DataFacetChangeEvent)
+		 */
 		@Override
 		public void dataRemoved(DataFacetChangeEvent<CharID, Language> dfce)
 		{
@@ -4550,6 +4780,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			refreshTemplates();
 		}
 
+		/**
+		 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(DataFacetChangeEvent)
+		 */
 		@Override
 		public void dataRemoved(DataFacetChangeEvent<CharID, PCTemplate> dfce)
 		{
@@ -4567,6 +4800,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	 */
 	public class XPListener implements DataFacetChangeListener<CharID, Integer>
 	{
+		/**
+		 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(DataFacetChangeEvent)
+		 */
 		@Override
 		public void dataAdded(DataFacetChangeEvent<CharID, Integer> dfce)
 		{
@@ -4577,6 +4813,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			checkForNewLevel();
 		}
 
+		/**
+		 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(DataFacetChangeEvent)
+		 */
 		@Override
 		public void dataRemoved(DataFacetChangeEvent<CharID, Integer> dfce)
 		{
@@ -4590,6 +4829,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	 */
 	public class AutoEquipListener implements DataFacetChangeListener<CharID, QualifiedObject<CDOMReference<Equipment>>>
 	{
+		/**
+		 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(DataFacetChangeEvent)
+		 */
 		@Override
 		public void dataAdded(DataFacetChangeEvent<CharID, QualifiedObject<CDOMReference<Equipment>>> dfce)
 		{
@@ -4600,6 +4842,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			refreshEquipment();
 		}
 
+		/**
+		 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(DataFacetChangeEvent)
+		 */
 		@Override
 		public void dataRemoved(DataFacetChangeEvent<CharID, QualifiedObject<CDOMReference<Equipment>>> dfce)
 		{
@@ -4612,6 +4857,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#getCoreViewTree(CorePerspective)
+	 */
 	@Override
 	public List<CoreViewNodeFacade> getCoreViewTree(CorePerspective pers)
 	{
@@ -4619,6 +4867,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		return coreDebugList;
 	}
 
+	/**
+	 * @see pcgen.facade.core.CharacterFacade#getCharID()
+	 */
 	@Override
 	public CharID getCharID()
 	{

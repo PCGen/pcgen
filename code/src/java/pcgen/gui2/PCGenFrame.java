@@ -2097,7 +2097,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 	private class FilenameListener implements ReferenceListener<File>
 	{
 		/**
-		 * @see pcgen.core.facade.event.ReferenceListener#referenceChanged(pcgen.core.facade.event.ReferenceEvent)
+		 * @see pcgen.facade.util.event.ReferenceListener#referenceChanged(ReferenceEvent<E>))
 		 */
 
 		@Override

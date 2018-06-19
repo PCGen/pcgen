@@ -201,7 +201,7 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 	}
 
 	/**
-	 * @see pcgen.core.facade.LanguageChooserFacade#addSelected(pcgen.core.facade.LanguageFacade)
+	 * @see pcgen.facade.core.LanguageChooserFacade#addSelected(LanguageFacade)
 	 */
 	@Override
 	public void addSelected(LanguageFacade language)
@@ -216,7 +216,7 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 	}
 
 	/**
-	 * @see pcgen.core.facade.LanguageChooserFacade#removeSelected(pcgen.core.facade.LanguageFacade)
+	 * @see pcgen.facade.core.LanguageChooserFacade#removeSelected(LanguageFacade)
 	 */
 	@Override
 	public void removeSelected(LanguageFacade language)
@@ -227,7 +227,7 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 	}
 
 	/**
-	 * @see pcgen.core.facade.LanguageChooserFacade#getAvailableList()
+	 * @see pcgen.facade.core.LanguageChooserFacade#getAvailableList()
 	 */
 	@Override
 	public ListFacade<LanguageFacade> getAvailableList()
@@ -237,7 +237,7 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 	}
 
 	/**
-	 * @see pcgen.core.facade.LanguageChooserFacade#getName()
+	 * @see pcgen.facade.core.LanguageChooserFacade#getName()
 	 */
 	@Override
 	public String getName()
@@ -246,7 +246,7 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 	}
 
 	/**
-	 * @see pcgen.core.facade.LanguageChooserFacade#getRemainingSelections()
+	 * @see pcgen.facade.core.LanguageChooserFacade#getRemainingSelections()
 	 */
 	@Override
 	public ReferenceFacade<Integer> getRemainingSelections()
@@ -255,7 +255,7 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 	}
 
 	/**
-	 * @see pcgen.core.facade.LanguageChooserFacade#getSelectedList()
+	 * @see pcgen.facade.core.LanguageChooserFacade#getSelectedList()
 	 */
 	@Override
 	public ListFacade<LanguageFacade> getSelectedList()
@@ -264,7 +264,7 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 	}
 
 	/**
-	 * @see pcgen.core.facade.LanguageChooserFacade#commit()
+	 * @see pcgen.facade.core.LanguageChooserFacade#commit()
 	 */
 	@Override
 	@SuppressWarnings("unchecked")
@@ -284,7 +284,7 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 	}
 
 	/**
-	 * @see pcgen.core.facade.LanguageChooserFacade#rollback()
+	 * @see pcgen.facade.core.LanguageChooserFacade#rollback()
 	 */
 	@Override
 	public void rollback()

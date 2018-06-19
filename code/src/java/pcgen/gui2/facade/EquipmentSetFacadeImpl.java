@@ -543,7 +543,7 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 	}
 
 	/**
-	 * @see pcgen.core.facade.EquipmentSetFacade#addEquipment(pcgen.core.facade.EquipmentSetFacade.EquipNode, pcgen.core.facade.EquipmentFacade, int)
+	 * @see pcgen.facade.core.EquipmentSetFacade#addEquipment(EquipNode, EquipmentFacade, int)
 	 */
 	@Override
 	public EquipmentFacade addEquipment(EquipNode node, EquipmentFacade equipment,
@@ -980,7 +980,7 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 	}
 
 	/**
-	 * @see pcgen.core.facade.EquipmentSetFacade#removeEquipment(pcgen.core.facade.EquipmentSetFacade.EquipNode, int)
+	 * @see pcgen.facade.core.EquipmentSetFacade#removeEquipment(EquipNode, int)
 	 */
 	@Override
 	public EquipmentFacade removeEquipment(EquipNode node, int quantity)
@@ -1320,7 +1320,7 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 
 
 	/**
-	 * @see pcgen.core.facade.EquipmentSetFacade#isContainer(pcgen.core.facade.EquipmentFacade)
+	 * @see pcgen.facade.core.EquipmentSetFacade#isContainer(EquipmentFacade)
 	 */
 	@Override
 	public boolean isContainer(EquipmentFacade equipment)
@@ -1335,7 +1335,7 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 	}
 
 	/**
-	 * @see pcgen.core.facade.EquipmentSetFacade#setName(java.lang.String)
+	 * @see pcgen.facade.core.EquipmentSetFacade#setName(java.lang.String)
 	 */
 	@Override
 	public void setName(String name)
@@ -1345,7 +1345,7 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 	}
 
 	/**
-	 * @see pcgen.core.facade.EquipmentSetFacade#addEquipmentTreeListener(pcgen.core.facade.EquipmentSetFacade.EquipmentTreeListener)
+	 * @see pcgen.facade.core.EquipmentSetFacade#addEquipmentTreeListener(EquipmentTreeListener)
 	 */
 	@Override
 	public void addEquipmentTreeListener(EquipmentTreeListener listener)
@@ -1354,7 +1354,7 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 	}
 
 	/**
-	 * @see pcgen.core.facade.EquipmentSetFacade#removeEquipmentTreeListener(pcgen.core.facade.EquipmentSetFacade.EquipmentTreeListener)
+	 * @see pcgen.facade.core.EquipmentSetFacade#removeEquipmentTreeListener(EquipmentTreeListener)
 	 */
 	@Override
 	public void removeEquipmentTreeListener(EquipmentTreeListener listener)
@@ -1363,7 +1363,7 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 	}
 
 	/**
-	 * @see pcgen.core.facade.EquipmentSetFacade#getNameRef()
+	 * @see pcgen.facade.core.EquipmentSetFacade#getNameRef()
 	 */
 	@Override
 	public ReferenceFacade<String> getNameRef()
@@ -1378,7 +1378,7 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 	}
 
 	/**
-	 * @see pcgen.core.facade.EquipmentSetFacade#canEquip(pcgen.core.facade.EquipmentSetFacade.EquipNode, pcgen.core.facade.EquipmentFacade)
+	 * @see pcgen.facade.core.EquipmentSetFacade#canEquip(EquipNode, EquipmentFacade)
 	 */
 	@Override
 	public boolean canEquip(EquipNode node, EquipmentFacade equipment)
@@ -1501,7 +1501,7 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 	}
 
 	/**
-	 * @see pcgen.core.facade.EquipmentSetFacade#getPreferredLoc(pcgen.core.facade.EquipmentFacade)
+	 * @see pcgen.facade.core.EquipmentSetFacade#getPreferredLoc(EquipmentFacade)
 	 */
 	@Override
 	public String getPreferredLoc(EquipmentFacade equipment)
@@ -1614,7 +1614,7 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 	}
 
 	/**
-	 * @see pcgen.core.facade.EquipmentSetFacade#removeAllEquipment()
+	 * @see pcgen.facade.core.EquipmentSetFacade#removeAllEquipment()
 	 */
 	@Override
 	public void removeAllEquipment()
@@ -1704,7 +1704,7 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 	}
 
 	/**
-	 * @see pcgen.core.facade.EquipmentSetFacade#getLocation(pcgen.core.facade.EquipmentSetFacade.EquipNode)
+	 * @see pcgen.facade.core.EquipmentSetFacade#getLocation(EquipNode)
 	 */
 	@Override
 	public String getLocation(EquipNode equipNode)

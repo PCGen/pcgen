@@ -68,7 +68,7 @@ public class TodoFacadeImpl implements TodoFacade
 	}
 	
 	/**
-	 * @see pcgen.core.facade.TodoFacade#getFieldName()
+	 * @see pcgen.facade.core.TodoFacade#getFieldName()
 	 */
 	@Override
 	public String getFieldName()
@@ -77,7 +77,7 @@ public class TodoFacadeImpl implements TodoFacade
 	}
 
 	/**
-	 * @see pcgen.core.facade.TodoFacade#getMessage()
+	 * @see pcgen.facade.core.TodoFacade#getMessage()
 	 */
 	@Override
 	public String getMessageKey()
@@ -86,7 +86,7 @@ public class TodoFacadeImpl implements TodoFacade
 	}
 
 	/**
-	 * @see pcgen.core.facade.TodoFacade#getTabName()
+	 * @see pcgen.facade.core.TodoFacade#getTabName()
 	 */
 	@Override
 	public Tab getTab()

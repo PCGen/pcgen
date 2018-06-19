@@ -164,7 +164,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	}
 	
 	/**
-	 * @see pcgen.core.facade.SpellSupportFacade#getAvailableSpellNodes()
+	 * @see pcgen.facade.core.SpellSupportFacade#getAvailableSpellNodes()
 	 */
 	@Override
 	public ListFacade<SpellNode> getAvailableSpellNodes()
@@ -173,7 +173,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	}
 
 	/**
-	 * @see pcgen.core.facade.SpellSupportFacade#getAllKnownSpellNodes()
+	 * @see pcgen.facade.core.SpellSupportFacade#getAllKnownSpellNodes()
 	 */
 	@Override
 	public ListFacade<SpellNode> getAllKnownSpellNodes()
@@ -182,7 +182,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	}
 
 	/**
-	 * @see pcgen.core.facade.SpellSupportFacade#getKnownSpellNodes()
+	 * @see pcgen.facade.core.SpellSupportFacade#getKnownSpellNodes()
 	 */
 	@Override
 	public ListFacade<SpellNode> getKnownSpellNodes()
@@ -191,7 +191,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	}
 
 	/**
-	 * @see pcgen.core.facade.SpellSupportFacade#getPreparedSpellNodes()
+	 * @see pcgen.facade.core.SpellSupportFacade#getPreparedSpellNodes()
 	 */
 	@Override
 	public ListFacade<SpellNode> getPreparedSpellNodes()
@@ -200,7 +200,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	}
 
 	/**
-	 * @see pcgen.core.facade.SpellSupportFacade#getBookSpellNodes()
+	 * @see pcgen.facade.core.SpellSupportFacade#getBookSpellNodes()
 	 */
 	@Override
 	public ListFacade<SpellNode> getBookSpellNodes()
@@ -209,7 +209,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	}
 
 	/**
-	 * @see pcgen.core.facade.SpellSupportFacade#addKnownSpell(pcgen.core.facade.SpellSupportFacade.SpellNode)
+	 * @see pcgen.facade.core.SpellSupportFacade#addKnownSpell(SpellNode)
 	 */
 	@Override
 	public void addKnownSpell(SpellNode spell)
@@ -231,7 +231,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	}
 	
 	/**
-	 * @see pcgen.core.facade.SpellSupportFacade#removeKnownSpell(pcgen.core.facade.SpellSupportFacade.SpellNode)
+	 * @see pcgen.facade.core.SpellSupportFacade#removeKnownSpell(SpellNode)
 	 */
 	@Override
 	public void removeKnownSpell(SpellNode spell)
@@ -247,7 +247,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	}
 
 	/**
-	 * @see pcgen.core.facade.SpellSupportFacade#addPreparedSpell(pcgen.core.facade.SpellSupportFacade.SpellNode, java.lang.String)
+	 * @see pcgen.facade.core.SpellSupportFacade#addPreparedSpell(SpellNode, java.lang.String)
 	 */
 	@Override
 	public void addPreparedSpell(SpellNode spell, String spellList, boolean useMetamagic)
@@ -398,7 +398,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	}
 
 	/**
-	 * @see pcgen.core.facade.SpellSupportFacade#removePreparedSpell(pcgen.core.facade.SpellSupportFacade.SpellNode, java.lang.String)
+	 * @see pcgen.facade.core.SpellSupportFacade#removePreparedSpell(SpellNode, java.lang.String)
 	 */
 	@Override
 	public void removePreparedSpell(SpellNode spell, String spellList)
@@ -451,7 +451,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	}
 
 	/**
-	 * @see pcgen.core.facade.SpellSupportFacade#addSpellList(java.lang.String)
+	 * @see pcgen.facade.core.SpellSupportFacade#addSpellList(java.lang.String)
 	 */
 	@Override
 	public void addSpellList(String spellList)
@@ -495,7 +495,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	}
 
 	/**
-	 * @see pcgen.core.facade.SpellSupportFacade#removeSpellList(java.lang.String)
+	 * @see pcgen.facade.core.SpellSupportFacade#removeSpellList(java.lang.String)
 	 */
 	@Override
 	public void removeSpellList(String spellList)
@@ -538,7 +538,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	}
 
 	/**
-	 * @see pcgen.core.facade.SpellSupportFacade#addToSpellBook(pcgen.core.facade.SpellSupportFacade.SpellNode, java.lang.String)
+	 * @see pcgen.facade.core.SpellSupportFacade#addToSpellBook(SpellNode, java.lang.String)
 	 */
 	@Override
 	public void addToSpellBook(SpellNode spell, String spellBook)
@@ -578,7 +578,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	}
 
 	/**
-	 * @see pcgen.core.facade.SpellSupportFacade#removeFromSpellBook(pcgen.core.facade.SpellSupportFacade.SpellNode, java.lang.String)
+	 * @see pcgen.facade.core.SpellSupportFacade#removeFromSpellBook(SpellNode, java.lang.String)
 	 */
 	@Override
 	public void removeFromSpellBook(SpellNode spell, String spellBook)
@@ -639,7 +639,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	}
 
 	/**
-	 * @see pcgen.core.facade.SpellSupportFacade#getClassInfo(pcgen.core.facade.ClassFacade)
+	 * @see pcgen.facade.core.SpellSupportFacade#getClassInfo(ClassFacade)
 	 */
 	@Override
 	public String getClassInfo(ClassFacade spellcaster)
@@ -1466,7 +1466,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		}
 
 		/**
-		 * @see pcgen.core.facade.SpellSupportFacade.SpellNode#getSpellcastingClass()
+		 * @see pcgen.facade.core.SpellSupportFacade.SpellNode#getSpellcastingClass()
 		 */
 		@Override
 		public ClassFacade getSpellcastingClass()
@@ -1475,7 +1475,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		}
 
 		/**
-		 * @see pcgen.core.facade.SpellSupportFacade.SpellNode#getSpellLevel()
+		 * @see pcgen.facade.core.SpellSupportFacade.SpellNode#getSpellLevel()
 		 */
 		@Override
 		public String getSpellLevel()
@@ -1484,7 +1484,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		}
 
 		/**
-		 * @see pcgen.core.facade.SpellSupportFacade.SpellNode#getSpell()
+		 * @see pcgen.facade.core.SpellSupportFacade.SpellNode#getSpell()
 		 */
 		@Override
 		public SpellFacade getSpell()
@@ -1493,7 +1493,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		}
 
 		/**
-		 * @see pcgen.core.facade.SpellSupportFacade.SpellNode#getRootNode()
+		 * @see pcgen.facade.core.SpellSupportFacade.SpellNode#getRootNode()
 		 */
 		@Override
 		public RootNode getRootNode()

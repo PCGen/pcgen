@@ -41,7 +41,7 @@ public class DefaultListFacadeTest
 {
 
 	/**
-	 * Test method for {@link pcgen.core.facade.util.DefaultListFacade#updateContents(java.util.List)}.
+	 * Test method for {@link pcgen.facade.util.DefaultListFacade#updateContents(List)}
 	 */
 	@Test
 	public void testUpdateContents()
@@ -62,7 +62,7 @@ public class DefaultListFacadeTest
 	}
 
 	/**
-	 * Test method for {@link pcgen.core.facade.util.DefaultListFacade#updateContents(java.util.List)}.
+	 * Test method for {@link pcgen.facade.util.DefaultListFacade#updateContents(List)}.
 	 */
 	@Test
 	public void testUpdateContentsDisparate()
@@ -82,7 +82,7 @@ public class DefaultListFacadeTest
 	}
 
 	/**
-	 * Test method for {@link pcgen.core.facade.util.DefaultListFacade#updateContents(java.util.List)}.
+	 * Test method for {@link pcgen.facade.util.DefaultListFacade#updateContents(List)}.
 	 */
 	@Test
 	public void testUpdateContentsFromEmpty()
@@ -102,7 +102,7 @@ public class DefaultListFacadeTest
 	}
 
 	/**
-	 * Test method for {@link pcgen.core.facade.util.DefaultListFacade#updateContents(java.util.List)}.
+	 * Test method for {@link pcgen.facade.util.DefaultListFacade#updateContents(List)}.
 	 */
 	@Test
 	public void testUpdateContentsToEmpty()
@@ -121,7 +121,7 @@ public class DefaultListFacadeTest
 	}
 
 	/**
-	 * Test method for {@link pcgen.core.facade.util.DefaultListFacade#updateContents(java.util.List)}.
+	 * Test method for {@link pcgen.facade.util.DefaultListFacade#updateContents(List)}.
 	 */
 	@Test
 	public void testUpdateContentsTooLarge()
@@ -144,7 +144,7 @@ public class DefaultListFacadeTest
 	}
 
 	/**
-	 * Test method for {@link pcgen.core.facade.util.DefaultListFacade#updateContents(java.util.List)}.
+	 * Test method for {@link pcgen.facade.util.DefaultListFacade#updateContents(List)}.
 	 */
 	@Test
 	public void testUpdateContentsTooLargeFrom()

@@ -69,7 +69,7 @@ public class DomainFacadeImpl extends QualifiedObject<Domain> implements
 	}
 
 	/**
-	 * @see pcgen.core.facade.InfoFacade#getKeyName()
+	 * @see pcgen.facade.core.InfoFacade#getKeyName()
 	 */
 	@Override
 	public String getKeyName()
@@ -78,7 +78,7 @@ public class DomainFacadeImpl extends QualifiedObject<Domain> implements
 	}
 
 	/**
-	 * @see pcgen.core.facade.InfoFacade#getSource()
+	 * @see pcgen.facade.core.InfoFacade#getSource()
 	 */
 	@Override
 	public String getSource()
@@ -88,7 +88,7 @@ public class DomainFacadeImpl extends QualifiedObject<Domain> implements
 	}
 
 	/**
-	 * @see pcgen.core.facade.InfoFacade#getSourceForNodeDisplay()
+	 * @see pcgen.facade.core.InfoFacade#getSourceForNodeDisplay()
 	 */
     @Override
 	public String getSourceForNodeDisplay()
