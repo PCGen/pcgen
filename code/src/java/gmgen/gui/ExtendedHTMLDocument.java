@@ -58,8 +58,6 @@ public class ExtendedHTMLDocument extends HTMLDocument {
 	 *
 	 * @param content the document contents
 	 * @param styles the stylesheet
-	 *
-	 * @see HTMLDocument#HTMLDocument(Content, StyleSheet)
 	 */
 	public ExtendedHTMLDocument(Content content, StyleSheet styles) {
 		super(content, styles);

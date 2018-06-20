@@ -143,7 +143,7 @@ public class CampaignHistoryToken extends Token
 	/**
 	 * @param entry
 	 * @param token
-	 * @return
+	 * @return String Chronicle Value or NULL
 	 */
 	private String getChronicleValue(ChronicleEntry entry, String token)
 	{

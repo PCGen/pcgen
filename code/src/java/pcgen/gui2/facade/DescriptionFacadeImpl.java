@@ -131,7 +131,7 @@ class DescriptionFacadeImpl implements DescriptionFacade
 	/**
 	 * @param noteName
 	 * @param value
-	 * @return
+	 * @return note
 	 */
 	private NoteFacade createDefaultNote(String noteName, String value)
 	{

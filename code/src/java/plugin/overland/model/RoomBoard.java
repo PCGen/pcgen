@@ -27,17 +27,17 @@ public interface RoomBoard
 {
 
 	/**
-	 * @return
+	 * @return Inns
 	 */
 	PairList<RBCost> getInns();
 
 	/**
-	 * @return
+	 * @return Foods
 	 */
 	PairList<RBCost> getFoods();
 
 	/**
-	 * @return
+	 * @return Animals
 	 */
 	PairList<RBCost> getAnimals();
 

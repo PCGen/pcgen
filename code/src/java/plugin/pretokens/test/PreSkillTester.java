@@ -262,7 +262,7 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 	 * @param percentageSignPosition Spot in the key which has the percentage sign
 	 * @param found Has a match already been found?
 	 * @param aSkill The skill to be checked.
-	 * @return
+	 * @return boolean.
 	 */
 	private boolean matchesTypeWildCard(final String skillKey,
 		final int percentageSignPosition, boolean found, Skill aSkill)

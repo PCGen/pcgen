@@ -241,7 +241,7 @@ public class DataSet implements DataSetFacade
 	}
 
 	/**
-	 * @return
+	 * @return Slotted Type List
 	 */
 	private Set<Type> buildSlottedTypeList()
 	{

@@ -444,7 +444,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		/**
 		 * loads or creates a character based upon the command line arguments.
 		 * This also handles the start in character sheet command option
-		 * @return
+		 * @return boolean
 		 * @throws InterruptedException
 		 * @throws InvocationTargetException
 		 */

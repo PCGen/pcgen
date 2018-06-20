@@ -3964,9 +3964,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		return weightLimitRef;
 	}
 
-	/**
-	 * @see pcgen.facade.core.EquipmentListFacade.EquipmentListListener#quantityChanged(EquipmentListEvent)
-	 */
 	@Override
 	public void quantityChanged(EquipmentListEvent e)
 	{
@@ -4049,9 +4046,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		weightLimitRef.set(loadLimit.toString());
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterLevelsFacade.HitPointListener#hitPointsChanged(CharacterLevelEvent)
-	 */
 	@Override
 	public void hitPointsChanged(CharacterLevelEvent e)
 	{
@@ -4372,7 +4366,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/**
-	 * @see pcgen.facade.core#CharacterFacade.isDirty()
+	 * @see pcgen.facade.core.CharacterFacade#isDirty()
 	 */
 	@Override
 	public boolean isDirty()

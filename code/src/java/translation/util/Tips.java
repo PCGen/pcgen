@@ -449,7 +449,7 @@ public final class Tips
 
 	/**
 	 * @param string
-	 * @return
+	 * @return The escaped string
 	 */
 	@SuppressWarnings("nls")
 	static String escape(String string)
