@@ -125,7 +125,7 @@ public class InfoPaneHandler implements ReferenceListener<Object>,
 	}
 
 	/**
-	 * @see pcgen.facade.util.event.ReferenceListener#referenceChanged(ReferenceEvent<E>)
+	 * @see pcgen.facade.util.event.ReferenceListener#referenceChanged(ReferenceEvent)
 	 */
 	@Override
 	public void referenceChanged(ReferenceEvent<Object> e)

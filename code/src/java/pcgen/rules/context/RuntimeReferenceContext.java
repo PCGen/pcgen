@@ -145,8 +145,6 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 	 * This method will perform a single .COPY operation.
 	 * @param object the object to copy
 	 * @param copyName String name of the target object
-	 *
-	 * @throws PersistenceLayerException 
 	 */
 	@Override
 	<T extends CDOMObject> T performCopy(T object, String copyName)

@@ -1099,7 +1099,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 
 	/**
 	 * This method gets the number of stat points used in the pool
-	 * @param pc The PlayerCharacter to get used stat pool for
 	 * @return used stat pool
 	 */
 	private int getUsedStatPool()
@@ -2400,8 +2399,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	 * Check if a domain is a list of domains, irrespective of prerequisites.
 	 *  
 	 * @param qualDomainList The list of domains with their prerequisites.
-	 * @param qualDomain The domain to search for.
-	 * @return tue if the domain is in the list 
+	 * @param domain The domain to search for.
+	 * @return true if the domain is in the list 
 	 */
 	private boolean isDomainInList(List<DomainFacadeImpl> qualDomainList, Domain domain)
 	{

@@ -80,7 +80,7 @@ class JIcon extends JPanel
 	/**
 	 *  Gets the icon of the JIcon object
 	 *
-	 *@param  filename  File name that this represents
+	 *@param  file  File name that this represents
 	 *@return           The icon
 	 */
 	private Icon getIconForType(File file)

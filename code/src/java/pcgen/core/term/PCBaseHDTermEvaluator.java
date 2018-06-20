@@ -60,9 +60,7 @@ public class PCBaseHDTermEvaluator
 		return false;
 	}
 
-	/**
-	 * @see pcgen.core.term.TermEvaluator#isStatic()
-	 */
+
 	public boolean isStatic()
 	{
 		return false;

@@ -283,7 +283,7 @@ public class HouseRulesPanel extends PCGenPrefsPanel
 	}
 	
 	/**
-	 * @see pcgen.gui2.prefs.PreferencesPanel#applyPreferences()
+	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#setOptionsBasedOnControls()
 	 */
 	@Override
 	public void setOptionsBasedOnControls()
@@ -324,7 +324,7 @@ public class HouseRulesPanel extends PCGenPrefsPanel
 	}
 
 	/**
-	 * @see pcgen.gui2.prefs.PreferencesPanel#initPreferences()
+	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#applyOptionValuesToControls()
 	 */
 	@Override
 	public void applyOptionValuesToControls()

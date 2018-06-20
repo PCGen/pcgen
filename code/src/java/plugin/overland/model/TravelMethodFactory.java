@@ -250,8 +250,9 @@ public class TravelMethodFactory
 
 	/**
 	 * @param nf
+	 * @param e
 	 * @param string
-	 * @param i
+	 * @param def
 	 * @return
 	 */
 	private static Number parseNumber(NumberFormat nf, Element e, String string, Number def)

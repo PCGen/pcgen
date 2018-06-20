@@ -94,7 +94,7 @@ public class KeyGroupingToken<T extends Loadable & PCGenScoped>
 		/**
 		 * Constructs a new KeyGrouping from the given GroupingInfo.
 		 * 
-		 * @param groupingInfo
+		 * @param info
 		 *            The GroupingInfo used to determine the format and KEY of objects
 		 *            contained by this KeyGrouping
 		 */

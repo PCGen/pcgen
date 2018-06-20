@@ -167,7 +167,7 @@ class DescriptionFacadeImpl implements DescriptionFacade
 	}
 
 	/**
-	 * @see pcgen.facade.core.DescriptionFacade#removeChronicleEntry(pcgen.core.ChronicleEntry)
+	 * @see pcgen.facade.core.DescriptionFacade#removeChronicleEntry(ChronicleEntryFacade)
 	 */
 	@Override
 	public void removeChronicleEntry(ChronicleEntryFacade chronicleEntry)

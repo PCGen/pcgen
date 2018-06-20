@@ -459,8 +459,8 @@ public class AbilityToken extends Token
 	/**
 	 * Helper method, returns true if the ability meets the visibility requirements.
 	 * 
-	 * @param visibility The ability Type to test
-	 * @param aAbility The ability
+	 * @param v         The ability Type to test
+	 * @param aAbility  The ability
 	 * @return true if it meets the visibility requirements
 	 */
 	static boolean abilityVisibleTo(View v, Ability aAbility)
@@ -492,7 +492,7 @@ public class AbilityToken extends Token
 	 *            The export handler.
 	 * @param abilityIndex
 	 *            The location of the ability in the list.
-	 * @param aList
+	 * @param aMapToList
 	 *            The list of abilities to get the ability from.
 	 * @return The token value.
 	 */
@@ -654,7 +654,7 @@ public class AbilityToken extends Token
 	 * 
 	 * @param pc
 	 *            The character being exported.
-	 * @param ability
+	 * @param abilities
 	 *            The ability
 	 * 
 	 * @return the aspect string
@@ -685,7 +685,7 @@ public class AbilityToken extends Token
 	 * 
 	 * @param pc
 	 *            The character being exported.
-	 * @param ability
+	 * @param abilities
 	 *            The ability being queried.
 	 * @param key
 	 *            The key (number or name) of the aspect to retrieve

@@ -86,7 +86,7 @@ public class ExtendedHTMLDocument extends HTMLDocument {
 	 *
 	 * @throws BadLocationException if there are not elements enough
 	 *
-	 * @see Content#remove(int, int)
+	 *   // @see Content#remove(int, int)
 	 */
 	public void removeElements(Element e, int index, int count)
 			throws BadLocationException {

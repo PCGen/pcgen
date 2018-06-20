@@ -52,7 +52,7 @@ public class SpellLevelTest extends AbstractCharacterTestCase
 			.getFacet(KnownSpellFacet.class);
 
 	/**
-	 * Test method for {@link pcgen.core.analysis.SpellLevel#getPCBasedBonusKnownSpells(pcgen.core.PlayerCharacter, pcgen.core.PCClass)}.
+	 *
 	 * @throws Exception 
 	 */
 	public void testGetPCBasedBonusKnownSpells() throws Exception

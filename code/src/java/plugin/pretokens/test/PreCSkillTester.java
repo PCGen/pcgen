@@ -128,7 +128,6 @@ BREAKOUT:		for(Skill fake: serveAsSkills.keySet())
 	/**
 	 * @param serveAsSkills
 	 * @param imitators
-	 * @param character
 	 */
 	private static void getImitators(
 			HashMap<Skill, HashSet<Skill>> serveAsSkills, Set<Skill> imitators)

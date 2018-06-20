@@ -609,8 +609,6 @@ public class EncounterPlugin extends MouseAdapter
 	 * Gets a monster from the table specified.
 	 * @param table the table that the creature will come from.
 	 * @return the creature(s).
-	 * @throws FileNotFoundException an exception if there is a non-existant
-	 *         file.
 	 */
 	private Vector<?> getMonsterFromTable(String table)
 	{

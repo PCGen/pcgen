@@ -247,7 +247,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	}
 
 	/**
-	 * @see pcgen.facade.core.SpellSupportFacade#addPreparedSpell(SpellNode, java.lang.String)
+	 * @see pcgen.facade.core.SpellSupportFacade#addPreparedSpell(SpellNode, String, boolean)
 	 */
 	@Override
 	public void addPreparedSpell(SpellNode spell, String spellList, boolean useMetamagic)

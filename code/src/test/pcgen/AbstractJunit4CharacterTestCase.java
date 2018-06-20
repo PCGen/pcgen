@@ -257,7 +257,8 @@ abstract public class AbstractJunit4CharacterTestCase
 	}
 
 	/**
-	 * @see junit.framework.TestCase#tearDown()
+	 * @throws Exception 
+	 * @see junit.framework.TestCase#tearDown
 	 */
 	@After
 	public void tearDown() throws Exception
@@ -285,7 +286,7 @@ abstract public class AbstractJunit4CharacterTestCase
 	 * Set the value of the stat for the character.
 	 *
 	 * @param pc The Player Character
-	 * @param statName The name of the stat to be set (eg DEX)
+	 * @param stat The name of the stat to be set (eg DEX)
 	 * @param value The value to be set (eg 18)
 	 */
 	public void setPCStat(final PlayerCharacter pc, final PCStat stat,

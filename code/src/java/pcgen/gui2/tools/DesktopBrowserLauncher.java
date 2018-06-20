@@ -38,7 +38,6 @@ final class DesktopBrowserLauncher
 	private DesktopBrowserLauncher() {}
 
 	/**
-	 * @return {@code true} if Desktop is supported
 	 * @see Desktop#isDesktopSupported()
 	 * @throws IOException if {@link Desktop} is not supported and throws an exception
 	 */

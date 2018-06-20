@@ -42,9 +42,7 @@ import pcgen.util.TestHelper;
 public class LoadContextTest extends TestCase
 {
 
-	/**
-	 * Test method for {@link pcgen.rules.context.LoadContext#cloneInMasterLists(pcgen.cdom.base.CDOMObject, java.lang.String)}.
-	 */
+	
 	public final void testCloneInMasterListsSimple()
 	{
 		Spell testSpell = TestHelper.makeSpell("LoadContextTest");
@@ -54,7 +52,6 @@ public class LoadContextTest extends TestCase
 	}
 
 	/**
-	 * Test method for {@link pcgen.rules.context.LoadContext#cloneInMasterLists(pcgen.cdom.base.CDOMObject, java.lang.String)}.
 	 * Verify that associations from other objects to the object being cloned 
 	 * are copied over. 
 	 */

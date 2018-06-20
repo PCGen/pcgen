@@ -1982,8 +1982,8 @@ public class Gui2InfoFactory implements InfoFactory
 
 	/**
 	 * Produce the HTML info label for a prepared spell list.
-	 * @param book The spell list being output.
-	 * @return The HTML info for the list.
+	 * @param spelllist The spell list being output.
+	 * @return String  The HTML info for the list.
 	 */
 	private String produceSpellListInfo(SpellBook spelllist)
 	{

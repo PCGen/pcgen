@@ -66,7 +66,7 @@ public class ObjectMatchingReference<T extends CDOMObject, V> extends
 	/**
 	 * Constructs a new ObjectMatchingReference
 	 * 
-	 * @param objClass
+	 * @param unparse
 	 *            The Class of the underlying objects contained by this
 	 *            reference.
 	 * @param startingGroup

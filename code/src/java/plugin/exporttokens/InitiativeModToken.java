@@ -48,8 +48,8 @@ public class InitiativeModToken extends Token
 
 	/**
 	 * Get the token
-	 * @param display
-	 * @return the token
+	 * @param pc PlayerCharacter
+	 * @return int Initiative Modifier
 	 */
 	public static int getInitiativeModToken(PlayerCharacter pc)
 	{

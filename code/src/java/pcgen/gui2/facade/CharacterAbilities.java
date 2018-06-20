@@ -286,12 +286,9 @@ public class CharacterAbilities
 	}
 
 	/**
-	 * Add the ability to the categorised list held by CharacterAbilities. 
+	 * Add the ability to the categorized list held by CharacterAbilities. 
 	 * One copy will be added for each choice.
-	 * 
-	 * @param cat The AbilityCategory that the ability is being added to.
-	 * @param ability The ability being added.
-	 * @param nature The nature via which the ability is being added.
+	 * @param cna 
 	 * @param workingAbilityListMap The map to be adjusted.
 	 */
 	private void addCategorisedAbility(CNAbility cna, Map<AbilityCategoryFacade, DefaultListFacade<AbilityFacade>> workingAbilityListMap)

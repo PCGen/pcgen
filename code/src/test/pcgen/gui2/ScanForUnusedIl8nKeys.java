@@ -257,7 +257,7 @@ public class ScanForUnusedIl8nKeys
 
 	/**
 	 * @return
-	 * @throws Exception 
+	 * @throws IOException 
 	 */
 	private List<File> buildFileList() throws IOException
 	{
