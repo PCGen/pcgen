@@ -54,7 +54,8 @@ public class SourceEntryTest extends TestCase
 	}
 
 	/**
-	 * Test method for {@link pcgen.cdom.enumeration.SourceFormat#getFormattedString(CDOMObject, SourceFormat, boolean)}.
+	 * Test method for
+	 * {@link SourceFormat#getFormattedString(CDOMObject, SourceFormat, boolean)}.
 	 */
 	public void testGetFormattedString()
 	{

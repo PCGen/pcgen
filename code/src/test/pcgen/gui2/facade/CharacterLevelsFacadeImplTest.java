@@ -109,10 +109,11 @@ public class CharacterLevelsFacadeImplTest extends AbstractJunit4CharacterTestCa
 	}
 
 	/**
-	 * Test method for {@link pcgen.gui2.facade.CharacterLevelsFacadeImpl#findNextLevelForSkill(SkillFacade, CharacterLevelFacade, float)}
+	 * Test method for
+	 * {@link CharacterLevelsFacadeImpl#findNextLevelForSkill(SkillFacade, CharacterLevelFacade, float)}
 	 * 
-	 * to check level selection where class and cross-class skills cost the 
-	 * same for all classes.
+	 * to check level selection where class and cross-class skills cost the same for
+	 * all classes.
 	 */
 	@Test
 	public void testFindNextLevelForSkillAllSameCost()
