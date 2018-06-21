@@ -976,7 +976,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	public int getClassLevel(ClassFacade c)
 	{
 		int clsLevel = 0;
-		// We have to compare by class key as classes get cloned and we may have multiple instances of the same class in our level list 
+		// We have to compare by class key as classes get cloned and we may have
+		// multiple instances of the same class in our level list
 		String classKey = c.getKeyName();
 		for (CharacterLevelFacade charLevel : pcClassLevels)
 		{
@@ -3414,8 +3415,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	 * Reset the stat score to the neutral value (usually 10) for 
 	 * the point buy method.
 	 * 
-	 * @param pcStat The stata ebing adjusted.
-	 * @param scoreRef The reference tothe current score.
+	 * @param pcStat The stat being adjusted.
+	 * @param scoreRef The reference to the current score.
 	 */
 	private void setStatToPurchaseNeutral(PCStat pcStat, WriteableReferenceFacade<Number> scoreRef)
 	{
@@ -3423,8 +3424,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		if (StringUtils.isNotEmpty(validateNewStatBaseScore(newScore, pcStat, charDisplay.totalNonMonsterLevels())))
 		{
 			newScore = SettingsHandler.getGame().getPurchaseScoreMin(theCharacter);
-			if (StringUtils
-					.isNotEmpty(validateNewStatBaseScore(newScore, pcStat, charDisplay.totalNonMonsterLevels())))
+			if (StringUtils.isNotEmpty(validateNewStatBaseScore(newScore, pcStat, charDisplay.totalNonMonsterLevels())))
 			{
 				return;
 			}
@@ -3575,7 +3575,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 				(GearBuySellScheme) gearBuySellSchemeRef.get()))
 		{
 			delegate.showInfoMessage(Constants.APPLICATION_NAME,
-					LanguageBundle.getFormattedString("in_igBuyInsufficientFunds", quantity, //$NON-NLS-1$
+					LanguageBundle.getFormattedString("in_igBuyInsufficientFunds",
+							quantity, //$NON-NLS-1$
 							equipItemToAdjust.getName()));
 			return;
 		}
@@ -3609,7 +3610,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		// Update the PC and equipment
 		if (!free)
 		{
-			double itemCost = calcItemCost(updatedItem, quantity, (GearBuySellScheme) gearBuySellSchemeRef.get());
+			double itemCost = calcItemCost(updatedItem,
+					quantity,
+					(GearBuySellScheme) gearBuySellSchemeRef.get());
 			theCharacter.adjustGold(itemCost * -1);
 		}
 		theCharacter.setCalcEquipmentList();
@@ -3830,7 +3833,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		final String existingKey = equip.getKeyName();
 		final String newKey = equip.createKeyForAutoResize(newSize);
 
-		Equipment potential = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Equipment.class, newKey);
+		Equipment potential = Globals.getContext().getReferenceContext()
+				.silentlyGetConstructedCDOMObject(Equipment.class, newKey);
 
 		if (newKey.equals(existingKey))
 		{

@@ -29,7 +29,9 @@ public class MockUIDelegate implements UIDelegate
 {
 
 	/**
-	 * @see pcgen.facade.core.UIDelegate#maybeShowWarningConfirm(java.lang.String, java.lang.String, java.lang.String, pcgen.system.PropertyContext, java.lang.String)
+	 * @see pcgen.facade.core.UIDelegate#maybeShowWarningConfirm(java.lang.String,
+	 *      java.lang.String, java.lang.String, pcgen.system.PropertyContext,
+	 *      java.lang.String)
 	 */
     @Override
 	public Boolean maybeShowWarningConfirm(String title, String message,

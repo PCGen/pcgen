@@ -34,7 +34,7 @@ import pcgen.rules.persistence.TokenUtilities;
 import pcgen.util.TestHelper;
 
 /**
- * The Class <code>LoadContextTest</code> checks the fucntion fo the LoadCOntext class.
+ * The Class <code>LoadContextTest</code> checks the function of the LoadCOntext class.
  *
  * <br/>
  * 
@@ -42,7 +42,9 @@ import pcgen.util.TestHelper;
 public class LoadContextTest extends TestCase
 {
 
-	
+	/**
+	 * Test CloneInMasterListsSimple
+	 */
 	public final void testCloneInMasterListsSimple()
 	{
 		Spell testSpell = TestHelper.makeSpell("LoadContextTest");
