@@ -21,20 +21,20 @@ Fly (Perform (Dance))						KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUs
 Diplomacy (Perform (Keyboard Instruments))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Keyboard Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.93
 Intimidate (Perform (Keyboard Instruments))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Keyboard Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.104
 #
-Diplomacy (Perform (Oratory))					KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Oratory				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.93
-Sense Motive (Perform (Oratory))				KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Oratory				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.104
+Diplomacy (Perform (Oratory))					KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Oratory,Skald Versatile Performance ~ Oratory						PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.93
+Sense Motive (Perform (Oratory))				KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Oratory,Skald Versatile Performance ~ Oratory						PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.104
 #
-Handle Animal (Perform (Percussion Instruments))	KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Percussion Instruments	PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.97
-Intimidate (Perform (Percussion Instruments))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Percussion Instruments	PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.99
+Handle Animal (Perform (Percussion Instruments))	KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Percussion Instruments,Skald Versatile Performance ~ Percussion Instruments	PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.97
+Intimidate (Perform (Percussion Instruments))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Percussion Instruments,Skald Versatile Performance ~ Percussion Instruments	PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.99
 #
-Bluff (Perform (Sing))						KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Sing				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.90
-Sense Motive (Perform (Sing))					KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Sing				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.104
+Bluff (Perform (Sing))						KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Sing,Skald Versatile Performance ~ Sing							PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.90
+Sense Motive (Perform (Sing))					KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Sing,Skald Versatile Performance ~ Sing							PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.104
 #
-Bluff (Perform (String Instruments))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ String Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.90
-Diplomacy (Perform (String Instruments))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ String Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.93
+Bluff (Perform (String Instruments))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ String Instruments,Skald Versatile Performance ~ String Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.90
+Diplomacy (Perform (String Instruments))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ String Instruments,Skald Versatile Performance ~ String Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.93
 #
-Diplomacy (Perform (Wind Instruments))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Wind Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.93
-Handle Animal (Perform (Wind Instruments))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Wind Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.97
+Diplomacy (Perform (Wind Instruments))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Wind Instruments,Skald Versatile Performance ~ Wind Instruments			PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.93
+Handle Animal (Perform (Wind Instruments))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Wind Instruments,Skald Versatile Performance ~ Wind Instruments			PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.97
 
 Samurai Mount							KEYSTAT:DEX						TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Mount ~ Samurai							PRERULE:1,DISPLAYSKILLUSE
 
