@@ -312,7 +312,7 @@ public final class Comparators
 
 	/**
 	 *
-	 * @param E
+	 *  // @param E
 	 */
 	private static final class InverseComparator<E> implements Comparator<E>,
 			Serializable

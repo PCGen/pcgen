@@ -269,7 +269,7 @@ public final class PCGIOHandler extends IOHandler
 
 	/**
 	 * @param in
-	 * @return
+	 * @return String lines
 	 */
 	private List<String> readPcgLines(InputStream in)
 	{

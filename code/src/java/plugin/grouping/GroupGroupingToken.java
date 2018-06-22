@@ -93,7 +93,7 @@ public class GroupGroupingToken<T extends Loadable> implements GroupingDefinitio
 		/**
 		 * Constructs a new GroupGrouping from the given GroupingInfo.
 		 * 
-		 * @param groupingInfo
+		 * @param info
 		 *            The GroupingInfo used to determine the format and GROUP: of objects
 		 *            contained by this GroupGrouping
 		 */

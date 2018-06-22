@@ -76,7 +76,7 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 	}
 	
 	/**
-	 * @see pcgen.core.facade.CampaignInfoFactory#getHTMLInfo(pcgen.core.facade.CampaignFacade)
+	 * @see pcgen.facade.core.CampaignInfoFactory#getHTMLInfo(CampaignFacade)
 	 */
 	@Override
 	public String getHTMLInfo(CampaignFacade campaign)

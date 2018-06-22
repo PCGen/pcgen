@@ -128,7 +128,7 @@ public class FollowerTypeToken extends Token
 	/**
 	 * Retrieve a list of followers of the desired type.
 	 * 
-	 * @param pc The display for the target character 
+	 * @param display The display for the target character 
 	 * @param typeString The follower type being looked for
 	 * @return The list of qualifying followers.
 	 */

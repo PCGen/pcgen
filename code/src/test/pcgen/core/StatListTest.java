@@ -76,7 +76,7 @@ public class StatListTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test method for {@link pcgen.core.StatList#getBaseStatFor(java.lang.String)}.
+	 * Test method for {@link pcgen.core.PlayerCharacter#getBaseStatFor(PCStat)}.
 	 */
 	@Test
 	public void testGetBaseStatFor()
@@ -101,7 +101,7 @@ public class StatListTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test method for {@link pcgen.core.StatList#getTotalStatFor(java.lang.String)}.
+	 * Test method for {@link pcgen.core.PlayerCharacter#getTotalStatFor(PCStat)}.
 	 */
 	@Test
 	public void testGetTotalStatFor()

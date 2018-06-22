@@ -21,6 +21,7 @@ package pcgen.core;
 import javax.xml.transform.Source;
 
 import junit.framework.TestCase;
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
@@ -53,7 +54,8 @@ public class SourceEntryTest extends TestCase
 	}
 
 	/**
-	 * Test method for {@link pcgen.core.SourceEntry#getFormattedString(pcgen.core.SourceEntry.SourceFormat, boolean)}.
+	 * Test method for
+	 * {@link SourceFormat#getFormattedString(CDOMObject, SourceFormat, boolean)}.
 	 */
 	public void testGetFormattedString()
 	{

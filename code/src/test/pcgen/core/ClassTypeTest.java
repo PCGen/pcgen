@@ -10,7 +10,7 @@ public class ClassTypeTest extends TestCase
 	/**
 	 * Constructs a new <code>ClassTypeTest</code>.
 	 *
-	 * @see PCGenTestCase#PCGenTestCase()
+	 * @see pcgen.PCGenTestCase#PCGenTestCase()
 	 */
 	public ClassTypeTest()
 	{
@@ -22,7 +22,7 @@ public class ClassTypeTest extends TestCase
 	 *
 	 * @param name the test case name
 	 *
-	 * @see PCGenTestCase#PCGenTestCase(String)
+	 * @see pcgen.PCGenTestCase#PCGenTestCase(String)
 	 */
 	public ClassTypeTest(final String name)
 	{

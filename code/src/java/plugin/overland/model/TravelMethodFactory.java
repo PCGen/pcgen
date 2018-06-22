@@ -250,9 +250,10 @@ public class TravelMethodFactory
 
 	/**
 	 * @param nf
+	 * @param e
 	 * @param string
-	 * @param i
-	 * @return
+	 * @param def
+	 * @return The Parsed Number
 	 */
 	private static Number parseNumber(NumberFormat nf, Element e, String string, Number def)
 	{
@@ -276,7 +277,7 @@ public class TravelMethodFactory
 	/**
 	 * Use the XML defined locale to provide a number format instance.
 	 * Use {@link #DEFAULT_LOCALE} if no locale are specified specified.
-	 * @param e an XML element with {@value #XML_ATTRIBUTE_NUMBERFORMAT}
+	 * @param e an XML element with XML_ATTRIBUTE_NUMBERFORMAT
 	 * @return a number format
 	 */
 	public static NumberFormat getNumberFormat(Element e)

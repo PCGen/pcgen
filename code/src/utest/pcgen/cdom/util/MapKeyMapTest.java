@@ -55,7 +55,8 @@ public class MapKeyMapTest
 	private Aspect breedAspect;
 
 	/**
-	 * @see junit.framework.TestCase#setUp()
+	 * @throws Exception 
+	 * @see junit.framework.TestCase#setUp
 	 */
 	@Before
 	public void setUp() throws Exception

@@ -128,7 +128,7 @@ public class GroupingInfo<T extends Loadable>
 	 * Sets the value used to identify which objects this GroupingInfo identifies when
 	 * tested against the characteristic in this GroupingInfo.
 	 * 
-	 * @param characteristic
+	 * @param value
 	 *            The the value used to identify which objects this GroupingInfo
 	 *            identifies when tested against the characteristic in this GroupingInfo
 	 */

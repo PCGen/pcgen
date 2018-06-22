@@ -113,13 +113,16 @@ public class EquipCustomizerDialog extends JDialog
 	}
 
 	/**
-	 * @return
+	 * @return boolean
 	 */
 	public boolean isPurchase()
 	{
 		return purchase;
 	}
 
+	/**
+	 * @return boolean
+	 */
 	public boolean isCancelled()
 	{
 		return cancelled;

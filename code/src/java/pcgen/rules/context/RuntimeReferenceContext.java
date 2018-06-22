@@ -36,7 +36,6 @@ import pcgen.cdom.reference.CDOMFactory;
 import pcgen.cdom.reference.ManufacturableFactory;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.SimpleReferenceManufacturer;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
@@ -145,8 +144,6 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 	 * This method will perform a single .COPY operation.
 	 * @param object the object to copy
 	 * @param copyName String name of the target object
-	 *
-	 * @throws PersistenceLayerException 
 	 */
 	@Override
 	<T extends CDOMObject> T performCopy(T object, String copyName)

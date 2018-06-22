@@ -1721,7 +1721,7 @@ public class Initiative extends javax.swing.JPanel
 	 *  Saves the current combatants out to an XML file
 	 *
 	 *@param  xml            The File to save to
-	 *@exception  Exception  XML and file IO exceptions
+	 *@exception  IOException  XML and file IO exceptions
 	 */
 	private void saveToDocument(File xml) throws IOException
 	{

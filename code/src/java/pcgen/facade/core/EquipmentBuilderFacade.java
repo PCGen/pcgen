@@ -40,7 +40,7 @@ public interface EquipmentBuilderFacade
 		PRIMARY, SECONDARY;
 
 		/**
-		 * @return
+		 * @return boolean <code>true</code> is Primary
 		 */
 		public boolean isPrimary()
 		{
@@ -97,22 +97,22 @@ public interface EquipmentBuilderFacade
 
 	/**
 	 * @param newValue
-	 * @return
+	 * @return boolean
 	 */
 	boolean setDamage(String newValue);
 
 	/**
-	 * @return
+	 * @return String Base Item Name
 	 */
 	public String getBaseItemName();
 
 	/**
-	 * @return
+	 * @return boolean
 	 */
 	public boolean isWeapon();
 
 	/**
-	 * @return
+	 * @return String Damage
 	 */
 	public String getDamage();
 

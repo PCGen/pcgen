@@ -638,7 +638,7 @@ public class PluginBuildTest extends TestCase
 	 * file of the same name. An exceptions list is used to track jars 
 	 * which are know to have an name varying from the standard.
 	 *   
-	 * @param jarPrefix The regex text that the jar file name is expected to start with. 
+	 * @param jarRegexPrefix The regex text that the jar file name is expected to start with. 
 	 * @param jarFolder The folder containing the JAR files.
 	 * @param classSuffix The optional suffix on the class name that should be ignored.
 	 * @param sources The array of names of java source files.

@@ -208,7 +208,7 @@ public abstract class AbstractCharacterTestCase extends PCGenTestCase
 	/**
 	 * Constructs a new {@code AbstractCharacterTestCase}.
 	 *
-	 * @see PCGenTestCase#PCGenTestCase()
+	 * @see pcgen.PCGenTestCase#PCGenTestCase()
 	 */
 	public AbstractCharacterTestCase()
 	{
@@ -220,7 +220,7 @@ public abstract class AbstractCharacterTestCase extends PCGenTestCase
 	 *
 	 * @param name the test case name
 	 *
-	 * @see PCGenTestCase#PCGenTestCase(String)
+	 * @see pcgen.PCGenTestCase#PCGenTestCase(String)
 	 */
 	public AbstractCharacterTestCase(final String name)
 	{

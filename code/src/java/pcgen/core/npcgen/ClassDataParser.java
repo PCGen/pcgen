@@ -600,7 +600,7 @@ class ClassDataHandler extends DefaultHandler
 	 *
 	 * @param level      (optional, ignored if < 0),
 	 * @param spellLists the lists of spells
-	 * @param pc TODO
+	 * //@param pc TODO
 	 * @return a List of Spell
 	 */
 	public static List<Spell> getSpellsIn(final int level, List<? extends CDOMList<Spell>> spellLists)

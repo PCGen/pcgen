@@ -220,7 +220,7 @@ public class CoreViewFrame extends JFrame
 		}
 
 		/**
-		 * @param language
+		 * @param corePerspective
 		 */
 		public void setPerspective(CorePerspective corePerspective)
 		{

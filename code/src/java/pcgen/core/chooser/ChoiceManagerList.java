@@ -65,7 +65,6 @@ public interface ChoiceManagerList<T> {
 	 * @param aPc
 	 * @param availableList
 	 * @param selectedList
-	 * @return 
 	 */
 	public abstract List<T> doChooserRemove (
 			PlayerCharacter aPc,

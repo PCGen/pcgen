@@ -34,7 +34,7 @@ import pcgen.rules.persistence.TokenUtilities;
 import pcgen.util.TestHelper;
 
 /**
- * The Class <code>LoadContextTest</code> checks the fucntion fo the LoadCOntext class.
+ * The Class <code>LoadContextTest</code> checks the function of the LoadCOntext class.
  *
  * <br/>
  * 
@@ -43,7 +43,7 @@ public class LoadContextTest extends TestCase
 {
 
 	/**
-	 * Test method for {@link pcgen.rules.context.LoadContext#cloneInMasterLists(pcgen.cdom.base.CDOMObject, java.lang.String)}.
+	 * Test CloneInMasterListsSimple
 	 */
 	public final void testCloneInMasterListsSimple()
 	{
@@ -54,7 +54,6 @@ public class LoadContextTest extends TestCase
 	}
 
 	/**
-	 * Test method for {@link pcgen.rules.context.LoadContext#cloneInMasterLists(pcgen.cdom.base.CDOMObject, java.lang.String)}.
 	 * Verify that associations from other objects to the object being cloned 
 	 * are copied over. 
 	 */

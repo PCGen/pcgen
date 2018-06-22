@@ -1132,9 +1132,9 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	 * Add only those source files that either have no requirements, or that the
 	 * requirements are satisfied.
 	 * 
-	 * @param targetList
+	 * @param c
 	 *            The list being populated.
-	 * @param sources
+	 * @param lk
 	 *            The list of potential sources to be added.
 	 */
 	private void addQualifiedSources(Campaign c, ListKey<CampaignSourceEntry> lk)

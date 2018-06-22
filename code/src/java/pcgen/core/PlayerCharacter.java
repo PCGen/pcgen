@@ -530,7 +530,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	/**
 	 * Constructor.
 	 *
-	 * @param loadedCampaigns The currently loaded campaign objects.
+	 * @param from
 	 */
 	private PlayerCharacter(PlayerCharacter from)
 	{
