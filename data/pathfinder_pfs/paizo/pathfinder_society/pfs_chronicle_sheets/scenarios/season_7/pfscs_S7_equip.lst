@@ -51,6 +51,36 @@ Nightmarish Pigments.MOD	TYPE:PFS	DESC:Nightmarish pigments function as marvelou
 Feather Token (Swan Boat).COPY=Feather Token (Old Flotsam)
 Feather Token (Old Flotsam).MOD	TYPE:PFS	COST:450	DESC:This special feather token functions as a feather token (swan boat), except that the boat appears stocked with a wooden chest full of useful items. The chest contains a potion of cure light wounds, a set of masterwork thieves’ tools, 100 sheets of parchment, a vial of ink with an inkpen, a fishing net, 20 days worth of trail rations, and 10 gallons of cheap ale. The chest and its items persist after the boat’s duration expires.
 
+# PFS #7-21
+Vial.COPY=Elixir of Solar Vigor
+Elixir of Solar Vigor.MOD	TYPE:PFS	COST:1000	WT:0	DESC:This vial of golden liquid emits light as a candle and feels warm to the touch. Drinking an elixir of solar vigor grants the imbiber fire resistance 10 for 1 minute. Any fire damage that fails to overcome the fire resistance invigorates the drinker, granting the effect of a haste spell for 1 round.	SOURCELONG:PFS Scenario #7-21 The Sun Orchid Scheme
+
+# PFS #7-23
+Apparatus of the Crab.COPY=Apparatus of the Mantis
+Apparatus of the Mantis.MOD	TYPE:PFS			DESC:This is a unique apparatus of the crab in the shape of a giant mantis shrimp. Instead of claws, it has two slam attacks that gain a +2 circumstance bonus on attack rolls underwater but otherwise behave as an apparatus of the crab’s pincer attacks.	SOURCELONG:PFS Scenario #7-23 Apparatus of the Mantis
+
+# PFS #7-25
+Visage of the Broodlord		TYPE:Magic.Wondrous.PFS	COST:9600	DESC:Made of interwoven wicker strands and insect-excreted resin, these horrific masks have the appearance of mutated, spore-infested insects. Insects occasionally fall off the mask and burrow away through the ground. The mask’s wearer is rendered immune to swarms’ distraction special attack. Additionally, once per day the wearer can transform into an insect as per the spell vermin shape I (Pathfinder RPG Ultimate Magic 246).
+Visage of the Broodlord (Greater)		TYPE:Magic.Wondrous.PFS	COST:16670	DESC:Made of interwoven wicker strands and insect-excreted resin, these horrific masks have the appearance of mutated, spore-infested insects. Insects occasionally fall off the mask and burrow away through the ground. The mask’s wearer is rendered immune to swarms’ distraction special attack. Additionally, once per day the wearer can transform into an insect as per the spell vermin shape II (Pathfinder RPG Ultimate Magic 246).
+
+# PFS #7-27
+Flail.COPY=Slitherbane
+Slitherbane.MOD			TYPE:Magic.PFS	COST:94515	DESC:.CLEAR		DESC:This +1 heavy flail has a heavy ball etched with images of stylized eagles and sunbursts and has the special purpose to slay serpentine creatures. Slitherbane empathically encourages its wielder to enter melee with serpentine monsters and to distrust serpents of any kind. AURA moderate conjuration and evocation; ALIGNMENT lawful neutral; SENSES 30 ft.; INT 10; WIS 10; CHA 10; EGO 14; LANGUAGE empathy (Cyclops).
+
+# PFS #7-29
+Badge of the Charlatan				COST:35000	TYPE:Magic.Wondrous.PFS				DESC:This gold Aspis badge simultaneously provides all benefits of a ring of invisibility and a hat of disguise. As a standard action, the wielder can transform it into any other badge of authority with which she is familiar. The badge is under a constant greater magic auraUI effect to appear nonmagical.
+Belt of Many Forms					COST:40000	TYPE:Magic.Wondrous.Belt.PFS		DESC:[NotImplemented] This flexible belt provides a +6 enhancement bonus to your choice of Strength, Dexterity, or Constitution. You may change the bonus granted to another ability score once per day as a standard action, treating it as a temporary bonus for the first 24 hours afterword. The belt also grants additional benefits depending upon the ability score selected, granting all of the benefits of the one of the following items: belt of the weaselUE (Dex), elemental earth beltUE (Con), or minotaur beltUE (Str).
+Headband of Mental Adaptability		COST:40000	TYPE:Magic.Wondrous.Headband.PFS	DESC:[NotImplemented] This headband functions as a the belt of many forms above, except it grants its +6 enhancement bonus to Intelligence, Wisdom, or Charisma, and it grants the benefits of one of the following items: headband of ponderous recollectionUE (Int), headband of unshakable resolveUE (Wis), or rod of splendor (Cha). The skills granted by the Intelligence option are fixed at the time of creation (one of which must be a Knowledge skill).
+# TODO: These items are not implemented
+
+# PFS #7-98
+Necklace of shattered dreams		COST:3000	TYPE:Magic.Wondrous.Necklace.PFS	DESC:(Aura moderate necromancy; CL 10th; Slot neck; Price 3,000 gp): This delicate steel chain with five obsidian beads functions as a necklace of fireballs (type II), but it deals negative energy damage rather than fire damage (Will DC 14 for half ) and is at risk of exploding when subjected to negative energy damage rather than fire.
+Scabbard of bleeding edges			COST:12000	TYPE:Magic.Wondrous.PFS				DESC:(Aura faint evocation; CL 5th; Slot —; Price 12,000 gp): This sheathe appears to be woven from sickly green spider silk. It functions as a scabbard of keen edges (Pathfinder RPG Ultimate Equipment 318) except that it grants the affected weapon the wounding weapon enhancement for 5 minutes. When activated, sweet-swelling ichor sweats from between the threads for several seconds, and the affected blade appears noticeably serrated.
+Viridium moonbeast					COST:10000	TYPE:Magic.Wondrous.PFS				DESC:(Aura moderate transmutation; CL 11th; Slot —; Price 10,000 gp): This statuette of a tentacle-headed, quadruped is cast in sickly green metal. It functions as a bronze griffon figurine of wondrous power but has a fly speed of only 20 feet (good). It bite attack sickens its target for 1d3 rounds (DC 15 Fortitude negates). While animate, it intermittently babbles telepathic nonsense and incensed proclamations of doom to its owner.
+Wrathful Ring of Spell Storing		COST:16000	TYPE:Magic.Wondrous.Ring.PFS		DESC:(Aura faint evocation; CL 5th; Slot ring; Price 16,000 gp): The ring acts as a minor ring of spell storing, but it is further enchanted to allow the wearer can apply the Empower Spell metamagic feat to one stored spell by only increasing the effective spell level by 1, not 2. The wearer does not need to have the Empower Spell feat to use this property.
+
+
+
 #
 # DONE
 #
