@@ -18,15 +18,15 @@
  */
 package plugin.exporttokens;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.core.display.SkillDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.SkillToken;
 import pcgen.util.Logging;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * {@code SkillTypeToken} outputs the value of the Skill at
@@ -49,8 +49,7 @@ public class SkillTypeToken extends SkillToken
 	}
 
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		SkillDetails details = buildSkillDetails(tokenSource);
 
@@ -76,8 +75,7 @@ public class SkillTypeToken extends SkillToken
 	 * @param eh The ExportHandler
 	 * @return The matching skill, or null if none match.
 	 */
-	private Skill getSkill(String tokenSource, PlayerCharacter pc,
-		SkillDetails details, ExportHandler eh)
+	private Skill getSkill(String tokenSource, PlayerCharacter pc, SkillDetails details, ExportHandler eh)
 	{
 		int skillIndex;
 
@@ -100,8 +98,7 @@ public class SkillTypeToken extends SkillToken
 			}
 		}
 
-		if ((skillIndex >= (skillSubset.size() - 1)) && eh != null
-			&& eh.getExistsOnly())
+		if ((skillIndex >= (skillSubset.size() - 1)) && eh != null && eh.getExistsOnly())
 		{
 			eh.setNoMoreItems(true);
 		}

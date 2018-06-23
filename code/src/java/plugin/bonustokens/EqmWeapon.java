@@ -29,8 +29,7 @@ import pcgen.util.Logging;
 public final class EqmWeapon extends MultiTagBonusObj
 {
 	private static final String[] BONUS_TAGS =
-			{"CRITRANGEADD", "CRITRANGEDOUBLE", "DAMAGESIZE", "RANGEADD",
-				"RANGEMULT"};
+			{"CRITRANGEADD", "CRITRANGEDOUBLE", "DAMAGESIZE", "RANGEADD", "RANGEMULT"};
 
 	/**
 	 * Return the bonus tag handled by this class.
@@ -72,16 +71,14 @@ public final class EqmWeapon extends MultiTagBonusObj
 		{
 			if ("CRITRANGEADD".equals(token))
 			{
-				Logging.errorPrint(
-					"BONUS:EQMWEAPON|CRITRANGEADD is disabled when CRITRANGE control is used: "
-						+ token, context);
+				Logging.errorPrint("BONUS:EQMWEAPON|CRITRANGEADD is disabled when CRITRANGE control is used: " + token,
+					context);
 				return false;
 			}
 			if ("CRITRANGEDOUBLE".equals(token))
 			{
 				Logging.errorPrint(
-					"BONUS:EQMWEAPON|CRITRANGEDOUBLE is disabled when CRITRANGE control is used: "
-						+ token, context);
+					"BONUS:EQMWEAPON|CRITRANGEDOUBLE is disabled when CRITRANGE control is used: " + token, context);
 				return false;
 			}
 		}
@@ -89,16 +86,14 @@ public final class EqmWeapon extends MultiTagBonusObj
 		{
 			if ("RANGEADD".equals(token))
 			{
-				Logging.errorPrint(
-					"BONUS:EQMWEAPON|RANGEADD is disabled when EQRANGE control is used: "
-						+ token, context);
+				Logging.errorPrint("BONUS:EQMWEAPON|RANGEADD is disabled when EQRANGE control is used: " + token,
+					context);
 				return false;
 			}
 			if ("RANGEMULT".equals(token))
 			{
-				Logging.errorPrint(
-					"BONUS:EQMWEAPON|RANGEMULT is disabled when EQRANGE control is used: "
-						+ token, context);
+				Logging.errorPrint("BONUS:EQMWEAPON|RANGEMULT is disabled when EQRANGE control is used: " + token,
+					context);
 				return false;
 			}
 		}

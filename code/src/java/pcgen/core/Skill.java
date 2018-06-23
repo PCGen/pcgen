@@ -41,8 +41,7 @@ import pcgen.facade.core.SkillFacade;
  * {@code Skill}.
  * 
  */
-public final class Skill extends PObject implements SkillFacade, ChooseDriver,
-		VarScoped
+public final class Skill extends PObject implements SkillFacade, ChooseDriver, VarScoped
 {
 	public String getKeyStatAbb()
 	{
@@ -53,8 +52,7 @@ public final class Skill extends PObject implements SkillFacade, ChooseDriver,
 	@Override
 	public boolean equals(final Object obj)
 	{
-		return obj instanceof Skill
-				&& getKeyName().equalsIgnoreCase(((Skill) obj).getKeyName());
+		return obj instanceof Skill && getKeyName().equalsIgnoreCase(((Skill) obj).getKeyName());
 	}
 
 	@Override
@@ -63,19 +61,19 @@ public final class Skill extends PObject implements SkillFacade, ChooseDriver,
 		return getKeyName().hashCode();
 	}
 
-    @Override
+	@Override
 	public String getKeyStat()
 	{
 		return getKeyStatAbb();
 	}
 
-    @Override
+	@Override
 	public boolean isUntrained()
 	{
 		return getSafe(ObjectKey.USE_UNTRAINED);
 	}
 
-    @Override
+	@Override
 	public String getDisplayType()
 	{
 		List<Type> trueTypeList = getTrueTypeList(true);
@@ -103,13 +101,14 @@ public final class Skill extends PObject implements SkillFacade, ChooseDriver,
 		private SkillBonusComparator(Skill skill)
 		{
 			this.skill = skill;
-			
+
 		}
+
 		@Override
 		public int compare(BonusObj arg0, BonusObj arg1)
 		{
-			boolean arg0BonusThisSkill = bonusToThisSkill(arg0); 
-			boolean arg1BonusThisSkill = bonusToThisSkill(arg1); 
+			boolean arg0BonusThisSkill = bonusToThisSkill(arg0);
+			boolean arg1BonusThisSkill = bonusToThisSkill(arg1);
 			if (arg0BonusThisSkill != arg1BonusThisSkill)
 			{
 				if (arg0BonusThisSkill)
@@ -126,10 +125,10 @@ public final class Skill extends PObject implements SkillFacade, ChooseDriver,
 				}
 				return 1;
 			}
-			
+
 			return arg0.toString().compareTo(arg1.toString());
 		}
-		
+
 		private boolean bonusToThisSkill(BonusObj bonus)
 		{
 			if (!"SKILL".equals(bonus.getBonusName()))
@@ -145,7 +144,7 @@ public final class Skill extends PObject implements SkillFacade, ChooseDriver,
 			}
 			return false;
 		}
-		
+
 	}
 
 	@Override

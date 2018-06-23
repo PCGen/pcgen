@@ -390,7 +390,11 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 		construct(Race.class, "Psicrystal (Coward)");
 		construct(Race.class, "Psicrystal (Nimble)");
 		construct(Race.class, "Psicrystal (Observant)");
-		runRoundRobin("Psicrystal|Psicrystal (Artiste),Psicrystal (Bully),Psicrystal (Coward),Psicrystal (Friendly),Psicrystal (Hero),Psicrystal (Liar),Psicrystal (Meticulous),Psicrystal (Nimble),Psicrystal (Observant),Psicrystal (Poised),Psicrystal (Resolved),Psicrystal (Sage),Psicrystal (Single Minded),Psicrystal (Sneaky),Psicrystal (Sympathetic)");
+		runRoundRobin(
+			"Psicrystal|Psicrystal (Artiste),Psicrystal (Bully),Psicrystal (Coward),Psicrystal (Friendly),"
+			+ "Psicrystal (Hero),Psicrystal (Liar),Psicrystal (Meticulous),Psicrystal (Nimble),Psicrystal (Observant),"
+			+ "Psicrystal (Poised),Psicrystal (Resolved),Psicrystal (Sage),Psicrystal (Single Minded),"
+			+ "Psicrystal (Sneaky),Psicrystal (Sympathetic)");
 	}
 
 	@Override

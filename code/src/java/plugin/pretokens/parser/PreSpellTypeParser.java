@@ -25,8 +25,7 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 /**
  * A prerequisite parser class that handles the parsing of pre spell tokens.
  */
-public class PreSpellTypeParser extends AbstractPrerequisiteListParser
-		implements PrerequisiteParserInterface
+public class PreSpellTypeParser extends AbstractPrerequisiteListParser implements PrerequisiteParserInterface
 {
 	@Override
 	protected boolean requiresValue()
@@ -38,10 +37,10 @@ public class PreSpellTypeParser extends AbstractPrerequisiteListParser
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String[] kindsHandled()
 	{
-		return new String[] { "SPELLTYPE" };
+		return new String[]{"SPELLTYPE"};
 	}
 
 	/**
@@ -57,16 +56,14 @@ public class PreSpellTypeParser extends AbstractPrerequisiteListParser
 	 * @throws PersistenceLayerException
 	 */
 	@Override
-	public Prerequisite parse(String kind,
-	                          String formula,
-	                          boolean invertResult,
-	                          boolean overrideQualify) throws PersistenceLayerException
+	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+		throws PersistenceLayerException
 	{
 		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
 		makeCheckmult(prereq, "SPELLTYPE");
 		return prereq;
 	}
-	
+
 	private static void makeCheckmult(Prerequisite prereq, String kind)
 	{
 		if (prereq == null)

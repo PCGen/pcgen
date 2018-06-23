@@ -63,11 +63,10 @@ public class LangToken extends AbstractQualifiedChooseToken<Language>
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-			CDOMObject obj, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
 	{
-		return super.parseTokenWithSeparator(context, context.getReferenceContext()
-				.getManufacturer(LANGUAGE_CLASS), obj, value);
+		return super.parseTokenWithSeparator(context, context.getReferenceContext().getManufacturer(LANGUAGE_CLASS),
+			obj, value);
 	}
 
 	@Override

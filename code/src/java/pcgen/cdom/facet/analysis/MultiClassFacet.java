@@ -133,8 +133,7 @@ public class MultiClassFacet
 		this.favoredClassFacet = favoredClassFacet;
 	}
 
-	public void setHasAnyFavoredClassFacet(
-		HasAnyFavoredClassFacet hasAnyFavoredClassFacet)
+	public void setHasAnyFavoredClassFacet(HasAnyFavoredClassFacet hasAnyFavoredClassFacet)
 	{
 		this.hasAnyFavoredClassFacet = hasAnyFavoredClassFacet;
 	}

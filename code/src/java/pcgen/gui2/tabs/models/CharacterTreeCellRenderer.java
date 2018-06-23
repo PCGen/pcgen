@@ -22,7 +22,6 @@ import pcgen.facade.core.CharacterFacade;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.util.TreeColumnCellRenderer;
 
-
 public abstract class CharacterTreeCellRenderer extends TreeColumnCellRenderer
 {
 

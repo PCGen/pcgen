@@ -40,7 +40,7 @@ import org.junit.Test;
 public class FacetDefinitionTest
 {
 	/** The file in which we expect all facets to be defined. */
-	final static String appContextFile = "code/src/java/applicationContext.xml"; 
+	static final String appContextFile = "code/src/java/applicationContext.xml"; 
 	/**
 	 * Array of exceptions to normal names. Each entry is a pair of
 	 * Java source file name and JAR file name. 

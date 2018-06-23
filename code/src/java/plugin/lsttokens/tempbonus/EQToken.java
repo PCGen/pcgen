@@ -34,8 +34,7 @@ import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class EQToken extends AbstractTokenWithSeparator<CDOMObject> implements
-		CDOMSecondaryToken<CDOMObject>
+public class EQToken extends AbstractTokenWithSeparator<CDOMObject> implements CDOMSecondaryToken<CDOMObject>
 {
 
 	@Override
@@ -45,24 +44,21 @@ public class EQToken extends AbstractTokenWithSeparator<CDOMObject> implements
 	}
 
 	@Override
-	public ParseResult parseTokenWithSeparator(LoadContext context,
-		CDOMObject obj, String value)
+	public ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
 	{
 		int pipeLoc = value.indexOf(Constants.PIPE);
 		if (pipeLoc == -1)
 		{
-			return new ParseResult.Fail("Expected " + getFullTokenName()
-				+ ":<type>|<conditions>|BONUS but did not find a second pipe");
+			return new ParseResult.Fail(
+				"Expected " + getFullTokenName() + ":<type>|<conditions>|BONUS but did not find a second pipe");
 		}
 		String constraints = value.substring(0, pipeLoc);
 		String bonus = value.substring(pipeLoc + 1);
-		final String v =
-				bonus.replaceAll(Pattern.quote("<this>"), obj.getKeyName());
+		final String v = bonus.replaceAll(Pattern.quote("<this>"), obj.getKeyName());
 		BonusObj bon = Bonus.newBonus(context, v);
 		if (bon == null)
 		{
-			return new ParseResult.Fail(getFullTokenName()
-				+ " was given invalid type: " + bonus);
+			return new ParseResult.Fail(getFullTokenName() + " was given invalid type: " + bonus);
 		}
 		bon.setTokenSource(getFullTokenName());
 		EquipBonus eb = new EquipBonus(bon, constraints);
@@ -73,9 +69,7 @@ public class EQToken extends AbstractTokenWithSeparator<CDOMObject> implements
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
-		Changes<EquipBonus> changes =
-				context.getObjectContext().getListChanges(obj,
-					ListKey.BONUS_EQUIP);
+		Changes<EquipBonus> changes = context.getObjectContext().getListChanges(obj, ListKey.BONUS_EQUIP);
 		Collection<EquipBonus> added = changes.getAdded();
 		if (added == null || added.isEmpty())
 		{

@@ -38,7 +38,8 @@ import pcgen.core.PlayerCharacter;
 public interface PrimitiveChoiceSet<T>
 {
 	@SuppressWarnings("rawtypes")
-	static PrimitiveChoiceSet INVALID = new PrimitiveChoiceSet(){
+	static PrimitiveChoiceSet INVALID = new PrimitiveChoiceSet()
+	{
 
 		@Override
 		public Class getChoiceClass()

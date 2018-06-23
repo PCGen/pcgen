@@ -41,8 +41,7 @@ import pcgen.core.utils.CoreUtility;
 public final class EquipSetMigration
 {
 
-	private static EquipSetOutputOrderComparator comparator =
-			new EquipSetOutputOrderComparator();
+	private static EquipSetOutputOrderComparator comparator = new EquipSetOutputOrderComparator();
 
 	private EquipSetMigration()
 	{
@@ -54,7 +53,7 @@ public final class EquipSetMigration
 	 * @param pc The character being updated.
 	 * @param pcgVer The version of PCGen in which the character was created.
 	 */
-	public static void migrateEquipSets(PlayerCharacter pc, int pcgVer[])
+	public static void migrateEquipSets(PlayerCharacter pc, int[] pcgVer)
 	{
 		if (CoreUtility.compareVersions(pcgVer, new int[]{6, 1, 3}) < 0)
 		{
@@ -75,8 +74,7 @@ public final class EquipSetMigration
 		List<EquipSet> sortedChildrenEs = getSortedChildren(allEquipSets, "0");
 		for (EquipSet equipSet : sortedChildrenEs)
 		{
-			List<EquipSet> children =
-					getSortedChildren(allEquipSets, equipSet.getIdPath());
+			List<EquipSet> children = getSortedChildren(allEquipSets, equipSet.getIdPath());
 			renumberChildren(children, allEquipSets, equipSet.getIdPath());
 		}
 	}
@@ -87,8 +85,7 @@ public final class EquipSetMigration
 	 * @param parentIdPath The id path of the top of the tree we want to retrieve.
 	 * @return The sorted list of child equipment sets.
 	 */
-	private static List<EquipSet> getSortedChildren(
-		Collection<EquipSet> allEquipSets, String parentIdPath)
+	private static List<EquipSet> getSortedChildren(Collection<EquipSet> allEquipSets, String parentIdPath)
 	{
 		List<EquipSet> children = new ArrayList<>();
 		for (EquipSet equipSet : allEquipSets)
@@ -111,8 +108,8 @@ public final class EquipSetMigration
 	 * @param allEquipSets The collection of all of the character's equipment sets.
 	 * @param newParentPath The new path of the parent.
 	 */
-	private static void renumberChildren(List<EquipSet> targets,
-		Collection<EquipSet> allEquipSets, String newParentPath)
+	private static void renumberChildren(List<EquipSet> targets, Collection<EquipSet> allEquipSets,
+		String newParentPath)
 	{
 		if (targets.isEmpty())
 		{
@@ -125,15 +122,13 @@ public final class EquipSetMigration
 		{
 			String oldIdPath = equipSet.getIdPath();
 			equipSet.setIdPath(newParentPath + "." + format.format(index++));
-			List<EquipSet> children =
-					getSortedChildren(allEquipSets, oldIdPath);
+			List<EquipSet> children = getSortedChildren(allEquipSets, oldIdPath);
 			renumberChildren(children, allEquipSets, equipSet.getIdPath());
 		}
 	}
 
 	/** Comparator to order the equipment sets in output order. */
-	private static class EquipSetOutputOrderComparator implements
-			Comparator<EquipSet>
+	private static class EquipSetOutputOrderComparator implements Comparator<EquipSet>
 	{
 
 		@Override
@@ -142,14 +137,11 @@ public final class EquipSetMigration
 			Equipment equip0 = arg0.getItem();
 			Equipment equip1 = arg1.getItem();
 
-			int equipOutputOrder0 =
-					equip0 == null ? 99999 : equip0.getOutputIndex();
-			int equipOutputOrder1 =
-					equip1 == null ? 99999 : equip1.getOutputIndex();
+			int equipOutputOrder0 = equip0 == null ? 99999 : equip0.getOutputIndex();
+			int equipOutputOrder1 = equip1 == null ? 99999 : equip1.getOutputIndex();
 			if (equipOutputOrder0 != equipOutputOrder1)
 			{
-				return ((Integer) equipOutputOrder0)
-					.compareTo(equipOutputOrder1);
+				return ((Integer) equipOutputOrder0).compareTo(equipOutputOrder1);
 			}
 
 			String sortKey0 = getSortKey(equip0);

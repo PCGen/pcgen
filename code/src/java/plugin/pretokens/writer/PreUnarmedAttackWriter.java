@@ -18,38 +18,35 @@
  */
 package plugin.pretokens.writer;
 
+import java.io.IOException;
+import java.io.Writer;
+
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.AbstractPrerequisiteWriter;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 
-import java.io.IOException;
-import java.io.Writer;
-
 /**
  * Writes PREUATT token
  */
-public class PreUnarmedAttackWriter extends AbstractPrerequisiteWriter
-		implements PrerequisiteWriterInterface
+public class PreUnarmedAttackWriter extends AbstractPrerequisiteWriter implements PrerequisiteWriterInterface
 {
 
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "uatt";
 	}
 
-    @Override
+	@Override
 	public PrerequisiteOperator[] operatorsHandled()
 	{
-		return new PrerequisiteOperator[]{PrerequisiteOperator.GTEQ,
-			PrerequisiteOperator.LT};
+		return new PrerequisiteOperator[]{PrerequisiteOperator.GTEQ, PrerequisiteOperator.LT};
 	}
 
-    @Override
-	public void write(Writer writer, Prerequisite prereq)
-		throws PersistenceLayerException
+	@Override
+	public void write(Writer writer, Prerequisite prereq) throws PersistenceLayerException
 	{
 		checkValidOperator(prereq, operatorsHandled());
 
@@ -60,7 +57,7 @@ public class PreUnarmedAttackWriter extends AbstractPrerequisiteWriter
 				writer.write('!');
 			}
 
-			writer.write("PREUATT:" + (prereq.isOverrideQualify() ? "Q:":""));
+			writer.write("PREUATT:" + (prereq.isOverrideQualify() ? "Q:" : ""));
 			writer.write(prereq.getOperand());
 		}
 		catch (IOException e)

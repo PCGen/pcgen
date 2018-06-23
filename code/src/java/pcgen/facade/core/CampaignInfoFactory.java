@@ -56,6 +56,5 @@ public interface CampaignInfoFactory
 	 * @param selectedCampaigns The previously selected campaigns to be checked against.
 	 * @return The description of the prerequisites for the campaign.
 	 */
-	public String getRequirementsHTMLString(CampaignFacade campaign,
-		List<CampaignFacade> selectedCampaigns);
+	public String getRequirementsHTMLString(CampaignFacade campaign, List<CampaignFacade> selectedCampaigns);
 }

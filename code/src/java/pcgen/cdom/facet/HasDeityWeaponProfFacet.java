@@ -32,9 +32,8 @@ import pcgen.core.QualifiedObject;
  * contained in the Player Character.
  * 
  */
-public class HasDeityWeaponProfFacet extends
-		AbstractQualifiedListFacet<QualifiedObject<Boolean>> implements
-		DataFacetChangeListener<CharID, CDOMObject>
+public class HasDeityWeaponProfFacet extends AbstractQualifiedListFacet<QualifiedObject<Boolean>>
+		implements DataFacetChangeListener<CharID, CDOMObject>
 {
 
 	private CDOMObjectConsolidationFacet consolidationFacet;

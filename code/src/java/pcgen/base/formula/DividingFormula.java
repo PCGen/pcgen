@@ -47,9 +47,8 @@ public class DividingFormula implements ReferenceFormula<Integer>
 	{
 		if (denom == 0)
 		{
-			throw new IllegalArgumentException(
-					"Cannot build a DividingFormula that divides by Zero - "
-							+ "will always cause an ArithmeticException when resolved");
+			throw new IllegalArgumentException("Cannot build a DividingFormula that divides by Zero - "
+				+ "will always cause an ArithmeticException when resolved");
 		}
 		denominator = denom;
 	}
@@ -78,8 +77,7 @@ public class DividingFormula implements ReferenceFormula<Integer>
 	{
 		if (numbers == null || numbers.length != 1)
 		{
-			throw new IllegalArgumentException(
-					"DividingFormula only has one back-reference");
+			throw new IllegalArgumentException("DividingFormula only has one back-reference");
 		}
 		/*
 		 * Note that there is NOT an order of operations issue here with
@@ -119,7 +117,6 @@ public class DividingFormula implements ReferenceFormula<Integer>
 	@Override
 	public boolean equals(Object obj)
 	{
-		return obj instanceof DividingFormula
-				&& ((DividingFormula) obj).denominator == denominator;
+		return obj instanceof DividingFormula && ((DividingFormula) obj).denominator == denominator;
 	}
 }

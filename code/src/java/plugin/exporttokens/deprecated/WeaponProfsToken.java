@@ -53,13 +53,11 @@ public class WeaponProfsToken extends AbstractExportToken
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, CharacterDisplay display,
-		ExportHandler eh)
+	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
 	{
 		if (SettingsHandler.getWeaponProfPrintout())
 		{
-			return DisplayUtilities.joinDisplayName(
-				display.getSortedWeaponProfs(), ", ");
+			return DisplayUtilities.joinDisplayName(display.getSortedWeaponProfs(), ", ");
 		}
 		else
 		{

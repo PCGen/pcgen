@@ -26,8 +26,8 @@ import pcgen.rules.persistence.token.CDOMCompatibilityToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
-public class VFeatLst extends AbstractNonEmptyToken<CDOMObject> implements
-		CDOMCompatibilityToken<CDOMObject>, DeprecatedToken
+public class VFeatLst extends AbstractNonEmptyToken<CDOMObject>
+		implements CDOMCompatibilityToken<CDOMObject>, DeprecatedToken
 {
 
 	@Override
@@ -37,22 +37,19 @@ public class VFeatLst extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		CDOMObject obj, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj, String value)
 	{
 		try
 		{
 			if (!context.processToken(obj, "ABILITY", "FEAT|VIRTUAL|" + value))
 			{
 				Logging.replayParsedMessages();
-				return new ParseResult.Fail(
-					"Delegation Error from VFEAT");
+				return new ParseResult.Fail("Delegation Error from VFEAT");
 			}
 		}
 		catch (PersistenceLayerException e)
 		{
-			return new ParseResult.Fail("Delegation Error from VFEAT: "
-				+ e.getLocalizedMessage());
+			return new ParseResult.Fail("Delegation Error from VFEAT: " + e.getLocalizedMessage());
 		}
 		return ParseResult.SUCCESS;
 	}

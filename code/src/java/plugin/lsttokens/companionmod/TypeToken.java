@@ -29,8 +29,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
-public class TypeToken extends AbstractNonEmptyToken<CompanionMod> implements
-		CDOMPrimaryToken<CompanionMod>
+public class TypeToken extends AbstractNonEmptyToken<CompanionMod> implements CDOMPrimaryToken<CompanionMod>
 {
 
 	@Override
@@ -40,8 +39,7 @@ public class TypeToken extends AbstractNonEmptyToken<CompanionMod> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		CompanionMod mod, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, CompanionMod mod, String value)
 	{
 		//TODO Check for "." and warn?
 		Type type = Type.getConstant(value);
@@ -52,8 +50,7 @@ public class TypeToken extends AbstractNonEmptyToken<CompanionMod> implements
 	@Override
 	public String[] unparse(LoadContext context, CompanionMod mod)
 	{
-		Changes<Type> changes =
-				context.getObjectContext().getListChanges(mod, ListKey.TYPE);
+		Changes<Type> changes = context.getObjectContext().getListChanges(mod, ListKey.TYPE);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;
@@ -65,8 +62,7 @@ public class TypeToken extends AbstractNonEmptyToken<CompanionMod> implements
 			{
 				return new String[]{added.iterator().next().toString()};
 			}
-			Logging.errorPrint("CompanionMod " + mod.getKeyName()
-				+ " had more than one TYPE specified.  "
+			Logging.errorPrint("CompanionMod " + mod.getKeyName() + " had more than one TYPE specified.  "
 				+ "A single TYPE is required for a CompanionMod.");
 		}
 		return null;

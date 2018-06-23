@@ -36,7 +36,8 @@ public final class Bonus
 {
 	static final String BONUS_UNDEFINED = "*UNDEFINED";
 
-	private Bonus() {
+	private Bonus()
+	{
 		// Constructor
 	}
 
@@ -61,7 +62,7 @@ public final class Bonus
 		// BONUS:STAT       |STR             |rage
 		// BONUS:VAR        |rage            |2
 
-		for ( final BonusObj bonus : listToSort )
+		for (final BonusObj bonus : listToSort)
 		{
 			int iFound = 0;
 			String bonusInfo = bonus.getBonusInfo();
@@ -75,9 +76,9 @@ public final class Bonus
 			}
 			tempList.add(iFound, bonus);
 		}
-		
+
 		int iCount = tempList.size();
-		for (int i = 0; i < iCount; )
+		for (int i = 0; i < iCount;)
 		{
 			final BonusObj bonus = tempList.get(i);
 			//
@@ -131,9 +132,8 @@ public final class Bonus
 		sep.addGroupingPair('[', ']');
 		sep.addGroupingPair('(', ')');
 
-		if ((bonusString.indexOf(Constants.PIPE) == bonusString
-				.lastIndexOf(Constants.PIPE))
-				&& bonusString.indexOf('%') < 0)
+		if ((bonusString.indexOf(Constants.PIPE) == bonusString.lastIndexOf(Constants.PIPE))
+			&& bonusString.indexOf('%') < 0)
 		{
 			Logging.errorPrint("Illegal bonus format: " + bonusString);
 
@@ -179,7 +179,7 @@ public final class Bonus
 		{
 			bValue = sep.next();
 		}
-		
+
 		if (bValue.startsWith("PRE") || bValue.startsWith("!PRE"))
 		{
 			Logging.errorPrint("Invalid BONUS has no value: " + bonusString);
@@ -187,7 +187,7 @@ public final class Bonus
 		}
 
 		bValue = bValue.toUpperCase();
-		
+
 		BonusObj aBonus = null;
 		try
 		{
@@ -205,8 +205,8 @@ public final class Bonus
 		Formula val = aBonus.setValue(bValue.intern());
 		if (!val.isValid())
 		{
-			Logging.errorPrint("Could not create bonusObj for:" + bonusString
-					+ " since Formula " + bValue + " is not valid: " + val);
+			Logging.errorPrint(
+				"Could not create bonusObj for:" + bonusString + " since Formula " + bValue + " is not valid: " + val);
 			return null;
 		}
 
@@ -221,8 +221,7 @@ public final class Bonus
 
 				try
 				{
-					final PreParserFactory factory = PreParserFactory
-							.getInstance();
+					final PreParserFactory factory = PreParserFactory.getInstance();
 					aBonus.addPrerequisite(factory.parse(aString));
 				}
 				catch (PersistenceLayerException ple)
@@ -255,10 +254,9 @@ public final class Bonus
 
 				if (!result)
 				{
-					Logging.log(Logging.LST_ERROR, new StringBuilder().append(
-							"Could not add type ").append(aString.substring(5))
-							.append(" to bonusType ").append(typeOfBonus)
-							.append(" in Bonus.newBonus").toString());
+					Logging.log(Logging.LST_ERROR,
+						new StringBuilder().append("Could not add type ").append(aString.substring(5))
+							.append(" to bonusType ").append(typeOfBonus).append(" in Bonus.newBonus").toString());
 					Logging.reportSource(Logging.LST_ERROR, context);
 					return null;
 				}
@@ -278,9 +276,8 @@ public final class Bonus
 
 		if (!aTok.hasMoreTokens())
 		{
-			Logging.log(Logging.LST_ERROR, new StringBuilder().append(
-				"Could not parse empty target ").append(
-				" from BONUS:").append(bonusString).toString());
+			Logging.log(Logging.LST_ERROR, new StringBuilder().append("Could not parse empty target ")
+				.append(" from BONUS:").append(bonusString).toString());
 			Logging.reportSource(Logging.LST_ERROR, context);
 			return null;
 		}
@@ -292,9 +289,8 @@ public final class Bonus
 
 			if (!result)
 			{
-				Logging.log(Logging.LST_ERROR, new StringBuilder().append(
-						"Could not parse token ").append(token).append(
-						" from BONUS:").append(bonusString).toString());
+				Logging.log(Logging.LST_ERROR, new StringBuilder().append("Could not parse token ").append(token)
+					.append(" from BONUS:").append(bonusString).toString());
 				Logging.reportSource(Logging.LST_ERROR, context);
 				return null;
 			}

@@ -44,13 +44,14 @@ public final class BonusUtilities
 	 * @param aName
 	 * @return List
 	 */
-	public static List<BonusObj> getBonusFromList(final Collection<BonusObj> bonusList, final String aType, final String aName)
+	public static List<BonusObj> getBonusFromList(final Collection<BonusObj> bonusList, final String aType,
+		final String aName)
 	{
 		final List<BonusObj> aList = new ArrayList<>();
 
 		if (bonusList != null)
 		{
-			for ( BonusObj aBonus : bonusList )
+			for (BonusObj aBonus : bonusList)
 			{
 				if (!aBonus.getTypeOfBonus().equals(aType))
 				{
@@ -92,7 +93,7 @@ public final class BonusUtilities
 		final List<BonusObj> aList = new ArrayList<>(bonusList.size());
 
 		// Analysis reveals that bonusList is never null
-		for ( BonusObj bonus : bonusList )
+		for (BonusObj bonus : bonusList)
 		{
 			if (bonus.getTypeOfBonus().equals(type))
 			{

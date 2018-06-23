@@ -37,14 +37,13 @@ public class SetModifierFactory extends AbstractSetModifierFactory<CDOMObject>
 {
 
 	@Override
-	public FormulaModifier<CDOMObject> getModifier(String instructions,
-		ManagerFactory managerFactory, FormulaManager ignored, PCGenScope varScope,
-		FormatManager<CDOMObject> formatManager)
+	public FormulaModifier<CDOMObject> getModifier(String instructions, ManagerFactory managerFactory,
+		FormulaManager ignored, PCGenScope varScope, FormatManager<CDOMObject> formatManager)
 	{
 		if (!getVariableFormat().isAssignableFrom(formatManager.getManagedClass()))
 		{
-			throw new IllegalArgumentException("FormatManager must manage "
-				+ getVariableFormat().getName() + " or a child of that class");
+			throw new IllegalArgumentException(
+				"FormatManager must manage " + getVariableFormat().getName() + " or a child of that class");
 		}
 		Indirect<CDOMObject> n = formatManager.convertIndirect(instructions);
 		NEPCalculation<CDOMObject> calc = new IndirectCalculation<>(n, this);

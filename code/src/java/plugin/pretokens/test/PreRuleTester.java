@@ -27,7 +27,6 @@ import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.core.prereq.PrerequisiteTestFactory;
 
-
 public class PreRuleTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 
@@ -35,15 +34,15 @@ public class PreRuleTester extends AbstractPrerequisiteTest implements Prerequis
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "RULE"; //$NON-NLS-1$
 	}
 
 	@Override
-	public int passes(final Prerequisite prereq, final Equipment equipment,
-		PlayerCharacter aPC) throws PrerequisiteException
+	public int passes(final Prerequisite prereq, final Equipment equipment, PlayerCharacter aPC)
+		throws PrerequisiteException
 	{
 		int runningTotal = 0;
 		int targetNumber;
@@ -65,16 +64,14 @@ public class PreRuleTester extends AbstractPrerequisiteTest implements Prerequis
 
 		for (Prerequisite element : prereq.getPrerequisites())
 		{
-			final PrerequisiteTestFactory factory =
-					PrerequisiteTestFactory.getInstance();
+			final PrerequisiteTestFactory factory = PrerequisiteTestFactory.getInstance();
 			final PrerequisiteTest test = factory.getTest(element.getKind());
 			if (test != null)
 			{
 				runningTotal += test.passes(element, equipment, aPC);
 			}
 		}
-		return countedTotal(prereq, prereq.getOperator().compare(runningTotal,
-			targetNumber));
+		return countedTotal(prereq, prereq.getOperator().compare(runningTotal, targetNumber));
 	}
 
 	@Override
@@ -99,8 +96,7 @@ public class PreRuleTester extends AbstractPrerequisiteTest implements Prerequis
 			runningTotal = 1;
 		}
 
-		final PrerequisiteTestFactory factory =
-				PrerequisiteTestFactory.getInstance();
+		final PrerequisiteTestFactory factory = PrerequisiteTestFactory.getInstance();
 		for (Prerequisite element : prereq.getPrerequisites())
 		{
 			final PrerequisiteTest test = factory.getTest(element.getKind());
@@ -109,8 +105,7 @@ public class PreRuleTester extends AbstractPrerequisiteTest implements Prerequis
 				runningTotal += test.passes(element, character, source);
 			}
 		}
-		return countedTotal(prereq, prereq.getOperator().compare(runningTotal,
-			targetNumber));
+		return countedTotal(prereq, prereq.getOperator().compare(runningTotal, targetNumber));
 	}
 
 }

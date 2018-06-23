@@ -125,16 +125,14 @@ public class DataInstaller extends JFrame
 			// Get the directory the data is to be stored in
 			if (dataSet == null)
 			{
-				ShowMessageDelegate.showMessageDialog(LanguageBundle
-								.getFormattedString("in_diDataSetNotSelected"), TITLE,
-						MessageType.ERROR);
+				ShowMessageDelegate.showMessageDialog(LanguageBundle.getFormattedString("in_diDataSetNotSelected"),
+					TITLE, MessageType.ERROR);
 				return false;
 			}
 			if (dest == null)
 			{
-				ShowMessageDelegate.showMessageDialog(LanguageBundle
-								.getFormattedString("in_diDataFolderNotSelected"), TITLE,
-						MessageType.ERROR);
+				ShowMessageDelegate.showMessageDialog(LanguageBundle.getFormattedString("in_diDataFolderNotSelected"),
+					TITLE, MessageType.ERROR);
 				return false;
 			}
 			File destDir;
@@ -157,9 +155,9 @@ public class DataInstaller extends JFrame
 			// Check chosen dir exists
 			if (!destDir.exists())
 			{
-				ShowMessageDelegate.showMessageDialog(LanguageBundle
-						.getFormattedString("in_diDataFolderNotExist", destDir
-								.getAbsoluteFile()), TITLE, MessageType.ERROR);
+				ShowMessageDelegate.showMessageDialog(
+					LanguageBundle.getFormattedString("in_diDataFolderNotExist", destDir.getAbsoluteFile()), TITLE,
+					MessageType.ERROR);
 				return false;
 			}
 
@@ -191,7 +189,7 @@ public class DataInstaller extends JFrame
 		/**
 		 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 		 */
-        @Override
+		@Override
 		public void actionPerformed(ActionEvent actionEvent)
 		{
 			JButton source = (JButton) actionEvent.getSource();
@@ -207,10 +205,8 @@ public class DataInstaller extends JFrame
 			}
 			else if (source.equals(selectButton))
 			{
-				JFileChooser chooser =
-						new JFileChooser(currFolder);
-				chooser.setDialogTitle(LanguageBundle
-					.getString("in_diChooserTitle")); //$NON-NLS-1$
+				JFileChooser chooser = new JFileChooser(currFolder);
+				chooser.setDialogTitle(LanguageBundle.getString("in_diChooserTitle")); //$NON-NLS-1$
 				chooser.setFileFilter(new FileNameExtensionFilter("Data Sets (*.pcz,*.zip)", "zip", "pcz"));
 				int result = chooser.showOpenDialog(DataInstaller.this);
 				if (result != JFileChooser.APPROVE_OPTION)
@@ -227,15 +223,14 @@ public class DataInstaller extends JFrame
 				{
 					//PCGen_Frame1.getInst().getMainSource().refreshCampaigns();
 					//TODO: Refresh the data cleanly.
-//					PersistenceManager.getInstance().refreshCampaigns();
-//					FacadeFactory.refresh();
-					ShowMessageDelegate.showMessageDialog(LanguageBundle
-						.getFormattedString("in_diInstalled", campaign //$NON-NLS-1$
-							.getDisplayName()), TITLE, MessageType.INFORMATION);
+					//					PersistenceManager.getInstance().refreshCampaigns();
+					//					FacadeFactory.refresh();
+					ShowMessageDelegate.showMessageDialog(
+						LanguageBundle.getFormattedString("in_diInstalled", campaign //$NON-NLS-1$
+						.getDisplayName()), TITLE, MessageType.INFORMATION);
 				}
 			}
 		}
-
 
 		/**
 		 * Read data set.
@@ -248,7 +243,7 @@ public class DataInstaller extends JFrame
 		{
 			// Open the ZIP file
 			try (ZipFile in = new ZipFile(dataSet))
-				{
+			{
 				// Get the install file in a case insensitive manner
 				ZipEntry installEntry = null;
 				@SuppressWarnings("rawtypes")
@@ -265,23 +260,22 @@ public class DataInstaller extends JFrame
 				if (installEntry == null)
 				{
 					// Report that it isn't a valid data set
-					Logging.errorPrint("File " + dataSet
-							+ " is not a valid datsset - no Install.lst file");
+					Logging.errorPrint("File " + dataSet + " is not a valid datsset - no Install.lst file");
 					ShowMessageDelegate.showMessageDialog(
-							LanguageBundle.getFormattedString("in_diNoInstallFile",
-									dataSet.getName()), TITLE, MessageType.WARNING);
+						LanguageBundle.getFormattedString("in_diNoInstallFile", dataSet.getName()), TITLE,
+						MessageType.WARNING);
 					in.close();
 					return false;
 				}
 
 				// Parse the install file
 				InputStream inStream = in.getInputStream(installEntry);
-				BufferedReader reader
-						= new BufferedReader(new InputStreamReader(inStream, "UTF-8")); //$NON-NLS-1$
+				BufferedReader reader = new BufferedReader(new InputStreamReader(inStream, "UTF-8")); //$NON-NLS-1$
 
 				StringBuilder installInfo = new StringBuilder();
 				String line;
-				while ((line = reader.readLine()) != null) {
+				while ((line = reader.readLine()) != null)
+				{
 					installInfo.append(line).append("\n");
 				}
 
@@ -293,48 +287,42 @@ public class DataInstaller extends JFrame
 			catch (IOException e)
 			{
 				// Report the error
-				Logging.errorPrint("Failed to read data set " + dataSet
-						+ " due to ", e);
-				ShowMessageDelegate.showMessageDialog(LanguageBundle
-								.getFormattedString("in_diBadDataSet", dataSet), TITLE,
-						MessageType.ERROR);
+				Logging.errorPrint("Failed to read data set " + dataSet + " due to ", e);
+				ShowMessageDelegate.showMessageDialog(LanguageBundle.getFormattedString("in_diBadDataSet", dataSet),
+					TITLE, MessageType.ERROR);
 				return false;
 			}
 			catch (PersistenceLayerException e)
 			{
-				Logging.errorPrint("Failed to parse data set " + dataSet
-						+ " due to ", e);
-				ShowMessageDelegate.showMessageDialog(LanguageBundle
-								.getFormattedString("in_diBadDataSet", dataSet), TITLE,
-						MessageType.ERROR);
+				Logging.errorPrint("Failed to parse data set " + dataSet + " due to ", e);
+				ShowMessageDelegate.showMessageDialog(LanguageBundle.getFormattedString("in_diBadDataSet", dataSet),
+					TITLE, MessageType.ERROR);
 				return false;
 			}
 
 			// Validate that the campaign is compatible with our version
 			if (campaign.getSafe(StringKey.MINDEVVER) != null
-					&& !CoreUtility.isPriorToCurrent(campaign.getSafe(StringKey.MINDEVVER)))
+				&& !CoreUtility.isPriorToCurrent(campaign.getSafe(StringKey.MINDEVVER)))
 			{
 				if (CoreUtility.isCurrMinorVer(campaign.getSafe(StringKey.MINDEVVER)))
 				{
-					Logging.errorPrint("Dataset " + campaign.getDisplayName()
-							+ " needs at least PCGen version "
-							+ campaign.getSafe(StringKey.MINDEVVER)
-							+ " to run. It could not be installed.");
-					ShowMessageDelegate.showMessageDialog(LanguageBundle
-									.getFormattedString("in_diVersionTooOldDev", campaign.getSafe(StringKey.MINDEVVER), campaign.getSafe(StringKey.MINVER)), TITLE,
-							MessageType.WARNING);
+					Logging.errorPrint("Dataset " + campaign.getDisplayName() + " needs at least PCGen version "
+						+ campaign.getSafe(StringKey.MINDEVVER) + " to run. It could not be installed.");
+					ShowMessageDelegate.showMessageDialog(
+						LanguageBundle.getFormattedString("in_diVersionTooOldDev",
+							campaign.getSafe(StringKey.MINDEVVER), campaign.getSafe(StringKey.MINVER)),
+						TITLE, MessageType.WARNING);
 					return false;
 				}
 			}
 			if (campaign.getSafe(StringKey.MINVER) != null
-					&& !CoreUtility.isPriorToCurrent(campaign.getSafe(StringKey.MINVER)))
+				&& !CoreUtility.isPriorToCurrent(campaign.getSafe(StringKey.MINVER)))
 			{
-				Logging.errorPrint("Dataset " + campaign.getDisplayName()
-						+ " needs at least PCGen version " + campaign.getSafe(StringKey.MINVER)
-						+ " to run. It could not be installed.");
-				ShowMessageDelegate.showMessageDialog(LanguageBundle
-								.getFormattedString("in_diVersionTooOld", campaign.getSafe(StringKey.MINVER)),
-						TITLE, MessageType.WARNING);
+				Logging.errorPrint("Dataset " + campaign.getDisplayName() + " needs at least PCGen version "
+					+ campaign.getSafe(StringKey.MINVER) + " to run. It could not be installed.");
+				ShowMessageDelegate.showMessageDialog(
+					LanguageBundle.getFormattedString("in_diVersionTooOld", campaign.getSafe(StringKey.MINVER)), TITLE,
+					MessageType.WARNING);
 				return false;
 			}
 
@@ -360,6 +348,9 @@ public class DataInstaller extends JFrame
 					case HOMEBREWDATA:
 						locHomebrewDataButton.setSelected(true);
 						break;
+					default:
+						//Case not caught, should this cause an error?
+						break;
 				}
 			}
 			currDataSet = dataSet;
@@ -368,49 +359,49 @@ public class DataInstaller extends JFrame
 			return true;
 		}
 	}
-	
+
 	/** The name of the OUTPUTSHEETS folder. */
 	private static final String OUTPUTSHEETS_FOLDER = "outputsheets/";
-	
+
 	/** The name of the DATA folder. */
 	private static final String DATA_FOLDER = "data/";
-	
+
 	/** The standard window title. */
 	private static final String TITLE = LanguageBundle.getString("in_dataInstaller");
-	
+
 	/** The component to display the path of the selected data set. */
 	private JTextField dataSetSel;
-	
+
 	/** The select button. */
 	private JButton selectButton;
-	
+
 	/** The data set detail display component. */
 	private JEditorPane dataSetDetails;
-	
+
 	/** The button for the data location. */
 	private JRadioButton locDataButton;
-	
+
 	/** The button for the vendor data location. */
 	private JRadioButton locVendorDataButton;
-	
+
 	/** The button for the homebrew data location. */
 	private JRadioButton locHomebrewDataButton;
-	
+
 	/** The install button. */
 	private JButton installButton;
-	
+
 	/** The close button. */
 	private JButton closeButton;
-	
+
 	/** The listener. */
 	private final ActionListener listener = new InstallerButtonListener();
-	
+
 	/** The campaign. */
 	private InstallableCampaign campaign;
-	
+
 	/** The current data set. */
 	private File currDataSet;
-	
+
 	/** The current folder */
 	private File currFolder;
 
@@ -454,9 +445,8 @@ public class DataInstaller extends JFrame
 			{
 				msg.append(' ').append(filename).append("\n");
 			}
-			DIWarningDialog dialog =
-					new DIWarningDialog(this, msg.toString(), LanguageBundle
-						.getFormattedString("in_diNonStandardFiles"));
+			DIWarningDialog dialog = new DIWarningDialog(this, msg.toString(),
+				LanguageBundle.getFormattedString("in_diNonStandardFiles"));
 			dialog.setVisible(true);
 			int result = dialog.getResponse();
 			if (result == JOptionPane.CANCEL_OPTION)
@@ -473,7 +463,7 @@ public class DataInstaller extends JFrame
 		}
 
 		return true;
-	}	
+	}
 
 	/**
 	 * Check for any files that would be overwritten and confirm it is ok
@@ -490,7 +480,7 @@ public class DataInstaller extends JFrame
 		Collection<String> existingFilesCorr = new ArrayList<>();
 		for (String filename : files)
 		{
-			String correctedFilename = correctFileName(destDir, filename); 
+			String correctedFilename = correctFileName(destDir, filename);
 			if (new File(correctedFilename).exists())
 			{
 				existingFiles.add(filename);
@@ -506,8 +496,7 @@ public class DataInstaller extends JFrame
 				msg.append(' ').append(filename).append("\n");
 			}
 			DIWarningDialog dialog =
-					new DIWarningDialog(this, msg.toString(), LanguageBundle
-						.getFormattedString("in_diOverwriteFiles"));
+					new DIWarningDialog(this, msg.toString(), LanguageBundle.getFormattedString("in_diOverwriteFiles"));
 			dialog.setVisible(true);
 			int result = dialog.getResponse();
 			if (result == JOptionPane.CANCEL_OPTION)
@@ -535,8 +524,7 @@ public class DataInstaller extends JFrame
 	 * 
 	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
-	private void copyInputStream(InputStream in, OutputStream out)
-		throws IOException
+	private void copyInputStream(InputStream in, OutputStream out) throws IOException
 	{
 		byte[] buffer = new byte[1024];
 		int len;
@@ -567,9 +555,7 @@ public class DataInstaller extends JFrame
 		}
 		else if (fileName.toLowerCase().startsWith(OUTPUTSHEETS_FOLDER))
 		{
-			fileName =
-					new File(ConfigurationSettings.getOutputSheetsDir())
-						.getAbsolutePath() + fileName.substring(12);
+			fileName = new File(ConfigurationSettings.getOutputSheetsDir()).getAbsolutePath() + fileName.substring(12);
 		}
 		return fileName;
 	}
@@ -594,9 +580,9 @@ public class DataInstaller extends JFrame
 				Logging.log(Logging.INFO, "Creating directory: " + dir);
 				if (!dir.mkdirs())
 				{
-					ShowMessageDelegate.showMessageDialog(LanguageBundle
-						.getFormattedString("in_diDirNotCreated", dir
-							.getAbsoluteFile()), TITLE, MessageType.ERROR);
+					ShowMessageDelegate.showMessageDialog(
+						LanguageBundle.getFormattedString("in_diDirNotCreated", dir.getAbsoluteFile()), TITLE,
+						MessageType.ERROR);
 					return false;
 				}
 			}
@@ -616,31 +602,29 @@ public class DataInstaller extends JFrame
 	private boolean createFiles(File dataSet, File destDir, Iterable<String> files)
 	{
 		String corrFilename = "";
-		try (ZipFile in = new ZipFile(dataSet)) {
-				for (String filename : files) {
-					ZipEntry entry = in.getEntry(filename);
-					corrFilename = correctFileName(destDir, filename);
-					if (Logging.isDebugMode()) {
-						Logging.debugPrint("Extracting file: " + filename + " to "
-								+ corrFilename);
-					}
-					copyInputStream(
-							in.getInputStream(entry),
-							new BufferedOutputStream(new FileOutputStream(corrFilename)));
+		try (ZipFile in = new ZipFile(dataSet))
+		{
+			for (String filename : files)
+			{
+				ZipEntry entry = in.getEntry(filename);
+				corrFilename = correctFileName(destDir, filename);
+				if (Logging.isDebugMode())
+				{
+					Logging.debugPrint("Extracting file: " + filename + " to " + corrFilename);
+				}
+				copyInputStream(in.getInputStream(entry), new BufferedOutputStream(new FileOutputStream(corrFilename)));
 			}
 			return true;
-		} catch (IOException e) {
+		}
+		catch (IOException e)
+		{
 			// Report the error
-			Logging.errorPrint("Failed to read data set " + dataSet
-					+ " or write file " + corrFilename + " due to ", e);
-			ShowMessageDelegate.showMessageDialog(LanguageBundle
-							.getFormattedString("in_diWriteFail", corrFilename), TITLE,
-					MessageType.ERROR);
+			Logging.errorPrint("Failed to read data set " + dataSet + " or write file " + corrFilename + " due to ", e);
+			ShowMessageDelegate.showMessageDialog(LanguageBundle.getFormattedString("in_diWriteFail", corrFilename),
+				TITLE, MessageType.ERROR);
 			return false;
 		}
 	}
-
-
 
 	/**
 	 * Build the user interface ready for display.
@@ -654,19 +638,19 @@ public class DataInstaller extends JFrame
 		GridBagLayout gridbag = new GridBagLayout();
 		setTitle(TITLE);
 		setLayout(gridbag);
-	
+
 		// Data set selection row
 		Utility.buildConstraints(gbc, 0, 0, 1, 1, 0.0, 0.0);
 		JLabel dataSetLabel = new JLabel(LanguageBundle.getString("in_diDataSet"), SwingConstants.RIGHT);
 		gridbag.setConstraints(dataSetLabel, gbc);
 		add(dataSetLabel, gbc);
-		
+
 		Utility.buildConstraints(gbc, 1, 0, 2, 1, 1.0, 0.0);
 		dataSetSel = new JTextField("", SwingConstants.WEST);
 		dataSetSel.setEditable(false);
 		gridbag.setConstraints(dataSetSel, gbc);
 		add(dataSetSel, gbc);
-		
+
 		Utility.buildConstraints(gbc, 3, 0, 1, 1, 0.0, 0.0);
 		gbc.fill = GridBagConstraints.NONE;
 		selectButton = new JButton();
@@ -674,7 +658,7 @@ public class DataInstaller extends JFrame
 		gridbag.setConstraints(selectButton, gbc);
 		add(selectButton, gbc);
 		selectButton.addActionListener(listener);
-		
+
 		// Data set details row
 		Utility.buildConstraints(gbc, 0, 1, 4, 1, 1.0, 1.0);
 		dataSetDetails = new JEditorPane("text/html", "<html></html>");
@@ -693,24 +677,16 @@ public class DataInstaller extends JFrame
 		JLabel locLabel = new JLabel(LanguageBundle.getString("in_diLocation"), SwingConstants.RIGHT);
 		gridbag.setConstraints(locLabel, gbc);
 		add(locLabel, gbc);
-		
+
 		ButtonGroup exclusiveGroup = new ButtonGroup();
-		locDataButton =
-				new JRadioButton(LanguageBundle
-					.getString("in_diData"));
+		locDataButton = new JRadioButton(LanguageBundle.getString("in_diData"));
 		locDataButton.setToolTipText(LanguageBundle.getString("in_diData_tip"));
 		exclusiveGroup.add(locDataButton);
-		locVendorDataButton =
-				new JRadioButton(LanguageBundle
-					.getString("in_diVendorData"));
-		locVendorDataButton.setToolTipText(LanguageBundle
-			.getString("in_diVendorData_tip"));
+		locVendorDataButton = new JRadioButton(LanguageBundle.getString("in_diVendorData"));
+		locVendorDataButton.setToolTipText(LanguageBundle.getString("in_diVendorData_tip"));
 		exclusiveGroup.add(locVendorDataButton);
-		locHomebrewDataButton =
-				new JRadioButton(LanguageBundle
-					.getString("in_diHomebrewData"));
-		locHomebrewDataButton.setToolTipText(LanguageBundle
-			.getString("in_diHomebrewData_tip"));
+		locHomebrewDataButton = new JRadioButton(LanguageBundle.getString("in_diHomebrewData"));
+		locHomebrewDataButton.setToolTipText(LanguageBundle.getString("in_diHomebrewData_tip"));
 		exclusiveGroup.add(locHomebrewDataButton);
 		JPanel optionsPanel = new JPanel();
 		optionsPanel.add(locDataButton);
@@ -724,7 +700,7 @@ public class DataInstaller extends JFrame
 
 		// Buttons row
 		installButton = new JButton();
-		CommonMenuText.name(installButton, "diInstall");  //$NON-NLS-1$
+		CommonMenuText.name(installButton, "diInstall"); //$NON-NLS-1$
 		installButton.addActionListener(listener);
 		closeButton = new JButton();
 		CommonMenuText.name(closeButton, "close"); //$NON-NLS-1$
@@ -742,29 +718,33 @@ public class DataInstaller extends JFrame
 		pack();
 	}
 
-		/**
-	 * Populate the lists of files and directories to be installed.
-	 * 
-	 * @param dataSet the data set (campaign) to be installed.
-	 * @param directories the list of directory names
-	 * @param files the list of file names
-	 * 
-	 * @return true, if populate file and dir lists
-	 */
+	/**
+	* Populate the lists of files and directories to be installed.
+	* 
+	* @param dataSet the data set (campaign) to be installed.
+	* @param directories the list of directory names
+	* @param files the list of file names
+	* 
+	* @return true, if populate file and dir lists
+	*/
 	@SuppressWarnings("rawtypes")
-	private boolean populateFileAndDirLists(File dataSet,
-		Collection<String> directories, Collection<String> files)
+	private boolean populateFileAndDirLists(File dataSet, Collection<String> directories, Collection<String> files)
 	{
 		// Navigate through the zip file, processing each file
 		// Open the ZIP file
-		try (ZipFile in = new ZipFile(dataSet)) {
+		try (ZipFile in = new ZipFile(dataSet))
+		{
 
 			Enumeration entries = in.entries();
-			while (entries.hasMoreElements()) {
+			while (entries.hasMoreElements())
+			{
 				ZipEntry entry = (ZipEntry) entries.nextElement();
-				if (entry.isDirectory()) {
+				if (entry.isDirectory())
+				{
 					directories.add(entry.getName());
-				} else if (!entry.getName().equalsIgnoreCase("install.lst")) {
+				}
+				else if (!entry.getName().equalsIgnoreCase("install.lst"))
+				{
 					files.add(entry.getName());
 				}
 			}
@@ -773,10 +753,8 @@ public class DataInstaller extends JFrame
 		catch (IOException e)
 		{
 			// Report the error
-			Logging.errorPrint("Failed to read data set " + dataSet
-				+ " due to ", e);
-			ShowMessageDelegate.showMessageDialog(LanguageBundle
-				.getFormattedString("in_diBadDataSet", dataSet), TITLE,
+			Logging.errorPrint("Failed to read data set " + dataSet + " due to ", e);
+			ShowMessageDelegate.showMessageDialog(LanguageBundle.getFormattedString("in_diBadDataSet", dataSet), TITLE,
 				MessageType.ERROR);
 			return false;
 		}

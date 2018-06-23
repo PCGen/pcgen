@@ -15,7 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
- package plugin.experience;
+package plugin.experience;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -31,6 +31,15 @@ import javax.swing.JTabbedPane;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
+import gmgen.GMGenSystem;
+import gmgen.GMGenSystemView;
+import gmgen.plugin.Combatant;
+import gmgen.plugin.InitHolderList;
+import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
+import gmgen.pluginmgr.messages.CombatHasBeenInitiatedMessage;
+import gmgen.pluginmgr.messages.FileMenuSaveMessage;
+import gmgen.pluginmgr.messages.RequestAddPreferencesPanelMessage;
+import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.tools.Utility;
 import pcgen.pluginmgr.InteractivePlugin;
@@ -43,23 +52,13 @@ import plugin.experience.gui.AddDefeatedCombatant;
 import plugin.experience.gui.ExperienceAdjusterView;
 import plugin.experience.gui.PreferencesExperiencePanel;
 
-import gmgen.GMGenSystem;
-import gmgen.GMGenSystemView;
-import gmgen.plugin.Combatant;
-import gmgen.plugin.InitHolderList;
-import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
-import gmgen.pluginmgr.messages.CombatHasBeenInitiatedMessage;
-import gmgen.pluginmgr.messages.FileMenuSaveMessage;
-import gmgen.pluginmgr.messages.RequestAddPreferencesPanelMessage;
-import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
-
 /**
  * The {@code ExperienceAdjusterController} handles the functionality of
  * the Adjusting of experience.  This class is called by the {@code GMGenSystem
  * } and will have it's own model and view.<br>
  */
-public class ExperienceAdjusterPlugin extends KeyAdapter implements InteractivePlugin,
-		ActionListener, ChangeListener /*Observer*/
+public class ExperienceAdjusterPlugin extends KeyAdapter
+		implements InteractivePlugin, ActionListener, ChangeListener /*Observer*/
 {
 	/** Log name */
 	public static final String LOG_NAME = "Experience_Adjuster"; //$NON-NLS-1$
@@ -89,11 +88,11 @@ public class ExperienceAdjusterPlugin extends KeyAdapter implements InteractiveP
 	@Override
 	public void start(PCGenMessageHandler mh)
 	{
-    	messageHandler = mh;
+		messageHandler = mh;
 		eaModel = new ExperienceAdjusterModel(getDataDirectory());
 		eaView = new ExperienceAdjusterView(eaModel);
-		messageHandler.handleMessage(new RequestAddPreferencesPanelMessage(this, getLocalizedName(),
-			new PreferencesExperiencePanel()));
+		messageHandler.handleMessage(
+			new RequestAddPreferencesPanelMessage(this, getLocalizedName(), new PreferencesExperiencePanel()));
 		initListeners();
 		update();
 		messageHandler.handleMessage(new RequestAddTabToGMGenMessage(this, getLocalizedName(), getView()));
@@ -130,7 +129,7 @@ public class ExperienceAdjusterPlugin extends KeyAdapter implements InteractiveP
 	{
 		return ExperienceAdjusterPlugin.NAME;
 	}
-	
+
 	private String getLocalizedName()
 	{
 		return LanguageBundle.getString(ExperienceAdjusterPlugin.IN_NAME);
@@ -149,7 +148,7 @@ public class ExperienceAdjusterPlugin extends KeyAdapter implements InteractiveP
 	 * Calls the appropriate methods depending on the source of the action.
 	 * @param e the action even that happened.
 	 */
-    @Override
+	@Override
 	public void actionPerformed(ActionEvent e)
 	{
 		if (e.getSource() == eaView.getAddExperienceToCharButton())
@@ -184,9 +183,7 @@ public class ExperienceAdjusterPlugin extends KeyAdapter implements InteractiveP
 	 */
 	private void adjustCR(Combatant cbt)
 	{
-		String inputValue =
-				JOptionPane.showInputDialog(GMGenSystem.inst, "CR", Float
-					.toString(cbt.getCR()));
+		String inputValue = JOptionPane.showInputDialog(GMGenSystem.inst, "CR", Float.toString(cbt.getCR()));
 
 		if (inputValue != null)
 		{
@@ -207,8 +204,7 @@ public class ExperienceAdjusterPlugin extends KeyAdapter implements InteractiveP
 	 */
 	private void handleAddEnemyButton()
 	{
-		AddDefeatedCombatant dialog =
-				new AddDefeatedCombatant(GMGenSystem.inst, true, eaModel);
+		AddDefeatedCombatant dialog = new AddDefeatedCombatant(GMGenSystem.inst, true, eaModel);
 		dialog.setVisible(true);
 		handleGroupBox();
 		update();
@@ -228,9 +224,8 @@ public class ExperienceAdjusterPlugin extends KeyAdapter implements InteractiveP
 
 				for (final Object aList : list)
 				{
-					eaModel.addExperienceToCharacter(
-							(ExperienceListItem) aList, Integer.parseInt(eaView
-									.getExperienceField().getText()));
+					eaModel.addExperienceToCharacter((ExperienceListItem) aList,
+						Integer.parseInt(eaView.getExperienceField().getText()));
 				}
 			}
 			catch (NumberFormatException e)

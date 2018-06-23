@@ -18,26 +18,25 @@
  */
 package pcgen.facade.core;
 
-
 public interface InfoFacade
 {
 
-    public String getSource();
+	public String getSource();
 
-    public String getSourceForNodeDisplay();
+	public String getSourceForNodeDisplay();
 
-    @Override
-    public String toString();
-    
-    public String getKeyName();
+	@Override
+	public String toString();
 
-    /**
-     * @return true if the name of this item is Product Identity (i.e owned by the publisher)
-     */
-    public boolean isNamePI();
-    
-    /**
-     * @return The types for this object as a single string separated by .
-     */
-    public String getType();
+	public String getKeyName();
+
+	/**
+	 * @return true if the name of this item is Product Identity (i.e owned by the publisher)
+	 */
+	public boolean isNamePI();
+
+	/**
+	 * @return The types for this object as a single string separated by .
+	 */
+	public String getType();
 }

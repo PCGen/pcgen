@@ -20,16 +20,16 @@ package pcgen.output.model;
 import java.util.Collections;
 import java.util.Iterator;
 
+import freemarker.template.TemplateHashModel;
+import freemarker.template.TemplateModel;
+import freemarker.template.TemplateModelException;
+import freemarker.template.TemplateScalarModel;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.ItemFacet;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.ObjectWrapperFacet;
-import freemarker.template.TemplateHashModel;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
-import freemarker.template.TemplateScalarModel;
 
 /**
  * An ItemFacetModel wraps a ItemFacet and serves as a TemplateHashModel for
@@ -39,12 +39,10 @@ import freemarker.template.TemplateScalarModel;
  *            The Type of object contained in the ItemFacet contained by this
  *            ItemFacetModel
  */
-public class ItemFacetModel<T> implements TemplateHashModel,
-		TemplateScalarModel, Iterable<T>
+public class ItemFacetModel<T> implements TemplateHashModel, TemplateScalarModel, Iterable<T>
 {
 	//Make sure to use PCGen's Wrappers since we don't know the underlying type
-	private static final ObjectWrapperFacet WRAPPER_FACET = FacetLibrary
-		.getFacet(ObjectWrapperFacet.class);
+	private static final ObjectWrapperFacet WRAPPER_FACET = FacetLibrary.getFacet(ObjectWrapperFacet.class);
 
 	/**
 	 * The underlying CharID used to get the PlayerCharacter's item from the
@@ -106,8 +104,7 @@ public class ItemFacetModel<T> implements TemplateHashModel,
 		return model.get(arg0);
 	}
 
-	private TemplateHashModel getInternalHashModel()
-		throws TemplateModelException
+	private TemplateHashModel getInternalHashModel() throws TemplateModelException
 	{
 		if (!cacheSet)
 		{

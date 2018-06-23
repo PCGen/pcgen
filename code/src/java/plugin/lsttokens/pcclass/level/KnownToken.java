@@ -33,8 +33,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with KNOWN Token
  */
-public class KnownToken extends AbstractTokenWithSeparator<PCClassLevel> implements
-		CDOMPrimaryToken<PCClassLevel>
+public class KnownToken extends AbstractTokenWithSeparator<PCClassLevel> implements CDOMPrimaryToken<PCClassLevel>
 {
 
 	@Override
@@ -64,8 +63,7 @@ public class KnownToken extends AbstractTokenWithSeparator<PCClassLevel> impleme
 			{
 				if (Integer.parseInt(tok) < 0)
 				{
-					return new ParseResult.Fail("Invalid Spell Count: " + tok
-							+ " is less than zero");
+					return new ParseResult.Fail("Invalid Spell Count: " + tok + " is less than zero");
 				}
 			}
 			catch (NumberFormatException e)
@@ -75,8 +73,7 @@ public class KnownToken extends AbstractTokenWithSeparator<PCClassLevel> impleme
 			Formula formula = FormulaFactory.getFormulaFor(tok);
 			if (!formula.isValid())
 			{
-				return new ParseResult.Fail("Formula in " + getTokenName()
-						+ " was not valid: " + formula.toString());
+				return new ParseResult.Fail("Formula in " + getTokenName() + " was not valid: " + formula.toString());
 			}
 			context.getObjectContext().addToList(level, ListKey.KNOWN, formula);
 		}
@@ -86,14 +83,12 @@ public class KnownToken extends AbstractTokenWithSeparator<PCClassLevel> impleme
 	@Override
 	public String[] unparse(LoadContext context, PCClassLevel level)
 	{
-		Changes<Formula> changes = context.getObjectContext().getListChanges(level,
-				ListKey.KNOWN);
+		Changes<Formula> changes = context.getObjectContext().getListChanges(level, ListKey.KNOWN);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;
 		}
-		return new String[] { StringUtil.join(changes.getAdded(),
-				Constants.COMMA) };
+		return new String[]{StringUtil.join(changes.getAdded(), Constants.COMMA)};
 	}
 
 	@Override

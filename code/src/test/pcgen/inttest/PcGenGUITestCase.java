@@ -75,7 +75,7 @@ public abstract class PcGenGUITestCase extends TestCase
 		System.out.println("RUNTEST with the character: " + character
 			+ " and the game mode: " + mode);
 		// Delete the old generated output for this test 
-		File outputFolder= new File("code/testsuite/output");
+		File outputFolder = new File("code/testsuite/output");
 		outputFolder.mkdirs();
 		String outputFileName = character + ".xml";
 		File outputFileFile = new File(outputFolder, outputFileName);
@@ -157,14 +157,17 @@ public abstract class PcGenGUITestCase extends TestCase
 				new BufferedReader(new InputStreamReader(new FileInputStream(
 					outputFile), "UTF-8"));
 		StringBuilder output = new StringBuilder();
-		try {
+		try
+		{
 			String line = br.readLine();
 			while (line != null)
 			{
 				output.append(line).append("\n");
 				line = br.readLine();
 			}
-		} catch (IOException e) {
+		}
+		catch (IOException e)
+		{
 			br.close();
 			fail();
 		}

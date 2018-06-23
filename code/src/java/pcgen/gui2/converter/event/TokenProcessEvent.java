@@ -39,9 +39,8 @@ public class TokenProcessEvent extends EventObject
 	private List<CDOMObject> injected;
 	private final ConversionDecider decider;
 
-	public TokenProcessEvent(EditorLoadContext lc, ConversionDecider cd,
-			String tokenName, String tokenValue, String name,
-			CDOMObject object)
+	public TokenProcessEvent(EditorLoadContext lc, ConversionDecider cd, String tokenName, String tokenValue,
+		String name, CDOMObject object)
 	{
 		super(object);
 		key = tokenName;

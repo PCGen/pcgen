@@ -20,8 +20,7 @@ public class SpellBookNameToken extends AbstractExportToken
 	}
 
 	@Override
-	public String getToken(String tokenSource, CharacterDisplay display,
-		ExportHandler eh)
+	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
 	{
 		final StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
 		String bString = aTok.nextToken();
@@ -33,8 +32,7 @@ public class SpellBookNameToken extends AbstractExportToken
 		}
 		else
 		{
-			Logging
-				.errorPrint("Old syntax SPELLBOOKNAMEx will be replaced for SPELLBOOKNAME.x");
+			Logging.errorPrint("Old syntax SPELLBOOKNAMEx will be replaced for SPELLBOOKNAME.x");
 			bookNum = Integer.parseInt(tokenSource.substring(13));
 		}
 

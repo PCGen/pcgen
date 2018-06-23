@@ -41,8 +41,7 @@ import pcgen.core.PlayerCharacter;
  * @param <T>
  *            The Type of object returned by this QualifiedDecorator.
  */
-public class QualifiedDecorator<T extends CDOMObject> implements
-		PrimitiveChoiceSet<T>
+public class QualifiedDecorator<T extends CDOMObject> implements PrimitiveChoiceSet<T>
 {
 
 	/**
@@ -135,8 +134,7 @@ public class QualifiedDecorator<T extends CDOMObject> implements
 	@Override
 	public boolean equals(Object obj)
 	{
-		return (obj instanceof QualifiedDecorator)
-				&& ((QualifiedDecorator<?>) obj).underlyingPCS.equals(underlyingPCS);
+		return (obj instanceof QualifiedDecorator) && ((QualifiedDecorator<?>) obj).underlyingPCS.equals(underlyingPCS);
 	}
 
 	/**

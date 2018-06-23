@@ -26,8 +26,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 /**
  * Class deals with STAT Token
  */
-public class StatToken extends AbstractBasicCampaignToken implements
-		CDOMPrimaryToken<Campaign>
+public class StatToken extends AbstractBasicCampaignToken implements CDOMPrimaryToken<Campaign>
 {
 	@Override
 	public String getTokenName()

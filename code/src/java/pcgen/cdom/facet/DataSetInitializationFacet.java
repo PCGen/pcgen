@@ -27,12 +27,12 @@ public class DataSetInitializationFacet
 {
 
 	private List<DataSetInitializedFacet> facetList = new ArrayList<>();
-	
+
 	public void addDataSetInitializedFacet(DataSetInitializedFacet cif)
 	{
 		facetList.add(cif);
 	}
-	
+
 	public void initialize(LoadContext context)
 	{
 		for (DataSetInitializedFacet cif : facetList)

@@ -40,7 +40,7 @@ import pcgen.util.PCGenCommand;
  */
 public class IsgamemodeCommand extends PCGenCommand
 {
-	
+
 	/**
 	 * <p>
 	 * Initializes the command, notably to set the number of parameters to 1.
@@ -56,7 +56,7 @@ public class IsgamemodeCommand extends PCGenCommand
 	 * Gets the name of the function handled by this class.
 	 * @return The name of the function.
 	 */
-    @Override
+	@Override
 	public String getFunctionName()
 	{
 		return "ISGAMEMODE";
@@ -74,7 +74,7 @@ public class IsgamemodeCommand extends PCGenCommand
 	 * @throws ParseException the parse exception
 	 */
 	@SuppressWarnings("unchecked") //Uses JEP, which doesn't use generics
-    @Override
+	@Override
 	public void run(final Stack stack) throws ParseException
 	{
 		// Check if stack is null
@@ -83,7 +83,7 @@ public class IsgamemodeCommand extends PCGenCommand
 			throw new ParseException("Stack argument null");
 		}
 
-        final String gameModeKey;
+		final String gameModeKey;
 
 		final Object param1 = stack.pop();
 
@@ -97,7 +97,6 @@ public class IsgamemodeCommand extends PCGenCommand
 		}
 
 		// push the result on the inStack
-		stack.push(SettingsHandler.getGame().getName().equalsIgnoreCase(
-			gameModeKey) ? 1 : 0);
+		stack.push(SettingsHandler.getGame().getName().equalsIgnoreCase(gameModeKey) ? 1 : 0);
 	}
 }

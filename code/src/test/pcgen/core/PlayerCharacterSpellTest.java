@@ -73,8 +73,12 @@ public class PlayerCharacterSpellTest extends AbstractCharacterTestCase
 		PCClassLoader classLoader = new PCClassLoader();
 		divineClass = classLoader.parseLine(context, null, classLine, source);
 		BuildUtilities.setFact(divineClass, "SpellType", "Divine");
-		classLoader.parseLine(context, divineClass, "CLASS:MyClass	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Cleric|CL", source);
-		classLoader.parseClassLevelLine(context, divineClass, 1, source, "CAST:5,4	BONUS:DOMAIN|NUMBER|2	BONUS:VAR|DomainLVL|CL");
+		classLoader.parseLine(context, divineClass,
+			"CLASS:MyClass	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|"
+					+ "LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Cleric|CL",
+			source);
+		classLoader.parseClassLevelLine(context, divineClass, 1, source,
+			"CAST:5,4	BONUS:DOMAIN|NUMBER|2	BONUS:VAR|DomainLVL|CL");
 		context.getReferenceContext().importObject(divineClass);
 		
 		final String domainLine = "Sun	SPELLLEVEL:DOMAIN|Sun=1|KEY_domainSpell";

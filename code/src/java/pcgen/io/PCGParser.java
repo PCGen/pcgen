@@ -56,7 +56,6 @@ interface PCGParser
 	 * @throws PCGParseException If the lines are invalid 
 	 */
 	public SourceSelectionFacade parcePCGSourceOnly(String[] lines) throws PCGParseException;
-	
 
 	/**
 	 * @return the baseFeatPool

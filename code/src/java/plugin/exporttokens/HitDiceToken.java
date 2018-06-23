@@ -44,13 +44,11 @@ public class HitDiceToken extends Token
 	}
 
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		String retString = "";
 
-		if ("HITDICE".equals(tokenSource) ||
-			"HITDICE.LONG".equals(tokenSource))
+		if ("HITDICE".equals(tokenSource) || "HITDICE.LONG".equals(tokenSource))
 		{
 			retString = getHitDiceToken(pc);
 		}
@@ -79,8 +77,7 @@ public class HitDiceToken extends Token
 		CharacterDisplay display = pc.getDisplay();
 		for (PCClass pcClass : display.getClassSet())
 		{
-			HashMap<Integer, Integer> hdMap =
-					new LinkedHashMap<>();
+			HashMap<Integer, Integer> hdMap = new LinkedHashMap<>();
 
 			for (int i = 0; i < display.getLevel(pcClass); i++)
 			{
@@ -136,8 +133,7 @@ public class HitDiceToken extends Token
 		String del = "";
 		Integer total = 0;
 
-		HashMap<Integer, Integer> hdMap =
-				new LinkedHashMap<>();
+		HashMap<Integer, Integer> hdMap = new LinkedHashMap<>();
 
 		CharacterDisplay display = pc.getDisplay();
 		for (PCClass pcClass : display.getClassSet())
@@ -174,7 +170,7 @@ public class HitDiceToken extends Token
 			total += value;
 			del = "+";
 		}
-	
+
 		// Get CON bonus contribution to hitpoint total
 		int temp = (int) display.getStatBonusTo("HP", "BONUS") * display.getTotalLevels();
 
@@ -202,8 +198,7 @@ public class HitDiceToken extends Token
 
 		for (PCClass pcClass : display.getClassSet())
 		{
-			HashMap<Integer, Integer> hdMap =
-					new LinkedHashMap<>();
+			HashMap<Integer, Integer> hdMap = new LinkedHashMap<>();
 
 			for (int i = 0; i < display.getLevel(pcClass); i++)
 			{

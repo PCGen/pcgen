@@ -17,9 +17,9 @@
  */
 package pcgen.output.model;
 
-import pcgen.system.PCGenSettings;
 import freemarker.template.TemplateBooleanModel;
 import freemarker.template.TemplateModelException;
+import pcgen.system.PCGenSettings;
 
 /**
  * An BooleanOptionModel is designed to process an interpolation and convert

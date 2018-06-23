@@ -17,11 +17,12 @@
  */
 package pcgen.cdom.enumeration;
 
+import static org.junit.Assert.fail;
+
 import java.util.Collection;
 import java.util.HashSet;
 
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 
 /**

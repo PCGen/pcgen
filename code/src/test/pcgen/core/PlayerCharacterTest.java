@@ -857,7 +857,8 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		{
 			assertEquals("Full lvl0, lvl2 list - Non specialty available for level " + i, i==1,
 					character.availableSpells(i, pcMdClass, townSpells.getName(), false, false));
-			//TODO: The current implementation only finds the domain specialty slot if a domain spell is already prepared. 
+			// TODO: The current implementation only finds the domain specialty slot if a domain spell is already
+			// prepared.
 			// So the domain spell can't be the last added. Once fixed, i==1 should be i>=1
 			assertEquals("Full lvl0, lvl2 list - Specialty available for level " + i, i>=1,
 					character.availableSpells(i, pcMdClass, townSpells.getName(), false, true));
@@ -1069,17 +1070,20 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		assertTrue("Familiar list should still be empty", fo.isEmpty());
 		fo = display.getAvailableFollowers("MOUNT", null).keySet();
 		assertFalse("Mount list should not be empty anymore", fo.isEmpty());
-		assertEquals("Mount should be the giant race", giantRace.getKeyName(), fo.iterator().next().getRace().getKeyName());
+		assertEquals("Mount should be the giant race",
+			giantRace.getKeyName(), fo.iterator().next().getRace().getKeyName());
 		assertEquals("Mount list should only have one entry", 1, fo.size());
 		
 		addAbility(BuildUtilities.getFeatCat(), fab);
 		fo = display.getAvailableFollowers("Familiar", null).keySet();
 		assertFalse("Familiar list should not be empty anymore", fo.isEmpty());
-		assertEquals("Familiar should be the human race", human.getKeyName(), fo.iterator().next().getRace().getKeyName());
+		assertEquals("Familiar should be the human race", human.getKeyName(),
+			fo.iterator().next().getRace().getKeyName());
 		assertEquals("Familiar list should only have one entry", 1, fo.size());
 		fo = display.getAvailableFollowers("MOUNT", null).keySet();
 		assertFalse("Mount list should not be empty anymore", fo.isEmpty());
-		assertEquals("Mount should be the giant race", giantRace.getKeyName(), fo.iterator().next().getRace().getKeyName());
+		assertEquals("Mount should be the giant race", giantRace.getKeyName(),
+			fo.iterator().next().getRace().getKeyName());
 		assertEquals("Mount list should only have one entry", 1, fo.size());
 	}
 	
@@ -1184,7 +1188,8 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		PCClass exPaladin = new PCClass();
 		exPaladin.setName("exPaladin");
 		context.getReferenceContext().importObject(exPaladin);
-		paladin.put(ObjectKey.EX_CLASS, context.getReferenceContext().getCDOMReference(PCClass.class, exPaladin.getKeyName()));
+		paladin.put(
+			ObjectKey.EX_CLASS, context.getReferenceContext().getCDOMReference(PCClass.class, exPaladin.getKeyName()));
 		readyToRun();
 		
 		PlayerCharacter pc = getCharacter();
@@ -1203,7 +1208,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		PCClassLevel pcLvl1 = pc.getActiveClassLevel(pcExPalClass, 0);
 		assertNotNull("Level 1 should be Ex-Paladin", pcLvl1);
 		assertEquals("Should still be level 2 character", 2, pc.getTotalLevels());
-		assertEquals("Hp at first level incorrect", 10, (int)pc.getHP(pcLvl1));
+		assertEquals("Hp at first level incorrect", 10, (int) pc.getHP(pcLvl1));
 	}
 
 	public void testGetVariableCachingRollTopNode()

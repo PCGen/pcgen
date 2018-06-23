@@ -26,8 +26,7 @@ import pcgen.rules.persistence.token.AbstractNumberModifierFactory;
  * with the input when a Modifier produced by this MultiplyModifierFactory is
  * processed.
  */
-public class MultiplyModifierFactory extends
-		AbstractNumberModifierFactory<Number>
+public class MultiplyModifierFactory extends AbstractNumberModifierFactory<Number>
 {
 
 	/**

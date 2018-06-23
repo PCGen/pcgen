@@ -31,8 +31,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * TempValueLst handles the TEMPVALUE token, which is used to select the value
  * for a TEMPBONUS when it is using %LIST
  */
-public class TempValueLst extends AbstractTokenWithSeparator<CDOMObject>
-		implements CDOMPrimaryToken<CDOMObject>
+public class TempValueLst extends AbstractTokenWithSeparator<CDOMObject> implements CDOMPrimaryToken<CDOMObject>
 {
 
 	@Override
@@ -48,51 +47,40 @@ public class TempValueLst extends AbstractTokenWithSeparator<CDOMObject>
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		CDOMObject obj, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
 	{
 		int pipeLoc = value.indexOf(Constants.PIPE);
 		if (pipeLoc == -1)
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " must have three | delimited arguments : " + value);
+			return new ParseResult.Fail(getTokenName() + " must have three | delimited arguments : " + value);
 		}
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		if (tok.countTokens() != 3)
 		{
-			return new ParseResult.Fail(
-				getTokenName()
-					+ " requires three arguments, MIN=, MAX= and TITLE= : "
-					+ value);
+			return new ParseResult.Fail(getTokenName() + " requires three arguments, MIN=, MAX= and TITLE= : " + value);
 		}
 		if (!tok.nextToken().startsWith("MIN="))
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " first argument was not MIN=");
+			return new ParseResult.Fail(getTokenName() + " first argument was not MIN=");
 		}
 		if (!tok.nextToken().startsWith("MAX="))
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " second argument was not MAX=");
+			return new ParseResult.Fail(getTokenName() + " second argument was not MAX=");
 		}
 		if (!tok.nextToken().startsWith("TITLE="))
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " third argument was not TITLE=");
+			return new ParseResult.Fail(getTokenName() + " third argument was not TITLE=");
 		}
 		StringBuilder sb = new StringBuilder(value.length() + 20);
 		sb.append(value);
-		context.getObjectContext().put(obj, StringKey.TEMPVALUE,
-			sb.toString());
+		context.getObjectContext().put(obj, StringKey.TEMPVALUE, sb.toString());
 		return ParseResult.SUCCESS;
 	}
 
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
-		String tv =
-				context.getObjectContext().getString(cdo,
-					StringKey.TEMPVALUE);
+		String tv = context.getObjectContext().getString(cdo, StringKey.TEMPVALUE);
 		if (tv == null)
 		{
 			return null;

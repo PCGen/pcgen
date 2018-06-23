@@ -84,6 +84,7 @@ public class RaceTargetSaveRestoreTest extends
 		Runnable fullcleanup = new Runnable()
 		{
 
+			@Override
 			public void run()
 			{
 				if (cleanup != null)

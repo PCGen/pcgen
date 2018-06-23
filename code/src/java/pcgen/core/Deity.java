@@ -60,7 +60,7 @@ public final class Deity extends PObject implements DeityFacade
 		return domains;
 	}
 
-    @Override
+	@Override
 	public PCAlignment getAlignment()
 	{
 		CDOMSingleRef<PCAlignment> ref = get(ObjectKey.ALIGNMENT);
@@ -71,7 +71,7 @@ public final class Deity extends PObject implements DeityFacade
 		return ref.get();
 	}
 
-    @Override
+	@Override
 	public Collection<String> getPantheons()
 	{
 		Set<String> charDeityPantheon = new TreeSet<>();

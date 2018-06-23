@@ -69,7 +69,7 @@ public class Dice
 	{
 		return quantity;
 	}
-	
+
 	@Override
 	public int hashCode()
 	{

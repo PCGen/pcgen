@@ -34,8 +34,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with CR Token
  */
-public class RoleToken extends AbstractNonEmptyToken<PCClass> implements
-		CDOMPrimaryToken<PCClass>
+public class RoleToken extends AbstractNonEmptyToken<PCClass> implements CDOMPrimaryToken<PCClass>
 {
 
 	/**
@@ -66,11 +65,11 @@ public class RoleToken extends AbstractNonEmptyToken<PCClass> implements
 			}
 			else
 			{
-				return new ParseResult.Fail(getTokenName() + " '" + role
-					+ "' is not a known monster role for this game mode.");
+				return new ParseResult.Fail(
+					getTokenName() + " '" + role + "' is not a known monster role for this game mode.");
 			}
 		}
-		
+
 		return ParseResult.SUCCESS;
 	}
 
@@ -83,8 +82,7 @@ public class RoleToken extends AbstractNonEmptyToken<PCClass> implements
 	@Override
 	public String[] unparse(LoadContext context, PCClass pcc)
 	{
-		Changes<String> changes = context.getObjectContext()
-				.getListChanges(pcc, ListKey.MONSTER_ROLES);
+		Changes<String> changes = context.getObjectContext().getListChanges(pcc, ListKey.MONSTER_ROLES);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;
@@ -116,9 +114,8 @@ public class RoleToken extends AbstractNonEmptyToken<PCClass> implements
 		}
 		if (sb.length() == 0)
 		{
-			context.addWriteMessage(getTokenName()
-				+ " was expecting non-empty changes to include "
-				+ "added items or global clear");
+			context.addWriteMessage(
+				getTokenName() + " was expecting non-empty changes to include " + "added items or global clear");
 			return null;
 		}
 		return new String[]{sb.toString()};

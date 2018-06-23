@@ -34,8 +34,7 @@ import pcgen.system.LanguageBundle;
 /**
  * Sets requirements for items a character must possess.
  */
-public class PreItemTester extends AbstractDisplayPrereqTest implements
-		PrerequisiteTest
+public class PreItemTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
 	// TODO Refactor this with all the equipment tests.
@@ -50,8 +49,8 @@ public class PreItemTester extends AbstractDisplayPrereqTest implements
 		}
 		catch (NumberFormatException e)
 		{
-			throw new PrerequisiteException(LanguageBundle.getFormattedString(
-				"PreItem.error.bad_operand", prereq.toString())); //$NON-NLS-1$
+			throw new PrerequisiteException(
+				LanguageBundle.getFormattedString("PreItem.error.bad_operand", prereq.toString())); //$NON-NLS-1$
 		}
 
 		int runningTotal = 0;
@@ -61,8 +60,7 @@ public class PreItemTester extends AbstractDisplayPrereqTest implements
 			// Work out exactlywhat we are going to test.
 			final String aString = prereq.getKey();
 			List<String> typeList = null;
-			if (aString.startsWith(Constants.LST_TYPE_EQUAL)
-				|| aString.startsWith(Constants.LST_TYPE_DOT))
+			if (aString.startsWith(Constants.LST_TYPE_EQUAL) || aString.startsWith(Constants.LST_TYPE_DOT))
 			{
 				String stripped = aString.substring(Constants.SUBSTRING_LENGTH_FIVE);
 				typeList = CoreUtility.split(stripped, '.');
@@ -97,8 +95,7 @@ public class PreItemTester extends AbstractDisplayPrereqTest implements
 						//handle wildcards (always assume
 						// they end the line)
 						final int percentPos = aString.indexOf('%');
-						final String substring =
-								aString.substring(0, percentPos).toUpperCase();
+						final String substring = aString.substring(0, percentPos).toUpperCase();
 						if ((eqName.startsWith(substring)))
 						{
 							++runningTotal;
@@ -123,7 +120,7 @@ public class PreItemTester extends AbstractDisplayPrereqTest implements
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "ITEM"; //$NON-NLS-1$

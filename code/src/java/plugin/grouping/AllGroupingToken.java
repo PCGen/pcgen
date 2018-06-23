@@ -54,8 +54,7 @@ public class AllGroupingToken<T extends Loadable> implements GroupingDefinition<
 	{
 		if ((info.getCharacteristic() != null) && (!info.getCharacteristic().isEmpty()))
 		{
-			throw new IllegalArgumentException(
-				"Instructions using = prohibited for ALL Grouping");
+			throw new IllegalArgumentException("Instructions using = prohibited for ALL Grouping");
 		}
 		AllGrouping<T> allGrouping = new AllGrouping<>(info);
 		if (info.hasChild())

@@ -20,8 +20,7 @@ package pcgen.cdom.facet;
 import pcgen.cdom.facet.base.AbstractQualifiedListFacet;
 import pcgen.cdom.helper.AvailableSpell;
 
-public class ConditionallyAvailableSpellFacet extends
-		AbstractQualifiedListFacet<AvailableSpell>
+public class ConditionallyAvailableSpellFacet extends AbstractQualifiedListFacet<AvailableSpell>
 {
 
 }

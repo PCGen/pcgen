@@ -34,15 +34,14 @@ import pcgen.util.SortKeyAware;
  */
 public class InfoWrapper implements InfoFacade, SortKeyAware
 {
-	private static final NumberFormat SORTABLE_NUMBER_FORMAT =
-			new DecimalFormat("0000000000.00000");
+	private static final NumberFormat SORTABLE_NUMBER_FORMAT = new DecimalFormat("0000000000.00000");
 
 	private final Object obj;
 
 	public InfoWrapper(Object cdomObj)
 	{
 		this.obj = cdomObj;
-		
+
 	}
 
 	@Override
@@ -72,7 +71,7 @@ public class InfoWrapper implements InfoFacade, SortKeyAware
 	@Override
 	public boolean isNamePI()
 	{
-    	return false;
+		return false;
 	}
 
 	/**
@@ -88,7 +87,7 @@ public class InfoWrapper implements InfoFacade, SortKeyAware
 	{
 		if (obj instanceof CDOMObject)
 		{
-			final List<Type> types = ((CDOMObject)obj).getSafeListFor(ListKey.TYPE);
+			final List<Type> types = ((CDOMObject) obj).getSafeListFor(ListKey.TYPE);
 			return StringUtil.join(types, ".");
 		}
 		return "";
@@ -99,8 +98,7 @@ public class InfoWrapper implements InfoFacade, SortKeyAware
 	{
 		if (obj instanceof Number)
 		{
-			return SORTABLE_NUMBER_FORMAT.format(100000.0d + ((Number) obj)
-				.doubleValue());
+			return SORTABLE_NUMBER_FORMAT.format(100000.0d + ((Number) obj).doubleValue());
 		}
 		return toString();
 	}

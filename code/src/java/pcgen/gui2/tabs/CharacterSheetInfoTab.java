@@ -39,11 +39,11 @@ import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.EquipmentSetFacade;
 import pcgen.facade.core.GameModeFacade;
 import pcgen.facade.core.TempBonusFacade;
+import pcgen.facade.util.ListFacades;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
-import pcgen.facade.util.ListFacades;
 import pcgen.gui2.csheet.CharacterSheetPanel;
 import pcgen.gui2.filter.Filter;
 import pcgen.gui2.filter.FilteredListFacadeTableModel;
@@ -100,7 +100,8 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 		{
 
 			@Override
-			public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus)
+			public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected,
+				boolean cellHasFocus)
 			{
 				if (value instanceof File)
 				{
@@ -192,8 +193,7 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 			if (sheetDir.exists() && sheetDir.isDirectory())
 			{
 				File[] files = sheetDir.listFiles(pathname -> pathname.isFile() && !pathname.isHidden());
-				Arrays.sort(files, (f1, f2) ->
-				{
+				Arrays.sort(files, (f1, f2) -> {
 					// TODO I18N Use a Collator
 					return f1.toString().compareToIgnoreCase(f2.toString());
 				});

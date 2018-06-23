@@ -100,10 +100,8 @@ public class WeaponProfModelFacet implements SetFacet<CharID, WeaponProf>
 	 */
 	public boolean containsProf(CharID id, WeaponProf wp)
 	{
-		return weaponProfFacet.contains(id, wp)
-			|| autoWeaponProfFacet.containsProf(id, wp)
-			|| hasDeityWeaponProfFacet.hasDeityWeaponProf(id)
-			&& deityWeaponProfFacet.getSet(id).contains(wp);
+		return weaponProfFacet.contains(id, wp) || autoWeaponProfFacet.containsProf(id, wp)
+			|| hasDeityWeaponProfFacet.hasDeityWeaponProf(id) && deityWeaponProfFacet.getSet(id).contains(wp);
 	}
 
 	/**
@@ -151,14 +149,12 @@ public class WeaponProfModelFacet implements SetFacet<CharID, WeaponProf>
 		this.autoWeaponProfFacet = autoWeaponProfFacet;
 	}
 
-	public void setHasDeityWeaponProfFacet(
-		HasDeityWeaponProfFacet hasDeityWeaponProfFacet)
+	public void setHasDeityWeaponProfFacet(HasDeityWeaponProfFacet hasDeityWeaponProfFacet)
 	{
 		this.hasDeityWeaponProfFacet = hasDeityWeaponProfFacet;
 	}
 
-	public void setDeityWeaponProfFacet(
-		DeityWeaponProfFacet deityWeaponProfFacet)
+	public void setDeityWeaponProfFacet(DeityWeaponProfFacet deityWeaponProfFacet)
 	{
 		this.deityWeaponProfFacet = deityWeaponProfFacet;
 	}

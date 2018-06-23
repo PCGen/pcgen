@@ -36,8 +36,7 @@ import pcgen.util.enumeration.AttackType;
 /**
  * Class deals with ATTACKCYCLE Token
  */
-public class AttackcycleToken extends AbstractTokenWithSeparator<PCClass>
-		implements CDOMPrimaryToken<PCClass>
+public class AttackcycleToken extends AbstractTokenWithSeparator<PCClass> implements CDOMPrimaryToken<PCClass>
 {
 
 	@Override
@@ -53,14 +52,12 @@ public class AttackcycleToken extends AbstractTokenWithSeparator<PCClass>
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		PCClass pcc, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, PCClass pcc, String value)
 	{
 		StringTokenizer aTok = new StringTokenizer(value, Constants.PIPE);
 		if (aTok.countTokens() % 2 != 0)
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " must have an even number of arguments.");
+			return new ParseResult.Fail(getTokenName() + " must have an even number of arguments.");
 		}
 
 		while (aTok.hasMoreTokens())
@@ -68,8 +65,7 @@ public class AttackcycleToken extends AbstractTokenWithSeparator<PCClass>
 			AttackType at = AttackType.getAttackInstance(aTok.nextToken());
 			if (AttackType.GRAPPLE.equals(at))
 			{
-				return new ParseResult.Fail("Error: Cannot Set Attack Cycle "
-						+ "for GRAPPLE Attack Type");
+				return new ParseResult.Fail("Error: Cannot Set Attack Cycle " + "for GRAPPLE Attack Type");
 			}
 			String cycle = aTok.nextToken();
 			try
@@ -77,8 +73,8 @@ public class AttackcycleToken extends AbstractTokenWithSeparator<PCClass>
 				Integer i = Integer.parseInt(cycle);
 				if (i <= 0)
 				{
-					return new ParseResult.Fail("Invalid " + getTokenName() + ": " + value
-							+ " Cycle " + cycle + " must be a positive integer.");
+					return new ParseResult.Fail("Invalid " + getTokenName() + ": " + value + " Cycle " + cycle
+						+ " must be a positive integer.");
 				}
 				context.getObjectContext().put(pcc, MapKey.ATTACK_CYCLE, at, i);
 				/*
@@ -95,14 +91,13 @@ public class AttackcycleToken extends AbstractTokenWithSeparator<PCClass>
 				 */
 				if (at.equals(AttackType.MELEE))
 				{
-					context.getObjectContext().put(pcc, MapKey.ATTACK_CYCLE,
-							AttackType.GRAPPLE, i);
+					context.getObjectContext().put(pcc, MapKey.ATTACK_CYCLE, AttackType.GRAPPLE, i);
 				}
 			}
 			catch (NumberFormatException e)
 			{
-				return new ParseResult.Fail("Invalid " + getTokenName() + ": " + value
-						+ " Cycle " + cycle + " must be a (positive) integer.");
+				return new ParseResult.Fail(
+					"Invalid " + getTokenName() + ": " + value + " Cycle " + cycle + " must be a (positive) integer.");
 			}
 		}
 		return ParseResult.SUCCESS;
@@ -111,8 +106,7 @@ public class AttackcycleToken extends AbstractTokenWithSeparator<PCClass>
 	@Override
 	public String[] unparse(LoadContext context, PCClass pcc)
 	{
-		MapChanges<AttackType, Integer> changes = context.getObjectContext()
-				.getMapChanges(pcc, MapKey.ATTACK_CYCLE);
+		MapChanges<AttackType, Integer> changes = context.getObjectContext().getMapChanges(pcc, MapKey.ATTACK_CYCLE);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;
@@ -129,9 +123,8 @@ public class AttackcycleToken extends AbstractTokenWithSeparator<PCClass>
 			{
 				if (value <= 0)
 				{
-					context.addWriteMessage("Invalid " + getTokenName() + ": "
-							+ value + " Cycle " + attackType
-							+ " must be a positive integer.");
+					context.addWriteMessage("Invalid " + getTokenName() + ": " + value + " Cycle " + attackType
+						+ " must be a positive integer.");
 					return null;
 				}
 				if (attackType.equals(AttackType.GRAPPLE))
@@ -144,9 +137,8 @@ public class AttackcycleToken extends AbstractTokenWithSeparator<PCClass>
 					{
 						meleeValue = value;
 					}
-					set.add(new StringBuilder().append(attackType.getIdentifier())
-							.append(Constants.PIPE).append(value)
-							.toString());
+					set.add(new StringBuilder().append(attackType.getIdentifier()).append(Constants.PIPE).append(value)
+						.toString());
 				}
 			}
 		}
@@ -155,9 +147,8 @@ public class AttackcycleToken extends AbstractTokenWithSeparator<PCClass>
 			// Validate same as MELEE
 			if (!grappleValue.equals(meleeValue))
 			{
-				context.addWriteMessage("Grapple Attack Cycle (" + grappleValue
-						+ ") MUST be equal to " + "Melee Attack Cycle ("
-						+ meleeValue + ") because it is not stored");
+				context.addWriteMessage("Grapple Attack Cycle (" + grappleValue + ") MUST be equal to "
+					+ "Melee Attack Cycle (" + meleeValue + ") because it is not stored");
 				return null;
 			}
 		}
@@ -166,7 +157,7 @@ public class AttackcycleToken extends AbstractTokenWithSeparator<PCClass>
 			//OK, someone set keys with no values
 			return null;
 		}
-		return new String[] { StringUtil.join(set, Constants.PIPE) };
+		return new String[]{StringUtil.join(set, Constants.PIPE)};
 	}
 
 	@Override

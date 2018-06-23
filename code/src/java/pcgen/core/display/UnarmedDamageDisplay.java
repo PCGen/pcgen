@@ -36,17 +36,16 @@ public final class UnarmedDamageDisplay
 	 * @param adjustForPCSize
 	 * @return the unarmed damage string
 	 */
-	public static String getUnarmedDamageString(PlayerCharacter pc,
-		final boolean includeStrBonus, final boolean adjustForPCSize)
+	public static String getUnarmedDamageString(PlayerCharacter pc, final boolean includeStrBonus,
+		final boolean adjustForPCSize)
 	{
 		CharacterDisplay display = pc.getDisplay();
 		String retString = "2|1d2";
 
 		for (PCClass pcClass : display.getClassSet())
 		{
-			retString =
-					getBestUDamString(retString, pcClass.getUdamForLevel(
-						display.getLevel(pcClass), pc, adjustForPCSize));
+			retString = getBestUDamString(retString,
+				pcClass.getUdamForLevel(display.getLevel(pcClass), pc, adjustForPCSize));
 		}
 
 		int sizeInt = adjustForPCSize ? display.sizeInt() : display.racialSizeInt();
@@ -61,18 +60,14 @@ public final class UnarmedDamageDisplay
 			{
 				aDamage = unarmedDamage.get(sizeInt);
 			}
-			retString =
-					UnarmedDamageDisplay.getBestUDamString(retString,
-						aDamage);
+			retString = UnarmedDamageDisplay.getBestUDamString(retString, aDamage);
 		}
 		//Test against the default for the race
 		String pObjDamage = display.getUDamForRace();
 		retString = getBestUDamString(retString, pObjDamage);
 
 		// string is in form sides|damage, just return damage portion
-		StringBuilder ret =
-				new StringBuilder(
-					retString.substring(retString.indexOf('|') + 1));
+		StringBuilder ret = new StringBuilder(retString.substring(retString.indexOf('|') + 1));
 		if (includeStrBonus)
 		{
 			int sb = (int) display.getStatBonusTo("DAMAGE", "TYPE.MELEE");
@@ -109,26 +104,26 @@ public final class UnarmedDamageDisplay
 			aTok.nextToken();
 			return Integer.parseInt(aTok.nextToken()) + "|" + newString;
 		}
-	
-		StringTokenizer aTok      = new StringTokenizer(oldString, "|");
-		int             sides     = Integer.parseInt(aTok.nextToken());
-		String          retString = oldString;
-	
+
+		StringTokenizer aTok = new StringTokenizer(oldString, "|");
+		int sides = Integer.parseInt(aTok.nextToken());
+		String retString = oldString;
+
 		aTok = new StringTokenizer(newString, " dD+-(x)");
-	
+
 		if (aTok.countTokens() > 1)
 		{
 			aTok.nextToken();
-	
+
 			final int i = Integer.parseInt(aTok.nextToken());
-	
+
 			if (sides < i)
 			{
-				sides     = i;
+				sides = i;
 				retString = sides + "|" + newString;
 			}
 		}
-	
+
 		return retString;
 	}
 

@@ -30,8 +30,8 @@ import pcgen.util.Logging;
 /**
  * Deal with FEAT token
  */
-public class DomainFeatToken extends AbstractNonEmptyToken<Domain> implements
-		CDOMCompatibilityToken<Domain>, DeprecatedToken
+public class DomainFeatToken extends AbstractNonEmptyToken<Domain>
+		implements CDOMCompatibilityToken<Domain>, DeprecatedToken
 {
 	@Override
 	public String getTokenName()
@@ -40,22 +40,19 @@ public class DomainFeatToken extends AbstractNonEmptyToken<Domain> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, Domain obj,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, Domain obj, String value)
 	{
 		try
 		{
 			if (!context.processToken(obj, "ABILITY", "FEAT|AUTOMATIC|" + value))
 			{
 				Logging.replayParsedMessages();
-				return new ParseResult.Fail(
-					"Delegation Error from Domain's FEAT");
+				return new ParseResult.Fail("Delegation Error from Domain's FEAT");
 			}
 		}
 		catch (PersistenceLayerException e)
 		{
-			return new ParseResult.Fail("Delegation Error from Domain's FEAT: "
-				+ e.getLocalizedMessage());
+			return new ParseResult.Fail("Delegation Error from Domain's FEAT: " + e.getLocalizedMessage());
 		}
 		return ParseResult.SUCCESS;
 	}

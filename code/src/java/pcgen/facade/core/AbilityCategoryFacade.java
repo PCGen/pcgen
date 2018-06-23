@@ -27,24 +27,24 @@ package pcgen.facade.core;
 public interface AbilityCategoryFacade
 {
 
-    /**
-     * 
-     * @return "Feats", "Class Abilities", or "Salient Divine Ability"
-     */
-    public String getType();
+	/**
+	 * 
+	 * @return "Feats", "Class Abilities", or "Salient Divine Ability"
+	 */
+	public String getType();
 
-    /**
-     * 
-     * @return the singular name of the Category
-     */
-    public String getName();
+	/**
+	 * 
+	 * @return the singular name of the Category
+	 */
+	public String getName();
 
-    /**
-     * 
-     * @return the plural name of the Category
-     */
-    @Override
-    public String toString();
+	/**
+	 * 
+	 * @return the plural name of the Category
+	 */
+	@Override
+	public String toString();
 
 	/**
 	 * @return Can the selections in this pool be edited.

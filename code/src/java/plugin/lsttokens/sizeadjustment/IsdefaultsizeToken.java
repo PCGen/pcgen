@@ -31,8 +31,7 @@ import pcgen.util.Logging;
  * Class deals with ISDEFAULTSIZE Token
  */
 public class IsdefaultsizeToken extends AbstractYesNoToken<SizeAdjustment>
-		implements CDOMPrimaryToken<SizeAdjustment>,
-		PostValidationToken<SizeAdjustment>
+		implements CDOMPrimaryToken<SizeAdjustment>, PostValidationToken<SizeAdjustment>
 {
 
 	@Override
@@ -54,23 +53,18 @@ public class IsdefaultsizeToken extends AbstractYesNoToken<SizeAdjustment>
 	}
 
 	@Override
-	public boolean process(LoadContext context,
-		Collection<? extends SizeAdjustment> obj)
+	public boolean process(LoadContext context, Collection<? extends SizeAdjustment> obj)
 	{
 		boolean returnValue = true;
 		SizeAdjustment found = null;
-		for (SizeAdjustment s : context.getReferenceContext()
-			.getConstructedCDOMObjects(SizeAdjustment.class))
+		for (SizeAdjustment s : context.getReferenceContext().getConstructedCDOMObjects(SizeAdjustment.class))
 		{
 			if (s.getSafe(ObjectKey.IS_DEFAULT_SIZE))
 			{
 				if (found != null)
 				{
-					Logging
-						.errorPrint("Found more than one size claiming to be default: "
-							+ found.getKeyName()
-							+ " and "
-							+ s.getKeyName());
+					Logging.errorPrint("Found more than one size claiming to be default: " + found.getKeyName()
+						+ " and " + s.getKeyName());
 					returnValue = false;
 				}
 				found = s;

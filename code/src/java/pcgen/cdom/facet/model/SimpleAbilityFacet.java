@@ -35,8 +35,7 @@ public class SimpleAbilityFacet extends AbstractListFacet<CharID, Ability>
 	}
 
 	@Override
-	public void dataRemoved(
-		DataFacetChangeEvent<CharID, CNAbilitySelection> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, CNAbilitySelection> dfce)
 	{
 		remove(dfce.getCharID(), dfce.getCDOMObject().getCNAbility().getAbility());
 	}

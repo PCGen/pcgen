@@ -42,7 +42,7 @@ public final class StatAnalysis
 		{
 			return 10;
 		}
-		
+
 		// Only check for a lock if the stat hasn't been unlocked
 		if (!aPC.hasUnlockedStat(stat))
 		{

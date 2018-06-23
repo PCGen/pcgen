@@ -111,8 +111,7 @@ public class ModifyChoiceDecorator implements PrimitiveChoiceSet<CNAbility>
 		for (CNAbility cna : pcfeats)
 		{
 			Ability a = cna.getAbility();
-			if (a.getSafe(ObjectKey.MULTIPLE_ALLOWED).booleanValue()
-				&& collection.contains(a))
+			if (a.getSafe(ObjectKey.MULTIPLE_ALLOWED).booleanValue() && collection.contains(a))
 			{
 				returnSet.add(cna);
 			}
@@ -130,8 +129,7 @@ public class ModifyChoiceDecorator implements PrimitiveChoiceSet<CNAbility>
 	@Override
 	public boolean equals(Object obj)
 	{
-		return (obj instanceof ModifyChoiceDecorator)
-				&& ((ModifyChoiceDecorator) obj).pcs.equals(pcs);
+		return (obj instanceof ModifyChoiceDecorator) && ((ModifyChoiceDecorator) obj).pcs.equals(pcs);
 	}
 
 	/**

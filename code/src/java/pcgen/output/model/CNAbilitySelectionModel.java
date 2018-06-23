@@ -17,15 +17,15 @@
  */
 package pcgen.output.model;
 
+import freemarker.template.TemplateHashModel;
+import freemarker.template.TemplateModel;
+import freemarker.template.TemplateModelException;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.ObjectWrapperFacet;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.core.Ability;
-import freemarker.template.TemplateHashModel;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
 
 /**
  * A CNAbilitySelectionModel is a TemplateHashModel that wraps a
@@ -33,8 +33,7 @@ import freemarker.template.TemplateModelException;
  */
 public class CNAbilitySelectionModel implements TemplateHashModel
 {
-	private static final ObjectWrapperFacet WRAPPER_FACET = FacetLibrary
-		.getFacet(ObjectWrapperFacet.class);
+	private static final ObjectWrapperFacet WRAPPER_FACET = FacetLibrary.getFacet(ObjectWrapperFacet.class);
 
 	/**
 	 * The underlying CNAbilitySelection for this CNAbilitySelectionModel
@@ -59,8 +58,7 @@ public class CNAbilitySelectionModel implements TemplateHashModel
 		}
 		if (cnas == null)
 		{
-			throw new IllegalArgumentException(
-				"CNAbilitySelection cannot be null");
+			throw new IllegalArgumentException("CNAbilitySelection cannot be null");
 		}
 		this.id = id;
 		this.cnas = cnas;
@@ -101,8 +99,7 @@ public class CNAbilitySelectionModel implements TemplateHashModel
 		}
 		else
 		{
-			throw new TemplateModelException(
-				"CNAbilitySelection did not have output of type " + key);
+			throw new TemplateModelException("CNAbilitySelection did not have output of type " + key);
 		}
 		return WRAPPER_FACET.wrap(id, towrap);
 	}

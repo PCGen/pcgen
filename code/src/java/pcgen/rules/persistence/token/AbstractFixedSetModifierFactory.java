@@ -29,19 +29,16 @@ import pcgen.cdom.formula.scope.PCGenScope;
  * 
  * @param <T> The format of the object handled by this AbstractFixedSetModifierFactory
  */
-public abstract class AbstractFixedSetModifierFactory<T>
-		extends AbstractSetModifierFactory<T>
+public abstract class AbstractFixedSetModifierFactory<T> extends AbstractSetModifierFactory<T>
 {
 
 	@Override
-	public FormulaModifier<T> getModifier(String instructions,
-		ManagerFactory managerFactory, FormulaManager ignored, PCGenScope varScope,
-		FormatManager<T> formatManager)
+	public FormulaModifier<T> getModifier(String instructions, ManagerFactory managerFactory, FormulaManager ignored,
+		PCGenScope varScope, FormatManager<T> formatManager)
 	{
 		if (!getVariableFormat().isAssignableFrom(formatManager.getManagedClass()))
 		{
-			throw new IllegalArgumentException(
-				"FormatManager must manage " + getVariableFormat().getName());
+			throw new IllegalArgumentException("FormatManager must manage " + getVariableFormat().getName());
 		}
 		return getFixedModifier(formatManager, instructions);
 	}

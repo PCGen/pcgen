@@ -13,36 +13,36 @@ import pcgen.util.Logging;
 public class ContainsToken implements EquipSlotLstToken
 {
 
-    @Override
+	@Override
 	public String getTokenName()
 	{
 		return "CONTAINS";
 	}
 
-    @Override
+	@Override
 	public boolean parse(EquipSlot eqSlot, String value, String gameMode)
 	{
 		if (value == null || value.isEmpty())
 		{
-			Logging.log(Logging.LST_ERROR, "Invalid empty " + getTokenName() + " value."); 
+			Logging.log(Logging.LST_ERROR, "Invalid empty " + getTokenName() + " value.");
 			return false;
 		}
-		
+
 		final StringTokenizer token = new StringTokenizer(value, Constants.EQUALS);
 
 		if (token.countTokens() < 2)
 		{
-			Logging.log(Logging.LST_ERROR, "Missing = in value '" + value
-				+ "' of " + getTokenName() + Constants.COLON + value);
+			Logging.log(Logging.LST_ERROR,
+				"Missing = in value '" + value + "' of " + getTokenName() + Constants.COLON + value);
 			return false;
 		}
 		else if (token.countTokens() > 2)
 		{
-			Logging.log(Logging.LST_ERROR, "Too many = in value '" + value
-				+ "' of " + getTokenName() + Constants.COLON + value);
+			Logging.log(Logging.LST_ERROR,
+				"Too many = in value '" + value + "' of " + getTokenName() + Constants.COLON + value);
 			return false;
 		}
-		
+
 		final String type = token.nextToken();
 		final String numString = token.nextToken();
 		final int num;
@@ -56,7 +56,6 @@ public class ContainsToken implements EquipSlotLstToken
 			num = Integer.parseInt(numString);
 		}
 
-		
 		final String[] types = type.split(",");
 		for (String pair : types)
 		{

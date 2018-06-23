@@ -33,8 +33,7 @@ import pcgen.core.ArmorProf;
  * ProfProvider objects.
  * 
  */
-public class AutoListArmorProfFacet extends
-		AbstractItemConvertingFacet<ArmorProf, ProfProvider<ArmorProf>>
+public class AutoListArmorProfFacet extends AbstractItemConvertingFacet<ArmorProf, ProfProvider<ArmorProf>>
 		implements PerspectiveLocation
 {
 

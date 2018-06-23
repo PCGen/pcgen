@@ -29,8 +29,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * SELECT for Kit
  */
-public class SelectToken extends AbstractNonEmptyToken<KitSelect> implements
-		CDOMPrimaryToken<KitSelect>
+public class SelectToken extends AbstractNonEmptyToken<KitSelect> implements CDOMPrimaryToken<KitSelect>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -50,14 +49,12 @@ public class SelectToken extends AbstractNonEmptyToken<KitSelect> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		KitSelect kitSelect, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, KitSelect kitSelect, String value)
 	{
 		Formula formula = FormulaFactory.getFormulaFor(value);
 		if (!formula.isValid())
 		{
-			return new ParseResult.Fail("Formula in " + getTokenName()
-					+ " was not valid: " + formula.toString());
+			return new ParseResult.Fail("Formula in " + getTokenName() + " was not valid: " + formula.toString());
 		}
 		kitSelect.setFormula(formula);
 		return ParseResult.SUCCESS;
@@ -71,7 +68,7 @@ public class SelectToken extends AbstractNonEmptyToken<KitSelect> implements
 		{
 			return null;
 		}
-		return new String[] { f.toString() };
+		return new String[]{f.toString()};
 	}
 
 }

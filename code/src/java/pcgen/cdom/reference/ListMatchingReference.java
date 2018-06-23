@@ -43,8 +43,7 @@ import pcgen.cdom.enumeration.ListKey;
  *            ListMatchingReference.
  * 
  */
-public class ListMatchingReference<T extends CDOMObject, V> extends
-		CDOMReference<T>
+public class ListMatchingReference<T extends CDOMObject, V> extends CDOMReference<T>
 {
 
 	/**
@@ -77,19 +76,16 @@ public class ListMatchingReference<T extends CDOMObject, V> extends
 	 *             if the starting group is null or the provided pattern does
 	 *             not end with the PCGen pattern characters
 	 */
-	public ListMatchingReference(String unparse, CDOMGroupRef<T> startingGroup,
-		ListKey<V> targetKey, V expectedValue)
+	public ListMatchingReference(String unparse, CDOMGroupRef<T> startingGroup, ListKey<V> targetKey, V expectedValue)
 	{
 		super(unparse);
 		if (startingGroup == null)
 		{
-			throw new IllegalArgumentException(
-					"Starting Group cannot be null in ListMatchingReference");
+			throw new IllegalArgumentException("Starting Group cannot be null in ListMatchingReference");
 		}
 		if (targetKey == null)
 		{
-			throw new IllegalArgumentException(
-					"Target Key cannot be null in ListMatchingReference");
+			throw new IllegalArgumentException("Target Key cannot be null in ListMatchingReference");
 		}
 		all = startingGroup;
 		key = targetKey;
@@ -110,8 +106,7 @@ public class ListMatchingReference<T extends CDOMObject, V> extends
 	@Override
 	public void addResolution(T item)
 	{
-		throw new IllegalStateException(
-				"Cannot add resolution to ListMatchingReference");
+		throw new IllegalStateException("Cannot add resolution to ListMatchingReference");
 	}
 
 	/**
@@ -252,8 +247,7 @@ public class ListMatchingReference<T extends CDOMObject, V> extends
 		if (obj instanceof ListMatchingReference)
 		{
 			ListMatchingReference<?, ?> other = (ListMatchingReference<?, ?>) obj;
-			if (getReferenceClass().equals(other.getReferenceClass())
-					&& all.equals(other.all) && key.equals(other.key))
+			if (getReferenceClass().equals(other.getReferenceClass()) && all.equals(other.all) && key.equals(other.key))
 			{
 				if (value == null)
 				{
@@ -274,8 +268,7 @@ public class ListMatchingReference<T extends CDOMObject, V> extends
 	@Override
 	public int hashCode()
 	{
-		return getReferenceClass().hashCode() ^ key.hashCode()
-				+ (value == null ? -1 : value.hashCode());
+		return getReferenceClass().hashCode() ^ key.hashCode() + (value == null ? -1 : value.hashCode());
 	}
 
 	/**

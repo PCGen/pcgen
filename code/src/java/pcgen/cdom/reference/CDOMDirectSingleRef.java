@@ -43,7 +43,7 @@ public class CDOMDirectSingleRef<T extends Loadable> extends CDOMSingleRef<T>
 	 */
 	private final T referencedObject;
 
- 	/**
+	/**
 	 * The specific choice (association) for the Ability this
 	 * CDOMDirectSingleRef contains. May remain null if the given Ability does
 	 * not have a specific choice (or does not require a specific choice)
@@ -130,8 +130,7 @@ public class CDOMDirectSingleRef<T extends Loadable> extends CDOMSingleRef<T>
 	public boolean equals(Object obj)
 	{
 		return obj instanceof CDOMDirectSingleRef
-				&& referencedObject
-						.equals(((CDOMDirectSingleRef<?>) obj).referencedObject);
+			&& referencedObject.equals(((CDOMDirectSingleRef<?>) obj).referencedObject);
 	}
 
 	/**

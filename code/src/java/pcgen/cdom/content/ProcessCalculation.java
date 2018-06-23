@@ -24,7 +24,7 @@ import pcgen.base.calculation.BasicCalculation;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.util.FormatManager;
-	
+
 /**
  * A ProcessCalculation is an AbstractNEPCalculation that uses a simple object
  * for the calculation (such as adding a specific Integer).
@@ -59,8 +59,7 @@ public final class ProcessCalculation<T> extends AbstractNEPCalculation<T>
 	 * @param fmtManager
 	 *            The FormatManager for the calculation this can perform
 	 */
-	public ProcessCalculation(T object, BasicCalculation<T> calc,
-		FormatManager<T> fmtManager)
+	public ProcessCalculation(T object, BasicCalculation<T> calc, FormatManager<T> fmtManager)
 	{
 		super(calc);
 		this.obj = Objects.requireNonNull(object);
@@ -93,8 +92,7 @@ public final class ProcessCalculation<T> extends AbstractNEPCalculation<T>
 		if (o instanceof ProcessCalculation)
 		{
 			ProcessCalculation<?> other = (ProcessCalculation<?>) o;
-			return other.getBasicCalculation().equals(getBasicCalculation())
-				&& other.obj.equals(obj);
+			return other.getBasicCalculation().equals(getBasicCalculation()) && other.obj.equals(obj);
 		}
 		return false;
 	}

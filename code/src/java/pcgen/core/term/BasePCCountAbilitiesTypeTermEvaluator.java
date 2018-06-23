@@ -35,12 +35,11 @@ public abstract class BasePCCountAbilitiesTypeTermEvaluator extends BasePCCountA
 		for (CNAbility anAbility : getAbilities(pc))
 		{
 			// for each feat, look to see if it has any of the required types.
-			for ( String type : types)
+			for (String type : types)
 			{
 				if (anAbility.getAbility().isType(type))
 				{
-					count += countVisibleAbility(
-							pc, anAbility, visible, hidden, false);
+					count += countVisibleAbility(pc, anAbility, visible, hidden, false);
 
 					break;
 				}

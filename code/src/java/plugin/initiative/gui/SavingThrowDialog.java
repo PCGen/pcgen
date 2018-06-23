@@ -20,12 +20,6 @@
  */
 package plugin.initiative.gui;
 
-import gmgen.plugin.Combatant;
-import gmgen.plugin.dice.Dice;
-import gmgen.plugin.PcgCombatant;
-import gmgen.plugin.PlayerCharacterOutput;
-import gmgen.plugin.SystemAttribute;
-
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.List;
@@ -34,6 +28,11 @@ import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
+import gmgen.plugin.Combatant;
+import gmgen.plugin.PcgCombatant;
+import gmgen.plugin.PlayerCharacterOutput;
+import gmgen.plugin.SystemAttribute;
+import gmgen.plugin.dice.Dice;
 import pcgen.core.Globals;
 import pcgen.core.PCCheck;
 import pcgen.core.PlayerCharacter;
@@ -120,8 +119,7 @@ public class SavingThrowDialog extends javax.swing.JDialog
 	 * @param dc
 	 * @param saveType
 	 */
-	public SavingThrowDialog(java.awt.Frame parent, boolean modal,
-		Combatant cbt, int dc, int saveType)
+	public SavingThrowDialog(java.awt.Frame parent, boolean modal, Combatant cbt, int dc, int saveType)
 	{
 		super(parent, modal);
 		initComponents();
@@ -143,8 +141,7 @@ public class SavingThrowDialog extends javax.swing.JDialog
 	 * @param cbt
 	 * @param model
 	 */
-	public SavingThrowDialog(java.awt.Frame parent, boolean modal,
-		Combatant cbt, SaveModel model)
+	public SavingThrowDialog(java.awt.Frame parent, boolean modal, Combatant cbt, SaveModel model)
 	{
 		super(parent, modal);
 		initComponents();
@@ -308,8 +305,8 @@ public class SavingThrowDialog extends javax.swing.JDialog
 			PcgCombatant pcgcbt = (PcgCombatant) cbt;
 			PlayerCharacter pc = pcgcbt.getPC();
 			new PlayerCharacterOutput(pc);
-			List<PCCheck> checkList = Globals.getContext().getReferenceContext()
-					.getSortkeySortedCDOMObjects(PCCheck.class);
+			List<PCCheck> checkList =
+					Globals.getContext().getReferenceContext().getSortkeySortedCDOMObjects(PCCheck.class);
 
 			if (saveType == FORT_SAVE)
 			{
@@ -342,25 +339,19 @@ public class SavingThrowDialog extends javax.swing.JDialog
 
 			if (saveType == FORT_SAVE)
 			{
-				int mod =
-						new SystemAttribute("Constitution", xmlcbt
-							.getAttribute("Constitution")).getModifier();
+				int mod = new SystemAttribute("Constitution", xmlcbt.getAttribute("Constitution")).getModifier();
 				ability = mod;
 				base = xmlcbt.getSave("Fortitude") - mod;
 			}
 			else if (saveType == REF_SAVE)
 			{
-				int mod =
-						new SystemAttribute("Dexterity", xmlcbt
-							.getAttribute("Dexterity")).getModifier();
+				int mod = new SystemAttribute("Dexterity", xmlcbt.getAttribute("Dexterity")).getModifier();
 				ability = mod;
 				base = xmlcbt.getSave("Reflex") - mod;
 			}
 			else if (saveType == WILL_SAVE)
 			{
-				int mod =
-						new SystemAttribute("Wisdom", xmlcbt
-							.getAttribute("Wisdom")).getModifier();
+				int mod = new SystemAttribute("Wisdom", xmlcbt.getAttribute("Wisdom")).getModifier();
 				ability = mod;
 				base = xmlcbt.getSave("Will") - mod;
 			}
@@ -382,8 +373,7 @@ public class SavingThrowDialog extends javax.swing.JDialog
 	 * @param misc
 	 * @param temp
 	 */
-	private void setDefaults(int base, int ability, int magic, int misc,
-		int temp)
+	private void setDefaults(int base, int ability, int magic, int misc, int temp)
 	{
 		saveBase.setText(Integer.toString(base));
 		saveAbility.setText(Integer.toString(ability));
@@ -488,18 +478,14 @@ public class SavingThrowDialog extends javax.swing.JDialog
 		if ((total + roll) >= dc)
 		{
 			retValue = PASS_OPTION;
-			JOptionPane.showMessageDialog(this, getSaveAbbrev(getSaveType())
-				+ " DC " + dc + " Passed.  Save: " + total + " + Roll: " + roll
-				+ " = " + (total + roll), "Save Passed",
-				JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(this, getSaveAbbrev(getSaveType()) + " DC " + dc + " Passed.  Save: " + total
+				+ " + Roll: " + roll + " = " + (total + roll), "Save Passed", JOptionPane.INFORMATION_MESSAGE);
 		}
 		else
 		{
 			retValue = FAIL_OPTION;
-			JOptionPane.showMessageDialog(this, getSaveAbbrev(getSaveType())
-				+ " DC " + dc + " Failed.  Save: " + total + " + Roll: " + roll
-				+ " = " + (total + roll), "Save Failed",
-				JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(this, getSaveAbbrev(getSaveType()) + " DC " + dc + " Failed.  Save: " + total
+				+ " + Roll: " + roll + " = " + (total + roll), "Save Failed", JOptionPane.INFORMATION_MESSAGE);
 		}
 		updateModel();
 
@@ -517,12 +503,11 @@ public class SavingThrowDialog extends javax.swing.JDialog
 	 */
 	private JFormattedTextField buildIntegerField(int min, int max)
 	{
-		final JFormattedTextField returnValue =
-				Utils.buildIntegerField(min, max);
+		final JFormattedTextField returnValue = Utils.buildIntegerField(min, max);
 		returnValue.addPropertyChangeListener(new PropertyChangeListener()
 		{
 
-            @Override
+			@Override
 			public void propertyChange(PropertyChangeEvent evt)
 			{
 				if ("value".equals(evt.getPropertyName()))
@@ -644,7 +629,7 @@ public class SavingThrowDialog extends javax.swing.JDialog
 		setTitle("Saving Throw");
 		addWindowListener(new java.awt.event.WindowAdapter()
 		{
-            @Override
+			@Override
 			public void windowClosing(java.awt.event.WindowEvent evt)
 			{
 				closeDialog(evt);
@@ -831,8 +816,7 @@ public class SavingThrowDialog extends javax.swing.JDialog
 
 		fortitudeSelection.setText("Fortitude");
 		saveTypeGroup.add(fortitudeSelection);
-		fortitudeSelection
-			.addActionListener(this::saveSelectedActionPerformed);
+		fortitudeSelection.addActionListener(this::saveSelectedActionPerformed);
 
 		jPanel3.add(fortitudeSelection);
 
@@ -950,7 +934,7 @@ public class SavingThrowDialog extends javax.swing.JDialog
 
 	private class EnterKeyAdapter extends java.awt.event.KeyAdapter
 	{
-        @Override
+		@Override
 		public void keyReleased(java.awt.event.KeyEvent evt)
 		{
 			if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER)

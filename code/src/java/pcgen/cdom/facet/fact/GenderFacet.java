@@ -30,8 +30,7 @@ import pcgen.output.publish.OutputDB;
  * GenderFacet is a Facet that tracks the Gender of a Player Character.
  * 
  */
-public class GenderFacet extends AbstractItemFacet<CharID, Gender> implements
-		ItemFacet<CharID, Gender>
+public class GenderFacet extends AbstractItemFacet<CharID, Gender> implements ItemFacet<CharID, Gender>
 {
 
 	private TemplateFacet templateFacet;

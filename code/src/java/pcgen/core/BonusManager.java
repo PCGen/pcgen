@@ -56,16 +56,13 @@ public class BonusManager
 	/** LIST - Replace all the values selected into this spot */
 	private static final String LIST_TOKEN_REPLACEMENT = "LIST"; //$NON-NLS-1$
 
-	private static final String VALUE_TOKEN_PATTERN = Pattern
-			.quote(VALUE_TOKEN_REPLACEMENT);
+	private static final String VALUE_TOKEN_PATTERN = Pattern.quote(VALUE_TOKEN_REPLACEMENT);
 
 	private static final String VAR_TOKEN_REPLACEMENT = "%VAR"; //$NON-NLS-1$
 
-	private static final String VAR_TOKEN_PATTERN = Pattern
-			.quote(VAR_TOKEN_REPLACEMENT);
+	private static final String VAR_TOKEN_PATTERN = Pattern.quote(VAR_TOKEN_REPLACEMENT);
 
-	private static final List<String> NO_ASSOC_LIST = Collections
-			.singletonList("");
+	private static final List<String> NO_ASSOC_LIST = Collections.singletonList("");
 
 	private Map<String, String> activeBonusMap = new ConcurrentHashMap<>();
 
@@ -97,7 +94,7 @@ public class BonusManager
 			Logging.errorPrint("Unable to sum BONUS when request is null");
 			return bonus;
 		}
-			
+
 		fullyQualifiedBonusType = fullyQualifiedBonusType.toUpperCase();
 		if (cachedActiveBonusSumsMap.containsKey(fullyQualifiedBonusType))
 		{
@@ -122,8 +119,8 @@ public class BonusManager
 
 			if (fullyQualifedCurrentBonus == null)
 			{
-				Logging.errorPrint("null BONUS: loaded into activeBonusMap. "
-					+ fullyQualifiedBonusType + " was requested");
+				Logging.errorPrint(
+					"null BONUS: loaded into activeBonusMap. " + fullyQualifiedBonusType + " was requested");
 				continue;
 			}
 
@@ -135,21 +132,22 @@ public class BonusManager
 			// to get a match for prefix like: COMBAT.AC:Armor
 			if (currentTypedBonusNameInfo.endsWith(".STACK"))
 			{
-				currentTypedBonusNameInfo = currentTypedBonusNameInfo.substring(0, currentTypedBonusNameInfo.length() - 6);
+				currentTypedBonusNameInfo =
+						currentTypedBonusNameInfo.substring(0, currentTypedBonusNameInfo.length() - 6);
 			}
 			else if (currentTypedBonusNameInfo.endsWith(".REPLACE"))
 			{
-				currentTypedBonusNameInfo = currentTypedBonusNameInfo.substring(0, currentTypedBonusNameInfo.length() - 8);
+				currentTypedBonusNameInfo =
+						currentTypedBonusNameInfo.substring(0, currentTypedBonusNameInfo.length() - 8);
 			}
 
 			if (currentTypedBonusNameInfo == null)
 			{
-				Logging.errorPrint("Unable to process BONUS: "
-					+ fullyQualifedCurrentBonus + " when "
+				Logging.errorPrint("Unable to process BONUS: " + fullyQualifedCurrentBonus + " when "
 					+ fullyQualifiedBonusType + " was requested");
 				continue;
 			}
-			
+
 			// if prefix is of the form:
 			// COMBAT.AC
 			// then is must match rstring:
@@ -159,7 +157,7 @@ public class BonusManager
 			// However, it must not match
 			// COMBAT.ACCHECK
 			if ((currentTypedBonusNameInfo.length() > fullyQualifiedBonusType.length())
-					&& !currentTypedBonusNameInfo.startsWith(fullyQualifiedBonusType + ":"))
+				&& !currentTypedBonusNameInfo.startsWith(fullyQualifiedBonusType + ":"))
 			{
 				continue;
 			}
@@ -171,12 +169,9 @@ public class BonusManager
 				aList.add(currentTypedBonusNameInfo + ".STACK");
 				aList.add(currentTypedBonusNameInfo + ".REPLACE");
 
-				final double aBonus = getActiveBonusForMapKey(currentTypedBonusNameInfo,
-						Double.NaN);
-				final double replaceBonus = getActiveBonusForMapKey(currentTypedBonusNameInfo
-						+ ".REPLACE", Double.NaN);
-				final double stackBonus = getActiveBonusForMapKey(currentTypedBonusNameInfo
-						+ ".STACK", 0);
+				final double aBonus = getActiveBonusForMapKey(currentTypedBonusNameInfo, Double.NaN);
+				final double replaceBonus = getActiveBonusForMapKey(currentTypedBonusNameInfo + ".REPLACE", Double.NaN);
+				final double stackBonus = getActiveBonusForMapKey(currentTypedBonusNameInfo + ".STACK", 0);
 				//
 				// Using NaNs in order to be able to get the max
 				// between an undefined bonus and a negative
@@ -205,9 +200,10 @@ public class BonusManager
 				bonus += stackBonus;
 			}
 		}
-		
+
 		// cache value only if it has been positively found
-		if (found) {
+		if (found)
+		{
 			cachedActiveBonusSumsMap.put(fullyQualifiedBonusType, bonus);
 		}
 		return bonus;
@@ -221,8 +217,7 @@ public class BonusManager
 	 * 
 	 * @return defaultValue if aKey not found
 	 */
-	private double getActiveBonusForMapKey(String fullyQualifiedBonusType,
-			final double defaultValue)
+	private double getActiveBonusForMapKey(String fullyQualifiedBonusType, final double defaultValue)
 	{
 		fullyQualifiedBonusType = fullyQualifiedBonusType.toUpperCase();
 
@@ -236,8 +231,7 @@ public class BonusManager
 		return defaultValue;
 	}
 
-	public double getBonusDueToType(String bonusName, String bonusInfo,
-			String bonusType)
+	public double getBonusDueToType(String bonusName, String bonusInfo, String bonusType)
 	{
 		final String typeString = bonusName + "." + bonusInfo + ":" + bonusType;
 
@@ -246,16 +240,14 @@ public class BonusManager
 
 	public double getTotalBonusTo(String bonusName, String bonusInfo)
 	{
-		final String prefix = new StringBuilder(bonusName).append('.').append(
-				bonusInfo).toString();
+		final String prefix = new StringBuilder(bonusName).append('.').append(bonusInfo).toString();
 
 		return sumActiveBonusMap(prefix);
 	}
 
 	public String getSpellBonusType(String bonusName, String bonusInfo)
 	{
-		String prefix = new StringBuilder(bonusName).append('.').append(
-				bonusInfo).toString();
+		String prefix = new StringBuilder(bonusName).append('.').append(bonusInfo).toString();
 		prefix = prefix.toUpperCase();
 
 		for (String fullyQualifedBonusType : activeBonusMap.keySet())
@@ -283,8 +275,7 @@ public class BonusManager
 			// COMBAT.AC:Armor.REPLACE
 			// However, it must not match
 			// COMBAT.ACCHECK
-			if ((typedBonusNameInfo.length() > prefix.length())
-					&& !typedBonusNameInfo.startsWith(prefix + ":"))
+			if ((typedBonusNameInfo.length() > prefix.length()) && !typedBonusNameInfo.startsWith(prefix + ":"))
 			{
 				continue;
 			}
@@ -315,11 +306,10 @@ public class BonusManager
 		cachedActiveBonusSumsMap = new ConcurrentHashMap<>();
 		Map<String, String> nonStackMap = new ConcurrentHashMap<>();
 		Map<String, String> stackMap = new ConcurrentHashMap<>();
-		Set<BonusObj> processedBonuses =
-				Collections.newSetFromMap(new IdentityHashMap<>());
+		Set<BonusObj> processedBonuses = Collections.newSetFromMap(new IdentityHashMap<>());
 
 		//Logging.log(Logging.INFO, "=== Start bonus processing.");
-		
+
 		//
 		// We do a first pass of just the "static" bonuses
 		// as they require less computation and no recursion
@@ -338,8 +328,7 @@ public class BonusManager
 			{
 				if (Logging.isDebugMode())
 				{
-					Logging.debugPrint("BONUS: " + bonus
-						+ " ignored due to no creator");
+					Logging.debugPrint("BONUS: " + bonus + " ignored due to no creator");
 				}
 				continue;
 			}
@@ -350,24 +339,21 @@ public class BonusManager
 			for (BonusPair bp : getStringListFromBonus(bonus))
 			{
 				final double iBonus = bp.resolve(pc).doubleValue();
-				setActiveBonusStack(iBonus, bp.fullyQualifiedBonusType,
-					nonStackMap, stackMap);
-				totalBonusesForType(nonStackMap, stackMap,
-					bp.fullyQualifiedBonusType, activeBonusMap);
-				
+				setActiveBonusStack(iBonus, bp.fullyQualifiedBonusType, nonStackMap, stackMap);
+				totalBonusesForType(nonStackMap, stackMap, bp.fullyQualifiedBonusType, activeBonusMap);
+
 				if (Logging.isDebugMode())
 				{
 					String id;
 					if (source instanceof CDOMObject)
 					{
-						id = ((CDOMObject)source).getDisplayName();
+						id = ((CDOMObject) source).getDisplayName();
 					}
 					else
 					{
 						id = source.toString();
 					}
-					Logging.debugPrint("BONUS: " + id + " : " + iBonus + " : "
-							+ bp.fullyQualifiedBonusType);
+					Logging.debugPrint("BONUS: " + id + " : " + iBonus + " : " + bp.fullyQualifiedBonusType);
 				}
 			}
 		}
@@ -392,8 +378,8 @@ public class BonusManager
 
 			try
 			{
-				processBonus(bonus, Collections.newSetFromMap(new IdentityHashMap<>()),
-					processedBonuses, nonStackMap, stackMap);
+				processBonus(bonus, Collections.newSetFromMap(new IdentityHashMap<>()), processedBonuses, nonStackMap,
+					stackMap);
 			}
 			catch (Exception e)
 			{
@@ -416,18 +402,17 @@ public class BonusManager
 	 * @param targetMap
 	 *            The map of bonuses (stack+non-stack) being built up which will be populated with the total bonus.
 	 */
-	private void totalBonusesForType(Map<String, String> nonStackMap,
-		Map<String, String> stackMap, String fullyQualifiedBonusType,
-		Map<String, String> targetMap)
+	private void totalBonusesForType(Map<String, String> nonStackMap, Map<String, String> stackMap,
+		String fullyQualifiedBonusType, Map<String, String> targetMap)
 	{
 		if (fullyQualifiedBonusType != null)
 		{
 			fullyQualifiedBonusType = fullyQualifiedBonusType.toUpperCase();
 		}
 		String nonStackString = nonStackMap.get(fullyQualifiedBonusType);
-		Float nonStackVal =  nonStackString == null ? 0.0f : Float.valueOf(nonStackString);
+		Float nonStackVal = nonStackString == null ? 0.0f : Float.valueOf(nonStackString);
 		String stackString = stackMap.get(fullyQualifiedBonusType);
-		Float stackVal =  stackString == null ? 0.0f : Float.valueOf(stackString);
+		Float stackVal = stackString == null ? 0.0f : Float.valueOf(stackString);
 		Float FullValue = nonStackVal + stackVal;
 		putActiveBonusMap(fullyQualifiedBonusType, String.valueOf(FullValue), targetMap);
 	}
@@ -444,8 +429,7 @@ public class BonusManager
 
 	public String listBonusesFor(String bonusName, String bonusInfo)
 	{
-		final String prefix = new StringBuilder(bonusName).append('.').append(
-				bonusInfo).toString();
+		final String prefix = new StringBuilder(bonusName).append('.').append(bonusInfo).toString();
 		final StringBuilder buf = new StringBuilder();
 		final List<String> aList = new ArrayList<>();
 
@@ -507,10 +491,9 @@ public class BonusManager
 		{
 			if (fullyQualifiedBonusType_Replace.length() > 7)
 			{
-				final String aKey = fullyQualifiedBonusType_Replace.substring(0,
-						fullyQualifiedBonusType_Replace.length() - 8);
-				final double replaceBonus = getActiveBonusForMapKey(fullyQualifiedBonusType_Replace,
-						0);
+				final String aKey =
+						fullyQualifiedBonusType_Replace.substring(0, fullyQualifiedBonusType_Replace.length() - 8);
+				final double replaceBonus = getActiveBonusForMapKey(fullyQualifiedBonusType_Replace, 0);
 				double aBonus = getActiveBonusForMapKey(aKey, 0);
 				aBonus += getActiveBonusForMapKey(aKey + ".STACK", 0);
 
@@ -558,8 +541,7 @@ public class BonusManager
 	 * @param stackMap
 	 *            The map of stacking (i.e. total all) bonuses being built up.
 	 */
-	private void processBonus(final BonusObj aBonus,
-		final Set<BonusObj> prevProcessed, Set<BonusObj> processedBonuses,
+	private void processBonus(final BonusObj aBonus, final Set<BonusObj> prevProcessed, Set<BonusObj> processedBonuses,
 		Map<String, String> nonStackMap, Map<String, String> stackMap)
 	{
 		// Make sure we don't get into an infinite loop - can occur due to LST
@@ -568,15 +550,10 @@ public class BonusManager
 		{
 			if (Logging.isDebugMode())
 			{
-				Logging
-					.log(
-						Logging.DEBUG,
-						"Ignoring bonus loop for " //$NON-NLS-1$
-							+ aBonus
-							+ " as it was already processed. Bonuses already processed: " //$NON-NLS-1$
-							+ prevProcessed);
-				Logging.log(Logging.DEBUG,
-					" Depend map is " + aBonus.listDependsMap()); //$NON-NLS-1$
+				Logging.log(Logging.DEBUG, "Ignoring bonus loop for " //$NON-NLS-1$
+					+ aBonus + " as it was already processed. Bonuses already processed: " //$NON-NLS-1$
+					+ prevProcessed);
+				Logging.log(Logging.DEBUG, " Depend map is " + aBonus.listDependsMap()); //$NON-NLS-1$
 			}
 			return;
 		}
@@ -605,8 +582,7 @@ public class BonusManager
 		for (BonusObj newBonus : aList)
 		{
 			// Recursively call itself
-			processBonus(newBonus, prevProcessed, processedBonuses,
-				nonStackMap, stackMap);
+			processBonus(newBonus, prevProcessed, processedBonuses, nonStackMap, stackMap);
 		}
 
 		// Double check that it hasn't been processed yet
@@ -632,10 +608,9 @@ public class BonusManager
 		{
 			final double iBonus = bp.resolve(pc).doubleValue();
 			setActiveBonusStack(iBonus, bp.fullyQualifiedBonusType, nonStackMap, stackMap);
-			totalBonusesForType(nonStackMap, stackMap,
-				bp.fullyQualifiedBonusType, activeBonusMap);
-//			Logging.debugPrint("vBONUS: " + anObj.getDisplayName() + " : "
-//					+ iBonus + " : " + bp.fullyQualifiedBonusType);
+			totalBonusesForType(nonStackMap, stackMap, bp.fullyQualifiedBonusType, activeBonusMap);
+			//			Logging.debugPrint("vBONUS: " + anObj.getDisplayName() + " : "
+			//					+ iBonus + " : " + bp.fullyQualifiedBonusType);
 		}
 		prevProcessed.remove(aBonus);
 	}
@@ -653,8 +628,7 @@ public class BonusManager
 	 * @param stackingBonusMap
 	 *            The map of stacking (i.e. total all) bonuses being built up.
 	 */
-	private void setActiveBonusStack(double bonus,
-		String fullyQualifiedBonusType, Map<String, String> nonStackbonusMap,
+	private void setActiveBonusStack(double bonus, String fullyQualifiedBonusType, Map<String, String> nonStackbonusMap,
 		Map<String, String> stackingBonusMap)
 	{
 		if (fullyQualifiedBonusType != null)
@@ -663,13 +637,10 @@ public class BonusManager
 
 			// only specific bonuses can actually be fractional
 			// -> TODO should define this in external file
-			if (!fullyQualifiedBonusType.startsWith("ITEMWEIGHT")
-					&& !fullyQualifiedBonusType.startsWith("ITEMCOST")
-					&& !fullyQualifiedBonusType.startsWith("ACVALUE")
-					&& !fullyQualifiedBonusType.startsWith("ITEMCAPACITY")
-					&& !fullyQualifiedBonusType.startsWith("LOADMULT")
-					&& !fullyQualifiedBonusType.startsWith("FEAT")
-					&& (!fullyQualifiedBonusType.contains("DAMAGEMULT")))
+			if (!fullyQualifiedBonusType.startsWith("ITEMWEIGHT") && !fullyQualifiedBonusType.startsWith("ITEMCOST")
+				&& !fullyQualifiedBonusType.startsWith("ACVALUE") && !fullyQualifiedBonusType.startsWith("ITEMCAPACITY")
+				&& !fullyQualifiedBonusType.startsWith("LOADMULT") && !fullyQualifiedBonusType.startsWith("FEAT")
+				&& (!fullyQualifiedBonusType.contains("DAMAGEMULT")))
 			{
 				bonus = ((int) bonus); // TODO: never used
 			}
@@ -700,8 +671,7 @@ public class BonusManager
 
 			if (aString != null)
 			{
-				index = SettingsHandler.getGame()
-						.getUnmodifiableBonusStackList().indexOf(aString); // e.g.
+				index = SettingsHandler.getGame().getUnmodifiableBonusStackList().indexOf(aString); // e.g.
 				// Dodge
 			}
 		}
@@ -735,8 +705,8 @@ public class BonusManager
 			else
 			{
 				float existingBonus = Float.parseFloat(aVal);
-				putActiveBonusMap(fullyQualifiedBonusType, String.valueOf(Math.max(bonus,
-						existingBonus)), nonStackbonusMap);
+				putActiveBonusMap(fullyQualifiedBonusType, String.valueOf(Math.max(bonus, existingBonus)),
+					nonStackbonusMap);
 			}
 		}
 		else
@@ -746,13 +716,12 @@ public class BonusManager
 
 			if (aVal == null)
 			{
-				putActiveBonusMap(fullyQualifiedBonusType,
-					String.valueOf(bonus), stackingBonusMap);
+				putActiveBonusMap(fullyQualifiedBonusType, String.valueOf(bonus), stackingBonusMap);
 			}
 			else
 			{
-				putActiveBonusMap(fullyQualifiedBonusType, String.valueOf(bonus
-						+ Float.parseFloat(aVal)), stackingBonusMap);
+				putActiveBonusMap(fullyQualifiedBonusType, String.valueOf(bonus + Float.parseFloat(aVal)),
+					stackingBonusMap);
 			}
 		}
 	}
@@ -768,8 +737,8 @@ public class BonusManager
 	 * @param bonusMap
 	 *            The map of bonuses being built.
 	 */
-	private void putActiveBonusMap(final String fullyQualifiedBonusType,
-		final String bonusValue, Map<String, String> bonusMap)
+	private void putActiveBonusMap(final String fullyQualifiedBonusType, final String bonusValue,
+		Map<String, String> bonusMap)
 	{
 		//
 		// This is a bad idea...will add whatever the bonus is to ALL skills
@@ -781,8 +750,7 @@ public class BonusManager
 		bonusMap.put(fullyQualifiedBonusType, bonusValue);
 	}
 
-	public int getPartialStatBonusFor(PCStat stat, boolean useTemp,
-			boolean useEquip)
+	public int getPartialStatBonusFor(PCStat stat, boolean useTemp, boolean useEquip)
 	{
 		String statAbbr = stat.getKeyName();
 		final String prefix = "STAT." + statAbbr;
@@ -798,8 +766,7 @@ public class BonusManager
 				Object co = getSourceObject(bonus);
 				for (Object element : bonus.getBonusInfoList())
 				{
-					if (element instanceof PCStat
-							&& element.equals(stat))
+					if (element instanceof PCStat && element.equals(stat))
 					{
 						found = true;
 						break;
@@ -809,12 +776,10 @@ public class BonusManager
 					if (element instanceof MissingObject)
 					{
 						String name = ((MissingObject) element).getObjectName();
-						if (("%LIST".equals(name) || "LIST".equals(name))
-								&& co instanceof CDOMObject)
+						if (("%LIST".equals(name) || "LIST".equals(name)) && co instanceof CDOMObject)
 						{
 							CDOMObject creator = (CDOMObject) co;
-							for (String assoc : pc
-									.getConsolidatedAssociationList(creator))
+							for (String assoc : pc.getConsolidatedAssociationList(creator))
 							{
 								//TODO Case sensitivity?
 								if (assoc.contains(statAbbr))
@@ -840,7 +805,7 @@ public class BonusManager
 				}
 				else if (co instanceof Ability)
 				{
-					List<String> types = ((Ability)co).getTypes();
+					List<String> types = ((Ability) co).getTypes();
 					if (types.contains("Equipment"))
 					{
 						addIt = useEquip;
@@ -867,10 +832,9 @@ public class BonusManager
 					{
 						if (bp.fullyQualifiedBonusType.startsWith(prefix))
 						{
-							setActiveBonusStack(bp.resolve(pc).doubleValue(),
-									bp.fullyQualifiedBonusType, nonStackMap, stackMap);
-							totalBonusesForType(nonStackMap, stackMap,
-								bp.fullyQualifiedBonusType, bonusMap);
+							setActiveBonusStack(bp.resolve(pc).doubleValue(), bp.fullyQualifiedBonusType, nonStackMap,
+								stackMap);
+							totalBonusesForType(nonStackMap, stackMap, bp.fullyQualifiedBonusType, bonusMap);
 						}
 					}
 				}
@@ -942,8 +906,7 @@ public class BonusManager
 	public Set<String> getTempBonusDisplayNames()
 	{
 		final Set<String> ret = new TreeSet<>();
-		for (Map.Entry<BonusObj, TempBonusInfo> me : tempBonusBySource
-				.entrySet())
+		for (Map.Entry<BonusObj, TempBonusInfo> me : tempBonusBySource.entrySet())
 		{
 			ret.add(BonusDisplay.getBonusDisplayName(me.getValue()));
 		}
@@ -954,8 +917,7 @@ public class BonusManager
 	{
 		final List<BonusObj> aList = new ArrayList<>();
 
-		for (Map.Entry<BonusObj, TempBonusInfo> me : tempBonusBySource
-				.entrySet())
+		for (Map.Entry<BonusObj, TempBonusInfo> me : tempBonusBySource.entrySet())
 		{
 			BonusObj bonus = me.getKey();
 			final Object aTO = me.getValue().target;
@@ -992,8 +954,7 @@ public class BonusManager
 		final List<String> aList = new ArrayList<>();
 		Map<BonusObj, TempBonusInfo> filteredTempBonusList = getFilteredTempBonusList();
 
-		for (Map.Entry<BonusObj, TempBonusInfo> me : filteredTempBonusList
-				.entrySet())
+		for (Map.Entry<BonusObj, TempBonusInfo> me : filteredTempBonusList.entrySet())
 		{
 			BonusObj aBonus = me.getKey();
 			if (aBonus == null)
@@ -1029,8 +990,7 @@ public class BonusManager
 		final List<String> aList = new ArrayList<>();
 		Map<BonusObj, TempBonusInfo> filteredTempBonusList = getFilteredTempBonusList();
 
-		for (Map.Entry<BonusObj, TempBonusInfo> me : filteredTempBonusList
-				.entrySet())
+		for (Map.Entry<BonusObj, TempBonusInfo> me : filteredTempBonusList.entrySet())
 		{
 			BonusObj aBonus = me.getKey();
 			if (aBonus == null)
@@ -1064,8 +1024,7 @@ public class BonusManager
 	public Map<BonusObj, TempBonusInfo> getFilteredTempBonusList()
 	{
 		final Map<BonusObj, TempBonusInfo> ret = new IdentityHashMap<>();
-		for (Map.Entry<BonusObj, TempBonusInfo> me : tempBonusBySource
-				.entrySet())
+		for (Map.Entry<BonusObj, TempBonusInfo> me : tempBonusBySource.entrySet())
 		{
 			BonusObj bonus = me.getKey();
 			TempBonusInfo ti = me.getValue();
@@ -1095,15 +1054,13 @@ public class BonusManager
 	public Map<BonusObj, Object> getTempBonuses()
 	{
 		Map<BonusObj, Object> map = new IdentityHashMap<>();
-		for (Map.Entry<BonusObj, TempBonusInfo> me : getFilteredTempBonusList()
-				.entrySet())
+		for (Map.Entry<BonusObj, TempBonusInfo> me : getFilteredTempBonusList().entrySet())
 		{
 			final BonusObj bonus = me.getKey();
 			pc.setApplied(bonus, false);
 
 			Object source = me.getValue().source;
-			CDOMObject cdomsource = (source instanceof CDOMObject) ? (CDOMObject) source
-					: null;
+			CDOMObject cdomsource = (source instanceof CDOMObject) ? (CDOMObject) source : null;
 			if (bonus.qualifies(pc, cdomsource))
 			{
 				pc.setApplied(bonus, true);
@@ -1117,13 +1074,11 @@ public class BonusManager
 		return map;
 	}
 
-	public Map<BonusObj, TempBonusInfo> getTempBonusMap(String aCreator,
-			String aTarget)
+	public Map<BonusObj, TempBonusInfo> getTempBonusMap(String aCreator, String aTarget)
 	{
 		final Map<BonusObj, TempBonusInfo> aMap = new IdentityHashMap<>();
 
-		for (Map.Entry<BonusObj, TempBonusInfo> me : tempBonusBySource
-				.entrySet())
+		for (Map.Entry<BonusObj, TempBonusInfo> me : tempBonusBySource.entrySet())
 		{
 			BonusObj bonus = me.getKey();
 			TempBonusInfo tbi = me.getValue();
@@ -1283,13 +1238,11 @@ public class BonusManager
 			{
 				if (bonusInfo.contains(VALUE_TOKEN_REPLACEMENT))
 				{
-					replacedInfoList.add(bonusInfo.replaceAll(
-						VALUE_TOKEN_PATTERN, assoc));
+					replacedInfoList.add(bonusInfo.replaceAll(VALUE_TOKEN_PATTERN, assoc));
 				}
 				else if (bonusInfo.contains(VAR_TOKEN_REPLACEMENT))
 				{
-					replacedInfoList.add(bonusName
-							.replaceAll(VAR_TOKEN_PATTERN, assoc));
+					replacedInfoList.add(bonusName.replaceAll(VAR_TOKEN_PATTERN, assoc));
 				}
 				else if (bonusInfo.equals(LIST_TOKEN_REPLACEMENT))
 				{
@@ -1315,8 +1268,7 @@ public class BonusManager
 				String thisValue = value;
 				if (listIndex >= 0)
 				{
-					thisValue = value.replaceAll(VALUE_TOKEN_PATTERN,
-							assoc);
+					thisValue = value.replaceAll(VALUE_TOKEN_PATTERN, assoc);
 				}
 				//Need to protect against a selection not being made with a %LIST
 				if (thisValue.isEmpty())
@@ -1333,8 +1285,7 @@ public class BonusManager
 				{
 					sb.append(':').append(bonusType);
 				}
-				bonusList.add(new BonusPair(sb.toString(), newFormula,
-						creatorObj));
+				bonusList.add(new BonusPair(sb.toString(), newFormula, creatorObj));
 			}
 		}
 
@@ -1370,8 +1321,7 @@ public class BonusManager
 
 			if (aBonus.qualifies(pc, anObj))
 			{
-				iBonus = aBonus.resolve(pc, anObj.getQualifiedKey())
-						.doubleValue();
+				iBonus = aBonus.resolve(pc, anObj.getQualifiedKey()).doubleValue();
 			}
 
 			int k;

@@ -38,8 +38,6 @@ public final class SourceMigration
 
 	private static Map<int[], List<MigrationRule>> sourceChangesForVer = new HashMap<>();
 
-
-
 	private SourceMigration()
 	{
 	}
@@ -53,12 +51,8 @@ public final class SourceMigration
 	 */
 	public static String getNewSourceKey(String sourceKey, int[] pcgVer, String gameModeName)
 	{
-		List<MigrationRule> sourceChangeList = sourceChangesForVer.computeIfAbsent(
-				pcgVer,
-				v -> MigrationUtils.getChangeList(v, gameModeName,
-						ObjectType.SOURCE
-				)
-		);
+		List<MigrationRule> sourceChangeList = sourceChangesForVer.computeIfAbsent(pcgVer,
+			v -> MigrationUtils.getChangeList(v, gameModeName, ObjectType.SOURCE));
 
 		for (MigrationRule rule : sourceChangeList)
 		{

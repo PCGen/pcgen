@@ -29,7 +29,6 @@ import javax.swing.JRadioButtonMenuItem;
 
 import pcgen.facade.util.event.ListEvent;
 
-
 public abstract class AbstractRadioListMenu<E> extends AbstractListMenu<E> implements ItemListener
 {
 
@@ -75,7 +74,7 @@ public abstract class AbstractRadioListMenu<E> extends AbstractListMenu<E> imple
 	{
 		group.clearSelection();
 	}
-	
+
 	private static class RadioMenuItem extends JRadioButtonMenuItem
 	{
 
@@ -91,10 +90,7 @@ public abstract class AbstractRadioListMenu<E> extends AbstractListMenu<E> imple
 		@Override
 		public Object[] getSelectedObjects()
 		{
-			return new Object[]
-					{
-						item
-					};
+			return new Object[]{item};
 		}
 
 	}

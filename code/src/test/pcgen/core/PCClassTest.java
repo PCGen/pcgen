@@ -482,8 +482,10 @@ public class PCClassTest extends AbstractCharacterTestCase
 		assertEquals(
 			"Class abbrev was not restored after saving and reloading.",
 			humanoidClass.getAbbrev(), reconstClass.getAbbrev());
-		Collection<CDOMReference<Spell>> startSpells = humanoidClass.getOriginalClassLevel(1).getListMods(Spell.SPELLS);
-		Collection<CDOMReference<Spell>> reconstSpells = reconstClass.getOriginalClassLevel(1).getListMods(Spell.SPELLS);
+		Collection<CDOMReference<Spell>> startSpells =
+				humanoidClass.getOriginalClassLevel(1).getListMods(Spell.SPELLS);
+		Collection<CDOMReference<Spell>> reconstSpells =
+				reconstClass.getOriginalClassLevel(1).getListMods(Spell.SPELLS);
 		assertEquals("All spell should have been reconstituted.", startSpells
 			.size(), reconstSpells.size());
 		assertEquals("Spell names should been preserved.", startSpells, reconstSpells);
@@ -510,12 +512,14 @@ public class PCClassTest extends AbstractCharacterTestCase
 		Globals.getContext().getReferenceContext().importObject(megaCasterClass);
 
 		final PlayerCharacter character = getCharacter();
-		assertEquals("Highest spell level for class", 10, character.getSpellSupport(megaCasterClass).getHighestLevelSpell());
+		assertEquals("Highest spell level for class", 10,
+			character.getSpellSupport(megaCasterClass).getHighestLevelSpell());
 
 		character.incrementClassLevel(1, megaCasterClass);
 		PCClass charClass =
 				character.getClassKeyed(megaCasterClass.getKeyName());
-		assertEquals("Highest spell level for character's class", 10, character.getSpellSupport(charClass).getHighestLevelSpell());
+		assertEquals("Highest spell level for character's class", 10,
+			character.getSpellSupport(charClass).getHighestLevelSpell());
 
 		String sbook = Globals.getDefaultSpellBook();
 
@@ -590,8 +594,10 @@ public class PCClassTest extends AbstractCharacterTestCase
 		character.incrementClassLevel(1, megaCasterClass);
 		charClass = character.getClassKeyed(megaCasterClass.getKeyName());
 		setPCStat(character, cha, 10);
-		assertEquals("Known 0th level for character's class", 4, character.getSpellSupport(charClass).getKnownForLevel(0, character));
-		assertEquals("Known 1st level where stat is too low", 0, character.getSpellSupport(charClass).getKnownForLevel(1, character));
+		assertEquals("Known 0th level for character's class", 4,
+			character.getSpellSupport(charClass).getKnownForLevel(0, character));
+		assertEquals("Known 1st level where stat is too low", 0,
+			character.getSpellSupport(charClass).getKnownForLevel(1, character));
 		setPCStat(character, cha, 11);
 		character.calcActiveBonuses();
 		assertEquals("Known 1st level where stat is high enough, but no bonus",
@@ -618,22 +624,30 @@ public class PCClassTest extends AbstractCharacterTestCase
 		assertEquals("Known 1st level where stat gives bonus and active", 3,
 			character.getSpellSupport(charClass).getKnownForLevel(1, character));
 
-		assertEquals("Known 2nd level for character's class", 2, character.getSpellSupport(charClass).getKnownForLevel(2, character));
-		assertEquals("Known 3rd level for character's class", 3, character.getSpellSupport(charClass).getKnownForLevel(3, character));
-		assertEquals("Known 4th level for character's class", 4, character.getSpellSupport(charClass).getKnownForLevel(4, character));
+		assertEquals("Known 2nd level for character's class", 2,
+			character.getSpellSupport(charClass).getKnownForLevel(2, character));
+		assertEquals("Known 3rd level for character's class", 3,
+			character.getSpellSupport(charClass).getKnownForLevel(3, character));
+		assertEquals("Known 4th level for character's class", 4,
+			character.getSpellSupport(charClass).getKnownForLevel(4, character));
 		charClass.put(IntegerKey.KNOWN_SPELLS_FROM_SPECIALTY, 1);
-		assertEquals("Known 5th level for character's class", 6, character.getSpellSupport(charClass).getKnownForLevel(5, character));
-		assertEquals("Known 6th level for character's class", 0, character.getSpellSupport(charClass).getKnownForLevel(6, character));
-		assertEquals("Known 7th level for character's class", 0, character.getSpellSupport(charClass).getKnownForLevel(7, character));
+		assertEquals("Known 5th level for character's class", 6,
+			character.getSpellSupport(charClass).getKnownForLevel(5, character));
+		assertEquals("Known 6th level for character's class", 0,
+			character.getSpellSupport(charClass).getKnownForLevel(6, character));
+		assertEquals("Known 7th level for character's class", 0,
+			character.getSpellSupport(charClass).getKnownForLevel(7, character));
 
 		// Add spell bonus for level above known max
 		bsi = new BonusSpellInfo();
 		bsi.setName("7");
 		bsi.setStatScore(12);
 		bsi.setStatRange(8);
-		assertEquals("Known 7th level for character's class", 0, character.getSpellSupport(charClass).getKnownForLevel(7, character));
+		assertEquals("Known 7th level for character's class", 0,
+			character.getSpellSupport(charClass).getKnownForLevel(7, character));
 
-		assertEquals("Known 8th level for character's class", 0, character.getSpellSupport(charClass).getKnownForLevel(8, character));
+		assertEquals("Known 8th level for character's class", 0,
+			character.getSpellSupport(charClass).getKnownForLevel(8, character));
 
 	}
 
@@ -666,7 +680,8 @@ public class PCClassTest extends AbstractCharacterTestCase
 		character.incrementClassLevel(1, megaCasterClass);
 		charClass = character.getClassKeyed(megaCasterClass.getKeyName());
 		setPCStat(character, cha, 10);
-		assertEquals("Known 0th level for character's class", 4, character.getSpellSupport(charClass).getKnownForLevel(0, character));
+		assertEquals("Known 0th level for character's class", 4,
+			character.getSpellSupport(charClass).getKnownForLevel(0, character));
 		character.calcActiveBonuses();
 		assertEquals("Known 1st level where stat is high enough, but no bonus",
 			2, character.getSpellSupport(charClass).getKnownForLevel(1, character));
@@ -688,22 +703,30 @@ public class PCClassTest extends AbstractCharacterTestCase
 		assertEquals("Known 1st level where stat would give bonus and active", 2,
 			character.getSpellSupport(charClass).getKnownForLevel(1, character));
 
-		assertEquals("Known 2nd level for character's class", 2, character.getSpellSupport(charClass).getKnownForLevel(2, character));
-		assertEquals("Known 3rd level for character's class", 3, character.getSpellSupport(charClass).getKnownForLevel(3, character));
-		assertEquals("Known 4th level for character's class", 4, character.getSpellSupport(charClass).getKnownForLevel(4, character));
+		assertEquals("Known 2nd level for character's class", 2,
+			character.getSpellSupport(charClass).getKnownForLevel(2, character));
+		assertEquals("Known 3rd level for character's class", 3,
+			character.getSpellSupport(charClass).getKnownForLevel(3, character));
+		assertEquals("Known 4th level for character's class", 4,
+			character.getSpellSupport(charClass).getKnownForLevel(4, character));
 		charClass.put(IntegerKey.KNOWN_SPELLS_FROM_SPECIALTY, 1);
-		assertEquals("Known 5th level for character's class", 6, character.getSpellSupport(charClass).getKnownForLevel(5, character));
-		assertEquals("Known 6th level for character's class", 0, character.getSpellSupport(charClass).getKnownForLevel(6, character));
-		assertEquals("Known 7th level for character's class", 0, character.getSpellSupport(charClass).getKnownForLevel(7, character));
+		assertEquals("Known 5th level for character's class", 6,
+			character.getSpellSupport(charClass).getKnownForLevel(5, character));
+		assertEquals("Known 6th level for character's class", 0,
+			character.getSpellSupport(charClass).getKnownForLevel(6, character));
+		assertEquals("Known 7th level for character's class", 0,
+			character.getSpellSupport(charClass).getKnownForLevel(7, character));
 
 		// Add spell bonus for level above known max
 		bsi = new BonusSpellInfo();
 		bsi.setName("7");
 		bsi.setStatScore(12);
 		bsi.setStatRange(8);
-		assertEquals("Known 7th level for character's class", 0, character.getSpellSupport(charClass).getKnownForLevel(7, character));
+		assertEquals("Known 7th level for character's class", 0,
+			character.getSpellSupport(charClass).getKnownForLevel(7, character));
 
-		assertEquals("Known 8th level for character's class", 0, character.getSpellSupport(charClass).getKnownForLevel(8, character));
+		assertEquals("Known 8th level for character's class", 0,
+			character.getSpellSupport(charClass).getKnownForLevel(8, character));
 
 	}
 
@@ -738,9 +761,9 @@ public class PCClassTest extends AbstractCharacterTestCase
 			throw new UnreachableError(e);
 		}
 		String classPCCText =
-				"CLASS:Cleric	HD:8		CLASSTYPE:PC	TYPE:Base.PC	ABB:Clr	ABILITY:TestCat|AUTOMATIC|Ability1\n"
-					+ "CLASS:Cleric	STARTSKILLPTS:2\n"
-					+ "2	ABILITY:TestCat|AUTOMATIC|Ability2";
+			"CLASS:Cleric	HD:8		CLASSTYPE:PC	TYPE:Base.PC	ABB:Clr	ABILITY:TestCat|AUTOMATIC|Ability1\n"
+				+ "CLASS:Cleric	STARTSKILLPTS:2\n"
+				+ "2	ABILITY:TestCat|AUTOMATIC|Ability2";
 		PCClass pcclass = parsePCClassText(classPCCText, source);
 		ab1.setCDOMCategory(cat);
 		ab2.setCDOMCategory(cat);

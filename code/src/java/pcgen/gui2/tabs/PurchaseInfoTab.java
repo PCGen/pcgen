@@ -160,16 +160,16 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		setOrientation(VERTICAL_SPLIT);
 		FlippingSplitPane splitPane = new FlippingSplitPane("PurchaseTop"); //$NON-NLS-1$
 		splitPane.setOrientation(HORIZONTAL_SPLIT);
-		{// Top Left panel
+		{ // Top Left panel
 			FilterBar<CharacterFacade, EquipmentFacade> filterBar = new FilterBar<>();
-			{// Filters
+			{ // Filters
 				filterBar.addDisplayableFilter(new SearchFilterPanel());
-				FilterButton<CharacterFacade, EquipmentFacade> premadeFilter
-						= new FilterButton<>("EqQualified"); //$NON-NLS-1$
+				FilterButton<CharacterFacade, EquipmentFacade> premadeFilter =
+						new FilterButton<>("EqQualified"); //$NON-NLS-1$
 				premadeFilter.setText(LanguageBundle.getString("in_igQualFilter")); //$NON-NLS-1$
 				premadeFilter.setFilter(CharacterFacade::isQualifiedFor);
-				FilterButton<CharacterFacade, EquipmentFacade> customFilter
-						= new FilterButton<>("EqAffordable"); //$NON-NLS-1$
+				FilterButton<CharacterFacade, EquipmentFacade> customFilter =
+						new FilterButton<>("EqAffordable"); //$NON-NLS-1$
 				customFilter.setText(LanguageBundle.getString("in_igAffordFilter")); //$NON-NLS-1$
 				customFilter.setFilter(new Filter<CharacterFacade, EquipmentFacade>()
 				{
@@ -273,7 +273,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		fullLineGbc.gridwidth = GridBagConstraints.REMAINDER;
 		fullLineGbc.fill = GridBagConstraints.HORIZONTAL;
 
-		JLabel label = new JLabel(LanguageBundle.getString("in_igValueLabel"));  //$NON-NLS-1$
+		JLabel label = new JLabel(LanguageBundle.getString("in_igValueLabel")); //$NON-NLS-1$
 		panel.add(label, leftGbc);
 		wealthLabel.setEditable(false);
 		wealthLabel.setColumns(10);
@@ -281,7 +281,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		panel.add(wealthLabel, middleGbc);
 		panel.add(createCurrencyLabel(), rightGbc);
 
-		label = new JLabel(LanguageBundle.getString("in_igFundsLabel"));  //$NON-NLS-1$
+		label = new JLabel(LanguageBundle.getString("in_igFundsLabel")); //$NON-NLS-1$
 		panel.add(label, leftGbc);
 		goldField.setHorizontalAlignment(SwingConstants.RIGHT);
 		goldField.setColumns(10);
@@ -356,7 +356,8 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 		models.put(CurrencyFieldHandler.class, new CurrencyFieldHandler(character));
 
-		CharacterComboBoxModel<GearBuySellFacade> buySellModel = new CharacterComboBoxModel<GearBuySellFacade>(character.getDataSet().getGearBuySellSchemes(), character.getGearBuySellRef())
+		CharacterComboBoxModel<GearBuySellFacade> buySellModel = new CharacterComboBoxModel<GearBuySellFacade>(
+			character.getDataSet().getGearBuySellSchemes(), character.getGearBuySellRef())
 		{
 
 			@Override
@@ -792,7 +793,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			}
 			if (!e.getValueIsAdjusting())
 			{
-				int selectedRows[] = target.getSelectedRows();
+				int[] selectedRows = target.getSelectedRows();
 				List<EquipmentFacade> newList = new ArrayList<>(selectedRows.length);
 				for (int row : selectedRows)
 				{
@@ -838,8 +839,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 		public void install()
 		{
-			String currencyDisplay
-					= character.getDataSet().getGameMode().getCurrencyDisplay();
+			String currencyDisplay = character.getDataSet().getGameMode().getCurrencyDisplay();
 			for (JLabel label : currencyLabels)
 			{
 				label.setText(currencyDisplay);
@@ -848,18 +848,17 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 	}
 
-	private class AvailableTreeViewModel
-		extends CachedDataView<EquipmentFacade>
+	private class AvailableTreeViewModel extends CachedDataView<EquipmentFacade>
 			implements TreeViewModel<EquipmentFacade>, DataView<EquipmentFacade>
 	{
 
-		private final ListFacade<? extends TreeView<EquipmentFacade>> treeviews
-				= new DefaultListFacade<TreeView<EquipmentFacade>>(Arrays.asList(EquipmentTreeView.values()));
-		private final List<DefaultDataViewColumn> columns
-				= Arrays.asList(new DefaultDataViewColumn("in_igEqModelColCost", Float.class, true), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_igEqModelColWeight", Float.class, true), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_descrip", String.class, false), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_igEqModelColSource", String.class, false)); //$NON-NLS-1$
+		private final ListFacade<? extends TreeView<EquipmentFacade>> treeviews =
+				new DefaultListFacade<TreeView<EquipmentFacade>>(Arrays.asList(EquipmentTreeView.values()));
+		private final List<DefaultDataViewColumn> columns =
+				Arrays.asList(new DefaultDataViewColumn("in_igEqModelColCost", Float.class, true), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_igEqModelColWeight", Float.class, true), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_descrip", String.class, false), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_igEqModelColSource", String.class, false)); //$NON-NLS-1$
 		private final CharacterFacade character;
 		private final ListFacade<EquipmentFacade> equipmentList;
 
@@ -915,13 +914,14 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		@Override
 		public String getPrefsKey()
 		{
-			return "PurchaseAvail";  //$NON-NLS-1$
+			return "PurchaseAvail"; //$NON-NLS-1$
 		}
 
 		@Override
 		public Object getDataInternal(EquipmentFacade obj, int column)
 		{
-			switch(column){
+			switch (column)
+			{
 				case 0:
 					return character.getInfoFactory().getCost(obj);
 				case 1:
@@ -939,7 +939,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		public void setData(Object value, EquipmentFacade element, int column)
 		{
 		}
-		
+
 		public void install()
 		{
 			availableTable.setTreeViewModel(this);
@@ -950,13 +950,13 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			implements TreeViewModel<EquipmentFacade>, DataView<EquipmentFacade>, EquipmentListListener
 	{
 
-		private final ListFacade<? extends TreeView<EquipmentFacade>> treeviews
-				= new DefaultListFacade<TreeView<EquipmentFacade>>(Arrays.asList(EquipmentTreeView.values()));
-		private final List<DefaultDataViewColumn> columns
-				= Arrays.asList(new DefaultDataViewColumn("in_igEqModelColCost", Float.class, true), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_igEqModelColWeight", Float.class, false), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_igEqModelColQty", Integer.class, true), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_descrip", String.class, false)); //$NON-NLS-1$
+		private final ListFacade<? extends TreeView<EquipmentFacade>> treeviews =
+				new DefaultListFacade<TreeView<EquipmentFacade>>(Arrays.asList(EquipmentTreeView.values()));
+		private final List<DefaultDataViewColumn> columns =
+				Arrays.asList(new DefaultDataViewColumn("in_igEqModelColCost", Float.class, true), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_igEqModelColWeight", Float.class, false), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_igEqModelColQty", Integer.class, true), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_descrip", String.class, false)); //$NON-NLS-1$
 		private final CharacterFacade character;
 		private final EquipmentListFacade equipmentList;
 
@@ -1029,7 +1029,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		@Override
 		public String getPrefsKey()
 		{
-			return "Purchased";  //$NON-NLS-1$
+			return "Purchased"; //$NON-NLS-1$
 		}
 
 	}
@@ -1063,8 +1063,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 					List<String> types = pobj.getTypesForDisplay();
 					if (types != null && types.size() > 1)
 					{
-						List<TreeViewPath<EquipmentFacade>> paths
-								= new ArrayList<>();
+						List<TreeViewPath<EquipmentFacade>> paths = new ArrayList<>();
 						for (String type : types)
 						{
 							if (primaryTypes.contains(type))
@@ -1073,21 +1072,19 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 								{
 									if (!type.equals(subType))
 									{
-										paths.add(new TreeViewPath<>(
-                                                pobj, type, subType));
+										paths.add(new TreeViewPath<>(pobj, type, subType));
 									}
 								}
 							}
 						}
 						return paths;
 					}
-				// Less then two types, fall through to treat it as a type tree.
+					// Less then two types, fall through to treat it as a type tree.
 				case TYPE_NAME:
 					types = pobj.getTypesForDisplay();
 					if (types != null && !types.isEmpty())
 					{
-						List<TreeViewPath<EquipmentFacade>> paths = new ArrayList<>(
-                                types.size());
+						List<TreeViewPath<EquipmentFacade>> paths = new ArrayList<>(types.size());
 						for (String type : types)
 						{
 							if (primaryTypes.contains(type))
@@ -1097,12 +1094,11 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 						}
 						return paths;
 					}
-				// No types, fall through and treat it as just a name.
+					// No types, fall through and treat it as just a name.
 				case NAME:
 					return Collections.singletonList(new TreeViewPath<>(pobj));
 				case SOURCE_NAME:
-					return Collections.singletonList(new TreeViewPath<>(pobj,
-                            pobj.getSourceForNodeDisplay()));
+					return Collections.singletonList(new TreeViewPath<>(pobj, pobj.getSourceForNodeDisplay()));
 				default:
 					throw new InternalError();
 			}
@@ -1119,15 +1115,13 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	{
 
 		@Override
-		public Component getTreeCellRendererComponent(JTree tree, Object value,
-				boolean sel, boolean expanded, boolean leaf, int row, boolean focus)
+		public Component getTreeCellRendererComponent(JTree tree, Object value, boolean sel, boolean expanded,
+			boolean leaf, int row, boolean focus)
 		{
 
-			super.getTreeCellRendererComponent(tree, value, sel, expanded,
-					leaf, row, focus);
+			super.getTreeCellRendererComponent(tree, value, sel, expanded, leaf, row, focus);
 			Object equipObj = ((DefaultMutableTreeNode) value).getUserObject();
-			if (equipObj instanceof EquipmentFacade
-					&& !character.isQualifiedFor((EquipmentFacade) equipObj))
+			if (equipObj instanceof EquipmentFacade && !character.isQualifiedFor((EquipmentFacade) equipObj))
 			{
 				setForeground(UIPropertyContext.getNotQualifiedColor());
 			}
@@ -1330,15 +1324,14 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 		BuyNumMenuItem(CharacterFacade character, List<EquipmentFacade> targets, int quantity)
 		{
-			super(LanguageBundle.getFormattedString(quantity > 0
-					? "in_igBuyMenuCommand" : "in_igBuyN", quantity)); //$NON-NLS-1$ //$NON-NLS-2$
+			super(LanguageBundle.getFormattedString(
+				quantity > 0 ? "in_igBuyMenuCommand" : "in_igBuyN", quantity)); //$NON-NLS-1$ //$NON-NLS-2$
 			this.character = character;
 			this.targets = targets;
 			this.quantity = quantity;
 			if (quantity > 0)
 			{
-				setToolTipText(LanguageBundle.getFormattedString(
-						"in_igBuyMenuDesc", quantity)); //$NON-NLS-1$
+				setToolTipText(LanguageBundle.getFormattedString("in_igBuyMenuDesc", quantity)); //$NON-NLS-1$
 			}
 			else
 			{
@@ -1358,9 +1351,10 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			int num = quantity;
 			if (num == 0)
 			{
-				String selectedValue
-						= JOptionPane.showInputDialog(null, LanguageBundle.getString("in_igBuyEnterQuantity"), //$NON-NLS-1$
-								Constants.APPLICATION_NAME, JOptionPane.QUESTION_MESSAGE);
+				String selectedValue =
+						JOptionPane.showInputDialog(
+							null, LanguageBundle.getString("in_igBuyEnterQuantity"), //$NON-NLS-1$
+							Constants.APPLICATION_NAME, JOptionPane.QUESTION_MESSAGE);
 				if (selectedValue != null)
 				{
 					try
@@ -1474,16 +1468,16 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 		SellNumMenuItem(CharacterFacade character, List<EquipmentFacade> targets, int quantity)
 		{
-			super(LanguageBundle.getFormattedString(quantity > 0
-					? "in_igSellMenuCommand" : (quantity == SELL_ALL_QUANTITY //$NON-NLS-1$
+			super(
+				LanguageBundle.getFormattedString(
+					quantity > 0 ? "in_igSellMenuCommand" : (quantity == SELL_ALL_QUANTITY //$NON-NLS-1$
 					? "in_igSellAll" : "in_igSellN"), quantity)); //$NON-NLS-1$ //$NON-NLS-2$
 			this.character = character;
 			this.targets = targets;
 			this.quantity = quantity;
 			if (quantity > 0)
 			{
-				setToolTipText(LanguageBundle.getFormattedString(
-						"in_igSellMenuDesc", quantity)); //$NON-NLS-1$
+				setToolTipText(LanguageBundle.getFormattedString("in_igSellMenuDesc", quantity)); //$NON-NLS-1$
 			}
 			else if (quantity == SELL_ALL_QUANTITY)
 			{
@@ -1508,9 +1502,10 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			int num = quantity;
 			if (num == 0)
 			{
-				String selectedValue
-						= JOptionPane.showInputDialog(null, LanguageBundle.getString("in_igBuyEnterQuantity"), //$NON-NLS-1$
-								Constants.APPLICATION_NAME, JOptionPane.QUESTION_MESSAGE);
+				String selectedValue =
+						JOptionPane.showInputDialog(
+							null, LanguageBundle.getString("in_igBuyEnterQuantity"), //$NON-NLS-1$
+							Constants.APPLICATION_NAME, JOptionPane.QUESTION_MESSAGE);
 				if (selectedValue != null)
 				{
 					try

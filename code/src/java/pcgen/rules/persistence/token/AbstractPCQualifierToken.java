@@ -16,6 +16,7 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 package pcgen.rules.persistence.token;
+
 import java.util.Collection;
 import java.util.logging.Level;
 
@@ -38,8 +39,7 @@ import pcgen.util.Logging;
  * @param <T>
  *            The Type of object on which this AbstractPCQualifierToken operates
  */
-public abstract class AbstractPCQualifierToken<T extends CDOMObject> implements
-		QualifierToken<T>, PrimitiveFilter<T>
+public abstract class AbstractPCQualifierToken<T extends CDOMObject> implements QualifierToken<T>, PrimitiveFilter<T>
 {
 
 	private Class<T> refClass;
@@ -49,7 +49,7 @@ public abstract class AbstractPCQualifierToken<T extends CDOMObject> implements
 	private boolean wasRestricted = false;
 
 	private boolean negated = false;
-	
+
 	@Override
 	public String getTokenName()
 	{
@@ -57,14 +57,13 @@ public abstract class AbstractPCQualifierToken<T extends CDOMObject> implements
 	}
 
 	@Override
-	public boolean initialize(LoadContext context, SelectionCreator<T> sc,
-			String condition, String value, boolean negate)
+	public boolean initialize(LoadContext context, SelectionCreator<T> sc, String condition, String value,
+		boolean negate)
 	{
 		if (condition != null)
 		{
-			Logging.addParseMessage(Level.SEVERE, "Cannot make "
-					+ getTokenName()
-					+ " into a conditional Qualifier, remove =");
+			Logging.addParseMessage(Level.SEVERE,
+				"Cannot make " + getTokenName() + " into a conditional Qualifier, remove =");
 			return false;
 		}
 		if (sc == null)
@@ -154,8 +153,7 @@ public abstract class AbstractPCQualifierToken<T extends CDOMObject> implements
 	@Override
 	public GroupingState getGroupingState()
 	{
-		GroupingState gs = pcs == null ? GroupingState.ANY : pcs
-				.getGroupingState().reduce();
+		GroupingState gs = pcs == null ? GroupingState.ANY : pcs.getGroupingState().reduce();
 		return negated ? gs.negate() : gs;
 	}
 

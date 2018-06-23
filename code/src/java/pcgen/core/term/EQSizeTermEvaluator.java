@@ -31,19 +31,15 @@ public class EQSizeTermEvaluator extends BaseEQTermEvaluator implements TermEval
 	}
 
 	@Override
-	public Float resolve(
-			Equipment eq,
-			boolean primary,
-			PlayerCharacter pc)
+	public Float resolve(Equipment eq, boolean primary, PlayerCharacter pc)
 	{
 		return (float) eq.sizeInt();
 	}
 
 	@Override
-	public String evaluate(
-			Equipment eq, boolean primary, PlayerCharacter pc)
+	public String evaluate(Equipment eq, boolean primary, PlayerCharacter pc)
 	{
-		return String.valueOf(eq.sizeInt());		
+		return String.valueOf(eq.sizeInt());
 	}
 
 	@Override

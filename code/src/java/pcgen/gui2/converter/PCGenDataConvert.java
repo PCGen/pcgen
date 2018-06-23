@@ -103,7 +103,7 @@ public final class PCGenDataConvert extends JFrame
 		Main.loadProperties(true);
 		getConverter().setVisible(true);
 	}
-	
+
 	static void savePrefs()
 	{
 		configFactory.savePropertyContexts();

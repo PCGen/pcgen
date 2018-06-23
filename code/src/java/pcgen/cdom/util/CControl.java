@@ -75,8 +75,7 @@ public final class CControl
 	public static final String STATMODSAVE = "STATMODSAVE";
 	public static final String RACESAVE = "RACESAVE";
 
-	public static final CControl ALIGNMENTINPUT =
-			new CControl("ALIGNMENTINPUT", "Alignment");
+	public static final CControl ALIGNMENTINPUT = new CControl("ALIGNMENTINPUT", "Alignment");
 
 	/**
 	 * The name of a code control that contains a default value. This is used when a Code
@@ -84,7 +83,7 @@ public final class CControl
 	 * being an on/off switch for data)
 	 */
 	private final String name;
-	
+
 	/**
 	 * The default value (the internal variable name used)
 	 */

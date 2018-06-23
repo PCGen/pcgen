@@ -54,8 +54,7 @@ public class BridgeListener implements VariableListener<Object>
 	 *            The AbstractSourcedListFacet to be used as a bridge to the traditional
 	 *            Facet events
 	 */
-	public BridgeListener(CharID id,
-		AbstractSourcedListFacet<CharID, CDOMObject> variableBridgeFacet)
+	public BridgeListener(CharID id, AbstractSourcedListFacet<CharID, CDOMObject> variableBridgeFacet)
 	{
 		this.variableBridgeFacet = Objects.requireNonNull(variableBridgeFacet);
 		this.id = Objects.requireNonNull(id);
@@ -74,8 +73,7 @@ public class BridgeListener implements VariableListener<Object>
 		 */
 		if (newValue.getClass().isArray())
 		{
-			ImmutablePair<Set<Object>, Set<Object>> t =
-					processIdentityDeltas((Object[]) oldValue, (Object[]) newValue);
+			ImmutablePair<Set<Object>, Set<Object>> t = processIdentityDeltas((Object[]) oldValue, (Object[]) newValue);
 			for (Object o : t.getLeft())
 			{
 				variableBridgeFacet.remove(id, (CDOMObject) o, vcEvent.getSource());
@@ -89,15 +87,13 @@ public class BridgeListener implements VariableListener<Object>
 		{
 			if (oldValue != null)
 			{
-				variableBridgeFacet.remove(id, (CDOMObject) oldValue,
-					vcEvent.getSource());
+				variableBridgeFacet.remove(id, (CDOMObject) oldValue, vcEvent.getSource());
 			}
 			variableBridgeFacet.add(id, (CDOMObject) newValue, vcEvent.getSource());
 		}
 	}
 
-	private ImmutablePair<Set<Object>, Set<Object>> processIdentityDeltas(
-		Object[] oldValue, Object[] newValue)
+	private ImmutablePair<Set<Object>, Set<Object>> processIdentityDeltas(Object[] oldValue, Object[] newValue)
 	{
 		Set<Object> toAdd = Collections.newSetFromMap(new IdentityHashMap<>());
 		Collections.addAll(toAdd, newValue);
@@ -127,8 +123,7 @@ public class BridgeListener implements VariableListener<Object>
 		if (obj instanceof BridgeListener)
 		{
 			BridgeListener other = (BridgeListener) obj;
-			return id.equals(other.id)
-				&& variableBridgeFacet.equals(other.variableBridgeFacet);
+			return id.equals(other.id) && variableBridgeFacet.equals(other.variableBridgeFacet);
 		}
 		return false;
 	}

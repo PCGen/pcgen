@@ -59,8 +59,7 @@ public class RaceToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		String retString = Constants.EMPTY_STRING;
 
@@ -84,14 +83,13 @@ public class RaceToken extends Token
 		return retString;
 	}
 
-	private static String getSubToken(final String subToken,
-		CharacterDisplay display)
+	private static String getSubToken(final String subToken, CharacterDisplay display)
 	{
 		if (!subToken.equals(SUBTOKENLIST[0]))
 		{
 			return Constants.EMPTY_STRING;
 		}
-		
+
 		final List<SpecialAbility> saList = new ArrayList<>();
 		Race race = display.getRace();
 		saList.addAll(display.getResolvedUserSpecialAbilities(race));
@@ -160,8 +158,7 @@ public class RaceToken extends Token
 							extraRaceInfo.append(' ');
 						}
 
-						extraRaceInfo.append(monsterHD).append(
-							LanguageBundle.getString("in_hdLabel")); //$NON-NLS-1$
+						extraRaceInfo.append(monsterHD).append(LanguageBundle.getString("in_hdLabel")); //$NON-NLS-1$
 					}
 				}
 			}

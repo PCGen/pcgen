@@ -26,10 +26,9 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 /**
  * A prerequisite parser class that handles the parsing of pre PC Level tokens.
  */
-public class PrePCLevelParser extends AbstractPrerequisiteParser implements
-        PrerequisiteParserInterface
+public class PrePCLevelParser extends AbstractPrerequisiteParser implements PrerequisiteParserInterface
 {
-	
+
 	//TODO created tests
 	//TODO create writer
 	//TODO create prereqparser
@@ -38,11 +37,10 @@ public class PrePCLevelParser extends AbstractPrerequisiteParser implements
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String[] kindsHandled()
 	{
-		return new String[]
-		{ "PCLEVEL" };
+		return new String[]{"PCLEVEL"};
 	}
 
 	/**
@@ -58,10 +56,8 @@ public class PrePCLevelParser extends AbstractPrerequisiteParser implements
 	 * @throws PersistenceLayerException
 	 */
 	@Override
-	public Prerequisite parse(String kind,
-	                          String formula,
-	                          boolean invertResult,
-	                          boolean overrideQualify) throws PersistenceLayerException
+	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+		throws PersistenceLayerException
 	{
 		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
 
@@ -78,10 +74,8 @@ public class PrePCLevelParser extends AbstractPrerequisiteParser implements
 				String[] vals = value.split("=");
 				if (vals.length != 2)
 				{
-					throw new PersistenceLayerException(
-						"PREPCLEVEL must be either 'MIN=x', 'MAX=y' or "
-							+ "'MIN=x,MAX=y' where 'x' and 'y' are integers. '"
-							+ formula + "' is not valid. ");
+					throw new PersistenceLayerException("PREPCLEVEL must be either 'MIN=x', 'MAX=y' or "
+						+ "'MIN=x,MAX=y' where 'x' and 'y' are integers. '" + formula + "' is not valid. ");
 
 				}
 				String token = vals[0];
@@ -92,13 +86,9 @@ public class PrePCLevelParser extends AbstractPrerequisiteParser implements
 				}
 				catch (NumberFormatException nfe)
 				{
-					throw new PersistenceLayerException(
-						"PREPCLEVEL must be either 'MIN=x', 'MAX=y' or "
-							+ "'MIN=x,MAX=y' where 'x' and 'y' are integers. '"
-							+ formula
-							+ "' is not valid: "
-							+ hdVal
-							+ " is not an integer");
+					throw new PersistenceLayerException("PREPCLEVEL must be either 'MIN=x', 'MAX=y' or "
+						+ "'MIN=x,MAX=y' where 'x' and 'y' are integers. '" + formula + "' is not valid: " + hdVal
+						+ " is not an integer");
 				}
 				if (token.equals("MIN"))
 				{

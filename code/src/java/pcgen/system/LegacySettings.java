@@ -33,7 +33,6 @@ final class LegacySettings extends PropertyContext
 	/** Our singleton instance */
 	private static final LegacySettings instance = new LegacySettings();
 
-
 	/**
 	 * Create a new LegacySettings instance. Private to avoid multiples.
 	 */

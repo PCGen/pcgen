@@ -39,8 +39,8 @@ import pcgen.core.PlayerCharacter;
  */
 public class RemoveFacet implements DataFacetChangeListener<CharID, CDOMObject>
 {
-	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
-		.getFacet(PlayerCharacterTrackingFacet.class);
+	private final PlayerCharacterTrackingFacet trackingFacet =
+			FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
 
 	private RaceFacet raceFacet;
 
@@ -73,8 +73,7 @@ public class RemoveFacet implements DataFacetChangeListener<CharID, CDOMObject>
 		if (!aPC.isImporting())
 		{
 			CDOMObject cdo = dfce.getCDOMObject();
-			List<PersistentTransitionChoice<?>> removeList = cdo
-					.getListFor(ListKey.REMOVE);
+			List<PersistentTransitionChoice<?>> removeList = cdo.getListFor(ListKey.REMOVE);
 			if (removeList != null)
 			{
 				for (PersistentTransitionChoice<?> tc : removeList)
@@ -85,8 +84,7 @@ public class RemoveFacet implements DataFacetChangeListener<CharID, CDOMObject>
 		}
 	}
 
-	private static <T> void driveChoice(CDOMObject cdo, TransitionChoice<T> tc,
-		final PlayerCharacter pc)
+	private static <T> void driveChoice(CDOMObject cdo, TransitionChoice<T> tc, final PlayerCharacter pc)
 	{
 		tc.act(tc.driveChoice(pc), cdo, pc);
 	}

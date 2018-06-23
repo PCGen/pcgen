@@ -65,7 +65,7 @@ public class SplashScreen extends JWindow implements PCGenTaskListener
 		Component splashLabel = new JLabel(Icons.SplashPcgen_Ennie.getImageIcon());
 		pane.add(splashLabel, BorderLayout.NORTH);
 		loadingLabel.setBorder(BorderFactory.createEmptyBorder(10, 7, 10, 10));
-		
+
 		Font curFont = pane.getFont();
 		FontMetrics ftMetrics = pane.getFontMetrics(curFont);
 		int ftHeight = ftMetrics.getHeight();
@@ -110,8 +110,7 @@ public class SplashScreen extends JWindow implements PCGenTaskListener
 		if (!dirty)
 		{
 			dirty = true;
-			SwingUtilities.invokeLater(() ->
-			{
+			SwingUtilities.invokeLater(() -> {
 				PCGenTask task = event.getSource();
 				loadProgress.getModel().setRangeProperties(task.getProgress(), 1, 0, task.getMaximum(), true);
 				loadingLabel.setText(task.getMessage());

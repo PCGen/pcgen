@@ -43,33 +43,30 @@ import pcgen.cdom.reference.UnconstructedValidator;
  *
  * 
  */
-public class GameReferenceContext extends AbstractReferenceContext
+public final class GameReferenceContext extends AbstractReferenceContext
 {
 	private final Map<String, ReferenceManufacturer<?>> mapByPers = new HashMap<>();
 
 	private GameReferenceContext()
 	{
 	}
-	
+
 	@Override
-	public <T extends Loadable> ReferenceManufacturer<T> getManufacturer(
-			Class<T> cl)
+	public <T extends Loadable> ReferenceManufacturer<T> getManufacturer(Class<T> cl)
 	{
 		if (Categorized.class.isAssignableFrom(cl))
 		{
-			throw new InternalError(cl
-					+ " is categorized but was fetched without a category");
+			throw new InternalError(cl + " is categorized but was fetched without a category");
 		}
 		ClassIdentity<T> identity = BasicClassIdentity.getIdentity(cl);
 		return getManufacturerId(identity);
 	}
 
 	@Override
-	protected <T extends Loadable> ReferenceManufacturer<T> constructReferenceManufacturer(
-		ClassIdentity<T> identity)
+	protected <T extends Loadable> ReferenceManufacturer<T> constructReferenceManufacturer(ClassIdentity<T> identity)
 	{
-		return new SimpleReferenceManufacturer<>(new TransparentFactory<>(
-			identity.getPersistentFormat(), identity.getReferenceClass()));
+		return new SimpleReferenceManufacturer<>(
+			new TransparentFactory<>(identity.getPersistentFormat(), identity.getReferenceClass()));
 	}
 
 	@Override
@@ -87,15 +84,13 @@ public class GameReferenceContext extends AbstractReferenceContext
 	@Override
 	<T extends CDOMObject> T performCopy(T obj, String copyName)
 	{
-		throw new UnsupportedOperationException(
-				"GameReferenceContext cannot copy objects");
+		throw new UnsupportedOperationException("GameReferenceContext cannot copy objects");
 	}
 
 	@Override
 	public <T extends CDOMObject> T performMod(T obj)
 	{
-		throw new UnsupportedOperationException(
-				"GameReferenceContext cannot mod objects");
+		throw new UnsupportedOperationException("GameReferenceContext cannot mod objects");
 	}
 
 	@Override
@@ -105,11 +100,9 @@ public class GameReferenceContext extends AbstractReferenceContext
 	}
 
 	@Override
-	public <T extends Loadable> ReferenceManufacturer<T> getManufacturerFac(
-			ManufacturableFactory<T> factory)
+	public <T extends Loadable> ReferenceManufacturer<T> getManufacturerFac(ManufacturableFactory<T> factory)
 	{
-		throw new UnsupportedOperationException(
-				"GameReferenceContext cannot provide a factory based manufacturer");
+		throw new UnsupportedOperationException("GameReferenceContext cannot provide a factory based manufacturer");
 	}
 
 	/**
@@ -126,23 +119,21 @@ public class GameReferenceContext extends AbstractReferenceContext
 	}
 
 	@Override
-	public <T extends Loadable> ReferenceManufacturer<T> getManufacturerId(
-		ClassIdentity<T> identity)
+	public <T extends Loadable> ReferenceManufacturer<T> getManufacturerId(ClassIdentity<T> identity)
 	{
 		String persistent = identity.getPersistentFormat();
 		return getManufacturerByFormatName(persistent, identity.getReferenceClass());
 	}
 
 	@Override
-	public <T extends Loadable> ReferenceManufacturer<T> getManufacturerByFormatName(
-		String formatName, Class<T> refClass)
+	public <T extends Loadable> ReferenceManufacturer<T> getManufacturerByFormatName(String formatName,
+		Class<T> refClass)
 	{
 		@SuppressWarnings("unchecked")
 		ReferenceManufacturer<T> mfg = (ReferenceManufacturer<T>) mapByPers.get(formatName);
 		if (mfg == null)
 		{
-			mfg = new SimpleReferenceManufacturer<>(
-				new TransparentFactory<>(formatName, refClass));
+			mfg = new SimpleReferenceManufacturer<>(new TransparentFactory<>(formatName, refClass));
 			mapByPers.put(formatName, mfg);
 		}
 		return mfg;

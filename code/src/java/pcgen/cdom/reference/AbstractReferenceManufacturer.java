@@ -58,8 +58,7 @@ import pcgen.util.StringPClassUtil;
  *            The Class of object this AbstractReferenceManufacturer can
  *            manufacture
  */
-public abstract class AbstractReferenceManufacturer<T extends Loadable>
-		implements ReferenceManufacturer<T>
+public abstract class AbstractReferenceManufacturer<T extends Loadable> implements ReferenceManufacturer<T>
 {
 
 	private boolean isResolved = false;
@@ -89,8 +88,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	 * does not correct for internationalization)
 	 */
 	private final Map<FixedStringList, WeakReference<CDOMGroupRef<T>>> typeReferences =
-            new TreeMap<>(
-                    FixedStringList.CASE_INSENSITIVE_ORDER);
+			new TreeMap<>(FixedStringList.CASE_INSENSITIVE_ORDER);
 
 	/**
 	 * Storage for individual references. This ensures that only one reference
@@ -100,8 +98,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	 * resolveReferences() is called.
 	 */
 	private final Map<String, WeakReference<CDOMSingleRef<T>>> referenced =
-            new TreeMap<>(
-                    String.CASE_INSENSITIVE_ORDER);
+			new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
 
 	/**
 	 * Stores the active objects for this AbstractReferenceManufacturer. These
@@ -135,8 +132,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	 * developing a MapToList that is backed by a TreeMap and also an
 	 * "InstanceList"
 	 */
-	private final HashMapToInstanceList<CaseInsensitiveString, T> duplicates =
-            new HashMapToInstanceList<>();
+	private final HashMapToInstanceList<CaseInsensitiveString, T> duplicates = new HashMapToInstanceList<>();
 
 	/**
 	 * Contains a list of deferred objects. Identifiers for objects for which
@@ -176,8 +172,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	{
 		if (fac == null)
 		{
-			throw new IllegalArgumentException("Factory for "
-					+ getClass().getName() + " cannot be null");
+			throw new IllegalArgumentException("Factory for " + getClass().getName() + " cannot be null");
 		}
 		factory = fac;
 	}
@@ -205,32 +200,23 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 			if (type == null || type.isEmpty())
 			{
 				throw new IllegalArgumentException(
-						"Attempt to acquire empty Type "
-								+ "(the type String contains a null or empty element)");
+					"Attempt to acquire empty Type " + "(the type String contains a null or empty element)");
 			}
 			if (type.indexOf('.') != -1)
 			{
-				throw new IllegalArgumentException(
-						"Cannot build Reference with type conaining a period: "
-								+ type);
+				throw new IllegalArgumentException("Cannot build Reference with type conaining a period: " + type);
 			}
 			if (type.indexOf('=') != -1)
 			{
-				throw new IllegalArgumentException(
-						"Cannot build Reference with type conaining an equals: "
-								+ type);
+				throw new IllegalArgumentException("Cannot build Reference with type conaining an equals: " + type);
 			}
 			if (type.indexOf(',') != -1)
 			{
-				throw new IllegalArgumentException(
-						"Cannot build Reference with type conaining a comma: "
-								+ type);
+				throw new IllegalArgumentException("Cannot build Reference with type conaining a comma: " + type);
 			}
 			if (type.indexOf('|') != -1)
 			{
-				throw new IllegalArgumentException(
-						"Cannot build Reference with type conaining a pipe: "
-								+ type);
+				throw new IllegalArgumentException("Cannot build Reference with type conaining a pipe: " + type);
 			}
 		}
 		Arrays.sort(types);
@@ -304,10 +290,8 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 			CDOMGroupRef<T> trt = ref.get();
 			if (trt != null && trt.getObjectCount() == 0)
 			{
-				Logging.errorPrint("Error: No "
-						+ factory.getReferenceDescription() + " objects of "
-						+ trt.getLSTformat(false)
-						+ " were loaded but were referred to in the data");
+				Logging.errorPrint("Error: No " + factory.getReferenceDescription() + " objects of "
+					+ trt.getLSTformat(false) + " were loaded but were referred to in the data");
 				fireUnconstuctedEvent(trt);
 				resolutionSuccessful = false;
 			}
@@ -338,8 +322,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 			{
 				allRef.addResolution(obj);
 			}
-			for (Map.Entry<FixedStringList, WeakReference<CDOMGroupRef<T>>> me : typeReferences
-					.entrySet())
+			for (Map.Entry<FixedStringList, WeakReference<CDOMGroupRef<T>>> me : typeReferences.entrySet())
 			{
 				CDOMGroupRef<T> trt = me.getValue().get();
 				if (trt != null)
@@ -363,7 +346,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 		if (allRef != null && allRef.getObjectCount() == 0)
 		{
 			Logging.errorPrint("Error: No " + factory.getReferenceDescription()
-					+ " objects were loaded but were referred to in the data");
+				+ " objects were loaded but were referred to in the data");
 			fireUnconstuctedEvent(allRef);
 			return false;
 		}
@@ -394,8 +377,8 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	{
 		if (!factory.isMember(item))
 		{
-			throw new IllegalArgumentException("Attempted to register a "
-					+ item.getClass().getName() + " in " + factory.getReferenceDescription());
+			throw new IllegalArgumentException(
+				"Attempted to register a " + item.getClass().getName() + " in " + factory.getReferenceDescription());
 		}
 		T current = active.get(key);
 		if (current == null)
@@ -456,9 +439,8 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 			List<T> list = duplicates.getListFor(new CaseInsensitiveString(key));
 			if ((list != null) && !list.isEmpty())
 			{
-				Logging.errorPrint("Reference to Constructed "
-						+ factory.getReferenceDescription() + " " + key
-						+ " is ambiguous");
+				Logging.errorPrint(
+					"Reference to Constructed " + factory.getReferenceDescription() + " " + key + " is ambiguous");
 				StringBuilder sb = new StringBuilder(1000);
 				sb.append("Locations: ");
 				sb.append(po.getSourceURI());
@@ -547,8 +529,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 		{
 			if (Logging.isDebugMode())
 			{
-				Logging.debugPrint("Worthless Key change encountered: "
-					+ item.getDisplayName() + " " + oldKey);
+				Logging.debugPrint("Worthless Key change encountered: " + item.getDisplayName() + " " + oldKey);
 				Logging.reportSource(Logging.DEBUG, item.getSourceURI());
 			}
 		}
@@ -573,8 +554,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 		if (!factory.isMember(item))
 		{
 			throw new IllegalArgumentException(
-				"Object to be forgotten does not match Class "
-					+ "of this AbstractReferenceManufacturer");
+				"Object to be forgotten does not match Class " + "of this AbstractReferenceManufacturer");
 		}
 		String key = active.getKeyFor(item);
 		if (key == null)
@@ -583,8 +563,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 			 * TODO This is a bug - the key name is not necessarily loaded into
 			 * the object, it may have been consumed by the object context... :P
 			 */
-			CaseInsensitiveString ocik = new CaseInsensitiveString(item
-					.getKeyName());
+			CaseInsensitiveString ocik = new CaseInsensitiveString(item.getKeyName());
 			duplicates.removeFromListFor(ocik, item);
 		}
 		else
@@ -655,13 +634,11 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 		 */
 		if (key == null)
 		{
-			throw new IllegalArgumentException(
-					"Cannot request a reference to null identifier");
+			throw new IllegalArgumentException("Cannot request a reference to null identifier");
 		}
 		if (key.isEmpty())
 		{
-			throw new IllegalArgumentException(
-					"Cannot request a reference to an empty identifier");
+			throw new IllegalArgumentException("Cannot request a reference to an empty identifier");
 		}
 		/*
 		 * Items thrown below this point are for protection from coding errors
@@ -678,30 +655,25 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 		}
 		if (key.contains("="))
 		{
-			throw new IllegalArgumentException(
-				"= cannot be a in valid single item (perhaps something like TYPE= "
-					+ "is not supported in this token?): " + key);
+			throw new IllegalArgumentException("= cannot be a in valid single item (perhaps something like TYPE= "
+				+ "is not supported in this token?): " + key);
 		}
 		if (key.equalsIgnoreCase("ANY"))
 		{
-			throw new IllegalArgumentException(
-				"Any cannot be a valid single item (not supported in this token?)");
+			throw new IllegalArgumentException("Any cannot be a valid single item (not supported in this token?)");
 		}
 		if (key.equalsIgnoreCase("ALL"))
 		{
-			throw new IllegalArgumentException(
-				"All cannot be a valid single item (not supported in this token?)");
+			throw new IllegalArgumentException("All cannot be a valid single item (not supported in this token?)");
 		}
 		if (key.contains(":"))
 		{
-			throw new IllegalArgumentException(
-				": cannot exist in a valid single item (did you try to use a "
-					+ "PRE where it is not supported?) " + key);
+			throw new IllegalArgumentException(": cannot exist in a valid single item (did you try to use a "
+				+ "PRE where it is not supported?) " + key);
 		}
 		if (key.equalsIgnoreCase("%LIST"))
 		{
-			throw new IllegalArgumentException(
-				"%LIST cannot be a valid single item (not supported in this token?)");
+			throw new IllegalArgumentException("%LIST cannot be a valid single item (not supported in this token?)");
 		}
 
 		WeakReference<CDOMSingleRef<T>> wr = referenced.get(key);
@@ -719,9 +691,8 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 			T current = active.get(key);
 			if (current == null)
 			{
-				throw new IllegalArgumentException(key
-						+ " is not valid post-resolution "
-						+ "because it was never constructed");
+				throw new IllegalArgumentException(
+					key + " is not valid post-resolution " + "because it was never constructed");
 			}
 			ref = CDOMDirectSingleRef.getRef(current);
 		}
@@ -759,8 +730,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	public boolean validate(UnconstructedValidator validator)
 	{
 		boolean returnGood = true;
-		if (validator == null
-				|| !validator.allowDuplicates(getReferenceClass()))
+		if (validator == null || !validator.allowDuplicates(getReferenceClass()))
 		{
 			returnGood = validateDuplicates();
 		}
@@ -792,38 +762,28 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 			 */
 			if (key.indexOf(',') != -1 && factory.getReferenceClass() != RollMethod.class)
 			{
-				Logging.log(Logging.LST_WARNING, "Found "
-						+ factory.getReferenceDescription() + " with KEY: " + key
-						+ " which contains a comma "
-						+ "(prohibited character in a key)");
+				Logging.log(Logging.LST_WARNING, "Found " + factory.getReferenceDescription() + " with KEY: " + key
+					+ " which contains a comma " + "(prohibited character in a key)");
 			}
 			if (key.indexOf('|') != -1)
 			{
-				Logging.log(Logging.LST_WARNING, "Found "
-						+ factory.getReferenceDescription() + " with KEY: " + key
-						+ " which contains a pipe "
-						+ "(prohibited character in a key)");
+				Logging.log(Logging.LST_WARNING, "Found " + factory.getReferenceDescription() + " with KEY: " + key
+					+ " which contains a pipe " + "(prohibited character in a key)");
 			}
 			if (key.indexOf('\\') != -1)
 			{
-				Logging.log(Logging.LST_WARNING, "Found "
-						+ factory.getReferenceDescription() + " with KEY: " + key
-						+ " which contains a backslash "
-						+ "(prohibited character in a key)");
+				Logging.log(Logging.LST_WARNING, "Found " + factory.getReferenceDescription() + " with KEY: " + key
+					+ " which contains a backslash " + "(prohibited character in a key)");
 			}
 			if (key.indexOf(':') != -1)
 			{
-				Logging.log(Logging.LST_WARNING, "Found "
-						+ factory.getReferenceDescription() + " with KEY: " + key
-						+ " which contains a colon "
-						+ "(prohibited character in a key)");
+				Logging.log(Logging.LST_WARNING, "Found " + factory.getReferenceDescription() + " with KEY: " + key
+					+ " which contains a colon " + "(prohibited character in a key)");
 			}
 			if (key.indexOf(';') != -1)
 			{
-				Logging.log(Logging.LST_WARNING, "Found "
-						+ factory.getReferenceDescription() + " with KEY: " + key
-						+ " which contains a semicolon "
-						+ "(prohibited character in a key)");
+				Logging.log(Logging.LST_WARNING, "Found " + factory.getReferenceDescription() + " with KEY: " + key
+					+ " which contains a semicolon " + "(prohibited character in a key)");
 			}
 			// if (key.indexOf('.') != -1)
 			// {
@@ -834,31 +794,23 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 			// }
 			if (key.indexOf('%') != -1)
 			{
-				Logging.log(Logging.LST_WARNING, "Found "
-						+ factory.getReferenceDescription() + " with KEY: " + key
-						+ " which contains a percent sign "
-						+ "(prohibited character in a key)");
+				Logging.log(Logging.LST_WARNING, "Found " + factory.getReferenceDescription() + " with KEY: " + key
+					+ " which contains a percent sign " + "(prohibited character in a key)");
 			}
 			if (key.indexOf('*') != -1)
 			{
-				Logging.log(Logging.LST_WARNING, "Found "
-						+ factory.getReferenceDescription() + " with KEY: " + key
-						+ " which contains an asterisk "
-						+ "(prohibited character in a key)");
+				Logging.log(Logging.LST_WARNING, "Found " + factory.getReferenceDescription() + " with KEY: " + key
+					+ " which contains an asterisk " + "(prohibited character in a key)");
 			}
 			if (key.indexOf('=') != -1)
 			{
-				Logging.log(Logging.LST_WARNING, "Found "
-						+ factory.getReferenceDescription() + " with KEY: " + key
-						+ " which contains an equals sign "
-						+ "(prohibited character in a key)");
+				Logging.log(Logging.LST_WARNING, "Found " + factory.getReferenceDescription() + " with KEY: " + key
+					+ " which contains an equals sign " + "(prohibited character in a key)");
 			}
 			if ((key.indexOf('[') != -1) || (key.indexOf(']') != -1))
 			{
-				Logging.log(Logging.LST_WARNING, "Found "
-						+ factory.getReferenceDescription() + " with KEY: " + key
-						+ " which contains a bracket  "
-						+ "(prohibited character in a key)");
+				Logging.log(Logging.LST_WARNING, "Found " + factory.getReferenceDescription() + " with KEY: " + key
+					+ " which contains a bracket  " + "(prohibited character in a key)");
 			}
 		}
 		return true;
@@ -873,13 +825,11 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 			String keyName = activeObj.getKeyName();
 			if (keyName == null)
 			{
-				Logging.errorPrint(activeObj.getClass() + " "
-						+ activeObj.getDisplayName() + " has a null KeyName");
+				Logging.errorPrint(activeObj.getClass() + " " + activeObj.getDisplayName() + " has a null KeyName");
 			}
 			else if (!keyName.equalsIgnoreCase(second.toString()))
 			{
-				Logging.errorPrint(getReferenceDescription()
-						+ " Magical Key Change: " + second + " to " + keyName);
+				Logging.errorPrint(getReferenceDescription() + " Magical Key Change: " + second + " to " + keyName);
 				returnGood = false;
 			}
 		}
@@ -904,8 +854,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 					T dupe = list.get(i);
 					if (cdo.isCDOMEqual((CDOMObject) dupe))
 					{
-						for (Iterator<WeakReference<T>> it = manufactured
-								.iterator(); it.hasNext();)
+						for (Iterator<WeakReference<T>> it = manufactured.iterator(); it.hasNext();)
 						{
 							WeakReference<T> wr = it.next();
 							T mfg = wr.get();
@@ -925,8 +874,8 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 			}
 			if (duplicates.containsListFor(second))
 			{
-				Logging.errorPrint("More than one " + factory.getReferenceDescription()
-						+ " with key/name " + good.getKeyName() + " was built");
+				Logging.errorPrint("More than one " + factory.getReferenceDescription() + " with key/name "
+					+ good.getKeyName() + " was built");
 				List<T> dupes = duplicates.getListFor(second);
 				StringBuilder sb = new StringBuilder(1000);
 				sb.append("Sources: ");
@@ -1036,8 +985,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	protected Collection<CDOMGroupRef<T>> getTypeReferences()
 	{
 		List<CDOMGroupRef<T>> list = new ArrayList<>(typeReferences.size());
-		for (Iterator<WeakReference<CDOMGroupRef<T>>> it = typeReferences.values()
-				.iterator(); it.hasNext();)
+		for (Iterator<WeakReference<CDOMGroupRef<T>>> it = typeReferences.values().iterator(); it.hasNext();)
 		{
 			WeakReference<CDOMGroupRef<T>> wr = it.next();
 			CDOMGroupRef<T> trt = wr.get();
@@ -1234,8 +1182,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 				{
 					uEvent = new UnconstructedEvent(this, ref); // NOPMD
 				}
-				((UnconstructedListener) listeners[i + 1])
-						.unconstructedReferenceFound(uEvent);
+				((UnconstructedListener) listeners[i + 1]).unconstructedReferenceFound(uEvent);
 			}
 		}
 	}
@@ -1304,8 +1251,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	@Override
 	public Indirect<T> convertIndirect(String key)
 	{
-		return isResolved ? new BasicIndirect<T>(this, getActiveObject(key))
-			: getReference(key);
+		return isResolved ? new BasicIndirect<T>(this, getActiveObject(key)) : getReference(key);
 	}
 
 	@Override

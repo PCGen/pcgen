@@ -59,16 +59,13 @@ public class PreFactParser extends AbstractPrerequisiteListParser
 	 * @throws PersistenceLayerException
 	 */
 	@Override
-	public Prerequisite parse(String kind, String formula,
-		boolean invertResult, boolean overrideQualify)
+	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
 		throws PersistenceLayerException
 	{
-		Prerequisite prereq =
-				super.parse(kind, formula, invertResult, overrideQualify);
+		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
 		if (prereq.isCountMultiples())
 		{
-			throw new PersistenceLayerException(
-				"PREFACT does not support CHECKMULT");
+			throw new PersistenceLayerException("PREFACT does not support CHECKMULT");
 		}
 
 		prereq.setOverrideQualify(overrideQualify);
@@ -77,8 +74,8 @@ public class PreFactParser extends AbstractPrerequisiteListParser
 	}
 
 	@Override
-	protected void parsePrereqListType(Prerequisite prereq, String kind,
-		String formula) throws PersistenceLayerException
+	protected void parsePrereqListType(Prerequisite prereq, String kind, String formula)
+		throws PersistenceLayerException
 	{
 		// Sanity checking
 		ParseResult parseResult = checkForIllegalSeparator(kind, ',', formula);
@@ -88,13 +85,11 @@ public class PreFactParser extends AbstractPrerequisiteListParser
 		}
 		if (formula.contains("[") || formula.contains("]"))
 		{
-			throw new PersistenceLayerException("Prerequisite " + kind
-				+ " can not contain []: " + formula);
+			throw new PersistenceLayerException("Prerequisite " + kind + " can not contain []: " + formula);
 		}
 		if (formula.contains("|"))
 		{
-			throw new PersistenceLayerException("Prerequisite " + kind
-				+ " can not contain |: " + formula);
+			throw new PersistenceLayerException("Prerequisite " + kind + " can not contain |: " + formula);
 		}
 
 		String[] elements = formula.split(",");
@@ -103,22 +98,19 @@ public class PreFactParser extends AbstractPrerequisiteListParser
 			Integer.parseInt(elements[0]);
 			if (elements.length == 1)
 			{
-				throw new PersistenceLayerException("Prerequisite " + kind
-					+ " can not have only a count: " + formula);
+				throw new PersistenceLayerException("Prerequisite " + kind + " can not have only a count: " + formula);
 			}
 		}
 		catch (NumberFormatException nfe)
 		{
-			throw new PersistenceLayerException('\'' + elements[0]
-				+ "' is not a valid integer");
+			throw new PersistenceLayerException('\'' + elements[0] + "' is not a valid integer");
 		}
 
 		String filetype = elements[1];
-		String[] fileElements  = filetype.split("\\.");
+		String[] fileElements = filetype.split("\\.");
 		if (!OutputDB.isLegal(fileElements[0]))
 		{
-			throw new PersistenceLayerException('\'' + elements[1]
-				+ "' is not a valid location to check for a FACT");
+			throw new PersistenceLayerException('\'' + elements[1] + "' is not a valid location to check for a FACT");
 		}
 
 		for (int i = 2; i < elements.length; i++)
@@ -126,8 +118,7 @@ public class PreFactParser extends AbstractPrerequisiteListParser
 			if (elements[i].indexOf('=') == -1)
 			{
 				throw new PersistenceLayerException(
-					"PREFACT require a target value, e.g. Key=Value, found: "
-						+ elements[i]);
+					"PREFACT require a target value, e.g. Key=Value, found: " + elements[i]);
 			}
 		}
 		prereq.setOperand(elements[0]);
@@ -184,14 +175,11 @@ public class PreFactParser extends AbstractPrerequisiteListParser
 		}
 		catch (IllegalArgumentException e)
 		{
-			throw new PersistenceLayerException(
-				"Unknown FACT in PREFACT. Test was: "
-					+ factTest);
+			throw new PersistenceLayerException("Unknown FACT in PREFACT. Test was: " + factTest);
 		}
 	}
 
-	private static void setLocation(Prerequisite prereq, String location)
-		throws PersistenceLayerException
+	private static void setLocation(Prerequisite prereq, String location) throws PersistenceLayerException
 	{
 		if (prereq.getPrerequisiteCount() == 0)
 		{
@@ -199,8 +187,7 @@ public class PreFactParser extends AbstractPrerequisiteListParser
 		}
 
 		// Copy to a temporary list as we will be adjusting the main one.
-		Iterable<Prerequisite> prereqList =
-				new ArrayList<>(prereq.getPrerequisites());
+		Iterable<Prerequisite> prereqList = new ArrayList<>(prereq.getPrerequisites());
 		for (Prerequisite p : prereqList)
 		{
 			if (p.getKind() == null) // PREMULT

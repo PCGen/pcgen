@@ -18,8 +18,8 @@
 package pcgen.gui2.facade;
 
 import pcgen.facade.core.CompanionStubFacade;
-import pcgen.facade.util.DefaultReferenceFacade;
 import pcgen.facade.core.RaceFacade;
+import pcgen.facade.util.DefaultReferenceFacade;
 import pcgen.facade.util.ReferenceFacade;
 
 /**
@@ -43,7 +43,7 @@ public class CompanionStub implements CompanionStubFacade
 		this.race = new DefaultReferenceFacade<>(race);
 		this.companionType = companionType;
 	}
-	
+
 	@Override
 	public ReferenceFacade<RaceFacade> getRaceRef()
 	{

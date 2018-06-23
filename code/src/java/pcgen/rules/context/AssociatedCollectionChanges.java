@@ -28,10 +28,8 @@ public class AssociatedCollectionChanges<T> implements AssociatedChanges<T>
 	private final MapToList<T, AssociatedPrereqObject> negative;
 	private final boolean clear;
 
-	public AssociatedCollectionChanges(
-		MapToList<T, AssociatedPrereqObject> added,
-		MapToList<T, AssociatedPrereqObject> removed,
-		boolean globallyCleared)
+	public AssociatedCollectionChanges(MapToList<T, AssociatedPrereqObject> added,
+		MapToList<T, AssociatedPrereqObject> removed, boolean globallyCleared)
 	{
 		positive = added;
 		negative = removed;

@@ -71,12 +71,10 @@ import pcgen.cdom.facet.event.DataFacetChangeEvent;
  * stored by AbstractQualifiedListFacet.
  * 
  */
-public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
-		extends AbstractDataFacet<CharID, T>
+public abstract class AbstractQualifiedListFacet<T extends QualifyingObject> extends AbstractDataFacet<CharID, T>
 {
 
-	private PrerequisiteFacet prereqFacet = FacetLibrary
-			.getFacet(PrerequisiteFacet.class);
+	private PrerequisiteFacet prereqFacet = FacetLibrary.getFacet(PrerequisiteFacet.class);
 
 	/**
 	 * Add the given object with the given source to the list of objects stored
@@ -470,8 +468,7 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 			{
 				T obj = me.getKey();
 				Set<Object> sourceSet = me.getValue();
-				Set<Object> targetSet = getConstructingCachedSetFor(
-						destination, obj);
+				Set<Object> targetSet = getConstructingCachedSetFor(destination, obj);
 				targetSet.addAll(sourceSet);
 			}
 		}
@@ -500,8 +497,7 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 	 *            The source for the given object to be removed from the list of
 	 *            sources for that object
 	 */
-	private void processRemoval(CharID id, Map<T, Set<Object>> componentMap,
-		T obj, Object source)
+	private void processRemoval(CharID id, Map<T, Set<Object>> componentMap, T obj, Object source)
 	{
 		if (obj == null)
 		{
@@ -514,8 +510,7 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 			if (set.isEmpty())
 			{
 				componentMap.remove(obj);
-				fireDataFacetChangeEvent(id, obj,
-					DataFacetChangeEvent.DATA_REMOVED);
+				fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_REMOVED);
 			}
 		}
 	}
@@ -543,8 +538,7 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 			 * concurrent modification exception on a recursive remove
 			 */
 			List<T> removedKeys = new ArrayList<>();
-			for (Iterator<Map.Entry<T, Set<Object>>> it =
-					componentMap.entrySet().iterator(); it.hasNext();)
+			for (Iterator<Map.Entry<T, Set<Object>>> it = componentMap.entrySet().iterator(); it.hasNext();)
 			{
 				Entry<T, Set<Object>> me = it.next();
 				Set<Object> set = me.getValue();
@@ -561,8 +555,7 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 			}
 			for (T obj : removedKeys)
 			{
-				fireDataFacetChangeEvent(id, obj,
-					DataFacetChangeEvent.DATA_REMOVED);
+				fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_REMOVED);
 			}
 		}
 	}

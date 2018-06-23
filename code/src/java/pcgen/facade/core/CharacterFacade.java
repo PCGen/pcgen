@@ -125,14 +125,11 @@ public interface CharacterFacade extends CompanionFacade
 	 */
 	public int getScoreOtherBonus(StatFacade stat);
 
-	public void addAbility(AbilityCategoryFacade category,
-						   AbilityFacade ability);
+	public void addAbility(AbilityCategoryFacade category, AbilityFacade ability);
 
-	public void removeAbility(AbilityCategoryFacade category,
-							  AbilityFacade ability);
+	public void removeAbility(AbilityCategoryFacade category, AbilityFacade ability);
 
-	public boolean hasAbility(AbilityCategoryFacade category,
-							  AbilityFacade ability);
+	public boolean hasAbility(AbilityCategoryFacade category, AbilityFacade ability);
 
 	/**
 	 * Note: This method should never return null. If the character does not possess
@@ -167,8 +164,7 @@ public interface CharacterFacade extends CompanionFacade
 
 	public int getRemainingSelections(AbilityCategoryFacade category);
 
-	public void setRemainingSelection(AbilityCategoryFacade category,
-									  int remaining);
+	public void setRemainingSelection(AbilityCategoryFacade category, int remaining);
 
 	/**
 	 * Adjust the cash held by the character.
@@ -321,7 +317,7 @@ public interface CharacterFacade extends CompanionFacade
 	/**
 	 * @return a reference to this character's Race
 	 */
-    @Override
+	@Override
 	public ReferenceFacade<RaceFacade> getRaceRef();
 
 	/**
@@ -348,7 +344,7 @@ public interface CharacterFacade extends CompanionFacade
 	/**
 	 * @return a reference to this character's name
 	 */
-    @Override
+	@Override
 	public ReferenceFacade<String> getNameRef();
 
 	/**
@@ -381,7 +377,7 @@ public interface CharacterFacade extends CompanionFacade
 	 * @see CharacterFacade#setFile(File)
 	 * @return a reference to the character's file
 	 */
-    @Override
+	@Override
 	public ReferenceFacade<File> getFileRef();
 
 	/**
@@ -419,9 +415,10 @@ public interface CharacterFacade extends CompanionFacade
 
 	public ReferenceFacade<Integer> getRemainingDomainSelectionsRef();
 
-    public ListFacade<HandedFacade> getAvailableHands();
-    
-    public ListFacade<GenderFacade> getAvailableGenders();
+	public ListFacade<HandedFacade> getAvailableHands();
+
+	public ListFacade<GenderFacade> getAvailableGenders();
+
 	/**
 	 * @return The domains which the character has access to.
 	 */
@@ -629,7 +626,7 @@ public interface CharacterFacade extends CompanionFacade
 	 * @return True if the character can take the domain, false if not.
 	 */
 	public boolean isQualifiedFor(DomainFacade domain);
-	
+
 	/**
 	 * Check if the character meets all requirements to take the deity.
 	 * @param deity The deity to be checked.
@@ -659,7 +656,7 @@ public interface CharacterFacade extends CompanionFacade
 	 * @return True if it can be added, false if not.
 	 */
 	public boolean isQualifiedFor(EquipmentFacade equipFacade, EquipModFacade eqModFacade);
-	
+
 	public void addCharacterChangeListener(CharacterChangeListener listener);
 
 	public void removeCharacterChangeListener(CharacterChangeListener listener);
@@ -672,13 +669,13 @@ public interface CharacterFacade extends CompanionFacade
 	}
 
 	public Nature getAbilityNature(AbilityFacade ability);
-//
-//	/**
-//	 * @param category the category of the ability
-//	 * @param ability the ability that has choices
-//	 * @return a String which represents the choices made for this ability
-//	 */
-//	public String getAbilityChoiceDisplayString(AbilityCategoryFacade category, AbilityFacade ability);
+	//
+	//	/**
+	//	 * @param category the category of the ability
+	//	 * @param ability the ability that has choices
+	//	 * @return a String which represents the choices made for this ability
+	//	 */
+	//	public String getAbilityChoiceDisplayString(AbilityCategoryFacade category, AbilityFacade ability);
 
 	public SpellSupportFacade getSpellSupport();
 
@@ -830,7 +827,7 @@ public interface CharacterFacade extends CompanionFacade
 	/**
 	 * @return the type of companion the current character is, or null if not a companion
 	 */
-    @Override
+	@Override
 	public String getCompanionType();
 
 	/**
@@ -872,7 +869,7 @@ public interface CharacterFacade extends CompanionFacade
 	 * @param targets The equipment to be updated.
 	 */
 	public void addNote(List<EquipmentFacade> targets);
-	
+
 	public List<CoreViewNodeFacade> getCoreViewTree(CorePerspective pers);
 
 	CharID getCharID();

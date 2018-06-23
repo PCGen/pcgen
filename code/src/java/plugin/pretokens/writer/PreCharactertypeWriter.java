@@ -27,71 +27,64 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.AbstractPrerequisiteWriter;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 
-public class PreCharactertypeWriter extends AbstractPrerequisiteWriter implements
-		PrerequisiteWriterInterface
+public class PreCharactertypeWriter extends AbstractPrerequisiteWriter implements PrerequisiteWriterInterface
 {
 
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "CHARACTERTYPE";
 	}
 
-    @Override
+	@Override
 	public PrerequisiteOperator[] operatorsHandled()
 	{
-		return new PrerequisiteOperator[]{PrerequisiteOperator.GTEQ,
-				PrerequisiteOperator.LT};
+		return new PrerequisiteOperator[]{PrerequisiteOperator.GTEQ, PrerequisiteOperator.LT};
 	}
 
-    @Override
-	public void write(Writer writer, Prerequisite prereq)
-			throws PersistenceLayerException
+	@Override
+	public void write(Writer writer, Prerequisite prereq) throws PersistenceLayerException
+	{
+		checkValidOperator(prereq, operatorsHandled());
+
+		try
 		{
-			checkValidOperator(prereq, operatorsHandled());
-
-			try
-			{
-				if (prereq.getOperator().equals(PrerequisiteOperator.LT))
-				{
-					writer.write('!');
-				}
-
-				writer.write("PRECHARACTERTYPE:");
-				writer.write(prereq.getOperand());
-				writer.write(',');
-				writer.write(prereq.getKey());
-			}
-			catch (IOException e)
-			{
-				throw new PersistenceLayerException(e.getMessage());
-			}
-		}
-
-
-		@Override
-		public boolean specialCase(Writer writer, Prerequisite prereq)
-				throws IOException
-		{
-			PrerequisiteOperator po = getConsolidateMethod(kindHandled(), prereq, false);
-			if (po == null)
-			{
-				return false;
-			}
-			if (!po.equals(prereq.getOperator()))
+			if (prereq.getOperator().equals(PrerequisiteOperator.LT))
 			{
 				writer.write('!');
 			}
 
-			writer.write("PRE" + kindHandled().toUpperCase() + ':'
-					+ (prereq.isOverrideQualify() ? "Q:" : ""));
-			writer.write(po.equals(PrerequisiteOperator.GTEQ) ? prereq.getOperand()
-					: "1");
-			for (Prerequisite p : prereq.getPrerequisites())
-			{
-				writer.write(',');
-				writer.write(p.getKey());
-			}
-			return true;
+			writer.write("PRECHARACTERTYPE:");
+			writer.write(prereq.getOperand());
+			writer.write(',');
+			writer.write(prereq.getKey());
 		}
+		catch (IOException e)
+		{
+			throw new PersistenceLayerException(e.getMessage());
+		}
+	}
+
+	@Override
+	public boolean specialCase(Writer writer, Prerequisite prereq) throws IOException
+	{
+		PrerequisiteOperator po = getConsolidateMethod(kindHandled(), prereq, false);
+		if (po == null)
+		{
+			return false;
+		}
+		if (!po.equals(prereq.getOperator()))
+		{
+			writer.write('!');
+		}
+
+		writer.write("PRE" + kindHandled().toUpperCase() + ':' + (prereq.isOverrideQualify() ? "Q:" : ""));
+		writer.write(po.equals(PrerequisiteOperator.GTEQ) ? prereq.getOperand() : "1");
+		for (Prerequisite p : prereq.getPrerequisites())
+		{
+			writer.write(',');
+			writer.write(p.getKey());
+		}
+		return true;
+	}
 }

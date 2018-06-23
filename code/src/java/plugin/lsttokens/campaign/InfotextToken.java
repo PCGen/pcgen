@@ -34,8 +34,8 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with INFOTEXT Token
  */
-public class InfotextToken extends AbstractNonEmptyToken<Campaign> implements
-		CDOMPrimaryToken<Campaign>, InstallLstToken
+public class InfotextToken extends AbstractNonEmptyToken<Campaign>
+		implements CDOMPrimaryToken<Campaign>, InstallLstToken
 {
 
 	@Override
@@ -44,7 +44,7 @@ public class InfotextToken extends AbstractNonEmptyToken<Campaign> implements
 		return "INFOTEXT";
 	}
 
-    @Override
+	@Override
 	public boolean parse(Campaign campaign, String value, URI sourceUri)
 	{
 		campaign.addToListFor(ListKey.INFO_TEXT, value);
@@ -52,19 +52,16 @@ public class InfotextToken extends AbstractNonEmptyToken<Campaign> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, Campaign campaign,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, Campaign campaign, String value)
 	{
 		context.getObjectContext().addToList(campaign, ListKey.INFO_TEXT, value);
 		return ParseResult.SUCCESS;
 	}
 
-    @Override
+	@Override
 	public String[] unparse(LoadContext context, Campaign campaign)
 	{
-		Changes<String> changes =
-				context.getObjectContext().getListChanges(campaign,
-					ListKey.INFO_TEXT);
+		Changes<String> changes = context.getObjectContext().getListChanges(campaign, ListKey.INFO_TEXT);
 		List<String> set = new ArrayList<>();
 		Collection<String> added = changes.getAdded();
 		if (added != null && !added.isEmpty())
@@ -79,7 +76,7 @@ public class InfotextToken extends AbstractNonEmptyToken<Campaign> implements
 		return set.toArray(new String[set.size()]);
 	}
 
-    @Override
+	@Override
 	public Class<Campaign> getTokenClass()
 	{
 		return Campaign.class;

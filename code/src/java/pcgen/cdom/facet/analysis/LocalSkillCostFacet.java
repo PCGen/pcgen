@@ -39,14 +39,13 @@ import pcgen.util.Logging;
  * LocalSkillCostFacet is a Facet to track Skill costs
  * 
  */
-public class LocalSkillCostFacet extends
-		AbstractSubScopeFacet<PCClass, SkillCost, Skill> implements
-		DataFacetChangeListener<CharID, CDOMObject>
+public class LocalSkillCostFacet extends AbstractSubScopeFacet<PCClass, SkillCost, Skill>
+		implements DataFacetChangeListener<CharID, CDOMObject>
 {
 	private DomainFacet domainFacet;
-	
+
 	private ClassFacet classFacet;
-	
+
 	private ClassLevelFacet classLevelFacet;
 
 	/**
@@ -81,8 +80,8 @@ public class LocalSkillCostFacet extends
 		}
 		else
 		{
-			Logging.errorPrint(getClass().getSimpleName() + " was given " + cdo
-				+ " which is not an expected object type");
+			Logging
+				.errorPrint(getClass().getSimpleName() + " was given " + cdo + " which is not an expected object type");
 			return;
 		}
 		for (CDOMReference<Skill> ref : cdo.getSafeListFor(ListKey.LOCALCSKILL))

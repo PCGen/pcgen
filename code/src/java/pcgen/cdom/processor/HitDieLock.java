@@ -47,8 +47,7 @@ public class HitDieLock implements Processor<HitDie>
 	{
 		if (die == null)
 		{
-			throw new IllegalArgumentException(
-					"Die for HitDieLock cannot be null");
+			throw new IllegalArgumentException("Die for HitDieLock cannot be null");
 		}
 		hitDie = die;
 	}
@@ -116,8 +115,7 @@ public class HitDieLock implements Processor<HitDie>
 	@Override
 	public boolean equals(Object obj)
 	{
-		return obj instanceof HitDieLock
-				&& ((HitDieLock) obj).hitDie.equals(hitDie);
+		return obj instanceof HitDieLock && ((HitDieLock) obj).hitDie.equals(hitDie);
 	}
 
 }

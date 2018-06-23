@@ -20,7 +20,6 @@ package pcgen.facade.core;
 
 import java.util.List;
 
-
 public interface LanguageFacade
 {
 

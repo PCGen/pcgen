@@ -38,8 +38,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Handles DESC token processing
  */
-public class DescLst extends AbstractTokenWithSeparator<CDOMObject> implements
-		CDOMPrimaryToken<CDOMObject>
+public class DescLst extends AbstractTokenWithSeparator<CDOMObject> implements CDOMPrimaryToken<CDOMObject>
 {
 	@Override
 	public String getTokenName()
@@ -54,8 +53,7 @@ public class DescLst extends AbstractTokenWithSeparator<CDOMObject> implements
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		CDOMObject obj, String aDesc)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String aDesc)
 	{
 		if (Constants.LST_DOT_CLEAR.equals(aDesc))
 		{
@@ -64,8 +62,7 @@ public class DescLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		}
 		if (aDesc.startsWith(Constants.LST_DOT_CLEAR_DOT))
 		{
-			context.getObjectContext().removePatternFromList(obj,
-				ListKey.DESCRIPTION, aDesc.substring(7));
+			context.getObjectContext().removePatternFromList(obj, ListKey.DESCRIPTION, aDesc.substring(7));
 			return ParseResult.SUCCESS;
 		}
 
@@ -75,14 +72,12 @@ public class DescLst extends AbstractTokenWithSeparator<CDOMObject> implements
 
 		if (looksLikeAPrerequisite(descString))
 		{
-			return new ParseResult.Fail(getTokenName() + " encountered only a PRExxx: "
-				+ aDesc);
+			return new ParseResult.Fail(getTokenName() + " encountered only a PRExxx: " + aDesc);
 		}
 		String ds = EntityEncoder.decode(descString);
 		if (!StringUtil.hasBalancedParens(ds))
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " encountered imbalanced Parenthesis: " + aDesc);
+			return new ParseResult.Fail(getTokenName() + " encountered imbalanced Parenthesis: " + aDesc);
 		}
 		ParseResult pr = checkForInvalidXMLChars(ds);
 		if (!pr.passed())
@@ -98,9 +93,8 @@ public class DescLst extends AbstractTokenWithSeparator<CDOMObject> implements
 			{
 				if (Constants.LST_DOT_CLEAR.equals(token))
 				{
-					return new ParseResult.Fail(getTokenName()
-						+ " tag confused by '.CLEAR' as a " + "middle token: "
-						+ aDesc);
+					return new ParseResult.Fail(
+						getTokenName() + " tag confused by '.CLEAR' as a " + "middle token: " + aDesc);
 				}
 				else if (looksLikeAPrerequisite(token))
 				{
@@ -126,8 +120,7 @@ public class DescLst extends AbstractTokenWithSeparator<CDOMObject> implements
 				if (prereq == null)
 				{
 					return new ParseResult.Fail(
-						"   (Did you put Abilities after the "
-							+ "PRExxx tags in " + getTokenName() + ":?)");
+						"   (Did you put Abilities after the " + "PRExxx tags in " + getTokenName() + ":?)");
 				}
 				desc.addPrerequisite(prereq);
 				if (!tok.hasMoreTokens())
@@ -156,9 +149,8 @@ public class DescLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		{
 			if (removedItems != null && !removedItems.isEmpty())
 			{
-				context.addWriteMessage("Non-sensical relationship in "
-					+ getTokenName()
-					+ ": global .CLEAR and local .CLEAR. performed");
+				context.addWriteMessage(
+					"Non-sensical relationship in " + getTokenName() + ": global .CLEAR and local .CLEAR. performed");
 				return null;
 			}
 			list.add(Constants.LST_DOT_CLEAR);

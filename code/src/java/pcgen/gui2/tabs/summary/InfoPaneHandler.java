@@ -38,8 +38,7 @@ import pcgen.system.LanguageBundle;
  * the game mode miscinfo.lst file using the INFOSHEET tag.
  *    
  */
-public class InfoPaneHandler implements ReferenceListener<Object>,
-		ListListener<CharacterLevelFacade>
+public class InfoPaneHandler implements ReferenceListener<Object>, ListListener<CharacterLevelFacade>
 {
 
 	private HtmlSheetSupport support;
@@ -56,7 +55,7 @@ public class InfoPaneHandler implements ReferenceListener<Object>,
 		GameModeFacade game = character.getDataSet().getGameMode();
 		support = new HtmlSheetSupport(character, htmlPane, game.getInfoSheet());
 		support.setMissingSheetMsg(LanguageBundle.getFormattedString("in_sumNoInfoSheet", //$NON-NLS-1$
-																	 character.getDataSet().getGameMode().getName()));
+			character.getDataSet().getGameMode().getName()));
 		registerListeners();
 	}
 

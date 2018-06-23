@@ -26,7 +26,6 @@ import pcgen.cdom.inst.PCClassLevel;
  * Player Character, in relation to the parent PCClassLevel objects.
  * 
  */
-public class SubstitutionClassFacet extends
-		AbstractAssociationFacet<CharID, PCClassLevel, String>
+public class SubstitutionClassFacet extends AbstractAssociationFacet<CharID, PCClassLevel, String>
 {
 }

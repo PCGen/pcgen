@@ -34,7 +34,7 @@ public final class SpellInfo implements Comparable<SpellInfo>
 {
 	/** The special value for number of times per unit for 'At Will' spells. */
 	public static final int TIMES_AT_WILL = -1;
-	
+
 	private CharacterSpell owner;
 	private List<Ability> featList; // a List of Feat objects
 	private String book = Globals.getDefaultSpellBook(); // name of book
@@ -46,8 +46,8 @@ public final class SpellInfo implements Comparable<SpellInfo>
 	private int numPages = 0;
 	private String fixedDC = null;
 
-	SpellInfo(final CharacterSpell owner, final int originalLevel, final int actualLevel,
-			final int times, final String book)
+	SpellInfo(final CharacterSpell owner, final int originalLevel, final int actualLevel, final int times,
+		final String book)
 	{
 		this.owner = owner;
 		this.actualLevel = actualLevel;

@@ -66,8 +66,7 @@ public class AppliedBonusFacet extends AbstractListFacet<CharID, BonusObj>
 		processAdd(id, cdo, saveableBonusFacet.getSet(id, cdo));
 	}
 
-	private void processAdd(CharID id, CDOMObject cdo,
-			List<? extends BonusObj> bonusList)
+	private void processAdd(CharID id, CDOMObject cdo, List<? extends BonusObj> bonusList)
 	{
 		for (BonusObj bonus : bonusList)
 		{

@@ -66,7 +66,7 @@ public class VectorTable extends AbstractList
 	 * table is empty.
 	 * @return <b>{@code true}</b> if the table is empty.
 	 */
-    @Override
+	@Override
 	public boolean isEmpty()
 	{
 		return rows.isEmpty();
@@ -86,7 +86,7 @@ public class VectorTable extends AbstractList
 	 * @param o an entry that will be placed in the table.
 	 * @return true or false
 	 */
-    @Override
+	@Override
 	public boolean add(Object o)
 	{
 		/* if o is a container, adds it to rows and header and returns true, else returns false.    */
@@ -107,7 +107,7 @@ public class VectorTable extends AbstractList
 	/**
 	 * Calls clear on every {@code Vector} in {@code rows}.
 	 */
-    @Override
+	@Override
 	public void clear()
 	{
 
@@ -119,7 +119,7 @@ public class VectorTable extends AbstractList
 			}
 			catch (Exception e)
 			{
-			    // TODO - Handle Exception			    
+				// TODO - Handle Exception			    
 			}
 
 			rows.clear();
@@ -132,7 +132,7 @@ public class VectorTable extends AbstractList
 	 * @param o the {@code Object} that needs to be found in the table.
 	 * @return <b>true</b> if the object is found.  Otherwise <b>false</b>.
 	 */
-    @Override
+	@Override
 	public boolean contains(Object o)
 	{
 		boolean found = false;
@@ -155,7 +155,7 @@ public class VectorTable extends AbstractList
 			}
 			catch (Exception e)
 			{
-			    // TODO - Handle Exception			    
+				// TODO - Handle Exception			    
 			}
 		}
 
@@ -224,8 +224,7 @@ public class VectorTable extends AbstractList
 		 * special consideration for a Set or something that VectorTables are stored in, 
 		 * then a special comparator should be built, in my opinion - thpr 10/29/06
 		 */
-		return o != null && o.toString()
-				.equals(name);
+		return o != null && o.toString().equals(name);
 
 	}
 
@@ -235,7 +234,7 @@ public class VectorTable extends AbstractList
 	 *        retrieved.
 	 * @return the {@code Object} that is looked up.
 	 */
-    @Override
+	@Override
 	public Object get(int index)
 	{
 		return rows.get(index);
@@ -256,7 +255,7 @@ public class VectorTable extends AbstractList
 	 * @param o the {@code Object} that needs to be removed.
 	 * @return <b>{@code true}</b> if the {@code Object} is removed successfully.
 	 */
-    @Override
+	@Override
 	public boolean remove(Object o)
 	{
 		boolean success;
@@ -284,7 +283,7 @@ public class VectorTable extends AbstractList
 					}
 					catch (Exception e)
 					{
-					    // TODO - Handle Exception					    
+						// TODO - Handle Exception					    
 					}
 				}
 			}
@@ -297,7 +296,7 @@ public class VectorTable extends AbstractList
 	 * Gets the number of items in the {@code row} {@code Vector}.
 	 * @return the number of items in the {@code row}.
 	 */
-    @Override
+	@Override
 	public int size()
 	{
 		return rows.size();

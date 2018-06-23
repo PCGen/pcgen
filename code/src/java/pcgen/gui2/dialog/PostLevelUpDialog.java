@@ -91,8 +91,7 @@ public final class PostLevelUpDialog extends JDialog implements ActionListener
 	 * @param character The character that has been levelled up.
 	 * @param oldLevel The character's level before the level up action.
 	 */
-	public static void showPostLevelUpDialog(Component parent,
-		CharacterFacade character, int oldLevel)
+	public static void showPostLevelUpDialog(Component parent, CharacterFacade character, int oldLevel)
 	{
 		int size = character.getCharacterLevelsFacade().getSize();
 		if (size - oldLevel + 1 < 1)
@@ -101,8 +100,7 @@ public final class PostLevelUpDialog extends JDialog implements ActionListener
 		}
 
 		Frame frame = JOptionPane.getFrameForComponent(parent);
-		PostLevelUpDialog dialog =
-				new PostLevelUpDialog(frame, character, oldLevel);
+		PostLevelUpDialog dialog = new PostLevelUpDialog(frame, character, oldLevel);
 		Utility.setComponentRelativeLocation(frame, dialog);
 		dialog.setVisible(true);
 	}
@@ -121,7 +119,7 @@ public final class PostLevelUpDialog extends JDialog implements ActionListener
 			{
 				if (column == LevelTableModel.COL_ROLLED_HP && row < numLevels)
 				{//TODO: the max roll should be calculated in a different manner
-					String hd = levels.getClassTaken(levels.getElementAt(row+oldLevel)).getHD();
+					String hd = levels.getClassTaken(levels.getElementAt(row + oldLevel)).getHD();
 					int max = NumberUtils.toInt(hd);
 					return new SpinnerEditor(new SpinnerNumberModel(1, 1, max, 1));
 				}
@@ -167,7 +165,7 @@ public final class PostLevelUpDialog extends JDialog implements ActionListener
 			}
 
 		});
-		
+
 		Utility.installEscapeCloseOperation(this);
 	}
 
@@ -185,22 +183,20 @@ public final class PostLevelUpDialog extends JDialog implements ActionListener
 		static final int COL_GAINED_HP = 2;
 		static final int COL_ROLLED_HP = 3;
 		static final int COL_SKILL_POINTS = 4;
-		
+
 		private final Object[] columns;
 		private final Object[][] data;
 		private final Map<ClassFacade, MutableInt> classLevelMap;
 
 		LevelTableModel()
 		{
-			columns = new Object[]
-					{
-						LanguageBundle.getString("in_level"), //$NON-NLS-1$
-						LanguageBundle.getString("in_classString"), //$NON-NLS-1$
-						LanguageBundle.getString("in_luGainedHp"), //$NON-NLS-1$
-						LanguageBundle.getString("in_luRolledHp"), //$NON-NLS-1$
-						LanguageBundle.getString("in_luSkillPoints") //$NON-NLS-1$
-					};
-			
+			columns = new Object[]{LanguageBundle.getString("in_level"), //$NON-NLS-1$
+				LanguageBundle.getString("in_classString"), //$NON-NLS-1$
+				LanguageBundle.getString("in_luGainedHp"), //$NON-NLS-1$
+				LanguageBundle.getString("in_luRolledHp"), //$NON-NLS-1$
+				LanguageBundle.getString("in_luSkillPoints") //$NON-NLS-1$
+			};
+
 			data = new Object[numLevels + 1][5];
 			classLevelMap = new HashMap<ClassFacade, MutableInt>();
 			int gainedTotal = 0;
@@ -239,14 +235,14 @@ public final class PostLevelUpDialog extends JDialog implements ActionListener
 			data[numLevels][COL_GAINED_HP] = gainedTotal;
 			data[numLevels][COL_ROLLED_HP] = rolledTotal;
 			data[numLevels][COL_SKILL_POINTS] = pointTotal;
-			
+
 			levels.addHitPointListener(this);
 		}
 
 		@Override
 		public int getRowCount()
 		{
-			return numLevels+1;
+			return numLevels + 1;
 		}
 
 		@Override
@@ -296,7 +292,7 @@ public final class PostLevelUpDialog extends JDialog implements ActionListener
 		@Override
 		public void setValueAt(Object aValue, int rowIndex, int columnIndex)
 		{
-			CharacterLevelFacade level = levels.getElementAt(rowIndex+oldLevel);
+			CharacterLevelFacade level = levels.getElementAt(rowIndex + oldLevel);
 			levels.setHPRolled(level, (Integer) aValue);
 		}
 
@@ -305,7 +301,7 @@ public final class PostLevelUpDialog extends JDialog implements ActionListener
 		{
 			int gainedTotal = 0;
 			int rolledTotal = 0;
-			for (int i = oldLevel; i < numLevels+oldLevel; i++)
+			for (int i = oldLevel; i < numLevels + oldLevel; i++)
 			{
 				CharacterLevelFacade level = levels.getElementAt(i);
 				Object[] dataRow = data[i - oldLevel];

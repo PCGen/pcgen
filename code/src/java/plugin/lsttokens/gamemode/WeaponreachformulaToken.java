@@ -11,13 +11,13 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class WeaponreachformulaToken implements GameModeLstToken
 {
 
-    @Override
+	@Override
 	public String getTokenName()
 	{
 		return "WEAPONREACH";
 	}
 
-    @Override
+	@Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		gameMode.setWeaponReachFormula(value);

@@ -64,9 +64,8 @@ import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
-public class RemoveFeatToken extends AbstractNonEmptyToken<CDOMObject> implements
-		CDOMSecondaryToken<CDOMObject>,
-		PersistentChoiceActor<CNAbilitySelection>, DeprecatedToken
+public class RemoveFeatToken extends AbstractNonEmptyToken<CDOMObject>
+		implements CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<CNAbilitySelection>, DeprecatedToken
 {
 
 	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
@@ -90,8 +89,7 @@ public class RemoveFeatToken extends AbstractNonEmptyToken<CDOMObject> implement
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		CDOMObject obj, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj, String value)
 	{
 		AbilityCategory category = AbilityCategory.FEAT;
 		Nature nature = Nature.NORMAL;
@@ -111,25 +109,21 @@ public class RemoveFeatToken extends AbstractNonEmptyToken<CDOMObject> implement
 			count = FormulaFactory.getFormulaFor(activeValue);
 			if (!count.isValid())
 			{
-				return new ParseResult.Fail("Count in " + getTokenName()
-						+ " was not valid: " + count.toString());
+				return new ParseResult.Fail("Count in " + getTokenName() + " was not valid: " + count.toString());
 			}
 			if (!count.isValid())
 			{
-				return new ParseResult.Fail("Count in " + getTokenName()
-						+ " was not valid: " + count.toString());
+				return new ParseResult.Fail("Count in " + getTokenName() + " was not valid: " + count.toString());
 			}
 			if (count.isStatic() && count.resolveStatic().doubleValue() <= 0)
 			{
-				return new ParseResult.Fail("Count in " + getFullName()
-								+ " must be > 0");
+				return new ParseResult.Fail("Count in " + getFullName() + " must be > 0");
 			}
 			activeValue = sep.next();
 		}
 		if (sep.hasNext())
 		{
-			return new ParseResult.Fail(getFullName()
-					+ " had too many pipe separated items: " + value);
+			return new ParseResult.Fail(getFullName() + " had too many pipe separated items: " + value);
 		}
 		ParseResult pr = checkSeparatorsAndNonEmpty(',', activeValue);
 		if (!pr.passed())
@@ -138,8 +132,7 @@ public class RemoveFeatToken extends AbstractNonEmptyToken<CDOMObject> implement
 		}
 
 		List<CDOMReference<Ability>> refs = new ArrayList<>();
-		List<PrimitiveChoiceSet<CNAbilitySelection>> pcs =
-				new ArrayList<>();
+		List<PrimitiveChoiceSet<CNAbilitySelection>> pcs = new ArrayList<>();
 		ParsingSeparator tok = new ParsingSeparator(activeValue, ',');
 		tok.addGroupingPair('[', ']');
 		tok.addGroupingPair('(', ')');
@@ -147,32 +140,26 @@ public class RemoveFeatToken extends AbstractNonEmptyToken<CDOMObject> implement
 		boolean foundAny = false;
 		boolean foundOther = false;
 
-		ReferenceManufacturer<Ability> rm =
-				context.getReferenceContext().getManufacturerId(AbilityCategory.FEAT);
+		ReferenceManufacturer<Ability> rm = context.getReferenceContext().getManufacturerId(AbilityCategory.FEAT);
 
 		while (tok.hasNext())
 		{
 			CDOMReference<Ability> ab = null;
 			String token = tok.next();
-			if ("CHOICE".equals(token)
-					|| Constants.LST_ANY.equals(token))
+			if ("CHOICE".equals(token) || Constants.LST_ANY.equals(token))
 			{
 				foundAny = true;
 				ab = rm.getAllReference();
 			}
-			else if (token.startsWith(Constants.LST_CLASS_DOT)
-				|| token.startsWith(Constants.LST_CLASS_EQUAL))
+			else if (token.startsWith(Constants.LST_CLASS_DOT) || token.startsWith(Constants.LST_CLASS_EQUAL))
 			{
 				String className = token.substring(6);
 				if (className.isEmpty())
 				{
-					return new ParseResult.Fail(getTokenName()
-							+ " must have Class name after " + token);
+					return new ParseResult.Fail(getTokenName() + " must have Class name after " + token);
 				}
-				CDOMSingleRef<PCClass> pcc = context.getReferenceContext().getCDOMReference(
-						PCCLASS_CLASS, className);
-				AbilityFromClassChoiceSet acs = new AbilityFromClassChoiceSet(
-						pcc);
+				CDOMSingleRef<PCClass> pcc = context.getReferenceContext().getCDOMReference(PCCLASS_CLASS, className);
+				AbilityFromClassChoiceSet acs = new AbilityFromClassChoiceSet(pcc);
 				pcs.add(acs);
 			}
 			else
@@ -181,9 +168,8 @@ public class RemoveFeatToken extends AbstractNonEmptyToken<CDOMObject> implement
 				ab = TokenUtilities.getTypeOrPrimitive(rm, token);
 				if (ab == null)
 				{
-					return new ParseResult.Fail("  Error was encountered while parsing "
-							+ getTokenName() + ": " + value
-							+ " had an invalid reference: " + token);
+					return new ParseResult.Fail("  Error was encountered while parsing " + getTokenName() + ": " + value
+						+ " had an invalid reference: " + token);
 				}
 			}
 			if (ab != null)
@@ -194,20 +180,18 @@ public class RemoveFeatToken extends AbstractNonEmptyToken<CDOMObject> implement
 
 		if (foundAny && foundOther)
 		{
-			return new ParseResult.Fail("Non-sensical " + getFullName()
-					+ ": Contains ANY and a specific reference: " + value);
+			return new ParseResult.Fail(
+				"Non-sensical " + getFullName() + ": Contains ANY and a specific reference: " + value);
 		}
 
 		if (!refs.isEmpty())
 		{
-			AbilityRefChoiceSet rcs = new AbilityRefChoiceSet(CDOMDirectSingleRef.getRef(category), refs,
-					nature);
+			AbilityRefChoiceSet rcs = new AbilityRefChoiceSet(CDOMDirectSingleRef.getRef(category), refs, nature);
 			pcs.add(rcs);
 		}
 		if (pcs.isEmpty())
 		{
-			return new ParseResult.Fail("Internal Error: " + getFullName()
-					+ " did not have any references: " + value);
+			return new ParseResult.Fail("Internal Error: " + getFullName() + " did not have any references: " + value);
 		}
 		PrimitiveChoiceSet<CNAbilitySelection> ascs;
 		if (pcs.size() == 1)
@@ -218,12 +202,9 @@ public class RemoveFeatToken extends AbstractNonEmptyToken<CDOMObject> implement
 		{
 			ascs = new CompoundOrChoiceSet<>(pcs, Constants.COMMA);
 		}
-		ChoiceSet<CNAbilitySelection> cs = new ChoiceSet<>(
-				getTokenName(), ascs, true);
+		ChoiceSet<CNAbilitySelection> cs = new ChoiceSet<>(getTokenName(), ascs, true);
 		cs.setTitle("Select for removal");
-		PersistentTransitionChoice<CNAbilitySelection> tc =
-				new ConcretePersistentTransitionChoice<>(
-						cs, count);
+		PersistentTransitionChoice<CNAbilitySelection> tc = new ConcretePersistentTransitionChoice<>(cs, count);
 		context.getObjectContext().addToList(obj, ListKey.REMOVE, tc);
 		tc.allowStack(true);
 		tc.setChoiceActor(this);
@@ -233,10 +214,9 @@ public class RemoveFeatToken extends AbstractNonEmptyToken<CDOMObject> implement
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
-		Changes<PersistentTransitionChoice<?>> grantChanges = context
-				.getObjectContext().getListChanges(obj, ListKey.REMOVE);
-		Collection<PersistentTransitionChoice<?>> addedItems = grantChanges
-				.getAdded();
+		Changes<PersistentTransitionChoice<?>> grantChanges =
+				context.getObjectContext().getListChanges(obj, ListKey.REMOVE);
+		Collection<PersistentTransitionChoice<?>> addedItems = grantChanges.getAdded();
 		if (addedItems == null || addedItems.isEmpty())
 		{
 			// Zero indicates no Token
@@ -246,14 +226,12 @@ public class RemoveFeatToken extends AbstractNonEmptyToken<CDOMObject> implement
 		for (TransitionChoice<?> container : addedItems)
 		{
 			SelectableSet<?> cs = container.getChoices();
-			if (getTokenName().equals(cs.getName())
-					&& CAT_ABILITY_SELECTION_CLASS.equals(cs.getChoiceClass()))
+			if (getTokenName().equals(cs.getName()) && CAT_ABILITY_SELECTION_CLASS.equals(cs.getChoiceClass()))
 			{
 				Formula f = container.getCount();
 				if (f == null)
 				{
-					context.addWriteMessage("Unable to find " + getFullName()
-							+ " Count");
+					context.addWriteMessage("Unable to find " + getFullName() + " Count");
 					return null;
 				}
 				StringBuilder sb = new StringBuilder();
@@ -275,8 +253,7 @@ public class RemoveFeatToken extends AbstractNonEmptyToken<CDOMObject> implement
 	}
 
 	@Override
-	public void applyChoice(CDOMObject owner, CNAbilitySelection choice,
-			PlayerCharacter pc)
+	public void applyChoice(CDOMObject owner, CNAbilitySelection choice, PlayerCharacter pc)
 	{
 		CNAbility cna = choice.getCNAbility();
 		Ability anAbility = cna.getAbility();
@@ -285,8 +262,7 @@ public class RemoveFeatToken extends AbstractNonEmptyToken<CDOMObject> implement
 		// adjust the associated List
 		if (anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 		{
-			ChoiceManagerList cm =
-					ChooserUtilities.getChoiceManager(cna, pc);
+			ChoiceManagerList cm = ChooserUtilities.getChoiceManager(cna, pc);
 			remove(cm, pc, cna, choice.getSelection());
 			result = pc.hasAssociations(cna);
 		}
@@ -295,30 +271,25 @@ public class RemoveFeatToken extends AbstractNonEmptyToken<CDOMObject> implement
 		// then remove the Feat
 		if (!result)
 		{
-			pc.removeAbility(choice, UserSelection.getInstance(),
-				UserSelection.getInstance());
+			pc.removeAbility(choice, UserSelection.getInstance(), UserSelection.getInstance());
 			CDOMObjectUtilities.removeAdds(anAbility, pc);
 			CDOMObjectUtilities.restoreRemovals(anAbility, pc);
 		}
 
 		pc.adjustMoveRates();
 
-		double cost =
-				cna.getAbility().getSafe(ObjectKey.SELECTION_COST)
-					.doubleValue();
+		double cost = cna.getAbility().getSafe(ObjectKey.SELECTION_COST).doubleValue();
 		pc.adjustAbilities(AbilityCategory.FEAT, new BigDecimal(-cost));
 	}
 
-	private static <T> void remove(ChoiceManagerList<T> aMan, PlayerCharacter pc,
-		ChooseDriver obj, String choice)
+	private static <T> void remove(ChoiceManagerList<T> aMan, PlayerCharacter pc, ChooseDriver obj, String choice)
 	{
 		T sel = aMan.decodeChoice(choice);
 		aMan.removeChoice(pc, obj, sel);
 	}
 
 	@Override
-	public boolean allow(CNAbilitySelection choice, PlayerCharacter pc,
-			boolean allowStack)
+	public boolean allow(CNAbilitySelection choice, PlayerCharacter pc, boolean allowStack)
 	{
 		// Only allow those already selected
 		for (CNAbility cna : pc.getPoolAbilities(AbilityCategory.FEAT, Nature.NORMAL))
@@ -326,8 +297,7 @@ public class RemoveFeatToken extends AbstractNonEmptyToken<CDOMObject> implement
 			if (cna.getAbilityKey().equals(choice.getAbilityKey()))
 			{
 				Boolean multYes = cna.getAbility().getSafe(ObjectKey.MULTIPLE_ALLOWED);
-				if (!multYes || multYes
-						&& hasAssoc(pc.getAssociationList(cna), choice))
+				if (!multYes || multYes && hasAssoc(pc.getAssociationList(cna), choice))
 				{
 					return true;
 				}
@@ -336,13 +306,11 @@ public class RemoveFeatToken extends AbstractNonEmptyToken<CDOMObject> implement
 		return false;
 	}
 
-	private boolean hasAssoc(List<String> associationList,
-		CNAbilitySelection choice)
+	private boolean hasAssoc(List<String> associationList, CNAbilitySelection choice)
 	{
 		if (associationList == null)
 		{
-			Logging.errorPrint("Didn't have any associations for Ability: "
-					+ choice.getAbilityKey());
+			Logging.errorPrint("Didn't have any associations for Ability: " + choice.getAbilityKey());
 			return false;
 		}
 		for (String a : associationList)
@@ -368,8 +336,7 @@ public class RemoveFeatToken extends AbstractNonEmptyToken<CDOMObject> implement
 	}
 
 	@Override
-	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
-		CNAbilitySelection choice)
+	public void restoreChoice(PlayerCharacter pc, CDOMObject owner, CNAbilitySelection choice)
 	{
 		// String featName = choice.getAbilityKey();
 		// Ability aFeat = pc.getAbilityKeyed(AbilityCategory.FEAT,
@@ -378,18 +345,17 @@ public class RemoveFeatToken extends AbstractNonEmptyToken<CDOMObject> implement
 	}
 
 	@Override
-	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
-		CNAbilitySelection choice)
+	public void removeChoice(PlayerCharacter pc, CDOMObject owner, CNAbilitySelection choice)
 	{
 		if (!pc.isImporting())
 		{
 			pc.getSpellList();
 		}
-		
+
 		// See if our choice is not auto or virtual
-		Ability anAbility = pc.getMatchingAbility(AbilityCategory.FEAT, choice.getCNAbility()
-				.getAbility(), Nature.NORMAL);
-		
+		Ability anAbility =
+				pc.getMatchingAbility(AbilityCategory.FEAT, choice.getCNAbility().getAbility(), Nature.NORMAL);
+
 		if (anAbility != null)
 		{
 			pc.removeAbility(choice, owner, this);

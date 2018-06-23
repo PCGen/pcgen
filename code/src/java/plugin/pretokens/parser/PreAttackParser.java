@@ -27,14 +27,13 @@ import pcgen.util.Logging;
 /**
  * A prerequisite parser class that handles the parsing of pre attack tokens.
  */
-public class PreAttackParser extends AbstractPrerequisiteParser implements
-		PrerequisiteParserInterface
+public class PreAttackParser extends AbstractPrerequisiteParser implements PrerequisiteParserInterface
 {
 	/**
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String[] kindsHandled()
 	{
 		return new String[]{"ATT"};
@@ -53,10 +52,8 @@ public class PreAttackParser extends AbstractPrerequisiteParser implements
 	 * @throws PersistenceLayerException
 	 */
 	@Override
-	public Prerequisite parse(String kind,
-	                          String formula,
-	                          boolean invertResult,
-	                          boolean overrideQualify) throws PersistenceLayerException
+	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+		throws PersistenceLayerException
 	{
 		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
 
@@ -66,8 +63,7 @@ public class PreAttackParser extends AbstractPrerequisiteParser implements
 		}
 		catch (NumberFormatException nfe)
 		{
-			Logging.errorPrint("Badly formed PREATT attribute: '" + formula
-				+ "' assuming '1'");
+			Logging.errorPrint("Badly formed PREATT attribute: '" + formula + "' assuming '1'");
 			prereq.setOperand("1");
 		}
 

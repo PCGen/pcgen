@@ -49,15 +49,13 @@ public class BonusSpellInfo implements Loadable
 			int intValue = Integer.valueOf(name).intValue();
 			if (intValue < 1)
 			{
-				throw new IllegalArgumentException(
-						"Name must be an integer >= 1");
+				throw new IllegalArgumentException("Name must be an integer >= 1");
 			}
 			spellLevel = intValue;
 		}
 		catch (NumberFormatException nfe)
 		{
-			throw new IllegalArgumentException(
-					"Name must be an integer, found: " + name, nfe);
+			throw new IllegalArgumentException("Name must be an integer, found: " + name, nfe);
 		}
 	}
 

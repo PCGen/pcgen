@@ -31,7 +31,7 @@ import pcgen.core.SettingsHandler;
 /**
  * InfoUtilities is a set of utilities related to the ALLOW token.
  */
-public class AllowUtilities
+public final class AllowUtilities
 {
 
 	private AllowUtilities()
@@ -61,8 +61,7 @@ public class AllowUtilities
 		boolean needSeparator = false;
 		for (InfoBoolean infoBoolean : allowItems)
 		{
-			CaseInsensitiveString cis =
-					new CaseInsensitiveString(infoBoolean.getInfoName());
+			CaseInsensitiveString cis = new CaseInsensitiveString(infoBoolean.getInfoName());
 			MessageFormat info = cdo.get(MapKey.INFO, cis);
 			if (info != null)
 			{

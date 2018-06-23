@@ -89,8 +89,7 @@ public class ConditionalTemplateFacet extends AbstractListFacet<CharID, PCTempla
 		int totalLevels = levelFacet.getTotalLevels(id);
 		int totalHitDice = levelFacet.getMonsterLevelCount(id);
 		PCTemplate source = dfce.getCDOMObject();
-		removeAll(dfce.getCharID(), source.getConditionalTemplates(totalLevels,
-				totalHitDice));
+		removeAll(dfce.getCharID(), source.getConditionalTemplates(totalLevels, totalHitDice));
 	}
 
 	/**
@@ -105,7 +104,7 @@ public class ConditionalTemplateFacet extends AbstractListFacet<CharID, PCTempla
 	 *            The LevelChangeEvent containing the information about the
 	 *            level change
 	 * 
-	 * @see pcgen.cdom.facet.analysis.LevelFacet.LevelChangeListener#levelChanged(pcgen.cdom.facet.analysis.LevelFacet.LevelChangeEvent)
+	 * @see LevelChangeListener#levelChanged(LevelChangeEvent)
 	 */
 	@Override
 	public void levelChanged(LevelChangeEvent lce)
@@ -117,8 +116,7 @@ public class ConditionalTemplateFacet extends AbstractListFacet<CharID, PCTempla
 		Map<PCTemplate, PCTemplate> newMap = new IdentityHashMap<>();
 		for (PCTemplate sourceTempl : templateFacet.getSet(id))
 		{
-			List<PCTemplate> conditionalTemplates = sourceTempl
-					.getConditionalTemplates(totalLevels, totalHitDice);
+			List<PCTemplate> conditionalTemplates = sourceTempl.getConditionalTemplates(totalLevels, totalHitDice);
 			for (PCTemplate condTempl : conditionalTemplates)
 			{
 				newMap.put(condTempl, sourceTempl);
@@ -141,7 +139,7 @@ public class ConditionalTemplateFacet extends AbstractListFacet<CharID, PCTempla
 			boolean found = false;
 			for (PCTemplate pcTemplate : oldSet)
 			{
-				if (a==pcTemplate)
+				if (a == pcTemplate)
 				{
 					found = true;
 				}

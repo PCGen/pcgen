@@ -1,9 +1,10 @@
 package plugin.jepcommands;
 
-import org.nfunk.jep.ParseException;
-import pcgen.util.PCGenCommand;
-
 import java.util.Stack;
+
+import org.nfunk.jep.ParseException;
+
+import pcgen.util.PCGenCommand;
 
 /**
  * <p>
@@ -35,7 +36,7 @@ public class IfCommand extends PCGenCommand
 	 * Gets the name of the function handled by this class.
 	 * @return The name of the function.
 	 */
-    @Override
+	@Override
 	public String getFunctionName()
 	{
 		return "IF";
@@ -54,7 +55,7 @@ public class IfCommand extends PCGenCommand
 	 * @throws ParseException
 	 */
 	@SuppressWarnings("unchecked") //Uses JEP, which doesn't use generics
-    @Override
+	@Override
 	public void run(final Stack stack) throws ParseException
 	{
 		// Check if stack is null
@@ -63,7 +64,7 @@ public class IfCommand extends PCGenCommand
 			throw new ParseException("Stack argument null");
 		}
 
-        final boolean condition;
+		final boolean condition;
 
 		final Object param3 = stack.pop();
 		final Object param2 = stack.pop();

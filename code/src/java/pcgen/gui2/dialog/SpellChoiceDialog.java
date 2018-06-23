@@ -28,6 +28,7 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.WindowConstants;
 
 import pcgen.facade.core.SpellBuilderFacade;
 import pcgen.gui2.equip.SpellChoicePanel;
@@ -42,8 +43,7 @@ import pcgen.system.LanguageBundle;
  * 
  */
 @SuppressWarnings("serial")
-public class SpellChoiceDialog extends JDialog
-		implements ActionListener
+public class SpellChoiceDialog extends JDialog implements ActionListener
 {
 	private final SpellChoicePanel spellChoicePanel;
 	private final JPanel buttonPanel;
@@ -51,7 +51,6 @@ public class SpellChoiceDialog extends JDialog
 	private final JButton cancelButton;
 	private boolean cancelled;
 
-	
 	/**
 	 * Create a new instance of SpellChoiceDialog
 	 * @param frame The parent frame we are displaying over.
@@ -67,7 +66,7 @@ public class SpellChoiceDialog extends JDialog
 		this.cancelButton.setMnemonic(LanguageBundle.getMnemonic("in_mn_cancel")); //$NON-NLS-1$
 
 		this.spellChoicePanel = new SpellChoicePanel(builder);
-		setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
+		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		initComponents();
 		pack();
 		Utility.resizeComponentToScreen(this);
@@ -79,7 +78,7 @@ public class SpellChoiceDialog extends JDialog
 		pane.setLayout(new BorderLayout());
 
 		pane.add(spellChoicePanel, BorderLayout.CENTER);
-		
+
 		okButton.addActionListener(this);
 		cancelButton.addActionListener(this);
 
@@ -91,7 +90,7 @@ public class SpellChoiceDialog extends JDialog
 		buttons.add(cancelButton);
 		buttons.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 		pane.add(buttons, BorderLayout.SOUTH);
-		
+
 		Utility.installEscapeCloseOperation(this);
 	}
 

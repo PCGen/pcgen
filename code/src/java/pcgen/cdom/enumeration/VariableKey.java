@@ -55,8 +55,7 @@ public final class VariableKey implements TypeSafeConstant
 	{
 		if (name == null)
 		{
-			throw new IllegalArgumentException(
-					"Name for VariableKey cannot be null");
+			throw new IllegalArgumentException("Name for VariableKey cannot be null");
 		}
 		ordinal = ordinalCount++;
 		fieldName = name;
@@ -131,8 +130,7 @@ public final class VariableKey implements TypeSafeConstant
 		VariableKey key = typeMap.get(name);
 		if (key == null)
 		{
-			throw new IllegalArgumentException(name
-					+ " is not a previously defined VariableKey");
+			throw new IllegalArgumentException(name + " is not a previously defined VariableKey");
 		}
 		return key;
 	}

@@ -33,7 +33,7 @@ public class InitHolderComperator implements Comparator<InitHolder>, Serializabl
 	 *@param  o2  Object 2 to compare
 	 *@return     the comparion between the two (in java.util.Comperator format)
 	 */
-    @Override
+	@Override
 	public int compare(InitHolder o1, InitHolder o2)
 	{
 		SystemInitiative init1 = o1.getInitiative();

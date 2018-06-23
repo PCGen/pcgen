@@ -88,8 +88,7 @@ public class CoreViewFrame extends JFrame
 
 		int col = 0;
 		Utility.buildConstraints(c, col, 0, 1, 1, 100, 20);
-		JLabel label = new JLabel(LanguageBundle.getFormattedString(
-				"in_CoreView_Perspective")); //$NON-NLS-1$
+		JLabel label = new JLabel(LanguageBundle.getFormattedString("in_CoreView_Perspective")); //$NON-NLS-1$
 		gridbag.setConstraints(label, c);
 		getContentPane().add(label);
 
@@ -115,8 +114,7 @@ public class CoreViewFrame extends JFrame
 
 		private final CoreViewTreeViewModel coreViewTreeViewModel;
 
-		private PerspectiveActionListener(
-				CoreViewTreeViewModel coreViewTreeViewModel)
+		private PerspectiveActionListener(CoreViewTreeViewModel coreViewTreeViewModel)
 		{
 			this.coreViewTreeViewModel = coreViewTreeViewModel;
 		}
@@ -124,8 +122,7 @@ public class CoreViewFrame extends JFrame
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			CorePerspective perspective =
-					(CorePerspective) perspectiveChooser.getSelectedItem();
+			CorePerspective perspective = (CorePerspective) perspectiveChooser.getSelectedItem();
 			coreViewTreeViewModel.setPerspective(perspective);
 			viewTable.setTreeViewModel(coreViewTreeViewModel);
 		}
@@ -144,12 +141,10 @@ public class CoreViewFrame extends JFrame
 		public List<TreeViewPath<CoreViewNodeFacade>> getPaths(CoreViewNodeFacade pobj)
 		{
 			List<List<CoreViewNodeFacade>> abilityPaths = new ArrayList<>();
-			addPaths(abilityPaths, pobj.getGrantedByNodes(),
-                    new ArrayList<>());
+			addPaths(abilityPaths, pobj.getGrantedByNodes(), new ArrayList<>());
 			if (Logging.isDebugMode())
 			{
-				Logging.debugPrint("Converted " + pobj.getGrantedByNodes()
-						+ " into " + abilityPaths + " for " + pobj);
+				Logging.debugPrint("Converted " + pobj.getGrantedByNodes() + " into " + abilityPaths + " for " + pobj);
 			}
 			if (abilityPaths.isEmpty())
 			{
@@ -165,15 +160,13 @@ public class CoreViewFrame extends JFrame
 			return paths;
 		}
 
-		private void addPaths(List<List<CoreViewNodeFacade>> abilityPaths,
-				List<CoreViewNodeFacade> grantedByNodes,
-				ArrayList<CoreViewNodeFacade> path)
+		private void addPaths(List<List<CoreViewNodeFacade>> abilityPaths, List<CoreViewNodeFacade> grantedByNodes,
+			ArrayList<CoreViewNodeFacade> path)
 		{
 			if (path.size() > 20)
 			{
-				Logging.errorPrint("Found probable ability prereq cycle ["
-						+ StringUtils.join(path, ",") + "] with prereqs ["
-						+ StringUtils.join(grantedByNodes, ",") + "]. Skipping.");
+				Logging.errorPrint("Found probable ability prereq cycle [" + StringUtils.join(path, ",")
+					+ "] with prereqs [" + StringUtils.join(grantedByNodes, ",") + "]. Skipping.");
 				return;
 			}
 			for (CoreViewNodeFacade node : grantedByNodes)
@@ -198,9 +191,8 @@ public class CoreViewFrame extends JFrame
 
 	}
 
-	private static class CoreViewTreeViewModel extends
-			DelegatingListFacade<AbilityFacade> implements
-			TreeViewModel<CoreViewNodeFacade>, DataView<CoreViewNodeFacade>
+	private static class CoreViewTreeViewModel extends DelegatingListFacade<AbilityFacade>
+			implements TreeViewModel<CoreViewNodeFacade>, DataView<CoreViewNodeFacade>
 	{
 
 		private final CharacterFacade character;
@@ -211,12 +203,9 @@ public class CoreViewFrame extends JFrame
 		{
 			this.character = character;
 
-			dataColumns = Arrays.asList(
-							new DefaultDataViewColumn("Key", String.class),
-							new DefaultDataViewColumn("Node Type", String.class),
-							new DefaultDataViewColumn("Source", String.class),
-							new DefaultDataViewColumn("Requirements",
-									String.class));
+			dataColumns = Arrays.asList(new DefaultDataViewColumn("Key", String.class),
+				new DefaultDataViewColumn("Node Type", String.class), new DefaultDataViewColumn("Source", String.class),
+				new DefaultDataViewColumn("Requirements", String.class));
 		}
 
 		/**
@@ -231,8 +220,7 @@ public class CoreViewFrame extends JFrame
 		@Override
 		public ListFacade<? extends TreeView<CoreViewNodeFacade>> getTreeViews()
 		{
-			DefaultListFacade<TreeView<CoreViewNodeFacade>> views =
-                    new DefaultListFacade<>();
+			DefaultListFacade<TreeView<CoreViewNodeFacade>> views = new DefaultListFacade<>();
 			views.addElement(new GrantedTreeView());
 			return views;
 		}

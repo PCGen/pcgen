@@ -22,12 +22,14 @@ import java.util.EnumSet;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+
 import org.apache.commons.lang3.StringUtils;
+
 import pcgen.cdom.enumeration.BiographyField;
+import pcgen.cdom.enumeration.NotePCAttribute;
 import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.core.ChronicleEntry;
 import pcgen.core.NoteItem;
-import pcgen.cdom.enumeration.NotePCAttribute;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.facade.core.ChronicleEntryFacade;
@@ -49,23 +51,17 @@ import pcgen.system.LanguageBundle;
 class DescriptionFacadeImpl implements DescriptionFacade
 {
 	/** Name of the Biography node. */
-	private static final String NOTE_NAME_BIO = LanguageBundle
-		.getString("in_bio"); //$NON-NLS-1$
+	private static final String NOTE_NAME_BIO = LanguageBundle.getString("in_bio"); //$NON-NLS-1$
 	/** Name of the Description node. */
-	private static final String NOTE_NAME_DESCRIP = LanguageBundle
-		.getString("in_descrip"); //$NON-NLS-1$
+	private static final String NOTE_NAME_DESCRIP = LanguageBundle.getString("in_descrip"); //$NON-NLS-1$
 	/** Name of the Companions notes node. */
-	private static final String NOTE_NAME_COMPANION = LanguageBundle
-		.getString("in_companions"); //$NON-NLS-1$
+	private static final String NOTE_NAME_COMPANION = LanguageBundle.getString("in_companions"); //$NON-NLS-1$
 	/** Name of the Other Assets notes node. */
-	private static final String NOTE_NAME_OTHER_ASSETS = LanguageBundle
-		.getString("in_otherAssets"); //$NON-NLS-1$
+	private static final String NOTE_NAME_OTHER_ASSETS = LanguageBundle.getString("in_otherAssets"); //$NON-NLS-1$
 	/** Name of the Magic Item notes node. */
-	private static final String NOTE_NAME_MAGIC_ITEMS = LanguageBundle
-		.getString("in_magicItems"); //$NON-NLS-1$
+	private static final String NOTE_NAME_MAGIC_ITEMS = LanguageBundle.getString("in_magicItems"); //$NON-NLS-1$
 	/** Name of the DM Notes node. */
-	private static final String NOTE_NAME_GM_NOTES = LanguageBundle
-		.getString("in_gmNotes"); //$NON-NLS-1$
+	private static final String NOTE_NAME_GM_NOTES = LanguageBundle.getString("in_gmNotes"); //$NON-NLS-1$
 
 	private final PlayerCharacter theCharacter;
 	private final CharacterDisplay charDisplay;
@@ -95,21 +91,30 @@ class DescriptionFacadeImpl implements DescriptionFacade
 		notes = new DefaultListFacade<>();
 		addDefaultNotes();
 
-		charDisplay.getNotesList().forEach(item ->
-				notes.addElement(item));
+		charDisplay.getNotesList().forEach(item -> notes.addElement(item));
 
 		bioData.put(BiographyField.BIRTHDAY, DescriptionFacadeImpl.newDefaultBioFieldFor(pc, PCStringKey.BIRTHDAY));
-		bioData.put(BiographyField.BIRTHPLACE, new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.BIRTHPLACE)));
-		bioData.put(BiographyField.LOCATION, new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.LOCATION)));
-		bioData.put(BiographyField.CITY, new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.RESIDENCE)));
+		bioData.put(BiographyField.BIRTHPLACE,
+			new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.BIRTHPLACE)));
+		bioData.put(BiographyField.LOCATION,
+			new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.LOCATION)));
+		bioData.put(BiographyField.CITY,
+			new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.RESIDENCE)));
 		bioData.put(BiographyField.REGION, new DefaultReferenceFacade<>(charDisplay.getRegionString()));
-		bioData.put(BiographyField.PERSONALITY_TRAIT_1, new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.PERSONALITY1)));
-		bioData.put(BiographyField.PERSONALITY_TRAIT_2, new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.PERSONALITY2)));
-		bioData.put(BiographyField.PHOBIAS, new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.PHOBIAS)));
-		bioData.put(BiographyField.INTERESTS, new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.INTERESTS)));
-		bioData.put(BiographyField.CATCH_PHRASE, new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.CATCHPHRASE)));
-		bioData.put(BiographyField.HAIR_STYLE, new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.HAIRSTYLE)));
-		bioData.put(BiographyField.SPEECH_PATTERN, new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.SPEECHTENDENCY)));
+		bioData.put(BiographyField.PERSONALITY_TRAIT_1,
+			new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.PERSONALITY1)));
+		bioData.put(BiographyField.PERSONALITY_TRAIT_2,
+			new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.PERSONALITY2)));
+		bioData.put(BiographyField.PHOBIAS,
+			new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.PHOBIAS)));
+		bioData.put(BiographyField.INTERESTS,
+			new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.INTERESTS)));
+		bioData.put(BiographyField.CATCH_PHRASE,
+			new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.CATCHPHRASE)));
+		bioData.put(BiographyField.HAIR_STYLE,
+			new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.HAIRSTYLE)));
+		bioData.put(BiographyField.SPEECH_PATTERN,
+			new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.SPEECHTENDENCY)));
 		customBiographyFields = new DefaultListFacade<>();
 		addCharacterCustomFields();
 	}
@@ -118,14 +123,10 @@ class DescriptionFacadeImpl implements DescriptionFacade
 	{
 		notes.addElement(createDefaultNote(NOTE_NAME_BIO, charDisplay.getBio()));
 		notes.addElement(createDefaultNote(NOTE_NAME_DESCRIP, charDisplay.getSafeStringFor(PCStringKey.DESCRIPTION)));
-		notes.addElement(createDefaultNote(NOTE_NAME_COMPANION,
-			charDisplay.getSafeStringFor(PCStringKey.COMPANIONS)));
-		notes.addElement(createDefaultNote(NOTE_NAME_OTHER_ASSETS,
-			charDisplay.getSafeStringFor(PCStringKey.ASSETS)));
-		notes.addElement(createDefaultNote(NOTE_NAME_MAGIC_ITEMS,
-			charDisplay.getSafeStringFor(PCStringKey.MAGIC)));
-		notes.addElement(createDefaultNote(NOTE_NAME_GM_NOTES,
-			charDisplay.getSafeStringFor(PCStringKey.GMNOTES)));
+		notes.addElement(createDefaultNote(NOTE_NAME_COMPANION, charDisplay.getSafeStringFor(PCStringKey.COMPANIONS)));
+		notes.addElement(createDefaultNote(NOTE_NAME_OTHER_ASSETS, charDisplay.getSafeStringFor(PCStringKey.ASSETS)));
+		notes.addElement(createDefaultNote(NOTE_NAME_MAGIC_ITEMS, charDisplay.getSafeStringFor(PCStringKey.MAGIC)));
+		notes.addElement(createDefaultNote(NOTE_NAME_GM_NOTES, charDisplay.getSafeStringFor(PCStringKey.GMNOTES)));
 	}
 
 	/**
@@ -267,9 +268,7 @@ class DescriptionFacadeImpl implements DescriptionFacade
 			num++;
 			name = baseName + " " + num; //$NON-NLS-1$
 		}
-		NoteItem note =
-				new NoteItem(newNodeId, parentId, name, LanguageBundle
-					.getString("in_newValue")); //$NON-NLS-1$
+		NoteItem note = new NoteItem(newNodeId, parentId, name, LanguageBundle.getString("in_newValue")); //$NON-NLS-1$
 		theCharacter.addNotesItem(note);
 		notes.addElement(note);
 	}
@@ -282,26 +281,17 @@ class DescriptionFacadeImpl implements DescriptionFacade
 			return bioData.get(field);
 		}
 		throw new UnsupportedOperationException("The field " + field //$NON-NLS-1$
-				+ " must use a dedicated getter."); //$NON-NLS-1$
+			+ " must use a dedicated getter."); //$NON-NLS-1$
 	}
 
 	@Override
 	public void setBiographyField(final BiographyField field, final String newValue)
 	{
 		// TODO: generify this
-		Set<BiographyField> canBeDirectlySet = EnumSet.of(
-				BiographyField.LOCATION,
-				BiographyField.SPEECH_PATTERN,
-				BiographyField.INTERESTS,
-				BiographyField.BIRTHPLACE,
-				BiographyField.PERSONALITY_TRAIT_1,
-				BiographyField.PERSONALITY_TRAIT_2,
-				BiographyField.CITY,
-				BiographyField.PHOBIAS,
-				BiographyField.CATCH_PHRASE,
-				BiographyField.HAIR_STYLE,
-				BiographyField.BIRTHDAY
-		);
+		Set<BiographyField> canBeDirectlySet = EnumSet.of(BiographyField.LOCATION, BiographyField.SPEECH_PATTERN,
+			BiographyField.INTERESTS, BiographyField.BIRTHPLACE, BiographyField.PERSONALITY_TRAIT_1,
+			BiographyField.PERSONALITY_TRAIT_2, BiographyField.CITY, BiographyField.PHOBIAS,
+			BiographyField.CATCH_PHRASE, BiographyField.HAIR_STYLE, BiographyField.BIRTHDAY);
 
 		if (canBeDirectlySet.contains(field))
 		{
@@ -311,12 +301,12 @@ class DescriptionFacadeImpl implements DescriptionFacade
 		else if (field == BiographyField.REGION)
 		{
 			throw new UnsupportedOperationException("The field " + field //$NON-NLS-1$
-					+ " cannot be set from the UI."); //$NON-NLS-1$
+				+ " cannot be set from the UI."); //$NON-NLS-1$
 		}
 		else
 		{
 			throw new UnsupportedOperationException("The field " + field //$NON-NLS-1$
-					+ " must use a dedicated setter."); //$NON-NLS-1$
+				+ " must use a dedicated setter."); //$NON-NLS-1$
 		}
 	}
 

@@ -80,8 +80,7 @@ public class RemoteWrappingModifier<T> implements Modifier<T>
 	 *            target() function
 	 */
 	public RemoteWrappingModifier(FormulaModifier<T> modifier, VarScoped sourceValue,
-		FormatManager<?> sourceFormatManager, VarScoped targetValue,
-		FormatManager<?> targetFormatManager)
+		FormatManager<?> sourceFormatManager, VarScoped targetValue, FormatManager<?> targetFormatManager)
 	{
 		this.modifier = Objects.requireNonNull(modifier);
 		this.sourceValue = Objects.requireNonNull(sourceValue);
@@ -93,25 +92,22 @@ public class RemoteWrappingModifier<T> implements Modifier<T>
 	@Override
 	public T process(EvaluationManager manager)
 	{
-		FormulaManager formulaManager =
-				decorateFormulaManager(manager.get(EvaluationManager.FMANAGER));
-		return modifier
-			.process(manager.getWith(EvaluationManager.FMANAGER, formulaManager));
+		FormulaManager formulaManager = decorateFormulaManager(manager.get(EvaluationManager.FMANAGER));
+		return modifier.process(manager.getWith(EvaluationManager.FMANAGER, formulaManager));
 	}
 
 	@Override
 	public void getDependencies(DependencyManager fdm)
 	{
-		FormulaManager formulaManager =
-				decorateFormulaManager(fdm.get(DependencyManager.FMANAGER));
+		FormulaManager formulaManager = decorateFormulaManager(fdm.get(DependencyManager.FMANAGER));
 		modifier.getDependencies(fdm.getWith(DependencyManager.FMANAGER, formulaManager));
 	}
 
 	private FormulaManager decorateFormulaManager(FormulaManager formulaManager)
 	{
 		FunctionLibrary functionManager = formulaManager.get(FormulaManager.FUNCTION);
-		functionManager = new RemoteWrappingLibrary(functionManager, sourceValue,
-			sourceFormatManager, targetValue, targetFormatManager);
+		functionManager = new RemoteWrappingLibrary(functionManager, sourceValue, sourceFormatManager, targetValue,
+			targetFormatManager);
 		return formulaManager.getWith(FormulaManager.FUNCTION, functionManager);
 	}
 
@@ -142,8 +138,7 @@ public class RemoteWrappingModifier<T> implements Modifier<T>
 	@Override
 	public int hashCode()
 	{
-		return (31 * modifier.hashCode() + sourceValue.hashCode()) * 31
-			+ targetValue.hashCode();
+		return (31 * modifier.hashCode() + sourceValue.hashCode()) * 31 + targetValue.hashCode();
 	}
 
 	@Override
@@ -152,10 +147,8 @@ public class RemoteWrappingModifier<T> implements Modifier<T>
 		if (obj instanceof RemoteWrappingModifier)
 		{
 			RemoteWrappingModifier<?> other = (RemoteWrappingModifier<?>) obj;
-			return modifier.equals(other.modifier)
-				&& sourceValue.equals(other.sourceValue)
-				&& sourceFormatManager.equals(other.sourceFormatManager)
-				&& targetValue.equals(other.targetValue)
+			return modifier.equals(other.modifier) && sourceValue.equals(other.sourceValue)
+				&& sourceFormatManager.equals(other.sourceFormatManager) && targetValue.equals(other.targetValue)
 				&& targetFormatManager.equals(other.targetFormatManager);
 		}
 		return false;

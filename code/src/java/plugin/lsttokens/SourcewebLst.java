@@ -10,9 +10,8 @@ import pcgen.persistence.lst.InstallLstToken;
 import pcgen.rules.persistence.token.AbstractStringToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
-
-public class SourcewebLst extends AbstractStringToken<CDOMObject> implements
-		CDOMPrimaryToken<CDOMObject>, InstallLstToken
+public class SourcewebLst extends AbstractStringToken<CDOMObject>
+		implements CDOMPrimaryToken<CDOMObject>, InstallLstToken
 {
 
 	@Override

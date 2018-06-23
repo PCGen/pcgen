@@ -29,15 +29,6 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 
-import pcgen.core.SettingsHandler;
-import pcgen.gui2.tools.Utility;
-import pcgen.pluginmgr.InteractivePlugin;
-import pcgen.pluginmgr.PCGenMessage;
-import pcgen.pluginmgr.PCGenMessageHandler;
-import pcgen.pluginmgr.messages.FocusOrStateChangeOccurredMessage;
-import pcgen.system.LanguageBundle;
-import plugin.dicebag.gui.DiceBagPluginController;
-
 import gmgen.GMGenSystem;
 import gmgen.GMGenSystemView;
 import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
@@ -46,6 +37,14 @@ import gmgen.pluginmgr.messages.FileMenuOpenMessage;
 import gmgen.pluginmgr.messages.FileMenuSaveMessage;
 import gmgen.pluginmgr.messages.GMGenBeingClosedMessage;
 import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
+import pcgen.core.SettingsHandler;
+import pcgen.gui2.tools.Utility;
+import pcgen.pluginmgr.InteractivePlugin;
+import pcgen.pluginmgr.PCGenMessage;
+import pcgen.pluginmgr.PCGenMessageHandler;
+import pcgen.pluginmgr.messages.FocusOrStateChangeOccurredMessage;
+import pcgen.system.LanguageBundle;
+import plugin.dicebag.gui.DiceBagPluginController;
 
 /**
  *
@@ -86,12 +85,13 @@ public class DiceBagPlugin implements InteractivePlugin
 	 * Adds view panel via TabAddMessage and initializes the menu items.
 	 * </p>
 	 */
-    @Override
+	@Override
 	public void start(PCGenMessageHandler mh)
 	{
-    	messageHandler = mh;
+		messageHandler = mh;
 		theController = new DiceBagPluginController();
-		messageHandler.handleMessage(new RequestAddTabToGMGenMessage(this, getLocalizedName(), theController.getComponent()));
+		messageHandler
+			.handleMessage(new RequestAddTabToGMGenMessage(this, getLocalizedName(), theController.getComponent()));
 		initMenus();
 	}
 
@@ -101,13 +101,13 @@ public class DiceBagPlugin implements InteractivePlugin
 		messageHandler = null;
 	}
 
-    @Override
+	@Override
 	public int getPriority()
 	{
 		return SettingsHandler.getGMGenOption(DiceBagPlugin.LOG_NAME + ".LoadOrder", 20);
 	}
 
-    @Override
+	@Override
 	public String getPluginName()
 	{
 		return DiceBagPlugin.NAME;
@@ -131,7 +131,7 @@ public class DiceBagPlugin implements InteractivePlugin
 	 *
 	 * @see pcgen.pluginmgr.PCGenMessageHandler#handleMessage
 	 */
-    @Override
+	@Override
 	public void handleMessage(PCGenMessage message)
 	{
 		if (message instanceof FocusOrStateChangeOccurredMessage)
@@ -189,8 +189,7 @@ public class DiceBagPlugin implements InteractivePlugin
 	 */
 	private void handleFileOpenMessage(FileMenuOpenMessage message)
 	{
-		if (GMGenSystemView.getTabPane().getSelectedComponent().equals(
-			theController.getComponent()))
+		if (GMGenSystemView.getTabPane().getSelectedComponent().equals(theController.getComponent()))
 		{
 			theController.fileOpen();
 			message.consume();
@@ -208,8 +207,7 @@ public class DiceBagPlugin implements InteractivePlugin
 	 */
 	private void handleLoadMessage(FileMenuNewMessage message)
 	{
-		if (GMGenSystemView.getTabPane().getSelectedComponent().equals(
-			theController.getComponent()))
+		if (GMGenSystemView.getTabPane().getSelectedComponent().equals(theController.getComponent()))
 		{
 			theController.fileNew();
 			message.consume();
@@ -273,11 +271,9 @@ public class DiceBagPlugin implements InteractivePlugin
 	 */
 	public boolean isActive()
 	{
-		JTabbedPane tp =
-				Utility.getTabbedPaneFor(theController
-					.getComponent());
+		JTabbedPane tp = Utility.getTabbedPaneFor(theController.getComponent());
 		return (tp != null) && JOptionPane.getFrameForComponent(tp).isFocused()
-				&& tp.getSelectedComponent().equals(theController.getComponent());
+			&& tp.getSelectedComponent().equals(theController.getComponent());
 	}
 
 	/**
@@ -287,10 +283,9 @@ public class DiceBagPlugin implements InteractivePlugin
 	 */
 	private void initMenus()
 	{
-		notesToolsItem =
-				makeMenuItem(getLocalizedName(), DiceBagPlugin.DICEBAG_TOOLS_COMMAND, null,
-					LanguageBundle.getString("in_plugin_dicebag_desc"), //$NON-NLS-1$
-					LanguageBundle.getMnemonic("in_mn_plugin_dicebag_name")); //$NON-NLS-1$
+		notesToolsItem = makeMenuItem(getLocalizedName(), DiceBagPlugin.DICEBAG_TOOLS_COMMAND, null,
+			LanguageBundle.getString("in_plugin_dicebag_desc"), //$NON-NLS-1$
+			LanguageBundle.getMnemonic("in_mn_plugin_dicebag_name")); //$NON-NLS-1$
 		messageHandler.handleMessage(new AddMenuItemToGMGenToolsMenuMessage(this, notesToolsItem));
 	}
 
@@ -318,8 +313,7 @@ public class DiceBagPlugin implements InteractivePlugin
 	 *          Mnemonic integer. Should be from KeyEvents
 	 * @return A new JMenuItem
 	 */
-	private JMenuItem makeMenuItem(String text, String key, String iconPath,
-		String desc, Integer mnemonic)
+	private JMenuItem makeMenuItem(String text, String key, String iconPath, String desc, Integer mnemonic)
 	{
 
 		URL imageURL = null;
@@ -371,7 +365,7 @@ public class DiceBagPlugin implements InteractivePlugin
 			super(name, icon);
 		}
 
-        @Override
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			String command = e.getActionCommand();

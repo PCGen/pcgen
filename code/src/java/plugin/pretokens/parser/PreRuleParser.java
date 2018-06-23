@@ -25,14 +25,13 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 /**
  * A prerequisite parser class that handles the parsing of pre rule tokens.
  */
-public class PreRuleParser extends AbstractPrerequisiteListParser implements
-		PrerequisiteParserInterface
+public class PreRuleParser extends AbstractPrerequisiteListParser implements PrerequisiteParserInterface
 {
 	/**
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String[] kindsHandled()
 	{
 		return new String[]{"RULE"};
@@ -51,15 +50,13 @@ public class PreRuleParser extends AbstractPrerequisiteListParser implements
 	 * @throws PersistenceLayerException 
 	 */
 	@Override
-	public Prerequisite parse(String kind,
-	                          String formula,
-	                          boolean invertResult,
-	                          boolean overrideQualify) throws PersistenceLayerException
+	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+		throws PersistenceLayerException
 	{
 
 		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
 		setNoNeedForChar(prereq);
 		return prereq;
 	}
-    
+
 }

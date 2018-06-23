@@ -20,9 +20,9 @@ package pcgen.system;
 
 import java.io.File;
 
-import pcgen.output.publish.OutputDB;
-
 import org.apache.commons.lang3.SystemUtils;
+
+import pcgen.output.publish.OutputDB;
 
 /**
  * This stores some of the properties that pcgen uses.
@@ -76,36 +76,31 @@ public final class PCGenSettings extends PropertyContext
 	public static final String VENDOR_DATA_DIR = "pcgen.files.vendordataPath";
 	public static final String HOMEBREW_DATA_DIR = "pcgen.files.homebrewdataPath";
 	public static final String CUSTOM_DATA_DIR = "pcgen.files.customPath";
-	
+
 	/* Data converter saved choices. */
 	public static final String CONVERT_OUTPUT_SAVE_PATH = "pcgen.convert.outputPath";
 	public static final String CONVERT_INPUT_PATH = "pcgen.convert.inputPath";
 	public static final String CONVERT_GAMEMODE = "pcgen.convert.gamemode";
 	public static final String CONVERT_SOURCES = "pcgen.convert.sources";
 	public static final String CONVERT_DATA_LOG_FILE = "pcgen.convert.dataLogFile";
-	
+
 	public static final PropertyContext GMGEN_OPTIONS_CONTEXT = instance.createChildContext("gmgen.options");
-	
+
 	private PCGenSettings()
 	{
 		super("options.ini");
 		setProperty(PCG_SAVE_PATH,
-					(ConfigurationSettings.getUserDir() + "/characters").replace('/',
-																				 File.separatorChar));
+			(ConfigurationSettings.getUserDir() + "/characters").replace('/', File.separatorChar));
 		setProperty(PCP_SAVE_PATH,
-					(ConfigurationSettings.getUserDir() + "/characters").replace('/',
-																				 File.separatorChar));
+			(ConfigurationSettings.getUserDir() + "/characters").replace('/', File.separatorChar));
 		setProperty(CHAR_PORTRAITS_PATH,
-					(ConfigurationSettings.getUserDir() + "/characters").replace('/',
-																				 File.separatorChar));
+			(ConfigurationSettings.getUserDir() + "/characters").replace('/', File.separatorChar));
 		setProperty(BACKUP_PCG_PATH,
-					(ConfigurationSettings.getUserDir() + "/characters").replace('/',
-																				 File.separatorChar));
+			(ConfigurationSettings.getUserDir() + "/characters").replace('/', File.separatorChar));
 		setProperty(VENDOR_DATA_DIR, "@vendordata");
 		setProperty(HOMEBREW_DATA_DIR, "@homebrewdata");
 		setProperty(CUSTOM_DATA_DIR, "@data/customsources".replace('/', File.separatorChar));
-		OutputDB.registerBooleanPreference(
-			OPTION_SHOW_OUTPUT_NAME_FOR_OTHER_ITEMS, false);
+		OutputDB.registerBooleanPreference(OPTION_SHOW_OUTPUT_NAME_FOR_OTHER_ITEMS, false);
 	}
 
 	@Override
@@ -148,8 +143,7 @@ public final class PCGenSettings extends PropertyContext
 
 	public static boolean getCreatePcgBackup()
 	{
-		return OPTIONS_CONTEXT.initBoolean(
-				PCGenSettings.OPTION_CREATE_PCG_BACKUP, true);
+		return OPTIONS_CONTEXT.initBoolean(PCGenSettings.OPTION_CREATE_PCG_BACKUP, true);
 	}
 
 	public static String getVendorDataDir()

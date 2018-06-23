@@ -38,7 +38,7 @@ public class PreFactSetRoundRobin extends AbstractPreRoundRobin
 	private static final StringManager STR_MGR = new StringManager();
 	
 	
-	public static void main(String args[])
+	public static void main(String[] args)
 	{
 		TestRunner.run(PreFactSetRoundRobin.class);
 	}

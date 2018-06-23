@@ -19,8 +19,8 @@ package pcgen.rules.persistence.token;
 
 import pcgen.base.calculation.BasicCalculation;
 import pcgen.base.calculation.CalculationModifier;
-import pcgen.base.calculation.NEPCalculation;
 import pcgen.base.calculation.FormulaModifier;
+import pcgen.base.calculation.NEPCalculation;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.content.ProcessCalculation;
 
@@ -32,8 +32,7 @@ import pcgen.cdom.content.ProcessCalculation;
  * @param <T>
  *            The format of the object handled by this AbstractSetModifierFactory
  */
-public abstract class AbstractSetModifierFactory<T> implements
-		ModifierFactory<T>, BasicCalculation<T>
+public abstract class AbstractSetModifierFactory<T> implements ModifierFactory<T>, BasicCalculation<T>
 {
 
 	/**
@@ -62,20 +61,18 @@ public abstract class AbstractSetModifierFactory<T> implements
 	}
 
 	@Override
-	public FormulaModifier<T> getFixedModifier(FormatManager<T> formatManager,
-		String instructions)
+	public FormulaModifier<T> getFixedModifier(FormatManager<T> formatManager, String instructions)
 	{
 		if (!getVariableFormat().isAssignableFrom(formatManager.getManagedClass()))
 		{
-			throw new IllegalArgumentException("FormatManager must manage "
-				+ getVariableFormat().getName() + " or a child of that class");
+			throw new IllegalArgumentException(
+				"FormatManager must manage " + getVariableFormat().getName() + " or a child of that class");
 		}
 		T n = formatManager.convert(instructions);
 		if (n == null)
 		{
-			throw new IllegalArgumentException(
-				"FixedModifier was unable to understand instructions: " + instructions
-					+ " for format: " + formatManager.getIdentifierType());
+			throw new IllegalArgumentException("FixedModifier was unable to understand instructions: " + instructions
+				+ " for format: " + formatManager.getIdentifierType());
 		}
 		NEPCalculation<T> calc = new ProcessCalculation<>(n, this, formatManager);
 		return new CalculationModifier<>(calc, formatManager);

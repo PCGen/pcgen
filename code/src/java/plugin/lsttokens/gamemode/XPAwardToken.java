@@ -30,13 +30,13 @@ import pcgen.util.Logging;
 public class XPAwardToken implements GameModeLstToken
 {
 
-    @Override
+	@Override
 	public String getTokenName()
 	{
 		return "XPAWARD";
 	}
 
-    @Override
+	@Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		StringTokenizer aTok = new StringTokenizer(value, "|");
@@ -46,8 +46,7 @@ public class XPAwardToken implements GameModeLstToken
 			try
 			{
 				String[] info = xpAward.split("=");
-				gameMode.addXPaward(gameMode.getCRInteger(info[0]),
-					Integer.valueOf(info[1]));
+				gameMode.addXPaward(gameMode.getCRInteger(info[0]), Integer.valueOf(info[1]));
 			}
 			catch (ArrayIndexOutOfBoundsException | NumberFormatException e)
 			{

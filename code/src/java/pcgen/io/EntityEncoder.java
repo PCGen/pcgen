@@ -147,7 +147,7 @@ public final class EntityEncoder
 		if (s != null)
 		{
 			final StringTokenizer tokens = new StringTokenizer(s, ENCODE, true);
-	
+
 			while (tokens.hasMoreTokens())
 			{
 				buffer.append(ENTITIES.get(tokens.nextToken()));
@@ -177,7 +177,7 @@ public final class EntityEncoder
 		if (s != null)
 		{
 			final StringTokenizer tokens = new StringTokenizer(s, ENCODE_LIGHT, true);
-	
+
 			while (tokens.hasMoreTokens())
 			{
 				buffer.append(ENTITIES_LIGHT.get(tokens.nextToken()));

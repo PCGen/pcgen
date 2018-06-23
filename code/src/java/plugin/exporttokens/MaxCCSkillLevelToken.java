@@ -38,8 +38,7 @@ public class MaxCCSkillLevelToken extends Token
 	}
 
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		return getMaxCCSkillLevelToken(pc);
 	}
@@ -51,7 +50,6 @@ public class MaxCCSkillLevelToken extends Token
 	 */
 	public static String getMaxCCSkillLevelToken(PlayerCharacter pc)
 	{
-		return SkillUtilities.maxCrossClassSkillForLevel(pc.getDisplay().getTotalLevels(),
-			pc).toString();
+		return SkillUtilities.maxCrossClassSkillForLevel(pc.getDisplay().getTotalLevels(), pc).toString();
 	}
 }

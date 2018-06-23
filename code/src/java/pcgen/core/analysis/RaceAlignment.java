@@ -36,12 +36,11 @@ public final class RaceAlignment
 			{
 				if ("ALIGN".equalsIgnoreCase(prereq.getKind()))
 				{
-					return align.equals(AlignmentConverter
-							.getPCAlignment(prereq.getKey()));
+					return align.equals(AlignmentConverter.getPCAlignment(prereq.getKey()));
 				}
 			}
 		}
-	
+
 		return true;
 	}
 

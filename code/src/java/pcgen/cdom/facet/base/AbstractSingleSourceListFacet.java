@@ -46,8 +46,7 @@ import pcgen.cdom.facet.event.DataFacetChangeEvent;
  * null is NOT a valid source.
  * 
  */
-public abstract class AbstractSingleSourceListFacet<T, ST> extends
-		AbstractDataFacet<CharID, T>
+public abstract class AbstractSingleSourceListFacet<T, ST> extends AbstractDataFacet<CharID, T>
 {
 	/**
 	 * Add the given object with the given source to the list of objects stored
@@ -442,8 +441,7 @@ public abstract class AbstractSingleSourceListFacet<T, ST> extends
 	 *            The source for the given object to be removed from the list of
 	 *            sources for that object
 	 */
-	private void processRemoval(CharID id, Map<T, ST> componentMap, T obj,
-			ST source)
+	private void processRemoval(CharID id, Map<T, ST> componentMap, T obj, ST source)
 	{
 		/*
 		 * TODO obj Null?
@@ -457,8 +455,7 @@ public abstract class AbstractSingleSourceListFacet<T, ST> extends
 			if (oldSource.equals(source))
 			{
 				componentMap.remove(obj);
-				fireDataFacetChangeEvent(id, obj,
-						DataFacetChangeEvent.DATA_REMOVED);
+				fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_REMOVED);
 			}
 		}
 	}
@@ -486,8 +483,7 @@ public abstract class AbstractSingleSourceListFacet<T, ST> extends
 			 * concurrent modification exception on a recursive remove
 			 */
 			List<T> removedKeys = new ArrayList<>();
-			for (Iterator<Map.Entry<T, ST>> it = componentMap.entrySet()
-					.iterator(); it.hasNext();)
+			for (Iterator<Map.Entry<T, ST>> it = componentMap.entrySet().iterator(); it.hasNext();)
 			{
 				Entry<T, ST> me = it.next();
 				Object currentsource = me.getValue();
@@ -504,8 +500,7 @@ public abstract class AbstractSingleSourceListFacet<T, ST> extends
 			}
 			for (T obj : removedKeys)
 			{
-				fireDataFacetChangeEvent(id, obj,
-					DataFacetChangeEvent.DATA_REMOVED);
+				fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_REMOVED);
 			}
 		}
 	}
@@ -595,8 +590,7 @@ public abstract class AbstractSingleSourceListFacet<T, ST> extends
 		{
 			if (map.remove(obj) != null)
 			{
-				fireDataFacetChangeEvent(id, obj,
-						DataFacetChangeEvent.DATA_REMOVED);
+				fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_REMOVED);
 			}
 		}
 	}

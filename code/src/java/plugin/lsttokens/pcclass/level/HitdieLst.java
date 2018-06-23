@@ -35,9 +35,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ComplexParseResult;
 import pcgen.rules.persistence.token.ParseResult;
 
-
-public class HitdieLst extends AbstractToken implements
-		CDOMPrimaryToken<PCClassLevel>
+public class HitdieLst extends AbstractToken implements CDOMPrimaryToken<PCClassLevel>
 {
 
 	@Override
@@ -55,8 +53,7 @@ public class HitdieLst extends AbstractToken implements
 			int pipeLoc = lock.indexOf(Constants.PIPE);
 			if (pipeLoc != -1)
 			{
-				return new ParseResult.Fail(getTokenName() + " is invalid has a pipe: "
-						+ value);
+				return new ParseResult.Fail(getTokenName() + " is invalid has a pipe: " + value);
 			}
 			Processor<HitDie> hdm;
 			if (lock.startsWith("%/"))
@@ -65,9 +62,8 @@ public class HitdieLst extends AbstractToken implements
 				int denom = Integer.parseInt(lock.substring(2));
 				if (denom <= 0)
 				{
-					return new ParseResult.Fail(getTokenName()
-							+ " was expecting a Positive Integer "
-							+ "for dividing Lock, was : " + lock.substring(2));
+					return new ParseResult.Fail(getTokenName() + " was expecting a Positive Integer "
+						+ "for dividing Lock, was : " + lock.substring(2));
 				}
 				hdm = new HitDieFormula(new DividingFormula(denom));
 			}
@@ -77,10 +73,8 @@ public class HitdieLst extends AbstractToken implements
 				int mult = Integer.parseInt(lock.substring(2));
 				if (mult <= 0)
 				{
-					return new ParseResult.Fail(getTokenName()
-							+ " was expecting a Positive "
-							+ "Integer for multiplying Lock, was : "
-							+ lock.substring(2));
+					return new ParseResult.Fail(getTokenName() + " was expecting a Positive "
+						+ "Integer for multiplying Lock, was : " + lock.substring(2));
 				}
 				hdm = new HitDieFormula(new MultiplyingFormula(mult));
 			}
@@ -91,10 +85,8 @@ public class HitdieLst extends AbstractToken implements
 				int add = Integer.parseInt(lock.substring(2));
 				if (add <= 0)
 				{
-					return new ParseResult.Fail(getTokenName()
-							+ " was expecting a Positive "
-							+ "Integer for adding Lock, was : "
-							+ lock.substring(2));
+					return new ParseResult.Fail(getTokenName() + " was expecting a Positive "
+						+ "Integer for adding Lock, was : " + lock.substring(2));
 				}
 				hdm = new HitDieFormula(new AddingFormula(add));
 			}
@@ -106,10 +98,8 @@ public class HitdieLst extends AbstractToken implements
 				int sub = Integer.parseInt(lock.substring(2));
 				if (sub <= 0)
 				{
-					return new ParseResult.Fail(getTokenName()
-							+ " was expecting a Positive "
-							+ "Integer for subtracting Lock, was : "
-							+ lock.substring(2));
+					return new ParseResult.Fail(getTokenName() + " was expecting a Positive "
+						+ "Integer for subtracting Lock, was : " + lock.substring(2));
 				}
 				hdm = new HitDieFormula(new SubtractingFormula(sub));
 			}
@@ -121,13 +111,13 @@ public class HitdieLst extends AbstractToken implements
 				int steps = Integer.parseInt(lock.substring(3));
 				if (steps <= 0)
 				{
-					return new ParseResult.Fail("Invalid Step Count: " + steps + " in "
-							+ getTokenName() + " up (must be positive)");
+					return new ParseResult.Fail(
+						"Invalid Step Count: " + steps + " in " + getTokenName() + " up (must be positive)");
 				}
 				if (steps >= 5)
 				{
-					return new ParseResult.Fail("Invalid Step Count: " + steps + " in "
-							+ getTokenName() + " up (too large)");
+					return new ParseResult.Fail(
+						"Invalid Step Count: " + steps + " in " + getTokenName() + " up (too large)");
 				}
 
 				hdm = new HitDieStep(steps, new HitDie(12));
@@ -140,8 +130,7 @@ public class HitdieLst extends AbstractToken implements
 				int steps = Integer.parseInt(lock.substring(4));
 				if (steps <= 0)
 				{
-					return new ParseResult.Fail("Invalid Step Count: " + steps + " in "
-							+ getTokenName());
+					return new ParseResult.Fail("Invalid Step Count: " + steps + " in " + getTokenName());
 				}
 				hdm = new HitDieStep(steps, null);
 			}
@@ -154,13 +143,13 @@ public class HitdieLst extends AbstractToken implements
 				int steps = Integer.parseInt(lock.substring(5));
 				if (steps <= 0)
 				{
-					return new ParseResult.Fail("Invalid Step Count: " + steps + " in "
-							+ getTokenName() + " down (must be positive)");
+					return new ParseResult.Fail(
+						"Invalid Step Count: " + steps + " in " + getTokenName() + " down (must be positive)");
 				}
 				if (steps >= 5)
 				{
-					return new ParseResult.Fail("Invalid Step Count: " + steps + " in "
-							+ getTokenName() + " down (too large)");
+					return new ParseResult.Fail(
+						"Invalid Step Count: " + steps + " in " + getTokenName() + " down (too large)");
 				}
 
 				hdm = new HitDieStep(-steps, new HitDie(4));
@@ -173,8 +162,7 @@ public class HitdieLst extends AbstractToken implements
 				int steps = Integer.parseInt(lock.substring(6));
 				if (steps <= 0)
 				{
-					return new ParseResult.Fail("Invalid Step Count: " + steps + " in "
-							+ getTokenName());
+					return new ParseResult.Fail("Invalid Step Count: " + steps + " in " + getTokenName());
 				}
 				hdm = new HitDieStep(-steps, null);
 			}
@@ -183,8 +171,7 @@ public class HitdieLst extends AbstractToken implements
 				int i = Integer.parseInt(lock);
 				if (i <= 0)
 				{
-					return new ParseResult.Fail("Invalid HitDie: " + i + " in "
-							+ getTokenName());
+					return new ParseResult.Fail("Invalid HitDie: " + i + " in " + getTokenName());
 				}
 				// HITDIE:num --- sets the hit die to num regardless of class.
 				hdm = new HitDieLock(new HitDie(i));
@@ -196,8 +183,7 @@ public class HitdieLst extends AbstractToken implements
 		catch (NumberFormatException nfe)
 		{
 			ComplexParseResult pr = new ComplexParseResult();
-			pr.addErrorMessage("Invalid Number in " + getTokenName() + ": "
-					+ nfe.getLocalizedMessage());
+			pr.addErrorMessage("Invalid Number in " + getTokenName() + ": " + nfe.getLocalizedMessage());
 			pr.addErrorMessage("  Must be an Integer");
 			return pr;
 		}
@@ -206,13 +192,12 @@ public class HitdieLst extends AbstractToken implements
 	@Override
 	public String[] unparse(LoadContext context, PCClassLevel level)
 	{
-		Processor<HitDie> hdcf = context.getObjectContext().getObject(level,
-				ObjectKey.HITDIE);
+		Processor<HitDie> hdcf = context.getObjectContext().getObject(level, ObjectKey.HITDIE);
 		if (hdcf == null)
 		{
 			return null;
 		}
-		return new String[] { hdcf.getLSTformat() };
+		return new String[]{hdcf.getLSTformat()};
 	}
 
 	@Override

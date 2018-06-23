@@ -28,7 +28,8 @@ import pcgen.core.PlayerCharacter;
  * Choice Manager List interface
  * @param <T> 
  */
-public interface ChoiceManagerList<T> {
+public interface ChoiceManagerList<T>
+{
 
 	/**
 	 * return handled chooser
@@ -42,10 +43,7 @@ public interface ChoiceManagerList<T> {
 	 * @param availableList
 	 * @param selectedList
 	 */
-	public abstract void getChoices(
-			final PlayerCharacter aPc,
-			final List<T> availableList,
-			final List<T> selectedList);
+	public abstract void getChoices(final PlayerCharacter aPc, final List<T> availableList, final List<T> selectedList);
 
 	/**
 	 * Do chooser
@@ -54,24 +52,18 @@ public interface ChoiceManagerList<T> {
 	 * @param selectedList
 	 * @return the list of selected items
 	 */
-	public abstract List<T> doChooser(
-			PlayerCharacter aPc,
-			final List<T> availableList,
-			final List<T> selectedList,
-			final List<String> reservedList);
+	public abstract List<T> doChooser(PlayerCharacter aPc, final List<T> availableList, final List<T> selectedList,
+		final List<String> reservedList);
 
 	/**
 	 * Do chooser for removing a choice
 	 * @param aPc
 	 * @param availableList
 	 * @param selectedList
+	 * @param reservedList 
 	 */
-	public abstract List<T> doChooserRemove (
-			PlayerCharacter aPc,
-			final List<T> availableList,
-			final List<T> selectedList,
-			final List<String> reservedList);
-
+	public abstract List<T> doChooserRemove(PlayerCharacter aPc, final List<T> availableList,
+		final List<T> selectedList, final List<String> reservedList);
 
 	/**
 	 * Apply the choices to the Pc
@@ -79,9 +71,7 @@ public interface ChoiceManagerList<T> {
 	 * @param aPC
 	 * @param selected
 	 */
-	public abstract boolean applyChoices(
-			final PlayerCharacter aPC,
-			final List<T> selected);
+	public abstract boolean applyChoices(final PlayerCharacter aPC, final List<T> selected);
 
 	/**
 	 * Calculate the number of effective choices the user can make.
@@ -91,8 +81,8 @@ public interface ChoiceManagerList<T> {
 	 * @param aPc The character the choice applies to.
 	 * @return The number of choices that may be made 
 	 */
-	public int getNumEffectiveChoices(final List<? extends T> selectedList,
-		final List<String> reservedList, PlayerCharacter aPc);
+	public int getNumEffectiveChoices(final List<? extends T> selectedList, final List<String> reservedList,
+		PlayerCharacter aPc);
 
 	public abstract boolean conditionallyApply(PlayerCharacter pc, T item);
 

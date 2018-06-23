@@ -22,8 +22,7 @@ package pcgen.core.term;
 
 import pcgen.core.PlayerCharacter;
 
-public class PCSpellLevelTermEvaluator 
-		extends BasePCTermEvaluator implements TermEvaluator
+public class PCSpellLevelTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
 	public PCSpellLevelTermEvaluator(String originalText)
 	{

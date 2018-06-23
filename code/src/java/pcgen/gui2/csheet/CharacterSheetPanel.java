@@ -33,6 +33,15 @@ import java.util.concurrent.FutureTask;
 
 import javax.swing.SwingUtilities;
 
+import org.lobobrowser.html.HtmlRendererContext;
+import org.lobobrowser.html.gui.HtmlPanel;
+import org.lobobrowser.html.parser.DocumentBuilderImpl;
+import org.lobobrowser.html.parser.InputSourceImpl;
+import org.lobobrowser.html.test.SimpleHtmlRendererContext;
+import org.lobobrowser.html.test.SimpleUserAgentContext;
+import org.w3c.dom.Document;
+import org.xml.sax.SAXException;
+
 import pcgen.core.Globals;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.gui2.PCGenFrame;
@@ -43,38 +52,25 @@ import pcgen.io.ExportHandler;
 import pcgen.system.ConfigurationSettings;
 import pcgen.util.Logging;
 
-import org.lobobrowser.html.HtmlRendererContext;
-import org.lobobrowser.html.gui.HtmlPanel;
-import org.lobobrowser.html.parser.DocumentBuilderImpl;
-import org.lobobrowser.html.parser.InputSourceImpl;
-import org.lobobrowser.html.test.SimpleHtmlRendererContext;
-import org.lobobrowser.html.test.SimpleUserAgentContext;
-import org.w3c.dom.Document;
-import org.xml.sax.SAXException;
-
-
 public class CharacterSheetPanel extends HtmlPanel implements CharacterSelectionListener
 {
 	private enum CssColor
 	{
-		BLUE("preview_color_blue.css"),
-		LIGHTBLUE("preview_color_light_blue.css"),
-		GREEN("preview_color_green.css"),
-		LIGHTGREEN("preview_color_light_green.css"),
-		RED("preview_color_red.css"),
-		LIGHTRED("preview_color_light_red.css"),
-		YELLOW("preview_color_yellow.css"),
-		LIGHTYELLOW("preview_color_light_yellow.css"),
-		GREY("preview_color_grey.css"),
-		LIGHTGREY("preview_color_light_grey.css");
+		BLUE("preview_color_blue.css"), LIGHTBLUE("preview_color_light_blue.css"), GREEN(
+				"preview_color_green.css"), LIGHTGREEN("preview_color_light_green.css"), RED(
+						"preview_color_red.css"), LIGHTRED("preview_color_light_red.css"), YELLOW(
+								"preview_color_yellow.css"), LIGHTYELLOW("preview_color_light_yellow.css"), GREY(
+										"preview_color_grey.css"), LIGHTGREY("preview_color_light_grey.css");
 
 		private final String cssfile;
 
-		CssColor(String cssfile) {
+		CssColor(String cssfile)
+		{
 			this.cssfile = cssfile;
 		}
 
-		public String getCssfile() {
+		public String getCssfile()
+		{
 			return this.cssfile;
 		}
 	}
@@ -88,23 +84,19 @@ public class CharacterSheetPanel extends HtmlPanel implements CharacterSelection
 	private CharacterFacade character;
 	private FutureTask<Document> refreshTask;
 
-
-
 	public CharacterSheetPanel()
 	{
 		theRendererContext = new SimpleHtmlRendererContext(this, new SimpleUserAgentContext());
-		theDocBuilder = new DocumentBuilderImpl(theRendererContext.getUserAgentContext(),
-			theRendererContext);
+		theDocBuilder = new DocumentBuilderImpl(theRendererContext.getUserAgentContext(), theRendererContext);
 
 		// KAW TODO rewrite to use StatusWorker and PCGenTask for better progress display
 
-		refreshService = Executors.newSingleThreadExecutor(r ->
-		{
-            Thread thread = new Thread(r, "Character-Sheet-Refresher-Thread");
-            thread.setDaemon(true);
-            thread.setPriority(Thread.NORM_PRIORITY);
-            return thread;
-        });
+		refreshService = Executors.newSingleThreadExecutor(r -> {
+			Thread thread = new Thread(r, "Character-Sheet-Refresher-Thread");
+			thread.setDaemon(true);
+			thread.setPriority(Thread.NORM_PRIORITY);
+			return thread;
+		});
 	}
 
 	@Override
@@ -151,32 +143,35 @@ public class CharacterSheetPanel extends HtmlPanel implements CharacterSelection
 		{
 			if (!isCancelled())
 			{
-				SwingUtilities.invokeLater(() ->
-				{
-                    Document doc = null;
-                    try
-                    {
-                        doc = get();
-                    }
-                    catch (Throwable e)
-                    {
-                        final String errorMsg = String.format("<html><body>Unable to process sheet<br>%s</body></html>", e);
-                        try (InputStream instream = new ByteArrayInputStream(errorMsg.getBytes())) {
-                            doc = theDocBuilder.parse(instream);
-                        } catch (IOException | SAXException e1) {
-                            e1.printStackTrace();
-                        }
-                        Logging.errorPrint("Unable to process sheet: ", e);
-                    }
-                    if (doc != null)
-                    {
-                        setDocument(doc, theRendererContext);
-                    }
+				SwingUtilities.invokeLater(() -> {
+					Document doc = null;
+					try
+					{
+						doc = get();
+					}
+					catch (Throwable e)
+					{
+						final String errorMsg =
+								String.format("<html><body>Unable to process sheet<br>%s</body></html>", e);
+						try (InputStream instream = new ByteArrayInputStream(errorMsg.getBytes()))
+						{
+							doc = theDocBuilder.parse(instream);
+						}
+						catch (IOException | SAXException e1)
+						{
+							e1.printStackTrace();
+						}
+						Logging.errorPrint("Unable to process sheet: ", e);
+					}
+					if (doc != null)
+					{
+						setDocument(doc, theRendererContext);
+					}
 
-                    // Re-set status bar and end progress bar display
-                    final PCGenStatusBar statusBar = ((PCGenFrame) Globals.getRootFrame()).getStatusBar();
-                    statusBar.endShowingProgress();
-                });
+					// Re-set status bar and end progress bar display
+					final PCGenStatusBar statusBar = ((PCGenFrame) Globals.getRootFrame()).getStatusBar();
+					statusBar.endShowingProgress();
+				});
 			}
 		}
 	}
@@ -184,7 +179,8 @@ public class CharacterSheetPanel extends HtmlPanel implements CharacterSelection
 	private class DocumentConstructor implements Callable<Document>
 	{
 		@Override
-		public Document call() throws URISyntaxException, IOException, ExportException, SAXException {
+		public Document call() throws URISyntaxException, IOException, ExportException, SAXException
+		{
 			StringWriter out = new StringWriter();
 			BufferedWriter buf = new BufferedWriter(out);
 			character.export(handler, buf);

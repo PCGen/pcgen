@@ -20,13 +20,13 @@ package pcgen.output.model;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import freemarker.template.TemplateModel;
+import freemarker.template.TemplateModelException;
+import freemarker.template.TemplateSequenceModel;
 import pcgen.cdom.base.SetFacet;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.ObjectWrapperFacet;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
-import freemarker.template.TemplateSequenceModel;
 
 /**
  * A SetFacetModel wraps a SetFacet and serves as a TemplateSequenceModel for
@@ -39,8 +39,7 @@ import freemarker.template.TemplateSequenceModel;
 public class SetFacetModel<T> implements TemplateSequenceModel, Iterable<T>
 {
 	//Make sure to use PCGen's Wrappers since we don't know the underlying type
-	private static final ObjectWrapperFacet WRAPPER_FACET = FacetLibrary
-		.getFacet(ObjectWrapperFacet.class);
+	private static final ObjectWrapperFacet WRAPPER_FACET = FacetLibrary.getFacet(ObjectWrapperFacet.class);
 
 	/**
 	 * The underlying CharID used to get items from the underlying SetFacet

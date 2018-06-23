@@ -29,8 +29,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with SPELLSTAT Token
  */
-public class SpellstatToken extends AbstractNonEmptyToken<PCClass> implements
-		CDOMPrimaryToken<PCClass>
+public class SpellstatToken extends AbstractNonEmptyToken<PCClass> implements CDOMPrimaryToken<PCClass>
 {
 
 	private static final Class<PCStat> PCSTAT_CLASS = PCStat.class;
@@ -46,27 +45,20 @@ public class SpellstatToken extends AbstractNonEmptyToken<PCClass> implements
 	{
 		if ("SPELL".equalsIgnoreCase(value))
 		{
-			context.getObjectContext().put(pcc, ObjectKey.USE_SPELL_SPELL_STAT,
-					Boolean.TRUE);
+			context.getObjectContext().put(pcc, ObjectKey.USE_SPELL_SPELL_STAT, Boolean.TRUE);
 			return ParseResult.SUCCESS;
 		}
-		context.getObjectContext().put(pcc, ObjectKey.USE_SPELL_SPELL_STAT,
-				Boolean.FALSE);
+		context.getObjectContext().put(pcc, ObjectKey.USE_SPELL_SPELL_STAT, Boolean.FALSE);
 		if ("OTHER".equalsIgnoreCase(value))
 		{
-			context.getObjectContext().put(pcc,
-					ObjectKey.CASTER_WITHOUT_SPELL_STAT, Boolean.TRUE);
+			context.getObjectContext().put(pcc, ObjectKey.CASTER_WITHOUT_SPELL_STAT, Boolean.TRUE);
 			return ParseResult.SUCCESS;
 		}
-		context.getObjectContext().put(pcc,
-				ObjectKey.CASTER_WITHOUT_SPELL_STAT, Boolean.FALSE);
-		CDOMSingleRef<PCStat> pcs =
-				context.getReferenceContext().getCDOMReference(PCSTAT_CLASS,
-					value);
+		context.getObjectContext().put(pcc, ObjectKey.CASTER_WITHOUT_SPELL_STAT, Boolean.FALSE);
+		CDOMSingleRef<PCStat> pcs = context.getReferenceContext().getCDOMReference(PCSTAT_CLASS, value);
 		if (pcs == null)
 		{
-			return new ParseResult.Fail("Invalid Stat Abbreviation in " + getTokenName()
-					+ ": " + value);
+			return new ParseResult.Fail("Invalid Stat Abbreviation in " + getTokenName() + ": " + value);
 		}
 		context.getObjectContext().put(pcc, ObjectKey.SPELL_STAT, pcs);
 		return ParseResult.SUCCESS;
@@ -75,24 +67,19 @@ public class SpellstatToken extends AbstractNonEmptyToken<PCClass> implements
 	@Override
 	public String[] unparse(LoadContext context, PCClass pcc)
 	{
-		CDOMSingleRef<PCStat> pcs =
-				context.getObjectContext().getObject(pcc, ObjectKey.SPELL_STAT);
-		Boolean useStat = context.getObjectContext().getObject(pcc,
-				ObjectKey.USE_SPELL_SPELL_STAT);
-		Boolean otherCaster = context.getObjectContext().getObject(pcc,
-				ObjectKey.CASTER_WITHOUT_SPELL_STAT);
+		CDOMSingleRef<PCStat> pcs = context.getObjectContext().getObject(pcc, ObjectKey.SPELL_STAT);
+		Boolean useStat = context.getObjectContext().getObject(pcc, ObjectKey.USE_SPELL_SPELL_STAT);
+		Boolean otherCaster = context.getObjectContext().getObject(pcc, ObjectKey.CASTER_WITHOUT_SPELL_STAT);
 		if (useStat == null)
 		{
 			if (pcs != null)
 			{
-				context.addWriteMessage(getTokenName()
-					+ " expected USE_SPELL_SPELL_STAT to exist "
-					+ "if SPELL_STAT was defined");
+				context.addWriteMessage(
+					getTokenName() + " expected USE_SPELL_SPELL_STAT to exist " + "if SPELL_STAT was defined");
 			}
 			if (otherCaster != null)
 			{
-				context.addWriteMessage(getTokenName()
-					+ " expected USE_SPELL_SPELL_STAT to exist "
+				context.addWriteMessage(getTokenName() + " expected USE_SPELL_SPELL_STAT to exist "
 					+ "if CASTER_WITHOUT_SPELL_STAT was defined");
 			}
 			return null;
@@ -102,13 +89,12 @@ public class SpellstatToken extends AbstractNonEmptyToken<PCClass> implements
 			/*
 			 * Don't test pcs != null or otherCaster != null due to .MOD behavior
 			 */
-			return new String[] { "SPELL" };
+			return new String[]{"SPELL"};
 		}
 		if (otherCaster == null)
 		{
-			context.addWriteMessage(getTokenName()
-				+ " expected CASTER_WITHOUT_SPELL_STAT to exist "
-				+ "if USE_SPELL_SPELL_STAT was false");
+			context.addWriteMessage(
+				getTokenName() + " expected CASTER_WITHOUT_SPELL_STAT to exist " + "if USE_SPELL_SPELL_STAT was false");
 			return null;
 		}
 		else if (otherCaster.booleanValue())
@@ -116,12 +102,11 @@ public class SpellstatToken extends AbstractNonEmptyToken<PCClass> implements
 			/*
 			 * Don't test pcs != null due to .MOD behavior
 			 */
-			return new String[] { "OTHER" };
+			return new String[]{"OTHER"};
 		}
 		else if (pcs == null)
 		{
-			context.addWriteMessage(getTokenName()
-				+ " expected SPELL_STAT to exist since USE_SPELL_SPELL_STAT "
+			context.addWriteMessage(getTokenName() + " expected SPELL_STAT to exist since USE_SPELL_SPELL_STAT "
 				+ "and CASTER_WITHOUT_SPELL_STAT were false");
 			return null;
 		}

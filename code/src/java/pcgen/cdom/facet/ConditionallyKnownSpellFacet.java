@@ -25,7 +25,6 @@ import pcgen.cdom.helper.AvailableSpell;
  * target objects) that are contained in a Player Character.
  * 
  */
-public class ConditionallyKnownSpellFacet extends
-		AbstractQualifiedListFacet<AvailableSpell>
+public class ConditionallyKnownSpellFacet extends AbstractQualifiedListFacet<AvailableSpell>
 {
 }

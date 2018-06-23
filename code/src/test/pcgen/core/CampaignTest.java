@@ -49,7 +49,8 @@ public class CampaignTest extends TestCase
 	public void testURL() throws Exception
 	{
 		final String eCommerceName = "Barcommerce";
-		final String eCommerceURL = "http://www.barcommercesite.com/product_info.php?products_id=12345&affiliate_id=54321";
+		final String eCommerceURL =
+				"http://www.barcommercesite.com/product_info.php?products_id=12345&affiliate_id=54321";
 		final String eCommerceDesc = "Support PCGen by buying this source now!";
 
 		assertEquals("No URLs in the campaign to start", true, testCamp

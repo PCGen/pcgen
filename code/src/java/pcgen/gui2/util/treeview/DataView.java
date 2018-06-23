@@ -20,23 +20,22 @@ package pcgen.gui2.util.treeview;
 
 import java.util.List;
 
-
 public interface DataView<E>
 {
 
-    /**
-     * Note: If any of the returned data is editable, make sure that the returned
-     * list is editable as well.
-     * @return editable list
-     */
+	/**
+	 * Note: If any of the returned data is editable, make sure that the returned
+	 * list is editable as well.
+	 * @return editable list
+	 */
 	Object getData(E element, int column);
-	
+
 	void setData(Object value, E element, int column);
 
-    List<? extends DataViewColumn> getDataColumns();
+	List<? extends DataViewColumn> getDataColumns();
 
-    /**
-     * @return The key that will be used to save any preferences for this data view. 
-     */
-    String getPrefsKey();
+	/**
+	 * @return The key that will be used to save any preferences for this data view. 
+	 */
+	String getPrefsKey();
 }

@@ -38,8 +38,7 @@ public class LangBonusToken implements PrimitiveToken<Language>, PrimitiveFilter
 	private CDOMReference<Language> allLanguages;
 
 	@Override
-	public boolean initialize(LoadContext context, Class<Language> cl,
-			String value, String args)
+	public boolean initialize(LoadContext context, Class<Language> cl, String value, String args)
 	{
 		allLanguages = context.getReferenceContext().getCDOMAllReference(LANGUAGE_CLASS);
 		return (value == null) && (args == null);

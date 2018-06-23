@@ -23,8 +23,7 @@ import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class HeightunitToken extends AbstractNonEmptyToken<UnitSet> implements
-		CDOMPrimaryToken<UnitSet>
+public class HeightunitToken extends AbstractNonEmptyToken<UnitSet> implements CDOMPrimaryToken<UnitSet>
 {
 
 	@Override
@@ -34,8 +33,7 @@ public class HeightunitToken extends AbstractNonEmptyToken<UnitSet> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, UnitSet us,
-			String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, UnitSet us, String value)
 	{
 		us.setHeightUnit(value);
 		return ParseResult.SUCCESS;
@@ -44,7 +42,7 @@ public class HeightunitToken extends AbstractNonEmptyToken<UnitSet> implements
 	@Override
 	public String[] unparse(LoadContext context, UnitSet us)
 	{
-		return new String[] { us.getRawHeightUnit() };
+		return new String[]{us.getRawHeightUnit()};
 	}
 
 	@Override

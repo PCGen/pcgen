@@ -20,7 +20,6 @@
  */
 package gmgen.plugin.dice;
 
-
 /** A normal die
  */
 public class Dice extends Die

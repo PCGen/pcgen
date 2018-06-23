@@ -34,8 +34,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Handles the KIT tag for Kits. Allows Common tags for this Kit line as well.
  */
-public class KitToken extends AbstractTokenWithSeparator<KitKit> implements
-		CDOMPrimaryToken<KitKit>
+public class KitToken extends AbstractTokenWithSeparator<KitKit> implements CDOMPrimaryToken<KitKit>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -61,16 +60,14 @@ public class KitToken extends AbstractTokenWithSeparator<KitKit> implements
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		KitKit kitKit, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, KitKit kitKit, String value)
 	{
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 
 		while (tok.hasMoreTokens())
 		{
 			String tokText = tok.nextToken();
-			CDOMSingleRef<Kit> ref =
-					context.getReferenceContext().getCDOMReference(Kit.class, tokText);
+			CDOMSingleRef<Kit> ref = context.getReferenceContext().getCDOMReference(Kit.class, tokText);
 			kitKit.addKit(ref);
 		}
 		return ParseResult.SUCCESS;
@@ -84,7 +81,6 @@ public class KitToken extends AbstractTokenWithSeparator<KitKit> implements
 		{
 			return null;
 		}
-		return new String[]{ReferenceUtilities.joinLstFormat(kits,
-			Constants.PIPE)};
+		return new String[]{ReferenceUtilities.joinLstFormat(kits, Constants.PIPE)};
 	}
 }

@@ -25,8 +25,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 /**
  * Class deals with RANK Token
  */
-public class RankToken extends AbstractIntToken<Campaign> implements
-		CDOMPrimaryToken<Campaign>
+public class RankToken extends AbstractIntToken<Campaign> implements CDOMPrimaryToken<Campaign>
 {
 
 	@Override
@@ -41,7 +40,7 @@ public class RankToken extends AbstractIntToken<Campaign> implements
 		return IntegerKey.CAMPAIGN_RANK;
 	}
 
-    @Override
+	@Override
 	public Class<Campaign> getTokenClass()
 	{
 		return Campaign.class;

@@ -68,8 +68,7 @@ public class ReferenceDependency
 	 */
 	public Collection<Indirect<?>> getReferences()
 	{
-		return (references == null) ? Collections.emptyList()
-			: Collections.unmodifiableCollection(references);
+		return (references == null) ? Collections.emptyList() : Collections.unmodifiableCollection(references);
 	}
 
 }

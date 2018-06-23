@@ -25,18 +25,14 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
 
-
-public class PreLevelMaxTester extends AbstractDisplayPrereqTest implements
-		PrerequisiteTest
+public class PreLevelMaxTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
 	@Override
 	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
 	{
 		final int requiredLevel = Integer.parseInt(prereq.getOperand());
-		final int runningTotal =
-				prereq.getOperator().compare(display.totalNonMonsterLevels(),
-					requiredLevel);
+		final int runningTotal = prereq.getOperator().compare(display.totalNonMonsterLevels(), requiredLevel);
 		return countedTotal(prereq, runningTotal);
 	}
 
@@ -44,7 +40,7 @@ public class PreLevelMaxTester extends AbstractDisplayPrereqTest implements
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "LEVELMAX"; //$NON-NLS-1$
@@ -53,9 +49,8 @@ public class PreLevelMaxTester extends AbstractDisplayPrereqTest implements
 	@Override
 	public String toHtmlString(final Prerequisite prereq)
 	{
-		return LanguageBundle.getFormattedString("PreLevelMax.toHtml",
-				prereq.getOperator().toDisplayString(),
-				prereq.getOperand()); // $NON-NLS-1$
+		return LanguageBundle.getFormattedString("PreLevelMax.toHtml", prereq.getOperator().toDisplayString(),
+			prereq.getOperand()); // $NON-NLS-1$
 	}
 
 }

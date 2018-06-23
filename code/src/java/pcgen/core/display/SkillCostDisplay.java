@@ -56,8 +56,7 @@ public final class SkillCostDisplay
 	 *            True if the abbreviated form should be used.
 	 * @return The explanation of the misc modifier's make-up.
 	 */
-	public static String getModifierExplanation(Skill sk, PlayerCharacter aPC,
-			boolean shortForm)
+	public static String getModifierExplanation(Skill sk, PlayerCharacter aPC, boolean shortForm)
 	{
 		double bonusObjTotal = 0.0;
 		List<String> explanation = new ArrayList<>();
@@ -81,7 +80,7 @@ public final class SkillCostDisplay
 						}
 					}
 				}
-	
+
 				if (include)
 				{
 					double iBonus = 0;
@@ -95,21 +94,20 @@ public final class SkillCostDisplay
 					}
 					if (!CoreUtility.doublesEqual(iBonus, 0.0))
 					{
-						explanation.add(Delta.toString((int) iBonus)
-								+ aPC.getBonusContext(bonus, shortForm));
+						explanation.add(Delta.toString((int) iBonus) + aPC.getBonusContext(bonus, shortForm));
 						bonusObjTotal += iBonus;
 					}
 				}
 			}
 		}
-	
+
 		StringBuilder bonusDetails = new StringBuilder();
 		bonusDetails.append(StringUtil.joinToStringBuilder(explanation, " "));
-		
+
 		// TODO: Need to add other bonuses which are not encoded as bonus
 		// objects
 		// - familiars, racial, feats - and add them to bonusObjTotal
-	
+
 		double bonus;
 		CDOMSingleRef<PCStat> statref = sk.get(ObjectKey.KEY_STAT);
 		if (statref != null)
@@ -119,66 +117,64 @@ public final class SkillCostDisplay
 			bonus += aPC.getTotalBonusTo("SKILL", "STAT." + stat.getKeyName());
 			SkillCostDisplay.appendBonusDesc(bonusDetails, bonus, "STAT");
 		}
-	
+
 		// The catch-all for non-bonusObj modifiers.
 		bonus = aPC.getTotalBonusTo("SKILL", keyName) - bonusObjTotal;
 		SkillCostDisplay.appendBonusDesc(bonusDetails, bonus, "OTHER");
-	
+
 		// loop through all current skill types checking for boni
 		for (Type singleType : sk.getTrueTypeList(false))
 		{
 			bonus = aPC.getTotalBonusTo("SKILL", "TYPE." + singleType);
 			SkillCostDisplay.appendBonusDesc(bonusDetails, bonus, "TYPE." + singleType);
 		}
-	
+
 		// now check for any lists of skills, etc
 		bonus = aPC.getTotalBonusTo("SKILL", "LIST");
 		SkillCostDisplay.appendBonusDesc(bonusDetails, bonus, "LIST");
-	
+
 		// now check for ALL
 		bonus = aPC.getTotalBonusTo("SKILL", "ALL");
 		SkillCostDisplay.appendBonusDesc(bonusDetails, bonus, "ALL");
-	
+
 		// these next two if-blocks try to get BONUS:[C]CSKILL|TYPE=xxx|y to
 		// function
 		if (aPC.isClassSkill(sk))
 		{
 			bonus = aPC.getTotalBonusTo("CSKILL", keyName);
 			SkillCostDisplay.appendBonusDesc(bonusDetails, bonus, "CSKILL");
-	
+
 			// loop through all current skill types checking for boni
 			for (Type singleType : sk.getTrueTypeList(false))
 			{
 				bonus = aPC.getTotalBonusTo("CSKILL", "TYPE." + singleType);
-				SkillCostDisplay
-						.appendBonusDesc(bonusDetails, bonus, "CSKILL");
+				SkillCostDisplay.appendBonusDesc(bonusDetails, bonus, "CSKILL");
 			}
-	
+
 			bonus = aPC.getTotalBonusTo("CSKILL", "LIST");
 			SkillCostDisplay.appendBonusDesc(bonusDetails, bonus, "CSKILL");
 		}
-	
-		if (!aPC.isClassSkill(sk)
-				&& !sk.getSafe(ObjectKey.EXCLUSIVE))
+
+		if (!aPC.isClassSkill(sk) && !sk.getSafe(ObjectKey.EXCLUSIVE))
 		{
 			bonus = aPC.getTotalBonusTo("CCSKILL", keyName);
 			SkillCostDisplay.appendBonusDesc(bonusDetails, bonus, "CCSKILL");
-	
+
 			// loop through all current skill types checking for boni
 			for (Type singleType : sk.getTrueTypeList(false))
 			{
 				bonus = aPC.getTotalBonusTo("CCSKILL", "TYPE." + singleType);
 				SkillCostDisplay.appendBonusDesc(bonusDetails, bonus, "CCSKILL");
 			}
-	
+
 			bonus = aPC.getTotalBonusTo("CCSKILL", "LIST");
 			SkillCostDisplay.appendBonusDesc(bonusDetails, bonus, "CCSKILL");
 		}
-	
+
 		// Encumbrance
 		int aCheckMod = sk.getSafe(ObjectKey.ARMOR_CHECK).calculateBonus(aPC);
 		SkillCostDisplay.appendBonusDesc(bonusDetails, aCheckMod, "ARMOR");
-	
+
 		String aString = SettingsHandler.getGame().getRankModFormula();
 		if (!aString.isEmpty())
 		{
@@ -186,7 +182,7 @@ public final class SkillCostDisplay
 			bonus = aPC.getVariableValue(aString, "").intValue();
 			SkillCostDisplay.appendBonusDesc(bonusDetails, bonus, "RANKS");
 		}
-	
+
 		return bonusDetails.toString();
 	}
 
@@ -201,9 +197,9 @@ public final class SkillCostDisplay
 		}
 		return false;
 	}
-	
-	public static String getSituationModifierExplanation(Skill sk,
-		String situation, PlayerCharacter aPC, boolean shortForm)
+
+	public static String getSituationModifierExplanation(Skill sk, String situation, PlayerCharacter aPC,
+		boolean shortForm)
 	{
 		List<String> explanation = new ArrayList<>();
 		String keyName = sk.getKeyName();
@@ -240,8 +236,7 @@ public final class SkillCostDisplay
 					}
 					if (!CoreUtility.doublesEqual(iBonus, 0.0))
 					{
-						explanation.add(Delta.toString((int) iBonus)
-							+ aPC.getBonusContext(bonus, shortForm));
+						explanation.add(Delta.toString((int) iBonus) + aPC.getBonusContext(bonus, shortForm));
 					}
 				}
 			}
@@ -261,14 +256,13 @@ public final class SkillCostDisplay
 	 * @param description
 	 *            The description of the bonus.
 	 */
-	public static void appendBonusDesc(StringBuilder bonusDetails,
-		double bonus, String description)
+	public static void appendBonusDesc(StringBuilder bonusDetails, double bonus, String description)
 	{
 		if (CoreUtility.doublesEqual(bonus, 0.0))
 		{
 			return;
 		}
-	
+
 		if (bonusDetails.length() > 0)
 		{
 			bonusDetails.append(' ');
@@ -305,7 +299,7 @@ public final class SkillCostDisplay
 			{
 				sb.append("; ");
 			}
-			
+
 			sb.append("Skillrank bonus ");
 			sb.append(NumberFormat.getNumberInstance().format(bonus));
 		}

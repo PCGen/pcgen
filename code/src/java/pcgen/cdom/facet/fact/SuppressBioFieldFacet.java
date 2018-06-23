@@ -53,12 +53,10 @@ public class SuppressBioFieldFacet extends AbstractStorageFacet<CharID>
 	public boolean setSuppressField(CharID id, BiographyField field, boolean suppress)
 	{
 		@SuppressWarnings("unchecked")
-		Set<BiographyField> suppressedFields =
-				(Set<BiographyField>) getCache(id);
+		Set<BiographyField> suppressedFields = (Set<BiographyField>) getCache(id);
 		if (suppressedFields == null)
 		{
-			suppressedFields =
-					Collections.synchronizedSet(new HashSet<BiographyField>());
+			suppressedFields = Collections.synchronizedSet(new HashSet<BiographyField>());
 			setCache(id, suppressedFields);
 		}
 
@@ -118,8 +116,7 @@ public class SuppressBioFieldFacet extends AbstractStorageFacet<CharID>
 		Set<BiographyField> set = (Set<BiographyField>) getCache(source);
 		if (set != null)
 		{
-			Set<BiographyField> copyset =
-					Collections.synchronizedSet(new HashSet<BiographyField>());
+			Set<BiographyField> copyset = Collections.synchronizedSet(new HashSet<BiographyField>());
 			copyset.addAll(set);
 			setCache(copy, copyset);
 		}

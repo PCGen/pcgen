@@ -45,8 +45,8 @@ public class DieSizesToken implements GameModeLstToken
 			}
 			catch (NumberFormatException e)
 			{
-				Logging.errorPrint("Invalid integer value for DIESIZES: " + aString
-					+ ".  Original value: DIESIZES:" + value);
+				Logging.errorPrint(
+					"Invalid integer value for DIESIZES: " + aString + ".  Original value: DIESIZES:" + value);
 			}
 
 		}

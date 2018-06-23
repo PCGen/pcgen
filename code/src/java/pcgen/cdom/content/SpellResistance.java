@@ -32,8 +32,7 @@ public class SpellResistance extends ConcretePrereqObject
 	 * The special case of no spell resistance. This is "cached" in order to
 	 * provide reuse of this case during runtime.
 	 */
-	public static final SpellResistance NONE = new SpellResistance(
-			FormulaFactory.ZERO);
+	public static final SpellResistance NONE = new SpellResistance(FormulaFactory.ZERO);
 
 	/**
 	 * The Formula representing the reduction provided by this SpellResistance.

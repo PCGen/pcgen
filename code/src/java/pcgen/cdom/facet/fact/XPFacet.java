@@ -110,8 +110,7 @@ public class XPFacet extends AbstractItemFacet<CharID, Integer>
 		 * minXPForLevel. This still means that levelAdjustment of 0 gives you 0
 		 * XP, but we need LA of 1 to give us 1,000 XP.
 		 */
-		return levelTableFacet.minXPForLevel(
-			levelFacet.getLevelAdjustment(id) + 1, id);
+		return levelTableFacet.minXPForLevel(levelFacet.getLevelAdjustment(id) + 1, id);
 	}
 
 	/**
@@ -151,7 +150,7 @@ public class XPFacet extends AbstractItemFacet<CharID, Integer>
 	/**
 	 * @param levelFacet the levelFacet to set
 	 */
-	public void setLevelFacet(LevelFacet levelFacet) 
+	public void setLevelFacet(LevelFacet levelFacet)
 	{
 		this.levelFacet = levelFacet;
 	}
@@ -159,7 +158,7 @@ public class XPFacet extends AbstractItemFacet<CharID, Integer>
 	/**
 	 * @param levelTableFacet the levelTableFacet to set
 	 */
-	public void setLevelTableFacet(LevelTableFacet levelTableFacet) 
+	public void setLevelTableFacet(LevelTableFacet levelTableFacet)
 	{
 		this.levelTableFacet = levelTableFacet;
 	}

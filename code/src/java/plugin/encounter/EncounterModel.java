@@ -54,7 +54,8 @@ public class EncounterModel extends DefaultListModel
 
 		for (int i = 0; i < size(); i++)
 		{
-			Race aRace = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Race.class, (String) elementAt(i));
+			Race aRace = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Race.class,
+				(String) elementAt(i));
 			ChallengeRating rcr = aRace.get(ObjectKey.CHALLENGE_RATING);
 			if (rcr != null)
 			{

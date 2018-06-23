@@ -43,9 +43,8 @@ import pcgen.util.Logging;
 /**
  * New chooser plugin, handles no Choice.
  */
-public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
-		ChooseInformation<String>, Chooser<String>,
-		DeferredToken<CDOMObject>
+public class NoChoiceToken
+		implements CDOMSecondaryToken<CDOMObject>, ChooseInformation<String>, Chooser<String>, DeferredToken<CDOMObject>
 {
 
 	@Override
@@ -61,8 +60,7 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 	}
 
 	@Override
-	public ParseResult parseToken(LoadContext context, CDOMObject obj,
-		String value)
+	public ParseResult parseToken(LoadContext context, CDOMObject obj, String value)
 	{
 		if (value == null)
 		{
@@ -70,16 +68,13 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 			context.getObjectContext().put(obj, ObjectKey.CHOOSE_INFO, this);
 			return ParseResult.SUCCESS;
 		}
-		return new ParseResult.Fail("CHOOSE:" + getTokenName()
-			+ " will ignore arguments: " + value);
+		return new ParseResult.Fail("CHOOSE:" + getTokenName() + " will ignore arguments: " + value);
 	}
 
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
-		ChooseInformation<?> chooseString =
-				context.getObjectContext()
-					.getObject(cdo, ObjectKey.CHOOSE_INFO);
+		ChooseInformation<?> chooseString = context.getObjectContext().getObject(cdo, ObjectKey.CHOOSE_INFO);
 		if ((chooseString == null) || !chooseString.equals(this))
 		{
 			return null;
@@ -171,8 +166,7 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 		restoreChoice(pc, owner, "");
 	}
 
-	private void applyChoice(ChooseDriver owner, PlayerCharacter pc,
-		ChooseSelectionActor<String> ca)
+	private void applyChoice(ChooseDriver owner, PlayerCharacter pc, ChooseSelectionActor<String> ca)
 	{
 		ca.applyChoice(owner, "", pc);
 	}
@@ -192,8 +186,7 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 	}
 
 	@Override
-	public void restoreChoice(PlayerCharacter pc, ChooseDriver owner,
-		String choice)
+	public void restoreChoice(PlayerCharacter pc, ChooseDriver owner, String choice)
 	{
 		pc.addAssoc(owner, getListKey(), "");
 		List<ChooseSelectionActor<?>> actors = owner.getActors();
@@ -207,8 +200,7 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 	}
 
 	@Override
-	public List<String> getCurrentlySelected(ChooseDriver owner,
-		PlayerCharacter pc)
+	public List<String> getCurrentlySelected(ChooseDriver owner, PlayerCharacter pc)
 	{
 		return pc.getAssocList(owner, getListKey());
 	}
@@ -237,9 +229,8 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 		ChooseInformation<?> ci = obj.get(ObjectKey.CHOOSE_INFO);
 		if ((ci == this) && !obj.getSafe(ObjectKey.STACKS))
 		{
-			Logging
-				.errorPrint("CHOOSE:NOCHOICE requires both MULT:YES and STACK:YES, was STACK:NO on "
-					+ obj.getClass().getSimpleName() + ' ' + obj.getKeyName(), obj.getSourceURI());
+			Logging.errorPrint("CHOOSE:NOCHOICE requires both MULT:YES and STACK:YES, was STACK:NO on "
+				+ obj.getClass().getSimpleName() + ' ' + obj.getKeyName(), obj.getSourceURI());
 			return false;
 		}
 		return true;

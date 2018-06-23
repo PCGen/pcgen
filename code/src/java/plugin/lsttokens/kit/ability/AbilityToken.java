@@ -37,8 +37,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Deals with ABILITY lst token within KitAbilities
  */
-public class AbilityToken extends AbstractNonEmptyToken<KitAbilities> implements
-		CDOMPrimaryToken<KitAbilities>
+public class AbilityToken extends AbstractNonEmptyToken<KitAbilities> implements CDOMPrimaryToken<KitAbilities>
 {
 	private static final Class<Ability> ABILITY_CLASS = Ability.class;
 	private static final Class<AbilityCategory> ABILITY_CATEGORY_CLASS = AbilityCategory.class;
@@ -61,34 +60,29 @@ public class AbilityToken extends AbstractNonEmptyToken<KitAbilities> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		KitAbilities kitAbil, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, KitAbilities kitAbil, String value)
 	{
 		int pipeLoc = value.indexOf(Constants.PIPE);
 		if (pipeLoc == -1)
 		{
 			return new ParseResult.Fail(
-				"No pipe found.  ABILITY token "
-					+ "in a Kit requires CATEGORY=<cat>|<ability>,<ability>");
+				"No pipe found.  ABILITY token " + "in a Kit requires CATEGORY=<cat>|<ability>,<ability>");
 		}
 		String catString = value.substring(0, pipeLoc);
 		if (!catString.startsWith("CATEGORY="))
 		{
 			return new ParseResult.Fail(
-				"No CATEGORY= found.  ABILITY token "
-					+ "in a Kit requires CATEGORY=<cat>|<abilities>");
+				"No CATEGORY= found.  ABILITY token " + "in a Kit requires CATEGORY=<cat>|<abilities>");
 		}
 		if (catString.length() < 10)
 		{
 			return new ParseResult.Fail(
-				"No category found.  ABILITY token "
-					+ "in a Kit requires CATEGORY=<cat>|<abilities>");
+				"No category found.  ABILITY token " + "in a Kit requires CATEGORY=<cat>|<abilities>");
 		}
 		String acName = catString.substring(9);
-		
+
 		CDOMSingleRef<AbilityCategory> acRef =
-				context.getReferenceContext().getCDOMReference(
-					ABILITY_CATEGORY_CLASS, acName);
+				context.getReferenceContext().getCDOMReference(ABILITY_CATEGORY_CLASS, acName);
 		/*
 		 * CONSIDER In the future it would be nice to not have to do this cast,
 		 * but that should be reserved for the time when the Pool nature of
@@ -102,17 +96,15 @@ public class AbilityToken extends AbstractNonEmptyToken<KitAbilities> implements
 		if (!pr.passed())
 		{
 			return new ParseResult.Fail(
-				"No abilities found.  ABILITY token "
-					+ "in a Kit requires CATEGORY=<cat>|<abilities>");
+				"No abilities found.  ABILITY token " + "in a Kit requires CATEGORY=<cat>|<abilities>");
 		}
 		StringTokenizer st = new StringTokenizer(rest, Constants.PIPE);
 
-		ReferenceManufacturer<Ability> rm = context.getReferenceContext()
-			.getManufacturerByFormatName("ABILITY=" + acName, ABILITY_CLASS);
+		ReferenceManufacturer<Ability> rm =
+				context.getReferenceContext().getManufacturerByFormatName("ABILITY=" + acName, ABILITY_CLASS);
 		if (rm == null)
 		{
-			return new ParseResult.Fail(
-				"Could not get Reference Manufacturer for Category: " + acName);
+			return new ParseResult.Fail("Could not get Reference Manufacturer for Category: " + acName);
 		}
 
 		while (st.hasMoreTokens())
@@ -121,11 +113,9 @@ public class AbilityToken extends AbstractNonEmptyToken<KitAbilities> implements
 
 			if (token.startsWith("CATEGORY="))
 			{
-				return new ParseResult.Fail("Attempting to change the Category to '"
-					+ token + "': " + value);
+				return new ParseResult.Fail("Attempting to change the Category to '" + token + "': " + value);
 			}
-			CDOMReference<Ability> ref =
-					TokenUtilities.getTypeOrPrimitive(rm, token);
+			CDOMReference<Ability> ref = TokenUtilities.getTypeOrPrimitive(rm, token);
 			if (ref == null)
 			{
 				return ParseResult.INTERNAL_ERROR;
@@ -138,8 +128,7 @@ public class AbilityToken extends AbstractNonEmptyToken<KitAbilities> implements
 	@Override
 	public String[] unparse(LoadContext context, KitAbilities kitAbil)
 	{
-		Collection<CDOMReference<Ability>> references =
-			kitAbil.getAbilityKeys();
+		Collection<CDOMReference<Ability>> references = kitAbil.getAbilityKeys();
 		if ((references == null) || references.isEmpty())
 		{
 			return null;

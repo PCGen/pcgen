@@ -52,8 +52,11 @@ public class CampaignHistoryToken extends Token
 	/** Token name */
 	public static final String TOKENNAME = "CAMPAIGNHISTORY";
 
-	private static enum Visibility {ALL, HIDDEN, VISIBLE};
-	
+	private static enum Visibility
+	{
+		ALL, HIDDEN, VISIBLE
+	};
+
 	@Override
 	public String getTokenName()
 	{
@@ -61,8 +64,7 @@ public class CampaignHistoryToken extends Token
 	}
 
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
 		aTok.nextToken();
@@ -81,24 +83,21 @@ public class CampaignHistoryToken extends Token
 			}
 			else if (!entryIndex.equals("VISIBLE"))
 			{
-				Logging.log(Logging.LST_ERROR, "Invalid visibility entry '"
-					+ entryIndex
-					+ "'. Should be one of ALL, VISIBLE or HIDDEN. Token was "
-					+ tokenSource);
+				Logging.log(Logging.LST_ERROR, "Invalid visibility entry '" + entryIndex
+					+ "'. Should be one of ALL, VISIBLE or HIDDEN. Token was " + tokenSource);
 				return "";
 			}
-			
+
 			entryIndex = aTok.nextToken();
 		}
 
 		if (!StringUtils.isNumeric(entryIndex))
 		{
-			Logging.log(Logging.LST_ERROR, "Invalid position entry '"
-				+ entryIndex + "', it should be a number. Token was "
-				+ tokenSource);
+			Logging.log(Logging.LST_ERROR,
+				"Invalid position entry '" + entryIndex + "', it should be a number. Token was " + tokenSource);
 			return "";
 		}
-		
+
 		int index = Integer.parseInt(entryIndex);
 		ChronicleEntry entry = getTargetChronicleEntry(index, visibility, pc.getDisplay());
 		if (entry == null)
@@ -109,16 +108,13 @@ public class CampaignHistoryToken extends Token
 		String value = getChronicleValue(entry, token.toUpperCase());
 		if (value == null)
 		{
-			Logging.log(Logging.LST_ERROR, "Invalid property '"
-					+ token + "'. Token was "
-					+ tokenSource);
-				return "";
+			Logging.log(Logging.LST_ERROR, "Invalid property '" + token + "'. Token was " + tokenSource);
+			return "";
 		}
-		return value; 
+		return value;
 	}
 
-	private ChronicleEntry getTargetChronicleEntry(int targetIndex,
-		Visibility visibility, CharacterDisplay display)
+	private ChronicleEntry getTargetChronicleEntry(int targetIndex, Visibility visibility, CharacterDisplay display)
 	{
 		Collection<ChronicleEntry> entries = display.getChronicleEntries();
 		int i = 0;
@@ -147,7 +143,7 @@ public class CampaignHistoryToken extends Token
 	 */
 	private String getChronicleValue(ChronicleEntry entry, String token)
 	{
-		
+
 		if (token.equals("TEXT"))
 		{
 			return entry.getChronicle();
@@ -177,7 +173,7 @@ public class CampaignHistoryToken extends Token
 		{
 			return entry.getGmField();
 		}
-		
+
 		// Anything else is an error
 		return null;
 	}

@@ -17,29 +17,30 @@
  */
 package pcgen.core.utils;
 
-import pcgen.util.Logging;
-
 import java.util.Observable;
 import java.util.Observer;
 
+import pcgen.util.Logging;
 
-public class ShowMessageConsoleObserver implements Observer {
+public class ShowMessageConsoleObserver implements Observer
+{
 
 	/**
 	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
 	 */
-    @Override
-	public void update(final Observable o, final Object arg) {
-		if (arg instanceof MessageWrapper) {
-			showMessageDialog( (MessageWrapper)arg);
+	@Override
+	public void update(final Observable o, final Object arg)
+	{
+		if (arg instanceof MessageWrapper)
+		{
+			showMessageDialog((MessageWrapper) arg);
 		}
 	}
 
-
 	private void showMessageDialog(final MessageWrapper messageWrapper)
 	{
-	    Logging.errorPrint("Message");
-	    Logging.errorPrint("    Title: " + messageWrapper.getTitle());
+		Logging.errorPrint("Message");
+		Logging.errorPrint("    Title: " + messageWrapper.getTitle());
 		Logging.errorPrint("    Message: " + messageWrapper.getMessage());
 		Logging.errorPrint("    Message Type: " + messageWrapper.getMessageType());
 	}

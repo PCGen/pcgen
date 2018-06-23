@@ -39,8 +39,7 @@ public class RequestAddTabToGMGenMessage extends PCGenMessage
 	 * @param name The name of the tab.
 	 * @param pane The contents of the tab.
 	 */
-	public RequestAddTabToGMGenMessage(Object source,
-		String name, Component pane)
+	public RequestAddTabToGMGenMessage(Object source, String name, Component pane)
 	{
 		super(source);
 		this.name = name;

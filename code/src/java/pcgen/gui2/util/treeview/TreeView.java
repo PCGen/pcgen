@@ -20,12 +20,11 @@ package pcgen.gui2.util.treeview;
 
 import java.util.List;
 
-
 public interface TreeView<E>
 {
 
-    public String getViewName();
+	public String getViewName();
 
-    public List<TreeViewPath<E>> getPaths(E pobj);
+	public List<TreeViewPath<E>> getPaths(E pobj);
 
 }

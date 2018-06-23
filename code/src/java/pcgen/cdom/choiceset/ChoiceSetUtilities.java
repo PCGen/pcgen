@@ -50,8 +50,7 @@ public final class ChoiceSetUtilities
 	 *         greater than zero if the first given PrimitiveChoiceSet should be
 	 *         sorted after the second.
 	 */
-	public static int compareChoiceSets(PrimitiveChoiceSet<?> pcs1,
-			PrimitiveChoiceSet<?> pcs2)
+	public static int compareChoiceSets(PrimitiveChoiceSet<?> pcs1, PrimitiveChoiceSet<?> pcs2)
 	{
 		String base = pcs1.getLSTformat(false);
 		if (base == null)
@@ -101,17 +100,15 @@ public final class ChoiceSetUtilities
 	 * @return A 'separator' separated String containing the LST format of the
 	 *         given Collection of PrimitiveChoiceSet objects
 	 */
-	public static String joinLstFormat(
-			Collection<? extends PrimitiveChoiceSet<?>> pcsCollection,
-			String separator, boolean useAny)
+	public static String joinLstFormat(Collection<? extends PrimitiveChoiceSet<?>> pcsCollection, String separator,
+		boolean useAny)
 	{
 		if (pcsCollection == null)
 		{
 			return "";
 		}
 
-		final StringBuilder result = new StringBuilder(
-				pcsCollection.size() * 10);
+		final StringBuilder result = new StringBuilder(pcsCollection.size() * 10);
 
 		boolean needjoin = false;
 

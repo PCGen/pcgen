@@ -64,7 +64,7 @@ public class ConvertPanel extends JPanel
 	private final ProgressListener pl;
 
 	private final List<ConvertSubPanel> queue;
-	
+
 	private int currentPanel = -1;
 
 	private final JLabel statusLabel;
@@ -168,19 +168,16 @@ public class ConvertPanel extends JPanel
 		buttonBox.add(finishButton);
 		basePanel.setPreferredSize(new Dimension(800, 500));
 		JScrollPane jsp = new JScrollPane(basePanel);
-		jsp
-				.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-		jsp
-				.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+		jsp.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		jsp.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
 		add(jsp);
 		JPanel buttonLayout = new JPanel(new GridBagLayout());
 		GridBagConstraints gbc = new GridBagConstraints();
-		Utility.buildRelativeConstraints(gbc, 1, 1, 1.0, 0,
-			GridBagConstraints.HORIZONTAL, GridBagConstraints.WEST);
+		Utility.buildRelativeConstraints(gbc, 1, 1, 1.0, 0, GridBagConstraints.HORIZONTAL, GridBagConstraints.WEST);
 		gbc.insets = new Insets(0, 10, 5, 10);
 		buttonLayout.add(statusLabel, gbc);
-		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1,
-			0, 0, GridBagConstraints.NONE, GridBagConstraints.EAST);
+		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1, 0, 0, GridBagConstraints.NONE,
+			GridBagConstraints.EAST);
 		buttonLayout.add(buttonBox, gbc);
 		add(buttonLayout, BorderLayout.SOUTH);
 		queue = bq;
@@ -225,9 +222,8 @@ public class ConvertPanel extends JPanel
 
 	public void checkExit()
 	{
-		int response = JOptionPane.showConfirmDialog(this,
-				"Are you sure you wish to cancel and exit?", "Confirm Exit",
-				JOptionPane.OK_CANCEL_OPTION);
+		int response = JOptionPane.showConfirmDialog(this, "Are you sure you wish to cancel and exit?", "Confirm Exit",
+			JOptionPane.OK_CANCEL_OPTION);
 		if (response == JOptionPane.OK_OPTION)
 		{
 			PCGenDataConvert.savePrefs();
@@ -241,27 +237,27 @@ public class ConvertPanel extends JPanel
 		do
 		{
 			boolean allowPrev = false;
-			if (currentPanel >= 0 && currentPanel<queue.size())
+			if (currentPanel >= 0 && currentPanel < queue.size())
 			{
 				allowPrev = queue.get(currentPanel).returnAllowed();
 			}
-				currentPanel++;
-				if (currentPanel<queue.size())
-				{
-					nextpanel = queue.get(currentPanel);
-					prepare(nextpanel, allowPrev);
-					basePanel.removeAll();
-					nextpanel.setupDisplay(basePanel, properties);
-					basePanel.repaint();
-				}
-				else
-				{
-					nextpanel = null;
-					showFinishButton();
-				}
-		} while (nextpanel != null && nextpanel.autoAdvance(properties));
+			currentPanel++;
+			if (currentPanel < queue.size())
+			{
+				nextpanel = queue.get(currentPanel);
+				prepare(nextpanel, allowPrev);
+				basePanel.removeAll();
+				nextpanel.setupDisplay(basePanel, properties);
+				basePanel.repaint();
+			}
+			else
+			{
+				nextpanel = null;
+				showFinishButton();
+			}
+		}
+		while (nextpanel != null && nextpanel.autoAdvance(properties));
 	}
-
 
 	/**
 		 * The Class {@code PreviousButtonListener} ...
@@ -282,13 +278,13 @@ public class ConvertPanel extends JPanel
 			do
 			{
 				currentPanel--;
-				if (currentPanel >= 0 && currentPanel<queue.size())
+				if (currentPanel >= 0 && currentPanel < queue.size())
 				{
 					prevpanel = queue.get(currentPanel);
 					boolean allowPrev = false;
 					if (currentPanel > 0)
 					{
-						allowPrev = queue.get(currentPanel-1).returnAllowed();
+						allowPrev = queue.get(currentPanel - 1).returnAllowed();
 					}
 					prepare(prevpanel, allowPrev);
 					basePanel.removeAll();
@@ -299,12 +295,12 @@ public class ConvertPanel extends JPanel
 				{
 					prevpanel = null;
 				}
-			} while (prevpanel != null && prevpanel.autoAdvance(properties));
+			}
+			while (prevpanel != null && prevpanel.autoAdvance(properties));
 			CursorControlUtilities.stopWaitCursor(basePanel);
 		}
 
 	}
-
 
 	/**
 	 * @return The field which will be used for status display

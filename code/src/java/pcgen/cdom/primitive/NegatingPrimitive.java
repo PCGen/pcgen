@@ -35,13 +35,11 @@ public class NegatingPrimitive<T> implements PrimitiveCollection<T>
 	{
 		if (prim == null)
 		{
-			throw new IllegalArgumentException(
-					"PrimitiveCollection cannot be null");
+			throw new IllegalArgumentException("PrimitiveCollection cannot be null");
 		}
 		if (all == null)
 		{
-			throw new IllegalArgumentException(
-					"All Collection cannot be null");
+			throw new IllegalArgumentException("All Collection cannot be null");
 		}
 		primitive = prim;
 		this.all = all;
@@ -93,11 +91,10 @@ public class NegatingPrimitive<T> implements PrimitiveCollection<T>
 	{
 		return primitive.hashCode() - 1;
 	}
-	
+
 	@Override
 	public boolean equals(Object obj)
 	{
-		return (obj instanceof NegatingPrimitive)
-				&& ((NegatingPrimitive<?>) obj).primitive.equals(primitive);
+		return (obj instanceof NegatingPrimitive) && ((NegatingPrimitive<?>) obj).primitive.equals(primitive);
 	}
 }

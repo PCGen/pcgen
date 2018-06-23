@@ -39,13 +39,13 @@ public class CDOMSimpleSingleRef<T> extends CDOMSingleRef<T>
 	 * The ClassIdentity that represents the objects contained in this CDOMSimpleSingleRef.
 	 */
 	private final ClassIdentity<T> identity;
-	
+
 	/**
 	 * The object of the Class this CDOMSimpleSingleRef represents
 	 */
 	private T referencedObject = null;
 
- 	/**
+	/**
 	 * The specific choice (association) for the Ability this
 	 * CDOMSimpleSingleRef contains. May remain null if the given Ability does
 	 * not have a specific choice (or does not require a specific choice)
@@ -87,9 +87,8 @@ public class CDOMSimpleSingleRef<T> extends CDOMSingleRef<T>
 	{
 		if (referencedObject == null)
 		{
-			throw new IllegalStateException("Cannot ask for contains: "
-					+ getReferenceClass().getName() + " Reference " + getName()
-					+ " has not been resolved");
+			throw new IllegalStateException("Cannot ask for contains: " + getReferenceClass().getName() + " Reference "
+				+ getName() + " has not been resolved");
 		}
 		return referencedObject.equals(item);
 	}
@@ -110,8 +109,7 @@ public class CDOMSimpleSingleRef<T> extends CDOMSingleRef<T>
 		if (referencedObject == null)
 		{
 			throw new IllegalStateException(
-					"Cannot ask for resolution: Reference " + getName()
-							+ " has not been resolved");
+				"Cannot ask for resolution: Reference " + getName() + " has not been resolved");
 		}
 		return referencedObject;
 	}
@@ -125,7 +123,7 @@ public class CDOMSimpleSingleRef<T> extends CDOMSingleRef<T>
 	{
 		return referencedObject != null;
 	}
-	
+
 	/**
 	 * Returns a representation of this CDOMSimpleSingleRef, suitable for
 	 * storing in an LST file.
@@ -160,8 +158,7 @@ public class CDOMSimpleSingleRef<T> extends CDOMSingleRef<T>
 		if (obj instanceof CDOMSimpleSingleRef)
 		{
 			CDOMSimpleSingleRef<?> ref = (CDOMSimpleSingleRef<?>) obj;
-			return getReferenceClass().equals(ref.getReferenceClass())
-					&& getName().equals(ref.getName());
+			return getReferenceClass().equals(ref.getReferenceClass()) && getName().equals(ref.getName());
 		}
 		return false;
 	}
@@ -200,14 +197,12 @@ public class CDOMSimpleSingleRef<T> extends CDOMSingleRef<T>
 	{
 		if (referencedObject != null)
 		{
-			throw new IllegalStateException(
-					"Cannot resolve a Single Reference twice");
+			throw new IllegalStateException("Cannot resolve a Single Reference twice");
 		}
 		if (!item.getClass().equals(getReferenceClass()))
 		{
-			throw new IllegalArgumentException("Cannot resolve a "
-					+ getReferenceClass().getSimpleName() + " Reference to a "
-					+ item.getClass().getSimpleName());
+			throw new IllegalArgumentException("Cannot resolve a " + getReferenceClass().getSimpleName()
+				+ " Reference to a " + item.getClass().getSimpleName());
 		}
 		referencedObject = item;
 	}
@@ -238,9 +233,8 @@ public class CDOMSimpleSingleRef<T> extends CDOMSingleRef<T>
 	{
 		if (referencedObject == null)
 		{
-			throw new IllegalStateException("Cannot ask for contains: "
-					+ getReferenceClass().getName() + " Reference " + getName()
-					+ " has not been resolved");
+			throw new IllegalStateException("Cannot ask for contains: " + getReferenceClass().getName() + " Reference "
+				+ getName() + " has not been resolved");
 		}
 		return Collections.singleton(referencedObject);
 	}

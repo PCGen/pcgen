@@ -25,8 +25,7 @@ import pcgen.core.Domain;
  * DomainSelectionFacet is a Facet that tracks the Domains of a Player Character
  * with the CHOOSE selection that was made (if CHOOSE was present)
  */
-public class DomainSelectionFacet extends
-		AbstractAssociationFacet<CharID, Domain, Object>
+public class DomainSelectionFacet extends AbstractAssociationFacet<CharID, Domain, Object>
 {
 
 }

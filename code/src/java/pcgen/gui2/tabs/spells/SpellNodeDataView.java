@@ -23,8 +23,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
-import pcgen.facade.core.InfoFactory;
 
+import pcgen.facade.core.InfoFactory;
 import pcgen.facade.core.SpellFacade;
 import pcgen.facade.core.SpellSupportFacade.SpellNode;
 import pcgen.facade.core.SpellSupportFacade.SuperNode;
@@ -45,24 +45,24 @@ class SpellNodeDataView implements DataView<SuperNode>
 		this.prefsKey = prefsKey;
 		this.infoFactory = infoFactory;
 		columns = Arrays.asList(new DefaultDataViewColumn("School", String.class, initiallyVisible),
-								new DefaultDataViewColumn("Subschool", String.class, initiallyVisible),
-								new DefaultDataViewColumn("Descriptors", String.class, initiallyVisible),
-								new DefaultDataViewColumn("Components", String.class, initiallyVisible),
-								new DefaultDataViewColumn("in_descrip", String.class, initiallyVisible),
-								new DefaultDataViewColumn("Range", String.class),
-								new DefaultDataViewColumn("Duration", String.class),
-								new DefaultDataViewColumn("Source", String.class),
-								new DefaultDataViewColumn("Cast Time", String.class));
+			new DefaultDataViewColumn("Subschool", String.class, initiallyVisible),
+			new DefaultDataViewColumn("Descriptors", String.class, initiallyVisible),
+			new DefaultDataViewColumn("Components", String.class, initiallyVisible),
+			new DefaultDataViewColumn("in_descrip", String.class, initiallyVisible),
+			new DefaultDataViewColumn("Range", String.class), new DefaultDataViewColumn("Duration", String.class),
+			new DefaultDataViewColumn("Source", String.class), new DefaultDataViewColumn("Cast Time", String.class));
 	}
 
 	@Override
 	public Object getData(SuperNode obj, int column)
 	{
-		if(obj instanceof SpellNode){
+		if (obj instanceof SpellNode)
+		{
 			SpellFacade spell = ((SpellNode) obj).getSpell();
 			if (spell != null)
 			{
-				switch(column){
+				switch (column)
+				{
 					case 0:
 						return spell.getSchool();
 					case 1:
@@ -81,6 +81,9 @@ class SpellNodeDataView implements DataView<SuperNode>
 						return spell.getSource();
 					case 8:
 						return spell.getCastTime();
+					default:
+						//Case not caught, should this cause an error?
+						break;
 				}
 			}
 		}

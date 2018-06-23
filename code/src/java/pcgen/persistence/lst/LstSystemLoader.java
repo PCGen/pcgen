@@ -39,15 +39,14 @@ import pcgen.persistence.SystemLoader;
 public final class LstSystemLoader implements SystemLoader
 {
 
-	private final Map<String, List<URI>> chosenCampaignSourcefiles =
-			new HashMap<>();
+	private final Map<String, List<URI>> chosenCampaignSourcefiles = new HashMap<>();
 
 	/**
 	 * @see pcgen.persistence.SystemLoader#setChosenCampaignSourcefiles(java.util.List, pcgen.core.GameMode)
 	 * 
 	 * CODE-1889 to remove use of this method
 	 */
-    @Override
+	@Override
 	public void setChosenCampaignSourcefiles(List<URI> l, GameMode game)
 	{
 		List<URI> files = chosenCampaignSourcefiles.get(game.getName());
@@ -58,8 +57,7 @@ public final class LstSystemLoader implements SystemLoader
 		}
 		files.clear();
 		files.addAll(l);
-		SettingsHandler.getOptions().setProperty(
-			"pcgen.files.chosenCampaignSourcefiles." + game.getName(),
+		SettingsHandler.getOptions().setProperty("pcgen.files.chosenCampaignSourcefiles." + game.getName(),
 			StringUtil.join(files, ", "));
 	}
 
@@ -68,7 +66,7 @@ public final class LstSystemLoader implements SystemLoader
 	 * 
 	 * CODE-1889 to remove use of this method
 	 */
-    @Override
+	@Override
 	public List<URI> getChosenCampaignSourcefiles(GameMode game)
 	{
 		List<URI> files = chosenCampaignSourcefiles.get(game.getName());

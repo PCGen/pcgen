@@ -18,7 +18,6 @@
  */
 package pcgen.core;
 
-
 /**
  * {@code SpecialAbility}.
  * 
@@ -52,8 +51,7 @@ public final class SpecialAbility extends TextProperty
 	 *            NEEDDOC
 	 * 
 	 */
-	public SpecialAbility(final String name, 
-		final String propDesc)
+	public SpecialAbility(final String name, final String propDesc)
 	{
 		super(name);
 		this.propDesc = propDesc;

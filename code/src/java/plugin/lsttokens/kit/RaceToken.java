@@ -30,8 +30,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Handles the RACE tag as well as Common tags on the RACE line.
  */
-public class RaceToken extends AbstractNonEmptyToken<KitRace> implements
-		CDOMPrimaryToken<KitRace>
+public class RaceToken extends AbstractNonEmptyToken<KitRace> implements CDOMPrimaryToken<KitRace>
 {
 	private static final Class<Race> RACE_CLASS = Race.class;
 
@@ -55,8 +54,7 @@ public class RaceToken extends AbstractNonEmptyToken<KitRace> implements
 	@Override
 	protected ParseResult parseNonEmptyToken(LoadContext context, KitRace kitRace, String value)
 	{
-		CDOMSingleRef<Race> ref =
-				context.getReferenceContext().getCDOMReference(RACE_CLASS, value);
+		CDOMSingleRef<Race> ref = context.getReferenceContext().getCDOMReference(RACE_CLASS, value);
 		kitRace.setRace(ref);
 		return ParseResult.SUCCESS;
 	}

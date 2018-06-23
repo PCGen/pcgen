@@ -39,9 +39,10 @@ public class PreFactSetTester extends AbstractPrerequisiteTest implements Prereq
 {
 
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter aPC, CDOMObject source) throws PrerequisiteException
+	public int passes(final Prerequisite prereq, final PlayerCharacter aPC, CDOMObject source)
+		throws PrerequisiteException
 	{
-		
+
 		final int number;
 		try
 		{
@@ -49,15 +50,13 @@ public class PreFactSetTester extends AbstractPrerequisiteTest implements Prereq
 		}
 		catch (NumberFormatException exceptn)
 		{
-			throw new PrerequisiteException(LanguageBundle.getFormattedString(
-				"PreFactSet.error", prereq.toString())); //$NON-NLS-1$
+			throw new PrerequisiteException(
+				LanguageBundle.getFormattedString("PreFactSet.error", prereq.toString())); //$NON-NLS-1$
 		}
 
 		String location = prereq.getCategoryName();
-		String[] locationElements  = location.split("\\.");
-		Iterable<Reducible> objModel =
-				(Iterable<Reducible>) OutputDB.getIterable(aPC.getCharID(),
-					locationElements);
+		String[] locationElements = location.split("\\.");
+		Iterable<Reducible> objModel = (Iterable<Reducible>) OutputDB.getIterable(aPC.getCharID(), locationElements);
 		if (objModel == null)
 		{
 			throw new PrerequisiteException("Output System does not have model for: " + location);
@@ -68,14 +67,13 @@ public class PreFactSetTester extends AbstractPrerequisiteTest implements Prereq
 		String factid = factinfo[0];
 		String factval = factinfo[1];
 		FactSetKey<?> fk = FactSetKey.valueOf(factid);
-		
-		int runningTotal =
-				getRunningTotal(prereq, number, objModel, factval, fk);
+
+		int runningTotal = getRunningTotal(prereq, number, objModel, factval, fk);
 		return countedTotal(prereq, runningTotal);
 	}
 
-	private static <T> int getRunningTotal(final Prerequisite prereq, final int number,
-	                                       Iterable<Reducible> objModel, String factval, FactSetKey<T> fk)
+	private static <T> int getRunningTotal(final Prerequisite prereq, final int number, Iterable<Reducible> objModel,
+		String factval, FactSetKey<T> fk)
 	{
 		T targetVal = fk.getFormatManager().convert(factval);
 		int runningTotal = 0;
@@ -100,7 +98,7 @@ public class PreFactSetTester extends AbstractPrerequisiteTest implements Prereq
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "FACTSET"; //$NON-NLS-1$
@@ -115,10 +113,8 @@ public class PreFactSetTester extends AbstractPrerequisiteTest implements Prereq
 			return prereq.getKey();
 		}
 
-		final String foo = LanguageBundle.getFormattedString(
-				"PreFactSet.toHtml", //$NON-NLS-1$
-				prereq.getOperator().toDisplayString(),
-				prereq.getOperand(), prereq.getKey());
+		final String foo = LanguageBundle.getFormattedString("PreFactSet.toHtml", //$NON-NLS-1$
+			prereq.getOperator().toDisplayString(), prereq.getOperand(), prereq.getKey());
 		return foo;
 	}
 

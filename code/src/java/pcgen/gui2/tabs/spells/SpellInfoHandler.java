@@ -29,7 +29,6 @@ import pcgen.facade.core.SpellSupportFacade.SpellNode;
 import pcgen.gui2.tools.InfoPane;
 import pcgen.gui2.util.JTreeViewTable;
 
-
 class SpellInfoHandler implements ListSelectionListener
 {
 
@@ -40,7 +39,7 @@ class SpellInfoHandler implements ListSelectionListener
 	private String currText;
 
 	public SpellInfoHandler(CharacterFacade character, JTreeViewTable<?> table1, JTreeViewTable<?> table2,
-							InfoPane spellsPane)
+		InfoPane spellsPane)
 	{
 		this.spellsPane = spellsPane;
 		this.availableTable = table1;

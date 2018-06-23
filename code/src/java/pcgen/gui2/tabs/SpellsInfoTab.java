@@ -79,13 +79,14 @@ public class SpellsInfoTab extends JTabbedPane implements CharacterInfoTab, Todo
 			this.preparedTabMap = preparedTab.createModels(character);
 			this.booksTabMap = booksTab.createModels(character);
 		}
-		
+
 		public void restoreModels()
 		{
 			knownTab.restoreModels(knownTabMap);
 			preparedTab.restoreModels(preparedTabMap);
 			booksTab.restoreModels(booksTabMap);
 		}
+
 		public void storeModels()
 		{
 			knownTab.storeModels(knownTabMap);
@@ -93,6 +94,7 @@ public class SpellsInfoTab extends JTabbedPane implements CharacterInfoTab, Todo
 			booksTab.storeModels(booksTabMap);
 		}
 	}
+
 	@Override
 	public TabTitle getTabTitle()
 	{
@@ -106,7 +108,7 @@ public class SpellsInfoTab extends JTabbedPane implements CharacterInfoTab, Todo
 		{
 			setSelectedIndex(0);
 		}
-		
+
 	}
 
 }

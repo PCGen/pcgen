@@ -35,8 +35,7 @@ public class ACToken extends Token
 	}
 
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		String solverValue = pc.getControl("ACVAR" + tokenSource);
 		int intValue;

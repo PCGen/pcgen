@@ -47,8 +47,7 @@ public class GoldToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		DecimalFormatSymbols decimalFormatSymbols = new DecimalFormatSymbols(Locale.US);
 		NumberFormat decimalFormat = new DecimalFormat("#,##0.##", decimalFormatSymbols);

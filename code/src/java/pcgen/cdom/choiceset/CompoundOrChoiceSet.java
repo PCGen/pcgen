@@ -48,8 +48,7 @@ public class CompoundOrChoiceSet<T> implements PrimitiveChoiceSet<T>
 	 * The list of underlying PrimitiveChoiceSets that this CompoundOrChoiceSet
 	 * contains
 	 */
-	private final Set<PrimitiveChoiceSet<T>> pcsSet = new TreeSet<>(
-			ChoiceSetUtilities::compareChoiceSets);
+	private final Set<PrimitiveChoiceSet<T>> pcsSet = new TreeSet<>(ChoiceSetUtilities::compareChoiceSets);
 
 	private final String separator;
 
@@ -76,8 +75,7 @@ public class CompoundOrChoiceSet<T> implements PrimitiveChoiceSet<T>
 		this(pcsCollection, Constants.PIPE);
 	}
 
-	public CompoundOrChoiceSet(Collection<PrimitiveChoiceSet<T>> pcsCollection,
-			String sep)
+	public CompoundOrChoiceSet(Collection<PrimitiveChoiceSet<T>> pcsCollection, String sep)
 	{
 		if (pcsCollection == null)
 		{
@@ -148,8 +146,7 @@ public class CompoundOrChoiceSet<T> implements PrimitiveChoiceSet<T>
 	@Override
 	public Class<? super T> getChoiceClass()
 	{
-		return pcsSet == null ? null : pcsSet.iterator().next()
-				.getChoiceClass();
+		return pcsSet == null ? null : pcsSet.iterator().next().getChoiceClass();
 	}
 
 	/**
@@ -173,8 +170,7 @@ public class CompoundOrChoiceSet<T> implements PrimitiveChoiceSet<T>
 	@Override
 	public boolean equals(Object obj)
 	{
-		return (obj instanceof CompoundOrChoiceSet)
-				&& ((CompoundOrChoiceSet<?>) obj).pcsSet.equals(pcsSet);
+		return (obj instanceof CompoundOrChoiceSet) && ((CompoundOrChoiceSet<?>) obj).pcsSet.equals(pcsSet);
 	}
 
 	/**

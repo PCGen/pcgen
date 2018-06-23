@@ -42,18 +42,17 @@ public class NewCategoryToken implements MigrationLstToken
 	}
 
 	@Override
-	public boolean parse(MigrationRule migrationRule, String value,
-		String gameModeName)
+	public boolean parse(MigrationRule migrationRule, String value, String gameModeName)
 	{
 		if (StringUtils.isBlank(value))
 		{
-			Logging.log(Logging.LST_ERROR, "Invalid empty " + getTokenName() + " value."); 
+			Logging.log(Logging.LST_ERROR, "Invalid empty " + getTokenName() + " value.");
 			return false;
 		}
 		if (invalidKeyPattern.matcher(value).matches())
 		{
-			Logging.log(Logging.LST_ERROR, "Invalid characters in value '"
-				+ value + "' of " + getTokenName() + Constants.COLON + value);
+			Logging.log(Logging.LST_ERROR,
+				"Invalid characters in value '" + value + "' of " + getTokenName() + Constants.COLON + value);
 			return false;
 		}
 		migrationRule.setNewCategory(value);

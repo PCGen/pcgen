@@ -32,8 +32,7 @@ import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class MoveToken extends AbstractTokenWithSeparator<Race> implements
-		CDOMPrimaryToken<Race>
+public class MoveToken extends AbstractTokenWithSeparator<Race> implements CDOMPrimaryToken<Race>
 {
 
 	@Override
@@ -48,16 +47,12 @@ public class MoveToken extends AbstractTokenWithSeparator<Race> implements
 		{
 			if (Integer.parseInt(mod) < 0)
 			{
-				return new ParseResult.Fail(
-					"Invalid movement (cannot be negative): " + mod
-						+ " in MOVE: " + value);
+				return new ParseResult.Fail("Invalid movement (cannot be negative): " + mod + " in MOVE: " + value);
 			}
 		}
 		catch (NumberFormatException nfe)
 		{
-			return new ParseResult.Fail(
-				"Invalid movement (must be an integer >= 0): " + mod
-					+ " in MOVE: " + value);
+			return new ParseResult.Fail("Invalid movement (must be an integer >= 0): " + mod + " in MOVE: " + value);
 		}
 		return ParseResult.SUCCESS;
 	}
@@ -69,8 +64,7 @@ public class MoveToken extends AbstractTokenWithSeparator<Race> implements
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		Race obj, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, Race obj, String value)
 	{
 		StringTokenizer moves = new StringTokenizer(value, Constants.COMMA);
 		Movement cm;
@@ -104,8 +98,7 @@ public class MoveToken extends AbstractTokenWithSeparator<Race> implements
 			}
 			if (moves.countTokens() != 0)
 			{
-				return new ParseResult.Fail("Badly formed MOVE token "
-					+ "(extra value at end of list): " + value);
+				return new ParseResult.Fail("Badly formed MOVE token " + "(extra value at end of list): " + value);
 			}
 		}
 		cm.setMoveRatesFlag(0);
@@ -116,9 +109,7 @@ public class MoveToken extends AbstractTokenWithSeparator<Race> implements
 	@Override
 	public String[] unparse(LoadContext context, Race obj)
 	{
-		Changes<Movement> changes =
-				context.getObjectContext().getListChanges(obj,
-					ListKey.BASE_MOVEMENT);
+		Changes<Movement> changes = context.getObjectContext().getListChanges(obj, ListKey.BASE_MOVEMENT);
 		Collection<Movement> added = changes.getAdded();
 		if (added == null || added.isEmpty())
 		{

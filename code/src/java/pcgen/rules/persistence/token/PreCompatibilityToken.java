@@ -31,20 +31,17 @@ import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
-public class PreCompatibilityToken implements
-		CDOMPrimaryToken<ConcretePrereqObject>,
-		CDOMSecondaryToken<ConcretePrereqObject>
+public class PreCompatibilityToken
+		implements CDOMPrimaryToken<ConcretePrereqObject>, CDOMSecondaryToken<ConcretePrereqObject>
 {
-	private static PrerequisiteWriterFactory factory = PrerequisiteWriterFactory
-			.getInstance();
+	private static PrerequisiteWriterFactory factory = PrerequisiteWriterFactory.getInstance();
 
 	private final String tokenRoot;
 	private final String tokenName;
 	private final PrerequisiteParserInterface token;
 	private final boolean invert;
 
-	public PreCompatibilityToken(String s,
-			PrerequisiteParserInterface prereqToken, boolean inv)
+	public PreCompatibilityToken(String s, PrerequisiteParserInterface prereqToken, boolean inv)
 	{
 		tokenRoot = s.toUpperCase();
 		token = prereqToken;
@@ -59,8 +56,7 @@ public class PreCompatibilityToken implements
 	}
 
 	@Override
-	public ParseResult parseToken(LoadContext context, ConcretePrereqObject obj,
-		String value)
+	public ParseResult parseToken(LoadContext context, ConcretePrereqObject obj, String value)
 	{
 		boolean overrideQualify = false;
 		String preValue = value;

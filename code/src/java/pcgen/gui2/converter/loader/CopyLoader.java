@@ -37,9 +37,8 @@ public class CopyLoader implements Loader
 	}
 
 	@Override
-	public List<CDOMObject> process(StringBuilder sb, int line,
-			String lineString, ConversionDecider decider)
-			throws PersistenceLayerException, InterruptedException
+	public List<CDOMObject> process(StringBuilder sb, int line, String lineString, ConversionDecider decider)
+		throws PersistenceLayerException, InterruptedException
 	{
 		sb.append(lineString);
 		return null;

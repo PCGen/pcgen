@@ -23,8 +23,7 @@ import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class LoadmultstepToken extends AbstractNonEmptyToken<LoadInfo>
-		implements CDOMPrimaryToken<LoadInfo>
+public class LoadmultstepToken extends AbstractNonEmptyToken<LoadInfo> implements CDOMPrimaryToken<LoadInfo>
 {
 
 	@Override
@@ -34,36 +33,33 @@ public class LoadmultstepToken extends AbstractNonEmptyToken<LoadInfo>
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-			LoadInfo info, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, LoadInfo info, String value)
 	{
 		try
 		{
 			int step = Integer.valueOf(value);
 			if (step <= 0)
 			{
-				return new ParseResult.Fail(getTokenName()
-						+ " expected a positive integer, found : " + value);
+				return new ParseResult.Fail(getTokenName() + " expected a positive integer, found : " + value);
 			}
 			info.setLoadMultStep(Integer.parseInt(value));
 			return ParseResult.SUCCESS;
 		}
 		catch (NumberFormatException nfe)
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " expected an integer.  Tag must be of the form: "
-					+ getTokenName() + ":<int>");
+			return new ParseResult.Fail(
+				getTokenName() + " expected an integer.  Tag must be of the form: " + getTokenName() + ":<int>");
 		}
 	}
 
-    @Override
+	@Override
 	public String[] unparse(LoadContext context, LoadInfo info)
 	{
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-    @Override
+	@Override
 	public Class<LoadInfo> getTokenClass()
 	{
 		return LoadInfo.class;

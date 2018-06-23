@@ -45,8 +45,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * &nbsp;&nbsp;&nbsp;&nbsp;Adds the "Celestial" template to the character.<br>
  * </p>
  */
-public class TemplateToken extends AbstractTokenWithSeparator<KitTemplate>
-		implements CDOMPrimaryToken<KitTemplate>
+public class TemplateToken extends AbstractTokenWithSeparator<KitTemplate> implements CDOMPrimaryToken<KitTemplate>
 {
 	private static final Class<PCTemplate> TEMPLATE_CLASS = PCTemplate.class;
 
@@ -74,8 +73,7 @@ public class TemplateToken extends AbstractTokenWithSeparator<KitTemplate>
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		KitTemplate kitTemplate, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, KitTemplate kitTemplate, String value)
 	{
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 
@@ -104,20 +102,17 @@ public class TemplateToken extends AbstractTokenWithSeparator<KitTemplate>
 						String ownedTemplateName = subStr.substring(9);
 
 						CDOMSingleRef<PCTemplate> ref =
-								context.getReferenceContext().getCDOMReference(
-									TEMPLATE_CLASS, ownedTemplateName);
+								context.getReferenceContext().getCDOMReference(TEMPLATE_CLASS, ownedTemplateName);
 						subList.add(ref);
 					}
 					else
 					{
-						return new ParseResult.Fail("Did not understand "
-							+ getTokenName() + " option: " + subStr
-							+ " in line: " + value);
+						return new ParseResult.Fail(
+							"Did not understand " + getTokenName() + " option: " + subStr + " in line: " + value);
 					}
 				}
 			}
-			CDOMSingleRef<PCTemplate> ref =
-					context.getReferenceContext().getCDOMReference(TEMPLATE_CLASS, name);
+			CDOMSingleRef<PCTemplate> ref = context.getReferenceContext().getCDOMReference(TEMPLATE_CLASS, name);
 			kitTemplate.addTemplate(ref, subList);
 		}
 		return ParseResult.SUCCESS;
@@ -126,7 +121,6 @@ public class TemplateToken extends AbstractTokenWithSeparator<KitTemplate>
 	@Override
 	public String[] unparse(LoadContext context, KitTemplate kitTemplate)
 	{
-		return kitTemplate.isEmpty() ? null : new String[] { kitTemplate
-				.toString() };
+		return kitTemplate.isEmpty() ? null : new String[]{kitTemplate.toString()};
 	}
 }

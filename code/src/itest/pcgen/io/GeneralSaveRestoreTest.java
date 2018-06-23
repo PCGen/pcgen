@@ -50,7 +50,7 @@ public class GeneralSaveRestoreTest extends AbstractSaveRestoreTest
 		}
 		catch (PersistenceLayerException e)
 		{
-			fail (e.getMessage());
+			fail(e.getMessage());
 		}
 		finishLoad();
 		pc.addTemplate(pct);

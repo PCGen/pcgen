@@ -230,8 +230,8 @@ public class MapKeyMap
 	{
 		return map.getKeySet();
 	}
-	
- 	/**
+
+	/**
 	 * Returns true if this structure contains no Maps.
 	 * 
 	 * @return true if this structure contains no Maps; false otherwise

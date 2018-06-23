@@ -33,8 +33,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with BIOSET Token
  */
-public class BiosetToken extends AbstractTokenWithSeparator<Campaign> implements
-		CDOMPrimaryToken<Campaign>
+public class BiosetToken extends AbstractTokenWithSeparator<Campaign> implements CDOMPrimaryToken<Campaign>
 {
 
 	@Override
@@ -50,8 +49,7 @@ public class BiosetToken extends AbstractTokenWithSeparator<Campaign> implements
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		Campaign campaign, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, Campaign campaign, String value)
 	{
 		CampaignSourceEntry cse = context.getCampaignSourceEntry(campaign, value);
 		if (cse == null)
@@ -61,19 +59,17 @@ public class BiosetToken extends AbstractTokenWithSeparator<Campaign> implements
 		}
 		if (!cse.getIncludeItems().isEmpty())
 		{
-			return new ParseResult.Fail(getTokenName() + " does not allow INCLUDE: "
-				+ value);
+			return new ParseResult.Fail(getTokenName() + " does not allow INCLUDE: " + value);
 		}
 		if (!cse.getExcludeItems().isEmpty())
 		{
-			return new ParseResult.Fail(getTokenName() + " does not allow EXCLUDE: "
-				+ value);
+			return new ParseResult.Fail(getTokenName() + " does not allow EXCLUDE: " + value);
 		}
 		context.getObjectContext().addToList(campaign, ListKey.FILE_BIO_SET, cse);
 		return ParseResult.SUCCESS;
 	}
 
-    @Override
+	@Override
 	public String[] unparse(LoadContext context, Campaign campaign)
 	{
 		Changes<CampaignSourceEntry> cseChanges =
@@ -92,7 +88,7 @@ public class BiosetToken extends AbstractTokenWithSeparator<Campaign> implements
 		return set.toArray(new String[set.size()]);
 	}
 
-    @Override
+	@Override
 	public Class<Campaign> getTokenClass()
 	{
 		return Campaign.class;

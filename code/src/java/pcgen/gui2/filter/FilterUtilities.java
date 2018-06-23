@@ -19,9 +19,9 @@
 package pcgen.gui2.filter;
 
 import java.awt.BorderLayout;
+
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-
 
 public class FilterUtilities
 {
@@ -45,7 +45,7 @@ public class FilterUtilities
 	 * @return a JPanel containing the table and filterbar
 	 */
 	public static <C, E> JPanel configureFilteredTreeViewPane(FilteredTreeViewTable<C, E> table,
-															  FilterBar<C, E> filterBar)
+		FilterBar<C, E> filterBar)
 	{
 		JPanel panel = new JPanel(new BorderLayout());
 		panel.add(filterBar, BorderLayout.NORTH);

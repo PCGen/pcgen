@@ -55,7 +55,7 @@ public class HtmlInfoBuilderTest extends TestCase
 		
 		b.append("Test");
 		
-		assertEquals("<html>Test</html>" , b.toString());
+		assertEquals("<html>Test</html>", b.toString());
 	}
 	
 	/**
@@ -65,9 +65,9 @@ public class HtmlInfoBuilderTest extends TestCase
 	{
 		HtmlInfoBuilder b = new HtmlInfoBuilder();
 		
-		b.appendElement("HP" , "25");
+		b.appendElement("HP", "25");
 		
-		assertEquals("<html><b>HP:</b>&nbsp;25</html>" , b.toString());
+		assertEquals("<html><b>HP:</b>&nbsp;25</html>", b.toString());
 	}
 	
 	/**
@@ -90,10 +90,10 @@ public class HtmlInfoBuilderTest extends TestCase
 		HtmlInfoBuilder b = new HtmlInfoBuilder("Character");
 		
 		LocaleDependentTestCase.before(Locale.US);
-		b.appendLineBreak().appendI18nElement("in_player" , "Koen");
+		b.appendLineBreak().appendI18nElement("in_player", "Koen");
 		EnUsLocaleDependentTestCase.after();
-		assertEquals("<html><b><font size=+1>Character</font></b>"+
-				"<br><b>Player:</b>&nbsp;Koen</html>" , b.toString());
+		assertEquals("<html><b><font size=+1>Character</font></b>"
+					+ "<br><b>Player:</b>&nbsp;Koen</html>", b.toString());
 	}
 	
 }

@@ -70,8 +70,7 @@ public final class TemplateModifier
 
 				if (statMod != 0)
 				{
-					mods.append(stat.getKeyName()).append(':').append(
-							statMod).append(' ');
+					mods.append(stat.getKeyName()).append(':').append(statMod).append(' ');
 				}
 			}
 		}
@@ -85,8 +84,7 @@ public final class TemplateModifier
 		templList.addAll(pct.getConditionalTemplates(totalLevels, totalHitDice));
 		for (PCTemplate subt : templList)
 		{
-			List<DamageReduction> tList = subt
-					.getListFor(ListKey.DAMAGE_REDUCTION);
+			List<DamageReduction> tList = subt.getListFor(ListKey.DAMAGE_REDUCTION);
 			if (tList != null)
 			{
 				for (DamageReduction dr : tList)
@@ -124,8 +122,7 @@ public final class TemplateModifier
 
 		if (display.getTemplateSR(pct, totalLevels, totalHitDice) != 0)
 		{
-			mods.append("SR:").append(
-				display.getTemplateSR(pct, totalLevels, totalHitDice)).append(' ');
+			mods.append("SR:").append(display.getTemplateSR(pct, totalLevels, totalHitDice)).append(' ');
 		}
 
 		// if (!getDR(aPC.getTotalLevels(), aPC.totalHitDice()).equals(""))

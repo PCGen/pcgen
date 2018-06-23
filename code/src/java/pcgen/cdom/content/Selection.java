@@ -36,19 +36,16 @@ public class Selection<BT extends CDOMObject, SEL>
 		{
 			if (sel == null)
 			{
-				throw new IllegalArgumentException(
-					"Selection cannot be null in "
-						+ obj.getClass().getSimpleName() + " "
-						+ obj.getKeyName() + " with CHOOSE");
+				throw new IllegalArgumentException("Selection cannot be null in " + obj.getClass().getSimpleName() + " "
+					+ obj.getKeyName() + " with CHOOSE");
 			}
 		}
 		else
 		{
 			if (sel != null)
 			{
-				throw new IllegalArgumentException("Selection must be null in "
-					+ obj.getClass().getSimpleName() + " " + obj.getKeyName()
-					+ " without CHOOSE");
+				throw new IllegalArgumentException("Selection must be null in " + obj.getClass().getSimpleName() + " "
+					+ obj.getKeyName() + " without CHOOSE");
 			}
 		}
 		base = obj;
@@ -72,9 +69,7 @@ public class Selection<BT extends CDOMObject, SEL>
 		{
 			Selection<?, ?> other = (Selection<?, ?>) obj;
 			boolean selectionEqual =
-					(selection == other.selection)
-						|| (selection != null && selection
-							.equals(other.selection));
+					(selection == other.selection) || (selection != null && selection.equals(other.selection));
 			return selectionEqual && base.equals(other.base);
 		}
 		return false;

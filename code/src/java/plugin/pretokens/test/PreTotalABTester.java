@@ -30,10 +30,7 @@ public class PreTotalABTester extends AbstractPrerequisiteTest implements Prereq
 {
 
 	@Override
-	public int passes(
-		final Prerequisite prereq,
-		final PlayerCharacter character,
-		CDOMObject source)
+	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
 		throws PrerequisiteException
 	{
 		int runningTotal;
@@ -47,8 +44,10 @@ public class PreTotalABTester extends AbstractPrerequisiteTest implements Prereq
 		}
 		catch (NumberFormatException exc)
 		{
-			throw new PrerequisiteException(LanguageBundle.getFormattedString(
-				"PreAttack.error.badly_formed_attribute", prereq.getOperand())); //$NON-NLS-1$
+			throw new PrerequisiteException(
+				LanguageBundle.getFormattedString(
+					"PreAttack.error.badly_formed_attribute",  //$NON-NLS-1$
+				       	prereq.getOperand()));
 		}
 
 		return countedTotal(prereq, runningTotal);
@@ -58,7 +57,7 @@ public class PreTotalABTester extends AbstractPrerequisiteTest implements Prereq
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "TOTALAB"; //$NON-NLS-1$
@@ -67,9 +66,9 @@ public class PreTotalABTester extends AbstractPrerequisiteTest implements Prereq
 	@Override
 	public String toHtmlString(final Prerequisite prereq)
 	{
-		return LanguageBundle
-			.getFormattedString(
-				"PreAttack.toHtml", prereq.getOperator().toDisplayString(), prereq.getOperand()); //$NON-NLS-1$ //$NON-NLS-2$
+		return LanguageBundle.getFormattedString(
+			"PreAttack.toHtml", prereq.getOperator().toDisplayString(), //$NON-NLS-1$
+			prereq.getOperand());
 	}
 
 }

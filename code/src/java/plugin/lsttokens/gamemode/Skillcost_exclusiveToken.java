@@ -11,13 +11,13 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class Skillcost_exclusiveToken implements GameModeLstToken
 {
 
-    @Override
+	@Override
 	public String getTokenName()
 	{
 		return "SKILLCOST_EXCLUSIVE";
 	}
 
-    @Override
+	@Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		try

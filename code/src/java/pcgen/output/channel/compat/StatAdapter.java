@@ -29,12 +29,10 @@ import pcgen.facade.util.WriteableReferenceFacade;
  * A StatAdapter is the historical compatibility interface (facade) used to wrap to the
  * gui2 non-channel system for setting and retrieving PCStat values.
  */
-public final class StatAdapter extends AbstractAdapter<Number> implements
-		WriteableReferenceFacade<Number>,
-		ScopeFacetChangeListener<CharID, PCStat, Number>
+public final class StatAdapter extends AbstractAdapter<Number>
+		implements WriteableReferenceFacade<Number>, ScopeFacetChangeListener<CharID, PCStat, Number>
 {
-	private StatValueFacet statValueFacet = FacetLibrary
-		.getFacet(StatValueFacet.class);
+	private StatValueFacet statValueFacet = FacetLibrary.getFacet(StatValueFacet.class);
 
 	private final CharID id;
 	private final PCStat stat;

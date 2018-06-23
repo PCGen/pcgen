@@ -27,8 +27,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * LOCATION Token for Kit Gears
  */
-public class LocationToken extends AbstractNonEmptyToken<KitGear> implements
-		CDOMPrimaryToken<KitGear>
+public class LocationToken extends AbstractNonEmptyToken<KitGear> implements CDOMPrimaryToken<KitGear>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -48,8 +47,7 @@ public class LocationToken extends AbstractNonEmptyToken<KitGear> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, KitGear kitGear,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, KitGear kitGear, String value)
 	{
 		kitGear.setLocation(value);
 		return ParseResult.SUCCESS;
@@ -63,6 +61,6 @@ public class LocationToken extends AbstractNonEmptyToken<KitGear> implements
 		{
 			return null;
 		}
-		return new String[] { bd };
+		return new String[]{bd};
 	}
 }

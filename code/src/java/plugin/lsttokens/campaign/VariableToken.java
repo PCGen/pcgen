@@ -33,8 +33,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with VARIABLE Token
  */
-public class VariableToken extends AbstractTokenWithSeparator<Campaign>
-		implements CDOMPrimaryToken<Campaign>
+public class VariableToken extends AbstractTokenWithSeparator<Campaign> implements CDOMPrimaryToken<Campaign>
 {
 
 	@Override
@@ -50,8 +49,7 @@ public class VariableToken extends AbstractTokenWithSeparator<Campaign>
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		Campaign campaign, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, Campaign campaign, String value)
 	{
 		CampaignSourceEntry cse = context.getCampaignSourceEntry(campaign, value);
 		if (cse == null)
@@ -61,24 +59,21 @@ public class VariableToken extends AbstractTokenWithSeparator<Campaign>
 		}
 		if (!cse.getIncludeItems().isEmpty())
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " does not support Include");
+			return new ParseResult.Fail(getTokenName() + " does not support Include");
 		}
 		if (!cse.getExcludeItems().isEmpty())
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " does not support Exclude");
+			return new ParseResult.Fail(getTokenName() + " does not support Exclude");
 		}
 		if (!cse.getPrerequisites().isEmpty())
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " does not support Prerequisites");
+			return new ParseResult.Fail(getTokenName() + " does not support Prerequisites");
 		}
 		context.getObjectContext().addToList(campaign, ListKey.FILE_VARIABLE, cse);
 		return ParseResult.SUCCESS;
 	}
 
-    @Override
+	@Override
 	public String[] unparse(LoadContext context, Campaign campaign)
 	{
 		Changes<CampaignSourceEntry> cseChanges =
@@ -97,7 +92,7 @@ public class VariableToken extends AbstractTokenWithSeparator<Campaign>
 		return set.toArray(new String[set.size()]);
 	}
 
-    @Override
+	@Override
 	public Class<Campaign> getTokenClass()
 	{
 		return Campaign.class;

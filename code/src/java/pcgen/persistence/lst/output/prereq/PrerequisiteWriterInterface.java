@@ -23,11 +23,11 @@
  */
 package pcgen.persistence.lst.output.prereq;
 
+import java.io.Writer;
+
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
-
-import java.io.Writer;
 
 public interface PrerequisiteWriterInterface
 {
@@ -47,7 +47,6 @@ public interface PrerequisiteWriterInterface
 	 * @param prereq
 	 * @throws PersistenceLayerException
 	 */
-	void write(Writer writer, Prerequisite prereq)
-		throws PersistenceLayerException;
+	void write(Writer writer, Prerequisite prereq) throws PersistenceLayerException;
 
 }

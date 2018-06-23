@@ -365,10 +365,9 @@ public class ListKeyMapToList
 	@Override
 	public boolean equals(Object obj)
 	{
-		return obj instanceof ListKeyMapToList
-				&& map.equals(((ListKeyMapToList) obj).map);
+		return obj instanceof ListKeyMapToList && map.equals(((ListKeyMapToList) obj).map);
 	}
-	
+
 	@Override
 	public String toString()
 	{

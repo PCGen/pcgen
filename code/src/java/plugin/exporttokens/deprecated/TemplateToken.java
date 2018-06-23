@@ -70,8 +70,7 @@ public class TemplateToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		String retString = "";
 		PCTemplate template;
@@ -119,8 +118,7 @@ public class TemplateToken extends Token
 			{
 				// If the CR ends in .0, remove that for display purposes
 				retString = Float.toString(getCRToken(template, display));
-				String decimalPlaceValue =
-						retString.substring(retString.length() - 2);
+				String decimalPlaceValue = retString.substring(retString.length() - 2);
 				if (decimalPlaceValue.equals(".0"))
 				{
 					retString = retString.substring(0, retString.length() - 2);
@@ -163,13 +161,12 @@ public class TemplateToken extends Token
 	public static List<CNAbilitySelection> feats(PlayerCharacter pc, PCTemplate pct)
 	{
 		final List<CNAbilitySelection> feats = new ArrayList<>();
-	
+
 		for (PCTemplate rlt : pct.getSafeListFor(ListKey.REPEATLEVEL_TEMPLATES))
 		{
 			for (PCTemplate lt : rlt.getSafeListFor(ListKey.LEVEL_TEMPLATES))
 			{
-				Collection<? extends CNAbilitySelection> featList = 
-						pc.getTemplateFeatList(lt);
+				Collection<? extends CNAbilitySelection> featList = pc.getTemplateFeatList(lt);
 				if (featList != null)
 				{
 					feats.addAll(featList);
@@ -178,31 +175,28 @@ public class TemplateToken extends Token
 		}
 		for (PCTemplate lt : pct.getSafeListFor(ListKey.LEVEL_TEMPLATES))
 		{
-			Collection<? extends CNAbilitySelection> featList =
-					pc.getTemplateFeatList(lt);
+			Collection<? extends CNAbilitySelection> featList = pc.getTemplateFeatList(lt);
 			if (featList != null)
 			{
 				feats.addAll(featList);
 			}
 		}
-	
+
 		for (PCTemplate lt : pct.getSafeListFor(ListKey.HD_TEMPLATES))
 		{
-			Collection<? extends CNAbilitySelection> featList =
-					pc.getTemplateFeatList(lt);
+			Collection<? extends CNAbilitySelection> featList = pc.getTemplateFeatList(lt);
 			if (featList != null)
 			{
 				feats.addAll(featList);
 			}
 		}
-	
-		Collection<? extends CNAbilitySelection> featList =
-				pc.getTemplateFeatList(pct);
+
+		Collection<? extends CNAbilitySelection> featList = pc.getTemplateFeatList(pct);
 		if (featList != null)
 		{
 			feats.addAll(featList);
 		}
-	
+
 		return feats;
 	}
 
@@ -236,8 +230,7 @@ public class TemplateToken extends Token
 	 * @param aLabel
 	 * @return value of MOD sub token
 	 */
-	public static String getModToken(PlayerCharacter pc, PCTemplate template,
-		String aLabel)
+	public static String getModToken(PlayerCharacter pc, PCTemplate template, String aLabel)
 	{
 		StringBuilder retString = new StringBuilder();
 

@@ -49,11 +49,8 @@ public abstract class BasePCCountAbilitiesTermEvaluator extends BasePCTermEvalua
 	 * @param hidden  Count hidden abilities @return  An int containing the number of feats in the list
 	 * @return the number of matching abilities
 	 */
-	protected Float countVisibleAbilities(
-			PlayerCharacter pc,
-			final Iterable<CNAbility> aList,
-			final boolean visible,
-			final boolean hidden)
+	protected Float countVisibleAbilities(PlayerCharacter pc, final Iterable<CNAbility> aList, final boolean visible,
+		final boolean hidden)
 	{
 		Float count = 0.0f;
 
@@ -63,8 +60,8 @@ public abstract class BasePCCountAbilitiesTermEvaluator extends BasePCTermEvalua
 		}
 
 		return count;
-	}	
-	
+	}
+
 	/**
 	 * Count the number of times the character has the ability. This can be
 	 * limited to either hidden or visible Abilities, and can be limited to only
@@ -79,14 +76,10 @@ public abstract class BasePCCountAbilitiesTermEvaluator extends BasePCTermEvalua
 	 * @param onceOnly Should it be counted as one if was taken multiple times?
 	 * @return The number of occurrences of the ability.
 	 */
-	protected Float countVisibleAbility(
-			PlayerCharacter pc,
-			final CNAbility cna,
-			final boolean visible,
-			final boolean hidden,
-			final boolean onceOnly)
+	protected Float countVisibleAbility(PlayerCharacter pc, final CNAbility cna, final boolean visible,
+		final boolean hidden, final boolean onceOnly)
 	{
-		Visibility v = cna.getAbility().getSafe(ObjectKey.VISIBILITY); 
+		Visibility v = cna.getAbility().getSafe(ObjectKey.VISIBILITY);
 
 		//TODO This is a bug, it assumes export
 		boolean abilityInvisibile = v.isVisibleTo(View.HIDDEN_EXPORT);

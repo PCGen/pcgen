@@ -79,8 +79,7 @@ public class DiceBagGridLayout extends GridLayout
 	 *
 	 * @see java.awt.GridLayout#GridLayout(int rows, int cols)
 	 */
-	public DiceBagGridLayout(int rows, int cols, int manageBy, int minSize,
-		int maxSize)
+	public DiceBagGridLayout(int rows, int cols, int manageBy, int minSize, int maxSize)
 	{
 		super(rows, cols);
 		m_manageBy = manageBy;
@@ -101,8 +100,7 @@ public class DiceBagGridLayout extends GridLayout
 	 *
 	 * @see java.awt.GridLayout#GridLayout(int rows, int cols, int hgap, int vgap)
 	 */
-	public DiceBagGridLayout(int rows, int cols, int hgap, int vgap,
-		int manageBy, int minSize, int maxSize)
+	public DiceBagGridLayout(int rows, int cols, int hgap, int vgap, int manageBy, int minSize, int maxSize)
 	{
 		super(rows, cols, hgap, vgap);
 		m_manageBy = manageBy;
@@ -120,47 +118,41 @@ public class DiceBagGridLayout extends GridLayout
 	 *
 	 * @param parent Container -- parent.
 	 */
-    @Override
+	@Override
 	public void layoutContainer(Container parent)
 	{
 		if (m_manageBy == MANAGE_BY_COLUMNS)
 		{
-			int minWCols =
-					(int) Math.floor((parent.getWidth() - getHgap()
-						- parent.getInsets().left - parent.getInsets().right)
-						/ (m_minSize + getHgap()));
-			int maxWCols =
-					(int) Math.floor((parent.getWidth() - getHgap()
-						- parent.getInsets().left - parent.getInsets().right)
-						/ (m_maxSize + getHgap()));
+			int minWCols = (int) Math
+				.floor((parent.getWidth() - getHgap() - parent.getInsets().left - parent.getInsets().right)
+					/ (m_minSize + getHgap()));
+			int maxWCols = (int) Math
+				.floor((parent.getWidth() - getHgap() - parent.getInsets().left - parent.getInsets().right)
+					/ (m_maxSize + getHgap()));
 
 			if ((minWCols < getColumns()) && (minWCols > 0))
 			{
 				setColumns(minWCols);
 			}
-			else if ((maxWCols > getColumns())
-				&& (maxWCols <= parent.getComponentCount()))
+			else if ((maxWCols > getColumns()) && (maxWCols <= parent.getComponentCount()))
 			{
 				setColumns(maxWCols);
 			}
 		}
 		else if (m_manageBy == MANAGE_BY_ROWS)
 		{
-			int minWRows =
-					(int) Math.floor((parent.getHeight() - getVgap()
-						- parent.getInsets().top - parent.getInsets().bottom)
-						/ (m_minSize + getVgap()));
-			int maxWRows =
-					(int) Math.floor((parent.getHeight() - getVgap()
-						- parent.getInsets().top - parent.getInsets().bottom)
-						/ (m_maxSize + getVgap()));
+			int minWRows = (int) Math
+				.floor((parent.getHeight() - getVgap() - parent.getInsets().top - parent.getInsets().bottom)
+					/ (m_minSize + getVgap()));
+			int maxWRows = (int) Math
+				.floor((parent.getHeight() - getVgap() - parent.getInsets().top - parent.getInsets().bottom)
+					/ (m_maxSize + getVgap()));
 
 			if ((minWRows < getRows()) && (minWRows > 0))
 			{
 				setRows(minWRows);
 			}
-			else if ((maxWRows > getRows())
-				&& (maxWRows <= parent.getComponentCount()))
+			else if ((maxWRows > getRows()) && (maxWRows <= parent.getComponentCount()))
 			{
 				setRows(maxWRows);
 			}

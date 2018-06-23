@@ -19,7 +19,9 @@
 package pcgen.gui2.tools;
 
 import java.beans.PropertyChangeEvent;
+
 import javax.swing.table.TableColumn;
+
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.util.table.DefaultDynamicTableColumnModel;
 import pcgen.system.PropertyContext;
@@ -65,7 +67,7 @@ public class PrefTableColumnModel extends DefaultDynamicTableColumnModel
 		String prefsKey = normalisePrefsKey(column.getIdentifier().toString());
 		int width = colWidthCtx.initInt(prefsKey, defaultWidth);
 		boolean visibility = colVisibleCtx.getBoolean(prefsKey, defaultVisibility);
-		
+
 		column.setPreferredWidth(width);
 		addColumn(column);
 		setVisible(column, visibility);

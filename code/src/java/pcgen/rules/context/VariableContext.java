@@ -66,7 +66,7 @@ public class VariableContext implements VariableChannelFactory, VariableLibrary
 	 * a FormulaManager for each PC.
 	 */
 	private final FormulaSetupFactory formulaSetupFactory = new FormulaSetupFactory();
-	
+
 	/**
 	 * This is the ManagerFactory for this VariableContext. This is used to generate an
 	 * EvaluationManager, FormulaSemantics and other relevant items provided to the
@@ -82,8 +82,7 @@ public class VariableContext implements VariableChannelFactory, VariableLibrary
 	 * The FunctionLibrary for the FormulaSetupFactory and this VariableContext. Local so
 	 * that we can add functions based on plugins and data.
 	 */
-	private final WriteableFunctionLibrary myFunctionLibrary =
-			new SimpleFunctionLibrary();
+	private final WriteableFunctionLibrary myFunctionLibrary = new SimpleFunctionLibrary();
 
 	/**
 	 * The SolverFactory for the FormulaSetupFactory and this VariableContext. Local so
@@ -102,8 +101,7 @@ public class VariableContext implements VariableChannelFactory, VariableLibrary
 	 * The VariableManager for the FormulaSetupFactory and this VariableContext. Local so
 	 * the data can assert legal variables.
 	 */
-	private final VariableManager variableManager =
-			new VariableManager(legalScopeManager);
+	private final VariableManager variableManager = new VariableManager(legalScopeManager);
 
 	/**
 	 * The MasterModifierFactory for this VariableContext.
@@ -130,8 +128,7 @@ public class VariableContext implements VariableChannelFactory, VariableLibrary
 	 * Contains a VariableChannelFactory used to develop VariableChannels for this
 	 * VariableContext.
 	 */
-	private VariableChannelFactoryInst variableChannelFactory =
-			new VariableChannelFactoryInst();
+	private VariableChannelFactoryInst variableChannelFactory = new VariableChannelFactoryInst();
 
 	/**
 	 * Constructs a new VariableContext with the given ManagerFactory.
@@ -200,11 +197,10 @@ public class VariableContext implements VariableChannelFactory, VariableLibrary
 	 *            by the FormulaModifier
 	 * @return a FormulaModifier based on the given information
 	 */
-	public <T> FormulaModifier<T> getModifier(String modType, String instructions,
-		PCGenScope varScope, FormatManager<T> formatManager)
+	public <T> FormulaModifier<T> getModifier(String modType, String instructions, PCGenScope varScope,
+		FormatManager<T> formatManager)
 	{
-		return getModFactory().getModifier(modType, instructions, managerFactory,
-			varScope, formatManager);
+		return getModFactory().getModifier(modType, instructions, managerFactory, varScope, formatManager);
 	}
 
 	/**
@@ -303,11 +299,11 @@ public class VariableContext implements VariableChannelFactory, VariableLibrary
 	 *            NEPFormula
 	 * @return a "valid" NEPFormula for the given expression
 	 */
-	public <T> NEPFormula<T> getValidFormula(PCGenScope activeScope,
-		FormatManager<T> formatManager, String instructions)
+	public <T> NEPFormula<T> getValidFormula(PCGenScope activeScope, FormatManager<T> formatManager,
+		String instructions)
 	{
-		return FormulaFactory.getValidFormula(instructions, managerFactory,
-			getFormulaManager(), activeScope, formatManager);
+		return FormulaFactory.getValidFormula(instructions, managerFactory, getFormulaManager(), activeScope,
+			formatManager);
 	}
 
 	/**
@@ -403,8 +399,7 @@ public class VariableContext implements VariableChannelFactory, VariableLibrary
 	}
 
 	@Override
-	public void assertLegalVariableID(String varName, LegalScope varScope,
-		FormatManager<?> formatManager)
+	public void assertLegalVariableID(String varName, LegalScope varScope, FormatManager<?> formatManager)
 	{
 		variableManager.assertLegalVariableID(varName, varScope, formatManager);
 	}

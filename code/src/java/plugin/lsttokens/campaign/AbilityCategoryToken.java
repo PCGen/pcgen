@@ -29,8 +29,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
  * {@code AbilityCategoryToken} parses ABILITYCATEGORY in campaign (pcc)
  * files.
  */
-public class AbilityCategoryToken extends AbstractBasicCampaignToken implements
-		CDOMPrimaryToken<Campaign>
+public class AbilityCategoryToken extends AbstractBasicCampaignToken implements CDOMPrimaryToken<Campaign>
 {
 	@Override
 	public String getTokenName()

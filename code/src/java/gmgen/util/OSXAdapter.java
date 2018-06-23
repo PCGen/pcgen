@@ -21,6 +21,7 @@ import com.apple.eawt.Application;
 import com.apple.eawt.PreferencesHandler;
 import com.apple.eawt.QuitHandler;
 import com.apple.eawt.QuitResponse;
+
 import gmgen.GMGenSystem;
 
 /**
@@ -49,7 +50,6 @@ public final class OSXAdapter
 		osxApplication.setQuitHandler(new OSXQuitHandler());
 	}
 
-
 	private static class OSXPreferencesHandler implements PreferencesHandler
 	{
 		@Override
@@ -67,6 +67,5 @@ public final class OSXAdapter
 			mainApp.exitFormMac();
 		}
 	}
-
 
 }

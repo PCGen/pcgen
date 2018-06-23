@@ -336,7 +336,7 @@ public final class ListKey<T>
 			int mod = fields[i].getModifiers();
 
 			if (java.lang.reflect.Modifier.isStatic(mod) && java.lang.reflect.Modifier.isFinal(mod)
-					&& java.lang.reflect.Modifier.isPublic(mod))
+				&& java.lang.reflect.Modifier.isPublic(mod))
 			{
 				try
 				{

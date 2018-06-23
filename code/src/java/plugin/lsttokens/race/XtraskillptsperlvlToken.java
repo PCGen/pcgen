@@ -29,8 +29,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with XTRASKILLPTSPERLVL Token
  */
-public class XtraskillptsperlvlToken extends AbstractNonEmptyToken<Race> implements
-		CDOMPrimaryToken<Race>
+public class XtraskillptsperlvlToken extends AbstractNonEmptyToken<Race> implements CDOMPrimaryToken<Race>
 {
 
 	/**
@@ -56,8 +55,7 @@ public class XtraskillptsperlvlToken extends AbstractNonEmptyToken<Race> impleme
 		Formula formula = FormulaFactory.getFormulaFor(value);
 		if (!formula.isValid())
 		{
-			return new ParseResult.Fail("Formula in " + getTokenName()
-					+ " was not valid: " + formula.toString());
+			return new ParseResult.Fail("Formula in " + getTokenName() + " was not valid: " + formula.toString());
 		}
 		context.getObjectContext().put(race, FormulaKey.SKILL_POINTS_PER_LEVEL, formula);
 		return ParseResult.SUCCESS;
@@ -71,6 +69,6 @@ public class XtraskillptsperlvlToken extends AbstractNonEmptyToken<Race> impleme
 		{
 			return null;
 		}
-		return new String[] { f.toString() };
+		return new String[]{f.toString()};
 	}
 }

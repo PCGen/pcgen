@@ -24,8 +24,7 @@ import pcgen.core.Globals;
 import pcgen.core.PCCheck;
 import pcgen.core.display.CharacterDisplay;
 
-public class PCCountChecksTermEvaluator 
-		extends BasePCDTermEvaluator implements TermEvaluator
+public class PCCountChecksTermEvaluator extends BasePCDTermEvaluator implements TermEvaluator
 {
 	public PCCountChecksTermEvaluator(String originalText)
 	{
@@ -35,8 +34,7 @@ public class PCCountChecksTermEvaluator
 	@Override
 	public Float resolve(CharacterDisplay display)
 	{
-		return (float) Globals.getContext().getReferenceContext()
-				.getConstructedObjectCount(PCCheck.class);
+		return (float) Globals.getContext().getReferenceContext().getConstructedObjectCount(PCCheck.class);
 	}
 
 	@Override

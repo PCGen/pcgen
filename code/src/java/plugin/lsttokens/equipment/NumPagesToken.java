@@ -29,8 +29,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
  * (Tue, 14 Mar 2006) $
  * 
  */
-public class NumPagesToken extends AbstractIntToken<Equipment> implements
-		CDOMPrimaryToken<Equipment>
+public class NumPagesToken extends AbstractIntToken<Equipment> implements CDOMPrimaryToken<Equipment>
 {
 
 	@Override

@@ -64,8 +64,8 @@ public class DefinedWrappingLibrary implements FunctionLibrary
 	 *            The FormatManager indicating the format of the return value for this
 	 *            DefinedWrappingLibrary
 	 */
-	public DefinedWrappingLibrary(FunctionLibrary functionLibrary, String definedName,
-		VarScoped definedValue, FormatManager<?> formatManager)
+	public DefinedWrappingLibrary(FunctionLibrary functionLibrary, String definedName, VarScoped definedValue,
+		FormatManager<?> formatManager)
 	{
 		this.functionLibrary = Objects.requireNonNull(functionLibrary);
 		this.definedName = Objects.requireNonNull(definedName);

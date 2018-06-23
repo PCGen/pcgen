@@ -59,7 +59,7 @@ public class PCToken extends AbstractPCQualifierToken<ShieldProf>
 				return true;
 			}
 		}
-		
+
 		return false;
 	}
 

@@ -96,8 +96,7 @@ public class AddCombatant extends AbstractDialog
 	 * @param  modal       Is the dialog modal
 	 * @param  initiative  The initiative tracker reference.
 	 */
-	public AddCombatant(java.awt.Frame parent, boolean modal,
-		Initiative initiative)
+	public AddCombatant(java.awt.Frame parent, boolean modal, Initiative initiative)
 	{
 		super(parent, "no title?", modal);
 		initDropDown();
@@ -105,25 +104,20 @@ public class AddCombatant extends AbstractDialog
 		setLocation(parent.getX() + 100, parent.getY() + 100);
 		this.initiative = initiative;
 
-		boolean bHP =
-				SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
-					+ ".doHP", true);
+		boolean bHP = SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".doHP", true);
 
 		hpSlider.setEnabled(bHP);
 
-		int maxHp =
-				SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
-					+ ".dbMaxHP", 100);
+		int maxHp = SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".dbMaxHP", 100);
 
-		int maxNum =
-				SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
-					+ ".dbMaxNum", 20);
+		int maxNum = SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".dbMaxNum", 20);
 
 		numberSlider.setMaximum(maxNum);
 		hpSlider.setMaximum(maxHp);
 		pack();
 	}
 
+	@Override
 	protected void applyButtonActionPerformed()
 	{
 		String comString = (String) typeCombo.getSelectedItem();
@@ -138,19 +132,12 @@ public class AddCombatant extends AbstractDialog
 		{
 			for (int i = 1; i <= getIntegerValue(numberField, 1); i++)
 			{
-				XMLCombatant xmlcbt =
-						new XMLCombatant(nameField.getText() + " (" + i + ')',
-							playerField.getText(),
-							getIntegerValue(strField, 10), getIntegerValue(
-								dexField, 10), getIntegerValue(conField, 10),
-							getIntegerValue(intField, 10), getIntegerValue(
-								wisField, 10), getIntegerValue(chaField, 10),
-							getIntegerValue(fortitudeField, 0),
-							getIntegerValue(reflexField, 0), getIntegerValue(
-								willField, 0), getIntegerValue(hpField, 1),
-							getIntegerValue(hpField, 1), 0, getIntegerValue(
-								bonusField, 0), comString, getFloatValue(
-								crField, 1), 0);
+				XMLCombatant xmlcbt = new XMLCombatant(nameField.getText() + " (" + i + ')', playerField.getText(),
+					getIntegerValue(strField, 10), getIntegerValue(dexField, 10), getIntegerValue(conField, 10),
+					getIntegerValue(intField, 10), getIntegerValue(wisField, 10), getIntegerValue(chaField, 10),
+					getIntegerValue(fortitudeField, 0), getIntegerValue(reflexField, 0), getIntegerValue(willField, 0),
+					getIntegerValue(hpField, 1), getIntegerValue(hpField, 1), 0, getIntegerValue(bonusField, 0),
+					comString, getFloatValue(crField, 1), 0);
 				initiative.initList.add(xmlcbt);
 				initiative.addTab(xmlcbt);
 			}
@@ -159,18 +146,12 @@ public class AddCombatant extends AbstractDialog
 		// If if not, just add one
 		else
 		{
-			XMLCombatant xmlcbt =
-					new XMLCombatant(nameField.getText(),
-						playerField.getText(), getIntegerValue(strField, 10),
-						getIntegerValue(dexField, 10), getIntegerValue(
-							conField, 10), getIntegerValue(intField, 10),
-						getIntegerValue(wisField, 10), getIntegerValue(
-							chaField, 10), getIntegerValue(fortitudeField, 0),
-						getIntegerValue(reflexField, 0), getIntegerValue(
-							willField, 0), getIntegerValue(hpField, 1),
-						getIntegerValue(hpField, 1), 0, getIntegerValue(
-							bonusField, 0), comString,
-						getFloatValue(crField, 1), 0);
+			XMLCombatant xmlcbt = new XMLCombatant(nameField.getText(), playerField.getText(),
+				getIntegerValue(strField, 10), getIntegerValue(dexField, 10), getIntegerValue(conField, 10),
+				getIntegerValue(intField, 10), getIntegerValue(wisField, 10), getIntegerValue(chaField, 10),
+				getIntegerValue(fortitudeField, 0), getIntegerValue(reflexField, 0), getIntegerValue(willField, 0),
+				getIntegerValue(hpField, 1), getIntegerValue(hpField, 1), 0, getIntegerValue(bonusField, 0), comString,
+				getFloatValue(crField, 1), 0);
 			initiative.initList.add(xmlcbt);
 			initiative.addTab(xmlcbt);
 		}
@@ -184,6 +165,7 @@ public class AddCombatant extends AbstractDialog
 	 * Initializes all the components of the dialog.
 	 * </p>
 	 */
+	@Override
 	protected JComponent getCenter()
 	{
 		JPanel center = new JPanel();
@@ -545,8 +527,7 @@ public class AddCombatant extends AbstractDialog
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
 		center.add(crLabel, gridBagConstraints);
 
-		noteLabel
-			.setText("(Note, use decimal fractions for CR less than 1. Ex: .5 = 1/2)");
+		noteLabel.setText("(Note, use decimal fractions for CR less than 1. Ex: .5 = 1/2)");
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 7;
@@ -580,8 +561,7 @@ public class AddCombatant extends AbstractDialog
 		vType.add("PC");
 		vType.add("Non Combatant");
 
-		javax.swing.DefaultComboBoxModel typeModel =
-				new javax.swing.DefaultComboBoxModel(vType);
+		javax.swing.DefaultComboBoxModel typeModel = new javax.swing.DefaultComboBoxModel(vType);
 		typeCombo.setModel(typeModel);
 	}
 
@@ -616,9 +596,7 @@ public class AddCombatant extends AbstractDialog
 		}
 		else
 		{
-			Logging
-				.debugPrint("Was unable to read CR value, using default of ["
-					+ defaultValue + ']');
+			Logging.debugPrint("Was unable to read CR value, using default of [" + defaultValue + ']');
 		}
 		return returnValue;
 	}

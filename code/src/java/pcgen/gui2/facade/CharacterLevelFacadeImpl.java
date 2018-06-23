@@ -32,7 +32,7 @@ public class CharacterLevelFacadeImpl implements CharacterLevelFacade
 
 	private final int characterLevel;
 	private final ClassFacade classFacade;
-	
+
 	public CharacterLevelFacadeImpl(ClassFacade classFacade, int level)
 	{
 		this.classFacade = classFacade;
@@ -61,5 +61,4 @@ public class CharacterLevelFacadeImpl implements CharacterLevelFacade
 		return characterLevel + " - " + String.valueOf(classFacade);
 	}
 
-	
 }

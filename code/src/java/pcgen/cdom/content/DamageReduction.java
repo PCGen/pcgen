@@ -39,8 +39,7 @@ import pcgen.cdom.base.QualifyingObject;
  * 
  * 
  */
-public class DamageReduction extends ConcretePrereqObject implements
-		QualifyingObject
+public class DamageReduction extends ConcretePrereqObject implements QualifyingObject
 {
 	private final Formula theReduction;
 	private final String theBypass;
@@ -88,8 +87,7 @@ public class DamageReduction extends ConcretePrereqObject implements
 	 */
 	public int getRawReductionValue()
 	{
-		return theReduction.isStatic() ? theReduction.resolveStatic()
-			.intValue() : -1;
+		return theReduction.isStatic() ? theReduction.resolveStatic().intValue() : -1;
 	}
 
 	/**

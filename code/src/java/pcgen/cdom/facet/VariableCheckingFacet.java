@@ -30,8 +30,8 @@ import pcgen.core.PlayerCharacter;
  */
 public class VariableCheckingFacet
 {
-	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
-		.getFacet(PlayerCharacterTrackingFacet.class);
+	private final PlayerCharacterTrackingFacet trackingFacet =
+			FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
 
 	public Number getVariableValue(CharID id, String var)
 	{

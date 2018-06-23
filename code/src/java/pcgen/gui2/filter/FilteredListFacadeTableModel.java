@@ -30,8 +30,8 @@ import pcgen.facade.util.event.ListListener;
 import pcgen.gui2.util.table.Row;
 import pcgen.gui2.util.table.SortableTableModel;
 
-
-public abstract class FilteredListFacadeTableModel<E> extends AbstractTableModel implements SortableTableModel, ListListener<E>
+public abstract class FilteredListFacadeTableModel<E> extends AbstractTableModel
+		implements SortableTableModel, ListListener<E>
 {
 
 	protected final SortedListFacade<E> sortedList;
@@ -48,14 +48,16 @@ public abstract class FilteredListFacadeTableModel<E> extends AbstractTableModel
 		this.character = character;
 		this.filteredList = new FilteredListFacade<>();
 		filteredList.setContext(character);
-		this.sortedList = new SortedListFacade<>(new Comparator<Object>() {
+		this.sortedList = new SortedListFacade<>(new Comparator<Object>()
+		{
 
-            @Override
-            public int compare(Object o1, Object o2) {
-                return 0;
-            }
+			@Override
+			public int compare(Object o1, Object o2)
+			{
+				return 0;
+			}
 
-        });
+		});
 		sortedList.addListListener(this);
 		sortedList.setDelegate(filteredList);
 	}

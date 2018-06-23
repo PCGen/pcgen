@@ -35,9 +35,8 @@ import pcgen.core.Skill;
  * taken ranks and BONUS:SKILLRANK)
  * 
  */
-public class TotalSkillRankFacet extends AbstractStorageFacet<CharID> implements
-		SkillRankChangeListener,
-		pcgen.cdom.facet.BonusSkillRankChangeFacet.SkillRankChangeListener
+public class TotalSkillRankFacet extends AbstractStorageFacet<CharID>
+		implements SkillRankChangeListener, pcgen.cdom.facet.BonusSkillRankChangeFacet.SkillRankChangeListener
 {
 	private static final Double DOUBLE_ZERO = 0.0d;
 
@@ -170,8 +169,7 @@ public class TotalSkillRankFacet extends AbstractStorageFacet<CharID> implements
 	{
 		if (obj == null)
 		{
-			throw new IllegalArgumentException(
-				"Object for getting association may not be null");
+			throw new IllegalArgumentException("Object for getting association may not be null");
 		}
 		Map<Skill, Double> map = getInfo(id);
 		if (map != null)
@@ -190,14 +188,13 @@ public class TotalSkillRankFacet extends AbstractStorageFacet<CharID> implements
 	public static class AssociationChangeSupport
 	{
 		private final Object source;
-		
+
 		public AssociationChangeSupport(Object src)
 		{
 			source = src;
 		}
 
-		private final List<AssociationChangeListener> listeners =
-                new ArrayList<>();
+		private final List<AssociationChangeListener> listeners = new ArrayList<>();
 
 		/**
 		 * Adds a new AssociationChangeListener to receive
@@ -214,8 +211,7 @@ public class TotalSkillRankFacet extends AbstractStorageFacet<CharID> implements
 		 *            The AssociationChangeListener to receive
 		 *            AssociationChangeEvents from this AssociationChangeSupport
 		 */
-		public synchronized void addAssociationChangeListener(
-			AssociationChangeListener listener)
+		public synchronized void addAssociationChangeListener(AssociationChangeListener listener)
 		{
 			listeners.add(listener);
 		}
@@ -227,8 +223,7 @@ public class TotalSkillRankFacet extends AbstractStorageFacet<CharID> implements
 		 * @param listener
 		 *            The AssociationChangeListener to be removed
 		 */
-		public synchronized void removeAssociationChangeListener(
-			AssociationChangeListener listener)
+		public synchronized void removeAssociationChangeListener(AssociationChangeListener listener)
 		{
 			listeners.remove(listener);
 		}
@@ -252,12 +247,9 @@ public class TotalSkillRankFacet extends AbstractStorageFacet<CharID> implements
 		 * @param newValue
 		 *            The new value of the Bonus value
 		 */
-		public void fireAssociationChange(CharID id, Skill skill,
-			Number oldValue, Number newValue)
+		public void fireAssociationChange(CharID id, Skill skill, Number oldValue, Number newValue)
 		{
-			AssociationChangeEvent bce =
-					new AssociationChangeEvent(id, skill, oldValue, newValue,
-						source);
+			AssociationChangeEvent bce = new AssociationChangeEvent(id, skill, oldValue, newValue, source);
 
 			for (AssociationChangeListener target : listeners)
 			{
@@ -296,8 +288,7 @@ public class TotalSkillRankFacet extends AbstractStorageFacet<CharID> implements
 	 * @param listener
 	 *            The AssociationChangeListener to be removed
 	 */
-	public void removeAssociationChangeListener(
-		AssociationChangeListener listener)
+	public void removeAssociationChangeListener(AssociationChangeListener listener)
 	{
 		if (support == null)
 		{
@@ -333,8 +324,7 @@ public class TotalSkillRankFacet extends AbstractStorageFacet<CharID> implements
 	}
 
 	@Override
-	public void rankChanged(
-		pcgen.cdom.facet.SkillRankFacet.SkillRankChangeEvent srce)
+	public void rankChanged(pcgen.cdom.facet.SkillRankFacet.SkillRankChangeEvent srce)
 	{
 		CharID id = srce.getCharID();
 		Skill skill = srce.getSkill();
@@ -354,8 +344,7 @@ public class TotalSkillRankFacet extends AbstractStorageFacet<CharID> implements
 		this.skillRankFacet = skillRankFacet;
 	}
 
-	public void setBonusSkillRankChangeFacet(
-		BonusSkillRankChangeFacet bonusSkillRankChangeFacet)
+	public void setBonusSkillRankChangeFacet(BonusSkillRankChangeFacet bonusSkillRankChangeFacet)
 	{
 		this.bonusSkillRankChangeFacet = bonusSkillRankChangeFacet;
 	}

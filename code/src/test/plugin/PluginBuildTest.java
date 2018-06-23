@@ -39,13 +39,13 @@ public class PluginBuildTest extends TestCase
 	 * Array of exceptions to normal names. Each entry is a pair of
 	 * Java source file name and JAR file name. 
 	 */
-	String [][] exceptions = new String[][] {
-		{ "EqBuilderSpell", "EqBuilder.Spell" },
-		{ "EqBuilderEqType", "EqBuilder.EqType" },
-		{ "GetVar", "Var" },
-		{ "HitdieLst", "Hitdie" },
-		{ "Casttime", "Casttimes" },
-		{ "PreVariable", "PreVar" }
+	String[][] exceptions = new String[][] {
+		{"EqBuilderSpell", "EqBuilder.Spell"},
+		{"EqBuilderEqType", "EqBuilder.EqType"},
+		{"GetVar", "Var"},
+		{"HitdieLst", "Hitdie"},
+		{"Casttime", "Casttimes"},
+		{"PreVariable", "PreVar"}
 	};
 	
 	/**
@@ -76,16 +76,18 @@ public class PluginBuildTest extends TestCase
 		String jarPrefix = "^[a-zA-Z]*-DEPRECATED-";
 		String sourceSuffix = "Lst";
 		File sourceFolder = new File("code/src/java/plugin/lsttokens/deprecated");
-		File jarFolder[] = new File[]{new File("plugins/lstplugins"), new File("plugins/preplugins"), new File("plugins/bonusplugins")};
-		assertTrue("Source folder " + sourceFolder.getAbsolutePath() + " should be a directory", sourceFolder.isDirectory());
+		File[] jarFolder = new File[]{new File("plugins/lstplugins"), new File("plugins/preplugins"),
+			new File("plugins/bonusplugins")};
+		assertTrue("Source folder " + sourceFolder.getAbsolutePath() + " should be a directory",
+			sourceFolder.isDirectory());
 		String[] sources = sourceFolder.list();
 		List<String> srcList = new ArrayList<>();
 		srcList.addAll(Arrays.asList(sources));
 		srcList.remove("PreDefaultMonsterTester.java");
 		srcList.remove("PreDefaultMonsterWriter.java");
 		sources = srcList.toArray(sources);
-		String [][] exceptions = new String[][] {
-			{ "MoveBonus", "Move" }
+		String[][] exceptions = new String[][]{
+			{"MoveBonus", "Move"}
 		};
 		checkPluginJarsByRegex(jarPrefix, jarFolder, sourceSuffix, sources, exceptions);
 	}
@@ -433,7 +435,11 @@ public class PluginBuildTest extends TestCase
 		String jarPrefix = "PreToken-";
 		File sourceFolder = new File("code/src/java/plugin/pretokens/parser");
 		File jarFolder = new File("plugins/preplugins");
-		assertTrue("Source folder " + sourceFolder.getAbsolutePath() + " should be a directory", sourceFolder.isDirectory());
+		assertTrue(
+			"Source folder " //$NON-NLS-1$
+					+ sourceFolder.getAbsolutePath()
+						+ " should be a directory", //$NON-NLS-1$
+			sourceFolder.isDirectory());
 		String[] sources = sourceFolder.list();
 		List<String> srcList = new ArrayList<>();
 		srcList.addAll(Arrays.asList(sources));
@@ -579,7 +585,11 @@ public class PluginBuildTest extends TestCase
 	private void checkPluginJars(String jarPrefix, File sourceFolder,
 		File jarFolder, String classSuffix)
 	{
-		assertTrue("Source folder " + sourceFolder.getAbsolutePath() + " should be a directory", sourceFolder.isDirectory());
+		assertTrue(
+			"Source folder "  //$NON-NLS-1$
+					+ sourceFolder.getAbsolutePath()
+						+ " should be a directory",  //$NON-NLS-1$
+			sourceFolder.isDirectory());
 		String[] sources = sourceFolder.list();
 		checkPluginJars(jarPrefix, jarFolder, classSuffix, sources);
 	}
@@ -619,7 +629,7 @@ public class PluginBuildTest extends TestCase
 				{
 					testString = testString.replaceAll(classSuffix, "");
 				}
-				for (String exception[] : exceptions)
+				for (String[] exception : exceptions)
 				{
 					testString = testString.replaceAll(exception[0], exception[1]);
 				}
@@ -645,7 +655,7 @@ public class PluginBuildTest extends TestCase
 	 * @param exceptions The list of known exceptions to the naming standards.
 	 */
 	private void checkPluginJarsByRegex(String jarRegexPrefix,
-		File jarFolder[], String classSuffix, String[] sources,
+		File[] jarFolder, String classSuffix, String[] sources,
 		String[][] exceptions)
 	{
 		for (File folder : jarFolder)
@@ -678,7 +688,7 @@ public class PluginBuildTest extends TestCase
 				{
 					testString = testString.replaceAll(classSuffix, "");
 				}
-				for (String exception[] : exceptions)
+				for (String[] exception : exceptions)
 				{
 					testString = testString.replaceAll(exception[0], exception[1]);
 				}

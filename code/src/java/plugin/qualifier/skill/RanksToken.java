@@ -45,7 +45,7 @@ public class RanksToken implements QualifierToken<Skill>, PrimitiveFilter<Skill>
 	private boolean negated = false;
 
 	private int ranks;
-	
+
 	private boolean maxRank = false;
 
 	@Override
@@ -86,14 +86,13 @@ public class RanksToken implements QualifierToken<Skill>, PrimitiveFilter<Skill>
 	}
 
 	@Override
-	public boolean initialize(LoadContext context, SelectionCreator<Skill> sc,
-			String condition, String value, boolean negate)
+	public boolean initialize(LoadContext context, SelectionCreator<Skill> sc, String condition, String value,
+		boolean negate)
 	{
 		if (condition == null)
 		{
-			Logging.addParseMessage(Level.SEVERE, getTokenName()
-					+ " Must be a conditional Qualifier, e.g. "
-					+ getTokenName() + "=10");
+			Logging.addParseMessage(Level.SEVERE,
+				getTokenName() + " Must be a conditional Qualifier, e.g. " + getTokenName() + "=10");
 			return false;
 		}
 		try
@@ -108,10 +107,10 @@ public class RanksToken implements QualifierToken<Skill>, PrimitiveFilter<Skill>
 			}
 			else
 			{
-				Logging.addParseMessage(Level.SEVERE, getTokenName()
-					+ " Must be a numerical conditional Qualifier, e.g. "
-					+ getTokenName() + "=10 ... Offending value: " + condition);
-			return false;
+				Logging.addParseMessage(Level.SEVERE,
+					getTokenName() + " Must be a numerical conditional Qualifier, e.g. " + getTokenName()
+						+ "=10 ... Offending value: " + condition);
+				return false;
 			}
 		}
 		negated = negate;
@@ -130,8 +129,7 @@ public class RanksToken implements QualifierToken<Skill>, PrimitiveFilter<Skill>
 	@Override
 	public GroupingState getGroupingState()
 	{
-		GroupingState gs = pcs == null ? GroupingState.ANY : pcs
-				.getGroupingState().reduce();
+		GroupingState gs = pcs == null ? GroupingState.ANY : pcs.getGroupingState().reduce();
 		return negated ? gs.negate() : gs;
 	}
 
@@ -147,8 +145,7 @@ public class RanksToken implements QualifierToken<Skill>, PrimitiveFilter<Skill>
 		if (o instanceof RanksToken)
 		{
 			RanksToken other = (RanksToken) o;
-			if (negated == other.negated && ranks == other.ranks
-				&& maxRank == other.maxRank)
+			if (negated == other.negated && ranks == other.ranks && maxRank == other.maxRank)
 			{
 				if (pcs == null)
 				{
@@ -178,8 +175,7 @@ public class RanksToken implements QualifierToken<Skill>, PrimitiveFilter<Skill>
 			 * According to SkillRankControl any class can be used here
 			 * (confusing!)
 			 */
-			double maxRanks =
-					pc.getMaxRank(sk, pc.getClassList().get(0)).doubleValue();
+			double maxRanks = pc.getMaxRank(sk, pc.getClassList().get(0)).doubleValue();
 			return maxRanks <= pcRanks;
 		}
 		return ranks <= pcRanks;

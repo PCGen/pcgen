@@ -107,8 +107,7 @@ public class FlippingSplitPane extends JSplitPane
 	 * Creates a new {@code FlippingSplitPane}.  Panes begin as unlocked, and
 	 * otherwise take the defaults of {@link JSplitPane#JSplitPane(int, boolean)}.
 	 */
-	public FlippingSplitPane(int newOrientation, boolean newContinuousLayout,
-		String prefsKey)
+	public FlippingSplitPane(int newOrientation, boolean newContinuousLayout, String prefsKey)
 	{
 		super(newOrientation, newContinuousLayout);
 
@@ -121,8 +120,8 @@ public class FlippingSplitPane extends JSplitPane
 	 * otherwise take the defaults of {@link JSplitPane#JSplitPane(int, Component,
 	 * Component)}.
 	 */
-	public FlippingSplitPane(int newOrientation, Component newLeftComponent,
-			Component newRightComponent, String prefsKey)
+	public FlippingSplitPane(int newOrientation, Component newLeftComponent, Component newRightComponent,
+		String prefsKey)
 	{
 		super(newOrientation, newLeftComponent, newRightComponent);
 
@@ -135,17 +134,15 @@ public class FlippingSplitPane extends JSplitPane
 	 * otherwise take the defaults of {@link JSplitPane#JSplitPane(int, boolean,
 	 * Component, Component)}.
 	 */
-	public FlippingSplitPane(int newOrientation, boolean newContinuousLayout,
-			Component newLeftComponent,
-			Component newRightComponent, String prefsKey)
+	public FlippingSplitPane(int newOrientation, boolean newContinuousLayout, Component newLeftComponent,
+		Component newRightComponent, String prefsKey)
 	{
-		super(newOrientation, newContinuousLayout, newLeftComponent,
-				newRightComponent);
+		super(newOrientation, newContinuousLayout, newLeftComponent, newRightComponent);
 
 		this.prefsKey = prefsKey;
 		initComponent();
 	}
-	
+
 	/**
 	 * {@code setContinuousLayout} recursively calls {@link
 	 * JSplitPane#setContinuousLayout(boolean)} on {@code FlippingSplitPane}
@@ -162,10 +159,8 @@ public class FlippingSplitPane extends JSplitPane
 		}
 
 		super.setContinuousLayout(newContinuousLayout);
-		maybeSetContinuousLayoutComponent(getLeftComponent(),
-				newContinuousLayout);
-		maybeSetContinuousLayoutComponent(getRightComponent(),
-				newContinuousLayout);
+		maybeSetContinuousLayoutComponent(getLeftComponent(), newContinuousLayout);
+		maybeSetContinuousLayoutComponent(getRightComponent(), newContinuousLayout);
 	}
 
 	private void setInitialDividerLocation()
@@ -177,7 +172,7 @@ public class FlippingSplitPane extends JSplitPane
 			setDividerLocation(location);
 		}
 	}
-	
+
 	/**
 	 * {@code setDividerLocation} calls {@link JSplitPane#setDividerLocation(int)}
 	 * unless the {@code FlippingSplitPane} is locked.
@@ -227,10 +222,8 @@ public class FlippingSplitPane extends JSplitPane
 		}
 
 		super.setOneTouchExpandable(newOneTouchExpandable);
-		maybeSetOneTouchExpandableComponent(getLeftComponent(),
-				newOneTouchExpandable);
-		maybeSetOneTouchExpandableComponent(getRightComponent(),
-				newOneTouchExpandable);
+		maybeSetOneTouchExpandableComponent(getLeftComponent(), newOneTouchExpandable);
+		maybeSetOneTouchExpandableComponent(getRightComponent(), newOneTouchExpandable);
 	}
 
 	/**
@@ -320,8 +313,7 @@ public class FlippingSplitPane extends JSplitPane
 	 */
 	private void fixedResetToPreferredSizes()
 	{
-		setDividerLocation(
-				(getMinimumDividerLocation() + getMaximumDividerLocation()) / 2);
+		setDividerLocation((getMinimumDividerLocation() + getMaximumDividerLocation()) / 2);
 	}
 
 	/**
@@ -335,9 +327,7 @@ public class FlippingSplitPane extends JSplitPane
 	 */
 	private static int invertOrientation(int orientation)
 	{
-		return orientation == HORIZONTAL_SPLIT
-				? VERTICAL_SPLIT
-				: HORIZONTAL_SPLIT;
+		return orientation == HORIZONTAL_SPLIT ? VERTICAL_SPLIT : HORIZONTAL_SPLIT;
 	}
 
 	/**
@@ -382,8 +372,7 @@ public class FlippingSplitPane extends JSplitPane
 	 * @param c {@code Component}, the component
 	 * @param newContinuousLayout {@code boolean}, the setting
 	 */
-	private static void maybeSetContinuousLayoutComponent(Component c,
-			boolean newContinuousLayout)
+	private static void maybeSetContinuousLayoutComponent(Component c, boolean newContinuousLayout)
 	{
 		if (c instanceof FlippingSplitPane)
 		{
@@ -398,8 +387,7 @@ public class FlippingSplitPane extends JSplitPane
 	 * @param c {@code Component}, the component
 	 * @param newOneTouchExpandable {@code boolean}, the setting
 	 */
-	private static void maybeSetOneTouchExpandableComponent(Component c,
-			boolean newOneTouchExpandable)
+	private static void maybeSetOneTouchExpandableComponent(Component c, boolean newOneTouchExpandable)
 	{
 		if (c instanceof FlippingSplitPane)
 		{
@@ -414,8 +402,7 @@ public class FlippingSplitPane extends JSplitPane
 	 * @param c {@code Component}, the component
 	 * @param newOrientation {@code int}, the orientation
 	 */
-	private static void maybeSetOrientationComponent(Component c,
-			int newOrientation)
+	private static void maybeSetOrientationComponent(Component c, int newOrientation)
 	{
 		if (c instanceof FlippingSplitPane)
 		{
@@ -642,8 +629,7 @@ public class FlippingSplitPane extends JSplitPane
 	/**
 	 * Menu item for One touch expandable item in options menu.
 	 */
-	private class OneTouchExpandableMenuItem extends JCheckBoxMenuItem
-			implements ActionListener
+	private class OneTouchExpandableMenuItem extends JCheckBoxMenuItem implements ActionListener
 	{
 
 		OneTouchExpandableMenuItem()

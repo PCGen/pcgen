@@ -27,8 +27,7 @@ import pcgen.core.SpellSupportForPCClass;
  * associated to the PCClass objects that are part of a Player Character.
  * 
  */
-public class SpellSupportFacet extends
-		AbstractAssociationFacet<CharID, PCClass, SpellSupportForPCClass>
+public class SpellSupportFacet extends AbstractAssociationFacet<CharID, PCClass, SpellSupportForPCClass>
 {
 
 }

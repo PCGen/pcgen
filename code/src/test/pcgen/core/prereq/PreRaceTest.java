@@ -319,7 +319,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 		prereq.setOperator(PrerequisiteOperator.EQ);
 
 		boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue("Prereq " + prereq + " should pass due to SERVESAS",passes);
+		assertTrue("Prereq " + prereq + " should pass due to SERVESAS", passes);
 
 		prereq.setKey("RACETYPE=Smaller");
 		passes = PrereqHandler.passes(prereq, character, null);
@@ -362,7 +362,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 		prereq.setOperator(PrerequisiteOperator.EQ);
 
 		boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue("Prereq " + prereq + " should pass due to SERVESAS",passes);
+		assertTrue("Prereq " + prereq + " should pass due to SERVESAS", passes);
 
 		prereq.setKey("TYPE=Smaller");
 		passes = PrereqHandler.passes(prereq, character, null);

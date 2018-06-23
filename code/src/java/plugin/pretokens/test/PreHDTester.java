@@ -27,9 +27,7 @@ import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
 
-
-public class PreHDTester extends AbstractDisplayPrereqTest implements
-		PrerequisiteTest
+public class PreHDTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
 	@Override
@@ -41,14 +39,12 @@ public class PreHDTester extends AbstractDisplayPrereqTest implements
 		{
 			final int targetHD = Integer.parseInt(prereq.getOperand());
 
-			runningTotal =
-					prereq.getOperator().compare(display.totalHitDice(),
-						targetHD);
+			runningTotal = prereq.getOperator().compare(display.totalHitDice(), targetHD);
 		}
 		catch (NumberFormatException nfe)
 		{
-			throw new PrerequisiteException(LanguageBundle.getFormattedString(
-				"PreHD.error.bad_operand", prereq.getOperand())); //$NON-NLS-1$
+			throw new PrerequisiteException(
+				LanguageBundle.getFormattedString("PreHD.error.bad_operand", prereq.getOperand())); //$NON-NLS-1$
 		}
 		return countedTotal(prereq, runningTotal);
 	}
@@ -57,7 +53,7 @@ public class PreHDTester extends AbstractDisplayPrereqTest implements
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "HD"; //$NON-NLS-1$
@@ -66,11 +62,8 @@ public class PreHDTester extends AbstractDisplayPrereqTest implements
 	@Override
 	public String toHtmlString(final Prerequisite prereq)
 	{
-		final String foo =
-				LanguageBundle.getFormattedString("PreStat.toHtml", //$NON-NLS-1$
-						prereq.getKind().toUpperCase() + ':',
-						prereq.getOperator().toDisplayString(),
-						prereq.getOperand());
+		final String foo = LanguageBundle.getFormattedString("PreStat.toHtml", //$NON-NLS-1$
+			prereq.getKind().toUpperCase() + ':', prereq.getOperator().toDisplayString(), prereq.getOperand());
 		return foo;
 	}
 

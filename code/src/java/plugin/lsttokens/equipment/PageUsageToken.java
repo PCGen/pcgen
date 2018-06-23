@@ -33,8 +33,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * (Tue, 14 Mar 2006) $
  * 
  */
-public class PageUsageToken extends AbstractNonEmptyToken<Equipment> implements
-		CDOMPrimaryToken<Equipment>
+public class PageUsageToken extends AbstractNonEmptyToken<Equipment> implements CDOMPrimaryToken<Equipment>
 {
 
 	@Override
@@ -44,14 +43,12 @@ public class PageUsageToken extends AbstractNonEmptyToken<Equipment> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		Equipment eq, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, Equipment eq, String value)
 	{
 		Formula formula = FormulaFactory.getFormulaFor(value);
 		if (!formula.isValid())
 		{
-			return new ParseResult.Fail("Formula in " + getTokenName()
-					+ " was not valid: " + formula.toString());
+			return new ParseResult.Fail("Formula in " + getTokenName() + " was not valid: " + formula.toString());
 		}
 		context.getObjectContext().put(eq, FormulaKey.PAGE_USAGE, formula);
 		return ParseResult.SUCCESS;
@@ -60,13 +57,12 @@ public class PageUsageToken extends AbstractNonEmptyToken<Equipment> implements
 	@Override
 	public String[] unparse(LoadContext context, Equipment eq)
 	{
-		Formula f = context.getObjectContext().getFormula(eq,
-				FormulaKey.PAGE_USAGE);
+		Formula f = context.getObjectContext().getFormula(eq, FormulaKey.PAGE_USAGE);
 		if (f == null)
 		{
 			return null;
 		}
-		return new String[] { f.toString() };
+		return new String[]{f.toString()};
 	}
 
 	@Override

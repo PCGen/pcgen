@@ -24,14 +24,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import pcgen.core.PlayerCharacter;
-import pcgen.core.character.EquipSet;
 import freemarker.core.Environment;
 import freemarker.template.TemplateDirectiveBody;
 import freemarker.template.TemplateDirectiveModel;
 import freemarker.template.TemplateException;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.character.EquipSet;
 
 /**
  * Implements a custom Freemarker macro to loop over the characte's equipment 
@@ -57,15 +57,14 @@ public class EquipSetLoopDirective implements TemplateDirectiveModel
 
 	@SuppressWarnings("rawtypes")
 	@Override
-	public void execute(Environment env, Map params, TemplateModel[] loopVars,
-		TemplateDirectiveBody body) throws TemplateException, IOException
+	public void execute(Environment env, Map params, TemplateModel[] loopVars, TemplateDirectiveBody body)
+		throws TemplateException, IOException
 	{
 		if (body == null)
 		{
-			throw new TemplateModelException(
-				"This directive must have content.");
+			throw new TemplateModelException("This directive must have content.");
 		}
-		
+
 		List<EquipSet> eqSetList = new ArrayList<>();
 		EquipSet currSet = null;
 		String currIdPath = pc.getCalcEquipSetId();
@@ -90,7 +89,7 @@ public class EquipSetLoopDirective implements TemplateDirectiveModel
 			// case we don't provide a special writer as the parameter:
 			body.render(env.getOut());
 		}
-		
+
 		if (currSet != null)
 		{
 			pc.setCalcEquipSetId(currSet.getIdPath());

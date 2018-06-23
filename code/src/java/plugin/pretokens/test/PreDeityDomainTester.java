@@ -28,7 +28,6 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
 
-
 public class PreDeityDomainTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
@@ -40,7 +39,8 @@ public class PreDeityDomainTester extends AbstractDisplayPrereqTest implements P
 		Deity deity = display.getDeity();
 		if (deity != null)
 		{
-			if (deity.hasObjectOnList(Deity.DOMAINLIST, Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Domain.class, prereq.getKey())))
+			if (deity.hasObjectOnList(Deity.DOMAINLIST, Globals.getContext().getReferenceContext()
+				.silentlyGetConstructedCDOMObject(Domain.class, prereq.getKey())))
 			{
 				runningTotal++;
 			}
@@ -52,7 +52,7 @@ public class PreDeityDomainTester extends AbstractDisplayPrereqTest implements P
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "DEITYDOMAIN"; //$NON-NLS-1$
@@ -61,9 +61,9 @@ public class PreDeityDomainTester extends AbstractDisplayPrereqTest implements P
 	@Override
 	public String toHtmlString(final Prerequisite prereq)
 	{
-		return LanguageBundle
-			.getFormattedString(
-				"PreDeityDomain.toHtml", prereq.getOperator().toDisplayString(), prereq.getKey()); //$NON-NLS-1$
+		return LanguageBundle.getFormattedString(
+			"PreDeityDomain.toHtml", prereq.getOperator().toDisplayString(), //$NON-NLS-1$
+			prereq.getKey());
 	}
 
 }

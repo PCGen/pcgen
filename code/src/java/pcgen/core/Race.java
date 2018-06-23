@@ -45,8 +45,7 @@ public final class Race extends PObject implements RaceFacade, ChooseDriver
 	public boolean isAdvancementUnlimited()
 	{
 		List<Integer> hda = getListFor(ListKey.HITDICE_ADVANCEMENT);
-		return hda == null
-				|| hda.get(hda.size() - 1).intValue() == Integer.MAX_VALUE;
+		return hda == null || hda.get(hda.size() - 1).intValue() == Integer.MAX_VALUE;
 	}
 
 	/**
@@ -65,7 +64,7 @@ public final class Race extends PObject implements RaceFacade, ChooseDriver
 		return hda == null ? 0 : hda.get(hda.size() - 1);
 	}
 
-    @Override
+	@Override
 	public String getSize()
 	{
 		Formula formula = get(FormulaKey.SIZE);
@@ -75,14 +74,14 @@ public final class Race extends PObject implements RaceFacade, ChooseDriver
 		}
 		return null;
 	}
-	
+
 	@Override
 	public String getRaceType()
 	{
 		RaceType rt = getSafe(ObjectKey.RACETYPE);
 		return rt == null ? "" : rt.toString();
 	}
-	
+
 	@Override
 	public List<String> getRaceSubTypes()
 	{
@@ -90,10 +89,10 @@ public final class Race extends PObject implements RaceFacade, ChooseDriver
 		List<RaceSubType> rst = getListFor(ListKey.RACESUBTYPE);
 		if (rst != null)
 		{
-		    for (RaceSubType subtype : rst)
-		    {
-		    	subTypeNames.add(subtype.toString());
-		    }
+			for (RaceSubType subtype : rst)
+			{
+				subTypeNames.add(subtype.toString());
+			}
 		}
 		return subTypeNames;
 	}
@@ -127,11 +126,11 @@ public final class Race extends PObject implements RaceFacade, ChooseDriver
 	{
 		return getSafe(FormulaKey.NUMCHOICES);
 	}
-	
+
 	@Override
 	public boolean isUnselected()
 	{
-		return getSafeListFor(ListKey.GROUP).stream()
-			.filter(s -> "Unselected".equalsIgnoreCase(s)).findFirst().isPresent();
+		return getSafeListFor(ListKey.GROUP).stream().filter(s -> "Unselected".equalsIgnoreCase(s)).findFirst()
+			.isPresent();
 	}
 }

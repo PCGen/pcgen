@@ -33,8 +33,8 @@ import pcgen.core.spell.Spell;
  */
 public class ClassSpellListFacet
 {
-	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
-		.getFacet(PlayerCharacterTrackingFacet.class);
+	private final PlayerCharacterTrackingFacet trackingFacet =
+			FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
 
 	private SpellListFacet spellListFacet;
 
@@ -59,8 +59,7 @@ public class ClassSpellListFacet
 	 */
 	public void process(CharID id, PCClass pcc)
 	{
-		TransitionChoice<CDOMListObject<Spell>> csc =
-				pcc.get(ObjectKey.SPELLLIST_CHOICE);
+		TransitionChoice<CDOMListObject<Spell>> csc = pcc.get(ObjectKey.SPELLLIST_CHOICE);
 		if (csc == null)
 		{
 			addDefaultSpellList(id, pcc);

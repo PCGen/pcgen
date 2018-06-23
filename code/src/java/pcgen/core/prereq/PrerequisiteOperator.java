@@ -21,7 +21,6 @@ package pcgen.core.prereq;
 import pcgen.core.utils.CoreUtility;
 import pcgen.system.LanguageBundle;
 
-
 public enum PrerequisiteOperator
 {
 	GTEQ
@@ -151,8 +150,7 @@ public enum PrerequisiteOperator
 
 	public String toDisplayString()
 	{
-		return LanguageBundle.getString("PrerequisiteOperator.display."
-				+ toString().toLowerCase());
+		return LanguageBundle.getString("PrerequisiteOperator.display." + toString().toLowerCase());
 	}
 
 	public int compare(final int leftHandOp, final int rightHandOp)
@@ -176,8 +174,7 @@ public enum PrerequisiteOperator
 
 	public abstract boolean booleanCompare(float leftHandOp, float rightHandOp);
 
-	public static PrerequisiteOperator getOperatorByName(
-			final String operatorName) throws PrerequisiteException
+	public static PrerequisiteOperator getOperatorByName(final String operatorName) throws PrerequisiteException
 	{
 		try
 		{
@@ -196,7 +193,8 @@ public enum PrerequisiteOperator
 				}
 			}
 		}
-		throw new PrerequisiteException(LanguageBundle.getFormattedString(
+		throw new PrerequisiteException(
+			LanguageBundle.getFormattedString(
 				"PrerequisiteOperator.error.invalid_operator", operatorName)); //$NON-NLS-1$
 	}
 

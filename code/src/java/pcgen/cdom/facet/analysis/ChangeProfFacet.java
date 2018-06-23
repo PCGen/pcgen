@@ -110,21 +110,19 @@ public class ChangeProfFacet extends AbstractSourcedListFacet<CharID, ChangeProf
 	 *         they are modified by the ChangeProf objects active on the Player
 	 *         Character
 	 */
-	public List<WeaponProf> getWeaponProfsInTarget(CharID id,
-			CDOMGroupRef<WeaponProf> master)
+	public List<WeaponProf> getWeaponProfsInTarget(CharID id, CDOMGroupRef<WeaponProf> master)
 	{
 		String type = master.getLSTformat(false);
 		if (!type.startsWith("TYPE="))
 		{
-			throw new IllegalArgumentException("Cannot get targets for: "
-					+ type);
+			throw new IllegalArgumentException("Cannot get targets for: " + type);
 		}
 		AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
 		List<WeaponProf> aList = new ArrayList<>();
 		// Can't use master because late called references may not have been
 		// initialized, see 2001287
-		Collection<WeaponProf> weaponProfsOfType = Globals.getPObjectsOfType(
-				ref.getConstructedCDOMObjects(WeaponProf.class), type);
+		Collection<WeaponProf> weaponProfsOfType =
+				Globals.getPObjectsOfType(ref.getConstructedCDOMObjects(WeaponProf.class), type);
 		for (ChangeProf cp : getSet(id))
 		{
 			if (cp.getResult().equals(master))
@@ -133,8 +131,7 @@ public class ChangeProfFacet extends AbstractSourcedListFacet<CharID, ChangeProf
 			}
 			else if (weaponProfsOfType != null)
 			{
-				weaponProfsOfType.removeAll(cp.getSource()
-						.getContainedObjects());
+				weaponProfsOfType.removeAll(cp.getSource().getContainedObjects());
 			}
 		}
 		aList.addAll(weaponProfsOfType);

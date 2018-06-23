@@ -35,8 +35,6 @@ public interface TermEvaluatorBuilder
 	 * @return a term evaluator
 	 * @throws TermEvaulatorException If the term does not parse properly, this error is thrown
 	 */
-	TermEvaluator getTermEvaluator(
-			String expressionString,
-			String src,
-			String matchedSection) throws TermEvaulatorException;
+	TermEvaluator getTermEvaluator(String expressionString, String src, String matchedSection)
+		throws TermEvaulatorException;
 }

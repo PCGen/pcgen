@@ -51,10 +51,10 @@ public class PreRaceParserTest extends EnUsLocaleDependentTestCase
 
 		assertEquals("PRERACE with an excluded race",
 			"<prereq operator=\"GTEQ\" operand=\"2\" >\n"
-				+ "<prereq kind=\"race\" count-multiples=\"true\" key=\"Elf%\" operator=\"GTEQ\" operand=\"1\" >\n"
-				+ "</prereq>\n"
-				+ "<prereq kind=\"race\" count-multiples=\"true\" key=\"Elf (aquatic)\" operator=\"LT\" operand=\"1\" >\n"
-				+ "</prereq>\n</prereq>\n", prereq.toString());
+			+ "<prereq kind=\"race\" count-multiples=\"true\" key=\"Elf%\" operator=\"GTEQ\" operand=\"1\" >\n"
+			+ "</prereq>\n"
+			+ "<prereq kind=\"race\" count-multiples=\"true\" key=\"Elf (aquatic)\" operator=\"LT\" operand=\"1\" >\n"
+			+ "</prereq>\n</prereq>\n", prereq.toString());
 	}
 	
 	/**

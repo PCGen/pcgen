@@ -136,13 +136,12 @@ public final class EquipmentUtilities
 					// Once found, return the actual item from the list
 					return equipment;
 				}
-				CDOMSingleRef<Equipment> baseItem =
-						target.get(ObjectKey.BASE_ITEM);
+				CDOMSingleRef<Equipment> baseItem = target.get(ObjectKey.BASE_ITEM);
 				target = baseItem == null ? null : baseItem.get();
 			}
 		}
-		
+
 		return null;
 	}
-	
+
 }

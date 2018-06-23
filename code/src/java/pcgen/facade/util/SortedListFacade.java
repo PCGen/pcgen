@@ -27,7 +27,6 @@ import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
 import pcgen.util.Logging;
 
-
 public class SortedListFacade<E> extends AbstractListFacade<E> implements ListListener<E>
 {
 
@@ -36,7 +35,7 @@ public class SortedListFacade<E> extends AbstractListFacade<E> implements ListLi
 	private final Comparator<Integer> indexComparator = new Comparator<Integer>()
 	{
 
-        @Override
+		@Override
 		public int compare(Integer o1, Integer o2)
 		{
 			E e1 = delegate.getElementAt(o1);
@@ -59,13 +58,13 @@ public class SortedListFacade<E> extends AbstractListFacade<E> implements ListLi
 
 	private Integer[] transform = null;
 
-    @Override
+	@Override
 	public int getSize()
 	{
 		return delegate.getSize();
 	}
 
-    @Override
+	@Override
 	public E getElementAt(int index)
 	{
 		return delegate.getElementAt(transform[index]);
@@ -92,27 +91,27 @@ public class SortedListFacade<E> extends AbstractListFacade<E> implements ListLi
 		elementsChanged(null);
 	}
 
-    @Override
+	@Override
 	public void elementAdded(ListEvent<E> e)
 	{
-		transform = (Integer[]) ArrayUtils.add(transform, transform.length);
+		transform = ArrayUtils.add(transform, transform.length);
 		sanityCheck();
 		Arrays.sort(transform, indexComparator);
 		int index = Arrays.binarySearch(transform, e.getIndex(), indexComparator);
 		fireElementAdded(this, e.getElement(), index);
 	}
 
-    @Override
+	@Override
 	public void elementRemoved(ListEvent<E> e)
 	{
 		int index = ArrayUtils.indexOf(transform, e.getIndex());
-		transform = (Integer[]) ArrayUtils.removeElement(transform, transform.length - 1);
+		transform = ArrayUtils.removeElement(transform, transform.length - 1);
 		sanityCheck();
 		Arrays.sort(transform, indexComparator);
 		fireElementRemoved(this, e.getElement(), index);
 	}
 
-    @Override
+	@Override
 	public void elementsChanged(ListEvent<E> e)
 	{
 		transform = new Integer[delegate.getSize()];
@@ -136,13 +135,10 @@ public class SortedListFacade<E> extends AbstractListFacade<E> implements ListLi
 	private boolean sanityCheck()
 	{
 		if (delegate.getSize() != transform.length)
-		{ 
-			String msg =
-					String
-						.format(
-							"Mismatched sizes between sorted facade %d and base list %d. "
-								+ "Delegate is %s. Transform is %s.",
-							transform.length, delegate.getSize(), delegate, transform);
+		{
+			String msg = String.format(
+				"Mismatched sizes between sorted facade %d and base list %d. " + "Delegate is %s. Transform is %s.",
+				transform.length, delegate.getSize(), delegate, transform);
 			Logging.errorPrint(msg, new Throwable());
 			return false;
 		}

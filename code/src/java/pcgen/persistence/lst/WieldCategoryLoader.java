@@ -63,13 +63,11 @@ public class WieldCategoryLoader
 	 * @param lstLine
 	 * @throws PersistenceLayerException
 	 */
-	public void parseLine(GameMode gameMode, String lstLine, URI source)
-		throws PersistenceLayerException
+	public void parseLine(GameMode gameMode, String lstLine, URI source) throws PersistenceLayerException
 	{
 		LoadContext context = gameMode.getModeContext();
 
-		StringTokenizer colToken =
-				new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
+		StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 		WieldCategory cat = null;
 		String preKey = null;
 		CDOMSingleRef<WieldCategory> preVal = null;
@@ -91,8 +89,7 @@ public class WieldCategoryLoader
 			if (key.equals("WIELDCATEGORY"))
 			{
 				final String value = colString.substring(idxColon + 1).trim();
-				cat = context.getReferenceContext().silentlyGetConstructedCDOMObject(
-						WieldCategory.class, value);
+				cat = context.getReferenceContext().silentlyGetConstructedCDOMObject(WieldCategory.class, value);
 
 				if (cat == null)
 				{
@@ -112,8 +109,7 @@ public class WieldCategoryLoader
 			{
 				//TODO ensure preVal is null
 				// If matches PRE, switch category to this
-				preVal = context.getReferenceContext().getCDOMReference(WieldCategory.class,
-						colString.substring(7));
+				preVal = context.getReferenceContext().getCDOMReference(WieldCategory.class, colString.substring(7));
 			}
 			else
 			{
@@ -135,15 +131,14 @@ public class WieldCategoryLoader
 		{
 			try
 			{
-				QualifiedObject<CDOMSingleRef<WieldCategory>> qo = new QualifiedObject<>(
-						preVal);
+				QualifiedObject<CDOMSingleRef<WieldCategory>> qo = new QualifiedObject<>(preVal);
 				qo.addPrerequisite(prereqParser.parse(preKey));
 				cat.addCategorySwitch(qo);
 			}
 			catch (PersistenceLayerException ple)
 			{
-				Logging.errorPrint("Error parsing Prerequisite in " + source
-						+ ": " + preKey + "\n  " + ple.getMessage());
+				Logging
+					.errorPrint("Error parsing Prerequisite in " + source + ": " + preKey + "\n  " + ple.getMessage());
 			}
 		}
 	}

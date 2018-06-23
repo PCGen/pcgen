@@ -31,7 +31,6 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-
 public class SrLst implements CDOMPrimaryToken<CDOMObject>
 {
 
@@ -42,14 +41,12 @@ public class SrLst implements CDOMPrimaryToken<CDOMObject>
 	}
 
 	@Override
-	public ParseResult parseToken(LoadContext context, CDOMObject obj,
-		String value)
+	public ParseResult parseToken(LoadContext context, CDOMObject obj, String value)
 	{
 		if (obj instanceof Ungranted)
 		{
-			return new ParseResult.Fail("Cannot use " + getTokenName()
-				+ " on an Ungranted object type: "
-				+ obj.getClass().getSimpleName());
+			return new ParseResult.Fail(
+				"Cannot use " + getTokenName() + " on an Ungranted object type: " + obj.getClass().getSimpleName());
 		}
 		if (Constants.LST_DOT_CLEAR.equals(value))
 		{
@@ -60,11 +57,9 @@ public class SrLst implements CDOMPrimaryToken<CDOMObject>
 			Formula formula = FormulaFactory.getFormulaFor(value);
 			if (!formula.isValid())
 			{
-				return new ParseResult.Fail("Formula in " + getTokenName()
-						+ " was not valid: " + formula.toString());
+				return new ParseResult.Fail("Formula in " + getTokenName() + " was not valid: " + formula.toString());
 			}
-			context.getObjectContext().put(obj, ObjectKey.SR,
-					new SpellResistance(formula));
+			context.getObjectContext().put(obj, ObjectKey.SR, new SpellResistance(formula));
 		}
 		return ParseResult.SUCCESS;
 	}
@@ -72,8 +67,7 @@ public class SrLst implements CDOMPrimaryToken<CDOMObject>
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
-		SpellResistance sr = context.getObjectContext().getObject(obj,
-				ObjectKey.SR);
+		SpellResistance sr = context.getObjectContext().getObject(obj, ObjectKey.SR);
 		boolean b = context.getObjectContext().wasRemoved(obj, ObjectKey.SR);
 		List<String> list = new LinkedList<>();
 		if (b)

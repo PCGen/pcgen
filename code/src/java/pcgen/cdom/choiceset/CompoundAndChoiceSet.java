@@ -47,8 +47,7 @@ public class CompoundAndChoiceSet<T> implements PrimitiveChoiceSet<T>
 	 * The list of underlying PrimitiveChoiceSets that this CompoundAndChoiceSet
 	 * contains
 	 */
-	private final Set<PrimitiveChoiceSet<T>> pcsSet = new TreeSet<>(
-			ChoiceSetUtilities::compareChoiceSets);
+	private final Set<PrimitiveChoiceSet<T>> pcsSet = new TreeSet<>(ChoiceSetUtilities::compareChoiceSets);
 
 	/**
 	 * Constructs a new CompoundAndChoiceSet which will contain objects
@@ -134,8 +133,7 @@ public class CompoundAndChoiceSet<T> implements PrimitiveChoiceSet<T>
 	@Override
 	public String getLSTformat(boolean useAny)
 	{
-		return ChoiceSetUtilities
-				.joinLstFormat(pcsSet, Constants.COMMA, useAny);
+		return ChoiceSetUtilities.joinLstFormat(pcsSet, Constants.COMMA, useAny);
 	}
 
 	/**
@@ -146,8 +144,7 @@ public class CompoundAndChoiceSet<T> implements PrimitiveChoiceSet<T>
 	@Override
 	public Class<? super T> getChoiceClass()
 	{
-		return pcsSet == null ? null : pcsSet.iterator().next()
-				.getChoiceClass();
+		return pcsSet == null ? null : pcsSet.iterator().next().getChoiceClass();
 	}
 
 	/**
@@ -171,8 +168,7 @@ public class CompoundAndChoiceSet<T> implements PrimitiveChoiceSet<T>
 	@Override
 	public boolean equals(Object obj)
 	{
-		return (obj instanceof CompoundAndChoiceSet)
-				&& ((CompoundAndChoiceSet<?>) obj).pcsSet.equals(pcsSet);
+		return (obj instanceof CompoundAndChoiceSet) && ((CompoundAndChoiceSet<?>) obj).pcsSet.equals(pcsSet);
 	}
 
 	/**

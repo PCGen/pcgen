@@ -46,12 +46,10 @@ public final class ControlUtilities
 	public static String getControlToken(LoadContext context, String command)
 	{
 		CodeControl controller =
-				context.getReferenceContext().silentlyGetConstructedCDOMObject(
-					CodeControl.class, "Controller");
+				context.getReferenceContext().silentlyGetConstructedCDOMObject(CodeControl.class, "Controller");
 		if (controller != null)
 		{
-			return controller.get(ObjectKey.getKeyFor(String.class, "*"
-				+ Objects.requireNonNull(command)));
+			return controller.get(ObjectKey.getKeyFor(String.class, "*" + Objects.requireNonNull(command)));
 		}
 		return null;
 	}
@@ -70,12 +68,10 @@ public final class ControlUtilities
 	public static String getControlToken(LoadContext context, CControl control)
 	{
 		CodeControl controller =
-				context.getReferenceContext().silentlyGetConstructedCDOMObject(
-					CodeControl.class, "Controller");
+				context.getReferenceContext().silentlyGetConstructedCDOMObject(CodeControl.class, "Controller");
 		if (controller != null)
 		{
-			ObjectKey<String> ok = ObjectKey.getKeyFor(String.class, "*"
-				+ Objects.requireNonNull(control.getName()));
+			ObjectKey<String> ok = ObjectKey.getKeyFor(String.class, "*" + Objects.requireNonNull(control.getName()));
 			String value = controller.get(ok);
 			if (value == null)
 			{
@@ -99,12 +95,10 @@ public final class ControlUtilities
 	public static boolean hasControlToken(LoadContext context, String command)
 	{
 		CodeControl controller =
-				context.getReferenceContext().silentlyGetConstructedCDOMObject(
-					CodeControl.class, "Controller");
+				context.getReferenceContext().silentlyGetConstructedCDOMObject(CodeControl.class, "Controller");
 		if (controller != null)
 		{
-			return controller.get(ObjectKey.getKeyFor(String.class, "*"
-				+ Objects.requireNonNull(command))) != null;
+			return controller.get(ObjectKey.getKeyFor(String.class, "*" + Objects.requireNonNull(command))) != null;
 		}
 		return false;
 	}

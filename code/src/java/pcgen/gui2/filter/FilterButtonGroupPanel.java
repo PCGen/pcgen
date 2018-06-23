@@ -23,6 +23,7 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
@@ -34,8 +35,7 @@ import javax.swing.JPanel;
  * @param <C> The context that this filter is defined under
  * @param <E> The element type that will be filtered
  */
-public class FilterButtonGroupPanel<C, E> extends JPanel
-		implements DisplayableFilter<C, E>, ItemListener
+public class FilterButtonGroupPanel<C, E> extends JPanel implements DisplayableFilter<C, E>, ItemListener
 {
 
 	private final List<FilterButton<C, E>> buttons = new ArrayList<>();

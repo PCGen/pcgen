@@ -37,8 +37,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with FACE Token
  */
-public class FaceToken extends AbstractNonEmptyToken<Race> implements
-		CDOMPrimaryToken<Race>
+public class FaceToken extends AbstractNonEmptyToken<Race> implements CDOMPrimaryToken<Race>
 {
 
 	private static final int MOD_PRIORITY = 10;
@@ -51,57 +50,47 @@ public class FaceToken extends AbstractNonEmptyToken<Race> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, Race race,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, Race race, String value)
 	{
 		if (ControlUtilities.hasControlToken(context, CControl.FACE))
 		{
-			return new ParseResult.Fail(
-				"FACE: LST Token is disabled when FACE: control is used");
+			return new ParseResult.Fail("FACE: LST Token is disabled when FACE: control is used");
 		}
 		if (value.indexOf(',') == -1)
 		{
 			value = value + ',' + 0;
 		}
 		FormatManager<OrderedPair> formatManager =
-				(FormatManager<OrderedPair>) context.getReferenceContext()
-					.getFormatManager("ORDEREDPAIR");
+				(FormatManager<OrderedPair>) context.getReferenceContext().getFormatManager("ORDEREDPAIR");
 		PCGenScope scope = context.getActiveScope();
 		FormulaModifier<OrderedPair> modifier;
 		try
 		{
-			modifier = context.getVariableContext()
-				.getModifier(MOD_IDENTIFICATION, value, scope, formatManager);
+			modifier = context.getVariableContext().getModifier(MOD_IDENTIFICATION, value, scope, formatManager);
 		}
 		catch (IllegalArgumentException iae)
 		{
-			return new ParseResult.Fail(getTokenName() + " Modifier "
-				+ MOD_IDENTIFICATION + " had value " + value
+			return new ParseResult.Fail(getTokenName() + " Modifier " + MOD_IDENTIFICATION + " had value " + value
 				+ " but it was not valid: " + iae.getMessage());
 		}
 		modifier.addAssociation("PRIORITY=" + MOD_PRIORITY);
 		OrderedPair pair = modifier.process(null);
 		if (pair.getPreciseX().doubleValue() < 0.0)
 		{
-			return new ParseResult.Fail(getTokenName() + " had value " + value
-				+ " but first item cannot be negative");
+			return new ParseResult.Fail(getTokenName() + " had value " + value + " but first item cannot be negative");
 		}
 		if (pair.getPreciseY().doubleValue() < 0.0)
 		{
-			return new ParseResult.Fail(getTokenName() + " had value " + value
-				+ " but second item cannot be negative");
+			return new ParseResult.Fail(getTokenName() + " had value " + value + " but second item cannot be negative");
 		}
 
 		String varName = CControl.FACE.getDefaultValue();
 		if (!context.getVariableContext().isLegalVariableID(scope, varName))
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " internal error: found invalid var name: " + varName
-				+ ", Modified on " + race.getClass().getSimpleName() + ' '
-				+ race.getKeyName());
+			return new ParseResult.Fail(getTokenName() + " internal error: found invalid var name: " + varName
+				+ ", Modified on " + race.getClass().getSimpleName() + ' ' + race.getKeyName());
 		}
-		VarModifier<OrderedPair> vm =
-				new VarModifier<>(varName, scope, modifier);
+		VarModifier<OrderedPair> vm = new VarModifier<>(varName, scope, modifier);
 		context.getObjectContext().addToList(race, ListKey.MODIFY, vm);
 		return ParseResult.SUCCESS;
 	}
@@ -109,8 +98,7 @@ public class FaceToken extends AbstractNonEmptyToken<Race> implements
 	@Override
 	public String[] unparse(LoadContext context, Race race)
 	{
-		Changes<VarModifier<?>> changes =
-				context.getObjectContext().getListChanges(race, ListKey.MODIFY);
+		Changes<VarModifier<?>> changes = context.getObjectContext().getListChanges(race, ListKey.MODIFY);
 		Collection<VarModifier<?>> added = changes.getAdded();
 		String face = null;
 		if (added != null)
@@ -120,8 +108,7 @@ public class FaceToken extends AbstractNonEmptyToken<Race> implements
 				FormulaModifier<?> modifier = vm.getModifier();
 				if (CControl.FACE.getDefaultValue().equals(vm.getVarName())
 					&& (!vm.getLegalScope().getParentScope().isPresent())
-					&& (modifier.getIdentification()
-						.equals(MOD_IDENTIFICATION)))
+					&& (modifier.getIdentification().equals(MOD_IDENTIFICATION)))
 				{
 					face = modifier.getInstructions();
 					if (face.endsWith(",0"))

@@ -196,7 +196,7 @@ public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 
 	public static String[] getConstants()
 	{
-		return new String[] { "Niederösterreich", "Finger Lakes",
+		return new String[]{"Niederösterreich", "Finger Lakes",
 				"Languedoc-Roussillon", "Rheinhessen", "Yarra Valley" };
 	}
 

@@ -97,7 +97,7 @@ public class ReachFacet implements ItemFacet<CharID, Integer>
 	{
 		this.bonusCheckingFacet = bonusCheckingFacet;
 	}
-	
+
 	public void init()
 	{
 		OutputDB.register("reach", this);

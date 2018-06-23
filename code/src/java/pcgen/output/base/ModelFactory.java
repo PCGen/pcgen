@@ -17,8 +17,8 @@
  */
 package pcgen.output.base;
 
-import pcgen.cdom.enumeration.CharID;
 import freemarker.template.TemplateModel;
+import pcgen.cdom.enumeration.CharID;
 
 /**
  * A ModelFactory is a class that can generate TemplateModel objects when given

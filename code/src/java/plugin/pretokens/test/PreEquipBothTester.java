@@ -26,7 +26,6 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
 
-
 public class PreEquipBothTester extends PreEquippedTester implements PrerequisiteTest
 {
 
@@ -34,15 +33,14 @@ public class PreEquipBothTester extends PreEquippedTester implements Prerequisit
 	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
 		throws PrerequisiteException
 	{
-		return passesPreEquipHandleTokens(prereq, character,
-				EquipmentLocation.EQUIPPED_BOTH);
+		return passesPreEquipHandleTokens(prereq, character, EquipmentLocation.EQUIPPED_BOTH);
 	}
 
 	/**
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "EQUIPBOTH"; //$NON-NLS-1$

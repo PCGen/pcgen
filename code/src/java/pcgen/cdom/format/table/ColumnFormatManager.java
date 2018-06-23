@@ -55,8 +55,7 @@ public class ColumnFormatManager<T> implements FormatManager<TableColumn>
 	 *            The Format of TableColumns referred to by this
 	 *            ColumnFormatManager
 	 */
-	public ColumnFormatManager(FormatManager<TableColumn> columnFormat,
-		FormatManager<T> formatManager)
+	public ColumnFormatManager(FormatManager<TableColumn> columnFormat, FormatManager<T> formatManager)
 	{
 		this.columnFormat = Objects.requireNonNull(columnFormat);
 		underlying = Objects.requireNonNull(formatManager);

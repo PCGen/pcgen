@@ -24,9 +24,7 @@ import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-
-public class KeyLst extends AbstractNonEmptyToken<CDOMObject> implements
-		CDOMPrimaryToken<CDOMObject>
+public class KeyLst extends AbstractNonEmptyToken<CDOMObject> implements CDOMPrimaryToken<CDOMObject>
 {
 
 	@Override
@@ -36,8 +34,7 @@ public class KeyLst extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		CDOMObject obj, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj, String value)
 	{
 		context.getReferenceContext().reassociateKey(value, obj);
 		context.getObjectContext().put(obj, StringKey.KEY_NAME, value);
@@ -47,8 +44,7 @@ public class KeyLst extends AbstractNonEmptyToken<CDOMObject> implements
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
-		String key =
-				context.getObjectContext().getString(obj, StringKey.KEY_NAME);
+		String key = context.getObjectContext().getString(obj, StringKey.KEY_NAME);
 		if (key == null)
 		{
 			return null;

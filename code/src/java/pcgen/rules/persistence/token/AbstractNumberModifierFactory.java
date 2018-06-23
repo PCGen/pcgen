@@ -30,14 +30,12 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.ProcessCalculation;
 import pcgen.cdom.formula.scope.PCGenScope;
 
-public abstract class AbstractNumberModifierFactory<T>
-		implements ModifierFactory<T>, BasicCalculation<T>
+public abstract class AbstractNumberModifierFactory<T> implements ModifierFactory<T>, BasicCalculation<T>
 {
 
 	@Override
-	public FormulaModifier<T> getModifier(String instructions,
-		ManagerFactory managerFactory, FormulaManager formulaManager, PCGenScope varScope,
-		FormatManager<T> formatManager)
+	public FormulaModifier<T> getModifier(String instructions, ManagerFactory managerFactory,
+		FormulaManager formulaManager, PCGenScope varScope, FormatManager<T> formatManager)
 	{
 		try
 		{
@@ -45,16 +43,15 @@ public abstract class AbstractNumberModifierFactory<T>
 		}
 		catch (NumberFormatException e)
 		{
-			final NEPFormula<T> f = FormulaFactory.getValidFormula(instructions,
-				managerFactory, formulaManager, varScope, formatManager);
+			final NEPFormula<T> f = FormulaFactory.getValidFormula(instructions, managerFactory, formulaManager,
+				varScope, formatManager);
 			NEPCalculation<T> calc = new FormulaCalculation<>(f, this);
 			return new CalculationModifier<>(calc, formatManager);
 		}
 	}
 
 	@Override
-	public FormulaModifier<T> getFixedModifier(
-		FormatManager<T> formatManager, String instructions)
+	public FormulaModifier<T> getFixedModifier(FormatManager<T> formatManager, String instructions)
 	{
 		T n = formatManager.convert(instructions);
 		NEPCalculation<T> calc = new ProcessCalculation<>(n, this, formatManager);

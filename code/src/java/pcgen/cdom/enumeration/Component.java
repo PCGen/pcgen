@@ -34,16 +34,16 @@ public enum Component
 	EXPERIENCE("XP", "Spell.Components.Experience"), //$NON-NLS-1$ //$NON-NLS-2$
 	/** Anything other than the standard components */
 	OTHER("See text", "Spell.Components.SeeText"); //$NON-NLS-1$ //$NON-NLS-2$
-	
+
 	private final String theKey;
 	private final String theName;
-	
+
 	Component(final String aKey, final String aName)
 	{
 		theKey = aKey;
 		theName = aName;
 	}
-	
+
 	/**
 	 * Returns the String key of the component.
 	 * 
@@ -53,7 +53,7 @@ public enum Component
 	{
 		return theKey;
 	}
-	
+
 	/**
 	 * Factory method to get a Component from a string key.
 	 * 
@@ -73,6 +73,7 @@ public enum Component
 		}
 		return OTHER;
 	}
+
 	/**
 	 * Returns the string abbreviation of this component.
 	 * 

@@ -28,8 +28,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with SUBRACE Token
  */
-public class SubraceToken extends AbstractNonEmptyToken<PCTemplate> implements
-		CDOMPrimaryToken<PCTemplate>
+public class SubraceToken extends AbstractNonEmptyToken<PCTemplate> implements CDOMPrimaryToken<PCTemplate>
 {
 
 	@Override
@@ -39,21 +38,17 @@ public class SubraceToken extends AbstractNonEmptyToken<PCTemplate> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		PCTemplate template, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, PCTemplate template, String value)
 	{
 		if (value.equalsIgnoreCase("YES"))
 		{
-			context.getObjectContext().put(template,
-					ObjectKey.USETEMPLATENAMEFORSUBRACE, true);
+			context.getObjectContext().put(template, ObjectKey.USETEMPLATENAMEFORSUBRACE, true);
 			context.getObjectContext().put(template, ObjectKey.SUBRACE, null);
 		}
 		else
 		{
-			context.getObjectContext().put(template,
-					ObjectKey.USETEMPLATENAMEFORSUBRACE, null);
-			context.getObjectContext().put(template, ObjectKey.SUBRACE,
-					SubRace.getConstant(value));
+			context.getObjectContext().put(template, ObjectKey.USETEMPLATENAMEFORSUBRACE, null);
+			context.getObjectContext().put(template, ObjectKey.SUBRACE, SubRace.getConstant(value));
 		}
 		return ParseResult.SUCCESS;
 	}
@@ -61,25 +56,22 @@ public class SubraceToken extends AbstractNonEmptyToken<PCTemplate> implements
 	@Override
 	public String[] unparse(LoadContext context, PCTemplate pct)
 	{
-		Boolean useName = context.getObjectContext().getObject(pct,
-				ObjectKey.USETEMPLATENAMEFORSUBRACE);
-		SubRace subrace = context.getObjectContext().getObject(pct,
-				ObjectKey.SUBRACE);
+		Boolean useName = context.getObjectContext().getObject(pct, ObjectKey.USETEMPLATENAMEFORSUBRACE);
+		SubRace subrace = context.getObjectContext().getObject(pct, ObjectKey.SUBRACE);
 		if (useName != null && useName)
 		{
 			if (subrace != null)
 			{
-				context.addWriteMessage("Cannot have Template with "
-						+ getTokenName() + " YES and specific value");
+				context.addWriteMessage("Cannot have Template with " + getTokenName() + " YES and specific value");
 			}
-			return new String[] { "YES" };
+			return new String[]{"YES"};
 		}
 		if (subrace == null)
 		{
 			// Okay, nothing set
 			return null;
 		}
-		return new String[] { subrace.toString() };
+		return new String[]{subrace.toString()};
 	}
 
 	@Override

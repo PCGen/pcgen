@@ -27,8 +27,7 @@ import pcgen.core.PCClass;
  * A LevelCommandFactory is used to identify a PCClass which is to be applied
  * with a given number of levels (as defined by a Formula) to a PlayerCharacter.
  */
-public class LevelCommandFactory extends ConcretePrereqObject implements
-		Comparable<LevelCommandFactory>
+public class LevelCommandFactory extends ConcretePrereqObject implements Comparable<LevelCommandFactory>
 {
 
 	/**
@@ -62,13 +61,11 @@ public class LevelCommandFactory extends ConcretePrereqObject implements
 	{
 		if (classRef == null)
 		{
-			throw new IllegalArgumentException(
-					"Class Reference for LevelCommandFactory cannot be null");
+			throw new IllegalArgumentException("Class Reference for LevelCommandFactory cannot be null");
 		}
 		if (lvls == null)
 		{
-			throw new IllegalArgumentException(
-					"Level Formula for LevelCommandFactory cannot be null");
+			throw new IllegalArgumentException("Level Formula for LevelCommandFactory cannot be null");
 		}
 		pcClass = classRef;
 		levels = lvls;
@@ -160,8 +157,7 @@ public class LevelCommandFactory extends ConcretePrereqObject implements
 	@Override
 	public int compareTo(LevelCommandFactory other)
 	{
-		int compareResult = ReferenceUtilities.REFERENCE_SORTER.compare(
-				pcClass, other.pcClass);
+		int compareResult = ReferenceUtilities.REFERENCE_SORTER.compare(pcClass, other.pcClass);
 		if (compareResult == 0)
 		{
 			if (levels.equals(other.levels))

@@ -28,8 +28,7 @@ import pcgen.util.Logging;
  *
  * @param <T> The Class of object represented by this CDOMFactory.
  */
-public class CDOMFactory<T extends Loadable> implements
-		ManufacturableFactory<T>
+public class CDOMFactory<T extends Loadable> implements ManufacturableFactory<T>
 {
 
 	/**
@@ -93,8 +92,8 @@ public class CDOMFactory<T extends Loadable> implements
 	}
 
 	@Override
-	public boolean resolve(ReferenceManufacturer<T> rm, String name,
-			CDOMSingleRef<T> value, UnconstructedValidator validator)
+	public boolean resolve(ReferenceManufacturer<T> rm, String name, CDOMSingleRef<T> value,
+		UnconstructedValidator validator)
 	{
 		boolean returnGood = true;
 		T activeObj = rm.getObject(name);
@@ -103,8 +102,7 @@ public class CDOMFactory<T extends Loadable> implements
 			// Wasn't constructed!
 			if (name.charAt(0) != '*' && !report(validator, name))
 			{
-				Logging.errorPrint("Unconstructed Reference: "
-						+ getReferenceDescription() + " " + name);
+				Logging.errorPrint("Unconstructed Reference: " + getReferenceDescription() + " " + name);
 				rm.fireUnconstuctedEvent(value);
 				returnGood = false;
 			}
@@ -116,13 +114,12 @@ public class CDOMFactory<T extends Loadable> implements
 
 	private boolean report(UnconstructedValidator validator, String key)
 	{
-		return validator != null
-			&& validator.allowUnconstructed(getReferenceIdentity(), key);
+		return validator != null && validator.allowUnconstructed(getReferenceIdentity(), key);
 	}
 
 	@Override
-	public boolean populate(ReferenceManufacturer<T> parentCrm,
-			ReferenceManufacturer<T> rm, UnconstructedValidator validator)
+	public boolean populate(ReferenceManufacturer<T> parentCrm, ReferenceManufacturer<T> rm,
+		UnconstructedValidator validator)
 	{
 		// Nothing to do
 		return true;

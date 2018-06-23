@@ -56,10 +56,8 @@ public final class PluginFunctionLibrary implements PluginLoader
 			FormulaFunction existing = existingFunction(tok.getFunctionName());
 			if (existing != null)
 			{
-				Logging.errorPrint("Duplicate Function "
-					+ tok.getFunctionName() + " found. Classes were "
-					+ existing.getClass().getName() + " and "
-					+ tok.getClass().getName());
+				Logging.errorPrint("Duplicate Function " + tok.getFunctionName() + " found. Classes were "
+					+ existing.getClass().getName() + " and " + tok.getClass().getName());
 			}
 			else
 			{

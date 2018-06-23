@@ -35,8 +35,8 @@ import pcgen.util.Logging;
 /**
  * Class deals with SIZE Token
  */
-public class SizeToken extends AbstractNonEmptyToken<PCTemplate> implements
-		CDOMPrimaryToken<PCTemplate>, DeferredToken<PCTemplate>
+public class SizeToken extends AbstractNonEmptyToken<PCTemplate>
+		implements CDOMPrimaryToken<PCTemplate>, DeferredToken<PCTemplate>
 {
 
 	@Override
@@ -46,8 +46,7 @@ public class SizeToken extends AbstractNonEmptyToken<PCTemplate> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		PCTemplate template, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, PCTemplate template, String value)
 	{
 		context.getObjectContext().put(template, StringKey.SIZEFORMULA, value);
 		return ParseResult.SUCCESS;
@@ -56,9 +55,7 @@ public class SizeToken extends AbstractNonEmptyToken<PCTemplate> implements
 	@Override
 	public String[] unparse(LoadContext context, PCTemplate template)
 	{
-		String res =
-				context.getObjectContext().getString(template,
-					StringKey.SIZEFORMULA);
+		String res = context.getObjectContext().getString(template, StringKey.SIZEFORMULA);
 		if (res == null)
 		{
 			return null;
@@ -81,8 +78,7 @@ public class SizeToken extends AbstractNonEmptyToken<PCTemplate> implements
 			return true;
 		}
 		SizeAdjustment size =
-				context.getReferenceContext().silentlyGetConstructedCDOMObject(
-					SizeAdjustment.class, value);
+				context.getReferenceContext().silentlyGetConstructedCDOMObject(SizeAdjustment.class, value);
 		Formula sizeFormula;
 		if (size == null)
 		{
@@ -90,13 +86,11 @@ public class SizeToken extends AbstractNonEmptyToken<PCTemplate> implements
 		}
 		else
 		{
-			sizeFormula =
-					new FixedSizeFormula(CDOMDirectSingleRef.getRef(size));
+			sizeFormula = new FixedSizeFormula(CDOMDirectSingleRef.getRef(size));
 		}
 		if (!sizeFormula.isValid())
 		{
-			Logging.errorPrint("Size in " + getTokenName() + " was not valid: "
-				+ sizeFormula.toString(), context);
+			Logging.errorPrint("Size in " + getTokenName() + " was not valid: " + sizeFormula.toString(), context);
 			return false;
 		}
 		context.getObjectContext().put(template, FormulaKey.SIZE, sizeFormula);

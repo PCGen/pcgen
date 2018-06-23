@@ -27,9 +27,7 @@ import pcgen.cdom.helper.CNAbilitySelection;
  * with indirect grants via %LIST that have been granted to a Player Character.
  * 
  */
-public class DirectAbilityInputFacet
-		extends
-		AbstractSingleSourceListFacet<CNAbilitySelection, CDOMObject>
+public class DirectAbilityInputFacet extends AbstractSingleSourceListFacet<CNAbilitySelection, CDOMObject>
 {
 	public void add(CharID id, CDOMObject owner, CNAbilitySelection as)
 	{
@@ -39,8 +37,7 @@ public class DirectAbilityInputFacet
 		}
 		if (as == null)
 		{
-			throw new IllegalArgumentException(
-				"CNAbilitySelection to add may not be null");
+			throw new IllegalArgumentException("CNAbilitySelection to add may not be null");
 		}
 		add(id, as, owner);
 	}
@@ -53,8 +50,7 @@ public class DirectAbilityInputFacet
 		}
 		if (as == null)
 		{
-			throw new IllegalArgumentException(
-				"CNAbilitySelection to add may not be null");
+			throw new IllegalArgumentException("CNAbilitySelection to add may not be null");
 		}
 		remove(id, as, owner);
 	}

@@ -28,10 +28,10 @@ import pcgen.cdom.facet.base.AbstractScopeFacet;
 import pcgen.cdom.facet.event.ScopeFacetChangeEvent;
 import pcgen.cdom.facet.event.ScopeFacetChangeListener;
 import pcgen.cdom.facet.model.ClassFacet;
-import pcgen.cdom.facet.model.SkillListFacet;
 import pcgen.cdom.facet.model.ClassFacet.ClassLevelChangeEvent;
 import pcgen.cdom.facet.model.ClassFacet.ClassLevelChangeListener;
 import pcgen.cdom.facet.model.ClassFacet.ClassLevelObjectChangeEvent;
+import pcgen.cdom.facet.model.SkillListFacet;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
@@ -42,15 +42,14 @@ import pcgen.core.SubClass;
  * PCClass of a Player Character
  * 
  */
-public class ClassSkillListFacet extends
-		AbstractScopeFacet<CharID, PCClass, ClassSkillList> implements
-		ClassLevelChangeListener, ScopeFacetChangeListener<CharID, PCClass, String>
+public class ClassSkillListFacet extends AbstractScopeFacet<CharID, PCClass, ClassSkillList>
+		implements ClassLevelChangeListener, ScopeFacetChangeListener<CharID, PCClass, String>
 {
-	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
-		.getFacet(PlayerCharacterTrackingFacet.class);
+	private final PlayerCharacterTrackingFacet trackingFacet =
+			FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
 
 	private ClassFacet classFacet;
-	
+
 	private DefaultClassSkillListFacet defaultClassSkillListFacet;
 
 	private SubClassFacet subClassFacet;
@@ -64,8 +63,7 @@ public class ClassSkillListFacet extends
 		{
 			PCClass cl = lce.getPCClass();
 			CharID id = lce.getCharID();
-			TransitionChoice<ClassSkillList> csc =
-					cl.get(ObjectKey.SKILLLIST_CHOICE);
+			TransitionChoice<ClassSkillList> csc = cl.get(ObjectKey.SKILLLIST_CHOICE);
 			if (csc == null)
 			{
 				ClassSkillList l = cl.get(ObjectKey.CLASS_SKILLLIST);
@@ -131,8 +129,7 @@ public class ClassSkillListFacet extends
 		this.subClassFacet = subClassFacet;
 	}
 
-	public void setDefaultClassSkillListFacet(
-		DefaultClassSkillListFacet defaultClassSkillListFacet)
+	public void setDefaultClassSkillListFacet(DefaultClassSkillListFacet defaultClassSkillListFacet)
 	{
 		this.defaultClassSkillListFacet = defaultClassSkillListFacet;
 	}

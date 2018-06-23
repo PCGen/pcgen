@@ -29,8 +29,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with REACH Token
  */
-public class ReachToken extends AbstractIntToken<Race> implements
-		CDOMPrimaryToken<Race>
+public class ReachToken extends AbstractIntToken<Race> implements CDOMPrimaryToken<Race>
 {
 
 	@Override
@@ -62,10 +61,9 @@ public class ReachToken extends AbstractIntToken<Race> implements
 	{
 		if (ControlUtilities.hasControlToken(context, CControl.PCREACH))
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " is disabled when CREATEUREREACH control is used: " + value);
+			return new ParseResult.Fail(getTokenName() + " is disabled when CREATEUREREACH control is used: " + value);
 		}
 		return super.parseToken(context, obj, value);
 	}
-	
+
 }

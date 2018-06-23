@@ -37,8 +37,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * This class deals with the BENEFIT Token
  */
-public class BenefitToken extends AbstractNonEmptyToken<Ability>
-		implements CDOMPrimaryToken<Ability>
+public class BenefitToken extends AbstractNonEmptyToken<Ability> implements CDOMPrimaryToken<Ability>
 {
 
 	@Override
@@ -48,8 +47,7 @@ public class BenefitToken extends AbstractNonEmptyToken<Ability>
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, Ability ability,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, Ability ability, String value)
 	{
 		if (Constants.LST_DOT_CLEAR.equals(value))
 		{
@@ -58,8 +56,7 @@ public class BenefitToken extends AbstractNonEmptyToken<Ability>
 		}
 		if (value.startsWith(Constants.LST_DOT_CLEAR_DOT))
 		{
-			context.getObjectContext().removePatternFromList(ability, ListKey.BENEFIT,
-				value.substring(7));
+			context.getObjectContext().removePatternFromList(ability, ListKey.BENEFIT, value.substring(7));
 			return ParseResult.SUCCESS;
 		}
 
@@ -78,14 +75,12 @@ public class BenefitToken extends AbstractNonEmptyToken<Ability>
 		String firstToken = tok.nextToken();
 		if (PreParserFactory.isPreReqString(firstToken))
 		{
-			return new ParseResult.Fail(
-				"Invalid " + getTokenName() + "(PRExxx can not be only value): " + value);
+			return new ParseResult.Fail("Invalid " + getTokenName() + "(PRExxx can not be only value): " + value);
 		}
 		String ds = EntityEncoder.decode(firstToken);
 		if (!StringUtil.hasBalancedParens(ds))
 		{
-			return new ParseResult.Fail(
-				getTokenName() + " encountered imbalanced Parenthesis: " + value);
+			return new ParseResult.Fail(getTokenName() + " encountered imbalanced Parenthesis: " + value);
 		}
 
 		Description ben = new Description(ds);
@@ -99,8 +94,7 @@ public class BenefitToken extends AbstractNonEmptyToken<Ability>
 				Prerequisite prereq = getPrerequisite(token);
 				if (prereq == null)
 				{
-					return new ParseResult.Fail(
-						getTokenName() + " had invalid prerequisite : " + token);
+					return new ParseResult.Fail(getTokenName() + " had invalid prerequisite : " + token);
 				}
 				ben.addPrerequisite(prereq);
 				isPre = true;
@@ -109,8 +103,8 @@ public class BenefitToken extends AbstractNonEmptyToken<Ability>
 			{
 				if (isPre)
 				{
-					return new ParseResult.Fail("Invalid " + getTokenName()
-						+ "(PRExxx must be at the END of the Token): " + value);
+					return new ParseResult.Fail(
+						"Invalid " + getTokenName() + "(PRExxx must be at the END of the Token): " + value);
 				}
 				ben.addVariable(token);
 			}
@@ -123,8 +117,8 @@ public class BenefitToken extends AbstractNonEmptyToken<Ability>
 	@Override
 	public String[] unparse(LoadContext context, Ability ability)
 	{
-		PatternChanges<Description> changes = context.getObjectContext()
-			.getListPatternChanges(ability, ListKey.BENEFIT);
+		PatternChanges<Description> changes =
+				context.getObjectContext().getListPatternChanges(ability, ListKey.BENEFIT);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;
@@ -135,8 +129,8 @@ public class BenefitToken extends AbstractNonEmptyToken<Ability>
 		{
 			if (removedItems != null && !removedItems.isEmpty())
 			{
-				context.addWriteMessage("Non-sensical relationship in " + getTokenName()
-					+ ": global .CLEAR and local .CLEAR. performed");
+				context.addWriteMessage(
+					"Non-sensical relationship in " + getTokenName() + ": global .CLEAR and local .CLEAR. performed");
 				return null;
 			}
 			list.add(Constants.LST_DOT_CLEAR);

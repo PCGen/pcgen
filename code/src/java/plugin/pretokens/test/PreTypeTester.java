@@ -37,23 +37,22 @@ import pcgen.util.Logging;
 /**
  * Prerequisite tester, tests for the presence of a type.
  */
-public class PreTypeTester extends AbstractDisplayPrereqTest implements
-		PrerequisiteTest
+public class PreTypeTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
 	/**
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "TYPE"; //$NON-NLS-1$
 	}
 
 	@Override
-	public int passes(final Prerequisite prereq, final Equipment equipment,
-		CharacterDisplay display) throws PrerequisiteException
+	public int passes(final Prerequisite prereq, final Equipment equipment, CharacterDisplay display)
+		throws PrerequisiteException
 	{
 
 		final String requiredType = prereq.getKey();
@@ -76,9 +75,8 @@ public class PreTypeTester extends AbstractDisplayPrereqTest implements
 		else
 		{
 			throw new PrerequisiteException(
-				LanguageBundle
-					.getFormattedString(
-						"PreType.error.invalidComparison", prereq.getOperator().toString(), prereq.toString())); //$NON-NLS-1$
+				LanguageBundle.getFormattedString("PreType.error.invalidComparison", //$NON-NLS-1$
+				prereq.getOperator().toString(), prereq.toString()));
 		}
 
 		runningTotal = countedTotal(prereq, runningTotal);
@@ -88,18 +86,17 @@ public class PreTypeTester extends AbstractDisplayPrereqTest implements
 	@Override
 	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
 	{
-		Logging
-			.errorPrint("PRETYPE has been deprecated for non-Equipment Prerequisites."
-				+ "\n  Please use PRERACE as an alternative");
+		Logging.errorPrint("PRETYPE has been deprecated for non-Equipment Prerequisites."
+			+ "\n  Please use PRERACE as an alternative");
 		if (display == null)
 		{
 			return 0;
 		}
-		
+
 		final String requiredType = prereq.getKey();
-		
+
 		Logging.errorPrint("  PRETYPE value was: " + requiredType + '\n');
-		
+
 		final int numRequired = Integer.parseInt(prereq.getOperand());
 		int runningTotal = 0;
 
@@ -118,9 +115,8 @@ public class PreTypeTester extends AbstractDisplayPrereqTest implements
 	@Override
 	public String toHtmlString(final Prerequisite prereq)
 	{
-		return LanguageBundle
-			.getFormattedString(
-				"PreType.toHtml", prereq.getOperator().toDisplayString(), prereq.getKey()); //$NON-NLS-1$
+		return LanguageBundle.getFormattedString("PreType.toHtml", prereq.getOperator().toDisplayString(), //$NON-NLS-1$
+			prereq.getKey());
 	}
 
 	/**
@@ -135,23 +131,24 @@ public class PreTypeTester extends AbstractDisplayPrereqTest implements
 	private static List<String> getTypes(CharacterDisplay display)
 	{
 		final List<String> list = new ArrayList<>();
-	
+
 		Race race = display.getRace();
 		if (race != null)
 		{
 			list.add(race.getType());
-		} else
+		}
+		else
 		{
 			list.add("Humanoid");
 		}
-	
+
 		for (PCTemplate t : display.getTemplateSet())
 		{
 			list.add(t.getType());
 		}
-	
+
 		return list;
-		
+
 	}
 
 }

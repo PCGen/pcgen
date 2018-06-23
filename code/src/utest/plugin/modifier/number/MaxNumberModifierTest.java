@@ -103,21 +103,21 @@ public class MaxNumberModifierTest extends TestCase
 	public void testProcessZero4()
 	{
 		BasicCalculation modifier = new MaxModifierFactory();
-		assertEquals(0, modifier.process(-4,0));
+		assertEquals(0, modifier.process(-4, 0));
 	}
 
 	@Test
 	public void testProcessMixed1()
 	{
 		BasicCalculation modifier = new MaxModifierFactory();
-		assertEquals(5, modifier.process(5,-7));
+		assertEquals(5, modifier.process(5, -7));
 	}
 
 	@Test
 	public void testProcessMixed2()
 	{
 		BasicCalculation modifier = new MaxModifierFactory();
-		assertEquals(3, modifier.process(-4,3));
+		assertEquals(3, modifier.process(-4, 3));
 	}
 
 	@Test
@@ -180,14 +180,14 @@ public class MaxNumberModifierTest extends TestCase
 	public void testProcessDoubleMixed1()
 	{
 		BasicCalculation modifier = new MaxModifierFactory();
-		assertEquals(5.3, modifier.process(5.3,-7.2));
+		assertEquals(5.3, modifier.process(5.3, -7.2));
 	}
 
 	@Test
 	public void testProcessDoubleMixed2()
 	{
 		BasicCalculation modifier = new MaxModifierFactory();
-		assertEquals(3.1, modifier.process(-4.2,3.1));
+		assertEquals(3.1, modifier.process(-4.2, 3.1));
 	}
 
 	@Test

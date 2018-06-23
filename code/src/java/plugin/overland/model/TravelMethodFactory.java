@@ -199,7 +199,8 @@ public class TravelMethodFactory
 					}
 				}
 				// Sort the terrains by locale name
-				// TODO sort, but with one that do toString on the object. Collections.sort(terrains, Collator.getInstance());
+				// TODO sort, but with one that do toString on the object.
+				// Collections.sort(terrains, Collator.getInstance());
 				// not sorting routes intentionally (it goes from easier to navigate to hardest)
 			}
 			else if (child.getName().equals(XML_ELEMENT_METHOD))
@@ -226,7 +227,8 @@ public class TravelMethodFactory
 						{
 							Number kmh = parseNumber(nf, grandchild, XML_ATTRIBUTE_KMH, 0.75); // XXX other default?
 							Number mph = parseNumber(nf, grandchild, XML_ATTRIBUTE_MPH, 0.5); // XXX other default?
-							Number hoursInDay = parseNumber(nf, grandchild, XML_ATTRIBUTE_HOURSINDAY, 24); // XXX other default?
+							Number hoursInDay =
+									parseNumber(nf, grandchild, XML_ATTRIBUTE_HOURSINDAY, 24); // XXX other default?
 							for (Object o2 : grandchild.getChildren(XML_ELEMENT_CHOICE))
 							{
 								if (o2 instanceof Element)
@@ -234,9 +236,8 @@ public class TravelMethodFactory
 									Element grandgrandchild = (Element) o2;
 									Localized choiceName = new Localized(grandgrandchild);
 									Number mult = parseNumber(nf, grandgrandchild, XML_ATTRIBUTE_MULT, 1);
-									Choice c =
-											new Choice(choiceName, hoursInDay, mult.doubleValue() * kmh.doubleValue(),
-												mult.doubleValue() * mph.doubleValue());
+									Choice c = new Choice(choiceName, hoursInDay,
+										mult.doubleValue() * kmh.doubleValue(), mult.doubleValue() * mph.doubleValue());
 									method.add(c);
 								}
 							}
@@ -245,7 +246,8 @@ public class TravelMethodFactory
 				}
 			}
 		}
-		return new TravelMethodImplementation(name, multByRoadByTerrains, terrains2, terrainsById2, routes2, routesById2, methods);
+		return new TravelMethodImplementation(name, multByRoadByTerrains, terrains2, terrainsById2, routes2,
+			routesById2, methods);
 	}
 
 	/**
@@ -302,9 +304,9 @@ public class TravelMethodFactory
 				break;
 
 			default:
-				Logging
-					.log(Level.WARNING, LanguageBundle.getFormattedString(
-						"in_log_localeInvalid", numFormLoc, split[0], split[1], split[2])); //$NON-NLS-1$
+				Logging.log(Level.WARNING, LanguageBundle.getFormattedString("in_log_localeInvalid",
+					numFormLoc, //$NON-NLS-1$
+					split[0], split[1], split[2]));
 				l = new Locale(split[0], split[1], split[2]);
 				break;
 		}

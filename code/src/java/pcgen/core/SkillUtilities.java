@@ -35,8 +35,7 @@ public final class SkillUtilities
 	 * @param pc
 	 * @return The maximum allowed skill ranks
 	 */
-	public static BigDecimal maxClassSkillForLevel(final int level,
-			final PlayerCharacter pc)
+	public static BigDecimal maxClassSkillForLevel(final int level, final PlayerCharacter pc)
 	{
 		LevelInfo info = pc.getXPTableLevelInfo(level);
 		if (info != null)
@@ -58,8 +57,7 @@ public final class SkillUtilities
 	 * @param pc
 	 * @return The maximum allowed skill ranks
 	 */
-	public static BigDecimal maxCrossClassSkillForLevel(final int level,
-			final PlayerCharacter pc)
+	public static BigDecimal maxCrossClassSkillForLevel(final int level, final PlayerCharacter pc)
 	{
 		LevelInfo info = pc.getXPTableLevelInfo(level);
 		if (info != null)

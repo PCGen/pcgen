@@ -62,8 +62,7 @@ import pcgen.util.enumeration.Tab;
  * manages the models for those tabs.
  */
 @SuppressWarnings("serial")
-public final class InfoTabbedPane extends JTabbedPane
-		implements CharacterSelectionListener, ChangeListener
+public final class InfoTabbedPane extends JTabbedPane implements CharacterSelectionListener, ChangeListener
 {
 
 	public static final int SUMMARY_TAB = 0;
@@ -284,9 +283,8 @@ public final class InfoTabbedPane extends JTabbedPane
 		else
 		{
 			String message = LanguageBundle.getFormattedString("in_todoUseField", dest[1]); //$NON-NLS-1$
-			JOptionPane.showMessageDialog(selTab, message,
-					LanguageBundle.getString("in_tipsString"), //$NON-NLS-1$
-					JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(selTab, message, LanguageBundle.getString("in_tipsString"), //$NON-NLS-1$
+				JOptionPane.INFORMATION_MESSAGE);
 		}
 	}
 

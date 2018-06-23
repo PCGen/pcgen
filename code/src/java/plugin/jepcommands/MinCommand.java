@@ -1,9 +1,10 @@
 package plugin.jepcommands;
 
-import org.nfunk.jep.ParseException;
-import pcgen.util.PCGenCommand;
-
 import java.util.Stack;
+
+import org.nfunk.jep.ParseException;
+
+import pcgen.util.PCGenCommand;
 
 /**
  * Deal with min JEP command eg. {@literal min(12.6, 20) --> 12.6 }
@@ -27,7 +28,7 @@ public class MinCommand extends PCGenCommand
 	 * Gets the name of the function handled by this class.
 	 * @return The name of the function.
 	 */
-    @Override
+	@Override
 	public String getFunctionName()
 	{
 		return "MIN";
@@ -44,7 +45,7 @@ public class MinCommand extends PCGenCommand
 	 * @throws ParseException
 	 */
 	@SuppressWarnings("unchecked") //Uses JEP, which doesn't use generics
-    @Override
+	@Override
 	public void run(final Stack stack) throws ParseException
 	{
 		// Check if stack is null
@@ -53,7 +54,7 @@ public class MinCommand extends PCGenCommand
 			throw new ParseException("Stack argument null");
 		}
 
-        double result = 0;
+		double result = 0;
 		boolean first = true;
 		int i = 0;
 
@@ -61,8 +62,8 @@ public class MinCommand extends PCGenCommand
 		while (i < curNumberOfParameters)
 		{
 			// get the parameter from the stack
-            final Object param = stack.pop();
-            if (param instanceof Number)
+			final Object param = stack.pop();
+			if (param instanceof Number)
 			{
 				// calculate the result
 				if (first || ((Number) param).doubleValue() < result)

@@ -37,8 +37,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * VALUES token for KitTable
  */
-public class ValuesToken extends AbstractNonEmptyToken<KitTable> implements
-		CDOMPrimaryToken<KitTable>
+public class ValuesToken extends AbstractNonEmptyToken<KitTable> implements CDOMPrimaryToken<KitTable>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -58,8 +57,7 @@ public class ValuesToken extends AbstractNonEmptyToken<KitTable> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		KitTable kitTable, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, KitTable kitTable, String value)
 	{
 		ParsingSeparator sep = new ParsingSeparator(value, '|');
 		sep.addGroupingPair('[', ']');
@@ -70,8 +68,7 @@ public class ValuesToken extends AbstractNonEmptyToken<KitTable> implements
 			String thing = sep.next();
 			if (thing.isEmpty())
 			{
-				return new ParseResult.Fail(getTokenName()
-						+ " arguments has invalid pipe separator: " + value);
+				return new ParseResult.Fail(getTokenName() + " arguments has invalid pipe separator: " + value);
 			}
 			KitGear optionInfo = new KitGear();
 			for (String s : thing.split("[\\[\\]]"))
@@ -83,15 +80,13 @@ public class ValuesToken extends AbstractNonEmptyToken<KitTable> implements
 				int colonLoc = s.indexOf(':');
 				if (colonLoc == -1)
 				{
-					return new ParseResult.Fail("Expected colon in Value item: " + s
-							+ " within: " + value);
+					return new ParseResult.Fail("Expected colon in Value item: " + s + " within: " + value);
 				}
 				String key = s.substring(0, colonLoc);
 				String thingValue = s.substring(colonLoc + 1);
 				try
 				{
-					boolean passed = context.processToken(optionInfo, key,
-							thingValue);
+					boolean passed = context.processToken(optionInfo, key, thingValue);
 					if (!passed)
 					{
 						return new ParseResult.Fail("Failure in token: " + key);
@@ -99,8 +94,7 @@ public class ValuesToken extends AbstractNonEmptyToken<KitTable> implements
 				}
 				catch (PersistenceLayerException e)
 				{
-					return new ParseResult.Fail("Failure in token: " + key
-							+ ' ' + e.getMessage());
+					return new ParseResult.Fail("Failure in token: " + key + ' ' + e.getMessage());
 				}
 			}
 			if (!sep.hasNext())
@@ -111,16 +105,15 @@ public class ValuesToken extends AbstractNonEmptyToken<KitTable> implements
 			ParseResult pr = processRange(kitTable, optionInfo, range);
 			if (!pr.passed())
 			{
-				return new ParseResult.Fail("Invalid Range in Value: " + range
-						+ " within " + value + " report was: " + pr);
+				return new ParseResult.Fail(
+					"Invalid Range in Value: " + range + " within " + value + " report was: " + pr);
 			}
 		}
 
 		return ParseResult.SUCCESS;
 	}
 
-	private ParseResult processRange(KitTable kitTable, KitGear optionInfo,
-			String range)
+	private ParseResult processRange(KitTable kitTable, KitGear optionInfo, String range)
 	{
 		ParseResult pr = checkSeparatorsAndNonEmpty(',', range);
 		if (!pr.passed())
@@ -143,20 +136,17 @@ public class ValuesToken extends AbstractNonEmptyToken<KitTable> implements
 		}
 		if (sep.hasNext())
 		{
-			return new ParseResult.Fail(
-				"Expected more than one value in a range, found: " + range);
+			return new ParseResult.Fail("Expected more than one value in a range, found: " + range);
 		}
 		Formula min = FormulaFactory.getFormulaFor(minString);
 		if (!min.isValid())
 		{
-			return new ParseResult.Fail(
-				"Min Formula in " + getTokenName() + " was not valid: " + min.toString());
+			return new ParseResult.Fail("Min Formula in " + getTokenName() + " was not valid: " + min.toString());
 		}
 		Formula max = FormulaFactory.getFormulaFor(maxString);
 		if (!max.isValid())
 		{
-			return new ParseResult.Fail(
-				"Max Formula in " + getTokenName() + " was not valid: " + max.toString());
+			return new ParseResult.Fail("Max Formula in " + getTokenName() + " was not valid: " + max.toString());
 		}
 		kitTable.addGear(optionInfo, min, max);
 		return ParseResult.SUCCESS;
@@ -201,6 +191,6 @@ public class ValuesToken extends AbstractNonEmptyToken<KitTable> implements
 			}
 			first = false;
 		}
-		return new String[] { sb.toString() };
+		return new String[]{sb.toString()};
 	}
 }

@@ -163,30 +163,25 @@ public class URIFactory
 		 */
 		if (basePath.charAt(0) == '@')
 		{
-			String pathNoLeader =
-					trimLeadingFileSeparator(basePath.substring(1));
+			String pathNoLeader = trimLeadingFileSeparator(basePath.substring(1));
 			String path = CoreUtility.fixFilenamePath(pathNoLeader);
-			return new File(ConfigurationSettings.getPccFilesDir(), path)
-				.toURI();
+			return new File(ConfigurationSettings.getPccFilesDir(), path).toURI();
 		}
 		else if (basePath.charAt(0) == '&')
 		{
-			String pathNoLeader =
-					trimLeadingFileSeparator(basePath.substring(1));
+			String pathNoLeader = trimLeadingFileSeparator(basePath.substring(1));
 			String path = CoreUtility.fixFilenamePath(pathNoLeader);
 			return new File(PCGenSettings.getVendorDataDir(), path).toURI();
 		}
 		else if (basePath.charAt(0) == '$')
 		{
-			String pathNoLeader =
-					trimLeadingFileSeparator(basePath.substring(1));
+			String pathNoLeader = trimLeadingFileSeparator(basePath.substring(1));
 			String path = CoreUtility.fixFilenamePath(pathNoLeader);
 			return new File(PCGenSettings.getHomebrewDataDir(), path).toURI();
 		}
 		else if (basePath.charAt(0) == '*')
 		{
-			String pathNoLeader =
-					trimLeadingFileSeparator(basePath.substring(1));
+			String pathNoLeader = trimLeadingFileSeparator(basePath.substring(1));
 			String path = CoreUtility.fixFilenamePath(pathNoLeader);
 			File pccFile = new File(PCGenSettings.getHomebrewDataDir(), path);
 			if (pccFile.exists())
@@ -198,8 +193,7 @@ public class URIFactory
 			{
 				return pccFile.toURI();
 			}
-			return new File(ConfigurationSettings.getPccFilesDir(), path)
-				.toURI();
+			return new File(ConfigurationSettings.getPccFilesDir(), path).toURI();
 		}
 		else if (basePath.indexOf(':') > 0)
 		{
@@ -207,8 +201,7 @@ public class URIFactory
 			{
 				// if it's a URL, then we are all done, just return a URI
 				URL url = new URL(basePath);
-				return new URI(url.getProtocol(), url.getHost(), url.getPath(),
-					null);
+				return new URI(url.getProtocol(), url.getHost(), url.getPath(), null);
 			}
 			catch (URISyntaxException | MalformedURLException e)
 			{
@@ -229,10 +222,8 @@ public class URIFactory
 		if (pathNoLeader.startsWith("data"))
 		{
 			// substring 5 to eliminate the separator after data
-			String path =
-					CoreUtility.fixFilenamePath(pathNoLeader.substring(5));
-			return new File(ConfigurationSettings.getPccFilesDir(), path)
-				.toURI();
+			String path = CoreUtility.fixFilenamePath(pathNoLeader.substring(5));
+			return new File(ConfigurationSettings.getPccFilesDir(), path).toURI();
 		}
 
 		/*
@@ -243,13 +234,12 @@ public class URIFactory
 		// URLs always use forward slash; take off the file name
 		try
 		{
-			return new URI(pccPath.getScheme(), null, (path.substring(0,
-				path.lastIndexOf('/') + 1) + basePath.replace('\\', '/')), null);
+			return new URI(pccPath.getScheme(), null,
+				(path.substring(0, path.lastIndexOf('/') + 1) + basePath.replace('\\', '/')), null);
 		}
 		catch (URISyntaxException e)
 		{
-			Logging.errorPrint("URIFactory failed to convert "
-				+ path.substring(0, path.lastIndexOf('/') + 1) + basePath
+			Logging.errorPrint("URIFactory failed to convert " + path.substring(0, path.lastIndexOf('/') + 1) + basePath
 				+ " to a URI: " + e.getLocalizedMessage());
 		}
 		return FAILED_URI;
@@ -267,8 +257,7 @@ public class URIFactory
 	{
 		String pathNoLeader = basePath;
 
-		if (pathNoLeader.startsWith("/")
-			|| pathNoLeader.startsWith(File.separator))
+		if (pathNoLeader.startsWith("/") || pathNoLeader.startsWith(File.separator))
 		{
 			pathNoLeader = pathNoLeader.substring(1);
 		}

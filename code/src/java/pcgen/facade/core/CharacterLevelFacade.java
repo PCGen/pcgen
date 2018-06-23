@@ -18,10 +18,7 @@
  */
 package pcgen.facade.core;
 
-
-
 public interface CharacterLevelFacade
 {
-
 
 }

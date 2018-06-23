@@ -62,13 +62,13 @@ public final class SubClass extends PCClass implements Categorized<SubClass>
 		return getSafe(IntegerKey.COST);
 	}
 
-    @Override
+	@Override
 	public Category<SubClass> getCDOMCategory()
 	{
 		return get(ObjectKey.SUBCLASS_CATEGORY);
 	}
 
-    @Override
+	@Override
 	public void setCDOMCategory(Category<SubClass> cat)
 	{
 		put(ObjectKey.SUBCLASS_CATEGORY, cat);
@@ -79,6 +79,5 @@ public final class SubClass extends PCClass implements Categorized<SubClass>
 	{
 		return getCDOMCategory() + "." + super.getFullKey();
 	}
-	
-	
+
 }

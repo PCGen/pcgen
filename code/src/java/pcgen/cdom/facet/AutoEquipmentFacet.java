@@ -36,8 +36,7 @@ import pcgen.core.QualifiedObject;
  * (those granted by AUTO:EQUIP) that are contained in a Player Character.
  * 
  */
-public class AutoEquipmentFacet extends
-		AbstractQualifiedListFacet<QualifiedObject<CDOMReference<Equipment>>>
+public class AutoEquipmentFacet extends AbstractQualifiedListFacet<QualifiedObject<CDOMReference<Equipment>>>
 		implements DataFacetChangeListener<CharID, CDOMObject>
 {
 
@@ -60,8 +59,7 @@ public class AutoEquipmentFacet extends
 	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
-		List<QualifiedObject<CDOMReference<Equipment>>> list = cdo
-				.getSafeListFor(ListKey.EQUIPMENT);
+		List<QualifiedObject<CDOMReference<Equipment>>> list = cdo.getSafeListFor(ListKey.EQUIPMENT);
 		if (list != null)
 		{
 			addAll(dfce.getCharID(), list, cdo);
@@ -126,8 +124,7 @@ public class AutoEquipmentFacet extends
 		return list;
 	}
 
-	public void setConsolidationFacet(
-		CDOMObjectConsolidationFacet consolidationFacet)
+	public void setConsolidationFacet(CDOMObjectConsolidationFacet consolidationFacet)
 	{
 		this.consolidationFacet = consolidationFacet;
 	}

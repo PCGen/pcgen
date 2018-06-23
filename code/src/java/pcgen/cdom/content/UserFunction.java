@@ -54,14 +54,12 @@ public class UserFunction extends UserContent
 	{
 		if (expression == null)
 		{
-			throw new IllegalArgumentException(
-				"Cannot make formula from null String");
+			throw new IllegalArgumentException("Cannot make formula from null String");
 		}
 		origExpression = expression;
 		try
 		{
-			SimpleNode root =
-					new FormulaParser(new StringReader(expression)).query();
+			SimpleNode root = new FormulaParser(new StringReader(expression)).query();
 			function = new GenericFunction(getKeyName(), root);
 		}
 		catch (ParseException e)

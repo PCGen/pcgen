@@ -66,8 +66,7 @@ public class DefinedFunction implements FormulaFunction
 	 *            The FormatManager indicating the format of the return value for this
 	 *            DefinedFunction
 	 */
-	public DefinedFunction(String name, VarScoped definedValue,
-		FormatManager<?> formatManager)
+	public DefinedFunction(String name, VarScoped definedValue, FormatManager<?> formatManager)
 	{
 		this.name = Objects.requireNonNull(name);
 		this.definedValue = Objects.requireNonNull(definedValue);
@@ -87,28 +86,24 @@ public class DefinedFunction implements FormulaFunction
 	}
 
 	@Override
-	public FormatManager<?> allowArgs(SemanticsVisitor visitor, Node[] args,
-		FormulaSemantics semantics)
+	public FormatManager<?> allowArgs(SemanticsVisitor visitor, Node[] args, FormulaSemantics semantics)
 	{
 		if (args.length == 0)
 		{
 			return formatManager;
 		}
-		throw new SemanticsFailureException(
-			"Function " + name + "() received incorrect # of arguments, expected: 0 got "
-				+ args.length + " " + Arrays.asList(args));
+		throw new SemanticsFailureException("Function " + name
+			+ "() received incorrect # of arguments, expected: 0 got " + args.length + " " + Arrays.asList(args));
 	}
 
 	@Override
-	public Object evaluate(EvaluateVisitor visitor, Node[] args,
-		EvaluationManager manager)
+	public Object evaluate(EvaluateVisitor visitor, Node[] args, EvaluationManager manager)
 	{
 		return definedValue;
 	}
 
 	@Override
-	public FormatManager<?> getDependencies(DependencyVisitor visitor,
-		DependencyManager manager, Node[] args)
+	public FormatManager<?> getDependencies(DependencyVisitor visitor, DependencyManager manager, Node[] args)
 	{
 		return formatManager;
 	}

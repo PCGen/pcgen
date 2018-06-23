@@ -23,8 +23,7 @@ import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class PluralToken extends AbstractNonEmptyToken<AbilityCategory>
-		implements CDOMPrimaryToken<AbilityCategory>
+public class PluralToken extends AbstractNonEmptyToken<AbilityCategory> implements CDOMPrimaryToken<AbilityCategory>
 {
 	@Override
 	public String getTokenName()
@@ -33,8 +32,7 @@ public class PluralToken extends AbstractNonEmptyToken<AbilityCategory>
 	}
 
 	@Override
-	public ParseResult parseNonEmptyToken(LoadContext context,
-			AbilityCategory ac, String value)
+	public ParseResult parseNonEmptyToken(LoadContext context, AbilityCategory ac, String value)
 	{
 		ac.setPluralName(value);
 		return ParseResult.SUCCESS;
@@ -48,7 +46,7 @@ public class PluralToken extends AbstractNonEmptyToken<AbilityCategory>
 		{
 			return null;
 		}
-		return new String[] { plural };
+		return new String[]{plural};
 	}
 
 	@Override

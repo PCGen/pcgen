@@ -195,8 +195,7 @@ public class BonusChangeFacet extends AbstractStorageFacet<CharID>
 		 * @param newValue
 		 *            The new value of the Bonus value
 		 */
-		public BonusChangeEvent(CharID id, String type, String name,
-			Number oldValue, Number newValue)
+		public BonusChangeEvent(CharID id, String type, String name, Number oldValue, Number newValue)
 		{
 			charID = id;
 			bonusType = type;
@@ -240,8 +239,7 @@ public class BonusChangeFacet extends AbstractStorageFacet<CharID>
 	 */
 	public static class BonusChangeSupport
 	{
-		private DoubleKeyMapToList<String, String, BonusChangeListener> listeners =
-                new DoubleKeyMapToList<>();
+		private DoubleKeyMapToList<String, String, BonusChangeListener> listeners = new DoubleKeyMapToList<>();
 
 		/**
 		 * Adds a new BonusChangeListener to receive BonusChangeEventas from the
@@ -263,8 +261,7 @@ public class BonusChangeFacet extends AbstractStorageFacet<CharID>
 		 *            The Bonus name for the Bonus value changes for which the
 		 *            given listener will be added to the list of listeners
 		 */
-		public synchronized void addBonusChangeListener(
-				BonusChangeListener listener, String type, String name)
+		public synchronized void addBonusChangeListener(BonusChangeListener listener, String type, String name)
 		{
 			listeners.addToListFor(type, name, listener);
 		}
@@ -298,14 +295,12 @@ public class BonusChangeFacet extends AbstractStorageFacet<CharID>
 		 *            The Bonus name for the Bonus value changes for which the
 		 *            given listener will be removed from the list of listeners
 		 */
-		public synchronized void removeBonusChangeListener(
-				BonusChangeListener listener, String type, String name)
+		public synchronized void removeBonusChangeListener(BonusChangeListener listener, String type, String name)
 		{
 			listeners.removeFromListFor(type, name, listener);
 		}
 
-		public synchronized BonusChangeListener[] getBonusChangeListeners(
-				String type, String name)
+		public synchronized BonusChangeListener[] getBonusChangeListeners(String type, String name)
 		{
 			List<BonusChangeListener> listFor = listeners.getListFor(type, name);
 			return (listFor.toArray(new BonusChangeListener[listFor.size()]));
@@ -327,14 +322,11 @@ public class BonusChangeFacet extends AbstractStorageFacet<CharID>
 		 * @param newValue
 		 *            The new value of the Bonus value
 		 */
-		public void fireBonusChange(CharID id, String type, String name,
-			Number oldValue, Number newValue)
+		public void fireBonusChange(CharID id, String type, String name, Number oldValue, Number newValue)
 		{
-			BonusChangeEvent bce = new BonusChangeEvent(id, type, name,
-					oldValue, newValue);
+			BonusChangeEvent bce = new BonusChangeEvent(id, type, name, oldValue, newValue);
 
-			List<BonusChangeListener> localListeners = listeners.getListFor(
-					type, name);
+			List<BonusChangeListener> localListeners = listeners.getListFor(type, name);
 			if (localListeners != null)
 			{
 				for (BonusChangeListener target : localListeners)
@@ -366,8 +358,7 @@ public class BonusChangeFacet extends AbstractStorageFacet<CharID>
 	 *            The Bonus name for the Bonus value changes for which the given
 	 *            listener will be added to the list of listeners
 	 */
-	public void addBonusChangeListener(BonusChangeListener listener,
-			String type, String name)
+	public void addBonusChangeListener(BonusChangeListener listener, String type, String name)
 	{
 		support.addBonusChangeListener(listener, type, name);
 	}
@@ -391,8 +382,7 @@ public class BonusChangeFacet extends AbstractStorageFacet<CharID>
 	 *            The Bonus name for the Bonus value changes for which the given
 	 *            listener will be removed from the list of listeners
 	 */
-	public void removeBonusChangeListener(BonusChangeListener listener,
-			String type, String name)
+	public void removeBonusChangeListener(BonusChangeListener listener, String type, String name)
 	{
 		support.removeBonusChangeListener(listener, type, name);
 	}
@@ -434,6 +424,5 @@ public class BonusChangeFacet extends AbstractStorageFacet<CharID>
 			getConstructingInfo(copy).putAll(map);
 		}
 	}
-	
-	
+
 }

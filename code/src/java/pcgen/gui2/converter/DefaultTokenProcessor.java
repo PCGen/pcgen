@@ -49,8 +49,7 @@ public class DefaultTokenProcessor implements TokenProcessor
 			if (output == null || output.isEmpty())
 			{
 				// Uh Oh
-				return ("Unable to unparse: " + tpe.getKey() + ":" + tpe
-						.getValue());
+				return ("Unable to unparse: " + tpe.getKey() + ":" + tpe.getValue());
 			}
 			boolean needTab = false;
 			for (String s : output)

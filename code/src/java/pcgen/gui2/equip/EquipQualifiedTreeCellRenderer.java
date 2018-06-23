@@ -56,8 +56,8 @@ public class EquipQualifiedTreeCellRenderer extends TreeColumnCellRenderer
 	}
 
 	@Override
-	public Component getTreeCellRendererComponent(JTree tree, Object value,
-		boolean sel, boolean expanded, boolean leaf, int row, boolean focus)
+	public Component getTreeCellRendererComponent(JTree tree, Object value, boolean sel, boolean expanded, boolean leaf,
+		int row, boolean focus)
 	{
 		Object obj = ((DefaultMutableTreeNode) value).getUserObject();
 		if ("".equals(obj)) //$NON-NLS-1$

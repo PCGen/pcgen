@@ -34,24 +34,22 @@ public class PreCheckParser extends AbstractPrerequisiteListParser
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String[] kindsHandled()
 	{
 		return new String[]{"CHECK", "CHECKBASE"};
 	}
 
 	@Override
-	public Prerequisite parse(String kind, String formula, boolean invertResult,
-		boolean overrideQualify) throws PersistenceLayerException
+	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+		throws PersistenceLayerException
 	{
-		if (ControlUtilities.hasControlToken(Globals.getContext(),
-			CControl.TOTALSAVE))
+		if (ControlUtilities.hasControlToken(Globals.getContext(), CControl.TOTALSAVE))
 		{
 			throw new PersistenceLayerException(
 				"PRECHECK and PRECHECKBASE are disabled when TOTALSAVE CodeControl is used");
 		}
 		return super.parse(kind, formula, invertResult, overrideQualify);
 	}
-    
-    
+
 }

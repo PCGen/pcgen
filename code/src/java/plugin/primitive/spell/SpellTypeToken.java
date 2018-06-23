@@ -34,8 +34,7 @@ public class SpellTypeToken extends AbstractRestrictedSpellPrimitive
 	private String spelltype;
 
 	@Override
-	public boolean initialize(LoadContext context, Class<Spell> cl,
-		String value, String args)
+	public boolean initialize(LoadContext context, Class<Spell> cl, String value, String args)
 	{
 		if (value == null)
 		{
@@ -54,8 +53,7 @@ public class SpellTypeToken extends AbstractRestrictedSpellPrimitive
 	@Override
 	public boolean allow(PlayerCharacter pc, Spell spell)
 	{
-		HashMapToList<CDOMList<Spell>, Integer> levelInfo =
-				pc.getSpellLevelInfo(spell);
+		HashMapToList<CDOMList<Spell>, Integer> levelInfo = pc.getSpellLevelInfo(spell);
 		String source = "SPELLTYPE:" + spelltype;
 		for (CDOMList<Spell> spellList : levelInfo.getKeySet())
 		{
@@ -93,8 +91,7 @@ public class SpellTypeToken extends AbstractRestrictedSpellPrimitive
 			{
 				return other.spelltype == null;
 			}
-			return spelltype.equals(other.spelltype)
-				&& equalsRestrictedPrimitive(other);
+			return spelltype.equals(other.spelltype) && equalsRestrictedPrimitive(other);
 		}
 		return false;
 	}
@@ -108,8 +105,7 @@ public class SpellTypeToken extends AbstractRestrictedSpellPrimitive
 	@Override
 	public CharSequence getPrimitiveLST()
 	{
-		return new StringBuilder().append(getTokenName()).append('=').append(
-			spelltype).append(getRestrictionLST());
+		return new StringBuilder().append(getTokenName()).append('=').append(spelltype).append(getRestrictionLST());
 	}
 
 }

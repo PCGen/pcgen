@@ -19,6 +19,7 @@
 package pcgen.gui2.util.event;
 
 import java.util.Collection;
+
 import javax.swing.event.ListDataEvent;
 
 /**
@@ -27,35 +28,34 @@ import javax.swing.event.ListDataEvent;
 public class GenericListDataEvent<E> extends ListDataEvent
 {
 
-    private Collection<? extends E> data;
-    private boolean isAdjusting;
+	private Collection<? extends E> data;
+	private boolean isAdjusting;
 
-    public GenericListDataEvent(Object source, Collection<? extends E> data,
-                                 boolean isAdjusting,
-                                 int type, int index0, int index1)
-    {
-        super(source, type, index0, index1);
-        this.data = data;
-        this.isAdjusting = isAdjusting;
-    }
+	public GenericListDataEvent(Object source, Collection<? extends E> data, boolean isAdjusting, int type, int index0,
+		int index1)
+	{
+		super(source, type, index0, index1);
+		this.data = data;
+		this.isAdjusting = isAdjusting;
+	}
 
-    /**
-     * Returns a collection containing added or removed data.
-     * In the case of changed data, this will return the overriden data.
-     * @return a collection containing added or removed data
-     */
-    public Collection<? extends E> getData()
-    {
-        return data;
-    }
+	/**
+	 * Returns a collection containing added or removed data.
+	 * In the case of changed data, this will return the overriden data.
+	 * @return a collection containing added or removed data
+	 */
+	public Collection<? extends E> getData()
+	{
+		return data;
+	}
 
-    /**
-     * Returns true if this is one of multiple change events.
-     * @return true if this is one of a rapid series of events
-     */
-    public boolean getValueIsAdjusting()
-    {
-        return isAdjusting;
-    }
+	/**
+	 * Returns true if this is one of multiple change events.
+	 * @return true if this is one of a rapid series of events
+	 */
+	public boolean getValueIsAdjusting()
+	{
+		return isAdjusting;
+	}
 
 }

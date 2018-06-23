@@ -83,7 +83,7 @@ public class ImageFileChooserPreview extends JComponent implements PropertyChang
 	/** Paints the icon of the current image, if one's present..
 	 * @param g object to use when painting the component.
 	 */
-    @Override
+	@Override
 	public void paintComponent(Graphics g)
 	{
 		if (imageThumb == null)
@@ -117,7 +117,7 @@ public class ImageFileChooserPreview extends JComponent implements PropertyChang
 	 * thumbnail to load.
 	 * @param evt
 	 */
-    @Override
+	@Override
 	public void propertyChange(final PropertyChangeEvent evt)
 	{
 		if (evt.getPropertyName().equals(JFileChooser.SELECTED_FILE_CHANGED_PROPERTY))

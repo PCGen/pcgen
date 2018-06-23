@@ -56,7 +56,8 @@ public class MapInequality implements InequalityTest<Map<?, ?>>
 			}
 			if (found)
 			{
-				reasons.add("@MI=" + location + ": Inequality in Map Keys: " + m1.keySet() + " " + m2.keySet() + " {" + m1.values().iterator().next().getClass() + "}");
+				reasons.add("@MI=" + location + ": Inequality in Map Keys: "
+						+ m1.keySet() + " " + m2.keySet() + " {" + m1.values().iterator().next().getClass() + "}");
 			}
 		}
 		if (!m1.values().equals(m2.values()))
@@ -83,7 +84,8 @@ public class MapInequality implements InequalityTest<Map<?, ?>>
 			}
 			if (found)
 			{
-				reasons.add("@MI=" + location + ": Inequality in Map Values: " + m1.values() + " " + m2.values() + " {" + m1.values().iterator().next().getClass() + "}");
+				reasons.add("@MI=" + location + ": Inequality in Map Values: " + m1.values() + " " + m2.values() + " {"
+					+ m1.values().iterator().next().getClass() + "}");
 			}
 		}
 		return reasons.isEmpty() ? null : StringUtil.join(reasons, "\n");

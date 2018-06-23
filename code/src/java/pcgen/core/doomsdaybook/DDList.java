@@ -15,12 +15,11 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
- package pcgen.core.doomsdaybook;
-
-import gmgen.plugin.dice.Dice;
+package pcgen.core.doomsdaybook;
 
 import java.util.ArrayList;
 
+import gmgen.plugin.dice.Dice;
 
 public class DDList extends ArrayList<WeightedDataValue> implements DataElement
 {
@@ -64,7 +63,7 @@ public class DDList extends ArrayList<WeightedDataValue> implements DataElement
 		this.weight = weight;
 	}
 
-    @Override
+	@Override
 	public ArrayList<DataValue> getData()
 	{
 		retList.clear();
@@ -90,7 +89,8 @@ public class DDList extends ArrayList<WeightedDataValue> implements DataElement
 		//select the detail to return
 		int aWeight = 0;
 
-		//Iterate through the list of choices until the weights (from each DataValue) are greater the num chosen as the 'choice'
+		// Iterate through the list of choices until the weights (from each DataValue)
+		// are greater the num chosen as the 'choice'
 		for (WeightedDataValue chkValue : this)
 		{
 			int valueWeight = chkValue.getWeight();
@@ -111,7 +111,7 @@ public class DDList extends ArrayList<WeightedDataValue> implements DataElement
 		return retList;
 	}
 
-    @Override
+	@Override
 	public ArrayList<DataValue> getData(int choice)
 	{
 		retList.clear();
@@ -119,7 +119,8 @@ public class DDList extends ArrayList<WeightedDataValue> implements DataElement
 		//select the detail to return
 		int aWeight = 0;
 
-		//Iterate through the list of choices until the weights (from each DataValue) are greater the num chosen as the 'choice'
+		// Iterate through the list of choices until the weights (from each DataValue)
+		// are greater the num chosen as the 'choice'
 		for (WeightedDataValue chkValue : this)
 		{
 			int valueWeight = chkValue.getWeight();
@@ -149,13 +150,13 @@ public class DDList extends ArrayList<WeightedDataValue> implements DataElement
 		this.id = id;
 	}
 
-    @Override
+	@Override
 	public String getId()
 	{
 		return id;
 	}
 
-    @Override
+	@Override
 	public ArrayList<DataValue> getLastData()
 	{
 		return retList;
@@ -191,7 +192,7 @@ public class DDList extends ArrayList<WeightedDataValue> implements DataElement
 		this.title = title;
 	}
 
-    @Override
+	@Override
 	public String getTitle()
 	{
 		return title;
@@ -206,7 +207,7 @@ public class DDList extends ArrayList<WeightedDataValue> implements DataElement
 		this.weight = weight;
 	}
 
-    @Override
+	@Override
 	public int getWeight()
 	{
 		return weight;

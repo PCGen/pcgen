@@ -20,10 +20,10 @@ package pcgen.io.freemarker;
 
 import java.util.List;
 
-import pcgen.core.PlayerCharacter;
-import pcgen.io.ExportHandler;
 import freemarker.template.TemplateMethodModelEx;
 import freemarker.template.TemplateModelException;
+import pcgen.core.PlayerCharacter;
+import pcgen.io.ExportHandler;
 
 /**
  * PChasVarFunction allows character variable presence to be queried in a 
@@ -53,14 +53,13 @@ public class PCHasVarFunction implements TemplateMethodModelEx, CharacterExportA
 	{
 		if (arg0.size() != 1)
 		{
-			throw new TemplateModelException(
-				"Wrong arguments. formula required");
+			throw new TemplateModelException("Wrong arguments. formula required");
 		}
 
 		String tag = arg0.get(0).toString();
 
 		String value = getExportVariable(tag, pc, eh);
-		
+
 		return pc.hasVariable(value);
 	}
 

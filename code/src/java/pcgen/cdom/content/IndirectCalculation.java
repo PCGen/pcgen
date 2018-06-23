@@ -58,8 +58,7 @@ public final class IndirectCalculation<T> extends AbstractNEPCalculation<T>
 	public T process(EvaluationManager evalManager)
 	{
 		@SuppressWarnings("unchecked")
-		T input = (evalManager == null) ? null
-			: (T) evalManager.get(EvaluationManager.INPUT);
+		T input = (evalManager == null) ? null : (T) evalManager.get(EvaluationManager.INPUT);
 		return getBasicCalculation().process(input, obj.get());
 	}
 
@@ -81,8 +80,7 @@ public final class IndirectCalculation<T> extends AbstractNEPCalculation<T>
 		if (o instanceof IndirectCalculation)
 		{
 			IndirectCalculation<?> other = (IndirectCalculation<?>) o;
-			return other.getBasicCalculation().equals(getBasicCalculation())
-				&& other.obj.equals(obj);
+			return other.getBasicCalculation().equals(getBasicCalculation()) && other.obj.equals(obj);
 		}
 		return false;
 	}

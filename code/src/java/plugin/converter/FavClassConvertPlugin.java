@@ -36,13 +36,12 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class FavClassConvertPlugin extends AbstractToken implements
-		TokenProcessorPlugin
+public class FavClassConvertPlugin extends AbstractToken implements TokenProcessorPlugin
 {
 	public static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
 	public static final Class<SubClass> SUBCLASS_CLASS = SubClass.class;
 
-    @Override
+	@Override
 	public String process(TokenProcessEvent tpe)
 	{
 		String value = tpe.getValue();
@@ -74,8 +73,7 @@ public class FavClassConvertPlugin extends AbstractToken implements
 		{
 			CDOMReference<? extends PCClass> ref;
 			String token = tok.nextToken();
-			if (Constants.LST_ALL.equalsIgnoreCase(token)
-					|| Constants.LST_ANY.equalsIgnoreCase(token))
+			if (Constants.LST_ALL.equalsIgnoreCase(token) || Constants.LST_ANY.equalsIgnoreCase(token))
 			{
 				foundAny = true;
 				ref = context.getReferenceContext().getCDOMAllReference(PCCLASS_CLASS);
@@ -95,16 +93,14 @@ public class FavClassConvertPlugin extends AbstractToken implements
 					String parent = token.substring(0, dotLoc);
 					String subclass = token.substring(dotLoc + 1);
 					SubClassCategory scc = SubClassCategory.getConstant(parent);
-					ref = context.getReferenceContext().getManufacturerId(scc)
-						.getReference(subclass);
+					ref = context.getReferenceContext().getManufacturerId(scc).getReference(subclass);
 				}
 			}
 			refList.add(ref);
 		}
 		if (foundAny && foundOther)
 		{
-			return "Non-sensical " + getTokenName()
-					+ ": Contains ANY and a specific reference: " + value;
+			return "Non-sensical " + getTokenName() + ": Contains ANY and a specific reference: " + value;
 		}
 
 		String name = tpe.getPrimary().get(StringKey.CONVERT_NAME);
@@ -140,13 +136,13 @@ public class FavClassConvertPlugin extends AbstractToken implements
 		return null;
 	}
 
-    @Override
+	@Override
 	public Class<? extends CDOMObject> getProcessedClass()
 	{
 		return Race.class;
 	}
 
-    @Override
+	@Override
 	public String getProcessedToken()
 	{
 		return "FAVCLASS";

@@ -37,8 +37,7 @@ import pcgen.core.PlayerCharacter;
  * @param <T>
  *            The class of object this CDOMReference refers to.
  */
-public abstract class CDOMReference<T> implements ObjectContainer<T>,
-		PrimitiveCollection<T>
+public abstract class CDOMReference<T> implements ObjectContainer<T>, PrimitiveCollection<T>
 {
 
 	/**
@@ -139,8 +138,7 @@ public abstract class CDOMReference<T> implements ObjectContainer<T>,
 	@Override
 	public String toString()
 	{
-		return getClass().getSimpleName() + " " + getReferenceClass().getSimpleName()
-			+ " " + getName();
+		return getClass().getSimpleName() + " " + getReferenceClass().getSimpleName() + " " + getName();
 	}
 
 	/**
@@ -179,7 +177,7 @@ public abstract class CDOMReference<T> implements ObjectContainer<T>,
 	{
 		return requiresTarget;
 	}
-	
+
 	/**
 	 * Sets whether this CDOMReference requires that it contains a target. This is
 	 * designed to be set by a CONSUMER of a CDOMReference so that it can indicate back to

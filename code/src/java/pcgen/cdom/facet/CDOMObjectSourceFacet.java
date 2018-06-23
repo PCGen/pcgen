@@ -60,8 +60,7 @@ public class CDOMObjectSourceFacet
 	 *            The DataFacetChangeListener to receive DataFacetChangeEvents
 	 *            from this CDOMObjectSourceFacet
 	 */
-	public void addDataFacetChangeListener(
-			DataFacetChangeListener<CharID, ? super CDOMObject> listener)
+	public void addDataFacetChangeListener(DataFacetChangeListener<CharID, ? super CDOMObject> listener)
 	{
 		bridgeFacet.addDataFacetChangeListener(listener);
 	}

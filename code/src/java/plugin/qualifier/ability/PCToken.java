@@ -35,9 +35,8 @@ public class PCToken extends AbstractPCQualifierToken<Ability>
 	private ClassIdentity<Ability> identity;
 
 	@Override
-	public boolean initialize(LoadContext context,
-			SelectionCreator<Ability> sc, String condition, String value,
-			boolean negate)
+	public boolean initialize(LoadContext context, SelectionCreator<Ability> sc, String condition, String value,
+		boolean negate)
 	{
 		identity = sc.getReferenceIdentity();
 		return super.initialize(context, sc, condition, value, negate);

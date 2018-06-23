@@ -183,7 +183,7 @@ public class DamageDialog extends javax.swing.JDialog
 
 		addWindowListener(new java.awt.event.WindowAdapter()
 		{
-            @Override
+			@Override
 			public void windowClosing(java.awt.event.WindowEvent evt)
 			{
 				closeDialog(evt);
@@ -198,7 +198,7 @@ public class DamageDialog extends javax.swing.JDialog
 		damageField.addActionListener(this::damageFieldActionPerformed);
 		damageField.addKeyListener(new java.awt.event.KeyAdapter()
 		{
-            @Override
+			@Override
 			public void keyReleased(java.awt.event.KeyEvent evt)
 			{
 				damageFieldKeyTyped(evt);

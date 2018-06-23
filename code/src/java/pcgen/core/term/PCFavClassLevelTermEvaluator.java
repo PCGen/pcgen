@@ -22,8 +22,7 @@ package pcgen.core.term;
 
 import pcgen.core.display.CharacterDisplay;
 
-public class PCFavClassLevelTermEvaluator 
-		extends BasePCDTermEvaluator implements TermEvaluator
+public class PCFavClassLevelTermEvaluator extends BasePCDTermEvaluator implements TermEvaluator
 {
 	public PCFavClassLevelTermEvaluator(String originalText)
 	{
@@ -37,7 +36,7 @@ public class PCFavClassLevelTermEvaluator
 	}
 
 	@Override
-	public String evaluate (CharacterDisplay display)
+	public String evaluate(CharacterDisplay display)
 	{
 		return Integer.toString(display.getFavoredClassLevel());
 	}

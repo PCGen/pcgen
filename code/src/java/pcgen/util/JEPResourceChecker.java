@@ -52,8 +52,7 @@ public final class JEPResourceChecker
 
 	private static void checkResource()
 	{
-		if (!ResourceChecker.hasResource("org.nfunk.jep.JEP",
-				"jep-2.3.1.jar", resourceBuffer))
+		if (!ResourceChecker.hasResource("org.nfunk.jep.JEP", "jep-2.3.1.jar", resourceBuffer))
 		{
 			++missingResourceCount;
 		}

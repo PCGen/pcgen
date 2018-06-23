@@ -32,9 +32,9 @@ public class ChooseConvertPlugin implements TokenProcessorPlugin
 	private static Map<String, String> featAnswered = new HashMap<>();
 	private static Map<String, String> spelllistAnswered = new HashMap<>();
 	private static List<String> CHOICES = Arrays.asList("FEAT", "LANG", "PCSTAT", "RACE", "SCHOOLS",
-			"SHIELDPROFICIENCY", "SKILL", "SPELLS", "STRING", "TEMPLATE", "WEAPONPROFICIENCY");
+		"SHIELDPROFICIENCY", "SKILL", "SPELLS", "STRING", "TEMPLATE", "WEAPONPROFICIENCY");
 
-    @Override
+	@Override
 	public String process(TokenProcessEvent tpe)
 	{
 		String value = tpe.getValue();
@@ -53,16 +53,11 @@ public class ChooseConvertPlugin implements TokenProcessorPlugin
 	{
 		String value = tpe.getValue();
 		String feat = value.substring(5);
-		String decision = featAnswered.computeIfAbsent(
-			feat,
+		String decision = featAnswered.computeIfAbsent(feat,
 			f -> tpe.getDecider().getConversionDecision(
-					"Need help with underlying type for "
-							+ getProcessedToken() + ':' + value
-							+ " which is used in " + tpe.getObjectName()
-							+ " in file " + tpe.getPrimary().getSourceURI(),
-					buildDescriptions(f), CHOICES, CHOICES.size() - 1
-			)
-		);
+				"Need help with underlying type for " + getProcessedToken() + ':' + value + " which is used in "
+					+ tpe.getObjectName() + " in file " + tpe.getPrimary().getSourceURI(),
+				buildDescriptions(f), CHOICES, CHOICES.size() - 1));
 		tpe.append(tpe.getKey());
 		tpe.append(':');
 		tpe.append(decision);
@@ -95,15 +90,10 @@ public class ChooseConvertPlugin implements TokenProcessorPlugin
 
 	private static void processSpellList(TokenProcessEvent tpe)
 	{
-		String decision = tpe.getDecider().getConversionInput(
-				"Please provide class spell list which " + tpe.getObjectName()
-						+ " modifies").trim();
-		String stat = spelllistAnswered.computeIfAbsent(
-				decision,
-				d -> tpe.getDecider().getConversionInput(
-						"Please provide SPELLSTAT (abbreviation) for Class "
-								+ d).trim().toUpperCase()
-		);
+		String decision = tpe.getDecider()
+			.getConversionInput("Please provide class spell list which " + tpe.getObjectName() + " modifies").trim();
+		String stat = spelllistAnswered.computeIfAbsent(decision, d -> tpe.getDecider()
+			.getConversionInput("Please provide SPELLSTAT (abbreviation) for Class " + d).trim().toUpperCase());
 		tpe.append(tpe.getKey());
 		tpe.append(":SPELLS|CLASSLIST=");
 		tpe.append(decision);
@@ -115,13 +105,13 @@ public class ChooseConvertPlugin implements TokenProcessorPlugin
 		tpe.consume();
 	}
 
-    @Override
+	@Override
 	public Class<? extends CDOMObject> getProcessedClass()
 	{
 		return CDOMObject.class;
 	}
 
-    @Override
+	@Override
 	public String getProcessedToken()
 	{
 		return "CHOOSE";

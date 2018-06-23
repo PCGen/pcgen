@@ -27,19 +27,17 @@ import pcgen.core.spell.Spell;
 import pcgen.io.exporttoken.EqTypeToken;
 import pcgen.io.exporttoken.Token;
 
-public class PCEqTypeTermEvaluator
-		extends BasePCTermEvaluator implements TermEvaluator
+public class PCEqTypeTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
-	private static final String Digits    = "(\\p{Digit}+)";
+	private static final String Digits = "(\\p{Digit}+)";
 	private static final String HexDigits = "(\\p{XDigit}+)";
 	// an exponent is 'e' or 'E' followed by an optionally
 	// signed decimal integer.
-	private static final String Exp       = "[eE][+-]?"+Digits;
-	private static final String fpRegex   =
-		("[\\x00-\\x20]*"+  // Optional leading "whitespace"
-		 "[+-]?(" +         // Optional sign character
-		 "NaN|" +           // "NaN" string
-		 "Infinity|" +      // "Infinity" string
+	private static final String Exp = "[eE][+-]?" + Digits;
+	private static final String fpRegex = ("[\\x00-\\x20]*" // Optional leading "whitespace"
+		+ "[+-]?(" // Optional sign character
+		+ "NaN|" // "NaN" string
+		+ "Infinity|" // "Infinity" string
 
 		// A decimal floating-point string representing a finite positive
 		// number without a leading sign has at most five basic pieces:
@@ -52,24 +50,21 @@ public class PCEqTypeTermEvaluator
 		// edition, section 3.10.2.
 
 		// Digits ._opt Digits_opt ExponentPart_opt FloatTypeSuffix_opt
-		"((("+Digits+"(\\.)?("+Digits+"?)("+Exp+")?)|"+
+		+ "(((" + Digits + "(\\.)?(" + Digits + "?)(" + Exp + ")?)|"
 
 		// . Digits ExponentPart_opt FloatTypeSuffix_opt
-		"(\\.("+Digits+")("+Exp+")?)|"+
+		+ "(\\.(" + Digits + ")(" + Exp + ")?)|"
 
 		// Hexadecimal strings
-		"((" +
+		+ "(("
 		// 0[xX] HexDigits ._opt BinaryExponent FloatTypeSuffix_opt
-		"(0[xX]" + HexDigits + "(\\.)?)|" +
+		+ "(0[xX]" + HexDigits + "(\\.)?)|"
 
 		// 0[xX] HexDigits_opt . HexDigits BinaryExponent FloatTypeSuffix_opt
-		"(0[xX]" + HexDigits + "?(\\.)" + HexDigits + ")" +
+		+ "(0[xX]" + HexDigits + "?(\\.)" + HexDigits + ")"
 
-		")[pP][+-]?" + Digits + "))" +
-		"[fFdD]?))" +
-		"[\\x00-\\x20]*");// Optional trailing "whitespace"
+		+ ")[pP][+-]?" + Digits + "))" + "[fFdD]?))" + "[\\x00-\\x20]*"); // Optional trailing "whitespace"
 
-	
 	public PCEqTypeTermEvaluator(String originalText)
 	{
 		this.originalText = originalText;
@@ -89,18 +84,18 @@ public class PCEqTypeTermEvaluator
 	}
 
 	@Override
-	public String evaluate (PlayerCharacter pc)
+	public String evaluate(PlayerCharacter pc)
 	{
 		final Token token = new EqTypeToken();
 		return token.getToken(originalText, pc, null);
 	}
 
 	@Override
-	public String evaluate (PlayerCharacter pc, Spell aSpell)
+	public String evaluate(PlayerCharacter pc, Spell aSpell)
 	{
 		return evaluate(pc);
 	}
-	
+
 	@Override
 	public boolean isSourceDependant()
 	{

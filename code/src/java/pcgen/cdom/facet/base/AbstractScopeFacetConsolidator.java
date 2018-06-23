@@ -22,9 +22,8 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.event.ScopeFacetChangeEvent;
 import pcgen.cdom.facet.event.ScopeFacetChangeListener;
 
-public class AbstractScopeFacetConsolidator<IDT extends PCGenIdentifier, S, D>
-		extends AbstractListFacet<CharID, D> implements
-		ScopeFacetChangeListener<CharID, S, D>
+public class AbstractScopeFacetConsolidator<IDT extends PCGenIdentifier, S, D> extends AbstractListFacet<CharID, D>
+		implements ScopeFacetChangeListener<CharID, S, D>
 {
 
 	@Override

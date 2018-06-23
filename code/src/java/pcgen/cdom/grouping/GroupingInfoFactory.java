@@ -89,8 +89,7 @@ public class GroupingInfoFactory
 	 * @throws GroupingStateException
 	 *             If there is a problem in analysis of the scope and/or instructions
 	 */
-	public GroupingInfo<?> process(PCGenScope scope, String instructions)
-		throws GroupingStateException
+	public GroupingInfo<?> process(PCGenScope scope, String instructions) throws GroupingStateException
 	{
 		String fullScopeName = LegalScope.getFullName(scope);
 		this.scopeName = fullScopeName.split("\\.");
@@ -101,14 +100,12 @@ public class GroupingInfoFactory
 				context.getReferenceContext().getManufacturerByFormatName(scopeName[1]);
 		if (formatManager == null)
 		{
-			throw new GroupingStateException(
-				"Unable to determine FormatManager for Scope: " + fullScopeName);
+			throw new GroupingStateException("Unable to determine FormatManager for Scope: " + fullScopeName);
 		}
 		return continueTypeSafeProcessing(formatManager);
 	}
 
-	private <T extends Loadable> GroupingInfo<T> continueTypeSafeProcessing(
-		ReferenceManufacturer<T> formatManager)
+	private <T extends Loadable> GroupingInfo<T> continueTypeSafeProcessing(ReferenceManufacturer<T> formatManager)
 		throws GroupingStateException
 	{
 		GroupingInfo<T> topInfo = new GroupingInfo<>();
@@ -119,8 +116,7 @@ public class GroupingInfoFactory
 		if (fullTokenizer.hasNext())
 		{
 			throw new GroupingStateException("After " + fullTokenizer.getConsumed()
-				+ " expected end of string, but had additional content: "
-				+ fullTokenizer.next());
+				+ " expected end of string, but had additional content: " + fullTokenizer.next());
 		}
 		return topInfo;
 	}
@@ -130,14 +126,13 @@ public class GroupingInfoFactory
 	{
 		if (!fullTokenizer.hasNext())
 		{
-			throw new GroupingStateException(
-				"Expected a Grouping, but string ended: " + fullTokenizer.getConsumed());
+			throw new GroupingStateException("Expected a Grouping, but string ended: " + fullTokenizer.getConsumed());
 		}
 		String item = fullTokenizer.next();
 		if (isSeparator(item))
 		{
-			throw new GroupingStateException("Expected text, but " + item + " was found: "
-				+ fullTokenizer.getConsumed());
+			throw new GroupingStateException(
+				"Expected text, but " + item + " was found: " + fullTokenizer.getConsumed());
 		}
 		if (fullTokenizer.hasNext())
 		{
@@ -163,13 +158,13 @@ public class GroupingInfoFactory
 			{
 				if (expected.isEmpty())
 				{
-					throw new GroupingStateException("Expected '=' or '[', but " + item
-						+ " was found: " + fullTokenizer.getConsumed());
+					throw new GroupingStateException(
+						"Expected '=' or '[', but " + item + " was found: " + fullTokenizer.getConsumed());
 				}
 				else
 				{
-					throw new GroupingStateException("Expected '=' or '[' or ']', but "
-						+ item + " was found: " + fullTokenizer.getConsumed());
+					throw new GroupingStateException(
+						"Expected '=' or '[' or ']', but " + item + " was found: " + fullTokenizer.getConsumed());
 				}
 			}
 		}
@@ -186,14 +181,13 @@ public class GroupingInfoFactory
 		if (!fullTokenizer.hasNext())
 		{
 			throw new GroupingStateException(
-				"Expected target after '=', but string ended: "
-					+ fullTokenizer.getConsumed());
+				"Expected target after '=', but string ended: " + fullTokenizer.getConsumed());
 		}
 		String expectedTarget = fullTokenizer.next();
 		if (isSeparator(expectedTarget))
 		{
-			throw new GroupingStateException("Expected target type, but " + expectedTarget
-				+ " was found: " + fullTokenizer.getConsumed());
+			throw new GroupingStateException(
+				"Expected target type, but " + expectedTarget + " was found: " + fullTokenizer.getConsumed());
 		}
 		activeInfo.setValue(expectedTarget);
 	}
@@ -209,9 +203,8 @@ public class GroupingInfoFactory
 		String expectedOpenBracket = fullTokenizer.next();
 		if (!"[".equals(expectedOpenBracket))
 		{
-			throw new GroupingMismatchException(
-				"Expected '[' to start a child but found: " + expectedOpenBracket + " in "
-					+ fullTokenizer.getConsumed());
+			throw new GroupingMismatchException("Expected '[' to start a child but found: " + expectedOpenBracket
+				+ " in " + fullTokenizer.getConsumed());
 		}
 		expected.push("]");
 		consumeChild();
@@ -223,8 +216,7 @@ public class GroupingInfoFactory
 		if (scopeName.length <= depth)
 		{
 			throw new GroupingStateException(
-				"Encountered a Child, but didn't have sufficient format: "
-					+ Arrays.asList(scopeName));
+				"Encountered a Child, but didn't have sufficient format: " + Arrays.asList(scopeName));
 		}
 		String expectedType = scopeName[depth++];
 		GroupingInfo<?> newInfo = new GroupingInfo<>();
@@ -239,26 +231,24 @@ public class GroupingInfoFactory
 	{
 		if (!fullTokenizer.hasNext())
 		{
-			throw new GroupingStateException(
-				"Expected a ']', but string ended: " + fullTokenizer.getConsumed());
+			throw new GroupingStateException("Expected a ']', but string ended: " + fullTokenizer.getConsumed());
 		}
 		String expectedCloseBracket = fullTokenizer.next();
 		if (!"]".equals(expectedCloseBracket))
 		{
-			throw new GroupingMismatchException("Expected ']' but found: "
-				+ expectedCloseBracket + " in " + fullTokenizer.getConsumed());
+			throw new GroupingMismatchException(
+				"Expected ']' but found: " + expectedCloseBracket + " in " + fullTokenizer.getConsumed());
 		}
 		if (expected.isEmpty())
 		{
 			throw new GroupingMismatchException(
-				"Did not have an open bracket before close: "
-					+ fullTokenizer.getConsumed());
+				"Did not have an open bracket before close: " + fullTokenizer.getConsumed());
 		}
 		String nextExpected = expected.pop();
 		if (!"]".equals(nextExpected))
 		{
-			throw new GroupingMismatchException("Expected " + nextExpected
-				+ " but did not have matching brackets: " + fullTokenizer.getConsumed());
+			throw new GroupingMismatchException(
+				"Expected " + nextExpected + " but did not have matching brackets: " + fullTokenizer.getConsumed());
 		}
 		if (!expected.isEmpty())
 		{

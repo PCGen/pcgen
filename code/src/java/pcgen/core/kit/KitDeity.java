@@ -88,8 +88,7 @@ public class KitDeity extends BaseKit
 				buf.append(choiceCount);
 				buf.append(" of ");
 			}
-			for (Iterator<CDOMSingleRef<Domain>> i = theDomains.iterator(); i
-				.hasNext();)
+			for (Iterator<CDOMSingleRef<Domain>> i = theDomains.iterator(); i.hasNext();)
 			{
 				buf.append(i.next());
 				if (i.hasNext())
@@ -104,8 +103,7 @@ public class KitDeity extends BaseKit
 	}
 
 	@Override
-	public boolean testApply(Kit aKit, PlayerCharacter aPC,
-		List<String> warnings)
+	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
 	{
 		domainsToAdd = null;
 
@@ -113,8 +111,7 @@ public class KitDeity extends BaseKit
 
 		if (!aPC.canSelectDeity(theDeity))
 		{
-			warnings.add("DEITY: Cannot select deity \""
-				+ theDeity.getDisplayName() + "\"");
+			warnings.add("DEITY: Cannot select deity \"" + theDeity.getDisplayName() + "\"");
 			return false;
 		}
 		aPC.setDeity(theDeity);
@@ -167,10 +164,7 @@ public class KitDeity extends BaseKit
 			//
 			while (true)
 			{
-				xs =
-						Globals.getChoiceFromList("Choose Domains", theDomains,
-                                new ArrayList<>(),
-							numberOfChoices, aPC);
+				xs = Globals.getChoiceFromList("Choose Domains", theDomains, new ArrayList<>(), numberOfChoices, aPC);
 
 				if (!xs.isEmpty())
 				{
@@ -186,8 +180,7 @@ public class KitDeity extends BaseKit
 			Domain domain = ref.get();
 			if (!domain.qualifies(aPC, domain))
 			{
-				warnings.add("DEITY: Not qualified for domain \""
-					+ domain.getDisplayName() + "\"");
+				warnings.add("DEITY: Not qualified for domain \"" + domain.getDisplayName() + "\"");
 				continue;
 			}
 			if (aPC.getDomainCount() >= aPC.getMaxCharacterDomains())
@@ -198,11 +191,8 @@ public class KitDeity extends BaseKit
 			}
 			if (!aPC.hasDefaultDomainSource())
 			{
-				warnings
-					.add("DEITY: Cannot add domain \""
-						+ domain.getDisplayName()
-						+ "\" as the character does not have a domain " +
-						"source yet.");
+				warnings.add("DEITY: Cannot add domain \"" + domain.getDisplayName()
+					+ "\" as the character does not have a domain " + "source yet.");
 				return false;
 			}
 			if (domainsToAdd == null)

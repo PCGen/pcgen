@@ -26,14 +26,11 @@ import pcgen.cdom.content.CNAbility;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
 
-public class PCCountAbilitiesNatureAllTermEvaluator
-		extends BasePCCountAbilitiesNatureTermEvaluator implements TermEvaluator
+public class PCCountAbilitiesNatureAllTermEvaluator extends BasePCCountAbilitiesNatureTermEvaluator
+		implements TermEvaluator
 {
-	public PCCountAbilitiesNatureAllTermEvaluator(
-			String originalText, 
-			AbilityCategory abCat,
-			boolean visible,
-			boolean hidden)
+	public PCCountAbilitiesNatureAllTermEvaluator(String originalText, AbilityCategory abCat, boolean visible,
+		boolean hidden)
 	{
 		this.originalText = originalText;
 		this.abCat = abCat;

@@ -17,9 +17,7 @@
  */
 package pcgen.core.facade.util;
 
-import pcgen.facade.util.DefaultListFacade;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -27,6 +25,7 @@ import java.util.List;
 
 import org.junit.Test;
 
+import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
 
@@ -49,10 +48,10 @@ public class DefaultListFacadeTest
 		TestListener listener = new TestListener();
 		DefaultListFacade<String> theList =
 				new DefaultListFacade<>(Arrays.asList("A",
-						"B", "C", "E"));
+					"B", "C", "E"));
 		theList.addListListener(listener);
 		List<String> newElements = Arrays.asList("A",
-				"C", "D", "E");
+			"C", "D", "E");
 		theList.updateContents(newElements);
 		assertEquals("Lists have not been made the same", newElements, theList.getContents());
 		assertEquals("Incorrect number of adds", 1, listener.addCount);
@@ -69,10 +68,10 @@ public class DefaultListFacadeTest
 	{
 		TestListener listener = new TestListener();
 		DefaultListFacade<String> theList = new DefaultListFacade<>(Arrays.asList("A",
-				"B", "C", "E"));
+			"B", "C", "E"));
 		theList.addListListener(listener);
 		List<String> newElements = Arrays.asList("F",
-				"G", "H", "I", "M");
+			"G", "H", "I", "M");
 		theList.updateContents(newElements);
 		assertEquals("Lists have not been made the same", newElements, theList.getContents());
 		assertEquals("Incorrect number of adds", 5, listener.addCount);
@@ -92,7 +91,7 @@ public class DefaultListFacadeTest
 				new DefaultListFacade<>();
 		theList.addListListener(listener);
 		List<String> newElements = Arrays.asList("A",
-				"C", "D", "E");
+			"C", "D", "E");
 		theList.updateContents(newElements);
 		assertEquals("Lists have not been made the same", newElements, theList.getContents());
 		assertEquals("Incorrect number of adds", 0, listener.addCount);
@@ -108,7 +107,7 @@ public class DefaultListFacadeTest
 	public void testUpdateContentsToEmpty()
 	{
 		DefaultListFacade<String> theList = new DefaultListFacade<>(Arrays.asList("A",
-				"B", "C", "E"));
+			"B", "C", "E"));
 		TestListener listener = new TestListener();
 		theList.addListListener(listener);
 		List<String> newElements = Collections.emptyList();
@@ -129,12 +128,12 @@ public class DefaultListFacadeTest
 		TestListener listener = new TestListener();
 		DefaultListFacade<String> theList =
 				new DefaultListFacade<>(Arrays.asList("A",
-						"B", "C", "E"));
+					"B", "C", "E"));
 		theList.addListListener(listener);
 		List<String> newElements =
 				Arrays.asList("A", "C", "D", "E", "F", "G", "H",
-						"I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T",
-						"U", "V", "W", "X", "Y", "Z");
+					"I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T",
+					"U", "V", "W", "X", "Y", "Z");
 		theList.updateContents(newElements);
 		assertEquals("Lists have not been made the same", newElements, theList.getContents());
 		assertEquals("Incorrect number of adds", 0, listener.addCount);
@@ -153,8 +152,8 @@ public class DefaultListFacadeTest
 		DefaultListFacade<String> theList =
 				new DefaultListFacade<>(
 						Arrays.asList("A", "C", "D", "E", "F", "G",
-								"H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R",
-								"S", "T", "U", "V", "W", "X", "Y", "Z"));
+							"H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R",
+							"S", "T", "U", "V", "W", "X", "Y", "Z"));
 		theList.addListListener(listener);
 		List<String> newElements =
 				Arrays.asList("A", "B", "C", "E");
@@ -172,7 +171,7 @@ public class DefaultListFacadeTest
 		int removeCount = 0;
 		int changeCount = 0;
 		int modifyCount = 0;
-		
+
 		@Override
 		public void elementAdded(ListEvent<String> e)
 		{
@@ -196,6 +195,6 @@ public class DefaultListFacadeTest
 		{
 			modifyCount++;
 		}
-		
+
 	}
 }

@@ -26,8 +26,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Deals with PLUS token
  */
-public class PlusToken extends AbstractIntToken<EquipmentModifier> implements
-		CDOMPrimaryToken<EquipmentModifier>
+public class PlusToken extends AbstractIntToken<EquipmentModifier> implements CDOMPrimaryToken<EquipmentModifier>
 {
 
 	@Override
@@ -47,8 +46,7 @@ public class PlusToken extends AbstractIntToken<EquipmentModifier> implements
 	{
 		if (plus.intValue() == 0)
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " must be an integer not equal to 0");
+			return new ParseResult.Fail(getTokenName() + " must be an integer not equal to 0");
 		}
 		return ParseResult.SUCCESS;
 	}

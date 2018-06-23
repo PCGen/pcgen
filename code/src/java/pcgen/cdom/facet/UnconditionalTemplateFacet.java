@@ -26,8 +26,7 @@ import pcgen.core.PCTemplate;
  * UnconditionalTemplateFacet is a Facet that tracks the PCTemplates that have
  * been granted to a Player Character.
  */
-public class UnconditionalTemplateFacet extends
-		AbstractListFacet<CharID, PCTemplate>
+public class UnconditionalTemplateFacet extends AbstractListFacet<CharID, PCTemplate>
 {
 	private TemplateFacet templateFacet;
 

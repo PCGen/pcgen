@@ -37,8 +37,7 @@ public class EquipIconLoader extends LstLineFileLoader
 {
 
 	@Override
-	public void parseLine(LoadContext context, String lstLine, URI sourceURI)
-		throws PersistenceLayerException
+	public void parseLine(LoadContext context, String lstLine, URI sourceURI) throws PersistenceLayerException
 	{
 		final int idxColon = lstLine.indexOf(':');
 		if (idxColon < 0)
@@ -48,23 +47,20 @@ public class EquipIconLoader extends LstLineFileLoader
 		final GameMode game = SystemCollections.getGameModeNamed(gameMode);
 
 		final String key = lstLine.substring(0, idxColon);
-		final String value = lstLine.substring(idxColon+1);
-		Map<String, LstToken> tokenMap =
-				TokenStore.inst().getTokenMap(EquipIconLstToken.class);
+		final String value = lstLine.substring(idxColon + 1);
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(EquipIconLstToken.class);
 		EquipIconLstToken token = (EquipIconLstToken) tokenMap.get(key);
 		if (token != null)
 		{
 			LstUtils.deprecationCheck(token, key, sourceURI, lstLine);
 			if (!token.parse(game, value, sourceURI))
 			{
-				Logging.errorPrint("Error parsing EquipIcon object: " + lstLine
-					+ " at " + sourceURI.toString());
+				Logging.errorPrint("Error parsing EquipIcon object: " + lstLine + " at " + sourceURI.toString());
 			}
 		}
 		else
 		{
-			Logging.errorPrint("Illegal EquipIcon object: " + lstLine + " at "
-				+ sourceURI.toString());
+			Logging.errorPrint("Illegal EquipIcon object: " + lstLine + " at " + sourceURI.toString());
 		}
 	}
 

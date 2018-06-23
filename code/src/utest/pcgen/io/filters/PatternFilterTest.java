@@ -17,10 +17,11 @@
  */
 package pcgen.io.filters;
 
-import pcgen.io.EntityEncoder;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
-import static org.junit.Assert.*;
+
+import pcgen.io.EntityEncoder;
 
 /**
  * PatternFilterTest checks the functioning of the PatternFilter class.

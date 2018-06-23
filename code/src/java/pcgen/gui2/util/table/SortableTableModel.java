@@ -20,6 +20,7 @@
 package pcgen.gui2.util.table;
 
 import javax.swing.table.TableModel;
+
 import pcgen.gui2.util.SortableModel;
 
 /**

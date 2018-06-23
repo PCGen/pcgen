@@ -22,8 +22,7 @@ package pcgen.core.term;
 
 import pcgen.core.display.CharacterDisplay;
 
-public class PCTotalWeightTermEvaluator 
-		extends BasePCDTermEvaluator implements TermEvaluator
+public class PCTotalWeightTermEvaluator extends BasePCDTermEvaluator implements TermEvaluator
 {
 	public PCTotalWeightTermEvaluator(String originalText)
 	{

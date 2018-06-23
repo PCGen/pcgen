@@ -45,8 +45,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with MONCCSKILL Token
  */
-public class MonccskillToken extends AbstractTokenWithSeparator<Race> implements
-		CDOMPrimaryToken<Race>
+public class MonccskillToken extends AbstractTokenWithSeparator<Race> implements CDOMPrimaryToken<Race>
 {
 
 	private static final Class<Skill> SKILL_CLASS = Skill.class;
@@ -64,16 +63,15 @@ public class MonccskillToken extends AbstractTokenWithSeparator<Race> implements
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-			Race race, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, Race race, String value)
 	{
 		boolean firstToken = true;
 		boolean foundAny = false;
 		boolean foundOther = false;
 
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
-		CDOMGroupRef<ClassSkillList> monsterList = context.getReferenceContext()
-				.getCDOMTypeReference(ClassSkillList.class, "Monster");
+		CDOMGroupRef<ClassSkillList> monsterList =
+				context.getReferenceContext().getCDOMTypeReference(ClassSkillList.class, "Monster");
 		while (tok.hasMoreTokens())
 		{
 			String tokText = tok.nextToken();
@@ -81,12 +79,10 @@ public class MonccskillToken extends AbstractTokenWithSeparator<Race> implements
 			{
 				if (!firstToken)
 				{
-					return new ParseResult.Fail("Non-sensical situation was "
-							+ "encountered while parsing " + getTokenName()
-							+ ": When used, .CLEAR must be the first argument");
+					return new ParseResult.Fail("Non-sensical situation was " + "encountered while parsing "
+						+ getTokenName() + ": When used, .CLEAR must be the first argument");
 				}
-				context.getListContext().removeAllFromList(getTokenName(),
-						race, monsterList);
+				context.getListContext().removeAllFromList(getTokenName(), race, monsterList);
 			}
 			else if (tokText.startsWith(Constants.LST_DOT_CLEAR_DOT))
 			{
@@ -102,12 +98,9 @@ public class MonccskillToken extends AbstractTokenWithSeparator<Race> implements
 				}
 				if (skill == null)
 				{
-					return new ParseResult.Fail(
-							"  Error was encountered while parsing "
-									+ getTokenName());
+					return new ParseResult.Fail("  Error was encountered while parsing " + getTokenName());
 				}
-				context.getListContext().removeFromList(getTokenName(), race,
-						monsterList, skill);
+				context.getListContext().removeFromList(getTokenName(), race, monsterList, skill);
 			}
 			else
 			{
@@ -132,69 +125,59 @@ public class MonccskillToken extends AbstractTokenWithSeparator<Race> implements
 				}
 				if (skill == null)
 				{
-					return new ParseResult.Fail(
-							"  Error was encountered while parsing "
-									+ getTokenName());
+					return new ParseResult.Fail("  Error was encountered while parsing " + getTokenName());
 				}
-				AssociatedPrereqObject apo = context.getListContext()
-						.addToList(getTokenName(), race, monsterList, skill);
-				apo.setAssociation(AssociationKey.SKILL_COST,
-						SkillCost.CROSS_CLASS);
+				AssociatedPrereqObject apo =
+						context.getListContext().addToList(getTokenName(), race, monsterList, skill);
+				apo.setAssociation(AssociationKey.SKILL_COST, SkillCost.CROSS_CLASS);
 			}
 			firstToken = false;
 		}
 		if (foundAny && foundOther)
 		{
-			return new ParseResult.Fail("Non-sensical " + getTokenName()
-					+ ": Contains ANY and a specific reference: " + value);
+			return new ParseResult.Fail(
+				"Non-sensical " + getTokenName() + ": Contains ANY and a specific reference: " + value);
 		}
 		return ParseResult.SUCCESS;
 	}
 
-	private CDOMReference<Skill> getSkillReference(LoadContext context,
-		String tokText)
+	private CDOMReference<Skill> getSkillReference(LoadContext context, String tokText)
 	{
 		if (tokText.endsWith(Constants.PERCENT))
 		{
-			return new PatternMatchingReference<>(context.getReferenceContext()
-					.getCDOMAllReference(SKILL_CLASS), tokText);
+			return new PatternMatchingReference<>(context.getReferenceContext().getCDOMAllReference(SKILL_CLASS),
+				tokText);
 		}
 		else
 		{
-			return TokenUtilities.getTypeOrPrimitive(context, SKILL_CLASS,
-					tokText);
+			return TokenUtilities.getTypeOrPrimitive(context, SKILL_CLASS, tokText);
 		}
 	}
 
 	@Override
 	public String[] unparse(LoadContext context, Race race)
 	{
-		CDOMGroupRef<ClassSkillList> monsterList = context.getReferenceContext()
-				.getCDOMTypeReference(ClassSkillList.class, "Monster");
-		AssociatedChanges<CDOMReference<Skill>> changes = context
-				.getListContext().getChangesInList(getTokenName(), race,
-						monsterList);
+		CDOMGroupRef<ClassSkillList> monsterList =
+				context.getReferenceContext().getCDOMTypeReference(ClassSkillList.class, "Monster");
+		AssociatedChanges<CDOMReference<Skill>> changes =
+				context.getListContext().getChangesInList(getTokenName(), race, monsterList);
 		List<String> list = new ArrayList<>();
 		Collection<CDOMReference<Skill>> removedItems = changes.getRemoved();
 		if (removedItems != null && !removedItems.isEmpty())
 		{
 			if (changes.includesGlobalClear())
 			{
-				context.addWriteMessage("Non-sensical relationship in "
-						+ getTokenName()
-						+ ": global .CLEAR and local .CLEAR. performed");
+				context.addWriteMessage(
+					"Non-sensical relationship in " + getTokenName() + ": global .CLEAR and local .CLEAR. performed");
 				return null;
 			}
-			list.add(Constants.LST_DOT_CLEAR_DOT
-					+ ReferenceUtilities
-							.joinLstFormat(removedItems, "|.CLEAR."));
+			list.add(Constants.LST_DOT_CLEAR_DOT + ReferenceUtilities.joinLstFormat(removedItems, "|.CLEAR."));
 		}
 		if (changes.includesGlobalClear())
 		{
 			list.add(Constants.LST_DOT_CLEAR);
 		}
-		MapToList<CDOMReference<Skill>, AssociatedPrereqObject> map = changes
-				.getAddedAssociations();
+		MapToList<CDOMReference<Skill>, AssociatedPrereqObject> map = changes.getAddedAssociations();
 		if (map != null && !map.isEmpty())
 		{
 			Set<CDOMReference<Skill>> added = map.getKeySet();
@@ -202,11 +185,9 @@ public class MonccskillToken extends AbstractTokenWithSeparator<Race> implements
 			{
 				for (AssociatedPrereqObject assoc : map.getListFor(ab))
 				{
-					if (!SkillCost.CROSS_CLASS.equals(assoc
-							.getAssociation(AssociationKey.SKILL_COST)))
+					if (!SkillCost.CROSS_CLASS.equals(assoc.getAssociation(AssociationKey.SKILL_COST)))
 					{
-						context.addWriteMessage("Skill Cost must be "
-								+ "CROSS_CLASS for Token " + getTokenName());
+						context.addWriteMessage("Skill Cost must be " + "CROSS_CLASS for Token " + getTokenName());
 						return null;
 					}
 				}

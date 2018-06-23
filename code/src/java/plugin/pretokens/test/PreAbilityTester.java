@@ -35,10 +35,7 @@ public class PreAbilityTester extends AbstractPrerequisiteTest implements Prereq
 {
 
 	@Override
-	public int passes(
-		final Prerequisite prereq,
-		final Equipment equipment,
-		final PlayerCharacter aPC)
+	public int passes(final Prerequisite prereq, final Equipment equipment, final PlayerCharacter aPC)
 		throws PrerequisiteException
 	{
 		if (aPC == null)
@@ -49,10 +46,7 @@ public class PreAbilityTester extends AbstractPrerequisiteTest implements Prereq
 	}
 
 	@Override
-	public int passes(
-		final Prerequisite prereq,
-		final PlayerCharacter character,
-		CDOMObject source)
+	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
 		throws PrerequisiteException
 	{
 		final int number;
@@ -62,17 +56,13 @@ public class PreAbilityTester extends AbstractPrerequisiteTest implements Prereq
 		}
 		catch (NumberFormatException exception)
 		{
-			throw new PrerequisiteException(LanguageBundle.getFormattedString(
-				"PreAbility.error", prereq.toString())); //$NON-NLS-1$
+			throw new PrerequisiteException(
+				LanguageBundle.getFormattedString("PreAbility.error", prereq.toString())); //$NON-NLS-1$
 		}
 
 		String categoryName = prereq.getCategoryName();
 
-		int runningTotal = PrerequisiteUtilities.passesAbilityTest(
-			prereq,
-			character,
-			number,
-			categoryName);
+		int runningTotal = PrerequisiteUtilities.passesAbilityTest(prereq, character, number, categoryName);
 
 		return countedTotal(prereq, runningTotal);
 	}
@@ -92,33 +82,27 @@ public class PreAbilityTester extends AbstractPrerequisiteTest implements Prereq
 			{
 				// {0} {1} {2}(s) of type {3}
 				return LanguageBundle.getFormattedString("PreAbility.type.toHtml", //$NON-NLS-1$
-					prereq.getOperator().toDisplayString(),
-					prereq.getOperand(),
-					prereq.getCategoryName(),
+					prereq.getOperator().toDisplayString(), prereq.getOperand(), prereq.getCategoryName(),
 					aString.substring(5));
 			}
 			else
 			{
 				// {0} {1} ability(s) of type {2}
-				return LanguageBundle.getFormattedString("PreAbility.type.noCat.toHtml",  //$NON-NLS-1$
-					prereq.getOperator().toDisplayString(),
-					prereq.getOperand(),
-					aString.substring(5));
+				return LanguageBundle.getFormattedString("PreAbility.type.noCat.toHtml", //$NON-NLS-1$
+					prereq.getOperator().toDisplayString(), prereq.getOperand(), aString.substring(5));
 			}
-				
+
 		}
 		// {2} {3} {1} {0}
-		return LanguageBundle.getFormattedString("PreAbility.toHtml",  //$NON-NLS-1$
-			prereq.getCategoryName(),
-			aString, prereq.getOperator().toDisplayString(),
-			prereq.getOperand());
+		return LanguageBundle.getFormattedString("PreAbility.toHtml", //$NON-NLS-1$
+			prereq.getCategoryName(), aString, prereq.getOperator().toDisplayString(), prereq.getOperand());
 	}
 
 	/**
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "ABILITY"; //$NON-NLS-1$

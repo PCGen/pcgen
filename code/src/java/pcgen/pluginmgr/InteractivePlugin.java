@@ -30,20 +30,20 @@ import java.io.File;
  */
 public interface InteractivePlugin extends PCGenMessageHandler
 {
-	public final static int NORMAL_PRIORITY = 10;
-	
+	public static final int NORMAL_PRIORITY = 10;
+
 	/**
 	 * Retrieve the priority of the plugin. This is used to sort which items are 
 	 * loaded first, lower priority is first.
 	 * @return The priority of the plugin.
 	 */
 	public int getPriority();
-	
+
 	/**
 	 * @return The displayable name of the plugin.
 	 */
 	public String getPluginName();
-	
+
 	/**
 	 * Advises the plugin that it has been started. The plugin may do any 
 	 * required startup and allocation in response.
@@ -56,7 +56,7 @@ public interface InteractivePlugin extends PCGenMessageHandler
 	 * of any resources.
 	 */
 	public void stop();
-	
+
 	/**
 	 * Retrieves the folder in which configuration data for the plugin should be 
 	 * stored.

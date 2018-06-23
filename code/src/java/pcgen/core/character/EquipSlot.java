@@ -56,7 +56,7 @@ public final class EquipSlot implements Cloneable
 		return slotName;
 	}
 
-    @Override
+	@Override
 	public EquipSlot clone()
 	{
 		EquipSlot newSlot;
@@ -70,7 +70,7 @@ public final class EquipSlot implements Cloneable
 			return null;
 		}
 		newSlot.containEqList = new HashSet<>(containEqList);
-		
+
 		return newSlot;
 	}
 

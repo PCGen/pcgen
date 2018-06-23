@@ -51,8 +51,7 @@ public final class LevelLoader
 	 * @param inputLine  The line to be parsed
 	 * @param lineNum    The number of the line being parsed.
 	 */
-	public static String parseLine(GameMode gameMode, String inputLine,
-		int lineNum, URI source, String xpTable)
+	public static String parseLine(GameMode gameMode, String inputLine, int lineNum, URI source, String xpTable)
 	{
 		if (gameMode == null)
 		{
@@ -70,8 +69,7 @@ public final class LevelLoader
 			value = value.trim();
 			if (value.equals(""))
 			{
-				Logging.errorPrint("Error parsing level line \""
-					+ inputLine + "\": empty XPTABLE value.");
+				Logging.errorPrint("Error parsing level line \"" + inputLine + "\": empty XPTABLE value.");
 			}
 			else
 			{
@@ -87,13 +85,11 @@ public final class LevelLoader
 			xpTable = "Default";
 			gameMode.addXPTableName(xpTable);
 		}
-		
-		final LevelInfo levelInfo = new LevelInfo();
-		final StringTokenizer colToken =
-				new StringTokenizer(inputLine, SystemLoader.TAB_DELIM);
 
-		Map<String, LstToken> tokenMap =
-				TokenStore.inst().getTokenMap(LevelLstToken.class);
+		final LevelInfo levelInfo = new LevelInfo();
+		final StringTokenizer colToken = new StringTokenizer(inputLine, SystemLoader.TAB_DELIM);
+
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(LevelLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			final String colString = colToken.nextToken().trim();
@@ -113,18 +109,17 @@ public final class LevelLoader
 			if (token != null)
 			{
 				final String value = colString.substring(idxColon + 1).intern();
-				LstUtils.deprecationCheck(token, levelInfo.getLevelString(),
-					source, value);
+				LstUtils.deprecationCheck(token, levelInfo.getLevelString(), source, value);
 				if (!token.parse(levelInfo, value))
 				{
-					Logging.errorPrint("LevelLoader got invalid " + key + " value of '" + value + "' in '"
-						+ inputLine + "' at line " + lineNum + " of " + source + ". Token ignored.");
+					Logging.errorPrint("LevelLoader got invalid " + key + " value of '" + value + "' in '" + inputLine
+						+ "' at line " + lineNum + " of " + source + ". Token ignored.");
 				}
 			}
 			else
 			{
-				Logging.errorPrint("LevelLoader got unexpected token of '"
-					+ colString + "' at line " + lineNum + ". Token ignored.");
+				Logging.errorPrint(
+					"LevelLoader got unexpected token of '" + colString + "' at line " + lineNum + ". Token ignored.");
 			}
 		}
 		if (validateLevelInfo(gameMode, xpTable, levelInfo, inputLine, lineNum, source))
@@ -134,15 +129,14 @@ public final class LevelLoader
 		return xpTable;
 	}
 
-	private static boolean validateLevelInfo(GameMode gameMode, String xpTable,
-		LevelInfo levelInfo, String inputLine,
+	private static boolean validateLevelInfo(GameMode gameMode, String xpTable, LevelInfo levelInfo, String inputLine,
 		int lineNum, URI source)
 	{
 		String level = levelInfo.getLevelString();
 		if (level == null)
 		{
-			Logging.errorPrint("LevelLoader got empty level value in '"
-				+ inputLine + "' at line " + lineNum + " of " + source + ". Line ignored.");
+			Logging.errorPrint("LevelLoader got empty level value in '" + inputLine + "' at line " + lineNum + " of "
+				+ source + ". Line ignored.");
 			return false;
 		}
 		XPTable existingTable = gameMode.getLevelInfo(xpTable);
@@ -155,8 +149,8 @@ public final class LevelLoader
 		// Not a number so just check for a duplicate
 		if (existingTable.getLevelInfo(level) != null)
 		{
-			Logging.errorPrint("LevelLoader got duplicate level value of '" + level + "' in '"
-				+ inputLine + "' at line " + lineNum + " of " + source + ". Line ignored.");
+			Logging.errorPrint("LevelLoader got duplicate level value of '" + level + "' in '" + inputLine
+				+ "' at line " + lineNum + " of " + source + ". Line ignored.");
 			return false;
 		}
 		if (!isNumeric(level))
@@ -164,11 +158,12 @@ public final class LevelLoader
 			// Not a number so must be good now
 			return true;
 		}
-		
-		if (!existingTable.validateSequence(level)) {
-			Logging.errorPrint("LevelLoader got out of sequence level value of '" + level + "' in '"
-					+ inputLine + "' at line " + lineNum + " of " + source + ". Line ignored.");
-			
+
+		if (!existingTable.validateSequence(level))
+		{
+			Logging.errorPrint("LevelLoader got out of sequence level value of '" + level + "' in '" + inputLine
+				+ "' at line " + lineNum + " of " + source + ". Line ignored.");
+
 		}
 		return true;
 	}

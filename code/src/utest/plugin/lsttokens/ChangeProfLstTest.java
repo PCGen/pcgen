@@ -251,7 +251,7 @@ public class ChangeProfLstTest extends AbstractGlobalTokenTestCase
 	{
 		// TODO What happens in consolidation of ChangeProf if Wand is reused?
 		// What "wins"?
-		return "Pipe=Martial";// |Wand=Exotic";
+		return "Pipe=Martial"; // |Wand=Exotic";
 	}
 
 	@Override
@@ -263,6 +263,7 @@ public class ChangeProfLstTest extends AbstractGlobalTokenTestCase
 	@Override
 	protected ConsolidationRule getConsolidationRule()
 	{
-		return strings -> new String[] { "Hammer,Pipe,Wand,TYPE.Heavy,TYPE.Medium=Martial|Nail,TYPE.Crazy,TYPE.Disposable=Exotic" };
+		return strings -> new String[]{
+			"Hammer,Pipe,Wand,TYPE.Heavy,TYPE.Medium=Martial|Nail,TYPE.Crazy,TYPE.Disposable=Exotic"};
 	}
 }

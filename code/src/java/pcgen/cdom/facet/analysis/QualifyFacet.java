@@ -37,8 +37,7 @@ import pcgen.cdom.reference.Qualifier;
  * should Qualify.
  * 
  */
-public class QualifyFacet extends AbstractStorageFacet<CharID> implements
-		DataFacetChangeListener<CharID, CDOMObject>
+public class QualifyFacet extends AbstractStorageFacet<CharID> implements DataFacetChangeListener<CharID, CDOMObject>
 {
 
 	private CDOMObjectConsolidationFacet consolidationFacet;
@@ -149,8 +148,7 @@ public class QualifyFacet extends AbstractStorageFacet<CharID> implements
 	private static class CacheInfo
 	{
 		private HashMapToList<String, Qualifier> hml = new HashMapToList<>();
-		private HashMapToList<CDOMObject, Qualifier> sourceMap =
-                new HashMapToList<>();
+		private HashMapToList<CDOMObject, Qualifier> sourceMap = new HashMapToList<>();
 
 		/**
 		 * Adds the given Qualifier to the CacheInfo, with the given source.
@@ -181,8 +179,7 @@ public class QualifyFacet extends AbstractStorageFacet<CharID> implements
 			{
 				for (Qualifier q : list)
 				{
-					hml.removeFromListFor(q.getQualifiedReference().getPersistentFormat(),
-						q);
+					hml.removeFromListFor(q.getQualifiedReference().getPersistentFormat(), q);
 				}
 			}
 		}
@@ -199,8 +196,7 @@ public class QualifyFacet extends AbstractStorageFacet<CharID> implements
 		 */
 		public boolean isQualified(Loadable qualTestObject)
 		{
-			ClassIdentity<? extends Loadable> identity =
-					qualTestObject.getClassIdentity();
+			ClassIdentity<? extends Loadable> identity = qualTestObject.getClassIdentity();
 			List<Qualifier> list = hml.getListFor(identity.getPersistentFormat());
 			if (list != null)
 			{
@@ -215,13 +211,13 @@ public class QualifyFacet extends AbstractStorageFacet<CharID> implements
 			}
 			return false;
 		}
-		
+
 		@Override
 		public int hashCode()
 		{
 			return hml.hashCode();
 		}
-		
+
 		@Override
 		public boolean equals(Object o)
 		{
@@ -274,7 +270,7 @@ public class QualifyFacet extends AbstractStorageFacet<CharID> implements
 	{
 		consolidationFacet.addDataFacetChangeListener(this);
 	}
-	
+
 	public int getCount(CharID id)
 	{
 		CacheInfo ci = (CacheInfo) getCache(id);

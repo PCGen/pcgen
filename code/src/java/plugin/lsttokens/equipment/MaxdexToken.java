@@ -29,8 +29,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Deals with MAXDEX token
  */
-public class MaxdexToken extends AbstractIntToken<Equipment> implements
-		CDOMPrimaryToken<Equipment>
+public class MaxdexToken extends AbstractIntToken<Equipment> implements CDOMPrimaryToken<Equipment>
 {
 
 	@Override
@@ -52,15 +51,13 @@ public class MaxdexToken extends AbstractIntToken<Equipment> implements
 	}
 
 	@Override
-	public ParseResult parseToken(LoadContext context, Equipment obj,
-		String value)
+	public ParseResult parseToken(LoadContext context, Equipment obj, String value)
 	{
 		if (ControlUtilities.hasControlToken(context, CControl.EQMAXDEX))
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " is disabled when MAXDEX control is used: " + value);
+			return new ParseResult.Fail(getTokenName() + " is disabled when MAXDEX control is used: " + value);
 		}
 		return super.parseToken(context, obj, value);
 	}
-	
+
 }

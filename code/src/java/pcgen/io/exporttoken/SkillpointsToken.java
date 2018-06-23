@@ -52,12 +52,11 @@ public class SkillpointsToken extends Token
 	}
 
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		final StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
 		String bString;
-		int classNum = -1; 
+		int classNum = -1;
 
 		bString = aTok.nextToken();
 
@@ -75,8 +74,7 @@ public class SkillpointsToken extends Token
 			}
 			catch (NumberFormatException e)
 			{
-				Logging.errorPrint("Expected class number in " + tokenSource
-					+ " but got " + pcclass + ".");
+				Logging.errorPrint("Expected class number in " + tokenSource + " but got " + pcclass + ".");
 			}
 		}
 
@@ -89,16 +87,12 @@ public class SkillpointsToken extends Token
 
 		if ("TOTAL".equals(bString) || "UNUSED".equals(bString))
 		{
-			aTotalSkillPoints += (classNum >= 0) ?
-					getUnusedSkillPoints(pc, classNum) :
-					getUnusedSkillPoints(pc);
+			aTotalSkillPoints += (classNum >= 0) ? getUnusedSkillPoints(pc, classNum) : getUnusedSkillPoints(pc);
 		}
 
 		if ("TOTAL".equals(bString) || "USED".equals(bString))
 		{
-			aTotalSkillPoints += (classNum >= 0) ?
-					getUsedSkillPoints(pc, classNum) :
-					getUsedSkillPoints(pc);
+			aTotalSkillPoints += (classNum >= 0) ? getUsedSkillPoints(pc, classNum) : getUsedSkillPoints(pc);
 		}
 
 		return BigDecimalHelper.trimZeros(new BigDecimal(aTotalSkillPoints));
@@ -188,16 +182,14 @@ public class SkillpointsToken extends Token
 		for (Skill aSkill : display.getSkillSet())
 		{
 			Integer outputIndex = pc.getSkillOrder(aSkill);
-			if ((pc.getRank(aSkill).doubleValue() > 0)
-				|| (outputIndex != null && outputIndex != 0))
+			if ((pc.getRank(aSkill).doubleValue() > 0) || (outputIndex != null && outputIndex != 0))
 			{
 				Double rank = pc.getSkillRankForClass(aSkill, targetClass);
 				if (rank == null)
 				{
 					rank = 0.0d;
 				}
-				SkillCost skillCost =
-						pc.getSkillCostForClass(aSkill, targetClass);
+				SkillCost skillCost = pc.getSkillCostForClass(aSkill, targetClass);
 				usedPoints += (rank * skillCost.getCost());
 			}
 		}

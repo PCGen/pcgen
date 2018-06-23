@@ -42,8 +42,7 @@ public class VisibleToken extends AbstractNonEmptyToken<EquipmentModifier>
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		EquipmentModifier eqm, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, EquipmentModifier eqm, String value)
 	{
 		Visibility vis;
 		if (value.equals("QUALIFY"))
@@ -69,8 +68,7 @@ public class VisibleToken extends AbstractNonEmptyToken<EquipmentModifier>
 	@Override
 	public String[] unparse(LoadContext context, EquipmentModifier eqm)
 	{
-		Visibility vis = context.getObjectContext().getObject(eqm,
-				ObjectKey.VISIBILITY);
+		Visibility vis = context.getObjectContext().getObject(eqm, ObjectKey.VISIBILITY);
 		if (vis == null)
 		{
 			return null;
@@ -90,11 +88,10 @@ public class VisibleToken extends AbstractNonEmptyToken<EquipmentModifier>
 		}
 		else
 		{
-			context.addWriteMessage("Visibility " + vis
-					+ " is not a valid Visibility for a EqMod");
+			context.addWriteMessage("Visibility " + vis + " is not a valid Visibility for a EqMod");
 			return null;
 		}
-		return new String[] { visString };
+		return new String[]{visString};
 	}
 
 	@Override

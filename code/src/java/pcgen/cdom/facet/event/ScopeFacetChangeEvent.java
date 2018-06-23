@@ -42,8 +42,7 @@ import pcgen.cdom.base.PCGenIdentifier;
  * @param <T>
  *            The Type object of changed in the ScopeFacetChangeEvent
  */
-public class ScopeFacetChangeEvent<IDT extends PCGenIdentifier, S, T> extends
-		EventObject
+public class ScopeFacetChangeEvent<IDT extends PCGenIdentifier, S, T> extends EventObject
 {
 	/**
 	 * The constant ID used by an ScopeFacetChangeEvent to indicate that a

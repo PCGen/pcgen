@@ -45,7 +45,7 @@ public class MasterVarCommand extends PCGenCommand
 	 * Gets the name of the function handled by this class.
 	 * @return The name of the function.
 	 */
-    @Override
+	@Override
 	public String getFunctionName()
 	{
 		return "MASTERVAR";
@@ -59,7 +59,7 @@ public class MasterVarCommand extends PCGenCommand
 	 * @throws ParseException
 	 */
 	@SuppressWarnings("unchecked") //Uses JEP, which doesn't use generics
-    @Override
+	@Override
 	public void run(final Stack inStack) throws ParseException
 	{
 		// check the stack
@@ -77,16 +77,16 @@ public class MasterVarCommand extends PCGenCommand
 			throw new ParseException("Invalid parameter count");
 		}
 
-        if (param1 instanceof String)
+		if (param1 instanceof String)
 		{
-            Float result = null;
+			Float result = null;
 			PlayerCharacter pc = getPC();
-            if (pc == null)
+			if (pc == null)
 			{
 				throw new ParseException("Invalid parent for function");
 			}
 			PlayerCharacter master = pc.getMasterPC();
-            if (master == null)
+			if (master == null)
 			{
 				throw new ParseException("Invalid: PC had no master");
 			}
@@ -104,7 +104,6 @@ public class MasterVarCommand extends PCGenCommand
 			throw new ParseException("Invalid parameter type");
 		}
 	}
-
 
 	/**
 	 * Get the PC that will be used to determine the master

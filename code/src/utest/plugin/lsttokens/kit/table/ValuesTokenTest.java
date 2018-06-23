@@ -185,8 +185,8 @@ public class ValuesTokenTest extends AbstractKitTokenTestCase<KitTable>
 				"EQMOD2");
 		runRoundRobin("EQMOD:EQMOD2|1,if(var(\"SIZE==3||SIZE==4\"),5,10)|"
 				+ "[LOOKUP:Minor Special Ability (B),roll(\"1d100\")]"
-				+ "[LOOKUP:Minor Special Ability (B),roll(\"1d100\")]" +
-						"|1+if(var(\"SIZE==3||SIZE==4\"),5,10),100");
+				+ "[LOOKUP:Minor Special Ability (B),roll(\"1d100\")]"
+				+ "|1+if(var(\"SIZE==3||SIZE==4\"),5,10),100");
 	}
 
 

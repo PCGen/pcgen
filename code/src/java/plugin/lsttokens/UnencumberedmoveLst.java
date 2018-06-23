@@ -29,9 +29,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.enumeration.Load;
 
-
-public class UnencumberedmoveLst extends AbstractTokenWithSeparator<CDOMObject>
-		implements CDOMPrimaryToken<CDOMObject>
+public class UnencumberedmoveLst extends AbstractTokenWithSeparator<CDOMObject> implements CDOMPrimaryToken<CDOMObject>
 {
 
 	@Override
@@ -47,14 +45,12 @@ public class UnencumberedmoveLst extends AbstractTokenWithSeparator<CDOMObject>
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		CDOMObject obj, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
 	{
 		if (obj instanceof Ungranted)
 		{
-			return new ParseResult.Fail("Cannot use " + getTokenName()
-				+ " on an Ungranted object type: "
-				+ obj.getClass().getSimpleName());
+			return new ParseResult.Fail(
+				"Cannot use " + getTokenName() + " on an Ungranted object type: " + obj.getClass().getSimpleName());
 		}
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 
@@ -139,15 +135,12 @@ public class UnencumberedmoveLst extends AbstractTokenWithSeparator<CDOMObject>
 			}
 			else
 			{
-				return new ParseResult.Fail("Invalid value of \""
-						+ loadString + "\" for UNENCUMBEREDMOVE in \""
-						+ obj.getDisplayName() + "\".");
+				return new ParseResult.Fail("Invalid value of \"" + loadString + "\" for UNENCUMBEREDMOVE in \""
+					+ obj.getDisplayName() + "\".");
 			}
 		}
-		context.getObjectContext().put(obj, ObjectKey.UNENCUMBERED_LOAD,
-				loadMove);
-		context.getObjectContext().put(obj, ObjectKey.UNENCUMBERED_ARMOR,
-				loadArmor);
+		context.getObjectContext().put(obj, ObjectKey.UNENCUMBERED_LOAD, loadMove);
+		context.getObjectContext().put(obj, ObjectKey.UNENCUMBERED_ARMOR, loadArmor);
 		return ParseResult.SUCCESS;
 	}
 
@@ -155,8 +148,8 @@ public class UnencumberedmoveLst extends AbstractTokenWithSeparator<CDOMObject>
 	{
 		if (hasArmor)
 		{
-			return new ParseResult.Fail("Encountered Second Armor Load Type in "
-					+ getTokenName() + " this is not valid.");
+			return new ParseResult.Fail(
+				"Encountered Second Armor Load Type in " + getTokenName() + " this is not valid.");
 		}
 		return ParseResult.SUCCESS;
 	}
@@ -165,8 +158,8 @@ public class UnencumberedmoveLst extends AbstractTokenWithSeparator<CDOMObject>
 	{
 		if (hasMove)
 		{
-			return new ParseResult.Fail("Encountered Second Move Load Type in "
-					+ getTokenName() + " this is not valid.");
+			return new ParseResult.Fail(
+				"Encountered Second Move Load Type in " + getTokenName() + " this is not valid.");
 		}
 		return ParseResult.SUCCESS;
 	}
@@ -174,10 +167,8 @@ public class UnencumberedmoveLst extends AbstractTokenWithSeparator<CDOMObject>
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
-		Load load = context.getObjectContext().getObject(obj,
-				ObjectKey.UNENCUMBERED_LOAD);
-		Load at = context.getObjectContext().getObject(obj,
-				ObjectKey.UNENCUMBERED_ARMOR);
+		Load load = context.getObjectContext().getObject(obj, ObjectKey.UNENCUMBERED_LOAD);
+		Load at = context.getObjectContext().getObject(obj, ObjectKey.UNENCUMBERED_ARMOR);
 		if (load == null && at == null)
 		{
 			return null;
@@ -203,8 +194,7 @@ public class UnencumberedmoveLst extends AbstractTokenWithSeparator<CDOMObject>
 			}
 			else
 			{
-				context.addWriteMessage(getTokenName()
-						+ " encountered unknown Movement Load: " + load);
+				context.addWriteMessage(getTokenName() + " encountered unknown Movement Load: " + load);
 				return null;
 			}
 		}
@@ -228,12 +218,11 @@ public class UnencumberedmoveLst extends AbstractTokenWithSeparator<CDOMObject>
 			}
 			else
 			{
-				context.addWriteMessage(getTokenName()
-						+ " encountered invalid Armor Load: " + load);
+				context.addWriteMessage(getTokenName() + " encountered invalid Armor Load: " + load);
 				return null;
 			}
 		}
-		return new String[] { sb.toString() };
+		return new String[]{sb.toString()};
 	}
 
 	@Override

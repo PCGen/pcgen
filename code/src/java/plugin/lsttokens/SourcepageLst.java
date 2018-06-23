@@ -12,9 +12,7 @@ import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-
-public class SourcepageLst extends AbstractNonEmptyToken<CDOMObject> implements
-		CDOMPrimaryToken<CDOMObject>
+public class SourcepageLst extends AbstractNonEmptyToken<CDOMObject> implements CDOMPrimaryToken<CDOMObject>
 {
 
 	@Override
@@ -24,8 +22,7 @@ public class SourcepageLst extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject cdo,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject cdo, String value)
 	{
 		if (Constants.LST_DOT_CLEAR.equals(value))
 		{
@@ -41,11 +38,8 @@ public class SourcepageLst extends AbstractNonEmptyToken<CDOMObject> implements
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
-		String page = context.getObjectContext().getString(cdo,
-			StringKey.SOURCE_PAGE);
-		boolean removed =
-				context.getObjectContext().wasRemoved(cdo,
-					StringKey.SOURCE_PAGE);
+		String page = context.getObjectContext().getString(cdo, StringKey.SOURCE_PAGE);
+		boolean removed = context.getObjectContext().wasRemoved(cdo, StringKey.SOURCE_PAGE);
 		List<String> list = new ArrayList<>();
 		if (removed)
 		{

@@ -30,27 +30,21 @@ public class EQSpellFailureTermEvaluator extends BaseEQTermEvaluator implements 
 {
 	public EQSpellFailureTermEvaluator(String expressionString)
 	{
-		this.originalText =expressionString;
+		this.originalText = expressionString;
 	}
 
 	@Override
-	public Float resolve(
-			Equipment eq,
-			boolean primary,
-			PlayerCharacter pc)
+	public Float resolve(Equipment eq, boolean primary, PlayerCharacter pc)
 	{
 		return TermUtil.convertToFloat(originalText, evaluate(eq, primary, pc));
 	}
 
 	@Override
-	public String evaluate(
-			Equipment eq,
-			boolean primary,
-			PlayerCharacter pc) {
+	public String evaluate(Equipment eq, boolean primary, PlayerCharacter pc)
+	{
 		if (pc.hasControl(CControl.EQSPELLFAILURE))
 		{
-			Logging.errorPrint("EQSPELLFAIL term is disabled "
-				+ "when EQSPELLFAILURE control is used");
+			Logging.errorPrint("EQSPELLFAIL term is disabled " + "when EQSPELLFAILURE control is used");
 		}
 		return String.valueOf(eq.getSafe(IntegerKey.SPELL_FAILURE));
 	}

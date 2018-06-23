@@ -48,9 +48,8 @@ public class PreMoveTester extends AbstractDisplayPrereqTest
 			}
 			catch (NumberFormatException e)
 			{
-				throw new PrerequisiteException(LanguageBundle
-					.getFormattedString(
-						"PreMove.error.bad_operand", prereq.toString())); //$NON-NLS-1$
+				throw new PrerequisiteException(
+					LanguageBundle.getFormattedString("PreMove.error.bad_operand", prereq.toString())); //$NON-NLS-1$
 			}
 
 			int speed = (int) display.getMovementOfType(moveType);
@@ -68,7 +67,7 @@ public class PreMoveTester extends AbstractDisplayPrereqTest
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "MOVE"; //$NON-NLS-1$

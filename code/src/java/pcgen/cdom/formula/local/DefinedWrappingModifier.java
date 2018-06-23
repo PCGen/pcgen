@@ -71,8 +71,8 @@ public class DefinedWrappingModifier<T> implements Modifier<T>
 	 *            The FormatManager indicating the format of the return value for this
 	 *            DefinedWrappingModifier
 	 */
-	public DefinedWrappingModifier(FormulaModifier<T> modifier, String definedName,
-		VarScoped definedValue, FormatManager<?> formatManager)
+	public DefinedWrappingModifier(FormulaModifier<T> modifier, String definedName, VarScoped definedValue,
+		FormatManager<?> formatManager)
 	{
 		this.modifier = Objects.requireNonNull(modifier);
 		this.definedName = Objects.requireNonNull(definedName);
@@ -83,25 +83,21 @@ public class DefinedWrappingModifier<T> implements Modifier<T>
 	@Override
 	public T process(EvaluationManager manager)
 	{
-		FormulaManager formulaManager =
-				decorateFormulaManager(manager.get(EvaluationManager.FMANAGER));
-		return modifier
-			.process(manager.getWith(EvaluationManager.FMANAGER, formulaManager));
+		FormulaManager formulaManager = decorateFormulaManager(manager.get(EvaluationManager.FMANAGER));
+		return modifier.process(manager.getWith(EvaluationManager.FMANAGER, formulaManager));
 	}
 
 	@Override
 	public void getDependencies(DependencyManager fdm)
 	{
-		FormulaManager formulaManager =
-				decorateFormulaManager(fdm.get(DependencyManager.FMANAGER));
+		FormulaManager formulaManager = decorateFormulaManager(fdm.get(DependencyManager.FMANAGER));
 		modifier.getDependencies(fdm.getWith(DependencyManager.FMANAGER, formulaManager));
 	}
 
 	private FormulaManager decorateFormulaManager(FormulaManager formulaManager)
 	{
 		FunctionLibrary functionManager = formulaManager.get(FormulaManager.FUNCTION);
-		functionManager = new DefinedWrappingLibrary(functionManager, definedName,
-			definedValue, formatManager);
+		functionManager = new DefinedWrappingLibrary(functionManager, definedName, definedValue, formatManager);
 		return formulaManager.getWith(FormulaManager.FUNCTION, functionManager);
 	}
 
@@ -141,10 +137,8 @@ public class DefinedWrappingModifier<T> implements Modifier<T>
 		if (obj instanceof DefinedWrappingModifier)
 		{
 			DefinedWrappingModifier<?> other = (DefinedWrappingModifier<?>) obj;
-			return modifier.equals(other.modifier)
-				&& definedValue.equals(other.definedValue)
-				&& definedName.equals(other.definedName)
-				&& formatManager.equals(other.formatManager);
+			return modifier.equals(other.modifier) && definedValue.equals(other.definedValue)
+				&& definedName.equals(other.definedName) && formatManager.equals(other.formatManager);
 		}
 		return false;
 	}

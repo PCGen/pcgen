@@ -23,8 +23,7 @@ import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class SizediffToken extends AbstractNonEmptyToken<WieldCategory>
-		implements CDOMPrimaryToken<WieldCategory>
+public class SizediffToken extends AbstractNonEmptyToken<WieldCategory> implements CDOMPrimaryToken<WieldCategory>
 {
 
 	@Override
@@ -34,8 +33,7 @@ public class SizediffToken extends AbstractNonEmptyToken<WieldCategory>
 	}
 
 	@Override
-	public ParseResult parseNonEmptyToken(LoadContext context,
-			WieldCategory wc, String value)
+	public ParseResult parseNonEmptyToken(LoadContext context, WieldCategory wc, String value)
 	{
 		try
 		{
@@ -44,9 +42,8 @@ public class SizediffToken extends AbstractNonEmptyToken<WieldCategory>
 		}
 		catch (NumberFormatException nfe)
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " expected an integer.  Tag must be of the form: "
-					+ getTokenName() + ":<int>");
+			return new ParseResult.Fail(
+				getTokenName() + " expected an integer.  Tag must be of the form: " + getTokenName() + ":<int>");
 		}
 	}
 

@@ -28,8 +28,8 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 /**
  * Class deals with PUBNAMEWEB Token
  */
-public class PubnamewebToken extends AbstractStringToken<Campaign> implements
-		CDOMPrimaryToken<Campaign>, InstallLstToken
+public class PubnamewebToken extends AbstractStringToken<Campaign>
+		implements CDOMPrimaryToken<Campaign>, InstallLstToken
 {
 
 	@Override
@@ -38,14 +38,14 @@ public class PubnamewebToken extends AbstractStringToken<Campaign> implements
 		return "PUBNAMEWEB";
 	}
 
-    @Override
+	@Override
 	public boolean parse(Campaign campaign, String value, URI sourceUri)
 	{
 		campaign.put(StringKey.PUB_NAME_WEB, value);
 		return true;
 	}
 
-    @Override
+	@Override
 	public Class<Campaign> getTokenClass()
 	{
 		return Campaign.class;

@@ -79,10 +79,7 @@ public class EquipSetFacet extends AbstractListFacet<CharID, EquipSet>
 	 * @param oldItem the item to search for.
 	 * @param newItem The replacement item
 	 */
-	public void updateEquipSetItem(
-		CharID id,
-		Equipment oldItem,
-		Equipment newItem)
+	public void updateEquipSetItem(CharID id, Equipment oldItem, Equipment newItem)
 	{
 		if (isEmpty(id))
 		{

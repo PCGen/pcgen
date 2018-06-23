@@ -25,8 +25,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 /**
  * Class deals with PROHIBITCOST Token
  */
-public class ProhibitcostToken extends AbstractIntToken<SubClass> implements
-		CDOMPrimaryToken<SubClass>
+public class ProhibitcostToken extends AbstractIntToken<SubClass> implements CDOMPrimaryToken<SubClass>
 {
 
 	@Override

@@ -40,9 +40,8 @@ import pcgen.core.Equipment;
  * ArmorProf ProfProviders for a Player Character.
  * 
  */
-public class ArmorProfProviderFacet extends
-		AbstractQualifiedListFacet<ProfProvider<ArmorProf>> implements
-		DataFacetChangeListener<CharID, ProfProvider<ArmorProf>>, PerspectiveLocation
+public class ArmorProfProviderFacet extends AbstractQualifiedListFacet<ProfProvider<ArmorProf>>
+		implements DataFacetChangeListener<CharID, ProfProvider<ArmorProf>>, PerspectiveLocation
 {
 
 	/**
@@ -110,7 +109,7 @@ public class ArmorProfProviderFacet extends
 		}
 		return false;
 	}
-	
+
 	public void init()
 	{
 		CorePerspectiveDB.register(CorePerspective.ARMORPROF, FacetBehavior.MODEL, this);

@@ -26,8 +26,7 @@ import pcgen.output.publish.OutputDB;
 /**
  * RaceFacet is a Facet that tracks the Race of a Player Character.
  */
-public class RaceFacet extends AbstractItemFacet<CharID, Race> implements
-		ItemFacet<CharID, Race>
+public class RaceFacet extends AbstractItemFacet<CharID, Race> implements ItemFacet<CharID, Race>
 {
 	public void init()
 	{

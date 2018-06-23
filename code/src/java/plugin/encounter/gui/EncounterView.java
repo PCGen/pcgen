@@ -15,7 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
- package plugin.encounter.gui;
+package plugin.encounter.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
@@ -210,7 +210,6 @@ public class EncounterView extends JPanel
 		// Add your handling code here:
 	}
 
-
 	/** This method is called from within the constructor to
 	 * initialize the form.
 	 */
@@ -251,8 +250,7 @@ public class EncounterView extends JPanel
 		jPanel1.add(targetLabel, gridBagConstraints);
 
 		targetEncounterLevel.setText(Integer.toString(1));
-		targetEncounterLevel
-			.addActionListener(this::targetEncounterLevelActionPerformed);
+		targetEncounterLevel.addActionListener(this::targetEncounterLevelActionPerformed);
 
 		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
@@ -322,13 +320,9 @@ public class EncounterView extends JPanel
 
 		jPanel2.add(jScrollPane1);
 
-		jPanel6.setLayout(new BoxLayout(
-				jPanel6,
-			BoxLayout.X_AXIS));
+		jPanel6.setLayout(new BoxLayout(jPanel6, BoxLayout.X_AXIS));
 
-		jPanel3.setLayout(new BoxLayout(
-				jPanel3,
-			BoxLayout.Y_AXIS));
+		jPanel3.setLayout(new BoxLayout(jPanel3, BoxLayout.Y_AXIS));
 
 		addCreature.setIcon(Icons.Forward16.getImageIcon());
 		addCreature.setMaximumSize(new Dimension(50, 50));
@@ -363,11 +357,13 @@ public class EncounterView extends JPanel
 		add(jPanel4, BorderLayout.CENTER);
 	}
 
-	private void numberOfCreaturesActionPerformed(ActionEvent evt) {
+	private void numberOfCreaturesActionPerformed(ActionEvent evt)
+	{
 		// Add your handling code here:
 	}
 
-	private void targetEncounterLevelActionPerformed(ActionEvent evt) {
+	private void targetEncounterLevelActionPerformed(ActionEvent evt)
+	{
 		// Add your handling code here:
 	}
 }

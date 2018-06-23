@@ -30,8 +30,8 @@ import pcgen.util.Logging;
 /**
  * Deal with CATEGORY token
  */
-public class CategoryToken extends AbstractNonEmptyToken<Ability> implements
-		CDOMPrimaryToken<Ability>, PostDeferredToken<Ability>
+public class CategoryToken extends AbstractNonEmptyToken<Ability>
+		implements CDOMPrimaryToken<Ability>, PostDeferredToken<Ability>
 {
 	@Override
 	public String getTokenName()
@@ -43,21 +43,19 @@ public class CategoryToken extends AbstractNonEmptyToken<Ability> implements
 	public ParseResult parseNonEmptyToken(LoadContext context, Ability ability, String value)
 	{
 		return new ParseResult.Fail(
-			"Should not encounter CATEGORY: under normal operation, found on "
-				+ ability.getKeyName());
+			"Should not encounter CATEGORY: under normal operation, found on " + ability.getKeyName());
 	}
 
 	@Override
 	public String[] unparse(LoadContext context, Ability ability)
 	{
 		//TODO this is wrong! (different from logic in parse!)
-		Category<Ability> cat = context.getObjectContext().getObject(ability,
-				ObjectKey.ABILITY_CAT);
+		Category<Ability> cat = context.getObjectContext().getObject(ability, ObjectKey.ABILITY_CAT);
 		if (cat == null)
 		{
 			return null;
 		}
-		return new String[] { cat.getKeyName() };
+		return new String[]{cat.getKeyName()};
 	}
 
 	@Override
@@ -72,18 +70,15 @@ public class CategoryToken extends AbstractNonEmptyToken<Ability> implements
 		Category<Ability> cat = ability.get(ObjectKey.ABILITY_CAT);
 		if (cat == null)
 		{
-			Logging.log(Logging.LST_ERROR, "Ability " + ability.getKeyName()
-					+ " did not have a Category specified.  "
-					+ "A Category is required for an Ability. " 
-					+ "File was " + ability.getSourceURI());
+			Logging.log(Logging.LST_ERROR, "Ability " + ability.getKeyName() + " did not have a Category specified.  "
+				+ "A Category is required for an Ability. " + "File was " + ability.getSourceURI());
 			return false;
 		}
 		if (cat.getParentCategory() != cat)
 		{
-			Logging.log(Logging.LST_ERROR, "Ability " + ability.getKeyName()
-				+ " did not refer to a 'parent' Category, used: " + cat
-				+ ". A Parent Category is required for an Ability. "
-				+ "File was " + ability.getSourceURI());
+			Logging.log(Logging.LST_ERROR,
+				"Ability " + ability.getKeyName() + " did not refer to a 'parent' Category, used: " + cat
+					+ ". A Parent Category is required for an Ability. " + "File was " + ability.getSourceURI());
 			return false;
 		}
 		return true;

@@ -104,8 +104,7 @@ public class FactSetKeyMapToList
 	 *            given key.
 	 */
 	@SuppressWarnings("unchecked")
-	public <T> void addAllToListFor(FactSetKey<T> key,
-		Collection<ObjectContainer<T>> values)
+	public <T> void addAllToListFor(FactSetKey<T> key, Collection<ObjectContainer<T>> values)
 	{
 		map.addAllToListFor(key, values);
 	}
@@ -207,8 +206,7 @@ public class FactSetKeyMapToList
 	 *         given key; false otherwise
 	 */
 	@SuppressWarnings("unchecked")
-	public <T> boolean removeFromListFor(FactSetKey<T> key,
-		Indirect<T> valueElement)
+	public <T> boolean removeFromListFor(FactSetKey<T> key, Indirect<T> valueElement)
 	{
 		return map.removeFromListFor(key, valueElement);
 	}
@@ -266,8 +264,7 @@ public class FactSetKeyMapToList
 	 *         key AND that list contains the given value; false otherwise.
 	 */
 	@SuppressWarnings("unchecked")
-	public <T> boolean containsInList(FactSetKey<T> key,
-		ObjectContainer<T> valueElement)
+	public <T> boolean containsInList(FactSetKey<T> key, ObjectContainer<T> valueElement)
 	{
 		return map.containsInList(key, valueElement);
 	}
@@ -291,8 +288,7 @@ public class FactSetKeyMapToList
 	 *         otherwise.
 	 */
 	@SuppressWarnings("unchecked")
-	public <T> boolean containsAnyInList(FactSetKey<T> key,
-		Collection<ObjectContainer<T>> values)
+	public <T> boolean containsAnyInList(FactSetKey<T> key, Collection<ObjectContainer<T>> values)
 	{
 		return map.containsAnyInList(key, values);
 	}
@@ -350,7 +346,6 @@ public class FactSetKeyMapToList
 	@Override
 	public boolean equals(Object obj)
 	{
-		return obj instanceof FactSetKeyMapToList
-			&& map.equals(((FactSetKeyMapToList) obj).map);
+		return obj instanceof FactSetKeyMapToList && map.equals(((FactSetKeyMapToList) obj).map);
 	}
 }

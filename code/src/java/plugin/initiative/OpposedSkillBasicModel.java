@@ -21,14 +21,15 @@
 
 package plugin.initiative;
 
-import gmgen.plugin.PcgCombatant;
-import plugin.initiative.gui.TableColumnInformation;
-
-import javax.swing.table.AbstractTableModel;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
+
+import javax.swing.table.AbstractTableModel;
+
+import gmgen.plugin.PcgCombatant;
+import plugin.initiative.gui.TableColumnInformation;
 
 /**
  * <p>
@@ -110,25 +111,25 @@ public class OpposedSkillBasicModel extends AbstractTableModel
 		}
 	}
 
-    @Override
+	@Override
 	public Class getColumnClass(int columnIndex)
 	{
 		return columns.getClass(columnIndex);
 	}
 
-    @Override
+	@Override
 	public int getColumnCount()
 	{
 		return columns.getColumCount();
 	}
 
-    @Override
+	@Override
 	public String getColumnName(int column)
 	{
 		return columns.getLabel(column);
 	}
 
-    @Override
+	@Override
 	public int getRowCount()
 	{
 		return Math.max(combatants.size(), 1);
@@ -147,9 +148,7 @@ public class OpposedSkillBasicModel extends AbstractTableModel
 		InitWrapper returnValue = null;
 		if (rowIndex < combatants.size())
 		{
-			returnValue =
-					(InitWrapper) ((Map.Entry) combatants.entrySet().toArray()[rowIndex])
-						.getValue();
+			returnValue = (InitWrapper) ((Map.Entry) combatants.entrySet().toArray()[rowIndex]).getValue();
 		}
 		return returnValue;
 	}
@@ -166,8 +165,7 @@ public class OpposedSkillBasicModel extends AbstractTableModel
 	{
 		int returnValue = -1;
 		int counter = -1;
-		for (Iterator i = combatants.keySet().iterator(); i.hasNext()
-			&& returnValue < 0;)
+		for (Iterator i = combatants.keySet().iterator(); i.hasNext() && returnValue < 0;)
 		{
 			counter++;
 			if (i.next().equals(name))
@@ -178,7 +176,7 @@ public class OpposedSkillBasicModel extends AbstractTableModel
 		return returnValue;
 	}
 
-    @Override
+	@Override
 	public Object getValueAt(int rowIndex, int columnIndex)
 	{
 		Object returnValue = null;
@@ -190,12 +188,15 @@ public class OpposedSkillBasicModel extends AbstractTableModel
 				case 0:
 					returnValue = entry.initiative.getName();
 					break;
+				default:
+					//Case not caught, should this cause an error?
+					break;
 			}
 		}
 		return returnValue;
 	}
 
-    @Override
+	@Override
 	public boolean isCellEditable(int rowIndex, int columnIndex)
 	{
 		boolean returnValue = false;

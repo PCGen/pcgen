@@ -43,9 +43,11 @@ public class PreCheckParserTest extends EnUsLocaleDependentTestCase
 
 		assertEquals(
 			"<prereq operator=\"GTEQ\" operand=\"1\" >\n"
-				+ "<prereq kind=\"checkbase\" count-multiples=\"true\" key=\"Fortitude\" operator=\"GTEQ\" operand=\"4\" >\n"
+				+ "<prereq kind=\"checkbase\" count-multiples=\"true\" "
+				+ "key=\"Fortitude\" operator=\"GTEQ\" operand=\"4\" >\n"
 				+ "</prereq>\n"
-				+ "<prereq kind=\"checkbase\" count-multiples=\"true\" key=\"Will\" operator=\"GTEQ\" operand=\"7\" >\n"
+				+ "<prereq kind=\"checkbase\" count-multiples=\"true\" "
+				+ "key=\"Will\" operator=\"GTEQ\" operand=\"7\" >\n"
 				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 	}
 

@@ -18,6 +18,7 @@
 package pcgen.cdom.facet;
 
 import java.util.Collection;
+
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.DataSetInitializedFacet;
 import pcgen.cdom.base.MasterListInterface;
@@ -35,9 +36,8 @@ import pcgen.rules.context.LoadContext;
  * method that depend on CharID (they are not character specific).
  * 
  */
-public class MasterSkillFacet extends
-		AbstractScopeFacet<DataSetID, ClassSkillList, Skill> implements
-		DataSetInitializedFacet
+public class MasterSkillFacet extends AbstractScopeFacet<DataSetID, ClassSkillList, Skill>
+		implements DataSetInitializedFacet
 {
 
 	private DataSetInitializationFacet datasetInitializationFacet;
@@ -63,8 +63,7 @@ public class MasterSkillFacet extends
 		}
 	}
 
-	public void setDataSetInitializationFacet(
-		DataSetInitializationFacet datasetInitializationFacet)
+	public void setDataSetInitializationFacet(DataSetInitializationFacet datasetInitializationFacet)
 	{
 		this.datasetInitializationFacet = datasetInitializationFacet;
 	}

@@ -29,8 +29,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with LEGS Token
  */
-public class LegsToken extends AbstractIntToken<Race> implements
-		CDOMPrimaryToken<Race>
+public class LegsToken extends AbstractIntToken<Race> implements CDOMPrimaryToken<Race>
 {
 
 	@Override
@@ -58,13 +57,11 @@ public class LegsToken extends AbstractIntToken<Race> implements
 	}
 
 	@Override
-	public ParseResult parseToken(LoadContext context, Race obj,
-		String value)
+	public ParseResult parseToken(LoadContext context, Race obj, String value)
 	{
 		if (ControlUtilities.hasControlToken(context, CControl.LEGS))
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " is disabled when LEGS control is used: " + value);
+			return new ParseResult.Fail(getTokenName() + " is disabled when LEGS control is used: " + value);
 		}
 		return super.parseToken(context, obj, value);
 	}

@@ -20,8 +20,8 @@ package pcgen.gui2.facade;
 import java.io.File;
 
 import pcgen.facade.core.CompanionFacade;
-import pcgen.facade.util.DefaultReferenceFacade;
 import pcgen.facade.core.RaceFacade;
+import pcgen.facade.util.DefaultReferenceFacade;
 import pcgen.facade.util.ReferenceFacade;
 
 /**
@@ -52,7 +52,7 @@ public class CompanionNotLoaded implements CompanionFacade
 		this.raceRef = new DefaultReferenceFacade<>(race);
 		this.companionType = compType;
 	}
-	
+
 	@Override
 	public ReferenceFacade<String> getNameRef()
 	{

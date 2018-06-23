@@ -17,11 +17,11 @@
  */
 package plugin.lsttokens.gamemode;
 
-import pcgen.core.GameMode;
-import pcgen.persistence.lst.GameModeLstToken;
-
 import java.net.URI;
 import java.util.StringTokenizer;
+
+import pcgen.core.GameMode;
+import pcgen.persistence.lst.GameModeLstToken;
 
 /**
  * {@code StatRollTextToken}
@@ -29,7 +29,7 @@ import java.util.StringTokenizer;
 public class StatRollTextToken implements GameModeLstToken
 {
 
-    @Override
+	@Override
 	public String getTokenName()
 	{
 		return "STATROLLTEXT";
@@ -38,7 +38,7 @@ public class StatRollTextToken implements GameModeLstToken
 	//
 	// STATROLLTEXT:<stat_val>,<display_text>
 	//
-    @Override
+	@Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		final StringTokenizer tok = new StringTokenizer(value, "\t");

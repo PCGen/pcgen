@@ -28,7 +28,7 @@ import pcgen.core.PlayerCharacter;
  */
 public class EQPlusTotalTermEvaluator extends BaseEQTermEvaluator implements TermEvaluator
 {
-	
+
 	/**
 	 * Instantiates a new eQ plus term evaluator.
 	 * 
@@ -40,19 +40,14 @@ public class EQPlusTotalTermEvaluator extends BaseEQTermEvaluator implements Ter
 	}
 
 	@Override
-	public Float resolve(
-			Equipment eq,
-			boolean primary,
-			PlayerCharacter pc)
+	public Float resolve(Equipment eq, boolean primary, PlayerCharacter pc)
 	{
 		return TermUtil.convertToFloat(originalText, evaluate(eq, primary, pc));
 	}
 
 	@Override
-	public String evaluate(
-			Equipment eq,
-			boolean primary,
-			PlayerCharacter pc) {
+	public String evaluate(Equipment eq, boolean primary, PlayerCharacter pc)
+	{
 		return Integer.toString(eq.calcPlusForHead(true));
 	}
 
@@ -66,5 +61,5 @@ public class EQPlusTotalTermEvaluator extends BaseEQTermEvaluator implements Ter
 	{
 		return false;
 	}
-	
+
 }

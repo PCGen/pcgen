@@ -30,7 +30,7 @@ import pcgen.cdom.helper.SpringHelper;
  */
 public final class FacetLibrary
 {
-	
+
 	private FacetLibrary()
 	{
 		//Do not instantiate
@@ -51,8 +51,7 @@ public final class FacetLibrary
 				//System.err.println("Using Legacy Load for Facet: " + cl.getName());
 				try
 				{
-					facet = cl.getConstructor()
-							.newInstance();
+					facet = cl.getConstructor().newInstance();
 				}
 				catch (InstantiationException | IllegalAccessException e)
 				{

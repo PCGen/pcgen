@@ -33,8 +33,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Deals with FUMBLERANGE token
  */
-public class FumblerangeToken extends AbstractNonEmptyToken<Equipment>
-		implements CDOMPrimaryToken<Equipment>
+public class FumblerangeToken extends AbstractNonEmptyToken<Equipment> implements CDOMPrimaryToken<Equipment>
 {
 
 	@Override
@@ -44,13 +43,11 @@ public class FumblerangeToken extends AbstractNonEmptyToken<Equipment>
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		Equipment eq, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, Equipment eq, String value)
 	{
 		if (ControlUtilities.hasControlToken(context, CControl.FUMBLERANGE))
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " is disabled when FUMBLERANGE control is used: " + value);
+			return new ParseResult.Fail(getTokenName() + " is disabled when FUMBLERANGE control is used: " + value);
 		}
 		if (Constants.LST_DOT_CLEAR.equals(value))
 		{
@@ -66,11 +63,8 @@ public class FumblerangeToken extends AbstractNonEmptyToken<Equipment>
 	@Override
 	public String[] unparse(LoadContext context, Equipment eq)
 	{
-		String range = context.getObjectContext().getString(eq,
-			StringKey.FUMBLE_RANGE);
-		boolean removed =
-				context.getObjectContext().wasRemoved(eq,
-					StringKey.FUMBLE_RANGE);
+		String range = context.getObjectContext().getString(eq, StringKey.FUMBLE_RANGE);
+		boolean removed = context.getObjectContext().wasRemoved(eq, StringKey.FUMBLE_RANGE);
 		List<String> list = new ArrayList<>();
 		if (removed)
 		{

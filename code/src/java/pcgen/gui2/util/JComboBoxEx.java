@@ -37,11 +37,9 @@ public class JComboBoxEx<E> extends JComboBox<E>
 	 * {@code StringIgnoreCaseComparator} (since combo boxes
 	 * display string items to the user).
 	 */
-	private Comparator<Object> comparator = (o1, o2) ->
-	{
+	private Comparator<Object> comparator = (o1, o2) -> {
 		// Treat null as the empty string.
-		return ((o1 == null) ? "" : o1.toString())
-				.compareToIgnoreCase((o2 == null) ? "" : o2.toString());
+		return ((o1 == null) ? "" : o1.toString()).compareToIgnoreCase((o2 == null) ? "" : o2.toString());
 	};
 
 	/**
@@ -106,7 +104,8 @@ public class JComboBoxEx<E> extends JComboBox<E>
 	 */
 	public void setAllItems(E[] items)
 	{
-		// setModel(getModel().getClass().getDeclaredConstructor(new Class[] {Object[].class}).newInstance(new Object[] {items}));
+		// setModel(getModel().getClass().getDeclaredConstructor(new Class[] {Object[].class})
+		// .newInstance(new Object[] {items}));
 		removeAllItems();
 
 		for (int i = 0; i < items.length; ++i)

@@ -29,8 +29,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Deals with REACH token
  */
-public class ReachToken extends AbstractIntToken<Equipment> implements
-		CDOMPrimaryToken<Equipment>
+public class ReachToken extends AbstractIntToken<Equipment> implements CDOMPrimaryToken<Equipment>
 {
 
 	@Override
@@ -62,8 +61,7 @@ public class ReachToken extends AbstractIntToken<Equipment> implements
 	{
 		if (ControlUtilities.hasControlToken(context, CControl.EQREACH))
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " is disabled when EQREACH control is used: " + value);
+			return new ParseResult.Fail(getTokenName() + " is disabled when EQREACH control is used: " + value);
 		}
 		return super.parseToken(context, obj, value);
 	}

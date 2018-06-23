@@ -34,9 +34,8 @@ import pcgen.core.Skill;
  * Character
  * 
  */
-public class SkillListToCostFacet extends
-		AbstractSubScopeFacet<PCClass, SkillCost, Skill> implements
-		ScopeFacetChangeListener<CharID, PCClass, ClassSkillList>
+public class SkillListToCostFacet extends AbstractSubScopeFacet<PCClass, SkillCost, Skill>
+		implements ScopeFacetChangeListener<CharID, PCClass, ClassSkillList>
 {
 
 	private SkillListFacet skillListFacet;

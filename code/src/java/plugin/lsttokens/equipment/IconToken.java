@@ -35,8 +35,7 @@ import pcgen.rules.persistence.token.ParseResult;
  *
  * 
  */
-public class IconToken extends AbstractNonEmptyToken<Equipment> implements
-		CDOMPrimaryToken<Equipment>
+public class IconToken extends AbstractNonEmptyToken<Equipment> implements CDOMPrimaryToken<Equipment>
 {
 
 	@Override

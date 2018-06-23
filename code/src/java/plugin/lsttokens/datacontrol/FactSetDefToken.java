@@ -27,9 +27,8 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.StringPClassUtil;
 
-public class FactSetDefToken extends
-		AbstractTokenWithSeparator<FactSetDefinition> implements
-		CDOMPrimaryToken<FactSetDefinition>
+public class FactSetDefToken extends AbstractTokenWithSeparator<FactSetDefinition>
+		implements CDOMPrimaryToken<FactSetDefinition>
 {
 
 	@Override
@@ -45,22 +44,19 @@ public class FactSetDefToken extends
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		FactSetDefinition def, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, FactSetDefinition def, String value)
 	{
 		StringTokenizer aTok = new StringTokenizer(value, Constants.PIPE);
 		String fileType = aTok.nextToken();
 		if (!aTok.hasMoreTokens())
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " expects 2 PIPE separated values, found 1 in: " + value);
+			return new ParseResult.Fail(getTokenName() + " expects 2 PIPE separated values, found 1 in: " + value);
 		}
 		String identifier = aTok.nextToken();
 		if (aTok.hasMoreTokens())
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " expects 3 PIPE separated values, found too many in: "
-				+ value);
+			return new ParseResult.Fail(
+				getTokenName() + " expects 3 PIPE separated values, found too many in: " + value);
 		}
 		Class<? extends Loadable> cl;
 		if ("GLOBAL".equals(fileType))
@@ -72,8 +68,7 @@ public class FactSetDefToken extends
 			cl = StringPClassUtil.getClassFor(fileType);
 			if (cl == null)
 			{
-				throw new IllegalArgumentException(
-					"Invalid Data Definition Location (no class): " + fileType);
+				throw new IllegalArgumentException("Invalid Data Definition Location (no class): " + fileType);
 			}
 		}
 		def.setUsableLocation(cl);
@@ -94,19 +89,16 @@ public class FactSetDefToken extends
 			}
 			else
 			{
-				context
-					.addWriteMessage("Found FactDefinition with location but no name");
+				context.addWriteMessage("Found FactDefinition with location but no name");
 				return null;
 			}
 		}
 		else if (name == null)
 		{
-			context
-				.addWriteMessage("Found FactDefinition with name but no location");
+			context.addWriteMessage("Found FactDefinition with name but no location");
 			return null;
 		}
-		return new String[]{StringPClassUtil.getStringFor(cl) + Constants.PIPE
-			+ name};
+		return new String[]{StringPClassUtil.getStringFor(cl) + Constants.PIPE + name};
 	}
 
 	@Override

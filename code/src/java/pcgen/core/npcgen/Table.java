@@ -20,38 +20,38 @@ package pcgen.core.npcgen;
 import pcgen.base.util.WeightedCollection;
 import pcgen.cdom.base.Constants;
 
-public class Table 
+public class Table
 {
 	private final WeightedCollection<TableEntry> theData = new WeightedCollection<>();
-	
+
 	private final String theId;
 	private String theName = Constants.EMPTY_STRING;
 
-	public Table( final String anId )
+	public Table(final String anId)
 	{
 		theId = anId;
 	}
 
-	public void setName( final String aName )
+	public void setName(final String aName)
 	{
 		theName = aName;
 	}
-	
+
 	public String getId()
 	{
 		return theId;
 	}
-	
+
 	public TableEntry getEntry()
 	{
 		return theData.getRandomValue();
 	}
-	
-	public void add( final int aWeight, final TableEntry anEntry )
+
+	public void add(final int aWeight, final TableEntry anEntry)
 	{
 		theData.add(anEntry, aWeight);
 	}
-	
+
 	@Override
 	public String toString()
 	{

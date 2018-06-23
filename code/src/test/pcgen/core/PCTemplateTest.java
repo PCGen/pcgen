@@ -125,7 +125,8 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 				context,
 				null,
 				"Template1	ABILITY:TestCat|AUTOMATIC|Ability1	ABILITY:TestCat|AUTOMATIC|Ability2", source);
-		PCTemplate template = context.getReferenceContext().silentlyGetConstructedCDOMObject(PCTemplate.class, "Template1");
+		PCTemplate template =
+				context.getReferenceContext().silentlyGetConstructedCDOMObject(PCTemplate.class, "Template1");
 		context.getReferenceContext().importObject(ab1);
 		context.getReferenceContext().importObject(ab2);
 		CDOMSingleRef<AbilityCategory> acRef =
@@ -187,7 +188,8 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 					context,
 					null,
 				"Template1	ABILITY:FEAT|AUTOMATIC|Ability1	ABILITY:FEAT|AUTOMATIC|Ability2", source);
-		PCTemplate template = context.getReferenceContext().silentlyGetConstructedCDOMObject(PCTemplate.class, "Template1");
+		PCTemplate template =
+				context.getReferenceContext().silentlyGetConstructedCDOMObject(PCTemplate.class, "Template1");
 		context.getReferenceContext().importObject(ab1);
 		context.getReferenceContext().importObject(ab2);
 		CDOMSingleRef<AbilityCategory> acRef =
@@ -254,7 +256,8 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 					context,
 					null,
 				"Template1	LEVEL:2:ABILITY:TestCat|AUTOMATIC|Ability1	ABILITY:TestCat|AUTOMATIC|Ability2", source);
-		PCTemplate template = context.getReferenceContext().silentlyGetConstructedCDOMObject(PCTemplate.class, "Template1");
+		PCTemplate template =
+				context.getReferenceContext().silentlyGetConstructedCDOMObject(PCTemplate.class, "Template1");
 		context.getReferenceContext().importObject(ab1);
 		context.getReferenceContext().importObject(ab2);
 		CDOMSingleRef<AbilityCategory> acRef =
@@ -337,7 +340,8 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 					context,
 				null,
 				"Template1	LEVEL:2:ABILITY:Feat|AUTOMATIC|Ability1	ABILITY:Feat|AUTOMATIC|Ability2", source);
-		PCTemplate template = context.getReferenceContext().silentlyGetConstructedCDOMObject(PCTemplate.class, "Template1");
+		PCTemplate template =
+				context.getReferenceContext().silentlyGetConstructedCDOMObject(PCTemplate.class, "Template1");
 		context.getReferenceContext().importObject(ab1);
 		context.getReferenceContext().importObject(ab2);
 		CDOMSingleRef<AbilityCategory> acRef =

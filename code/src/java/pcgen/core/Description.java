@@ -48,36 +48,36 @@ public class Description extends ConcretePrereqObject
 {
 	private Collection<String> theComponents = new ArrayList<>();
 	private List<String> theVariables;
-	
+
 	private static final String VAR_NAME = "%NAME"; //$NON-NLS-1$
 	private static final String VAR_CHOICE = "%CHOICE"; //$NON-NLS-1$
 	private static final String VAR_LIST = "%LIST"; //$NON-NLS-1$
 	private static final String VAR_FEATS = "%FEAT="; //$NON-NLS-1$
-	
+
 	private static final String VAR_MARKER = "$$VAR:"; //$NON-NLS-1$
-	
+
 	/**
 	 * Default constructor.
 	 * 
 	 * @param aString The description string.
 	 */
-	public Description( final String aString )
+	public Description(final String aString)
 	{
 		int currentInd = 0;
 		int percentInd = -1;
-		while ( (percentInd = aString.indexOf('%', currentInd)) != -1 )
+		while ((percentInd = aString.indexOf('%', currentInd)) != -1)
 		{
 			final String preText = aString.substring(currentInd, percentInd);
 			if (!preText.isEmpty())
 			{
 				theComponents.add(preText);
 			}
-			if ( percentInd == aString.length() - 1)
+			if (percentInd == aString.length() - 1)
 			{
 				theComponents.add("%"); //$NON-NLS-1$
 				return;
 			}
-			if ( aString.charAt(percentInd + 1) == '{' )
+			if (aString.charAt(percentInd + 1) == '{')
 			{
 				// This is a bracketed placeholder.  The replacement parameter
 				// is contained within the {}
@@ -88,13 +88,14 @@ public class Description extends ConcretePrereqObject
 				{
 					Integer.parseInt(replacement);
 				}
-				catch (NumberFormatException nfe )
+				catch (NumberFormatException nfe)
 				{
-					Logging.errorPrintLocalised("Errors.Description.InvalidVariableReplacement", replacement); //$NON-NLS-1$
+					Logging.errorPrintLocalised(
+						"Errors.Description.InvalidVariableReplacement", replacement); //$NON-NLS-1$
 				}
 				theComponents.add(VAR_MARKER + replacement);
 			}
-			else if ( aString.charAt(percentInd + 1) == '%' )
+			else if (aString.charAt(percentInd + 1) == '%')
 			{
 				// This is an escape sequence so we can actually print a %
 				currentInd = percentInd + 2;
@@ -105,7 +106,7 @@ public class Description extends ConcretePrereqObject
 				// In this case we have an unbracketed placeholder.  We will
 				// walk the string until such time as we no longer have a number
 				currentInd = percentInd + 1;
-				while ( currentInd < aString.length() )
+				while (currentInd < aString.length())
 				{
 					final char val = aString.charAt(currentInd);
 					try
@@ -118,45 +119,41 @@ public class Description extends ConcretePrereqObject
 						break;
 					}
 				}
-				if ( currentInd > percentInd + 1 )
+				if (currentInd > percentInd + 1)
 				{
-					theComponents.add(VAR_MARKER + aString.substring(percentInd+1, currentInd));
+					theComponents.add(VAR_MARKER + aString.substring(percentInd + 1, currentInd));
 				}
 				else
 				{
 					// We broke out of the variable finding loop without finding
 					// even a single integer.  Assume we have a DESC field that
 					// is using a % unescaped.
-					theComponents.add(aString.substring(percentInd, percentInd+1));
+					theComponents.add(aString.substring(percentInd, percentInd + 1));
 					if (Logging.isLoggable(Logging.LST_WARNING))
 					{
-						Logging
-							.log(
-								Logging.LST_WARNING,
-								"The % without a number in the description '"
-									+ aString
-									+ "' should be either escaped e.g. %% or made into a parameter reference e.g. %1 .");
+						Logging.log(Logging.LST_WARNING, "The % without a number in the description '" + aString
+							+ "' should be either escaped e.g. %% or made into a parameter reference e.g. %1 .");
 					}
 				}
 			}
 		}
 		theComponents.add(aString.substring(currentInd));
 	}
-	
+
 	/**
 	 * Adds a variable to use in variable substitution.
 	 * 
 	 * @param aVariable
 	 */
-	public void addVariable( final String aVariable )
+	public void addVariable(final String aVariable)
 	{
-		if ( theVariables == null )
+		if (theVariables == null)
 		{
 			theVariables = new ArrayList<>();
 		}
-		theVariables.add( aVariable );
+		theVariables.add(aVariable);
 	}
-	
+
 	/**
 	 * Gets the description string after having tested all prereqs and 
 	 * substituting all variables.
@@ -165,7 +162,7 @@ public class Description extends ConcretePrereqObject
 	 * 
 	 * @return The fully substituted description string.
 	 */
-	public String getDescription( final PlayerCharacter aPC, List<? extends Object> objList )
+	public String getDescription(final PlayerCharacter aPC, List<? extends Object> objList)
 	{
 		if (objList.isEmpty())
 		{
@@ -183,33 +180,31 @@ public class Description extends ConcretePrereqObject
 		}
 		else
 		{
-			Logging
-				.errorPrint("Unable to resolve Description with object of type: "
-					+ b.getClass().getName());
+			Logging.errorPrint("Unable to resolve Description with object of type: " + b.getClass().getName());
 			return Constants.EMPTY_STRING;
 		}
-		
+
 		final StringBuilder buf = new StringBuilder(250);
 		if (this.qualifies(aPC, sampleObject))
 		{
-			for ( final String comp : theComponents )
+			for (final String comp : theComponents)
 			{
-				if ( comp.startsWith(VAR_MARKER) )
+				if (comp.startsWith(VAR_MARKER))
 				{
 					final int ind = Integer.parseInt(comp.substring(VAR_MARKER.length()));
-					if ( theVariables == null || ind > theVariables.size() )
+					if (theVariables == null || ind > theVariables.size())
 					{
 						continue;
 					}
 					final String var = theVariables.get(ind - 1);
-					if ( var.equals(VAR_NAME) )
+					if (var.equals(VAR_NAME))
 					{
-						if ( sampleObject != null )
+						if (sampleObject != null)
 						{
 							buf.append(sampleObject.getOutputName());
 						}
 					}
-					else if ( var.equals(VAR_CHOICE) )
+					else if (var.equals(VAR_CHOICE))
 					{
 						if (b instanceof ChooseDriver)
 						{
@@ -222,17 +217,13 @@ public class Description extends ConcretePrereqObject
 						}
 						else
 						{
-							Logging
-								.errorPrint("In Description resolution, "
-									+ "Ignoring object of type: "
-									+ b.getClass().getName()
-									+ " because "
-									+ VAR_CHOICE
-									+ " was requested but the object does not support CHOOSE");
+							Logging.errorPrint("In Description resolution, " + "Ignoring object of type: "
+								+ b.getClass().getName() + " because " + VAR_CHOICE
+								+ " was requested but the object does not support CHOOSE");
 							continue;
 						}
 					}
-					else if ( var.equals(VAR_LIST) )
+					else if (var.equals(VAR_LIST))
 					{
 						List<String> assocList = new ArrayList<>();
 						for (Object obj : objList)
@@ -247,13 +238,9 @@ public class Description extends ConcretePrereqObject
 							}
 							else
 							{
-								Logging
-									.errorPrint("In Description resolution, "
-										+ "Ignoring object of type: "
-										+ b.getClass().getName()
-										+ " because "
-										+ VAR_CHOICE
-										+ " was requested but the object does not support CHOOSE");
+								Logging.errorPrint("In Description resolution, " + "Ignoring object of type: "
+									+ b.getClass().getName() + " because " + VAR_CHOICE
+									+ " was requested but the object does not support CHOOSE");
 								continue;
 							}
 						}
@@ -267,10 +254,9 @@ public class Description extends ConcretePrereqObject
 							joinString = ", ";
 						}
 						Collections.sort(assocList);
-						buf.append(StringUtil.joinToStringBuilder(assocList,
-							joinString));
+						buf.append(StringUtil.joinToStringBuilder(assocList, joinString));
 					}
-					else if ( var.startsWith(VAR_FEATS) )
+					else if (var.startsWith(VAR_FEATS))
 					{
 						final String featName = var.substring(VAR_FEATS.length());
 						List<CNAbility> feats;
@@ -281,18 +267,15 @@ public class Description extends ConcretePrereqObject
 						else
 						{
 							Ability feat = Globals.getContext().getReferenceContext()
-								.getManufacturerId(AbilityCategory.FEAT)
-								.getActiveObject(featName);
+								.getManufacturerId(AbilityCategory.FEAT).getActiveObject(featName);
 							if (feat == null)
 							{
-								Logging
-									.errorPrint("Found invalid Feat reference in Description: "
-										+ featName);
+								Logging.errorPrint("Found invalid Feat reference in Description: " + featName);
 							}
 							feats = aPC.getMatchingCNAbilities(feat);
 						}
 						boolean needSpace = false;
-						for ( final CNAbility cna : feats )
+						for (final CNAbility cna : feats)
 						{
 							if (cna.getAbility().isType(featName.substring(5)))
 							{
@@ -305,7 +288,7 @@ public class Description extends ConcretePrereqObject
 							}
 						}
 					}
-					else if ( var.startsWith("\"") ) //$NON-NLS-1$
+					else if (var.startsWith("\"")) //$NON-NLS-1$
 					{
 						buf.append(var.substring(1, var.length() - 1));
 					}
@@ -322,7 +305,7 @@ public class Description extends ConcretePrereqObject
 		}
 		return buf.toString();
 	}
-	
+
 	/**
 	 * Gets the Description tag in PCC format.
 	 * 
@@ -332,10 +315,10 @@ public class Description extends ConcretePrereqObject
 	public String getPCCText()
 	{
 		final StringBuilder buf = new StringBuilder(250);
-		
-		for ( final String str : theComponents )
+
+		for (final String str : theComponents)
 		{
-			if ( str.startsWith(VAR_MARKER) )
+			if (str.startsWith(VAR_MARKER))
 			{
 				final int ind = Integer.parseInt(str.substring(VAR_MARKER.length()));
 				buf.append('%' + String.valueOf(ind));
@@ -350,36 +333,34 @@ public class Description extends ConcretePrereqObject
 				buf.append(EntityEncoder.encodeLight(str));
 			}
 		}
-		if ( theVariables != null )
+		if (theVariables != null)
 		{
-			for ( final String var : theVariables )
+			for (final String var : theVariables)
 			{
 				buf.append(Constants.PIPE);
 				buf.append(var);
 			}
 		}
-		
+
 		if (hasPrerequisites())
 		{
 			buf.append(Constants.PIPE);
-			buf.append(new PrerequisiteWriter().getPrerequisiteString(
-					getPrerequisiteList(), Constants.PIPE));
+			buf.append(new PrerequisiteWriter().getPrerequisiteString(getPrerequisiteList(), Constants.PIPE));
 		}
 		return buf.toString();
 	}
-	
+
 	@Override
 	public String toString()
 	{
 		return getPCCText();
 	}
 
-
 	@Override
 	public int hashCode()
 	{
-		return theComponents.size() + 7 * getPrerequisiteCount() + 31
-			* (theVariables == null ? 0 : theVariables.size());
+		return theComponents.size() + 7 * getPrerequisiteCount()
+			+ 31 * (theVariables == null ? 0 : theVariables.size());
 	}
 
 	@Override
@@ -402,8 +383,7 @@ public class Description extends ConcretePrereqObject
 			}
 		}
 		return theComponents.equals(other.theComponents)
-			&& (theVariables == null || theVariables.equals(other.theVariables))
-			&& equalsPrereqObject(other);
+			&& (theVariables == null || theVariables.equals(other.theVariables)) && equalsPrereqObject(other);
 	}
 
 }

@@ -25,9 +25,7 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.core.prereq.PrerequisiteTest;
 
-
-public class PreGenderTester extends AbstractDisplayPrereqTest implements
-		PrerequisiteTest
+public class PreGenderTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
 	@Override
@@ -50,7 +48,7 @@ public class PreGenderTester extends AbstractDisplayPrereqTest implements
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "GENDER"; //$NON-NLS-1$

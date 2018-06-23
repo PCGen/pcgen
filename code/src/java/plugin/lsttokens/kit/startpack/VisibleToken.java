@@ -29,8 +29,7 @@ import pcgen.util.enumeration.Visibility;
 /**
  * VISIBLE token for KitsStartpack
  */
-public class VisibleToken extends AbstractNonEmptyToken<Kit> implements
-		CDOMPrimaryToken<Kit>
+public class VisibleToken extends AbstractNonEmptyToken<Kit> implements CDOMPrimaryToken<Kit>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -50,8 +49,7 @@ public class VisibleToken extends AbstractNonEmptyToken<Kit> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, Kit kit,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, Kit kit, String value)
 	{
 		Visibility vis;
 		if (value.equals("QUALIFY"))
@@ -97,8 +95,7 @@ public class VisibleToken extends AbstractNonEmptyToken<Kit> implements
 		}
 		else
 		{
-			context.addWriteMessage("Visibility " + vis
-				+ " is not a valid Visibility for a Kit");
+			context.addWriteMessage("Visibility " + vis + " is not a valid Visibility for a Kit");
 			return null;
 		}
 		return new String[]{visString};

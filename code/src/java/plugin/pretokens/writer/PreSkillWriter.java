@@ -18,35 +18,32 @@
  */
 package plugin.pretokens.writer;
 
+import java.io.IOException;
+import java.io.Writer;
+
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.AbstractPrerequisiteWriter;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 
-import java.io.IOException;
-import java.io.Writer;
-
-public class PreSkillWriter extends AbstractPrerequisiteWriter implements
-		PrerequisiteWriterInterface
+public class PreSkillWriter extends AbstractPrerequisiteWriter implements PrerequisiteWriterInterface
 {
 
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "skill";
 	}
 
-    @Override
+	@Override
 	public PrerequisiteOperator[] operatorsHandled()
 	{
-		return new PrerequisiteOperator[]{PrerequisiteOperator.GTEQ,
-			PrerequisiteOperator.LT};
+		return new PrerequisiteOperator[]{PrerequisiteOperator.GTEQ, PrerequisiteOperator.LT};
 	}
 
-    @Override
-	public void write(Writer writer, Prerequisite prereq)
-		throws PersistenceLayerException
+	@Override
+	public void write(Writer writer, Prerequisite prereq) throws PersistenceLayerException
 	{
 		checkValidOperator(prereq, operatorsHandled());
 
@@ -59,11 +56,11 @@ public class PreSkillWriter extends AbstractPrerequisiteWriter implements
 
 			if (prereq.isTotalValues())
 			{
-				writer.write("PRESKILLTOT:" + (prereq.isOverrideQualify() ? "Q:":"") + "1,");
+				writer.write("PRESKILLTOT:" + (prereq.isOverrideQualify() ? "Q:" : "") + "1,");
 			}
 			else
 			{
-				writer.write("PRESKILL:" + (prereq.isOverrideQualify() ? "Q:":"") + "1,");
+				writer.write("PRESKILL:" + (prereq.isOverrideQualify() ? "Q:" : "") + "1,");
 			}
 			writer.write(prereq.getKey());
 			if (prereq.getSubKey() != null)
@@ -82,8 +79,7 @@ public class PreSkillWriter extends AbstractPrerequisiteWriter implements
 	}
 
 	@Override
-	public boolean specialCase(Writer writer, Prerequisite prereq)
-			throws IOException
+	public boolean specialCase(Writer writer, Prerequisite prereq) throws IOException
 	{
 		PrerequisiteOperator po = getConsolidateMethod(kindHandled(), prereq, true);
 		if (po == null)
@@ -95,10 +91,8 @@ public class PreSkillWriter extends AbstractPrerequisiteWriter implements
 			writer.write('!');
 		}
 
-		writer.write("PRE" + kindHandled().toUpperCase() + ':'
-				+ (prereq.isOverrideQualify() ? "Q:" : ""));
-		writer.write(po.equals(PrerequisiteOperator.GTEQ) ? prereq.getOperand()
-				: "1");
+		writer.write("PRE" + kindHandled().toUpperCase() + ':' + (prereq.isOverrideQualify() ? "Q:" : ""));
+		writer.write(po.equals(PrerequisiteOperator.GTEQ) ? prereq.getOperand() : "1");
 		for (Prerequisite p : prereq.getPrerequisites())
 		{
 			writer.write(',');

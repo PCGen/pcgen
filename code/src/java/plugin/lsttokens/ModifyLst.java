@@ -45,8 +45,8 @@ import pcgen.rules.persistence.token.ParseResult;
  * The MODIFY token defined by ModifyLst defines a calculation to be performed in the
  * (new) formula system.
  */
-public class ModifyLst extends AbstractTokenWithSeparator<VarHolder> implements
-		CDOMInterfaceToken<VarContainer, VarHolder>, CDOMPrimaryToken<VarHolder>
+public class ModifyLst extends AbstractTokenWithSeparator<VarHolder>
+		implements CDOMInterfaceToken<VarContainer, VarHolder>, CDOMPrimaryToken<VarHolder>
 {
 
 	@Override
@@ -62,20 +62,17 @@ public class ModifyLst extends AbstractTokenWithSeparator<VarHolder> implements
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		VarHolder obj, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, VarHolder obj, String value)
 	{
 		//TODO These instanceof checks will fail - the VarHolder is a proxy :(
 		if (obj instanceof Ungranted)
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " may not be used in Ungranted objects.");
+			return new ParseResult.Fail(getTokenName() + " may not be used in Ungranted objects.");
 		}
 		if (obj instanceof Campaign)
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " may not be used in Campaign Files.  "
-				+ "Please use the Global Modifier file");
+			return new ParseResult.Fail(
+				getTokenName() + " may not be used in Campaign Files.  " + "Please use the Global Modifier file");
 		}
 		ParsingSeparator sep = new ParsingSeparator(value, '|');
 		sep.addGroupingPair('[', ']');
@@ -91,54 +88,45 @@ public class ModifyLst extends AbstractTokenWithSeparator<VarHolder> implements
 		if (!context.getVariableContext().isLegalVariableID(scope, varName))
 		{
 			return new ParseResult.Fail(
-				getTokenName() + " found invalid var name: " + varName
-					+ "(scope: " + scope.getName() + ")");
+				getTokenName() + " found invalid var name: " + varName + "(scope: " + scope.getName() + ")");
 		}
 		if (!sep.hasNext())
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " needed 2nd argument: " + value);
+			return new ParseResult.Fail(getTokenName() + " needed 2nd argument: " + value);
 		}
 		String modIdentification = sep.next();
 		if (!sep.hasNext())
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " needed third argument: " + value);
+			return new ParseResult.Fail(getTokenName() + " needed third argument: " + value);
 		}
 		String modInstructions = sep.next();
 		FormulaModifier<?> modifier;
 		try
 		{
-			FormatManager<?> format = context.getVariableContext()
-				.getVariableFormat(scope, varName);
-			modifier = context.getVariableContext().getModifier(
-				modIdentification, modInstructions, scope, format);
+			FormatManager<?> format = context.getVariableContext().getVariableFormat(scope, varName);
+			modifier = context.getVariableContext().getModifier(modIdentification, modInstructions, scope, format);
 		}
 		catch (IllegalArgumentException iae)
 		{
-			return new ParseResult.Fail(getTokenName() + " Modifier "
-				+ modIdentification + " had value " + modInstructions
-				+ " but it was not valid: " + iae.getMessage());
+			return new ParseResult.Fail(getTokenName() + " Modifier " + modIdentification + " had value "
+				+ modInstructions + " but it was not valid: " + iae.getMessage());
 		}
-		Set<Object> associationsVisited =
-				Collections.newSetFromMap(new CaseInsensitiveMap<>());
+		Set<Object> associationsVisited = Collections.newSetFromMap(new CaseInsensitiveMap<>());
 		while (sep.hasNext())
 		{
 			String assoc = sep.next();
 			int equalLoc = assoc.indexOf('=');
 			if (equalLoc == -1)
 			{
-				return new ParseResult.Fail(getTokenName()
-					+ " was expecting = in an ASSOCIATION but got " + assoc
-					+ " in " + value);
+				return new ParseResult.Fail(
+					getTokenName() + " was expecting = in an ASSOCIATION but got " + assoc + " in " + value);
 			}
 			String assocName = assoc.substring(0, equalLoc);
 			if (associationsVisited.contains(assocName))
 			{
 				return new ParseResult.Fail(
-					getTokenName()
-						+ " does not allow multiple asspociations with the same name.  "
-						+ "Found multiple: " + assocName + " in " + value);
+					getTokenName() + " does not allow multiple asspociations with the same name.  " + "Found multiple: "
+						+ assocName + " in " + value);
 			}
 			associationsVisited.add(assocName);
 			modifier.addAssociation(assoc);

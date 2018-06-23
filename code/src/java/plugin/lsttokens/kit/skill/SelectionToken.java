@@ -36,8 +36,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * 
  * 
  */
-public class SelectionToken extends AbstractTokenWithSeparator<KitSkill>
-		implements CDOMPrimaryToken<KitSkill>
+public class SelectionToken extends AbstractTokenWithSeparator<KitSkill> implements CDOMPrimaryToken<KitSkill>
 {
 
 	private static final Class<Language> LANGUAGE_CLASS = Language.class;
@@ -72,8 +71,7 @@ public class SelectionToken extends AbstractTokenWithSeparator<KitSkill>
 
 		while (tok.hasMoreTokens())
 		{
-			kitSkill.addSelection(context.getReferenceContext().getCDOMReference(LANGUAGE_CLASS,
-				tok.nextToken()));
+			kitSkill.addSelection(context.getReferenceContext().getCDOMReference(LANGUAGE_CLASS, tok.nextToken()));
 		}
 		return ParseResult.SUCCESS;
 	}
@@ -86,8 +84,7 @@ public class SelectionToken extends AbstractTokenWithSeparator<KitSkill>
 		{
 			return null;
 		}
-		return new String[]{ReferenceUtilities.joinLstFormat(ref,
-			Constants.COMMA)};
+		return new String[]{ReferenceUtilities.joinLstFormat(ref, Constants.COMMA)};
 	}
 
 	//TODO DeferredToken - check this?

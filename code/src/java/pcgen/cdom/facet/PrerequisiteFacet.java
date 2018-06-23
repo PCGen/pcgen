@@ -30,8 +30,8 @@ import pcgen.core.PlayerCharacter;
  */
 public class PrerequisiteFacet
 {
-	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
-			.getFacet(PlayerCharacterTrackingFacet.class);
+	private final PlayerCharacterTrackingFacet trackingFacet =
+			FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
 
 	/**
 	 * Returns true if the Player Character identified by the given CharID

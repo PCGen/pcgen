@@ -49,8 +49,7 @@ public final class Skill extends BonusObj
 			}
 		}
 
-		if (token.startsWith("STAT=")
-			|| token.startsWith(Constants.LST_TYPE_EQUAL))
+		if (token.startsWith("STAT=") || token.startsWith(Constants.LST_TYPE_EQUAL))
 		{
 			addBonusInfo(token.replace('=', '.'));
 		}
@@ -59,9 +58,8 @@ public final class Skill extends BonusObj
 			addBonusInfo(token);
 		}
 
-		if (!token.equals("LIST") && !token.startsWith("STAT.")
-			&& !token.equals("%CHOICE") && !token.startsWith("STAT=")
-			&& !token.equals("%LIST") && !token.equals("%VAR") 
+		if (!token.equals("LIST") && !token.startsWith("STAT.") && !token.equals("%CHOICE")
+			&& !token.startsWith("STAT=") && !token.equals("%LIST") && !token.equals("%VAR")
 			&& !token.equals("TYPE=%LIST"))
 		{
 			//This is done entirely for the side effects

@@ -29,10 +29,8 @@ import pcgen.cdom.enumeration.AssociationListKey;
 public class AssociationSupport implements Cloneable
 {
 
-	private DoubleKeyMapToList assocMTL = new DoubleKeyMapToList(
-			IdentityHashMap.class, IdentityHashMap.class);
-	private DoubleKeyMap assocMap = new DoubleKeyMap(IdentityHashMap.class,
-			IdentityHashMap.class);
+	private DoubleKeyMapToList assocMTL = new DoubleKeyMapToList(IdentityHashMap.class, IdentityHashMap.class);
+	private DoubleKeyMap assocMap = new DoubleKeyMap(IdentityHashMap.class, IdentityHashMap.class);
 
 	public <T> void addAssoc(Object obj, AssociationListKey<T> ak, T o)
 	{
@@ -89,7 +87,7 @@ public class AssociationSupport implements Cloneable
 		return (T) assocMap.get(obj, ak);
 	}
 
-    @Override
+	@Override
 	public AssociationSupport clone() throws CloneNotSupportedException
 	{
 		AssociationSupport as = (AssociationSupport) super.clone();
@@ -106,8 +104,7 @@ public class AssociationSupport implements Cloneable
 		}
 		for (Object secKey : assocMTL.getSecondaryKeySet(oldTarget))
 		{
-			assocMTL.addAllToListFor(newTarget, secKey, assocMTL.removeListFor(
-					oldTarget, secKey));
+			assocMTL.addAllToListFor(newTarget, secKey, assocMTL.removeListFor(oldTarget, secKey));
 		}
 	}
 

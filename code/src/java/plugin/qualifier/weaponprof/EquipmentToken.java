@@ -41,8 +41,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.QualifierToken;
 import pcgen.util.Logging;
 
-public class EquipmentToken implements QualifierToken<WeaponProf>,
-		Converter<Equipment, CDOMReference<WeaponProf>>
+public class EquipmentToken implements QualifierToken<WeaponProf>, Converter<Equipment, CDOMReference<WeaponProf>>
 {
 	private static final Type WEAPON_TYPE = Type.getConstant("Weapon");
 
@@ -75,26 +74,22 @@ public class EquipmentToken implements QualifierToken<WeaponProf>,
 	}
 
 	@Override
-	public boolean initialize(LoadContext context,
-			SelectionCreator<WeaponProf> sc, String condition, String value,
-			boolean negate)
+	public boolean initialize(LoadContext context, SelectionCreator<WeaponProf> sc, String condition, String value,
+		boolean negate)
 	{
 		if (negate)
 		{
-			Logging.addParseMessage(Level.SEVERE, "Cannot make "
-					+ getTokenName()
-					+ " into a negated Qualifier, remove !");
+			Logging.addParseMessage(Level.SEVERE,
+				"Cannot make " + getTokenName() + " into a negated Qualifier, remove !");
 			return false;
 		}
 		if (condition != null)
 		{
-			Logging.addParseMessage(Level.SEVERE, "Cannot make "
-					+ getTokenName()
-					+ " into a conditional Qualifier, remove =");
+			Logging.addParseMessage(Level.SEVERE,
+				"Cannot make " + getTokenName() + " into a conditional Qualifier, remove =");
 			return false;
 		}
-		ReferenceManufacturer<Equipment> erm = context.getReferenceContext()
-				.getManufacturer(Equipment.class);
+		ReferenceManufacturer<Equipment> erm = context.getReferenceContext().getManufacturer(Equipment.class);
 		if (value == null)
 		{
 			pcs = erm.getAllReference();
@@ -131,18 +126,14 @@ public class EquipmentToken implements QualifierToken<WeaponProf>,
 	@Override
 	public GroupingState getGroupingState()
 	{
-		return (pcs == null) ? GroupingState.ANY : pcs.getGroupingState()
-			.reduce();
+		return (pcs == null) ? GroupingState.ANY : pcs.getGroupingState().reduce();
 	}
 
-
 	@Override
-	public <R> Collection<R> getCollection(PlayerCharacter pc,
-			Converter<WeaponProf, R> c)
+	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<WeaponProf, R> c)
 	{
 		Set<R> returnSet = new HashSet<>();
-		Collection<? extends ObjectContainer<WeaponProf>> intermediate =
-				pcs.getCollection(pc, this);
+		Collection<? extends ObjectContainer<WeaponProf>> intermediate = pcs.getCollection(pc, this);
 		for (ObjectContainer<WeaponProf> ref : intermediate)
 		{
 			returnSet.addAll(c.convert(ref));
@@ -151,8 +142,7 @@ public class EquipmentToken implements QualifierToken<WeaponProf>,
 	}
 
 	@Override
-	public Collection<CDOMReference<WeaponProf>> convert(
-			ObjectContainer<Equipment> orig)
+	public Collection<CDOMReference<WeaponProf>> convert(ObjectContainer<Equipment> orig)
 	{
 		Set<CDOMReference<WeaponProf>> refSet = new HashSet<>();
 		for (Equipment e : orig.getContainedObjects())
@@ -170,10 +160,9 @@ public class EquipmentToken implements QualifierToken<WeaponProf>,
 	}
 
 	@Override
-	public Collection<CDOMReference<WeaponProf>> convert(
-			ObjectContainer<Equipment> orig, PrimitiveFilter<Equipment> lim)
+	public Collection<CDOMReference<WeaponProf>> convert(ObjectContainer<Equipment> orig,
+		PrimitiveFilter<Equipment> lim)
 	{
-		throw new UnsupportedOperationException(
-				"Only EquipmentToken should call itself as a Converter");
+		throw new UnsupportedOperationException("Only EquipmentToken should call itself as a Converter");
 	}
 }

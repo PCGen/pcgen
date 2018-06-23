@@ -22,8 +22,7 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractScopeFacetConsolidator;
 import pcgen.cdom.inst.Dynamic;
 
-public class DynamicConsolidationFacet extends
-		AbstractScopeFacetConsolidator<CharID, Category<Dynamic>, Dynamic>
+public class DynamicConsolidationFacet extends AbstractScopeFacetConsolidator<CharID, Category<Dynamic>, Dynamic>
 {
 
 }

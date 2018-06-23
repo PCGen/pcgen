@@ -11,13 +11,13 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class PointpoolnameToken implements GameModeLstToken
 {
 
-    @Override
+	@Override
 	public String getTokenName()
 	{
 		return "POINTPOOLNAME";
 	}
 
-    @Override
+	@Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		gameMode.setPointPoolName(value.replace('|', '\n'));

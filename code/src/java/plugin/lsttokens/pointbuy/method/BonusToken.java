@@ -34,8 +34,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * {@code BonusToken}
  * 
  */
-public class BonusToken extends AbstractNonEmptyToken<PointBuyMethod> implements
-		CDOMPrimaryToken<PointBuyMethod>
+public class BonusToken extends AbstractNonEmptyToken<PointBuyMethod> implements CDOMPrimaryToken<PointBuyMethod>
 {
 
 	@Override
@@ -45,14 +44,12 @@ public class BonusToken extends AbstractNonEmptyToken<PointBuyMethod> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-			PointBuyMethod pbm, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, PointBuyMethod pbm, String value)
 	{
 		BonusObj bon = Bonus.newBonus(context, value);
 		if (bon == null)
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " was given invalid bonus: " + value);
+			return new ParseResult.Fail(getTokenName() + " was given invalid bonus: " + value);
 		}
 		bon.setTokenSource(getTokenName());
 		pbm.addBonus(bon);

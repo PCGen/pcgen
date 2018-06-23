@@ -41,25 +41,22 @@ public class BasestatscoreToken implements CDOMPrimaryToken<BonusSpellInfo>
 	}
 
 	@Override
-	public ParseResult parseToken(LoadContext context, BonusSpellInfo bsi,
-			String value)
+	public ParseResult parseToken(LoadContext context, BonusSpellInfo bsi, String value)
 	{
 		try
 		{
 			int intValue = Integer.valueOf(value).intValue();
 			if (intValue < 1)
 			{
-				return new ParseResult.Fail(getTokenName()
-						+ " must be an integer >= " + 1);
+				return new ParseResult.Fail(getTokenName() + " must be an integer >= " + 1);
 			}
 			bsi.setStatScore(intValue);
 			return ParseResult.SUCCESS;
 		}
 		catch (NumberFormatException nfe)
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " expected an integer.  Tag must be of the form: "
-					+ getTokenName() + ":<int>");
+			return new ParseResult.Fail(
+				getTokenName() + " expected an integer.  Tag must be of the form: " + getTokenName() + ":<int>");
 		}
 	}
 
@@ -71,7 +68,7 @@ public class BasestatscoreToken implements CDOMPrimaryToken<BonusSpellInfo>
 		{
 			return null;
 		}
-		return new String[] { String.valueOf(range) };
+		return new String[]{String.valueOf(range)};
 	}
 
 }

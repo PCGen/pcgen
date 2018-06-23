@@ -37,15 +37,14 @@ public final class RaceUtilities
 	 */
 	public static Race getUnselectedRace()
 	{
-		for (Race race : Globals.getContext().getReferenceContext()
-			.getConstructedCDOMObjects(Race.class))
+		for (Race race : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Race.class))
 		{
 			if (race.isUnselected())
 			{
 				return race;
 			}
 		}
-	
+
 		return null;
 	}
 }

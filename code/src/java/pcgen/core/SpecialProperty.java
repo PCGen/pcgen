@@ -58,8 +58,7 @@ public final class SpecialProperty extends TextProperty
 		String spName = tok.nextToken();
 		if (PreParserFactory.isPreReqString(spName))
 		{
-			Logging.errorPrint("Leading PRExxx found in SPROP: "
-					+ input);
+			Logging.errorPrint("Leading PRExxx found in SPROP: " + input);
 			return null;
 		}
 
@@ -92,8 +91,7 @@ public final class SpecialProperty extends TextProperty
 				if (hitPre && !warnedPre)
 				{
 					warnedPre = true;
-					Logging.deprecationPrint("Found PRExxx in middle of"
-							+ "SPROP value: " + input);
+					Logging.deprecationPrint("Found PRExxx in middle of" + "SPROP value: " + input);
 					Logging.deprecationPrint("PRExxx should be at the end");
 				}
 				sb.append(Constants.PIPE);
@@ -102,8 +100,7 @@ public final class SpecialProperty extends TextProperty
 
 			if (Constants.LST_DOT_CLEAR.equals(cString))
 			{
-				Logging.errorPrint("Invalid/Embedded .CLEAR found in SPROP: "
-					+ input);
+				Logging.errorPrint("Invalid/Embedded .CLEAR found in SPROP: " + input);
 				return null;
 			}
 		}

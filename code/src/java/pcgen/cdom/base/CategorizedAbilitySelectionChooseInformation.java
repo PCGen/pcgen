@@ -26,8 +26,7 @@ import pcgen.core.AbilityCategory;
  * 
  * 
  */
-public class CategorizedAbilitySelectionChooseInformation extends
-		BasicChooseInformation<AbilitySelection>
+public class CategorizedAbilitySelectionChooseInformation extends BasicChooseInformation<AbilitySelection>
 {
 
 	private CollectionToAbilitySelection casChoiceSet;
@@ -43,13 +42,12 @@ public class CategorizedAbilitySelectionChooseInformation extends
 	 * @throws IllegalArgumentException
 	 *             if the given name or PrimitiveChoiceSet is null
 	 */
-	public CategorizedAbilitySelectionChooseInformation(String name,
-		CollectionToAbilitySelection choice)
+	public CategorizedAbilitySelectionChooseInformation(String name, CollectionToAbilitySelection choice)
 	{
 		super(name, choice, choice.getCategory().getPersistentFormat());
 		this.casChoiceSet = choice;
 	}
-	
+
 	/**
 	 * @return The ability category of the choices. 
 	 */

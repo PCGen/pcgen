@@ -21,13 +21,13 @@ import java.util.Collection;
 import java.util.StringJoiner;
 import java.util.stream.Collectors;
 
+import org.apache.commons.collections4.CollectionUtils;
+import org.jetbrains.annotations.NotNull;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Vision;
-
-import org.apache.commons.collections4.CollectionUtils;
-import org.jetbrains.annotations.NotNull;
 
 public final class VisionDisplay
 {
@@ -45,21 +45,16 @@ public final class VisionDisplay
 		Collection<CDOMReference<Vision>> mods = CollectionUtils.emptyIfNull(cdo.getListMods(Vision.VISIONLIST));
 
 		StringJoiner visionString = new StringJoiner(";");
-		mods.stream()
-		    .flatMap(ref -> ref.getContainedObjects().stream())
-		    .map(v -> v.toString(aPC))
-		    .forEach(visionString::add);
-	
+		mods.stream().flatMap(ref -> ref.getContainedObjects().stream()).map(v -> v.toString(aPC))
+			.forEach(visionString::add);
+
 		return visionString.toString();
 	}
 
 	@NotNull
 	public static String getVision(CharacterDisplay display)
 	{
-		return display.getVisionList()
-		              .stream()
-		              .map(Vision::toString)
-		              .collect(Collectors.joining(", "));
+		return display.getVisionList().stream().map(Vision::toString).collect(Collectors.joining(", "));
 
 	}
 

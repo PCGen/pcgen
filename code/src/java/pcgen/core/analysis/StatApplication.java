@@ -49,8 +49,7 @@ public final class StatApplication
 	// are calculated, so an increase to the appropriate stat can give more
 	// skill points
 	//
-	public static int askForStatIncrease(final PlayerCharacter aPC,
-	                                     final int statsToChoose, final boolean isPre)
+	public static int askForStatIncrease(final PlayerCharacter aPC, final int statsToChoose, final boolean isPre)
 	{
 		//
 		// If 1st time here (checks for preincrement), then will only ask if
@@ -70,13 +69,13 @@ public final class StatApplication
 				return statsToChoose;
 			}
 		}
-	
+
 		String titleKey = "in_statTitle";
 		if (isPre && !Globals.checkRule(RuleConstants.RETROSKILL))
 		{
 			titleKey = "in_statTitleWithSkill";
 		}
-	
+
 		int iCount = 0;
 		Set<PCStat> statsAlreadyBonused = new HashSet<>();
 		boolean allowStacks = SettingsHandler.getGame().isBonusStatAllowsStack();
@@ -85,25 +84,21 @@ public final class StatApplication
 		for (int ix = 0; ix < statsToChoose; ++ix)
 		{
 			final List<String> selectableStats = new ArrayList<>();
-	
+
 			for (PCStat aStat : aPC.getDisplay().getStatSet())
 			{
 				final StringBuilder sStats = new StringBuilder(100);
-				final int iAdjStat =
-						aPC.getTotalStatFor(aStat);
-				final int iCurStat =
-						aPC.getBaseStatFor(aStat);
+				final int iAdjStat = aPC.getTotalStatFor(aStat);
+				final int iCurStat = aPC.getBaseStatFor(aStat);
 				sStats.append(aStat.getDisplayName()).append(":  ").append(iCurStat);
-	
+
 				if (iCurStat != iAdjStat)
 				{
 					sStats.append(" adjusted: ").append(iAdjStat);
 				}
-	
-				sStats.append(" (").append(formatter.format(
-					aPC.getStatModFor(aStat))).append(
-					")");
-	
+
+				sStats.append(" (").append(formatter.format(aPC.getStatModFor(aStat))).append(")");
+
 				if (allowStacks || !statsAlreadyBonused.contains(aStat))
 				{
 					selectableStats.add(sStats.toString());
@@ -114,18 +109,16 @@ public final class StatApplication
 					selectableStats.add(sStats.toString());
 				}
 			}
-	
-			CDOMChooserFacadeImpl<String> chooserFacade =
-                    new CDOMChooserFacadeImpl<>(
-                            LanguageBundle.getString(titleKey), selectableStats, //$NON-NLS-1$
-                            new ArrayList<>(), 1);
+
+			CDOMChooserFacadeImpl<String> chooserFacade = new CDOMChooserFacadeImpl<>(
+				LanguageBundle.getString(titleKey), selectableStats, new ArrayList<>(), 1);
 			chooserFacade.setDefaultView(ChooserTreeViewType.NAME);
 			chooserFacade.setPreferRadioSelection(true);
 			chooserFacade.setInfoFactory(new Gui2InfoFactory(aPC));
 			ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);
 			final List<String> selectedValues = chooserFacade.getFinalSelected();
 			final String selectedValue = selectedValues.isEmpty() ? null : selectedValues.get(0);
-			
+
 			if (selectedValue != null)
 			{
 				for (PCStat aStat : aPC.getStatSet())
@@ -137,13 +130,13 @@ public final class StatApplication
 						aPC.setPoolAmount(aPC.getPoolAmount() - 1);
 						statsAlreadyBonused.add(aStat);
 						++iCount;
-	
+
 						break;
 					}
 				}
 			}
 		}
-	
+
 		return statsToChoose - iCount;
 	}
 

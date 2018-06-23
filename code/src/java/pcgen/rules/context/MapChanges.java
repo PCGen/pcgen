@@ -21,7 +21,6 @@ package pcgen.rules.context;
 
 import java.util.Map;
 
-
 /**
  * The Class {@code MapChanges} is responsible for tracking changes to
  * a map so that the changes can be committed or rolled back at a later 
@@ -43,8 +42,7 @@ public class MapChanges<K, V>
 	 * @param removed the map of items removed
 	 * @param globallyCleared has the map been cleared
 	 */
-	public MapChanges(Map<K, V> added, Map<K, V> removed,
-		boolean globallyCleared)
+	public MapChanges(Map<K, V> added, Map<K, V> removed, boolean globallyCleared)
 	{
 		positive = added;
 		negative = removed;

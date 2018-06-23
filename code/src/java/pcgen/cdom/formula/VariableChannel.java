@@ -34,8 +34,7 @@ import pcgen.facade.util.event.ReferenceListener;
  * @param <T>
  *            The Format of the information contained in this VariableChannel
  */
-public final class VariableChannel<T> implements VariableListener<T>,
-		WriteableReferenceFacade<T>
+public final class VariableChannel<T> implements VariableListener<T>, WriteableReferenceFacade<T>
 {
 
 	/**
@@ -76,8 +75,7 @@ public final class VariableChannel<T> implements VariableListener<T>,
 	 *            The VariableID indicating to which Variable this
 	 *            VariableChannel is providing an interface
 	 */
-	public VariableChannel(SolverManager manager,
-		MonitorableVariableStore varStore, VariableID<T> varID)
+	public VariableChannel(SolverManager manager, MonitorableVariableStore varStore, VariableID<T> varID)
 	{
 		this.manager = Objects.requireNonNull(manager);
 		this.varStore = Objects.requireNonNull(varStore);
@@ -87,8 +85,7 @@ public final class VariableChannel<T> implements VariableListener<T>,
 	@Override
 	public void variableChanged(VariableChangeEvent<T> event)
 	{
-		fireReferenceChangedEvent(event.getSource(), event.getOldValue(),
-			event.getNewValue());
+		fireReferenceChangedEvent(event.getSource(), event.getOldValue(), event.getNewValue());
 	}
 
 	@Override
@@ -138,8 +135,7 @@ public final class VariableChannel<T> implements VariableListener<T>,
 
 	private void fireReferenceChangedEvent(Object source, T oldValue, T newValue)
 	{
-		ReferenceListener[] listeners =
-				listenerList.getListeners(ReferenceListener.class);
+		ReferenceListener[] listeners = listenerList.getListeners(ReferenceListener.class);
 		ReferenceEvent<T> e = null;
 		for (int i = listeners.length - 1; i >= 0; i--)
 		{
@@ -150,7 +146,7 @@ public final class VariableChannel<T> implements VariableListener<T>,
 			listeners[i].referenceChanged(e);
 		}
 	}
-	
+
 	/**
 	 * Returns the VariableID for this VariableChannel.
 	 * 

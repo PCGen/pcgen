@@ -51,14 +51,12 @@ public class SetModifierFactory extends AbstractFixedSetModifierFactory<Number>
 	}
 
 	@Override
-	public FormulaModifier<Number> getModifier(String instructions,
-		ManagerFactory managerFactory, FormulaManager formulaManager, PCGenScope varScope,
-		FormatManager<Number> formatManager)
+	public FormulaModifier<Number> getModifier(String instructions, ManagerFactory managerFactory,
+		FormulaManager formulaManager, PCGenScope varScope, FormatManager<Number> formatManager)
 	{
 		if (!formatManager.getManagedClass().equals(getVariableFormat()))
 		{
-			throw new IllegalArgumentException(
-				"FormatManager must manage " + getVariableFormat().getName());
+			throw new IllegalArgumentException("FormatManager must manage " + getVariableFormat().getName());
 		}
 		try
 		{
@@ -66,11 +64,9 @@ public class SetModifierFactory extends AbstractFixedSetModifierFactory<Number>
 		}
 		catch (NumberFormatException e)
 		{
-			final NEPFormula<Number> f =
-					FormulaFactory.getValidFormula(instructions, managerFactory,
-						formulaManager, varScope, formatManager);
-			NEPCalculation<Number> calc =
-					new FormulaCalculation<>(f, this);
+			final NEPFormula<Number> f = FormulaFactory.getValidFormula(instructions, managerFactory, formulaManager,
+				varScope, formatManager);
+			NEPCalculation<Number> calc = new FormulaCalculation<>(f, this);
 			return new CalculationModifier<>(calc, formatManager);
 		}
 	}

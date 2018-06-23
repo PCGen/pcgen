@@ -79,9 +79,7 @@ public class SpellLevel implements Comparable<SpellLevel>
 			classString = persistentFormat.substring(6, loc);
 			levelString = persistentFormat.substring(loc + 7);
 		}
-		PCClass pcc =
-				context.getReferenceContext().silentlyGetConstructedCDOMObject(
-					PCClass.class, classString);
+		PCClass pcc = context.getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class, classString);
 		try
 		{
 			int level = Integer.parseInt(levelString);

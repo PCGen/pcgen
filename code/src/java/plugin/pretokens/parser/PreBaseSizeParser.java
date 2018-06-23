@@ -31,18 +31,17 @@ import pcgen.rules.context.LoadContext;
 /**
  * A prerequisite parser class that handles the parsing of pre base size tokens.
  */
-public class PreBaseSizeParser extends AbstractPrerequisiteParser implements
-		PrerequisiteParserInterface
+public class PreBaseSizeParser extends AbstractPrerequisiteParser implements PrerequisiteParserInterface
 {
 	/**
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String[] kindsHandled()
 	{
-		return new String[]{"BASESIZE", "BASESIZEEQ", "BASESIZEGT",
-			"BASESIZEGTEQ", "BASESIZELT", "BASESIZELTEQ", "BASESIZENEQ"};
+		return new String[]{"BASESIZE", "BASESIZEEQ", "BASESIZEGT", "BASESIZEGTEQ", "BASESIZELT", "BASESIZELTEQ",
+			"BASESIZENEQ"};
 	}
 
 	/**
@@ -58,10 +57,8 @@ public class PreBaseSizeParser extends AbstractPrerequisiteParser implements
 	 * @throws PersistenceLayerException
 	 */
 	@Override
-	public Prerequisite parse(String kind,
-	                          String formula,
-	                          boolean invertResult,
-	                          boolean overrideQualify) throws PersistenceLayerException
+	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+		throws PersistenceLayerException
 	{
 		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
 		try
@@ -76,12 +73,11 @@ public class PreBaseSizeParser extends AbstractPrerequisiteParser implements
 			}
 			prereq.setOperator(compType);
 
-			String abb = formula.substring(0,1);
+			String abb = formula.substring(0, 1);
 
 			LoadContext context = Globals.getContext();
 			CDOMSingleRef<SizeAdjustment> ref =
-					context.getReferenceContext().getCDOMReference(
-						SizeAdjustment.class, abb);
+					context.getReferenceContext().getCDOMReference(SizeAdjustment.class, abb);
 			context.forgetMeNot(ref);
 
 			prereq.setOperand(abb);
@@ -93,8 +89,7 @@ public class PreBaseSizeParser extends AbstractPrerequisiteParser implements
 		catch (PrerequisiteException pe)
 		{
 			throw new PersistenceLayerException(
-				"Unable to parse the prerequisite :'" + kind + ':' + formula
-					+ "'. " + pe.getLocalizedMessage());
+				"Unable to parse the prerequisite :'" + kind + ':' + formula + "'. " + pe.getLocalizedMessage());
 		}
 		return prereq;
 	}

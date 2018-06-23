@@ -45,8 +45,7 @@ import pcgen.util.Logging;
 /**
  * Class deals with ADDDOMAINS Token
  */
-public class AdddomainsToken extends AbstractTokenWithSeparator<PCClass>
-		implements CDOMPrimaryToken<PCClass>
+public class AdddomainsToken extends AbstractTokenWithSeparator<PCClass> implements CDOMPrimaryToken<PCClass>
 {
 
 	private static final Class<Domain> DOMAIN_CLASS = Domain.class;
@@ -64,8 +63,7 @@ public class AdddomainsToken extends AbstractTokenWithSeparator<PCClass>
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		PCClass pcc, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, PCClass pcc, String value)
 	{
 		ParseResult pr = checkForIllegalSeparator('|', value);
 		if (!pr.passed())
@@ -89,8 +87,8 @@ public class AdddomainsToken extends AbstractTokenWithSeparator<PCClass>
 			{
 				if (tokString.indexOf(']') != -1)
 				{
-					return new ParseResult.Fail("Invalid " + getTokenName()
-							+ " must have '[' if it contains a PREREQ tag");
+					return new ParseResult.Fail(
+						"Invalid " + getTokenName() + " must have '[' if it contains a PREREQ tag");
 				}
 				domainKey = tokString;
 			}
@@ -98,31 +96,25 @@ public class AdddomainsToken extends AbstractTokenWithSeparator<PCClass>
 			{
 				if (tokString.indexOf(']') != tokString.length() - 1)
 				{
-					return new ParseResult.Fail("Invalid " + getTokenName()
-							+ " must end with ']' if it contains a PREREQ tag");
+					return new ParseResult.Fail(
+						"Invalid " + getTokenName() + " must end with ']' if it contains a PREREQ tag");
 				}
 				domainKey = tokString.substring(0, openBracketLoc);
-				String prereqString = tokString.substring(openBracketLoc + 1,
-						tokString.length() - 1);
+				String prereqString = tokString.substring(openBracketLoc + 1, tokString.length() - 1);
 				if (prereqString.isEmpty())
 				{
-					return new ParseResult.Fail(getTokenName()
-							+ " cannot have empty prerequisite : " + value);
+					return new ParseResult.Fail(getTokenName() + " cannot have empty prerequisite : " + value);
 				}
 				prereq = getPrerequisite(prereqString);
 				if (prereq == null)
 				{
-					return new ParseResult.Fail(getTokenName()
-							+ " had invalid prerequisite : " + prereqString);
+					return new ParseResult.Fail(getTokenName() + " had invalid prerequisite : " + prereqString);
 				}
-				Logging.deprecationPrint(getTokenName()
-					+ " using PRExxx in brackets is deprecated: " + value
-					+ " ... Please use a trailing pipe: " + getTokenName()
-					+ ":x|PRExxx", context);
+				Logging.deprecationPrint(getTokenName() + " using PRExxx in brackets is deprecated: " + value
+					+ " ... Please use a trailing pipe: " + getTokenName() + ":x|PRExxx", context);
 			}
-			AssociatedPrereqObject apo = context.getListContext().addToList(
-					getTokenName(), pcc, PCClass.ALLOWED_DOMAINS,
-					context.getReferenceContext().getCDOMReference(DOMAIN_CLASS, domainKey));
+			AssociatedPrereqObject apo = context.getListContext().addToList(getTokenName(), pcc,
+				PCClass.ALLOWED_DOMAINS, context.getReferenceContext().getCDOMReference(DOMAIN_CLASS, domainKey));
 			apoList.add(apo);
 			if (prereq != null)
 			{
@@ -142,13 +134,8 @@ public class AdddomainsToken extends AbstractTokenWithSeparator<PCClass>
 			{
 				break;
 			}
-			AssociatedPrereqObject apo =
-					context.getListContext().addToList(
-						getTokenName(),
-						pcc,
-						PCClass.ALLOWED_DOMAINS,
-						context.getReferenceContext().getCDOMReference(DOMAIN_CLASS,
-							tokString));
+			AssociatedPrereqObject apo = context.getListContext().addToList(getTokenName(), pcc,
+				PCClass.ALLOWED_DOMAINS, context.getReferenceContext().getCDOMReference(DOMAIN_CLASS, tokString));
 			apoList.add(apo);
 		}
 		while (true)
@@ -156,8 +143,7 @@ public class AdddomainsToken extends AbstractTokenWithSeparator<PCClass>
 			Prerequisite prereq = getPrerequisite(tokString);
 			if (prereq == null)
 			{
-				return new ParseResult.Fail(getTokenName()
-						+ " had invalid prerequisite : " + tokString);
+				return new ParseResult.Fail(getTokenName() + " had invalid prerequisite : " + tokString);
 			}
 			for (AssociatedPrereqObject apo : apoList)
 			{
@@ -176,20 +162,15 @@ public class AdddomainsToken extends AbstractTokenWithSeparator<PCClass>
 	@Override
 	public String[] unparse(LoadContext context, PCClass pcc)
 	{
-		AssociatedChanges<CDOMReference<Domain>> changes = context
-				.getListContext().getChangesInList(getTokenName(), pcc,
-						PCClass.ALLOWED_DOMAINS);
+		AssociatedChanges<CDOMReference<Domain>> changes =
+				context.getListContext().getChangesInList(getTokenName(), pcc, PCClass.ALLOWED_DOMAINS);
 		Collection<CDOMReference<Domain>> removedItems = changes.getRemoved();
-		if (removedItems != null && !removedItems.isEmpty()
-				|| changes.includesGlobalClear())
+		if (removedItems != null && !removedItems.isEmpty() || changes.includesGlobalClear())
 		{
-			context
-					.addWriteMessage(getTokenName()
-							+ " does not support .CLEAR");
+			context.addWriteMessage(getTokenName() + " does not support .CLEAR");
 			return null;
 		}
-		MapToList<CDOMReference<Domain>, AssociatedPrereqObject> mtl = changes
-				.getAddedAssociations();
+		MapToList<CDOMReference<Domain>, AssociatedPrereqObject> mtl = changes.getAddedAssociations();
 		if (mtl == null || mtl.isEmpty())
 		{
 			return null;
@@ -218,8 +199,7 @@ public class AdddomainsToken extends AbstractTokenWithSeparator<PCClass>
 					}
 					catch (PersistenceLayerException e)
 					{
-						context.addWriteMessage("Error writing Prerequisite: "
-								+ e);
+						context.addWriteMessage("Error writing Prerequisite: " + e);
 						return null;
 					}
 					sb.append(swriter.toString());

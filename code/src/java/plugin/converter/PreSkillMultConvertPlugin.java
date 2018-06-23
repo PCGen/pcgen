@@ -21,7 +21,7 @@ import pcgen.rules.persistence.token.AbstractPreEqualConvertPlugin;
 
 public class PreSkillMultConvertPlugin extends AbstractPreEqualConvertPlugin
 {
-    @Override
+	@Override
 	public String getProcessedToken()
 	{
 		return "SKILLMULT";

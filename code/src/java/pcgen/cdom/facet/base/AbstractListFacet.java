@@ -43,8 +43,7 @@ import pcgen.cdom.facet.event.DataFacetChangeEvent;
  * @param <T>
  *            The Type of object stored in this AbstractListFacet
  */
-public abstract class AbstractListFacet<IDT extends PCGenIdentifier, T> extends
-		AbstractDataFacet<IDT, T>
+public abstract class AbstractListFacet<IDT extends PCGenIdentifier, T> extends AbstractDataFacet<IDT, T>
 {
 	/**
 	 * Add the given object to the list of objects stored in this
@@ -104,13 +103,11 @@ public abstract class AbstractListFacet<IDT extends PCGenIdentifier, T> extends
 		{
 			if (obj == null)
 			{
-				throw new IllegalArgumentException(
-					"Object to add may not be null");
+				throw new IllegalArgumentException("Object to add may not be null");
 			}
 			if (set.add(obj))
 			{
-				fireDataFacetChangeEvent(id, obj,
-					DataFacetChangeEvent.DATA_ADDED);
+				fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_ADDED);
 			}
 		}
 	}
@@ -141,8 +138,7 @@ public abstract class AbstractListFacet<IDT extends PCGenIdentifier, T> extends
 		{
 			if (componentSet.remove(obj))
 			{
-				fireDataFacetChangeEvent(id, obj,
-					DataFacetChangeEvent.DATA_REMOVED);
+				fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_REMOVED);
 				if (componentSet.isEmpty())
 				{
 					removeCache(id);
@@ -179,13 +175,11 @@ public abstract class AbstractListFacet<IDT extends PCGenIdentifier, T> extends
 			{
 				if (obj == null)
 				{
-					throw new IllegalArgumentException(
-						"Object to add may not be null");
+					throw new IllegalArgumentException("Object to add may not be null");
 				}
 				if (componentSet.remove(obj))
 				{
-					fireDataFacetChangeEvent(id, obj,
-						DataFacetChangeEvent.DATA_REMOVED);
+					fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_REMOVED);
 				}
 			}
 		}
@@ -421,8 +415,7 @@ public abstract class AbstractListFacet<IDT extends PCGenIdentifier, T> extends
 		Collection<T> componentSet = getCachedSet(source);
 		if (componentSet != null)
 		{
-			getConstructingCachedSet(copy).addAll(
-				getCopyForNewOwner(componentSet));
+			getConstructingCachedSet(copy).addAll(getCopyForNewOwner(componentSet));
 		}
 	}
 
@@ -493,8 +486,7 @@ public abstract class AbstractListFacet<IDT extends PCGenIdentifier, T> extends
 		}
 		setCache(id, componentSet);
 		fireDataFacetChangeEvent(id, old, DataFacetChangeEvent.DATA_REMOVED);
-		fireDataFacetChangeEvent(id, replacement,
-			DataFacetChangeEvent.DATA_ADDED);
+		fireDataFacetChangeEvent(id, replacement, DataFacetChangeEvent.DATA_ADDED);
 		return true;
 	}
 

@@ -31,8 +31,7 @@ public class SkillChooseController extends ChooseController<Ability>
 	{
 		if (sk == null)
 		{
-			throw new IllegalArgumentException(
-					"Skill cannot be null for SkillChooseController");
+			throw new IllegalArgumentException("Skill cannot be null for SkillChooseController");
 		}
 		skill = sk;
 		pc = aPC;
@@ -41,8 +40,7 @@ public class SkillChooseController extends ChooseController<Ability>
 	@Override
 	public int getPool()
 	{
-		return SkillRankControl.getTotalRank(pc, skill).intValue()
-			- pc.getAssociationList(skill).size();
+		return SkillRankControl.getTotalRank(pc, skill).intValue() - pc.getAssociationList(skill).size();
 	}
 
 	@Override

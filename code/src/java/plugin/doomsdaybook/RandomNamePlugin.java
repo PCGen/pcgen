@@ -15,10 +15,10 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
- package plugin.doomsdaybook;
+package plugin.doomsdaybook;
 
-import java.awt.*;
-import java.awt.event.*;
+import java.awt.Component;
+import java.awt.event.ActionEvent;
 import java.io.File;
 
 import javax.swing.JMenuItem;
@@ -36,7 +36,6 @@ import pcgen.pluginmgr.PCGenMessage;
 import pcgen.pluginmgr.PCGenMessageHandler;
 import pcgen.pluginmgr.messages.FocusOrStateChangeOccurredMessage;
 import pcgen.system.LanguageBundle;
-
 
 public class RandomNamePlugin implements InteractivePlugin
 {
@@ -61,12 +60,13 @@ public class RandomNamePlugin implements InteractivePlugin
 	/**
 	 * Starts the plugin, registering itself with the {@code TabAddMessage}.
 	 */
-    @Override
+	@Override
 	public void start(PCGenMessageHandler mh)
 	{
-    	messageHandler = mh;
+		messageHandler = mh;
 		theView = new NameGenPanel(getDataDirectory());
-		messageHandler.handleMessage(new RequestAddTabToGMGenMessage(this, RandomNamePlugin.getLocalizedName(), getView()));
+		messageHandler
+			.handleMessage(new RequestAddTabToGMGenMessage(this, RandomNamePlugin.getLocalizedName(), getView()));
 		initMenus();
 	}
 
@@ -76,7 +76,7 @@ public class RandomNamePlugin implements InteractivePlugin
 		messageHandler = null;
 	}
 
-    @Override
+	@Override
 	public int getPriority()
 	{
 		return SettingsHandler.getGMGenOption(RandomNamePlugin.LOG_NAME + ".LoadOrder", 80);
@@ -86,12 +86,12 @@ public class RandomNamePlugin implements InteractivePlugin
 	 * Accessor for name
 	 * @return name
 	 */
-    @Override
+	@Override
 	public String getPluginName()
 	{
 		return RandomNamePlugin.NAME;
 	}
-	
+
 	private static String getLocalizedName()
 	{
 		return LanguageBundle.getString(RandomNamePlugin.IN_NAME);
@@ -110,7 +110,7 @@ public class RandomNamePlugin implements InteractivePlugin
 	 * listens to messages from the GMGen system, and handles them as needed
 	 * @param message the source of the event from the system
 	 */
-    @Override
+	@Override
 	public void handleMessage(PCGenMessage message)
 	{
 		if (message instanceof FocusOrStateChangeOccurredMessage)
@@ -134,11 +134,11 @@ public class RandomNamePlugin implements InteractivePlugin
 	{
 		JTabbedPane tp = Utility.getTabbedPaneFor(theView);
 		return (tp != null) && JOptionPane.getFrameForComponent(tp).isFocused()
-				&& tp.getSelectedComponent().equals(theView);
+			&& tp.getSelectedComponent().equals(theView);
 	}
 
 	/**
-	 * Initialise the menus
+	 * Initialize the menus
 	 */
 	private void initMenus()
 	{

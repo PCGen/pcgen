@@ -73,8 +73,7 @@ public class JEPFormula implements Formula
 	@Override
 	public boolean equals(Object obj)
 	{
-		return obj instanceof JEPFormula
-				&& ((JEPFormula) obj).formula.equals(formula);
+		return obj instanceof JEPFormula && ((JEPFormula) obj).formula.equals(formula);
 	}
 
 	/**
@@ -132,8 +131,7 @@ public class JEPFormula implements Formula
 	 *         Equipment, PlayerCharacter, and Source identifier.
 	 */
 	@Override
-	public Number resolve(Equipment equipment, boolean primary,
-			PlayerCharacter pc, String source)
+	public Number resolve(Equipment equipment, boolean primary, PlayerCharacter pc, String source)
 	{
 		return equipment.getVariableValue(formula, source, primary, pc);
 	}
