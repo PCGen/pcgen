@@ -28,6 +28,9 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 public class UmultLstTest extends AbstractGlobalIntegerTokenTestCase
 {
 
+	private static CDOMPrimaryToken<CDOMObject> token = new UmultLst();
+	private static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
+
 	@Override
 	public IntegerKey getIntegerKey()
 	{
@@ -51,9 +54,6 @@ public class UmultLstTest extends AbstractGlobalIntegerTokenTestCase
 	{
 		return false;
 	}
-
-	static CDOMPrimaryToken<CDOMObject> token = new UmultLst();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public CDOMLoader<PCTemplate> getLoader()

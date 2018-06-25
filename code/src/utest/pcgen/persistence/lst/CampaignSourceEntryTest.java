@@ -43,7 +43,7 @@ public class CampaignSourceEntryTest
 	}
 	
 	/**
-	 * Test method for {@link pcgen.persistence.lst.CampaignSourceEntry#parseSuffix(java.lang.String)}.
+	 * Test method for {@link pcgen.persistence.lst.CampaignSourceEntry#parseSuffix(String, URI, String)}
 	 */
 	@Test
 	public void testParseSuffix()
@@ -106,7 +106,7 @@ public class CampaignSourceEntryTest
 	}
 
 	/**
-	 * Test method for {@link pcgen.persistence.lst.CampaignSourceEntry#parseSuffix(java.lang.String)}.
+	 * Test method for {@link pcgen.persistence.lst.CampaignSourceEntry#parseSuffix(String, URI, String)}
 	 */
 	@Test
 	public void testParseSuffixInvalid()
@@ -136,7 +136,7 @@ public class CampaignSourceEntryTest
 	}
 	
 	/**
-	 * Test method for {@link pcgen.persistence.lst.CampaignSourceEntry#parseSuffix(java.lang.String)}.
+	 * Test method for {@link pcgen.persistence.lst.CampaignSourceEntry#parseSuffix(String, URI, String)}
 	 */
 	@Test
 	public void testParseSuffixInlineBracket()

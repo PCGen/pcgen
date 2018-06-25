@@ -39,9 +39,9 @@ public class AbilityIntegrationTest extends
 		AbstractListIntegrationTestCase<CDOMObject, Ability>
 {
 
-	static AbilityToken ft = new AbilityToken();
-	static AddLst token = new AddLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
+	private static AbilityToken ft = new AbilityToken();
+	private static AddLst token = new AddLst();
+	private static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

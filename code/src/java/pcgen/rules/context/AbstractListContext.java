@@ -352,7 +352,7 @@ public abstract class AbstractListContext
 
 		private URI extractURI;
 
-		protected static class CDOMShell extends CDOMObject
+		protected static class CDOMShell extends CDOMObject implements Cloneable
 		{
 			@Override
 			public CDOMShell clone() throws CloneNotSupportedException

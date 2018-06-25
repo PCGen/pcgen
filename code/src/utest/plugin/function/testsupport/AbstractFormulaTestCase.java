@@ -268,8 +268,9 @@ public abstract class AbstractFormulaTestCase extends TestCase
 			}
 
 			@Override
-			public void getDependencies(DependencyManager fdm)
+			public void getDependencies(DependencyManager dependencyManager)
 			{
+				//No dependencies
 			}
 
 			@Override

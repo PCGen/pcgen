@@ -49,7 +49,7 @@ public class EquipmentListTest extends TestCase
 	/**
 	 * Constructs a new <code>EquipmentListTest</code>.
 	 *
-	 * @see PCGenTestCase#PCGenTestCase()
+	 * @see pcgen.PCGenTestCase#PCGenTestCase()
 	 */
 	public EquipmentListTest()
 	{
@@ -62,7 +62,7 @@ public class EquipmentListTest extends TestCase
 	 *
 	 * @param name the test case name
 	 *
-	 * @see PCGenTestCase#PCGenTestCase()
+	 * @see pcgen.PCGenTestCase#PCGenTestCase(String)
 	 */
 	public EquipmentListTest(final String name)
 	{

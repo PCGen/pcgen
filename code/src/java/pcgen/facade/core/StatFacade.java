@@ -30,7 +30,7 @@ public interface StatFacade
     public String toString();
 
 	/**
-	 * @return
+	 * @return The minimum int value
 	 */
 	public int getMinValue();
 

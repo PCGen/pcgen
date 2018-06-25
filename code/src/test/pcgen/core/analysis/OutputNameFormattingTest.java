@@ -17,6 +17,7 @@
  */
 package pcgen.core.analysis;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PObject;
 import junit.framework.TestCase;
@@ -46,7 +47,7 @@ public class OutputNameFormattingTest extends TestCase
 
 	
 	/**
-	 * Test method for {@link pcgen.core.analysis.OutputNameFormatting#getOutputName(pcgen.core.PObject)}.
+	 * Test method for {@link pcgen.core.analysis.OutputNameFormatting#getOutputName(CDOMObject)}.
 	 * Check that a default output name will work correctly.
 	 */
 	public final void testGetOutputNameDisplay()
@@ -55,7 +56,7 @@ public class OutputNameFormattingTest extends TestCase
 	}
 	
 	/**
-	 * Test method for {@link pcgen.core.analysis.OutputNameFormatting#getOutputName(pcgen.core.PObject)}.
+	 * Test method for {@link pcgen.core.analysis.OutputNameFormatting#getOutputName(CDOMObject)}.
 	 * Check that the [BASE] macro in output name will work correctly.
 	 */
 	public final void testGetOutputNameBase()
@@ -70,7 +71,7 @@ public class OutputNameFormattingTest extends TestCase
 	}
 	
 	/**
-	 * Test method for {@link pcgen.core.analysis.OutputNameFormatting#getOutputName(pcgen.core.PObject)}.
+	 * Test method for {@link pcgen.core.analysis.OutputNameFormatting#getOutputName(CDOMObject)}.
 	 * Check that the [NAME] macro in output name will work correctly.
 	 */
 	public final void testGetOutputNameName()

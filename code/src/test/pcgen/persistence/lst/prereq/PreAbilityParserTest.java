@@ -131,9 +131,8 @@ public class PreAbilityParserTest extends EnUsLocaleDependentTestCase
 		try
 		{
 			PreAbilityParser parser = new PreAbilityParser();
-			Prerequisite prereq =
-					parser.parse("ability",
-						"1,CATEGORY.Mutation,KEY_a,CATEGORY.Foo", false, false);
+			parser.parse("ability", "1,CATEGORY.Mutation,KEY_a,CATEGORY.Foo", false,
+				false);
 			fail("Should have thrown a PersistenceLayerException.");
 		}
 		catch (PersistenceLayerException e)
@@ -152,9 +151,7 @@ public class PreAbilityParserTest extends EnUsLocaleDependentTestCase
 		try
 		{
 			PreAbilityParser parser = new PreAbilityParser();
-			Prerequisite prereq =
-					parser.parse("ability",
-						"1,CATEGORY.Mutation,,KEY_a", false, false);
+			parser.parse("ability", "1,CATEGORY.Mutation,,KEY_a", false, false);
 			fail("Should have thrown a PersistenceLayerException.");
 		}
 		catch (PersistenceLayerException e)
@@ -173,9 +170,7 @@ public class PreAbilityParserTest extends EnUsLocaleDependentTestCase
 		try
 		{
 			PreAbilityParser parser = new PreAbilityParser();
-			Prerequisite prereq =
-					parser.parse("ability",
-						"1,CATEGORY.Mutation,KEY_a|Key_b", false, false);
+			parser.parse("ability", "1,CATEGORY.Mutation,KEY_a|Key_b", false, false);
 			fail("Should have thrown a PersistenceLayerException.");
 		}
 		catch (PersistenceLayerException e)

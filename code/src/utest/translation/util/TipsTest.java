@@ -17,6 +17,7 @@
  */
 package translation.util;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -36,7 +37,7 @@ public class TipsTest
 	private final String tip = "For each method, write a test method";
 
 	/**
-	 * Test method for {@link translation.util.Tips#addTip(java.util.Set, java.lang.String)}.
+	 * Test method for {@link translation.util.Tips#addTip(Collection, String)}.
 	 */
 	@Test
 	public void testAddTip()

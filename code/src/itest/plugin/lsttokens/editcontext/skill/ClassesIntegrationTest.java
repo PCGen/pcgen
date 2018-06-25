@@ -38,8 +38,8 @@ import plugin.pretokens.parser.PreClassParser;
 public class ClassesIntegrationTest extends AbstractIntegrationTestCase<Skill>
 {
 
-	static ClassesToken token = new ClassesToken();
-	static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<>();
+	private static ClassesToken token = new ClassesToken();
+	private static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<>();
 
 	private static boolean classSetUpFired = false;
 

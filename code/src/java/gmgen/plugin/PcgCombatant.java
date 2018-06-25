@@ -392,11 +392,6 @@ public class PcgCombatant extends Combatant
 		protected String htmlString;
 		protected int serial = 0;
 
-		public PcRenderer()
-		{
-			// Do Nothing
-		}
-
 		/**
 		 * <p>
 		 * This sets the text of the JTextPane for the specified PC. It uses an

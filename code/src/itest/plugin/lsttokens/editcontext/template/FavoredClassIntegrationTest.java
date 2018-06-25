@@ -38,8 +38,8 @@ public class FavoredClassIntegrationTest extends
 		AbstractListIntegrationTestCase<PCTemplate, PCClass>
 {
 
-	static FavoredclassToken token = new FavoredclassToken();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
+	private static FavoredclassToken token = new FavoredclassToken();
+	private static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCTemplate> getCDOMClass()

@@ -26,7 +26,7 @@ import plugin.lsttokens.equipment.AlteqmodToken;
 public class AltEqModIntegrationTest extends AbstractEqModIntegrationTestCase
 {
 
-	static AlteqmodToken token = new AlteqmodToken();
+	private static AlteqmodToken token = new AlteqmodToken();
 
 	@Override
 	public CDOMPrimaryToken<Equipment> getToken()

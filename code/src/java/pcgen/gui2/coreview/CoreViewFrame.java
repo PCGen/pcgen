@@ -134,11 +134,6 @@ public class CoreViewFrame extends JFrame
 
 	private static class GrantedTreeView implements TreeView<CoreViewNodeFacade>
 	{
-
-		public GrantedTreeView()
-		{
-		}
-
 		@Override
 		public String getViewName()
 		{
@@ -225,7 +220,7 @@ public class CoreViewFrame extends JFrame
 		}
 
 		/**
-		 * @param language
+		 * @param corePerspective
 		 */
 		public void setPerspective(CorePerspective corePerspective)
 		{

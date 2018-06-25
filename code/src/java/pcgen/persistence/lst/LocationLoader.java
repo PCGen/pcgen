@@ -35,14 +35,6 @@ public class LocationLoader extends LstLineFileLoader
 {
 	private int traitType = -1;
 
-	/**
-	 * Constructor for TraitLoader.
-	 */
-	public LocationLoader()
-	{
-		super();
-	}
-
 	@Override
 	public void loadLstFile(LoadContext context, URI source) throws PersistenceLayerException
 	{
@@ -50,9 +42,6 @@ public class LocationLoader extends LstLineFileLoader
 		super.loadLstFile(context, source);
 	}
 
-	/**
-	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(LoadContext, String, URI)
-	 */
 	@Override
 	public void parseLine(LoadContext context, String lstLine, URI sourceURI)
 	{

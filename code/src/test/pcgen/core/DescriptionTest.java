@@ -192,8 +192,8 @@ public class DescriptionTest extends AbstractCharacterTestCase
 	public void testEmptyReplacement()
 	{
 		final Deity pobj = new Deity();
-
 		final Description desc = new Description("%1");
+		pobj.addToListFor(ListKey.DESCRIPTION, desc);
 		assertTrue(getCharacter().getDescription(pobj).isEmpty());
 	}
 

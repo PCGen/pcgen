@@ -21,7 +21,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
 import java.util.Set;
 
 import pcgen.base.calculation.FormulaModifier;
@@ -31,16 +30,15 @@ import pcgen.base.lang.StringUtil;
 import pcgen.base.text.ParsingSeparator;
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.FormatManager;
-import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.base.ObjectGrouping;
+import pcgen.cdom.base.Loadable;
 import pcgen.cdom.base.Ungranted;
 import pcgen.cdom.base.VarContainer;
 import pcgen.cdom.base.VarHolder;
 import pcgen.cdom.content.RemoteModifier;
 import pcgen.cdom.content.VarModifier;
-import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.formula.scope.PCGenScope;
+import pcgen.cdom.grouping.GroupingCollection;
 import pcgen.core.Campaign;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
@@ -90,17 +88,18 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<VarHolder> implem
 		sep.addGroupingPair('(', ')');
 
 		String scopeName = sep.next();
-		/*
-		 * Note lvs is implicitly defined as "not global" since the global scope
-		 * is "" and thus would have failed the tests imposed by
-		 * AbstractTokenWithSeparator
-		 */
 		PCGenScope lvs = context.getVariableContext().getScope(scopeName);
 		if (lvs == null)
 		{
 			return new ParseResult.Fail(getTokenName()
 				+ " found illegal variable scope: " + scopeName
 				+ " as first argument: " + value);
+		}
+		if (lvs.getParentScope() == null)
+		{
+			return new ParseResult.Fail(getTokenName()
+				+ " found illegal variable scope: " + scopeName
+				+ " is a global scope");
 		}
 		if (!sep.hasNext())
 		{
@@ -109,92 +108,22 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<VarHolder> implem
 		}
 		String fullName = LegalScope.getFullName(lvs);
 		LoadContext subContext = context.dropIntoContext(fullName);
-		return continueParsing(subContext, obj, value, sep);
+		return continueParsing(subContext, lvs, obj, value, sep);
 	}
 
 	private <GT extends VarScoped> ParseResult continueParsing(
-		LoadContext context, VarHolder obj, String value, ParsingSeparator sep)
+		LoadContext context, PCGenScope lvs, VarHolder obj, String value, ParsingSeparator sep)
 	{
 		PCGenScope scope = context.getActiveScope();
-		final String groupingName = sep.next();
-		ObjectGrouping group;
-		if (groupingName.startsWith("GROUP="))
+		String groupingName = sep.next();
+
+		GroupingCollection<? extends Loadable> group =
+				context.getGrouping(lvs, groupingName);
+		if (group == null)
 		{
-			final String groupName = groupingName.substring(6);
-
-			group = new ObjectGrouping()
-			{
-				@Override
-				public boolean contains(VarScoped item)
-				{
-					return Objects.equals(item.getLocalScopeName(),
-						LegalScope.getFullName(scope)) && (item instanceof CDOMObject)
-						&& ((CDOMObject) item).containsInList(ListKey.GROUP, groupName);
-				}
-
-				@Override
-				public PCGenScope getScope()
-				{
-					return scope;
-				}
-
-				@Override
-				public String getIdentifier()
-				{
-					return "GROUP=" + groupName;
-				}
-			};
+			return new ParseResult.Fail(
+				getTokenName() + " unable to build group from: " + groupingName);
 		}
-		else if ("ALL".equals(groupingName))
-		{
-			group = new ObjectGrouping()
-			{
-				@Override
-				public boolean contains(VarScoped item)
-				{
-					return Objects.equals(item.getLocalScopeName(),
-						LegalScope.getFullName(scope));
-				}
-
-				@Override
-				public PCGenScope getScope()
-				{
-					return scope;
-				}
-
-				@Override
-				public String getIdentifier()
-				{
-					return "ALL";
-				}
-			};
-		}
-		else
-		{
-			group = new ObjectGrouping()
-			{
-				@Override
-				public boolean contains(VarScoped item)
-				{
-					return Objects.equals(item.getLocalScopeName(),
-						LegalScope.getFullName(scope))
-						&& item.getKeyName().equalsIgnoreCase(groupingName);
-				}
-
-				@Override
-				public PCGenScope getScope()
-				{
-					return scope;
-				}
-
-				@Override
-				public String getIdentifier()
-				{
-					return groupingName;
-				}
-			};
-		}
-
 		if (!sep.hasNext())
 		{
 			return new ParseResult.Fail(getTokenName()
@@ -224,7 +153,7 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<VarHolder> implem
 			FormatManager<?> format = context.getVariableContext()
 				.getVariableFormat(scope, varName);
 			modifier = context.getVariableContext().getModifier(
-				modIdentification, modInstructions.toString(), scope, format);
+				modIdentification, modInstructions, scope, format);
 		}
 		catch (IllegalArgumentException iae)
 		{
@@ -270,10 +199,10 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<VarHolder> implem
 		{
 			VarModifier<?> vm = rm.getVarModifier();
 			StringBuilder sb = new StringBuilder();
-			ObjectGrouping og = rm.getGrouping();
-			sb.append(LegalScope.getFullName(og.getScope()));
+			GroupingCollection<?> og = rm.getGrouping();
+			sb.append(LegalScope.getFullName(vm.getLegalScope()));
 			sb.append(Constants.PIPE);
-			sb.append(og.getIdentifier());
+			sb.append(og.getInstructions());
 			sb.append(Constants.PIPE);
 			sb.append(vm.getVarName());
 			sb.append(Constants.PIPE);

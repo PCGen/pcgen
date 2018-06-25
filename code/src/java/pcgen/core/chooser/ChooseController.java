@@ -21,11 +21,6 @@ import java.util.List;
 
 class ChooseController<T>
 {
-	public ChooseController()
-	{
-		// Nothing to build here
-	}
-
 	public int getPool()
 	{
 		return 1;

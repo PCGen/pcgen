@@ -27,8 +27,8 @@ public class MaxDexIntegrationTest extends
 		AbstractIntegerIntegrationTestCase<Equipment>
 {
 
-	static MaxdexToken token = new MaxdexToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
+	private static MaxdexToken token = new MaxdexToken();
+	private static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()

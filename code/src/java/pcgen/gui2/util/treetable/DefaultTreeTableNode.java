@@ -66,7 +66,6 @@ public class DefaultTreeTableNode extends DefaultMutableTreeNode implements Tree
 		data.set(column, value);
 	}
 
-//	@Override
 	protected List<Object> getValues()
 	{
 		return data;

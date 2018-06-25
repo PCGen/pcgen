@@ -27,8 +27,8 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 public class WtIntegrationTest extends
 		AbstractBigDecimalIntegrationTestCase<Equipment>
 {
-	static WtToken token = new WtToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
+	private static WtToken token = new WtToken();
+	private static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()

@@ -28,8 +28,8 @@ public class TargetAreaIntegrationTest extends
 		AbstractStringIntegrationTestCase<Spell>
 {
 
-	static TargetareaToken token = new TargetareaToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
+	private static TargetareaToken token = new TargetareaToken();
+	private static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Spell> getCDOMClass()

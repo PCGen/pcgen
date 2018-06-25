@@ -33,8 +33,8 @@ public class MonCSkillIntegrationTest extends
 		AbstractListIntegrationTestCase<Race, Skill>
 {
 
-	static MoncskillToken token = new MoncskillToken();
-	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
+	private static MoncskillToken token = new MoncskillToken();
+	private static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Race> getCDOMClass()

@@ -24,7 +24,7 @@ import plugin.lsttokens.pcclass.level.CastToken;
 public class CastIntegrationTest extends AbstractSpellCastingTokenTestCase
 {
 
-	static CastToken token = new CastToken();
+	private static CastToken token = new CastToken();
 
 	@Override
 	public CDOMPrimaryToken<PCClassLevel> getToken()

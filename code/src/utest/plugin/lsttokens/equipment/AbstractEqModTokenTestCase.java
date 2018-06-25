@@ -23,11 +23,11 @@ import pcgen.core.Equipment;
 import pcgen.core.EquipmentModifier;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
-import plugin.lsttokens.testsupport.AbstractListTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractListInputTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-public abstract class AbstractEqModTokenTestCase extends
-		AbstractListTokenTestCase<Equipment, EquipmentModifier>
+public abstract class AbstractEqModTokenTestCase
+		extends AbstractListInputTokenTestCase<Equipment, EquipmentModifier>
 {
 
 	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();

@@ -75,14 +75,6 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 	protected List<String> excludedObjects = new ArrayList<>();
 
 	/**
-	 * LstObjectFileLoader constructor.
-	 */
-	public LstObjectFileLoader()
-	{
-		super();
-	}
-
-	/**
 	 * This method loads the given list of LST files.
 	 * @param fileList containing the list of files to read
 	 * @throws PersistenceLayerException 
@@ -503,12 +495,13 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 	/**
 	 * This method will perform a single .COPY operation based on the LST
 	 * file content.
-	 * @param lstLine String containing the LST source for the
-	 * .COPY operation
+	 * @param context
+	 * @param me 
 	 * @throws PersistenceLayerException 
 	 */
 	private void performCopy(LoadContext context, ModEntry me) throws PersistenceLayerException
 	{
+		// lstLine String containing the LST source for the COPY operation
 		String lstLine = me.getLstLine();
 		int sepLoc = lstLine.indexOf(FIELD_SEPARATOR);
 		String name;

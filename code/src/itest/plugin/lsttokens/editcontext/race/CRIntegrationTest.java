@@ -31,8 +31,8 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 public class CRIntegrationTest extends AbstractIntegrationTestCase<Race>
 {
 
-	static CrToken token = new CrToken();
-	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
+	private static CrToken token = new CrToken();
+	private static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Race> getCDOMClass()

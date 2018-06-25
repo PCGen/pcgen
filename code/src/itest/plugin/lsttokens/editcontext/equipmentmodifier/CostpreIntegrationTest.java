@@ -28,8 +28,8 @@ public class CostpreIntegrationTest extends
 		AbstractFormulaIntegrationTestCase<EquipmentModifier>
 {
 
-	static CostpreToken token = new CostpreToken();
-	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<>();
+	private static CostpreToken token = new CostpreToken();
+	private static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<EquipmentModifier> getCDOMClass()

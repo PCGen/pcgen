@@ -9,7 +9,7 @@ Chainmail (Base).COPY=Elemental Bulwark (Cold)	VISIBLE:YES	EQMOD:Material ~ Stee
 Chainmail (Base).COPY=Elemental Bulwark (Electricity)	VISIBLE:YES	EQMOD:Material ~ Steel
 Chainmail (Base).COPY=Elemental Bulwark (Fire)	VISIBLE:YES	EQMOD:Material ~ Steel
 Half-Plate (Base).COPY=Raiment of the Shining Crusade	VISIBLE:YES	EQMOD:Material ~ Steel
-Leather (Base).COPY=Arachnid Harness	VISIBLE:YES	EQMOD:Material ~ Leather
+Leather Armor (Base).COPY=Arachnid Harness	VISIBLE:YES	EQMOD:Material ~ Leather
 Lamellar (Steel).COPY=Armor of the Pure Legion
 Lamellar Cuirass.COPY=Shifting Jerkin
 Stoneplate.COPY=Stone-Eater Armor
@@ -40,7 +40,7 @@ Tower Shield (Base).COPY=Phalanx Shield	VISIBLE:YES
 Challenging Shield.MOD							EQMOD:Special Ability ~ +1 ~ Shield.Special Ability ~ Enhancement Cost|4000						SOURCEPAGE:p.31		SPROP:By spending one use of the challenge class feature as an immediate action, the wearer can apply her Charisma bonus to her shield bonus to AC against a target of her challenge for 1 minute.
 Gunner's Buckler.MOD							EQMOD:Material ~ Mithril ~ Shield.Special Ability ~ +1 ~ Shield.Special Ability ~ Enhancement Cost|8000	SOURCEPAGE:p.31		SPROP:Using a firearm while threatened does not provoke attacks of opportunity, but imposes -4 to hit on all ranged attacks that round instead.
 Lens of the Dark Tapestry.MOD						EQMOD:Material ~ Voidglass ~ Shield.Special Ability ~ +1 ~ Shield.Special Ability ~ Enhancement Cost|25000	SOURCEPAGE:p.31		SPROP:On command, the wearer can take 1 point of Wisdom drain to banish a single creature within 30 feet into the Dark Tapestry.
-Phalanx Shield.MOD							EQMOD:Material ~ Adamantine ~ Shield.Special Ability ~ +2 ~ Shield.Special Ability ~ Enhancement Cost|6900	SOURCEPAGE:p.31		SPROP:Conjures spiritual allies to form a shield wall.
+Phalanx Shield.MOD						TYPE:Metal.Adamantine.Masterwork	EQMOD:Special Ability ~ +2 ~ Shield.Special Ability ~ Enhancement Cost|6900	SOURCEPAGE:p.31		SPROP:Conjures spiritual allies to form a shield wall.
 
 #Support
 Armored Coat.MOD			TYPE:ArmoredCoat

@@ -32,8 +32,8 @@ public class ContainsIntegrationTest extends
 		AbstractIntegrationTestCase<Equipment>
 {
 
-	static ContainsToken token = new ContainsToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
+	private static ContainsToken token = new ContainsToken();
+	private static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()

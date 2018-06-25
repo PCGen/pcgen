@@ -67,6 +67,9 @@ SPELL:mc_spells.lst
 # support
 ABILITY:support/mc_abilities_class_um.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
 ABILITY:support/mc_abilities_class_acg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
+ABILITY:support/mc_abilities_feat_arg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
+
+
 
 HIDETYPE:FEAT|GhoulBloodline
 

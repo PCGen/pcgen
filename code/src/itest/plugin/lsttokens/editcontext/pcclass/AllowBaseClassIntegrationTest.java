@@ -34,8 +34,8 @@ public class AllowBaseClassIntegrationTest extends
 		AbstractIntegrationTestCase<PCClass>
 {
 
-	static AllowBaseClassToken token = new AllowBaseClassToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
+	private static AllowBaseClassToken token = new AllowBaseClassToken();
+	private static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

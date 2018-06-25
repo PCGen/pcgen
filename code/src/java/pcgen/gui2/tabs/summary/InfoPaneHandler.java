@@ -125,7 +125,7 @@ public class InfoPaneHandler implements ReferenceListener<Object>,
 	}
 
 	/**
-	 * @see pcgen.core.facade.event.ReferenceListener#referenceChanged(pcgen.core.facade.event.ReferenceEvent)
+	 * @see pcgen.facade.util.event.ReferenceListener#referenceChanged(ReferenceEvent)
 	 */
 	@Override
 	public void referenceChanged(ReferenceEvent<Object> e)
@@ -134,7 +134,7 @@ public class InfoPaneHandler implements ReferenceListener<Object>,
 	}
 
 	/**
-	 * @see pcgen.core.facade.event.ListListener#elementAdded(pcgen.core.facade.event.ListEvent)
+	 * @see pcgen.facade.util.event.ListListener#elementAdded(ListEvent)
 	 */
 	@Override
 	public void elementAdded(ListEvent<CharacterLevelFacade> e)
@@ -143,7 +143,7 @@ public class InfoPaneHandler implements ReferenceListener<Object>,
 	}
 
 	/**
-	 * @see pcgen.core.facade.event.ListListener#elementRemoved(pcgen.core.facade.event.ListEvent)
+	 * @see pcgen.facade.util.event.ListListener#elementRemoved(ListEvent)
 	 */
 	@Override
 	public void elementRemoved(ListEvent<CharacterLevelFacade> e)
@@ -152,7 +152,7 @@ public class InfoPaneHandler implements ReferenceListener<Object>,
 	}
 
 	/**
-	 * @see pcgen.core.facade.event.ListListener#elementModified(pcgen.core.facade.event.ListEvent)
+	 * @see pcgen.facade.util.event.ListListener#elementModified(ListEvent)
 	 */
 	@Override
 	public void elementModified(ListEvent<CharacterLevelFacade> e)
@@ -161,7 +161,7 @@ public class InfoPaneHandler implements ReferenceListener<Object>,
 	}
 
 	/**
-	 * @see pcgen.core.facade.event.ListListener#elementsChanged(pcgen.core.facade.event.ListEvent)
+	 * @see pcgen.facade.util.event.ListListener#elementsChanged(ListEvent)
 	 */
 	@Override
 	public void elementsChanged(ListEvent<CharacterLevelFacade> e)

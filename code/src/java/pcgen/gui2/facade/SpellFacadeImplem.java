@@ -54,7 +54,7 @@ public class SpellFacadeImplem implements SpellFacade, SortKeyAware
 	}
 	
 	/**
-	 * @see pcgen.core.facade.InfoFacade#getSource()
+	 * @see pcgen.facade.core.InfoFacade#getSource()
 	 */
 	@Override
 	public String getSource()
@@ -64,7 +64,7 @@ public class SpellFacadeImplem implements SpellFacade, SortKeyAware
 	}
 
 	/**
-	 * @see pcgen.core.facade.InfoFacade#getSourceForNodeDisplay()
+	 * @see pcgen.facade.core.InfoFacade#getSourceForNodeDisplay()
 	 */
     @Override
 	public String getSourceForNodeDisplay()
@@ -74,7 +74,7 @@ public class SpellFacadeImplem implements SpellFacade, SortKeyAware
 	}
 
 	/**
-	 * @see pcgen.core.facade.InfoFacade#getKeyName()
+	 * @see pcgen.facade.core.InfoFacade#getKeyName()
 	 */
 	@Override
 	public String getKeyName()
@@ -83,7 +83,7 @@ public class SpellFacadeImplem implements SpellFacade, SortKeyAware
 	}
 
 	/**
-	 * @see pcgen.core.facade.SpellFacade#getSchool()
+	 * @see pcgen.facade.core.SpellFacade#getSchool()
 	 */
 	@Override
 	public String getSchool()
@@ -92,7 +92,7 @@ public class SpellFacadeImplem implements SpellFacade, SortKeyAware
 	}
 
 	/**
-	 * @see pcgen.core.facade.SpellFacade#getSubschool()
+	 * @see pcgen.facade.core.SpellFacade#getSubschool()
 	 */
 	@Override
 	public String getSubschool()
@@ -101,7 +101,7 @@ public class SpellFacadeImplem implements SpellFacade, SortKeyAware
 	}
 
 	/**
-	 * @see pcgen.core.facade.SpellFacade#getDescriptors()
+	 * @see pcgen.facade.core.SpellFacade#getDescriptors()
 	 */
 	@Override
 	public String[] getDescriptors()
@@ -115,7 +115,7 @@ public class SpellFacadeImplem implements SpellFacade, SortKeyAware
 	}
 
 	/**
-	 * @see pcgen.core.facade.SpellFacade#getComponents()
+	 * @see pcgen.facade.core.SpellFacade#getComponents()
 	 */
 	@Override
 	public String getComponents()
@@ -124,7 +124,7 @@ public class SpellFacadeImplem implements SpellFacade, SortKeyAware
 	}
 
 	/**
-	 * @see pcgen.core.facade.SpellFacade#getRange()
+	 * @see pcgen.facade.core.SpellFacade#getRange()
 	 */
 	@Override
 	public String getRange()
@@ -133,7 +133,7 @@ public class SpellFacadeImplem implements SpellFacade, SortKeyAware
 	}
 
 	/**
-	 * @see pcgen.core.facade.SpellFacade#getDuration()
+	 * @see pcgen.facade.core.SpellFacade#getDuration()
 	 */
 	@Override
 	public String getDuration()

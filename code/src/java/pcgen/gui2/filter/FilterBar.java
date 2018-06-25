@@ -247,8 +247,10 @@ public class FilterBar<C, E> extends JPanel implements DisplayableFilter<C, E>
 				Insets insets = target.getInsets();
 				int maxwidth = target.getWidth() - (insets.left + insets.right + getHgap() * 2);
 				int nmembers = target.getComponentCount();
-				int x = 0, y = insets.top + getVgap();
-				int rowh = 0, start = 0;
+				int x = 0;
+				int y = insets.top + getVgap();
+				int rowh = 0;
+				int start = 0;
 
 				boolean ltr = target.getComponentOrientation().isLeftToRight();
 				SizeRequirements[] xChildren = new SizeRequirements[nmembers];

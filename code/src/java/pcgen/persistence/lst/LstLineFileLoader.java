@@ -50,14 +50,6 @@ public abstract class LstLineFileLoader extends Observable
 	protected String gameMode = "*"; //$NON-NLS-1$
 
 	/**
-	 * Constructor
-	 */
-	public LstLineFileLoader()
-	{
-		super();
-	}
-
-	/**
 	 * This method loads a single LST formatted file.
 	 * @param uri String containing the absolute file path
 	 * or the URL from which to read LST formatted data.

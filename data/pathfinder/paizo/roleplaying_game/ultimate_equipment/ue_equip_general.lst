@@ -105,7 +105,7 @@ Citrus (per lb)			OUTPUTNAME:Citrus (per lb.)			TYPE:Goods.Trade	COST:0.03	WT:1	
 Nuts (per lb)			OUTPUTNAME:Nuts (per lb.)			TYPE:Goods.Trade	COST:0.03	WT:1		SOURCEPAGE:p.93
 Peat (per 20 lbs)			OUTPUTNAME:Peat (per 20 lbs.)			TYPE:Goods.Trade	COST:0.03	WT:20		SOURCEPAGE:p.93
 Coffee Beans (per lb)		OUTPUTNAME:Coffee Beans (per lb.)		TYPE:Goods.Trade	COST:0.05	WT:1		SOURCEPAGE:p.93
-Coal (per 20 lbs)			OUTPUTNAME:Coal (per 20 lbs.)			TYPE:Goods.Trade	COST:0.05	WT:1		SOURCEPAGE:p.93
+Coal (per 20 lbs)			OUTPUTNAME:Coal (per 20 lbs.)			TYPE:Goods.Trade	COST:0.05	WT:20		SOURCEPAGE:p.93
 Masonry Stone (per lb)		OUTPUTNAME:Masonry Stone (per lb.)		TYPE:Goods.Trade	COST:0.05	WT:1		SOURCEPAGE:p.93
 Sugar (per lb)			OUTPUTNAME:Sugar (per lb.)			TYPE:Goods.Trade	COST:0.05	WT:1		SOURCEPAGE:p.93
 Iron (per lb).MOD			OUTPUTNAME:Iron (per lb.)			TYPE:Goods.Trade	COST:0.1	WT:1		SOURCEPAGE:p.93
@@ -255,72 +255,9 @@ Antidote Kit																			TYPE:Goods.Tools													COST:100	WT:3					SO
 Anvil (Blacksmith).MOD																		TYPE:Goods.Tools													COST:5	WT:100				SOURCEPAGE:p.76
 Anvil (Farrier).MOD																		TYPE:Goods.Tools													COST:5	WT:50					SOURCEPAGE:p.76
 Anvil (Goldsmith/Silversmith).MOD																TYPE:Goods.Tools													COST:5	WT:10					SOURCEPAGE:p.76
-Artisan's Tools (Armor).MOD																																							SOURCEPAGE:p.76
-Artisan's Tools (Baskets).MOD																																							SOURCEPAGE:p.76
-Artisan's Tools (Books).MOD																																							SOURCEPAGE:p.76
-Artisan's Tools (Bows).MOD																																							SOURCEPAGE:p.76
-Artisan's Tools (Calligraphy).MOD																																						SOURCEPAGE:p.76
-Artisan's Tools (Carpentry).MOD																																						SOURCEPAGE:p.76
-Artisan's Tools (Cloth).MOD																																							SOURCEPAGE:p.76
-Artisan's Tools (Clothing).MOD																																						SOURCEPAGE:p.76
-Artisan's Tools (Gemcutting).MOD																																						SOURCEPAGE:p.76
-Artisan's Tools (Glass).MOD																																							SOURCEPAGE:p.76
-Artisan's Tools (Jewelry).MOD																																							SOURCEPAGE:p.76
-Artisan's Tools (Leather).MOD																																							SOURCEPAGE:p.76
-Artisan's Tools (Locks).MOD																																							SOURCEPAGE:p.76
-Artisan's Tools (Paintings).MOD																																						SOURCEPAGE:p.76
-Artisan's Tools (Pottery).MOD																																							SOURCEPAGE:p.76
-Artisan's Tools (Sculptures).MOD																																						SOURCEPAGE:p.76
-Artisan's Tools (Ships).MOD																																							SOURCEPAGE:p.76
-Artisan's Tools (Shoes).MOD																																							SOURCEPAGE:p.76
-Artisan's Tools (Stonemasonry).MOD																																						SOURCEPAGE:p.76
-Artisan's Tools (Tattoos)																	TYPE:Goods.Tools.Artisan.CraftToolsTattoos								COST:5	WT:5					SOURCEPAGE:p.76	BONUS:SKILL|Craft (Tattoos)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
-Artisan's Tools (Traps).MOD																																							SOURCEPAGE:p.76
-Artisan's Tools (Weaponsmithing).MOD																																					SOURCEPAGE:p.76
-Artisan's Tools (Armor).COPY=Artisan's Tools (Armor/Masterwork)
-Artisan's Tools (Armor/Masterwork).MOD																														COST:55																												BONUS:SKILL|Craft (Armor)|2|TYPE=Circumstance
-Artisan's Tools (Baskets).COPY=Artisan's Tools (Baskets/Masterwork)
-Artisan's Tools (Baskets/Masterwork).MOD																														COST:55																												BONUS:SKILL|Craft (Baskets)|2|TYPE=Circumstance
-Artisan's Tools (Books).COPY=Artisan's Tools (Books/Masterwork)
-Artisan's Tools (Books/Masterwork).MOD																														COST:55																												BONUS:SKILL|Craft (Books)|2|TYPE=Circumstance
-Artisan's Tools (Bows).COPY=Artisan's Tools (Bows/Masterwork)
-Artisan's Tools (Bows/Masterwork).MOD																														COST:55																												BONUS:SKILL|Craft (Bows)|2|TYPE=Circumstance
-Artisan's Tools (Calligraphy).COPY=Artisan's Tools (Calligraphy/Masterwork)
-Artisan's Tools (Calligraphy/Masterwork).MOD																													COST:55																												BONUS:SKILL|Craft (Calligraphy)|2|TYPE=Circumstance
-Artisan's Tools (Carpentry).COPY=Artisan's Tools (Carpentry/Masterwork)
-Artisan's Tools (Carpentry/Masterwork).MOD																													COST:55																												BONUS:SKILL|Craft (Carpentry)|2|TYPE=Circumstance
-Artisan's Tools (Cloth).COPY=Artisan's Tools (Cloth/Masterwork)
-Artisan's Tools (Cloth/Masterwork).MOD																														COST:55																												BONUS:SKILL|Craft (Cloth)|2|TYPE=Circumstance
-Artisan's Tools (Clothing).COPY=Artisan's Tools (Clothing/Masterwork)
-Artisan's Tools (Clothing/Masterwork).MOD																														COST:55																												BONUS:SKILL|Craft (Clothing)|2|TYPE=Circumstance
-Artisan's Tools (Gemcutting).COPY=Artisan's Tools (Gemcutting/Masterwork)
-Artisan's Tools (Gemcutting/Masterwork).MOD																													COST:55																												BONUS:SKILL|Craft (Gemcutting)|2|TYPE=Circumstance
-Artisan's Tools (Glass).COPY=Artisan's Tools (Glass/Masterwork)
-Artisan's Tools (Glass/Masterwork).MOD																														COST:55																												BONUS:SKILL|Craft (Glass)|2|TYPE=Circumstance
-Artisan's Tools (Jewelry).COPY=Artisan's Tools (Jewelry/Masterwork)
-Artisan's Tools (Jewelry/Masterwork).MOD																														COST:55																												BONUS:SKILL|Craft (Jewelry)|2|TYPE=Circumstance
-Artisan's Tools (Leather).COPY=Artisan's Tools (Leather/Masterwork)
-Artisan's Tools (Leather/Masterwork).MOD																														COST:55																												BONUS:SKILL|Craft (Leather)|2|TYPE=Circumstance
-Artisan's Tools (Locks).COPY=Artisan's Tools (Locks/Masterwork)
-Artisan's Tools (Locks/Masterwork).MOD																														COST:55																												BONUS:SKILL|Craft (Locks)|2|TYPE=Circumstance
-Artisan's Tools (Paintings).COPY=Artisan's Tools (Paintings/Masterwork)
-Artisan's Tools (Paintings/Masterwork).MOD																													COST:55																												BONUS:SKILL|Craft (Paintings)|2|TYPE=Circumstance
-Artisan's Tools (Pottery).COPY=Artisan's Tools (Pottery/Masterwork)
-Artisan's Tools (Pottery/Masterwork).MOD																														COST:55																												BONUS:SKILL|Craft (Pottery)|2|TYPE=Circumstance
-Artisan's Tools (Sculptures).COPY=Artisan's Tools (Sculptures/Masterwork)
-Artisan's Tools (Sculptures/Masterwork).MOD																													COST:55																												BONUS:SKILL|Craft (Sculptures)|2|TYPE=Circumstance
-Artisan's Tools (Ships).COPY=Artisan's Tools (Ships/Masterwork)
-Artisan's Tools (Ships/Masterwork).MOD																														COST:55																												BONUS:SKILL|Craft (Ships)|2|TYPE=Circumstance
-Artisan's Tools (Shoes).COPY=Artisan's Tools (Shoes/Masterwork)
-Artisan's Tools (Shoes/Masterwork).MOD																														COST:55																												BONUS:SKILL|Craft (Shoes)|2|TYPE=Circumstance
-Artisan's Tools (Stonemasonry).COPY=Artisan's Tools (Stonemasonry/Masterwork)
-Artisan's Tools (Stonemasonry/Masterwork).MOD																													COST:55																												BONUS:SKILL|Craft (Stonemasonry)|2|TYPE=Circumstance
-Artisan's Tools (Tattoos).COPY=Artisan's Tools (Tattoos/Masterwork)
-Artisan's Tools (Tattoos/Masterwork).MOD																														COST:55																												BONUS:SKILL|Craft (Tattoos)|2|TYPE=Circumstance
-Artisan's Tools (Traps).COPY=Artisan's Tools (Traps/Masterwork)
-Artisan's Tools (Traps/Masterwork).MOD																														COST:55																												BONUS:SKILL|Craft (Traps)|2|TYPE=Circumstance
-Artisan's Tools (Weaponsmithing).COPY=Artisan's Tools (Weaponsmithing/Masterwork)
-Artisan's Tools (Weaponsmithing/Masterwork).MOD																													COST:55																												BONUS:SKILL|Craft (Weapons)|2|TYPE=Circumstance
+Artisan's Tools.MOD																																							SOURCEPAGE:p.76
+Artisan's Tools.COPY=Artisan's Tools, Masterwork	KEY:Artisan's Tools (Masterwork)	OUTPUTNAME:Masterwork Artisan's Tools
+Artisan's Tools (Masterwork).MOD																																				SOURCEPAGE:p.76	EQMOD:Special Quality ~ Masterwork ~ Item
 Balancing Pole.MOD																		TYPE:Goods.Tools													COST:0.8	WT:12					SOURCEPAGE:p.76
 Bear Trap.MOD																			TYPE:Goods.Tools													COST:2	WT:10					SOURCEPAGE:p.76
 Bellows.MOD																				TYPE:Goods.Tools													COST:1	WT:3					SOURCEPAGE:p.76
@@ -354,36 +291,36 @@ Musical Instrument (Flute).MOD																																						SOURCEPAGE:p
 Musical Instrument (Pan Pipes).MOD																																						SOURCEPAGE:p.78
 Musical Instrument (Recorder).MOD																																						SOURCEPAGE:p.78
 Musical Instrument (Trumpet).MOD																																						SOURCEPAGE:p.78
-Musical Instrument (Harpsichord).COPY=Musical Instrument (Harpsichord/Masterwork
-Musical Instrument (Harpsichord/Masterwork.MOD																																	EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
-Musical Instrument (Piano).COPY=Musical Instrument (Piano/Masterwork)
-Musical Instrument (Piano/Masterwork).MOD																																		EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
-Musical Instrument (Pipe Organ).COPY=Musical Instrument (Pipe Organ/Masterwork)
-Musical Instrument (Pipe Organ/Masterwork).MOD																																	EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
-Musical Instrument (Bells).COPY=Musical Instrument (Bells/Masterwork)
-Musical Instrument (Bells/Masterwork).MOD																																		EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
-Musical Instrument (Chimes).COPY=Musical Instrument (Chimes/Masterwork)
-Musical Instrument (Chimes/Masterwork).MOD																																	EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
-Musical Instrument (Drums).COPY=Musical Instrument (Drums/Masterwork)
-Musical Instrument (Drums/Masterwork).MOD																																		EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
-Musical Instrument (Gong).COPY=Musical Instrument (Gong/Masterwork)
-Musical Instrument (Gong/Masterwork).MOD																																		EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
-Musical Instrument (Fiddle).COPY=Musical Instrument (Fiddle/Masterwork)
-Musical Instrument (Fiddle/Masterwork).MOD																																	EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
-Musical Instrument (Harp).COPY=Musical Instrument (Harp/Masterwork)
-Musical Instrument (Harp/Masterwork).MOD																																		EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
-Musical Instrument (Lute).COPY=Musical Instrument (Lute/Masterwork)
-Musical Instrument (Lute/Masterwork).MOD																																		EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
-Musical Instrument (Mandolin).COPY=Musical Instrument (Mandolin/Masterwork)
-Musical Instrument (Mandolin/Masterwork).MOD																																	EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
-Musical Instrument (Flute).COPY=Musical Instrument (Flute/Masterwork)
-Musical Instrument (Flute/Masterwork).MOD																																		EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
-Musical Instrument (Pan Pipes).COPY=Musical Instrument (Pan Pipes/Masterwork)
-Musical Instrument (Pan Pipes/Masterwork).MOD																																	EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
-Musical Instrument (Recorder).COPY=Musical Instrument (Recorder/Masterwork)
-Musical Instrument (Recorder/Masterwork).MOD																																	EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
-Musical Instrument (Trumpet).COPY=Musical Instrument (Trumpet/Masterwork)
-Musical Instrument (Trumpet/Masterwork).MOD																																	EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
+Harpsichord (Base).COPY=Musical Instrument, Masterwork Harpsichord	KEY:Musical Instrument (Harpsichord/Masterwork)		OUTPUTNAME:Masterwork Harpsichord			BASEITEM:Harpsichord (Base)	VISIBLE:YES
+Musical Instrument (Harpsichord/Masterwork).MOD																																	EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
+Piano (Base).COPY=Musical Instrument, Masterwork Piano	KEY:Musical Instrument (Piano/Masterwork)			OUTPUTNAME:Masterwork Piano				BASEITEM:Piano (Base)		VISIBLE:YES
+Musical Instrument (Piano/Masterwork).MOD																																		EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
+Pipe Organ (Base).COPY=Musical Instrument, Masterwork Pipe Organ	KEY:Musical Instrument (Pipe Organ/Masterwork)			OUTPUTNAME:Masterwork Pipe Organ			BASEITEM:Pipe Organ (Base)	VISIBLE:YES
+Musical Instrument (Pipe Organ/Masterwork).MOD																																	EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
+Bells (Base).COPY=Musical Instrument, Masterwork Bells	KEY:Musical Instrument (Bells/Masterwork)			OUTPUTNAME:Masterwork Bells				BASEITEM:Bells (Base)		VISIBLE:YES
+Musical Instrument (Bells/Masterwork).MOD																																		EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
+Chimes (Base).COPY=Musical Instrument, Masterwork Chimes	KEY:Musical Instrument (Chimes/Masterwork)			OUTPUTNAME:Masterwork Chimes				BASEITEM:Chimes (Base)		VISIBLE:YES
+Musical Instrument (Chimes/Masterwork).MOD																																	EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
+Drums (Base).COPY=Musical Instrument, Masterwork Drums	KEY:Musical Instrument (Drums/Masterwork)			OUTPUTNAME:Masterwork Drums				BASEITEM:Drums (Base)		VISIBLE:YES
+Musical Instrument (Drums/Masterwork).MOD																																		EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
+Gong (Base).COPY=Musical Instrument, Masterwork Gong	KEY:Musical Instrument (Gong/Masterwork)				OUTPUTNAME:Masterwork Gong				BASEITEM:Gong (Base)		VISIBLE:YES
+Musical Instrument (Gong/Masterwork).MOD																																		EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
+Fiddle (Base).COPY=Musical Instrument, Masterwork Fiddle	KEY:Musical Instrument (Fiddle/Masterwork)			OUTPUTNAME:Masterwork Fiddle				BASEITEM:Fiddle (Base)		VISIBLE:YES
+Musical Instrument (Fiddle/Masterwork).MOD																																	EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
+Harp (Base).COPY=Musical Instrument, Masterwork Harp	KEY:Musical Instrument (Harp/Masterwork)				OUTPUTNAME:Masterwork Harp				BASEITEM:Harp (Base)		VISIBLE:YES
+Musical Instrument (Harp/Masterwork).MOD																																		EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
+Lute (Base).COPY=Musical Instrument, Masterwork Lute	KEY:Musical Instrument (Lute/Masterwork)				OUTPUTNAME:Masterwork Lute				BASEITEM:Lute (Base)		VISIBLE:YES
+Musical Instrument (Lute/Masterwork).MOD																																		EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
+Mandolin (Base).COPY=Musical Instrument, Masterwork Mandolin	KEY:Musical Instrument (Mandolin/Masterwork)			OUTPUTNAME:Masterwork Mandolin			BASEITEM:Mandolin (Base)	VISIBLE:YES
+Musical Instrument (Mandolin/Masterwork).MOD																																	EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
+Flute (Base).COPY=Musical Instrument, Masterwork Flute	KEY:Musical Instrument (Flute/Masterwork)			OUTPUTNAME:Masterwork Flute				BASEITEM:Flute (Base)		VISIBLE:YES
+Musical Instrument (Flute/Masterwork).MOD																																		EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
+Pan Pipes (Base).COPY=Musical Instrument, Masterwork Pan Pipes	KEY:Musical Instrument (Pan Pipes/Masterwork)			OUTPUTNAME:Masterwork Pan Pipes			BASEITEM:Pan Pipes (Base)	VISIBLE:YES
+Musical Instrument (Pan Pipes/Masterwork).MOD																																	EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
+Recorder (Base).COPY=Musical Instrument, Masterwork Recorder	KEY:Musical Instrument (Recorder/Masterwork)			OUTPUTNAME:Masterwork Recorder			BASEITEM:Recorder (Base)	VISIBLE:YES
+Musical Instrument (Recorder/Masterwork).MOD																																	EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
+Trumpet (Base).COPY=Musical Instrument, Masterwork Trumpet	KEY:Musical Instrument (Trumpet/Masterwork)			OUTPUTNAME:Masterwork Trumpet			BASEITEM:Trumpet (Base)		VISIBLE:YES
+Musical Instrument (Trumpet/Masterwork).MOD																																	EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
 Parasol																				TYPE:Goods.Tools													COST:1	WT:2					SOURCEPAGE:p.78
 Parasol (Umbrella)																		TYPE:Goods.Tools													COST:2	WT:3					SOURCEPAGE:p.78
 Alchemist's Lab (Portable).MOD									OUTPUTNAME:Alchemist's Lab, Portable	TYPE:Goods.Tools.CraftToolsAlchemist									COST:75	WT:20					SOURCEPAGE:p.79
@@ -438,7 +375,7 @@ Camouflage Netting															TYPE:Goods.Tools																COST:20	WT:5			
 Candle.MOD																																										SOURCEPAGE:p.61
 Candle.COPY=Candles (10)
 Candles (10).MOD																																		COST:0.1			BASEQTY:10
-Candle Lamp																	TYPE:Goods.General.Lightsource													COST:5	WT:1					SOURCEPAGE:p.61																																																				SPROP:A small lanternlike device with glass panels and a slot to hold a candle. It protects the candle from drafts and catches wax drippings. Provides the same light as a candle, but can be shuttered such that it only illuminates 1 to 3 adjacent squares. You can use a candle lamp to keep your hands warm.
+Candle Lamp																	TYPE:Goods.General.Light Source													COST:5	WT:1					SOURCEPAGE:p.61																																																				SPROP:A small lanternlike device with glass panels and a slot to hold a candle. It protects the candle from drafts and catches wax drippings. Provides the same light as a candle, but can be shuttered such that it only illuminates 1 to 3 adjacent squares. You can use a candle lamp to keep your hands warm.
 Candlestick																	TYPE:Goods.General															COST:0.01	WT:0.5				SOURCEPAGE:p.61
 Canteen																	TYPE:Goods.Container.General				CONTAINS:4|Liquid=4							COST:2	WT:1					SOURCEPAGE:p.61
 Canvas (Sq Yd).MOD																																								SOURCEPAGE:p.61
@@ -476,7 +413,7 @@ Filter Hood																	TYPE:Goods.Tools.Headgear.Resizable													COST
 Firewood (Per Day).MOD																																								SOURCEPAGE:p.64
 Fishhook.MOD																																									SOURCEPAGE:p.64
 Fishing Net (25 Sq Ft).MOD																																							SOURCEPAGE:p.64
-Flask (Empty).MOD																																									SOURCEPAGE:p.64
+Flask.MOD																																									SOURCEPAGE:p.64
 Flint and Steel.MOD																																								SOURCEPAGE:p.64
 Folding Chair																TYPE:Goods.General.Resizable														COST:2	WT:10					SOURCEPAGE:p.64
 Folding Ladder																TYPE:Goods.General															COST:2	WT:16					SOURCEPAGE:p.65
@@ -496,34 +433,16 @@ Hammock																	TYPE:Goods.General.Resizable														COST:0.1	WT:3	
 Harrow Deck																	TYPE:Goods.General															COST:100						SOURCEPAGE:p.66
 Helmet Candle																TYPE:Goods.General.Headgear														COST:2	WT:4					SOURCEPAGE:p.66
 Heritage Book																TYPE:Goods.Tools.Book															COST:50	WT:2					SOURCEPAGE:p.66																						BONUS:SKILL|Knowledge (Nobility)|2|TYPE=Circumstance																						SPROP:Consulting this book grants a +2 circumstance bonus on Knowledge (nobility) checks.
-Hip Flask																	TYPE:Goods.Container.General.Flask.Resizable	CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1			COST:1	WT:0.5				SOURCEPAGE:p.66
+Hip Flask																	TYPE:Goods.Container.General.Flask.Resizable	CONTAINS:1|Liquid=1|Spell Component=1|Poison=1			COST:1	WT:0.5				SOURCEPAGE:p.66
 Hollowed Pommel																TYPE:Goods.General															COST:5						SOURCEPAGE:p.66
-Holy Symbol (Wooden).MOD																																							SOURCEPAGE:p.66
-Holy Symbol (Wooden).COPY=Holy Symbol (Wooden/Compartment)
-Holy Symbol (Wooden/Compartment).MOD												TYPE:Container						CONTAINS:1|Vial=1|Flask=1						COST:6
-Holy Symbol (Wooden).COPY=Holy Symbol (Wooden/Flask)
-Holy Symbol (Wooden/Flask).MOD													TYPE:Container						CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1			COST:11
-Holy Symbol (Iron)															TYPE:Goods.Tools.SpellComponent.DivineFocus											COST:5	WT:1					SOURCEPAGE:p.66
-Holy Symbol (Iron).COPY=Holy Symbol (Iron/Compartment)
-Holy Symbol (Iron/Compartment).MOD													TYPE:Container						CONTAINS:1|Vial=1|Flask=1						COST:10
-Holy Symbol (Iron).COPY=Holy Symbol (Iron/Flask)
-Holy Symbol (Iron/Flask).MOD														TYPE:Container						CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1			COST:15
-Holy Symbol (Silver).MOD																																							SOURCEPAGE:p.66
-Holy Symbol (Silver).COPY=Holy Symbol (Silver/Compartment)
-Holy Symbol (Silver/Compartment).MOD												TYPE:Container						CONTAINS:1|Vial=1|Flask=1						COST:30
-Holy Symbol (Silver).COPY=Holy Symbol (Silver/Flask)
-Holy Symbol (Silver/Flask).MOD													TYPE:Container						CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1			COST:35
-Holy Symbol (Gold)															TYPE:Goods.Tools.SpellComponent.DivineFocus											COST:100	WT:1					SOURCEPAGE:p.66
-Holy Symbol (Gold).COPY=Holy Symbol (Gold/Compartment)
-Holy Symbol (Gold/Compartment).MOD													TYPE:Container						CONTAINS:1|Vial=1|Flask=1						COST:105
-Holy Symbol (Gold).COPY=Holy Symbol (Gold/Flask)
-Holy Symbol (Gold/Flask).MOD														TYPE:Container						CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1			COST:110
-Holy Symbol (Platinum)															TYPE:Goods.Tools.SpellComponent.DivineFocus											COST:500	WT:1					SOURCEPAGE:p.66
-Holy Symbol (Platinum).COPY=Holy Symbol (Platinum/Compartment)
-Holy Symbol (Platinum/Compartment).MOD												TYPE:Container						CONTAINS:1|Vial=1|Flask=1						COST:505
-Holy Symbol (Platinum).COPY=Holy Symbol (Platinum/Flask)
-Holy Symbol (Platinum/Flask).MOD													TYPE:Container						CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1			COST:510
-Holy Symbol (Tattoo)															TYPE:Goods.Tools.SpellComponent.DivineFocus											COST:100						SOURCEPAGE:p.66
+Holy Symbol.MOD																																									SOURCEPAGE:p.66
+Holy Symbol.COPY=Compartment Holy Symbol	KEY:Compartment Holy Symbol (Base)	OUTPUTNAME:Compartment Holy Symbol	VISIBLE:NO																COST:5						SOURCEPAGE:p.66
+Compartment Holy Symbol (Base).COPY=Holy Symbol, Compartment	KEY:Holy Symbol (Compartment)	OUTPUTNAME:Compartment Holy Symbol	VISIBLE:YES	BASEITEM:Compartment Holy Symbol (Base)
+Holy Symbol (Compartment).MOD												TYPE:Container						CONTAINS:1|Vial=1|Flask=1
+Holy Symbol.COPY=Flask Holy Symbol	KEY:Flask Holy Symbol (Base)	OUTPUTNAME:Flask Holy Symbol	VISIBLE:NO																			COST:10						SOURCEPAGE:p.66
+Flask Holy Symbol (Base).COPY=Holy Symbol, Flask	KEY:Holy Symbol (Flask)	OUTPUTNAME:Flask Holy Symbol	VISIBLE:YES	BASEITEM:Flask Holy Symbol (Base)
+Holy Symbol (Flask).MOD													TYPE:Container						CONTAINS:1|Liquid=1|Spell Component=1|Poison=1
+Holy Symbol, Tattoo	KEY:Holy Symbol (Tattoo)	OUTPUTNAME:Holy Symbol Tattoo														TYPE:Goods.Tools.Spell Component.Divine Focus											COST:100						SOURCEPAGE:p.66	MODS:NO
 Holy Symbol (Tattoo).MOD														TYPE:Tattoo Head.Tattoo Shoulders.Tattoo Neck.Tattoo Chest.Tattoo Body.Tattoo Belt.Tattoo Wrist.Tattoo Hands.Tattoo Ring.Tattoo Feet
 Holy Text (Cheap)																TYPE:Goods.Tools.Book															COST:1	WT:1					SOURCEPAGE:66																																																				SPROP:A small, light book with no illustrations, printed or written on thin paper, and with a cover made of canvas or thin leather.
 Holy Text (Typical)															TYPE:Goods.Tools.Book															COST:25	WT:2					SOURCEPAGE:66																																																				SPROP:A typical holy text for an experienced adventuring priest. Durable, with a leather cover, chapter illustrations and quality paper.
@@ -540,9 +459,9 @@ Journal																	TYPE:Goods.Tools.Book															COST:10	WT:1					SOU
 Jug (Clay).MOD									OUTPUTNAME:Jug																														SOURCEPAGE:p.67
 Ladder (10 Ft).MOD																																								SOURCEPAGE:p.67
 Lamp (Common).MOD																																									SOURCEPAGE:p.67
-Lamp (Common/Waterproof)														TYPE:Goods.General.LightSource													COST:5.1	WT:1					SOURCEPAGE:p.156																															QUALITY:Bright Illumination|15 ft.	QUALITY:Shadowy Illumination|30 ft.	QUALITY:Duration|6 hr./pint					SPROP:Bright illumination (15'), shadowy illumination (30'), 6 hr./pint, holds enough air to burn underwater for 5 rounds before going dark.
-Lantern (Bullseye/Waterproof)														TYPE:Goods.General.LightSource													COST:17	WT:3					SOURCEPAGE:p.156																															QUALITY:Normal Illumination|60 ft. cone	QUALITY:Increases light level by 1 step|120 ft. cone	QUALITY:Duration|6 hr./pint	SPROP:Normal illumination (60'), plus 1 step (120'), 6 hr./pint, holds enough air to burn underwater for 5 rounds before going dark.
-Lantern (Hooded/Waterproof)														TYPE:Goods.General.LightSource													COST:12	WT:2					SOURCEPAGE:p.156																															QUALITY:Bright Illumination|30 ft.	QUALITY:Shadowy Illumination|60 ft.	QUALITY:Duration|6 hr./pint					SPROP:Bright illumination (30'), shadowy illumination (60'), 6 hr./pint, holds enough air to burn underwater for 5 rounds before going dark.
+Lamp (Common/Waterproof)														TYPE:Goods.General.Light Source													COST:5.1	WT:1					SOURCEPAGE:p.156																															QUALITY:Bright Illumination|15 ft.	QUALITY:Shadowy Illumination|30 ft.	QUALITY:Duration|6 hr./pint					SPROP:Bright illumination (15'), shadowy illumination (30'), 6 hr./pint, holds enough air to burn underwater for 5 rounds before going dark.
+Lantern (Bullseye/Waterproof)														TYPE:Goods.General.Light Source													COST:17	WT:3					SOURCEPAGE:p.156																															QUALITY:Normal Illumination|60 ft. cone	QUALITY:Increases light level by 1 step|120 ft. cone	QUALITY:Duration|6 hr./pint	SPROP:Normal illumination (60'), plus 1 step (120'), 6 hr./pint, holds enough air to burn underwater for 5 rounds before going dark.
+Lantern (Hooded/Waterproof)														TYPE:Goods.General.Light Source													COST:12	WT:2					SOURCEPAGE:p.156																															QUALITY:Bright Illumination|30 ft.	QUALITY:Shadowy Illumination|60 ft.	QUALITY:Duration|6 hr./pint					SPROP:Bright illumination (30'), shadowy illumination (60'), 6 hr./pint, holds enough air to burn underwater for 5 rounds before going dark.
 Lock (Simple).MOD																																									SOURCEPAGE:p.67
 Lock (Average).MOD																																								SOURCEPAGE:p.67
 Lock (Good).MOD																																									SOURCEPAGE:p.67
@@ -566,7 +485,8 @@ Mess Kit																	TYPE:Goods.General															COST:0.2	WT:1					SOUR
 Miner's Pick																TYPE:Goods.General															COST:3	WT:10					SOURCEPAGE:p.68
 Mirror (Small/Steel).MOD																																							SOURCEPAGE:p.68
 Mock Armor																	TYPE:Goods.Cloth.Clothing.Resizable													COST:90	WT:10					SOURCEPAGE:p.68	BONUS:SITUATION|Bluff=Conceal Identity|4|TYPE=Circumstance
-Mug or Tankard (Clay).MOD																																							SOURCEPAGE:p.68
+Mug (Clay).MOD																																							SOURCEPAGE:p.68
+Tankard.MOD																																							SOURCEPAGE:p.68
 Oil (1 Pint Flask).MOD																																								SOURCEPAGE:p.68
 Paper (Sheet).MOD																																									SOURCEPAGE:p.69
 Parchment (Sheet).MOD																																								SOURCEPAGE:p.69
@@ -594,14 +514,16 @@ Rope (Hemp/50 ft).MOD																																								SOURCEPAGE:p.70
 Sack.MOD																																										SOURCEPAGE:p.70
 Saw.MOD																	TYPE:Goods.General															COST:0.04	WT:2					SOURCEPAGE:p.71
 Scroll Box																	TYPE:Goods.Container.General				CONTAINS:UNLIM|Total=10|Paper=10|Documents=10|Scroll=10	COST:5	WT:1					SOURCEPAGE:p.71
-Case (Map or Scroll).MOD							OUTPUTNAME:Scroll Case																													SOURCEPAGE:p.71
+Scroll Case.MOD																																									SOURCEPAGE:p.71
+Map Case.MOD																																									SOURCEPAGE:p.71
 Sealing Wax.MOD																																									SOURCEPAGE:p.71
 Sentry Mannequin																TYPE:Goods.General.Resizable														COST:30	WT:35					SOURCEPAGE:p.71
 Sewing Needle.MOD																																									SOURCEPAGE:p.71
 Sextant.MOD																	TYPE:Goods.Tools																COST:500	WT:2					SOURCEPAGE:p.71
 Shaving Kit																	TYPE:Goods.General															COST:1.5	WT:0.5				SOURCEPAGE:p.71
 Shield Sconce																TYPE:Goods.General															COST:1	WT:0.5				SOURCEPAGE:p.71																																																				SPROP:This metal frame holds a torch and is designed to be strapped to the front of a light, heavy, or tower shield, allowing you to carry a torch without giving up your shield or occupying your weapon hand.
-Shovel or Spade.MOD								OUTPUTNAME:Shovel, Common																												SOURCEPAGE:p.71
+Shovel.MOD																																				SOURCEPAGE:p.71
+Spade.MOD																																				SOURCEPAGE:p.71
 Shovel (Folding)									OUTPUTNAME:Shovel, Folding			TYPE:Goods.General															COST:10	WT:12					SOURCEPAGE:p.71
 Signal Horn.MOD																TYPE:Goods.General.Resizable														COST:1	WT:2					SOURCEPAGE:p.71
 Signal Whistle.MOD																																								SOURCEPAGE:p.71
@@ -615,7 +537,7 @@ Sledge.MOD																																										SOURCEPAGE:p.72
 Smoked Goggles.MOD															TYPE:Goods.General															COST:10	WT:0					SOURCEPAGE:p.72
 Snorkel (Common)									OUTPUTNAME:Snorkel, Common			TYPE:Goods.General															COST:0.5						SOURCEPAGE:p.72
 Snorkel (Masterwork)								OUTPUTNAME:Snorkel, Masterwork		TYPE:Goods.General.Masterwork														COST:5						SOURCEPAGE:p.72
-Soap (per lb).MOD																																									SOURCEPAGE:p.72
+Soap.MOD																																			COST:0.01	WT:0.5				SOURCEPAGE:p.72
 Rope (Spider Silk/50 ft.).MOD							OUTPUTNAME:Rope, Spider Silk (50 ft.)	TYPE:Goods.General															COST:100	WT:4					SOURCEPAGE:p.73
 Spyglass.MOD																																									SOURCEPAGE:p.73
 Stationery																	TYPE:Goods.General.Writing.Documents												COST:1						SOURCEPAGE:p.73
@@ -628,10 +550,10 @@ Survival Kit (Masterwork)														TYPE:Goods.General															COST:50	
 Swarmsuit.MOD																TYPE:Goods.General.Resizable														COST:20	WT:10					SOURCEPAGE:p.73
 #Tattoo 1 cp-20 gp -
 Teapot																	TYPE:Goods.General															COST:0.1	WT:1					SOURCEPAGE:p.74
-Tent.MOD										OUTPUTNAME:Tent, Small				TYPE:Goods.General.Resizable																					SOURCEPAGE:p.74
-Tent (Medium).MOD									OUTPUTNAME:Tent, Medium				TYPE:Goods.General.Resizable														COST:15	WT:30					SOURCEPAGE:p.74
-Tent (Large).MOD									OUTPUTNAME:Tent, Large				TYPE:Goods.General.Resizable														COST:30	WT:40					SOURCEPAGE:p.74
-Tent (Pavilion).MOD								OUTPUTNAME:Tent, Pavilion			TYPE:Goods.General.Resizable														COST:100	WT:50					SOURCEPAGE:p.74
+Tent (Small).MOD									OUTPUTNAME:Small Tent				TYPE:Goods.General.Resizable														COST:10	WT:20					SOURCEPAGE:p.74
+Tent (Medium).MOD									OUTPUTNAME:Medium Tent				TYPE:Goods.General.Resizable														COST:15	WT:30					SOURCEPAGE:p.74
+Tent (Large).MOD									OUTPUTNAME:Large Tent				TYPE:Goods.General.Resizable														COST:30	WT:40					SOURCEPAGE:p.74
+Tent (Pavilion).MOD								OUTPUTNAME:Pavilion				TYPE:Goods.General.Resizable														COST:100	WT:50					SOURCEPAGE:p.74
 Thurible																	TYPE:Goods.General															COST:50	WT:3					SOURCEPAGE:p.74
 Torch.MOD																																										SOURCEPAGE:p.74
 Traveler's Dictionary															TYPE:Goods.Tools.Book															COST:50	WT:2					SOURCEPAGE:p.74

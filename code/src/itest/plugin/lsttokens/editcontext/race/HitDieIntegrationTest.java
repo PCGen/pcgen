@@ -28,8 +28,8 @@ public class HitDieIntegrationTest extends
 		AbstractIntegerIntegrationTestCase<Race>
 {
 
-	static HitdieToken token = new HitdieToken();
-	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
+	private static HitdieToken token = new HitdieToken();
+	private static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Race> getCDOMClass()

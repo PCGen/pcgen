@@ -28,8 +28,8 @@ public class RangeIntegrationTest extends
 		AbstractTypeSafeListIntegrationTestCase<Spell>
 {
 
-	static RangeToken token = new RangeToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
+	private static RangeToken token = new RangeToken();
+	private static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Spell> getCDOMClass()

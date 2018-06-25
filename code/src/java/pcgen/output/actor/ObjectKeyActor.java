@@ -61,10 +61,6 @@ public class ObjectKeyActor<T> implements OutputActor<CDOMObject>
 		this.ok = ok;
 	}
 
-	/**
-	 * @see pcgen.output.base.OutputActor#process(pcgen.cdom.enumeration.CharID,
-	 *      java.lang.Object)
-	 */
 	@Override
 	public TemplateModel process(CharID id, CDOMObject d)
 		throws TemplateModelException

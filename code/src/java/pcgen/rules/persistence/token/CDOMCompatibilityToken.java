@@ -29,4 +29,5 @@ package pcgen.rules.persistence.token;
 public interface CDOMCompatibilityToken<T> extends CDOMToken<T>,
 		CompatibilityToken
 {
+	//This is a unifying interface (extends multiple other interfaces)
 }

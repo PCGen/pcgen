@@ -24,10 +24,10 @@ import pcgen.core.Skill;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import plugin.lsttokens.testsupport.AbstractListTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractListInputTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-public class CCSkillTokenTest extends AbstractListTokenTestCase<Domain, Skill>
+public class CCSkillTokenTest extends AbstractListInputTokenTestCase<Domain, Skill>
 {
 
 	@Override

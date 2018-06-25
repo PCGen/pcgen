@@ -83,7 +83,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 	/**
 	 * Constructs a new <code>PCClassTest</code>.
 	 *
-	 * @see PCGenTestCase#PCGenTestCase()
+	 * @see pcgen.PCGenTestCase#PCGenTestCase()
 	 */
 	public PCClassTest()
 	{
@@ -95,7 +95,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 	 *
 	 * @param name the test case name
 	 *
-	 * @see PCGenTestCase#PCGenTestCase(String)
+	 * @see pcgen.PCGenTestCase#PCGenTestCase(String)
 	 */
 	public PCClassTest(final String name)
 	{

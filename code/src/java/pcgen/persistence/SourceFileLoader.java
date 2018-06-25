@@ -82,6 +82,7 @@ import pcgen.core.Skill;
 import pcgen.core.SystemCollections;
 import pcgen.core.WeaponProf;
 import pcgen.core.analysis.EqModAttachment;
+import pcgen.core.analysis.RaceUtilities;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
@@ -827,6 +828,11 @@ public class SourceFileLoader extends PCGenTask implements Observer
 			eq.setToCustomSize(null);
 			EqModAttachment.finishEquipment(eq);
 		}
+		if (RaceUtilities.getUnselectedRace() == null)
+		{
+			Logging.errorPrint(gameMode.getName()
+				+ " did not have required Race with 'Unselected' Group");
+		}
 	}
 
 	private void referenceAllCategories(LoadContext context)
@@ -1126,9 +1132,9 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	 * Add only those source files that either have no requirements, or that the
 	 * requirements are satisfied.
 	 * 
-	 * @param targetList
+	 * @param c
 	 *            The list being populated.
-	 * @param sources
+	 * @param lk
 	 *            The list of potential sources to be added.
 	 */
 	private void addQualifiedSources(Campaign c, ListKey<CampaignSourceEntry> lk)

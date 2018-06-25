@@ -97,6 +97,12 @@ public class SetModifierFactory<T> extends AbstractFixedSetModifierFactory<T[]>
 		{
 			return toSet;
 		}
+
+		@Override
+		public void getDependencies(DependencyManager fdm)
+		{
+			//Since this already knows the toSet objects, it has no dependencies
+		}
 	}
 
 	/**
@@ -128,6 +134,12 @@ public class SetModifierFactory<T> extends AbstractFixedSetModifierFactory<T[]>
 		protected T[] getArray()
 		{
 			return toSet.get();
+		}
+
+		@Override
+		public void getDependencies(DependencyManager fdm)
+		{
+			//CONSIDER: How does DependencyManager want to know about Indirect?
 		}
 	}
 
@@ -167,12 +179,6 @@ public class SetModifierFactory<T> extends AbstractFixedSetModifierFactory<T[]>
 		public FormatManager<T[]> getVariableFormat()
 		{
 			return fmtManager;
-		}
-
-		@Override
-		@SuppressWarnings("PMD.EmptyMethodInAbstractClassShouldBeAbstract")
-		public void getDependencies(DependencyManager fdm)
-		{
 		}
 
 		@Override

@@ -117,10 +117,8 @@ public final class InstallLoaderTest extends TestCase
 	 * Load the supplied installable campaign set data.
 	 *
 	 * @param installData The data to be loaded.
-	 * @throws URISyntaxException 
-	 * @throws PersistenceLayerException 
-	 *
-	 * @throws Exception If a problem occurs when loading the data
+	 * @throws PersistenceLayerException
+	 * @throws URISyntaxException
 	 */
 	private static InstallableCampaign loadInstallData(
 		final String[] installData) throws PersistenceLayerException,

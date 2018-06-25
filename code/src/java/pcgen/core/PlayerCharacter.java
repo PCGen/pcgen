@@ -530,7 +530,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	/**
 	 * Constructor.
 	 *
-	 * @param loadedCampaigns The currently loaded campaign objects.
+	 * @param from
 	 */
 	private PlayerCharacter(PlayerCharacter from)
 	{
@@ -6112,10 +6112,13 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		return bonus;
 	}
 
+	/*
+	 * Return Number of attacks per round based on Base Attack Bonus
+	 */
 
 	public int getNumAttacks()
 	{
-		return Math.min(Math.max(baseAttackBonus() / 5, 4), 1);
+		return Math.min(Math.max((int) Math.ceil((double) baseAttackBonus() / 5), 1), 4);
 	}
 
 	/**

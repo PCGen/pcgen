@@ -50,7 +50,7 @@ public class RollingMethodsTest extends TestCase
 		final Random random = new Random(seed);
 		RandomUtil.setRandomGenerator(random);
 
-                final int[] keepArr = IntStream.rangeClosed(times-keep, keep).toArray();
+		final int[] keepArr = IntStream.rangeClosed(times - keep, keep).toArray();
 
 		random.setSeed(seed);
 		int [] rolls = IntStream.generate(() -> RollingMethods.roll(sides)).limit(times).sorted().toArray();
@@ -83,8 +83,6 @@ public class RollingMethodsTest extends TestCase
 	{
 		final Random random = new Random(seed);
 		RandomUtil.setRandomGenerator(random);
-
-                final int[] keepArr = IntStream.rangeClosed(times-keep, keep).toArray();
 
 		random.setSeed(seed);
 		int [] rolls = IntStream.generate(() -> RollingMethods.roll(sides-reroll)+reroll).limit(times).sorted().toArray();

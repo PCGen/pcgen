@@ -58,7 +58,7 @@ public class SaveScope implements PCGenScope
 	}
 
 	@Override
-	public FormatManager<?> getFormatManager(LoadContext context)
+	public FormatManager<PCCheck> getFormatManager(LoadContext context)
 	{
 		return context.getReferenceContext().getManufacturer(PCCheck.class);
 	}

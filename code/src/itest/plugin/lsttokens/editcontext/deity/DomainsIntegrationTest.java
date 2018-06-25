@@ -31,8 +31,8 @@ public class DomainsIntegrationTest extends
 		AbstractListIntegrationTestCase<Deity, Domain>
 {
 
-	static DomainsToken token = new DomainsToken();
-	static CDOMTokenLoader<Deity> loader = new CDOMTokenLoader<>();
+	private static DomainsToken token = new DomainsToken();
+	private static CDOMTokenLoader<Deity> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Deity> getCDOMClass()

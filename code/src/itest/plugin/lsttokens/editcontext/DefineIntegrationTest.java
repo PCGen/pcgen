@@ -37,8 +37,8 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 public class DefineIntegrationTest extends
 		AbstractIntegrationTestCase<CDOMObject>
 {
-	static DefineLst token = new DefineLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
+	private static DefineLst token = new DefineLst();
+	private static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

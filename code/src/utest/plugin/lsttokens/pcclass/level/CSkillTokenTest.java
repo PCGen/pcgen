@@ -24,12 +24,14 @@ import pcgen.core.Skill;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import plugin.lsttokens.testsupport.AbstractListTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractListInputTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-public class CSkillTokenTest extends
-		AbstractListTokenTestCase<PCClassLevel, Skill>
+public class CSkillTokenTest extends AbstractListInputTokenTestCase<PCClassLevel, Skill>
 {
+	private static CDOMPrimaryToken<PCClassLevel> token = new CskillToken();
+	private static CDOMTokenLoader<PCClassLevel> loader =
+			new CDOMTokenLoader<>();
 
 	@Override
 	public char getJoinCharacter()
@@ -66,10 +68,6 @@ public class CSkillTokenTest extends
 	{
 		return true;
 	}
-
-	static CDOMPrimaryToken<PCClassLevel> token = new CskillToken();
-	static CDOMTokenLoader<PCClassLevel> loader =
-			new CDOMTokenLoader<>();
 
 	@Override
 	public CDOMLoader<PCClassLevel> getLoader()

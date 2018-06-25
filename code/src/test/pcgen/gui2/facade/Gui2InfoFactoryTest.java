@@ -54,7 +54,7 @@ public class Gui2InfoFactoryTest extends AbstractCharacterTestCase
 				TestHelper.makeAbility("Skill Focus", BuildUtilities.getFeatCat(),
 					"General");
 		choiceAbility.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
-		StringToken st = new plugin.lsttokens.choose.StringToken();
+		StringToken st = new StringToken();
 		ParseResult pr = st.parseToken(Globals.getContext(), choiceAbility, "SKILL|Perception|Acrobatics");
 		assertTrue(pr.passed());
 		Globals.getContext().commit();

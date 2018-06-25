@@ -31,6 +31,7 @@ import pcgen.cdom.base.Loadable;
 import pcgen.cdom.base.PrimitiveCollection;
 import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.formula.scope.PCGenScope;
+import pcgen.cdom.grouping.GroupingCollection;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.SelectionCreator;
 import pcgen.core.Campaign;
@@ -213,4 +214,20 @@ public interface LoadContext
 	 *            The DeferredMethodController to be added to this LoadContext
 	 */
 	public void addDeferredMethodController(DeferredMethodController<?> controller);
+
+	/**
+	 * Returns a GroupingCollection<T> based on the given scope name and grouping name.
+	 * 
+	 * Note: This is used to for new Grouping items (MODIFY) and is the strategic
+	 * direction for grouping in LoadContext.
+	 * 
+	 * @param scope
+	 *            The scope used to determine the contents of the Grouping
+	 * @param instructions
+	 *            The instructions used to determine the contents of the Grouping
+	 * @return A GroupingCollection<T> based on the given scope name and Group
+	 *         instructions
+	 */
+	public <T> GroupingCollection<? extends Loadable> getGrouping(
+		PCGenScope scope, String instructions);
 }

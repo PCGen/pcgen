@@ -36,9 +36,9 @@ public class TemplateIntegrationTest extends
 		AbstractListIntegrationTestCase<CDOMObject, PCTemplate>
 {
 
-	static TemplateToken ft = new TemplateToken();
-	static AddLst token = new AddLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
+	private static TemplateToken ft = new TemplateToken();
+	private static AddLst token = new AddLst();
+	private static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

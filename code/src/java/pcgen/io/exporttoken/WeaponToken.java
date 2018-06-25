@@ -1299,6 +1299,21 @@ public class WeaponToken extends Token
 			}
 		}
 
+		if (weaponString.indexOf("/") >-1) 
+		{
+			int i = weaponString.indexOf("/");
+			boolean progress = eq.getSafe(ObjectKey.ATTACKS_PROGRESS);
+			int bonusProgress = (int)eq.bonusTo(pc, "WEAPON", "ATTACKSPROGRESS", true);
+			if (bonusProgress != 0)
+			{
+				progress = bonusProgress > 0;
+			}
+			if (!progress) // a natural weapon or other weapon with attack progression turned off
+			{
+				weaponString = weaponString.substring(0, i);
+			}
+			
+		}
 		StringTokenizer bTok = new StringTokenizer(weaponString, "/");
 		int extra_attacks = (int) eq.bonusTo(pc, "WEAPON", "ATTACKS", true);
 		return (bTok.countTokens() + extra_attacks);
@@ -2504,6 +2519,7 @@ public class WeaponToken extends Token
 				(int) pc.getDisplay().getStatBonusTo("COMBAT", "DAMAGE.MELEE");
 		// TODO: remove this old syntax
 		meleeDamageStatBonus += (int) pc.getDisplay().getStatBonusTo("DAMAGE", "TYPE.MELEE");
+		meleeDamageStatBonus += (int) pc.getTotalBonusTo("WEAPONPROF=" + profName, "STATDAMAGE");
 		double meleeDamageMult =
 				pc.getTotalBonusTo("COMBAT", "DAMAGEMULT:" + hands);
 		meleeDamageMult +=
@@ -2657,6 +2673,7 @@ public class WeaponToken extends Token
 			// TODO: remove this old syntax
 			bonus += (int) pc.getTotalBonusTo("DAMAGE", "TYPE." + type);
 		}
+		bonus += (int) pc.getTotalBonusTo("WEAPONPROF=" + getProfName(eq), "STATDAMAGE");
 		if (eq.isFinessable(pc) && !eq.isType("Finesseable"))
 		{
 			bonus += (int) pc.getTotalBonusTo("COMBAT", "DAMAGE.Finesseable");

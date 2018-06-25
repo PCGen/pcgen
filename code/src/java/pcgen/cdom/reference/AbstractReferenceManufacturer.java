@@ -629,12 +629,6 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 		return active.containsKey(key);
 	}
 
-	@Override
-	public boolean containsObject(Object o)
-	{
-		return active.containsValue(o);
-	}
-
 	/**
 	 * Gets a reference to the Class or Class/Context provided by this
 	 * AbstractReferenceManufacturer. The reference will be a reference to the

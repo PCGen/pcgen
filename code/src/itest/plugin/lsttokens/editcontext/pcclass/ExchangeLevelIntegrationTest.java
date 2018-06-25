@@ -34,8 +34,8 @@ public class ExchangeLevelIntegrationTest extends
 		AbstractIntegrationTestCase<PCClass>
 {
 
-	static ExchangelevelToken token = new ExchangelevelToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
+	private static ExchangelevelToken token = new ExchangelevelToken();
+	private static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

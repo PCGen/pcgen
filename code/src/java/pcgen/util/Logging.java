@@ -561,7 +561,6 @@ public final class Logging
 	 * this name should be either the fully qualified class name, 
 	 * or the package name.
 	 * 
-	 * @param name The name of the logger
 	 * @return An instance of Logger that deals with the specified name.
 	 */
 	private static java.util.logging.Logger getLogger()
@@ -577,7 +576,7 @@ public final class Logging
 				break;
 			}
 		}
-
+		// name The name of the logger
 		String name =
 				(caller == null/*just in case*/) ? "" : caller.getClassName();
 

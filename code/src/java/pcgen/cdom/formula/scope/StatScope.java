@@ -59,7 +59,7 @@ public class StatScope implements PCGenScope
 
 
 	@Override
-	public FormatManager<?> getFormatManager(LoadContext context)
+	public FormatManager<PCStat> getFormatManager(LoadContext context)
 	{
 		return context.getReferenceContext().getManufacturer(PCStat.class);
 	}

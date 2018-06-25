@@ -2,9 +2,9 @@
 
 # Equipment Name			Unique Key				Product Identity?	Type								Cost		Weight	Source Page		Special Property
 Canopic Wrap											TYPE:Wondrous.Magic.Slot_Belt.Belt			COST:10500	WT:1		SOURCEPAGE:p.58
-Choker of the rough beast									TYPE:Wondrous.Magic.Slot_Neck.Amulet		COST:100000	WT:1		SOURCEPAGE:p.58
-Colossus draught											TYPE:Wondrous.Magic.Consumable			COST:28800	WT:1		SOURCEPAGE:p.58
-Demonic smith's gloves										TYPE:Wondrous.Magic.Slot_Hands.Glove		COST:8000	WT:1		SOURCEPAGE:p.58
+Choker of the Rough Beast									TYPE:Wondrous.Magic.Slot_Neck.Amulet		COST:100000	WT:1		SOURCEPAGE:p.58
+Colossus Draught											TYPE:Wondrous.Magic.Consumable			COST:28800	WT:1		SOURCEPAGE:p.58
+Demonic Smith's Gloves										TYPE:Wondrous.Magic.Slot_Hands.Glove		COST:8000	WT:1		SOURCEPAGE:p.58
 Dueling Cuffs											TYPE:Wondrous.Magic.Slot_Wrists.Bracer		COST:10000	WT:1		SOURCEPAGE:p.59
 Feather Token (Catapult)									TYPE:Wondrous.Magic					COST:400	WT:0		SOURCEPAGE:p.59
 Feather Token (Ram)										TYPE:Wondrous.Magic					COST:500	WT:0		SOURCEPAGE:p.59
@@ -26,13 +26,13 @@ Kalistocrat's Gloves										TYPE:Wondrous.Magic.Slot_Hands.Glove		COST:3600	WT
 Lastwall Banner (Hordeline)									TYPE:Wondrous.Magic					COST:7500	WT:3		SOURCEPAGE:p.61
 Lastwall Banner (Harchist)									TYPE:Wondrous.Magic					COST:15000	WT:3		SOURCEPAGE:p.61
 Lastwall Banner (Sunwall)									TYPE:Wondrous.Magic					COST:125000	WT:3		SOURCEPAGE:p.61
-Mantle of the crusader host									TYPE:Wondrous.Magic.Slot_Chest.Shirt		COST:95000	WT:0		SOURCEPAGE:p.62
+Mantle of the Crusader Host									TYPE:Wondrous.Magic.Slot_Chest.Shirt		COST:95000	WT:0		SOURCEPAGE:p.62
 Pelt of the Ulfen Wolf							NAMEISPI:YES	TYPE:Wondrous.Magic.Slot_Shoulders.Cape		COST:14800	WT:3		SOURCEPAGE:p.62
 Ring of the Adept Maneuvers									TYPE:Wondrous.Magic.Ring				COST:15000	WT:0		SOURCEPAGE:p.62
 Rod of Revolution											TYPE:Wondrous.Magic.Rod					COST:82000	WT:8		SOURCEPAGE:p.62
-Sabel Company Elite Saddle									TYPE:Wondrous.Magic.Saddle				COST:14000	WT:5		SOURCEPAGE:p.62
+Sable Company Elite Saddle									TYPE:Wondrous.Magic.Saddle				COST:14000	WT:5		SOURCEPAGE:p.62
 Sandstorm Sandals											TYPE:Wondrous.Magic.Slot_Feet.Boot			COST:15000	WT:2		SOURCEPAGE:p.63
-Scabbard of the efreet										TYPE:Wondrous.Magic					COST:41000	WT:2		SOURCEPAGE:p.63
-Seafaring stanchions										TYPE:Wondrous.Magic.Slot_Wrist.Bracer		COST:2400	WT:2		SOURCEPAGE:p.63
-Summoner slayer eyes										TYPE:Wondrous.Magic.Slot_Eyes.Eyewear		COST:11000	WT:1		SOURCEPAGE:p.63
-Tablet of the first law										TYPE:Wondrous.Magic					COST:3000	WT:5		SOURCEPAGE:p.63	SPROP:Read 10 minutes for +1 to Will saves from divine sources.
+Scabbard of the Efreet										TYPE:Wondrous.Magic					COST:41000	WT:2		SOURCEPAGE:p.63
+Seafaring Stanchions										TYPE:Wondrous.Magic.Slot_Wrist.Bracer		COST:2400	WT:2		SOURCEPAGE:p.63
+Summoner Slayer Eyes										TYPE:Wondrous.Magic.Slot_Eyes.Eyewear		COST:11000	WT:1		SOURCEPAGE:p.63
+Tablet of the First Law										TYPE:Wondrous.Magic					COST:3000	WT:5		SOURCEPAGE:p.63	SPROP:Read 10 minutes for +1 to Will saves from divine sources.

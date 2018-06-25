@@ -37,9 +37,9 @@ public class LangIntegrationTest extends
 		AbstractListIntegrationTestCase<CDOMObject, Language>
 {
 
-	static LangToken ft = new LangToken();
-	static AutoLst token = new AutoLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
+	private static LangToken ft = new LangToken();
+	private static AutoLst token = new AutoLst();
+	private static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

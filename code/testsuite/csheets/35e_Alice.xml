@@ -1024,7 +1024,7 @@ BIO
 				</to_hit>
 				<feat></feat>
 				<hand>Primary</hand>
-				<num_attacks>7</num_attacks>
+				<num_attacks>6</num_attacks>
 				<reach>5</reach>
 				<size>M</size>
 				<special_properties></special_properties>

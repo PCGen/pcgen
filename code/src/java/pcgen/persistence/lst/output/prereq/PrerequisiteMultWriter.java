@@ -35,18 +35,12 @@ public class PrerequisiteMultWriter extends AbstractPrerequisiteWriter
 {
 	private boolean allSkillTot = false;
 
-	/**
-	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#kindHandled()
-	 */
     @Override
 	public String kindHandled()
 	{
 		return null;
 	}
 
-	/**
-	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#operatorsHandled()
-	 */
     @Override
 	public PrerequisiteOperator[] operatorsHandled()
 	{

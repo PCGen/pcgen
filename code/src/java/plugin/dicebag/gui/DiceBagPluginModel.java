@@ -36,14 +36,6 @@ public class DiceBagPluginModel extends Observable
 	private List<DiceBagModel> m_diceBags = new ArrayList<>();
 
 	/**
-	 * <p>Default (and only) constructor.  Creates an empty model.</p>
-	 */
-	public DiceBagPluginModel()
-	{
-		// Empty Constructor
-	}
-
-	/**
 	 * <p>Sets the currently active bag.</p>
 	 *
 	 * @param model Model that's active

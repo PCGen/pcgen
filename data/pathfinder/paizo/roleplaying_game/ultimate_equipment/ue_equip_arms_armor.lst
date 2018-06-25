@@ -379,7 +379,7 @@ Chain (Spiked).MOD						OUTPUTNAME:Spiked Chain																																	
 Club.MOD																																																																	COST:0	WT:3																																																		SOURCEPAGE:p.25
 Curve Blade (Elven).MOD						OUTPUTNAME:Elven Curve Blade																																																					COST:80	WT:7																																																		SOURCEPAGE:p.27
 Dagger (Punching).MOD						OUTPUTNAME:Punching Dagger																																																					COST:2	WT:1																																																		SOURCEPAGE:p.34
-Dagger.MOD																																																																	COST:2	WT:1																																																		SOURCEPAGE:p.26
+Dagger (Base).MOD																																																																																																																				SOURCEPAGE:p.26
 Falchion.MOD																																																																COST:75	WT:8																																																		SOURCEPAGE:p.27
 Flail (Dire).MOD							OUTPUTNAME:Dire Flail																																																						COST:90	WT:10																																																		SOURCEPAGE:p.26
 Flail (Heavy).MOD							OUTPUTNAME:Heavy Flail																																																						COST:15	WT:10																																																		SOURCEPAGE:p.29

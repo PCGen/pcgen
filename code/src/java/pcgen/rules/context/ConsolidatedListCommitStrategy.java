@@ -69,9 +69,6 @@ public class ConsolidatedListCommitStrategy implements ListCommitStrategy,
 		this.sourceURI = sourceURI;
 	}
 
-	/**
-	 * @see pcgen.rules.context.ListCommitStrategy#addToMasterList(java.lang.String, pcgen.cdom.base.CDOMObject, pcgen.cdom.base.CDOMReference, pcgen.cdom.base.CDOMObject)
-	 */
 	@Override
 	public <T extends CDOMObject> AssociatedPrereqObject addToMasterList(
 			String tokenName, CDOMObject owner,

@@ -36,7 +36,7 @@ ABILITY:botb_abilities_companion.lst
 ABILITY:botb_abilities_race.lst
 ABILITYCATEGORY:botb_abilitycategories.lst
 ABILITY:botb_feats.lst
-EQUIPMENT:botb_equip_general.lst
+EQUIPMOD:botb_equipmods.lst
 KIT:botb_kits_companion.lst
 LANGUAGE:botb_languages.lst
 RACE:botb_races_companion.lst

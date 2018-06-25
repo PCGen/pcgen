@@ -29,8 +29,8 @@ public class SPropIntegrationTest extends
 {
 	private static boolean classSetUpFired = false;
 
-	static SpropToken token = new SpropToken();
-	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<>();
+	private static SpropToken token = new SpropToken();
+	private static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<EquipmentModifier> getCDOMClass()

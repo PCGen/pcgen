@@ -28,7 +28,6 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.PCClass;
-import pcgen.core.SubClass;
 import pcgen.core.character.CompanionMod;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.MapChanges;
@@ -44,7 +43,6 @@ public class FollowerToken extends AbstractTokenWithSeparator<CompanionMod>
 {
 
 	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
-	private static final Class<SubClass> SUBCLASS_CLASS = SubClass.class;
 
 	@Override
 	public String getTokenName()

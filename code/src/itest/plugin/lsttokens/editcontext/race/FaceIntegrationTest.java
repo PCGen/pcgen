@@ -40,9 +40,9 @@ import plugin.modifier.orderedpair.SetModifierFactory;
 public class FaceIntegrationTest extends AbstractIntegrationTestCase<Race>
 {
 
-	static FaceToken token = new FaceToken();
-	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
-	static ModifierFactory<OrderedPair> m = new SetModifierFactory();
+	private static FaceToken token = new FaceToken();
+	private static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
+	private static ModifierFactory<OrderedPair> m = new SetModifierFactory();
 	private FormatManager<OrderedPair> opManager = new OrderedPairManager();
 
 	@Override

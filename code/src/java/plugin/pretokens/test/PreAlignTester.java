@@ -94,7 +94,7 @@ public class PreAlignTester extends AbstractDisplayPrereqTest implements Prerequ
 	/**
      * Check if the character's alignment matches the requirement.
      * 
-	 * @param character The character to test
+	 * @param display The character to test
 	 * @param desiredAlignment The alignment to be found
 	 * @param charAlignment The character's alignment
 	 * @return true if the alignment matches, false if not.

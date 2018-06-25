@@ -36,8 +36,8 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 public class KeystatIntegrationTest extends AbstractIntegrationTestCase<Skill>
 {
 
-	static KeystatToken token = new KeystatToken();
-	static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<>();
+	private static KeystatToken token = new KeystatToken();
+	private static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<>();
 
 	@Override
 	@Before

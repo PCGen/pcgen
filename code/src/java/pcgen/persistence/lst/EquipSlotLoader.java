@@ -34,9 +34,6 @@ import pcgen.util.Logging;
 public final class EquipSlotLoader extends LstLineFileLoader
 {
 
-	/**
-	 * @see LstLineFileLoader#parseLine(LoadContext, String, URI)
-	 */
 	@Override
 	public void parseLine(LoadContext context, String lstLine, URI sourceURI)
 	{

@@ -224,9 +224,9 @@ public class EquipSetMigrationTest extends AbstractCharacterTestCase
 	 * Add the equipment item to the equipset.
 	 * 
 	 * @param pc The character owning the set
-	 * @param es The set to add the item to
 	 * @param item The item of equipment
 	 * @param qty The number to be placed in the location.
+	 * @param id The set to add the item to
 	 * @return The new EquipSet object for the item.
 	 */
 	private EquipSet equipItem(PlayerCharacter pc, 

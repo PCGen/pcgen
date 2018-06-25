@@ -178,7 +178,7 @@ Bronze Skinning Knife							TYPE:Magic.Wondrous Item.SLOT_None			COST:3300	WT:1	
 Cloak Of The Crusader							TYPE:Magic.Wondrous Item.SLOT_Shoulders.Cloak		COST:2700	WT:1		SOURCELONG:Inner Sea Gods	SOURCESHORT:isg		SOURCEPAGE:p.262	SPELLS:Cloak of the Crusader|TIMES=1|CASTERLEVEL=1|Bless	BONUS:COMBAT|AC|1|TYPE=NaturalArmor|PREDEITY:1,Iomedae
 Cloak Of The Night Sky							TYPE:Magic.Wondrous Item.SLOT_Shoulders.Cloak		COST:2500	WT:1		SOURCELONG:Inner Sea Gods	SOURCESHORT:isg		SOURCEPAGE:p.262
 Dawnflower Lantern							TYPE:Magic.Wondrous Item.SLOT_None			COST:6400	WT:2		SOURCELONG:Inner Sea Gods	SOURCESHORT:isg		SOURCEPAGE:p.262
-Dawnflower Sash								TYPE:Magic.Wondrous Item.SLOT_Belt.SLOT_Head.Headgear	COST:2500	WT:0		SOURCELONG:Inner Sea Gods	SOURCESHORT:isg		SOURCEPAGE:p.262
+Dawnflower Sash								TYPE:Magic.Wondrous Item.SLOT_Belt.SLOT_Head.Headgear.Belt	COST:2500	WT:0		SOURCELONG:Inner Sea Gods	SOURCESHORT:isg		SOURCEPAGE:p.262
 Deathlurker's Cloak							TYPE:Magic.Wondrous Item.SLOT_Shoulders.Cloak	COST:2700	WT:1		SOURCELONG:Inner Sea Gods	SOURCESHORT:isg		SOURCEPAGE:p.263
 Demon Mother's Mask							TYPE:Magic.Wondrous Item.SLOT_Head.Headgear			COST:3600	WT:1		SOURCELONG:Inner Sea Gods	SOURCESHORT:isg		SOURCEPAGE:p.263
 Diabolical Masquerade Mask						TYPE:Magic.Wondrous Item.SLOT_Head.Headgear			COST:2900	WT:1		SOURCELONG:Inner Sea Gods	SOURCESHORT:isg		SOURCEPAGE:p.263	SPELLS:Diabolical Masquerade Mask|TIMES=ATWILL|CASTERLEVEL=5|Disguise Self	SPELLS:Diabolical Masquerade Mask|TIMES=1|CASTERLEVEL=5|Charm Person|Infernal Healing

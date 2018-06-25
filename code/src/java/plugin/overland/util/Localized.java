@@ -32,7 +32,7 @@ import org.jdom2.Element;
  * 
  * 
  */
-// TODO move to pcgen.?.util or gmgen.?.util
+// TODO move to pcgen.?.until or gmgen.?.until
 public class Localized
 {
 	/** Indicates if the PCGen need to be restarted to change the locale. In that case, no storing of other locale */
@@ -44,7 +44,7 @@ public class Localized
 	private static final String ELEMENT_LOC = "loc"; //$NON-NLS-1$
 	private static final String ATTRIBUTE_LANGUAGE = "language"; //$NON-NLS-1$
 
-	/** used to produce names based on element name when the {@value #ATTRIBUTE_DEFAULTNAME} is missing */
+	/** used to produce names based on element name when the ATTRIBUTE_DEFAULTNAME is missing */
 	private static Map<String, Integer> unnamedCount = new HashMap<>();
 
 	/** This is the default string of the node */

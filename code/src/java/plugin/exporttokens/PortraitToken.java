@@ -114,10 +114,10 @@ public class PortraitToken extends AbstractExportToken
 	}
 
 	/**
-	 * Generate a thumnbnail image based on the character's portrait and 
-	 * the thumbnail rectangle.
+	 * Generate a thumbnail image based on the character's portrait and 
+	 * the thumnbnail rectangle.
 	 * 
-	 * @param pc The character being output.
+	 * @param display The character being output.
 	 * @return The thumbnail image, or null if not defined.
 	 */
 	private BufferedImage generateThumb(CharacterDisplay display)

@@ -95,184 +95,6 @@ import plugin.initiative.OpposedSkillTypeModel;
 class OpposedCheckDialog extends JDialog
 {
 
-	/**
-	 * <p>
-	 * A transfer handler to manage drag-and-drop between the tables.
-	 * It interprets all drags as moves and won't allow drops on the initiating
-	 * table.  It is designed to be shared by all the tables.
-	 * </p>
-	 */
-	private static final class CombatantTransferHandler extends TransferHandler
-	{
-
-		/**
-		 * <p>
-		 * A transferrable class that saves a list of combatants being transferred.
-		 * </p>
-		 */
-		private final class CombatantTransferable implements Transferable
-		{
-
-			/**
-			 * A list of combatants that are being transferred.
-			 */
-			private List<PcgCombatant> items = null;
-
-			/**
-			 * <p>
-			 * Constructor.  The JTable us used to get the selected rows and store
-			 * them in the {@code items} member.
-			 * </p>
-			 *
-			 * @param table The source JTable
-			 */
-			private CombatantTransferable(JTable table)
-			{
-				int[] rows = table.getSelectedRows();
-
-				if ((rows != null) && (rows.length > 0))
-				{
-					OpposedSkillBasicModel model =
-							(OpposedSkillBasicModel) table.getModel();
-					items = new ArrayList<>();
-					Arrays.stream(rows).forEach(model::getCombatant);
-				}
-
-			}
-
-            @Override
-			public Object getTransferData(DataFlavor flavor)
-				throws UnsupportedFlavorException
-			{
-				if (!isDataFlavorSupported(flavor))
-				{
-					throw new UnsupportedFlavorException(flavor);
-				}
-				return items;
-			}
-
-            @Override
-			public DataFlavor[] getTransferDataFlavors()
-			{
-				return new DataFlavor[]{combatantFlavor};
-			}
-
-            @Override
-			public boolean isDataFlavorSupported(DataFlavor flavor)
-			{
-				return combatantFlavor.equals(flavor);
-			}
-		}
-
-		/** A data flavor for use in the transfer */
-		private DataFlavor combatantFlavor = null;
-
-		/** The mime type used by the data flavor.  Not really accurate, since
-		 * the transferrable class really returns a List.
-		 */
-		private final String mimeType =
-				DataFlavor.javaJVMLocalObjectMimeType
-					+ ";class=gmgen.plugin.PcgCombatant";
-		/** The source data model for the transfer. */
-		private OpposedSkillBasicModel sourceModel = null;
-		/** The source table for the transfer. */
-		private JTable sourceTable = null;
-
-		/**
-		 * <p>
-		 * Default constructor -- initializes the data flavor.
-		 * </p>
-		 */
-		private CombatantTransferHandler()
-		{
-			try
-			{
-				combatantFlavor = new DataFlavor(mimeType);
-			}
-			catch (final ClassNotFoundException e)
-			{
-				//Intentionally left blank
-			}
-		}
-
-        @Override
-		public boolean canImport(JComponent c, DataFlavor[] flavors)
-		{
-			if ((sourceTable == null) || (c == null)
-					|| sourceTable.getName()
-					.equals(c.getName()))
-			{
-				return false;
-			}
-			for (final DataFlavor flavor : flavors)
-			{
-				if (combatantFlavor.equals(flavor))
-				{
-					return true;
-				}
-			}
-			return false;
-		}
-
-        @Override
-		protected Transferable createTransferable(JComponent c)
-		{
-			if (c instanceof JTable)
-			{
-				sourceModel = (OpposedSkillBasicModel) ((JTable) c).getModel();
-				sourceTable = (JTable) c;
-				return new CombatantTransferable((JTable) c);
-			}
-			return null;
-		}
-
-        @Override
-		protected void exportDone(JComponent c, Transferable data, int action)
-		{
-			if (action == TransferHandler.MOVE)
-			{
-				try
-				{
-					Iterable<PcgCombatant> items = (Iterable<PcgCombatant>) data.getTransferData(combatantFlavor);
-					items.forEach(item -> sourceModel.removeCombatant(item.getName()));
-				}
-				catch (final UnsupportedFlavorException | IOException e)
-				{
-					e.printStackTrace();
-				}
-			}
-			sourceModel = null;
-		}
-
-        @Override
-		public int getSourceActions(JComponent c)
-		{
-			return TransferHandler.MOVE;
-		}
-
-        @Override
-		public boolean importData(JComponent c, Transferable t)
-		{
-			if (canImport(c, t.getTransferDataFlavors()))
-			{
-				JTable table = (JTable) c;
-				OpposedSkillBasicModel model =
-						(OpposedSkillBasicModel) table.getModel();
-				try
-				{
-					Iterable<PcgCombatant> items = (Iterable<PcgCombatant>) t.getTransferData(combatantFlavor);
-					items.forEach(model::addCombatant);
-					return true;
-				}
-				catch (final UnsupportedFlavorException | IOException ufe)
-				{
-					//Nothing
-				}
-			}
-			return false;
-		}
-	}
-
 	/** The shared {@code TransferHandler} for all tables */
 	private final TransferHandler transferHandler =
 			new CombatantTransferHandler();
@@ -761,5 +583,183 @@ class OpposedCheckDialog extends JDialog
 	{
 		ivjRollingSkillModel.setSkill(rollingComboBox.getSelectedItem()
 			.toString());
+	}
+
+	/**
+	 * <p>
+	 * A transfer handler to manage drag-and-drop between the tables.
+	 * It interprets all drags as moves and won't allow drops on the initiating
+	 * table.  It is designed to be shared by all the tables.
+	 * </p>
+	 */
+	private static final class CombatantTransferHandler extends TransferHandler
+	{
+
+		/** A data flavor for use in the transfer */
+		private DataFlavor combatantFlavor = null;
+
+		/** The mime type used by the data flavor.  Not really accurate, since
+		 * the transferrable class really returns a List.
+		 */
+		private final String mimeType =
+				DataFlavor.javaJVMLocalObjectMimeType
+					+ ";class=gmgen.plugin.PcgCombatant";
+		/** The source data model for the transfer. */
+		private OpposedSkillBasicModel sourceModel = null;
+		/** The source table for the transfer. */
+		private JTable sourceTable = null;
+
+		/**
+		 * <p>
+		 * Default constructor -- initializes the data flavor.
+		 * </p>
+		 */
+		private CombatantTransferHandler()
+		{
+			try
+			{
+				combatantFlavor = new DataFlavor(mimeType);
+			}
+			catch (final ClassNotFoundException e)
+			{
+				//Intentionally left blank
+			}
+		}
+
+        @Override
+		public boolean canImport(JComponent c, DataFlavor[] flavors)
+		{
+			if ((sourceTable == null) || (c == null)
+					|| sourceTable.getName()
+					.equals(c.getName()))
+			{
+				return false;
+			}
+			for (final DataFlavor flavor : flavors)
+			{
+				if (combatantFlavor.equals(flavor))
+				{
+					return true;
+				}
+			}
+			return false;
+		}
+
+        @Override
+		protected Transferable createTransferable(JComponent c)
+		{
+			if (c instanceof JTable)
+			{
+				sourceModel = (OpposedSkillBasicModel) ((JTable) c).getModel();
+				sourceTable = (JTable) c;
+				return new CombatantTransferable((JTable) c);
+			}
+			return null;
+		}
+
+        @Override
+		protected void exportDone(JComponent c, Transferable data, int action)
+		{
+			if (action == TransferHandler.MOVE)
+			{
+				try
+				{
+					Iterable<PcgCombatant> items = (Iterable<PcgCombatant>) data.getTransferData(combatantFlavor);
+					items.forEach(item -> sourceModel.removeCombatant(item.getName()));
+				}
+				catch (final UnsupportedFlavorException | IOException e)
+				{
+					e.printStackTrace();
+				}
+			}
+			sourceModel = null;
+		}
+
+        @Override
+		public int getSourceActions(JComponent c)
+		{
+			return TransferHandler.MOVE;
+		}
+
+        @Override
+		public boolean importData(JComponent c, Transferable t)
+		{
+			if (canImport(c, t.getTransferDataFlavors()))
+			{
+				JTable table = (JTable) c;
+				OpposedSkillBasicModel model =
+						(OpposedSkillBasicModel) table.getModel();
+				try
+				{
+					Iterable<PcgCombatant> items = (Iterable<PcgCombatant>) t.getTransferData(combatantFlavor);
+					items.forEach(model::addCombatant);
+					return true;
+				}
+				catch (final UnsupportedFlavorException | IOException ufe)
+				{
+					//Nothing
+				}
+			}
+			return false;
+		}
+
+		/**
+		 * <p>
+		 * A transferrable class that saves a list of combatants being transferred.
+		 * </p>
+		 */
+		private final class CombatantTransferable implements Transferable
+		{
+
+			/**
+			 * A list of combatants that are being transferred.
+			 */
+			private List<PcgCombatant> items = null;
+
+			/**
+			 * <p>
+			 * Constructor.  The JTable us used to get the selected rows and store
+			 * them in the {@code items} member.
+			 * </p>
+			 *
+			 * @param table The source JTable
+			 */
+			private CombatantTransferable(JTable table)
+			{
+				int[] rows = table.getSelectedRows();
+
+				if ((rows != null) && (rows.length > 0))
+				{
+					OpposedSkillBasicModel model =
+							(OpposedSkillBasicModel) table.getModel();
+					items = new ArrayList<>();
+					Arrays.stream(rows).forEach(model::getCombatant);
+				}
+
+			}
+
+            @Override
+			public Object getTransferData(DataFlavor flavor)
+				throws UnsupportedFlavorException
+			{
+				if (!isDataFlavorSupported(flavor))
+				{
+					throw new UnsupportedFlavorException(flavor);
+				}
+				return items;
+			}
+
+            @Override
+			public DataFlavor[] getTransferDataFlavors()
+			{
+				return new DataFlavor[]{combatantFlavor};
+			}
+
+            @Override
+			public boolean isDataFlavorSupported(DataFlavor flavor)
+			{
+				return combatantFlavor.equals(flavor);
+			}
+		}
 	}
 }

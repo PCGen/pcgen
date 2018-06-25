@@ -20,22 +20,20 @@
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 import pcgen.system.LanguageBundle;
 
 
 // TODO Add some gap to buttons. Use icons on buttons?
-public class PCGTrackerView extends javax.swing.JPanel
+public class PCGTrackerView extends JPanel
 {
-	private javax.swing.JButton loadButton;
-	private javax.swing.JButton removeButton;
-	private javax.swing.JButton saveAsButton;
-	private javax.swing.JButton saveButton;
-	private javax.swing.JList loadedList;
-	private javax.swing.JPanel jPanel2;
-
-	// Variables declaration - do not modify//GEN-BEGIN:variables
-	private javax.swing.JScrollPane jScrollPane1;
+	private JButton loadButton;
+	private JButton removeButton;
+	private JButton saveAsButton;
+	private JButton saveButton;
+	private JList loadedList;
 
 	/** Creates new form PCGTrackerView */
 	public PCGTrackerView()
@@ -91,13 +89,13 @@ public class PCGTrackerView extends javax.swing.JPanel
 	 */
 	private void initComponents()
 	{ //GEN-BEGIN:initComponents
-		jPanel2 = new javax.swing.JPanel();
-		removeButton = new javax.swing.JButton();
-		saveButton = new javax.swing.JButton();
-		saveAsButton = new javax.swing.JButton();
-		loadButton = new javax.swing.JButton();
-		jScrollPane1 = new javax.swing.JScrollPane();
-		loadedList = new javax.swing.JList();
+		JPanel jPanel2 = new JPanel();
+		removeButton = new JButton();
+		saveButton = new JButton();
+		saveAsButton = new JButton();
+		loadButton = new JButton();
+		JScrollPane jScrollPane1 = new JScrollPane();
+		loadedList = new JList<>();
 
 		setLayout(new java.awt.BorderLayout());
 

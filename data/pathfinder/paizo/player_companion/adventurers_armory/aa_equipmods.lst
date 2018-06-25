@@ -24,7 +24,7 @@ Tear-away Clothing	KEY:Special Quality ~ Tear-away Clothing ~ Clothing	NAMEOPT:T
 # TODO Hollowed Pommel should CONTAINS:UNLIM|Flask|Potion|Sheet|Paper=1|Documents=1|Scroll=1 but that is not allowed in an EQMOD
 Hollowed Pommel		KEY:Special Quality ~ Hollowed Pommel ~ Weapon		TYPE:Goods.General			COST:5	VISIBLE:QUALIFY	SOURCEPAGE:p.7	PRETYPE:1,Weapon												SPROP:Can contain a single item.
 
-Waterproof Lantern	KEY:Special Quality ~ Waterproof Lantern ~ Lantern	NAMEOPT:TEXT=Waterproof	TYPE:Goods.General.LightSource	COST:5	VISIBLE:QUALIFY	SOURCEPAGE:p.7	PRETYPE:1,Lantern
+Waterproof Lantern	KEY:Special Quality ~ Waterproof Lantern ~ Lantern	NAMEOPT:TEXT=Waterproof	TYPE:Goods.General.Light Source	COST:5	VISIBLE:QUALIFY	SOURCEPAGE:p.7	PRETYPE:1,Lantern
 # TODO should not be usable on buckler (only light/heavy/tower)
 # TODO Shield Sconce should CONTAINS:UNLIM|Torch=1 but that is not allowed on an EQMOD
 Shield Sconce		KEY:Special Quality ~ Shield Sconce ~ Shield		TYPE:Shield					COST:1	VISIBLE:QUALIFY	SOURCEPAGE:p.8						PRETYPE:1,Shield	!PRETYPE:1,Buckler	BONUS:EQM|WEIGHTADD|0.5	SPROP:May hold a torch.

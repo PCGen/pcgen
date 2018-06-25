@@ -151,9 +151,9 @@ public class SystemInitiative
 	}
 
 	/**
-	 * Set the new curent initiative and return it
+	 * Set the new current initiative and return it
 	 * @param aRoll
-	 * @return the new curent initiative
+	 * 
 	 */
 	void checkExtRoll(int aRoll)
 	{
@@ -161,10 +161,10 @@ public class SystemInitiative
 	}
 
 	/**
-	 * Set the new curent initiative and return it
+	 * Set the new current initiative and return it
 	 * @param aRoll
 	 * @param modifier
-	 * @return the new curent initiative
+	 * @return the new current initiative
 	 */
 	private int checkExtRoll(int aRoll, int modifier)
 	{

@@ -14,7 +14,7 @@ checkstyle {
 	configFile = new File('code/standards/checkstyle.xml')
 	ignoreFailures = true
 	showViolations = false
-	toolVersion = '8.7'
+	toolVersion = '8.9'
 	sourceSets = []
 }
 
@@ -24,31 +24,24 @@ pmd {
 	ruleSetFiles = files('code/standards/ruleset.xml')
 	consoleOutput = true
 	sourceSets = []
-	toolVersion = "6.0.0"
+	toolVersion = "6.2.0"
 }
 
-findbugs {
-	ignoreFailures = true
-//	effort = 'max'
-	sourceSets = []
+spotbugs {
+	excludeFilter = file("$rootProject.projectDir/code/standards/spotbugs_ignore.xml")
+	omitVisitors = ['Naming', 'CrossSiteScripting', 'DontUseEnum', 'DoInsideDoPrivileged']
+	reportLevel = 'low'
+	ignoreFailures = 'true'
 }
 
-task findbugs(type: FindBugs) {
-   pluginClasspath = project.configurations.findbugsPlugins
-}
-
-tasks.withType(FindBugs) {
-	reports {
-		xml.enabled false
-		html.enabled true
-		html.stylesheet resources.text.fromFile('code/standards/fancy-hist.xsl')
-		excludeFilterConfig resources.text.fromFile('code/standards/findbugs_ignore.xml')
-		reportLevel 'low'
-		// While these can be filtered out later, there is a minor speedup to disabling them here.
-		omitVisitors = ['Naming', 'CrossSiteScripting', 'DontUseEnum', 'FinalParameters', 'ImmatureClass',
-						'DoInsideDoPrivileged', 'CyclomaticComplexity']
-	}
-}
+//Unable to determine how to do this with SpotBugs - this is consistent with their docs, but dumps stack
+//tasks.withType(com.github.spotbugs.SpotBugs) {
+//	reports {
+//		xml.enabled = false
+//		html.enabled = true
+//		html.stylesheet resources.text.fromFile('code/standards/fancy-hist.xsl')
+//	}
+//}
 
 gradleLint.rules = [
 	'dependency-parentheses',
@@ -60,4 +53,4 @@ gradleLint.rules = [
 	'all-nebula-renames',
 ]
 
-task allReports { dependsOn = ['checkstyleMain', 'pmdMain', 'findbugsMain', 'lintGradle'] }
+task allReports { dependsOn = ['checkstyleMain', 'pmdMain', 'spotbugsMain', 'lintGradle'] }

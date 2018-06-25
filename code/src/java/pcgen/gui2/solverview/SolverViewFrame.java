@@ -36,7 +36,6 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.table.AbstractTableModel;
 
-import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VarScoped;
@@ -48,6 +47,7 @@ import pcgen.cdom.facet.LoadContextFacet;
 import pcgen.cdom.facet.ScopeFacet;
 import pcgen.cdom.facet.SolverManagerFacet;
 import pcgen.cdom.facet.model.VarScopedFacet;
+import pcgen.cdom.formula.PCGenScoped;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.JComboBoxEx;
@@ -99,14 +99,14 @@ public class SolverViewFrame extends JFrame
 		scopeChooser = new JComboBoxEx<>();
 		scopeChooser.addActionListener(new ScopeActionListener());
 
-		identifierChooser.setSelectedItem(identifierChooser.getItemAt(0));
-		scopeChooser.setSelectedItem(scopeChooser.getItemAt(0));
-
 		varName = new JTextField();
 		varName.setText(varNameText);
 		varName.getDocument().addDocumentListener(new VarNameListener());
-
+		
 		initialize();
+
+		identifierChooser.setSelectedItem(identifierChooser.getItemAt(0));
+		scopeChooser.setSelectedItem(scopeChooser.getItemAt(0));
 		objectChooser.setSelectedItem(objectChooser.getItemAt(0));
 	}
 
@@ -120,7 +120,7 @@ public class SolverViewFrame extends JFrame
 			return;
 		}
 		ScopeInstance scope =
-				scopeFacet.get(activeIdentifier, selectedScope.getName(), activeObject);
+				scopeFacet.get(activeIdentifier, LegalScope.getFullName(selectedScope), activeObject);
 		if (loadContextFacet.get(activeIdentifier.getDatasetID()).get()
 			.getVariableContext().isLegalVariableID(scope.getLegalScope(), varNameText))
 		{
@@ -233,14 +233,14 @@ public class SolverViewFrame extends JFrame
 	{
 		if (activeIdentifier != null)
 		{
-			Collection<VarScoped> objects = varScopedFacet.getSet(activeIdentifier);
+			Collection<PCGenScoped> objects = varScopedFacet.getSet(activeIdentifier);
 			objectChooser.removeAllItems();
-			String scopeName = selectedScope.getName();
+			String scopeName = LegalScope.getFullName(selectedScope);
 			for (VarScoped cdo : objects)
 			{
-				if (cdo.getLocalScopeName().equals(scopeName))
+				if (scopeName.equals(cdo.getLocalScopeName()))
 				{
-					if (scopeFacet.get(activeIdentifier, selectedScope.getName(), cdo) != null)
+					if (scopeFacet.get(activeIdentifier, scopeName, cdo) != null)
 					{
 						objectChooser.addItem(new ObjectNameDisplayer(cdo));
 					}
@@ -354,7 +354,7 @@ public class SolverViewFrame extends JFrame
 				case 2:
 					return ps.getResult();
 				case 3:
-					return ((FormulaModifier<?>) ps.getModifier()).getPriority();
+					return ps.getModifier().getPriority();
 				case 4:
 					return ps.getSourceInfo();
 				default:

@@ -1033,8 +1033,8 @@ BIO
 		<weapon>
 			<common>
 				<name>
-					<short>Holy Water (Flask)</short>
-					<long>Holy Water (Flask)</long>
+					<short>Holy Water</short>
+					<long>Holy Water</long>
 				</name>
 				<category>Non-Standard-Ranged</category>
 				<critical>
@@ -1051,7 +1051,7 @@ BIO
 				<num_attacks>2</num_attacks>
 				<reach>5</reach>
 				<size>M</size>
-				<special_properties>thown splash weapon see p.202</special_properties>
+				<special_properties>splash weapon</special_properties>
 				<template></template>
 				<type></type>
 				<weight>1</weight>
@@ -1088,8 +1088,8 @@ BIO
 		<weapon>
 			<common>
 				<name>
-					<short>Oil (1 Pint Flask)</short>
-					<long>Oil (1 Pint Flask)</long>
+					<short>Oil</short>
+					<long>Oil, 1 Pint Flask</long>
 				</name>
 				<category>Non-Standard-Ranged</category>
 				<critical>
@@ -1106,7 +1106,7 @@ BIO
 				<num_attacks>2</num_attacks>
 				<reach>5</reach>
 				<size>M</size>
-				<special_properties>Thrown splash weapon see p.202, full-round action to prepare, 50% chance to ignite</special_properties>
+				<special_properties>splash weapon, full-round action to prepare, 50% chance to ignite</special_properties>
 				<template></template>
 				<type>F</type>
 				<weight>1</weight>
@@ -1727,7 +1727,7 @@ BIO
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
-			<contents>18 lbs., 1 Rope (Silk/50 ft.), 1 Antitoxin (Vial), 1 Flint and Steel, 1 Holy Symbol (Silver), 2 Holy Water (Flask), 3 Iron Spike, 1 Lantern (Bullseye), 2 Oil (1 Pint Flask), 2 Sunrod</contents>
+			<contents>18 lbs., 1 Silk Rope (50 ft.), 1 Antitoxin, 1 Flint and Steel, 1 Silver Holy Symbol, 2 Holy Water, 3 Iron Spike, 1 Bullseye Lantern, 2 Oil, 2 Sunrod</contents>
 			<contents_num>9</contents_num>
 			<content_weight>18</content_weight>
 			<cost>2</cost>
@@ -1747,9 +1747,9 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Antitoxin (Vial)</longname>
+			<longname>Antitoxin</longname>
 			<id></id>
-			<name>Antitoxin (Vial)</name>
+			<name>Antitoxin</name>
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -1799,9 +1799,9 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Holy Symbol (Silver)</longname>
+			<longname>Holy Symbol, Silver</longname>
 			<id></id>
-			<name>Holy Symbol (Silver)</name>
+			<name>Silver Holy Symbol</name>
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -1820,14 +1820,14 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>GOODS.TOOLS.SPELLCOMPONENT.DIVINEFOCUS</type>
+			<type>GOODS.TOOLS.SPELL COMPONENT.DIVINE FOCUS.HOLY SYMBOL</type>
 			<weight>1</weight>
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Holy Water (Flask)</longname>
+			<longname>Holy Water</longname>
 			<id></id>
-			<name>Holy Water (Flask)</name>
+			<name>Holy Water</name>
 			<carried>2.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -1845,7 +1845,7 @@ BIO
 				<long>Medium</long>
 				<short>M</short>
 			</size>
-			<special_properties>thown splash weapon see p.202</special_properties>
+			<special_properties>splash weapon</special_properties>
 			<type>GOODS.FLASK.CONSUMABLE.WEAPON.RANGED.THROWN.SPLASH</type>
 			<weight>1</weight>
 			<bonuslist></bonuslist>
@@ -1877,9 +1877,9 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Lantern (Bullseye)</longname>
+			<longname>Lantern, Bullseye</longname>
 			<id></id>
-			<name>Lantern (Bullseye)</name>
+			<name>Bullseye Lantern</name>
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -1897,15 +1897,15 @@ BIO
 				<long>Medium</long>
 				<short>M</short>
 			</size>
-			<special_properties>Normal illumination (60&#39;), plus 1 step (120&#39;), 6 hr./pint</special_properties>
-			<type>GOODS.GENERAL.LIGHTSOURCE</type>
+			<special_properties></special_properties>
+			<type>GOODS.GENERAL.LIGHT SOURCE</type>
 			<weight>3</weight>
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Oil (1 Pint Flask)</longname>
+			<longname>Oil, 1 Pint Flask</longname>
 			<id></id>
-			<name>Oil (1 Pint Flask)</name>
+			<name>Oil</name>
 			<carried>2.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -1923,7 +1923,7 @@ BIO
 				<long>Medium</long>
 				<short>M</short>
 			</size>
-			<special_properties>Thrown splash weapon see p.202, full-round action to prepare, 50% chance to ignite</special_properties>
+			<special_properties>splash weapon, full-round action to prepare, 50% chance to ignite</special_properties>
 			<type>GOODS.GENERAL.LIQUID.FLASK.CONSUMABLE.WEAPON.RANGED.THROWN.FIRE.SPLASH</type>
 			<weight>1</weight>
 			<bonuslist></bonuslist>
@@ -1950,7 +1950,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>GOODS.ALCHEMICAL.CONSUMABLE.LIGHTSOURCE</type>
+			<type>GOODS.ALCHEMICAL.CONSUMABLE.LIGHT SOURCE</type>
 			<weight>1</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -2018,7 +2018,7 @@ BIO
 			<content_weight>0</content_weight>
 			<cost>1</cost>
 			<equipped>N</equipped>
-			<location>Horse (Heavy/Combat Trained)</location>
+			<location>Heavy Horse (Combat Trained)</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>2</quantity>
@@ -2085,13 +2085,13 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Horse (Heavy/Combat Trained)</longname>
+			<longname>Horse, Heavy (Combat Trained)</longname>
 			<id></id>
-			<name>Horse (Heavy/Combat Trained)</name>
+			<name>Heavy Horse (Combat Trained)</name>
 			<carried>0.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
-			<contents>65 lbs., 2 Javelin, 1 Saddle (Military), 1 Saddlebags</contents>
+			<contents>65 lbs., 2 Javelin, 1 Military Saddle, 1 Saddlebags</contents>
 			<contents_num>3</contents_num>
 			<content_weight>65</content_weight>
 			<cost>300</cost>
@@ -2111,9 +2111,9 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Saddle (Military)</longname>
+			<longname>Saddle, Military</longname>
 			<id></id>
-			<name>Saddle (Military)</name>
+			<name>Military Saddle</name>
 			<carried>0.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -2122,7 +2122,7 @@ BIO
 			<content_weight>0</content_weight>
 			<cost>20</cost>
 			<equipped>N</equipped>
-			<location>Horse (Heavy/Combat Trained)</location>
+			<location>Heavy Horse (Combat Trained)</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>1</quantity>
@@ -2143,12 +2143,12 @@ BIO
 			<carried>0.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
-			<contents>23 lbs., 2 Wooden Stake, 1 Bedroll, 1 Grappling Hook, 1 Explorer&#39;s Outfit, 1 Waterskin (Filled)</contents>
+			<contents>23 lbs., 2 Wooden Stake, 1 Bedroll, 1 Grappling Hook, 1 Explorer&#39;s Outfit, 1 Waterskin</contents>
 			<contents_num>5</contents_num>
 			<content_weight>23</content_weight>
 			<cost>4</cost>
 			<equipped>N</equipped>
-			<location>Horse (Heavy/Combat Trained)</location>
+			<location>Heavy Horse (Combat Trained)</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>1</quantity>
@@ -2241,9 +2241,9 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Waterskin (Filled)</longname>
+			<longname>Waterskin, Filled</longname>
 			<id></id>
-			<name>Waterskin (Filled)</name>
+			<name>Waterskin</name>
 			<carried>0.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -2267,7 +2267,7 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Outfit (Traveler&#39;s)</longname>
+			<longname>Outfit, Traveler&#39;s</longname>
 			<id></id>
 			<name>Traveler&#39;s Outfit</name>
 			<carried>1.0</carried>
@@ -2293,9 +2293,9 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Rope (Silk/50 ft)</longname>
+			<longname>Rope, Silk (50 ft.)</longname>
 			<id></id>
-			<name>Rope (Silk/50 ft.)</name>
+			<name>Silk Rope (50 ft.)</name>
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -2313,7 +2313,7 @@ BIO
 				<long>Medium</long>
 				<short>M</short>
 			</size>
-			<special_properties>4 hp, DC 24 Strength check to burst</special_properties>
+			<special_properties></special_properties>
 			<type>GOODS.GENERAL</type>
 			<weight>5</weight>
 			<bonuslist></bonuslist>
@@ -2462,7 +2462,7 @@ BIO
 				<carried>1.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
-				<contents>18 lbs., 1 Rope (Silk/50 ft.), 1 Antitoxin (Vial), 1 Flint and Steel, 1 Holy Symbol (Silver), 2 Holy Water (Flask), 3 Iron Spike, 1 Lantern (Bullseye), 2 Oil (1 Pint Flask), 2 Sunrod</contents>
+				<contents>18 lbs., 1 Silk Rope (50 ft.), 1 Antitoxin, 1 Flint and Steel, 1 Silver Holy Symbol, 2 Holy Water, 3 Iron Spike, 1 Bullseye Lantern, 2 Oil, 2 Sunrod</contents>
 				<cost>2</cost>
 				<equipped>Y</equipped>
 				<location>Equipped</location>
@@ -2479,7 +2479,7 @@ BIO
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Antitoxin (Vial)</name>
+				<name>Antitoxin</name>
 				<carried>1.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
@@ -2521,7 +2521,7 @@ BIO
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Holy Symbol (Silver)</name>
+				<name>Silver Holy Symbol</name>
 				<carried>1.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
@@ -2537,12 +2537,12 @@ BIO
 					<short>M</short>
 				</size>
 				<special_properties></special_properties>
-				<type>GOODS.TOOLS.SPELLCOMPONENT.DIVINEFOCUS</type>
+				<type>GOODS.TOOLS.SPELL COMPONENT.DIVINE FOCUS.HOLY SYMBOL</type>
 				<weight>1</weight>
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Holy Water (Flask)</name>
+				<name>Holy Water</name>
 				<carried>2.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
@@ -2557,7 +2557,7 @@ BIO
 					<long>Medium</long>
 					<short>M</short>
 				</size>
-				<special_properties>thown splash weapon see p.202</special_properties>
+				<special_properties>splash weapon</special_properties>
 				<type>GOODS.FLASK.CONSUMABLE.WEAPON.RANGED.THROWN.SPLASH</type>
 				<weight>1</weight>
 				<bonuslist></bonuslist>
@@ -2584,7 +2584,7 @@ BIO
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Lantern (Bullseye)</name>
+				<name>Bullseye Lantern</name>
 				<carried>1.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
@@ -2599,13 +2599,13 @@ BIO
 					<long>Medium</long>
 					<short>M</short>
 				</size>
-				<special_properties>Normal illumination (60&#39;), plus 1 step (120&#39;), 6 hr./pint</special_properties>
-				<type>GOODS.GENERAL.LIGHTSOURCE</type>
+				<special_properties></special_properties>
+				<type>GOODS.GENERAL.LIGHT SOURCE</type>
 				<weight>3</weight>
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Oil (1 Pint Flask)</name>
+				<name>Oil</name>
 				<carried>2.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
@@ -2620,7 +2620,7 @@ BIO
 					<long>Medium</long>
 					<short>M</short>
 				</size>
-				<special_properties>Thrown splash weapon see p.202, full-round action to prepare, 50% chance to ignite</special_properties>
+				<special_properties>splash weapon, full-round action to prepare, 50% chance to ignite</special_properties>
 				<type>GOODS.GENERAL.LIQUID.FLASK.CONSUMABLE.WEAPON.RANGED.THROWN.FIRE.SPLASH</type>
 				<weight>1</weight>
 				<bonuslist></bonuslist>
@@ -2642,7 +2642,7 @@ BIO
 					<short>M</short>
 				</size>
 				<special_properties></special_properties>
-				<type>GOODS.ALCHEMICAL.CONSUMABLE.LIGHTSOURCE</type>
+				<type>GOODS.ALCHEMICAL.CONSUMABLE.LIGHT SOURCE</type>
 				<weight>1</weight>
 				<bonuslist></bonuslist>
 			</item>
@@ -2696,7 +2696,7 @@ BIO
 				<contents></contents>
 				<cost>1</cost>
 				<equipped>N</equipped>
-				<location>Horse (Heavy/Combat Trained)</location>
+				<location>Heavy Horse (Combat Trained)</location>
 				<maxcharges>0</maxcharges>
 				<note></note>
 				<quantity>2</quantity>
@@ -2752,11 +2752,11 @@ BIO
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Horse (Heavy/Combat Trained)</name>
+				<name>Heavy Horse (Combat Trained)</name>
 				<carried>0.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
-				<contents>65 lbs., 2 Javelin, 1 Saddle (Military), 1 Saddlebags</contents>
+				<contents>65 lbs., 2 Javelin, 1 Military Saddle, 1 Saddlebags</contents>
 				<cost>300</cost>
 				<equipped>N</equipped>
 				<location></location>
@@ -2773,14 +2773,14 @@ BIO
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Saddle (Military)</name>
+				<name>Military Saddle</name>
 				<carried>0.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
 				<contents></contents>
 				<cost>20</cost>
 				<equipped>N</equipped>
-				<location>Horse (Heavy/Combat Trained)</location>
+				<location>Heavy Horse (Combat Trained)</location>
 				<maxcharges>0</maxcharges>
 				<note></note>
 				<quantity>1</quantity>
@@ -2798,10 +2798,10 @@ BIO
 				<carried>0.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
-				<contents>23 lbs., 2 Wooden Stake, 1 Bedroll, 1 Grappling Hook, 1 Explorer&#39;s Outfit, 1 Waterskin (Filled)</contents>
+				<contents>23 lbs., 2 Wooden Stake, 1 Bedroll, 1 Grappling Hook, 1 Explorer&#39;s Outfit, 1 Waterskin</contents>
 				<cost>4</cost>
 				<equipped>N</equipped>
-				<location>Horse (Heavy/Combat Trained)</location>
+				<location>Heavy Horse (Combat Trained)</location>
 				<maxcharges>0</maxcharges>
 				<note></note>
 				<quantity>1</quantity>
@@ -2878,7 +2878,7 @@ BIO
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Waterskin (Filled)</name>
+				<name>Waterskin</name>
 				<carried>0.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
@@ -2920,7 +2920,7 @@ BIO
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Rope (Silk/50 ft.)</name>
+				<name>Silk Rope (50 ft.)</name>
 				<carried>1.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
@@ -2935,7 +2935,7 @@ BIO
 					<long>Medium</long>
 					<short>M</short>
 				</size>
-				<special_properties>4 hp, DC 24 Strength check to burst</special_properties>
+				<special_properties></special_properties>
 				<type>GOODS.GENERAL</type>
 				<weight>5</weight>
 				<bonuslist></bonuslist>

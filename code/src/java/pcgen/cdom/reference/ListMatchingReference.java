@@ -67,7 +67,7 @@ public class ListMatchingReference<T extends CDOMObject, V> extends
 	/**
 	 * Constructs a new ListMatchingReference
 	 * 
-	 * @param objClass
+	 * @param unparse
 	 *            The Class of the underlying objects contained by this
 	 *            reference.
 	 * @param startingGroup

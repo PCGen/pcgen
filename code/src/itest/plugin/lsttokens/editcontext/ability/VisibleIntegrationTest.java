@@ -34,8 +34,8 @@ public class VisibleIntegrationTest extends
 		AbstractIntegrationTestCase<Ability>
 {
 
-	static VisibleToken token = new VisibleToken();
-	static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<>();
+	private static VisibleToken token = new VisibleToken();
+	private static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Ability> getCDOMClass()

@@ -32,6 +32,9 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 public class PreSpellTypeTest extends AbstractCharacterTestCase
 {
 
+	private PCClass wiz;
+	private PCClass cle;
+
 	public static void main(final String[] args)
 	{
 		TestRunner.run(PreSpellTypeTest.class);
@@ -45,19 +48,6 @@ public class PreSpellTypeTest extends AbstractCharacterTestCase
 		return new TestSuite(PreSpellTypeTest.class);
 	}
 
-	Spell burning = null;
-	Spell Arcaneball = null;
-	Spell lightning = null;
-	Spell heal = null;
-	Spell cure = null;
-	private PCClass wiz;
-	private PCClass cle;
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see junit.framework.TestCase#setUp()
-	 */
 	@Override
 	protected void additionalSetUp() throws Exception
 	{
@@ -73,31 +63,31 @@ public class PreSpellTypeTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(cle.getOriginalClassLevel(1), "CAST", "1,1");
 		context.unconditionallyProcess(cle.getOriginalClassLevel(2), "CAST", "1,1,1");
 
-		Arcaneball = new Spell();
-		Arcaneball.setName("Arcaneball");
-		context.getReferenceContext().importObject(Arcaneball);
-		context.unconditionallyProcess(Arcaneball, "CLASSES", "Wizard=2");
-		context.unconditionallyProcess(Arcaneball, "TYPE", "Arcane");
+		Spell arcaneball = new Spell();
+		arcaneball.setName("Arcaneball");
+		context.getReferenceContext().importObject(arcaneball);
+		context.unconditionallyProcess(arcaneball, "CLASSES", "Wizard=2");
+		context.unconditionallyProcess(arcaneball, "TYPE", "Arcane");
 
-		lightning = new Spell();
+		Spell lightning = new Spell();
 		lightning.setName("Lightning Bolt");
 		context.getReferenceContext().importObject(lightning);
 		context.unconditionallyProcess(lightning, "CLASSES", "Wizard=2");
 		context.unconditionallyProcess(lightning, "TYPE", "Arcane");
 
-		burning = new Spell();
+		Spell burning = new Spell();
 		burning.setName("Burning Hands");
 		context.getReferenceContext().importObject(burning);
 		context.unconditionallyProcess(burning, "CLASSES", "Wizard=1");
 		context.unconditionallyProcess(burning, "TYPE", "Arcane");
 
-		heal = new Spell();
+		Spell heal = new Spell();
 		heal.setName("Heal");
 		context.getReferenceContext().importObject(heal);
 		context.unconditionallyProcess(heal, "CLASSES", "Cleric=2");
 		context.unconditionallyProcess(heal, "TYPE", "Divine");
 
-		cure = new Spell();
+		Spell cure = new Spell();
 		cure.setName("Cure Light Wounds");
 		context.getReferenceContext().importObject(cure);
 		context.unconditionallyProcess(cure, "CLASSES", "Cleric=1");

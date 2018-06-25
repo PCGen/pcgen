@@ -32,8 +32,8 @@ public class SabIntegrationTest extends
 		AbstractTypeSafeListIntegrationTestCase<CDOMObject>
 {
 
-	static SabLst token = new SabLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
+	private static SabLst token = new SabLst();
+	private static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Ability> getCDOMClass()

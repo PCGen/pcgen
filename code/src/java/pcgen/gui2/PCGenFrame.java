@@ -444,7 +444,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		/**
 		 * loads or creates a character based upon the command line arguments.
 		 * This also handles the start in character sheet command option
-		 * @return
+		 * @return boolean
 		 * @throws InterruptedException
 		 * @throws InvocationTargetException
 		 */
@@ -1254,8 +1254,8 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 	}
 
 	/**
-	 * @param the character's pcgFile
-	 * @param data set reference
+	 * @param pcgFile the character's pcgFile
+	 * @param reference data set reference
 	 */
 	private void openCharacter(final File pcgFile, final DataSetFacade reference)
 	{
@@ -1480,8 +1480,6 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 
 	/**
 	 * Set the frame's title based on the current character and source/game mode.
-	 * @param characterFileName The file name (without path) of the active character 
-	 * @param sourceName The name of the source selection.
 	 */
 	private void updateTitle()
 	{
@@ -1491,6 +1489,9 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		String sourceName = null;
 		if (currentCharacterRef != null && currentCharacterRef.get() != null)
 		{
+			// characterFileName The file name (without path) of the active character 
+			// sourceName The name of the source selection.
+			
 			characterFile = currentCharacterRef.get().getFileRef().get();
 			if (characterFile == null || StringUtils.isEmpty(characterFile.getName()))
 			{
@@ -2097,7 +2098,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 	private class FilenameListener implements ReferenceListener<File>
 	{
 		/**
-		 * @see pcgen.core.facade.event.ReferenceListener#referenceChanged(pcgen.core.facade.event.ReferenceEvent)
+		 * @see pcgen.facade.util.event.ReferenceListener#referenceChanged(ReferenceEvent)
 		 */
 
 		@Override

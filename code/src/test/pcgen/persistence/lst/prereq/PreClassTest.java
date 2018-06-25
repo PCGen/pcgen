@@ -59,9 +59,7 @@ public class PreClassTest extends EnUsLocaleDependentTestCase
 		try
 		{
 			PreClassParser parser = new PreClassParser();
-			Prerequisite prereq =
-					parser.parse("class",
-						"1,,Monk=1", false, false);
+			parser.parse("class", "1,,Monk=1", false, false);
 			fail("Should have thrown a PersistenceLayerException.");
 		}
 		catch (PersistenceLayerException e)
@@ -80,9 +78,7 @@ public class PreClassTest extends EnUsLocaleDependentTestCase
 		try
 		{
 			PreClassParser parser = new PreClassParser();
-			Prerequisite prereq =
-					parser.parse("class",
-						"1,Monk=1|Cleric=1", false, false);
+			parser.parse("class", "1,Monk=1|Cleric=1", false, false);
 			fail("Should have thrown a PersistenceLayerException.");
 		}
 		catch (PersistenceLayerException e)
@@ -101,9 +97,7 @@ public class PreClassTest extends EnUsLocaleDependentTestCase
 		try
 		{
 			PreClassParser parser = new PreClassParser();
-			Prerequisite prereq =
-					parser.parse("class",
-						"1,Monk=1[Cleric=1]", false, false);
+			parser.parse("class", "1,Monk=1[Cleric=1]", false, false);
 			fail("Should have thrown a PersistenceLayerException.");
 		}
 		catch (PersistenceLayerException e)

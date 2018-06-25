@@ -11,6 +11,14 @@
 # NEWCATEGORY:Spell-like Ability
 # RACE:Old Race	MAXVER:6.6.01	MAXDEVVER:6.6.01	NEWKEY:New Race
 
+EQUIPMENT:Blazing Robes									MAXVER:6.07.08	NEWKEY:Blazing Robe
+EQUIPMENT:Mnemonic Vestments							MAXVER:6.07.08	NEWKEY:Mnemonic Vestment
+EQUIPMENT:Necklass of Ki Serenity          				MAXVER:6.07.08	NEWKEY:Necklace of Ki Serenity
+EQUIPMENT:Ring of Mechanical Devices					MAXVER:6.07.08	NEWKEY:Ring of Maniacal Devices
+EQUIPMENT:Stone of Weight (Lodestone)					MAXVER:6.07.08	NEWKEY:Stone of Weight (Loadstone)
+EQUIPMENT:Voidfrost Robes								MAXVER:6.07.08	NEWKEY:Voidfrost Robe
+EQUIPMENT:Wierd Queen's Magpie							MAXVER:6.07.08	NEWKEY:Weird Queen's Magpie
+
 ABILITY:Internal|Sorcerer ~ BS					MAXVER:6.07.06	NEWKEY:Sorcerer ~ Standard Bloodline Selection
 ABILITY:Internal|Sorcerer ~ Crossblooded BS			MAXVER:6.07.06	NEWKEY:Sorcerer ~ Crossblooded Bloodline Selection
 

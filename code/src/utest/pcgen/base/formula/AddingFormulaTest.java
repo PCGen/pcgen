@@ -52,7 +52,7 @@ public class AddingFormulaTest
 		assertNotSame(f1, f2);
 		assertEquals(f1.hashCode(), f2.hashCode());
 		assertEquals(f1, f2);
-		assertFalse(f1.equals(null));
+		assertNotNull(f1);
 		assertFalse(f1.hashCode() == f3.hashCode());
 		assertFalse(f1.equals(f3));
 		assertFalse(f1.hashCode() == f4.hashCode());

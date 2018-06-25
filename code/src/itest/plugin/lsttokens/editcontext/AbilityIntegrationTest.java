@@ -36,8 +36,8 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 public class AbilityIntegrationTest extends
 		AbstractIntegrationTestCase<CDOMObject>
 {
-	static AbilityLst token = new AbilityLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
+	private static AbilityLst token = new AbilityLst();
+	private static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

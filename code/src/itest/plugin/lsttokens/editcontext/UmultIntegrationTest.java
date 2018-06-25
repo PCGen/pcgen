@@ -31,8 +31,8 @@ public class UmultIntegrationTest extends
 		AbstractIntegerIntegrationTestCase<CDOMObject>
 {
 
-	static UmultLst token = new UmultLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
+	private static UmultLst token = new UmultLst();
+	private static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Ability> getCDOMClass()

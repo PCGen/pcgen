@@ -77,7 +77,7 @@ GEAR:Breastplate				LOCATION:Equipped			EQMOD:MWORKA
 GEAR:Greatsword				LOCATION:Both Hands		EQMOD:MWORKW
 GEAR:Longbow (Composite)		LOCATION:Carried			EQMOD:MWORKW.BOWSTR|+1
 GEAR:Arrows (20)				LOCATION:Carried
-GEAR:Holy Symbol (Wooden)		LOCATION:Carried
+GEAR:Holy Symbol	EQMOD:Holy Symbol (Wooden)		LOCATION:Carried
 GEAR:Backpack				LOCATION:Carried
 
 

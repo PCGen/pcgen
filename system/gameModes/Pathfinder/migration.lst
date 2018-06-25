@@ -11,6 +11,602 @@
 # NEWCATEGORY:Spell-like Ability
 # RACE:Old Race	MAXVER:6.6.01	MAXDEVVER:6.6.01	NEWKEY:New Race
 
+EQUIPMENT:Musical Instrument (Harpsichord/Masterwork		MAXVER:6.07.08	NEWKEY:Musical Instrument (Harpsichord/Masterwork)
+EQUIPMENT:Artisan's Tools (Armor/Masterwork)			MAXVER:6.07.08	NEWKEY:Artisan's Tools (Masterwork)
+EQUIPMENT:Artisan's Tools (Baskets/Masterwork)			MAXVER:6.07.08	NEWKEY:Artisan's Tools (Masterwork)
+EQUIPMENT:Artisan's Tools (Books/Masterwork)			MAXVER:6.07.08	NEWKEY:Artisan's Tools (Masterwork)
+EQUIPMENT:Artisan's Tools (Bows/Masterwork)			MAXVER:6.07.08	NEWKEY:Artisan's Tools (Masterwork)
+EQUIPMENT:Artisan's Tools (Calligraphy/Masterwork)		MAXVER:6.07.08	NEWKEY:Artisan's Tools (Masterwork)
+EQUIPMENT:Artisan's Tools (Carpentry/Masterwork)		MAXVER:6.07.08	NEWKEY:Artisan's Tools (Masterwork)
+EQUIPMENT:Artisan's Tools (Cloth/Masterwork)			MAXVER:6.07.08	NEWKEY:Artisan's Tools (Masterwork)
+EQUIPMENT:Artisan's Tools (Clothing/Masterwork)			MAXVER:6.07.08	NEWKEY:Artisan's Tools (Masterwork)
+EQUIPMENT:Artisan's Tools (Gemcutting/Masterwork)		MAXVER:6.07.08	NEWKEY:Artisan's Tools (Masterwork)
+EQUIPMENT:Artisan's Tools (Glass/Masterwork)			MAXVER:6.07.08	NEWKEY:Artisan's Tools (Masterwork)
+EQUIPMENT:Artisan's Tools (Jewelry/Masterwork)			MAXVER:6.07.08	NEWKEY:Artisan's Tools (Masterwork)
+EQUIPMENT:Artisan's Tools (Leather/Masterwork)			MAXVER:6.07.08	NEWKEY:Artisan's Tools (Masterwork)
+EQUIPMENT:Artisan's Tools (Locks/Masterwork)			MAXVER:6.07.08	NEWKEY:Artisan's Tools (Masterwork)
+EQUIPMENT:Artisan's Tools (Paintings/Masterwork)		MAXVER:6.07.08	NEWKEY:Artisan's Tools (Masterwork)
+EQUIPMENT:Artisan's Tools (Pottery/Masterwork)			MAXVER:6.07.08	NEWKEY:Artisan's Tools (Masterwork)
+EQUIPMENT:Artisan's Tools (Sculptures/Masterwork)		MAXVER:6.07.08	NEWKEY:Artisan's Tools (Masterwork)
+EQUIPMENT:Artisan's Tools (Ships/Masterwork)			MAXVER:6.07.08	NEWKEY:Artisan's Tools (Masterwork)
+EQUIPMENT:Artisan's Tools (Shoes/Masterwork)			MAXVER:6.07.08	NEWKEY:Artisan's Tools (Masterwork)
+EQUIPMENT:Artisan's Tools (Stonemasonry/Masterwork)		MAXVER:6.07.08	NEWKEY:Artisan's Tools (Masterwork)
+EQUIPMENT:Artisan's Tools (Tattoos/Masterwork)			MAXVER:6.07.08	NEWKEY:Artisan's Tools (Masterwork)
+EQUIPMENT:Artisan's Tools (Traps/Masterwork)			MAXVER:6.07.08	NEWKEY:Artisan's Tools (Masterwork)
+EQUIPMENT:Artisan's Tools (Weaponsmithing/Masterwork)		MAXVER:6.07.08	NEWKEY:Artisan's Tools (Masterwork)
+EQUIPMENT:Holy Symbol (Iron)						MAXVER:6.07.08	NEWKEY:Holy Symbol
+EQUIPMENT:Holy Symbol (Gold)						MAXVER:6.07.08	NEWKEY:Holy Symbol
+EQUIPMENT:Holy Symbol (Platinum)					MAXVER:6.07.08	NEWKEY:Holy Symbol
+EQUIPMENT:Holy Symbol (Wooden/Compartment)			MAXVER:6.07.08	NEWKEY:Holy Symbol (Compartment)
+EQUIPMENT:Holy Symbol (Iron/Compartment)				MAXVER:6.07.08	NEWKEY:Holy Symbol (Compartment)
+EQUIPMENT:Holy Symbol (Silver/Compartment)			MAXVER:6.07.08	NEWKEY:Holy Symbol (Compartment)
+EQUIPMENT:Holy Symbol (Gold/Compartment)				MAXVER:6.07.08	NEWKEY:Holy Symbol (Compartment)
+EQUIPMENT:Holy Symbol (Platinum/Compartment)			MAXVER:6.07.08	NEWKEY:Holy Symbol (Compartment)
+EQUIPMENT:Holy Symbol (Wooden/Flask)				MAXVER:6.07.08	NEWKEY:Holy Symbol (Flask)
+EQUIPMENT:Holy Symbol (Iron/Flask)					MAXVER:6.07.08	NEWKEY:Holy Symbol (Flask)
+EQUIPMENT:Holy Symbol (Silver/Flask)				MAXVER:6.07.08	NEWKEY:Holy Symbol (Flask)
+EQUIPMENT:Holy Symbol (Gold/Flask)					MAXVER:6.07.08	NEWKEY:Holy Symbol (Flask)
+EQUIPMENT:Holy Symbol (Platinum/Flask)				MAXVER:6.07.08	NEWKEY:Holy Symbol (Flask)
+
+EQUIPMENT:Golem Manual (Stone/Greater)				MAXVER:6.07.08	NEWKEY:Golem Manual (Stone Guardian)
+EQUIPMENT:Scroll (Acid Splash)					MAXVER:6.07.08	NEWKEY:Scroll of Acid Splash
+EQUIPMENT:Scroll (Arcane Mark)					MAXVER:6.07.08	NEWKEY:Scroll of Arcane Mark
+EQUIPMENT:Scroll (Bleed/Arcane)					MAXVER:6.07.08	NEWKEY:Scroll of Bleed (Arcane)
+EQUIPMENT:Scroll (Dancing Lights)					MAXVER:6.07.08	NEWKEY:Scroll of Dancing Lights
+EQUIPMENT:Scroll (Daze)							MAXVER:6.07.08	NEWKEY:Scroll of Daze
+EQUIPMENT:Scroll (Detect Magic/Arcane)				MAXVER:6.07.08	NEWKEY:Scroll of Detect Magic (Arcane)
+EQUIPMENT:Scroll (Detect Poison/Arcane)				MAXVER:6.07.08	NEWKEY:Scroll of Detect Poison (Arcane)
+EQUIPMENT:Scroll (Disrupt Undead)					MAXVER:6.07.08	NEWKEY:Scroll of Disrupt Undead
+EQUIPMENT:Scroll (Flare)						MAXVER:6.07.08	NEWKEY:Scroll of Flare
+EQUIPMENT:Scroll (Ghost Sound)					MAXVER:6.07.08	NEWKEY:Scroll of Ghost Sound
+EQUIPMENT:Scroll (Light/Arcane)					MAXVER:6.07.08	NEWKEY:Scroll of Light (Arcane)
+EQUIPMENT:Scroll (Mage Hand)						MAXVER:6.07.08	NEWKEY:Scroll of Mage Hand
+EQUIPMENT:Scroll (Mending/Arcane)					MAXVER:6.07.08	NEWKEY:Scroll of Mending (Arcane)
+EQUIPMENT:Scroll (Message)						MAXVER:6.07.08	NEWKEY:Scroll of Message
+EQUIPMENT:Scroll (Open/Close)						MAXVER:6.07.08	NEWKEY:Scroll of Open/Close
+EQUIPMENT:Scroll (Prestidigitation)					MAXVER:6.07.08	NEWKEY:Scroll of Prestidigitation
+EQUIPMENT:Scroll (Ray of Frost)					MAXVER:6.07.08	NEWKEY:Scroll of Ray of Frost
+EQUIPMENT:Scroll (Read Magic/Arcane)				MAXVER:6.07.08	NEWKEY:Scroll of Read Magic (Arcane)
+EQUIPMENT:Scroll (Resistance/Arcane)				MAXVER:6.07.08	NEWKEY:Scroll of Resistance (Arcane)
+EQUIPMENT:Scroll (Touch of Fatigue)					MAXVER:6.07.08	NEWKEY:Scroll of Touch of Fatigue
+EQUIPMENT:Scroll (Alarm)						MAXVER:6.07.08	NEWKEY:Scroll of Alarm
+EQUIPMENT:Scroll (Burning Hands)					MAXVER:6.07.08	NEWKEY:Scroll of Burning Hands
+EQUIPMENT:Scroll (Cause Fear/Arcane)				MAXVER:6.07.08	NEWKEY:Scroll of Cause Fear (Arcane)
+EQUIPMENT:Scroll (Charm Person)					MAXVER:6.07.08	NEWKEY:Scroll of Charm Person
+EQUIPMENT:Scroll (Chill Touch)					MAXVER:6.07.08	NEWKEY:Scroll of Chill Touch
+EQUIPMENT:Scroll (Color Spray)					MAXVER:6.07.08	NEWKEY:Scroll of Color Spray
+EQUIPMENT:Scroll (Comprehend Languages/Arcane)			MAXVER:6.07.08	NEWKEY:Scroll of Comprehend Languages (Arcane)
+EQUIPMENT:Scroll (Detect Secret Doors)				MAXVER:6.07.08	NEWKEY:Scroll of Detect Secret Doors
+EQUIPMENT:Scroll (Detect Undead/Arcane)				MAXVER:6.07.08	NEWKEY:Scroll of Detect Undead (Arcane)
+EQUIPMENT:Scroll (Disguise Self)					MAXVER:6.07.08	NEWKEY:Scroll of Disguise Self
+EQUIPMENT:Scroll (Endure Elements/Arcane)				MAXVER:6.07.08	NEWKEY:Scroll of Endure Elements (Arcane)
+EQUIPMENT:Scroll (Enlarge Person)					MAXVER:6.07.08	NEWKEY:Scroll of Enlarge Person
+EQUIPMENT:Scroll (Erase)						MAXVER:6.07.08	NEWKEY:Scroll of Erase
+EQUIPMENT:Scroll (Expeditious Retreat)				MAXVER:6.07.08	NEWKEY:Scroll of Expeditious Retreat
+EQUIPMENT:Scroll (Feather Fall)					MAXVER:6.07.08	NEWKEY:Scroll of Feather Fall
+EQUIPMENT:Scroll (Floating Disk)					MAXVER:6.07.08	NEWKEY:Scroll of Floating Disk
+EQUIPMENT:Scroll (Grease)						MAXVER:6.07.08	NEWKEY:Scroll of Grease
+EQUIPMENT:Scroll (Hold Portal)					MAXVER:6.07.08	NEWKEY:Scroll of Hold Portal
+EQUIPMENT:Scroll (Hypnotism)						MAXVER:6.07.08	NEWKEY:Scroll of Hypnotism
+EQUIPMENT:Scroll (Identify)						MAXVER:6.07.08	NEWKEY:Scroll of Identify
+EQUIPMENT:Scroll (Jump)							MAXVER:6.07.08	NEWKEY:Scroll of Jump
+EQUIPMENT:Scroll (Mage Armor)						MAXVER:6.07.08	NEWKEY:Scroll of Mage Armor
+EQUIPMENT:Scroll (Magic Missile)					MAXVER:6.07.08	NEWKEY:Scroll of Magic Missile
+EQUIPMENT:Scroll (Magic Weapon/Arcane)				MAXVER:6.07.08	NEWKEY:Scroll of Magic Weapon (Arcane)
+EQUIPMENT:Scroll (Mount)						MAXVER:6.07.08	NEWKEY:Scroll of Mount
+EQUIPMENT:Scroll (Obscuring Mist/Arcane)				MAXVER:6.07.08	NEWKEY:Scroll of Obscuring Mist (Arcane)
+EQUIPMENT:Scroll (Protection from Chaos/Arcane)			MAXVER:6.07.08	NEWKEY:Scroll of Protection from Chaos (Arcane)
+EQUIPMENT:Scroll (Protection from Evil/Arcane)			MAXVER:6.07.08	NEWKEY:Scroll of Protection from Evil (Arcane)
+EQUIPMENT:Scroll (Protection from Good/Arcane)			MAXVER:6.07.08	NEWKEY:Scroll of Protection from Good (Arcane)
+EQUIPMENT:Scroll (Protection from Law/Arcane)			MAXVER:6.07.08	NEWKEY:Scroll of Protection from Law (Arcane)
+EQUIPMENT:Scroll (Ray of Enfeeblement)				MAXVER:6.07.08	NEWKEY:Scroll of Ray of Enfeeblement
+EQUIPMENT:Scroll (Reduce Person)					MAXVER:6.07.08	NEWKEY:Scroll of Reduce Person
+EQUIPMENT:Scroll (Shield)						MAXVER:6.07.08	NEWKEY:Scroll of Shield
+EQUIPMENT:Scroll (Shocking Grasp)					MAXVER:6.07.08	NEWKEY:Scroll of Shocking Grasp
+EQUIPMENT:Scroll (Silent Image)					MAXVER:6.07.08	NEWKEY:Scroll of Silent Image
+EQUIPMENT:Scroll (Sleep)						MAXVER:6.07.08	NEWKEY:Scroll of Sleep
+EQUIPMENT:Scroll (Summon Monster I/Arcane)			MAXVER:6.07.08	NEWKEY:Scroll of Summon Monster I (Arcane)
+EQUIPMENT:Scroll (True Strike)					MAXVER:6.07.08	NEWKEY:Scroll of True Strike
+EQUIPMENT:Scroll (Unseen Servant)					MAXVER:6.07.08	NEWKEY:Scroll of Unseen Servant
+EQUIPMENT:Scroll (Ventriloquism)					MAXVER:6.07.08	NEWKEY:Scroll of Ventriloquism
+EQUIPMENT:Scroll (Acid Arrow)						MAXVER:6.07.08	NEWKEY:Scroll of Acid Arrow
+EQUIPMENT:Scroll (Alter Self)						MAXVER:6.07.08	NEWKEY:Scroll of Alter Self
+EQUIPMENT:Scroll (Arcane Lock)					MAXVER:6.07.08	NEWKEY:Scroll of Arcane Lock
+EQUIPMENT:Scroll (Bear's Endurance/Arcane)			MAXVER:6.07.08	NEWKEY:Scroll of Bear's Endurance (Arcane)
+EQUIPMENT:Scroll (Blindness/Deafness/Arcane)			MAXVER:6.07.08	NEWKEY:Scroll of Blindness/Deafness (Arcane)
+EQUIPMENT:Scroll (Blur)							MAXVER:6.07.08	NEWKEY:Scroll of Blur
+EQUIPMENT:Scroll (Bull's Strength/Arcane)				MAXVER:6.07.08	NEWKEY:Scroll of Bull's Strength (Arcane)
+EQUIPMENT:Scroll (Cat's Grace/Arcane)				MAXVER:6.07.08	NEWKEY:Scroll of Cat's Grace (Arcane)
+EQUIPMENT:Scroll (Command Undead)					MAXVER:6.07.08	NEWKEY:Scroll of Command Undead
+EQUIPMENT:Scroll (Continual Flame/Arcane)				MAXVER:6.07.08	NEWKEY:Scroll of Continual Flame (Arcane)
+EQUIPMENT:Scroll (Darkness/Arcane)					MAXVER:6.07.08	NEWKEY:Scroll of Darkness (Arcane)
+EQUIPMENT:Scroll (Darkvision)						MAXVER:6.07.08	NEWKEY:Scroll of Darkvision
+EQUIPMENT:Scroll (Daze Monster)					MAXVER:6.07.08	NEWKEY:Scroll of Daze Monster
+EQUIPMENT:Scroll (Detect Thoughts)					MAXVER:6.07.08	NEWKEY:Scroll of Detect Thoughts
+EQUIPMENT:Scroll (Eagle's Splendor/Arcane)			MAXVER:6.07.08	NEWKEY:Scroll of Eagle's Splendor (Arcane)
+EQUIPMENT:Scroll (False Life)						MAXVER:6.07.08	NEWKEY:Scroll of False Life
+EQUIPMENT:Scroll (Flaming Sphere)					MAXVER:6.07.08	NEWKEY:Scroll of Flaming Sphere
+EQUIPMENT:Scroll (Fog Cloud)						MAXVER:6.07.08	NEWKEY:Scroll of Fog Cloud
+EQUIPMENT:Scroll (Fox's Cunning/Arcane)				MAXVER:6.07.08	NEWKEY:Scroll of Fox's Cunning (Arcane)
+EQUIPMENT:Scroll (Ghoul Touch)					MAXVER:6.07.08	NEWKEY:Scroll of Ghoul Touch
+EQUIPMENT:Scroll (Glitterdust)					MAXVER:6.07.08	NEWKEY:Scroll of Glitterdust
+EQUIPMENT:Scroll (Hideous Laughter)					MAXVER:6.07.08	NEWKEY:Scroll of Hideous Laughter
+EQUIPMENT:Scroll (Hypnotic Pattern)					MAXVER:6.07.08	NEWKEY:Scroll of Hypnotic Pattern
+EQUIPMENT:Scroll (Invisibility)					MAXVER:6.07.08	NEWKEY:Scroll of Invisibility
+EQUIPMENT:Scroll (Knock)						MAXVER:6.07.08	NEWKEY:Scroll of Knock
+EQUIPMENT:Scroll (Levitate)						MAXVER:6.07.08	NEWKEY:Scroll of Levitate
+EQUIPMENT:Scroll (Locate Object/Arcane)				MAXVER:6.07.08	NEWKEY:Scroll of Locate Object (Arcane)
+EQUIPMENT:Scroll (Make Whole/Arcane)				MAXVER:6.07.08	NEWKEY:Scroll of Make Whole (Arcane)
+EQUIPMENT:Scroll (Minor Image)					MAXVER:6.07.08	NEWKEY:Scroll of Minor Image
+EQUIPMENT:Scroll (Mirror Image)					MAXVER:6.07.08	NEWKEY:Scroll of Mirror Image
+EQUIPMENT:Scroll (Misdirection)					MAXVER:6.07.08	NEWKEY:Scroll of Misdirection
+EQUIPMENT:Scroll (Obscure Object/Arcane)				MAXVER:6.07.08	NEWKEY:Scroll of Obscure Object (Arcane)
+EQUIPMENT:Scroll (Owl's Wisdom/Arcane)				MAXVER:6.07.08	NEWKEY:Scroll of Owl's Wisdom (Arcane)
+EQUIPMENT:Scroll (Protection from Arrows)				MAXVER:6.07.08	NEWKEY:Scroll of Protection from Arrows
+EQUIPMENT:Scroll (Pyrotechnics)					MAXVER:6.07.08	NEWKEY:Scroll of Pyrotechnics
+EQUIPMENT:Scroll (Resist Energy/Arcane)				MAXVER:6.07.08	NEWKEY:Scroll of Resist Energy (Arcane)
+EQUIPMENT:Scroll (Rope Trick)						MAXVER:6.07.08	NEWKEY:Scroll of Rope Trick
+EQUIPMENT:Scroll (Scare)						MAXVER:6.07.08	NEWKEY:Scroll of Scare
+EQUIPMENT:Scroll (Scorching Ray)					MAXVER:6.07.08	NEWKEY:Scroll of Scorching Ray
+EQUIPMENT:Scroll (See Invisibility)					MAXVER:6.07.08	NEWKEY:Scroll of See Invisibility
+EQUIPMENT:Scroll (Shatter/Arcane)					MAXVER:6.07.08	NEWKEY:Scroll of Shatter (Arcane)
+EQUIPMENT:Scroll (Spectral Hand)					MAXVER:6.07.08	NEWKEY:Scroll of Spectral Hand
+EQUIPMENT:Scroll (Spider Climb)					MAXVER:6.07.08	NEWKEY:Scroll of Spider Climb
+EQUIPMENT:Scroll (Summon Monster II/Arcane)			MAXVER:6.07.08	NEWKEY:Scroll of Summon Monster II (Arcane)
+EQUIPMENT:Scroll (Summon Swarm)					MAXVER:6.07.08	NEWKEY:Scroll of Summon Swarm
+EQUIPMENT:Scroll (Touch of Idiocy)					MAXVER:6.07.08	NEWKEY:Scroll of Touch of Idiocy
+EQUIPMENT:Scroll (Web)							MAXVER:6.07.08	NEWKEY:Scroll of Web
+EQUIPMENT:Scroll (Whispering Wind)					MAXVER:6.07.08	NEWKEY:Scroll of Whispering Wind
+EQUIPMENT:Scroll (Arcane Sight)					MAXVER:6.07.08	NEWKEY:Scroll of Arcane Sight
+EQUIPMENT:Scroll (Beast Shape I)					MAXVER:6.07.08	NEWKEY:Scroll of Beast Shape I
+EQUIPMENT:Scroll (Blink)						MAXVER:6.07.08	NEWKEY:Scroll of Blink
+EQUIPMENT:Scroll (Clairaudience/Clairvoyance)			MAXVER:6.07.08	NEWKEY:Scroll of Clairaudience/Clairvoyance
+EQUIPMENT:Scroll (Daylight/Arcane)					MAXVER:6.07.08	NEWKEY:Scroll of Daylight (Arcane)
+EQUIPMENT:Scroll (Deep Slumber)					MAXVER:6.07.08	NEWKEY:Scroll of Deep Slumber
+EQUIPMENT:Scroll (Dispel Magic/Arcane)				MAXVER:6.07.08	NEWKEY:Scroll of Dispel Magic (Arcane)
+EQUIPMENT:Scroll (Displacement)					MAXVER:6.07.08	NEWKEY:Scroll of Displacement
+EQUIPMENT:Scroll (Explosive Runes)					MAXVER:6.07.08	NEWKEY:Scroll of Explosive Runes
+EQUIPMENT:Scroll (Fireball)						MAXVER:6.07.08	NEWKEY:Scroll of Fireball
+EQUIPMENT:Scroll (Flame Arrow)					MAXVER:6.07.08	NEWKEY:Scroll of Flame Arrow
+EQUIPMENT:Scroll (Fly)							MAXVER:6.07.08	NEWKEY:Scroll of Fly
+EQUIPMENT:Scroll (Gaseous Form)					MAXVER:6.07.08	NEWKEY:Scroll of Gaseous Form
+EQUIPMENT:Scroll (Gentle Repose/Arcane)				MAXVER:6.07.08	NEWKEY:Scroll of Gentle Repose (Arcane)
+EQUIPMENT:Scroll (Haste)						MAXVER:6.07.08	NEWKEY:Scroll of Haste
+EQUIPMENT:Scroll (Heroism)						MAXVER:6.07.08	NEWKEY:Scroll of Heroism
+EQUIPMENT:Scroll (Hold Person/Arcane)				MAXVER:6.07.08	NEWKEY:Scroll of Hold Person (Arcane)
+EQUIPMENT:Scroll (Invisibility Sphere)				MAXVER:6.07.08	NEWKEY:Scroll of Invisibility Sphere
+EQUIPMENT:Scroll (Keen Edge)						MAXVER:6.07.08	NEWKEY:Scroll of Keen Edge
+EQUIPMENT:Scroll (Lightning Bolt)					MAXVER:6.07.08	NEWKEY:Scroll of Lightning Bolt
+EQUIPMENT:Scroll (Magic Circle Against Chaos/Arcane)		MAXVER:6.07.08	NEWKEY:Scroll of Magic Circle Against Chaos (Arcane)
+EQUIPMENT:Scroll (Magic Circle Against Evil/Arcane)		MAXVER:6.07.08	NEWKEY:Scroll of Magic Circle Against Evil (Arcane)
+EQUIPMENT:Scroll (Magic Circle Against Good/Arcane)		MAXVER:6.07.08	NEWKEY:Scroll of Magic Circle Against Good (Arcane)
+EQUIPMENT:Scroll (Magic Circle Against Law/Arcane)		MAXVER:6.07.08	NEWKEY:Scroll of Magic Circle Against Law (Arcane)
+EQUIPMENT:Scroll (Magic Weapon (Greater)/Arcane)		MAXVER:6.07.08	NEWKEY:Scroll of Magic Weapon (Greater) (Arcane)
+EQUIPMENT:Scroll (Major Image)					MAXVER:6.07.08	NEWKEY:Scroll of Major Image
+EQUIPMENT:Scroll (Nondetection)					MAXVER:6.07.08	NEWKEY:Scroll of Nondetection
+EQUIPMENT:Scroll (Protection from Energy/Arcane)		MAXVER:6.07.08	NEWKEY:Scroll of Protection from Energy (Arcane)
+EQUIPMENT:Scroll (Rage)							MAXVER:6.07.08	NEWKEY:Scroll of Rage
+EQUIPMENT:Scroll (Ray of Exhaustion)				MAXVER:6.07.08	NEWKEY:Scroll of Ray of Exhaustion
+EQUIPMENT:Scroll (Shrink Item)					MAXVER:6.07.08	NEWKEY:Scroll of Shrink Item
+EQUIPMENT:Scroll (Sleet Storm)					MAXVER:6.07.08	NEWKEY:Scroll of Sleet Storm
+EQUIPMENT:Scroll (Slow)							MAXVER:6.07.08	NEWKEY:Scroll of Slow
+EQUIPMENT:Scroll (Stinking Cloud)					MAXVER:6.07.08	NEWKEY:Scroll of Stinking Cloud
+EQUIPMENT:Scroll (Suggestion)						MAXVER:6.07.08	NEWKEY:Scroll of Suggestion
+EQUIPMENT:Scroll (Summon Monster III/Arcane)			MAXVER:6.07.08	NEWKEY:Scroll of Summon Monster III (Arcane)
+EQUIPMENT:Scroll (Tongues/Arcane)					MAXVER:6.07.08	NEWKEY:Scroll of Tongues (Arcane)
+EQUIPMENT:Scroll (Vampiric Touch)					MAXVER:6.07.08	NEWKEY:Scroll of Vampiric Touch
+EQUIPMENT:Scroll (Water Breathing/Arcane)				MAXVER:6.07.08	NEWKEY:Scroll of Water Breathing (Arcane)
+EQUIPMENT:Scroll (Wind Wall/Arcane)					MAXVER:6.07.08	NEWKEY:Scroll of Wind Wall (Arcane)
+EQUIPMENT:Scroll (Animate Dead/Arcane)				MAXVER:6.07.08	NEWKEY:Scroll of Animate Dead (Arcane)
+EQUIPMENT:Scroll (Arcane Eye)						MAXVER:6.07.08	NEWKEY:Scroll of Arcane Eye
+EQUIPMENT:Scroll (Beast Shape II)					MAXVER:6.07.08	NEWKEY:Scroll of Beast Shape II
+EQUIPMENT:Scroll (Bestow Curse/Arcane)				MAXVER:6.07.08	NEWKEY:Scroll of Bestow Curse (Arcane)
+EQUIPMENT:Scroll (Black Tentacles)					MAXVER:6.07.08	NEWKEY:Scroll of Black Tentacles
+EQUIPMENT:Scroll (Charm Monster)					MAXVER:6.07.08	NEWKEY:Scroll of Charm Monster
+EQUIPMENT:Scroll (Confusion)						MAXVER:6.07.08	NEWKEY:Scroll of Confusion
+EQUIPMENT:Scroll (Contagion/Arcane)					MAXVER:6.07.08	NEWKEY:Scroll of Contagion (Arcane)
+EQUIPMENT:Scroll (Crushing Despair)					MAXVER:6.07.08	NEWKEY:Scroll of Crushing Despair
+EQUIPMENT:Scroll (Detect Scrying)					MAXVER:6.07.08	NEWKEY:Scroll of Detect Scrying
+EQUIPMENT:Scroll (Dimension Door)					MAXVER:6.07.08	NEWKEY:Scroll of Dimension Door
+EQUIPMENT:Scroll (Dimensional Anchor/Arcane)			MAXVER:6.07.08	NEWKEY:Scroll of Dimensional Anchor (Arcane)
+EQUIPMENT:Scroll (Elemental Body I)					MAXVER:6.07.08	NEWKEY:Scroll of Elemental Body I
+EQUIPMENT:Scroll (Enervation)						MAXVER:6.07.08	NEWKEY:Scroll of Enervation
+EQUIPMENT:Scroll (Enlarge Person (Mass))				MAXVER:6.07.08	NEWKEY:Scroll of Enlarge Person (Mass)
+EQUIPMENT:Scroll (Fear)							MAXVER:6.07.08	NEWKEY:Scroll of Fear
+EQUIPMENT:Scroll (Fire Shield)					MAXVER:6.07.08	NEWKEY:Scroll of Fire Shield
+EQUIPMENT:Scroll (Fire Trap)						MAXVER:6.07.08	NEWKEY:Scroll of Fire Trap
+EQUIPMENT:Scroll (Geas (Lesser))					MAXVER:6.07.08	NEWKEY:Scroll of Geas (Lesser)
+EQUIPMENT:Scroll (Globe of Invulnerability (Lesser))		MAXVER:6.07.08	NEWKEY:Scroll of Globe of Invulnerability (Lesser)
+EQUIPMENT:Scroll (Hallucinatory Terrain)				MAXVER:6.07.08	NEWKEY:Scroll of Hallucinatory Terrain
+EQUIPMENT:Scroll (Ice Storm)						MAXVER:6.07.08	NEWKEY:Scroll of Ice Storm
+EQUIPMENT:Scroll (Illusory Wall)					MAXVER:6.07.08	NEWKEY:Scroll of Illusory Wall
+EQUIPMENT:Scroll (Invisibility (Greater))				MAXVER:6.07.08	NEWKEY:Scroll of Invisibility (Greater)
+EQUIPMENT:Scroll (Locate Creature)					MAXVER:6.07.08	NEWKEY:Scroll of Locate Creature
+EQUIPMENT:Scroll (Phantasmal Killer)				MAXVER:6.07.08	NEWKEY:Scroll of Phantasmal Killer
+EQUIPMENT:Scroll (Reduce Person (Mass))				MAXVER:6.07.08	NEWKEY:Scroll of Reduce Person (Mass)
+EQUIPMENT:Scroll (Remove Curse/Arcane)				MAXVER:6.07.08	NEWKEY:Scroll of Remove Curse (Arcane)
+EQUIPMENT:Scroll (Scrying/Arcane)					MAXVER:6.07.08	NEWKEY:Scroll of Scrying (Arcane)
+EQUIPMENT:Scroll (Shout)						MAXVER:6.07.08	NEWKEY:Scroll of Shout
+EQUIPMENT:Scroll (Solid Fog)						MAXVER:6.07.08	NEWKEY:Scroll of Solid Fog
+EQUIPMENT:Scroll (Stone Shape/Arcane)				MAXVER:6.07.08	NEWKEY:Scroll of Stone Shape (Arcane)
+EQUIPMENT:Scroll (Stoneskin)						MAXVER:6.07.08	NEWKEY:Scroll of Stoneskin
+EQUIPMENT:Scroll (Summon Monster IV/Arcane)			MAXVER:6.07.08	NEWKEY:Scroll of Summon Monster IV (Arcane)
+EQUIPMENT:Scroll (Wall of Fire)					MAXVER:6.07.08	NEWKEY:Scroll of Wall of Fire
+EQUIPMENT:Scroll (Wall of Ice)					MAXVER:6.07.08	NEWKEY:Scroll of Wall of Ice
+EQUIPMENT:Scroll (Animal Growth)					MAXVER:6.07.08	NEWKEY:Scroll of Animal Growth
+EQUIPMENT:Scroll (Baleful Polymorph)				MAXVER:6.07.08	NEWKEY:Scroll of Baleful Polymorph
+EQUIPMENT:Scroll (Beast Shape III)					MAXVER:6.07.08	NEWKEY:Scroll of Beast Shape III
+EQUIPMENT:Scroll (Break Enchantment/Arcane)			MAXVER:6.07.08	NEWKEY:Scroll of Break Enchantment (Arcane)
+EQUIPMENT:Scroll (Cloudkill)						MAXVER:6.07.08	NEWKEY:Scroll of Cloudkill
+EQUIPMENT:Scroll (Cone of Cold)					MAXVER:6.07.08	NEWKEY:Scroll of Cone of Cold
+EQUIPMENT:Scroll (Contact Other Plane)				MAXVER:6.07.08	NEWKEY:Scroll of Contact Other Plane
+EQUIPMENT:Scroll (Dismissal/Arcane)					MAXVER:6.07.08	NEWKEY:Scroll of Dismissal (Arcane)
+EQUIPMENT:Scroll (Dominate Person)					MAXVER:6.07.08	NEWKEY:Scroll of Dominate Person
+EQUIPMENT:Scroll (Elemental Body II)				MAXVER:6.07.08	NEWKEY:Scroll of Elemental Body II
+EQUIPMENT:Scroll (False Vision)					MAXVER:6.07.08	NEWKEY:Scroll of False Vision
+EQUIPMENT:Scroll (Feeblemind)						MAXVER:6.07.08	NEWKEY:Scroll of Feeblemind
+EQUIPMENT:Scroll (Hold Monster)					MAXVER:6.07.08	NEWKEY:Scroll of Hold Monster
+EQUIPMENT:Scroll (Mirage Arcana)					MAXVER:6.07.08	NEWKEY:Scroll of Mirage Arcana
+EQUIPMENT:Scroll (Overland Flight)					MAXVER:6.07.08	NEWKEY:Scroll of Overland Flight
+EQUIPMENT:Scroll (Passwall)						MAXVER:6.07.08	NEWKEY:Scroll of Passwall
+EQUIPMENT:Scroll (Persistent Image)					MAXVER:6.07.08	NEWKEY:Scroll of Persistent Image
+EQUIPMENT:Scroll (Plant Shape I)					MAXVER:6.07.08	NEWKEY:Scroll of Plant Shape I
+EQUIPMENT:Scroll (Polymorph)						MAXVER:6.07.08	NEWKEY:Scroll of Polymorph
+EQUIPMENT:Scroll (Seeming)						MAXVER:6.07.08	NEWKEY:Scroll of Seeming
+EQUIPMENT:Scroll (Sending/Arcane)					MAXVER:6.07.08	NEWKEY:Scroll of Sending (Arcane)
+EQUIPMENT:Scroll (Summon Monster V/Arcane)			MAXVER:6.07.08	NEWKEY:Scroll of Summon Monster V (Arcane)
+EQUIPMENT:Scroll (Telepathic Bond)					MAXVER:6.07.08	NEWKEY:Scroll of Telepathic Bond
+EQUIPMENT:Scroll (Teleport)						MAXVER:6.07.08	NEWKEY:Scroll of Teleport
+EQUIPMENT:Scroll (Wall of Force)					MAXVER:6.07.08	NEWKEY:Scroll of Wall of Force
+EQUIPMENT:Scroll (Wall of Stone/Arcane)				MAXVER:6.07.08	NEWKEY:Scroll of Wall of Stone (Arcane)
+EQUIPMENT:Scroll (Waves of Fatigue)					MAXVER:6.07.08	NEWKEY:Scroll of Waves of Fatigue
+EQUIPMENT:Scroll (Acid Fog)						MAXVER:6.07.08	NEWKEY:Scroll of Acid Fog
+EQUIPMENT:Scroll (Analyze Dweomer)					MAXVER:6.07.08	NEWKEY:Scroll of Analyze Dweomer
+EQUIPMENT:Scroll (Bear's Endurance (Mass)/Arcane)		MAXVER:6.07.08	NEWKEY:Scroll of Bear's Endurance (Mass) (Arcane)
+EQUIPMENT:Scroll (Beast Shape IV)					MAXVER:6.07.08	NEWKEY:Scroll of Beast Shape IV
+EQUIPMENT:Scroll (Bull's Strength (Mass)/Arcane)		MAXVER:6.07.08	NEWKEY:Scroll of Bull's Strength (Mass) (Arcane)
+EQUIPMENT:Scroll (Cat's Grace (Mass))				MAXVER:6.07.08	NEWKEY:Scroll of Cat's Grace (Mass) (Arcane)
+EQUIPMENT:Scroll (Chain Lightning)					MAXVER:6.07.08	NEWKEY:Scroll of Chain Lightning
+EQUIPMENT:Scroll (Circle of Death)					MAXVER:6.07.08	NEWKEY:Scroll of Circle of Death
+EQUIPMENT:Scroll (Contingency)					MAXVER:6.07.08	NEWKEY:Scroll of Contingency
+EQUIPMENT:Scroll (Disintegrate)					MAXVER:6.07.08	NEWKEY:Scroll of Disintegrate
+EQUIPMENT:Scroll (Dispel Magic (Greater)/Arcane)		MAXVER:6.07.08	NEWKEY:Scroll of Dispel Magic (Greater) (Arcane)
+EQUIPMENT:Scroll (Eagle's Splendor (Mass)/Arcane)		MAXVER:6.07.08	NEWKEY:Scroll of Eagle's Splendor (Mass) (Arcane)
+EQUIPMENT:Scroll (Elemental Body III)				MAXVER:6.07.08	NEWKEY:Scroll of Elemental Body III
+EQUIPMENT:Scroll (Eyebite)						MAXVER:6.07.08	NEWKEY:Scroll of Eyebite
+EQUIPMENT:Scroll (Flesh to Stone)					MAXVER:6.07.08	NEWKEY:Scroll of Flesh to Stone
+EQUIPMENT:Scroll (Form of the Dragon I)				MAXVER:6.07.08	NEWKEY:Scroll of Form of the Dragon I
+EQUIPMENT:Scroll (Fox's Cunning (Mass)/Arcane)			MAXVER:6.07.08	NEWKEY:Scroll of Fox's Cunning (Mass) (Arcane)
+EQUIPMENT:Scroll (Geas/Quest/Arcane)				MAXVER:6.07.08	NEWKEY:Scroll of Geas/Quest (Arcane)
+EQUIPMENT:Scroll (Globe of Invulnerability)			MAXVER:6.07.08	NEWKEY:Scroll of Globe of Invulnerability
+EQUIPMENT:Scroll (Heroism (Greater))				MAXVER:6.07.08	NEWKEY:Scroll of Heroism (Greater)
+EQUIPMENT:Scroll (Legend Lore)					MAXVER:6.07.08	NEWKEY:Scroll of Legend Lore
+EQUIPMENT:Scroll (Mislead)						MAXVER:6.07.08	NEWKEY:Scroll of Mislead
+EQUIPMENT:Scroll (Move Earth)						MAXVER:6.07.08	NEWKEY:Scroll of Move Earth
+EQUIPMENT:Scroll (Owl's Wisdom (Mass)/Arcane)			MAXVER:6.07.08	NEWKEY:Scroll of Owl's Wisdom (Mass) (Arcane)
+EQUIPMENT:Scroll (Permanent Image)					MAXVER:6.07.08	NEWKEY:Scroll of Permanent Image
+EQUIPMENT:Scroll (Plant Shape II)					MAXVER:6.07.08	NEWKEY:Scroll of Plant Shape II
+EQUIPMENT:Scroll (Programmed Image)					MAXVER:6.07.08	NEWKEY:Scroll of Programmed Image
+EQUIPMENT:Scroll (Repulsion/Arcane)					MAXVER:6.07.08	NEWKEY:Scroll of Repulsion (Arcane)
+EQUIPMENT:Scroll (Shadow Walk)					MAXVER:6.07.08	NEWKEY:Scroll of Shadow Walk
+EQUIPMENT:Scroll (Stone to Flesh)					MAXVER:6.07.08	NEWKEY:Scroll of Stone to Flesh
+EQUIPMENT:Scroll (Suggestion (Mass))				MAXVER:6.07.08	NEWKEY:Scroll of Suggestion (Mass)
+EQUIPMENT:Scroll (Summon Monster VI/Arcane)			MAXVER:6.07.08	NEWKEY:Scroll of Summon Monster VI (Arcane)
+EQUIPMENT:Scroll (True Seeing/Arcane)				MAXVER:6.07.08	NEWKEY:Scroll of True Seeing (Arcane)
+EQUIPMENT:Scroll (Undeath to Death/Arcane)			MAXVER:6.07.08	NEWKEY:Scroll of Undeath to Death (Arcane)
+EQUIPMENT:Scroll (Arcane Sight (Greater))				MAXVER:6.07.08	NEWKEY:Scroll of Arcane Sight (Greater)
+EQUIPMENT:Scroll (Banishment/Arcane)				MAXVER:6.07.08	NEWKEY:Scroll of Banishment (Arcane)
+EQUIPMENT:Scroll (Control Undead)					MAXVER:6.07.08	NEWKEY:Scroll of Control Undead
+EQUIPMENT:Scroll (Control Weather/Arcane)				MAXVER:6.07.08	NEWKEY:Scroll of Control Weather (Arcane)
+EQUIPMENT:Scroll (Delayed Blast Fireball)				MAXVER:6.07.08	NEWKEY:Scroll of Delayed Blast Fireball
+EQUIPMENT:Scroll (Elemental Body IV)				MAXVER:6.07.08	NEWKEY:Scroll of Elemental Body IV
+EQUIPMENT:Scroll (Finger of Death)					MAXVER:6.07.08	NEWKEY:Scroll of Finger of Death
+EQUIPMENT:Scroll (Forcecage)						MAXVER:6.07.08	NEWKEY:Scroll of Forcecage
+EQUIPMENT:Scroll (Form of the Dragon II)				MAXVER:6.07.08	NEWKEY:Scroll of Form of the Dragon II
+EQUIPMENT:Scroll (Giant Form I)					MAXVER:6.07.08	NEWKEY:Scroll of Giant Form I
+EQUIPMENT:Scroll (Hold Person (Mass))				MAXVER:6.07.08	NEWKEY:Scroll of Hold Person (Mass)
+EQUIPMENT:Scroll (Insanity)						MAXVER:6.07.08	NEWKEY:Scroll of Insanity
+EQUIPMENT:Scroll (Invisibility (Mass))				MAXVER:6.07.08	NEWKEY:Scroll of Invisibility (Mass)
+EQUIPMENT:Scroll (Limited Wish)					MAXVER:6.07.08	NEWKEY:Scroll of Limited Wish
+EQUIPMENT:Scroll (Mage's Magnificent Mansion)			MAXVER:6.07.08	NEWKEY:Scroll of Mage's Magnificent Mansion
+EQUIPMENT:Scroll (Phase Door)						MAXVER:6.07.08	NEWKEY:Scroll of Phase Door
+EQUIPMENT:Scroll (Plane Shift/Arcane)				MAXVER:6.07.08	NEWKEY:Scroll of Plane Shift (Arcane)
+EQUIPMENT:Scroll (Plant Shape III)					MAXVER:6.07.08	NEWKEY:Scroll of Plant Shape III
+EQUIPMENT:Scroll (Polymorph (Greater))				MAXVER:6.07.08	NEWKEY:Scroll of Polymorph (Greater)
+EQUIPMENT:Scroll (Power Word Blind)					MAXVER:6.07.08	NEWKEY:Scroll of Power Word Blind
+EQUIPMENT:Scroll (Prismatic Spray)					MAXVER:6.07.08	NEWKEY:Scroll of Prismatic Spray
+EQUIPMENT:Scroll (Project Image)					MAXVER:6.07.08	NEWKEY:Scroll of Project Image
+EQUIPMENT:Scroll (Reverse Gravity)					MAXVER:6.07.08	NEWKEY:Scroll of Reverse Gravity
+EQUIPMENT:Scroll (Sequester)						MAXVER:6.07.08	NEWKEY:Scroll of Sequester
+EQUIPMENT:Scroll (Scrying (Greater)/Arcane)			MAXVER:6.07.08	NEWKEY:Scroll of Scrying (Greater) (Arcane)
+EQUIPMENT:Scroll (Spell Turning)					MAXVER:6.07.08	NEWKEY:Scroll of Spell Turning
+EQUIPMENT:Scroll (Summon Monster VII/Arcane)			MAXVER:6.07.08	NEWKEY:Scroll of Summon Monster VII (Arcane)
+EQUIPMENT:Scroll (Teleport (Greater))				MAXVER:6.07.08	NEWKEY:Scroll of Teleport (Greater)
+EQUIPMENT:Scroll (Teleport Object)					MAXVER:6.07.08	NEWKEY:Scroll of Teleport Object
+EQUIPMENT:Scroll (Vision)						MAXVER:6.07.08	NEWKEY:Scroll of Vision
+EQUIPMENT:Scroll (Waves of Exhaustion)				MAXVER:6.07.08	NEWKEY:Scroll of Waves of Exhaustion
+EQUIPMENT:Scroll (Charm Monster (Mass))				MAXVER:6.07.08	NEWKEY:Scroll of Charm Monster (Mass)
+EQUIPMENT:Scroll (Demand)						MAXVER:6.07.08	NEWKEY:Scroll of Demand
+EQUIPMENT:Scroll (Dimensional Lock/Arcane)			MAXVER:6.07.08	NEWKEY:Scroll of Dimensional Lock (Arcane)
+EQUIPMENT:Scroll (Discern Location/Arcane)			MAXVER:6.07.08	NEWKEY:Scroll of Discern Location (Arcane)
+EQUIPMENT:Scroll (Form of the Dragon III)				MAXVER:6.07.08	NEWKEY:Scroll of Form of the Dragon III
+EQUIPMENT:Scroll (Giant Form II)					MAXVER:6.07.08	NEWKEY:Scroll of Giant Form II
+EQUIPMENT:Scroll (Horrid Wilting)					MAXVER:6.07.08	NEWKEY:Scroll of Horrid Wilting
+EQUIPMENT:Scroll (Incendiary Cloud)					MAXVER:6.07.08	NEWKEY:Scroll of Incendiary Cloud
+EQUIPMENT:Scroll (Irresistible Dance)				MAXVER:6.07.08	NEWKEY:Scroll of Irresistible Dance
+EQUIPMENT:Scroll (Maze)							MAXVER:6.07.08	NEWKEY:Scroll of Maze
+EQUIPMENT:Scroll (Mind Blank)						MAXVER:6.07.08	NEWKEY:Scroll of Mind Blank
+EQUIPMENT:Scroll (Moment of Prescience)				MAXVER:6.07.08	NEWKEY:Scroll of Moment of Prescience
+EQUIPMENT:Scroll (Polar Ray)						MAXVER:6.07.08	NEWKEY:Scroll of Polar Ray
+EQUIPMENT:Scroll (Power Word Stun)					MAXVER:6.07.08	NEWKEY:Scroll of Power Word Stun
+EQUIPMENT:Scroll (Prismatic Wall)					MAXVER:6.07.08	NEWKEY:Scroll of Prismatic Wall
+EQUIPMENT:Scroll (Protection from Spells)				MAXVER:6.07.08	NEWKEY:Scroll of Protection from Spells
+EQUIPMENT:Scroll (Scintillating Pattern)				MAXVER:6.07.08	NEWKEY:Scroll of Scintillating Pattern
+EQUIPMENT:Scroll (Screen)						MAXVER:6.07.08	NEWKEY:Scroll of Screen
+EQUIPMENT:Scroll (Shout (Greater))					MAXVER:6.07.08	NEWKEY:Scroll of Shout (Greater)
+EQUIPMENT:Scroll (Summon Monster VIII/Arcane)			MAXVER:6.07.08	NEWKEY:Scroll of Summon Monster VIII (Arcane)
+EQUIPMENT:Scroll (Sunburst)						MAXVER:6.07.08	NEWKEY:Scroll of Sunburst
+EQUIPMENT:Scroll (Temporal Stasis)					MAXVER:6.07.08	NEWKEY:Scroll of Temporal Stasis
+EQUIPMENT:Scroll (Dominate Monster)					MAXVER:6.07.08	NEWKEY:Scroll of Dominate Monster
+EQUIPMENT:Scroll (Energy Drain/Arcane)				MAXVER:6.07.08	NEWKEY:Scroll of Energy Drain (Arcane)
+EQUIPMENT:Scroll (Foresight)						MAXVER:6.07.08	NEWKEY:Scroll of Foresight
+EQUIPMENT:Scroll (Freedom)						MAXVER:6.07.08	NEWKEY:Scroll of Freedom
+EQUIPMENT:Scroll (Hold Monster (Mass))				MAXVER:6.07.08	NEWKEY:Scroll of Hold Monster (Mass)
+EQUIPMENT:Scroll (Imprisonment)					MAXVER:6.07.08	NEWKEY:Scroll of Imprisonment
+EQUIPMENT:Scroll (Mage's Disjunction)				MAXVER:6.07.08	NEWKEY:Scroll of Mage's Disjunction
+EQUIPMENT:Scroll (Meteor Swarm)					MAXVER:6.07.08	NEWKEY:Scroll of Meteor Swarm
+EQUIPMENT:Scroll (Power Word Kill)					MAXVER:6.07.08	NEWKEY:Scroll of Power Word Kill
+EQUIPMENT:Scroll (Prismatic Sphere)					MAXVER:6.07.08	NEWKEY:Scroll of Prismatic Sphere
+EQUIPMENT:Scroll (Refuge/Arcane)					MAXVER:6.07.08	NEWKEY:Scroll of Refuge (Arcane)
+EQUIPMENT:Scroll (Shapechange)					MAXVER:6.07.08	NEWKEY:Scroll of Shapechange
+EQUIPMENT:Scroll (Soul Bind/Arcane)					MAXVER:6.07.08	NEWKEY:Scroll of Soul Bind (Arcane)
+EQUIPMENT:Scroll (Summon Monster IX/Arcane)			MAXVER:6.07.08	NEWKEY:Scroll of Summon Monster IX (Arcane)
+EQUIPMENT:Scroll (Teleportation Circle)				MAXVER:6.07.08	NEWKEY:Scroll of Teleportation Circle
+EQUIPMENT:Scroll (Time Stop)						MAXVER:6.07.08	NEWKEY:Scroll of Time Stop
+EQUIPMENT:Scroll (Wail of the Banshee)				MAXVER:6.07.08	NEWKEY:Scroll of Wail of the Banshee
+EQUIPMENT:Scroll (Weird)						MAXVER:6.07.08	NEWKEY:Scroll of Weird
+EQUIPMENT:Scroll (Wish)							MAXVER:6.07.08	NEWKEY:Scroll of Wish
+EQUIPMENT:Scroll (Bleed/Divine)					MAXVER:6.07.08	NEWKEY:Scroll of Bleed (Divine)
+EQUIPMENT:Scroll (Create Water)					MAXVER:6.07.08	NEWKEY:Scroll of Create Water
+EQUIPMENT:Scroll (Detect Magic/Divine)				MAXVER:6.07.08	NEWKEY:Scroll of Detect Magic (Divine)
+EQUIPMENT:Scroll (Detect Poison/Divine)				MAXVER:6.07.08	NEWKEY:Scroll of Detect Poison (Divine)
+EQUIPMENT:Scroll (Guidance)						MAXVER:6.07.08	NEWKEY:Scroll of Guidance
+EQUIPMENT:Scroll (Light/Divine)					MAXVER:6.07.08	NEWKEY:Scroll of Light (Divine)
+EQUIPMENT:Scroll (Mending/Divine)					MAXVER:6.07.08	NEWKEY:Scroll of Mending (Divine)
+EQUIPMENT:Scroll (Purify Food and Drink)				MAXVER:6.07.08	NEWKEY:Scroll of Purify Food and Drink
+EQUIPMENT:Scroll (Read Magic/Divine)				MAXVER:6.07.08	NEWKEY:Scroll of Read Magic (Divine)
+EQUIPMENT:Scroll (Resistance/Divine)				MAXVER:6.07.08	NEWKEY:Scroll of Resistance (Divine)
+EQUIPMENT:Scroll (Stabilize)						MAXVER:6.07.08	NEWKEY:Scroll of Stabilize
+EQUIPMENT:Scroll (Virtue)						MAXVER:6.07.08	NEWKEY:Scroll of Virtue
+EQUIPMENT:Scroll (Bane)							MAXVER:6.07.08	NEWKEY:Scroll of Bane
+EQUIPMENT:Scroll (Bless)						MAXVER:6.07.08	NEWKEY:Scroll of Bless
+EQUIPMENT:Scroll (Bless Water)					MAXVER:6.07.08	NEWKEY:Scroll of Bless Water
+EQUIPMENT:Scroll (Cause Fear/Divine)				MAXVER:6.07.08	NEWKEY:Scroll of Cause Fear (Divine)
+EQUIPMENT:Scroll (Command)						MAXVER:6.07.08	NEWKEY:Scroll of Command
+EQUIPMENT:Scroll (Comprehend Languages/Divine)			MAXVER:6.07.08	NEWKEY:Scroll of Comprehend Languages (Divine)
+EQUIPMENT:Scroll (Cure Light Wounds)				MAXVER:6.07.08	NEWKEY:Scroll of Cure Light Wounds
+EQUIPMENT:Scroll (Curse Water)					MAXVER:6.07.08	NEWKEY:Scroll of Curse Water
+EQUIPMENT:Scroll (Deathwatch)						MAXVER:6.07.08	NEWKEY:Scroll of Deathwatch
+EQUIPMENT:Scroll (Detect Chaos)					MAXVER:6.07.08	NEWKEY:Scroll of Detect Chaos
+EQUIPMENT:Scroll (Detect Evil)					MAXVER:6.07.08	NEWKEY:Scroll of Detect Evil
+EQUIPMENT:Scroll (Detect Good)					MAXVER:6.07.08	NEWKEY:Scroll of Detect Good
+EQUIPMENT:Scroll (Detect Law)						MAXVER:6.07.08	NEWKEY:Scroll of Detect Law
+EQUIPMENT:Scroll (Detect Undead/Divine)				MAXVER:6.07.08	NEWKEY:Scroll of Detect Undead (Divine)
+EQUIPMENT:Scroll (Divine Favor)					MAXVER:6.07.08	NEWKEY:Scroll of Divine Favor
+EQUIPMENT:Scroll (Doom)							MAXVER:6.07.08	NEWKEY:Scroll of Doom
+EQUIPMENT:Scroll (Endure Elements/Divine)				MAXVER:6.07.08	NEWKEY:Scroll of Endure Elements (Divine)
+EQUIPMENT:Scroll (Entropic Shield)					MAXVER:6.07.08	NEWKEY:Scroll of Entropic Shield
+EQUIPMENT:Scroll (Hide from Undead)					MAXVER:6.07.08	NEWKEY:Scroll of Hide from Undead
+EQUIPMENT:Scroll (Inflict Light Wounds)				MAXVER:6.07.08	NEWKEY:Scroll of Inflict Light Wounds
+EQUIPMENT:Scroll (Magic Stone)					MAXVER:6.07.08	NEWKEY:Scroll of Magic Stone
+EQUIPMENT:Scroll (Magic Weapon/Divine)				MAXVER:6.07.08	NEWKEY:Scroll of Magic Weapon (Divine)
+EQUIPMENT:Scroll (Obscuring Mist/Divine)				MAXVER:6.07.08	NEWKEY:Scroll of Obscuring Mist (Divine)
+EQUIPMENT:Scroll (Protection from Chaos/Divine)			MAXVER:6.07.08	NEWKEY:Scroll of Protection from Chaos (Divine)
+EQUIPMENT:Scroll (Protection from Evil/Divine)			MAXVER:6.07.08	NEWKEY:Scroll of Protection from Evil (Divine)
+EQUIPMENT:Scroll (Protection from Good/Divine)			MAXVER:6.07.08	NEWKEY:Scroll of Protection from Good (Divine)
+EQUIPMENT:Scroll (Protection from Law/Divine)			MAXVER:6.07.08	NEWKEY:Scroll of Protection from Law (Divine)
+EQUIPMENT:Scroll (Remove Fear)					MAXVER:6.07.08	NEWKEY:Scroll of Remove Fear
+EQUIPMENT:Scroll (Sanctuary)						MAXVER:6.07.08	NEWKEY:Scroll of Sanctuary
+EQUIPMENT:Scroll (Shield of Faith)					MAXVER:6.07.08	NEWKEY:Scroll of Shield of Faith
+EQUIPMENT:Scroll (Summon Monster I/Divine)			MAXVER:6.07.08	NEWKEY:Scroll of Summon Monster I (Divine)
+EQUIPMENT:Scroll (Aid)							MAXVER:6.07.08	NEWKEY:Scroll of Aid
+EQUIPMENT:Scroll (Align Weapon)					MAXVER:6.07.08	NEWKEY:Scroll of Align Weapon
+EQUIPMENT:Scroll (Augury)						MAXVER:6.07.08	NEWKEY:Scroll of Augury
+EQUIPMENT:Scroll (Bear's Endurance/Divine)			MAXVER:6.07.08	NEWKEY:Scroll of Bear's Endurance (Divine)
+EQUIPMENT:Scroll (Bull's Strength/Divine)				MAXVER:6.07.08	NEWKEY:Scroll of Bull's Strength (Divine)
+EQUIPMENT:Scroll (Calm Emotions)					MAXVER:6.07.08	NEWKEY:Scroll of Calm Emotions
+EQUIPMENT:Scroll (Cure Moderate Wounds)				MAXVER:6.07.08	NEWKEY:Scroll of Cure Moderate Wounds
+EQUIPMENT:Scroll (Darkness/Divine)					MAXVER:6.07.08	NEWKEY:Scroll of Darkness (Divine)
+EQUIPMENT:Scroll (Death Knell)					MAXVER:6.07.08	NEWKEY:Scroll of Death Knell
+EQUIPMENT:Scroll (Delay Poison)					MAXVER:6.07.08	NEWKEY:Scroll of Delay Poison
+EQUIPMENT:Scroll (Eagle's Splendor/Divine)			MAXVER:6.07.08	NEWKEY:Scroll of Eagle's Splendor (Divine)
+EQUIPMENT:Scroll (Enthrall)						MAXVER:6.07.08	NEWKEY:Scroll of Enthrall
+EQUIPMENT:Scroll (Find Traps)						MAXVER:6.07.08	NEWKEY:Scroll of Find Traps
+EQUIPMENT:Scroll (Gentle Repose/Divine)				MAXVER:6.07.08	NEWKEY:Scroll of Gentle Repose (Divine)
+EQUIPMENT:Scroll (Hold Person/Divine)				MAXVER:6.07.08	NEWKEY:Scroll of Hold Person (Divine)
+EQUIPMENT:Scroll (Inflict Moderate Wounds)			MAXVER:6.07.08	NEWKEY:Scroll of Inflict Moderate Wounds
+EQUIPMENT:Scroll (Make Whole/Divine)				MAXVER:6.07.08	NEWKEY:Scroll of Make Whole (Divine)
+EQUIPMENT:Scroll (Owl's Wisdom/Divine)				MAXVER:6.07.08	NEWKEY:Scroll of Owl's Wisdom (Divine)
+EQUIPMENT:Scroll (Remove Paralysis)					MAXVER:6.07.08	NEWKEY:Scroll of Remove Paralysis
+EQUIPMENT:Scroll (Resist Energy/Divine)				MAXVER:6.07.08	NEWKEY:Scroll of Resist Energy (Divine)
+EQUIPMENT:Scroll (Restoration (Lesser))				MAXVER:6.07.08	NEWKEY:Scroll of Restoration (Lesser)
+EQUIPMENT:Scroll (Shatter/Divine)					MAXVER:6.07.08	NEWKEY:Scroll of Shatter (Divine)
+EQUIPMENT:Scroll (Shield Other)					MAXVER:6.07.08	NEWKEY:Scroll of Shield Other
+EQUIPMENT:Scroll (Silence)						MAXVER:6.07.08	NEWKEY:Scroll of Silence
+EQUIPMENT:Scroll (Sound Burst)					MAXVER:6.07.08	NEWKEY:Scroll of Sound Burst
+EQUIPMENT:Scroll (Spiritual Weapon)					MAXVER:6.07.08	NEWKEY:Scroll of Spiritual Weapon
+EQUIPMENT:Scroll (Status)						MAXVER:6.07.08	NEWKEY:Scroll of Status
+EQUIPMENT:Scroll (Summon Monster II/Divine)			MAXVER:6.07.08	NEWKEY:Scroll of Summon Monster II (Divine)
+EQUIPMENT:Scroll (Undetectable Alignment)				MAXVER:6.07.08	NEWKEY:Scroll of Undetectable Alignment
+EQUIPMENT:Scroll (Zone of Truth)					MAXVER:6.07.08	NEWKEY:Scroll of Zone of Truth
+EQUIPMENT:Scroll (Animate Dead/Divine)				MAXVER:6.07.08	NEWKEY:Scroll of Animate Dead (Divine)
+EQUIPMENT:Scroll (Bestow Curse/Divine)				MAXVER:6.07.08	NEWKEY:Scroll of Bestow Curse (Divine)
+EQUIPMENT:Scroll (Blindness/Deafness/Divine)			MAXVER:6.07.08	NEWKEY:Scroll of Blindness/Deafness (Divine)
+EQUIPMENT:Scroll (Contagion/Divine)					MAXVER:6.07.08	NEWKEY:Scroll of Contagion (Divine)
+EQUIPMENT:Scroll (Continual Flame/Divine)				MAXVER:6.07.08	NEWKEY:Scroll of Continual Flame (Divine)
+EQUIPMENT:Scroll (Create Food and Water)				MAXVER:6.07.08	NEWKEY:Scroll of Create Food and Water
+EQUIPMENT:Scroll (Cure Serious Wounds)				MAXVER:6.07.08	NEWKEY:Scroll of Cure Serious Wounds
+EQUIPMENT:Scroll (Daylight/Divine)					MAXVER:6.07.08	NEWKEY:Scroll of Daylight (Divine)
+EQUIPMENT:Scroll (Deeper Darkness)					MAXVER:6.07.08	NEWKEY:Scroll of Deeper Darkness
+EQUIPMENT:Scroll (Dispel Magic/Divine)				MAXVER:6.07.08	NEWKEY:Scroll of Dispel Magic (Divine)
+EQUIPMENT:Scroll (Inflict Serious Wounds)				MAXVER:6.07.08	NEWKEY:Scroll of Inflict Serious Wounds
+EQUIPMENT:Scroll (Invisibility Purge)				MAXVER:6.07.08	NEWKEY:Scroll of Invisibility Purge
+EQUIPMENT:Scroll (Locate Object/Divine)				MAXVER:6.07.08	NEWKEY:Scroll of Locate Object (Divine)
+EQUIPMENT:Scroll (Magic Circle Against Chaos/Divine)		MAXVER:6.07.08	NEWKEY:Scroll of Magic Circle Against Chaos (Divine)
+EQUIPMENT:Scroll (Magic Circle Against Evil/Divine)		MAXVER:6.07.08	NEWKEY:Scroll of Magic Circle Against Evil (Divine)
+EQUIPMENT:Scroll (Magic Circle Against Good/Divine)		MAXVER:6.07.08	NEWKEY:Scroll of Magic Circle Against Good (Divine)
+EQUIPMENT:Scroll (Magic Circle Against Law/Divine)		MAXVER:6.07.08	NEWKEY:Scroll of Magic Circle Against Law (Divine)
+EQUIPMENT:Scroll (Magic Vestment)					MAXVER:6.07.08	NEWKEY:Scroll of Magic Vestment
+EQUIPMENT:Scroll (Meld into Stone)					MAXVER:6.07.08	NEWKEY:Scroll of Meld into Stone
+EQUIPMENT:Scroll (Obscure Object/Divine)				MAXVER:6.07.08	NEWKEY:Scroll of Obscure Object (Divine)
+EQUIPMENT:Scroll (Prayer)						MAXVER:6.07.08	NEWKEY:Scroll of Prayer
+EQUIPMENT:Scroll (Protection from Energy/Divine)		MAXVER:6.07.08	NEWKEY:Scroll of Protection from Energy (Divine)
+EQUIPMENT:Scroll (Remove Blindness/Deafness)			MAXVER:6.07.08	NEWKEY:Scroll of Remove Blindness/Deafness
+EQUIPMENT:Scroll (Remove Curse/Divine)				MAXVER:6.07.08	NEWKEY:Scroll of Remove Curse (Divine)
+EQUIPMENT:Scroll (Remove Disease)					MAXVER:6.07.08	NEWKEY:Scroll of Remove Disease
+EQUIPMENT:Scroll (Searing Light)					MAXVER:6.07.08	NEWKEY:Scroll of Searing Light
+EQUIPMENT:Scroll (Speak with Dead)					MAXVER:6.07.08	NEWKEY:Scroll of Speak with Dead
+EQUIPMENT:Scroll (Stone Shape/Divine)				MAXVER:6.07.08	NEWKEY:Scroll of Stone Shape (Divine)
+EQUIPMENT:Scroll (Summon Monster III/Divine)			MAXVER:6.07.08	NEWKEY:Scroll of Summon Monster III (Divine)
+EQUIPMENT:Scroll (Water Breathing/Divine)				MAXVER:6.07.08	NEWKEY:Scroll of Water Breathing (Divine)
+EQUIPMENT:Scroll (Water Walk)						MAXVER:6.07.08	NEWKEY:Scroll of Water Walk
+EQUIPMENT:Scroll (Wind Wall/Divine)					MAXVER:6.07.08	NEWKEY:Scroll of Wind Wall (Divine)
+EQUIPMENT:Scroll (Air Walk)						MAXVER:6.07.08	NEWKEY:Scroll of Air Walk
+EQUIPMENT:Scroll (Chaos Hammer)					MAXVER:6.07.08	NEWKEY:Scroll of Chaos Hammer
+EQUIPMENT:Scroll (Cure Critical Wounds)				MAXVER:6.07.08	NEWKEY:Scroll of Cure Critical Wounds
+EQUIPMENT:Scroll (Death Ward)						MAXVER:6.07.08	NEWKEY:Scroll of Death Ward
+EQUIPMENT:Scroll (Dimensional Anchor/Divine)			MAXVER:6.07.08	NEWKEY:Scroll of Dimensional Anchor (Divine)
+EQUIPMENT:Scroll (Discern Lies)					MAXVER:6.07.08	NEWKEY:Scroll of Discern Lies
+EQUIPMENT:Scroll (Dismissal/Divine)					MAXVER:6.07.08	NEWKEY:Scroll of Dismissal (Divine)
+EQUIPMENT:Scroll (Divination)						MAXVER:6.07.08	NEWKEY:Scroll of Divination
+EQUIPMENT:Scroll (Divine Power)					MAXVER:6.07.08	NEWKEY:Scroll of Divine Power
+EQUIPMENT:Scroll (Freedom of Movement)				MAXVER:6.07.08	NEWKEY:Scroll of Freedom of Movement
+EQUIPMENT:Scroll (Holy Smite)						MAXVER:6.07.08	NEWKEY:Scroll of Holy Smite
+EQUIPMENT:Scroll (Imbue with Spell Ability)			MAXVER:6.07.08	NEWKEY:Scroll of Imbue with Spell Ability
+EQUIPMENT:Scroll (Inflict Critical Wounds)			MAXVER:6.07.08	NEWKEY:Scroll of Inflict Critical Wounds
+EQUIPMENT:Scroll (Magic Weapon (Greater)/Divine)		MAXVER:6.07.08	NEWKEY:Scroll of Magic Weapon (Greater) (Divine)
+EQUIPMENT:Scroll (Neutralize Poison)				MAXVER:6.07.08	NEWKEY:Scroll of Neutralize Poison
+EQUIPMENT:Scroll (Order's Wrath)					MAXVER:6.07.08	NEWKEY:Scroll of Order's Wrath
+EQUIPMENT:Scroll (Poison)						MAXVER:6.07.08	NEWKEY:Scroll of Poison
+EQUIPMENT:Scroll (Restoration)					MAXVER:6.07.08	NEWKEY:Scroll of Restoration
+EQUIPMENT:Scroll (Sending/Divine)					MAXVER:6.07.08	NEWKEY:Scroll of Sending (Divine)
+EQUIPMENT:Scroll (Spell Immunity)					MAXVER:6.07.08	NEWKEY:Scroll of Spell Immunity
+EQUIPMENT:Scroll (Summon Monster IV/Divine)			MAXVER:6.07.08	NEWKEY:Scroll of Summon Monster IV (Divine)
+EQUIPMENT:Scroll (Tongues/Divine)					MAXVER:6.07.08	NEWKEY:Scroll of Tongues (Divine)
+EQUIPMENT:Scroll (Unholy Blight)					MAXVER:6.07.08	NEWKEY:Scroll of Unholy Blight
+EQUIPMENT:Scroll (Break Enchantment/Divine)			MAXVER:6.07.08	NEWKEY:Scroll of Break Enchantment (Divine)
+EQUIPMENT:Scroll (Breath of Life)					MAXVER:6.07.08	NEWKEY:Scroll of Breath of Life
+EQUIPMENT:Scroll (Command (Greater))				MAXVER:6.07.08	NEWKEY:Scroll of Command (Greater)
+EQUIPMENT:Scroll (Commune)						MAXVER:6.07.08	NEWKEY:Scroll of Commune
+EQUIPMENT:Scroll (Cure Light Wounds (Mass))			MAXVER:6.07.08	NEWKEY:Scroll of Cure Light Wounds (Mass)
+EQUIPMENT:Scroll (Dispel Chaos)					MAXVER:6.07.08	NEWKEY:Scroll of Dispel Chaos
+EQUIPMENT:Scroll (Dispel Evil)					MAXVER:6.07.08	NEWKEY:Scroll of Dispel Evil
+EQUIPMENT:Scroll (Dispel Good)					MAXVER:6.07.08	NEWKEY:Scroll of Dispel Good
+EQUIPMENT:Scroll (Dispel Law)						MAXVER:6.07.08	NEWKEY:Scroll of Dispel Law
+EQUIPMENT:Scroll (Disrupting Weapon)				MAXVER:6.07.08	NEWKEY:Scroll of Disrupting Weapon
+EQUIPMENT:Scroll (Flame Strike)					MAXVER:6.07.08	NEWKEY:Scroll of Flame Strike
+EQUIPMENT:Scroll (Inflict Light Wounds (Mass))			MAXVER:6.07.08	NEWKEY:Scroll of Inflict Light Wounds (Mass)
+EQUIPMENT:Scroll (Insect Plague)					MAXVER:6.07.08	NEWKEY:Scroll of Insect Plague
+EQUIPMENT:Scroll (Mark of Justice)					MAXVER:6.07.08	NEWKEY:Scroll of Mark of Justice
+EQUIPMENT:Scroll (Plane Shift/Divine)				MAXVER:6.07.08	NEWKEY:Scroll of Plane Shift (Divine)
+EQUIPMENT:Scroll (Raise Dead)						MAXVER:6.07.08	NEWKEY:Scroll of Raise Dead
+EQUIPMENT:Scroll (Righteous Might)					MAXVER:6.07.08	NEWKEY:Scroll of Righteous Might
+EQUIPMENT:Scroll (Scrying/Divine)					MAXVER:6.07.08	NEWKEY:Scroll of Scrying (Divine)
+EQUIPMENT:Scroll (Slay Living)					MAXVER:6.07.08	NEWKEY:Scroll of Slay Living
+EQUIPMENT:Scroll (Spell Resistance)					MAXVER:6.07.08	NEWKEY:Scroll of Spell Resistance
+EQUIPMENT:Scroll (Summon Monster V/Divine)			MAXVER:6.07.08	NEWKEY:Scroll of Summon Monster V (Divine)
+EQUIPMENT:Scroll (True Seeing/Divine)				MAXVER:6.07.08	NEWKEY:Scroll of True Seeing (Divine)
+EQUIPMENT:Scroll (Wall of Stone/Divine)				MAXVER:6.07.08	NEWKEY:Scroll of Wall of Stone (Divine)
+EQUIPMENT:Scroll (Antilife Shell)					MAXVER:6.07.08	NEWKEY:Scroll of Antilife Shell
+EQUIPMENT:Scroll (Banishment/Divine)				MAXVER:6.07.08	NEWKEY:Scroll of Banishment (Divine)
+EQUIPMENT:Scroll (Bear's Endurance (Mass)/Divine)		MAXVER:6.07.08	NEWKEY:Scroll of Bear's Endurance (Mass) (Divine)
+EQUIPMENT:Scroll (Blade Barrier)					MAXVER:6.07.08	NEWKEY:Scroll of Blade Barrier
+EQUIPMENT:Scroll (Bull's Strength (Mass)/Divine)		MAXVER:6.07.08	NEWKEY:Scroll of Bull's Strength (Mass) (Divine)
+EQUIPMENT:Scroll (Cure Moderate Wounds (Mass))			MAXVER:6.07.08	NEWKEY:Scroll of Cure Moderate Wounds (Mass)
+EQUIPMENT:Scroll (Dispel Magic (Greater)/Divine)		MAXVER:6.07.08	NEWKEY:Scroll of Dispel Magic (Greater) (Divine)
+EQUIPMENT:Scroll (Eagle's Splendor (Mass)/Divine)		MAXVER:6.07.08	NEWKEY:Scroll of Eagle's Splendor (Mass) (Divine)
+EQUIPMENT:Scroll (Find the Path)					MAXVER:6.07.08	NEWKEY:Scroll of Find the Path
+EQUIPMENT:Scroll (Geas/Quest/Divine)				MAXVER:6.07.08	NEWKEY:Scroll of Geas/Quest (Divine)
+EQUIPMENT:Scroll (Harm)							MAXVER:6.07.08	NEWKEY:Scroll of Harm
+EQUIPMENT:Scroll (Heal)							MAXVER:6.07.08	NEWKEY:Scroll of Heal
+EQUIPMENT:Scroll (Heroes' Feast)					MAXVER:6.07.08	NEWKEY:Scroll of Heroes' Feast
+EQUIPMENT:Scroll (Inflict Moderate Wounds (Mass))		MAXVER:6.07.08	NEWKEY:Scroll of Inflict Moderate Wounds (Mass)
+EQUIPMENT:Scroll (Owl's Wisdom (Mass)/Divine)			MAXVER:6.07.08	NEWKEY:Scroll of Owl's Wisdom (Mass) (Divine)
+EQUIPMENT:Scroll (Summon Monster VI/Divine)			MAXVER:6.07.08	NEWKEY:Scroll of Summon Monster VI (Divine)
+EQUIPMENT:Scroll (Undeath to Death/Divine)			MAXVER:6.07.08	NEWKEY:Scroll of Undeath to Death (Divine)
+EQUIPMENT:Scroll (Wind Walk)						MAXVER:6.07.08	NEWKEY:Scroll of Wind Walk
+EQUIPMENT:Scroll (Word of Recall)					MAXVER:6.07.08	NEWKEY:Scroll of Word of Recall
+EQUIPMENT:Scroll (Control Weather/Divine)				MAXVER:6.07.08	NEWKEY:Scroll of Control Weather (Divine)
+EQUIPMENT:Scroll (Cure Serious Wounds (Mass))			MAXVER:6.07.08	NEWKEY:Scroll of Cure Serious Wounds (Mass)
+EQUIPMENT:Scroll (Destruction)					MAXVER:6.07.08	NEWKEY:Scroll of Destruction
+EQUIPMENT:Scroll (Inflict Serious Wounds (Mass))		MAXVER:6.07.08	NEWKEY:Scroll of Inflict Serious Wounds (Mass)
+EQUIPMENT:Scroll (Refuge/Divine)					MAXVER:6.07.08	NEWKEY:Scroll of Refuge (Divine)
+EQUIPMENT:Scroll (Regenerate)						MAXVER:6.07.08	NEWKEY:Scroll of Regenerate
+EQUIPMENT:Scroll (Repulsion/Divine)					MAXVER:6.07.08	NEWKEY:Scroll of Repulsion (Divine)
+EQUIPMENT:Scroll (Restoration (Greater))				MAXVER:6.07.08	NEWKEY:Scroll of Restoration (Greater)
+EQUIPMENT:Scroll (Resurrection)					MAXVER:6.07.08	NEWKEY:Scroll of Resurrection
+EQUIPMENT:Scroll (Scrying (Greater)/Divine)			MAXVER:6.07.08	NEWKEY:Scroll of Scrying (Greater) (Divine)
+EQUIPMENT:Scroll (Summon Monster VII/Divine)			MAXVER:6.07.08	NEWKEY:Scroll of Summon Monster VII (Divine)
+EQUIPMENT:Scroll (Cloak of Chaos)					MAXVER:6.07.08	NEWKEY:Scroll of Cloak of Chaos
+EQUIPMENT:Scroll (Cure Critical Wounds (Mass))			MAXVER:6.07.08	NEWKEY:Scroll of Cure Critical Wounds (Mass)
+EQUIPMENT:Scroll (Dimensional Lock/Divine)			MAXVER:6.07.08	NEWKEY:Scroll of Dimensional Lock (Divine)
+EQUIPMENT:Scroll (Discern Location/Divine)			MAXVER:6.07.08	NEWKEY:Scroll of Discern Location (Divine)
+EQUIPMENT:Scroll (Fire Storm)						MAXVER:6.07.08	NEWKEY:Scroll of Fire Storm
+EQUIPMENT:Scroll (Holy Aura)						MAXVER:6.07.08	NEWKEY:Scroll of Holy Aura
+EQUIPMENT:Scroll (Inflict Critical Wounds (Mass))		MAXVER:6.07.08	NEWKEY:Scroll of Inflict Critical Wounds (Mass)
+EQUIPMENT:Scroll (Shield of Law)					MAXVER:6.07.08	NEWKEY:Scroll of Shield of Law
+EQUIPMENT:Scroll (Spell Immunity (Greater))			MAXVER:6.07.08	NEWKEY:Scroll of Spell Immunity (Greater)
+EQUIPMENT:Scroll (Summon Monster VIII/Divine)			MAXVER:6.07.08	NEWKEY:Scroll of Summon Monster VIII (Divine)
+EQUIPMENT:Scroll (Unholy Aura)					MAXVER:6.07.08	NEWKEY:Scroll of Unholy Aura
+EQUIPMENT:Scroll (Energy Drain/Divine)				MAXVER:6.07.08	NEWKEY:Scroll of Energy Drain (Divine)
+EQUIPMENT:Scroll (Heal (Mass))					MAXVER:6.07.08	NEWKEY:Scroll of Heal (Mass)
+EQUIPMENT:Scroll (Implosion)						MAXVER:6.07.08	NEWKEY:Scroll of Implosion
+EQUIPMENT:Scroll (Miracle)						MAXVER:6.07.08	NEWKEY:Scroll of Miracle
+EQUIPMENT:Scroll (Soul Bind/Divine)					MAXVER:6.07.08	NEWKEY:Scroll of Soul Bind (Divine)
+EQUIPMENT:Scroll (Storm of Vengeance)				MAXVER:6.07.08	NEWKEY:Scroll of Storm of Vengeance
+EQUIPMENT:Scroll (Summon Monster IX/Divine)			MAXVER:6.07.08	NEWKEY:Scroll of Summon Monster IX (Divine)
+EQUIPMENT:Scroll (True Resurrection)				MAXVER:6.07.08	NEWKEY:Scroll of True Resurrection
+
+EQUIPMENT:Case (Map or Scroll)					MAXVER:6.07.08	NEWKEY:Scroll Case
+EQUIPMENT:Flask (Empty)							MAXVER:6.07.08	NEWKEY:Flask
+EQUIPMENT:Mug or Tankard (Clay)					MAXVER:6.07.08	NEWKEY:Mug (Clay)
+EQUIPMENT:Shovel or Spade						MAXVER:6.07.08	NEWKEY:Shovel
+EQUIPMENT:Soap (per lb)							MAXVER:6.07.08	NEWKEY:Soap
+EQUIPMENT:Tent								MAXVER:6.07.08	NEWKEY:Tent (Small)
+EQUIPMENT:Artisan's Tools (Armor)					MAXVER:6.07.08	NEWKEY:Artisan's Tools
+EQUIPMENT:Artisan's Tools (Baskets)					MAXVER:6.07.08	NEWKEY:Artisan's Tools
+EQUIPMENT:Artisan's Tools (Books)					MAXVER:6.07.08	NEWKEY:Artisan's Tools
+EQUIPMENT:Artisan's Tools (Bows)					MAXVER:6.07.08	NEWKEY:Artisan's Tools
+EQUIPMENT:Artisan's Tools (Calligraphy)				MAXVER:6.07.08	NEWKEY:Artisan's Tools
+EQUIPMENT:Artisan's Tools (Carpentry)				MAXVER:6.07.08	NEWKEY:Artisan's Tools
+EQUIPMENT:Artisan's Tools (Clockwork)				MAXVER:6.07.08	NEWKEY:Artisan's Tools
+EQUIPMENT:Artisan's Tools (Cloth)					MAXVER:6.07.08	NEWKEY:Artisan's Tools
+EQUIPMENT:Artisan's Tools (Clothing)				MAXVER:6.07.08	NEWKEY:Artisan's Tools
+EQUIPMENT:Artisan's Tools (Gemcutting)				MAXVER:6.07.08	NEWKEY:Artisan's Tools
+EQUIPMENT:Artisan's Tools (Glass)					MAXVER:6.07.08	NEWKEY:Artisan's Tools
+EQUIPMENT:Artisan's Tools (Jewelry)					MAXVER:6.07.08	NEWKEY:Artisan's Tools
+EQUIPMENT:Artisan's Tools (Leather)					MAXVER:6.07.08	NEWKEY:Artisan's Tools
+EQUIPMENT:Artisan's Tools (Locks)					MAXVER:6.07.08	NEWKEY:Artisan's Tools
+EQUIPMENT:Artisan's Tools (Paintings)				MAXVER:6.07.08	NEWKEY:Artisan's Tools
+EQUIPMENT:Artisan's Tools (Pottery)					MAXVER:6.07.08	NEWKEY:Artisan's Tools
+EQUIPMENT:Artisan's Tools (Sculptures)				MAXVER:6.07.08	NEWKEY:Artisan's Tools
+EQUIPMENT:Artisan's Tools (Ships)					MAXVER:6.07.08	NEWKEY:Artisan's Tools
+EQUIPMENT:Artisan's Tools (Shoes)					MAXVER:6.07.08	NEWKEY:Artisan's Tools
+EQUIPMENT:Artisan's Tools (Stonemasonry)				MAXVER:6.07.08	NEWKEY:Artisan's Tools
+EQUIPMENT:Artisan's Tools (Tattoos)					MAXVER:6.07.08	NEWKEY:Artisan's Tools
+EQUIPMENT:Artisan's Tools (Traps)					MAXVER:6.07.08	NEWKEY:Artisan's Tools
+EQUIPMENT:Artisan's Tools (Weaponsmithing)			MAXVER:6.07.08	NEWKEY:Artisan's Tools
+EQUIPMENT:Unholy Symbol (Wooden)					MAXVER:6.07.08	NEWKEY:Unholy Symbol
+EQUIPMENT:Unholy Symbol (Silver)					MAXVER:6.07.08	NEWKEY:Unholy Symbol
+
+EQUIPMENT:Blazing Robes									MAXVER:6.07.08	NEWKEY:Blazing Robe
+EQUIPMENT:Mnemonic Vestments							MAXVER:6.07.08	NEWKEY:Mnemonic Vestment
+EQUIPMENT:Necklass of Ki Serenity						MAXVER:6.07.08	NEWKEY:Necklace of Ki Serenity
+EQUIPMENT:Ring of Mechanical Devices					MAXVER:6.07.08	NEWKEY:Ring of Maniacal Devices
+EQUIPMENT:Stone of Weight (Lodestone)					MAXVER:6.07.08	NEWKEY:Stone of Weight (Loadstone)
+EQUIPMENT:Voidfrost Robes								MAXVER:6.07.08	NEWKEY:Voidfrost Robe
+EQUIPMENT:Wierd Queen's Magpie							MAXVER:6.07.08	NEWKEY:Weird Queen's Magpie
+
 ABILITY:Internal|Sorcerer ~ BS					MAXVER:6.07.06	NEWKEY:Sorcerer ~ Standard Bloodline Selection
 ABILITY:Internal|Sorcerer ~ Crossblooded BS			MAXVER:6.07.06	NEWKEY:Sorcerer ~ Crossblooded Bloodline Selection
 

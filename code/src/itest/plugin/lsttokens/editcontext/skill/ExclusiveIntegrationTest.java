@@ -31,8 +31,8 @@ public class ExclusiveIntegrationTest extends
 		AbstractIntegrationTestCase<Skill>
 {
 
-	static ExclusiveToken token = new ExclusiveToken();
-	static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<>();
+	private static ExclusiveToken token = new ExclusiveToken();
+	private static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Skill> getCDOMClass()

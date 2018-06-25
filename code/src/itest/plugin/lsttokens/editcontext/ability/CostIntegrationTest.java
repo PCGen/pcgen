@@ -30,8 +30,8 @@ public class CostIntegrationTest extends
 		AbstractBigDecimalIntegrationTestCase<Ability>
 {
 
-	static CostToken token = new CostToken();
-	static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<>();
+	private static CostToken token = new CostToken();
+	private static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Ability> getCDOMClass()

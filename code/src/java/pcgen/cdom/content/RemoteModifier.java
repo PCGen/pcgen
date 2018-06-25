@@ -17,14 +17,16 @@
  */
 package pcgen.cdom.content;
 
-import pcgen.cdom.base.ObjectGrouping;
+import java.util.Objects;
+
+import pcgen.cdom.grouping.GroupingCollection;
 
 /**
  * A RemoteModifier is a container for all the information necessary to modify a
  * remote variable.
  * 
  * This includes a VarModifier (containing the scope, the variable name, and the
- * Modifier to be applied) as well as an ObjectGrouping (indicating the items to
+ * Modifier to be applied) as well as an GroupingCollection (indicating the items to
  * which this RemoteModifier should be applied).
  * 
  * This allows that grouping of information to be passed as a single unit of
@@ -50,13 +52,13 @@ public class RemoteModifier<MT>
 	private final VarModifier<MT> varModifier;
 
 	/**
-	 * The ObjectGrouping indicating the objects upon which this RemoteModifier
+	 * The GroupingCollection indicating the objects upon which this RemoteModifier
 	 * should be applied.
 	 */
-	private final ObjectGrouping grouping;
+	private final GroupingCollection<?> grouping;
 
 	/**
-	 * Constructs a new RemoteModifier from the given ObjectGrouping and
+	 * Constructs a new RemoteModifier from the given ObjectContainer and
 	 * VarModifier.
 	 * 
 	 * @param grouping
@@ -64,21 +66,20 @@ public class RemoteModifier<MT>
 	 * @param modifier
 	 *            the variable to which the Modifier should be applied
 	 */
-	public RemoteModifier(ObjectGrouping grouping, VarModifier<MT> modifier)
+	public RemoteModifier(GroupingCollection<?> grouping, VarModifier<MT> modifier)
 	{
-		this.grouping = grouping;
-		this.varModifier = modifier;
+		this.grouping = Objects.requireNonNull(grouping);
+		this.varModifier = Objects.requireNonNull(modifier);
 	}
 
-
 	/**
-	 * Returns the ObjectGrouping of objects to which this RemoteModifier should
+	 * Returns the GroupingCollection of objects to which this RemoteModifier should
 	 * be applied.
 	 * 
-	 * @return the ObjectGrouping of objects to which this RemoteModifier should
+	 * @return the GroupingCollection of objects to which this RemoteModifier should
 	 *         be applied
 	 */
-	public ObjectGrouping getGrouping()
+	public GroupingCollection<?> getGrouping()
 	{
 		return grouping;
 	}

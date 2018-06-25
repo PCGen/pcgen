@@ -1,5 +1,5 @@
 /**
- * @(#)JTreeTable.java    1.2 98/10/27
+ * (#)JTreeTable.java    1.2 98/10/27
  *
  * Copyright 1997, 1998 by Sun Microsystems, Inc.,
  * 901 San Antonio Road, Palo Alto, California, 94303, U.S.A.
@@ -199,7 +199,7 @@ public class JTreeTable extends JTableEx
 		int dx = getX();
 		int dy = getY();
 
-		for (parent = getParent(); !(parent == null) && !(parent instanceof JComponent)
+		for (parent = getParent(); (parent != null) && !(parent instanceof JComponent)
 				&& !(parent instanceof CellRendererPane); parent =
 						parent.getParent())
 		{
@@ -260,7 +260,6 @@ public class JTreeTable extends JTableEx
 
 		/**
 		 * Constructor
-		 * @param treeTableModel
 		 * @param tree
 		 */
 		TreeTableModelAdapter(JTree tree)

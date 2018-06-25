@@ -83,16 +83,6 @@ public class DiceBagPlugin implements InteractivePlugin
 
 	/**
 	 * <p>
-	 * Default (and only) constructor. Initializes the plugin.
-	 * </p>
-	 */
-	public DiceBagPlugin()
-	{
-		// Do Nothing
-	}
-
-	/**
-	 * <p>
 	 * Adds view panel via TabAddMessage and initializes the menu items.
 	 * </p>
 	 */
@@ -381,11 +371,6 @@ public class DiceBagPlugin implements InteractivePlugin
 			super(name, icon);
 		}
 
-		/*
-		 * (non-Javadoc)
-		 *
-		 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
-		 */
         @Override
 		public void actionPerformed(ActionEvent e)
 		{

@@ -100,7 +100,7 @@ class OptionHandler extends DefaultHandler
 	
 	/**
 	 * @throws SAXException 
-	 * @throws IOException 
+	 * 
 	 * @see org.xml.sax.helpers.DefaultHandler#startElement(java.lang.String, java.lang.String, java.lang.String, org.xml.sax.Attributes)
 	 */
 	@Override

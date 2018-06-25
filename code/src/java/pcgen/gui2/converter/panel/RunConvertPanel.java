@@ -493,7 +493,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 
 
 	/**
-	 * @see pcgen.gui2.converter.ConversionDecider#getConversionDecision(java.lang.String, java.util.List, java.util.List)
+	 * @see pcgen.gui2.converter.ConversionDecider#getConversionDecision(String, List, List, int)
 	 */
 	@Override
 	public String getConversionDecision(String overallDescription,

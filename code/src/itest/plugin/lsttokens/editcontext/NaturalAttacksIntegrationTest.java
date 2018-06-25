@@ -38,8 +38,8 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 public class NaturalAttacksIntegrationTest extends
 		AbstractIntegrationTestCase<CDOMObject>
 {
-	static NaturalattacksLst token = new NaturalattacksLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
+	private static NaturalattacksLst token = new NaturalattacksLst();
+	private static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	@Before

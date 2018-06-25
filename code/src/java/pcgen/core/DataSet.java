@@ -241,7 +241,7 @@ public class DataSet implements DataSetFacade
 	}
 
 	/**
-	 * @return
+	 * @return Slotted Type List
 	 */
 	private Set<Type> buildSlottedTypeList()
 	{
@@ -310,9 +310,7 @@ public class DataSet implements DataSetFacade
 		}
 
 		
-		if ("FEAT" == prereq.getKind()
-			|| "FEAT".equalsIgnoreCase(prereq.getKind())
-			|| "ABILITY" == prereq.getKind()
+		if ("FEAT".equalsIgnoreCase(prereq.getKind())
 			|| "ABILITY".equalsIgnoreCase(prereq.getKind()))
 		{
 			Ability ability = Globals.getContext().getReferenceContext()

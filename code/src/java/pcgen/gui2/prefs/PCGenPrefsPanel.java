@@ -37,7 +37,7 @@ public abstract class PCGenPrefsPanel extends JPanel
 	public abstract String getTitle();
 
 	/**
-	 * Initialises the panel's values based on the current preferences.
+	 * Initializes the panel's values based on the current preferences.
 	 */
 	public abstract void applyOptionValuesToControls();
 	

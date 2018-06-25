@@ -70,7 +70,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	/**
 	 * Constructs a new <code>EquipmentTest</code>.
 	 *
-	 * @see PCGenTestCase#PCGenTestCase()
+	 * @see pcgen.PCGenTestCase#PCGenTestCase()
 	 */
 	public EquipmentTest()
 	{
@@ -83,7 +83,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	 *
 	 * @param name the test case name
 	 *
-	 * @see PCGenTestCase#PCGenTestCase()
+	 * @see pcgen.PCGenTestCase#PCGenTestCase(String)
 	 */
 	public EquipmentTest(final String name)
 	{

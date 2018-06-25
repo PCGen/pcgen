@@ -35,8 +35,8 @@ public class LangbonusIntegrationTest extends
 		AbstractListIntegrationTestCase<PCClass, Language>
 {
 
-	static LangbonusToken token = new LangbonusToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
+	private static LangbonusToken token = new LangbonusToken();
+	private static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
 	@Before

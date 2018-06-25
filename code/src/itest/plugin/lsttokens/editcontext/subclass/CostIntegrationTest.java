@@ -30,8 +30,8 @@ public class CostIntegrationTest extends
 		AbstractIntegerIntegrationTestCase<SubClass>
 {
 
-	static CostToken token = new CostToken();
-	static CDOMTokenLoader<SubClass> loader = new CDOMTokenLoader<>();
+	private static CostToken token = new CostToken();
+	private static CDOMTokenLoader<SubClass> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<SubClass> getCDOMClass()

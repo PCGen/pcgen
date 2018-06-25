@@ -34,8 +34,8 @@ public class SpellBookIntegrationTest extends
 		AbstractIntegrationTestCase<PCClass>
 {
 
-	static SpellbookToken token = new SpellbookToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
+	private static SpellbookToken token = new SpellbookToken();
+	private static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

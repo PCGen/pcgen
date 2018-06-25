@@ -37,8 +37,8 @@ public class BonusSpellStatIntegrationTest extends
 		AbstractIntegrationTestCase<PCClass>
 {
 
-	static BonusspellstatToken token = new BonusspellstatToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
+	private static BonusspellstatToken token = new BonusspellstatToken();
+	private static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
 	@Before

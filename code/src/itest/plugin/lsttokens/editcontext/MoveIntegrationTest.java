@@ -34,8 +34,8 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 public class MoveIntegrationTest extends
 		AbstractIntegrationTestCase<CDOMObject>
 {
-	static MoveLst token = new MoveLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
+	private static MoveLst token = new MoveLst();
+	private static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Ability> getCDOMClass()

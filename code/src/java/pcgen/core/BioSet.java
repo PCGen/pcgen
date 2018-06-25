@@ -521,7 +521,7 @@ public final class BioSet extends PObject implements NonInteractive
 		final String htwt = getTokenNumberInMaps("SEX", 0, pc.getDisplay().getRegionString(), pc
 			.getRace().getKeyName().trim());
 
-		if (htwt == null || htwt == "0")
+		if (htwt == null || "0".equals(htwt))
 		{
 			return;
 		}

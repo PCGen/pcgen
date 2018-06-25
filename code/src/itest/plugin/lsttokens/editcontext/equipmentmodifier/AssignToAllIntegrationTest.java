@@ -32,8 +32,8 @@ public class AssignToAllIntegrationTest extends
 		AbstractIntegrationTestCase<EquipmentModifier>
 {
 
-	static AssigntoallToken token = new AssigntoallToken();
-	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<>();
+	private static AssigntoallToken token = new AssigntoallToken();
+	private static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<EquipmentModifier> getCDOMClass()

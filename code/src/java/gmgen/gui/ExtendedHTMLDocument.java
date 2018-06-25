@@ -58,8 +58,6 @@ public class ExtendedHTMLDocument extends HTMLDocument {
 	 *
 	 * @param content the document contents
 	 * @param styles the stylesheet
-	 *
-	 * @see HTMLDocument#HTMLDocument(Content, StyleSheet)
 	 */
 	public ExtendedHTMLDocument(Content content, StyleSheet styles) {
 		super(content, styles);
@@ -86,7 +84,7 @@ public class ExtendedHTMLDocument extends HTMLDocument {
 	 *
 	 * @throws BadLocationException if there are not elements enough
 	 *
-	 * @see Content#remove(int, int)
+	 *   // @see Content#remove(int, int)
 	 */
 	public void removeElements(Element e, int index, int count)
 			throws BadLocationException {

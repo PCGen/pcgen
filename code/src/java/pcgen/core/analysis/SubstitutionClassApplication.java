@@ -101,7 +101,9 @@ public final class SubstitutionClassApplication
 	 * Build a list of Substitution Classes for the user to choose from. The
 	 * list passed in will be populated.
 	 * 
-	 * @param choiceNames
+	 * @param cl
+	 *            PC Class
+	 * @param choiceList
 	 *            The list of substitution classes to choose from.
 	 * @param level
 	 *            The class level to determine the choices for

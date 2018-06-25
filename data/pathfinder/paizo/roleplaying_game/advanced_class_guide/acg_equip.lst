@@ -43,7 +43,7 @@ Brawler's Flurry			PROFICIENCY:WEAPON|Unarmed Strike	TYPE:Weapon.Resizable.Melee
 # These should be moved to their various sources
 
 # CR
-Dagger.MOD										TYPE:Weapon Group Melee Light Piercing																																					BONUS:WEAPON|TOHIT|-SwashbucklersFinesseToHit									SPROP:+% to melee attacks from Swashbuckler's Finesse [not reflected on combat block]|SwashbucklersFinesseToHit
+Dagger (Base).MOD										TYPE:Weapon Group Melee Light Piercing																																					BONUS:WEAPON|TOHIT|-SwashbucklersFinesseToHit									SPROP:+% to melee attacks from Swashbuckler's Finesse [not reflected on combat block]|SwashbucklersFinesseToHit
 Dagger (Punching).MOD								TYPE:Weapon Group Melee Light Piercing
 Pick (Light).MOD									TYPE:Weapon Group Melee Light Piercing
 Spiked Armor.MOD									TYPE:Weapon Group Melee Light Piercing

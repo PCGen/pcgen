@@ -37,7 +37,7 @@ public class CoreUtilityTest extends TestCase
 	/**
 	 * Constructs a new <code>CoreUtilityTest</code>.
 	 *
-	 * @see PCGenTestCase#PCGenTestCase()
+	 * @see pcgen.PCGenTestCase#PCGenTestCase()
 	 */
 	public CoreUtilityTest()
 	{
@@ -49,7 +49,7 @@ public class CoreUtilityTest extends TestCase
 	 *
 	 * @param name the test case name
 	 *
-	 * @see PCGenTestCase#PCGenTestCase(String)
+	 * @see pcgen.PCGenTestCase#PCGenTestCase(String)
 	 */
 	public CoreUtilityTest(final String name)
 	{

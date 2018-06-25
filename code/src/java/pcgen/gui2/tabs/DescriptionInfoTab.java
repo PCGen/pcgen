@@ -115,7 +115,7 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 	}
 
 	/**
-	 * @param noteInfoPane
+	 * @param page
 	 */
 	private <T extends Component & CharacterInfoTab> void removePage(T page)
 	{

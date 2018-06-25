@@ -323,7 +323,8 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 		{
 			if (movingRect)
 			{
-				int x, y;
+				int x;
+				int y;
 				if (scale < 1)
 				{
 					x = (int) (e.getX() / scale - cropOffset.x);

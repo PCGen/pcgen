@@ -34,8 +34,8 @@ public class StackIntegrationTest extends
 		AbstractIntegrationTestCase<Ability>
 {
 
-	static StackToken token = new StackToken();
-	static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<>();
+	private static StackToken token = new StackToken();
+	private static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Ability> getCDOMClass()

@@ -367,13 +367,8 @@ public final class Globals
 	 */
 	public static boolean isInGameMode(final String gameMode)
 	{
-		if ((gameMode.isEmpty())
-			|| ((SettingsHandler.getGame() != null) && gameMode.equalsIgnoreCase(SettingsHandler.getGame().getName())))
-		{
-			return true;
-		}
-
-		return false;
+		return gameMode.isEmpty() || ((SettingsHandler.getGame() != null)
+			&& gameMode.equalsIgnoreCase(SettingsHandler.getGame().getName()));
 	}
 
 	/**

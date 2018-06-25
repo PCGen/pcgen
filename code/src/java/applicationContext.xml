@@ -240,6 +240,7 @@
 		<property name="classFacet" ref="classFacet"/>
 	</bean>
 	<bean id="dynamicFacet" class="pcgen.cdom.facet.input.DynamicFacet" />
+	<bean id="dynamicWatchingFacet" class="pcgen.cdom.facet.input.DynamicWatchingFacet" />
 	<bean id="dynamicConsolidationFacet" class="pcgen.cdom.facet.model.DynamicConsolidationFacet" />
 	<!-- E -->
 	<bean id="equipmentConsolidationFacet" class="pcgen.cdom.facet.EquipmentConsolidationFacet" />

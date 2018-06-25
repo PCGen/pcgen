@@ -414,6 +414,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 
 			default:
 				font = FontManipulation.plain(font);
+				break;
 		}
 
 		loadLabel.setText(text);
