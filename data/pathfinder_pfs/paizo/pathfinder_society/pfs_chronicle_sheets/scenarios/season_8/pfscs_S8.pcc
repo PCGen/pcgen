@@ -28,6 +28,9 @@ ABILITYCATEGORY:pfscs_S8_abilitycategories.lst
 EQUIPMENT:pfscs_S8_equip.lst
 EQUIPMOD:pfscs_S8_equipmods.lst
 SPELL:pfscs_S8_spells.lst
+DEITY:pfscs_S8_deities.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+#DOMAIN:pfscs_S8_domains.lst
+
 #EQUIPMENT:@/pathfinder/paizo/roleplaying_game/advanced_players_guide/apg_equip_general.lst|(INCLUDE:Formula Book)|!PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
 
 #
