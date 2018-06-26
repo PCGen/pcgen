@@ -182,16 +182,15 @@ launch4j {
 }
 
 task downloadJRE doLast {
-    def major = 1
-    def micro = 8
-    def update = 121
+    def major = 10
+    def micro = 0
+    def update = 1
     def extension = 'zip'
     def jre64Dir = new File("${projectDir}/jre/jre_64")
     def jre32Dir = new File("${projectDir}/jre/jre_32")
     if(!jre64Dir.exists()){
         //Only download Windows libraries. Need to add more OS if we go multi OS at any time.
-        def filename = "jre-${major}.${micro}.${update}-windows-x64"
-        def jre64URL = "http://maven.nuiton.org/nexus/content/repositories/jvm/com/oracle/jre/${major}.${micro}.${update}/${filename}.zip"
+        def jre64URL = "https://cdn.azul.com/zulu/bin/zulu${major}.2+3-jdk${major}.${micro}.${update}-win_x64.zip"
         println("Downloading JRE ${major}.${micro}.${update} from ${jre64URL}")
         if(!jre64Dir.exists()){
             download {
@@ -215,8 +214,7 @@ task downloadJRE doLast {
     }
     if(!jre32Dir.exists()){
         //Only download Windows libraries. Need to add more OS if we go multi OS at any time.
-        def filename = "jre-${major}.${micro}.${update}-windows-i586"
-        def jre32URL = "http://maven.nuiton.org/nexus/content/repositories/jvm/com/oracle/jre/${major}.${micro}.${update}/${filename}.zip"
+        def jre32URL = "https://cdn.azul.com/zulu/bin/zulu${major}.2+3-jdk${major}.${micro}.${update}-win_i686.zip"
         println("Downloading JRE ${major}.${micro}.${update} from ${jre32URL}")
         if(!jre32Dir.exists()){
             download {
