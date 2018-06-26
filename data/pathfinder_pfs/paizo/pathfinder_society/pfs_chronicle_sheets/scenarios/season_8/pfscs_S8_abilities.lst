@@ -1,5 +1,5 @@
 ﻿# CVS $Revision: 17893 $ $Author: mjmeans $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
-SOURCELONG:Pathfinder Society Chronicle Sheets	SOURCESHORT:PFSCS	SOURCEWEB:http://www.paizo.com	SOURCEDATE:2014-08
+SOURCELONG:Pathfinder Society Chronicle Sheets	SOURCESHORT:PFSCS	SOURCEWEB:http://www.paizo.com	SOURCEDATE:2016-08
 
 # Ability Name												Unique Key											SORTKEY			Output Name										Category of Ability		Type												Visible	Required Ability											Define						Description																																																																																																																																																																																																																																																																																																																																	Stackable?	Multiple?	Choose																												Ability																											Bonus Ability Pool																				Stat bonus					Modify VAR										Cost		Source, Long Desc.							Source, Short Desc.	Source Page		Aspects
 PFS Scenario #8-00: The Cosmic Captive										KEY:Chronicle ~ S08-00			CATEGORY:PFS Chronicle		TYPE:PFSChronicle			VISIBLE:YES		SOURCELONG:.	MULT:YES	CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=Tier 1-11			COST:0
@@ -12,22 +12,22 @@ PFS Scenario #8-06: Reaping What We Sow										KEY:Chronicle ~ S08-06			CATEGO
 PFS Scenario #8-07: From the Tome of Rightous Repose						KEY:Chronicle ~ S08-07			CATEGORY:PFS Chronicle		TYPE:PFSChronicle			VISIBLE:YES		SOURCELONG:.	MULT:YES	CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=Tier 3-7				COST:0
 PFS Scenario #8-08: Tyranny of Winds, Part 1: The Sandstorm Prophecy		KEY:Chronicle ~ S08-08			CATEGORY:PFS Chronicle		TYPE:PFSChronicle			VISIBLE:YES		SOURCELONG:.	MULT:YES	CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=Tier 1-5				COST:0
 PFS Scenario #8-09: Forged in Flame, Part 1: The Cindersworn Pact			KEY:Chronicle ~ S08-09			CATEGORY:PFS Chronicle		TYPE:PFSChronicle			VISIBLE:YES		SOURCELONG:.	MULT:YES	CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=Tier 5-9				COST:0
-#PFS Scenario #8-10: Tyranny of Winds, Part 2: Secrets of the Endless Sky	KEY:Chronicle ~ S08-10			CATEGORY:PFS Chronicle		TYPE:PFSChronicle			VISIBLE:YES		SOURCELONG:.	MULT:YES	CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=Tier 1-5				COST:0
+PFS Scenario #8-10: Tyranny of Winds, Part 2: Secrets of the Endless Sky	KEY:Chronicle ~ S08-10			CATEGORY:PFS Chronicle		TYPE:PFSChronicle			VISIBLE:YES		SOURCELONG:.	MULT:YES	CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=Tier 1-5				COST:0
 PFS Scenario #8-11: Forged in Flame, Part 2: Cleansed With Fire				KEY:Chronicle ~ S08-11			CATEGORY:PFS Chronicle		TYPE:PFSChronicle			VISIBLE:YES		SOURCELONG:.	MULT:YES	CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=Tier 5-9				COST:0
 PFS Scenario #8-12: Tyranny of Winds, Part 3: Caught in the Eclipse			KEY:Chronicle ~ S08-12			CATEGORY:PFS Chronicle		TYPE:PFSChronicle			VISIBLE:YES		SOURCELONG:.	MULT:YES	CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=Tier 3-7				COST:0
-#PFS Scenario #8-13: What Sleeps in Stone									KEY:Chronicle ~ S08-13			CATEGORY:PFS Chronicle		TYPE:PFSChronicle			VISIBLE:YES		SOURCELONG:.	MULT:YES	CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=Tier 7-11			COST:0
-#PFS Scenario #8-14: To Seal the Shadow										KEY:Chronicle ~ S08-14			CATEGORY:PFS Chronicle		TYPE:PFSChronicle			VISIBLE:YES		SOURCELONG:.	MULT:YES	CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=Tier 1-5				COST:0
-#PFS Scenario #8-15: Hrethnar's Throne										KEY:Chronicle ~ S08-15			CATEGORY:PFS Chronicle		TYPE:PFSChronicle			VISIBLE:YES		SOURCELONG:.	MULT:YES	CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=Tier 5-9				COST:0
-#PFS Scenario #8-16: House of Harmonious Wisdom								KEY:Chronicle ~ S08-16			CATEGORY:PFS Chronicle		TYPE:PFSChronicle			VISIBLE:YES		SOURCELONG:.	MULT:YES	CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=Tier 1-5				COST:0
-#PFS Scenario #8-17: Refugees of the Weary Sky								KEY:Chronicle ~ S08-17			CATEGORY:PFS Chronicle		TYPE:PFSChronicle			VISIBLE:YES		SOURCELONG:.	MULT:YES	CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=Tier 7-11			COST:0
+PFS Scenario #8-13: What Sleeps in Stone									KEY:Chronicle ~ S08-13			CATEGORY:PFS Chronicle		TYPE:PFSChronicle			VISIBLE:YES		SOURCELONG:.	MULT:YES	CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=Tier 7-11			COST:0
+PFS Scenario #8-14: To Seal the Shadow										KEY:Chronicle ~ S08-14			CATEGORY:PFS Chronicle		TYPE:PFSChronicle			VISIBLE:YES		SOURCELONG:.	MULT:YES	CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=Tier 1-5				COST:0
+PFS Scenario #8-15: Hrethnar's Throne										KEY:Chronicle ~ S08-15			CATEGORY:PFS Chronicle		TYPE:PFSChronicle			VISIBLE:YES		SOURCELONG:.	MULT:YES	CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=Tier 5-9				COST:0
+PFS Scenario #8-16: House of Harmonious Wisdom								KEY:Chronicle ~ S08-16			CATEGORY:PFS Chronicle		TYPE:PFSChronicle			VISIBLE:YES		SOURCELONG:.	MULT:YES	CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=Tier 1-5				COST:0
+PFS Scenario #8-17: Refugees of the Weary Sky								KEY:Chronicle ~ S08-17			CATEGORY:PFS Chronicle		TYPE:PFSChronicle			VISIBLE:YES		SOURCELONG:.	MULT:YES	CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=Tier 7-11			COST:0
 PFS Scenario #8-18: Champion's Chalice, Part 1: Blazing Dangerous Trails	KEY:Chronicle ~ S08-18			CATEGORY:PFS Chronicle		TYPE:PFSChronicle			VISIBLE:YES		SOURCELONG:.	MULT:YES	CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=Tier 1-5				COST:0
 PFS Scenario #8-19: Treacherous Waves										KEY:Chronicle ~ S08-19			CATEGORY:PFS Chronicle		TYPE:PFSChronicle			VISIBLE:YES		SOURCELONG:.	MULT:YES	CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=Tier 3-7				COST:0
 PFS Scenario #8-20: Torrent's Last Will										KEY:Chronicle ~ S08-20			CATEGORY:PFS Chronicle		TYPE:PFSChronicle			VISIBLE:YES		SOURCELONG:.	MULT:YES	CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=Tier 7-11			COST:0
 PFS Scenario #8-21: Champion's Chalice, Part 2: Agents of the Eye			KEY:Chronicle ~ S08-21			CATEGORY:PFS Chronicle		TYPE:PFSChronicle			VISIBLE:YES		SOURCELONG:.	MULT:YES	CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=Tier 1-5				COST:0
-#PFS Scenario #8-22: Wrath of the Fleshwarped Queen							KEY:Chronicle ~ S08-22			CATEGORY:PFS Chronicle		TYPE:PFSChronicle			VISIBLE:YES		SOURCELONG:.	MULT:YES	CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=Tier 1-5				COST:0
+PFS Scenario #8-22: Wrath of the Fleshwarped Queen							KEY:Chronicle ~ S08-22			CATEGORY:PFS Chronicle		TYPE:PFSChronicle			VISIBLE:YES		SOURCELONG:.	MULT:YES	CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=Tier 1-5				COST:0
 PFS Scenario #8-23: Graves of Crystalmaw Pass								KEY:Chronicle ~ S08-23			CATEGORY:PFS Chronicle		TYPE:PFSChronicle			VISIBLE:YES		SOURCELONG:.	MULT:YES	CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=Tier 3-7				COST:0
-#PFS Scenario #8-24: Raid on the Cloudborne Keep								KEY:Chronicle ~ S08-24			CATEGORY:PFS Chronicle		TYPE:PFSChronicle			VISIBLE:YES		SOURCELONG:.	MULT:YES	CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=Tier 5-9				COST:0
-#PFS Scenario #8-25: Unleashing the Untouchable								KEY:Chronicle ~ S08-25			CATEGORY:PFS Chronicle		TYPE:PFSChronicle			VISIBLE:YES		SOURCELONG:.	MULT:YES	CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=Tier 12-15			COST:0
+PFS Scenario #8-24: Raid on the Cloudborne Keep								KEY:Chronicle ~ S08-24			CATEGORY:PFS Chronicle		TYPE:PFSChronicle			VISIBLE:YES		SOURCELONG:.	MULT:YES	CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=Tier 5-9				COST:0
+PFS Scenario #8-25: Unleashing the Untouchable								KEY:Chronicle ~ S08-25			CATEGORY:PFS Chronicle		TYPE:PFSChronicle			VISIBLE:YES		SOURCELONG:.	MULT:YES	CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=Tier 12-15			COST:0
 PFS Scenario #8-99A: The Solstice Scar, Version A							KEY:Chronicle ~ S08-99A			CATEGORY:PFS Chronicle		TYPE:PFSChronicle			VISIBLE:YES		SOURCELONG:.	MULT:YES	CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=Tier 1-11			COST:0
 #PFS Scenario #8-99B: The Solstice Scar, Version B							KEY:Chronicle ~ S08-99B			CATEGORY:PFS Chronicle		TYPE:PFSChronicle			VISIBLE:YES		SOURCELONG:.	MULT:YES	CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=Tier 1-11			COST:0
 #PFS Scenario #8-99C: The Solstice Scar, Version C							KEY:Chronicle ~ S08-99C			CATEGORY:PFS Chronicle		TYPE:PFSChronicle			VISIBLE:YES		SOURCELONG:.	MULT:YES	CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=Tier 1-11			COST:0
@@ -42,22 +42,22 @@ CATEGORY=PFS Chronicle|Chronicle ~ S08-06.MOD																																			
 CATEGORY=PFS Chronicle|Chronicle ~ S08-07.MOD																																																																																																																																																																																																																																																																																																																																																																																																																																												ABILITY:Chronicle_S08-07|AUTOMATIC|Chronicle_S08-07_Enable
 CATEGORY=PFS Chronicle|Chronicle ~ S08-08.MOD																																																																																																																																																																																																																																																																																																																																																																																																																																												ABILITY:Chronicle_S08-08|AUTOMATIC|Chronicle_S08-08_Enable
 CATEGORY=PFS Chronicle|Chronicle ~ S08-09.MOD																																																																																																																																																																																																																																																																																																																																																																																																																																												ABILITY:Chronicle_S08-09|AUTOMATIC|Chronicle_S08-09_Enable
-#CATEGORY=PFS Chronicle|Chronicle ~ S08-10.MOD																																																																																																																																																																																																																																																																																																																																																																																																																																												ABILITY:Chronicle_S08-10|AUTOMATIC|Chronicle_S08-10_Enable
+CATEGORY=PFS Chronicle|Chronicle ~ S08-10.MOD																																																																																																																																																																																																																																																																																																																																																																																																																																												ABILITY:Chronicle_S08-10|AUTOMATIC|Chronicle_S08-10_Enable
 CATEGORY=PFS Chronicle|Chronicle ~ S08-11.MOD																																																																																																																																																																																																																																																																																																																																																																																																																																												ABILITY:Chronicle_S08-11|AUTOMATIC|Chronicle_S08-11_Enable
 CATEGORY=PFS Chronicle|Chronicle ~ S08-12.MOD																																																																																																																																																																																																																																																																																																																																																																																																																																												ABILITY:Chronicle_S08-12|AUTOMATIC|Chronicle_S08-12_Enable
-#CATEGORY=PFS Chronicle|Chronicle ~ S08-13.MOD																																																																																																																																																																																																																																																																																																																																																																																																																																												ABILITY:Chronicle_S08-13|AUTOMATIC|Chronicle_S08-13_Enable
-#CATEGORY=PFS Chronicle|Chronicle ~ S08-14.MOD																																																																																																																																																																																																																																																																																																																																																																																																																																												ABILITY:Chronicle_S08-14|AUTOMATIC|Chronicle_S08-14_Enable
-#CATEGORY=PFS Chronicle|Chronicle ~ S08-15.MOD																																																																																																																																																																																																																																																																																																																																																																																																																																												ABILITY:Chronicle_S08-15|AUTOMATIC|Chronicle_S08-15_Enable
-#CATEGORY=PFS Chronicle|Chronicle ~ S08-16.MOD																																																																																																																																																																																																																																																																																																																																																																																																																																												ABILITY:Chronicle_S08-16|AUTOMATIC|Chronicle_S08-16_Enable
-#CATEGORY=PFS Chronicle|Chronicle ~ S08-17.MOD																																																																																																																																																																																																																																																																																																																																																																																																																																												ABILITY:Chronicle_S08-17|AUTOMATIC|Chronicle_S08-17_Enable
+CATEGORY=PFS Chronicle|Chronicle ~ S08-13.MOD																																																																																																																																																																																																																																																																																																																																																																																																																																												ABILITY:Chronicle_S08-13|AUTOMATIC|Chronicle_S08-13_Enable
+CATEGORY=PFS Chronicle|Chronicle ~ S08-14.MOD																																																																																																																																																																																																																																																																																																																																																																																																																																												ABILITY:Chronicle_S08-14|AUTOMATIC|Chronicle_S08-14_Enable
+CATEGORY=PFS Chronicle|Chronicle ~ S08-15.MOD																																																																																																																																																																																																																																																																																																																																																																																																																																												ABILITY:Chronicle_S08-15|AUTOMATIC|Chronicle_S08-15_Enable
+CATEGORY=PFS Chronicle|Chronicle ~ S08-16.MOD																																																																																																																																																																																																																																																																																																																																																																																																																																												ABILITY:Chronicle_S08-16|AUTOMATIC|Chronicle_S08-16_Enable
+CATEGORY=PFS Chronicle|Chronicle ~ S08-17.MOD																																																																																																																																																																																																																																																																																																																																																																																																																																												ABILITY:Chronicle_S08-17|AUTOMATIC|Chronicle_S08-17_Enable
 CATEGORY=PFS Chronicle|Chronicle ~ S08-18.MOD																																																																																																																																																																																																																																																																																																																																																																																																																																												ABILITY:Chronicle_S08-18|AUTOMATIC|Chronicle_S08-18_Enable
 CATEGORY=PFS Chronicle|Chronicle ~ S08-19.MOD																																																																																																																																																																																																																																																																																																																																																																																																																																												ABILITY:Chronicle_S08-19|AUTOMATIC|Chronicle_S08-19_Enable
 CATEGORY=PFS Chronicle|Chronicle ~ S08-20.MOD																																																																																																																																																																																																																																																																																																																																																																																																																																												ABILITY:Chronicle_S08-20|AUTOMATIC|Chronicle_S08-20_Enable
 CATEGORY=PFS Chronicle|Chronicle ~ S08-21.MOD																																																																																																																																																																																																																																																																																																																																																																																																																																												ABILITY:Chronicle_S08-21|AUTOMATIC|Chronicle_S08-21_Enable
-#CATEGORY=PFS Chronicle|Chronicle ~ S08-22.MOD																																																																																																																																																																																																																																																																																																																																																																																																																																												ABILITY:Chronicle_S08-22|AUTOMATIC|Chronicle_S08-22_Enable
+CATEGORY=PFS Chronicle|Chronicle ~ S08-22.MOD																																																																																																																																																																																																																																																																																																																																																																																																																																												ABILITY:Chronicle_S08-22|AUTOMATIC|Chronicle_S08-22_Enable
 CATEGORY=PFS Chronicle|Chronicle ~ S08-23.MOD																																																																																																																																																																																																																																																																																																																																																																																																																																												ABILITY:Chronicle_S08-23|AUTOMATIC|Chronicle_S08-23_Enable
-#CATEGORY=PFS Chronicle|Chronicle ~ S08-24.MOD																																																																																																																																																																																																																																																																																																																																																																																																																																												ABILITY:Chronicle_S08-24|AUTOMATIC|Chronicle_S08-24_Enable
-#CATEGORY=PFS Chronicle|Chronicle ~ S08-25.MOD																																																																																																																																																																																																																																																																																																																																																																																																																																												ABILITY:Chronicle_S08-25|AUTOMATIC|Chronicle_S08-25_Enable
+CATEGORY=PFS Chronicle|Chronicle ~ S08-24.MOD																																																																																																																																																																																																																																																																																																																																																																																																																																												ABILITY:Chronicle_S08-24|AUTOMATIC|Chronicle_S08-24_Enable
+CATEGORY=PFS Chronicle|Chronicle ~ S08-25.MOD																																																																																																																																																																																																																																																																																																																																																																																																																																												ABILITY:Chronicle_S08-25|AUTOMATIC|Chronicle_S08-25_Enable
 CATEGORY=PFS Chronicle|Chronicle ~ S08-99A.MOD																																																																																																																																																																																																																																																																																																																																																																																																																																												ABILITY:Chronicle_S08-99A|AUTOMATIC|Chronicle_S08-99A_Enable
 #CATEGORY=PFS Chronicle|Chronicle ~ S08-99B.MOD																																																																																																																																																																																																																																																																																																																																																																																																																																												ABILITY:Chronicle_S08-99B|AUTOMATIC|Chronicle_S08-99B_Enable
 #CATEGORY=PFS Chronicle|Chronicle ~ S08-99C.MOD																																																																																																																																																																																																																																																																																																																																																																																																																																												ABILITY:Chronicle_S08-99C|AUTOMATIC|Chronicle_S08-99C_Enable
@@ -140,7 +140,7 @@ Scales		CATEGORY:PFS Chronicle	TYPE:PFS8-07WorthyFoeChoices
 Scoundrels	CATEGORY:PFS Chronicle	TYPE:PFS8-07WorthyFoeChoices
 Tusks		CATEGORY:PFS Chronicle	TYPE:PFS8-07WorthyFoeChoices
 
-Air Affinity	KEY:PFS Scenario 8-08 ~ Air Affinity	CATEGORY:Special Ability	TYPE:Chronicle_S08-08.PFSBoon	VISIBLE:YES	COST:0	SOURCELONG:PFS Scenario #8-08 Tyranny of Winds, Part 1: The Sandstorm Prophecy	DESC:Your connection to elemental air has grown stronger over the course of your recent adventures. This boon has no mechanical effect on its own, but it may interact with other boons or play a role in future adventures— especially those set on the elemental planes.
+Air Affinity	KEY:PFS Scenario 8-08 ~ Air Affinity	CATEGORY:Special Ability	TYPE:Chronicle_S08-08.PFSBoon	VISIBLE:YES	COST:0	SOURCELONG:PFS Scenario #8-08 Tyranny of Winds, Part 1: The Sandstorm Prophecy	DESC:Your connection to elemental air has grown stronger over the course of your recent adventures. This boon has no mechanical effect on its own, but it may interact with other boons or play a role in future adventures—especially those set on the elemental planes.
 Strength of the Scorpion Coast (Scarab Sages)	KEY:PFS Scenario 8-08 ~ Strength of the Scorpion Coast	CATEGORY:Special Ability	TYPE:Chronicle_S08-08.PFSBoon	VISIBLE:YES	COST:0	SOURCELONG:PFS Scenario #8-08 Tyranny of Winds, Part 1: The Sandstorm Prophecy	MULT:YES		CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=PFS-2CheckBoxes	PREABILITY:1,CATEGORY=Background,Scarab Sages Faction	DESC:[_][_]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-08 ~ Strength of the Scorpion Coast (0-Checked)	DESC:[X][_]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-08 ~ Strength of the Scorpion Coast (1-Checked)	DESC:[X][X]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-08 ~ Strength of the Scorpion Coast (2-Checked)	DESC:Your studies at the Sandflow Source have taught you how to draw upon the powers of air and earth to strengthen yourself. You may check a box that precedes this boon to add a bonus equal to twice the number of Air Affinity boons you have earned with this PC on a combat maneuver check. Alternatively, you may check a box to add a bonus equal to twice the number of Earth Affinity boons you have earned with this PC to your CMD until the beginning of your next turn as an immediate action.
 Earth Affinity	KEY:PFS Scenario 8-08 ~ Earth Affinity	CATEGORY:Special Ability	TYPE:Chronicle_S08-08.PFSBoon	VISIBLE:YES	COST:0	SOURCELONG:PFS Scenario #8-08 Tyranny of Winds, Part 1: The Sandstorm Prophecy	DESC:Your connection to elemental earth has grown stronger over the course of your recent adventures. This boon has no mechanical effect on its own, but it may interact with other boons or play a role in future adventures—especially those set on the elemental planes.
 Elemental Transformation	KEY:PFS Scenario 8-08 ~ Elemental Transformation	CATEGORY:Special Ability	TYPE:Chronicle_S08-08.PFSBoon	VISIBLE:YES	COST:0	SOURCELONG:PFS Scenario #8-08 Tyranny of Winds, Part 1: The Sandstorm Prophecy	MULT:YES		CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=PFS-2CheckBoxes	DESC:[_][_]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-08 ~ Elemental Transformation (0-Checked)	DESC:[X][_]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-08 ~ Elemental Transformation (1-Checked)	DESC:[X][X]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-08 ~ Elemental Transformation (2-Checked)	DESC:After defeating the oread researcher Qiarah, you took her research notes and deciphered the complex rituals she was using to transform her body. You may check a box next to this boon before attempting a saving throw against bleed, paralysis, poison, sleep effects, or stunning to gain a +2 bonus on the save.
@@ -149,10 +149,66 @@ Oread's Favor	KEY:PFS Scenario 8-08 ~ Oread's Favor	CATEGORY:Special Ability	TYP
 
 Fire Affinty	KEY:PFS Scenario 8-09 ~ Fire Affinty	CATEGORY:Special Ability	TYPE:Chronicle_S08-09.PFSBoon	VISIBLE:YES	COST:0	SOURCELONG:PFS Scenario #8-09 Forged in Flame, Part I: The Cindersworn Pact	DESC:Your connection to elemental fire has grown stronger over the course of your recent adventures. This boon has no mechanical effect on its own, but it may interact with other boons or play a role in future adventures—especially those set on the elemental planes.	
 Qalkami's Disdain	KEY:PFS Scenario 8-09 ~ Qalkami's Disdain	CATEGORY:Special Ability	TYPE:Chronicle_S08-09.PFSBoon	VISIBLE:YES	COST:0	SOURCELONG:PFS Scenario #8-09 Forged in Flame, Part I: The Cindersworn Pact	DESC:You chose to undermine Qalkami Mishalq' schemes in Zjarra, but she saw through your ploy. You may not have invalidated her deal with the Pathfinder Society, but you've ensured that she remembers you for your disloyalty.	
-Shadow Over Zjarra (Exchange Faction)	KEY:PFS Scenario 8-09 ~ Shadow Over Zjarra	CATEGORY:Special Ability	TYPE:Chronicle_S08-09.PFSBoon	VISIBLE:YES	COST:0	SOURCELONG:PFS Scenario #8-09 Forged in Flame, Part I: The Cindersworn Pact	PREABILITY:1,CATEGORY=Background,Exchange Faction	MULT:YES		CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=PFS-1CheckBoxes	DESC:[_]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-09 ~ Shadow Over Zjarra (0-Checked)	DESC:[X]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-08 ~ 09 ~ Shadow Over Zjarra (1-Checked)	DESC:Along with Guaril Karela, you have established the Exchange as a dangerous force in the trade city of Zjarra, and at least for now, others pa tribute to secure your services and avert your wrath. You gain a bonus on Intimidate checks and Will saves agasint fear effects equal to the number of Fire Affinity boons you have earned when interracting with creatures that speak Ignan or Kelish. When you conclude an adventure in which you helped defeat a creature with the fire subtype or an adventure that takes place in Qadira or on the Plane of Fire, you can check the box that precedes this boon. In doing so, you forgo your DOwntime for the adventure and instead earn gp equal to 100 gp times your character level. Treat your character level as 1 higher for each FIre Affinity boon you have earned.	
+Shadow Over Zjarra (Exchange Faction)	KEY:PFS Scenario 8-09 ~ Shadow Over Zjarra	CATEGORY:Special Ability	TYPE:Chronicle_S08-09.PFSBoon	VISIBLE:YES	COST:0	SOURCELONG:PFS Scenario #8-09 Forged in Flame, Part I: The Cindersworn Pact	PREABILITY:1,CATEGORY=Background,Exchange Faction	MULT:YES		CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=PFS-1CheckBoxes	DESC:[_]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-09 ~ Shadow Over Zjarra (0-Checked)	DESC:[X]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-09 ~ Shadow Over Zjarra (1-Checked)	DESC:Along with Guaril Karela, you have established the Exchange as a dangerous force in the trade city of Zjarra, and at least for now, others pa tribute to secure your services and avert your wrath. You gain a bonus on Intimidate checks and Will saves agasint fear effects equal to the number of Fire Affinity boons you have earned when interracting with creatures that speak Ignan or Kelish. When you conclude an adventure in which you helped defeat a creature with the fire subtype or an adventure that takes place in Qadira or on the Plane of Fire, you can check the box that precedes this boon. In doing so, you forgo your DOwntime for the adventure and instead earn gp equal to 100 gp times your character level. Treat your character level as 1 higher for each FIre Affinity boon you have earned.	
 Zjarran Entrepreneur (Exchange Faction)	KEY:PFS Scenario 8-09 ~ Shadow Over Zjarra	CATEGORY:Special Ability	TYPE:Chronicle_S08-09.PFSBoon	VISIBLE:YES	COST:0	SOURCELONG:PFS Scenario #8-09 Forged in Flame, Part 1: The Cindersworn Pact	PREABILITY:1,CATEGORY=Background,Exchange Faction	MULT:YES		CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=PFS-1CheckBoxes	DESC:[_]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-09 ~ Shadow Over Zjarra (0-Checked)	DESC:[X]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-09 ~ Shadow Over Zjarra (1-Checked)	DESC:You have established yourself as an upstanding businessperson in the cosmopolitan trading hub of Zjarra on the Plane of Fire. You gain a bonus on Bluff and Diplomacy checks equal to the number of Fire Affinity boons you have earned when interracting with creatures that speak Ignan or Kelish. When a creature that speans Ignan or Kelish would cause enough damage to kill you, you can check the box that precedes this boon to instead be reduced to -1 hit point and be stable; for your reputation alons, the creature spares you death, though if you resume fighting, it won't extend same mercy twice.
 
-# TODO: Missing 8-10
+Air Affinity
+	KEY:PFS Scenario 8-10 ~ Air Affinity
+	CATEGORY:Special Ability
+	TYPE:Chronicle_S08-10.PFSBoon
+	VISIBLE:YES	COST:0
+	SOURCELONG:PFS Scenario #8-10 Tyranny of Winds, Part 2: Secrets of the Endless Sky
+	DESC:Your connection to elemental air has grown stronger over the course of your recent adventures. This boon has no mechanical effect on its own, but it may interact with other boons or play a role in future adventures—especially those set on the elemental planes.
+
+Dragon's Gift (Sovereign Court)
+	KEY:PFS Scenario 8-10 ~ Dragon's Gift
+	CATEGORY:Special Ability
+	TYPE:Chronicle_S08-10.PFSBoon
+	VISIBLE:YES	COST:0
+	SOURCELONG:PFS Scenario #8-10 Tyranny of Winds, Part 2: Secrets of the Endless Sky
+	PREABILITY:1,CATEGORY=Background,Soverign Court Faction
+	DESC:As an imperial sky dragon, Wan Feng is a wise and benevolent councilor and champion of the cause of good. He presents you with a token made of one of his scales. When you would take electricity damage, you may cross this boon off your Chronicle sheet to reduce the damage by an amount equal to your character level. If your alignment is good, you instead reduce the amount of damage by twice your character level.
+
+Friend of Geniekind (Sovereign Court)
+	KEY:PFS Scenario 8-10 ~ Friend of Geniekind
+	CATEGORY:Special Ability
+	TYPE:Chronicle_S08-10.PFSBoon
+	VISIBLE:YES	COST:0
+	SOURCELONG:PFS Scenario #8-10 Tyranny of Winds, Part 2: Secrets of the Endless Sky
+	PREABILITY:1,CATEGORY=Background,Soverign Court Faction
+	DESC:The Sovereign Court has convinced Mithradatha to cast several wish spells on its behalf. One of these wishes helps protect members of the Sovereign Court. You may cross this boon off your Chronicle sheet before rolling a saving throw to roll twice and take the higher result. 
+
+Jairo's Generosity
+	KEY:PFS Scenario 8-10 ~ Jairo's Generosity
+	CATEGORY:Special Ability
+	TYPE:Chronicle_S08-10.PFSBoon
+	VISIBLE:YES	COST:0
+	SOURCELONG:PFS Scenario #8-10 Tyranny of Winds, Part 2: Secrets of the Endless Sky
+	MULT:YES		CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=PFS-1CheckBoxes
+	DESC:[_]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-10 ~ Jairo's Generosity (0-Checked)
+	DESC:[X]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-10 ~ Jairo's Generosity (1-Checked)
+	DESC:Jairo has not forgotten your friendly and respectful demeanor toward him when you first met. He provides you with a free noble's outfit. In addition, he offers you a discount if you wish to purchase one of his flying carpets. You may check the box that precedes this boon to purchase a carpet of flying at the following discounted price: 5 ft. by 5 ft. (18,000 gp), 5 ft. by 10 ft. (31,500 gp), or 10 ft. by 10 ft. (54,000 gp).
+
+ Kissed by the Wind (Sovereign Court)
+	KEY:PFS Scenario 8-10 ~ Kissed by the Wind
+	CATEGORY:Special Ability
+	TYPE:Chronicle_S08-10.PFSBoon
+	VISIBLE:YES	COST:0
+	SOURCELONG:PFS Scenario #8-10 Tyranny of Winds, Part 2: Secrets of the Endless Sky
+	PREABILITY:1,CATEGORY=Background,Soverign Court Faction
+	MULT:YES		CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=PFS-2CheckBoxes
+	DESC:[_][_]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-10 ~ Kissed by the Wind (0-Checked)
+	DESC:[X][_]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-10 ~ Kissed by the Wind (1-Checked)
+	DESC:[X][X]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-10 ~ Kissed by the Wind (2-Checked)
+	DESC:Zhalla bint Rathmozen is a resourceful and clever ally to the Sovereign Court, capable of sending resources into even the most remote locations. You may check a box that precedes this boon to order one of the following items that you could otherwise legally purchase: a bottle of air, a ring of feather fall, or a scroll of air walk, fly, or any spell with the air or electricity descriptor (or a potion or oil of any such spell of 3rd level or lower). The item arrives via one of her air elemental allies 1 hour later. You must pay the full price for the item in gold pieces at the time that you receive it.
+
+Uneasy Alliance
+	KEY:PFS Scenario 8-10 ~ Uneasy Alliance
+	CATEGORY:Special Ability
+	TYPE:Chronicle_S08-10.PFSBoon
+	VISIBLE:YES	COST:0
+	SOURCELONG:PFS Scenario #8-10 Tyranny of Winds, Part 2: Secrets of the Endless Sky
+	DESC:You have accepted Ashasar's offer of alliance with the Concordance. This boon may play a role in future adventures.
 
 Azers' Beacon (Liberty's Edge Faction)	KEY:PFS Scenario 8-11 ~ Azers' Beacon	CATEGORY:Special Ability	TYPE:Chronicle_S08-11.PFSBoon	VISIBLE:YES	COST:0	SOURCELONG:PFS Scenario #8-11 Forged in Flame, Part 2: Clensed with Fire	PREABILITY:1,CATEGORY=Background,Liberty's Edge Faction	MULT:YES		CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=PFS-2CheckBoxes	DESC:[_][_]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-11 ~ Azers' Beacon (0-Checked)	DESC:[X][_]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-11 ~ Azers' Beacon (1-Checked)	DESC:[X][X]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-11 ~ Azers' Beacon (2-Checked)	DESC:Thanks to your efforts, dozens of azers have secured their freedom in the City of Brass. You have received their blessing ad can channel this latent magic to radiate brilliant fire for a round as a swift action by checking the box that precedes this boon. These flames shed light as a torch and do not harm your possessions, but any creature that strikes you with an unarmed strike or natural attack takes fire damage equal to 1d6 plus the number of fire affinity boons you have earned. This damage doubles against creatures that are grappling you (including against restraints like rope).
 Brass Tycoon (Exchange Faction)	KEY:PFS Scenario 8-11 ~ Brass Tycoon	CATEGORY:Special Ability	TYPE:Chronicle_S08-11.PFSBoon	VISIBLE:YES	COST:0	SOURCELONG:PFS Scenario #8-11 Forged in Flame, Part 2: Clensed with Fire	PREABILITY:1,CATEGORY=Background,Exchange Faction	MULT:YES		CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=PFS-3CheckBoxes	DESC:[_][_][_]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-11 ~ Brass Tycoon (0-Checked)	DESC:[X][_][_]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-11 ~ Brass Tycoon (1-Checked)	DESC:[X][X][_]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-11 ~ Brass Tycoon (2-Checked)	DESC:[X][X][X]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-11 ~ Brass Tycoon (3-Checked)	DESC:The Exchange has established profitable foothold on the Plane of Fire, and you have dedicated considerable attention to making sure all goes smoothly. You are so practiced in negotiating with firey creatures that falmes practically obey your spoken commands. You can check a box that precedes this boon before attempting a saving throw against an effect that deals fire damage or has the fire descriptor to roll the save twice and take the higher result; if you can speak Ignan, you extend this benefit against the effect to your allies (maximum one ally per Fire Affinity boon this character has earned). Alternatively, when you or an adjacent ally cast a spell with the fire descriptor, you can check a bos to apply the Selective SPellAPG metamagic feat to the spell without changing the its spell level or casting time (maximum one square excluded per Fire Affinity boon this character has earned).
@@ -164,7 +220,125 @@ Foe of All Winds	KEY:PFS Scenario 8-12 ~ Foe of All Winds	CATEGORY:Special Abili
 Partner to Elemental Balance (Grand Lodge)	KEY:PFS Scenario 8-12 ~ Partner to Elemental Balance	CATEGORY:Special Ability	TYPE:Chronicle_S08-12.PFSBoon	VISIBLE:YES	COST:0	SOURCELONG:PFS Scenario #8-12 Tyranny of Winds, Part 3: Caught in the Eclipse	PREABILITY:1,CATEGORY=Background,Grand Lodge Faction	DESC:Dedicated to balance within the elemental planes, the COncordance of Elements was pleased you entrusted the Horn of the Hurricane to them. You can call upon allies within the COncordance for assistance before travelling the elemental planes. During any adventure taking place on an elemental plane, you may cross this boon off our Chronicle sheet to gain the following ability assiciated with your planar desstiantion for the next 24 hours:	DESC:&nl;You gain a 30-foot fly speed with good maneuverability (Plane of Air)	DESC:&nl;You gain a 20-foot climb speed; you also gain the effects of the Nimble Moves feat (Plane of Earth)	DESC:&nl;You gain fire resistance 10 (Plane of Fire)	DESC:&nl;You can breathe underwater and per water breathing, and gain a 30-foot swim speed (Plane of Water)
 Stored Hurricane (Grand Lodge)	KEY:PFS Scenario 8-12 ~ Stored Hurricane	CATEGORY:Special Ability	TYPE:Chronicle_S08-12.PFSBoon	VISIBLE:YES	COST:0	SOURCELONG:PFS Scenario #8-12 Tyranny of Winds, Part 3: Caught in the Eclipse	PREABILITY:1,CATEGORY=Background,Grand Lodge Faction	MULT:YES		CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=PFS-1CheckBoxes	DESC:[_]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-12 ~ Stored Hurricane (0-Checked)	DESC:[X]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-12 ~ Stored Hurricane (1-Checked)	DESC:The decision to keep the Horn of the Hurricane secured in te vaults of the Grand Lodge grants the Society access to the weapon when necessary. You may check the box that precedes this boon when purchasing the Horn of the Hurricane to reduce the item's cost by to 36,000 g (this doesn not stack with other discounts). Alternatively, you may the box at the start of an adventure to gain access to the Horn of hte Hurricane for the duration of the adventure. If you use this boon to brrow the HOrn of the HUrricane, you lose 1 Prestige Point if the horn is destroyed during the course of the adventure.
 
-# TODO: Missing 8-13 through 8-17
+Uneasy Alliance	KEY:PFS Scenario 8-13 ~ Uneasy Alliance	CATEGORY:Special Ability	TYPE:Chronicle_S08-13.PFSBoon	VISIBLE:YES	COST:0	SOURCELONG:PFS Scenario #8-13 What Sleeps in Stone	DESC:You destroyed the cursed helmet, Grimgrin, putting an end to Ankilhi's greatest foe. Ankilhi's spirit now watches over you, assisting in subtle ways. There's a 50%% chance that anytime you need to eat and drink but don't have access to food and water, a fresh bowl of heated rice and small cup of drinking water appears. This is enough to feed one Medium creature. This effect can successfully occur only once per scenario.
+Fossilblight's Savior	KEY:PFS Scenario 8-13 ~ Fossilblight's Savior	CATEGORY:Special Ability	TYPE:Chronicle_S08-13.PFSBoon	VISIBLE:YES	COST:0	SOURCELONG:PFS Scenario #8-13 What Sleeps in Stone	MULT:YES		CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=PFS-1CheckBoxes	DESC:[_]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-13 ~ Fossilblight's Savior (0-Checked)	DESC:[X]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-13 ~ Fossilblight's Savior (1-Checked)	DESC:By retrieving the artifact known as Fossilblight, you've given the Pathfinder Society a chance at opening the Untouchable Opal. While the magical pick is integral to the Society's plans to open Ranginori's prison, the Decemvirate can be convinced to allow the weapon's use in extreme circumstances. At the start of an adventure, you can requisition use of Fossilblight for the remainder of the adventure. If you requisition the use of this powerful artifact, check the box on this boon. Only one character per adventure can use this boon to requisition Fossilblight, and only if the box on her boon is unchecked.
+Graveknight's Gratitude	KEY:PFS Scenario 8-13 ~ Graveknight's Gratitude	CATEGORY:Special Ability	TYPE:Chronicle_S08-13.PFSBoon	VISIBLE:YES	COST:0	SOURCELONG:PFS Scenario #8-13 What Sleeps in Stone	MULT:YES		CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=PFS-1CheckBoxes	DESC:[_]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-13 ~ Graveknight's Gratitude (0-Checked)	DESC:[X]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-13 ~ Graveknight's Gratitude (1-Checked)	DESC:You returned the cursed helmet Grimgrin to the Pathfinder Society. Since the item's internment within the vaults of the Grand Lodge, there have been rumors of items randomly disappearing and reappearing. You can check the box on this boon at the start of an adventure to gain the temporary use of one non-consumable magic item for the duration of the adventure. This item must have a value of 3,000 gp or less, and it must be returned at the end of the scenario—the return is met with several questions from Grand Lodge staff on how the PC obtained the supposedly secure item. This boon can be used only if its box is unchecked.
+
+Grace of Minatan Heroes
+	KEY:PFS Scenario 8-14 ~ Grace of Minatan Heroes
+	CATEGORY:Special Ability
+	TYPE:Chronicle_S08-14.PFSBoon
+	VISIBLE:YES	COST:0
+	SOURCELONG:PFS Scenario #8-14 To Seal the Shadow
+	DESC:You've earned the attention of powerful Minatan spirits, who now watch over your travels. As a standard action, you may cross this boon off your Chronicle sheet to gain the effects of greater magic fang or greater magic weapon (CL = your total HD). Regardless of which spell is selected, this effect only lasts for 1 minute per effective caster level.
+
+Wayang Body Modification
+	KEY:PFS Scenario 8-14 ~ Wayang Body Modification
+	CATEGORY:Special Ability
+	TYPE:Chronicle_S08-14.PFSBoon
+	VISIBLE:YES	COST:0
+	SOURCELONG:PFS Scenario #8-14 To Seal the Shadow
+	DESC:During your time in the wayang city of Inahiyi, you underwent some form of wayang body alteration. Be it ritual piercings, tattoos, or even skin bleaching, you've committed to keeping the modifications you received. While the alteration is noticeable, it bears real significance only when viewed by other wayangs. You gain a +2 on all Charisma-based skill checks made to influence wayangs.
+	ASPECT:SkillBonus|+2 on all Charisma-based skill checks made to influence wayangs (PFS #8-14, Wayang Body Modification).
+
+Grace of Minatan Heroes
+	KEY:PFS Scenario 8-14 ~ Grace of Minatan Heroes
+	CATEGORY:Special Ability
+	TYPE:Chronicle_S08-14.PFSBoon
+	VISIBLE:YES	COST:0
+	SOURCELONG:PFS Scenario #8-14 To Seal the Shadow
+	DESC:You've earned the attention of powerful Minatan spirits, who now watch over your travels. As a standard action, you may cross this boon off your Chronicle sheet to gain the effects of greater magic fang or greater magic weapon (CL = your total HD). Regardless of which spell is selected, this effect only lasts for 1 minute per effective caster level.
+
+Experience with Dark Dreams
+	KEY:PFS Scenario 8-15 ~ Experience with Dark Dreams
+	CATEGORY:Special Ability
+	TYPE:Chronicle_S08-15.PFSBoon
+	VISIBLE:YES	COST:0
+	SOURCELONG:PFS Scenario #8-15 Hrethnar's Throne
+	DESC:You have traveled aboard the Voracious, a ship inhabiting its own demiplane off the coast of Leng in the Dimension of Dreams. Your experiences there embolden your mind against dark influences from beyond reality. Before attempting a saving throw against a spell or spell-like ability with the mind-affecting and evil descriptors—or attempting a saving throw against any mind-affecting ability of an outsider with the evil subtype—you can cross this boon off your Chronicle sheet to gain a +4 bonus on the save. Alternatively, cross this boon off your Chronicle sheet on a night when you would be fatigued by a nightmare spell or a similar effect; you are not fatigued by that effect and rest normally that night.
+
+Variable Rewards
+	KEY:PFS Scenario 8-16 ~ Variable Rewards
+	CATEGORY:Special Ability
+	TYPE:Chronicle_S08-16.PFSBoon
+	VISIBLE:YES	COST:0
+	SOURCELONG:PFS Scenario #8-16 House of Harmonious Wisdom
+	DESC:The gold, XP, and Prestige Points you earn on this Chronicle sheet are based on your level and how many of the quests you complete. Until you play an adventure other than House of Harmonious Wisdom, you can continue to play the other quests and earn greater rewards—even across multiple sessions. Check off the appropriate quests played and influence boxes below. Before beginning a different adventure, calculate your rewards for this Chronicle sheet based on the table below. PCs that have selected the slow advancement track receive half of the gold, XP, and Prestige Point rewards.
+	MULT:YES		CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=PFS8-16VariableRewardsChoice
+#	MULT:YES		CHOOSE:STRING|1|2|3|4|5|TITLE=The number of quests completed
+#	NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=PFS-Number1-5|Title=The number of quests completed
+
+1-Quest		CATEGORY:PFS Chronicle	TYPE:PFS8-16VariableRewardsChoice
+2-Quests	CATEGORY:PFS Chronicle	TYPE:PFS8-16VariableRewardsChoice
+3-Quests	CATEGORY:PFS Chronicle	TYPE:PFS8-16VariableRewardsChoice
+4-Quests	CATEGORY:PFS Chronicle	TYPE:PFS8-16VariableRewardsChoice
+5-Quests	CATEGORY:PFS Chronicle	TYPE:PFS8-16VariableRewardsChoice
+
+Impressive Find
+	KEY:PFS Scenario 8-16 ~ Impressive Find
+	CATEGORY:Special Ability
+	TYPE:Chronicle_S08-16.PFSBoon
+	VISIBLE:YES	COST:0
+	SOURCELONG:PFS Scenario #8-16 House of Harmonious Wisdom
+	DESC:The Pathfinder Society is impressed with your discoveries in Tian Xia. Once you earn 12 or more Fame, your superiors award you one additional Prestige Point (but not Fame) in recognition of your excellence. You cannot have more Prestige Points than Fame, and if you would exceed this maximum, the bonus Prestige Point must be spent immediately or be lost. When you use this boon, cross it off your Chronicle sheet.
+	PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-16 ~ Variable Rewards (3-Quests),PFS Scenario 8-16 ~ Variable Rewards (4-Quests),PFS Scenario 8-16 ~ Variable Rewards (5-Quests)
+
+#	BONUS:VAR|PP|1|PREMULT:2,[PREVARGTEQ:Fame,12],[PREVARGTLT:PP,var(Fame)]
+# TODO: I find no way to add 1 to PP if PP is less than Fame and Fame is at least 12. Problem is that if FAME is x and PP is x-1, then we have a race condition where PP gets +1 and then when recalculated PP = Fame so it can't get +1 and then it's taken away. This will oscilate in an infinite loop.
+
+Legacy of a Princess
+	KEY:PFS Scenario 8-16 ~ Legacy of a Princess
+	CATEGORY:Special Ability
+	TYPE:Chronicle_S08-16.PFSBoon
+	VISIBLE:YES	COST:0
+	SOURCELONG:PFS Scenario #8-16 House of Harmonious Wisdom
+	DESC:You have discovered the lost Summer Palace and interacted with the phantom of Song Rui, one of the last princesses of Imperial Lung Wa. You may call upon Song Rui's dedication as a swift action that lasts for 1 minute. During this time, the first time you hit a creature with a melee attack each round, you gain a +2 bonus to your AC against that creature until the beginning of your next turn. When you use this boon, cross it of your Chronicle sheet.
+	PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-16 ~ Variable Rewards (5-Quests)
+
+Sun Shogun Talismans
+	KEY:PFS Scenario 8-16 ~ Sun Shogun Talismans
+	CATEGORY:Special Ability
+	TYPE:Chronicle_S08-16.PFSBoon
+	VISIBLE:YES	COST:0
+	SOURCELONG:PFS Scenario #8-16 House of Harmonious Wisdom
+	MULT:YES		CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=PFS-3CheckBoxes
+	DESC:[_][_][_]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-16 ~ Sun Shogun Talismans (0-Checked)
+	DESC:[X][_][_]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-16 ~ Sun Shogun Talismans (1-Checked)
+	DESC:[X][X][_]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-16 ~ Sun Shogun Talismans (2-Checked)
+	DESC:[X][X][X]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-16 ~ Sun Shogun Talismans (3-Checked)
+	DESC:Your return of the sovereign dragon scroll case to Shokuro has impressed the Sun Shogun, and he makes available to you certain magical talismans normally available only to his trusted agents. You may purchase a talisman of freedomOA (900 gp), talisman of good fortuneOA (1,680 gp), or talisman of warrior's courageOA (450 gp). When you purchase a talisman in this way, note that it is a Sun Shogun talisman and mark off one box. Sun Shogun talismans function as normal except that you may, as an immediate action, prevent a talisman from activating when it would otherwise do so, allowing you to save its magic for later. When you have purchased a total of 3 Sun Shogun talismans of any type, cross this boon off your Chronicle sheet.
+
+Earth Affinity
+	KEY:PFS Scenario 8-17 ~ Earth Affinity
+	CATEGORY:Special Ability
+	TYPE:Chronicle_S08-17.PFSBoon
+	VISIBLE:YES	COST:0
+	SOURCELONG:PFS Scenario #8-17 Refugees of the Weary Sky
+	DESC:Your connection to elemental air has grown stronger over the course of your recent adventures. This boon has no mechanical effect on its own, but it may interact with other boons or play a role in future adventures—especially those set on the elemental planes.
+
+Deep Sky Explorer (Grand Lodge)
+	KEY:PFS Scenario 8-17 ~ Deep Sky Explorer
+	CATEGORY:Special Ability
+	TYPE:Chronicle_S08-17.PFSBoon
+	VISIBLE:YES	COST:0
+	SOURCELONG:PFS Scenario #8-17 Refugees of the Weary Sky
+	PREABILITY:1,CATEGORY=Background,Grand Lodge Faction
+	MULT:YES		CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=PFS-1CheckBoxes
+	DESC:[_]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-17 ~ Deep Sky Explorer (0-Checked)
+	DESC:[X]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-17 ~ Deep Sky Explorer (1-Checked)
+	DESC:You have learned something about how the artificers of the lost Jistka Imperium bound elemental energies into stone. You can recall a bit of lore as a swift action to gain Elemental SpellAPG as a bonus feat or to gain energy resistance 10 to acid, cold, electricity, or fire. The chosen benefit lasts for 1 minute for each Earth Affinity boon you have earned with this PC. When you have used either benefit, cross this boon off your Chronicle sheet.
+
+Gemstone Secrets (Scarab Sages)
+	KEY:PFS Scenario 8-17 ~ Gemstone Secrets
+	CATEGORY:Special Ability
+	TYPE:Chronicle_S08-17.PFSBoon
+	VISIBLE:YES	COST:0
+	SOURCELONG:PFS Scenario #8-17 Refugees of the Weary Sky
+	PREABILITY:1,CATEGORY=Background,Scarab Sages Faction
+	MULT:YES		CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=PFS-1CheckBoxes
+	DESC:[_]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-17 ~ Gemstone Secrets (0-Checked)
+	DESC:[X]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-17 ~ Gemstone Secrets (1-Checked)
+	DESC:Your experience in working closely with magical gems has given you insight into how to efficiently utilize their magic. When you would expend a use from a magic gem, such as a pearl of power, elemental gem, or a gem from a helm of brilliance, you may immediately cross this boon off your Chronicle sheet to recover the expended use: for example, you could use a pearl of power a second time during the day, or summon another creature later with the elemental gem. This boon does not affect any magic item effect that replicates a spell of 7th-level or higher.
 
 Chalice Champion	KEY:PFS Scenario 8-18 ~ Chalice Champion	CATEGORY:Special Ability	TYPE:Chronicle_S08-18.PFSBoon	VISIBLE:YES	COST:0	SOURCELONG:PFS Scenario #8-18 Champion's Chalice, Part I: Blazing Dangerous Trails	DESC:You were part of a team that secured the Sargava Chalice for hte Pathinder Society's use. At the start of a chase or pursuit, you may activate this boon to grant yourself a +2 bonus on all checks made to make progress in the chase or pursuit. This bonus lasts the duration of the chase or pursuit only. When you have used this boon, cross it off the Chronicle Sheet.
 Infused Extracts	KEY:PFS Scenario 8-18 ~ Infused Extracts	CATEGORY:Special Ability	TYPE:Chronicle_S08-18.PFSBoon	VISIBLE:YES	COST:0	SOURCELONG:PFS Scenario #8-18 Champion's Chalice, Part I: Blazing Dangerous Trails	DESC:You claimed a number of a dead alchemist's infused extracts during Sargava Chalice, which you can use at any time in the future. As a standard action that provokes an attack of opportunity (as drinking a potion), you gain one of the following benefits. When you have used a given benefit, check the adjacent box, indicating that the extract has been expended. Abilities that allow you to drink potions more quickly or without provoking attacks of opportunity affect this boon, though the abilities that alter the effects of a consumed potion (such as the extend potion alchemist discovery or the alchemical allocation spell) do not.	DESC:&nl;[_]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-18 ~ Infused Extracts ~ Cure Light Wounds (0-Checked)	DESC:&nl;[X]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-18 ~ Infused Extracts ~ Cure Light Wounds (1-Checked)	DESC:cure light wounds (CL 1st)	DESC:&nl;[_]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-18 ~ Infused Extracts ~ Cure Moderate Wounds (0-Checked)	DESC:&nl;[X]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-18 ~ Infused Extracts ~ Cure Moderate Wounds (1-Checked)	DESC:cure moderate wounds (CL 4th; Subtier 4-5 only)	DESC:&nl;[_]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-18 ~ Infused Extracts ~ Resist Energy (0-Checked)	DESC:&nl;[X]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-18 ~ Infused Extracts ~ Resist Energy (1-Checked)	DESC:resist energy (CL 4th; Subtier 4-5 only)	DESC:&nl;[_]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-18 ~ Infused Extracts ~ Shield (0-Checked)	DESC:&nl;[X]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-18 ~ Infused Extracts ~ Shield (1-Checked)	DESC:shield (CL 1st)
@@ -183,13 +357,144 @@ Welcome in the Boundless Sea	KEY:PFS Scenario 8-20 ~ Welcome in the Boundless Se
 
 Sight of the Cyclops	KEY:PFS Scenario 8-21 ~ Sight of the Cyclops	CATEGORY:Special Ability	TYPE:Chronicle_S08-21.PFSBoon	VISIBLE:YES	COST:0	SOURCELONG:PFS Scenario #8-21 Champion's Chalice, Part 2: Agents of the Eye	DESC:You aided in the restoratio of the ancient Ghol-GHani city of Kaddodi, earning the respect and thanks of the long-dead cyclops mystic, Akmon. For your efforts, you cained a lingering aspect of the Sight of hte Cyclops. You can expend this boon to reroll any single d20 roll after the first roll is made but before the results of the roll are determined. You must take the second result, even if it is lower. You cannot use this boon on any roll already being rerolled by another effect. Once you use this boon, cross it off your CHronicle sheet.
 
-# TODO: Missing 8-22
+Protoflesh Mutation
+	KEY:PFS Scenario 8-22 ~ Protoflesh Mutation
+	CATEGORY:Special Ability
+	TYPE:Chronicle_S08-22.PFSBoon
+	VISIBLE:YES	COST:0
+	SOURCELONG:PFS Scenario #8-22 Wrath of the Fleshwarped Queen
+	DESC:You have acquired a mutation from the protoflesh. This mutation's effect is purely cosmetic. You can remove this mutation with remove disease or heal. The DC of the mutation for the purposes of remove disease is 12 if you played in Subtier 1–2 or 15 if you played in Subtier 4–5. If you do not immediately remove the mutation, describe it below. %1|%LIST
+	MULT:YES	SELECT:1	CHOOSE:USERINPUT|TITLE=Cosmetic Mutation
+
+Runewarden's Teachings
+	KEY:PFS Scenario 8-22 ~ Runewarden's Teachings
+	CATEGORY:Special Ability
+	TYPE:Chronicle_S08-22.PFSBoon
+	VISIBLE:YES	COST:0
+	SOURCELONG:PFS Scenario #8-22 Wrath of the Fleshwarped Queen
+	DESC:So long as you possess this boon, all of your Pathfinder Society Roleplaying Guild characters have access to the Runeguard prestige class from Pathfinder Player Companion: Paths of the Righteous as if it appeared on the Additional Resources page. Refer to the Campaign Clarifications page for this prestige class.
+
+Thassilonian Archivist
+	KEY:PFS Scenario 8-22 ~ Thassilonian Archivist
+	CATEGORY:Special Ability
+	TYPE:Chronicle_S08-22.PFSBoon
+	VISIBLE:YES	COST:0
+	SOURCELONG:PFS Scenario #8-22 Wrath of the Fleshwarped Queen
+	MULT:YES		CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=PFS-3CheckBoxes
+	DESC:[_][_][_]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-22 ~ Thassilonian Archivist (0-Checked)
+	DESC:[X][_][_]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-22 ~ Thassilonian Archivist (1-Checked)
+	DESC:[X][X][_]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-22 ~ Thassilonian Archivist (2-Checked)
+	DESC:[X][X][X]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-22 ~ Thassilonian Archivist (3-Checked)
+	DESC:Although the goblins thoroughly ransacked the Wrathwarped Halls, a few documents survived their fires and knives. Before you attempt a Knowledge check, you can check a box before this boon to add 1d4 to the result. If the Knowledge check is related to Thassilon, sin magic, fleshwarping, or similar topics (at the GM's discretion), add 1d8 instead.
 
 Clockwork Insight	KEY:PFS Scenario 8-23 ~ Clockwork Insight	CATEGORY:Special Ability	TYPE:Chronicle_S08-23.PFSBoon	VISIBLE:YES	COST:0	SOURCELONG:PFS Scenario #8-23 Graves of Crystalmaw Path	MULT:YES		CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=PFS-2CheckBoxes	DESC:[_][_]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-23 ~ Clockwork Insight (0-Checked)	DESC:[X][_]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-23 ~ Clockwork Insight (1-Checked)	DESC:[X][X]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-23 ~ Clockwork Insight (2-Checked)	DESC:Your time in the temple of Brigh has given you insight into complicated mechanisms. You can check a box that precedes this boon as part of attempting a Disable Device check to disarm a trap to roll 1d6 and add the result to the numberresult of your Disable Device check. You can instead check a box to grant yourself the ability to attempt a Disable Device check against a magical trap, even if you would not normally be able to do so. Alternatively, you can check a box when a trap triggers to add 1d6 to your AC or on youe saving throw against the trap. When you check the last box, cross this boon off your Chronicle sheet.
 Earth Affinity	KEY:PFS Scenario 8-23 ~ Earth Affinity	CATEGORY:Special Ability	TYPE:Chronicle_S08-23.PFSBoon	VISIBLE:YES	COST:0	SOURCELONG:PFS Scenario #8-23 Graves of Crystalmaw Path	DESC:Your connection to elemental earth has grown stronger over the course of your recent adventures. This boon has no mechanical effect on its own, but it may interact with other boons or play a role in future adventures—especially those set on the elemental planes.
 Grave Treader's inspiration	KEY:PFS Scenario 8-23 ~ Grave Treader's inspiration	CATEGORY:Special Ability	TYPE:Chronicle_S08-23.PFSBoon	VISIBLE:YES	COST:0	SOURCELONG:PFS Scenario #8-23 Graves of Crystalmaw Path	MULT:YES		CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=PFS-3CheckBoxes	DESC:[_][_][_]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-23 ~ Grave Treader's inspiration (0-Checked)	DESC:[X][_][_]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-23 ~ Grave Treader's inspiration (1-Checked)	DESC:[X][X][_]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-23 ~ Grave Treader's inspiration (2-Checked)	DESC:[X][X][X]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-23 ~ Grave Treader's inspiration (3-Checked)	DESC:Grave Treader shared some of her wisdom and knowledge with you, which you can apply at opportune moments. you can check a box that precedes this boon to use inspiration, as per the investigator ability (Pathfinder RPG Advanced Class Guide 31). If you already have inspiration, you can check a box to increase your inspiration die by one step (from 1d6 to 1d8, or 1d8 to 1d10) for one roll.
 
 # TODO: Missing 8-24 & 8-25
+Air Affinity	KEY:PFS Scenario 8-24 ~ Air Affinty	CATEGORY:Special Ability	TYPE:Chronicle_S08-24.PFSBoon	VISIBLE:YES	COST:0	SOURCELONG:PFS Scenario #8-24 Raid on the Cloudborne Keep	DESC:Your connection to elemental air has grown stronger over the course of your recent adventures. This boon has no mechanical effect on its own, but it may interact with other boons or play a role in future adventures—especially those set on the elemental planes.
+
+Clearing the Skies (Silver Crusade)
+	KEY:PFS Scenario 8-24 ~ Clearing the Skies
+	CATEGORY:Special Ability
+	TYPE:Chronicle_S08-24.PFSBoon
+	VISIBLE:YES	COST:0
+	SOURCELONG:PFS Scenario #8-24 Raid on the Cloudborne Keep
+	PREABILITY:1,CATEGORY=Background,Silver Crusade Faction
+	MULT:YES		CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=PFS-1CheckBoxes
+	DESC:[_]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-24 ~ Clearing the Skies (0-Checked)
+	DESC:[X]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-24 ~ Clearing the Skies (1-Checked)
+	DESC:You saved a pair of sylphs from servitude under Grasping Storm and convinced them to seek a new patron deity rather than continuing to follow the evil elemental lord Hshurha. The sylphs shared some of their insights with you to protect you and your allies from harm. You may check a box before this boon to cast feather fall as a spell-like ability with a caster level equal to your character level.
+
+Hurricane-Tempered
+	KEY:PFS Scenario 8-24 ~ Hurricane-Tempered
+	CATEGORY:Special Ability
+	TYPE:Chronicle_S08-24.PFSBoon
+	VISIBLE:YES	COST:0
+	SOURCELONG:PFS Scenario #8-24 Raid on the Cloudborne Keep
+	DESC:Your battle with Grasping Storm has granted you knowledge about the flow of winds. You may cross this boon off your Chronicle sheet to treat wind effects as if they were one category weaker per Air Affinity boon you possess for one round per Air Affinity boon. This includes penalties on ranged attacks, whether the wind checks you or blows you away, and the penalty the wind imposes on Fly checks. Treat the effective starting wind strength of effects that make ranged attacks impossible but do not specify a strength, such as wind wall, as if they were windstorms.
+
+Elemental Boon
+	KEY:PFS Scenario 8-25 ~ Elemental Boon
+	CATEGORY:Special Ability
+	TYPE:Chronicle_S08-25.PFSBoon
+	VISIBLE:YES	COST:0
+	SOURCELONG:PFS Scenario #8-25 Unleashing the Untouchable
+	DESC:Your connection to the four elements has grown stronger over the course of your recent adventures. Choose one of the four elements (air, earth, fire, or water), and treat this boon as though it were the boon Air Affinity, Earth Affinity, Fire Affinity, or Water Affinity respectively. This boon has no mechanical effect on its own, but it may interact with other boons or play a role in future adventures—especially those set on the Elemental Planes.
+	MULT:YES		CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=PFS8-25ElementalBoonChoice
+
+Air		KEY:PFS Scenario 8-25 ~ Elemental Boon ~ Air	CATEGORY:PFS Chronicle	TYPE:PFS8-25ElementalBoonChoice
+Earth	KEY:PFS Scenario 8-25 ~ Elemental Boon ~ Earth	CATEGORY:PFS Chronicle	TYPE:PFS8-25ElementalBoonChoice
+Fire	KEY:PFS Scenario 8-25 ~ Elemental Boon ~ Fire	CATEGORY:PFS Chronicle	TYPE:PFS8-25ElementalBoonChoice
+Water	KEY:PFS Scenario 8-25 ~ Elemental Boon ~ Water	CATEGORY:PFS Chronicle	TYPE:PFS8-25ElementalBoonChoice
+
+Isah's Wish
+	KEY:PFS Scenario 8-25 ~ Isah's Wish
+	CATEGORY:Special Ability
+	TYPE:Chronicle_S08-25.PFSBoon
+	VISIBLE:YES	COST:0
+	SOURCELONG:PFS Scenario #8-25 Unleashing the Untouchable
+	DESC:You secured a wish from the efreeti Isah. When you gain this boon, either spend 8 Prestige Points or cross this boon off your Chronicle sheet. Choose one of the following benefits and cross out the others.
+	MULT:YES		CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=PFS8-25IsahsWishChoice
+	DESC:&nl;Wish for Glory: Your Fame score increases to a total of 2 × your XP, as though you had earned the maximum amount of Fame in each adventure to this point. This does not increase your Prestige Point total.|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-25 ~ Isah's Wish (Wish for Glory)
+	DESC:&nl;Wish for Power: You gain a permanent +1 inherent bonus to one of your ability scores.|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-25 ~ Isah's Wish (Wish for Power)
+	DESC:&nl;Wish for Wealth: Increase your gold earned for this adventure by 25%% (rounded up).|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-25 ~ Isah's Wish (Wish for Wealth)
+	PREVARGTEQ:PP,8
+	BONUS:VAR|PP|-2
+
+Wish for Glory		CATEGORY:PFS Chronicle	TYPE:PFS8-25IsahsWishChoice
+Wish for Power		CATEGORY:PFS Chronicle	TYPE:PFS8-25IsahsWishChoice
+Wish for Wealth		CATEGORY:PFS Chronicle	TYPE:PFS8-25IsahsWishChoice
+
+Isah's Wish - Glory choice
+	KEY:PFS Scenario 8-25 ~ Isah's Wish ~ Glory choice
+	CATEGORY:Special Ability
+	TYPE:Chronicle_S08-25.PFSBoon
+	VISIBLE:DISPLAY	COST:0
+	SOURCELONG:PFS Scenario #8-25 Unleashing the Untouchable
+	DESC:Wish for Glory: Your Fame score increases to a total of 2 × your XP, as though you had earned the maximum amount of Fame in each adventure to this point. This does not increase your Prestige Point total.
+	PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-25 ~ Isah's Wish (Wish for Glory)
+# TODO: Fame bonus not implemented. I don't know how to make a chooser ask for any number of XP from 0 to 100 in order to add 2x the user selection bonus to VAR|Fame
+
+Isah's Wish - Power choice
+	KEY:PFS Scenario 8-25 ~ Isah's Wish ~ Power choice
+	CATEGORY:Special Ability
+	TYPE:Chronicle_S08-25.PFSBoon
+	VISIBLE:DISPLAY	COST:0
+	SOURCELONG:PFS Scenario #8-25 Unleashing the Untouchable
+	DESC:Wish for Power: You gain a permanent +1 inherent bonus to one of your ability scores.
+	PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-25 ~ Isah's Wish (Wish for Power)
+	MULT:YES		CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=PFS8-25IsahsWishPowerChoice
+	BONUS:STAT|STR|1|TYPE=Inherent|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-25 ~ Isah's Wish ~ Power choice (Strength)
+	BONUS:STAT|DEX|1|TYPE=Inherent|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-25 ~ Isah's Wish ~ Power choice (Dexterity)
+	BONUS:STAT|CON|1|TYPE=Inherent|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-25 ~ Isah's Wish ~ Power choice (Constitution)
+	BONUS:STAT|INT|1|TYPE=Inherent|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-25 ~ Isah's Wish ~ Power choice (Intelligence)
+	BONUS:STAT|WIS|1|TYPE=Inherent|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-25 ~ Isah's Wish ~ Power choice (Wisdom)
+	BONUS:STAT|CHA|1|TYPE=Inherent|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-25 ~ Isah's Wish ~ Power choice (Charisma)
+
+Strength		CATEGORY:PFS Chronicle	TYPE:PFS8-25IsahsWishPowerChoice
+Dexterity		CATEGORY:PFS Chronicle	TYPE:PFS8-25IsahsWishPowerChoice
+Constitution	CATEGORY:PFS Chronicle	TYPE:PFS8-25IsahsWishPowerChoice
+Intelligence	CATEGORY:PFS Chronicle	TYPE:PFS8-25IsahsWishPowerChoice
+Wisdom			CATEGORY:PFS Chronicle	TYPE:PFS8-25IsahsWishPowerChoice
+Charisma		CATEGORY:PFS Chronicle	TYPE:PFS8-25IsahsWishPowerChoice
+
+Hammer of Smiting
+	KEY:PFS Scenario 8-25 ~ Hammer of Smiting
+	CATEGORY:Special Ability
+	TYPE:Chronicle_S08-25.PFSBoon
+	VISIBLE:YES	COST:0
+	SOURCELONG:PFS Scenario #8-25 Unleashing the Untouchable
+	DESC:You have recovered an incomplete magic weapon designed to shatter constructs and outsiders. You can purchase a lesser mace of smiting or mace of smiting (Pathfinder RPG Ultimate Equipment 157), but you can apply the weapon’s unique enchantment to any weapon of your choice from the hammers weapon category (Pathfinder RPG Core Rulebook 56). A lesser mace of smiting increases its critical multiplier against constructs by 2 and its critical multiplier against outsiders by 1 (maximum ×5). A mace of smiting destroys a construct on a successful critical hit, and its critical multiplier increases by 2 against outsiders (maximum ×5).
+
+Liberated Divinity
+	KEY:PFS Scenario 8-25 ~ Liberated Divinity
+	CATEGORY:Special Ability
+	TYPE:Chronicle_S08-25.PFSBoon
+	VISIBLE:YES	COST:0
+	SOURCELONG:PFS Scenario #8-25 Unleashing the Untouchable
+	DESC:You have released the elemental lord of air Ranginori, long sealed within the Untouchable Opal. He is a legal deity in Pathfinder Society Roleplaying Guild for any characters you play or create. Ranginori is a neutral good deity who grants the Air, Good, Travel, and Weather domains (and the Clouds, Exploration, Storms, and Wind subdomains). His favored weapon is the whip.
+	DESC:&nl;[Ed Note: You must include APG source in PCGen to be able to select this deity].|!PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
 
 Belzken Veteran	KEY:PFS Scenario 8-99A ~ Belzken Veteran	CATEGORY:Special Ability	TYPE:Chronicle_S08-99A.PFSBoon	VISIBLE:YES	COST:0	SOURCELONG:PFS Scenario #8-99A The Solstice Scar, Version A	MULT:YES		CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=PFS-1CheckBoxes	DESC:[_]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-99A ~ Belzken Veteran (0-Checked)	DESC:[X]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-99A ~ Belzken Veteran (1-Checked)	DESC:You have crossed the Hold of Belken, negotiated with the orc representatives, and clashed with opportunistic raiders. You can spend 2 prestige points to learn Orc as a bonus language. In addition, you can check the box that precedes this boon to gain the benefits of the orc ferocity half-orc racial trait for 1 round. If you already have this racial trait and activate that ability, you can check the box to act normally as though you did not have the disabled condition for 1 round.
 Martyr's Shard 1	KEY:PFS Scenario 8-99A ~ Martyr's Shard 1	CATEGORY:Special Ability	TYPE:Chronicle_S08-99A.PFSBoon	VISIBLE:YES	COST:0	SOURCELONG:PFS Scenario #8-99A The Solstice Scar, Version A	MULT:YES		CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=PFS-1CheckBoxes	DESC:[_]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-99A ~ Martyr's Shard 1 (0-Checked)	DESC:[X]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 8-99A ~ Martyr's Shard 1 (1-Checked)	DESC:The paladin Ivvora weilded a powerful dagger in the servie of her angelic patron, Vildeis. In helping her recover and restore the hilt, you are able to begin imbuing a facimily of the blade to combat evil on your own terms. As a free action you can check the box that precedes this boon to grant one weapon you weild a +1 enhancement bonus (does not stack with other enhancement bonuses) and the ability to ovecome damage reduction as a cold iron, good-aligned weapon for 1 minute. Future Marty's Shard benefits may unlock additional benefits.	DESC:&nl;If you are a paladin or lawful good character capable of casting divine spells, the +1 enhancement bonus stacks with the weapon's existing enhancement bonus, if any (but not with similar additional enhancements, such as that granted by a paladin's divine bond ability). Furthermore, you can check the box that precedes this boon to instead cast dispel magic as a spell-like ability using your character level as the spell's caster level.	DESC:&nl;Any character with this bon can choose to purchase an avenging dagger (120,604 gp; functions as a holy avenger but is a dagger rather than a longsword) as though her effective Famme were 10 higher. If the character has earned two, three or all four Martyr's Shard boons, reduce the cost of an avenging dagger to 110,406 gp, 100,604 gp, or 90,604 gp respectively.
