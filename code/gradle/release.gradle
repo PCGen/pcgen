@@ -178,6 +178,7 @@ launch4j {
     //Can't be longer than 150 characters
     copyright = "PCGen's source-code is distributed under the GNU Lesser General Public License (LGPL)"
     version = "${shortVerNum}"
+    jvmOptions = ["-Dsun.java2d.dpiaware=false"]
 }
 
 task downloadJRE doLast {
