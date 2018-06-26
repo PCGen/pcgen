@@ -1,5 +1,5 @@
 # CVS $Revision: 21789 $ $Author: mjmeans $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
-#SOURCELONG:Pathfinder Society Chronicle Sheets	SOURCESHORT:PFSCS	SOURCEWEB:http://www.mywebsite.com	SOURCEDATE:2008-01
+#SOURCELONG:Pathfinder Society Season 8 Chronicle Sheets	SOURCESHORT:PFSCS8	SOURCEWEB:http://www.mywebsite.com	SOURCEDATE:2016-08
 
 # Ability Category								Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object							Plural description for UI	Display where?															Display Location
 ABILITYCATEGORY:Chronicle_S08-00						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S08-00			DISPLAYLOCATION:Chronicles								DISPLAYNAME:PFS Scenario #8-00: The Cosmic Captive
