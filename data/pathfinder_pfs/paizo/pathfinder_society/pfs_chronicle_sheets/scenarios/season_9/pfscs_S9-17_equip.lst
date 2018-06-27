@@ -2,69 +2,12 @@
 SOURCELONG:Pathfinder Society Scenario #9-17: Oath of the Overwatched	SOURCESHORT:PFS#9-17	SOURCEWEB:http://www.mywebsite.com	SOURCEDATE:2018-4
 
 # Equipment Name														Output Name				Type							Cost		Weight	Required Ability										Modifier									Requires Modification?	Source, Long Desc.						Source, Short Desc.	Source Page		Bonus Ability Pool				Combat bonus			Save bonus					Bonus to skill						Clear Special Property	Special Property
-
-Staff.COPY=Staff of the Overwatched
-	COST:10000
-	TYPE:Magic.PFS
-	QUALITY:Aura|moderate divination
-	QUALITY:CasterLevel|9th
-	WT:10
-	PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ S09-17
-	DESC:.CLEAR
-	DESC:This black basalt staff twists into irregular geometric patterns. Its structure channels the power of sacred geometry to protect its wielder, granting her some concealment against ranged attacks (a 10%% miss chance). While this staff was once one of Ralzeros's treasures, the influence of Corners of Spheres has sealed much of its potential. The staff allows the use of the following spells.
-	DESC:&nl;* identify (1 charge)
-	DESC:&nl;* twisted space (2 charges; Pathfinder RPG Ultimate Combat 248)
-	EQMOD:Special Ability ~ Staff Charges|CHARGES[10]
-	SOURCELONG:Pathfinder Society Scenario #9-17: Oath of the Overwatched
-	SOURCESHORT:PFS#9-17
-	SOURCEDATE:2018-5
-
-Staff of the Overwatched.COPY=Staff of the Overwatched (protection upgrade)
-	COST:16000
-	DESC:.CLEAR
-	DESC:This black basalt staff twists into irregular geometric patterns. Its structure channels the power of sacred geometry to protect its wielder, granting her some concealment against ranged attacks (a 20%% miss chance). While this staff was once one of Ralzeros's treasures, the influence of Corners of Spheres has sealed much of its potential. The staff allows the use of the following spells.
-	DESC:&nl;* identify (1 charge)
-	DESC:&nl;* twisted space (2 charges; Pathfinder RPG Ultimate Combat 248)
-
-Staff of the Overwatched.COPY=Staff of the Overwatched (spell upgrade)
-	COST:18000
-	DESC:.CLEAR
-	DESC:This black basalt staff twists into irregular geometric patterns. Its structure channels the power of sacred geometry to protect its wielder, granting her some concealment against ranged attacks (a 20%% miss chance). While this staff was once one of Ralzeros's treasures, the influence of Corners of Spheres has sealed much of its potential. The staff allows the use of the following spells.
-	DESC:&nl;* identify (1 charge)
-	DESC:&nl;* twisted space (1 charges; Pathfinder RPG Ultimate Combat 248)
-	DESC:&nl;* wandering star motes (2 charges; Pathfinder RPG Advanced Player’s Guide 355)
-	DESC:&nl;* hold portal (1 charge)
-
-Staff of the Overwatched.COPY=Staff of the Overwatched (protection and spell upgrade)
-	COST:24000
-	DESC:.CLEAR
-	DESC:This black basalt staff twists into irregular geometric patterns. Its structure channels the power of sacred geometry to protect its wielder, granting her some concealment against ranged attacks (a 20%% miss chance). While this staff was once one of Ralzeros's treasures, the influence of Corners of Spheres has sealed much of its potential. The staff allows the use of the following spells.
-	DESC:&nl;* identify (1 charge)
-	DESC:&nl;* twisted space (1 charges; Pathfinder RPG Ultimate Combat 248)
-	DESC:&nl;* wandering star motes (2 charges; Pathfinder RPG Advanced Player’s Guide 355)
-	DESC:&nl;* hold portal (1 charge)
-
-Staff of the Overwatched.COPY=Staff of the Overwatched (2 spell upgrades)
-	COST:26000
-	DESC:.CLEAR
-	DESC:This black basalt staff twists into irregular geometric patterns. Its structure channels the power of sacred geometry to protect its wielder, granting her some concealment against ranged attacks (a 20%% miss chance). While this staff was once one of Ralzeros's treasures, the influence of Corners of Spheres has sealed much of its potential. The staff allows the use of the following spells.
-	DESC:&nl;* identify (1 charge)
-	DESC:&nl;* twisted space (1 charges; Pathfinder RPG Ultimate Combat 248)
-	DESC:&nl;* wandering star motes (2 charges; Pathfinder RPG Advanced Player’s Guide 355)
-	DESC:&nl;* hold portal (1 charge)
-	DESC:&nl;* prying eyes (2 charges)
-	DESC:&nl;* stone shape (2 charges)
-
-Staff of the Overwatched.COPY=Staff of the Overwatched (protecion and 2 spell upgrades)
-	COST:32000
-	DESC:.CLEAR
-	DESC:This black basalt staff twists into irregular geometric patterns. Its structure channels the power of sacred geometry to protect its wielder, granting her some concealment against ranged attacks (a 20%% miss chance). While this staff was once one of Ralzeros's treasures, the influence of Corners of Spheres has sealed much of its potential. The staff allows the use of the following spells.
-	DESC:&nl;* identify (1 charge)
-	DESC:&nl;* twisted space (1 charges; Pathfinder RPG Ultimate Combat 248)
-	DESC:&nl;* wandering star motes (2 charges; Pathfinder RPG Advanced Player’s Guide 355)
-	DESC:&nl;* hold portal (1 charge)
-	DESC:&nl;* prying eyes (2 charges)
-	DESC:&nl;* stone shape (2 charges)
+Staff.COPY=Staff of the Overwatched	COST:10000	TYPE:Magic.PFS	QUALITY:Aura|moderate divination	QUALITY:CasterLevel|9th	WT:10	PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ S09-17	DESC:.CLEAR	DESC:This black basalt staff twists into irregular geometric patterns. Its structure channels the power of sacred geometry to protect its wielder, granting her some concealment against ranged attacks (a 10%% miss chance). While this staff was once one of Ralzeros's treasures, the influence of Corners of Spheres has sealed much of its potential. The staff allows the use of the following spells.	DESC:&nl;* identify (1 charge)	DESC:&nl;* twisted space (2 charges; Pathfinder RPG Ultimate Combat 248)	EQMOD:Special Ability ~ Staff Charges|CHARGES[10]	SOURCELONG:Pathfinder Society Scenario #9-17: Oath of the Overwatched	SOURCESHORT:PFS#9-17	SOURCEDATE:2018-5
+Staff of the Overwatched.COPY=Staff of the Overwatched (protection upgrade)	COST:16000	DESC:.CLEAR	DESC:This black basalt staff twists into irregular geometric patterns. Its structure channels the power of sacred geometry to protect its wielder, granting her some concealment against ranged attacks (a 20%% miss chance). While this staff was once one of Ralzeros's treasures, the influence of Corners of Spheres has sealed much of its potential. The staff allows the use of the following spells.	DESC:&nl;* identify (1 charge)	DESC:&nl;* twisted space (2 charges; Pathfinder RPG Ultimate Combat 248)
+Staff of the Overwatched.COPY=Staff of the Overwatched (spell upgrade)	COST:18000	DESC:.CLEAR	DESC:This black basalt staff twists into irregular geometric patterns. Its structure channels the power of sacred geometry to protect its wielder, granting her some concealment against ranged attacks (a 20%% miss chance). While this staff was once one of Ralzeros's treasures, the influence of Corners of Spheres has sealed much of its potential. The staff allows the use of the following spells.	DESC:&nl;* identify (1 charge)	DESC:&nl;* twisted space (1 charges; Pathfinder RPG Ultimate Combat 248)	DESC:&nl;* wandering star motes (2 charges; Pathfinder RPG Advanced Player’s Guide 355)	DESC:&nl;* hold portal (1 charge)
+Staff of the Overwatched.COPY=Staff of the Overwatched (protection and spell upgrade)	COST:24000	DESC:.CLEAR	DESC:This black basalt staff twists into irregular geometric patterns. Its structure channels the power of sacred geometry to protect its wielder, granting her some concealment against ranged attacks (a 20%% miss chance). While this staff was once one of Ralzeros's treasures, the influence of Corners of Spheres has sealed much of its potential. The staff allows the use of the following spells.	DESC:&nl;* identify (1 charge)	DESC:&nl;* twisted space (1 charges; Pathfinder RPG Ultimate Combat 248)	DESC:&nl;* wandering star motes (2 charges; Pathfinder RPG Advanced Player’s Guide 355)	DESC:&nl;* hold portal (1 charge)
+Staff of the Overwatched.COPY=Staff of the Overwatched (2 spell upgrades)	COST:26000	DESC:.CLEAR	DESC:This black basalt staff twists into irregular geometric patterns. Its structure channels the power of sacred geometry to protect its wielder, granting her some concealment against ranged attacks (a 20%% miss chance). While this staff was once one of Ralzeros's treasures, the influence of Corners of Spheres has sealed much of its potential. The staff allows the use of the following spells.	DESC:&nl;* identify (1 charge)	DESC:&nl;* twisted space (1 charges; Pathfinder RPG Ultimate Combat 248)	DESC:&nl;* wandering star motes (2 charges; Pathfinder RPG Advanced Player’s Guide 355)	DESC:&nl;* hold portal (1 charge)	DESC:&nl;* prying eyes (2 charges)	DESC:&nl;* stone shape (2 charges)
+Staff of the Overwatched.COPY=Staff of the Overwatched (protecion and 2 spell upgrades)	COST:32000	DESC:.CLEAR	DESC:This black basalt staff twists into irregular geometric patterns. Its structure channels the power of sacred geometry to protect its wielder, granting her some concealment against ranged attacks (a 20%% miss chance). While this staff was once one of Ralzeros's treasures, the influence of Corners of Spheres has sealed much of its potential. The staff allows the use of the following spells.	DESC:&nl;* identify (1 charge)	DESC:&nl;* twisted space (1 charges; Pathfinder RPG Ultimate Combat 248)	DESC:&nl;* wandering star motes (2 charges; Pathfinder RPG Advanced Player’s Guide 355)	DESC:&nl;* hold portal (1 charge)	DESC:&nl;* prying eyes (2 charges)	DESC:&nl;* stone shape (2 charges)
 
 #
 # DONE

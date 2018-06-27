@@ -2,26 +2,8 @@
 SOURCELONG:Pathfinder Society Scenario #9-14: Down the Verdant Path	SOURCESHORT:PFS#9-14	SOURCEWEB:http://www.mywebsite.com	SOURCEDATE:2018-3
 
 # Equipment Name														Output Name				Type							Cost		Weight	Required Ability										Modifier									Requires Modification?	Source, Long Desc.						Source, Short Desc.	Source Page		Bonus Ability Pool				Combat bonus			Save bonus					Bonus to skill						Clear Special Property	Special Property
-
-Bag of Tricks (Gray).COPY=Growling Bag of Tricks (Gray)
-	COST:1500
-	QUALITY:Aura|faint conjuration
-	QUALITY:CasterLevel|3rd
-	DESC:&nl;On the First World, you found a fur-covered bag that grumbles and growls. This functions as a typical bag of tricks, with the following modifications. A growling bag of tricks can be used once per day, to a maximum of 3 times per week, and the creatures it summons last for 5 minutes. The animals it summons come from the First World. They have unusual physical features, such as bizarre coloration or abnormally long fur. Compared to typical animals of their type, they gain resistance 5 to both cold and electricity and a +4 bonus on saving throws against mind-affecting effects. Their creature type counts as both animal and fey.
-	SOURCELONG:Pathfinder Society Scenario #9-14: Down the Verdant Path
-	SOURCESHORT:PFS#9-14
-	SOURCEDATE:2018-3
-	PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ S09-14
-
-Bag of Tricks (Rust).COPY=Growling Bag of Tricks (Rust)
-	COST:4000
-	QUALITY:Aura|faint conjuration
-	QUALITY:CasterLevel|5th
-	DESC:&nl;On the First World, you found a fur-covered bag that grumbles and growls. This functions as a typical bag of tricks, with the following modifications. A growling bag of tricks can be used once per day, to a maximum of 3 times per week, and the creatures it summons last for 5 minutes. The animals it summons come from the First World. They have unusual physical features, such as bizarre coloration or abnormally long fur. Compared to typical animals of their type, they gain resistance 5 to both cold and electricity and a +4 bonus on saving throws against mind-affecting effects. Their creature type counts as both animal and fey.
-	SOURCELONG:Pathfinder Society Scenario #9-14: Down the Verdant Path
-	SOURCESHORT:PFS#9-14
-	SOURCEDATE:2018-3
-	PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ S09-14 (Subtier 4-5)
+Bag of Tricks (Gray).COPY=Growling Bag of Tricks (Gray)	COST:1500	QUALITY:Aura|faint conjuration	QUALITY:CasterLevel|3rd	DESC:&nl;On the First World, you found a fur-covered bag that grumbles and growls. This functions as a typical bag of tricks, with the following modifications. A growling bag of tricks can be used once per day, to a maximum of 3 times per week, and the creatures it summons last for 5 minutes. The animals it summons come from the First World. They have unusual physical features, such as bizarre coloration or abnormally long fur. Compared to typical animals of their type, they gain resistance 5 to both cold and electricity and a +4 bonus on saving throws against mind-affecting effects. Their creature type counts as both animal and fey.	SOURCELONG:Pathfinder Society Scenario #9-14: Down the Verdant Path	SOURCESHORT:PFS#9-14	SOURCEDATE:2018-3	PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ S09-14
+Bag of Tricks (Rust).COPY=Growling Bag of Tricks (Rust)	COST:4000	QUALITY:Aura|faint conjuration	QUALITY:CasterLevel|5th	DESC:&nl;On the First World, you found a fur-covered bag that grumbles and growls. This functions as a typical bag of tricks, with the following modifications. A growling bag of tricks can be used once per day, to a maximum of 3 times per week, and the creatures it summons last for 5 minutes. The animals it summons come from the First World. They have unusual physical features, such as bizarre coloration or abnormally long fur. Compared to typical animals of their type, they gain resistance 5 to both cold and electricity and a +4 bonus on saving throws against mind-affecting effects. Their creature type counts as both animal and fey.	SOURCELONG:Pathfinder Society Scenario #9-14: Down the Verdant Path	SOURCESHORT:PFS#9-14	SOURCEDATE:2018-3	PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ S09-14 (Subtier 4-5)
 
 #
 # DONE
