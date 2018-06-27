@@ -1,0 +1,18 @@
+# CVS $Revision: $ $Author: mjmeans $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Society Scenario #9-11: The Jarlsblood Witch Saga	SOURCESHORT:PFS#9-11	SOURCEWEB:http://www.mywebsite.com	SOURCEDATE:2018-1
+
+# Modifier Name	Unique Key			Type													Cost							Visible		Type granted			Keys to replace		Source Page		Required Type				Modify VAR							Bonus Equip Mods						Bonus Armor Mods																			Weapon prop. bonus																	Special Property			Ability										Change Armor Type		Choose		Apply to both heads	Nb of Charges
+
+Material ~ Dragonhide.COPY=Material ~ Linnormhide
+	ITYPE:Linnormhide.Nonmetal.Masterwork
+	ABILITY:Special Ability|AUTOMATIC|Immunity To Fire
+	SOURCELONG:Pathfinder Society Scenario #9-11: The Jarlsblood Witch Saga
+	SOURCESHORT:PFS#9-11
+	SOURCEDATE:2018-1
+	PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ S09-11
+
+Material ~ Linnormhide.COPY=Linnormhide		VISIBLE:NO
+
+#
+# DONE
+#
