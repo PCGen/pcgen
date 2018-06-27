@@ -2,18 +2,8 @@
 SOURCELONG:Pathfinder Society Scenario #9-05: Call of the Copper Gate	SOURCESHORT:PFS#9-05	SOURCEWEB:http://www.mywebsite.com	SOURCEDATE:2017-09
 
 # Equipment Name														Output Name				Type							Cost		Weight	Required Ability										Modifier									Requires Modification?	Source, Long Desc.						Source, Short Desc.	Source Page		Bonus Ability Pool				Combat bonus			Save bonus					Bonus to skill						Clear Special Property	Special Property
-Shards of Aucturn
-	TYPE:Magic.Wondrous.PFS
-	COST:400
-	WT:0
-	PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ S09-05
-	DESC:This bag contains 56 assorted pieces of debris connected to the distant planet Aucturn. Dumping the bag fills a 10-foot square area with shards, which function as magic caltrops with a +1 bonus on their attack roll. If a creature steps on a shard, it suffers the usual effects of a caltrop injury, and the shards animate into a swarm (rolling their own initiative). The activated shards function as a spider swarm without poison. A creature that takes damage from the swarm must succeed at a DC 11 Fortitude save or take 1d2 points of precision damage from invasive lacerations to whichever ability score is currently the highest. Once activated, the shards attack their target and any other nearby creatures. After 5 rounds, the shards disintegrate.
-	QUALITY:Aura|faint transmutation
-	QUALITY:Caster Level|5th
-	QUALITY:Slot|none
-	QUALITY:Construction Cost|200
-	QUALITY:Construction Requirements|Craft Wondrous Item, animate objects, bleed
-	
+Shards of Aucturn	TYPE:Magic.Wondrous.PFS	COST:400	WT:0	PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ S09-05	DESC:This bag contains 56 assorted pieces of debris connected to the distant planet Aucturn. Dumping the bag fills a 10-foot square area with shards, which function as magic caltrops with a +1 bonus on their attack roll. If a creature steps on a shard, it suffers the usual effects of a caltrop injury, and the shards animate into a swarm (rolling their own initiative). The activated shards function as a spider swarm without poison. A creature that takes damage from the swarm must succeed at a DC 11 Fortitude save or take 1d2 points of precision damage from invasive lacerations to whichever ability score is currently the highest. Once activated, the shards attack their target and any other nearby creatures. After 5 rounds, the shards disintegrate.	QUALITY:Aura|faint transmutation	QUALITY:Caster Level|5th	QUALITY:Slot|none	QUALITY:Construction Cost|200	QUALITY:Construction Requirements|Craft Wondrous Item, animate objects, bleed
+
 #
 # DONE
 #
