@@ -54,7 +54,7 @@ Subtier 10-11																																							CATEGORY:PFS Chronicle		TYPE
 Subtier 1-12																																							CATEGORY:PFS Chronicle		TYPE:Tier 1-12
 Subtier 12																																								CATEGORY:PFS Chronicle		TYPE:Tier 12
 Subtier 12+																																								CATEGORY:PFS Chronicle		TYPE:Tier 1-15
-Subtier 1																																								CATEGORY:PFS Chronicle		TYPE:Tier 1.Tier 1-2.Tier 1or2
+Subtier 1																																								CATEGORY:PFS Chronicle		TYPE:Tier 1.Tier 1-2.Tier 1or2.Tier 12345
 Subtier 1-3																																								CATEGORY:PFS Chronicle		TYPE:Tier 1-3
 Subtier 10-12																																							CATEGORY:PFS Chronicle		TYPE:Tier 10-12
 Subtier 11-13																																							CATEGORY:PFS Chronicle		TYPE:Tier 11-13
@@ -73,19 +73,23 @@ Subtier 6-8																																								CATEGORY:PFS Chronicle		TYPE:
 Subtier 7-9																																								CATEGORY:PFS Chronicle		TYPE:Tier 7-9
 Subtier 8-10																																							CATEGORY:PFS Chronicle		TYPE:Tier 8-10
 Subtier 9-11																																							CATEGORY:PFS Chronicle		TYPE:Tier 9-11
-Subtier 2																																								CATEGORY:PFS Chronicle		TYPE:Tier 246.Tier 2.Tier 1-2.Tier 1or2
-Subtier 4																																								CATEGORY:PFS Chronicle		TYPE:Tier 246
+Subtier 2																																								CATEGORY:PFS Chronicle		TYPE:Tier 246.Tier 2.Tier 1-2.Tier 1or2.Tier 12345
+Subtier 3																																								CATEGORY:PFS Chronicle		TYPE:Tier 12345
+Subtier 4																																								CATEGORY:PFS Chronicle		TYPE:Tier 246.Tier 12345
+Subtier 5																																								CATEGORY:PFS Chronicle		TYPE:Tier 12345
 Subtier 6																																								CATEGORY:PFS Chronicle		TYPE:Tier 246
 
 #####################
 # Check Box Choices #
 #####################
 
-0-Checked			CATEGORY:PFS Chronicle		TYPE:PFS-1CheckBoxes.PFS-2CheckBoxes.PFS-3CheckBoxes.PFS-4CheckBoxes
-1-Checked			CATEGORY:PFS Chronicle		TYPE:PFS-1CheckBoxes.PFS-2CheckBoxes.PFS-3CheckBoxes.PFS-4CheckBoxes
-2-Checked			CATEGORY:PFS Chronicle		TYPE:PFS-2CheckBoxes.PFS-3CheckBoxes.PFS-4CheckBoxes
-3-Checked			CATEGORY:PFS Chronicle		TYPE:PFS-3CheckBoxes.PFS-4CheckBoxes
-4-Checked			CATEGORY:PFS Chronicle		TYPE:PFS-4CheckBoxes
+0-Checked			CATEGORY:PFS Chronicle		TYPE:PFS-6CheckBoxes.PFS-5CheckBoxes.PFS-1CheckBoxes.PFS-2CheckBoxes.PFS-3CheckBoxes.PFS-4CheckBoxes
+1-Checked			CATEGORY:PFS Chronicle		TYPE:PFS-6CheckBoxes.PFS-5CheckBoxes.PFS-1CheckBoxes.PFS-2CheckBoxes.PFS-3CheckBoxes.PFS-4CheckBoxes
+2-Checked			CATEGORY:PFS Chronicle		TYPE:PFS-6CheckBoxes.PFS-5CheckBoxes.PFS-2CheckBoxes.PFS-3CheckBoxes.PFS-4CheckBoxes
+3-Checked			CATEGORY:PFS Chronicle		TYPE:PFS-6CheckBoxes.PFS-5CheckBoxes.PFS-3CheckBoxes.PFS-4CheckBoxes
+4-Checked			CATEGORY:PFS Chronicle		TYPE:PFS-6CheckBoxes.PFS-5CheckBoxes.PFS-4CheckBoxes
+5-Checked			CATEGORY:PFS Chronicle		TYPE:PFS-6CheckBoxes.PFS-5CheckBoxes
+6-Checked			CATEGORY:PFS Chronicle		TYPE:PFS-6CheckBoxes
 
 ######################
 # Sanctioned Modules #
