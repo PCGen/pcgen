@@ -1849,17 +1849,8 @@ ${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialQuality}.TYPE=SpecialQua
     </tr>
 <@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=PFS Chronicle","TYPE=PFSChronicle","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; PFSChronicle , PFSChronicle_has_next>
 <#if (PFSChronicle % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
-     <td valign="top" class="font8"><b>
-<#assign typeOfAbility = pcstring("ABILITYALL.PFS Chronicle.VISIBLE.${PFSChronicle}.TYPE=PFSChronicle.TYPE")?lower_case />
-<#if (pcstring("ABILITYALL.PFS Chronicle.VISIBLE.${PFSChronicle}.TYPE=PFSChronicle.HASASPECT.Name") = "Y")>
-${pcstring('ABILITYALL.PFS Chronicle.VISIBLE.${PFSChronicle}.TYPE=PFSChronicle.ASPECT.Name')}
-<@typeOfAbilitySuffix typeOfAbility=typeOfAbility />
-<#else>
+     <td valign="top" class="font8">
 ${pcstring('ABILITYALL.PFS Chronicle.VISIBLE.${PFSChronicle}.TYPE=PFSChronicle')}
-<@typeOfAbilitySuffix typeOfAbility=typeOfAbility />
-</#if>
-</b>
-${pcstring('ABILITYALL.PFS Chronicle.VISIBLE.${PFSChronicle}.TYPE=PFSChronicle.DESC')}
     </td>
     </tr>
 </@loop>
