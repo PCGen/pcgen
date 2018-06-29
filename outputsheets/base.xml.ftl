@@ -1631,6 +1631,75 @@
 		</${nodeName}>
 	</@loop>
 	</#macro>
+	<#macro abilityBlockNS category nature hidden typeName nodeName >
+	<#if hidden>
+		<#assign visCriteria = 'VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY' />
+		<#assign visName = 'HIDDEN' />
+	<#else>
+		<#assign visCriteria = 'VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY' />
+		<#assign visName = 'VISIBLE' />
+	</#if>
+	<#assign abilityToken = 'ABILITY' />
+	<#assign isAuto = 'F' />
+	<#assign isVirtual = 'F' />
+	<#if nature='AUTOMATIC'>
+		<#assign abilityToken = 'ABILITYAUTO' />
+		<#assign isAuto = 'T' />
+	<#elseif nature='VIRTUAL' >
+		<#assign abilityToken = 'VABILITY' />
+		<#assign isVirtual = 'T' />
+	<#elseif nature='ALL' >
+		<#assign abilityToken = 'ABILITYALL' />
+	</#if>
+	<#assign typeFilter = "" />
+	<#assign typeCountFilter = "" />
+	<#if typeName!=''>
+		<#assign typeFilter = ".TYPE=${typeName}" />
+		<#assign typeCountFilter = ',"TYPE=${typeName}"' />
+	</#if>
+	<#if (nature='ALL') >
+		<#assign numAbilities =
+			pcvar('countdistinct("ABILITIES","CATEGORY=${category}","${visCriteria}"${typeCountFilter})') />
+	<#else>
+		<#assign numAbilities =
+			pcvar('countdistinct("ABILITIES","CATEGORY=${category}","${visCriteria}","NATURE=${nature}"${typeCountFilter})') />
+	</#if>
+	<#if (numAbilities > 0) >
+		<!-- ${visName?capitalize} ${nature?capitalize} "${category}" Ability Objects -->
+	</#if>
+	<@loop from=0 to=numAbilities-1 ; abilityIdx >
+		<#assign abilityExportToken = "${abilityToken}.${category}.${visName}.${abilityIdx}${typeFilter}" />
+		<#assign typeOfAbility =
+			pcstring("${abilityExportToken}.TYPE")?lower_case />
+		<#if (pcstring("${abilityExportToken}.HASASPECT.Name") = "Y")>
+			<#assign abilityName = pcstring("${abilityExportToken}.ASPECT.Name") />
+		<#else>
+			<#assign abilityName = pcstring("${abilityExportToken}") />
+		</#if>
+		<${nodeName}>
+			<#if (typeOfAbility?contains("extraordinary"))>
+				<name>${abilityName} (Ex)</name>
+			<#elseif (typeOfAbility?contains("supernatural"))>
+				<name>${abilityName} (Su)</name>
+			<#elseif (typeOfAbility?contains("spelllike"))>
+				<name>${abilityName} (Sp)</name>
+			<#elseif (typeOfAbility?contains("psilike"))>
+				<name>${abilityName} (Ps)</name>
+			<#else>
+				<name>${abilityName}</name>
+			</#if>
+			<description>${pcstring("${abilityExportToken}.DESC")}</description>
+			<type>${pcstring("${abilityExportToken}.TYPE")}</type>
+			<associated>${pcstring("${abilityExportToken}.ASSOCIATED")}</associated>
+			<count>${pcstring("${abilityExportToken}.ASSOCIATEDCOUNT")}</count>
+			<aspect>${pcstring('${abilityExportToken}.ASPECT')}</aspect>
+			<auto>${isAuto}</auto>
+			<hidden><#if hidden>T<#else>F</#if></hidden>
+			<virtual>${isVirtual}</virtual>
+			<category>${category}</category>
+		</${nodeName}>
+	</@loop>
+	</#macro>
 	<!--
 	  ====================================
 	  ====================================
@@ -2705,7 +2774,7 @@
 	  ====================================
 	  ====================================-->
 	<pfs_chronicles>
-	<@abilityBlock category="PFS Chronicle" nature="ALL" hidden=false typeName="PFSChronicle" nodeName="pfs_chronicle" />
+	<@abilityBlockNS category="PFS Chronicle" nature="ALL" hidden=false typeName="PFSChronicle" nodeName="pfs_chronicle" />
 	</pfs_chronicles>
 	<!--
 	  ====================================

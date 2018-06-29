@@ -32,6 +32,13 @@ CATEGORY=Background|Liberty's Edge Faction.MOD		ABILITY:Background|AUTOMATIC|And
 CATEGORY=Background|Scarab Sages Faction.MOD		ABILITY:Background|AUTOMATIC|Osirion Faction
 CATEGORY=Background|Sovereign Court Faction.MOD		ABILITY:Background|AUTOMATIC|Taldor Faction
 
+####################
+# GM GRANT FACTION #
+####################
+
+# Used for granting multiple faction access mostly for testing purposes
+
++PFS Faction Access			KEY:Faction Access ~ PFS Faction Access	CATEGORY:Special Ability		SORTKEY:Faction_1	TYPE:GM_Award.SpecialQuality		VISIBLE:YES		STACK:YES	MULT:YES	COST:0	CHOOSE:ABILITYSELECTION|Background|TYPE=Active Faction		ABILITY:Society Faction|AUTOMATIC|%LIST			ASPECT:NAME|%1|%CHOICE	DESC:Your current faction is %1|%LIST
 
 #####################
 # SEASON 4 FACTIONS #

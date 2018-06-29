@@ -2547,7 +2547,7 @@
 	  ====================================
 	  ====================================-->
 	<pfs_chronicles>
-	<@abilityBlock category="PFS Chronicle" nature="ALL" hidden=false typeName="PFSChronicle" nodeName="pfs_chronicle" />
+	<@abilityBlockNS category="PFS Chronicle" nature="ALL" hidden=false typeName="PFSChronicle" nodeName="pfs_chronicle" />
 	</pfs_chronicles>
 	<!--
 	  ====================================

@@ -2052,9 +2052,8 @@ ${pcstring('ABILITYALL.PFS Chronicle.VISIBLE.${PFSChronicle}.TYPE=PFSChronicle.A
 ${pcstring('ABILITYALL.PFS Chronicle.VISIBLE.${PFSChronicle}.TYPE=PFSChronicle')}
 <@typeOfAbilitySuffix typeOfAbility=typeOfAbility />
 </#if>
-:</b>
+</b>
 ${pcstring('ABILITYALL.PFS Chronicle.VISIBLE.${PFSChronicle}.TYPE=PFSChronicle.DESC')}
-<i>&#8212; [${pcstring('ABILITYALL.PFS Chronicle.VISIBLE.${PFSChronicle}.TYPE=PFSChronicle.SOURCE')}]</i>
     </td>
     </tr>
 </@loop>
