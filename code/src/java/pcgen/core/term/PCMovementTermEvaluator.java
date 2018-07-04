@@ -23,15 +23,14 @@ package pcgen.core.term;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.core.spell.Spell;
 
-public class PCMovementTermEvaluator
-		extends BasePCDTermEvaluator implements TermEvaluator
+public class PCMovementTermEvaluator extends BasePCDTermEvaluator implements TermEvaluator
 {
 	private final String movement;
 
 	public PCMovementTermEvaluator(String originalText, String movement)
 	{
 		this.originalText = originalText;
-		this.movement     = movement;
+		this.movement = movement;
 	}
 
 	@Override
@@ -41,13 +40,13 @@ public class PCMovementTermEvaluator
 	}
 
 	@Override
-	public String evaluate (CharacterDisplay display)
+	public String evaluate(CharacterDisplay display)
 	{
 		return String.valueOf(display.movementOfType(movement));
 	}
 
 	@Override
-	public String evaluate (CharacterDisplay display, Spell aSpell)
+	public String evaluate(CharacterDisplay display, Spell aSpell)
 	{
 		return String.valueOf(display.movementOfType(movement));
 	}

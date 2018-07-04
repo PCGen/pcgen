@@ -26,8 +26,7 @@ import java.util.List;
 import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.core.display.CharacterDisplay;
 
-public class PCCountMiscMagicTermEvaluator
-		extends BasePCDTermEvaluator implements TermEvaluator
+public class PCCountMiscMagicTermEvaluator extends BasePCDTermEvaluator implements TermEvaluator
 {
 	public PCCountMiscMagicTermEvaluator(String originalText)
 	{

@@ -28,11 +28,13 @@ public abstract class BaseEQTermEvaluator
 {
 	protected String originalText;
 
-	public String evaluate(PlayerCharacter pc) {
+	public String evaluate(PlayerCharacter pc)
+	{
 		return "0.0";
 	}
 
-	public String evaluate(PlayerCharacter pc,  final Spell aSpell) {
+	public String evaluate(PlayerCharacter pc, final Spell aSpell)
+	{
 		return "0.0";
 	}
 
@@ -41,8 +43,8 @@ public abstract class BaseEQTermEvaluator
 		return TermUtil.convertToFloat(originalText, evaluate(pc));
 	}
 
-	public Float resolve(PlayerCharacter pc, final CharacterSpell aSpell) {
+	public Float resolve(PlayerCharacter pc, final CharacterSpell aSpell)
+	{
 		return TermUtil.convertToFloat(originalText, evaluate(pc, aSpell == null ? null : aSpell.getSpell()));
 	}
 }
-

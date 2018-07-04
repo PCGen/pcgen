@@ -26,9 +26,8 @@ import pcgen.persistence.lst.CampaignSourceEntry;
 
 public interface Loader
 {
-	public List<CDOMObject> process(StringBuilder sb, int line,
-			String lineString, ConversionDecider decider)
-			throws PersistenceLayerException, InterruptedException;
+	public List<CDOMObject> process(StringBuilder sb, int line, String lineString, ConversionDecider decider)
+		throws PersistenceLayerException, InterruptedException;
 
 	public List<CampaignSourceEntry> getFiles(Campaign campaign);
 

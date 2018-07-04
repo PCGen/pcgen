@@ -30,25 +30,20 @@ public class ConditionallyGrantedAvailableSpellFacet
 
 	public void update(CharID id)
 	{
-		Collection<AvailableSpell> set =
-				conditionallyAvailableSpellFacet.getQualifiedSet(id);
+		Collection<AvailableSpell> set = conditionallyAvailableSpellFacet.getQualifiedSet(id);
 		for (AvailableSpell as : set)
 		{
-			Collection<Object> sources =
-					conditionallyAvailableSpellFacet.getSources(id, as);
+			Collection<Object> sources = conditionallyAvailableSpellFacet.getSources(id, as);
 			for (Object source : sources)
 			{
-				availableSpellFacet.add(id, as.getSpelllist(), as.getLevel(),
-					as.getSpell(), source);
+				availableSpellFacet.add(id, as.getSpelllist(), as.getLevel(), as.getSpell(), source);
 			}
 		}
 	}
 
-	public void setConditionallyAvailableSpellFacet(
-		ConditionallyAvailableSpellFacet conditionallyAvailableSpellFacet)
+	public void setConditionallyAvailableSpellFacet(ConditionallyAvailableSpellFacet conditionallyAvailableSpellFacet)
 	{
-		this.conditionallyAvailableSpellFacet =
-				conditionallyAvailableSpellFacet;
+		this.conditionallyAvailableSpellFacet = conditionallyAvailableSpellFacet;
 	}
 
 	public void setAvailableSpellFacet(AvailableSpellFacet availableSpellFacet)

@@ -37,12 +37,12 @@ public class TodoManager
 	{
 		todoList = new DefaultListFacade<>();
 	}
-	
+
 	synchronized ListFacade<TodoFacade> getTodoList()
 	{
 		return todoList;
 	}
-	
+
 	/**
 	 * Add a task to be done to the todo list, if it is not already there.
 	 * @param item The item to be added
@@ -54,7 +54,7 @@ public class TodoManager
 			todoList.addElement(item);
 		}
 	}
-	
+
 	/**
 	 * Remove a task to be done from the todo list.
 	 * @param messageKey The message key of the item to be removed
@@ -63,7 +63,7 @@ public class TodoManager
 	{
 		todoList.removeElement(findTodoByMessage(messageKey, null));
 	}
-	
+
 	/**
 	 * Remove a task to be done from the todo list.
 	 * @param messageKey The message key of the item to be removed
@@ -98,5 +98,5 @@ public class TodoManager
 
 		return null;
 	}
-	
+
 }

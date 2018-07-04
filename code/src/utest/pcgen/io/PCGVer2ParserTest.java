@@ -17,11 +17,15 @@
  */
 package pcgen.io;
 
-import pcgen.system.PCGenPropBundle;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.fail;
 
 import org.junit.Test;
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.*;
+
+import pcgen.system.PCGenPropBundle;
 
 
 public class PCGVer2ParserTest

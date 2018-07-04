@@ -131,7 +131,8 @@ public class DataLoadTest implements PCGenTaskListener
 	}
 
 	/**
-	 * Test the load of the current source. This will check for any load errors or warnings but ignores deprecation warnings.  
+	 * Test the load of the current source.
+	 * This will check for any load errors or warnings but ignores deprecation warnings.
 	 */
 	@Test
 	public void testLoadSources()

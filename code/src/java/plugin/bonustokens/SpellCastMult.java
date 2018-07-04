@@ -22,7 +22,6 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.util.SpellCastInfo;
 import pcgen.rules.context.LoadContext;
 
-
 public final class SpellCastMult extends BonusObj
 {
 	/*

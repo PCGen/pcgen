@@ -15,7 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
- package plugin.overland;
+package plugin.overland;
 
 import java.awt.Component;
 import java.awt.event.ActionEvent;
@@ -26,6 +26,9 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 
+import gmgen.GMGenSystemView;
+import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
+import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.tools.Utility;
 import pcgen.pluginmgr.InteractivePlugin;
@@ -34,10 +37,6 @@ import pcgen.pluginmgr.PCGenMessageHandler;
 import pcgen.pluginmgr.messages.FocusOrStateChangeOccurredMessage;
 import pcgen.system.LanguageBundle;
 import plugin.overland.gui.OverPanel;
-
-import gmgen.GMGenSystemView;
-import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
-import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
 
 /**
  * The {@code Overland Plugin} provides a number
@@ -66,10 +65,10 @@ public class OverlandPlugin implements InteractivePlugin
 	/**
 	 * Starts the plugin, registering itself with the {@code TabAddMessage}.
 	 */
-    @Override
+	@Override
 	public void start(PCGenMessageHandler mh)
 	{
-    	messageHandler = mh;
+		messageHandler = mh;
 		File datadir = this.getDataDirectory();
 		theView = new OverPanel(datadir);
 		messageHandler.handleMessage(new RequestAddTabToGMGenMessage(this, getLocalizedName(), getView()));
@@ -82,7 +81,7 @@ public class OverlandPlugin implements InteractivePlugin
 		messageHandler = null;
 	}
 
-    @Override
+	@Override
 	public int getPriority()
 	{
 		return SettingsHandler.getGMGenOption(LOG_NAME + ".LoadOrder", 90);
@@ -92,12 +91,12 @@ public class OverlandPlugin implements InteractivePlugin
 	 * Accessor for name
 	 * @return name
 	 */
-    @Override
+	@Override
 	public String getPluginName()
 	{
 		return NAME;
 	}
-	
+
 	private String getLocalizedName()
 	{
 		return LanguageBundle.getString(IN_NAME);
@@ -116,7 +115,7 @@ public class OverlandPlugin implements InteractivePlugin
 	 * listens to messages from the GMGen system, and handles them as needed
 	 * @param message the source of the event from the system
 	 */
-    @Override
+	@Override
 	public void handleMessage(PCGenMessage message)
 	{
 		if (message instanceof FocusOrStateChangeOccurredMessage)
@@ -162,9 +161,8 @@ public class OverlandPlugin implements InteractivePlugin
 	{
 		JTabbedPane tp = GMGenSystemView.getTabPane();
 
-		IntStream.range(0, tp.getTabCount())
-		         .filter(i -> tp.getComponentAt(i) instanceof OverPanel)
-		         .forEach(tp::setSelectedIndex);
+		IntStream.range(0, tp.getTabCount()).filter(i -> tp.getComponentAt(i) instanceof OverPanel)
+			.forEach(tp::setSelectedIndex);
 	}
 
 	@Override

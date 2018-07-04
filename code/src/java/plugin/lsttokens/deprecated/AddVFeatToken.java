@@ -28,8 +28,7 @@ import pcgen.rules.persistence.token.CDOMCompatibilityToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
-public class AddVFeatToken extends AbstractNonEmptyToken<CDOMObject> implements
-		CDOMCompatibilityToken<CDOMObject>
+public class AddVFeatToken extends AbstractNonEmptyToken<CDOMObject> implements CDOMCompatibilityToken<CDOMObject>
 {
 	@Override
 	public String getTokenName()
@@ -38,8 +37,7 @@ public class AddVFeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		CDOMObject obj, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj, String value)
 	{
 		ParsingSeparator sep = new ParsingSeparator(value, '|');
 		sep.addGroupingPair('[', ']');
@@ -61,8 +59,7 @@ public class AddVFeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 			count = FormulaFactory.getFormulaFor(activeValue);
 			if (!count.isValid())
 			{
-				return new ParseResult.Fail("Count in " + getTokenName()
-					+ " was not valid: " + count.toString());
+				return new ParseResult.Fail("Count in " + getTokenName() + " was not valid: " + count.toString());
 			}
 			if (count.isStatic() && count.resolveStatic().doubleValue() <= 0)
 			{
@@ -72,13 +69,11 @@ public class AddVFeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 		}
 		if (sep.hasNext())
 		{
-			return new ParseResult.Fail(
-				"ADD:VFEAT had too many pipe separated items: " + value);
+			return new ParseResult.Fail("ADD:VFEAT had too many pipe separated items: " + value);
 		}
 		try
 		{
-			if (!context.processToken(obj, "ADD",
-				"ABILITY|" + count.toString() + "|FEAT|VIRTUAL|" + activeValue))
+			if (!context.processToken(obj, "ADD", "ABILITY|" + count.toString() + "|FEAT|VIRTUAL|" + activeValue))
 			{
 				Logging.replayParsedMessages();
 				return new ParseResult.Fail("Delegation Error from ADD:VFEAT");
@@ -86,8 +81,7 @@ public class AddVFeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 		}
 		catch (PersistenceLayerException e)
 		{
-			return new ParseResult.Fail("Delegation Error from ADD:VFEAT: "
-					+ e.getLocalizedMessage());
+			return new ParseResult.Fail("Delegation Error from ADD:VFEAT: " + e.getLocalizedMessage());
 		}
 		return ParseResult.SUCCESS;
 	}

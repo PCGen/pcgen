@@ -50,8 +50,7 @@ public final class TableFormatManager implements FormatManager<DataTable>
 	 *            The FormatManager for the format of the Lookup column of the DataTable
 	 *            format represented by this TableFormatManager
 	 */
-	public TableFormatManager(FormatManager<DataTable> tableFormat,
-		FormatManager<?> lookupFormat)
+	public TableFormatManager(FormatManager<DataTable> tableFormat, FormatManager<?> lookupFormat)
 	{
 		this.tableFormat = Objects.requireNonNull(tableFormat);
 		this.lookupFormat = Objects.requireNonNull(lookupFormat);

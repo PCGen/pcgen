@@ -45,8 +45,7 @@ public class LevelToken extends Token
 	}
 
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		String retString = "";
 		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
@@ -59,7 +58,7 @@ public class LevelToken extends Token
 			level = Integer.parseInt(aTok.nextToken());
 		}
 
-		if (level < 1 || level >  pc.getDisplay().getLevelInfoSize())
+		if (level < 1 || level > pc.getDisplay().getLevelInfoSize())
 		{
 			//TODO Error?
 			return "";
@@ -106,7 +105,8 @@ public class LevelToken extends Token
 		PCClass aClass = pc.getClassKeyed(classKeyName);
 		if (aClass == null)
 		{
-			aClass = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class, classKeyName);
+			aClass = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class,
+				classKeyName);
 			if (aClass != null)
 			{
 				CDOMSingleRef<PCClass> exc = aClass.get(ObjectKey.EX_CLASS);

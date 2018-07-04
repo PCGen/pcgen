@@ -25,15 +25,14 @@ import pcgen.core.Skill;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.core.spell.Spell;
 
-public class PCSkillRankTermEvaluator
-		extends BasePCDTermEvaluator implements TermEvaluator
+public class PCSkillRankTermEvaluator extends BasePCDTermEvaluator implements TermEvaluator
 {
 	private final String rank;
 
 	public PCSkillRankTermEvaluator(String originalText, String rank)
 	{
 		this.originalText = originalText;
-		this.rank         = rank;
+		this.rank = rank;
 	}
 
 	@Override
@@ -41,25 +40,25 @@ public class PCSkillRankTermEvaluator
 	{
 		return TermUtil.convertToFloat(originalText, evaluate(display));
 	}
-	
+
 	@Override
 	public String evaluate(CharacterDisplay display)
 	{
-		Skill skill = Globals.getContext().getReferenceContext()
-				.silentlyGetConstructedCDOMObject(Skill.class, rank);
+		Skill skill = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Skill.class, rank);
 		if (skill == null || !display.hasSkill(skill))
 		{
 			return "0.0";
 		}
 
-		return display.getRank(skill).toString();		
+		return display.getRank(skill).toString();
 	}
 
 	@Override
-	public String evaluate(CharacterDisplay display,  final Spell aSpell) {
+	public String evaluate(CharacterDisplay display, final Spell aSpell)
+	{
 		return evaluate(display);
 	}
-	
+
 	@Override
 	public boolean isSourceDependant()
 	{

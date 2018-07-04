@@ -37,8 +37,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with LANGBONUS Token
  */
-public class LangbonusToken extends AbstractTokenWithSeparator<PCTemplate>
-		implements CDOMPrimaryToken<PCTemplate>
+public class LangbonusToken extends AbstractTokenWithSeparator<PCTemplate> implements CDOMPrimaryToken<PCTemplate>
 {
 
 	private static final Class<Language> LANGUAGE_CLASS = Language.class;
@@ -70,29 +69,21 @@ public class LangbonusToken extends AbstractTokenWithSeparator<PCTemplate>
 			{
 				if (!firstToken)
 				{
-					return new ParseResult.Fail("Non-sensical situation was "
-							+ "encountered while parsing " + getTokenName()
-							+ ": When used, .CLEAR must be the first argument");
+					return new ParseResult.Fail("Non-sensical situation was " + "encountered while parsing "
+						+ getTokenName() + ": When used, .CLEAR must be the first argument");
 				}
-				context.getListContext().removeAllFromList(getTokenName(),
-						template, Language.STARTING_LIST);
+				context.getListContext().removeAllFromList(getTokenName(), template, Language.STARTING_LIST);
 			}
 			else if (tokText.startsWith(Constants.LST_DOT_CLEAR_DOT))
 			{
 				String clearText = tokText.substring(7);
-				CDOMReference<Language> lang = TokenUtilities.getReference(context,
-						LANGUAGE_CLASS, clearText);
+				CDOMReference<Language> lang = TokenUtilities.getReference(context, LANGUAGE_CLASS, clearText);
 				if (lang == null)
 				{
-					return new ParseResult.Fail("  Error was encountered while parsing "
-									+ getTokenName()
-									+ ": "
-									+ value
-									+ " had an invalid .CLEAR. reference: "
-									+ clearText);
+					return new ParseResult.Fail("  Error was encountered while parsing " + getTokenName() + ": " + value
+						+ " had an invalid .CLEAR. reference: " + clearText);
 				}
-				context.getListContext().removeFromList(getTokenName(),
-						template, Language.STARTING_LIST, lang);
+				context.getListContext().removeFromList(getTokenName(), template, Language.STARTING_LIST, lang);
 			}
 			else
 			{
@@ -113,24 +104,21 @@ public class LangbonusToken extends AbstractTokenWithSeparator<PCTemplate>
 				else
 				{
 					foundOther = true;
-					lang = TokenUtilities.getTypeOrPrimitive(context,
-							LANGUAGE_CLASS, tokText);
+					lang = TokenUtilities.getTypeOrPrimitive(context, LANGUAGE_CLASS, tokText);
 				}
 				if (lang == null)
 				{
-					return new ParseResult.Fail("  Error was encountered while parsing "
-							+ getTokenName() + ": " + value
-							+ " had an invalid reference: " + tokText);
+					return new ParseResult.Fail("  Error was encountered while parsing " + getTokenName() + ": " + value
+						+ " had an invalid reference: " + tokText);
 				}
-				context.getListContext().addToList(getTokenName(), template,
-						Language.STARTING_LIST, lang);
+				context.getListContext().addToList(getTokenName(), template, Language.STARTING_LIST, lang);
 			}
 			firstToken = false;
 		}
 		if (foundAny && foundOther)
 		{
-			return new ParseResult.Fail("Non-sensical " + getTokenName()
-					+ ": Contains ANY and a specific reference: " + value);
+			return new ParseResult.Fail(
+				"Non-sensical " + getTokenName() + ": Contains ANY and a specific reference: " + value);
 		}
 		return ParseResult.SUCCESS;
 	}
@@ -138,23 +126,19 @@ public class LangbonusToken extends AbstractTokenWithSeparator<PCTemplate>
 	@Override
 	public String[] unparse(LoadContext context, PCTemplate pct)
 	{
-		AssociatedChanges<CDOMReference<Language>> changes = context
-				.getListContext().getChangesInList(getTokenName(), pct,
-						Language.STARTING_LIST);
+		AssociatedChanges<CDOMReference<Language>> changes =
+				context.getListContext().getChangesInList(getTokenName(), pct, Language.STARTING_LIST);
 		List<String> list = new ArrayList<>();
 		Collection<CDOMReference<Language>> removedItems = changes.getRemoved();
 		if (removedItems != null && !removedItems.isEmpty())
 		{
 			if (changes.includesGlobalClear())
 			{
-				context.addWriteMessage("Non-sensical relationship in "
-						+ getTokenName()
-						+ ": global .CLEAR and local .CLEAR. performed");
+				context.addWriteMessage(
+					"Non-sensical relationship in " + getTokenName() + ": global .CLEAR and local .CLEAR. performed");
 				return null;
 			}
-			list.add(Constants.LST_DOT_CLEAR_DOT
-					+ ReferenceUtilities
-							.joinLstFormat(removedItems, ",.CLEAR."));
+			list.add(Constants.LST_DOT_CLEAR_DOT + ReferenceUtilities.joinLstFormat(removedItems, ",.CLEAR."));
 		}
 		if (changes.includesGlobalClear())
 		{
@@ -163,8 +147,7 @@ public class LangbonusToken extends AbstractTokenWithSeparator<PCTemplate>
 		Collection<CDOMReference<Language>> addedItems = changes.getAdded();
 		if (addedItems != null && !addedItems.isEmpty())
 		{
-			list.add(ReferenceUtilities.joinLstFormat(addedItems,
-					Constants.COMMA));
+			list.add(ReferenceUtilities.joinLstFormat(addedItems, Constants.COMMA));
 		}
 		if (list.isEmpty())
 		{

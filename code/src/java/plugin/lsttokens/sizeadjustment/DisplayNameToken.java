@@ -24,8 +24,7 @@ import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class DisplayNameToken extends AbstractNonEmptyToken<SizeAdjustment>
-		implements CDOMPrimaryToken<SizeAdjustment>
+public class DisplayNameToken extends AbstractNonEmptyToken<SizeAdjustment> implements CDOMPrimaryToken<SizeAdjustment>
 {
 
 	@Override
@@ -35,8 +34,7 @@ public class DisplayNameToken extends AbstractNonEmptyToken<SizeAdjustment>
 	}
 
 	@Override
-	public ParseResult parseNonEmptyToken(LoadContext context,
-		SizeAdjustment size, String value)
+	public ParseResult parseNonEmptyToken(LoadContext context, SizeAdjustment size, String value)
 	{
 		//Have to be bad to an editor, sorry
 		size.setDisplayName(value);
@@ -47,9 +45,7 @@ public class DisplayNameToken extends AbstractNonEmptyToken<SizeAdjustment>
 	@Override
 	public String[] unparse(LoadContext context, SizeAdjustment size)
 	{
-		String name =
-				context.getObjectContext().getString(size,
-					StringKey.DISPLAY_NAME);
+		String name = context.getObjectContext().getString(size, StringKey.DISPLAY_NAME);
 		if (name == null)
 		{
 			return null;

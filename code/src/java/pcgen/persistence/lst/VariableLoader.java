@@ -37,11 +37,10 @@ import pcgen.util.Logging;
 public class VariableLoader extends Observable
 {
 
-	public final void parseLine(LoadContext context, String lstLine,
-		SourceEntry source) throws PersistenceLayerException
+	public final void parseLine(LoadContext context, String lstLine, SourceEntry source)
+		throws PersistenceLayerException
 	{
-		final StringTokenizer colToken =
-				new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
+		final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 
 		//Need the IF so that it is not an empty line causing issues
 		if (colToken.hasMoreTokens())
@@ -55,16 +54,13 @@ public class VariableLoader extends Observable
 			boolean success = LstUtils.processToken(context, po, source, tok);
 			if (!success)
 			{
-				Logging
-					.errorPrint("Failed to parse first token on Variable Line: "
-						+ "ignoring rest of line");
+				Logging.errorPrint("Failed to parse first token on Variable Line: " + "ignoring rest of line");
 				return;
 			}
 			po.setSourceURI(source.getURI());
 			while (colToken.hasMoreTokens())
 			{
-				LstUtils
-					.processToken(context, po, source, colToken.nextToken());
+				LstUtils.processToken(context, po, source, colToken.nextToken());
 			}
 		}
 	}
@@ -76,12 +72,10 @@ public class VariableLoader extends Observable
 	 *            containing the list of files to read
 	 * @throws PersistenceLayerException
 	 */
-	public void loadLstFiles(LoadContext context,
-		List<CampaignSourceEntry> fileList) throws PersistenceLayerException
+	public void loadLstFiles(LoadContext context, List<CampaignSourceEntry> fileList) throws PersistenceLayerException
 	{
 		// Track which sources have been loaded already
-		Set<CampaignSourceEntry> loadedFiles =
-				new HashSet<>();
+		Set<CampaignSourceEntry> loadedFiles = new HashSet<>();
 
 		// Load the files themselves as thoroughly as possible
 		for (CampaignSourceEntry sourceEntry : fileList)
@@ -102,8 +96,7 @@ public class VariableLoader extends Observable
 	 *            CampaignSourceEntry containing the absolute file path or the
 	 *            URL from which to read LST formatted data.
 	 */
-	protected void loadLstFile(LoadContext context,
-		CampaignSourceEntry sourceEntry)
+	protected void loadLstFile(LoadContext context, CampaignSourceEntry sourceEntry)
 	{
 		setChanged();
 		URI uri = sourceEntry.getURI();
@@ -117,10 +110,8 @@ public class VariableLoader extends Observable
 		}
 		catch (PersistenceLayerException ple)
 		{
-			String message =
-					LanguageBundle.getFormattedString(
-						"Errors.LstFileLoader.LoadError", //$NON-NLS-1$
-						uri, ple.getMessage());
+			String message = LanguageBundle.getFormattedString("Errors.LstFileLoader.LoadError", //$NON-NLS-1$
+				uri, ple.getMessage());
 			Logging.errorPrint(message);
 			setChanged();
 			return;
@@ -137,8 +128,7 @@ public class VariableLoader extends Observable
 		for (int i = 0; i < fileLines.length; i++)
 		{
 			String line = fileLines[i];
-			if ((line.isEmpty())
-				|| (line.charAt(0) == LstFileLoader.LINE_COMMENT_CHAR))
+			if ((line.isEmpty()) || (line.charAt(0) == LstFileLoader.LINE_COMMENT_CHAR))
 			{
 				continue;
 			}
@@ -155,10 +145,8 @@ public class VariableLoader extends Observable
 				}
 				catch (PersistenceLayerException ple)
 				{
-					String message =
-							LanguageBundle.getFormattedString(
-								"Errors.LstFileLoader.ParseError", //$NON-NLS-1$
-								uri, i + 1, ple.getMessage());
+					String message = LanguageBundle.getFormattedString("Errors.LstFileLoader.ParseError", //$NON-NLS-1$
+						uri, i + 1, ple.getMessage());
 					Logging.errorPrint(message);
 					setChanged();
 					if (Logging.isDebugMode())
@@ -168,19 +156,14 @@ public class VariableLoader extends Observable
 				}
 				catch (Throwable t)
 				{
-					String message =
-							LanguageBundle.getFormattedString(
-								"Errors.LstFileLoader.ParseError", //$NON-NLS-1$
-								uri, i + 1, t.getMessage());
+					String message = LanguageBundle.getFormattedString("Errors.LstFileLoader.ParseError", //$NON-NLS-1$
+						uri, i + 1, t.getMessage());
 					Logging.errorPrint(message, t);
 					setChanged();
-					Logging.errorPrint(LanguageBundle
-						.getString("Errors.LstFileLoader.Ignoring: "
-							+ t.getMessage()));
+					Logging.errorPrint(LanguageBundle.getString("Errors.LstFileLoader.Ignoring: " + t.getMessage()));
 					if (Logging.isDebugMode())
 					{
-						Logging.errorPrint(LanguageBundle
-							.getString("Errors.LstFileLoader.Ignoring"), t);
+						Logging.errorPrint(LanguageBundle.getString("Errors.LstFileLoader.Ignoring"), t);
 						t.printStackTrace();
 					}
 				}

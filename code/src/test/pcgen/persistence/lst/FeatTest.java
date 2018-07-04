@@ -109,10 +109,10 @@ public class FeatTest extends TestCase
 
 		Ability ambidexterityFeat = new Ability();
 		featLoader
-			.parseLine(
-				Globals.getContext(),
-				ambidexterityFeat,
-				"Ambidexterity	PRESTAT:1,DEX=15	PREHANDSEQ:2	TYPE:General.Fighter	DESC:You ignore all penalties for using your off-hand	BONUS:COMBAT|TOHIT-SECONDARY|4", source);
+			.parseLine(Globals.getContext(), ambidexterityFeat,
+				"Ambidexterity	PRESTAT:1,DEX=15	PREHANDSEQ:2	TYPE:General.Fighter	"
+			+ "DESC:You ignore all penalties for using your off-hand	BONUS:COMBAT|TOHIT-SECONDARY|4",
+				source);
 		assertEquals("Ambidexterity", ambidexterityFeat.getKeyName());
 	}
 
@@ -139,7 +139,8 @@ public class FeatTest extends TestCase
 			.parseLine(
 				Globals.getContext(),
 				simpleWeaponFeat,
-				"Simple Weapon Proficiency	TYPE:General	DESC:You are proficient with all simple weapons. Non-proficiency suffers -4 to hit.	ADD:WEAPONPROFS|Simple", source);
+				"Simple Weapon Proficiency	TYPE:General	DESC:You are proficient with all simple weapons. "
+						+ "Non-proficiency suffers -4 to hit.	ADD:WEAPONPROFS|Simple", source);
 		assertEquals("Simple Weapon Proficiency", simpleWeaponFeat.getKeyName());
 	}
 }

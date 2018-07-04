@@ -37,8 +37,7 @@ public class AddMenuItemToGMGenToolsMenuMessage extends PCGenMessage
 	 * @param source The object requesting the addition.
 	 * @param menuItem  The menu item to be added.
 	 */
-	public AddMenuItemToGMGenToolsMenuMessage(Object source,
-		JMenuItem menuItem)
+	public AddMenuItemToGMGenToolsMenuMessage(Object source, JMenuItem menuItem)
 	{
 		super(source);
 		this.menuItem = menuItem;

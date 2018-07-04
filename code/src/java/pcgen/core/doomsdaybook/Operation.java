@@ -89,7 +89,7 @@ public class Operation implements Comparable
 	/**
 	 * @see java.lang.Comparable#compareTo(java.lang.Object)
 	 */
-    @Override
+	@Override
 	public int compareTo(Object obj)
 	{
 		String title = this.toString();

@@ -20,13 +20,12 @@ package pcgen.facade.core;
 
 import java.util.List;
 
-
 public interface RaceFacade extends InfoFacade
 {
 
 	public String getSize();
 
-    @Override
+	@Override
 	public String getType();
 
 	/**

@@ -23,7 +23,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.WeakHashMap;
 
-
 public abstract class CachedDataView<E> implements DataView<E>
 {
 
@@ -47,7 +46,7 @@ public abstract class CachedDataView<E> implements DataView<E>
 	}
 
 	protected abstract Object getDataInternal(E element, int column);
-	
+
 	@Override
 	public void setData(Object value, E element, int column)
 	{

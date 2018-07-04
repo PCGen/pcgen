@@ -30,13 +30,13 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class CRStepsToken implements GameModeLstToken
 {
 
-    @Override
+	@Override
 	public String getTokenName()
 	{
 		return "CRSTEPS";
 	}
 
-    @Override
+	@Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		StringTokenizer aTok = new StringTokenizer(value, Constants.PIPE);

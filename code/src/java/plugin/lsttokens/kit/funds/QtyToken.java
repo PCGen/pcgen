@@ -29,8 +29,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * QTY Token
  */
-public class QtyToken extends AbstractNonEmptyToken<KitFunds> implements
-		CDOMPrimaryToken<KitFunds>
+public class QtyToken extends AbstractNonEmptyToken<KitFunds> implements CDOMPrimaryToken<KitFunds>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -50,14 +49,12 @@ public class QtyToken extends AbstractNonEmptyToken<KitFunds> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, KitFunds kitFunds,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, KitFunds kitFunds, String value)
 	{
 		Formula formula = FormulaFactory.getFormulaFor(value);
 		if (!formula.isValid())
 		{
-			return new ParseResult.Fail("Formula in " + getTokenName()
-					+ " was not valid: " + formula.toString());
+			return new ParseResult.Fail("Formula in " + getTokenName() + " was not valid: " + formula.toString());
 		}
 		kitFunds.setQuantity(formula);
 		return ParseResult.SUCCESS;

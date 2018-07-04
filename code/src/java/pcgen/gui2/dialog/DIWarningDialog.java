@@ -44,20 +44,19 @@ import pcgen.system.LanguageBundle;
  * 
  */
 @SuppressWarnings("serial")
-public class DIWarningDialog extends JDialog implements
-	ActionListener
+public class DIWarningDialog extends JDialog implements ActionListener
 {
-	
+
 	private final String fileText;
 	private final String introText;
-	
+
 	/** The result selected by the user. */
 	private int result = JOptionPane.CANCEL_OPTION;
 
 	private static final String ACTION_YES = "yes";
 	private static final String ACTION_NO = "no";
 	private static final String ACTION_CANCEL = "cancel";
-	
+
 	/**
 	 * Instantiates a new warning dialog for the data installer.
 	 * 
@@ -71,11 +70,11 @@ public class DIWarningDialog extends JDialog implements
 
 		fileText = fileList;
 		this.introText = introText;
-		
+
 		initComponents();
 		Utility.setComponentRelativeLocation(parent, this);
 	}
-	
+
 	/**
 	 * Gets the response.
 	 * 
@@ -93,11 +92,9 @@ public class DIWarningDialog extends JDialog implements
 	{
 		setLayout(new GridBagLayout());
 
-		JLabel introLabel =
-				new JLabel(introText);
+		JLabel introLabel = new JLabel(introText);
 		GridBagConstraints gbc = new GridBagConstraints();
-		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1,
-			1.0, 0);
+		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1, 1.0, 0);
 		gbc.fill = GridBagConstraints.HORIZONTAL;
 		gbc.insets = new Insets(10, 10, 5, 10);
 		add(introLabel, gbc);
@@ -114,32 +111,27 @@ public class DIWarningDialog extends JDialog implements
 		add(messageAreaContainer, gbc);
 
 		JLabel dummy = new JLabel(" ");
-		Utility.buildRelativeConstraints(gbc, 1, 1, 1.0, 0.0,
-			GridBagConstraints.HORIZONTAL, GridBagConstraints.WEST);
+		Utility.buildRelativeConstraints(gbc, 1, 1, 1.0, 0.0, GridBagConstraints.HORIZONTAL, GridBagConstraints.WEST);
 		add(dummy, gbc);
 
 		JButton yesButton = new JButton(LanguageBundle.getString("in_yes"));
 		yesButton.setActionCommand(ACTION_YES);
 		yesButton.addActionListener(this);
-		Utility.buildRelativeConstraints(gbc, 1, 1, 0.0, 0.0,
-			GridBagConstraints.NONE, GridBagConstraints.EAST);
+		Utility.buildRelativeConstraints(gbc, 1, 1, 0.0, 0.0, GridBagConstraints.NONE, GridBagConstraints.EAST);
 		gbc.insets = new Insets(5, 5, 10, 5);
 		add(yesButton, gbc);
 
 		JButton noButton = new JButton(LanguageBundle.getString("in_no"));
 		noButton.setActionCommand(ACTION_NO);
 		noButton.addActionListener(this);
-		Utility.buildRelativeConstraints(gbc, 1, 1, 0.0, 0.0,
-			GridBagConstraints.NONE, GridBagConstraints.EAST);
+		Utility.buildRelativeConstraints(gbc, 1, 1, 0.0, 0.0, GridBagConstraints.NONE, GridBagConstraints.EAST);
 		add(noButton, gbc);
 
-		JButton cancelButton =
-				new JButton(LanguageBundle.getString("in_cancel"));
+		JButton cancelButton = new JButton(LanguageBundle.getString("in_cancel"));
 		cancelButton.setActionCommand(ACTION_CANCEL);
 		cancelButton.addActionListener(this);
 		getRootPane().setDefaultButton(cancelButton);
-		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER,
-			GridBagConstraints.REMAINDER, 0, 0,
+		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, GridBagConstraints.REMAINDER, 0, 0,
 			GridBagConstraints.NONE, GridBagConstraints.EAST);
 		gbc.insets = new Insets(5, 5, 10, 10);
 		add(cancelButton, gbc);
@@ -148,20 +140,20 @@ public class DIWarningDialog extends JDialog implements
 
 		addWindowListener(new WindowAdapter()
 		{
-            @Override
+			@Override
 			public void windowClosing(WindowEvent e)
 			{
 				result = JOptionPane.CANCEL_OPTION;
 				setVisible(false);
 			}
 		});
-		
+
 	}
 
 	/**
 	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
-    @Override
+	@Override
 	public void actionPerformed(ActionEvent e)
 	{
 		if (ACTION_YES.equals(e.getActionCommand()))

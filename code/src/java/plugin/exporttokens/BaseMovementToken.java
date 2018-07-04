@@ -54,8 +54,7 @@ public class BaseMovementToken extends AbstractExportToken
 	}
 
 	@Override
-	public String getToken(String tokenSource, CharacterDisplay display,
-		ExportHandler eh)
+	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
 	{
 		String retString = "";
 		if ((display.getRace() != null) && !display.getRace().isUnselected())
@@ -115,8 +114,7 @@ public class BaseMovementToken extends AbstractExportToken
 	 * @param displayFlag
 	 * @return The base movement token
 	 */
-	public static String getBaseMovementToken(CharacterDisplay display,
-		String moveType, Load load, boolean displayFlag)
+	public static String getBaseMovementToken(CharacterDisplay display, String moveType, Load load, boolean displayFlag)
 	{
 		if (!display.hasMovement(moveType))
 		{
@@ -125,13 +123,9 @@ public class BaseMovementToken extends AbstractExportToken
 		int baseMovement = display.getBaseMovement(moveType, load);
 		if (displayFlag)
 		{
-			return moveType
-				+ ' '
-				+ Globals.getGameModeUnitSet()
-					.displayDistanceInUnitSet(baseMovement)
+			return moveType + ' ' + Globals.getGameModeUnitSet().displayDistanceInUnitSet(baseMovement)
 				+ Globals.getGameModeUnitSet().getDistanceUnit();
 		}
-		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(
-				baseMovement);
+		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(baseMovement);
 	}
 }

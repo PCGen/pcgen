@@ -42,8 +42,7 @@ public class CDOMSubLineLoader<T extends Loadable>
 		// prefixLength = targetPrefixColon.length();
 	}
 
-	public boolean parseLine(LoadContext context, T obj, String val)
-			throws PersistenceLayerException
+	public boolean parseLine(LoadContext context, T obj, String val) throws PersistenceLayerException
 	{
 		if (val == null)
 		{
@@ -58,25 +57,21 @@ public class CDOMSubLineLoader<T extends Loadable>
 			int colonLoc = token.indexOf(':');
 			if (colonLoc == -1)
 			{
-				Logging.errorPrint("Invalid Token - does not contain a colon: "
-						+ token);
+				Logging.errorPrint("Invalid Token - does not contain a colon: " + token);
 				returnValue = false;
 				continue;
 			}
 			else if (colonLoc == 0)
 			{
-				Logging.errorPrint("Invalid Token - starts with a colon: "
-						+ token);
+				Logging.errorPrint("Invalid Token - starts with a colon: " + token);
 				returnValue = false;
 				continue;
 			}
 			String key = token.substring(0, colonLoc);
-			String value = (colonLoc == token.length() - 1) ? null : token
-					.substring(colonLoc + 1);
+			String value = (colonLoc == token.length() - 1) ? null : token.substring(colonLoc + 1);
 			if (key == null || value == null)
 			{
-				Logging.errorPrint("Invalid token - key or value missing: "
-					+ token + " in line " + val, context);
+				Logging.errorPrint("Invalid token - key or value missing: " + token + " in line " + val, context);
 				returnValue = false;
 				continue;
 			}

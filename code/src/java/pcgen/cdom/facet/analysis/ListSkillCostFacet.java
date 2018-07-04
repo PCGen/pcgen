@@ -39,9 +39,8 @@ import pcgen.core.Skill;
  * MONCCSKILL tokens.
  * 
  */
-public class ListSkillCostFacet extends
-		AbstractSubScopeFacet<ClassSkillList, SkillCost, Skill> implements
-		DataFacetChangeListener<CharID, CDOMObject>
+public class ListSkillCostFacet extends AbstractSubScopeFacet<ClassSkillList, SkillCost, Skill>
+		implements DataFacetChangeListener<CharID, CDOMObject>
 {
 	private RaceFacet raceFacet;
 
@@ -77,11 +76,10 @@ public class ListSkillCostFacet extends
 				Collection<CDOMReference<Skill>> mods = cdo.getListMods(ref);
 				for (CDOMReference<Skill> skRef : mods)
 				{
-					for (AssociatedPrereqObject apo : (Iterable<AssociatedPrereqObject>) cdo
-						.getListAssociations(ref, skRef))
+					for (AssociatedPrereqObject apo : (Iterable<AssociatedPrereqObject>) cdo.getListAssociations(ref,
+						skRef))
 					{
-						SkillCost sc =
-								apo.getAssociation(AssociationKey.SKILL_COST);
+						SkillCost sc = apo.getAssociation(AssociationKey.SKILL_COST);
 						for (ClassSkillList csl : useList)
 						{
 							for (Skill skill : skRef.getContainedObjects())

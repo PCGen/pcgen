@@ -46,7 +46,7 @@ public final class TipOfTheDayHandler
 	private static final UIPropertyContext propertyContext = UIPropertyContext.createContext("TipOfTheDay");
 
 	private static TipOfTheDayHandler INSTANCE = null;
-	
+
 	private List<String> tipList = null;
 	private int lastNumber = -1;
 
@@ -57,7 +57,7 @@ public final class TipOfTheDayHandler
 	{
 		lastNumber = propertyContext.initInt("lastTip", -1);
 	}
-	
+
 	public static synchronized TipOfTheDayHandler getInstance()
 	{
 		if (INSTANCE == null)
@@ -66,6 +66,7 @@ public final class TipOfTheDayHandler
 		}
 		return INSTANCE;
 	}
+
 	/**
 	 * @return the lastNumber
 	 */
@@ -80,17 +81,12 @@ public final class TipOfTheDayHandler
 		String systemDir = ConfigurationSettings.getSystemsDir();
 		String tipsFileName = LanguageBundle.getString("in_tipsFileName"); //$NON-NLS-1$
 		String tipsFileNameDefault = "tips.txt"; //$NON-NLS-1$
-		final String tipsFilePath =
-				systemDir + File.separator + "gameModes" + File.separator //$NON-NLS-1$
-					+ SettingsHandler.getGame().getName() + File.separator;
-		final String tipsDefaultPath =
-				systemDir + File.separator + "gameModes" + File.separator //$NON-NLS-1$
-					+ "default" + File.separator; //$NON-NLS-1$
-		String[] tipFiles =
-				new String[]{tipsFilePath + tipsFileName,
-					tipsDefaultPath + tipsFileName,
-					tipsFilePath + tipsFileNameDefault,
-					tipsDefaultPath + tipsFileNameDefault};
+		final String tipsFilePath = systemDir + File.separator + "gameModes" + File.separator //$NON-NLS-1$
+			+ SettingsHandler.getGame().getName() + File.separator;
+		final String tipsDefaultPath = systemDir + File.separator + "gameModes" + File.separator //$NON-NLS-1$
+			+ "default" + File.separator; //$NON-NLS-1$
+		String[] tipFiles = new String[]{tipsFilePath + tipsFileName, tipsDefaultPath + tipsFileName,
+			tipsFilePath + tipsFileNameDefault, tipsDefaultPath + tipsFileNameDefault};
 
 		boolean loaded = false;
 		for (String path : tipFiles)
@@ -113,10 +109,8 @@ public final class TipOfTheDayHandler
 
 		if (!loaded)
 		{
-			Logging.errorPrint("Warning: game mode "
-				+ SettingsHandler.getGame().getName()
-				+ " is missing tips. Tried all of "
-				+ StringUtils.join(tipFiles, "\n"));
+			Logging.errorPrint("Warning: game mode " + SettingsHandler.getGame().getName()
+				+ " is missing tips. Tried all of " + StringUtils.join(tipFiles, "\n"));
 		}
 
 	}
@@ -125,8 +119,8 @@ public final class TipOfTheDayHandler
 	{
 		final File tipsFile = new File(tipsFilePath);
 
-		final BufferedReader tipsReader = new BufferedReader(
-			new InputStreamReader(new FileInputStream(tipsFile), "UTF-8"));
+		final BufferedReader tipsReader =
+				new BufferedReader(new InputStreamReader(new FileInputStream(tipsFile), "UTF-8"));
 		final int length = (int) tipsFile.length();
 		final char[] inputLine = new char[length];
 		tipsReader.read(inputLine, 0, length);
@@ -138,8 +132,7 @@ public final class TipOfTheDayHandler
 		{
 			String line = aTok.nextToken();
 			// Skip comments and blank lines.
-			if (!line.trim().isEmpty()
-				&& (line.charAt(0) != LstFileLoader.LINE_COMMENT_CHAR))
+			if (!line.trim().isEmpty() && (line.charAt(0) != LstFileLoader.LINE_COMMENT_CHAR))
 			{
 				tipList.add(line);
 			}
@@ -173,7 +166,7 @@ public final class TipOfTheDayHandler
 		{
 			if (--lastNumber < 0)
 			{
-				lastNumber = tipList.size()-1;
+				lastNumber = tipList.size() - 1;
 			}
 			propertyContext.setInt("lastTip", lastNumber);
 
@@ -182,5 +175,5 @@ public final class TipOfTheDayHandler
 
 		return "";
 	}
-	
+
 }

@@ -36,8 +36,7 @@ import pcgen.util.enumeration.ProhibitedSpellType;
 /**
  * Class deals with CHOICE Token
  */
-public class ChoiceToken extends AbstractTokenWithSeparator<SubClass> implements
-		CDOMPrimaryToken<SubClass>
+public class ChoiceToken extends AbstractTokenWithSeparator<SubClass> implements CDOMPrimaryToken<SubClass>
 {
 
 	@Override
@@ -53,20 +52,17 @@ public class ChoiceToken extends AbstractTokenWithSeparator<SubClass> implements
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		SubClass sc, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, SubClass sc, String value)
 	{
 		int pipeLoc = value.indexOf('|');
 		if (pipeLoc == -1)
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " has no | separator for arguments: " + value);
+			return new ParseResult.Fail(getTokenName() + " has no | separator for arguments: " + value);
 		}
 
 		if (value.lastIndexOf('|') != pipeLoc)
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " has more than two | separated arguments: " + value);
+			return new ParseResult.Fail(getTokenName() + " has more than two | separated arguments: " + value);
 		}
 
 		String pstString = value.substring(0, pipeLoc);
@@ -79,17 +75,13 @@ public class ChoiceToken extends AbstractTokenWithSeparator<SubClass> implements
 		catch (IllegalArgumentException e)
 		{
 			ComplexParseResult cpr = new ComplexParseResult();
-			cpr.addErrorMessage(getTokenName()
-							+ " encountered an invalid Prohibited Spell Type: "
-							+ value);
-			cpr.addErrorMessage("  Legal values are: "
-					+ StringUtil.join(Arrays.asList(ProhibitedSpellType
-							.values()), ", "));
+			cpr.addErrorMessage(getTokenName() + " encountered an invalid Prohibited Spell Type: " + value);
+			cpr.addErrorMessage(
+				"  Legal values are: " + StringUtil.join(Arrays.asList(ProhibitedSpellType.values()), ", "));
 			return cpr;
 		}
-		if (type.equals(ProhibitedSpellType.SCHOOL)
-				|| type.equals(ProhibitedSpellType.SUBSCHOOL)
-				|| type.equals(ProhibitedSpellType.DESCRIPTOR))
+		if (type.equals(ProhibitedSpellType.SCHOOL) || type.equals(ProhibitedSpellType.SUBSCHOOL)
+			|| type.equals(ProhibitedSpellType.DESCRIPTOR))
 		{
 			SpellProhibitor sp = new SpellProhibitor();
 			sp.setType(type);
@@ -98,15 +90,13 @@ public class ChoiceToken extends AbstractTokenWithSeparator<SubClass> implements
 			return ParseResult.SUCCESS;
 		}
 
-		return new ParseResult.Fail("Invalid TYPE in " + getTokenName() + ": "
-				+ pstString);
+		return new ParseResult.Fail("Invalid TYPE in " + getTokenName() + ": " + pstString);
 	}
 
 	@Override
 	public String[] unparse(LoadContext context, SubClass pcc)
 	{
-		SpellProhibitor sp = context.getObjectContext().getObject(pcc,
-				ObjectKey.CHOICE);
+		SpellProhibitor sp = context.getObjectContext().getObject(pcc, ObjectKey.CHOICE);
 		if (sp == null)
 		{
 			// Zero indicates no Token present
@@ -117,9 +107,8 @@ public class ChoiceToken extends AbstractTokenWithSeparator<SubClass> implements
 		sb.append(pst.toString().toUpperCase());
 		sb.append('|');
 		Collection<String> valueSet = sp.getValueList();
-		sb.append(StringUtil
-				.join(new TreeSet<>(valueSet), Constants.PIPE));
-		return new String[] { sb.toString() };
+		sb.append(StringUtil.join(new TreeSet<>(valueSet), Constants.PIPE));
+		return new String[]{sb.toString()};
 	}
 
 	@Override

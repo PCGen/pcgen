@@ -59,23 +59,20 @@ public class GetFactFunction implements FormulaFunction
 	}
 
 	@Override
-	public FormatManager<?> allowArgs(SemanticsVisitor visitor, Node[] args,
-		FormulaSemantics semantics)
+	public FormatManager<?> allowArgs(SemanticsVisitor visitor, Node[] args, FormulaSemantics semantics)
 	{
 		if (args.length != 3)
 		{
 			throw new SemanticsFailureException("Function " + getFunctionName()
-				+ " received incorrect # of arguments, expected: 3 got " + args.length
-				+ " " + Arrays.asList(args));
+				+ " received incorrect # of arguments, expected: 3 got " + args.length + " " + Arrays.asList(args));
 		}
 
 		//Turn scope node into a scope name
 		Node scopeNode = args[0];
 		if (!(scopeNode instanceof ASTQuotString))
 		{
-			throw new SemanticsFailureException("Parse Error: Invalid Format Node: "
-				+ scopeNode.getClass().getName() + " found in location requiring a"
-				+ " Static String (class cannot be evaluated)");
+			throw new SemanticsFailureException("Parse Error: Invalid Format Node: " + scopeNode.getClass().getName()
+				+ " found in location requiring a" + " Static String (class cannot be evaluated)");
 		}
 		String formatName = ((ASTQuotString) scopeNode).getText();
 		LoadContext context = semantics.get(ManagerKey.CONTEXT);
@@ -87,43 +84,37 @@ public class GetFactFunction implements FormulaFunction
 		{
 			throw new SemanticsFailureException(
 				"Parse Error: Invalid Object Format: " + objectFormat.getIdentifierType()
-					+ " found in a getFact call that asserted "
-					+ formatManager.getIdentifierType());
+					+ " found in a getFact call that asserted " + formatManager.getIdentifierType());
 		}
 		if (!CDOMOBJECT_CLASS.isAssignableFrom(objectFormat.getManagedClass()))
 		{
-			throw new SemanticsFailureException("Parse Error: Invalid Object Format: "
-				+ objectFormat + " is not capable of holding a Fact");
+			throw new SemanticsFailureException(
+				"Parse Error: Invalid Object Format: " + objectFormat + " is not capable of holding a Fact");
 		}
 		Node factNode = args[2];
 		if (!(factNode instanceof ASTQuotString))
 		{
-			throw new SemanticsFailureException("Parse Error: Invalid Fact Node: "
-				+ factNode.getClass().getName() + " found in location requiring a"
-				+ " Static String (class cannot be evaluated)");
+			throw new SemanticsFailureException("Parse Error: Invalid Fact Node: " + factNode.getClass().getName()
+				+ " found in location requiring a" + " Static String (class cannot be evaluated)");
 		}
 		String factName = ((ASTQuotString) factNode).getText();
-		FactDefinition<?, ?> factDef =
-				context.getReferenceContext().silentlyGetConstructedCDOMObject(
-					FactDefinition.class, formatName + "." + factName);
+		FactDefinition<?, ?> factDef = context.getReferenceContext()
+			.silentlyGetConstructedCDOMObject(FactDefinition.class, formatName + "." + factName);
 		if (factDef == null)
 		{
-			throw new SemanticsFailureException(
-				"Parse Error: Invalid Fact: " + factName + " is not a valid FACT name");
+			throw new SemanticsFailureException("Parse Error: Invalid Fact: " + factName + " is not a valid FACT name");
 		}
 		Class<?> usable = factDef.getUsableLocation();
 		if (!usable.isAssignableFrom(objectFormat.getManagedClass()))
 		{
-			throw new SemanticsFailureException("Parse Error: Invalid Fact: "
-				+ factDef.getDisplayName() + " works on " + usable
-				+ " but formula asserted it was in " + objectFormat.getIdentifierType());
+			throw new SemanticsFailureException("Parse Error: Invalid Fact: " + factDef.getDisplayName() + " works on "
+				+ usable + " but formula asserted it was in " + objectFormat.getIdentifierType());
 		}
 		return factDef.getFormatManager();
 	}
 
 	@Override
-	public Object evaluate(EvaluateVisitor visitor, Node[] args,
-		EvaluationManager manager)
+	public Object evaluate(EvaluateVisitor visitor, Node[] args, EvaluationManager manager)
 	{
 		String formatName = ((ASTQuotString) args[0]).getText();
 		LoadContext context = manager.get(ManagerKey.CONTEXT);
@@ -136,18 +127,16 @@ public class GetFactFunction implements FormulaFunction
 	}
 
 	@Override
-	public FormatManager<?> getDependencies(DependencyVisitor visitor,
-		DependencyManager fdm, Node[] args)
+	public FormatManager<?> getDependencies(DependencyVisitor visitor, DependencyManager fdm, Node[] args)
 	{
 		String formatName = ((ASTQuotString) args[0]).getText();
 		LoadContext context = fdm.get(ManagerKey.CONTEXT);
 		FormatManager<?> formatManager = context.getManufacturer(formatName);
-		args[1].jjtAccept(visitor,
-			fdm.getWith(DependencyManager.ASSERTED, Optional.of(formatManager)));
+		args[1].jjtAccept(visitor, fdm.getWith(DependencyManager.ASSERTED, Optional.of(formatManager)));
 		String factName = ((ASTQuotString) args[2]).getText();
 		AbstractReferenceContext refContext = context.getReferenceContext();
-		FactDefinition<?, ?> factDef = refContext.silentlyGetConstructedCDOMObject(
-			FactDefinition.class, formatName + "." + factName);
+		FactDefinition<?, ?> factDef =
+				refContext.silentlyGetConstructedCDOMObject(FactDefinition.class, formatName + "." + factName);
 		return factDef.getFormatManager();
 	}
 }

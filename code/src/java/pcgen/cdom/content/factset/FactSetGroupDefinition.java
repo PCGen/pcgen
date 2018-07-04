@@ -37,8 +37,7 @@ import pcgen.rules.context.LoadContext;
  *            The Type of object this FactSetGroupDefinition contains (the
  *            content of the fact set)
  */
-public class FactSetGroupDefinition<T extends CDOMObject, F> implements
-		GroupDefinition<T>
+public class FactSetGroupDefinition<T extends CDOMObject, F> implements GroupDefinition<T>
 {
 
 	/**

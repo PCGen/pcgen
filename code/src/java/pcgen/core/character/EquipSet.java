@@ -73,7 +73,7 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 {
 	/** The root path of the default equipment set. */
 	public static final String DEFAULT_SET_PATH = "0.1";
-	
+
 	private Equipment eq_item;
 	private Float qty = new Float(1);
 	private Map<BonusObj, BonusManager.TempBonusInfo> tempBonusBySource = new IdentityHashMap<>();
@@ -96,9 +96,7 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 
 		try
 		{
-			final StringTokenizer aTok =
-					new StringTokenizer(path,
-						Constants.EQUIP_SET_PATH_SEPARATOR, false);
+			final StringTokenizer aTok = new StringTokenizer(path, Constants.EQUIP_SET_PATH_SEPARATOR, false);
 
 			while (aTok.hasMoreTokens())
 			{
@@ -127,7 +125,7 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 		{
 			return "";
 		}
-		
+
 		return path.substring(0, idx);
 	}
 
@@ -141,9 +139,7 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 	{
 		try
 		{
-			final StringTokenizer aTok =
-					new StringTokenizer(path,
-						Constants.EQUIP_SET_PATH_SEPARATOR, false);
+			final StringTokenizer aTok = new StringTokenizer(path, Constants.EQUIP_SET_PATH_SEPARATOR, false);
 			return aTok.countTokens();
 		}
 		catch (NullPointerException e)
@@ -428,8 +424,7 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 		}
 		catch (CloneNotSupportedException exc)
 		{
-			ShowMessageDelegate.showMessageDialog(
-				exc.getMessage(), Constants.APPLICATION_NAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(exc.getMessage(), Constants.APPLICATION_NAME, MessageType.ERROR);
 		}
 
 		return eqSet;
@@ -445,7 +440,7 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 	 * 
 	 * @see java.lang.Comparable#compareTo(java.lang.Object)
 	 */
-    @Override
+	@Override
 	public int compareTo(final EquipSet obj)
 	{
 		return id_path.compareToIgnoreCase(obj.id_path);
@@ -484,7 +479,7 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 		if (aTok.countTokens() > Constants.ID_PATH_LENGTH_FOR_NON_CONTAINED)
 		{
 			// Get back to carried/equipped/not carried to determine correct location
-			StringBuilder rootPath = new StringBuilder(40); 
+			StringBuilder rootPath = new StringBuilder(40);
 			for (int i = 0; i < Constants.ID_PATH_LENGTH_FOR_NON_CONTAINED; i++)
 			{
 				if (i > 0)
@@ -521,8 +516,7 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 		}
 		else if (eq_item.isWeapon())
 		{
-			if (name.equals(Constants.EQUIP_LOCATION_PRIMARY)
-				|| name.equals(Constants.EQUIP_LOCATION_NATURAL_PRIMARY))
+			if (name.equals(Constants.EQUIP_LOCATION_PRIMARY) || name.equals(Constants.EQUIP_LOCATION_NATURAL_PRIMARY))
 			{
 				eq_item.addWeaponToLocation(qty, EquipmentLocation.EQUIPPED_PRIMARY, aPC);
 			}

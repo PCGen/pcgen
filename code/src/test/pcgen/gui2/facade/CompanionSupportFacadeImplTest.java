@@ -66,7 +66,7 @@ public class CompanionSupportFacadeImplTest extends AbstractCharacterTestCase
 		uiDelegate = new MockUIDelegate();
 		todoManager = new TodoManager();
 		ListFacade<CampaignFacade> campaigns = new DefaultListFacade<>();
-		dataSetFacade = new DataSet(Globals.getContext(), SettingsHandler.getGame(), campaigns );
+		dataSetFacade = new DataSet(Globals.getContext(), SettingsHandler.getGame(), campaigns);
 		masterRace = TestHelper.makeRace("Wood Elf");
 		companionRace = TestHelper.makeRace("Weasel");
 

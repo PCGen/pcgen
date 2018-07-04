@@ -20,14 +20,13 @@ package pcgen.facade.core;
 
 import pcgen.core.LevelInfo;
 
-
 public interface XPTableFacade
 {
 
-    public String getName();
+	public String getName();
 
-    @Override
-    public String toString();
+	@Override
+	public String toString();
 
 	public LevelInfo getLevelInfo(String levelString);
 

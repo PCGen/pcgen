@@ -57,7 +57,6 @@ import pcgen.rules.persistence.token.ParseResult;
 import pcgen.rules.persistence.token.PostDeferredToken;
 import pcgen.util.Logging;
 
-
 public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 		implements CDOMPrimaryToken<CDOMObject>, PostDeferredToken<CDOMObject>
 {
@@ -87,14 +86,12 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 	 * primary), or BAB - 5 (for secondary)
 	 */
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		CDOMObject obj, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
 	{
 		if (obj instanceof Ungranted)
 		{
-			return new ParseResult.Fail("Cannot use " + getTokenName()
-				+ " on an Ungranted object type: "
-				+ obj.getClass().getSimpleName());
+			return new ParseResult.Fail(
+				"Cannot use " + getTokenName() + " on an Ungranted object type: " + obj.getClass().getSimpleName());
 		}
 		// Currently, this isn't going to work with monk attacks
 		// - their unarmed stuff won't be affected.
@@ -127,16 +124,15 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 			int numTokens = commaTok.countTokens();
 			if (numTokens < MIN_TOKEN_COUNT)
 			{
-				return new ParseResult.Fail("Invalid Build of " + "Natural Weapon in "
-						+ getTokenName() + ": " + wpn);
+				return new ParseResult.Fail("Invalid Build of " + "Natural Weapon in " + getTokenName() + ": " + wpn);
 			}
 
 			String attackName = commaTok.nextToken();
 
 			if (attackName.equalsIgnoreCase(Constants.LST_NONE))
 			{
-				return new ParseResult.Fail("Attempt to Build 'None' as a "
-						+ "Natural Weapon in " + getTokenName() + ": " + wpn);
+				return new ParseResult.Fail(
+					"Attempt to Build 'None' as a " + "Natural Weapon in " + getTokenName() + ": " + wpn);
 			}
 
 			attackName = attackName.intern();
@@ -175,8 +171,7 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 			}
 
 			String numAttacks = commaTok.nextToken();
-			boolean attacksFixed = !numAttacks.isEmpty()
-					&& numAttacks.charAt(0) == '*';
+			boolean attacksFixed = !numAttacks.isEmpty() && numAttacks.charAt(0) == '*';
 			if (attacksFixed)
 			{
 				numAttacks = numAttacks.substring(1);
@@ -185,21 +180,19 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 			try
 			{
 				int bonusAttacks = Integer.parseInt(numAttacks) - 1;
-				final BonusObj aBonus = Bonus.newBonus(context, "WEAPON|ATTACKS|"
-						+ bonusAttacks);
+				final BonusObj aBonus = Bonus.newBonus(context, "WEAPON|ATTACKS|" + bonusAttacks);
 
 				if (aBonus == null)
 				{
-					return new ParseResult.Fail(getTokenName()
-							+ " was given invalid number of attacks: "
-							+ bonusAttacks);
+					return new ParseResult.Fail(
+						getTokenName() + " was given invalid number of attacks: " + bonusAttacks);
 				}
 				naturalWeapon.addToListFor(ListKey.BONUS, aBonus);
 			}
 			catch (NumberFormatException exc)
 			{
-				return new ParseResult.Fail("Non-numeric value for number of attacks in "
-						+ getTokenName() + ": '" + numAttacks + '\'');
+				return new ParseResult.Fail(
+					"Non-numeric value for number of attacks in " + getTokenName() + ": '" + numAttacks + '\'');
 			}
 
 			equipHead.put(StringKey.DAMAGE, commaTok.nextToken());
@@ -210,7 +203,7 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 			while (commaTok.hasMoreTokens())
 			{
 				final String handsOrSpropString = commaTok.nextToken();
-				if  (handsOrSpropString.startsWith("SPROP="))
+				if (handsOrSpropString.startsWith("SPROP="))
 				{
 					naturalWeapon.addToListFor(ListKey.SPECIAL_PROPERTIES,
 						SpecialProperty.createFromLst(handsOrSpropString.substring(6)));
@@ -219,13 +212,12 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 				{
 					try
 					{
-						handsrequired = Integer
-								.parseInt(handsOrSpropString);
+						handsrequired = Integer.parseInt(handsOrSpropString);
 					}
 					catch (NumberFormatException exc)
 					{
-						return new ParseResult.Fail("Non-numeric value for hands required: '"
-								+ handsOrSpropString + '\'');
+						return new ParseResult.Fail(
+							"Non-numeric value for hands required: '" + handsOrSpropString + '\'');
 					}
 				}
 			}
@@ -233,16 +225,14 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 
 			naturalWeapon.put(ObjectKey.WEIGHT, BigDecimal.ZERO);
 
-			WeaponProf weaponProf = context.getReferenceContext()
-				.silentlyGetConstructedCDOMObject(WEAPONPROF_CLASS, attackName);
+			WeaponProf weaponProf =
+					context.getReferenceContext().silentlyGetConstructedCDOMObject(WEAPONPROF_CLASS, attackName);
 			if (weaponProf == null)
 			{
-				weaponProf = context.getReferenceContext()
-					.constructNowIfNecessary(WEAPONPROF_CLASS, attackName);
+				weaponProf = context.getReferenceContext().constructNowIfNecessary(WEAPONPROF_CLASS, attackName);
 				weaponProf.addToListFor(ListKey.TYPE, Type.NATURAL);
 			}
-			CDOMSingleRef<WeaponProf> wp = context.getReferenceContext().getCDOMReference(
-					WEAPONPROF_CLASS, attackName);
+			CDOMSingleRef<WeaponProf> wp = context.getReferenceContext().getCDOMReference(WEAPONPROF_CLASS, attackName);
 			naturalWeapon.put(ObjectKey.WEAPON_PROF, wp);
 			naturalWeapon.addToListFor(ListKey.IMPLIED_WEAPONPROF, wp);
 
@@ -279,8 +269,7 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
-		Changes<Equipment> changes = context.getObjectContext().getListChanges(
-				obj, ListKey.NATURAL_WEAPON);
+		Changes<Equipment> changes = context.getObjectContext().getListChanges(obj, ListKey.NATURAL_WEAPON);
 		Collection<Equipment> eqadded = changes.getAdded();
 		if (eqadded == null || eqadded.isEmpty())
 		{
@@ -299,16 +288,14 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 			// TODO objcontext.getString(eq, StringKey.NAME);
 			if (name == null)
 			{
-				context.addWriteMessage(getTokenName()
-						+ " expected Equipment to have a name");
+				context.addWriteMessage(getTokenName() + " expected Equipment to have a name");
 				return null;
 			}
 			sb.append(name).append(Constants.COMMA);
 			List<Type> type = eq.getListFor(ListKey.TYPE);
 			if (type == null || type.isEmpty())
 			{
-				context.addWriteMessage(getTokenName()
-						+ " expected Equipment to have a type");
+				context.addWriteMessage(getTokenName() + " expected Equipment to have a type");
 				return null;
 			}
 			sb.append(StringUtil.join(type, Constants.DOT));
@@ -316,8 +303,7 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 			Boolean attProgress = eq.get(ObjectKey.ATTACKS_PROGRESS);
 			if (attProgress == null)
 			{
-				context.addWriteMessage(getTokenName()
-						+ " expected Equipment to know ATTACKS_PROGRESS state");
+				context.addWriteMessage(getTokenName() + " expected Equipment to know ATTACKS_PROGRESS state");
 				return null;
 			}
 			else if (!attProgress.booleanValue())
@@ -333,9 +319,7 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 			{
 				if (bonuses.size() != 1)
 				{
-					context.addWriteMessage(getTokenName()
-							+ " expected only one BONUS on Equipment: "
-							+ bonuses);
+					context.addWriteMessage(getTokenName() + " expected only one BONUS on Equipment: " + bonuses);
 					return null;
 				}
 				// TODO Validate BONUS type?
@@ -346,15 +330,13 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 			EquipmentHead head = eq.getEquipmentHeadReference(1);
 			if (head == null)
 			{
-				context.addWriteMessage(getTokenName()
-						+ " expected an EquipmentHead on Equipment");
+				context.addWriteMessage(getTokenName() + " expected an EquipmentHead on Equipment");
 				return null;
 			}
 			String damage = head.get(StringKey.DAMAGE);
 			if (damage == null)
 			{
-				context.addWriteMessage(getTokenName()
-						+ " expected a Damage on EquipmentHead");
+				context.addWriteMessage(getTokenName() + " expected a Damage on EquipmentHead");
 				return null;
 			}
 			sb.append(damage);
@@ -364,7 +346,7 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 			{
 				sb.append(',').append(hands);
 			}
-			
+
 			List<SpecialProperty> spropList = eq.getSafeListFor(ListKey.SPECIAL_PROPERTIES);
 			for (SpecialProperty sprop : spropList)
 			{
@@ -373,7 +355,7 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 
 			first = false;
 		}
-		return new String[] { sb.toString() };
+		return new String[]{sb.toString()};
 	}
 
 	@Override
@@ -398,16 +380,12 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 					sizeFormula = FormulaFactory.getFormulaFor(requiredSize);
 				}
 			}
-			
+
 			if (sizeFormula.isStatic())
 			{
-				int isize =
-						sizeFormula.resolveStatic().intValue();
-				SizeAdjustment size =
-						context
-							.getReferenceContext()
-							.getSortedList(SizeAdjustment.class,
-								IntegerKey.SIZEORDER).get(isize);
+				int isize = sizeFormula.resolveStatic().intValue();
+				SizeAdjustment size = context.getReferenceContext()
+					.getSortedList(SizeAdjustment.class, IntegerKey.SIZEORDER).get(isize);
 				for (Equipment e : natWeapons)
 				{
 					CDOMDirectSingleRef<SizeAdjustment> sizeRef = CDOMDirectSingleRef.getRef(size);
@@ -417,9 +395,8 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 			}
 			else
 			{
-				Logging.errorPrint("SIZE in " + obj.getClass().getSimpleName()
-						+ ' ' + obj.getKeyName() + " must not be a variable "
-						+ "if it contains a NATURALATTACKS token");
+				Logging.errorPrint("SIZE in " + obj.getClass().getSimpleName() + ' ' + obj.getKeyName()
+					+ " must not be a variable " + "if it contains a NATURALATTACKS token");
 			}
 		}
 		return true;
@@ -442,10 +419,8 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 		Integer requiredSize = null;
 		for (Prerequisite prereq : sizePrereqs)
 		{
-			SizeAdjustment sa =
-						context.getReferenceContext()
-						.silentlyGetConstructedCDOMObject(SizeAdjustment.class,
-							prereq.getOperand());
+			SizeAdjustment sa = context.getReferenceContext().silentlyGetConstructedCDOMObject(SizeAdjustment.class,
+				prereq.getOperand());
 			final int targetSize = sa.get(IntegerKey.SIZEORDER);
 			if (requiredSize != null && requiredSize != targetSize)
 			{

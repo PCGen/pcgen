@@ -25,22 +25,22 @@ public class TableEntry
 {
 	private final String theName;
 	private final List<Object> theData = new ArrayList<>();
-	
-	public TableEntry( final String aName )
+
+	public TableEntry(final String aName)
 	{
 		theName = aName;
 	}
 
-	public void addData( final Object anItem )
+	public void addData(final Object anItem)
 	{
-		theData.add( anItem );
+		theData.add(anItem);
 	}
-	
+
 	public List<Object> getData()
 	{
 		return Collections.unmodifiableList(theData);
 	}
-	
+
 	@Override
 	public String toString()
 	{

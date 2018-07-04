@@ -25,8 +25,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 /**
  * Class deals with SPELLBOOK Token
  */
-public class SpellbookToken extends AbstractYesNoToken<PCClass> implements
-		CDOMPrimaryToken<PCClass>
+public class SpellbookToken extends AbstractYesNoToken<PCClass> implements CDOMPrimaryToken<PCClass>
 {
 
 	@Override

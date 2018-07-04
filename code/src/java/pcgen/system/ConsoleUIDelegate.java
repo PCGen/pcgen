@@ -36,33 +36,33 @@ import pcgen.util.Logging;
 public class ConsoleUIDelegate implements UIDelegate
 {
 
-    @Override
-	public Boolean maybeShowWarningConfirm(String title, String message,
-		String checkBoxText, PropertyContext context, String contextProp)
+	@Override
+	public Boolean maybeShowWarningConfirm(String title, String message, String checkBoxText, PropertyContext context,
+		String contextProp)
 	{
 		Logging.log(Logging.WARNING, title + " - " + message);
 		return false;
 	}
 
-    @Override
+	@Override
 	public void showErrorMessage(String title, String message)
 	{
 		Logging.log(Logging.ERROR, title + " - " + message);
 	}
 
-    @Override
+	@Override
 	public void showInfoMessage(String title, String message)
 	{
 		Logging.log(Logging.INFO, title + " - " + message);
 	}
 
-    @Override
+	@Override
 	public void showLevelUpInfo(CharacterFacade character, int oldLevel)
 	{
 		Logging.log(Logging.INFO, "Level up from " + oldLevel + " complete for character " + character);
 	}
 
-    @Override
+	@Override
 	public boolean showWarningConfirm(String title, String message)
 	{
 		Logging.log(Logging.WARNING, title + " - " + message);
@@ -88,8 +88,7 @@ public class ConsoleUIDelegate implements UIDelegate
 	}
 
 	@Override
-	public CustomEquipResult showCustomEquipDialog(CharacterFacade character, 
-		EquipmentBuilderFacade equipBuilder)
+	public CustomEquipResult showCustomEquipDialog(CharacterFacade character, EquipmentBuilderFacade equipBuilder)
 	{
 		return CustomEquipResult.CANCELLED;
 	}

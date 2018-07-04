@@ -36,7 +36,7 @@ public class PreAgeSetRoundRobin extends AbstractBasicRoundRobin
 	 * 
 	 * @param args the arguments
 	 */
-	public static void main(String args[])
+	public static void main(String[] args)
 	{
 		TestRunner.run(PreAgeSetRoundRobin.class);
 	}

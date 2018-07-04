@@ -35,8 +35,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * SKILL for Kit Skill
  */
-public class SkillToken extends AbstractTokenWithSeparator<KitSkill> implements
-		CDOMPrimaryToken<KitSkill>
+public class SkillToken extends AbstractTokenWithSeparator<KitSkill> implements CDOMPrimaryToken<KitSkill>
 {
 	private static final Class<Skill> SKILL_CLASS = Skill.class;
 
@@ -71,8 +70,7 @@ public class SkillToken extends AbstractTokenWithSeparator<KitSkill> implements
 		while (tok.hasMoreTokens())
 		{
 			String tokText = tok.nextToken();
-			CDOMReference<Skill> ref = TokenUtilities.getTypeOrPrimitive(
-					context, SKILL_CLASS, tokText);
+			CDOMReference<Skill> ref = TokenUtilities.getTypeOrPrimitive(context, SKILL_CLASS, tokText);
 			if (ref == null)
 			{
 				return ParseResult.INTERNAL_ERROR;
@@ -90,7 +88,6 @@ public class SkillToken extends AbstractTokenWithSeparator<KitSkill> implements
 		{
 			return null;
 		}
-		return new String[] { ReferenceUtilities.joinLstFormat(ref,
-				Constants.PIPE) };
+		return new String[]{ReferenceUtilities.joinLstFormat(ref, Constants.PIPE)};
 	}
 }

@@ -19,6 +19,9 @@ package pcgen.output.model;
 
 import java.text.MessageFormat;
 
+import freemarker.template.TemplateHashModel;
+import freemarker.template.TemplateModel;
+import freemarker.template.TemplateModelException;
 import pcgen.base.lang.CaseInsensitiveString;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
@@ -26,9 +29,6 @@ import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.ObjectWrapperFacet;
 import pcgen.cdom.helper.InfoUtilities;
-import freemarker.template.TemplateHashModel;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
 import pcgen.util.Logging;
 
 /**
@@ -92,13 +92,11 @@ public class InfoModel implements TemplateHashModel
 			//now due to it breaking too many thing...
 			//So we are just logging it for now.
 			//--Connor Petty
-			Logging.errorPrint("CDOMObject [" + cdo.getDisplayName()
-				+ "] does not have INFO of type " + key);
-//			throw new TemplateModelException(
-//				"CDOMObject did not have INFO of type " + key);
+			Logging.errorPrint("CDOMObject [" + cdo.getDisplayName() + "] does not have INFO of type " + key);
+			//			throw new TemplateModelException(
+			//				"CDOMObject did not have INFO of type " + key);
 		}
-		return FacetLibrary.getFacet(ObjectWrapperFacet.class).wrap(id,
-				sb.toString());
+		return FacetLibrary.getFacet(ObjectWrapperFacet.class).wrap(id, sb.toString());
 	}
 
 	@Override

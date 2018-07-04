@@ -23,13 +23,13 @@
  */
 package pcgen.gui2.util;
 
-import pcgen.cdom.base.Constants;
-import pcgen.facade.core.UIDelegate;
-import pcgen.core.utils.MessageType;
-import pcgen.core.utils.MessageWrapper;
-
 import java.util.Observable;
 import java.util.Observer;
+
+import pcgen.cdom.base.Constants;
+import pcgen.core.utils.MessageType;
+import pcgen.core.utils.MessageWrapper;
+import pcgen.facade.core.UIDelegate;
 
 public class ShowMessageGuiObserver implements Observer
 {
@@ -52,13 +52,12 @@ public class ShowMessageGuiObserver implements Observer
 	public void showMessageDialog(MessageWrapper messageWrapper)
 	{
 		MessageType mt = messageWrapper.getMessageType();
-		String title =  messageWrapper
-				.getTitle();
+		String title = messageWrapper.getTitle();
 		if (title == null)
 		{
 			title = Constants.APPLICATION_NAME;
 		}
-			
+
 		String message = String.valueOf(messageWrapper.getMessage());
 		if (mt.equals(MessageType.WARNING))
 		{

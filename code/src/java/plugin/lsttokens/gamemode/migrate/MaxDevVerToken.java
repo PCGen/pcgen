@@ -30,17 +30,15 @@ import pcgen.util.Logging;
  * the rules object was last coded in the old format.  
  * 
  */
-public class MaxDevVerToken extends VersionAwareToken implements
-		MigrationLstToken
+public class MaxDevVerToken extends VersionAwareToken implements MigrationLstToken
 {
 
 	@Override
-	public boolean parse(MigrationRule migrationRule, String value,
-		String gameModeName)
+	public boolean parse(MigrationRule migrationRule, String value, String gameModeName)
 	{
 		if (StringUtils.isBlank(value))
 		{
-			Logging.log(Logging.LST_ERROR, "Invalid empty " + getTokenName() + " value."); 
+			Logging.log(Logging.LST_ERROR, "Invalid empty " + getTokenName() + " value.");
 			return false;
 		}
 		if (!validateVersionNumber(value))

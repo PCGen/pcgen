@@ -21,13 +21,12 @@ package plugin.experience;
 
 import java.util.List;
 
-import pcgen.system.LanguageBundle;
+import org.jdom2.Element;
 
 import gmgen.plugin.Combatant;
 import gmgen.plugin.SystemHP;
 import gmgen.plugin.SystemInitiative;
-import org.jdom2.Element;
-
+import pcgen.system.LanguageBundle;
 
 public class DefeatedCombatant extends Combatant
 {
@@ -49,61 +48,61 @@ public class DefeatedCombatant extends Combatant
 		kill();
 	}
 
-    @Override
+	@Override
 	public void setCR(float cr)
 	{
 		this.cr = cr;
 	}
 
-    @Override
+	@Override
 	public float getCR()
 	{
 		return cr;
 	}
 
-    @Override
+	@Override
 	public void setName(String name)
 	{
 		this.name = name;
 	}
 
-    @Override
+	@Override
 	public String getName()
 	{
 		return name;
 	}
 
-    @Override
+	@Override
 	public String getPlayer()
 	{
 		return LanguageBundle.getString("in_gm"); //$NON-NLS-1$
 	}
 
-    @Override
+	@Override
 	public Element getSaveElement()
 	{
 		return new Element("DefeatedCombatant");
 	}
 
-    @Override
+	@Override
 	public void setXP(int xp)
 	{
 		this.xp = xp;
 	}
 
-    @Override
+	@Override
 	public int getXP()
 	{
 		return xp;
 	}
 
-    @Override
+	@Override
 	public void editRow(List<String> columnOrder, int colNumber, Object data)
 	{
 		// TODO:  Method doesn't do anything?
 	}
 
-    @Override
+	@Override
 	public String toHtmlString()
 	{
 		return LanguageBundle.getFormattedString("in_plugin_xp_defeated", getName(), getPlayer()); //$NON-NLS-1$

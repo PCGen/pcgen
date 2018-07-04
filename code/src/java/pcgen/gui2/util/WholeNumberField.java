@@ -18,17 +18,18 @@
  */
 package pcgen.gui2.util;
 
-import pcgen.util.Logging;
+import java.io.Serializable;
+import java.text.NumberFormat;
+import java.text.ParseException;
+import java.util.Locale;
 
 import javax.swing.JTextField;
 import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Document;
 import javax.swing.text.PlainDocument;
-import java.io.Serializable;
-import java.text.NumberFormat;
-import java.text.ParseException;
-import java.util.Locale;
+
+import pcgen.util.Logging;
 
 /**
  * {@code WholeNumberField} .
@@ -109,8 +110,7 @@ public final class WholeNumberField extends JTextField implements Serializable
 		 * @see javax.swing.text.PlainDocument#insertString(int, java.lang.String, javax.swing.text.AttributeSet)
 		 */
 		@Override
-		public void insertString(int offs, String str, AttributeSet a)
-			throws BadLocationException
+		public void insertString(int offs, String str, AttributeSet a) throws BadLocationException
 		{
 			final char[] source = str.toCharArray();
 			final char[] result = new char[source.length];
@@ -128,8 +128,7 @@ public final class WholeNumberField extends JTextField implements Serializable
 				}
 				else
 				{
-					Logging.errorPrint("insertString: " + source[i] + " in "
-						+ str);
+					Logging.errorPrint("insertString: " + source[i] + " in " + str);
 				}
 			}
 

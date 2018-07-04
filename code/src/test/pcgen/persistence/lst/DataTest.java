@@ -187,7 +187,7 @@ public class DataTest
 		for (Object[] missing : missingLstFiles)
 		{
 			report.append("Missing file ");
-			report.append(((File)missing[1]).getPath().substring(dataPathLen+1));
+			report.append(((File) missing[1]).getPath().substring(dataPathLen+1));
 			report.append(" used by ");
 			report.append((new File(((Campaign) missing[0]).getSourceURI())).getPath().substring(dataPathLen+1));
 			report.append("<br>\r\n");

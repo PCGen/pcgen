@@ -26,8 +26,7 @@ import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
-public class CategoryToken implements CDOMPrimaryToken<AbilityCategory>,
-		DeferredToken<AbilityCategory>
+public class CategoryToken implements CDOMPrimaryToken<AbilityCategory>, DeferredToken<AbilityCategory>
 {
 
 	@Override
@@ -37,11 +36,10 @@ public class CategoryToken implements CDOMPrimaryToken<AbilityCategory>,
 	}
 
 	@Override
-	public ParseResult parseToken(LoadContext context, AbilityCategory ac,
-			String value)
+	public ParseResult parseToken(LoadContext context, AbilityCategory ac, String value)
 	{
-		CDOMSingleRef<AbilityCategory> cat = context.getReferenceContext().getCDOMReference(
-				AbilityCategory.class, value);
+		CDOMSingleRef<AbilityCategory> cat =
+				context.getReferenceContext().getCDOMReference(AbilityCategory.class, value);
 		ac.setAbilityCategory(cat);
 		return ParseResult.SUCCESS;
 	}
@@ -54,7 +52,7 @@ public class CategoryToken implements CDOMPrimaryToken<AbilityCategory>,
 		{
 			return null;
 		}
-		return new String[] { cat.getLSTformat(false) };
+		return new String[]{cat.getLSTformat(false)};
 	}
 
 	@Override
@@ -75,53 +73,37 @@ public class CategoryToken implements CDOMPrimaryToken<AbilityCategory>,
 		CDOMSingleRef<AbilityCategory> parent = ac.getAbilityCatRef();
 		if (parent == null)
 		{
-			Logging.log(
-				Logging.LST_ERROR,
-				"All Ability Categories must have a CATEGORY token. "
-					+ ac.getKeyName() + " of " + context.getSourceURI()
-					+ " did not");
+			Logging.log(Logging.LST_ERROR, "All Ability Categories must have a CATEGORY token. " + ac.getKeyName()
+				+ " of " + context.getSourceURI() + " did not");
 			return false;
 		}
 		String parentCat = parent.getLSTformat(false);
-		if (!ac.getTypes().isEmpty()
-				&& parentCat.equalsIgnoreCase(ac.getKeyName()))
+		if (!ac.getTypes().isEmpty() && parentCat.equalsIgnoreCase(ac.getKeyName()))
 		{
-			Logging.log(Logging.LST_ERROR, "TYPE " + ac.getTypes()
-				+ " is not valid in 'parent' category " + ac.getKeyName()
-				+ " of " + context.getSourceURI() + Constants.DOT);
+			Logging.log(Logging.LST_ERROR, "TYPE " + ac.getTypes() + " is not valid in 'parent' category "
+				+ ac.getKeyName() + " of " + context.getSourceURI() + Constants.DOT);
 			return false;
 		}
-		if (ac.isAllAbilityTypes()
-				&& parentCat.equalsIgnoreCase(ac.getKeyName()))
+		if (ac.isAllAbilityTypes() && parentCat.equalsIgnoreCase(ac.getKeyName()))
 		{
-			Logging.log(Logging.LST_ERROR,
-				"TYPE '*' is not valid in 'parent' category " + ac.getKeyName()
-					+ " of " + context.getSourceURI() + Constants.DOT);
+			Logging.log(Logging.LST_ERROR, "TYPE '*' is not valid in 'parent' category " + ac.getKeyName() + " of "
+				+ context.getSourceURI() + Constants.DOT);
 			return false;
 		}
 
-		if (ac.hasDirectReferences()
-				&& parentCat.equalsIgnoreCase(ac.getKeyName()))
+		if (ac.hasDirectReferences() && parentCat.equalsIgnoreCase(ac.getKeyName()))
 		{
-			Logging.log(
-				Logging.LST_ERROR,
-				"ABILITYLIST is not valid in 'parent' category "
-					+ ac.getKeyName() + " of " + context.getSourceURI()
-					+ Constants.DOT);
+			Logging.log(Logging.LST_ERROR, "ABILITYLIST is not valid in 'parent' category " + ac.getKeyName() + " of "
+				+ context.getSourceURI() + Constants.DOT);
 			return false;
 		}
 		// Must be a universal set if no types
-		if (ac.getTypes().isEmpty() && !ac.hasDirectReferences()
-				&& !ac.isAllAbilityTypes())
+		if (ac.getTypes().isEmpty() && !ac.hasDirectReferences() && !ac.isAllAbilityTypes())
 		{
 			if (!parentCat.equalsIgnoreCase(ac.getKeyName()))
 			{
-				Logging.log(
-					Logging.LST_ERROR,
-					"Ability Category " + ac.getKeyName()
-						+ " had no TYPE or ABILITYLIST, "
-						+ "but has a different CATEGORY.  File was: "
-						+ context.getSourceURI());
+				Logging.log(Logging.LST_ERROR, "Ability Category " + ac.getKeyName() + " had no TYPE or ABILITYLIST, "
+					+ "but has a different CATEGORY.  File was: " + context.getSourceURI());
 				return false;
 			}
 		}

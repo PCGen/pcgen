@@ -39,8 +39,7 @@ public class VariableChannelFactoryInst implements VariableChannelFactory
 	/**
 	 * The LoadContextFacet for VariableID construction.
 	 */
-	private static final LoadContextFacet LOAD_CONTEXT_FACET =
-			FacetLibrary.getFacet(LoadContextFacet.class);
+	private static final LoadContextFacet LOAD_CONTEXT_FACET = FacetLibrary.getFacet(LoadContextFacet.class);
 
 	/**
 	 * The ScopeFacet for VariableID construction.
@@ -50,14 +49,12 @@ public class VariableChannelFactoryInst implements VariableChannelFactory
 	/**
 	 * The SolverManagerFacet for VariableID construction.
 	 */
-	private static final SolverManagerFacet MGR_FACET =
-			FacetLibrary.getFacet(SolverManagerFacet.class);
+	private static final SolverManagerFacet MGR_FACET = FacetLibrary.getFacet(SolverManagerFacet.class);
 
 	/**
 	 * The VariableStoreFacet for VariableID construction.
 	 */
-	private static final VariableStoreFacet RESULT_FACET =
-			FacetLibrary.getFacet(VariableStoreFacet.class);
+	private static final VariableStoreFacet RESULT_FACET = FacetLibrary.getFacet(VariableStoreFacet.class);
 
 	/**
 	 * The VariableChannel objects produced by this VariableChannelFactoryInst.
@@ -89,8 +86,8 @@ public class VariableChannelFactoryInst implements VariableChannelFactory
 	private VariableChannel<?> getChannel(CharID id, ScopeInstance scopeInst, String name)
 	{
 		String varName = ChannelUtilities.createVarName(name);
-		VariableID<?> varID = LOAD_CONTEXT_FACET.get(id.getDatasetID()).get()
-			.getVariableContext().getVariableID(scopeInst, varName);
+		VariableID<?> varID =
+				LOAD_CONTEXT_FACET.get(id.getDatasetID()).get().getVariableContext().getVariableID(scopeInst, varName);
 		return getChannel(id, varID);
 	}
 

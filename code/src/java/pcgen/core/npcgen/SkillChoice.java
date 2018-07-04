@@ -38,7 +38,7 @@ public class SkillChoice
 {
 	private String theKey = null;
 	private final WeightedCollection<Skill> theSkillList = new WeightedCollection<>();
-	
+
 	/**
 	 * Creates a new SkillChoice.
 	 * 
@@ -50,19 +50,19 @@ public class SkillChoice
 	public SkillChoice(final String aKey)
 	{
 		theKey = aKey;
-		if ( theKey.startsWith("TYPE") ) //$NON-NLS-1$
+		if (theKey.startsWith("TYPE")) //$NON-NLS-1$
 		{
-			final List<Skill> subSkills = Globals.getPObjectsOfType(Globals
-					.getContext().getReferenceContext().getConstructedCDOMObjects(Skill.class),
-					theKey.substring(5));
+			final List<Skill> subSkills = Globals.getPObjectsOfType(
+				Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Skill.class), theKey.substring(5));
 			theSkillList.addAll(subSkills);
 		}
 		else
 		{
-			theSkillList.add(Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Skill.class, theKey));
+			theSkillList
+				.add(Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Skill.class, theKey));
 		}
 	}
-	
+
 	/**
 	 * Gets the skill associated with this chioce.  If this choice is a group
 	 * of choices, the specific skill will be selected randomly.
@@ -75,7 +75,7 @@ public class SkillChoice
 		theSkillList.add(skill, NPCGenerator.getSubSkillWeightAdd());
 		return skill;
 	}
-	
+
 	/**
 	 * Checks if this <tt>SkillChoice</tt> has the specified skill as an option.
 	 * That is, if this skill represents the same skill or if the skill is in
@@ -85,32 +85,33 @@ public class SkillChoice
 	 * 
 	 * @return <tt>true</tt> if this choice contains the skill.
 	 */
-	public boolean hasSkill( final String aKey )
+	public boolean hasSkill(final String aKey)
 	{
-		if ( theKey.equals(aKey) )
+		if (theKey.equals(aKey))
 		{
 			return true;
 		}
-		if ( theSkillList.size() == 1 )
+		if (theSkillList.size() == 1)
 		{
 			return false;
 		}
-		final Skill skill = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Skill.class, aKey);
-		if ( skill == null )
+		final Skill skill =
+				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Skill.class, aKey);
+		if (skill == null)
 		{
 			return false;
 		}
-		
-		for ( final Skill s : theSkillList )
+
+		for (final Skill s : theSkillList)
 		{
-			if ( s.getKeyName().equals(aKey) )
+			if (s.getKeyName().equals(aKey))
 			{
 				return true;
 			}
 		}
 		return false;
 	}
-	
+
 	/**
 	 * @see java.lang.Object#toString()
 	 */

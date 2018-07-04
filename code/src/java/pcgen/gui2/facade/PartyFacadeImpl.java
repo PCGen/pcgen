@@ -26,13 +26,12 @@ import java.util.List;
 
 import pcgen.core.PlayerCharacter;
 import pcgen.facade.core.CharacterFacade;
-import pcgen.facade.util.DefaultReferenceFacade;
 import pcgen.facade.core.PartyFacade;
-import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.DefaultListFacade;
+import pcgen.facade.util.DefaultReferenceFacade;
+import pcgen.facade.util.ReferenceFacade;
 import pcgen.io.ExportHandler;
 import pcgen.io.PCGIOHandler;
-
 
 public class PartyFacadeImpl extends DefaultListFacade<CharacterFacade> implements PartyFacade
 {

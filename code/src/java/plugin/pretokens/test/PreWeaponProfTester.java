@@ -32,13 +32,13 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.system.LanguageBundle;
 
-
 public class PreWeaponProfTester extends AbstractDisplayPrereqTest
 {
 
 	/**
 	 * <b>Tag Name</b>: {@code PREWEAPONPROF:x,y,y}<br>
-	 * &nbsp; <b>Variables Used (x)</b>: <i>Number</i> (The number of proficiencies that must match the specified requirements). <br>
+	 * &nbsp; <b>Variables Used (x)</b>: <i>Number</i> 
+	 * (The number of proficiencies that must match the specified requirements). <br>
 	 * &nbsp; <b>Variables Used (y)</b>: <i>Text</i> (The name of a weapon proficiency). <br>
 	 * &nbsp; <b>Variables Used (y)</b>: {@code TYPE.}<i>Text</i> (The name of a weaponprof type). <br>
 	 * &nbsp; <b>Variables Used (y)</b>: {@code DEITYWEAPON} (The favored weapon of the character's deity). <br>
@@ -72,15 +72,14 @@ public class PreWeaponProfTester extends AbstractDisplayPrereqTest
 		}
 		catch (NumberFormatException exceptn)
 		{
-			throw new PrerequisiteException(LanguageBundle.getFormattedString(
-				"PreFeat.error", prereq.toString())); //$NON-NLS-1$
+			throw new PrerequisiteException(
+				LanguageBundle.getFormattedString("PreFeat.error", prereq.toString())); //$NON-NLS-1$
 		}
 
 		final String aString = prereq.getKey();
 		if ("DEITYWEAPON".equals(aString) && display.getDeity() != null) //$NON-NLS-1$
 		{
-			List<CDOMReference<WeaponProf>> dwp = display.getDeity().getSafeListFor(
-					ListKey.DEITYWEAPON);
+			List<CDOMReference<WeaponProf>> dwp = display.getDeity().getSafeListFor(ListKey.DEITYWEAPON);
 			DEITYWPN: for (CDOMReference<WeaponProf> ref : dwp)
 			{
 				for (WeaponProf wp : ref.getContainedObjects())
@@ -105,8 +104,7 @@ public class PreWeaponProfTester extends AbstractDisplayPrereqTest
 				else
 				{
 					final Equipment eq = Globals.getContext().getReferenceContext()
-							.silentlyGetConstructedCDOMObject(Equipment.class,
-									wp.getKeyName());
+						.silentlyGetConstructedCDOMObject(Equipment.class, wp.getKeyName());
 					if (eq != null)
 					{
 						if (eq.isType(requiredType))
@@ -120,7 +118,7 @@ public class PreWeaponProfTester extends AbstractDisplayPrereqTest
 		else
 		{
 			WeaponProf wp = Globals.getContext().getReferenceContext()
-					.silentlyGetConstructedCDOMObject(WeaponProf.class, aString);
+				.silentlyGetConstructedCDOMObject(WeaponProf.class, aString);
 			if ((wp != null && display.hasWeaponProf(wp)))
 			{
 				runningTotal++;
@@ -131,7 +129,7 @@ public class PreWeaponProfTester extends AbstractDisplayPrereqTest
 		return countedTotal(prereq, runningTotal);
 	}
 
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "WEAPONPROF"; //$NON-NLS-1$

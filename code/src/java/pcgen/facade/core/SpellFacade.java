@@ -17,7 +17,6 @@
  */
 package pcgen.facade.core;
 
-
 public interface SpellFacade extends InfoFacade
 {
 
@@ -28,7 +27,7 @@ public interface SpellFacade extends InfoFacade
 	public String[] getDescriptors();
 
 	public String getComponents();
-	
+
 	public String getRange();
 
 	public String getDuration();

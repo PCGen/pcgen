@@ -71,7 +71,8 @@ public class BioTokenTest extends AbstractCharacterTestCase
 
 		assertEquals(
 			"New Style Bio start and end",
-			"<para>[b]Test bio entry[/b]</para><para>[b]2nd line[/b]</para><para>[b]Third line[/b]</para><para>[b]last one[/b]</para>",
+			"<para>[b]Test bio entry[/b]</para><para>[b]2nd line[/b]</para><para>[b]Third line[/b]"
+			+ "</para><para>[b]last one[/b]</para>",
 			evaluateToken("BIO.[b].[/b]", character));
 
 		assertEquals(
@@ -88,7 +89,8 @@ public class BioTokenTest extends AbstractCharacterTestCase
 		character.setPCAttribute(NotePCAttribute.BIO, "Test bio <br/>entry\n2nd line\nThird line\nlast one");
 
 		String expected =
-				"<p>[b]Test bio &lt;br/&gt;entry[/b]</p>\n<p>[b]2nd line[/b]</p>\n<p>[b]Third line[/b]</p>\n<p>[b]last one[/b]</p>";
+				"<p>[b]Test bio &lt;br/&gt;entry[/b]</p>\n<p>[b]2nd line[/b]</p>"
+						+ "\n<p>[b]Third line[/b]</p>\n<p>[b]last one[/b]</p>";
 		String actual = evaluateToken("BIO.[b].[/b]", character);
 		assertEquals(expected, actual);
 

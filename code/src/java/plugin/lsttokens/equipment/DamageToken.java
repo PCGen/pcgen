@@ -31,8 +31,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Deals with DAMAGE token
  */
-public class DamageToken extends AbstractNonEmptyToken<Equipment> implements
-		CDOMPrimaryToken<Equipment>
+public class DamageToken extends AbstractNonEmptyToken<Equipment> implements CDOMPrimaryToken<Equipment>
 {
 
 	@Override
@@ -49,12 +48,10 @@ public class DamageToken extends AbstractNonEmptyToken<Equipment> implements
 			String errorMessage = RollInfo.validateRollString(value);
 			if (!StringUtils.isBlank(errorMessage))
 			{
-				return new ParseResult.Fail(getTokenName()
-						+ " is invalid: " + errorMessage);
+				return new ParseResult.Fail(getTokenName() + " is invalid: " + errorMessage);
 			}
 		}
-		context.getObjectContext().put(eq.getEquipmentHead(1),
-				StringKey.DAMAGE, value);
+		context.getObjectContext().put(eq.getEquipmentHead(1), StringKey.DAMAGE, value);
 		return ParseResult.SUCCESS;
 	}
 
@@ -66,13 +63,12 @@ public class DamageToken extends AbstractNonEmptyToken<Equipment> implements
 		{
 			return null;
 		}
-		String damage = context.getObjectContext().getString(head,
-				StringKey.DAMAGE);
+		String damage = context.getObjectContext().getString(head, StringKey.DAMAGE);
 		if (damage == null)
 		{
 			return null;
 		}
-		return new String[] { damage };
+		return new String[]{damage};
 	}
 
 	@Override

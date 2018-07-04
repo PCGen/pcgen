@@ -14,8 +14,8 @@ import pcgen.core.display.CharacterDisplay;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
-import pcgen.util.Logging;
 import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
 
 /**
  *
@@ -26,11 +26,9 @@ public class PreClassTester extends AbstractPrerequisiteTest implements Prerequi
 {
 
 	@Override
-	public int passes(final Prerequisite prereq, final Equipment equipment,
-		PlayerCharacter aPC)
+	public int passes(final Prerequisite prereq, final Equipment equipment, PlayerCharacter aPC)
 	{
-		Logging.debugPrint("PreClass on equipment: " + equipment.getName()
-			+ "  pre: " + toHtmlString(prereq));
+		Logging.debugPrint("PreClass on equipment: " + equipment.getName() + "  pre: " + toHtmlString(prereq));
 		if (aPC == null)
 		{
 			return 0;
@@ -66,9 +64,7 @@ public class PreClassTester extends AbstractPrerequisiteTest implements Prerequi
 		}
 		else if (aString.startsWith("SPELLCASTER.")) //$NON-NLS-1$
 		{
-			int spellCaster =
-					character.isSpellCaster(aString.substring(12), preClass,
-						sumLevels);
+			int spellCaster = character.isSpellCaster(aString.substring(12), preClass, sumLevels);
 			if (spellCaster > 0)
 			{
 				if (prereq.isCountMultiples())
@@ -114,13 +110,12 @@ public class PreClassTester extends AbstractPrerequisiteTest implements Prerequi
 					}
 					else
 					{
-						runningTotal =
-								Math.max(runningTotal, display.getLevel(cl));
+						runningTotal = Math.max(runningTotal, display.getLevel(cl));
 					}
 				}
 				else
 				{
-					for(CDOMReference<PCClass> ref: cl.getSafeListFor(ListKey.SERVES_AS_CLASS))
+					for (CDOMReference<PCClass> ref : cl.getSafeListFor(ListKey.SERVES_AS_CLASS))
 					{
 						for (PCClass fakeClass : ref.getContainedObjects())
 						{
@@ -163,10 +158,9 @@ public class PreClassTester extends AbstractPrerequisiteTest implements Prerequi
 			}
 			else
 			{
-CLASSLIST:		for(PCClass theClass: display.getClassSet())
+				CLASSLIST: for (PCClass theClass : display.getClassSet())
 				{
-					for (CDOMReference<PCClass> ref : theClass
-							.getSafeListFor(ListKey.SERVES_AS_CLASS))
+					for (CDOMReference<PCClass> ref : theClass.getSafeListFor(ListKey.SERVES_AS_CLASS))
 					{
 						for (PCClass fakeClass : ref.getContainedObjects())
 						{
@@ -198,7 +192,7 @@ CLASSLIST:		for(PCClass theClass: display.getClassSet())
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "CLASS"; //$NON-NLS-1$
@@ -210,8 +204,7 @@ CLASSLIST:		for(PCClass theClass: display.getClassSet())
 		final String level = prereq.getOperand();
 		final String operator = prereq.getOperator().toDisplayString();
 
-		return LanguageBundle.getFormattedString(
-			"PreClass.toHtml", prereq.getKey(), operator, level); //$NON-NLS-1$
+		return LanguageBundle.getFormattedString("PreClass.toHtml", prereq.getKey(), operator, level); //$NON-NLS-1$
 	}
 
 }

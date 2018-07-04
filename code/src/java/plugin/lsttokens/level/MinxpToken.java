@@ -26,13 +26,13 @@ import pcgen.persistence.lst.LevelLstToken;
 public class MinxpToken implements LevelLstToken
 {
 
-    @Override
+	@Override
 	public String getTokenName()
 	{
 		return "MINXP";
 	}
 
-    @Override
+	@Override
 	public boolean parse(LevelInfo levelInfo, String value)
 	{
 		levelInfo.setMinXPString(value);

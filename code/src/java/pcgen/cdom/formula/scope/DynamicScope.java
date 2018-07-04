@@ -32,14 +32,13 @@ public class DynamicScope implements PCGenScope
 	/**
 	 * The parent PCGenScope for all DynamicScope objects is the GlobalScope.
 	 */
-	private static final Optional<PCGenScope> PARENT_SCOPE =
-			Optional.of(SpringHelper.getBean(GlobalScope.class));
+	private static final Optional<PCGenScope> PARENT_SCOPE = Optional.of(SpringHelper.getBean(GlobalScope.class));
 
 	/**
 	 * The DynamicCategory indicating the objects contained by this DynamicScope.
 	 */
 	private final DynamicCategory category;
-	
+
 	/**
 	 * The FormatManager for the objects contained in this DynamicScope.
 	 */

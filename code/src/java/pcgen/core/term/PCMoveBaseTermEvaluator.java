@@ -23,8 +23,7 @@ package pcgen.core.term;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.core.spell.Spell;
 
-public class PCMoveBaseTermEvaluator 
-		extends BasePCDTermEvaluator implements TermEvaluator
+public class PCMoveBaseTermEvaluator extends BasePCDTermEvaluator implements TermEvaluator
 {
 	public PCMoveBaseTermEvaluator(String originalText)
 	{
@@ -44,11 +43,11 @@ public class PCMoveBaseTermEvaluator
 	}
 
 	@Override
-	public String evaluate (CharacterDisplay display, Spell aSpell)
+	public String evaluate(CharacterDisplay display, Spell aSpell)
 	{
 		return evaluate(display);
 	}
-	
+
 	@Override
 	public boolean isSourceDependant()
 	{

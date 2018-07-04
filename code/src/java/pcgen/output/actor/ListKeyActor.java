@@ -17,13 +17,13 @@
  */
 package pcgen.output.actor;
 
+import freemarker.template.TemplateModel;
+import freemarker.template.TemplateModelException;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.output.base.OutputActor;
 import pcgen.output.model.CollectionModel;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
 
 /**
  * A ListKeyActor is designed to process an interpolation and convert that into
@@ -53,8 +53,7 @@ public class ListKeyActor implements OutputActor<CDOMObject>
 	}
 
 	@Override
-	public TemplateModel process(CharID id, CDOMObject d)
-		throws TemplateModelException
+	public TemplateModel process(CharID id, CDOMObject d) throws TemplateModelException
 	{
 		//Our own ListModel so that we end up wrapping subcontents on "our terms"
 		return new CollectionModel(id, d.getSafeListFor(lk));

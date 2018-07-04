@@ -35,8 +35,8 @@ import pcgen.core.PlayerCharacter;
  */
 public class AddFacet implements DataFacetChangeListener<CharID, CDOMObject>
 {
-	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
-		.getFacet(PlayerCharacterTrackingFacet.class);
+	private final PlayerCharacterTrackingFacet trackingFacet =
+			FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
 
 	private RaceFacet raceFacet;
 

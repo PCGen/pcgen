@@ -90,8 +90,7 @@ public class KitTable extends BaseKit
 	}
 
 	@Override
-	public boolean testApply(Kit aKit, PlayerCharacter aPC,
-		List<String> warnings)
+	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
 	{
 		throw new UnsupportedOperationException();
 	}

@@ -254,8 +254,12 @@ public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTe
 	public void generic()
 	{
 		//Need to do these with 2 choices and test :P
-		//	6) Ability granted by a ADD:VFEAT token where the target (in parens) is MULT:YES STACK:YES CHOOSE:NOCHOICE and the stackable items are chosen more than once (STACK is used)
-		//	7) Ability granted by a ADD:VFEAT token where the target (in parens) is MULT:YES STACK:YES and any CHOOSE except NOCHOICE or USERINPUT. and the stackable items are chosen more than once (STACK is used)
+		//	6) Ability granted by a ADD:VFEAT token where the target (in parens)
+		//		is MULT:YES STACK:YES CHOOSE:NOCHOICE and the stackable items
+		//		are chosen more than once (STACK is used)
+		//	7) Ability granted by a ADD:VFEAT token where the target (in parens)
+		//		is MULT:YES STACK:YES and any CHOOSE except NOCHOICE or USERINPUT.
+		//		and the stackable items are chosen more than once (STACK is used)
 		Ability multyesstackyes = getMultYesStackYes("MultYes", "Target");
 		Ability multyesstackyesNC = getMultYesStackYesChooseNoChoice("MultYes");
 	}

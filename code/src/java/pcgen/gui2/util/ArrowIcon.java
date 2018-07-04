@@ -21,6 +21,7 @@ package pcgen.gui2.util;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
+
 import javax.swing.Icon;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
@@ -40,8 +41,7 @@ public class ArrowIcon implements Icon
 	private int direction;
 	private int size;
 
-	public ArrowIcon(int direction, int size, Color shadow,
-			Color darkShadow, Color highlight)
+	public ArrowIcon(int direction, int size, Color shadow, Color darkShadow, Color highlight)
 	{
 		super();
 		this.shadow = shadow;
@@ -53,8 +53,8 @@ public class ArrowIcon implements Icon
 
 	public ArrowIcon(int direction, int size)
 	{
-		this(direction, size, UIManager.getColor("controlShadow"),
-				UIManager.getColor("controlDkShadow"), UIManager.getColor("controlLtHighlight"));
+		this(direction, size, UIManager.getColor("controlShadow"), UIManager.getColor("controlDkShadow"),
+			UIManager.getColor("controlLtHighlight"));
 	}
 
 	@Override
@@ -89,8 +89,7 @@ public class ArrowIcon implements Icon
 	 * @param isEnabled whether or not the arrow is drawn enabled
 	 * @see javax.swing.plaf.basic.BasicArrowButton
 	 */
-	private void paintTriangle(Graphics g, int x, int y, int triangleSize,
-			int triangleDir, boolean isEnabled)
+	private void paintTriangle(Graphics g, int x, int y, int triangleSize, int triangleDir, boolean isEnabled)
 	{
 		Color oldColor = g.getColor();
 		int mid, i, j;
@@ -174,6 +173,9 @@ public class ArrowIcon implements Icon
 					g.drawLine(j, mid - i, j, mid + i);
 					j++;
 				}
+				break;
+			default:
+				//Case not caught, should this cause an error?
 				break;
 		}
 		g.translate(-x, -y);

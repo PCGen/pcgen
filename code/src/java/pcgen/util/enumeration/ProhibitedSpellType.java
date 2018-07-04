@@ -30,12 +30,14 @@ import pcgen.core.spell.Spell;
 public enum ProhibitedSpellType
 {
 
-	ALIGNMENT("Alignment") {
+	ALIGNMENT("Alignment")
+	{
 		@Override
 		public Collection<String> getCheckList(Spell s)
 		{
 			return s.getSafeListFor(ListKey.SPELL_DESCRIPTOR);
 		}
+
 		@Override
 		public int getRequiredCount(Collection<String> l)
 		{
@@ -43,12 +45,14 @@ public enum ProhibitedSpellType
 		}
 	},
 
-	DESCRIPTOR("Descriptor") {
+	DESCRIPTOR("Descriptor")
+	{
 		@Override
 		public Collection<String> getCheckList(Spell s)
 		{
 			return s.getSafeListFor(ListKey.SPELL_DESCRIPTOR);
 		}
+
 		@Override
 		public int getRequiredCount(Collection<String> l)
 		{
@@ -56,7 +60,8 @@ public enum ProhibitedSpellType
 		}
 	},
 
-	SCHOOL("School") {
+	SCHOOL("School")
+	{
 		@Override
 		public Collection<String> getCheckList(Spell s)
 		{
@@ -71,6 +76,7 @@ public enum ProhibitedSpellType
 			}
 			return list;
 		}
+
 		@Override
 		public int getRequiredCount(Collection<String> l)
 		{
@@ -78,12 +84,14 @@ public enum ProhibitedSpellType
 		}
 	},
 
-	SUBSCHOOL("SubSchool") {
+	SUBSCHOOL("SubSchool")
+	{
 		@Override
 		public Collection<String> getCheckList(Spell s)
 		{
 			return s.getSafeListFor(ListKey.SPELL_SUBSCHOOL);
 		}
+
 		@Override
 		public int getRequiredCount(Collection<String> l)
 		{
@@ -91,12 +99,14 @@ public enum ProhibitedSpellType
 		}
 	},
 
-	SPELL("Spell") {
+	SPELL("Spell")
+	{
 		@Override
 		public Collection<String> getCheckList(Spell s)
 		{
 			return Collections.singletonList(s.getKeyName());
 		}
+
 		@Override
 		public int getRequiredCount(Collection<String> l)
 		{

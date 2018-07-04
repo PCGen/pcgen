@@ -64,8 +64,7 @@ public final class CDOMTypeRef<T> extends CDOMGroupRef<T>
 	 */
 	public CDOMTypeRef(ClassIdentity<T> objClass, String[] typeArray)
 	{
-		super(objClass.getReferenceDescription() + " "
-				+ Arrays.deepToString(typeArray));
+		super(objClass.getReferenceDescription() + " " + Arrays.deepToString(typeArray));
 		types = new String[typeArray.length];
 		System.arraycopy(typeArray, 0, types, 0, typeArray.length);
 		identity = objClass;
@@ -109,8 +108,7 @@ public final class CDOMTypeRef<T> extends CDOMGroupRef<T>
 	{
 		if (referencedList == null)
 		{
-			throw new IllegalStateException(
-					"Cannot ask for contains: Reference has not been resolved");
+			throw new IllegalStateException("Cannot ask for contains: Reference has not been resolved");
 		}
 		return referencedList.contains(item);
 	}
@@ -129,9 +127,8 @@ public final class CDOMTypeRef<T> extends CDOMGroupRef<T>
 		if (obj instanceof CDOMTypeRef)
 		{
 			CDOMTypeRef<?> ref = (CDOMTypeRef<?>) obj;
-			return getReferenceClass().equals(ref.getReferenceClass())
-					&& getName().equals(ref.getName())
-					&& Arrays.deepEquals(types, ref.types);
+			return getReferenceClass().equals(ref.getReferenceClass()) && getName().equals(ref.getName())
+				&& Arrays.deepEquals(types, ref.types);
 		}
 		return false;
 	}
@@ -173,9 +170,8 @@ public final class CDOMTypeRef<T> extends CDOMGroupRef<T>
 		}
 		else
 		{
-			throw new IllegalArgumentException("Cannot resolve a "
-					+ getReferenceClass().getSimpleName() + " Reference to a "
-					+ item.getClass().getSimpleName());
+			throw new IllegalArgumentException("Cannot resolve a " + getReferenceClass().getSimpleName()
+				+ " Reference to a " + item.getClass().getSimpleName());
 		}
 	}
 
@@ -217,8 +213,7 @@ public final class CDOMTypeRef<T> extends CDOMGroupRef<T>
 	{
 		if (referencedList == null)
 		{
-			throw new IllegalStateException(
-					"Cannot ask for contained objects: Reference has not been resolved");
+			throw new IllegalStateException("Cannot ask for contained objects: Reference has not been resolved");
 		}
 		return Collections.unmodifiableList(referencedList);
 	}

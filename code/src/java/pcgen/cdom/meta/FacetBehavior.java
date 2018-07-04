@@ -32,9 +32,9 @@ public final class FacetBehavior
 	public static final FacetBehavior INPUT = new FacetBehavior("Input");
 	public static final FacetBehavior CONDITIONAL = new FacetBehavior("Conditional");
 	public static final FacetBehavior CONDITIONAL_GRANTED = new FacetBehavior("Conditional-Granted");
-//	public static final CorePerspective SELECTION = new CorePerspective("Selection");
-//	public static final CorePerspective CONDITIONAL_SELECTION = new CorePerspective("Conditional Selection");
-	
+	//	public static final CorePerspective SELECTION = new CorePerspective("Selection");
+	//	public static final CorePerspective CONDITIONAL_SELECTION = new CorePerspective("Conditional Selection");
+
 	private static CaseInsensitiveMap<FacetBehavior> map = null;
 
 	private String type;
@@ -66,9 +66,7 @@ public final class FacetBehavior
 		{
 			int mod = field.getModifiers();
 
-			if (Modifier.isStatic(mod)
-					&& Modifier.isFinal(mod)
-					&& Modifier.isPublic(mod))
+			if (Modifier.isStatic(mod) && Modifier.isFinal(mod) && Modifier.isPublic(mod))
 			{
 				try
 				{

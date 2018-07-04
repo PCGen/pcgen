@@ -45,8 +45,7 @@ public class RequestOpenPlayerCharacterMessage extends PCGenMessage
 	 * @param file The character file to be opened.
 	 * @param blockLoadedMessage Should the character loaded message be blocked?
 	 */
-	public RequestOpenPlayerCharacterMessage(Object source,
-		File file, boolean blockLoadedMessage)
+	public RequestOpenPlayerCharacterMessage(Object source, File file, boolean blockLoadedMessage)
 	{
 		super(source);
 		this.file = file;

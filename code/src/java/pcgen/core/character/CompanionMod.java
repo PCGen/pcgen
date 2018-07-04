@@ -38,8 +38,7 @@ import pcgen.core.Race;
 /**
  * {@code CompanionMod}.
  */
-public final class CompanionMod extends PObject implements
-		Categorized<CompanionMod>
+public final class CompanionMod extends PObject implements Categorized<CompanionMod>
 {
 	/**
 	 * Get Level
@@ -85,8 +84,7 @@ public final class CompanionMod extends PObject implements
 		Map<CDOMSingleRef<? extends PCClass>, Integer> ac = getMapFor(MapKey.APPLIED_CLASS);
 		if (ac != null)
 		{
-			for (Map.Entry<CDOMSingleRef<? extends PCClass>, Integer> me : ac
-					.entrySet())
+			for (Map.Entry<CDOMSingleRef<? extends PCClass>, Integer> me : ac.entrySet())
 			{
 				PCClass pcclass = me.getKey().get();
 				if (pcclass.getKeyName().equalsIgnoreCase(cl.getKeyName()))

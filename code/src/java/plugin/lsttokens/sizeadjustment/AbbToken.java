@@ -28,8 +28,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with ABB Token for size adjustment
  */
-public class AbbToken extends AbstractNonEmptyToken<SizeAdjustment> implements
-		CDOMPrimaryToken<SizeAdjustment>
+public class AbbToken extends AbstractNonEmptyToken<SizeAdjustment> implements CDOMPrimaryToken<SizeAdjustment>
 {
 
 	/**
@@ -44,8 +43,7 @@ public class AbbToken extends AbstractNonEmptyToken<SizeAdjustment> implements
 	}
 
 	@Override
-	public ParseResult parseNonEmptyToken(LoadContext context,
-		SizeAdjustment size, String value)
+	public ParseResult parseNonEmptyToken(LoadContext context, SizeAdjustment size, String value)
 	{
 		try
 		{
@@ -70,7 +68,7 @@ public class AbbToken extends AbstractNonEmptyToken<SizeAdjustment> implements
 		{
 			return null;
 		}
-		return new String[] { abb };
+		return new String[]{abb};
 	}
 
 	@Override

@@ -29,18 +29,16 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 /**
  * A prerequisite parser class that handles the parsing of pre hands tokens.
  */
-public class PreHandsParser extends AbstractPrerequisiteParser implements
-		PrerequisiteParserInterface
+public class PreHandsParser extends AbstractPrerequisiteParser implements PrerequisiteParserInterface
 {
 	/**
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String[] kindsHandled()
 	{
-		return new String[]{"HANDS", "HANDSEQ", "HANDSGT", "HANDSGTEQ",
-			"HANDSLT", "HANDSLTEQ", "HANDSNEQ"};
+		return new String[]{"HANDS", "HANDSEQ", "HANDSGT", "HANDSGTEQ", "HANDSLT", "HANDSLTEQ", "HANDSNEQ"};
 	}
 
 	/**
@@ -56,16 +54,12 @@ public class PreHandsParser extends AbstractPrerequisiteParser implements
 	 * @throws PersistenceLayerException
 	 */
 	@Override
-	public Prerequisite parse(String kind,
-	                          String formula,
-	                          boolean invertResult,
-	                          boolean overrideQualify) throws PersistenceLayerException
+	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+		throws PersistenceLayerException
 	{
-		if (ControlUtilities.hasControlToken(Globals.getContext(),
-			CControl.CREATUREHANDS))
+		if (ControlUtilities.hasControlToken(Globals.getContext(), CControl.CREATUREHANDS))
 		{
-			throw new PersistenceLayerException(
-				"PREHANDS is disabled when CREATUREHANDS CodeControl is used");
+			throw new PersistenceLayerException("PREHANDS is disabled when CREATUREHANDS CodeControl is used");
 		}
 		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
 		try
@@ -89,8 +83,7 @@ public class PreHandsParser extends AbstractPrerequisiteParser implements
 		catch (PrerequisiteException pe)
 		{
 			throw new PersistenceLayerException(
-				"Unable to parse the prerequisite :'" + kind + ':' + formula
-					+ "'. " + pe.getLocalizedMessage());
+				"Unable to parse the prerequisite :'" + kind + ':' + formula + "'. " + pe.getLocalizedMessage());
 		}
 		return prereq;
 	}

@@ -30,8 +30,7 @@ import pcgen.core.SubClass;
  * 
  * This Class is a Type Safe Constant.
  */
-public final class SubClassCategory extends AbstractCategory<SubClass>
-		implements TypeSafeConstant, Category<SubClass>
+public final class SubClassCategory extends AbstractCategory<SubClass> implements TypeSafeConstant, Category<SubClass>
 {
 
 	/**
@@ -85,8 +84,7 @@ public final class SubClassCategory extends AbstractCategory<SubClass>
 			 */
 			if (name.isEmpty())
 			{
-				throw new IllegalArgumentException(
-						"Type Name cannot be zero length");
+				throw new IllegalArgumentException("Type Name cannot be zero length");
 			}
 			category = new SubClassCategory(lookup);
 			typeMap.put(lookup, category);
@@ -161,8 +159,7 @@ public final class SubClassCategory extends AbstractCategory<SubClass>
 	@Override
 	public void setName(String name)
 	{
-		throw new UnsupportedOperationException(
-				"Cannot set name in SubClassCategory");
+		throw new UnsupportedOperationException("Cannot set name in SubClassCategory");
 	}
 
 	@Override

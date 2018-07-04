@@ -25,8 +25,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 /**
  * Deals with BASEQTY token
  */
-public class BaseqtyToken extends AbstractIntToken<Equipment> implements
-		CDOMPrimaryToken<Equipment>
+public class BaseqtyToken extends AbstractIntToken<Equipment> implements CDOMPrimaryToken<Equipment>
 {
 	@Override
 	public String getTokenName()

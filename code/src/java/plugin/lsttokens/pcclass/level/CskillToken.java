@@ -36,9 +36,7 @@ import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-
-public class CskillToken extends AbstractTokenWithSeparator<PCClassLevel>
-		implements CDOMPrimaryToken<PCClassLevel>
+public class CskillToken extends AbstractTokenWithSeparator<PCClassLevel> implements CDOMPrimaryToken<PCClassLevel>
 {
 	private static final Class<Skill> SKILL_CLASS = Skill.class;
 
@@ -55,8 +53,7 @@ public class CskillToken extends AbstractTokenWithSeparator<PCClassLevel>
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-			PCClassLevel obj, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, PCClassLevel obj, String value)
 	{
 		boolean first = true;
 		boolean foundAny = false;
@@ -70,34 +67,27 @@ public class CskillToken extends AbstractTokenWithSeparator<PCClassLevel>
 			{
 				if (!first)
 				{
-					return new ParseResult.Fail("  Non-sensical "
-							+ getTokenName()
-							+ ": .CLEAR was not the first list item");
+					return new ParseResult.Fail(
+						"  Non-sensical " + getTokenName() + ": .CLEAR was not the first list item");
 				}
-				context.getObjectContext()
-						.removeList(obj, ListKey.LOCALCSKILL);
+				context.getObjectContext().removeList(obj, ListKey.LOCALCSKILL);
 			}
 			else if (tokText.startsWith(Constants.LST_DOT_CLEAR_DOT))
 			{
 				String clearText = tokText.substring(7);
 				if (Constants.LST_ALL.equals(clearText))
 				{
-					context.getObjectContext().removeFromList(obj,
-							ListKey.LOCALCSKILL,
-							context.getReferenceContext().getCDOMAllReference(SKILL_CLASS));
+					context.getObjectContext().removeFromList(obj, ListKey.LOCALCSKILL,
+						context.getReferenceContext().getCDOMAllReference(SKILL_CLASS));
 				}
 				else
 				{
-					CDOMReference<Skill> ref = TokenUtilities
-							.getTypeOrPrimitive(context, SKILL_CLASS, clearText);
+					CDOMReference<Skill> ref = TokenUtilities.getTypeOrPrimitive(context, SKILL_CLASS, clearText);
 					if (ref == null)
 					{
-						return new ParseResult.Fail(
-								"  Error was encountered while parsing "
-										+ getTokenName());
+						return new ParseResult.Fail("  Error was encountered while parsing " + getTokenName());
 					}
-					context.getObjectContext().removeFromList(obj,
-							ListKey.LOCALCSKILL, ref);
+					context.getObjectContext().removeFromList(obj, ListKey.LOCALCSKILL, ref);
 				}
 			}
 			else
@@ -111,69 +101,58 @@ public class CskillToken extends AbstractTokenWithSeparator<PCClassLevel>
 				if (Constants.LST_ALL.equals(tokText))
 				{
 					foundAny = true;
-					context.getObjectContext().addToList(obj,
-							ListKey.LOCALCSKILL,
-							context.getReferenceContext().getCDOMAllReference(SKILL_CLASS));
+					context.getObjectContext().addToList(obj, ListKey.LOCALCSKILL,
+						context.getReferenceContext().getCDOMAllReference(SKILL_CLASS));
 				}
 				else
 				{
 					foundOther = true;
-					CDOMReference<Skill> ref = getSkillReference(context,
-							tokText);
+					CDOMReference<Skill> ref = getSkillReference(context, tokText);
 					if (ref == null)
 					{
-						return new ParseResult.Fail(
-								"  Error was encountered while parsing "
-										+ getTokenName());
+						return new ParseResult.Fail("  Error was encountered while parsing " + getTokenName());
 					}
-					context.getObjectContext().addToList(obj,
-							ListKey.LOCALCSKILL, ref);
+					context.getObjectContext().addToList(obj, ListKey.LOCALCSKILL, ref);
 				}
 			}
 			first = false;
 		}
 		if (foundAny && foundOther)
 		{
-			return new ParseResult.Fail("Non-sensical " + getTokenName()
-					+ ": Contains ANY and a specific reference: " + value);
+			return new ParseResult.Fail(
+				"Non-sensical " + getTokenName() + ": Contains ANY and a specific reference: " + value);
 		}
 		return ParseResult.SUCCESS;
 	}
 
-	private CDOMReference<Skill> getSkillReference(LoadContext context,
-			String tokText)
+	private CDOMReference<Skill> getSkillReference(LoadContext context, String tokText)
 	{
 		if (tokText.endsWith(Constants.PERCENT))
 		{
-			return new PatternMatchingReference<>(context.getReferenceContext()
-					.getCDOMAllReference(SKILL_CLASS), tokText);
+			return new PatternMatchingReference<>(context.getReferenceContext().getCDOMAllReference(SKILL_CLASS),
+				tokText);
 		}
 		else
 		{
-			return TokenUtilities.getTypeOrPrimitive(context, SKILL_CLASS,
-					tokText);
+			return TokenUtilities.getTypeOrPrimitive(context, SKILL_CLASS, tokText);
 		}
 	}
 
 	@Override
 	public String[] unparse(LoadContext context, PCClassLevel obj)
 	{
-		Changes<CDOMReference<Skill>> changes = context.getObjectContext()
-				.getListChanges(obj, ListKey.LOCALCSKILL);
+		Changes<CDOMReference<Skill>> changes = context.getObjectContext().getListChanges(obj, ListKey.LOCALCSKILL);
 		List<String> list = new ArrayList<>();
 		Collection<CDOMReference<Skill>> removedItems = changes.getRemoved();
 		if (removedItems != null && !removedItems.isEmpty())
 		{
 			if (changes.includesGlobalClear())
 			{
-				context.addWriteMessage("Non-sensical relationship in "
-						+ getTokenName()
-						+ ": global .CLEAR and local .CLEAR. performed");
+				context.addWriteMessage(
+					"Non-sensical relationship in " + getTokenName() + ": global .CLEAR and local .CLEAR. performed");
 				return null;
 			}
-			list.add(Constants.LST_DOT_CLEAR_DOT
-					+ ReferenceUtilities
-							.joinLstFormat(removedItems, "|.CLEAR."));
+			list.add(Constants.LST_DOT_CLEAR_DOT + ReferenceUtilities.joinLstFormat(removedItems, "|.CLEAR."));
 		}
 		if (changes.includesGlobalClear())
 		{

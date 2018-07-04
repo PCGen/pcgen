@@ -28,7 +28,6 @@ import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
 
-
 public abstract class BigDecimalFieldHandler implements PropertyChangeListener, ReferenceListener<BigDecimal>
 {
 

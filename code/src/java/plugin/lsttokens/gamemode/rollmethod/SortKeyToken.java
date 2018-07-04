@@ -45,8 +45,7 @@ public class SortKeyToken extends AbstractNonEmptyToken<RollMethod>
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, RollMethod rollMethod,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, RollMethod rollMethod, String value)
 	{
 		rollMethod.setSortKey(value);
 		return ParseResult.SUCCESS;
@@ -80,15 +79,13 @@ public class SortKeyToken extends AbstractNonEmptyToken<RollMethod>
 			String keyName = rollMethod.getKeyName();
 			if (keyName == null)
 			{
-				Logging.errorPrint("RollMethod: " + rollMethod.getDisplayName()
-					+ " requires a SortKey, but was null", context);
+				Logging.errorPrint("RollMethod: " + rollMethod.getDisplayName() + " requires a SortKey, but was null",
+					context);
 				returnValue = false;
 			}
 			else if (keys.put(keyName, rollMethod) != null)
 			{
-				Logging.errorPrint(
-					"Found more than one RollMethod with (case insensitive) Sort Key: "
-						+ keyName,
+				Logging.errorPrint("Found more than one RollMethod with (case insensitive) Sort Key: " + keyName,
 					context);
 				returnValue = false;
 			}

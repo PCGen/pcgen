@@ -28,8 +28,7 @@ import pcgen.output.publish.OutputDB;
  * a Player Character.
  * 
  */
-public class StatFacet extends AbstractListFacet<CharID, PCStat> implements
-		SetFacet<CharID, PCStat>
+public class StatFacet extends AbstractListFacet<CharID, PCStat> implements SetFacet<CharID, PCStat>
 {
 	public void init()
 	{

@@ -17,6 +17,8 @@
  */
 package plugin.function;
 
+import static org.junit.Assert.fail;
+
 import java.io.StringReader;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -24,8 +26,6 @@ import java.lang.reflect.InvocationTargetException;
 import pcgen.base.formula.parse.FormulaParser;
 import pcgen.base.formula.parse.ParseException;
 import pcgen.base.formula.parse.SimpleNode;
-
-import static org.junit.Assert.*;
 
 public final class TestUtilities
 {
@@ -60,7 +60,7 @@ public final class TestUtilities
 	/**
 	 * Utility method for Unit tests to invoke private constructors
 	 * 
-	 * @param clazz The class we're gonig to invoke the constructor on
+	 * @param clazz The class we're going to invoke the constructor on
 	 * @return An instance of the class
 	 */
 	public static Object invokePrivateConstructor(Class<?> clazz)

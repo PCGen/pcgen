@@ -59,7 +59,8 @@ import plugin.primitive.language.LangBonusToken;
  * tested in a utest environment should probably not be dependent on
  * PlayerCharacter in a fully isolated system
  */
-public abstract class AbstractCharacterUsingTestCase extends TestCase {
+public abstract class AbstractCharacterUsingTestCase extends TestCase
+{
 
 	protected PCStat str;
 	protected PCStat cha;

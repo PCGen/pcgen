@@ -35,8 +35,7 @@ import pcgen.persistence.lst.LstSystemLoader;
 public final class PersistenceManager
 {
 	private static final SystemLoader instance = new LstSystemLoader();
-	private static final PersistenceManager managerInstance =
-			new PersistenceManager();
+	private static final PersistenceManager managerInstance = new PersistenceManager();
 
 	private PersistenceManager()
 	{

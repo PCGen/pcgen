@@ -49,7 +49,6 @@ import pcgen.gui2.util.FontManipulation;
 import pcgen.gui2.util.JLabelPane;
 import pcgen.system.LanguageBundle;
 
-
 public final class TipOfTheDay extends JDialog implements ActionListener
 {
 
@@ -57,7 +56,8 @@ public final class TipOfTheDay extends JDialog implements ActionListener
 	private static final UIPropertyContext propertyContext = UIPropertyContext.createContext("TipOfTheDay");
 	private static final String NEXT = "next";
 	private static final String PREV = "prev";
-	private static final String HTML_START = "<html><body style=\"margin-left: 5px;margin-right: 5px;margin-top: 5px\">";
+	private static final String HTML_START =
+			"<html><body style=\"margin-left: 5px;margin-right: 5px;margin-top: 5px\">";
 	private static final String HTML_END = "</body></html>";
 	private JCheckBox chkShowTips;
 	// the pane to display the text
@@ -147,7 +147,8 @@ public final class TipOfTheDay extends JDialog implements ActionListener
 
 		panel.add(content, BorderLayout.CENTER);
 
-		chkShowTips = new JCheckBox(LanguageBundle.getString("in_tod_showTips"), propertyContext.initBoolean("showTipOfTheDay", true));
+		chkShowTips = new JCheckBox(LanguageBundle.getString("in_tod_showTips"),
+			propertyContext.initBoolean("showTipOfTheDay", true));
 
 		final JButton btnClose = new JButton(LanguageBundle.getString("in_close"));
 		btnClose.setMnemonic(LanguageBundle.getMnemonic("in_mn_close"));
@@ -166,7 +167,7 @@ public final class TipOfTheDay extends JDialog implements ActionListener
 
 		final JPanel actions = new JPanel(new GridBagLayout());
 		final GridBagConstraints c = new GridBagConstraints(0, 0, 1, 1, 1, 1, GridBagConstraints.WEST,
-				GridBagConstraints.NONE, new Insets(1, 1, 1, 1), 0, 0);
+			GridBagConstraints.NONE, new Insets(1, 1, 1, 1), 0, 0);
 		actions.add(chkShowTips, c);
 
 		final JPanel buttons = new JPanel(new FlowLayout(FlowLayout.RIGHT));
@@ -238,9 +239,8 @@ public final class TipOfTheDay extends JDialog implements ActionListener
 	{
 		try
 		{
-			tipText.setText(HTML_START
-				+ LanguageBundle.getFormattedString("in_tod_tipDisplay", //$NON-NLS-1$
-					Integer.toString(tipHandler.getLastNumber() + 1), tip) + HTML_END);
+			tipText.setText(HTML_START + LanguageBundle.getFormattedString("in_tod_tipDisplay", //$NON-NLS-1$
+				Integer.toString(tipHandler.getLastNumber() + 1), tip) + HTML_END);
 			repaint();
 		}
 		catch (Exception exc)

@@ -29,8 +29,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * DEITY token for KitDeity 
  */
-public class DeityToken extends AbstractNonEmptyToken<KitDeity> implements
-		CDOMPrimaryToken<KitDeity>
+public class DeityToken extends AbstractNonEmptyToken<KitDeity> implements CDOMPrimaryToken<KitDeity>
 {
 
 	private static final Class<Deity> DEITY_CLASS = Deity.class;
@@ -53,11 +52,9 @@ public class DeityToken extends AbstractNonEmptyToken<KitDeity> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, KitDeity kitDeity,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, KitDeity kitDeity, String value)
 	{
-		CDOMSingleRef<Deity> ref =
-				context.getReferenceContext().getCDOMReference(DEITY_CLASS, value);
+		CDOMSingleRef<Deity> ref = context.getReferenceContext().getCDOMReference(DEITY_CLASS, value);
 		kitDeity.setDeity(ref);
 		return ParseResult.SUCCESS;
 	}

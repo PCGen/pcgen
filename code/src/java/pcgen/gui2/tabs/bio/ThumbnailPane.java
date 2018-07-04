@@ -24,11 +24,11 @@ import java.awt.Graphics;
 import java.awt.Insets;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
+
 import javax.swing.BorderFactory;
 import javax.swing.JComponent;
 
 import pcgen.cdom.base.Constants;
-
 
 class ThumbnailPane extends JComponent
 {
@@ -113,9 +113,8 @@ class ThumbnailPane extends JComponent
 			return;
 		}
 		Insets insets = getInsets();
-		g.drawImage(portrait.getSubimage(cropRect.x, cropRect.y,
-			cropRect.width, cropRect.height), insets.left, insets.top,
-			Constants.THUMBNAIL_SIZE, Constants.THUMBNAIL_SIZE, this);
+		g.drawImage(portrait.getSubimage(cropRect.x, cropRect.y, cropRect.width, cropRect.height), insets.left,
+			insets.top, Constants.THUMBNAIL_SIZE, Constants.THUMBNAIL_SIZE, this);
 	}
 
 }

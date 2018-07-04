@@ -17,16 +17,17 @@
  */
 package pcgen.cdom.base;
 
+import java.util.Collection;
+import java.util.Collections;
+
 import org.jetbrains.annotations.NotNull;
+
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.chooser.CDOMChoiceManager;
 import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.rules.context.LoadContext;
-
-import java.util.Collection;
-import java.util.Collections;
 
 /**
  * This is a transitional class from PCGen 5.15+ to the final CDOM core. It is
@@ -39,8 +40,7 @@ import java.util.Collections;
  * 
  * @param <T>
  */
-public class CategorizedChooseInformation<T extends Categorized<T>> implements
-		ChooseInformation<T>
+public class CategorizedChooseInformation<T extends Categorized<T>> implements ChooseInformation<T>
 {
 
 	/**
@@ -82,8 +82,8 @@ public class CategorizedChooseInformation<T extends Categorized<T>> implements
 	 * @throws IllegalArgumentException
 	 *             if the given name or PrimitiveChoiceSet is null
 	 */
-	public CategorizedChooseInformation(String name,
-		CDOMSingleRef<? extends Category<T>> cat, PrimitiveChoiceSet<T> choice)
+	public CategorizedChooseInformation(String name, CDOMSingleRef<? extends Category<T>> cat,
+		PrimitiveChoiceSet<T> choice)
 	{
 		if (name == null)
 		{
@@ -95,8 +95,7 @@ public class CategorizedChooseInformation<T extends Categorized<T>> implements
 		}
 		if (choice == null)
 		{
-			throw new IllegalArgumentException(
-					"PrimitiveChoiceSet cannot be null");
+			throw new IllegalArgumentException("PrimitiveChoiceSet cannot be null");
 		}
 		setName = name;
 		category = cat;
@@ -162,8 +161,7 @@ public class CategorizedChooseInformation<T extends Categorized<T>> implements
 		String choiceStr = persistentFormat;
 		if (choiceActor instanceof CategorizedChooser)
 		{
-			return ((CategorizedChooser<T>) choiceActor).decodeChoice(context,
-				choiceStr, category.get());
+			return ((CategorizedChooser<T>) choiceActor).decodeChoice(context, choiceStr, category.get());
 		}
 		return choiceActor.decodeChoice(context, choiceStr);
 	}
@@ -197,8 +195,7 @@ public class CategorizedChooseInformation<T extends Categorized<T>> implements
 			{
 				return false;
 			}
-			return setName.equals(other.setName)
-					&& category.equals(other.category) && pcs.equals(other.pcs);
+			return setName.equals(other.setName) && category.equals(other.category) && pcs.equals(other.pcs);
 		}
 		return false;
 	}

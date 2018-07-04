@@ -48,15 +48,12 @@ public class ContextToken implements CDOMPrimaryToken<TabInfo>
 			return ParseResult.SUCCESS;
 		}
 
-		String helpPath = CoreUtility.fixFilenamePath(ConfigurationSettings.getDocsDir()
-				+ File.separator + value);
+		String helpPath = CoreUtility.fixFilenamePath(ConfigurationSettings.getDocsDir() + File.separator + value);
 		File helpFile = new File(helpPath);
 		if (!helpFile.exists())
 		{
-			Logging.log(Logging.LST_INFO, "Missing Documentation: "
-					+ helpFile.getAbsolutePath() + " in " + ti.getClass()
-					+ ' ' + ti.getDisplayName() + " from "
-					+ ti.getSourceURI());
+			Logging.log(Logging.LST_INFO, "Missing Documentation: " + helpFile.getAbsolutePath() + " in "
+				+ ti.getClass() + ' ' + ti.getDisplayName() + " from " + ti.getSourceURI());
 			return ParseResult.SUCCESS;
 		}
 		ti.setHelpContext(helpFile);
@@ -72,7 +69,7 @@ public class ContextToken implements CDOMPrimaryToken<TabInfo>
 		{
 			return null;
 		}
-		return new String[] { hc };
+		return new String[]{hc};
 	}
 
 	@Override

@@ -2,6 +2,9 @@ package pcgen.io;
 
 import java.util.List;
 
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -12,9 +15,6 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-
 public final class Compatibility
 {
 
@@ -23,14 +23,12 @@ public final class Compatibility
 	}
 
 	@Nullable
-	static PCTemplate getTemplateFor(PCTemplate template,
-	                                 String templateKey, String feat)
+	static PCTemplate getTemplateFor(PCTemplate template, String templateKey, String feat)
 	{
 		if (templateKey.charAt(0) == 'L')
 		{
 			int level = Integer.parseInt(templateKey.substring(1));
-			List<PCTemplate> levelTemplates = template
-					.getListFor(ListKey.LEVEL_TEMPLATES);
+			List<PCTemplate> levelTemplates = template.getListFor(ListKey.LEVEL_TEMPLATES);
 			for (final PCTemplate templ : levelTemplates)
 			{
 				if (level == templ.get(IntegerKey.LEVEL))
@@ -50,8 +48,7 @@ public final class Compatibility
 			{
 				if (hdString.indexOf('+') == (hdString.length() - 1))
 				{
-					minhd = Integer.parseInt(hdString.substring(0, hdString
-							.length() - 1));
+					minhd = Integer.parseInt(hdString.substring(0, hdString.length() - 1));
 					maxhd = Integer.MAX_VALUE;
 				}
 				else
@@ -65,21 +62,17 @@ public final class Compatibility
 				minhd = Integer.parseInt(hdString.substring(0, minusLoc));
 				maxhd = Integer.parseInt(hdString.substring(minusLoc + 1));
 			}
-			List<PCTemplate> levelTemplates = template
-					.getListFor(ListKey.HD_TEMPLATES);
+			List<PCTemplate> levelTemplates = template.getListFor(ListKey.HD_TEMPLATES);
 			for (final PCTemplate templ : levelTemplates)
 			{
-				if ((minhd == templ.get(IntegerKey.HD_MIN))
-						&& (maxhd == templ.get(IntegerKey.HD_MAX)))
+				if ((minhd == templ.get(IntegerKey.HD_MIN)) && (maxhd == templ.get(IntegerKey.HD_MAX)))
 				{
 					return templ;
 				}
 			}
 		}
-		Logging
-				.errorPrint("Unable to find appropriate Template for "
-						+ templateKey + ":" + feat + " in "
-						+ template.getDisplayName());
+		Logging.errorPrint(
+			"Unable to find appropriate Template for " + templateKey + ":" + feat + " in " + template.getDisplayName());
 		return null;
 	}
 
@@ -112,8 +105,8 @@ public final class Compatibility
 	}
 
 	@Nullable
-	public static PersistentTransitionChoice<?> processOldAdd(
-			LoadContext context, String first) throws PersistenceLayerException
+	public static PersistentTransitionChoice<?> processOldAdd(LoadContext context, String first)
+		throws PersistenceLayerException
 	{
 		int openParenLoc = first.indexOf('(');
 		if (openParenLoc == -1)

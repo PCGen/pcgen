@@ -59,12 +59,12 @@ public class Aspect extends ConcretePrereqObject
 
 	private final List<String> theComponents = new ArrayList<>();
 	private List<String> theVariables = null;
-	
+
 	private static final String VAR_NAME = "%NAME"; //$NON-NLS-1$
 	private static final String VAR_LIST = "%LIST"; //$NON-NLS-1$
-	
+
 	private static final String VAR_MARKER = "$$VAR:"; //$NON-NLS-1$
-	
+
 	/**
 	 * Instantiates a new aspect.
 	 * 
@@ -75,19 +75,17 @@ public class Aspect extends ConcretePrereqObject
 	{
 		if (name == null)
 		{
-			throw new IllegalArgumentException(
-					"Name for Aspect cannot be null");
+			throw new IllegalArgumentException("Name for Aspect cannot be null");
 		}
 		if (aString == null)
 		{
-			throw new IllegalArgumentException(
-					"Value for Aspect cannot be null");
+			throw new IllegalArgumentException("Value for Aspect cannot be null");
 		}
 		this.key = AspectName.getConstant(name);
-		
+
 		parseAspectString(aString);
 	}
-	
+
 	/**
 	 * Instantiates a new aspect.
 	 * 
@@ -98,16 +96,14 @@ public class Aspect extends ConcretePrereqObject
 	{
 		if (key == null)
 		{
-			throw new IllegalArgumentException(
-					"Key for Aspect cannot be null");
+			throw new IllegalArgumentException("Key for Aspect cannot be null");
 		}
 		if (aString == null)
 		{
-			throw new IllegalArgumentException(
-					"Value for Aspect cannot be null");
+			throw new IllegalArgumentException("Value for Aspect cannot be null");
 		}
 		this.key = key;
-		
+
 		parseAspectString(aString);
 	}
 
@@ -148,8 +144,7 @@ public class Aspect extends ConcretePrereqObject
 				}
 				catch (NumberFormatException nfe)
 				{
-					Logging.errorPrintLocalised(
-						"Errors.Description.InvalidVariableReplacement", //$NON-NLS-1$
+					Logging.errorPrintLocalised("Errors.Description.InvalidVariableReplacement", //$NON-NLS-1$
 						replacement);
 				}
 				theComponents.add(VAR_MARKER + replacement);
@@ -180,20 +175,20 @@ public class Aspect extends ConcretePrereqObject
 				}
 				if (currentInd > percentInd + 1)
 				{
-					theComponents.add(VAR_MARKER + aString.substring(percentInd+1, currentInd));
+					theComponents.add(VAR_MARKER + aString.substring(percentInd + 1, currentInd));
 				}
 				else
 				{
 					// We broke out of the variable finding loop without finding
 					// even a single integer.  Assume we have a DESC field that
 					// is using a % unescaped.
-					theComponents.add(aString.substring(percentInd, percentInd+1));
+					theComponents.add(aString.substring(percentInd, percentInd + 1));
 				}
 			}
 		}
 		theComponents.add(aString.substring(currentInd));
 	}
-	
+
 	/**
 	 * Adds a variable to use in variable substitution.
 	 * 
@@ -207,7 +202,7 @@ public class Aspect extends ConcretePrereqObject
 		}
 		theVariables.add(aVariable);
 	}
-	
+
 	/**
 	 * Gets the name of the aspect.
 	 * 
@@ -217,7 +212,7 @@ public class Aspect extends ConcretePrereqObject
 	{
 		return key.toString();
 	}
-	
+
 	/**
 	 * Gets the key of the aspect.
 	 * 
@@ -236,17 +231,16 @@ public class Aspect extends ConcretePrereqObject
 	 * 
 	 * @return The fully substituted description string.
 	 */
-	public String getAspectText(final PlayerCharacter aPC,
-		List<CNAbility> abilities)
+	public String getAspectText(final PlayerCharacter aPC, List<CNAbility> abilities)
 	{
 		final StringBuilder buf = new StringBuilder(50);
-		
+
 		if ((abilities == null) || (abilities.isEmpty()))
 		{
 			return "";
 		}
 		Ability sampleAbilityObject = abilities.get(0).getAbility();
-		if(!qualifies(aPC, sampleAbilityObject))
+		if (!qualifies(aPC, sampleAbilityObject))
 		{
 			return "";
 		}
@@ -254,8 +248,7 @@ public class Aspect extends ConcretePrereqObject
 		{
 			if (comp.startsWith(VAR_MARKER))
 			{
-				final int ind =
-						Integer.parseInt(comp.substring(VAR_MARKER.length()));
+				final int ind = Integer.parseInt(comp.substring(VAR_MARKER.length()));
 				if (theVariables == null || ind > theVariables.size())
 				{
 					buf.append(Constants.EMPTY_STRING);
@@ -283,8 +276,7 @@ public class Aspect extends ConcretePrereqObject
 						joinString = ", ";
 					}
 					Collections.sort(assocList);
-					buf.append(StringUtil.joinToStringBuilder(assocList,
-						joinString));
+					buf.append(StringUtil.joinToStringBuilder(assocList, joinString));
 				}
 				else if (var.startsWith("\"")) //$NON-NLS-1$
 				{
@@ -302,7 +294,7 @@ public class Aspect extends ConcretePrereqObject
 		}
 		return buf.toString();
 	}
-	
+
 	/**
 	 * Gets the Aspect tag in PCC format.
 	 * 
@@ -317,8 +309,7 @@ public class Aspect extends ConcretePrereqObject
 		{
 			if (str.startsWith(VAR_MARKER))
 			{
-				final int ind =
-						Integer.parseInt(str.substring(VAR_MARKER.length()));
+				final int ind = Integer.parseInt(str.substring(VAR_MARKER.length()));
 				buf.append('%').append(ind);
 			}
 			else if (str.equals("%"))
@@ -339,29 +330,26 @@ public class Aspect extends ConcretePrereqObject
 				buf.append(var);
 			}
 		}
-		
+
 		if (hasPrerequisites())
 		{
 			buf.append(Constants.PIPE);
-			buf.append(new PrerequisiteWriter().getPrerequisiteString(
-					getPrerequisiteList(), Constants.PIPE));
+			buf.append(new PrerequisiteWriter().getPrerequisiteString(getPrerequisiteList(), Constants.PIPE));
 		}
 
 		return buf.toString();
 	}
-	
+
 	@Override
 	public String toString()
 	{
 		return getPCCText();
 	}
 
-
 	@Override
 	public int hashCode()
 	{
-		return theComponents.size() + 7
-			* (theVariables == null ? 0 : theVariables.size());
+		return theComponents.size() + 7 * (theVariables == null ? 0 : theVariables.size());
 	}
 
 	@Override
@@ -384,8 +372,7 @@ public class Aspect extends ConcretePrereqObject
 			&& (theVariables == null || theVariables.equals(other.theVariables));
 	}
 
-	public static String printAspect(PlayerCharacter pc, AspectName key,
-		List<CNAbility> abilities, boolean printName)
+	public static String printAspect(PlayerCharacter pc, AspectName key, List<CNAbility> abilities, boolean printName)
 	{
 		if (abilities.isEmpty())
 		{
@@ -406,20 +393,17 @@ public class Aspect extends ConcretePrereqObject
 		return buff.toString();
 	}
 
-	public static String printAspect(PlayerCharacter pc, AspectName key,
-		List<CNAbility> abilities)
+	public static String printAspect(PlayerCharacter pc, AspectName key, List<CNAbility> abilities)
 	{
 		return printAspect(pc, key, abilities, true);
 	}
 
-	public static String printAspectValue(PlayerCharacter pc, AspectName key,
-		List<CNAbility> abilities)
+	public static String printAspectValue(PlayerCharacter pc, AspectName key, List<CNAbility> abilities)
 	{
 		return printAspect(pc, key, abilities, false);
 	}
 
-	public static Aspect lastPassingAspect(List<Aspect> aspects,
-		PlayerCharacter pc, Ability a)
+	public static Aspect lastPassingAspect(List<Aspect> aspects, PlayerCharacter pc, Ability a)
 	{
 		Aspect retAspect = null;
 		if (aspects != null)

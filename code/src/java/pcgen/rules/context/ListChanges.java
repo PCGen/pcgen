@@ -29,8 +29,7 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.reference.ReferenceUtilities;
 
-class ListChanges<T extends CDOMObject> implements
-		AssociatedChanges<CDOMReference<T>>
+class ListChanges<T extends CDOMObject> implements AssociatedChanges<CDOMReference<T>>
 {
 	private final String tokenName;
 	private final CDOMObject positive;
@@ -38,9 +37,8 @@ class ListChanges<T extends CDOMObject> implements
 	private final CDOMReference<? extends CDOMList<T>> list;
 	private final boolean clear;
 
-	public ListChanges(String token, CDOMObject added, CDOMObject removed,
-			CDOMReference<? extends CDOMList<T>> listref,
-			boolean globallyCleared)
+	public ListChanges(String token, CDOMObject added, CDOMObject removed, CDOMReference<? extends CDOMList<T>> listref,
+		boolean globallyCleared)
 	{
 		tokenName = token;
 		positive = added;
@@ -66,18 +64,15 @@ class ListChanges<T extends CDOMObject> implements
 	@Override
 	public Collection<CDOMReference<T>> getAdded()
 	{
-		TreeSet<CDOMReference<T>> set = new TreeSet<>(
-                ReferenceUtilities.REFERENCE_SORTER);
+		TreeSet<CDOMReference<T>> set = new TreeSet<>(ReferenceUtilities.REFERENCE_SORTER);
 		Collection<CDOMReference<T>> listMods = positive.getListMods(list);
 		if (listMods != null)
 		{
 			for (CDOMReference<T> ref : listMods)
 			{
-				for (AssociatedPrereqObject assoc : positive
-						.getListAssociations(list, ref))
+				for (AssociatedPrereqObject assoc : positive.getListAssociations(list, ref))
 				{
-					if (tokenName.equals(assoc
-							.getAssociation(AssociationKey.TOKEN)))
+					if (tokenName.equals(assoc.getAssociation(AssociationKey.TOKEN)))
 					{
 						set.add(ref);
 					}
@@ -92,15 +87,13 @@ class ListChanges<T extends CDOMObject> implements
 		/*
 		 * TODO This lies because it doesn't analyze tokenName
 		 */
-		return positive != null && positive.getListMods(list) != null
-				&& !positive.getListMods(list).isEmpty();
+		return positive != null && positive.getListMods(list) != null && !positive.getListMods(list).isEmpty();
 	}
 
 	@Override
 	public Collection<CDOMReference<T>> getRemoved()
 	{
-		TreeSet<CDOMReference<T>> set = new TreeSet<>(
-                ReferenceUtilities.REFERENCE_SORTER);
+		TreeSet<CDOMReference<T>> set = new TreeSet<>(ReferenceUtilities.REFERENCE_SORTER);
 		if (negative == null)
 		{
 			return set;
@@ -110,11 +103,9 @@ class ListChanges<T extends CDOMObject> implements
 		{
 			for (CDOMReference<T> ref : listMods)
 			{
-				for (AssociatedPrereqObject assoc : negative
-						.getListAssociations(list, ref))
+				for (AssociatedPrereqObject assoc : negative.getListAssociations(list, ref))
 				{
-					if (tokenName.equals(assoc
-							.getAssociation(AssociationKey.TOKEN)))
+					if (tokenName.equals(assoc.getAssociation(AssociationKey.TOKEN)))
 					{
 						set.add(ref);
 					}
@@ -129,8 +120,7 @@ class ListChanges<T extends CDOMObject> implements
 		/*
 		 * TODO This lies because it doesn't analyze tokenName
 		 */
-		return negative != null && negative.getListMods(list) != null
-				&& !negative.getListMods(list).isEmpty();
+		return negative != null && negative.getListMods(list) != null && !negative.getListMods(list).isEmpty();
 	}
 
 	@Override
@@ -142,16 +132,13 @@ class ListChanges<T extends CDOMObject> implements
 			return null;
 		}
 		MapToList<CDOMReference<T>, AssociatedPrereqObject> owned =
-                new TreeMapToList<>(
-                        ReferenceUtilities.REFERENCE_SORTER);
+				new TreeMapToList<>(ReferenceUtilities.REFERENCE_SORTER);
 		for (CDOMReference<T> lw : mods)
 		{
-			Collection<AssociatedPrereqObject> assocs = positive
-					.getListAssociations(list, lw);
+			Collection<AssociatedPrereqObject> assocs = positive.getListAssociations(list, lw);
 			for (AssociatedPrereqObject assoc : assocs)
 			{
-				if (tokenName
-						.equals(assoc.getAssociation(AssociationKey.TOKEN)))
+				if (tokenName.equals(assoc.getAssociation(AssociationKey.TOKEN)))
 				{
 					owned.addToListFor(lw, assoc);
 				}
@@ -167,8 +154,8 @@ class ListChanges<T extends CDOMObject> implements
 	@Override
 	public MapToList<CDOMReference<T>, AssociatedPrereqObject> getRemovedAssociations()
 	{
-		MapToList<CDOMReference<T>, AssociatedPrereqObject> owned = new TreeMapToList<>(
-                ReferenceUtilities.REFERENCE_SORTER);
+		MapToList<CDOMReference<T>, AssociatedPrereqObject> owned =
+				new TreeMapToList<>(ReferenceUtilities.REFERENCE_SORTER);
 		if (negative == null)
 		{
 			return owned;
@@ -180,12 +167,10 @@ class ListChanges<T extends CDOMObject> implements
 		}
 		for (CDOMReference<T> lw : mods)
 		{
-			Collection<AssociatedPrereqObject> assocs = negative
-					.getListAssociations(list, lw);
+			Collection<AssociatedPrereqObject> assocs = negative.getListAssociations(list, lw);
 			for (AssociatedPrereqObject assoc : assocs)
 			{
-				if (tokenName
-						.equals(assoc.getAssociation(AssociationKey.TOKEN)))
+				if (tokenName.equals(assoc.getAssociation(AssociationKey.TOKEN)))
 				{
 					owned.addToListFor(lw, assoc);
 				}

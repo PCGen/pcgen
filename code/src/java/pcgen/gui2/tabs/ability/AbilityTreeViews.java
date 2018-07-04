@@ -32,7 +32,6 @@ import pcgen.gui2.util.treeview.TreeViewPath;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
-
 public class AbilityTreeViews
 {
 
@@ -105,8 +104,7 @@ public class AbilityTreeViews
 		@Override
 		public List<TreeViewPath<AbilityFacade>> getPaths(AbilityFacade pobj)
 		{
-			return Collections.singletonList(new TreeViewPath<>(
-                    pobj, pobj.getSourceForNodeDisplay()));
+			return Collections.singletonList(new TreeViewPath<>(pobj, pobj.getSourceForNodeDisplay()));
 		}
 
 	}
@@ -131,8 +129,7 @@ public class AbilityTreeViews
 		public List<TreeViewPath<AbilityFacade>> getPaths(AbilityFacade pobj)
 		{
 			List<List<AbilityFacade>> abilityPaths = new ArrayList<>();
-			addPaths(abilityPaths, dataset.getPrereqAbilities(pobj),
-                    new ArrayList<>());
+			addPaths(abilityPaths, dataset.getPrereqAbilities(pobj), new ArrayList<>());
 			if (abilityPaths.isEmpty())
 			{
 				return Collections.singletonList(new TreeViewPath<>(pobj));
@@ -147,16 +144,14 @@ public class AbilityTreeViews
 			return paths;
 		}
 
-		private void addPaths(List<List<AbilityFacade>> abilityPaths,
-							  List<AbilityFacade> preAbilities,
-							  ArrayList<AbilityFacade> path)
+		private void addPaths(List<List<AbilityFacade>> abilityPaths, List<AbilityFacade> preAbilities,
+			ArrayList<AbilityFacade> path)
 		{
 			if (path.size() > 20)
 			{
-				
-				Logging.errorPrint("Found probable ability prereq cycle ["
-					+ StringUtils.join(path, ",") + "] with prereqs ["
-					+ StringUtils.join(preAbilities, ",") + "]. Skipping.");
+
+				Logging.errorPrint("Found probable ability prereq cycle [" + StringUtils.join(path, ",")
+					+ "] with prereqs [" + StringUtils.join(preAbilities, ",") + "]. Skipping.");
 				return;
 			}
 			for (AbilityFacade preAbility : preAbilities)

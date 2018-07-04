@@ -55,7 +55,6 @@ public interface PrerequisiteParserInterface
 	 * for any reason a PersistenceLayerException will be thrown.
 	 * @throws PersistenceLayerException
 	 */
-	public Prerequisite parse(String kind, String formula,
-		boolean invertResult, boolean overrideQualify)
+	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
 		throws PersistenceLayerException;
 }

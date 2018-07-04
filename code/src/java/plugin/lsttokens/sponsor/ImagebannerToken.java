@@ -53,8 +53,7 @@ public class ImagebannerToken implements CDOMPrimaryToken<Sponsor>
 		}
 		catch (MalformedURLException e)
 		{
-			return new ParseResult.Fail("Error in " + getTokenName() + ": "
-					+ e.getMessage());
+			return new ParseResult.Fail("Error in " + getTokenName() + ": " + e.getMessage());
 		}
 	}
 

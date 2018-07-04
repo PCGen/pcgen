@@ -44,17 +44,17 @@ public final class RandomChooser implements ChooserInterface, ChoiceHandler
 	private boolean theAllowDuplicatesFlag = false;
 
 	private int selectionsPerUnitCost = 1;
-	
+
 	private int totalSelectionsAvailable = 1;
 
 	private boolean pickAll = false;
-	
+
 	/**
 	 * Sets the AllowsDups attribute of the Chooser object
 	 *
 	 * @param aBool  The new AllowsDups value
 	 */
-    @Override
+	@Override
 	public void setAllowsDups(boolean aBool)
 	{
 		theAllowDuplicatesFlag = aBool;
@@ -65,7 +65,7 @@ public final class RandomChooser implements ChooserInterface, ChoiceHandler
 	 *
 	 * @param availableList  The new AvailableList value
 	 */
-    @Override
+	@Override
 	public void setAvailableList(List availableList)
 	{
 		theAvailableList = new ArrayList(availableList);
@@ -76,7 +76,7 @@ public final class RandomChooser implements ChooserInterface, ChoiceHandler
 	 *
 	 * @param costColumnNumber  The new CostColumnNumber value
 	 */
-    @Override
+	@Override
 	public void setCostColumnNumber(final int costColumnNumber)
 	{
 	}
@@ -86,13 +86,13 @@ public final class RandomChooser implements ChooserInterface, ChoiceHandler
 	 *
 	 * @param argMessageText  java.lang.String
 	 */
-    @Override
+	@Override
 	public void setMessageText(String argMessageText)
 	{
 		//This is not used.
 	}
 
-    @Override
+	@Override
 	public void setNegativeAllowed(final boolean argFlag)
 	{
 		// This is not used.
@@ -103,7 +103,7 @@ public final class RandomChooser implements ChooserInterface, ChoiceHandler
 	 * author Dmitry Jemerov
 	 * @return mPool
 	 */
-    @Override
+	@Override
 	public int getPool()
 	{
 		return totalSelectionsAvailable - theSelectedList.size();
@@ -115,7 +115,7 @@ public final class RandomChooser implements ChooserInterface, ChoiceHandler
 	 * @param poolFlag  The new PoolFlag value
 	 * author          Matt Woodard
 	 */
-    @Override
+	@Override
 	public void setPoolFlag(boolean poolFlag)
 	{
 		// Do Nothing
@@ -127,7 +127,7 @@ public final class RandomChooser implements ChooserInterface, ChoiceHandler
 	 * @param selectedList  The new SelectedList value
 	 * author              Matt Woodard
 	 */
-    @Override
+	@Override
 	public void setSelectedList(List selectedList)
 	{
 		theSelectedList.addAll(selectedList);
@@ -139,13 +139,13 @@ public final class RandomChooser implements ChooserInterface, ChoiceHandler
 	 * @return   java.util.ArrayList
 	 * author   Matt Woodard
 	 */
-    @Override
+	@Override
 	public ArrayList getSelectedList()
 	{
 		return new ArrayList(theSelectedList);
 	}
 
-    @Override
+	@Override
 	public void setSelectedListTerminator(String aString)
 	{
 		//This is not used.
@@ -157,7 +157,7 @@ public final class RandomChooser implements ChooserInterface, ChoiceHandler
 	 * @param uniqueList  The new UniqueList value
 	 * author            Matt Woodard
 	 */
-    @Override
+	@Override
 	public void setUniqueList(List uniqueList)
 	{
 		theUniqueList = uniqueList;
@@ -168,7 +168,7 @@ public final class RandomChooser implements ChooserInterface, ChoiceHandler
 	 * our selections here.
 	 * @param b true to show, false to hide
 	 */
-    @Override
+	@Override
 	public void setVisible(boolean b)
 	{
 		while (getEffectivePool() > 0 && !theAvailableList.isEmpty())
@@ -183,7 +183,7 @@ public final class RandomChooser implements ChooserInterface, ChoiceHandler
 	 * @param availableColumnNames  The new AvailableColumnNames value
 	 * author                      Matt Woodard
 	 */
-    @Override
+	@Override
 	public void setAvailableColumnNames(List<String> availableColumnNames)
 	{
 		//This is not used.
@@ -201,9 +201,7 @@ public final class RandomChooser implements ChooserInterface, ChoiceHandler
 			return;
 		}
 
-		final Object addObj =
-				theAvailableList.get(RandomUtil.getRandomInt(theAvailableList
-					.size() - 1));
+		final Object addObj = theAvailableList.get(RandomUtil.getRandomInt(theAvailableList.size() - 1));
 		if (theUniqueList.contains(addObj))
 		{
 			return;
@@ -240,63 +238,58 @@ public final class RandomChooser implements ChooserInterface, ChoiceHandler
 		theSelectedList.add(addObj);
 	}
 
-    @Override
+	@Override
 	public void setTitle(String title)
 	{
 		// Do nothing
 	}
 
-    @Override
+	@Override
 	public void show()
 	{
 		// Do nothing
 	}
 
-    @Override
+	@Override
 	public void setChoicesPerUnit(int cost)
 	{
 		selectionsPerUnitCost = cost;
 	}
 
-    @Override
+	@Override
 	public void setTotalChoicesAvail(int avail)
 	{
 		totalSelectionsAvailable = avail;
 	}
 
-    @Override
+	@Override
 	public void setPickAll(boolean b)
 	{
 		pickAll = b;
 	}
-	
-    @Override
+
+	@Override
 	public boolean pickAll()
 	{
 		return pickAll;
 	}
-	
+
 	public int getEffectivePool()
 	{
-		return selectionsPerUnitCost * totalSelectionsAvailable
-				- theSelectedList.size();
+		return selectionsPerUnitCost * totalSelectionsAvailable - theSelectedList.size();
 	}
 
 	@Override
 	public boolean makeChoice(ChooserFacade chooserFacade)
 	{
-		while (chooserFacade.getRemainingSelections().get() > 0
-			&& !chooserFacade.getAvailableList().isEmpty())
+		while (chooserFacade.getRemainingSelections().get() > 0 && !chooserFacade.getAvailableList().isEmpty())
 		{
 			ListFacade<InfoFacade> availableList = chooserFacade.getAvailableList();
-			final InfoFacade addObj =
-					availableList.getElementAt(RandomUtil
-						.getRandomInt(availableList.getSize() - 1));
+			final InfoFacade addObj = availableList.getElementAt(RandomUtil.getRandomInt(availableList.getSize() - 1));
 			chooserFacade.addSelected(addObj);
 		}
-		
-		if (chooserFacade.getRemainingSelections().get() == 0
-			|| !chooserFacade.isRequireCompleteSelection())
+
+		if (chooserFacade.getRemainingSelections().get() == 0 || !chooserFacade.isRequireCompleteSelection())
 		{
 			chooserFacade.commit();
 			return true;
@@ -305,5 +298,5 @@ public final class RandomChooser implements ChooserInterface, ChoiceHandler
 		chooserFacade.rollback();
 		return false;
 	}
-	
+
 }

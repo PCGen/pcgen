@@ -34,21 +34,20 @@ import pcgen.cdom.reference.UnconstructedEvent;
 import pcgen.cdom.reference.UnconstructedListener;
 import pcgen.util.Logging;
 
-public class TrackingReferenceContext extends RuntimeReferenceContext implements
-		UnconstructedListener
+public final class TrackingReferenceContext extends RuntimeReferenceContext implements UnconstructedListener
 {
 
-	private final DoubleKeyMapToList<CDOMReference<?>, URI, String> track = new DoubleKeyMapToList<>(WeakHashMap.class, HashMap.class);
+	private final DoubleKeyMapToList<CDOMReference<?>, URI, String> track =
+			new DoubleKeyMapToList<>(WeakHashMap.class, HashMap.class);
 
 	private final Set<ReferenceManufacturer<?>> listening = new HashSet<>();
 
 	private TrackingReferenceContext()
 	{
 	}
-	
+
 	@Override
-	public <T extends Loadable> ReferenceManufacturer<T> getManufacturer(
-			Class<T> cl)
+	public <T extends Loadable> ReferenceManufacturer<T> getManufacturer(Class<T> cl)
 	{
 		ReferenceManufacturer<T> mfg = super.getManufacturer(cl);
 		if (mfg instanceof TrackingManufacturer)
@@ -64,8 +63,7 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 	}
 
 	@Override
-	public <T extends Loadable> ReferenceManufacturer<T> getManufacturerFac(
-		ManufacturableFactory<T> factory)
+	public <T extends Loadable> ReferenceManufacturer<T> getManufacturerFac(ManufacturableFactory<T> factory)
 	{
 		ReferenceManufacturer<T> mfg = super.getManufacturerFac(factory);
 		if (mfg instanceof TrackingManufacturer)
@@ -101,8 +99,7 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 					tokenNames.add(tok);
 				}
 			}
-			Logging.errorPrint("  Was used in " + uri + " in tokens: "
-					+ tokenNames);
+			Logging.errorPrint("  Was used in " + uri + " in tokens: " + tokenNames);
 		}
 	}
 

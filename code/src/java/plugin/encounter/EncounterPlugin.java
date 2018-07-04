@@ -15,7 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
- package plugin.encounter;
+package plugin.encounter;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -38,6 +38,15 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.ListModel;
 
+import gmgen.GMGenSystem;
+import gmgen.GMGenSystemView;
+import gmgen.io.ReadXML;
+import gmgen.io.VectorTable;
+import gmgen.plugin.InitHolderList;
+import gmgen.plugin.PcgCombatant;
+import gmgen.plugin.dice.Dice;
+import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
+import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
@@ -67,16 +76,6 @@ import pcgen.pluginmgr.messages.FocusOrStateChangeOccurredMessage;
 import pcgen.pluginmgr.messages.TransmitInitiativeValuesBetweenComponentsMessage;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
-
-import gmgen.GMGenSystem;
-import gmgen.GMGenSystemView;
-import gmgen.io.ReadXML;
-import gmgen.io.VectorTable;
-import gmgen.plugin.InitHolderList;
-import gmgen.plugin.PcgCombatant;
-import gmgen.plugin.dice.Dice;
-import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
-import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
 import plugin.encounter.gui.EncounterView;
 
 /**
@@ -85,9 +84,7 @@ import plugin.encounter.gui.EncounterView;
  * } is a plugin for the {@code GMGenSystem}, is called by the
  * {@code PluginLoader} and will create a model and a view for this plugin.
  */
-public class EncounterPlugin extends MouseAdapter
-	implements InteractivePlugin, ActionListener,
-		ItemListener
+public class EncounterPlugin extends MouseAdapter implements InteractivePlugin, ActionListener, ItemListener
 {
 	/** Directory where Data for this plug-in is expected to be. */
 	private static final String DIR_ENCOUNTER = "encounter_tables"; //$NON-NLS-1$
@@ -130,7 +127,7 @@ public class EncounterPlugin extends MouseAdapter
 	@Override
 	public void start(PCGenMessageHandler mh)
 	{
-    	messageHandler = mh;
+		messageHandler = mh;
 		theModel = new EncounterModel();
 		theView = new EncounterView();
 		theRaces = new RaceModel();
@@ -180,7 +177,7 @@ public class EncounterPlugin extends MouseAdapter
 	{
 		return NAME;
 	}
-	
+
 	private static String getLocalizedName()
 	{
 		return LanguageBundle.getString(IN_NAME);
@@ -218,7 +215,7 @@ public class EncounterPlugin extends MouseAdapter
 	 * @param e the source of the event from the GUI.
 	 * @see ActionListener#actionPerformed(ActionEvent)
 	 */
-    @Override
+	@Override
 	public void actionPerformed(ActionEvent e)
 	{
 		if (e.getSource() == theView.getAddCreature())
@@ -240,7 +237,7 @@ public class EncounterPlugin extends MouseAdapter
 		else
 		{
 			Logging.errorPrintLocalised("in_plugin_encounter_error_unhandled", //$NON-NLS-1$
-					e.getSource());
+				e.getSource());
 		}
 
 		updateUI();
@@ -252,9 +249,7 @@ public class EncounterPlugin extends MouseAdapter
 	 */
 	public void handleGenerateEncounter(EncounterModel m)
 	{
-		File f =
-				new File(getDataDirectory() + File.separator + DIR_ENCOUNTER
-					+ File.separator + "environments.xml");
+		File f = new File(getDataDirectory() + File.separator + DIR_ENCOUNTER + File.separator + "environments.xml");
 		ReadXML xml;
 
 		if (f.exists())
@@ -274,14 +269,12 @@ public class EncounterPlugin extends MouseAdapter
 
 		if (theView.getEnvironment().getSelectedIndex() == 0)
 		{
-			generateXofYEL(theView.getNumberOfCreatures().getText(), theView
-				.getTargetEL());
+			generateXofYEL(theView.getNumberOfCreatures().getText(), theView.getTargetEL());
 		}
 		else
 		{
-			generateXfromY(environments.crossReference(
-				theView.getEnvironment().getSelectedItem().toString(), "File")
-				.toString());
+			generateXfromY(
+				environments.crossReference(theView.getEnvironment().getSelectedItem().toString(), "File").toString());
 		}
 
 		updateUI();
@@ -340,8 +333,7 @@ public class EncounterPlugin extends MouseAdapter
 	{
 		if (!theView.getEncounterCreatures().isSelectionEmpty())
 		{
-			Object[] values =
-					theView.getEncounterCreatures().getSelectedValues();
+			Object[] values = theView.getEncounterCreatures().getSelectedValues();
 
 			for (int i = 0; i < values.length; i++)
 			{
@@ -391,11 +383,10 @@ public class EncounterPlugin extends MouseAdapter
 				theList.add(new PcgCombatant(aPC, "Enemy", messageHandler));
 			}
 
-			JOptionPane
-				.showMessageDialog(
-					null,
-					"You will now be returned to PCGen so that you can finalise your selected combatants.\nOnce they are finalised, return to the GMGen Initiative tab to begin the combat!",
-					"Combatant Setup Complete", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(null,
+				"You will now be returned to PCGen so that you can finalise your selected combatants.\n"
+				+ "Once they are finalised, return to the GMGen Initiative tab to begin the combat!",
+				"Combatant Setup Complete", JOptionPane.INFORMATION_MESSAGE);
 
 			messageHandler.handleMessage(new TransmitInitiativeValuesBetweenComponentsMessage(this, theList));
 			removeAll();
@@ -424,7 +415,7 @@ public class EncounterPlugin extends MouseAdapter
 	 * model.
 	 * @see ItemListener#itemStateChanged(ItemEvent)
 	 */
-    @Override
+	@Override
 	public void itemStateChanged(ItemEvent e)
 	{
 		if (theView.getEnvironment().getSelectedIndex() == 0)
@@ -443,16 +434,14 @@ public class EncounterPlugin extends MouseAdapter
 		}
 	}
 
-    @Override
+	@Override
 	public void mouseClicked(MouseEvent evt)
 	{
 		if (evt.getSource() == theView.getLibraryCreatures())
 		{
 			if (evt.getClickCount() == 2)
 			{
-				int index =
-						theView.getLibraryCreatures().locationToIndex(
-							evt.getPoint());
+				int index = theView.getLibraryCreatures().locationToIndex(evt.getPoint());
 				ListModel dlm = theView.getLibraryCreatures().getModel();
 				Object item = dlm.getElementAt(index);
 				theView.getLibraryCreatures().ensureIndexIsVisible(index);
@@ -466,9 +455,7 @@ public class EncounterPlugin extends MouseAdapter
 			{
 				if (evt.getClickCount() == 2)
 				{
-					int index =
-							theView.getEncounterCreatures().locationToIndex(
-								evt.getPoint());
+					int index = theView.getEncounterCreatures().locationToIndex(evt.getPoint());
 					ListModel dlm = theView.getEncounterCreatures().getModel();
 					Object item = dlm.getElementAt(index);
 					theView.getEncounterCreatures().ensureIndexIsVisible(index);
@@ -619,10 +606,8 @@ public class EncounterPlugin extends MouseAdapter
 
 		if (table.startsWith("["))
 		{
-			tablePath =
-					getDataDirectory() + File.separator + DIR_ENCOUNTER
-						+ File.separator
-						+ table.substring(1, table.length() - 1);
+			tablePath = getDataDirectory() + File.separator + DIR_ENCOUNTER + File.separator
+				+ table.substring(1, table.length() - 1);
 			Logging.errorPrint("subfile " + tablePath);
 		}
 		else
@@ -646,20 +631,15 @@ public class EncounterPlugin extends MouseAdapter
 		String percent = monsterTable.findPercentageEntry(roll.nextInt(99) + 1);
 
 		/*get item type*/
-		tableEntry =
-				monsterTable.getTable().crossReference(percent, "Monster")
-					.toString();
+		tableEntry = monsterTable.getTable().crossReference(percent, "Monster").toString();
 
 		/*get amount of items*/
-		numMonsters =
-				monsterTable.getTable().crossReference(percent, "Number")
-					.toString();
+		numMonsters = monsterTable.getTable().crossReference(percent, "Number").toString();
 
 		/*create items and add to list*/
 		if (tableEntry.startsWith("["))
 		{
-			return getMonsterFromTable(tableEntry.substring(1, tableEntry
-				.length() - 1));
+			return getMonsterFromTable(tableEntry.substring(1, tableEntry.length() - 1));
 		}
 
 		//TODO This calculation should be done as int and convert to Integer at the end - better speed. thpr 10/19/06
@@ -682,7 +662,8 @@ public class EncounterPlugin extends MouseAdapter
 
 		Vector<Object> toReturn = new Vector<>();
 		toReturn.addElement(num);
-		toReturn.addElement(Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Race.class, tableEntry));
+		toReturn.addElement(
+			Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Race.class, tableEntry));
 
 		return toReturn;
 	}
@@ -716,8 +697,7 @@ public class EncounterPlugin extends MouseAdapter
 	 * @param multiHand
 	 * @return weapon location choices
 	 **/
-	private static List<String> getWeaponLocationChoices(int hands,
-		String multiHand)
+	private static List<String> getWeaponLocationChoices(int hands, String multiHand)
 	{
 		List<String> result = new ArrayList<>(hands + 2);
 
@@ -790,8 +770,7 @@ public class EncounterPlugin extends MouseAdapter
 		{
 			// TODO: Maybe we need a message here to inform the user that nothing was found
 			// in the currently selected environment that matches the EL criteria
-			Logging
-				.debugPrint("EncounterPlugin - generateXfromY found no matches");
+			Logging.debugPrint("EncounterPlugin - generateXfromY found no matches");
 			return;
 		}
 
@@ -809,9 +788,7 @@ public class EncounterPlugin extends MouseAdapter
 	 */
 	private void generateXofYEL(String size, String totalEL)
 	{
-		File f =
-				new File(getDataDirectory() + File.separator + DIR_ENCOUNTER
-					+ File.separator + "4_1.xml");
+		File f = new File(getDataDirectory() + File.separator + DIR_ENCOUNTER + File.separator + "4_1.xml");
 		ReadXML xml;
 		VectorTable table41;
 		Random roll = new Random(System.currentTimeMillis());
@@ -838,12 +815,11 @@ public class EncounterPlugin extends MouseAdapter
 
 		// verrify values on the table.
 		String crs = (String) table41.crossReference(totalEL, size);
-		
+
 		table41 = null;
 		if (crs == null)
 		{
-			Logging.errorPrint("Tables do not match the given parameters ("
-				+ totalEL + ", " + size + ')');
+			Logging.errorPrint("Tables do not match the given parameters (" + totalEL + ", " + size + ')');
 
 			return;
 		}
@@ -851,8 +827,7 @@ public class EncounterPlugin extends MouseAdapter
 		Formula crFormula = FormulaFactory.getFormulaFor(crs);
 		if (!crFormula.isValid())
 		{
-			Logging.errorPrint("CR Formula " + crs
-					+ " was not valid: " + crFormula.toString());
+			Logging.errorPrint("CR Formula " + crs + " was not valid: " + crFormula.toString());
 		}
 		ChallengeRating cr = new ChallengeRating(crFormula);
 
@@ -885,8 +860,7 @@ public class EncounterPlugin extends MouseAdapter
 	{
 		PCClass cl = lcf.getPCClass();
 		int levels = lcf.getLevelCount().resolve(aPC, "").intValue();
-		Logging.debugPrint("Monster Class: " + cl.getDisplayName()
-				+ " Level: " + levels);
+		Logging.debugPrint("Monster Class: " + cl.getDisplayName() + " Level: " + levels);
 		PCClass pcClass = aPC.getClassKeyed(cl.getKeyName());
 
 		int currentLevels = 0;
@@ -902,12 +876,12 @@ public class EncounterPlugin extends MouseAdapter
 
 	private static void handleNonMonster(PlayerCharacter aPC)
 	{
-		PCClass mclass = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class, "Warrior");
+		PCClass mclass =
+				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class, "Warrior");
 
 		if (mclass != null)
 		{
-			Logging.debugPrint("Class: " + mclass.getDisplayName()
-				+ " Level: 1");
+			Logging.debugPrint("Class: " + mclass.getDisplayName() + " Level: 1");
 			aPC.incrementClassLevel(1, mclass);
 			rollHP(aPC);
 		}
@@ -915,8 +889,8 @@ public class EncounterPlugin extends MouseAdapter
 
 	private boolean handleRace(PlayerCharacter aPC, int number)
 	{
-		Race race =
-				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Race.class, (String) theModel.getElementAt(number));
+		Race race = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Race.class,
+			(String) theModel.getElementAt(number));
 
 		if (race == null)
 		{
@@ -1017,8 +991,7 @@ public class EncounterPlugin extends MouseAdapter
 		String solverValue = pc.getControl(CControl.CREATUREHANDS);
 		if (solverValue == null)
 		{
-			return FacetLibrary.getFacet(HandsFacet.class).getHands(
-				pc.getCharID());
+			return FacetLibrary.getFacet(HandsFacet.class).getHands(pc.getCharID());
 		}
 		else
 		{
@@ -1050,8 +1023,7 @@ public class EncounterPlugin extends MouseAdapter
 		}
 
 		// Always force weapons to go through the chooser dialog
-		List<EquipSlot> eqSlotList =
-				SystemCollections.getUnmodifiableEquipSlotList();
+		List<EquipSlot> eqSlotList = SystemCollections.getUnmodifiableEquipSlotList();
 
 		if ((eqSlotList == null) || eqSlotList.isEmpty())
 		{
@@ -1070,8 +1042,7 @@ public class EncounterPlugin extends MouseAdapter
 		return "";
 	}
 
-	private String getEquipLocation(PlayerCharacter pc, EquipSet eSet,
-		String locName, Equipment eqI)
+	private String getEquipLocation(PlayerCharacter pc, EquipSet eSet, String locName, Equipment eqI)
 	{
 		String location = locName;
 
@@ -1081,15 +1052,12 @@ public class EncounterPlugin extends MouseAdapter
 			List<String> aList = locationChoices(pc, eqI);
 			location = getSingleLocation(pc, eqI);
 
-			if (!((!location.isEmpty()) && canAddEquip(pc, eSet, location,
-				eqI)))
+			if (!((!location.isEmpty()) && canAddEquip(pc, eSet, location, eqI)))
 			{
 				// let them choose where to put the item
 				List<String> selectedList = new ArrayList<>();
-				selectedList =
-						Globals.getChoiceFromList("Select a location for "
-							+ eqI.getName(), aList, selectedList, 1, false,
-							true, pc);
+				selectedList = Globals.getChoiceFromList("Select a location for " + eqI.getName(), aList, selectedList,
+					1, false, true, pc);
 				if (!selectedList.isEmpty())
 				{
 					location = selectedList.get(0);
@@ -1105,8 +1073,7 @@ public class EncounterPlugin extends MouseAdapter
 		// make sure we can add item to that slot in this EquipSet
 		if (!canAddEquip(pc, eSet, location, eqI))
 		{
-			JOptionPane.showMessageDialog(null, "Can not equip "
-				+ eqI.getName() + " to " + location, "GMGen",
+			JOptionPane.showMessageDialog(null, "Can not equip " + eqI.getName() + " to " + location, "GMGen",
 				JOptionPane.ERROR_MESSAGE);
 
 			return null;
@@ -1115,8 +1082,7 @@ public class EncounterPlugin extends MouseAdapter
 		return location;
 	}
 
-	private static boolean canAddEquip(PlayerCharacter pc, EquipSet eSet,
-		String locName, Equipment eqI)
+	private static boolean canAddEquip(PlayerCharacter pc, EquipSet eSet, String locName, Equipment eqI)
 	{
 		String idPath = eSet.getIdPath();
 
@@ -1199,9 +1165,8 @@ public class EncounterPlugin extends MouseAdapter
 
 				// if Double Weapon or Both Hands, then no
 				// other weapon slots can be occupied
-				if ((locName.equals(Constants.EQUIP_LOCATION_BOTH)
-					|| locName.equals(Constants.EQUIP_LOCATION_DOUBLE) || locName
-					.equals(Constants.EQUIP_LOCATION_TWOWEAPONS))
+				if ((locName.equals(Constants.EQUIP_LOCATION_BOTH) || locName.equals(Constants.EQUIP_LOCATION_DOUBLE)
+					|| locName.equals(Constants.EQUIP_LOCATION_TWOWEAPONS))
 					&& (eqSet.getName().equals(Constants.EQUIP_LOCATION_PRIMARY)
 						|| eqSet.getName().equals(Constants.EQUIP_LOCATION_SECONDARY)
 						|| eqSet.getName().equals(Constants.EQUIP_LOCATION_BOTH)
@@ -1212,8 +1177,8 @@ public class EncounterPlugin extends MouseAdapter
 				}
 
 				// inverse of above case
-				if ((locName.equals(Constants.EQUIP_LOCATION_PRIMARY) || locName
-					.equals(Constants.EQUIP_LOCATION_SECONDARY))
+				if ((locName.equals(Constants.EQUIP_LOCATION_PRIMARY)
+					|| locName.equals(Constants.EQUIP_LOCATION_SECONDARY))
 					&& (eqSet.getName().equals(Constants.EQUIP_LOCATION_BOTH)
 						|| eqSet.getName().equals(Constants.EQUIP_LOCATION_DOUBLE)
 						|| eqSet.getName().equals(Constants.EQUIP_LOCATION_TWOWEAPONS)))
@@ -1248,8 +1213,7 @@ public class EncounterPlugin extends MouseAdapter
 					if (eqI.isType(slotType))
 					{
 						// if the item takes more slots, return false
-						if (existNum > (eSlot.getSlotCount() + (int) pc.getTotalBonusTo(
-							"SLOTS", slotType)))
+						if (existNum > (eSlot.getSlotCount() + (int) pc.getTotalBonusTo("SLOTS", slotType)))
 						{
 							return false;
 						}
@@ -1263,8 +1227,7 @@ public class EncounterPlugin extends MouseAdapter
 		return true;
 	}
 
-	private EquipSet addEquipToTarget(PlayerCharacter aPC, EquipSet eSet,
-		String locName, Equipment eqI, Float newQty)
+	private EquipSet addEquipToTarget(PlayerCharacter aPC, EquipSet eSet, String locName, Equipment eqI, Float newQty)
 	{
 		String location = getEquipLocation(aPC, eSet, locName, eqI);
 
@@ -1272,9 +1235,8 @@ public class EncounterPlugin extends MouseAdapter
 		// new id is one larger than any other id at this path level
 		String id = getNewIdPath(aPC, eSet);
 
-		Logging.debugPrint("--addEB-- IdPath:" + id + "  Parent:"
-			+ eSet.getIdPath() + " Location:" + location + " eqName:"
-			+ eqI.getName() + "  eSet:" + eSet.getName());
+		Logging.debugPrint("--addEB-- IdPath:" + id + "  Parent:" + eSet.getIdPath() + " Location:" + location
+			+ " eqName:" + eqI.getName() + "  eSet:" + eSet.getName());
 
 		// now create a new EquipSet to add this Equipment item to
 		EquipSet newSet = new EquipSet(id, location, eqI.getName(), eqI);
@@ -1303,14 +1265,11 @@ public class EncounterPlugin extends MouseAdapter
 		{
 			for (int j = 0; j < display.getLevel(pcClass); j++)
 			{
-				int bonus =
-						(int) aPC.getTotalBonusTo("HD", "MIN")
-							+ (int) aPC.getTotalBonusTo("HD", "MIN;CLASS."
-								+ pcClass.getKeyName());
+				int bonus = (int) aPC.getTotalBonusTo("HD", "MIN")
+					+ (int) aPC.getTotalBonusTo("HD", "MIN;CLASS." + pcClass.getKeyName());
 				int size = display.getLevelHitDie(pcClass, j + 1).getDie();
 				PCClassLevel classLevel = display.getActiveClassLevel(pcClass, j);
-				aPC.setHP(classLevel,
-						new Dice(1, size, bonus).roll());
+				aPC.setHP(classLevel, new Dice(1, size, bonus).roll());
 			}
 		}
 
@@ -1322,10 +1281,10 @@ public class EncounterPlugin extends MouseAdapter
 	 *
 	 *@return    The data directory name
 	 */
+	@Override
 	public File getDataDirectory()
 	{
-		File dataDir =
-				new File(SettingsHandler.getGmgenPluginDir(), getPluginName());
+		File dataDir = new File(SettingsHandler.getGmgenPluginDir(), getPluginName());
 		return dataDir;
 	}
 }

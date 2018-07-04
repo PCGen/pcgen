@@ -27,7 +27,6 @@ import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
 
-
 public class PreSpecialAbilityTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 
@@ -43,8 +42,9 @@ public class PreSpecialAbilityTester extends AbstractPrerequisiteTest implements
 		}
 		catch (NumberFormatException exceptn)
 		{
-			throw new PrerequisiteException(LanguageBundle.getFormattedString(
-				"PreSpecialAbility.error.bad_operand", prereq.toString())); //$NON-NLS-1$
+			throw new PrerequisiteException(
+				LanguageBundle.getFormattedString(
+					"PreSpecialAbility.error.bad_operand", prereq.toString())); //$NON-NLS-1$
 		}
 
 		final String aString = prereq.getKey().toUpperCase();
@@ -64,7 +64,7 @@ public class PreSpecialAbilityTester extends AbstractPrerequisiteTest implements
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "SA"; //$NON-NLS-1$

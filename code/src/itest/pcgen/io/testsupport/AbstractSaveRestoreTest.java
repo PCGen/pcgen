@@ -134,11 +134,10 @@ public abstract class AbstractSaveRestoreTest extends TestCase
 			SettingsHandler.setGame("3.5");
 			GameMode mode = SettingsHandler.getGame();
 			mode.setBonusFeatLevels("3|3");
-			LevelLoader
-				.parseLine(
-					mode,
-					"LEVEL:LEVEL	MINXP:(LEVEL*LEVEL-LEVEL)*500		CSKILLMAX:LEVEL+ClassSkillMax+3	CCSKILLMAX:(LEVEL+CrossClassSkillMax+3)/2",
-					0, TestURI.getURI(), "Default");
+			LevelLoader.parseLine(mode,
+				"LEVEL:LEVEL	MINXP:(LEVEL*LEVEL-LEVEL)*500		"
+			+ "CSKILLMAX:LEVEL+ClassSkillMax+3	CCSKILLMAX:(LEVEL+CrossClassSkillMax+3)/2",
+				0, TestURI.getURI(), "Default");
 			mode.setAlignmentText("Alignment");
 		}
 	}

@@ -23,7 +23,6 @@ import java.util.StringTokenizer;
 
 import pcgen.util.Logging;
 
-
 public class Movement
 {
 
@@ -54,7 +53,7 @@ public class Movement
 	 * A class invariant is that the four above arrays should always have the
 	 * same length.
 	 */
-	
+
 	/**
 	 * The Movement Rates flag indicating which type of Movement object this is
 	 * 0 indicates a basic assignment
@@ -81,8 +80,7 @@ public class Movement
 		if (i <= 0)
 		{
 			throw new IllegalArgumentException(
-				"Argument of array length to ConcreteMovement"
-					+ "constructor must be positive");
+				"Argument of array length to ConcreteMovement" + "constructor must be positive");
 		}
 		movementTypes = new String[i];
 		movements = new double[i];
@@ -238,29 +236,24 @@ public class Movement
 		{
 			movelabel.append(movementTypes[0]);
 			NumberFormat numFmt = NumberFormat.getNumberInstance();
-			movelabel.append(' ').append(
-				numFmt.format(Globals.getGameModeUnitSet()
-					.convertDistanceToUnitSet(movements[0])));
+			movelabel.append(' ')
+				.append(numFmt.format(Globals.getGameModeUnitSet().convertDistanceToUnitSet(movements[0])));
 			movelabel.append(Globals.getGameModeUnitSet().getDistanceUnit());
 			if (movementMult[0] != 0)
 			{
-				movelabel.append('(').append(movementMultOp[0])
-					.append(numFmt.format(movementMult[0])).append(')');
+				movelabel.append('(').append(movementMultOp[0]).append(numFmt.format(movementMult[0])).append(')');
 			}
 
 			for (int i = 1; i < movementTypes.length; ++i)
 			{
 				movelabel.append(", ");
 				movelabel.append(movementTypes[i]);
-				movelabel.append(' ').append(
-					numFmt.format(Globals.getGameModeUnitSet()
-						.convertDistanceToUnitSet(movements[i])));
-				movelabel
-					.append(Globals.getGameModeUnitSet().getDistanceUnit());
+				movelabel.append(' ')
+					.append(numFmt.format(Globals.getGameModeUnitSet().convertDistanceToUnitSet(movements[i])));
+				movelabel.append(Globals.getGameModeUnitSet().getDistanceUnit());
 				if (movementMult[i] != 0)
 				{
-					movelabel.append('(').append(movementMultOp[i])
-						.append(numFmt.format(movementMult[i])).append(')');
+					movelabel.append('(').append(movementMultOp[i]).append(numFmt.format(movementMult[i])).append(')');
 				}
 			}
 		}
@@ -277,9 +270,7 @@ public class Movement
 			txt.append(',');
 			if (!movementMultOp[1].isEmpty())
 			{
-				String multValue =
-						NumberFormat.getNumberInstance()
-							.format(movementMult[1]);
+				String multValue = NumberFormat.getNumberInstance().format(movementMult[1]);
 				txt.append(movementMultOp[1]).append(multValue);
 			}
 			else
@@ -295,8 +286,7 @@ public class Movement
 				txt.append(',');
 			}
 
-			if ((movementTypes[index] != null)
-				&& (!movementTypes[index].isEmpty()))
+			if ((movementTypes[index] != null) && (!movementTypes[index].isEmpty()))
 			{
 				txt.append(movementTypes[index]).append(',');
 			}
@@ -328,8 +318,7 @@ public class Movement
 	{
 		if (moveparse == null)
 		{
-			throw new IllegalArgumentException(
-				"Null initialization String illegal");
+			throw new IllegalArgumentException("Null initialization String illegal");
 		}
 		final StringTokenizer moves = new StringTokenizer(moveparse, ",");
 		Movement cm;
@@ -350,8 +339,7 @@ public class Movement
 			}
 			if (moves.countTokens() != 0)
 			{
-				Logging.errorPrint("Badly formed MOVE token "
-					+ "(extra value at end of list): " + moveparse);
+				Logging.errorPrint("Badly formed MOVE token " + "(extra value at end of list): " + moveparse);
 			}
 		}
 		return cm;
@@ -363,8 +351,7 @@ public class Movement
 		movementMult[x] = 0.0d;
 		movementMultOp[x] = "";
 
-		if ((!mod.isEmpty())
-			&& ((mod.charAt(0) == '*') || (mod.charAt(0) == '/')))
+		if ((!mod.isEmpty()) && ((mod.charAt(0) == '*') || (mod.charAt(0) == '/')))
 		{
 			movements[x] = 0.0d;
 			try
@@ -372,8 +359,7 @@ public class Movement
 				double multValue = Double.parseDouble(mod.substring(1));
 				if (multValue < 0)
 				{
-					Logging.errorPrint("Illegal movement multiplier: "
-						+ multValue + " in movement string " + mod);
+					Logging.errorPrint("Illegal movement multiplier: " + multValue + " in movement string " + mod);
 				}
 				movementMult[x] = multValue;
 				movementMultOp[x] = mod.substring(0, 1);

@@ -30,8 +30,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * parses SUBCLASS token for Kit Class
  */
-public class SubclassToken extends AbstractNonEmptyToken<KitClass> implements
-		CDOMPrimaryToken<KitClass>
+public class SubclassToken extends AbstractNonEmptyToken<KitClass> implements CDOMPrimaryToken<KitClass>
 {
 
 	/**
@@ -52,17 +51,14 @@ public class SubclassToken extends AbstractNonEmptyToken<KitClass> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-			KitClass kitClass, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, KitClass kitClass, String value)
 	{
 		/*
 		 * This call to kitClass.getPcclass() is safe, as the line is CLASS: and
 		 * thus the CLASS: token is always encountered first
 		 */
-		SubClassCategory category =
-				SubClassCategory.getConstant(kitClass.getPcclass().getLSTformat(false));
-		CDOMReference<SubClass> sc = context.getReferenceContext()
-			.getManufacturerId(category).getReference(value);
+		SubClassCategory category = SubClassCategory.getConstant(kitClass.getPcclass().getLSTformat(false));
+		CDOMReference<SubClass> sc = context.getReferenceContext().getManufacturerId(category).getReference(value);
 		kitClass.setSubClass(sc);
 		return ParseResult.SUCCESS;
 	}
@@ -75,6 +71,6 @@ public class SubclassToken extends AbstractNonEmptyToken<KitClass> implements
 		{
 			return null;
 		}
-		return new String[] { ref.getLSTformat(false) };
+		return new String[]{ref.getLSTformat(false)};
 	}
 }

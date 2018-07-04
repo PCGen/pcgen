@@ -84,7 +84,7 @@ public final class SystemCollections
 	 */
 	public static GameMode getGameModeNamed(final String aString)
 	{
-		for ( GameMode gameMode : gameModeList )
+		for (GameMode gameMode : gameModeList)
 		{
 			if (gameMode.getName().equalsIgnoreCase(aString))
 			{
@@ -102,7 +102,7 @@ public final class SystemCollections
 	 */
 	public static GameMode getGameModeWithDisplayName(final String aString)
 	{
-		for ( GameMode gameMode : gameModeList )
+		for (GameMode gameMode : gameModeList)
 		{
 			if (gameMode.getDisplayName().equalsIgnoreCase(aString))
 			{
@@ -169,7 +169,7 @@ public final class SystemCollections
 		}
 		return Collections.unmodifiableList(equipSlotList);
 	}
-	
+
 	/**
 	 * Return an <b>unmodifiable</b> version of the body structure list for the 
 	 * current gamemode.
@@ -339,7 +339,6 @@ public final class SystemCollections
 		return Collections.unmodifiableList(speechList);
 	}
 
-
 	/**
 	 * Return an <b>unmodifiable</b> version of the trait list.
 	 * @return an <b>unmodifiable</b> version of the trait list.
@@ -440,7 +439,6 @@ public final class SystemCollections
 		}
 	}
 
-
 	/**
 	 * Add the migration rule to the game mode's migration rule list.
 	 * @param migrationRule The migration rule to be added.
@@ -459,7 +457,7 @@ public final class SystemCollections
 			migrationRuleList.add(migrationRule);
 		}
 	}
-	
+
 	//GAMEMODELIST
 
 	/**
@@ -595,7 +593,6 @@ public final class SystemCollections
 			speechList.add(speech);
 		}
 	}
-
 
 	//TRAITLIST
 

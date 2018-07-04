@@ -38,8 +38,7 @@ import pcgen.cdom.enumeration.GroupingState;
  *            The Class of the underlying object contained by this
  *            CDOMTransparentSingleRef
  */
-public class CDOMTransparentSingleRef<T extends Loadable> extends CDOMSingleRef<T> implements
-		TransparentReference<T>
+public class CDOMTransparentSingleRef<T extends Loadable> extends CDOMSingleRef<T> implements TransparentReference<T>
 {
 
 	/**
@@ -72,8 +71,7 @@ public class CDOMTransparentSingleRef<T extends Loadable> extends CDOMSingleRef<
 	 * @param key
 	 *            An identifier of the object this CDOMTransparentSingleRef contains.
 	 */
-	public CDOMTransparentSingleRef(String formatRepresentation, Class<T> objClass,
-		String key)
+	public CDOMTransparentSingleRef(String formatRepresentation, Class<T> objClass, String key)
 	{
 		super(key);
 		this.formatRepresentation = Objects.requireNonNull(formatRepresentation);
@@ -100,9 +98,8 @@ public class CDOMTransparentSingleRef<T extends Loadable> extends CDOMSingleRef<
 	{
 		if (subReference == null)
 		{
-			throw new IllegalStateException("Cannot ask for contains: "
-					+ getReferenceClass().getName() + " Reference " + getName()
-					+ " has not been resolved");
+			throw new IllegalStateException("Cannot ask for contains: " + getReferenceClass().getName() + " Reference "
+				+ getName() + " has not been resolved");
 		}
 		return subReference.contains(item);
 	}
@@ -122,8 +119,7 @@ public class CDOMTransparentSingleRef<T extends Loadable> extends CDOMSingleRef<
 	{
 		if (subReference == null)
 		{
-			throw new IllegalStateException(
-					"Cannot ask for resolution: Reference has not been resolved");
+			throw new IllegalStateException("Cannot ask for resolution: Reference has not been resolved");
 		}
 		return subReference.get();
 	}
@@ -171,8 +167,7 @@ public class CDOMTransparentSingleRef<T extends Loadable> extends CDOMSingleRef<
 		if (obj instanceof CDOMTransparentSingleRef)
 		{
 			CDOMTransparentSingleRef<?> ref = (CDOMTransparentSingleRef<?>) obj;
-			return getReferenceClass().equals(ref.getReferenceClass())
-					&& getName().equals(ref.getName());
+			return getReferenceClass().equals(ref.getReferenceClass()) && getName().equals(ref.getName());
 		}
 		return false;
 	}
@@ -204,8 +199,7 @@ public class CDOMTransparentSingleRef<T extends Loadable> extends CDOMSingleRef<
 	@Override
 	public void addResolution(T item)
 	{
-		throw new IllegalStateException(
-				"Cannot resolve a Transparent Reference");
+		throw new IllegalStateException("Cannot resolve a Transparent Reference");
 	}
 
 	/**
@@ -235,9 +229,8 @@ public class CDOMTransparentSingleRef<T extends Loadable> extends CDOMSingleRef<
 		}
 		else
 		{
-			throw new IllegalArgumentException("Cannot resolve a "
-					+ getReferenceClass().getSimpleName() + " Reference to a "
-					+ rm.getReferenceClass().getSimpleName());
+			throw new IllegalArgumentException("Cannot resolve a " + getReferenceClass().getSimpleName()
+				+ " Reference to a " + rm.getReferenceClass().getSimpleName());
 		}
 	}
 
@@ -286,8 +279,7 @@ public class CDOMTransparentSingleRef<T extends Loadable> extends CDOMSingleRef<
 	@Override
 	public void setChoice(String choice)
 	{
-		throw new IllegalStateException(
-				"Cannot set Choice on a Transparent Reference");
+		throw new IllegalStateException("Cannot set Choice on a Transparent Reference");
 	}
 
 	@Override

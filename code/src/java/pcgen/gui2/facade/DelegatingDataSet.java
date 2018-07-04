@@ -292,7 +292,8 @@ public class DelegatingDataSet implements DataSetFacade
 	@Override
 	public ListFacade<StatGenerationFacade> getStatGenerators()
 	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		//To change body of generated methods, choose Tools | Templates.
+		throw new UnsupportedOperationException("Not supported yet.");
 	}
 
 	@Override

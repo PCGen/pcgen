@@ -96,8 +96,7 @@ public class ClassSkillChoiceActor implements PersistentChoiceActor<Skill>
 		PCClass pcc = getSourceClass(pc);
 		if (pcc == null)
 		{
-			Logging.errorPrint("Unable to find the pc's class " + source
-				+ " to apply skill choices to.");
+			Logging.errorPrint("Unable to find the pc's class " + source + " to apply skill choices to.");
 			return;
 		}
 		pc.addLocalCost(pcc, choice, SkillCost.CLASS, owner);
@@ -113,23 +112,17 @@ public class ClassSkillChoiceActor implements PersistentChoiceActor<Skill>
 				for (PCLevelInfo lvlInfo : pc.getLevelInfo())
 				{
 					if (lvlInfo.getClassKeyName() == pcClass.getKeyName()
-						&& lvlInfo.getClassLevel() == classLevel
-							.getSafe(IntegerKey.LEVEL))
+						&& lvlInfo.getClassLevel() == classLevel.getSafe(IntegerKey.LEVEL))
 					{
-						pc.checkSkillModChangeForLevel(pcClass, lvlInfo,
-							classLevel, levelIndex++);
+						pc.checkSkillModChangeForLevel(pcClass, lvlInfo, classLevel, levelIndex++);
 						break;
 					}
 				}
 			}
-			String result =
-					SkillRankControl
-						.modRanks(applyRank, pcc, false, pc, choice);
+			String result = SkillRankControl.modRanks(applyRank, pcc, false, pc, choice);
 			if (StringUtils.isNotEmpty(result))
 			{
-				Logging.errorPrint(
-					"Unable to apply {0} ranks of {1}. Error: {2}", applyRank,
-					choice, result);
+				Logging.errorPrint("Unable to apply {0} ranks of {1}. Error: {2}", applyRank, choice, result);
 			}
 		}
 	}
@@ -172,8 +165,7 @@ public class ClassSkillChoiceActor implements PersistentChoiceActor<Skill>
 	@Override
 	public Skill decodeChoice(LoadContext context, String persistentFormat)
 	{
-		return context.getReferenceContext().silentlyGetConstructedCDOMObject(
-			Skill.class, persistentFormat);
+		return context.getReferenceContext().silentlyGetConstructedCDOMObject(Skill.class, persistentFormat);
 	}
 
 	/**
@@ -216,8 +208,7 @@ public class ClassSkillChoiceActor implements PersistentChoiceActor<Skill>
 		PCClass pcc = getSourceClass(pc);
 		if (pcc == null)
 		{
-			Logging.errorPrint("Unable to find the pc's class " + source
-				+ " to restore skill choices to.");
+			Logging.errorPrint("Unable to find the pc's class " + source + " to restore skill choices to.");
 			return;
 		}
 		pc.addLocalCost(pcc, choice, SkillCost.CLASS, owner);

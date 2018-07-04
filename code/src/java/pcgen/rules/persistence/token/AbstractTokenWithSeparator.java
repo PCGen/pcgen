@@ -42,7 +42,7 @@ public abstract class AbstractTokenWithSeparator<T> extends AbstractNonEmptyToke
 		}
 		return pr;
 	}
-	
+
 	/**
 	 * Override this to set the standard separator.
 	 * @return the defined separator character

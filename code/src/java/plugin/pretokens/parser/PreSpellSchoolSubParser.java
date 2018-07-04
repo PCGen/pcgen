@@ -23,17 +23,16 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 /**
  * A prerequisite parser class that handles the parsing of pre spell school sub tokens.
  */
-public class PreSpellSchoolSubParser extends AbstractPrerequisiteListParser
-		implements PrerequisiteParserInterface
+public class PreSpellSchoolSubParser extends AbstractPrerequisiteListParser implements PrerequisiteParserInterface
 {
 	/**
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String[] kindsHandled()
 	{
-		return new String[] { "SPELLSCHOOLSUB" };
+		return new String[]{"SPELLSCHOOLSUB"};
 	}
 
 	@Override

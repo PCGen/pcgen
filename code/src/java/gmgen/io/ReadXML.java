@@ -27,10 +27,10 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
-import pcgen.util.Logging;
-
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
+
+import pcgen.util.Logging;
 
 /**
  * This class is used to read through XML tables on disk.
@@ -109,9 +109,8 @@ public class ReadXML
 			DocumentBuilder db = dbf.newDocumentBuilder();
 			/* The document used for XML parsing. */
 			final Document document = db.parse(table);
-			tableName =
-					document.getElementsByTagName("lookuptable").item(0)
-						.getAttributes().getNamedItem("name").getNodeValue();
+			tableName = document.getElementsByTagName("lookuptable").item(0).getAttributes().getNamedItem("name")
+				.getNodeValue();
 
 			/* The rows of the table. */
 			final int rows = document.getElementsByTagName("row").getLength();
@@ -129,8 +128,7 @@ public class ReadXML
 
 				for (int y = 0; y < cols; y++)
 				{
-					row.add(document.getElementsByTagName("item").item(pos)
-						.getChildNodes().item(0).getNodeValue());
+					row.add(document.getElementsByTagName("item").item(pos).getChildNodes().item(0).getNodeValue());
 					pos++;
 				}
 

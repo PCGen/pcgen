@@ -147,7 +147,8 @@ public final class BioSet extends PObject implements NonInteractive
 	 * @param copyRegion The region of the target race
 	 * @param copyRace   The name of the target race
 	 */
-	public void copyRaceTags(final String origRegion, final String origRace, final String copyRegion, final String copyRace)
+	public void copyRaceTags(final String origRegion, final String origRace, final String copyRegion,
+		final String copyRace)
 	{
 		Region oldr = Region.getConstant(origRegion);
 		Region newr = Region.getConstant(copyRegion);
@@ -174,7 +175,8 @@ public final class BioSet extends PObject implements NonInteractive
 	/**
 	 * Randomizes the values of the passed in attributes.
 	 *
-	 * @param randomizeStr .-delimited list of attributes to randomize. (AGE.HT.WT.EYES.HAIR.SKIN are the possible values.)
+	 * @param randomizeStr .-delimited list of attributes to randomize.
+	 * 						(AGE.HT.WT.EYES.HAIR.SKIN are the possible values.)
 	 * @param pc The Player Character
 	 */
 	public void randomize(final String randomizeStr, final PlayerCharacter pc)
@@ -262,7 +264,8 @@ public final class BioSet extends PObject implements NonInteractive
 	 * sorted map of the races (one only) and wihtin this is the tags for that
 	 * race and age.
 	 */
-	private SortedMap<Integer, SortedMap<String, SortedMap<String, String>>> getRaceTagsByAge(Region region, String race)
+	private SortedMap<Integer, SortedMap<String, SortedMap<String, String>>> getRaceTagsByAge(Region region,
+		String race)
 	{
 		// setup a mapped structure
 		final SortedMap<Integer, SortedMap<String, SortedMap<String, String>>> ageSets = new TreeMap<>();
@@ -325,9 +328,8 @@ public final class BioSet extends PObject implements NonInteractive
 	 * @param value
 	 *            The value of the tag.
 	 */
-	private void addTagToAgeSet(
-			final SortedMap<Integer, SortedMap<String, SortedMap<String, String>>> ageSets,
-			String race, String key, final List<String> value)
+	private void addTagToAgeSet(final SortedMap<Integer, SortedMap<String, SortedMap<String, String>>> ageSets,
+		String race, String key, final List<String> value)
 	{
 		final Iterator<String> iter = value.iterator();
 		for (int ageBracket : ageNames.values())
@@ -337,8 +339,7 @@ public final class BioSet extends PObject implements NonInteractive
 				break;
 			}
 			final String tagValue = iter.next();
-			SortedMap<String, SortedMap<String, String>> races = ageSets
-					.get(ageBracket);
+			SortedMap<String, SortedMap<String, String>> races = ageSets.get(ageBracket);
 			if (races == null)
 			{
 				races = new TreeMap<>();
@@ -357,8 +358,7 @@ public final class BioSet extends PObject implements NonInteractive
 	}
 
 	private String appendAgesetInfo(Region region,
-			final SortedMap<Integer, SortedMap<String, SortedMap<String, String>>> ageSets,
-			final StringBuilder sb)
+		final SortedMap<Integer, SortedMap<String, SortedMap<String, String>>> ageSets, final StringBuilder sb)
 	{
 		Set<Integer> ageIndices = new TreeSet<>();
 		ageIndices.addAll(ageSets.keySet());
@@ -384,7 +384,8 @@ public final class BioSet extends PObject implements NonInteractive
 					for (final Map.Entry<String, String> stringStringEntry : tags.entrySet())
 					{
 						sb.append("RACENAME:").append(stringSortedMapEntry.getKey()).append("\t\t");
-						sb.append(stringStringEntry.getKey()).append(':').append(stringStringEntry.getValue()).append("\n");
+						sb.append(stringStringEntry.getKey()).append(':').append(stringStringEntry.getValue())
+							.append("\n");
 					}
 				}
 			}
@@ -399,8 +400,8 @@ public final class BioSet extends PObject implements NonInteractive
 	{
 		// Can't find a base age for the category,
 		// then there's nothing to do
-		final String age = getTokenNumberInMaps("BASEAGE", ageCategory, pc
-			.getDisplay().getRegionString(), pc.getRace().getKeyName().trim());
+		final String age = getTokenNumberInMaps("BASEAGE", ageCategory, pc.getDisplay().getRegionString(),
+			pc.getRace().getKeyName().trim());
 
 		if (age == null)
 		{
@@ -411,8 +412,8 @@ public final class BioSet extends PObject implements NonInteractive
 		final int baseAge = Integer.parseInt(age);
 		int ageAdd = -1;
 
-		String aClass = getTokenNumberInMaps("CLASS", ageCategory, pc
-			.getDisplay().getRegionString(), pc.getRace().getKeyName().trim());
+		String aClass = getTokenNumberInMaps("CLASS", ageCategory, pc.getDisplay().getRegionString(),
+			pc.getRace().getKeyName().trim());
 
 		if (aClass != null && !aClass.equals("0"))
 		{
@@ -459,8 +460,8 @@ public final class BioSet extends PObject implements NonInteractive
 		// then generate a number based on the .LST
 		if ((ageAdd < 0) && !useClassOnly)
 		{
-			aClass = getTokenNumberInMaps("AGEDIEROLL", ageCategory, pc
-				.getDisplay().getRegionString(), pc.getRace().getKeyName().trim());
+			aClass = getTokenNumberInMaps("AGEDIEROLL", ageCategory, pc.getDisplay().getRegionString(),
+				pc.getRace().getKeyName().trim());
 
 			if (aClass != null)
 			{
@@ -470,14 +471,14 @@ public final class BioSet extends PObject implements NonInteractive
 
 		if ((ageAdd >= 0) && (baseAge > 0))
 		{
-			final String maxage = getTokenNumberInMaps("MAXAGE", ageCategory, pc
-				.getDisplay().getRegionString(), pc.getRace().getKeyName().trim());
+			final String maxage = getTokenNumberInMaps("MAXAGE", ageCategory, pc.getDisplay().getRegionString(),
+				pc.getRace().getKeyName().trim());
 			if (maxage != null)
 			{
 				final int maxAge = Integer.parseInt(maxage);
 				if (baseAge + ageAdd > maxAge)
 				{
-					ageAdd = maxAge-baseAge;
+					ageAdd = maxAge - baseAge;
 				}
 			}
 			pc.setPCAttribute(NumericPCAttribute.AGE, baseAge + ageAdd);
@@ -486,8 +487,8 @@ public final class BioSet extends PObject implements NonInteractive
 
 	private String generateBioValue(final String addKey, final PlayerCharacter pc)
 	{
-		final String line = getTokenNumberInMaps(addKey, 0, pc.getDisplay().getRegionString(), pc
-			.getRace().getKeyName().trim());
+		final String line =
+				getTokenNumberInMaps(addKey, 0, pc.getDisplay().getRegionString(), pc.getRace().getKeyName().trim());
 		final String rv;
 
 		if (line != null && !line.isEmpty())
@@ -518,8 +519,8 @@ public final class BioSet extends PObject implements NonInteractive
 		int htAdd = 0;
 		int wtAdd = 0;
 		String totalWeight = null;
-		final String htwt = getTokenNumberInMaps("SEX", 0, pc.getDisplay().getRegionString(), pc
-			.getRace().getKeyName().trim());
+		final String htwt =
+				getTokenNumberInMaps("SEX", 0, pc.getDisplay().getRegionString(), pc.getRace().getKeyName().trim());
 
 		if (htwt == null || "0".equals(htwt))
 		{
@@ -579,10 +580,8 @@ public final class BioSet extends PObject implements NonInteractive
 		}
 	}
 
-	private List<String> mapFind(
-			final TripleKeyMapToList<Region, String, String, String> argMap,
-			final String argRegionName, final String argRaceName,
-			final String addKey, final String altRaceName)
+	private List<String> mapFind(final TripleKeyMapToList<Region, String, String, String> argMap,
+		final String argRegionName, final String argRaceName, final String addKey, final String altRaceName)
 	{
 		// First check for region.racename.key
 		Region region = Region.getConstant(argRegionName);
@@ -599,7 +598,7 @@ public final class BioSet extends PObject implements NonInteractive
 		if (altRaceLength != 0)
 		{
 			r = argMap.getListFor(region, altRaceName, addKey);
-			
+
 			if (r != null)
 			{
 				return r;
@@ -627,16 +626,14 @@ public final class BioSet extends PObject implements NonInteractive
 
 	public AgeSet addToAgeMap(String regionName, AgeSet ageSet, URI sourceURI)
 	{
-		AgeSet old =
-				ageMap.get(Region.getConstant(regionName), ageSet.getIndex());
+		AgeSet old = ageMap.get(Region.getConstant(regionName), ageSet.getIndex());
 		if (old != null)
 		{
 			if (ageSet.hasBonuses() || !ageSet.getKits().isEmpty() || !ageSet.getName().equals(old.getName()))
 			{
-				Logging.errorPrint("Found second (non-identical) AGESET "
-					+ "in Bio Settings " + sourceURI + " for Region: "
-					+ regionName + " Index: " + ageSet.getIndex()
-					+ " using the existing " + old.getLSTformat());
+				Logging.errorPrint(
+					"Found second (non-identical) AGESET " + "in Bio Settings " + sourceURI + " for Region: "
+						+ regionName + " Index: " + ageSet.getIndex() + " using the existing " + old.getLSTformat());
 			}
 			return old;
 		}

@@ -28,14 +28,13 @@ import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.util.FontManipulation;
 import pcgen.system.LanguageBundle;
 
-
 @SuppressWarnings("serial")
 public class QualifiedTreeCellRenderer extends CharacterTreeCellRenderer
 {
 
 	@Override
-	public Component getTreeCellRendererComponent(JTree tree, Object value,
-			boolean sel, boolean expanded, boolean leaf, int row, boolean focus)
+	public Component getTreeCellRendererComponent(JTree tree, Object value, boolean sel, boolean expanded, boolean leaf,
+		int row, boolean focus)
 	{
 		Object obj = ((DefaultMutableTreeNode) value).getUserObject();
 		if ("".equals(obj) || obj == null) //$NON-NLS-1$

@@ -39,33 +39,27 @@ public class FeatToken implements CDOMSecondaryToken<EquipmentModifier>
 	}
 
 	@Override
-	public ParseResult parseToken(LoadContext context, EquipmentModifier obj,
-		String value)
+	public ParseResult parseToken(LoadContext context, EquipmentModifier obj, String value)
 	{
 		if (value == null)
 		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " requires arguments");
+			return new ParseResult.Fail("CHOOSE:" + getTokenName() + " requires arguments");
 		}
 		if (value.indexOf('[') != -1)
 		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not contain [] : " + value);
+			return new ParseResult.Fail("CHOOSE:" + getTokenName() + " arguments may not contain [] : " + value);
 		}
 		if (value.charAt(0) == '|')
 		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not start with | : " + value);
+			return new ParseResult.Fail("CHOOSE:" + getTokenName() + " arguments may not start with | : " + value);
 		}
 		if (value.charAt(value.length() - 1) == '|')
 		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not end with | : " + value);
+			return new ParseResult.Fail("CHOOSE:" + getTokenName() + " arguments may not end with | : " + value);
 		}
 		if (value.indexOf("||") != -1)
 		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments uses double separator || : " + value);
+			return new ParseResult.Fail("CHOOSE:" + getTokenName() + " arguments uses double separator || : " + value);
 		}
 		StringBuilder sb = new StringBuilder(value.length() + 20);
 		sb.append(getTokenName()).append('|').append(value);
@@ -76,15 +70,12 @@ public class FeatToken implements CDOMSecondaryToken<EquipmentModifier>
 	@Override
 	public String[] unparse(LoadContext context, EquipmentModifier eqMod)
 	{
-		String chooseString = context.getObjectContext().getString(eqMod,
-				StringKey.CHOICE_STRING);
-		if (chooseString == null
-				|| chooseString.indexOf(getTokenName() + '|') == -1)
+		String chooseString = context.getObjectContext().getString(eqMod, StringKey.CHOICE_STRING);
+		if (chooseString == null || chooseString.indexOf(getTokenName() + '|') == -1)
 		{
 			return null;
 		}
-		return new String[] { chooseString
-				.substring(getTokenName().length() + 1) };
+		return new String[]{chooseString.substring(getTokenName().length() + 1)};
 	}
 
 	@Override

@@ -47,16 +47,14 @@ public final class DisplayUtilities
 	 *         given Collection of CDOMObject objects
 	 */
 	@Deprecated
-	public static String joinDisplayName(
-		Collection<? extends CDOMObject> cdoCollection, String separator)
+	public static String joinDisplayName(Collection<? extends CDOMObject> cdoCollection, String separator)
 	{
 		if (cdoCollection == null)
 		{
 			return "";
 		}
 
-		final StringBuilder result =
-				new StringBuilder(cdoCollection.size() * 10);
+		final StringBuilder result = new StringBuilder(cdoCollection.size() * 10);
 
 		boolean needjoin = false;
 

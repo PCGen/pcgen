@@ -28,7 +28,6 @@ import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 
-
 public class PreShieldProfTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
@@ -39,10 +38,8 @@ public class PreShieldProfTester extends AbstractDisplayPrereqTest implements Pr
 		int runningTotal = 0;
 
 		final String aString = prereq.getKey();
-		final boolean isType = aString.startsWith("TYPE")
-				&& aString.length() > 5;
-		final boolean isShieldType = aString.startsWith("SHIELDTYPE")
-				&& aString.length() > 11;
+		final boolean isType = aString.startsWith("TYPE") && aString.length() > 5;
+		final boolean isShieldType = aString.startsWith("SHIELDTYPE") && aString.length() > 11;
 		String typeString = null;
 		if (isType)
 		{
@@ -52,8 +49,8 @@ public class PreShieldProfTester extends AbstractDisplayPrereqTest implements Pr
 		{
 			typeString = "SHIELD." + aString.substring(11);
 		}
-		Equipment keyEquip = Globals.getContext().getReferenceContext()
-				.silentlyGetConstructedCDOMObject(Equipment.class, aString);
+		Equipment keyEquip =
+				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Equipment.class, aString);
 		for (ProfProvider<ShieldProf> spp : display.getShieldProfList())
 		{
 			if (keyEquip != null && spp.providesProficiency(keyEquip.getShieldProf()))
@@ -74,8 +71,7 @@ public class PreShieldProfTester extends AbstractDisplayPrereqTest implements Pr
 			}
 		}
 
-		runningTotal =
-				prereq.getOperator().compare(runningTotal, numberRequired);
+		runningTotal = prereq.getOperator().compare(runningTotal, numberRequired);
 		return countedTotal(prereq, runningTotal);
 	}
 
@@ -83,7 +79,7 @@ public class PreShieldProfTester extends AbstractDisplayPrereqTest implements Pr
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "profwithshield"; //$NON-NLS-1$

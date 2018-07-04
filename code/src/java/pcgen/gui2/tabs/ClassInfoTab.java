@@ -54,10 +54,10 @@ import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.CharacterLevelFacade;
 import pcgen.facade.core.CharacterLevelsFacade;
 import pcgen.facade.core.ClassFacade;
-import pcgen.facade.util.event.ListEvent;
-import pcgen.facade.util.event.ListListener;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.event.ListEvent;
+import pcgen.facade.util.event.ListListener;
 import pcgen.gui2.filter.Filter;
 import pcgen.gui2.filter.FilterBar;
 import pcgen.gui2.filter.FilterButton;
@@ -77,7 +77,6 @@ import pcgen.gui2.util.treeview.TreeViewModel;
 import pcgen.gui2.util.treeview.TreeViewPath;
 import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
-
 
 @SuppressWarnings("serial")
 public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
@@ -378,8 +377,10 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	private final class ClassTransferHandler extends TransferHandler
 	{
 
-		private final DataFlavor classFlavor = new DataFlavor(DataFlavor.javaJVMLocalObjectMimeType
-				+ ";class=" + ClassFacade.class.getName(), null); //$NON-NLS-1$
+		private final DataFlavor classFlavor =
+				new DataFlavor(
+					DataFlavor.javaJVMLocalObjectMimeType
+					+ ";class=" + ClassFacade.class.getName(), null); //$NON-NLS-1$
 
 		private CharacterFacade character = null;
 
@@ -442,10 +443,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 				@Override
 				public DataFlavor[] getTransferDataFlavors()
 				{
-					return new DataFlavor[]
-					{
-						classFlavor
-					};
+					return new DataFlavor[]{classFlavor};
 				}
 
 				@Override
@@ -486,9 +484,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 				}
 				catch (UnsupportedFlavorException | IOException ex)
 				{
-					Logger.getLogger(ClassTransferHandler.class.getName()).log(Level.SEVERE,
-							null,
-							ex);
+					Logger.getLogger(ClassTransferHandler.class.getName()).log(Level.SEVERE, null, ex);
 				}
 				return false;
 			}
@@ -520,19 +516,18 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 	}
 
-	private static class ClassTreeViewModel implements TreeViewModel<ClassFacade>,
-			DataView<ClassFacade>
+	private static class ClassTreeViewModel implements TreeViewModel<ClassFacade>, DataView<ClassFacade>
 	{
 
-		private static final List<DefaultDataViewColumn> columns
-				= Arrays.asList(new DefaultDataViewColumn("in_clInfoHD", String.class), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_clInfoType", String.class, true), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_descrip", String.class, false), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_baseStat", String.class), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_spellType", String.class), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_source", String.class)); //$NON-NLS-1$
-		private static final ListFacade<? extends TreeView<ClassFacade>> treeviews
-				= new DefaultListFacade<TreeView<ClassFacade>>(Arrays.asList(ClassTreeView.values()));
+		private static final List<DefaultDataViewColumn> columns =
+				Arrays.asList(new DefaultDataViewColumn("in_clInfoHD", String.class), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_clInfoType", String.class, true), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_descrip", String.class, false), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_baseStat", String.class), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_spellType", String.class), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_source", String.class)); //$NON-NLS-1$
+		private static final ListFacade<? extends TreeView<ClassFacade>> treeviews =
+				new DefaultListFacade<TreeView<ClassFacade>>(Arrays.asList(ClassTreeView.values()));
 		private final CharacterFacade character;
 
 		public ClassTreeViewModel(CharacterFacade character)
@@ -543,7 +538,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		@Override
 		public String getPrefsKey()
 		{
-			return "ClassTree";  //$NON-NLS-1$
+			return "ClassTree"; //$NON-NLS-1$
 		}
 
 		@Override
@@ -573,7 +568,8 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		@Override
 		public Object getData(ClassFacade obj, int column)
 		{
-			switch(column){
+			switch (column)
+			{
 				case 0:
 					return obj.getHD();
 				case 1:
@@ -645,8 +641,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 						String[] types = pobj.getTypes();
 						if (types != null && types.length > 0)
 						{
-							List<TreeViewPath<ClassFacade>> paths
-									= new ArrayList<>(types.length);
+							List<TreeViewPath<ClassFacade>> paths = new ArrayList<>(types.length);
 							for (String type : types)
 							{
 								paths.add(new TreeViewPath<>(pobj, type));
@@ -656,9 +651,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 					case NAME:
 						return Collections.singletonList(new TreeViewPath<>(pobj));
 					case SOURCE_NAME:
-						return Collections.singletonList(
-                                new TreeViewPath<>(pobj,
-                                        pobj.getSourceForNodeDisplay()));
+						return Collections.singletonList(new TreeViewPath<>(pobj, pobj.getSourceForNodeDisplay()));
 					default:
 						throw new InternalError();
 				}
@@ -669,9 +662,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	private static class ClassTableModel extends AbstractTableModel implements ListListener<CharacterLevelFacade>
 	{
 
-		private static final String[] columns =
-		{
-			LanguageBundle.getString("in_level"), //$NON-NLS-1$
+		private static final String[] columns = {LanguageBundle.getString("in_level"), //$NON-NLS-1$
 			LanguageBundle.getString("in_class"), //$NON-NLS-1$
 			LanguageBundle.getString("in_source") //$NON-NLS-1$
 		};
@@ -712,6 +703,9 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 					return Object.class;
 				case 2:
 					return String.class;
+				default:
+					//Case not caught, should this cause an error?
+					break;
 			}
 			return null;
 		}
@@ -794,8 +788,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 				ClassFacade data = getSelectedClass(e.getSource());
 				if (data != null)
 				{
-					text = character.getInfoFactory().getHTMLInfo(
-							data, null);
+					text = character.getInfoFactory().getHTMLInfo(data, null);
 					infoPane.setText(text);
 				}
 				else

@@ -83,6 +83,7 @@ public class SkillTargetSaveRestoreTest extends
 		return new Runnable()
 		{
 
+			@Override
 			public void run()
 			{
 				if (sup != null)

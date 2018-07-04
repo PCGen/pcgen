@@ -33,9 +33,8 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Deals with ARMORTYPE token
  */
-public class ArmortypeToken extends
-		AbstractTokenWithSeparator<EquipmentModifier> implements
-		CDOMPrimaryToken<EquipmentModifier>
+public class ArmortypeToken extends AbstractTokenWithSeparator<EquipmentModifier>
+		implements CDOMPrimaryToken<EquipmentModifier>
 {
 
 	@Override
@@ -51,21 +50,18 @@ public class ArmortypeToken extends
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		EquipmentModifier mod, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, EquipmentModifier mod, String value)
 	{
 		int pipeLoc = value.indexOf(Constants.PIPE);
 		ChangeArmorType cat;
 		if (pipeLoc == -1)
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " has no PIPE character: Must be of the form old|new");
+			return new ParseResult.Fail(getTokenName() + " has no PIPE character: Must be of the form old|new");
 		}
 		else if (pipeLoc != value.lastIndexOf(Constants.PIPE))
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " has too many PIPE characters: "
-					+ "Must be of the form old|new");
+			return new ParseResult.Fail(
+				getTokenName() + " has too many PIPE characters: " + "Must be of the form old|new");
 		}
 		else
 		{
@@ -86,8 +82,7 @@ public class ArmortypeToken extends
 	@Override
 	public String[] unparse(LoadContext context, EquipmentModifier mod)
 	{
-		Changes<ChangeArmorType> changes = context.getObjectContext()
-				.getListChanges(mod, ListKey.ARMORTYPE);
+		Changes<ChangeArmorType> changes = context.getObjectContext().getListChanges(mod, ListKey.ARMORTYPE);
 		Collection<ChangeArmorType> added = changes.getAdded();
 		if (added == null || added.isEmpty())
 		{

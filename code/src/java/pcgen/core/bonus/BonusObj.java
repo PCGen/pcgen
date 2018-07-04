@@ -41,31 +41,33 @@ import pcgen.rules.context.LoadContext;
 public abstract class BonusObj extends ConcretePrereqObject implements Serializable, Cloneable, QualifyingObject
 {
 	private List<Object> bonusInfo = new ArrayList<>();
-	private Map<String, String> dependMap  = new HashMap<>();
+	private Map<String, String> dependMap = new HashMap<>();
 	private Formula bonusFormula = FormulaFactory.ZERO;
 
 	/** The name of the bonus e.g. STAT or COMBAT */
-	private String bonusName            = Constants.EMPTY_STRING;
+	private String bonusName = Constants.EMPTY_STRING;
 
 	/** The type of the bonus e.g. Enhancement or Dodge */
-	private String bonusType            = Constants.EMPTY_STRING;
-	private String varPart              = Constants.EMPTY_STRING;
-	private String typeOfBonus          = Bonus.BONUS_UNDEFINED;
+	private String bonusType = Constants.EMPTY_STRING;
+	private String varPart = Constants.EMPTY_STRING;
+	private String typeOfBonus = Bonus.BONUS_UNDEFINED;
 	private String stringRepresentation = null;
-	private String tokenSource          = null;
+	private String tokenSource = null;
 
 	/** An enum for the possible stacking modifiers a bonus can have */
-	public enum StackType {
+	public enum StackType
+	{
 		/** This bonus will follow the normal stacking rules. */
-		NORMAL, 
+		NORMAL,
 		/** This bonus will always stack regardless of its type. */
-		STACK, 
+		STACK,
 		/** 
 		 * This bonus will stack with other bonuses of its own type but not
 		 * with bonuses of other types.
 		 */
-		REPLACE 
+		REPLACE
 	}
+
 	private StackType theStackingFlag = StackType.NORMAL;
 
 	/**
@@ -106,7 +108,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 		}
 		return list;
 	}
-			
+
 	/**
 	 * get Bonus Info List
 	 * @return Bonus Info List
@@ -160,7 +162,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	 */
 	public boolean getDependsOnBonusName(final String bonusName)
 	{
-		return dependMap.containsKey("NAME|"+bonusName);
+		return dependMap.containsKey("NAME|" + bonusName);
 	}
 
 	/**
@@ -172,7 +174,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 		StringBuilder buff = new StringBuilder("[");
 		for (String key : dependMap.keySet())
 		{
-			if (buff.length()> 1)
+			if (buff.length() > 1)
 			{
 				buff.append(", ");
 			}
@@ -298,41 +300,39 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 		if (stringRepresentation == null)
 		{
 			final StringBuilder sb = new StringBuilder(50);
-	
+
 			sb.append(getTypeOfBonus());
 			if (varPart != null && !varPart.isEmpty())
 			{
 				sb.append(varPart);
 			}
-	
+
 			if (!bonusInfo.isEmpty())
 			{
 				for (int i = 0; i < bonusInfo.size(); ++i)
 				{
-					sb.append(i == 0 ? '|' : ',').append(
-						unparseToken(bonusInfo.get(i)));
+					sb.append(i == 0 ? '|' : ',').append(unparseToken(bonusInfo.get(i)));
 				}
 			}
 			else
 			{
 				sb.append("|ERROR");
 			}
-	
+
 			sb.append('|').append(bonusFormula);
 
 			if (!bonusType.isEmpty())
 			{
 				sb.append("|TYPE=").append(bonusType);
 			}
-			
+
 			// And put the prereqs at the end of the string.
 			if (hasPrerequisites())
 			{
 				sb.append(Constants.PIPE);
-				sb.append(new PrerequisiteWriter().getPrerequisiteString(
-						getPrerequisiteList(), Constants.PIPE));
+				sb.append(new PrerequisiteWriter().getPrerequisiteString(getPrerequisiteList(), Constants.PIPE));
 			}
-	
+
 			stringRepresentation = sb.toString();
 		}
 		return stringRepresentation;
@@ -392,11 +392,11 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	 * 
 	 * @param aFlag A <tt>StackType</tt> to set.
 	 */
-	public void setStackingFlag( final StackType aFlag )
+	public void setStackingFlag(final StackType aFlag)
 	{
 		theStackingFlag = aFlag;
 	}
-	
+
 	/**
 	 * Gets the stacking flag for this bonus.
 	 * 
@@ -406,7 +406,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	{
 		return theStackingFlag;
 	}
-	
+
 	protected abstract boolean parseToken(LoadContext context, final String token);
 
 	protected abstract String unparseToken(final Object obj);
@@ -416,8 +416,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	private void buildDependMap(String aString)
 	{
 		addImpliedDependenciesFor(aString);
-		
-		
+
 		// First whack out all the () pairs to find variable names
 		while (aString.lastIndexOf('(') >= 0)
 		{
@@ -431,14 +430,11 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 
 			final String bString = aString.substring(x + 1, y);
 			buildDependMap(bString);
-			aString =
-					new StringBuilder(aString.length())
-						.append(aString.substring(0, x))
-						.append(aString.substring(y + 1)).toString();
+			aString = new StringBuilder(aString.length()).append(aString.substring(0, x))
+				.append(aString.substring(y + 1)).toString();
 		}
 
-		if (aString.indexOf('(') >= 0 || aString.indexOf(')') >= 0 ||
-				aString.indexOf('%') >= 0)
+		if (aString.indexOf('(') >= 0 || aString.indexOf(')') >= 0 || aString.indexOf('%') >= 0)
 		{
 			return;
 		}
@@ -451,10 +447,8 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 			final String controlString = cTok.nextToken();
 
 			// skip flow control tags
-			if ("IF".equals(controlString) || "THEN".equals(controlString) || "ELSE"
-					.equals(controlString)
-				|| "GT".equals(controlString) || "GTEQ".equals(controlString) || "EQ"
-					.equals(controlString)
+			if ("IF".equals(controlString) || "THEN".equals(controlString) || "ELSE".equals(controlString)
+				|| "GT".equals(controlString) || "GTEQ".equals(controlString) || "EQ".equals(controlString)
 				|| "LTEQ".equals(controlString) || "LT".equals(controlString))
 			{
 				continue;
@@ -500,14 +494,10 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 						// It's a Variable!
 						if (!testString.isEmpty())
 						{
-							if (testString.startsWith("MOVE[")) {
-								testString =
-										new StringBuilder(testString.length())
-											.append("TYPE.")
-											.append(
-												testString.substring(5,
-													testString.length() - 1))
-											.toString();
+							if (testString.startsWith("MOVE["))
+							{
+								testString = new StringBuilder(testString.length()).append("TYPE.")
+									.append(testString.substring(5, testString.length() - 1)).toString();
 							}
 							dependMap.put(testString.intern(), "1");
 							addImpliedDependenciesFor(testString);
@@ -517,7 +507,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 			}
 		}
 	}
-	
+
 	/**
 	 * Add any dependencies implied by the provided dependency.
 	 * @param aString The direct dependency being added.
@@ -579,7 +569,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	{
 		tokenSource = tokenName;
 	}
-	
+
 	public String getTokenSource()
 	{
 		return tokenSource;
@@ -597,12 +587,9 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 			return false;
 		}
 		BonusObj other = (BonusObj) obj;
-		return equalsPrereqObject(other)
-				&& bonusFormula.equals(other.bonusFormula)
-				&& bonusName.equals(other.bonusName)
-				&& bonusType.equals(other.bonusType)
-				&& theStackingFlag == other.theStackingFlag
-				&& bonusInfo.equals(other.bonusInfo);
+		return equalsPrereqObject(other) && bonusFormula.equals(other.bonusFormula) && bonusName.equals(other.bonusName)
+			&& bonusType.equals(other.bonusType) && theStackingFlag == other.theStackingFlag
+			&& bonusInfo.equals(other.bonusInfo);
 	}
 
 	/*
@@ -615,7 +602,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	{
 		originalString = bonusString;
 	}
-	
+
 	public String getLSTformat()
 	{
 		return originalString;
@@ -634,5 +621,5 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	{
 		return false;
 	}
-	
+
 }

@@ -63,7 +63,7 @@ public final class FileHelper
 		{
 			return relativeCanon.getAbsolutePath();
 		}
-		
+
 		String relativePath = stripOffRoot(relativeCanon);
 
 		StringBuilder dots = new StringBuilder();
@@ -82,14 +82,11 @@ public final class FileHelper
 			{
 				if (testPath.length() >= relativePath.length())
 				{
-					Logging.log(Logging.WARNING, "Unable to get path for "
-						+ relative + " relative to " + base
-						+ ". Using absolute path.");
+					Logging.log(Logging.WARNING,
+						"Unable to get path for " + relative + " relative to " + base + ". Using absolute path.");
 					return relative.getAbsolutePath();
 				}
-				String pieceToKeep =
-						relativePath.substring(testPath.length() + 1,
-							relativePath.length());
+				String pieceToKeep = relativePath.substring(testPath.length() + 1, relativePath.length());
 
 				return dots.append(pieceToKeep).toString();
 			}
@@ -118,7 +115,6 @@ public final class FileHelper
 	{
 		String root = findRoot(relative);
 
-		return relative.getAbsolutePath().substring(root.length(),
-			relative.getAbsolutePath().length());
+		return relative.getAbsolutePath().substring(root.length(), relative.getAbsolutePath().length());
 	}
 }

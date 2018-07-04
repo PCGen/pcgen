@@ -25,8 +25,7 @@ import pcgen.core.PCTemplate;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.util.enumeration.View;
 
-public class PCCountTemplatesTermEvaluator 
-		extends BasePCDTermEvaluator implements TermEvaluator
+public class PCCountTemplatesTermEvaluator extends BasePCDTermEvaluator implements TermEvaluator
 {
 	public PCCountTemplatesTermEvaluator(String originalText)
 	{

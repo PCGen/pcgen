@@ -26,8 +26,7 @@ import pcgen.output.publish.OutputDB;
  * CharacterTypeFacet is a Facet that tracks the character type 
  * of a character.
  */
-public class CharacterTypeFacet extends AbstractItemFacet<CharID, String>
-		implements ItemFacet<CharID, String>
+public class CharacterTypeFacet extends AbstractItemFacet<CharID, String> implements ItemFacet<CharID, String>
 {
 	public void init()
 	{

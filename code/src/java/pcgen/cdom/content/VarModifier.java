@@ -71,8 +71,7 @@ public class VarModifier<T>
 	 * @throws IllegalArgumentException
 	 *             if any of the parameters are null
 	 */
-	public VarModifier(String varName, PCGenScope legalScope,
-		FormulaModifier<T> modifier)
+	public VarModifier(String varName, PCGenScope legalScope, FormulaModifier<T> modifier)
 	{
 		if (varName == null)
 		{
@@ -133,8 +132,7 @@ public class VarModifier<T>
 		if (o instanceof VarModifier)
 		{
 			VarModifier<?> other = (VarModifier<?>) o;
-			return other.varName.equals(varName)
-				&& other.legalScope.equals(legalScope)
+			return other.varName.equals(varName) && other.legalScope.equals(legalScope)
 				&& other.modifier.equals(modifier);
 		}
 		return false;

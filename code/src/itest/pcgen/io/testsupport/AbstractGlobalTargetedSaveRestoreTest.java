@@ -93,6 +93,7 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 		Runnable fullcleanup = new Runnable()
 		{
 
+			@Override
 			public void run()
 			{
 				if (cleanup != null)
@@ -145,6 +146,7 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 		Runnable fullcleanup = new Runnable()
 		{
 
+			@Override
 			public void run()
 			{
 				if (cleanup != null)
@@ -196,6 +198,7 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 		Runnable fullcleanup = new Runnable()
 		{
 
+			@Override
 			public void run()
 			{
 				if (cleanup != null)
@@ -245,6 +248,7 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 		Runnable fullcleanup = new Runnable()
 		{
 
+			@Override
 			public void run()
 			{
 				if (cleanup != null)

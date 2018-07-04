@@ -30,8 +30,7 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
  * 
  * @param <T> The type of object selected by this ConditionalSelectionActor
  */
-public class ConditionalSelectionActor<T> extends ConcretePrereqObject implements
-		ChooseSelectionActor<T>
+public class ConditionalSelectionActor<T> extends ConcretePrereqObject implements ChooseSelectionActor<T>
 {
 
 	/**

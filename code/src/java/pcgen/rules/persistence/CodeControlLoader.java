@@ -33,24 +33,20 @@ import pcgen.util.Logging;
 public class CodeControlLoader extends LstLineFileLoader
 {
 	@Override
-	public void parseLine(LoadContext context, String inputLine, URI sourceURI)
-		throws PersistenceLayerException
+	public void parseLine(LoadContext context, String inputLine, URI sourceURI) throws PersistenceLayerException
 	{
 		int sepLoc = inputLine.indexOf('\t');
 		if (sepLoc != -1)
 		{
-			Logging
-				.errorPrint("Unsure what to do with line with multiple tokens: "
-					+ inputLine + " in file: " + sourceURI);
+			Logging.errorPrint(
+				"Unsure what to do with line with multiple tokens: " + inputLine + " in file: " + sourceURI);
 			return;
 		}
 
 		try
 		{
 			AbstractReferenceContext refContext = context.getReferenceContext();
-			CodeControl controller =
-					refContext.constructNowIfNecessary(CodeControl.class,
-						"Controller");
+			CodeControl controller = refContext.constructNowIfNecessary(CodeControl.class, "Controller");
 			LstUtils.processToken(context, controller, sourceURI, inputLine);
 		}
 		catch (PersistenceLayerException ple)

@@ -22,11 +22,10 @@ package pcgen.core.term;
 
 import pcgen.core.PlayerCharacter;
 
-public class PCBABTermEvaluator
-		extends BasePCTermEvaluator implements TermEvaluator {
+public class PCBABTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
+{
 
-	public PCBABTermEvaluator(
-			String originalText)
+	public PCBABTermEvaluator(String originalText)
 	{
 		this.originalText = originalText;
 	}

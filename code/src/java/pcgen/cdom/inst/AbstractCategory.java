@@ -39,15 +39,14 @@ import pcgen.util.Logging;
  * @param <T>
  *            The Class that this AbstractCategory will categorize
  */
-public abstract class AbstractCategory<T extends Categorized<T>> implements
-		Category<T>, ManufacturableFactory<T>
+public abstract class AbstractCategory<T extends Categorized<T>> implements Category<T>, ManufacturableFactory<T>
 {
 
 	/**
 	 * The name for this AbstractCategory.
 	 */
 	private String categoryName;
-	
+
 	/**
 	 * The source URI for this AbstractCategory.
 	 */
@@ -124,13 +123,12 @@ public abstract class AbstractCategory<T extends Categorized<T>> implements
 	@Override
 	public boolean isMember(T item)
 	{
-		return getReferenceClass().equals(item.getClass())
-				&& this.equals(item.getCDOMCategory());
+		return getReferenceClass().equals(item.getClass()) && this.equals(item.getCDOMCategory());
 	}
 
 	@Override
-	public boolean resolve(ReferenceManufacturer<T> rm, String key,
-		CDOMSingleRef<T> reference, UnconstructedValidator validator)
+	public boolean resolve(ReferenceManufacturer<T> rm, String key, CDOMSingleRef<T> reference,
+		UnconstructedValidator validator)
 	{
 		boolean returnGood = true;
 		T activeObj = rm.getObject(key);
@@ -139,8 +137,7 @@ public abstract class AbstractCategory<T extends Categorized<T>> implements
 			// Wasn't constructed!
 			if (key.charAt(0) != '*' && reportUnconstructed(validator, key))
 			{
-				Logging.errorPrint("Unconstructed Reference: "
-					+ getReferenceDescription() + " " + key);
+				Logging.errorPrint("Unconstructed Reference: " + getReferenceDescription() + " " + key);
 				rm.fireUnconstuctedEvent(reference);
 				returnGood = false;
 			}
@@ -153,13 +150,12 @@ public abstract class AbstractCategory<T extends Categorized<T>> implements
 	//Identify if an item needs to be reported as unconstructed
 	private boolean reportUnconstructed(UnconstructedValidator validator, String key)
 	{
-		return (validator == null)
-			|| !validator.allowUnconstructed(getReferenceIdentity(), key);
+		return (validator == null) || !validator.allowUnconstructed(getReferenceIdentity(), key);
 	}
 
 	@Override
-	public boolean populate(ReferenceManufacturer<T> parentCrm,
-		ReferenceManufacturer<T> rm, UnconstructedValidator validator)
+	public boolean populate(ReferenceManufacturer<T> parentCrm, ReferenceManufacturer<T> rm,
+		UnconstructedValidator validator)
 	{
 		// Nothing to do (for now!)
 		return true;
@@ -189,13 +185,13 @@ public abstract class AbstractCategory<T extends Categorized<T>> implements
 	{
 		return categoryName;
 	}
-	
+
 	@Override
 	public int hashCode()
 	{
 		return categoryName.hashCode() ^ getReferenceClass().hashCode();
 	}
-	
+
 	@Override
 	public boolean equals(Object o)
 	{

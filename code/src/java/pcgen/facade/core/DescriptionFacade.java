@@ -17,9 +17,9 @@
  */
 package pcgen.facade.core;
 
-import pcgen.facade.util.ReferenceFacade;
 import pcgen.cdom.enumeration.BiographyField;
 import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.ReferenceFacade;
 
 /**
  * The Class {@code DescriptionFacade} tracks descriptive entries about the character,
@@ -29,13 +29,13 @@ import pcgen.facade.util.ListFacade;
  */
 public interface DescriptionFacade
 {
-	
+
 	/**
 	 * Remove a chronicle entry.
 	 * @param chronicleEntry The entry to be removed.
 	 */
 	public void removeChronicleEntry(ChronicleEntryFacade chronicleEntry);
-	
+
 	/**
 	 * Retrieve the set of the character's chronicle entries.
 	 * @return The character's chronicle entries.
@@ -47,20 +47,20 @@ public interface DescriptionFacade
 	 * @return The new ChronicleEntry.
 	 */
 	public ChronicleEntryFacade createChronicleEntry();
-	
+
 	/**
 	 * Retrieve the set of notes defined for the character.
 	 * @return The character's notes.
 	 */
 	public ListFacade<NoteFacade> getNotes();
-	
+
 	/**
 	 * Update the name of a note.
 	 * @param note The note to be renamed.
 	 * @param newName The new name.
 	 */
 	public void renameNote(NoteFacade note, String newName);
-	
+
 	/**
 	 * Remove a note from a character. 
 	 * @param note The note to be removed.
@@ -97,14 +97,14 @@ public interface DescriptionFacade
 	 * @return The custom BiographyFields held for this character.
 	 */
 	public ListFacade<BiographyField> getCustomBiographyFields();
-	
+
 	/**
 	 * Add a new field to the list of fields that will be displayed for 
 	 * this character.
 	 * @param field The BiographyField to be displayed.
 	 */
 	public void addCustomBiographyField(BiographyField field);
-	
+
 	/**
 	 * Remove a new field from the list of fields that will be displayed for 
 	 * this character.

@@ -29,7 +29,8 @@ import pcgen.system.LanguageBundle;
  */
 public enum Gender implements GenderFacade
 {
-	Male {
+	Male
+	{
 		@Override
 		public String toString()
 		{
@@ -37,7 +38,8 @@ public enum Gender implements GenderFacade
 		}
 	},
 
-	Female {
+	Female
+	{
 		@Override
 		public String toString()
 		{
@@ -45,7 +47,8 @@ public enum Gender implements GenderFacade
 		}
 	},
 
-	Neuter {
+	Neuter
+	{
 		@Override
 		public String toString()
 		{
@@ -53,14 +56,16 @@ public enum Gender implements GenderFacade
 		}
 	},
 
-	Host {
+	Host
+	{
 		@Override
 		public String toString()
 		{
 			return LanguageBundle.getString("in_genderHost");
 		}
 	},
-	Unknown {
+	Unknown
+	{
 		@Override
 		public String toString()
 		{
@@ -72,7 +77,7 @@ public enum Gender implements GenderFacade
 	{
 		return Male;
 	}
-	
+
 	/**
 	 * Retrieve a Gender object to match the name ({@link #name()}) or localized
 	 * name (output by {@link #toString()}). The localized lookup is kept for

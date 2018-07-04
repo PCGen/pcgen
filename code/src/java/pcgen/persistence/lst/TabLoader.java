@@ -35,8 +35,8 @@ import pcgen.util.enumeration.Tab;
 public class TabLoader extends SimpleLoader<TabInfo>
 {
 
-	private List<String> deprecatedTabNames = Arrays.asList("ABILITIES", "CAMPAIGNS", "RACE", "GEAR", "RESOURCES",
-			"NATURALWEAPONS", "SOURCEINFO");
+	private List<String> deprecatedTabNames =
+			Arrays.asList("ABILITIES", "CAMPAIGNS", "RACE", "GEAR", "RESOURCES", "NATURALWEAPONS", "SOURCEINFO");
 
 	public TabLoader()
 	{
@@ -50,8 +50,7 @@ public class TabLoader extends SimpleLoader<TabInfo>
 		{
 			if (deprecatedTabNames.contains(token.toUpperCase()))
 			{
-				Logging.deprecationPrint("TAB:" + token
-					+ " has been deprecated and is now ignored.", context);
+				Logging.deprecationPrint("TAB:" + token + " has been deprecated and is now ignored.", context);
 			}
 			else
 			{

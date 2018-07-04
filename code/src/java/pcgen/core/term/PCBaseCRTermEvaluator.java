@@ -25,8 +25,8 @@ import pcgen.core.PlayerCharacter;
  * the character's unmodified challenge rating, as specified by the 
  * CR tag in the race definition. 
  */
-public class PCBaseCRTermEvaluator
-		extends BasePCTermEvaluator implements TermEvaluator {
+public class PCBaseCRTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
+{
 
 	/**
 	 * Instantiates a new PCBaseHDTermEvaluator.

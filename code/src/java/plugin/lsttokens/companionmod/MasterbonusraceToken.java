@@ -37,9 +37,8 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with MASTERBONUSRACE Token
  */
-public class MasterbonusraceToken extends
-		AbstractTokenWithSeparator<CompanionMod> implements
-		CDOMPrimaryToken<CompanionMod>
+public class MasterbonusraceToken extends AbstractTokenWithSeparator<CompanionMod>
+		implements CDOMPrimaryToken<CompanionMod>
 {
 	public static final Class<Race> RACE_CLASS = Race.class;
 
@@ -56,8 +55,7 @@ public class MasterbonusraceToken extends
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		CompanionMod cMod, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, CompanionMod cMod, String value)
 	{
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 
@@ -65,10 +63,8 @@ public class MasterbonusraceToken extends
 		{
 			String token = tok.nextToken();
 
-			CDOMSingleRef<Race> ref =
-					context.getReferenceContext().getCDOMReference(RACE_CLASS, token);
-			context.getObjectContext().addToList(cMod, ListKey.APPLIED_RACE,
-				ref);
+			CDOMSingleRef<Race> ref = context.getReferenceContext().getCDOMReference(RACE_CLASS, token);
+			context.getObjectContext().addToList(cMod, ListKey.APPLIED_RACE, ref);
 		}
 		return ParseResult.SUCCESS;
 	}
@@ -76,9 +72,7 @@ public class MasterbonusraceToken extends
 	@Override
 	public String[] unparse(LoadContext context, CompanionMod cMod)
 	{
-		Changes<CDOMSingleRef<Race>> changes =
-				context.getObjectContext().getListChanges(cMod,
-					ListKey.APPLIED_RACE);
+		Changes<CDOMSingleRef<Race>> changes = context.getObjectContext().getListChanges(cMod, ListKey.APPLIED_RACE);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;

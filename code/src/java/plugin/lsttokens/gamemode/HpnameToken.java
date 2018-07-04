@@ -11,13 +11,13 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class HpnameToken implements GameModeLstToken
 {
 
-    @Override
+	@Override
 	public String getTokenName()
 	{
 		return "HPNAME";
 	}
 
-    @Override
+	@Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		gameMode.setHPText(value);

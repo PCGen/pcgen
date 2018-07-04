@@ -90,9 +90,8 @@ public class FactGroup<T extends CDOMObject, F> implements ObjectContainer<T>
 		toMatch = def.getFormatManager().convertIndirect(value);
 		if (toMatch == null)
 		{
-			throw new IllegalArgumentException("Failed to convert " + value
-				+ " as a "
-				+ def.getFormatManager().getManagedClass().getSimpleName());
+			throw new IllegalArgumentException(
+				"Failed to convert " + value + " as a " + def.getFormatManager().getManagedClass().getSimpleName());
 		}
 	}
 
@@ -117,8 +116,7 @@ public class FactGroup<T extends CDOMObject, F> implements ObjectContainer<T>
 	@Override
 	public String getLSTformat(boolean useAny)
 	{
-		return def.getFactName() + "="
-			+ def.getFormatManager().unconvert(toMatch.get());
+		return def.getFactName() + "=" + def.getFormatManager().unconvert(toMatch.get());
 	}
 
 	@Override

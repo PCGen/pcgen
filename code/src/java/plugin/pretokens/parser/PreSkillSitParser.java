@@ -26,8 +26,7 @@ import pcgen.persistence.lst.prereq.AbstractPrerequisiteListParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 import pcgen.util.Logging;
 
-public class PreSkillSitParser extends AbstractPrerequisiteListParser implements
-		PrerequisiteParserInterface
+public class PreSkillSitParser extends AbstractPrerequisiteListParser implements PrerequisiteParserInterface
 {
 	@Override
 	public String[] kindsHandled()
@@ -36,20 +35,17 @@ public class PreSkillSitParser extends AbstractPrerequisiteListParser implements
 	}
 
 	@Override
-	public Prerequisite parse(String kind, String formula,
-		boolean invertResult, boolean overrideQualify)
+	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
 		throws PersistenceLayerException
 	{
-		Prerequisite prereq =
-				super.parse(kind, formula, invertResult, overrideQualify);
+		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
 
 		extractSkill(prereq);
 
 		return prereq;
 	}
 
-	private static void extractSkill(Prerequisite prereq)
-		throws PersistenceLayerException
+	private static void extractSkill(Prerequisite prereq) throws PersistenceLayerException
 	{
 		String skill = "";
 		if (prereq.getPrerequisiteCount() == 0)
@@ -57,10 +53,9 @@ public class PreSkillSitParser extends AbstractPrerequisiteListParser implements
 			Logging.errorPrint("PRESKILLSIT Requires a skill and situation=value");
 			return;
 		}
-		
+
 		// Copy to a temporary list as we will be adjusting the main one.
-		List<Prerequisite> prereqList =
-				new ArrayList<>(prereq.getPrerequisites());
+		List<Prerequisite> prereqList = new ArrayList<>(prereq.getPrerequisites());
 		for (Prerequisite p : prereqList)
 		{
 			if (p.getKind() == null) // PREMULT
@@ -81,7 +76,7 @@ public class PreSkillSitParser extends AbstractPrerequisiteListParser implements
 					{
 						throw new PersistenceLayerException("SKILL= must be first in PRESKILLSIT");
 					}
-					
+
 					if (skillName.toUpperCase().trim().equals("ANY"))
 					{
 						Logging.errorPrint("ANY not supported in PRESKILLSIT");
@@ -139,6 +134,5 @@ public class PreSkillSitParser extends AbstractPrerequisiteListParser implements
 	{
 		return thisElement.startsWith("SKILL=");
 	}
-	
-	
+
 }

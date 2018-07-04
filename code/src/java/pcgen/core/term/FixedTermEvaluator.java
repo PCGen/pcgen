@@ -20,8 +20,7 @@ package pcgen.core.term;
 
 import pcgen.core.display.CharacterDisplay;
 
-public class FixedTermEvaluator 
-		extends BasePCDTermEvaluator implements TermEvaluator
+public class FixedTermEvaluator extends BasePCDTermEvaluator implements TermEvaluator
 {
 	private final int value;
 

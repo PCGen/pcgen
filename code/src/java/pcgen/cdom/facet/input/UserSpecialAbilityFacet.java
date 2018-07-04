@@ -37,12 +37,11 @@ import pcgen.core.SpecialAbility;
  * user SpecialAbility.
  * 
  */
-public class UserSpecialAbilityFacet extends
-		AbstractQualifiedListFacet<SpecialAbility>
+public class UserSpecialAbilityFacet extends AbstractQualifiedListFacet<SpecialAbility>
 {
 
-	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
-		.getFacet(PlayerCharacterTrackingFacet.class);
+	private final PlayerCharacterTrackingFacet trackingFacet =
+			FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
 
 	/**
 	 * Returns a non-null copy of the List of resolved SpecialAbility objects
@@ -125,11 +124,9 @@ public class UserSpecialAbilityFacet extends
 	 *         each of the objects in this UserSpecialAbilityFacet for which the
 	 *         Player Character qualifies.
 	 */
-	public <T> List<T> getAllResolved(CharID id,
-		QualifiedActor<SpecialAbility, T> qa)
+	public <T> List<T> getAllResolved(CharID id, QualifiedActor<SpecialAbility, T> qa)
 	{
 		return actOnQualifiedSet(id, qa);
 	}
-
 
 }

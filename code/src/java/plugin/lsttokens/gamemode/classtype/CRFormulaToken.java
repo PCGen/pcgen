@@ -24,8 +24,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Implements the CRFORMULA token on ClassType
  */
-public class CRFormulaToken extends AbstractNonEmptyToken<ClassType>
-		implements CDOMPrimaryToken<ClassType>
+public class CRFormulaToken extends AbstractNonEmptyToken<ClassType> implements CDOMPrimaryToken<ClassType>
 {
 
 	@Override
@@ -35,8 +34,7 @@ public class CRFormulaToken extends AbstractNonEmptyToken<ClassType>
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, ClassType classType,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, ClassType classType, String value)
 	{
 		classType.setCRFormula(value);
 		return ParseResult.SUCCESS;

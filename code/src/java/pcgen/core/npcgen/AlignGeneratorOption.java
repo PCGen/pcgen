@@ -30,32 +30,32 @@ import pcgen.util.Logging;
 public class AlignGeneratorOption extends GeneratorOption
 {
 	private WeightedCollection<PCAlignment> theChoices = null;
-	
+
 	/**
 	 * @see pcgen.core.npcgen.GeneratorOption#addChoice(int, java.lang.String)
 	 */
 	@Override
 	public void addChoice(final int aWeight, final String aValue)
 	{
-		if ( theChoices == null )
+		if (theChoices == null)
 		{
 			theChoices = new WeightedCollection<>();
 		}
-		
-		if ( aValue.equals("*") ) //$NON-NLS-1$
+
+		if (aValue.equals("*")) //$NON-NLS-1$
 		{
 			for (PCAlignment align : Globals.getContext().getReferenceContext()
 				.getSortkeySortedCDOMObjects(PCAlignment.class))
 			{
-				if ( align.getSafe(ObjectKey.VALID_FOR_FOLLOWER) && ! theChoices.contains(align) )
+				if (align.getSafe(ObjectKey.VALID_FOR_FOLLOWER) && !theChoices.contains(align))
 				{
 					theChoices.add(align, aWeight);
 				}
 			}
 			return;
 		}
-		PCAlignment align = Globals.getContext().getReferenceContext()
-			.silentlyGetConstructedCDOMObject(PCAlignment.class, aValue);
+		PCAlignment align =
+				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCAlignment.class, aValue);
 		if (align == null)
 		{
 			Logging.errorPrintLocalised("NPCGen.Options.AlignNotFound", aValue); //$NON-NLS-1$

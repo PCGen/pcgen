@@ -26,8 +26,7 @@ import pcgen.output.publish.OutputDB;
 /**
  * KitFacet is a Facet that tracks the Kits possessed by a Player Character.
  */
-public class KitFacet extends AbstractListFacet<CharID, Kit> implements
-		SetFacet<CharID, Kit>
+public class KitFacet extends AbstractListFacet<CharID, Kit> implements SetFacet<CharID, Kit>
 {
 	public void init()
 	{

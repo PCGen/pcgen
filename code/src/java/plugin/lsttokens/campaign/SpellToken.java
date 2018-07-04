@@ -26,8 +26,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 /**
  * Class deals with SPELL Token
  */
-public class SpellToken extends AbstractBasicCampaignToken implements
-		CDOMPrimaryToken<Campaign>
+public class SpellToken extends AbstractBasicCampaignToken implements CDOMPrimaryToken<Campaign>
 {
 	@Override
 	public String getTokenName()

@@ -21,8 +21,7 @@ package pcgen.core.term;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 
-public class PCMaxLevelTermEvaluator extends BasePCTermEvaluator implements
-		TermEvaluator
+public class PCMaxLevelTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
 	private final String classKey;
 
@@ -45,9 +44,7 @@ public class PCMaxLevelTermEvaluator extends BasePCTermEvaluator implements
 			//PC Doesn't have class
 			return 0.0f;
 		}
-		int level =
-				pc.getSpellSupport(aClass).getMaxSpellLevelForClassLevel(
-					pc.getDisplay().getLevel(aClass));
+		int level = pc.getSpellSupport(aClass).getMaxSpellLevelForClassLevel(pc.getDisplay().getLevel(aClass));
 
 		return (float) level;
 	}

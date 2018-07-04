@@ -47,8 +47,7 @@ import pcgen.util.enumeration.Visibility;
 
 public final class EquipmentChoice
 {
-	private EquipmentTypeFacet equipmentTypeFacet = FacetLibrary
-		.getFacet(EquipmentTypeFacet.class);
+	private EquipmentTypeFacet equipmentTypeFacet = FacetLibrary.getFacet(EquipmentTypeFacet.class);
 
 	private boolean allowDuplicates = false;
 	private boolean noSign = false;
@@ -136,6 +135,7 @@ public final class EquipmentChoice
 	{
 		return pool;
 	}
+
 	/**
 	 * @param pool The pool to set.
 	 */
@@ -143,6 +143,7 @@ public final class EquipmentChoice
 	{
 		this.pool = pool;
 	}
+
 	/**
 	 * @return Returns the bAdd.
 	 */
@@ -150,6 +151,7 @@ public final class EquipmentChoice
 	{
 		return bAdd;
 	}
+
 	/**
 	 * @param add The bAdd to set.
 	 */
@@ -157,6 +159,7 @@ public final class EquipmentChoice
 	{
 		bAdd = add;
 	}
+
 	/**
 	 * @return Returns the availableList.
 	 */
@@ -172,6 +175,7 @@ public final class EquipmentChoice
 	{
 		return allowDuplicates;
 	}
+
 	/**
 	 * @param allowDuplicates The allowDuplicates to set.
 	 */
@@ -179,6 +183,7 @@ public final class EquipmentChoice
 	{
 		this.allowDuplicates = allowDuplicates;
 	}
+
 	/**
 	 * @return Returns the incValue.
 	 */
@@ -186,6 +191,7 @@ public final class EquipmentChoice
 	{
 		return incValue;
 	}
+
 	/**
 	 * @param incValue The incValue to set.
 	 */
@@ -193,6 +199,7 @@ public final class EquipmentChoice
 	{
 		this.incValue = incValue;
 	}
+
 	/**
 	 * @return Returns the maxSelect.
 	 */
@@ -200,6 +207,7 @@ public final class EquipmentChoice
 	{
 		return maxSelect;
 	}
+
 	/**
 	 * @param maxSelect The maxSelect to set.
 	 */
@@ -207,6 +215,7 @@ public final class EquipmentChoice
 	{
 		this.maxSelect = maxSelect;
 	}
+
 	/**
 	 * @return Returns the maxValue.
 	 */
@@ -214,6 +223,7 @@ public final class EquipmentChoice
 	{
 		return maxValue;
 	}
+
 	/**
 	 * @param maxValue The maxValue to set.
 	 */
@@ -221,6 +231,7 @@ public final class EquipmentChoice
 	{
 		this.maxValue = maxValue;
 	}
+
 	/**
 	 * @return Returns the minValue.
 	 */
@@ -228,6 +239,7 @@ public final class EquipmentChoice
 	{
 		return minValue;
 	}
+
 	/**
 	 * @param minValue The minValue to set.
 	 */
@@ -235,6 +247,7 @@ public final class EquipmentChoice
 	{
 		this.minValue = minValue;
 	}
+
 	/**
 	 * @return Returns the noSign.
 	 */
@@ -242,6 +255,7 @@ public final class EquipmentChoice
 	{
 		return noSign;
 	}
+
 	/**
 	 * @param noSign The noSign to set.
 	 */
@@ -249,6 +263,7 @@ public final class EquipmentChoice
 	{
 		this.noSign = noSign;
 	}
+
 	/**
 	 * @return Returns the title.
 	 */
@@ -256,6 +271,7 @@ public final class EquipmentChoice
 	{
 		return title;
 	}
+
 	/**
 	 * @param title The title to set.
 	 */
@@ -267,8 +283,9 @@ public final class EquipmentChoice
 	/**
 	 * Add a list of all skills to the available list of the EquipmentChoice object
 	 */
-	public void addSkills() {
-		for ( Skill skill : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Skill.class) )
+	public void addSkills()
+	{
+		for (Skill skill : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Skill.class))
 		{
 			this.getAvailableList().add(skill.getKeyName());
 		}
@@ -332,21 +349,16 @@ public final class EquipmentChoice
 	 * @param typeString  the type of Ability to add to the chooser
 	 * @param aCategory   the Category of Ability to add to the chooser
 	 */
-	public void addSelectableAbilities(
-		final String          typeString,
-		final String          aCategory)
+	public void addSelectableAbilities(final String typeString, final String aCategory)
 	{
 		AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
 		AbilityCategory cat = ref.silentlyGetConstructedCDOMObject(AbilityCategory.class, aCategory);
 		for (Ability anAbility : ref.getManufacturerId(cat).getAllObjects())
 		{
-			boolean matchesType = (
-					typeString.equalsIgnoreCase("ALL") ||
-					anAbility.isType(typeString)
-								  );
+			boolean matchesType = (typeString.equalsIgnoreCase("ALL") || anAbility.isType(typeString));
 
 			if ((anAbility.getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT)
-					&& !this.getAvailableList().contains(anAbility.getKeyName()))
+				&& !this.getAvailableList().contains(anAbility.getKeyName()))
 			{
 				if (matchesType && !ChooseActivation.hasNewChooseToken(anAbility))
 				{
@@ -361,14 +373,11 @@ public final class EquipmentChoice
 	 * the Equipment Chooser equipChoice
 	 * @param typeString  the type of Equipment to add to the chooser
 	 */
-	public void addSelectableEquipment(
-		final String          typeString)
+	public void addSelectableEquipment(final String typeString)
 	{
 		for (Equipment aEquip : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Equipment.class))
 		{
-			if (
-				aEquip.isType(typeString) &&
-				!this.getAvailableList().contains(aEquip.getName()))
+			if (aEquip.isType(typeString) && !this.getAvailableList().contains(aEquip.getName()))
 			{
 				this.getAvailableList().add(aEquip.getName());
 			}
@@ -380,15 +389,12 @@ public final class EquipmentChoice
 	 * the EquipmentChoice object equipChoice
 	 * @param typeString the type of Skill to add to the chooser
 	 */
-	public void addSelectableSkills(
-		final String          typeString)
+	public void addSelectableSkills(final String typeString)
 	{
-		for ( Skill skill : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Skill.class) )
+		for (Skill skill : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Skill.class))
 		{
-			if (
-				(typeString.equalsIgnoreCase("ALL") ||
-					skill.isType(typeString)) &&
-				!this.getAvailableList().contains(skill.getKeyName()))
+			if ((typeString.equalsIgnoreCase("ALL") || skill.isType(typeString))
+				&& !this.getAvailableList().contains(skill.getKeyName()))
 			{
 				this.getAvailableList().add(skill.getKeyName());
 			}
@@ -399,19 +405,15 @@ public final class EquipmentChoice
 	 * @param parent The piece of Equipment that this Equipment Modifier will be added to
 	 * @param choiceType the type of Skill to add to the chooser
 	 */
-	public void addParentsExistingEquipmentModifiersToChooser(
-		final Equipment       parent,
-		String                choiceType)
+	public void addParentsExistingEquipmentModifiersToChooser(final Equipment parent, String choiceType)
 	{
-		for ( EquipmentModifier sibling : parent.getEqModifierList(true) )
+		for (EquipmentModifier sibling : parent.getEqModifierList(true))
 		{
 			/*
 			 * TODO sibling can't be this - different classes... so this is a
 			 * bug of some form.
 			 */
-			if (
-				!(sibling.equals(this)) &&
-				sibling.getSafe(StringKey.CHOICE_STRING).startsWith(choiceType))
+			if (!(sibling.equals(this)) && sibling.getSafe(StringKey.CHOICE_STRING).startsWith(choiceType))
 			{
 				getAvailableList().addAll(parent.getAssociationList(sibling));
 			}
@@ -432,13 +434,8 @@ public final class EquipmentChoice
 	 * @param category     if adding abilities, this will contain the category
 	 *                     of ability to add
 	 */
-	public void addChoicesByType(
-		final Equipment       parent,
-		final int             numOfChoices,
-		final int             numChosen,
-		String                filterBy,
-		String                kindToAdd,
-		String                category)
+	public void addChoicesByType(final Equipment parent, final int numOfChoices, final int numChosen, String filterBy,
+		String kindToAdd, String category)
 	{
 		if ((numOfChoices > 0) && (getMaxSelect() == 0))
 		{
@@ -449,9 +446,7 @@ public final class EquipmentChoice
 
 		if (type.startsWith("LASTCHOICE"))
 		{
-			addParentsExistingEquipmentModifiersToChooser(
-				parent,
-				kindToAdd);
+			addParentsExistingEquipmentModifiersToChooser(parent, kindToAdd);
 		}
 		else if ("SKILL".equalsIgnoreCase(kindToAdd))
 		{
@@ -472,9 +467,7 @@ public final class EquipmentChoice
 
 		else if ("EQTYPES".equalsIgnoreCase(type))
 		{
-			Collection<Type> types =
-					equipmentTypeFacet.getSet(Globals.getContext()
-						.getDataSetID());
+			Collection<Type> types = equipmentTypeFacet.getSet(Globals.getContext().getDataSetID());
 			List<Object> list = getAvailableList();
 			for (Type t : types)
 			{
@@ -483,15 +476,15 @@ public final class EquipmentChoice
 		}
 		else
 		{
-			Logging.errorPrint(
-				"Unknown option in CHOOSE '" + filterBy + "'");
+			Logging.errorPrint("Unknown option in CHOOSE '" + filterBy + "'");
 		}
 	}
 
 	/**
 	 * Add the current character stats as defined in the game mode to the chooser
 	 */
-	public void addStats() {
+	public void addStats()
+	{
 		for (PCStat stat : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(PCStat.class))
 		{
 			this.getAvailableList().add(stat.getKeyName());
@@ -502,11 +495,9 @@ public final class EquipmentChoice
 	 * @param available
 	 * @param numSelected
 	 */
-	public void adjustPool(final int available, final int numSelected) {
-		if (
-			(available > 0) &&
-			(this.getMaxSelect() > 0) &&
-			(this.getMaxSelect() != Integer.MAX_VALUE))
+	public void adjustPool(final int available, final int numSelected)
+	{
+		if ((available > 0) && (this.getMaxSelect() > 0) && (this.getMaxSelect() != Integer.MAX_VALUE))
 		{
 			this.setPool(this.getMaxSelect() - numSelected);
 		}
@@ -523,15 +514,10 @@ public final class EquipmentChoice
 	 * @param forEqBuilder is this being constructed by the equipment builder,
 	 *                      or for interaction with the user.
 	 */
-	public void constructFromChoiceString(
-		String                choiceString,
-		final Equipment       parent,
-		final int             available,
-		final int             numSelected,
-		final boolean         forEqBuilder,
-		PlayerCharacter       pc)
+	public void constructFromChoiceString(String choiceString, final Equipment parent, final int available,
+		final int numSelected, final boolean forEqBuilder, PlayerCharacter pc)
 	{
-		final StringTokenizer titleTok       = new StringTokenizer(choiceString, "|", false);
+		final StringTokenizer titleTok = new StringTokenizer(choiceString, "|", false);
 		while (!forEqBuilder && titleTok.hasMoreTokens())
 		{
 			String workingkind = titleTok.nextToken();
@@ -541,12 +527,11 @@ public final class EquipmentChoice
 			}
 		}
 
-		int select = parent.getSafe(FormulaKey.SELECT).resolve(parent, true,
-				pc, "").intValue();
+		int select = parent.getSafe(FormulaKey.SELECT).resolve(parent, true, pc, "").intValue();
 		setMaxSelect(select);
 
 		String originalkind = null;
-		final StringTokenizer aTok       = new StringTokenizer(choiceString, "|", false);
+		final StringTokenizer aTok = new StringTokenizer(choiceString, "|", false);
 		boolean needStats = false;
 		boolean needSkills = false;
 		String category = null;
@@ -590,30 +575,25 @@ public final class EquipmentChoice
 					{
 						//New Style
 						needSkills = false;
-						this.addChoicesByType(parent, available, numSelected, kind,
-								"SKILL", "");
+						this.addChoicesByType(parent, available, numSelected, kind, "SKILL", "");
 					}
-					else if (originalkind.equals("EQUIPMENT")
-							|| originalkind.equals("FEAT")
-							|| originalkind.equals("ABILITY"))
+					else if (originalkind.equals("EQUIPMENT") || originalkind.equals("FEAT")
+						|| originalkind.equals("ABILITY"))
 					{
 						//New Style
-						this.addChoicesByType(parent, available, numSelected, kind,
-								originalkind, category);
+						this.addChoicesByType(parent, available, numSelected, kind, originalkind, category);
 					}
 					else
 					{
 						//Old Style
-						this.addChoicesByType(parent, available, numSelected, kind,
-								getTitle(), category);
+						this.addChoicesByType(parent, available, numSelected, kind, getTitle(), category);
 					}
 				}
 				else if ("STAT".equals(kind))
 				{
 					this.addStats();
 				}
-				else if ("SKILL".equals(kind) || originalkind.equals("SKILL")
-						&& "ANY".equals("SKILL"))
+				else if ("SKILL".equals(kind) || originalkind.equals("SKILL") && "ANY".equals("SKILL"))
 				{
 					this.addSkills();
 				}
@@ -677,14 +657,9 @@ public final class EquipmentChoice
 			this.setBAdd(true);
 		}
 
-		if (
-			(this.getAvailableList().isEmpty()) &&
-			(this.getMinValue() < this.getMaxValue()))
+		if ((this.getAvailableList().isEmpty()) && (this.getMinValue() < this.getMaxValue()))
 		{
-			for (
-				int j = this.getMinValue();
-				j <= this.getMaxValue();
-				j += this.getIncValue())
+			for (int j = this.getMinValue(); j <= this.getMaxValue(); j += this.getIncValue())
 			{
 				if (!skipZero || j != 0)
 				{
@@ -711,22 +686,22 @@ public final class EquipmentChoice
 		EquipChoiceIterator(final List<Object> list)
 		{
 			choiceList = list;
-			currPos=0;
+			currPos = 0;
 		}
 
 		/**
 		 * @see java.util.Iterator#hasNext()
 		 */
-        @Override
+		@Override
 		public boolean hasNext()
 		{
-			return currPos<choiceList.size();
+			return currPos < choiceList.size();
 		}
 
 		/**
 		 * @see java.util.Iterator#next()
 		 */
-        @Override
+		@Override
 		public Object next()
 		{
 			return choiceList.get(currPos++);
@@ -735,7 +710,7 @@ public final class EquipmentChoice
 		/**
 		 * @see java.util.Iterator#remove()
 		 */
-        @Override
+		@Override
 		public void remove()
 		{
 			throw new UnsupportedOperationException();

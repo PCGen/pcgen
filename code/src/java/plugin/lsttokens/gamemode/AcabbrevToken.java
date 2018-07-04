@@ -29,13 +29,13 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class AcabbrevToken implements GameModeLstToken
 {
 
-    @Override
+	@Override
 	public String getTokenName()
 	{
 		return "ACABBREV";
 	}
 
-    @Override
+	@Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		gameMode.setACAbbrev(value);

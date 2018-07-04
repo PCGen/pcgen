@@ -48,11 +48,11 @@ import javax.swing.JTabbedPane;
 import javax.swing.KeyStroke;
 import javax.swing.SwingUtilities;
 
-import pcgen.system.PCGenSettings;
-
 import org.apache.commons.lang3.SystemUtils;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.Nullable;
+
+import pcgen.system.PCGenSettings;
 
 /**
  * Convenience methods from various sources.
@@ -60,14 +60,12 @@ import org.jetbrains.annotations.Nullable;
 public final class Utility
 {
 
-	private static final KeyStroke escapeStroke = KeyStroke.getKeyStroke(
-			KeyEvent.VK_ESCAPE, 0);
+	private static final KeyStroke escapeStroke = KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0);
 
 	/**
 	 * An action map key for the user requesting a dialog close via the ESC key.
 	 */
-	private static final String dispatchWindowClosingActionMapKey =
-			"pcgen:WINDOW_CLOSING"; //$NON-NLS-1$
+	private static final String dispatchWindowClosingActionMapKey = "pcgen:WINDOW_CLOSING"; //$NON-NLS-1$
 
 	private Utility()
 	{
@@ -81,11 +79,11 @@ public final class Utility
 	 * @param gy  rows from top (top-most row for multi-row cell)
 	 * @param gw  cols wide
 	 * @param gh  rows high
-	 * @param wx  weight of x, I typically put in percentile, only need to specify this once for each column, other values in same column are 0.0
+	 * @param wx  weight of x, I typically put in percentile,
+	 * 							only need to specify this once for each column, other values in same column are 0.0
 	 * @param wy  weight of y, same as weight for cols, just specify a non-zero value for one cell in each row.
 	 */
-	public static void buildConstraints(GridBagConstraints gbc, int gx, int gy,
-	                                    int gw, int gh, double wx, double wy)
+	public static void buildConstraints(GridBagConstraints gbc, int gx, int gy, int gw, int gh, double wx, double wy)
 	{
 		gbc.gridx = gx;
 		gbc.gridy = gy;
@@ -103,13 +101,14 @@ public final class Utility
 	 * @param gy     rows from top (top-most row for multi-row cell)
 	 * @param gw     cols wide
 	 * @param gh     rows high
-	 * @param wx     weight of x, I typically put in percentile, only need to specify this once for each column, other values in same column are 0.0
+	 * @param wx     weight of x, I typically put in percentile, only need to specify this once for each column,
+	 * 								other values in same column are 0.0
 	 * @param wy     weight of y, same as weight for cols, just specify a non-zero value for one cell in each row.
 	 * @param fill   How should the component be resized if smaller than the space.
 	 * @param anchor Where should the component be placed if smaller than the space.
 	 */
-	public static void buildConstraints(GridBagConstraints gbc, int gx, int gy,
-	                                    int gw, int gh, double wx, double wy, int fill, int anchor)
+	public static void buildConstraints(GridBagConstraints gbc, int gx, int gy, int gw, int gh, double wx, double wy,
+		int fill, int anchor)
 	{
 		buildConstraints(gbc, gx, gy, gw, gh, wx, wy);
 		gbc.fill = fill;
@@ -123,16 +122,16 @@ public final class Utility
 	 * @param gbc    The gridbagconstraints to set up
 	 * @param gw     cols wide
 	 * @param gh     rows high
-	 * @param wx     weight of x, I typically put in percentile, only need to specify this once for each column, other values in same column are 0.0
+	 * @param wx     weight of x, I typically put in percentile, only need to specify this once for each column,
+	 * 								other values in same column are 0.0
 	 * @param wy     weight of y, same as weight for cols, just specify a non-zero value for one cell in each row.
 	 * @param fill   How should the component be resized if smaller than the space.
 	 * @param anchor Where should the component be placed if smaller than the space.
 	 */
-	public static void buildRelativeConstraints(GridBagConstraints gbc,
-	                                            int gw, int gh, double wx, double wy, int fill, int anchor)
+	public static void buildRelativeConstraints(GridBagConstraints gbc, int gw, int gh, double wx, double wy, int fill,
+		int anchor)
 	{
-		buildConstraints(gbc, GridBagConstraints.RELATIVE,
-		                 GridBagConstraints.RELATIVE, gw, gh, wx, wy);
+		buildConstraints(gbc, GridBagConstraints.RELATIVE, GridBagConstraints.RELATIVE, gw, gh, wx, wy);
 		gbc.fill = fill;
 		gbc.anchor = anchor;
 	}
@@ -144,14 +143,13 @@ public final class Utility
 	 * @param gbc The gridbagconstraints to set up
 	 * @param gw  cols wide
 	 * @param gh  rows high
-	 * @param wx  weight of x, I typically put in percentile, only need to specify this once for each column, other values in same column are 0.0
+	 * @param wx  weight of x, I typically put in percentile, only need to specify this once for each column,
+	 * 							other values in same column are 0.0
 	 * @param wy  weight of y, same as weight for cols, just specify a non-zero value for one cell in each row.
 	 */
-	public static void buildRelativeConstraints(GridBagConstraints gbc,
-	                                            int gw, int gh, double wx, double wy)
+	public static void buildRelativeConstraints(GridBagConstraints gbc, int gw, int gh, double wx, double wy)
 	{
-		buildConstraints(gbc, GridBagConstraints.RELATIVE,
-		                 GridBagConstraints.RELATIVE, gw, gh, wx, wy);
+		buildConstraints(gbc, GridBagConstraints.RELATIVE, GridBagConstraints.RELATIVE, gw, gh, wx, wy);
 	}
 
 	/**
@@ -166,10 +164,8 @@ public final class Utility
 		// encapsulated to accomodate this with a hack.
 		// TODO: remove the hack, once Java fixed this.
 		// final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		final Rectangle screenSize =
-				GraphicsEnvironment.getLocalGraphicsEnvironment()
-						.getDefaultScreenDevice().getDefaultConfiguration()
-						.getBounds();
+		final Rectangle screenSize = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice()
+			.getDefaultConfiguration().getBounds();
 
 		final Dimension dialogSize = dialog.getSize();
 
@@ -185,7 +181,7 @@ public final class Utility
 		dialog.setSize(dialogSize);
 
 		dialog.setLocation(screenSize.x + ((screenSize.width - dialogSize.width) / 2),
-		                   screenSize.y + ((screenSize.height - dialogSize.height) / 2));
+			screenSize.y + ((screenSize.height - dialogSize.height) / 2));
 	}
 
 	/**
@@ -196,9 +192,7 @@ public final class Utility
 	public static void resizeComponentToScreen(Component dialog)
 	{
 		// Get the maximum window size to account for taskbars etc
-		Rectangle screenBounds =
-				GraphicsEnvironment.getLocalGraphicsEnvironment()
-						.getMaximumWindowBounds();
+		Rectangle screenBounds = GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds();
 
 		final Dimension dialogSize = dialog.getSize();
 
@@ -228,33 +222,24 @@ public final class Utility
 		resizeComponentToScreen(dialog);
 
 		// Get the maximum window size to account for taskbars etc
-		Rectangle screenBounds =
-				GraphicsEnvironment.getLocalGraphicsEnvironment()
-						.getMaximumWindowBounds();
+		Rectangle screenBounds = GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds();
 		Point centreOfParent = new Point(parent.getWidth() / 2, parent.getHeight() / 2);
 		SwingUtilities.convertPointToScreen(centreOfParent, parent);
 		// Default to centre of parent
 		Point location =
-				new Point(centreOfParent.x - (dialog.getWidth() / 2),
-				          centreOfParent.y - (dialog.getHeight() / 2));
+				new Point(centreOfParent.x - (dialog.getWidth() / 2), centreOfParent.y - (dialog.getHeight() / 2));
 		// Adjust so it fits on the screen
-		if ((location.x + dialog.getWidth()) > (screenBounds.width
-				                                        + screenBounds.x))
+		if ((location.x + dialog.getWidth()) > (screenBounds.width + screenBounds.x))
 		{
-			location.x -=
-					(location.x + dialog.getWidth())
-							- (screenBounds.width + screenBounds.x);
+			location.x -= (location.x + dialog.getWidth()) - (screenBounds.width + screenBounds.x);
 		}
 		if (location.x < screenBounds.x)
 		{
 			location.x = screenBounds.x;
 		}
-		if ((location.y + dialog.getHeight()) > (screenBounds.height
-				                                         + screenBounds.y))
+		if ((location.y + dialog.getHeight()) > (screenBounds.height + screenBounds.y))
 		{
-			location.y -=
-					(location.y + dialog.getHeight())
-							- (screenBounds.height + screenBounds.y);
+			location.y -= (location.y + dialog.getHeight()) - (screenBounds.height + screenBounds.y);
 		}
 		if (location.y < screenBounds.y)
 		{
@@ -276,7 +261,8 @@ public final class Utility
 		// encapsulated to accomodate this with a hack.
 		// TODO: remove the hack, once Java fixed this.
 		// final Dimension screenSize = getScreenSize(Toolkit.getDefaultToolkit());
-		final Rectangle screenSize = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().getDefaultConfiguration().getBounds();
+		final Rectangle screenSize = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice()
+			.getDefaultConfiguration().getBounds();
 
 		if (isPopup)
 		{
@@ -296,7 +282,7 @@ public final class Utility
 		}
 
 		frame.setLocation(screenSize.x + ((screenSize.width - frameSize.width) / 2),
-		                  screenSize.y + ((screenSize.height - frameSize.height) / 2));
+			screenSize.y + ((screenSize.height - frameSize.height) / 2));
 	}
 
 	/**
@@ -312,8 +298,7 @@ public final class Utility
 		if (SystemUtils.IS_OS_MAC || SystemUtils.IS_OS_MAC_OSX)
 		{
 			// On MacOS X, do not traverse file bundles
-			fc.putClientProperty("JFileChooser.appBundleIsTraversable",
-			                     "never");
+			fc.putClientProperty("JFileChooser.appBundleIsTraversable", "never");
 		}
 
 		if (PCGenSettings.getBrowserPath() != null)
@@ -373,7 +358,6 @@ public final class Utility
 		}
 	}
 
-
 	/**
 	 * View a URI in a browser.
 	 *
@@ -390,9 +374,8 @@ public final class Utility
 		// pick one and it doesn't work, at least they
 		// might know enough to try selecting one the
 		// next time.
-		if (!DesktopBrowserLauncher.isBrowseSupported()
-				&& SystemUtils.IS_OS_WINDOWS
-				&& (PCGenSettings.getBrowserPath() == null))
+		if (!DesktopBrowserLauncher.isBrowseSupported() && SystemUtils.IS_OS_WINDOWS
+			&& (PCGenSettings.getBrowserPath() == null))
 		{
 			selectDefaultBrowser(null);
 		}
@@ -409,19 +392,16 @@ public final class Utility
 	public static void installEscapeCloseOperation(final JDialog dialog)
 	{
 		JRootPane root = dialog.getRootPane();
-		root.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(escapeStroke,
-		                                                        dispatchWindowClosingActionMapKey);
+		root.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(escapeStroke, dispatchWindowClosingActionMapKey);
 		Action dispatchClosing = new AbstractAction()
 		{
 			@Override
 			public void actionPerformed(ActionEvent event)
 			{
-				dialog.dispatchEvent(new WindowEvent(dialog,
-				                                     WindowEvent.WINDOW_CLOSING));
+				dialog.dispatchEvent(new WindowEvent(dialog, WindowEvent.WINDOW_CLOSING));
 			}
 		};
-		root.getActionMap().put(dispatchWindowClosingActionMapKey,
-		                        dispatchClosing);
+		root.getActionMap().put(dispatchWindowClosingActionMapKey, dispatchClosing);
 	}
 
 	/**
@@ -473,8 +453,7 @@ public final class Utility
 		Toolkit xToolkit = Toolkit.getDefaultToolkit();
 		try
 		{
-			Field awtAppClassNameField =
-					xToolkit.getClass().getDeclaredField("awtAppClassName"); //$NON-NLS-1$
+			Field awtAppClassNameField = xToolkit.getClass().getDeclaredField("awtAppClassName"); //$NON-NLS-1$
 			awtAppClassNameField.setAccessible(true);
 			awtAppClassNameField.set(xToolkit, title);
 		}

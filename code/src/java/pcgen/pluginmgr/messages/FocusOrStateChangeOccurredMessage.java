@@ -40,8 +40,7 @@ public class FocusOrStateChangeOccurredMessage extends PCGenMessage
 	 * @param source
 	 * @param editMenu
 	 */
-	public FocusOrStateChangeOccurredMessage(Object source,
-		JMenu editMenu)
+	public FocusOrStateChangeOccurredMessage(Object source, JMenu editMenu)
 	{
 		super(source);
 		this.editMenu = editMenu;

@@ -23,14 +23,14 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
-import pcgen.core.PlayerCharacter;
-import pcgen.io.ExportHandler;
 import freemarker.core.Environment;
 import freemarker.template.TemplateDirectiveBody;
 import freemarker.template.TemplateDirectiveModel;
 import freemarker.template.TemplateMethodModelEx;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
+import pcgen.core.PlayerCharacter;
+import pcgen.io.ExportHandler;
 
 /**
  * Implements a custom Freemarker macro to allow exporting of a string value  
@@ -40,8 +40,7 @@ import freemarker.template.TemplateModelException;
  * 
  * 
  */
-public class PCStringDirective implements
-		TemplateDirectiveModel, TemplateMethodModelEx, CharacterExportAction
+public class PCStringDirective implements TemplateDirectiveModel, TemplateMethodModelEx, CharacterExportAction
 {
 	private PlayerCharacter pc;
 	private ExportHandler eh;
@@ -59,35 +58,31 @@ public class PCStringDirective implements
 
 	@SuppressWarnings("rawtypes")
 	@Override
-	public void execute(Environment env, Map params, TemplateModel[] loopVars,
-		TemplateDirectiveBody body) throws IOException, TemplateModelException
+	public void execute(Environment env, Map params, TemplateModel[] loopVars, TemplateDirectiveBody body)
+		throws IOException, TemplateModelException
 	{
 		// Check if no parameters were given:
 		if (params.size() != 1 || params.get("tag") == null)
 		{
-			throw new TemplateModelException(
-				"This directive requires a single tag parameter.");
+			throw new TemplateModelException("This directive requires a single tag parameter.");
 		}
 		if (loopVars.length != 0)
 		{
-			throw new TemplateModelException(
-				"This directive doesn't allow loop variables.");
+			throw new TemplateModelException("This directive doesn't allow loop variables.");
 		}
 		if (body != null)
 		{
-			throw new TemplateModelException(
-				"This directive cannot take a body.");
+			throw new TemplateModelException("This directive cannot take a body.");
 		}
-		
+
 		String tag = params.get("tag").toString();
 		String value = getExportVariable(tag, pc, eh);
-		
+
 		if (tag.equals(value))
 		{
-			throw new TemplateModelException("Invalid export tag '" + tag
-				+ "'.");
+			throw new TemplateModelException("Invalid export tag '" + tag + "'.");
 		}
-		
+
 		env.getOut().append(value);
 	}
 
@@ -97,17 +92,15 @@ public class PCStringDirective implements
 	{
 		if (arg0.size() != 1)
 		{
-			throw new TemplateModelException(
-				"Wrong arguments. tag required");
+			throw new TemplateModelException("Wrong arguments. tag required");
 		}
-		
+
 		String tag = arg0.get(0).toString();
 		String value = getExportVariable(tag, pc, eh);
-		
+
 		if (tag.equals(value))
 		{
-			throw new TemplateModelException("Invalid export tag '" + tag
-				+ "'.");
+			throw new TemplateModelException("Invalid export tag '" + tag + "'.");
 		}
 		return value;
 	}

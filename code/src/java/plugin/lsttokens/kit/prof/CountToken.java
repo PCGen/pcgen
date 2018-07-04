@@ -27,8 +27,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * COUNT Token for KitProf
  */
-public class CountToken extends AbstractToken implements
-		CDOMPrimaryToken<KitProf>
+public class CountToken extends AbstractToken implements CDOMPrimaryToken<KitProf>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -62,9 +61,8 @@ public class CountToken extends AbstractToken implements
 		}
 		catch (NumberFormatException nfe)
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " expected an integer.  Tag must be of the form: "
-				+ getTokenName() + ":<int>");
+			return new ParseResult.Fail(
+				getTokenName() + " expected an integer.  Tag must be of the form: " + getTokenName() + ":<int>");
 		}
 	}
 

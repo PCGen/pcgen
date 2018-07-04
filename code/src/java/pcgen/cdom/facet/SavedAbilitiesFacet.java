@@ -21,8 +21,7 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractListFacet;
 import pcgen.cdom.helper.CNAbilitySelection;
 
-public class SavedAbilitiesFacet extends
-		AbstractListFacet<CharID, CNAbilitySelection>
+public class SavedAbilitiesFacet extends AbstractListFacet<CharID, CNAbilitySelection>
 {
 
 }

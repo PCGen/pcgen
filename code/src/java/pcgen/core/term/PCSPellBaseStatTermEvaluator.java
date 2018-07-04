@@ -26,15 +26,14 @@ import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 
-public class PCSPellBaseStatTermEvaluator 
-		extends BasePCTermEvaluator implements TermEvaluator
+public class PCSPellBaseStatTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
 	private final String classKey;
 
 	public PCSPellBaseStatTermEvaluator(String originalText, String classKey)
 	{
 		this.originalText = originalText;
-		this.classKey     = classKey;
+		this.classKey = classKey;
 	}
 
 	@Override

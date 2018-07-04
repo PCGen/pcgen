@@ -37,8 +37,7 @@ public class SolverManagerFacet extends AbstractItemFacet<CharID, SolverManager>
 	/**
 	 * The global LoadContextFacet used to get VariableIDs
 	 */
-	private final LoadContextFacet loadContextFacet =
-			FacetLibrary.getFacet(LoadContextFacet.class);
+	private final LoadContextFacet loadContextFacet = FacetLibrary.getFacet(LoadContextFacet.class);
 
 	private ScopeFacet scopeFacet;
 
@@ -47,24 +46,24 @@ public class SolverManagerFacet extends AbstractItemFacet<CharID, SolverManager>
 		return get(id).diagnose(varID);
 	}
 
-	public <T> boolean addModifier(CharID id, VarModifier<T> vm, VarScoped thisValue,
-		Modifier<T> modifier, ScopeInstance source)
+	public <T> boolean addModifier(CharID id, VarModifier<T> vm, VarScoped thisValue, Modifier<T> modifier,
+		ScopeInstance source)
 	{
 		ScopeInstance scope = scopeFacet.get(id, vm.getFullLegalScopeName(), thisValue);
-		VariableID<T> varID = (VariableID<T>) loadContextFacet.get(id.getDatasetID())
-			.get().getVariableContext().getVariableID(scope, vm.getVarName());
+		VariableID<T> varID = (VariableID<T>) loadContextFacet.get(id.getDatasetID()).get().getVariableContext()
+			.getVariableID(scope, vm.getVarName());
 		return get(id).addModifierAndSolve(varID, modifier, source);
 	}
 
 	/**
 	 * Removes a Modifier from the PC.
 	 */
-	public <T> void removeModifier(CharID id, VarModifier<T> vm, VarScoped thisValue,
-		Modifier<T> modifier, ScopeInstance source)
+	public <T> void removeModifier(CharID id, VarModifier<T> vm, VarScoped thisValue, Modifier<T> modifier,
+		ScopeInstance source)
 	{
 		ScopeInstance scope = scopeFacet.get(id, vm.getFullLegalScopeName(), thisValue);
-		VariableID<T> varID = (VariableID<T>) loadContextFacet.get(id.getDatasetID())
-				.get().getVariableContext().getVariableID(scope, vm.getVarName());
+		VariableID<T> varID = (VariableID<T>) loadContextFacet.get(id.getDatasetID()).get().getVariableContext()
+			.getVariableID(scope, vm.getVarName());
 		get(id).removeModifier(varID, modifier, source);
 	}
 

@@ -49,19 +49,18 @@ public class TokenConverter
 
 	private static final DoubleKeyMap<Class<?>, String, Boolean> cached = new DoubleKeyMap<>();
 
-	private static final DoubleKeyMapToList<Class<?>, String, TokenProcessorPlugin> tokenCache = new DoubleKeyMapToList<>();
+	private static final DoubleKeyMapToList<Class<?>, String, TokenProcessorPlugin> tokenCache =
+			new DoubleKeyMapToList<>();
 
 	private static final DefaultTokenProcessor defaultProc = new DefaultTokenProcessor();
 
 	public static void addToTokenMap(TokenProcessorPlugin tpp)
 	{
-		TokenProcessorPlugin old = map.put(tpp.getProcessedClass(), tpp
-				.getProcessedToken(), tpp);
+		TokenProcessorPlugin old = map.put(tpp.getProcessedClass(), tpp.getProcessedToken(), tpp);
 		if (old != null)
 		{
-			Logging.errorPrint("More than one Conversion token for "
-					+ tpp.getProcessedClass().getSimpleName() + ' '
-					+ tpp.getProcessedToken() + " found");
+			Logging.errorPrint("More than one Conversion token for " + tpp.getProcessedClass().getSimpleName() + ' '
+				+ tpp.getProcessedToken() + " found");
 		}
 	}
 
@@ -79,10 +78,7 @@ public class TokenConverter
 			@Override
 			public Class[] getPluginClasses()
 			{
-				return new Class[]
-						{
-							TokenProcessorPlugin.class
-						};
+				return new Class[]{TokenProcessorPlugin.class};
 			}
 		};
 	}
@@ -93,7 +89,7 @@ public class TokenConverter
 		String key = tpe.getKey();
 
 		ensureCategoryExists(tpe);
-		
+
 		List<TokenProcessorPlugin> tokens = getTokens(cl, key);
 		String error = "";
 		try
@@ -116,8 +112,7 @@ public class TokenConverter
 		}
 		catch (Exception ex)
 		{
-			Logging.errorPrint("Parse of " + tpe.getKey() + ':'
-					+ tpe.getValue() + " failed");
+			Logging.errorPrint("Parse of " + tpe.getKey() + ':' + tpe.getValue() + " failed");
 			ex.printStackTrace();
 		}
 		return tpe.isConsumed() ? null : error;
@@ -138,13 +133,12 @@ public class TokenConverter
 		String value = tpe.getValue();
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		String cat = tok.nextToken();
-		Category<Ability> category = tpe.getContext().getReferenceContext()
-				.silentlyGetConstructedCDOMObject(AbilityCategory.class, cat);
+		Category<Ability> category =
+				tpe.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(AbilityCategory.class, cat);
 		if (category == null)
 		{
-//			Logging.log(Logging.INFO, "Found new cat " + cat + " in " + tpe);
-			tpe.getContext().getReferenceContext().constructCDOMObject(
-				AbilityCategory.class, cat);
+			//			Logging.log(Logging.INFO, "Found new cat " + cat + " in " + tpe);
+			tpe.getContext().getReferenceContext().constructCDOMObject(AbilityCategory.class, cat);
 		}
 	}
 
@@ -203,8 +197,7 @@ public class TokenConverter
 		@Override
 		public void remove()
 		{
-			throw new UnsupportedOperationException(
-					"Iterator does not support remove");
+			throw new UnsupportedOperationException("Iterator does not support remove");
 		}
 	}
 
@@ -213,8 +206,7 @@ public class TokenConverter
 		List<TokenProcessorPlugin> list = tokenCache.getListFor(cl, name);
 		if (!cached.containsKey(cl, name))
 		{
-			for (Iterator<TokenProcessorPlugin> it = new ConverterIterator(cl,
-					name); it.hasNext();)
+			for (Iterator<TokenProcessorPlugin> it = new ConverterIterator(cl, name); it.hasNext();)
 			{
 				TokenProcessorPlugin token = it.next();
 				tokenCache.addToListFor(cl, name, token);

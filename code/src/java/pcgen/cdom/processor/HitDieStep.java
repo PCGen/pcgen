@@ -185,8 +185,7 @@ public class HitDieStep implements Processor<HitDie>
 	@Override
 	public int hashCode()
 	{
-		return dieLimit == null ? numSteps : numSteps + dieLimit.hashCode()
-				* 29;
+		return dieLimit == null ? numSteps : numSteps + dieLimit.hashCode() * 29;
 	}
 
 	/**
@@ -203,8 +202,7 @@ public class HitDieStep implements Processor<HitDie>
 		{
 			HitDieStep other = (HitDieStep) obj;
 			return other.numSteps == numSteps
-					&& (dieLimit == null && other.dieLimit == null || dieLimit != null
-							&& dieLimit.equals(other.dieLimit));
+				&& (dieLimit == null && other.dieLimit == null || dieLimit != null && dieLimit.equals(other.dieLimit));
 		}
 		return false;
 	}

@@ -73,8 +73,7 @@ public class SkillPointTableModel extends AbstractTableModel
 		remainCol.setCellRenderer(new BoldNumberRenderer());
 		columns.addColumn(remainCol);
 		columns.addColumn(Utilities.createTableColumn(3, "in_gained", headerRenderer, false));
-		table.setDefaultRenderer(Integer.class,
-			new TableCellUtilities.AlignRenderer(SwingConstants.CENTER));
+		table.setDefaultRenderer(Integer.class, new TableCellUtilities.AlignRenderer(SwingConstants.CENTER));
 		table.setColumnModel(columns);
 		table.setFocusable(false);
 		header.setReorderingAllowed(false);
@@ -206,10 +205,11 @@ public class SkillPointTableModel extends AbstractTableModel
 		}
 
 		/**
-		 * @see javax.swing.table.TableCellRenderer#getTableCellRendererComponent(javax.swing.JTable, java.lang.Object, boolean, boolean, int, int)
+		 * @see TableCellRenderer#getTableCellRendererComponent(JTable, Object, boolean, boolean, int, int)
 		 */
 		@Override
-		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column)
+		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
+			int row, int column)
 		{
 			Component comp = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
 			comp.setFont(FontManipulation.bold(table.getFont()));

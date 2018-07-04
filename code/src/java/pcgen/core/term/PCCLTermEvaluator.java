@@ -20,20 +20,18 @@
 
 package pcgen.core.term;
 
-import pcgen.core.PlayerCharacter;
 import pcgen.core.PCClass;
+import pcgen.core.PlayerCharacter;
 import pcgen.core.spell.Spell;
 
-public class PCCLTermEvaluator
-		extends BasePCTermEvaluator implements TermEvaluator
+public class PCCLTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
 	private final String classKey;
 
-	public PCCLTermEvaluator(
-			String originalText, String aClass)
+	public PCCLTermEvaluator(String originalText, String aClass)
 	{
 		this.originalText = originalText;
-		this.classKey        = aClass;
+		this.classKey = aClass;
 	}
 
 	@Override
@@ -43,7 +41,7 @@ public class PCCLTermEvaluator
 	}
 
 	@Override
-	public String evaluate (PlayerCharacter pc)
+	public String evaluate(PlayerCharacter pc)
 	{
 		final PCClass aClass = pc.getClassKeyed(classKey);
 
@@ -56,7 +54,7 @@ public class PCCLTermEvaluator
 	}
 
 	@Override
-	public String evaluate (PlayerCharacter pc, Spell aSpell)
+	public String evaluate(PlayerCharacter pc, Spell aSpell)
 	{
 		return evaluate(pc);
 	}

@@ -39,19 +39,18 @@ public class TemplateInputFacet
 {
 
 	private TemplateSelectionFacet templateSelectionFacet;
-	
+
 	private UnconditionalTemplateFacet unconditionalTemplateFacet;
 
-	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
-		.getFacet(PlayerCharacterTrackingFacet.class);
+	private final PlayerCharacterTrackingFacet trackingFacet =
+			FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
 
 	public boolean add(CharID id, PCTemplate obj)
 	{
 		PlayerCharacter pc = trackingFacet.getPC(id);
 		if (pc.isAllowInteraction() && ChooseActivation.hasNewChooseToken(obj))
 		{
-			ChoiceManagerList<?> aMan =
-					ChooserUtilities.getChoiceManager(obj, pc);
+			ChoiceManagerList<?> aMan = ChooserUtilities.getChoiceManager(obj, pc);
 			return processChoice(id, pc, obj, aMan);
 		}
 		else
@@ -61,8 +60,7 @@ public class TemplateInputFacet
 		return true;
 	}
 
-	private <T> boolean processChoice(CharID id, PlayerCharacter pc,
-		PCTemplate obj, ChoiceManagerList<T> aMan)
+	private <T> boolean processChoice(CharID id, PlayerCharacter pc, PCTemplate obj, ChoiceManagerList<T> aMan)
 	{
 		List<T> selectedList = new ArrayList<>();
 		List<T> availableList = new ArrayList<>();
@@ -76,9 +74,7 @@ public class TemplateInputFacet
 		{
 			//Error?
 		}
-		final List<T> newSelections =
-				aMan.doChooser(pc, availableList, selectedList,
-                        new ArrayList<>());
+		final List<T> newSelections = aMan.doChooser(pc, availableList, selectedList, new ArrayList<>());
 		if (newSelections.size() != 1)
 		{
 			//Error?
@@ -96,8 +92,7 @@ public class TemplateInputFacet
 		PlayerCharacter pc = trackingFacet.getPC(id);
 		if (ChooseActivation.hasNewChooseToken(obj))
 		{
-			ChoiceManagerList<?> aMan =
-					ChooserUtilities.getChoiceManager(obj, pc);
+			ChoiceManagerList<?> aMan = ChooserUtilities.getChoiceManager(obj, pc);
 			processImport(id, obj, aMan, choice);
 		}
 		else
@@ -106,8 +101,7 @@ public class TemplateInputFacet
 		}
 	}
 
-	private <T> void processImport(CharID id, PCTemplate obj,
-		ChoiceManagerList<T> aMan, String choice)
+	private <T> void processImport(CharID id, PCTemplate obj, ChoiceManagerList<T> aMan, String choice)
 	{
 		directAdd(id, obj, aMan.decodeChoice(choice));
 	}
@@ -131,14 +125,12 @@ public class TemplateInputFacet
 		}
 	}
 
-	public void setTemplateSelectionFacet(
-		TemplateSelectionFacet templateSelectionFacet)
+	public void setTemplateSelectionFacet(TemplateSelectionFacet templateSelectionFacet)
 	{
 		this.templateSelectionFacet = templateSelectionFacet;
 	}
 
-	public void setUnconditionalTemplateFacet(
-		UnconditionalTemplateFacet unconditionalTemplateFacet)
+	public void setUnconditionalTemplateFacet(UnconditionalTemplateFacet unconditionalTemplateFacet)
 	{
 		this.unconditionalTemplateFacet = unconditionalTemplateFacet;
 	}

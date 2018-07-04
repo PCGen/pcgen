@@ -29,8 +29,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * COUNT Token for KitSpells
  */
-public class CountToken extends AbstractNonEmptyToken<KitSpells> implements
-		CDOMPrimaryToken<KitSpells>
+public class CountToken extends AbstractNonEmptyToken<KitSpells> implements CDOMPrimaryToken<KitSpells>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -55,8 +54,7 @@ public class CountToken extends AbstractNonEmptyToken<KitSpells> implements
 		Formula formula = FormulaFactory.getFormulaFor(value);
 		if (!formula.isValid())
 		{
-			return new ParseResult.Fail("Formula in " + getTokenName()
-					+ " was not valid: " + formula.toString());
+			return new ParseResult.Fail("Formula in " + getTokenName() + " was not valid: " + formula.toString());
 		}
 		kitSpells.setCount(formula);
 		return ParseResult.SUCCESS;
@@ -70,6 +68,6 @@ public class CountToken extends AbstractNonEmptyToken<KitSpells> implements
 		{
 			return null;
 		}
-		return new String[] { bd.toString() };
+		return new String[]{bd.toString()};
 	}
 }

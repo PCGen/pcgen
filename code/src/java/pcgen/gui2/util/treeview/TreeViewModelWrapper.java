@@ -22,48 +22,46 @@ import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.ListFacades;
 
-
 public class TreeViewModelWrapper<E> implements TreeViewModel<E>
 {
 
-    protected final TreeViewModel<E> treeviewModel;
-    protected final DefaultListFacade<E> dataModel;
+	protected final TreeViewModel<E> treeviewModel;
+	protected final DefaultListFacade<E> dataModel;
 
-    public TreeViewModelWrapper(TreeViewModel<E> treeviewModel)
-    {
-        this(treeviewModel, new DefaultListFacade<>());
+	public TreeViewModelWrapper(TreeViewModel<E> treeviewModel)
+	{
+		this(treeviewModel, new DefaultListFacade<>());
 		dataModel.setContents(ListFacades.wrap(treeviewModel.getDataModel()));
-    }
+	}
 
-    public TreeViewModelWrapper(TreeViewModel<E> treeviewModel,
-                                 DefaultListFacade<E> dataModel)
-    {
-        this.treeviewModel = treeviewModel;
-        this.dataModel = dataModel;
-    }
-
-	@Override
-    public ListFacade<? extends TreeView<E>> getTreeViews()
-    {
-        return treeviewModel.getTreeViews();
-    }
+	public TreeViewModelWrapper(TreeViewModel<E> treeviewModel, DefaultListFacade<E> dataModel)
+	{
+		this.treeviewModel = treeviewModel;
+		this.dataModel = dataModel;
+	}
 
 	@Override
-    public int getDefaultTreeViewIndex()
-    {
-        return treeviewModel.getDefaultTreeViewIndex();
-    }
+	public ListFacade<? extends TreeView<E>> getTreeViews()
+	{
+		return treeviewModel.getTreeViews();
+	}
 
 	@Override
-    public DataView<E> getDataView()
-    {
-        return treeviewModel.getDataView();
-    }
+	public int getDefaultTreeViewIndex()
+	{
+		return treeviewModel.getDefaultTreeViewIndex();
+	}
 
 	@Override
-    public DefaultListFacade<E> getDataModel()
-    {
-        return dataModel;
-    }
+	public DataView<E> getDataView()
+	{
+		return treeviewModel.getDataView();
+	}
+
+	@Override
+	public DefaultListFacade<E> getDataModel()
+	{
+		return dataModel;
+	}
 
 }

@@ -35,8 +35,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with LSTEXCLUDE Token
  */
-public class LstexcludeToken extends AbstractTokenWithSeparator<Campaign>
-		implements CDOMPrimaryToken<Campaign>
+public class LstexcludeToken extends AbstractTokenWithSeparator<Campaign> implements CDOMPrimaryToken<Campaign>
 {
 
 	@Override
@@ -52,16 +51,14 @@ public class LstexcludeToken extends AbstractTokenWithSeparator<Campaign>
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		Campaign campaign, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, Campaign campaign, String value)
 	{
 		final StringTokenizer lstTok = new StringTokenizer(value, Constants.PIPE);
 
 		while (lstTok.hasMoreTokens())
 		{
 			final String lstFilename = lstTok.nextToken();
-			CampaignSourceEntry cse =
-					context.getCampaignSourceEntry(campaign, lstFilename);
+			CampaignSourceEntry cse = context.getCampaignSourceEntry(campaign, lstFilename);
 			if (cse == null)
 			{
 				//Error
@@ -78,7 +75,7 @@ public class LstexcludeToken extends AbstractTokenWithSeparator<Campaign>
 		return ParseResult.SUCCESS;
 	}
 
-    @Override
+	@Override
 	public String[] unparse(LoadContext context, Campaign campaign)
 	{
 		Changes<CampaignSourceEntry> cseChanges =
@@ -97,7 +94,7 @@ public class LstexcludeToken extends AbstractTokenWithSeparator<Campaign>
 		return set.toArray(new String[set.size()]);
 	}
 
-    @Override
+	@Override
 	public Class<Campaign> getTokenClass()
 	{
 		return Campaign.class;

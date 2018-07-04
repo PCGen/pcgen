@@ -28,8 +28,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with ACHECK Token
  */
-public class AcheckToken extends AbstractNonEmptyToken<Skill> implements
-		CDOMPrimaryToken<Skill>
+public class AcheckToken extends AbstractNonEmptyToken<Skill> implements CDOMPrimaryToken<Skill>
 {
 
 	@Override
@@ -81,8 +80,7 @@ public class AcheckToken extends AbstractNonEmptyToken<Skill> implements
 			}
 			else
 			{
-				return new ParseResult.Fail("Skill "
-						+ getTokenName() + " Did not understand: " + value);
+				return new ParseResult.Fail("Skill " + getTokenName() + " Did not understand: " + value);
 			}
 		}
 
@@ -93,13 +91,12 @@ public class AcheckToken extends AbstractNonEmptyToken<Skill> implements
 	@Override
 	public String[] unparse(LoadContext context, Skill skill)
 	{
-		SkillArmorCheck sac = context.getObjectContext().getObject(skill,
-				ObjectKey.ARMOR_CHECK);
+		SkillArmorCheck sac = context.getObjectContext().getObject(skill, ObjectKey.ARMOR_CHECK);
 		if (sac == null)
 		{
 			return null;
 		}
-		return new String[] { sac.toString() };
+		return new String[]{sac.toString()};
 	}
 
 	@Override

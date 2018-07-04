@@ -24,7 +24,9 @@ import pcgen.core.bonus.MultiTagBonusObj;
  */
 public final class SizeMod extends MultiTagBonusObj
 {
-	private static final String[] BONUS_TAGS = {"NUMBER", };
+	private static final String[] BONUS_TAGS = {
+		"NUMBER"
+		};
 
 	/**
 	 * Return the bonus tag handled by this class.

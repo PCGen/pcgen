@@ -32,8 +32,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with COST Token
  */
-public class CostToken extends AbstractNonEmptyToken<Spell> implements
-		CDOMPrimaryToken<Spell>
+public class CostToken extends AbstractNonEmptyToken<Spell> implements CDOMPrimaryToken<Spell>
 {
 
 	@Override
@@ -43,8 +42,7 @@ public class CostToken extends AbstractNonEmptyToken<Spell> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, Spell spell,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, Spell spell, String value)
 	{
 		if (Constants.LST_DOT_CLEAR.equals(value))
 		{
@@ -57,16 +55,14 @@ public class CostToken extends AbstractNonEmptyToken<Spell> implements
 				BigDecimal cost = new BigDecimal(value);
 				if (cost.compareTo(BigDecimal.ZERO) <= 0)
 				{
-					return new ParseResult.Fail(getTokenName()
-						+ " requires a positive Integer");
+					return new ParseResult.Fail(getTokenName() + " requires a positive Integer");
 				}
 				context.getObjectContext().put(spell, ObjectKey.COST, cost);
 			}
 			catch (NumberFormatException nfe)
 			{
-				return new ParseResult.Fail(getTokenName()
-					+ " expected an integer.  Tag must be of the form: "
-					+ getTokenName() + ":<int>");
+				return new ParseResult.Fail(
+					getTokenName() + " expected an integer.  Tag must be of the form: " + getTokenName() + ":<int>");
 			}
 		}
 		return ParseResult.SUCCESS;
@@ -75,21 +71,18 @@ public class CostToken extends AbstractNonEmptyToken<Spell> implements
 	@Override
 	public String[] unparse(LoadContext context, Spell spell)
 	{
-		BigDecimal i =
-				context.getObjectContext().getObject(spell, ObjectKey.COST);
-		boolean globalClear =
-				context.getObjectContext().wasRemoved(spell, ObjectKey.COST);
+		BigDecimal i = context.getObjectContext().getObject(spell, ObjectKey.COST);
+		boolean globalClear = context.getObjectContext().wasRemoved(spell, ObjectKey.COST);
 		List<String> list = new ArrayList<>();
 		if (globalClear)
- 		{
+		{
 			list.add(Constants.LST_DOT_CLEAR);
 		}
 		if (i != null)
 		{
 			if (i.compareTo(BigDecimal.ZERO) <= 00)
 			{
-				context.addWriteMessage(getTokenName()
-						+ " requires a positive Integer");
+				context.addWriteMessage(getTokenName() + " requires a positive Integer");
 				return null;
 			}
 			list.add(i.toString());
@@ -97,7 +90,7 @@ public class CostToken extends AbstractNonEmptyToken<Spell> implements
 		if (list.isEmpty())
 		{
 			return null;
- 		}
+		}
 		return list.toArray(new String[list.size()]);
 	}
 

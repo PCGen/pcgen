@@ -28,8 +28,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with EXCLASS Token
  */
-public class ExclassToken extends AbstractNonEmptyToken<PCClass> implements
-		CDOMPrimaryToken<PCClass>
+public class ExclassToken extends AbstractNonEmptyToken<PCClass> implements CDOMPrimaryToken<PCClass>
 {
 
 	@Override
@@ -39,11 +38,9 @@ public class ExclassToken extends AbstractNonEmptyToken<PCClass> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, PCClass pcc,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, PCClass pcc, String value)
 	{
-		CDOMSingleRef<PCClass> cl = context.getReferenceContext().getCDOMReference(PCClass.class,
-				value);
+		CDOMSingleRef<PCClass> cl = context.getReferenceContext().getCDOMReference(PCClass.class, value);
 		context.getObjectContext().put(pcc, ObjectKey.EX_CLASS, cl);
 		return ParseResult.SUCCESS;
 	}
@@ -51,13 +48,12 @@ public class ExclassToken extends AbstractNonEmptyToken<PCClass> implements
 	@Override
 	public String[] unparse(LoadContext context, PCClass pcc)
 	{
-		CDOMSingleRef<PCClass> cl = context.getObjectContext().getObject(pcc,
-				ObjectKey.EX_CLASS);
+		CDOMSingleRef<PCClass> cl = context.getObjectContext().getObject(pcc, ObjectKey.EX_CLASS);
 		if (cl == null)
 		{
 			return null;
 		}
-		return new String[] { cl.getLSTformat(false) };
+		return new String[]{cl.getLSTformat(false)};
 	}
 
 	@Override

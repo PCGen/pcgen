@@ -31,8 +31,7 @@ import pcgen.util.chooser.ChooserFactory;
 
 public class UserInputManager extends CDOMChoiceManager<String>
 {
-	public UserInputManager(ChooseDriver cdo,
-		ChooseInformation<String> chooseType, int cost)
+	public UserInputManager(ChooseDriver cdo, ChooseInformation<String> chooseType, int cost)
 	{
 		super(cdo, chooseType, null, cost);
 	}
@@ -45,9 +44,9 @@ public class UserInputManager extends CDOMChoiceManager<String>
 	 * @param selectedList The list of existing selections.
 	 * @return list The list of the new selections made by the user (unchanged if the dialog was cancelled)
 	 */
-    @Override
+	@Override
 	public List<String> doChooser(PlayerCharacter aPc, final List<String> availableList,
-			final List<String> selectedList, final List<String> reservedList)
+		final List<String> selectedList, final List<String> reservedList)
 	{
 		int effectiveChoices = getNumEffectiveChoices(selectedList, reservedList, aPc);
 
@@ -55,21 +54,19 @@ public class UserInputManager extends CDOMChoiceManager<String>
 
 		Globals.sortChooserLists(availableList, selectedList);
 
-		String title = StringUtils.isBlank(info.getTitle()) ? "in_chooser" :  info.getTitle();
+		String title = StringUtils.isBlank(info.getTitle()) ? "in_chooser" : info.getTitle();
 		if (title.startsWith("in_"))
 		{
 			title = LanguageBundle.getString(title);
 		}
-		
+
 		CDOMChooserFacadeImpl<String> chooserFacade =
-                new CDOMChooserFacadeImpl<>(
-                        title, availableList,
-                        selectedList, effectiveChoices);
+				new CDOMChooserFacadeImpl<>(title, availableList, selectedList, effectiveChoices);
 		chooserFacade.setAllowsDups(dupsAllowed);
 		chooserFacade.setInfoFactory(new Gui2InfoFactory(aPc));
 		chooserFacade.setUserInput(true);
 		ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);
-		
+
 		return chooserFacade.getFinalSelected();
 	}
 

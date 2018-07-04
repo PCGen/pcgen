@@ -58,8 +58,7 @@ public class WeaponoToken extends WeaponToken
 	 * @return The value of the token.
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		StringTokenizer aTok = new StringTokenizer(tokenSource, ".", false);
 		//Weapono Token

@@ -28,7 +28,6 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.facade.core.InfoFacade;
 
-
 /**
  * {@code Domain}.
  */

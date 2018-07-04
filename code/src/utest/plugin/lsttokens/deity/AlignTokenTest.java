@@ -89,7 +89,7 @@ public class AlignTokenTest extends AbstractCDOMTokenTestCase<Deity>
 	@Test
 	public void testInvalidFormula() throws PersistenceLayerException
 	{
-		if(parse("1+3"))
+		if (parse("1+3"))
 		{
 			assertFalse(primaryContext.getReferenceContext().resolveReferences(null));
 		}

@@ -25,18 +25,20 @@ import pcgen.util.Logging;
 /**
  * A prerequisite parser class that handles the parsing of pre age set tokens.
  */
-public class PreAgeSetParser extends AbstractPrerequisiteListParser
-implements PrerequisiteParserInterface
+public class PreAgeSetParser extends AbstractPrerequisiteListParser implements PrerequisiteParserInterface
 {
 
 	/**
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
-	public String[] kindsHandled() {
-		return new String[]{"AGESET", "AGESETEQ", "AGESETGT", "AGESETGTEQ", "AGESETLT", 
-				"AGESETLTEQ", "AGESETNEQ"}; //$NON-NLS-1$
+	@Override
+	public String[] kindsHandled()
+	{
+		return new String[]{
+			"AGESET", "AGESETEQ", "AGESETGT", //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+			"AGESETGTEQ", "AGESETLT", "AGESETLTEQ", //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+			"AGESETNEQ"}; //$NON-NLS-1$
 	}
 
 	/**
@@ -52,26 +54,26 @@ implements PrerequisiteParserInterface
 	 * @throws PersistenceLayerException
 	 */
 	@Override
-	public Prerequisite parse(String kind,
-	                          String formula,
-	                          boolean invertResult,
-	                          boolean overrideQualify) throws PersistenceLayerException
+	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+		throws PersistenceLayerException
 	{
-		
+
 		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
 
 		//Operand should be either an integer or a recognizable String
-		try{
+		try
+		{
 			Integer.parseInt(prereq.getKey());
-			Logging.errorPrint("You are using an old form of PREAGESET,"
-					+ " you should use the age set name, e.g.: PREAGESET:1,Old");
+			Logging.errorPrint(
+				"You are using an old form of PREAGESET," + " you should use the age set name, e.g.: PREAGESET:1,Old");
 		}
-		catch (NumberFormatException exc){
+		catch (NumberFormatException exc)
+		{
 			//prereq.setOperand(formula); //assume recognizable String for now
 		}
 
 		return prereq;
-	
+
 	}
 
 }

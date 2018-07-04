@@ -57,8 +57,7 @@ public class FollowerToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		/* FOLLOWER%.subtag stuff handled in here*/
 
@@ -73,12 +72,9 @@ public class FollowerToken extends Token
 		}
 		else
 		{
-			Logging
-				.errorPrint("Old syntax FOLLOWERx will be replaced for FOLLOWER.x");
+			Logging.errorPrint("Old syntax FOLLOWERx will be replaced for FOLLOWER.x");
 
-			i =
-					Integer.parseInt(tokenSource.substring(8, tokenSource
-						.indexOf('.')));
+			i = Integer.parseInt(tokenSource.substring(8, tokenSource.indexOf('.')));
 		}
 
 		StringBuilder restString = new StringBuilder();
@@ -95,9 +91,7 @@ public class FollowerToken extends Token
 		final List<Follower> followers = new ArrayList<>(pc.getDisplay().getFollowerList());
 		if (i < followers.size())
 		{
-			result =
-					FollowerToken.getFollowerOutput(eh, restString
-						.toString(), followers.get(i));
+			result = FollowerToken.getFollowerOutput(eh, restString.toString(), followers.get(i));
 		}
 
 		return result;
@@ -111,14 +105,12 @@ public class FollowerToken extends Token
 	 * @param follower The follower to be reported upon.
 	 * @return The follower's token output
 	 */
-	public static String getFollowerOutput(ExportHandler eh,
-		String followerToken, final Follower follower)
+	public static String getFollowerOutput(ExportHandler eh, String followerToken, final Follower follower)
 	{
 		StringWriter writer = new StringWriter();
 		BufferedWriter bw = new BufferedWriter(writer);
 
-		String token =
-				followerToken != null && followerToken.isEmpty() ? "NAME" : followerToken;
+		String token = followerToken != null && followerToken.isEmpty() ? "NAME" : followerToken;
 
 		for (PlayerCharacter eachPC : Globals.getPCList())
 		{
@@ -136,10 +128,7 @@ public class FollowerToken extends Token
 		}
 		catch (IOException e)
 		{
-			Logging
-				.errorPrint(
-					"Ignoring error while processing FOLLOWER or FOLLOWERTYPE token",
-					e);
+			Logging.errorPrint("Ignoring error while processing FOLLOWER or FOLLOWERTYPE token", e);
 		}
 		return writer.toString();
 	}

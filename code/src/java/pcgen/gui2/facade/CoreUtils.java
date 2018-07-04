@@ -42,14 +42,13 @@ import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.facade.core.CoreViewNodeFacade;
 import pcgen.util.Logging;
 
-class CoreUtils
+final class CoreUtils
 {
 	private CoreUtils()
 	{
 	}
 
-	static <T> List<CoreViewNodeFacade> buildCoreDebugList(PlayerCharacter pc,
-	                                                       CorePerspective pers)
+	static <T> List<CoreViewNodeFacade> buildCoreDebugList(PlayerCharacter pc, CorePerspective pers)
 	{
 		CharID id = pc.getCharID();
 		List<CoreViewNodeFacade> coreViewList = new ArrayList<>();
@@ -82,8 +81,7 @@ class CoreUtils
 					FacetView<T> parentView = CorePerspectiveDB.getViewOfFacet(parent);
 					if (parentView == null)
 					{
-						Logging.errorPrint("Expected " + parent
-							+ " to be a registered Facet in Perspective " + pers);
+						Logging.errorPrint("Expected " + parent + " to be a registered Facet in Perspective " + pers);
 					}
 					sources.addToListFor(view, parentView);
 				}
@@ -113,26 +111,22 @@ class CoreUtils
 					}
 					else
 					{
-						FacetView<Object> srcView =
-								CorePerspectiveDB.getViewOfFacet(src);
+						FacetView<Object> srcView = CorePerspectiveDB.getViewOfFacet(src);
 						if (srcView == null)
 						{
 							//Not a recognized view
-							sourceDesc.add("Orphaned ["
-								+ src.getClass().getSimpleName() + "]");
+							sourceDesc.add("Orphaned [" + src.getClass().getSimpleName() + "]");
 						}
 						else if (facetToNode.get(srcView) == null)
 						{
 							//A View, but not part of this perspective
-							sourceDesc.add("Other Perspective ["
-								+ CorePerspectiveDB.getPerspectiveOfFacet(src)
-								+ ": " + srcView.getDescription() + "]");
+							sourceDesc.add("Other Perspective [" + CorePerspectiveDB.getPerspectiveOfFacet(src) + ": "
+								+ srcView.getDescription() + "]");
 						}
 					}
 				}
 				//Insert the contents of the facet as children of this node
-				ObjectCoreViewNode<T> sourceNode =
-                        new ObjectCoreViewNode<>(pc, obj, sourceDesc);
+				ObjectCoreViewNode<T> sourceNode = new ObjectCoreViewNode<>(pc, obj, sourceDesc);
 				sourceNode.addGrantedByNode(node);
 				coreViewList.add(sourceNode);
 			}
@@ -177,8 +171,7 @@ class CoreUtils
 		else if (obj instanceof CDOMReference)
 		{
 			CDOMReference<?> ref = (CDOMReference<?>) obj;
-			return ref.getReferenceClass().getSimpleName() + " Primitive: "
-				+ ref.getLSTformat(false);
+			return ref.getReferenceClass().getSimpleName() + " Primitive: " + ref.getLSTformat(false);
 		}
 		else
 		{
@@ -197,8 +190,7 @@ class CoreUtils
 			}
 			StringBuilder sb = new StringBuilder();
 			sb.append("<html>");
-			sb.append(PrerequisiteUtilities.preReqHTMLStringsForList(pc, source,
-				source.getPrerequisiteList(), false));
+			sb.append(PrerequisiteUtilities.preReqHTMLStringsForList(pc, source, source.getPrerequisiteList(), false));
 			sb.append(AllowUtilities.getAllowInfo(pc, source));
 			sb.append("</html>");
 			return sb.toString();
@@ -218,7 +210,7 @@ class CoreUtils
 		{
 			this.object = object;
 		}
-		
+
 		@Override
 		public String getNodeType()
 		{
@@ -248,10 +240,10 @@ class CoreUtils
 		{
 			return getLoadID(object);
 		}
-		
+
 	}
 
-	private static class ObjectCoreViewNode<T> extends CoreViewNodeBase
+	private static final class ObjectCoreViewNode<T> extends CoreViewNodeBase
 	{
 
 		private final T object;
@@ -267,7 +259,7 @@ class CoreUtils
 			this.object = object;
 			this.sourceDesc = sourceDesc;
 		}
-		
+
 		@Override
 		public String getNodeType()
 		{

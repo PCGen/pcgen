@@ -35,8 +35,7 @@ import pcgen.core.spell.Spell;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
-public abstract class AbstractRestrictedSpellPrimitive implements
-		PrimitiveToken<Spell>, PrimitiveFilter<Spell>
+public abstract class AbstractRestrictedSpellPrimitive implements PrimitiveToken<Spell>, PrimitiveFilter<Spell>
 {
 	private static final Class<Spell> SPELL_CLASS = Spell.class;
 	private Restriction restriction;
@@ -67,8 +66,8 @@ public abstract class AbstractRestrictedSpellPrimitive implements
 				levelMax = FormulaFactory.getFormulaFor(tok.substring(9));
 				if (!levelMax.isValid())
 				{
-					Logging.errorPrint("LEVELMAX Formula in " + getTokenName()
-							+ " was not valid: " + levelMax.toString());
+					Logging
+						.errorPrint("LEVELMAX Formula in " + getTokenName() + " was not valid: " + levelMax.toString());
 					return null;
 				}
 			}
@@ -77,8 +76,8 @@ public abstract class AbstractRestrictedSpellPrimitive implements
 				levelMin = FormulaFactory.getFormulaFor(tok.substring(9));
 				if (!levelMin.isValid())
 				{
-					Logging.errorPrint("LEVELMIN Formula in " + getTokenName()
-							+ " was not valid: " + levelMin.toString());
+					Logging
+						.errorPrint("LEVELMIN Formula in " + getTokenName() + " was not valid: " + levelMin.toString());
 					return null;
 				}
 			}
@@ -92,8 +91,7 @@ public abstract class AbstractRestrictedSpellPrimitive implements
 			}
 			else
 			{
-				Logging.errorPrint("Unknown restriction: " + tok
-						+ " in CHOOSE:SPELLS");
+				Logging.errorPrint("Unknown restriction: " + tok + " in CHOOSE:SPELLS");
 				return null;
 			}
 		}
@@ -147,17 +145,9 @@ public abstract class AbstractRestrictedSpellPrimitive implements
 		{
 			int prime = 31;
 			int result = 1;
-			result =
-					prime
-						* result
-						+ ((knownRequired == null) ? 0 : knownRequired
-							.hashCode());
-			result =
-					prime * result
-						+ ((maxLevel == null) ? 0 : maxLevel.hashCode());
-			result =
-					prime * result
-						+ ((minLevel == null) ? 0 : minLevel.hashCode());
+			result = prime * result + ((knownRequired == null) ? 0 : knownRequired.hashCode());
+			result = prime * result + ((maxLevel == null) ? 0 : maxLevel.hashCode());
+			result = prime * result + ((minLevel == null) ? 0 : minLevel.hashCode());
 			return result;
 		}
 
@@ -230,20 +220,17 @@ public abstract class AbstractRestrictedSpellPrimitive implements
 
 	public abstract CharSequence getPrimitiveLST();
 
-	public boolean allow(PlayerCharacter pc, int level, String source,
-			Spell spell, CDOMList<Spell> optionalList)
+	public boolean allow(PlayerCharacter pc, int level, String source, Spell spell, CDOMList<Spell> optionalList)
 	{
 		if (restriction != null)
 		{
 			Formula maxLevel = restriction.maxLevel;
-			if (maxLevel != null
-					&& (level > maxLevel.resolve(pc, source).intValue()))
+			if (maxLevel != null && (level > maxLevel.resolve(pc, source).intValue()))
 			{
 				return false;
 			}
 			Formula minLevel = restriction.minLevel;
-			if (minLevel != null
-					&& (level < minLevel.resolve(pc, source).intValue()))
+			if (minLevel != null && (level < minLevel.resolve(pc, source).intValue()))
 			{
 				return false;
 			}
@@ -267,8 +254,7 @@ public abstract class AbstractRestrictedSpellPrimitive implements
 							continue;
 						}
 					}
-					List<CharacterSpell> csl = pc.getCharacterSpells(cl, spell,
-							defaultbook, -1);
+					List<CharacterSpell> csl = pc.getCharacterSpells(cl, spell, defaultbook, -1);
 					if (csl != null && !csl.isEmpty())
 					{
 						/*
@@ -287,8 +273,7 @@ public abstract class AbstractRestrictedSpellPrimitive implements
 		return true;
 	}
 
-	public boolean equalsRestrictedPrimitive(
-			AbstractRestrictedSpellPrimitive other)
+	public boolean equalsRestrictedPrimitive(AbstractRestrictedSpellPrimitive other)
 	{
 		if (other == this)
 		{
@@ -308,13 +293,11 @@ public abstract class AbstractRestrictedSpellPrimitive implements
 
 	public String getRestrictionLST()
 	{
-		return restriction == null ? ""
-				: ('[' + restriction.getLSTformat() + ']');
+		return restriction == null ? "" : ('[' + restriction.getLSTformat() + ']');
 	}
 
 	@Override
-	public <R> Collection<? extends R> getCollection(PlayerCharacter pc,
-			Converter<Spell, R> c)
+	public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<Spell, R> c)
 	{
 		return c.convert(allSpells, this);
 	}

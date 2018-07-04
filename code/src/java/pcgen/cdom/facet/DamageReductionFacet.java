@@ -39,16 +39,15 @@ import pcgen.cdom.facet.event.DataFacetChangeListener;
  * have been granted to a Player Character.
  * 
  */
-public class DamageReductionFacet extends
-		AbstractSourcedListFacet<CharID, DamageReduction> implements
-		DataFacetChangeListener<CharID, CDOMObject>
+public class DamageReductionFacet extends AbstractSourcedListFacet<CharID, DamageReduction>
+		implements DataFacetChangeListener<CharID, CDOMObject>
 {
 
 	private static final Pattern OR_PATTERN = Pattern.compile(" [oO][rR] ");
 	private static final Pattern AND_PATTERN = Pattern.compile(" [aA][nN][dD] ");
 
 	private PrerequisiteFacet prerequisiteFacet;
-	
+
 	private FormulaResolvingFacet formulaResolvingFacet;
 
 	private BonusCheckingFacet bonusCheckingFacet;
@@ -102,8 +101,7 @@ public class DamageReductionFacet extends
 		removeAll(dfce.getCharID(), dfce.getCDOMObject());
 	}
 
-	private CaseInsensitiveMap<Integer> getDRMap(CharID id,
-			Map<DamageReduction, Set<Object>> componentMap)
+	private CaseInsensitiveMap<Integer> getDRMap(CharID id, Map<DamageReduction, Set<Object>> componentMap)
 	{
 		CaseInsensitiveMap<Integer> andMap = new CaseInsensitiveMap<>();
 		if (componentMap == null || componentMap.isEmpty())
@@ -111,25 +109,20 @@ public class DamageReductionFacet extends
 			return andMap;
 		}
 		CaseInsensitiveMap<Integer> orMap = new CaseInsensitiveMap<>();
-		for (Map.Entry<DamageReduction, Set<Object>> me : componentMap
-				.entrySet())
+		for (Map.Entry<DamageReduction, Set<Object>> me : componentMap.entrySet())
 		{
 			DamageReduction dr = me.getKey();
 			for (Object source : me.getValue())
 			{
 				if (prerequisiteFacet.qualifies(id, dr, source))
 				{
-					String sourceString = (source instanceof CDOMObject) ? ((CDOMObject) source)
-							.getQualifiedKey()
-							: "";
-					int rawDrValue = formulaResolvingFacet.resolve(id,
-							dr.getReduction(), sourceString).intValue();
+					String sourceString = (source instanceof CDOMObject) ? ((CDOMObject) source).getQualifiedKey() : "";
+					int rawDrValue = formulaResolvingFacet.resolve(id, dr.getReduction(), sourceString).intValue();
 					String bypass = dr.getBypass();
 					if (OR_PATTERN.matcher(bypass).find())
 					{
 						Integer current = orMap.get(bypass);
-						if ((current == null)
-								|| (current.intValue() < rawDrValue))
+						if ((current == null) || (current.intValue() < rawDrValue))
 						{
 							orMap.put(dr.getBypass(), rawDrValue);
 						}
@@ -144,8 +137,7 @@ public class DamageReductionFacet extends
 						if (splits.length == 1)
 						{
 							Integer current = andMap.get(dr.getBypass());
-							if ((current == null)
-									|| (current.intValue() < rawDrValue))
+							if ((current == null) || (current.intValue() < rawDrValue))
 							{
 								andMap.put(dr.getBypass(), rawDrValue);
 							}
@@ -155,8 +147,7 @@ public class DamageReductionFacet extends
 							for (String split : splits)
 							{
 								Integer current = andMap.get(split);
-								if ((current == null)
-										|| (current.intValue() < rawDrValue))
+								if ((current == null) || (current.intValue() < rawDrValue))
 								{
 									andMap.put(split, rawDrValue);
 								}
@@ -218,8 +209,7 @@ public class DamageReductionFacet extends
 	 * 
 	 * TODO This really needs to be in the output layer, not in the facets
 	 */
-	public String getDRString(CharID id,
-			Map<DamageReduction, Set<Object>> cachedMap)
+	public String getDRString(CharID id, Map<DamageReduction, Set<Object>> cachedMap)
 	{
 		CaseInsensitiveMap<Integer> map = getDRMap(id, cachedMap);
 		TreeMapToList<Integer, String> hml = new TreeMapToList<>();
@@ -281,8 +271,7 @@ public class DamageReductionFacet extends
 	 */
 	public Integer getDR(CharID id, String key)
 	{
-		return getNonBonusDR(id, key)
-				+ (int) bonusCheckingFacet.getBonus(id, "DR", key);
+		return getNonBonusDR(id, key) + (int) bonusCheckingFacet.getBonus(id, "DR", key);
 	}
 
 	/**
@@ -302,7 +291,7 @@ public class DamageReductionFacet extends
 	private int getNonBonusDR(CharID id, String key)
 	{
 		Integer drValue = getDRMap(id, getCachedMap(id)).get(key);
-		return (drValue == null)? 0 : drValue;
+		return (drValue == null) ? 0 : drValue;
 	}
 
 	public void setPrerequisiteFacet(PrerequisiteFacet prerequisiteFacet)
@@ -319,7 +308,7 @@ public class DamageReductionFacet extends
 	{
 		this.bonusCheckingFacet = bonusCheckingFacet;
 	}
-	
+
 	public void setConsolidationFacet(CDOMObjectConsolidationFacet consolidationFacet)
 	{
 		this.consolidationFacet = consolidationFacet;

@@ -19,6 +19,9 @@ package pcgen.output.model;
 
 import java.util.Date;
 
+import freemarker.template.TemplateHashModel;
+import freemarker.template.TemplateModel;
+import freemarker.template.TemplateModelException;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.CharID;
@@ -28,9 +31,6 @@ import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.ObjectWrapperFacet;
 import pcgen.core.Campaign;
 import pcgen.output.base.SimpleWrapperLibrary;
-import freemarker.template.TemplateHashModel;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
 
 /**
  * An SourceModel is designed to process an interpolation and convert that into
@@ -40,8 +40,7 @@ import freemarker.template.TemplateModelException;
 public class SourceModel implements TemplateHashModel
 {
 
-	private static final ObjectWrapperFacet WRAPPER_FACET = FacetLibrary
-		.getFacet(ObjectWrapperFacet.class);
+	private static final ObjectWrapperFacet WRAPPER_FACET = FacetLibrary.getFacet(ObjectWrapperFacet.class);
 
 	/**
 	 * The underlying CharID used to get items from the underlying SourceModel
@@ -72,8 +71,7 @@ public class SourceModel implements TemplateHashModel
 	{
 		if (key.equals("custom"))
 		{
-			Boolean isCustom =
-					cdo.isType(Constants.TYPE_CUSTOM);
+			Boolean isCustom = cdo.isType(Constants.TYPE_CUSTOM);
 			return SimpleWrapperLibrary.wrap(isCustom);
 		}
 		else if (key.equals("long"))
@@ -115,17 +113,14 @@ public class SourceModel implements TemplateHashModel
 		else if (key.equals("pubname"))
 		{
 			Campaign campaign = cdo.get(ObjectKey.SOURCE_CAMPAIGN);
-			return WRAPPER_FACET.wrap(id,
-				campaign.getSafe(StringKey.PUB_NAME_LONG));
+			return WRAPPER_FACET.wrap(id, campaign.getSafe(StringKey.PUB_NAME_LONG));
 		}
 		else if (key.equals("pubnameweb"))
 		{
 			Campaign campaign = cdo.get(ObjectKey.SOURCE_CAMPAIGN);
-			return WRAPPER_FACET.wrap(id,
-				campaign.getSafe(StringKey.PUB_NAME_WEB));
+			return WRAPPER_FACET.wrap(id, campaign.getSafe(StringKey.PUB_NAME_WEB));
 		}
-		throw new TemplateModelException(
-			"source info does not have output of type " + key);
+		throw new TemplateModelException("source info does not have output of type " + key);
 	}
 
 	private String getSource(StringKey sourceWeb)

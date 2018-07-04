@@ -20,13 +20,11 @@ package pcgen.core;
 
 import pcgen.cdom.base.Ungranted;
 
-
 /**
  * {@code WeaponProf}.
  * 
  */
-public final class WeaponProf extends PObject implements Comparable<Object>,
-		Ungranted
+public final class WeaponProf extends PObject implements Comparable<Object>, Ungranted
 {
 	/**
 	 * Compares keyName only.
@@ -52,8 +50,7 @@ public final class WeaponProf extends PObject implements Comparable<Object>,
 	@Override
 	public boolean equals(final Object obj)
 	{
-		return obj instanceof WeaponProf
-				&& getKeyName().equalsIgnoreCase(((WeaponProf) obj).getKeyName());
+		return obj instanceof WeaponProf && getKeyName().equalsIgnoreCase(((WeaponProf) obj).getKeyName());
 	}
 
 	/**

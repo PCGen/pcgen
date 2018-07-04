@@ -392,7 +392,8 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Spell>
 			.constructCDOMObject(ClassSpellList.class, "Cleric");
 		secondaryContext.getReferenceContext()
 			.constructCDOMObject(ClassSpellList.class, "Priest");
-		assertFalse(parse("Sorcerer=5|Wizard=5|Cleric=4[PRESUBCLASS:1,Sarish]|Priest=4[PRESUBCLASS:1,Priest of Sarish]"));
+		assertFalse(
+			parse("Sorcerer=5|Wizard=5|Cleric=4[PRESUBCLASS:1,Sarish]|Priest=4[PRESUBCLASS:1,Priest of Sarish]"));
 	}
 
 	@Test

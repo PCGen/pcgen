@@ -37,8 +37,7 @@ public class DamagemultToken extends AbstractTokenWithSeparator<WieldCategory>
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-			WieldCategory wc, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, WieldCategory wc, String value)
 	{
 		StringTokenizer st = new StringTokenizer(value, Constants.COMMA);
 
@@ -54,14 +53,11 @@ public class DamagemultToken extends AbstractTokenWithSeparator<WieldCategory>
 			int equalLoc = set.indexOf('=');
 			if (equalLoc == -1)
 			{
-				return new ParseResult.Fail("No = in part of token, found: "
-						+ set + " in " + value);
+				return new ParseResult.Fail("No = in part of token, found: " + set + " in " + value);
 			}
 			if (equalLoc != set.lastIndexOf('='))
 			{
-				return new ParseResult.Fail(
-						"Too many = in part of token, found: " + set + " in "
-								+ value);
+				return new ParseResult.Fail("Too many = in part of token, found: " + set + " in " + value);
 			}
 			String hands = set.substring(0, equalLoc);
 			int numHands;
@@ -71,9 +67,8 @@ public class DamagemultToken extends AbstractTokenWithSeparator<WieldCategory>
 			}
 			catch (NumberFormatException ex)
 			{
-				return new ParseResult.Fail(getTokenName()
-						+ " expected an integer before '='.  Found: " + hands
-						+ " in " + value);
+				return new ParseResult.Fail(
+					getTokenName() + " expected an integer before '='.  Found: " + hands + " in " + value);
 			}
 			String multiplier = set.substring(equalLoc + 1);
 			float mult;
@@ -83,9 +78,8 @@ public class DamagemultToken extends AbstractTokenWithSeparator<WieldCategory>
 			}
 			catch (NumberFormatException ex)
 			{
-				return new ParseResult.Fail(getTokenName()
-						+ " expected an float after '='.  Found: " + hands
-						+ " in " + value);
+				return new ParseResult.Fail(
+					getTokenName() + " expected an float after '='.  Found: " + hands + " in " + value);
 			}
 			wc.addDamageMult(numHands, mult);
 		}

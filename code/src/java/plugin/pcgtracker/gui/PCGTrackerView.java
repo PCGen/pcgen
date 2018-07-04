@@ -15,7 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
- package plugin.pcgtracker.gui;
+package plugin.pcgtracker.gui;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -24,7 +24,6 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import pcgen.system.LanguageBundle;
-
 
 // TODO Add some gap to buttons. Use icons on buttons?
 public class PCGTrackerView extends JPanel

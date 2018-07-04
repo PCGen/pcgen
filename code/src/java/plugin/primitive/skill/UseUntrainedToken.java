@@ -32,15 +32,13 @@ import pcgen.rules.persistence.token.PrimitiveToken;
 /**
  * UseUntrainedToken is a Primitive that represents Whether a Skill can be used untrained.
  */
-public class UseUntrainedToken implements PrimitiveToken<Skill>,
-		PrimitiveFilter<Skill>
+public class UseUntrainedToken implements PrimitiveToken<Skill>, PrimitiveFilter<Skill>
 {
 	private static final Class<Skill> SKILL_CLASS = Skill.class;
 	private CDOMReference<Skill> allSkills;
 
 	@Override
-	public boolean initialize(LoadContext context, Class<Skill> cl,
-		String value, String args)
+	public boolean initialize(LoadContext context, Class<Skill> cl, String value, String args)
 	{
 		if (args != null)
 		{
@@ -50,8 +48,7 @@ public class UseUntrainedToken implements PrimitiveToken<Skill>,
 		{
 			return false;
 		}
-		allSkills =
-				context.getReferenceContext().getCDOMAllReference(SKILL_CLASS);
+		allSkills = context.getReferenceContext().getCDOMAllReference(SKILL_CLASS);
 		return true;
 	}
 
@@ -98,8 +95,7 @@ public class UseUntrainedToken implements PrimitiveToken<Skill>,
 	}
 
 	@Override
-	public <R> Collection<? extends R> getCollection(PlayerCharacter pc,
-		Converter<Skill, R> c)
+	public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<Skill, R> c)
 	{
 		return c.convert(allSkills, this);
 	}

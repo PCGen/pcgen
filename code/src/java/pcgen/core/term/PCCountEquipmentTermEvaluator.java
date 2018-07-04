@@ -20,38 +20,36 @@
 
 package pcgen.core.term;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
-import pcgen.core.PlayerCharacter;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentUtilities;
+import pcgen.core.PlayerCharacter;
 
-public class PCCountEquipmentTermEvaluator
-		extends BasePCTermEvaluator implements TermEvaluator
+public class PCCountEquipmentTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
 	final String[] types;
 	private final int merge;
 
-	public PCCountEquipmentTermEvaluator(
-			String expressionString, String[] types, int merge)
+	public PCCountEquipmentTermEvaluator(String expressionString, String[] types, int merge)
 	{
 		this.originalText = expressionString;
-		this.types        = types;
-		this.merge        = merge;
+		this.types = types;
+		this.merge = merge;
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc) {
+	public Float resolve(PlayerCharacter pc)
+	{
 
 		List<Equipment> aList = new ArrayList<>();
 		final List<Equipment> equipList = pc.getEquipmentListInOutputOrder(merge);
 
-		for ( Equipment eq : equipList )
+		for (Equipment eq : equipList)
 		{
 			aList.add(eq);
 		}
-		
 
 		// This is new, it's to deal with the fact that the code uses an array
 		// now instead of the deprecated StringTokeniser class.  We can have
@@ -62,12 +60,12 @@ public class PCCountEquipmentTermEvaluator
 		{
 			cur++;
 		}
-		
+
 		while (cur < types.length)
 		{
 			final String curTok = types[cur];
 			cur++;
-			
+
 			if ("NOT".equalsIgnoreCase(curTok))
 			{
 				aList = EquipmentUtilities.removeEqType(aList, types[cur]);
@@ -75,7 +73,7 @@ public class PCCountEquipmentTermEvaluator
 			}
 			else if ("ADD".equalsIgnoreCase(curTok))
 			{
-				aList = pc.addEqType(aList,  types[cur]);
+				aList = pc.addEqType(aList, types[cur]);
 				cur++;
 			}
 			else if ("IS".equalsIgnoreCase(curTok))
@@ -83,8 +81,7 @@ public class PCCountEquipmentTermEvaluator
 				aList = EquipmentUtilities.removeNotEqType(aList, types[cur]);
 				cur++;
 			}
-			else if ("EQUIPPED".equalsIgnoreCase(curTok) || 
-					 "NOTEQUIPPED".equalsIgnoreCase(curTok))
+			else if ("EQUIPPED".equalsIgnoreCase(curTok) || "NOTEQUIPPED".equalsIgnoreCase(curTok))
 			{
 				final boolean eFlag = "EQUIPPED".equalsIgnoreCase(curTok);
 

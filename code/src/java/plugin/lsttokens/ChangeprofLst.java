@@ -44,9 +44,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ComplexParseResult;
 import pcgen.rules.persistence.token.ParseResult;
 
-
-public class ChangeprofLst extends AbstractTokenWithSeparator<CDOMObject>
-		implements CDOMPrimaryToken<CDOMObject>
+public class ChangeprofLst extends AbstractTokenWithSeparator<CDOMObject> implements CDOMPrimaryToken<CDOMObject>
 {
 
 	private static final Class<WeaponProf> WEAPONPROF_CLASS = WeaponProf.class;
@@ -64,14 +62,12 @@ public class ChangeprofLst extends AbstractTokenWithSeparator<CDOMObject>
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		CDOMObject obj, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
 	{
 		if (obj instanceof Ungranted)
 		{
-			return new ParseResult.Fail("Cannot use " + getTokenName()
-				+ " on an Ungranted object type: "
-				+ obj.getClass().getSimpleName());
+			return new ParseResult.Fail(
+				"Cannot use " + getTokenName() + " on an Ungranted object type: " + obj.getClass().getSimpleName());
 		}
 		// value should be of the format:
 		// Name1,TYPE.type1,Name3=Prof1|Name4,Name5=Prof2
@@ -88,9 +84,8 @@ public class ChangeprofLst extends AbstractTokenWithSeparator<CDOMObject>
 			if (equalLoc < 0)
 			{
 				ComplexParseResult cpr = new ComplexParseResult();
-				cpr.addErrorMessage("Improper " + getTokenName()
-					+ ": No = found. "
-					+ "Expect format to be <Prof>,<Prof>=<Prof Type>");
+				cpr.addErrorMessage(
+					"Improper " + getTokenName() + ": No = found. " + "Expect format to be <Prof>,<Prof>=<Prof Type>");
 				cpr.addErrorMessage("  Token was: " + tokText);
 				cpr.addErrorMessage("  Tag was: " + value);
 				return cpr;
@@ -98,8 +93,7 @@ public class ChangeprofLst extends AbstractTokenWithSeparator<CDOMObject>
 			else if (equalLoc != tokText.lastIndexOf('='))
 			{
 				ComplexParseResult cpr = new ComplexParseResult();
-				cpr.addErrorMessage("Improper " + getTokenName()
-					+ ": Two = found.  "
+				cpr.addErrorMessage("Improper " + getTokenName() + ": Two = found.  "
 					+ "Expect format to be <Prof>,<Prof>=<Prof Type>");
 				cpr.addErrorMessage("  Token was: " + tokText);
 				cpr.addErrorMessage("  Tag was: " + value);
@@ -110,8 +104,7 @@ public class ChangeprofLst extends AbstractTokenWithSeparator<CDOMObject>
 			if (newType.isEmpty())
 			{
 				ComplexParseResult cpr = new ComplexParseResult();
-				cpr.addErrorMessage("Improper " + getTokenName()
-					+ ": Empty Result Type.  "
+				cpr.addErrorMessage("Improper " + getTokenName() + ": Empty Result Type.  "
 					+ "Expect format to be <Prof>,<Prof>=<Prof Type>");
 				cpr.addErrorMessage("  Token was: " + tokText);
 				cpr.addErrorMessage("  Tag was: " + value);
@@ -120,9 +113,8 @@ public class ChangeprofLst extends AbstractTokenWithSeparator<CDOMObject>
 			if (newType.indexOf(Constants.DOT) != -1)
 			{
 				ComplexParseResult cpr = new ComplexParseResult();
-				cpr.addErrorMessage("Improper "
-						+ getTokenName()
-						+ ": Invalid (Compound) Result Type: cannot contain a period (.)  "
+				cpr.addErrorMessage(
+					"Improper " + getTokenName() + ": Invalid (Compound) Result Type: cannot contain a period (.)  "
 						+ "Expect format to be <Prof>,<Prof>=<Prof Type>");
 				cpr.addErrorMessage("  Token was: " + tokText);
 				cpr.addErrorMessage("  Tag was: " + value);
@@ -137,8 +129,7 @@ public class ChangeprofLst extends AbstractTokenWithSeparator<CDOMObject>
 			if (profs.isEmpty())
 			{
 				ComplexParseResult cpr = new ComplexParseResult();
-				cpr.addErrorMessage("Improper " + getTokenName()
-					+ ": Empty Source Prof.  "
+				cpr.addErrorMessage("Improper " + getTokenName() + ": Empty Source Prof.  "
 					+ "Expect format to be <Prof>,<Prof>=<Prof Type>");
 				cpr.addErrorMessage("  Token was: " + tokText);
 				cpr.addErrorMessage("  Tag was: " + value);
@@ -149,8 +140,7 @@ public class ChangeprofLst extends AbstractTokenWithSeparator<CDOMObject>
 			while (pTok.hasMoreTokens())
 			{
 				CDOMReference<WeaponProf> wp =
-						TokenUtilities.getTypeOrPrimitive(context,
-							WEAPONPROF_CLASS, pTok.nextToken());
+						TokenUtilities.getTypeOrPrimitive(context, WEAPONPROF_CLASS, pTok.nextToken());
 				list.add(new ChangeProf(wp, newTypeProf));
 			}
 		}
@@ -164,16 +154,14 @@ public class ChangeprofLst extends AbstractTokenWithSeparator<CDOMObject>
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
-		Changes<ChangeProf> changes =
-				context.getObjectContext().getListChanges(obj, ListKey.CHANGEPROF);
+		Changes<ChangeProf> changes = context.getObjectContext().getListChanges(obj, ListKey.CHANGEPROF);
 		Collection<ChangeProf> added = changes.getAdded();
 		if (added == null || added.isEmpty())
 		{
 			// Zero indicates no Token
 			return null;
 		}
-		HashMapToList<CDOMGroupRef<WeaponProf>, CDOMReference<WeaponProf>> m =
-				new HashMapToList<>();
+		HashMapToList<CDOMGroupRef<WeaponProf>, CDOMReference<WeaponProf>> m = new HashMapToList<>();
 		for (ChangeProf cp : added)
 		{
 			CDOMReference<WeaponProf> source = cp.getSource();
@@ -181,9 +169,7 @@ public class ChangeprofLst extends AbstractTokenWithSeparator<CDOMObject>
 			m.addToListFor(result, source);
 		}
 
-		SortedSet<CDOMReference<WeaponProf>> set =
-				new TreeSet<>(
-						ReferenceUtilities.REFERENCE_SORTER);
+		SortedSet<CDOMReference<WeaponProf>> set = new TreeSet<>(ReferenceUtilities.REFERENCE_SORTER);
 		Set<String> returnSet = new TreeSet<>();
 		for (CDOMGroupRef<WeaponProf> result : m.getKeySet())
 		{

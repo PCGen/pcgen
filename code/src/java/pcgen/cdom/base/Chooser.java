@@ -107,6 +107,5 @@ public interface Chooser<T> extends Persistent<T>
 	 *            The PlayerCharacter for which the currently selected items are
 	 *            being returned.
 	 */
-	public List<? extends T> getCurrentlySelected(ChooseDriver owner,
-		PlayerCharacter pc);
+	public List<? extends T> getCurrentlySelected(ChooseDriver owner, PlayerCharacter pc);
 }

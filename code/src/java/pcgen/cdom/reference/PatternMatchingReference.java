@@ -37,8 +37,7 @@ import pcgen.cdom.enumeration.GroupingState;
  * @param <T>
  *            The class of object underlying this PatternMatchingReference.
  */
-public class PatternMatchingReference<T extends Loadable> extends
-		CDOMReference<T>
+public class PatternMatchingReference<T extends Loadable> extends CDOMReference<T>
 {
 
 	/**
@@ -80,17 +79,14 @@ public class PatternMatchingReference<T extends Loadable> extends
 		super(patternText);
 		if (startingGroup == null)
 		{
-			throw new IllegalArgumentException(
-					"Starting Group cannot be null in PatternMatchingReference");
+			throw new IllegalArgumentException("Starting Group cannot be null in PatternMatchingReference");
 		}
 		all = startingGroup;
 		String lstPattern = Constants.PERCENT;
 		int patternchar = patternText.length() - lstPattern.length();
 		if (patternText.indexOf(lstPattern) != patternchar)
 		{
-			throw new IllegalArgumentException(
-					"Pattern for PatternMatchingReference must end with "
-							+ lstPattern);
+			throw new IllegalArgumentException("Pattern for PatternMatchingReference must end with " + lstPattern);
 		}
 		pattern = patternText.substring(0, patternchar);
 	}
@@ -109,8 +105,7 @@ public class PatternMatchingReference<T extends Loadable> extends
 	@Override
 	public void addResolution(T item)
 	{
-		throw new IllegalStateException(
-				"Cannot add resolution to PatternMatchingReference");
+		throw new IllegalStateException("Cannot add resolution to PatternMatchingReference");
 	}
 
 	/**
@@ -220,8 +215,8 @@ public class PatternMatchingReference<T extends Loadable> extends
 		if (obj instanceof PatternMatchingReference)
 		{
 			PatternMatchingReference<?> other = (PatternMatchingReference<?>) obj;
-			return getReferenceClass().equals(other.getReferenceClass())
-					&& all.equals(other.all) && pattern.equals(other.pattern);
+			return getReferenceClass().equals(other.getReferenceClass()) && all.equals(other.all)
+				&& pattern.equals(other.pattern);
 		}
 		return false;
 	}

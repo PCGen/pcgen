@@ -35,15 +35,13 @@ import pcgen.core.WeaponProf;
  * granted to a Player Character.
  * 
  */
-public class AutoWeaponProfFacet extends
-		AbstractQualifiedListFacet<WeaponProfProvider> implements
-		DataFacetChangeListener<CharID, CDOMObject>
+public class AutoWeaponProfFacet extends AbstractQualifiedListFacet<WeaponProfProvider>
+		implements DataFacetChangeListener<CharID, CDOMObject>
 {
 
 	private CDOMObjectConsolidationFacet consolidationFacet;
 
-	private PrerequisiteFacet prereqFacet = FacetLibrary
-			.getFacet(PrerequisiteFacet.class);
+	private PrerequisiteFacet prereqFacet = FacetLibrary.getFacet(PrerequisiteFacet.class);
 
 	/**
 	 * Processes an added CDOMObject to extract WeaponProf objects which are
@@ -146,7 +144,7 @@ public class AutoWeaponProfFacet extends
 		}
 		return false;
 	}
-	
+
 	public void setConsolidationFacet(CDOMObjectConsolidationFacet consolidationFacet)
 	{
 		this.consolidationFacet = consolidationFacet;

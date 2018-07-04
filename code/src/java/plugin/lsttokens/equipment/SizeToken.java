@@ -29,8 +29,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Deals with SIZE token 
  */
-public class SizeToken extends AbstractNonEmptyToken<Equipment> implements
-		CDOMPrimaryToken<Equipment>
+public class SizeToken extends AbstractNonEmptyToken<Equipment> implements CDOMPrimaryToken<Equipment>
 {
 
 	@Override
@@ -43,8 +42,7 @@ public class SizeToken extends AbstractNonEmptyToken<Equipment> implements
 	public ParseResult parseNonEmptyToken(LoadContext context, Equipment eq, String value)
 	{
 		CDOMSingleRef<SizeAdjustment> size =
-				context.getReferenceContext().getCDOMReference(
-					SizeAdjustment.class, value);
+				context.getReferenceContext().getCDOMReference(SizeAdjustment.class, value);
 		context.getObjectContext().put(eq, ObjectKey.BASESIZE, size);
 		context.getObjectContext().put(eq, ObjectKey.SIZE, size);
 		return ParseResult.SUCCESS;
@@ -53,8 +51,7 @@ public class SizeToken extends AbstractNonEmptyToken<Equipment> implements
 	@Override
 	public String[] unparse(LoadContext context, Equipment eq)
 	{
-		CDOMSingleRef<SizeAdjustment> res = context.getObjectContext().getObject(eq,
-				ObjectKey.BASESIZE);
+		CDOMSingleRef<SizeAdjustment> res = context.getObjectContext().getObject(eq, ObjectKey.BASESIZE);
 		if (res == null)
 		{
 			return null;

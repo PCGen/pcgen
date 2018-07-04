@@ -28,8 +28,7 @@ import pcgen.core.PCClass;
  * Player Character
  * 
  */
-public class DefaultClassSkillListFacet extends
-		AbstractScopeFacet<CharID, PCClass, ClassSkillList>
+public class DefaultClassSkillListFacet extends AbstractScopeFacet<CharID, PCClass, ClassSkillList>
 {
 	private SkillListFacet skillListFacet;
 

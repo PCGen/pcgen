@@ -43,8 +43,7 @@ import pcgen.core.PlayerCharacter;
  * In particular, AbilityFromClassChoiceSet is designed to handle
  * REMOVE:FEAT|Class.???
  */
-public class AbilityFromClassChoiceSet implements
-		PrimitiveChoiceSet<CNAbilitySelection>
+public class AbilityFromClassChoiceSet implements PrimitiveChoiceSet<CNAbilitySelection>
 {
 
 	/**
@@ -153,8 +152,8 @@ public class AbilityFromClassChoiceSet implements
 			{
 				for (Ability aFeat : abilityList)
 				{
-					set.add(new CNAbilitySelection(CNAbilityFactory.getCNAbility(
-						AbilityCategory.FEAT, Nature.VIRTUAL, aFeat)));
+					set.add(new CNAbilitySelection(
+						CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.VIRTUAL, aFeat)));
 				}
 			}
 			for (int lvl = 0; lvl < pc.getLevel(aClass); lvl++)
@@ -166,8 +165,8 @@ public class AbilityFromClassChoiceSet implements
 				{
 					for (Ability aFeat : abilityList)
 					{
-						set.add(new CNAbilitySelection(CNAbilityFactory.getCNAbility(
-							AbilityCategory.FEAT, Nature.VIRTUAL, aFeat)));
+						set.add(new CNAbilitySelection(
+							CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.VIRTUAL, aFeat)));
 					}
 				}
 			}

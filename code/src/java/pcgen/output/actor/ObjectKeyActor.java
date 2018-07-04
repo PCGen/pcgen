@@ -17,6 +17,8 @@
  */
 package pcgen.output.actor;
 
+import freemarker.template.TemplateModel;
+import freemarker.template.TemplateModelException;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.CharID;
@@ -24,8 +26,6 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.ObjectWrapperFacet;
 import pcgen.output.base.OutputActor;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
 
 /**
  * A ObjectKeyActor is designed to process an interpolation and convert that
@@ -41,8 +41,7 @@ import freemarker.template.TemplateModelException;
  */
 public class ObjectKeyActor<T> implements OutputActor<CDOMObject>
 {
-	private static final ObjectWrapperFacet WRAPPER_FACET = FacetLibrary
-		.getFacet(ObjectWrapperFacet.class);
+	private static final ObjectWrapperFacet WRAPPER_FACET = FacetLibrary.getFacet(ObjectWrapperFacet.class);
 
 	/**
 	 * The ObjectKey underlying this ObjectKeyActor (for which the contents will
@@ -62,8 +61,7 @@ public class ObjectKeyActor<T> implements OutputActor<CDOMObject>
 	}
 
 	@Override
-	public TemplateModel process(CharID id, CDOMObject d)
-		throws TemplateModelException
+	public TemplateModel process(CharID id, CDOMObject d) throws TemplateModelException
 	{
 		Object object = d.get(ok);
 		if (object == null)

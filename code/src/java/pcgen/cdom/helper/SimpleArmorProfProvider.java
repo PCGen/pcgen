@@ -24,8 +24,7 @@ import pcgen.core.Equipment;
  * A SimpleArmorProfProvider is an object that provides proficiency based on a
  * single ArmorProf
  */
-public class SimpleArmorProfProvider extends
-		AbstractSimpleProfProvider<ArmorProf>
+public class SimpleArmorProfProvider extends AbstractSimpleProfProvider<ArmorProf>
 {
 
 	/**
@@ -61,11 +60,10 @@ public class SimpleArmorProfProvider extends
 	{
 		return getLstFormat().hashCode();
 	}
-	
+
 	@Override
 	public boolean equals(Object o)
 	{
-		return (o == this)
-			|| ((o instanceof SimpleArmorProfProvider) && hasSameProf((SimpleArmorProfProvider) o));
+		return (o == this) || ((o instanceof SimpleArmorProfProvider) && hasSameProf((SimpleArmorProfProvider) o));
 	}
 }

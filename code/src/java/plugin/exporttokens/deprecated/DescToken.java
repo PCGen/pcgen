@@ -18,12 +18,12 @@
  */
 package plugin.exporttokens.deprecated;
 
+import java.util.StringTokenizer;
+
 import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbstractExportToken;
-
-import java.util.StringTokenizer;
 
 /**
  * Deals with tokens:
@@ -43,11 +43,10 @@ public class DescToken extends AbstractExportToken
 	}
 
 	/**
-	 * @see pcgen.io.exporttoken.AbstractExportToken#getToken(java.lang.String, pcgen.core.display.CharacterDisplay, pcgen.io.ExportHandler)
+	 * @see AbstractExportToken#getToken(String, CharacterDisplay, ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, CharacterDisplay display,
-		ExportHandler eh)
+	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
 	{
 		StringTokenizer tok = new StringTokenizer(tokenSource, ",", false);
 		tok.nextToken();

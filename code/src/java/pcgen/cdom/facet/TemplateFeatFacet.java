@@ -35,14 +35,13 @@ import pcgen.core.PlayerCharacter;
  * on Templates that have been added to a Player Character.
  * 
  */
-public class TemplateFeatFacet extends
-		AbstractSourcedListFacet<CharID, CNAbilitySelection> implements
-		DataFacetChangeListener<CharID, PCTemplate>
+public class TemplateFeatFacet extends AbstractSourcedListFacet<CharID, CNAbilitySelection>
+		implements DataFacetChangeListener<CharID, PCTemplate>
 {
 	private TemplateFacet templateFacet;
 
-	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
-		.getFacet(PlayerCharacterTrackingFacet.class);
+	private final PlayerCharacterTrackingFacet trackingFacet =
+			FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
 
 	/**
 	 * Adds all of the feats to the Player Character triggered by the FEAT token'
@@ -65,13 +64,11 @@ public class TemplateFeatFacet extends
 		PCTemplate source = dfce.getCDOMObject();
 		if (!containsFrom(id, source))
 		{
-			PersistentTransitionChoice<CNAbilitySelection> choice =
-					source.get(ObjectKey.TEMPLATE_FEAT);
+			PersistentTransitionChoice<CNAbilitySelection> choice = source.get(ObjectKey.TEMPLATE_FEAT);
 			if (choice != null)
 			{
 				PlayerCharacter pc = trackingFacet.getPC(id);
-				Collection<? extends CNAbilitySelection> result =
-						choice.driveChoice(pc);
+				Collection<? extends CNAbilitySelection> result = choice.driveChoice(pc);
 				choice.act(result, source, pc);
 				for (CNAbilitySelection cas : result)
 				{
@@ -99,8 +96,7 @@ public class TemplateFeatFacet extends
 	{
 		CharID id = dfce.getCharID();
 		PCTemplate source = dfce.getCDOMObject();
-		PersistentTransitionChoice<CNAbilitySelection> choice =
-				source.get(ObjectKey.TEMPLATE_FEAT);
+		PersistentTransitionChoice<CNAbilitySelection> choice = source.get(ObjectKey.TEMPLATE_FEAT);
 		if (choice != null)
 		{
 			PlayerCharacter pc = trackingFacet.getPC(id);

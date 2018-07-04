@@ -73,8 +73,8 @@ public interface ManufacturableFactory<T extends Loadable> extends SelectionCrea
 	 *            given object is permitted to be unconstructed
 	 * @return true if the given CDOMSingleRef was successfully resolved; false otherwise
 	 */
-	public boolean resolve(ReferenceManufacturer<T> rm, String name,
-			CDOMSingleRef<T> reference, UnconstructedValidator validator);
+	public boolean resolve(ReferenceManufacturer<T> rm, String name, CDOMSingleRef<T> reference,
+		UnconstructedValidator validator);
 
 	/**
 	 * Populates the given ReferenceManufacturer with information from the parent
@@ -92,8 +92,8 @@ public interface ManufacturableFactory<T extends Loadable> extends SelectionCrea
 	 * @return true if this ManufactorableFactory was successfully populated; false
 	 *         otherwise
 	 */
-	public boolean populate(ReferenceManufacturer<T> parent,
-			ReferenceManufacturer<T> rm, UnconstructedValidator validator);
+	public boolean populate(ReferenceManufacturer<T> parent, ReferenceManufacturer<T> rm,
+		UnconstructedValidator validator);
 
 	/**
 	 * Returns the parent ManufacturableFactory of this ManufacturableFactory (for
@@ -118,7 +118,6 @@ public interface ManufacturableFactory<T extends Loadable> extends SelectionCrea
 	 */
 	public String getPersistentFormat();
 
-	
 	/**
 	 * Returns the ClassIdentity for this ManufacturableFactory. This is more specific
 	 * than the ReferenceClass, since this ClassIdentity will also contain information

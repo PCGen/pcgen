@@ -11,13 +11,13 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class SpellbasedcToken implements GameModeLstToken
 {
 
-    @Override
+	@Override
 	public String getTokenName()
 	{
 		return "SPELLBASEDC";
 	}
 
-    @Override
+	@Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		gameMode.setSpellBaseDC(value);

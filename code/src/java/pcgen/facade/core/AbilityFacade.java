@@ -20,16 +20,15 @@ package pcgen.facade.core;
 
 import java.util.List;
 
-
 public interface AbilityFacade extends InfoFacade
 {
 
-    public List<String> getTypes();
+	public List<String> getTypes();
 
-    public boolean isMult();
+	public boolean isMult();
 
-    public boolean isStackable();
-    
-    public double getCost();
+	public boolean isStackable();
+
+	public double getCost();
 
 }

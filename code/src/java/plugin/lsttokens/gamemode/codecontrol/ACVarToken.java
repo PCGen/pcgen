@@ -25,8 +25,7 @@ import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class ACVarToken extends AbstractNonEmptyToken<CodeControl> implements
-		CDOMToken<CodeControl>
+public class ACVarToken extends AbstractNonEmptyToken<CodeControl> implements CDOMToken<CodeControl>
 {
 	@Override
 	public String getTokenName()
@@ -35,20 +34,16 @@ public class ACVarToken extends AbstractNonEmptyToken<CodeControl> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		CodeControl cdo, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, CodeControl cdo, String value)
 	{
 		int pipeLoc = value.indexOf(Constants.PIPE);
 		if (pipeLoc == -1)
 		{
-			return new ParseResult.Fail(
-				getTokenName() + " requires a SubToken");
+			return new ParseResult.Fail(getTokenName() + " requires a SubToken");
 		}
 		String acType = value.substring(0, pipeLoc);
 		String varName = value.substring(pipeLoc + 1);
-		context.getObjectContext().put(cdo,
-			ObjectKey.getKeyFor(String.class, '*' + getTokenName() + acType),
-			varName);
+		context.getObjectContext().put(cdo, ObjectKey.getKeyFor(String.class, '*' + getTokenName() + acType), varName);
 		return ParseResult.SUCCESS;
 	}
 

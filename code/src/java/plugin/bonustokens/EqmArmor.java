@@ -28,8 +28,7 @@ import pcgen.util.Logging;
  */
 public final class EqmArmor extends MultiTagBonusObj
 {
-	private static final String[] BONUS_TAGS =
-			{"AC", "ACCHECK", "DEFBONUS", "EDR", "MAXDEX", "SPELLFAILURE"};
+	private static final String[] BONUS_TAGS = {"AC", "ACCHECK", "DEFBONUS", "EDR", "MAXDEX", "SPELLFAILURE"};
 
 	/**
 	 * Return the bonus tag handled by this class.
@@ -70,9 +69,7 @@ public final class EqmArmor extends MultiTagBonusObj
 		{
 			if ("EDR".equals(token))
 			{
-				Logging.errorPrint(
-					"BONUS:EQMARMOR|EDR is disabled when EDR control is used: "
-						+ token, context);
+				Logging.errorPrint("BONUS:EQMARMOR|EDR is disabled when EDR control is used: " + token, context);
 				return false;
 			}
 		}
@@ -80,8 +77,9 @@ public final class EqmArmor extends MultiTagBonusObj
 		{
 			if ("SPELLFAILURE".equals(token))
 			{
-				Logging.errorPrint("BONUS:EQMARMOR|SPELLFAILURE is disabled "
-					+ "when EQSPELLFAILURE control is used: " + token, context);
+				Logging.errorPrint(
+					"BONUS:EQMARMOR|SPELLFAILURE is disabled " + "when EQSPELLFAILURE control is used: " + token,
+					context);
 				return false;
 			}
 		}
@@ -89,8 +87,8 @@ public final class EqmArmor extends MultiTagBonusObj
 		{
 			if ("MAXDEX".equals(token))
 			{
-				Logging.errorPrint("BONUS:EQMARMOR|MAXDEX is disabled "
-					+ "when EQMAXDEX control is used: " + token, context);
+				Logging.errorPrint("BONUS:EQMARMOR|MAXDEX is disabled " + "when EQMAXDEX control is used: " + token,
+					context);
 				return false;
 			}
 		}
@@ -98,9 +96,8 @@ public final class EqmArmor extends MultiTagBonusObj
 		{
 			if ("AC".equals(token))
 			{
-				Logging.errorPrint(
-					"BONUS:EQMARMOR|AC is deprecated when ACVARTOTAL control is used: "
-						+ token, context);
+				Logging.errorPrint("BONUS:EQMARMOR|AC is deprecated when ACVARTOTAL control is used: " + token,
+					context);
 				return false;
 			}
 		}
@@ -108,8 +105,8 @@ public final class EqmArmor extends MultiTagBonusObj
 		{
 			if ("ACCHECK".equals(token))
 			{
-				Logging.errorPrint("BONUS:EQMARMOR|ACCHECK is disabled "
-					+ "when EQACCHECK control is used: " + token, context);
+				Logging.errorPrint("BONUS:EQMARMOR|ACCHECK is disabled " + "when EQACCHECK control is used: " + token,
+					context);
 				return false;
 			}
 		}

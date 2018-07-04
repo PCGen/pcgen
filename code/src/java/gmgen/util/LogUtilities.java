@@ -84,7 +84,7 @@ public final class LogUtilities implements LogReceiver
 	 * @param  owner    The owning component of the message
 	 * @param  message  The message to send
 	 */
-    @Override
+	@Override
 	public void logMessage(String owner, String message)
 	{
 		if (logging)

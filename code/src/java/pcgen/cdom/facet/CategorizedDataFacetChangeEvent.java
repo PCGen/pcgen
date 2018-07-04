@@ -34,8 +34,7 @@ import pcgen.cdom.facet.event.DataFacetChangeEvent;
  * 
  */
 
-public class CategorizedDataFacetChangeEvent<IDT extends PCGenIdentifier, T>
-		extends DataFacetChangeEvent<IDT, T>
+public class CategorizedDataFacetChangeEvent<IDT extends PCGenIdentifier, T> extends DataFacetChangeEvent<IDT, T>
 {
 
 	private final Category category;
@@ -61,8 +60,7 @@ public class CategorizedDataFacetChangeEvent<IDT extends PCGenIdentifier, T>
 	 * @param nature
 	 *            The nature of the ability being manipulated.
 	 */
-	public CategorizedDataFacetChangeEvent(IDT id, T cdo, Object source,
-		int type, Category cat, Nature nature)
+	public CategorizedDataFacetChangeEvent(IDT id, T cdo, Object source, int type, Category cat, Nature nature)
 	{
 		super(id, cdo, source, type);
 		this.category = cat;

@@ -34,8 +34,7 @@ public class DatasetVariable extends UserContent
 	/**
 	 * A Pattern indicating a legal name for a variable
 	 */
-	private static final Pattern ISLEGAL = Pattern
-		.compile("\\A[A-Za-z]\\w*\\z");
+	private static final Pattern ISLEGAL = Pattern.compile("\\A[A-Za-z]\\w*\\z");
 
 	/**
 	 * The format of this variable.

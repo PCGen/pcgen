@@ -26,9 +26,7 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
 
-
-public class PreSpellCastTester extends AbstractDisplayPrereqTest implements
-		PrerequisiteTest
+public class PreSpellCastTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
 	@Override
@@ -47,8 +45,7 @@ public class PreSpellCastTester extends AbstractDisplayPrereqTest implements
 			}
 		}
 
-		runningTotal =
-				prereq.getOperator().compare(runningTotal, requiredNumber);
+		runningTotal = prereq.getOperator().compare(runningTotal, requiredNumber);
 		return countedTotal(prereq, runningTotal);
 	}
 
@@ -56,7 +53,7 @@ public class PreSpellCastTester extends AbstractDisplayPrereqTest implements
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "spellcast.type"; //$NON-NLS-1$
@@ -66,8 +63,7 @@ public class PreSpellCastTester extends AbstractDisplayPrereqTest implements
 	public String toHtmlString(final Prerequisite prereq)
 	{
 		final Object[] args =
-				new Object[]{prereq.getOperator().toDisplayString(),
-					prereq.getOperand(), prereq.getKey()};
+				new Object[]{prereq.getOperator().toDisplayString(), prereq.getOperand(), prereq.getKey()};
 		return LanguageBundle.getFormattedString("PreSpellCast.toHtml", args); //$NON-NLS-1$
 	}
 

@@ -19,15 +19,14 @@ package pcgen.rules.context;
 
 import pcgen.cdom.base.CDOMObject;
 
-
 public class EditorLoadContext extends LoadContextInst
 {
 	private final String contextType;
 
 	public EditorLoadContext()
 	{
-		super(EditorReferenceContext.createEditorReferenceContext(),
-			new EditorListContext(), new EditorObjectContext());
+		super(EditorReferenceContext.createEditorReferenceContext(), new EditorListContext(),
+			new EditorObjectContext());
 		contextType = "Editor";
 	}
 

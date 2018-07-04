@@ -68,9 +68,7 @@ public final class RangeMult extends MultiTagBonusObj
 	{
 		if (ControlUtilities.hasControlToken(context, CControl.EQRANGE))
 		{
-			Logging.errorPrint(
-				"BONUS:RANGEMULT is disabled when EQRANGE control is used: "
-					+ token, context);
+			Logging.errorPrint("BONUS:RANGEMULT is disabled when EQRANGE control is used: " + token, context);
 			return false;
 		}
 		return super.parseToken(context, token);

@@ -11,13 +11,13 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class WeapontypeToken implements GameModeLstToken
 {
 
-    @Override
+	@Override
 	public String getTokenName()
 	{
 		return "WEAPONTYPE";
 	}
 
-    @Override
+	@Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		gameMode.addWeaponType(value);

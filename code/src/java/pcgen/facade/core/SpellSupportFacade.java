@@ -21,7 +21,6 @@ package pcgen.facade.core;
 import pcgen.facade.util.DefaultReferenceFacade;
 import pcgen.facade.util.ListFacade;
 
-
 public interface SpellSupportFacade
 {
 
@@ -110,7 +109,7 @@ public interface SpellSupportFacade
 	 * @param autoSpells The new value for auto known spells.
 	 */
 	public void setAutoSpells(boolean autoSpells);
-	
+
 	/**
 	 * Determine whether higher level known spell slots can be used for lower
 	 * level spells, or if known spells are restricted to their own level only.
@@ -119,7 +118,6 @@ public interface SpellSupportFacade
 	 */
 	public boolean isUseHigherKnownSlots();
 
-	
 	/**
 	 * Set whether higher level known spell slots can be used for lower
 	 * level spells, or if known spells are restricted to their own level only.
@@ -144,9 +142,8 @@ public interface SpellSupportFacade
 	 */
 	public void setUseHigherPreppedSlots(boolean useHigher);
 
-	
 	// -------------------------- Interfaces ----------------------------------------
-	
+
 	public static interface SuperNode
 	{
 	}
@@ -181,12 +178,12 @@ public interface SpellSupportFacade
 		 * @return the root node string
 		 */
 		public RootNode getRootNode();
-		
+
 		/**
 		 * @return The number of occurrences of the spell that are held.
 		 */
 		public int getCount();
-		
+
 		/**
 		 * Adjust the number of occurrences held of the spell.
 		 * @param num The number of occurrences to add.

@@ -41,17 +41,13 @@ public final class MigrationUtils
 	 * @param objectType The type of object being migrated.
 	 * @return A list of migration rules.
 	 */
-	protected static List<MigrationRule> getChangeList(int[] pcgVer,
-	                                                   String gameModeName, ObjectType objectType)
+	protected static List<MigrationRule> getChangeList(int[] pcgVer, String gameModeName, ObjectType objectType)
 	{
 		List<MigrationRule> sourceChangeList = new ArrayList<>();
-		List<MigrationRule> migrationRuleList =
-				SystemCollections
-					.getUnmodifiableMigrationRuleList(gameModeName);
+		List<MigrationRule> migrationRuleList = SystemCollections.getUnmodifiableMigrationRuleList(gameModeName);
 		for (MigrationRule migrationRule : migrationRuleList)
 		{
-			if (migrationRule.getObjectType() == objectType
-				&& migrationRule.changeAppliesToVer(pcgVer))
+			if (migrationRule.getObjectType() == objectType && migrationRule.changeAppliesToVer(pcgVer))
 			{
 				sourceChangeList.add(migrationRule);
 			}

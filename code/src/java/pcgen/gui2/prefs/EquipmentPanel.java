@@ -48,32 +48,32 @@ import pcgen.system.PCGenSettings;
 public class EquipmentPanel extends PCGenPrefsPanel
 {
 	private static final String in_equipment =
-		LanguageBundle.getString("in_Prefs_equipment"); //$NON-NLS-1$
+			LanguageBundle.getString("in_Prefs_equipment"); //$NON-NLS-1$
 
 	// Used to create the entries for the max spell level combos
 	private static final int SPELLLVLMIN = 0;
 	private static final int SPELLLVLMAX = 9;
 
 	private static final String in_allowMetamagic =
-		LanguageBundle.getString("in_Prefs_allowMetamagic"); //$NON-NLS-1$
+			LanguageBundle.getString("in_Prefs_allowMetamagic"); //$NON-NLS-1$
 	private static final String in_anyAutoEquip =
-		LanguageBundle.getString("in_Prefs_anyAutoEquip"); //$NON-NLS-1$
+			LanguageBundle.getString("in_Prefs_anyAutoEquip"); //$NON-NLS-1$
 	private static final String in_autoEquip =
-		LanguageBundle.getString("in_Prefs_autoEquip"); //$NON-NLS-1$
+			LanguageBundle.getString("in_Prefs_autoEquip"); //$NON-NLS-1$
 	private static final String in_autoEquipRace =
-		LanguageBundle.getString("in_Prefs_autoEquipRace"); //$NON-NLS-1$
+			LanguageBundle.getString("in_Prefs_autoEquipRace"); //$NON-NLS-1$
 	private static final String in_autoEquipMasterwork =
-		LanguageBundle.getString("in_Prefs_autoEquipMasterwork"); //$NON-NLS-1$
+			LanguageBundle.getString("in_Prefs_autoEquipMasterwork"); //$NON-NLS-1$
 	private static final String in_autoEquipMagic =
-		LanguageBundle.getString("in_Prefs_autoEquipMagic"); //$NON-NLS-1$
+			LanguageBundle.getString("in_Prefs_autoEquipMagic"); //$NON-NLS-1$
 	private static final String in_autoEquipExotic =
-		LanguageBundle.getString("in_Prefs_autoEquipExotic"); //$NON-NLS-1$
+			LanguageBundle.getString("in_Prefs_autoEquipExotic"); //$NON-NLS-1$
 	private static final String in_noAutoEquip =
-		LanguageBundle.getString("in_Prefs_noAutoEquip"); //$NON-NLS-1$
+			LanguageBundle.getString("in_Prefs_noAutoEquip"); //$NON-NLS-1$
 	private static final String in_potionMax =
-		LanguageBundle.getString("in_Prefs_potionMax"); //$NON-NLS-1$
+			LanguageBundle.getString("in_Prefs_potionMax"); //$NON-NLS-1$
 	private static final String in_wandMax =
-		LanguageBundle.getString("in_Prefs_wandMax"); //$NON-NLS-1$
+			LanguageBundle.getString("in_Prefs_wandMax"); //$NON-NLS-1$
 
 	private final JCheckBox allowMetamagicInEqBuilder = new JCheckBox();
 	private final JCheckBox autoMethod1 = new JCheckBox();
@@ -87,7 +87,6 @@ public class EquipmentPanel extends PCGenPrefsPanel
 	private final JRadioButton autoEquipCreate;
 	private final JRadioButton noAutoEquipCreate;
 
-	
 	/**
 	 * Instantiates a new equipment panel.
 	 */
@@ -98,8 +97,7 @@ public class EquipmentPanel extends PCGenPrefsPanel
 		JLabel label;
 		ButtonGroup exclusiveGroup;
 		Border etched = null;
-		TitledBorder title1 =
-				BorderFactory.createTitledBorder(etched, in_equipment);
+		TitledBorder title1 = BorderFactory.createTitledBorder(etched, in_equipment);
 
 		title1.setTitleJustification(TitledBorder.LEFT);
 		this.setBorder(title1);
@@ -123,7 +121,7 @@ public class EquipmentPanel extends PCGenPrefsPanel
 		potionModel = new SpinnerNumberModel(SPELLLVLMIN, SPELLLVLMIN, SPELLLVLMAX, 1);
 
 		potionMaxLevel.setModel(potionModel);
-		
+
 		gridbag.setConstraints(potionMaxLevel, c);
 		this.add(potionMaxLevel);
 
@@ -195,33 +193,24 @@ public class EquipmentPanel extends PCGenPrefsPanel
 	{
 		return in_equipment;
 	}
-	
+
 	/**
 	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#setOptionsBasedOnControls()
 	 */
 	@Override
 	public void setOptionsBasedOnControls()
 	{
-		SettingsHandler
-			.setMetamagicAllowedInEqBuilder(allowMetamagicInEqBuilder
-				.isSelected());
-		SettingsHandler.setMaxPotionSpellLevel(potionModel.getNumber()
-			.intValue());
+		SettingsHandler.setMetamagicAllowedInEqBuilder(allowMetamagicInEqBuilder.isSelected());
+		SettingsHandler.setMaxPotionSpellLevel(potionModel.getNumber().intValue());
 		SettingsHandler.setMaxWandSpellLevel(wandModel.getNumber().intValue());
 		SettingsHandler.setWantToLoadMasterworkAndMagic(false); // Turn it off temporarily so we can set the values
-		SettingsHandler.setAutogen(Constants.AUTOGEN_RACIAL,
-			autoMethod1.isSelected());
-		SettingsHandler.setAutogen(Constants.AUTOGEN_MASTERWORK,
-			autoMethod2.isSelected());
-		SettingsHandler.setAutogen(Constants.AUTOGEN_MAGIC,
-			autoMethod3.isSelected());
-		SettingsHandler.setAutogen(Constants.AUTOGEN_EXOTIC_MATERIAL,
-			autoMethod4.isSelected());
+		SettingsHandler.setAutogen(Constants.AUTOGEN_RACIAL, autoMethod1.isSelected());
+		SettingsHandler.setAutogen(Constants.AUTOGEN_MASTERWORK, autoMethod2.isSelected());
+		SettingsHandler.setAutogen(Constants.AUTOGEN_MAGIC, autoMethod3.isSelected());
+		SettingsHandler.setAutogen(Constants.AUTOGEN_EXOTIC_MATERIAL, autoMethod4.isSelected());
 
-		SettingsHandler.setWantToLoadMasterworkAndMagic(noAutoEquipCreate
-			.isSelected()); // Now set it properly
-		PCGenSettings.OPTIONS_CONTEXT.setBoolean(
-			PCGenSettings.OPTION_AUTOCREATE_MW_MAGIC_EQUIP,
+		SettingsHandler.setWantToLoadMasterworkAndMagic(noAutoEquipCreate.isSelected()); // Now set it properly
+		PCGenSettings.OPTIONS_CONTEXT.setBoolean(PCGenSettings.OPTION_AUTOCREATE_MW_MAGIC_EQUIP,
 			autoEquipCreate.isSelected());
 	}
 
@@ -231,14 +220,11 @@ public class EquipmentPanel extends PCGenPrefsPanel
 	@Override
 	public void applyOptionValuesToControls()
 	{
-		allowMetamagicInEqBuilder.setSelected(SettingsHandler
-			.isMetamagicAllowedInEqBuilder());
-		potionModel.setValue(SettingsHandler
-			.getMaxPotionSpellLevel());
+		allowMetamagicInEqBuilder.setSelected(SettingsHandler.isMetamagicAllowedInEqBuilder());
+		potionModel.setValue(SettingsHandler.getMaxPotionSpellLevel());
 		wandModel.setValue(SettingsHandler.getMaxWandSpellLevel());
 
-		if (PCGenSettings.OPTIONS_CONTEXT.initBoolean(
-			PCGenSettings.OPTION_AUTOCREATE_MW_MAGIC_EQUIP, false))
+		if (PCGenSettings.OPTIONS_CONTEXT.initBoolean(PCGenSettings.OPTION_AUTOCREATE_MW_MAGIC_EQUIP, false))
 		{
 			autoEquipCreate.setSelected(true);
 		}
@@ -246,18 +232,14 @@ public class EquipmentPanel extends PCGenPrefsPanel
 		{
 			noAutoEquipCreate.setSelected(true);
 		}
-
-		SettingsHandler.setWantToLoadMasterworkAndMagic(false); // Turn off temporarily so we get current setting
-		autoMethod1.setSelected(SettingsHandler
-			.getAutogen(Constants.AUTOGEN_RACIAL));
-		autoMethod2.setSelected(SettingsHandler
-			.getAutogen(Constants.AUTOGEN_MASTERWORK));
-		autoMethod3.setSelected(SettingsHandler
-			.getAutogen(Constants.AUTOGEN_MAGIC));
-		autoMethod4.setSelected(SettingsHandler
-			.getAutogen(Constants.AUTOGEN_EXOTIC_MATERIAL));
-		SettingsHandler.setWantToLoadMasterworkAndMagic(noAutoEquipCreate
-			.isSelected()); // Reset its state now we are done
+		// Turn off temporarily so we get current setting
+		SettingsHandler.setWantToLoadMasterworkAndMagic(false); 
+		autoMethod1.setSelected(SettingsHandler.getAutogen(Constants.AUTOGEN_RACIAL));
+		autoMethod2.setSelected(SettingsHandler.getAutogen(Constants.AUTOGEN_MASTERWORK));
+		autoMethod3.setSelected(SettingsHandler.getAutogen(Constants.AUTOGEN_MAGIC));
+		autoMethod4.setSelected(SettingsHandler.getAutogen(Constants.AUTOGEN_EXOTIC_MATERIAL));
+		// Reset its state now we are done
+		SettingsHandler.setWantToLoadMasterworkAndMagic(noAutoEquipCreate.isSelected());
 	}
 
 }

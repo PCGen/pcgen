@@ -32,8 +32,8 @@ import pcgen.util.Logging;
 /**
  * TABLE token for KitTable
  */
-public class TableToken extends AbstractNonEmptyToken<KitTable> implements
-		CDOMPrimaryToken<KitTable>, DeferredToken<Kit>
+public class TableToken extends AbstractNonEmptyToken<KitTable>
+		implements CDOMPrimaryToken<KitTable>, DeferredToken<Kit>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -51,10 +51,10 @@ public class TableToken extends AbstractNonEmptyToken<KitTable> implements
 	{
 		return KitTable.class;
 	}
+
 	@Override
 
-	protected ParseResult parseNonEmptyToken(LoadContext context, KitTable kitTable,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, KitTable kitTable, String value)
 	{
 		kitTable.setTableName(value);
 		return ParseResult.SUCCESS;
@@ -68,7 +68,7 @@ public class TableToken extends AbstractNonEmptyToken<KitTable> implements
 		{
 			return null;
 		}
-		return new String[] { bd };
+		return new String[]{bd};
 	}
 
 	@Override
@@ -82,9 +82,8 @@ public class TableToken extends AbstractNonEmptyToken<KitTable> implements
 				KitTable kt = obj.addTable((KitTable) bk);
 				if (kt != null)
 				{
-					Logging.errorPrint("Kit Table: " + kt.getTableName()
-						+ " in Kit " + obj.getKeyName() + " was a duplicate, "
-						+ "Kit had more than one table with that name.");
+					Logging.errorPrint("Kit Table: " + kt.getTableName() + " in Kit " + obj.getKeyName()
+						+ " was a duplicate, " + "Kit had more than one table with that name.");
 					return false;
 				}
 			}

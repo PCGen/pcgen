@@ -21,12 +21,12 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import pcgen.cdom.enumeration.CharID;
-import pcgen.cdom.facet.FacetLibrary;
-import pcgen.cdom.facet.ObjectWrapperFacet;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
 import freemarker.template.TemplateSequenceModel;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.ObjectWrapperFacet;
 
 /**
  * A CollectionModel wraps a Collection into a TemplateSequenceModel
@@ -34,8 +34,7 @@ import freemarker.template.TemplateSequenceModel;
 public class CollectionModel implements TemplateSequenceModel
 {
 
-	private static final ObjectWrapperFacet WRAPPER_FACET = FacetLibrary
-		.getFacet(ObjectWrapperFacet.class);
+	private static final ObjectWrapperFacet WRAPPER_FACET = FacetLibrary.getFacet(ObjectWrapperFacet.class);
 
 	/**
 	 * The underlying collection for this CollectionModel

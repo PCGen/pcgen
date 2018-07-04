@@ -38,15 +38,13 @@ public final class UDam extends BonusObj
 	@Override
 	protected boolean parseToken(LoadContext context, final String token)
 	{
-		if (token.startsWith(Constants.LST_CLASS_EQUAL)
-			|| token.startsWith(Constants.LST_CLASS_DOT))
+		if (token.startsWith(Constants.LST_CLASS_EQUAL) || token.startsWith(Constants.LST_CLASS_DOT))
 		{
 			addBonusInfo(token.substring(Constants.SUBSTRING_LENGTH_SIX));
 			return true;
 		}
 
-		Logging.errorPrint(
-			"BONUS:UDAM syntax must have Info (2nd arg to BONUS) start with CLASS= or CLASS. ");
+		Logging.errorPrint("BONUS:UDAM syntax must have Info (2nd arg to BONUS) start with CLASS= or CLASS. ");
 		return false;
 	}
 

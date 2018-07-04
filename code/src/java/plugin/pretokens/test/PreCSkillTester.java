@@ -33,7 +33,6 @@ import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
 
-
 public class PreCSkillTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 	@Override
@@ -41,7 +40,7 @@ public class PreCSkillTester extends AbstractPrerequisiteTest implements Prerequ
 	{
 		final int reqnumber = Integer.parseInt(prereq.getOperand());
 		int runningTotal = 0;
-		HashMap<Skill,HashSet<Skill>> serveAsSkills = new HashMap<>();
+		HashMap<Skill, HashSet<Skill>> serveAsSkills = new HashMap<>();
 		Set<Skill> imitators = new HashSet<>();
 		PreCSkillTester.getImitators(serveAsSkills, imitators);
 
@@ -50,11 +49,12 @@ public class PreCSkillTester extends AbstractPrerequisiteTest implements Prerequ
 
 		if (prereq.getSubKey() != null)
 		{
-			requiredSkillKey += " (" + prereq.getSubKey().toUpperCase() + ')'; //$NON-NLS-1$ //$NON-NLS-2$
+			requiredSkillKey += " (" + prereq.getSubKey().toUpperCase() + ')'; //$NON-NLS-1$ 
 		}
 
-		final boolean isType =
-				(requiredSkillKey.startsWith("TYPE.") || requiredSkillKey.startsWith("TYPE=")); //$NON-NLS-1$ //$NON-NLS-2$
+		final boolean isType = (
+				requiredSkillKey.startsWith("TYPE.") //$NON-NLS-1$
+				|| requiredSkillKey.startsWith("TYPE=")); //$NON-NLS-1$
 		if (isType)
 		{
 			requiredSkillKey = requiredSkillKey.substring(5);
@@ -74,22 +74,22 @@ public class PreCSkillTester extends AbstractPrerequisiteTest implements Prerequ
 					skillMatches.add(skill);
 					runningTotal++;
 				}
-				
+
 			}
-			if (runningTotal < reqnumber ) 
+			if (runningTotal < reqnumber)
 			{
-BREAKOUT:		for(Skill fake: serveAsSkills.keySet())
+				BREAKOUT: for (Skill fake : serveAsSkills.keySet())
 				{
 					if (character.isClassSkill(fake))
 					{
-						for(Skill mock: serveAsSkills.get(fake))
+						for (Skill mock : serveAsSkills.get(fake))
 						{
 							if (skillMatches.contains(mock))
 							{
 								// We already counted this skill in the above 
 								// calculation.  We DONT want to match it 
 								// a second time
-								break BREAKOUT; 
+								break BREAKOUT;
 							}
 							if (mock.isType(skillKey))
 							{
@@ -103,14 +103,15 @@ BREAKOUT:		for(Skill fake: serveAsSkills.keySet())
 		}
 		else
 		{
-			Skill skill = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Skill.class, skillKey);
+			Skill skill =
+					Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Skill.class, skillKey);
 			if (skill != null && character.isClassSkill(skill))
 			{
 				runningTotal++;
 			}
-			else 
+			else
 			{
-				for(Skill mock: imitators)
+				for (Skill mock : imitators)
 				{
 					if (character.isClassSkill(mock) && serveAsSkills.get(mock).contains(skill))
 					{
@@ -129,30 +130,29 @@ BREAKOUT:		for(Skill fake: serveAsSkills.keySet())
 	 * @param serveAsSkills
 	 * @param imitators
 	 */
-	private static void getImitators(
-			HashMap<Skill, HashSet<Skill>> serveAsSkills, Set<Skill> imitators)
+	private static void getImitators(HashMap<Skill, HashSet<Skill>> serveAsSkills, Set<Skill> imitators)
 	{
-		for(Skill aSkill: Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Skill.class))
+		for (Skill aSkill : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Skill.class))
 		{
 			Set<Skill> servesAs = new HashSet<>();
-			for(CDOMReference<Skill> ref: aSkill.getSafeListFor(ListKey.SERVES_AS_SKILL))
+			for (CDOMReference<Skill> ref : aSkill.getSafeListFor(ListKey.SERVES_AS_SKILL))
 			{
 				servesAs.addAll(ref.getContainedObjects());
 			}
-			
-			if(!servesAs.isEmpty())
+
+			if (!servesAs.isEmpty())
 			{
 				imitators.add(aSkill);
 				serveAsSkills.put(aSkill, (HashSet<Skill>) servesAs);
 			}
-		}		
+		}
 	}
 
 	/**
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "CSKILL"; //$NON-NLS-1$
@@ -164,7 +164,7 @@ BREAKOUT:		for(Skill fake: serveAsSkills.keySet())
 		String skillName = prereq.getKey();
 		if (prereq.getSubKey() != null && !prereq.getSubKey().equals("")) //$NON-NLS-1$
 		{
-			skillName += " (" + prereq.getSubKey() + ')'; //$NON-NLS-1$ //$NON-NLS-2$
+			skillName += " (" + prereq.getSubKey() + ')'; //$NON-NLS-1$ 
 
 		}
 
@@ -172,13 +172,12 @@ BREAKOUT:		for(Skill fake: serveAsSkills.keySet())
 		if (prereq.getOperand().equals("1") && prereq.getOperator().equals(PrerequisiteOperator.GTEQ))
 		{
 			foo = LanguageBundle.getFormattedString("PreCSkill.single.toHtml", //$NON-NLS-1$
-					skillName);
+				skillName);
 		}
 		else
 		{
 			foo = LanguageBundle.getFormattedString("PreCSkill.toHtml", //$NON-NLS-1$
-					prereq.getOperator().toDisplayString(),
-					prereq.getOperand(), skillName);
+				prereq.getOperator().toDisplayString(), prereq.getOperand(), skillName);
 		}
 		return foo;
 	}

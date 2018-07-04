@@ -27,8 +27,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * STARTPACK token for Kit Startpack
  */
-public class StartpackToken extends AbstractNonEmptyToken<Kit> implements
-		CDOMPrimaryToken<Kit>
+public class StartpackToken extends AbstractNonEmptyToken<Kit> implements CDOMPrimaryToken<Kit>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -48,8 +47,7 @@ public class StartpackToken extends AbstractNonEmptyToken<Kit> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, Kit obj,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, Kit obj, String value)
 	{
 		return ParseResult.SUCCESS;
 	}

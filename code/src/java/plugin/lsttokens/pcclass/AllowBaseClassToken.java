@@ -27,8 +27,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
  * Added for [ 1849571 ] New Class tag: ALLOWBASECLASS:x
  * 
  */
-public class AllowBaseClassToken extends AbstractYesNoToken<PCClass>
-		implements CDOMPrimaryToken<PCClass>
+public class AllowBaseClassToken extends AbstractYesNoToken<PCClass> implements CDOMPrimaryToken<PCClass>
 {
 	@Override
 	public String getTokenName()

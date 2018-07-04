@@ -62,7 +62,7 @@ public class PreRaceTypeTester extends AbstractDisplayPrereqTest
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "RACETYPE"; //$NON-NLS-1$
@@ -72,32 +72,33 @@ public class PreRaceTypeTester extends AbstractDisplayPrereqTest
 	 * Get ArrayList populated with creature types for this PC (defaults to humanoid).
 	 * @return the list of types
 	 */
-    @Deprecated
+	@Deprecated
 	public static List<String> getCritterTypes(CharacterDisplay display)
 	{
 		ArrayList<String> critterTypes = new ArrayList<>();
-	
+
 		// Not too sure about this if, but that's what the previous code
 		// implied...
 		Race race = display.getRace();
 		if (race != null)
 		{
 			critterTypes.add(race.getType());
-		} else
+		}
+		else
 		{
 			critterTypes.add("Humanoid");
 		}
-	
+
 		for (PCTemplate t : display.getTemplateSet())
 		{
 			final String aType = t.getType();
-	
+
 			if (aType != null && !aType.isEmpty())
 			{
 				critterTypes.add(aType);
 			}
 		}
-	
+
 		return critterTypes;
 	}
 

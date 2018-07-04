@@ -20,7 +20,6 @@ package pcgen.gui2.util.treeview;
 
 import pcgen.system.LanguageBundle;
 
-
 public class DefaultDataViewColumn implements DataViewColumn
 {
 
@@ -35,21 +34,17 @@ public class DefaultDataViewColumn implements DataViewColumn
 		this(name, dataclass, false, false);
 	}
 
-	public DefaultDataViewColumn(String name, Class<?> dataclass,
-			boolean visible)
+	public DefaultDataViewColumn(String name, Class<?> dataclass, boolean visible)
 	{
 		this(name, dataclass, visible, false);
 	}
 
-	public DefaultDataViewColumn(String name, Class<?> dataclass,
-			boolean visible, boolean editable)
+	public DefaultDataViewColumn(String name, Class<?> dataclass, boolean visible, boolean editable)
 	{
 		this(name, dataclass, visible, editable, true);
 	}
 
-	public DefaultDataViewColumn(String name, Class<?> dataclass,
-			boolean visible, boolean editable,
-			boolean cache)
+	public DefaultDataViewColumn(String name, Class<?> dataclass, boolean visible, boolean editable, boolean cache)
 	{
 		if (name.startsWith("in_"))
 		{

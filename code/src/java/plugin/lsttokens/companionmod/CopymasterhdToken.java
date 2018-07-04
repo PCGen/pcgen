@@ -25,8 +25,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 /**
  * Class deals with COPYMASTERHP Token
  */
-public class CopymasterhdToken extends AbstractStringToken<CompanionMod>
-		implements CDOMPrimaryToken<CompanionMod>
+public class CopymasterhdToken extends AbstractStringToken<CompanionMod> implements CDOMPrimaryToken<CompanionMod>
 {
 
 	@Override

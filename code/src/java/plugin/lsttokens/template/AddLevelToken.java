@@ -40,8 +40,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * New Token to support Adding Levels to say a Lycanthorpe template
  */
-public class AddLevelToken extends AbstractNonEmptyToken<PCTemplate> implements
-		CDOMPrimaryToken<PCTemplate>
+public class AddLevelToken extends AbstractNonEmptyToken<PCTemplate> implements CDOMPrimaryToken<PCTemplate>
 {
 
 	@Override
@@ -51,8 +50,7 @@ public class AddLevelToken extends AbstractNonEmptyToken<PCTemplate> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		PCTemplate template, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, PCTemplate template, String value)
 	{
 		ParsingSeparator sep = new ParsingSeparator(value, '|');
 		sep.addGroupingPair('[', ']');
@@ -63,16 +61,14 @@ public class AddLevelToken extends AbstractNonEmptyToken<PCTemplate> implements
 		{
 			ComplexParseResult cpr = new ComplexParseResult();
 			cpr.addErrorMessage("Empty Class found in " + getTokenName());
-			cpr.addErrorMessage("  " + getTokenName()
-					+ " requires at format: Class|LevelCount");
+			cpr.addErrorMessage("  " + getTokenName() + " requires at format: Class|LevelCount");
 			return cpr;
 		}
 		if (!sep.hasNext())
 		{
 			ComplexParseResult cpr = new ComplexParseResult();
 			cpr.addErrorMessage("No | found in " + getTokenName());
-			cpr.addErrorMessage("  " + getTokenName()
-					+ " requires at format: Class|LevelCount");
+			cpr.addErrorMessage("  " + getTokenName() + " requires at format: Class|LevelCount");
 			return cpr;
 		}
 		String numLevels = sep.next();
@@ -80,28 +76,25 @@ public class AddLevelToken extends AbstractNonEmptyToken<PCTemplate> implements
 		{
 			ComplexParseResult cpr = new ComplexParseResult();
 			cpr.addErrorMessage("Empty Level Count found in " + getTokenName());
-			cpr.addErrorMessage("  " + getTokenName()
-					+ " requires at format: Class|LevelCount");
+			cpr.addErrorMessage("  " + getTokenName() + " requires at format: Class|LevelCount");
 			return cpr;
 		}
 		if (sep.hasNext())
 		{
 			ComplexParseResult cpr = new ComplexParseResult();
 			cpr.addErrorMessage("Two | found in " + getTokenName());
-			cpr.addErrorMessage("  " + getTokenName()
-					+ " requires at format: Class|LevelCount");
+			cpr.addErrorMessage("  " + getTokenName() + " requires at format: Class|LevelCount");
 			return cpr;
 		}
-		CDOMSingleRef<PCClass> cl = context.getReferenceContext().getCDOMReference(
-				PCClass.class, classString);
+		CDOMSingleRef<PCClass> cl = context.getReferenceContext().getCDOMReference(PCClass.class, classString);
 		Formula f;
 		try
 		{
 			int lvls = Integer.parseInt(numLevels);
 			if (lvls <= 0)
 			{
-				return new ParseResult.Fail("Number of Levels granted in "
-						+ getTokenName() + " must be greater than zero");
+				return new ParseResult.Fail(
+					"Number of Levels granted in " + getTokenName() + " must be greater than zero");
 			}
 			f = FormulaFactory.getFormulaFor(lvls);
 		}
@@ -111,8 +104,7 @@ public class AddLevelToken extends AbstractNonEmptyToken<PCTemplate> implements
 		}
 		if (!f.isValid())
 		{
-			return new ParseResult.Fail("Formula in " + getTokenName()
-					+ " was not valid: " + f.toString());
+			return new ParseResult.Fail("Formula in " + getTokenName() + " was not valid: " + f.toString());
 		}
 		LevelCommandFactory cf = new LevelCommandFactory(cl, f);
 		context.getObjectContext().addToList(template, ListKey.ADD_LEVEL, cf);
@@ -122,8 +114,7 @@ public class AddLevelToken extends AbstractNonEmptyToken<PCTemplate> implements
 	@Override
 	public String[] unparse(LoadContext context, PCTemplate pct)
 	{
-		Changes<LevelCommandFactory> changes = context.getObjectContext()
-				.getListChanges(pct, ListKey.ADD_LEVEL);
+		Changes<LevelCommandFactory> changes = context.getObjectContext().getListChanges(pct, ListKey.ADD_LEVEL);
 		Collection<LevelCommandFactory> added = changes.getAdded();
 		if (added == null || added.isEmpty())
 		{
@@ -133,8 +124,7 @@ public class AddLevelToken extends AbstractNonEmptyToken<PCTemplate> implements
 		for (LevelCommandFactory lcf : added)
 		{
 			StringBuilder sb = new StringBuilder();
-			sb.append(lcf.getLSTformat()).append(Constants.PIPE).append(
-					lcf.getLevelCount().toString());
+			sb.append(lcf.getLSTformat()).append(Constants.PIPE).append(lcf.getLevelCount().toString());
 			list.add(sb.toString());
 		}
 

@@ -17,7 +17,13 @@
  */
 package actor.testsupport;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+
 import java.net.URISyntaxException;
+
+import org.junit.Before;
+import org.junit.Test;
 
 import pcgen.cdom.base.Persistent;
 import pcgen.core.Globals;
@@ -25,10 +31,6 @@ import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import plugin.lsttokens.testsupport.BuildUtilities;
-
-import org.junit.Before;
-import org.junit.Test;
-import static org.junit.Assert.*;
 
 public abstract class AbstractPersistentChoiceActorTestCase<T>
 {

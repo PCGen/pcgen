@@ -17,8 +17,7 @@ package pcgen.cdom.enumeration;
 
 public enum NumericPCAttribute
 {
-	WEIGHT(false),
-	AGE(true);
+	WEIGHT(false), AGE(true);
 
 	private final boolean recalcActiveBonuses;
 
@@ -35,8 +34,6 @@ public enum NumericPCAttribute
 	@Override
 	public String toString()
 	{
-		return "NumericPCAttribute{" +
-				"recalcActiveBonuses=" + recalcActiveBonuses +
-				'}';
+		return "NumericPCAttribute{" + "recalcActiveBonuses=" + recalcActiveBonuses + '}';
 	}
 }

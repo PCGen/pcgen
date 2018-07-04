@@ -28,8 +28,7 @@ import pcgen.util.enumeration.Load;
 public final class PostMoveAdd extends BonusObj
 {
 	private static final String[] BONUS_TAGS =
-			{Load.LIGHT.toString(), Load.MEDIUM.toString(),
-				Load.HEAVY.toString(), Load.OVERLOAD.toString()};
+			{Load.LIGHT.toString(), Load.MEDIUM.toString(), Load.HEAVY.toString(), Load.OVERLOAD.toString()};
 
 	/**
 	 * Parse the bonus token.

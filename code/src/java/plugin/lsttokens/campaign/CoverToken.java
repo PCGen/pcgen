@@ -35,8 +35,8 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with COVER Token
  */
-public class CoverToken extends AbstractTokenWithSeparator<Campaign> implements
-		CDOMPrimaryToken<Campaign>, InstallLstToken
+public class CoverToken extends AbstractTokenWithSeparator<Campaign>
+		implements CDOMPrimaryToken<Campaign>, InstallLstToken
 {
 
 	@Override
@@ -45,11 +45,10 @@ public class CoverToken extends AbstractTokenWithSeparator<Campaign> implements
 		return "COVER";
 	}
 
-    @Override
+	@Override
 	public boolean parse(Campaign campaign, String value, URI sourceUri)
 	{
-		campaign.addToListFor(ListKey.FILE_COVER, CampaignSourceEntry.getNewCSE(campaign,
-				sourceUri, value));
+		campaign.addToListFor(ListKey.FILE_COVER, CampaignSourceEntry.getNewCSE(campaign, sourceUri, value));
 		return true;
 	}
 
@@ -60,8 +59,7 @@ public class CoverToken extends AbstractTokenWithSeparator<Campaign> implements
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		Campaign campaign, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, Campaign campaign, String value)
 	{
 		CampaignSourceEntry cse = context.getCampaignSourceEntry(campaign, value);
 		if (cse == null)
@@ -71,19 +69,17 @@ public class CoverToken extends AbstractTokenWithSeparator<Campaign> implements
 		}
 		if (!cse.getIncludeItems().isEmpty())
 		{
-			return new ParseResult.Fail(getTokenName() + " does not allow INCLUDE: "
-				+ value);
+			return new ParseResult.Fail(getTokenName() + " does not allow INCLUDE: " + value);
 		}
 		if (!cse.getExcludeItems().isEmpty())
 		{
-			return new ParseResult.Fail(getTokenName() + " does not allow EXCLUDE: "
-				+ value);
+			return new ParseResult.Fail(getTokenName() + " does not allow EXCLUDE: " + value);
 		}
 		context.getObjectContext().addToList(campaign, ListKey.FILE_COVER, cse);
 		return ParseResult.SUCCESS;
 	}
 
-    @Override
+	@Override
 	public String[] unparse(LoadContext context, Campaign campaign)
 	{
 		Changes<CampaignSourceEntry> cseChanges =
@@ -102,7 +98,7 @@ public class CoverToken extends AbstractTokenWithSeparator<Campaign> implements
 		return set.toArray(new String[set.size()]);
 	}
 
-    @Override
+	@Override
 	public Class<Campaign> getTokenClass()
 	{
 		return Campaign.class;

@@ -17,9 +17,9 @@
  */
 package pcgen.output.base;
 
-import pcgen.cdom.enumeration.CharID;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
+import pcgen.cdom.enumeration.CharID;
 
 /**
  * An OutputActor is designed to process an interpolation and convert that into
@@ -51,6 +51,5 @@ public interface OutputActor<T>
 	 *             if turning the contents into a TemplateModel encounters a
 	 *             problem
 	 */
-	public TemplateModel process(CharID id, T obj)
-		throws TemplateModelException;
+	public TemplateModel process(CharID id, T obj) throws TemplateModelException;
 }

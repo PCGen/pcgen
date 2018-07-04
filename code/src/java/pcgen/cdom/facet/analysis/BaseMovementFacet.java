@@ -81,8 +81,7 @@ public class BaseMovementFacet extends AbstractSourcedListFacet<CharID, Movement
 		removeAll(dfce.getCharID(), dfce.getCDOMObject());
 	}
 
-	public void setConsolidationFacet(
-		CDOMObjectConsolidationFacet consolidationFacet)
+	public void setConsolidationFacet(CDOMObjectConsolidationFacet consolidationFacet)
 	{
 		this.consolidationFacet = consolidationFacet;
 	}

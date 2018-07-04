@@ -24,8 +24,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Implements the CRMODPRIORITY token on ClassType
  */
-public class CRModPriorityToken extends AbstractNonEmptyToken<ClassType>
-		implements CDOMPrimaryToken<ClassType>
+public class CRModPriorityToken extends AbstractNonEmptyToken<ClassType> implements CDOMPrimaryToken<ClassType>
 {
 
 	@Override
@@ -35,8 +34,7 @@ public class CRModPriorityToken extends AbstractNonEmptyToken<ClassType>
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, ClassType classType,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, ClassType classType, String value)
 	{
 		try
 		{
@@ -45,8 +43,7 @@ public class CRModPriorityToken extends AbstractNonEmptyToken<ClassType>
 		}
 		catch (NumberFormatException e)
 		{
-			return new ParseResult.Fail(
-				"Illegal value for miscinfo.CLASSTYPE.CRMODPRIORITY: " + value);
+			return new ParseResult.Fail("Illegal value for miscinfo.CLASSTYPE.CRMODPRIORITY: " + value);
 		}
 	}
 

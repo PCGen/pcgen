@@ -29,8 +29,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * RANK token
  */
-public class RankToken extends AbstractNonEmptyToken<KitSkill> implements
-		CDOMPrimaryToken<KitSkill>
+public class RankToken extends AbstractNonEmptyToken<KitSkill> implements CDOMPrimaryToken<KitSkill>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -50,16 +49,14 @@ public class RankToken extends AbstractNonEmptyToken<KitSkill> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, KitSkill kitSkill,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, KitSkill kitSkill, String value)
 	{
 		try
 		{
 			BigDecimal rank = new BigDecimal(value);
 			if (rank.compareTo(BigDecimal.ZERO) < 0)
 			{
-				return new ParseResult.Fail(getTokenName()
-					+ " must be a positive number: " + value);
+				return new ParseResult.Fail(getTokenName() + " must be a positive number: " + value);
 			}
 			kitSkill.setRank(rank);
 			return ParseResult.SUCCESS;

@@ -28,9 +28,7 @@ import pcgen.facade.core.EquipmentFacade;
 import pcgen.facade.core.EquipmentListFacade;
 import pcgen.facade.util.AbstractListFacade;
 
-
-public class EquipmentListFacadeImpl extends AbstractListFacade<EquipmentFacade>
-		implements EquipmentListFacade
+public class EquipmentListFacadeImpl extends AbstractListFacade<EquipmentFacade> implements EquipmentListFacade
 {
 
 	private ArrayList<EquipmentFacade> equipmentList;
@@ -66,6 +64,7 @@ public class EquipmentListFacadeImpl extends AbstractListFacade<EquipmentFacade>
 		}
 		fireElementsChanged(this);
 	}
+
 	@Override
 	public void addEquipmentListListener(EquipmentListListener listener)
 	{

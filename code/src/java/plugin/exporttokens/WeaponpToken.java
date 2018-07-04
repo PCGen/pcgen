@@ -18,12 +18,12 @@
  */
 package plugin.exporttokens;
 
+import java.util.StringTokenizer;
+
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.WeaponToken;
-
-import java.util.StringTokenizer;
 
 /**
  * {@code WeaponpToken}.
@@ -54,8 +54,7 @@ public class WeaponpToken extends WeaponToken
 	 * @return The value of the token.
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		StringTokenizer aTok = new StringTokenizer(tokenSource, ".", false);
 		//Weaponp Token

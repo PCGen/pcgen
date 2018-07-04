@@ -38,8 +38,7 @@ public class FeatPointsToken extends Token
 	}
 
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		return Double.toString(getFeatPointsToken(pc));
 	}

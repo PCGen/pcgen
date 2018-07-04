@@ -28,13 +28,13 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 public class HelpToken extends AbstractStringToken<Campaign> implements CDOMPrimaryToken<Campaign>
 {
 
-    @Override
+	@Override
 	public String getTokenName()
 	{
 		return "HELP";
 	}
 
-    @Override
+	@Override
 	public Class<Campaign> getTokenClass()
 	{
 		return Campaign.class;

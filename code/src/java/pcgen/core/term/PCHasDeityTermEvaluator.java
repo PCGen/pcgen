@@ -24,14 +24,11 @@ import pcgen.core.Deity;
 import pcgen.core.Globals;
 import pcgen.core.display.CharacterDisplay;
 
-public class PCHasDeityTermEvaluator
-		extends BasePCDTermEvaluator implements TermEvaluator
+public class PCHasDeityTermEvaluator extends BasePCDTermEvaluator implements TermEvaluator
 {
 	private final String deity;
 
-	public PCHasDeityTermEvaluator(
-			String originalText,
-			String deity)
+	public PCHasDeityTermEvaluator(String originalText, String deity)
 	{
 		this.originalText = originalText;
 		this.deity = deity;
@@ -40,8 +37,7 @@ public class PCHasDeityTermEvaluator
 	@Override
 	public Float resolve(CharacterDisplay display)
 	{
-		Deity d = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
-				Deity.class, deity);
+		Deity d = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Deity.class, deity);
 		return display.hasDeity(d) ? 1.0f : 0.0f;
 	}
 

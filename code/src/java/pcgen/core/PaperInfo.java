@@ -40,7 +40,7 @@ public final class PaperInfo implements Loadable, SortKeyRequired
 	 * The name of this PaperInfo
 	 */
 	private String infoName;
-	
+
 	/**
 	 * The sort key of this PaperInfo, to indicate which items should appear first.
 	 */
@@ -115,44 +115,44 @@ public final class PaperInfo implements Loadable, SortKeyRequired
 		return true;
 	}
 
-    @Override
+	@Override
 	public URI getSourceURI()
 	{
 		return sourceURI;
 	}
 
-    @Override
+	@Override
 	public void setSourceURI(URI source)
 	{
 		sourceURI = source;
 	}
 
-    @Override
+	@Override
 	public void setName(String name)
 	{
 		infoName = name;
 		paperInfo[0] = name;
 	}
 
-    @Override
+	@Override
 	public String getDisplayName()
 	{
 		return infoName;
 	}
 
-    @Override
+	@Override
 	public String getKeyName()
 	{
 		return getDisplayName();
 	}
 
-    @Override
+	@Override
 	public boolean isInternal()
 	{
 		return false;
 	}
 
-    @Override
+	@Override
 	public boolean isType(String type)
 	{
 		return false;

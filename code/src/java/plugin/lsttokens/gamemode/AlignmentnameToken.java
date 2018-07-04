@@ -29,13 +29,13 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class AlignmentnameToken implements GameModeLstToken
 {
 
-    @Override
+	@Override
 	public String getTokenName()
 	{
 		return "ALIGNMENTNAME";
 	}
 
-    @Override
+	@Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		gameMode.setAlignmentText(value);

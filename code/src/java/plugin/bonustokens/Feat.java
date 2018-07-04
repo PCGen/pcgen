@@ -33,9 +33,7 @@ public final class Feat extends BonusObj
 	@Override
 	protected boolean parseToken(LoadContext context, final String token)
 	{
-		if ("POOL".equals(token)
-			|| "MONSTERPOOL".equals(token)
-			|| "PCPOOL".equals(token))
+		if ("POOL".equals(token) || "MONSTERPOOL".equals(token) || "PCPOOL".equals(token))
 		{
 			addBonusInfo(token);
 			return true;

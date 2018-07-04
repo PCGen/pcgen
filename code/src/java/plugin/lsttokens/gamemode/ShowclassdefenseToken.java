@@ -11,13 +11,13 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class ShowclassdefenseToken implements GameModeLstToken
 {
 
-    @Override
+	@Override
 	public String getTokenName()
 	{
 		return "SHOWCLASSDEFENSE";
 	}
 
-    @Override
+	@Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		gameMode.setShowClassDefense(value.toUpperCase().startsWith("Y"));

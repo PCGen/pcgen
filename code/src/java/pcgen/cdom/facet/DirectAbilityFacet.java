@@ -38,8 +38,7 @@ public class DirectAbilityFacet extends AbstractCNASEnforcingFacet
 	{
 		if (source == null)
 		{
-			throw new IllegalArgumentException(
-				"Attempt to remove object with null source from list");
+			throw new IllegalArgumentException("Attempt to remove object with null source from list");
 		}
 		List<List<SourcedCNAS>> list = getList(id);
 		if (list == null)
@@ -48,8 +47,7 @@ public class DirectAbilityFacet extends AbstractCNASEnforcingFacet
 		}
 		List<CNAbilitySelection> removed = new ArrayList<>();
 		List<CNAbilitySelection> added = new ArrayList<>();
-		for (Iterator<List<SourcedCNAS>> listIT = list.iterator(); listIT
-			.hasNext();)
+		for (Iterator<List<SourcedCNAS>> listIT = list.iterator(); listIT.hasNext();)
 		{
 			List<SourcedCNAS> array = listIT.next();
 			int length = array.size();
@@ -88,8 +86,7 @@ public class DirectAbilityFacet extends AbstractCNASEnforcingFacet
 		}
 		for (CNAbilitySelection cnas : removed)
 		{
-			fireDataFacetChangeEvent(id, cnas,
-				DataFacetChangeEvent.DATA_REMOVED);
+			fireDataFacetChangeEvent(id, cnas, DataFacetChangeEvent.DATA_REMOVED);
 		}
 		for (CNAbilitySelection cnas : added)
 		{

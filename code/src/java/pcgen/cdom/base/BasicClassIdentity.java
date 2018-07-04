@@ -65,8 +65,8 @@ public class BasicClassIdentity<T> implements ClassIdentity<T>
 		}
 		catch (InstantiationException | IllegalAccessException e)
 		{
-			throw new IllegalArgumentException("Class " + cl.getCanonicalName()
-				+ " for BasicClassIdentity must have public zero argument constructor",
+			throw new IllegalArgumentException(
+				"Class " + cl.getCanonicalName() + " for BasicClassIdentity must have public zero argument constructor",
 				e);
 		}
 	}

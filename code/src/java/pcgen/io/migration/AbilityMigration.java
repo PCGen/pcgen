@@ -37,8 +37,6 @@ public final class AbilityMigration
 
 	private static Map<int[], List<MigrationRule>> abilityChangesForVer = new HashMap<>();
 
-
-
 	private AbilityMigration()
 	{
 	}
@@ -51,29 +49,24 @@ public final class AbilityMigration
 	 * @param pcgVer The version of PCGen in which the character was created.
 	 * @return The new ability key, or the passed in one if it has not changed.
 	 */
-	public static CategorisedKey getNewAbilityKey(String abilityCategory,
-	                                              String abilityKey, int[] pcgVer, String gameModeName)
+	public static CategorisedKey getNewAbilityKey(String abilityCategory, String abilityKey, int[] pcgVer,
+		String gameModeName)
 	{
-		List<MigrationRule> abilityChangeList =
-				abilityChangesForVer.computeIfAbsent(
-						pcgVer,
-						v -> MigrationUtils.getChangeList(v, gameModeName,
-								ObjectType.ABILITY
-						)
-				);
+		List<MigrationRule> abilityChangeList = abilityChangesForVer.computeIfAbsent(pcgVer,
+			v -> MigrationUtils.getChangeList(v, gameModeName, ObjectType.ABILITY));
 
 		for (MigrationRule rule : abilityChangeList)
 		{
 			if (rule.getOldKey().equalsIgnoreCase(abilityKey)
 				&& rule.getOldCategory().equalsIgnoreCase(abilityCategory))
 			{
-				return new CategorisedKey((rule.getNewCategory() == null)
-						? abilityCategory : rule.getNewCategory(), rule.getNewKey());
+				return new CategorisedKey((rule.getNewCategory() == null) ? abilityCategory : rule.getNewCategory(),
+					rule.getNewKey());
 			}
 		}
 		return new CategorisedKey(abilityCategory, abilityKey);
 	}
-	
+
 	/**
 	 * CategorisedKey is a container for a category and a key. 
 	 */
@@ -81,7 +74,7 @@ public final class AbilityMigration
 	{
 		private final String category;
 		private final String key;
-		
+
 		private CategorisedKey(String category, String key)
 		{
 			this.category = category;

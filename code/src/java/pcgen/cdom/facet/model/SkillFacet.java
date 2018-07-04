@@ -34,9 +34,8 @@ import pcgen.output.publish.OutputDB;
 /**
  * SkillFacet is a Facet that tracks the Skills possessed by a Player Character.
  */
-public class SkillFacet extends AbstractSourcedListFacet<CharID, Skill> implements
-		SkillRankChangeListener, DataFacetChangeListener<CharID, Skill>,
-		AssociationChangeListener, SetFacet<CharID, Skill>
+public class SkillFacet extends AbstractSourcedListFacet<CharID, Skill> implements SkillRankChangeListener,
+		DataFacetChangeListener<CharID, Skill>, AssociationChangeListener, SetFacet<CharID, Skill>
 {
 
 	private TotalSkillRankFacet totalSkillRankFacet;

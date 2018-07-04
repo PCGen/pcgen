@@ -28,7 +28,6 @@ import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
 
-
 public class PreReachTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
@@ -41,17 +40,13 @@ public class PreReachTester extends AbstractDisplayPrereqTest implements Prerequ
 		{
 			final int targetReach = Integer.parseInt(prereq.getOperand());
 
-			int pcReach =
-					FacetLibrary.getFacet(ReachFacet.class).getReach(
-						display.getCharID());
-			runningTotal =
-					prereq.getOperator().compare(pcReach,
-						targetReach);
+			int pcReach = FacetLibrary.getFacet(ReachFacet.class).getReach(display.getCharID());
+			runningTotal = prereq.getOperator().compare(pcReach, targetReach);
 		}
 		catch (NumberFormatException nfe)
 		{
-			throw new PrerequisiteException(LanguageBundle.getFormattedString(
-				"PreReach.error.badly_formed", prereq.getOperand())); //$NON-NLS-1$
+			throw new PrerequisiteException(
+				LanguageBundle.getFormattedString("PreReach.error.badly_formed", prereq.getOperand())); //$NON-NLS-1$
 		}
 		return countedTotal(prereq, runningTotal);
 	}
@@ -60,7 +55,7 @@ public class PreReachTester extends AbstractDisplayPrereqTest implements Prerequ
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "REACH"; //$NON-NLS-1$

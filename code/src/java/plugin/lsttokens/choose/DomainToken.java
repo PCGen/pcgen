@@ -48,8 +48,7 @@ public class DomainToken extends AbstractQualifiedChooseToken<Domain>
 	}
 
 	@Override
-	public ParseResult parseTokenWithSeparator(LoadContext context,
-		CDOMObject obj, String value)
+	public ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
 	{
 		StringBuilder sb = new StringBuilder(value.length() + 20);
 		StringTokenizer st = new StringTokenizer(value, "|,", true);
@@ -58,16 +57,14 @@ public class DomainToken extends AbstractQualifiedChooseToken<Domain>
 			String tok = st.nextToken();
 			if ("QUALIFY".equals(tok))
 			{
-				Logging.errorPrint("CHOOSE:DOMAIN argument "
-					+ "QUALIFY has been removed. "
-					+ "Please use QUALIFIED,!PC "
-					+ "to achieve the same effect.", context);
+				Logging.errorPrint("CHOOSE:DOMAIN argument " + "QUALIFY has been removed. "
+					+ "Please use QUALIFIED,!PC " + "to achieve the same effect.", context);
 				tok = "QUALIFIED,!PC";
 			}
 			sb.append(tok);
 		}
-		return super.parseTokenWithSeparator(context,
-			context.getReferenceContext().getManufacturer(DOMAIN_CLASS), obj, sb.toString());
+		return super.parseTokenWithSeparator(context, context.getReferenceContext().getManufacturer(DOMAIN_CLASS), obj,
+			sb.toString());
 	}
 
 	@Override

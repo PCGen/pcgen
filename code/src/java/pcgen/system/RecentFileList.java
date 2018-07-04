@@ -22,9 +22,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.IntStream;
 
-import pcgen.facade.util.AbstractListFacade;
-
 import org.apache.commons.lang3.ArrayUtils;
+
+import pcgen.facade.util.AbstractListFacade;
 
 class RecentFileList extends AbstractListFacade<File>
 {
@@ -40,7 +40,7 @@ class RecentFileList extends AbstractListFacade<File>
 		if (!ArrayUtils.isEmpty(recentFiles))
 		{
 			URI userdir = new File(ConfigurationSettings.getUserDir()).toURI();
-			for (int i = recentFiles.length-1; i >= 0; i--)
+			for (int i = recentFiles.length - 1; i >= 0; i--)
 			{
 				addRecentFile(new File(userdir.resolve(recentFiles[i])));
 			}
@@ -52,9 +52,7 @@ class RecentFileList extends AbstractListFacade<File>
 		URI userdir = new File(ConfigurationSettings.getUserDir()).toURI();
 
 		List<String> uris = new ArrayList<>(fileList.size());
-		fileList.stream()
-		        .map(file -> userdir.relativize(file.toURI()).toString())
-		        .forEach(uris::add);
+		fileList.stream().map(file -> userdir.relativize(file.toURI()).toString()).forEach(uris::add);
 		PCGenSettings.getInstance().setStringArray(contextProp, uris);
 	}
 
@@ -83,13 +81,13 @@ class RecentFileList extends AbstractListFacade<File>
 		updateRecentFileProp();
 	}
 
-    @Override
+	@Override
 	public File getElementAt(int index)
 	{
 		return fileList.get(index);
 	}
 
-    @Override
+	@Override
 	public int getSize()
 	{
 		return fileList.size();
@@ -106,11 +104,8 @@ class RecentFileList extends AbstractListFacade<File>
 		if (element != null)
 		{
 			return IntStream.range(0, fileList.size())
-			                .filter(i -> fileList.get(i)
-			                                     .getAbsolutePath()
-			                                     .equals(element.getAbsolutePath()))
-			                .findFirst()
-			                .orElse(-1);
+				.filter(i -> fileList.get(i).getAbsolutePath().equals(element.getAbsolutePath())).findFirst()
+				.orElse(-1);
 		}
 		return -1;
 	}

@@ -71,7 +71,7 @@ public class SpellLevelTest extends AbstractCharacterTestCase
 
 		
 		final String classLine =
-			"CLASS:Sorcerer	TYPE:Base.PC	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorcerer|CL";
+		"CLASS:Sorcerer	TYPE:Base.PC	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorcerer|CL";
 		PCClassLoader classLoader = new PCClassLoader();
 		PCClass pcc = classLoader.parseLine(context, null, classLine, source);
 				

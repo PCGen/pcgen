@@ -19,10 +19,10 @@ package pcgen.cdom.base;
 
 import java.util.List;
 
+import org.apache.commons.collections4.ListUtils;
+
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.PlayerCharacter;
-
-import org.apache.commons.collections4.ListUtils;
 
 /**
  * CDOMObjectUtilities is a utility class designed to provide utility methods
@@ -71,8 +71,7 @@ public final class CDOMObjectUtilities
 		{
 			return;
 		}
-		List<PersistentTransitionChoice<?>> addList =
-				ListUtils.emptyIfNull(cdo.getListFor(ListKey.ADD));
+		List<PersistentTransitionChoice<?>> addList = ListUtils.emptyIfNull(cdo.getListFor(ListKey.ADD));
 		addList.forEach(tc -> driveChoice(cdo, tc, pc));
 	}
 
@@ -82,8 +81,7 @@ public final class CDOMObjectUtilities
 		{
 			return;
 		}
-		List<PersistentTransitionChoice<?>> addList =
-				ListUtils.emptyIfNull(cdo.getListFor(ListKey.ADD));
+		List<PersistentTransitionChoice<?>> addList = ListUtils.emptyIfNull(cdo.getListFor(ListKey.ADD));
 		addList.forEach(tc -> tc.remove(cdo, pc));
 	}
 
@@ -93,8 +91,7 @@ public final class CDOMObjectUtilities
 		{
 			return;
 		}
-		List<PersistentTransitionChoice<?>> removeList =
-				ListUtils.emptyIfNull(cdo.getListFor(ListKey.REMOVE));
+		List<PersistentTransitionChoice<?>> removeList = ListUtils.emptyIfNull(cdo.getListFor(ListKey.REMOVE));
 		removeList.forEach(tc -> driveChoice(cdo, tc, pc));
 	}
 
@@ -104,13 +101,11 @@ public final class CDOMObjectUtilities
 		{
 			return;
 		}
-		List<PersistentTransitionChoice<?>> removeList =
-				ListUtils.emptyIfNull(cdo.getListFor(ListKey.REMOVE));
+		List<PersistentTransitionChoice<?>> removeList = ListUtils.emptyIfNull(cdo.getListFor(ListKey.REMOVE));
 		removeList.forEach(tc -> tc.remove(cdo, pc));
 	}
 
-	private static <T> void driveChoice(CDOMObject cdo, TransitionChoice<T> tc,
-			final PlayerCharacter pc)
+	private static <T> void driveChoice(CDOMObject cdo, TransitionChoice<T> tc, final PlayerCharacter pc)
 	{
 		tc.act(tc.driveChoice(pc), cdo, pc);
 	}

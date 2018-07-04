@@ -46,8 +46,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with DOMAINS Token
  */
-public class DomainsToken extends AbstractTokenWithSeparator<Deity> implements
-		CDOMPrimaryToken<Deity>
+public class DomainsToken extends AbstractTokenWithSeparator<Deity> implements CDOMPrimaryToken<Deity>
 {
 
 	private static final Class<Domain> DOMAIN_CLASS = Domain.class;
@@ -68,8 +67,7 @@ public class DomainsToken extends AbstractTokenWithSeparator<Deity> implements
 	protected ParseResult parseTokenWithSeparator(LoadContext context, Deity deity, String value)
 	{
 		StringTokenizer pipeTok = new StringTokenizer(value, Constants.PIPE);
-		StringTokenizer commaTok = new StringTokenizer(pipeTok.nextToken(),
-				Constants.COMMA);
+		StringTokenizer commaTok = new StringTokenizer(pipeTok.nextToken(), Constants.COMMA);
 		CDOMReference<DomainList> dl = Deity.DOMAINLIST;
 		ArrayList<AssociatedPrereqObject> proList = new ArrayList<>();
 
@@ -83,26 +81,23 @@ public class DomainsToken extends AbstractTokenWithSeparator<Deity> implements
 			String tokString = commaTok.nextToken();
 			if (looksLikeAPrerequisite(tokString))
 			{
-				return new ParseResult.Fail("Invalid " + getTokenName()
-						+ ": PRExxx was comma delimited : " + value);
+				return new ParseResult.Fail("Invalid " + getTokenName() + ": PRExxx was comma delimited : " + value);
 			}
 			if (Constants.LST_DOT_CLEAR.equals(tokString))
 			{
 				if (!first)
 				{
-					return new ParseResult.Fail("  Non-sensical " + getTokenName()
-							+ ": .CLEAR was not the first list item: " + value);
+					return new ParseResult.Fail(
+						"  Non-sensical " + getTokenName() + ": .CLEAR was not the first list item: " + value);
 				}
-				context.getListContext().removeAllFromList(getTokenName(),
-						deity, dl);
+				context.getListContext().removeAllFromList(getTokenName(), deity, dl);
 				foundClear = true;
 			}
 			else if (tokString.startsWith(Constants.LST_DOT_CLEAR_DOT))
 			{
 				CDOMReference<Domain> ref;
 				String clearText = tokString.substring(7);
-				if (Constants.LST_ALL.equals(clearText)
-						|| Constants.LST_ANY.equals(clearText))
+				if (Constants.LST_ALL.equals(clearText) || Constants.LST_ANY.equals(clearText))
 				{
 					ref = context.getReferenceContext().getCDOMAllReference(DOMAIN_CLASS);
 				}
@@ -110,25 +105,19 @@ public class DomainsToken extends AbstractTokenWithSeparator<Deity> implements
 				{
 					ref = context.getReferenceContext().getCDOMReference(DOMAIN_CLASS, clearText);
 				}
-				context.getListContext().removeFromList(getTokenName(), deity,
-						dl, ref);
+				context.getListContext().removeFromList(getTokenName(), deity, dl, ref);
 				foundClear = true;
 			}
-			else if (Constants.LST_ALL.equals(tokString)
-					|| Constants.LST_ANY.equals(tokString))
+			else if (Constants.LST_ALL.equals(tokString) || Constants.LST_ANY.equals(tokString))
 			{
-				CDOMGroupRef<Domain> ref = context.getReferenceContext()
-						.getCDOMAllReference(DOMAIN_CLASS);
-				proList.add(context.getListContext().addToList(getTokenName(),
-						deity, dl, ref));
+				CDOMGroupRef<Domain> ref = context.getReferenceContext().getCDOMAllReference(DOMAIN_CLASS);
+				proList.add(context.getListContext().addToList(getTokenName(), deity, dl, ref));
 				foundAll = true;
 			}
 			else
 			{
-				CDOMSingleRef<Domain> ref = context.getReferenceContext().getCDOMReference(
-						DOMAIN_CLASS, tokString);
-				proList.add(context.getListContext().addToList(getTokenName(),
-						deity, dl, ref));
+				CDOMSingleRef<Domain> ref = context.getReferenceContext().getCDOMReference(DOMAIN_CLASS, tokString);
+				proList.add(context.getListContext().addToList(getTokenName(), deity, dl, ref));
 				foundOther = true;
 			}
 			first = false;
@@ -136,23 +125,22 @@ public class DomainsToken extends AbstractTokenWithSeparator<Deity> implements
 
 		if (foundAll && foundOther)
 		{
-			return new ParseResult.Fail("Non-sensical " + getTokenName()
-					+ ": Contains ALL and a specific reference: " + value);
+			return new ParseResult.Fail(
+				"Non-sensical " + getTokenName() + ": Contains ALL and a specific reference: " + value);
 		}
 
 		while (pipeTok.hasMoreTokens())
 		{
 			if (foundClear)
 			{
-				return new ParseResult.Fail("Cannot use PREREQs when using .CLEAR or .CLEAR. in "
-								+ getTokenName());
+				return new ParseResult.Fail("Cannot use PREREQs when using .CLEAR or .CLEAR. in " + getTokenName());
 			}
 			String tokString = pipeTok.nextToken();
 			Prerequisite prereq = getPrerequisite(tokString);
 			if (prereq == null)
 			{
-				return new ParseResult.Fail("   (Did you put items after the "
-						+ "PRExxx tags in " + getTokenName() + ":?)");
+				return new ParseResult.Fail(
+					"   (Did you put items after the " + "PRExxx tags in " + getTokenName() + ":?)");
 			}
 			for (AssociatedPrereqObject ao : proList)
 			{
@@ -167,50 +155,42 @@ public class DomainsToken extends AbstractTokenWithSeparator<Deity> implements
 	public String[] unparse(LoadContext context, Deity deity)
 	{
 		CDOMReference<DomainList> dl = Deity.DOMAINLIST;
-		AssociatedChanges<CDOMReference<Domain>> changes = context
-				.getListContext().getChangesInList(getTokenName(), deity, dl);
+		AssociatedChanges<CDOMReference<Domain>> changes =
+				context.getListContext().getChangesInList(getTokenName(), deity, dl);
 		List<String> list = new ArrayList<>();
 		Collection<CDOMReference<Domain>> removedItems = changes.getRemoved();
 		if (changes.includesGlobalClear())
 		{
 			if (removedItems != null && !removedItems.isEmpty())
 			{
-				context.addWriteMessage("Non-sensical relationship in "
-						+ getTokenName()
-						+ ": global .CLEAR and local .CLEAR. performed");
+				context.addWriteMessage(
+					"Non-sensical relationship in " + getTokenName() + ": global .CLEAR and local .CLEAR. performed");
 				return null;
 			}
 			list.add(Constants.LST_DOT_CLEAR);
 		}
 		else if (removedItems != null && !removedItems.isEmpty())
 		{
-			list.add(Constants.LST_DOT_CLEAR_DOT
-					+ ReferenceUtilities.joinLstFormat(removedItems,
-							",.CLEAR.", true));
+			list.add(Constants.LST_DOT_CLEAR_DOT + ReferenceUtilities.joinLstFormat(removedItems, ",.CLEAR.", true));
 		}
-		MapToList<CDOMReference<Domain>, AssociatedPrereqObject> mtl = changes
-				.getAddedAssociations();
+		MapToList<CDOMReference<Domain>, AssociatedPrereqObject> mtl = changes.getAddedAssociations();
 		if (mtl != null && !mtl.isEmpty())
 		{
-			MapToList<Set<Prerequisite>, CDOMReference<Domain>> m =
-					new HashMapToList<>();
+			MapToList<Set<Prerequisite>, CDOMReference<Domain>> m = new HashMapToList<>();
 			for (CDOMReference<Domain> ab : mtl.getKeySet())
 			{
 				for (AssociatedPrereqObject assoc : mtl.getListFor(ab))
 				{
-					m.addToListFor(new HashSet<>(assoc
-							.getPrerequisiteList()), ab);
+					m.addToListFor(new HashSet<>(assoc.getPrerequisiteList()), ab);
 				}
 			}
 			Set<String> set = new TreeSet<>();
 			for (Set<Prerequisite> prereqs : m.getKeySet())
 			{
-				Set<CDOMReference<Domain>> domainSet = new TreeSet<>(
-						ReferenceUtilities.REFERENCE_SORTER);
+				Set<CDOMReference<Domain>> domainSet = new TreeSet<>(ReferenceUtilities.REFERENCE_SORTER);
 				domainSet.addAll(m.getListFor(prereqs));
 				StringBuilder sb =
-						new StringBuilder(ReferenceUtilities.joinLstFormat(domainSet,
-							Constants.COMMA, true));
+						new StringBuilder(ReferenceUtilities.joinLstFormat(domainSet, Constants.COMMA, true));
 				if (prereqs != null && !prereqs.isEmpty())
 				{
 					sb.append(Constants.PIPE);

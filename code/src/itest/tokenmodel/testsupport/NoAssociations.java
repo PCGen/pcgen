@@ -31,6 +31,7 @@ public class NoAssociations implements AssocCheck, CASAssocCheck
 		this.pc = pc;
 	}
 
+	@Override
 	public boolean check(CNAbility g)
 	{
 		if (pc.getDetailedAssociationCount(g) == 0)
@@ -44,6 +45,7 @@ public class NoAssociations implements AssocCheck, CASAssocCheck
 		}
 	}
 
+	@Override
 	public boolean check(CNAbilitySelection cas)
 	{
 		return cas.getSelection() == null;

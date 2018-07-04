@@ -34,8 +34,7 @@ import pcgen.rules.persistence.ChoiceSetLoadUtilities;
  *            The Format of the object type returned during processing by this
  *            KeyGroupingToken
  */
-public class KeyGroupingToken<T extends Loadable & PCGenScoped>
-		implements GroupingDefinition<T>
+public class KeyGroupingToken<T extends Loadable & PCGenScoped> implements GroupingDefinition<T>
 {
 
 	@Override
@@ -106,12 +105,10 @@ public class KeyGroupingToken<T extends Loadable & PCGenScoped>
 				throw new IllegalArgumentException("KEY must have value following =");
 			}
 			this.groupingInfo = Objects.requireNonNull(info);
-			if (groupingInfo.hasChild() && !PCGENSCOPED_CLASS
-				.isAssignableFrom(info.getIdentity().getReferenceClass()))
+			if (groupingInfo.hasChild() && !PCGENSCOPED_CLASS.isAssignableFrom(info.getIdentity().getReferenceClass()))
 			{
 				throw new IllegalArgumentException(
-					"KEY grouping had children but FORMAT: "
-						+ info.getIdentity().getName() + " is not a PCGenScoped");
+					"KEY grouping had children but FORMAT: " + info.getIdentity().getName() + " is not a PCGenScoped");
 			}
 		}
 

@@ -23,7 +23,6 @@ import java.util.List;
 
 import pcgen.core.PCAlignment;
 
-
 public interface DeityFacade extends InfoFacade
 {
 

@@ -39,7 +39,8 @@ import javax.swing.undo.UndoableEdit;
  * methods as unused.  This is fine.  Do not remove or deprecate them.
  */
 @SuppressWarnings("unused")
-public class ExtendedHTMLDocument extends HTMLDocument {
+public class ExtendedHTMLDocument extends HTMLDocument
+{
 	private static final Element[] EMPTY_ELEMENT_ARRAY = new Element[0];
 
 	/**
@@ -48,7 +49,8 @@ public class ExtendedHTMLDocument extends HTMLDocument {
 	 *
 	 * @see HTMLDocument#HTMLDocument()
 	 */
-	public ExtendedHTMLDocument() {
+	public ExtendedHTMLDocument()
+	{
 		// Constructor
 	}
 
@@ -59,7 +61,8 @@ public class ExtendedHTMLDocument extends HTMLDocument {
 	 * @param content the document contents
 	 * @param styles the stylesheet
 	 */
-	public ExtendedHTMLDocument(Content content, StyleSheet styles) {
+	public ExtendedHTMLDocument(Content content, StyleSheet styles)
+	{
 		super(content, styles);
 	}
 
@@ -71,7 +74,8 @@ public class ExtendedHTMLDocument extends HTMLDocument {
 	 *
 	 * @see HTMLDocument#HTMLDocument(StyleSheet)
 	 */
-	public ExtendedHTMLDocument(StyleSheet styles) {
+	public ExtendedHTMLDocument(StyleSheet styles)
+	{
 		super(styles);
 	}
 
@@ -86,30 +90,31 @@ public class ExtendedHTMLDocument extends HTMLDocument {
 	 *
 	 *   // @see Content#remove(int, int)
 	 */
-	public void removeElements(Element e, int index, int count)
-			throws BadLocationException {
+	public void removeElements(Element e, int index, int count) throws BadLocationException
+	{
 		writeLock();
 
 		int start = e.getElement(index).getStartOffset();
 		int end = e.getElement((index + count) - 1).getEndOffset();
 
-		try {
+		try
+		{
 			Element[] removed = new Element[count];
 			Element[] added = EMPTY_ELEMENT_ARRAY;
 
-			for (int counter = 0; counter < count; counter++) {
+			for (int counter = 0; counter < count; counter++)
+			{
 				removed[counter] = e.getElement(counter + index);
 			}
 
-			DefaultDocumentEvent dde= new DefaultDocumentEvent(
-					start, end - start, EventType.REMOVE);
-			((AbstractDocument.BranchElement) e).replace(
-					index, removed.length, added);
+			DefaultDocumentEvent dde = new DefaultDocumentEvent(start, end - start, EventType.REMOVE);
+			((AbstractDocument.BranchElement) e).replace(index, removed.length, added);
 			dde.addEdit(new ElementEdit(e, index, removed, added));
 
 			UndoableEdit u = getContent().remove(start, end - start);
 
-			if (u != null) {
+			if (u != null)
+			{
 				dde.addEdit(u);
 			}
 
@@ -117,10 +122,13 @@ public class ExtendedHTMLDocument extends HTMLDocument {
 			dde.end();
 			fireRemoveUpdate(dde);
 
-			if (u != null) {
+			if (u != null)
+			{
 				fireUndoableEditUpdate(new UndoableEditEvent(this, dde));
 			}
-		} finally {
+		}
+		finally
+		{
 			writeUnlock();
 		}
 	}
@@ -132,26 +140,29 @@ public class ExtendedHTMLDocument extends HTMLDocument {
 	 * @param a the attributes to change
 	 * @param tag the tag to edit
 	 */
-	public void replaceAttributes(Element e, AttributeSet a, Tag tag) {
+	public void replaceAttributes(Element e, AttributeSet a, Tag tag)
+	{
 		writeLock();
-		if ((e != null) && (a != null)) {
-			try {
+		if ((e != null) && (a != null))
+		{
+			try
+			{
 				int start = e.getStartOffset();
-				DefaultDocumentEvent changes = new DefaultDocumentEvent(
-						start, e.getEndOffset() - start, EventType.CHANGE);
+				DefaultDocumentEvent changes =
+						new DefaultDocumentEvent(start, e.getEndOffset() - start, EventType.CHANGE);
 				AttributeSet sCopy = a.copyAttributes();
 				changes.addEdit(new AttributeUndoableEdit(e, sCopy, false));
 
-				MutableAttributeSet attr
-						= (MutableAttributeSet) e.getAttributes();
+				MutableAttributeSet attr = (MutableAttributeSet) e.getAttributes();
 				Enumeration<?> aNames = attr.getAttributeNames();
 
-				while (aNames.hasMoreElements()) {
+				while (aNames.hasMoreElements())
+				{
 					Object aName = aNames.nextElement();
 					Object value = attr.getAttribute(aName);
 
-					if ((value != null) && !value.toString()
-							.equalsIgnoreCase(tag.toString())) {
+					if ((value != null) && !value.toString().equalsIgnoreCase(tag.toString()))
+					{
 						attr.removeAttribute(aName);
 					}
 				}
@@ -160,7 +171,9 @@ public class ExtendedHTMLDocument extends HTMLDocument {
 				changes.end();
 				fireChangedUpdate(changes);
 				fireUndoableEditUpdate(new UndoableEditEvent(this, changes));
-			} finally {
+			}
+			finally
+			{
 				writeUnlock();
 			}
 		}

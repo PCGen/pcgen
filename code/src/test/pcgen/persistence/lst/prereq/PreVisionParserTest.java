@@ -42,9 +42,9 @@ public class PreVisionParserTest extends EnUsLocaleDependentTestCase
 
 		assertEquals(
 			"<prereq operator=\"GTEQ\" operand=\"1\" >\n"
-				+ "<prereq kind=\"vision\" count-multiples=\"true\" key=\"Blindsight\" operator=\"GTEQ\" operand=\"30\" >\n"
-				+ "</prereq>\n"
-				+ "<prereq kind=\"vision\" count-multiples=\"true\" key=\"Darkvision\" operator=\"GTEQ\" operand=\"30\" >\n"
-				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
+			+ "<prereq kind=\"vision\" count-multiples=\"true\" key=\"Blindsight\" operator=\"GTEQ\" operand=\"30\" >\n"
+			+ "</prereq>\n"
+			+ "<prereq kind=\"vision\" count-multiples=\"true\" key=\"Darkvision\" operator=\"GTEQ\" operand=\"30\" >\n"
+			+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 	}
 }

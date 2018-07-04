@@ -22,8 +22,7 @@ package pcgen.core.term;
 
 import pcgen.core.display.CharacterDisplay;
 
-public class PCCountMoveTermEvaluator
-		extends BasePCDTermEvaluator implements TermEvaluator
+public class PCCountMoveTermEvaluator extends BasePCDTermEvaluator implements TermEvaluator
 {
 	public PCCountMoveTermEvaluator(String originalText)
 	{

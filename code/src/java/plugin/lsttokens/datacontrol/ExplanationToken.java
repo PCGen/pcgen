@@ -21,8 +21,7 @@ import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class ExplanationToken extends AbstractNonEmptyToken<UserContent>
-		implements CDOMPrimaryToken<UserContent>
+public class ExplanationToken extends AbstractNonEmptyToken<UserContent> implements CDOMPrimaryToken<UserContent>
 {
 
 	@Override
@@ -32,8 +31,7 @@ public class ExplanationToken extends AbstractNonEmptyToken<UserContent>
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		UserContent factDef, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, UserContent factDef, String value)
 	{
 		factDef.setExplanation(value);
 		return ParseResult.SUCCESS;

@@ -110,6 +110,7 @@ public enum EquipmentLocation
 		{
 			return LanguageBundle.getString("EquipLocation.TempBonus");
 		}
+
 		@Override
 		public boolean isEquipped()
 		{

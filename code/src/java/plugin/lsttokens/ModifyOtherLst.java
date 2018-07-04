@@ -50,8 +50,8 @@ import pcgen.rules.persistence.token.ParseResult;
  * Implements the MODIFYOTHER token for remotely modifying variables in the new variable
  * system.
  */
-public class ModifyOtherLst extends AbstractTokenWithSeparator<VarHolder> implements
-		CDOMInterfaceToken<VarContainer, VarHolder>, CDOMPrimaryToken<VarHolder>
+public class ModifyOtherLst extends AbstractTokenWithSeparator<VarHolder>
+		implements CDOMInterfaceToken<VarContainer, VarHolder>, CDOMPrimaryToken<VarHolder>
 {
 
 	@Override
@@ -68,20 +68,17 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<VarHolder> implem
 
 	//MODIFYOTHER:EQUIPMENT|GROUP=Martial|EqCritRange|ADD|1
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		VarHolder obj, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, VarHolder obj, String value)
 	{
 		//TODO These instanceof checks will fail - the VarHolder is a proxy :(
 		if (obj instanceof Ungranted)
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " may not be used in Ungranted objects.");
+			return new ParseResult.Fail(getTokenName() + " may not be used in Ungranted objects.");
 		}
 		if (obj instanceof Campaign)
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " may not be used in Campaign Files.  "
-				+ "Please use the Global Modifier file");
+			return new ParseResult.Fail(
+				getTokenName() + " may not be used in Campaign Files.  " + "Please use the Global Modifier file");
 		}
 		ParsingSeparator sep = new ParsingSeparator(value, '|');
 		sep.addGroupingPair('[', ']');
@@ -91,95 +88,81 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<VarHolder> implem
 		PCGenScope lvs = context.getVariableContext().getScope(scopeName);
 		if (lvs == null)
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " found illegal variable scope: " + scopeName
-				+ " as first argument: " + value);
+			return new ParseResult.Fail(
+				getTokenName() + " found illegal variable scope: " + scopeName + " as first argument: " + value);
 		}
 		if (lvs.getParentScope() == null)
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " found illegal variable scope: " + scopeName
-				+ " is a global scope");
+			return new ParseResult.Fail(
+				getTokenName() + " found illegal variable scope: " + scopeName + " is a global scope");
 		}
 		if (!sep.hasNext())
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " needed 2nd argument: " + value);
+			return new ParseResult.Fail(getTokenName() + " needed 2nd argument: " + value);
 		}
 		String fullName = LegalScope.getFullName(lvs);
 		LoadContext subContext = context.dropIntoContext(fullName);
 		return continueParsing(subContext, lvs, obj, value, sep);
 	}
 
-	private <GT extends VarScoped> ParseResult continueParsing(
-		LoadContext context, PCGenScope lvs, VarHolder obj, String value, ParsingSeparator sep)
+	private <GT extends VarScoped> ParseResult continueParsing(LoadContext context, PCGenScope lvs, VarHolder obj,
+		String value, ParsingSeparator sep)
 	{
 		PCGenScope scope = context.getActiveScope();
 		String groupingName = sep.next();
 
-		GroupingCollection<? extends Loadable> group =
-				context.getGrouping(lvs, groupingName);
+		GroupingCollection<? extends Loadable> group = context.getGrouping(lvs, groupingName);
 		if (group == null)
 		{
-			return new ParseResult.Fail(
-				getTokenName() + " unable to build group from: " + groupingName);
+			return new ParseResult.Fail(getTokenName() + " unable to build group from: " + groupingName);
 		}
 		if (!sep.hasNext())
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " needed 3rd argument: " + value);
+			return new ParseResult.Fail(getTokenName() + " needed 3rd argument: " + value);
 		}
 		String varName = sep.next();
 		if (!context.getVariableContext().isLegalVariableID(scope, varName))
 		{
-			return new ParseResult.Fail(getTokenName() + " found invalid var name: "
-				+ varName + "(scope: " + LegalScope.getFullName(scope) + ")");
+			return new ParseResult.Fail(getTokenName() + " found invalid var name: " + varName + "(scope: "
+				+ LegalScope.getFullName(scope) + ")");
 		}
 		if (!sep.hasNext())
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " needed 4th argument: " + value);
+			return new ParseResult.Fail(getTokenName() + " needed 4th argument: " + value);
 		}
 		String modIdentification = sep.next();
 		if (!sep.hasNext())
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " needed 5th argument: " + value);
+			return new ParseResult.Fail(getTokenName() + " needed 5th argument: " + value);
 		}
 		String modInstructions = sep.next();
 		FormulaModifier<?> modifier;
 		try
 		{
-			FormatManager<?> format = context.getVariableContext()
-				.getVariableFormat(scope, varName);
-			modifier = context.getVariableContext().getModifier(
-				modIdentification, modInstructions, scope, format);
+			FormatManager<?> format = context.getVariableContext().getVariableFormat(scope, varName);
+			modifier = context.getVariableContext().getModifier(modIdentification, modInstructions, scope, format);
 		}
 		catch (IllegalArgumentException iae)
 		{
-			return new ParseResult.Fail(getTokenName() + " Modifier "
-				+ modIdentification + " had value " + modInstructions
-				+ " but it was not valid: " + iae.getMessage());
+			return new ParseResult.Fail(getTokenName() + " Modifier " + modIdentification + " had value "
+				+ modInstructions + " but it was not valid: " + iae.getMessage());
 		}
-		Set<Object> associationsVisited =
-				Collections.newSetFromMap(new CaseInsensitiveMap<>());
+		Set<Object> associationsVisited = Collections.newSetFromMap(new CaseInsensitiveMap<>());
 		while (sep.hasNext())
 		{
 			String assoc = sep.next();
 			int equalLoc = assoc.indexOf('=');
 			if (equalLoc == -1)
 			{
-				return new ParseResult.Fail(getTokenName()
-					+ " was expecting = in an ASSOCIATION but got " + assoc
-					+ " in " + value);
+				return new ParseResult.Fail(
+					getTokenName() + " was expecting = in an ASSOCIATION but got " + assoc + " in " + value);
 			}
 			String assocName = assoc.substring(0, equalLoc);
 			if (associationsVisited.contains(assocName))
 			{
 				return new ParseResult.Fail(
-					getTokenName()
-						+ " does not allow multiple asspociations with the same name.  "
-						+ "Found multiple: " + assocName + " in " + value);
+					getTokenName() + " does not allow multiple asspociations with the same name.  " + "Found multiple: "
+						+ assocName + " in " + value);
 			}
 			associationsVisited.add(assocName);
 			modifier.addAssociation(assoc);

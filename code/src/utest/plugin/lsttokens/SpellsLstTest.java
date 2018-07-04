@@ -361,7 +361,8 @@ public class SpellsLstTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testRoundRobinComplex() throws PersistenceLayerException
 	{
-		runRoundRobin("SpellBook|TIMES=2|TIMEUNIT=Week|CASTERLEVEL=15|Fireball,CL+5|Lightning Bolt,25|!PRECLASS:1,Cleric=1|PRERACE:1,Human");
+		runRoundRobin(
+"SpellBook|TIMES=2|TIMEUNIT=Week|CASTERLEVEL=15|Fireball,CL+5|Lightning Bolt,25|!PRECLASS:1,Cleric=1|PRERACE:1,Human");
 	}
 
 	@Test

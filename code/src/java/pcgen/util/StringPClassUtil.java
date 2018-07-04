@@ -51,7 +51,7 @@ import pcgen.core.WeaponProf;
 import pcgen.core.character.CompanionMod;
 import pcgen.core.spell.Spell;
 
-public class StringPClassUtil
+public final class StringPClassUtil
 {
 
 	private static Map<String, Class<? extends Loadable>> baseMap;
@@ -119,7 +119,7 @@ public class StringPClassUtil
 		// Hacks for ServesAs
 		stringMap.put(SubClass.class, "CLASS");
 		stringMap.put(SubstitutionClass.class, "CLASS");
-		
+
 		catClassMap.put("ABILITY", AbilityCategory.class);
 	}
 
@@ -147,8 +147,7 @@ public class StringPClassUtil
 		return stringMap.get(cl);
 	}
 
-	public static Class<? extends Category<?>> getCategoryClassFor(
-			String className)
+	public static Class<? extends Category<?>> getCategoryClassFor(String className)
 	{
 		return catClassMap.get(className);
 	}

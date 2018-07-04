@@ -17,25 +17,24 @@
  */
 package plugin.pretokens.parser;
 
+import java.util.StringTokenizer;
+
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
-import java.util.StringTokenizer;
-
 /**
  * A prerequisite parser class that handles the parsing of pre spell cast tokens.
  */
-public class PreSpellCastParser extends AbstractPrerequisiteParser implements
-		PrerequisiteParserInterface
+public class PreSpellCastParser extends AbstractPrerequisiteParser implements PrerequisiteParserInterface
 {
 	/**
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String[] kindsHandled()
 	{
 		return new String[]{"SPELLCAST"};
@@ -54,10 +53,8 @@ public class PreSpellCastParser extends AbstractPrerequisiteParser implements
 	 * @throws PersistenceLayerException
 	 */
 	@Override
-	public Prerequisite parse(String kind,
-	                          String formula,
-	                          boolean invertResult,
-	                          boolean overrideQualify) throws PersistenceLayerException
+	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+		throws PersistenceLayerException
 	{
 		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
 		prereq.setKind(null); // PREMULT
@@ -97,14 +94,11 @@ public class PreSpellCastParser extends AbstractPrerequisiteParser implements
 			else
 			{
 				throw new PersistenceLayerException(
-					"Each argument in PRESPELLCAST "
-						+ " must start wth either MEMORIZE= or TYPE= : "
-						+ formula);
+					"Each argument in PRESPELLCAST " + " must start wth either MEMORIZE= or TYPE= : " + formula);
 			}
 		}
 
-		if ((prereq.getPrerequisiteCount() == 1)
-			&& prereq.getOperator().equals(PrerequisiteOperator.GTEQ)
+		if ((prereq.getPrerequisiteCount() == 1) && prereq.getOperator().equals(PrerequisiteOperator.GTEQ)
 			&& prereq.getOperand().equals("1"))
 		{
 			prereq = prereq.getPrerequisites().get(0);

@@ -39,52 +39,42 @@ public class DynamicLoader extends SimpleLoader<Dynamic>
 	}
 
 	@Override
-	protected Dynamic getLoadable(LoadContext context, String token,
-		URI sourceURI)
+	protected Dynamic getLoadable(LoadContext context, String token, URI sourceURI)
 	{
 		final int colonLoc = token.indexOf(':');
 		if (colonLoc == -1)
 		{
-			Logging.errorPrint("Invalid Token - does not contain a colon: '"
-				+ token + "' in " + sourceURI);
+			Logging.errorPrint("Invalid Token - does not contain a colon: '" + token + "' in " + sourceURI);
 			return null;
 		}
 		else if (colonLoc == 0)
 		{
-			Logging.errorPrint("Invalid Token - starts with a colon: '" + token
-				+ "' in " + sourceURI);
+			Logging.errorPrint("Invalid Token - starts with a colon: '" + token + "' in " + sourceURI);
 			return null;
 		}
 		else if (colonLoc == (token.length() - 1))
 		{
-			Logging.errorPrint("Invalid Token - "
-				+ "ends with a colon (no value): '" + token + "' in "
-				+ sourceURI);
+			Logging.errorPrint("Invalid Token - " + "ends with a colon (no value): '" + token + "' in " + sourceURI);
 			return null;
 		}
 		String key = token.substring(0, colonLoc);
 		DynamicCategory dynamicCategory =
-				context.getReferenceContext().silentlyGetConstructedCDOMObject(
-					DynamicCategory.class, key);
+				context.getReferenceContext().silentlyGetConstructedCDOMObject(DynamicCategory.class, key);
 		if (dynamicCategory == null)
 		{
 			Logging.addParseMessage(Logging.LST_ERROR,
-				"Unsure what to do with line with prefix "
-					+ "(no DYNAMICSCOPE of this type was defined): " + key
-					+ ".  Line started with: " + token + " in file: "
-					+ sourceURI);
+				"Unsure what to do with line with prefix " + "(no DYNAMICSCOPE of this type was defined): " + key
+					+ ".  Line started with: " + token + " in file: " + sourceURI);
 			return null;
 		}
 		String name = token.substring(colonLoc + 1);
 		if ((name == null) || (name.isEmpty()))
 		{
-			Logging.errorPrint("Invalid Token '" + key + "' had no value in "
-				+ sourceURI);
+			Logging.errorPrint("Invalid Token '" + key + "' had no value in " + sourceURI);
 			return null;
 		}
 		//Only load once / allow duplicates in different files
-		Dynamic d = context.getReferenceContext().getManufacturerId(dynamicCategory)
-			.getActiveObject(name);
+		Dynamic d = context.getReferenceContext().getManufacturerId(dynamicCategory).getActiveObject(name);
 		if (d == null)
 		{
 			d = new Dynamic();

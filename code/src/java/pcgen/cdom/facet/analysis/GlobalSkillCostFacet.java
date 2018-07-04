@@ -33,9 +33,8 @@ import pcgen.core.Skill;
  * skill references in CSKILL and CCSKILL
  * 
  */
-public class GlobalSkillCostFacet extends
-		AbstractScopeFacet<CharID, SkillCost, Skill> implements
-		DataFacetChangeListener<CharID, CDOMObject>
+public class GlobalSkillCostFacet extends AbstractScopeFacet<CharID, SkillCost, Skill>
+		implements DataFacetChangeListener<CharID, CDOMObject>
 {
 	private CDOMObjectConsolidationFacet consolidationFacet;
 

@@ -19,7 +19,6 @@
  */
 package gmgen.plugin;
 
-
 import gmgen.plugin.dice.Die;
 import gmgen.plugin.dice.SystemDieConfig;
 

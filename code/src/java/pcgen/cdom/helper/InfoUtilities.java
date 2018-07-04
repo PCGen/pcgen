@@ -48,8 +48,7 @@ public final class InfoUtilities
 	 * @return An array of the value of the variables identified by the appropriate
 	 *         INFOVARS item
 	 */
-	public static Object[] getInfoVars(CharID id, CDOMObject cdo,
-		CaseInsensitiveString cis)
+	public static Object[] getInfoVars(CharID id, CDOMObject cdo, CaseInsensitiveString cis)
 	{
 		String[] vars = cdo.get(MapKey.INFOVARS, cis);
 		int varCount = (vars != null) ? vars.length : 0;

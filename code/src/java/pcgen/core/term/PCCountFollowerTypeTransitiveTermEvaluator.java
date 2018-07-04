@@ -27,24 +27,19 @@ import pcgen.core.Globals;
 import pcgen.core.character.Follower;
 import pcgen.core.display.CharacterDisplay;
 
-public class PCCountFollowerTypeTransitiveTermEvaluator
-		extends BasePCDTermEvaluator implements TermEvaluator
+public class PCCountFollowerTypeTransitiveTermEvaluator extends BasePCDTermEvaluator implements TermEvaluator
 {
 
 	private final String type;
 	private final int index;
 	private final String newCount;
 
-	public PCCountFollowerTypeTransitiveTermEvaluator(
-			String originalText,
-			String type,
-			int index,
-			String newCount)
+	public PCCountFollowerTypeTransitiveTermEvaluator(String originalText, String type, int index, String newCount)
 	{
 		this.originalText = originalText;
-		this.type         = type;
-		this.index        = index;
-		this.newCount     = newCount;
+		this.type = type;
+		this.index = index;
+		this.newCount = newCount;
 	}
 
 	@Override
@@ -54,7 +49,7 @@ public class PCCountFollowerTypeTransitiveTermEvaluator
 		{
 			final List<Follower> aList = new ArrayList<>();
 
-			for ( Follower follower : display.getFollowerList() )
+			for (Follower follower : display.getFollowerList())
 			{
 				if (follower.getType().getKeyName().equalsIgnoreCase(type))
 				{
@@ -66,14 +61,10 @@ public class PCCountFollowerTypeTransitiveTermEvaluator
 			{
 				final Follower follower = aList.get(index);
 
-				return Globals.getPCList()
-				              .stream()
-				              .filter(pc ->
-						              follower.getFileName().equals(pc.getFileName())
-								              && follower.getName().equals(pc.getName()))
-				              .findFirst()
-				              .map(pc -> pc.getVariableValue(newCount, ""))
-				              .orElse(0.0f);
+				return Globals.getPCList().stream()
+					.filter(pc -> follower.getFileName().equals(pc.getFileName())
+						&& follower.getName().equals(pc.getName()))
+					.findFirst().map(pc -> pc.getVariableValue(newCount, "")).orElse(0.0f);
 			}
 		}
 

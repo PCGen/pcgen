@@ -50,8 +50,7 @@ import pcgen.util.StringPClassUtil;
 /**
  * Deals with the SERVESAS token for Abilities
  */
-public class ServesAsToken extends AbstractTokenWithSeparator<CDOMObject>
-		implements CDOMPrimaryToken<CDOMObject>
+public class ServesAsToken extends AbstractTokenWithSeparator<CDOMObject> implements CDOMPrimaryToken<CDOMObject>
 {
 
 	@Override
@@ -62,12 +61,11 @@ public class ServesAsToken extends AbstractTokenWithSeparator<CDOMObject>
 
 	public List<Class<? extends PObject>> getLegalTypes()
 	{
-		return Arrays.asList(
-				PCClass.class, Ability.class, Skill.class, Race.class
+		return Arrays.asList(PCClass.class, Ability.class, Skill.class, Race.class
 		// Ability.class, Deity.class, Domain.class,Equipment.class,
-				// Race.class, Skill.class,Spell.class, PCTemplate.class,
-				// WeaponProf.class
-				);
+		// Race.class, Skill.class,Spell.class, PCTemplate.class,
+		// WeaponProf.class
+		);
 	}
 
 	@Override
@@ -77,8 +75,7 @@ public class ServesAsToken extends AbstractTokenWithSeparator<CDOMObject>
 		{
 			ComplexParseResult cpr = new ComplexParseResult();
 			cpr.addErrorMessage("Cannot use SERVESAS on a " + obj.getClass());
-			cpr.addErrorMessage("   bad use found in "
-					+ obj.getClass().getSimpleName() + ' ' + obj.getKeyName());
+			cpr.addErrorMessage("   bad use found in " + obj.getClass().getSimpleName() + ' ' + obj.getKeyName());
 			return cpr;
 		}
 		return super.parseNonEmptyToken(context, obj, value);
@@ -91,34 +88,27 @@ public class ServesAsToken extends AbstractTokenWithSeparator<CDOMObject>
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		CDOMObject obj, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
 	{
 		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
 		String firstToken = st.nextToken();
-		ReferenceManufacturer<? extends Loadable> rm =
-				context.getManufacturer(firstToken);
+		ReferenceManufacturer<? extends Loadable> rm = context.getManufacturer(firstToken);
 		if (rm == null)
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " unable to generate manufacturer for type: " + value);
+			return new ParseResult.Fail(getTokenName() + " unable to generate manufacturer for type: " + value);
 		}
 		if (!st.hasMoreTokens())
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " must include at least one target object");
+			return new ParseResult.Fail(getTokenName() + " must include at least one target object");
 		}
 		if (!rm.getReferenceClass().equals(obj.getClass()))
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " expecting a POBJECT Type valid for "
-					+ obj.getClass().getSimpleName() + ", found: "
-							+ firstToken);
+			return new ParseResult.Fail(getTokenName() + " expecting a POBJECT Type valid for "
+				+ obj.getClass().getSimpleName() + ", found: " + firstToken);
 		}
 
 		String servekey = StringPClassUtil.getStringFor(obj.getClass());
-		ListKey<CDOMReference> listkey = ListKey.getKeyFor(CDOMReference.class,
-				"SERVES_AS_" + servekey);
+		ListKey<CDOMReference> listkey = ListKey.getKeyFor(CDOMReference.class, "SERVES_AS_" + servekey);
 		while (st.hasMoreTokens())
 		{
 			CDOMSingleRef<?> ref = rm.getReference(st.nextToken());
@@ -132,16 +122,12 @@ public class ServesAsToken extends AbstractTokenWithSeparator<CDOMObject>
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
 		String key = StringPClassUtil.getStringFor(obj.getClass());
-		ListKey<CDOMReference> listkey = ListKey.getKeyFor(CDOMReference.class,
-				"SERVES_AS_" + key);
-		Changes<CDOMReference> changes = context.getObjectContext().getListChanges(obj,
-				listkey);
+		ListKey<CDOMReference> listkey = ListKey.getKeyFor(CDOMReference.class, "SERVES_AS_" + key);
+		Changes<CDOMReference> changes = context.getObjectContext().getListChanges(obj, listkey);
 		Collection<CDOMReference> removedItems = changes.getRemoved();
-		if (removedItems != null && !removedItems.isEmpty()
-				|| changes.includesGlobalClear())
+		if (removedItems != null && !removedItems.isEmpty() || changes.includesGlobalClear())
 		{
-			context.addWriteMessage(getTokenName()
-							+ " does not support .CLEAR");
+			context.addWriteMessage(getTokenName() + " does not support .CLEAR");
 			return null;
 		}
 		if (!changes.hasAddedItems())
@@ -158,8 +144,7 @@ public class ServesAsToken extends AbstractTokenWithSeparator<CDOMObject>
 		for (String mapKey : map.getKeySet())
 		{
 			Set<String> set = new TreeSet<String>(map.getListFor(mapKey));
-			returnList.add(mapKey + '|'
-					+ StringUtil.joinToStringBuilder(set, Constants.PIPE));
+			returnList.add(mapKey + '|' + StringUtil.joinToStringBuilder(set, Constants.PIPE));
 		}
 		return returnList.toArray(new String[returnList.size()]);
 	}

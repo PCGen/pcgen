@@ -27,7 +27,6 @@ import pcgen.core.Skill;
  * CCSKILL:%LIST
  * 
  */
-public class GlobalAddedSkillCostFacet extends
-		AbstractScopeFacet<CharID, SkillCost, Skill>
+public class GlobalAddedSkillCostFacet extends AbstractScopeFacet<CharID, SkillCost, Skill>
 {
 }

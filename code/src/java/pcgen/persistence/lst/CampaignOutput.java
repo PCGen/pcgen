@@ -55,16 +55,13 @@ public final class CampaignOutput
 	 */
 	public static void output(LoadContext context, Campaign campaign)
 	{
-		final File outFile =
-				new File(ConfigurationSettings.getPccFilesDir()
-					+ File.separator + campaign.getSafe(StringKey.DESTINATION));
+		final File outFile = new File(
+			ConfigurationSettings.getPccFilesDir() + File.separator + campaign.getSafe(StringKey.DESTINATION));
 		BufferedWriter out = null;
 
 		try
 		{
-			out =
-					new BufferedWriter(new OutputStreamWriter(
-						new FileOutputStream(outFile), "UTF-8"));
+			out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(outFile), "UTF-8"));
 
 			List<String> commentList = campaign.getListFor(ListKey.COMMENT);
 			if (commentList != null)
@@ -88,11 +85,11 @@ public final class CampaignOutput
 		}
 		catch (FileNotFoundException | UnsupportedEncodingException exc)
 		{
-			Logging.errorPrint("Error while writing to " + outFile.toString(),
-				exc);
+			Logging.errorPrint("Error while writing to " + outFile.toString(), exc);
 
 			//TODO: Is this ok? Shouldn't something be done if writing a campaign fails?
-		} finally
+		}
+		finally
 		{
 			try
 			{

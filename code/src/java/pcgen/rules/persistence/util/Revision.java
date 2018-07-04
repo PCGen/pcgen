@@ -88,15 +88,13 @@ public class Revision implements Comparable<Revision>
 	@Override
 	public String toString()
 	{
-		return primarySequence + "." + secondarySequence + '-'
-			+ tertiarySequence;
+		return primarySequence + "." + secondarySequence + '-' + tertiarySequence;
 	}
 
 	@Override
 	public boolean equals(Object obj)
 	{
-		return obj == this || obj instanceof Revision
-			&& compareTo((Revision) obj) == 0;
+		return obj == this || obj instanceof Revision && compareTo((Revision) obj) == 0;
 	}
 
 	@Override

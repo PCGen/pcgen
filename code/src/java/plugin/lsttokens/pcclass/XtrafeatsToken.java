@@ -50,29 +50,25 @@ public class XtrafeatsToken implements CDOMPrimaryToken<PCClass>
 			featCount = Integer.parseInt(value);
 			if (featCount == 0)
 			{
-				Logging.deprecationPrint(getTokenName()
-						+ " should not be used if zero (default is zero)", context);
+				Logging.deprecationPrint(getTokenName() + " should not be used if zero (default is zero)", context);
 			}
 			else if (featCount <= 0)
 			{
-				return new ParseResult.Fail("Number in " + getTokenName()
-						+ " must be greater than zero: " + value);
+				return new ParseResult.Fail("Number in " + getTokenName() + " must be greater than zero: " + value);
 			}
 			context.getObjectContext().put(pcc, IntegerKey.START_FEATS, featCount);
 			return ParseResult.SUCCESS;
 		}
 		catch (NumberFormatException nfe)
 		{
-			return new ParseResult.Fail("Invalid Number in " + getTokenName() + ": "
-					+ value);
+			return new ParseResult.Fail("Invalid Number in " + getTokenName() + ": " + value);
 		}
 	}
 
 	@Override
 	public String[] unparse(LoadContext context, PCClass obj)
 	{
-		Integer feats = context.getObjectContext().getInteger(obj,
-				IntegerKey.START_FEATS);
+		Integer feats = context.getObjectContext().getInteger(obj, IntegerKey.START_FEATS);
 		if (feats == null)
 		{
 			return null;
@@ -82,7 +78,7 @@ public class XtrafeatsToken implements CDOMPrimaryToken<PCClass>
 			context.addWriteMessage(getTokenName() + " must be an integer > 0");
 			return null;
 		}
-		return new String[] { feats.toString() };
+		return new String[]{feats.toString()};
 	}
 
 	@Override

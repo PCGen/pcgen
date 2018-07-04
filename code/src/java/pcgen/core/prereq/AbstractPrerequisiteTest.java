@@ -44,15 +44,12 @@ public abstract class AbstractPrerequisiteTest implements PrerequisiteTest
 	 * @see     pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.prereq.Prerequisite,
 	 *          pcgen.core.PlayerCharacter, CDOMObject)
 	 */
-    @Override
-	public int passes(
-	    final Prerequisite    prereq,
-	    final PlayerCharacter character, CDOMObject source) throws PrerequisiteException
+	@Override
+	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
+		throws PrerequisiteException
 	{
-		String name    = this.getClass().getName();
-		String eString = LanguageBundle.getFormattedString(
-			    "prereq.error.does_not_support_characters",
-			    name);
+		String name = this.getClass().getName();
+		String eString = LanguageBundle.getFormattedString("prereq.error.does_not_support_characters", name);
 		throw new PrerequisiteException(eString);
 	}
 
@@ -72,18 +69,14 @@ public abstract class AbstractPrerequisiteTest implements PrerequisiteTest
 	 * @throws  PrerequisiteException  Oops, haven't implemented passes with
 	 *                                 this signature in the subclass
 	 */
-    @Override
-	public int passes(
-	    final Prerequisite prereq,
-	    final Equipment    equipment,
-	    PlayerCharacter    character) throws PrerequisiteException
+	@Override
+	public int passes(final Prerequisite prereq, final Equipment equipment, PlayerCharacter character)
+		throws PrerequisiteException
 	{
 		if (character == null)
 		{
-			String name    = this.getClass().getName();
-			String eString = LanguageBundle.getFormattedString(
-				    "prereq.error.does_not_support_equipment",
-				    name);
+			String name = this.getClass().getName();
+			String eString = LanguageBundle.getFormattedString("prereq.error.does_not_support_equipment", name);
 			throw new PrerequisiteException(eString);
 		}
 
@@ -101,17 +94,15 @@ public abstract class AbstractPrerequisiteTest implements PrerequisiteTest
 	}
 
 	/**
-     * Convert PreReq to an HTML string
-     * 
-     * @param prereq
-     * @return html String representation of the PreReq 
+	 * Convert PreReq to an HTML string
+	 * 
+	 * @param prereq
+	 * @return html String representation of the PreReq 
 	 */
-    @Override
-    public String toHtmlString(final Prerequisite prereq)
+	@Override
+	public String toHtmlString(final Prerequisite prereq)
 	{
-		return LanguageBundle.getFormattedString(
-			    "AbstractPrerequisiteTest.toHtml",
-				prereq.getKind(), prereq.getKey(),
-				prereq.getOperator().toDisplayString(), prereq.getOperand()); // $NON-NLS-1$
+		return LanguageBundle.getFormattedString("AbstractPrerequisiteTest.toHtml", prereq.getKind(), prereq.getKey(),
+			prereq.getOperator().toDisplayString(), prereq.getOperand()); // $NON-NLS-1$
 	}
 }

@@ -21,6 +21,7 @@ package pcgen.gui2.util;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
+
 import javax.swing.Icon;
 
 /**
@@ -34,6 +35,7 @@ public class SignIcon implements Icon
 
 		Plus, Minus;
 	}
+
 	private Sign sign;
 
 	public SignIcon(Sign sign)

@@ -42,8 +42,8 @@ import pcgen.cdom.list.CompanionList;
  * set for a Player Character.
  * 
  */
-public class FollowerLimitFacet extends AbstractStorageFacet<CharID> implements
-		DataFacetChangeListener<CharID, CDOMObject>
+public class FollowerLimitFacet extends AbstractStorageFacet<CharID>
+		implements DataFacetChangeListener<CharID, CDOMObject>
 {
 	private FormulaResolvingFacet formulaResolvingFacet;
 
@@ -107,8 +107,7 @@ public class FollowerLimitFacet extends AbstractStorageFacet<CharID> implements
 			throw new IllegalArgumentException("Object to add may not be null");
 		}
 		CompanionList cl = fo.getCompanionList().get();
-		Map<FollowerLimit, Set<CDOMObject>> foMap = getConstructingCachedMap(
-				id, cl);
+		Map<FollowerLimit, Set<CDOMObject>> foMap = getConstructingCachedMap(id, cl);
 		Set<CDOMObject> set = foMap.get(fo);
 		if (set == null)
 		{
@@ -123,8 +122,7 @@ public class FollowerLimitFacet extends AbstractStorageFacet<CharID> implements
 		Map<CompanionList, Map<FollowerLimit, Set<CDOMObject>>> componentMap = getCachedMap(id);
 		if (componentMap != null)
 		{
-			for (Iterator<Map<FollowerLimit, Set<CDOMObject>>> it = componentMap
-					.values().iterator(); it.hasNext();)
+			for (Iterator<Map<FollowerLimit, Set<CDOMObject>>> it = componentMap.values().iterator(); it.hasNext();)
 			{
 				Map<FollowerLimit, Set<CDOMObject>> foMap = it.next();
 				foMap.values().removeIf(set -> set.remove(source) && set.isEmpty());
@@ -152,11 +150,9 @@ public class FollowerLimitFacet extends AbstractStorageFacet<CharID> implements
 	 *         for the Player Character
 	 */
 	@SuppressWarnings("unchecked")
-	private Map<CompanionList, Map<FollowerLimit, Set<CDOMObject>>> getCachedMap(
-			CharID id)
+	private Map<CompanionList, Map<FollowerLimit, Set<CDOMObject>>> getCachedMap(CharID id)
 	{
-		return (Map<CompanionList, Map<FollowerLimit, Set<CDOMObject>>>) getCache(
-			id);
+		return (Map<CompanionList, Map<FollowerLimit, Set<CDOMObject>>>) getCache(id);
 	}
 
 	/**
@@ -172,8 +168,7 @@ public class FollowerLimitFacet extends AbstractStorageFacet<CharID> implements
 	 *            The CharID for which the Map should be returned
 	 * @return The Map for the Player Character represented by the given CharID
 	 */
-	private Map<FollowerLimit, Set<CDOMObject>> getConstructingCachedMap(
-			CharID id, CompanionList cl)
+	private Map<FollowerLimit, Set<CDOMObject>> getConstructingCachedMap(CharID id, CompanionList cl)
 	{
 		Map<CompanionList, Map<FollowerLimit, Set<CDOMObject>>> componentMap = getCachedMap(id);
 		if (componentMap == null)
@@ -222,15 +217,13 @@ public class FollowerLimitFacet extends AbstractStorageFacet<CharID> implements
 			Set<CDOMObject> set = me.getValue();
 			for (CDOMObject source : set)
 			{
-				int val = formulaResolvingFacet.resolve(id, fl.getValue(),
-						source.getQualifiedKey()).intValue();
+				int val = formulaResolvingFacet.resolve(id, fl.getValue(), source.getQualifiedKey()).intValue();
 				ret = Math.max(ret, val);
 			}
 		}
 		if (ret != -1)
 		{
-			ret += bonusCheckingFacet.getBonus(id, "FOLLOWERS", cl.getKeyName()
-			                                                      .toUpperCase());
+			ret += bonusCheckingFacet.getBonus(id, "FOLLOWERS", cl.getKeyName().toUpperCase());
 		}
 		return ret;
 	}

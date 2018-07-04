@@ -29,13 +29,13 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class AlthpnameToken implements GameModeLstToken
 {
 
-    @Override
+	@Override
 	public String getTokenName()
 	{
 		return "ALTHPNAME";
 	}
 
-    @Override
+	@Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		gameMode.setAltHPText(value);

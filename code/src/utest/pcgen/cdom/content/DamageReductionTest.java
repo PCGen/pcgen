@@ -18,10 +18,12 @@
  */
 package pcgen.cdom.content;
 
-import pcgen.cdom.base.FormulaFactory;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 import org.junit.Test;
-import static org.junit.Assert.*;
+
+import pcgen.cdom.base.FormulaFactory;
 
 /**
  * This class tests the handling of DRs in PCGen

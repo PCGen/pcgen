@@ -39,8 +39,7 @@ import pcgen.core.pclevelinfo.PCLevelInfo;
  */
 public class KitStat extends BaseKit
 {
-	private final Map<CDOMSingleRef<PCStat>, Formula> statMap =
-            new HashMap<>();
+	private final Map<CDOMSingleRef<PCStat>, Formula> statMap = new HashMap<>();
 
 	@Override
 	public String toString()
@@ -48,14 +47,13 @@ public class KitStat extends BaseKit
 		Set<String> set = new TreeSet<>();
 		for (Map.Entry<CDOMSingleRef<PCStat>, Formula> me : statMap.entrySet())
 		{
-			set.add(me.getKey().getLSTformat(false) + '='+ me.getValue());
+			set.add(me.getKey().getLSTformat(false) + '=' + me.getValue());
 		}
 		return StringUtil.join(set, Constants.PIPE);
 	}
 
 	@Override
-	public boolean testApply(Kit aKit, PlayerCharacter aPC,
-		List<String> warnings)
+	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
 	{
 		for (Map.Entry<CDOMSingleRef<PCStat>, Formula> me : statMap.entrySet())
 		{
@@ -63,8 +61,7 @@ public class KitStat extends BaseKit
 			int sVal = me.getValue().resolve(aPC, "").intValue();
 			for (PCStat currentStat : aPC.getStatSet())
 			{
-				if (!aPC.isNonAbility(currentStat)
-					&& currentStat.equals(mapStat))
+				if (!aPC.isNonAbility(currentStat) && currentStat.equals(mapStat))
 				{
 					aPC.setStat(currentStat, sVal);
 					if ("INT".equals(currentStat.getKeyName()))
@@ -99,20 +96,17 @@ public class KitStat extends BaseKit
 			for (PCClass pcClass : classes)
 			{
 				aPC.setSkillPool(pcClass, 0);
-				// We don't limit this to MOD_TO_SKILLS classes as they may manually include the INT bonus in the skills.
+				// We don't limit this to MOD_TO_SKILLS classes as they may manually include the INT bonus in the
+				// skills.
 				for (int j = 0; j < aPC.getLevelInfoSize(); j++)
 				{
 					final PCLevelInfo pcl = aPC.getLevelInfo(j);
 					if (pcl.getClassKeyName().equals(pcClass.getKeyName()))
 					{
-						final int spMod =
-								aPC.recalcSkillPointMod(pcClass, j + 1);
-						int alreadySpent =
-								pcl.getSkillPointsGained(aPC)
-									- pcl.getSkillPointsRemaining();
+						final int spMod = aPC.recalcSkillPointMod(pcClass, j + 1);
+						int alreadySpent = pcl.getSkillPointsGained(aPC) - pcl.getSkillPointsRemaining();
 						pcl.setSkillPointsGained(aPC, spMod);
-						pcl.setSkillPointsRemaining(pcl
-							.getSkillPointsGained(aPC) - alreadySpent);
+						pcl.setSkillPointsRemaining(pcl.getSkillPointsGained(aPC) - alreadySpent);
 						Integer currentPool = aPC.getSkillPool(pcClass);
 						int newSkillPool = (currentPool == null ? 0 : currentPool) + spMod;
 						aPC.setSkillPool(pcClass, newSkillPool);
@@ -129,7 +123,7 @@ public class KitStat extends BaseKit
 			throw new IllegalArgumentException("Cannot redefine stat: " + stat);
 		}
 	}
-	
+
 	public boolean isEmpty()
 	{
 		return statMap.isEmpty();

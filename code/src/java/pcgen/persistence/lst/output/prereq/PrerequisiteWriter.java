@@ -37,18 +37,13 @@ import pcgen.util.Logging;
 
 public class PrerequisiteWriter
 {
-	public void write(Writer stringWriter, Prerequisite prereq)
-			throws PersistenceLayerException
+	public void write(Writer stringWriter, Prerequisite prereq) throws PersistenceLayerException
 	{
-		PrerequisiteWriterFactory factory = PrerequisiteWriterFactory
-				.getInstance();
-		PrerequisiteWriterInterface writer = factory
-				.getWriter(prereq.getKind());
+		PrerequisiteWriterFactory factory = PrerequisiteWriterFactory.getInstance();
+		PrerequisiteWriterInterface writer = factory.getWriter(prereq.getKind());
 		if (writer == null)
 		{
-			throw new PersistenceLayerException(
-					"Can not find a Writer for prerequisites fo kind: "
-							+ prereq.getKind());
+			throw new PersistenceLayerException("Can not find a Writer for prerequisites fo kind: " + prereq.getKind());
 		}
 		writer.write(stringWriter, prereq);
 	}
@@ -62,7 +57,7 @@ public class PrerequisiteWriter
 	 * @return The .lst-compatible string representation of the prerequisite
 	 *         list.
 	 */
-	static public String prereqsToString(final PrereqObject pObj)
+	public static String prereqsToString(final PrereqObject pObj)
 	{
 		if (pObj.hasPrerequisites())
 		{
@@ -72,14 +67,12 @@ public class PrerequisiteWriter
 		return "";
 	}
 
-	public String getPrerequisiteString(Collection<Prerequisite> prereqs)
-			throws PersistenceLayerException
+	public String getPrerequisiteString(Collection<Prerequisite> prereqs) throws PersistenceLayerException
 	{
 		return getPrereqString(prereqs, Constants.PIPE);
 	}
 
-	private String getPrereqString(Collection<Prerequisite> prereqs, String separator)
-			throws PersistenceLayerException
+	private String getPrereqString(Collection<Prerequisite> prereqs, String separator) throws PersistenceLayerException
 	{
 		String prereqString = null;
 		if (prereqs != null && !prereqs.isEmpty())

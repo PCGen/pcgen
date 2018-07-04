@@ -191,8 +191,8 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 		private static final long serialVersionUID = -9006249573217208478L;
 
 		@Override
-		public Component getTreeCellRendererComponent(JTree tree, Object value,
-				boolean sel, boolean expanded, boolean leaf, int row, boolean focus)
+		public Component getTreeCellRendererComponent(JTree tree, Object value, boolean sel, boolean expanded,
+			boolean leaf, int row, boolean focus)
 		{
 			Object obj = ((DefaultMutableTreeNode) value).getUserObject();
 			if ("".equals(obj)) //$NON-NLS-1$
@@ -383,13 +383,12 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 		}
 	}
 
-	private static class TempBonusTreeViewModel
-			implements TreeViewModel<TempBonusFacade>, DataView<TempBonusFacade>,
+	private static class TempBonusTreeViewModel implements TreeViewModel<TempBonusFacade>, DataView<TempBonusFacade>,
 			Filter<CharacterFacade, TempBonusFacade>, ListListener<TempBonusFacade>
 	{
 
-		private static final DefaultListFacade<? extends TreeView<TempBonusFacade>> treeViews
-				= new DefaultListFacade<TreeView<TempBonusFacade>>(Arrays.asList(TempBonusTreeView.values()));
+		private static final DefaultListFacade<? extends TreeView<TempBonusFacade>> treeViews =
+				new DefaultListFacade<TreeView<TempBonusFacade>>(Arrays.asList(TempBonusTreeView.values()));
 		private final List<DefaultDataViewColumn> columns;
 		private final CharacterFacade character;
 		private final InfoFactory infoFactory;
@@ -409,17 +408,17 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 				tempBonuses.setDelegate(character.getAvailableTempBonuses());
 				character.getAvailableTempBonuses().addListListener(this);
 				columns = Arrays.asList(new DefaultDataViewColumn("in_itmFrom", String.class, true), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_itmTarget", String.class, true), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_descrip", String.class, false), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_source", String.class, false)); //$NON-NLS-1$
+					new DefaultDataViewColumn("in_itmTarget", String.class, true), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_descrip", String.class, false), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_source", String.class, false)); //$NON-NLS-1$
 			}
 			else
 			{
 				tempBonuses = null;
 				columns = Arrays.asList(new DefaultDataViewColumn("in_itmFrom", String.class, false), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_itmTarget", String.class, true), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_descrip", String.class, false), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_source", String.class, false)); //$NON-NLS-1$
+					new DefaultDataViewColumn("in_itmTarget", String.class, true), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_descrip", String.class, false), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_source", String.class, false)); //$NON-NLS-1$
 			}
 		}
 
@@ -465,7 +464,8 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 		@Override
 		public Object getData(TempBonusFacade obj, int column)
 		{
-			switch(column){
+			switch (column)
+			{
 				case 0:
 					return obj.getOriginType();
 				case 1:
@@ -523,7 +523,7 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 		@Override
 		public String getPrefsKey()
 		{
-			return isAvailModel ? "TempModsTreeAvail" : "TempModsTreeSelected";  //$NON-NLS-1$//$NON-NLS-2$
+			return isAvailModel ? "TempModsTreeAvail" : "TempModsTreeSelected"; //$NON-NLS-1$//$NON-NLS-2$
 		}
 
 	}
@@ -566,18 +566,16 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 				case TARGET_NAME:
 					if (infoFactory != null)
 					{
-						return Collections.singletonList(new TreeViewPath<>(bonus,
-                                infoFactory.getTempBonusTarget(bonus)));
+						return Collections
+							.singletonList(new TreeViewPath<>(bonus, infoFactory.getTempBonusTarget(bonus)));
 					}
-				// No info factory? Treat as a name 
+					// No info factory? Treat as a name 
 				case NAME:
 					return Collections.singletonList(new TreeViewPath<>(bonus));
 				case ORIGIN_NAME:
-					return Collections.singletonList(new TreeViewPath<>(bonus,
-                            bonus.getOriginType()));
+					return Collections.singletonList(new TreeViewPath<>(bonus, bonus.getOriginType()));
 				case SOURCE_NAME:
-					return Collections.singletonList(new TreeViewPath<>(bonus,
-                            bonus.getSourceForNodeDisplay()));
+					return Collections.singletonList(new TreeViewPath<>(bonus, bonus.getSourceForNodeDisplay()));
 				default:
 					throw new InternalError();
 			}

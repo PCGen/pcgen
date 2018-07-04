@@ -25,41 +25,41 @@ public class EqmodTable extends Table
 {
 	private static HashMap<String, EqmodTable> theTables = null;
 
-	public EqmodTable( final String anId )
+	public EqmodTable(final String anId)
 	{
-		super( anId );
+		super(anId);
 	}
-	
+
 	public List<String> getEqMod()
 	{
 		final List<String> ret = new ArrayList<>();
-		
+
 		final TableEntry entry = getEntry();
 		final List<Object> items = entry.getData();
-		for ( final Object item : items )
+		for (final Object item : items)
 		{
-			final EqmodItem eqItem = (EqmodItem)item;
+			final EqmodItem eqItem = (EqmodItem) item;
 			ret.addAll(eqItem.getEqMods());
 		}
-		
+
 		return ret;
 	}
-	
-	public static EqmodTable get( final String anId )
+
+	public static EqmodTable get(final String anId)
 	{
-		if ( theTables == null )
+		if (theTables == null)
 		{
 			return null;
 		}
-		return theTables.get( anId );
+		return theTables.get(anId);
 	}
 
-	public static void addTable( final EqmodTable aTable )
+	public static void addTable(final EqmodTable aTable)
 	{
-		if ( theTables == null )
+		if (theTables == null)
 		{
 			theTables = new HashMap<>();
 		}
-		theTables.put( aTable.getId(), aTable );
+		theTables.put(aTable.getId(), aTable);
 	}
 }

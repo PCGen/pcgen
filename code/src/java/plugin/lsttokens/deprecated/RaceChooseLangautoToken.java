@@ -25,8 +25,7 @@ import pcgen.rules.persistence.token.CDOMCompatibilityToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
-public class RaceChooseLangautoToken extends AbstractTokenWithSeparator<Race>
-		implements CDOMCompatibilityToken<Race>
+public class RaceChooseLangautoToken extends AbstractTokenWithSeparator<Race> implements CDOMCompatibilityToken<Race>
 {
 	@Override
 	public String getTokenName()
@@ -41,48 +40,40 @@ public class RaceChooseLangautoToken extends AbstractTokenWithSeparator<Race>
 	}
 
 	@Override
-	public ParseResult parseTokenWithSeparator(LoadContext context, Race race,
-		String value)
+	public ParseResult parseTokenWithSeparator(LoadContext context, Race race, String value)
 	{
 		if (!value.startsWith("LANGAUTO|"))
 		{
-			return new ParseResult.Fail(value
-				+ " Incompatible with CHOOSE:LANGAUTO replacement in Race: " + value);
+			return new ParseResult.Fail(value + " Incompatible with CHOOSE:LANGAUTO replacement in Race: " + value);
 		}
-		Logging.deprecationPrint("CHOOSE:LANGAUTO is deprecated, "
-			+ "please use CHOOSE:LANG and AUTO:LANG|%LIST");
+		Logging.deprecationPrint("CHOOSE:LANGAUTO is deprecated, " + "please use CHOOSE:LANG and AUTO:LANG|%LIST");
 		try
 		{
-			if (!context.processToken(race, "CHOOSE",
-				"LANG|" + value.substring(9)))
+			if (!context.processToken(race, "CHOOSE", "LANG|" + value.substring(9)))
 			{
 				Logging.replayParsedMessages();
-				return new ParseResult.Fail(
-					"Internal Error in delegation of CHOOSE:LANGAUTO to CHOOSE:LANGUAGE");
+				return new ParseResult.Fail("Internal Error in delegation of CHOOSE:LANGAUTO to CHOOSE:LANGUAGE");
 			}
 		}
 		catch (PersistenceLayerException e)
 		{
 			Logging.replayParsedMessages();
 			return new ParseResult.Fail(
-				"Error in delegation of CHOOSE:LANGAUTO to CHOOSE:LANG: "
-					+ e.getLocalizedMessage());
+				"Error in delegation of CHOOSE:LANGAUTO to CHOOSE:LANG: " + e.getLocalizedMessage());
 		}
 		try
 		{
 			if (!context.processToken(race, "AUTO", "LANG|%LIST"))
 			{
 				Logging.replayParsedMessages();
-				return new ParseResult.Fail(
-					"Internal Error in delegation of CHOOSE:LANGAUTO to AUTO:LANG");
+				return new ParseResult.Fail("Internal Error in delegation of CHOOSE:LANGAUTO to AUTO:LANG");
 			}
 		}
 		catch (PersistenceLayerException e)
 		{
 			Logging.replayParsedMessages();
 			return new ParseResult.Fail(
-				"Error in delegation of CHOOSE:LANGAUTO to AUTO:LANG: "
-					+ e.getLocalizedMessage());
+				"Error in delegation of CHOOSE:LANGAUTO to AUTO:LANG: " + e.getLocalizedMessage());
 		}
 		return ParseResult.SUCCESS;
 	}

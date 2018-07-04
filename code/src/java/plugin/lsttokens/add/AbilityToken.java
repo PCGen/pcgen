@@ -78,12 +78,11 @@ import pcgen.util.enumeration.Visibility;
  * </ul>
  * (Sun, 20 May 2007) $
  */
-public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
-		CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<CNAbilitySelection>
+public class AbilityToken extends AbstractNonEmptyToken<CDOMObject>
+		implements CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<CNAbilitySelection>
 {
 
-	private static final Class<CNAbilitySelection> CAT_ABILITY_SELECTION_CLASS =
-			CNAbilitySelection.class;
+	private static final Class<CNAbilitySelection> CAT_ABILITY_SELECTION_CLASS = CNAbilitySelection.class;
 	private static final Class<Ability> ABILITY_CLASS = Ability.class;
 	private static final Class<AbilityCategory> ABILITY_CATEGORY_CLASS = AbilityCategory.class;
 
@@ -105,8 +104,7 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		CDOMObject obj, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj, String value)
 	{
 		ParsingSeparator sep = new ParsingSeparator(value, '|');
 		sep.addGroupingPair('[', ']');
@@ -115,14 +113,13 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 		String first = sep.next();
 		if (!sep.hasNext())
 		{
-			return new ParseResult.Fail("Syntax of ADD:" + getTokenName()
-					+ " requires 3 to 4 |: " + value);
+			return new ParseResult.Fail("Syntax of ADD:" + getTokenName() + " requires 3 to 4 |: " + value);
 		}
 		String second = sep.next();
 		if (!sep.hasNext())
 		{
-			return new ParseResult.Fail("Syntax of ADD:" + getTokenName()
-					+ " requires a minimum of three | : " + value);
+			return new ParseResult.Fail(
+				"Syntax of ADD:" + getTokenName() + " requires a minimum of three | : " + value);
 		}
 		String third = sep.next();
 		Formula count;
@@ -131,13 +128,11 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 			count = FormulaFactory.getFormulaFor(first);
 			if (!count.isValid())
 			{
-				return new ParseResult.Fail("Count in " + getTokenName()
-						+ " was not valid: " + count.toString());
+				return new ParseResult.Fail("Count in " + getTokenName() + " was not valid: " + count.toString());
 			}
 			if (count.isStatic() && (count.resolveStatic().doubleValue() <= 0))
 			{
-				return new ParseResult.Fail("Count in " + getFullName()
-						+ " must be > 0");
+				return new ParseResult.Fail("Count in " + getFullName() + " must be > 0");
 			}
 			first = second;
 			second = third;
@@ -149,31 +144,27 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 		}
 		if (sep.hasNext())
 		{
-			return new ParseResult.Fail("Syntax of ADD:" + getTokenName()
-					+ " has max of four | when a count is not present: "
-					+ value);
+			return new ParseResult.Fail(
+				"Syntax of ADD:" + getTokenName() + " has max of four | when a count is not present: " + value);
 		}
 
-		CDOMSingleRef<AbilityCategory> acRef = context.getReferenceContext()
-				.getCDOMReference(ABILITY_CATEGORY_CLASS, first);
+		CDOMSingleRef<AbilityCategory> acRef =
+				context.getReferenceContext().getCDOMReference(ABILITY_CATEGORY_CLASS, first);
 
 		Nature nature = Nature.valueOf(second);
 		if (nature == null)
 		{
-			return new ParseResult.Fail(getFullName() + ": Invalid ability nature: "
-					+ second);
+			return new ParseResult.Fail(getFullName() + ": Invalid ability nature: " + second);
 		}
 		if (Nature.ANY.equals(nature))
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " refers to ANY Ability Nature, cannot be used in "
-					+ getTokenName() + ": " + value);
+			return new ParseResult.Fail(
+				getTokenName() + " refers to ANY Ability Nature, cannot be used in " + getTokenName() + ": " + value);
 		}
 		if (Nature.AUTOMATIC.equals(nature))
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " refers to AUTOMATIC Ability Nature, cannot be used in "
-					+ getTokenName() + ": " + value);
+			return new ParseResult.Fail(getTokenName() + " refers to AUTOMATIC Ability Nature, cannot be used in "
+				+ getTokenName() + ": " + value);
 		}
 
 		ParseResult pr = checkSeparatorsAndNonEmpty(',', third);
@@ -189,12 +180,11 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 		boolean allowStack = false;
 		int dupChoices = 0;
 
-		ReferenceManufacturer<Ability> rm = context.getReferenceContext()
-			.getManufacturerByFormatName("ABILITY=" + first, ABILITY_CLASS);
+		ReferenceManufacturer<Ability> rm =
+				context.getReferenceContext().getManufacturerByFormatName("ABILITY=" + first, ABILITY_CLASS);
 		if (rm == null)
 		{
-			return new ParseResult.Fail(
-				"Could not get Reference Manufacturer for Category: " + first);
+			return new ParseResult.Fail("Could not get Reference Manufacturer for Category: " + first);
 		}
 
 		while (tok.hasNext())
@@ -205,9 +195,8 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 			{
 				if (allowStack)
 				{
-					return new ParseResult.Fail(getFullName()
-							+ " found second stacking specification in value: "
-							+ value);
+					return new ParseResult.Fail(
+						getFullName() + " found second stacking specification in value: " + value);
 				}
 				allowStack = true;
 				continue;
@@ -216,9 +205,8 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 			{
 				if (allowStack)
 				{
-					return new ParseResult.Fail(getFullName()
-							+ " found second stacking specification in value: "
-							+ value);
+					return new ParseResult.Fail(
+						getFullName() + " found second stacking specification in value: " + value);
 				}
 				allowStack = true;
 				try
@@ -227,13 +215,12 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 				}
 				catch (NumberFormatException nfe)
 				{
-					return new ParseResult.Fail("Invalid Stack number in "
-							+ getFullName() + ": " + value);
+					return new ParseResult.Fail("Invalid Stack number in " + getFullName() + ": " + value);
 				}
 				if (dupChoices <= 0)
 				{
-					return new ParseResult.Fail("Invalid (less than 1) Stack number in "
-							+ getFullName() + ": " + value);
+					return new ParseResult.Fail(
+						"Invalid (less than 1) Stack number in " + getFullName() + ": " + value);
 				}
 				continue;
 			}
@@ -250,25 +237,22 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 			}
 			if (ab == null)
 			{
-				return new ParseResult.Fail("  Error was encountered while parsing "
-						+ getTokenName() + ": " + value
-						+ " had an invalid reference: " + token);
+				return new ParseResult.Fail("  Error was encountered while parsing " + getTokenName() + ": " + value
+					+ " had an invalid reference: " + token);
 			}
 			refs.add(ab);
 		}
 
 		if (refs.isEmpty())
 		{
-			return new ParseResult.Fail("Non-sensical " + getFullName()
-					+ ": Contains no ability reference: " + value);
+			return new ParseResult.Fail("Non-sensical " + getFullName() + ": Contains no ability reference: " + value);
 		}
 
-		AbilityRefChoiceSet rcs = new AbilityRefChoiceSet(acRef, refs,
-				nature);
+		AbilityRefChoiceSet rcs = new AbilityRefChoiceSet(acRef, refs, nature);
 		if (!rcs.getGroupingState().isValid())
 		{
-			return new ParseResult.Fail("Non-sensical " + getFullName()
-					+ ": Contains ANY and a specific reference: " + value);
+			return new ParseResult.Fail(
+				"Non-sensical " + getFullName() + ": Contains ANY and a specific reference: " + value);
 		}
 		AbilityChoiceSet cs = new AbilityChoiceSet(getTokenName(), rcs);
 		StringBuilder title = new StringBuilder(50);
@@ -280,9 +264,7 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 		title.append(first);
 		title.append(" Choice");
 		cs.setTitle(title.toString());
-		PersistentTransitionChoice<CNAbilitySelection> tc =
-				new ConcretePersistentTransitionChoice<>(
-						cs, count);
+		PersistentTransitionChoice<CNAbilitySelection> tc = new ConcretePersistentTransitionChoice<>(cs, count);
 		context.getObjectContext().addToList(obj, ListKey.ADD, tc);
 		tc.allowStack(allowStack);
 		if (dupChoices != 0)
@@ -296,10 +278,9 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
-		Changes<PersistentTransitionChoice<?>> grantChanges = context
-				.getObjectContext().getListChanges(obj, ListKey.ADD);
-		Collection<PersistentTransitionChoice<?>> addedItems = grantChanges
-				.getAdded();
+		Changes<PersistentTransitionChoice<?>> grantChanges =
+				context.getObjectContext().getListChanges(obj, ListKey.ADD);
+		Collection<PersistentTransitionChoice<?>> addedItems = grantChanges.getAdded();
 		if ((addedItems == null) || addedItems.isEmpty())
 		{
 			// Zero indicates no Token
@@ -309,28 +290,24 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 		for (TransitionChoice<?> container : addedItems)
 		{
 			SelectableSet<?> cs = container.getChoices();
-			if (getTokenName().equals(cs.getName())
-					&& CAT_ABILITY_SELECTION_CLASS.equals(cs.getChoiceClass()))
+			if (getTokenName().equals(cs.getName()) && CAT_ABILITY_SELECTION_CLASS.equals(cs.getChoiceClass()))
 			{
 				AbilityChoiceSet ascs = (AbilityChoiceSet) cs;
 				Formula f = container.getCount();
 				if (f == null)
 				{
-					context.addWriteMessage("Unable to find " + getFullName()
-							+ " Count");
+					context.addWriteMessage("Unable to find " + getFullName() + " Count");
 					return null;
 				}
 				if (f.isStatic() && (f.resolveStatic().doubleValue() <= 0))
 				{
-					context.addWriteMessage("Count in " + getFullName()
-							+ " must be > 0");
+					context.addWriteMessage("Count in " + getFullName() + " must be > 0");
 					return null;
 				}
 				if (!cs.getGroupingState().isValid())
 				{
 					context.addWriteMessage("Non-sensical " + getFullName()
-							+ ": Contains ANY and a specific reference: "
-							+ cs.getLSTformat());
+						+ ": Contains ANY and a specific reference: " + cs.getLSTformat());
 					return null;
 				}
 				StringBuilder sb = new StringBuilder();
@@ -350,8 +327,7 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 					{
 						if (stackLimit.intValue() <= 0)
 						{
-							context.addWriteMessage("Stack Limit in "
-								+ getFullName() + " must be > 0");
+							context.addWriteMessage("Stack Limit in " + getFullName() + " must be > 0");
 							return null;
 						}
 						sb.append(Constants.EQUALS);
@@ -373,8 +349,7 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	public void applyChoice(CDOMObject owner,
-		CNAbilitySelection choice, PlayerCharacter pc)
+	public void applyChoice(CDOMObject owner, CNAbilitySelection choice, PlayerCharacter pc)
 	{
 		CNAbility cna = choice.getCNAbility();
 		Ability ab = cna.getAbility();
@@ -382,20 +357,17 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 		boolean isVirtual = Nature.VIRTUAL.equals(cna.getNature());
 		if (isVirtual)
 		{
-			pc.addSavedAbility(choice, UserSelection.getInstance(),
-				UserSelection.getInstance());
+			pc.addSavedAbility(choice, UserSelection.getInstance(), UserSelection.getInstance());
 		}
 		else
 		{
-			pc.addAbility(choice, UserSelection.getInstance(),
-				UserSelection.getInstance());
+			pc.addAbility(choice, UserSelection.getInstance(), UserSelection.getInstance());
 			pc.adjustAbilities(cat, ab.getSafe(ObjectKey.SELECTION_COST));
 		}
 	}
 
 	@Override
-	public boolean allow(CNAbilitySelection choice,
-		PlayerCharacter pc, boolean allowStack)
+	public boolean allow(CNAbilitySelection choice, PlayerCharacter pc, boolean allowStack)
 	{
 		CNAbility cna = choice.getCNAbility();
 		Ability ability = cna.getAbility();
@@ -426,8 +398,7 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
-		CNAbilitySelection choice)
+	public void restoreChoice(PlayerCharacter pc, CDOMObject owner, CNAbilitySelection choice)
 	{
 		// String featName = choice.getAbilityKey();
 		// Ability aFeat = pc.getAbilityKeyed(AbilityCategory.FEAT,
@@ -436,23 +407,19 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
-		CNAbilitySelection choice)
+	public void removeChoice(PlayerCharacter pc, CDOMObject owner, CNAbilitySelection choice)
 	{
 		CNAbility cna = choice.getCNAbility();
 		Ability ab = cna.getAbility();
 		AbilityCategory cat = (AbilityCategory) cna.getAbilityCategory();
 		if (cna.getNature().equals(Nature.NORMAL))
 		{
-			pc.adjustAbilities(cat, ab.getSafe(ObjectKey.SELECTION_COST)
-				.negate());
-			pc.removeAbility(choice, UserSelection.getInstance(),
-				UserSelection.getInstance());
+			pc.adjustAbilities(cat, ab.getSafe(ObjectKey.SELECTION_COST).negate());
+			pc.removeAbility(choice, UserSelection.getInstance(), UserSelection.getInstance());
 		}
 		else
 		{
-			pc.removeSavedAbility(choice, UserSelection.getInstance(),
-				UserSelection.getInstance());
+			pc.removeSavedAbility(choice, UserSelection.getInstance(), UserSelection.getInstance());
 		}
 	}
 }

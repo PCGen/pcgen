@@ -19,6 +19,7 @@
 package pcgen.gui2.util;
 
 import java.awt.Component;
+
 import javax.swing.JTree;
 import javax.swing.tree.DefaultTreeCellRenderer;
 
@@ -45,7 +46,8 @@ public class TreeColumnCellRenderer extends DefaultTreeCellRenderer
 	}
 
 	@Override
-	public Component getTreeCellRendererComponent(JTree tree, Object value, boolean sel, boolean expanded, boolean leaf, int row, boolean hasFocus)
+	public Component getTreeCellRendererComponent(JTree tree, Object value, boolean sel, boolean expanded, boolean leaf,
+		int row, boolean hasFocus)
 	{
 		setBackgroundNonSelectionColor(tree.getBackground());
 		return super.getTreeCellRendererComponent(tree, value, sel, expanded, leaf, row, hasFocus);

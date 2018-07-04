@@ -40,8 +40,7 @@ public class SizeModToken extends Token
 
 	//TODO: This should really be in the Size token as SIZE.MOD
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		return Integer.toString(getSizeModToken(pc));
 	}

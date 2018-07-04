@@ -22,9 +22,9 @@ package pcgen.core.term;
 
 import java.math.BigDecimal;
 
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
-import pcgen.cdom.enumeration.IntegerKey;
 
 public class EQWeightTermEvaluator extends BaseEQTermEvaluator implements TermEvaluator
 {
@@ -34,25 +34,20 @@ public class EQWeightTermEvaluator extends BaseEQTermEvaluator implements TermEv
 	}
 
 	@Override
-	public Float resolve(
-			Equipment eq,
-			boolean primary,
-			PlayerCharacter pc)
+	public Float resolve(Equipment eq, boolean primary, PlayerCharacter pc)
 	{
 		return TermUtil.convertToFloat(originalText, evaluate(eq, primary, pc));
 	}
 
 	@Override
-	public String evaluate(
-			Equipment eq,
-			boolean primary,
-			PlayerCharacter pc) {
+	public String evaluate(Equipment eq, boolean primary, PlayerCharacter pc)
+	{
 
 		if (eq.isCalculatingCost() && eq.isWeightAlreadyUsed())
 		{
 			return "0";
 		}
-		
+
 		BigDecimal weightInPounds = eq.getWeightInPounds();
 
 		if (eq.isCalculatingCost() && eq.isAmmunition())

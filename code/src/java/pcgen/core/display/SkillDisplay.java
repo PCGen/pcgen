@@ -52,62 +52,59 @@ public final class SkillDisplay
 	 * 
 	 * @return An ArrayList of the skill objects in output order.
 	 */
-	public static List<Skill> getSkillListInOutputOrder(final PlayerCharacter pc,
-		final List<Skill> skills)
+	public static List<Skill> getSkillListInOutputOrder(final PlayerCharacter pc, final List<Skill> skills)
 	{
 		skills.sort(new Comparator<Skill>()
-        {
-            /**
-             * Comparator will be specific to Skill objects
-             */
-            @Override
-            public int compare(final Skill skill1, final Skill skill2)
-            {
-                Integer obj1Index = pc.getSkillOrder(skill1);
-                Integer obj2Index = pc.getSkillOrder(skill2);
+		{
+			/**
+			 * Comparator will be specific to Skill objects
+			 */
+			@Override
+			public int compare(final Skill skill1, final Skill skill2)
+			{
+				Integer obj1Index = pc.getSkillOrder(skill1);
+				Integer obj2Index = pc.getSkillOrder(skill2);
 
-                // Force unset items (index of 0) to appear at the end
-                if (obj1Index == null || obj1Index == 0)
-                {
-                    obj1Index = Constants.ARBITRARY_END_SKILL_INDEX;
-                }
+				// Force unset items (index of 0) to appear at the end
+				if (obj1Index == null || obj1Index == 0)
+				{
+					obj1Index = Constants.ARBITRARY_END_SKILL_INDEX;
+				}
 
-                if (obj2Index == null || obj2Index == 0)
-                {
-                    obj2Index = Constants.ARBITRARY_END_SKILL_INDEX;
-                }
+				if (obj2Index == null || obj2Index == 0)
+				{
+					obj2Index = Constants.ARBITRARY_END_SKILL_INDEX;
+				}
 
-                if (obj1Index > obj2Index)
-                {
-                    return 1;
-                }
-                else if (obj1Index < obj2Index)
-                {
-                    return -1;
-                }
-                else
-                {
-                    return skill1.getOutputName()
-                                 .compareToIgnoreCase(skill2.getOutputName());
-                }
-            }
-        });
-	
+				if (obj1Index > obj2Index)
+				{
+					return 1;
+				}
+				else if (obj1Index < obj2Index)
+				{
+					return -1;
+				}
+				else
+				{
+					return skill1.getOutputName().compareToIgnoreCase(skill2.getOutputName());
+				}
+			}
+		});
+
 		// Remove the hidden skills from the list
 		for (Iterator<Skill> i = skills.iterator(); i.hasNext();)
 		{
 			final Skill bSkill = i.next();
-	
+
 			Visibility skVis = bSkill.getSafe(ObjectKey.VISIBILITY);
 			Integer outputIndex = pc.getSkillOrder(bSkill);
-			if ((outputIndex != null && outputIndex == -1)
-					|| skVis.isVisibleTo(View.HIDDEN_EXPORT)
-					|| !bSkill.qualifies(pc, null))
+			if ((outputIndex != null && outputIndex == -1) || skVis.isVisibleTo(View.HIDDEN_EXPORT)
+				|| !bSkill.qualifies(pc, null))
 			{
 				i.remove();
 			}
 		}
-	
+
 		return skills;
 	}
 
@@ -130,8 +127,8 @@ public final class SkillDisplay
 		// we need to sort the PC's skill list now that the
 		// new skill has been added, this won't get called
 		// when adding a rank to an existing skill
-//		Collections.sort(theCharacter.getSkillList(),
-//			new StringIgnoreCaseComparator());
+		//		Collections.sort(theCharacter.getSkillList(),
+		//			new StringIgnoreCaseComparator());
 
 		// Now re calc the output order
 		if (pc.getSkillsOutputOrder() == SkillsOutputOrder.MANUAL)
@@ -193,4 +190,4 @@ public final class SkillDisplay
 
 		return maxOutputIndex;
 	}
-	}
+}

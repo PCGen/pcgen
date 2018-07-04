@@ -29,8 +29,8 @@ import pcgen.util.Logging;
 /**
  * Deals with the MULT token
  */
-public class MultToken extends AbstractYesNoToken<Ability> implements
-		CDOMPrimaryToken<Ability>, PostDeferredToken<Ability>
+public class MultToken extends AbstractYesNoToken<Ability>
+		implements CDOMPrimaryToken<Ability>, PostDeferredToken<Ability>
 {
 
 	@Override
@@ -64,23 +64,20 @@ public class MultToken extends AbstractYesNoToken<Ability> implements
 		{
 			if (a.get(ObjectKey.CHOOSE_INFO) == null)
 			{
-				Logging.errorPrint("Ability (" + a.getCategory() + ") "
-						+ a.getKeyName() + " had MULT:YES but no CHOOSE", context);
+				Logging.errorPrint(
+					"Ability (" + a.getCategory() + ") " + a.getKeyName() + " had MULT:YES but no CHOOSE", context);
 				return false;
 			}
 			if (a.getKeyName().contains("("))
 			{
 				String base = AbilityUtilities.removeChoicesFromName(a.getKeyName());
-				Ability conflict = context.getReferenceContext()
-					.getManufacturerId(a.getCDOMCategory()).getActiveObject(base);
+				Ability conflict =
+						context.getReferenceContext().getManufacturerId(a.getCDOMCategory()).getActiveObject(base);
 				if ((conflict != null) && conflict.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 				{
-					Logging.errorPrint(
-						"Ability (" + a.getCategory() + ") "
-							+ conflict.getKeyName() + " had MULT:YES which "
-							+ "prohibits Ability Key with same base "
-							+ "and parenthesis, but data included: "
-							+ a.getKeyName(), context);
+					Logging.errorPrint("Ability (" + a.getCategory() + ") " + conflict.getKeyName()
+						+ " had MULT:YES which " + "prohibits Ability Key with same base "
+						+ "and parenthesis, but data included: " + a.getKeyName(), context);
 					return false;
 				}
 			}
@@ -89,8 +86,9 @@ public class MultToken extends AbstractYesNoToken<Ability> implements
 		{
 			if (a.get(ObjectKey.CHOOSE_INFO) != null)
 			{
-				Logging.errorPrint("Ability (" + a.getCategory() + ") "
-						+ a.getKeyName() + " had MULT:NO but did have CHOOSE", context);
+				Logging.errorPrint(
+					"Ability (" + a.getCategory() + ") " + a.getKeyName() + " had MULT:NO but did have CHOOSE",
+					context);
 				return false;
 			}
 		}

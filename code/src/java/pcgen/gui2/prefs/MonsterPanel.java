@@ -41,8 +41,7 @@ import pcgen.system.LanguageBundle;
 @SuppressWarnings("serial")
 public class MonsterPanel extends PCGenPrefsPanel
 {
-	private static final String in_monsters =
-		LanguageBundle.getString("in_Prefs_monsters");
+	private static final String in_monsters = LanguageBundle.getString("in_Prefs_monsters");
 	private final JCheckBox ignoreMonsterHDCap = new JCheckBox();
 
 	/**
@@ -54,8 +53,7 @@ public class MonsterPanel extends PCGenPrefsPanel
 		GridBagConstraints c = new GridBagConstraints();
 		JLabel label;
 		Border etched = null;
-		TitledBorder title1 =
-				BorderFactory.createTitledBorder(etched, in_monsters);
+		TitledBorder title1 = BorderFactory.createTitledBorder(etched, in_monsters);
 
 		title1.setTitleJustification(TitledBorder.LEFT);
 		this.setBorder(title1);
@@ -67,8 +65,7 @@ public class MonsterPanel extends PCGenPrefsPanel
 		c.insets = new Insets(2, 2, 2, 2);
 
 		Utility.buildConstraints(c, 0, 2, 2, 1, 0, 0);
-		ignoreMonsterHDCap.setText(LanguageBundle
-					.getString("in_Prefs_ignoreMonsterHDCap"));
+		ignoreMonsterHDCap.setText(LanguageBundle.getString("in_Prefs_ignoreMonsterHDCap"));
 		this.add(ignoreMonsterHDCap, c);
 
 		Utility.buildConstraints(c, 5, 20, 1, 1, 1, 1);
@@ -86,7 +83,7 @@ public class MonsterPanel extends PCGenPrefsPanel
 	{
 		return in_monsters;
 	}
-	
+
 	/**
 	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#setOptionsBasedOnControls()
 	 */

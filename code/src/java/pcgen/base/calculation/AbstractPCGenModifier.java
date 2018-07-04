@@ -45,7 +45,7 @@ public abstract class AbstractPCGenModifier<T> implements FormulaModifier<T>
 	 */
 	@SuppressWarnings("unused")
 	private Collection<Indirect<?>> references;
-	
+
 	protected int getUserPriority()
 	{
 		return (userPriority == null) ? 0 : userPriority;
@@ -54,8 +54,7 @@ public abstract class AbstractPCGenModifier<T> implements FormulaModifier<T>
 	@Override
 	public void addAssociation(String assocInstructions)
 	{
-		userPriority =
-				AssociationUtilities.processUserPriority(assocInstructions);
+		userPriority = AssociationUtilities.processUserPriority(assocInstructions);
 	}
 
 	@Override

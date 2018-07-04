@@ -1,10 +1,10 @@
 package pcgen.output.factory;
 
+import freemarker.template.TemplateModel;
 import pcgen.cdom.inst.CodeControl;
 import pcgen.core.GameMode;
 import pcgen.output.base.ModeModelFactory;
 import pcgen.output.model.CodeControlModel;
-import freemarker.template.TemplateModel;
 
 /**
  * A CodeControlModelFactory is a ModelFactory that operates to get TemplateModel objects
@@ -16,11 +16,8 @@ public class CodeControlModelFactory implements ModeModelFactory
 	@Override
 	public TemplateModel generate(GameMode mode)
 	{
-		CodeControl controller =
-				mode.getModeContext()
-					.getReferenceContext()
-					.silentlyGetConstructedCDOMObject(CodeControl.class,
-						"Controller");
+		CodeControl controller = mode.getModeContext().getReferenceContext()
+			.silentlyGetConstructedCDOMObject(CodeControl.class, "Controller");
 		if (controller == null)
 		{
 			return null;

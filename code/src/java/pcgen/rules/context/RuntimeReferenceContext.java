@@ -51,24 +51,21 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 	protected RuntimeReferenceContext()
 	{
 	}
-	
+
 	@Override
-	public <T extends Loadable> ReferenceManufacturer<T> getManufacturer(
-			Class<T> cl)
+	public <T extends Loadable> ReferenceManufacturer<T> getManufacturer(Class<T> cl)
 	{
 		Objects.requireNonNull(cl);
 		if (Categorized.class.isAssignableFrom(cl))
 		{
-			throw new InternalError(cl
-					+ " is categorized but was fetched without a category");
+			throw new InternalError(cl + " is categorized but was fetched without a category");
 		}
 		ClassIdentity<T> identity = BasicClassIdentity.getIdentity(cl);
 		return getManufacturerId(identity);
 	}
 
 	@Override
-	public <T extends Loadable> ReferenceManufacturer<T> getManufacturerId(
-		ClassIdentity<T> identity)
+	public <T extends Loadable> ReferenceManufacturer<T> getManufacturerId(ClassIdentity<T> identity)
 	{
 		Objects.requireNonNull(identity);
 		@SuppressWarnings("unchecked")
@@ -83,8 +80,7 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 	}
 
 	@Override
-	protected <T extends Loadable> ReferenceManufacturer<T> constructReferenceManufacturer(
-		ClassIdentity<T> identity)
+	protected <T extends Loadable> ReferenceManufacturer<T> constructReferenceManufacturer(ClassIdentity<T> identity)
 	{
 		Objects.requireNonNull(identity);
 		//TODO Need a special case here for Ability?!? YUCK
@@ -116,17 +112,14 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 		{
 			ClassIdentity<?> identity1 = o1.getReferenceIdentity();
 			ClassIdentity<?> identity2 = o2.getReferenceIdentity();
-			int int1 = CATEGORIZED_CLASS.isAssignableFrom(identity1.getReferenceClass())
-				? 1 : 0;
-			int int2 = CATEGORIZED_CLASS.isAssignableFrom(identity2.getReferenceClass())
-				? 1 : 0;
+			int int1 = CATEGORIZED_CLASS.isAssignableFrom(identity1.getReferenceClass()) ? 1 : 0;
+			int int2 = CATEGORIZED_CLASS.isAssignableFrom(identity2.getReferenceClass()) ? 1 : 0;
 			return int1 - int2;
 		}
 	}
 
 	@Override
-	public <T extends Loadable> ReferenceManufacturer<T> getManufacturerFac(
-			ManufacturableFactory<T> factory)
+	public <T extends Loadable> ReferenceManufacturer<T> getManufacturerFac(ManufacturableFactory<T> factory)
 	{
 		ClassIdentity<T> identity = factory.getReferenceIdentity();
 		@SuppressWarnings("unchecked")
@@ -158,8 +151,7 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 		}
 		catch (CloneNotSupportedException e)
 		{
-			String message = LanguageBundle.getFormattedString(
-				"Errors.LstFileLoader.CopyNotSupported", //$NON-NLS-1$
+			String message = LanguageBundle.getFormattedString("Errors.LstFileLoader.CopyNotSupported", //$NON-NLS-1$
 				object.getClass().getName(), object.getKeyName(), copyName);
 			Logging.errorPrint(message);
 		}
@@ -192,8 +184,8 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 	}
 
 	@Override
-	public <T extends Loadable> ReferenceManufacturer<T> getManufacturerByFormatName(
-		String formatName, Class<T> refClass)
+	public <T extends Loadable> ReferenceManufacturer<T> getManufacturerByFormatName(String formatName,
+		Class<T> refClass)
 	{
 		Objects.requireNonNull(refClass);
 		return (ReferenceManufacturer<T>) getManufacturerByFormatName(formatName);

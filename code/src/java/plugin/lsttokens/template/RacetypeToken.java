@@ -28,8 +28,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with RACETYPE Token
  */
-public class RacetypeToken extends AbstractNonEmptyToken<PCTemplate> implements
-		CDOMPrimaryToken<PCTemplate>
+public class RacetypeToken extends AbstractNonEmptyToken<PCTemplate> implements CDOMPrimaryToken<PCTemplate>
 {
 
 	@Override
@@ -39,24 +38,21 @@ public class RacetypeToken extends AbstractNonEmptyToken<PCTemplate> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		PCTemplate template, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, PCTemplate template, String value)
 	{
-		context.getObjectContext().put(template, ObjectKey.RACETYPE,
-				RaceType.getConstant(value));
+		context.getObjectContext().put(template, ObjectKey.RACETYPE, RaceType.getConstant(value));
 		return ParseResult.SUCCESS;
 	}
 
 	@Override
 	public String[] unparse(LoadContext context, PCTemplate pct)
 	{
-		RaceType raceType = context.getObjectContext().getObject(pct,
-				ObjectKey.RACETYPE);
+		RaceType raceType = context.getObjectContext().getObject(pct, ObjectKey.RACETYPE);
 		if (raceType == null)
 		{
 			return null;
 		}
-		return new String[] { raceType.toString() };
+		return new String[]{raceType.toString()};
 	}
 
 	@Override

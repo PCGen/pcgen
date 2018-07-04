@@ -25,8 +25,7 @@ import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.RuleConstants;
 
-public class PCBonusLangTermEvaluator 
-		extends BasePCTermEvaluator implements TermEvaluator
+public class PCBonusLangTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
 	public PCBonusLangTermEvaluator(String originalText)
 	{

@@ -45,8 +45,8 @@ public class KitSpellBookEntry
 	 * @param modifiers
 	 * @param copies
 	 */
-	public KitSpellBookEntry(final String aBookName,
-							 final Spell sp, final List<CDOMSingleRef<Ability>> modifiers, int copies)
+	public KitSpellBookEntry(final String aBookName, final Spell sp, final List<CDOMSingleRef<Ability>> modifiers,
+		int copies)
 	{
 		bookName = aBookName;
 		spell = sp;

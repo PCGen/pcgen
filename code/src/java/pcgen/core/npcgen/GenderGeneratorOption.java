@@ -27,23 +27,23 @@ import pcgen.cdom.enumeration.Gender;
 public class GenderGeneratorOption extends GeneratorOption
 {
 	private WeightedCollection<Gender> theChoices = null;
-	
+
 	/**
 	 * @see pcgen.core.npcgen.GeneratorOption#addChoice(int, java.lang.String)
 	 */
 	@Override
 	public void addChoice(final int aWeight, final String aValue)
 	{
-		if ( theChoices == null )
+		if (theChoices == null)
 		{
 			theChoices = new WeightedCollection<>();
 		}
-		
-		if ( aValue.equals("*") ) //$NON-NLS-1$
+
+		if (aValue.equals("*")) //$NON-NLS-1$
 		{
-			for ( final Gender gender : Gender.values() )
+			for (final Gender gender : Gender.values())
 			{
-				if ( ! theChoices.contains(gender) )
+				if (!theChoices.contains(gender))
 				{
 					theChoices.add(gender, aWeight);
 				}
@@ -51,7 +51,7 @@ public class GenderGeneratorOption extends GeneratorOption
 			return;
 		}
 
-		for ( final Gender gender : Gender.values() )
+		for (final Gender gender : Gender.values())
 		{
 			if (gender.toString().equalsIgnoreCase(aValue))
 			{

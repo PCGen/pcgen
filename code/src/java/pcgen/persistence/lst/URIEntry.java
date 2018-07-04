@@ -110,8 +110,7 @@ public class URIEntry
 		if (arg0 instanceof URIEntry)
 		{
 			URIEntry other = (URIEntry) arg0;
-			return Objects.equals(uriFac, other.uriFac)
-				&& getURI().equals(other.getURI());
+			return Objects.equals(uriFac, other.uriFac) && getURI().equals(other.getURI());
 		}
 		return false;
 	}
@@ -168,8 +167,7 @@ public class URIEntry
 	 */
 	public URIEntry getRelatedTarget(String fileName)
 	{
-		return new URIEntry(campaignName, new URIFactory(Objects.requireNonNull(uriFac).getRootURI(),
-			fileName));
+		return new URIEntry(campaignName, new URIFactory(Objects.requireNonNull(uriFac).getRootURI(), fileName));
 	}
 
 	/**
@@ -185,13 +183,11 @@ public class URIEntry
 	 *            The offset from the root URI for the URIEntry
 	 * @return A new URIEntry from the given Campaign name, rootURI and offset
 	 */
-	public static URIEntry getURIEntry(String campaignName, URI rootURI,
-		String offset)
+	public static URIEntry getURIEntry(String campaignName, URI rootURI, String offset)
 	{
 		if (offset == null || offset.isEmpty())
 		{
-			Logging.errorPrint("Cannot build URIEntry for empty value in "
-				+ rootURI);
+			Logging.errorPrint("Cannot build URIEntry for empty value in " + rootURI);
 			return null;
 		}
 

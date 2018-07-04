@@ -46,35 +46,23 @@ public class TabsPanel extends PCGenPrefsPanel
 {
 	private static final String in_tabs = LanguageBundle.getString("in_Prefs_tabs");
 
-	private static final String in_charTabPlacement =
-		LanguageBundle.getString("in_Prefs_charTabPlacement");
-	private static final String in_charTabLabel =
-		LanguageBundle.getString("in_Prefs_charTabLabel");
-	private static final String in_mainTabPlacement =
-		LanguageBundle.getString("in_Prefs_mainTabPlacement");
-	private static final String in_tabLabelPlain =
-		LanguageBundle.getString("in_Prefs_tabLabelPlain");
-	private static final String in_tabLabelEpic =
-			LanguageBundle.getString("in_Prefs_tabLabelEpic");
-	private static final String in_tabLabelRace =
-			LanguageBundle.getString("in_Prefs_tabLabelRace");
-	private static final String in_tabLabelNetHack =
-			LanguageBundle.getString("in_Prefs_tabLabelNetHack");
-	private static final String in_tabLabelFull =
-			LanguageBundle.getString("in_Prefs_tabLabelFull");
-	private static final String in_tabPosTop =
-			LanguageBundle.getString("in_Prefs_tabPosTop");
-	private static final String in_tabPosBottom =
-			LanguageBundle.getString("in_Prefs_tabPosBottom");
-	private static final String in_tabPosLeft =
-			LanguageBundle.getString("in_Prefs_tabPosLeft");
-	private static final String in_tabPosRight =
-			LanguageBundle.getString("in_Prefs_tabPosRight");
+	private static final String in_charTabPlacement = LanguageBundle.getString("in_Prefs_charTabPlacement");
+	private static final String in_charTabLabel = LanguageBundle.getString("in_Prefs_charTabLabel");
+	private static final String in_mainTabPlacement = LanguageBundle.getString("in_Prefs_mainTabPlacement");
+	private static final String in_tabLabelPlain = LanguageBundle.getString("in_Prefs_tabLabelPlain");
+	private static final String in_tabLabelEpic = LanguageBundle.getString("in_Prefs_tabLabelEpic");
+	private static final String in_tabLabelRace = LanguageBundle.getString("in_Prefs_tabLabelRace");
+	private static final String in_tabLabelNetHack = LanguageBundle.getString("in_Prefs_tabLabelNetHack");
+	private static final String in_tabLabelFull = LanguageBundle.getString("in_Prefs_tabLabelFull");
+	private static final String in_tabPosTop = LanguageBundle.getString("in_Prefs_tabPosTop");
+	private static final String in_tabPosBottom = LanguageBundle.getString("in_Prefs_tabPosBottom");
+	private static final String in_tabPosLeft = LanguageBundle.getString("in_Prefs_tabPosLeft");
+	private static final String in_tabPosRight = LanguageBundle.getString("in_Prefs_tabPosRight");
 
 	private final JComboBoxEx charTabPlacementCombo;
 	private final JComboBoxEx mainTabPlacementCombo;
 	private final JComboBoxEx tabLabelsCombo;
-	
+
 	/**
 	 * Instantiates a new Tabs panel.
 	 */
@@ -101,8 +89,7 @@ public class TabsPanel extends PCGenPrefsPanel
 		this.add(label);
 		Utility.buildConstraints(c, 2, 0, 1, 1, 0, 0);
 		mainTabPlacementCombo =
-				new JComboBoxEx<>(new String[]{in_tabPosTop, in_tabPosBottom,
-					in_tabPosLeft, in_tabPosRight});
+				new JComboBoxEx<>(new String[]{in_tabPosTop, in_tabPosBottom, in_tabPosLeft, in_tabPosRight});
 		gridbag.setConstraints(mainTabPlacementCombo, c);
 		this.add(mainTabPlacementCombo);
 
@@ -112,8 +99,7 @@ public class TabsPanel extends PCGenPrefsPanel
 		this.add(label);
 		Utility.buildConstraints(c, 2, 1, 1, 1, 0, 0);
 		charTabPlacementCombo =
-				new JComboBoxEx<>(new String[]{in_tabPosTop, in_tabPosBottom,
-					in_tabPosLeft, in_tabPosRight});
+				new JComboBoxEx<>(new String[]{in_tabPosTop, in_tabPosBottom, in_tabPosLeft, in_tabPosRight});
 		gridbag.setConstraints(charTabPlacementCombo, c);
 		this.add(charTabPlacementCombo);
 
@@ -122,9 +108,8 @@ public class TabsPanel extends PCGenPrefsPanel
 		gridbag.setConstraints(label, c);
 		this.add(label);
 		Utility.buildConstraints(c, 2, 2, 1, 1, 0, 0);
-		tabLabelsCombo =
-				new JComboBoxEx<>(new String[]{in_tabLabelPlain, in_tabLabelEpic,
-					in_tabLabelRace, in_tabLabelNetHack, in_tabLabelFull});
+		tabLabelsCombo = new JComboBoxEx<>(
+			new String[]{in_tabLabelPlain, in_tabLabelEpic, in_tabLabelRace, in_tabLabelNetHack, in_tabLabelFull});
 		gridbag.setConstraints(tabLabelsCombo, c);
 		this.add(tabLabelsCombo);
 
@@ -143,7 +128,7 @@ public class TabsPanel extends PCGenPrefsPanel
 	{
 		return in_tabs;
 	}
-	
+
 	/**
 	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#setOptionsBasedOnControls()
 	 */
@@ -173,10 +158,8 @@ public class TabsPanel extends PCGenPrefsPanel
 				break;
 
 			default:
-				Logging
-					.errorPrint("In PreferencesDialog.setOptionsBasedOnControls (mainTabPlacementCombo) the index "
-						+ mainTabPlacementCombo.getSelectedIndex()
-						+ " is unsupported.");
+				Logging.errorPrint("In PreferencesDialog.setOptionsBasedOnControls (mainTabPlacementCombo) the index "
+					+ mainTabPlacementCombo.getSelectedIndex() + " is unsupported.");
 
 				break;
 		}
@@ -204,10 +187,8 @@ public class TabsPanel extends PCGenPrefsPanel
 				break;
 
 			default:
-				Logging
-					.errorPrint("In PreferencesDialog.setOptionsBasedOnControls (charTabPlacementCombo) the index "
-						+ charTabPlacementCombo.getSelectedIndex()
-						+ " is unsupported.");
+				Logging.errorPrint("In PreferencesDialog.setOptionsBasedOnControls (charTabPlacementCombo) the index "
+					+ charTabPlacementCombo.getSelectedIndex() + " is unsupported.");
 
 				break;
 		}
@@ -215,40 +196,33 @@ public class TabsPanel extends PCGenPrefsPanel
 		switch (tabLabelsCombo.getSelectedIndex())
 		{
 			case 0:
-				SettingsHandler
-					.setNameDisplayStyle(Constants.DISPLAY_STYLE_NAME);
+				SettingsHandler.setNameDisplayStyle(Constants.DISPLAY_STYLE_NAME);
 
 				break;
 
 			case 1:
-				SettingsHandler
-					.setNameDisplayStyle(Constants.DISPLAY_STYLE_NAME_CLASS);
+				SettingsHandler.setNameDisplayStyle(Constants.DISPLAY_STYLE_NAME_CLASS);
 
 				break;
 
 			case 2:
-				SettingsHandler
-					.setNameDisplayStyle(Constants.DISPLAY_STYLE_NAME_RACE);
+				SettingsHandler.setNameDisplayStyle(Constants.DISPLAY_STYLE_NAME_RACE);
 
 				break;
 
 			case 3:
-				SettingsHandler
-					.setNameDisplayStyle(Constants.DISPLAY_STYLE_NAME_RACE_CLASS);
+				SettingsHandler.setNameDisplayStyle(Constants.DISPLAY_STYLE_NAME_RACE_CLASS);
 
 				break;
 
 			case 4:
-				SettingsHandler
-					.setNameDisplayStyle(Constants.DISPLAY_STYLE_NAME_FULL);
+				SettingsHandler.setNameDisplayStyle(Constants.DISPLAY_STYLE_NAME_FULL);
 
 				break;
 
 			default:
-				Logging
-					.errorPrint("In PreferencesDialog.setOptionsBasedOnControls (tabLabelsCombo) the index "
-						+ tabLabelsCombo.getSelectedIndex()
-						+ " is unsupported.");
+				Logging.errorPrint("In PreferencesDialog.setOptionsBasedOnControls (tabLabelsCombo) the index "
+					+ tabLabelsCombo.getSelectedIndex() + " is unsupported.");
 
 				break;
 		}
@@ -283,10 +257,8 @@ public class TabsPanel extends PCGenPrefsPanel
 				break;
 
 			default:
-				Logging
-					.errorPrint("In PreferencesDialog.applyOptionValuesToControls (tab placement) the tab option "
-						+ SettingsHandler.getTabPlacement()
-						+ " is unsupported.");
+				Logging.errorPrint("In PreferencesDialog.applyOptionValuesToControls (tab placement) the tab option "
+					+ SettingsHandler.getTabPlacement() + " is unsupported.");
 
 				break;
 		}
@@ -316,8 +288,7 @@ public class TabsPanel extends PCGenPrefsPanel
 			default:
 				Logging
 					.errorPrint("In PreferencesDialog.applyOptionValuesToControls (cha tab placement) the tab option "
-						+ SettingsHandler.getChaTabPlacement()
-						+ " is unsupported.");
+						+ SettingsHandler.getChaTabPlacement() + " is unsupported.");
 
 				break;
 		}
@@ -352,8 +323,7 @@ public class TabsPanel extends PCGenPrefsPanel
 			default:
 				Logging
 					.errorPrint("In PreferencesDialog.applyOptionValuesToControls (name display style) the tab option "
-						+ SettingsHandler.getNameDisplayStyle()
-						+ " is unsupported.");
+						+ SettingsHandler.getNameDisplayStyle() + " is unsupported.");
 
 				break;
 		}

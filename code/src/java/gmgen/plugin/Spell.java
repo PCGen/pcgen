@@ -21,9 +21,9 @@ package gmgen.plugin;
 import java.util.List;
 import java.util.Vector;
 
-import pcgen.util.Logging;
-
 import org.jdom2.Element;
+
+import pcgen.util.Logging;
 
 public class Spell extends Event
 {
@@ -63,7 +63,7 @@ public class Spell extends Event
 		}
 	}
 
-    @Override
+	@Override
 	public String getEndText()
 	{
 		return "Spell " + getName() + "'s Duration Expired";
@@ -76,44 +76,47 @@ public class Spell extends Event
 	 *@param  columnOrder  The current table's column order
 	 *@return              The Row Vector
 	 */
-    @Override
+	@Override
 	public Vector<Object> getRowVector(List<String> columnOrder)
 	{
 		Vector<Object> rowVector = new Vector<>();
 
-		for ( String columnName : columnOrder )
+		for (String columnName : columnOrder)
 		{
 			switch (columnName)
 			{
-				case "Name":  // Spell's name
+				case "Name": // Spell's name
 					rowVector.add("Spell: " + getName());
 					break;
-				case "Player":  // Player's Name who cast the spell
+				case "Player": // Player's Name who cast the spell
 					rowVector.add("Owner: " + getPlayer());
 					break;
-				case "Status":  // Spell's Status
+				case "Status": // Spell's Status
 					rowVector.add(getStatus());
 					break;
-				case "+":  // Ignored
+				case "+": // Ignored
 					rowVector.add("");
 					break;
-				case "Init":  // Spell's Initiative
+				case "Init": // Spell's Initiative
 					rowVector.add(String.valueOf(init.getCurrentInitiative()));
 					break;
-				case "Dur":  // Spell's Duration
+				case "Dur": // Spell's Duration
 					rowVector.add(String.valueOf(getDuration()));
 					break;
-				case "#":  // Ignored
+				case "#": // Ignored
 					rowVector.add("");
 					break;
-				case "HP":  // Ignored
+				case "HP": // Ignored
 					rowVector.add("");
 					break;
-				case "HP Max":  // Ignored
+				case "HP Max": // Ignored
 					rowVector.add("");
 					break;
-				case "Type":  //PC, Enemy, Ally, -
+				case "Type": //PC, Enemy, Ally, -
 					rowVector.add("-");
+					break;
+				default:
+					//Case not caught, should this cause an error?
 					break;
 			}
 		}
@@ -121,7 +124,7 @@ public class Spell extends Event
 		return rowVector;
 	}
 
-    @Override
+	@Override
 	public Element getSaveElement()
 	{
 		Element retElement = new Element("Spell");

@@ -54,13 +54,11 @@ public class WeightToken extends AbstractExportToken
 	 * @return The value of the token.
 	 */
 	@Override
-	public String getToken(String tokenSource, CharacterDisplay display,
-		ExportHandler eh)
+	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
 	{
 		String retString = "";
 
-		boolean suppressPcWeight =
-				display.getSuppressBioField(BiographyField.WEIGHT);
+		boolean suppressPcWeight = display.getSuppressBioField(BiographyField.WEIGHT);
 		if ("WEIGHT".equals(tokenSource))
 		{
 			retString = suppressPcWeight ? "" : getWeightToken(display);
@@ -71,26 +69,21 @@ public class WeightToken extends AbstractExportToken
 		}
 		else
 		{
-			String type =
-					tokenSource.substring(tokenSource.lastIndexOf('.') + 1);
-			retString =
-					Globals.getGameModeUnitSet().displayWeightInUnitSet(
-						display.getLoadToken(type));
+			String type = tokenSource.substring(tokenSource.lastIndexOf('.') + 1);
+			retString = Globals.getGameModeUnitSet().displayWeightInUnitSet(display.getLoadToken(type));
 		}
-		
+
 		return retString;
 	}
 
 	private String getNoUnitWeight(CharacterDisplay display)
 	{
-		return Globals.getGameModeUnitSet().displayWeightInUnitSet(
-			display.getWeight());
+		return Globals.getGameModeUnitSet().displayWeightInUnitSet(display.getWeight());
 	}
 
 	private String getWeightToken(CharacterDisplay display)
 	{
-		return Globals.getGameModeUnitSet().displayWeightInUnitSet(
-			display.getWeight())
+		return Globals.getGameModeUnitSet().displayWeightInUnitSet(display.getWeight())
 			+ Globals.getGameModeUnitSet().getWeightUnit();
 	}
 }

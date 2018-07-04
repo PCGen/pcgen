@@ -68,12 +68,9 @@ public final class ReferenceUtilities
 	 * @return A 'separator' separated String containing the LST format of the
 	 *         given Collection of CDOMReference objects
 	 */
-	public static String joinLstFormat(
-			Collection<? extends CDOMReference<?>> refCollection,
-			String separator)
+	public static String joinLstFormat(Collection<? extends CDOMReference<?>> refCollection, String separator)
 	{
-		return PrimitiveUtilities
-				.joinLstFormat(refCollection, separator, false);
+		return PrimitiveUtilities.joinLstFormat(refCollection, separator, false);
 	}
 
 	/**
@@ -99,9 +96,8 @@ public final class ReferenceUtilities
 	 *         given CDOMObjects contained within the given Collection of
 	 *         CDOMReference objects
 	 */
-	public static String joinDisplayFormat(
-			Collection<? extends CDOMReference<? extends CDOMObject>> refCollection,
-			String separator)
+	public static String joinDisplayFormat(Collection<? extends CDOMReference<? extends CDOMObject>> refCollection,
+		String separator)
 	{
 		if (refCollection == null)
 		{
@@ -182,17 +178,15 @@ public final class ReferenceUtilities
 	 * @return A 'separator' separated String containing the LST format of the
 	 *         given Collection of CDOMReference objects
 	 */
-	public static String joinLstFormat(
-			Collection<? extends CDOMReference<?>> refCollection,
-			String separator, boolean useAny)
+	public static String joinLstFormat(Collection<? extends CDOMReference<?>> refCollection, String separator,
+		boolean useAny)
 	{
 		if (refCollection == null)
 		{
 			return "";
 		}
 
-		final StringBuilder result = new StringBuilder(
-				refCollection.size() * 10);
+		final StringBuilder result = new StringBuilder(refCollection.size() * 10);
 
 		boolean needjoin = false;
 

@@ -68,13 +68,11 @@ public class ChangeArmorType implements Processor<String>
 	{
 		if (sourceType == null)
 		{
-			throw new IllegalArgumentException(
-					"Source Type for ChangeArmorType cannot be null");
+			throw new IllegalArgumentException("Source Type for ChangeArmorType cannot be null");
 		}
 		if (resultType == null)
 		{
-			throw new IllegalArgumentException(
-					"Resulting Type for ChangeArmorType cannot be null");
+			throw new IllegalArgumentException("Resulting Type for ChangeArmorType cannot be null");
 		}
 		result = resultType;
 		source = sourceType;

@@ -29,8 +29,8 @@ import pcgen.core.PlayerCharacter;
  * 
  * 
  */
-public class PCBaseHDTermEvaluator
-		extends BasePCTermEvaluator implements TermEvaluator {
+public class PCBaseHDTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
+{
 
 	/**
 	 * Instantiates a new PCBaseHDTermEvaluator.
@@ -59,7 +59,6 @@ public class PCBaseHDTermEvaluator
 	{
 		return false;
 	}
-
 
 	public boolean isStatic()
 	{

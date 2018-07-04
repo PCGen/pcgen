@@ -33,9 +33,9 @@ import pcgen.facade.core.AbilityFacade;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.MapFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
-import pcgen.facade.util.MapFacade;
 import pcgen.gui2.util.SharedTabPane;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Tab;
@@ -93,7 +93,7 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 
 		private final Map<String, TabInfo> typeMap = new HashMap<>();
 		private final List<TabInfo> tabs = new ArrayList<>();
-        private final MapFacade<AbilityCategoryFacade, ListFacade<AbilityFacade>> categoryMap;
+		private final MapFacade<AbilityCategoryFacade, ListFacade<AbilityFacade>> categoryMap;
 		private final CharacterFacade character;
 		private boolean isInstalled = false;
 		private String selectedTitle = null;
@@ -103,7 +103,7 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 		{
 			this.character = character;
 			this.activeCategories = character.getActiveAbilityCategories();
-            this.categoryMap = character.getDataSet().getAbilities();
+			this.categoryMap = character.getDataSet().getAbilities();
 			for (AbilityCategoryFacade category : activeCategories)
 			{
 				String type = category.getType();
@@ -145,8 +145,8 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 				int index = e.getIndex();
 				if (index > tabs.size())
 				{
-					Logging.log(Logging.WARNING, "Trying to add " + type + " to " //$NON-NLS-1$ //$NON-NLS-2$
-						+ tabs + " at index " +index //$NON-NLS-1$
+					Logging.log(Logging.WARNING, "Trying to add " + type + " to " //$NON-NLS-2$
+						+ tabs + " at index " + index //$NON-NLS-1$
 						+ ". Putting at end."); //$NON-NLS-1$
 					index = tabs.size();
 					tabs.add(new TabInfo(type, character));
@@ -265,8 +265,7 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 				selectedTitle = getTitleAt(getSelectedIndex());
 				if (typeMap.get(selectedTitle) == null)
 				{
-					Logging.errorPrint("Selected tab " + selectedTitle
-						+ " at index " + getSelectedIndex()
+					Logging.errorPrint("Selected tab " + selectedTitle + " at index " + getSelectedIndex()
 						+ " but there is no typeMap entry for it.");
 					Logging.reportAllThreads();
 				}
@@ -287,9 +286,7 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 				this.title = title;
 				this.categoryList = new DefaultListFacade<>();
 				this.fullCategoryList = new DefaultListFacade<>();
-				this.tabData =
-						abilityTab.createState(character, categoryList,
-							fullCategoryList, title);
+				this.tabData = abilityTab.createState(character, categoryList, fullCategoryList, title);
 				typeMap.put(title, this);
 			}
 
@@ -297,8 +294,7 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 			@Override
 			public String toString()
 			{
-				return "TabInfo [title=" + title + ", categoryList="
-					+ categoryList + "]";
+				return "TabInfo [title=" + title + ", categoryList=" + categoryList + "]";
 			}
 
 		}
@@ -307,8 +303,8 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 		@Override
 		public String toString()
 		{
-			return "AbilityTabsModel [tabs=" + tabs + ", isInstalled="
-				+ isInstalled + ", selectedTitle=" + selectedTitle + "]";
+			return "AbilityTabsModel [tabs=" + tabs + ", isInstalled=" + isInstalled + ", selectedTitle="
+				+ selectedTitle + "]";
 		}
 
 	}

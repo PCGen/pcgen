@@ -49,17 +49,16 @@ public interface CharacterExportAction
 		final BufferedWriter aWriter = new BufferedWriter(sWriter);
 		modelEh.replaceToken(exportToken, aWriter, pc);
 		sWriter.flush();
-	
+
 		try
 		{
 			aWriter.flush();
 		}
 		catch (IOException e)
 		{
-			Logging.errorPrint("Couldn't flush the StringWriter used in " +
-					"PCStringDirective.getExportVariable.", e);
+			Logging.errorPrint("Couldn't flush the StringWriter used in " + "PCStringDirective.getExportVariable.", e);
 		}
-	
+
 		final String bString = sWriter.toString();
 		return bString;
 	}

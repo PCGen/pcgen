@@ -95,8 +95,7 @@ public class SubScopeFacetChangeEvent<S1, S2, T> extends EventObject
 	 *            An integer identifying whether the given CDOMObject was added
 	 *            or removed from the PlayerCharacter
 	 */
-	public SubScopeFacetChangeEvent(CharID id, S1 scope1, S2 scope2, T cdo,
-		Object source, int type)
+	public SubScopeFacetChangeEvent(CharID id, S1 scope1, S2 scope2, T cdo, Object source, int type)
 	{
 		super(source);
 		if (source == null)

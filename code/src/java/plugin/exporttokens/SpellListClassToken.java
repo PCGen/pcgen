@@ -51,8 +51,7 @@ public class SpellListClassToken extends SpellListToken
 	}
 
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		int i;
 		StringBuilder retValue = new StringBuilder();
@@ -86,17 +85,15 @@ public class SpellListClassToken extends SpellListToken
 					if (SettingsHandler.getGame().getSpellBaseConcentration().length() > 0)
 					{
 						Spell sp = new Spell();
-						CharacterSpell cs = new CharacterSpell(aClass, sp); 
-						int concentration = pc.getConcentration(sp, cs, aClass, 0, 0, aClass);	
+						CharacterSpell cs = new CharacterSpell(aClass, sp);
+						int concentration = pc.getConcentration(sp, cs, aClass, 0, 0, aClass);
 						retValue.append(Delta.toString(concentration));
 					}
 				}
 				else if (tokenSource.endsWith(".LEVEL"))
 				{
-					retValue
-						.append(String.valueOf(pc.getDisplay().getLevel(aClass)
-							+ (int) pc.getTotalBonusTo("PCLEVEL", aClass
-								.getKeyName())));
+					retValue.append(String.valueOf(
+						pc.getDisplay().getLevel(aClass) + (int) pc.getTotalBonusTo("PCLEVEL", aClass.getKeyName())));
 				}
 				else
 				{

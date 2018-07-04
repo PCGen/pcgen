@@ -47,9 +47,8 @@ public class ModifierFacet implements DataFacetChangeListener<CharID, VarScoped>
 	private VarScopedFacet varScopedFacet;
 
 	private SolverManagerFacet solverManagerFacet;
-	
-	private LoadContextFacet loadContextFacet =
-			FacetLibrary.getFacet(LoadContextFacet.class);
+
+	private LoadContextFacet loadContextFacet = FacetLibrary.getFacet(LoadContextFacet.class);
 
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, VarScoped> dfce)
@@ -72,15 +71,13 @@ public class ModifierFacet implements DataFacetChangeListener<CharID, VarScoped>
 		}
 	}
 
-	private <T> void processAddition(CharID id, VarScoped obj, VarModifier<T> vm,
-		ScopeInstance inst)
+	private <T> void processAddition(CharID id, VarScoped obj, VarModifier<T> vm, ScopeInstance inst)
 	{
-		solverManagerFacet.addModifier(id, vm, obj,
-			getModifier(id, inst, vm.getModifier(), obj), inst);
+		solverManagerFacet.addModifier(id, vm, obj, getModifier(id, inst, vm.getModifier(), obj), inst);
 	}
 
-	private <T> Modifier<T> getModifier(CharID id, ScopeInstance source,
-		FormulaModifier<T> modifier, VarScoped thisValue)
+	private <T> Modifier<T> getModifier(CharID id, ScopeInstance source, FormulaModifier<T> modifier,
+		VarScoped thisValue)
 	{
 		PCGenScope legalScope = (PCGenScope) source.getLegalScope();
 		LoadContext context = loadContextFacet.get(id.getDatasetID()).get();
@@ -88,8 +85,7 @@ public class ModifierFacet implements DataFacetChangeListener<CharID, VarScoped>
 		try
 		{
 			FormatManager<?> formatManager = legalScope.getFormatManager(context);
-			returnValue = new DefinedWrappingModifier<>(modifier, "this", thisValue,
-				formatManager);
+			returnValue = new DefinedWrappingModifier<>(modifier, "this", thisValue, formatManager);
 		}
 		catch (UnsupportedOperationException e)
 		{
@@ -119,11 +115,9 @@ public class ModifierFacet implements DataFacetChangeListener<CharID, VarScoped>
 		}
 	}
 
-	private <T> void processRemoval(CharID id, VarScoped obj, VarModifier<T> vm,
-		ScopeInstance inst)
+	private <T> void processRemoval(CharID id, VarScoped obj, VarModifier<T> vm, ScopeInstance inst)
 	{
-		solverManagerFacet.removeModifier(id, vm, obj,
-			getModifier(id, inst, vm.getModifier(), obj), inst);
+		solverManagerFacet.removeModifier(id, vm, obj, getModifier(id, inst, vm.getModifier(), obj), inst);
 	}
 
 	public void setScopeFacet(ScopeFacet scopeFacet)

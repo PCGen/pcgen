@@ -64,7 +64,7 @@ public class OpposedSkillTypeModel extends OpposedSkillBasicModel
 		columns.addColumn("TYPE", String.class, null, false, "Type");
 	}
 
-    @Override
+	@Override
 	public Object getValueAt(int rowIndex, int columnIndex)
 	{
 		Object returnValue = null;

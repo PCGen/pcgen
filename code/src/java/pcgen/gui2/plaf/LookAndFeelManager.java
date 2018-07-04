@@ -31,11 +31,11 @@ import javax.swing.LookAndFeel;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 
+import com.l2fprod.gui.plaf.skin.SkinLookAndFeel;
+
 import pcgen.system.ConfigurationSettings;
 import pcgen.util.Logging;
 import pcgen.util.SkinLFResourceChecker;
-
-import com.l2fprod.gui.plaf.skin.SkinLookAndFeel;
 
 /**
  * {@code UIFactory}.
@@ -51,30 +51,28 @@ public final class LookAndFeelManager
 
 	static
 	{
-		Comparator<LookAndFeelInfo> lafcomp = (o1, o2) ->
-		{
-            //System laf goes first
-            if (o1.getClassName().equals(SYSTEM_LAF_CLASS))
-            {
-                return -1;
-            }
-            if (o2.getClassName().equals(SYSTEM_LAF_CLASS))
-            {
-                return 1;
-            }
-            //Cross Platfrom laf goes second
-            if (o1.getClassName().equals(CROSS_LAF_CLASS))
-            {
-                return -1;
-            }
-            if (o2.getClassName().equals(CROSS_LAF_CLASS))
-            {
-                return 1;
-            }
-            //the rest don't matter
-            return 0;
-        };
-
+		Comparator<LookAndFeelInfo> lafcomp = (o1, o2) -> {
+			//System laf goes first
+			if (o1.getClassName().equals(SYSTEM_LAF_CLASS))
+			{
+				return -1;
+			}
+			if (o2.getClassName().equals(SYSTEM_LAF_CLASS))
+			{
+				return 1;
+			}
+			//Cross Platfrom laf goes second
+			if (o1.getClassName().equals(CROSS_LAF_CLASS))
+			{
+				return -1;
+			}
+			if (o2.getClassName().equals(CROSS_LAF_CLASS))
+			{
+				return 1;
+			}
+			//the rest don't matter
+			return 0;
+		};
 
 		LookAndFeelInfo[] lafInfo = UIManager.getInstalledLookAndFeels();
 		//Sort them so that they are in a UI friendly order
@@ -156,13 +154,10 @@ public final class LookAndFeelManager
 	private static LookAndFeelInfo getNimbusLaf()
 	{
 		LookAndFeelInfo[] lafInfo = UIManager.getInstalledLookAndFeels();
-		return Arrays.stream(lafInfo)
-					 .filter(lookAndFeelInfo -> "nimbus".equalsIgnoreCase
-							 (lookAndFeelInfo.getName()))
-					 .findFirst()
-					 .orElse(null);
+		return Arrays.stream(lafInfo).filter(lookAndFeelInfo -> "nimbus".equalsIgnoreCase(lookAndFeelInfo.getName()))
+			.findFirst().orElse(null);
 	}
-	
+
 	public static Action[] getActions()
 	{
 		return lafHandlers;
@@ -288,7 +283,7 @@ public final class LookAndFeelManager
 		{
 			//This is the default operation
 			String name = (String) getValue(NAME);
-			ConfigurationSettings.setSystemProperty("lookAndFeel", name);		
+			ConfigurationSettings.setSystemProperty("lookAndFeel", name);
 		}
 
 	}

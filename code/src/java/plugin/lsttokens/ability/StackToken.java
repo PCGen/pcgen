@@ -25,8 +25,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 /**
  * Deal with STACK token
  */
-public class StackToken extends AbstractYesNoToken<Ability> implements
-		CDOMPrimaryToken<Ability>
+public class StackToken extends AbstractYesNoToken<Ability> implements CDOMPrimaryToken<Ability>
 {
 
 	@Override

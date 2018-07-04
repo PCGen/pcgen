@@ -32,13 +32,13 @@ import pcgen.util.Logging;
 public class RollmethodToken implements GameModeLstToken
 {
 
-    @Override
+	@Override
 	public String getTokenName()
 	{
 		return "ROLLMETHOD";
 	}
 
-    @Override
+	@Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		try

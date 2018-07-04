@@ -19,7 +19,6 @@ package pcgen.gui2.doomsdaybook;
 
 import pcgen.core.doomsdaybook.DataElement;
 
-
 class NameButton extends javax.swing.JButton
 {
 	private final DataElement element;

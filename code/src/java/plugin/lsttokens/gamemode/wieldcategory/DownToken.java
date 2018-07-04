@@ -30,8 +30,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with DOWN Token
  */
-public class DownToken extends AbstractTokenWithSeparator<WieldCategory>
-		implements CDOMPrimaryToken<WieldCategory>
+public class DownToken extends AbstractTokenWithSeparator<WieldCategory> implements CDOMPrimaryToken<WieldCategory>
 {
 	private static final Class<WieldCategory> WIELD_CATEGORY_CLASS = WieldCategory.class;
 
@@ -42,15 +41,14 @@ public class DownToken extends AbstractTokenWithSeparator<WieldCategory>
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-			WieldCategory wc, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, WieldCategory wc, String value)
 	{
 		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
 		int count = -1;
 		while (st.hasMoreTokens())
 		{
-			CDOMSingleRef<WieldCategory> stepCat = context.getReferenceContext()
-					.getCDOMReference(WIELD_CATEGORY_CLASS, st.nextToken());
+			CDOMSingleRef<WieldCategory> stepCat =
+					context.getReferenceContext().getCDOMReference(WIELD_CATEGORY_CLASS, st.nextToken());
 			wc.setWieldCategoryStep(count--, stepCat);
 		}
 		return ParseResult.SUCCESS;

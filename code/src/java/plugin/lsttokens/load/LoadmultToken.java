@@ -30,8 +30,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * {@code LoadmultToken}
  * 
  */
-public class LoadmultToken extends AbstractNonEmptyToken<LoadInfo> implements
-		CDOMPrimaryToken<LoadInfo>
+public class LoadmultToken extends AbstractNonEmptyToken<LoadInfo> implements CDOMPrimaryToken<LoadInfo>
 {
 
 	@Override
@@ -41,17 +40,14 @@ public class LoadmultToken extends AbstractNonEmptyToken<LoadInfo> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-			LoadInfo info, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, LoadInfo info, String value)
 	{
 		try
 		{
 			BigDecimal mult = new BigDecimal(value);
 			if (mult.compareTo(BigDecimal.ZERO) <= 0)
 			{
-				return new ParseResult.Fail(getTokenName()
-						+ " requires a positive load multiplier, found : "
-						+ value);
+				return new ParseResult.Fail(getTokenName() + " requires a positive load multiplier, found : " + value);
 			}
 			info.setLoadScoreMultiplier(mult);
 			return ParseResult.SUCCESS;
@@ -62,7 +58,7 @@ public class LoadmultToken extends AbstractNonEmptyToken<LoadInfo> implements
 		}
 	}
 
-    @Override
+	@Override
 	public String[] unparse(LoadContext context, LoadInfo info)
 	{
 		BigDecimal mod = info.getLoadScoreMultiplier();
@@ -70,10 +66,10 @@ public class LoadmultToken extends AbstractNonEmptyToken<LoadInfo> implements
 		{
 			return null;
 		}
-		return new String[] { mod.toString() };
+		return new String[]{mod.toString()};
 	}
 
-    @Override
+	@Override
 	public Class<LoadInfo> getTokenClass()
 	{
 		return LoadInfo.class;

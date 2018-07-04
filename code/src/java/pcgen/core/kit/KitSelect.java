@@ -55,8 +55,7 @@ public final class KitSelect extends BaseKit
 	}
 
 	@Override
-	public boolean testApply(Kit aKit, PlayerCharacter aPC,
-		List<String> warnings)
+	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
 	{
 		aKit.setSelectValue(theFormula.resolve(aPC, "").intValue());
 		return true;

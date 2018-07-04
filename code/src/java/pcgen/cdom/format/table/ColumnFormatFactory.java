@@ -33,8 +33,7 @@ public class ColumnFormatFactory implements FormatManagerFactory
 	/**
 	 * A pattern to ensure no column subformat.
 	 */
-	private static final Pattern SUB_PATTERN =
-			Pattern.compile(Pattern.quote("COLUMN["), Pattern.CASE_INSENSITIVE);
+	private static final Pattern SUB_PATTERN = Pattern.compile(Pattern.quote("COLUMN["), Pattern.CASE_INSENSITIVE);
 
 	/**
 	 * The FormatManager used by ColumnFormatManager objects built by this
@@ -56,13 +55,11 @@ public class ColumnFormatFactory implements FormatManagerFactory
 	}
 
 	@Override
-	public FormatManager<?> build(String subFormatName,
-		FormatManagerLibrary library)
+	public FormatManager<?> build(String subFormatName, FormatManagerLibrary library)
 	{
 		if (subFormatName == null)
 		{
-			throw new IllegalArgumentException(
-				"Column Format cannot be built from no instructions");
+			throw new IllegalArgumentException("Column Format cannot be built from no instructions");
 		}
 		if (SUB_PATTERN.matcher(subFormatName).find())
 		{
@@ -71,8 +68,7 @@ public class ColumnFormatFactory implements FormatManagerFactory
 			 * ColumnFormatFactory has no way to understand a subcolumn
 			 */
 			throw new IllegalArgumentException(
-				"Column Subformat not supported: " + subFormatName
-					+ " may not contain COLUMN inside COLUMN");
+				"Column Subformat not supported: " + subFormatName + " may not contain COLUMN inside COLUMN");
 		}
 		FormatManager<?> formatManager = library.getFormatManager(subFormatName);
 		return proc(formatManager);

@@ -34,11 +34,10 @@ import pcgen.core.PlayerCharacter;
  * on CDOMObjects which are added to a Player Character.
  * 
  */
-public class BonusActiviationFacet implements
-		DataFacetChangeListener<CharID, CDOMObject>
+public class BonusActiviationFacet implements DataFacetChangeListener<CharID, CDOMObject>
 {
-	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
-		.getFacet(PlayerCharacterTrackingFacet.class);
+	private final PlayerCharacterTrackingFacet trackingFacet =
+			FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
 
 	private RaceFacet raceFacet;
 

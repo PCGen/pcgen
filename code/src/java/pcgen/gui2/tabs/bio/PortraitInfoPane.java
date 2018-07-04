@@ -59,7 +59,6 @@ import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 
-
 @SuppressWarnings("serial")
 public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 {
@@ -96,27 +95,26 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 		panel.add(loadButton, gbc);
 		Utility.buildConstraints(gbc, 1, 2, 1, 1, 0, 0, GridBagConstraints.NONE, GridBagConstraints.WEST);
 		panel.add(clearButton, gbc);
-		
+
 		Utility.buildConstraints(gbc, 2, 1, 1, 1, 0, 0, GridBagConstraints.VERTICAL, GridBagConstraints.CENTER);
 		zoomSlider.setInverted(true);
 		zoomSlider.setPreferredSize(new Dimension(20, 10));
 		panel.add(zoomSlider, gbc);
-		
+
 		Utility.buildConstraints(gbc, 3, 0, 1, 1, 0, 0, GridBagConstraints.HORIZONTAL, GridBagConstraints.CENTER);
 		panel.add(new JLabel(LanguageBundle.getString("in_thumbnailPortrait")), gbc);
-		
+
 		Utility.buildConstraints(gbc, 3, 1, 1, 1, 0, 0, GridBagConstraints.NONE, GridBagConstraints.NORTH);
 		panel.add(tnPane, gbc);
-		
+
 		this.setViewportView(panel);
 	}
 
 	private BufferedImage createDefaultPortrait()
 	{
 		ImageIcon defaultPortrait = Icons.DefaultPortrait.getImageIcon();
-		BufferedImage bufImage = new BufferedImage(defaultPortrait.getIconWidth(),
-				defaultPortrait.getIconHeight(),
-				BufferedImage.TYPE_INT_ARGB);
+		BufferedImage bufImage = new BufferedImage(defaultPortrait.getIconWidth(), defaultPortrait.getIconHeight(),
+			BufferedImage.TYPE_INT_ARGB);
 		defaultPortrait.paintIcon(this, bufImage.createGraphics(), 0, 0);
 		return bufImage;
 	}
@@ -268,7 +266,7 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 					else
 					{
 						Logging.errorPrint("Unable to read portrait file " //$NON-NLS-1$
-								+ file.getAbsolutePath());
+							+ file.getAbsolutePath());
 					}
 				}
 			}

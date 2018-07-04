@@ -26,6 +26,7 @@ public final class CachedVariable<T>
 {
 	private int serial;
 	private T value;
+
 	/**
 	 * @return Returns the serial.
 	 */

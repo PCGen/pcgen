@@ -50,8 +50,7 @@ public class ShieldProfProvider extends AbstractProfProvider<ShieldProf>
 	 *            The List of Equipment references indicating the TYPEs of
 	 *            Equipment objects this ShieldProfProvider will contain.
 	 */
-	public ShieldProfProvider(List<CDOMReference<ShieldProf>> profs,
-			List<CDOMReference<Equipment>> equipTypes)
+	public ShieldProfProvider(List<CDOMReference<ShieldProf>> profs, List<CDOMReference<Equipment>> equipTypes)
 	{
 		super(profs, equipTypes);
 	}
@@ -74,8 +73,7 @@ public class ShieldProfProvider extends AbstractProfProvider<ShieldProf>
 		 * can contain late-created objects, dependent upon full resolution of
 		 * Tracker 2001287 - thpr Oct 15, 2008
 		 */
-		return providesProficiency(equipment.getShieldProf())
-				|| providesEquipmentType(equipment.getType());
+		return providesProficiency(equipment.getShieldProf()) || providesEquipmentType(equipment.getType());
 	}
 
 	/**

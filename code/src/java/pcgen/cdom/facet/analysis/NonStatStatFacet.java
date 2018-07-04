@@ -35,8 +35,8 @@ import pcgen.core.PCStat;
  *
  * 
  */
-public class NonStatStatFacet extends AbstractSourcedListFacet<CharID, PCStat> implements
-		DataFacetChangeListener<CharID, CDOMObject>
+public class NonStatStatFacet extends AbstractSourcedListFacet<CharID, PCStat>
+		implements DataFacetChangeListener<CharID, CDOMObject>
 {
 	private CDOMObjectConsolidationFacet consolidationFacet;
 

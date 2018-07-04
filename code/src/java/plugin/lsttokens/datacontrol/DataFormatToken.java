@@ -25,12 +25,10 @@ import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
 public class DataFormatToken extends AbstractNonEmptyToken<ContentDefinition>
-		implements CDOMPrimaryToken<ContentDefinition>,
-		DeferredToken<ContentDefinition>
+		implements CDOMPrimaryToken<ContentDefinition>, DeferredToken<ContentDefinition>
 {
 
-	private static final Class<ContentDefinition> CONTENTDEF_CLASS =
-			ContentDefinition.class;
+	private static final Class<ContentDefinition> CONTENTDEF_CLASS = ContentDefinition.class;
 
 	@Override
 	public String getTokenName()
@@ -39,18 +37,14 @@ public class DataFormatToken extends AbstractNonEmptyToken<ContentDefinition>
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		ContentDefinition def, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, ContentDefinition def, String value)
 	{
-		FormatManager<?> fmtManager =
-				context.getReferenceContext().getFormatManager(value);
+		FormatManager<?> fmtManager = context.getReferenceContext().getFormatManager(value);
 		FormatManager<?> old = def.setFormatManager(fmtManager);
 		if ((old != null) && (!old.equals(fmtManager)))
 		{
-			return new ParseResult.Fail("Content Definition "
-				+ def.getClass().getSimpleName() + ' ' + def.getKeyName()
-				+ " was defined as " + old.getIdentifierType() + " and "
-				+ value + " (using " + value + ')');
+			return new ParseResult.Fail("Content Definition " + def.getClass().getSimpleName() + ' ' + def.getKeyName()
+				+ " was defined as " + old.getIdentifierType() + " and " + value + " (using " + value + ')');
 		}
 		return ParseResult.SUCCESS;
 	}
@@ -78,8 +72,7 @@ public class DataFormatToken extends AbstractNonEmptyToken<ContentDefinition>
 		boolean isMissingFormatManager = (def.getFormatManager() == null);
 		if (isMissingFormatManager)
 		{
-			Logging.errorPrint("Content Definition "
-				+ def.getClass().getSimpleName() + ' ' + def.getKeyName()
+			Logging.errorPrint("Content Definition " + def.getClass().getSimpleName() + ' ' + def.getKeyName()
 				+ " did not have a " + getTokenName());
 		}
 		return !isMissingFormatManager;

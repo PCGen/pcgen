@@ -69,8 +69,7 @@ public class AssociationChangeEvent
 	 * @param src
 	 *            The source object for this AssociationChangeEvent
 	 */
-	public AssociationChangeEvent(CharID id, Skill sk, Number oldValue,
-		Number newValue, Object src)
+	public AssociationChangeEvent(CharID id, Skill sk, Number oldValue, Number newValue, Object src)
 	{
 		charID = id;
 		skill = sk;

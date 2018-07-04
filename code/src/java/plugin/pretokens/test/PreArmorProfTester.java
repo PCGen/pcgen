@@ -38,7 +38,8 @@ public class PreArmorProfTester extends AbstractDisplayPrereqTest implements Pre
 {
 
 	@Override
-	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source) throws PrerequisiteException
+	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
+		throws PrerequisiteException
 	{
 		int runningTotal = 0;
 
@@ -49,17 +50,16 @@ public class PreArmorProfTester extends AbstractDisplayPrereqTest implements Pre
 		}
 		catch (NumberFormatException exceptn)
 		{
-			throw new PrerequisiteException(LanguageBundle.getFormattedString(
-				"Prereq.error", "PREARMOR", prereq.toString())); //$NON-NLS-1$ //$NON-NLS-2$
+			throw new PrerequisiteException(
+				LanguageBundle.getFormattedString(
+					"Prereq.error", "PREARMOR", prereq.toString())); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 
 		final String aString = prereq.getKey();
-		Equipment keyEquip = Globals.getContext().getReferenceContext()
-				.silentlyGetConstructedCDOMObject(Equipment.class, aString);
-		final boolean isType = aString.startsWith("TYPE")
-				&& aString.length() > 5;
-		final boolean isArmorType = aString.startsWith("ARMORTYPE")
-				&& aString.length() > 11;
+		Equipment keyEquip =
+				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Equipment.class, aString);
+		final boolean isType = aString.startsWith("TYPE") && aString.length() > 5;
+		final boolean isArmorType = aString.startsWith("ARMORTYPE") && aString.length() > 11;
 		String typeString = null;
 		if (isType)
 		{
@@ -97,7 +97,7 @@ public class PreArmorProfTester extends AbstractDisplayPrereqTest implements Pre
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "profwitharmor"; //$NON-NLS-1$

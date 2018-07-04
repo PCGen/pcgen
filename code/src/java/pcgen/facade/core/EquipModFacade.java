@@ -17,7 +17,6 @@
  */
 package pcgen.facade.core;
 
-
 /**
  * EquipModFacade defines the methods used by the user interface to 
  * interact with Equipment Modifier objects.  

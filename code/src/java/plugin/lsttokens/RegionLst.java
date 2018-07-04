@@ -24,9 +24,8 @@ import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-
-public class RegionLst extends AbstractTokenWithSeparator<CDOMObject> implements
-		CDOMPrimaryToken<CDOMObject>, ChoiceActor<Region>
+public class RegionLst extends AbstractTokenWithSeparator<CDOMObject>
+		implements CDOMPrimaryToken<CDOMObject>, ChoiceActor<Region>
 {
 	@Override
 	public String getTokenName()
@@ -41,19 +40,16 @@ public class RegionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		CDOMObject obj, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
 	{
 		if (obj instanceof Ungranted)
 		{
-			return new ParseResult.Fail("Cannot use " + getTokenName()
-				+ " on an Ungranted object type: "
-				+ obj.getClass().getSimpleName());
+			return new ParseResult.Fail(
+				"Cannot use " + getTokenName() + " on an Ungranted object type: " + obj.getClass().getSimpleName());
 		}
 		if (obj instanceof NonInteractive)
 		{
-			return new ParseResult.Fail("Cannot use " + getTokenName()
-				+ " on an Non-Interactive object type: "
+			return new ParseResult.Fail("Cannot use " + getTokenName() + " on an Non-Interactive object type: "
 				+ obj.getClass().getSimpleName());
 		}
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
@@ -61,21 +57,18 @@ public class RegionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		Formula count = FormulaFactory.getFormulaFor(item);
 		if (!count.isValid())
 		{
-			return new ParseResult.Fail("Count in " + getTokenName()
-					+ " was not valid: " + count.toString());
+			return new ParseResult.Fail("Count in " + getTokenName() + " was not valid: " + count.toString());
 		}
 		if (count.isStatic())
 		{
 			if (!tok.hasMoreTokens())
 			{
-				return new ParseResult.Fail(getTokenName()
-						+ " cannot have only a count: " + value);
+				return new ParseResult.Fail(getTokenName() + " cannot have only a count: " + value);
 			}
 			item = tok.nextToken();
 			if (count.resolveStatic().intValue() <= 0)
 			{
-				return new ParseResult.Fail("Count in "
-						+ getTokenName() + " must be > 0: " + value);
+				return new ParseResult.Fail("Count in " + getTokenName() + " must be > 0: " + value);
 			}
 		}
 		else
@@ -105,8 +98,7 @@ public class RegionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject pcc)
 	{
-		TransitionChoice<Region> tc = context.getObjectContext().getObject(pcc,
-				ObjectKey.REGION_CHOICE);
+		TransitionChoice<Region> tc = context.getObjectContext().getObject(pcc, ObjectKey.REGION_CHOICE);
 		if (tc == null)
 		{
 			// indicates no Token
@@ -119,9 +111,8 @@ public class RegionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 			sb.append(count);
 			sb.append(Constants.PIPE);
 		}
-		sb.append(tc.getChoices().getLSTformat().replaceAll(Constants.COMMA,
-				Constants.PIPE));
-		return new String[] { sb.toString() };
+		sb.append(tc.getChoices().getLSTformat().replaceAll(Constants.COMMA, Constants.PIPE));
+		return new String[]{sb.toString()};
 	}
 
 	@Override

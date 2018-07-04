@@ -89,5 +89,5 @@ public interface InitHolder
 	 *  Does any end of round effects
 	 */
 	public void endRound();
-	
+
 }

@@ -18,11 +18,11 @@
  */
 package plugin.exporttokens;
 
+import java.util.StringTokenizer;
+
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
-
-import java.util.StringTokenizer;
 
 /**
  * Deals with returning the value of the TEMPBONUS token
@@ -39,8 +39,7 @@ public class TempBonusToken extends Token
 	}
 
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		String retString = "";
 		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
@@ -59,8 +58,7 @@ public class TempBonusToken extends Token
 				// Weird
 			}
 
-			String subToken =
-					(aTok.hasMoreTokens()) ? aTok.nextToken() : "NAME";
+			String subToken = (aTok.hasMoreTokens()) ? aTok.nextToken() : "NAME";
 
 			if ("NAME".equals(subToken))
 			{

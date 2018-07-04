@@ -38,13 +38,13 @@ public final class PointBuyMethod implements BonusContainer, Loadable
 	private String pointFormula = "0";
 	private List<BonusObj> bonusList;
 
-    @Override
+	@Override
 	public URI getSourceURI()
 	{
 		return sourceURI;
 	}
 
-    @Override
+	@Override
 	public void setSourceURI(URI source)
 	{
 		sourceURI = source;
@@ -101,7 +101,7 @@ public final class PointBuyMethod implements BonusContainer, Loadable
 	 *            TODO
 	 * @return active bonuses
 	 */
-    @Override
+	@Override
 	public List<BonusObj> getActiveBonuses(PlayerCharacter pc)
 	{
 		final List<BonusObj> aList = new ArrayList<>();
@@ -120,7 +120,7 @@ public final class PointBuyMethod implements BonusContainer, Loadable
 	 * 
 	 * @param aPC
 	 */
-    @Override
+	@Override
 	public void activateBonuses(final PlayerCharacter aPC)
 	{
 		for (BonusObj bonus : getBonuses())
@@ -129,31 +129,31 @@ public final class PointBuyMethod implements BonusContainer, Loadable
 		}
 	}
 
-    @Override
+	@Override
 	public String getDisplayName()
 	{
 		return methodName;
 	}
 
-    @Override
+	@Override
 	public String getKeyName()
 	{
 		return getDisplayName();
 	}
 
-    @Override
+	@Override
 	public boolean isInternal()
 	{
 		return false;
 	}
 
-    @Override
+	@Override
 	public boolean isType(String type)
 	{
 		return false;
 	}
 
-    @Override
+	@Override
 	public void setName(String name)
 	{
 		methodName = name;

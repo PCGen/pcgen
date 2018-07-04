@@ -29,18 +29,16 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 /**
  * A prerequisite parser class that handles the parsing of pre reach tokens.
  */
-public class PreReachParser extends AbstractPrerequisiteParser implements
-		PrerequisiteParserInterface
+public class PreReachParser extends AbstractPrerequisiteParser implements PrerequisiteParserInterface
 {
 	/**
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String[] kindsHandled()
 	{
-		return new String[]{"REACH", "REACHEQ", "REACHGT", "REACHGTEQ",
-			"REACHLT", "REACHLTEQ", "REACHNEQ"};
+		return new String[]{"REACH", "REACHEQ", "REACHGT", "REACHGTEQ", "REACHLT", "REACHLTEQ", "REACHNEQ"};
 	}
 
 	/**
@@ -56,15 +54,12 @@ public class PreReachParser extends AbstractPrerequisiteParser implements
 	 * @throws PersistenceLayerException
 	 */
 	@Override
-	public Prerequisite parse(String kind,
-	                          String formula,
-	                          boolean invertResult,
-	                          boolean overrideQualify) throws PersistenceLayerException
+	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+		throws PersistenceLayerException
 	{
 		if (ControlUtilities.hasControlToken(Globals.getContext(), CControl.PCREACH))
 		{
-			throw new PersistenceLayerException(
-				"PREREACH is disabled when CREATEUREREACH control is used");
+			throw new PersistenceLayerException("PREREACH is disabled when CREATEUREREACH control is used");
 		}
 		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
 		try
@@ -88,8 +83,7 @@ public class PreReachParser extends AbstractPrerequisiteParser implements
 		catch (PrerequisiteException pe)
 		{
 			throw new PersistenceLayerException(
-				"Unable to parse the prerequisite :'" + kind + ':' + formula
-					+ "'. " + pe.getLocalizedMessage());
+				"Unable to parse the prerequisite :'" + kind + ':' + formula + "'. " + pe.getLocalizedMessage());
 		}
 		return prereq;
 	}

@@ -42,8 +42,7 @@ public class SuppressDeityDomainToken implements GameModeLstToken
 		{
 			if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
 			{
-				Logging.errorPrint(
-					"You should use 'YES' as the " + getTokenName() + ": " + value);
+				Logging.errorPrint("You should use 'YES' as the " + getTokenName() + ": " + value);
 				return false;
 			}
 			suppressDeityDomain = Boolean.TRUE;
@@ -52,14 +51,12 @@ public class SuppressDeityDomainToken implements GameModeLstToken
 		{
 			if (firstChar != 'N' && firstChar != 'n')
 			{
-				Logging.errorPrint("You should use 'YES' or 'NO' as the " + getTokenName()
-					+ ": " + value);
+				Logging.errorPrint("You should use 'YES' or 'NO' as the " + getTokenName() + ": " + value);
 				return false;
 			}
 			if (value.length() > 1 && !value.equalsIgnoreCase("NO"))
 			{
-				Logging.errorPrint("You should use 'YES' or 'NO' as the " + getTokenName()
-					+ ": " + value);
+				Logging.errorPrint("You should use 'YES' or 'NO' as the " + getTokenName() + ": " + value);
 				return false;
 			}
 			suppressDeityDomain = Boolean.FALSE;

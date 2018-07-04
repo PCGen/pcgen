@@ -63,36 +63,24 @@ import pcgen.system.PCGenSettings;
 @SuppressWarnings("serial")
 public class OutputPanel extends PCGenPrefsPanel
 {
-	private static final String in_output =
-			LanguageBundle.getString("in_Prefs_output");
+	private static final String in_output = LanguageBundle.getString("in_Prefs_output");
 
-	private static final String in_alwaysOverwrite =
-			LanguageBundle.getString("in_Prefs_alwaysOverwrite");
-	private static final String in_invalidToHitText =
-			LanguageBundle.getString("in_Prefs_invalidToHitText");
-	private static final String in_invalidDmgText =
-			LanguageBundle.getString("in_Prefs_invalidDmgText");
-	private static final String in_outputSheetEqSet =
-			LanguageBundle.getString("in_Prefs_templateEqSet");
-	private static final String in_paperType =
-			LanguageBundle.getString("in_Prefs_paperType");
+	private static final String in_alwaysOverwrite = LanguageBundle.getString("in_Prefs_alwaysOverwrite");
+	private static final String in_invalidToHitText = LanguageBundle.getString("in_Prefs_invalidToHitText");
+	private static final String in_invalidDmgText = LanguageBundle.getString("in_Prefs_invalidDmgText");
+	private static final String in_outputSheetEqSet = LanguageBundle.getString("in_Prefs_templateEqSet");
+	private static final String in_paperType = LanguageBundle.getString("in_Prefs_paperType");
 	private static final String in_postExportCommandStandard =
 			LanguageBundle.getString("in_Prefs_postExportCommandStandard");
-	private static final String in_postExportCommandPDF =
-			LanguageBundle.getString("in_Prefs_postExportCommandPDF");
-	private static final String in_removeTemp =
-			LanguageBundle.getString("in_Prefs_removeTemp");
-	private static final String in_saveOutputSheetWithPC =
-			LanguageBundle.getString("in_Prefs_saveOutputSheetWithPC");
-	private static final String in_showSingleBoxPerBundle =
-			LanguageBundle.getString("in_Prefs_showSingleBoxPerBundle");
-	private static final String in_weaponProfPrintout =
-			LanguageBundle.getString("in_Prefs_weaponProfPrintout");
-	private static final String in_skillFilter =
-			LanguageBundle.getString("in_Prefs_skillFilterLabel");
-	private static final String in_choose =
-			LanguageBundle.getString("...");
-	private static final String in_generateTempFileWithPdf = LanguageBundle.getString("in_Prefs_generateTempFileWithPdf");
+	private static final String in_postExportCommandPDF = LanguageBundle.getString("in_Prefs_postExportCommandPDF");
+	private static final String in_removeTemp = LanguageBundle.getString("in_Prefs_removeTemp");
+	private static final String in_saveOutputSheetWithPC = LanguageBundle.getString("in_Prefs_saveOutputSheetWithPC");
+	private static final String in_showSingleBoxPerBundle = LanguageBundle.getString("in_Prefs_showSingleBoxPerBundle");
+	private static final String in_weaponProfPrintout = LanguageBundle.getString("in_Prefs_weaponProfPrintout");
+	private static final String in_skillFilter = LanguageBundle.getString("in_Prefs_skillFilterLabel");
+	private static final String in_choose = LanguageBundle.getString("...");
+	private static final String in_generateTempFileWithPdf =
+			LanguageBundle.getString("in_Prefs_generateTempFileWithPdf");
 
 	private final JCheckBox printSpellsWithPC = new JCheckBox();
 	private final JCheckBox removeTempFiles = new JCheckBox(in_removeTemp);
@@ -125,8 +113,7 @@ public class OutputPanel extends PCGenPrefsPanel
 
 	// Listeners
 	private final PrefsButtonListener prefsButtonHandler = new PrefsButtonListener();
-	private final TextFocusLostListener textFieldListener =
-			new TextFocusLostListener();
+	private final TextFocusLostListener textFieldListener = new TextFocusLostListener();
 
 	/**
 	 * Instantiates a new output panel.
@@ -137,8 +124,7 @@ public class OutputPanel extends PCGenPrefsPanel
 		GridBagConstraints c = new GridBagConstraints();
 		JLabel label;
 		Border etched = null;
-		TitledBorder title1 =
-				BorderFactory.createTitledBorder(etched, in_output);
+		TitledBorder title1 = BorderFactory.createTitledBorder(etched, in_output);
 
 		title1.setTitleJustification(TitledBorder.LEADING);
 		this.setBorder(title1);
@@ -148,15 +134,12 @@ public class OutputPanel extends PCGenPrefsPanel
 		c.insets = new Insets(2, 2, 2, 2);
 
 		Utility.buildConstraints(c, 0, 0, 1, 1, 0, 0);
-		label =
-				new JLabel(LanguageBundle
-					.getString("in_Prefs_outputSheetHTMLDefault"));
+		label = new JLabel(LanguageBundle.getString("in_Prefs_outputSheetHTMLDefault"));
 		gridbag.setConstraints(label, c);
 		this.add(label);
 		Utility.buildConstraints(c, 1, 0, 1, 1, 1, 0);
 		outputSheetHTMLDefault =
-				new JTextField(String.valueOf(SettingsHandler
-					.getSelectedCharacterHTMLOutputSheet(null)));
+				new JTextField(String.valueOf(SettingsHandler.getSelectedCharacterHTMLOutputSheet(null)));
 
 		// sage_sam 9 April 2003
 		outputSheetHTMLDefault.addFocusListener(textFieldListener);
@@ -169,15 +152,12 @@ public class OutputPanel extends PCGenPrefsPanel
 		outputSheetHTMLDefaultButton.addActionListener(prefsButtonHandler);
 
 		Utility.buildConstraints(c, 0, 1, 1, 1, 0, 0);
-		label =
-				new JLabel(LanguageBundle
-					.getString("in_Prefs_outputSheetPDFDefault"));
+		label = new JLabel(LanguageBundle.getString("in_Prefs_outputSheetPDFDefault"));
 		gridbag.setConstraints(label, c);
 		this.add(label);
 		Utility.buildConstraints(c, 1, 1, 1, 1, 1, 0);
 		outputSheetPDFDefault =
-				new JTextField(String.valueOf(SettingsHandler
-					.getSelectedCharacterPDFOutputSheet(null)));
+				new JTextField(String.valueOf(SettingsHandler.getSelectedCharacterPDFOutputSheet(null)));
 
 		// sage_sam 9 April 2003
 		outputSheetPDFDefault.addFocusListener(textFieldListener);
@@ -194,9 +174,7 @@ public class OutputPanel extends PCGenPrefsPanel
 		gridbag.setConstraints(label, c);
 		this.add(label);
 		Utility.buildConstraints(c, 1, 2, 1, 1, 0, 0);
-		outputSheetEqSet =
-				new JTextField(String.valueOf(SettingsHandler
-					.getSelectedEqSetTemplate()));
+		outputSheetEqSet = new JTextField(String.valueOf(SettingsHandler.getSelectedEqSetTemplate()));
 
 		// sage_sam 9 April 2003
 		outputSheetEqSet.addFocusListener(textFieldListener);
@@ -214,15 +192,11 @@ public class OutputPanel extends PCGenPrefsPanel
 		this.add(saveOutputSheetWithPC);
 
 		Utility.buildConstraints(c, 0, 4, 1, 1, 0, 0);
-		label =
-				new JLabel(LanguageBundle
-					.getString("in_Prefs_outputSpellSheetDefault"));
+		label = new JLabel(LanguageBundle.getString("in_Prefs_outputSpellSheetDefault"));
 		gridbag.setConstraints(label, c);
 		this.add(label);
 		Utility.buildConstraints(c, 1, 4, 1, 1, 0, 0);
-		outputSheetSpellsDefault =
-				new JTextField(String.valueOf(SettingsHandler
-					.getSelectedSpellSheet()));
+		outputSheetSpellsDefault = new JTextField(String.valueOf(SettingsHandler.getSelectedSpellSheet()));
 		outputSheetSpellsDefault.addFocusListener(textFieldListener);
 		gridbag.setConstraints(outputSheetSpellsDefault, c);
 		this.add(outputSheetSpellsDefault);
@@ -260,9 +234,7 @@ public class OutputPanel extends PCGenPrefsPanel
 		this.add(removeTempFiles);
 
 		Utility.buildConstraints(c, 0, 8, 3, 1, 0, 0);
-		weaponProfPrintout =
-				new JCheckBox(in_weaponProfPrintout, SettingsHandler
-					.getWeaponProfPrintout());
+		weaponProfPrintout = new JCheckBox(in_weaponProfPrintout, SettingsHandler.getWeaponProfPrintout());
 		gridbag.setConstraints(weaponProfPrintout, c);
 		this.add(weaponProfPrintout);
 
@@ -271,9 +243,7 @@ public class OutputPanel extends PCGenPrefsPanel
 		gridbag.setConstraints(label, c);
 		this.add(label);
 		Utility.buildConstraints(c, 1, 9, 2, 1, 0, 0);
-		postExportCommandStandard =
-				new JTextField(String.valueOf(SettingsHandler
-					.getPostExportCommandStandard()));
+		postExportCommandStandard = new JTextField(String.valueOf(SettingsHandler.getPostExportCommandStandard()));
 		gridbag.setConstraints(postExportCommandStandard, c);
 		this.add(postExportCommandStandard);
 
@@ -282,9 +252,7 @@ public class OutputPanel extends PCGenPrefsPanel
 		gridbag.setConstraints(label, c);
 		this.add(label);
 		Utility.buildConstraints(c, 1, 10, 2, 1, 0, 0);
-		postExportCommandPDF =
-				new JTextField(String.valueOf(SettingsHandler
-					.getPostExportCommandPDF()));
+		postExportCommandPDF = new JTextField(String.valueOf(SettingsHandler.getPostExportCommandPDF()));
 		gridbag.setConstraints(postExportCommandPDF, c);
 		this.add(postExportCommandPDF);
 
@@ -293,11 +261,10 @@ public class OutputPanel extends PCGenPrefsPanel
 		gridbag.setConstraints(label, c);
 		this.add(label);
 		Utility.buildConstraints(c, 1, 11, GridBagConstraints.REMAINDER, 1, 0, 0);
-		skillFilter.setModel(new DefaultComboBoxModel<>(new SkillFilter[]{
-			SkillFilter.Ranks, SkillFilter.NonDefault, SkillFilter.Usable, 
-			SkillFilter.All}));
-		skillFilter.setSelectedItem(SkillFilter.getByValue(PCGenSettings.OPTIONS_CONTEXT.initInt(
-				PCGenSettings.OPTION_SKILL_FILTER, SkillFilter.Usable.getValue())));
+		skillFilter.setModel(new DefaultComboBoxModel<>(
+			new SkillFilter[]{SkillFilter.Ranks, SkillFilter.NonDefault, SkillFilter.Usable, SkillFilter.All}));
+		skillFilter.setSelectedItem(SkillFilter.getByValue(
+			PCGenSettings.OPTIONS_CONTEXT.initInt(PCGenSettings.OPTION_SKILL_FILTER, SkillFilter.Usable.getValue())));
 		gridbag.setConstraints(skillFilter, c);
 		this.add(skillFilter);
 
@@ -306,9 +273,7 @@ public class OutputPanel extends PCGenPrefsPanel
 		gridbag.setConstraints(label, c);
 		this.add(label);
 		Utility.buildConstraints(c, 1, 12, 2, 1, 0, 0);
-		invalidToHitText =
-				new JTextField(String.valueOf(SettingsHandler
-					.getInvalidToHitText()));
+		invalidToHitText = new JTextField(String.valueOf(SettingsHandler.getInvalidToHitText()));
 		gridbag.setConstraints(invalidToHitText, c);
 		this.add(invalidToHitText);
 
@@ -317,23 +282,17 @@ public class OutputPanel extends PCGenPrefsPanel
 		gridbag.setConstraints(label, c);
 		this.add(label);
 		Utility.buildConstraints(c, 1, 13, GridBagConstraints.REMAINDER, 1, 0, 0);
-		invalidDmgText =
-				new JTextField(String.valueOf(SettingsHandler
-					.getInvalidDmgText()));
+		invalidDmgText = new JTextField(String.valueOf(SettingsHandler.getInvalidDmgText()));
 		gridbag.setConstraints(invalidDmgText, c);
 		this.add(invalidDmgText);
 
 		Utility.buildConstraints(c, 0, 14, 3, 1, 0, 0);
-		alwaysOverwrite =
-				new JCheckBox(in_alwaysOverwrite, SettingsHandler
-					.getAlwaysOverwrite());
+		alwaysOverwrite = new JCheckBox(in_alwaysOverwrite, SettingsHandler.getAlwaysOverwrite());
 		gridbag.setConstraints(alwaysOverwrite, c);
 		this.add(alwaysOverwrite);
 
 		Utility.buildConstraints(c, 0, 15, 3, 1, 0, 0);
-		showSingleBoxPerBundle =
-				new JCheckBox(in_showSingleBoxPerBundle, SettingsHandler
-					.getShowSingleBoxPerBundle());
+		showSingleBoxPerBundle = new JCheckBox(in_showSingleBoxPerBundle, SettingsHandler.getShowSingleBoxPerBundle());
 		gridbag.setConstraints(showSingleBoxPerBundle, c);
 		this.add(showSingleBoxPerBundle);
 
@@ -341,11 +300,11 @@ public class OutputPanel extends PCGenPrefsPanel
 		label = new JLabel(LanguageBundle.getString("in_Prefs_exportChoice")); // $NON-NSL-1$
 		gridbag.setConstraints(label, c);
 		this.add(label);
-		
+
 		Utility.buildConstraints(c, 1, 16, GridBagConstraints.REMAINDER, 1, 0, 0);
 		gridbag.setConstraints(exportChoice, c);
 		this.add(exportChoice);
-		
+
 		Utility.buildConstraints(c, 0, 17, 3, 1, 0, 0);
 		gridbag.setConstraints(generateTempFileWithPdf, c);
 		this.add(generateTempFileWithPdf);
@@ -363,6 +322,7 @@ public class OutputPanel extends PCGenPrefsPanel
 		button.setMargin(new Insets(0, 3, 0, 3));
 		return button;
 	}
+
 	/**
 	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#getTitle()
 	 */
@@ -382,51 +342,40 @@ public class OutputPanel extends PCGenPrefsPanel
 
 		Globals.selectPaper((String) paperType.getSelectedItem());
 
-		context.setBoolean(UIPropertyContext.CLEANUP_TEMP_FILES,
-			removeTempFiles.isSelected());
+		context.setBoolean(UIPropertyContext.CLEANUP_TEMP_FILES, removeTempFiles.isSelected());
 
-		if (SettingsHandler.getWeaponProfPrintout() != weaponProfPrintout
-			.isSelected())
+		if (SettingsHandler.getWeaponProfPrintout() != weaponProfPrintout.isSelected())
 		{
-			SettingsHandler.setWeaponProfPrintout(weaponProfPrintout
-				.isSelected());
+			SettingsHandler.setWeaponProfPrintout(weaponProfPrintout.isSelected());
 		}
 
-		if (SettingsHandler.getAlwaysOverwrite()
-			|| alwaysOverwrite.isSelected())
+		if (SettingsHandler.getAlwaysOverwrite() || alwaysOverwrite.isSelected())
 		{
 			SettingsHandler.setAlwaysOverwrite(alwaysOverwrite.isSelected());
 		}
 
-		if (SettingsHandler.getShowSingleBoxPerBundle()
-			|| showSingleBoxPerBundle.isSelected())
+		if (SettingsHandler.getShowSingleBoxPerBundle() || showSingleBoxPerBundle.isSelected())
 		{
-			SettingsHandler.setShowSingleBoxPerBundle(showSingleBoxPerBundle
-				.isSelected());
+			SettingsHandler.setShowSingleBoxPerBundle(showSingleBoxPerBundle.isSelected());
 		}
 
-		context.setProperty(UIPropertyContext.DEFAULT_HTML_OUTPUT_SHEET,
-			outputSheetHTMLDefault.getText());
-		context.setProperty(UIPropertyContext.DEFAULT_PDF_OUTPUT_SHEET,
-			outputSheetPDFDefault.getText());
+		context.setProperty(UIPropertyContext.DEFAULT_HTML_OUTPUT_SHEET, outputSheetHTMLDefault.getText());
+		context.setProperty(UIPropertyContext.DEFAULT_PDF_OUTPUT_SHEET, outputSheetPDFDefault.getText());
 		SettingsHandler.setSelectedEqSetTemplate(outputSheetEqSet.getText());
-		context.setBoolean(UIPropertyContext.SAVE_OUTPUT_SHEET_WITH_PC,
-			saveOutputSheetWithPC.isSelected());
-		SettingsHandler.setSelectedSpellSheet(outputSheetSpellsDefault
-			.getText());
+		context.setBoolean(UIPropertyContext.SAVE_OUTPUT_SHEET_WITH_PC, saveOutputSheetWithPC.isSelected());
+		SettingsHandler.setSelectedSpellSheet(outputSheetSpellsDefault.getText());
 		SettingsHandler.setPrintSpellsWithPC(printSpellsWithPC.isSelected());
-		SettingsHandler.setPostExportCommandStandard(postExportCommandStandard
-			.getText());
+		SettingsHandler.setPostExportCommandStandard(postExportCommandStandard.getText());
 		SettingsHandler.setPostExportCommandPDF(postExportCommandPDF.getText());
 		SettingsHandler.setInvalidToHitText(invalidToHitText.getText());
 		SettingsHandler.setInvalidDmgText(invalidDmgText.getText());
-		PCGenSettings.OPTIONS_CONTEXT.setInt(PCGenSettings.OPTION_SKILL_FILTER, 
-				((SkillFilter) skillFilter.getSelectedItem()).getValue());
-		
+		PCGenSettings.OPTIONS_CONTEXT.setInt(PCGenSettings.OPTION_SKILL_FILTER,
+			((SkillFilter) skillFilter.getSelectedItem()).getValue());
+
 		ExportChoices choice = (ExportChoices) exportChoice.getSelectedItem();
 		context.setProperty(UIPropertyContext.ALWAYS_OPEN_EXPORT_FILE, choice.getValue());
 		PCGenSettings.OPTIONS_CONTEXT.setBoolean(PCGenSettings.OPTION_GENERATE_TEMP_FILE_WITH_PDF,
-				generateTempFileWithPdf.isSelected());
+			generateTempFileWithPdf.isSelected());
 	}
 
 	/**
@@ -439,27 +388,21 @@ public class OutputPanel extends PCGenPrefsPanel
 
 		paperType.setSelectedIndex(Globals.getSelectedPaper());
 		weaponProfPrintout.setSelected(SettingsHandler.getWeaponProfPrintout());
-		
-		outputSheetHTMLDefault.setText(context
-			.getProperty(UIPropertyContext.DEFAULT_HTML_OUTPUT_SHEET));
-		outputSheetPDFDefault.setText(context
-			.getProperty(UIPropertyContext.DEFAULT_PDF_OUTPUT_SHEET));
-		saveOutputSheetWithPC.setSelected(context
-			.getBoolean(UIPropertyContext.SAVE_OUTPUT_SHEET_WITH_PC));
-		removeTempFiles.setSelected(context.initBoolean(
-			UIPropertyContext.CLEANUP_TEMP_FILES, true));
-		
-		printSpellsWithPC.setSelected(SettingsHandler.getPrintSpellsWithPC());
-		skillFilter.setSelectedItem(SkillFilter.getByValue(PCGenSettings.OPTIONS_CONTEXT.initInt(
-				PCGenSettings.OPTION_SKILL_FILTER, SkillFilter.Usable.getValue())));
 
-		String value =
-				context.getProperty(UIPropertyContext.ALWAYS_OPEN_EXPORT_FILE);
+		outputSheetHTMLDefault.setText(context.getProperty(UIPropertyContext.DEFAULT_HTML_OUTPUT_SHEET));
+		outputSheetPDFDefault.setText(context.getProperty(UIPropertyContext.DEFAULT_PDF_OUTPUT_SHEET));
+		saveOutputSheetWithPC.setSelected(context.getBoolean(UIPropertyContext.SAVE_OUTPUT_SHEET_WITH_PC));
+		removeTempFiles.setSelected(context.initBoolean(UIPropertyContext.CLEANUP_TEMP_FILES, true));
+
+		printSpellsWithPC.setSelected(SettingsHandler.getPrintSpellsWithPC());
+		skillFilter.setSelectedItem(SkillFilter.getByValue(
+			PCGenSettings.OPTIONS_CONTEXT.initInt(PCGenSettings.OPTION_SKILL_FILTER, SkillFilter.Usable.getValue())));
+
+		String value = context.getProperty(UIPropertyContext.ALWAYS_OPEN_EXPORT_FILE);
 		exportChoice.setSelectedItem(ExportChoices.getChoice(value));
-		
+
 		generateTempFileWithPdf.setSelected(
-				PCGenSettings.OPTIONS_CONTEXT.initBoolean(
-						PCGenSettings.OPTION_GENERATE_TEMP_FILE_WITH_PDF, false));
+			PCGenSettings.OPTIONS_CONTEXT.initBoolean(PCGenSettings.OPTION_GENERATE_TEMP_FILE_WITH_PDF, false));
 	}
 
 	private final class PrefsButtonListener implements ActionListener
@@ -476,120 +419,97 @@ public class OutputPanel extends PCGenPrefsPanel
 			else if (source == outputSheetHTMLDefaultButton)
 			{
 				JFileChooser fc = new JFileChooser();
-				fc.setDialogTitle(LanguageBundle
-					.getString("in_Prefs_outputSheetHTMLDefaultTitle")); //$NON-NLS-1$
-				fc.setCurrentDirectory(new File(SettingsHandler
-					.getHTMLOutputSheetPath()));
-				fc.setSelectedFile(new File(SettingsHandler
-					.getSelectedCharacterHTMLOutputSheet(null)));
+				fc.setDialogTitle(LanguageBundle.getString("in_Prefs_outputSheetHTMLDefaultTitle")); //$NON-NLS-1$
+				fc.setCurrentDirectory(new File(SettingsHandler.getHTMLOutputSheetPath()));
+				fc.setSelectedFile(new File(SettingsHandler.getSelectedCharacterHTMLOutputSheet(null)));
 
 				if (fc.showOpenDialog(getParent()) == JFileChooser.APPROVE_OPTION)
 				{
 					File newTemplate = fc.getSelectedFile();
 
 					if (newTemplate.isDirectory()
-						|| (!newTemplate.getName().startsWith("csheet") && !newTemplate
-							.getName().startsWith("psheet")))
+						|| (!newTemplate.getName().startsWith("csheet") && !newTemplate.getName().startsWith("psheet")))
 					{
-						ShowMessageDelegate.showMessageDialog(LanguageBundle
-							.getString("in_Prefs_outputSheetDefaultError"), //$NON-NLS-1$
+						ShowMessageDelegate.showMessageDialog(
+							LanguageBundle.getString("in_Prefs_outputSheetDefaultError"), //$NON-NLS-1$
 							Constants.APPLICATION_NAME, MessageType.ERROR);
 					}
 					else
 					{
 						if (newTemplate.getName().startsWith("csheet"))
 						{
-							SettingsHandler
-								.setSelectedCharacterHTMLOutputSheet(
-									newTemplate.getAbsolutePath(), null);
+							SettingsHandler.setSelectedCharacterHTMLOutputSheet(newTemplate.getAbsolutePath(), null);
 						}
 						else
 						{
 							//it must be a psheet
-							SettingsHandler
-								.setSelectedPartyHTMLOutputSheet(newTemplate
-									.getAbsolutePath());
+							SettingsHandler.setSelectedPartyHTMLOutputSheet(newTemplate.getAbsolutePath());
 						}
 					}
 				}
 
-				outputSheetHTMLDefault.setText(String.valueOf(SettingsHandler
-					.getSelectedCharacterHTMLOutputSheet(null)));
+				outputSheetHTMLDefault
+					.setText(String.valueOf(SettingsHandler.getSelectedCharacterHTMLOutputSheet(null)));
 			}
 			else if (source == outputSheetPDFDefaultButton)
 			{
 				JFileChooser fc = new JFileChooser();
-				fc.setDialogTitle(LanguageBundle
-					.getString("in_Prefs_outputSheetPDFDefaultTitle")); //$NON-NLS-1$
-				fc.setCurrentDirectory(new File(SettingsHandler
-					.getPDFOutputSheetPath()));
-				fc.setSelectedFile(new File(SettingsHandler
-					.getSelectedCharacterPDFOutputSheet(null)));
+				fc.setDialogTitle(LanguageBundle.getString("in_Prefs_outputSheetPDFDefaultTitle")); //$NON-NLS-1$
+				fc.setCurrentDirectory(new File(SettingsHandler.getPDFOutputSheetPath()));
+				fc.setSelectedFile(new File(SettingsHandler.getSelectedCharacterPDFOutputSheet(null)));
 
 				if (fc.showOpenDialog(getParent()) == JFileChooser.APPROVE_OPTION)
 				{
 					File newTemplate = fc.getSelectedFile();
 
 					if (newTemplate.isDirectory()
-						|| (!newTemplate.getName().startsWith("csheet") && !newTemplate
-							.getName().startsWith("psheet")))
+						|| (!newTemplate.getName().startsWith("csheet") && !newTemplate.getName().startsWith("psheet")))
 					{
-						ShowMessageDelegate.showMessageDialog(LanguageBundle
-							.getString("in_Prefs_outputSheetDefaultError"), //$NON-NLS-1$
+						ShowMessageDelegate.showMessageDialog(
+							LanguageBundle.getString("in_Prefs_outputSheetDefaultError"), //$NON-NLS-1$
 							Constants.APPLICATION_NAME, MessageType.ERROR);
 					}
 					else
 					{
 						if (newTemplate.getName().startsWith("csheet"))
 						{
-							SettingsHandler.setSelectedCharacterPDFOutputSheet(
-								newTemplate.getAbsolutePath(), null);
+							SettingsHandler.setSelectedCharacterPDFOutputSheet(newTemplate.getAbsolutePath(), null);
 						}
 						else
 						{
 							//it must be a psheet
-							SettingsHandler
-								.setSelectedPartyPDFOutputSheet(newTemplate
-									.getAbsolutePath());
+							SettingsHandler.setSelectedPartyPDFOutputSheet(newTemplate.getAbsolutePath());
 						}
 					}
 				}
 
-				outputSheetPDFDefault.setText(String.valueOf(SettingsHandler
-					.getSelectedCharacterPDFOutputSheet(null)));
+				outputSheetPDFDefault.setText(String.valueOf(SettingsHandler.getSelectedCharacterPDFOutputSheet(null)));
 			}
 			else if (source == outputSheetEqSetButton)
 			{
 				JFileChooser fc = new JFileChooser();
-				fc.setDialogTitle(LanguageBundle
-					.getString("in_Prefs_templateEqSetTitle")); //$NON-NLS-1$
-				fc
-					.setCurrentDirectory(
-                                        new File(ConfigurationSettings.getOutputSheetsDir()));
-				fc.setSelectedFile(new File(SettingsHandler
-					.getSelectedEqSetTemplate()));
+				fc.setDialogTitle(LanguageBundle.getString("in_Prefs_templateEqSetTitle")); //$NON-NLS-1$
+				fc.setCurrentDirectory(new File(ConfigurationSettings.getOutputSheetsDir()));
+				fc.setSelectedFile(new File(SettingsHandler.getSelectedEqSetTemplate()));
 
 				if (fc.showOpenDialog(getParent()) == JFileChooser.APPROVE_OPTION)
 				{
 					File newTemplate = fc.getSelectedFile();
 
-					if (newTemplate.isDirectory()
-						|| !newTemplate.getName().startsWith("eqsheet"))
+					if (newTemplate.isDirectory() || !newTemplate.getName().startsWith("eqsheet"))
 					{
-						ShowMessageDelegate.showMessageDialog(LanguageBundle
-							.getString("in_Prefs_templateEqSetError"), //$NON-NLS-1$
+						ShowMessageDelegate.showMessageDialog(
+							LanguageBundle.getString("in_Prefs_templateEqSetError"), //$NON-NLS-1$
 							Constants.APPLICATION_NAME, MessageType.ERROR);
 					}
 					else
 					{
 						//it must be a psheet
-						SettingsHandler.setSelectedEqSetTemplate(newTemplate
-							.getAbsolutePath());
+						SettingsHandler.setSelectedEqSetTemplate(newTemplate.getAbsolutePath());
 					}
 				}
 
-				outputSheetEqSet.setText(String.valueOf(SettingsHandler
-					.getSelectedEqSetTemplate()));
+				outputSheetEqSet.setText(String.valueOf(SettingsHandler.getSelectedEqSetTemplate()));
 			}
 			else if (source == outputSheetSpellsDefaultButton)
 			{
@@ -605,18 +525,17 @@ public class OutputPanel extends PCGenPrefsPanel
 				{
 					File newTemplate = fc.getSelectedFile();
 
-					if (newTemplate.isDirectory()
-						|| !newTemplate.getName().startsWith("csheet"))
+					if (newTemplate.isDirectory() || !newTemplate.getName().startsWith("csheet"))
 					{
-						ShowMessageDelegate.showMessageDialog(LanguageBundle
-							.getString("in_Prefs_outputSheetDefaultError"), //$NON-NLS-1$
+						ShowMessageDelegate.showMessageDialog(
+							LanguageBundle.getString("in_Prefs_outputSheetDefaultError"), //$NON-NLS-1$
 							Constants.APPLICATION_NAME, MessageType.ERROR);
 					}
 					else
 					{
 						//it must be a psheet
 						PCGenSettings.getInstance().setProperty(PCGenSettings.SELECTED_SPELL_SHEET_PATH,
-								newTemplate.getAbsolutePath());
+							newTemplate.getAbsolutePath());
 					}
 				}
 
@@ -659,14 +578,12 @@ public class OutputPanel extends PCGenPrefsPanel
 				final String fieldValue = ((JTextField) source).getText();
 				final File fieldFile = new File(fieldValue);
 
-				if ((!fieldFile.exists())
-					&& (!fieldValue.equalsIgnoreCase("null"))
-					&& (!fieldValue.trim().isEmpty()) && (!dialogOpened))
+				if ((!fieldFile.exists()) && (!fieldValue.equalsIgnoreCase("null")) && (!fieldValue.trim().isEmpty())
+					&& (!dialogOpened))
 				{
 					// display error dialog and restore previous value
 					dialogOpened = true;
-					ShowMessageDelegate.showMessageDialog(
-						"File does not exist; preferences were not set.",
+					ShowMessageDelegate.showMessageDialog("File does not exist; preferences were not set.",
 						"Invalid Path", MessageType.ERROR);
 					((JTextField) source).setText(initialValue);
 				}
@@ -677,21 +594,24 @@ public class OutputPanel extends PCGenPrefsPanel
 	private enum ExportChoices
 	{
 
-		ASK {
+		ASK
+		{
 			@Override
 			public String toString()
 			{
 				return LanguageBundle.getString("in_Prefs_ask"); //$NON-NLS-1$
 			}
 		},
-		ALWAYS_OPEN {
+		ALWAYS_OPEN
+		{
 			@Override
 			public String toString()
 			{
 				return LanguageBundle.getString("in_Prefs_alwaysOpen"); //$NON-NLS-1$
 			}
 		},
-		NEVER_OPEN {
+		NEVER_OPEN
+		{
 			@Override
 			public String toString()
 			{

@@ -62,7 +62,7 @@ public final class QualifiedName
 		// start with the name of the ability
 		// don't do for Weapon Profs
 		final StringBuilder aStrBuf = new StringBuilder(outputName);
-		
+
 		ChooseInformation<?> chooseInfo = a.get(ObjectKey.CHOOSE_INFO);
 		if (chooseInfo != null)
 		{
@@ -71,7 +71,7 @@ public final class QualifiedName
 		return aStrBuf.toString();
 	}
 
-	private static <T> void processChooseInfo(StringBuilder aStrBuf, PlayerCharacter pc, 
+	private static <T> void processChooseInfo(StringBuilder aStrBuf, PlayerCharacter pc,
 		ChooseInformation<T> chooseInfo, List<CNAbility> list)
 	{
 		List<T> allSelections = new ArrayList<>();
@@ -79,8 +79,7 @@ public final class QualifiedName
 		{
 			if (pc.hasAssociations(cna))
 			{
-				List<? extends T> selections =
-						(List<? extends T>) pc.getDetailedAssociations(cna);
+				List<? extends T> selections = (List<? extends T>) pc.getDetailedAssociations(cna);
 				allSelections.addAll(selections);
 			}
 		}

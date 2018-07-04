@@ -48,7 +48,7 @@ public class MinDevVerTokenTest
 	}
 
 	/**
-	 * Test method for {@link plugin.lsttokens.gamemode.migrate.MinDevVerToken#parse(pcgen.core.system.MigrationRule, java.lang.String, java.lang.String)}.
+	 * Test method for {@link MinDevVerToken#parse(MigrationRule, String, String)}.
 	 */
 	@Test
 	public void testParseValidVer()

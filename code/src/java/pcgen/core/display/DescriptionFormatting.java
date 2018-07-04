@@ -21,7 +21,6 @@ package pcgen.core.display;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PObject;
 
-
 public final class DescriptionFormatting
 {
 

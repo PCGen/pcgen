@@ -32,8 +32,7 @@ public class DisplayNameToken extends AbstractNonEmptyToken<ContentDefinition>
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		ContentDefinition factDef, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, ContentDefinition factDef, String value)
 	{
 		factDef.setDisplayName(value);
 		return ParseResult.SUCCESS;

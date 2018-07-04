@@ -33,15 +33,10 @@ public final class AlignmentConverter
 	{
 		PCAlignment desiredAlign;
 		desiredAlign =
-				Globals
-					.getContext()
-					.getReferenceContext()
-					.silentlyGetConstructedCDOMObject(ALIGNMENT_CLASS,
-						alignKey);
+				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(ALIGNMENT_CLASS, alignKey);
 		if (desiredAlign == null)
 		{
-			Logging.errorPrint("Unable to find alignment that matches: "
-				+ alignKey);
+			Logging.errorPrint("Unable to find alignment that matches: " + alignKey);
 		}
 		return desiredAlign;
 	}

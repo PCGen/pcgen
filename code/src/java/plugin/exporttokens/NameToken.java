@@ -34,8 +34,7 @@ public class NameToken extends AbstractExportToken
 
 	//TODO: this should be moved to some meta token that has stuff like this and hair length, etc
 	@Override
-	public String getToken(String tokenSource, CharacterDisplay display,
-		ExportHandler eh)
+	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
 	{
 		if (display.getSuppressBioField(BiographyField.NAME))
 		{

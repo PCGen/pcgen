@@ -26,17 +26,18 @@ public final class ShowMessageDelegate extends Observable
 {
 	private static final ShowMessageDelegate instance = new ShowMessageDelegate();
 
-
 	private ShowMessageDelegate()
 	{
 	}
 
-
-	public static void showMessageDialog(final Object message, final String title, final MessageType messageType, final Object parent) {
+	public static void showMessageDialog(final Object message, final String title, final MessageType messageType,
+		final Object parent)
+	{
 		showMessageDialog(new MessageWrapper(message, title, messageType, parent));
 	}
 
-	public static void showMessageDialog(final Object message, final String title, final MessageType messageType) {
+	public static void showMessageDialog(final Object message, final String title, final MessageType messageType)
+	{
 		showMessageDialog(new MessageWrapper(message, title, messageType));
 	}
 
@@ -44,18 +45,18 @@ public final class ShowMessageDelegate extends Observable
 	{
 		instance.setChanged();
 		instance.notifyObservers(messageWrapper);
-		if (instance.countObservers() == 0 && messageWrapper.getMessage() != null && !messageWrapper.getMessage().toString().isEmpty())
+		if (instance.countObservers() == 0 && messageWrapper.getMessage() != null
+			&& !messageWrapper.getMessage().toString().isEmpty())
 		{
 			System.out.println(messageWrapper.getTitle() + ": " + messageWrapper.getMessage());
 		}
 	}
 
-
-
 	/**
 	 * @return Returns the instance.
 	 */
-	public static ShowMessageDelegate getInstance() {
+	public static ShowMessageDelegate getInstance()
+	{
 		return instance;
 	}
 

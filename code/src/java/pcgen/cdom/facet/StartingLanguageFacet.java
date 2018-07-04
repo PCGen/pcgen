@@ -63,8 +63,7 @@ public class StartingLanguageFacet extends AbstractSourcedListFacet<CharID, Lang
 	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
-		Collection<CDOMReference<Language>> list = cdo
-				.getListMods(Language.STARTING_LIST);
+		Collection<CDOMReference<Language>> list = cdo.getListMods(Language.STARTING_LIST);
 		if (list != null)
 		{
 			CharID id = dfce.getCharID();

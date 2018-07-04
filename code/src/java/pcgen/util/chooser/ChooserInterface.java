@@ -124,6 +124,6 @@ public interface ChooserInterface
 	void setTotalChoicesAvail(int maxTotalChoices);
 
 	void setPickAll(boolean b);
-	
+
 	boolean pickAll();
 }

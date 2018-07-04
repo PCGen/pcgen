@@ -26,8 +26,7 @@ import java.util.List;
 import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.core.display.CharacterDisplay;
 
-public class PCCountMiscCompanionsTermEvaluator
-		extends BasePCDTermEvaluator implements TermEvaluator
+public class PCCountMiscCompanionsTermEvaluator extends BasePCDTermEvaluator implements TermEvaluator
 {
 	public PCCountMiscCompanionsTermEvaluator(String originalText)
 	{

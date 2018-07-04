@@ -59,27 +59,23 @@ public class GetFunction implements FormulaFunction
 	}
 
 	@Override
-	public FormatManager<?> allowArgs(SemanticsVisitor visitor, Node[] args,
-		FormulaSemantics semantics)
+	public FormatManager<?> allowArgs(SemanticsVisitor visitor, Node[] args, FormulaSemantics semantics)
 	{
 		int argCount = args.length;
 		if (argCount != 2)
 		{
 			throw new SemanticsFailureException("Function " + getFunctionName()
-				+ " received incorrect # of arguments, expected: 2 got " + args.length
-				+ ' ' + Arrays.asList(args));
+				+ " received incorrect # of arguments, expected: 2 got " + args.length + ' ' + Arrays.asList(args));
 		}
 		if (!(args[0] instanceof ASTQuotString))
 		{
 			//Error
-			throw new SemanticsFailureException(
-				"Parse Error: Invalid first argument: Must be a String");
+			throw new SemanticsFailureException("Parse Error: Invalid first argument: Must be a String");
 		}
 		if (!(args[1] instanceof ASTQuotString))
 		{
 			//Error
-			throw new SemanticsFailureException(
-				"Parse Error: Invalid first argument: Must be a String");
+			throw new SemanticsFailureException("Parse Error: Invalid first argument: Must be a String");
 		}
 
 		//This will be a format
@@ -88,28 +84,25 @@ public class GetFunction implements FormulaFunction
 	}
 
 	@Override
-	public Object evaluate(EvaluateVisitor visitor, Node[] args,
-		EvaluationManager manager)
+	public Object evaluate(EvaluateVisitor visitor, Node[] args, EvaluationManager manager)
 	{
 		@SuppressWarnings("PMD.PrematureDeclaration")
-		String format = (String) args[0].jjtAccept(visitor,
-			manager.getWith(EvaluationManager.ASSERTED, Optional.empty()));
-		String stringRepresentation = (String) args[1].jjtAccept(visitor, manager.getWith(
-			EvaluationManager.ASSERTED, Optional.of(FormatUtilities.STRING_MANAGER)));
-		return manager.get(ManagerKey.CONTEXT).getReferenceContext()
-			.getFormatManager(format).convert(stringRepresentation);
+		String format =
+				(String) args[0].jjtAccept(visitor, manager.getWith(EvaluationManager.ASSERTED, Optional.empty()));
+		String stringRepresentation = (String) args[1].jjtAccept(visitor,
+			manager.getWith(EvaluationManager.ASSERTED, Optional.of(FormatUtilities.STRING_MANAGER)));
+		return manager.get(ManagerKey.CONTEXT).getReferenceContext().getFormatManager(format)
+			.convert(stringRepresentation);
 	}
 
 	@Override
-	public FormatManager<?> getDependencies(DependencyVisitor visitor, DependencyManager manager,
-		Node[] args)
+	public FormatManager<?> getDependencies(DependencyVisitor visitor, DependencyManager manager, Node[] args)
 	{
 		@SuppressWarnings("PMD.PrematureDeclaration")
 		String format = ((ASTQuotString) args[0]).getText();
 		@SuppressWarnings("PMD.PrematureDeclaration")
 		String stringRepresentation = ((ASTQuotString) args[1]).getText();
-		AbstractReferenceContext refContext =
-				manager.get(ManagerKey.CONTEXT).getReferenceContext();
+		AbstractReferenceContext refContext = manager.get(ManagerKey.CONTEXT).getReferenceContext();
 		FormatManager<?> formatManager = refContext.getFormatManager(format);
 		Indirect<?> reference = formatManager.convertIndirect(stringRepresentation);
 		manager.get(ManagerKey.REFERENCES).put(reference);

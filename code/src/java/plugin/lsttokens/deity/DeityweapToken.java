@@ -37,8 +37,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with DEITYWEAP Token
  */
-public class DeityweapToken extends AbstractTokenWithSeparator<Deity> implements
-		CDOMPrimaryToken<Deity>
+public class DeityweapToken extends AbstractTokenWithSeparator<Deity> implements CDOMPrimaryToken<Deity>
 {
 
 	private static final Class<WeaponProf> WEAPONPROF_CLASS = WeaponProf.class;
@@ -72,16 +71,14 @@ public class DeityweapToken extends AbstractTokenWithSeparator<Deity> implements
 			{
 				if (!first)
 				{
-					return new ParseResult.Fail("  Non-sensical "
-							+ getTokenName()
-							+ ": .CLEAR was not the first list item");
+					return new ParseResult.Fail(
+						"  Non-sensical " + getTokenName() + ": .CLEAR was not the first list item");
 				}
 				context.getObjectContext().removeList(deity, ListKey.DEITYWEAPON);
 			}
 			else
 			{
-				if (Constants.LST_ALL.equalsIgnoreCase(token)
-					|| Constants.LST_ANY.equalsIgnoreCase(token))
+				if (Constants.LST_ALL.equalsIgnoreCase(token) || Constants.LST_ANY.equalsIgnoreCase(token))
 				{
 					foundAny = true;
 					ref = context.getReferenceContext().getCDOMAllReference(WEAPONPROF_CLASS);
@@ -91,15 +88,14 @@ public class DeityweapToken extends AbstractTokenWithSeparator<Deity> implements
 					foundOther = true;
 					ref = context.getReferenceContext().getCDOMReference(WEAPONPROF_CLASS, token);
 				}
-				context.getObjectContext().addToList(deity,
-					ListKey.DEITYWEAPON, ref);
+				context.getObjectContext().addToList(deity, ListKey.DEITYWEAPON, ref);
 			}
 			first = false;
 		}
 		if (foundAny && foundOther)
 		{
-			return new ParseResult.Fail("Non-sensical " + getTokenName()
-					+ ": Contains ANY and a specific reference: " + value);
+			return new ParseResult.Fail(
+				"Non-sensical " + getTokenName() + ": Contains ANY and a specific reference: " + value);
 		}
 		return ParseResult.SUCCESS;
 	}
@@ -107,14 +103,13 @@ public class DeityweapToken extends AbstractTokenWithSeparator<Deity> implements
 	@Override
 	public String[] unparse(LoadContext context, Deity deity)
 	{
-		Changes<CDOMReference<WeaponProf>> changes = context
-				.getObjectContext().getListChanges(deity, ListKey.DEITYWEAPON);
+		Changes<CDOMReference<WeaponProf>> changes =
+				context.getObjectContext().getListChanges(deity, ListKey.DEITYWEAPON);
 		Collection<CDOMReference<WeaponProf>> removedItems = changes.getRemoved();
 		List<String> list = new ArrayList<>();
 		if (removedItems != null && !removedItems.isEmpty())
 		{
-			context.addWriteMessage(Constants.LST_DOT_CLEAR_DOT
-				+ " not supported in " + getTokenName());
+			context.addWriteMessage(Constants.LST_DOT_CLEAR_DOT + " not supported in " + getTokenName());
 			return null;
 		}
 		if (changes.includesGlobalClear())
@@ -124,8 +119,7 @@ public class DeityweapToken extends AbstractTokenWithSeparator<Deity> implements
 		Collection<CDOMReference<WeaponProf>> added = changes.getAdded();
 		if (added != null && !added.isEmpty())
 		{
-			list.add(ReferenceUtilities.joinLstFormat(added, Constants.PIPE,
-				true));
+			list.add(ReferenceUtilities.joinLstFormat(added, Constants.PIPE, true));
 		}
 		if (list.isEmpty())
 		{

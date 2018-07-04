@@ -41,7 +41,7 @@ public final class CDOMAllRef<T> extends CDOMGroupRef<T>
 	 * The ClassIdentity that represents the objects contained in this CDOMAllRef.
 	 */
 	private final ClassIdentity<T> identity;
-	
+
 	/**
 	 * The objects (presumably all of the objects) of the Class this CDOMAllRef
 	 * represents.
@@ -98,8 +98,7 @@ public final class CDOMAllRef<T> extends CDOMGroupRef<T>
 	{
 		if (referencedList == null)
 		{
-			throw new IllegalStateException(
-					"Cannot ask for contains: Reference has not been resolved");
+			throw new IllegalStateException("Cannot ask for contains: Reference has not been resolved");
 		}
 		return referencedList.contains(item);
 	}
@@ -115,8 +114,7 @@ public final class CDOMAllRef<T> extends CDOMGroupRef<T>
 	@Override
 	public boolean equals(Object obj)
 	{
-		return obj instanceof CDOMAllRef
-			&& identity.equals(((CDOMAllRef<?>) obj).identity);
+		return obj instanceof CDOMAllRef && identity.equals(((CDOMAllRef<?>) obj).identity);
 	}
 
 	/**
@@ -156,9 +154,8 @@ public final class CDOMAllRef<T> extends CDOMGroupRef<T>
 		}
 		else
 		{
-			throw new IllegalArgumentException("Cannot resolve a "
-					+ getReferenceClass().getSimpleName() + " Reference to a "
-					+ item.getClass().getSimpleName());
+			throw new IllegalArgumentException("Cannot resolve a " + getReferenceClass().getSimpleName()
+				+ " Reference to a " + item.getClass().getSimpleName());
 		}
 	}
 

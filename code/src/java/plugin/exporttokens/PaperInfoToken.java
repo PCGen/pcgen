@@ -34,14 +34,13 @@ public class PaperInfoToken extends AbstractExportToken
 	}
 
 	@Override
-	public String getToken(String tokenSource, CharacterDisplay display,
-		ExportHandler eh)
+	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
 	{
 		String oString = tokenSource;
 		String sourceText = tokenSource.substring(10);
-		
+
 		int infoType = -1;
-		
+
 		if (sourceText.startsWith("NAME"))
 		{
 			infoType = PaperInfo.NAME;
@@ -57,7 +56,7 @@ public class PaperInfoToken extends AbstractExportToken
 		else if (sourceText.startsWith("MARGIN"))
 		{
 			sourceText = sourceText.substring(6);
-		
+
 			if (sourceText.startsWith("TOP"))
 			{
 				infoType = PaperInfo.TOPMARGIN;
@@ -75,12 +74,12 @@ public class PaperInfoToken extends AbstractExportToken
 				infoType = PaperInfo.RIGHTMARGIN;
 			}
 		}
-		
+
 		if (infoType >= 0)
 		{
 			int offs = sourceText.indexOf('=');
 			String info = Globals.getPaperInfo(infoType);
-		
+
 			if (info == null)
 			{
 				if (offs >= 0)
@@ -93,7 +92,7 @@ public class PaperInfoToken extends AbstractExportToken
 				oString = info;
 			}
 		}
-		
+
 		return oString;
 	}
 }

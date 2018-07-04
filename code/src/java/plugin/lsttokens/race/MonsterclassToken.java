@@ -35,8 +35,8 @@ import pcgen.util.Logging;
 /**
  * Class deals with MONSTERCLASS Token
  */
-public class MonsterclassToken extends AbstractNonEmptyToken<Race> implements
-		CDOMPrimaryToken<Race>, DeferredToken<Race>
+public class MonsterclassToken extends AbstractNonEmptyToken<Race>
+		implements CDOMPrimaryToken<Race>, DeferredToken<Race>
 {
 
 	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
@@ -48,8 +48,7 @@ public class MonsterclassToken extends AbstractNonEmptyToken<Race> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, Race race,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, Race race, String value)
 	{
 		ParsingSeparator sep = new ParsingSeparator(value, ':');
 		sep.addGroupingPair('[', ']');
@@ -58,50 +57,44 @@ public class MonsterclassToken extends AbstractNonEmptyToken<Race> implements
 		String classString = sep.next();
 		if (!sep.hasNext())
 		{
-			return new ParseResult.Fail(getTokenName() + " must have a colon: "
-					+ value);
+			return new ParseResult.Fail(getTokenName() + " must have a colon: " + value);
 		}
 		String numLevels = sep.next();
 		if (sep.hasNext())
 		{
-			return new ParseResult.Fail(getTokenName() + " must have only one colon: "
-					+ value);
+			return new ParseResult.Fail(getTokenName() + " must have only one colon: " + value);
 		}
-		CDOMSingleRef<PCClass> cl = context.getReferenceContext().getCDOMReference(PCCLASS_CLASS,
-				classString);
+		CDOMSingleRef<PCClass> cl = context.getReferenceContext().getCDOMReference(PCCLASS_CLASS, classString);
 		try
 		{
 			int lvls = Integer.parseInt(numLevels);
 			if (lvls <= 0)
 			{
-				return new ParseResult.Fail("Number of levels in " + getTokenName()
-						+ " must be greater than zero: " + value);
+				return new ParseResult.Fail(
+					"Number of levels in " + getTokenName() + " must be greater than zero: " + value);
 			}
-			LevelCommandFactory cf = new LevelCommandFactory(cl, FormulaFactory
-					.getFormulaFor(lvls));
+			LevelCommandFactory cf = new LevelCommandFactory(cl, FormulaFactory.getFormulaFor(lvls));
 			context.getObjectContext().put(race, ObjectKey.MONSTER_CLASS, cf);
 			return ParseResult.SUCCESS;
 		}
 		catch (NumberFormatException nfe)
 		{
-			return new ParseResult.Fail("Number of levels in " + getTokenName()
-					+ " must be an integer greater than zero: " + value);
+			return new ParseResult.Fail(
+				"Number of levels in " + getTokenName() + " must be an integer greater than zero: " + value);
 		}
 	}
 
 	@Override
 	public String[] unparse(LoadContext context, Race race)
 	{
-		LevelCommandFactory lcf = context.getObjectContext().getObject(race,
-				ObjectKey.MONSTER_CLASS);
+		LevelCommandFactory lcf = context.getObjectContext().getObject(race, ObjectKey.MONSTER_CLASS);
 		if (lcf == null)
 		{
 			return null;
 		}
 		StringBuilder sb = new StringBuilder();
-		sb.append(lcf.getLSTformat()).append(Constants.COLON).append(
-				lcf.getLevelCount().toString());
-		return new String[] { sb.toString() };
+		sb.append(lcf.getLSTformat()).append(Constants.COLON).append(lcf.getLevelCount().toString());
+		return new String[]{sb.toString()};
 	}
 
 	@Override
@@ -123,13 +116,11 @@ public class MonsterclassToken extends AbstractNonEmptyToken<Race> implements
 		if (lcf != null)
 		{
 			String className = lcf.getLSTformat();
-			PCClass pcc = context.getReferenceContext().silentlyGetConstructedCDOMObject(
-					PCCLASS_CLASS, className);
+			PCClass pcc = context.getReferenceContext().silentlyGetConstructedCDOMObject(PCCLASS_CLASS, className);
 			if (pcc != null && !pcc.isMonster())
 			{
-				Logging.log(Logging.LST_WARNING, "Class " + className
-						+ " was used in RACE MONSTERCLASS, "
-						+ "but it is not a Monster class");
+				Logging.log(Logging.LST_WARNING,
+					"Class " + className + " was used in RACE MONSTERCLASS, " + "but it is not a Monster class");
 			}
 		}
 		return true;

@@ -24,8 +24,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 
-public class EQBaseCostTermEvaluator
-		extends BaseEQTermEvaluator implements TermEvaluator 
+public class EQBaseCostTermEvaluator extends BaseEQTermEvaluator implements TermEvaluator
 {
 	public EQBaseCostTermEvaluator(String expressionString)
 	{
@@ -33,22 +32,17 @@ public class EQBaseCostTermEvaluator
 	}
 
 	@Override
-	public Float resolve(
-			Equipment eq,
-			boolean primary,
-			PlayerCharacter pc)
+	public Float resolve(Equipment eq, boolean primary, PlayerCharacter pc)
 	{
 		return TermUtil.convertToFloat(originalText, evaluate(eq, primary, pc));
 	}
 
 	@Override
-	public String evaluate(
-			Equipment eq,
-			boolean primary,
-			PlayerCharacter pc) {
+	public String evaluate(Equipment eq, boolean primary, PlayerCharacter pc)
+	{
 		return eq.getSafe(ObjectKey.COST).toString();
 	}
-	
+
 	@Override
 	public boolean isSourceDependant()
 	{

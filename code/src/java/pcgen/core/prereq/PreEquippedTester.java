@@ -25,8 +25,8 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.character.WieldCategory;
 import pcgen.system.LanguageBundle;
 
-
-public abstract class PreEquippedTester extends AbstractPrerequisiteTest {
+public abstract class PreEquippedTester extends AbstractPrerequisiteTest
+{
 
 	/**
 	 * Process the tokens and return the number that is not passed.
@@ -38,7 +38,8 @@ public abstract class PreEquippedTester extends AbstractPrerequisiteTest {
 	 * @return the number that did not pass
 	 * @throws PrerequisiteException
 	 */
-	public int passesPreEquipHandleTokens(final Prerequisite prereq, final PlayerCharacter character, final EquipmentLocation equippedType) throws PrerequisiteException
+	public int passesPreEquipHandleTokens(final Prerequisite prereq, final PlayerCharacter character,
+		final EquipmentLocation equippedType) throws PrerequisiteException
 	{
 		// TODO refactor this code with PreEquipTester
 		boolean isEquipped = false;
@@ -46,12 +47,12 @@ public abstract class PreEquippedTester extends AbstractPrerequisiteTest {
 		if (character.hasEquipment())
 		{
 			String aString = prereq.getKey();
-			for ( Equipment eq : character.getDisplay().getEquippedEquipmentSet() )
+			for (Equipment eq : character.getDisplay().getEquippedEquipmentSet())
 			{
 				//
 				// Only check equipment of the type we are interested in
 				//
-				if  (eq.getLocation() != equippedType)
+				if (eq.getLocation() != equippedType)
 				{
 					continue;
 				}
@@ -65,15 +66,15 @@ public abstract class PreEquippedTester extends AbstractPrerequisiteTest {
 						break;
 					}
 				}
-				else if (aString.startsWith("TYPE=") || aString.startsWith("TYPE."))	//$NON-NLS-1$ //$NON-NLS-2$
+				else if (aString.startsWith("TYPE=") || aString.startsWith("TYPE.")) //$NON-NLS-1$ //$NON-NLS-2$
 				{
 					isEquipped = eq.isType(aString);
 					break;
 				}
-				else	 //not a TYPE string
+				else //not a TYPE string
 				{
 					String eqName;
-					if (aString.startsWith("BASEITEM="))	//$NON-NLS-1$ //$NON-NLS-2$
+					if (aString.startsWith("BASEITEM=")) //$NON-NLS-1$ 
 					{
 						eqName = eq.getBaseItemName();
 						aString = aString.substring(aString.indexOf(Constants.EQUALS) + 1);
@@ -116,7 +117,8 @@ public abstract class PreEquippedTester extends AbstractPrerequisiteTest {
 		}
 		else
 		{
-			throw new PrerequisiteException(LanguageBundle.getFormattedString(
+			throw new PrerequisiteException(
+				LanguageBundle.getFormattedString(
 					"PreEquipped.error.invalid_comparison", prereq.toString())); //$NON-NLS-1$
 		}
 

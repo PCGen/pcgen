@@ -30,8 +30,7 @@ public class LastGroupSeparator
 	{
 		if (baseString == null)
 		{
-			throw new IllegalArgumentException(
-					"Choose Separator cannot take null initialization String");
+			throw new IllegalArgumentException("Choose Separator cannot take null initialization String");
 		}
 		startingString = baseString;
 	}
@@ -71,15 +70,13 @@ public class LastGroupSeparator
 			{
 				if (expected.isEmpty())
 				{
-					throw new GroupingMismatchException(startingString
-							+ " did not have an open parenthesis "
-							+ "before close: " + temp);
+					throw new GroupingMismatchException(
+						startingString + " did not have an open parenthesis " + "before close: " + temp);
 				}
 				else if (!")".equals(expected.pop()))
 				{
-					throw new GroupingMismatchException(startingString
-							+ " did not have matching parenthesis "
-							+ "inside of brackets: " + temp);
+					throw new GroupingMismatchException(
+						startingString + " did not have matching parenthesis " + "inside of brackets: " + temp);
 				}
 				else if (!expected.isEmpty())
 				{
@@ -103,9 +100,8 @@ public class LastGroupSeparator
 			}
 			return temp.toString();
 		}
-		throw new GroupingMismatchException(startingString
-				+ " reached end of String while attempting to match: "
-				+ expected.pop());
+		throw new GroupingMismatchException(
+			startingString + " reached end of String while attempting to match: " + expected.pop());
 	}
 
 	public String getRoot()

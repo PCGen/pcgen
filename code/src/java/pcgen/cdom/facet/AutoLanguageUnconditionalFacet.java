@@ -31,12 +31,12 @@ import pcgen.core.Language;
  * to a Player Character through the AUTO:LANG and LANGAUTO tokens
  * 
  */
-public class AutoLanguageUnconditionalFacet extends
-		AbstractSourcedListFacet<CharID, Language> implements PerspectiveLocation
+public class AutoLanguageUnconditionalFacet extends AbstractSourcedListFacet<CharID, Language>
+		implements PerspectiveLocation
 {
 
 	private LanguageFacet languageFacet;
-	
+
 	public void setLanguageFacet(LanguageFacet languageFacet)
 	{
 		this.languageFacet = languageFacet;

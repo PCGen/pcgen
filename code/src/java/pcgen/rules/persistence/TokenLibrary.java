@@ -66,30 +66,26 @@ public final class TokenLibrary implements PluginLoader
 	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
 	private static final Class<CDOMObject> CDOMOBJECT_CLASS = CDOMObject.class;
 	private static final TreeMapToList<Integer, PostDeferredToken<? extends Loadable>> POST_DEFERRED_TOKENS =
-            new TreeMapToList<>();
+			new TreeMapToList<>();
 	private static final TreeMapToList<Integer, PostValidationToken<? extends Loadable>> POST_VALIDATION_TOKENS =
-            new TreeMapToList<>();
+			new TreeMapToList<>();
 	private static final DoubleKeyMap<Class<?>, String, Class<? extends QualifierToken<?>>> QUALIFIER_MAP =
-            new DoubleKeyMap<>();
+			new DoubleKeyMap<>();
 	private static final DoubleKeyMap<Class<?>, String, Class<? extends PrimitiveToken<?>>> PRIMITIVE_MAP =
-            new DoubleKeyMap<>();
-	
+			new DoubleKeyMap<>();
+
 	/**
 	 * Contains legal GroupingDefinition objects loaded from plugins
 	 */
-	private static final DoubleKeyMap<Class<?>, String, GroupingDefinition<?>> GROUPING_MAP =
-            new DoubleKeyMap<>();
-	private static final DoubleKeyMap<Class<?>, String, ModifierFactory<?>> modifierMap =
-            new DoubleKeyMap<>();
-	
+	private static final DoubleKeyMap<Class<?>, String, GroupingDefinition<?>> GROUPING_MAP = new DoubleKeyMap<>();
+	private static final DoubleKeyMap<Class<?>, String, ModifierFactory<?>> modifierMap = new DoubleKeyMap<>();
+
 	/**
 	 * Contains the interface tokens mapped by the token name.
 	 */
-	private static final Map<String, CDOMInterfaceToken<?, ?>> IF_TOKEN_MAP =
-			new HashMap<>();
+	private static final Map<String, CDOMInterfaceToken<?, ?>> IF_TOKEN_MAP = new HashMap<>();
 	private static final Set<TokenFamily> TOKEN_FAMILIES = new TreeSet<>();
-	private static final CaseInsensitiveMap<Class<? extends BonusObj>> BONUS_TAG_MAP =
-            new CaseInsensitiveMap<>();
+	private static final CaseInsensitiveMap<Class<? extends BonusObj>> BONUS_TAG_MAP = new CaseInsensitiveMap<>();
 
 	private static TokenLibrary instance = null;
 
@@ -97,7 +93,7 @@ public final class TokenLibrary implements PluginLoader
 	{
 		reset();
 	}
-	
+
 	public static void reset()
 	{
 		POST_DEFERRED_TOKENS.clear();
@@ -119,8 +115,7 @@ public final class TokenLibrary implements PluginLoader
 
 	public static <T> PrimitiveToken<T> getPrimitive(Class<T> cl, String tokKey)
 	{
-		Iterator<PrimitiveToken<T>> it =
-                new PrimitiveTokenIterator<>(cl, tokKey);
+		Iterator<PrimitiveToken<T>> it = new PrimitiveTokenIterator<>(cl, tokKey);
 		if (it.hasNext())
 		{
 			return it.next();
@@ -133,8 +128,8 @@ public final class TokenLibrary implements PluginLoader
 	 * 
 	 * @return The GroupingDefinition available with the given Format and grouping key.
 	 */
-	public static <T extends Loadable> GroupingDefinition<T> getGrouping(
-		ClassIdentity<T> classIdentity, String tokenKey)
+	public static <T extends Loadable> GroupingDefinition<T> getGrouping(ClassIdentity<T> classIdentity,
+		String tokenKey)
 	{
 		boolean isDirect = true;
 		Class<?> actingClass = classIdentity.getReferenceClass();
@@ -153,8 +148,7 @@ public final class TokenLibrary implements PluginLoader
 
 	public static Collection<PostDeferredToken<? extends Loadable>> getPostDeferredTokens()
 	{
-		List<PostDeferredToken<? extends Loadable>> list =
-                new ArrayList<>();
+		List<PostDeferredToken<? extends Loadable>> list = new ArrayList<>();
 		for (Integer key : POST_DEFERRED_TOKENS.getKeySet())
 		{
 			list.addAll(POST_DEFERRED_TOKENS.getListFor(key));
@@ -171,16 +165,14 @@ public final class TokenLibrary implements PluginLoader
 			ModifierFactory<?> prev = modifierMap.put(cl, name, m);
 			if (prev != null)
 			{
-				Logging.errorPrint("Found a second " + name + " Modifier for "
-					+ cl);
+				Logging.errorPrint("Found a second " + name + " Modifier for " + cl);
 			}
 		}
 	}
 
 	public static <T> ModifierFactory<T> getModifier(Class<T> cl, String tokKey)
 	{
-		for (Iterator<ModifierFactory<T>> it =
-             new ModifierIterator<>(cl, tokKey); it.hasNext();)
+		for (Iterator<ModifierFactory<T>> it = new ModifierIterator<>(cl, tokKey); it.hasNext();)
 		{
 			return it.next();
 		}
@@ -189,8 +181,7 @@ public final class TokenLibrary implements PluginLoader
 
 	public static Collection<PostValidationToken<? extends Loadable>> getPostValidationTokens()
 	{
-		List<PostValidationToken<? extends Loadable>> list =
-                new ArrayList<>();
+		List<PostValidationToken<? extends Loadable>> list = new ArrayList<>();
 		for (Integer key : POST_VALIDATION_TOKENS.getKeySet())
 		{
 			list.addAll(POST_VALIDATION_TOKENS.getListFor(key));
@@ -205,8 +196,7 @@ public final class TokenLibrary implements PluginLoader
 		{
 			String name = p.getTokenName();
 			Class cl = p.getReferenceClass();
-			Class<? extends PrimitiveToken<?>> prev =
-					PRIMITIVE_MAP.put(cl, name, newTokClass);
+			Class<? extends PrimitiveToken<?>> prev = PRIMITIVE_MAP.put(cl, name, newTokClass);
 			if (prev != null)
 			{
 				Logging.errorPrint("Found a second " + name + " Primitive for " + cl);
@@ -227,8 +217,7 @@ public final class TokenLibrary implements PluginLoader
 		GroupingDefinition<?> prev = GROUPING_MAP.put(classScope, name, definition);
 		if (prev != null)
 		{
-			Logging.errorPrint(
-				"Found a second " + name + " Grouping for " + classScope.getSimpleName());
+			Logging.errorPrint("Found a second " + name + " Grouping for " + classScope.getSimpleName());
 		}
 	}
 
@@ -265,37 +254,31 @@ public final class TokenLibrary implements PluginLoader
 		if (newToken instanceof CDOMCompatibilityToken)
 		{
 			CDOMCompatibilityToken<?> tok = (CDOMCompatibilityToken<?>) newToken;
-			TokenFamily fam =
-					TokenFamily.getConstant(tok.compatibilityLevel(),
-						tok.compatibilitySubLevel(), tok.compatibilityPriority());
+			TokenFamily fam = TokenFamily.getConstant(tok.compatibilityLevel(), tok.compatibilitySubLevel(),
+				tok.compatibilityPriority());
 			if (fam.putToken(tok) != null)
 			{
 				Logging.errorPrint("Duplicate " + tok.getTokenClass().getSimpleName()
-					+ " Compatibility Token found for token " + tok.getTokenName()
-					+ " at compatibility level " + tok.compatibilityLevel() + '.'
-					+ tok.compatibilitySubLevel() + '.' + tok.compatibilityPriority());
+					+ " Compatibility Token found for token " + tok.getTokenName() + " at compatibility level "
+					+ tok.compatibilityLevel() + '.' + tok.compatibilitySubLevel() + '.' + tok.compatibilityPriority());
 			}
 			TOKEN_FAMILIES.add(fam);
 			if (fam.compareTo(TokenFamily.REV514) <= 0 && PCCLASS_CLASS.equals(tok.getTokenClass()))
 			{
 				@SuppressWarnings("unchecked")
-				CDOMCompatibilityToken<PCClass> clTok =
-						(CDOMCompatibilityToken<PCClass>) tok;
+				CDOMCompatibilityToken<PCClass> clTok = (CDOMCompatibilityToken<PCClass>) tok;
 				addToTokenMap(new ClassWrappedToken(clTok));
 			}
 		}
 		if (newToken instanceof CDOMInterfaceToken)
 		{
 			CDOMInterfaceToken<?, ?> tok = (CDOMInterfaceToken<?, ?>) newToken;
-			CDOMInterfaceToken<?, ?> existingToken =
-					IF_TOKEN_MAP.put(tok.getTokenName(), tok);
+			CDOMInterfaceToken<?, ?> existingToken = IF_TOKEN_MAP.put(tok.getTokenName(), tok);
 			if (existingToken != null)
 			{
-				Logging.errorPrint("Duplicate "
-						+ tok.getTokenClass().getSimpleName()
-						+ " Token found for interface token " + tok.getTokenName()
-						+ ". Classes were " + existingToken.getClass().getName()
-						+ " and " + newToken.getClass().getName());
+				Logging.errorPrint("Duplicate " + tok.getTokenClass().getSimpleName()
+					+ " Token found for interface token " + tok.getTokenName() + ". Classes were "
+					+ existingToken.getClass().getName() + " and " + newToken.getClass().getName());
 			}
 		}
 		loadFamily(TokenFamily.CURRENT, newToken);
@@ -313,17 +296,14 @@ public final class TokenLibrary implements PluginLoader
 			CDOMToken<?> existingToken = family.putToken(tok);
 			if (existingToken != null)
 			{
-				Logging.errorPrint("Duplicate "
-					+ tok.getTokenClass().getSimpleName()
-					+ " Token found for token " + tok.getTokenName()
-					+ ". Classes were " + existingToken.getClass().getName()
-					+ " and " + newToken.getClass().getName());
+				Logging.errorPrint("Duplicate " + tok.getTokenClass().getSimpleName() + " Token found for token "
+					+ tok.getTokenName() + ". Classes were " + existingToken.getClass().getName() + " and "
+					+ newToken.getClass().getName());
 			}
 			if (PCCLASS_CLASS.equals(tok.getTokenClass()))
 			{
 				@SuppressWarnings("unchecked")
-				CDOMPrimaryToken<PCClass> clTok =
-						(CDOMPrimaryToken<PCClass>) tok;
+				CDOMPrimaryToken<PCClass> clTok = (CDOMPrimaryToken<PCClass>) tok;
 				addToTokenMap(new ClassWrappedToken(clTok));
 			}
 		}
@@ -333,12 +313,9 @@ public final class TokenLibrary implements PluginLoader
 			CDOMSubToken<?> existingToken = family.putSubToken(tok);
 			if (existingToken != null)
 			{
-				Logging.errorPrint("Duplicate "
-					+ tok.getTokenClass().getSimpleName()
-					+ " Token found for token " + tok.getParentToken() + ':'
-					+ tok.getTokenName() + ". Classes were "
-					+ existingToken.getClass().getName() + " and "
-					+ newToken.getClass().getName());
+				Logging.errorPrint("Duplicate " + tok.getTokenClass().getSimpleName() + " Token found for token "
+					+ tok.getParentToken() + ':' + tok.getTokenName() + ". Classes were "
+					+ existingToken.getClass().getName() + " and " + newToken.getClass().getName());
 			}
 		}
 		if (newToken instanceof PrerequisiteParserInterface)
@@ -351,32 +328,28 @@ public final class TokenLibrary implements PluginLoader
 				 * TODO Theoretically these belong in REV514, but put into
 				 * current for unparse testing
 				 */
-				PreCompatibilityToken pos =
-						new PreCompatibilityToken(s, prereqToken, false);
+				PreCompatibilityToken pos = new PreCompatibilityToken(s, prereqToken, false);
 				if (family.putToken(pos) != null)
 				{
-					Logging.errorPrint("Duplicate " + pos.getTokenClass().getSimpleName()
-						+ " Token found for token " + pos.getTokenName());
+					Logging.errorPrint("Duplicate " + pos.getTokenClass().getSimpleName() + " Token found for token "
+						+ pos.getTokenName());
 				}
 				if (family.putSubToken(pos) != null)
 				{
-					Logging.errorPrint("Duplicate " + pos.getTokenClass().getSimpleName()
-						+ " Token found for token " + pos.getParentToken() + ':'
-						+ pos.getTokenName());
+					Logging.errorPrint("Duplicate " + pos.getTokenClass().getSimpleName() + " Token found for token "
+						+ pos.getParentToken() + ':' + pos.getTokenName());
 				}
 				family.putSubToken(pos);
-				PreCompatibilityToken neg =
-						new PreCompatibilityToken(s, prereqToken, true);
+				PreCompatibilityToken neg = new PreCompatibilityToken(s, prereqToken, true);
 				if (family.putToken(neg) != null)
 				{
-					Logging.errorPrint("Duplicate " + neg.getTokenClass().getSimpleName()
-						+ " Token found for token " + neg.getTokenName());
+					Logging.errorPrint("Duplicate " + neg.getTokenClass().getSimpleName() + " Token found for token "
+						+ neg.getTokenName());
 				}
 				if (family.putSubToken(neg) != null)
 				{
-					Logging.errorPrint("Duplicate " + neg.getTokenClass().getSimpleName()
-						+ " Token found for token " + neg.getParentToken() + ':'
-						+ neg.getTokenName());
+					Logging.errorPrint("Duplicate " + neg.getTokenClass().getSimpleName() + " Token found for token "
+						+ neg.getParentToken() + ':' + neg.getTokenName());
 				}
 			}
 		}
@@ -404,8 +377,7 @@ public final class TokenLibrary implements PluginLoader
 		}
 
 		Object token = clazz.newInstance();
-		if (LstToken.class.isAssignableFrom(clazz)
-			|| PrerequisiteParserInterface.class.isAssignableFrom(clazz))
+		if (LstToken.class.isAssignableFrom(clazz) || PrerequisiteParserInterface.class.isAssignableFrom(clazz))
 		{
 			addToTokenMap(token);
 		}
@@ -430,14 +402,8 @@ public final class TokenLibrary implements PluginLoader
 	@Override
 	public Class[] getPluginClasses()
 	{
-		return new Class[]
-				{
-					LstToken.class,
-					BonusObj.class,
-					PrerequisiteParserInterface.class,
-					ModifierFactory.class,
-					GroupingDefinition.class
-				};
+		return new Class[]{LstToken.class, BonusObj.class, PrerequisiteParserInterface.class, ModifierFactory.class,
+			GroupingDefinition.class};
 	}
 
 	abstract static class AbstractTokenIterator<C, T> implements Iterator<T>
@@ -485,8 +451,7 @@ public final class TokenLibrary implements PluginLoader
 			}
 		}
 
-		protected abstract T grabToken(TokenFamily family, Class<?> cl,
-									   String key);
+		protected abstract T grabToken(TokenFamily family, Class<?> cl, String key);
 
 		@Override
 		public T next()
@@ -503,8 +468,7 @@ public final class TokenLibrary implements PluginLoader
 		@Override
 		public void remove()
 		{
-			throw new UnsupportedOperationException(
-					"Iterator does not support remove");
+			throw new UnsupportedOperationException("Iterator does not support remove");
 		}
 
 	}
@@ -526,8 +490,7 @@ public final class TokenLibrary implements PluginLoader
 
 	}
 
-	static class SubTokenIterator<C, T extends CDOMSubToken<? super C>> extends
-			TokenLibrary.AbstractTokenIterator<C, T>
+	static class SubTokenIterator<C, T extends CDOMSubToken<? super C>> extends TokenLibrary.AbstractTokenIterator<C, T>
 	{
 
 		private final String subTokenKey;
@@ -577,8 +540,7 @@ public final class TokenLibrary implements PluginLoader
 			}
 			catch (IllegalAccessException e)
 			{
-				throw new UnreachableError("new Instance on " + cl1
-					+ " should not fail due to access", e);
+				throw new UnreachableError("new Instance on " + cl1 + " should not fail due to access", e);
 			}
 		}
 
@@ -615,8 +577,7 @@ public final class TokenLibrary implements PluginLoader
 			}
 			catch (IllegalAccessException e)
 			{
-				throw new UnreachableError("new Instance on " + cl1
-					+ " should not fail due to access", e);
+				throw new UnreachableError("new Instance on " + cl1 + " should not fail due to access", e);
 			}
 		}
 
@@ -643,8 +604,7 @@ public final class TokenLibrary implements PluginLoader
 
 	}
 
-	static class PreTokenIterator
-			extends TokenLibrary.AbstractTokenIterator<CDOMObject, PrerequisiteParserInterface>
+	static class PreTokenIterator extends TokenLibrary.AbstractTokenIterator<CDOMObject, PrerequisiteParserInterface>
 	{
 
 		public PreTokenIterator(String key)
@@ -653,8 +613,7 @@ public final class TokenLibrary implements PluginLoader
 		}
 
 		@Override
-		protected PrerequisiteParserInterface grabToken(TokenFamily family, Class<?> cl,
-			String key)
+		protected PrerequisiteParserInterface grabToken(TokenFamily family, Class<?> cl, String key)
 		{
 			return family.getPrerequisiteToken(key);
 		}
@@ -666,8 +625,7 @@ public final class TokenLibrary implements PluginLoader
 	 * 
 	 * @return true if successful
 	 */
-	public static boolean addBonusClass(Class bonusClass) throws InstantiationException,
-		IllegalAccessException
+	public static boolean addBonusClass(Class bonusClass) throws InstantiationException, IllegalAccessException
 	{
 		if (BonusObj.class.isAssignableFrom(bonusClass))
 		{

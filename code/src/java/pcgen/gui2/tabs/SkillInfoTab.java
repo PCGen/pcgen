@@ -120,10 +120,8 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		JSpinner spinner = new JSpinner();
 		spinner.setEditor(new JSpinner.NumberEditor(spinner, "#0.#")); //$NON-NLS-1$
 		skillTable.setDefaultRenderer(Float.class, new SpinnerRenderer(spinner));
-		skillTable.setDefaultRenderer(Integer.class,
-				new TableCellUtilities.AlignRenderer(SwingConstants.CENTER));
-		skillTable.setDefaultRenderer(String.class,
-				new TableCellUtilities.AlignRenderer(SwingConstants.CENTER));
+		skillTable.setDefaultRenderer(Integer.class, new TableCellUtilities.AlignRenderer(SwingConstants.CENTER));
+		skillTable.setDefaultRenderer(String.class, new TableCellUtilities.AlignRenderer(SwingConstants.CENTER));
 		skillTable.setRowHeight(26);
 		FilterBar<CharacterFacade, SkillFacade> filterBar = new FilterBar<>();
 		filterBar.addDisplayableFilter(new SearchFilterPanel());
@@ -165,11 +163,8 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		skillPanel.add(selScrollPane, BorderLayout.CENTER);
 		selScrollPane.setPreferredSize(new Dimension(530, 300));
 
-		FlippingSplitPane topPane = new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT,
-				true,
-				availPanel,
-				skillPanel,
-				"SkillTop");
+		FlippingSplitPane topPane =
+				new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT, true, availPanel, skillPanel, "SkillTop");
 		setTopComponent(topPane);
 
 		FlippingSplitPane bottomPane = new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT, "SkillBottom");
@@ -270,8 +265,8 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 
 	}
 
-	private class LevelSelectionHandler implements ListListener<CharacterLevelFacade>,
-			SkillPointListener, Runnable, ListSelectionListener
+	private class LevelSelectionHandler
+			implements ListListener<CharacterLevelFacade>, SkillPointListener, Runnable, ListSelectionListener
 	{
 
 		private final CharacterLevelsFacade levels;
@@ -301,10 +296,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		@Override
 		public void run()
 		{
-			for (int startIndex : new int[]
-			{
-				model.getMinSelectionIndex(), 0
-			})
+			for (int startIndex : new int[]{model.getMinSelectionIndex(), 0})
 			{
 				for (int i = startIndex; i < levels.getSize(); i++)
 				{
@@ -315,8 +307,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 						{
 							//Logging.errorPrint("updateSelectedIndex got " + level);
 							model.setSelectionInterval(i, i);
-							skillpointTable.scrollRectToVisible(skillpointTable
-									.getCellRect(i, 0, true));
+							skillpointTable.scrollRectToVisible(skillpointTable.getCellRect(i, 0, true));
 						}
 						return;
 					}
@@ -325,10 +316,8 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			// Fall back for a non empty list of levels is to select the highest one.
 			if (levels.getSize() > 0)
 			{
-				model.setSelectionInterval(levels.getSize() - 1,
-						levels.getSize() - 1);
-				skillpointTable.scrollRectToVisible(skillpointTable
-						.getCellRect(levels.getSize() - 1, 0, true));
+				model.setSelectionInterval(levels.getSize() - 1, levels.getSize() - 1);
+				skillpointTable.scrollRectToVisible(skillpointTable.getCellRect(levels.getSize() - 1, 0, true));
 			}
 		}
 
@@ -499,10 +488,8 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		}
 
 		@Override
-		public Component getTableCellEditorComponent(JTable table, Object value,
-				boolean isSelected,
-				int row,
-				int column)
+		public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row,
+			int column)
 		{
 			SkillFacade skill = (SkillFacade) table.getModel().getValueAt(row, 0);
 			int index = listModel.getMinSelectionIndex();
@@ -537,13 +524,12 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 
 		private void releaseMouse(Component component)
 		{
-			MouseListener[] listeners
-					= component.getMouseListeners();
+			MouseListener[] listeners = component.getMouseListeners();
 			for (int i = 0; i < listeners.length; i++)
 			{
 				MouseListener listener = listeners[i];
-				listener.mouseReleased(new MouseEvent(component, MouseEvent.MOUSE_RELEASED,
-						System.currentTimeMillis(), 0, 0, 0, 1, false));
+				listener.mouseReleased(new MouseEvent(component, MouseEvent.MOUSE_RELEASED, System.currentTimeMillis(),
+					0, 0, 0, 1, false));
 			}
 		}
 
@@ -591,8 +577,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			}
 
 			CharacterLevelsFacade levels = character.getCharacterLevelsFacade();
-			CharacterLevelFacade targetLevel
-					= levels.findNextLevelForSkill(skill, level, value);
+			CharacterLevelFacade targetLevel = levels.findNextLevelForSkill(skill, level, value);
 			if (targetLevel == null)
 			{
 				// No level where it can be raised.
@@ -603,9 +588,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			{
 				value = 0.0f;
 			}
-			float max =
-					levels.getMaxRanks(targetLevel, cost,
-						levels.isClassSkillForMaxRanks(targetLevel, skill));
+			float max = levels.getMaxRanks(targetLevel, cost, levels.isClassSkillForMaxRanks(targetLevel, skill));
 			if (value > max)
 			{
 				value = max;
@@ -649,8 +632,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 
 			SkillCost cost = levels.getSkillCost(targetLevel, skill);
 			CharacterLevelFacade highestLevel = levels.getElementAt(levels.getSize() - 1);
-			if (value == levels.getMaxRanks(highestLevel, cost,
-				levels.isClassSkillForMaxRanks(highestLevel, skill)))
+			if (value == levels.getMaxRanks(highestLevel, cost, levels.isClassSkillForMaxRanks(highestLevel, skill)))
 			{
 				return null;
 			}
@@ -703,8 +685,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 				Object data = skillTable.getSelectedObject();
 				if (data != null && data instanceof SkillFacade)
 				{
-					text = character.getInfoFactory().getHTMLInfo(
-							(SkillFacade) data);
+					text = character.getInfoFactory().getHTMLInfo((SkillFacade) data);
 				}
 				else
 				{
@@ -728,11 +709,8 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			this.character = character;
 			this.skillSheetHandler = skillSheetHandler;
 
-			model = new DefaultComboBoxModel<>(new SkillFilter[]
-			{
-				SkillFilter.Ranks, SkillFilter.NonDefault,
-				SkillFilter.Usable, SkillFilter.All
-			});
+			model = new DefaultComboBoxModel<>(
+				new SkillFilter[]{SkillFilter.Ranks, SkillFilter.NonDefault, SkillFilter.Usable, SkillFilter.All});
 
 			SkillFilter filter = character.getSkillFilterRef().get();
 			model.setSelectedItem(filter);

@@ -36,9 +36,8 @@ import pcgen.cdom.facet.event.DataFacetChangeListener;
  * objects that have been granted to a Player Character.
  * 
  */
-public class CharacterSpellResistanceFacet extends
-		AbstractSourcedListFacet<CharID, Formula> implements
-		DataFacetChangeListener<CharID, CDOMObject>
+public class CharacterSpellResistanceFacet extends AbstractSourcedListFacet<CharID, Formula>
+		implements DataFacetChangeListener<CharID, CDOMObject>
 {
 	private FormulaResolvingFacet formulaResolvingFacet;
 
@@ -109,11 +108,8 @@ public class CharacterSpellResistanceFacet extends
 				Set<Object> sourceSet = me.getValue();
 				for (Object source : sourceSet)
 				{
-					String sourceString = (source instanceof CDOMObject) ? ((CDOMObject) source)
-							.getQualifiedKey()
-							: "";
-					sr = Math.max(sr, formulaResolvingFacet.resolve(id, f, sourceString)
-							.intValue());
+					String sourceString = (source instanceof CDOMObject) ? ((CDOMObject) source).getQualifiedKey() : "";
+					sr = Math.max(sr, formulaResolvingFacet.resolve(id, f, sourceString).intValue());
 				}
 			}
 		}

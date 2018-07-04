@@ -34,25 +34,21 @@ import pcgen.cdom.reference.ReferenceUtilities;
  * Race with a "FOLLOWERADJUSTMENT" that modifies the owner's effective level
  * when selecting a follower of this type. Prereqs can also be specified
  */
-public class FollowerOption extends ConcretePrereqObject implements
-		Comparable<FollowerOption>, QualifyingObject
+public class FollowerOption extends ConcretePrereqObject implements Comparable<FollowerOption>, QualifyingObject
 {
 	private int theAdjustment = 0;
 	private final CDOMReference<Race> ref;
 	private final CDOMSingleRef<CompanionList> list;
 
-	public FollowerOption(CDOMReference<Race> race,
-			CDOMSingleRef<CompanionList> listref)
+	public FollowerOption(CDOMReference<Race> race, CDOMSingleRef<CompanionList> listref)
 	{
 		if (race == null)
 		{
-			throw new IllegalArgumentException(
-					"Cannot have FollowerOption with null race");
+			throw new IllegalArgumentException("Cannot have FollowerOption with null race");
 		}
 		if (listref == null)
 		{
-			throw new IllegalArgumentException(
-					"Cannot have FollowerOption with null list reference");
+			throw new IllegalArgumentException("Cannot have FollowerOption with null list reference");
 		}
 		ref = race;
 		list = listref;
@@ -128,7 +124,7 @@ public class FollowerOption extends ConcretePrereqObject implements
 	 *            The FollowerOption to compare to.
 	 * @return The comparison between the objects
 	 */
-    @Override
+	@Override
 	public int compareTo(FollowerOption anO)
 	{
 		return ReferenceUtilities.compareRefs(ref, anO.ref);
@@ -144,13 +140,12 @@ public class FollowerOption extends ConcretePrereqObject implements
 		final List<FollowerOption> options = new ArrayList<>();
 		if (ref.getObjectCount() == 1)
 		{
-			options.add( this );
+			options.add(this);
 			return options;
 		}
 		for (Race r : ref.getContainedObjects())
 		{
-			final FollowerOption opt = new FollowerOption(CDOMDirectSingleRef
-					.getRef(r), list);
+			final FollowerOption opt = new FollowerOption(CDOMDirectSingleRef.getRef(r), list);
 			opt.setAdjustment(getAdjustment());
 			opt.addAllPrerequisites(getPrerequisiteList());
 			options.add(opt);

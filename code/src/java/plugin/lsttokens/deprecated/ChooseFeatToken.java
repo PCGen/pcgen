@@ -44,8 +44,8 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * New chooser plugin, handles feats.
  */
-public class ChooseFeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
-		CDOMSecondaryToken<CDOMObject>, Chooser<Ability>
+public class ChooseFeatToken extends AbstractTokenWithSeparator<CDOMObject>
+		implements CDOMSecondaryToken<CDOMObject>, Chooser<Ability>
 {
 
 	@Override
@@ -60,8 +60,8 @@ public class ChooseFeatToken extends AbstractTokenWithSeparator<CDOMObject> impl
 		return '|';
 	}
 
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-			ReferenceManufacturer<Ability> rm, CDOMObject obj, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, ReferenceManufacturer<Ability> rm,
+		CDOMObject obj, String value)
 	{
 		int pipeLoc = value.lastIndexOf('|');
 		String activeValue;
@@ -84,8 +84,8 @@ public class ChooseFeatToken extends AbstractTokenWithSeparator<CDOMObject> impl
 				activeValue = value.substring(0, pipeLoc);
 				if (title == null || title.isEmpty())
 				{
-					return new ParseResult.Fail(getParentToken() + Constants.COLON
-						+ getTokenName() + " had TITLE= but no title: " + value);
+					return new ParseResult.Fail(
+						getParentToken() + Constants.COLON + getTokenName() + " had TITLE= but no title: " + value);
 				}
 			}
 			else
@@ -103,8 +103,7 @@ public class ChooseFeatToken extends AbstractTokenWithSeparator<CDOMObject> impl
 		if (!coll.getGroupingState().isValid())
 		{
 			ComplexParseResult cpr = new ComplexParseResult();
-			cpr.addErrorMessage("Invalid combination of objects was used in: "
-					+ activeValue);
+			cpr.addErrorMessage("Invalid combination of objects was used in: " + activeValue);
 			cpr.addErrorMessage("  Check that ALL is not combined");
 			cpr.addErrorMessage("  Check that a key is not joined with AND (,)");
 			return cpr;
@@ -112,8 +111,7 @@ public class ChooseFeatToken extends AbstractTokenWithSeparator<CDOMObject> impl
 		PrimitiveChoiceSet<Ability> pcs = new CollectionToChoiceSet<>(coll);
 		//Tricky for compatibility...
 		CategorizedChooseInformation<Ability> tc =
-				new CategorizedChooseInformation<>("ABILITY",
-						CDOMDirectSingleRef.getRef(AbilityCategory.FEAT), pcs);
+				new CategorizedChooseInformation<>("ABILITY", CDOMDirectSingleRef.getRef(AbilityCategory.FEAT), pcs);
 		tc.setTitle(title);
 		tc.setChoiceActor(this);
 		context.getObjectContext().put(obj, ObjectKey.CHOOSE_INFO, tc);
@@ -134,8 +132,7 @@ public class ChooseFeatToken extends AbstractTokenWithSeparator<CDOMObject> impl
 	}
 
 	@Override
-	public void removeChoice(PlayerCharacter pc, ChooseDriver owner,
-			Ability choice)
+	public void removeChoice(PlayerCharacter pc, ChooseDriver owner, Ability choice)
 	{
 		pc.removeAssoc(owner, getListKey(), choice);
 		List<ChooseSelectionActor<?>> actors = owner.getActors();
@@ -149,8 +146,7 @@ public class ChooseFeatToken extends AbstractTokenWithSeparator<CDOMObject> impl
 	}
 
 	@Override
-	public void restoreChoice(PlayerCharacter pc, ChooseDriver owner,
-			Ability choice)
+	public void restoreChoice(PlayerCharacter pc, ChooseDriver owner, Ability choice)
 	{
 		pc.addAssoc(owner, getListKey(), choice);
 		List<ChooseSelectionActor<?>> actors = owner.getActors();
@@ -164,8 +160,7 @@ public class ChooseFeatToken extends AbstractTokenWithSeparator<CDOMObject> impl
 	}
 
 	@Override
-	public List<Ability> getCurrentlySelected(ChooseDriver owner,
-			PlayerCharacter pc)
+	public List<Ability> getCurrentlySelected(ChooseDriver owner, PlayerCharacter pc)
 	{
 		return pc.getAssocList(owner, getListKey());
 	}
@@ -189,12 +184,10 @@ public class ChooseFeatToken extends AbstractTokenWithSeparator<CDOMObject> impl
 	}
 
 	@Override
-	public ParseResult parseTokenWithSeparator(LoadContext context,
-			CDOMObject obj, String value)
+	public ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
 	{
-		return parseTokenWithSeparator(context,
-			context.getReferenceContext().getManufacturerId(AbilityCategory.FEAT), obj,
-			value);
+		return parseTokenWithSeparator(context, context.getReferenceContext().getManufacturerId(AbilityCategory.FEAT),
+			obj, value);
 	}
 
 	@Override
@@ -216,8 +209,7 @@ public class ChooseFeatToken extends AbstractTokenWithSeparator<CDOMObject> impl
 	@Override
 	public Ability decodeChoice(LoadContext context, String s)
 	{
-		return context.getReferenceContext().getManufacturerId(AbilityCategory.FEAT)
-			.getActiveObject(s);
+		return context.getReferenceContext().getManufacturerId(AbilityCategory.FEAT).getActiveObject(s);
 	}
 
 	@Override

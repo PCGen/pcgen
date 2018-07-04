@@ -24,15 +24,14 @@ import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.core.display.CharacterDisplay;
 
-public class PCScoreTermEvaluator 
-		extends BasePCDTermEvaluator implements TermEvaluator
+public class PCScoreTermEvaluator extends BasePCDTermEvaluator implements TermEvaluator
 {
 	private final String stat;
 
 	public PCScoreTermEvaluator(String originalText, String stat)
 	{
 		this.originalText = originalText;
-		this.stat         = stat;
+		this.stat = stat;
 	}
 
 	@Override
@@ -42,8 +41,7 @@ public class PCScoreTermEvaluator
 		{
 			return 0.0f;
 		}
-		PCStat pcs = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
-				PCStat.class, stat);
+		PCStat pcs = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCStat.class, stat);
 		return (float) display.getTotalStatFor(pcs);
 	}
 

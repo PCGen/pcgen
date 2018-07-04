@@ -92,8 +92,7 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<CharID, Ability>
 	 * @throws NullPointerException
 	 *             if the given Collection is null
 	 */
-	public void addAll(CharID id, Category<Ability> cat, Nature nature,
-			Collection<Ability> abilities)
+	public void addAll(CharID id, Category<Ability> cat, Nature nature, Collection<Ability> abilities)
 	{
 		for (Ability a : abilities)
 		{
@@ -190,8 +189,7 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<CharID, Ability>
 	 *         for the Player Character represented by the given CharID; false
 	 *         otherwise
 	 */
-	public boolean contains(CharID id, Category<Ability> cat, Nature nat,
-			Ability a)
+	public boolean contains(CharID id, Category<Ability> cat, Nature nat, Ability a)
 	{
 		Set<Ability> set = getCachedSet(id, cat, nat);
 		if (set == null)
@@ -215,8 +213,7 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<CharID, Ability>
 		return false;
 	}
 
-	private boolean ensureCachedSet(CharID id, Category<Ability> cat,
-			Nature nat)
+	private boolean ensureCachedSet(CharID id, Category<Ability> cat, Nature nat)
 	{
 		boolean isNew = false;
 		Map<Category<Ability>, Map<Nature, Set<Ability>>> catMap = getCachedMap(id);
@@ -266,8 +263,7 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<CharID, Ability>
 	 *         null if no information has been set in this
 	 *         CategorizedAbilityFacet for the Player Character.
 	 */
-	private Set<Ability> getCachedSet(CharID id, Category<Ability> cat,
-			Nature nat)
+	private Set<Ability> getCachedSet(CharID id, Category<Ability> cat, Nature nat)
 	{
 		Map<Category<Ability>, Map<Nature, Set<Ability>>> catMap = getCachedMap(id);
 		if (catMap == null)
@@ -298,8 +294,7 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<CharID, Ability>
 	 *         null if no information has been set in this
 	 *         CategorizedAbilityFacet for the Player Character.
 	 */
-	private Map<Category<Ability>, Map<Nature, Set<Ability>>> getCachedMap(
-			CharID id)
+	private Map<Category<Ability>, Map<Nature, Set<Ability>>> getCachedMap(CharID id)
 	{
 		return (Map<Category<Ability>, Map<Nature, Set<Ability>>>) getCache(id);
 	}
@@ -316,12 +311,10 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<CharID, Ability>
 	public void removeAll(CharID id)
 	{
 		Map<Category<Ability>, Map<Nature, Set<Ability>>> catMap =
-				(Map<Category<Ability>, Map<Nature, Set<Ability>>>) removeCache(
-					id);
+				(Map<Category<Ability>, Map<Nature, Set<Ability>>>) removeCache(id);
 		if (catMap != null)
 		{
-			for (Map.Entry<Category<Ability>, Map<Nature, Set<Ability>>> catME : catMap
-					.entrySet())
+			for (Map.Entry<Category<Ability>, Map<Nature, Set<Ability>>> catME : catMap.entrySet())
 			{
 				// Category<Ability> cat = catME.getKey();
 				Map<Nature, Set<Ability>> natMap = catME.getValue();
@@ -397,8 +390,7 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<CharID, Ability>
 		}
 	}
 
-	private void processRemoveNatureMap(CharID id,
-			Map<Nature, Set<Ability>> natMap)
+	private void processRemoveNatureMap(CharID id, Map<Nature, Set<Ability>> natMap)
 	{
 		for (Map.Entry<Nature, Set<Ability>> natME : natMap.entrySet())
 		{
@@ -428,8 +420,7 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<CharID, Ability>
 		Map<Category<Ability>, Map<Nature, Set<Ability>>> catMap = getCachedMap(id);
 		if (catMap != null)
 		{
-			for (Map.Entry<Category<Ability>, Map<Nature, Set<Ability>>> catME : catMap
-					.entrySet())
+			for (Map.Entry<Category<Ability>, Map<Nature, Set<Ability>>> catME : catMap.entrySet())
 			{
 				// Category<Ability> cat = catME.getKey();
 				Set<Ability> abilitySet = catME.getValue().remove(nature);
@@ -512,8 +503,7 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<CharID, Ability>
 		Map<Category<Ability>, Map<Nature, Set<Ability>>> map = getCachedMap(source);
 		if (map != null)
 		{
-			for (Entry<Category<Ability>, Map<Nature, Set<Ability>>> me : map
-				.entrySet())
+			for (Entry<Category<Ability>, Map<Nature, Set<Ability>>> me : map.entrySet())
 			{
 				Category<Ability> cat = me.getKey();
 				for (Entry<Nature, Set<Ability>> nme : me.getValue().entrySet())

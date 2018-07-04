@@ -40,9 +40,9 @@ import javax.swing.table.TableCellRenderer;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.LanguageChooserFacade;
 import pcgen.facade.core.LanguageFacade;
+import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
-import pcgen.facade.util.ListFacade;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.dialog.LanguageChooserDialog;
 import pcgen.gui2.tabs.Utilities;
@@ -51,8 +51,7 @@ import pcgen.gui2.util.SignIcon.Sign;
 import pcgen.gui2.util.table.TableCellUtilities;
 import pcgen.system.LanguageBundle;
 
-public class LanguageTableModel extends AbstractTableModel
-		implements ListListener<LanguageFacade>
+public class LanguageTableModel extends AbstractTableModel implements ListListener<LanguageFacade>
 {
 
 	private ListFacade<LanguageFacade> languages;
@@ -135,8 +134,7 @@ public class LanguageTableModel extends AbstractTableModel
 	@Override
 	public boolean isCellEditable(int rowIndex, int columnIndex)
 	{
-		if (rowIndex < languages.getSize()
-				&& !character.isRemovable(languages.getElementAt(rowIndex)))
+		if (rowIndex < languages.getSize() && !character.isRemovable(languages.getElementAt(rowIndex)))
 		{
 			return false;
 		}
@@ -236,7 +234,8 @@ public class LanguageTableModel extends AbstractTableModel
 		}
 
 		@Override
-		public Component getTableCellEditorComponent(JTable jTable, Object value, boolean isSelected, int row, int column)
+		public Component getTableCellEditorComponent(JTable jTable, Object value, boolean isSelected, int row,
+			int column)
 		{
 			TableCellUtilities.setToRowBackground(cellPanel, jTable, row);
 			if (row >= languages.getSize())
@@ -262,8 +261,7 @@ public class LanguageTableModel extends AbstractTableModel
 			if (ADD_ID.equals(e.getActionCommand()))
 			{
 				Frame frame = JOptionPane.getFrameForComponent(table);
-				LanguageChooserFacade chooser = choosers.getElementAt(
-						table.getEditingRow() - languages.getSize());
+				LanguageChooserFacade chooser = choosers.getElementAt(table.getEditingRow() - languages.getSize());
 				LanguageChooserDialog dialog = new LanguageChooserDialog(frame, chooser);
 				Utility.setComponentRelativeLocation(frame, dialog);
 				dialog.setVisible(true);
@@ -317,15 +315,14 @@ public class LanguageTableModel extends AbstractTableModel
 		}
 
 		@Override
-		public Component getTableCellRendererComponent(JTable jTable, Object value, boolean isSelected, boolean hasFocus, int row, int column)
+		public Component getTableCellRendererComponent(JTable jTable, Object value, boolean isSelected,
+			boolean hasFocus, int row, int column)
 		{
 			TableCellUtilities.setToRowBackground(this, jTable, row);
 			if (row < languages.getSize())
 			{
-				boolean automatic = value instanceof LanguageFacade
-						&& character.isAutomatic((LanguageFacade) value);
-				boolean removable = value instanceof LanguageFacade
-						&& character.isRemovable((LanguageFacade) value);
+				boolean automatic = value instanceof LanguageFacade && character.isAutomatic((LanguageFacade) value);
+				boolean removable = value instanceof LanguageFacade && character.isRemovable((LanguageFacade) value);
 				if (automatic)
 				{
 					cellLabel.setForeground(UIPropertyContext.getAutomaticColor());

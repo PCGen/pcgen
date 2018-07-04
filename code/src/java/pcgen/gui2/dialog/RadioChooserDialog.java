@@ -120,8 +120,7 @@ public class RadioChooserDialog extends JDialog implements ActionListener
 		// Create the buttons
 		for (InfoFacade infoFacade : availableList)
 		{
-			avaRadioButton[row] =
-					new JRadioButton(infoFacade.toString(), false);
+			avaRadioButton[row] = new JRadioButton(infoFacade.toString(), false);
 			avaGroup.add(avaRadioButton[row]);
 			avaRadioButton[row].addActionListener(this);
 			++row;
@@ -167,8 +166,7 @@ public class RadioChooserDialog extends JDialog implements ActionListener
 	 * @param c The GridBagConstraints for the panel.
 	 * @param gridbag The layout of the panel.
 	 */
-	private void buildTwoColLayout(int numButtons, GridBagConstraints c,
-		GridBagLayout gridbag)
+	private void buildTwoColLayout(int numButtons, GridBagConstraints c, GridBagLayout gridbag)
 	{
 		int numRows = numButtons - numButtons / 2;
 		for (int i = 0; i < numRows; ++i)
@@ -204,18 +202,15 @@ public class RadioChooserDialog extends JDialog implements ActionListener
 			{
 				if (selectedButton == avaRadioButton[i])
 				{
-					chooser.addSelected(chooser.getAvailableList()
-						.getElementAt(i));
+					chooser.addSelected(chooser.getAvailableList().getElementAt(i));
 					break;
 				}
 			}
-			if (chooser.isRequireCompleteSelection()
-				&& chooser.getRemainingSelections().get() > 0)
+			if (chooser.isRequireCompleteSelection() && chooser.getRemainingSelections().get() > 0)
 			{
-				JOptionPane.showMessageDialog(this, LanguageBundle
-					.getFormattedString("in_chooserRequireComplete", //$NON-NLS-1$
-						chooser.getRemainingSelections().get()),
-					chooser.getName(), JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(
+					this, LanguageBundle.getFormattedString("in_chooserRequireComplete", //$NON-NLS-1$
+					chooser.getRemainingSelections().get()), chooser.getName(), JOptionPane.INFORMATION_MESSAGE);
 				return;
 			}
 			else

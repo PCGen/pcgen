@@ -34,13 +34,11 @@ public class ExplanationToken extends AbstractNonEmptyToken<DatasetVariable>
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		DatasetVariable dv, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, DatasetVariable dv, String value)
 	{
 		if (dv.getDisplayName() == null)
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " must not be the first token on the line");
+			return new ParseResult.Fail(getTokenName() + " must not be the first token on the line");
 		}
 		dv.setExplanation(value);
 		return ParseResult.SUCCESS;

@@ -51,8 +51,7 @@ public final class PCGFile
 			return false;
 		}
 
-		return getWindowsSafeFilename(file).endsWith(
-			Constants.EXTENSION_CHARACTER_FILE);
+		return getWindowsSafeFilename(file).endsWith(Constants.EXTENSION_CHARACTER_FILE);
 	}
 
 	/**
@@ -72,8 +71,7 @@ public final class PCGFile
 			return false;
 		}
 
-		return getWindowsSafeFilename(file).endsWith(
-			Constants.EXTENSION_PARTY_FILE);
+		return getWindowsSafeFilename(file).endsWith(Constants.EXTENSION_PARTY_FILE);
 	}
 
 	/**
@@ -93,8 +91,7 @@ public final class PCGFile
 			return false;
 		}
 
-		return getWindowsSafeFilename(file).endsWith(
-			Constants.EXTENSION_CAMPAIGN_FILE);
+		return getWindowsSafeFilename(file).endsWith(Constants.EXTENSION_CAMPAIGN_FILE);
 	}
 
 	/**
@@ -113,9 +110,7 @@ public final class PCGFile
 			return isPCGenCampaignFile(new File(uri));
 		}
 
-		return uri.getPath() != null
-			&& uri.getPath().toLowerCase().endsWith(
-				Constants.EXTENSION_CAMPAIGN_FILE);
+		return uri.getPath() != null && uri.getPath().toLowerCase().endsWith(Constants.EXTENSION_CAMPAIGN_FILE);
 	}
 
 	/**
@@ -135,8 +130,7 @@ public final class PCGFile
 			return false;
 		}
 
-		return getWindowsSafeFilename(file).endsWith(
-			Constants.EXTENSION_LIST_FILE);
+		return getWindowsSafeFilename(file).endsWith(Constants.EXTENSION_LIST_FILE);
 	}
 
 	/**
@@ -160,8 +154,7 @@ public final class PCGFile
 
 		final String name = getWindowsSafeFilename(file);
 
-		return name.endsWith(Constants.EXTENSION_CHARACTER_FILE)
-			|| name.endsWith(Constants.EXTENSION_PARTY_FILE);
+		return name.endsWith(Constants.EXTENSION_CHARACTER_FILE) || name.endsWith(Constants.EXTENSION_PARTY_FILE);
 	}
 
 	/**

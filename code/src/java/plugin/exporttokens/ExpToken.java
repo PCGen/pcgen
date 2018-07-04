@@ -41,8 +41,7 @@ public class ExpToken extends AbstractExportToken
 	}
 
 	@Override
-	public String getToken(String tokenSource, CharacterDisplay display,
-		ExportHandler eh)
+	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
 	{
 		String retString = "";
 		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
