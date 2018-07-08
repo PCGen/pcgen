@@ -408,7 +408,7 @@ Burrow		KEY:Builder Racial Trait ~ Burrow			CATEGORY:Special Ability	TYPE:Specia
 # COMMENT: Set at +10 speed; change as needed.
 Fast			KEY:Builder Racial Trait ~ Fast			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.RacialTrait.BuilderMovementTrait.Advanced	DESC:+10 untyped bonus to base speed; can be taken more than once, but add 1 to cost each time.	DESC:[Cost: %1]|1																												BONUS:MOVEADD|Walk|10								BONUS:VAR|ARG_RaceBuilderPoints|-1	COST:0	SOURCEPAGE:p.232
 # COMMENT: Set at 30' (clumsy); change as needed
-Flight		KEY:Builder Racial Trait ~ Flight			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.RacialTrait.BuilderMovementTrait.Advanced	DESC:Fly speed 30' (clumsy); each extra 2 RP spent gives +10 speed and one step maneuverability improvement.	DESC:[Cost: %1]|4					BONUS:VAR|RaceBuilder_FlightTaken|1		DEFINE:RaceBuilder_FlightTaken|0	ABILITY:Internal|AUTOMATIC|Tracker ~ Race Builder Flight																		BONUS:VAR|ARG_RaceBuilderPoints|-4	COST:0	SOURCEPAGE:p.232
+Flight		KEY:Builder Racial Trait ~ Flight			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.RacialTrait.BuilderMovementTrait.Advanced	DESC:Fly speed 30' (clumsy); each extra 2 RP spent gives +10 speed and one step maneuverability improvement.	DESC:[Cost: %1]|4					BONUS:VAR|RaceBuilder_FlightTaken|1		DEFINE:RaceBuilder_FlightTaken|0	ABILITY:Internal|AUTOMATIC|Tracker ~ Race Builder Flight																			COST:0	SOURCEPAGE:p.232	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
 # COMMENT: Set at +10 speed; change as needed.
 Powerful Swimmer	KEY:Builder Racial Trait ~ Powerful Swimmer	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.RacialTrait.BuilderMovementTrait.Advanced	DESC:+10 untyped Swim speed; can be taken twice.	DESC:[Cost: %1]|1																																			BONUS:MOVEADD|Swim|10								BONUS:VAR|ARG_RaceBuilderPoints|-1	COST:0	SOURCEPAGE:p.232
 
@@ -418,41 +418,41 @@ Expert Climber	KEY:Builder Racial Trait ~ Expert Climber		CATEGORY:Special Abili
 
 Tracker ~ Race Builder Flight	CATEGORY:Internal
 # Tracks both Maneuverability and speed. Actual Ability in CE for re-usability
-CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	BONUS:VAR|Maneuverability|1|PREVAREQ:RaceBuilder_FlightTaken,1
-CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	BONUS:VAR|Maneuverability|2|PREVAREQ:RaceBuilder_FlightTaken,2
-CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	BONUS:VAR|Maneuverability|3|PREVAREQ:RaceBuilder_FlightTaken,3
-CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	BONUS:VAR|Maneuverability|4|PREVAREQ:RaceBuilder_FlightTaken,4
-CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	BONUS:VAR|Maneuverability|5|PREVAREQ:RaceBuilder_FlightTaken,5
-CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 30|PREVAREQ:RaceBuilder_FlightTaken,1
-CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 40|PREVAREQ:RaceBuilder_FlightTaken,2
-CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 50|PREVAREQ:RaceBuilder_FlightTaken,3
-CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 60|PREVAREQ:RaceBuilder_FlightTaken,4
-CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 70|PREVAREQ:RaceBuilder_FlightTaken,5
-CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 80|PREVAREQ:RaceBuilder_FlightTaken,6
-CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 90|PREVAREQ:RaceBuilder_FlightTaken,7
-CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 100|PREVAREQ:RaceBuilder_FlightTaken,8
-CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 110|PREVAREQ:RaceBuilder_FlightTaken,9
-CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 120|PREVAREQ:RaceBuilder_FlightTaken,10
-CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 130|PREVAREQ:RaceBuilder_FlightTaken,11
-CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 140|PREVAREQ:RaceBuilder_FlightTaken,12
-CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 150|PREVAREQ:RaceBuilder_FlightTaken,13
-CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 160|PREVAREQ:RaceBuilder_FlightTaken,14
-CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 170|PREVAREQ:RaceBuilder_FlightTaken,15
-CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 180|PREVAREQ:RaceBuilder_FlightTaken,16
-CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 190|PREVAREQ:RaceBuilder_FlightTaken,17
-CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 200|PREVAREQ:RaceBuilder_FlightTaken,18
-CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 210|PREVAREQ:RaceBuilder_FlightTaken,19
-CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 220|PREVAREQ:RaceBuilder_FlightTaken,20
-CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 230|PREVAREQ:RaceBuilder_FlightTaken,21
-CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 240|PREVAREQ:RaceBuilder_FlightTaken,22
-CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 250|PREVAREQ:RaceBuilder_FlightTaken,23
-CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 260|PREVAREQ:RaceBuilder_FlightTaken,24
-CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 270|PREVAREQ:RaceBuilder_FlightTaken,25
-CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 280|PREVAREQ:RaceBuilder_FlightTaken,26
-CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 290|PREVAREQ:RaceBuilder_FlightTaken,27
-CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 300|PREVAREQ:RaceBuilder_FlightTaken,28
-CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 310|PREVAREQ:RaceBuilder_FlightTaken,29
-CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 320|PREVAREQ:RaceBuilder_FlightTaken,30
+CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	BONUS:VAR|Maneuverability|1|PREVAREQ:RaceBuilder_FlightTaken,1	
+CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	BONUS:VAR|Maneuverability|2|PREVAREQ:RaceBuilder_FlightTaken,2	
+CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	BONUS:VAR|Maneuverability|3|PREVAREQ:RaceBuilder_FlightTaken,3	
+CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	BONUS:VAR|Maneuverability|4|PREVAREQ:RaceBuilder_FlightTaken,4	
+CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	BONUS:VAR|Maneuverability|5|PREVAREQ:RaceBuilder_FlightTaken,5	
+CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 30|PREVAREQ:RaceBuilder_FlightTaken,1	BONUS:VAR|ARG_RaceBuilderPoints|-4
+CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 40|PREVAREQ:RaceBuilder_FlightTaken,2	BONUS:VAR|ARG_RaceBuilderPoints|-2|PREVARGTEQ:RaceBuilder_FlightTaken,2
+CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 50|PREVAREQ:RaceBuilder_FlightTaken,3	BONUS:VAR|ARG_RaceBuilderPoints|-2|PREVARGTEQ:RaceBuilder_FlightTaken,3
+CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 60|PREVAREQ:RaceBuilder_FlightTaken,4	BONUS:VAR|ARG_RaceBuilderPoints|-2|PREVARGTEQ:RaceBuilder_FlightTaken,4
+CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 70|PREVAREQ:RaceBuilder_FlightTaken,5	BONUS:VAR|ARG_RaceBuilderPoints|-2|PREVARGTEQ:RaceBuilder_FlightTaken,5
+CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 80|PREVAREQ:RaceBuilder_FlightTaken,6	BONUS:VAR|ARG_RaceBuilderPoints|-2|PREVARGTEQ:RaceBuilder_FlightTaken,6
+CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 90|PREVAREQ:RaceBuilder_FlightTaken,7	BONUS:VAR|ARG_RaceBuilderPoints|-2|PREVARGTEQ:RaceBuilder_FlightTaken,7
+CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 100|PREVAREQ:RaceBuilder_FlightTaken,8	BONUS:VAR|ARG_RaceBuilderPoints|-2|PREVARGTEQ:RaceBuilder_FlightTaken,8
+CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 110|PREVAREQ:RaceBuilder_FlightTaken,9	BONUS:VAR|ARG_RaceBuilderPoints|-2|PREVARGTEQ:RaceBuilder_FlightTaken,9
+CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 120|PREVAREQ:RaceBuilder_FlightTaken,10	BONUS:VAR|ARG_RaceBuilderPoints|-2|PREVARGTEQ:RaceBuilder_FlightTaken,10
+CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 130|PREVAREQ:RaceBuilder_FlightTaken,11	BONUS:VAR|ARG_RaceBuilderPoints|-2|PREVARGTEQ:RaceBuilder_FlightTaken,11
+CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 140|PREVAREQ:RaceBuilder_FlightTaken,12	BONUS:VAR|ARG_RaceBuilderPoints|-2|PREVARGTEQ:RaceBuilder_FlightTaken,12
+CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 150|PREVAREQ:RaceBuilder_FlightTaken,13	BONUS:VAR|ARG_RaceBuilderPoints|-2|PREVARGTEQ:RaceBuilder_FlightTaken,13
+CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 160|PREVAREQ:RaceBuilder_FlightTaken,14	BONUS:VAR|ARG_RaceBuilderPoints|-2|PREVARGTEQ:RaceBuilder_FlightTaken,14
+CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 170|PREVAREQ:RaceBuilder_FlightTaken,15	BONUS:VAR|ARG_RaceBuilderPoints|-2|PREVARGTEQ:RaceBuilder_FlightTaken,15
+CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 180|PREVAREQ:RaceBuilder_FlightTaken,16	BONUS:VAR|ARG_RaceBuilderPoints|-2|PREVARGTEQ:RaceBuilder_FlightTaken,16
+CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 190|PREVAREQ:RaceBuilder_FlightTaken,17	BONUS:VAR|ARG_RaceBuilderPoints|-2|PREVARGTEQ:RaceBuilder_FlightTaken,17
+CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 200|PREVAREQ:RaceBuilder_FlightTaken,18	BONUS:VAR|ARG_RaceBuilderPoints|-2|PREVARGTEQ:RaceBuilder_FlightTaken,18
+CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 210|PREVAREQ:RaceBuilder_FlightTaken,19	BONUS:VAR|ARG_RaceBuilderPoints|-2|PREVARGTEQ:RaceBuilder_FlightTaken,19
+CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 220|PREVAREQ:RaceBuilder_FlightTaken,20	BONUS:VAR|ARG_RaceBuilderPoints|-2|PREVARGTEQ:RaceBuilder_FlightTaken,20
+CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 230|PREVAREQ:RaceBuilder_FlightTaken,21	BONUS:VAR|ARG_RaceBuilderPoints|-2|PREVARGTEQ:RaceBuilder_FlightTaken,21
+CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 240|PREVAREQ:RaceBuilder_FlightTaken,22	BONUS:VAR|ARG_RaceBuilderPoints|-2|PREVARGTEQ:RaceBuilder_FlightTaken,22
+CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 250|PREVAREQ:RaceBuilder_FlightTaken,23	BONUS:VAR|ARG_RaceBuilderPoints|-2|PREVARGTEQ:RaceBuilder_FlightTaken,23
+CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 260|PREVAREQ:RaceBuilder_FlightTaken,24	BONUS:VAR|ARG_RaceBuilderPoints|-2|PREVARGTEQ:RaceBuilder_FlightTaken,24
+CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 270|PREVAREQ:RaceBuilder_FlightTaken,25	BONUS:VAR|ARG_RaceBuilderPoints|-2|PREVARGTEQ:RaceBuilder_FlightTaken,25
+CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 280|PREVAREQ:RaceBuilder_FlightTaken,26	BONUS:VAR|ARG_RaceBuilderPoints|-2|PREVARGTEQ:RaceBuilder_FlightTaken,26
+CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 290|PREVAREQ:RaceBuilder_FlightTaken,27	BONUS:VAR|ARG_RaceBuilderPoints|-2|PREVARGTEQ:RaceBuilder_FlightTaken,27
+CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 300|PREVAREQ:RaceBuilder_FlightTaken,28	BONUS:VAR|ARG_RaceBuilderPoints|-2|PREVARGTEQ:RaceBuilder_FlightTaken,28
+CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 310|PREVAREQ:RaceBuilder_FlightTaken,29	BONUS:VAR|ARG_RaceBuilderPoints|-2|PREVARGTEQ:RaceBuilder_FlightTaken,29
+CATEGORY=Internal|Tracker ~ Race Builder Flight.MOD	ABILITY:Internal|AUTOMATIC|Flight Speed ~ 320|PREVAREQ:RaceBuilder_FlightTaken,30	BONUS:VAR|ARG_RaceBuilderPoints|-2|PREVARGTEQ:RaceBuilder_FlightTaken,30
 
 
 
