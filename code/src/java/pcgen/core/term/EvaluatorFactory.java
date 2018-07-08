@@ -33,56 +33,52 @@ import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.util.Logging;
 
-public final class EvaluatorFactory {
+public final class EvaluatorFactory
+{
 
 	Pattern internalVarPattern;
 	Map<String, TermEvaluatorBuilder> BuilderStore;
-	
-	private final Map<String, TermEvaluator> SrcNeutralEvaluatorStore =
-            new HashMap<>();
-	private final Map<String, Map<String, TermEvaluator>> SrcDependantEvaluatorStore =
-            new HashMap<>();
 
+	private final Map<String, TermEvaluator> SrcNeutralEvaluatorStore = new HashMap<>();
+	private final Map<String, Map<String, TermEvaluator>> SrcDependantEvaluatorStore = new HashMap<>();
 
-	public static final EvaluatorFactory PC =
-			new EvaluatorFactory(true, TermEvaluatorBuilderPCVar.values());
-	
-	public static final EvaluatorFactory EQ =
-			new EvaluatorFactory(false, TermEvaluatorBuilderEQVar.values());
+	public static final EvaluatorFactory PC = new EvaluatorFactory(true, TermEvaluatorBuilderPCVar.values());
 
-	private EvaluatorFactory (
-			boolean addStats,
-			final TermEvaluatorBuilder[] termEvaluatorBuilders)
+	public static final EvaluatorFactory EQ = new EvaluatorFactory(false, TermEvaluatorBuilderEQVar.values());
+
+	private EvaluatorFactory(boolean addStats, final TermEvaluatorBuilder[] termEvaluatorBuilders)
 	{
-		TermEvaluatorBuilder[] evals = (addStats) ?
-				addStatBuilder(termEvaluatorBuilders) :
-				termEvaluatorBuilders;
+		TermEvaluatorBuilder[] evals = (addStats) ? addStatBuilder(termEvaluatorBuilders) : termEvaluatorBuilders;
 
-		BuilderStore     = new TreeMap<>();
+		BuilderStore = new TreeMap<>();
 		StringBuilder sb = new StringBuilder("^(");
 
 		boolean add = false;
 
-		for (TermEvaluatorBuilder e : evals) {
-			if (add) {
+		for (TermEvaluatorBuilder e : evals)
+		{
+			if (add)
+			{
 				sb.append("|");
-			} else {
+			}
+			else
+			{
 				add = true;
 			}
 			sb.append(e.getTermConstructorPattern());
-			
+
 			String[] keys = e.getTermConstructorKeys();
-			for (String k : keys) {
+			for (String k : keys)
+			{
 				BuilderStore.put(k, e);
 			}
 		}
 
 		sb.append(")");
-		internalVarPattern = Pattern.compile(sb.toString());	
+		internalVarPattern = Pattern.compile(sb.toString());
 	}
-	
-	private static TermEvaluatorBuilder[] addStatBuilder(
-			TermEvaluatorBuilder[] builderArray)
+
+	private static TermEvaluatorBuilder[] addStatBuilder(TermEvaluatorBuilder[] builderArray)
 	{
 		int end = builderArray.length;
 
@@ -105,9 +101,12 @@ public final class EvaluatorFactory {
 		boolean add1 = false;
 		for (PCStat stat : stats)
 		{
-			if (add1) {
+			if (add1)
+			{
 				pSt.append("|");
-			} else {
+			}
+			else
+			{
 				add1 = true;
 			}
 			pSt.append(stat.getKeyName());
@@ -118,20 +117,19 @@ public final class EvaluatorFactory {
 		return new TermEvaluatorBuilderPCStat(pSt.toString(), s.toArray(new String[s.size()]), false);
 	}
 
-	private TermEvaluator makeTermEvaluator(
-			String term,
-			String source) {
-		
+	private TermEvaluator makeTermEvaluator(String term, String source)
+	{
+
 		Matcher mat = internalVarPattern.matcher(term);
 
-		if (mat.find()) {
+		if (mat.find())
+		{
 			String matchedPortion = mat.group(1);
 			TermEvaluatorBuilder f = BuilderStore.get(matchedPortion);
 
 			try
 			{
-				if (f.isEntireTerm() &&
-					(term.length() != matchedPortion.length()))
+				if (f.isEntireTerm() && (term.length() != matchedPortion.length()))
 				{
 					return null;
 				}
@@ -148,28 +146,29 @@ public final class EvaluatorFactory {
 				}
 			}
 		}
-		
+
 		return null;
 	}
 
-	public TermEvaluator getTermEvaluator (
-			String term,
-			String source) {
+	public TermEvaluator getTermEvaluator(String term, String source)
+	{
 
 		Map<String, TermEvaluator> inner = SrcDependantEvaluatorStore.get(term);
 
 		if (inner == null)
 		{
 			TermEvaluator evaluator = SrcNeutralEvaluatorStore.get(term);
-			if (evaluator != null) {
-				return evaluator; 
+			if (evaluator != null)
+			{
+				return evaluator;
 			}
 		}
 		else
 		{
 			TermEvaluator evaluator = inner.get(source);
-			if (evaluator != null) {
-				return evaluator; 
+			if (evaluator != null)
+			{
+				return evaluator;
 			}
 		}
 
@@ -179,13 +178,13 @@ public final class EvaluatorFactory {
 		{
 			return null;
 		}
-		
+
 		if (evaluator.isSourceDependant())
 		{
 			Map<String, TermEvaluator> i = SrcDependantEvaluatorStore.get(term);
 			Map<String, TermEvaluator> j = (i == null) ? new HashMap<>() : i;
 			j.put(source, evaluator);
-			SrcDependantEvaluatorStore.put(term, j);	
+			SrcDependantEvaluatorStore.put(term, j);
 		}
 		else
 		{

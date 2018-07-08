@@ -14,4 +14,4 @@ PFS Starting Gold	VISIBLE:NO	KIT:1|Starting Gold PFS
 
 ###Block:
 # Template Name						!PRECHARACTERTYPE		Bonus Languages
-Race Bonus Language ~ Modern Human Language	!PRECHARACTERTYPE:1,PC	LANGBONUS:TYPE=ModernHumanLanguage
+Race Bonus Language ~ Modern Human Language	!PRECHARACTERTYPE:1,PC	LANGBONUS:TYPE=ModernHumanLanguage	VISIBLE:NO

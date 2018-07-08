@@ -29,32 +29,22 @@ import pcgen.util.Logging;
 public class ClassGeneratorOption extends GeneratorOption
 {
 	private WeightedCollection<PCClass> theChoices = null;
-	
+
 	/**
 	 * @see pcgen.core.npcgen.GeneratorOption#addChoice(int, java.lang.String)
 	 */
 	@Override
 	public void addChoice(final int aWeight, final String aValue)
 	{
-		if ( theChoices == null )
+		if (theChoices == null)
 		{
 			theChoices = new WeightedCollection<>();
 		}
-		
-		if ( aValue.equals("*") ) //$NON-NLS-1$
+
+		if (aValue.equals("*")) //$NON-NLS-1$
 		{
-			for ( final PCClass pcClass : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(PCClass.class) )
-			{
-				if ( ! theChoices.contains(pcClass) )
-				{
-					theChoices.add(pcClass, aWeight);
-				}
-			}
-			return;
-		}
-		if ( aValue.startsWith("TYPE") ) //$NON-NLS-1$
-		{
-			for ( final PCClass pcClass : Globals.getPObjectsOfType(Globals.getContext().getReferenceContext().getConstructedCDOMObjects(PCClass.class), aValue.substring(5)) )
+			for (final PCClass pcClass : Globals.getContext().getReferenceContext()
+				.getConstructedCDOMObjects(PCClass.class))
 			{
 				if (!theChoices.contains(pcClass))
 				{
@@ -63,8 +53,22 @@ public class ClassGeneratorOption extends GeneratorOption
 			}
 			return;
 		}
-		final PCClass pcClass = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class, aValue);
-		if ( pcClass == null )
+		if (aValue.startsWith("TYPE")) //$NON-NLS-1$
+		{
+			for (final PCClass pcClass : Globals.getPObjectsOfType(
+				Globals.getContext().getReferenceContext().getConstructedCDOMObjects(PCClass.class),
+				aValue.substring(5)))
+			{
+				if (!theChoices.contains(pcClass))
+				{
+					theChoices.add(pcClass, aWeight);
+				}
+			}
+			return;
+		}
+		final PCClass pcClass =
+				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class, aValue);
+		if (pcClass == null)
 		{
 			Logging.errorPrintLocalised("NPCGen.Options.ClassNotFound", aValue); //$NON-NLS-1$
 		}

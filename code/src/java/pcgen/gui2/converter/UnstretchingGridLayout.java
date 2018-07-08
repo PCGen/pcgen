@@ -79,8 +79,7 @@ public class UnstretchingGridLayout extends GridLayout
 				columnWidth[column] = Math.max(columnWidth[column], d.width);
 			}
 			// Avoid fetching the orientation & gaps/gutters in the loop
-			boolean leftToRight = parent.getComponentOrientation()
-					.isLeftToRight();
+			boolean leftToRight = parent.getComponentOrientation().isLeftToRight();
 			int xGutter = getHgap();
 			int yGutter = getVgap();
 

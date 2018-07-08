@@ -27,8 +27,7 @@ import pcgen.cdom.base.CDOMReference;
  * @param <T>
  *            The Class of the underlying object contained by this CDOMSingleRef
  */
-public abstract class CDOMSingleRef<T> extends CDOMReference<T> implements
-		Indirect<T>
+public abstract class CDOMSingleRef<T> extends CDOMReference<T> implements Indirect<T>
 {
 
 	/**
@@ -71,14 +70,14 @@ public abstract class CDOMSingleRef<T> extends CDOMReference<T> implements
 	 * @return true if this CDOMSingleRef has been resolved; false otherwise
 	 */
 	public abstract boolean hasBeenResolved();
-	
+
 	/**
 	 * Sets the choice for this CDOMSingleRef.
 	 * 
 	 * @param choice The choice to be set for this CDOMSingleRef
 	 */
 	public abstract void setChoice(String choice);
-	
+
 	@Override
 	public String getUnconverted()
 	{

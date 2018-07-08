@@ -48,8 +48,7 @@ public class UnconstructedEvent extends EventObject
 		super(source);
 		if (ref == null)
 		{
-			throw new IllegalArgumentException(
-					"UnconstructedEvent cannot be null");
+			throw new IllegalArgumentException("UnconstructedEvent cannot be null");
 		}
 		reference = ref;
 	}

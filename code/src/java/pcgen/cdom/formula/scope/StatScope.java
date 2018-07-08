@@ -57,7 +57,6 @@ public class StatScope implements PCGenScope
 		this.parent = Optional.of(parent);
 	}
 
-
 	@Override
 	public FormatManager<PCStat> getFormatManager(LoadContext context)
 	{

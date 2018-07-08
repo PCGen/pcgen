@@ -30,9 +30,7 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.core.prereq.PrerequisiteTest;
 
-
-public class PreHasDeityTester extends AbstractDisplayPrereqTest implements
-		PrerequisiteTest
+public class PreHasDeityTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
 	@Override
@@ -43,8 +41,8 @@ public class PreHasDeityTester extends AbstractDisplayPrereqTest implements
 
 		final String ucOp = prereq.getKey().toUpperCase();
 		final boolean flag =
-				(ucOp.startsWith("Y") && charHasDeity)
-					|| (ucOp.startsWith("N") && !charHasDeity); //$NON-NLS-1$ //$NON-NLS-2$
+				(ucOp.startsWith("Y") && charHasDeity) //$NON-NLS-1$
+				|| (ucOp.startsWith("N") && !charHasDeity); //$NON-NLS-1$
 		if (prereq.getOperator().equals(PrerequisiteOperator.EQ)
 			|| prereq.getOperator().equals(PrerequisiteOperator.GTEQ))
 		{
@@ -62,7 +60,7 @@ public class PreHasDeityTester extends AbstractDisplayPrereqTest implements
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "HAS.DEITY"; //$NON-NLS-1$

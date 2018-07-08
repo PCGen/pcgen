@@ -16,16 +16,14 @@
 package pcgen.cdom.enumeration;
 
 import java.util.stream.Stream;
+
 import pcgen.system.LanguageBundle;
 
 public enum NotePCAttribute implements StringPCAttribute
 {
-	ASSETS(PCStringKey.ASSETS, "in_otherAssets"),
-	BIO(PCStringKey.BIO, "in_bio"),
-	COMPANIONS(PCStringKey.COMPANIONS, "in_companions"),
-	DESCRIPTION(PCStringKey.DESCRIPTION, "in_descrip"),
-	MAGIC(PCStringKey.MAGIC, "in_magicItems"),
-	GMNOTES(PCStringKey.GMNOTES, "in_gmNotes");
+	ASSETS(PCStringKey.ASSETS, "in_otherAssets"), BIO(PCStringKey.BIO, "in_bio"), COMPANIONS(PCStringKey.COMPANIONS,
+			"in_companions"), DESCRIPTION(PCStringKey.DESCRIPTION, "in_descrip"), MAGIC(PCStringKey.MAGIC,
+					"in_magicItems"), GMNOTES(PCStringKey.GMNOTES, "in_gmNotes");
 
 	private final PCStringKey stringKey;
 	private final String noteName;
@@ -38,11 +36,8 @@ public enum NotePCAttribute implements StringPCAttribute
 
 	public static NotePCAttribute getByNoteName(String noteName)
 	{
-		return Stream.of(NotePCAttribute.values()).filter(
-				x -> x.noteName.equals(noteName)
-		).findFirst().get();
+		return Stream.of(NotePCAttribute.values()).filter(x -> x.noteName.equals(noteName)).findFirst().get();
 	}
-
 
 	NotePCAttribute(final PCStringKey stringKey, final String noteNameLocation)
 	{
@@ -53,9 +48,6 @@ public enum NotePCAttribute implements StringPCAttribute
 	@Override
 	public String toString()
 	{
-		return "NotePCAttribute{" +
-				"stringKey=" + stringKey +
-				", noteName='" + noteName + '\'' +
-				'}';
+		return "NotePCAttribute{" + "stringKey=" + stringKey + ", noteName='" + noteName + '\'' + '}';
 	}
 }

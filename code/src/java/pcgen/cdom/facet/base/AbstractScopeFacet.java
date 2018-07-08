@@ -33,8 +33,7 @@ import pcgen.cdom.base.PCGenIdentifier;
 import pcgen.cdom.facet.event.ScopeFacetChangeEvent;
 import pcgen.cdom.facet.event.ScopeFacetChangeListener;
 
-public class AbstractScopeFacet<IDT extends PCGenIdentifier, S, T> extends
-		AbstractStorageFacet<IDT>
+public class AbstractScopeFacet<IDT extends PCGenIdentifier, S, T> extends AbstractStorageFacet<IDT>
 {
 	private Map<S, Map<T, Set<Object>>> getConstructingInfo(IDT id)
 	{
@@ -64,8 +63,7 @@ public class AbstractScopeFacet<IDT extends PCGenIdentifier, S, T> extends
 			throw new IllegalArgumentException("Object cannot be null");
 		}
 		Map<S, Map<T, Set<Object>>> map = getConstructingInfo(id);
-		Map<T, Set<Object>> scopeMap =
-				map.computeIfAbsent(scope, k -> new IdentityHashMap<>());
+		Map<T, Set<Object>> scopeMap = map.computeIfAbsent(scope, k -> new IdentityHashMap<>());
 		Set<Object> sources = scopeMap.get(obj);
 		boolean isNew = (sources == null);
 		if (isNew)
@@ -76,8 +74,7 @@ public class AbstractScopeFacet<IDT extends PCGenIdentifier, S, T> extends
 		sources.add(source);
 		if (isNew)
 		{
-			fireScopeFacetChangeEvent(id, scope, obj,
-				ScopeFacetChangeEvent.DATA_ADDED);
+			fireScopeFacetChangeEvent(id, scope, obj, ScopeFacetChangeEvent.DATA_ADDED);
 		}
 	}
 
@@ -92,8 +89,7 @@ public class AbstractScopeFacet<IDT extends PCGenIdentifier, S, T> extends
 			throw new IllegalArgumentException("Collection cannot be null");
 		}
 		Map<S, Map<T, Set<Object>>> map = getConstructingInfo(id);
-		Map<T, Set<Object>> scopeMap =
-				map.computeIfAbsent(scope, k -> new IdentityHashMap<>());
+		Map<T, Set<Object>> scopeMap = map.computeIfAbsent(scope, k -> new IdentityHashMap<>());
 		for (T obj : coll)
 		{
 			Set<Object> sources = scopeMap.get(obj);
@@ -106,8 +102,7 @@ public class AbstractScopeFacet<IDT extends PCGenIdentifier, S, T> extends
 			sources.add(source);
 			if (isNew)
 			{
-				fireScopeFacetChangeEvent(id, scope, obj,
-					ScopeFacetChangeEvent.DATA_ADDED);
+				fireScopeFacetChangeEvent(id, scope, obj, ScopeFacetChangeEvent.DATA_ADDED);
 			}
 		}
 	}
@@ -139,8 +134,7 @@ public class AbstractScopeFacet<IDT extends PCGenIdentifier, S, T> extends
 		}
 		if (sources.remove(source) && sources.isEmpty())
 		{
-			fireScopeFacetChangeEvent(id, scope, obj,
-				ScopeFacetChangeEvent.DATA_REMOVED);
+			fireScopeFacetChangeEvent(id, scope, obj, ScopeFacetChangeEvent.DATA_REMOVED);
 			scopeMap.remove(obj);
 		}
 		if (scopeMap.isEmpty())
@@ -199,14 +193,12 @@ public class AbstractScopeFacet<IDT extends PCGenIdentifier, S, T> extends
 		MapToList<S, T> removed = GenericMapToList.getMapToList(IdentityHashMap.class);
 		if (map != null)
 		{
-			for (Iterator<Map.Entry<S, Map<T, Set<Object>>>> it =
-					map.entrySet().iterator(); it.hasNext();)
+			for (Iterator<Map.Entry<S, Map<T, Set<Object>>>> it = map.entrySet().iterator(); it.hasNext();)
 			{
 				Entry<S, Map<T, Set<Object>>> entry = it.next();
 				S scope = entry.getKey();
 				Map<T, Set<Object>> scopeMap = entry.getValue();
-				for (Iterator<Map.Entry<T, Set<Object>>> lmit =
-						scopeMap.entrySet().iterator(); lmit.hasNext();)
+				for (Iterator<Map.Entry<T, Set<Object>>> lmit = scopeMap.entrySet().iterator(); lmit.hasNext();)
 				{
 					Entry<T, Set<Object>> lme = lmit.next();
 					Set<Object> sources = lme.getValue();
@@ -230,8 +222,7 @@ public class AbstractScopeFacet<IDT extends PCGenIdentifier, S, T> extends
 			{
 				for (T obj : removed.getListFor(scope))
 				{
-					fireScopeFacetChangeEvent(id, scope, obj,
-						ScopeFacetChangeEvent.DATA_REMOVED);
+					fireScopeFacetChangeEvent(id, scope, obj, ScopeFacetChangeEvent.DATA_REMOVED);
 				}
 			}
 		}
@@ -280,7 +271,7 @@ public class AbstractScopeFacet<IDT extends PCGenIdentifier, S, T> extends
 	}
 
 	private final Map<Integer, ScopeFacetChangeListener<? super IDT, ? super S, ? super T>[]> listeners =
-            new TreeMap<>();
+			new TreeMap<>();
 
 	/**
 	 * Adds a new ScopeFacetChangeListener to receive ScopeFacetChangeEvents
@@ -296,8 +287,7 @@ public class AbstractScopeFacet<IDT extends PCGenIdentifier, S, T> extends
 	 *            The ScopeFacetChangeListener to receive ScopeFacetChangeEvents
 	 *            from this AbstractScopeFacet
 	 */
-	public void addScopeFacetChangeListener(
-		ScopeFacetChangeListener<? super IDT, ? super S, ? super T> listener)
+	public void addScopeFacetChangeListener(ScopeFacetChangeListener<? super IDT, ? super S, ? super T> listener)
 	{
 		addScopeFacetChangeListener(0, listener);
 	}
@@ -320,11 +310,9 @@ public class AbstractScopeFacet<IDT extends PCGenIdentifier, S, T> extends
 	public void addScopeFacetChangeListener(int priority,
 		ScopeFacetChangeListener<? super IDT, ? super S, ? super T> listener)
 	{
-		ScopeFacetChangeListener<? super IDT, ? super S, ? super T>[] dfcl =
-				listeners.get(priority);
+		ScopeFacetChangeListener<? super IDT, ? super S, ? super T>[] dfcl = listeners.get(priority);
 		int newSize = (dfcl == null) ? 1 : (dfcl.length + 1);
-		ScopeFacetChangeListener<? super IDT, ? super S, ? super T>[] newArray =
-				new ScopeFacetChangeListener[newSize];
+		ScopeFacetChangeListener<? super IDT, ? super S, ? super T>[] newArray = new ScopeFacetChangeListener[newSize];
 		if (dfcl != null)
 		{
 			System.arraycopy(dfcl, 0, newArray, 1, dfcl.length);
@@ -345,8 +333,7 @@ public class AbstractScopeFacet<IDT extends PCGenIdentifier, S, T> extends
 	 * @param listener
 	 *            The ScopeFacetChangeListener to be removed
 	 */
-	public void removeScopeFacetChangeListener(
-		ScopeFacetChangeListener<? super IDT, ? super S, ? super T> listener)
+	public void removeScopeFacetChangeListener(ScopeFacetChangeListener<? super IDT, ? super S, ? super T> listener)
 	{
 		removeScopeFacetChangeListener(0, listener);
 	}
@@ -366,8 +353,7 @@ public class AbstractScopeFacet<IDT extends PCGenIdentifier, S, T> extends
 	public void removeScopeFacetChangeListener(int priority,
 		ScopeFacetChangeListener<? super IDT, ? super S, ? super T> listener)
 	{
-		ScopeFacetChangeListener<? super IDT, ? super S, ? super T>[] dfcl =
-				listeners.get(priority);
+		ScopeFacetChangeListener<? super IDT, ? super S, ? super T>[] dfcl = listeners.get(priority);
 		if (dfcl == null)
 		{
 			// No worries
@@ -399,8 +385,7 @@ public class AbstractScopeFacet<IDT extends PCGenIdentifier, S, T> extends
 				}
 				if (foundLoc != newSize)
 				{
-					System.arraycopy(dfcl, foundLoc + 1, newArray, foundLoc,
-						newSize - foundLoc);
+					System.arraycopy(dfcl, foundLoc + 1, newArray, foundLoc, newSize - foundLoc);
 				}
 				listeners.put(priority, newArray);
 			}
@@ -426,8 +411,7 @@ public class AbstractScopeFacet<IDT extends PCGenIdentifier, S, T> extends
 	@SuppressWarnings("rawtypes")
 	protected void fireScopeFacetChangeEvent(IDT id, S scope, T node, int type)
 	{
-		for (ScopeFacetChangeListener<? super IDT, ? super S, ? super T>[] dfclArray : listeners
-			.values())
+		for (ScopeFacetChangeListener<? super IDT, ? super S, ? super T>[] dfclArray : listeners.values())
 		{
 			/*
 			 * This list is decremented from the end of the list to the
@@ -441,9 +425,7 @@ public class AbstractScopeFacet<IDT extends PCGenIdentifier, S, T> extends
 				// Lazily create event
 				if (ccEvent == null)
 				{
-					ccEvent =
-                            new ScopeFacetChangeEvent<>(id, scope,
-                                    node, this, type);
+					ccEvent = new ScopeFacetChangeEvent<>(id, scope, node, this, type);
 				}
 				ScopeFacetChangeListener dfcl = dfclArray[i];
 				switch (ccEvent.getEventType())

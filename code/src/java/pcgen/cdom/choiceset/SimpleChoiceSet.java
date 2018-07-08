@@ -123,8 +123,7 @@ public class SimpleChoiceSet<T> implements PrimitiveChoiceSet<T>
 	 * @throws IllegalArgumentException
 	 *             if the given Collection is null or empty.
 	 */
-	public SimpleChoiceSet(Collection<? extends T> col,
-			Comparator<? super T> comp)
+	public SimpleChoiceSet(Collection<? extends T> col, Comparator<? super T> comp)
 	{
 		this(col, comp, null);
 	}
@@ -150,24 +149,20 @@ public class SimpleChoiceSet<T> implements PrimitiveChoiceSet<T>
 	 * @throws IllegalArgumentException
 	 *             if the given Collection is null or empty.
 	 */
-	public SimpleChoiceSet(Collection<? extends T> col,
-			Comparator<? super T> comp, String sep)
+	public SimpleChoiceSet(Collection<? extends T> col, Comparator<? super T> comp, String sep)
 	{
 		if (col == null)
 		{
-			throw new IllegalArgumentException(
-					"Choice Collection cannot be null");
+			throw new IllegalArgumentException("Choice Collection cannot be null");
 		}
 		if (col.isEmpty())
 		{
-			throw new IllegalArgumentException(
-					"Choice Collection cannot be empty");
+			throw new IllegalArgumentException("Choice Collection cannot be empty");
 		}
 		set = new LinkedHashSet<>(col);
 		if (set.size() != col.size())
 		{
-			throw new IllegalArgumentException(
-				"Choice Collection cannot possess a duplicate item");
+			throw new IllegalArgumentException("Choice Collection cannot possess a duplicate item");
 		}
 		comparator = comp;
 		separator = (sep == null) ? Constants.COMMA : sep;
@@ -207,8 +202,7 @@ public class SimpleChoiceSet<T> implements PrimitiveChoiceSet<T>
 	@Override
 	public Class<T> getChoiceClass()
 	{
-		return (Class<T>) (set == null ? null : set.iterator().next()
-				.getClass());
+		return (Class<T>) (set == null ? null : set.iterator().next().getClass());
 	}
 
 	/**

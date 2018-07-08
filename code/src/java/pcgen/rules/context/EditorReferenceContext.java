@@ -23,7 +23,7 @@ import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Loadable;
 
-class EditorReferenceContext extends RuntimeReferenceContext
+final class EditorReferenceContext extends RuntimeReferenceContext
 {
 
 	private final HashMapToList<CDOMObject, CDOMObject> copyMap = new HashMapToList<>();
@@ -44,15 +44,13 @@ class EditorReferenceContext extends RuntimeReferenceContext
 		}
 		catch (InstantiationException e)
 		{
-			throw new IllegalArgumentException("Class "
-					+ object.getClass().getName()
-					+ " must possess a zero-argument constructor", e);
+			throw new IllegalArgumentException(
+				"Class " + object.getClass().getName() + " must possess a zero-argument constructor", e);
 		}
 		catch (IllegalAccessException e)
 		{
-			throw new IllegalArgumentException("Class "
-					+ object.getClass().getName()
-					+ " must possess a public zero-argument constructor", e);
+			throw new IllegalArgumentException(
+				"Class " + object.getClass().getName() + " must possess a public zero-argument constructor", e);
 		}
 		return null;
 	}
@@ -67,15 +65,13 @@ class EditorReferenceContext extends RuntimeReferenceContext
 		}
 		catch (InstantiationException e)
 		{
-			throw new IllegalArgumentException("Class "
-					+ object.getClass().getName()
-					+ " must possess a zero-argument constructor", e);
+			throw new IllegalArgumentException(
+				"Class " + object.getClass().getName() + " must possess a zero-argument constructor", e);
 		}
 		catch (IllegalAccessException e)
 		{
-			throw new IllegalArgumentException("Class "
-					+ object.getClass().getName()
-					+ " must possess a public zero-argument constructor", e);
+			throw new IllegalArgumentException(
+				"Class " + object.getClass().getName() + " must possess a public zero-argument constructor", e);
 		}
 		return null;
 	}

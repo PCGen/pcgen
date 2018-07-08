@@ -93,7 +93,6 @@ public class ModifierDecoration<T> implements Modifier<T>
 	@Override
 	public boolean equals(Object obj)
 	{
-		return (obj instanceof ModifierDecoration)
-			&& modifier.equals(((ModifierDecoration<?>) obj).modifier);
+		return (obj instanceof ModifierDecoration) && modifier.equals(((ModifierDecoration<?>) obj).modifier);
 	}
 }

@@ -50,7 +50,6 @@ public enum AttackType
 				return at;
 			}
 		}
-		throw new IllegalArgumentException("Illegal AttackType identifier: "
-			+ ident);
+		throw new IllegalArgumentException("Illegal AttackType identifier: " + ident);
 	}
 }

@@ -52,8 +52,8 @@ import pcgen.util.enumeration.Load;
  * objects.
  * 
  */
-public class MovementResultFacet extends AbstractStorageFacet<CharID> implements
-		DataFacetChangeListener<CharID, CDOMObject>
+public class MovementResultFacet extends AbstractStorageFacet<CharID>
+		implements DataFacetChangeListener<CharID, CDOMObject>
 {
 	private MovementFacet movementFacet;
 	private BaseMovementFacet baseMovementFacet;
@@ -149,7 +149,7 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID> implements
 
 		// Movement lists
 		private double[] movements = EMPTY_DOUBLE_ARRAY;
-		
+
 		/**
 		 * Returns the movement value of the given type for the Player
 		 * Character. All appropriate BONUSes are added to the movement before
@@ -195,7 +195,7 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID> implements
 			{
 				return;
 			}
-			
+
 			Set<Movement> mms = baseMovementFacet.getSet(id);
 			if (mms == null || mms.isEmpty())
 			{
@@ -214,8 +214,7 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID> implements
 				{
 					if (mv.getMovementType(i1) != null)
 					{
-						setMyMoveRates(mv.getMovementType(i1),
-							mv.getMovement(i1), mv.getMovementMult(i1),
+						setMyMoveRates(mv.getMovementType(i1), mv.getMovement(i1), mv.getMovementMult(i1),
 							mv.getMovementMultOp(i1), mv.getMoveRatesFlag());
 					}
 				}
@@ -233,9 +232,9 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID> implements
 				if (!moveType.equalsIgnoreCase("ALL"))
 				{
 					moveType = CoreUtility.capitalizeFirstLetter(moveType);
-	
+
 					boolean found = false;
-	
+
 					for (int i = 0; i < movements.length; i++)
 					{
 						if (moveType.equals(movementTypes[i]))
@@ -243,7 +242,7 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID> implements
 							found = true;
 						}
 					}
-	
+
 					if (!found)
 					{
 						setMyMoveRates(moveType, 0.0, 0.0, "", 0);
@@ -261,8 +260,7 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID> implements
 		 * @param multOp
 		 * @param moveFlag
 		 */
-		private void setMyMoveRates(String moveType, double anDouble,
-				double moveMult, String multOp, int moveFlag)
+		private void setMyMoveRates(String moveType, double anDouble, double moveMult, String multOp, int moveFlag)
 		{
 			//
 			// NOTE: can not use getMovements() accessor as it calls
@@ -307,8 +305,7 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID> implements
 							{
 								movements[i] = moveRate;
 							}
-							if (multOp != null
-									&& (movementMultOp[i] == null || !multOp.isEmpty()))
+							if (multOp != null && (movementMultOp[i] == null || !multOp.isEmpty()))
 							{
 								movementMult[i] = moveMult;
 								movementMultOp[i] = multOp;
@@ -342,8 +339,7 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID> implements
 			}
 		}
 
-		private void increaseMoveArray(double moveRate, String moveType,
-				Double moveMult, String multOp)
+		private void increaseMoveArray(double moveRate, String moveType, Double moveMult, String multOp)
 		{
 			// could not find an existing one so
 			// need to add new item to array
@@ -385,8 +381,7 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID> implements
 			double moveInFeet = getMovement(moveIdx);
 
 			// First get the MOVEADD bonus
-			moveInFeet += bonusCheckingFacet.getBonus(id, "MOVEADD", "TYPE."
-					+ getMovementType(moveIdx).toUpperCase());
+			moveInFeet += bonusCheckingFacet.getBonus(id, "MOVEADD", "TYPE." + getMovementType(moveIdx).toUpperCase());
 
 			// also check for special case of TYPE=ALL
 			moveInFeet += bonusCheckingFacet.getBonus(id, "MOVEADD", "TYPE.ALL");
@@ -402,8 +397,8 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID> implements
 			}
 
 			// Now we get the BONUS:MOVEMULT multipliers
-			double moveMult = bonusCheckingFacet.getBonus(id, "MOVEMULT", "TYPE."
-					+ getMovementType(moveIdx).toUpperCase());
+			double moveMult =
+					bonusCheckingFacet.getBonus(id, "MOVEMULT", "TYPE." + getMovementType(moveIdx).toUpperCase());
 
 			// also check for special case of TYPE=ALL
 			moveMult += bonusCheckingFacet.getBonus(id, "MOVEMULT", "TYPE.ALL");
@@ -416,8 +411,8 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID> implements
 			double postMove = calcMove;
 
 			// now add on any POSTMOVE bonuses
-			postMove += bonusCheckingFacet.getBonus(id, "POSTMOVEADD", "TYPE."
-					+ getMovementType(moveIdx).toUpperCase());
+			postMove +=
+					bonusCheckingFacet.getBonus(id, "POSTMOVEADD", "TYPE." + getMovementType(moveIdx).toUpperCase());
 
 			// also check for special case of TYPE=ALL
 			postMove += bonusCheckingFacet.getBonus(id, "POSTMOVEADD", "TYPE.ALL");
@@ -433,25 +428,21 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID> implements
 
 			for (Equipment eq : equipmentFacet.getSet(id))
 			{
-				if (!eq.typeStringContains("Armor") || !eq.isEquipped()
-						|| eq.isShield())
+				if (!eq.typeStringContains("Armor") || !eq.isEquipped() || eq.isShield())
 				{
 					continue;
 				}
-				if (eq.isHeavy()
-						&& !unencumberedArmorFacet.ignoreLoad(id, Load.HEAVY))
+				if (eq.isHeavy() && !unencumberedArmorFacet.ignoreLoad(id, Load.HEAVY))
 				{
 					armorLoad = armorLoad.max(Load.HEAVY);
 				}
-				else if (eq.isMedium()
-						&& !unencumberedArmorFacet.ignoreLoad(id, Load.MEDIUM))
+				else if (eq.isMedium() && !unencumberedArmorFacet.ignoreLoad(id, Load.MEDIUM))
 				{
 					armorLoad = armorLoad.max(Load.MEDIUM);
 				}
 			}
 
-			double armorMove = Globals
-					.calcEncumberedMove(armorLoad, moveInFeet);
+			double armorMove = Globals.calcEncumberedMove(armorLoad, moveInFeet);
 
 			Load pcLoad = loadFacet.getLoadType(id);
 			double loadMove = calcEncumberedMove(id, pcLoad, moveInFeet);
@@ -624,15 +615,12 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID> implements
 			}
 			else
 			{
-				String formula = SettingsHandler.getGame().getLoadInfo()
-						.getLoadMoveFormula(load.toString());
+				String formula = SettingsHandler.getGame().getLoadInfo().getLoadMoveFormula(load.toString());
 				if (!formula.isEmpty())
 				{
 					formula = formula.replaceAll(Pattern.quote("$$MOVE$$"),
-							Double.toString(Math.floor(unencumberedMove)));
-					return formulaResolvingFacet.resolve(id,
-							FormulaFactory.getFormulaFor(formula), "")
-							.doubleValue();
+						Double.toString(Math.floor(unencumberedMove)));
+					return formulaResolvingFacet.resolve(id, FormulaFactory.getFormulaFor(formula), "").doubleValue();
 				}
 
 				return Globals.calcEncumberedMove(load, unencumberedMove);
@@ -659,8 +647,7 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID> implements
 				MovementCacheInfo ci = (MovementCacheInfo) o;
 				return Arrays.equals(movementMult, ci.movementMult)
 					&& Arrays.deepEquals(movementMultOp, ci.movementMultOp)
-					&& Arrays.deepEquals(movementTypes, ci.movementTypes)
-					&& Arrays.equals(movements, ci.movements);
+					&& Arrays.deepEquals(movementTypes, ci.movementTypes) && Arrays.equals(movements, ci.movements);
 			}
 			return false;
 		}
@@ -873,8 +860,7 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID> implements
 		this.bonusCheckingFacet = bonusCheckingFacet;
 	}
 
-	public void setUnencumberedArmorFacet(
-		UnencumberedArmorFacet unencumberedArmorFacet)
+	public void setUnencumberedArmorFacet(UnencumberedArmorFacet unencumberedArmorFacet)
 	{
 		this.unencumberedArmorFacet = unencumberedArmorFacet;
 	}

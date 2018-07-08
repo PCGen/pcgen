@@ -27,7 +27,6 @@ import pcgen.core.spell.Spell;
  * for which the PC is qualified.
  * 
  */
-public class KnownSpellFacet extends
-		AbstractSubScopeFacet<CDOMList<Spell>, Integer, Spell>
+public class KnownSpellFacet extends AbstractSubScopeFacet<CDOMList<Spell>, Integer, Spell>
 {
 }

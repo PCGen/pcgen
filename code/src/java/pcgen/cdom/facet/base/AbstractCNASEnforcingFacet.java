@@ -29,9 +29,8 @@ import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.cdom.helper.CNAbilitySelectionUtilities;
 
-public class AbstractCNASEnforcingFacet extends
-		AbstractDataFacet<CharID, CNAbilitySelection> implements
-		DataFacetChangeListener<CharID, CNAbilitySelection>
+public class AbstractCNASEnforcingFacet extends AbstractDataFacet<CharID, CNAbilitySelection>
+		implements DataFacetChangeListener<CharID, CNAbilitySelection>
 {
 	public boolean isEmpty(CharID id)
 	{
@@ -47,8 +46,7 @@ public class AbstractCNASEnforcingFacet extends
 		}
 		if (source == null)
 		{
-			throw new IllegalArgumentException(
-				"Attempt to add object with null source to list");
+			throw new IllegalArgumentException("Attempt to add object with null source to list");
 		}
 		List<List<SourcedCNAS>> list = getConstructingList(id);
 		for (List<SourcedCNAS> slist : list)
@@ -71,13 +69,11 @@ public class AbstractCNASEnforcingFacet extends
 	{
 		if (cnas == null)
 		{
-			throw new IllegalArgumentException(
-				"Attempt to remove null from list");
+			throw new IllegalArgumentException("Attempt to remove null from list");
 		}
 		if (source == null)
 		{
-			throw new IllegalArgumentException(
-				"Attempt to remove object with null source from list");
+			throw new IllegalArgumentException("Attempt to remove object with null source from list");
 		}
 		List<List<SourcedCNAS>> list = getList(id);
 		if (list == null)
@@ -109,10 +105,8 @@ public class AbstractCNASEnforcingFacet extends
 						//Only fire if the CNAS differs to avoid churn
 						if (!cnas.equals(newPrimary) && (j == 0))
 						{
-							fireDataFacetChangeEvent(id, cnas,
-								DataFacetChangeEvent.DATA_REMOVED);
-							fireDataFacetChangeEvent(id, newPrimary,
-								DataFacetChangeEvent.DATA_ADDED);
+							fireDataFacetChangeEvent(id, cnas, DataFacetChangeEvent.DATA_REMOVED);
+							fireDataFacetChangeEvent(id, newPrimary, DataFacetChangeEvent.DATA_ADDED);
 							return true;
 						}
 						return false;
@@ -164,9 +158,7 @@ public class AbstractCNASEnforcingFacet extends
 			List<List<SourcedCNAS>> constructingList = getConstructingList(copy);
 			for (List<SourcedCNAS> orig : list)
 			{
-				List<SourcedCNAS> newCnasList =
-                        new ArrayList<>(
-                                orig);
+				List<SourcedCNAS> newCnasList = new ArrayList<>(orig);
 				constructingList.add(newCnasList);
 			}
 		}
@@ -185,8 +177,7 @@ public class AbstractCNASEnforcingFacet extends
 	}
 
 	@Override
-	public void dataRemoved(
-		DataFacetChangeEvent<CharID, CNAbilitySelection> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, CNAbilitySelection> dfce)
 	{
 		remove(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
 	}
@@ -207,13 +198,13 @@ public class AbstractCNASEnforcingFacet extends
 		{
 			return cnas + " (src: " + source + ")";
 		}
-		
+
 		@Override
 		public int hashCode()
 		{
 			return source.hashCode() ^ cnas.hashCode();
 		}
-		
+
 		@Override
 		public boolean equals(Object o)
 		{

@@ -28,13 +28,13 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 public class GenreToken extends AbstractStringToken<Campaign> implements CDOMPrimaryToken<Campaign>
 {
 
-    @Override
+	@Override
 	public String getTokenName()
 	{
 		return "GENRE";
 	}
 
-    @Override
+	@Override
 	public Class<Campaign> getTokenClass()
 	{
 		return Campaign.class;

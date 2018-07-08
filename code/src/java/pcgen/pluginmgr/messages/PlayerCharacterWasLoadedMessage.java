@@ -39,8 +39,7 @@ public class PlayerCharacterWasLoadedMessage extends PCGenMessage
 	 * @param source The source of the message.
 	 * @param pc The character that was loaded.
 	 */
-	public PlayerCharacterWasLoadedMessage(
-		Object source, PlayerCharacter pc)
+	public PlayerCharacterWasLoadedMessage(Object source, PlayerCharacter pc)
 	{
 		super(source);
 		this.pc = pc;

@@ -29,8 +29,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Deals with COST token
  */
-public class CostToken extends AbstractNonEmptyToken<Equipment> implements
-		CDOMPrimaryToken<Equipment>
+public class CostToken extends AbstractNonEmptyToken<Equipment> implements CDOMPrimaryToken<Equipment>
 {
 
 	@Override
@@ -40,8 +39,7 @@ public class CostToken extends AbstractNonEmptyToken<Equipment> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		Equipment eq, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, Equipment eq, String value)
 	{
 		try
 		{
@@ -67,13 +65,12 @@ public class CostToken extends AbstractNonEmptyToken<Equipment> implements
 	@Override
 	public String[] unparse(LoadContext context, Equipment eq)
 	{
-		BigDecimal bd = context.getObjectContext()
-				.getObject(eq, ObjectKey.COST);
+		BigDecimal bd = context.getObjectContext().getObject(eq, ObjectKey.COST);
 		if (bd == null)
 		{
 			return null;
 		}
-		return new String[] { bd.toString() };
+		return new String[]{bd.toString()};
 	}
 
 	@Override

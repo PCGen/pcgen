@@ -28,8 +28,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Deals with BASEITEM token 
  */
-public class BaseitemToken extends AbstractNonEmptyToken<Equipment> implements
-		CDOMPrimaryToken<Equipment>
+public class BaseitemToken extends AbstractNonEmptyToken<Equipment> implements CDOMPrimaryToken<Equipment>
 {
 	private static final Class<Equipment> EQUIPMENT_CLASS = Equipment.class;
 
@@ -40,8 +39,7 @@ public class BaseitemToken extends AbstractNonEmptyToken<Equipment> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		Equipment eq, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, Equipment eq, String value)
 	{
 		context.getObjectContext().put(eq, ObjectKey.BASE_ITEM,
 			context.getReferenceContext().getCDOMReference(EQUIPMENT_CLASS, value));
@@ -51,8 +49,7 @@ public class BaseitemToken extends AbstractNonEmptyToken<Equipment> implements
 	@Override
 	public String[] unparse(LoadContext context, Equipment eq)
 	{
-		CDOMSingleRef<Equipment> ref =
-				context.getObjectContext().getObject(eq, ObjectKey.BASE_ITEM);
+		CDOMSingleRef<Equipment> ref = context.getObjectContext().getObject(eq, ObjectKey.BASE_ITEM);
 		if (ref == null)
 		{
 			return null;

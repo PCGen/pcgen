@@ -39,7 +39,7 @@ public class GoldTokenTest extends AbstractCharacterTestCase
 
 	private GoldToken goldToken = new GoldToken();
 	/**
-	 * Test formatted output of {@link plugin.exporttokens.deprecated.GoldToken#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)}.
+	 * Test formatted output of {@link GoldToken#getToken(String, PlayerCharacter, pcgen.io.ExportHandler)}.
 	 */
 	@Test
 	public void testGetToken()

@@ -139,8 +139,8 @@ public class SkillCostDisplayTest extends AbstractCharacterTestCase
 			.getModifierExplanation(bluff, pc, false);
 		// Have to account for random order of the bonuses. 
 		assertTrue("Bonus after persuasive",
-			modifierExplanation.equals("+2[Persuasive] +3[Skill Focus]") ||
-			modifierExplanation.equals("+3[Skill Focus] +2[Persuasive]"));
+			modifierExplanation.equals("+2[Persuasive] +3[Skill Focus]")
+			|| modifierExplanation.equals("+3[Skill Focus] +2[Persuasive]"));
 	}
 
 }

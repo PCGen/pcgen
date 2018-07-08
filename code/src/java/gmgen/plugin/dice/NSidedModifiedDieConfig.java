@@ -17,7 +17,6 @@
  */
 package gmgen.plugin.dice;
 
-
 import java.text.MessageFormat;
 import java.util.Random;
 import java.util.stream.IntStream;
@@ -38,10 +37,7 @@ class NSidedModifiedDieConfig implements DiceConfig
 	@Override
 	public int roll()
 	{
-		return IntStream.generate(() -> Die.rand.nextInt(sides) + 1)
-		                .map(v -> v + bias)
-		                .limit(n)
-		                .sum();
+		return IntStream.generate(() -> Die.rand.nextInt(sides) + 1).map(v -> v + bias).limit(n).sum();
 	}
 
 	@Override

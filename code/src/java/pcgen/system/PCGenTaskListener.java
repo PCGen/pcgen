@@ -20,12 +20,11 @@ package pcgen.system;
 
 import java.util.EventListener;
 
-
 public interface PCGenTaskListener extends EventListener
 {
 
 	public void progressChanged(PCGenTaskEvent event);
 
 	public void errorOccurred(PCGenTaskEvent event);
-	
+
 }

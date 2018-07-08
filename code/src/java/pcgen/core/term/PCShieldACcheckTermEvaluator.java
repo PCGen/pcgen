@@ -25,12 +25,10 @@ import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 import pcgen.util.Logging;
 
-public class PCShieldACcheckTermEvaluator
-		extends BasePCTermEvaluator implements TermEvaluator
+public class PCShieldACcheckTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
 
-	public PCShieldACcheckTermEvaluator(
-			String originalText)
+	public PCShieldACcheckTermEvaluator(String originalText)
 	{
 		this.originalText = originalText;
 	}
@@ -40,14 +38,13 @@ public class PCShieldACcheckTermEvaluator
 	{
 		if (pc.hasControl(CControl.EQACCHECK))
 		{
-			Logging.errorPrint(originalText
-				+ " term is deprecated (does not function)"
-				+ " when EQACCHECK CodeControl is used");
+			Logging.errorPrint(
+				originalText + " term is deprecated (does not function)" + " when EQACCHECK CodeControl is used");
 		}
 
 		Float maxCheck = 0.0f;
 
-		for ( Equipment eq : pc.getEquipmentOfType("Shield", 1) )
+		for (Equipment eq : pc.getEquipmentOfType("Shield", 1))
 		{
 			maxCheck += eq.preFormulaAcCheck(pc);
 		}

@@ -25,12 +25,11 @@ import java.io.IOException;
 
 import pcgen.facade.core.EquipmentFacade;
 
-
 public class EquipmentSelection implements Transferable
 {
 
-	public static final DataFlavor equipmentArrayFlavor = new DataFlavor(DataFlavor.javaJVMLocalObjectMimeType
-			+ ";class=\"" + EquipmentFacade[].class.getName() + "\"", null);
+	public static final DataFlavor equipmentArrayFlavor = new DataFlavor(
+		DataFlavor.javaJVMLocalObjectMimeType + ";class=\"" + EquipmentFacade[].class.getName() + "\"", null);
 	private EquipmentFacade[] equipment;
 
 	public EquipmentSelection(EquipmentFacade[] equipment)
@@ -41,10 +40,7 @@ public class EquipmentSelection implements Transferable
 	@Override
 	public DataFlavor[] getTransferDataFlavors()
 	{
-		return new DataFlavor[]
-				{
-					equipmentArrayFlavor
-				};
+		return new DataFlavor[]{equipmentArrayFlavor};
 	}
 
 	@Override

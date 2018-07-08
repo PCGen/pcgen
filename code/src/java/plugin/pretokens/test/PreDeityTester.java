@@ -40,8 +40,7 @@ public class PreDeityTester extends AbstractDisplayPrereqTest implements Prerequ
 			{
 				String pantheon = prereq.getKey().substring(9);
 				Deity deity = display.getDeity();
-				Set<Object> charDeityPantheon =
-						Collections.newSetFromMap(new CaseInsensitiveMap<>());
+				Set<Object> charDeityPantheon = Collections.newSetFromMap(new CaseInsensitiveMap<>());
 				if (deity != null)
 				{
 					FactSetKey<String> fk = FactSetKey.valueOf("Pantheon");
@@ -51,71 +50,60 @@ public class PreDeityTester extends AbstractDisplayPrereqTest implements Prerequ
 					}
 				}
 				if (prereq.getOperator().equals(PrerequisiteOperator.EQ)
-						|| prereq.getOperator().equals(
-								PrerequisiteOperator.GTEQ))
+					|| prereq.getOperator().equals(PrerequisiteOperator.GTEQ))
 				{
-					runningTotal = (charDeityPantheon.contains(pantheon)) ? 1
-							: 0;
+					runningTotal = (charDeityPantheon.contains(pantheon)) ? 1 : 0;
 				}
 				else if (prereq.getOperator().equals(PrerequisiteOperator.NEQ)
-						|| prereq.getOperator().equals(PrerequisiteOperator.LT))
+					|| prereq.getOperator().equals(PrerequisiteOperator.LT))
 				{
-					runningTotal = (charDeityPantheon.contains(pantheon)) ? 0
-							: 1;
+					runningTotal = (charDeityPantheon.contains(pantheon)) ? 0 : 1;
 				}
 				else
 				{
 					throw new PrerequisiteException(
-							LanguageBundle
-									.getFormattedString(
-											"PreDeity.error.bad_coparator", prereq.toString())); //$NON-NLS-1$
+						LanguageBundle.getFormattedString(
+							"PreDeity.error.bad_coparator", prereq.toString())); //$NON-NLS-1$
 				}
 			}
 			catch (IllegalArgumentException e)
 			{
 				//This is okay, just indicates the Pantheon asked for can't exist in any PC
 				if (prereq.getOperator().equals(PrerequisiteOperator.EQ)
-						|| prereq.getOperator().equals(
-								PrerequisiteOperator.GTEQ))
+					|| prereq.getOperator().equals(PrerequisiteOperator.GTEQ))
 				{
 					runningTotal = 0;
 				}
 				else if (prereq.getOperator().equals(PrerequisiteOperator.NEQ)
-						|| prereq.getOperator().equals(PrerequisiteOperator.LT))
+					|| prereq.getOperator().equals(PrerequisiteOperator.LT))
 				{
 					runningTotal = 1;
 				}
 				else
 				{
 					throw new PrerequisiteException(
-							LanguageBundle
-									.getFormattedString(
-											"PreDeity.error.bad_coparator", prereq.toString())); //$NON-NLS-1$
+						LanguageBundle.getFormattedString(
+							"PreDeity.error.bad_coparator", prereq.toString())); //$NON-NLS-1$
 				}
 			}
 		}
 		else
 		{
-			final String charDeity =
-					display.getDeity() != null ? display.getDeity()
-						.getKeyName() : ""; //$NON-NLS-1$
+			final String charDeity = display.getDeity() != null ? display.getDeity().getKeyName() : ""; //$NON-NLS-1$
 			if (prereq.getOperator().equals(PrerequisiteOperator.EQ)
 				|| prereq.getOperator().equals(PrerequisiteOperator.GTEQ))
 			{
-				runningTotal =
-						(charDeity.equalsIgnoreCase(prereq.getKey())) ? 1 : 0;
+				runningTotal = (charDeity.equalsIgnoreCase(prereq.getKey())) ? 1 : 0;
 			}
 			else if (prereq.getOperator().equals(PrerequisiteOperator.NEQ)
 				|| prereq.getOperator().equals(PrerequisiteOperator.LT))
 			{
-				runningTotal =
-						(charDeity.equalsIgnoreCase(prereq.getKey())) ? 0 : 1;
+				runningTotal = (charDeity.equalsIgnoreCase(prereq.getKey())) ? 0 : 1;
 			}
 			else
 			{
-				throw new PrerequisiteException(LanguageBundle
-					.getFormattedString(
-						"PreDeity.error.bad_coparator", prereq.toString())); //$NON-NLS-1$
+				throw new PrerequisiteException(
+					LanguageBundle.getFormattedString("PreDeity.error.bad_coparator", prereq.toString())); //$NON-NLS-1$
 			}
 		}
 
@@ -126,7 +114,7 @@ public class PreDeityTester extends AbstractDisplayPrereqTest implements Prerequ
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "DEITY"; //$NON-NLS-1$

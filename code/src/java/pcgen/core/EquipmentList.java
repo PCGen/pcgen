@@ -40,7 +40,8 @@ import pcgen.util.Logging;
  * Equipment-related lists and methods extracted from Globals.java. Will
  * probably try to disentangle modifierlist into it's own class later.
  */
-public final class EquipmentList {
+public final class EquipmentList
+{
 
 	/** this is determined by preferences */
 	private static boolean autoGeneration = false;
@@ -48,11 +49,13 @@ public final class EquipmentList {
 	/**
 	 * Private to ensure utility object can't be instantiated.
 	 */
-	private EquipmentList() {
+	private EquipmentList()
+	{
 		// Empty Constructor
 	}
 
-	private static boolean isAutoGeneration() {
+	private static boolean isAutoGeneration()
+	{
 		return autoGeneration;
 	}
 
@@ -62,7 +65,8 @@ public final class EquipmentList {
 	 * @param auto
 	 *          true if it should be on
 	 */
-	public static void setAutoGeneration(final boolean auto) {
+	public static void setAutoGeneration(final boolean auto)
+	{
 		autoGeneration = auto;
 	}
 
@@ -75,7 +79,8 @@ public final class EquipmentList {
 	 *          TODO
 	 * @return the Equipment matching the name
 	 */
-	public static Equipment getEquipmentFromName(final String baseName, final PlayerCharacter aPC) {
+	public static Equipment getEquipmentFromName(final String baseName, final PlayerCharacter aPC)
+	{
 		final List<String> modList = new ArrayList<>();
 		final List<String> namList = new ArrayList<>();
 		final List<String> sizList = new ArrayList<>();
@@ -85,22 +90,30 @@ public final class EquipmentList {
 
 		// Remove all modifiers from item name and
 		// split into "size" and "non-size" lists
-		if (i >= 0) {
+		if (i >= 0)
+		{
 			final StringTokenizer aTok = new StringTokenizer(aName.substring(i + 1), "/)", false);
 
-			while (aTok.hasMoreTokens()) {
+			while (aTok.hasMoreTokens())
+			{
 				final String cString = aTok.nextToken();
 
 				SizeAdjustment sa = Globals.getContext().getReferenceContext()
-						.silentlyGetConstructedCDOMObject(SizeAdjustment.class, cString);
+					.silentlyGetConstructedCDOMObject(SizeAdjustment.class, cString);
 
-				if (sa != null) {
+				if (sa != null)
+				{
 					sizList.add(cString);
-				} else {
-					if ("Mighty Composite".equalsIgnoreCase(cString)) {
+				}
+				else
+				{
+					if ("Mighty Composite".equalsIgnoreCase(cString))
+					{
 						modList.add("Mighty");
 						modList.add("Composite");
-					} else {
+					}
+					else
+					{
 						modList.add(cString);
 					}
 				}
@@ -115,13 +128,16 @@ public final class EquipmentList {
 		// which are not possibly modifiers
 		// (because they're not in the modifier list).
 		//
-		if (i >= 0) {
-			for (i = modList.size() - 1; i >= 0; --i) {
+		if (i >= 0)
+		{
+			for (i = modList.size() - 1; i >= 0; --i)
+			{
 				final String namePart = modList.get(i);
 
-				if (getModifierNamed(namePart) == null) {
+				if (getModifierNamed(namePart) == null)
+				{
 					namList.add(0, namePart); // add to the start as otherwise the list
-																		// will be reversed
+												// will be reversed
 					modList.remove(i);
 				}
 			}
@@ -133,14 +149,16 @@ public final class EquipmentList {
 		int bonusCount = 0;
 		i = aName.indexOf('+');
 
-		if (i >= 0) {
+		if (i >= 0)
+		{
 			final StringTokenizer aTok = new StringTokenizer(aName.substring(i), "/", false);
 			bonusCount = aTok.countTokens();
 			bonuses = new int[bonusCount];
 
 			int idx = 0;
 
-			while (aTok.hasMoreTokens()) {
+			while (aTok.hasMoreTokens())
+			{
 				final String cString = aTok.nextToken();
 				bonuses[idx++] = Delta.decode(cString).intValue();
 			}
@@ -157,11 +175,14 @@ public final class EquipmentList {
 			// Look through the modifier list for MIGHTY,
 			// if found add the bonus to the start of the modifier's name
 			//
-			if (bonusCount > 0) {
-				for (int idx1 = 0; idx1 < namList.size(); ++idx1) {
+			if (bonusCount > 0)
+			{
+				for (int idx1 = 0; idx1 < namList.size(); ++idx1)
+				{
 					String aString = namList.get(idx1);
 
-					if ("Mighty".equalsIgnoreCase(aString)) {
+					if ("Mighty".equalsIgnoreCase(aString))
+					{
 						aString = Delta.toString(bonuses[bonusCount - 1]) + " " + aString;
 						namList.set(idx1, aString);
 						bonusCount -= 1;
@@ -180,11 +201,13 @@ public final class EquipmentList {
 		String omitString = "";
 		String bonusString = "";
 
-		while (true) {
+		while (true)
+		{
 			final String eqName = aName + bonusString;
 			eq = findEquipment(eqName, null, namList, sizList, omitString);
 
-			if (eq != null) {
+			if (eq != null)
+			{
 				if (sizList.size() > 1) // was used in name, ignore as modifier
 				{
 					sizList.remove(0);
@@ -195,7 +218,8 @@ public final class EquipmentList {
 
 			eq = findEquipment(eqName, namList, null, sizList, omitString);
 
-			if (eq != null) {
+			if (eq != null)
+			{
 				if (sizList.size() > 1) // was used in name, ignore as modifier
 				{
 					sizList.remove(0);
@@ -206,19 +230,23 @@ public final class EquipmentList {
 
 			eq = findEquipment(eqName, namList, null, null, omitString);
 
-			if (eq != null) {
+			if (eq != null)
+			{
 				break;
 			}
 
 			// If only 1 size then include it in name
-			if (sizList.size() == 1) {
+			if (sizList.size() == 1)
+			{
 				eq = findEquipment(eqName, sizList, namList, null, omitString);
 
-				if (eq == null) {
+				if (eq == null)
+				{
 					eq = findEquipment(eqName, namList, sizList, null, omitString);
 				}
 
-				if (eq != null) {
+				if (eq != null)
+				{
 					sizList.clear();
 
 					break;
@@ -227,8 +255,10 @@ public final class EquipmentList {
 
 			// If we haven't found it yet,
 			// try stripping Thrown from name
-			if (baseName.contains("Thrown")) {
-				if (omitString.isEmpty()) {
+			if (baseName.contains("Thrown"))
+			{
+				if (omitString.isEmpty())
+				{
 					omitString = "Thrown";
 
 					continue;
@@ -237,8 +267,10 @@ public final class EquipmentList {
 
 			// Still haven't found it?
 			// Try adding bonus to end of name
-			if ((bonusCount > 0) && (bonuses != null)) {
-				if (bonusString.isEmpty()) {
+			if ((bonusCount > 0) && (bonuses != null))
+			{
+				if (bonusString.isEmpty())
+				{
 					omitString = "";
 					bonusString = " " + Delta.toString(bonuses[0]);
 
@@ -249,7 +281,8 @@ public final class EquipmentList {
 			break;
 		}
 
-		if (eq != null) {
+		if (eq != null)
+		{
 			boolean bModified = false;
 			boolean bError = false;
 			eq = eq.clone();
@@ -273,10 +306,8 @@ public final class EquipmentList {
 				}
 				else
 				{
-					Logging.errorPrint(
-							"Could not find a qualified modifier named: " + namePart
-									+ " for " + eq.getName() + ":"
-									+ eq.typeList());
+					Logging.errorPrint("Could not find a qualified modifier named: " + namePart + " for " + eq.getName()
+						+ ":" + eq.typeList());
 					bError = true;
 				}
 			}
@@ -285,27 +316,31 @@ public final class EquipmentList {
 			// but one of the modifiers is not qualified
 			// to be attached to the item
 			//
-			if (bError) { return null; }
+			if (bError)
+			{
+				return null;
+			}
 
-			if (!sizList.isEmpty()) {
+			if (!sizList.isEmpty())
+			{
 				/*
 				 * CONSIDER This size can be further optimized by changing sizList
 				 */
 				eq.resizeItem(aPC, Globals.getContext().getReferenceContext()
-						.silentlyGetConstructedCDOMObject(SizeAdjustment.class, sizList
-								.get(0)));
+					.silentlyGetConstructedCDOMObject(SizeAdjustment.class, sizList.get(0)));
 				bModified = true;
 
-				if (sizList.size() > 1) {
+				if (sizList.size() > 1)
+				{
 					Logging.errorPrint("Too many sizes in item name, used only 1st of: " + sizList);
 				}
 			}
 
-			if (bModified) {
+			if (bModified)
+			{
 				eq.nameItemFromModifiers(aPC);
 				Equipment equip = Globals.getContext().getReferenceContext()
-						.silentlyGetConstructedCDOMObject(Equipment.class, eq
-								.getKeyName());
+					.silentlyGetConstructedCDOMObject(Equipment.class, eq.getKeyName());
 				if (equip == null)
 				{
 					Globals.getContext().getReferenceContext().importObject(eq);
@@ -337,30 +372,32 @@ public final class EquipmentList {
 
 		if (!desiredTypeList.isEmpty())
 		{
-			for (Equipment eq : Globals.getContext().getReferenceContext()
-					.getConstructedCDOMObjects(Equipment.class))
+			for (Equipment eq : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Equipment.class))
 			{
 				boolean addIt = true;
 
 				//
 				// Must have all of the types in the desired list
 				//
-				for ( String type : desiredTypeList )
+				for (String type : desiredTypeList)
 				{
-					if (!eq.isType(type)) {
+					if (!eq.isType(type))
+					{
 						addIt = false;
 
 						break;
 					}
 				}
 
-				if (addIt && (!excludedTypeList.isEmpty())) {
+				if (addIt && (!excludedTypeList.isEmpty()))
+				{
 					//
 					// Can't have any of the types on the excluded list
 					//
-					for ( String type : excludedTypeList )
+					for (String type : excludedTypeList)
 					{
-						if (eq.isType(type)) {
+						if (eq.isType(type))
+						{
 							addIt = false;
 
 							break;
@@ -368,7 +405,8 @@ public final class EquipmentList {
 					}
 				}
 
-				if (addIt) {
+				if (addIt)
+				{
 					typeList.add(eq);
 				}
 			}
@@ -381,7 +419,8 @@ public final class EquipmentList {
 	 * Automatically add equipment types as requested by user.
 	 *          TODO
 	 */
-	public static void autoGenerateEquipment() {
+	public static void autoGenerateEquipment()
+	{
 		setAutoGeneration(true);
 
 		autogenerateRacialEquipment();
@@ -395,15 +434,18 @@ public final class EquipmentList {
 		setAutoGeneration(false);
 	}
 
-	private static void autogenerateExoticMaterialsEquipment() {
-		if (SettingsHandler.isAutogenExoticMaterial()) {
+	private static void autogenerateExoticMaterialsEquipment()
+	{
+		if (SettingsHandler.isAutogenExoticMaterial())
+		{
 			for (Equipment eq : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Equipment.class))
 			{
 				//
 				// Only apply to non-magical Armor, Shield and Weapon
 				//
 				if (eq.isMagic() || eq.isUnarmed() || eq.isMasterwork()
-						|| (!eq.isAmmunition() && !eq.isArmor() && !eq.isShield() && !eq.isWeapon())) {
+					|| (!eq.isAmmunition() && !eq.isArmor() && !eq.isShield() && !eq.isWeapon()))
+				{
 					continue;
 				}
 
@@ -418,17 +460,22 @@ public final class EquipmentList {
 		}
 	}
 
-	private static void autogenerateMagicEquipment() {
-		if (SettingsHandler.isAutogenMagic()) {
-			for (int iPlus = 1; iPlus <= 5; iPlus++) {
+	private static void autogenerateMagicEquipment()
+	{
+		if (SettingsHandler.isAutogenMagic())
+		{
+			for (int iPlus = 1; iPlus <= 5; iPlus++)
+			{
 				final String aBonus = Delta.toString(iPlus);
 
-				for (Equipment eq : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Equipment.class))
+				for (Equipment eq : Globals.getContext().getReferenceContext()
+					.getConstructedCDOMObjects(Equipment.class))
 				{
 					// Only apply to non-magical
 					// Armor, Shield and Weapon
 					if (eq.isMagic() || eq.isMasterwork()
-							|| (!eq.isAmmunition() && !eq.isArmor() && !eq.isShield() && !eq.isWeapon())) {
+						|| (!eq.isAmmunition() && !eq.isArmor() && !eq.isShield() && !eq.isWeapon()))
+					{
 						continue;
 					}
 
@@ -436,37 +483,36 @@ public final class EquipmentList {
 					// you can assign magic to them
 					EquipmentModifier eqMod = getQualifiedModifierNamed("Masterwork", eq);
 
-					if (eqMod == null) {
-						Logging
-						.debugPrint("Could not generate a Masterwork "
-							+ eq
-							+ " as the equipment modifier could not be found.");
+					if (eqMod == null)
+					{
+						Logging.debugPrint(
+							"Could not generate a Masterwork " + eq + " as the equipment modifier could not be found.");
 						continue;
 					}
 
 					// Get list of choices
-					final EquipmentChoice equipChoice = EquipmentChoiceDriver.buildEquipmentChoice(0, eq, eqMod, false, false, 0, null);
+					final EquipmentChoice equipChoice =
+							EquipmentChoiceDriver.buildEquipmentChoice(0, eq, eqMod, false, false, 0, null);
 
 					// Iterate over list, creating an item for each choice.
 					final Iterator<Object> equipIter = equipChoice.getChoiceIterator(true);
-					for (; equipIter.hasNext();) {
+					for (; equipIter.hasNext();)
+					{
 						final String mwChoice = String.valueOf(equipIter.next());
 						eq = eq.clone();
 						eq.addEqModifier(eqMod, true, null, mwChoice, equipChoice);
 
-						if (eq.isWeapon() && eq.isDouble()) {
+						if (eq.isWeapon() && eq.isDouble())
+						{
 							eq.addEqModifier(eqMod, false, null, mwChoice, equipChoice);
 						}
 
 						eqMod = getQualifiedModifierNamed(aBonus, eq);
 
-						if (eqMod == null) {
-							Logging
-								.debugPrint("Could not generate a "
-									+ aBonus
-									+ " "
-									+ eq
-									+ " as the equipment modifier could not be found.");
+						if (eqMod == null)
+						{
+							Logging.debugPrint("Could not generate a " + aBonus + " " + eq
+								+ " as the equipment modifier could not be found.");
 							continue;
 						}
 						createItem(eq, eqMod, null, null, null);
@@ -476,15 +522,18 @@ public final class EquipmentList {
 		}
 	}
 
-	private static void autogenerateMasterWorkEquipment() {
-		if (SettingsHandler.isAutogenMasterwork()) {
+	private static void autogenerateMasterWorkEquipment()
+	{
+		if (SettingsHandler.isAutogenMasterwork())
+		{
 			for (Equipment eq : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Equipment.class))
 			{
 				//
 				// Only apply to non-magical Armor, Shield and Weapon
 				//
 				if (eq.isMagic() || eq.isUnarmed() || eq.isMasterwork()
-						|| (!eq.isAmmunition() && !eq.isArmor() && !eq.isShield() && !eq.isWeapon())) {
+					|| (!eq.isAmmunition() && !eq.isArmor() && !eq.isShield() && !eq.isWeapon()))
+				{
 					continue;
 				}
 
@@ -495,11 +544,13 @@ public final class EquipmentList {
 				}
 
 				// Get list of choices (extract code from EquipmentModifier.getChoice)
-				final EquipmentChoice equipChoice = EquipmentChoiceDriver.buildEquipmentChoice(0, eq, eqMasterwork, false, false, 0, null);
+				final EquipmentChoice equipChoice =
+						EquipmentChoiceDriver.buildEquipmentChoice(0, eq, eqMasterwork, false, false, 0, null);
 
 				// Iterate over list, creating an item for each choice.
 				final Iterator<Object> equipIter = equipChoice.getChoiceIterator(true);
-				for (; equipIter.hasNext();) {
+				for (; equipIter.hasNext();)
+				{
 					final String choice = String.valueOf(equipIter.next());
 					createItem(eq, eqMasterwork, null, choice, equipChoice);
 				}
@@ -507,8 +558,10 @@ public final class EquipmentList {
 		}
 	}
 
-	private static void autogenerateRacialEquipment() {
-		if (SettingsHandler.isAutogenRacial()) {
+	private static void autogenerateRacialEquipment()
+	{
+		if (SettingsHandler.isAutogenRacial())
+		{
 
 			Set<Integer> gensizesid = new HashSet<>();
 			//
@@ -524,9 +577,7 @@ public final class EquipmentList {
 				 * SIZE: in Race LST files enforces that the formula is fixed,
 				 * so no isStatic() check needed here
 				 */
-				final int iSize =
-						race.getSafe(FormulaKey.SIZE).resolveStatic()
-							.intValue();
+				final int iSize = race.getSafe(FormulaKey.SIZE).resolveStatic().intValue();
 				gensizesid.add(iSize);
 			}
 
@@ -534,8 +585,7 @@ public final class EquipmentList {
 			Set<SizeAdjustment> gensizes = new HashSet<>();
 			for (Integer i : gensizesid)
 			{
-				gensizes.add(ref.getSortedList(SizeAdjustment.class,
-					IntegerKey.SIZEORDER).get(i));
+				gensizes.add(ref.getSortedList(SizeAdjustment.class, IntegerKey.SIZEORDER).get(i));
 			}
 			// skip over default size
 			gensizes.remove(defaultSize);
@@ -559,24 +609,36 @@ public final class EquipmentList {
 		}
 	}
 
-	private static EquipmentModifier getModifierNamed(final String aName) {
-		for (EquipmentModifier eqMod : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(EquipmentModifier.class))
+	private static EquipmentModifier getModifierNamed(final String aName)
+	{
+		for (EquipmentModifier eqMod : Globals.getContext().getReferenceContext()
+			.getConstructedCDOMObjects(EquipmentModifier.class))
 		{
-			if (eqMod.getDisplayName().equals(aName)) { return eqMod; }
+			if (eqMod.getDisplayName().equals(aName))
+			{
+				return eqMod;
+			}
 		}
 
 		return null;
 	}
 
-	private static EquipmentModifier getQualifiedModifierNamed(final String aName, final Equipment eq) {
-		for (EquipmentModifier eqMod : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(EquipmentModifier.class))
+	private static EquipmentModifier getQualifiedModifierNamed(final String aName, final Equipment eq)
+	{
+		for (EquipmentModifier eqMod : Globals.getContext().getReferenceContext()
+			.getConstructedCDOMObjects(EquipmentModifier.class))
 		{
-			if (eqMod.getDisplayName().startsWith(aName)) {
-				for (String t : eq.typeList() )
+			if (eqMod.getDisplayName().startsWith(aName))
+			{
+				for (String t : eq.typeList())
 				{
-					if (eqMod.isType(t)) {
+					if (eqMod.isType(t))
+					{
 						// Type matches, passes prereqs?
-						if (PrereqHandler.passesAll(eqMod, eq, null)) { return eqMod; }
+						if (PrereqHandler.passesAll(eqMod, eq, null))
+						{
+							return eqMod;
+						}
 					}
 				}
 			}
@@ -592,14 +654,18 @@ public final class EquipmentList {
 	 * @param omitString
 	 * @param newName
 	 */
-	private static void appendNameParts(final List<String> nameList, final String omitString, final StringBuilder newName) {
-		for ( String namePart : nameList )
+	private static void appendNameParts(final List<String> nameList, final String omitString,
+		final StringBuilder newName)
+	{
+		for (String namePart : nameList)
 		{
-			if ((!omitString.isEmpty()) && namePart.equals(omitString)) {
+			if ((!omitString.isEmpty()) && namePart.equals(omitString))
+			{
 				continue;
 			}
 
-			if (newName.length() > 2) {
+			if (newName.length() > 2)
+			{
 				newName.append('/');
 			}
 
@@ -607,38 +673,51 @@ public final class EquipmentList {
 		}
 	}
 
-	private static void createItem(final Equipment eq, final SizeAdjustment sa, final PlayerCharacter aPC) {
+	private static void createItem(final Equipment eq, final SizeAdjustment sa, final PlayerCharacter aPC)
+	{
 		createItem(eq, null, sa, aPC, "", null);
 	}
 
-	private static void createItem(final Equipment eq, final EquipmentModifier eqMod, final PlayerCharacter aPC, final String choice,
-			final EquipmentChoice equipChoice) {
+	private static void createItem(final Equipment eq, final EquipmentModifier eqMod, final PlayerCharacter aPC,
+		final String choice, final EquipmentChoice equipChoice)
+	{
 		createItem(eq, eqMod, null, aPC, choice, equipChoice);
 	}
 
-	private static void createItem(Equipment eq, final EquipmentModifier eqMod, final SizeAdjustment sa, final PlayerCharacter aPC,
-			final String choice, final EquipmentChoice equipChoice) {
-		if (eq == null) { return; }
+	private static void createItem(Equipment eq, final EquipmentModifier eqMod, final SizeAdjustment sa,
+		final PlayerCharacter aPC, final String choice, final EquipmentChoice equipChoice)
+	{
+		if (eq == null)
+		{
+			return;
+		}
 
-		try {
+		try
+		{
 			// Armor without an armor bonus is an exception
 			//
 			if (!eq.getSafe(ObjectKey.MOD_CONTROL).getModifiersAllowed()
-					|| (eq.isArmor() && (eq.getACMod(aPC).intValue() == 0) && ((eqMod != null) && !eqMod.getDisplayName()
-							.equalsIgnoreCase("MASTERWORK")))) { return; }
+				|| (eq.isArmor() && (eq.getACMod(aPC).intValue() == 0)
+					&& ((eqMod != null) && !eqMod.getDisplayName().equalsIgnoreCase("MASTERWORK"))))
+			{
+				return;
+			}
 
 			eq = eq.clone();
 
-			if (eq == null) {
+			if (eq == null)
+			{
 				Logging.errorPrint("could not clone item");
 
 				return;
 			}
 
-			if (eqMod != null) {
+			if (eqMod != null)
+			{
 				eq.addEqModifier(eqMod, true, aPC, choice, equipChoice);
 
-				if (eq.isWeapon() && eq.isDouble()) {
+				if (eq.isWeapon() && eq.isDouble())
+				{
 					eq.addEqModifier(eqMod, false, aPC, choice, equipChoice);
 				}
 			}
@@ -652,59 +731,76 @@ public final class EquipmentList {
 			// Change the names, to protect the innocent
 			//
 			final String sKeyName = eq.nameItemFromModifiers(aPC);
-			final Equipment eqExists = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
-					Equipment.class, sKeyName);
+			final Equipment eqExists = Globals.getContext().getReferenceContext()
+				.silentlyGetConstructedCDOMObject(Equipment.class, sKeyName);
 
-			if (eqExists != null) { return; }
+			if (eqExists != null)
+			{
+				return;
+			}
 
 			final Type newType;
 
-			if (isAutoGeneration()) {
+			if (isAutoGeneration())
+			{
 				newType = Type.AUTO_GEN;
-			} else {
+			}
+			else
+			{
 				newType = Type.CUSTOM;
 			}
 
-			if (!eq.isType(newType.toString())) {
+			if (!eq.isType(newType.toString()))
+			{
 				eq.addType(newType);
 			}
 
 			Globals.getContext().getReferenceContext().importObject(eq);
-		} catch (NumberFormatException exception) {
+		}
+		catch (NumberFormatException exception)
+		{
 			Logging.errorPrint("createItem: exception: " + eq.getName());
 		}
 	}
 
-	private static Equipment findEquipment(final String aName, final List<String> preNameList, final List<String> postNameList,
-			final List<String> sizList, final String omitString) {
+	private static Equipment findEquipment(final String aName, final List<String> preNameList,
+		final List<String> postNameList, final List<String> sizList, final String omitString)
+	{
 		final StringBuilder newName = new StringBuilder(80);
 		newName.append(" (");
 
-		if (preNameList != null) {
+		if (preNameList != null)
+		{
 			final List<String> nameList = preNameList;
 			appendNameParts(nameList, omitString, newName);
 		}
 
-		if (sizList != null) {
+		if (sizList != null)
+		{
 			// Append 1st size if multiple sizes
 			//
-			if (sizList.size() > 1) {
+			if (sizList.size() > 1)
+			{
 				newName.append(sizList.get(0));
 			}
 		}
 
-		if (postNameList != null) {
+		if (postNameList != null)
+		{
 			appendNameParts(postNameList, omitString, newName);
 		}
 
-		if (newName.length() == 2) {
+		if (newName.length() == 2)
+		{
 			newName.setLength(0);
-		} else {
+		}
+		else
+		{
 			newName.append(')');
 		}
 
-		final Equipment eq = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
-				Equipment.class, aName + newName);
+		final Equipment eq = Globals.getContext().getReferenceContext()
+			.silentlyGetConstructedCDOMObject(Equipment.class, aName + newName);
 
 		return eq;
 	}

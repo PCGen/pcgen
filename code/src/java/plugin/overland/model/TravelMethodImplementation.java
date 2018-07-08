@@ -161,11 +161,13 @@ class TravelMethodImplementation implements TravelMethod
 		n.append(LanguageBundle.getPrettyMultiplier(n2.doubleValue()));
 		if (c.getAddMph().doubleValue() != 0)
 		{
-			n.append('\n').append(MessageFormat.format(LanguageBundle.getString("in_plusMph"), c.getAddMph())); //$NON-NLS-1$ //$NON-NLS-2$
+			n.append('\n').append(MessageFormat.format(LanguageBundle.getString("in_plusMph"),
+				c.getAddMph())); //$NON-NLS-1$ 
 		}
 		if (c.getAddMph().doubleValue() != 0)
 		{
-			n.append('\n').append(MessageFormat.format(LanguageBundle.getString("in_plusKmh"), c.getAddKmh())); //$NON-NLS-1$ //$NON-NLS-2$
+			n.append('\n').append(MessageFormat.format(LanguageBundle.getString("in_plusKmh"),
+				c.getAddKmh())); //$NON-NLS-1$ 
 		}
 		return n.toString();
 	}
@@ -190,9 +192,8 @@ class TravelMethodImplementation implements TravelMethod
 			Pace selectedPace = paceModel.getSelected();
 			if (selectedPace != null)
 			{
-				String unit =
-						selectedPace.isUseDays()
-							? LanguageBundle.getString("in_mpd") : LanguageBundle.getString("in_mph"); //$NON-NLS-1$ //$NON-NLS-2$
+				String unit = selectedPace.isUseDays() ? LanguageBundle.getString("in_mpd") //$NON-NLS-1$
+					: LanguageBundle.getString("in_mph"); //$NON-NLS-1$
 				return MessageFormat.format(unit, imperialSpeed);
 			}
 			return null;
@@ -219,9 +220,8 @@ class TravelMethodImplementation implements TravelMethod
 			Pace selectedPace = paceModel.getSelected();
 			if (selectedPace != null)
 			{
-				String unit =
-						selectedPace.isUseDays()
-							? LanguageBundle.getString("in_kmd") : LanguageBundle.getString("in_kmh"); //$NON-NLS-1$ //$NON-NLS-2$
+				String unit = selectedPace.isUseDays() ? LanguageBundle.getString("in_kmd") //$NON-NLS-1$
+					: LanguageBundle.getString("in_kmh"); //$NON-NLS-1$
 				return MessageFormat.format(unit, metricSpeed);
 			}
 		}

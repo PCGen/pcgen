@@ -70,30 +70,25 @@ public class SpellsFacet extends AbstractQualifiedListFacet<SpellLikeAbility>
 
 		for (CDOMReference<Spell> ref : mods)
 		{
-			Collection<AssociatedPrereqObject> assocs =
-					cdo.getListAssociations(Spell.SPELLS, ref);
+			Collection<AssociatedPrereqObject> assocs = cdo.getListAssociations(Spell.SPELLS, ref);
 			Collection<Spell> spells = ref.getContainedObjects();
 			for (AssociatedPrereqObject apo : assocs)
 			{
-				Formula times =
-						apo.getAssociation(AssociationKey.TIMES_PER_UNIT);
+				Formula times = apo.getAssociation(AssociationKey.TIMES_PER_UNIT);
 				String timeunit = apo.getAssociation(AssociationKey.TIME_UNIT);
 				// The timeunit needs to default to day as per the docs
 				if (timeunit == null)
 				{
 					timeunit = "Day";
 				}
-				String casterlevel =
-						apo.getAssociation(AssociationKey.CASTER_LEVEL);
-				String dcformula =
-						apo.getAssociation(AssociationKey.DC_FORMULA);
+				String casterlevel = apo.getAssociation(AssociationKey.CASTER_LEVEL);
+				String dcformula = apo.getAssociation(AssociationKey.DC_FORMULA);
 				String book = apo.getAssociation(AssociationKey.SPELLBOOK);
 				String ident = cdo.getQualifiedKey();
 				for (Spell sp : spells)
 				{
 					SpellLikeAbility sla =
-							new SpellLikeAbility(sp, times, timeunit, book,
-								casterlevel, dcformula, ident);
+							new SpellLikeAbility(sp, times, timeunit, book, casterlevel, dcformula, ident);
 					sla.addAllPrerequisites(apo.getPrerequisiteList());
 					add(id, sla, cdo);
 				}

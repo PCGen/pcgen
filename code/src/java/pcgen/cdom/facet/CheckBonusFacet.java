@@ -63,12 +63,11 @@ public class CheckBonusFacet
 
 		for (PCCheck check : checkFacet.getSet(id))
 		{
-			List<BonusObj> tempList = BonusUtilities.getBonusFromList(check
-					.getListFor(ListKey.BONUS), upperType, upperName);
+			List<BonusObj> tempList =
+					BonusUtilities.getBonusFromList(check.getListFor(ListKey.BONUS), upperType, upperName);
 			if (!tempList.isEmpty())
 			{
-				bonus += bonusCheckingFacet.getAllBonusValues(id, tempList, check
-						.getQualifiedKey());
+				bonus += bonusCheckingFacet.getAllBonusValues(id, tempList, check.getQualifiedKey());
 			}
 		}
 

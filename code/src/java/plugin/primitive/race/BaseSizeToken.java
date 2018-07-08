@@ -35,26 +35,21 @@ import pcgen.rules.persistence.token.PrimitiveToken;
 /**
  * BaseSizeToken is a Primitive that filters based on the base SizeAdjustment of a Race.
  */
-public class BaseSizeToken implements PrimitiveToken<Race>,
-		PrimitiveFilter<Race>
+public class BaseSizeToken implements PrimitiveToken<Race>, PrimitiveFilter<Race>
 {
 	private static final Class<Race> RACE_CLASS = Race.class;
 	private CDOMSingleRef<SizeAdjustment> size;
 	private CDOMReference<Race> allRaces;
 
 	@Override
-	public boolean initialize(LoadContext context, Class<Race> cl,
-		String value, String args)
+	public boolean initialize(LoadContext context, Class<Race> cl, String value, String args)
 	{
 		if (args != null)
 		{
 			return false;
 		}
-		size =
-				context.getReferenceContext().getCDOMReference(
-					SizeAdjustment.class, value);
-		allRaces =
-				context.getReferenceContext().getCDOMAllReference(RACE_CLASS);
+		size = context.getReferenceContext().getCDOMReference(SizeAdjustment.class, value);
+		allRaces = context.getReferenceContext().getCDOMAllReference(RACE_CLASS);
 		return true;
 	}
 
@@ -111,8 +106,7 @@ public class BaseSizeToken implements PrimitiveToken<Race>,
 	}
 
 	@Override
-	public <R> Collection<? extends R> getCollection(PlayerCharacter pc,
-		Converter<Race, R> c)
+	public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<Race, R> c)
 	{
 		return c.convert(allRaces, this);
 	}

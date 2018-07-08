@@ -33,8 +33,7 @@ public class TableFormatFactory implements FormatManagerFactory
 	/**
 	 * A pattern to ensure no subtables.
 	 */
-	private static final Pattern SUB_PATTERN =
-			Pattern.compile(Pattern.quote("TABLE["), Pattern.CASE_INSENSITIVE);
+	private static final Pattern SUB_PATTERN = Pattern.compile(Pattern.quote("TABLE["), Pattern.CASE_INSENSITIVE);
 
 	/**
 	 * The FormatManager used by ColumnFormatManager objects built by this
@@ -56,13 +55,11 @@ public class TableFormatFactory implements FormatManagerFactory
 	}
 
 	@Override
-	public FormatManager<?> build(String subFormatName,
-		FormatManagerLibrary library)
+	public FormatManager<?> build(String subFormatName, FormatManagerLibrary library)
 	{
 		if (subFormatName == null)
 		{
-			throw new IllegalArgumentException(
-				"Table Format cannot be built from no instructions");
+			throw new IllegalArgumentException("Table Format cannot be built from no instructions");
 		}
 		if (SUB_PATTERN.matcher(subFormatName).find())
 		{
@@ -72,8 +69,7 @@ public class TableFormatFactory implements FormatManagerFactory
 			 * Table.
 			 */
 			throw new IllegalArgumentException(
-				"Multidimensional Table format not supported: " + subFormatName
-					+ " may not contain brackets");
+				"Multidimensional Table format not supported: " + subFormatName + " may not contain brackets");
 		}
 		return new TableFormatManager(tableFormat, library.getFormatManager(subFormatName));
 	}

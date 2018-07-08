@@ -30,8 +30,7 @@ import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class LocalToken extends AbstractNonEmptyToken<DatasetVariable>
-		implements CDOMPrimaryToken<DatasetVariable>
+public class LocalToken extends AbstractNonEmptyToken<DatasetVariable> implements CDOMPrimaryToken<DatasetVariable>
 {
 
 	@Override
@@ -41,20 +40,17 @@ public class LocalToken extends AbstractNonEmptyToken<DatasetVariable>
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		DatasetVariable dv, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, DatasetVariable dv, String value)
 	{
 		int pipeLoc = value.indexOf(Constants.PIPE);
 		if (pipeLoc == -1)
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " expected 2 pipe delimited arguments, found no pipe: "
-				+ value);
+			return new ParseResult.Fail(
+				getTokenName() + " expected 2 pipe delimited arguments, found no pipe: " + value);
 		}
 		if (pipeLoc != value.lastIndexOf(Constants.PIPE))
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " expected only 2 pipe delimited arguments, found: " + value);
+			return new ParseResult.Fail(getTokenName() + " expected only 2 pipe delimited arguments, found: " + value);
 		}
 		String fullscope = value.substring(0, pipeLoc);
 		String fvName = value.substring(pipeLoc + 1);
@@ -63,8 +59,7 @@ public class LocalToken extends AbstractNonEmptyToken<DatasetVariable>
 		int equalLoc = fvName.indexOf('=');
 		if (equalLoc != fvName.lastIndexOf('='))
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " expected only 2 equal delimited arguments, found: " + value);
+			return new ParseResult.Fail(getTokenName() + " expected only 2 equal delimited arguments, found: " + value);
 		}
 		if (equalLoc == -1)
 		{
@@ -79,21 +74,18 @@ public class LocalToken extends AbstractNonEmptyToken<DatasetVariable>
 		}
 		if (dv.getDisplayName() != null)
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " must be the first token on the line");
+			return new ParseResult.Fail(getTokenName() + " must be the first token on the line");
 		}
 
 		VariableContext varContext = context.getVariableContext();
 		FormatManager<?> formatManager;
 		try
 		{
-			formatManager =
-					context.getReferenceContext().getFormatManager(format);
+			formatManager = context.getReferenceContext().getFormatManager(format);
 		}
 		catch (NullPointerException | IllegalArgumentException e)
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " does not support format " + format + ", found in " + value
+			return new ParseResult.Fail(getTokenName() + " does not support format " + format + ", found in " + value
 				+ " due to " + e.getMessage());
 		}
 		PCGenScope lvs = varContext.getScope(fullscope);
@@ -104,8 +96,7 @@ public class LocalToken extends AbstractNonEmptyToken<DatasetVariable>
 
 		if (!DatasetVariable.isLegalName(varName))
 		{
-			return new ParseResult.Fail(varName
-				+ " is not a valid variable name");
+			return new ParseResult.Fail(varName + " is not a valid variable name");
 		}
 		try
 		{
@@ -113,8 +104,8 @@ public class LocalToken extends AbstractNonEmptyToken<DatasetVariable>
 		}
 		catch (LegalVariableException e)
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " encountered an exception in varible definition : " + e.getMessage());
+			return new ParseResult.Fail(
+				getTokenName() + " encountered an exception in varible definition : " + e.getMessage());
 		}
 		dv.setName(varName);
 		dv.setFormat(formatManager);

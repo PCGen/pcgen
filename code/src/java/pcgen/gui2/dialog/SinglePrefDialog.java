@@ -19,10 +19,12 @@ package pcgen.gui2.dialog;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
+
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
 import pcgen.gui2.prefs.PCGenPrefsPanel;
 import pcgen.gui2.tools.Utility;
 import pcgen.system.LanguageBundle;
@@ -37,7 +39,7 @@ public class SinglePrefDialog extends JDialog
 {
 	private final PCGenPrefsPanel prefsPanel;
 	private JPanel controlPanel;
-	
+
 	/**
 	 * Create a new modal SinglePrefDialog to display a particular panel.
 	 *  
@@ -47,11 +49,11 @@ public class SinglePrefDialog extends JDialog
 	public SinglePrefDialog(JFrame parent, PCGenPrefsPanel prefsPanel)
 	{
 		super(parent, prefsPanel.getTitle(), true);
-		
+
 		this.prefsPanel = prefsPanel;
 
 		initComponents();
-		
+
 		this.getContentPane().setLayout(new BorderLayout());
 		this.getContentPane().add(prefsPanel, BorderLayout.CENTER);
 		this.getContentPane().add(controlPanel, BorderLayout.SOUTH);
@@ -59,7 +61,7 @@ public class SinglePrefDialog extends JDialog
 		prefsPanel.applyOptionValuesToControls();
 
 		pack();
-		
+
 		Utility.installEscapeCloseOperation(this);
 	}
 
@@ -74,13 +76,12 @@ public class SinglePrefDialog extends JDialog
 		controlPanel.add(okButton);
 		okButton.addActionListener(evt -> okButtonActionPerformed());
 
-		JButton cancelButton =
-				new JButton(LanguageBundle.getString("in_cancel"));
+		JButton cancelButton = new JButton(LanguageBundle.getString("in_cancel"));
 		cancelButton.setMnemonic(LanguageBundle.getMnemonic("in_mn_cancel"));
 		controlPanel.add(cancelButton);
 		cancelButton.addActionListener(evt -> cancelButtonActionPerformed());
 	}
-	
+
 	private void cancelButtonActionPerformed()
 	{
 		setVisible(false);
@@ -94,5 +95,5 @@ public class SinglePrefDialog extends JDialog
 
 		this.dispose();
 	}
-	
+
 }

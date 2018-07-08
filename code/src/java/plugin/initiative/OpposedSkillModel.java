@@ -21,18 +21,16 @@
 
 package plugin.initiative;
 
-import gmgen.plugin.PcgCombatant;
-
 import java.util.List;
 
+import gmgen.plugin.PcgCombatant;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.RollingMethods;
 import pcgen.core.Skill;
 import pcgen.core.analysis.SkillModifier;
 import pcgen.core.analysis.SkillRankControl;
-
-import pcgen.core.RollingMethods;
 
 /**
  * <p>
@@ -94,21 +92,17 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 			if (initiative != null && aSkillKey != null)
 			{
 				PlayerCharacter pc = initiative.getPC();
-				Skill skill = Globals.getContext().getReferenceContext()
-						.silentlyGetConstructedCDOMObject(Skill.class,
-								aSkillKey);
+				Skill skill = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Skill.class,
+					aSkillKey);
 				if (skill != null && pc.getDisplay().hasSkill(skill))
 				{
-					returnValue =
-							SkillModifier.modifier(skill, pc).intValue()
-									+ SkillRankControl.getTotalRank(pc, skill).intValue();
+					returnValue = SkillModifier.modifier(skill, pc).intValue()
+						+ SkillRankControl.getTotalRank(pc, skill).intValue();
 				}
-				else if (skill != null
-						&& skill.getSafe(ObjectKey.USE_UNTRAINED)
-						&& skill.get(ObjectKey.KEY_STAT) != null)
+				else if (skill != null && skill.getSafe(ObjectKey.USE_UNTRAINED)
+					&& skill.get(ObjectKey.KEY_STAT) != null)
 				{
-					returnValue = SkillModifier.modifier(skill,
-							pc).intValue();
+					returnValue = SkillModifier.modifier(skill, pc).intValue();
 				}
 			}
 			return returnValue;
@@ -209,8 +203,7 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 	public OpposedSkillModel()
 	{
 		super();
-		columns.addColumn("BONUS", Integer.class, 0, false,
-			"Bonus");
+		columns.addColumn("BONUS", Integer.class, 0, false, "Bonus");
 		columns.addColumn("FUDGE", Integer.class, null, true, "Fudge");
 		columns.addColumn("RESULT", Integer.class, null, false, "Result");
 	}
@@ -225,13 +218,12 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 	public OpposedSkillModel(List combatantList)
 	{
 		super(combatantList);
-		columns.addColumn("BONUS", Integer.class, 0, false,
-			"Bonus");
+		columns.addColumn("BONUS", Integer.class, 0, false, "Bonus");
 		columns.addColumn("FUDGE", Integer.class, null, true, "Fudge");
 		columns.addColumn("RESULT", Integer.class, null, false, "Result");
 	}
 
-    @Override
+	@Override
 	public Object getValueAt(int rowIndex, int columnIndex)
 	{
 		Object returnValue = null;
@@ -251,6 +243,9 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 					break;
 				case 3:
 					returnValue = entry.getResult();
+					break;
+				default:
+					//Case not caught, should this cause an error?
 					break;
 			}
 		}
@@ -299,11 +294,10 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 		rollAll();
 	}
 
-    @Override
+	@Override
 	public void setValueAt(Object aValue, int rowIndex, int columnIndex)
 	{
-		if (rowIndex < combatants.size() && columnIndex == 2
-			&& aValue instanceof Integer)
+		if (rowIndex < combatants.size() && columnIndex == 2 && aValue instanceof Integer)
 		{
 			SkillInitWrapper entry = (SkillInitWrapper) getRowEntry(rowIndex);
 			entry.setFudge((Integer) aValue);
@@ -314,7 +308,7 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 		}
 	}
 
-    @Override
+	@Override
 	public void addCombatant(PcgCombatant combatant)
 	{
 		combatants.put(combatant.getName(), new SkillInitWrapper(combatant));

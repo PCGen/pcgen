@@ -57,9 +57,9 @@ public final class LstFileLoader
 	{
 		//Utility class
 	}
-	
+
 	/** The String that represents the start of a line comment. */
-	public static final char LINE_COMMENT_CHAR = '#'; //$NON-NLS-1$
+	public static final char LINE_COMMENT_CHAR = '#';
 
 	/** The String that separates individual objects */
 	public static final String LINE_SEPARATOR_REGEXP = "(\r\n?|\n)"; //$NON-NLS-1$
@@ -80,17 +80,18 @@ public final class LstFileLoader
 		if (uri == null)
 		{
 			// We have a problem!
-			throw new PersistenceLayerException(
-				"LstFileLoader.readFromURI() received a null uri parameter!");
+			throw new PersistenceLayerException("LstFileLoader.readFromURI() received a null uri parameter!");
 		}
-		
+
 		URL url;
-		try {
+		try
+		{
 			url = uri.toURL();
-		} catch (MalformedURLException e) {
+		}
+		catch (MalformedURLException e)
+		{
 			throw new PersistenceLayerException(
-					"LstFileLoader.readFromURI() could not convert parameter to a URL: "
-							+ e.getLocalizedMessage());
+				"LstFileLoader.readFromURI() could not convert parameter to a URL: " + e.getLocalizedMessage());
 		}
 		InputStream inputStream = null;
 
@@ -102,14 +103,14 @@ public final class LstFileLoader
 			{
 				// try to make a buffer of sufficient size in one go to save on GC
 				int size = 2048;
-				if ("file".equals(url.getProtocol())) 
+				if ("file".equals(url.getProtocol()))
 				{
 					long fileSize = new File(url.getPath()).length();
 					if (fileSize > 0)
 					{
 						// this is an overestimate if the LST has wide 
 						// characters, but it's accurate for ASCII
-						size = (int) fileSize; 
+						size = (int) fileSize;
 					}
 				}
 				dataBuffer = new StringBuilder(size);
@@ -118,8 +119,7 @@ public final class LstFileLoader
 				inputStream = url.openStream();
 
 				// Read from the stream
-				final InputStreamReader ir =
-						new InputStreamReader(inputStream, "UTF-8"); //$NON-NLS-1$
+				final InputStreamReader ir = new InputStreamReader(inputStream, "UTF-8"); //$NON-NLS-1$
 
 				// Buffer the stream content
 				final char[] b = new char[512];
@@ -145,12 +145,9 @@ public final class LstFileLoader
 				// Just to protect people from using web
 				// sources without their knowledge,
 				// we added a preference.
-				ShowMessageDelegate
-					.showMessageDialog(
-						"Preferences are currently set to NOT allow\nloading of "
-							+ "sources from web links. \n" + url
-							+ " is a web link", Constants.APPLICATION_NAME,
-						MessageType.ERROR);
+				ShowMessageDelegate.showMessageDialog("Preferences are currently set to NOT allow\nloading of "
+					+ "sources from web links. \n" + url + " is a web link", Constants.APPLICATION_NAME,
+					MessageType.ERROR);
 				// aURL = null; //currently unnecessary reassignment 
 			}
 		}
@@ -159,8 +156,7 @@ public final class LstFileLoader
 			// Don't throw an exception here because a simple
 			// file not found will prevent ANY other files from
 			// being loaded/processed -- NOT what we want
-			Logging.errorPrint("ERROR:" + url + "\n" + "Exception type:"
-				+ ioe.getClass().getName() + "\n" + "Message:"
+			Logging.errorPrint("ERROR:" + url + "\n" + "Exception type:" + ioe.getClass().getName() + "\n" + "Message:"
 				+ ioe.getMessage());
 		}
 		finally
@@ -173,9 +169,7 @@ public final class LstFileLoader
 				}
 				catch (IOException e2)
 				{
-					Logging.errorPrint(
-						"Can't close inputStream in LstSystemLoader.initFile",
-						e2);
+					Logging.errorPrint("Can't close inputStream in LstSystemLoader.initFile", e2);
 				}
 			}
 		}

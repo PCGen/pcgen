@@ -32,8 +32,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with TARGETAREA Token
  */
-public class TargetareaToken extends AbstractNonEmptyToken<Spell>
-		implements CDOMPrimaryToken<Spell>
+public class TargetareaToken extends AbstractNonEmptyToken<Spell> implements CDOMPrimaryToken<Spell>
 {
 	@Override
 	public String getTokenName()
@@ -52,9 +51,8 @@ public class TargetareaToken extends AbstractNonEmptyToken<Spell>
 		{
 			if (!StringUtil.hasBalancedParens(value))
 			{
-				return new ParseResult.Fail("Unbalanced parentheses in "
-					+ getTokenName() + " '" + value + "' used in spell "
-					+ spell);
+				return new ParseResult.Fail(
+					"Unbalanced parentheses in " + getTokenName() + " '" + value + "' used in spell " + spell);
 			}
 			context.getObjectContext().put(spell, StringKey.TARGET_AREA, value);
 		}
@@ -64,11 +62,8 @@ public class TargetareaToken extends AbstractNonEmptyToken<Spell>
 	@Override
 	public String[] unparse(LoadContext context, Spell spell)
 	{
-		String target = context.getObjectContext().getString(spell,
-			StringKey.TARGET_AREA);
-		boolean globalClear =
-				context.getObjectContext().wasRemoved(spell,
-					StringKey.TARGET_AREA);
+		String target = context.getObjectContext().getString(spell, StringKey.TARGET_AREA);
+		boolean globalClear = context.getObjectContext().wasRemoved(spell, StringKey.TARGET_AREA);
 		List<String> list = new ArrayList<>();
 		if (globalClear)
 		{

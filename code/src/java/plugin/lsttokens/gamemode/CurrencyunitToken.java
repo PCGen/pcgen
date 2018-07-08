@@ -11,13 +11,13 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class CurrencyunitToken implements GameModeLstToken
 {
 
-    @Override
+	@Override
 	public String getTokenName()
 	{
 		return "CURRENCYUNIT";
 	}
 
-    @Override
+	@Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		gameMode.setCurrencyUnit(value);

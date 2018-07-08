@@ -23,65 +23,65 @@ import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
-import javax.swing.Icon;
 
+import javax.swing.Icon;
 
 public class MultiLineTextIcon implements Icon
 {
 
-    private final List<Icon> icons;
-    private int width;
-    private int height;
+	private final List<Icon> icons;
+	private int width;
+	private int height;
 
-    public MultiLineTextIcon(Component c, String text)
-    {
-        StringTokenizer tokenizer = new StringTokenizer(text, "\n");
-        this.icons = new ArrayList<>(tokenizer.countTokens());
-        this.width = 0;
-        this.height = 0;
-        while (tokenizer.hasMoreTokens())
-        {
-            SimpleTextIcon icon = new SimpleTextIcon(c, tokenizer.nextToken());
-            width = Math.max(width, icon.getIconWidth());
-            height += icon.getIconHeight();
-            icons.add(icon);
-        }
-    }
+	public MultiLineTextIcon(Component c, String text)
+	{
+		StringTokenizer tokenizer = new StringTokenizer(text, "\n");
+		this.icons = new ArrayList<>(tokenizer.countTokens());
+		this.width = 0;
+		this.height = 0;
+		while (tokenizer.hasMoreTokens())
+		{
+			SimpleTextIcon icon = new SimpleTextIcon(c, tokenizer.nextToken());
+			width = Math.max(width, icon.getIconWidth());
+			height += icon.getIconHeight();
+			icons.add(icon);
+		}
+	}
 
-    public MultiLineTextIcon(Component c, List<?> lines)
-    {
-        this.icons = new ArrayList<>(lines.size());
-        this.width = 0;
-        this.height = 0;
-        for (Object line : lines)
-        {
-            SimpleTextIcon icon = new SimpleTextIcon(c, line.toString());
-            width = Math.max(width, icon.getIconWidth());
-            height += icon.getIconHeight();
-            icons.add(icon);
-        }
-    }
-
-	@Override
-    public void paintIcon(Component c, Graphics g, int x, int y)
-    {
-        for (Icon icon : icons)
-        {
-            icon.paintIcon(c, g, x, y);
-            y += icon.getIconHeight();
-        }
-    }
+	public MultiLineTextIcon(Component c, List<?> lines)
+	{
+		this.icons = new ArrayList<>(lines.size());
+		this.width = 0;
+		this.height = 0;
+		for (Object line : lines)
+		{
+			SimpleTextIcon icon = new SimpleTextIcon(c, line.toString());
+			width = Math.max(width, icon.getIconWidth());
+			height += icon.getIconHeight();
+			icons.add(icon);
+		}
+	}
 
 	@Override
-    public int getIconWidth()
-    {
-        return width;
-    }
+	public void paintIcon(Component c, Graphics g, int x, int y)
+	{
+		for (Icon icon : icons)
+		{
+			icon.paintIcon(c, g, x, y);
+			y += icon.getIconHeight();
+		}
+	}
 
 	@Override
-    public int getIconHeight()
-    {
-        return height;
-    }
+	public int getIconWidth()
+	{
+		return width;
+	}
+
+	@Override
+	public int getIconHeight()
+	{
+		return height;
+	}
 
 }

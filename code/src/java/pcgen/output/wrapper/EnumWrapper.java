@@ -17,10 +17,10 @@
  */
 package pcgen.output.wrapper;
 
-import pcgen.output.base.SimpleObjectWrapper;
-import pcgen.output.base.SimpleWrapperLibrary;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
+import pcgen.output.base.SimpleObjectWrapper;
+import pcgen.output.base.SimpleWrapperLibrary;
 
 /**
  * An EnumWrapper is an ObjectWrapper capable of producing a TemplateModel for

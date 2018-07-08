@@ -19,9 +19,9 @@
  */
 package pcgen.gui2.util;
 
-import pcgen.cdom.base.Constants;
-
 import javax.swing.JEditorPane;
+
+import pcgen.cdom.base.Constants;
 
 /**
  *  {@code JLabelPane} extends {@code JEditorPane} for PCGen

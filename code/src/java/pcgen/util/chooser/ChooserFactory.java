@@ -29,7 +29,7 @@ import pcgen.facade.core.UIDelegate;
 public final class ChooserFactory
 {
 	private static UIDelegate delegate;
-	private final static Stack<String> interfaceClassNameStack = new Stack<>();
+	private static final Stack<String> interfaceClassNameStack = new Stack<>();
 
 	/**
 	 * Deliberately private so it can't be instantiated.

@@ -131,19 +131,20 @@ public class InfoCharacterDetails
 	private class Renderer extends Thread
 	{
 		private final Combatant combatant;
-		
+
 		/**
 		 * Constructor
 		 * @param cbt
 		 */
-		Renderer(Combatant cbt) {
+		Renderer(Combatant cbt)
+		{
 			this.combatant = cbt;
 		}
-		
-        @Override
-		public void run() {
+
+		@Override
+		public void run()
+		{
 			setStatText(combatant, getPane());
 		}
 	}
 }
-

@@ -20,13 +20,15 @@
 package pcgen.gui2.util;
 
 import java.util.Comparator;
+
 import pcgen.gui2.util.table.Row;
 
 /**
  *
  */
-public interface SortableModel 
+public interface SortableModel
 {
-    void sortModel(Comparator<Row> comparator);
-    Class<?> getColumnClass(int column);
+	void sortModel(Comparator<Row> comparator);
+
+	Class<?> getColumnClass(int column);
 }

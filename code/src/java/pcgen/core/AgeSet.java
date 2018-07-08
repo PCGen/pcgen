@@ -107,14 +107,13 @@ public class AgeSet implements BonusContainer
 			for (TransitionChoice<Kit> tc : kits)
 			{
 				sb.append('\t').append(tc.getCount()).append(Constants.PIPE);
-				sb.append(tc.getChoices().getLSTformat().replaceAll(
-						Constants.COMMA, Constants.PIPE));
+				sb.append(tc.getChoices().getLSTformat().replaceAll(Constants.COMMA, Constants.PIPE));
 			}
 		}
 		return sb.toString();
 	}
 
-    @Override
+	@Override
 	public void activateBonuses(PlayerCharacter pc)
 	{
 		if (bonuses != null)
@@ -126,7 +125,7 @@ public class AgeSet implements BonusContainer
 		}
 	}
 
-    @Override
+	@Override
 	public List<BonusObj> getActiveBonuses(PlayerCharacter pc)
 	{
 		if (bonuses == null)
@@ -151,7 +150,7 @@ public class AgeSet implements BonusContainer
 	{
 		return name.hashCode();
 	}
-	
+
 	@Override
 	public boolean equals(Object o)
 	{
@@ -190,8 +189,7 @@ public class AgeSet implements BonusContainer
 					return false;
 				}
 			}
-			return (index == other.index) 
-			&& name.equals(other.name);
+			return (index == other.index) && name.equals(other.name);
 		}
 		return false;
 	}

@@ -26,7 +26,8 @@ import static org.junit.Assert.assertThat;
 public class DiceTest
 {
 	@Test
-	public void nonRandomDiceAssertions() {
+	public void nonRandomDiceAssertions()
+	{
 		Die oneDie = new Dice(1, 1);
 		assertThat("one sided die returns 1", oneDie.roll(), is(1));
 		Die manyDie = new Dice(10, 1);
@@ -34,7 +35,8 @@ public class DiceTest
 	}
 
 	@Test
-	public void randomDiceAssertions() {
+	public void randomDiceAssertions()
+	{
 		Die die = new Dice(1, 10);
 		assertThat("single die returns value as expected", die.roll(),
 				allOf(lessThanOrEqualTo(10), greaterThanOrEqualTo(1))

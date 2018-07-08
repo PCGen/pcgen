@@ -37,8 +37,7 @@ import pcgen.cdom.enumeration.GroupingState;
  *            The Class of the underlying object contained by this
  *            CDOMTransparentAllRef
  */
-public class CDOMTransparentAllRef<T extends Loadable> extends CDOMGroupRef<T> implements
-		TransparentReference<T>
+public class CDOMTransparentAllRef<T extends Loadable> extends CDOMGroupRef<T> implements TransparentReference<T>
 {
 
 	/**
@@ -96,9 +95,8 @@ public class CDOMTransparentAllRef<T extends Loadable> extends CDOMGroupRef<T> i
 	{
 		if (subReference == null)
 		{
-			throw new IllegalStateException("Cannot ask for contains: "
-					+ getReferenceClass().getName() + " Reference " + getName()
-					+ " has not been resolved");
+			throw new IllegalStateException("Cannot ask for contains: " + getReferenceClass().getName() + " Reference "
+				+ getName() + " has not been resolved");
 		}
 		return subReference.contains(item);
 	}
@@ -135,8 +133,7 @@ public class CDOMTransparentAllRef<T extends Loadable> extends CDOMGroupRef<T> i
 		if (obj instanceof CDOMTransparentAllRef)
 		{
 			CDOMTransparentAllRef<?> ref = (CDOMTransparentAllRef<?>) obj;
-			return getReferenceClass().equals(ref.getReferenceClass())
-					&& getName().equals(ref.getName());
+			return getReferenceClass().equals(ref.getReferenceClass()) && getName().equals(ref.getName());
 		}
 		return false;
 	}
@@ -168,8 +165,7 @@ public class CDOMTransparentAllRef<T extends Loadable> extends CDOMGroupRef<T> i
 	@Override
 	public void addResolution(T item)
 	{
-		throw new IllegalStateException(
-				"Cannot resolve a Transparent Reference");
+		throw new IllegalStateException("Cannot resolve a Transparent Reference");
 	}
 
 	/**
@@ -198,9 +194,8 @@ public class CDOMTransparentAllRef<T extends Loadable> extends CDOMGroupRef<T> i
 		}
 		else
 		{
-			throw new IllegalArgumentException("Cannot resolve a "
-					+ getReferenceClass().getSimpleName() + " Reference to a "
-					+ rm.getReferenceClass().getSimpleName());
+			throw new IllegalArgumentException("Cannot resolve a " + getReferenceClass().getSimpleName()
+				+ " Reference to a " + rm.getReferenceClass().getSimpleName());
 		}
 	}
 
@@ -271,8 +266,7 @@ public class CDOMTransparentAllRef<T extends Loadable> extends CDOMGroupRef<T> i
 	@Override
 	public String getReferenceDescription()
 	{
-		return (subReference == null) ? "ALL " + refClass.getSimpleName()
-			: subReference.getReferenceDescription();
+		return (subReference == null) ? "ALL " + refClass.getSimpleName() : subReference.getReferenceDescription();
 	}
 
 	@Override

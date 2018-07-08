@@ -56,8 +56,8 @@ public class KitLangBonus extends BaseKit
 		CNAbility cna = aPC.getBonusLanguageAbility();
 		for (Language l : theLanguages)
 		{
-			aPC.addAbility(new CNAbilitySelection(cna, l.getKeyName()),
-				UserSelection.getInstance(), UserSelection.getInstance());
+			aPC.addAbility(new CNAbilitySelection(cna, l.getKeyName()), UserSelection.getInstance(),
+				UserSelection.getInstance());
 		}
 	}
 
@@ -71,8 +71,7 @@ public class KitLangBonus extends BaseKit
 	 * @return true, if the languages could be added
 	 */
 	@Override
-	public boolean testApply(Kit aKit, PlayerCharacter aPC,
-			List<String> warnings)
+	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
 	{
 		theLanguages = new ArrayList<>();
 
@@ -85,16 +84,14 @@ public class KitLangBonus extends BaseKit
 		 * conditionallyApply in the controller is reasonable (there is no need
 		 * to actually try to apply the langbonus ability in this case)
 		 */
-		ChoiceManagerList<Language> controller = ChooserUtilities
-				.getConfiguredController(cna, aPC, AbilityCategory.LANGBONUS,
-						reservedList);
+		ChoiceManagerList<Language> controller =
+				ChooserUtilities.getConfiguredController(cna, aPC, AbilityCategory.LANGBONUS, reservedList);
 		if (controller == null)
 		{
 			return false;
 		}
 
-		int allowedCount = aPC
-				.getAvailableAbilityPool(AbilityCategory.LANGBONUS).intValue();
+		int allowedCount = aPC.getAvailableAbilityPool(AbilityCategory.LANGBONUS).intValue();
 		int remaining = allowedCount;
 		for (CDOMSingleRef<Language> ref : langList)
 		{
@@ -106,15 +103,14 @@ public class KitLangBonus extends BaseKit
 			}
 			else
 			{
-				warnings.add("LANGUAGE: Could not add bonus language \""
-						+ lang.getKeyName() + "\"");
+				warnings.add("LANGUAGE: Could not add bonus language \"" + lang.getKeyName() + "\"");
 			}
 		}
 
 		if (langList.size() > allowedCount)
 		{
-			warnings.add("LANGUAGE: Too many bonus languages specified. "
-					+ (langList.size() - allowedCount) + " had to be ignored.");
+			warnings.add("LANGUAGE: Too many bonus languages specified. " + (langList.size() - allowedCount)
+				+ " had to be ignored.");
 		}
 
 		return !theLanguages.isEmpty();

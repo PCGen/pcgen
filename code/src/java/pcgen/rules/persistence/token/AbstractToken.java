@@ -48,8 +48,7 @@ public abstract class AbstractToken
 
 	protected boolean looksLikeAPrerequisite(String activeValue)
 	{
-		return (activeValue.startsWith("PRE") || activeValue.startsWith("!PRE"))
-			&& activeValue.contains(":");
+		return (activeValue.startsWith("PRE") || activeValue.startsWith("!PRE")) && activeValue.contains(":");
 	}
 
 	protected Prerequisite getPrerequisite(String token)
@@ -65,8 +64,7 @@ public abstract class AbstractToken
 		catch (PersistenceLayerException ple)
 		{
 			Logging.addParseMessage(Logging.LST_ERROR,
-				"Error parsing Prerequisite in " + getTokenName() + ": "
-					+ token + "\n  " + ple.getMessage());
+				"Error parsing Prerequisite in " + getTokenName() + ": " + token + "\n  " + ple.getMessage());
 		}
 		return null;
 	}
@@ -97,19 +95,16 @@ public abstract class AbstractToken
 	{
 		if (value.charAt(0) == separator)
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " arguments may not start with " + separator + " : " + value);
+			return new ParseResult.Fail(getTokenName() + " arguments may not start with " + separator + " : " + value);
 		}
 		if (value.charAt(value.length() - 1) == separator)
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " arguments may not end with " + separator + " : " + value);
+			return new ParseResult.Fail(getTokenName() + " arguments may not end with " + separator + " : " + value);
 		}
 		if (value.indexOf(String.valueOf(new char[]{separator, separator})) != -1)
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " arguments uses double separator " + separator + separator
-				+ " : " + value);
+			return new ParseResult.Fail(
+				getTokenName() + " arguments uses double separator " + separator + separator + " : " + value);
 		}
 		return ParseResult.SUCCESS;
 	}
@@ -123,13 +118,11 @@ public abstract class AbstractToken
 	{
 		if (value == null)
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " may not have null argument");
+			return new ParseResult.Fail(getTokenName() + " may not have null argument");
 		}
 		if (value.isEmpty())
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " may not have empty argument");
+			return new ParseResult.Fail(getTokenName() + " may not have empty argument");
 		}
 		return ParseResult.SUCCESS;
 	}
@@ -146,8 +139,8 @@ public abstract class AbstractToken
 		{
 			if (!XMLChar.isValid(character))
 			{
-				return new ParseResult.Fail("Invalid XML character 0x"
-					+ Integer.toString(character, 16) + " in " + value);
+				return new ParseResult.Fail(
+					"Invalid XML character 0x" + Integer.toString(character, 16) + " in " + value);
 			}
 		}
 
@@ -157,8 +150,7 @@ public abstract class AbstractToken
 	/** Return the token name */
 	public abstract String getTokenName();
 
-	protected String getPrerequisiteString(LoadContext context,
-		Collection<Prerequisite> prereqs)
+	protected String getPrerequisiteString(LoadContext context, Collection<Prerequisite> prereqs)
 	{
 		return context.getPrerequisiteString(prereqs);
 	}

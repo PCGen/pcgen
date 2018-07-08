@@ -35,8 +35,7 @@ import pcgen.util.Logging;
  * objects) that are contained in a Player Character.
  * 
  */
-public class AvailableSpellFacet extends
-		AbstractSubScopeFacet<CDOMList<Spell>, Integer, Spell>
+public class AvailableSpellFacet extends AbstractSubScopeFacet<CDOMList<Spell>, Integer, Spell>
 {
 
 	/**
@@ -70,30 +69,25 @@ public class AvailableSpellFacet extends
 	 *         of those spell levels available to a Player Character for a given
 	 *         Spell.
 	 */
-	public HashMapToList<CDOMList<Spell>, Integer> getSpellLevelInfo(
-		CharID id, Spell sp)
+	public HashMapToList<CDOMList<Spell>, Integer> getSpellLevelInfo(CharID id, Spell sp)
 	{
-		HashMapToList<CDOMList<Spell>, Integer> levelInfo =
-                new HashMapToList<>();
+		HashMapToList<CDOMList<Spell>, Integer> levelInfo = new HashMapToList<>();
 		Map<CDOMList<Spell>, Map<Integer, Map<Spell, Set<Object>>>> listMap =
 				(Map<CDOMList<Spell>, Map<Integer, Map<Spell, Set<Object>>>>) getCache(id);
 		if (listMap == null)
 		{
 			return levelInfo;
 		}
-		for (Entry<CDOMList<Spell>, Map<Integer, Map<Spell, Set<Object>>>> me : listMap
-			.entrySet())
+		for (Entry<CDOMList<Spell>, Map<Integer, Map<Spell, Set<Object>>>> me : listMap.entrySet())
 		{
 			CDOMList<Spell> list = me.getKey();
 			//Check to ensure we don't use SPELLS:
-			if (!(list instanceof ClassSpellList)
-				&& !(list instanceof DomainSpellList))
+			if (!(list instanceof ClassSpellList) && !(list instanceof DomainSpellList))
 			{
 				continue;
 			}
 			Map<Integer, Map<Spell, Set<Object>>> levelMap = me.getValue();
-			for (Map.Entry<Integer, Map<Spell, Set<Object>>> lme : levelMap
-				.entrySet())
+			for (Map.Entry<Integer, Map<Spell, Set<Object>>> lme : levelMap.entrySet())
 			{
 				Integer level = lme.getKey();
 				Map<Spell, Set<Object>> spellMap = lme.getValue();
@@ -109,10 +103,8 @@ public class AvailableSpellFacet extends
 						{
 							if (Logging.isLoggable(Logging.INFO))
 							{
-								Logging.log(Logging.INFO,
-									"Found alternate spell of same key: "
-										+ spell + " from " + spell.getSource()
-										+ " rather than " + sp.getSource());
+								Logging.log(Logging.INFO, "Found alternate spell of same key: " + spell + " from "
+									+ spell.getSource() + " rather than " + sp.getSource());
 							}
 							levelInfo.addToListFor(list, level);
 						}

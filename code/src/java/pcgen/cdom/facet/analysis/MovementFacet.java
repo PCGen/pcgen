@@ -33,8 +33,8 @@ import pcgen.core.Movement;
  * in a Player Character.
  * 
  */
-public class MovementFacet extends AbstractSourcedListFacet<CharID, Movement> implements
-		DataFacetChangeListener<CharID, CDOMObject>
+public class MovementFacet extends AbstractSourcedListFacet<CharID, Movement>
+		implements DataFacetChangeListener<CharID, CDOMObject>
 {
 
 	private CDOMObjectConsolidationFacet consolidationFacet;

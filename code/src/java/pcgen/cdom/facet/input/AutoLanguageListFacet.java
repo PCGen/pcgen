@@ -32,8 +32,7 @@ import pcgen.core.Language;
  * to a Player Character through the AUTO:LANG|%LIST
  * 
  */
-public class AutoLanguageListFacet extends AbstractSourcedListFacet<CharID, Language>
-		implements PerspectiveLocation
+public class AutoLanguageListFacet extends AbstractSourcedListFacet<CharID, Language> implements PerspectiveLocation
 {
 	private LanguageFacet languageFacet;
 

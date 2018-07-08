@@ -44,14 +44,13 @@ import pcgen.util.Logging;
  * A CollectionToAbilitySelection wraps a PrimitiveCollection of Ability objects and
  * provide AbilitySelection objects.
  */
-public class CollectionToAbilitySelection implements
-		PrimitiveChoiceSet<AbilitySelection>
+public class CollectionToAbilitySelection implements PrimitiveChoiceSet<AbilitySelection>
 {
 	/**
 	 * The underlying collection of Ability objects that are legal to choose from.
 	 */
 	private final PrimitiveCollection<Ability> collection;
-	
+
 	/**
 	 * The AbilityCategory from which the Ability objects are drawn.
 	 */
@@ -100,8 +99,7 @@ public class CollectionToAbilitySelection implements
 	@Override
 	public Collection<AbilitySelection> getSet(PlayerCharacter pc)
 	{
-		Collection<? extends AbilityWithChoice> aColl =
-				collection.getCollection(pc, new ExpandingConverter(pc));
+		Collection<? extends AbilityWithChoice> aColl = collection.getCollection(pc, new ExpandingConverter(pc));
 		Set<AbilitySelection> returnSet = new HashSet<>();
 		for (AbilityWithChoice a : aColl)
 		{
@@ -110,16 +108,14 @@ public class CollectionToAbilitySelection implements
 		return returnSet;
 	}
 
-	private void processAbility(PlayerCharacter character,
-		Set<AbilitySelection> returnSet, AbilityWithChoice awc)
+	private void processAbility(PlayerCharacter character, Set<AbilitySelection> returnSet, AbilityWithChoice awc)
 	{
 		Ability a = awc.getAbility();
 		if (infiniteLoopDetectionStack.contains(a))
 		{
 			Stack<Ability> current = new Stack<>();
 			current.addAll(infiniteLoopDetectionStack);
-			Logging.errorPrint("Error: Circular Expansion Found: "
-				+ reportCircularExpansion(current));
+			Logging.errorPrint("Error: Circular Expansion Found: " + reportCircularExpansion(current));
 			return;
 		}
 		try
@@ -127,8 +123,7 @@ public class CollectionToAbilitySelection implements
 			infiniteLoopDetectionStack.push(a);
 			if (a.getSafe(ObjectKey.MULTIPLE_ALLOWED).booleanValue())
 			{
-				returnSet.addAll(addMultiplySelectableAbility(character, a,
-					awc.getChoice()));
+				returnSet.addAll(addMultiplySelectableAbility(character, a, awc.getChoice()));
 			}
 			else
 			{
@@ -141,8 +136,8 @@ public class CollectionToAbilitySelection implements
 		}
 	}
 
-	private Collection<AbilitySelection> addMultiplySelectableAbility(
-		final PlayerCharacter aPC, Ability ability, String subName)
+	private Collection<AbilitySelection> addMultiplySelectableAbility(final PlayerCharacter aPC, Ability ability,
+		String subName)
 	{
 		boolean isPattern = false;
 		String nameRoot = null;
@@ -193,8 +188,7 @@ public class CollectionToAbilitySelection implements
 			}
 		}
 
-		List<AbilitySelection> returnList =
-                new ArrayList<>(availableList.size());
+		List<AbilitySelection> returnList = new ArrayList<>(availableList.size());
 		for (String s : availableList)
 		{
 			returnList.add(new AbilitySelection(ability, s));
@@ -202,8 +196,7 @@ public class CollectionToAbilitySelection implements
 		return returnList;
 	}
 
-	private <T> List<String> getAvailableList(final PlayerCharacter aPC,
-		ChooseInformation<T> chooseInfo)
+	private <T> List<String> getAvailableList(final PlayerCharacter aPC, ChooseInformation<T> chooseInfo)
 	{
 		final List<String> availableList = new ArrayList<>();
 		Collection<? extends T> tempAvailList = chooseInfo.getSet(aPC);
@@ -266,12 +259,10 @@ public class CollectionToAbilitySelection implements
 	public boolean equals(Object obj)
 	{
 		return (obj instanceof CollectionToAbilitySelection)
-				&& ((CollectionToAbilitySelection) obj).collection
-						.equals(collection);
+			&& ((CollectionToAbilitySelection) obj).collection.equals(collection);
 	}
 
-	public static class ExpandingConverter implements
-			Converter<Ability, AbilityWithChoice>
+	public static class ExpandingConverter implements Converter<Ability, AbilityWithChoice>
 	{
 
 		private final PlayerCharacter character;
@@ -292,8 +283,7 @@ public class CollectionToAbilitySelection implements
 			return returnSet;
 		}
 
-		private void processAbility(ObjectContainer<Ability> ref,
-			Set<AbilityWithChoice> returnSet, Ability a)
+		private void processAbility(ObjectContainer<Ability> ref, Set<AbilityWithChoice> returnSet, Ability a)
 		{
 			String choice = null;
 			if (ref instanceof CDOMReference)
@@ -304,8 +294,7 @@ public class CollectionToAbilitySelection implements
 		}
 
 		@Override
-		public Collection<AbilityWithChoice> convert(
-			ObjectContainer<Ability> ref, PrimitiveFilter<Ability> lim)
+		public Collection<AbilityWithChoice> convert(ObjectContainer<Ability> ref, PrimitiveFilter<Ability> lim)
 		{
 			Set<AbilityWithChoice> returnSet = new HashSet<>();
 			for (Ability a : ref.getContainedObjects())
@@ -353,7 +342,7 @@ public class CollectionToAbilitySelection implements
 		{
 			return ability.hashCode() ^ ((choice == null) ? 17 : choice.hashCode());
 		}
-		
+
 		@Override
 		public boolean equals(Object o)
 		{
@@ -371,8 +360,7 @@ public class CollectionToAbilitySelection implements
 						return false;
 					}
 				}
-				return ability.equals(other.ability)
-					&& ((choice == other.choice) || choice.equals(other.choice));
+				return ability.equals(other.ability) && ((choice == other.choice) || choice.equals(other.choice));
 			}
 			return false;
 		}

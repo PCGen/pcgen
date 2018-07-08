@@ -24,7 +24,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
-
 public class DefaultListFacade<E> extends AbstractListFacade<E>
 {
 
@@ -49,20 +48,20 @@ public class DefaultListFacade<E> extends AbstractListFacade<E>
 			private final ListIterator<E> iterator = elementList.listIterator();
 			private int index;
 
-            @Override
+			@Override
 			public boolean hasNext()
 			{
 				return iterator.hasNext();
 			}
 
-            @Override
+			@Override
 			public E next()
 			{
 				index = iterator.nextIndex();
 				return iterator.next();
 			}
 
-            @Override
+			@Override
 			public void remove()
 			{
 				E element = getElementAt(index);
@@ -73,19 +72,19 @@ public class DefaultListFacade<E> extends AbstractListFacade<E>
 		};
 	}
 
-    @Override
+	@Override
 	public E getElementAt(int index)
 	{
 		return elementList.get(index);
 	}
 
-    @Override
+	@Override
 	public int getSize()
 	{
 		return elementList.size();
 	}
 
-    @Override
+	@Override
 	public boolean containsElement(E element)
 	{
 		return elementList.contains(element);
@@ -165,13 +164,12 @@ public class DefaultListFacade<E> extends AbstractListFacade<E>
 	public void updateContents(List<? extends E> newElements)
 	{
 		final int maxUpdateSize = 20;
-		if (isEmpty() || newElements.isEmpty()
-			|| Math.abs(getSize() - newElements.size()) > maxUpdateSize)
+		if (isEmpty() || newElements.isEmpty() || Math.abs(getSize() - newElements.size()) > maxUpdateSize)
 		{
 			setContents(newElements);
 			return;
 		}
-		
+
 		// Scan for items that need to be removed
 		int currPos = 0;
 		for (Iterator<E> iterator = elementList.iterator(); iterator.hasNext();)
@@ -183,7 +181,7 @@ public class DefaultListFacade<E> extends AbstractListFacade<E>
 			{
 				if (e.equals(newElements.get(index)))
 				{
-					currPos = index+1;
+					currPos = index + 1;
 					found = true;
 					break;
 				}
@@ -199,8 +197,7 @@ public class DefaultListFacade<E> extends AbstractListFacade<E>
 		currPos = 0;
 		for (E e : newElements)
 		{
-			if (elementList.size() <= currPos
-				|| !e.equals(elementList.get(currPos)))
+			if (elementList.size() <= currPos || !e.equals(elementList.get(currPos)))
 			{
 				addElement(currPos, e);
 			}
@@ -219,13 +216,12 @@ public class DefaultListFacade<E> extends AbstractListFacade<E>
 	public void updateContentsNoOrder(List<? extends E> newElements)
 	{
 		final int maxUpdateSize = 20;
-		if (isEmpty() || newElements.isEmpty()
-			|| Math.abs(getSize() - newElements.size()) > maxUpdateSize)
+		if (isEmpty() || newElements.isEmpty() || Math.abs(getSize() - newElements.size()) > maxUpdateSize)
 		{
 			setContents(newElements);
 			return;
 		}
-		
+
 		for (E elem : newElements)
 		{
 			if (!containsElement(elem))
@@ -233,7 +229,7 @@ public class DefaultListFacade<E> extends AbstractListFacade<E>
 				addElement(elem);
 			}
 		}
-		
+
 		for (Iterator<E> iterator = elementList.iterator(); iterator.hasNext();)
 		{
 			E e = iterator.next();
@@ -245,7 +241,7 @@ public class DefaultListFacade<E> extends AbstractListFacade<E>
 			}
 		}
 	}
-	
+
 	/**
 	 * @return A copy of the contents of the list.
 	 */
@@ -253,7 +249,7 @@ public class DefaultListFacade<E> extends AbstractListFacade<E>
 	{
 		return new ArrayList<>(elementList);
 	}
-	
+
 	@Override
 	public String toString()
 	{

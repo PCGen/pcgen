@@ -38,17 +38,14 @@ import pcgen.util.Logging;
  */
 public class CDOMControlLoader extends LstLineFileLoader
 {
-	private final Map<String, CDOMSubLineLoader<?>> loadMap =
-            new HashMap<>();
+	private final Map<String, CDOMSubLineLoader<?>> loadMap = new HashMap<>();
 
 	public CDOMControlLoader()
 	{
 		//CONSIDER better way to load these?
 		addLineLoader(new CDOMSubLineLoader<>("FACTDEF", FactDefinition.class));
-		addLineLoader(new CDOMSubLineLoader<>("FACTSETDEF",
-			FactSetDefinition.class));
-		addLineLoader(new CDOMSubLineLoader<>("DEFAULTVARIABLEVALUE",
-                DefaultVarValue.class));
+		addLineLoader(new CDOMSubLineLoader<>("FACTSETDEF", FactSetDefinition.class));
+		addLineLoader(new CDOMSubLineLoader<>("DEFAULTVARIABLEVALUE", DefaultVarValue.class));
 		addLineLoader(new CDOMSubLineLoader<>("FUNCTION", UserFunction.class));
 		addLineLoader(new CDOMSubLineLoader<>("DYNAMICSCOPE", DynamicCategory.class));
 	}
@@ -62,8 +59,7 @@ public class CDOMControlLoader extends LstLineFileLoader
 		String prefix = loader.getPrefix();
 		if (loadMap.containsKey(prefix))
 		{
-			throw new IllegalArgumentException("Cannot add a second loader for prefix: "
-				+ prefix);
+			throw new IllegalArgumentException("Cannot add a second loader for prefix: " + prefix);
 		}
 		loadMap.put(loader.getPrefix(), loader);
 	}
@@ -76,8 +72,7 @@ public class CDOMControlLoader extends LstLineFileLoader
 		if (colonLoc == -1)
 		{
 			Logging.addParseMessage(Logging.LST_ERROR,
-				"Unsure what to do with line without " + "a colon in first token: " + val
-					+ " in file: " + source);
+				"Unsure what to do with line without " + "a colon in first token: " + val + " in file: " + source);
 			return false;
 		}
 
@@ -86,8 +81,7 @@ public class CDOMControlLoader extends LstLineFileLoader
 		if (loader == null)
 		{
 			Logging.addParseMessage(Logging.LST_ERROR,
-				"Unsure what to do with line with prefix: " + prefix + ".  Line was: "
-					+ val + " in file: " + source);
+				"Unsure what to do with line with prefix: " + prefix + ".  Line was: " + val + " in file: " + source);
 			return false;
 		}
 		try
@@ -105,8 +99,8 @@ public class CDOMControlLoader extends LstLineFileLoader
 		return true;
 	}
 
-	private <CC extends Loadable> boolean subParse(LoadContext context,
-		CDOMSubLineLoader<CC> loader, String line) throws PersistenceLayerException
+	private <CC extends Loadable> boolean subParse(LoadContext context, CDOMSubLineLoader<CC> loader, String line)
+		throws PersistenceLayerException
 	{
 		int tabLoc = line.indexOf(SystemLoader.TAB_DELIM);
 		String lineIdentifier;
@@ -138,8 +132,7 @@ public class CDOMControlLoader extends LstLineFileLoader
 	}
 
 	@Override
-	public void parseLine(LoadContext context, String inputLine, URI sourceURI)
-		throws PersistenceLayerException
+	public void parseLine(LoadContext context, String inputLine, URI sourceURI) throws PersistenceLayerException
 	{
 		context.rollback();
 		if (parseSubLine(context, inputLine, sourceURI))

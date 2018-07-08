@@ -27,18 +27,16 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 /**
  * A prerequisite parser class that handles the parsing of pre variable tokens.
  */
-public class PreVariableParser extends AbstractPrerequisiteParser implements
-		PrerequisiteParserInterface
+public class PreVariableParser extends AbstractPrerequisiteParser implements PrerequisiteParserInterface
 {
 	/**
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String[] kindsHandled()
 	{
-		return new String[]{"VAR", "VAREQ", "VARLTEQ", "VARLT", "VARNEQ",
-			"VARGT", "VARGTEQ"};
+		return new String[]{"VAR", "VAREQ", "VARLTEQ", "VARLT", "VARNEQ", "VARGT", "VARGTEQ"};
 	}
 
 	/**
@@ -54,10 +52,8 @@ public class PreVariableParser extends AbstractPrerequisiteParser implements
 	 * @throws PersistenceLayerException
 	 */
 	@Override
-	public Prerequisite parse(String kind,
-	                          String formula,
-	                          boolean invertResult,
-	                          boolean overrideQualify) throws PersistenceLayerException
+	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+		throws PersistenceLayerException
 	{
 		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
 		prereq.setKind("var");
@@ -81,9 +77,8 @@ public class PreVariableParser extends AbstractPrerequisiteParser implements
 				String first = ps.next();
 				if (!ps.hasNext())
 				{
-					throw new PersistenceLayerException(
-							"Unable to parse prerequisite 'PRE" + kind + ':' + formula
-								+ "'. Incorrect parameter count (must be even)");
+					throw new PersistenceLayerException("Unable to parse prerequisite 'PRE" + kind + ':' + formula
+						+ "'. Incorrect parameter count (must be even)");
 				}
 				String second = ps.next();
 				Prerequisite subreq;
@@ -111,8 +106,7 @@ public class PreVariableParser extends AbstractPrerequisiteParser implements
 		catch (PrerequisiteException pe)
 		{
 			throw new PersistenceLayerException(
-				"Unable to parse prerequisite 'PRE" + kind + ':' + formula
-					+ "'. " + pe.getLocalizedMessage());
+				"Unable to parse prerequisite 'PRE" + kind + ':' + formula + "'. " + pe.getLocalizedMessage());
 		}
 
 		if (invertResult)

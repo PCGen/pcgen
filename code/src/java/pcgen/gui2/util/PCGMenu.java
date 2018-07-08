@@ -38,7 +38,7 @@ public class PCGMenu extends JMenu
 	{
 		super();
 	}
-	
+
 	public PCGMenu(Action a)
 	{
 		super(a);
@@ -48,7 +48,7 @@ public class PCGMenu extends JMenu
 	public Point getToolTipLocation(MouseEvent event)
 	{
 		Dimension size = getSize();
-		double oneRowUpHeight = size.getHeight() *-1 -5;
+		double oneRowUpHeight = size.getHeight() * -1 - 5;
 		return new Point((int) size.getWidth(), (int) oneRowUpHeight);
 	}
 }

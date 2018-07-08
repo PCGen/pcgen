@@ -50,6 +50,7 @@ ABILITY:acg_abilities_race.lst
 ABILITY:acg_abilities_other.lst
 ABILITYCATEGORY:acg_abilitycategories.lst
 CLASS:acg_classes.lst
+DOMAIN:acg_domains.lst
 EQUIPMENT:acg_equip.lst
 EQUIPMOD:acg_equipmods.lst
 ABILITY:acg_feats.lst

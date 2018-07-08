@@ -26,7 +26,6 @@ import pcgen.core.Skill;
  * output for a Player Character.
  * 
  */
-public class SkillOutputOrderFacet extends
-		AbstractAssociationFacet<CharID, Skill, Integer>
+public class SkillOutputOrderFacet extends AbstractAssociationFacet<CharID, Skill, Integer>
 {
 }

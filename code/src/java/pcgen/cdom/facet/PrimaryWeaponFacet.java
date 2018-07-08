@@ -36,7 +36,7 @@ import pcgen.core.Equipment;
  */
 public class PrimaryWeaponFacet extends AbstractListFacet<CharID, Equipment>
 {
-	
+
 	@Override
 	protected Collection<Equipment> getCopyForNewOwner(Collection<Equipment> componentSet)
 	{

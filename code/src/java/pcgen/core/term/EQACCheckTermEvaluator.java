@@ -34,23 +34,18 @@ public class EQACCheckTermEvaluator extends BaseEQTermEvaluator implements TermE
 	}
 
 	@Override
-	public Float resolve(
-			Equipment eq,
-			boolean primary,
-			PlayerCharacter pc)
+	public Float resolve(Equipment eq, boolean primary, PlayerCharacter pc)
 	{
 		return TermUtil.convertToFloat(originalText, evaluate(eq, primary, pc));
 	}
 
 	@Override
-	public String evaluate(
-			Equipment eq,
-			boolean primary,
-			PlayerCharacter pc) {
+	public String evaluate(Equipment eq, boolean primary, PlayerCharacter pc)
+	{
 		if (pc.hasControl(CControl.EQACCHECK))
 		{
-			Logging.errorPrint("EQACCHECK term is deprecated (does not function)"
-				+ " when ACCHECK CodeControl is used");
+			Logging
+				.errorPrint("EQACCHECK term is deprecated (does not function)" + " when ACCHECK CodeControl is used");
 		}
 		return Integer.toString(eq.getSafe(IntegerKey.AC_CHECK));
 	}
@@ -66,4 +61,3 @@ public class EQACCheckTermEvaluator extends BaseEQTermEvaluator implements TermE
 		return false;
 	}
 }
-

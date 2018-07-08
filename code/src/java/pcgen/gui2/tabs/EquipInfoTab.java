@@ -101,9 +101,9 @@ import pcgen.util.enumeration.Tab;
 public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab, TodoHandler
 {
 
-	private static final DataFlavor equipNodeArrayFlavor = new DataFlavor(
-			DataFlavor.javaJVMLocalObjectMimeType + ";class=\"" //$NON-NLS-1$
-			+ EquipNode[].class.getName() + "\"", null); //$NON-NLS-1$
+	private static final DataFlavor equipNodeArrayFlavor =
+			new DataFlavor(DataFlavor.javaJVMLocalObjectMimeType + ";class=\"" //$NON-NLS-1$
+				+ EquipNode[].class.getName() + "\"", null); //$NON-NLS-1$
 	private final JDynamicTable equipmentTable;
 	private final JComboBox equipViewBox;
 	private final JTreeTable equipmentSetTable;
@@ -321,9 +321,8 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 	{
 		ModelMap models = new ModelMap();
 		models.put(EquipmentModel.class, new EquipmentModel(character, equipmentSetTable));
-		models.put(EquipmentModels.class, new EquipmentModels(character,
-				equipViewBox, equipmentTable, tableFilter, equipmentSetTable,
-				equipButton, unequipButton, moveUpButton, moveDownButton));
+		models.put(EquipmentModels.class, new EquipmentModels(character, equipViewBox, equipmentTable, tableFilter,
+			equipmentSetTable, equipButton, unequipButton, moveUpButton, moveDownButton));
 		models.put(UnequipAllAction.class, new UnequipAllAction(character));
 		models.put(EquipSetBoxModel.class, new EquipSetBoxModel(character));
 		models.put(AddSetAction.class, new AddSetAction(character));
@@ -389,7 +388,6 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		return targets;
 	}
 
-
 	public void setLoadLabel(String text)
 	{
 		// bold / highlight text based on encumbrance value
@@ -442,7 +440,8 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			String name = JOptionPane.showInputDialog(JOptionPane.getFrameForComponent(EquipInfoTab.this), "Name of new set");
+			String name =
+					JOptionPane.showInputDialog(JOptionPane.getFrameForComponent(EquipInfoTab.this), "Name of new set");
 			if (StringUtils.isNotEmpty(name))
 			{
 				character.setEquipmentSet(character.createEquipmentSet(name));
@@ -548,11 +547,12 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		public void actionPerformed(ActionEvent e)
 		{
 
-			int ret
-					= JOptionPane.showConfirmDialog(EquipInfoTab.this,
-							LanguageBundle.getString("in_equipUnequipConfirm"), //$NON-NLS-1$
-							LanguageBundle.getString("in_areYouSure"), //$NON-NLS-1$
-							JOptionPane.YES_NO_OPTION);
+			int ret =
+					JOptionPane.showConfirmDialog(
+						EquipInfoTab.this,
+						LanguageBundle.getString("in_equipUnequipConfirm"), //$NON-NLS-1$
+						LanguageBundle.getString("in_areYouSure"), //$NON-NLS-1$
+						JOptionPane.YES_NO_OPTION);
 			if (ret == JOptionPane.YES_OPTION)
 			{
 				character.getEquipmentSetRef().get().removeAllEquipment();
@@ -648,7 +648,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			}
 			if (!e.getValueIsAdjusting())
 			{
-				int selectedRows[] = target.getSelectedRows();
+				int[] selectedRows = target.getSelectedRows();
 				StringBuilder sb = new StringBuilder(2000);
 				for (int row : selectedRows)
 				{
@@ -693,11 +693,11 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		}
 
 		@Override
-		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column)
+		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
+			int row, int column)
 		{
 			super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
-			if (value instanceof EquipmentFacade
-					&& !character.isQualifiedFor((EquipmentFacade) value))
+			if (value instanceof EquipmentFacade && !character.isQualifiedFor((EquipmentFacade) value))
 			{
 				setForeground(UIPropertyContext.getNotQualifiedColor());
 			}
@@ -713,10 +713,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 	private static class EquipNodeSelection implements Transferable
 	{
 
-		private static final DataFlavor[] FLAVORS = {
-			equipNodeArrayFlavor,
-			equipmentArrayFlavor
-		};
+		private static final DataFlavor[] FLAVORS = {equipNodeArrayFlavor, equipmentArrayFlavor};
 		private final EquipNode[] nodeArray;
 
 		public EquipNodeSelection(EquipNode[] nodeArray)
@@ -1106,8 +1103,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			EquipmentSetFacade equipSet
-					= character.getEquipmentSetRef().get();
+			EquipmentSetFacade equipSet = character.getEquipmentSetRef().get();
 			for (EquipNode equipNode : targets)
 			{
 				equipSet.moveEquipment(equipNode, -1);
@@ -1143,8 +1139,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			EquipmentSetFacade equipSet
-					= character.getEquipmentSetRef().get();
+			EquipmentSetFacade equipSet = character.getEquipmentSetRef().get();
 			for (EquipNode equipNode : targets)
 			{
 				equipSet.moveEquipment(equipNode, 1);
@@ -1180,8 +1175,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			EquipmentSetFacade equipSet
-					= character.getEquipmentSetRef().get();
+			EquipmentSetFacade equipSet = character.getEquipmentSetRef().get();
 			for (EquipNode equipNode : targets)
 			{
 				equipSet.sortEquipment(equipNode);

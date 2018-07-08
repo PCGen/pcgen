@@ -31,8 +31,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * @see plugin.lsttokens.datacontrol.FactSetDefToken
  * 
  */
-public class FactSetLst extends AbstractTokenWithSeparator<CDOMObject> implements
-		CDOMPrimaryToken<CDOMObject>
+public class FactSetLst extends AbstractTokenWithSeparator<CDOMObject> implements CDOMPrimaryToken<CDOMObject>
 {
 	@Override
 	public String getTokenName()
@@ -47,20 +46,18 @@ public class FactSetLst extends AbstractTokenWithSeparator<CDOMObject> implement
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject cdo,
-		String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject cdo, String value)
 	{
 		int pipeLoc = value.indexOf(Constants.PIPE);
 		if (pipeLoc == -1)
 		{
-			return new ParseResult.Fail(getTokenName() + " expecting '|', format is: "
-				+ "Fact identification|Fact value ... was: " + value);
+			return new ParseResult.Fail(
+				getTokenName() + " expecting '|', format is: " + "Fact identification|Fact value ... was: " + value);
 		}
 		String factID = value.substring(0, pipeLoc);
 		if (factID.isEmpty())
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " expecting non-empty identification, "
+			return new ParseResult.Fail(getTokenName() + " expecting non-empty identification, "
 				+ "format is: Fact identification|Fact value ... was: " + value);
 		}
 		String factStr = value.substring(pipeLoc + 1);

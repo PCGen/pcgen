@@ -31,9 +31,9 @@ import pcgen.core.PlayerCharacter;
  */
 public class ObjectAdditionFacet implements DataFacetChangeListener<CharID, CDOMObject>
 {
-	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
-			.getFacet(PlayerCharacterTrackingFacet.class);
-	
+	private final PlayerCharacterTrackingFacet trackingFacet =
+			FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
+
 	private CDOMObjectConsolidationFacet consolidationFacet;
 
 	/**

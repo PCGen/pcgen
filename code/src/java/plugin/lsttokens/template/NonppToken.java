@@ -25,8 +25,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 /**
  * Class deals with NONPP Token
  */
-public class NonppToken extends AbstractIntToken<PCTemplate> implements
-		CDOMPrimaryToken<PCTemplate>
+public class NonppToken extends AbstractIntToken<PCTemplate> implements CDOMPrimaryToken<PCTemplate>
 {
 
 	@Override
@@ -40,7 +39,7 @@ public class NonppToken extends AbstractIntToken<PCTemplate> implements
 	{
 		return IntegerKey.NONPP;
 	}
-	
+
 	@Override
 	protected int maxValue()
 	{

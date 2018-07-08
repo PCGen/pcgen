@@ -29,8 +29,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Deals with PART token
  */
-public class PartToken extends AbstractNonEmptyToken<Equipment> implements
-		CDOMPrimaryToken<Equipment>
+public class PartToken extends AbstractNonEmptyToken<Equipment> implements CDOMPrimaryToken<Equipment>
 {
 
 	@Override
@@ -40,14 +39,12 @@ public class PartToken extends AbstractNonEmptyToken<Equipment> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, Equipment eq,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, Equipment eq, String value)
 	{
 		int pipeLoc = value.indexOf('|');
 		if (pipeLoc == -1)
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " requires <integer>|<token>");
+			return new ParseResult.Fail(getTokenName() + " requires <integer>|<token>");
 		}
 		String partNumString = value.substring(0, pipeLoc);
 		int partNumber;
@@ -57,15 +54,13 @@ public class PartToken extends AbstractNonEmptyToken<Equipment> implements
 		}
 		catch (NumberFormatException e)
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " requires <integer>|<token> ... " + partNumString
-				+ " was not an integer");
+			return new ParseResult.Fail(
+				getTokenName() + " requires <integer>|<token> ... " + partNumString + " was not an integer");
 		}
 		if (partNumber <= 0)
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " requires a positive integer. " + partNumber
-				+ " was not positive");
+			return new ParseResult.Fail(
+				getTokenName() + " requires a positive integer. " + partNumber + " was not positive");
 		}
 		EquipmentHead part = eq.getEquipmentHead(partNumber);
 		String partToken = value.substring(pipeLoc + 1);
@@ -74,15 +69,12 @@ public class PartToken extends AbstractNonEmptyToken<Equipment> implements
 		if (colonLoc == -1)
 		{
 			return new ParseResult.Fail(
-				getTokenName()
-					+ " requires <integer>|<token>:<token content>, but no colon was found in: "
-					+ value);
+				getTokenName() + " requires <integer>|<token>:<token content>, but no colon was found in: " + value);
 		}
 		String tokenName = partToken.substring(0, colonLoc);
 		String tokenValue = partToken.substring(colonLoc + 1);
 
-		LoadContext subContext =
-				context.dropIntoContext(EquipmentPartScope.PC_EQUIPMENT_PART);
+		LoadContext subContext = context.dropIntoContext(EquipmentPartScope.PC_EQUIPMENT_PART);
 
 		boolean processToken;
 		try
@@ -92,16 +84,14 @@ public class PartToken extends AbstractNonEmptyToken<Equipment> implements
 		}
 		catch (PersistenceLayerException e)
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " encountered an error (" + e.getMessage()
-				+ ") in the token content of: " + value);
+			return new ParseResult.Fail(
+				getTokenName() + " encountered an error (" + e.getMessage() + ") in the token content of: " + value);
 		}
 		if (processToken)
 		{
 			return ParseResult.SUCCESS;
 		}
-		return new ParseResult.Fail(getTokenName()
-			+ " encountered an error in the token content of: " + value);
+		return new ParseResult.Fail(getTokenName() + " encountered an error in the token content of: " + value);
 	}
 
 	@Override

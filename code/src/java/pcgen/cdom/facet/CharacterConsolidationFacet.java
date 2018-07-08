@@ -39,9 +39,8 @@ import pcgen.cdom.facet.event.DataFacetChangeListener;
  * @see pcgen.cdom.facet.CDOMObjectConsolidationFacet
  * 
  */
-public class CharacterConsolidationFacet extends
-		AbstractSourcedListFacet<CharID, CDOMObject> implements
-		DataFacetChangeListener<CharID, CDOMObject>
+public class CharacterConsolidationFacet extends AbstractSourcedListFacet<CharID, CDOMObject>
+		implements DataFacetChangeListener<CharID, CDOMObject>
 {
 
 	/**

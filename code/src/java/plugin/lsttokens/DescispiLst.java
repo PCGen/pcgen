@@ -22,9 +22,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.rules.persistence.token.AbstractYesNoToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
-
-public class DescispiLst extends AbstractYesNoToken<CDOMObject> implements
-		CDOMPrimaryToken<CDOMObject>
+public class DescispiLst extends AbstractYesNoToken<CDOMObject> implements CDOMPrimaryToken<CDOMObject>
 {
 
 	@Override

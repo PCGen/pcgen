@@ -23,7 +23,6 @@ import java.io.StringWriter;
 import java.util.logging.FileHandler;
 import java.util.logging.LogRecord;
 
-
 public class LoggingRecorder extends FileHandler
 {
 

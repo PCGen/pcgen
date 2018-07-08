@@ -40,8 +40,7 @@ import pcgen.core.Equipment;
  *            The type of Proficiency (CDOMObject) that this
  *            AbstractProfProvider provides
  */
-public abstract class AbstractProfProvider<T extends CDOMObject> extends
-		ConcretePrereqObject implements ProfProvider<T>
+public abstract class AbstractProfProvider<T extends CDOMObject> extends ConcretePrereqObject implements ProfProvider<T>
 {
 
 	/**
@@ -71,14 +70,11 @@ public abstract class AbstractProfProvider<T extends CDOMObject> extends
 	 *            The List of Equipment references indicating the TYPEs of
 	 *            Equipment objects this AbstractProfProvider will contain.
 	 */
-	public AbstractProfProvider(List<CDOMReference<T>> profs,
-			List<CDOMReference<Equipment>> equipTypes)
+	public AbstractProfProvider(List<CDOMReference<T>> profs, List<CDOMReference<Equipment>> equipTypes)
 	{
-		direct = new TreeSet<>(
-                ReferenceUtilities.REFERENCE_SORTER);
+		direct = new TreeSet<>(ReferenceUtilities.REFERENCE_SORTER);
 		direct.addAll(profs);
-		byEquipType = new TreeSet<>(
-                ReferenceUtilities.REFERENCE_SORTER);
+		byEquipType = new TreeSet<>(ReferenceUtilities.REFERENCE_SORTER);
 		byEquipType.addAll(equipTypes);
 	}
 
@@ -143,8 +139,7 @@ public abstract class AbstractProfProvider<T extends CDOMObject> extends
 		Collections.addAll(types, typeString.split("\\."));
 		REF: for (CDOMReference<Equipment> ref : byEquipType)
 		{
-			StringTokenizer tok = new StringTokenizer(ref.getLSTformat(false)
-					.substring(5), ".");
+			StringTokenizer tok = new StringTokenizer(ref.getLSTformat(false).substring(5), ".");
 			while (tok.hasMoreTokens())
 			{
 				if (!types.contains(tok.nextToken()))
@@ -202,8 +197,7 @@ public abstract class AbstractProfProvider<T extends CDOMObject> extends
 				if (lstFormat.startsWith("TYPE="))
 				{
 					sb.append(subType).append("TYPE=");
-					StringTokenizer st = new StringTokenizer(lstFormat
-							.substring(5), dot);
+					StringTokenizer st = new StringTokenizer(lstFormat.substring(5), dot);
 					boolean needDot = false;
 					while (st.hasMoreTokens())
 					{
@@ -281,8 +275,7 @@ public abstract class AbstractProfProvider<T extends CDOMObject> extends
 	@Override
 	public int hashCode()
 	{
-		return (direct == null ? 0 : direct.hashCode() * 29)
-				+ (byEquipType == null ? 0 : byEquipType.hashCode());
+		return (direct == null ? 0 : direct.hashCode() * 29) + (byEquipType == null ? 0 : byEquipType.hashCode());
 	}
 
 }

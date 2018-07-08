@@ -26,6 +26,7 @@ import java.util.Collection;
 import javax.swing.ActionMap;
 import javax.swing.JOptionPane;
 
+import gmgen.GMGenSystem;
 import pcgen.cdom.content.Sponsor;
 import pcgen.core.Globals;
 import pcgen.facade.core.AbilityFacade;
@@ -57,8 +58,6 @@ import pcgen.system.CharacterManager;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
-
-import gmgen.GMGenSystem;
 
 /**
  * The PCGenActionMap is the action map for the PCGenFrame, and as such
@@ -143,7 +142,7 @@ public final class PCGenActionMap extends ActionMap
 	public static final String HELP_TIPOFTHEDAY_COMMAND = HELP_COMMAND + ".tod";
 	public static final String HELP_ABOUT_COMMAND = HELP_COMMAND + ".about";
 	private final PCGenFrame frame;
-	
+
 	public static final String MNU_TOOLS = "mnuTools"; //$NON-NLS-1$
 	public static final String MNU_TOOLS_PREFERENCES = "mnuToolsPreferences"; //$NON-NLS-1$
 	public static final String MNU_EDIT = "mnuEdit"; //$NON-NLS-1$
@@ -195,36 +194,21 @@ public final class PCGenActionMap extends ActionMap
 		put(SOLVERVIEW_COMMAND, new SolverViewAction());
 		put(INSTALL_DATA_COMMAND, new InstallDataAction());
 		put(FILTERS_COMMAND, new FiltersAction());
-		put(KIT_FILTERS_COMMAND,
-			new DefaultFiltersAction("mnuToolsFiltersKit", KIT_FILTERS_COMMAND,
-									 KitFacade.class));
+		put(KIT_FILTERS_COMMAND, new DefaultFiltersAction("mnuToolsFiltersKit", KIT_FILTERS_COMMAND, KitFacade.class));
 		put(RACE_FILTERS_COMMAND,
-			new DefaultFiltersAction("mnuToolsFiltersRace", RACE_FILTERS_COMMAND,
-									 RaceFacade.class));
+			new DefaultFiltersAction("mnuToolsFiltersRace", RACE_FILTERS_COMMAND, RaceFacade.class));
 		put(TEMPLATE_FILTERS_COMMAND,
-			new DefaultFiltersAction("mnuToolsFiltersTemplate",
-									 TEMPLATE_FILTERS_COMMAND,
-									 TemplateFacade.class));
+			new DefaultFiltersAction("mnuToolsFiltersTemplate", TEMPLATE_FILTERS_COMMAND, TemplateFacade.class));
 		put(CLASS_FILTERS_COMMAND,
-			new DefaultFiltersAction("mnuToolsFiltersClass",
-									 CLASS_FILTERS_COMMAND,
-									 ClassFacade.class));
+			new DefaultFiltersAction("mnuToolsFiltersClass", CLASS_FILTERS_COMMAND, ClassFacade.class));
 		put(ABILITY_FILTERS_COMMAND,
-			new DefaultFiltersAction("mnuToolsFiltersAbility",
-									 ABILITY_FILTERS_COMMAND,
-									 AbilityFacade.class));
+			new DefaultFiltersAction("mnuToolsFiltersAbility", ABILITY_FILTERS_COMMAND, AbilityFacade.class));
 		put(SKILL_FILTERS_COMMAND,
-			new DefaultFiltersAction("mnuToolsFiltersSkill",
-									 SKILL_FILTERS_COMMAND,
-									 SkillFacade.class));
+			new DefaultFiltersAction("mnuToolsFiltersSkill", SKILL_FILTERS_COMMAND, SkillFacade.class));
 		put(EQUIPMENT_FILTERS_COMMAND,
-			new DefaultFiltersAction("mnuToolsFiltersEquipment",
-									 EQUIPMENT_FILTERS_COMMAND,
-									 ItemFacade.class));
+			new DefaultFiltersAction("mnuToolsFiltersEquipment", EQUIPMENT_FILTERS_COMMAND, ItemFacade.class));
 		put(SPELL_FILTERS_COMMAND,
-			new DefaultFiltersAction("mnuToolsFiltersSpell",
-									 SPELL_GENERATORS_COMMAND,
-									 SpellFacade.class));
+			new DefaultFiltersAction("mnuToolsFiltersSpell", SPELL_GENERATORS_COMMAND, SpellFacade.class));
 		put(SOURCES_COMMAND, new SourcesAction());
 		put(SOURCES_LOAD_COMMAND, new LoadSourcesAction());
 		put(SOURCES_LOAD_SELECT_COMMAND, new LoadSourcesSelectAction());
@@ -233,37 +217,21 @@ public final class PCGenActionMap extends ActionMap
 		put(GENERATORS_COMMAND, new GeneratorsAction());
 		put(TREASURE_GENERATORS_COMMAND, new TreasureGeneratorsAction());
 		put(STAT_GENERATORS_COMMAND,
-			new DefaultGeneratorsAction("mnuToolsGeneratorsStat",
-										STAT_GENERATORS_COMMAND,
-										StatFacade.class));
+			new DefaultGeneratorsAction("mnuToolsGeneratorsStat", STAT_GENERATORS_COMMAND, StatFacade.class));
 		put(RACE_GENERATORS_COMMAND,
-			new DefaultGeneratorsAction("mnuToolsGeneratorsRace",
-										RACE_GENERATORS_COMMAND,
-										RaceFacade.class));
-		put(TEMPLATE_GENERATORS_COMMAND,
-			new DefaultGeneratorsAction("mnuToolsGeneratorsTemplate",
-										TEMPLATE_GENERATORS_COMMAND,
-										TemplateFacade.class));
+			new DefaultGeneratorsAction("mnuToolsGeneratorsRace", RACE_GENERATORS_COMMAND, RaceFacade.class));
+		put(TEMPLATE_GENERATORS_COMMAND, new DefaultGeneratorsAction("mnuToolsGeneratorsTemplate",
+			TEMPLATE_GENERATORS_COMMAND, TemplateFacade.class));
 		put(CLASS_GENERATORS_COMMAND,
-			new DefaultGeneratorsAction("mnuToolsGeneratorsClass",
-										CLASS_GENERATORS_COMMAND,
-										ClassFacade.class));
+			new DefaultGeneratorsAction("mnuToolsGeneratorsClass", CLASS_GENERATORS_COMMAND, ClassFacade.class));
 		put(ABILITY_GENERATORS_COMMAND,
-			new DefaultGeneratorsAction("mnuToolsGeneratorsAbility",
-										ABILITY_GENERATORS_COMMAND,
-										AbilityFacade.class));
+			new DefaultGeneratorsAction("mnuToolsGeneratorsAbility", ABILITY_GENERATORS_COMMAND, AbilityFacade.class));
 		put(SKILL_GENERATORS_COMMAND,
-			new DefaultGeneratorsAction("mnuToolsGeneratorsSkill",
-										SKILL_GENERATORS_COMMAND,
-										SkillFacade.class));
+			new DefaultGeneratorsAction("mnuToolsGeneratorsSkill", SKILL_GENERATORS_COMMAND, SkillFacade.class));
 		put(EQUIPMENT_GENERATORS_COMMAND,
-			new DefaultGeneratorsAction("mnuToolsGeneratorsEquipment",
-										EQUIPMENT_GENERATORS_COMMAND,
-										ItemFacade.class));
+			new DefaultGeneratorsAction("mnuToolsGeneratorsEquipment", EQUIPMENT_GENERATORS_COMMAND, ItemFacade.class));
 		put(SPELL_GENERATORS_COMMAND,
-			new DefaultGeneratorsAction("mnuToolsGeneratorsSpell",
-										SPELL_GENERATORS_COMMAND,
-										SpellFacade.class));
+			new DefaultGeneratorsAction("mnuToolsGeneratorsSpell", SPELL_GENERATORS_COMMAND, SpellFacade.class));
 		put(TOOLS_COMMAND, new ToolsAction());
 
 		put(HELP_COMMAND, new HelpAction());
@@ -290,7 +258,7 @@ public final class PCGenActionMap extends ActionMap
 
 		public UndoAction()
 		{
-			super("mnuEditUndo", UNDO_COMMAND,  "shortcut Z");
+			super("mnuEditUndo", UNDO_COMMAND, "shortcut Z");
 			setEnabled(false);
 		}
 
@@ -307,7 +275,7 @@ public final class PCGenActionMap extends ActionMap
 
 		public RedoAction()
 		{
-			super("mnuEditRedo", REDO_COMMAND,  "shortcut Y");
+			super("mnuEditRedo", REDO_COMMAND, "shortcut Y");
 			setEnabled(false);
 		}
 
@@ -331,11 +299,9 @@ public final class PCGenActionMap extends ActionMap
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			KitSelectionDialog kitDialog =
-					new KitSelectionDialog(frame, frame
-						.getSelectedCharacterRef().get());
+			KitSelectionDialog kitDialog = new KitSelectionDialog(frame, frame.getSelectedCharacterRef().get());
 			Utility.setComponentRelativeLocation(frame, kitDialog);
-			kitDialog.setVisible(true);			
+			kitDialog.setVisible(true);
 		}
 
 	}
@@ -379,7 +345,6 @@ public final class PCGenActionMap extends ActionMap
 
 	private class PreferencesAction extends PCGenAction
 	{
-
 
 		public PreferencesAction()
 		{
@@ -459,7 +424,6 @@ public final class PCGenActionMap extends ActionMap
 	private class CoreViewAction extends CharacterAction
 	{
 
-
 		public CoreViewAction()
 		{
 			super("mnuToolsCoreView", COREVIEW_COMMAND, "Shift-F11");
@@ -477,7 +441,6 @@ public final class PCGenActionMap extends ActionMap
 
 	private class SolverViewAction extends CharacterAction
 	{
-
 
 		public SolverViewAction()
 		{
@@ -518,11 +481,11 @@ public final class PCGenActionMap extends ActionMap
 		public void actionPerformed(ActionEvent e)
 		{
 			DataInstaller di = new DataInstaller();
-			di.setVisible(true);			
+			di.setVisible(true);
 		}
 
 	}
-	
+
 	private class FileAction extends PCGenAction
 	{
 
@@ -690,8 +653,7 @@ public final class PCGenActionMap extends ActionMap
 
 		public SaveAsAction()
 		{
-			super("mnuFileSaveAs", SAVEAS_COMMAND, "shift-shortcut S",
-				  Icons.SaveAs16);
+			super("mnuFileSaveAs", SAVEAS_COMMAND, "shift-shortcut S", Icons.SaveAs16);
 		}
 
 		@Override
@@ -832,8 +794,7 @@ public final class PCGenActionMap extends ActionMap
 
 		public ExportAction()
 		{
-			super("mnuFileExport", EXPORT_COMMAND, "shift-shortcut P",
-				Icons.Export16);
+			super("mnuFileExport", EXPORT_COMMAND, "shift-shortcut P", Icons.Export16);
 		}
 
 		@Override
@@ -908,8 +869,7 @@ public final class PCGenActionMap extends ActionMap
 		public ReloadSourcesAction()
 		{
 			super("mnuSourcesReload", SOURCES_RELOAD_COMMAND, "shift-shortcut R");
-			ReferenceFacade<SourceSelectionFacade> currentSourceSelectionRef =
-					frame.getCurrentSourceSelectionRef();
+			ReferenceFacade<SourceSelectionFacade> currentSourceSelectionRef = frame.getCurrentSourceSelectionRef();
 			currentSourceSelectionRef.addReferenceListener(this);
 			checkEnabled(currentSourceSelectionRef.get());
 		}
@@ -917,8 +877,7 @@ public final class PCGenActionMap extends ActionMap
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			SourceSelectionFacade sources =
-					frame.getCurrentSourceSelectionRef().get();
+			SourceSelectionFacade sources = frame.getCurrentSourceSelectionRef().get();
 			if (sources != null)
 			{
 				frame.unloadSources();
@@ -945,8 +904,7 @@ public final class PCGenActionMap extends ActionMap
 		public UnloadSourcesAction()
 		{
 			super("mnuSourcesUnload", SOURCES_UNLOAD_COMMAND, "shortcut U");
-			ReferenceFacade<SourceSelectionFacade> currentSourceSelectionRef =
-					frame.getCurrentSourceSelectionRef();
+			ReferenceFacade<SourceSelectionFacade> currentSourceSelectionRef = frame.getCurrentSourceSelectionRef();
 			currentSourceSelectionRef.addReferenceListener(this);
 			checkEnabled(currentSourceSelectionRef.get());
 		}
@@ -1003,8 +961,7 @@ public final class PCGenActionMap extends ActionMap
 
 		public TreasureGeneratorsAction()
 		{
-			super("mnuToolsGeneratorsTreasure", TREASURE_GENERATORS_COMMAND,
-				  "shortcut T");
+			super("mnuToolsGeneratorsTreasure", TREASURE_GENERATORS_COMMAND, "shortcut T");
 		}
 
 		@Override
@@ -1071,16 +1028,13 @@ public final class PCGenActionMap extends ActionMap
 		{
 			try
 			{
-				Utility.viewInBrowser(new File(ConfigurationSettings
-					.getDocsDir(), "index.html"));
+				Utility.viewInBrowser(new File(ConfigurationSettings.getDocsDir(), "index.html"));
 			}
 			catch (IOException ex)
 			{
 				Logging.errorPrint("Could not open docs in external browser", ex);
-				JOptionPane.showMessageDialog(frame,
-					LanguageBundle.getString("in_menuDocsNotOpenMsg"),
-					LanguageBundle.getString("in_menuDocsNotOpenTitle"),
-					JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(frame, LanguageBundle.getString("in_menuDocsNotOpenMsg"),
+					LanguageBundle.getString("in_menuDocsNotOpenTitle"), JOptionPane.ERROR_MESSAGE);
 			}
 		}
 
@@ -1113,16 +1067,15 @@ public final class PCGenActionMap extends ActionMap
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			Collection<Sponsor> sponsors = Globals.getGlobalContext().getReferenceContext().getConstructedCDOMObjects(Sponsor.class);
+			Collection<Sponsor> sponsors =
+					Globals.getGlobalContext().getReferenceContext().getConstructedCDOMObjects(Sponsor.class);
 			if (sponsors.size() > 1)
 			{
 				frame.showSponsorsDialog();
 				return;
 			}
-			JOptionPane.showMessageDialog(frame,
-										  "There are no sponsors",
-										  "Missing Sponsors",
-										  JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(frame, "There are no sponsors", "Missing Sponsors",
+				JOptionPane.INFORMATION_MESSAGE);
 		}
 
 	}
@@ -1132,8 +1085,7 @@ public final class PCGenActionMap extends ActionMap
 
 		public TipOfTheDayHelpAction()
 		{
-			super("mnuHelpTipOfTheDay", HELP_TIPOFTHEDAY_COMMAND,
-				  Icons.TipOfTheDay16);
+			super("mnuHelpTipOfTheDay", HELP_TIPOFTHEDAY_COMMAND, Icons.TipOfTheDay16);
 		}
 
 		@Override
@@ -1165,8 +1117,7 @@ public final class PCGenActionMap extends ActionMap
 
 		private final Class<?> generatorClass;
 
-		public DefaultGeneratorsAction(String prop, String command,
-									   Class<?> generatorClass)
+		public DefaultGeneratorsAction(String prop, String command, Class<?> generatorClass)
 		{
 			super(prop, command);
 			this.generatorClass = generatorClass;
@@ -1185,8 +1136,7 @@ public final class PCGenActionMap extends ActionMap
 
 		private final Class<?> filterClass;
 
-		public DefaultFiltersAction(String prop, String command,
-									Class<?> filterClass)
+		public DefaultFiltersAction(String prop, String command, Class<?> filterClass)
 		{
 			super(prop, command);
 			this.filterClass = filterClass;

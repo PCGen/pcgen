@@ -35,9 +35,8 @@ import pcgen.core.Skill;
  * SkillCostFacet is a Facet that tracks costs of Skills for each PCClass
  * 
  */
-public class SkillCostFacet extends
-		AbstractSubScopeFacet<Skill, SkillCost, PCClass> implements
-		SubScopeFacetChangeListener<PCClass, SkillCost, Skill>
+public class SkillCostFacet extends AbstractSubScopeFacet<Skill, SkillCost, PCClass>
+		implements SubScopeFacetChangeListener<PCClass, SkillCost, Skill>
 {
 	private ListToSkillCostFacet listToSkillCostFacet;
 	private LocalAddedSkillCostFacet localAddedSkillCostFacet;
@@ -52,8 +51,7 @@ public class SkillCostFacet extends
 		{
 			return SkillCost.CLASS;
 		}
-		else if (sk.getSafe(ObjectKey.EXCLUSIVE)
-			&& !isCrossClassSkill(id, aClass, sk))
+		else if (sk.getSafe(ObjectKey.EXCLUSIVE) && !isCrossClassSkill(id, aClass, sk))
 		{
 			return SkillCost.EXCLUSIVE;
 		}
@@ -67,13 +65,11 @@ public class SkillCostFacet extends
 	{
 		if (pcc == null)
 		{
-			throw new IllegalArgumentException(
-				"PCClass in isClassSkill cannot be null");
+			throw new IllegalArgumentException("PCClass in isClassSkill cannot be null");
 		}
 		if (skill == null)
 		{
-			throw new IllegalArgumentException(
-				"Skill in isClassSkill cannot be null");
+			throw new IllegalArgumentException("Skill in isClassSkill cannot be null");
 		}
 		return contains(id, skill, SkillCost.CLASS, pcc);
 	}
@@ -82,48 +78,38 @@ public class SkillCostFacet extends
 	{
 		if (pcc == null)
 		{
-			throw new IllegalArgumentException(
-				"PCClass in isCrossClassSkill cannot be null");
+			throw new IllegalArgumentException("PCClass in isCrossClassSkill cannot be null");
 		}
 		if (skill == null)
 		{
-			throw new IllegalArgumentException(
-				"Skill in isCrossClassSkill cannot be null");
+			throw new IllegalArgumentException("Skill in isCrossClassSkill cannot be null");
 		}
-		return !contains(id, skill, SkillCost.CLASS, pcc)
-			&& contains(id, skill, SkillCost.CROSS_CLASS, pcc);
+		return !contains(id, skill, SkillCost.CLASS, pcc) && contains(id, skill, SkillCost.CROSS_CLASS, pcc);
 	}
 
 	@Override
-	public void dataAdded(
-		SubScopeFacetChangeEvent<PCClass, SkillCost, Skill> dfce)
+	public void dataAdded(SubScopeFacetChangeEvent<PCClass, SkillCost, Skill> dfce)
 	{
-		add(dfce.getCharID(), dfce.getCDOMObject(), dfce.getScope2(),
-			dfce.getScope1(), dfce.getSource());
+		add(dfce.getCharID(), dfce.getCDOMObject(), dfce.getScope2(), dfce.getScope1(), dfce.getSource());
 	}
 
 	@Override
-	public void dataRemoved(
-		SubScopeFacetChangeEvent<PCClass, SkillCost, Skill> dfce)
+	public void dataRemoved(SubScopeFacetChangeEvent<PCClass, SkillCost, Skill> dfce)
 	{
-		remove(dfce.getCharID(), dfce.getCDOMObject(), dfce.getScope2(),
-			dfce.getScope1(), dfce.getSource());
+		remove(dfce.getCharID(), dfce.getCDOMObject(), dfce.getScope2(), dfce.getScope1(), dfce.getSource());
 	}
 
-	public void setGlobalToSkillCostFacet(
-		GlobalToSkillCostFacet globalToSkillCostFacet)
+	public void setGlobalToSkillCostFacet(GlobalToSkillCostFacet globalToSkillCostFacet)
 	{
 		this.globalToSkillCostFacet = globalToSkillCostFacet;
 	}
 
-	public void setListToSkillCostFacet(
-		ListToSkillCostFacet listToSkillCostFacet)
+	public void setListToSkillCostFacet(ListToSkillCostFacet listToSkillCostFacet)
 	{
 		this.listToSkillCostFacet = listToSkillCostFacet;
 	}
 
-	public void setLocalAddedSkillCostFacet(
-		LocalAddedSkillCostFacet localAddedSkillCostFacet)
+	public void setLocalAddedSkillCostFacet(LocalAddedSkillCostFacet localAddedSkillCostFacet)
 	{
 		this.localAddedSkillCostFacet = localAddedSkillCostFacet;
 	}
@@ -133,14 +119,12 @@ public class SkillCostFacet extends
 		this.localSkillCostFacet = localSkillCostFacet;
 	}
 
-	public void setSkillListToCostFacet(
-		SkillListToCostFacet skillListToCostFacet)
+	public void setSkillListToCostFacet(SkillListToCostFacet skillListToCostFacet)
 	{
 		this.skillListToCostFacet = skillListToCostFacet;
 	}
 
-	public void setMonCSkillToSkillCostFacet(
-		MonCSkillToSkillCostFacet monCSkillToSkillCostFacet)
+	public void setMonCSkillToSkillCostFacet(MonCSkillToSkillCostFacet monCSkillToSkillCostFacet)
 	{
 		this.monCSkillToSkillCostFacet = monCSkillToSkillCostFacet;
 	}

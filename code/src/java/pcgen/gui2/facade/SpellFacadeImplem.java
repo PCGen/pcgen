@@ -27,8 +27,8 @@ import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellInfo;
-import pcgen.facade.core.SpellFacade;
 import pcgen.core.spell.Spell;
+import pcgen.facade.core.SpellFacade;
 import pcgen.util.SortKeyAware;
 
 /**
@@ -50,27 +50,25 @@ public class SpellFacadeImplem implements SpellFacade, SortKeyAware
 		this.spell = spell;
 		this.charSpell = charSpell;
 		this.spellInfo = spellInfo;
-		
+
 	}
-	
+
 	/**
 	 * @see pcgen.facade.core.InfoFacade#getSource()
 	 */
 	@Override
 	public String getSource()
 	{
-		return SourceFormat.getFormattedString(spell,
-			Globals.getSourceDisplay(), true);
+		return SourceFormat.getFormattedString(spell, Globals.getSourceDisplay(), true);
 	}
 
 	/**
 	 * @see pcgen.facade.core.InfoFacade#getSourceForNodeDisplay()
 	 */
-    @Override
+	@Override
 	public String getSourceForNodeDisplay()
 	{
-		return SourceFormat.getFormattedString(spell,
-				SourceFormat.LONG, true);
+		return SourceFormat.getFormattedString(spell, SourceFormat.LONG, true);
 	}
 
 	/**
@@ -97,7 +95,7 @@ public class SpellFacadeImplem implements SpellFacade, SortKeyAware
 	@Override
 	public String getSubschool()
 	{
-        return spell.getListAsString(ListKey.SPELL_SUBSCHOOL);
+		return spell.getListAsString(ListKey.SPELL_SUBSCHOOL);
 	}
 
 	/**
@@ -106,11 +104,11 @@ public class SpellFacadeImplem implements SpellFacade, SortKeyAware
 	@Override
 	public String[] getDescriptors()
 	{
-        List<String> descriptors = spell.getListFor(ListKey.SPELL_DESCRIPTOR);
-        if (descriptors== null)
-        {
-        	return new String[]{};
-        }
+		List<String> descriptors = spell.getListFor(ListKey.SPELL_DESCRIPTOR);
+		if (descriptors == null)
+		{
+			return new String[]{};
+		}
 		return descriptors.toArray(new String[descriptors.size()]);
 	}
 
@@ -129,7 +127,7 @@ public class SpellFacadeImplem implements SpellFacade, SortKeyAware
 	@Override
 	public String getRange()
 	{
-        return pc.getSpellRange(charSpell, spellInfo);
+		return pc.getSpellRange(charSpell, spellInfo);
 	}
 
 	/**
@@ -146,7 +144,7 @@ public class SpellFacadeImplem implements SpellFacade, SortKeyAware
 	{
 		return spell.getListAsString(ListKey.CASTTIME);
 	}
-	
+
 	/**
 	 * @return the spell
 	 */
@@ -205,14 +203,10 @@ public class SpellFacadeImplem implements SpellFacade, SortKeyAware
 	{
 		final int prime = 31;
 		int result = 1;
-		result =
-				prime * result
-					+ ((charSpell == null) ? 0 : charSpell.hashCode());
+		result = prime * result + ((charSpell == null) ? 0 : charSpell.hashCode());
 		result = prime * result + ((pc == null) ? 0 : pc.hashCode());
 		result = prime * result + ((spell == null) ? 0 : spell.hashCode());
-		result =
-				prime * result
-					+ ((spellInfo == null) ? 0 : spellInfo.hashCode());
+		result = prime * result + ((spellInfo == null) ? 0 : spellInfo.hashCode());
 		return result;
 	}
 
@@ -293,7 +287,7 @@ public class SpellFacadeImplem implements SpellFacade, SortKeyAware
 	{
 		return spell.getType();
 	}
-	
+
 	@Override
 	public String getSortKey()
 	{

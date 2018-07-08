@@ -15,11 +15,11 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
- package pcgen.core.doomsdaybook;
-
-import gmgen.plugin.dice.Dice;
+package pcgen.core.doomsdaybook;
 
 import java.util.ArrayList;
+
+import gmgen.plugin.dice.Dice;
 
 /**
  * This class deals with RuleSets for Random name generation
@@ -80,8 +80,7 @@ public class RuleSet extends ArrayList<String> implements DataElement
 	 * @param id
 	 * @param usage
 	 */
-	public RuleSet(VariableHashMap allVars, String title, String id,
-		String usage)
+	public RuleSet(VariableHashMap allVars, String title, String id, String usage)
 	{
 		this(allVars, title, id, 1, usage);
 	}
@@ -95,8 +94,7 @@ public class RuleSet extends ArrayList<String> implements DataElement
 	 * @param weight
 	 * @param usage
 	 */
-	public RuleSet(VariableHashMap allVars, String title, String id,
-		int weight, String usage)
+	public RuleSet(VariableHashMap allVars, String title, String id, int weight, String usage)
 	{
 		this.allVars = allVars;
 		this.title = title;
@@ -111,7 +109,7 @@ public class RuleSet extends ArrayList<String> implements DataElement
 	 * @return A list of data
 	 * @throws Exception 
 	 */
-    @Override
+	@Override
 	public ArrayList<DataValue> getData() throws Exception
 	{
 		retList.clear();
@@ -137,7 +135,8 @@ public class RuleSet extends ArrayList<String> implements DataElement
 		//select the detail to return
 		int aWeight = 0;
 
-		//Iterate through the list of choices until the weights (from each DataValue) are greater the num chosen as the 'choice'
+		// Iterate through the list of choices until the weights (from each DataValue)
+		// are greater the num chosen as the 'choice'
 		for (String key : this)
 		{
 			Rule chkValue = (Rule) allVars.getDataElement(key);
@@ -166,7 +165,7 @@ public class RuleSet extends ArrayList<String> implements DataElement
 	 * @return List of data 
 	 * @throws Exception 
 	 */
-    @Override
+	@Override
 	public ArrayList<DataValue> getData(int choice) throws Exception
 	{
 		retList.clear();
@@ -174,7 +173,8 @@ public class RuleSet extends ArrayList<String> implements DataElement
 		//select the detail to return
 		int aWeight = 0;
 
-		//Iterate through the list of choices until the weights (from each DataValue) are greater the num chosen as the 'choice'
+		// Iterate through the list of choices until the weights (from each DataValue)
+		// are greater the num chosen as the 'choice'
 		for (String key : this)
 		{
 			Rule chkValue = (Rule) allVars.getDataElement(key);
@@ -209,7 +209,7 @@ public class RuleSet extends ArrayList<String> implements DataElement
 	 * Get the id
 	 * @return id
 	 */
-    @Override
+	@Override
 	public String getId()
 	{
 		return id;
@@ -219,7 +219,7 @@ public class RuleSet extends ArrayList<String> implements DataElement
 	 * Get the last data
 	 * @return the last list of data
 	 */
-    @Override
+	@Override
 	public ArrayList<DataValue> getLastData()
 	{
 		return retList;
@@ -288,7 +288,8 @@ public class RuleSet extends ArrayList<String> implements DataElement
 		//select the detail to return
 		int aWeight = 0;
 
-		//Iterate through the list of choices until the weights (from each DataValue) are greater the num chosen as the 'choice'
+		// Iterate through the list of choices until the weights (from each DataValue)
+		// are greater the num chosen as the 'choice'
 		for (String key : this)
 		{
 			Rule chkValue = (Rule) allVars.getDataElement(key);
@@ -315,14 +316,15 @@ public class RuleSet extends ArrayList<String> implements DataElement
 	 * 
 	 * @param choice
 	 * @return Rule
-	 * @throws Exception
+	 * @throws Exception When no entry exists for the supplied key.
 	 */
 	public Rule getRule(int choice) throws Exception
 	{
 		//select the detail to return
 		int aWeight = 0;
 
-		//Iterate through the list of choices until the weights (from each DataValue) are greater the num chosen as the 'choice'
+		// Iterate through the list of choices until the weights (from each DataValue)
+		// are greater the num chosen as the 'choice'
 		for (String key : this)
 		{
 			Rule chkValue = (Rule) allVars.getDataElement(key);
@@ -357,7 +359,7 @@ public class RuleSet extends ArrayList<String> implements DataElement
 	 * Get the title
 	 * @return title
 	 */
-    @Override
+	@Override
 	public String getTitle()
 	{
 		return title;
@@ -394,7 +396,7 @@ public class RuleSet extends ArrayList<String> implements DataElement
 	 * Get the weight
 	 * @return weight
 	 */
-    @Override
+	@Override
 	public int getWeight()
 	{
 		return weight;

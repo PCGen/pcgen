@@ -26,15 +26,14 @@ import pcgen.core.PlayerCharacter;
 import pcgen.io.exporttoken.EqToken;
 import pcgen.util.Logging;
 
-public class PCModEquipTermEvaluator
-		extends BasePCTermEvaluator implements TermEvaluator
+public class PCModEquipTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
 	private final String modEq;
 
 	public PCModEquipTermEvaluator(String originalText, String modEq)
 	{
 		this.originalText = originalText;
-		this.modEq        = modEq;
+		this.modEq = modEq;
 	}
 
 	@Override
@@ -53,9 +52,7 @@ public class PCModEquipTermEvaluator
 		{
 			if (pc.hasControl(CControl.PCACCHECK))
 			{
-				Logging
-					.errorPrint("Term MODEQUIPACCHECK is not supported "
-						+ "when PCACCHECK code control is used");
+				Logging.errorPrint("Term MODEQUIPACCHECK is not supported " + "when PCACCHECK code control is used");
 			}
 			else
 			{
@@ -66,9 +63,7 @@ public class PCModEquipTermEvaluator
 		{
 			if (pc.hasControl(CControl.PCMAXDEX))
 			{
-				Logging
-					.errorPrint("Term MODEQUIPMAXDEX is not supported "
-						+ "when PCMAXDEX code control is used");
+				Logging.errorPrint("Term MODEQUIPMAXDEX is not supported " + "when PCMAXDEX code control is used");
 			}
 			else
 			{
@@ -79,9 +74,8 @@ public class PCModEquipTermEvaluator
 		{
 			if (pc.hasControl(CControl.PCSPELLFAILURE))
 			{
-				Logging
-					.errorPrint("Term MODEQUIPSPELLFAILURE is not supported "
-						+ "when PCSPELLFAILURE code control is used");
+				Logging.errorPrint(
+					"Term MODEQUIPSPELLFAILURE is not supported " + "when PCSPELLFAILURE code control is used");
 			}
 			else
 			{

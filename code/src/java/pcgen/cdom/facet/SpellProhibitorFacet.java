@@ -31,9 +31,8 @@ import pcgen.core.SpellProhibitor;
  * PCClass in a Player Character
  * 
  */
-public class SpellProhibitorFacet extends
-		AbstractScopeFacet<CharID, PCClass, SpellProhibitor> implements
-		DataFacetChangeListener<CharID, PCClass>
+public class SpellProhibitorFacet extends AbstractScopeFacet<CharID, PCClass, SpellProhibitor>
+		implements DataFacetChangeListener<CharID, PCClass>
 {
 	private ClassFacet classFacet;
 
@@ -57,14 +56,12 @@ public class SpellProhibitorFacet extends
 		PCClass pcc = dfce.getCDOMObject();
 		CharID id = dfce.getCharID();
 		Object source = dfce.getSource();
-		for (SpellProhibitor prohibit : pcc
-			.getSafeListFor(ListKey.PROHIBITED_SPELLS))
+		for (SpellProhibitor prohibit : pcc.getSafeListFor(ListKey.PROHIBITED_SPELLS))
 		{
 			add(id, pcc, prohibit, source);
 		}
 
-		for (SpellProhibitor prohibit : pcc
-			.getSafeListFor(ListKey.SPELL_PROHIBITOR))
+		for (SpellProhibitor prohibit : pcc.getSafeListFor(ListKey.SPELL_PROHIBITOR))
 		{
 			add(id, pcc, prohibit, source);
 		}

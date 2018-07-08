@@ -23,14 +23,13 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 /**
  * A prerequisite parser class that handles the parsing of pre template tokens.
  */
-public class PreTemplateParser extends AbstractPrerequisiteListParser implements
-		PrerequisiteParserInterface
+public class PreTemplateParser extends AbstractPrerequisiteListParser implements PrerequisiteParserInterface
 {
 	/**
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String[] kindsHandled()
 	{
 		return new String[]{"TEMPLATE"};

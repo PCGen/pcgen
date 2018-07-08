@@ -39,13 +39,11 @@ public class AltcritrangeToken implements CDOMPrimaryToken<Equipment>
 	}
 
 	@Override
-	public ParseResult parseToken(LoadContext context, Equipment eq,
-		String value)
+	public ParseResult parseToken(LoadContext context, Equipment eq, String value)
 	{
 		if (ControlUtilities.hasControlToken(context, CControl.CRITRANGE))
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " is disabled when CRITRANGE control is used: " + value);
+			return new ParseResult.Fail(getTokenName() + " is disabled when CRITRANGE control is used: " + value);
 		}
 		try
 		{
@@ -54,15 +52,13 @@ public class AltcritrangeToken implements CDOMPrimaryToken<Equipment>
 			{
 				return new ParseResult.Fail(getTokenName() + " cannot be < 0");
 			}
-			context.getObjectContext().put(eq.getEquipmentHead(2),
-					IntegerKey.CRIT_RANGE, cr);
+			context.getObjectContext().put(eq.getEquipmentHead(2), IntegerKey.CRIT_RANGE, cr);
 			return ParseResult.SUCCESS;
 		}
 		catch (NumberFormatException nfe)
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " expected an integer. " + "Tag must be of the form: "
-					+ getTokenName() + ":<int>");
+			return new ParseResult.Fail(
+				getTokenName() + " expected an integer. " + "Tag must be of the form: " + getTokenName() + ":<int>");
 		}
 	}
 
@@ -74,19 +70,17 @@ public class AltcritrangeToken implements CDOMPrimaryToken<Equipment>
 		{
 			return null;
 		}
-		Integer mult = context.getObjectContext().getInteger(head,
-				IntegerKey.CRIT_RANGE);
+		Integer mult = context.getObjectContext().getInteger(head, IntegerKey.CRIT_RANGE);
 		if (mult == null)
 		{
 			return null;
 		}
 		if (mult < 0)
 		{
-			context.addWriteMessage(getTokenName() + " cannot be negative: "
-					+ mult);
+			context.addWriteMessage(getTokenName() + " cannot be negative: " + mult);
 			return null;
 		}
-		return new String[] { mult.toString() };
+		return new String[]{mult.toString()};
 	}
 
 	@Override

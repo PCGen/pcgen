@@ -19,36 +19,36 @@
 package pcgen.gui2.util.treetable;
 
 import java.util.Comparator;
+
 import pcgen.gui2.util.table.Row;
 
 /**
  *
  */
-public class DefaultSortableTreeTableModel extends DefaultTreeTableModel
-        implements SortableTreeTableModel
+public class DefaultSortableTreeTableModel extends DefaultTreeTableModel implements SortableTreeTableModel
 {
 
-    protected DefaultSortableTreeTableModel()
-    {
-        super();
-    }
+	protected DefaultSortableTreeTableModel()
+	{
+		super();
+	}
 
-    protected DefaultSortableTreeTableModel(SortableTreeTableNode root)
-    {
-        super(root);
-    }
-
-    @Override
-    protected TreeTableNode createDefaultTreeTableNode()
-    {
-        return new DefaultSortableTreeTableNode();
-    }
+	protected DefaultSortableTreeTableModel(SortableTreeTableNode root)
+	{
+		super(root);
+	}
 
 	@Override
-    public void sortModel(Comparator<Row> comparator)
-    {
-        ((SortableTreeTableNode) getRoot()).sortChildren(comparator);
-        reload();
-    }
+	protected TreeTableNode createDefaultTreeTableNode()
+	{
+		return new DefaultSortableTreeTableNode();
+	}
+
+	@Override
+	public void sortModel(Comparator<Row> comparator)
+	{
+		((SortableTreeTableNode) getRoot()).sortChildren(comparator);
+		reload();
+	}
 
 }

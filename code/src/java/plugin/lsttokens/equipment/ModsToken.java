@@ -28,8 +28,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Deals with MODS token
  */
-public class ModsToken extends AbstractNonEmptyToken<Equipment> implements
-		CDOMPrimaryToken<Equipment>
+public class ModsToken extends AbstractNonEmptyToken<Equipment> implements CDOMPrimaryToken<Equipment>
 {
 
 	@Override
@@ -39,8 +38,7 @@ public class ModsToken extends AbstractNonEmptyToken<Equipment> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		Equipment eq, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, Equipment eq, String value)
 	{
 		EqModControl ctrl;
 		try
@@ -49,8 +47,7 @@ public class ModsToken extends AbstractNonEmptyToken<Equipment> implements
 		}
 		catch (IllegalArgumentException iae)
 		{
-			return new ParseResult.Fail("Invalid Mod Control provided in "
-					+ getTokenName() + ": " + value);
+			return new ParseResult.Fail("Invalid Mod Control provided in " + getTokenName() + ": " + value);
 		}
 		context.getObjectContext().put(eq, ObjectKey.MOD_CONTROL, ctrl);
 		return ParseResult.SUCCESS;
@@ -59,13 +56,12 @@ public class ModsToken extends AbstractNonEmptyToken<Equipment> implements
 	@Override
 	public String[] unparse(LoadContext context, Equipment eq)
 	{
-		EqModControl control = context.getObjectContext().getObject(eq,
-				ObjectKey.MOD_CONTROL);
+		EqModControl control = context.getObjectContext().getObject(eq, ObjectKey.MOD_CONTROL);
 		if (control == null)
 		{
 			return null;
 		}
-		return new String[] { control.toString() };
+		return new String[]{control.toString()};
 	}
 
 	@Override

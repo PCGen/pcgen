@@ -35,13 +35,12 @@ import plugin.experience.ExperienceAdjusterModel;
 import plugin.experience.ExperienceAdjusterPlugin;
 import plugin.experience.ExperienceListItem;
 
-
 public class AddDefeatedCombatant extends AbstractDialog
 {
 	// End of variables declaration//GEN-END:variables
 
 	private static final String OPTION_NAME_DBMAXNUM = ExperienceAdjusterPlugin.LOG_NAME + ".dbMaxNum"; //$NON-NLS-1$
-	
+
 	/**  Description of the Field */
 	public ExperienceAdjusterModel model;
 	private javax.swing.JLabel lCR;
@@ -63,8 +62,7 @@ public class AddDefeatedCombatant extends AbstractDialog
 	 *@param  modal       Description of the Parameter
 	 *@param  model  Description of the Parameter
 	 */
-	public AddDefeatedCombatant(java.awt.Frame parent, boolean modal,
-		ExperienceAdjusterModel model)
+	public AddDefeatedCombatant(java.awt.Frame parent, boolean modal, ExperienceAdjusterModel model)
 	{
 		super(parent, "Add defeated combatant", modal);
 		pack();
@@ -72,9 +70,7 @@ public class AddDefeatedCombatant extends AbstractDialog
 		this.model = model;
 
 		sNumber.setMinimum(1);
-		int maxNum =
-				SettingsHandler.getGMGenOption(
-					OPTION_NAME_DBMAXNUM, 20);
+		int maxNum = SettingsHandler.getGMGenOption(OPTION_NAME_DBMAXNUM, 20);
 		sNumber.setMaximum(maxNum);
 	}
 
@@ -98,8 +94,7 @@ public class AddDefeatedCombatant extends AbstractDialog
 			{
 				enemyName = MessageFormat.format("{0} ({1})", enemyName, i);
 			}
-			model.addEnemy(new ExperienceListItem(new DefeatedCombatant(
-				enemyName, checkCRField(tCR, 0))));
+			model.addEnemy(new ExperienceListItem(new DefeatedCombatant(enemyName, checkCRField(tCR, 0))));
 		}
 	}
 
@@ -135,7 +130,7 @@ public class AddDefeatedCombatant extends AbstractDialog
 	/**
 	 *  This method is called from within the constructor to initialize the form.
 	 */
-    @Override
+	@Override
 	protected JComponent getCenter()
 	{
 		JPanel panel = new JPanel();
@@ -155,7 +150,7 @@ public class AddDefeatedCombatant extends AbstractDialog
 
 		addWindowListener(new java.awt.event.WindowAdapter()
 		{
-            @Override
+			@Override
 			public void windowClosing(java.awt.event.WindowEvent evt)
 			{
 				close();
@@ -199,7 +194,7 @@ public class AddDefeatedCombatant extends AbstractDialog
 
 		tCR.addFocusListener(new java.awt.event.FocusAdapter()
 		{
-            @Override
+			@Override
 			public void focusLost(java.awt.event.FocusEvent evt)
 			{
 				tCRFocusLost(evt);
@@ -220,7 +215,7 @@ public class AddDefeatedCombatant extends AbstractDialog
 		gridBagConstraints.insets = new Insets(GAP, 0, 0, GAP);
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
 		panel.add(tNumber, gridBagConstraints);
-		
+
 		tName.setColumns(20);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;
@@ -231,12 +226,11 @@ public class AddDefeatedCombatant extends AbstractDialog
 		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
 		panel.add(tName, gridBagConstraints);
-		
+
 		return panel;
 	}
 
 	//GEN-END:initComponents
-
 
 	private void tCRActionPerformed(java.awt.event.ActionEvent evt)
 	{ //GEN-FIRST:event_tCRActionPerformed
@@ -250,13 +244,13 @@ public class AddDefeatedCombatant extends AbstractDialog
 		tCR.setText(Float.toString(checkCRField(tCR, 1)));
 	}
 
-    @Override
+	@Override
 	protected String getOkMnKey()
 	{
 		return "in_mn_add"; //$NON-NLS-1$
 	}
 
-    @Override
+	@Override
 	protected String getOkKey()
 	{
 		return "in_add"; //$NON-NLS-1$

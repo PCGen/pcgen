@@ -42,17 +42,14 @@ import pcgen.system.PCGenSettings;
 @SuppressWarnings("serial")
 public class LevelUpPanel extends PCGenPrefsPanel
 {
-	private static final String in_levelUp =
-		LanguageBundle.getString("in_Prefs_levelUp");
+	private static final String in_levelUp = LanguageBundle.getString("in_Prefs_levelUp");
 
-	private static final String in_statWindow =
-		LanguageBundle.getString("in_Prefs_statWindow");
-	private static final String in_warnFirstLevelUp =
-		LanguageBundle.getString("in_Prefs_warnFirstLevelUp");
+	private static final String in_statWindow = LanguageBundle.getString("in_Prefs_statWindow");
+	private static final String in_warnFirstLevelUp = LanguageBundle.getString("in_Prefs_warnFirstLevelUp");
 
 	private final JCheckBox showWarningAtFirstLevelUp = new JCheckBox();
 	private final JCheckBox statDialogShownAtLevelUp = new JCheckBox();
-	
+
 	/**
 	 * Instantiates a new leveling up panel.
 	 */
@@ -62,8 +59,7 @@ public class LevelUpPanel extends PCGenPrefsPanel
 		GridBagConstraints c = new GridBagConstraints();
 		JLabel label;
 		Border etched = null;
-		TitledBorder title1 =
-				BorderFactory.createTitledBorder(etched, in_levelUp);
+		TitledBorder title1 = BorderFactory.createTitledBorder(etched, in_levelUp);
 
 		title1.setTitleJustification(TitledBorder.LEFT);
 		this.setBorder(title1);
@@ -99,17 +95,15 @@ public class LevelUpPanel extends PCGenPrefsPanel
 	{
 		return in_levelUp;
 	}
-	
+
 	/**
 	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#setOptionsBasedOnControls()
 	 */
 	@Override
 	public void setOptionsBasedOnControls()
 	{
-		SettingsHandler.setShowStatDialogAtLevelUp(statDialogShownAtLevelUp
-			.isSelected());
-		PCGenSettings.OPTIONS_CONTEXT.setBoolean(
-			PCGenSettings.OPTION_SHOW_WARNING_AT_FIRST_LEVEL_UP,
+		SettingsHandler.setShowStatDialogAtLevelUp(statDialogShownAtLevelUp.isSelected());
+		PCGenSettings.OPTIONS_CONTEXT.setBoolean(PCGenSettings.OPTION_SHOW_WARNING_AT_FIRST_LEVEL_UP,
 			showWarningAtFirstLevelUp.isSelected());
 	}
 
@@ -119,11 +113,9 @@ public class LevelUpPanel extends PCGenPrefsPanel
 	@Override
 	public void applyOptionValuesToControls()
 	{
-		statDialogShownAtLevelUp.setSelected(SettingsHandler
-			.getShowStatDialogAtLevelUp());
-		showWarningAtFirstLevelUp.setSelected(PCGenSettings.OPTIONS_CONTEXT
-			.getBoolean(PCGenSettings.OPTION_SHOW_WARNING_AT_FIRST_LEVEL_UP,
-				true));
+		statDialogShownAtLevelUp.setSelected(SettingsHandler.getShowStatDialogAtLevelUp());
+		showWarningAtFirstLevelUp.setSelected(
+			PCGenSettings.OPTIONS_CONTEXT.getBoolean(PCGenSettings.OPTION_SHOW_WARNING_AT_FIRST_LEVEL_UP, true));
 	}
 
 }

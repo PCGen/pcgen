@@ -83,8 +83,7 @@ public final class SkillModifier
 			bonus += aPC.getTotalBonusTo("CSKILL", "LIST");
 		}
 
-		if (!aPC.isClassSkill(sk)
-				&& !sk.getSafe(ObjectKey.EXCLUSIVE))
+		if (!aPC.isClassSkill(sk) && !sk.getSafe(ObjectKey.EXCLUSIVE))
 		{
 			bonus += aPC.getTotalBonusTo("CCSKILL", keyName);
 
@@ -130,8 +129,7 @@ public final class SkillModifier
 				SkillInfoUtilities.getKeyStatList(pc, sk, typeList);
 				for (int i = 0; i < typeList.size(); ++i)
 				{
-					statMod += pc.getTotalBonusTo("SKILL", "TYPE."
-							+ typeList.get(i));
+					statMod += pc.getTotalBonusTo("SKILL", "TYPE." + typeList.get(i));
 				}
 			}
 			return statMod;

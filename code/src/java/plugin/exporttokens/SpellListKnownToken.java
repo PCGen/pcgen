@@ -43,21 +43,17 @@ public class SpellListKnownToken extends SpellListToken
 	}
 
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		StringBuilder retValue = new StringBuilder();
 
-		SpellListTokenParams params =
-				new SpellListTokenParams(tokenSource,
-					SpellListToken.SPELLTAG_KNOWN);
+		SpellListTokenParams params = new SpellListTokenParams(tokenSource, SpellListToken.SPELLTAG_KNOWN);
 
 		final CDOMObject aObject = pc.getSpellClassAtIndex(params.getClassNum());
 
 		if (aObject != null)
 		{
-			retValue.append(Integer.toString(getKnownNum(aObject, params
-				.getLevel(), pc)));
+			retValue.append(Integer.toString(getKnownNum(aObject, params.getLevel(), pc)));
 		}
 
 		return retValue.toString();

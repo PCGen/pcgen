@@ -255,7 +255,8 @@ public class PObjectTest extends AbstractCharacterTestCase
 			.parseLine(
 				Globals.getContext(),
 				null,
-				"Toughness	CATEGORY:FEAT	TYPE:General	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:HP|CURRENTMAX|3", source);
+				"Toughness	CATEGORY:FEAT	TYPE:General	STACK:YES	"
+				+ "MULT:YES	CHOOSE:NOCHOICE	BONUS:HP|CURRENTMAX|3", source);
 
 		Ability pObj = Globals.getContext().getReferenceContext()
 			.getManufacturerId(BuildUtilities.getFeatCat()).getActiveObject("Toughness");
@@ -295,7 +296,8 @@ public class PObjectTest extends AbstractCharacterTestCase
 			.parseLine(
 				Globals.getContext(),
 				null,
-				"Toughness	CATEGORY:FEAT	TYPE:General	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:HP|CURRENTMAX|3", source);
+				"Toughness	CATEGORY:FEAT	TYPE:General	STACK:YES	"
+				+ "MULT:YES	CHOOSE:NOCHOICE	BONUS:HP|CURRENTMAX|3", source);
 		Ability pObj = Globals.getContext().getReferenceContext()
 			.getManufacturerId(BuildUtilities.getFeatCat()).getActiveObject("Toughness");
 		PlayerCharacter aPC = getCharacter();

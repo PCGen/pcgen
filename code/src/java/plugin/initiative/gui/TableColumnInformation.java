@@ -71,8 +71,8 @@ public class TableColumnInformation
 		 * @param peditable
 		 * @param plabel
 		 */
-		public ColStruct(String pcolumnKey, Class<?> pcolumnClass,
-			Object pdefaultValue, boolean peditable, String plabel)
+		public ColStruct(String pcolumnKey, Class<?> pcolumnClass, Object pdefaultValue, boolean peditable,
+			String plabel)
 		{
 			this.columnKey = pcolumnKey;
 			this.columnClass = pcolumnClass;
@@ -111,12 +111,10 @@ public class TableColumnInformation
 	 * @param editable
 	 * @param label
 	 */
-	public void addColumn(int columnIndex, String columnKey,
-		Class<?> columnClass, Object defaultValue, boolean editable,
-		String label)
+	public void addColumn(int columnIndex, String columnKey, Class<?> columnClass, Object defaultValue,
+		boolean editable, String label)
 	{
-		columns.add(columnIndex, new ColStruct(columnKey, columnClass,
-			defaultValue, editable, label));
+		columns.add(columnIndex, new ColStruct(columnKey, columnClass, defaultValue, editable, label));
 	}
 
 	/**
@@ -131,11 +129,9 @@ public class TableColumnInformation
 	 * @param editable
 	 * @param label
 	 */
-	public void addColumn(String columnKey, Class<?> columnClass,
-		Object defaultValue, boolean editable, String label)
+	public void addColumn(String columnKey, Class<?> columnClass, Object defaultValue, boolean editable, String label)
 	{
-		columns.add(new ColStruct(columnKey, columnClass, defaultValue,
-			editable, label));
+		columns.add(new ColStruct(columnKey, columnClass, defaultValue, editable, label));
 	}
 
 	/**

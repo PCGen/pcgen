@@ -28,8 +28,6 @@ import java.awt.image.BufferedImage;
 import javax.swing.BorderFactory;
 import javax.swing.JComponent;
 
-
-
 class PortraitPane extends JComponent
 {
 
@@ -77,14 +75,12 @@ class PortraitPane extends JComponent
 		{
 			if (scale < 1)
 			{
-				g.drawRect(((int) (cropRect.x * scale)) + insets.left,
-						   ((int) (cropRect.y * scale)) + insets.top,
-						   (int) (cropRect.width * scale), (int) (cropRect.height * scale));
+				g.drawRect(((int) (cropRect.x * scale)) + insets.left, ((int) (cropRect.y * scale)) + insets.top,
+					(int) (cropRect.width * scale), (int) (cropRect.height * scale));
 			}
 			else
 			{
-				g.drawRect(cropRect.x + insets.left, cropRect.y + insets.top,
-						   cropRect.width, cropRect.height);
+				g.drawRect(cropRect.x + insets.left, cropRect.y + insets.top, cropRect.width, cropRect.height);
 			}
 		}
 	}

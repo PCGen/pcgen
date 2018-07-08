@@ -37,8 +37,8 @@ import pcgen.core.chooser.ChooserUtilities;
 public class RaceInputFacet
 {
 
-	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
-		.getFacet(PlayerCharacterTrackingFacet.class);
+	private final PlayerCharacterTrackingFacet trackingFacet =
+			FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
 
 	private RaceSelectionFacet raceSelectionFacet;
 
@@ -49,8 +49,7 @@ public class RaceInputFacet
 		PlayerCharacter pc = trackingFacet.getPC(id);
 		if (pc.isAllowInteraction() && ChooseActivation.hasNewChooseToken(race))
 		{
-			ChoiceManagerList<?> aMan =
-					ChooserUtilities.getChoiceManager(race, pc);
+			ChoiceManagerList<?> aMan = ChooserUtilities.getChoiceManager(race, pc);
 			return processChoice(id, pc, race, aMan);
 		}
 		else
@@ -59,8 +58,7 @@ public class RaceInputFacet
 		}
 	}
 
-	private <T> boolean processChoice(CharID id, PlayerCharacter pc, Race race,
-		ChoiceManagerList<T> aMan)
+	private <T> boolean processChoice(CharID id, PlayerCharacter pc, Race race, ChoiceManagerList<T> aMan)
 	{
 		List<T> selectedList = new ArrayList<>();
 		List<T> availableList = new ArrayList<>();
@@ -74,9 +72,7 @@ public class RaceInputFacet
 		{
 			//Error?
 		}
-		final List<T> newSelections =
-				aMan.doChooser(pc, availableList, selectedList,
-                        new ArrayList<>());
+		final List<T> newSelections = aMan.doChooser(pc, availableList, selectedList, new ArrayList<>());
 		if (newSelections.size() != 1)
 		{
 			//Error?
@@ -94,8 +90,7 @@ public class RaceInputFacet
 		PlayerCharacter pc = trackingFacet.getPC(id);
 		if (ChooseActivation.hasNewChooseToken(race))
 		{
-			ChoiceManagerList<?> aMan =
-					ChooserUtilities.getChoiceManager(race, pc);
+			ChoiceManagerList<?> aMan = ChooserUtilities.getChoiceManager(race, pc);
 			processImport(id, race, aMan, choice);
 		}
 		else
@@ -104,8 +99,7 @@ public class RaceInputFacet
 		}
 	}
 
-	private <T> void processImport(CharID id, Race race,
-		ChoiceManagerList<T> aMan, String choice)
+	private <T> void processImport(CharID id, Race race, ChoiceManagerList<T> aMan, String choice)
 	{
 		directSet(id, race, aMan.decodeChoice(choice));
 	}

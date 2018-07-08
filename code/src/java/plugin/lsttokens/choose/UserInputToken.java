@@ -48,8 +48,7 @@ public class UserInputToken implements CDOMSecondaryToken<CDOMObject>
 	}
 
 	@Override
-	public ParseResult parseToken(LoadContext context, CDOMObject obj,
-		String value)
+	public ParseResult parseToken(LoadContext context, CDOMObject obj, String value)
 	{
 		UserChooseInformation ci = new UserChooseInformation();
 		if (value != null)
@@ -63,9 +62,8 @@ public class UserInputToken implements CDOMSecondaryToken<CDOMObject>
 			else
 			{
 				String countString = value.substring(0, pipeLoc);
-				Logging
-					.deprecationPrint("CHOOSE:USERINPUT with count is deprecated, "
-						+ "please use SELECT: to identify the quantity of selections", context);
+				Logging.deprecationPrint("CHOOSE:USERINPUT with count is deprecated, "
+					+ "please use SELECT: to identify the quantity of selections", context);
 				int firstarg;
 				try
 				{
@@ -73,8 +71,7 @@ public class UserInputToken implements CDOMSecondaryToken<CDOMObject>
 				}
 				catch (NumberFormatException nfe)
 				{
-					return new ParseResult.Fail("If CHOOSE:" + getTokenName()
-						+ " contains a pipe, "
+					return new ParseResult.Fail("If CHOOSE:" + getTokenName() + " contains a pipe, "
 						+ "first argument must be an Integer : " + value);
 				}
 				Formula count = FormulaFactory.getFormulaFor(firstarg);
@@ -84,9 +81,8 @@ public class UserInputToken implements CDOMSecondaryToken<CDOMObject>
 			}
 			if (!titleString.startsWith("TITLE="))
 			{
-				return new ParseResult.Fail("CHOOSE:" + getTokenName() + " in "
-					+ obj.getClass() + ' ' + obj.getKeyName()
-					+ " had invalid arguments: " + value);
+				return new ParseResult.Fail("CHOOSE:" + getTokenName() + " in " + obj.getClass() + ' '
+					+ obj.getKeyName() + " had invalid arguments: " + value);
 			}
 			String title = titleString.substring(6);
 			if (title.startsWith("\""))
@@ -107,11 +103,8 @@ public class UserInputToken implements CDOMSecondaryToken<CDOMObject>
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
-		ChooseInformation<?> ci =
-				context.getObjectContext()
-					.getObject(cdo, ObjectKey.CHOOSE_INFO);
-		if ((ci == null)
-			|| !ci.getName().equals(UserChooseInformation.UCI_NAME))
+		ChooseInformation<?> ci = context.getObjectContext().getObject(cdo, ObjectKey.CHOOSE_INFO);
+		if ((ci == null) || !ci.getName().equals(UserChooseInformation.UCI_NAME))
 		{
 			return null;
 		}

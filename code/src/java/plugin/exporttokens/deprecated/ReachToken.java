@@ -42,8 +42,7 @@ public class ReachToken extends Token
 	}
 
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		String retString = "";
 
@@ -68,22 +67,19 @@ public class ReachToken extends Token
 		String pcReach = pc.getControl(CControl.PCREACH);
 		if (pcReach == null)
 		{
-			return FacetLibrary.getFacet(ReachFacet.class).getReach(
-				pc.getCharID());
+			return FacetLibrary.getFacet(ReachFacet.class).getReach(pc.getCharID());
 		}
 		return ((Number) pc.getGlobal(pcReach)).intValue();
 	}
 
 	public static String getToken(PlayerCharacter pc)
 	{
-		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(
-			getReachToken(pc))
+		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(getReachToken(pc))
 			+ Globals.getGameModeUnitSet().getDistanceUnit();
 	}
 
 	public static String getSquaresToken(PlayerCharacter pc)
 	{
-		return new DecimalFormat("#.#").format(getReachToken(pc)
-			/ SettingsHandler.getGame().getSquareSize());
+		return new DecimalFormat("#.#").format(getReachToken(pc) / SettingsHandler.getGame().getSquareSize());
 	}
 }

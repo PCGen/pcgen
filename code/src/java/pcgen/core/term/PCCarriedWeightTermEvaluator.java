@@ -22,8 +22,8 @@ package pcgen.core.term;
 
 import pcgen.core.display.CharacterDisplay;
 
-public class PCCarriedWeightTermEvaluator 
-		extends BasePCDTermEvaluator implements TermEvaluator {
+public class PCCarriedWeightTermEvaluator extends BasePCDTermEvaluator implements TermEvaluator
+{
 
 	public PCCarriedWeightTermEvaluator(String originalText)
 	{

@@ -33,8 +33,7 @@ import pcgen.facade.core.LanguageFacade;
 /**
  * {@code Language}.
  */
-public final class Language extends PObject implements Comparable<Object>,
-		LanguageFacade, Ungranted, Cloneable
+public final class Language extends PObject implements Comparable<Object>, LanguageFacade, Ungranted, Cloneable
 {
 	public static final CDOMReference<LanguageList> STARTING_LIST;
 
@@ -107,7 +106,7 @@ public final class Language extends PObject implements Comparable<Object>,
 		return getKeyName().hashCode();
 	}
 
-    @Override
+	@Override
 	public List<String> getTypes()
 	{
 		List<String> list = new ArrayList<>();
@@ -126,7 +125,8 @@ public final class Language extends PObject implements Comparable<Object>,
 		try
 		{
 			l = (Language) super.clone();
-		} catch (CloneNotSupportedException e)
+		}
+		catch (CloneNotSupportedException e)
 		{
 			ShowMessageDelegate.showMessageDialog(e.getMessage(), Constants.APPLICATION_NAME, MessageType.ERROR);
 		}

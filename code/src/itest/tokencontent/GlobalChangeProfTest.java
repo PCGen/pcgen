@@ -70,8 +70,12 @@ public class GlobalChangeProfTest extends AbstractContentTokenTest
 	protected boolean containsExpected()
 	{
 		ChangeProf changeProf = changeProfFacet.getSet(id).iterator().next();
-		boolean sourceMatch = changeProf.getSource().equals(context.getReferenceContext().getCDOMReference(WeaponProf.class, "Axe"));
-		boolean targetMatch = changeProf.getResult().equals(context.getReferenceContext().getCDOMTypeReference(WeaponProf.class, "Martial"));
+		boolean sourceMatch =
+				changeProf.getSource().equals(context.getReferenceContext()
+					.getCDOMReference(WeaponProf.class, "Axe"));
+		boolean targetMatch =
+				changeProf.getResult().equals(context.getReferenceContext()
+					.getCDOMTypeReference(WeaponProf.class, "Martial"));
 		return sourceMatch && targetMatch;
 	}
 

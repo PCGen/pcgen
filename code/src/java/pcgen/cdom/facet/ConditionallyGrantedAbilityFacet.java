@@ -34,16 +34,15 @@ import pcgen.cdom.helper.CNAbilitySelection;
  * Player Character did pass prerequisites for the conditional Ability.
  * 
  */
-public class ConditionallyGrantedAbilityFacet extends
-		AbstractListFacet<CharID, CNAbilitySelection>
+public class ConditionallyGrantedAbilityFacet extends AbstractListFacet<CharID, CNAbilitySelection>
 {
 
 	private ConditionalAbilityFacet conditionalAbilityFacet;
-	
+
 	private static boolean entered = false;
-	
+
 	private static boolean redo = false;
-	
+
 	/**
 	 * Performs a global update of conditionally granted Abilities for a Player
 	 * Character.
@@ -54,20 +53,17 @@ public class ConditionallyGrantedAbilityFacet extends
 	 */
 	public void update(CharID id)
 	{
-		if (entered) 
+		if (entered)
 		{
 			redo = true;
 			return;
 		}
 		entered = true;
 		Collection<CNAbilitySelection> current = getSet(id);
-		Collection<CNAbilitySelection> qualified = conditionalAbilityFacet
-				.getQualifiedSet(id);
-		List<CNAbilitySelection> toRemove = new ArrayList<>(
-                current);
+		Collection<CNAbilitySelection> qualified = conditionalAbilityFacet.getQualifiedSet(id);
+		List<CNAbilitySelection> toRemove = new ArrayList<>(current);
 		toRemove.removeAll(qualified);
-		List<CNAbilitySelection> toAdd = new ArrayList<>(
-                qualified);
+		List<CNAbilitySelection> toAdd = new ArrayList<>(qualified);
 		toAdd.removeAll(current);
 		for (CNAbilitySelection cas : toRemove)
 		{
@@ -108,8 +104,7 @@ public class ConditionallyGrantedAbilityFacet extends
 		return Collections.newSetFromMap(new IdentityHashMap<>());
 	}
 
-	public void setConditionalAbilityFacet(
-		ConditionalAbilityFacet conditionalAbilityFacet)
+	public void setConditionalAbilityFacet(ConditionalAbilityFacet conditionalAbilityFacet)
 	{
 		this.conditionalAbilityFacet = conditionalAbilityFacet;
 	}

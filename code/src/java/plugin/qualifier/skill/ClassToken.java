@@ -72,14 +72,13 @@ public class ClassToken implements QualifierToken<Skill>, PrimitiveFilter<Skill>
 	}
 
 	@Override
-	public boolean initialize(LoadContext context, SelectionCreator<Skill> sc,
-			String condition, String value, boolean negate)
+	public boolean initialize(LoadContext context, SelectionCreator<Skill> sc, String condition, String value,
+		boolean negate)
 	{
 		if (condition != null)
 		{
-			Logging.addParseMessage(Level.SEVERE, "Cannot make "
-					+ getTokenName()
-					+ " into a conditional Qualifier, remove =");
+			Logging.addParseMessage(Level.SEVERE,
+				"Cannot make " + getTokenName() + " into a conditional Qualifier, remove =");
 			return false;
 		}
 		negated = negate;
@@ -98,8 +97,7 @@ public class ClassToken implements QualifierToken<Skill>, PrimitiveFilter<Skill>
 	@Override
 	public GroupingState getGroupingState()
 	{
-		GroupingState gs = pcs == null ? GroupingState.ANY : pcs
-				.getGroupingState().reduce();
+		GroupingState gs = pcs == null ? GroupingState.ANY : pcs.getGroupingState().reduce();
 		return negated ? gs.negate() : gs;
 	}
 

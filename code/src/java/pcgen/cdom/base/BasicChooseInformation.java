@@ -17,15 +17,16 @@
  */
 package pcgen.cdom.base;
 
+import java.util.Collection;
+import java.util.Objects;
+
 import org.jetbrains.annotations.NotNull;
+
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.chooser.CDOMChoiceManager;
 import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.rules.context.LoadContext;
-
-import java.util.Collection;
-import java.util.Objects;
 
 /**
  * This is a transitional class from PCGen 5.15+ to the final CDOM core. It is
@@ -67,7 +68,7 @@ public class BasicChooseInformation<T> implements ChooseInformation<T>
 	 * The persistent Format of the objects chosen in this BasicChooseInformation.
 	 */
 	private final String persistentFormat;
-	
+
 	/**
 	 * Constructs a new TransitionChoice with the given ChoiceSet (of possible
 	 * choices) and Formula (indicating the number of choices that may be taken)
@@ -83,8 +84,7 @@ public class BasicChooseInformation<T> implements ChooseInformation<T>
 	 * @throws IllegalArgumentException
 	 *             if the given name or PrimitiveChoiceSet is null
 	 */
-	public BasicChooseInformation(String name, PrimitiveChoiceSet<T> choice,
-		String persistentFormat)
+	public BasicChooseInformation(String name, PrimitiveChoiceSet<T> choice, String persistentFormat)
 	{
 		pcs = Objects.requireNonNull(choice);
 		setName = Objects.requireNonNull(name);

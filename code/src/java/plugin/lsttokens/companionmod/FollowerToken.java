@@ -38,8 +38,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with FOLLOWER Token
  */
-public class FollowerToken extends AbstractTokenWithSeparator<CompanionMod>
-		implements CDOMPrimaryToken<CompanionMod>
+public class FollowerToken extends AbstractTokenWithSeparator<CompanionMod> implements CDOMPrimaryToken<CompanionMod>
 {
 
 	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
@@ -57,8 +56,7 @@ public class FollowerToken extends AbstractTokenWithSeparator<CompanionMod>
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		CompanionMod cMod, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, CompanionMod cMod, String value)
 	{
 		int equalLoc = value.indexOf('=');
 		if (equalLoc == -1)
@@ -79,23 +77,17 @@ public class FollowerToken extends AbstractTokenWithSeparator<CompanionMod>
 		while (bTok.hasMoreTokens())
 		{
 			String classKey = bTok.nextToken();
-			PCClass pcClass =
-					context.getReferenceContext().silentlyGetConstructedCDOMObject(PCCLASS_CLASS,
-						classKey);
+			PCClass pcClass = context.getReferenceContext().silentlyGetConstructedCDOMObject(PCCLASS_CLASS, classKey);
 
 			if (pcClass != null)
 			{
-				CDOMSingleRef<PCClass> pcc =
-						context.getReferenceContext().getCDOMReference(
-							PCCLASS_CLASS, classKey);
-				context.getObjectContext().put(cMod, MapKey.APPLIED_CLASS, pcc,
-					lvl);
+				CDOMSingleRef<PCClass> pcc = context.getReferenceContext().getCDOMReference(PCCLASS_CLASS, classKey);
+				context.getObjectContext().put(cMod, MapKey.APPLIED_CLASS, pcc, lvl);
 			}
 			else
 			{
 				// Now we accept VARiable names here.
-				context.getObjectContext().put(cMod, MapKey.APPLIED_VARIABLE,
-					classKey, lvl);
+				context.getObjectContext().put(cMod, MapKey.APPLIED_VARIABLE, classKey, lvl);
 			}
 		}
 		return ParseResult.SUCCESS;
@@ -105,23 +97,20 @@ public class FollowerToken extends AbstractTokenWithSeparator<CompanionMod>
 	public String[] unparse(LoadContext context, CompanionMod cMod)
 	{
 		MapChanges<CDOMSingleRef<? extends PCClass>, Integer> changes =
-				context.getObjectContext().getMapChanges(cMod,
-					MapKey.APPLIED_CLASS);
+				context.getObjectContext().getMapChanges(cMod, MapKey.APPLIED_CLASS);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;
 		}
 		SortedSet<String> set = new TreeSet<>();
 		Map<CDOMSingleRef<? extends PCClass>, Integer> map = changes.getAdded();
-		for (Map.Entry<CDOMSingleRef<? extends PCClass>, Integer> me : map
-			.entrySet())
+		for (Map.Entry<CDOMSingleRef<? extends PCClass>, Integer> me : map.entrySet())
 		{
 			CDOMSingleRef<? extends PCClass> ref = me.getKey();
 			String prefix = ref.getPersistentFormat();
 			if (prefix.startsWith("SUBCLASS="))
 			{
-				set.add(prefix.substring(9) + Constants.DOT + ref.getLSTformat(false)
-					+ '=' + me.getValue());
+				set.add(prefix.substring(9) + Constants.DOT + ref.getLSTformat(false) + '=' + me.getValue());
 			}
 			else
 			{

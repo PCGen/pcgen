@@ -51,8 +51,8 @@ public class ActiveSpellsFacet extends AbstractSourcedListFacet<CharID, Characte
 
 	private TemplateFacet templateFacet;
 
-	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
-		.getFacet(PlayerCharacterTrackingFacet.class);
+	private final PlayerCharacterTrackingFacet trackingFacet =
+			FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
 
 	private FormulaResolvingFacet formulaResolvingFacet;
 
@@ -124,9 +124,7 @@ public class ActiveSpellsFacet extends AbstractSourcedListFacet<CharID, Characte
 		for (SpellLikeAbility sla : spellsFacet.getQualifiedSet(id))
 		{
 			Formula times = sla.getCastTimes();
-			int resolvedTimes =
-					formulaResolvingFacet.resolve(id, times,
-						sla.getQualifiedKey()).intValue();
+			int resolvedTimes = formulaResolvingFacet.resolve(id, times, sla.getQualifiedKey()).intValue();
 			String book = sla.getSpellBook();
 
 			final CharacterSpell cs = new CharacterSpell(race, sla.getSpell());
@@ -170,8 +168,7 @@ public class ActiveSpellsFacet extends AbstractSourcedListFacet<CharID, Characte
 		this.deityFacet = deityFacet;
 	}
 
-	public void setFormulaResolvingFacet(
-		FormulaResolvingFacet formulaResolvingFacet)
+	public void setFormulaResolvingFacet(FormulaResolvingFacet formulaResolvingFacet)
 	{
 		this.formulaResolvingFacet = formulaResolvingFacet;
 	}

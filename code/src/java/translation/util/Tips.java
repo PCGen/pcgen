@@ -39,7 +39,8 @@ import org.apache.commons.lang3.time.DateFormatUtils;
 
 /**
  * This class allows the generation of a PO Template file from the tips.txt files,
- * and also generate translated tips ({@code tips_XX.txt}) from a PO file (whose name is {@code _XX.po}).
+ * and also generate translated tips ({@code tips_XX.txt}) from a PO file 
+ * (whose name is {@code _XX.po}).
  * PO Template and PO files are message catalog used in gettext.
  * The duplicates from the tips files should appear only once in the PO Template files.
  *
@@ -56,7 +57,10 @@ public final class Tips
 
 	private static final String DEFAULT_TIPS_FILENAME = "tips.txt"; //$NON-NLS-1$
 
-	/** true to add a message to tips that are not translated, false to copy them as is so they won't appear */
+	/**
+	 * true to add a message to tips that are not translated,
+	 * false to copy them as is so they won't appear
+	 */
 	private static final boolean MARK_UNTRANSLATED = true;
 
 	private Tips()
@@ -73,9 +77,7 @@ public final class Tips
 	 * @param rootDirectory root of the directories to parse
 	 * @param filename the name of the filename to parse
 	 */
-	private static void generatePOT(File rootDirectory,
-	                                String potFilename,
-	                                String filename)
+	private static void generatePOT(File rootDirectory, String potFilename, String filename)
 	{
 		Set<String> tips = new HashSet<>();
 		// search for each filename in the sub directory of rootDirectory
@@ -95,26 +97,18 @@ public final class Tips
 						// Set<String>
 						try
 						{
-							BufferedReader reader =
-									new BufferedReader(new FileReader(tipsFile));
+							BufferedReader reader = new BufferedReader(new FileReader(tipsFile));
 							addTips(tips, reader);
 							reader.close();
 						}
 						catch (FileNotFoundException e)
 						{
-							logError(
-									"Warning: file found then not found {0}, ignoring "
-											+ "this file",
-									tipsFile
-							);
+							logError("Warning: file found then not found {0}, ignoring " + "this file", tipsFile);
 							e.printStackTrace();
 						}
 						catch (IOException e)
 						{
-							logError(
-									"Warning: IO error reading {0}, ignoring this file",
-									tipsFile
-							);
+							logError("Warning: IO error reading {0}, ignoring this file", tipsFile);
 							e.printStackTrace();
 						}
 
@@ -175,10 +169,9 @@ public final class Tips
 		bw.write("msgid \"\"\n" + "msgstr \"\"\n" + "\"Project-Id-Version: PCGen-tips 6.x\\n\"\n"
 			+ "\"Report-Msgid-Bugs-To: \\n\"\n" + "\"POT-Creation-Date: "
 			+ DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.format(now) + "\\n\"\n"
-			+ "\"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\\n\"\n"
-			+ "\"Last-Translator: FULL NAME <EMAIL@ADDRESS>\\n\"\n" + "\"Language-Team: LANGUAGE <LL@li.org>\\n\"\n"
-			+ "\"MIME-Version: 1.0\\n\"\n" + "\"Content-Type: text/plain; charset=UTF-8\\n\"\n"
-			+ "\"Content-Transfer-Encoding: 8bit\\n\"\n\n");
+			+ "\"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\\n\"\n" + "\"Last-Translator: FULL NAME <EMAIL@ADDRESS>\\n\"\n"
+			+ "\"Language-Team: LANGUAGE <LL@li.org>\\n\"\n" + "\"MIME-Version: 1.0\\n\"\n"
+			+ "\"Content-Type: text/plain; charset=UTF-8\\n\"\n" + "\"Content-Transfer-Encoding: 8bit\\n\"\n\n");
 
 		// filecontent
 		Format msgid = new MessageFormat("msgid \"{0}\""); //$NON-NLS-1$
@@ -247,9 +240,7 @@ public final class Tips
 
 	}
 
-	private static void generateTips(File rootDirectory,
-	                                 File translation,
-	                                 String translationName)
+	private static void generateTips(File rootDirectory, File translation, String translationName)
 	{
 		generateTips(rootDirectory, translation, translationName, DEFAULT_TIPS_FILENAME);
 	}
@@ -261,10 +252,7 @@ public final class Tips
 	 * @param translationName name for new translation filename (like tips_fr.txt)
 	 * @param originalName original filename (like tips.txt)
 	 */
-	private static void generateTips(File rootDirectory,
-	                                 File translation,
-	                                 String translationName,
-	                                 String originalName)
+	private static void generateTips(File rootDirectory, File translation, String translationName, String originalName)
 	{
 		int statUntranslated = 0;
 		int statTranslated = 0;
@@ -370,20 +358,12 @@ public final class Tips
 									String translatedLine = tipsTranslated.get(readLine);
 									if (translatedLine == null)
 									{
-										log(
-												"null translated line in {1}, original "
-														+ "{0}",
-												readLine,
-												translation
-										);
+										log("null translated line in {1}, original " + "{0}", readLine, translation);
 										translatedLine = readLine;
 									}
-									else if (translatedLine.isEmpty()
-											&& MARK_UNTRANSLATED)
+									else if (translatedLine.isEmpty() && MARK_UNTRANSLATED)
 									{
-										translatedLine = "<em>Not yet "
-												+ "translated</em><br>"
-												+ readLine;
+										translatedLine = "<em>Not yet " + "translated</em><br>" + readLine;
 									}
 									bw.write(translatedLine);
 								}
@@ -394,7 +374,8 @@ public final class Tips
 								bw.write("\n");
 								readLine = reader.readLine();
 							}
-						} catch (IOException e)
+						}
+						catch (IOException e)
 						{
 							// TODO Auto-generated catch block
 							e.printStackTrace();
@@ -407,7 +388,8 @@ public final class Tips
 								{
 									reader.close();
 								}
-							} catch (IOException e)
+							}
+							catch (IOException e)
 							{
 								// TODO Auto-generated catch block
 								e.printStackTrace();
@@ -418,7 +400,8 @@ public final class Tips
 								{
 									bw.close();
 								}
-							} catch (IOException e)
+							}
+							catch (IOException e)
 							{
 								// TODO Auto-generated catch block
 								e.printStackTrace();
@@ -498,7 +481,6 @@ public final class Tips
 			usage();
 		}
 	}
-
 
 	private static void usage()
 	{

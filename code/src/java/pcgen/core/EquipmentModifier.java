@@ -45,11 +45,9 @@ import pcgen.util.Delta;
 /**
  * Definition and games rules for an equipment modifier.
  */
-public final class EquipmentModifier extends PObject
-		implements Comparable<Object>, EquipModFacade, Cloneable
+public final class EquipmentModifier extends PObject implements Comparable<Object>, EquipModFacade, Cloneable
 {
-	private static final String PERCENT_CHOICE_PATTERN = Pattern
-								.quote(Constants.LST_PERCENT_CHOICE);
+	private static final String PERCENT_CHOICE_PATTERN = Pattern.quote(Constants.LST_PERCENT_CHOICE);
 	private static final Formula CHOICE_FORMULA = FormulaFactory.getFormulaFor("%CHOICE");
 
 	/**
@@ -91,7 +89,7 @@ public final class EquipmentModifier extends PObject
 		throw new UnsupportedOperationException(
 			"Cannot resolve bonuses on EqMod via PlayerCharacter - requires Equipment");
 	}
-	
+
 	/**
 	 * This method assumes that there can only be one bonus in any given
 	 * Equipment modifier that uses %CHOICE.  It retrieves the list of bonuses
@@ -109,15 +107,14 @@ public final class EquipmentModifier extends PObject
 	{
 		return getBonusList(super.getBonusList(e), e.getAssociationList(this));
 	}
-	
-	private List<BonusObj> getBonusList(List<BonusObj> bonusList,
-		List<String> associations)
+
+	private List<BonusObj> getBonusList(List<BonusObj> bonusList, List<String> associations)
 	{
 		ArrayList<BonusObj> myBonusList = new ArrayList<>(bonusList);
 		for (int i = myBonusList.size() - 1; i > -1; i--)
 		{
-			final BonusObj aBonus  = myBonusList.get(i);
-			final String   aString = aBonus.toString();
+			final BonusObj aBonus = myBonusList.get(i);
+			final String aString = aBonus.toString();
 
 			final int idx = aString.indexOf("%CHOICE");
 
@@ -126,8 +123,8 @@ public final class EquipmentModifier extends PObject
 				// Add an entry for each of the associated list entries
 				for (String assoc : associations)
 				{
-					final BonusObj newBonus = Bonus.newBonus(Globals.getContext(), aString
-							.replaceAll(PERCENT_CHOICE_PATTERN, assoc));
+					final BonusObj newBonus =
+							Bonus.newBonus(Globals.getContext(), aString.replaceAll(PERCENT_CHOICE_PATTERN, assoc));
 
 					if (aBonus.hasPrerequisites())
 					{
@@ -217,11 +214,7 @@ public final class EquipmentModifier extends PObject
 	 * @param obj
 	 * @return bonus
 	 */
-	public double bonusTo(
-		final PlayerCharacter  aPC,
-		final String           aType,
-		final String           aName,
-		final Equipment obj)
+	public double bonusTo(final PlayerCharacter aPC, final String aType, final String aName, final Equipment obj)
 	{
 		return BonusCalc.bonusTo(this, aType, aName, obj, getBonusList(obj), aPC);
 	}
@@ -242,10 +235,7 @@ public final class EquipmentModifier extends PObject
 		}
 		catch (CloneNotSupportedException exc)
 		{
-			ShowMessageDelegate.showMessageDialog(
-				exc.getMessage(),
-				Constants.APPLICATION_NAME,
-				MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(exc.getMessage(), Constants.APPLICATION_NAME, MessageType.ERROR);
 		}
 
 		return aObj;
@@ -274,7 +264,7 @@ public final class EquipmentModifier extends PObject
 			return 0;
 		}
 
-		if (sr.getReduction().equals(CHOICE_FORMULA)&& parent.hasAssociations(this))
+		if (sr.getReduction().equals(CHOICE_FORMULA) && parent.hasAssociations(this))
 		{
 			return Delta.parseInt(parent.getFirstAssociation(this));
 		}

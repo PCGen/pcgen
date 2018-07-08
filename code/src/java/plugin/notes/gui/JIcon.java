@@ -17,24 +17,38 @@
  */
 package plugin.notes.gui;
 
-import gmgen.GMGenSystem;
-import pcgen.util.Logging;
-import plugin.notes.NotesPlugin;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Desktop;
+import java.awt.SystemColor;
+import java.awt.event.ActionEvent;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.io.File;
+import java.io.IOException;
 
-import javax.swing.*;
+import javax.swing.Icon;
+import javax.swing.JButton;
+import javax.swing.JComponent;
+import javax.swing.JLabel;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
+import javax.swing.UIManager;
 import javax.swing.border.LineBorder;
 import javax.swing.filechooser.FileSystemView;
 
 import org.apache.commons.lang3.SystemUtils;
 
-import java.awt.Container;
-import java.awt.Desktop;
-import java.awt.SystemColor;
-import java.awt.Color;
-import java.awt.BorderLayout;
-import java.awt.event.*;
-import java.io.File;
-import java.io.IOException;
+import gmgen.GMGenSystem;
+import pcgen.util.Logging;
+import plugin.notes.NotesPlugin;
 
 /**
  *  JIcon is a small form that uses an image, a button and some text to
@@ -46,7 +60,7 @@ class JIcon extends JPanel
 	private final File launch;
 	private NotesPlugin plugin;
 
-	// Variables declaration - do not modify                     
+	// Variables declaration - do not modify
 	private JButton button;
 	private JLabel label;
 	private JMenuItem deleteMI;
@@ -105,10 +119,8 @@ class JIcon extends JPanel
 	/**  Delete the file from disk that this icon represents */
 	private void deleteFile()
 	{
-		int choice =
-				JOptionPane.showConfirmDialog(GMGenSystem.inst, "Delete file "
-					+ launch.getPath(), "Delete File?",
-					JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+		int choice = JOptionPane.showConfirmDialog(GMGenSystem.inst, "Delete file " + launch.getPath(), "Delete File?",
+			JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 
 		if (choice == JOptionPane.YES_OPTION)
 		{
@@ -133,8 +145,6 @@ class JIcon extends JPanel
 		}
 	}
 
-	                                      
-
 	/**
 	 *  Launches a file into the appropriate program for the OS we are running on
 	 */
@@ -147,7 +157,7 @@ class JIcon extends JPanel
 		else
 		{
 			boolean opened = false;
-			
+
 			// Use desktop if available
 			if (Desktop.isDesktopSupported())
 			{
@@ -169,14 +179,13 @@ class JIcon extends JPanel
 
 			if (!opened)
 			{
-				if (SystemUtils.IS_OS_UNIX )
+				if (SystemUtils.IS_OS_UNIX)
 				{
-					String openCmd =
-							SystemUtils.IS_OS_MAC_OSX ? "/usr/bin/open" : "xdg-open";
+					String openCmd = SystemUtils.IS_OS_MAC_OSX ? "/usr/bin/open" : "xdg-open";
 					String filePath = launch.getAbsolutePath();
 					String[] args = {openCmd, filePath};
 					Logging.debugPrintLocalised("Runtime.getRuntime().exec: [{0}] [{1}]", args[0], args[1]);
-	
+
 					try
 					{
 						Runtime.getRuntime().exec(args);
@@ -190,9 +199,7 @@ class JIcon extends JPanel
 				{
 					try
 					{
-						String start =
-								("rundll32 url.dll,FileProtocolHandler file://" + launch
-									.getAbsoluteFile());
+						String start = ("rundll32 url.dll,FileProtocolHandler file://" + launch.getAbsoluteFile());
 						Runtime.getRuntime().exec(start);
 					}
 					catch (Exception e)
@@ -204,33 +211,28 @@ class JIcon extends JPanel
 		}
 	}
 
-	                                   
 	private void buttonActionPerformed(ActionEvent evt)
 	{
-		                                       
+
 	}
 
-	                                
 	private void buttonFocusGained(FocusEvent evt)
 	{
-		                                   
+
 		setBackground(SystemColor.textHighlight);
 		button.setBackground(SystemColor.textHighlight);
 	}
 
-	                                  
 	private void buttonFocusLost(FocusEvent evt)
 	{
-		                                 
+
 		setBackground((Color) UIManager.getDefaults().get("Panel.background"));
-		button.setBackground((Color) UIManager.getDefaults().get(
-			"Button.background"));
+		button.setBackground((Color) UIManager.getDefaults().get("Button.background"));
 	}
 
-	                                        
 	private void buttonKeyReleased(KeyEvent evt)
 	{
-		                                   
+
 		int key = evt.getKeyCode();
 
 		if (key == KeyEvent.VK_DELETE)
@@ -243,17 +245,15 @@ class JIcon extends JPanel
 		}
 	}
 
-	                                  
 	private void buttonMouseClicked(MouseEvent evt)
 	{
-		                                    
+
 		if (evt.getClickCount() >= 2)
 		{
 			launchFile();
 		}
 	}
 
-	                        
 	private void buttonMouseReleased(MouseEvent evt)
 	{
 		//GEN-FIRST:event_buttonMouseReleased
@@ -266,7 +266,7 @@ class JIcon extends JPanel
 	//GEN-LAST:event_buttonMouseReleased
 	private void deleteMIActionPerformed(ActionEvent evt)
 	{
-		                                         
+
 		deleteFile();
 	}
 
@@ -277,7 +277,7 @@ class JIcon extends JPanel
 	 */
 	private void initComponents()
 	{
-		                          
+
 		contextMenu = new JPopupMenu();
 		JMenuItem launchMI = new JMenuItem();
 		deleteMI = new JMenuItem();
@@ -297,20 +297,19 @@ class JIcon extends JPanel
 
 		setBackground((Color) UIManager.getDefaults().get("Panel.background"));
 		setBorder(new LineBorder(new Color(0, 0, 0)));
-		button.setBackground((Color) UIManager.getDefaults().get(
-			"Button.background"));
+		button.setBackground((Color) UIManager.getDefaults().get("Button.background"));
 		button.setBorder(null);
 		button.addActionListener(this::buttonActionPerformed);
 
 		button.addFocusListener(new FocusAdapter()
 		{
-            @Override
+			@Override
 			public void focusGained(FocusEvent evt)
 			{
 				buttonFocusGained(evt);
 			}
 
-            @Override
+			@Override
 			public void focusLost(FocusEvent evt)
 			{
 				buttonFocusLost(evt);
@@ -319,7 +318,7 @@ class JIcon extends JPanel
 
 		button.addKeyListener(new KeyAdapter()
 		{
-            @Override
+			@Override
 			public void keyReleased(KeyEvent evt)
 			{
 				buttonKeyReleased(evt);
@@ -328,13 +327,13 @@ class JIcon extends JPanel
 
 		button.addMouseListener(new MouseAdapter()
 		{
-            @Override
+			@Override
 			public void mouseClicked(MouseEvent evt)
 			{
 				buttonMouseClicked(evt);
 			}
 
-            @Override
+			@Override
 			public void mouseReleased(MouseEvent evt)
 			{
 				buttonMouseReleased(evt);
@@ -347,10 +346,9 @@ class JIcon extends JPanel
 		add(label, BorderLayout.CENTER);
 	}
 
-	                                        
 	private void launchMIActionPerformed(ActionEvent evt)
 	{
-		                                         
+
 		launchFile();
 	}
 }

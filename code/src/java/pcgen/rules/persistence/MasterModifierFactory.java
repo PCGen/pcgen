@@ -77,29 +77,24 @@ public class MasterModifierFactory
 	 * @return a FormulaModifier representing the information given in the
 	 *         parameters
 	 */
-	public <T> FormulaModifier<T> getModifier(String modIdentifier,
-		String modInstructions, ManagerFactory managerFactory, PCGenScope varScope,
-		FormatManager<T> formatManager)
+	public <T> FormulaModifier<T> getModifier(String modIdentifier, String modInstructions,
+		ManagerFactory managerFactory, PCGenScope varScope, FormatManager<T> formatManager)
 	{
 		Class<T> varClass = formatManager.getManagedClass();
-		ModifierFactory<T> factory =
-				TokenLibrary.getModifier(varClass, modIdentifier);
+		ModifierFactory<T> factory = TokenLibrary.getModifier(varClass, modIdentifier);
 		if (factory == null)
 		{
 			throw new IllegalArgumentException(
-				"Requested unknown ModifierType: " + varClass.getSimpleName()
-					+ " " + modIdentifier);
+				"Requested unknown ModifierType: " + varClass.getSimpleName() + " " + modIdentifier);
 		}
-		FormulaModifier<T> modifier = factory.getModifier(modInstructions,
-			managerFactory, formulaManager, varScope, formatManager);
+		FormulaModifier<T> modifier =
+				factory.getModifier(modInstructions, managerFactory, formulaManager, varScope, formatManager);
 		/*
 		 * getDependencies needs to be called during LST load, so that object references are captured
 		 */
-		DependencyManager fdm = managerFactory.generateDependencyManager(formulaManager,
-			null);
+		DependencyManager fdm = managerFactory.generateDependencyManager(formulaManager, null);
 		fdm = fdm.getWith(DependencyManager.SCOPE, varScope);
-		fdm = fdm.getWith(DependencyManager.VARSTRATEGY,
-			Optional.of(new IgnoreVariables()));
+		fdm = fdm.getWith(DependencyManager.VARSTRATEGY, Optional.of(new IgnoreVariables()));
 		fdm = fdm.getWith(ManagerKey.REFERENCES, new ReferenceDependency());
 		modifier.getDependencies(fdm);
 		modifier.addReferences(fdm.get(ManagerKey.REFERENCES).getReferences());

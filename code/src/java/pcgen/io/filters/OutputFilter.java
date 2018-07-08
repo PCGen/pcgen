@@ -17,7 +17,6 @@
  */
 package pcgen.io.filters;
 
-
 @FunctionalInterface
 public interface OutputFilter
 {

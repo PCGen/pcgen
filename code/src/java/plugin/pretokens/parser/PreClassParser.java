@@ -24,8 +24,7 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 /**
  * A prerequisite parser class that handles the parsing of pre class tokens.
  */
-public class PreClassParser extends AbstractPrerequisiteListParser implements
-		PrerequisiteParserInterface
+public class PreClassParser extends AbstractPrerequisiteListParser implements PrerequisiteParserInterface
 {
 	/**
 	 * Returns a Array of the kings of PRE tags this class parses, 
@@ -33,7 +32,7 @@ public class PreClassParser extends AbstractPrerequisiteListParser implements
 	 *
 	 * @return String array containing "CLASS" 
 	 */
-    @Override
+	@Override
 	public String[] kindsHandled()
 	{
 		return new String[]{"CLASS"};

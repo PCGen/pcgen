@@ -26,10 +26,9 @@ import pcgen.core.PlayerCharacter;
  * 
  * 
  */
-public class PCHPTermEvaluator 
-		extends BasePCTermEvaluator implements TermEvaluator
+public class PCHPTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
-	
+
 	/**
 	 * Instantiates a new pCHP term evaluator.
 	 * 
@@ -57,7 +56,6 @@ public class PCHPTermEvaluator
 	{
 		return false;
 	}
-
 
 	public boolean isStatic()
 	{

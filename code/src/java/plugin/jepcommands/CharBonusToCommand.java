@@ -1,11 +1,12 @@
 package plugin.jepcommands;
 
+import java.util.Stack;
+
 import org.nfunk.jep.ParseException;
+
 import pcgen.core.PlayerCharacter;
 import pcgen.core.VariableProcessor;
 import pcgen.util.PCGenCommand;
-
-import java.util.Stack;
 
 /**
  * Deals with JEP command for charbonusto
@@ -26,7 +27,7 @@ public class CharBonusToCommand extends PCGenCommand
 	 * Gets the name of the function handled by this class.
 	 * @return The name of the function.
 	 */
-    @Override
+	@Override
 	public String getFunctionName()
 	{
 		return "CHARBONUSTO";
@@ -40,7 +41,7 @@ public class CharBonusToCommand extends PCGenCommand
 	 * @throws ParseException
 	 */
 	@SuppressWarnings("unchecked") //Uses JEP, which doesn't use generics
-    @Override
+	@Override
 	public void run(final Stack inStack) throws ParseException
 	{
 		// check the stack
@@ -68,7 +69,7 @@ public class CharBonusToCommand extends PCGenCommand
 			throw new ParseException("Invalid parameter count");
 		}
 
-        if ((param1 instanceof String) && (param2 instanceof String))
+		if ((param1 instanceof String) && (param2 instanceof String))
 		{
 			PlayerCharacter pc = null;
 			if (parent instanceof VariableProcessor)
@@ -81,14 +82,12 @@ public class CharBonusToCommand extends PCGenCommand
 			}
 			if (pc == null)
 			{
-				throw new ParseException("Invalid parent (no PC): "
-					+ parent.getClass().getName());
+				throw new ParseException("Invalid parent (no PC): " + parent.getClass().getName());
 			}
 
-            final Object result = pc.getTotalBonusTo((String) param1,
-                                                     (String) param2);
+			final Object result = pc.getTotalBonusTo((String) param1, (String) param2);
 
-            inStack.push(result);
+			inStack.push(result);
 		}
 		else
 		{

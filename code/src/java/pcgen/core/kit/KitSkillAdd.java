@@ -86,7 +86,7 @@ public final class KitSkillAdd //implements java.io.Serializable
 	{
 		return languages;
 	}
-	
+
 	public PCClass getPCClass()
 	{
 		return pcclass;

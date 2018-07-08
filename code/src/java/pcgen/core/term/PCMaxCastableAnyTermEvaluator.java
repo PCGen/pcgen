@@ -20,11 +20,10 @@
 
 package pcgen.core.term;
 
-import pcgen.core.PlayerCharacter;
 import pcgen.core.PCClass;
+import pcgen.core.PlayerCharacter;
 
-public class PCMaxCastableAnyTermEvaluator  
-		extends BasePCTermEvaluator implements TermEvaluator
+public class PCMaxCastableAnyTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
 	public PCMaxCastableAnyTermEvaluator(String originalText)
 	{

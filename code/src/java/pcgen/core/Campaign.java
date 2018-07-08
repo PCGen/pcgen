@@ -61,8 +61,8 @@ public class Campaign extends PObject implements CampaignFacade, NonInteractive
 		final List<CampaignSourceEntry> pccFiles = getSafeListFor(ListKey.FILE_PCC);
 
 		final List<Campaign> ret = new ArrayList<>(pccFiles.size());
-		
-		for ( final CampaignSourceEntry fileName : pccFiles )
+
+		for (final CampaignSourceEntry fileName : pccFiles)
 		{
 			final Campaign campaign = Globals.getCampaignByURI(fileName.getURI(), true);
 			if (campaign != null)
@@ -84,8 +84,8 @@ public class Campaign extends PObject implements CampaignFacade, NonInteractive
 		final List<CampaignSourceEntry> pccFiles = getSafeListFor(ListKey.FILE_PCC);
 
 		final List<CampaignSourceEntry> ret = new ArrayList<>();
-		
-		for ( final CampaignSourceEntry cse : pccFiles )
+
+		for (final CampaignSourceEntry cse : pccFiles)
 		{
 			final Campaign campaign = Globals.getCampaignByURI(cse.getURI(), true);
 			if (campaign == null)
@@ -104,7 +104,7 @@ public class Campaign extends PObject implements CampaignFacade, NonInteractive
 	{
 		return context;
 	}
-	
+
 	public void applyTo(AbstractReferenceContext rc)
 	{
 		for (ReferenceManufacturer<?> rm : gameRefContext.getAllManufacturers())
@@ -113,7 +113,7 @@ public class Campaign extends PObject implements CampaignFacade, NonInteractive
 		}
 	}
 
-    @Override
+	@Override
 	public boolean showInMenu()
 	{
 		return getSafe(ObjectKey.SHOW_IN_MENU);
@@ -121,7 +121,7 @@ public class Campaign extends PObject implements CampaignFacade, NonInteractive
 
 	private DefaultListFacade<GameModeFacade> gameModes = null;
 
-    @Override
+	@Override
 	public ListFacade<GameModeFacade> getGameModes()
 	{
 		if (gameModes == null)
@@ -142,25 +142,25 @@ public class Campaign extends PObject implements CampaignFacade, NonInteractive
 		return gameModes;
 	}
 
-    @Override
+	@Override
 	public String getName()
 	{
 		return getKeyName();
 	}
 
-    @Override
+	@Override
 	public String getPublisher()
 	{
 		return get(StringKey.DATA_PRODUCER);
 	}
 
-    @Override
+	@Override
 	public String getFormat()
 	{
 		return get(StringKey.DATA_FORMAT);
 	}
 
-    @Override
+	@Override
 	public String getSetting()
 	{
 		return get(StringKey.CAMPAIGN_SETTING);
@@ -187,7 +187,7 @@ public class Campaign extends PObject implements CampaignFacade, NonInteractive
 	@Override
 	public String getStatus()
 	{
-		Status status = getSafe(ObjectKey.STATUS);		
+		Status status = getSafe(ObjectKey.STATUS);
 		return status.toString();
 	}
 }

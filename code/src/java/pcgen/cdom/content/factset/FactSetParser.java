@@ -43,8 +43,8 @@ import pcgen.rules.persistence.token.ParseResult;
  * @param <F>
  *            The format of the data stored in the FactSet
  */
-public class FactSetParser<T extends CDOMObject, F> extends
-		AbstractTokenWithSeparator<T> implements CDOMSecondaryToken<T>
+public class FactSetParser<T extends CDOMObject, F> extends AbstractTokenWithSeparator<T>
+		implements CDOMSecondaryToken<T>
 {
 
 	/**
@@ -77,8 +77,7 @@ public class FactSetParser<T extends CDOMObject, F> extends
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context, T obj,
-		String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, T obj, String value)
 	{
 		FormatManager<F> fmtManager = def.getFormatManager();
 		FactSetKey<F> fsk = def.getFactSetKey();
@@ -92,10 +91,9 @@ public class FactSetParser<T extends CDOMObject, F> extends
 			{
 				if (!firstToken)
 				{
-					return new ParseResult.Fail("Non-sensical situation was "
-						+ "encountered while parsing " + getParentToken()
-						+ Constants.PIPE + getTokenName()
-						+ ": When used, .CLEARALL must be the first argument");
+					return new ParseResult.Fail(
+						"Non-sensical situation was " + "encountered while parsing " + getParentToken() + Constants.PIPE
+							+ getTokenName() + ": When used, .CLEARALL must be the first argument");
 				}
 				objContext.removeSet(obj, fsk);
 			}
@@ -128,8 +126,7 @@ public class FactSetParser<T extends CDOMObject, F> extends
 	public String[] unparse(LoadContext context, T obj)
 	{
 		FactSetKey<F> fk = def.getFactSetKey();
-		Changes<Indirect<F>> changes =
-				context.getObjectContext().getSetChanges(obj, fk);
+		Changes<Indirect<F>> changes = context.getObjectContext().getSetChanges(obj, fk);
 		Collection<Indirect<F>> removedItems = changes.getRemoved();
 		List<String> results = new ArrayList<>(2);
 		if (changes.includesGlobalClear())
@@ -138,8 +135,7 @@ public class FactSetParser<T extends CDOMObject, F> extends
 		}
 		if (removedItems != null && !removedItems.isEmpty())
 		{
-			context.addWriteMessage(getTokenName() + " does not support "
-				+ Constants.LST_DOT_CLEAR_DOT);
+			context.addWriteMessage(getTokenName() + " does not support " + Constants.LST_DOT_CLEAR_DOT);
 			return null;
 		}
 		Collection<Indirect<F>> added = changes.getAdded();

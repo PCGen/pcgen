@@ -18,16 +18,15 @@
  */
 package pcgen.facade.core;
 
-
 public interface StatFacade
 {
 
-    public String getName();
+	public String getName();
 
-    public String getKeyName();
+	public String getKeyName();
 
-    @Override
-    public String toString();
+	@Override
+	public String toString();
 
 	/**
 	 * @return The minimum int value

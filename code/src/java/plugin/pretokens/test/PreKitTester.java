@@ -48,8 +48,8 @@ public class PreKitTester extends AbstractDisplayPrereqTest implements Prerequis
 		}
 		catch (NumberFormatException exceptn)
 		{
-			throw new PrerequisiteException(LanguageBundle.getFormattedString(
-				"PreKit.error", prereq.toString())); //$NON-NLS-1$
+			throw new PrerequisiteException(
+				LanguageBundle.getFormattedString("PreKit.error", prereq.toString())); //$NON-NLS-1$
 		}
 
 		String kitKey = prereq.getKey().toUpperCase();
@@ -60,8 +60,7 @@ public class PreKitTester extends AbstractDisplayPrereqTest implements Prerequis
 			kitKey = kitKey.substring(0, wildCard);
 			for (Kit kit : display.getKitInfo())
 			{
-				if (kit.getKeyName().toUpperCase().startsWith(
-					kitKey))
+				if (kit.getKeyName().toUpperCase().startsWith(kitKey))
 				{
 					runningTotal++;
 				}
@@ -69,8 +68,7 @@ public class PreKitTester extends AbstractDisplayPrereqTest implements Prerequis
 		}
 		else
 		{
-			Kit kit = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
-					KIT_CLASS, kitKey);
+			Kit kit = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(KIT_CLASS, kitKey);
 			if (display.hasKit(kit))
 			{
 				runningTotal++;
@@ -84,7 +82,7 @@ public class PreKitTester extends AbstractDisplayPrereqTest implements Prerequis
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "KIT"; //$NON-NLS-1$

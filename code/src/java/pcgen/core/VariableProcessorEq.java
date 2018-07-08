@@ -47,10 +47,7 @@ public class VariableProcessorEq extends VariableProcessor
 	 * @param primaryHead
 	 *           Is this the primary head of a double weapon?
 	 */
-	public VariableProcessorEq(
-			Equipment eq,
-			PlayerCharacter pc,
-			boolean primaryHead)
+	public VariableProcessorEq(Equipment eq, PlayerCharacter pc, boolean primaryHead)
 	{
 		super(pc);
 		this.eq = eq;
@@ -73,16 +70,13 @@ public class VariableProcessorEq extends VariableProcessor
 	 */
 
 	@Override
-	Float getInternalVariable(
-			final CharacterSpell aSpell,
-			String valString,
-			final String src)
+	Float getInternalVariable(final CharacterSpell aSpell, String valString, final String src)
 	{
 		TermEvaluator evaluator = getTermEvaluator(valString, src);
 
 		return evaluator == null ? null : evaluator.resolve(eq, primaryHead, pc);
 	}
-	
+
 	TermEvaluator getTermEvaluator(String valString, String src)
 	{
 		TermEvaluator evaluator = EvaluatorFactory.EQ.getTermEvaluator(valString, src);
@@ -92,6 +86,6 @@ public class VariableProcessorEq extends VariableProcessor
 			return EvaluatorFactory.PC.getTermEvaluator(valString, src);
 		}
 
-        return evaluator;
-    }
+		return evaluator;
+	}
 }

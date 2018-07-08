@@ -25,8 +25,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 /**
  * Class deals with KNOWNSPELLSFROMSPECIALTY Token
  */
-public class KnownspellsfromspecialtyToken extends AbstractIntToken<PCClass>
-		implements CDOMPrimaryToken<PCClass>
+public class KnownspellsfromspecialtyToken extends AbstractIntToken<PCClass> implements CDOMPrimaryToken<PCClass>
 {
 
 	@Override

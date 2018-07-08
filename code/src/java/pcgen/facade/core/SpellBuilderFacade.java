@@ -17,9 +17,8 @@
  */
 package pcgen.facade.core;
 
-import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.ListFacade;
-
+import pcgen.facade.util.ReferenceFacade;
 
 /**
  * SpellBuilderFacade defines the interface between the UI and the core to be 
@@ -38,7 +37,6 @@ public interface SpellBuilderFacade
 	 */
 	public ListFacade<InfoFacade> getClasses();
 
-	
 	public void setSpellLevel(Integer spellLevel);
 
 	public ReferenceFacade<Integer> getSpellLevelRef();
@@ -48,7 +46,6 @@ public interface SpellBuilderFacade
 	 */
 	public ListFacade<Integer> getLevels();
 
-	
 	public void setSpell(InfoFacade spell);
 
 	public ReferenceFacade<InfoFacade> getSpellRef();
@@ -58,7 +55,6 @@ public interface SpellBuilderFacade
 	 */
 	public ListFacade<InfoFacade> getSpells();
 
-	
 	public void setVariant(String variant);
 
 	public ReferenceFacade<String> getVariantRef();
@@ -68,7 +64,6 @@ public interface SpellBuilderFacade
 	 */
 	public ListFacade<String> getVariants();
 
-	
 	public void setCasterLevel(Integer casterLevel);
 
 	public ReferenceFacade<Integer> getCasterLevelRef();
@@ -79,7 +74,6 @@ public interface SpellBuilderFacade
 	 */
 	public ListFacade<Integer> getCasterLevels();
 
-	
 	public void setSpellType(String spellType);
 
 	public ReferenceFacade<String> getSpellTypeRef();
@@ -88,7 +82,6 @@ public interface SpellBuilderFacade
 	 * @return The list of valid spell types for the current class or domain.
 	 */
 	public ListFacade<String> getSpellTypes();
-
 
 	/**
 	 * @return The metamagic feats that the user has selected.

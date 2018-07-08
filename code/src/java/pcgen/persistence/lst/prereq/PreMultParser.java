@@ -25,22 +25,19 @@ import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.Logging;
 
-public class PreMultParser extends AbstractPrerequisiteParser implements
-		PrerequisiteParserInterface
+public class PreMultParser extends AbstractPrerequisiteParser implements PrerequisiteParserInterface
 {
-    @Override
+	@Override
 	public String[] kindsHandled()
 	{
 		return new String[]{"MULT"};
 	}
 
 	@Override
-	public Prerequisite parse(String kind, String formula,
-		boolean invertResult, boolean overrideQualify)
+	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
 		throws PersistenceLayerException
 	{
-		Prerequisite prereq =
-				super.parse(kind, formula, invertResult, overrideQualify);
+		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
 		prereq.setKind(null);
 		prereq.setCharacterRequired(false);
 
@@ -68,8 +65,8 @@ public class PreMultParser extends AbstractPrerequisiteParser implements
 		return prereq;
 	}
 
-	protected static List<String> splitOnTopLevelToken(String input,
-	                                                   char startDelimiter, char endDelimiter) throws PersistenceLayerException
+	protected static List<String> splitOnTopLevelToken(String input, char startDelimiter, char endDelimiter)
+		throws PersistenceLayerException
 	{
 		int nesting = 0;
 		int startIndex = 0;
@@ -92,10 +89,8 @@ public class PreMultParser extends AbstractPrerequisiteParser implements
 			}
 			else if (expectComma)
 			{
-				Logging.log(Logging.LST_WARNING,
-					"Found close bracket without trailing comma in PREMULT, "
-						+ "trailing character was: " + currChar + " in "
-						+ input);
+				Logging.log(Logging.LST_WARNING, "Found close bracket without trailing comma in PREMULT, "
+					+ "trailing character was: " + currChar + " in " + input);
 			}
 			expectComma = false;
 
@@ -106,9 +101,8 @@ public class PreMultParser extends AbstractPrerequisiteParser implements
 			else if (expectStart)
 			{
 				String loc = (currIndex == 0) ? "at start" : "after comma";
-				Logging.log(Logging.LST_WARNING, "Expected Open Bracket " + loc
-					+ " in PREMULT, " + "character was: " + currChar + " in "
-					+ input);
+				Logging.log(Logging.LST_WARNING,
+					"Expected Open Bracket " + loc + " in PREMULT, " + "character was: " + currChar + " in " + input);
 			}
 			expectStart = false;
 
@@ -124,14 +118,12 @@ public class PreMultParser extends AbstractPrerequisiteParser implements
 
 		if (nesting != 0)
 		{
-			throw new PersistenceLayerException("Unbalanced " + startDelimiter
-				+ endDelimiter + " in PREMULT '" + input + "'.");
+			throw new PersistenceLayerException(
+				"Unbalanced " + startDelimiter + endDelimiter + " in PREMULT '" + input + "'.");
 		}
 		if (currIndex - startIndex <= 1)
 		{
-			throw new PersistenceLayerException(
-				"Found empty or unbracketed section in PREMULT '" + input
-					+ "'.");
+			throw new PersistenceLayerException("Found empty or unbracketed section in PREMULT '" + input + "'.");
 		}
 		subList.add(input.substring(startIndex + 1, currIndex - 1));
 

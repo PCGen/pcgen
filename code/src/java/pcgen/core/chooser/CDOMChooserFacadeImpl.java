@@ -31,12 +31,12 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.facade.core.ChooserFacade;
-import pcgen.facade.util.DefaultReferenceFacade;
 import pcgen.facade.core.InfoFacade;
 import pcgen.facade.core.InfoFactory;
-import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.DefaultListFacade;
+import pcgen.facade.util.DefaultReferenceFacade;
 import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.ReferenceFacade;
 import pcgen.system.LanguageBundle;
 
 /**
@@ -53,12 +53,12 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 {
 
 	private final String name;
-	
+
 	private final List<T> origAvailable;
 	private final List<? extends T> origSelected;
 	private final int maxNewSelections;
 	private final List<T> finalSelected;
-	
+
 	private DefaultListFacade<InfoFacade> availableList;
 	private DefaultListFacade<InfoFacade> selectedList;
 	private DefaultReferenceFacade<Integer> numSelectionsRemain;
@@ -70,8 +70,7 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 	private final String removeButtonName;
 
 	private final String availableTableTitle;
-	private ChooserTreeViewType defaultView =
-			ChooserTreeViewType.TYPE_NAME;
+	private ChooserTreeViewType defaultView = ChooserTreeViewType.TYPE_NAME;
 
 	private boolean dupsAllowed = false;
 
@@ -80,13 +79,13 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 	private boolean preferRadioSelection = false;
 
 	private boolean userInput = false;
-	
+
 	private final String stringDelimiter;
-	
+
 	private boolean infoAvailable = false;
 
 	private InfoFactory infoFactory = null;
-	
+
 	/**
 	 * Create a new instance of GeneraChooserFacadeBase with default localised 
 	 * text for the chooser. Note none of the supplied lists will be directly 
@@ -99,15 +98,14 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 	 */
 	public CDOMChooserFacadeImpl(String name, List<T> available, List<? extends T> selected, int maxNewSelections)
 	{
-		this(name, available, selected, maxNewSelections, 
-			LanguageBundle.getString("in_available"), //$NON-NLS-1$
+		this(name, available, selected, maxNewSelections, LanguageBundle.getString("in_available"), //$NON-NLS-1$
 			LanguageBundle.getString("in_typeName"), //$NON-NLS-1$
-			LanguageBundle.getString("in_selected"),  //$NON-NLS-1$
-			LanguageBundle.getString("in_selRemain"),  //$NON-NLS-1$
+			LanguageBundle.getString("in_selected"), //$NON-NLS-1$
+			LanguageBundle.getString("in_selRemain"), //$NON-NLS-1$
 			LanguageBundle.getString("in_add"), //$NON-NLS-1$
 			LanguageBundle.getString("in_remove"), null); //$NON-NLS-1$
 	}
-	
+
 	/**
 	 * Create a new instance of GeneraChooserFacadeBase with default localised 
 	 * text for the chooser. Note none of the supplied lists will be directly 
@@ -119,14 +117,13 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 	 * @param maxNewSelections The number of selections the user may make in addition to those in the selected list.
 	 * @param stringDelimiter A string used to split the user viewable part of a string option from the full string. 
 	 */
-	public CDOMChooserFacadeImpl(String name, List<T> available,
-		List<? extends T> selected, int maxNewSelections, String stringDelimiter)
+	public CDOMChooserFacadeImpl(String name, List<T> available, List<? extends T> selected, int maxNewSelections,
+		String stringDelimiter)
 	{
-		this(name, available, selected, maxNewSelections, 
-			LanguageBundle.getString("in_available"), //$NON-NLS-1$
+		this(name, available, selected, maxNewSelections, LanguageBundle.getString("in_available"), //$NON-NLS-1$
 			LanguageBundle.getString("in_typeName"), //$NON-NLS-1$
-			LanguageBundle.getString("in_selected"),  //$NON-NLS-1$
-			LanguageBundle.getString("in_selRemain"),  //$NON-NLS-1$
+			LanguageBundle.getString("in_selected"), //$NON-NLS-1$
+			LanguageBundle.getString("in_selRemain"), //$NON-NLS-1$
 			LanguageBundle.getString("in_add"), //$NON-NLS-1$
 			LanguageBundle.getString("in_remove"), stringDelimiter); //$NON-NLS-1$
 	}
@@ -134,7 +131,7 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 	/**
 	 * Create a new instance of GeneraChooserFacadeBase with supplied text for 
 	 * the chooser. Note none of the supplied lists will be directly modified.   
-
+	
 	 * @param name The title of the chooser.
 	 * @param available The list of items to select from.
 	 * @param selected The list of items already selected. The user may choose to deselect items from this list.
@@ -147,12 +144,9 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 	 * @param removeButtonName The label for the remove button.
 	 * @param stringDelimiter A string used to split the user viewable part of a string option from the full string. 
 	 */
-	public CDOMChooserFacadeImpl(String name, List<T> available,
-		List<? extends T> selected, int maxNewSelections,
-		String availableTableTitle, String availableTableTypeNameTitle, 
-		String selectedTableTitle,
-		String selectionCountName, String addButtonName, String removeButtonName, 
-		String stringDelimiter)
+	public CDOMChooserFacadeImpl(String name, List<T> available, List<? extends T> selected, int maxNewSelections,
+		String availableTableTitle, String availableTableTypeNameTitle, String selectedTableTitle,
+		String selectionCountName, String addButtonName, String removeButtonName, String stringDelimiter)
 	{
 		this.name = name;
 		this.origAvailable = available;
@@ -165,7 +159,7 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 		this.addButtonName = addButtonName;
 		this.removeButtonName = removeButtonName;
 		this.stringDelimiter = stringDelimiter;
-				
+
 		// Build working content
 		availableList = new DefaultListFacade<>(createInfoFacadeList(origAvailable, stringDelimiter));
 		selectedList = new DefaultListFacade<>(createInfoFacadeList(origSelected, stringDelimiter));
@@ -188,12 +182,9 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 				CDOMInfoWrapper wrapper = new CDOMInfoWrapper((CDOMObject) object);
 				infoFacadeList.add(wrapper);
 			}
-			else if (!StringUtils.isEmpty(stringDelimiter)
-				&& (object instanceof String))
+			else if (!StringUtils.isEmpty(stringDelimiter) && (object instanceof String))
 			{
-				DelimitedStringInfoWrapper wrapper =
-						new DelimitedStringInfoWrapper((String) object,
-							stringDelimiter);
+				DelimitedStringInfoWrapper wrapper = new DelimitedStringInfoWrapper((String) object, stringDelimiter);
 				infoFacadeList.add(wrapper);
 			}
 			else
@@ -204,7 +195,7 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 		}
 		return infoFacadeList;
 	}
-	
+
 	@Override
 	public final ListFacade<InfoFacade> getAvailableList()
 	{
@@ -229,7 +220,7 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 		{
 			availableList.removeElement(item);
 		}
-		numSelectionsRemain.set(numSelectionsRemain.get()-1);
+		numSelectionsRemain.set(numSelectionsRemain.get() - 1);
 	}
 
 	@Override
@@ -240,7 +231,7 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 		{
 			availableList.addElement(item);
 		}
-		numSelectionsRemain.set(numSelectionsRemain.get()+1);
+		numSelectionsRemain.set(numSelectionsRemain.get() + 1);
 	}
 
 	@Override
@@ -328,7 +319,7 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 	public List<String> getBranchNames(InfoFacade item)
 	{
 		List<String> branches = new ArrayList<>();
-		
+
 		if (item instanceof PObject)
 		{
 			PObject pObject = (PObject) item;
@@ -399,6 +390,7 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 		return preferRadioSelection;
 	}
 
+	@Override
 	public boolean isUserInput()
 	{
 		return userInput;
@@ -418,6 +410,7 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 	/**
 	 * @return the infoFactory
 	 */
+	@Override
 	public InfoFactory getInfoFactory()
 	{
 		return infoFactory;
@@ -438,7 +431,7 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 		public CDOMInfoWrapper(CDOMObject cdomObj)
 		{
 			this.cdomObj = cdomObj;
-			
+
 		}
 
 		@Override
@@ -450,15 +443,13 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 		@Override
 		public String getSource()
 		{
-			return SourceFormat.getFormattedString(cdomObj,
-				Globals.getSourceDisplay(), true);
+			return SourceFormat.getFormattedString(cdomObj, Globals.getSourceDisplay(), true);
 		}
 
 		@Override
 		public String getSourceForNodeDisplay()
 		{
-			return SourceFormat.getFormattedString(cdomObj,
-				SourceFormat.LONG, false);
+			return SourceFormat.getFormattedString(cdomObj, SourceFormat.LONG, false);
 		}
 
 		@Override
@@ -470,7 +461,7 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 		@Override
 		public boolean isNamePI()
 		{
-	    	return cdomObj.getSafe(ObjectKey.NAME_PI);
+			return cdomObj.getSafe(ObjectKey.NAME_PI);
 		}
 
 		/**
@@ -536,7 +527,7 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 		@Override
 		public boolean isNamePI()
 		{
-	    	return false;
+			return false;
 		}
 
 		@Override

@@ -23,8 +23,7 @@ import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class VisibleToken extends AbstractNonEmptyToken<TabInfo> implements
-		CDOMPrimaryToken<TabInfo>
+public class VisibleToken extends AbstractNonEmptyToken<TabInfo> implements CDOMPrimaryToken<TabInfo>
 {
 
 	@Override
@@ -34,8 +33,7 @@ public class VisibleToken extends AbstractNonEmptyToken<TabInfo> implements
 	}
 
 	@Override
-	public ParseResult parseNonEmptyToken(LoadContext context, TabInfo ti,
-			String value)
+	public ParseResult parseNonEmptyToken(LoadContext context, TabInfo ti, String value)
 	{
 		boolean set;
 		char firstChar = value.charAt(0);
@@ -43,8 +41,7 @@ public class VisibleToken extends AbstractNonEmptyToken<TabInfo> implements
 		{
 			if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
 			{
-				return new ParseResult.Fail("You should use 'YES' as the "
-						+ getTokenName() + ": " + value);
+				return new ParseResult.Fail("You should use 'YES' as the " + getTokenName() + ": " + value);
 			}
 			set = Boolean.TRUE;
 		}
@@ -52,15 +49,11 @@ public class VisibleToken extends AbstractNonEmptyToken<TabInfo> implements
 		{
 			if (firstChar != 'N' && firstChar != 'n')
 			{
-				return new ParseResult.Fail(
-						"You should use 'YES' or 'NO' as the " + getTokenName()
-								+ ": " + value);
+				return new ParseResult.Fail("You should use 'YES' or 'NO' as the " + getTokenName() + ": " + value);
 			}
 			if (value.length() > 1 && !value.equalsIgnoreCase("NO"))
 			{
-				return new ParseResult.Fail(
-						"You should use 'YES' or 'NO' as the " + getTokenName()
-								+ ": " + value);
+				return new ParseResult.Fail("You should use 'YES' or 'NO' as the " + getTokenName() + ": " + value);
 			}
 			set = Boolean.FALSE;
 		}
@@ -75,7 +68,7 @@ public class VisibleToken extends AbstractNonEmptyToken<TabInfo> implements
 		{
 			return null;
 		}
-		return new String[] { "NO" };
+		return new String[]{"NO"};
 	}
 
 	@Override

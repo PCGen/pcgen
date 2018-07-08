@@ -104,21 +104,21 @@ public class MinNumberModifierTest extends TestCase
 	public void testProcessZero4()
 	{
 		BasicCalculation modifier = new MinModifierFactory();
-		assertEquals(-4, modifier.process(-4,0));
+		assertEquals(-4, modifier.process(-4, 0));
 	}
 
 	@Test
 	public void testProcessMixed1()
 	{
 		BasicCalculation modifier = new MinModifierFactory();
-		assertEquals(-7, modifier.process(5,-7));
+		assertEquals(-7, modifier.process(5, -7));
 	}
 
 	@Test
 	public void testProcessMixed2()
 	{
 		BasicCalculation modifier = new MinModifierFactory();
-		assertEquals(-4, modifier.process(-4,3));
+		assertEquals(-4, modifier.process(-4, 3));
 	}
 
 	@Test
@@ -174,21 +174,21 @@ public class MinNumberModifierTest extends TestCase
 	public void testProcessDoubleZero4()
 	{
 		BasicCalculation modifier = new MinModifierFactory();
-		assertEquals(-4.3, modifier.process(-4.3,0.0));
+		assertEquals(-4.3, modifier.process(-4.3, 0.0));
 	}
 
 	@Test
 	public void testProcessDoubleMixed1()
 	{
 		BasicCalculation modifier = new MinModifierFactory();
-		assertEquals(-7.2, modifier.process(5.3,-7.2));
+		assertEquals(-7.2, modifier.process(5.3, -7.2));
 	}
 
 	@Test
 	public void testProcessDoubleMixed2()
 	{
 		BasicCalculation modifier = new MinModifierFactory();
-		assertEquals(-4.2, modifier.process(-4.2,3.1));
+		assertEquals(-4.2, modifier.process(-4.2, 3.1));
 	}
 
 	@Test

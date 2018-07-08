@@ -42,8 +42,8 @@ import pcgen.core.FollowerOption;
  * granted to a Player Character.
  * 
  */
-public class FollowerOptionFacet extends AbstractStorageFacet<CharID> implements
-		DataFacetChangeListener<CharID, CDOMObject>
+public class FollowerOptionFacet extends AbstractStorageFacet<CharID>
+		implements DataFacetChangeListener<CharID, CDOMObject>
 {
 	private CDOMObjectConsolidationFacet consolidationFacet;
 
@@ -103,8 +103,7 @@ public class FollowerOptionFacet extends AbstractStorageFacet<CharID> implements
 			throw new IllegalArgumentException("Object to add may not be null");
 		}
 		String name = fo.getListRef().getName();
-		Map<FollowerOption, Set<CDOMObject>> foMap = getConstructingCachedMap(
-				id, name);
+		Map<FollowerOption, Set<CDOMObject>> foMap = getConstructingCachedMap(id, name);
 		Set<CDOMObject> set = foMap.get(fo);
 		if (set == null)
 		{
@@ -119,8 +118,7 @@ public class FollowerOptionFacet extends AbstractStorageFacet<CharID> implements
 		CaseInsensitiveMap<Map<FollowerOption, Set<CDOMObject>>> componentMap = getCachedMap(id);
 		if (componentMap != null)
 		{
-			for (Iterator<Map<FollowerOption, Set<CDOMObject>>> it = componentMap
-					.values().iterator(); it.hasNext();)
+			for (Iterator<Map<FollowerOption, Set<CDOMObject>>> it = componentMap.values().iterator(); it.hasNext();)
 			{
 				Map<FollowerOption, Set<CDOMObject>> foMap = it.next();
 				foMap.values().removeIf(set -> set.remove(source) && set.isEmpty());
@@ -149,11 +147,9 @@ public class FollowerOptionFacet extends AbstractStorageFacet<CharID> implements
 	 *         for the Player Character
 	 */
 	@SuppressWarnings("unchecked")
-	private CaseInsensitiveMap<Map<FollowerOption, Set<CDOMObject>>> getCachedMap(
-			CharID id)
+	private CaseInsensitiveMap<Map<FollowerOption, Set<CDOMObject>>> getCachedMap(CharID id)
 	{
-		return (CaseInsensitiveMap<Map<FollowerOption, Set<CDOMObject>>>) getCache(
-			id);
+		return (CaseInsensitiveMap<Map<FollowerOption, Set<CDOMObject>>>) getCache(id);
 	}
 
 	/**
@@ -170,8 +166,7 @@ public class FollowerOptionFacet extends AbstractStorageFacet<CharID> implements
 	 *            The CharID for which the Map should be returned
 	 * @return The Map for the Player Character represented by the given CharID
 	 */
-	private Map<FollowerOption, Set<CDOMObject>> getConstructingCachedMap(
-			CharID id, String name)
+	private Map<FollowerOption, Set<CDOMObject>> getConstructingCachedMap(CharID id, String name)
 	{
 		CaseInsensitiveMap<Map<FollowerOption, Set<CDOMObject>>> componentMap = getCachedMap(id);
 		if (componentMap == null)
@@ -216,8 +211,8 @@ public class FollowerOptionFacet extends AbstractStorageFacet<CharID> implements
 	 *         FollowerOptionFacet for the Player Character represented by the
 	 *         given CharID
 	 */
-	public Map<FollowerOption, CDOMObject> getAvailableFollowers(CharID id,
-			String type, Comparator<FollowerOption> comp)
+	public Map<FollowerOption, CDOMObject> getAvailableFollowers(CharID id, String type,
+		Comparator<FollowerOption> comp)
 	{
 		CaseInsensitiveMap<Map<FollowerOption, Set<CDOMObject>>> componentMap = getCachedMap(id);
 		if (componentMap == null)
@@ -229,8 +224,7 @@ public class FollowerOptionFacet extends AbstractStorageFacet<CharID> implements
 		{
 			return Collections.emptyMap();
 		}
-		Map<FollowerOption, CDOMObject> ret = new TreeMap<>(
-                comp);
+		Map<FollowerOption, CDOMObject> ret = new TreeMap<>(comp);
 		for (Map.Entry<FollowerOption, Set<CDOMObject>> me : foMap.entrySet())
 		{
 			FollowerOption fo = me.getKey();

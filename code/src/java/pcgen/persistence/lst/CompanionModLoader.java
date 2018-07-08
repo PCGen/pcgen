@@ -35,7 +35,7 @@ import pcgen.util.Logging;
  * Loads the level based Mount and Familiar benefits
  *
  **/
-public class CompanionModLoader extends SimpleLoader<CompanionMod> 
+public class CompanionModLoader extends SimpleLoader<CompanionMod>
 {
 
 	/**
@@ -50,8 +50,7 @@ public class CompanionModLoader extends SimpleLoader<CompanionMod>
 	}
 
 	@Override
-	public void parseLine(LoadContext context, String lstLine, URI sourceURI)
-		throws PersistenceLayerException
+	public void parseLine(LoadContext context, String lstLine, URI sourceURI) throws PersistenceLayerException
 	{
 		StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 
@@ -69,8 +68,7 @@ public class CompanionModLoader extends SimpleLoader<CompanionMod>
 				if (foundType)
 				{
 					//Found twice
-					Logging.errorPrint("Ignoring line: Found TYPE: twice: " + lstLine,
-						context);
+					Logging.errorPrint("Ignoring line: Found TYPE: twice: " + lstLine, context);
 					return;
 				}
 				foundType = true;
@@ -94,8 +92,7 @@ public class CompanionModLoader extends SimpleLoader<CompanionMod>
 		//But we need to create a unique name (and do it with something that is unique-ish)
 		//Note there is currently no risk of name conflict here since they cannot be uniquely named
 		String uniqueName = "COMPANIONMOD_" + COMPANION_MOD_ID++;
-		CompanionList cat = context.getReferenceContext()
-				.constructNowIfNecessary(CompanionList.class, clName);
+		CompanionList cat = context.getReferenceContext().constructNowIfNecessary(CompanionList.class, clName);
 		CompanionMod loadable = cat.newInstance();
 		loadable.setDisplayName(uniqueName);
 		return loadable;

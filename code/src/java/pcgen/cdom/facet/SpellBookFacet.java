@@ -35,8 +35,7 @@ import pcgen.core.character.SpellBook;
  * Character.
  * 
  */
-public class SpellBookFacet extends AbstractStorageFacet<CharID> implements
-		DataFacetChangeListener<CharID, Equipment>
+public class SpellBookFacet extends AbstractStorageFacet<CharID> implements DataFacetChangeListener<CharID, Equipment>
 {
 	private EquipmentFacet equipmentFacet;
 
@@ -354,7 +353,7 @@ public class SpellBookFacet extends AbstractStorageFacet<CharID> implements
 			componentMap.remove(name);
 		}
 	}
-	
+
 	public void setEquipmentFacet(EquipmentFacet equipmentFacet)
 	{
 		this.equipmentFacet = equipmentFacet;

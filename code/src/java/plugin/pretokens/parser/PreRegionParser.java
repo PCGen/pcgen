@@ -23,14 +23,13 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 /**
  * A prerequisite parser class that handles the parsing of pre region tokens.
  */
-public class PreRegionParser extends AbstractPrerequisiteSimpleParser implements
-		PrerequisiteParserInterface
+public class PreRegionParser extends AbstractPrerequisiteSimpleParser implements PrerequisiteParserInterface
 {
 	/**
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String[] kindsHandled()
 	{
 		return new String[]{"REGION"};

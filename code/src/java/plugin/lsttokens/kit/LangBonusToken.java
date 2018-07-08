@@ -35,8 +35,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * 
  * 
  */
-public class LangBonusToken extends AbstractTokenWithSeparator<KitLangBonus>
-		implements CDOMPrimaryToken<KitLangBonus>
+public class LangBonusToken extends AbstractTokenWithSeparator<KitLangBonus> implements CDOMPrimaryToken<KitLangBonus>
 {
 
 	private static final Class<Language> LANGUAGE_CLASS = Language.class;
@@ -65,15 +64,13 @@ public class LangBonusToken extends AbstractTokenWithSeparator<KitLangBonus>
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		KitLangBonus kitLangBonus, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, KitLangBonus kitLangBonus, String value)
 	{
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 
 		while (tok.hasMoreTokens())
 		{
-			kitLangBonus.addLanguage(context.getReferenceContext().getCDOMReference(
-				LANGUAGE_CLASS, tok.nextToken()));
+			kitLangBonus.addLanguage(context.getReferenceContext().getCDOMReference(LANGUAGE_CLASS, tok.nextToken()));
 		}
 		return ParseResult.SUCCESS;
 	}
@@ -82,11 +79,10 @@ public class LangBonusToken extends AbstractTokenWithSeparator<KitLangBonus>
 	public String[] unparse(LoadContext context, KitLangBonus kitLangBonus)
 	{
 		List<CDOMSingleRef<Language>> languages = kitLangBonus.getLanguages();
-		if (languages == null ||languages.isEmpty())
+		if (languages == null || languages.isEmpty())
 		{
 			return null;
 		}
-		return new String[]{ReferenceUtilities.joinLstFormat(languages,
-			Constants.PIPE)};
+		return new String[]{ReferenceUtilities.joinLstFormat(languages, Constants.PIPE)};
 	}
 }

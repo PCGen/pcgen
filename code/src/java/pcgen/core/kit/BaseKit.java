@@ -83,7 +83,7 @@ public abstract class BaseKit extends ConcretePrereqObject implements Loadable
 	{
 		return bounds != null;
 	}
-	
+
 	/**
 	 * Evaluate the EVAL expression
 	 * 
@@ -159,8 +159,7 @@ public abstract class BaseKit extends ConcretePrereqObject implements Loadable
 	 *            A list of warnings generated while attempting to apply the kit
 	 * @return true if OK
 	 */
-	public abstract boolean testApply(Kit aKit, PlayerCharacter aPC,
-			List<String> warnings);
+	public abstract boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings);
 
 	/**
 	 * Apply Kit
@@ -182,43 +181,43 @@ public abstract class BaseKit extends ConcretePrereqObject implements Loadable
 		return bounds == null ? null : Collections.unmodifiableList(bounds);
 	}
 
-    @Override
+	@Override
 	public URI getSourceURI()
 	{
 		return sourceURI;
 	}
 
-    @Override
+	@Override
 	public void setSourceURI(URI source)
 	{
 		sourceURI = source;
 	}
 
-    @Override
+	@Override
 	public String getDisplayName()
 	{
 		return null;
 	}
 
-    @Override
+	@Override
 	public void setName(String name)
 	{
 		//TODO illegal?
 	}
 
-    @Override
+	@Override
 	public String getKeyName()
 	{
 		return null;
 	}
 
-    @Override
+	@Override
 	public boolean isInternal()
 	{
 		return false;
 	}
 
-    @Override
+	@Override
 	public boolean isType(String type)
 	{
 		return false;

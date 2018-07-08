@@ -33,8 +33,7 @@ public class CollectionToChoiceSet<T> implements PrimitiveChoiceSet<T>
 	{
 		if (prim == null)
 		{
-			throw new IllegalArgumentException(
-					"PrimitiveCollection cannot be null");
+			throw new IllegalArgumentException("PrimitiveCollection cannot be null");
 		}
 		primitive = prim;
 	}
@@ -85,7 +84,6 @@ public class CollectionToChoiceSet<T> implements PrimitiveChoiceSet<T>
 	@Override
 	public boolean equals(Object obj)
 	{
-		return (obj instanceof CollectionToChoiceSet)
-				&& ((CollectionToChoiceSet<?>) obj).primitive.equals(primitive);
+		return (obj instanceof CollectionToChoiceSet) && ((CollectionToChoiceSet<?>) obj).primitive.equals(primitive);
 	}
 }

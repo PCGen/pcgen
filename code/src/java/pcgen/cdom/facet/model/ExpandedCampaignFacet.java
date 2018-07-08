@@ -55,8 +55,7 @@ public class ExpandedCampaignFacet extends AbstractSourcedListFacet<CharID, Camp
 	public void dataAdded(DataFacetChangeEvent<CharID, Campaign> dfce)
 	{
 		add(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
-		addAll(dfce.getCharID(), dfce.getCDOMObject().getSubCampaigns(), dfce
-				.getSource());
+		addAll(dfce.getCharID(), dfce.getCDOMObject().getSubCampaigns(), dfce.getSource());
 	}
 
 	/**
@@ -75,8 +74,7 @@ public class ExpandedCampaignFacet extends AbstractSourcedListFacet<CharID, Camp
 	public void dataRemoved(DataFacetChangeEvent<CharID, Campaign> dfce)
 	{
 		remove(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
-		removeAll(dfce.getCharID(), dfce.getCDOMObject().getSubCampaigns(),
-				dfce.getSource());
+		removeAll(dfce.getCharID(), dfce.getCDOMObject().getSubCampaigns(), dfce.getSource());
 	}
 
 }

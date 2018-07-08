@@ -23,8 +23,7 @@ package pcgen.core.term;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.core.spell.Spell;
 
-public class PCSizeTermEvaluator
-		extends BasePCDTermEvaluator implements TermEvaluator
+public class PCSizeTermEvaluator extends BasePCDTermEvaluator implements TermEvaluator
 {
 	public PCSizeTermEvaluator(String originalText)
 	{
@@ -39,13 +38,13 @@ public class PCSizeTermEvaluator
 	}
 
 	@Override
-	public String evaluate (CharacterDisplay display)
+	public String evaluate(CharacterDisplay display)
 	{
 		return String.valueOf(display.sizeInt());
 	}
 
 	@Override
-	public String evaluate (CharacterDisplay display, Spell aSpell)
+	public String evaluate(CharacterDisplay display, Spell aSpell)
 	{
 		return String.valueOf(display.sizeInt());
 	}

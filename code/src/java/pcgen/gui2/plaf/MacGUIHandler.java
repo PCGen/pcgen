@@ -15,14 +15,14 @@
  */
 package pcgen.gui2.plaf;
 
-import pcgen.gui2.PCGenUIManager;
-
 import com.apple.eawt.AboutHandler;
 import com.apple.eawt.AppEvent;
 import com.apple.eawt.Application;
 import com.apple.eawt.PreferencesHandler;
 import com.apple.eawt.QuitHandler;
 import com.apple.eawt.QuitResponse;
+
+import pcgen.gui2.PCGenUIManager;
 
 /**
  * {@code MacGUI} initializes Mac-specific GUI elements.
@@ -56,7 +56,6 @@ public final class MacGUIHandler
 		theApp.setQuitHandler(new OSXQuitHandler());
 	}
 
-
 	private static class OSXAboutHandler implements AboutHandler
 	{
 		@Override
@@ -85,4 +84,3 @@ public final class MacGUIHandler
 	}
 
 }
-

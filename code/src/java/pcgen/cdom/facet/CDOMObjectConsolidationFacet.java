@@ -41,8 +41,7 @@ import pcgen.cdom.facet.event.DataFacetChangeListener;
  * @see pcgen.cdom.facet.CDOMObjectBridge
  * 
  */
-public class CDOMObjectConsolidationFacet implements
-		DataFacetChangeListener<CharID, CDOMObject>
+public class CDOMObjectConsolidationFacet implements DataFacetChangeListener<CharID, CDOMObject>
 {
 	private CDOMObjectBridge bridgeFacet;
 
@@ -108,8 +107,7 @@ public class CDOMObjectConsolidationFacet implements
 	 *            The DataFacetChangeListener to receive DataFacetChangeEvents
 	 *            from this CDOMObjectConsolidationFacet
 	 */
-	public void addDataFacetChangeListener(
-		DataFacetChangeListener<CharID, ? super CDOMObject> listener)
+	public void addDataFacetChangeListener(DataFacetChangeListener<CharID, ? super CDOMObject> listener)
 	{
 		bridgeFacet.addDataFacetChangeListener(listener);
 	}
@@ -174,6 +172,5 @@ public class CDOMObjectConsolidationFacet implements
 	{
 		return bridgeFacet.getSet(id);
 	}
-	
-	
+
 }

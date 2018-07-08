@@ -70,16 +70,14 @@ public final class ChooserUtilities
 	 * @return true if we processed the list of choices, false if we used the
 	 *         routine to build the list of choices without processing them.
 	 */
-	public static boolean modChoices(final ChooseDriver aPObject,
-	                                 List availableList, final List selectedList, final PlayerCharacter aPC,
-	                                 final boolean addIt, final AbilityCategory category)
+	public static boolean modChoices(final ChooseDriver aPObject, List availableList, final List selectedList,
+		final PlayerCharacter aPC, final boolean addIt, final AbilityCategory category)
 	{
 		availableList.clear();
 		selectedList.clear();
 		List reservedList = new ArrayList();
 
-		ChoiceManagerList aMan = getConfiguredController(aPObject, aPC,
-				category, reservedList);
+		ChoiceManagerList aMan = getConfiguredController(aPObject, aPC, category, reservedList);
 		if (aMan == null)
 		{
 			return false;
@@ -91,24 +89,20 @@ public final class ChooserUtilities
 		{
 			if (addIt)
 			{
-				final List newSelections =
-						aMan.doChooser(aPC, availableList,
-						selectedList, reservedList);
+				final List newSelections = aMan.doChooser(aPC, availableList, selectedList, reservedList);
 				return aMan.applyChoices(aPC, newSelections);
 			}
 			else
 			{
-				aMan.doChooserRemove(aPC, availableList, selectedList,
-					reservedList);
+				aMan.doChooserRemove(aPC, availableList, selectedList, reservedList);
 			}
 			return true;
 		}
 		return false;
 	}
 
-	public static <T> ChoiceManagerList<T> getConfiguredController(
-			final ChooseDriver aPObject, final PlayerCharacter aPC,
-			final AbilityCategory category, List<String> reservedList)
+	public static <T> ChoiceManagerList<T> getConfiguredController(final ChooseDriver aPObject,
+		final PlayerCharacter aPC, final AbilityCategory category, List<String> reservedList)
 	{
 		ChoiceManagerList aMan = getChoiceManager(aPObject, aPC);
 		if (aMan == null)
@@ -123,9 +117,7 @@ public final class ChooserUtilities
 			AbilityCategory cat;
 			if (category == null)
 			{
-				cat =
-						SettingsHandler.getGame().getAbilityCategory(
-							a.getCategory());
+				cat = SettingsHandler.getGame().getAbilityCategory(a.getCategory());
 			}
 			else
 			{
@@ -157,15 +149,13 @@ public final class ChooserUtilities
 	 * @param ability
 	 *            The ability the choices are for.
 	 */
-	private static void modifyAvailChoicesForAbilityCategory(
-		List availableList, AbilityCategory category, Ability ability)
+	private static void modifyAvailChoicesForAbilityCategory(List availableList, AbilityCategory category,
+		Ability ability)
 	{
 		AbilityCategory cat;
 		if (category == null)
 		{
-			cat =
-					SettingsHandler.getGame().getAbilityCategory(
-						ability.getCategory());
+			cat = SettingsHandler.getGame().getAbilityCategory(ability.getCategory());
 		}
 		else
 		{
@@ -224,8 +214,7 @@ public final class ChooserUtilities
 	 * 
 	 * @return an initialized ChoiceManager
 	 */
-	public static ChoiceManagerList getChoiceManager(ChooseDriver aPObject,
-		PlayerCharacter aPC)
+	public static ChoiceManagerList getChoiceManager(ChooseDriver aPObject, PlayerCharacter aPC)
 	{
 		ChooseInformation<?> chooseInfo = aPObject.getChooseInfo();
 		if (chooseInfo != null)

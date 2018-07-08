@@ -15,7 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
- package plugin.experience.gui;
+package plugin.experience.gui;
 
 import java.awt.BorderLayout;
 import java.awt.GridBagConstraints;
@@ -352,7 +352,7 @@ public class ExperienceAdjusterView extends JPanel
 		// Updates the button if there is a selected character
 		characterList.addListSelectionListener(new ListSelectionListener()
 		{
-			
+
 			@Override
 			public void valueChanged(ListSelectionEvent e)
 			{
@@ -398,33 +398,37 @@ public class ExperienceAdjusterView extends JPanel
 		gridBagConstraints.gridwidth = 2;
 		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
 		jPanel8.add(experienceMultSlider, gridBagConstraints);
-		experienceMultSlider.addChangeListener(new ChangeListener() {
-			
+		experienceMultSlider.addChangeListener(new ChangeListener()
+		{
+
 			@Override
-			public void stateChanged(ChangeEvent e) {
+			public void stateChanged(ChangeEvent e)
+			{
 				double realValue = getSliderRealValue();
 
-				if (CoreUtility.doublesEqual(realValue, 0.5)) {
-					getExperienceMultNameLabel().setText(
-							LanguageBundle.getString("in_plugin_xp_half")); //$NON-NLS-1$
-				} else if (realValue <= 0.7) {
-					getExperienceMultNameLabel().setText(
-							LanguageBundle.getString("in_plugin_xp_easier")); //$NON-NLS-1$
-				} else if ((realValue > 0.7) && (realValue < 1.5)) {
-					getExperienceMultNameLabel().setText(
-							LanguageBundle.getString("in_plugin_xp_normal")); //$NON-NLS-1$
-				} else if (realValue >= 1.5) {
-					getExperienceMultNameLabel().setText(
-							LanguageBundle.getString("in_plugin_xp_harder")); //$NON-NLS-1$
+				if (CoreUtility.doublesEqual(realValue, 0.5))
+				{
+					getExperienceMultNameLabel().setText(LanguageBundle.getString("in_plugin_xp_half")); //$NON-NLS-1$
+				}
+				else if (realValue <= 0.7)
+				{
+					getExperienceMultNameLabel().setText(LanguageBundle.getString("in_plugin_xp_easier")); //$NON-NLS-1$
+				}
+				else if ((realValue > 0.7) && (realValue < 1.5))
+				{
+					getExperienceMultNameLabel().setText(LanguageBundle.getString("in_plugin_xp_normal")); //$NON-NLS-1$
+				}
+				else if (realValue >= 1.5)
+				{
+					getExperienceMultNameLabel().setText(LanguageBundle.getString("in_plugin_xp_harder")); //$NON-NLS-1$
 				}
 
-				if (CoreUtility.doublesEqual(realValue, 2)) {
-					getExperienceMultNameLabel().setText(
-							LanguageBundle.getString("in_plugin_xp_twice")); //$NON-NLS-1$
+				if (CoreUtility.doublesEqual(realValue, 2))
+				{
+					getExperienceMultNameLabel().setText(LanguageBundle.getString("in_plugin_xp_twice")); //$NON-NLS-1$
 				}
 
-				getExperienceMultLabel().setText(
-						LanguageBundle.getPrettyMultiplier(realValue));
+				getExperienceMultLabel().setText(LanguageBundle.getPrettyMultiplier(realValue));
 
 				model.setMultiplier(realValue);
 			}
@@ -475,7 +479,7 @@ public class ExperienceAdjusterView extends JPanel
 		// Update buttons on selection change
 		enemyList.addListSelectionListener(new ListSelectionListener()
 		{
-			
+
 			@Override
 			public void valueChanged(ListSelectionEvent e)
 			{
@@ -493,7 +497,8 @@ public class ExperienceAdjusterView extends JPanel
 		add(jPanel6);
 	}
 
-	private double calculateRealValue(int i) {
+	private double calculateRealValue(int i)
+	{
 		return 1.0 + (i * 0.1);
 	}
 

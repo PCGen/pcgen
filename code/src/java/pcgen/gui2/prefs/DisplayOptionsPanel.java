@@ -34,8 +34,8 @@ import javax.swing.border.TitledBorder;
 
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.UIPropertyContext;
-import pcgen.gui2.util.JComboBoxEx;
 import pcgen.gui2.tools.Utility;
+import pcgen.gui2.util.JComboBoxEx;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
 
@@ -70,8 +70,7 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 			LanguageBundle.getString("in_Prefs_cmSelect"); //$NON-NLS-1$
 	private static final String in_cmSelectExit =
 			LanguageBundle.getString("in_Prefs_cmSelectExit"); //$NON-NLS-1$
-	private static final String[] singleChoiceMethods =
-			{in_cmNone, in_cmSelect, in_cmSelectExit};
+	private static final String[] singleChoiceMethods = {in_cmNone, in_cmSelect, in_cmSelectExit};
 
 	private final JCheckBox showSkillModifier = new JCheckBox();
 	private final JCheckBox showSkillRanks = new JCheckBox();
@@ -90,8 +89,7 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 		GridBagConstraints c = new GridBagConstraints();
 		JLabel label;
 		Border etched = null;
-		TitledBorder title1 =
-				BorderFactory.createTitledBorder(etched, in_displayOpts);
+		TitledBorder title1 = BorderFactory.createTitledBorder(etched, in_displayOpts);
 		int line = 0;
 
 		title1.setTitleJustification(TitledBorder.LEADING);
@@ -103,8 +101,7 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 		c.insets = new Insets(2, 2, 2, 2);
 
 		// Automatically sort the options alphabetically.
-		final SortedMap<String, JComponent> options =
-                new TreeMap<>();
+		final SortedMap<String, JComponent> options = new TreeMap<>();
 
 		options.put(in_showSkillModifierBreakdown, showSkillModifier);
 		options.put(in_showSkillRanksBreakdown, showSkillRanks);
@@ -112,12 +109,10 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 		options.put(in_useOutputNamesEquipment, useOutputNamesEquipment);
 		options.put(in_useOutputNamesSpells, useOutputNamesSpells);
 		options.put(in_useOutputNamesOther, useOutputNamesOther);
-		
+
 		for (Map.Entry<String, JComponent> entry : options.entrySet())
 		{
-			line =
-					addDisplayOption(line, c, gridbag, this, entry
-						.getKey(), entry.getValue());
+			line = addDisplayOption(line, c, gridbag, this, entry.getKey(), entry.getValue());
 		}
 
 		Utility.buildConstraints(c, 0, line, GridBagConstraints.REMAINDER, 1, 1, 1);
@@ -127,24 +122,21 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 		this.add(label);
 	}
 
-	private int addDisplayOption(final int line,
-		final GridBagConstraints constraints, final GridBagLayout gridbag,
+	private int addDisplayOption(final int line, final GridBagConstraints constraints, final GridBagLayout gridbag,
 		final JPanel panel, final String labelText, final JComponent c)
 	{
 		if (c instanceof JCheckBox)
 		{
 			final JCheckBox checkbox = (JCheckBox) c;
 			checkbox.setText(labelText);
-			Utility.buildConstraints(constraints, 0, line,
-				GridBagConstraints.REMAINDER, 1, 0, 0);
+			Utility.buildConstraints(constraints, 0, line, GridBagConstraints.REMAINDER, 1, 0, 0);
 		}
 		else
 		{
 			final JLabel label = new JLabel(labelText);
 			Utility.buildConstraints(constraints, 0, line, 1, 1, 0, 0);
 			panel.add(label, constraints);
-			Utility.buildConstraints(constraints, 1, line,
-				GridBagConstraints.REMAINDER, 1, 0, 0);
+			Utility.buildConstraints(constraints, 1, line, GridBagConstraints.REMAINDER, 1, 0, 0);
 		}
 		panel.add(c, constraints);
 		return line + 1;
@@ -165,20 +157,14 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 	@Override
 	public void setOptionsBasedOnControls()
 	{
-		SettingsHandler.setGUIUsesOutputNameEquipment(useOutputNamesEquipment
-			.isSelected());
-		SettingsHandler.setGUIUsesOutputNameSpells(useOutputNamesSpells
-			.isSelected());
-		PCGenSettings.OPTIONS_CONTEXT.setBoolean(
-			PCGenSettings.OPTION_SHOW_OUTPUT_NAME_FOR_OTHER_ITEMS,
+		SettingsHandler.setGUIUsesOutputNameEquipment(useOutputNamesEquipment.isSelected());
+		SettingsHandler.setGUIUsesOutputNameSpells(useOutputNamesSpells.isSelected());
+		PCGenSettings.OPTIONS_CONTEXT.setBoolean(PCGenSettings.OPTION_SHOW_OUTPUT_NAME_FOR_OTHER_ITEMS,
 			useOutputNamesOther.isSelected());
-		UIPropertyContext.setSingleChoiceAction(cmbChoiceMethods
-			.getSelectedIndex());
-		PCGenSettings.OPTIONS_CONTEXT.setBoolean(
-			PCGenSettings.OPTION_SHOW_SKILL_MOD_BREAKDOWN,
+		UIPropertyContext.setSingleChoiceAction(cmbChoiceMethods.getSelectedIndex());
+		PCGenSettings.OPTIONS_CONTEXT.setBoolean(PCGenSettings.OPTION_SHOW_SKILL_MOD_BREAKDOWN,
 			showSkillModifier.isSelected());
-		PCGenSettings.OPTIONS_CONTEXT.setBoolean(
-			PCGenSettings.OPTION_SHOW_SKILL_RANK_BREAKDOWN,
+		PCGenSettings.OPTIONS_CONTEXT.setBoolean(PCGenSettings.OPTION_SHOW_SKILL_RANK_BREAKDOWN,
 			showSkillRanks.isSelected());
 	}
 
@@ -188,19 +174,15 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 	@Override
 	public void applyOptionValuesToControls()
 	{
-		cmbChoiceMethods.setSelectedIndex(UIPropertyContext
-			.getSingleChoiceAction());
-		showSkillModifier.setSelected(PCGenSettings.OPTIONS_CONTEXT.getBoolean(
-			PCGenSettings.OPTION_SHOW_SKILL_MOD_BREAKDOWN, false));
-		showSkillRanks.setSelected(PCGenSettings.OPTIONS_CONTEXT.getBoolean(
-			PCGenSettings.OPTION_SHOW_SKILL_RANK_BREAKDOWN, false));
-		useOutputNamesEquipment.setSelected(SettingsHandler
-			.guiUsesOutputNameEquipment());
-		useOutputNamesSpells.setSelected(SettingsHandler
-			.guiUsesOutputNameSpells());
-		useOutputNamesOther.setSelected(PCGenSettings.OPTIONS_CONTEXT
-			.getBoolean(PCGenSettings.OPTION_SHOW_OUTPUT_NAME_FOR_OTHER_ITEMS,
-				false));
+		cmbChoiceMethods.setSelectedIndex(UIPropertyContext.getSingleChoiceAction());
+		showSkillModifier.setSelected(
+			PCGenSettings.OPTIONS_CONTEXT.getBoolean(PCGenSettings.OPTION_SHOW_SKILL_MOD_BREAKDOWN, false));
+		showSkillRanks.setSelected(
+			PCGenSettings.OPTIONS_CONTEXT.getBoolean(PCGenSettings.OPTION_SHOW_SKILL_RANK_BREAKDOWN, false));
+		useOutputNamesEquipment.setSelected(SettingsHandler.guiUsesOutputNameEquipment());
+		useOutputNamesSpells.setSelected(SettingsHandler.guiUsesOutputNameSpells());
+		useOutputNamesOther.setSelected(
+			PCGenSettings.OPTIONS_CONTEXT.getBoolean(PCGenSettings.OPTION_SHOW_OUTPUT_NAME_FOR_OTHER_ITEMS, false));
 	}
 
 }

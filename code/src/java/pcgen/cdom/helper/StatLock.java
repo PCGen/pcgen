@@ -53,13 +53,11 @@ public class StatLock
 	{
 		if (stat == null)
 		{
-			throw new IllegalArgumentException(
-					"PCStat for LockStat may not be null");
+			throw new IllegalArgumentException("PCStat for LockStat may not be null");
 		}
 		if (formula == null)
 		{
-			throw new IllegalArgumentException(
-					"Formula for LockStat may not be null");
+			throw new IllegalArgumentException("Formula for LockStat may not be null");
 		}
 		lockedStat = stat;
 		lockValue = formula;
@@ -115,8 +113,7 @@ public class StatLock
 		if (obj instanceof StatLock)
 		{
 			StatLock other = (StatLock) obj;
-			return lockValue.equals(other.lockValue)
-					&& lockedStat.equals(other.lockedStat);
+			return lockValue.equals(other.lockValue) && lockedStat.equals(other.lockedStat);
 		}
 		return false;
 	}

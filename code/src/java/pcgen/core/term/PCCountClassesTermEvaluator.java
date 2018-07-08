@@ -24,8 +24,7 @@ import pcgen.core.PCClass;
 import pcgen.core.SettingsHandler;
 import pcgen.core.display.CharacterDisplay;
 
-public class PCCountClassesTermEvaluator 
-		extends BasePCDTermEvaluator implements TermEvaluator
+public class PCCountClassesTermEvaluator extends BasePCDTermEvaluator implements TermEvaluator
 {
 	public PCCountClassesTermEvaluator(String originalText)
 	{
@@ -39,7 +38,7 @@ public class PCCountClassesTermEvaluator
 
 		if (SettingsHandler.hideMonsterClasses())
 		{
-			for ( PCClass pcClass : display.getClassSet() )
+			for (PCClass pcClass : display.getClassSet())
 			{
 				if (pcClass.isMonster())
 				{

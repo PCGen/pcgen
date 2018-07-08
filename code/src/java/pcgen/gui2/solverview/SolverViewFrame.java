@@ -59,12 +59,9 @@ public class SolverViewFrame extends JFrame
 {
 
 	private final ScopeFacet scopeFacet = FacetLibrary.getFacet(ScopeFacet.class);
-	private final SolverManagerFacet solverManagerFacet =
-			FacetLibrary.getFacet(SolverManagerFacet.class);
-	private final VarScopedFacet varScopedFacet =
-			FacetLibrary.getFacet(VarScopedFacet.class);
-	private final LoadContextFacet loadContextFacet =
-			FacetLibrary.getFacet(LoadContextFacet.class);
+	private final SolverManagerFacet solverManagerFacet = FacetLibrary.getFacet(SolverManagerFacet.class);
+	private final VarScopedFacet varScopedFacet = FacetLibrary.getFacet(VarScopedFacet.class);
+	private final LoadContextFacet loadContextFacet = FacetLibrary.getFacet(LoadContextFacet.class);
 
 	private final JComboBoxEx<LegalScopeWrapper> scopeChooser;
 	private LegalScope selectedScope;
@@ -102,7 +99,7 @@ public class SolverViewFrame extends JFrame
 		varName = new JTextField();
 		varName.setText(varNameText);
 		varName.getDocument().addDocumentListener(new VarNameListener());
-		
+
 		initialize();
 
 		identifierChooser.setSelectedItem(identifierChooser.getItemAt(0));
@@ -119,32 +116,29 @@ public class SolverViewFrame extends JFrame
 			tableModel.setSteps(Collections.emptyList());
 			return;
 		}
-		ScopeInstance scope =
-				scopeFacet.get(activeIdentifier, LegalScope.getFullName(selectedScope), activeObject);
-		if (loadContextFacet.get(activeIdentifier.getDatasetID()).get()
-			.getVariableContext().isLegalVariableID(scope.getLegalScope(), varNameText))
+		ScopeInstance scope = scopeFacet.get(activeIdentifier, LegalScope.getFullName(selectedScope), activeObject);
+		if (loadContextFacet.get(activeIdentifier.getDatasetID()).get().getVariableContext()
+			.isLegalVariableID(scope.getLegalScope(), varNameText))
 		{
 			displayInfo(scope);
 		}
 		else
 		{
 			//TODO Update a status bar
-			System.err.println(selectedScope.getName()
-				+ " does not have a variable: " + varNameText);
+			System.err.println(selectedScope.getName() + " does not have a variable: " + varNameText);
 		}
 	}
 
 	private void displayInfo(ScopeInstance scope)
 	{
-		VariableID<?> varID = loadContextFacet.get(activeIdentifier.getDatasetID()).get()
-			.getVariableContext().getVariableID(scope, varNameText);
+		VariableID<?> varID = loadContextFacet.get(activeIdentifier.getDatasetID()).get().getVariableContext()
+			.getVariableID(scope, varNameText);
 		setSteps(varID);
 	}
 
 	private <T> void setSteps(VariableID<T> varID)
 	{
-		List<ProcessStep<T>> steps =
-				solverManagerFacet.diagnose(activeIdentifier, varID);
+		List<ProcessStep<T>> steps = solverManagerFacet.diagnose(activeIdentifier, varID);
 		tableModel.setSteps(steps);
 	}
 
@@ -154,8 +148,7 @@ public class SolverViewFrame extends JFrame
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			LegalScopeWrapper wrap =
-					(LegalScopeWrapper) scopeChooser.getSelectedItem();
+			LegalScopeWrapper wrap = (LegalScopeWrapper) scopeChooser.getSelectedItem();
 			selectedScope = wrap.getLegalScope();
 			update();
 		}
@@ -168,8 +161,7 @@ public class SolverViewFrame extends JFrame
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			ObjectNameDisplayer displayer =
-					(ObjectNameDisplayer) objectChooser.getSelectedItem();
+			ObjectNameDisplayer displayer = (ObjectNameDisplayer) objectChooser.getSelectedItem();
 			if (displayer == null)
 			{
 				activeObject = null;
@@ -218,8 +210,7 @@ public class SolverViewFrame extends JFrame
 		{
 			Object item = identifierChooser.getSelectedItem();
 			activeIdentifier = ((PCRef) item).id;
-			LoadContext loadContext =
-					loadContextFacet.get(activeIdentifier.getDatasetID()).get();
+			LoadContext loadContext = loadContextFacet.get(activeIdentifier.getDatasetID()).get();
 			for (LegalScope lvs : loadContext.getVariableContext().getScopes())
 			{
 				scopeChooser.addItem(new LegalScopeWrapper(lvs));
@@ -264,10 +255,7 @@ public class SolverViewFrame extends JFrame
 
 		int col = 0;
 		Utility.buildConstraints(c, col, 0, 1, 1, 100, 20);
-		JLabel label =
-				new JLabel(
-					LanguageBundle
-						.getFormattedString("in_SolverView_Perspective")); //$NON-NLS-1$
+		JLabel label = new JLabel(LanguageBundle.getFormattedString("in_SolverView_Perspective")); //$NON-NLS-1$
 		gridbag.setConstraints(label, c);
 		getContentPane().add(label);
 
@@ -284,10 +272,8 @@ public class SolverViewFrame extends JFrame
 		getContentPane().add(objectChooser);
 
 		Utility.buildConstraints(c, col++, 1, 1, 1, 0, 20);
-		label =
-				new JLabel(
-					LanguageBundle.getFormattedString("in_SolverView_VarName") //$NON-NLS-1$
-				);
+		label = new JLabel(LanguageBundle.getFormattedString("in_SolverView_VarName") //$NON-NLS-1$
+		);
 		gridbag.setConstraints(label, c);
 		getContentPane().add(label);
 
@@ -318,8 +304,8 @@ public class SolverViewFrame extends JFrame
 
 	private static class SolverTableModel<T> extends AbstractTableModel
 	{
-		private final String[] columnNames = {"Modification Type", "Modification",
-			"Resulting Value", "Priority", "Source"};
+		private final String[] columnNames =
+				{"Modification Type", "Modification", "Resulting Value", "Priority", "Source"};
 
 		private List<ProcessStep<T>> steps = Collections.emptyList();
 

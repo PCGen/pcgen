@@ -85,8 +85,7 @@ public class VariableHashMap extends HashMap<String, String>
 
 		if (value == null)
 		{
-			throw new variableException("Variable " + key
-				+ " does not exist, cannot get value");
+			throw new variableException("Variable " + key + " does not exist, cannot get value");
 		}
 
 		return value;
@@ -104,8 +103,7 @@ public class VariableHashMap extends HashMap<String, String>
 	{
 		if (get(key) == null)
 		{
-			throw new variableException("Variable " + key
-				+ " does not exist, cannot set value");
+			throw new variableException("Variable " + key + " does not exist, cannot set value");
 		}
 
 		put(key, value);
@@ -149,8 +147,7 @@ public class VariableHashMap extends HashMap<String, String>
 
 		if (value == null)
 		{
-			throw new variableException("Variable " + key
-				+ " does not exist, cannot add to value");
+			throw new variableException("Variable " + key + " does not exist, cannot add to value");
 		}
 
 		int val;
@@ -183,8 +180,7 @@ public class VariableHashMap extends HashMap<String, String>
 
 		if (value == null)
 		{
-			throw new variableException("Variable " + key
-				+ " does not exist, cannot divide by value");
+			throw new variableException("Variable " + key + " does not exist, cannot divide by value");
 		}
 
 		int val;
@@ -277,15 +273,13 @@ public class VariableHashMap extends HashMap<String, String>
 	 * @return The new value of the variable.
 	 * @throws variableException When no entry exists for the supplied key.
 	 */
-	public String multiplyVar(String key, int multiply)
-		throws variableException
+	public String multiplyVar(String key, int multiply) throws variableException
 	{
 		String value = get(key);
 
 		if (value == null)
 		{
-			throw new variableException("Variable " + key
-				+ " does not exist, cannot multiply by value");
+			throw new variableException("Variable " + key + " does not exist, cannot multiply by value");
 		}
 
 		int val;
@@ -338,15 +332,13 @@ public class VariableHashMap extends HashMap<String, String>
 	 * @return The new value of the variable.
 	 * @throws variableException When no entry exists for the supplied key.
 	 */
-	public String subtractVar(String key, int subtract)
-		throws variableException
+	public String subtractVar(String key, int subtract) throws variableException
 	{
 		String value = get(key);
 
 		if (value == null)
 		{
-			throw new variableException("Variable " + key
-				+ " does not exist, cannot subtract from value");
+			throw new variableException("Variable " + key + " does not exist, cannot subtract from value");
 		}
 
 		int val;

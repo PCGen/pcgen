@@ -22,32 +22,31 @@ import java.net.URI;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.base.Loadable;
 
-public final class PointBuyCost extends ConcretePrereqObject implements
-		Loadable
+public final class PointBuyCost extends ConcretePrereqObject implements Loadable
 {
 	private URI sourceURI;
 	private int statValue = 0;
 	private int buyCost = 0;
 
-    @Override
+	@Override
 	public URI getSourceURI()
 	{
 		return sourceURI;
 	}
 
-    @Override
+	@Override
 	public void setSourceURI(URI source)
 	{
 		sourceURI = source;
 	}
 
-    @Override
+	@Override
 	public String getDisplayName()
 	{
 		return Integer.toString(statValue);
 	}
 
-    @Override
+	@Override
 	public void setName(String name)
 	{
 		try
@@ -56,26 +55,24 @@ public final class PointBuyCost extends ConcretePrereqObject implements
 		}
 		catch (NumberFormatException e)
 		{
-			throw new IllegalArgumentException(
-					"Name for a PointBuyCost must be in integer, found: "
-							+ name, e);
+			throw new IllegalArgumentException("Name for a PointBuyCost must be in integer, found: " + name, e);
 		}
 
 	}
 
-    @Override
+	@Override
 	public String getKeyName()
 	{
 		return getDisplayName();
 	}
 
-    @Override
+	@Override
 	public boolean isInternal()
 	{
 		return false;
 	}
 
-    @Override
+	@Override
 	public boolean isType(String type)
 	{
 		return false;

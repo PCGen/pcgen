@@ -31,8 +31,7 @@ import pcgen.system.LanguageBundle;
  */
 public class CommonMenuText
 {
-	private static final String MNEMONIC_SUFFIX = LanguageBundle.KEY_PREFIX
-		+ "mn_"; //$NON-NLS-1$
+	private static final String MNEMONIC_SUFFIX = LanguageBundle.KEY_PREFIX + "mn_"; //$NON-NLS-1$
 	private static final String TIP_SUFFIX = "Tip"; //$NON-NLS-1$
 
 	/**
@@ -58,14 +57,12 @@ public class CommonMenuText
 
 	private static String getShortDesc(String prop, Object... substitutes)
 	{
-		return LanguageBundle.getFormattedString(LanguageBundle.KEY_PREFIX
-			+ prop + TIP_SUFFIX, substitutes);
+		return LanguageBundle.getFormattedString(LanguageBundle.KEY_PREFIX + prop + TIP_SUFFIX, substitutes);
 	}
 
 	private static String getName(String prop, Object... substitutes)
 	{
-		return LanguageBundle.getFormattedString(LanguageBundle.KEY_PREFIX
-			+ prop, substitutes);
+		return LanguageBundle.getFormattedString(LanguageBundle.KEY_PREFIX + prop, substitutes);
 	}
 
 	/**

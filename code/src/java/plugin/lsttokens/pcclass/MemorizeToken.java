@@ -25,8 +25,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 /**
  * Class deals with MEMORIZE Token
  */
-public class MemorizeToken extends AbstractYesNoToken<PCClass> implements
-		CDOMPrimaryToken<PCClass>
+public class MemorizeToken extends AbstractYesNoToken<PCClass> implements CDOMPrimaryToken<PCClass>
 {
 
 	@Override

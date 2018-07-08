@@ -95,12 +95,7 @@ import javax.swing.undo.CannotRedoException;
 import javax.swing.undo.CannotUndoException;
 import javax.swing.undo.UndoManager;
 
-import pcgen.cdom.base.Constants;
-import pcgen.core.SettingsHandler;
-import pcgen.gui2.tools.CommonMenuText;
-import pcgen.gui2.tools.Icons;
-import pcgen.system.LanguageBundle;
-import pcgen.util.Logging;
+import org.apache.commons.io.FileUtils;
 
 import gmgen.GMGenSystem;
 import gmgen.GMGenSystemView;
@@ -110,7 +105,12 @@ import gmgen.gui.FlippingSplitPane;
 import gmgen.gui.ImageFileChooserPreview;
 import gmgen.util.LogReceiver;
 import gmgen.util.LogUtilities;
-import org.apache.commons.io.FileUtils;
+import pcgen.cdom.base.Constants;
+import pcgen.core.SettingsHandler;
+import pcgen.gui2.tools.CommonMenuText;
+import pcgen.gui2.tools.Icons;
+import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
 import plugin.notes.NotesPlugin;
 
 /**
@@ -123,7 +123,7 @@ public class NotesView extends JPanel
 	/**
 	 * Extension with a point
 	 */
-	private static final String EXTENSION = '.' +NotesPlugin.EXTENSION_NOTES; //$NON-NLS-1$
+	private static final String EXTENSION = '.' + NotesPlugin.EXTENSION_NOTES;
 
 	private static final String OPTION_NAME_LASTFILE = NotesPlugin.LOG_NAME + ".LastFile"; //$NON-NLS-1$
 
@@ -138,13 +138,11 @@ public class NotesView extends JPanel
 
 	/**  Insert OL Action for JTextPane */
 	private ExtendedHTMLEditorKit.InsertListAction actionListOrdered =
-			new ExtendedHTMLEditorKit.InsertListAction("InsertOLItem",
-				HTML.Tag.OL);
+			new ExtendedHTMLEditorKit.InsertListAction("InsertOLItem", HTML.Tag.OL);
 
 	/**  Insert UL Action for JTextPane */
 	private ExtendedHTMLEditorKit.InsertListAction actionListUnordered =
-			new ExtendedHTMLEditorKit.InsertListAction("InsertULItem",
-				HTML.Tag.UL);
+			new ExtendedHTMLEditorKit.InsertListAction("InsertULItem", HTML.Tag.UL);
 
 	// End of variables declaration//GEN-END:variables
 	protected NotesPlugin plugin;
@@ -247,7 +245,8 @@ public class NotesView extends JPanel
 
 	private static FileFilter getFileType()
 	{
-		return new FileNameExtensionFilter(LanguageBundle.getString("in_plugin_notes_file"), NotesPlugin.EXTENSION_NOTES);
+		return new FileNameExtensionFilter(LanguageBundle.getString("in_plugin_notes_file"),
+			NotesPlugin.EXTENSION_NOTES);
 
 	}
 
@@ -258,8 +257,7 @@ public class NotesView extends JPanel
 	public void handleOpen()
 	{
 		// TODO fix
-		String sFile =
-				SettingsHandler.getGMGenOption(OPTION_NAME_LASTFILE, System.getProperty("user.dir"));
+		String sFile = SettingsHandler.getGMGenOption(OPTION_NAME_LASTFILE, System.getProperty("user.dir"));
 		File defaultFile = new File(sFile);
 		JFileChooser chooser = new JFileChooser();
 		chooser.setCurrentDirectory(defaultFile);
@@ -332,16 +330,9 @@ public class NotesView extends JPanel
 
 				if (node != root)
 				{
-					int choice =
-							JOptionPane
-								.showConfirmDialog(
-									this,
-									"Importing note "
-										+ notesFile.getName()
-										+ " into a node other then root, Continue?",
-									"Importing to a node other then root",
-									JOptionPane.YES_NO_OPTION,
-									JOptionPane.QUESTION_MESSAGE);
+					int choice = JOptionPane.showConfirmDialog(this,
+						"Importing note " + notesFile.getName() + " into a node other then root, Continue?",
+						"Importing to a node other then root", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 
 					if (choice == JOptionPane.NO_OPTION)
 					{
@@ -349,14 +340,11 @@ public class NotesView extends JPanel
 					}
 				}
 
-				InputStream in =
-						new BufferedInputStream(new FileInputStream(notesFile));
+				InputStream in = new BufferedInputStream(new FileInputStream(notesFile));
 				ZipInputStream zin = new ZipInputStream(in);
 				ZipEntry e;
 
-				ProgressMonitor pm =
-						new ProgressMonitor(GMGenSystem.inst,
-							"Reading Notes Export", "Reading", 1, 1000);
+				ProgressMonitor pm = new ProgressMonitor(GMGenSystem.inst, "Reading Notes Export", "Reading", 1, 1000);
 				int progress = 1;
 
 				while ((e = zin.getNextEntry()) != null)
@@ -378,8 +366,7 @@ public class NotesView extends JPanel
 		}
 		catch (IOException e)
 		{
-			JOptionPane.showMessageDialog(this, "Error Reading File"
-				+ notesFile.getName());
+			JOptionPane.showMessageDialog(this, "Error Reading File" + notesFile.getName());
 			Logging.errorPrint("Error Reading File" + notesFile.getName());
 			Logging.errorPrint(e.getMessage(), e);
 		}
@@ -413,10 +400,9 @@ public class NotesView extends JPanel
 	private void exportFile(NotesTreeNode node)
 	{
 		JFileChooser fLoad = new JFileChooser();
-		String sFile =
-				SettingsHandler.getGMGenOption(OPTION_NAME_LASTFILE, "");
+		String sFile = SettingsHandler.getGMGenOption(OPTION_NAME_LASTFILE, "");
 		new File(sFile);
-		
+
 		FileFilter ff = getFileType();
 		fLoad.addChoosableFileFilter(ff);
 		fLoad.setFileFilter(ff);
@@ -436,16 +422,12 @@ public class NotesView extends JPanel
 					fileName += extension;
 				}
 
-				File expFile =
-						new File(dirName + File.separator + fileName);
+				File expFile = new File(dirName + File.separator + fileName);
 
 				if (expFile.exists())
 				{
-					int choice =
-							JOptionPane.showConfirmDialog(this,
-								"File Exists, Overwrite?", "File Exists",
-								JOptionPane.YES_NO_OPTION,
-								JOptionPane.QUESTION_MESSAGE);
+					int choice = JOptionPane.showConfirmDialog(this, "File Exists, Overwrite?", "File Exists",
+						JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 
 					if (choice == JOptionPane.NO_OPTION)
 					{
@@ -509,8 +491,7 @@ public class NotesView extends JPanel
 	 *@param  name  name of the action to perform.
 	 *@param  evt   ActionEvent that sparked the calling of this function.
 	 */
-	private void performTextPaneAction(String name,
-									   java.awt.event.ActionEvent evt)
+	private void performTextPaneAction(String name, java.awt.event.ActionEvent evt)
 	{
 		Action action = getActionByName(editor, name);
 		action.actionPerformed(evt);
@@ -539,8 +520,7 @@ public class NotesView extends JPanel
 	 *@param  entry            Description of the Parameter
 	 *@exception  IOException  read or write error
 	 */
-	private void unzip(ZipInputStream zin, String entry, File homeDir)
-		throws IOException
+	private void unzip(ZipInputStream zin, String entry, File homeDir) throws IOException
 	{
 		// TODO: This function really should be in MiscUtils as a static
 		File outFile = new File(homeDir.getPath() + File.separator + entry);
@@ -645,8 +625,8 @@ public class NotesView extends JPanel
 	 *@return                  current progress
 	 *@exception  IOException  write or read failed for some reason
 	 */
-	private int writeNotesDir(ZipOutputStream out, File parentDir,
-							  File currentDir, ProgressMonitor pm, int progress) throws IOException
+	private int writeNotesDir(ZipOutputStream out, File parentDir, File currentDir, ProgressMonitor pm, int progress)
+		throws IOException
 	{
 		byte[] buffer = new byte[4096];
 		int bytes_read;
@@ -669,11 +649,8 @@ public class NotesView extends JPanel
 
 				try
 				{
-					String parentPath =
-							parentDir.getParentFile().getAbsolutePath();
-					ZipEntry entry =
-							new ZipEntry(f.getAbsolutePath().substring(
-								parentPath.length() + 1));
+					String parentPath = parentDir.getParentFile().getAbsolutePath();
+					ZipEntry entry = new ZipEntry(f.getAbsolutePath().substring(parentPath.length() + 1));
 					out.putNextEntry(entry);
 
 					while ((bytes_read = in.read(buffer)) != -1)
@@ -709,17 +686,13 @@ public class NotesView extends JPanel
 	 *@param  node             node to export
 	 *@exception  IOException  file write failed for some reason
 	 */
-	private void writeNotesFile(File exportFile, NotesTreeNode node)
-		throws IOException
+	private void writeNotesFile(File exportFile, NotesTreeNode node) throws IOException
 	{
 		File dir = node.getDir();
 
-		ZipOutputStream out =
-				new ZipOutputStream(new FileOutputStream(exportFile));
+		ZipOutputStream out = new ZipOutputStream(new FileOutputStream(exportFile));
 		int max = fileCount(dir);
-		ProgressMonitor pm =
-				new ProgressMonitor(GMGenSystem.inst,
-					"Writing out Notes Export", "Writing", 0, max);
+		ProgressMonitor pm = new ProgressMonitor(GMGenSystem.inst, "Writing out Notes Export", "Writing", 0, max);
 
 		try
 		{
@@ -811,12 +784,10 @@ public class NotesView extends JPanel
 	}
 
 	//GEN-LAST:event_rightJustifyButtonActionPerformed
-	private void centerJustifyButtonActionPerformed(
-		java.awt.event.ActionEvent evt)
+	private void centerJustifyButtonActionPerformed(java.awt.event.ActionEvent evt)
 	{
 		//GEN-FIRST:event_centerJustifyButtonActionPerformed
-		ActionListener action =
-				new AlignmentAction("Align Centre", StyleConstants.ALIGN_CENTER);
+		ActionListener action = new AlignmentAction("Align Centre", StyleConstants.ALIGN_CENTER);
 		action.actionPerformed(evt);
 		editor.grabFocus();
 
@@ -830,9 +801,8 @@ public class NotesView extends JPanel
 		//GEN-FIRST:event_colorButtonActionPerformed
 		AttributeSet as = editor.getCharacterAttributes();
 		SimpleAttributeSet sas = new SimpleAttributeSet(as);
-		Color newColor =
-				JColorChooser.showDialog(GMGenSystem.inst, "Choose Text Color",
-					editor.getStyledDocument().getForeground(as));
+		Color newColor = JColorChooser.showDialog(GMGenSystem.inst, "Choose Text Color",
+			editor.getStyledDocument().getForeground(as));
 
 		if (newColor != null)
 		{
@@ -940,8 +910,7 @@ public class NotesView extends JPanel
 		//GEN-FIRST:event_fileLeftActionPerformed
 		if (filesBar.getComponentCount() > 1)
 		{
-			Component c =
-					filesBar.getComponent(filesBar.getComponentCount() - 1);
+			Component c = filesBar.getComponent(filesBar.getComponentCount() - 1);
 			filesBar.remove(c);
 			filesBar.add(c, 0);
 		}
@@ -969,7 +938,7 @@ public class NotesView extends JPanel
 		// TODO: This sucks, clean it up
 		Element elem;
 		int pos = editor.getCaretPosition();
-		StyledDocument htmlDoc = (ExtendedHTMLDocument) editor.getStyledDocument();
+		StyledDocument htmlDoc = editor.getStyledDocument();
 
 		try
 		{
@@ -986,22 +955,18 @@ public class NotesView extends JPanel
 				if (sOffset == editor.getSelectionStart())
 				{
 
-					if (ExtendedHTMLEditorKit.checkParentsTag(htmlDoc
-						.getParagraphElement(editor.getCaretPosition()),
+					if (ExtendedHTMLEditorKit.checkParentsTag(htmlDoc.getParagraphElement(editor.getCaretPosition()),
 						HTML.Tag.LI))
 					{
-						elem =
-								ExtendedHTMLEditorKit.getListItemParent(htmlDoc
-									.getCharacterElement(editor
-										.getCaretPosition()));
+						elem = ExtendedHTMLEditorKit
+							.getListItemParent(htmlDoc.getCharacterElement(editor.getCaretPosition()));
 						boolean content = false;
 						int so = elem.getStartOffset();
 						int eo = elem.getEndOffset();
 
 						if ((so + 1) < eo)
 						{
-							char[] temp =
-									editor.getText(so, eo - so).toCharArray();
+							char[] temp = editor.getText(so, eo - so).toCharArray();
 							for (char aTemp : temp)
 							{
 								if (!Character.isWhitespace(aTemp))
@@ -1039,20 +1004,16 @@ public class NotesView extends JPanel
 		// TODO: this sucks.  clean it up
 		Element elem;
 		int pos = editor.getCaretPosition();
-		ExtendedHTMLDocument htmlDoc =
-				(ExtendedHTMLDocument) editor.getStyledDocument();
+		ExtendedHTMLDocument htmlDoc = (ExtendedHTMLDocument) editor.getStyledDocument();
 
 		try
 		{
-			if (ExtendedHTMLEditorKit.checkParentsTag(htmlDoc
-				.getParagraphElement(editor.getCaretPosition()), HTML.Tag.UL)
-				|| ExtendedHTMLEditorKit.checkParentsTag(htmlDoc
-					.getParagraphElement(editor.getCaretPosition()),
+			if (ExtendedHTMLEditorKit.checkParentsTag(htmlDoc.getParagraphElement(editor.getCaretPosition()),
+				HTML.Tag.UL)
+				|| ExtendedHTMLEditorKit.checkParentsTag(htmlDoc.getParagraphElement(editor.getCaretPosition()),
 					HTML.Tag.OL))
 			{
-				elem =
-						ExtendedHTMLEditorKit.getListItemParent(htmlDoc
-							.getCharacterElement(editor.getCaretPosition()));
+				elem = ExtendedHTMLEditorKit.getListItemParent(htmlDoc.getCharacterElement(editor.getCaretPosition()));
 
 				int so = elem.getStartOffset();
 				int eo = elem.getEndOffset();
@@ -1120,13 +1081,10 @@ public class NotesView extends JPanel
 						String tempString = editor.getText(caret, eo - caret);
 						editor.select(caret, eo - 1);
 						editor.replaceSelection("");
-						ExtendedHTMLEditorKit.insertListElement(editor,
-							tempString);
+						ExtendedHTMLEditorKit.insertListElement(editor, tempString);
 
-						Element newLi =
-								ExtendedHTMLEditorKit.getListItemParent(htmlDoc
-									.getCharacterElement(editor
-										.getCaretPosition()));
+						Element newLi = ExtendedHTMLEditorKit
+							.getListItemParent(htmlDoc.getCharacterElement(editor.getCaretPosition()));
 						editor.setCaretPosition(newLi.getEndOffset());
 					}
 				}
@@ -1211,8 +1169,7 @@ public class NotesView extends JPanel
 
 		jPanel1.add(jScrollPane2, java.awt.BorderLayout.CENTER);
 
-		jPanel2.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0,
-			0));
+		jPanel2.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0));
 
 		newButton.setIcon(Icons.stock_new.getImageIcon());
 		newButton.setToolTipText("New Node");
@@ -1235,7 +1192,7 @@ public class NotesView extends JPanel
 		saveButton.setEnabled(false);
 		saveButton.addActionListener(new java.awt.event.ActionListener()
 		{
-            @Override
+			@Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				saveButtonActionPerformed();
@@ -1250,7 +1207,7 @@ public class NotesView extends JPanel
 		exportButton.setEnabled(false);
 		exportButton.addActionListener(new java.awt.event.ActionListener()
 		{
-            @Override
+			@Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				exportButtonActionPerformed();
@@ -1265,7 +1222,7 @@ public class NotesView extends JPanel
 		revertButton.setEnabled(false);
 		revertButton.addActionListener(new java.awt.event.ActionListener()
 		{
-            @Override
+			@Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				revertButtonActionPerformed();
@@ -1280,7 +1237,7 @@ public class NotesView extends JPanel
 		deleteButton.setEnabled(false);
 		deleteButton.addActionListener(new java.awt.event.ActionListener()
 		{
-            @Override
+			@Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				deleteButtonActionPerformed();
@@ -1347,7 +1304,7 @@ public class NotesView extends JPanel
 		colorButton.setBorder(new EtchedBorder());
 		colorButton.addActionListener(new java.awt.event.ActionListener()
 		{
-            @Override
+			@Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				colorButtonActionPerformed();
@@ -1372,7 +1329,7 @@ public class NotesView extends JPanel
 		imageButton.setBorder(new EtchedBorder());
 		imageButton.addActionListener(new java.awt.event.ActionListener()
 		{
-            @Override
+			@Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				imageButtonActionPerformed();
@@ -1393,16 +1350,14 @@ public class NotesView extends JPanel
 		centerJustifyButton.setIcon(Icons.stock_text_align_center.getImageIcon());
 		centerJustifyButton.setToolTipText("Center");
 		centerJustifyButton.setBorder(new EtchedBorder());
-		centerJustifyButton
-			.addActionListener(this::centerJustifyButtonActionPerformed);
+		centerJustifyButton.addActionListener(this::centerJustifyButtonActionPerformed);
 
 		alignmentBar.add(centerJustifyButton);
 
 		rightJustifyButton.setIcon(Icons.stock_text_align_right.getImageIcon());
 		rightJustifyButton.setToolTipText("Right Justify");
 		rightJustifyButton.setBorder(new EtchedBorder());
-		rightJustifyButton
-			.addActionListener(this::rightJustifyButtonActionPerformed);
+		rightJustifyButton.addActionListener(this::rightJustifyButtonActionPerformed);
 
 		alignmentBar.add(rightJustifyButton);
 
@@ -1416,7 +1371,7 @@ public class NotesView extends JPanel
 		fileLeft.setBorder(new EtchedBorder());
 		fileLeft.addActionListener(new java.awt.event.ActionListener()
 		{
-            @Override
+			@Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				fileLeftActionPerformed();
@@ -1429,7 +1384,7 @@ public class NotesView extends JPanel
 		fileRight.setBorder(new EtchedBorder());
 		fileRight.addActionListener(new java.awt.event.ActionListener()
 		{
-            @Override
+			@Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				fileRightActionPerformed();
@@ -1530,36 +1485,35 @@ public class NotesView extends JPanel
 		notesTree.setModel(model);
 		notesTree.addTreeSelectionListener(new TreeSelectionListener()
 		{
-            @Override
+			@Override
 			public void valueChanged(TreeSelectionEvent evt)
 			{
 				notesTreeActionPerformed();
 			}
 		});
-		notesTree.getSelectionModel().setSelectionMode(
-			TreeSelectionModel.SINGLE_TREE_SELECTION);
+		notesTree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
 		notesTree.setEditable(true);
 		model.addTreeModelListener(new TreeModelListener()
 		{
-            @Override
+			@Override
 			public void treeNodesChanged(TreeModelEvent e)
 			{
 				notesTreeNodesChanged();
 			}
 
-            @Override
+			@Override
 			public void treeNodesInserted(TreeModelEvent e)
 			{
 				// TODO:  Method does nothing?
 			}
 
-            @Override
+			@Override
 			public void treeNodesRemoved(TreeModelEvent e)
 			{
 				// TODO:  Method does nothing?
 			}
 
-            @Override
+			@Override
 			public void treeStructureChanged(TreeModelEvent e)
 			{
 				// TODO:  Method does nothing?
@@ -1577,22 +1531,18 @@ public class NotesView extends JPanel
 	 *@exception  BadLocationException  if the file does not exist
 	 *@exception  RuntimeException      cause
 	 */
-	private void insertLocalImage(File whatImage) throws IOException,
-		BadLocationException, RuntimeException
+	private void insertLocalImage(File whatImage) throws IOException, BadLocationException, RuntimeException
 	{
 		File image = whatImage;
 		if (whatImage == null)
 		{
 			File dir = getCurrentDir();
-			File newImage =
-					getImageFromChooser(dir.getPath(), extsIMG, "Image File");
+			File newImage = getImageFromChooser(dir.getPath(), extsIMG, "Image File");
 
 			//null possible if user cancelled
 			if (newImage != null && newImage.exists())
 			{
-				image =
-						new File(dir.getAbsolutePath() + File.separator
-							+ newImage.getName());
+				image = new File(dir.getAbsolutePath() + File.separator + newImage.getName());
 
 				if (!image.exists())
 				{
@@ -1604,12 +1554,9 @@ public class NotesView extends JPanel
 		if (image != null)
 		{
 			int caretPos = editor.getCaretPosition();
-			ExtendedHTMLEditorKit htmlKit =
-					(ExtendedHTMLEditorKit) editor.getEditorKit();
-			ExtendedHTMLDocument htmlDoc =
-					(ExtendedHTMLDocument) editor.getStyledDocument();
-			htmlKit.insertHTML(htmlDoc, caretPos,
-				"<IMG SRC=\"" + image + "\">", 0, 0, HTML.Tag.IMG);
+			ExtendedHTMLEditorKit htmlKit = (ExtendedHTMLEditorKit) editor.getEditorKit();
+			ExtendedHTMLDocument htmlDoc = (ExtendedHTMLDocument) editor.getStyledDocument();
+			htmlKit.insertHTML(htmlDoc, caretPos, "<IMG SRC=\"" + image + "\">", 0, 0, HTML.Tag.IMG);
 			editor.setCaretPosition(caretPos + 1);
 		}
 	}
@@ -1625,9 +1572,7 @@ public class NotesView extends JPanel
 	private void leftJustifyButtonActionPerformed(java.awt.event.ActionEvent evt)
 	{
 		//GEN-FIRST:event_leftJustifyButtonActionPerformed
-		Action action =
-				new StyledEditorKit.AlignmentAction("Left Justify",
-					StyleConstants.ALIGN_LEFT);
+		Action action = new StyledEditorKit.AlignmentAction("Left Justify", StyleConstants.ALIGN_LEFT);
 		action.actionPerformed(evt);
 		editor.grabFocus();
 
@@ -1637,9 +1582,7 @@ public class NotesView extends JPanel
 
 	private void manageListElement(ExtendedHTMLDocument htmlDoc)
 	{
-		Element h =
-				ExtendedHTMLEditorKit.getListItemParent(htmlDoc
-					.getCharacterElement(editor.getCaretPosition()));
+		Element h = ExtendedHTMLEditorKit.getListItemParent(htmlDoc.getCharacterElement(editor.getCaretPosition()));
 		h.getParentElement();
 		ExtendedHTMLEditorKit.removeTag(editor, h);
 	}
@@ -1693,27 +1636,26 @@ public class NotesView extends JPanel
 			editor.addCaretListener(this::editorCaretUpdate);
 			editor.addKeyListener(new java.awt.event.KeyListener()
 			{
-                @Override
+				@Override
 				public void keyTyped(KeyEvent e)
 				{
 					editorKeyTyped(e);
 				}
 
-                @Override
+				@Override
 				public void keyPressed(KeyEvent e)
 				{
 					// TODO:  Method does nothing?
 				}
 
-                @Override
+				@Override
 				public void keyReleased(KeyEvent e)
 				{
 					// TODO:  Method does nothing?
 				}
 			});
 
-			editor.getStyledDocument().addUndoableEditListener(
-					this::editorUndoableEditHappened);
+			editor.getStyledDocument().addUndoableEditListener(this::editorUndoableEditHappened);
 
 			if (node.isLeaf())
 			{
@@ -1771,13 +1713,10 @@ public class NotesView extends JPanel
 	}
 
 	//GEN-LAST:event_sizeCBActionPerformed
-	private void rightJustifyButtonActionPerformed(
-		java.awt.event.ActionEvent evt)
+	private void rightJustifyButtonActionPerformed(java.awt.event.ActionEvent evt)
 	{
 		//GEN-FIRST:event_rightJustifyButtonActionPerformed
-		Action action =
-				new StyledEditorKit.AlignmentAction("Right Justify",
-					StyleConstants.ALIGN_RIGHT);
+		Action action = new StyledEditorKit.AlignmentAction("Right Justify", StyleConstants.ALIGN_RIGHT);
 		action.actionPerformed(evt);
 		editor.grabFocus();
 
@@ -1831,7 +1770,7 @@ public class NotesView extends JPanel
 		 *
 		 *@param  dtde  DropTargetDragEvent
 		 */
-        @Override
+		@Override
 		public void dragEnter(DropTargetDragEvent dtde)
 		{
 			if (dtde.isDataFlavorSupported(DataFlavor.javaFileListFlavor))
@@ -1850,7 +1789,7 @@ public class NotesView extends JPanel
 		 *
 		 *@param  dtde  DropTargetDragEvent
 		 */
-        @Override
+		@Override
 		public void dragOver(DropTargetDragEvent dtde)
 		{
 			if (dtde.isDataFlavorSupported(DataFlavor.javaFileListFlavor))
@@ -1868,7 +1807,7 @@ public class NotesView extends JPanel
 		 *
 		 *@param  dtde  DropTargetDropEvent
 		 */
-        @Override
+		@Override
 		public abstract void drop(DropTargetDropEvent dtde);
 
 	}
@@ -1884,7 +1823,7 @@ public class NotesView extends JPanel
 		 *
 		 *@param  dtde  DropTargetDropEvent
 		 */
-        @Override
+		@Override
 		public void drop(DropTargetDropEvent dtde)
 		{
 			Object obj = notesTree.getLastSelectedPathComponent();
@@ -1939,7 +1878,7 @@ public class NotesView extends JPanel
 		 *
 		 *@param  dtde  Description of the Parameter
 		 */
-        @Override
+		@Override
 		public void drop(DropTargetDropEvent dtde)
 		{
 			Object obj = notesTree.getLastSelectedPathComponent();
@@ -1977,26 +1916,21 @@ public class NotesView extends JPanel
 
 			try
 			{
-				List<File> fileList =
-						((List<File>) t
-							.getTransferData(DataFlavor.javaFileListFlavor));
+				List<File> fileList = ((List<File>) t.getTransferData(DataFlavor.javaFileListFlavor));
 				File dir = getCurrentDir();
 
 				for (File newFile : fileList)
 				{
 					if (newFile.exists())
 					{
-						File destFile =
-								new File(dir.getAbsolutePath() + File.separator
-										+ newFile.getName());
+						File destFile = new File(dir.getAbsolutePath() + File.separator + newFile.getName());
 
 						if (!isImageFile(destFile) || !destFile.exists())
 						{
 							FileUtils.copyFile(newFile, destFile);
 						}
 
-						editor.setCaretPosition(editor.viewToModel(dtde
-								.getLocation()));
+						editor.setCaretPosition(editor.viewToModel(dtde.getLocation()));
 						handleImageDropInsertion(destFile);
 					}
 				}
@@ -2048,7 +1982,7 @@ public class NotesView extends JPanel
 		 *
 		 *@param  dtde  Description of the Parameter
 		 */
-        @Override
+		@Override
 		public void drop(DropTargetDropEvent dtde)
 		{
 			Point p = dtde.getLocation();
@@ -2111,11 +2045,10 @@ public class NotesView extends JPanel
 
 			// TODO add option
 			DateFormat dateFmt =
-//					new SimpleDateFormat("MM-dd-yyyy hh.mm.ss a z");
+					//					new SimpleDateFormat("MM-dd-yyyy hh.mm.ss a z");
 					DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG);
-			node.appendText("<br>"+ Constants.LINE_SEPARATOR+"<b>"
-				+ dateFmt.format(Calendar.getInstance().getTime()) + "</b> "
-				+ message);
+			node.appendText("<br>" + Constants.LINE_SEPARATOR + "<b>" + dateFmt.format(Calendar.getInstance().getTime())
+				+ "</b> " + message);
 		}
 
 		private NotesTreeNode getChildNode(String name, NotesTreeNode parentNode)
@@ -2148,13 +2081,12 @@ public class NotesView extends JPanel
 			setEnabled(false);
 		}
 
-
 		/**
 		 *  Redo Action is preformed, run undo on the undo manager
 		 *
 		 *@param  e  Action Event
 		 */
-        @Override
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			try
@@ -2210,7 +2142,7 @@ public class NotesView extends JPanel
 		 *
 		 *@param  e  Action Event
 		 */
-        @Override
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			try

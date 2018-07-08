@@ -47,20 +47,17 @@ public class InstallLoader extends LstLineFileLoader
 	}
 
 	@Override
-	public void parseLine(LoadContext context, String inputLine, URI sourceURI)
-		throws PersistenceLayerException
+	public void parseLine(LoadContext context, String inputLine, URI sourceURI) throws PersistenceLayerException
 	{
 		final int idxColon = inputLine.indexOf(':');
 		if (idxColon < 0)
 		{
-			Logging.errorPrint("Unparsed line: " + inputLine + " in "
-				+ sourceURI.toString());
+			Logging.errorPrint("Unparsed line: " + inputLine + " in " + sourceURI.toString());
 			return;
 		}
 		final String key = inputLine.substring(0, idxColon);
 		final String value = inputLine.substring(idxColon + 1);
-		Map<String, LstToken> tokenMap =
-				TokenStore.inst().getTokenMap(InstallLstToken.class);
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(InstallLstToken.class);
 		InstallLstToken token = (InstallLstToken) tokenMap.get(key);
 
 		if (token != null)
@@ -68,14 +65,12 @@ public class InstallLoader extends LstLineFileLoader
 			LstUtils.deprecationCheck(token, campaign, value);
 			if (!token.parse(campaign, new String(value), sourceURI))
 			{
-				Logging.errorPrint("Error parsing install "
-					+ campaign.getDisplayName() + ':' + inputLine);
+				Logging.errorPrint("Error parsing install " + campaign.getDisplayName() + ':' + inputLine);
 			}
 		}
 		else
 		{
-			Logging.errorPrint("Unparsed line: " + inputLine + " in "
-				+ sourceURI.toString());
+			Logging.errorPrint("Unparsed line: " + inputLine + " in " + sourceURI.toString());
 		}
 	}
 

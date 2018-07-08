@@ -42,14 +42,12 @@ public class ProhibitedListToken extends AbstractExportToken
 	}
 
 	@Override
-	public String getToken(String tokenSource, CharacterDisplay display,
-		ExportHandler eh)
+	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
 	{
 		return getProhibitedListToken(tokenSource, display);
 	}
 
-	public static String getProhibitedListToken(String tokenSource,
-		CharacterDisplay display)
+	public static String getProhibitedListToken(String tokenSource, CharacterDisplay display)
 	{
 		int k = tokenSource.lastIndexOf(',');
 
@@ -68,14 +66,12 @@ public class ProhibitedListToken extends AbstractExportToken
 		{
 			if (display.getLevel(pcClass) > 0)
 			{
-				for (SpellProhibitor sp : pcClass
-					.getSafeListFor(ListKey.PROHIBITED_SPELLS))
+				for (SpellProhibitor sp : pcClass.getSafeListFor(ListKey.PROHIBITED_SPELLS))
 				{
 					set.addAll(sp.getValueList());
 				}
 
-				Collection<? extends SpellProhibitor> prohibList =
-						display.getProhibitedSchools(pcClass);
+				Collection<? extends SpellProhibitor> prohibList = display.getProhibitedSchools(pcClass);
 				if (prohibList != null)
 				{
 					for (SpellProhibitor sp : prohibList)

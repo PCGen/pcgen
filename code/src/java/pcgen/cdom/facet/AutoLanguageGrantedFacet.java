@@ -35,14 +35,13 @@ import pcgen.core.Language;
  * to a Player Character through the AUTO:LANG and LANGAUTO tokens
  * 
  */
-public class AutoLanguageGrantedFacet extends
-		AbstractSourcedListFacet<CharID, Language> implements PerspectiveLocation
+public class AutoLanguageGrantedFacet extends AbstractSourcedListFacet<CharID, Language> implements PerspectiveLocation
 {
 
 	private AutoLanguageFacet autoLanguageFacet;
 
 	private LanguageFacet languageFacet;
-	
+
 	public boolean update(CharID id)
 	{
 		Collection<Language> current = getSet(id);

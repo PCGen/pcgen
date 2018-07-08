@@ -31,8 +31,7 @@ public class PatternChanges<T>
 	private final Collection<String> negative;
 	private final boolean clear;
 
-	public PatternChanges(Collection<T> added, Collection<String> removed,
-			boolean globallyCleared)
+	public PatternChanges(Collection<T> added, Collection<String> removed, boolean globallyCleared)
 	{
 		positive = added;
 		negative = removed;

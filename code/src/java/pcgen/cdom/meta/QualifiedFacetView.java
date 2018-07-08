@@ -27,7 +27,7 @@ public class QualifiedFacetView<T extends QualifyingObject> implements FacetView
 {
 
 	private AbstractQualifiedListFacet<T> facet;
-	
+
 	QualifiedFacetView(AbstractQualifiedListFacet<T> facet)
 	{
 		this.facet = facet;

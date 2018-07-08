@@ -29,8 +29,7 @@ import pcgen.facade.core.SizeAdjustmentFacade;
  * {@code SizeAdjustment}.
  *
  */
-public final class SizeAdjustment extends PObject implements
-		SizeAdjustmentFacade, VarScoped
+public final class SizeAdjustment extends PObject implements SizeAdjustmentFacade, VarScoped
 {
 	/**
 	 * Activates (checks PrereqToUse) and returns list of BonusObj's

@@ -33,12 +33,9 @@ import pcgen.cdom.facet.VariableStoreFacet;
  */
 public final class ChannelUtilities
 {
-	private static final LoadContextFacet LOAD_CONTEXT_FACET =
-			FacetLibrary.getFacet(LoadContextFacet.class);
-	private static final ScopeFacet SCOPE_FACET =
-			FacetLibrary.getFacet(ScopeFacet.class);
-	private static final VariableStoreFacet RESULT_FACET =
-			FacetLibrary.getFacet(VariableStoreFacet.class);
+	private static final LoadContextFacet LOAD_CONTEXT_FACET = FacetLibrary.getFacet(LoadContextFacet.class);
+	private static final ScopeFacet SCOPE_FACET = FacetLibrary.getFacet(ScopeFacet.class);
+	private static final VariableStoreFacet RESULT_FACET = FacetLibrary.getFacet(VariableStoreFacet.class);
 
 	private ChannelUtilities()
 	{
@@ -58,9 +55,8 @@ public final class ChannelUtilities
 	public static Object readGlobalChannel(CharID id, String channelName)
 	{
 		ScopeInstance globalInstance = SCOPE_FACET.getGlobalScope(id);
-		VariableID<?> varID =
-				LOAD_CONTEXT_FACET.get(id.getDatasetID()).get().getVariableContext()
-					.getVariableID(globalInstance, createVarName(channelName));
+		VariableID<?> varID = LOAD_CONTEXT_FACET.get(id.getDatasetID()).get().getVariableContext()
+			.getVariableID(globalInstance, createVarName(channelName));
 		return RESULT_FACET.getValue(id, varID);
 	}
 
@@ -78,9 +74,8 @@ public final class ChannelUtilities
 	public static void setGlobalChannel(CharID id, String channelName, Object value)
 	{
 		ScopeInstance globalInstance = SCOPE_FACET.getGlobalScope(id);
-		VariableID<?> varID =
-				LOAD_CONTEXT_FACET.get(id.getDatasetID()).get().getVariableContext()
-					.getVariableID(globalInstance, createVarName(channelName));
+		VariableID<?> varID = LOAD_CONTEXT_FACET.get(id.getDatasetID()).get().getVariableContext()
+			.getVariableID(globalInstance, createVarName(channelName));
 		processSet(id, varID, value);
 	}
 

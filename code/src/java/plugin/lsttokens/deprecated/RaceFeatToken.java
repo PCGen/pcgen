@@ -30,8 +30,7 @@ import pcgen.util.Logging;
 /**
  * Class deals with FEAT Token
  */
-public class RaceFeatToken extends AbstractNonEmptyToken<Race> implements
-		CDOMCompatibilityToken<Race>, DeprecatedToken
+public class RaceFeatToken extends AbstractNonEmptyToken<Race> implements CDOMCompatibilityToken<Race>, DeprecatedToken
 {
 	@Override
 	public String getTokenName()
@@ -40,23 +39,19 @@ public class RaceFeatToken extends AbstractNonEmptyToken<Race> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, Race race,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, Race race, String value)
 	{
 		try
 		{
-			if (!context.processToken(race, "ABILITY", "FEAT|AUTOMATIC|"
-				+ value))
+			if (!context.processToken(race, "ABILITY", "FEAT|AUTOMATIC|" + value))
 			{
 				Logging.replayParsedMessages();
-				return new ParseResult.Fail(
-					"Delegation Error from Race's FEAT");
+				return new ParseResult.Fail("Delegation Error from Race's FEAT");
 			}
 		}
 		catch (PersistenceLayerException e)
 		{
-			return new ParseResult.Fail("Delegation Error from Race's FEAT: "
-				+ e.getLocalizedMessage());
+			return new ParseResult.Fail("Delegation Error from Race's FEAT: " + e.getLocalizedMessage());
 		}
 		return ParseResult.SUCCESS;
 	}

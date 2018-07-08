@@ -25,8 +25,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 /**
  * Class deals with SKILLMULT Token
  */
-public class SkillmultToken extends AbstractIntToken<Race> implements
-		CDOMPrimaryToken<Race>
+public class SkillmultToken extends AbstractIntToken<Race> implements CDOMPrimaryToken<Race>
 {
 
 	@Override

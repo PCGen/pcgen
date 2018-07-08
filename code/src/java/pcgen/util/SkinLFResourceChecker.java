@@ -59,9 +59,8 @@ public final class SkinLFResourceChecker
 	{
 		if (missingResourceCount != 0)
 		{
-			return resourceBuffer + "\n"
-				+ ResourceChecker.getItHereMsg + whereToGetIt + '\n'
-				+ ResourceChecker.missingLibMsg;//TODO Why does this have hardcoded file separators? JK070115
+			return resourceBuffer + "\n" + ResourceChecker.getItHereMsg + whereToGetIt + '\n'
+				+ ResourceChecker.missingLibMsg; //TODO Why does this have hardcoded file separators? JK070115
 		}
 
 		return "";
@@ -69,9 +68,7 @@ public final class SkinLFResourceChecker
 
 	private static void checkResource()
 	{
-		if (!ResourceChecker.hasResource(
-				"com.l2fprod.gui.plaf.skin.SkinLookAndFeel", "skinlf.jar",
-				resourceBuffer))
+		if (!ResourceChecker.hasResource("com.l2fprod.gui.plaf.skin.SkinLookAndFeel", "skinlf.jar", resourceBuffer))
 		{
 			++missingResourceCount;
 		}

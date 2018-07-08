@@ -27,26 +27,26 @@ import java.awt.event.MouseEvent;
 public abstract class PopupMouseAdapter extends MouseAdapter
 {
 
-    public abstract void showPopup(MouseEvent e);
+	public abstract void showPopup(MouseEvent e);
 
-    protected void maybeShowPopup(MouseEvent e)
-    {
-        if (e.isPopupTrigger())
-        {
-            showPopup(e);
-        }
-    }
+	protected void maybeShowPopup(MouseEvent e)
+	{
+		if (e.isPopupTrigger())
+		{
+			showPopup(e);
+		}
+	}
 
-    @Override
-    public void mousePressed(MouseEvent e)
-    {
-        maybeShowPopup(e);
-    }
+	@Override
+	public void mousePressed(MouseEvent e)
+	{
+		maybeShowPopup(e);
+	}
 
-    @Override
-    public void mouseReleased(MouseEvent e)
-    {
-        maybeShowPopup(e);
-    }
+	@Override
+	public void mouseReleased(MouseEvent e)
+	{
+		maybeShowPopup(e);
+	}
 
 }

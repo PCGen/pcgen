@@ -25,8 +25,8 @@ import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
-public class MethodToken extends AbstractNonEmptyToken<RollMethod> implements
-		CDOMPrimaryToken<RollMethod>, DeferredToken<RollMethod>
+public class MethodToken extends AbstractNonEmptyToken<RollMethod>
+		implements CDOMPrimaryToken<RollMethod>, DeferredToken<RollMethod>
 {
 
 	@Override
@@ -36,8 +36,7 @@ public class MethodToken extends AbstractNonEmptyToken<RollMethod> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-			RollMethod rm, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, RollMethod rm, String value)
 	{
 		rm.setMethodRoll(value);
 		return ParseResult.SUCCESS;
@@ -46,7 +45,7 @@ public class MethodToken extends AbstractNonEmptyToken<RollMethod> implements
 	@Override
 	public String[] unparse(LoadContext context, RollMethod rm)
 	{
-		return new String[] { rm.getMethodRoll() };
+		return new String[]{rm.getMethodRoll()};
 	}
 
 	@Override
@@ -67,8 +66,7 @@ public class MethodToken extends AbstractNonEmptyToken<RollMethod> implements
 		String method = rm.getMethodRoll();
 		if ((method == null) || method.isEmpty())
 		{
-			Logging.errorPrint("Roll Method " + rm.getDisplayName()
-					+ " did not have a Method in " + rm.getSourceURI());
+			Logging.errorPrint("Roll Method " + rm.getDisplayName() + " did not have a Method in " + rm.getSourceURI());
 			return false;
 		}
 		return true;

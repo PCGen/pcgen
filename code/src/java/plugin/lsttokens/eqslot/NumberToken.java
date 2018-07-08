@@ -9,13 +9,13 @@ import pcgen.persistence.lst.EquipSlotLstToken;
 public class NumberToken implements EquipSlotLstToken
 {
 
-    @Override
+	@Override
 	public String getTokenName()
 	{
 		return "NUMBER";
 	}
 
-    @Override
+	@Override
 	public boolean parse(EquipSlot eqSlot, String value, String gameMode)
 	{
 		eqSlot.setSlotNumType(value.intern());

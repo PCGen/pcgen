@@ -29,8 +29,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * {@code DescToken} parses the DESC token for campaigns.
  */
-public class DescToken extends AbstractNonEmptyToken<Campaign> implements
-		CDOMPrimaryToken<Campaign>
+public class DescToken extends AbstractNonEmptyToken<Campaign> implements CDOMPrimaryToken<Campaign>
 {
 
 	@Override
@@ -40,8 +39,7 @@ public class DescToken extends AbstractNonEmptyToken<Campaign> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, Campaign campaign,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, Campaign campaign, String value)
 	{
 		ParseResult pr = checkForInvalidXMLChars(value);
 		if (pr.passed())
@@ -51,11 +49,10 @@ public class DescToken extends AbstractNonEmptyToken<Campaign> implements
 		return pr;
 	}
 
-    @Override
+	@Override
 	public String[] unparse(LoadContext context, Campaign campaign)
 	{
-		String title =
-				context.getObjectContext().getString(campaign, StringKey.DESCRIPTION);
+		String title = context.getObjectContext().getString(campaign, StringKey.DESCRIPTION);
 		if (title == null)
 		{
 			return null;
@@ -63,7 +60,7 @@ public class DescToken extends AbstractNonEmptyToken<Campaign> implements
 		return new String[]{title};
 	}
 
-    @Override
+	@Override
 	public Class<Campaign> getTokenClass()
 	{
 		return Campaign.class;

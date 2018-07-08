@@ -74,8 +74,7 @@ public class RemoteWrappingLibrary implements FunctionLibrary
 	 *            target() function
 	 */
 	public RemoteWrappingLibrary(FunctionLibrary functionLibrary, VarScoped sourceValue,
-		FormatManager<?> sourceFormatManager, VarScoped targetValue,
-		FormatManager<?> targetFormatManager)
+		FormatManager<?> sourceFormatManager, VarScoped targetValue, FormatManager<?> targetFormatManager)
 	{
 		this.functionLibrary = Objects.requireNonNull(functionLibrary);
 		this.sourceValue = Objects.requireNonNull(sourceValue);

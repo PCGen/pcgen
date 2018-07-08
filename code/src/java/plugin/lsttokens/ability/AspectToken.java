@@ -54,8 +54,7 @@ import pcgen.util.Logging;
  * 
  * 
  */
-public class AspectToken extends AbstractNonEmptyToken<Ability> implements
-		CDOMPrimaryToken<Ability>
+public class AspectToken extends AbstractNonEmptyToken<Ability> implements CDOMPrimaryToken<Ability>
 {
 	@Override
 	public String getTokenName()
@@ -64,42 +63,33 @@ public class AspectToken extends AbstractNonEmptyToken<Ability> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, Ability ability,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, Ability ability, String value)
 	{
 		int pipeLoc = value.indexOf(Constants.PIPE);
 		if (pipeLoc == -1)
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " expecting '|', format is: "
-					+ "AspectName|Aspect value|Variable|... was: " + value);
+			return new ParseResult.Fail(
+				getTokenName() + " expecting '|', format is: " + "AspectName|Aspect value|Variable|... was: " + value);
 		}
 		String key = value.substring(0, pipeLoc);
 		if (key.isEmpty())
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " expecting non-empty type, "
-					+ "format is: AspectName|Aspect value|Variable|... was: "
-					+ value);
+			return new ParseResult.Fail(getTokenName() + " expecting non-empty type, "
+				+ "format is: AspectName|Aspect value|Variable|... was: " + value);
 		}
 		String val = value.substring(pipeLoc + 1);
 		if (val.isEmpty())
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " expecting non-empty value, "
-					+ "format is: AspectName|Aspect value|Variable|... was: "
-					+ value);
+			return new ParseResult.Fail(getTokenName() + " expecting non-empty value, "
+				+ "format is: AspectName|Aspect value|Variable|... was: " + value);
 		}
 		if (val.startsWith(Constants.PIPE))
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " expecting non-empty value, "
-					+ "format is: AspectName|Aspect value|Variable|... was: "
-					+ value);
+			return new ParseResult.Fail(getTokenName() + " expecting non-empty value, "
+				+ "format is: AspectName|Aspect value|Variable|... was: " + value);
 		}
 		Aspect a = parseAspect(key, val);
-		MapChanges<AspectName, List<Aspect>> mc =
-				context.getObjectContext().getMapChanges(ability, MapKey.ASPECT);
+		MapChanges<AspectName, List<Aspect>> mc = context.getObjectContext().getMapChanges(ability, MapKey.ASPECT);
 		Map<AspectName, List<Aspect>> fullMap = mc.getAdded();
 		List<Aspect> aspects = fullMap.get(a.getKey());
 		if (aspects == null)
@@ -120,8 +110,7 @@ public class AspectToken extends AbstractNonEmptyToken<Ability> implements
 	 */
 	public Aspect parseAspect(final String name, final String aspectDef)
 	{
-		final StringTokenizer tok = new StringTokenizer(aspectDef,
-				Constants.PIPE);
+		final StringTokenizer tok = new StringTokenizer(aspectDef, Constants.PIPE);
 
 		String firstToken = tok.nextToken();
 		/*if (PreParserFactory.isPreReqString(firstToken))
@@ -141,8 +130,7 @@ public class AspectToken extends AbstractNonEmptyToken<Ability> implements
 				Prerequisite prereq = getPrerequisite(token);
 				if (prereq == null)
 				{
-					Logging.errorPrint(getTokenName()
-							+ " had invalid prerequisite : " + token);
+					Logging.errorPrint(getTokenName() + " had invalid prerequisite : " + token);
 					return null;
 				}
 				aspect.addPrerequisite(prereq);
@@ -152,10 +140,8 @@ public class AspectToken extends AbstractNonEmptyToken<Ability> implements
 			{
 				if (isPre)
 				{
-					Logging.errorPrint("Invalid " + getTokenName() + ": "
-							+ name);
-					Logging
-							.errorPrint("  PRExxx must be at the END of the Token");
+					Logging.errorPrint("Invalid " + getTokenName() + ": " + name);
+					Logging.errorPrint("  PRExxx must be at the END of the Token");
 					return null;
 				}
 				aspect.addVariable(token);
@@ -168,8 +154,7 @@ public class AspectToken extends AbstractNonEmptyToken<Ability> implements
 	@Override
 	public String[] unparse(LoadContext context, Ability ability)
 	{
-		MapChanges<AspectName, List<Aspect>> changes =
-				context.getObjectContext().getMapChanges(ability, MapKey.ASPECT);
+		MapChanges<AspectName, List<Aspect>> changes = context.getObjectContext().getMapChanges(ability, MapKey.ASPECT);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;
@@ -179,11 +164,11 @@ public class AspectToken extends AbstractNonEmptyToken<Ability> implements
 		for (AspectName an : keys)
 		{
 			List<Aspect> aspects = changes.getAdded().get(an);
-			for(int i = 0; i < aspects.size(); i++)
+			for (int i = 0; i < aspects.size(); i++)
 			{
 				Aspect q = aspects.get(i);
-				set.add(new StringBuilder().append(q.getName()).append(Constants.PIPE)
-					.append(q.getPCCText()).toString());
+				set.add(
+					new StringBuilder().append(q.getName()).append(Constants.PIPE).append(q.getPCCText()).toString());
 			}
 		}
 		return set.toArray(new String[set.size()]);

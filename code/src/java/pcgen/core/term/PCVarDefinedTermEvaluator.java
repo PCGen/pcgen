@@ -22,15 +22,14 @@ package pcgen.core.term;
 
 import pcgen.core.PlayerCharacter;
 
-public class PCVarDefinedTermEvaluator
-		extends BasePCTermEvaluator implements TermEvaluator
+public class PCVarDefinedTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
 	private final String var;
 
 	public PCVarDefinedTermEvaluator(String originalText, String var)
 	{
 		this.originalText = originalText;
-		this.var          = var;
+		this.var = var;
 	}
 
 	@Override

@@ -39,8 +39,7 @@ import pcgen.util.enumeration.ProhibitedSpellType;
 /**
  * Class deals with PROHIBITSPELL Token
  */
-public class ProhibitspellToken extends AbstractTokenWithSeparator<PCClass>
-		implements CDOMPrimaryToken<PCClass>
+public class ProhibitspellToken extends AbstractTokenWithSeparator<PCClass> implements CDOMPrimaryToken<PCClass>
 {
 
 	@Override
@@ -56,8 +55,7 @@ public class ProhibitspellToken extends AbstractTokenWithSeparator<PCClass>
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context, PCClass pcc,
-		String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, PCClass pcc, String value)
 	{
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		String token = tok.nextToken();
@@ -65,8 +63,7 @@ public class ProhibitspellToken extends AbstractTokenWithSeparator<PCClass>
 		int dotLoc = token.indexOf(Constants.DOT);
 		if (dotLoc == -1)
 		{
-			return new ParseResult.Fail(
-				getTokenName() + " has no . separator for arguments: " + value);
+			return new ParseResult.Fail(getTokenName() + " has no . separator for arguments: " + value);
 		}
 		String pstString = token.substring(0, dotLoc);
 		ProhibitedSpellType type;
@@ -77,10 +74,8 @@ public class ProhibitspellToken extends AbstractTokenWithSeparator<PCClass>
 		}
 		catch (IllegalArgumentException e)
 		{
-			return new ParseResult.Fail(
-				getTokenName() + " encountered an invalid Prohibited Spell Type: " + value
-					+ "\n  Legal values are: "
-					+ StringUtil.join(Arrays.asList(ProhibitedSpellType.values()), ", "));
+			return new ParseResult.Fail(getTokenName() + " encountered an invalid Prohibited Spell Type: " + value
+				+ "\n  Legal values are: " + StringUtil.join(Arrays.asList(ProhibitedSpellType.values()), ", "));
 		}
 
 		String args = token.substring(dotLoc + 1);
@@ -88,8 +83,7 @@ public class ProhibitspellToken extends AbstractTokenWithSeparator<PCClass>
 		spellProb.setType(type);
 		if (args.isEmpty())
 		{
-			return new ParseResult.Fail(
-				getTokenName() + ' ' + type + " has no arguments");
+			return new ParseResult.Fail(getTokenName() + ' ' + type + " has no arguments");
 		}
 
 		char joinChar = getJoinChar(type, new LinkedList<>());
@@ -99,19 +93,15 @@ public class ProhibitspellToken extends AbstractTokenWithSeparator<PCClass>
 			return pr;
 		}
 
-		StringTokenizer elements =
-				new StringTokenizer(args, Character.toString(joinChar));
+		StringTokenizer elements = new StringTokenizer(args, Character.toString(joinChar));
 		while (elements.hasMoreTokens())
 		{
 			String aValue = elements.nextToken();
-			if (type.equals(ProhibitedSpellType.ALIGNMENT)
-				&& (!aValue.equalsIgnoreCase("GOOD"))
-				&& (!aValue.equalsIgnoreCase("EVIL"))
-				&& (!aValue.equalsIgnoreCase("LAWFUL"))
+			if (type.equals(ProhibitedSpellType.ALIGNMENT) && (!aValue.equalsIgnoreCase("GOOD"))
+				&& (!aValue.equalsIgnoreCase("EVIL")) && (!aValue.equalsIgnoreCase("LAWFUL"))
 				&& (!aValue.equalsIgnoreCase("CHAOTIC")))
 			{
-				return new ParseResult.Fail(
-					"Illegal PROHIBITSPELL:ALIGNMENT subtag '" + aValue + '\'');
+				return new ParseResult.Fail("Illegal PROHIBITSPELL:ALIGNMENT subtag '" + aValue + '\'');
 			}
 			else
 			{
@@ -124,9 +114,8 @@ public class ProhibitspellToken extends AbstractTokenWithSeparator<PCClass>
 			Prerequisite prereq = getPrerequisite(token);
 			if (prereq == null)
 			{
-				return new ParseResult.Fail(
-					"   (Did you put more than one limit, or items after the "
-						+ "PRExxx tags in " + getTokenName() + ":?), value was:" + value);
+				return new ParseResult.Fail("   (Did you put more than one limit, or items after the "
+					+ "PRExxx tags in " + getTokenName() + ":?), value was:" + value);
 			}
 			spellProb.addPrerequisite(prereq);
 		}
@@ -138,8 +127,7 @@ public class ProhibitspellToken extends AbstractTokenWithSeparator<PCClass>
 	@Override
 	public String[] unparse(LoadContext context, PCClass pcc)
 	{
-		Changes<SpellProhibitor> changes =
-				context.getObjectContext().getListChanges(pcc, ListKey.SPELL_PROHIBITOR);
+		Changes<SpellProhibitor> changes = context.getObjectContext().getListChanges(pcc, ListKey.SPELL_PROHIBITOR);
 		Collection<SpellProhibitor> added = changes.getAdded();
 		if (added == null || added.isEmpty())
 		{

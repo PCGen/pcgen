@@ -40,39 +40,38 @@ import pcgen.rules.persistence.token.CDOMToken;
  *            iterating over tokens (will be the class of the object being
  *            loaded, such as Race or Ability)
  */
-public class TokenFamilyIterator<C> implements
-		Iterator<CDOMPrimaryToken<? super C>>
+public class TokenFamilyIterator<C> implements Iterator<CDOMPrimaryToken<? super C>>
 {
 
 	/**
 	 * The Object class, "cached" due to common use
 	 */
 	private static final Class<Object> OBJECT_CLASS = Object.class;
-	
+
 	/**
 	 * The next token to be returned by this TokenFamilyIterator (Note: is only
 	 * validly containing the next token when needNewToken is false)
 	 */
 	private CDOMPrimaryToken<? super C> nextToken = null;
-	
+
 	/**
 	 * True if nextToken has been used and needs to be refreshed
 	 */
 	private boolean needNewToken = true;
-	
+
 	/**
 	 * The "acting" class for which tokens are being retrieved. This can be
 	 * either the class being loaded (e.g. Race) or a parent Class (e.g.
 	 * CDOMObject).
 	 */
 	private Class<?> actingClass;
-	
+
 	/**
 	 * The underlying Iterator that is incrementing across the CDOMTokens in the
 	 * actingClass.
 	 */
 	private Iterator<CDOMToken<?>> subIterator;
-	
+
 	/**
 	 * The token names that have been used. This is necessary since a specific
 	 * class (e.g. Race) can have a "local" version of a token. If that local
@@ -152,8 +151,7 @@ public class TokenFamilyIterator<C> implements
 			if (tok instanceof CDOMPrimaryToken)
 			{
 				@SuppressWarnings("unchecked")
-				CDOMPrimaryToken<? super C> pt =
-						(CDOMPrimaryToken<? super C>) tok;
+				CDOMPrimaryToken<? super C> pt = (CDOMPrimaryToken<? super C>) tok;
 				return pt;
 			}
 		}
@@ -176,7 +174,6 @@ public class TokenFamilyIterator<C> implements
 	@Override
 	public void remove()
 	{
-		throw new UnsupportedOperationException(
-				"Iterator does not support remove");
+		throw new UnsupportedOperationException("Iterator does not support remove");
 	}
 }

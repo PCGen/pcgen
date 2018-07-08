@@ -24,13 +24,12 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.facade.core.StatFacade;
 
-public final class PCStat extends PObject implements StatFacade,
-		NonInteractive, SortKeyRequired, VarScoped
+public final class PCStat extends PObject implements StatFacade, NonInteractive, SortKeyRequired, VarScoped
 {
 	@Override
 	public int getMinValue()
 	{
-		return getSafe(IntegerKey.MIN_VALUE);		
+		return getSafe(IntegerKey.MIN_VALUE);
 	}
 
 	/*
@@ -42,7 +41,7 @@ public final class PCStat extends PObject implements StatFacade,
 		return getKeyName();
 	}
 
-    @Override
+	@Override
 	public String getName()
 	{
 		return getDisplayName();

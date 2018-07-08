@@ -28,8 +28,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with HANDS Token
  */
-public class HandsToken extends AbstractIntToken<WeaponProf> implements
-		CDOMPrimaryToken<WeaponProf>
+public class HandsToken extends AbstractIntToken<WeaponProf> implements CDOMPrimaryToken<WeaponProf>
 {
 
 	@Override
@@ -57,8 +56,7 @@ public class HandsToken extends AbstractIntToken<WeaponProf> implements
 		if ("1IFLARGERTHANWEAPON".equals(value))
 		{
 			hands = Constants.HANDS_SIZE_DEPENDENT;
-			context.getObjectContext().put(prof, integerKey(),
-					hands);
+			context.getObjectContext().put(prof, integerKey(), hands);
 			return ParseResult.SUCCESS;
 		}
 		else
@@ -70,8 +68,7 @@ public class HandsToken extends AbstractIntToken<WeaponProf> implements
 	@Override
 	public String[] unparse(LoadContext context, WeaponProf prof)
 	{
-		Integer i =
-				context.getObjectContext().getInteger(prof, IntegerKey.HANDS);
+		Integer i = context.getObjectContext().getInteger(prof, IntegerKey.HANDS);
 		/*
 		 * Not a required Token, so it's possible it was never set. If so, don't
 		 * write anything.
@@ -88,8 +85,7 @@ public class HandsToken extends AbstractIntToken<WeaponProf> implements
 		}
 		else if (intValue < 0)
 		{
-			context.addWriteMessage(getTokenName()
-				+ " must be greater than or equal to zero or special value "
+			context.addWriteMessage(getTokenName() + " must be greater than or equal to zero or special value "
 				+ Constants.HANDS_SIZE_DEPENDENT + " for 1IFLARGERTHANWEAPON");
 			return null;
 		}

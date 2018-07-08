@@ -26,12 +26,10 @@ import pcgen.core.character.CharacterSpell;
  * 
  * 
  */
-public class PCCastTimesAtWillTermEvaluator
-		extends BasePCTermEvaluator implements TermEvaluator
+public class PCCastTimesAtWillTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
 
-	public PCCastTimesAtWillTermEvaluator(
-			String originalText)
+	public PCCastTimesAtWillTermEvaluator(String originalText)
 	{
 		this.originalText = originalText;
 	}
@@ -43,7 +41,8 @@ public class PCCastTimesAtWillTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc, final CharacterSpell aSpell) {
+	public Float resolve(PlayerCharacter pc, final CharacterSpell aSpell)
+	{
 		return -1.0f;
 	}
 

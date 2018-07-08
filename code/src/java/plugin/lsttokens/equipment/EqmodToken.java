@@ -44,8 +44,7 @@ import pcgen.util.Logging;
 /**
  * Deals with EQMOD token
  */
-public class EqmodToken extends AbstractTokenWithSeparator<Equipment> implements
-		CDOMPrimaryToken<Equipment>
+public class EqmodToken extends AbstractTokenWithSeparator<Equipment> implements CDOMPrimaryToken<Equipment>
 {
 
 	private static final Class<EquipmentModifier> EQMOD_CLASS = EquipmentModifier.class;
@@ -67,8 +66,7 @@ public class EqmodToken extends AbstractTokenWithSeparator<Equipment> implements
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		Equipment eq, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, Equipment eq, String value)
 	{
 		StringTokenizer dotTok = new StringTokenizer(value, Constants.DOT);
 		EquipmentHead head = eq.getEquipmentHead(1);
@@ -78,11 +76,10 @@ public class EqmodToken extends AbstractTokenWithSeparator<Equipment> implements
 
 			if (modInfo.equalsIgnoreCase(Constants.NONE))
 			{
-				Logging.deprecationPrint("'NONE' EqMod in " + getTokenName()
-						+ " will be ignored", context);
+				Logging.deprecationPrint("'NONE' EqMod in " + getTokenName() + " will be ignored", context);
 				continue;
 			}
-			ParseResult pr = checkForIllegalSeparator('|', modInfo); 
+			ParseResult pr = checkForIllegalSeparator('|', modInfo);
 			if (!pr.passed())
 			{
 				return pr;
@@ -95,8 +92,8 @@ public class EqmodToken extends AbstractTokenWithSeparator<Equipment> implements
 			{
 				if (aTok.hasMoreTokens())
 				{
-					context.getObjectContext().put(eq, ObjectKey.WEIGHT_MOD, new BigDecimal(
-							aTok.nextToken().replace(',', '.')));
+					context.getObjectContext().put(eq, ObjectKey.WEIGHT_MOD,
+						new BigDecimal(aTok.nextToken().replace(',', '.')));
 				}
 				continue;
 			}
@@ -105,13 +102,12 @@ public class EqmodToken extends AbstractTokenWithSeparator<Equipment> implements
 			{
 				if (aTok.hasMoreTokens())
 				{
-					context.getObjectContext().put(eq, StringKey.DAMAGE_OVERRIDE, aTok
-							.nextToken());
+					context.getObjectContext().put(eq, StringKey.DAMAGE_OVERRIDE, aTok.nextToken());
 				}
 				continue;
 			}
-			CDOMSingleRef<EquipmentModifier> ref = context.getReferenceContext()
-					.getCDOMReference(EQMOD_CLASS, eqModKey);
+			CDOMSingleRef<EquipmentModifier> ref =
+					context.getReferenceContext().getCDOMReference(EQMOD_CLASS, eqModKey);
 			EqModRef modref = new EqModRef(ref);
 
 			while (aTok.hasMoreTokens())
@@ -136,14 +132,12 @@ public class EqmodToken extends AbstractTokenWithSeparator<Equipment> implements
 		BigDecimal weight = obj.getObject(eq, ObjectKey.WEIGHT_MOD);
 		if (weight != null)
 		{
-			set.add(EQMOD_WEIGHT + Constants.PIPE
-					+ weight.toString().replace('.', ','));
+			set.add(EQMOD_WEIGHT + Constants.PIPE + weight.toString().replace('.', ','));
 		}
 		EquipmentHead head = eq.getEquipmentHeadReference(1);
 		if (head != null)
 		{
-			Changes<EqModRef> changes = obj.getListChanges(head,
-					ListKey.EQMOD_INFO);
+			Changes<EqModRef> changes = obj.getListChanges(head, ListKey.EQMOD_INFO);
 			Collection<EqModRef> added = changes.getAdded();
 			if (added != null)
 			{
@@ -165,7 +159,7 @@ public class EqmodToken extends AbstractTokenWithSeparator<Equipment> implements
 		{
 			return null;
 		}
-		return new String[] { StringUtil.join(set, Constants.DOT) };
+		return new String[]{StringUtil.join(set, Constants.DOT)};
 	}
 
 	@Override

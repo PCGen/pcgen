@@ -24,10 +24,8 @@ import pcgen.core.bonus.MultiTagBonusObj;
  */
 public final class Slots extends MultiTagBonusObj
 {
-	private static final String[] BONUS_TAGS =
-			{"AMULET", "BELT", "BOOT", "BRACER", "CAPE", "EYEGEAR", "GLOVE",
-				"HANDS", "HEADGEAR", "LEGS", "ROBE", "RING", "Shield", "SHIRT",
-				"SUIT", "WEAPON"};
+	private static final String[] BONUS_TAGS = {"AMULET", "BELT", "BOOT", "BRACER", "CAPE", "EYEGEAR", "GLOVE", "HANDS",
+		"HEADGEAR", "LEGS", "ROBE", "RING", "Shield", "SHIRT", "SUIT", "WEAPON"};
 
 	/**
 	 * Return the bonus tag handled by this class.

@@ -17,9 +17,9 @@
  */
 package pcgen.output.model;
 
-import pcgen.core.AgeSet;
 import freemarker.template.TemplateModelException;
 import freemarker.template.TemplateScalarModel;
+import pcgen.core.AgeSet;
 
 /**
  * A AgeSetModel is a TemplateHashModel that wraps a AgeSet object

@@ -40,14 +40,12 @@ public class CostpreToken extends AbstractNonEmptyToken<EquipmentModifier>
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		EquipmentModifier mod, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, EquipmentModifier mod, String value)
 	{
 		Formula formula = FormulaFactory.getFormulaFor(value);
 		if (!formula.isValid())
 		{
-			return new ParseResult.Fail("Formula in " + getTokenName()
-					+ " was not valid: " + formula.toString());
+			return new ParseResult.Fail("Formula in " + getTokenName() + " was not valid: " + formula.toString());
 		}
 		context.getObjectContext().put(mod, FormulaKey.BASECOST, formula);
 		return ParseResult.SUCCESS;
@@ -56,13 +54,12 @@ public class CostpreToken extends AbstractNonEmptyToken<EquipmentModifier>
 	@Override
 	public String[] unparse(LoadContext context, EquipmentModifier mod)
 	{
-		Formula f = context.getObjectContext().getFormula(mod,
-				FormulaKey.BASECOST);
+		Formula f = context.getObjectContext().getFormula(mod, FormulaKey.BASECOST);
 		if (f == null)
 		{
 			return null;
 		}
-		return new String[] { f.toString() };
+		return new String[]{f.toString()};
 	}
 
 	@Override

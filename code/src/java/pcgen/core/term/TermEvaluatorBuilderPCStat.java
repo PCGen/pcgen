@@ -23,17 +23,14 @@ package pcgen.core.term;
 public class TermEvaluatorBuilderPCStat implements TermEvaluatorBuilder
 {
 
-	private final String   termConstructorPattern;
+	private final String termConstructorPattern;
 	private final String[] termConstructorKeys;
-	private final boolean  patternMatchesEntireTerm;
+	private final boolean patternMatchesEntireTerm;
 
-	TermEvaluatorBuilderPCStat(
-			String pattern,
-			String[] keys,
-			boolean matchEntireTerm)
+	TermEvaluatorBuilderPCStat(String pattern, String[] keys, boolean matchEntireTerm)
 	{
-		termConstructorPattern   = pattern;
-		termConstructorKeys      = keys;
+		termConstructorPattern = pattern;
+		termConstructorKeys = keys;
 		patternMatchesEntireTerm = matchEntireTerm;
 	}
 
@@ -56,10 +53,8 @@ public class TermEvaluatorBuilderPCStat implements TermEvaluatorBuilder
 	}
 
 	@Override
-	public TermEvaluator getTermEvaluator(
-			String expressionString,
-			String src,
-			String matchedSection) throws TermEvaulatorException
+	public TermEvaluator getTermEvaluator(String expressionString, String src, String matchedSection)
+		throws TermEvaulatorException
 	{
 		if (expressionString.equals(matchedSection))
 		{

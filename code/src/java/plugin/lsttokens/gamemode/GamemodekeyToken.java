@@ -28,13 +28,13 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class GamemodekeyToken implements GameModeLstToken
 {
 
-    @Override
+	@Override
 	public String getTokenName()
 	{
 		return "GAMEMODEKEY";
 	}
 
-    @Override
+	@Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		gameMode.setName(value.replace('|', ' '));

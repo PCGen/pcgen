@@ -27,13 +27,11 @@ import pcgen.rules.context.LoadContext;
  * @param <T>
  *            The type of object on which this AbstractYesNoToken can be used
  */
-public abstract class AbstractYesNoToken<T extends CDOMObject> extends
-		AbstractNonEmptyToken<T>
+public abstract class AbstractYesNoToken<T extends CDOMObject> extends AbstractNonEmptyToken<T>
 {
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, T obj,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, T obj, String value)
 	{
 		Boolean set;
 		char firstChar = value.charAt(0);
@@ -41,8 +39,7 @@ public abstract class AbstractYesNoToken<T extends CDOMObject> extends
 		{
 			if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
 			{
-				return new ParseResult.Fail("You should use 'YES' as the "
-					+ getTokenName() + ": " + value);
+				return new ParseResult.Fail("You should use 'YES' as the " + getTokenName() + ": " + value);
 			}
 			set = Boolean.TRUE;
 		}
@@ -50,15 +47,11 @@ public abstract class AbstractYesNoToken<T extends CDOMObject> extends
 		{
 			if (firstChar != 'N' && firstChar != 'n')
 			{
-				return new ParseResult.Fail(
-					"You should use 'YES' or 'NO' as the " + getTokenName()
-						+ ": " + value);
+				return new ParseResult.Fail("You should use 'YES' or 'NO' as the " + getTokenName() + ": " + value);
 			}
 			if (value.length() > 1 && !value.equalsIgnoreCase("NO"))
 			{
-				return new ParseResult.Fail(
-					"You should use 'YES' or 'NO' as the " + getTokenName()
-						+ ": " + value);
+				return new ParseResult.Fail("You should use 'YES' or 'NO' as the " + getTokenName() + ": " + value);
 			}
 			set = Boolean.FALSE;
 		}

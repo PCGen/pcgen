@@ -106,21 +106,21 @@ public class MultiplyNumberModifierTest
 	public void testProcessZero4()
 	{
 		BasicCalculation modifier = new MultiplyModifierFactory();
-		assertEquals(0, modifier.process(-4,0));
+		assertEquals(0, modifier.process(-4, 0));
 	}
 
 	@Test
 	public void testProcessMixed1()
 	{
 		BasicCalculation modifier = new MultiplyModifierFactory();
-		assertEquals(-35, modifier.process(5,-7));
+		assertEquals(-35, modifier.process(5, -7));
 	}
 
 	@Test
 	public void testProcessMixed2()
 	{
 		BasicCalculation modifier = new MultiplyModifierFactory();
-		assertEquals(-12, modifier.process(-4,3));
+		assertEquals(-12, modifier.process(-4, 3));
 	}
 
 	@Test
@@ -176,21 +176,21 @@ public class MultiplyNumberModifierTest
 	public void testProcessDoubleZero4()
 	{
 		BasicCalculation modifier = new MultiplyModifierFactory();
-		assertEquals(-0.0, modifier.process(-4.3,0.0));
+		assertEquals(-0.0, modifier.process(-4.3, 0.0));
 	}
 
 	@Test
 	public void testProcessDoubleMixed1()
 	{
 		BasicCalculation modifier = new MultiplyModifierFactory();
-		assertEquals(-38.16, modifier.process(5.3,-7.2));
+		assertEquals(-38.16, modifier.process(5.3, -7.2));
 	}
 
 	@Test
 	public void testProcessDoubleMixed2()
 	{
 		BasicCalculation modifier = new MultiplyModifierFactory();
-		assertEquals(-3.08, modifier.process(-2.2,1.4));
+		assertEquals(-3.08, modifier.process(-2.2, 1.4));
 	}
 
 	@Test

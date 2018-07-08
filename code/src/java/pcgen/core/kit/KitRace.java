@@ -46,9 +46,9 @@ public class KitRace extends BaseKit
 		SettingsHandler.setShowHPDialogAtLevelUp(false);
 		boolean tempFeatDlg = SettingsHandler.getShowFeatDialogAtLevelUp();
 		SettingsHandler.setShowFeatDialogAtLevelUp(false);
-		
+
 		aPC.setRace(theRace.get());
-		
+
 		SettingsHandler.setShowFeatDialogAtLevelUp(tempFeatDlg);
 		SettingsHandler.setShowHPDialogAtLevelUp(tempShowHP);
 	}

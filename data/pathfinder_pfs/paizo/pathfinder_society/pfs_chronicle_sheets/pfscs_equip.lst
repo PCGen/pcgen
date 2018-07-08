@@ -4,12 +4,6 @@ SOURCELONG:Pathfinder Society Chronicle Sheets	SOURCESHORT:PFSCS	SOURCEWEB:http:
 # Equipment Name														Output Name				Type							Cost		Weight	Required Ability										Modifier									Requires Modification?	Source, Long Desc.						Source, Short Desc.	Source Page		Bonus Ability Pool				Combat bonus			Save bonus					Bonus to skill						Clear Special Property	Special Property
 
 #
-# PFS #8-05
-#
-
-Poison (Dusk Agate Extract)				OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable.PFS	COST:75	WT:0		SOURCEPAGE:p.558	SPROP:Contact; Fort DC 13; Freq 1 rnd (2); Effect unconsciousness for 1 min/1 Wis dmg; Cure 1 save	PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ S08-05
-
-#
 # PFS Module PZO9521
 #
 
@@ -135,7 +129,6 @@ Robe of Useful Items.COPY=Chief's Personal Very Useful Robe
 Chief's Personal Very Useful Robe.MOD															TYPE:PFS						COST:2334			PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ PZO9500-5																			SOURCELONG:PFS Module We Be Goblins!																																		SPROP:[robe of useful items] 4 patches left - a ladder, a three legged turtle, a horseshoe, and a bullhorn
 Dogslicer.COPY=Gorge of Gluttons
 Gorge of Gluttons.MOD																		TYPE:PFS						COST:2308			PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ PZO9500-5					EQMOD:Special Ability ~ +1 ~ Weapon												SOURCELONG:PFS Module We Be Goblins!																																		SPROP:(cost s/b 2308 gp) +1 horse bane dogslicer
-
 Elixir of fire breath.COPY=Dragon Breath Gourd
 Dragon Breath Gourd.MOD																		TYPE:PFS										PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ PZO9500-5																			SOURCELONG:PFS Module We Be Goblins!
 Ring of Climbing.COPY=Ring That Lets You Climb Real Good
@@ -144,6 +137,7 @@ Elixir of fire breath.COPY=Gourd of Fire Burping
 Gourd of Fire Burping.MOD																	TYPE:PFS						COST:250			PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ PZO9500-7																			SOURCELONG:PFS Module We Be Goblins Too!																																		SPROP:(cost s/b 250 gp) this functions as an elixir of fire breath, but the imbiber may only breathe fire once in a 15 ft. cone that deals 2d6 fire damage [DC 12 Reflex save for half ]
 Figurine of Wondrous Power (Bronze Griffon).COPY=Figurine of Wondrous Power (Silver Sphinx)
 Figurine of Wondrous Power (Silver Sphinx).MOD														TYPE:PFS						COST:10000			PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ PZO9500-8																			SOURCELONG:PFS Module Risen from the Sands																																	SPROP:variant bronze griffon figurine of wondrous power that becomes a living, falconheaded hieracosphinx when activated [use the stats for a griffon]; Pathfinder RPG Core Rulebook 513).
+Marvelous Pigments.COPY=Marvelous Oil Pastels												TYPE:PFS						COST:10000			PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ PZO9500-12		SOURCELONG:PFS Module We Be 5uper Goblins!
 
 #Desnan candle (5 gp; when lit, this foot-long wooden tube launches a flaming pyrotechnic 'candle' every round for 4 rounds. Each projectile deals 1 point of nonlethal damage and 1 point of fire damage if it hits; on a critical hit, the target is also blinded for 1 round. The projectiles shed light as candles for 1 round and have a range increment of 5 feet. Attacking with a Desnan candle is a ranged touch attack and always has a -4 nonproficiency penalty.)
 #Paper candle (1 gp; This finger-sized explosive detonates noisily 1 round after lighting. Anyone in the same square as a paper candle when it explodes must make a DC 15 Fortitude save or be dazzled for 1d4 rounds.)

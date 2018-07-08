@@ -22,11 +22,10 @@ package pcgen.core.term;
 
 import pcgen.core.display.CharacterDisplay;
 
-public class PCRacialHDSizeTermEvaluator
-		extends BasePCDTermEvaluator implements TermEvaluator {
+public class PCRacialHDSizeTermEvaluator extends BasePCDTermEvaluator implements TermEvaluator
+{
 
-	public PCRacialHDSizeTermEvaluator(
-			String originalText)
+	public PCRacialHDSizeTermEvaluator(String originalText)
 	{
 		this.originalText = originalText;
 	}

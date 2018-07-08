@@ -72,18 +72,18 @@ public final class Globals
 
 	/** NOTE: The defaultPath is duplicated in LstSystemLoader. */
 	private static final String defaultPcgPath = getUserFilesPath() + File.separator + "characters"; //$NON-NLS-1$
-	
+
 	private static final List<String> custColumnWidth = new ArrayList<>();
 	private static SourceFormat sourceDisplay = SourceFormat.LONG;
-	private static int        selectedPaper   = -1;
+	private static int selectedPaper = -1;
 
 	/** we need maps for efficient lookups */
-	private static final Map<URI, Campaign>    campaignMap     = new HashMap<>();
+	private static final Map<URI, Campaign> campaignMap = new HashMap<>();
 	private static final Map<String, Campaign> campaignNameMap = new HashMap<>();
-	private static final Map<String, String>   eqSlotMap       = new HashMap<>();
+	private static final Map<String, String> eqSlotMap = new HashMap<>();
 
 	/** We use lists for efficient iteration */
-	private static final List<Campaign> campaignList          = new ArrayList<>(85);
+	private static final List<Campaign> campaignList = new ArrayList<>(85);
 
 	// end of filter creation sets
 	private static JFrame rootFrame;
@@ -95,10 +95,10 @@ public final class Globals
 	/** default location for options.ini on a Mac */
 	static final String defaultMacOptionsPath = System.getProperty("user.home") + "/Library/Preferences/pcgen";
 
-	private static final Comparator<CDOMObject> pObjectComp = (o1, o2) -> o1.getKeyName().compareToIgnoreCase(o2.getKeyName());
+	private static final Comparator<CDOMObject> pObjectComp =
+			(o1, o2) -> o1.getKeyName().compareToIgnoreCase(o2.getKeyName());
 
-	public static final Comparator<CDOMObject> pObjectNameComp = (o1, o2) ->
-	{
+	public static final Comparator<CDOMObject> pObjectNameComp = (o1, o2) -> {
 		final Collator collator = Collator.getInstance();
 
 		// Check sort keys first
@@ -171,7 +171,7 @@ public final class Globals
 	 */
 	public static Campaign getCampaignKeyed(final String aKey)
 	{
-		
+
 		final Campaign campaign = getCampaignKeyedSilently(aKey);
 		if (campaign == null)
 		{
@@ -188,7 +188,7 @@ public final class Globals
 	 */
 	public static Campaign getCampaignKeyedSilently(final String aKey)
 	{
-		for ( final Campaign campaign : campaignList)
+		for (final Campaign campaign : campaignList)
 		{
 			if (campaign.getKeyName().equalsIgnoreCase(aKey))
 			{
@@ -367,8 +367,8 @@ public final class Globals
 	 */
 	public static boolean isInGameMode(final String gameMode)
 	{
-		return gameMode.isEmpty() || ((SettingsHandler.getGame() != null)
-			&& gameMode.equalsIgnoreCase(SettingsHandler.getGame().getName()));
+		return gameMode.isEmpty()
+			|| ((SettingsHandler.getGame() != null) && gameMode.equalsIgnoreCase(SettingsHandler.getGame().getName()));
 	}
 
 	/**
@@ -387,7 +387,7 @@ public final class Globals
 	public static int getPaperCount()
 	{
 		return SettingsHandler.getGame().getModeContext().getReferenceContext()
-				.getConstructedObjectCount(PaperInfo.class);
+			.getConstructedObjectCount(PaperInfo.class);
 	}
 
 	/**
@@ -418,8 +418,8 @@ public final class Globals
 
 	private static List<PaperInfo> getSortedPaperInfo()
 	{
-		List<PaperInfo> items = new ArrayList<>(SettingsHandler.getGame().getModeContext()
-			.getReferenceContext().getConstructedCDOMObjects(PaperInfo.class));
+		List<PaperInfo> items = new ArrayList<>(SettingsHandler.getGame().getModeContext().getReferenceContext()
+			.getConstructedCDOMObjects(PaperInfo.class));
 		items.sort(SortKeyComparator.getInstance());
 		return items;
 	}
@@ -514,25 +514,18 @@ public final class Globals
 		final Campaign oldCampaign = campaignNameMap.put(campaign.getName(), campaign);
 		if (oldCampaign != null)
 		{
-			if (oldCampaign.getSourceURI().toString()
-				.equalsIgnoreCase(campaign.getSourceURI().toString()))
+			if (oldCampaign.getSourceURI().toString().equalsIgnoreCase(campaign.getSourceURI().toString()))
 			{
-				Logging.errorPrint("The campaign ("
-					+ campaign.getName()
-					+ ") was referenced with the incorrect case: "
-					+ oldCampaign.getSourceURI() + " vs "
-					+ campaign.getSourceURI());
+				Logging.errorPrint("The campaign (" + campaign.getName() + ") was referenced with the incorrect case: "
+					+ oldCampaign.getSourceURI() + " vs " + campaign.getSourceURI());
 			}
 			else
 			{
-				Logging.errorPrint("Loaded Campaigns with matching names ("
-					+ campaign.getName() + ") at different Locations: "
-					+ oldCampaign.getSourceURI() + " "
-					+ campaign.getSourceURI());
+				Logging.errorPrint("Loaded Campaigns with matching names (" + campaign.getName()
+					+ ") at different Locations: " + oldCampaign.getSourceURI() + " " + campaign.getSourceURI());
 			}
 		}
 	}
-
 
 	/**
 	 * Adjust damage
@@ -544,16 +537,14 @@ public final class Globals
 	public static String adjustDamage(final String aDamage, final int baseSize, final int finalSize)
 	{
 		final AbstractReferenceContext ref = getContext().getReferenceContext();
-		BaseDice bd = ref.silentlyGetConstructedCDOMObject(BaseDice.class,
-				aDamage);
+		BaseDice bd = ref.silentlyGetConstructedCDOMObject(BaseDice.class, aDamage);
 		int multiplier = 0;
 		if (bd == null)
 		{
 			//Need to test for higher dice
 			final RollInfo aRollInfo = new RollInfo(aDamage);
 			final String baseDice = "1d" + Integer.toString(aRollInfo.sides);
-			bd = ref.silentlyGetConstructedCDOMObject(BaseDice.class,
-					baseDice);
+			bd = ref.silentlyGetConstructedCDOMObject(BaseDice.class, baseDice);
 			if (bd != null)
 			{
 				multiplier = aRollInfo.times;
@@ -622,7 +613,8 @@ public final class Globals
 			typeList = aEq.typeList();
 		}
 
-		final List<String> resizeTypeList = SettingsHandler.getGame().getResizableTypeList().stream().map(String::toUpperCase).collect(Collectors.toList());
+		final List<String> resizeTypeList = SettingsHandler.getGame().getResizableTypeList().stream()
+			.map(String::toUpperCase).collect(Collectors.toList());
 		return typeList.stream().map(String::toUpperCase).anyMatch(resizeTypeList::contains);
 	}
 
@@ -634,7 +626,7 @@ public final class Globals
 	public static boolean checkRule(final String aKey)
 	{
 		final RuleCheck rule = SettingsHandler.getGame().getModeContext().getReferenceContext()
-				.silentlyGetConstructedCDOMObject(RuleCheck.class, aKey);
+			.silentlyGetConstructedCDOMObject(RuleCheck.class, aKey);
 		if (rule == null)
 		{
 			return false;
@@ -674,31 +666,20 @@ public final class Globals
 		final Level logLevel = listsHappy ? Logging.DEBUG : Logging.WARNING;
 		if (Logging.isLoggable(logLevel))
 		{
-			Logging.log(logLevel, "Number of objects loaded. The following should "
-				+ "all be greater than 0:");
+			Logging.log(logLevel, "Number of objects loaded. The following should " + "all be greater than 0:");
 			AbstractReferenceContext referenceContext = getContext().getReferenceContext();
+			Logging.log(logLevel, "Races=" + referenceContext.getConstructedCDOMObjects(Race.class).size());
+			Logging.log(logLevel, "Classes=" + referenceContext.getConstructedCDOMObjects(PCClass.class).size());
+			Logging.log(logLevel, "Skills=" + referenceContext.getConstructedCDOMObjects(Skill.class).size());
+			AbilityCategory featCategory = referenceContext.get(AbilityCategory.class, "FEAT");
 			Logging.log(logLevel,
-				"Races=" + referenceContext.getConstructedCDOMObjects(Race.class).size());
-			Logging.log(logLevel, "Classes="
-				+ referenceContext.getConstructedCDOMObjects(PCClass.class).size());
-			Logging.log(logLevel, "Skills="
-				+ referenceContext.getConstructedCDOMObjects(Skill.class).size());
-			AbilityCategory featCategory =
-					referenceContext.get(AbilityCategory.class, "FEAT");
-			Logging.log(logLevel, "Feats=" + referenceContext
-				.getManufacturerId(featCategory).getConstructedObjectCount());
-			Logging.log(logLevel, "Equipment="
-				+ referenceContext.getConstructedCDOMObjects(Equipment.class).size());
-			Logging.log(logLevel, "ArmorProfs="
-				+ referenceContext.getConstructedCDOMObjects(ArmorProf.class).size());
-			Logging.log(logLevel, "ShieldProfs="
-				+ referenceContext.getConstructedCDOMObjects(ShieldProf.class).size());
-			Logging.log(logLevel, "WeaponProfs="
-				+ referenceContext.getConstructedCDOMObjects(WeaponProf.class).size());
-			Logging.log(logLevel,
-				"Kits=" + referenceContext.getConstructedCDOMObjects(Kit.class).size());
-			Logging.log(logLevel, "Templates="
-				+ referenceContext.getConstructedCDOMObjects(PCTemplate.class).size());
+				"Feats=" + referenceContext.getManufacturerId(featCategory).getConstructedObjectCount());
+			Logging.log(logLevel, "Equipment=" + referenceContext.getConstructedCDOMObjects(Equipment.class).size());
+			Logging.log(logLevel, "ArmorProfs=" + referenceContext.getConstructedCDOMObjects(ArmorProf.class).size());
+			Logging.log(logLevel, "ShieldProfs=" + referenceContext.getConstructedCDOMObjects(ShieldProf.class).size());
+			Logging.log(logLevel, "WeaponProfs=" + referenceContext.getConstructedCDOMObjects(WeaponProf.class).size());
+			Logging.log(logLevel, "Kits=" + referenceContext.getConstructedCDOMObjects(Kit.class).size());
+			Logging.log(logLevel, "Templates=" + referenceContext.getConstructedCDOMObjects(PCTemplate.class).size());
 		}
 		return listsHappy;
 	}
@@ -710,13 +691,14 @@ public final class Globals
 	private static boolean checkListsHappy()
 	{
 		// NOTE: If you add something here be sure to update the log output in displayListsHappy above
-		final boolean listsHappy = !((getContext().getReferenceContext().getConstructedCDOMObjects(Race.class).isEmpty())
-				|| (getContext().getReferenceContext().getConstructedCDOMObjects(PCClass.class).isEmpty())
-//				|| (getContext().ref.getConstructedCDOMObjects(Skill.class).size() == 0)
-//				|| (getContext().ref.getManufacturer(
-//						Ability.class, AbilityCategory.FEAT).getConstructedObjectCount() == 0)
-				|| (getContext().getReferenceContext().getConstructedCDOMObjects(Equipment.class).isEmpty())
-				|| (getContext().getReferenceContext().getConstructedCDOMObjects(WeaponProf.class).isEmpty()));
+		final boolean listsHappy =
+				!((getContext().getReferenceContext().getConstructedCDOMObjects(Race.class).isEmpty())
+					|| (getContext().getReferenceContext().getConstructedCDOMObjects(PCClass.class).isEmpty())
+					//				|| (getContext().ref.getConstructedCDOMObjects(Skill.class).size() == 0)
+					//				|| (getContext().ref.getManufacturer(
+					//						Ability.class, AbilityCategory.FEAT).getConstructedObjectCount() == 0)
+					|| (getContext().getReferenceContext().getConstructedCDOMObjects(Equipment.class).isEmpty())
+					|| (getContext().getReferenceContext().getConstructedCDOMObjects(WeaponProf.class).isEmpty()));
 		return listsHappy;
 	}
 
@@ -843,8 +825,7 @@ public final class Globals
 			if (pi.getName().equals(paperName))
 			{
 				selectedPaper = i;
-				PCGenSettings.getInstance().setProperty(PCGenSettings.PAPERSIZE,
-					paperName);
+				PCGenSettings.getInstance().setProperty(PCGenSettings.PAPERSIZE, paperName);
 
 				return true;
 			}
@@ -865,11 +846,10 @@ public final class Globals
 			// Already initialized
 			return;
 		}
-		final String papersize = PCGenSettings.getInstance().initProperty(PCGenSettings.PAPERSIZE,
-			"A4");
+		final String papersize = PCGenSettings.getInstance().initProperty(PCGenSettings.PAPERSIZE, "A4");
 		selectPaper(papersize);
 	}
-	
+
 	/**
 	 * Sorts chooser lists using the appropriate method, based on the type of the first item in either list.
 	 * Not pretty, but it works.
@@ -883,11 +863,11 @@ public final class Globals
 
 		if (!availableList.isEmpty())
 		{
-			nonPObjectInList = ! (availableList.get(0) instanceof CDOMObject);
+			nonPObjectInList = !(availableList.get(0) instanceof CDOMObject);
 		}
 		else if (!selectedList.isEmpty())
 		{
-			nonPObjectInList = ! (selectedList.get(0) instanceof CDOMObject);
+			nonPObjectInList = !(selectedList.get(0) instanceof CDOMObject);
 		}
 		else
 		{
@@ -921,7 +901,7 @@ public final class Globals
 
 		return aList;
 	}
-	
+
 	/**
 	 * Sort Pcgen Object list by name
 	 * @param <T> 
@@ -935,8 +915,8 @@ public final class Globals
 
 		return aList;
 	}
-	
-	static String getBonusFeatString() 
+
+	static String getBonusFeatString()
 	{
 		final List<String> bonusFeatLevels = SettingsHandler.getGame().getBonusFeatLevels();
 		if ((bonusFeatLevels == null) || bonusFeatLevels.isEmpty())
@@ -968,9 +948,8 @@ public final class Globals
 	 * @param pc The character the choice is being made for.
 	 * @return a choice
 	 */
-	public static <T> List<T> getChoiceFromList(final String title,
-	                                            final List<T> choiceList, final List<T> selectedList, final int pool,
-	                                            final PlayerCharacter pc)
+	public static <T> List<T> getChoiceFromList(final String title, final List<T> choiceList,
+		final List<T> selectedList, final int pool, final PlayerCharacter pc)
 	{
 		return getChoiceFromList(title, choiceList, selectedList, pool, false, false, pc);
 	}
@@ -986,9 +965,9 @@ public final class Globals
 	 * @param pc The character the choice is being made for.
 	 * @return The list of choices made by the user.
 	 */
-	public static <T> List<T> getChoiceFromList(final String title,
-	                                            final List<T> choiceList, final List<T> selectedList, final int pool,
-	                                            final boolean forceChoice, final boolean preferRadioSelection, final PlayerCharacter pc)
+	public static <T> List<T> getChoiceFromList(final String title, final List<T> choiceList,
+		final List<T> selectedList, final int pool, final boolean forceChoice, final boolean preferRadioSelection,
+		final PlayerCharacter pc)
 	{
 		List<T> startingSelectedList = new ArrayList<>();
 		if (selectedList != null)
@@ -997,16 +976,14 @@ public final class Globals
 		}
 
 		final CDOMChooserFacadeImpl<T> chooserFacade =
-                new CDOMChooserFacadeImpl<>(title,
-                        choiceList,
-                        startingSelectedList, pool);
+				new CDOMChooserFacadeImpl<>(title, choiceList, startingSelectedList, pool);
 		chooserFacade.setAllowsDups(false);
 		chooserFacade.setRequireCompleteSelection(forceChoice);
 		chooserFacade.setInfoFactory(new Gui2InfoFactory(pc));
 		chooserFacade.setDefaultView(ChooserFacade.ChooserTreeViewType.NAME);
 		chooserFacade.setPreferRadioSelection(preferRadioSelection);
 		ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);
-		
+
 		return chooserFacade.getFinalSelected();
 	}
 
@@ -1020,7 +997,6 @@ public final class Globals
 		return expandRelativePath(defaultPcgPath);
 	}
 
-	
 	/**
 	 * returns the location of the "filepaths.ini" file
 	 * which could be one of several locations
@@ -1039,18 +1015,16 @@ public final class Globals
 		}
 		else
 		{
-			File testPath=new File(expandRelativePath(aPath));
+			File testPath = new File(expandRelativePath(aPath));
 			if (testPath.exists() && testPath.isDirectory())
 			{
 				aPath = testPath.getAbsolutePath() + File.separator + "filepaths.ini"; //$NON-NLS-1$
-				testPath=new File(aPath);
+				testPath = new File(aPath);
 			}
 			if (testPath.exists() && !testPath.canWrite())
 			{
-				Logging
-					.errorPrint("WARNING: The filepaths file you specified is not updatable. "
-						+ "Filepath changes will not be saved. File is "
-						+ testPath.getAbsolutePath());
+				Logging.errorPrint("WARNING: The filepaths file you specified is not updatable. "
+					+ "Filepath changes will not be saved. File is " + testPath.getAbsolutePath());
 			}
 		}
 
@@ -1075,18 +1049,16 @@ public final class Globals
 		}
 		else
 		{
-			File testPath=new File(expandRelativePath(aPath));
+			File testPath = new File(expandRelativePath(aPath));
 			if (testPath.exists() && testPath.isDirectory())
 			{
 				aPath = testPath.getAbsolutePath() + File.separator + "filter.ini";
-				testPath=new File(aPath);
+				testPath = new File(aPath);
 			}
 			if (testPath.exists() && !testPath.canWrite())
 			{
-				Logging
-					.errorPrint("WARNING: The filter file you specified is not updatable. "
-						+ "Filter changes will not be saved. File is "
-						+ testPath.getAbsolutePath());
+				Logging.errorPrint("WARNING: The filter file you specified is not updatable. "
+					+ "Filter changes will not be saved. File is " + testPath.getAbsolutePath());
 			}
 		}
 
@@ -1111,18 +1083,16 @@ public final class Globals
 		}
 		else
 		{
-			File testPath=new File(expandRelativePath(aPath));
+			File testPath = new File(expandRelativePath(aPath));
 			if (testPath.exists() && testPath.isDirectory())
 			{
 				aPath = testPath.getAbsolutePath() + File.separator + "options.ini";
-				testPath=new File(aPath);
+				testPath = new File(aPath);
 			}
 			if (testPath.exists() && !testPath.canWrite())
 			{
-				Logging
-					.errorPrint("WARNING: The options file you specified is not updatable. "
-						+ "Settings changes will not be saved. File is "
-						+ testPath.getAbsolutePath());
+				Logging.errorPrint("WARNING: The options file you specified is not updatable. "
+					+ "Settings changes will not be saved. File is " + testPath.getAbsolutePath());
 			}
 		}
 
@@ -1155,51 +1125,49 @@ public final class Globals
 			return aDamage;
 		}
 		final int baseIndex = baseSize.get(IntegerKey.SIZEORDER);
-		final int newIndex =  newSize.get(IntegerKey.SIZEORDER);
+		final int newIndex = newSize.get(IntegerKey.SIZEORDER);
 		return adjustDamage(aDamage, baseIndex, newIndex);
 	}
 
-	public static double calcEncumberedMove(final Load load,
-			final double unencumberedMove)
+	public static double calcEncumberedMove(final Load load, final double unencumberedMove)
 	{
 		final double encumberedMove;
 
 		switch (load)
 		{
-		case LIGHT:
-			encumberedMove = unencumberedMove;
+			case LIGHT:
+				encumberedMove = unencumberedMove;
 
-			break;
+				break;
 
-		case MEDIUM:
-		case HEAVY:
+			case MEDIUM:
+			case HEAVY:
 
-			if (CoreUtility.doublesEqual(unencumberedMove, 5))
-			{
-				encumberedMove = 5;
-			}
-			else if (CoreUtility.doublesEqual(unencumberedMove, 10))
-			{
-				encumberedMove = 5;
-			}
-			else
-			{
-				encumberedMove = (Math.floor(unencumberedMove / 15) * 10)
-						+ (((int) unencumberedMove) % 15);
-			}
+				if (CoreUtility.doublesEqual(unencumberedMove, 5))
+				{
+					encumberedMove = 5;
+				}
+				else if (CoreUtility.doublesEqual(unencumberedMove, 10))
+				{
+					encumberedMove = 5;
+				}
+				else
+				{
+					encumberedMove = (Math.floor(unencumberedMove / 15) * 10) + (((int) unencumberedMove) % 15);
+				}
 
-			break;
+				break;
 
-		case OVERLOAD:
-			encumberedMove = 0;
+			case OVERLOAD:
+				encumberedMove = 0;
 
-			break;
+				break;
 
-		default:
-			Logging.errorPrint("The load " + load + " is not possible.");
-			encumberedMove = 0;
+			default:
+				Logging.errorPrint("The load " + load + " is not possible.");
+				encumberedMove = 0;
 
-			break;
+				break;
 		}
 
 		return encumberedMove;
@@ -1264,7 +1232,7 @@ public final class Globals
 		if ((level == startLevel)
 			|| ((level > startLevel) && (rangeLevel > 0) && (((level - startLevel) % rangeLevel) == 0)))
 		{
-			num+=numChoices;
+			num += numChoices;
 		}
 
 		return num;
@@ -1286,7 +1254,7 @@ public final class Globals
 	}
 
 	private static final LoadContext globalContext = new RuntimeLoadContext(
-			RuntimeReferenceContext.createRuntimeReferenceContext(), new ConsolidatedListCommitStrategy());
+		RuntimeReferenceContext.createRuntimeReferenceContext(), new ConsolidatedListCommitStrategy());
 
 	public static LoadContext getGlobalContext()
 	{

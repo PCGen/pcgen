@@ -47,13 +47,13 @@ public final class WieldCategory implements Loadable
 	private final Map<Integer, CDOMSingleRef<WieldCategory>> wcSteps = new HashMap<>();
 	private final List<QualifiedObject<CDOMSingleRef<WieldCategory>>> categorySwitches = new ArrayList<>();
 
-    @Override
+	@Override
 	public URI getSourceURI()
 	{
 		return sourceURI;
 	}
 
-    @Override
+	@Override
 	public void setSourceURI(URI source)
 	{
 		sourceURI = source;
@@ -64,31 +64,31 @@ public final class WieldCategory implements Loadable
 		setName(key);
 	}
 
-    @Override
+	@Override
 	public String getKeyName()
 	{
 		return getDisplayName();
 	}
 
-    @Override
+	@Override
 	public String getDisplayName()
 	{
 		return categoryName;
 	}
 
-    @Override
+	@Override
 	public void setName(String name)
 	{
 		categoryName = name;
 	}
 
-    @Override
+	@Override
 	public boolean isInternal()
 	{
 		return false;
 	}
 
-    @Override
+	@Override
 	public boolean isType(String type)
 	{
 		return false;
@@ -119,8 +119,7 @@ public final class WieldCategory implements Loadable
 		sizeDifference = difference;
 	}
 
-	public void setWieldCategoryStep(int location,
-			CDOMSingleRef<WieldCategory> stepCat)
+	public void setWieldCategoryStep(int location, CDOMSingleRef<WieldCategory> stepCat)
 	{
 		CDOMSingleRef<WieldCategory> previous = wcSteps.put(location, stepCat);
 		if (previous != null)
@@ -144,8 +143,7 @@ public final class WieldCategory implements Loadable
 		return wcRef == null ? null : wcRef.get();
 	}
 
-	public void addCategorySwitch(
-			QualifiedObject<CDOMSingleRef<WieldCategory>> qo)
+	public void addCategorySwitch(QualifiedObject<CDOMSingleRef<WieldCategory>> qo)
 	{
 		categorySwitches.add(qo);
 	}
@@ -165,8 +163,7 @@ public final class WieldCategory implements Loadable
 	 *            Equipment to get the weild category for.
 	 * @return The ajusted WieldCategory
 	 */
-	public WieldCategory adjustForSize(final PlayerCharacter pc,
-			final Equipment eq)
+	public WieldCategory adjustForSize(final PlayerCharacter pc, final Equipment eq)
 	{
 		if (pc == null || eq == null || eq.get(ObjectKey.WIELD) == null)
 		{
@@ -179,13 +176,12 @@ public final class WieldCategory implements Loadable
 		if (pc.sizeInt() != eq.sizeInt())
 		{
 			int aBump = 0;
-			aBump += (int) pc.getTotalBonusTo("WIELDCATEGORY", eq
-					.getWieldName());
+			aBump += (int) pc.getTotalBonusTo("WIELDCATEGORY", eq.getWieldName());
 			aBump += (int) pc.getTotalBonusTo("WIELDCATEGORY", "ALL");
 
 			// loops for each equipment type
 			int modWield = 0;
-			for ( String eqType : eq.typeList() )
+			for (String eqType : eq.typeList())
 			{
 				final StringBuilder sB = new StringBuilder("WEAPONPROF=TYPE.");
 				sB.append(eqType);
@@ -200,15 +196,12 @@ public final class WieldCategory implements Loadable
 				}
 			}
 			aBump += modWield;
-						
+
 			if (aBump != 0)
 			{
 				final int newSizeInt = eq.sizeInt() + aBump;
-				AbstractReferenceContext ref =
-						Globals.getContext().getReferenceContext();
-				SizeAdjustment sadj =
-						ref.getSortedList(SizeAdjustment.class,
-							IntegerKey.SIZEORDER).get(newSizeInt);
+				AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
+				SizeAdjustment sadj = ref.getSortedList(SizeAdjustment.class, IntegerKey.SIZEORDER).get(newSizeInt);
 				eq.put(ObjectKey.SIZE, CDOMDirectSingleRef.getRef(sadj));
 			}
 		}
@@ -230,13 +223,13 @@ public final class WieldCategory implements Loadable
 		}
 		return pcWCat;
 	}
-	
+
 	@Override
 	public int hashCode()
 	{
 		return categoryName.hashCode();
 	}
-	
+
 	@Override
 	public boolean equals(Object o)
 	{

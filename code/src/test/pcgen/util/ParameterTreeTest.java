@@ -58,9 +58,12 @@ public class ParameterTreeTest extends PCGenTestCase
 		mat.find();
 
 		ParameterTree t1 = new ParameterTree("Foo");
-		try {
+		try
+		{
 			t1 = ParameterTree.makeTree(s);
-		} catch (ParseException e) {
+		}
+		catch (ParseException e)
+		{
 			e.printStackTrace();
 			fail("Threw a parse exception");
 		}
@@ -76,9 +79,12 @@ public class ParameterTreeTest extends PCGenTestCase
 		mat.find();
 
 		ParameterTree t1 = new ParameterTree("Foo");
-		try {
+		try
+		{
 			t1 = ParameterTree.makeTree(s);
-		} catch (ParseException e) {
+		}
+		catch (ParseException e)
+		{
 			e.printStackTrace();
 			fail("Threw a parse exception");
 		}
@@ -94,9 +100,12 @@ public class ParameterTreeTest extends PCGenTestCase
 		mat.find();
 
 		ParameterTree t1 = new ParameterTree("Foo");
-		try {
+		try
+		{
 			t1 = ParameterTree.makeTree(s);
-		} catch (ParseException e) {
+		}
+		catch (ParseException e)
+		{
 			e.printStackTrace();
 			fail("Threw a parse exception");
 		}
@@ -112,9 +121,12 @@ public class ParameterTreeTest extends PCGenTestCase
 		mat.find();
 
 		ParameterTree t1 = new ParameterTree("Foo");
-		try {
+		try
+		{
 			t1 = ParameterTree.makeTree(s);
-		} catch (ParseException e) {
+		}
+		catch (ParseException e)
+		{
 			e.printStackTrace();
 			fail("Threw a parse exception");
 		}
@@ -138,9 +150,12 @@ public class ParameterTreeTest extends PCGenTestCase
 		mat.find();
 
 		ParameterTree t1 = new ParameterTree("Foo");
-		try {
+		try
+		{
 			t1 = ParameterTree.makeTree(s);
-		} catch (ParseException e) {
+		}
+		catch (ParseException e)
+		{
 			e.printStackTrace();
 			fail("Threw a parse exception");
 		}
@@ -163,9 +178,12 @@ public class ParameterTreeTest extends PCGenTestCase
 		mat.find();
 
 		ParameterTree t = new ParameterTree("Foo");
-		try {
+		try
+		{
 			t = ParameterTree.makeTree(s);
-		} catch (ParseException e) {
+		}
+		catch (ParseException e)
+		{
 			e.printStackTrace();
 			fail("Threw a parse exception");
 		}
@@ -206,9 +224,12 @@ public class ParameterTreeTest extends PCGenTestCase
 		mat.find();
 
 		ParameterTree t = new ParameterTree("Foo");
-		try {
+		try
+		{
 			t = ParameterTree.makeTree(s);
-		} catch (ParseException e) {
+		}
+		catch (ParseException e)
+		{
 			e.printStackTrace();
 			fail("Threw a parse exception");
 		}
@@ -261,7 +282,8 @@ public class ParameterTreeTest extends PCGenTestCase
 		{
 			t = ParameterTree.makeTree(s);
 		}
-		catch (ParseException e) {
+		catch (ParseException e)
+		{
 			e.printStackTrace();
 			fail("Threw a parse exception");
 		} 
@@ -328,7 +350,8 @@ public class ParameterTreeTest extends PCGenTestCase
 		{
 			t = ParameterTree.makeTree(s);
 		}
-		catch (ParseException e) {
+		catch (ParseException e)
+		{
 			e.printStackTrace();
 			fail("Threw a parse exception");
 		} 

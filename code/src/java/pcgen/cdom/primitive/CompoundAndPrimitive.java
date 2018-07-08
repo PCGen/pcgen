@@ -34,20 +34,17 @@ public class CompoundAndPrimitive<T> implements PrimitiveCollection<T>
 
 	private final Class<? super T> refClass;
 
-	private final Set<PrimitiveCollection<T>> primCollection = new TreeSet<>(
-            PrimitiveUtilities.COLLECTION_SORTER);
+	private final Set<PrimitiveCollection<T>> primCollection = new TreeSet<>(PrimitiveUtilities.COLLECTION_SORTER);
 
 	public CompoundAndPrimitive(Collection<PrimitiveCollection<T>> pcfCollection)
 	{
 		if (pcfCollection == null)
 		{
-			throw new IllegalArgumentException(
-					"Collection for CompoundAndPrimitive cannot be null");
+			throw new IllegalArgumentException("Collection for CompoundAndPrimitive cannot be null");
 		}
 		if (pcfCollection.isEmpty())
 		{
-			throw new IllegalArgumentException(
-					"Collection for CompoundAndPrimitive cannot be empty");
+			throw new IllegalArgumentException("Collection for CompoundAndPrimitive cannot be empty");
 		}
 		Class<? super T> pcfClass = null;
 		primCollection.addAll(pcfCollection);
@@ -55,8 +52,7 @@ public class CompoundAndPrimitive<T> implements PrimitiveCollection<T>
 		{
 			if (Logging.isLoggable(Level.WARNING))
 			{
-				Logging.log(Level.WARNING, "Found duplicate item in "
-						+ pcfCollection);
+				Logging.log(Level.WARNING, "Found duplicate item in " + pcfCollection);
 			}
 			primCollection.add(PrimitiveCollection.FIXED.invalid());
 		}
@@ -75,10 +71,8 @@ public class CompoundAndPrimitive<T> implements PrimitiveCollection<T>
 				}
 				else
 				{
-					throw new IllegalArgumentException(
-							"List contains incompatible types: "
-									+ pcfClass.getSimpleName() + " and "
-									+ thisPCFClass.getSimpleName());
+					throw new IllegalArgumentException("List contains incompatible types: " + pcfClass.getSimpleName()
+						+ " and " + thisPCFClass.getSimpleName());
 				}
 			}
 		}
@@ -137,8 +131,7 @@ public class CompoundAndPrimitive<T> implements PrimitiveCollection<T>
 	@Override
 	public String getLSTformat(boolean useAny)
 	{
-		return PrimitiveUtilities.joinLstFormat(primCollection,
-				Constants.COMMA, useAny);
+		return PrimitiveUtilities.joinLstFormat(primCollection, Constants.COMMA, useAny);
 	}
 
 	/**
@@ -163,7 +156,6 @@ public class CompoundAndPrimitive<T> implements PrimitiveCollection<T>
 	public boolean equals(Object obj)
 	{
 		return (obj instanceof CompoundAndPrimitive)
-				&& ((CompoundAndPrimitive<?>) obj).primCollection
-						.equals(primCollection);
+			&& ((CompoundAndPrimitive<?>) obj).primCollection.equals(primCollection);
 	}
 }

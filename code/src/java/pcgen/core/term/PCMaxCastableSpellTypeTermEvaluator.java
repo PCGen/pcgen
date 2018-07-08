@@ -20,11 +20,10 @@
 
 package pcgen.core.term;
 
-import pcgen.core.PlayerCharacter;
 import pcgen.core.PCClass;
+import pcgen.core.PlayerCharacter;
 
-public class PCMaxCastableSpellTypeTermEvaluator
-		extends BasePCTermEvaluator implements TermEvaluator
+public class PCMaxCastableSpellTypeTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
 	private final String typeKey;
 
@@ -45,22 +44,24 @@ public class PCMaxCastableSpellTypeTermEvaluator
 				int cutoff = pc.getSpellSupport(spClass).getHighestLevelSpell();
 				if (pc.getSpellSupport(spClass).hasCastList())
 				{
-					for (int i = 0; i < cutoff; i++) {
+					for (int i = 0; i < cutoff; i++)
+					{
 						if (pc.getSpellSupport(spClass).getCastForLevel(i, pc) != 0)
 						{
-							max = Math.max(max,i);
+							max = Math.max(max, i);
 						}
 					}
 				}
 				else
 				{
-					for (int i = 0; i < cutoff; i++) {
+					for (int i = 0; i < cutoff; i++)
+					{
 						if (pc.getSpellSupport(spClass).getKnownForLevel(i, pc) != 0)
 						{
-							max = Math.max(max,i);
+							max = Math.max(max, i);
 						}
 					}
-				}			
+				}
 			}
 		}
 

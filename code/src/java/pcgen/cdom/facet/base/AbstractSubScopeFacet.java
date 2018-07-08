@@ -31,8 +31,7 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.event.SubScopeFacetChangeEvent;
 import pcgen.cdom.facet.event.SubScopeFacetChangeListener;
 
-public class AbstractSubScopeFacet<S1, S2, T> extends
-		AbstractStorageFacet<CharID>
+public class AbstractSubScopeFacet<S1, S2, T> extends AbstractStorageFacet<CharID>
 {
 	private Map<S1, Map<S2, Map<T, Set<Object>>>> getConstructingInfo(CharID id)
 	{
@@ -61,15 +60,13 @@ public class AbstractSubScopeFacet<S1, S2, T> extends
 		{
 			throw new IllegalArgumentException("Scope 2 cannot be null");
 		}
-		if(obj == null)
+		if (obj == null)
 		{
 			throw new IllegalArgumentException("Object cannot be null");
 		}
 		Map<S1, Map<S2, Map<T, Set<Object>>>> map = getConstructingInfo(id);
-		Map<S2, Map<T, Set<Object>>> scope1Map =
-				map.computeIfAbsent(scope1, k -> new IdentityHashMap<>());
-		Map<T, Set<Object>> scope2Map =
-				scope1Map.computeIfAbsent(scope2, k -> new IdentityHashMap<>());
+		Map<S2, Map<T, Set<Object>>> scope1Map = map.computeIfAbsent(scope1, k -> new IdentityHashMap<>());
+		Map<T, Set<Object>> scope2Map = scope1Map.computeIfAbsent(scope2, k -> new IdentityHashMap<>());
 		Set<Object> sources = scope2Map.get(obj);
 		boolean isNew = (sources == null);
 		if (isNew)
@@ -80,8 +77,7 @@ public class AbstractSubScopeFacet<S1, S2, T> extends
 		sources.add(source);
 		if (isNew)
 		{
-			fireSubScopeFacetChangeEvent(id, scope1, scope2, obj,
-				SubScopeFacetChangeEvent.DATA_ADDED);
+			fireSubScopeFacetChangeEvent(id, scope1, scope2, obj, SubScopeFacetChangeEvent.DATA_ADDED);
 		}
 	}
 
@@ -95,7 +91,7 @@ public class AbstractSubScopeFacet<S1, S2, T> extends
 		{
 			throw new IllegalArgumentException("Scope 2 cannot be null");
 		}
-		if(obj == null)
+		if (obj == null)
 		{
 			throw new IllegalArgumentException("Object cannot be null");
 		}
@@ -121,8 +117,7 @@ public class AbstractSubScopeFacet<S1, S2, T> extends
 		}
 		if (sources.remove(source) && sources.isEmpty())
 		{
-			fireSubScopeFacetChangeEvent(id, scope1, scope2, obj,
-				SubScopeFacetChangeEvent.DATA_REMOVED);
+			fireSubScopeFacetChangeEvent(id, scope1, scope2, obj, SubScopeFacetChangeEvent.DATA_REMOVED);
 			scope2Map.remove(obj);
 		}
 		if (scope2Map.isEmpty())
@@ -249,20 +244,17 @@ public class AbstractSubScopeFacet<S1, S2, T> extends
 		Map<S1, Map<S2, Map<T, Set<Object>>>> map = getInfo(id);
 		if (map != null)
 		{
-			for (Iterator<Entry<S1, Map<S2, Map<T, Set<Object>>>>> s1it =
-					map.entrySet().iterator(); s1it.hasNext();)
+			for (Iterator<Entry<S1, Map<S2, Map<T, Set<Object>>>>> s1it = map.entrySet().iterator(); s1it.hasNext();)
 			{
 				Entry<S1, Map<S2, Map<T, Set<Object>>>> s1entry = s1it.next();
 				S1 scope1 = s1entry.getKey();
 				Map<S2, Map<T, Set<Object>>> scope1Map = s1entry.getValue();
-				for (Iterator<Entry<S2, Map<T, Set<Object>>>> s2it =
-						scope1Map.entrySet().iterator(); s2it.hasNext();)
+				for (Iterator<Entry<S2, Map<T, Set<Object>>>> s2it = scope1Map.entrySet().iterator(); s2it.hasNext();)
 				{
 					Entry<S2, Map<T, Set<Object>>> s2entry = s2it.next();
 					S2 scope2 = s2entry.getKey();
 					Map<T, Set<Object>> scope2Map = s2entry.getValue();
-					for (Iterator<Map.Entry<T, Set<Object>>> lmit =
-							scope2Map.entrySet().iterator(); lmit.hasNext();)
+					for (Iterator<Map.Entry<T, Set<Object>>> lmit = scope2Map.entrySet().iterator(); lmit.hasNext();)
 					{
 						Entry<T, Set<Object>> lme = lmit.next();
 						Set<Object> sources = lme.getValue();
@@ -323,8 +315,7 @@ public class AbstractSubScopeFacet<S1, S2, T> extends
 			for (Entry<S1, Map<S2, Map<T, Set<Object>>>> l1me : map.entrySet())
 			{
 				S1 scope1 = l1me.getKey();
-				for (Entry<S2, Map<T, Set<Object>>> l2me : l1me.getValue()
-					.entrySet())
+				for (Entry<S2, Map<T, Set<Object>>> l2me : l1me.getValue().entrySet())
 				{
 					S2 scope2 = l2me.getKey();
 					for (Entry<T, Set<Object>> ome : l2me.getValue().entrySet())
@@ -341,7 +332,7 @@ public class AbstractSubScopeFacet<S1, S2, T> extends
 	}
 
 	private final Map<Integer, SubScopeFacetChangeListener<? super S1, ? super S2, ? super T>[]> listeners =
-            new TreeMap<>();
+			new TreeMap<>();
 
 	/**
 	 * Adds a new ScopeFacetChangeListener to receive TwoScopeFacetChangeEvents
@@ -357,8 +348,7 @@ public class AbstractSubScopeFacet<S1, S2, T> extends
 	 *            The ScopeFacetChangeListener to receive
 	 *            TwoScopeFacetChangeEvents from this AbstractScopeFacet
 	 */
-	public void addSubScopeFacetChangeListener(
-		SubScopeFacetChangeListener<? super S1, ? super S2, ? super T> listener)
+	public void addSubScopeFacetChangeListener(SubScopeFacetChangeListener<? super S1, ? super S2, ? super T> listener)
 	{
 		addSubScopeFacetChangeListener(0, listener);
 	}
@@ -381,8 +371,7 @@ public class AbstractSubScopeFacet<S1, S2, T> extends
 	public void addSubScopeFacetChangeListener(int priority,
 		SubScopeFacetChangeListener<? super S1, ? super S2, ? super T> listener)
 	{
-		SubScopeFacetChangeListener<? super S1, ? super S2, ? super T>[] dfcl =
-				listeners.get(priority);
+		SubScopeFacetChangeListener<? super S1, ? super S2, ? super T>[] dfcl = listeners.get(priority);
 		int newSize = (dfcl == null) ? 1 : (dfcl.length + 1);
 		SubScopeFacetChangeListener<? super S1, ? super S2, ? super T>[] newArray =
 				new SubScopeFacetChangeListener[newSize];
@@ -427,8 +416,7 @@ public class AbstractSubScopeFacet<S1, S2, T> extends
 	public void removeSubScopeFacetChangeListener(int priority,
 		SubScopeFacetChangeListener<? super S1, ? super S2, ? super T> listener)
 	{
-		SubScopeFacetChangeListener<? super S1, ? super S2, ? super T>[] dfcl =
-				listeners.get(priority);
+		SubScopeFacetChangeListener<? super S1, ? super S2, ? super T>[] dfcl = listeners.get(priority);
 		if (dfcl == null)
 		{
 			// No worries
@@ -460,8 +448,7 @@ public class AbstractSubScopeFacet<S1, S2, T> extends
 				}
 				if (foundLoc != newSize)
 				{
-					System.arraycopy(dfcl, foundLoc + 1, newArray, foundLoc,
-						newSize - foundLoc);
+					System.arraycopy(dfcl, foundLoc + 1, newArray, foundLoc, newSize - foundLoc);
 				}
 				listeners.put(priority, newArray);
 			}
@@ -487,11 +474,9 @@ public class AbstractSubScopeFacet<S1, S2, T> extends
 	 *            added to or removed from this AbstractScopeFacet.
 	 */
 	@SuppressWarnings("rawtypes")
-	protected void fireSubScopeFacetChangeEvent(CharID id, S1 scope1,
-		S2 scope2, T node, int type)
+	protected void fireSubScopeFacetChangeEvent(CharID id, S1 scope1, S2 scope2, T node, int type)
 	{
-		for (SubScopeFacetChangeListener<? super S1, ? super S2, ? super T>[] dfclArray : listeners
-			.values())
+		for (SubScopeFacetChangeListener<? super S1, ? super S2, ? super T>[] dfclArray : listeners.values())
 		{
 			/*
 			 * This list is decremented from the end of the list to the
@@ -505,9 +490,7 @@ public class AbstractSubScopeFacet<S1, S2, T> extends
 				// Lazily create event
 				if (ccEvent == null)
 				{
-					ccEvent =
-                            new SubScopeFacetChangeEvent<>(id, scope1,
-                                    scope2, node, this, type);
+					ccEvent = new SubScopeFacetChangeEvent<>(id, scope1, scope2, node, this, type);
 				}
 				SubScopeFacetChangeListener dfcl = dfclArray[i];
 				switch (ccEvent.getEventType())

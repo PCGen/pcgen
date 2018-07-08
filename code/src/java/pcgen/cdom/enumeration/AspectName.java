@@ -31,8 +31,7 @@ import pcgen.base.util.CaseInsensitiveMap;
  * 
  * 
  */
-public final class AspectName implements TypeSafeConstant,
-		Comparable<AspectName>
+public final class AspectName implements TypeSafeConstant, Comparable<AspectName>
 {
 
 	/** This Map contains the mappings from Strings to the Type Safe Constant. */
@@ -57,8 +56,7 @@ public final class AspectName implements TypeSafeConstant,
 	{
 		if (name == null)
 		{
-			throw new IllegalArgumentException(
-					"Name for AspectName cannot be null");
+			throw new IllegalArgumentException("Name for AspectName cannot be null");
 		}
 		ordinal = ordinalCount++;
 		fieldName = name;
@@ -138,8 +136,7 @@ public final class AspectName implements TypeSafeConstant,
 		AspectName aspect = nameMap.get(name);
 		if (aspect == null)
 		{
-			throw new IllegalArgumentException(name
-					+ " is not a previously defined AspectName");
+			throw new IllegalArgumentException(name + " is not a previously defined AspectName");
 		}
 		return aspect;
 	}
@@ -189,8 +186,7 @@ public final class AspectName implements TypeSafeConstant,
 	@Override
 	public boolean equals(Object obj)
 	{
-		return obj == this || obj instanceof AspectName
-				&& ((AspectName) obj).ordinal == ordinal;
+		return obj == this || obj instanceof AspectName && ((AspectName) obj).ordinal == ordinal;
 	}
 
 	@Override

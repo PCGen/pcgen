@@ -1892,9 +1892,9 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	}
 
 	protected static final MultToken ABILITY_MULT_TOKEN = new plugin.lsttokens.ability.MultToken();
-	protected static final plugin.lsttokens.choose.LangToken CHOOSE_LANG_TOKEN = new plugin.lsttokens.choose.LangToken();
-	protected static final plugin.lsttokens.ChooseLst CHOOSE_TOKEN =
-			new plugin.lsttokens.ChooseLst();
+	protected static final plugin.lsttokens.choose.LangToken CHOOSE_LANG_TOKEN =
+			new plugin.lsttokens.choose.LangToken();
+	protected static final plugin.lsttokens.ChooseLst CHOOSE_TOKEN = new plugin.lsttokens.ChooseLst();
 	protected static final VisibleToken ABILITY_VISIBLE_TOKEN = new plugin.lsttokens.ability.VisibleToken();
 	protected static final AutoLst AUTO_TOKEN = new plugin.lsttokens.AutoLst();
 	protected static final LangToken AUTO_LANG_TOKEN = new plugin.lsttokens.auto.LangToken();

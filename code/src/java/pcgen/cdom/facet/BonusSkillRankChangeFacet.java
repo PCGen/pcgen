@@ -59,20 +59,15 @@ public class BonusSkillRankChangeFacet extends AbstractStorageFacet<CharID>
 	public void reset(CharID id)
 	{
 		Map<Skill, Double> map = getConstructingInfo(id);
-		for (Skill s : Globals.getContext().getReferenceContext()
-			.getConstructedCDOMObjects(Skill.class))
+		for (Skill s : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Skill.class))
 		{
-			double newValue =
-					bonusCheckingFacet
-						.getBonus(id, "SKILLRANK", s.getKeyName());
-			
+			double newValue = bonusCheckingFacet.getBonus(id, "SKILLRANK", s.getKeyName());
+
 			for (Type singleType : s.getTrueTypeList(false))
 			{
-				newValue +=
-						bonusCheckingFacet.getBonus(id, "SKILLRANK", "TYPE."
-							+ singleType);
+				newValue += bonusCheckingFacet.getBonus(id, "SKILLRANK", "TYPE." + singleType);
 			}
-		
+
 			Double oldValue = map.get(s);
 			if ((oldValue == null) || (newValue != oldValue.doubleValue()))
 			{
@@ -202,8 +197,7 @@ public class BonusSkillRankChangeFacet extends AbstractStorageFacet<CharID>
 		 * @param newValue
 		 *            The new value of the Bonus value
 		 */
-		public SkillRankChangeEvent(CharID id, Skill sk, Number oldValue,
-			Number newValue)
+		public SkillRankChangeEvent(CharID id, Skill sk, Number oldValue, Number newValue)
 		{
 			charID = id;
 			skill = sk;
@@ -241,8 +235,7 @@ public class BonusSkillRankChangeFacet extends AbstractStorageFacet<CharID>
 	 */
 	public static class SkillRankChangeSupport
 	{
-		private List<SkillRankChangeListener> listeners =
-                new ArrayList<>();
+		private List<SkillRankChangeListener> listeners = new ArrayList<>();
 
 		/**
 		 * Adds a new SkillRankChangeListener to receive SkillRankChangeEventas
@@ -258,8 +251,7 @@ public class BonusSkillRankChangeFacet extends AbstractStorageFacet<CharID>
 		 *            The SkillRankChangeListener to receive
 		 *            SkillRankChangeEvents from this SkillRankChangeSupport
 		 */
-		public synchronized void addSkillRankChangeListener(
-			SkillRankChangeListener listener)
+		public synchronized void addSkillRankChangeListener(SkillRankChangeListener listener)
 		{
 			listeners.add(listener);
 		}
@@ -271,8 +263,7 @@ public class BonusSkillRankChangeFacet extends AbstractStorageFacet<CharID>
 		 * @param listener
 		 *            The SkillRankChangeListener to be removed
 		 */
-		public synchronized void removeSkillRankChangeListener(
-			SkillRankChangeListener listener)
+		public synchronized void removeSkillRankChangeListener(SkillRankChangeListener listener)
 		{
 			listeners.remove(listener);
 		}
@@ -296,11 +287,9 @@ public class BonusSkillRankChangeFacet extends AbstractStorageFacet<CharID>
 		 * @param newValue
 		 *            The new value of the Bonus value
 		 */
-		public void fireSkillRankChange(CharID id, Skill skill,
-			Number oldValue, Number newValue)
+		public void fireSkillRankChange(CharID id, Skill skill, Number oldValue, Number newValue)
 		{
-			SkillRankChangeEvent bce =
-					new SkillRankChangeEvent(id, skill, oldValue, newValue);
+			SkillRankChangeEvent bce = new SkillRankChangeEvent(id, skill, oldValue, newValue);
 
 			for (SkillRankChangeListener target : listeners)
 			{
@@ -384,7 +373,7 @@ public class BonusSkillRankChangeFacet extends AbstractStorageFacet<CharID>
 		if (map != null)
 		{
 			Double rank = map.get(skill);
-			if (rank != null) 
+			if (rank != null)
 			{
 				return rank.doubleValue();
 			}

@@ -68,6 +68,7 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 	/**
 	 * @see pcgen.AbstractCharacterTestCase#setUp()
 	 */
+	@Override
 	@Before
 	protected void setUp() throws Exception
 	{

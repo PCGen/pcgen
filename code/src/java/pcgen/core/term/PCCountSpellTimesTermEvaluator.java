@@ -30,36 +30,32 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellInfo;
 
-public class PCCountSpellTimesTermEvaluator
-		extends BasePCTermEvaluator implements TermEvaluator
+public class PCCountSpellTimesTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
 	final int classNum;
 	final int bookNum;
 	final int spellLevel;
 	final int spellNumber;
 
-	public PCCountSpellTimesTermEvaluator(
-			String originalText, int[] fields)
+	public PCCountSpellTimesTermEvaluator(String originalText, int[] fields)
 	{
 		this.originalText = originalText;
 
-		classNum    = fields[0];
-		bookNum     = fields[1];
-		spellLevel  = (classNum == -1) ? -1 : fields[2];
+		classNum = fields[0];
+		bookNum = fields[1];
+		spellLevel = (classNum == -1) ? -1 : fields[2];
 		spellNumber = fields[3];
 	}
 
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		String bookName = (classNum == -1) ? Globals.getDefaultSpellBook() :
-						  (bookNum > 0)    ? pc.getDisplay().getSpellBookNames().get(bookNum) :
-						  					 Globals.getDefaultSpellBook();
+		String bookName = (classNum == -1) ? Globals.getDefaultSpellBook()
+			: (bookNum > 0) ? pc.getDisplay().getSpellBookNames().get(bookNum) : Globals.getDefaultSpellBook();
 
 		if (!"".equals(bookName))
 		{
-			List<CharacterSpell> csList =
-                    new ArrayList<>();
+			List<CharacterSpell> csList = new ArrayList<>();
 
 			if (classNum == -1)
 			{
@@ -67,8 +63,7 @@ public class PCCountSpellTimesTermEvaluator
 
 				for (PObject cl : pc.getDisplay().getClassSet())
 				{
-					for (CharacterSpell cs : pc
-							.getCharacterSpells(cl, bookName))
+					for (CharacterSpell cs : pc.getCharacterSpells(cl, bookName))
 					{
 						if (!csList.contains(cs))
 						{
@@ -79,18 +74,17 @@ public class PCCountSpellTimesTermEvaluator
 
 				Collections.sort(csList);
 			}
-			else 
+			else
 			{
 				final PObject pcClass = pc.getSpellClassAtIndex(classNum);
 				if (pcClass != null)
 				{
-					csList = pc.getCharacterSpells(
-							pcClass, null, bookName, spellLevel);
+					csList = pc.getCharacterSpells(pcClass, null, bookName, spellLevel);
 				}
 			}
 
 			boolean found = false;
-			SpellInfo si  = null;
+			SpellInfo si = null;
 
 			if (spellNumber < csList.size())
 			{

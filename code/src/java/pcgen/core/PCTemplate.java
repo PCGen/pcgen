@@ -74,8 +74,7 @@ public final class PCTemplate extends PObject implements TemplateFacade, ChooseD
 		return result;
 	}
 
-	public List<PCTemplate> getConditionalTemplates(int totalLevels,
-			int totalHitDice)
+	public List<PCTemplate> getConditionalTemplates(int totalLevels, int totalHitDice)
 	{
 		List<PCTemplate> returnList = new ArrayList<>();
 
@@ -100,8 +99,7 @@ public final class PCTemplate extends PObject implements TemplateFacade, ChooseD
 
 		for (PCTemplate lt : getSafeListFor(ListKey.HD_TEMPLATES))
 		{
-			if (lt.get(IntegerKey.HD_MAX) >= totalHitDice
-					&& lt.get(IntegerKey.HD_MIN) <= totalHitDice)
+			if (lt.get(IntegerKey.HD_MAX) >= totalHitDice && lt.get(IntegerKey.HD_MIN) <= totalHitDice)
 			{
 				returnList.add(lt);
 			}

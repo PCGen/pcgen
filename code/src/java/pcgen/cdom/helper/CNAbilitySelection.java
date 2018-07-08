@@ -33,8 +33,7 @@ import pcgen.core.AbilityCategory;
 import pcgen.core.SettingsHandler;
 import pcgen.rules.context.LoadContext;
 
-public class CNAbilitySelection extends ConcretePrereqObject implements
-		QualifyingObject, Reducible
+public class CNAbilitySelection extends ConcretePrereqObject implements QualifyingObject, Reducible
 {
 
 	private final CNAbility cna;
@@ -51,14 +50,13 @@ public class CNAbilitySelection extends ConcretePrereqObject implements
 		Ability abil = cna.getAbility();
 		if (choice != null && !abil.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 		{
-			throw new IllegalArgumentException("AbilitySelection " + choice
-				+ " with MULT:NO Ability " + abil + " must not have choices");
+			throw new IllegalArgumentException(
+				"AbilitySelection " + choice + " with MULT:NO Ability " + abil + " must not have choices");
 		}
 		if (choice == null && abil.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 		{
 			throw new IllegalArgumentException(
-				"AbilitySelection with MULT:YES Ability " + abil
-					+ ": must have choices");
+				"AbilitySelection with MULT:YES Ability " + abil + ": must have choices");
 		}
 		this.cna = cna;
 		selection = choice;
@@ -102,44 +100,37 @@ public class CNAbilitySelection extends ConcretePrereqObject implements
 		return sb.toString();
 	}
 
-	public static CNAbilitySelection getAbilitySelectionFromPersistentFormat(
-		LoadContext context, String persistentFormat)
+	public static CNAbilitySelection getAbilitySelectionFromPersistentFormat(LoadContext context,
+		String persistentFormat)
 	{
-		StringTokenizer st =
-				new StringTokenizer(persistentFormat, Constants.PIPE);
+		StringTokenizer st = new StringTokenizer(persistentFormat, Constants.PIPE);
 		String catString = st.nextToken();
 		if (!catString.startsWith("CATEGORY="))
 		{
-			throw new IllegalArgumentException(
-				"String in getAbilitySelectionFromPersistentFormat "
-					+ "must start with CATEGORY=, found: " + persistentFormat);
+			throw new IllegalArgumentException("String in getAbilitySelectionFromPersistentFormat "
+				+ "must start with CATEGORY=, found: " + persistentFormat);
 		}
 		String cat = catString.substring(9);
 		AbilityCategory ac = SettingsHandler.getGame().getAbilityCategory(cat);
 		if (ac == null)
 		{
 			throw new IllegalArgumentException(
-				"Category in getAbilitySelectionFromPersistentFormat "
-					+ "must exist found: " + cat);
+				"Category in getAbilitySelectionFromPersistentFormat " + "must exist found: " + cat);
 		}
 		String natureString = st.nextToken();
 		if (!natureString.startsWith("NATURE="))
 		{
-			throw new IllegalArgumentException(
-				"Second argument in String in getAbilitySelectionFromPersistentFormat "
-					+ "must start with NATURE=, found: " + persistentFormat);
+			throw new IllegalArgumentException("Second argument in String in getAbilitySelectionFromPersistentFormat "
+				+ "must start with NATURE=, found: " + persistentFormat);
 		}
 		String natString = natureString.substring(7);
 		Nature nat = Nature.valueOf(natString);
 		String ab = st.nextToken();
-		Ability a =
-				context.getReferenceContext().getManufacturerId(ac).getActiveObject(ab);
+		Ability a = context.getReferenceContext().getManufacturerId(ac).getActiveObject(ab);
 		if (a == null)
 		{
-			throw new IllegalArgumentException(
-				"Third argument in String in getAbilitySelectionFromPersistentFormat "
-					+ "must be an Ability, but it was not found: "
-					+ persistentFormat);
+			throw new IllegalArgumentException("Third argument in String in getAbilitySelectionFromPersistentFormat "
+				+ "must be an Ability, but it was not found: " + persistentFormat);
 		}
 		String sel = null;
 		if (st.hasMoreTokens())
@@ -157,10 +148,8 @@ public class CNAbilitySelection extends ConcretePrereqObject implements
 		}
 		if (st.hasMoreTokens())
 		{
-			throw new IllegalArgumentException(
-				"String in getAbilitySelectionFromPersistentFormat "
-					+ "must have 3 or 4 arguments, but found more: "
-					+ persistentFormat);
+			throw new IllegalArgumentException("String in getAbilitySelectionFromPersistentFormat "
+				+ "must have 3 or 4 arguments, but found more: " + persistentFormat);
 		}
 		CNAbility cna = CNAbilityFactory.getCNAbility(ac, nat, a);
 		return new CNAbilitySelection(cna, sel);
@@ -192,13 +181,13 @@ public class CNAbilitySelection extends ConcretePrereqObject implements
 		}
 		return sb.toString();
 	}
-	
+
 	@Override
 	public int hashCode()
 	{
 		return cna.hashCode();
 	}
-	
+
 	@Override
 	public boolean equals(Object o)
 	{

@@ -27,24 +27,24 @@ import javax.swing.event.ListDataListener;
 public abstract class ListDataAdapter implements ListDataListener
 {
 
-    public abstract void listDataChanged(ListDataEvent e);
+	public abstract void listDataChanged(ListDataEvent e);
 
 	@Override
-    public void intervalAdded(ListDataEvent e)
-    {
-        listDataChanged(e);
-    }
+	public void intervalAdded(ListDataEvent e)
+	{
+		listDataChanged(e);
+	}
 
 	@Override
-    public void intervalRemoved(ListDataEvent e)
-    {
-        listDataChanged(e);
-    }
+	public void intervalRemoved(ListDataEvent e)
+	{
+		listDataChanged(e);
+	}
 
 	@Override
-    public void contentsChanged(ListDataEvent e)
-    {
-        listDataChanged(e);
-    }
+	public void contentsChanged(ListDataEvent e)
+	{
+		listDataChanged(e);
+	}
 
 }

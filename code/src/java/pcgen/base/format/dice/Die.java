@@ -46,13 +46,13 @@ public class Die
 	{
 		return sides;
 	}
-	
+
 	@Override
 	public int hashCode()
 	{
 		return 73489 + sides;
 	}
-	
+
 	@Override
 	public boolean equals(Object o)
 	{

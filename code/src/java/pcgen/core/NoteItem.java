@@ -21,7 +21,6 @@ import pcgen.facade.core.NoteFacade;
 import pcgen.io.FileAccess;
 import pcgen.util.Logging;
 
-
 /**
  * {@code NoteItem}.
  *
@@ -53,9 +52,11 @@ public final class NoteItem implements NoteFacade, Cloneable
 	 * @param afterValue The markup to be included after the value.
 	 * @return The export string including markup, the name of the note and the note contents. 
 	 */
-	public String getExportString(final String beforeName, final String afterName, final String beforeValue, final String afterValue)
+	public String getExportString(final String beforeName, final String afterName, final String beforeValue,
+		final String afterValue)
 	{
-		return beforeName + FileAccess.filterString(name) + afterName + beforeValue + FileAccess.filterString(value) + afterValue;
+		return beforeName + FileAccess.filterString(name) + afterName + beforeValue + FileAccess.filterString(value)
+			+ afterValue;
 	}
 
 	public int getId()
@@ -73,7 +74,7 @@ public final class NoteItem implements NoteFacade, Cloneable
 		name = x;
 	}
 
-    @Override
+	@Override
 	public String getName()
 	{
 		return name;
@@ -89,13 +90,13 @@ public final class NoteItem implements NoteFacade, Cloneable
 		return id_parent;
 	}
 
-    @Override
+	@Override
 	public void setValue(final String x)
 	{
 		value = x;
 	}
 
-    @Override
+	@Override
 	public String getValue()
 	{
 		return value;
@@ -148,8 +149,7 @@ public final class NoteItem implements NoteFacade, Cloneable
 		if (o instanceof NoteItem)
 		{
 			NoteItem other = (NoteItem) o;
-			return (id_parent == other.id_parent)
-				&& (id_value == other.id_value) && (name.equals(other.name))
+			return (id_parent == other.id_parent) && (id_value == other.id_value) && (name.equals(other.name))
 				&& (value.equals(other.value)) && (required == other.required);
 		}
 		return false;

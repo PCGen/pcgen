@@ -34,8 +34,7 @@ public final class FactSetKey<T>
 	/**
 	 * This Map contains the mappings from Strings to the FactSetKey
 	 */
-	private static CaseInsensitiveMap<FactSetKey<?>> typeMap =
-            new CaseInsensitiveMap<>();
+	private static CaseInsensitiveMap<FactSetKey<?>> typeMap = new CaseInsensitiveMap<>();
 
 	/**
 	 * The name of this FactSetKey
@@ -48,13 +47,11 @@ public final class FactSetKey<T>
 	{
 		if (name == null)
 		{
-			throw new IllegalArgumentException(
-				"Name for FactSetKey cannot be null");
+			throw new IllegalArgumentException("Name for FactSetKey cannot be null");
 		}
 		if (fmtManager == null)
 		{
-			throw new IllegalArgumentException(
-				"FormatManager for FactSetKey cannot be null");
+			throw new IllegalArgumentException("FormatManager for FactSetKey cannot be null");
 		}
 		fieldName = name;
 		formatManager = fmtManager;
@@ -81,8 +78,7 @@ public final class FactSetKey<T>
 	 *            The name of the FactSetKey to be returned
 	 * @return The FactSetKey for the given name
 	 */
-	public static <T> FactSetKey<T> getConstant(String name,
-		FormatManager<T> fmtManager)
+	public static <T> FactSetKey<T> getConstant(String name, FormatManager<T> fmtManager)
 	{
 		//This cast is checked by the "else" below
 		@SuppressWarnings("unchecked")
@@ -94,8 +90,7 @@ public final class FactSetKey<T>
 		}
 		else if (!key.formatManager.equals(fmtManager))
 		{
-			throw new IllegalArgumentException("FactSetKey: " + name
-				+ " does not store objects of "
+			throw new IllegalArgumentException("FactSetKey: " + name + " does not store objects of "
 				+ fmtManager.getManagedClass().getCanonicalName());
 		}
 		return key;
@@ -117,8 +112,7 @@ public final class FactSetKey<T>
 		FactSetKey<T> key = (FactSetKey<T>) typeMap.get(name);
 		if (key == null)
 		{
-			throw new IllegalArgumentException(name
-				+ " is not a previously defined FactSetKey");
+			throw new IllegalArgumentException(name + " is not a previously defined FactSetKey");
 		}
 		return key;
 	}

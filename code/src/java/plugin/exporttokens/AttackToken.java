@@ -64,8 +64,7 @@ public class AttackToken extends Token
 	}
 
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		String retString = "";
 		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
@@ -79,7 +78,7 @@ public class AttackToken extends Token
 
 			AttackType attackType = AttackType.valueOf(attackTypeString);
 			retString = AttackInfo.getAttackInfo(pc, attackType, modifier);
-			
+
 			// SHORT means we only return the first attack bonus
 			if ("SHORT".equalsIgnoreCase(format))
 			{

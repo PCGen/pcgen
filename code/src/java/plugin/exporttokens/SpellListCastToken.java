@@ -43,14 +43,11 @@ public class SpellListCastToken extends SpellListToken
 	}
 
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		StringBuilder retValue = new StringBuilder();
 
-		SpellListTokenParams params =
-				new SpellListTokenParams(tokenSource,
-					SpellListToken.SPELLTAG_CAST);
+		SpellListTokenParams params = new SpellListTokenParams(tokenSource, SpellListToken.SPELLTAG_CAST);
 
 		final CDOMObject aObject = pc.getSpellClassAtIndex(params.getClassNum());
 
@@ -79,11 +76,9 @@ public class SpellListCastToken extends SpellListToken
 		{
 			PCClass aClass = (PCClass) aObject;
 			//			castNum = String.valueOf(aClass.getCastForLevel(level, Globals.getDefaultSpellBook(), pc))
-			castNum =
-					String.valueOf(pc.getSpellSupport(aClass).getCastForLevel(level, Globals
-					.getDefaultSpellBook(), true, false, pc))
-						+ pc.getSpellSupport(aClass).getBonusCastForLevelString(level, Globals
-						.getDefaultSpellBook(), pc);
+			castNum = String.valueOf(
+				pc.getSpellSupport(aClass).getCastForLevel(level, Globals.getDefaultSpellBook(), true, false, pc))
+				+ pc.getSpellSupport(aClass).getBonusCastForLevelString(level, Globals.getDefaultSpellBook(), pc);
 		}
 
 		return castNum;

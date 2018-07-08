@@ -19,7 +19,6 @@
 
 package pcgen.facade.core;
 
-
 public interface SizeFacade
 {
 	public String getAbreviation();

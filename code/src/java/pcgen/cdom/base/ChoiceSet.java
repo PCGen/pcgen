@@ -44,8 +44,7 @@ import pcgen.core.PlayerCharacter;
  * @param <T>
  *            the Class contained within this ChoiceSet
  */
-public class ChoiceSet<T> extends ConcretePrereqObject implements
-		SelectableSet<T>
+public class ChoiceSet<T> extends ConcretePrereqObject implements SelectableSet<T>
 {
 
 	/**
@@ -63,7 +62,7 @@ public class ChoiceSet<T> extends ConcretePrereqObject implements
 	 * The title (presented to the user) of this ChoiceSet
 	 */
 	private String title = null;
-	
+
 	/**
 	 * An identifier to check if the ChoiceSet (and the underlying
 	 * PrimitiveChoiceSet) should use the "ANY" identifier (vs. "ALL") when
@@ -106,8 +105,7 @@ public class ChoiceSet<T> extends ConcretePrereqObject implements
 	{
 		if (choice == null)
 		{
-			throw new IllegalArgumentException(
-					"PrimitiveChoiceSet cannot be null");
+			throw new IllegalArgumentException("PrimitiveChoiceSet cannot be null");
 		}
 		if (name == null)
 		{
@@ -169,7 +167,7 @@ public class ChoiceSet<T> extends ConcretePrereqObject implements
 		return setName;
 	}
 
- 	/**
+	/**
 	 * Sets the title of this ChoiceSet. Note that this should be the name that
 	 * is displayed to the user when a selection from this ChoiceSet is made,
 	 * but it does not represent information that should be stored in a

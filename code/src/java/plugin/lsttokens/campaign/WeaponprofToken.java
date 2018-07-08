@@ -26,8 +26,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 /**
  * Class deals with WEAPONPROF Token
  */
-public class WeaponprofToken extends AbstractBasicCampaignToken implements
-		CDOMPrimaryToken<Campaign>
+public class WeaponprofToken extends AbstractBasicCampaignToken implements CDOMPrimaryToken<Campaign>
 {
 	@Override
 	public String getTokenName()

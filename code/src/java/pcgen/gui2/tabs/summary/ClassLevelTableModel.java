@@ -57,8 +57,8 @@ import pcgen.gui2.tabs.Utilities;
 import pcgen.gui2.util.SignIcon.Sign;
 import pcgen.gui2.util.table.TableCellUtilities;
 
-public class ClassLevelTableModel extends AbstractTableModel
-		implements ListListener<CharacterLevelFacade>, ItemListener, PropertyChangeListener, HitPointListener, ClassListener
+public class ClassLevelTableModel extends AbstractTableModel implements ListListener<CharacterLevelFacade>,
+		ItemListener, PropertyChangeListener, HitPointListener, ClassListener
 {
 
 	private CharacterLevelsFacade levels;
@@ -256,8 +256,7 @@ public class ClassLevelTableModel extends AbstractTableModel
 		fireTableRowsUpdated(firstRow, lastRow);
 	}
 
-	private class Editor extends AbstractCellEditor
-			implements TableCellEditor, TableCellRenderer, ActionListener
+	private class Editor extends AbstractCellEditor implements TableCellEditor, TableCellRenderer, ActionListener
 	{
 
 		private JPanel cellPanel = new JPanel();
@@ -283,13 +282,15 @@ public class ClassLevelTableModel extends AbstractTableModel
 		}
 
 		@Override
-		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column)
+		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
+			int row, int column)
 		{
 			return getTableCellEditorComponent(table, value, isSelected, row, column);
 		}
 
 		@Override
-		public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row, int column)
+		public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row,
+			int column)
 		{
 			cellPanel.removeAll();
 			TableCellUtilities.setToRowBackground(cellPanel, table, row);
@@ -327,10 +328,7 @@ public class ClassLevelTableModel extends AbstractTableModel
 				ClassFacade c = (ClassFacade) classComboBox.getSelectedItem();
 				if (c != null)
 				{
-					character.addCharacterLevels(new ClassFacade[]
-							{
-								c
-							});
+					character.addCharacterLevels(new ClassFacade[]{c});
 				}
 			}
 			else

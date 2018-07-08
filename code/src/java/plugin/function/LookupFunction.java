@@ -76,29 +76,25 @@ public class LookupFunction implements FormulaFunction
 	}
 
 	@Override
-	public FormatManager<?> allowArgs(SemanticsVisitor visitor, Node[] args,
-		FormulaSemantics semantics)
+	public FormatManager<?> allowArgs(SemanticsVisitor visitor, Node[] args, FormulaSemantics semantics)
 	{
 		int argCount = args.length;
 		if ((argCount < 3) || (argCount > 4))
 		{
 			throw new SemanticsFailureException("Function " + getFunctionName()
-				+ " received incorrect # of arguments, expected: 3-4 got " + args.length
-				+ ' ' + Arrays.asList(args));
+				+ " received incorrect # of arguments, expected: 3-4 got " + args.length + ' ' + Arrays.asList(args));
 		}
 
 		LoadContext context = semantics.get(ManagerKey.CONTEXT);
 		AbstractReferenceContext refContext = context.getReferenceContext();
 		//Table node (must be a DataTable)
 		@SuppressWarnings("PMD.PrematureDeclaration")
-		Object format =
-				args[0].jjtAccept(visitor, semantics.getWith(FormulaSemantics.ASSERTED,
-					Optional.of(refContext.getManufacturer(DATATABLE_CLASS))));
+		Object format = args[0].jjtAccept(visitor,
+			semantics.getWith(FormulaSemantics.ASSERTED, Optional.of(refContext.getManufacturer(DATATABLE_CLASS))));
 		if (!(format instanceof TableFormatManager))
 		{
-			throw new SemanticsFailureException(
-				"Parse Error: Invalid Object: " + format.getClass()
-					+ " found in location requiring a TableFormatManager");
+			throw new SemanticsFailureException("Parse Error: Invalid Object: " + format.getClass()
+				+ " found in location requiring a TableFormatManager");
 		}
 		TableFormatManager tableFormatManager = (TableFormatManager) format;
 		FormatManager<?> lookupFormat = tableFormatManager.getLookupFormat();
@@ -109,29 +105,25 @@ public class LookupFunction implements FormulaFunction
 			semantics.getWith(FormulaSemantics.ASSERTED, Optional.of(lookupFormat)));
 		if (!lookupFormat.equals(luFormat))
 		{
-			throw new SemanticsFailureException(
-				"Parse Error: Invalid Lookup Object: " + luFormat.getIdentifierType()
-					+ " found in location the Table Format says is a "
-					+ lookupFormat.getIdentifierType());
+			throw new SemanticsFailureException("Parse Error: Invalid Lookup Object: " + luFormat.getIdentifierType()
+				+ " found in location the Table Format says is a " + lookupFormat.getIdentifierType());
 		}
 
 		//Result Column
 		@SuppressWarnings("PMD.PrematureDeclaration")
-		Object resultColumn =
-				args[2].jjtAccept(visitor, semantics.getWith(FormulaSemantics.ASSERTED,
-					Optional.of(refContext.getManufacturer(COLUMN_CLASS))));
+		Object resultColumn = args[2].jjtAccept(visitor,
+			semantics.getWith(FormulaSemantics.ASSERTED, Optional.of(refContext.getManufacturer(COLUMN_CLASS))));
 		if (!(resultColumn instanceof ColumnFormatManager))
 		{
-			throw new SemanticsFailureException("Parse Error: Invalid Result Column Name: "
-				+ resultColumn.getClass() + " found in location requiring a Column");
+			throw new SemanticsFailureException("Parse Error: Invalid Result Column Name: " + resultColumn.getClass()
+				+ " found in location requiring a Column");
 		}
 		ColumnFormatManager<?> cf = (ColumnFormatManager<?>) resultColumn;
 		if (argCount == 4)
 		{
 			if (!(args[3] instanceof ASTQuotString))
 			{
-				throw new SemanticsFailureException(
-					"Parse Error: Invalid lookup type argument: Must be a String");
+				throw new SemanticsFailureException("Parse Error: Invalid lookup type argument: Must be a String");
 			}
 			ASTQuotString typeNode = (ASTQuotString) args[3];
 			String lookupTypeName = typeNode.getText();
@@ -141,66 +133,59 @@ public class LookupFunction implements FormulaFunction
 				if (lookupType.requiresSorting() && !(lookupFormat instanceof ComparableManager))
 				{
 					throw new SemanticsFailureException(
-						"Parse Error: Lookup type: " + lookupTypeName
-							+ " (which requries comparison) was requested on "
-							+ "a format that is not Comparable: "
-							+ lookupFormat.getIdentifierType());
+						"Parse Error: Lookup type: " + lookupTypeName + " (which requries comparison) was requested on "
+							+ "a format that is not Comparable: " + lookupFormat.getIdentifierType());
 				}
 			}
 			catch (IllegalArgumentException e)
 			{
-				throw new SemanticsFailureException(
-					"Parse Error: Invalid lookup type: " + lookupTypeName);
+				throw new SemanticsFailureException("Parse Error: Invalid lookup type: " + lookupTypeName);
 			}
 		}
 		return cf.getComponentManager();
 	}
 
 	@Override
-	public Object evaluate(EvaluateVisitor visitor, Node[] args,
-		EvaluationManager manager)
+	public Object evaluate(EvaluateVisitor visitor, Node[] args, EvaluationManager manager)
 	{
 		LoadContext context = manager.get(ManagerKey.CONTEXT);
 		AbstractReferenceContext refContext = context.getReferenceContext();
 		DataTable dataTable = (DataTable) args[0].jjtAccept(visitor,
-			manager.getWith(EvaluationManager.ASSERTED,
-				Optional.of(refContext.getManufacturer(DATATABLE_CLASS))));
+			manager.getWith(EvaluationManager.ASSERTED, Optional.of(refContext.getManufacturer(DATATABLE_CLASS))));
 
 		FormatManager<?> lookupFormat = dataTable.getFormat(0);
 
 		//Lookup value (format based on the table)
 		@SuppressWarnings("PMD.PrematureDeclaration")
-		Object lookupValue = args[1].jjtAccept(visitor,
-			manager.getWith(EvaluationManager.ASSERTED, Optional.of(lookupFormat)));
+		Object lookupValue =
+				args[1].jjtAccept(visitor, manager.getWith(EvaluationManager.ASSERTED, Optional.of(lookupFormat)));
 
 		//Result Column
 		TableColumn column = (TableColumn) args[2].jjtAccept(visitor,
-			manager.getWith(EvaluationManager.ASSERTED,
-				Optional.of(refContext.getManufacturer(COLUMN_CLASS))));
+			manager.getWith(EvaluationManager.ASSERTED, Optional.of(refContext.getManufacturer(COLUMN_CLASS))));
 
 		String columnName = column.getName();
 		if (!dataTable.isColumn(columnName))
 		{
 			FormatManager<?> fmt = column.getFormatManager();
-			System.out.println("Lookup called on invalid column: '" + columnName
-				+ "' is not present on table '" + dataTable.getName()
-				+ "' assuming default for " + fmt.getIdentifierType());
+			System.out.println("Lookup called on invalid column: '" + columnName + "' is not present on table '"
+				+ dataTable.getName() + "' assuming default for " + fmt.getIdentifierType());
 			FormulaManager fm = manager.get(EvaluationManager.FMANAGER);
 			return fm.getDefault(fmt.getManagedClass());
 		}
 		String lookupRule = "EXACT";
 		if (args.length == 4)
 		{
-			lookupRule = (String) args[3].jjtAccept(visitor, manager.getWith(
-				EvaluationManager.ASSERTED, Optional.of(FormatUtilities.STRING_MANAGER)));
+			lookupRule = (String) args[3].jjtAccept(visitor,
+				manager.getWith(EvaluationManager.ASSERTED, Optional.of(FormatUtilities.STRING_MANAGER)));
 		}
 		LookupType lookupType = DataTable.LookupType.valueOf(lookupRule);
 		if (!dataTable.hasRow(lookupType, lookupValue))
 		{
 			FormatManager<?> fmt = column.getFormatManager();
-			System.out.println("Lookup called on invalid item: '" + lookupValue
-				+ "' is not present in the first row of table '" + dataTable.getName()
-				+ "' assuming default for " + fmt.getIdentifierType());
+			System.out.println(
+				"Lookup called on invalid item: '" + lookupValue + "' is not present in the first row of table '"
+					+ dataTable.getName() + "' assuming default for " + fmt.getIdentifierType());
 			FormulaManager fm = manager.get(EvaluationManager.FMANAGER);
 			return fm.getDefault(fmt.getManagedClass());
 		}
@@ -208,18 +193,16 @@ public class LookupFunction implements FormulaFunction
 	}
 
 	@Override
-	public FormatManager<?> getDependencies(DependencyVisitor visitor, DependencyManager manager,
-		Node[] args)
+	public FormatManager<?> getDependencies(DependencyVisitor visitor, DependencyManager manager, Node[] args)
 	{
 		LoadContext context = manager.get(ManagerKey.CONTEXT);
 		AbstractReferenceContext refContext = context.getReferenceContext();
 		//Table name node (must be a Table)
 		TableFormatManager tableFormat = (TableFormatManager) args[0].jjtAccept(visitor,
-			manager.getWith(DependencyManager.ASSERTED,
-				Optional.of(refContext.getManufacturer(DATATABLE_CLASS))));
+			manager.getWith(DependencyManager.ASSERTED, Optional.of(refContext.getManufacturer(DATATABLE_CLASS))));
 
-		args[1].jjtAccept(visitor, manager.getWith(DependencyManager.ASSERTED,
-			Optional.of(tableFormat.getLookupFormat())));
+		args[1].jjtAccept(visitor,
+			manager.getWith(DependencyManager.ASSERTED, Optional.of(tableFormat.getLookupFormat())));
 
 		/*
 		 * TODO Is there a way to check if the supplied column is part of this table? Not
@@ -227,9 +210,8 @@ public class LookupFunction implements FormulaFunction
 		 * ManagerKey.REFERENCES, but it could easily be a variable, so there are no
 		 * guarantees here, and right now, not sure of ROI.
 		 */
-		ColumnFormatManager<?> columnFormat = (ColumnFormatManager<?>) args[2]
-			.jjtAccept(visitor, manager.getWith(DependencyManager.ASSERTED,
-				Optional.of(refContext.getManufacturer(COLUMN_CLASS))));
+		ColumnFormatManager<?> columnFormat = (ColumnFormatManager<?>) args[2].jjtAccept(visitor,
+			manager.getWith(DependencyManager.ASSERTED, Optional.of(refContext.getManufacturer(COLUMN_CLASS))));
 		return columnFormat.getComponentManager();
 	}
 

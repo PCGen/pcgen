@@ -28,8 +28,7 @@ import pcgen.output.publish.OutputDB;
  * Character.
  * 
  */
-public class CheckFacet extends AbstractListFacet<CharID, PCCheck> implements
-		SetFacet<CharID, PCCheck>
+public class CheckFacet extends AbstractListFacet<CharID, PCCheck> implements SetFacet<CharID, PCCheck>
 {
 	public void init()
 	{

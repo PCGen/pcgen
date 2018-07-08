@@ -35,8 +35,8 @@ import pcgen.rules.context.LoadContext;
  * 
  * @param <T>
  */
-public class ConcretePersistentTransitionChoice<T> extends
-		ConcreteTransitionChoice<T> implements PersistentTransitionChoice<T>
+public class ConcretePersistentTransitionChoice<T> extends ConcreteTransitionChoice<T>
+		implements PersistentTransitionChoice<T>
 {
 
 	/**
@@ -58,8 +58,7 @@ public class ConcretePersistentTransitionChoice<T> extends
 	 *            selected when selections are made in this
 	 *            PersistentChoiceActor.
 	 */
-	public ConcretePersistentTransitionChoice(SelectableSet<? extends T> set,
-			Formula count)
+	public ConcretePersistentTransitionChoice(SelectableSet<? extends T> set, Formula count)
 	{
 		super(set, count);
 	}

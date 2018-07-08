@@ -91,13 +91,13 @@ public class DiceFormat implements FormatManager<Dice>
 	{
 		return null;
 	}
-	
+
 	@Override
 	public int hashCode()
 	{
 		return 74538940;
 	}
-	
+
 	@Override
 	public boolean equals(Object o)
 	{

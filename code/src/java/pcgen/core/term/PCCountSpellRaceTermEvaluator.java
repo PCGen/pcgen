@@ -24,8 +24,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 
-public class PCCountSpellRaceTermEvaluator 
-		extends BasePCTermEvaluator implements TermEvaluator
+public class PCCountSpellRaceTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
 	public PCCountSpellRaceTermEvaluator(String originalText)
 	{

@@ -105,7 +105,7 @@ public abstract class Combatant implements InitHolder
 	 *
 	 *@return    The SystemInitiative value
 	 */
-    @Override
+	@Override
 	public SystemInitiative getInitiative()
 	{
 		return init;
@@ -143,32 +143,32 @@ public abstract class Combatant implements InitHolder
 	 *@param  columnOrder  The current table's column order
 	 *@return              The Row Vector
 	 */
-    @Override
+	@Override
 	public Vector<Object> getRowVector(final List<String> columnOrder)
 	{
 		Vector<Object> rowVector = new Vector<>();
 
 		//Iterate through all the columns, and create the vector in that order
-		for ( String columnName : columnOrder )
+		for (String columnName : columnOrder)
 		{
 			switch (columnName)
 			{
-				case "Name":  // Character's Name
+				case "Name": // Character's Name
 					rowVector.add(getName());
 					break;
-				case "Player":  // Player's Name
+				case "Player": // Player's Name
 					rowVector.add(getPlayer());
 					break;
-				case "Status":  // Status of XMLCombatant
+				case "Status": // Status of XMLCombatant
 					rowVector.add(getStatus());
 					break;
-				case "+":  // Initiative bonus
+				case "+": // Initiative bonus
 					rowVector.add(init.getModifier());
 					break;
-				case "Init":  // Initiative #
+				case "Init": // Initiative #
 					rowVector.add(init.getCurrentInitiative());
 					break;
-				case "Dur":  // Duration
+				case "Dur": // Duration
 
 					if (duration == 0)
 					{
@@ -179,10 +179,10 @@ public abstract class Combatant implements InitHolder
 						rowVector.add(getDuration());
 					}
 					break;
-				case "#":  // Number (for tokens)
+				case "#": // Number (for tokens)
 					rowVector.add(number);
 					break;
-				case "HP":  // Current Hit Points
+				case "HP": // Current Hit Points
 
 					int hp = hitPoints.getCurrent();
 					int sub = hitPoints.getSubdual();
@@ -196,11 +196,14 @@ public abstract class Combatant implements InitHolder
 						rowVector.add(hp + "/" + sub + "s");
 					}
 					break;
-				case "HP Max":  // Max Hit Points
+				case "HP Max": // Max Hit Points
 					rowVector.add(hitPoints.getMax());
 					break;
-				case "Type":  //PC, Enemy, Ally, Non-Com
+				case "Type": //PC, Enemy, Ally, Non-Com
 					rowVector.add(comType);
+					break;
+				default:
+					// Case not caught, should this cause an error?
 					break;
 			}
 		}
@@ -213,7 +216,7 @@ public abstract class Combatant implements InitHolder
 	 *
 	 *@param  status  The new status value
 	 */
-    @Override
+	@Override
 	public void setStatus(State status)
 	{
 		this.status = status;
@@ -224,7 +227,7 @@ public abstract class Combatant implements InitHolder
 	 *
 	 *@return    The status value
 	 */
-    @Override
+	@Override
 	public State getStatus()
 	{
 		return status;
@@ -275,7 +278,7 @@ public abstract class Combatant implements InitHolder
 
 	}
 
-    @Override
+	@Override
 	public void endRound()
 	{
 		hitPoints.endRound();

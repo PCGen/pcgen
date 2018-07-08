@@ -33,35 +33,29 @@ public class PreVisionInvertedConvertPlugin implements TokenProcessorPlugin
 	public static final String SET_ZERO_ANY = "Set zero values to ANY (identify as 'present')";
 	public static final String SET_ZERO_ONE = "Set zero values to 1 (identify as 'possessing distance')";
 
-    @Override
+	@Override
 	public String process(TokenProcessEvent tpe)
 	{
 		String formula = tpe.getValue();
-
 		int commaLoc = formula.indexOf(',');
 		if (commaLoc == -1)
 		{
-			return "Prerequisite " + tpe.getKey() + " must have a count: "
-					+ formula;
+			return "Prerequisite " + tpe.getKey() + " must have a count: " + formula;
 		}
 		if (commaLoc == formula.length() - 1)
 		{
-			return "Prerequisite " + tpe.getKey()
-					+ " can not have only a count: " + formula;
+			return "Prerequisite " + tpe.getKey() + " can not have only a count: " + formula;
 		}
 		String num = formula.substring(0, commaLoc);
 		String rest = formula.substring(commaLoc + 1);
-
 		try
 		{
 			Integer.parseInt(num);
 		}
 		catch (NumberFormatException nfe)
 		{
-			return '\'' + num + "' in " + tpe.getKey()
-					+ " is not a valid integer";
+			return '\'' + num + "' in " + tpe.getKey() + " is not a valid integer";
 		}
-
 		// Work rest here:
 		commaLoc = rest.indexOf(',');
 		if (commaLoc == -1)
@@ -154,13 +148,9 @@ public class PreVisionInvertedConvertPlugin implements TokenProcessorPlugin
 				}
 				List<String> descr = new ArrayList<>();
 				List<String> choice = new ArrayList<>();
-				processChoices(tpe, num, descr, choice, onebase.toString(),
-						SET_ANY);
-				processChoices(tpe, num, descr, choice, rightbase.toString(),
-						AbstractPreEqualConvertPlugin.FLOW_LEFT);
-				processChoices(tpe, num, descr, choice, leftbase.toString(),
-						AbstractPreEqualConvertPlugin.FLOW_RIGHT);
-
+				processChoices(tpe, num, descr, choice, onebase.toString(), SET_ANY);
+				processChoices(tpe, num, descr, choice, rightbase.toString(), AbstractPreEqualConvertPlugin.FLOW_LEFT);
+				processChoices(tpe, num, descr, choice, leftbase.toString(), AbstractPreEqualConvertPlugin.FLOW_RIGHT);
 				String result = null;
 				boolean match = true;
 				for (String c : choice)
@@ -175,7 +165,6 @@ public class PreVisionInvertedConvertPlugin implements TokenProcessorPlugin
 						break;
 					}
 				}
-
 				if (match)
 				{
 					tpe.append(result);
@@ -183,8 +172,7 @@ public class PreVisionInvertedConvertPlugin implements TokenProcessorPlugin
 				else
 				{
 					String decision = tpe.getDecider().getConversionDecision(
-							"Resolve ambiguity for " + getProcessedToken()
-									+ ':' + formula, descr, choice, 0);
+						"Resolve ambiguity for " + getProcessedToken() + ':' + formula, descr, choice, 0);
 					tpe.append(decision);
 				}
 			}
@@ -203,12 +191,10 @@ public class PreVisionInvertedConvertPlugin implements TokenProcessorPlugin
 		return null;
 	}
 
-	private void processChoices(TokenProcessEvent tpe, String num,
-			List<String> descr, List<String> choice, String leftbaseResult,
-			String d)
+	private void processChoices(TokenProcessEvent tpe, String num, List<String> descr, List<String> choice,
+		String leftbaseResult, String d)
 	{
-		List<String> leftChoices = createZeroChoices(tpe, num, leftbaseResult
-				.split(","));
+		List<String> leftChoices = createZeroChoices(tpe, num, leftbaseResult.split(","));
 		if (leftChoices.get(0).equals(leftChoices.get(1)))
 		{
 			descr.add(leftbaseResult + " ... " + d);
@@ -216,19 +202,14 @@ public class PreVisionInvertedConvertPlugin implements TokenProcessorPlugin
 		}
 		else
 		{
-			descr
-					.add(leftChoices.get(0) + " ... " + d + " and "
-							+ SET_ZERO_ONE);
+			descr.add(leftChoices.get(0) + " ... " + d + " and " + SET_ZERO_ONE);
 			choice.add(leftChoices.get(0));
-			descr
-					.add(leftChoices.get(1) + " ... " + d + " and "
-							+ SET_ZERO_ANY);
+			descr.add(leftChoices.get(1) + " ... " + d + " and " + SET_ZERO_ANY);
 			choice.add(leftChoices.get(1));
 		}
 	}
 
-	private void processZero(String formula, TokenProcessEvent tpe, String num,
-			String... base)
+	private void processZero(String formula, TokenProcessEvent tpe, String num, String... base)
 	{
 		List<String> choice = createZeroChoices(tpe, num, base);
 		String oneChoice = choice.get(0);
@@ -243,14 +224,12 @@ public class PreVisionInvertedConvertPlugin implements TokenProcessorPlugin
 			descr.add(oneChoice + " ... " + SET_ZERO_ONE);
 			descr.add(zeroChoice + " ... " + SET_ZERO_ANY);
 			String decision = tpe.getDecider().getConversionDecision(
-					"Resolve ambiguity for " + getProcessedToken() + ':' + formula,
-					descr, choice, 0);
+				"Resolve ambiguity for " + getProcessedToken() + ':' + formula, descr, choice, 0);
 			tpe.append(decision);
 		}
 	}
 
-	private List<String> createZeroChoices(TokenProcessEvent tpe, String num,
-			String... base)
+	private List<String> createZeroChoices(TokenProcessEvent tpe, String num, String... base)
 	{
 		StringBuilder one = getPrefix(tpe, num);
 		StringBuilder any = getPrefix(tpe, num);
@@ -314,13 +293,13 @@ public class PreVisionInvertedConvertPlugin implements TokenProcessorPlugin
 		return "ANY";
 	}
 
-    @Override
+	@Override
 	public Class<? extends CDOMObject> getProcessedClass()
 	{
 		return CDOMObject.class;
 	}
 
-    @Override
+	@Override
 	public String getProcessedToken()
 	{
 		return "!PREVISION";

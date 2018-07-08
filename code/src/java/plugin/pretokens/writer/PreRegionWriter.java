@@ -18,35 +18,32 @@
  */
 package plugin.pretokens.writer;
 
+import java.io.IOException;
+import java.io.Writer;
+
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.AbstractPrerequisiteWriter;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 
-import java.io.IOException;
-import java.io.Writer;
-
-public class PreRegionWriter extends AbstractPrerequisiteWriter implements
-		PrerequisiteWriterInterface
+public class PreRegionWriter extends AbstractPrerequisiteWriter implements PrerequisiteWriterInterface
 {
 
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "region";
 	}
 
-    @Override
+	@Override
 	public PrerequisiteOperator[] operatorsHandled()
 	{
-		return new PrerequisiteOperator[]{PrerequisiteOperator.EQ,
-			PrerequisiteOperator.NEQ};
+		return new PrerequisiteOperator[]{PrerequisiteOperator.EQ, PrerequisiteOperator.NEQ};
 	}
 
-    @Override
-	public void write(Writer writer, Prerequisite prereq)
-		throws PersistenceLayerException
+	@Override
+	public void write(Writer writer, Prerequisite prereq) throws PersistenceLayerException
 	{
 		checkValidOperator(prereq, operatorsHandled());
 
@@ -57,7 +54,7 @@ public class PreRegionWriter extends AbstractPrerequisiteWriter implements
 				writer.write('!');
 			}
 
-			writer.write("PREREGION:" + (prereq.isOverrideQualify() ? "Q:":""));
+			writer.write("PREREGION:" + (prereq.isOverrideQualify() ? "Q:" : ""));
 			writer.write(prereq.getKey());
 		}
 		catch (IOException e)

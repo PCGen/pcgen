@@ -34,15 +34,11 @@ public class EQCritMultTermEvaluator extends BaseEQTermEvaluator implements Term
 	}
 
 	@Override
-	public Float resolve(
-			Equipment eq,
-			boolean primary,
-			PlayerCharacter pc)
+	public Float resolve(Equipment eq, boolean primary, PlayerCharacter pc)
 	{
 		if (pc.hasControl(CControl.CRITMULT))
 		{
-			Logging
-				.errorPrint("CRITMULT term is disabled when CRITMULT control is used");
+			Logging.errorPrint("CRITMULT term is disabled when CRITMULT control is used");
 		}
 		if (primary)
 		{
@@ -53,14 +49,11 @@ public class EQCritMultTermEvaluator extends BaseEQTermEvaluator implements Term
 	}
 
 	@Override
-	public String evaluate(
-			Equipment eq,
-			boolean primary,
-			PlayerCharacter pc) {
+	public String evaluate(Equipment eq, boolean primary, PlayerCharacter pc)
+	{
 		if (pc.hasControl(CControl.CRITMULT))
 		{
-			Logging
-				.errorPrint("CRITMULT term is disabled when CRITMULT control is used");
+			Logging.errorPrint("CRITMULT term is disabled when CRITMULT control is used");
 		}
 		if (primary)
 		{
@@ -69,7 +62,7 @@ public class EQCritMultTermEvaluator extends BaseEQTermEvaluator implements Term
 
 		return EqToken.multAsString(eq.getAltCritMultiplier());
 	}
-	
+
 	@Override
 	public boolean isSourceDependant()
 	{

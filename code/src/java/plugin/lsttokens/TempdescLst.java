@@ -33,8 +33,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * displayed in the Temporary Bonus Tab.
  * 
  */
-public class TempdescLst extends AbstractNonEmptyToken<CDOMObject> implements
-		CDOMPrimaryToken<CDOMObject>
+public class TempdescLst extends AbstractNonEmptyToken<CDOMObject> implements CDOMPrimaryToken<CDOMObject>
 {
 
 	@Override
@@ -44,30 +43,26 @@ public class TempdescLst extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		CDOMObject obj, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj, String value)
 	{
 		if ((obj instanceof Ungranted) && !(obj instanceof Spell))
 		{
-			return new ParseResult.Fail("Cannot use " + getTokenName()
-				+ " on an Ungranted object type: "
-				+ obj.getClass().getSimpleName());
+			return new ParseResult.Fail(
+				"Cannot use " + getTokenName() + " on an Ungranted object type: " + obj.getClass().getSimpleName());
 		}
-		context.getObjectContext().put(obj, StringKey.TEMP_DESCRIPTION,
-				EntityEncoder.decode(value));
+		context.getObjectContext().put(obj, StringKey.TEMP_DESCRIPTION, EntityEncoder.decode(value));
 		return ParseResult.SUCCESS;
 	}
 
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
-		String descr = context.getObjectContext().getString(obj,
-				StringKey.TEMP_DESCRIPTION);
+		String descr = context.getObjectContext().getString(obj, StringKey.TEMP_DESCRIPTION);
 		if (descr == null)
 		{
 			return null;
 		}
-		return new String[] { EntityEncoder.encode(descr) };
+		return new String[]{EntityEncoder.encode(descr)};
 	}
 
 	@Override

@@ -98,12 +98,10 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 		context = new EditorLoadContext();
 		this.statusField = statusField;
 		PCGenSettings context = PCGenSettings.getInstance();
-		String dataLogFileName =
-				context.initProperty(PCGenSettings.CONVERT_DATA_LOG_FILE,
-					"dataChanges.log");		 
+		String dataLogFileName = context.initProperty(PCGenSettings.CONVERT_DATA_LOG_FILE, "dataChanges.log");
 		changeLogFile = new File(dataLogFileName);
 	}
-	
+
 	/**
 	 * @see pcgen.gui2.converter.panel.ConvertSubPanel#autoAdvance(pcgen.cdom.base.CDOMObject)
 	 */
@@ -120,15 +118,14 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 	public boolean performAnalysis(final CDOMObject pc)
 	{
 		logSummary(pc);
-		
+
 		final File rootDir = pc.get(ObjectKey.DIRECTORY);
 		final File outDir = pc.get(ObjectKey.WRITE_DIRECTORY);
 		totalCampaigns = new ArrayList<>(pc.getSafeListFor(ListKey.CAMPAIGN));
 		for (Campaign campaign : pc.getSafeListFor(ListKey.CAMPAIGN))
 		{
 			// Add all sub-files to the main campaign, regardless of exclusions
-			for (CampaignSourceEntry fName : campaign
-					.getSafeListFor(ListKey.FILE_PCC))
+			for (CampaignSourceEntry fName : campaign.getSafeListFor(ListKey.FILE_PCC))
 			{
 				URI uri = fName.getURI();
 				if (PCGFile.isPCGenCampaignFile(uri))
@@ -142,13 +139,13 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 			}
 		}
 		sortCampaignsByRank(totalCampaigns);
-		
+
 		new Thread(new Runnable()
 		{
 			@Override
 			public void run()
 			{
-				Logging.registerHandler( getHandler() );
+				Logging.registerHandler(getHandler());
 				SettingsHandler.setGame(pc.get(ObjectKey.GAME_MODE).getName());
 				GameMode mode = SettingsHandler.getGame();
 				//Necessary for "good" behavior
@@ -162,9 +159,8 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 					changeLogWriter = new FileWriter(changeLogFile);
 
 					SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-			        String startTime = simpleDateFormat.format(new Date());
-					changeLogWriter.append("PCGen Data Converter v"
-						+ PCGenPropBundle.getVersionNumber()
+					String startTime = simpleDateFormat.format(new Date());
+					changeLogWriter.append("PCGen Data Converter v" + PCGenPropBundle.getVersionNumber()
 						+ " - conversion started at " + startTime + "\n");
 					changeLogWriter.append("Outputting files to " + outDir.getAbsolutePath() + "\n");
 				}
@@ -173,8 +169,8 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 					Logging.errorPrint("Failed to initialise LSTConverter", e1);
 					return;
 				}
-				converter = new LSTConverter(context, rootDir,
-						outDir.getAbsolutePath(), RunConvertPanel.this, changeLogWriter);
+				converter = new LSTConverter(context, rootDir, outDir.getAbsolutePath(), RunConvertPanel.this,
+					changeLogWriter);
 				converter.addObserver(RunConvertPanel.this);
 				int numFiles = 0;
 				for (Campaign campaign : totalCampaigns)
@@ -187,8 +183,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 				{
 					converter.processCampaign(campaign);
 				}
-				ObjectInjector oi = new ObjectInjector(context, outDir,
-						rootDir, converter);
+				ObjectInjector oi = new ObjectInjector(context, outDir, rootDir, converter);
 				try
 				{
 					oi.writeInjectedObjects(totalCampaigns);
@@ -206,10 +201,10 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 				catch (IOException e)
 				{
 					Logging.errorPrint("LSTConverter.wrapUp failed", e);
-					
+
 				}
-				converter.deleteObserver( RunConvertPanel.this );
-				Logging.removeHandler( getHandler() );
+				converter.deleteObserver(RunConvertPanel.this);
+				Logging.removeHandler(getHandler());
 				try
 				{
 					// Wait for any left over messages to catch up
@@ -223,14 +218,13 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 				addMessage("\nConversion complete.");
 				if (getHandler().getNumErrors() > 0)
 				{
-					JOptionPane.showMessageDialog(null, LanguageBundle
-						.getFormattedString("in_lstConvErrorsFound", //$NON-NLS-1$
-							getHandler().getNumErrors()), LanguageBundle
-						.getString("in_lstConvErrorsTitle"), //$NON-NLS-1$
+					JOptionPane.showMessageDialog(
+						null, LanguageBundle.getFormattedString("in_lstConvErrorsFound", //$NON-NLS-1$
+						getHandler().getNumErrors()), LanguageBundle.getString("in_lstConvErrorsTitle"), //$NON-NLS-1$
 						JOptionPane.ERROR_MESSAGE);
 				}
 				progressBar.setValue(progressBar.getMaximum());
-		        
+
 				fireProgressEvent(ProgressEvent.AUTO_ADVANCE);
 			}
 		}).start();
@@ -252,31 +246,30 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 		gbc.insets = new Insets(0, 10, 5, 10);
 		panel.add(introLabel, gbc);
 
-
-		JLabel explainLabel = new JLabel("<html>The LST data is being converted. In the log, " +
-				"LSTERROR rows are errors that need to be manually corrected in the source data. " +
-				"LSTWARN rows indicate changes the converter is making. " + 
-				"See " + changeLogFile.getAbsolutePath() + " for a log of all data changes.</html>");
+		JLabel explainLabel = new JLabel("<html>The LST data is being converted. In the log, "
+			+ "LSTERROR rows are errors that need to be manually corrected in the source data. "
+			+ "LSTWARN rows indicate changes the converter is making. " + "See " + changeLogFile.getAbsolutePath()
+			+ " for a log of all data changes.</html>");
 		explainLabel.setFocusable(true);
 		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1, 1.0, 0);
 		gbc.fill = GridBagConstraints.HORIZONTAL;
 		gbc.insets = new Insets(0, 10, 5, 10);
 		panel.add(explainLabel, gbc);
-		
-        progressBar = getProgressBar();
-        Dimension d = progressBar.getPreferredSize();
-        d.width = 400;
-        progressBar.setPreferredSize(d);
-        progressBar.setStringPainted(true);
+
+		progressBar = getProgressBar();
+		Dimension d = progressBar.getPreferredSize();
+		d.width = 400;
+		progressBar.setPreferredSize(d);
+		progressBar.setStringPainted(true);
 		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1, 1.0, 0);
 		gbc.fill = GridBagConstraints.HORIZONTAL;
-        panel.add(progressBar, gbc);
+		panel.add(progressBar, gbc);
 
 		messageAreaContainer = new JScrollPane(getMessageArea());
 		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, GridBagConstraints.REMAINDER, 1.0, 1.0);
 		gbc.fill = GridBagConstraints.BOTH;
 		panel.add(messageAreaContainer, gbc);
-		
+
 		panel.setPreferredSize(new Dimension(800, 500));
 	}
 
@@ -295,14 +288,11 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 	{
 		Graphics g = statusField.getGraphics();
 		FontMetrics fm = g.getFontMetrics();
-		String message =
-				(filename == null || filename.isEmpty()) ? ""
-					: "Converting " + filename;
+		String message = (filename == null || filename.isEmpty()) ? "" : "Converting " + filename;
 		int width = fm.stringWidth(message);
 		if (width >= statusField.getWidth())
 		{
-			message =
-					Utility.shortenString(fm, message, statusField.getWidth());
+			message = Utility.shortenString(fm, message, statusField.getWidth());
 		}
 
 		TaskStrategyMessage.sendStatus(this, message);
@@ -333,7 +323,6 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 	{
 		return errorState;
 	}
-
 
 	/**
 	 * This method initializes progressBar
@@ -407,7 +396,8 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 	protected void setTotalFileCount(final int iFileCount)
 	{
 		totalFileCount = iFileCount;
-		Runnable doWork = new Runnable() {
+		Runnable doWork = new Runnable()
+		{
 			@Override
 			public void run()
 			{
@@ -423,7 +413,6 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 		getProgressBar().setValue(curr);
 	}
 
-	
 	/**
 	 * A log handler to capture load errors and warnings and 
 	 * display them in the message section of the panel.
@@ -488,21 +477,18 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 		{
 			return numWarnings;
 		}
-		
-	}
 
+	}
 
 	/**
 	 * @see pcgen.gui2.converter.ConversionDecider#getConversionDecision(String, List, List, int)
 	 */
 	@Override
-	public String getConversionDecision(String overallDescription,
-		List<String> choiceDescriptions, List<String> choiceTokenResults,
-		int defaultChoice)
+	public String getConversionDecision(String overallDescription, List<String> choiceDescriptions,
+		List<String> choiceTokenResults, int defaultChoice)
 	{
 		final ConversionChoiceDialog ccd =
-				new ConversionChoiceDialog(null, overallDescription,
-					choiceDescriptions, defaultChoice);
+				new ConversionChoiceDialog(null, overallDescription, choiceDescriptions, defaultChoice);
 		int result = 0;
 
 		Runnable showDialog = new Runnable()
@@ -528,8 +514,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 	@Override
 	public String getConversionInput(String overallDescription)
 	{
-		final ConversionInputDialog ccd = new ConversionInputDialog(null,
-				overallDescription);
+		final ConversionInputDialog ccd = new ConversionInputDialog(null, overallDescription);
 
 		Runnable showDialog = new Runnable()
 		{
@@ -551,31 +536,29 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 	}
 
 	/**
-	 * This method sorts the provided listof Campaign objects by rank.
+	 * This method sorts the provided list of Campaign objects by rank.
 	 *
 	 * @param aSelectedCampaignsList List of Campaign objects to sort
 	 */
 	private void sortCampaignsByRank(final List<Campaign> aSelectedCampaignsList)
 	{
 		aSelectedCampaignsList.sort(new Comparator<Campaign>()
-        {
-            @Override
-            public int compare(Campaign c1, Campaign c2)
-            {
-                return c1.getSafe(IntegerKey.CAMPAIGN_RANK) -
-                        c2.getSafe(IntegerKey.CAMPAIGN_RANK);
-            }
+		{
+			@Override
+			public int compare(Campaign c1, Campaign c2)
+			{
+				return c1.getSafe(IntegerKey.CAMPAIGN_RANK) - c2.getSafe(IntegerKey.CAMPAIGN_RANK);
+			}
 
-        });
+		});
 
 	}
 
-	
 	private void logSummary(final CDOMObject pc)
 	{
 		Logging.log(Logging.INFO, "Running data conversion using the following settings:");
 		Logging.log(Logging.INFO, "Source Folder: " + pc.get(ObjectKey.DIRECTORY).getAbsolutePath());
-		Logging.log(Logging.INFO, "Destination Folder: " +  pc.get(ObjectKey.WRITE_DIRECTORY).getAbsolutePath());
+		Logging.log(Logging.INFO, "Destination Folder: " + pc.get(ObjectKey.WRITE_DIRECTORY).getAbsolutePath());
 		Logging.log(Logging.INFO, "Game mode: " + pc.get(ObjectKey.GAME_MODE).getDisplayName());
 		List<Campaign> campaigns = pc.getSafeListFor(ListKey.CAMPAIGN);
 		StringBuilder campDisplay = new StringBuilder("");

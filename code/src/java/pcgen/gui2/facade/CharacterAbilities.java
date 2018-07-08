@@ -46,16 +46,16 @@ import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.RuleConstants;
 import pcgen.core.display.CharacterDisplay;
+import pcgen.core.utils.MessageType;
+import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.facade.core.AbilityCategoryFacade;
 import pcgen.facade.core.AbilityFacade;
 import pcgen.facade.core.DataSetFacade;
 import pcgen.facade.core.UIDelegate;
-import pcgen.facade.util.event.ChangeEvent;
-import pcgen.facade.util.event.ChangeListener;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.ListFacade;
-import pcgen.core.utils.MessageType;
-import pcgen.core.utils.ShowMessageDelegate;
+import pcgen.facade.util.event.ChangeEvent;
+import pcgen.facade.util.event.ChangeListener;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Tab;
@@ -93,8 +93,8 @@ public class CharacterAbilities
 	 * @param dataSetFacade The datasets that the character is using.
 	 * @param todoManager The user tasks tracker.
 	 */
-	public CharacterAbilities(PlayerCharacter pc, UIDelegate delegate,
-		DataSetFacade dataSetFacade, TodoManager todoManager)
+	public CharacterAbilities(PlayerCharacter pc, UIDelegate delegate, DataSetFacade dataSetFacade,
+		TodoManager todoManager)
 	{
 		theCharacter = pc;
 		charDisplay = pc.getDisplay();
@@ -102,7 +102,7 @@ public class CharacterAbilities
 		this.dataSetFacade = dataSetFacade;
 		this.todoManager = todoManager;
 		abilityCatSelectionListeners = new ArrayList<>();
-		
+
 		initForCharacter();
 	}
 
@@ -114,28 +114,26 @@ public class CharacterAbilities
 		GrantedAbilityFacet grantedAbilityFacet = FacetLibrary.getFacet(GrantedAbilityFacet.class);
 		grantedAbilityFacet.removeDataFacetChangeListener(grantedAbilityChangeHandler);
 	}
-	
+
 	private void initForCharacter()
 	{
-		abilityListMap =
-                new LinkedHashMap<>();
+		abilityListMap = new LinkedHashMap<>();
 		activeCategories = new DefaultListFacade<>();
 
 		charID = theCharacter.getCharID();
 		GrantedAbilityFacet grantedAbilityFacet = FacetLibrary.getFacet(GrantedAbilityFacet.class);
-		
+
 		//theCharacter.getAbilityList(cat, nature)
 		rebuildAbilityLists();
-		
+
 		grantedAbilityChangeHandler = new GrantedAbilityChangeHandler();
 		grantedAbilityFacet.addDataFacetChangeListener(grantedAbilityChangeHandler);
 	}
 
-	void removeAbilityFromLists(AbilityCategory cat,
-		Ability ability, Nature nature)
+	void removeAbilityFromLists(AbilityCategory cat, Ability ability, Nature nature)
 	{
 		removeCategorisedAbility(cat, ability, nature);
-		
+
 		boolean stillActive = cat.isVisibleTo(View.VISIBLE_DISPLAY);
 		if (!stillActive && activeCategories.containsElement(cat))
 		{
@@ -143,19 +141,18 @@ public class CharacterAbilities
 		}
 		else
 		{
-			adviseSelectionChangeLater(cat);				
+			adviseSelectionChangeLater(cat);
 		}
-		updateAbilityCategoryLater(cat);		
+		updateAbilityCategoryLater(cat);
 	}
-	
+
 	/**
 	 * Rebuild the ability lists for the character to include the character's 
 	 * current abilities.
 	 */
 	synchronized void rebuildAbilityLists()
 	{
-		Map<AbilityCategoryFacade, DefaultListFacade<AbilityFacade>> workingAbilityListMap =
-                new LinkedHashMap<>();
+		Map<AbilityCategoryFacade, DefaultListFacade<AbilityFacade>> workingAbilityListMap = new LinkedHashMap<>();
 		DefaultListFacade<AbilityCategoryFacade> workingActiveCategories = new DefaultListFacade<>();
 
 		for (AbilityCategoryFacade category : dataSetFacade.getAbilities().getKeys())
@@ -178,15 +175,15 @@ public class CharacterAbilities
 			if (!visible && workingActiveCategories.containsElement(cat))
 			{
 				workingActiveCategories.removeElement(cat);
-//				updateAbilityCategoryTodo(cat);
+				//				updateAbilityCategoryTodo(cat);
 			}
-			
+
 			if (visible)
 			{
 				adviseSelectionChangeLater(cat);
 			}
 		}
-		
+
 		// Update map contents
 		for (AbilityCategoryFacade category : workingAbilityListMap.keySet())
 		{
@@ -202,7 +199,7 @@ public class CharacterAbilities
 			}
 			updateAbilityCategoryTodo((AbilityCategory) category);
 		}
-		
+
 		Set<AbilityCategoryFacade> origCats = new HashSet<>(abilityListMap.keySet());
 		for (AbilityCategoryFacade category : origCats)
 		{
@@ -222,7 +219,6 @@ public class CharacterAbilities
 		activeCategories.updateContents(workingActiveCategories.getContents());
 	}
 
-
 	private void updateAbilityCategoryTodo(Category<Ability> cat)
 	{
 		if (!(cat instanceof AbilityCategory))
@@ -230,26 +226,26 @@ public class CharacterAbilities
 			return;
 		}
 		AbilityCategory category = (AbilityCategory) cat;
-		
+
 		int numSelections = theCharacter.getAvailableAbilityPool(category).intValue();
 		if (category.getVisibility().isVisibleTo(View.HIDDEN_DISPLAY))
 		{
 			// Hide todos for categories that should not be displayed
 			numSelections = 0;
-		}				
+		}
 
 		if (numSelections < 0)
 		{
-			todoManager.addTodo(new TodoFacadeImpl(
-				Tab.ABILITIES, category.getDisplayName(),
-				"in_featTodoTooMany", category.getType(), 1)); //$NON-NLS-1$
+			todoManager.addTodo(
+				new TodoFacadeImpl(Tab.ABILITIES, category.getDisplayName(), "in_featTodoTooMany", //$NON-NLS-1$
+				category.getType(), 1));
 			todoManager.removeTodo("in_featTodoRemain", category.getDisplayName()); //$NON-NLS-1$
 		}
 		else if (numSelections > 0)
 		{
-			todoManager.addTodo(new TodoFacadeImpl(
-				Tab.ABILITIES, category.getDisplayName(),
-				"in_featTodoRemain", category.getType(), 1)); //$NON-NLS-1$
+			todoManager.addTodo(
+				new TodoFacadeImpl(Tab.ABILITIES, category.getDisplayName(), "in_featTodoRemain", //$NON-NLS-1$
+				category.getType(), 1));
 			todoManager.removeTodo("in_featTodoTooMany", category.getDisplayName()); //$NON-NLS-1$
 		}
 		else
@@ -258,7 +254,6 @@ public class CharacterAbilities
 			todoManager.removeTodo("in_featTodoTooMany", category.getDisplayName()); //$NON-NLS-1$
 		}
 	}
-	
 
 	/**
 	 * Determine where the ability category should be added to the active 
@@ -291,7 +286,8 @@ public class CharacterAbilities
 	 * @param cna 
 	 * @param workingAbilityListMap The map to be adjusted.
 	 */
-	private void addCategorisedAbility(CNAbility cna, Map<AbilityCategoryFacade, DefaultListFacade<AbilityFacade>> workingAbilityListMap)
+	private void addCategorisedAbility(CNAbility cna,
+		Map<AbilityCategoryFacade, DefaultListFacade<AbilityFacade>> workingAbilityListMap)
 	{
 		Ability ability = cna.getAbility();
 		List<CNAbilitySelection> cas = new ArrayList<>();
@@ -302,14 +298,8 @@ public class CharacterAbilities
 			List<String> choices = theCharacter.getAssociationList(cna);
 			if (choices == null || choices.isEmpty())
 			{
-				Logging
-					.errorPrint("Ignoring Ability: "
-						+ ability
-						+ " ("
-						+ cat
-						+ " / "
-						+ nature
-						+ ") that UI has as added to the PC, but it has no associations");
+				Logging.errorPrint("Ignoring Ability: " + ability + " (" + cat + " / " + nature
+					+ ") that UI has as added to the PC, but it has no associations");
 			}
 			else
 			{
@@ -329,8 +319,7 @@ public class CharacterAbilities
 		}
 	}
 
-	private void removeCategorisedAbility(AbilityCategory cat,
-		Ability ability, Nature nature)
+	private void removeCategorisedAbility(AbilityCategory cat, Ability ability, Nature nature)
 	{
 		CNAbilitySelection cas;
 		if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
@@ -343,7 +332,7 @@ public class CharacterAbilities
 		}
 		removeElement(cas);
 	}
-	
+
 	/**
 	 * Process a request by the user to add an ability. The user will be informed 
 	 * if the request cannot be allowed. Updates to the displayed lists are 
@@ -352,11 +341,9 @@ public class CharacterAbilities
 	 * @param categoryFacade The category in which the ability s bing added.
 	 * @param abilityFacade The ability to be added.
 	 */
-	public void addAbility(AbilityCategoryFacade categoryFacade,
-		AbilityFacade abilityFacade)
+	public void addAbility(AbilityCategoryFacade categoryFacade, AbilityFacade abilityFacade)
 	{
-		if (abilityFacade == null || !(abilityFacade instanceof Ability)
-			|| categoryFacade == null
+		if (abilityFacade == null || !(abilityFacade instanceof Ability) || categoryFacade == null
 			|| !(categoryFacade instanceof AbilityCategory))
 		{
 			return;
@@ -368,7 +355,6 @@ public class CharacterAbilities
 		{
 			return;
 		}
-
 
 		// we can only be here if the PC can add the ability
 		try
@@ -383,11 +369,10 @@ public class CharacterAbilities
 		catch (Exception exc)
 		{
 			Logging.errorPrint("Failed to add ability due to ", exc);
-			ShowMessageDelegate.showMessageDialog(LanguageBundle
-				.getFormattedString("in_iayAddAbility", exc.getMessage()), //$NON-NLS-1$
+			ShowMessageDelegate.showMessageDialog(
+				LanguageBundle.getFormattedString("in_iayAddAbility", exc.getMessage()), //$NON-NLS-1$
 				Constants.APPLICATION_NAME, MessageType.ERROR);
 		}
-
 
 		// Recalc the innate spell list
 		theCharacter.getSpellList();
@@ -406,11 +391,9 @@ public class CharacterAbilities
 	 * @param categoryFacade The category from which the ability is being removed.
 	 * @param abilityFacade The ability to be removed.
 	 */
-	public void removeAbility(AbilityCategoryFacade categoryFacade,
-		AbilityFacade abilityFacade)
+	public void removeAbility(AbilityCategoryFacade categoryFacade, AbilityFacade abilityFacade)
 	{
-		if (abilityFacade == null || !(abilityFacade instanceof Ability)
-			|| categoryFacade == null
+		if (abilityFacade == null || !(abilityFacade instanceof Ability) || categoryFacade == null
 			|| !(categoryFacade instanceof AbilityCategory))
 		{
 			return;
@@ -421,15 +404,11 @@ public class CharacterAbilities
 
 		try
 		{
-			Ability pcAbility =
-					theCharacter.getMatchingAbility(theCategory, anAbility,
-						Nature.NORMAL);
+			Ability pcAbility = theCharacter.getMatchingAbility(theCategory, anAbility, Nature.NORMAL);
 
 			if (pcAbility != null)
 			{
-				CNAbility cna =
-						CNAbilityFactory.getCNAbility(theCategory,
-							Nature.NORMAL, anAbility);
+				CNAbility cna = CNAbilityFactory.getCNAbility(theCategory, Nature.NORMAL, anAbility);
 				AbilityUtilities.driveChooseAndAdd(cna, theCharacter, false);
 				theCharacter.adjustMoveRates();
 			}
@@ -437,8 +416,8 @@ public class CharacterAbilities
 		catch (Exception exc)
 		{
 			Logging.errorPrintLocalised("in_iayFailedToRemoveAbility", exc); //$NON-NLS-1$
-			delegate.showErrorMessage(Constants.APPLICATION_NAME, LanguageBundle
-				.getString("in_iayRemoveAbility") //$NON-NLS-1$
+			delegate.showErrorMessage(
+				Constants.APPLICATION_NAME, LanguageBundle.getString("in_iayRemoveAbility") //$NON-NLS-1$
 				+ ": " + exc.getMessage());
 			return;
 		}
@@ -466,7 +445,7 @@ public class CharacterAbilities
 		}
 		return abList;
 	}
-	
+
 	/**
 	 * @return The list of active ability categories.
 	 */
@@ -482,8 +461,7 @@ public class CharacterAbilities
 	 */
 	public int getTotalSelections(AbilityCategoryFacade categoryFacade)
 	{
-		if (categoryFacade == null
-			|| !(categoryFacade instanceof AbilityCategory))
+		if (categoryFacade == null || !(categoryFacade instanceof AbilityCategory))
 		{
 			return 0;
 		}
@@ -500,8 +478,7 @@ public class CharacterAbilities
 	 */
 	public int getRemainingSelections(AbilityCategoryFacade categoryFacade)
 	{
-		if (categoryFacade == null
-			|| !(categoryFacade instanceof AbilityCategory))
+		if (categoryFacade == null || !(categoryFacade instanceof AbilityCategory))
 		{
 			return 0;
 		}
@@ -516,11 +493,9 @@ public class CharacterAbilities
 	 * @param categoryFacade The ability category to be set.
 	 * @param remaining The number of choices left.
 	 */
-	public void setRemainingSelection(AbilityCategoryFacade categoryFacade,
-		int remaining)
+	public void setRemainingSelection(AbilityCategoryFacade categoryFacade, int remaining)
 	{
-		if (categoryFacade == null
-			|| !(categoryFacade instanceof AbilityCategory))
+		if (categoryFacade == null || !(categoryFacade instanceof AbilityCategory))
 		{
 			return;
 		}
@@ -533,9 +508,8 @@ public class CharacterAbilities
 		{
 			return;
 		}
-		
-		theCharacter.adjustAbilities(category, newRemain
-			.subtract(pool));
+
+		theCharacter.adjustAbilities(category, newRemain.subtract(pool));
 	}
 
 	/**
@@ -544,8 +518,7 @@ public class CharacterAbilities
 	 * @param ability The ability to be checked.
 	 * @return true if the character has the ability, false otherwise.
 	 */
-	public boolean hasAbility(AbilityCategoryFacade category,
-		AbilityFacade ability)
+	public boolean hasAbility(AbilityCategoryFacade category, AbilityFacade ability)
 	{
 		DefaultListFacade<AbilityFacade> abList = abilityListMap.get(category);
 		if (abList == null)
@@ -575,7 +548,7 @@ public class CharacterAbilities
 	{
 		abilityCatSelectionListeners.remove(listener);
 	}
-	
+
 	/**
 	 * Advise any listeners that the number of selections may have changed. 
 	 * @param cat The ability category that may have changed.
@@ -592,7 +565,7 @@ public class CharacterAbilities
 			listener.ItemChanged(event);
 		}
 	}
-	
+
 	/**
 	 * After any other processing has finished, advise any listeners that 
 	 * the number of selections may have changed. 
@@ -611,7 +584,7 @@ public class CharacterAbilities
 			}
 		});
 	}
-	
+
 	/**
 	 * After any other processing has finished, refresh the todo information. 
 	 * This occurs as category totals are updated after we are notified of the 
@@ -629,7 +602,7 @@ public class CharacterAbilities
 			}
 		});
 	}
-	
+
 	/**
 	 * Signal that any ability that could have choices has been modified. This 
 	 * ensures that the choice display is up to date.
@@ -652,40 +625,36 @@ public class CharacterAbilities
 		}
 	}
 
-	private boolean checkAbilityQualify(final Ability anAbility,
-		AbilityCategory theCategory)
+	private boolean checkAbilityQualify(final Ability anAbility, AbilityCategory theCategory)
 	{
 		final String aKey = anAbility.getKeyName();
 		boolean pcHasIt = theCharacter.hasAbilityKeyed(theCategory, aKey);
 
 		if (pcHasIt && !anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 		{
-			delegate.showErrorMessage(Constants.APPLICATION_NAME, LanguageBundle
-				.getString("InfoAbility.Messages.Duplicate")); //$NON-NLS-1$
+			delegate.showErrorMessage(Constants.APPLICATION_NAME,
+				LanguageBundle.getString("InfoAbility.Messages.Duplicate")); //$NON-NLS-1$
 			return false;
 		}
 
 		//TODO Why do we regrab the context-based Ability when an Ability was passed in?
-		Ability ability = Globals.getContext().getReferenceContext()
-			.getManufacturerId(theCategory).getActiveObject(aKey);
-		if (ability != null
-			&& !ability.qualifies(theCharacter, ability)
-			&& (!Globals.checkRule(RuleConstants.FEATPRE) || !AbilityUtilities
-				.isFeat(ability)))
+		Ability ability =
+				Globals.getContext().getReferenceContext().getManufacturerId(theCategory).getActiveObject(aKey);
+		if (ability != null && !ability.qualifies(theCharacter, ability)
+			&& (!Globals.checkRule(RuleConstants.FEATPRE) || !AbilityUtilities.isFeat(ability)))
 		{
-			delegate.showErrorMessage(Constants.APPLICATION_NAME, LanguageBundle
-				.getString("InfoAbility.Messages.NotQualified")); //$NON-NLS-1$
+			delegate.showErrorMessage(Constants.APPLICATION_NAME,
+				LanguageBundle.getString("InfoAbility.Messages.NotQualified")); //$NON-NLS-1$
 			return false;
 		}
 
 		if ((ability != null))
 		{
 			final BigDecimal cost = ability.getSafe(ObjectKey.SELECTION_COST);
-			if (cost.compareTo(theCharacter
-				.getAvailableAbilityPool(theCategory)) > 0)
+			if (cost.compareTo(theCharacter.getAvailableAbilityPool(theCategory)) > 0)
 			{
-				delegate.showErrorMessage(Constants.APPLICATION_NAME, LanguageBundle
-					.getString("InfoAbility.Messages.NoPoints")); //$NON-NLS-1$
+				delegate.showErrorMessage(Constants.APPLICATION_NAME,
+					LanguageBundle.getString("InfoAbility.Messages.NoPoints")); //$NON-NLS-1$
 				return false;
 			}
 		}
@@ -693,7 +662,8 @@ public class CharacterAbilities
 		return true;
 	}
 
-	private void addElement(Map<AbilityCategoryFacade, DefaultListFacade<AbilityFacade>> workingAbilityListMap, CNAbilitySelection cnas)
+	private void addElement(Map<AbilityCategoryFacade, DefaultListFacade<AbilityFacade>> workingAbilityListMap,
+		CNAbilitySelection cnas)
 	{
 		CNAbility cas = cnas.getCNAbility();
 		Ability ability = cas.getAbility();
@@ -731,8 +701,7 @@ public class CharacterAbilities
 	 * The Class {@code GrantedAbilityChangeHandler} responds to changes to
 	 * the character's list of granted abilities.
 	 */
-	private final class GrantedAbilityChangeHandler implements
-			DataFacetChangeListener<CharID, CNAbilitySelection>
+	private final class GrantedAbilityChangeHandler implements DataFacetChangeListener<CharID, CNAbilitySelection>
 	{
 		@SuppressWarnings("nls")
 		@Override
@@ -740,15 +709,14 @@ public class CharacterAbilities
 		{
 			if (dfce.getCharID() != charID)
 			{
-//					Logging.debugPrint("CA for " + theCharacter.getName()
-//						+ ". Ignoring granted ability added for character "
-//						+ dfce.getCharID());
+				//					Logging.debugPrint("CA for " + theCharacter.getName()
+				//						+ ". Ignoring granted ability added for character "
+				//						+ dfce.getCharID());
 				return;
 			}
 			if (Logging.isDebugMode())
 			{
-				Logging.debugPrint("Got granted ability added of "
-					+ dfce.getCDOMObject());
+				Logging.debugPrint("Got granted ability added of " + dfce.getCDOMObject());
 			}
 			rebuildAbilityLists();
 		}
@@ -759,17 +727,13 @@ public class CharacterAbilities
 		{
 			if (dfce.getCharID() != charID)
 			{
-					Logging
-						.debugPrint("CA for "
-							+ charDisplay.getName()
-							+ ". Ignoring granted ability removed for character "
-							+ dfce.getCharID());
+				Logging.debugPrint("CA for " + charDisplay.getName()
+					+ ". Ignoring granted ability removed for character " + dfce.getCharID());
 				return;
 			}
 			if (Logging.isDebugMode())
 			{
-				Logging.debugPrint("Got granted ability removed of "
-					+ dfce.getCDOMObject());
+				Logging.debugPrint("Got granted ability removed of " + dfce.getCDOMObject());
 			}
 			rebuildAbilityLists();
 		}

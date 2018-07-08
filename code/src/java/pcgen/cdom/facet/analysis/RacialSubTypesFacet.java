@@ -74,8 +74,7 @@ public class RacialSubTypesFacet
 			for (PCTemplate aTemplate : templates)
 			{
 				added.addAll(aTemplate.getSafeListFor(ListKey.RACESUBTYPE));
-				removed.addAll(aTemplate
-						.getSafeListFor(ListKey.REMOVED_RACESUBTYPE));
+				removed.addAll(aTemplate.getSafeListFor(ListKey.REMOVED_RACESUBTYPE));
 			}
 			racialSubTypes.addAll(added);
 			racialSubTypes.removeAll(removed);
@@ -127,6 +126,5 @@ public class RacialSubTypesFacet
 	{
 		this.raceFacet = raceFacet;
 	}
-
 
 }

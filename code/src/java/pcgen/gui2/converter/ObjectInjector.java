@@ -51,8 +51,7 @@ public class ObjectInjector
 	private final File outDir;
 	private final File rootDir;
 
-	public ObjectInjector(LoadContext context, File outputDir,
-			File rootDirectory, LSTConverter converter)
+	public ObjectInjector(LoadContext context, File outputDir, File rootDirectory, LSTConverter converter)
 	{
 		outDir = outputDir;
 		rootDir = rootDirectory;
@@ -69,18 +68,14 @@ public class ObjectInjector
 					{
 						className = "EQUIPMOD";
 					}
-					String fileName = className.toLowerCase()
-							+ "_516_conversion.lst";
+					String fileName = className.toLowerCase() + "_516_conversion.lst";
 					context.setExtractURI(uri);
 					Collection<String> result = context.unparse(o);
-					String line = o.getDisplayName() + "\t"
-							+ StringUtil.join(result, "\t");
+					String line = o.getDisplayName() + "\t" + StringUtil.join(result, "\t");
 					if (result != null)
 					{
-						fileData.addToListFor(uri,
-								getOutputFile(uri, fileName), line);
-						campaignData.addToListFor(uri, className, fileName,
-								line);
+						fileData.addToListFor(uri, getOutputFile(uri, fileName), line);
+						campaignData.addToListFor(uri, className, fileName, line);
 					}
 				}
 			}
@@ -103,10 +98,8 @@ public class ObjectInjector
 		File base = findSubRoot(rootDir, in);
 		String relative = in.toString().substring(base.toString().length() + 1);
 		File actualRoot = generateCommonRoot(rootDir, outDir);
-		String outString = outDir.getAbsolutePath().substring(
-				actualRoot.getAbsolutePath().length());
-		File outputFileSibling = new File(actualRoot, File.separator + outString
-				+ File.separator + relative);
+		String outString = outDir.getAbsolutePath().substring(actualRoot.getAbsolutePath().length());
+		File outputFileSibling = new File(actualRoot, File.separator + outString + File.separator + relative);
 		return outputFileSibling;
 	}
 
@@ -170,9 +163,8 @@ public class ObjectInjector
 		return sb.toString();
 	}
 
-	private boolean processWrite(Campaign campaign,
-			TripleKeyMapToList<URI, String, String, String> toWrite,
-			CampaignSourceEntry cse, boolean needHeader) throws IOException
+	private boolean processWrite(Campaign campaign, TripleKeyMapToList<URI, String, String, String> toWrite,
+		CampaignSourceEntry cse, boolean needHeader) throws IOException
 	{
 		URI uri = cse.getURI();
 		Set<String> classNames = toWrite.getSecondaryKeySet(uri);
@@ -187,11 +179,9 @@ public class ObjectInjector
 			}
 			for (String className : classNames)
 			{
-				for (String fileName : toWrite
-						.getTertiaryKeySet(uri, className))
+				for (String fileName : toWrite.getTertiaryKeySet(uri, className))
 				{
-					CampaignSourceEntry writecse = cse
-							.getRelatedTarget(fileName);
+					CampaignSourceEntry writecse = cse.getRelatedTarget(fileName);
 					writer.write(className);
 					writer.write(":");
 					writer.write(writecse.getLSTformat());
@@ -211,8 +201,7 @@ public class ObjectInjector
 		sb.append(" during dataset conversion by PCGen ");
 		try
 		{
-			ResourceBundle d_properties = ResourceBundle
-					.getBundle("pcgen/gui/prop/PCGenProp");
+			ResourceBundle d_properties = ResourceBundle.getBundle("pcgen/gui/prop/PCGenProp");
 			sb.append(d_properties.getString("VersionNumber"));
 		}
 		catch (MissingResourceException mre)
@@ -237,7 +226,6 @@ public class ObjectInjector
 		}
 		return findSubRoot(root, in.getParentFile());
 	}
-
 
 	private File generateCommonRoot(File a, File b)
 	{

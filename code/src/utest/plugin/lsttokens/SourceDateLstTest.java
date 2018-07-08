@@ -31,24 +31,28 @@ import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
-public class SourceDateLstTest extends AbstractGlobalTokenTestCase {
+public class SourceDateLstTest extends AbstractGlobalTokenTestCase
+{
 
 	static SourcedateLst token = new SourcedateLst();
 	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
-	public ObjectKey<Date> getKey() {
+	public ObjectKey<Date> getKey()
+	{
 		return ObjectKey.SOURCE_DATE;
 	}
 
 	@Test
-	public void testInvalidInputEmpty() throws PersistenceLayerException {
+	public void testInvalidInputEmpty() throws PersistenceLayerException
+	{
 		assertFalse(parse(""));
 		assertNull(primaryProf.get(getKey()));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testValidInputs() throws PersistenceLayerException {
+	public void testValidInputs() throws PersistenceLayerException
+	{
 		assertTrue(parse("2011-09"));
 		assertEquals("September 1, 2011", token.unparse(primaryContext, primaryProf)[0]);
 		assertTrue(parse("January 24, 2010"));
@@ -61,22 +65,26 @@ public class SourceDateLstTest extends AbstractGlobalTokenTestCase {
 //	}
 
 	@Test
-	public void testRoundRobinWithSpace() throws PersistenceLayerException {
+	public void testRoundRobinWithSpace() throws PersistenceLayerException
+	{
 		runRoundRobin("January 24, 2010");
 	}
 
 	@Override
-	protected String getAlternateLegalValue() {
+	protected String getAlternateLegalValue()
+	{
 		return "September 1, 2011";
 	}
 
 	@Override
-	protected String getLegalValue() {
+	protected String getLegalValue()
+	{
 		return "January 24, 2010";
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException {
+	public void testUnparseNull() throws PersistenceLayerException
+	{
 		primaryProf.put(getKey(), null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
@@ -98,22 +106,26 @@ public class SourceDateLstTest extends AbstractGlobalTokenTestCase {
 //	}
 
 	@Override
-	protected ConsolidationRule getConsolidationRule() {
+	protected ConsolidationRule getConsolidationRule()
+	{
 		return ConsolidationRule.OVERWRITE;
 	}
 
 	@Override
-	public Class<PCTemplate> getCDOMClass() {
+	public Class<PCTemplate> getCDOMClass()
+	{
 		return PCTemplate.class;
 	}
 
 	@Override
-	public CDOMLoader<PCTemplate> getLoader() {
+	public CDOMLoader<PCTemplate> getLoader()
+	{
 		return loader;
 	}
 
 	@Override
-	public CDOMPrimaryToken<CDOMObject> getToken() {
+	public CDOMPrimaryToken<CDOMObject> getToken()
+	{
 		return token;
 	}
 }

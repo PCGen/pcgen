@@ -22,14 +22,14 @@ import pcgen.cdom.base.SortKeyRequired;
 /**
  * This is a trivial sorter for objects that implement the SortKeyRequired interface
  */
-public class SortKeyComparator implements Comparator<SortKeyRequired>
+public final class SortKeyComparator implements Comparator<SortKeyRequired>
 {
 
 	/**
 	 * The singleton instance of SortKeyComparator.
 	 */
 	private static final Comparator<SortKeyRequired> INSTANCE = new SortKeyComparator();
-	
+
 	private SortKeyComparator()
 	{
 		//Private for Singleton

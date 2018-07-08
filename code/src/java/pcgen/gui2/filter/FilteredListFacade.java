@@ -21,11 +21,10 @@ package pcgen.gui2.filter;
 import java.util.ArrayList;
 import java.util.List;
 
-import pcgen.facade.util.event.ListEvent;
-import pcgen.facade.util.event.ListListener;
 import pcgen.facade.util.AbstractListFacade;
 import pcgen.facade.util.ListFacade;
-
+import pcgen.facade.util.event.ListEvent;
+import pcgen.facade.util.event.ListListener;
 
 public class FilteredListFacade<C, E> extends AbstractListFacade<E> implements ListListener<E>
 {

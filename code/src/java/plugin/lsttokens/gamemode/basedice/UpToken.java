@@ -28,8 +28,7 @@ import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class UpToken extends AbstractTokenWithSeparator<BaseDice> implements
-		CDOMPrimaryToken<BaseDice>
+public class UpToken extends AbstractTokenWithSeparator<BaseDice> implements CDOMPrimaryToken<BaseDice>
 {
 
 	@Override
@@ -39,8 +38,7 @@ public class UpToken extends AbstractTokenWithSeparator<BaseDice> implements
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-			BaseDice bd, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, BaseDice bd, String value)
 	{
 		StringTokenizer st = new StringTokenizer(value, Constants.COMMA);
 		while (st.hasMoreTokens())
@@ -52,8 +50,7 @@ public class UpToken extends AbstractTokenWithSeparator<BaseDice> implements
 			}
 			catch (IllegalArgumentException e)
 			{
-				return new ParseResult.Fail("Invalid Roll provided: " + roll
-						+ " in " + value);
+				return new ParseResult.Fail("Invalid Roll provided: " + roll + " in " + value);
 			}
 		}
 		return ParseResult.SUCCESS;
@@ -68,7 +65,7 @@ public class UpToken extends AbstractTokenWithSeparator<BaseDice> implements
 	@Override
 	public String[] unparse(LoadContext context, BaseDice bd)
 	{
-		return new String[] { StringUtil.join(bd.getUpSteps(), Constants.COMMA) };
+		return new String[]{StringUtil.join(bd.getUpSteps(), Constants.COMMA)};
 	}
 
 	@Override

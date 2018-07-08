@@ -66,7 +66,7 @@ public class RandomNameDialog extends JDialog
 			Utility.setComponentRelativeLocation(frame, this);
 		}
 		cancelled = false;
-		
+
 		Utility.installEscapeCloseOperation(this);
 	}
 
@@ -92,8 +92,7 @@ public class RandomNameDialog extends JDialog
 			}
 		});
 
-		JButton cancelButton =
-				new JButton(LanguageBundle.getString("in_cancel")); //$NON-NLS-1$
+		JButton cancelButton = new JButton(LanguageBundle.getString("in_cancel")); //$NON-NLS-1$
 		cancelButton.setMnemonic(LanguageBundle.getMnemonic("in_mn_cancel")); //$NON-NLS-1$
 		controlPanel.add(cancelButton);
 		cancelButton.addActionListener(new ActionListener()
@@ -117,7 +116,7 @@ public class RandomNameDialog extends JDialog
 		cancelled = true;
 		setVisible(false);
 	}
-	
+
 	/**
 	 * @return The directory where the random name data is held
 	 */
@@ -127,7 +126,7 @@ public class RandomNameDialog extends JDialog
 
 		return pluginDirectory + File.separator + "Random Names";
 	}
-	
+
 	/**
 	 * @return The name the user generated.
 	 */

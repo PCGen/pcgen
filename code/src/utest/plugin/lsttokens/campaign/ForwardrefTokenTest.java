@@ -159,8 +159,10 @@ public class ForwardrefTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	@Test
 	public void testRoundRobinJustAbility() throws PersistenceLayerException
 	{
-		AbilityCategory newCatp = primaryContext.getReferenceContext().constructCDOMObject(AbilityCategory.class, "NEWCAT");
-		AbilityCategory newCats = secondaryContext.getReferenceContext().constructCDOMObject(AbilityCategory.class, "NEWCAT");
+		AbilityCategory newCatp =
+				primaryContext.getReferenceContext().constructCDOMObject(AbilityCategory.class, "NEWCAT");
+		AbilityCategory newCats =
+				secondaryContext.getReferenceContext().constructCDOMObject(AbilityCategory.class, "NEWCAT");
 		constructAbility(primaryContext, newCatp, "Abil3");
 		constructAbility(secondaryContext, newCats, "Abil3");
 		runRoundRobin("ABILITY=NEWCAT|Abil3");
@@ -177,13 +179,14 @@ public class ForwardrefTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testRoundRobinAbilitySpell()
-			throws PersistenceLayerException
+	public void testRoundRobinAbilitySpell() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Lightning Bolt");
 		secondaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Lightning Bolt");
-		AbilityCategory newCatp = primaryContext.getReferenceContext().constructCDOMObject(AbilityCategory.class, "NEWCAT");
-		AbilityCategory newCats = secondaryContext.getReferenceContext().constructCDOMObject(AbilityCategory.class, "NEWCAT");
+		AbilityCategory newCatp =
+				primaryContext.getReferenceContext().constructCDOMObject(AbilityCategory.class, "NEWCAT");
+		AbilityCategory newCats =
+				secondaryContext.getReferenceContext().constructCDOMObject(AbilityCategory.class, "NEWCAT");
 		constructAbility(primaryContext, newCatp, "Abil3");
 		constructAbility(secondaryContext, newCats, "Abil3");
 		runRoundRobin("ABILITY=NEWCAT|Abil3", "SPELL|Lightning Bolt");

@@ -11,13 +11,13 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class WeaponprofpenaltyToken implements GameModeLstToken
 {
 
-    @Override
+	@Override
 	public String getTokenName()
 	{
 		return "WEAPONNONPROFPENALTY";
 	}
 
-    @Override
+	@Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		try

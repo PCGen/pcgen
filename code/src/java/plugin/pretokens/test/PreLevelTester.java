@@ -24,9 +24,7 @@ import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 
-
-public class PreLevelTester extends AbstractDisplayPrereqTest implements
-		PrerequisiteTest
+public class PreLevelTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
 	@Override
@@ -34,9 +32,7 @@ public class PreLevelTester extends AbstractDisplayPrereqTest implements
 	{
 
 		final int requiredLevel = Integer.parseInt(prereq.getOperand());
-		final int runningTotal =
-				prereq.getOperator().compare(display.getTotalLevels(),
-					requiredLevel);
+		final int runningTotal = prereq.getOperator().compare(display.getTotalLevels(), requiredLevel);
 		return countedTotal(prereq, runningTotal);
 	}
 
@@ -44,7 +40,7 @@ public class PreLevelTester extends AbstractDisplayPrereqTest implements
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "LEVEL"; //$NON-NLS-1$

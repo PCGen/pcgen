@@ -46,8 +46,8 @@ import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
-public class ArmorProfToken extends AbstractNonEmptyToken<CDOMObject> implements
-		CDOMSecondaryToken<CDOMObject>, ChooseSelectionActor<ArmorProf>
+public class ArmorProfToken extends AbstractNonEmptyToken<CDOMObject>
+		implements CDOMSecondaryToken<CDOMObject>, ChooseSelectionActor<ArmorProf>
 {
 
 	private static final Class<ArmorProf> ARMORPROF_CLASS = ArmorProf.class;
@@ -72,8 +72,7 @@ public class ArmorProfToken extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		CDOMObject obj, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj, String value)
 	{
 		String armorProf;
 		Prerequisite prereq = null; // Do not initialize, null is significant!
@@ -94,16 +93,14 @@ public class ArmorProfToken extends AbstractNonEmptyToken<CDOMObject> implements
 					if (isPre)
 					{
 						String errorText =
-								"Invalid " + getTokenName() + ": " + value
-									+ "  PRExxx must be at the END of the Token";
+								"Invalid " + getTokenName() + ": " + value + "  PRExxx must be at the END of the Token";
 						Logging.errorPrint(errorText);
 						return new ParseResult.Fail(errorText);
 					}
 					prereq = getPrerequisite(token);
 					if (prereq == null)
 					{
-						return new ParseResult.Fail("Error generating Prerequisite "
-								+ prereq + " in " + getFullName());
+						return new ParseResult.Fail("Error generating Prerequisite " + prereq + " in " + getFullName());
 					}
 					int preStart = value.indexOf(token) - 1;
 					armorProf = value.substring(0, preStart);
@@ -114,8 +111,7 @@ public class ArmorProfToken extends AbstractNonEmptyToken<CDOMObject> implements
 		else
 		{
 			return new ParseResult.Fail(
-				"Use of [] for Prerequisites has been removed. "
-					+ "Please use | based standard");
+				"Use of [] for Prerequisites has been removed. " + "Please use | based standard");
 		}
 
 		ParseResult pr = checkSeparatorsAndNonEmpty('|', armorProf);
@@ -146,8 +142,7 @@ public class ArmorProfToken extends AbstractNonEmptyToken<CDOMObject> implements
 				}
 				else
 				{
-					ConditionalSelectionActor<ArmorProf> cca =
-							new ConditionalSelectionActor<>(this);
+					ConditionalSelectionActor<ArmorProf> cca = new ConditionalSelectionActor<>(this);
 					cca.addPrerequisite(prereq);
 					cra = cca;
 				}
@@ -156,16 +151,13 @@ public class ArmorProfToken extends AbstractNonEmptyToken<CDOMObject> implements
 			else if (Constants.LST_ALL.equalsIgnoreCase(aProf))
 			{
 				foundAny = true;
-				armorProfs.add(context.getReferenceContext().getCDOMAllReference(
-					ARMORPROF_CLASS));
+				armorProfs.add(context.getReferenceContext().getCDOMAllReference(ARMORPROF_CLASS));
 			}
-			else if (aProf.startsWith("ARMORTYPE.")
-					|| aProf.startsWith("ARMORTYPE="))
+			else if (aProf.startsWith("ARMORTYPE.") || aProf.startsWith("ARMORTYPE="))
 			{
 				foundOther = true;
-				CDOMReference<Equipment> ref = TokenUtilities.getTypeReference(
-						context, EQUIPMENT_CLASS, "ARMOR."
-								+ aProf.substring(10));
+				CDOMReference<Equipment> ref =
+						TokenUtilities.getTypeReference(context, EQUIPMENT_CLASS, "ARMOR." + aProf.substring(10));
 				if (ref == null)
 				{
 					return ParseResult.INTERNAL_ERROR;
@@ -175,15 +167,14 @@ public class ArmorProfToken extends AbstractNonEmptyToken<CDOMObject> implements
 			else
 			{
 				foundOther = true;
-				armorProfs.add(context.getReferenceContext().getCDOMReference(ARMORPROF_CLASS,
-						aProf));
+				armorProfs.add(context.getReferenceContext().getCDOMReference(ARMORPROF_CLASS, aProf));
 			}
 		}
 
 		if (foundAny && foundOther)
 		{
-			return new ParseResult.Fail("Non-sensical " + getFullName()
-					+ ": Contains ANY and a specific reference: " + value);
+			return new ParseResult.Fail(
+				"Non-sensical " + getFullName() + ": Contains ANY and a specific reference: " + value);
 		}
 
 		if (!armorProfs.isEmpty() || !equipTypes.isEmpty())
@@ -202,10 +193,9 @@ public class ArmorProfToken extends AbstractNonEmptyToken<CDOMObject> implements
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
-		Changes<ArmorProfProvider> changes = context.getObjectContext().getListChanges(obj,
-				ListKey.AUTO_ARMORPROF);
-		Changes<ChooseSelectionActor<?>> listChanges = context.getObjectContext()
-				.getListChanges(obj, ListKey.NEW_CHOOSE_ACTOR);
+		Changes<ArmorProfProvider> changes = context.getObjectContext().getListChanges(obj, ListKey.AUTO_ARMORPROF);
+		Changes<ChooseSelectionActor<?>> listChanges =
+				context.getObjectContext().getListChanges(obj, ListKey.NEW_CHOOSE_ACTOR);
 		Collection<ArmorProfProvider> added = changes.getAdded();
 		Set<String> set = new TreeSet<>();
 		Collection<ChooseSelectionActor<?>> listAdded = listChanges.getAdded();
@@ -224,8 +214,7 @@ public class ArmorProfToken extends AbstractNonEmptyToken<CDOMObject> implements
 					}
 					catch (PersistenceLayerException e)
 					{
-						context.addWriteMessage("Error writing Prerequisite: "
-								+ e);
+						context.addWriteMessage("Error writing Prerequisite: " + e);
 						return null;
 					}
 				}
@@ -240,8 +229,7 @@ public class ArmorProfToken extends AbstractNonEmptyToken<CDOMObject> implements
 				if (spp.hasPrerequisites())
 				{
 					sb.append('|');
-					sb.append(getPrerequisiteString(context, spp
-							.getPrerequisiteList()));
+					sb.append(getPrerequisiteString(context, spp.getPrerequisiteList()));
 				}
 				String ab = sb.toString();
 				boolean isUnconditionalAll = Constants.LST_ALL.equals(ab);
@@ -252,8 +240,8 @@ public class ArmorProfToken extends AbstractNonEmptyToken<CDOMObject> implements
 		}
 		if (foundAny && foundOther)
 		{
-			context.addWriteMessage("Non-sensical " + getFullName()
-					+ ": Contains ANY and a specific reference: " + set);
+			context
+				.addWriteMessage("Non-sensical " + getFullName() + ": Contains ANY and a specific reference: " + set);
 			return null;
 		}
 		if (set.isEmpty())
@@ -263,7 +251,6 @@ public class ArmorProfToken extends AbstractNonEmptyToken<CDOMObject> implements
 		}
 		return set.toArray(new String[set.size()]);
 	}
-
 
 	@Override
 	public Class<CDOMObject> getTokenClass()

@@ -22,8 +22,7 @@ import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.base.QualifyingObject;
 import pcgen.core.spell.Spell;
 
-public class SpellLikeAbility extends ConcretePrereqObject implements
-		QualifyingObject
+public class SpellLikeAbility extends ConcretePrereqObject implements QualifyingObject
 {
 	private final Spell spell;
 	private final Formula castTimes; // times the spell is in this list
@@ -33,8 +32,8 @@ public class SpellLikeAbility extends ConcretePrereqObject implements
 	private final String book;
 	private final String qualifiedKey;
 
-	public SpellLikeAbility(Spell sp, Formula times, String timeunit,
-		String spellbook, String fixedLevel, String fixedDC, String sourceident)
+	public SpellLikeAbility(Spell sp, Formula times, String timeunit, String spellbook, String fixedLevel,
+		String fixedDC, String sourceident)
 	{
 		spell = sp;
 		castTimes = times;

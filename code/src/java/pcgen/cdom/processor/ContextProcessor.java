@@ -65,13 +65,11 @@ public class ContextProcessor<T, R extends PrereqObject> implements Processor<T>
 	{
 		if (mod == null)
 		{
-			throw new IllegalArgumentException(
-					"Processor in ContextProcessor cannot be null");
+			throw new IllegalArgumentException("Processor in ContextProcessor cannot be null");
 		}
 		if (contextRef == null)
 		{
-			throw new IllegalArgumentException(
-					"Context in ContextProcessor cannot be null");
+			throw new IllegalArgumentException("Context in ContextProcessor cannot be null");
 		}
 		processor = mod;
 		contextItems = contextRef;
@@ -124,8 +122,7 @@ public class ContextProcessor<T, R extends PrereqObject> implements Processor<T>
 		String contextString = contextItems.getLSTformat(false);
 		StringBuilder sb = new StringBuilder();
 		sb.append(processor.getLSTformat()).append('|');
-		sb.append(StringPClassUtil.getStringFor(contextItems
-				.getReferenceClass()));
+		sb.append(StringPClassUtil.getStringFor(contextItems.getReferenceClass()));
 		sb.append(contextString.indexOf('=') == -1 ? '=' : '.');
 		sb.append(contextString);
 		return sb.toString();
@@ -156,8 +153,7 @@ public class ContextProcessor<T, R extends PrereqObject> implements Processor<T>
 		if (obj instanceof ContextProcessor)
 		{
 			ContextProcessor<?, ?> other = (ContextProcessor<?, ?>) obj;
-			return processor.equals(other.processor)
-					&& contextItems.equals(other.contextItems);
+			return processor.equals(other.processor) && contextItems.equals(other.contextItems);
 		}
 		return false;
 	}

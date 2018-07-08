@@ -42,8 +42,7 @@ public final class KitFunds extends BaseKit
 	}
 
 	@Override
-	public boolean testApply(Kit aKit, PlayerCharacter aPC,
-		List<String> warnings)
+	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
 	{
 		theQty = -1;
 		if (quantity == null)
@@ -71,7 +70,7 @@ public final class KitFunds extends BaseKit
 		quantity = formula;
 	}
 
-    @Override
+	@Override
 	public void setName(String value)
 	{
 		name = value;

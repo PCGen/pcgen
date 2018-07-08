@@ -27,8 +27,7 @@ import pcgen.rules.context.LoadContext;
 /**
  * This stores the LoadContext for each Data Load (DataSetID).
  */
-public class LoadContextFacet
-		extends AbstractItemFacet<DataSetID, WeakReference<LoadContext>>
+public class LoadContextFacet extends AbstractItemFacet<DataSetID, WeakReference<LoadContext>>
 		implements DataSetInitializedFacet
 {
 
@@ -49,8 +48,7 @@ public class LoadContextFacet
 		OutputDB.registerModelFactory("val", new GlobalVarModelFactory());
 	}
 
-	public void setDataSetInitializationFacet(
-		DataSetInitializationFacet datasetInitializationFacet)
+	public void setDataSetInitializationFacet(DataSetInitializationFacet datasetInitializationFacet)
 	{
 		this.datasetInitializationFacet = datasetInitializationFacet;
 	}

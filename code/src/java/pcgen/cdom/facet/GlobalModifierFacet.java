@@ -21,7 +21,6 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractItemFacet;
 import pcgen.cdom.inst.GlobalModifiers;
 
-public class GlobalModifierFacet extends
-		AbstractItemFacet<CharID, GlobalModifiers>
+public class GlobalModifierFacet extends AbstractItemFacet<CharID, GlobalModifiers>
 {
 }

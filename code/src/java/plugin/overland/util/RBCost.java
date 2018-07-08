@@ -15,7 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
- package plugin.overland.util;
+package plugin.overland.util;
 
 /** 
  * Class that holds a single travel method and its speed.  Note: This is a wrapper for the Pair class

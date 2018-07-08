@@ -20,9 +20,9 @@ package pcgen.gui2.tabs.equip;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.EquipmentFacade;
 import pcgen.facade.core.EquipmentListFacade;
-import pcgen.facade.core.EquipmentSetFacade;
 import pcgen.facade.core.EquipmentListFacade.EquipmentListEvent;
 import pcgen.facade.core.EquipmentListFacade.EquipmentListListener;
+import pcgen.facade.core.EquipmentSetFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.gui2.filter.FilteredListFacadeTableModel;
 
@@ -63,7 +63,7 @@ public class EquipmentTableModel extends FilteredListFacadeTableModel<EquipmentF
 	{
 		this.equipmentSet = equipmentSet;
 	}
-	
+
 	@Override
 	public int getColumnCount()
 	{

@@ -24,8 +24,7 @@ import pcgen.core.display.CharacterDisplay;
 import pcgen.core.spell.Spell;
 import pcgen.util.enumeration.Load;
 
-public class PCEncumberanceTermEvaluator 
-		extends BasePCDTermEvaluator implements TermEvaluator
+public class PCEncumberanceTermEvaluator extends BasePCDTermEvaluator implements TermEvaluator
 {
 	public PCEncumberanceTermEvaluator(String originalText)
 	{
@@ -39,18 +38,18 @@ public class PCEncumberanceTermEvaluator
 	}
 
 	@Override
-	public String evaluate (CharacterDisplay display)
+	public String evaluate(CharacterDisplay display)
 	{
 		final Load l = display.getLoadType();
 		return ((Integer) l.ordinal()).toString();
 	}
 
 	@Override
-	public String evaluate (CharacterDisplay display, Spell aSpell)
+	public String evaluate(CharacterDisplay display, Spell aSpell)
 	{
 		return evaluate(display);
 	}
-	
+
 	@Override
 	public boolean isSourceDependant()
 	{

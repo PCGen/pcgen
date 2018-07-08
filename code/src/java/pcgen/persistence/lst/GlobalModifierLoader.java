@@ -36,49 +36,41 @@ public class GlobalModifierLoader extends LstLineFileLoader
 	public static final String GLOBAL_MODIFIERS = "Global Modifiers";
 
 	@Override
-	public void parseLine(LoadContext context, String lstLine, URI sourceURI)
-		throws PersistenceLayerException
+	public void parseLine(LoadContext context, String lstLine, URI sourceURI) throws PersistenceLayerException
 	{
 		if (lstLine.indexOf('\t') != -1)
 		{
-			Logging
-				.errorPrint("Global Modifier File prohibits multiple tokens per line, ignoring: "
-					+ lstLine + " in " + sourceURI);
+			Logging.errorPrint(
+				"Global Modifier File prohibits multiple tokens per line, ignoring: " + lstLine + " in " + sourceURI);
 			return;
 		}
 		GlobalModifiers gm =
-				context.getReferenceContext().constructNowIfNecessary(
-					GlobalModifiers.class, GLOBAL_MODIFIERS);
+				context.getReferenceContext().constructNowIfNecessary(GlobalModifiers.class, GLOBAL_MODIFIERS);
 		String tok = lstLine.trim();
 		final String token = tok.trim();
 		final int colonLoc = token.indexOf(':');
 		if (colonLoc == -1)
 		{
-			Logging.errorPrint("Invalid Token - does not contain a colon: '"
-				+ token + "' in " + sourceURI);
+			Logging.errorPrint("Invalid Token - does not contain a colon: '" + token + "' in " + sourceURI);
 			return;
 		}
 		else if (colonLoc == 0)
 		{
-			Logging.errorPrint("Invalid Token - starts with a colon: '" + token
-				+ "' in " + sourceURI);
+			Logging.errorPrint("Invalid Token - starts with a colon: '" + token + "' in " + sourceURI);
 			return;
 		}
 		String tokenName = token.substring(0, colonLoc);
-		if ("MODIFY".equalsIgnoreCase(tokenName)||"MODIFYOTHER".equalsIgnoreCase(tokenName))
+		if ("MODIFY".equalsIgnoreCase(tokenName) || "MODIFYOTHER".equalsIgnoreCase(tokenName))
 		{
-			boolean passed =
-					LstUtils.processToken(context, gm, sourceURI, token);
+			boolean passed = LstUtils.processToken(context, gm, sourceURI, token);
 			if (!passed)
 			{
-				Logging.errorPrint("Failed to process line: " + lstLine + " in "
-					+ sourceURI);
+				Logging.errorPrint("Failed to process line: " + lstLine + " in " + sourceURI);
 			}
 		}
 		else
 		{
-			Logging.errorPrint("Ignored line: " + lstLine + " in " + sourceURI
-				+ " due to invalid token");
+			Logging.errorPrint("Ignored line: " + lstLine + " in " + sourceURI + " due to invalid token");
 		}
 	}
 

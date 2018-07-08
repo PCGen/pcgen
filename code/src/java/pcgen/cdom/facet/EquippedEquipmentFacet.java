@@ -33,9 +33,7 @@ import pcgen.output.publish.OutputDB;
  * by a Player Character.
  * 
  */
-public class EquippedEquipmentFacet extends
-		AbstractDataFacet<CharID, Equipment> implements
-		SetFacet<CharID, Equipment>
+public class EquippedEquipmentFacet extends AbstractDataFacet<CharID, Equipment> implements SetFacet<CharID, Equipment>
 {
 	private EquipmentFacet equipmentFacet;
 
@@ -50,8 +48,7 @@ public class EquippedEquipmentFacet extends
 	 */
 	public void reset(CharID id)
 	{
-		Set<Equipment> oldEquipped =
-				(Set<Equipment>) removeCache(id);
+		Set<Equipment> oldEquipped = (Set<Equipment>) removeCache(id);
 		Set<Equipment> currentEquipment = equipmentFacet.getSet(id);
 		Set<Equipment> newEquipped = Collections.newSetFromMap(new IdentityHashMap<>());
 		setCache(id, newEquipped);
@@ -62,8 +59,7 @@ public class EquippedEquipmentFacet extends
 			{
 				if (!currentEquipment.contains(e))
 				{
-					fireDataFacetChangeEvent(id, e,
-							DataFacetChangeEvent.DATA_REMOVED);
+					fireDataFacetChangeEvent(id, e, DataFacetChangeEvent.DATA_REMOVED);
 				}
 			}
 		}
@@ -75,8 +71,7 @@ public class EquippedEquipmentFacet extends
 				// If not old, it's added
 				if (oldEquipped == null || !oldEquipped.contains(e))
 				{
-					fireDataFacetChangeEvent(id, e,
-							DataFacetChangeEvent.DATA_ADDED);
+					fireDataFacetChangeEvent(id, e, DataFacetChangeEvent.DATA_ADDED);
 				}
 			}
 			else
@@ -84,8 +79,7 @@ public class EquippedEquipmentFacet extends
 				// If old, it's removed
 				if (oldEquipped != null && oldEquipped.contains(e))
 				{
-					fireDataFacetChangeEvent(id, e,
-							DataFacetChangeEvent.DATA_REMOVED);
+					fireDataFacetChangeEvent(id, e, DataFacetChangeEvent.DATA_REMOVED);
 				}
 			}
 		}
@@ -123,8 +117,7 @@ public class EquippedEquipmentFacet extends
 		{
 			return Collections.emptySet();
 		}
-		Set<Equipment> returnEquipped =
-				Collections.newSetFromMap(new IdentityHashMap<>());
+		Set<Equipment> returnEquipped = Collections.newSetFromMap(new IdentityHashMap<>());
 		returnEquipped.addAll(set);
 		return returnEquipped;
 	}
@@ -182,8 +175,7 @@ public class EquippedEquipmentFacet extends
 		Set<Equipment> set = (Set<Equipment>) getCache(source);
 		if (set != null)
 		{
-			Set<Equipment> newEquipped =
-					Collections.newSetFromMap(new IdentityHashMap<>());
+			Set<Equipment> newEquipped = Collections.newSetFromMap(new IdentityHashMap<>());
 			newEquipped.addAll(set);
 			setCache(copy, newEquipped);
 		}
@@ -195,7 +187,7 @@ public class EquippedEquipmentFacet extends
 	 */
 	public void removeAll(CharID id)
 	{
-		removeCache(id);		
+		removeCache(id);
 	}
 
 	public void init()

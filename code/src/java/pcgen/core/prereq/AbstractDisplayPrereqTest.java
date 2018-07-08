@@ -45,10 +45,9 @@ public abstract class AbstractDisplayPrereqTest extends AbstractPrerequisiteTest
 	 * @see     pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.prereq.Prerequisite,
 	 *          pcgen.core.PlayerCharacter, CDOMObject)
 	 */
-    @Override
-	public final int passes(
-	    final Prerequisite    prereq,
-	    final PlayerCharacter character, CDOMObject source) throws PrerequisiteException
+	@Override
+	public final int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
+		throws PrerequisiteException
 	{
 		return passes(prereq, (character == null) ? null : character.getDisplay(), source);
 	}
@@ -69,15 +68,11 @@ public abstract class AbstractDisplayPrereqTest extends AbstractPrerequisiteTest
 	 * @throws  PrerequisiteException  Oops, haven't implemented passes with
 	 *                                 this signature in the subclass
 	 */
-    @Override
-	public final int passes(
-	    final Prerequisite prereq,
-	    final Equipment    equipment,
-	    PlayerCharacter    character) throws PrerequisiteException
+	@Override
+	public final int passes(final Prerequisite prereq, final Equipment equipment, PlayerCharacter character)
+		throws PrerequisiteException
 	{
-		return passes(prereq, equipment,
-				(character == null) ? null : character.getDisplay()
-		);
+		return passes(prereq, equipment, (character == null) ? null : character.getDisplay());
 	}
 
 	/**
@@ -97,14 +92,11 @@ public abstract class AbstractDisplayPrereqTest extends AbstractPrerequisiteTest
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.prereq.Prerequisite,
 	 *      pcgen.core.PlayerCharacter, CDOMObject)
 	 */
-	public int passes(final Prerequisite prereq,
-		final CharacterDisplay display, CDOMObject source)
+	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
 		throws PrerequisiteException
 	{
 		String name = this.getClass().getName();
-		String eString =
-				LanguageBundle.getFormattedString(
-					"prereq.error.does_not_support_characters", name);
+		String eString = LanguageBundle.getFormattedString("prereq.error.does_not_support_characters", name);
 		throw new PrerequisiteException(eString);
 	}
 
@@ -128,15 +120,13 @@ public abstract class AbstractDisplayPrereqTest extends AbstractPrerequisiteTest
 	 *             Oops, haven't implemented passes with this signature in the
 	 *             subclass
 	 */
-	public int passes(final Prerequisite prereq, final Equipment equipment,
-		CharacterDisplay display) throws PrerequisiteException
+	public int passes(final Prerequisite prereq, final Equipment equipment, CharacterDisplay display)
+		throws PrerequisiteException
 	{
 		if (display == null)
 		{
 			String name = this.getClass().getName();
-			String eString =
-					LanguageBundle.getFormattedString(
-						"prereq.error.does_not_support_equipment", name);
+			String eString = LanguageBundle.getFormattedString("prereq.error.does_not_support_equipment", name);
 			throw new PrerequisiteException(eString);
 		}
 

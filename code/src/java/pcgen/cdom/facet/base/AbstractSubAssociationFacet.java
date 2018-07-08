@@ -33,13 +33,11 @@ public abstract class AbstractSubAssociationFacet<IDT extends PCGenIdentifier, S
 	{
 		if (obj1 == null)
 		{
-			throw new IllegalArgumentException(
-				"Object for getting association may not be null");
+			throw new IllegalArgumentException("Object for getting association may not be null");
 		}
 		if (obj2 == null)
 		{
-			throw new IllegalArgumentException(
-				"Object for getting association may not be null");
+			throw new IllegalArgumentException("Object for getting association may not be null");
 		}
 		Map<S1, Map<S2, A>> map = getCachedMap(id);
 		if (map == null)
@@ -143,12 +141,11 @@ public abstract class AbstractSubAssociationFacet<IDT extends PCGenIdentifier, S
 		{
 			for (Map.Entry<S1, Map<S2, A>> me : sourceMap.entrySet())
 			{
-				getConstructingCachedMap(destination, me.getKey()).putAll(
-					me.getValue());
+				getConstructingCachedMap(destination, me.getKey()).putAll(me.getValue());
 			}
 		}
 	}
-	
+
 	public Collection<S1> getObjects(IDT id)
 	{
 		Map<S1, Map<S2, A>> map = getCachedMap(id);

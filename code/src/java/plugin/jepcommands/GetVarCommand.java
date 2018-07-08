@@ -1,14 +1,15 @@
 package plugin.jepcommands;
 
+import java.util.Stack;
+
 import org.nfunk.jep.ParseException;
+
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.VariableProcessorEq;
 import pcgen.core.VariableProcessorPC;
 import pcgen.util.Logging;
 import pcgen.util.PCGenCommand;
-
-import java.util.Stack;
 
 /**
  * JEP command for get vars
@@ -28,7 +29,7 @@ public class GetVarCommand extends PCGenCommand
 	 * Gets the name of the function handled by this class.
 	 * @return The name of the function.
 	 */
-    @Override
+	@Override
 	public String getFunctionName()
 	{
 		return "VAR";
@@ -42,7 +43,7 @@ public class GetVarCommand extends PCGenCommand
 	 * @throws ParseException
 	 */
 	@SuppressWarnings("unchecked") //Uses JEP, which doesn't use generics
-    @Override
+	@Override
 	public void run(final Stack inStack) throws ParseException
 	{
 		// check the stack
@@ -74,10 +75,10 @@ public class GetVarCommand extends PCGenCommand
 			throw new ParseException("Invalid parameter count");
 		}
 
-        if (param1 instanceof String)
+		if (param1 instanceof String)
 		{
-            Float result = null;
-            if (parent instanceof PlayerCharacter)
+			Float result = null;
+			if (parent instanceof PlayerCharacter)
 			{
 				final PlayerCharacter character = (PlayerCharacter) parent;
 				result = getVariableForCharacter(character, param1);
@@ -91,35 +92,26 @@ public class GetVarCommand extends PCGenCommand
 					bPrimary = (((Double) param2).intValue() != 0);
 				}
 
-				result =
-						((Equipment) parent).getVariableValue((String) param1,
-							"", bPrimary, null);
+				result = ((Equipment) parent).getVariableValue((String) param1, "", bPrimary, null);
 			}
 			else if (parent instanceof VariableProcessorPC)
 			{
 				final VariableProcessorPC vpc = (VariableProcessorPC) parent;
 				// check to see if this is just a variable
-				result =
-						vpc.lookupVariable((String) param1, variableSource,
-							null);
+				result = vpc.lookupVariable((String) param1, variableSource, null);
 				if (result == null)
 				{
-					result =
-							vpc.getVariableValue(null, (String) param1,
-								variableSource, 0);
+					result = vpc.getVariableValue(null, (String) param1, variableSource, 0);
 				}
 			}
 			else if (parent instanceof VariableProcessorEq)
 			{
 				VariableProcessorEq veq = (VariableProcessorEq) parent;
-				result =
-						veq.getVariableValue(null, (String) param1,
-							variableSource, 0);
+				result = veq.getVariableValue(null, (String) param1, variableSource, 0);
 			}
 			else if (parent == null)
 			{
-				Logging.errorPrint("Ignored request for var "
-					+ String.valueOf(param1) + " with no parent.");
+				Logging.errorPrint("Ignored request for var " + String.valueOf(param1) + " with no parent.");
 			}
 
 			if (result == null)
@@ -137,6 +129,6 @@ public class GetVarCommand extends PCGenCommand
 
 	protected Float getVariableForCharacter(final PlayerCharacter character, final Object param1)
 	{
-        return character.getVariableValue((String) param1, variableSource);
+		return character.getVariableValue((String) param1, variableSource);
 	}
 }

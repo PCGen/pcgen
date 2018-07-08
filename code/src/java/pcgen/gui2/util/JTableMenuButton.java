@@ -23,6 +23,7 @@ import java.awt.Container;
 import java.awt.Graphics;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+
 import javax.swing.JPopupMenu;
 import javax.swing.JTable;
 import javax.swing.SwingConstants;
@@ -100,18 +101,12 @@ public class JTableMenuButton extends JTableHeader
 			g.fillRect(0, 0, width - 1, height - 1);
 			g.setColor(darkShadow);
 			g.drawRect(0, 0, width - 1, height - 1);
-			icon = new ArrowIcon(SwingConstants.SOUTH, size,
-					darkShadow,
-					Color.BLACK,
-					shadow);
+			icon = new ArrowIcon(SwingConstants.SOUTH, size, darkShadow, Color.BLACK, shadow);
 		}
 		else
 		{
 			super.paint(g);
-			icon = new ArrowIcon(SwingConstants.SOUTH, size,
-					shadow,
-					darkShadow,
-					highlight);
+			icon = new ArrowIcon(SwingConstants.SOUTH, size, shadow, darkShadow, highlight);
 		}
 
 		icon.paintIcon(this, g, x, y);

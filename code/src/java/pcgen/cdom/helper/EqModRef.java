@@ -107,8 +107,7 @@ public class EqModRef
 	 */
 	public List<String> getChoices()
 	{
-		return (choices == null ? Collections.emptyList()
-				: new ArrayList<>(choices));
+		return (choices == null ? Collections.emptyList() : new ArrayList<>(choices));
 	}
 
 	/**

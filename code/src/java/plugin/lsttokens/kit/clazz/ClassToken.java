@@ -30,8 +30,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * CLASS token for KitClass
  */
-public class ClassToken extends AbstractNonEmptyToken<KitClass> implements
-		CDOMPrimaryToken<KitClass>
+public class ClassToken extends AbstractNonEmptyToken<KitClass> implements CDOMPrimaryToken<KitClass>
 {
 
 	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
@@ -54,11 +53,9 @@ public class ClassToken extends AbstractNonEmptyToken<KitClass> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, KitClass kitClass,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, KitClass kitClass, String value)
 	{
-		CDOMSingleRef<PCClass> ref =
-				context.getReferenceContext().getCDOMReference(PCCLASS_CLASS, value);
+		CDOMSingleRef<PCClass> ref = context.getReferenceContext().getCDOMReference(PCCLASS_CLASS, value);
 		kitClass.setPcclass(ref);
 		return ParseResult.SUCCESS;
 	}

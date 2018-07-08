@@ -29,10 +29,10 @@ import java.util.Vector;
 
 import javax.swing.JTree;
 
-import pcgen.facade.util.event.ListEvent;
-import pcgen.facade.util.event.ListListener;
 import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.ListFacades;
+import pcgen.facade.util.event.ListEvent;
+import pcgen.facade.util.event.ListListener;
 import pcgen.gui2.util.table.Row;
 import pcgen.gui2.util.treetable.AbstractTreeTableModel;
 import pcgen.gui2.util.treetable.SortableTreeTableModel;
@@ -42,9 +42,7 @@ import pcgen.util.CollectionMaps;
 import pcgen.util.ListMap;
 import pcgen.util.Logging;
 
-
-public class TreeViewTableModel<E> extends AbstractTreeTableModel
-		implements SortableTreeTableModel
+public class TreeViewTableModel<E> extends AbstractTreeTableModel implements SortableTreeTableModel
 {
 
 	private final ListListener<E> listListener = new ListListener<E>()
@@ -263,8 +261,7 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 		reload();
 	}
 
-	private final class TreeViewNode extends JTree.DynamicUtilTreeNode
-			implements SortableTreeTableNode
+	private final class TreeViewNode extends JTree.DynamicUtilTreeNode implements SortableTreeTableNode
 	{
 
 		private final int level;
@@ -274,8 +271,7 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 			this(0, null, paths);
 		}
 
-		private TreeViewNode(int level, Object name,
-				Vector<TreeViewPath<? super E>> paths)
+		private TreeViewNode(int level, Object name, Vector<TreeViewPath<? super E>> paths)
 		{
 			super(name, paths);
 			this.level = level;
@@ -295,9 +291,8 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 			loadedChildren = true;
 			if (childValue != null)
 			{
-				ListMap<Object, TreeViewPath<? super E>, Vector<TreeViewPath<? super E>>> vectorMap = CollectionMaps.createListMap(
-						HashMap.class,
-						Vector.class);
+				ListMap<Object, TreeViewPath<? super E>, Vector<TreeViewPath<? super E>>> vectorMap =
+						CollectionMaps.createListMap(HashMap.class, Vector.class);
 				Vector<TreeViewPath<? super E>> vector = (Vector<TreeViewPath<? super E>>) childValue;
 				for (TreeViewPath<? super E> path : vector)
 				{
@@ -326,9 +321,8 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 					}
 					else
 					{
-			        	Vector nonGenericChildren = children;
-						int index = Collections.binarySearch(nonGenericChildren, child,
-							mostRecentComparator);
+						Vector nonGenericChildren = children;
+						int index = Collections.binarySearch(nonGenericChildren, child, mostRecentComparator);
 						if (index < 0)
 						{
 							insert(child, -(index + 1));
@@ -382,7 +376,7 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 
 		public void insertTreeViewPath(TreeViewPath<? super E> path)
 		{
-//			Logging.errorPrint("adding: "+path);
+			//			Logging.errorPrint("adding: "+path);
 			if (!loadedChildren)
 			{
 				Vector<TreeViewPath<? super E>> vector = (Vector<TreeViewPath<? super E>>) childValue;
@@ -391,8 +385,8 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 			}
 			if (level >= path.getPathCount())
 			{
-				Logging.errorPrint("Ignoring attempt to add child at level "
-						+ level + " which is beyond end of path " + path);
+				Logging.errorPrint(
+					"Ignoring attempt to add child at level " + level + " which is beyond end of path " + path);
 				return;
 			}
 			Object levelObject = path.getPathComponent(level);
@@ -425,7 +419,7 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 				insertNodeInto(newchild, this, getChildCount());
 				return;
 			}
-        	Vector nonGenericChildren = children;
+			Vector nonGenericChildren = children;
 			int index = Collections.binarySearch(nonGenericChildren, newchild, mostRecentComparator);
 			if (index >= 0)
 			{
@@ -481,8 +475,8 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 			}
 			if (children != null)
 			{
-	        	Vector nonGenericChildren = children;
-	        	nonGenericChildren.sort(comparator);
+				Vector nonGenericChildren = children;
+				nonGenericChildren.sort(comparator);
 				for (Object obj : children)
 				{
 					TreeViewNode child = (TreeViewNode) obj;

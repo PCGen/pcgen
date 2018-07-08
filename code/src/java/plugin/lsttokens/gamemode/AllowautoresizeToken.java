@@ -29,13 +29,13 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class AllowautoresizeToken implements GameModeLstToken
 {
 
-    @Override
+	@Override
 	public String getTokenName()
 	{
 		return "ALLOWAUTORESIZE";
 	}
 
-    @Override
+	@Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		gameMode.setAllowAutoResize(value.toUpperCase().startsWith("Y"));

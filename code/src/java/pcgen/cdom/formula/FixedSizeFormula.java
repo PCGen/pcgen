@@ -52,8 +52,7 @@ public class FixedSizeFormula implements Formula
 	{
 		if (sAdj == null)
 		{
-			throw new IllegalArgumentException(
-					"Size Adjustment for FixedSizeFormula cannot be null");
+			throw new IllegalArgumentException("Size Adjustment for FixedSizeFormula cannot be null");
 		}
 		size = sAdj;
 	}
@@ -90,8 +89,7 @@ public class FixedSizeFormula implements Formula
 	@Override
 	public boolean equals(Object obj)
 	{
-		return obj instanceof FixedSizeFormula
-				&& size.equals(((FixedSizeFormula) obj).size);
+		return obj instanceof FixedSizeFormula && size.equals(((FixedSizeFormula) obj).size);
 	}
 
 	/**
@@ -136,8 +134,7 @@ public class FixedSizeFormula implements Formula
 	 *         represents.
 	 */
 	@Override
-	public Number resolve(Equipment equipment, boolean primary,
-			PlayerCharacter apc, String source)
+	public Number resolve(Equipment equipment, boolean primary, PlayerCharacter apc, String source)
 	{
 		return resolveStatic();
 	}

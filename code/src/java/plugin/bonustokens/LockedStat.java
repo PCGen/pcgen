@@ -73,17 +73,13 @@ public final class LockedStat extends BonusObj
 	@Override
 	public String getDescription()
 	{
-		AbstractReferenceContext rc =
-				Globals.getContext().getReferenceContext();
-		final PCStat pcstat =
-				rc.silentlyGetConstructedCDOMObject(PCStat.class,
-					getBonusInfo());
+		AbstractReferenceContext rc = Globals.getContext().getReferenceContext();
+		final PCStat pcstat = rc.silentlyGetConstructedCDOMObject(PCStat.class, getBonusInfo());
 		if (pcstat != null)
 		{
 			return pcstat.getName() + " (locked)";
 		}
 		return super.getDescription();
 	}
-	
-	
+
 }

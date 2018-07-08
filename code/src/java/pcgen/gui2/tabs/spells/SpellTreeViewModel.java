@@ -22,8 +22,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-import pcgen.facade.core.InfoFactory;
 
+import pcgen.facade.core.InfoFactory;
 import pcgen.facade.core.SpellSupportFacade.SpellNode;
 import pcgen.facade.core.SpellSupportFacade.SuperNode;
 import pcgen.facade.util.DefaultListFacade;
@@ -34,7 +34,6 @@ import pcgen.gui2.util.treeview.TreeViewModel;
 import pcgen.gui2.util.treeview.TreeViewPath;
 import pcgen.system.LanguageBundle;
 
-
 public class SpellTreeViewModel implements TreeViewModel<SuperNode>
 {
 
@@ -42,8 +41,8 @@ public class SpellTreeViewModel implements TreeViewModel<SuperNode>
 	private final ListFacade<? extends SuperNode> spellNodes;
 	private final ListFacade<SpellTreeView> treeViews;
 
-	public SpellTreeViewModel(ListFacade<? extends SuperNode> spellNodes,
-			boolean showcolumns, String prefsKey, InfoFactory infoFactory)
+	public SpellTreeViewModel(ListFacade<? extends SuperNode> spellNodes, boolean showcolumns, String prefsKey,
+		InfoFactory infoFactory)
 	{
 		this.spellNodes = spellNodes;
 		this.treeViews = new DefaultListFacade<>(Arrays.asList(SpellTreeView.values()));
@@ -79,7 +78,7 @@ public class SpellTreeViewModel implements TreeViewModel<SuperNode>
 
 		CLASS_LEVEL_SPELL("in_spellClassLevelSpell"), //$NON-NLS-1$
 		CLASS_LEVEL_SCHOOL_SPELL("in_spellClassLevelSchoolSpell"); //$NON-NLS-1$
-		
+
 		private final String name;
 
 		private SpellTreeView(String name)
@@ -105,7 +104,8 @@ public class SpellTreeViewModel implements TreeViewModel<SuperNode>
 				switch (this)
 				{
 					case CLASS_LEVEL_SPELL:
-						Collections.addAll(pathList, pobj.getRootNode(), pobj.getSpellcastingClass(), pobj.getSpellLevel());
+						Collections.addAll(pathList, pobj.getRootNode(), pobj.getSpellcastingClass(),
+							pobj.getSpellLevel());
 						pathList.removeAll(Collections.singleton(null));
 						if (pobj.getSpell() == null)
 						{
@@ -114,8 +114,8 @@ public class SpellTreeViewModel implements TreeViewModel<SuperNode>
 						path = new TreeViewPath<>(pobj, pathList.toArray());
 						break;
 					case CLASS_LEVEL_SCHOOL_SPELL:
-						Collections.addAll(pathList, pobj.getRootNode(),
-							pobj.getSpellcastingClass(), pobj.getSpellLevel());
+						Collections.addAll(pathList, pobj.getRootNode(), pobj.getSpellcastingClass(),
+							pobj.getSpellLevel());
 						if (pobj.getSpell() != null)
 						{
 							pathList.add(pobj.getSpell().getSchool());

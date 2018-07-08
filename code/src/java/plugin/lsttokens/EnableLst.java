@@ -18,8 +18,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * designed to control ONLY ongoing enforcement. It does not do enforcement at user
  * selection. For enforcement at user selection, ALLOW is used.
  */
-public class EnableLst extends AbstractTokenWithSeparator<CDOMObject>
-		implements CDOMPrimaryToken<CDOMObject>
+public class EnableLst extends AbstractTokenWithSeparator<CDOMObject> implements CDOMPrimaryToken<CDOMObject>
 {
 
 	@Override
@@ -35,8 +34,7 @@ public class EnableLst extends AbstractTokenWithSeparator<CDOMObject>
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj,
-		String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
 	{
 		return new ParseResult.Fail("Not supported since it is not monitored in an ongoing fashion");
 	}
@@ -44,8 +42,7 @@ public class EnableLst extends AbstractTokenWithSeparator<CDOMObject>
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
-		Changes<InfoBoolean> changes =
-				context.getObjectContext().getListChanges(obj, ListKey.ENABLE);
+		Changes<InfoBoolean> changes = context.getObjectContext().getListChanges(obj, ListKey.ENABLE);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;

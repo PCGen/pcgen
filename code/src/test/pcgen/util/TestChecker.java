@@ -12,7 +12,7 @@ public abstract class TestChecker
 	 * @return <code>true</code> if the check passes for <var>obj</var>,
 	 *	       <code>false</code> if it doesn't.
 	 */
-	abstract public boolean check(Object obj);
+	public abstract boolean check(Object obj);
 
 	/**
 	 * Appends a description of the check that this class will perform to the StringBuilder passed in.
@@ -20,5 +20,5 @@ public abstract class TestChecker
 	 * @param buffer The buffer that the description is appended to.
 	 * @return The buffer that was passed in.
 	 */
-	abstract public StringBuilder scribe(StringBuilder buffer);
+	public abstract StringBuilder scribe(StringBuilder buffer);
 }

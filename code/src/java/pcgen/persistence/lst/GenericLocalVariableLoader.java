@@ -34,8 +34,7 @@ import pcgen.rules.context.LoadContext;
  *            The type of object that this GenericLocalVariableLoader loads from
  *            LST files
  */
-public class GenericLocalVariableLoader<T extends CDOMObject> extends
-		GenericLoader<T>
+public class GenericLocalVariableLoader<T extends CDOMObject> extends GenericLoader<T>
 {
 
 	/**
@@ -64,8 +63,7 @@ public class GenericLocalVariableLoader<T extends CDOMObject> extends
 	}
 
 	@Override
-	public void loadLstFiles(LoadContext context,
-		List<CampaignSourceEntry> fileList) throws PersistenceLayerException
+	public void loadLstFiles(LoadContext context, List<CampaignSourceEntry> fileList) throws PersistenceLayerException
 	{
 		LoadContext subContext = context.dropIntoContext(varScope);
 		super.loadLstFiles(subContext, fileList);

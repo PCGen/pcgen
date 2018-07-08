@@ -18,10 +18,11 @@
  */
 package pcgen.output.actor;
 
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
 import java.util.Collections;
 import java.util.List;
+
+import freemarker.template.TemplateModel;
+import freemarker.template.TemplateModelException;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
@@ -57,19 +58,16 @@ public class DescriptionActor implements OutputActor<PObject>
 	{
 		this.listKey = listKey;
 	}
-	
+
 	@Override
-	public TemplateModel process(CharID id, PObject d)
-			throws TemplateModelException
+	public TemplateModel process(CharID id, PObject d) throws TemplateModelException
 	{
 		List<Description> theBenefits = d.getListFor(listKey);
 		if (theBenefits == null)
 		{
-			return FacetLibrary.getFacet(ObjectWrapperFacet.class).wrap(id,
-			Constants.EMPTY_STRING);
+			return FacetLibrary.getFacet(ObjectWrapperFacet.class).wrap(id, Constants.EMPTY_STRING);
 		}
-		PlayerCharacterTrackingFacet charStore =
-				SpringHelper.getBean(PlayerCharacterTrackingFacet.class);
+		PlayerCharacterTrackingFacet charStore = SpringHelper.getBean(PlayerCharacterTrackingFacet.class);
 		PlayerCharacter aPC = charStore.getPC(id);
 		final StringBuilder buf = new StringBuilder(250);
 		boolean needSpace = false;
@@ -86,9 +84,7 @@ public class DescriptionActor implements OutputActor<PObject>
 				needSpace = true;
 			}
 		}
-		return FacetLibrary.getFacet(ObjectWrapperFacet.class).wrap(id,
-			buf.toString());
+		return FacetLibrary.getFacet(ObjectWrapperFacet.class).wrap(id, buf.toString());
 	}
 
 }
-

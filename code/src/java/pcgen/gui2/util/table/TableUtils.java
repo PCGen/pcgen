@@ -55,7 +55,8 @@ public class TableUtils
 		return createToggleButtonSelectionPane(table, rowheaderTable, new JRadioButton());
 	}
 
-	private static JScrollPane createToggleButtonSelectionPane(JTable table, JTable rowheaderTable, JToggleButton button)
+	private static JScrollPane createToggleButtonSelectionPane(JTable table, JTable rowheaderTable,
+		JToggleButton button)
 	{
 		rowheaderTable.setAutoCreateColumnsFromModel(false);
 		// force the tables to share models

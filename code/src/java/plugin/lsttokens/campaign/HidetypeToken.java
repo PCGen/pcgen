@@ -35,8 +35,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with HIDETYPE Token
  */
-public class HidetypeToken extends AbstractTokenWithSeparator<Campaign>
-		implements CDOMPrimaryToken<Campaign>
+public class HidetypeToken extends AbstractTokenWithSeparator<Campaign> implements CDOMPrimaryToken<Campaign>
 {
 
 	@Override
@@ -52,8 +51,7 @@ public class HidetypeToken extends AbstractTokenWithSeparator<Campaign>
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		Campaign campaign, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, Campaign campaign, String value)
 	{
 		ListKey<String> lk = null;
 		String types = null;
@@ -74,9 +72,8 @@ public class HidetypeToken extends AbstractTokenWithSeparator<Campaign>
 		}
 		if (lk == null)
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " did not understand: " + value + " in "
-					+ campaign.getKeyName());
+			return new ParseResult.Fail(
+				getTokenName() + " did not understand: " + value + " in " + campaign.getKeyName());
 		}
 		StringTokenizer st = new StringTokenizer(types, Constants.PIPE);
 		while (st.hasMoreTokens())
@@ -86,16 +83,13 @@ public class HidetypeToken extends AbstractTokenWithSeparator<Campaign>
 		return ParseResult.SUCCESS;
 	}
 
-    @Override
+	@Override
 	public String[] unparse(LoadContext context, Campaign campaign)
 	{
 		List<String> returnList = new ArrayList<>();
-		Changes<String> ech = context.getObjectContext().getListChanges(campaign,
-				ListKey.HIDDEN_Equipment);
-		Changes<String> ach = context.getObjectContext().getListChanges(campaign,
-				ListKey.HIDDEN_Ability);
-		Changes<String> sch = context.getObjectContext().getListChanges(campaign,
-				ListKey.HIDDEN_Skill);
+		Changes<String> ech = context.getObjectContext().getListChanges(campaign, ListKey.HIDDEN_Equipment);
+		Changes<String> ach = context.getObjectContext().getListChanges(campaign, ListKey.HIDDEN_Ability);
+		Changes<String> sch = context.getObjectContext().getListChanges(campaign, ListKey.HIDDEN_Skill);
 
 		Collection<String> added = ech.getAdded();
 		if (added != null)
@@ -120,7 +114,7 @@ public class HidetypeToken extends AbstractTokenWithSeparator<Campaign>
 		return returnList.toArray(new String[returnList.size()]);
 	}
 
-    @Override
+	@Override
 	public Class<Campaign> getTokenClass()
 	{
 		return Campaign.class;

@@ -39,22 +39,21 @@ public class TemplateListToken extends AbstractExportToken
 	}
 
 	/**
-	 * @see pcgen.io.exporttoken.AbstractExportToken#getToken(java.lang.String, pcgen.core.display.CharacterDisplay, pcgen.io.ExportHandler)
+	 * @see AbstractExportToken#getToken(String, CharacterDisplay, ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, CharacterDisplay display,
-		ExportHandler eh)
+	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
 	{
 		StringBuilder retString = new StringBuilder();
 		String del = "";
-		
+
 		for (PCTemplate template : display.getOutputVisibleTemplateList())
 		{
 			// karianna bug 1514970
 			retString.append(del).append(OutputNameFormatting.getOutputName(template));
 			del = ", ";
 		}
-		
+
 		return retString.toString();
 	}
 

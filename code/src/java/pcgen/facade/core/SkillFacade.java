@@ -18,14 +18,13 @@
  */
 package pcgen.facade.core;
 
-
 public interface SkillFacade extends InfoFacade
 {
 
-    public boolean isUntrained();
+	public boolean isUntrained();
 
-    public String getDisplayType();
+	public String getDisplayType();
 
-    public String getKeyStat();
+	public String getKeyStat();
 
 }

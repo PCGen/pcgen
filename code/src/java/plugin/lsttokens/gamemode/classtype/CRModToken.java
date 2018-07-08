@@ -24,8 +24,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Implements the CRMOD token on ClassType
  */
-public class CRModToken extends AbstractNonEmptyToken<ClassType>
-		implements CDOMPrimaryToken<ClassType>
+public class CRModToken extends AbstractNonEmptyToken<ClassType> implements CDOMPrimaryToken<ClassType>
 {
 
 	@Override
@@ -35,8 +34,7 @@ public class CRModToken extends AbstractNonEmptyToken<ClassType>
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, ClassType classType,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, ClassType classType, String value)
 	{
 		classType.setCRMod(value);
 		return ParseResult.SUCCESS;

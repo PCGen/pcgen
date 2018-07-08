@@ -25,8 +25,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 /**
  * Deals with SLOTS token
  */
-public class SlotsToken extends AbstractIntToken<Equipment> implements
-		CDOMPrimaryToken<Equipment>
+public class SlotsToken extends AbstractIntToken<Equipment> implements CDOMPrimaryToken<Equipment>
 {
 
 	@Override
@@ -44,7 +43,7 @@ public class SlotsToken extends AbstractIntToken<Equipment> implements
 	@Override
 	protected int minValue()
 	{
-		return 0; 
+		return 0;
 	}
 
 	@Override

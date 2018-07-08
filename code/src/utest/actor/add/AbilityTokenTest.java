@@ -93,14 +93,17 @@ public class AbilityTokenTest extends AbstractCharacterUsingTestCase
 	@Test
 	public void testWithChoose()
 	{
-		try {
+		try
+		{
 			setUpPC();
 			//Need to make sure we use the character related context
 			context = Globals.getContext();
 			context.getReferenceContext().importObject(BuildUtilities.getFeatCat());
 			TokenRegistration.register(ADD_TOKEN);
 			TokenRegistration.register(ADD_ABILITY_TOKEN);
-		} catch (PersistenceLayerException e1) {
+		}
+		catch (PersistenceLayerException e1)
+		{
 			fail("Cannot set up PC");
 		}
 		Ability item = construct("ChooseAbility");
@@ -118,13 +121,16 @@ public class AbilityTokenTest extends AbstractCharacterUsingTestCase
 		Ability badCA = oc.newInstance();
 		badCA.setName("ChooseAbility");
 		context.getReferenceContext().importObject(badCA);
-		try {
+		try
+		{
 			assertTrue(context.processToken(item, "CHOOSE", "LANG|Foo|Bar|Goo|Wow|Rev"));
 			assertTrue(context.processToken(item, "MULT", "Yes"));
 			assertTrue(context.processToken(badCA, "CHOOSE", "LANG|Foo|Bar|Goo|Wow|Rev"));
 			assertTrue(context.processToken(badCA, "MULT", "Yes"));
 			assertTrue(context.processToken(parent, "ADD", "ABILITY|FEAT|NORMAL|ChooseAbility"));
-		} catch (PersistenceLayerException e) {
+		}
+		catch (PersistenceLayerException e)
+		{
 			e.printStackTrace();
 			fail();
 		}

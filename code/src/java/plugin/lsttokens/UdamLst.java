@@ -40,9 +40,7 @@ import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
-
-public class UdamLst extends AbstractToken implements CDOMPrimaryToken<CDOMObject>,
-		DeferredToken<CDOMObject>
+public class UdamLst extends AbstractToken implements CDOMPrimaryToken<CDOMObject>, DeferredToken<CDOMObject>
 {
 
 	@Override
@@ -52,14 +50,12 @@ public class UdamLst extends AbstractToken implements CDOMPrimaryToken<CDOMObjec
 	}
 
 	@Override
-	public ParseResult parseToken(LoadContext context, CDOMObject obj,
-		String value)
+	public ParseResult parseToken(LoadContext context, CDOMObject obj, String value)
 	{
 		if (obj instanceof Ungranted)
 		{
-			return new ParseResult.Fail("Cannot use " + getTokenName()
-				+ " on an Ungranted object type: "
-				+ obj.getClass().getSimpleName());
+			return new ParseResult.Fail(
+				"Cannot use " + getTokenName() + " on an Ungranted object type: " + obj.getClass().getSimpleName());
 		}
 		ParseResult pr = ParseResult.SUCCESS;
 		if (Constants.LST_DOT_CLEAR.equals(value))
@@ -79,18 +75,15 @@ public class UdamLst extends AbstractToken implements CDOMPrimaryToken<CDOMObjec
 				{
 					pcc = (PCClass) obj;
 				}
-				context.getObjectContext().removeList(pcc,
-						ListKey.UNARMED_DAMAGE);
+				context.getObjectContext().removeList(pcc, ListKey.UNARMED_DAMAGE);
 				for (PCClassLevel level : pcc.getOriginalClassLevelCollection())
 				{
-					context.getObjectContext().removeList(level,
-							ListKey.UNARMED_DAMAGE);
+					context.getObjectContext().removeList(level, ListKey.UNARMED_DAMAGE);
 				}
 			}
 			else
 			{
-				context.getObjectContext().removeList(obj,
-						ListKey.UNARMED_DAMAGE);
+				context.getObjectContext().removeList(obj, ListKey.UNARMED_DAMAGE);
 			}
 		}
 		else
@@ -100,25 +93,19 @@ public class UdamLst extends AbstractToken implements CDOMPrimaryToken<CDOMObjec
 			{
 				return pr;
 			}
-			final StringTokenizer tok = new StringTokenizer(value,
-					Constants.COMMA);
-			if (context.getObjectContext().containsListFor(obj,
-					ListKey.UNARMED_DAMAGE))
+			final StringTokenizer tok = new StringTokenizer(value, Constants.COMMA);
+			if (context.getObjectContext().containsListFor(obj, ListKey.UNARMED_DAMAGE))
 			{
 				ComplexParseResult cpr = new ComplexParseResult();
-				cpr.addWarningMessage(obj.getDisplayName()
-						+ " already has " + getTokenName() + " set.");
-				cpr.addWarningMessage(" It will be redefined, "
-						+ "but you should be using " + getTokenName()
-						+ ":.CLEAR");
+				cpr.addWarningMessage(obj.getDisplayName() + " already has " + getTokenName() + " set.");
+				cpr.addWarningMessage(
+					" It will be redefined, " + "but you should be using " + getTokenName() + ":.CLEAR");
 				pr = cpr;
-				context.getObjectContext().removeList(obj,
-						ListKey.UNARMED_DAMAGE);
+				context.getObjectContext().removeList(obj, ListKey.UNARMED_DAMAGE);
 			}
 			while (tok.hasMoreTokens())
 			{
-				context.getObjectContext().addToList(obj,
-						ListKey.UNARMED_DAMAGE, tok.nextToken());
+				context.getObjectContext().addToList(obj, ListKey.UNARMED_DAMAGE, tok.nextToken());
 			}
 		}
 		return pr;
@@ -127,8 +114,7 @@ public class UdamLst extends AbstractToken implements CDOMPrimaryToken<CDOMObjec
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
-		Changes<String> changes = context.getObjectContext().getListChanges(
-				obj, ListKey.UNARMED_DAMAGE);
+		Changes<String> changes = context.getObjectContext().getListChanges(obj, ListKey.UNARMED_DAMAGE);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;
@@ -164,15 +150,11 @@ public class UdamLst extends AbstractToken implements CDOMPrimaryToken<CDOMObjec
 		{
 			return true;
 		}
-		int gameModeSizeCount =
-				context.getReferenceContext().getConstructedObjectCount(
-					SizeAdjustment.class);
+		int gameModeSizeCount = context.getReferenceContext().getConstructedObjectCount(SizeAdjustment.class);
 		if (changes.size() != gameModeSizeCount && changes.size() != 1)
 		{
-			Logging.log(Logging.LST_ERROR,
-				"Unarmed Damage " + StringUtil.join(changes, ", ") + " had "
-					+ changes.size() + " entries, but must be 1 or "
-					+ gameModeSizeCount);
+			Logging.log(Logging.LST_ERROR, "Unarmed Damage " + StringUtil.join(changes, ", ") + " had " + changes.size()
+				+ " entries, but must be 1 or " + gameModeSizeCount);
 			return false;
 		}
 		return true;

@@ -77,13 +77,12 @@ public class FactGrouping<T extends CDOMObject, F> implements GroupingCollection
 		String infoKey = info.getCharacteristic();
 		if ((infoKey == null) || infoKey.isEmpty())
 		{
-			throw new IllegalArgumentException(
-				"FactGrouping must have value following =");
+			throw new IllegalArgumentException("FactGrouping must have value following =");
 		}
 		if (!fi.getFactName().equalsIgnoreCase(infoKey))
 		{
-			throw new IllegalArgumentException("FactGrouping expected grouping type of "
-				+ fi.getFactName() + " but it was " + infoKey);
+			throw new IllegalArgumentException(
+				"FactGrouping expected grouping type of " + fi.getFactName() + " but it was " + infoKey);
 		}
 		String infoValue = info.getValue();
 		if ((infoValue == null) || infoValue.isEmpty())
@@ -95,8 +94,8 @@ public class FactGrouping<T extends CDOMObject, F> implements GroupingCollection
 		toMatch = def.getFormatManager().convertIndirect(infoValue);
 		if (toMatch == null)
 		{
-			throw new IllegalArgumentException("Failed to convert " + infoValue + " as a "
-				+ def.getFormatManager().getManagedClass().getSimpleName());
+			throw new IllegalArgumentException(
+				"Failed to convert " + infoValue + " as a " + def.getFormatManager().getManagedClass().getSimpleName());
 		}
 	}
 

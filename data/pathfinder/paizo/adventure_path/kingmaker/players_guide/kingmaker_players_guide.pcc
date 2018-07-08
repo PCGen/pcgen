@@ -43,3 +43,4 @@ KIT:kmpg_kits.lst
 KIT:kmpg_kits_companion.lst
 RACE:kmpg_races_companion.lst
 SKILL:kmpg_skills.lst
+LANGUAGE:kmpg_languages.lst

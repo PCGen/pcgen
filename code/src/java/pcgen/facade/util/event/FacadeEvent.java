@@ -26,7 +26,7 @@ import java.util.EventObject;
 public class FacadeEvent extends EventObject
 {
 	private final FacadeEvent cause;
-	
+
 	public FacadeEvent(Object source, FacadeEvent cause)
 	{
 		super(source);

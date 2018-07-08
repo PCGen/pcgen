@@ -46,8 +46,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * SPELLS token for KitSpells
  */
-public class SpellsToken extends AbstractNonEmptyToken<KitSpells> implements
-		CDOMPrimaryToken<KitSpells>
+public class SpellsToken extends AbstractNonEmptyToken<KitSpells> implements CDOMPrimaryToken<KitSpells>
 {
 	private static final Class<Spell> SPELL_CLASS = Spell.class;
 
@@ -80,14 +79,12 @@ public class SpellsToken extends AbstractNonEmptyToken<KitSpells> implements
 			{
 				if (kitSpell.getSpellBook() != null)
 				{
-					return new ParseResult.Fail("Cannot reset SPELLBOOK in SPELLS: "
-							+ value);
+					return new ParseResult.Fail("Cannot reset SPELLBOOK in SPELLS: " + value);
 				}
 				String spellBook = field.substring(10);
 				if (spellBook.isEmpty())
 				{
-					return new ParseResult.Fail("Cannot set SPELLBOOK "
-							+ "to empty value in SPELLS: " + value);
+					return new ParseResult.Fail("Cannot set SPELLBOOK " + "to empty value in SPELLS: " + value);
 				}
 				kitSpell.setSpellBook(spellBook);
 			}
@@ -98,24 +95,21 @@ public class SpellsToken extends AbstractNonEmptyToken<KitSpells> implements
 				{
 					if (kitSpell.getCastingClass() != null)
 					{
-						return new ParseResult.Fail("Cannot reset CLASS" + " in SPELLS: "
-								+ value);
+						return new ParseResult.Fail("Cannot reset CLASS" + " in SPELLS: " + value);
 					}
 					String className = field.substring(6);
 					if (className.isEmpty())
 					{
-						return new ParseResult.Fail("Cannot set CLASS "
-								+ "to empty value in SPELLS: " + value);
+						return new ParseResult.Fail("Cannot set CLASS " + "to empty value in SPELLS: " + value);
 					}
 					else if (className.equalsIgnoreCase("Default"))
 					{
-						pr.addWarningMessage("Use of Default for CLASS= in KIT "
-							+ "SPELLS line is unnecessary: Ignoring");
+						pr.addWarningMessage(
+							"Use of Default for CLASS= in KIT " + "SPELLS line is unnecessary: Ignoring");
 					}
 					else
 					{
-						kitSpell.setCastingClass(
-							refContext.getCDOMReference(PCClass.class, className));
+						kitSpell.setCastingClass(refContext.getCDOMReference(PCClass.class, className));
 					}
 				}
 				else
@@ -131,15 +125,14 @@ public class SpellsToken extends AbstractNonEmptyToken<KitSpells> implements
 						}
 						catch (NumberFormatException e)
 						{
-							return new ParseResult.Fail("Expected an Integer COUNT,"
-									+ " but found: " + countStr + " in " + value);
+							return new ParseResult.Fail(
+								"Expected an Integer COUNT," + " but found: " + countStr + " in " + value);
 						}
 						field = field.substring(0, equalLoc);
 					}
 					if (field.isEmpty())
 					{
-						return new ParseResult.Fail("Expected an Spell in SPELLS"
-								+ " but found: " + value);
+						return new ParseResult.Fail("Expected an Spell in SPELLS" + " but found: " + value);
 					}
 					StringTokenizer subTok = new StringTokenizer(field, "[]");
 					String filterString = subTok.nextToken();
@@ -147,12 +140,10 @@ public class SpellsToken extends AbstractNonEmptyToken<KitSpells> implements
 					// must satisfy all elements in a comma delimited list
 					CDOMReference<Spell> sp = null;
 
-					sp = TokenUtilities.getTypeOrPrimitive(context, SPELL_CLASS,
-							filterString);
+					sp = TokenUtilities.getTypeOrPrimitive(context, SPELL_CLASS, filterString);
 					if (sp == null)
 					{
-						return new ParseResult.Fail("  encountered Invalid limit in "
-								+ getTokenName() + ": " + value);
+						return new ParseResult.Fail("  encountered Invalid limit in " + getTokenName() + ": " + value);
 					}
 
 					KnownSpellIdentifier ksi = new KnownSpellIdentifier(sp, null);
@@ -161,10 +152,8 @@ public class SpellsToken extends AbstractNonEmptyToken<KitSpells> implements
 					while (subTok.hasMoreTokens())
 					{
 						String featName = subTok.nextToken();
-						AbilityCategory featCategory =
-								refContext.get(AbilityCategory.class, "FEAT");
-						CDOMSingleRef<Ability> feat = refContext
-							.getManufacturerId(featCategory).getReference(featName);
+						AbilityCategory featCategory = refContext.get(AbilityCategory.class, "FEAT");
+						CDOMSingleRef<Ability> feat = refContext.getManufacturerId(featCategory).getReference(featName);
 						featList.add(feat);
 					}
 					kitSpell.addSpell(ksi, featList, count);
@@ -208,18 +197,16 @@ public class SpellsToken extends AbstractNonEmptyToken<KitSpells> implements
 					sb.append(Constants.PIPE);
 				}
 				needPipe = true;
-				Collection<List<CDOMSingleRef<Ability>>> abilities = kitSpell
-						.getAbilities(ksi);
+				Collection<List<CDOMSingleRef<Ability>>> abilities = kitSpell.getAbilities(ksi);
 				for (List<CDOMSingleRef<Ability>> abils : abilities)
 				{
 					StringBuilder spell = new StringBuilder();
-					spell.append(StringUtil.replaceAll(ksi.getLSTformat(),
-							Constants.LST_TYPE_EQUAL, Constants.LST_TYPE_DOT));
+					spell.append(
+						StringUtil.replaceAll(ksi.getLSTformat(), Constants.LST_TYPE_EQUAL, Constants.LST_TYPE_DOT));
 					if (abils != null && !abils.isEmpty())
 					{
 						spell.append('[');
-						spell.append(ReferenceUtilities.joinLstFormat(abils,
-								"]["));
+						spell.append(ReferenceUtilities.joinLstFormat(abils, "]["));
 						spell.append(']');
 					}
 					Integer count = kitSpell.getSpellCount(ksi, abils);
@@ -235,7 +222,7 @@ public class SpellsToken extends AbstractNonEmptyToken<KitSpells> implements
 		{
 			return null;
 		}
-		return new String[] { sb.toString() };
+		return new String[]{sb.toString()};
 	}
 	// TODO DeferredToken
 	/*

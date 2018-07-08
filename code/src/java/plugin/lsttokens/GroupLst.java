@@ -29,8 +29,7 @@ import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class GroupLst extends AbstractTokenWithSeparator<CDOMObject> implements
-		CDOMPrimaryToken<CDOMObject>
+public class GroupLst extends AbstractTokenWithSeparator<CDOMObject> implements CDOMPrimaryToken<CDOMObject>
 {
 	@Override
 	public String getTokenName()
@@ -45,8 +44,7 @@ public class GroupLst extends AbstractTokenWithSeparator<CDOMObject> implements
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		CDOMObject cdo, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject cdo, String value)
 	{
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		while (tok.hasMoreTokens())
@@ -59,8 +57,7 @@ public class GroupLst extends AbstractTokenWithSeparator<CDOMObject> implements
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
-		Changes<String> changes =
-				context.getObjectContext().getListChanges(cdo, ListKey.GROUP);
+		Changes<String> changes = context.getObjectContext().getListChanges(cdo, ListKey.GROUP);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;

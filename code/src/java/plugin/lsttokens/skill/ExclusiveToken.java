@@ -25,8 +25,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 /**
  * Class deals with EXCLUSIVE Token
  */
-public class ExclusiveToken extends AbstractYesNoToken<Skill> implements
-		CDOMPrimaryToken<Skill>
+public class ExclusiveToken extends AbstractYesNoToken<Skill> implements CDOMPrimaryToken<Skill>
 {
 
 	@Override

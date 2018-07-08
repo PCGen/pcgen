@@ -17,13 +17,14 @@
  */
 package pcgen.cdom.primitive;
 
-import org.jetbrains.annotations.NotNull;
-import pcgen.cdom.base.PrimitiveCollection;
-
 import java.text.Collator;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.stream.Collectors;
+
+import org.jetbrains.annotations.NotNull;
+
+import pcgen.cdom.base.PrimitiveCollection;
 
 public final class PrimitiveUtilities
 {
@@ -58,13 +59,10 @@ public final class PrimitiveUtilities
 	 *         PrimitiveCollection objects
 	 */
 	@NotNull
-	public static String joinLstFormat(
-			@NotNull Collection<? extends PrimitiveCollection<?>> pcCollection,
-			@NotNull CharSequence separator, boolean useAny)
+	public static String joinLstFormat(@NotNull Collection<? extends PrimitiveCollection<?>> pcCollection,
+		@NotNull CharSequence separator, boolean useAny)
 	{
-		return pcCollection.stream()
-				  .map(pcf -> pcf.getLSTformat(useAny))
-				  .collect(Collectors.joining(separator));
+		return pcCollection.stream().map(pcf -> pcf.getLSTformat(useAny)).collect(Collectors.joining(separator));
 	}
 
 }

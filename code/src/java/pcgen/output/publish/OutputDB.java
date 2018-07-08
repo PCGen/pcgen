@@ -20,6 +20,7 @@ package pcgen.output.publish;
 import java.util.HashMap;
 import java.util.Map;
 
+import freemarker.template.TemplateModel;
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.cdom.base.ItemFacet;
@@ -31,7 +32,6 @@ import pcgen.output.base.ModelFactory;
 import pcgen.output.factory.ItemModelFactory;
 import pcgen.output.factory.SetModelFactory;
 import pcgen.output.model.BooleanOptionModel;
-import freemarker.template.TemplateModel;
 
 /**
  * OutputDB is the OutputDatabase for building the Map to be provided to
@@ -49,20 +49,17 @@ public final class OutputDB
 	 * The Map of string names to output models (that are dynamic based on a PC)
 	 */
 	private static DoubleKeyMap<Object, Object, ModelFactory> outModels =
-            new DoubleKeyMap<>(
-                    CaseInsensitiveMap.class, CaseInsensitiveMap.class);
+			new DoubleKeyMap<>(CaseInsensitiveMap.class, CaseInsensitiveMap.class);
 
 	/**
 	 * The map of string names to models for global items (not PC dependent)
 	 */
-	private static Map<Object, TemplateModel> globalModels =
-            new CaseInsensitiveMap<>();
+	private static Map<Object, TemplateModel> globalModels = new CaseInsensitiveMap<>();
 
 	/**
 	 * The Map of string names to output models for the Game Mode
 	 */
-	private static Map<Object, ModeModelFactory> modeModels =
-            new CaseInsensitiveMap<>();
+	private static Map<Object, ModeModelFactory> modeModels = new CaseInsensitiveMap<>();
 
 	/**
 	 * Registers a new ModelFactory to be used in output
@@ -73,8 +70,7 @@ public final class OutputDB
 	 *            The ModelFactory to be used to generate the Models when the
 	 *            output Map is built
 	 */
-	public static void registerModelFactory(String name,
-		ModelFactory modelFactory)
+	public static void registerModelFactory(String name, ModelFactory modelFactory)
 	{
 		if (modelFactory == null)
 		{
@@ -83,22 +79,17 @@ public final class OutputDB
 		String[] locationElements = name.split("\\.");
 		if (locationElements.length == 0)
 		{
-			throw new IllegalArgumentException(
-				"Name may not be null or empty: " + name);
+			throw new IllegalArgumentException("Name may not be null or empty: " + name);
 		}
 		if (locationElements.length > 2)
 		{
-			throw new IllegalArgumentException(
-				"Name may only contain zero or one period");
+			throw new IllegalArgumentException("Name may only contain zero or one period");
 		}
-		String secondName =
-				(locationElements.length == 1) ? "" : locationElements[1];
-		ModelFactory old =
-				outModels.put(locationElements[0], secondName, modelFactory);
+		String secondName = (locationElements.length == 1) ? "" : locationElements[1];
+		ModelFactory old = outModels.put(locationElements[0], secondName, modelFactory);
 		if (old != null)
 		{
-			throw new UnsupportedOperationException(
-				"Cannot have two Output Models using the same name: " + name);
+			throw new UnsupportedOperationException("Cannot have two Output Models using the same name: " + name);
 		}
 	}
 
@@ -158,8 +149,7 @@ public final class OutputDB
 				{
 					ensureMap(input, k1String);
 					@SuppressWarnings("unchecked")
-					Map<Object, Object> m =
-							(Map<Object, Object>) input.get(k1String);
+					Map<Object, Object> m = (Map<Object, Object>) input.get(k1String);
 					m.put(k2.toString(), model);
 				}
 			}
@@ -190,7 +180,7 @@ public final class OutputDB
 		}
 		return input;
 	}
-	
+
 	/**
 	 * Registers a ModeModelFactory under the given name.
 	 * 
@@ -213,17 +203,15 @@ public final class OutputDB
 		int dotLoc = name.indexOf('.');
 		if (dotLoc != -1)
 		{
-			throw new IllegalArgumentException("Name may not contain a dot: "
-				+ name);
+			throw new IllegalArgumentException("Name may not contain a dot: " + name);
 		}
 		ModeModelFactory old = modeModels.put(name, factory);
 		if (old != null)
 		{
-			throw new UnsupportedOperationException(
-				"Cannot have two Mode Models using the same name: " + name);
+			throw new UnsupportedOperationException("Cannot have two Mode Models using the same name: " + name);
 		}
 	}
-	
+
 	/**
 	 * Returns a specific portion of the PlayerCharacter data model for the
 	 * given CharID and selection string.
@@ -286,8 +274,7 @@ public final class OutputDB
 	 */
 	public static Map<Object, TemplateModel> getGlobal()
 	{
-		CaseInsensitiveMap<TemplateModel> map =
-                new CaseInsensitiveMap<>();
+		CaseInsensitiveMap<TemplateModel> map = new CaseInsensitiveMap<>();
 		map.putAll(globalModels);
 		return map;
 	}
@@ -300,13 +287,11 @@ public final class OutputDB
 	 * @param defaultValue
 	 *            The default value for the preference if it is not defined
 	 */
-	public static void registerBooleanPreference(String pref,
-		boolean defaultValue)
+	public static void registerBooleanPreference(String pref, boolean defaultValue)
 	{
 		if ((pref == null) || (pref.isEmpty()))
 		{
-			throw new IllegalArgumentException(
-				"Preference Name may not be null or empty: " + pref);
+			throw new IllegalArgumentException("Preference Name may not be null or empty: " + pref);
 		}
 		addGlobalModel(pref, new BooleanOptionModel(pref, defaultValue));
 	}
@@ -327,8 +312,7 @@ public final class OutputDB
 		if (old != null)
 		{
 			throw new UnsupportedOperationException(
-				"Cannot have two Global Output Models using the same name: "
-					+ name);
+				"Cannot have two Global Output Models using the same name: " + name);
 		}
 	}
 }

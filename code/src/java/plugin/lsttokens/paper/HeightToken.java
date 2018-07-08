@@ -28,8 +28,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * {@code HeightToken}
  * 
  */
-public class HeightToken extends AbstractNonEmptyToken<PaperInfo> implements
-		CDOMPrimaryToken<PaperInfo>
+public class HeightToken extends AbstractNonEmptyToken<PaperInfo> implements CDOMPrimaryToken<PaperInfo>
 {
 
 	@Override
@@ -39,14 +38,13 @@ public class HeightToken extends AbstractNonEmptyToken<PaperInfo> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, PaperInfo pi,
-			String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, PaperInfo pi, String value)
 	{
 		pi.setPaperInfo(PaperInfo.HEIGHT, value);
 		return ParseResult.SUCCESS;
 	}
 
-    @Override
+	@Override
 	public String[] unparse(LoadContext context, PaperInfo pi)
 	{
 		String info = pi.getPaperInfo(PaperInfo.HEIGHT);
@@ -55,10 +53,10 @@ public class HeightToken extends AbstractNonEmptyToken<PaperInfo> implements
 			// Probably an error
 			return null;
 		}
-		return new String[] { info };
+		return new String[]{info};
 	}
 
-    @Override
+	@Override
 	public Class<PaperInfo> getTokenClass()
 	{
 		return PaperInfo.class;

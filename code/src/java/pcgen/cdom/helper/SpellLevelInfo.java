@@ -38,8 +38,7 @@ public class SpellLevelInfo implements PrimitiveFilter<PCClass>
 	private final Formula minimumLevel;
 	private final Formula maximumLevel;
 
-	public SpellLevelInfo(PrimitiveCollection<PCClass> classFilter,
-		Formula minLevel, Formula maxLevel)
+	public SpellLevelInfo(PrimitiveCollection<PCClass> classFilter, Formula minLevel, Formula maxLevel)
 	{
 		filter = classFilter;
 		minimumLevel = minLevel;
@@ -61,17 +60,15 @@ public class SpellLevelInfo implements PrimitiveFilter<PCClass>
 	public Collection<SpellLevel> getLevels(PlayerCharacter pc)
 	{
 		List<SpellLevel> list = new ArrayList<>();
-		Converter<PCClass, PCClass> conv = new AddFilterConverter<>(
-                new DereferencingConverter<>(pc), this);
+		Converter<PCClass, PCClass> conv = new AddFilterConverter<>(new DereferencingConverter<>(pc), this);
 		for (PCClass cl : filter.getCollection(pc, conv))
 		{
 			int min = minimumLevel.resolve(pc, cl.getQualifiedKey()).intValue();
 			int max = maximumLevel.resolve(pc, cl.getQualifiedKey()).intValue();
 			if (min > max)
 			{
-				Logging.errorPrint("Resolved Minimum: " + min + " (from "
-					+ minimumLevel + ") was greater than resolved Maximum: "
-					+ max + " (from " + maximumLevel + ")");
+				Logging.errorPrint("Resolved Minimum: " + min + " (from " + minimumLevel
+					+ ") was greater than resolved Maximum: " + max + " (from " + maximumLevel + ")");
 			}
 			for (int i = min; i <= max; ++i)
 			{

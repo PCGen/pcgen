@@ -25,8 +25,7 @@ import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class DistancefactorToken extends AbstractNonEmptyToken<UnitSet>
-		implements CDOMPrimaryToken<UnitSet>
+public class DistancefactorToken extends AbstractNonEmptyToken<UnitSet> implements CDOMPrimaryToken<UnitSet>
 {
 
 	@Override
@@ -36,8 +35,7 @@ public class DistancefactorToken extends AbstractNonEmptyToken<UnitSet>
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, UnitSet us,
-			String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, UnitSet us, String value)
 	{
 		try
 		{
@@ -53,7 +51,7 @@ public class DistancefactorToken extends AbstractNonEmptyToken<UnitSet>
 	@Override
 	public String[] unparse(LoadContext context, UnitSet us)
 	{
-		return new String[] { us.getDistanceFactor().toString() };
+		return new String[]{us.getDistanceFactor().toString()};
 	}
 
 	@Override

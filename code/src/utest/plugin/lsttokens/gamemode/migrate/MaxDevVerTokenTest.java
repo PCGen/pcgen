@@ -47,7 +47,7 @@ public class MaxDevVerTokenTest
 	}
 
 	/**
-	 * Test method for {@link plugin.lsttokens.gamemode.migrate.MaxVerToken#parse(pcgen.core.system.MigrationRule, java.lang.String, java.lang.String)}.
+	 * Test method for {@link MaxVerToken#parse(MigrationRule, String, String)}.
 	 */
 	@Test
 	public void testParseValidVer()

@@ -29,8 +29,7 @@ import pcgen.util.Logging;
  */
 public final class HP extends MultiTagBonusObj
 {
-	private static final String[] BONUS_TAGS =
-			{"BONUS", "CURRENTMAX", "CURRENTMAXPERLEVEL", "ALTHP"};
+	private static final String[] BONUS_TAGS = {"BONUS", "CURRENTMAX", "CURRENTMAXPERLEVEL", "ALTHP"};
 
 	/**
 	 * Return the bonus tag handled by this class.
@@ -72,9 +71,7 @@ public final class HP extends MultiTagBonusObj
 		{
 			if ("ALTHP".equals(token))
 			{
-				Logging.errorPrint(
-					"BONUS:HP|ALTHP is disabled when ALTHP control is used: "
-						+ token, context);
+				Logging.errorPrint("BONUS:HP|ALTHP is disabled when ALTHP control is used: " + token, context);
 				return false;
 			}
 		}

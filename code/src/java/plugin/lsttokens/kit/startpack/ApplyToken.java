@@ -29,8 +29,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Deals with APPLY lst token within KitStartpack
  */
-public class ApplyToken extends AbstractNonEmptyToken<Kit> implements
-		CDOMPrimaryToken<Kit>
+public class ApplyToken extends AbstractNonEmptyToken<Kit> implements CDOMPrimaryToken<Kit>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -50,8 +49,7 @@ public class ApplyToken extends AbstractNonEmptyToken<Kit> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, Kit kit,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, Kit kit, String value)
 	{
 		try
 		{
@@ -61,8 +59,7 @@ public class ApplyToken extends AbstractNonEmptyToken<Kit> implements
 		}
 		catch (IllegalArgumentException e)
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " encountered unexpected application type: " + value);
+			return new ParseResult.Fail(getTokenName() + " encountered unexpected application type: " + value);
 		}
 	}
 
@@ -74,6 +71,6 @@ public class ApplyToken extends AbstractNonEmptyToken<Kit> implements
 		{
 			return null;
 		}
-		return new String[] { bd.toString() };
+		return new String[]{bd.toString()};
 	}
 }

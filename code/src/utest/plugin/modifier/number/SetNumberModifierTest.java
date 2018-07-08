@@ -108,21 +108,21 @@ public class SetNumberModifierTest
 	public void testProcessZero4()
 	{
 		SetModifierFactory modifier = new SetModifierFactory();
-		assertEquals(0, modifier.process(-4,0));
+		assertEquals(0, modifier.process(-4, 0));
 	}
 
 	@Test
 	public void testProcessMixed1()
 	{
 		SetModifierFactory modifier = new SetModifierFactory();
-		assertEquals(-7, modifier.process(5,-7));
+		assertEquals(-7, modifier.process(5, -7));
 	}
 
 	@Test
 	public void testProcessMixed2()
 	{
 		SetModifierFactory modifier = new SetModifierFactory();
-		assertEquals(3, modifier.process(-4,3));
+		assertEquals(3, modifier.process(-4, 3));
 	}
 
 	@Test
@@ -178,21 +178,21 @@ public class SetNumberModifierTest
 	public void testProcessDoubleZero4()
 	{
 		SetModifierFactory modifier = new SetModifierFactory();
-		assertEquals(0.0, modifier.process(-4.3,0.0));
+		assertEquals(0.0, modifier.process(-4.3, 0.0));
 	}
 
 	@Test
 	public void testProcessDoubleMixed1()
 	{
 		SetModifierFactory modifier = new SetModifierFactory();
-		assertEquals(-7.2, modifier.process(5.3,-7.2));
+		assertEquals(-7.2, modifier.process(5.3, -7.2));
 	}
 
 	@Test
 	public void testProcessDoubleMixed2()
 	{
 		SetModifierFactory modifier = new SetModifierFactory();
-		assertEquals(3.1, modifier.process(-4.2,3.1));
+		assertEquals(3.1, modifier.process(-4.2, 3.1));
 	}
 
 	@Test

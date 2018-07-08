@@ -44,7 +44,7 @@ public enum Load
 	{
 		return checkLtEq(x) ? x : this;
 	}
-	
+
 	/**
 	 * @param val should be a string value to be checked for equality (case-insensitive) with
 	 * 				one of the enum values for this enumeration
@@ -53,7 +53,7 @@ public enum Load
 	public static Load getLoadType(String val)
 	{
 		Load r = null;
-		
+
 		if (LIGHT.toString().equalsIgnoreCase(val))
 		{
 			r = LIGHT;

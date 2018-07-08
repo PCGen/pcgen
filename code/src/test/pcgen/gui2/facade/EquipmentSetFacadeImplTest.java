@@ -85,7 +85,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 		
 		EquipSet satchelEs = addEquipToEquipSet(pc, es, item, 1.0f);
 		addEquipToEquipSet(pc, satchelEs, item2, 1.0f);
-		addEquipToEquipSet (pc, es, item3, 1.0f, LOC_BOTH_HANDS);
+		addEquipToEquipSet(pc, es, item3, 1.0f, LOC_BOTH_HANDS);
 		int adjustedBaseNodes = NUM_BASE_NODES -4;
 		EquipmentSetFacadeImpl esfi =
 				new EquipmentSetFacadeImpl(uiDelegate, pc, es, dataset,
@@ -130,7 +130,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 		Equipment weapon = new Equipment();
 		weapon.setName("Morningstar");
 		
-		addEquipToEquipSet (pc, es, weapon, 1.0f, LOC_PRIMARY);
+		addEquipToEquipSet(pc, es, weapon, 1.0f, LOC_PRIMARY);
 
 		EquipmentSetFacadeImpl esfi =
 				new EquipmentSetFacadeImpl(uiDelegate, pc, es, dataset,
@@ -189,7 +189,8 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 		assertEquals("Should be no sideeffects to num carried", 0, item.getCarried(), 0.01);
 		assertEquals("Should be no sideeffects to equipped", 0, item.getNumberEquipped());
 		assertEquals("First add node list size", NUM_BASE_NODES+1, esfi.getNodes().getSize());
-		assertEquals("generated equip set id", "0.1.01", ((EquipNodeImpl)esfi.getNodes().getElementAt(NUM_BASE_NODES)).getIdPath());
+		assertEquals("generated equip set id", "0.1.01",
+			((EquipNodeImpl) esfi.getNodes().getElementAt(NUM_BASE_NODES)).getIdPath());
 
 		Equipment secondEquip = (Equipment) esfi.addEquipment(root, item, 1);
 		assertEquals("Second add num carried", 3, secondEquip.getCarried(), 0.01);

@@ -36,23 +36,22 @@ import pcgen.core.chooser.ChooserUtilities;
  * DomainInputFacet is a Facet that handles addition of Domains to a Player
  * Character.
  */
-public class DomainInputFacet 
+public class DomainInputFacet
 {
 
 	private DomainFacet domainFacet;
 
 	private DomainSelectionFacet domainSelectionFacet;
 
-	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
-		.getFacet(PlayerCharacterTrackingFacet.class);
+	private final PlayerCharacterTrackingFacet trackingFacet =
+			FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
 
 	public boolean add(CharID id, Domain obj, ClassSource source)
 	{
 		PlayerCharacter pc = trackingFacet.getPC(id);
 		if (pc.isAllowInteraction() && ChooseActivation.hasNewChooseToken(obj))
 		{
-			ChoiceManagerList<?> aMan =
-					ChooserUtilities.getChoiceManager(obj, pc);
+			ChoiceManagerList<?> aMan = ChooserUtilities.getChoiceManager(obj, pc);
 			return processChoice(id, pc, obj, aMan, source);
 		}
 		else
@@ -62,8 +61,8 @@ public class DomainInputFacet
 		return true;
 	}
 
-	private <T> boolean processChoice(CharID id, PlayerCharacter pc,
-		Domain obj, ChoiceManagerList<T> aMan, ClassSource source)
+	private <T> boolean processChoice(CharID id, PlayerCharacter pc, Domain obj, ChoiceManagerList<T> aMan,
+		ClassSource source)
 	{
 		List<T> selectedList = new ArrayList<>();
 		List<T> availableList = new ArrayList<>();
@@ -77,9 +76,7 @@ public class DomainInputFacet
 		{
 			//Error?
 		}
-		final List<T> newSelections =
-				aMan.doChooser(pc, availableList, selectedList,
-                        new ArrayList<>());
+		final List<T> newSelections = aMan.doChooser(pc, availableList, selectedList, new ArrayList<>());
 		if (newSelections.size() != 1)
 		{
 			//Error?
@@ -92,14 +89,12 @@ public class DomainInputFacet
 		return true;
 	}
 
-	public void importSelection(CharID id, Domain obj, String choice,
-		ClassSource source)
+	public void importSelection(CharID id, Domain obj, String choice, ClassSource source)
 	{
 		PlayerCharacter pc = trackingFacet.getPC(id);
 		if (ChooseActivation.hasNewChooseToken(obj))
 		{
-			ChoiceManagerList<?> aMan =
-					ChooserUtilities.getChoiceManager(obj, pc);
+			ChoiceManagerList<?> aMan = ChooserUtilities.getChoiceManager(obj, pc);
 			String[] assoc = choice.split(",", -1);
 			for (String string : assoc)
 			{
@@ -118,14 +113,12 @@ public class DomainInputFacet
 		}
 	}
 
-	private <T> void processImport(CharID id, Domain obj,
-		ChoiceManagerList<T> aMan, String choice, ClassSource source)
+	private <T> void processImport(CharID id, Domain obj, ChoiceManagerList<T> aMan, String choice, ClassSource source)
 	{
 		directSet(id, obj, aMan.decodeChoice(choice), source);
 	}
 
-	public <T> void directSet(CharID id, Domain obj, T sel,
-		ClassSource source)
+	public <T> void directSet(CharID id, Domain obj, T sel, ClassSource source)
 	{
 		domainFacet.add(id, obj, source);
 		if (sel != null)
@@ -150,8 +143,7 @@ public class DomainInputFacet
 		domainFacet.remove(id, obj);
 	}
 
-	public void setDomainSelectionFacet(
-		DomainSelectionFacet domainSelectionFacet)
+	public void setDomainSelectionFacet(DomainSelectionFacet domainSelectionFacet)
 	{
 		this.domainSelectionFacet = domainSelectionFacet;
 	}

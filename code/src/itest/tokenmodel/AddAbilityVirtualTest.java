@@ -165,6 +165,7 @@ public class AddAbilityVirtualTest extends AbstractAddListTokenTest<Ability>
 		assocCheck = new AssocCheck()
 		{
 			
+			@Override
 			public boolean check(CNAbility g)
 			{
 				if (pc.getDetailedAssociationCount(g) == 2)

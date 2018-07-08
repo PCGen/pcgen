@@ -43,7 +43,8 @@ public interface UIDelegate
 	 * Boolean.FALSE if the user clicked No<br>
 	 * null if the dialog box was never displayed due to user disabling it
 	 */
-	Boolean maybeShowWarningConfirm(String title, String message, String checkBoxText, PropertyContext context, String contextProp);
+	Boolean maybeShowWarningConfirm(String title, String message, String checkBoxText, PropertyContext context,
+		String contextProp);
 
 	/**
 	 * Displays a yes/no dialog
@@ -59,7 +60,7 @@ public interface UIDelegate
 	 * @param message the message to display
 	 */
 	void showWarningMessage(String title, String message);
-	
+
 	/**
 	 * Displays an ok dialog with a message and error icon.
 	 * @param title the title for the dialog box
@@ -89,12 +90,12 @@ public interface UIDelegate
 	 * choices. The rules for what selections are available and how many 
 	 * selections can be made are contained in the chooserFacade. The selected 
 	 * list of the chooserFacade will contain any choices the user made.
-
+	
 	 * @param chooserFacade The choice rules.
 	 * @return false if the user cancelled the choice, true if it was final.
 	 */
 	boolean showGeneralChooser(ChooserFacade chooserFacade);
-	
+
 	/**
 	 * Display a modal dialog requesting a value from the user.
 	 * @param title the title for the dialog box
@@ -111,9 +112,8 @@ public interface UIDelegate
 	 * @param equipBuilder The EquipmentBuilderFacade instance to be used for creating the item.
 	 * @return The result of the dialog.
 	 */
-	public CustomEquipResult showCustomEquipDialog(CharacterFacade character,
-		EquipmentBuilderFacade equipBuilder);
-	
+	public CustomEquipResult showCustomEquipDialog(CharacterFacade character, EquipmentBuilderFacade equipBuilder);
+
 	/**
 	 * The result of creation of a custom equipment item.
 	 */

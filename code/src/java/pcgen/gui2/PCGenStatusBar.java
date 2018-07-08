@@ -67,7 +67,7 @@ public final class PCGenStatusBar extends JPanel
 		progressBar.setVisible(false);
 		add(progressBar);
 		add(loadStatusLabel);
-		loadStatusLabel.addMouseListener(new LoadStatusMouseAdapter());			
+		loadStatusLabel.addMouseListener(new LoadStatusMouseAdapter());
 	}
 
 	public void setContextMessage(String message)
@@ -114,8 +114,8 @@ public final class PCGenStatusBar extends JPanel
 			{
 				loadStatusLabel.setIcon(Icons.Ok16.getImageIcon());
 			}
-			loadStatusLabel.setToolTipText(nerrors + " errors and " + nwarnings +
-					" warnings occurred while loading the sources");
+			loadStatusLabel
+				.setToolTipText(nerrors + " errors and " + nwarnings + " warnings occurred while loading the sources");
 		}
 	}
 
@@ -149,7 +149,7 @@ public final class PCGenStatusBar extends JPanel
 	 */
 	public void startShowingProgress(final String msg, boolean indeterminate)
 	{
-		if ( !PCGenStatusBar.this.isValid() )
+		if (!PCGenStatusBar.this.isValid())
 		{
 			// Do nothing if called during startup or shutdown
 			return;
@@ -173,7 +173,7 @@ public final class PCGenStatusBar extends JPanel
 		getProgressBar().setString(null);
 		getProgressBar().setVisible(false);
 	}
-	
+
 	/**
 	 * Shows the log window when the load status icon is clicked.
 	 */
@@ -184,6 +184,6 @@ public final class PCGenStatusBar extends JPanel
 		{
 			frame.getActionMap().get(PCGenActionMap.LOG_COMMAND).actionPerformed(null);
 		}
-		
+
 	}
 }

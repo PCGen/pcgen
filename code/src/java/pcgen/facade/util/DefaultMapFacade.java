@@ -22,7 +22,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-
 public class DefaultMapFacade<K, V> extends AbstractMapFacade<K, V>
 {
 

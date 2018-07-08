@@ -32,9 +32,9 @@ public final class CorePerspective
 	public static final CorePerspective DOMAIN = new CorePerspective("Granted Domains");
 	public static final CorePerspective ARMORPROF = new CorePerspective("Armor Proficiencies");
 	public static final CorePerspective SHIELDPROF = new CorePerspective("Shield Proficiencies");
-	
+
 	private static CaseInsensitiveMap<CorePerspective> map = null;
-	
+
 	private String name;
 
 	private CorePerspective(String name)
@@ -61,8 +61,7 @@ public final class CorePerspective
 		{
 			int mod = field.getModifiers();
 
-			if (Modifier.isStatic(mod) && Modifier.isFinal(mod)
-					&& Modifier.isPublic(mod))
+			if (Modifier.isStatic(mod) && Modifier.isFinal(mod) && Modifier.isPublic(mod))
 			{
 				try
 				{

@@ -49,13 +49,11 @@ public class VisibleToModel implements TemplateMethodModelEx
 	}
 
 	@Override
-	public Object exec(@SuppressWarnings("rawtypes") List arguments)
-		throws TemplateModelException
+	public Object exec(@SuppressWarnings("rawtypes") List arguments) throws TemplateModelException
 	{
 		if (arguments.size() != 1)
 		{
-			throw new TemplateModelException(
-				"Expected 1 argument but found: " + arguments.size());
+			throw new TemplateModelException("Expected 1 argument but found: " + arguments.size());
 		}
 		View v = View.getViewFromName(((SimpleScalar) arguments.get(0)).getAsString());
 		return visibility.isVisibleTo(v);

@@ -24,8 +24,7 @@ import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class ZeroToken extends AbstractNonEmptyToken<WieldCategory> implements
-		CDOMPrimaryToken<WieldCategory>
+public class ZeroToken extends AbstractNonEmptyToken<WieldCategory> implements CDOMPrimaryToken<WieldCategory>
 {
 
 	private static final Class<WieldCategory> WIELD_CATEGORY_CLASS = WieldCategory.class;
@@ -37,11 +36,10 @@ public class ZeroToken extends AbstractNonEmptyToken<WieldCategory> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-			WieldCategory wc, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, WieldCategory wc, String value)
 	{
-		CDOMSingleRef<WieldCategory> stepCat = context.getReferenceContext().getCDOMReference(
-				WIELD_CATEGORY_CLASS, value);
+		CDOMSingleRef<WieldCategory> stepCat =
+				context.getReferenceContext().getCDOMReference(WIELD_CATEGORY_CLASS, value);
 		wc.setWieldCategoryStep(0, stepCat);
 		return ParseResult.SUCCESS;
 	}

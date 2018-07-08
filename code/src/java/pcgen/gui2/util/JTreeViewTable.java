@@ -120,12 +120,11 @@ public class JTreeViewTable<T> extends JTreeTable
 		return item;
 	}
 
-	private DynamicTableColumnModel createTableColumnModel(TreeView<?> startingView,
-			DataView<?> dataView)
+	private DynamicTableColumnModel createTableColumnModel(TreeView<?> startingView, DataView<?> dataView)
 	{
 		@SuppressWarnings("unchecked")
-		ListMap<Visibility, TableColumn, List<TableColumn>> listMap
-				= CollectionMaps.createListMap(HashMap.class, ArrayList.class);
+		ListMap<Visibility, TableColumn, List<TableColumn>> listMap =
+				CollectionMaps.createListMap(HashMap.class, ArrayList.class);
 		int index = 1;
 		for (DataViewColumn column : dataView.getDataColumns())
 		{
@@ -141,8 +140,8 @@ public class JTreeViewTable<T> extends JTreeTable
 			columns = Collections.emptyList();
 		}
 
-		PrefTableColumnModel model = new PrefTableColumnModel(this.viewModel.getDataView().getPrefsKey(),
-				columns.size() + 1);
+		PrefTableColumnModel model =
+				new PrefTableColumnModel(this.viewModel.getDataView().getPrefsKey(), columns.size() + 1);
 		TableColumn viewColumn = new TableColumn();
 		viewColumn.setHeaderValue(startingView.getViewName());
 		viewColumn.setIdentifier(TREE_VIEW_COL_PREFS_KEY);
@@ -309,13 +308,12 @@ public class JTreeViewTable<T> extends JTreeTable
 		viewColumn.setHeaderValue(view.getViewName());
 		sortModel();
 		getTableHeader().repaint();
-		PropertyContext context = baseContext.createChildContext(
-				this.viewModel.getDataView().getPrefsKey());
+		PropertyContext context = baseContext.createChildContext(this.viewModel.getDataView().getPrefsKey());
 
 		int index = getIndex(viewModel.getTreeViews(), view);
 		if (index >= 0)
 		{
-			context.setInt(VIEW_INDEX_PREFS_KEY, index); //$NON-NLS-1$
+			context.setInt(VIEW_INDEX_PREFS_KEY, index);
 		}
 	}
 
@@ -326,8 +324,7 @@ public class JTreeViewTable<T> extends JTreeTable
 	 * @param view The view to be found
 	 * @return The index or -1 if not found.
 	 */
-	private int getIndex(ListFacade<? extends TreeView<T>> treeViews,
-			TreeView<? super T> view)
+	private int getIndex(ListFacade<? extends TreeView<T>> treeViews, TreeView<? super T> view)
 	{
 		for (int i = 0; i < treeViews.getSize(); i++)
 		{
@@ -349,8 +346,7 @@ public class JTreeViewTable<T> extends JTreeTable
 	public void setTreeViewModel(TreeViewModel<T> viewModel)
 	{
 		ListFacade<? extends TreeView<T>> views = viewModel.getTreeViews();
-		PropertyContext context = baseContext.createChildContext(
-				viewModel.getDataView().getPrefsKey());
+		PropertyContext context = baseContext.createChildContext(viewModel.getDataView().getPrefsKey());
 		int viewIndex = context.initInt(VIEW_INDEX_PREFS_KEY, viewModel.getDefaultTreeViewIndex());
 		TreeView<? super T> startingView = views.getElementAt(viewIndex);
 		DataView<T> dataView = viewModel.getDataView();
@@ -382,8 +378,8 @@ public class JTreeViewTable<T> extends JTreeTable
 	 * This is the popup menu for the CornerButton which allows selection of the
 	 * selected tree view as well as the visible columns for the table.
 	 */
-	protected class CornerButtonPopupMenu extends JPopupMenu implements
-			ListListener<TreeView<T>>, DynamicTableColumnModelListener
+	protected class CornerButtonPopupMenu extends JPopupMenu
+			implements ListListener<TreeView<T>>, DynamicTableColumnModelListener
 	{
 
 		private boolean treeViewsEnabled = true;
@@ -439,9 +435,7 @@ public class JTreeViewTable<T> extends JTreeTable
 		public void resetComponents()
 		{
 			ListFacade<? extends TreeView<T>> views = viewModel.getTreeViews();
-			PropertyContext context
-					= baseContext.createChildContext(viewModel.getDataView()
-							.getPrefsKey());
+			PropertyContext context = baseContext.createChildContext(viewModel.getDataView().getPrefsKey());
 			int viewIndex = context.initInt(VIEW_INDEX_PREFS_KEY, viewModel.getDefaultTreeViewIndex());
 
 			ButtonGroup group = new ButtonGroup();

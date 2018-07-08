@@ -122,13 +122,18 @@ public class EquipmentTest extends AbstractCharacterTestCase
 			.parseLine(
 				Globals.getContext(),
 				null,
-				"+1 (Enhancement to Weapon or Ammunition)	KEY:PLUS1W	FORMATCAT:MIDDLE	NAMEOPT:TEXT=+1	TYPE:Ammunition.Weapon	PLUS:1	VISIBLE:QUALIFY	ITYPE:Masterwork.Enhancement.Magic.Plus1	SOURCEPAGE:RSRD SpecialMaterials.rtf	BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement	ASSIGNTOALL:NO",
+				"+1 (Enhancement to Weapon or Ammunition)	KEY:PLUS1W	FORMATCAT:MIDDLE	NAMEOPT:TEXT=+1	"
+				+ "TYPE:Ammunition.Weapon	PLUS:1	VISIBLE:QUALIFY	ITYPE:Masterwork.Enhancement.Magic.Plus1	"
+				+ "SOURCEPAGE:RSRD SpecialMaterials.rtf	BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement	ASSIGNTOALL:NO",
 				source);
 		loader
 			.parseLine(
 				Globals.getContext(),
 				null,
-				"Masterwork		KEY:MWORKW	FORMATCAT:FRONT	NAMEOPT:NORMAL	TYPE:MasterworkQuality.Ammunition.Weapon	COST:0	VISIBLE:QUALIFY	ITYPE:Masterwork	SOURCEPAGE:SRDEquipmentI.rtf	BONUS:ITEMCOST|TYPE=Ammunition|6	BONUS:ITEMCOST|TYPE=Weapon|300	BONUS:WEAPON|TOHIT|1|TYPE=Enhancement	ASSIGNTOALL:YES",
+				"Masterwork		KEY:MWORKW	FORMATCAT:FRONT	NAMEOPT:NORMAL	TYPE:MasterworkQuality.Ammunition.Weapon"
+				+ "	COST:0	VISIBLE:QUALIFY	ITYPE:Masterwork	SOURCEPAGE:SRDEquipmentI.rtf	"
+				+ "BONUS:ITEMCOST|TYPE=Ammunition|6	BONUS:ITEMCOST|TYPE=Weapon|300	"
+				+ "BONUS:WEAPON|TOHIT|1|TYPE=Enhancement	ASSIGNTOALL:YES",
 				source);
 
 		SettingsHandler.getGame().addPlusCalculation(
@@ -455,7 +460,8 @@ public class EquipmentTest extends AbstractCharacterTestCase
 			.parseLine(
 				Globals.getContext(),
 				null,
-				"Hidden Mod	KEY:HIDDENMOD	FORMATCAT:PARENS	NAMEOPT:TEXT=Foo	TYPE:Ammunition.Weapon	VISIBLE:QUALIFY	ITYPE:Masterwork.Enhancement.Magic.Plus1",
+				"Hidden Mod	KEY:HIDDENMOD	FORMATCAT:PARENS	NAMEOPT:TEXT=Foo	TYPE:Ammunition.Weapon	"
+				+ "VISIBLE:QUALIFY	ITYPE:Masterwork.Enhancement.Magic.Plus1",
 				source);
 		EquipmentModifier eqMod =
 				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
@@ -465,7 +471,8 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		.parseLine(
 			Globals.getContext(),
 			null,
-			"Hidden Mod 2	KEY:HIDDENMOD2	FORMATCAT:PARENS	NAMEOPT:NOTHING	TYPE:Ammunition.Weapon	VISIBLE:QUALIFY	ITYPE:Masterwork.Enhancement.Magic.Plus1",
+			"Hidden Mod 2	KEY:HIDDENMOD2	FORMATCAT:PARENS	NAMEOPT:NOTHING	TYPE:Ammunition.Weapon	"
+			+ "VISIBLE:QUALIFY	ITYPE:Masterwork.Enhancement.Magic.Plus1",
 			source);
 	EquipmentModifier eqMod2 =
 			Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
@@ -476,7 +483,8 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	.parseLine(
 		Globals.getContext(),
 		null,
-		"Hidden Mod 2	KEY:HIDDENMOD3	FORMATCAT:PARENS	NAMEOPT:NOTHING	TYPE:Ammunition.Weapon	VISIBLE:QUALIFY	ITYPE:Masterwork.Enhancement.Magic.Plus1",
+		"Hidden Mod 2	KEY:HIDDENMOD3	FORMATCAT:PARENS	NAMEOPT:NOTHING	TYPE:Ammunition.Weapon	"
+		+ "VISIBLE:QUALIFY	ITYPE:Masterwork.Enhancement.Magic.Plus1",
 		source);
 EquipmentModifier eqMod3 =
 		Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
@@ -537,7 +545,8 @@ assertNotNull("Eqmod should be present", eqMod);
 			.parseLine(
 				Globals.getContext(),
 				null,
-				"HeadPlusTest		KEY:HEADPT	FORMATCAT:FRONT	NAMEOPT:NORMAL	TYPE:MasterworkQuality.Weapon	COST:HEADPLUSTOTAL*20	BONUS:ITEMCOST|TYPE=Weapon|HEADPLUSTOTAL*5	VISIBLE:YES",
+				"HeadPlusTest		KEY:HEADPT	FORMATCAT:FRONT	NAMEOPT:NORMAL	TYPE:MasterworkQuality.Weapon	"
+				+ "COST:HEADPLUSTOTAL*20	BONUS:ITEMCOST|TYPE=Weapon|HEADPLUSTOTAL*5	VISIBLE:YES",
 				source);
 		EquipmentModifier eqMod =
 				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
@@ -548,7 +557,8 @@ assertNotNull("Eqmod should be present", eqMod);
 			.parseLine(
 				Globals.getContext(),
 				null,
-				"HeadPlusTest		KEY:HEADPT2	FORMATCAT:FRONT	NAMEOPT:NORMAL	TYPE:MasterworkQuality.Weapon	COST:HEADPLUSTOTAL*21	BONUS:ITEMCOST|TYPE=Weapon|HEADPLUSTOTAL*7	VISIBLE:YES",
+				"HeadPlusTest		KEY:HEADPT2	FORMATCAT:FRONT	NAMEOPT:NORMAL	TYPE:MasterworkQuality.Weapon	"
+				+ "COST:HEADPLUSTOTAL*21	BONUS:ITEMCOST|TYPE=Weapon|HEADPLUSTOTAL*7	VISIBLE:YES",
 				source);
 		EquipmentModifier eqMod2 =
 				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(

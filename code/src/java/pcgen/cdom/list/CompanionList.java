@@ -26,8 +26,7 @@ import pcgen.core.character.CompanionMod;
  * CompanionList is a CDOMListObject designed to reference a List of Race
  * objects available as companions to a PlayerCharacter objects.
  */
-public class CompanionList extends CDOMListObject<Race> implements
-		Category<CompanionMod>
+public class CompanionList extends CDOMListObject<Race> implements Category<CompanionMod>
 {
 
 	/**
@@ -86,8 +85,7 @@ public class CompanionList extends CDOMListObject<Race> implements
 	@Override
 	public boolean isMember(CompanionMod item)
 	{
-		return CompanionMod.class.equals(item.getClass())
-			&& this.equals(item.getCDOMCategory());
+		return CompanionMod.class.equals(item.getClass()) && this.equals(item.getCDOMCategory());
 	}
 
 	@Override
@@ -95,7 +93,7 @@ public class CompanionList extends CDOMListObject<Race> implements
 	{
 		return getKeyName().hashCode() ^ getReferenceClass().hashCode();
 	}
-	
+
 	@Override
 	public boolean equals(Object o)
 	{

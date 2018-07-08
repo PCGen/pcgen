@@ -50,7 +50,7 @@ public class SkillSituation
 	{
 		return situation;
 	}
-	
+
 	public double getSituationBonus()
 	{
 		return bonus;

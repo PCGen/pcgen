@@ -22,8 +22,7 @@ package pcgen.core.term;
 
 import pcgen.core.display.CharacterDisplay;
 
-public class PCSizeIntTermEvaluator
-		extends BasePCDTermEvaluator implements TermEvaluator
+public class PCSizeIntTermEvaluator extends BasePCDTermEvaluator implements TermEvaluator
 {
 	public PCSizeIntTermEvaluator(String expressionString)
 	{

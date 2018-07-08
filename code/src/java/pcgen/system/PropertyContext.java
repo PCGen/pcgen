@@ -267,7 +267,7 @@ public class PropertyContext implements PropertyChangeListener
 		return Boolean.valueOf(initProperty(key, Boolean.toString(defaultValue)));
 	}
 
-    @Override
+	@Override
 	public void propertyChange(PropertyChangeEvent evt)
 	{
 		support.firePropertyChange(evt);

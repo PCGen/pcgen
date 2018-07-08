@@ -41,9 +41,9 @@ import pcgen.gui2.UIPropertyContext;
 public class AddLevelFacet implements DataFacetChangeListener<CharID, PCTemplate>
 {
 
-	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
-			.getFacet(PlayerCharacterTrackingFacet.class);
-	
+	private final PlayerCharacterTrackingFacet trackingFacet =
+			FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
+
 	private TemplateFacet templateFacet;
 
 	/**
@@ -71,8 +71,7 @@ public class AddLevelFacet implements DataFacetChangeListener<CharID, PCTemplate
 		// character so don't apply them again.
 		if (!pc.isImporting())
 		{
-			for (LevelCommandFactory lcf : template
-					.getSafeListFor(ListKey.ADD_LEVEL))
+			for (LevelCommandFactory lcf : template.getSafeListFor(ListKey.ADD_LEVEL))
 			{
 				add(lcf.getLevelCount(), lcf.getPCClass(), pc);
 			}
@@ -101,10 +100,8 @@ public class AddLevelFacet implements DataFacetChangeListener<CharID, PCTemplate
 		CharID id = dfce.getCharID();
 		PlayerCharacter pc = trackingFacet.getPC(id);
 
-		List<LevelCommandFactory> lcfList = template
-				.getSafeListFor(ListKey.ADD_LEVEL);
-		for (ListIterator<LevelCommandFactory> it = lcfList
-				.listIterator(lcfList.size()); it.hasPrevious();)
+		List<LevelCommandFactory> lcfList = template.getSafeListFor(ListKey.ADD_LEVEL);
+		for (ListIterator<LevelCommandFactory> it = lcfList.listIterator(lcfList.size()); it.hasPrevious();)
 		{
 			LevelCommandFactory lcf = it.previous();
 			remove(lcf.getLevelCount(), lcf.getPCClass(), pc);
@@ -189,7 +186,7 @@ public class AddLevelFacet implements DataFacetChangeListener<CharID, PCTemplate
 		SettingsHandler.setShowFeatDialogAtLevelUp(tempFeatDlg);
 		SettingsHandler.setShowHPDialogAtLevelUp(tempShowHP);
 	}
-	
+
 	public void setTemplateFacet(TemplateFacet templateFacet)
 	{
 		this.templateFacet = templateFacet;

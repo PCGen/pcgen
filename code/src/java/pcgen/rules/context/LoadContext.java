@@ -62,7 +62,7 @@ public interface LoadContext
 	public AbstractObjectContext getObjectContext();
 
 	public AbstractListContext getListContext();
-	
+
 	public boolean consolidate();
 
 	/*
@@ -81,27 +81,22 @@ public interface LoadContext
 
 	public void resolvePostValidationTokens();
 
-	public <T extends CDOMObject> PrimitiveCollection<T> getChoiceSet(
-		SelectionCreator<T> sc, String value);
+	public <T extends CDOMObject> PrimitiveCollection<T> getChoiceSet(SelectionCreator<T> sc, String value);
 
-	public <T extends CDOMObject> PrimitiveCollection<T> getPrimitiveChoiceFilter(
-		SelectionCreator<T> sc, String key);
+	public <T extends CDOMObject> PrimitiveCollection<T> getPrimitiveChoiceFilter(SelectionCreator<T> sc, String key);
 
 	public String getPrerequisiteString(Collection<Prerequisite> prereqs);
 
-	public ReferenceManufacturer<? extends Loadable> getManufacturer(
-		String firstToken);
+	public ReferenceManufacturer<? extends Loadable> getManufacturer(String firstToken);
 
 	public void forgetMeNot(CDOMReference<?> cdr);
 
 	/*
 	 * Loader Content
 	 */
-	public <T extends CDOMObject> T cloneConstructedCDOMObject(T cdo,
-		String newName);
+	public <T extends CDOMObject> T cloneConstructedCDOMObject(T cdo, String newName);
 
-	public CampaignSourceEntry getCampaignSourceEntry(Campaign source,
-		String value);
+	public CampaignSourceEntry getCampaignSourceEntry(Campaign source, String value);
 
 	public void clearStatefulInformation();
 
@@ -112,22 +107,20 @@ public interface LoadContext
 	public void setLoaded(List<Campaign> campaigns);
 
 	public List<Campaign> getLoadedCampaigns();
-	
+
 	public void loadCampaignFacets();
 
 	public <T extends CDOMObject> T performCopy(T object, String copyName);
-	
+
 	/*
 	 * Token Processing (direct)
 	 */
-	public <T> ParseResult processSubToken(T cdo, String tokenName, String key,
-		String value);
+	public <T> ParseResult processSubToken(T cdo, String tokenName, String key, String value);
 
-	public <T extends Loadable> boolean processToken(T derivative,
-		String typeStr, String argument) throws PersistenceLayerException;
+	public <T extends Loadable> boolean processToken(T derivative, String typeStr, String argument)
+		throws PersistenceLayerException;
 
-	public <T extends Loadable> void unconditionallyProcess(T cdo, String key,
-		String value);
+	public <T extends Loadable> void unconditionallyProcess(T cdo, String key, String value);
 
 	public <T> String[] unparseSubtoken(T cdo, String tokenName);
 
@@ -163,7 +156,7 @@ public interface LoadContext
 	 *            The "local" token to be loaded into this LoadContext
 	 */
 	public void loadLocalToken(Object token);
-	
+
 	/**
 	 * Returns a GroupDefinition<T> based on the given Class and Group instructions
 	 * 
@@ -202,8 +195,7 @@ public interface LoadContext
 	 *            The instructions for the NEPFormula to process when it is solved
 	 * @return A NEPFormula that implements the given Format and instructions
 	 */
-	public <T> NEPFormula<T> getValidFormula(FormatManager<T> formatManager,
-		String instructions);
+	public <T> NEPFormula<T> getValidFormula(FormatManager<T> formatManager, String instructions);
 
 	/**
 	 * Adds a DeferredMethodController to this LoadContext. This DeferredMethodController
@@ -228,6 +220,5 @@ public interface LoadContext
 	 * @return A GroupingCollection<T> based on the given scope name and Group
 	 *         instructions
 	 */
-	public <T> GroupingCollection<? extends Loadable> getGrouping(
-		PCGenScope scope, String instructions);
+	public <T> GroupingCollection<? extends Loadable> getGrouping(PCGenScope scope, String instructions);
 }

@@ -30,31 +30,33 @@ public abstract class BasePCDTermEvaluator extends BasePCTermEvaluator
 {
 
 	@Override
-	public final String evaluate(PlayerCharacter pc) {
+	public final String evaluate(PlayerCharacter pc)
+	{
 		return evaluate(pc.getDisplay());
 	}
 
-	protected String evaluate(CharacterDisplay display) {
+	protected String evaluate(CharacterDisplay display)
+	{
 		return Integer.toString(resolve(display).intValue());
 	}
 
 	@Override
-	public final String evaluate(PlayerCharacter pc, final Spell aSpell) {
-		return evaluate(pc.getDisplay(), aSpell);	
+	public final String evaluate(PlayerCharacter pc, final Spell aSpell)
+	{
+		return evaluate(pc.getDisplay(), aSpell);
 	}
 
-	protected String evaluate(CharacterDisplay display, Spell aSpell) {
+	protected String evaluate(CharacterDisplay display, Spell aSpell)
+	{
 		return evaluate(display);
 	}
 
 	@Override
-	public final String evaluate(
-			Equipment eq,
-			boolean primary,
-			PlayerCharacter pc) {
+	public final String evaluate(Equipment eq, boolean primary, PlayerCharacter pc)
+	{
 		return evaluate(pc);
 	}
-	
+
 	@Override
 	public final Float resolve(PlayerCharacter pc)
 	{
@@ -64,15 +66,14 @@ public abstract class BasePCDTermEvaluator extends BasePCTermEvaluator
 	protected abstract Float resolve(CharacterDisplay display);
 
 	@Override
-	public final Float resolve(PlayerCharacter pc, final CharacterSpell aSpell) {
+	public final Float resolve(PlayerCharacter pc, final CharacterSpell aSpell)
+	{
 		return TermUtil.convertToFloat(originalText, evaluate(pc, aSpell == null ? null : aSpell.getSpell()));
 	}
 
 	@Override
-	public final Float resolve(
-			Equipment eq,
-			boolean primary,
-			PlayerCharacter pc) {
+	public final Float resolve(Equipment eq, boolean primary, PlayerCharacter pc)
+	{
 		return TermUtil.convertToFloat(originalText, evaluate(eq, primary, pc));
 	}
 }

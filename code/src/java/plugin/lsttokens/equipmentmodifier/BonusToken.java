@@ -43,14 +43,12 @@ public class BonusToken implements CDOMPrimaryToken<EquipmentModifier>
 	}
 
 	@Override
-	public ParseResult parseToken(LoadContext context, EquipmentModifier mod,
-		String value)
+	public ParseResult parseToken(LoadContext context, EquipmentModifier mod, String value)
 	{
 		BonusObj bon = Bonus.newBonus(context, value);
 		if (bon == null)
 		{
-			return new ParseResult.Fail(getTokenName() + " was given invalid bonus: "
-					+ value);
+			return new ParseResult.Fail(getTokenName() + " was given invalid bonus: " + value);
 		}
 		bon.setTokenSource(getTokenName());
 		context.getObjectContext().addToList(mod, ListKey.BONUS, bon);
@@ -60,8 +58,7 @@ public class BonusToken implements CDOMPrimaryToken<EquipmentModifier>
 	@Override
 	public String[] unparse(LoadContext context, EquipmentModifier mod)
 	{
-		Changes<BonusObj> changes = context.getObjectContext().getListChanges(mod,
-				ListKey.BONUS);
+		Changes<BonusObj> changes = context.getObjectContext().getListChanges(mod, ListKey.BONUS);
 		if (changes == null || changes.isEmpty())
 		{
 			// Empty indicates no token present

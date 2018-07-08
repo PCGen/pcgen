@@ -26,8 +26,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 /**
  * Class deals with DOMAIN Token
  */
-public class DomainToken extends AbstractBasicCampaignToken implements
-		CDOMPrimaryToken<Campaign>
+public class DomainToken extends AbstractBasicCampaignToken implements CDOMPrimaryToken<Campaign>
 {
 
 	@Override

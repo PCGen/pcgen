@@ -13,13 +13,13 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class BonusstacksToken implements GameModeLstToken
 {
 
-    @Override
+	@Override
 	public String getTokenName()
 	{
 		return "BONUSSTACKS";
 	}
 
-    @Override
+	@Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		StringTokenizer tok = new StringTokenizer(value, Constants.DOT);

@@ -32,7 +32,7 @@ import pcgen.core.LevelInfo;
 public class LevelTableFacet
 {
 	private XPTableFacet xpTableFacet;
-	
+
 	private FormulaResolvingFacet resolveFacet;
 
 	/**
@@ -53,8 +53,7 @@ public class LevelTableFacet
 		LevelInfo info = xpTableFacet.getLevelInfo(id, level);
 		if (info != null)
 		{
-			Formula f = FormulaFactory.getFormulaFor(info
-					.getMinXPVariable(level));
+			Formula f = FormulaFactory.getFormulaFor(info.getMinXPVariable(level));
 			return resolveFacet.resolve(id, f, "").intValue();
 		}
 
@@ -75,6 +74,6 @@ public class LevelTableFacet
 
 	public void setXpTableFacet(XPTableFacet xpTableFacet)
 	{
-	this.xpTableFacet = xpTableFacet;
+		this.xpTableFacet = xpTableFacet;
 	}
 }

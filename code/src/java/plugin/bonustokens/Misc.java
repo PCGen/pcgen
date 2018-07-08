@@ -28,8 +28,7 @@ import pcgen.util.Logging;
  */
 public final class Misc extends MultiTagBonusObj
 {
-	private static final String[] BONUS_TAGS =
-			{"ACCHECK", "MAXDEX", "SPELLFAILURE", "SR", "CR"};
+	private static final String[] BONUS_TAGS = {"ACCHECK", "MAXDEX", "SPELLFAILURE", "SR", "CR"};
 
 	/**
 	 * Return the bonus tag handled by this class.
@@ -71,8 +70,8 @@ public final class Misc extends MultiTagBonusObj
 		{
 			if ("SPELLFAILURE".equals(token))
 			{
-				Logging.errorPrint("BONUS:MISC|SPELLFAILURE is disabled "
-					+ "when PCSPELLFAILURE control is used: " + token, context);
+				Logging.errorPrint(
+					"BONUS:MISC|SPELLFAILURE is disabled " + "when PCSPELLFAILURE control is used: " + token, context);
 				return false;
 			}
 		}
@@ -80,8 +79,8 @@ public final class Misc extends MultiTagBonusObj
 		{
 			if ("MAXDEX".equals(token))
 			{
-				Logging.errorPrint("BONUS:MISC|MAXDEX is disabled "
-					+ "when PCMAXDEX control is used: " + token, context);
+				Logging.errorPrint("BONUS:MISC|MAXDEX is disabled " + "when PCMAXDEX control is used: " + token,
+					context);
 				return false;
 			}
 		}
@@ -89,12 +88,12 @@ public final class Misc extends MultiTagBonusObj
 		{
 			if ("ACCHECK".equals(token))
 			{
-				Logging.errorPrint("BONUS:MISC|ACCHECK is disabled "
-					+ "when PCACCHECK control is used: " + token, context);
+				Logging.errorPrint("BONUS:MISC|ACCHECK is disabled " + "when PCACCHECK control is used: " + token,
+					context);
 				return false;
 			}
 		}
 		return super.parseToken(context, token);
 	}
-	
+
 }

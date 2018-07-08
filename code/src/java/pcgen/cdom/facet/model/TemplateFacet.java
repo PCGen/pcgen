@@ -34,8 +34,7 @@ import pcgen.output.publish.OutputDB;
  * to a Player Character.
  */
 public class TemplateFacet extends AbstractSourcedListFacet<CharID, PCTemplate>
-		implements DataFacetChangeListener<CharID, PCTemplate>,
-		SetFacet<CharID, PCTemplate>
+		implements DataFacetChangeListener<CharID, PCTemplate>, SetFacet<CharID, PCTemplate>
 {
 
 	/**

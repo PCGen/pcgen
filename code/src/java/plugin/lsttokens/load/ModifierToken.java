@@ -28,8 +28,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * {@code ModifierToken}
  * 
  */
-public class ModifierToken extends AbstractNonEmptyToken<LoadInfo> implements
-		CDOMPrimaryToken<LoadInfo>
+public class ModifierToken extends AbstractNonEmptyToken<LoadInfo> implements CDOMPrimaryToken<LoadInfo>
 {
 
 	@Override
@@ -39,14 +38,13 @@ public class ModifierToken extends AbstractNonEmptyToken<LoadInfo> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-			LoadInfo info, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, LoadInfo info, String value)
 	{
 		info.setLoadModifierFormula(value);
 		return ParseResult.SUCCESS;
 	}
 
-    @Override
+	@Override
 	public String[] unparse(LoadContext context, LoadInfo info)
 	{
 		String formula = info.getLoadModifierFormula();
@@ -54,10 +52,10 @@ public class ModifierToken extends AbstractNonEmptyToken<LoadInfo> implements
 		{
 			return null;
 		}
-		return new String[] { formula };
+		return new String[]{formula};
 	}
 
-    @Override
+	@Override
 	public Class<LoadInfo> getTokenClass()
 	{
 		return LoadInfo.class;

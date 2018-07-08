@@ -21,24 +21,21 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.rules.context.LoadContext;
 
-public abstract class AbstractStringStoringToken<T extends CDOMObject> extends
-		AbstractNonEmptyToken<T> implements CDOMPrimaryToken<T>
+public abstract class AbstractStringStoringToken<T extends CDOMObject> extends AbstractNonEmptyToken<T>
+		implements CDOMPrimaryToken<T>
 {
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, T cdo,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, T cdo, String value)
 	{
-		context.getObjectContext().put(cdo,
-			ObjectKey.getKeyFor(String.class, '*' + getTokenName()), value);
+		context.getObjectContext().put(cdo, ObjectKey.getKeyFor(String.class, '*' + getTokenName()), value);
 		return ParseResult.SUCCESS;
 	}
 
 	@Override
 	public String[] unparse(LoadContext context, T cdo)
 	{
-		ObjectKey<String> ok =
-				ObjectKey.getKeyFor(String.class, '*' + getTokenName());
+		ObjectKey<String> ok = ObjectKey.getKeyFor(String.class, '*' + getTokenName());
 		String value = context.getObjectContext().getObject(cdo, ok);
 		if (value == null)
 		{

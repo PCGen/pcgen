@@ -60,38 +60,33 @@ public class GetOtherFunction implements FormulaFunction
 	public Boolean isStatic(StaticVisitor visitor, Node[] args)
 	{
 		//3-args, but we know first one is static (scope name)
-		return (Boolean) args[1].jjtAccept(visitor, null)
-			&& (Boolean) args[2].jjtAccept(visitor, null);
+		return (Boolean) args[1].jjtAccept(visitor, null) && (Boolean) args[2].jjtAccept(visitor, null);
 	}
 
 	@Override
-	public FormatManager<?> allowArgs(SemanticsVisitor visitor, Node[] args,
-		FormulaSemantics semantics)
+	public FormatManager<?> allowArgs(SemanticsVisitor visitor, Node[] args, FormulaSemantics semantics)
 	{
 		int argCount = args.length;
 		if (argCount != 3)
 		{
 			throw new SemanticsFailureException("Function " + getFunctionName()
-				+ " received incorrect # of arguments, expected: 3 got " + args.length
-				+ ' ' + Arrays.asList(args));
+				+ " received incorrect # of arguments, expected: 3 got " + args.length + ' ' + Arrays.asList(args));
 		}
 
 		Node scopeNode = args[0];
 		if (!(scopeNode instanceof ASTQuotString))
 		{
-			throw new SemanticsFailureException("Parse Error: Invalid Scope Node: "
-				+ scopeNode.getClass().getName() + " found in location requiring a"
-				+ " Static String (first arg cannot be evaluated)");
+			throw new SemanticsFailureException("Parse Error: Invalid Scope Node: " + scopeNode.getClass().getName()
+				+ " found in location requiring a" + " Static String (first arg cannot be evaluated)");
 		}
 		ASTQuotString qs = (ASTQuotString) scopeNode;
 		String legalScopeName = qs.getText();
 		FormulaManager formulaManager = semantics.get(FormulaSemantics.FMANAGER);
-		PCGenScope legalScope = (PCGenScope) formulaManager.getScopeInstanceFactory()
-			.getScope(legalScopeName);
+		PCGenScope legalScope = (PCGenScope) formulaManager.getScopeInstanceFactory().getScope(legalScopeName);
 		if (legalScope == null)
 		{
-			throw new SemanticsFailureException("Parse Error: Invalid Scope Name: "
-				+ legalScopeName + " was not a defined scope");
+			throw new SemanticsFailureException(
+				"Parse Error: Invalid Scope Name: " + legalScopeName + " was not a defined scope");
 		}
 		FormatManager<?> formatManager;
 		try
@@ -101,8 +96,8 @@ public class GetOtherFunction implements FormulaFunction
 		}
 		catch (UnsupportedOperationException e)
 		{
-			throw new SemanticsFailureException("Parse Error: Invalid Scope Name: "
-				+ legalScopeName + " found in location requiring a deterministic scope");
+			throw new SemanticsFailureException("Parse Error: Invalid Scope Name: " + legalScopeName
+				+ " found in location requiring a deterministic scope");
 		}
 		FormatManager<?> objectFormat = (FormatManager<?>) args[1].jjtAccept(visitor,
 			semantics.getWith(FormulaSemantics.ASSERTED, Optional.of(formatManager)));
@@ -110,62 +105,49 @@ public class GetOtherFunction implements FormulaFunction
 		{
 			throw new SemanticsFailureException(
 				"Parse Error: Invalid Object Format: " + objectFormat.getIdentifierType()
-					+ " found in a getOther call that asserted "
-					+ formatManager.getIdentifierType());
+					+ " found in a getOther call that asserted " + formatManager.getIdentifierType());
 		}
 		if (VarScoped.class.isAssignableFrom(objectFormat.getManagedClass()))
 		{
-			return (FormatManager<?>) args[2].jjtAccept(visitor,
-				semantics.getWith(FormulaSemantics.SCOPE, legalScope));
+			return (FormatManager<?>) args[2].jjtAccept(visitor, semantics.getWith(FormulaSemantics.SCOPE, legalScope));
 		}
 		else
 		{
-			throw new SemanticsFailureException("Parse Error: Invalid Object Format: "
-				+ objectFormat + " is not capable of holding variables");
+			throw new SemanticsFailureException(
+				"Parse Error: Invalid Object Format: " + objectFormat + " is not capable of holding variables");
 		}
 	}
 
 	@Override
-	public Object evaluate(EvaluateVisitor visitor, Node[] args,
-		EvaluationManager manager)
+	public Object evaluate(EvaluateVisitor visitor, Node[] args, EvaluationManager manager)
 	{
 		String legalScopeName = ((ASTQuotString) args[0]).getText();
 		FormulaManager formulaManager = manager.get(EvaluationManager.FMANAGER);
-		PCGenScope legalScope = (PCGenScope) formulaManager.getScopeInstanceFactory()
-			.getScope(legalScopeName);
+		PCGenScope legalScope = (PCGenScope) formulaManager.getScopeInstanceFactory().getScope(legalScopeName);
 		LoadContext context = manager.get(ManagerKey.CONTEXT);
 		VarScoped vs = (VarScoped) args[1].jjtAccept(visitor,
-			manager.getWith(EvaluationManager.ASSERTED,
-				Optional.of(legalScope.getFormatManager(context))));
+			manager.getWith(EvaluationManager.ASSERTED, Optional.of(legalScope.getFormatManager(context))));
 		FormulaManager fm = manager.get(EvaluationManager.FMANAGER);
 		ScopeInstanceFactory siFactory = fm.getScopeInstanceFactory();
 		ScopeInstance scopeInst = siFactory.get(vs.getLocalScopeName(), vs);
 		//Rest of Equation
-		return args[2].jjtAccept(visitor,
-			manager.getWith(EvaluationManager.INSTANCE, scopeInst));
+		return args[2].jjtAccept(visitor, manager.getWith(EvaluationManager.INSTANCE, scopeInst));
 	}
 
 	@Override
-	public FormatManager<?> getDependencies(DependencyVisitor visitor,
-		DependencyManager fdm, Node[] args)
+	public FormatManager<?> getDependencies(DependencyVisitor visitor, DependencyManager fdm, Node[] args)
 	{
 		String legalScopeName = ((ASTQuotString) args[0]).getText();
 		TrainingStrategy ts = new TrainingStrategy();
 		FormulaManager formulaManager = fdm.get(DependencyManager.FMANAGER);
-		ScopeInstanceFactory scopeInstanceFactory =
-				formulaManager.getScopeInstanceFactory();
-		PCGenScope legalScope =
-				(PCGenScope) scopeInstanceFactory.getScope(legalScopeName);
+		ScopeInstanceFactory scopeInstanceFactory = formulaManager.getScopeInstanceFactory();
+		PCGenScope legalScope = (PCGenScope) scopeInstanceFactory.getScope(legalScopeName);
 		LoadContext context = fdm.get(ManagerKey.CONTEXT);
-		args[1].jjtAccept(visitor,
-			fdm.getWith(DependencyManager.VARSTRATEGY, Optional.of(ts)).getWith(
-				DependencyManager.ASSERTED,
-				Optional.of(legalScope.getFormatManager(context))));
-		DynamicDependency dd = new DynamicDependency(ts.getControlVar(),
-			LegalScope.getFullName(legalScope));
+		args[1].jjtAccept(visitor, fdm.getWith(DependencyManager.VARSTRATEGY, Optional.of(ts))
+			.getWith(DependencyManager.ASSERTED, Optional.of(legalScope.getFormatManager(context))));
+		DynamicDependency dd = new DynamicDependency(ts.getControlVar(), LegalScope.getFullName(legalScope));
 		fdm.get(DependencyManager.DYNAMIC).addDependency(dd);
-		DependencyManager dynamic =
-				fdm.getWith(DependencyManager.VARSTRATEGY, Optional.of(dd));
+		DependencyManager dynamic = fdm.getWith(DependencyManager.VARSTRATEGY, Optional.of(dd));
 		dynamic = dynamic.getWith(DependencyManager.SCOPE, legalScope);
 		//Rest of Equation
 		return (FormatManager<?>) args[2].jjtAccept(visitor, dynamic);

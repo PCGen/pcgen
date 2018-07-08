@@ -35,28 +35,24 @@ public final class TokenUtilities
 		// Can't instantiate utility classes
 	}
 
-	public static <T extends Loadable> CDOMReference<T> getTypeOrPrimitive(
-			LoadContext context, Class<T> cl, String s)
+	public static <T extends Loadable> CDOMReference<T> getTypeOrPrimitive(LoadContext context, Class<T> cl, String s)
 	{
-		return 	getTypeOrPrimitive(context.getReferenceContext().getManufacturer(cl), s);
+		return getTypeOrPrimitive(context.getReferenceContext().getManufacturer(cl), s);
 	}
 
-	public static <T extends CDOMObject> CDOMGroupRef<T> getTypeReference(
-			LoadContext context, Class<T> cl, String subStr)
+	public static <T extends CDOMObject> CDOMGroupRef<T> getTypeReference(LoadContext context, Class<T> cl,
+		String subStr)
 	{
 		return getTypeReference(context.getReferenceContext().getManufacturer(cl), subStr);
 	}
 
-	public static <T extends Loadable> CDOMReference<T> getTypeOrPrimitive(
-			ReferenceManufacturer<T> rm, String s)
+	public static <T extends Loadable> CDOMReference<T> getTypeOrPrimitive(ReferenceManufacturer<T> rm, String s)
 	{
-		if (s.startsWith(Constants.LST_TYPE_DOT)
-				|| s.startsWith(Constants.LST_TYPE_EQUAL))
+		if (s.startsWith(Constants.LST_TYPE_DOT) || s.startsWith(Constants.LST_TYPE_EQUAL))
 		{
 			return getTypeReference(rm, s.substring(5));
 		}
-		else if (s.startsWith(Constants.LST_NOT_TYPE_DOT)
-				|| s.startsWith(Constants.LST_NOT_TYPE_EQUAL))
+		else if (s.startsWith(Constants.LST_NOT_TYPE_DOT) || s.startsWith(Constants.LST_NOT_TYPE_EQUAL))
 		{
 			Logging.errorPrint("!TYPE not supported in token, found: " + s);
 			return null;
@@ -67,16 +63,14 @@ public final class TokenUtilities
 		}
 	}
 
-	public static <T extends Loadable> CDOMGroupRef<T> getTypeReference(
-			SelectionCreator<T> rm, String s)
+	public static <T extends Loadable> CDOMGroupRef<T> getTypeReference(SelectionCreator<T> rm, String s)
 	{
 		if (s.isEmpty())
 		{
 			Logging.errorPrint("Type may not be empty in: " + s);
 			return null;
 		}
-		if (s.charAt(0) == '.'
-				|| s.charAt(s.length() - 1) == '.')
+		if (s.charAt(0) == '.' || s.charAt(s.length() - 1) == '.')
 		{
 			Logging.errorPrint("Type may not start or end with . in: " + s);
 			return null;
@@ -93,8 +87,7 @@ public final class TokenUtilities
 		return rm.getTypeReference(types);
 	}
 
-	public static <T extends CDOMObject> CDOMReference<T> getReference(
-			LoadContext context, Class<T> cl, String tokText)
+	public static <T extends CDOMObject> CDOMReference<T> getReference(LoadContext context, Class<T> cl, String tokText)
 	{
 		CDOMReference<T> lang;
 		if (Constants.LST_ALL.equals(tokText))

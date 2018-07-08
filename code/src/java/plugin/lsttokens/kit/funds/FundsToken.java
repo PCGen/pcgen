@@ -27,8 +27,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * FUNDS Token for KitFunds
  */
-public class FundsToken extends AbstractNonEmptyToken<KitFunds> implements
-		CDOMPrimaryToken<KitFunds>
+public class FundsToken extends AbstractNonEmptyToken<KitFunds> implements CDOMPrimaryToken<KitFunds>
 {
 
 	/**
@@ -49,8 +48,7 @@ public class FundsToken extends AbstractNonEmptyToken<KitFunds> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, KitFunds kitFunds,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, KitFunds kitFunds, String value)
 	{
 		kitFunds.setName(value);
 		return ParseResult.SUCCESS;
@@ -64,6 +62,6 @@ public class FundsToken extends AbstractNonEmptyToken<KitFunds> implements
 		{
 			return null;
 		}
-		return new String[] { bd };
+		return new String[]{bd};
 	}
 }

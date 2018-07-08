@@ -18,9 +18,8 @@
  */
 package pcgen.facade.core;
 
-
 public interface TemplateFacade extends InfoFacade
 {
-    @Override
+	@Override
 	public String getType();
 }

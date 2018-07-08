@@ -20,17 +20,17 @@
  */
 package plugin.initiative.gui;
 
-import gmgen.plugin.Event;
-import pcgen.core.SettingsHandler;
-import plugin.initiative.InitiativePlugin;
-
-import javax.swing.BorderFactory;
-import javax.swing.JFormattedTextField;
-import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 
+import javax.swing.BorderFactory;
+import javax.swing.JFormattedTextField;
+import javax.swing.JPanel;
+
+import gmgen.plugin.Event;
+import pcgen.core.SettingsHandler;
+import plugin.initiative.InitiativePlugin;
 
 public class StartEvent extends javax.swing.JDialog
 {
@@ -68,8 +68,7 @@ public class StartEvent extends javax.swing.JDialog
 	 *@param  modal       is modal?
 	 *@param  initiative  Initiative panel
 	 */
-	public StartEvent(java.awt.Frame parent, boolean modal,
-		Initiative initiative)
+	public StartEvent(java.awt.Frame parent, boolean modal, Initiative initiative)
 	{
 		super(parent, modal);
 		initComponents();
@@ -87,8 +86,7 @@ public class StartEvent extends javax.swing.JDialog
 	 *@param  player      player name
 	 *@param  init        player's initiative
 	 */
-	public StartEvent(java.awt.Frame parent, boolean modal,
-		Initiative initiative, String player, int init)
+	public StartEvent(java.awt.Frame parent, boolean modal, Initiative initiative, String player, int init)
 	{
 		super(parent, modal);
 		initComponents();
@@ -105,9 +103,7 @@ public class StartEvent extends javax.swing.JDialog
 	 */
 	public void initCheckBox()
 	{
-		boolean box =
-				SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
-					+ ".ShowEvents", true);
+		boolean box = SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".ShowEvents", true);
 
 		if (box)
 		{
@@ -145,11 +141,10 @@ public class StartEvent extends javax.swing.JDialog
 
 	protected void save()
 	{
-		initiative.initList.add(new Event(tName.getText(), tPlayer.getText(),
-			tEffect.getText(), ((Integer) lDuration.getValue()).intValue(),
-			((Integer) lInit.getValue()).intValue(), cbAlert.isSelected()));
-		initiative.writeToCombatTabWithRound(" Event Timer " + tName.getText()
-			+ " Started");
+		initiative.initList.add(new Event(tName.getText(), tPlayer.getText(), tEffect.getText(),
+			((Integer) lDuration.getValue()).intValue(), ((Integer) lInit.getValue()).intValue(),
+			cbAlert.isSelected()));
+		initiative.writeToCombatTabWithRound(" Event Timer " + tName.getText() + " Started");
 		initiative.refreshTable();
 		initiative.grabFocus();
 		initiative.focusNextInit();
@@ -300,8 +295,7 @@ public class StartEvent extends javax.swing.JDialog
 		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
 		mainPanel.add(lInit, gridBagConstraints);
-		lInit.setMinimumSize(new Dimension(lInit.getPreferredSize().width,
-			lInit.getPreferredSize().height));
+		lInit.setMinimumSize(new Dimension(lInit.getPreferredSize().width, lInit.getPreferredSize().height));
 
 		lInit.addKeyListener(new EnterKeyAdapter());
 		gridBagRow++;
@@ -338,9 +332,8 @@ public class StartEvent extends javax.swing.JDialog
 		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
 		mainPanel.add(lDuration, gridBagConstraints);
-		lDuration.setMinimumSize(new Dimension(
-			lDuration.getPreferredSize().width,
-			lDuration.getPreferredSize().height));
+		lDuration
+			.setMinimumSize(new Dimension(lDuration.getPreferredSize().width, lDuration.getPreferredSize().height));
 
 		lDuration.addKeyListener(new EnterKeyAdapter());
 		gridBagRow++;
@@ -384,7 +377,7 @@ public class StartEvent extends javax.swing.JDialog
 
 		addWindowListener(new java.awt.event.WindowAdapter()
 		{
-            @Override
+			@Override
 			public void windowClosing(java.awt.event.WindowEvent evt)
 			{
 				closeDialog(evt);
@@ -423,7 +416,7 @@ public class StartEvent extends javax.swing.JDialog
 
 	protected class EnterKeyAdapter extends java.awt.event.KeyAdapter
 	{
-        @Override
+		@Override
 		public void keyReleased(java.awt.event.KeyEvent evt)
 		{
 			if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER)

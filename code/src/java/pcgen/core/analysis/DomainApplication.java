@@ -74,13 +74,10 @@ public final class DomainApplication
 				addSpellsToClassForLevels(pc, d, aClass, 0, maxLevel - 1);
 			}
 
-			if ((maxLevel > 1)
-					&& (aClass.getSafe(IntegerKey.KNOWN_SPELLS_FROM_SPECIALTY) == 0))
+			if ((maxLevel > 1) && (aClass.getSafe(IntegerKey.KNOWN_SPELLS_FROM_SPECIALTY) == 0))
 			{
-				DomainSpellList domainSpellList = d
-						.get(ObjectKey.DOMAIN_SPELLLIST);
-				final List<Spell> aList = pc.getAllSpellsInLists(Collections
-				.singletonList(domainSpellList));
+				DomainSpellList domainSpellList = d.get(ObjectKey.DOMAIN_SPELLLIST);
+				final List<Spell> aList = pc.getAllSpellsInLists(Collections.singletonList(domainSpellList));
 
 				for (Spell gcs : aList)
 				{
@@ -107,16 +104,13 @@ public final class DomainApplication
 				for (Spell s : spells)
 				{
 					String book = apo.getAssociation(AssociationKey.SPELLBOOK);
-					List<CharacterSpell> aList = pc
-							.getCharacterSpells(aClass, s, book, -1);
+					List<CharacterSpell> aList = pc.getCharacterSpells(aClass, s, book, -1);
 
 					if (aList.isEmpty())
 					{
-						Formula times = apo
-								.getAssociation(AssociationKey.TIMES_PER_UNIT);
+						Formula times = apo.getAssociation(AssociationKey.TIMES_PER_UNIT);
 						CharacterSpell cs = new CharacterSpell(d, s);
-						int resolvedTimes = times.resolve(pc,
-								d.getQualifiedKey()).intValue();
+						int resolvedTimes = times.resolve(pc, d.getQualifiedKey()).intValue();
 						cs.addInfo(1, resolvedTimes, book);
 						pc.addCharacterSpell(aClass, cs);
 					}
@@ -152,13 +146,10 @@ public final class DomainApplication
 				removeSpellsFromClassForLevels(pc, domain, aClass);
 			}
 
-			if ((maxLevel > 1)
-					&& (aClass.getSafe(IntegerKey.KNOWN_SPELLS_FROM_SPECIALTY) == 0))
+			if ((maxLevel > 1) && (aClass.getSafe(IntegerKey.KNOWN_SPELLS_FROM_SPECIALTY) == 0))
 			{
-				DomainSpellList domainSpellList = domain
-						.get(ObjectKey.DOMAIN_SPELLLIST);
-				final List<Spell> aList = pc.getAllSpellsInLists(Collections
-				.singletonList(domainSpellList));
+				DomainSpellList domainSpellList = domain.get(ObjectKey.DOMAIN_SPELLLIST);
+				final List<Spell> aList = pc.getAllSpellsInLists(Collections.singletonList(domainSpellList));
 
 				for (Spell gcs : aList)
 				{
@@ -176,15 +167,14 @@ public final class DomainApplication
 			BonusActivation.deactivateBonuses(domain, pc);
 		}
 	}
-	
+
 	/**
 	 * Remove any spells granted by the domain to the class.
 	 * @param pc The character.
 	 * @param domain The domain.
 	 * @param aClass The class which would have the spells allocated.
 	 */
-	public static void removeSpellsFromClassForLevels(PlayerCharacter pc, Domain domain,
-			PCClass aClass)
+	public static void removeSpellsFromClassForLevels(PlayerCharacter pc, Domain domain, PCClass aClass)
 	{
 		if (aClass == null)
 		{
@@ -200,9 +190,9 @@ public final class DomainApplication
 			}
 		}
 	}
-	
-	public static void addSpellsToClassForLevels(PlayerCharacter pc, Domain d,
-			PCClass aClass, int minLevel, int maxLevel)
+
+	public static void addSpellsToClassForLevels(PlayerCharacter pc, Domain d, PCClass aClass, int minLevel,
+		int maxLevel)
 	{
 		if (aClass == null)
 		{
@@ -215,8 +205,7 @@ public final class DomainApplication
 			for (Spell spell : domainSpells)
 			{
 				List<CharacterSpell> slist =
-						pc.getCharacterSpells(aClass, spell, Globals
-							.getDefaultSpellBook(), aLevel);
+						pc.getCharacterSpells(aClass, spell, Globals.getDefaultSpellBook(), aLevel);
 				boolean flag = true;
 
 				for (CharacterSpell cs1 : slist)
@@ -251,17 +240,16 @@ public final class DomainApplication
 		}
 	}
 
-	public static void addDomainsUpToLevel(PCClass cl, final int aLevel,
-		final PlayerCharacter aPC)
+	public static void addDomainsUpToLevel(PCClass cl, final int aLevel, final PlayerCharacter aPC)
 	{
-	
+
 		// any domains set by level would have already been saved
 		// and don't need to be re-set at level up time
 		if (aPC.isImporting())
 		{
 			return;
 		}
-	
+
 		/*
 		 * Note this uses ALL of the domains up to and including this level,
 		 * because there is the possibility (albeit strange) that the PC was not
@@ -278,13 +266,12 @@ public final class DomainApplication
 				addDomain(aPC, cl, ref.get());
 			}
 		}
-		for (int i = 0 ; i <= aLevel; i++)
+		for (int i = 0; i <= aLevel; i++)
 		{
 			// TODO This stinks for really high level characters - can this ever
 			// get null back?
 			PCClassLevel pcl = aPC.getActiveClassLevel(cl, i);
-			for (QualifiedObject<CDOMSingleRef<Domain>> qo : pcl
-					.getSafeListFor(ListKey.DOMAIN))
+			for (QualifiedObject<CDOMSingleRef<Domain>> qo : pcl.getSafeListFor(ListKey.DOMAIN))
 			{
 				CDOMSingleRef<Domain> ref = qo.getObject(aPC, cl);
 				if (ref != null)
@@ -295,10 +282,9 @@ public final class DomainApplication
 		}
 	}
 
-	public static void removeDomainsForLevel(PCClass cl, final int removedLevel,
-		final PlayerCharacter aPC)
+	public static void removeDomainsForLevel(PCClass cl, final int removedLevel, final PlayerCharacter aPC)
 	{
-	
+
 		/*
 		 * Note this uses ALL of the domains up to and including this level,
 		 * because there is the possibility (albeit strange) that the PC was
@@ -316,13 +302,12 @@ public final class DomainApplication
 				aPC.removeDomain(ref.get());
 			}
 		}
-		for (int i = 0 ; i <= removedLevel; i++)
+		for (int i = 0; i <= removedLevel; i++)
 		{
 			// TODO This stinks for really high level characters - can this ever
 			// get null back?
 			PCClassLevel pcl = aPC.getActiveClassLevel(cl, i);
-			for (QualifiedObject<CDOMSingleRef<Domain>> qo : pcl
-					.getSafeListFor(ListKey.DOMAIN))
+			for (QualifiedObject<CDOMSingleRef<Domain>> qo : pcl.getSafeListFor(ListKey.DOMAIN))
 			{
 				CDOMSingleRef<Domain> ref = qo.getObject(aPC, cl);
 				if ((ref == null) || (i == removedLevel))

@@ -38,14 +38,13 @@ import pcgen.util.Logging;
 public class AbilityCategoryToken implements GameModeLstToken
 {
 
-    @Override
+	@Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		final AbilityCategoryLoader loader = new AbilityCategoryLoader();
 		try
 		{
-			loader.parseLine(gameMode.getModeContext(), getTokenName() + ':'
-					+ value, source);
+			loader.parseLine(gameMode.getModeContext(), getTokenName() + ':' + value, source);
 		}
 		catch (PersistenceLayerException e)
 		{
@@ -73,7 +72,7 @@ public class AbilityCategoryToken implements GameModeLstToken
 	/**
 	 * Returns the name of the token this class handles.
 	 */
-    @Override
+	@Override
 	public String getTokenName()
 	{
 		return "ABILITYCATEGORY"; //$NON-NLS-1$

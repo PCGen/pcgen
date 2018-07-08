@@ -19,13 +19,14 @@
 package pcgen.gui2.tabs;
 
 import java.awt.Insets;
+
 import javax.swing.JButton;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
+
 import pcgen.gui2.util.SignIcon;
 import pcgen.gui2.util.SignIcon.Sign;
 import pcgen.system.LanguageBundle;
-
 
 public class Utilities
 {
@@ -38,18 +39,18 @@ public class Utilities
 		return button;
 	}
 
-	public static TableColumn createTableColumn(int index, String headerValue,
-			TableCellRenderer headerRenderer, boolean resizable)
+	public static TableColumn createTableColumn(int index, String headerValue, TableCellRenderer headerRenderer,
+		boolean resizable)
 	{
 		TableColumn column = new TableColumn(index);
-    	if (headerValue.startsWith("in_"))
-    	{
-    		column.setHeaderValue(LanguageBundle.getString(headerValue));
-    	}
-    	else
-    	{
-    		column.setHeaderValue(headerValue);
-    	}
+		if (headerValue.startsWith("in_"))
+		{
+			column.setHeaderValue(LanguageBundle.getString(headerValue));
+		}
+		else
+		{
+			column.setHeaderValue(headerValue);
+		}
 		column.setHeaderRenderer(headerRenderer);
 		if (!resizable)
 		{

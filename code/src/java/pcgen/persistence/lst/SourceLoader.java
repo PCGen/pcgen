@@ -30,18 +30,16 @@ import pcgen.util.Logging;
 /**
  * Loads SOURCE
  */
-public class SourceLoader
+public final class SourceLoader
 {
 
 	private SourceLoader()
 	{
 	}
 
-	public static void parseLine(LoadContext context, String lstLine,
-	                             URI sourceFile)
+	public static void parseLine(LoadContext context, String lstLine, URI sourceFile)
 	{
-		final StringTokenizer colToken = new StringTokenizer(lstLine,
-				SystemLoader.TAB_DELIM);
+		final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 		while (colToken.hasMoreTokens())
 		{
 			String colString = colToken.nextToken().trim();
@@ -60,8 +58,7 @@ public class SourceLoader
 			}
 			catch (PersistenceLayerException e)
 			{
-				Logging.errorPrint("Error parsing source: " + colString
-						+ " in: " + sourceFile);
+				Logging.errorPrint("Error parsing source: " + colString + " in: " + sourceFile);
 			}
 		}
 	}

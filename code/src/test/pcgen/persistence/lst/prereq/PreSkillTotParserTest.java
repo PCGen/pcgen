@@ -70,8 +70,8 @@ public class PreSkillTotParserTest extends EnUsLocaleDependentTestCase
 
 		assertEquals(
 			"<prereq operator=\"GTEQ\" operand=\"20\" >\n"
-				+ "<prereq kind=\"skill\" total-values=\"true\" key=\"TYPE.Knowledge\" operator=\"GTEQ\" operand=\"1\" >\n"
-				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
+			+ "<prereq kind=\"skill\" total-values=\"true\" key=\"TYPE.Knowledge\" operator=\"GTEQ\" operand=\"1\" >\n"
+			+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 
 	}
 

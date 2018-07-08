@@ -33,7 +33,7 @@ public class GearBuySellScheme implements GearBuySellFacade
 	private final BigDecimal buyRate;
 	private final BigDecimal sellRate;
 	private final BigDecimal cashSellRate;
-	
+
 	/**
 	 * Create a new named instance of GearBuySellScheme
 	 * @param name The name of the scheme.
@@ -48,7 +48,7 @@ public class GearBuySellScheme implements GearBuySellFacade
 		this.sellRate = sellRate;
 		this.cashSellRate = cashSellRate;
 	}
-	
+
 	@Override
 	public String getName()
 	{
@@ -84,11 +84,7 @@ public class GearBuySellScheme implements GearBuySellFacade
 	{
 		NumberFormat numFmt = NumberFormat.getNumberInstance();
 
-		return name + " - Buy " +
-				numFmt.format(buyRate) +
-				" Sell " +
-				numFmt.format(sellRate);
+		return name + " - Buy " + numFmt.format(buyRate) + " Sell " + numFmt.format(sellRate);
 	}
 
-	
 }

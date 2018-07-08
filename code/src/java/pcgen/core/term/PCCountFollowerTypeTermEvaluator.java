@@ -23,8 +23,7 @@ package pcgen.core.term;
 import pcgen.core.character.Follower;
 import pcgen.core.display.CharacterDisplay;
 
-public class PCCountFollowerTypeTermEvaluator
-		extends BasePCDTermEvaluator implements TermEvaluator
+public class PCCountFollowerTypeTermEvaluator extends BasePCDTermEvaluator implements TermEvaluator
 {
 
 	private final String type;
@@ -40,7 +39,7 @@ public class PCCountFollowerTypeTermEvaluator
 	{
 		Float countFollower = 0.0f;
 
-		for ( Follower follower : display.getFollowerList() )
+		for (Follower follower : display.getFollowerList())
 		{
 			if (follower.getType().getKeyName().equalsIgnoreCase(type))
 			{

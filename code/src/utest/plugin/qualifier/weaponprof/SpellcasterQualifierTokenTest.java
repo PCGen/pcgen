@@ -46,7 +46,8 @@ public class SpellcasterQualifierTokenTest extends
 	static WeaponProficiencyToken subtoken = new WeaponProficiencyToken();
 	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
-	private static final plugin.qualifier.weaponprof.SpellCasterToken PC_TOKEN = new plugin.qualifier.weaponprof.SpellCasterToken();
+	private static final plugin.qualifier.weaponprof.SpellCasterToken PC_TOKEN =
+			new plugin.qualifier.weaponprof.SpellCasterToken();
 	private WeaponProf wp1, wp2, wp3;
 
 	public SpellcasterQualifierTokenTest()

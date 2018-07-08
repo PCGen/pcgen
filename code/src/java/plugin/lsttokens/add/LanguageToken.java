@@ -45,8 +45,8 @@ import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class LanguageToken extends AbstractNonEmptyToken<CDOMObject> implements
-		CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<Language>
+public class LanguageToken extends AbstractNonEmptyToken<CDOMObject>
+		implements CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<Language>
 {
 
 	private static final Class<Language> LANGUAGE_CLASS = Language.class;
@@ -69,8 +69,7 @@ public class LanguageToken extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		CDOMObject obj, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj, String value)
 	{
 		ParsingSeparator sep = new ParsingSeparator(value, '|');
 		sep.addGroupingPair('[', ']');
@@ -87,20 +86,17 @@ public class LanguageToken extends AbstractNonEmptyToken<CDOMObject> implements
 			count = FormulaFactory.getFormulaFor(activeValue);
 			if (!count.isValid())
 			{
-				return new ParseResult.Fail("Count in " + getTokenName()
-						+ " was not valid: " + count.toString());
+				return new ParseResult.Fail("Count in " + getTokenName() + " was not valid: " + count.toString());
 			}
 			if (count.isStatic() && count.resolveStatic().doubleValue() <= 0)
 			{
-				return new ParseResult.Fail("Count in " + getFullName()
-								+ " must be > 0");
+				return new ParseResult.Fail("Count in " + getFullName() + " must be > 0");
 			}
 			activeValue = sep.next();
 		}
 		if (sep.hasNext())
 		{
-			return new ParseResult.Fail(getFullName()
-					+ " had too many pipe separated items: " + value);
+			return new ParseResult.Fail(getFullName() + " had too many pipe separated items: " + value);
 		}
 		ParseResult pr = checkSeparatorsAndNonEmpty(',', activeValue);
 		if (!pr.passed())
@@ -113,29 +109,25 @@ public class LanguageToken extends AbstractNonEmptyToken<CDOMObject> implements
 		while (tok.hasMoreTokens())
 		{
 			String tokText = tok.nextToken();
-			CDOMReference<Language> lang = TokenUtilities.getReference(context,
-					LANGUAGE_CLASS, tokText);
+			CDOMReference<Language> lang = TokenUtilities.getReference(context, LANGUAGE_CLASS, tokText);
 			if (lang == null)
 			{
-				return new ParseResult.Fail("  Error was encountered while parsing "
-						+ getFullName() + ": " + value
-						+ " had an invalid reference: " + tokText);
+				return new ParseResult.Fail("  Error was encountered while parsing " + getFullName() + ": " + value
+					+ " had an invalid reference: " + tokText);
 			}
 			refs.add(lang);
 		}
 
-		ReferenceChoiceSet<Language> rcs = new ReferenceChoiceSet<>(
-				refs);
+		ReferenceChoiceSet<Language> rcs = new ReferenceChoiceSet<>(refs);
 		if (!rcs.getGroupingState().isValid())
 		{
-			return new ParseResult.Fail("Non-sensical " + getFullName()
-					+ ": Contains ANY and a specific reference: " + value);
+			return new ParseResult.Fail(
+				"Non-sensical " + getFullName() + ": Contains ANY and a specific reference: " + value);
 		}
 
 		ChoiceSet<Language> cs = new ChoiceSet<>(getTokenName(), rcs);
 		cs.setTitle("Language Choice");
-		PersistentTransitionChoice<Language> tc =
-				new ConcretePersistentTransitionChoice<>(cs, count);
+		PersistentTransitionChoice<Language> tc = new ConcretePersistentTransitionChoice<>(cs, count);
 		context.getObjectContext().addToList(obj, ListKey.ADD, tc);
 		tc.setChoiceActor(this);
 		return ParseResult.SUCCESS;
@@ -144,10 +136,9 @@ public class LanguageToken extends AbstractNonEmptyToken<CDOMObject> implements
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
-		Changes<PersistentTransitionChoice<?>> grantChanges = context
-				.getObjectContext().getListChanges(obj, ListKey.ADD);
-		Collection<PersistentTransitionChoice<?>> addedItems = grantChanges
-				.getAdded();
+		Changes<PersistentTransitionChoice<?>> grantChanges =
+				context.getObjectContext().getListChanges(obj, ListKey.ADD);
+		Collection<PersistentTransitionChoice<?>> addedItems = grantChanges.getAdded();
 		if (addedItems == null || addedItems.isEmpty())
 		{
 			// Zero indicates no Token
@@ -157,27 +148,23 @@ public class LanguageToken extends AbstractNonEmptyToken<CDOMObject> implements
 		for (TransitionChoice<?> container : addedItems)
 		{
 			SelectableSet<?> cs = container.getChoices();
-			if (cs.getName().equals(getTokenName())
-				&& LANGUAGE_CLASS.equals(cs.getChoiceClass()))
+			if (cs.getName().equals(getTokenName()) && LANGUAGE_CLASS.equals(cs.getChoiceClass()))
 			{
 				Formula f = container.getCount();
 				if (f == null)
 				{
-					context.addWriteMessage("Unable to find " + getFullName()
-							+ " Count");
+					context.addWriteMessage("Unable to find " + getFullName() + " Count");
 					return null;
 				}
 				if (f.isStatic() && f.resolveStatic().doubleValue() <= 0)
 				{
-					context.addWriteMessage("Count in " + getFullName()
-							+ " must be > 0");
+					context.addWriteMessage("Count in " + getFullName() + " must be > 0");
 					return null;
 				}
 				if (!cs.getGroupingState().isValid())
 				{
 					context.addWriteMessage("Non-sensical " + getFullName()
-							+ ": Contains ANY and a specific reference: "
-							+ cs.getLSTformat());
+						+ ": Contains ANY and a specific reference: " + cs.getLSTformat());
 					return null;
 				}
 				StringBuilder sb = new StringBuilder();
@@ -201,8 +188,7 @@ public class LanguageToken extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	public void applyChoice(CDOMObject owner, Language choice,
-			PlayerCharacter pc)
+	public void applyChoice(CDOMObject owner, Language choice, PlayerCharacter pc)
 	{
 		pc.addAddLanguage(choice, owner);
 	}
@@ -226,15 +212,13 @@ public class LanguageToken extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
-			Language choice)
+	public void restoreChoice(PlayerCharacter pc, CDOMObject owner, Language choice)
 	{
 		pc.addAddLanguage(choice, owner);
 	}
 
 	@Override
-	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
-			Language choice)
+	public void removeChoice(PlayerCharacter pc, CDOMObject owner, Language choice)
 	{
 		pc.removeAddLanguage(choice, owner);
 	}

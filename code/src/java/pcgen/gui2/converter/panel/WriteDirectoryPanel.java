@@ -24,6 +24,7 @@ import java.io.File;
 import java.io.FilenameFilter;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.swing.AbstractButton;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
@@ -31,8 +32,10 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SpringLayout;
+
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.SystemUtils;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -51,8 +54,7 @@ public class WriteDirectoryPanel extends ConvertSubPanel
 	private final JLabel fileLabel;
 	private final JLabel warningLabel;
 
-	private final FilenameFilter pccFileFilter = (parentDir, fileName) ->
-	{
+	private final FilenameFilter pccFileFilter = (parentDir, fileName) -> {
 
 		if (StringUtils.endsWithIgnoreCase(fileName, ".pcc"))
 		{
@@ -62,7 +64,7 @@ public class WriteDirectoryPanel extends ConvertSubPanel
 	};
 
 	private List<Campaign> campaignList;
-	
+
 	public WriteDirectoryPanel()
 	{
 		fileLabel = new JLabel();
@@ -82,12 +84,8 @@ public class WriteDirectoryPanel extends ConvertSubPanel
 		else
 		{
 			PCGenSettings context = PCGenSettings.getInstance();
-			String outputPathName =
-					context.initProperty(
-						PCGenSettings.CONVERT_OUTPUT_SAVE_PATH,
-						SystemUtils.USER_DIR);
-			path =
-					new File(outputPathName);
+			String outputPathName = context.initProperty(PCGenSettings.CONVERT_OUTPUT_SAVE_PATH, SystemUtils.USER_DIR);
+			path = new File(outputPathName);
 		}
 		pc.put(ObjectKey.WRITE_DIRECTORY, path);
 		fireProgressEvent(ProgressEvent.ALLOWED);
@@ -108,13 +106,12 @@ public class WriteDirectoryPanel extends ConvertSubPanel
 	{
 		return true;
 	}
-	
+
 	@Override
 	public void setupDisplay(JPanel panel, final CDOMObject pc)
 	{
 		panel.setLayout(layout);
-		Component label = new JLabel(
-				"Please select the Directory where Converted files should be written: ");
+		Component label = new JLabel("Please select the Directory where Converted files should be written: ");
 		AbstractButton button = new JButton("Browse...");
 		button.setMnemonic('r');
 		button.addActionListener(new ActionListener()
@@ -133,22 +130,18 @@ public class WriteDirectoryPanel extends ConvertSubPanel
 					if (open == JFileChooser.APPROVE_OPTION)
 					{
 						File fileToOpen = chooser.getSelectedFile();
-						if (fileToOpen.isDirectory() && fileToOpen.canRead()
-								&& fileToOpen.canWrite())
+						if (fileToOpen.isDirectory() && fileToOpen.canRead() && fileToOpen.canWrite())
 						{
 							path = fileToOpen;
 							pc.put(ObjectKey.WRITE_DIRECTORY, path);
 							fileLabel.setText(path.getAbsolutePath());
 							PCGenSettings context = PCGenSettings.getInstance();
-							context.setProperty(
-								PCGenSettings.CONVERT_OUTPUT_SAVE_PATH,
-								path.getAbsolutePath());
+							context.setProperty(PCGenSettings.CONVERT_OUTPUT_SAVE_PATH, path.getAbsolutePath());
 							showWarning();
 							break;
 						}
 						JOptionPane.showMessageDialog(null,
-								"Selection must be a valid "
-										+ "(readable & writeable) Directory");
+							"Selection must be a valid " + "(readable & writeable) Directory");
 						chooser.setCurrentDirectory(path.getParentFile());
 					}
 					else if (open == JFileChooser.CANCEL_OPTION)
@@ -163,26 +156,20 @@ public class WriteDirectoryPanel extends ConvertSubPanel
 		panel.add(button);
 		panel.add(warningLabel);
 		showWarning();
-		layout.putConstraint(SpringLayout.NORTH, label, 50, SpringLayout.NORTH,
-				panel);
-		layout.putConstraint(SpringLayout.NORTH, fileLabel, 75 + label
-				.getPreferredSize().height, SpringLayout.NORTH, panel);
-		layout.putConstraint(SpringLayout.NORTH, button, 75 + label
-				.getPreferredSize().height, SpringLayout.NORTH, panel);
-		layout.putConstraint(SpringLayout.WEST, label, 25, SpringLayout.WEST,
-				panel);
-		layout.putConstraint(SpringLayout.WEST, fileLabel, 25,
-				SpringLayout.WEST, panel);
-		layout.putConstraint(SpringLayout.EAST, button, -50, SpringLayout.EAST,
-				panel);
-		layout.putConstraint(SpringLayout.NORTH, warningLabel, 20, SpringLayout.SOUTH,
-			fileLabel);
-		layout.putConstraint(SpringLayout.WEST, warningLabel, 25, SpringLayout.WEST,
+		layout.putConstraint(SpringLayout.NORTH, label, 50, SpringLayout.NORTH, panel);
+		layout.putConstraint(SpringLayout.NORTH, fileLabel, 75 + label.getPreferredSize().height, SpringLayout.NORTH,
 			panel);
-		
+		layout.putConstraint(SpringLayout.NORTH, button, 75 + label.getPreferredSize().height, SpringLayout.NORTH,
+			panel);
+		layout.putConstraint(SpringLayout.WEST, label, 25, SpringLayout.WEST, panel);
+		layout.putConstraint(SpringLayout.WEST, fileLabel, 25, SpringLayout.WEST, panel);
+		layout.putConstraint(SpringLayout.EAST, button, -50, SpringLayout.EAST, panel);
+		layout.putConstraint(SpringLayout.NORTH, warningLabel, 20, SpringLayout.SOUTH, fileLabel);
+		layout.putConstraint(SpringLayout.WEST, warningLabel, 25, SpringLayout.WEST, panel);
+
 		fileLabel.setText(path.getAbsolutePath());
 	}
-	
+
 	private void showWarning()
 	{
 		List<Campaign> existingCampaigns = getExistingPccs();
@@ -197,9 +184,7 @@ public class WriteDirectoryPanel extends ConvertSubPanel
 			{
 				if ((i >= maxCampaigns) && (existingCampaigns.size() > maxCampaigns))
 				{
-					warning.append("<li>"
-						+ (existingCampaigns.size() - maxCampaigns + 1)
-						+ " more campaigns.</li>");
+					warning.append("<li>" + (existingCampaigns.size() - maxCampaigns + 1) + " more campaigns.</li>");
 					break;
 				}
 				warning.append("<li>");
@@ -212,14 +197,14 @@ public class WriteDirectoryPanel extends ConvertSubPanel
 		warning.append("</html>");
 		warningLabel.setText(warning.toString());
 	}
-	
+
 	private List<Campaign> getExistingPccs()
 	{
 		List<File> existingFiles = new ArrayList<>();
 		findPCCFiles(path, existingFiles);
-		
+
 		List<Campaign> matchingCampaigns = new ArrayList<>();
-		
+
 		for (Campaign camp : campaignList)
 		{
 			File campFile = new File(camp.getSourceURI());
@@ -232,7 +217,7 @@ public class WriteDirectoryPanel extends ConvertSubPanel
 				}
 			}
 		}
-		
+
 		return matchingCampaigns;
 	}
 
@@ -252,5 +237,5 @@ public class WriteDirectoryPanel extends ConvertSubPanel
 		}
 
 	}
-	
+
 }

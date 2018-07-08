@@ -20,12 +20,11 @@ package pcgen.gui2.util;
 
 import javax.swing.MutableComboBoxModel;
 
-
 public interface ComboSelectionDialog
 {
 
-    public void setModel(MutableComboBoxModel model);
+	public void setModel(MutableComboBoxModel model);
 
-    public void display();
+	public void display();
 
 }

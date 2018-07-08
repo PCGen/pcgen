@@ -57,9 +57,12 @@ public class DataSetTest extends TestCase
 		DataSet dataset = new DataSet(Globals.getContext(), SettingsHandler.getGame(), new DefaultListFacade<>());
 		ListFacade<BodyStructureFacade> locations = dataset.getEquipmentLocations();
 		assertNotNull("Body Structure should not be null", locations);
-		assertTrue("Expected to find Equipped", checkBodyStructurePresent(locations, Constants.EQUIP_LOCATION_EQUIPPED));
-		assertTrue("Expected to find Carried", checkBodyStructurePresent(locations, Constants.EQUIP_LOCATION_CARRIED));
-		assertTrue("Expected to find Not Carried", checkBodyStructurePresent(locations, Constants.EQUIP_LOCATION_NOTCARRIED));
+		assertTrue("Expected to find Equipped",
+			checkBodyStructurePresent(locations, Constants.EQUIP_LOCATION_EQUIPPED));
+		assertTrue("Expected to find Carried",
+			checkBodyStructurePresent(locations, Constants.EQUIP_LOCATION_CARRIED));
+		assertTrue("Expected to find Not Carried",
+			checkBodyStructurePresent(locations, Constants.EQUIP_LOCATION_NOTCARRIED));
 		assertEquals("Incorrect size of body structures list", 3, locations.getSize());
 	}
 

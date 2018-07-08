@@ -36,8 +36,6 @@ public final class RaceMigration
 {
 	private static Map<int[], List<MigrationRule>> raceChangesForVer = new HashMap<>();
 
-
-
 	private RaceMigration()
 	{
 	}
@@ -51,12 +49,8 @@ public final class RaceMigration
 	 */
 	public static String getNewRaceKey(String raceKey, int[] pcgVer, String gameModeName)
 	{
-		List<MigrationRule> raceChangeList = raceChangesForVer.computeIfAbsent(
-				pcgVer,
-				v -> MigrationUtils.getChangeList(v, gameModeName,
-						ObjectType.RACE
-				)
-		);
+		List<MigrationRule> raceChangeList = raceChangesForVer.computeIfAbsent(pcgVer,
+			v -> MigrationUtils.getChangeList(v, gameModeName, ObjectType.RACE));
 
 		for (MigrationRule rule : raceChangeList)
 		{
@@ -67,6 +61,5 @@ public final class RaceMigration
 		}
 		return raceKey;
 	}
-	
 
 }

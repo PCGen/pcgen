@@ -50,8 +50,7 @@ import pcgen.cdom.base.Loadable;
  * @param <T>
  *            The Class of object this ReferenceManufacturer can manufacture
  */
-public interface ReferenceManufacturer<T extends Loadable> extends
-		SelectionCreator<T>, FormatManager<T>
+public interface ReferenceManufacturer<T extends Loadable> extends SelectionCreator<T>, FormatManager<T>
 {
 	/**
 	 * Constructs a new CDOMObject of the Class or Class/Category represented by
@@ -368,7 +367,7 @@ public interface ReferenceManufacturer<T extends Loadable> extends
 	 *            ReferenceManufacturer should be injected
 	 */
 	public void injectConstructed(ReferenceManufacturer<T> rm);
-	
+
 	/**
 	 * Adds a derivative object for the given object to this ReferenceManufacturer.
 	 * Derivative objects are objects which are not named, but which represent sub-objects

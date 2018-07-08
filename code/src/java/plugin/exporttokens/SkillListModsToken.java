@@ -32,8 +32,7 @@ public class SkillListModsToken extends Token
 	}
 
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		StringBuilder returnString = new StringBuilder();
 		boolean needcomma = false;
@@ -43,8 +42,7 @@ public class SkillListModsToken extends Token
 		while (iter.hasNext())
 		{
 			Skill sk = iter.next();
-			if (!pc.includeSkill(sk, SkillFilter.Usable)
-					|| !sk.qualifies(pc, null))
+			if (!pc.includeSkill(sk, SkillFilter.Usable) || !sk.qualifies(pc, null))
 			{
 				iter.remove();
 			}
@@ -57,17 +55,14 @@ public class SkillListModsToken extends Token
 			CDOMSingleRef<PCStat> statref = aSkill.get(ObjectKey.KEY_STAT);
 			if (statref != null)
 			{
-				modSkill =
-						SkillModifier.modifier(aSkill, pc).intValue()
-							- pc.getStatModFor(statref.get());
+				modSkill = SkillModifier.modifier(aSkill, pc).intValue() - pc.getStatModFor(statref.get());
 			}
 
 			if ((SkillRankControl.getTotalRank(pc, aSkill).intValue() > 0) || (modSkill > 0))
 			{
 				//final
-				int temp =
-						SkillModifier.modifier(aSkill, pc).intValue()
-							+ SkillRankControl.getTotalRank(pc, aSkill).intValue();
+				int temp = SkillModifier.modifier(aSkill, pc).intValue()
+					+ SkillRankControl.getTotalRank(pc, aSkill).intValue();
 
 				if (needcomma)
 				{
@@ -75,7 +70,6 @@ public class SkillListModsToken extends Token
 				}
 				needcomma = true;
 
-				
 				returnString.append(OutputNameFormatting.getOutputName(aSkill)).append(temp >= 0 ? " +" : " ")
 					.append(Integer.toString(temp));
 			}

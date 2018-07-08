@@ -91,7 +91,7 @@ public class GMGenSystemView extends JPanel implements ChangeListener
 	 *
 	 *@param  e  an event that made the change change.
 	 */
-    @Override
+	@Override
 	public void stateChanged(ChangeEvent e)
 	{
 		// defaults to empty

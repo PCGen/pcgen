@@ -35,8 +35,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * LOOKUP token for base kits
  */
-public class LookupToken extends AbstractToken implements
-		CDOMPrimaryToken<KitGear>
+public class LookupToken extends AbstractToken implements CDOMPrimaryToken<KitGear>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -75,8 +74,7 @@ public class LookupToken extends AbstractToken implements
 		Formula formula = FormulaFactory.getFormulaFor(second);
 		if (!formula.isValid())
 		{
-			return new ParseResult.Fail("Formula in " + getTokenName()
-					+ " was not valid: " + formula.toString());
+			return new ParseResult.Fail("Formula in " + getTokenName() + " was not valid: " + formula.toString());
 		}
 		kitGear.loadLookup(first, formula);
 		return ParseResult.SUCCESS;

@@ -18,7 +18,6 @@
  */
 package pcgen.gui2.tabs.bio;
 
-
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -82,14 +81,12 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 {
 	private static final String ALL_COMMAND = "ALL"; //$NON-NLS-1$
 	private static final String NONE_COMMAND = "NONE"; //$NON-NLS-1$
-	private static final JTextField templateTextField = new JTextField(
-		"PrototypeDisplayText"); //$NON-NLS-1$;
+	private static final JTextField templateTextField = new JTextField("PrototypeDisplayText"); //$NON-NLS-1$;
 	/** The fields that we always display */
-	private static final EnumSet<BiographyField> defaultBioFieds = EnumSet
-		.range(BiographyField.NAME, BiographyField.WEIGHT);
+	private static final EnumSet<BiographyField> defaultBioFieds =
+			EnumSet.range(BiographyField.NAME, BiographyField.WEIGHT);
 
-	private final TabTitle title = new TabTitle(
-		LanguageBundle.getString("in_descBiography"), null); //$NON-NLS-1$
+	private final TabTitle title = new TabTitle(LanguageBundle.getString("in_descBiography"), null); //$NON-NLS-1$
 	private final JButton allButton;
 	private final JButton noneButton;
 	private final JPanel itemsPanel;
@@ -126,7 +123,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 		vbox.add(hbox);
 
 		itemsPanel.setLayout(new GridBagLayout());
-		itemsPanel.setBorder(new EmptyBorder(8, 5, 8, 5) );
+		itemsPanel.setBorder(new EmptyBorder(8, 5, 8, 5));
 
 		vbox.add(Box.createVerticalStrut(10));
 		detailsScroll = new JScrollPane(itemsPanel);
@@ -187,9 +184,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 
 		private final ListFacade<BiographyField> customFields;
 		private final List<BioItem> bioItems = new ArrayList<>();
-		private final Map<BiographyField, BioItem> customFieldMap =
-                new EnumMap<>(
-                        BiographyField.class);
+		private final Map<BiographyField, BioItem> customFieldMap = new EnumMap<>(BiographyField.class);
 		private final CharacterFacade character;
 		private BiographyInfoPane detailsPane;
 
@@ -215,9 +210,9 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			bioItems.add(new EyeColorItem(character));
 			bioItems.add(new HeightItem(character));
 			bioItems.add(new WeightItem(character));
-			
+
 			customFields = character.getDescriptionFacade().getCustomBiographyFields();
-			
+
 			for (BiographyField field : customFields)
 			{
 				BioItem item;
@@ -366,7 +361,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 
 			};
 			genderModel.setReference(character.getGenderRef());
-            genderModel.setListFacade(character.getAvailableGenders());
+			genderModel.setListFacade(character.getAvailableGenders());
 			setComboBoxModel(genderModel);
 
 			checkVisible();
@@ -398,7 +393,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 
 			};
 			handsModel.setReference(character.getHandedRef());
-            handsModel.setListFacade(character.getAvailableHands());
+			handsModel.setListFacade(character.getAvailableHands());
 			setComboBoxModel(handsModel);
 
 			checkVisible();
@@ -600,9 +595,8 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			super("in_region", BiographyField.REGION, character); //$NON-NLS-1$
 			final JTextField regionField = new JTextField();
 			regionField.setEditable(false);
-			setTextFieldHandler(new TextFieldHandler(regionField, character
-				.getDescriptionFacade()
-				.getBiographyField(BiographyField.REGION))
+			setTextFieldHandler(new TextFieldHandler(regionField,
+				character.getDescriptionFacade().getBiographyField(BiographyField.REGION))
 			{
 				@Override
 				protected void textChanged(String text)
@@ -634,41 +628,43 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 		public BiographyFieldBioItem(final String titleKey, final BiographyField field, final CharacterFacade character)
 		{
 			super(titleKey, field, character);
-			setTextFieldHandler(new TextFieldHandler(new JTextField(), character.getDescriptionFacade().getBiographyField(field))
-			{
-				@Override
-				protected void textChanged(String text)
+			setTextFieldHandler(
+				new TextFieldHandler(new JTextField(), character.getDescriptionFacade().getBiographyField(field))
 				{
-					character.getDescriptionFacade().setBiographyField(field, text);
-				}
+					@Override
+					protected void textChanged(String text)
+					{
+						character.getDescriptionFacade().setBiographyField(field, text);
+					}
 
-			});
+				});
 		}
 
 		public BiographyFieldBioItem(final BiographyField field, final CharacterFacade character)
 		{
 			super(field.getIl8nKey(), field, character);
-			setTextFieldHandler(new TextFieldHandler(new JTextField(), character.getDescriptionFacade().getBiographyField(field))
-			{
-				@Override
-				protected void textChanged(String text)
+			setTextFieldHandler(
+				new TextFieldHandler(new JTextField(), character.getDescriptionFacade().getBiographyField(field))
 				{
-					character.getDescriptionFacade().setBiographyField(field, text);
-				}
+					@Override
+					protected void textChanged(String text)
+					{
+						character.getDescriptionFacade().setBiographyField(field, text);
+					}
 
-			});
+				});
 		}
 
 	}
 
-	private static abstract class BioItem implements ActionListener, ItemListener 
+	private abstract static class BioItem implements ActionListener, ItemListener
 	{
 
 		private final JLabel label = new JLabel();
 		private final JCheckBox checkbox = new JCheckBox();
 		private JComboBox combobox = null;
 		private JTextField textField = null;
-		private JLabel trailinglabel = null; 
+		private JLabel trailinglabel = null;
 		private final BiographyField bioField;
 		private final CharacterFacade character;
 		private TextFieldHandler textFieldHandler;
@@ -774,7 +770,6 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			combobox.setPreferredSize(new Dimension(10, templateTextField.getPreferredSize().height));
 		}
 
-
 		/**
 		 * @param text The text to be displayed in a label after the entry fields.
 		 */
@@ -786,7 +781,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			}
 			this.trailinglabel = new JLabel(text);
 		}
-		
+
 		public void setVisible(boolean visible)
 		{
 			label.setVisible(visible);
@@ -867,7 +862,6 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 
 	}
 
-
 	/**
 	 * The Class {@code AddAction} acts on a user pressing the Add Custom
 	 * Details button.
@@ -887,53 +881,43 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 		public void actionPerformed(ActionEvent e)
 		{
 			// Build list of choices
-			List<BiographyField> availFields =
-                    new ArrayList<>(Arrays.asList(BiographyField.values()));
+			List<BiographyField> availFields = new ArrayList<>(Arrays.asList(BiographyField.values()));
 			availFields.removeAll(defaultBioFieds);
-			for (BiographyField field : character.getDescriptionFacade()
-				.getCustomBiographyFields())
+			for (BiographyField field : character.getDescriptionFacade().getCustomBiographyFields())
 			{
 				availFields.remove(field);
 			}
 			if (availFields.isEmpty())
 			{
-				JOptionPane
-					.showMessageDialog(
-						JOptionPane.getFrameForComponent(addCustomItemButton),
-						LanguageBundle.getString("in_descNoMoreDetails"), //$NON-NLS-1$
-						Constants.APPLICATION_NAME,
-						JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(JOptionPane.getFrameForComponent(addCustomItemButton),
+					LanguageBundle.getString("in_descNoMoreDetails"), //$NON-NLS-1$
+					Constants.APPLICATION_NAME, JOptionPane.INFORMATION_MESSAGE);
 				return;
 			}
 
-			String fieldNames[] = new String[availFields.size()];
-			int i = 0;		
+			String[] fieldNames = new String[availFields.size()];
+			int i = 0;
 			for (BiographyField biographyField : availFields)
 			{
 				fieldNames[i++] = LanguageBundle.getString(biographyField.getIl8nKey());
 			}
 
 			// Show dialog to choose fields
-			String s =
-					(String) JOptionPane.showInputDialog(
-						JOptionPane.getFrameForComponent(addCustomItemButton),
-			                    LanguageBundle.getString("in_descAddFieldMsg"), //$NON-NLS-1$
-			                    LanguageBundle.getString("in_descAddFieldTitle"), //$NON-NLS-1$
-			                    JOptionPane.QUESTION_MESSAGE,
-			                    null,
-			                    fieldNames,
-			                    fieldNames[0]);
+			String s = (String) JOptionPane.showInputDialog(JOptionPane.getFrameForComponent(addCustomItemButton),
+				LanguageBundle.getString("in_descAddFieldMsg"), //$NON-NLS-1$
+				LanguageBundle.getString("in_descAddFieldTitle"), //$NON-NLS-1$
+				JOptionPane.QUESTION_MESSAGE, null, fieldNames, fieldNames[0]);
 
 			// Check if a selection was made
 			if (StringUtils.isEmpty(s))
 			{
 				return;
 			}
-			
+
 			// Add the chosen field to the character
 			for (BiographyField field : availFields)
 			{
-				if (s.equals( LanguageBundle.getString(field.getIl8nKey())))
+				if (s.equals(LanguageBundle.getString(field.getIl8nKey())))
 				{
 					character.getDescriptionFacade().addCustomBiographyField(field);
 					break;
@@ -942,5 +926,5 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 		}
 
 	}
-	
+
 }

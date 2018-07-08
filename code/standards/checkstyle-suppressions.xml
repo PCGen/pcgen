@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE suppressions PUBLIC
+    "-//Checkstyle//DTD SuppressionFilter Configuration 1.2//EN"
+    "https://checkstyle.org/dtds/suppressions_1_2.dtd">
+
+    
+<suppressions>
+
+    <!-- Suppress "Missing a Javadoc comment" everywhere for now -->
+    <suppress message="Missing a Javadoc comment" files="."/>
+
+    <!-- Suppress "must match pattern" everywhere for now -->
+    <suppress message="must match pattern" files="."/>
+
+    <!-- Suppress "Comment matches to-do format" everywhere for now -->
+    <suppress message="Comment matches to-do format" files="."/>
+
+</suppressions>

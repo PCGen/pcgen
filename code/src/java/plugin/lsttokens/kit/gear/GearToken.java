@@ -30,8 +30,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * GEAR Token for KitGear
  */
-public class GearToken extends AbstractNonEmptyToken<KitGear> implements
-		CDOMPrimaryToken<KitGear>
+public class GearToken extends AbstractNonEmptyToken<KitGear> implements CDOMPrimaryToken<KitGear>
 {
 	private static final Class<Equipment> EQUIPMENT_CLASS = Equipment.class;
 
@@ -53,12 +52,9 @@ public class GearToken extends AbstractNonEmptyToken<KitGear> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, KitGear kitGear,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, KitGear kitGear, String value)
 	{
-		CDOMReference<Equipment> ref =
-				TokenUtilities.getTypeOrPrimitive(context, EQUIPMENT_CLASS,
-					value);
+		CDOMReference<Equipment> ref = TokenUtilities.getTypeOrPrimitive(context, EQUIPMENT_CLASS, value);
 		kitGear.setEquipment(ref);
 		return ParseResult.SUCCESS;
 	}

@@ -50,8 +50,7 @@ public final class KitSpells extends BaseKit
 {
 	private String spellBook;
 	private CDOMSingleRef<PCClass> castingClass;
-	DoubleKeyMap<KnownSpellIdentifier, List<CDOMSingleRef<Ability>>, Integer> spells =
-            new DoubleKeyMap<>();
+	DoubleKeyMap<KnownSpellIdentifier, List<CDOMSingleRef<Ability>>, Integer> spells = new DoubleKeyMap<>();
 	private Formula countFormula;
 
 	private List<KitSpellBookEntry> theSpells = null;
@@ -90,8 +89,7 @@ public final class KitSpells extends BaseKit
 			}
 			needComma = true;
 			sb.append(ksi.getLSTformat());
-			Set<List<CDOMSingleRef<Ability>>> abilities =
-					spells.getSecondaryKeySet(ksi);
+			Set<List<CDOMSingleRef<Ability>>> abilities = spells.getSecondaryKeySet(ksi);
 			for (List<CDOMSingleRef<Ability>> list : abilities)
 			{
 				if (list != null)
@@ -113,43 +111,36 @@ public final class KitSpells extends BaseKit
 	}
 
 	@Override
-	public boolean testApply(Kit aKit, PlayerCharacter aPC,
-		List<String> warnings)
+	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
 	{
 		theSpells = null;
 
 		PCClass aClass = findDefaultSpellClass(castingClass, aPC);
 		if (aClass == null)
 		{
-			warnings.add("SPELLS: Character does not have " + castingClass
-				+ " spellcasting class.");
+			warnings.add("SPELLS: Character does not have " + castingClass + " spellcasting class.");
 			return false;
 		}
 
-		String workingBook =
-				spellBook == null ? Globals.getDefaultSpellBook() : spellBook;
+		String workingBook = spellBook == null ? Globals.getDefaultSpellBook() : spellBook;
 		List<KitSpellBookEntry> aSpellList = new ArrayList<>();
-		if (!aClass.getSafe(ObjectKey.MEMORIZE_SPELLS)
-			&& !workingBook.equals(Globals.getDefaultSpellBook()))
+		if (!aClass.getSafe(ObjectKey.MEMORIZE_SPELLS) && !workingBook.equals(Globals.getDefaultSpellBook()))
 		{
-			warnings.add("SPELLS: " + aClass.getDisplayName()
-				+ " can only add to " + Globals.getDefaultSpellBook());
+			warnings.add("SPELLS: " + aClass.getDisplayName() + " can only add to " + Globals.getDefaultSpellBook());
 			return false;
 		}
 
 		for (KnownSpellIdentifier ksi : spells.getKeySet())
 		{
 			Collection<Spell> allSpells =
-					ksi.getContainedSpells(aPC, Collections.singletonList(aClass
-						.get(ObjectKey.CLASS_SPELLLIST)));
+					ksi.getContainedSpells(aPC, Collections.singletonList(aClass.get(ObjectKey.CLASS_SPELLLIST)));
 			Set<List<CDOMSingleRef<Ability>>> feats = spells.getSecondaryKeySet(ksi);
 			for (Spell sp : allSpells)
 			{
 				for (List<CDOMSingleRef<Ability>> list : feats)
 				{
 					Integer count = spells.get(ksi, list);
-					aSpellList.add(new KitSpellBookEntry(
-							spellBook, sp, list, count));
+					aSpellList.add(new KitSpellBookEntry(spellBook, sp, list, count));
 				}
 			}
 		}
@@ -192,9 +183,8 @@ public final class KitSpells extends BaseKit
 			//
 			while (true)
 			{
-				xs = Globals.getChoiceFromList("Choose " + aClass.getKeyName()
-						+ " spell(s) for " + workingBook, aSpellList,
-                        new ArrayList<>(), numberOfChoices, aPC);
+				xs = Globals.getChoiceFromList("Choose " + aClass.getKeyName() + " spell(s) for " + workingBook,
+					aSpellList, new ArrayList<>(), numberOfChoices, aPC);
 
 				if (!xs.isEmpty())
 				{
@@ -231,18 +221,15 @@ public final class KitSpells extends BaseKit
 	{
 		for (KitSpellBookEntry sbe : theSpells)
 		{
-			updatePCSpells(aPC, sbe, aPC.getClassKeyed(sbe.getPCClass()
-				.getKeyName()));
+			updatePCSpells(aPC, sbe, aPC.getClassKeyed(sbe.getPCClass().getKeyName()));
 		}
 	}
 
-	private PCClass findDefaultSpellClass(final CDOMSingleRef<PCClass> ref,
-		PlayerCharacter aPC)
+	private PCClass findDefaultSpellClass(final CDOMSingleRef<PCClass> ref, PlayerCharacter aPC)
 	{
 		if (castingClass == null)
 		{
-			List<? extends PObject> spellcastingClasses =
-					aPC.getSpellClassList();
+			List<? extends PObject> spellcastingClasses = aPC.getSpellClassList();
 			for (PObject obj : spellcastingClasses)
 			{
 				if (obj instanceof PCClass)
@@ -262,8 +249,7 @@ public final class KitSpells extends BaseKit
 	 * @param  aSpell   A Spell to add to the PC
 	 * @param  pcClass  The class instance the spells are to be added to.
 	 */
-	private void updatePCSpells(final PlayerCharacter pc,
-		final KitSpellBookEntry aSpell, final PCClass pcClass)
+	private void updatePCSpells(final PlayerCharacter pc, final KitSpellBookEntry aSpell, final PCClass pcClass)
 	{
 		Spell spell = aSpell.getSpell();
 
@@ -276,8 +262,7 @@ public final class KitSpells extends BaseKit
 		{
 			for (Domain domain : pc.getDomainSet())
 			{
-				List<? extends CDOMList<Spell>> lists =
-						pc.getSpellLists(domain);
+				List<? extends CDOMList<Spell>> lists = pc.getSpellLists(domain);
 				int newLevel = SpellLevel.getFirstLevelForKey(spell, lists, pc);
 				if (newLevel > 0 && newLevel < spLevel)
 				{
@@ -289,15 +274,14 @@ public final class KitSpells extends BaseKit
 
 		if (spLevel == 99)
 		{
-			spLevel = SpellLevel.getFirstLevelForKey(spell, pc
-					.getSpellLists(pcClass), pc);
+			spLevel = SpellLevel.getFirstLevelForKey(spell, pc.getSpellLists(pcClass), pc);
 			owner = pcClass;
 		}
 
 		if (spLevel < 0)
 		{
-			Logging.errorPrint("SPELLS: " + pcClass.getDisplayName()
-				+ " cannot cast spell \"" + spell.getKeyName() + "\"");
+			Logging.errorPrint(
+				"SPELLS: " + pcClass.getDisplayName() + " cannot cast spell \"" + spell.getKeyName() + "\"");
 
 			return;
 		}
@@ -323,9 +307,8 @@ public final class KitSpells extends BaseKit
 
 		for (int numTimes = 0; numTimes < aSpell.getCopies(); numTimes++)
 		{
-			final String aString =
-					pc.addSpell(cs, metamagicFeatList, pcClass.getKeyName(),
-						aSpell.getBookName(), adjustedLevel, spLevel);
+			final String aString = pc.addSpell(cs, metamagicFeatList, pcClass.getKeyName(), aSpell.getBookName(),
+				adjustedLevel, spLevel);
 			if (!aString.isEmpty())
 			{
 				Logging.errorPrint("Add spell failed:" + aString);
@@ -360,8 +343,7 @@ public final class KitSpells extends BaseKit
 		return castingClass;
 	}
 
-	public void addSpell(KnownSpellIdentifier ksi,
-		ArrayList<CDOMSingleRef<Ability>> featList, int count)
+	public void addSpell(KnownSpellIdentifier ksi, ArrayList<CDOMSingleRef<Ability>> featList, int count)
 	{
 		spells.put(ksi, featList, count);
 	}
@@ -371,14 +353,12 @@ public final class KitSpells extends BaseKit
 		return spells.getKeySet();
 	}
 
-	public Collection<List<CDOMSingleRef<Ability>>> getAbilities(
-			KnownSpellIdentifier ksi)
+	public Collection<List<CDOMSingleRef<Ability>>> getAbilities(KnownSpellIdentifier ksi)
 	{
 		return spells.getSecondaryKeySet(ksi);
 	}
 
-	public Integer getSpellCount(KnownSpellIdentifier ksi,
-			List<CDOMSingleRef<Ability>> abils)
+	public Integer getSpellCount(KnownSpellIdentifier ksi, List<CDOMSingleRef<Ability>> abils)
 	{
 		return spells.get(ksi, abils);
 	}

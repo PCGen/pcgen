@@ -22,8 +22,7 @@ package pcgen.core.term;
 
 import pcgen.core.PlayerCharacter;
 
-public abstract class BasePCCountAbilitiesNatureTermEvaluator
-		extends BasePCCountAbilitiesTermEvaluator
+public abstract class BasePCCountAbilitiesNatureTermEvaluator extends BasePCCountAbilitiesTermEvaluator
 {
 	@Override
 	public Float resolve(PlayerCharacter pc)

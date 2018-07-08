@@ -1,9 +1,10 @@
 package plugin.jepcommands;
 
-import org.nfunk.jep.ParseException;
-import pcgen.util.PCGenCommand;
-
 import java.util.Stack;
+
+import org.nfunk.jep.ParseException;
+
+import pcgen.util.PCGenCommand;
 
 /**
  * Celing JEP Command. {@literal  eg. ceil(12.6) --> 13 }
@@ -23,7 +24,7 @@ public class CeilCommand extends PCGenCommand
 	 * Gets the name of the function handled by this class.
 	 * @return The name of the function.
 	 */
-    @Override
+	@Override
 	public String getFunctionName()
 	{
 		return "CEIL";
@@ -37,7 +38,7 @@ public class CeilCommand extends PCGenCommand
 	 * @throws ParseException
 	 */
 	@SuppressWarnings("unchecked") //Uses JEP, which doesn't use generics
-    @Override
+	@Override
 	public void run(final Stack inStack) throws ParseException
 	{
 		// check the stack

@@ -49,8 +49,8 @@ public class PreTemplateTester extends AbstractDisplayPrereqTest implements Prer
 		}
 		catch (NumberFormatException exceptn)
 		{
-			throw new PrerequisiteException(LanguageBundle.getFormattedString(
-				"PreTemplate.error", prereq.toString())); //$NON-NLS-1$
+			throw new PrerequisiteException(
+				LanguageBundle.getFormattedString("PreTemplate.error", prereq.toString())); //$NON-NLS-1$
 		}
 
 		if (display.hasTemplates())
@@ -63,8 +63,7 @@ public class PreTemplateTester extends AbstractDisplayPrereqTest implements Prer
 				templateKey = templateKey.substring(0, wildCard);
 				for (PCTemplate aTemplate : display.getTemplateSet())
 				{
-					if (aTemplate.getKeyName().toUpperCase().startsWith(
-						templateKey))
+					if (aTemplate.getKeyName().toUpperCase().startsWith(templateKey))
 					{
 						runningTotal++;
 					}
@@ -72,8 +71,8 @@ public class PreTemplateTester extends AbstractDisplayPrereqTest implements Prer
 			}
 			else
 			{
-				PCTemplate template = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
-						PCTEMPLATE_CLASS, templateKey);
+				PCTemplate template = Globals.getContext().getReferenceContext()
+					.silentlyGetConstructedCDOMObject(PCTEMPLATE_CLASS, templateKey);
 				if (display.hasTemplate(template))
 				{
 					runningTotal++;
@@ -88,7 +87,7 @@ public class PreTemplateTester extends AbstractDisplayPrereqTest implements Prer
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "TEMPLATE"; //$NON-NLS-1$

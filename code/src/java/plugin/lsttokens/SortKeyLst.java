@@ -35,8 +35,8 @@ import pcgen.util.Logging;
  *
  * 
  */
-public class SortKeyLst extends AbstractStringToken<CDOMObject> implements
-		CDOMPrimaryToken<CDOMObject>, PostValidationToken<CDOMObject>
+public class SortKeyLst extends AbstractStringToken<CDOMObject>
+		implements CDOMPrimaryToken<CDOMObject>, PostValidationToken<CDOMObject>
 {
 
 	@Override
@@ -65,8 +65,7 @@ public class SortKeyLst extends AbstractStringToken<CDOMObject> implements
 	 * must match the SORTKEY order.
 	 */
 	@Override
-	public boolean process(LoadContext context,
-		Collection<? extends CDOMObject> allObjects)
+	public boolean process(LoadContext context, Collection<? extends CDOMObject> allObjects)
 	{
 		if (allObjects.isEmpty())
 		{
@@ -79,9 +78,7 @@ public class SortKeyLst extends AbstractStringToken<CDOMObject> implements
 			String sortkey = obj.get(stringKey());
 			if ((sortkey == null) && (obj instanceof SortKeyRequired))
 			{
-				Logging.errorPrint(
-					"Objects of type " + obj.getClass().getName() + " requires a SORTKEY",
-					context);
+				Logging.errorPrint("Objects of type " + obj.getClass().getName() + " requires a SORTKEY", context);
 				returnValue = false;
 			}
 		}

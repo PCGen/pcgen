@@ -52,7 +52,7 @@ public class PreferencesRootTreeNode extends DefaultMutableTreeNode
 
 	private DefaultMutableTreeNode getPluginNode(final String plugin)
 	{
-		if(children != null)
+		if (children != null)
 		{
 			for (final Object obj : children)
 			{

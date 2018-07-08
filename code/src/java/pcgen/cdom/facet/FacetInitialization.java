@@ -48,7 +48,7 @@ public final class FacetInitialization
 {
 
 	private static boolean isInitialized = false;
-	
+
 	private FacetInitialization()
 	{
 		//Do not instantiate
@@ -62,7 +62,7 @@ public final class FacetInitialization
 			isInitialized = true;
 		}
 	}
-	
+
 	private static void doInitialization()
 	{
 		doOtherInitialization();
@@ -117,7 +117,8 @@ public final class FacetInitialization
 		DirectAbilityInputFacet directAbilityInputFacet = FacetLibrary.getFacet(DirectAbilityInputFacet.class);
 		ConditionallyGrantedAbilityFacet cabFacet = FacetLibrary.getFacet(ConditionallyGrantedAbilityFacet.class);
 		SimpleAbilityFacet simpleAbilityFacet = FacetLibrary.getFacet(SimpleAbilityFacet.class);
-		AbilitySelectionApplication abilitySelectionApplication = FacetLibrary.getFacet(AbilitySelectionApplication.class);
+		AbilitySelectionApplication abilitySelectionApplication =
+				FacetLibrary.getFacet(AbilitySelectionApplication.class);
 
 		equipmentFacet.addDataFacetChangeListener(naturalEquipmentFacet);
 		equippedFacet.addDataFacetChangeListener(activeEquipmentFacet);
@@ -180,7 +181,7 @@ public final class FacetInitialization
 		cdomObjectFacet.addDataFacetChangeListener(nwpFacet);
 		cdomSourceFacet.addDataFacetChangeListener(autoLangFacet);
 		cdomSourceFacet.addDataFacetChangeListener(dynamicWatchingFacet);
-		
+
 		charObjectFacet.addDataFacetChangeListener(varScopedFacet);
 		dynamicConsolidationFacet.addDataFacetChangeListener(varScopedFacet); //model done
 	}

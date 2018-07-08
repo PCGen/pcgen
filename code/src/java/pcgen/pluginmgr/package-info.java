@@ -16,10 +16,10 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  */
- /**
- * The interactive plugin support structure; classes
- * in this package manage the loading and communication between 
- * interactive plugins and between those plugins and the core of 
- * PCGen. 
- */
+/**
+* The interactive plugin support structure; classes
+* in this package manage the loading and communication between 
+* interactive plugins and between those plugins and the core of 
+* PCGen. 
+*/
 package pcgen.pluginmgr;

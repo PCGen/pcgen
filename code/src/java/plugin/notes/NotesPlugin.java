@@ -27,6 +27,15 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
+import org.apache.commons.lang3.StringUtils;
+
+import gmgen.GMGenSystem;
+import gmgen.GMGenSystemView;
+import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
+import gmgen.pluginmgr.messages.FileMenuOpenMessage;
+import gmgen.pluginmgr.messages.GMGenBeingClosedMessage;
+import gmgen.pluginmgr.messages.RequestAddPreferencesPanelMessage;
+import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.tools.Utility;
 import pcgen.io.PCGFile;
@@ -38,15 +47,6 @@ import pcgen.pluginmgr.messages.RequestOpenPlayerCharacterMessage;
 import pcgen.system.LanguageBundle;
 import plugin.notes.gui.NotesView;
 import plugin.notes.gui.PreferencesNotesPanel;
-
-import gmgen.GMGenSystem;
-import gmgen.GMGenSystemView;
-import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
-import gmgen.pluginmgr.messages.FileMenuOpenMessage;
-import gmgen.pluginmgr.messages.GMGenBeingClosedMessage;
-import gmgen.pluginmgr.messages.RequestAddPreferencesPanelMessage;
-import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
-import org.apache.commons.lang3.StringUtils;
 
 /**
  * The {@code NotesPlugin} controls the various classes that are involved
@@ -83,13 +83,12 @@ public class NotesPlugin implements InteractivePlugin
 	/**
 	 * Starts the plugin, registering itself with the {@code TabAddMessage}.
 	 */
-    @Override
+	@Override
 	public void start(PCGenMessageHandler mh)
 	{
-    	messageHandler = mh;
+		messageHandler = mh;
 		String name = NAME;
-		messageHandler.handleMessage(new RequestAddPreferencesPanelMessage(this, name,
-			new PreferencesNotesPanel()));
+		messageHandler.handleMessage(new RequestAddPreferencesPanelMessage(this, name, new PreferencesNotesPanel()));
 		theView = new NotesView(getDataDirectory(), this);
 		messageHandler.handleMessage(new RequestAddTabToGMGenMessage(this, name, getView()));
 		initMenus();
@@ -101,7 +100,7 @@ public class NotesPlugin implements InteractivePlugin
 		messageHandler = null;
 	}
 
-    @Override
+	@Override
 	public int getPriority()
 	{
 		return SettingsHandler.getGMGenOption(OPTION_NAME_LOADORDER, 70);
@@ -112,7 +111,7 @@ public class NotesPlugin implements InteractivePlugin
 	 *
 	 * @return The name value
 	 */
-    @Override
+	@Override
 	public String getPluginName()
 	{
 		return NAME;
@@ -143,7 +142,7 @@ public class NotesPlugin implements InteractivePlugin
 	 *
 	 * @param message Message
 	 */
-    @Override
+	@Override
 	public void handleMessage(PCGenMessage message)
 	{
 		if (message instanceof FocusOrStateChangeOccurredMessage)
@@ -175,9 +174,8 @@ public class NotesPlugin implements InteractivePlugin
 	{
 		JTabbedPane tp = GMGenSystemView.getTabPane();
 
-		IntStream.range(0, tp.getTabCount())
-		         .filter(i -> tp.getComponentAt(i) instanceof NotesView)
-		         .forEach(tp::setSelectedIndex);
+		IntStream.range(0, tp.getTabCount()).filter(i -> tp.getComponentAt(i) instanceof NotesView)
+			.forEach(tp::setSelectedIndex);
 	}
 
 	/**
@@ -248,15 +246,14 @@ public class NotesPlugin implements InteractivePlugin
 		messageHandler.handleMessage(new AddMenuItemToGMGenToolsMenuMessage(this, notesToolsItem));
 	}
 
-    @Override
+	@Override
 	public File getDataDirectory()
 	{
-    	String notesDataDir = SettingsHandler.getGMGenOption(
-			OPTION_NAME_DATADIR, "");
-    	if (StringUtils.isEmpty(notesDataDir))
-    	{
-    		return defaultDataDir();
-    	}
+		String notesDataDir = SettingsHandler.getGMGenOption(OPTION_NAME_DATADIR, "");
+		if (StringUtils.isEmpty(notesDataDir))
+		{
+			return defaultDataDir();
+		}
 		return new File(notesDataDir);
 	}
 

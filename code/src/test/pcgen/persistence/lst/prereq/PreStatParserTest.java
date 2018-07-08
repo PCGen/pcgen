@@ -49,9 +49,9 @@ public class PreStatParserTest extends EnUsLocaleDependentTestCase
 
 		Prerequisite prereq = producer.parse("STAT", "1,DEX=9", false, false);
 
-		//		assertEquals("<prereq operator=\"gteq\" operand=\"1\" >\n"
-		//				+ "<prereq kind=\"stat\" key=\"DEX\" operator=\"gteq\" operand=\"9\" >\n" + "</prereq>\n" + "</prereq>\n",
-		//				prereq.toString());
+		//assertEquals("<prereq operator=\"gteq\" operand=\"1\" >\n"
+		//	+ "<prereq kind=\"stat\" key=\"DEX\" operator=\"gteq\" operand=\"9\" >\n" + "</prereq>\n" + "</prereq>\n",
+		//	prereq.toString());
 		assertEquals(
 			"<prereq kind=\"stat\" key=\"DEX\" operator=\"GTEQ\" operand=\"9\" >\n"
 				+ "</prereq>\n", prereq.toString());
@@ -101,8 +101,8 @@ public class PreStatParserTest extends EnUsLocaleDependentTestCase
 		Prerequisite prereq = producer.parse("STATEQ", "1,DEX=9", false, false);
 
 		//		assertEquals("<prereq operator=\"gteq\" operand=\"1\" >\n"
-		//		    + "<prereq kind=\"stat\" key=\"DEX\" operator=\"eq\" operand=\"9\" >\n" + "</prereq>\n" + "</prereq>\n",
-		//		    prereq.toString());
+		//		+ "<prereq kind=\"stat\" key=\"DEX\" operator=\"eq\" operand=\"9\" >\n" + "</prereq>\n" + "</prereq>\n",
+		//		prereq.toString());
 		assertEquals(
 			"<prereq kind=\"stat\" key=\"DEX\" operator=\"EQ\" operand=\"9\" >\n"
 				+ "</prereq>\n", prereq.toString());

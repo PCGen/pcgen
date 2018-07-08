@@ -24,8 +24,8 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.QualifiedObject;
-import pcgen.facade.core.DomainFacade;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.facade.core.DomainFacade;
 import pcgen.util.SortKeyAware;
 
 /**
@@ -35,35 +35,34 @@ import pcgen.util.SortKeyAware;
  *
  * 
  */
-public class DomainFacadeImpl extends QualifiedObject<Domain> implements
-		DomainFacade, SortKeyAware
+public class DomainFacadeImpl extends QualifiedObject<Domain> implements DomainFacade, SortKeyAware
 {
 
-    /**
-     * Constructor
-     * @param domain
-     */
+	/**
+	 * Constructor
+	 * @param domain
+	 */
 	public DomainFacadeImpl(Domain domain)
 	{
 		super(domain);
 	}
 
 	/**
-     * Constructor 
-     * @param domain
-     * @param aPrereqList
+	 * Constructor 
+	 * @param domain
+	 * @param aPrereqList
 	 */
-    public DomainFacadeImpl( final Domain domain, final List<Prerequisite> aPrereqList )
+	public DomainFacadeImpl(final Domain domain, final List<Prerequisite> aPrereqList)
 	{
 		super(domain, aPrereqList);
 	}
 
 	/**
-     * Constructor 
-     * @param domain
-     * @param prereq
+	 * Constructor 
+	 * @param domain
+	 * @param prereq
 	 */
-    public DomainFacadeImpl( final Domain domain, Prerequisite prereq)
+	public DomainFacadeImpl(final Domain domain, Prerequisite prereq)
 	{
 		super(domain, prereq);
 	}
@@ -83,18 +82,16 @@ public class DomainFacadeImpl extends QualifiedObject<Domain> implements
 	@Override
 	public String getSource()
 	{
-		return SourceFormat.getFormattedString(getRawObject(),
-			Globals.getSourceDisplay(), true);
+		return SourceFormat.getFormattedString(getRawObject(), Globals.getSourceDisplay(), true);
 	}
 
 	/**
 	 * @see pcgen.facade.core.InfoFacade#getSourceForNodeDisplay()
 	 */
-    @Override
+	@Override
 	public String getSourceForNodeDisplay()
 	{
-		return SourceFormat.getFormattedString(getRawObject(),
-				SourceFormat.LONG, false);
+		return SourceFormat.getFormattedString(getRawObject(), SourceFormat.LONG, false);
 	}
 
 	/**
@@ -117,7 +114,7 @@ public class DomainFacadeImpl extends QualifiedObject<Domain> implements
 	{
 		return getRawObject().getType();
 	}
-	
+
 	@Override
 	public String getSortKey()
 	{

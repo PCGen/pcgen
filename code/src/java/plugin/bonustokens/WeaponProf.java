@@ -30,10 +30,8 @@ import pcgen.util.Logging;
 public final class WeaponProf extends MultiTagBonusObj
 {
 	private static final String[] bonusTags =
-			{"CRITMULTADD", "CRITRANGEADD", "CRITRANGEDOUBLE", "DAMAGE",
-				"DAMAGE-SHORTRANGE", "DAMAGESIZE", "PCSIZE", "REACH", "TOHIT",
-				"TOHIT-SHORTRANGE", "TOHITOVERSIZE", "WEAPONBAB",
-				"WIELDCATEGORY", "STATDAMAGE"};
+			{"CRITMULTADD", "CRITRANGEADD", "CRITRANGEDOUBLE", "DAMAGE", "DAMAGE-SHORTRANGE", "DAMAGESIZE", "PCSIZE",
+				"REACH", "TOHIT", "TOHIT-SHORTRANGE", "TOHITOVERSIZE", "WEAPONBAB", "WIELDCATEGORY", "STATDAMAGE"};
 
 	/**
 	 * Return the bonus tag handled by this class.
@@ -75,16 +73,14 @@ public final class WeaponProf extends MultiTagBonusObj
 		{
 			if ("CRITRANGEADD".equals(token))
 			{
-				Logging.errorPrint(
-					"BONUS:WEAPONPROF|CRITRANGEADD is disabled when CRITRANGE control is used: "
-						+ token, context);
+				Logging.errorPrint("BONUS:WEAPONPROF|CRITRANGEADD is disabled when CRITRANGE control is used: " + token,
+					context);
 				return false;
 			}
 			if ("CRITRANGEDOUBLE".equals(token))
 			{
 				Logging.errorPrint(
-					"BONUS:WEAPONPROF|CRITRANGEDOUBLE is disabled when CRITRANGE control is used: "
-						+ token, context);
+					"BONUS:WEAPONPROF|CRITRANGEDOUBLE is disabled when CRITRANGE control is used: " + token, context);
 				return false;
 			}
 		}
@@ -92,9 +88,8 @@ public final class WeaponProf extends MultiTagBonusObj
 		{
 			if ("CRITMULTADD".equals(token))
 			{
-				Logging.errorPrint(
-					"BONUS:WEAPONPROF|CRITMULTADD is disabled when CRITMULT control is used: "
-						+ token, context);
+				Logging.errorPrint("BONUS:WEAPONPROF|CRITMULTADD is disabled when CRITMULT control is used: " + token,
+					context);
 				return false;
 			}
 		}
@@ -102,9 +97,8 @@ public final class WeaponProf extends MultiTagBonusObj
 		{
 			if ("REACH".equals(token))
 			{
-				Logging.errorPrint(
-					"BONUS:WEAPONPROF|REACH is disabled when EQREACH control is used: "
-						+ token, context);
+				Logging.errorPrint("BONUS:WEAPONPROF|REACH is disabled when EQREACH control is used: " + token,
+					context);
 				return false;
 			}
 		}

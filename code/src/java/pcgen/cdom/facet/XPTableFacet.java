@@ -43,7 +43,7 @@ public class XPTableFacet extends AbstractItemFacet<CharID, XPTable>
 			return null;
 		}
 		XPTable table = get(id);
-		
+
 		if (table == null)
 		{
 			return null;

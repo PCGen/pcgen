@@ -29,8 +29,7 @@ import pcgen.base.util.CaseInsensitiveMap;
  * in a type-safe fashion, so that they can be quickly compared and use less
  * memory when identical DisplayLocations exist.
  */
-public final class DisplayLocation implements TypeSafeConstant,
-		Comparable<DisplayLocation>
+public final class DisplayLocation implements TypeSafeConstant, Comparable<DisplayLocation>
 {
 	/**
 	 * This Map contains the mappings from Strings to the Type Safe Constant
@@ -130,8 +129,7 @@ public final class DisplayLocation implements TypeSafeConstant,
 		DisplayLocation type = typeMap.get(name);
 		if (type == null)
 		{
-			throw new IllegalArgumentException(name
-					+ " is not a previously defined Type");
+			throw new IllegalArgumentException(name + " is not a previously defined Type");
 		}
 		return type;
 	}

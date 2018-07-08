@@ -36,37 +36,29 @@ public final class SpellCountCalc
 	{
 	}
 
-	public static int memorizedSpellForLevelBook(PlayerCharacter pc, PCClass cl, int aLevel,
-	                                             String bookName)
+	public static int memorizedSpellForLevelBook(PlayerCharacter pc, PCClass cl, int aLevel, String bookName)
 	{
-		final List<CharacterSpell> aList =
-				pc.getCharacterSpells(cl, null, bookName, aLevel);
+		final List<CharacterSpell> aList = pc.getCharacterSpells(cl, null, bookName, aLevel);
 
 		if (aList.isEmpty())
 		{
 			return 0;
 		}
 
-		return aList.stream()
-		         .mapToInt(cs -> cs.getSpellInfoFor(bookName, aLevel).getTimes())
-		         .sum();
+		return aList.stream().mapToInt(cs -> cs.getSpellInfoFor(bookName, aLevel).getTimes()).sum();
 	}
 
-	public static int memorizedSpecialtiesForLevelBook(int aLevel, String bookName,
-			PlayerCharacter pc, PCClass cl)
+	public static int memorizedSpecialtiesForLevelBook(int aLevel, String bookName, PlayerCharacter pc, PCClass cl)
 	{
-		final List<CharacterSpell> aList =
-				pc.getCharacterSpells(cl, null, bookName, aLevel);
+		final List<CharacterSpell> aList = pc.getCharacterSpells(cl, null, bookName, aLevel);
 
 		if (aList.isEmpty())
 		{
 			return 0;
 		}
 
-		return aList.stream()
-		         .filter(cs -> cs.isSpecialtySpell(pc))
-		         .mapToInt(cs -> cs.getSpellInfoFor(bookName, aLevel).getTimes())
-		         .sum();
+		return aList.stream().filter(cs -> cs.isSpecialtySpell(pc))
+			.mapToInt(cs -> cs.getSpellInfoFor(bookName, aLevel).getTimes()).sum();
 	}
 
 	public static boolean isSpecialtySpell(PlayerCharacter pc, PCClass cl, Spell aSpell)
@@ -74,15 +66,11 @@ public final class SpellCountCalc
 		String specialty = pc.getAssoc(cl, AssociationKey.SPECIALTY);
 		if (specialty != null)
 		{
-			SpellSchool ss =
-				Globals.getContext().getReferenceContext()
-					.silentlyGetConstructedCDOMObject(
-						SpellSchool.class, specialty);
+			SpellSchool ss = Globals.getContext().getReferenceContext()
+				.silentlyGetConstructedCDOMObject(SpellSchool.class, specialty);
 			return (ss != null) && aSpell.containsInList(ListKey.SPELL_SCHOOL, ss)
-					|| aSpell
-							.containsInList(ListKey.SPELL_SUBSCHOOL, specialty)
-					|| aSpell.containsInList(ListKey.SPELL_DESCRIPTOR,
-							specialty);
+				|| aSpell.containsInList(ListKey.SPELL_SUBSCHOOL, specialty)
+				|| aSpell.containsInList(ListKey.SPELL_DESCRIPTOR, specialty);
 		}
 		return false;
 	}
@@ -94,9 +82,7 @@ public final class SpellCountCalc
 			return true;
 		}
 
-		return aPC.getProhibitedSchools(cl)
-		          .stream()
-		          .anyMatch(prohibit -> prohibit.isProhibited(aSpell, aPC, cl));
+		return aPC.getProhibitedSchools(cl).stream().anyMatch(prohibit -> prohibit.isProhibited(aSpell, aPC, cl));
 	}
 
 }

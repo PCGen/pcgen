@@ -24,7 +24,8 @@ import java.text.DecimalFormatSymbols;
  * This is to format little integers, usually ability modifiers. It uses the  * plus and minus sign (and not the
  * minus-hyphen one). The minus sign has the same width than the plus one.
  * <p>
- * It will not display big modifiers correctly {@literal (modifiers > 1,000)}, because the thousand separator is locale dependent.
+ * It will not display big modifiers correctly {@literal (modifiers > 1,000)},
+ * because the thousand separator is locale dependent.
  * This is not really a problem, because their is an ability limit of 1,000 in PCGen.
  */
 public final class PrettyIntegerFormat extends DecimalFormat

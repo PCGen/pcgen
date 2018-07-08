@@ -32,11 +32,10 @@ import pcgen.util.Logging;
  *
  * 
  */
-public class ChronicleEntryFacet extends
-		AbstractListFacet<CharID, ChronicleEntry>
+public class ChronicleEntryFacet extends AbstractListFacet<CharID, ChronicleEntry>
 {
 
-    @Override
+	@Override
 	protected Collection<ChronicleEntry> getCopyForNewOwner(Collection<ChronicleEntry> componentSet)
 	{
 		List<ChronicleEntry> newCopies = new ArrayList<>();
@@ -66,6 +65,5 @@ public class ChronicleEntryFacet extends
 	{
 		return new ArrayList<>();
 	}
-
 
 }

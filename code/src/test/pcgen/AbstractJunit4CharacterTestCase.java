@@ -66,7 +66,7 @@ import plugin.lsttokens.testsupport.BuildUtilities;
  * Object.
  */
 @SuppressWarnings("nls")
-abstract public class AbstractJunit4CharacterTestCase
+public abstract class AbstractJunit4CharacterTestCase
 {
 	private PlayerCharacter character = null;
 	protected PCStat str;
@@ -96,7 +96,7 @@ abstract public class AbstractJunit4CharacterTestCase
 	/**
 	 * Sets up the absolute minimum amount of data to create a PlayerCharacter
 	 * Object.
-	 * @throws Exception
+	 * @throws Exception PersistenceLayerException
 	 */
 	@Before
 	public void setUp() throws Exception

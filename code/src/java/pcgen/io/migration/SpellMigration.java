@@ -36,8 +36,6 @@ public final class SpellMigration
 {
 	private static Map<int[], List<MigrationRule>> spellChangesForVer = new HashMap<>();
 
-
-
 	private SpellMigration()
 	{
 	}
@@ -51,12 +49,8 @@ public final class SpellMigration
 	 */
 	public static String getNewSpellKey(String spellKey, int[] pcgVer, String gameModeName)
 	{
-		List<MigrationRule> spellChangeList = spellChangesForVer.computeIfAbsent(
-				pcgVer,
-				v -> MigrationUtils.getChangeList(v, gameModeName,
-						ObjectType.SPELL
-				)
-		);
+		List<MigrationRule> spellChangeList = spellChangesForVer.computeIfAbsent(pcgVer,
+			v -> MigrationUtils.getChangeList(v, gameModeName, ObjectType.SPELL));
 
 		for (MigrationRule rule : spellChangeList)
 		{
@@ -67,6 +61,5 @@ public final class SpellMigration
 		}
 		return spellKey;
 	}
-	
 
 }

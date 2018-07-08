@@ -57,7 +57,7 @@ public class SkillSitToken extends Token
 	private List<Skill> cachedSkillList = null;
 	private PlayerCharacter lastPC = null;
 	private int lastPCSerial;
-	
+
 	@Override
 	public String getTokenName()
 	{
@@ -65,8 +65,7 @@ public class SkillSitToken extends Token
 	}
 
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		SkillDetails details = SkillToken.buildSkillDetails(tokenSource);
 
@@ -85,8 +84,7 @@ public class SkillSitToken extends Token
 	 * @param eh The ExportHandler
 	 * @return The matching skill, or null if none match.
 	 */
-	private Object getSkill(PlayerCharacter pc, SkillDetails details,
-		ExportHandler eh)
+	private Object getSkill(PlayerCharacter pc, SkillDetails details, ExportHandler eh)
 	{
 		Object skill = null;
 		try
@@ -99,20 +97,18 @@ public class SkillSitToken extends Token
 			{
 				filter = pc.getSkillFilter();
 			}
-			
+
 			Iterator<Skill> iter = pcSkills.iterator();
 			while (iter.hasNext())
 			{
 				Skill sk = iter.next();
-				if (!pc.includeSkill(sk, filter)
-						|| !sk.qualifies(pc, null))
+				if (!pc.includeSkill(sk, filter) || !sk.qualifies(pc, null))
 				{
 					iter.remove();
 				}
 			}
 
-			if ((i >= (pcSkills.size() - 1)) && eh != null
-				&& eh.getExistsOnly())
+			if ((i >= (pcSkills.size() - 1)) && eh != null && eh.getExistsOnly())
 			{
 				eh.setNoMoreItems(true);
 			}
@@ -126,9 +122,7 @@ public class SkillSitToken extends Token
 					return sk;
 				}
 				i--; //wasn't the base skill
-				List<String> situations =
-						new ArrayList<>(
-								sk.getUniqueListFor(ListKey.SITUATION));
+				List<String> situations = new ArrayList<>(sk.getUniqueListFor(ListKey.SITUATION));
 				if (situations != null)
 				{
 					int numSits = situations.size();
@@ -138,8 +132,7 @@ public class SkillSitToken extends Token
 					}
 					for (String situation : situations)
 					{
-						double bonus = pc.getTotalBonusTo("SITUATION", sk.getKeyName()
-							+ '=' + situation);
+						double bonus = pc.getTotalBonusTo("SITUATION", sk.getKeyName() + '=' + situation);
 						if (bonus > 0.01 || bonus < -0.01)
 						{
 							if (i == 0)
@@ -159,17 +152,16 @@ public class SkillSitToken extends Token
 			if (equalLoc == -1)
 			{
 				//Allowing SKILL.Spot.<subtoken>
-				skill = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
-					Skill.class, skillName);
+				skill = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Skill.class,
+					skillName);
 			}
 			else
 			{
 				//Allowing SKILL.Spot=Situation.<subtoken>
 				String situation = skillName.substring(equalLoc + 1);
-				Skill sk = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
-					Skill.class, skillName.substring(0, equalLoc));
-				double bonus = pc.getTotalBonusTo("SITUATION", sk.getKeyName()
-					+ '=' + situation);
+				Skill sk = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Skill.class,
+					skillName.substring(0, equalLoc));
+				double bonus = pc.getTotalBonusTo("SITUATION", sk.getKeyName() + '=' + situation);
 				return new SkillSituation(sk, situation, bonus);
 			}
 		}
@@ -182,10 +174,9 @@ public class SkillSitToken extends Token
 		{
 			return cachedSkillList;
 		}
-		
+
 		final List<Skill> pcSkills =
-				SkillDisplay.getSkillListInOutputOrder(pc, pc.getDisplay()
-					.getPartialSkillList(View.VISIBLE_EXPORT));
+				SkillDisplay.getSkillListInOutputOrder(pc, pc.getDisplay().getPartialSkillList(View.VISIBLE_EXPORT));
 		cachedSkillList = pcSkills;
 		lastPC = pc;
 		lastPCSerial = pc.getSerial();
@@ -201,8 +192,7 @@ public class SkillSitToken extends Token
 	 * @param pc The character to be reported.
 	 * @return The skill tag output value.
 	 */
-	protected String getSkillProperty(Object aSkill, String property,
-		PlayerCharacter pc)
+	protected String getSkillProperty(Object aSkill, String property, PlayerCharacter pc)
 	{
 		if (aSkill == null)
 		{
@@ -225,13 +215,12 @@ public class SkillSitToken extends Token
 	 * @param pc The character to be reported upon.
 	 * @return The value of the property.
 	 */
-	private String getSkillPropValue(Object skillSit, int property,
-		String propertyText, PlayerCharacter pc)
+	private String getSkillPropValue(Object skillSit, int property, String propertyText, PlayerCharacter pc)
 	{
 		StringBuilder retValue = new StringBuilder();
 
-		if (((property == SkillToken.SKILL_ABMOD) || (property == SkillToken.SKILL_MISC))
-			&& false)//&& aSkill.get(ObjectKey.KEY_STAT) == null)
+		if (((property == SkillToken.SKILL_ABMOD) || (property == SkillToken.SKILL_MISC)) && false)
+			//&& aSkill.get(ObjectKey.KEY_STAT) == null)
 		{
 			retValue.append("n/a");
 		}
@@ -257,8 +246,7 @@ public class SkillSitToken extends Token
 			}
 			else
 			{
-				Logging.errorPrint("Internal Error: unexpected type: "
-					+ skillSit.getClass());
+				Logging.errorPrint("Internal Error: unexpected type: " + skillSit.getClass());
 				return "";
 			}
 			switch (property)
@@ -281,8 +269,7 @@ public class SkillSitToken extends Token
 					}
 					if (SettingsHandler.getGame().hasSkillRankDisplayText())
 					{
-						retValue.append(SettingsHandler.getGame()
-							.getSkillRankDisplayText(rank));
+						retValue.append(SettingsHandler.getGame().getSkillRankDisplayText(rank));
 					}
 					else
 					{
@@ -294,8 +281,7 @@ public class SkillSitToken extends Token
 					Float sRank = SkillRankControl.getTotalRank(pc, skill);
 					if (SettingsHandler.getGame().hasSkillRankDisplayText())
 					{
-						retValue.append(SettingsHandler.getGame()
-							.getSkillRankDisplayText(sRank.intValue()));
+						retValue.append(SettingsHandler.getGame().getSkillRankDisplayText(sRank.intValue()));
 					}
 					else
 					{
@@ -357,8 +343,7 @@ public class SkillSitToken extends Token
 						else
 						{
 							SkillCost newCost = pc.getSkillCostForClass(skill, pcc);
-							if (SkillCost.CLASS.equals(newCost)
-								|| SkillCost.EXCLUSIVE.equals(cost))
+							if (SkillCost.CLASS.equals(newCost) || SkillCost.EXCLUSIVE.equals(cost))
 							{
 								cost = newCost;
 							}
@@ -372,19 +357,16 @@ public class SkillSitToken extends Token
 					break;
 
 				case SkillToken.SKILL_EXCLUSIVE_TOTAL:
-					int etRank =
-							SkillRankControl.getTotalRank(pc, skill).intValue();
-					boolean b = (skill.getSafe(ObjectKey.EXCLUSIVE) || !skill.getSafe(ObjectKey.USE_UNTRAINED)) && (etRank == 0);
+					int etRank = SkillRankControl.getTotalRank(pc, skill).intValue();
+					boolean b = (skill.getSafe(ObjectKey.EXCLUSIVE) || !skill.getSafe(ObjectKey.USE_UNTRAINED))
+						&& (etRank == 0);
 					if (b)
 					{
 						retValue.append('0');
 					}
 					else
 					{
-						int mRank =
-								etRank
-									+ SkillModifier.modifier(skill, pc)
-										.intValue();
+						int mRank = etRank + SkillModifier.modifier(skill, pc).intValue();
 						if (isSituation)
 						{
 							mRank += sit.getSituationBonus();
@@ -394,8 +376,7 @@ public class SkillSitToken extends Token
 					break;
 
 				case SkillToken.SKILL_TRAINED_TOTAL:
-					int tRank =
-							SkillRankControl.getTotalRank(pc, skill).intValue();
+					int tRank = SkillRankControl.getTotalRank(pc, skill).intValue();
 					boolean isNotTrained = !skill.getSafe(ObjectKey.USE_UNTRAINED) && (tRank == 0);
 					if (isNotTrained)
 					{
@@ -403,10 +384,7 @@ public class SkillSitToken extends Token
 					}
 					else
 					{
-						int mRank =
-								tRank
-									+ SkillModifier.modifier(skill, pc)
-										.intValue();
+						int mRank = tRank + SkillModifier.modifier(skill, pc).intValue();
 						if (isSituation)
 						{
 							mRank += sit.getSituationBonus();
@@ -416,17 +394,13 @@ public class SkillSitToken extends Token
 					break;
 
 				case SkillToken.SKILL_EXPLANATION:
-					boolean shortFrom =
-							!("_LONG".equals(propertyText.substring(7)));
+					boolean shortFrom = !("_LONG".equals(propertyText.substring(7)));
 
-					String bonusDetails =
-							SkillCostDisplay.getModifierExplanation(skill, pc, shortFrom);
+					String bonusDetails = SkillCostDisplay.getModifierExplanation(skill, pc, shortFrom);
 					if (isSituation)
 					{
 						String sitDetails =
-								SkillCostDisplay
-									.getSituationModifierExplanation(skill,
-										situation, pc, shortFrom);
+								SkillCostDisplay.getSituationModifierExplanation(skill, situation, pc, shortFrom);
 						retValue.append(bonusDetails + " situational: " + sitDetails);
 					}
 					else
@@ -439,13 +413,12 @@ public class SkillSitToken extends Token
 					String type = skill.getType();
 					retValue.append(type);
 					break;
-				
+
 				case SkillToken.SKILL_SIZE:
-					int i = (int)(pc.getSizeAdjustmentBonusTo("SKILL", skill.getKeyName()));
+					int i = (int) (pc.getSizeAdjustmentBonusTo("SKILL", skill.getKeyName()));
 					if (isSituation)
 					{
-						i += pc.getSizeAdjustmentBonusTo("SITUATION",
-							skill.getKeyName() + '=' + situation);
+						i += pc.getSizeAdjustmentBonusTo("SITUATION", skill.getKeyName() + '=' + situation);
 					}
 					retValue.append(Integer.toString(i));
 					break;
@@ -461,12 +434,10 @@ public class SkillSitToken extends Token
 					}
 					retValue.append(StringUtils.join(classes, "."));
 					break;
-					
 
 				default:
-					Logging
-						.errorPrint("In ExportHandler._writeSkillProperty the propIdvalue "
-							+ property + " is not handled.");
+					Logging.errorPrint(
+						"In ExportHandler._writeSkillProperty the propIdvalue " + property + " is not handled.");
 
 					break;
 			}

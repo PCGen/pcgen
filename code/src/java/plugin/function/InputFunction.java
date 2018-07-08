@@ -55,48 +55,39 @@ public class InputFunction implements FormulaFunction
 	}
 
 	@Override
-	public final FormatManager<?> allowArgs(SemanticsVisitor visitor, Node[] args,
-		FormulaSemantics semantics)
+	public final FormatManager<?> allowArgs(SemanticsVisitor visitor, Node[] args, FormulaSemantics semantics)
 	{
 		int argCount = args.length;
 		if (argCount != 1)
 		{
 			throw new SemanticsFailureException("Function " + getFunctionName()
-				+ " received incorrect # of arguments, expected: 1 got "
-				+ args.length + ' ' + Arrays.asList(args));
+				+ " received incorrect # of arguments, expected: 1 got " + args.length + ' ' + Arrays.asList(args));
 		}
 		//String node (name)
 		Node inputNode = args[0];
 		if (inputNode.getId() != FormulaParserTreeConstants.JJTQUOTSTRING)
 		{
-			throw new SemanticsFailureException("Parse Error: Invalid Value: "
-				+ ((SimpleNode) inputNode).getText() + " found in "
-				+ inputNode.getClass().getName()
-				+ " found in location requiring a literal"
+			throw new SemanticsFailureException("Parse Error: Invalid Value: " + ((SimpleNode) inputNode).getText()
+				+ " found in " + inputNode.getClass().getName() + " found in location requiring a literal"
 				+ " String (cannot be evaluated)");
 		}
 		String inputName = ((SimpleNode) inputNode).getText();
 		String varName = ChannelUtilities.createVarName(inputName);
-		VariableLibrary varLib =
-				semantics.get(FormulaSemantics.FMANAGER).getFactory();
+		VariableLibrary varLib = semantics.get(FormulaSemantics.FMANAGER).getFactory();
 		LegalScope scope = semantics.get(FormulaSemantics.SCOPE);
-		FormatManager<?> formatManager =
-				varLib.getVariableFormat(scope, varName);
+		FormatManager<?> formatManager = varLib.getVariableFormat(scope, varName);
 		if (formatManager == null)
 		{
-			throw new SemanticsFailureException(
-				"Input Channel: " + varName + " was not found");
+			throw new SemanticsFailureException("Input Channel: " + varName + " was not found");
 		}
 		return formatManager;
 	}
 
 	@Override
-	public Object evaluate(EvaluateVisitor visitor, Node[] args,
-		EvaluationManager manager)
+	public Object evaluate(EvaluateVisitor visitor, Node[] args, EvaluationManager manager)
 	{
 		String s = (String) args[0].jjtAccept(visitor, manager);
-		return visitor
-			.visitVariable(ChannelUtilities.createVarName(s), manager);
+		return visitor.visitVariable(ChannelUtilities.createVarName(s), manager);
 	}
 
 	@Override
@@ -107,8 +98,7 @@ public class InputFunction implements FormulaFunction
 	}
 
 	@Override
-	public FormatManager<?> getDependencies(DependencyVisitor visitor,
-		DependencyManager fdm, Node[] args)
+	public FormatManager<?> getDependencies(DependencyVisitor visitor, DependencyManager fdm, Node[] args)
 	{
 		ASTQuotString inputName = (ASTQuotString) args[0];
 		String varName = inputName.getText();

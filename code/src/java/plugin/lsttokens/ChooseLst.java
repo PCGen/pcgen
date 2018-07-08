@@ -44,9 +44,8 @@ import pcgen.rules.persistence.token.ParseResult;
 import pcgen.rules.persistence.token.PostDeferredToken;
 import pcgen.util.Logging;
 
-
-public class ChooseLst extends AbstractNonEmptyToken<CDOMObject> implements
-		CDOMPrimaryToken<CDOMObject>, PostDeferredToken<CDOMObject>
+public class ChooseLst extends AbstractNonEmptyToken<CDOMObject>
+		implements CDOMPrimaryToken<CDOMObject>, PostDeferredToken<CDOMObject>
 {
 
 	@Override
@@ -56,19 +55,16 @@ public class ChooseLst extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		CDOMObject obj, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj, String value)
 	{
 		if (obj instanceof Ungranted)
 		{
-			return new ParseResult.Fail("Cannot use " + getTokenName()
-				+ " on an Ungranted object type: "
-				+ obj.getClass().getSimpleName());
+			return new ParseResult.Fail(
+				"Cannot use " + getTokenName() + " on an Ungranted object type: " + obj.getClass().getSimpleName());
 		}
 		if (obj instanceof NonInteractive)
 		{
-			return new ParseResult.Fail("Cannot use " + getTokenName()
-				+ " on an Non-Interactive object type: "
+			return new ParseResult.Fail("Cannot use " + getTokenName() + " on an Non-Interactive object type: "
 				+ obj.getClass().getSimpleName());
 		}
 		String key;
@@ -94,16 +90,13 @@ public class ChooseLst extends AbstractNonEmptyToken<CDOMObject> implements
 			key = value.substring(0, pipeLoc);
 			val = value.substring(pipeLoc + 1);
 		}
-		if (!((obj instanceof Ability) || (obj instanceof Domain)
-			|| (obj instanceof Race) || (obj instanceof PCTemplate)
-			|| (obj instanceof Skill) || (obj instanceof EquipmentModifier)))
+		if (!((obj instanceof Ability) || (obj instanceof Domain) || (obj instanceof Race)
+			|| (obj instanceof PCTemplate) || (obj instanceof Skill) || (obj instanceof EquipmentModifier)))
 		{
 			//Allow TEMPBONUS related choose
 			if (!"NUMBER".equals(key))
 			{
-				return new ParseResult.Fail(
-					getTokenName() + " is not supported for "
-						+ obj.getClass().getSimpleName());
+				return new ParseResult.Fail(getTokenName() + " is not supported for " + obj.getClass().getSimpleName());
 			}
 		}
 
@@ -112,14 +105,13 @@ public class ChooseLst extends AbstractNonEmptyToken<CDOMObject> implements
 			String maxCount = key.substring(11);
 			if (maxCount == null || maxCount.isEmpty())
 			{
-				return new ParseResult.Fail(
-					"NUMCHOICES in CHOOSE must be a formula: " + value);
+				return new ParseResult.Fail("NUMCHOICES in CHOOSE must be a formula: " + value);
 			}
 			Formula f = FormulaFactory.getFormulaFor(maxCount);
 			if (!f.isValid())
 			{
-				return new ParseResult.Fail("Number of Choices in "
-						+ getTokenName() + " was not valid: " + f.toString());
+				return new ParseResult.Fail(
+					"Number of Choices in " + getTokenName() + " was not valid: " + f.toString());
 			}
 			context.getObjectContext().put(obj, FormulaKey.NUMCHOICES, f);
 			pipeLoc = val.indexOf(Constants.PIPE);
@@ -147,9 +139,7 @@ public class ChooseLst extends AbstractNonEmptyToken<CDOMObject> implements
 			return null;
 		}
 		Formula choices = context.getObjectContext().getFormula(obj, FormulaKey.NUMCHOICES);
-		String choicesString =
-				choices == null ? null : "NUMCHOICES=" + choices.toString()
-					+ Constants.PIPE;
+		String choicesString = choices == null ? null : "NUMCHOICES=" + choices.toString() + Constants.PIPE;
 		for (int i = 0; i < str.length; i++)
 		{
 			if (str[i].endsWith(Constants.PIPE))
@@ -191,28 +181,23 @@ public class ChooseLst extends AbstractNonEmptyToken<CDOMObject> implements
 		String oldChoose = obj.get(StringKey.CHOICE_STRING);
 		if (newChoose != null && oldChoose != null)
 		{
-			Logging.errorPrint("New style CHOOSE "
-				+ "and old style CHOOSE both found on "
+			Logging.errorPrint("New style CHOOSE " + "and old style CHOOSE both found on "
 				+ obj.getClass().getSimpleName() + ' ' + obj.getKeyName());
 			return false;
 		}
 		if (newChoose != null)
 		{
 			Class<?> chooseClass = newChoose.getReferenceClass();
-			List<ChooseSelectionActor<?>> newactors =
-					obj.getListFor(ListKey.NEW_CHOOSE_ACTOR);
+			List<ChooseSelectionActor<?>> newactors = obj.getListFor(ListKey.NEW_CHOOSE_ACTOR);
 			if (newactors != null)
 			{
 				for (ChooseSelectionActor<?> csa : newactors)
 				{
 					if (!chooseClass.equals(csa.getChoiceClass()))
 					{
-						Logging.errorPrint("CHOOSE of type "
-							+ chooseClass.getName() + " on "
-							+ obj.getClass().getSimpleName() + ' '
-							+ obj.getKeyName() + " had an actor from token "
-							+ csa.getSource() + " that was expecting a "
-							+ csa.getChoiceClass().getSimpleName());
+						Logging.errorPrint("CHOOSE of type " + chooseClass.getName() + " on "
+							+ obj.getClass().getSimpleName() + ' ' + obj.getKeyName() + " had an actor from token "
+							+ csa.getSource() + " that was expecting a " + csa.getChoiceClass().getSimpleName());
 						return false;
 					}
 				}

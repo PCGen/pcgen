@@ -44,14 +44,13 @@ public class ResultFacet
 	/**
 	 * The global LoadContextFacet used to get VariableIDs
 	 */
-	private final LoadContextFacet loadContextFacet =
-			FacetLibrary.getFacet(LoadContextFacet.class);
+	private final LoadContextFacet loadContextFacet = FacetLibrary.getFacet(LoadContextFacet.class);
 
 	public Object getGlobalVariable(CharID id, String varName)
 	{
 		ScopeInstance scope = scopeFacet.getGlobalScope(id);
-		VariableID<?> varID = loadContextFacet.get(id.getDatasetID()).get()
-				.getVariableContext().getVariableID(scope, varName);
+		VariableID<?> varID =
+				loadContextFacet.get(id.getDatasetID()).get().getVariableContext().getVariableID(scope, varName);
 		return variableStoreFacet.getValue(id, varID);
 	}
 
@@ -66,13 +65,12 @@ public class ResultFacet
 		ScopeInstance scope = scopeFacet.get(id, localScopeName, cdo);
 		if (scope == null)
 		{
-			Logging.errorPrint("Improperly built "
-					+ cdo.getClass().getSimpleName() + ": " + cdo.getKeyName()
-					+ " had no VariableScope");
+			Logging.errorPrint("Improperly built " + cdo.getClass().getSimpleName() + ": " + cdo.getKeyName()
+				+ " had no VariableScope");
 			return null;
 		}
-		VariableID<?> varID = loadContextFacet.get(id.getDatasetID()).get()
-			.getVariableContext().getVariableID(scope, varName);
+		VariableID<?> varID =
+				loadContextFacet.get(id.getDatasetID()).get().getVariableContext().getVariableID(scope, varName);
 		return variableStoreFacet.getValue(id, varID);
 	}
 

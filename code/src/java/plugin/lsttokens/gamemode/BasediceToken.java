@@ -14,19 +14,18 @@ import pcgen.util.Logging;
 public class BasediceToken implements GameModeLstToken
 {
 
-    @Override
+	@Override
 	public String getTokenName()
 	{
 		return "BASEDICE";
 	}
 
-    @Override
+	@Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		try
 		{
-			SimpleLoader<BaseDice> baseDiceLoader = new SimpleLoader<>(
-					BaseDice.class);
+			SimpleLoader<BaseDice> baseDiceLoader = new SimpleLoader<>(BaseDice.class);
 			baseDiceLoader.parseLine(gameMode.getModeContext(), value, source);
 			return true;
 		}

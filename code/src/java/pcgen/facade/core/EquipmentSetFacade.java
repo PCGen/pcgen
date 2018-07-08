@@ -18,12 +18,11 @@
  */
 package pcgen.facade.core;
 
-import pcgen.facade.util.ReferenceFacade;
-
 import java.util.EventListener;
 import java.util.EventObject;
 
 import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.ReferenceFacade;
 
 /**
  * {@code EquipmentSetFacade}defines the interface layer between the UI
@@ -61,8 +60,7 @@ public interface EquipmentSetFacade
 	 * @param beforeNode The node above which the equipment should be inserted.
 	 * @return The item of equipment that was actually added. 
 	 */
-	public EquipmentFacade addEquipment(EquipNode node, EquipmentFacade equipment,
-		int quantity, EquipNode beforeNode);
+	public EquipmentFacade addEquipment(EquipNode node, EquipmentFacade equipment, int quantity, EquipNode beforeNode);
 
 	public EquipmentFacade removeEquipment(EquipNode node, int quantity);
 
@@ -97,7 +95,7 @@ public interface EquipmentSetFacade
 	 * @return true if the equipment can be placed in the location.
 	 */
 	public boolean canEquip(EquipNode node, EquipmentFacade equipment);
-	
+
 	public ReferenceFacade<String> getNameRef();
 
 	public void setName(String name);
@@ -156,13 +154,13 @@ public interface EquipmentSetFacade
 		{
 			/** This is a body location which can contain other slots rather 
 			 * than equipment. */
-			BODY_SLOT, 
-			
+			BODY_SLOT,
+
 			/** This is a node which shows an empty slot that takes a specific 
 			 * equipment type (e.g. Ring). It is removed from the tree when the 
 			 * slot it represents is full and added back in when there is space 
 			 * in the slot. */
-			PHANTOM_SLOT, 
+			PHANTOM_SLOT,
 
 			/** This is a node representing an equipped item of equipment. */
 			EQUIPMENT;

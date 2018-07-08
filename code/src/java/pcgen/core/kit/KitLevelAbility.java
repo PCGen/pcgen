@@ -89,8 +89,7 @@ public final class KitLevelAbility extends BaseKit
 	}
 
 	@Override
-	public boolean testApply(Kit aKit, PlayerCharacter aPC,
-		List<String> warnings)
+	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
 	{
 		return doApplication(aPC);
 	}
@@ -110,8 +109,7 @@ public final class KitLevelAbility extends BaseKit
 			//Error?
 		}
 		//Look for ADD in class
-		List<PersistentTransitionChoice<?>> adds =
-				theClass.getListFor(ListKey.ADD);
+		List<PersistentTransitionChoice<?>> adds = theClass.getListFor(ListKey.ADD);
 		if (adds == null)
 		{
 			//Error?
@@ -127,8 +125,7 @@ public final class KitLevelAbility extends BaseKit
 		return false;
 	}
 
-	private <T> void process(PlayerCharacter pc, PCClass cl,
-		PersistentTransitionChoice<T> ch)
+	private <T> void process(PlayerCharacter pc, PCClass cl, PersistentTransitionChoice<T> ch)
 	{
 		List<T> list = new ArrayList<>();
 		for (String s : choiceList)

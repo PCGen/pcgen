@@ -22,33 +22,25 @@ import pcgen.cdom.util.CControl;
 import pcgen.core.PlayerCharacter;
 import pcgen.util.Logging;
 
-public class PCACcheckTermEvaluator
-		extends BasePCTermEvaluator implements TermEvaluator {
+public class PCACcheckTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
+{
 
-	PCACcheckTermEvaluator(
-			final String originalText)
+	PCACcheckTermEvaluator(final String originalText)
 	{
 		this.originalText = originalText;
 	}
-	
+
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
 		if (pc.hasControl(CControl.EQACCHECK))
 		{
-			Logging.errorPrint(originalText
-				+ " term is deprecated (does not function)"
-				+ " when EQACCHECK CodeControl is used");
+			Logging.errorPrint(
+				originalText + " term is deprecated (does not function)" + " when EQACCHECK CodeControl is used");
 		}
-		int maxCheck = pc.getEquipmentOfType("Armor", 1)
-		                 .stream()
-		                 .mapToInt(eq -> eq.preFormulaAcCheck(pc))
-		                 .sum();
+		int maxCheck = pc.getEquipmentOfType("Armor", 1).stream().mapToInt(eq -> eq.preFormulaAcCheck(pc)).sum();
 
-		maxCheck += pc.getEquipmentOfType("Shield", 1)
-		              .stream()
-		              .mapToInt(eq -> eq.preFormulaAcCheck(pc))
-		              .sum();
+		maxCheck += pc.getEquipmentOfType("Shield", 1).stream().mapToInt(eq -> eq.preFormulaAcCheck(pc)).sum();
 
 		return (float) maxCheck;
 	}

@@ -88,12 +88,14 @@ public class DurationTokenTest extends AbstractTypeSafeListTestCase<Spell, Strin
 	}
 
 	@Test
-	public void testGoodParentheses() throws PersistenceLayerException {
+	public void testGoodParentheses() throws PersistenceLayerException
+	{
 		assertTrue(parse("(first)"));
 	}
 	
 	@Test
-	public void testBadParentheses() throws PersistenceLayerException {
+	public void testBadParentheses() throws PersistenceLayerException
+	{
 		assertFalse("Missing end paren should have been flagged.", parse("(first"));
 		assertFalse("Missing start paren should have been flagged.", parse("first)"));
 		assertFalse("Missing start paren should have been flagged.", parse("(fir)st)"));

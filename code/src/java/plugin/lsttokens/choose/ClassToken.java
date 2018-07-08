@@ -65,8 +65,7 @@ public class ClassToken extends AbstractQualifiedChooseToken<PCClass>
 		String parent = s.substring(0, dotLoc);
 		String subclass = s.substring(dotLoc + 1);
 		SubClassCategory scc = SubClassCategory.getConstant(parent);
-		return context.getReferenceContext().getManufacturerId(scc)
-			.getActiveObject(subclass);
+		return context.getReferenceContext().getManufacturerId(scc).getActiveObject(subclass);
 	}
 
 	@Override
@@ -82,11 +81,10 @@ public class ClassToken extends AbstractQualifiedChooseToken<PCClass>
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-			CDOMObject obj, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
 	{
-		return super.parseTokenWithSeparator(context, context.getReferenceContext()
-				.getManufacturer(PCCLASS_CLASS), obj, value);
+		return super.parseTokenWithSeparator(context, context.getReferenceContext().getManufacturer(PCCLASS_CLASS), obj,
+			value);
 	}
 
 	@Override

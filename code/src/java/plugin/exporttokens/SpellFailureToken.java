@@ -40,17 +40,14 @@ public class SpellFailureToken extends Token
 
 	//TODO: Rip the processing of this token out of PlayerCharacter
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		return Integer.toString(getSpellFailure(pc));
 	}
 
 	private int getSpellFailure(PlayerCharacter pc)
 	{
-		String spellFailVar =
-				ControlUtilities.getControlToken(Globals.getContext(),
-					CControl.PCSPELLFAILURE);
+		String spellFailVar = ControlUtilities.getControlToken(Globals.getContext(), CControl.PCSPELLFAILURE);
 		if (spellFailVar == null)
 		{
 			int bonus = 0;

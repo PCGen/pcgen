@@ -33,9 +33,8 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Deals with REPLACES token
  */
-public class ReplacesToken extends
-		AbstractTokenWithSeparator<EquipmentModifier> implements
-		CDOMPrimaryToken<EquipmentModifier>
+public class ReplacesToken extends AbstractTokenWithSeparator<EquipmentModifier>
+		implements CDOMPrimaryToken<EquipmentModifier>
 {
 
 	@Override
@@ -51,18 +50,16 @@ public class ReplacesToken extends
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		EquipmentModifier mod, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, EquipmentModifier mod, String value)
 	{
 		context.getObjectContext().removeList(mod, ListKey.REPLACED_KEYS);
 
 		StringTokenizer tok = new StringTokenizer(value, Constants.COMMA);
 		while (tok.hasMoreTokens())
 		{
-			CDOMSingleRef<EquipmentModifier> ref = context.getReferenceContext()
-					.getCDOMReference(EquipmentModifier.class, tok.nextToken());
-			context.getObjectContext().addToList(mod, ListKey.REPLACED_KEYS,
-					ref);
+			CDOMSingleRef<EquipmentModifier> ref =
+					context.getReferenceContext().getCDOMReference(EquipmentModifier.class, tok.nextToken());
+			context.getObjectContext().addToList(mod, ListKey.REPLACED_KEYS, ref);
 		}
 		return ParseResult.SUCCESS;
 	}
@@ -70,14 +67,13 @@ public class ReplacesToken extends
 	@Override
 	public String[] unparse(LoadContext context, EquipmentModifier mod)
 	{
-		Changes<CDOMSingleRef<EquipmentModifier>> changes = context
-				.getObjectContext().getListChanges(mod, ListKey.REPLACED_KEYS);
+		Changes<CDOMSingleRef<EquipmentModifier>> changes =
+				context.getObjectContext().getListChanges(mod, ListKey.REPLACED_KEYS);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;
 		}
-		return new String[] { ReferenceUtilities.joinLstFormat(changes
-				.getAdded(), Constants.COMMA) };
+		return new String[]{ReferenceUtilities.joinLstFormat(changes.getAdded(), Constants.COMMA)};
 	}
 
 	@Override

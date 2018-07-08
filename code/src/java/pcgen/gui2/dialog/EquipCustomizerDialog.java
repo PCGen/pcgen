@@ -28,6 +28,7 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.WindowConstants;
 
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.EquipmentBuilderFacade;
@@ -43,8 +44,7 @@ import pcgen.system.LanguageBundle;
  * 
  */
 @SuppressWarnings("serial")
-public class EquipCustomizerDialog extends JDialog
-		implements ActionListener
+public class EquipCustomizerDialog extends JDialog implements ActionListener
 {
 	private final EquipCustomPanel equipCustomPanel;
 	private final JPanel buttonPanel;
@@ -72,7 +72,7 @@ public class EquipCustomizerDialog extends JDialog
 		this.cancelButton.setMnemonic(LanguageBundle.getMnemonic("in_mn_cancel")); //$NON-NLS-1$
 
 		this.equipCustomPanel = new EquipCustomPanel(character, builder);
-		setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
+		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		initComponents();
 		pack();
 		Utility.resizeComponentToScreen(this);
@@ -84,7 +84,7 @@ public class EquipCustomizerDialog extends JDialog
 		pane.setLayout(new BorderLayout());
 
 		pane.add(equipCustomPanel, BorderLayout.CENTER);
-		
+
 		buyButton.addActionListener(this);
 		okButton.addActionListener(this);
 		cancelButton.addActionListener(this);
@@ -99,7 +99,7 @@ public class EquipCustomizerDialog extends JDialog
 		buttons.add(cancelButton);
 		buttons.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 		pane.add(buttons, BorderLayout.SOUTH);
-		
+
 		Utility.installEscapeCloseOperation(this);
 	}
 

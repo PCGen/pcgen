@@ -25,8 +25,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 /**
  * Class deals with MODTOSKILLS Token
  */
-public class ModtoskillsToken extends AbstractYesNoToken<PCClass> implements
-		CDOMPrimaryToken<PCClass>
+public class ModtoskillsToken extends AbstractYesNoToken<PCClass> implements CDOMPrimaryToken<PCClass>
 {
 
 	@Override

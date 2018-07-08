@@ -66,8 +66,7 @@ public class VariableChangeEvent<T> extends EventObject
 	 *            The (current and) new value of the variable after the change
 	 *            being indicated by this VariableChangeEvent
 	 */
-	public VariableChangeEvent(Object source, VariableID<T> varID, T old,
-		T value)
+	public VariableChangeEvent(Object source, VariableID<T> varID, T old, T value)
 	{
 		super(source);
 		this.varID = varID;

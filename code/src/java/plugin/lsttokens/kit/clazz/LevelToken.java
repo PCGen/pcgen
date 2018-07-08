@@ -29,8 +29,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * LevelToken (a component of Kits)
  */
-public class LevelToken extends AbstractNonEmptyToken<KitClass> implements
-		CDOMPrimaryToken<KitClass>
+public class LevelToken extends AbstractNonEmptyToken<KitClass> implements CDOMPrimaryToken<KitClass>
 {
 
 	/**
@@ -51,14 +50,12 @@ public class LevelToken extends AbstractNonEmptyToken<KitClass> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, KitClass kitClass,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, KitClass kitClass, String value)
 	{
 		Formula formula = FormulaFactory.getFormulaFor(value);
 		if (!formula.isValid())
 		{
-			return new ParseResult.Fail("Formula in " + getTokenName()
-					+ " was not valid: " + formula.toString());
+			return new ParseResult.Fail("Formula in " + getTokenName() + " was not valid: " + formula.toString());
 		}
 		kitClass.setLevel(formula);
 		return ParseResult.SUCCESS;
