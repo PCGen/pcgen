@@ -1338,6 +1338,30 @@ Occultist Spell ~ Transformation.MOD					OUTPUTNAME:Transformation									CLASS
 # spell immunity (greater communal) not found; .MOD skipped.
 
 #0-Level Psychic Spells: 
+Arcane mark.MOD		CLASSES:Psychic=0
+bleed.MOD		CLASSES:Psychic=0
+dancing lights.MOD		CLASSES:Psychic=0
+daze.MOD		CLASSES:Psychic=0
+detect magic.MOD		CLASSES:Psychic=0
+detect poison.MOD		CLASSES:Psychic=0
+flare.MOD		CLASSES:Psychic=0
+ghost sound.MOD		CLASSES:Psychic=0
+haunted fey aspect.MOD		CLASSES:Psychic=0
+know direction.MOD		CLASSES:Psychic=0
+light.MOD		CLASSES:Psychic=0
+lullaby.MOD		CLASSES:Psychic=0
+mage hand.MOD		CLASSES:Psychic=0
+mending.MOD		CLASSES:Psychic=0
+message.MOD		CLASSES:Psychic=0
+open/close.MOD		CLASSES:Psychic=0
+prestidigitation.MOD		CLASSES:Psychic=0
+read magic.MOD		CLASSES:Psychic=0
+resistance.MOD		CLASSES:Psychic=0
+sift.MOD		CLASSES:Psychic=0
+stabilize.MOD		CLASSES:Psychic=0
+virtue.MOD		CLASSES:Psychic=0
+
+# 1st Level Psychic Spells:
 beguiling gift.MOD		CLASSES:Psychic=1
 blend.MOD		CLASSES:Psychic=1
 blurred movement.MOD		CLASSES:Psychic=1
