@@ -2,7 +2,7 @@
 #SOURCELONG:Pathfinder Society Chronicle Sheets	SOURCESHORT:PFSCS	SOURCEWEB:http://www.mywebsite.com	SOURCEDATE:2008-01
 
 # Ability Category								Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object							Plural description for UI	Display where?															Display Location
-ABILITYCATEGORY:Chronicle_S07-00						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S07-02											DISPLAYNAME:PFS Scenario #7-00: The Sky Key Solution									DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S07-00						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S07-00											DISPLAYNAME:PFS Scenario #7-00: The Sky Key Solution									DISPLAYLOCATION:Chronicles
 ABILITYCATEGORY:Chronicle_S07-01						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S07-01											DISPLAYNAME:PFS Scenario #7-01: Between the Lines									DISPLAYLOCATION:Chronicles
 ABILITYCATEGORY:Chronicle_S07-02						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S07-02											DISPLAYNAME:PFS Scenario #7-02: Six Seconds to Midnight									DISPLAYLOCATION:Chronicles
 ABILITYCATEGORY:Chronicle_S07-03						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S07-03											DISPLAYNAME:PFS Scenario #7-03: The Bronze House Reprisal									DISPLAYLOCATION:Chronicles
