@@ -793,6 +793,10 @@ Summon Nature's Ally IX		KEY:Naturalist Summon Nature's Ally IX	TYPE:Arcane	SCHO
 
 ###Block:
 Bomber's Eye.MOD	CLASSES:Investigator=1
+
+
+Summon Monster V (fire elementals only)		TYPE:Divine	DOMAINS:Flame (Spirit)=5		SCHOOL:Conjuration	SUBSCHOOL:Summoning					COMPS:V, S, DF	CASTTIME:1 round			RANGE:Close		TARGETAREA:One summoned creature						DURATION:(CASTERLEVEL) rounds [D]		SAVEINFO:None					SPELLRES:No					SOURCEPAGE:p.352	SOURCELINK:http://paizo.com/pathfinderRPG/prd/spells/summonMonster.html#_summon-monster-v				DESC:This spell functions like summon monster I, except that you can only summon Fire Elementals.
+
 #
 # End
 #
