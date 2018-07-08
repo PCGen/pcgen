@@ -219,7 +219,7 @@ CLASS:Shaman	HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.35	DEFINE:ShamanLVL|0	B
 # Class Name	Skill Pts/Lvl
 CLASS:Shaman	STARTSKILLPTS:4
 # Class Name	Spell Stat		Memorize		Automatically Known Spell Levels											Caster level
-CLASS:Shaman	SPELLSTAT:WIS	MEMORIZE:YES	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Shaman|CL
+CLASS:Shaman	SPELLSTAT:WIS	MEMORIZE:YES	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Shaman|CL	BONUS:DOMAIN|NUMBER|1|PREABILITY:1,CATEGORY=Special Ability,TYPE.ShamanSpirit
 1	ABILITY:Class|AUTOMATIC|Shaman
 ###Block:Proficiencies
 1	ABILITY:Shaman Class Feature|AUTOMATIC|Shaman ~ Weapon and Armor Proficiency
@@ -252,6 +252,17 @@ CLASS:Shaman	SPELLSTAT:WIS	MEMORIZE:YES	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVE
 18	CAST:4,4,4,4,4,4,4,3,3,2
 19	CAST:4,4,4,4,4,4,4,4,3,3
 20	CAST:4,4,4,4,4,4,4,4,4,4
+###Block: Spirit Selection
+0	DOMAIN:Battle (Spirit)|PREABILITY:1,CATEGORY=Special Ability,Shaman Spirit ~ Battle
+0	DOMAIN:Bones (Spirit)|PREABILITY:1,CATEGORY=Special Ability,Shaman Spirit ~ Bones
+0	DOMAIN:Flame (Spirit)|PREABILITY:1,CATEGORY=Special Ability,Shaman Spirit ~ Flame
+0	DOMAIN:Heavens (Spirit)|PREABILITY:1,CATEGORY=Special Ability,Shaman Spirit ~ Heavens
+0	DOMAIN:Life (Spirit)|PREABILITY:1,CATEGORY=Special Ability,Shaman Spirit ~ Life
+0	DOMAIN:Lore (Spirit)|PREABILITY:1,CATEGORY=Special Ability,Shaman Spirit ~ Lore
+0	DOMAIN:Nature (Spirit)|PREABILITY:1,CATEGORY=Special Ability,Shaman Spirit ~ Nature
+0	DOMAIN:Stone (Spirit)|PREABILITY:1,CATEGORY=Special Ability,Shaman Spirit ~ Stone
+0	DOMAIN:Waves (Spirit)|PREABILITY:1,CATEGORY=Special Ability,Shaman Spirit ~ Waves
+0	DOMAIN:Wind (Spirit)|PREABILITY:1,CATEGORY=Special Ability,Shaman Spirit ~ Wind
 
 
 ###Block: Skald
