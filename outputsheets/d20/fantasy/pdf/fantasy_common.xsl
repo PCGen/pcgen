@@ -347,6 +347,98 @@
 	<!--
 ====================================
 ====================================
+	TEMPLATE - BOLD LIST
+====================================
+====================================-->
+	<xsl:template name="regular.list">
+		<xsl:param name="attribute"/>
+		<xsl:param name="title" />
+		<xsl:param name="list" />
+		<xsl:param name="name.tag" />
+		<xsl:param name="desc.tag" select="''" />
+		<xsl:param name="benefit.tag" select="''" />
+
+		<fo:table table-layout="fixed" width="100%" space-before="2mm" border-collapse="collapse">
+			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.border')"/></xsl:call-template>
+			<fo:table-column>
+			    <xsl:attribute name="column-width"><xsl:value-of select="($pagePrintableWidth - 2) div 6" />mm</xsl:attribute>
+			</fo:table-column>
+			<fo:table-column>
+			    <xsl:attribute name="column-width"><xsl:value-of select="($pagePrintableWidth - 2) div 6" />mm</xsl:attribute>
+			</fo:table-column>
+			<fo:table-column>
+			    <xsl:attribute name="column-width"><xsl:value-of select="($pagePrintableWidth - 2) div 6" />mm</xsl:attribute>
+			</fo:table-column>
+			<fo:table-body>
+				<fo:table-row keep-with-next.within-column="always">
+					<fo:table-cell padding-top="1pt" number-columns-spanned="3">
+						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.title')"/></xsl:call-template>
+						<fo:block font-size="9pt"><xsl:value-of select="$title"/></fo:block>
+					</fo:table-cell>
+				</fo:table-row>
+				<xsl:for-each select="$list">
+					<xsl:variable name="shade">
+						<xsl:choose>
+							<xsl:when test="position() mod 2 = 0">darkline</xsl:when>
+							<xsl:otherwise>lightline</xsl:otherwise>
+						</xsl:choose>
+					</xsl:variable>
+					<xsl:if test="string-length(./*[name()=$name.tag]) &gt; 1">
+						<fo:table-row>	<!--	 keep-with-next.within-column="always"	-->
+							<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.', $shade)"/></xsl:call-template>
+							<xsl:choose>
+								<xsl:when test="source!=''">
+									<fo:table-cell padding="0pt" number-columns-spanned="2">
+										<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.', $shade)"/></xsl:call-template>
+										<fo:block font-size="7pt"><xsl:value-of select="./*[name()=$name.tag]"/></fo:block>
+									</fo:table-cell>
+									<fo:table-cell padding="0pt" text-align="end">
+										<fo:block  font-size="7pt">[<xsl:value-of select="source"/>]</fo:block>
+									</fo:table-cell>
+								</xsl:when>
+								<xsl:otherwise>
+									<fo:table-cell number-columns-spanned="3" padding="0pt">
+										<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.', $shade)"/></xsl:call-template>
+										<fo:block font-size="7pt"><xsl:value-of select="./*[name()=$name.tag]"/></fo:block>
+									</fo:table-cell>
+								</xsl:otherwise>
+							</xsl:choose>
+						</fo:table-row>
+
+						<xsl:if test="$desc.tag!=''">
+							<fo:table-row>	<!--	 keep-with-next.within-column="always"	-->
+								<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.', $shade)"/></xsl:call-template>
+								<fo:table-cell padding="1pt" number-columns-spanned="3">
+									<fo:block font-size="7pt" text-align="justify" text-indent="5pt">
+										<xsl:call-template name="paragraghlist">
+											<xsl:with-param name="tag" select="$desc.tag"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+						</xsl:if>
+
+						<xsl:if test="$benefit.tag!=''">
+							<fo:table-row>	<!--	 keep-with-next.within-column="always"	-->
+								<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.', $shade)"/></xsl:call-template>
+								<fo:table-cell padding="1pt" number-columns-spanned="3">
+									<fo:block font-size="7pt" text-align="justify" text-indent="5pt">
+										<xsl:call-template name="paragraghlist">
+											<xsl:with-param name="tag" select="$benefit.tag"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+						</xsl:if>
+					</xsl:if>
+				</xsl:for-each>
+			</fo:table-body>
+		</fo:table>
+	</xsl:template>
+	
+	<!--
+====================================
+====================================
 	TEMPLATE - POWER
 ====================================
 ====================================-->
