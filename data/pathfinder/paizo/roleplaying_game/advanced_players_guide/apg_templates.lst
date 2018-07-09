@@ -94,8 +94,8 @@ Racial Heritage					TEMPLATE:%LIST																																								CHOOSE
 
 
 ###Block:
-# Template Name	Visible	Template							Define				Stat bonus					Modify VAR
-Mental Acuity	VISIBLE:NO	TEMPLATE:CHOOSE:TYPE=MentalAcuityOracleLevel	DEFINE:MentalAcuityLVL|0	BONUS:STAT|INT|1+MentalAcuityBonus	BONUS:VAR|MentalAcuityBonus|(OracleLVL-MentalAcuityLVL)/3
+# Template Name	Visible	Template							Define									Stat bonus							Modify VAR
+Mental Acuity	VISIBLE:NO	TEMPLATE:CHOOSE:TYPE=MentalAcuityOracleLevel	DEFINE:MentalAcuityLVL|0	DEFINE:MentalAcuityBonus|0	BONUS:STAT|INT|MentalAcuityBonus|TYPE=Inherent	BONUS:VAR|MentalAcuityBonus|1+(floor((OracleLVL-MentalAcuityLVL)/3))
 
 ###Block:
 # Template Name	Visible	Required Var. value	Modify VAR				Type
