@@ -15,7 +15,7 @@
 import static org.apache.tools.ant.taskdefs.condition.Os.*
 
 plugins {
-    id 'com.gradle.build-scan' version '1.14'
+    id 'com.gradle.build-scan' version '1.15.1'
     id 'eclipse'
     id 'application'
     id 'build-dashboard'
@@ -352,10 +352,6 @@ task msrdinttest(type: Test, dependsOn: 'jar') {
 
 // Do the lot!
 task all(dependsOn: ['build', 'slowtest', 'javadoc', 'buildNsis', 'allReports']) {
-}
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '4.6'
 }
 
 allprojects {
