@@ -52,14 +52,14 @@ public class ClassTokenTest extends AbstractKitTokenTestCase<KitSkill>
 	}
 
 	@Test
-	public void testInvalidInputEmptyCount() throws PersistenceLayerException
+	public void testInvalidInputEmptyCount()
 	{
 		assertTrue(parse("Fireball"));
 		assertConstructionError();
 	}
 
 	@Test
-	public void testInvalidInputOnlyOne() throws PersistenceLayerException
+	public void testInvalidInputOnlyOne()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fireball");
 		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fireball");

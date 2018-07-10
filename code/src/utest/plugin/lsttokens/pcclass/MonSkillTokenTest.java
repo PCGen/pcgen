@@ -74,7 +74,7 @@ public class MonSkillTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidInputEmpty() throws PersistenceLayerException
+	public void testInvalidInputEmpty()
 	{
 		try
 		{
@@ -88,7 +88,7 @@ public class MonSkillTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testRoundRobinOnlyPre() throws PersistenceLayerException
+	public void testRoundRobinOnlyPre()
 	{
 		assertFalse(parse("PRERACE:1,Human"));
 		assertNoSideEffects();
@@ -155,7 +155,7 @@ public class MonSkillTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testOtherBonus() throws PersistenceLayerException
+	public void testOtherBonus()
 	{
 		addBonus(MonNonSkillHD.class);
 		MonnonskillhdToken othertoken = new MonnonskillhdToken();

@@ -51,9 +51,11 @@ public abstract class LstLineFileLoader extends Observable
 
 	/**
 	 * This method loads a single LST formatted file.
+	 *
+	 * @param context the context
 	 * @param uri String containing the absolute file path
 	 * or the URL from which to read LST formatted data.
-	 * @throws PersistenceLayerException
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	public void loadLstFile(LoadContext context, URI uri) throws PersistenceLayerException
 	{
@@ -68,10 +70,12 @@ public abstract class LstLineFileLoader extends Observable
 
 	/**
 	 * This method loads a single LST formatted file.
+	 *
+	 * @param context the context
 	 * @param uri String containing the absolute file path
 	 * or the URL from which the LST formatted data was read.
 	 * @param aString The LST formatted data
-	 * @throws PersistenceLayerException
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	public void loadLstString(LoadContext context, URI uri, final String aString) throws PersistenceLayerException
 	{
@@ -94,9 +98,11 @@ public abstract class LstLineFileLoader extends Observable
 
 	/**
 	 * This method loads a single LST formatted file in a game mode file.
+	 *
+	 * @param context the context
 	 * @param fileName String containing the absolute file path
 	 * @param game the game mode
-	 * @throws PersistenceLayerException
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	public void loadLstFile(LoadContext context, URI fileName, String game) throws PersistenceLayerException
 	{

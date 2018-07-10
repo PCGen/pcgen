@@ -53,7 +53,7 @@ public class ModsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testBadInputNegative() throws PersistenceLayerException
+	public void testBadInputNegative()
 	{
 		try
 		{
@@ -67,7 +67,7 @@ public class ModsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testBadInputEmpty() throws PersistenceLayerException
+	public void testBadInputEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
@@ -110,7 +110,7 @@ public class ModsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.put(getObjectKey(), null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
@@ -122,7 +122,7 @@ public class ModsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testUnparseLegal() throws PersistenceLayerException
+	public void testUnparseLegal()
 	{
 		primaryProf.put(getObjectKey(), EqModControl.REQUIRED);
 		expectSingle(getToken().unparse(primaryContext, primaryProf),
@@ -131,7 +131,7 @@ public class ModsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail() throws PersistenceLayerException
+	public void testUnparseGenericsFail()
 	{
 		ObjectKey objectKey = getObjectKey();
 		primaryProf.put(objectKey, new Object());

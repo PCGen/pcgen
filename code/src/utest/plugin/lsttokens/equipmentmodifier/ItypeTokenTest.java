@@ -21,7 +21,6 @@ import org.junit.Test;
 
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.EquipmentModifier;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTypeSafeListTestCase;
@@ -91,12 +90,12 @@ public class ItypeTokenTest extends
 
 	//TODO 514 behavior, to be changed after 5.16?
 	@Override
-	public void testReplacementInputs() throws PersistenceLayerException
+	public void testReplacementInputs()
 	{
 	}
 
 	@Override
-	public void testReplacementInputsTwo() throws PersistenceLayerException
+	public void testReplacementInputsTwo()
 	{
 	}
 
@@ -114,7 +113,7 @@ public class ItypeTokenTest extends
 
 
 	@Test
-	public void testInvalidInputDouble() throws PersistenceLayerException
+	public void testInvalidInputDouble()
 	{
 		assertFalse(parse("Double"));
 		assertNoSideEffects();

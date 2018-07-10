@@ -29,6 +29,7 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
 
@@ -54,10 +55,11 @@ public class PreAttTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test the PREATT code
-	 * @throws Exception
+	 * Test the PREATT code.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testAtt() throws Exception
+	public void testAtt() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		LoadContext context = Globals.getContext();

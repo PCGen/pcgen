@@ -24,7 +24,6 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.PCTemplate;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
@@ -56,28 +55,27 @@ public class AddTokenTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidEmpty() throws PersistenceLayerException
+	public void testInvalidEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidClearLevel() throws PersistenceLayerException
+	public void testInvalidClearLevel()
 	{
 		assertFalse(parse(".CLEAR.LEVEL1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testValidClear() throws PersistenceLayerException
+	public void testValidClear()
 	{
 		assertTrue(parse(Constants.LST_DOT_CLEAR));
 	}
 
 	@Test
 	public void testInvalidLevelNonClearLevel()
-			throws PersistenceLayerException
 	{
 		primaryProf = new PCClassLevel();
 		primaryProf.put(IntegerKey.LEVEL, 1);
@@ -89,7 +87,6 @@ public class AddTokenTest extends AbstractGlobalTokenTestCase
 
 	@Test
 	public void testInvalidLevelClearWrongLevel()
-			throws PersistenceLayerException
 	{
 		primaryProf = new PCClassLevel();
 		primaryProf.put(IntegerKey.LEVEL, 1);
@@ -101,7 +98,6 @@ public class AddTokenTest extends AbstractGlobalTokenTestCase
 
 	@Test
 	public void testInvalidLevelClearLevelNaN()
-			throws PersistenceLayerException
 	{
 		primaryProf = new PCClassLevel();
 		primaryProf.put(IntegerKey.LEVEL, 1);
@@ -112,7 +108,7 @@ public class AddTokenTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testValidClearLevel() throws PersistenceLayerException
+	public void testValidClearLevel()
 	{
 		primaryProf = new PCClassLevel();
 		primaryProf.put(IntegerKey.LEVEL, 1);
@@ -143,7 +139,7 @@ public class AddTokenTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Override
-	public void testOverwrite() throws PersistenceLayerException
+	public void testOverwrite()
 	{
 		// Can't be done, nothing ever unparses
 	}

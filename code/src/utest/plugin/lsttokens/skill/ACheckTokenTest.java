@@ -54,14 +54,14 @@ public class ACheckTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testInvalidInputString() throws PersistenceLayerException
+	public void testInvalidInputString()
 	{
 		internalTestInvalidInputString(null);
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputStringSet() throws PersistenceLayerException
+	public void testInvalidInputStringSet()
 	{
 		assertTrue(parse("YES"));
 		assertTrue(parseSecondary("YES"));
@@ -72,7 +72,6 @@ public class ACheckTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	}
 
 	public void internalTestInvalidInputString(Object val)
-		throws PersistenceLayerException
 	{
 		assertEquals(val, primaryProf.get(ObjectKey.ARMOR_CHECK));
 		assertFalse(parse("String"));
@@ -94,7 +93,7 @@ public class ACheckTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testValidInputs() throws PersistenceLayerException
+	public void testValidInputs()
 	{
 		assertTrue(parse("YES"));
 		assertEquals(SkillArmorCheck.YES, primaryProf
@@ -155,7 +154,7 @@ public class ACheckTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.put(getObjectKey(), null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
@@ -167,7 +166,7 @@ public class ACheckTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testUnparseLegal() throws PersistenceLayerException
+	public void testUnparseLegal()
 	{
 		primaryProf.put(getObjectKey(), SkillArmorCheck.DOUBLE);
 		expectSingle(getToken().unparse(primaryContext, primaryProf),
@@ -176,7 +175,7 @@ public class ACheckTokenTest extends AbstractCDOMTokenTestCase<Skill>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail() throws PersistenceLayerException
+	public void testUnparseGenericsFail()
 	{
 		ObjectKey objectKey = getObjectKey();
 		primaryProf.put(objectKey, new Object());

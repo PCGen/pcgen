@@ -58,42 +58,42 @@ public class ArmortypeTokenTest extends
 	}
 
 	@Test
-	public void testInvalidInputEmpty() throws PersistenceLayerException
+	public void testInvalidInputEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNoResult() throws PersistenceLayerException
+	public void testInvalidInputNoResult()
 	{
 		assertFalse(parse("Medium"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEmptyResult() throws PersistenceLayerException
+	public void testInvalidInputEmptyResult()
 	{
 		assertFalse(parse("Medium|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEmptySource() throws PersistenceLayerException
+	public void testInvalidInputEmptySource()
 	{
 		assertFalse(parse("|Medium"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputDoublePipe() throws PersistenceLayerException
+	public void testInvalidInputDoublePipe()
 	{
 		assertFalse(parse("Light||Medium"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputTwoPipe() throws PersistenceLayerException
+	public void testInvalidInputTwoPipe()
 	{
 		assertFalse(parse("Light|Medium|Heavy"));
 		assertNoSideEffects();
@@ -130,14 +130,14 @@ public class ArmortypeTokenTest extends
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.removeListFor(ListKey.ARMORTYPE);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testUnparseSingle() throws PersistenceLayerException
+	public void testUnparseSingle()
 	{
 		primaryProf.addToListFor(ListKey.ARMORTYPE, new ChangeArmorType(
 				"Light", "Medium"));
@@ -146,7 +146,7 @@ public class ArmortypeTokenTest extends
 	}
 
 	@Test
-	public void testUnparseNullInList() throws PersistenceLayerException
+	public void testUnparseNullInList()
 	{
 		primaryProf.addToListFor(ListKey.ARMORTYPE, null);
 		try
@@ -161,7 +161,7 @@ public class ArmortypeTokenTest extends
 	}
 
 	@Test
-	public void testUnparseMultiple() throws PersistenceLayerException
+	public void testUnparseMultiple()
 	{
 		primaryProf.addToListFor(ListKey.ARMORTYPE, new ChangeArmorType(
 				"Medium", "Light"));
@@ -177,7 +177,7 @@ public class ArmortypeTokenTest extends
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail() throws PersistenceLayerException
+	public void testUnparseGenericsFail()
 	{
 		ListKey objectKey = ListKey.ARMORTYPE;
 		primaryProf.addToListFor(objectKey, new Object());
@@ -193,7 +193,7 @@ public class ArmortypeTokenTest extends
 	}
 
 	@Test
-	public void testUnparseNullSource() throws PersistenceLayerException
+	public void testUnparseNullSource()
 	{
 		try
 		{
@@ -208,7 +208,7 @@ public class ArmortypeTokenTest extends
 	}
 
 	@Test
-	public void testUnparseNullTarget() throws PersistenceLayerException
+	public void testUnparseNullTarget()
 	{
 		try
 		{

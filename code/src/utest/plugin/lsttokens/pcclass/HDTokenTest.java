@@ -55,14 +55,14 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidInputUnset() throws PersistenceLayerException
+	public void testInvalidInputUnset()
 	{
 		testInvalidInputs(null);
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputSet() throws PersistenceLayerException
+	public void testInvalidInputSet()
 	{
 		Integer con = 3;
 		assertTrue(parse(con.toString()));
@@ -73,7 +73,7 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 		assertNoSideEffects();
 	}
 
-	public void testInvalidInputs(HitDie val) throws PersistenceLayerException
+	public void testInvalidInputs(HitDie val)
 	{
 		// Always ensure get is unchanged
 		// since no invalid item should set or reset the value
@@ -106,7 +106,7 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testValidInputs() throws PersistenceLayerException
+	public void testValidInputs()
 	{
 		assertTrue(parse("5"));
 		assertEquals(new HitDie(5), primaryProf.get(ObjectKey.LEVEL_HITDIE));
@@ -115,7 +115,7 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testReplacementInputs() throws PersistenceLayerException
+	public void testReplacementInputs()
 	{
 		assertTrue(parse("5"));
 		assertTrue(parse("1"));
@@ -154,14 +154,14 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.put(ObjectKey.LEVEL_HITDIE, null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testUnparseLegal() throws PersistenceLayerException
+	public void testUnparseLegal()
 	{
 		primaryProf.put(ObjectKey.LEVEL_HITDIE, new HitDie(1));
 		expectSingle(getToken().unparse(primaryContext, primaryProf), "1");
@@ -169,7 +169,7 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail() throws PersistenceLayerException
+	public void testUnparseGenericsFail()
 	{
 		ObjectKey objectKey = ObjectKey.LEVEL_HITDIE;
 		primaryProf.put(objectKey, new Object());
@@ -185,7 +185,7 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseNegativeLevel() throws PersistenceLayerException
+	public void testUnparseNegativeLevel()
 	{
 		try
 		{
@@ -199,7 +199,7 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseZero() throws PersistenceLayerException
+	public void testUnparseZero()
 	{
 		try
 		{

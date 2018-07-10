@@ -19,7 +19,6 @@ package tokenmodel;
 
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.template.AddLevelToken;
@@ -34,7 +33,7 @@ public class TemplateAddLevelTest extends AbstractTokenModelTest
 	private static AddLevelToken token = new AddLevelToken();
 
 	@Test
-	public void testSimple() throws PersistenceLayerException
+	public void testSimple()
 	{
 		PCTemplate source = create(PCTemplate.class, "Source");
 		create(PCClass.class, "Granted");

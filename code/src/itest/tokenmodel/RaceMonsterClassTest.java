@@ -20,7 +20,6 @@ package tokenmodel;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCClass;
 import pcgen.core.Race;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.race.MonsterclassToken;
@@ -36,7 +35,7 @@ public class RaceMonsterClassTest extends AbstractTokenModelTest
 	private static MonsterclassToken token = new MonsterclassToken();
 
 	@Test
-	public void testSimple() throws PersistenceLayerException
+	public void testSimple()
 	{
 		TokenRegistration.register(plugin.bonustokens.Feat.class);
 		Race source = create(Race.class, "Source");

@@ -51,13 +51,13 @@ public class FreeTokenTest extends AbstractKitTokenTestCase<KitProf>
 	}
 
 	@Test
-	public void testInvalidInputString() throws PersistenceLayerException
+	public void testInvalidInputString()
 	{
 		internalTestInvalidInputString(null);
 	}
 
 	@Test
-	public void testInvalidInputStringSet() throws PersistenceLayerException
+	public void testInvalidInputStringSet()
 	{
 		assertTrue(parse("YES"));
 		assertTrue(parseSecondary("YES"));
@@ -66,7 +66,6 @@ public class FreeTokenTest extends AbstractKitTokenTestCase<KitProf>
 	}
 
 	public void internalTestInvalidInputString(Object val)
-			throws PersistenceLayerException
 	{
 		assertEquals(val, getValue());
 		assertFalse(parse("String"));
@@ -84,7 +83,7 @@ public class FreeTokenTest extends AbstractKitTokenTestCase<KitProf>
 	}
 
 	@Test
-	public void testValidInputs() throws PersistenceLayerException
+	public void testValidInputs()
 	{
 		assertTrue(parse("YES"));
 		assertEquals(Boolean.TRUE, getValue());

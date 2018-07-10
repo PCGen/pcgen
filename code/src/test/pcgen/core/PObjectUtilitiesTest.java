@@ -92,8 +92,8 @@ public class PObjectUtilitiesTest extends AbstractCharacterTestCase
 	 * Test the functioning of the setSpellLevelSelections method.
 	 * @throws Exception
 	 */
-	public void testSetSpellLevelSelections() throws Exception
-	{
+	//public void testSetSpellLevelSelections() throws Exception
+	//{
 		//		PObject pObj = new PObject();
 		//		pObj.setName("My PObject");
 		//		pObj.setChoiceString("SPELLLEVEL|1|TYPE=ARCANE|0|MAXLEVEL");
@@ -140,5 +140,5 @@ public class PObjectUtilitiesTest extends AbstractCharacterTestCase
 		//		assertEquals("Number of available choices", 2, availList.size());
 		//		assertEquals("1st choice", "TestPsion 1", availList.get(0));
 
-	}
+	//}
 }

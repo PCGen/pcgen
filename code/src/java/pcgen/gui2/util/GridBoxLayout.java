@@ -48,7 +48,7 @@ public class GridBoxLayout extends GridLayout implements Serializable
 	 * @param cols
 	 * @param hgap
 	 * @param vgap
-	 * @throws IllegalArgumentException
+	 * @throws IllegalArgumentException  if the value of both rows and cols is set to zero
 	 */
 	public GridBoxLayout(int rows, int cols, int hgap, int vgap) throws IllegalArgumentException
 	{

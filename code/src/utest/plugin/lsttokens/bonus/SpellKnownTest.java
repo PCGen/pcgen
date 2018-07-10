@@ -66,28 +66,28 @@ public class SpellKnownTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidInputOnlyType() throws PersistenceLayerException
+	public void testInvalidInputOnlyType()
 	{
 		assertFalse(parse("SpellKnown"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputOnlyTypeBar() throws PersistenceLayerException
+	public void testInvalidInputOnlyTypeBar()
 	{
 		assertFalse(parse("SpellKnown|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNoValue() throws PersistenceLayerException
+	public void testInvalidInputNoValue()
 	{
 		assertFalse(parse("SpellKnown|CLASS.Wizard;LEVEL.1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputMissingValue() throws PersistenceLayerException
+	public void testInvalidInputMissingValue()
 	{
 		try
 		{
@@ -101,21 +101,21 @@ public class SpellKnownTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidNoTarget() throws PersistenceLayerException
+	public void testInvalidNoTarget()
 	{
 		assertFalse(parse("SpellKnown||2"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidDoubleFirstPipe() throws PersistenceLayerException
+	public void testInvalidDoubleFirstPipe()
 	{
 		assertFalse(parse("SpellKnown||CLASS.Wizard;LEVEL.1|1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidDoubleSecondPipe() throws PersistenceLayerException
+	public void testInvalidDoubleSecondPipe()
 	{
 		try
 		{
@@ -129,7 +129,7 @@ public class SpellKnownTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testValidInputs() throws PersistenceLayerException
+	public void testValidInputs()
 	{
 		assertTrue(parse(getLegalValue()));
 		assertCleanConstruction();

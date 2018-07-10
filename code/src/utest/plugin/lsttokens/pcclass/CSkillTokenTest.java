@@ -89,7 +89,7 @@ public class CSkillTokenTest extends AbstractListInputTokenTestCase<PCClass, Ski
 	}
 
 	@Test
-	public void testRoundRobinList() throws PersistenceLayerException
+	public void testRoundRobinList()
 	{
 		boolean result = parse("LIST");
 		if (result)

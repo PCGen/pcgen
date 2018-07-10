@@ -228,7 +228,7 @@ public final class BioSetLoaderTest extends TestCase
 
 	/**
 	 * Check that a valid second bio set definition can be loaded.
-	 * @throws Exception
+	 * @throws Exception  If a problem occurs when loading the data
 	 */
 	public void testParseSecondBioSetGood() throws Exception
 	{
@@ -260,7 +260,7 @@ public final class BioSetLoaderTest extends TestCase
 	 * Check that an invalid second bio set definition gets properly processed. 
 	 * It is expected that the bioset will be loaded but the original name for 
 	 * the age set will be used.
-	 * @throws Exception
+	 * @throws Exception  If a problem occurs when loading the data
 	 */
 	public void testParseSecondBioSetBadName() throws Exception
 	{

@@ -67,12 +67,11 @@ public class VariableLoader extends Observable
 
 	/**
 	 * This method loads the given list of LST files.
-	 * 
-	 * @param fileList
-	 *            containing the list of files to read
-	 * @throws PersistenceLayerException
+	 *
+	 * @param context the context
+	 * @param fileList containing the list of files to read.
 	 */
-	public void loadLstFiles(LoadContext context, List<CampaignSourceEntry> fileList) throws PersistenceLayerException
+	public void loadLstFiles(LoadContext context, List<CampaignSourceEntry> fileList)
 	{
 		// Track which sources have been loaded already
 		Set<CampaignSourceEntry> loadedFiles = new HashSet<>();

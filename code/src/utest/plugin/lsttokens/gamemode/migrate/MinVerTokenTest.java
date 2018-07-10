@@ -38,11 +38,9 @@ public class MinVerTokenTest
 	private MinVerToken token;
 	private String gameModeName;
 
-	/**
-	 * @throws java.lang.Exception
-	 */
+	
 	@Before
-	public void setUp() throws Exception
+	public void setUp()
 	{
 		migrationRule = new MigrationRule(ObjectType.SOURCE, "OldKey");
 		token = new MinVerToken();

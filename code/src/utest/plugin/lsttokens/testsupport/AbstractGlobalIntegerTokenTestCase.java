@@ -35,14 +35,14 @@ public abstract class AbstractGlobalIntegerTokenTestCase extends
 	public abstract boolean isPositiveAllowed();
 
 	@Test
-	public void testInvalidInputUnset() throws PersistenceLayerException
+	public void testInvalidInputUnset()
 	{
 		testInvalidInputs(null);
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputSet() throws PersistenceLayerException
+	public void testInvalidInputSet()
 	{
 		Integer con;
 		con = isPositiveAllowed() ? 3 : -3;
@@ -53,7 +53,7 @@ public abstract class AbstractGlobalIntegerTokenTestCase extends
 		assertNoSideEffects();
 	}
 
-	public void testInvalidInputs(Integer val) throws PersistenceLayerException
+	public void testInvalidInputs(Integer val)
 	{
 		// Always ensure get is unchanged
 		// since no invalid item should set or reset the value
@@ -97,7 +97,7 @@ public abstract class AbstractGlobalIntegerTokenTestCase extends
 	}
 
 	@Test
-	public void testValidInputs() throws PersistenceLayerException
+	public void testValidInputs()
 	{
 		if (isPositiveAllowed())
 		{
@@ -119,7 +119,7 @@ public abstract class AbstractGlobalIntegerTokenTestCase extends
 	}
 
 	@Test
-	public void testOutputOne() throws PersistenceLayerException
+	public void testOutputOne()
 	{
 		assertEquals(0, primaryContext.getWriteMessageCount());
 		primaryProf.put(getIntegerKey(), 1);
@@ -137,7 +137,7 @@ public abstract class AbstractGlobalIntegerTokenTestCase extends
 	}
 
 	@Test
-	public void testOutputZero() throws PersistenceLayerException
+	public void testOutputZero()
 	{
 		assertEquals(0, primaryContext.getWriteMessageCount());
 		primaryProf.put(getIntegerKey(), 0);
@@ -155,7 +155,7 @@ public abstract class AbstractGlobalIntegerTokenTestCase extends
 	}
 
 	@Test
-	public void testOutputMinusTwo() throws PersistenceLayerException
+	public void testOutputMinusTwo()
 	{
 		assertEquals(0, primaryContext.getWriteMessageCount());
 		primaryProf.put(getIntegerKey(), -2);
@@ -173,7 +173,7 @@ public abstract class AbstractGlobalIntegerTokenTestCase extends
 	}
 
 	@Test
-	public void testReplacementInputs() throws PersistenceLayerException
+	public void testReplacementInputs()
 	{
 		if (isPositiveAllowed())
 		{
@@ -246,7 +246,7 @@ public abstract class AbstractGlobalIntegerTokenTestCase extends
 	}
 
 	@Test
-	public void testUnparseOne() throws PersistenceLayerException
+	public void testUnparseOne()
 	{
 		if (isPositiveAllowed())
 		{
@@ -260,7 +260,7 @@ public abstract class AbstractGlobalIntegerTokenTestCase extends
 	}
 
 	@Test
-	public void testUnparseZero() throws PersistenceLayerException
+	public void testUnparseZero()
 	{
 		if (isZeroAllowed())
 		{
@@ -274,7 +274,7 @@ public abstract class AbstractGlobalIntegerTokenTestCase extends
 	}
 
 	@Test
-	public void testUnparseNegative() throws PersistenceLayerException
+	public void testUnparseNegative()
 	{
 		if (isNegativeAllowed())
 		{
@@ -288,7 +288,7 @@ public abstract class AbstractGlobalIntegerTokenTestCase extends
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.put(getIntegerKey(), null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));

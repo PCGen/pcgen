@@ -30,6 +30,7 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.core.analysis.SkillRankControl;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
@@ -96,9 +97,11 @@ public class PreMultTest extends AbstractCharacterTestCase
 	 * Test to ensure that a character will fail a test
 	 * if it does not have the correct number of levels
 	 * in the class.
-	 * @throws Exception
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
+	 * @throws PrerequisiteException the prerequisite exception
 	 */
-	public void testCharWithMultipleSpellClasses() throws Exception
+	public void testCharWithMultipleSpellClasses() throws PersistenceLayerException, PrerequisiteException
 	{
 		LoadContext context = Globals.getContext();
 		final PCClass pcClass = context.getReferenceContext().constructCDOMObject(PCClass.class, "MyClass");
@@ -135,9 +138,11 @@ public class PreMultTest extends AbstractCharacterTestCase
 	 * Test to ensure that a number of feat test will
 	 * correctly require a number of separate feats in
 	 * any combination of two types.
-	 * @throws Exception
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
+	 * @throws PrerequisiteException the prerequisite exception
 	 */
-	public void testMultiFeats() throws Exception
+	public void testMultiFeats() throws PersistenceLayerException, PrerequisiteException
 	{
 		final Ability metamagic1 = new Ability();
 		metamagic1.addToListFor(ListKey.TYPE, Type.getConstant("METAMAGIC"));
@@ -222,9 +227,10 @@ public class PreMultTest extends AbstractCharacterTestCase
 	 * Test to ensure that a number of skills test will
 	 * correctly require a number of separate skills at
 	 * the required level.
-	 * @throws Exception
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testMultiSkills() throws Exception
+	public void testMultiSkills() throws PersistenceLayerException
 	{
 		final PreSkillParser producer = new PreSkillParser();
 

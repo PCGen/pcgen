@@ -81,7 +81,7 @@ public abstract class AbstractEqModTokenTestCase
 	}
 
 	@Override
-	public void testInvalidInputJoinedPipe() throws PersistenceLayerException
+	public void testInvalidInputJoinedPipe()
 	{
 		// This is not invalid, because EqMod uses | for associations
 	}
@@ -109,7 +109,7 @@ public abstract class AbstractEqModTokenTestCase
 	// }
 
 	@Test
-	public void testInvalidEmptyAssociation() throws PersistenceLayerException
+	public void testInvalidEmptyAssociation()
 	{
 		assertFalse(parse("EQMOD2|"));
 		assertNoSideEffects();
@@ -117,7 +117,6 @@ public abstract class AbstractEqModTokenTestCase
 
 	@Test
 	public void testInvalidTrailingAssociation()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("EQMOD2|Assoc|"));
 		assertNoSideEffects();
@@ -125,7 +124,6 @@ public abstract class AbstractEqModTokenTestCase
 
 	@Test
 	public void testInvalidEmptyModAssociation()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("|Assoc|Assoc2"));
 		assertNoSideEffects();
@@ -133,7 +131,6 @@ public abstract class AbstractEqModTokenTestCase
 
 	@Test
 	public void testInvalidEmptySecondModAssociation()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("MOD1.|Assoc|Assoc2"));
 		assertNoSideEffects();
@@ -141,7 +138,6 @@ public abstract class AbstractEqModTokenTestCase
 
 	@Test
 	public void testInvalidEmptySecondModAfterAssociation()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("MOD1|ModAssoc.|Assoc|Assoc2"));
 		assertNoSideEffects();
@@ -174,7 +170,6 @@ public abstract class AbstractEqModTokenTestCase
 
 	@Test
 	public void testInvalidDoubleBarAssociation()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("EQMOD2|Assoc||Assoc2"));
 		assertNoSideEffects();
@@ -235,7 +230,7 @@ public abstract class AbstractEqModTokenTestCase
 	}
 
 	@Test
-	public void testOverwriteDamageWeightAdd() throws PersistenceLayerException
+	public void testOverwriteDamageWeightAdd()
 	{
 		parse("_DAMAGE|4d6");
 		validateUnparsed(primaryContext, primaryProf, "_DAMAGE|4d6");

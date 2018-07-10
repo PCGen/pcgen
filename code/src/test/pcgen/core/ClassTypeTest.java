@@ -30,10 +30,9 @@ public class ClassTypeTest extends TestCase
 	}
 
 	/**
-	 * test clone
-	 * @throws Exception
+	 * test clone.
 	 */
-	public void testClone() throws Exception
+	public void testClone()
 	{
 		final ClassType expected = new ClassType();
 		final ClassType actual = expected.clone();

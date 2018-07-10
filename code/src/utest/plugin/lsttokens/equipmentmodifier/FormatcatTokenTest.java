@@ -55,14 +55,14 @@ public class FormatcatTokenTest extends
 	}
 
 	@Test
-	public void testInvalidInputString() throws PersistenceLayerException
+	public void testInvalidInputString()
 	{
 		internalTestInvalidInputString(null);
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputStringSet() throws PersistenceLayerException
+	public void testInvalidInputStringSet()
 	{
 		assertTrue(parse("FRONT"));
 		assertTrue(parseSecondary("FRONT"));
@@ -72,7 +72,6 @@ public class FormatcatTokenTest extends
 	}
 
 	public void internalTestInvalidInputString(Object val)
-			throws PersistenceLayerException
 	{
 		assertEquals(val, primaryProf.get(ObjectKey.FORMAT));
 		assertFalse(parse("Always"));
@@ -90,7 +89,7 @@ public class FormatcatTokenTest extends
 	}
 
 	@Test
-	public void testValidInputs() throws PersistenceLayerException
+	public void testValidInputs()
 	{
 		assertTrue(parse("FRONT"));
 		assertEquals(EqModFormatCat.FRONT, primaryProf.get(ObjectKey.FORMAT));
@@ -137,7 +136,7 @@ public class FormatcatTokenTest extends
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.put(getObjectKey(), null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
@@ -149,7 +148,7 @@ public class FormatcatTokenTest extends
 	}
 
 	@Test
-	public void testUnparseLegal() throws PersistenceLayerException
+	public void testUnparseLegal()
 	{
 		primaryProf.put(getObjectKey(), EqModFormatCat.FRONT);
 		expectSingle(getToken().unparse(primaryContext, primaryProf), EqModFormatCat.FRONT.toString());
@@ -157,7 +156,7 @@ public class FormatcatTokenTest extends
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail() throws PersistenceLayerException
+	public void testUnparseGenericsFail()
 	{
 		ObjectKey objectKey = getObjectKey();
 		primaryProf.put(objectKey, new Object());

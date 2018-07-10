@@ -20,7 +20,6 @@ package tokenmodel;
 import pcgen.core.Domain;
 import pcgen.core.PCClass;
 import pcgen.core.analysis.DomainApplication;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.pcclass.DomainToken;
@@ -35,7 +34,7 @@ public class PCClassDomainTest extends AbstractTokenModelTest
 	private static DomainToken token = new DomainToken();
 
 	@Test
-	public void testSimple() throws PersistenceLayerException
+	public void testSimple()
 	{
 		PCClass source = create(PCClass.class, "Source");
 		Domain granted = create(Domain.class, "Granted");

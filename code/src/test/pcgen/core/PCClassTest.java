@@ -227,9 +227,10 @@ public class PCClassTest extends AbstractCharacterTestCase
 	/**
 	 * Test the interaction of prerequisites on PCClasses and bonuses and the
 	 * Bypass Class Prereqs flag.
-	 * @throws Exception
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testBypassClassPrereqs() throws Exception
+	public void testBypassClassPrereqs() throws PersistenceLayerException
 	{
 		LoadContext context = Globals.getContext();
 
@@ -311,9 +312,10 @@ public class PCClassTest extends AbstractCharacterTestCase
 	/**
 	 * Test the interaction of prerequisites on PCClasses and bonuses and the
 	 * Bypass Class Prereqs flag.
-	 * @throws Exception
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testBypassClassPrereqsDeprecated() throws Exception
+	public void testBypassClassPrereqsDeprecated() throws PersistenceLayerException
 	{
 		LoadContext context = Globals.getContext();
 
@@ -395,9 +397,8 @@ public class PCClassTest extends AbstractCharacterTestCase
 	/**
 	 * Test the interaction of prerequisites on PCClasses and bonuses and the
 	 * Qualifies functionality associated with a class.
-	 * @throws Exception
 	 */
-	public void testQualifies() throws Exception
+	public void testQualifies()
 	{
 		// Setup character without prereqs
 		final PlayerCharacter character = getCharacter();
@@ -431,9 +432,9 @@ public class PCClassTest extends AbstractCharacterTestCase
 	/**
 	 * Test the processing of getPCCText to ensure that it correctly produces
 	 * an LST representation of an object and that the LST can then be reloaded
-	 * to recrete the object.
+	 * to recreate the object.
 	 *
-	 * @throws PersistenceLayerException
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	public void testGetPCCText() throws PersistenceLayerException
 	{
@@ -494,7 +495,8 @@ public class PCClassTest extends AbstractCharacterTestCase
 
 	/**
 	 * Test the function of the getHighestLevelSpell method.
-	 * @throws PersistenceLayerException
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	public void testGetHighestLevelSpell() throws PersistenceLayerException
 	{

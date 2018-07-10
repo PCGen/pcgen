@@ -53,9 +53,10 @@ public class PCGVer2ParserCharacterTest extends AbstractCharacterTestCase
 	 * Check that a racial ADD:SPELLCASTER happens exactly once on character 
 	 * load. Duplication of the association has occurred a couple of times in 
 	 * the past.
-	 * @throws Exception
+	 *
+	 * @throws PCGParseException the PCG parse exception
 	 */
-	public void testRaceAddSpellcaster() throws Exception
+	public void testRaceAddSpellcaster() throws PCGParseException
 	{
 		LoadContext context = Globals.getContext();
 		Race rakshasha =

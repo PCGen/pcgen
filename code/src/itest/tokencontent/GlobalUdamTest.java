@@ -22,7 +22,6 @@ import java.util.Collections;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.analysis.UnarmedDamageFacet;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.UdamLst;
@@ -82,14 +81,14 @@ public class GlobalUdamTest extends AbstractContentTokenTest
 
 	@Override
 	@Test
-	public void testFromClass() throws PersistenceLayerException
+	public void testFromClass()
 	{
 		//Unarmed Damage in Class is "special" (different behavior)
 	}
 
 	@Override
 	@Test
-	public void testFromClassLevel() throws PersistenceLayerException
+	public void testFromClassLevel()
 	{
 		//Unarmed Damage in Class Level is "special" (different behavior)
 	}

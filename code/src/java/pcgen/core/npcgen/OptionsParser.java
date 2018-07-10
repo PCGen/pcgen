@@ -44,11 +44,10 @@ public class OptionsParser
 
 	/**
 	 * Creates a new OptionsParser for the specified game mode.
-	 * 
+	 *
 	 * @param aMode The game mode to parse options for.
-	 * 
-	 * @throws ParserConfigurationException
-	 * @throws SAXException
+	 * @throws ParserConfigurationException the parser configuration exception
+	 * @throws SAXException the SAX exception
 	 */
 	public OptionsParser(final GameMode aMode) throws ParserConfigurationException, SAXException
 	{
@@ -60,10 +59,12 @@ public class OptionsParser
 	}
 
 	/**
+	 * Parses the.
+	 *
 	 * @param aFileName File to parse.
 	 * @return a list of generator options
-	 * @throws SAXException
-	 * @throws IOException
+	 * @throws SAXException the SAX exception
+	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
 	public List<GeneratorOption> parse(final File aFileName) throws SAXException, IOException
 	{

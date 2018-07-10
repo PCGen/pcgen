@@ -23,6 +23,7 @@ import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.PCAttribute;
 import pcgen.core.PlayerCharacter;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
@@ -45,10 +46,11 @@ public class PreCityTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test the PRECITY code
-	 * @throws Exception
+	 * Test the PRECITY code.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testCity() throws Exception
+	public void testCity() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		character.setPCAttribute(PCAttribute.RESIDENCE, "Klamath");

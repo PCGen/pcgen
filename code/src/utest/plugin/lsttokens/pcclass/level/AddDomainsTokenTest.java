@@ -118,7 +118,7 @@ public class AddDomainsTokenTest extends
 	}
 
 	@Test
-	public void testInvalidEmptyPre() throws PersistenceLayerException
+	public void testInvalidEmptyPre()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("TestWP1[]"));
@@ -126,7 +126,7 @@ public class AddDomainsTokenTest extends
 	}
 
 	@Test
-	public void testInvalidEmptyPre2() throws PersistenceLayerException
+	public void testInvalidEmptyPre2()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("TestWP1["));
@@ -134,7 +134,7 @@ public class AddDomainsTokenTest extends
 	}
 
 	@Test
-	public void testInvalidEmptyPre3() throws PersistenceLayerException
+	public void testInvalidEmptyPre3()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("TestWP1]"));
@@ -142,7 +142,7 @@ public class AddDomainsTokenTest extends
 	}
 
 	@Test
-	public void testInvalidMismatchedBracket() throws PersistenceLayerException
+	public void testInvalidMismatchedBracket()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("TestWP1[PRERACE:Dwarf"));
@@ -151,7 +151,6 @@ public class AddDomainsTokenTest extends
 
 	@Test
 	public void testInvalidTrailingAfterBracket()
-			throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("TestWP1[PRERACE:Dwarf]Hi"));
@@ -193,7 +192,6 @@ public class AddDomainsTokenTest extends
 
 	@Test
 	public void testInvalidInputBadPrerequisite()
-			throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");

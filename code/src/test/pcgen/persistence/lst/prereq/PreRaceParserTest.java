@@ -38,10 +38,11 @@ public class PreRaceParserTest extends EnUsLocaleDependentTestCase
 
 	/**
 	 * Test that exclusions are parsed properly.
-	 * @throws Exception
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testExclusions() throws Exception
+	public void testExclusions() throws PersistenceLayerException
 	{
 		PreRaceParser parser = new PreRaceParser();
 
@@ -58,11 +59,10 @@ public class PreRaceParserTest extends EnUsLocaleDependentTestCase
 	}
 	
 	/**
-	 * Test that an error is produced if separators are incorrect
-	 * @throws Exception
+	 * Test that an error is produced if separators are incorrect.
 	 */
 	@Test
-	public void testInvalidSeparators() throws Exception
+	public void testInvalidSeparators()
 	{
 		try
 		{
@@ -78,10 +78,9 @@ public class PreRaceParserTest extends EnUsLocaleDependentTestCase
 	
 	/**
 	 * Test that an error is produced if separators are incorrect
-	 * @throws Exception
 	 */
 	@Test
-	public void testInvalidCharacter() throws Exception
+	public void testInvalidCharacter()
 	{
 		try
 		{

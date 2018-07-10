@@ -74,7 +74,7 @@ public class LangTokenTest extends AbstractAutoTokenTestCase<Language>
 
 	@SuppressWarnings({"unchecked", "rawtypes"})
 	@Test
-	public void testUnparseGenericsFail() throws PersistenceLayerException
+	public void testUnparseGenericsFail()
 	{
 		ListKey listKey = ListKey.AUTO_LANGUAGE;
 		primaryProf.addToListFor(listKey, new Object());

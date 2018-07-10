@@ -101,7 +101,7 @@ public class TotalCostTokenTest extends AbstractFormulaTokenTestCase<Kit>
 	}
 
 	@Test
-	public void testInvalidInputOnlyPre() throws PersistenceLayerException
+	public void testInvalidInputOnlyPre()
 	{
 		try
 		{
@@ -115,7 +115,7 @@ public class TotalCostTokenTest extends AbstractFormulaTokenTestCase<Kit>
 	}
 
 	@Test
-	public void testInvalidInputEmbeddedPre() throws PersistenceLayerException
+	public void testInvalidInputEmbeddedPre()
 	{
 		assertFalse(parse("TestWP1|PRECLASS:1,Fighter=1|TestWP2"));
 		assertNoSideEffects();
@@ -123,14 +123,13 @@ public class TotalCostTokenTest extends AbstractFormulaTokenTestCase<Kit>
 
 	@Test
 	public void testInvalidInputDoublePipePre()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("TestWP1||PRECLASS:1,Fighter=1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputPostPrePipe() throws PersistenceLayerException
+	public void testInvalidInputPostPrePipe()
 	{
 		assertFalse(parse("TestWP1|PRECLASS:1,Fighter=1|"));
 		assertNoSideEffects();

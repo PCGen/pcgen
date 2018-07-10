@@ -36,7 +36,6 @@ import pcgen.base.util.TripleKeyMapToList;
 import pcgen.base.util.WeightedCollection;
 import pcgen.cdom.base.GroupDefinition;
 import pcgen.cdom.base.Loadable;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenLibrary.SubTokenIterator;
 import pcgen.rules.persistence.TokenLibrary.TokenIterator;
@@ -93,7 +92,6 @@ public class TokenSupport
 	 * @return true if the parsing was successful; false otherwise
 	 */
 	public <T extends Loadable> boolean processToken(LoadContext context, T target, String tokenName, String tokenValue)
-		throws PersistenceLayerException
 	{
 		//Interface tokens override everything else... even if NOT VALID!
 		CDOMInterfaceToken<?, ?> interfaceToken = TokenLibrary.getInterfaceToken(tokenName);

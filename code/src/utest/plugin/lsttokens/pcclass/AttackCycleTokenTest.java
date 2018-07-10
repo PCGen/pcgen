@@ -54,63 +54,63 @@ public class AttackCycleTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidInputEmpty() throws PersistenceLayerException
+	public void testInvalidInputEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNoCycle() throws PersistenceLayerException
+	public void testInvalidInputNoCycle()
 	{
 		assertFalse(parse("BAB"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEmptyCycle() throws PersistenceLayerException
+	public void testInvalidInputEmptyCycle()
 	{
 		assertFalse(parse("BAB|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEmptyType() throws PersistenceLayerException
+	public void testInvalidInputEmptyType()
 	{
 		assertFalse(parse("|4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputOpenStart() throws PersistenceLayerException
+	public void testInvalidInputOpenStart()
 	{
 		assertFalse(parse("|BAB|3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputOpenEnd() throws PersistenceLayerException
+	public void testInvalidInputOpenEnd()
 	{
 		assertFalse(parse("BAB|4|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNaN() throws PersistenceLayerException
+	public void testInvalidInputNaN()
 	{
 		assertFalse(parse("BAB|x"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNegative() throws PersistenceLayerException
+	public void testInvalidInputNegative()
 	{
 		assertFalse(parse("BAB|-2"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputZero() throws PersistenceLayerException
+	public void testInvalidInputZero()
 	{
 		assertFalse(parse("BAB|0"));
 		assertNoSideEffects();
@@ -118,7 +118,6 @@ public class AttackCycleTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 
 	@Test
 	public void testInvalidInputDoublePipeTypeOne()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("BAB||5"));
 		assertNoSideEffects();
@@ -126,7 +125,6 @@ public class AttackCycleTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 
 	@Test
 	public void testInvalidInputDoublePipeTypeTwo()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("BAB|5||UAB|5"));
 		assertNoSideEffects();
@@ -134,21 +132,20 @@ public class AttackCycleTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 
 	@Test
 	public void testInvalidInputDoublePipeTypeThree()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("BAB|5|UAB||4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputGAB() throws PersistenceLayerException
+	public void testInvalidInputGAB()
 	{
 		assertFalse(parse("GAB|5"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputGABSecond() throws PersistenceLayerException
+	public void testInvalidInputGABSecond()
 	{
 		assertFalse(parse("BAB|4|GAB|5"));
 		assertNoSideEffects();
@@ -197,35 +194,35 @@ public class AttackCycleTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.addToMapFor(MapKey.ATTACK_CYCLE, AttackType.MELEE, null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testUnparseLegal() throws PersistenceLayerException
+	public void testUnparseLegal()
 	{
 		primaryProf.addToMapFor(MapKey.ATTACK_CYCLE, AttackType.MELEE, 1);
 		expectSingle(getToken().unparse(primaryContext, primaryProf), "BAB|1");
 	}
 
 	@Test
-	public void testUnparseNegative() throws PersistenceLayerException
+	public void testUnparseNegative()
 	{
 		primaryProf.addToMapFor(MapKey.ATTACK_CYCLE, AttackType.MELEE, -2);
 		assertBadUnparse();
 	}
 
 	@Test
-	public void testUnparseZero() throws PersistenceLayerException
+	public void testUnparseZero()
 	{
 		primaryProf.addToMapFor(MapKey.ATTACK_CYCLE, AttackType.MELEE, 0);
 		assertBadUnparse();
 	}
 
 	@Test
-	public void testUnparseMultiple() throws PersistenceLayerException
+	public void testUnparseMultiple()
 	{
 		primaryProf.addToMapFor(MapKey.ATTACK_CYCLE, AttackType.MELEE, 1);
 		primaryProf.addToMapFor(MapKey.ATTACK_CYCLE, AttackType.RANGED, 2);
@@ -233,7 +230,7 @@ public class AttackCycleTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseGrappleNoMelee() throws PersistenceLayerException
+	public void testUnparseGrappleNoMelee()
 	{
 		primaryProf.addToMapFor(MapKey.ATTACK_CYCLE, AttackType.GRAPPLE, 1);
 		assertBadUnparse();
@@ -241,7 +238,7 @@ public class AttackCycleTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFailValue() throws PersistenceLayerException
+	public void testUnparseGenericsFailValue()
 	{
 		MapKey mapKey = MapKey.ATTACK_CYCLE;
 		primaryProf.addToMapFor(mapKey, AttackType.MELEE, "STR");
@@ -258,7 +255,7 @@ public class AttackCycleTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFailKey() throws PersistenceLayerException
+	public void testUnparseGenericsFailKey()
 	{
 		MapKey mapKey = MapKey.ATTACK_CYCLE;
 		primaryProf.addToMapFor(mapKey, "STR", 1);

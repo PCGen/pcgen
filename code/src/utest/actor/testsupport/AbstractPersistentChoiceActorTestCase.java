@@ -20,15 +20,12 @@ package actor.testsupport;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
-import java.net.URISyntaxException;
-
 import org.junit.Before;
 import org.junit.Test;
 
 import pcgen.cdom.base.Persistent;
 import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
@@ -38,7 +35,7 @@ public abstract class AbstractPersistentChoiceActorTestCase<T>
 	protected LoadContext context;
 
 	@Before
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	public void setUp()
 	{
 		SettingsHandler.getGame().clearLoadContext();
 		context = Globals.getContext();

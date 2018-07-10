@@ -67,14 +67,14 @@ public class SubClassTokenTest extends AbstractKitTokenTestCase<KitClass>
 	}
 
 	@Test
-	public void testInvalidInputEmptyCount() throws PersistenceLayerException
+	public void testInvalidInputEmptyCount()
 	{
 		assertTrue(parse("Fireball"));
 		assertConstructionError();
 	}
 
 	@Test
-	public void testInvalidInputOnlyOne() throws PersistenceLayerException
+	public void testInvalidInputOnlyOne()
 	{
 		SubClassCategory cat = SubClassCategory.getConstant("Wizard");
 		constructCategorized(primaryContext, cat, "Fireball");

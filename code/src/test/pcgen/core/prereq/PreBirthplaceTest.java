@@ -23,6 +23,7 @@ import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.PCAttribute;
 import pcgen.core.PlayerCharacter;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
@@ -45,10 +46,11 @@ public class PreBirthplaceTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test the PREBIRTHPLACE code
-	 * @throws Exception
+	 * Test the PREBIRTHPLACE code.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testAtt() throws Exception
+	public void testAtt() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		character.setPCAttribute(PCAttribute.BIRTHPLACE, "Klamath");

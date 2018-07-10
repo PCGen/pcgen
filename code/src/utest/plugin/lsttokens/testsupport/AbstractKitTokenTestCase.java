@@ -57,7 +57,7 @@ public abstract class AbstractKitTokenTestCase<T extends Loadable> extends TestC
 	protected static CampaignSourceEntry testCampaign;
 
 	@BeforeClass
-	public static void classSetUp() throws URISyntaxException
+	public static void classSetUp()
 	{
 		testCampaign = new CampaignSourceEntry(new Campaign(), TestURI.getURI());
 		classSetUpFired = true;
@@ -221,7 +221,7 @@ public abstract class AbstractKitTokenTestCase<T extends Loadable> extends TestC
 	}
 	
 	@Test
-	public void testInvalidEmpty() throws PersistenceLayerException
+	public void testInvalidEmpty()
 	{
 		assertFalse(parse(""));
 	}

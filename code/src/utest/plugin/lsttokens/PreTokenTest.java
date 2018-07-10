@@ -22,7 +22,6 @@ import org.junit.Test;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.base.Constants;
 import pcgen.core.PCTemplate;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
@@ -54,21 +53,21 @@ public class PreTokenTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidEmpty() throws PersistenceLayerException
+	public void testInvalidEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidOther() throws PersistenceLayerException
+	public void testInvalidOther()
 	{
 		assertFalse(parse("SPELL"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testValidTypeBarOnly() throws PersistenceLayerException
+	public void testValidTypeBarOnly()
 	{
 		assertTrue(parse(Constants.LST_DOT_CLEAR));
 	}
@@ -95,7 +94,7 @@ public class PreTokenTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Override
-	public void testOverwrite() throws PersistenceLayerException
+	public void testOverwrite()
 	{
 		//Can't be done, nothing ever unparses
 	}

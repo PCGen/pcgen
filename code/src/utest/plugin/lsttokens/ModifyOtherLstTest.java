@@ -72,147 +72,147 @@ public class ModifyOtherLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidObject() throws PersistenceLayerException
+	public void testInvalidObject()
 	{
 		assertFalse(token.parseToken(primaryContext, new Campaign(),
 				"PC.SKILL|Foo|MyVar|ADD|3").passed());
 	}
 
 	@Test
-	public void testInvalidInputEmpty() throws PersistenceLayerException
+	public void testInvalidInputEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputOneItem() throws PersistenceLayerException
+	public void testInvalidInputOneItem()
 	{
 		assertFalse(parse("PC.SKILL"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputTwoItems() throws PersistenceLayerException
+	public void testInvalidInputTwoItems()
 	{
 		assertFalse(parse("PC.SKILL|Foo"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputThreeItems() throws PersistenceLayerException
+	public void testInvalidInputThreeItems()
 	{
 		assertFalse(parse("PC.SKILL|Foo|MyVar"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputFourItems() throws PersistenceLayerException
+	public void testInvalidInputFourItems()
 	{
 		assertFalse(parse("PC.SKILL|Foo|MyVar|ADD"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputDoublePipe() throws PersistenceLayerException
+	public void testInvalidInputDoublePipe()
 	{
 		assertFalse(parse("PC.SKILL|Foo|MyVar||ADD|3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNoValue() throws PersistenceLayerException
+	public void testInvalidInputNoValue()
 	{
 		assertFalse(parse("PC.SKILL|Foo|MyVar|ADD|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNoVar() throws PersistenceLayerException
+	public void testInvalidInputNoVar()
 	{
 		assertFalse(parse("PC.SKILL|Foo|ADD|3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNoModifier() throws PersistenceLayerException
+	public void testInvalidInputNoModifier()
 	{
 		assertFalse(parse("PC.SKILL|Foo|MyVar||3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputInvalidVarName() throws PersistenceLayerException
+	public void testInvalidInputInvalidVarName()
 	{
 		assertFalse(parse("PC.SKILL|Foo|IllegalVar|ADD|3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputInvalidMod() throws PersistenceLayerException
+	public void testInvalidInputInvalidMod()
 	{
 		assertFalse(parse("PC.SKILL|Foo|MyVar|TRUFFLE|3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputInvalidScope() throws PersistenceLayerException
+	public void testInvalidInputInvalidScope()
 	{
 		assertFalse(parse("NOTASCOPE|Foo|MyVar|ADD|3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputInvalidNoPriority() throws PersistenceLayerException
+	public void testInvalidInputInvalidNoPriority()
 	{
 		assertFalse(parse("PC.SKILL|Foo|MyVar|ADD|3|PRIORITY="));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputInvalidNegativePriority() throws PersistenceLayerException
+	public void testInvalidInputInvalidNegativePriority()
 	{
 		assertFalse(parse("PC.SKILL|Foo|MyVar|ADD|3|PRIORITY=-1000"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputInvalidNonNumberPriority() throws PersistenceLayerException
+	public void testInvalidInputInvalidNonNumberPriority()
 	{
 		assertFalse(parse("PC.SKILL|Foo|MyVar|ADD|3|PRIORITY=String"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputInvalidTooManyArgs() throws PersistenceLayerException
+	public void testInvalidInputInvalidTooManyArgs()
 	{
 		assertFalse(parse("PC.SKILL|Foo|MyVar|ADD|3|PRIORITY=3|Yes"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputInvalidIllegalSourceVar() throws PersistenceLayerException
+	public void testInvalidInputInvalidIllegalSourceVar()
 	{
 		assertFalse(parse("PC.SKILL|Foo|MyVar|ADD|IllegalVar"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputInvalidNotPriority1() throws PersistenceLayerException
+	public void testInvalidInputInvalidNotPriority1()
 	{
 		assertFalse(parse("PC.SKILL|Foo|MyVar|ADD|3|OTHER=3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputInvalidNotPriority2() throws PersistenceLayerException
+	public void testInvalidInputInvalidNotPriority2()
 	{
 		assertFalse(parse("PC.SKILL|Foo|MyVar|ADD|3|OTHERSTRING=3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputBadVar() throws PersistenceLayerException
+	public void testInvalidInputBadVar()
 	{
 		assertFalse(parse("PC.SKILL|Foo|4|ADD|3"));
 		assertNoSideEffects();

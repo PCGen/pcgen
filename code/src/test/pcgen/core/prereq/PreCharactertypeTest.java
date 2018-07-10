@@ -22,6 +22,7 @@ import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.PlayerCharacter;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
@@ -45,10 +46,11 @@ public class PreCharactertypeTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test to make sure it is not looking at deity domains
-	 * @throws Exception
+	 * Test to make sure it is not looking at deity domains.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testCharactertype() throws Exception
+	public void testCharactertype() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		character.setCharacterType("PC");

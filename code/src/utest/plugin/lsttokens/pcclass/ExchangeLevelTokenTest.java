@@ -60,14 +60,14 @@ public class ExchangeLevelTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidInputEmpty() throws PersistenceLayerException
+	public void testInvalidInputEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNoLevels() throws PersistenceLayerException
+	public void testInvalidInputNoLevels()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getTargetClass(), "Paladin");
 		assertFalse(parse("Paladin"));
@@ -75,7 +75,7 @@ public class ExchangeLevelTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidInputEmptyMin() throws PersistenceLayerException
+	public void testInvalidInputEmptyMin()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getTargetClass(), "Paladin");
 		assertFalse(parse("Paladin||5|3"));
@@ -83,7 +83,7 @@ public class ExchangeLevelTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidInputEmptyMax() throws PersistenceLayerException
+	public void testInvalidInputEmptyMax()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getTargetClass(), "Paladin");
 		assertFalse(parse("Paladin|5||3"));
@@ -91,7 +91,7 @@ public class ExchangeLevelTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidInputEmptyRem() throws PersistenceLayerException
+	public void testInvalidInputEmptyRem()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getTargetClass(), "Paladin");
 		assertFalse(parse("Paladin|6|5|"));
@@ -100,7 +100,6 @@ public class ExchangeLevelTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 
 	@Test
 	public void testInvalidInputNotEnoughPipes()
-			throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getTargetClass(), "Paladin");
 		assertFalse(parse("Paladin|6|5"));
@@ -108,7 +107,7 @@ public class ExchangeLevelTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidInputTooManyPipes() throws PersistenceLayerException
+	public void testInvalidInputTooManyPipes()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getTargetClass(), "Paladin");
 		assertFalse(parse("Paladin|6|5|4|3"));
@@ -116,14 +115,14 @@ public class ExchangeLevelTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidInputEmptyClass() throws PersistenceLayerException
+	public void testInvalidInputEmptyClass()
 	{
 		assertFalse(parse("|4|3|2"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputOpenStart() throws PersistenceLayerException
+	public void testInvalidInputOpenStart()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getTargetClass(), "Paladin");
 		assertFalse(parse("|Paladin|6|5|4"));
@@ -131,7 +130,7 @@ public class ExchangeLevelTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidInputOpenEnd() throws PersistenceLayerException
+	public void testInvalidInputOpenEnd()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getTargetClass(), "Paladin");
 		assertFalse(parse("Paladin|6|5|4|"));
@@ -140,7 +139,6 @@ public class ExchangeLevelTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 
 	@Test
 	public void testInvalidInputDoublePipeTypeOne()
-			throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getTargetClass(), "Paladin");
 		assertFalse(parse("Paladin||6|5|4"));
@@ -149,7 +147,6 @@ public class ExchangeLevelTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 
 	@Test
 	public void testInvalidInputDoublePipeTypeTwo()
-			throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getTargetClass(), "Paladin");
 		assertFalse(parse("Paladin|6||5|4"));
@@ -158,28 +155,27 @@ public class ExchangeLevelTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 
 	@Test
 	public void testInvalidInputDoublePipeTypeThree()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("Paladin|6|5||4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputRemTooLow() throws PersistenceLayerException
+	public void testInvalidInputRemTooLow()
 	{
 		assertFalse(parse("Paladin|5|2|1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNegativeMax() throws PersistenceLayerException
+	public void testInvalidInputNegativeMax()
 	{
 		assertFalse(parse("Paladin|-5|2|1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputZeroMax() throws PersistenceLayerException
+	public void testInvalidInputZeroMax()
 	{
 		assertFalse(parse("Paladin|0|2|1"));
 		assertNoSideEffects();
@@ -187,14 +183,13 @@ public class ExchangeLevelTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 
 	@Test
 	public void testInvalidInputNegativeDonate()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("Paladin|5|-2|1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputZeroDonate() throws PersistenceLayerException
+	public void testInvalidInputZeroDonate()
 	{
 		assertFalse(parse("Paladin|5|0|1"));
 		assertNoSideEffects();
@@ -202,28 +197,27 @@ public class ExchangeLevelTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 
 	@Test
 	public void testInvalidInputNegativeRemaining()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("Paladin|4|5|-1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputRemainingNaN() throws PersistenceLayerException
+	public void testInvalidInputRemainingNaN()
 	{
 		assertFalse(parse("Paladin|11|10|x"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputDonateNaN() throws PersistenceLayerException
+	public void testInvalidInputDonateNaN()
 	{
 		assertFalse(parse("Paladin|11|x|1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputMaxNaN() throws PersistenceLayerException
+	public void testInvalidInputMaxNaN()
 	{
 		assertFalse(parse("Paladin|x|10|1"));
 		assertNoSideEffects();
@@ -272,7 +266,7 @@ public class ExchangeLevelTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseOne() throws PersistenceLayerException
+	public void testUnparseOne()
 	{
 		PCClass fighter = primaryContext.getReferenceContext().constructCDOMObject(PCClass.class,
 				"Fighter");
@@ -284,7 +278,7 @@ public class ExchangeLevelTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.put(ObjectKey.EXCHANGE_LEVEL, null);
 		try
@@ -298,7 +292,7 @@ public class ExchangeLevelTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseNegativeMinLevel() throws PersistenceLayerException
+	public void testUnparseNegativeMinLevel()
 	{
 		try
 		{
@@ -316,7 +310,7 @@ public class ExchangeLevelTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseNegativeMaxLevel() throws PersistenceLayerException
+	public void testUnparseNegativeMaxLevel()
 	{
 		try
 		{
@@ -335,7 +329,6 @@ public class ExchangeLevelTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 
 	@Test
 	public void testUnparseBadRemainMathLevel()
-			throws PersistenceLayerException
 	{
 		try
 		{
@@ -353,7 +346,7 @@ public class ExchangeLevelTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseNegRemainingLevel() throws PersistenceLayerException
+	public void testUnparseNegRemainingLevel()
 	{
 		try
 		{
@@ -371,7 +364,7 @@ public class ExchangeLevelTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseNullClass() throws PersistenceLayerException
+	public void testUnparseNullClass()
 	{
 		try
 		{

@@ -96,7 +96,7 @@ public class SpellCasterTokenTest extends
 	}
 
 	@Test
-	public void testInvalidInputAnySpellType() throws PersistenceLayerException
+	public void testInvalidInputAnySpellType()
 	{
 		if (isAllLegal())
 		{
@@ -107,7 +107,7 @@ public class SpellCasterTokenTest extends
 	}
 
 	@Test
-	public void testInvalidInputSpellTypeAny() throws PersistenceLayerException
+	public void testInvalidInputSpellTypeAny()
 	{
 		if (isAllLegal())
 		{

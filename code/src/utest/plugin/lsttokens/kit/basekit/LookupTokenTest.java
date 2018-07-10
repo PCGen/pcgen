@@ -52,19 +52,19 @@ public class LookupTokenTest extends AbstractKitTokenTestCase<BaseKit>
 	}
 
 	@Test
-	public void testInvalidInputTrailing() throws PersistenceLayerException
+	public void testInvalidInputTrailing()
 	{
 		assertFalse(parse("Formula,"));
 	}
 
 	@Test
-	public void testInvalidInputStarting() throws PersistenceLayerException
+	public void testInvalidInputStarting()
 	{
 		assertFalse(parse(",45"));
 	}
 
 	@Test
-	public void testInvalidInputDouble() throws PersistenceLayerException
+	public void testInvalidInputDouble()
 	{
 		assertFalse(parse("Start,,45"));
 	}

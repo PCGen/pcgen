@@ -55,10 +55,13 @@ public class PreVarTest extends AbstractCharacterTestCase
 		return new TestSuite(PreVarTest.class);
 	}
 
+	
 	/**
-	 * @throws Exception
+	 * Test var pass.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testVarPass() throws Exception
+	public void testVarPass() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 

@@ -70,91 +70,91 @@ public class LevelsPerFeatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidEmpty() throws PersistenceLayerException
+	public void testInvalidEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidFormula() throws PersistenceLayerException
+	public void testInvalidFormula()
 	{
 		assertFalse(parse("1+3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNonLevelType() throws PersistenceLayerException
+	public void testInvalidNonLevelType()
 	{
 		assertFalse(parse("4|Foo=bar"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidMissingLevelType1() throws PersistenceLayerException
+	public void testInvalidMissingLevelType1()
 	{
 		assertFalse(parse("4|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidMissingLevelType() throws PersistenceLayerException
+	public void testInvalidMissingLevelType()
 	{
 		assertFalse(parse("4|Foo"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidMissingLevelType2() throws PersistenceLayerException
+	public void testInvalidMissingLevelType2()
 	{
 		assertFalse(parse("4|LEVELTYPE"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidMissingLevelType3() throws PersistenceLayerException
+	public void testInvalidMissingLevelType3()
 	{
 		assertFalse(parse("4|LEVELTYPE="));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidMissingFormula() throws PersistenceLayerException
+	public void testInvalidMissingFormula()
 	{
 		assertFalse(parse("|LEVELTYPE=Foo"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidTooManyPipes() throws PersistenceLayerException
+	public void testInvalidTooManyPipes()
 	{
 		assertFalse(parse("4|LEVELTYPE=Foo|LEVELTYPE=Bar"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidTooManyMiddlePipes() throws PersistenceLayerException
+	public void testInvalidTooManyMiddlePipes()
 	{
 		assertFalse(parse("4||LEVELTYPE=Foo"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidMissingLevelType4() throws PersistenceLayerException
+	public void testInvalidMissingLevelType4()
 	{
 		assertFalse(parse("4|=Foo"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidString() throws PersistenceLayerException
+	public void testInvalidString()
 	{
 		assertFalse(parse("String"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNegative() throws PersistenceLayerException
+	public void testInvalidNegative()
 	{
 		assertFalse(parse("-1"));
 		assertNoSideEffects();
@@ -197,19 +197,19 @@ public class LevelsPerFeatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseOne() throws PersistenceLayerException
+	public void testUnparseOne()
 	{
 		expectSingle(setAndUnparse(1), Integer.toString(1));
 	}
 
 	@Test
-	public void testUnparseZero() throws PersistenceLayerException
+	public void testUnparseZero()
 	{
 		expectSingle(setAndUnparse(0), Integer.toString(0));
 	}
 
 	@Test
-	public void testUnparseNegative() throws PersistenceLayerException
+	public void testUnparseNegative()
 	{
 		primaryProf.put(getIntegerKey(), -3);
 		assertBadUnparse();
@@ -221,7 +221,7 @@ public class LevelsPerFeatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.put(getIntegerKey(), null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
@@ -234,7 +234,7 @@ public class LevelsPerFeatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 	
 	@Test
-	public void testUnparseOneTyped() throws PersistenceLayerException
+	public void testUnparseOneTyped()
 	{
 		primaryProf.put(getIntegerKey(), 1);
 		primaryProf.put(StringKey.LEVEL_TYPE, "Foo");
@@ -242,7 +242,7 @@ public class LevelsPerFeatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseInvalidOnlyType() throws PersistenceLayerException
+	public void testUnparseInvalidOnlyType()
 	{
 		primaryProf.put(StringKey.LEVEL_TYPE, "Foo");
 		assertBadUnparse();

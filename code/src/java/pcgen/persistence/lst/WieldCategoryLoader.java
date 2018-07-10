@@ -57,11 +57,12 @@ public class WieldCategoryLoader
 	}
 
 	/**
-	 * Parse the WIELDCATEGORY line
-	 * 
-	 * @param gameMode
-	 * @param lstLine
-	 * @throws PersistenceLayerException
+	 * Parse the WIELDCATEGORY line.
+	 *
+	 * @param gameMode the game mode
+	 * @param lstLine the lst line
+	 * @param source the source
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	public void parseLine(GameMode gameMode, String lstLine, URI source) throws PersistenceLayerException
 	{

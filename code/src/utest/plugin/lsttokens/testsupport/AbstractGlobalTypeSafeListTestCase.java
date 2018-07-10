@@ -37,7 +37,7 @@ public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 	public abstract ListKey<T> getListKey();
 
 	@Test
-	public void testValidInputSimple() throws PersistenceLayerException
+	public void testValidInputSimple()
 	{
 		List<?> coll;
 		assertTrue(parse("Rheinhessen"));
@@ -47,7 +47,7 @@ public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 	}
 
 	@Test
-	public void testValidInputNonEnglish() throws PersistenceLayerException
+	public void testValidInputNonEnglish()
 	{
 		List<?> coll;
 		assertTrue(parse("Niederösterreich"));
@@ -57,7 +57,7 @@ public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 	}
 
 	@Test
-	public void testValidInputSpace() throws PersistenceLayerException
+	public void testValidInputSpace()
 	{
 		List<?> coll;
 		assertTrue(parse("Finger Lakes"));
@@ -67,7 +67,7 @@ public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 	}
 
 	@Test
-	public void testValidInputHyphen() throws PersistenceLayerException
+	public void testValidInputHyphen()
 	{
 		List<?> coll;
 		assertTrue(parse("Languedoc-Roussillon"));
@@ -77,7 +77,7 @@ public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 	}
 
 	@Test
-	public void testValidInputY() throws PersistenceLayerException
+	public void testValidInputY()
 	{
 		List<?> coll;
 		assertTrue(parse("Yarra Valley"));
@@ -87,7 +87,7 @@ public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 	}
 
 	@Test
-	public void testValidInputList() throws PersistenceLayerException
+	public void testValidInputList()
 	{
 		List<?> coll;
 		assertTrue(parse("Niederösterreich" + getJoinCharacter()
@@ -99,7 +99,7 @@ public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 	}
 
 	@Test
-	public void testValidInputMultList() throws PersistenceLayerException
+	public void testValidInputMultList()
 	{
 		List<?> coll;
 		assertTrue(parse("Niederösterreich" + getJoinCharacter()
@@ -124,7 +124,7 @@ public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 	// }
 
 	@Test
-	public void testInvalidEmpty() throws PersistenceLayerException
+	public void testInvalidEmpty()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "TestWP1");
 		assertFalse(parse(""));
@@ -132,7 +132,7 @@ public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 	}
 
 	@Test
-	public void testInvalidListEnd() throws PersistenceLayerException
+	public void testInvalidListEnd()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "TestWP1");
 		assertFalse(parse("TestWP1" + getJoinCharacter()));
@@ -140,7 +140,7 @@ public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 	}
 
 	@Test
-	public void testInvalidListStart() throws PersistenceLayerException
+	public void testInvalidListStart()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "TestWP1");
 		assertFalse(parse(getJoinCharacter() + "TestWP1"));
@@ -148,7 +148,7 @@ public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 	}
 
 	@Test
-	public void testInvalidListDoubleJoin() throws PersistenceLayerException
+	public void testInvalidListDoubleJoin()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "TestWP1");
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "TestWP2");
@@ -205,7 +205,7 @@ public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 	public abstract boolean isClearDotLegal();
 
 	@Test
-	public void testReplacementInputs() throws PersistenceLayerException
+	public void testReplacementInputs()
 	{
 		String[] unparsed;
 		if (isClearLegal())
@@ -234,7 +234,7 @@ public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 	}
 
 	@Test
-	public void testReplacementInputsTwo() throws PersistenceLayerException
+	public void testReplacementInputsTwo()
 	{
 		String[] unparsed;
 		assertTrue(parse("TestWP1"));
@@ -251,7 +251,7 @@ public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 	}
 
 	@Test
-	public void testInputInvalidClear() throws PersistenceLayerException
+	public void testInputInvalidClear()
 	{
 		if (isClearLegal())
 		{
@@ -261,7 +261,7 @@ public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 	}
 
 	@Test
-	public void testInputInvalidClearDot() throws PersistenceLayerException
+	public void testInputInvalidClearDot()
 	{
 		if (isClearDotLegal() && requiresPreconstruction())
 		{
@@ -275,7 +275,6 @@ public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 
 	@Test
 	public void testInputInvalidAddsAfterClearDotNoSideEffect()
-			throws PersistenceLayerException
 	{
 		if (isClearDotLegal())
 		{
@@ -290,7 +289,6 @@ public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 
 	@Test
 	public void testInputInvalidAddsBasicNoSideEffect()
-			throws PersistenceLayerException
 	{
 		assertTrue(parse("TestWP1" + getJoinCharacter() + "TestWP2"));
 		assertTrue(parseSecondary("TestWP1" + getJoinCharacter() + "TestWP2"));
@@ -301,7 +299,6 @@ public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 
 	@Test
 	public void testInputInvalidAddsAfterClearNoSideEffect()
-			throws PersistenceLayerException
 	{
 		if (isClearLegal() && isAllLegal())
 		{
@@ -351,14 +348,14 @@ public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.removeListFor(getListKey());
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testUnparseSingle() throws PersistenceLayerException
+	public void testUnparseSingle()
 	{
 		primaryProf.addToListFor(getListKey(),
 				getConstant(getLegalValue()));
@@ -367,7 +364,7 @@ public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 	}
 
 	@Test
-	public void testUnparseNullInList() throws PersistenceLayerException
+	public void testUnparseNullInList()
 	{
 		primaryProf.addToListFor(getListKey(), null);
 		try
@@ -382,7 +379,7 @@ public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 	}
 
 	@Test
-	public void testUnparseMultiple() throws PersistenceLayerException
+	public void testUnparseMultiple()
 	{
 		primaryProf.addToListFor(getListKey(),
 				getConstant(getLegalValue()));

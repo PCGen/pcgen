@@ -76,14 +76,14 @@ public class ProhibitedTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidInputEmpty() throws PersistenceLayerException
+	public void testInvalidInputEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputLeadingComma() throws PersistenceLayerException
+	public void testInvalidInputLeadingComma()
 	{
 		assertFalse(parse(",Good"));
 		assertNoSideEffects();
@@ -91,7 +91,6 @@ public class ProhibitedTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 
 	@Test
 	public void testInvalidInputTrailingComma()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("Fireball,"));
 		assertNoSideEffects();
@@ -99,7 +98,6 @@ public class ProhibitedTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 
 	@Test
 	public void testInvalidInputDoubleCommaSeparator()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("Fireball,,Lightning Bolt"));
 		assertNoSideEffects();

@@ -235,10 +235,10 @@ public class RuleSet extends ArrayList<String> implements DataElement
 	}
 
 	/**
-	 * Get the range
-	 * 
+	 * Get the range.
+	 *
 	 * @return range
-	 * @throws Exception
+	 * @throws Exception When no entry exists for the supplied key.
 	 */
 	public int getRange() throws Exception
 	{
@@ -259,10 +259,10 @@ public class RuleSet extends ArrayList<String> implements DataElement
 	}
 
 	/**
-	 * Get the rule
+	 * Get the rule.
 	 * 
 	 * @return rule
-	 * @throws Exception
+	 * @throws Exception When no entry exists for the supplied key.
 	 */
 	public Rule getRule() throws Exception
 	{

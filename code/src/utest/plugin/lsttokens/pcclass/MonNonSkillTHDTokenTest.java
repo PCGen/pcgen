@@ -78,7 +78,7 @@ public class MonNonSkillTHDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidInputEmpty() throws PersistenceLayerException
+	public void testInvalidInputEmpty()
 	{
 		try
 		{
@@ -92,7 +92,7 @@ public class MonNonSkillTHDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testOnlyPre() throws PersistenceLayerException
+	public void testOnlyPre()
 	{
 		assertFalse(parse("PRERACE:1,Human"));
 		assertNoSideEffects();
@@ -172,7 +172,7 @@ public class MonNonSkillTHDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseOne() throws PersistenceLayerException
+	public void testUnparseOne()
 	{
 		expectSingle(setAndUnparse(1), Integer.toString(1));
 	}
@@ -207,7 +207,7 @@ public class MonNonSkillTHDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	// }
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.addToListFor(ListKey.BONUS, null);
 		try
@@ -220,7 +220,7 @@ public class MonNonSkillTHDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 		}
 	}
 
-	protected String[] setAndUnparse(int val) throws PersistenceLayerException
+	protected String[] setAndUnparse(int val)
 	{
 		primaryProf.addToListFor(ListKey.BONUS, getBonus(val));
 		return getToken().unparse(primaryContext, primaryProf);

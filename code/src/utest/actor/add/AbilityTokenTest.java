@@ -93,19 +93,12 @@ public class AbilityTokenTest extends AbstractCharacterUsingTestCase
 	@Test
 	public void testWithChoose()
 	{
-		try
-		{
-			setUpPC();
-			//Need to make sure we use the character related context
-			context = Globals.getContext();
-			context.getReferenceContext().importObject(BuildUtilities.getFeatCat());
-			TokenRegistration.register(ADD_TOKEN);
-			TokenRegistration.register(ADD_ABILITY_TOKEN);
-		}
-		catch (PersistenceLayerException e1)
-		{
-			fail("Cannot set up PC");
-		}
+		setUpPC();
+		//Need to make sure we use the character related context
+		context = Globals.getContext();
+		context.getReferenceContext().importObject(BuildUtilities.getFeatCat());
+		TokenRegistration.register(ADD_TOKEN);
+		TokenRegistration.register(ADD_ABILITY_TOKEN);
 		Ability item = construct("ChooseAbility");
 		Ability parent = construct("Parent");
 		context.getReferenceContext().constructCDOMObject(Language.class, "Foo");

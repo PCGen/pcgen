@@ -63,7 +63,7 @@ public class RankTokenTest extends AbstractKitTokenTestCase<KitSkill>
 	}
 
 	@Test
-	public void testInvalidInputFormula() throws PersistenceLayerException
+	public void testInvalidInputFormula()
 	{
 		assertFalse(parse("FormulaProhibited"));
 	}
@@ -75,7 +75,7 @@ public class RankTokenTest extends AbstractKitTokenTestCase<KitSkill>
 //	}
 
 	@Test
-	public void testInvalidInputNegative() throws PersistenceLayerException
+	public void testInvalidInputNegative()
 	{
 		assertFalse(parse("-1"));
 	}

@@ -62,10 +62,9 @@ public class BonusTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test the skill pre reqs
-	 * @throws Exception
+	 * Test the skill pre reqs.
 	 */
-	public void testSkillPrereq() throws Exception
+	public void testSkillPrereq()
 	{
 		LoadContext context = Globals.getContext();
 

@@ -24,7 +24,6 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.PCTemplate;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractGlobalTypeSafeListTestCase;
@@ -85,7 +84,7 @@ public class TypeLstTest extends AbstractGlobalTypeSafeListTestCase
 	}
 
 	@Test
-	public void testReplacementRemove() throws PersistenceLayerException
+	public void testReplacementRemove()
 	{
 		String[] unparsed;
 		assertTrue(parse("REMOVE.TestWP1"));
@@ -106,7 +105,7 @@ public class TypeLstTest extends AbstractGlobalTypeSafeListTestCase
 	}
 
 	@Test
-	public void testReplacementRemoveTwo() throws PersistenceLayerException
+	public void testReplacementRemoveTwo()
 	{
 		String[] unparsed;
 		assertTrue(parse("TestWP1"));
@@ -121,7 +120,6 @@ public class TypeLstTest extends AbstractGlobalTypeSafeListTestCase
 
 	@Test
 	public void testInputInvalidRemoveNoTrailing()
-		throws PersistenceLayerException
 	{
 		assertFalse(parse("TestWP1.REMOVE"));
 		assertNoSideEffects();
@@ -129,42 +127,41 @@ public class TypeLstTest extends AbstractGlobalTypeSafeListTestCase
 
 	@Test
 	public void testInputInvalidAddNoTrailing()
-		throws PersistenceLayerException
 	{
 		assertFalse(parse("TestWP1.ADD"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInputInvalidAddRemove() throws PersistenceLayerException
+	public void testInputInvalidAddRemove()
 	{
 		assertFalse(parse("TestWP1.ADD.REMOVE.TestWP2"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInputInvalidRemoveAdd() throws PersistenceLayerException
+	public void testInputInvalidRemoveAdd()
 	{
 		assertFalse(parse("TestWP1.REMOVE.ADD.TestWP2"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInputInvalidEmbeddedClear() throws PersistenceLayerException
+	public void testInputInvalidEmbeddedClear()
 	{
 		assertFalse(parse("TestWP1.CLEAR.TestWP2"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInputInvalidDotClearDot() throws PersistenceLayerException
+	public void testInputInvalidDotClearDot()
 	{
 		assertFalse(parse(".CLEAR."));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInputInvalidDotClearStuff() throws PersistenceLayerException
+	public void testInputInvalidDotClearStuff()
 	{
 		assertFalse(parse(".CLEARSTUFF"));
 		assertNoSideEffects();

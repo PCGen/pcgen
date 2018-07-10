@@ -55,8 +55,10 @@ public final class PreParserFactory implements PluginLoader
 	}
 
 	/**
+	 * Gets the single instance of PreParserFactory.
+	 *
 	 * @return Returns the instance.
-	 * @throws PersistenceLayerException
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	public static PreParserFactory getInstance() throws PersistenceLayerException
 	{

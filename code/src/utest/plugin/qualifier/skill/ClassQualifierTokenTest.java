@@ -102,7 +102,7 @@ public class ClassQualifierTokenTest extends
 	}
 
 	@Test
-	public void testGetSet() throws PersistenceLayerException
+	public void testGetSet()
 	{
 		setUpPC();
 		initializeObjects();
@@ -129,7 +129,7 @@ public class ClassQualifierTokenTest extends
 	}
 
 	@Test
-	public void testGetSetFiltered() throws PersistenceLayerException
+	public void testGetSetFiltered()
 	{
 		setUpPC();
 		initializeObjects();
@@ -151,7 +151,7 @@ public class ClassQualifierTokenTest extends
 	}
 
 	@Test
-	public void testGetSetNegated() throws PersistenceLayerException
+	public void testGetSetNegated()
 	{
 		setUpPC();
 		initializeObjects();

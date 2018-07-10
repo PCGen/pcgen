@@ -76,7 +76,7 @@ public class BonusSpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidNotAStat() throws PersistenceLayerException
+	public void testInvalidNotAStat()
 	{
 		if (parse("NAN"))
 		{
@@ -89,7 +89,7 @@ public class BonusSpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidMultipleStatComma() throws PersistenceLayerException
+	public void testInvalidMultipleStatComma()
 	{
 		if (parse("STR,INT"))
 		{
@@ -102,7 +102,7 @@ public class BonusSpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidMultipleStatBar() throws PersistenceLayerException
+	public void testInvalidMultipleStatBar()
 	{
 		if (parse("STR|INT"))
 		{
@@ -115,7 +115,7 @@ public class BonusSpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidMultipleStatDot() throws PersistenceLayerException
+	public void testInvalidMultipleStatDot()
 	{
 		if (parse("STR.INT"))
 		{
@@ -158,7 +158,7 @@ public class BonusSpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testOverwriteNoneStr() throws PersistenceLayerException
+	public void testOverwriteNoneStr()
 	{
 		parse("NONE");
 		validateUnparsed(primaryContext, primaryProf, "NONE");
@@ -168,7 +168,7 @@ public class BonusSpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testOverwriteStrNone() throws PersistenceLayerException
+	public void testOverwriteStrNone()
 	{
 		parse("STR");
 		validateUnparsed(primaryContext, primaryProf, "STR");
@@ -178,7 +178,7 @@ public class BonusSpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.put(getObjectKey(), null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
@@ -190,7 +190,7 @@ public class BonusSpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseLegal() throws PersistenceLayerException
+	public void testUnparseLegal()
 	{
 		primaryProf.put(getObjectKey(), CDOMDirectSingleRef.getRef(ps));
 		primaryProf.put(ObjectKey.HAS_BONUS_SPELL_STAT, true);
@@ -199,7 +199,7 @@ public class BonusSpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFailStat() throws PersistenceLayerException
+	public void testUnparseGenericsFailStat()
 	{
 		ObjectKey objectKey = getObjectKey();
 		primaryProf.put(objectKey, new Object());
@@ -216,7 +216,7 @@ public class BonusSpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFailHas() throws PersistenceLayerException
+	public void testUnparseGenericsFailHas()
 	{
 		ObjectKey objectKey = ObjectKey.HAS_BONUS_SPELL_STAT;
 		primaryProf.put(objectKey, new Object());
@@ -232,7 +232,7 @@ public class BonusSpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseNone() throws PersistenceLayerException
+	public void testUnparseNone()
 	{
 		primaryProf.put(ObjectKey.HAS_BONUS_SPELL_STAT, false);
 		expectSingle(getToken().unparse(primaryContext, primaryProf), "NONE");
@@ -251,7 +251,7 @@ public class BonusSpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	// }
 
 	@Test
-	public void testUnparseIllegal() throws PersistenceLayerException
+	public void testUnparseIllegal()
 	{
 		primaryProf.put(ObjectKey.HAS_BONUS_SPELL_STAT, true);
 		assertBadUnparse();

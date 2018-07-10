@@ -97,7 +97,7 @@ public class AbstractPrerequisiteWriter
 	 * @param writer
 	 * @param prereq
 	 * @return false if not over ridden
-	 * @throws IOException
+	 * @throws IOException  if IO errors occur
 	 */
 	public boolean specialCase(Writer writer, Prerequisite prereq) throws IOException
 	{

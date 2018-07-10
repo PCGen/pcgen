@@ -51,10 +51,9 @@ public class PreClassTest extends EnUsLocaleDependentTestCase
 	
 	/**
 	 * Test that an error is produced if separators are incorrect
-	 * @throws Exception
 	 */
 	@Test
-	public void testInvalidSeparators() throws Exception
+	public void testInvalidSeparators()
 	{
 		try
 		{
@@ -69,11 +68,10 @@ public class PreClassTest extends EnUsLocaleDependentTestCase
 	}
 	
 	/**
-	 * Test that an error is produced if separators are incorrect
-	 * @throws Exception
+	 * Test that an error is produced if separators are incorrect.
 	 */
 	@Test
-	public void testInvalidCharacter() throws Exception
+	public void testInvalidCharacter()
 	{
 		try
 		{
@@ -88,11 +86,10 @@ public class PreClassTest extends EnUsLocaleDependentTestCase
 	}
 	
 	/**
-	 * Test that an error is produced if separators are incorrect
-	 * @throws Exception
+	 * Test that an error is produced if separators are incorrect.
 	 */
 	@Test
-	public void testInvalidNegate() throws Exception
+	public void testInvalidNegate()
 	{
 		try
 		{

@@ -21,7 +21,6 @@ import org.junit.Test;
 
 import pcgen.cdom.base.Constants;
 import pcgen.core.Equipment;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTextPropertyTokenTestCase;
@@ -52,21 +51,21 @@ public class SPropTokenTest extends
 	}
 
 	@Test
-	public void testInvalidDoubleClear() throws PersistenceLayerException
+	public void testInvalidDoubleClear()
 	{
 		assertFalse(parse(".CLEAR|.CLEAR|Second"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidClearAsVariable() throws PersistenceLayerException
+	public void testInvalidClearAsVariable()
 	{
 		assertFalse(parse("Second|.CLEAR"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testValidClear() throws PersistenceLayerException
+	public void testValidClear()
 	{
 		assertTrue(parse(Constants.LST_DOT_CLEAR));
 	}

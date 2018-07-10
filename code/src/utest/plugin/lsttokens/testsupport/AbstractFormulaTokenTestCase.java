@@ -30,7 +30,7 @@ public abstract class AbstractFormulaTokenTestCase<T extends CDOMObject>
 {
 
 	@Test
-	public void testValidInputs() throws PersistenceLayerException
+	public void testValidInputs()
 	{
 		assertTrue(parse("Variable1"));
 		assertEquals("Variable1", getFormula().toString());
@@ -50,7 +50,7 @@ public abstract class AbstractFormulaTokenTestCase<T extends CDOMObject>
 	public abstract FormulaKey getFormulaKey();
 
 	@Test
-	public void testInvalidInputEmpty() throws PersistenceLayerException
+	public void testInvalidInputEmpty()
 	{
 		try
 		{
@@ -94,19 +94,19 @@ public abstract class AbstractFormulaTokenTestCase<T extends CDOMObject>
 	}
 
 	@Test
-	public void testUnparseNumber() throws PersistenceLayerException
+	public void testUnparseNumber()
 	{
 		setAndUnparseMatch(FormulaFactory.getFormulaFor(1));
 	}
 
 	@Test
-	public void testUnparseFormula() throws PersistenceLayerException
+	public void testUnparseFormula()
 	{
 		setAndUnparseMatch(FormulaFactory.getFormulaFor("Formula"));
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.put(getFormulaKey(), null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));

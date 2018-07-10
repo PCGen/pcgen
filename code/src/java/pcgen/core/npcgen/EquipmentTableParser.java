@@ -53,11 +53,10 @@ public class EquipmentTableParser
 
 	/**
 	 * Creates a new <tt>EquipmentTableParser</tt> for the specified game mode.
-	 * 
+	 *
 	 * @param aMode The game mode to parse equipment tables for.
-	 * 
-	 * @throws ParserConfigurationException
-	 * @throws SAXException
+	 * @throws ParserConfigurationException the parser configuration exception
+	 * @throws SAXException the SAX exception
 	 */
 	public EquipmentTableParser(final GameMode aMode) throws ParserConfigurationException, SAXException
 	{
@@ -70,14 +69,12 @@ public class EquipmentTableParser
 
 	/**
 	 * Parses an XML equipment table file.
-	 * 
+	 *
 	 * @param aFileList An array of files to process
-	 * 
 	 * @return A <tt>List</tt> of <tt>EquipmentTable</tt> objects representing
 	 * the tables in the file.
-	 * 
-	 * @throws SAXException
-	 * @throws IOException
+	 * @throws SAXException the SAX exception
+	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
 	public List<EquipmentTable> parse(final File[] aFileList) throws SAXException, IOException
 	{

@@ -32,11 +32,9 @@ import plugin.pretokens.parser.PreDamageReductionParser;
 @SuppressWarnings("nls")
 public class PreDamageReductionParserTest extends EnUsLocaleDependentTestCase
 {
-	/**
-	 * @throws Exception
-	 */
+	
 	@Test
-	public void testMultipleFails() throws Exception
+	public void testMultipleFails()
 	{
 		PreDamageReductionParser parser = new PreDamageReductionParser();
 
@@ -53,11 +51,14 @@ public class PreDamageReductionParserTest extends EnUsLocaleDependentTestCase
 		}
 	}
 
+	
 	/**
-	 * @throws Exception
+	 * Test multiple passes.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testMultiplePasses() throws Exception
+	public void testMultiplePasses() throws PersistenceLayerException
 	{
 		PreDamageReductionParser parser = new PreDamageReductionParser();
 
@@ -71,11 +72,14 @@ public class PreDamageReductionParserTest extends EnUsLocaleDependentTestCase
 			prereq.toString());
 	}
 
+	
 	/**
-	 * @throws Exception
+	 * Test no value.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testNoValue() throws Exception
+	public void testNoValue() throws PersistenceLayerException
 	{
 		PreDamageReductionParser parser = new PreDamageReductionParser();
 

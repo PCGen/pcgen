@@ -474,7 +474,7 @@ public abstract class JepCountType
 		// By adding this it means that we can call count with just the object to be
 		// counted and get a count of all e.g. count("ABILITIES") will return a
 		// count of all abilities with no filtering at all.
-		protected Object[] validateParams(final Object[] params) throws ParseException
+		protected Object[] validateParams(final Object[] params)
 		{
 			Object[] p = new Object[1];
 			if (1 > params.length)
