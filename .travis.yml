@@ -3,6 +3,12 @@
 language: java
 dist: trusty
 
+#run in Fully-virtualized environment.
+#sudo: required
+
+#run in a Container-based environment.
+sudo: false
+
 matrix:
   include:
     - os: linux
@@ -25,9 +31,6 @@ before_install:
     - if [[ $TRAVIS_OS_NAME == 'osx' ]]; then brew install scons mingw-w64 zlib; fi
  
 install:
-    - wget -O /tmp/zlib.zip "https://downloads.sourceforge.net/project/libpng/zlib/1.2.8/zlib128-dll.zip?r=&ts=1403402496&use_mirror=hivelocity"
-    - mkdir /tmp/zlib
-    - unzip /tmp/zlib.zip -d /tmp/zlib
  
 before_cache:
     - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
