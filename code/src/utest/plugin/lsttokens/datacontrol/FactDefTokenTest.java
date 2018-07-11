@@ -51,7 +51,7 @@ public class FactDefTokenTest extends TestCase
 	protected static CampaignSourceEntry testCampaign;
 
 	@BeforeClass
-	public static void classSetUp() throws URISyntaxException
+	public static void classSetUp()
 	{
 		testCampaign =
 				new CampaignSourceEntry(new Campaign(), TestURI.getURI());
@@ -83,49 +83,49 @@ public class FactDefTokenTest extends TestCase
 	}
 
 	@Test
-	public void testInvalidInputNullString() throws PersistenceLayerException
+	public void testInvalidInputNullString()
 	{
 		assertFalse(token.parseToken(context, fd, null).passed());
 	}
 
 	@Test
-	public void testInvalidInputEmptyString() throws PersistenceLayerException
+	public void testInvalidInputEmptyString()
 	{
 		assertFalse(token.parseToken(context, fd, "").passed());
 	}
 
 	@Test
-	public void testInvalidInputNoPipe() throws PersistenceLayerException
+	public void testInvalidInputNoPipe()
 	{
 		assertFalse(token.parseToken(context, fd, "SKILL").passed());
 	}
 
 	@Test
-	public void testInvalidInputTrailingPipe() throws PersistenceLayerException
+	public void testInvalidInputTrailingPipe()
 	{
 		assertFalse(token.parseToken(context, fd, "SKILL|").passed());
 	}
 
 	@Test
-	public void testInvalidInputLeadingPipe() throws PersistenceLayerException
+	public void testInvalidInputLeadingPipe()
 	{
 		assertFalse(token.parseToken(context, fd, "|Possibility").passed());
 	}
 
 	@Test
-	public void testInvalidInputDoublePipe() throws PersistenceLayerException
+	public void testInvalidInputDoublePipe()
 	{
 		assertFalse(token.parseToken(context, fd, "SKILL||Possibility").passed());
 	}
 
 	@Test
-	public void testInvalidInputDoublePipe2() throws PersistenceLayerException
+	public void testInvalidInputDoublePipe2()
 	{
 		assertFalse(token.parseToken(context, fd, "SKILL|Possibility|Exception").passed());
 	}
 
 	@Test
-	public void testValidStringString() throws PersistenceLayerException
+	public void testValidStringString()
 	{
 		assertNull(fd.getFactName());
 		assertNull(fd.getUsableLocation());
@@ -141,7 +141,7 @@ public class FactDefTokenTest extends TestCase
 	}
 
 	@Test
-	public void testValidStringNo() throws PersistenceLayerException
+	public void testValidStringNo()
 	{
 		assertNull(fd.getFactName());
 		assertNull(fd.getUsableLocation());

@@ -56,10 +56,8 @@ public class PreRaceTest extends AbstractCharacterTestCase
 
 	/**
 	 * Test to ensure that we return false when races don't match.
-	 * 
-	 * @throws Exception
 	 */
-	public void testFail() throws Exception
+	public void testFail()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -79,11 +77,9 @@ public class PreRaceTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test to make sure we return false when race is equal but NOT is specificed.
-	 * 
-	 * @throws Exception
+	 * Test to make sure we return false when race is equal but NOT is specified.
 	 */
-	public void testNeqFails() throws Exception
+	public void testNeqFails()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -104,10 +100,8 @@ public class PreRaceTest extends AbstractCharacterTestCase
 
 	/**
 	 * Test to make sure that NOT returns true if races don't match.
-	 * 
-	 * @throws Exception
 	 */
-	public void testNeqPasses() throws Exception
+	public void testNeqPasses()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -128,10 +122,8 @@ public class PreRaceTest extends AbstractCharacterTestCase
 
 	/**
 	 * Test to make sure that we return true when races are equal.
-	 * 
-	 * @throws Exception
 	 */
-	public void testPass() throws Exception
+	public void testPass()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -151,10 +143,8 @@ public class PreRaceTest extends AbstractCharacterTestCase
 	}
 	/**
 	 * Test to make sure that we return true when races are equal using ServesAs.
-	 * 
-	 * @throws Exception
 	 */
-	public void testPassServesAsName() throws Exception
+	public void testPassServesAsName()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -224,10 +214,8 @@ public class PreRaceTest extends AbstractCharacterTestCase
 	
 	/**
 	 * Test to make sure that we return true when races RACESUBTYPE are equal using ServesAs.
-	 * 
-	 * @throws Exception
 	 */
-	public void testPassServesAsRaceSubType() throws Exception
+	public void testPassServesAsRaceSubType()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -285,10 +273,8 @@ public class PreRaceTest extends AbstractCharacterTestCase
 	
 	/**
 	 * Test to make sure that we return true when races RACETYPE are equal using ServesAs.
-	 * 
-	 * @throws Exception
 	 */
-	public void testPassServesAsRaceType() throws Exception
+	public void testPassServesAsRaceType()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -330,10 +316,8 @@ public class PreRaceTest extends AbstractCharacterTestCase
 	
 	/**
 	 * Test to make sure that we return true when races TYPE are equal.
-	 * 
-	 * @throws Exception
 	 */
-	public void testPassServesAsType() throws Exception
+	public void testPassServesAsType()
 	{
 		final PlayerCharacter character = getCharacter();
 

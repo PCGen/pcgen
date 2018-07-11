@@ -59,70 +59,70 @@ public class QualifyTokenTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidObject() throws PersistenceLayerException
+	public void testInvalidObject()
 	{
 		assertFalse(token.parseToken(primaryContext, new EquipmentModifier(),
 				"SPELL|Fireball").passed());
 	}
 
 	@Test
-	public void testInvalidEmpty() throws PersistenceLayerException
+	public void testInvalidEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidTypeOnly() throws PersistenceLayerException
+	public void testInvalidTypeOnly()
 	{
 		assertFalse(parse("SPELL"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidTypeBarOnly() throws PersistenceLayerException
+	public void testInvalidTypeBarOnly()
 	{
 		assertFalse(parse("SPELL|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyType() throws PersistenceLayerException
+	public void testInvalidEmptyType()
 	{
 		assertFalse(parse("|Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidBadType() throws PersistenceLayerException
+	public void testInvalidBadType()
 	{
 		assertFalse(parse("CAMPAIGN|Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidCatTypeNoEqual() throws PersistenceLayerException
+	public void testInvalidCatTypeNoEqual()
 	{
 		assertFalse(parse("ABILITY|Abil"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNonCatTypeEquals() throws PersistenceLayerException
+	public void testInvalidNonCatTypeEquals()
 	{
 		assertFalse(parse("SPELL=Arcane|Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidDoubleEquals() throws PersistenceLayerException
+	public void testInvalidDoubleEquals()
 	{
 		assertFalse(parse("ABILITY=FEAT=Mutation|Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidUnbuiltCategory() throws PersistenceLayerException
+	public void testInvalidUnbuiltCategory()
 	{
 		try
 		{
@@ -137,14 +137,13 @@ public class QualifyTokenTest extends AbstractGlobalTokenTestCase
 
 	@Test
 	public void testInvalidSpellbookAndSpellBarOnly()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("SPELL|Fireball|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidSpellBarStarting() throws PersistenceLayerException
+	public void testInvalidSpellBarStarting()
 	{
 		assertFalse(parse("SPELL||Fireball"));
 		assertNoSideEffects();

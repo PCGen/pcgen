@@ -62,21 +62,20 @@ public class HitDieTokenTest extends AbstractCDOMTokenTestCase<Race>
 
 	@Test
 	public void testInvalidInputTooManyLimits()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("15|CLASS=Fighter|CLASS.TYPE=Base"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNotALimit() throws PersistenceLayerException
+	public void testInvalidInputNotALimit()
 	{
 		assertFalse(parse("15|PRECLASS:1,Fighter"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEmptyLimit() throws PersistenceLayerException
+	public void testInvalidInputEmptyLimit()
 	{
 		assertFalse(parse("15|CLASS="));
 		assertNoSideEffects();
@@ -84,7 +83,6 @@ public class HitDieTokenTest extends AbstractCDOMTokenTestCase<Race>
 
 	@Test
 	public void testInvalidInputEmptyTypeLimit()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("15|CLASS.TYPE="));
 		assertNoSideEffects();
@@ -92,7 +90,6 @@ public class HitDieTokenTest extends AbstractCDOMTokenTestCase<Race>
 
 	@Test
 	public void testInvalidInputStartDotTypeLimit()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("15|CLASS.TYPE=.Strange"));
 		assertNoSideEffects();
@@ -100,7 +97,6 @@ public class HitDieTokenTest extends AbstractCDOMTokenTestCase<Race>
 
 	@Test
 	public void testInvalidInputEndDotTypeLimit()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("15|CLASS.TYPE=Strange."));
 		assertNoSideEffects();
@@ -108,116 +104,113 @@ public class HitDieTokenTest extends AbstractCDOMTokenTestCase<Race>
 
 	@Test
 	public void testInvalidInputDoubleDotTypeLimit()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("15|CLASS.TYPE=Prestige..Strange"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testValidInputDivideNegative() throws PersistenceLayerException
+	public void testValidInputDivideNegative()
 	{
 		assertFalse(parse("%/-2"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testValidInputDivideZero() throws PersistenceLayerException
+	public void testValidInputDivideZero()
 	{
 		assertFalse(parse("%/0"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testValidInputDivide() throws PersistenceLayerException
+	public void testValidInputDivide()
 	{
 		assertTrue(parse("%/4"));
 	}
 
 	@Test
-	public void testInvalidInputAddNegative() throws PersistenceLayerException
+	public void testInvalidInputAddNegative()
 	{
 		assertFalse(parse("%+-3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputAddZero() throws PersistenceLayerException
+	public void testInvalidInputAddZero()
 	{
 		assertFalse(parse("%+0"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testValidInputAdd() throws PersistenceLayerException
+	public void testValidInputAdd()
 	{
 		assertTrue(parse("%+4"));
 	}
 
 	@Test
 	public void testInvalidInputMultiplyNegative()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("%*-3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputMultiplyZero() throws PersistenceLayerException
+	public void testInvalidInputMultiplyZero()
 	{
 		assertFalse(parse("%*0"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testValidInputMultiply() throws PersistenceLayerException
+	public void testValidInputMultiply()
 	{
 		assertTrue(parse("%*4"));
 	}
 
 	@Test
 	public void testInvalidInputSubtractNegative()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("%--3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputSubtractZero() throws PersistenceLayerException
+	public void testInvalidInputSubtractZero()
 	{
 		assertFalse(parse("%-0"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testValidInputSubtract() throws PersistenceLayerException
+	public void testValidInputSubtract()
 	{
 		assertTrue(parse("%-4"));
 	}
 
 	@Test
-	public void testInvalidInputUpNegative() throws PersistenceLayerException
+	public void testInvalidInputUpNegative()
 	{
 		assertFalse(parse("%up-3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputUpZero() throws PersistenceLayerException
+	public void testInvalidInputUpZero()
 	{
 		assertFalse(parse("%up0"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testValidInputUp() throws PersistenceLayerException
+	public void testValidInputUp()
 	{
 		assertTrue(parse("%up4"));
 	}
 
 	@Test
-	public void testInvalidInputUpTooBig() throws PersistenceLayerException
+	public void testInvalidInputUpTooBig()
 	{
 		assertFalse(parse("%up5"));
 		assertNoSideEffects();
@@ -225,75 +218,73 @@ public class HitDieTokenTest extends AbstractCDOMTokenTestCase<Race>
 
 	@Test
 	public void testInvalidInputUpReallyTooBig()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("%up15"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputHUpNegative() throws PersistenceLayerException
+	public void testInvalidInputHUpNegative()
 	{
 		assertFalse(parse("%Hup-3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputHUpZero() throws PersistenceLayerException
+	public void testInvalidInputHUpZero()
 	{
 		assertFalse(parse("%Hup0"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testValidInputHUp() throws PersistenceLayerException
+	public void testValidInputHUp()
 	{
 		assertTrue(parse("%Hup4"));
 	}
 
 	@Test
-	public void testInvalidInputDownNegative() throws PersistenceLayerException
+	public void testInvalidInputDownNegative()
 	{
 		assertFalse(parse("%down-3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputDownZero() throws PersistenceLayerException
+	public void testInvalidInputDownZero()
 	{
 		assertFalse(parse("%down0"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testValidInputDown() throws PersistenceLayerException
+	public void testValidInputDown()
 	{
 		assertTrue(parse("%down4"));
 	}
 
 	@Test
 	public void testInvalidInputHdownNegative()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("%Hdown-3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputHdownZero() throws PersistenceLayerException
+	public void testInvalidInputHdownZero()
 	{
 		assertFalse(parse("%Hdown0"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testValidInputHdown() throws PersistenceLayerException
+	public void testValidInputHdown()
 	{
 		assertTrue(parse("%Hdown4"));
 	}
 
 	@Test
-	public void testInvalidInputDownTooBig() throws PersistenceLayerException
+	public void testInvalidInputDownTooBig()
 	{
 		assertFalse(parse("%down5"));
 		assertNoSideEffects();
@@ -301,35 +292,34 @@ public class HitDieTokenTest extends AbstractCDOMTokenTestCase<Race>
 
 	@Test
 	public void testInvalidInputDownReallyTooBig()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("%down15"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNegative() throws PersistenceLayerException
+	public void testInvalidInputNegative()
 	{
 		assertFalse(parse("-3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputZero() throws PersistenceLayerException
+	public void testInvalidInputZero()
 	{
 		assertFalse(parse("0"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputDecimal() throws PersistenceLayerException
+	public void testInvalidInputDecimal()
 	{
 		assertFalse(parse("3.5"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputMisspell() throws PersistenceLayerException
+	public void testInvalidInputMisspell()
 	{
 		assertFalse(parse("%upn5"));
 		assertNoSideEffects();
@@ -564,14 +554,14 @@ public class HitDieTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.put(ObjectKey.HITDIE, null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testUnparseLegal() throws PersistenceLayerException
+	public void testUnparseLegal()
 	{
 		primaryProf.put(ObjectKey.HITDIE, new HitDieLock(new HitDie(1)));
 		expectSingle(getToken().unparse(primaryContext, primaryProf), "1");
@@ -579,7 +569,7 @@ public class HitDieTokenTest extends AbstractCDOMTokenTestCase<Race>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail() throws PersistenceLayerException
+	public void testUnparseGenericsFail()
 	{
 		ObjectKey objectKey = ObjectKey.HITDIE;
 		primaryProf.put(objectKey, new Object());
@@ -601,7 +591,7 @@ public class HitDieTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Test
-	public void testUnparseZeroSteps() throws PersistenceLayerException
+	public void testUnparseZeroSteps()
 	{
 		try
 		{
@@ -616,7 +606,7 @@ public class HitDieTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Test
-	public void testUnparseNegativeLevel() throws PersistenceLayerException
+	public void testUnparseNegativeLevel()
 	{
 		try
 		{
@@ -630,7 +620,7 @@ public class HitDieTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Test
-	public void testUnparseZeroDivide() throws PersistenceLayerException
+	public void testUnparseZeroDivide()
 	{
 		try
 		{

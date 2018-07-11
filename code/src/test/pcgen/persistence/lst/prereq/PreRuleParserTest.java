@@ -24,6 +24,7 @@ import org.junit.Test;
 
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.persistence.PersistenceLayerException;
 import plugin.pretokens.parser.PreRuleParser;
 
 /**
@@ -33,11 +34,14 @@ import plugin.pretokens.parser.PreRuleParser;
 public class PreRuleParserTest extends EnUsLocaleDependentTestCase
 {
 
+	
 	/**
-	 * @throws Exception
+	 * Test positive.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testPositive() throws Exception
+	public void testPositive() throws PersistenceLayerException
 	{
 		PreRuleParser parser = new PreRuleParser();
 		Prerequisite prereq = parser.parse("RULE", "1,DISPLAYTYPETRAITS", false, false);
@@ -48,11 +52,14 @@ public class PreRuleParserTest extends EnUsLocaleDependentTestCase
 		assertFalse("Prerule should nto need a character", prereq.isCharacterRequired());
 	}
 
+	
 	/**
-	 * @throws Exception
+	 * Test negative.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testNegative() throws Exception
+	public void testNegative() throws PersistenceLayerException
 	{
 		PreRuleParser parser = new PreRuleParser();
 		Prerequisite prereq = parser.parse("RULE", "1,DISPLAYTYPETRAITS", true, false);

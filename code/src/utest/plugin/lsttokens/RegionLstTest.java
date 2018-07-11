@@ -54,14 +54,14 @@ public class RegionLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidInputOnlyNumber() throws PersistenceLayerException
+	public void testInvalidInputOnlyNumber()
 	{
 		assertFalse(parse("1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNaN() throws PersistenceLayerException
+	public void testInvalidInputNaN()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("NaN|TestWP1"));
@@ -69,14 +69,14 @@ public class RegionLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidNoObject() throws PersistenceLayerException
+	public void testInvalidNoObject()
 	{
 		assertFalse(parse("1|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNoCount() throws PersistenceLayerException
+	public void testInvalidNoCount()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("|TestWP1"));
@@ -84,7 +84,7 @@ public class RegionLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidDoublePipe() throws PersistenceLayerException
+	public void testInvalidDoublePipe()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("1||TestWP1"));
@@ -92,7 +92,7 @@ public class RegionLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidInputNoCount() throws PersistenceLayerException
+	public void testInvalidInputNoCount()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -101,7 +101,7 @@ public class RegionLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidListEnd() throws PersistenceLayerException
+	public void testInvalidListEnd()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("1|TestWP1|"));
@@ -109,7 +109,7 @@ public class RegionLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidZeroCount() throws PersistenceLayerException
+	public void testInvalidZeroCount()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("0|TestWP1"));
@@ -117,7 +117,7 @@ public class RegionLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidNegativeCount() throws PersistenceLayerException
+	public void testInvalidNegativeCount()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -126,7 +126,7 @@ public class RegionLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidListDoubleJoin() throws PersistenceLayerException
+	public void testInvalidListDoubleJoin()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -135,7 +135,7 @@ public class RegionLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testValidInputs() throws PersistenceLayerException
+	public void testValidInputs()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");

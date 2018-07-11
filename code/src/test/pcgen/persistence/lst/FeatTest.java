@@ -13,6 +13,7 @@ import pcgen.base.lang.UnreachableError;
 import pcgen.core.Ability;
 import pcgen.core.Campaign;
 import pcgen.core.Globals;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
@@ -62,10 +63,11 @@ public class FeatTest extends TestCase
 	}
 
 	/**
-	 * Test Alertness Feat
-	 * @throws Exception
+	 * Test Alertness Feat.
+	 * 
+	 * @throws PersistenceLayerException   if there is a problem with the LST syntax
 	 */
-	public void testAlertness() throws Exception
+	public void testAlertness() throws PersistenceLayerException
 	{
 		Ability alertnessFeat;
 		FeatLoader featLoader = new FeatLoader();
@@ -90,10 +92,11 @@ public class FeatTest extends TestCase
 	}
 
 	/**
-	 * Test ambidexterity feat
-	 * @throws Exception
+	 * Test ambidexterity feat.
+	 * 
+	 * @throws PersistenceLayerException   if there is a problem with the LST syntax
 	 */
-	public void testAmbidexterity() throws Exception
+	public void testAmbidexterity() throws PersistenceLayerException
 	{
 		FeatLoader featLoader = new FeatLoader();
 		CampaignSourceEntry source;
@@ -117,10 +120,11 @@ public class FeatTest extends TestCase
 	}
 
 	/**
-	 * Test simple weapon feat
-	 * @throws Exception
+	 * Test simple weapon feat.
+	 * 
+	 * @throws PersistenceLayerException  if there is a problem with the LST syntax
 	 */
-	public void testSimpleWeapon() throws Exception
+	public void testSimpleWeapon() throws PersistenceLayerException
 	{
 		FeatLoader featLoader = new FeatLoader();
 		CampaignSourceEntry source;

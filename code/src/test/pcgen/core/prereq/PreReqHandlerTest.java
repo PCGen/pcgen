@@ -24,6 +24,7 @@ import java.util.Locale;
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.LocaleDependentTestCase;
 import junit.framework.TestCase;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.TestHelper;
 
@@ -66,10 +67,11 @@ public class PreReqHandlerTest extends TestCase
 	}
 
 	/**
-	 * Print out as HTML
-	 * @throws Exception
+	 * Print out as HTML.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testToHtml() throws Exception
+	public void testToHtml() throws PersistenceLayerException
 	{
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		final List<Prerequisite> list = new ArrayList<>();

@@ -22,17 +22,21 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.persistence.PersistenceLayerException;
 import plugin.pretokens.parser.PreVisionParser;
 
 
 @SuppressWarnings("nls")
 public class PreVisionParserTest extends EnUsLocaleDependentTestCase
 {
+	
 	/**
-	 * @throws Exception
+	 * Test multiple passes.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testMultiplePasses() throws Exception
+	public void testMultiplePasses() throws PersistenceLayerException
 	{
 		PreVisionParser parser = new PreVisionParser();
 

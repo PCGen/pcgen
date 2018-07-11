@@ -24,7 +24,6 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.core.kit.KitLevelAbility;
 import pcgen.io.Compatibility;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -62,14 +61,7 @@ public class AbilityToken extends AbstractToken implements CDOMPrimaryToken<KitL
 		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
 		String first = st.nextToken();
 		PersistentTransitionChoice<?> ptc;
-		try
-		{
-			ptc = Compatibility.processOldAdd(context, first);
-		}
-		catch (PersistenceLayerException e)
-		{
-			return new ParseResult.Fail(e.getMessage());
-		}
+		ptc = Compatibility.processOldAdd(context, first);
 		if (ptc == null)
 		{
 			return new ParseResult.Fail("Error was in " + getTokenName() + ' ' + value);

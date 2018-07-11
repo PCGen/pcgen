@@ -25,6 +25,7 @@ import pcgen.facade.core.AbilityFacade;
 import pcgen.facade.core.BodyStructureFacade;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.ListFacade;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
@@ -96,9 +97,10 @@ public class DataSetTest extends TestCase
 
 	/**
 	 * Verify the getPrereqAbilities method is functioning correctly.
-	 * @throws Exception
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testGetPrereqAbilities() throws Exception
+	public void testGetPrereqAbilities() throws PersistenceLayerException
 	{
 		Ability acrobatics = TestHelper.makeAbility("Acrobatics", BuildUtilities.getFeatCat(), "general");
 		Ability dodge = TestHelper.makeAbility("Dodge", BuildUtilities.getFeatCat(), "general");

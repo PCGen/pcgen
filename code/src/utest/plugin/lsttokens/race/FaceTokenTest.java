@@ -73,7 +73,6 @@ public class FaceTokenTest extends AbstractCDOMTokenTestCase<Race>
 
 	@Test
 	public void testInvalidInputs()
-			throws PersistenceLayerException
 	{
 		// no invalid item should set or reset the value
 		assertNull(primaryProf.getListFor(ListKey.MODIFY));

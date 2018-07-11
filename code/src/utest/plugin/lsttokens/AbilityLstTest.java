@@ -81,98 +81,98 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidEmpty() throws PersistenceLayerException
+	public void testInvalidEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNotANature() throws PersistenceLayerException
+	public void testInvalidNotANature()
 	{
 		assertFalse(parse("FEAT|NotANature|,TestWP1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNotaCategory() throws PersistenceLayerException
+	public void testInvalidNotaCategory()
 	{
 		assertFalse(parse("NotaCategory|NORMAL|,TestWP1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNoAbility() throws PersistenceLayerException
+	public void testInvalidNoAbility()
 	{
 		assertFalse(parse("FEAT|NORMAL"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidCategoryOnly() throws PersistenceLayerException
+	public void testInvalidCategoryOnly()
 	{
 		assertFalse(parse("FEAT"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidCategoryBarOnly() throws PersistenceLayerException
+	public void testInvalidCategoryBarOnly()
 	{
 		assertFalse(parse("FEAT|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyCategory() throws PersistenceLayerException
+	public void testInvalidEmptyCategory()
 	{
 		assertFalse(parse("|NORMAL|Abil"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyNature() throws PersistenceLayerException
+	public void testInvalidEmptyNature()
 	{
 		assertFalse(parse("FEAT||Abil"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyAbility() throws PersistenceLayerException
+	public void testInvalidEmptyAbility()
 	{
 		assertFalse(parse("FEAT|NORMAL|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidOnlyPre() throws PersistenceLayerException
+	public void testInvalidOnlyPre()
 	{
 		assertFalse(parse("FEAT|NORMAL|PRERACE:1,Human"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidDoubleBarAbility() throws PersistenceLayerException
+	public void testInvalidDoubleBarAbility()
 	{
 		assertFalse(parse("FEAT|NORMAL|Abil1||Abil2"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidClearDotPre() throws PersistenceLayerException
+	public void testInvalidClearDotPre()
 	{
 		assertFalse(parse("FEAT|NORMAL|.CLEAR.Abil1|PRELEVEL:MIN=4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidClearPre() throws PersistenceLayerException
+	public void testInvalidClearPre()
 	{
 		assertFalse(parse("FEAT|NORMAL|.CLEAR|PRELEVEL:MIN=4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInsertedPre() throws PersistenceLayerException
+	public void testInvalidInsertedPre()
 	{
 		assertFalse(parse("FEAT|NORMAL|Abil1|PRELEVEL:MIN=4|Abil2"));
 		assertNoSideEffects();
@@ -180,28 +180,27 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 
 	@Test
 	public void testInvalidDoubleBarStartAbility()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("FEAT|NORMAL||Abil1|Abil2"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidBarEndAbility() throws PersistenceLayerException
+	public void testInvalidBarEndAbility()
 	{
 		assertFalse(parse("FEAT|NORMAL|Abil1|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidAnyNature() throws PersistenceLayerException
+	public void testInvalidAnyNature()
 	{
 		assertFalse(parse("FEAT|ANY|Abil1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidListPre() throws PersistenceLayerException
+	public void testInvalidListPre()
 	{
 		assertFalse(parse("FEAT|AUTOMATIC|%LIST|PRERACE:1,Human"));
 		assertNoSideEffects();
@@ -360,7 +359,6 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 
 	@Test
 	public void testInputInvalidAddsTypeNoSideEffect()
-			throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
@@ -376,7 +374,6 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 
 	@Test
 	public void testInputInvalidTypeClearDotNoSideEffect()
-			throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
@@ -434,7 +431,6 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 
 	@Test
 	public void testInvalidInputCheckTypeEqualLength()
-			throws PersistenceLayerException
 	{
 		// Explicitly do NOT build TestWP2 (this checks that the TYPE= doesn't
 		// consume the |
@@ -445,7 +441,6 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 
 	@Test
 	public void testInvalidInputCheckTypeDotLength()
-			throws PersistenceLayerException
 	{
 		// Explicitly do NOT build TestWP2 (this checks that the TYPE= doesn't
 		// consume the |
@@ -455,7 +450,7 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidInputTypeEmpty() throws PersistenceLayerException
+	public void testInvalidInputTypeEmpty()
 	{
 		assertFalse(parse("Feat|VIRTUAL|TYPE="));
 		assertNoSideEffects();
@@ -463,7 +458,6 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 
 	@Test
 	public void testInvalidInputTypeUnterminated()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("Feat|VIRTUAL|TYPE=One."));
 		assertNoSideEffects();
@@ -471,7 +465,6 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 
 	@Test
 	public void testInvalidInputTypeDoubleSeparator()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("Feat|VIRTUAL|TYPE=One..Two"));
 		assertNoSideEffects();
@@ -479,7 +472,6 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 
 	@Test
 	public void testInvalidInputTypeFalseStart()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("Feat|VIRTUAL|TYPE=.One"));
 		assertNoSideEffects();
@@ -512,7 +504,7 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testValidInputClearWorking() throws PersistenceLayerException
+	public void testValidInputClearWorking()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
@@ -523,7 +515,6 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 
 	@Test
 	public void testValidInputClearJoinWorking()
-		throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
@@ -534,7 +525,7 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testListTargetClearWorking() throws PersistenceLayerException
+	public void testListTargetClearWorking()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
@@ -544,7 +535,7 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testClearMixedWorking() throws PersistenceLayerException
+	public void testClearMixedWorking()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");

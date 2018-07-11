@@ -60,7 +60,7 @@ public class InfotextTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testValidInputSimple() throws PersistenceLayerException
+	public void testValidInputSimple()
 	{
 		ListKey<?> listKey = getListKey();
 		if (listKey != null)
@@ -75,7 +75,7 @@ public class InfotextTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testValidInputNonEnglish() throws PersistenceLayerException
+	public void testValidInputNonEnglish()
 	{
 		ListKey<?> listKey = getListKey();
 		if (listKey != null)
@@ -90,7 +90,7 @@ public class InfotextTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testValidInputSpace() throws PersistenceLayerException
+	public void testValidInputSpace()
 	{
 		ListKey<?> listKey = getListKey();
 		if (listKey != null)
@@ -105,7 +105,7 @@ public class InfotextTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testValidInputHyphen() throws PersistenceLayerException
+	public void testValidInputHyphen()
 	{
 		ListKey<?> listKey = getListKey();
 		if (listKey != null)
@@ -120,7 +120,7 @@ public class InfotextTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testValidInputY() throws PersistenceLayerException
+	public void testValidInputY()
 	{
 		ListKey<?> listKey = getListKey();
 		if (listKey != null)
@@ -135,7 +135,7 @@ public class InfotextTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testValidInputList() throws PersistenceLayerException
+	public void testValidInputList()
 	{
 		ListKey<?> listKey = getListKey();
 		if (listKey != null)
@@ -152,7 +152,7 @@ public class InfotextTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testValidInputMultList() throws PersistenceLayerException
+	public void testValidInputMultList()
 	{
 		ListKey<?> listKey = getListKey();
 		if (listKey != null)
@@ -173,7 +173,7 @@ public class InfotextTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testInvalidListEmpty() throws PersistenceLayerException
+	public void testInvalidListEmpty()
 	{
 		assertFalse(parse(""));
 		assertNull(primaryProf.getListFor(getListKey()));
@@ -181,7 +181,7 @@ public class InfotextTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testInvalidEmpty() throws PersistenceLayerException
+	public void testInvalidEmpty()
 	{
 		assertFalse(parse(""));
 		assertNull(primaryProf.getListFor(getListKey()));

@@ -118,14 +118,14 @@ public class SizeTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.put(ObjectKey.BASESIZE, null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testUnparseLegal() throws PersistenceLayerException
+	public void testUnparseLegal()
 	{
 		primaryProf.put(ObjectKey.BASESIZE, CDOMDirectSingleRef.getRef(ps));
 		expectSingle(getToken().unparse(primaryContext, primaryProf), ps
@@ -134,7 +134,7 @@ public class SizeTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail() throws PersistenceLayerException
+	public void testUnparseGenericsFail()
 	{
 		ObjectKey objectKey = ObjectKey.BASESIZE;
 		primaryProf.put(objectKey, new Object());

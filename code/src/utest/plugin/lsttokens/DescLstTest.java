@@ -76,55 +76,55 @@ public class DescLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidDoublePipe() throws PersistenceLayerException
+	public void testInvalidDoublePipe()
 	{
 		assertFalse(parse("SA Number %||VarF"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEndingPipe() throws PersistenceLayerException
+	public void testInvalidEndingPipe()
 	{
 		assertFalse(parse("SA Number|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidStartingPipe() throws PersistenceLayerException
+	public void testInvalidStartingPipe()
 	{
 		assertFalse(parse("|Var"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidVarAfterPre() throws PersistenceLayerException
+	public void testInvalidVarAfterPre()
 	{
 		assertFalse(parse("SA % plus %|Var|PRECLASS:1,Fighter|Var2"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidOnlyPre() throws PersistenceLayerException
+	public void testInvalidOnlyPre()
 	{
 		assertFalse(parse("PRECLASS:1,Fighter"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidParen() throws PersistenceLayerException
+	public void testInvalidParen()
 	{
 		assertFalse(parse("The caster gains attack, damage bonus, +(min(6,(CASTERLEVEL/3))."));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testGoodParentheses() throws PersistenceLayerException
+	public void testGoodParentheses()
 	{
 		assertTrue(parse("(first)"));
 	}
 	
 	@Test
-	public void testBadParentheses() throws PersistenceLayerException
+	public void testBadParentheses()
 	{
 		assertFalse("Missing end paren should have been flagged.", parse("(first"));
 		assertFalse("Missing start paren should have been flagged.", parse("first)"));

@@ -27,7 +27,7 @@ public abstract class AbstractGlobalStringTokenTestCase extends
 {
 
 	@Test
-	public void testInvalidInputEmpty() throws PersistenceLayerException
+	public void testInvalidInputEmpty()
 	{
 		assertFalse(parse(""));
 		assertNull(primaryProf.get(getStringKey()));
@@ -35,7 +35,7 @@ public abstract class AbstractGlobalStringTokenTestCase extends
 	}
 
 	@Test
-	public void testValidInputs() throws PersistenceLayerException
+	public void testValidInputs()
 	{
 		assertTrue(parse("Niederösterreich"));
 		assertEquals("Niederösterreich", primaryProf.get(getStringKey()));
@@ -94,13 +94,13 @@ public abstract class AbstractGlobalStringTokenTestCase extends
 	}
 
 	@Test
-	public void testUnparseNo() throws PersistenceLayerException
+	public void testUnparseNo()
 	{
 		expectSingle(setAndUnparse(getLegalValue()), getLegalValue());
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.put(getStringKey(), null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));

@@ -535,9 +535,10 @@ assertNotNull("Eqmod should be present", eqMod);
 	/**
 	 * Test the use of HEADPLUSTOTAL in COST and BONUS:ITEMCOST formulas on 
 	 * both primary and alternate heads.
-	 * @throws Exception
+	 * 
+	 * @throws PersistenceLayerException  if there is a problem with the LST syntax
 	 */
-	public void testGetCostWithHeadPlus() throws Exception
+	public void testGetCostWithHeadPlus() throws PersistenceLayerException
 	{
 		GenericLoader<EquipmentModifier> loader =
 				new GenericLoader<>(EquipmentModifier.class);

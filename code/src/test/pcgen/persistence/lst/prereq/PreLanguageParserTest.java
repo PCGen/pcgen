@@ -22,16 +22,20 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.persistence.PersistenceLayerException;
 import plugin.pretokens.parser.PreLanguageParser;
 
 @SuppressWarnings("nls")
 public class PreLanguageParserTest extends EnUsLocaleDependentTestCase
 {
+	
 	/**
-	 * @throws Exception
+	 * Test 1 language of 2.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void test1LanguageOf2() throws Exception
+	public void test1LanguageOf2() throws PersistenceLayerException
 	{
 		PreLanguageParser parser = new PreLanguageParser();
 		Prerequisite prereq =
@@ -46,11 +50,14 @@ public class PreLanguageParserTest extends EnUsLocaleDependentTestCase
 				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 	}
 
+	
 	/**
-	 * @throws Exception
+	 * Test not 1 language of 2.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testNot1LanguageOf2() throws Exception
+	public void testNot1LanguageOf2() throws PersistenceLayerException
 	{
 		PreLanguageParser parser = new PreLanguageParser();
 		Prerequisite prereq =
@@ -65,11 +72,14 @@ public class PreLanguageParserTest extends EnUsLocaleDependentTestCase
 				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 	}
 
+	
 	/**
-	 * @throws Exception
+	 * Test 2 language of any.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void test2LanguageOfAny() throws Exception
+	public void test2LanguageOfAny() throws PersistenceLayerException
 	{
 		PreLanguageParser parser = new PreLanguageParser();
 		Prerequisite prereq = parser.parse("LANG", "2,ANY", false, false);
@@ -81,10 +91,12 @@ public class PreLanguageParserTest extends EnUsLocaleDependentTestCase
 	}
 
 	/**
-	 * @throws Exception
+	 * Test not 2 language of any.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testNot2LanguageOfAny() throws Exception
+	public void testNot2LanguageOfAny() throws PersistenceLayerException
 	{
 		PreLanguageParser parser = new PreLanguageParser();
 		Prerequisite prereq = parser.parse("LANG", "2,ANY", true, false);

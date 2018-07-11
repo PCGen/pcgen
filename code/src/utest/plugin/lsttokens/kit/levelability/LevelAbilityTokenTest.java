@@ -52,13 +52,13 @@ public class LevelAbilityTokenTest extends AbstractKitTokenTestCase<KitLevelAbil
 	}
 
 	@Test
-	public void testInvalidInputEmptyPCClass() throws PersistenceLayerException
+	public void testInvalidInputEmptyPCClass()
 	{
 		assertFalse(parse("=2"));
 	}
 
 	@Test
-	public void testInvalidInputEmptyCount() throws PersistenceLayerException
+	public void testInvalidInputEmptyCount()
 	{
 		assertFalse(parse("Fireball="));
 	}

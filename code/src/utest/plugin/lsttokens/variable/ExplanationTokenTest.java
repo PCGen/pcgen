@@ -63,7 +63,7 @@ public class ExplanationTokenTest extends
 	}
 
 	@Test
-	public void testDisplayNameRequired() throws PersistenceLayerException
+	public void testDisplayNameRequired()
 	{
 		DatasetVariable dv = new DatasetVariable();
 		ParseResult pr = token.parseToken(primaryContext, dv, "Try Me!");

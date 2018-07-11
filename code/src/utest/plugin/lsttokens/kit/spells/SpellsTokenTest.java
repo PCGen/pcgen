@@ -57,37 +57,36 @@ public class SpellsTokenTest extends AbstractKitTokenTestCase<KitSpells>
 
 	@Test
 	public void testInvalidInputEmptySpellbook()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("SPELLBOOK=|CLASS=Wizard|Fireball=2"));
 	}
 
 	@Test
-	public void testInvalidInputEmptyClass() throws PersistenceLayerException
+	public void testInvalidInputEmptyClass()
 	{
 		assertFalse(parse("SPELLBOOK=Personal|CLASS=|Fireball=2"));
 	}
 
 	@Test
-	public void testInvalidInputTwoClass() throws PersistenceLayerException
+	public void testInvalidInputTwoClass()
 	{
 		assertFalse(parse("SPELLBOOK=Personal|CLASS=Wizard|CLASS=Cleric|Fireball=2"));
 	}
 
 	@Test
-	public void testInvalidInputTwoSpellbook() throws PersistenceLayerException
+	public void testInvalidInputTwoSpellbook()
 	{
 		assertFalse(parse("SPELLBOOK=Personal|SPELLBOOK=Other|CLASS=Wizard|Fireball=2"));
 	}
 
 	@Test
-	public void testInvalidInputEmptySpell() throws PersistenceLayerException
+	public void testInvalidInputEmptySpell()
 	{
 		assertFalse(parse("SPELLBOOK=Personal|CLASS=Wizard|=2"));
 	}
 
 	@Test
-	public void testInvalidInputEmptyCount() throws PersistenceLayerException
+	public void testInvalidInputEmptyCount()
 	{
 		assertFalse(parse("SPELLBOOK=Personal|CLASS=Wizard|Fireball="));
 	}
@@ -101,19 +100,19 @@ public class SpellsTokenTest extends AbstractKitTokenTestCase<KitSpells>
 	}
 
 	@Test
-	public void testInvalidInputEmptyType() throws PersistenceLayerException
+	public void testInvalidInputEmptyType()
 	{
 		assertFalse(parse("SPELLBOOK=Personal|CLASS=Wizard|TYPE."));
 	}
 
 	@Test
-	public void testInvalidInputTrailingType() throws PersistenceLayerException
+	public void testInvalidInputTrailingType()
 	{
 		assertFalse(parse("SPELLBOOK=Personal|CLASS=Wizard|TYPE.One."));
 	}
 
 	@Test
-	public void testInvalidInputDoubleType() throws PersistenceLayerException
+	public void testInvalidInputDoubleType()
 	{
 		assertFalse(parse("SPELLBOOK=Personal|CLASS=Wizard|TYPE.One..Two"));
 	}

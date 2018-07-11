@@ -24,7 +24,6 @@ import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Equipment;
 import pcgen.core.QualifiedObject;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import plugin.lsttokens.testsupport.AbstractAutoTokenTestCase;
 import plugin.lsttokens.testsupport.ConsolidationRule;
@@ -79,7 +78,7 @@ public class EquipTokenTest extends AbstractAutoTokenTestCase<Equipment>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail() throws PersistenceLayerException
+	public void testUnparseGenericsFail()
 	{
 		ListKey listKey = ListKey.EQUIPMENT;
 		primaryProf.addToListFor(listKey, new Object());

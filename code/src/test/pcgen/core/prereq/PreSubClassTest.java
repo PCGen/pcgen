@@ -50,10 +50,11 @@ public class PreSubClassTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test to ensure that a character with a named class can be found
-	 * @throws Exception
+	 * Test to ensure that a character with a named class can be found.
+	 *
+	 * @throws PrerequisiteException the prerequisite exception
 	 */
-	public void testNamedSubClass() throws Exception
+	public void testNamedSubClass() throws PrerequisiteException
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
@@ -77,10 +78,11 @@ public class PreSubClassTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test to make sure subclass still found if multiple classes, only one with subclass
-	 * @throws Exception
+	 * Test to make sure subclass still found if multiple classes, only one with subclass.
+	 *
+	 * @throws PrerequisiteException the prerequisite exception
 	 */
-	public void testCharWithMultipleClasses() throws Exception
+	public void testCharWithMultipleClasses() throws PrerequisiteException
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
@@ -107,10 +109,11 @@ public class PreSubClassTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test to make sure subclass still found if multiple classes, both with subclass
-	 * @throws Exception
+	 * Test to make sure subclass still found if multiple classes, both with subclass.
+	 *
+	 * @throws PrerequisiteException the prerequisite exception
 	 */
-	public void testCharWithMultipleSubClasses() throws Exception
+	public void testCharWithMultipleSubClasses() throws PrerequisiteException
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
@@ -139,10 +142,11 @@ public class PreSubClassTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test to ensure that a character without a named subclass cannot be found
-	 * @throws Exception
+	 * Test to ensure that a character without a named subclass cannot be found.
+	 *
+	 * @throws PrerequisiteException the prerequisite exception
 	 */
-	public void testNamedSubClassFail() throws Exception
+	public void testNamedSubClassFail() throws PrerequisiteException
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
@@ -163,10 +167,11 @@ public class PreSubClassTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test to ensure that a character without a named subclass cannot be found
-	 * @throws Exception
+	 * Test to ensure that a character without a named subclass cannot be found.
+	 *
+	 * @throws PrerequisiteException the prerequisite exception
 	 */
-	public void testNamedDifSubClassFail() throws Exception
+	public void testNamedDifSubClassFail() throws PrerequisiteException
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");

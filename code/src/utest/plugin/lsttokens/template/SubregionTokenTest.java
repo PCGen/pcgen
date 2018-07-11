@@ -84,7 +84,7 @@ public class SubregionTokenTest extends
 	}
 
 	@Test
-	public void testReplacementYes() throws PersistenceLayerException
+	public void testReplacementYes()
 	{
 		String[] unparsed;
 		assertTrue(parse("YES"));
@@ -102,7 +102,7 @@ public class SubregionTokenTest extends
 	}
 
 	@Test
-	public void testOverwriteYes() throws PersistenceLayerException
+	public void testOverwriteYes()
 	{
 		parse("YES");
 		validateUnparsed(primaryContext, primaryProf, "YES");
@@ -112,7 +112,7 @@ public class SubregionTokenTest extends
 	}
 
 	@Test
-	public void testOverwriteWithYes() throws PersistenceLayerException
+	public void testOverwriteWithYes()
 	{
 		parse("TestWP1");
 		validateUnparsed(primaryContext, primaryProf, "TestWP1");
@@ -122,14 +122,14 @@ public class SubregionTokenTest extends
 	}
 
 	@Test
-	public void testUnparseYes() throws PersistenceLayerException
+	public void testUnparseYes()
 	{
 		primaryProf.put(ObjectKey.USETEMPLATENAMEFORSUBREGION, true);
 		expectSingle(getToken().unparse(primaryContext, primaryProf), "YES");
 	}
 
 	@Test
-	public void testUnparseIllegal() throws PersistenceLayerException
+	public void testUnparseIllegal()
 	{
 		assertEquals(0, primaryContext.getWriteMessageCount());
 		SubRegion o = getConstant(getLegalValue());
@@ -140,7 +140,7 @@ public class SubregionTokenTest extends
 	}
 
 	@Test
-	public void testUnparseLegalWithFalse() throws PersistenceLayerException
+	public void testUnparseLegalWithFalse()
 	{
 		assertEquals(0, primaryContext.getWriteMessageCount());
 		SubRegion o = getConstant(getLegalValue());

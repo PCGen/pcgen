@@ -40,11 +40,9 @@ public class NewKeyTokenTest
 	private NewKeyToken token;
 	private String gameModeName;
 
-	/**
-	 * @throws java.lang.Exception
-	 */
+	
 	@Before
-	public void setUp() throws Exception
+	public void setUp()
 	{
 		migrationRule = new MigrationRule(ObjectType.SOURCE, "OldKey");
 		migrationRuleEquip = new MigrationRule(ObjectType.EQUIPMENT, "OldKey");

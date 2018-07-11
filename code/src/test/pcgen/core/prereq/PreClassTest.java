@@ -61,10 +61,9 @@ public class PreClassTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test to ensure that a character with a named class can be found
-	 * @throws Exception
+	 * Test to ensure that a character with a named class can be found.
 	 */
-	public void testNamedClass() throws Exception
+	public void testNamedClass()
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
@@ -84,10 +83,9 @@ public class PreClassTest extends AbstractCharacterTestCase
 		assertEquals(1, passes);
 	}
 	/**
-	 * Test to ensure that a character with a ServeAs class can be found
-	 * @throws Exception
+	 * Test to ensure that a character with a ServeAs class can be found.
 	 */
-	public void testNamedClassServesAs() throws Exception
+	public void testNamedClassServesAs()
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
@@ -116,9 +114,8 @@ public class PreClassTest extends AbstractCharacterTestCase
 	 * Test to ensure that a character will fail a test
 	 * if it does not have the correct number of levels
 	 * in the class.
-	 * @throws Exception
 	 */
-	public void testTooFewLevels() throws Exception
+	public void testTooFewLevels()
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
@@ -142,9 +139,8 @@ public class PreClassTest extends AbstractCharacterTestCase
 	 * Test to ensure that a character will fail a test
 	 * if it does not have the correct number of levels
 	 * in the class.
-	 * @throws Exception
 	 */
-	public void testCharWithMultipleClasses() throws Exception
+	public void testCharWithMultipleClasses()
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
@@ -172,9 +168,8 @@ public class PreClassTest extends AbstractCharacterTestCase
 	 * Test to ensure that a character will fail a test
 	 * if it does not have the correct number of levels
 	 * in the class.
-	 * @throws Exception
 	 */
-	public void testCharWithMultipleSpellClasses() throws Exception
+	public void testCharWithMultipleSpellClasses()
 	{
 		LoadContext context = Globals.getContext();
 		final PCClass pcClass = context.getReferenceContext().constructCDOMObject(PCClass.class, "MyClass");
@@ -212,9 +207,10 @@ public class PreClassTest extends AbstractCharacterTestCase
 	 * Test to ensure that a character will fail a test
 	 * if it does not have the correct number of levels
 	 * in the class.
-	 * @throws Exception
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testFromParserCharWithMultipleSpellClasses() throws Exception
+	public void testFromParserCharWithMultipleSpellClasses() throws PersistenceLayerException
 	{
 		LoadContext context = Globals.getContext();
 		final PCClass pcClass = context.getReferenceContext().constructCDOMObject(PCClass.class, "MyClass");
@@ -253,9 +249,10 @@ public class PreClassTest extends AbstractCharacterTestCase
 	 * Test to ensure that a character will fail a test
 	 * if it does not have the correct number of levels
 	 * in the class.
-	 * @throws Exception
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testFromParserAny() throws Exception
+	public void testFromParserAny() throws PersistenceLayerException
 	{
 		LoadContext context = Globals.getContext();
 		final PCClass pcClass = new PCClass();
@@ -288,10 +285,9 @@ public class PreClassTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test to ensure that a character without a named class cannot be found
-	 * @throws Exception
+	 * Test to ensure that a character without a named class cannot be found.
 	 */
-	public void testNamedClassFail() throws Exception
+	public void testNamedClassFail()
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
@@ -312,10 +308,9 @@ public class PreClassTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test to ensure that a character without a named class cannot be found
-	 * @throws Exception
+	 * Test to ensure that a character without a named class cannot be found.
 	 */
-	public void testNoLevelsPass() throws Exception
+	public void testNoLevelsPass()
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("Monk");
@@ -335,10 +330,9 @@ public class PreClassTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test to ensure that a character without a named class cannot be found
-	 * @throws Exception
+	 * Test to ensure that a character without a named class cannot be found.
 	 */
-	public void testNoLevelsFail() throws Exception
+	public void testNoLevelsFail()
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("Monk");
@@ -358,10 +352,9 @@ public class PreClassTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test to ensure that a character with a spellcasting class can be found
-	 * @throws Exception
+	 * Test to ensure that a character with a spellcasting class can be found.
 	 */
-	public void testSpellcaster() throws Exception
+	public void testSpellcaster()
 	{
 		LoadContext context = Globals.getContext();
 		final PCClass pcClass = context.getReferenceContext().constructCDOMObject(PCClass.class, "MyClass");
@@ -389,10 +382,9 @@ public class PreClassTest extends AbstractCharacterTestCase
 
 	/**
 	 * Test to ensure that a character with a spellcasting class
-	 * does not match a different spellcasting type
-	 * @throws Exception
+	 * does not match a different spellcasting type.
 	 */
-	public void testSpellcasterTypeFail() throws Exception
+	public void testSpellcasterTypeFail()
 	{
 		final PCClass pcClass = new PCClass();
 		BuildUtilities.setFact(pcClass, "SpellType", "Arcane");
@@ -413,11 +405,10 @@ public class PreClassTest extends AbstractCharacterTestCase
 
 	/**
 	 * Test to ensure that a character with a spellcasting class
-	 * will pass a prerequisute that requires a level of that
+	 * will pass a prerequisite that requires a level of that
 	 * classes spell type.
-	 * @throws Exception
 	 */
-	public void testSpellcasterTypePass() throws Exception
+	public void testSpellcasterTypePass()
 	{
 		LoadContext context = Globals.getContext();
 		final PCClass pcClass = context.getReferenceContext().constructCDOMObject(PCClass.class, "MyClass");
@@ -444,10 +435,9 @@ public class PreClassTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test to ensure that a spellcaster type check is case insensitive
-	 * @throws Exception
+	 * Test to ensure that a spellcaster type check is case insensitive.
 	 */
-	public void testSpellcasterTypeWrongCasePass() throws Exception
+	public void testSpellcasterTypeWrongCasePass()
 	{
 		LoadContext context = Globals.getContext();
 		final PCClass pcClass = context.getReferenceContext().constructCDOMObject(PCClass.class, "MyClass");
@@ -474,10 +464,11 @@ public class PreClassTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test the PRE CLASSLEVELMAX token 
-	 * @throws Exception
+	 * Test the PRE CLASSLEVELMAX token .
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testPreClassLevelMax() throws Exception
+	public void testPreClassLevelMax() throws PersistenceLayerException
 	{
 		final PreClassLevelMaxParser parser = new PreClassLevelMaxParser();
 		final Prerequisite prereq =
@@ -535,9 +526,8 @@ public class PreClassTest extends AbstractCharacterTestCase
 	 * Test to ensure that a character will fail a test
 	 * if it does not have the correct number of levels
 	 * in the class.
-	 * @throws Exception
 	 */
-	public void testAnyLevelsOneClass() throws Exception
+	public void testAnyLevelsOneClass()
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");

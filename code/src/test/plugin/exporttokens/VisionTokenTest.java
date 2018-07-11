@@ -120,9 +120,8 @@ public class VisionTokenTest extends AbstractCharacterTestCase
 
 	/**
 	 * Test the list output of the vision tag.
-	 * @throws Exception
 	 */
-	public void testList() throws Exception
+	public void testList()
 	{
 		PlayerCharacter pc = getCharacter();
 		assertEquals("no vision", "", new VisionToken().getToken(
@@ -141,9 +140,8 @@ public class VisionTokenTest extends AbstractCharacterTestCase
 
 	/**
 	 * Test the output of individual vision entries.
-	 * @throws Exception
 	 */
-	public void testPositional() throws Exception
+	public void testPositional()
 	{
 		PlayerCharacter pc = getCharacter();
 		assertEquals("no vision", "", new VisionToken().getToken(
@@ -174,9 +172,8 @@ public class VisionTokenTest extends AbstractCharacterTestCase
 
 	/**
 	 * Test the list output of the vision tag with metric units.
-	 * @throws Exception
 	 */
-	public void testListMetric() throws Exception
+	public void testListMetric()
 	{
 		PlayerCharacter pc = getCharacter();
 		pc.addTemplate(darkvisionT);

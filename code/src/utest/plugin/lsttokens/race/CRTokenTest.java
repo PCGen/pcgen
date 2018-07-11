@@ -55,7 +55,7 @@ public class CRTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Test
-	public void testBadInputNegative() throws PersistenceLayerException
+	public void testBadInputNegative()
 	{
 		try
 		{
@@ -70,7 +70,7 @@ public class CRTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Test
-	public void testBadInputNonFloat() throws PersistenceLayerException
+	public void testBadInputNonFloat()
 	{
 		try
 		{
@@ -147,7 +147,7 @@ public class CRTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Test
-	public void testUnparseOne() throws PersistenceLayerException
+	public void testUnparseOne()
 	{
 		ChallengeRating cr = new ChallengeRating(FormulaFactory.ONE);
 		primaryProf.put(ObjectKey.CHALLENGE_RATING, cr);
@@ -155,7 +155,7 @@ public class CRTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Test
-	public void testUnparseFraction() throws PersistenceLayerException
+	public void testUnparseFraction()
 	{
 		ChallengeRating cr = new ChallengeRating(FormulaFactory.getFormulaFor("1/2"));
 		primaryProf.put(ObjectKey.CHALLENGE_RATING, cr);
@@ -163,7 +163,7 @@ public class CRTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.put(ObjectKey.CHALLENGE_RATING, null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
@@ -171,7 +171,7 @@ public class CRTokenTest extends AbstractCDOMTokenTestCase<Race>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail() throws PersistenceLayerException
+	public void testUnparseGenericsFail()
 	{
 		ObjectKey objectKey = ObjectKey.CHALLENGE_RATING;
 		primaryProf.put(objectKey, new Object());

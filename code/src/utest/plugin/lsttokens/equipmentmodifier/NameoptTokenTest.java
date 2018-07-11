@@ -54,7 +54,7 @@ public class NameoptTokenTest extends AbstractCDOMTokenTestCase<EquipmentModifie
 	}
 
 	@Test
-	public void testBadInputNegative() throws PersistenceLayerException
+	public void testBadInputNegative()
 	{
 		try
 		{
@@ -68,21 +68,21 @@ public class NameoptTokenTest extends AbstractCDOMTokenTestCase<EquipmentModifie
 	}
 
 	@Test
-	public void testBadInputEmpty() throws PersistenceLayerException
+	public void testBadInputEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testBadInputPlainText() throws PersistenceLayerException
+	public void testBadInputPlainText()
 	{
 		assertFalse(parse("TEXT"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testBadInputEmptyText() throws PersistenceLayerException
+	public void testBadInputEmptyText()
 	{
 		assertFalse(parse("TEXT="));
 		assertNoSideEffects();
@@ -144,7 +144,7 @@ public class NameoptTokenTest extends AbstractCDOMTokenTestCase<EquipmentModifie
 
 
 	@Test
-	public void testOverwriteToText() throws PersistenceLayerException
+	public void testOverwriteToText()
 	{
 		parse("SPELL");
 		validateUnparsed(primaryContext, primaryProf, "SPELL");
@@ -154,7 +154,7 @@ public class NameoptTokenTest extends AbstractCDOMTokenTestCase<EquipmentModifie
 	}
 
 	@Test
-	public void testOverwriteFromText() throws PersistenceLayerException
+	public void testOverwriteFromText()
 	{
 		parse("TEXT=This is the text");
 		validateUnparsed(primaryContext, primaryProf, "TEXT=This is the text");
@@ -163,7 +163,7 @@ public class NameoptTokenTest extends AbstractCDOMTokenTestCase<EquipmentModifie
 				.getAnswer("TEXT=This is the text", "NOTHING"));
 	}
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.put(getObjectKey(), null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
@@ -175,7 +175,7 @@ public class NameoptTokenTest extends AbstractCDOMTokenTestCase<EquipmentModifie
 	}
 
 	@Test
-	public void testUnparseLegal() throws PersistenceLayerException
+	public void testUnparseLegal()
 	{
 		primaryProf.put(getObjectKey(), EqModNameOpt.SPELL);
 		expectSingle(getToken().unparse(primaryContext, primaryProf),
@@ -183,7 +183,7 @@ public class NameoptTokenTest extends AbstractCDOMTokenTestCase<EquipmentModifie
 	}
 
 	@Test
-	public void testUnparseLegalName() throws PersistenceLayerException
+	public void testUnparseLegalName()
 	{
 		primaryProf.put(StringKey.NAME_TEXT, "MyText");
 		primaryProf.put(ObjectKey.NAME_OPT, EqModNameOpt.TEXT);
@@ -193,7 +193,7 @@ public class NameoptTokenTest extends AbstractCDOMTokenTestCase<EquipmentModifie
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail() throws PersistenceLayerException
+	public void testUnparseGenericsFail()
 	{
 		ObjectKey objectKey = getObjectKey();
 		primaryProf.put(objectKey, new Object());
@@ -209,7 +209,7 @@ public class NameoptTokenTest extends AbstractCDOMTokenTestCase<EquipmentModifie
 	}
 
 	@Test
-	public void testUnparseIncompleteSpell() throws PersistenceLayerException
+	public void testUnparseIncompleteSpell()
 	{
 		primaryProf.put(ObjectKey.NAME_OPT, EqModNameOpt.TEXT);
 		assertBadUnparse();

@@ -43,7 +43,7 @@ public class SourceDateLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidInputEmpty() throws PersistenceLayerException
+	public void testInvalidInputEmpty()
 	{
 		assertFalse(parse(""));
 		assertNull(primaryProf.get(getKey()));
@@ -51,7 +51,7 @@ public class SourceDateLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testValidInputs() throws PersistenceLayerException
+	public void testValidInputs()
 	{
 		assertTrue(parse("2011-09"));
 		assertEquals("September 1, 2011", token.unparse(primaryContext, primaryProf)[0]);
@@ -83,7 +83,7 @@ public class SourceDateLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.put(getKey(), null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));

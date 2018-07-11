@@ -31,6 +31,7 @@ import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.output.channel.ChannelCompatibility;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
@@ -55,10 +56,11 @@ public class PreDomainTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test to make sure it is not looking at deity domains
-	 * @throws Exception
+	 * Test to make sure it is not looking at deity domains.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testDeity() throws Exception
+	public void testDeity() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -86,10 +88,10 @@ public class PreDomainTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test with multiple options
-	 * @throws Exception
+	 * Test with multiple options.
+	 * @throws PersistenceLayerException 
 	 */
-	public void testMultiple() throws Exception
+	public void testMultiple() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		PCClass cl = new PCClass();
@@ -131,10 +133,9 @@ public class PreDomainTest extends AbstractCharacterTestCase
 	
 	/**
 	 * Test for any domain.
-	 * 
-	 * @throws Exception
+	 * @throws PersistenceLayerException 
 	 */
-	public void testAny() throws Exception
+	public void testAny() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		PCClass cl = new PCClass();

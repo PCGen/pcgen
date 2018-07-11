@@ -10,7 +10,6 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
@@ -106,7 +105,6 @@ public final class Compatibility
 
 	@Nullable
 	public static PersistentTransitionChoice<?> processOldAdd(LoadContext context, String first)
-		throws PersistenceLayerException
 	{
 		int openParenLoc = first.indexOf('(');
 		if (openParenLoc == -1)

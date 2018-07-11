@@ -150,7 +150,8 @@ public class PCGVer2ParserTest
 
 	/**
 	 * Test parsing of version line for broken 5.12RC1 version number.
-	 * @throws PCGParseException
+	 *
+	 * @throws PCGParseException the PCG parse exception
 	 */
 	@Test
 	public void test_1045596_8() throws PCGParseException
@@ -172,7 +173,8 @@ public class PCGVer2ParserTest
 
 	/**
 	 * Test that the currently specified version can be parsed.
-	 * @throws PCGParseException
+	 *
+	 * @throws PCGParseException the PCG parse exception
 	 */
 	@Test
 	public void testCurrVersion() throws PCGParseException

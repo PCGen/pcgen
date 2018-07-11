@@ -27,7 +27,6 @@ import pcgen.core.Ability;
 import pcgen.core.Language;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.ability.MultToken;
@@ -41,7 +40,7 @@ public class AutoLangListTest extends AbstractTokenModelTest
 {
 
 	@Test
-	public void testFromAbility() throws PersistenceLayerException
+	public void testFromAbility()
 	{
 		Ability source = BuildUtilities.buildFeat(context, "Source");
 		ParseResult result =
@@ -66,7 +65,7 @@ public class AutoLangListTest extends AbstractTokenModelTest
 	}
 
 	@Test
-	public void testFromRace() throws PersistenceLayerException
+	public void testFromRace()
 	{
 		Race source = create(Race.class, "Source");
 		Language granted = createGrantedObject();
@@ -81,7 +80,7 @@ public class AutoLangListTest extends AbstractTokenModelTest
 	}
 
 	@Test
-	public void testFromTemplate() throws PersistenceLayerException
+	public void testFromTemplate()
 	{
 		PCTemplate source = create(PCTemplate.class, "Source");
 		Language granted = createGrantedObject();

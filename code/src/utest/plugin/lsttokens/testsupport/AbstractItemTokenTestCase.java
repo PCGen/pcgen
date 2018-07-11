@@ -37,7 +37,7 @@ public abstract class AbstractItemTokenTestCase<T extends CDOMObject, TC extends
 	public abstract ObjectKey<CDOMSingleRef<TC>> getObjectKey();
 
 	@Test
-	public void testInvalidInputEmpty() throws PersistenceLayerException
+	public void testInvalidInputEmpty()
 	{
 		assertFalse(parse(""));
 		assertNull(primaryProf.get(getObjectKey()));
@@ -45,21 +45,21 @@ public abstract class AbstractItemTokenTestCase<T extends CDOMObject, TC extends
 	}
 
 	@Test
-	public void testInvalidInputString() throws PersistenceLayerException
+	public void testInvalidInputString()
 	{
 		assertTrue(parse("String"));
 		assertConstructionError();
 	}
 
 	@Test
-	public void testInvalidInputType() throws PersistenceLayerException
+	public void testInvalidInputType()
 	{
 		assertTrue(parse("TestType"));
 		assertConstructionError();
 	}
 
 	@Test
-	public void testInvalidInputJoinedComma() throws PersistenceLayerException
+	public void testInvalidInputJoinedComma()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -76,7 +76,7 @@ public abstract class AbstractItemTokenTestCase<T extends CDOMObject, TC extends
 	}
 
 	@Test
-	public void testInvalidInputJoinedPipe() throws PersistenceLayerException
+	public void testInvalidInputJoinedPipe()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -93,7 +93,7 @@ public abstract class AbstractItemTokenTestCase<T extends CDOMObject, TC extends
 	}
 
 	@Test
-	public void testInvalidInputJoinedDot() throws PersistenceLayerException
+	public void testInvalidInputJoinedDot()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -110,7 +110,7 @@ public abstract class AbstractItemTokenTestCase<T extends CDOMObject, TC extends
 	}
 
 	@Test
-	public void testInvalidInputAny() throws PersistenceLayerException
+	public void testInvalidInputAny()
 	{
 		try
 		{
@@ -127,7 +127,7 @@ public abstract class AbstractItemTokenTestCase<T extends CDOMObject, TC extends
 	}
 
 	@Test
-	public void testInvalidInputCheckType() throws PersistenceLayerException
+	public void testInvalidInputCheckType()
 	{
 		try
 		{
@@ -145,7 +145,7 @@ public abstract class AbstractItemTokenTestCase<T extends CDOMObject, TC extends
 	}
 
 	@Test
-	public void testReplacementInputs() throws PersistenceLayerException
+	public void testReplacementInputs()
 	{
 		String[] unparsed;
 		construct(primaryContext, "TestWP1");
@@ -169,7 +169,7 @@ public abstract class AbstractItemTokenTestCase<T extends CDOMObject, TC extends
 	}
 
 	@Test
-	public void testValidInputs() throws PersistenceLayerException
+	public void testValidInputs()
 	{
 		construct(primaryContext, "TestWP1");
 		assertTrue(parse("TestWP1"));
@@ -211,14 +211,14 @@ public abstract class AbstractItemTokenTestCase<T extends CDOMObject, TC extends
 
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.put(getObjectKey(), null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testUnparseLegal() throws PersistenceLayerException
+	public void testUnparseLegal()
 	{
 		CDOMSingleRef<TC> o = primaryContext.getReferenceContext().getCDOMReference(getTargetClass(), getLegalValue());
 		primaryProf.put(getObjectKey(), o);
@@ -227,7 +227,7 @@ public abstract class AbstractItemTokenTestCase<T extends CDOMObject, TC extends
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail() throws PersistenceLayerException
+	public void testUnparseGenericsFail()
 	{
 		ObjectKey objectKey = getObjectKey();
 		primaryProf.put(objectKey, new Object());

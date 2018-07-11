@@ -32,7 +32,6 @@ import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Equipment;
 import pcgen.core.ShieldProf;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import plugin.lsttokens.testsupport.AbstractAutoTokenTestCase;
@@ -103,7 +102,7 @@ public class ShieldProfTokenTest extends AbstractAutoTokenTestCase<ShieldProf>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail() throws PersistenceLayerException
+	public void testUnparseGenericsFail()
 	{
 		ListKey listKey = ListKey.AUTO_SHIELDPROF;
 		primaryProf.addToListFor(listKey, new Object());

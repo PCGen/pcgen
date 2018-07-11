@@ -89,14 +89,14 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 	}
 
 	@Test
-	public void testInvalidInputEmptyString() throws PersistenceLayerException
+	public void testInvalidInputEmptyString()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputOnlySubToken() throws PersistenceLayerException
+	public void testInvalidInputOnlySubToken()
 	{
 		assertFalse(parse(getSubTokenName()));
 		assertNoSideEffects();
@@ -104,14 +104,13 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidInputOnlySubTokenPipe()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse(getSubTokenName() + '|'));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputJoinOnly() throws PersistenceLayerException
+	public void testInvalidInputJoinOnly()
 	{
 		assertFalse(parse(getSubTokenName() + '|'
 				+ Character.toString(getJoinCharacter())));
@@ -119,14 +118,14 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 	}
 
 	@Test
-	public void testInvalidInputString() throws PersistenceLayerException
+	public void testInvalidInputString()
 	{
 		assertTrue(parse(getSubTokenName() + '|' + "String"));
 		assertConstructionError();
 	}
 
 	@Test
-	public void testInvalidInputType() throws PersistenceLayerException
+	public void testInvalidInputType()
 	{
 		assertTrue(parse(getSubTokenName() + '|' + "TestType"));
 		assertConstructionError();
@@ -151,7 +150,7 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 	// }
 
 	 @Test
-	public void testInvalidTooManyPipe() throws PersistenceLayerException
+	public void testInvalidTooManyPipe()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -167,7 +166,7 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 	}
 
 	@Test
-	public void testInvalidInputJoinedDot() throws PersistenceLayerException
+	public void testInvalidInputJoinedDot()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -177,7 +176,6 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidInputNegativeFormula()
-			throws PersistenceLayerException
 	{
 		if (allowsFormula())
 		{
@@ -188,7 +186,7 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 	}
 
 	@Test
-	public void testInvalidInputZeroFormula() throws PersistenceLayerException
+	public void testInvalidInputZeroFormula()
 	{
 		if (allowsFormula())
 		{
@@ -199,7 +197,7 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 	}
 
 	@Test
-	public void testInvalidInputTypeEmpty() throws PersistenceLayerException
+	public void testInvalidInputTypeEmpty()
 	{
 		if (isTypeLegal())
 		{
@@ -211,7 +209,6 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidInputTypeUnterminated()
-			throws PersistenceLayerException
 	{
 		if (isTypeLegal())
 		{
@@ -223,7 +220,6 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidInputClearDotTypeDoubleSeparator()
-			throws PersistenceLayerException
 	{
 		if (isTypeLegal())
 		{
@@ -235,7 +231,6 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidInputClearDotTypeFalseStart()
-			throws PersistenceLayerException
 	{
 		if (isTypeLegal())
 		{
@@ -246,7 +241,7 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 	}
 
 	@Test
-	public void testInvalidInputAll() throws PersistenceLayerException
+	public void testInvalidInputAll()
 	{
 		if (!isAllLegal())
 		{
@@ -272,7 +267,7 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 	}
 
 	@Test
-	public void testInvalidInputTypeEquals() throws PersistenceLayerException
+	public void testInvalidInputTypeEquals()
 	{
 		if (!isTypeLegal())
 		{
@@ -299,7 +294,7 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 	}
 
 	@Test
-	public void testInvalidInputAny() throws PersistenceLayerException
+	public void testInvalidInputAny()
 	{
 		if (!isAllLegal())
 		{
@@ -324,7 +319,7 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 	}
 
 	@Test
-	public void testInvalidInputCheckType() throws PersistenceLayerException
+	public void testInvalidInputCheckType()
 	{
 		if (!isTypeLegal())
 		{
@@ -350,7 +345,7 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 	}
 
 	@Test
-	public void testInvalidDoubleList() throws PersistenceLayerException
+	public void testInvalidDoubleList()
 	{
 		if (allowsParenAsSub())
 		{
@@ -370,7 +365,7 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 	}
 
 	@Test
-	public void testInvalidListEnd() throws PersistenceLayerException
+	public void testInvalidListEnd()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse(getSubTokenName() + '|' + "TestWP1"
@@ -379,7 +374,7 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 	}
 
 	@Test
-	public void testInvalidListStart() throws PersistenceLayerException
+	public void testInvalidListStart()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse(getSubTokenName() + '|' + getJoinCharacter()
@@ -388,7 +383,7 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 	}
 
 	@Test
-	public void testInvalidListDoubleJoin() throws PersistenceLayerException
+	public void testInvalidListDoubleJoin()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -398,7 +393,7 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 	}
 
 	@Test
-	public void testInvalidInputCheckMult() throws PersistenceLayerException
+	public void testInvalidInputCheckMult()
 	{
 		// Explicitly do NOT build TestWP2
 		construct(primaryContext, "TestWP1");
@@ -409,7 +404,6 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidInputCheckTypeEqualLength()
-			throws PersistenceLayerException
 	{
 		// Explicitly do NOT build TestWP2 (this checks that the TYPE= doesn't
 		// consume the |
@@ -425,7 +419,6 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidInputCheckTypeDotLength()
-			throws PersistenceLayerException
 	{
 		// Explicitly do NOT build TestWP2 (this checks that the TYPE= doesn't
 		// consume the |
@@ -441,7 +434,7 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 	}
 
 	@Test
-	public void testValidInputTestDot() throws PersistenceLayerException
+	public void testValidInputTestDot()
 	{
 		if (isTypeLegal())
 		{
@@ -605,7 +598,7 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 	}
 
 	@Test
-	public void testInvalidInputAnyItem() throws PersistenceLayerException
+	public void testInvalidInputAnyItem()
 	{
 		if (isAllLegal())
 		{
@@ -617,7 +610,7 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 	}
 
 	@Test
-	public void testInvalidInputItemAny() throws PersistenceLayerException
+	public void testInvalidInputItemAny()
 	{
 		if (isAllLegal())
 		{
@@ -629,7 +622,7 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 	}
 
 	@Test
-	public void testInvalidInputAnyType() throws PersistenceLayerException
+	public void testInvalidInputAnyType()
 	{
 		if (isTypeLegal() && isAllLegal())
 		{
@@ -640,7 +633,7 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 	}
 
 	@Test
-	public void testInvalidInputTypeAny() throws PersistenceLayerException
+	public void testInvalidInputTypeAny()
 	{
 		if (isTypeLegal() && isAllLegal())
 		{
@@ -652,7 +645,6 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInputInvalidAddsTypeNoSideEffect()
-			throws PersistenceLayerException
 	{
 		if (isTypeLegal())
 		{
@@ -674,7 +666,6 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInputInvalidAddsBasicNoSideEffect()
-			throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
@@ -695,7 +686,6 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInputInvalidAddsAllNoSideEffect()
-			throws PersistenceLayerException
 	{
 		if (isAllLegal())
 		{

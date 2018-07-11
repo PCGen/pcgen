@@ -28,7 +28,8 @@ public class PrereqHandlerTest extends AbstractCharacterTestCase
 	/**
 	 * Test the passes method. Currently this concentrates on making sure
 	 * the invert result is working.
-	 * @throws PersistenceLayerException
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	public void testPasses() throws PersistenceLayerException
 	{
@@ -56,8 +57,9 @@ public class PrereqHandlerTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Tests PREFEAT
-	 * @throws PersistenceLayerException
+	 * Tests PREFEAT.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	public void testFeatPasses() throws PersistenceLayerException
 	{

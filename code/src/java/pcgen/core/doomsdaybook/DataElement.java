@@ -21,18 +21,21 @@ import java.util.ArrayList;
 
 public interface DataElement
 {
+	
 	/**
-	 * Get Data
+	 * Get Data.
+	 *
 	 * @return ArrayList
-	 * @throws Exception
+	 * @throws Exception the exception
 	 */
 	public ArrayList<DataValue> getData() throws Exception;
 
 	/**
-	 * Get data
-	 * @param choice
+	 * Get data.
+	 *
+	 * @param choice the choice
 	 * @return ArrayList
-	 * @throws Exception
+	 * @throws Exception the exception
 	 */
 	public ArrayList<DataValue> getData(int choice) throws Exception;
 
@@ -43,9 +46,10 @@ public interface DataElement
 	public String getId();
 
 	/**
-	 * Get last data
+	 * Get last data.
+	 *
 	 * @return last data
-	 * @throws Exception
+	 * @throws Exception the exception
 	 */
 	public ArrayList<DataValue> getLastData() throws Exception;
 

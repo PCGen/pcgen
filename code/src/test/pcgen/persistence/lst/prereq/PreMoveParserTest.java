@@ -11,6 +11,7 @@ import org.junit.Test;
 
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.persistence.PersistenceLayerException;
 import plugin.pretokens.parser.PreMoveParser;
 
 /**
@@ -21,11 +22,14 @@ import plugin.pretokens.parser.PreMoveParser;
 @SuppressWarnings("nls")
 public class PreMoveParserTest extends EnUsLocaleDependentTestCase
 {
+	
 	/**
-	 * @throws Exception
+	 * Test fly 1.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testFly1() throws Exception
+	public void testFly1() throws PersistenceLayerException
 	{
 		PreMoveParser parser = new PreMoveParser();
 		Prerequisite prereq = parser.parse("MOVE", "1,Fly=1", false, false);
@@ -35,11 +39,14 @@ public class PreMoveParserTest extends EnUsLocaleDependentTestCase
 			prereq.toString());
 	}
 
+	
 	/**
-	 * @throws Exception
+	 * Test fly and walk.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testFlyAndWalk() throws Exception
+	public void testFlyAndWalk() throws PersistenceLayerException
 	{
 		PreMoveParser parser = new PreMoveParser();
 		Prerequisite prereq =
@@ -53,11 +60,14 @@ public class PreMoveParserTest extends EnUsLocaleDependentTestCase
 				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 	}
 
+	
 	/**
-	 * @throws Exception
+	 * Test not fly 1.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testNotFly1() throws Exception
+	public void testNotFly1() throws PersistenceLayerException
 	{
 		PreMoveParser parser = new PreMoveParser();
 		Prerequisite prereq = parser.parse("MOVE", "1,Fly=1", true, false);
@@ -67,11 +77,14 @@ public class PreMoveParserTest extends EnUsLocaleDependentTestCase
 			prereq.toString());
 	}
 
+	
 	/**
-	 * @throws Exception
+	 * Test not fly and walk.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testNotFlyAndWalk() throws Exception
+	public void testNotFlyAndWalk() throws PersistenceLayerException
 	{
 		PreMoveParser parser = new PreMoveParser();
 		Prerequisite prereq =

@@ -20,7 +20,6 @@ package plugin.lsttokens.equipmentmodifier;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.EquipmentModifier;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTypeSafeListTestCase;
@@ -90,12 +89,12 @@ public class ReplacesTokenTest extends
 
 	//TODO 514 behavior, to be changed after 5.16?
 	@Override
-	public void testReplacementInputs() throws PersistenceLayerException
+	public void testReplacementInputs()
 	{
 	}
 
 	@Override
-	public void testReplacementInputsTwo() throws PersistenceLayerException
+	public void testReplacementInputsTwo()
 	{
 	}
 

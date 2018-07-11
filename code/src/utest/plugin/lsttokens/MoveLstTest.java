@@ -59,42 +59,42 @@ public class MoveLstTest extends AbstractGlobalTokenTestCase
 //	}
 
 	@Test
-	public void testInvalidInputEmpty() throws PersistenceLayerException
+	public void testInvalidInputEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputOneItem() throws PersistenceLayerException
+	public void testInvalidInputOneItem()
 	{
 		assertFalse(parse("Normal"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNoValue() throws PersistenceLayerException
+	public void testInvalidInputNoValue()
 	{
 		assertFalse(parse("Normal,"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputOnlyValue() throws PersistenceLayerException
+	public void testInvalidInputOnlyValue()
 	{
 		assertFalse(parse(",30"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputTwoComma() throws PersistenceLayerException
+	public void testInvalidInputTwoComma()
 	{
 		assertFalse(parse("Normal,,30"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputThreeItems() throws PersistenceLayerException
+	public void testInvalidInputThreeItems()
 	{
 		assertFalse(parse("Normal,30,Darkvision"));
 		assertNoSideEffects();
@@ -102,7 +102,6 @@ public class MoveLstTest extends AbstractGlobalTokenTestCase
 
 	@Test
 	public void testInvalidInputNegativeMovement()
-		throws PersistenceLayerException
 	{
 		assertFalse(parse("Normal,-30"));
 		assertNoSideEffects();
@@ -110,7 +109,6 @@ public class MoveLstTest extends AbstractGlobalTokenTestCase
 
 	@Test
 	public void testInvalidInputNaNMovement()
-		throws PersistenceLayerException
 	{
 		assertFalse(parse("Normal,Foo"));
 		assertNoSideEffects();
@@ -118,7 +116,6 @@ public class MoveLstTest extends AbstractGlobalTokenTestCase
 
 	@Test
 	public void testValidInputNumber()
-		throws PersistenceLayerException
 	{
 		assertTrue(parse("30"));
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf);

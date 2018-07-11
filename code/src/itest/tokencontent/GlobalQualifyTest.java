@@ -28,7 +28,6 @@ import pcgen.core.PCCheck;
 import pcgen.core.PCStat;
 import pcgen.core.Race;
 import pcgen.core.character.CompanionMod;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.QualifyToken;
@@ -96,7 +95,7 @@ public class GlobalQualifyTest extends AbstractContentTokenTest
 
 	@Override
 	@Test
-	public void testFromAlignment() throws PersistenceLayerException
+	public void testFromAlignment()
 	{
 		PCAlignment source = create(PCAlignment.class, "Source");
 		ParseResult result = token.parseToken(context, source, "RACE|Dwarf");
@@ -105,7 +104,7 @@ public class GlobalQualifyTest extends AbstractContentTokenTest
 
 	@Override
 	@Test
-	public void testFromCampaign() throws PersistenceLayerException
+	public void testFromCampaign()
 	{
 		Campaign source = create(Campaign.class, "Source");
 		ParseResult result = token.parseToken(context, source, "RACE|Dwarf");
@@ -114,7 +113,7 @@ public class GlobalQualifyTest extends AbstractContentTokenTest
 
 	@Override
 	@Test
-	public void testFromCompanionMod() throws PersistenceLayerException
+	public void testFromCompanionMod()
 	{
 		CompanionList cat = create(CompanionList.class, "Category");
 		context.getReferenceContext().importObject(cat);
@@ -127,7 +126,7 @@ public class GlobalQualifyTest extends AbstractContentTokenTest
 
 	@Override
 	@Test
-	public void testFromEqMod() throws PersistenceLayerException
+	public void testFromEqMod()
 	{
 		EquipmentModifier source = create(EquipmentModifier.class, "Source");
 		ParseResult result = token.parseToken(context, source, "RACE|Dwarf");
@@ -136,7 +135,7 @@ public class GlobalQualifyTest extends AbstractContentTokenTest
 
 	@Override
 	@Test
-	public void testFromCheck() throws PersistenceLayerException
+	public void testFromCheck()
 	{
 		PCCheck source = create(PCCheck.class, "Source");
 		ParseResult result = token.parseToken(context, source, "RACE|Dwarf");
@@ -145,7 +144,7 @@ public class GlobalQualifyTest extends AbstractContentTokenTest
 
 	@Override
 	@Test
-	public void testFromStat() throws PersistenceLayerException
+	public void testFromStat()
 	{
 		PCStat source = create(PCStat.class, "Source");
 		ParseResult result = token.parseToken(context, source, "RACE|Dwarf");

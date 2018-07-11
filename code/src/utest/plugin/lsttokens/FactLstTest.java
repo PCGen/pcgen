@@ -68,14 +68,14 @@ public class FactLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidInputOnlyNumber() throws PersistenceLayerException
+	public void testInvalidInputOnlyNumber()
 	{
 		assertFalse(parse("Possibility"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNotAFact() throws PersistenceLayerException
+	public void testInvalidInputNotAFact()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("NaN|TestWP1"));
@@ -83,14 +83,14 @@ public class FactLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidNoTarget() throws PersistenceLayerException
+	public void testInvalidNoTarget()
 	{
 		assertFalse(parse("Possibility|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNoFact() throws PersistenceLayerException
+	public void testInvalidNoFact()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("|TestWP1"));
@@ -98,7 +98,7 @@ public class FactLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidDoublePipe() throws PersistenceLayerException
+	public void testInvalidDoublePipe()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("Possibility||TestWP1"));
@@ -106,7 +106,7 @@ public class FactLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidInputStrange() throws PersistenceLayerException
+	public void testInvalidInputStrange()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -115,7 +115,7 @@ public class FactLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidEnd() throws PersistenceLayerException
+	public void testInvalidEnd()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("Possibility|TestWP1|"));
@@ -123,7 +123,7 @@ public class FactLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidTooManyPipes() throws PersistenceLayerException
+	public void testInvalidTooManyPipes()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -132,7 +132,7 @@ public class FactLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidDoubleJoin() throws PersistenceLayerException
+	public void testInvalidDoubleJoin()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("Possibility||TestWP1"));
@@ -140,7 +140,7 @@ public class FactLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testValidInputs() throws PersistenceLayerException
+	public void testValidInputs()
 	{
 		construct(primaryContext, "TestWP1");
 		assertTrue(parse("Possibility|TestWP1"));

@@ -70,56 +70,56 @@ public class TempValueLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidInputEmpty() throws PersistenceLayerException
+	public void testInvalidInputEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputSingle() throws PersistenceLayerException
+	public void testInvalidInputSingle()
 	{
 		assertFalse(parse("buffalo"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputTwo() throws PersistenceLayerException
+	public void testInvalidInputTwo()
 	{
 		assertFalse(parse("a|b"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputThree() throws PersistenceLayerException
+	public void testInvalidInputThree()
 	{
 		assertFalse(parse("a|b|c"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputOrder() throws PersistenceLayerException
+	public void testInvalidInputOrder()
 	{
 		assertFalse(parse("MAX=7|MIN=1|TITLE=Foo"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputOrder2() throws PersistenceLayerException
+	public void testInvalidInputOrder2()
 	{
 		assertFalse(parse("MIN=1|TITLE=Foo|MAX=7"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNoTitle() throws PersistenceLayerException
+	public void testInvalidInputNoTitle()
 	{
 		assertFalse(parse("MIN=1|MAX=7|Foo"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputFour() throws PersistenceLayerException
+	public void testInvalidInputFour()
 	{
 		assertFalse(parse("MIN=1|MAX=7|TITLE=Foo|Extra"));
 		assertNoSideEffects();

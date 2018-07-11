@@ -64,13 +64,13 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<Kit>
 	}
 
 	@Test
-	public void testInvalidInputString() throws PersistenceLayerException
+	public void testInvalidInputString()
 	{
 		internalTestInvalidInputString(null);
 	}
 
 	@Test
-	public void testInvalidInputStringSet() throws PersistenceLayerException
+	public void testInvalidInputStringSet()
 	{
 		assertTrue(parse("QUALIFY"));
 		assertTrue(parseSecondary("QUALIFY"));
@@ -79,7 +79,6 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<Kit>
 	}
 
 	public void internalTestInvalidInputString(Object val)
-			throws PersistenceLayerException
 	{
 		assertEquals(val, primaryProf.get(ObjectKey.VISIBILITY));
 		assertFalse(parse("Always"));
@@ -97,7 +96,7 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<Kit>
 	}
 
 	@Test
-	public void testValidInputs() throws PersistenceLayerException
+	public void testValidInputs()
 	{
 		assertTrue(parse("QUALIFY"));
 		assertEquals(Visibility.QUALIFY, primaryProf.get(ObjectKey.VISIBILITY));

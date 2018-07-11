@@ -76,7 +76,7 @@ public class SpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidNotAStat() throws PersistenceLayerException
+	public void testInvalidNotAStat()
 	{
 		if (parse("NAN"))
 		{
@@ -89,7 +89,7 @@ public class SpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidMultipleStatComma() throws PersistenceLayerException
+	public void testInvalidMultipleStatComma()
 	{
 		if (parse("STR,INT"))
 		{
@@ -102,7 +102,7 @@ public class SpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidMultipleStatBar() throws PersistenceLayerException
+	public void testInvalidMultipleStatBar()
 	{
 		if (parse("STR|INT"))
 		{
@@ -115,7 +115,7 @@ public class SpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidMultipleStatDot() throws PersistenceLayerException
+	public void testInvalidMultipleStatDot()
 	{
 		if (parse("STR.INT"))
 		{
@@ -164,7 +164,7 @@ public class SpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testOverwriteStrSpell() throws PersistenceLayerException
+	public void testOverwriteStrSpell()
 	{
 		parse("STR");
 		validateUnparsed(primaryContext, primaryProf, "STR");
@@ -174,7 +174,7 @@ public class SpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testOverwriteStrOther() throws PersistenceLayerException
+	public void testOverwriteStrOther()
 	{
 		parse("STR");
 		validateUnparsed(primaryContext, primaryProf, "STR");
@@ -184,7 +184,7 @@ public class SpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testOverwriteSpellOther() throws PersistenceLayerException
+	public void testOverwriteSpellOther()
 	{
 		parse("SPELL");
 		validateUnparsed(primaryContext, primaryProf, "SPELL");
@@ -194,7 +194,7 @@ public class SpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testOverwriteSpellStr() throws PersistenceLayerException
+	public void testOverwriteSpellStr()
 	{
 		parse("SPELL");
 		validateUnparsed(primaryContext, primaryProf, "SPELL");
@@ -204,7 +204,7 @@ public class SpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testOverwriteOtherStr() throws PersistenceLayerException
+	public void testOverwriteOtherStr()
 	{
 		parse("OTHER");
 		validateUnparsed(primaryContext, primaryProf, "OTHER");
@@ -214,7 +214,7 @@ public class SpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testOverwriteOtherSpell() throws PersistenceLayerException
+	public void testOverwriteOtherSpell()
 	{
 		parse("OTHER");
 		validateUnparsed(primaryContext, primaryProf, "OTHER");
@@ -224,7 +224,7 @@ public class SpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.put(getObjectKey(), null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
@@ -237,7 +237,7 @@ public class SpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFailHas() throws PersistenceLayerException
+	public void testUnparseGenericsFailHas()
 	{
 		ObjectKey objectKey = ObjectKey.USE_SPELL_SPELL_STAT;
 		primaryProf.put(objectKey, new Object());
@@ -253,7 +253,7 @@ public class SpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseSpell() throws PersistenceLayerException
+	public void testUnparseSpell()
 	{
 		primaryProf.put(ObjectKey.USE_SPELL_SPELL_STAT, true);
 		expectSingle(getToken().unparse(primaryContext, primaryProf), "SPELL");
@@ -293,7 +293,6 @@ public class SpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	@SuppressWarnings("unchecked")
 	@Test
 	public void testUnparseGenericsFailCaster()
-			throws PersistenceLayerException
 	{
 		primaryProf.put(ObjectKey.USE_SPELL_SPELL_STAT, false);
 		ObjectKey objectKey = ObjectKey.CASTER_WITHOUT_SPELL_STAT;
@@ -310,14 +309,14 @@ public class SpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseIncompleteSpell() throws PersistenceLayerException
+	public void testUnparseIncompleteSpell()
 	{
 		primaryProf.put(ObjectKey.USE_SPELL_SPELL_STAT, false);
 		assertBadUnparse();
 	}
 
 	@Test
-	public void testUnparseOther() throws PersistenceLayerException
+	public void testUnparseOther()
 	{
 		primaryProf.put(ObjectKey.USE_SPELL_SPELL_STAT, false);
 		primaryProf.put(ObjectKey.CASTER_WITHOUT_SPELL_STAT, true);
@@ -325,7 +324,7 @@ public class SpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseIncompleteOther() throws PersistenceLayerException
+	public void testUnparseIncompleteOther()
 	{
 		primaryProf.put(ObjectKey.USE_SPELL_SPELL_STAT, false);
 		primaryProf.put(ObjectKey.CASTER_WITHOUT_SPELL_STAT, false);
@@ -333,7 +332,7 @@ public class SpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseLegal() throws PersistenceLayerException
+	public void testUnparseLegal()
 	{
 		primaryProf.put(ObjectKey.USE_SPELL_SPELL_STAT, false);
 		primaryProf.put(ObjectKey.CASTER_WITHOUT_SPELL_STAT, false);
@@ -344,7 +343,7 @@ public class SpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFailStat() throws PersistenceLayerException
+	public void testUnparseGenericsFailStat()
 	{
 		ObjectKey objectKey = getObjectKey();
 		primaryProf.put(objectKey, new Object());

@@ -402,28 +402,20 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 				return;
 			}
 		}
-		try
+		if (pdf)
 		{
-			if (pdf)
-			{
-				new PDFExporter(outFile, extension, name).execute();
-			}
-			else
-			{
-				if (!printToFile(outFile))
-				{
-					String message = "The character export failed. Please see the log for details.";
-					pcgenFrame.showErrorMessage(Constants.APPLICATION_NAME, message);
-					return;
-				}
-				maybeOpenFile(outFile);
-				Globals.executePostExportCommandStandard(outFile.getAbsolutePath());
-			}
+			new PDFExporter(outFile, extension, name).execute();
 		}
-		catch (IOException ex)
+		else
 		{
-			pcgenFrame.showErrorMessage("PCGen", "Could not export " + name + ". Try another filename.");
-			Logging.errorPrint("Could not export " + name, ex);
+			if (!printToFile(outFile))
+			{
+				String message = "The character export failed. Please see the log for details.";
+				pcgenFrame.showErrorMessage(Constants.APPLICATION_NAME, message);
+				return;
+			}
+			maybeOpenFile(outFile);
+			Globals.executePostExportCommandStandard(outFile.getAbsolutePath());
 		}
 	}
 
@@ -491,7 +483,7 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 		return new File(osPath.resolve(uri));
 	}
 
-	private boolean printToFile(File outFile) throws IOException
+	private boolean printToFile(File outFile)
 	{
 		File template = getSelectedTemplate();
 

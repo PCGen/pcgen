@@ -78,49 +78,49 @@ public class BenefitTokenTest extends AbstractCDOMTokenTestCase<Ability>
 	}
 
 	@Test
-	public void testInvalidDoublePipe() throws PersistenceLayerException
+	public void testInvalidDoublePipe()
 	{
 		assertFalse(parse("SA Number %||VarF"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEndingPipe() throws PersistenceLayerException
+	public void testInvalidEndingPipe()
 	{
 		assertFalse(parse("SA Number|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidStartingPipe() throws PersistenceLayerException
+	public void testInvalidStartingPipe()
 	{
 		assertFalse(parse("|Var"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidPre() throws PersistenceLayerException
+	public void testInvalidPre()
 	{
 		assertFalse(parse("SA Number One|PREFOO:1,Fighter=1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidVarAfterPre() throws PersistenceLayerException
+	public void testInvalidVarAfterPre()
 	{
 		assertFalse(parse("SA % plus %|Var|PRECLASS:1,Fighter|Var2"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidParen() throws PersistenceLayerException
+	public void testInvalidParen()
 	{
 		assertFalse(parse("The caster gains attack, damage bonus, +(min(6,(CASTERLEVEL/3))."));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidOnlyPre() throws PersistenceLayerException
+	public void testInvalidOnlyPre()
 	{
 		assertFalse(parse("PRECLASS:1,Fighter"));
 		assertNoSideEffects();

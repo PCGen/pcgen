@@ -52,7 +52,7 @@ public class DataTypeTokenTest extends TestCase
 	protected static CampaignSourceEntry testCampaign;
 
 	@BeforeClass
-	public static void classSetUp() throws URISyntaxException
+	public static void classSetUp()
 	{
 		testCampaign =
 				new CampaignSourceEntry(new Campaign(), TestURI.getURI());
@@ -84,13 +84,13 @@ public class DataTypeTokenTest extends TestCase
 	}
 
 	@Test
-	public void testInvalidInputNullString() throws PersistenceLayerException
+	public void testInvalidInputNullString()
 	{
 		assertFalse(token.parseToken(context, cd, null).passed());
 	}
 
 	@Test
-	public void testInvalidInputEmptyString() throws PersistenceLayerException
+	public void testInvalidInputEmptyString()
 	{
 		try
 		{
@@ -103,7 +103,7 @@ public class DataTypeTokenTest extends TestCase
 	}
 
 	@Test
-	public void testInvalidInputNotAType() throws PersistenceLayerException
+	public void testInvalidInputNotAType()
 	{
 		try
 		{
@@ -116,7 +116,7 @@ public class DataTypeTokenTest extends TestCase
 	}
 
 	@Test
-	public void testValidStringString() throws PersistenceLayerException
+	public void testValidStringString()
 	{
 		assertNull(cd.getFormatManager());
 		assertTrue(token.parseToken(context, cd, "STRING").passed());
@@ -129,7 +129,7 @@ public class DataTypeTokenTest extends TestCase
 	}
 
 	@Test
-	public void testValidStringNo() throws PersistenceLayerException
+	public void testValidStringNo()
 	{
 		assertNull(cd.getFormatManager());
 		assertTrue(token.parseToken(context, cd, "ORDEREDPAIR").passed());

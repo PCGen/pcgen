@@ -27,7 +27,6 @@ import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.GrantedAbilityFacet;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.core.Ability;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.AbilityLst;
@@ -75,7 +74,7 @@ public class AbilityDepthTest extends AbstractTokenModelTest
 	}
 
 	@Override
-	protected void setUpContext() throws PersistenceLayerException
+	protected void setUpContext()
 	{
 		super.setUpContext();
 		TokenRegistration.register(ABILITY_LST);

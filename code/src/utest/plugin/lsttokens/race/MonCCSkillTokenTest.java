@@ -126,7 +126,7 @@ public class MonCCSkillTokenTest extends
 	}
 
 	@Test
-	public void testInvalidInputAllPattern() throws PersistenceLayerException
+	public void testInvalidInputAllPattern()
 	{
 		assertFalse(parse("ALL" + getJoinCharacter() + "Pattern%"));
 		assertNoSideEffects();

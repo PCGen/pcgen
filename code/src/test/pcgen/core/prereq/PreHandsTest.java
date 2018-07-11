@@ -24,6 +24,7 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
@@ -46,10 +47,11 @@ public class PreHandsTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test the PREHANDS code
-	 * @throws Exception
+	 * Test the PREHANDS code.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testHands() throws Exception
+	public void testHands() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		Race race = new Race();

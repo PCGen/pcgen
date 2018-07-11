@@ -76,14 +76,14 @@ public class StringTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	}
 
 	@Test
-	public void testInvalidInputEmptyString() throws PersistenceLayerException
+	public void testInvalidInputEmptyString()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputOnlySubToken() throws PersistenceLayerException
+	public void testInvalidInputOnlySubToken()
 	{
 		assertFalse(parse(getSubTokenName()));
 		assertNoSideEffects();
@@ -91,14 +91,13 @@ public class StringTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 
 	@Test
 	public void testInvalidInputOnlySubTokenPipe()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse(getSubTokenName() + '|'));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputJoinOnly() throws PersistenceLayerException
+	public void testInvalidInputJoinOnly()
 	{
 		assertFalse(parse(getSubTokenName() + "|,"));
 		assertNoSideEffects();
@@ -110,28 +109,28 @@ public class StringTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	}
 
 	@Test
-	public void testInvalidListEndPipe() throws PersistenceLayerException
+	public void testInvalidListEndPipe()
 	{
 		assertFalse(parse(getSubTokenName() + '|' + "TestWP1|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidListEndComma() throws PersistenceLayerException
+	public void testInvalidListEndComma()
 	{
 		assertFalse(parse(getSubTokenName() + '|' + "TestWP1,"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidListStartPipe() throws PersistenceLayerException
+	public void testInvalidListStartPipe()
 	{
 		assertFalse(parse(getSubTokenName() + '|' + "|TestWP1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidListStartComma() throws PersistenceLayerException
+	public void testInvalidListStartComma()
 	{
 		assertFalse(parse(getSubTokenName() + '|' + ",TestWP1"));
 		assertNoSideEffects();
@@ -139,7 +138,6 @@ public class StringTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 
 	@Test
 	public void testInvalidListDoubleJoinPipe()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse(getSubTokenName() + '|' + "TestWP2||TestWP1"));
 		assertNoSideEffects();
@@ -147,14 +145,13 @@ public class StringTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 
 	@Test
 	public void testInvalidListDoubleJoinComma()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse(getSubTokenName() + '|' + "TYPE=Foo,,!TYPE=Bar"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testValidInputs() throws PersistenceLayerException
+	public void testValidInputs()
 	{
 		assertTrue(parse(getSubTokenName() + '|' + "TestWP1"));
 		assertCleanConstruction();
@@ -182,7 +179,6 @@ public class StringTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 
 	@Test
 	public void testInputInvalidAddsBasicNoSideEffect()
-			throws PersistenceLayerException
 	{
 		assertTrue(parse(getSubTokenName() + '|' + "TestWP1|TestWP2"));
 		assertTrue(parseSecondary(getSubTokenName() + '|' + "TestWP1|TestWP2"));
@@ -191,7 +187,7 @@ public class StringTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.put(getObjectKey(), null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
@@ -203,7 +199,7 @@ public class StringTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	}
 
 	@Test
-	public void testUnparseLegal() throws PersistenceLayerException
+	public void testUnparseLegal()
 	{
 		assertGoodChoose("TestWP1|TestWP2");
 	}
@@ -230,7 +226,7 @@ public class StringTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail() throws PersistenceLayerException
+	public void testUnparseGenericsFail()
 	{
 		ObjectKey objectKey = getObjectKey();
 		primaryProf.put(objectKey, new Object());
@@ -264,7 +260,7 @@ public class StringTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	}
 
 	@Test
-	public void testInvalidInputNoBrackets() throws PersistenceLayerException
+	public void testInvalidInputNoBrackets()
 	{
 		assertFalse(parse("STRING|Sorry No [Brackets]"));
 		assertNoSideEffects();

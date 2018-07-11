@@ -206,8 +206,9 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test the behaviour of the weapon loop
-	 * @throws IOException
+	 * Test the behavior of the weapon loop.
+	 *
+	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
 	public void testWpnLoop() throws IOException
 	{
@@ -227,10 +228,10 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 
 	/**
 	 * Test the export of equipment using the eqtype token in a loop.
-	 * 
-	 * @throws Exception
+	 *
+	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
-	public void testEqtypeLoop() throws Exception
+	public void testEqtypeLoop() throws IOException
 	{
 		PlayerCharacter character = getCharacter();
 		final String gemLoop =

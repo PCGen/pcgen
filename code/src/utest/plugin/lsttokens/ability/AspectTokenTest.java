@@ -63,48 +63,48 @@ public class AspectTokenTest extends AbstractCDOMTokenTestCase<Ability>
 	}
 
 	@Test
-	public void testInvalidNoPipe() throws PersistenceLayerException
+	public void testInvalidNoPipe()
 	{
 		assertFalse(parse("NoPipe"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testValidTwoPipe() throws PersistenceLayerException
+	public void testValidTwoPipe()
 	{
 		assertTrue(parse("One|Two|Three"));
 	}
 
 	@Test
-	public void testInvalidDoublePipe() throws PersistenceLayerException
+	public void testInvalidDoublePipe()
 	{
 		assertFalse(parse("Two||Pipe"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmpty() throws PersistenceLayerException
+	public void testInvalidEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidOnlyPipe() throws PersistenceLayerException
+	public void testInvalidOnlyPipe()
 	{
 		assertFalse(parse("|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyKey() throws PersistenceLayerException
+	public void testInvalidEmptyKey()
 	{
 		assertFalse(parse("|Value"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyValue() throws PersistenceLayerException
+	public void testInvalidEmptyValue()
 	{
 		assertFalse(parse("Key|"));
 		assertNoSideEffects();

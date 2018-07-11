@@ -58,7 +58,7 @@ public class BioTokenTest extends AbstractCharacterTestCase
 
 	/**
 	 * Test the bio export
-	 * @throws Exception
+	 * @throws Exception  Signals that an I/O exception has occurred.
 	 */
 	public void testBioExport() throws Exception
 	{
@@ -100,6 +100,14 @@ public class BioTokenTest extends AbstractCharacterTestCase
 		assertEquals("New Style Bio start only", expected, actual);
 	}
 
+	/**
+	 * Evaluate token.
+	 *
+	 * @param token the token
+	 * @param pc the pc
+	 * @return the string
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	private String evaluateToken(String token, PlayerCharacter pc)
 		throws IOException
 	{

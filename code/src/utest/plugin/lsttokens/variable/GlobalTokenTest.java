@@ -63,7 +63,7 @@ public class GlobalTokenTest extends AbstractTokenTestCase<DatasetVariable>
 	}
 
 	@Test
-	public void testDisplayNameProhibited() throws PersistenceLayerException
+	public void testDisplayNameProhibited()
 	{
 		DatasetVariable dv = new DatasetVariable();
 		dv.setName("FirstName");
@@ -73,61 +73,61 @@ public class GlobalTokenTest extends AbstractTokenTestCase<DatasetVariable>
 	}
 
 	@Test
-	public void testInvalidBadName() throws PersistenceLayerException
+	public void testInvalidBadName()
 	{
 		assertFalse(parse("Bad-Name"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testValidBasic() throws PersistenceLayerException
+	public void testValidBasic()
 	{
 		assertTrue(parse("IsANumberVar"));
 	}
 
 	@Test
-	public void testValidFormatted() throws PersistenceLayerException
+	public void testValidFormatted()
 	{
 		assertTrue(parse("NUMBER=IsANumberVar"));
 	}
 
 	@Test
-	public void testInvalidDoubleEqual() throws PersistenceLayerException
+	public void testInvalidDoubleEqual()
 	{
 		assertFalse(parse("STRING==Pipe"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmpty() throws PersistenceLayerException
+	public void testInvalidEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidOnlyEqual() throws PersistenceLayerException
+	public void testInvalidOnlyEqual()
 	{
 		assertFalse(parse("="));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyFormat() throws PersistenceLayerException
+	public void testInvalidEmptyFormat()
 	{
 		assertFalse(parse("=Value"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyVarName() throws PersistenceLayerException
+	public void testInvalidEmptyVarName()
 	{
 		assertFalse(parse("NUMBER="));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidDupeVarName() throws PersistenceLayerException
+	public void testInvalidDupeVarName()
 	{
 		DatasetVariable dv = new DatasetVariable();
 		ParseResult pr = token.parseToken(primaryContext, dv, "MyVar");
@@ -137,14 +137,14 @@ public class GlobalTokenTest extends AbstractTokenTestCase<DatasetVariable>
 	}
 
 	@Test
-	public void testInvalidBadFormat() throws PersistenceLayerException
+	public void testInvalidBadFormat()
 	{
 		assertFalse(parse("BADFORMAT=Illegal"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidName() throws PersistenceLayerException
+	public void testInvalidName()
 	{
 		assertFalse(parse("NUMBER=Illegal Name!"));
 		assertNoSideEffects();
@@ -199,7 +199,7 @@ public class GlobalTokenTest extends AbstractTokenTestCase<DatasetVariable>
 
 	@Test
 	@Override
-	public void testOverwrite() throws PersistenceLayerException
+	public void testOverwrite()
 	{
 		assertTrue(parse(getLegalValue()));
 		validateUnparsed(primaryContext, primaryProf, getLegalValue());

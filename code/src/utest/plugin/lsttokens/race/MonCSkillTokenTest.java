@@ -124,20 +124,20 @@ public class MonCSkillTokenTest extends
 	}
 
 	@Test
-	public void testValidInputClearList() throws PersistenceLayerException
+	public void testValidInputClearList()
 	{
 		assertTrue(parse(".CLEAR.LIST"));
 	}
 
 	@Test
-	public void testInvalidInputAllList() throws PersistenceLayerException
+	public void testInvalidInputAllList()
 	{
 		assertFalse(parse("ALL" + getJoinCharacter() + "LIST"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputAllPattern() throws PersistenceLayerException
+	public void testInvalidInputAllPattern()
 	{
 		assertFalse(parse("ALL" + getJoinCharacter() + "Pattern%"));
 		assertNoSideEffects();

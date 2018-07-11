@@ -23,6 +23,7 @@ import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.core.PlayerCharacter;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
@@ -45,10 +46,11 @@ public class PreGenderTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test the PREGENDER code
-	 * @throws Exception
+	 * Test the PREGENDER code.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testGender() throws Exception
+	public void testGender() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		character.setGender(Gender.Male);

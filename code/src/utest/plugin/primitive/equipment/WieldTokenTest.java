@@ -84,12 +84,11 @@ public class WieldTokenTest extends
 	}
 
 	public void testPrimitiveIllegalSpelledOut()
-			throws PersistenceLayerException
 	{
 		doPrimitiveIllegalTarget("OneHanded");
 	}
 
-	public void testPrimitiveIllegalMultiple() throws PersistenceLayerException
+	public void testPrimitiveIllegalMultiple()
 	{
 		doPrimitiveIllegalTarget("Light.1 Handed");
 	}

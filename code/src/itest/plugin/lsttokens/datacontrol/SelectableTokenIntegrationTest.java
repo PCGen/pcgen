@@ -7,7 +7,6 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.Collection;
 
 import org.junit.Before;
@@ -23,7 +22,6 @@ import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Campaign;
 import pcgen.core.Domain;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.rules.context.ConsolidatedListCommitStrategy;
@@ -48,14 +46,14 @@ public class SelectableTokenIntegrationTest
 	protected static CampaignSourceEntry testCampaign;
 
 	@BeforeClass
-	public static void classSetUp() throws URISyntaxException
+	public static void classSetUp()
 	{
 		testCampaign =
 				new CampaignSourceEntry(new Campaign(), TestURI.getURI());
 	}
 
 	@Before
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	public void setUp()
 	{
 		TokenRegistration.clearTokens();
 		TokenRegistration.register(token);
@@ -80,7 +78,7 @@ public class SelectableTokenIntegrationTest
 	}
 
 	@Test
-	public void testValidStringYes() throws PersistenceLayerException
+	public void testValidStringYes()
 	{
 		assertNull(cd.getSelectable());
 		assertTrue(token.parseToken(context, cd, "YES").passed());

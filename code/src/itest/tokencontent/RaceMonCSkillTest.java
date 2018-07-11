@@ -29,7 +29,6 @@ import pcgen.core.PCClass;
 import pcgen.core.Race;
 import pcgen.core.Skill;
 import pcgen.gui2.facade.MockUIDelegate;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.chooser.ChooserFactory;
@@ -72,7 +71,7 @@ public class RaceMonCSkillTest extends AbstractTokenModelTest
 	}
 
 	@Test
-	public void testDirect() throws PersistenceLayerException
+	public void testDirect()
 	{
 		Race source = create(Race.class, "Source");
 		ParseResult result = token.parseToken(context, source, "MySkill");
@@ -95,7 +94,7 @@ public class RaceMonCSkillTest extends AbstractTokenModelTest
 	}
 
 	@Test
-	public void testList() throws PersistenceLayerException
+	public void testList()
 	{
 		Race source = create(Race.class, "Source");
 		ParseResult result = token.parseToken(context, source, "LIST");

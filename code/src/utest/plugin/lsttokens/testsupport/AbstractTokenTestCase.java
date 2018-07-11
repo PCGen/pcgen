@@ -60,7 +60,7 @@ public abstract class AbstractTokenTestCase<T extends Loadable> extends
 	protected static CampaignSourceEntry testCampaign;
 
 	@BeforeClass
-	public static void classSetUp() throws URISyntaxException
+	public static void classSetUp()
 	{
 		testCampaign = new CampaignSourceEntry(new Campaign(), TestURI.getURI());
 		classSetUpFired = true;
@@ -195,7 +195,7 @@ public abstract class AbstractTokenTestCase<T extends Loadable> extends
 				unparsedBuilt.toString(), testCampaign.getURI());
 	}
 
-	private void parse(String... str) throws PersistenceLayerException
+	private void parse(String... str)
 	{
 		// Set value
 		for (String s : str)
@@ -295,7 +295,7 @@ public abstract class AbstractTokenTestCase<T extends Loadable> extends
 	}
 
 	@Test
-	public void testOverwrite() throws PersistenceLayerException
+	public void testOverwrite()
 	{
 		assertTrue(parse(getLegalValue()));
 		validateUnparsed(primaryContext, primaryProf, getLegalValue());
@@ -305,7 +305,7 @@ public abstract class AbstractTokenTestCase<T extends Loadable> extends
 	}
 
 	@Test
-	public void testCleanup() throws PersistenceLayerException
+	public void testCleanup()
 	{
 		String s = new String(getLegalValue());
 		WeakReference<String> wr = new WeakReference<>(s);
@@ -361,7 +361,7 @@ public abstract class AbstractTokenTestCase<T extends Loadable> extends
 	}
 
 	@Test
-	public void testAvoidContext() throws PersistenceLayerException
+	public void testAvoidContext()
 	{
 		RuntimeLoadContext context = new RuntimeLoadContext(
 			RuntimeReferenceContext.createRuntimeReferenceContext(),

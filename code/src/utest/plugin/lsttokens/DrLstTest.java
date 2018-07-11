@@ -77,56 +77,56 @@ public class DrLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidEmpty() throws PersistenceLayerException
+	public void testInvalidEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidReductionOnly() throws PersistenceLayerException
+	public void testInvalidReductionOnly()
 	{
 		assertFalse(parse("10"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidReductionSlashOnly() throws PersistenceLayerException
+	public void testInvalidReductionSlashOnly()
 	{
 		assertFalse(parse("10/"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidReductionTwoSlash() throws PersistenceLayerException
+	public void testInvalidReductionTwoSlash()
 	{
 		assertFalse(parse("10//"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidReductionTrailingSlash() throws PersistenceLayerException
+	public void testInvalidReductionTrailingSlash()
 	{
 		assertFalse(parse("10/+1/"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidPre() throws PersistenceLayerException
+	public void testInvalidPre()
 	{
 		assertFalse(parse("10/+1|PREFOO:1,Weird"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidReductionTwoProductiveSlash() throws PersistenceLayerException
+	public void testInvalidReductionTwoProductiveSlash()
 	{
 		assertFalse(parse("10/+1/5"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyReduction() throws PersistenceLayerException
+	public void testInvalidEmptyReduction()
 	{
 		assertFalse(parse("/+1"));
 		assertNoSideEffects();
@@ -134,7 +134,6 @@ public class DrLstTest extends AbstractGlobalTokenTestCase
 
 	@Test
 	public void testInvalidBaseOnly()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("10/+1|"));
 		assertNoSideEffects();
@@ -142,7 +141,7 @@ public class DrLstTest extends AbstractGlobalTokenTestCase
 
 
 	@Test
-	public void testInvalidOnlyPre() throws PersistenceLayerException
+	public void testInvalidOnlyPre()
 	{
 		try
 		{

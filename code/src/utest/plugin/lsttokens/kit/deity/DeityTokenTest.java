@@ -52,14 +52,14 @@ public class DeityTokenTest extends AbstractKitTokenTestCase<KitDeity>
 	}
 
 	@Test
-	public void testInvalidInputEmptyCount() throws PersistenceLayerException
+	public void testInvalidInputEmptyCount()
 	{
 		assertTrue(parse("Fireball"));
 		assertConstructionError();
 	}
 
 	@Test
-	public void testInvalidInputOnlyOne() throws PersistenceLayerException
+	public void testInvalidInputOnlyOne()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(Deity.class, "Fireball");
 		secondaryContext.getReferenceContext().constructCDOMObject(Deity.class, "Fireball");

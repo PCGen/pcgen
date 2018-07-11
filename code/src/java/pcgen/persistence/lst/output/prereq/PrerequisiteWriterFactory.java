@@ -79,9 +79,10 @@ public final class PrerequisiteWriterFactory implements PluginLoader
 	}
 
 	/**
-	 * Register the test class with the factory 
-	 * @param testClass
-	 * @throws PersistenceLayerException
+	 * Register the test class with the factory .
+	 *
+	 * @param testClass the test class
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	public static void register(PrerequisiteWriterInterface testClass) throws PersistenceLayerException
 	{

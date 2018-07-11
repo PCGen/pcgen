@@ -47,7 +47,7 @@ public abstract class AbstractDamageTokenTestCase extends
 	}
 
 	@Test
-	public void testInvalidEmptyInput() throws PersistenceLayerException
+	public void testInvalidEmptyInput()
 	{
 		assertFalse(getToken().parseToken(primaryContext, primaryProf, "").passed());
 	}
@@ -89,13 +89,13 @@ public abstract class AbstractDamageTokenTestCase extends
 	}
 
 	@Test
-	public void testUnparseLegal() throws PersistenceLayerException
+	public void testUnparseLegal()
 	{
 		expectSingle(setAndUnparse(getLegalValue()), getLegalValue());
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		getUnparseTarget().put(getStringKey(), null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));

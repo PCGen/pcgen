@@ -50,21 +50,21 @@ public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>
 	}
 
 	@Test
-	public void testInvalidInputString() throws PersistenceLayerException
+	public void testInvalidInputString()
 	{
 		assertTrue(parse("String"));
 		assertConstructionError();
 	}
 
 	@Test
-	public void testInvalidInputType() throws PersistenceLayerException
+	public void testInvalidInputType()
 	{
 		assertTrue(parse("TestType"));
 		assertConstructionError();
 	}
 
 	@Test
-	public void testInvalidInputJoinedComma() throws PersistenceLayerException
+	public void testInvalidInputJoinedComma()
 	{
 		if (getJoinCharacter() != ',')
 		{
@@ -76,7 +76,7 @@ public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>
 	}
 
 	@Test
-	public void testInvalidInputJoinedPipe() throws PersistenceLayerException
+	public void testInvalidInputJoinedPipe()
 	{
 		if (getJoinCharacter() != '|')
 		{
@@ -88,7 +88,7 @@ public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>
 	}
 
 	@Test
-	public void testInvalidInputJoinedDot() throws PersistenceLayerException
+	public void testInvalidInputJoinedDot()
 	{
 		if (getJoinCharacter() != '.')
 		{
@@ -100,7 +100,7 @@ public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>
 	}
 
 	@Test
-	public void testInvalidInputTypeEmpty() throws PersistenceLayerException
+	public void testInvalidInputTypeEmpty()
 	{
 		if (isTypeLegal())
 		{
@@ -111,7 +111,6 @@ public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>
 
 	@Test
 	public void testInvalidInputTypeUnterminated()
-		throws PersistenceLayerException
 	{
 		if (isTypeLegal())
 		{
@@ -122,7 +121,6 @@ public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>
 
 	@Test
 	public void testInvalidInputTypeDoubleSeparator()
-		throws PersistenceLayerException
 	{
 		if (isTypeLegal())
 		{
@@ -133,7 +131,6 @@ public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>
 
 	@Test
 	public void testInvalidInputTypeFalseStart()
-		throws PersistenceLayerException
 	{
 		if (isTypeLegal())
 		{
@@ -144,7 +141,7 @@ public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>
 
 
 	@Test
-	public void testInvalidInputAny() throws PersistenceLayerException
+	public void testInvalidInputAny()
 	{
 		if (!isAllLegal())
 		{
@@ -169,7 +166,7 @@ public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>
 	}
 
 	@Test
-	public void testInvalidInputCheckType() throws PersistenceLayerException
+	public void testInvalidInputCheckType()
 	{
 		if (!isTypeLegal())
 		{
@@ -195,7 +192,7 @@ public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>
 	}
 
 	@Test
-	public void testInvalidListEnd() throws PersistenceLayerException
+	public void testInvalidListEnd()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("TestWP1" + getJoinCharacter()));
@@ -203,7 +200,7 @@ public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>
 	}
 
 	@Test
-	public void testInvalidListStart() throws PersistenceLayerException
+	public void testInvalidListStart()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse(getJoinCharacter() + "TestWP1"));
@@ -211,7 +208,7 @@ public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>
 	}
 
 	@Test
-	public void testInvalidListDoubleJoin() throws PersistenceLayerException
+	public void testInvalidListDoubleJoin()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -221,7 +218,7 @@ public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>
 	}
 
 	@Test
-	public void testInvalidInputCheckMult() throws PersistenceLayerException
+	public void testInvalidInputCheckMult()
 	{
 		// Explicitly do NOT build TestWP2
 		construct(primaryContext, "TestWP1");
@@ -231,7 +228,6 @@ public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>
 
 	@Test
 	public void testInvalidInputCheckTypeEqualLength()
-		throws PersistenceLayerException
 	{
 		// Explicitly do NOT build TestWP2 (this checks that the TYPE= doesn't
 		// consume the |
@@ -246,7 +242,6 @@ public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>
 
 	@Test
 	public void testInvalidInputCheckTypeDotLength()
-		throws PersistenceLayerException
 	{
 		// Explicitly do NOT build TestWP2 (this checks that the TYPE= doesn't
 		// consume the |
@@ -261,7 +256,7 @@ public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>
 	}
 
 	@Test
-	public void testValidInputTypeDot() throws PersistenceLayerException
+	public void testValidInputTypeDot()
 	{
 		if (isTypeLegal())
 		{
@@ -359,7 +354,7 @@ public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>
 	}
 
 	@Test
-	public void testInvalidInputAnyItem() throws PersistenceLayerException
+	public void testInvalidInputAnyItem()
 	{
 		if (isAllLegal())
 		{
@@ -370,7 +365,7 @@ public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>
 	}
 
 	@Test
-	public void testInvalidInputItemAny() throws PersistenceLayerException
+	public void testInvalidInputItemAny()
 	{
 		if (isAllLegal())
 		{
@@ -381,7 +376,7 @@ public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>
 	}
 
 	@Test
-	public void testInvalidInputAnyType() throws PersistenceLayerException
+	public void testInvalidInputAnyType()
 	{
 		if (isTypeLegal() && isAllLegal())
 		{
@@ -391,7 +386,7 @@ public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>
 	}
 
 	@Test
-	public void testInvalidInputTypeAny() throws PersistenceLayerException
+	public void testInvalidInputTypeAny()
 	{
 		if (isTypeLegal() && isAllLegal())
 		{
@@ -410,7 +405,7 @@ public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>
 	public abstract boolean isClearDotLegal();
 
 	@Test
-	public void testInputInvalidClear() throws PersistenceLayerException
+	public void testInputInvalidClear()
 	{
 		if (isClearLegal())
 		{
@@ -422,7 +417,7 @@ public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>
 	}
 
 	@Test
-	public void testInputInvalidClearDot() throws PersistenceLayerException
+	public void testInputInvalidClearDot()
 	{
 		if (isClearDotLegal())
 		{
@@ -434,7 +429,6 @@ public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>
 
 	@Test
 	public void testInputInvalidAddsAfterClearDotNoSideEffect()
-		throws PersistenceLayerException
 	{
 		if (isClearDotLegal())
 		{
@@ -455,7 +449,6 @@ public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>
 
 	@Test
 	public void testInputInvalidAddsTypeNoSideEffect()
-		throws PersistenceLayerException
 	{
 		if (isTypeLegal())
 		{
@@ -475,7 +468,6 @@ public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>
 
 	@Test
 	public void testInputInvalidAddsBasicNoSideEffect()
-		throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
@@ -494,7 +486,6 @@ public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>
 
 	@Test
 	public void testInputInvalidAddsAllNoSideEffect()
-		throws PersistenceLayerException
 	{
 		if (isAllLegal())
 		{
@@ -514,7 +505,6 @@ public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>
 
 	@Test
 	public void testInputInvalidAddsAfterClearNoSideEffect()
-		throws PersistenceLayerException
 	{
 		if (isClearLegal() && isAllLegal())
 		{
@@ -535,7 +525,6 @@ public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>
 
 	@Test
 	public void testInputInvalidTypeClearDotNoSideEffect()
-		throws PersistenceLayerException
 	{
 		if (isClearDotLegal() && isTypeLegal())
 		{
@@ -595,7 +584,7 @@ public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>
 	}
 
 	@Test
-	public void testValidInputClearWorking() throws PersistenceLayerException
+	public void testValidInputClearWorking()
 	{
 		if (isClearLegal())
 		{
@@ -608,7 +597,7 @@ public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>
 	}
 
 	@Test
-	public void testValidInputClearJoinWorking() throws PersistenceLayerException
+	public void testValidInputClearJoinWorking()
 	{
 		if (isClearLegal())
 		{

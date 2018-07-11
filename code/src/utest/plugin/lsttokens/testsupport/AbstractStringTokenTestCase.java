@@ -29,7 +29,7 @@ public abstract class AbstractStringTokenTestCase<T extends CDOMObject> extends
 {
 
 	@Test
-	public void testInvalidInputEmpty() throws PersistenceLayerException
+	public void testInvalidInputEmpty()
 	{
 		assertFalse(parse(""));
 		assertNull(primaryProf.get(getStringKey()));
@@ -39,7 +39,7 @@ public abstract class AbstractStringTokenTestCase<T extends CDOMObject> extends
 	protected abstract boolean isClearLegal();
 
 	@Test
-	public void testInputClear() throws PersistenceLayerException
+	public void testInputClear()
 	{
 		try
 		{
@@ -55,7 +55,7 @@ public abstract class AbstractStringTokenTestCase<T extends CDOMObject> extends
 	}
 
 	@Test
-	public void testValidInputs() throws PersistenceLayerException
+	public void testValidInputs()
 	{
 		assertTrue(parse("Niederösterreich"));
 		assertEquals("Niederösterreich", primaryProf.get(getStringKey()));
@@ -72,7 +72,7 @@ public abstract class AbstractStringTokenTestCase<T extends CDOMObject> extends
 	public abstract StringKey getStringKey();
 
 	@Test
-	public void testReplacementInputs() throws PersistenceLayerException
+	public void testReplacementInputs()
 	{
 		String[] unparsed;
 		if (isClearLegal())
@@ -136,13 +136,13 @@ public abstract class AbstractStringTokenTestCase<T extends CDOMObject> extends
 	}
 
 	@Test
-	public void testUnparseLegal() throws PersistenceLayerException
+	public void testUnparseLegal()
 	{
 		expectSingle(setAndUnparse(getLegalValue()), getLegalValue());
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.put(getStringKey(), null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));

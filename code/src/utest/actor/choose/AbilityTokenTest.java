@@ -19,8 +19,6 @@ package actor.choose;
 
 import static org.junit.Assert.assertEquals;
 
-import java.net.URISyntaxException;
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -28,7 +26,6 @@ import pcgen.cdom.base.CategorizedChooser;
 import pcgen.core.Ability;
 import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import plugin.lsttokens.choose.AbilityToken;
 import plugin.lsttokens.testsupport.BuildUtilities;
@@ -46,7 +43,7 @@ public class AbilityTokenTest
 	private LoadContext context;
 
 	@Before
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	public void setUp()
 	{
 		SettingsHandler.getGame().clearLoadContext();
 		context = Globals.getContext();

@@ -21,8 +21,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-import java.net.URISyntaxException;
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -31,7 +29,6 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.choose.AbilitySelectionToken;
@@ -51,7 +48,7 @@ public class AbilitySelectionTokenTest
 	protected LoadContext context;
 
 	@Before
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	public void setUp()
 	{
 		Globals.emptyLists();
 		SettingsHandler.getGame().clearLoadContext();

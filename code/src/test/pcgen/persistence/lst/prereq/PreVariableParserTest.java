@@ -24,17 +24,21 @@ import org.junit.Test;
 
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.persistence.PersistenceLayerException;
 import plugin.pretokens.parser.PreVariableParser;
 
 
 @SuppressWarnings("nls")
 public class PreVariableParserTest extends EnUsLocaleDependentTestCase
 {
+	
 	/**
-	 * @throws Exception
+	 * Test not equal.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testNotEqual() throws Exception
+	public void testNotEqual() throws PersistenceLayerException
 	{
 		PreVariableParser parser = new PreVariableParser();
 

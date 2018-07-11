@@ -21,7 +21,6 @@ import java.util.List;
 
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.spell.Spell;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTypeSafeListTestCase;
@@ -87,7 +86,7 @@ public class RangeTokenTest extends AbstractTypeSafeListTestCase<Spell, String>
 		return false;
 	}
 
-	public void testGoodParentheses() throws PersistenceLayerException
+	public void testGoodParentheses()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "Rheinhessen");
 		List<?> coll;
@@ -98,7 +97,7 @@ public class RangeTokenTest extends AbstractTypeSafeListTestCase<Spell, String>
 		assertCleanConstruction();
 	}
 
-	public void testBadParentheses() throws PersistenceLayerException
+	public void testBadParentheses()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "Rheinhessen");
 		assertFalse("Missing end paren should have been flagged.",
