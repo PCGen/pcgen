@@ -699,7 +699,7 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 <!-- STOP Melee and Range Attack Table -->
 
 <!-- Add Martial Arts and Natural Attack Block Here -->
-<#if (pcvar('count("ABILITIES","CATEGORY=Natural Attack","TYPE=NaturalAttack","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
+<#if (pcvar('countdistinct("ABILITIES","CATEGORY=Natural Attack","TYPE=NaturalAttack","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
 <@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Natural Attack","TYPE=NaturalAttack","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; ability , ability_has_next>
 	<table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Natural Attack Block">
 		<tr>
@@ -1759,12 +1759,12 @@ ${pcstring('ABILITYALL.Special Ability.VISIBLE.${trait}.TYPE=Trait.DESC')}
 </#if>
 </#macro>
 <!-- START Special Attacks Table -->
-<#if (pcvar('count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialAttack","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
+<#if (pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialAttack","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
    <table width="100%" cellspacing="0" cellpadding="2" summary="Special Attacks Table">
     <tr>
      <th bgcolor="black" align="center" colspan="2"><font color="white" style="font-size: small"><b>SPECIAL ATTACKS</b></font></th>
     </tr>
-<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialAttack","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; specialAttack , specialAttack_has_next>
+<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialAttack","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; specialAttack , specialAttack_has_next>
 <#if (specialAttack % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
      <td valign="top" class="font8"><b>
 <#assign typeOfAbility = pcstring("ABILITYALL.Special Ability.VISIBLE.${specialAttack}.TYPE=SpecialAttack.TYPE")?lower_case />
@@ -1789,12 +1789,12 @@ ${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialAttack}.TYPE=SpecialAtta
 <!-- STOP Special Attacks Table -->
 
 <!-- START Prestige Award Table -->
-<#if (pcvar('count("ABILITIES","CATEGORY=Special Ability","TYPE=Prestige Award Display","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
+<#if (pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=Prestige Award Display","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
    <table width="100%" cellspacing="0" cellpadding="2" summary="Prestige Award Table">
     <tr>
      <th bgcolor="black" align="center" colspan="2"><font color="white" style="font-size: small"><b>Prestige Awards</b></font></th>
     </tr>
-<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Special Ability","TYPE=Prestige Award Display","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; prestigeAward , prestigeAward_has_next>
+<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=Prestige Award Display","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; prestigeAward , prestigeAward_has_next>
 <#if (prestigeAward % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
      <td valign="top" class="font8"><b>
 <#assign typeOfAbility = pcstring("ABILITYALL.Special Ability.VISIBLE.${prestigeAward}.TYPE=Prestige Award Display.TYPE")?lower_case />
@@ -1820,13 +1820,13 @@ ${pcstring('ABILITYALL.Special Ability.VISIBLE.${prestigeAward}.TYPE=Prestige Aw
 
 
 <!-- Start Animal Tricks -->
-<#if (pcvar('count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=AnimalTrick")') = 0)>
+<#if (pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=AnimalTrick")') = 0)>
 <#else>
    <table width="100%" cellspacing="0" cellpadding="2" summary="Animal Tricks Table">
     <tr>
      <td bgcolor="black" align="center"><font color="white" style="font-size: small"><b>ANIMAL TRICKS</b></font></td>
     </tr>
-<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=AnimalTrick")-1') ; animalTrick , animalTrick_has_next>
+<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=AnimalTrick")-1') ; animalTrick , animalTrick_has_next>
 <#if (animalTrick % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
      <td valign="top" class="font8"><b>${pcstring('ABILITYALL.Special Ability.VISIBLE.${animalTrick}.TYPE=AnimalTrick')}</b>
     ${pcstring('ABILITYALL.Special Ability.VISIBLE.${animalTrick}.TYPE=AnimalTrick.DESC')}</td>
@@ -1836,12 +1836,12 @@ ${pcstring('ABILITYALL.Special Ability.VISIBLE.${prestigeAward}.TYPE=Prestige Aw
 </#if>
 <!-- Stop Animal Tricks -->
 <!-- START Special Qualities Table -->
-<#if (pcvar('count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialQuality","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
+<#if (pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialQuality","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
    <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
     <tr>
      <th bgcolor="black" align="center" colspan="2"><font color="white" style="font-size: small"><b>SPECIAL QUALITIES</b></font></th>
     </tr>
-<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialQuality","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; specialQuality , specialQuality_has_next>
+<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialQuality","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; specialQuality , specialQuality_has_next>
 <#if (specialQuality % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
      <td valign="top" width="70%" class="font8"><b>
 <#assign typeOfAbility = pcstring("ABILITYALL.Special Ability.VISIBLE.${specialQuality}.TYPE=SpecialQuality.TYPE")?lower_case />
@@ -1866,12 +1866,12 @@ ${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialQuality}.TYPE=SpecialQua
 <!-- STOP Special Qualities Table -->
 
 <!-- START Racial Traits Table -->
-<#if (pcvar('count("ABILITIES","CATEGORY=Racial Trait","TYPE=Racial Trait","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
+<#if (pcvar('countdistinct("ABILITIES","CATEGORY=Racial Trait","TYPE=Racial Trait","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
    <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
     <tr>
      <th bgcolor="black" align="center" colspan="2"><font color="white" style="font-size: small"><b>RACIAL TRAITS</b></font></th>
     </tr>
-<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Racial Trait","TYPE=Racial Trait","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; RacialTrait , RacialTrait_has_next>
+<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Racial Trait","TYPE=Racial Trait","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; RacialTrait , RacialTrait_has_next>
 <#if (RacialTrait % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
      <td valign="top" width="70%" class="font8"><b>
 <#assign typeOfAbility = pcstring("ABILITYALL.Racial Trait.VISIBLE.${RacialTrait}.TYPE=Racial Trait.TYPE")?lower_case />
@@ -1896,12 +1896,12 @@ ${pcstring('ABILITYALL.Racial Trait.VISIBLE.${RacialTrait}.TYPE=Racial Trait.DES
 <!-- STOP Racial Traits Table -->
 
 <!-- START Class Features Table -->
-<#if (pcvar('count("ABILITIES","CATEGORY=Class Feature","TYPE=Class Feature","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
+<#if (pcvar('countdistinct("ABILITIES","CATEGORY=Class Feature","TYPE=Class Feature","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
    <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
     <tr>
      <th bgcolor="black" align="center" colspan="2"><font color="white" style="font-size: small"><b>CLASS FEATURE</b></font></th>
     </tr>
-<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Class Feature","TYPE=Class Feature","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; ClassFeature , ClassFeature_has_next>
+<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Class Feature","TYPE=Class Feature","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; ClassFeature , ClassFeature_has_next>
 <#if (ClassFeature % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
      <td valign="top" width="70%" class="font8"><b>
 <#assign typeOfAbility = pcstring("ABILITYALL.Class Feature.VISIBLE.${ClassFeature}.TYPE=Class Feature.TYPE")?lower_case />
@@ -1981,19 +1981,21 @@ ${pcstring('ABILITYALL.Class Feature.VISIBLE.${ClassFeature}.TYPE=Class Feature.
    </table>
 </#if>
 <!-- STOP Special Abilities Table -->
+
+<!-- START Feat Table -->
 <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
   <tr>
      <td bgcolor="black" align="center" colspan="2"><font color="white" style="font-size: small"><b>FEATS</b></font></td>
   </tr>
-<@loop from=0 to=pcvar('COUNT[FEATSALL.VISIBLE]-1') ; feat , feat_has_next>
+<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=FEAT","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; feat , feat_has_next>
 <#if (feat % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
-    <td valign="top" width="70%" class="font8" color="white"><b>${pcstring('FEATALL.VISIBLE.${feat}')}</b></td>
-    <td class="font8" valign="top" width="30%" align="right">[${pcstring('FEATALL.VISIBLE.${feat}.SOURCE')}]</td>
+    <td valign="top" width="70%" class="font8" color="white"><b>${pcstring('ABILITYALL.Feat.VISIBLE.${feat}')}</b></td>
+    <td class="font8" valign="top" width="30%" align="right">[${pcstring('ABILITYALL.Feat.VISIBLE.${feat}.SOURCE')}]</td>
   <tr>
 <#if (feat % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
-    <td class="font8" valign="top" colspan="2">&#160;&#160;&#160;&#160;${pcstring('FEATALL.VISIBLE.${feat}.DESC')}</td></tr>
+    <td class="font8" valign="top" colspan="2">&#160;&#160;&#160;&#160;${pcstring('ABILITYALL.Feat.VISIBLE.${feat}.DESC')}</td></tr>
 	<#if (feat % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
-	 <td class="font8" valign="top" colspan="2">&#160;&#160;&#160;&#160;${pcstring('FEATALL.VISIBLE.${feat}.BENEFIT')}
+	 <td class="font8" valign="top" colspan="2">&#160;&#160;&#160;&#160;${pcstring('ABILITYALL.Feat.VISIBLE.${feat}.BENEFIT')}
 	</td>
   </tr>
 </@loop>
@@ -2005,12 +2007,12 @@ ${pcstring('ABILITYALL.Class Feature.VISIBLE.${ClassFeature}.TYPE=Class Feature.
 <!-- START PFS Boon Table -->
  <tr>
   <td>
-<#if (pcvar('count("ABILITIES","CATEGORY=Special Ability","TYPE=PFSBoon","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
+<#if (pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=PFSBoon","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
    <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
     <tr>
      <th bgcolor="black" align="center" colspan="2"><font color="white" style="font-size: small"><b>PFS Boons</b></font></th>
     </tr>
-<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Special Ability","TYPE=PFSBoon","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; PFSBoon , PFSBoon_has_next>
+<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=PFSBoon","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; PFSBoon , PFSBoon_has_next>
 <#if (PFSBoon % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
      <td valign="top" class="font8"><b>
 <#assign typeOfAbility = pcstring("ABILITYALL.Special Ability.VISIBLE.${PFSBoon}.TYPE=PFSBoon.TYPE")?lower_case />
@@ -2036,12 +2038,12 @@ ${pcstring('ABILITYALL.Special Ability.VISIBLE.${PFSBoon}.TYPE=PFSBoon.DESC')}
 <!-- START PFS Chronicle Table -->
  <tr>
   <td>
-<#if (pcvar('count("ABILITIES","CATEGORY=PFS Chronicle","TYPE=PFSChronicle","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
+<#if (pcvar('countdistinct("ABILITIES","CATEGORY=PFS Chronicle","TYPE=PFSChronicle","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
    <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
     <tr>
      <th bgcolor="black" align="center" colspan="2"><font color="white" style="font-size: small"><b>PFS Chronicles</b></font></th>
     </tr>
-<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=PFS Chronicle","TYPE=PFSChronicle","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; PFSChronicle , PFSChronicle_has_next>
+<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=PFS Chronicle","TYPE=PFSChronicle","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; PFSChronicle , PFSChronicle_has_next>
 <#if (PFSChronicle % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
      <td valign="top" class="font8"><b>
 <#assign typeOfAbility = pcstring("ABILITYALL.PFS Chronicle.VISIBLE.${PFSChronicle}.TYPE=PFSChronicle.TYPE")?lower_case />
