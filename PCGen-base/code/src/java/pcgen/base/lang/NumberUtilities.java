@@ -116,6 +116,25 @@ public final class NumberUtilities
 	}
 
 	/**
+	 * Subtracts two numbers, returning the resulting Number. Maintains Integer math if
+	 * possible.
+	 * 
+	 * @param a
+	 *            The Number from which the second Number will be subtracted
+	 * @param b
+	 *            The Number to subtract from the first Number
+	 * @return The result of the subtraction of the two given Numbers
+	 */
+	public static Number subtract(Number a, Number b)
+	{
+		if (a instanceof Integer && b instanceof Integer)
+		{
+			return Integer.valueOf(a.intValue() - b.intValue());
+		}
+		return Double.valueOf(a.doubleValue() - b.doubleValue());
+	}
+
+	/**
 	 * Divides two numbers, returning the resulting Number. Maintains Integer
 	 * math if possible.
 	 * 
