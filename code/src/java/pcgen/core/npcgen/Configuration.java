@@ -43,27 +43,27 @@ import pcgen.system.ConfigurationSettings;
 
 public class Configuration
 {
-	private static final List<Configuration> theConfigurations = new ArrayList<>();
-	private static final Configuration theDefaultConfiguration = new Configuration();
+	private static final List<Configuration> THE_CONFIGURATIONS = new ArrayList<>();
+	private static final Configuration THE_DEFAULT_CONFIGURATION = new Configuration();
 
 	private GameMode theMode = null;
 
 	private final List<GeneratorOption> theGeneratorOptions = new ArrayList<>();
 	private final Map<String, ClassData> theClassData = new HashMap<>();
 
-	private static final File optionsDir =
+	private static final File OPTIONS_DIR =
 			new File(ConfigurationSettings.getSystemsDir()
 				+ File.separator + "npcgen" //$NON-NLS-1$ 
 				+ File.separator + "options"); //$NON-NLS-1$
 
-	private static final File classDataDir =
+	private static final File CLASS_DATA_DIR =
 			new File(ConfigurationSettings.getSystemsDir()
 				+ File.separator + "npcgen" //$NON-NLS-1$ 
 				+ File.separator + "classdata"); //$NON-NLS-1$
 
 	public static Configuration get(final GameMode aMode)
 	{
-		for (final Configuration config : theConfigurations)
+		for (final Configuration config : THE_CONFIGURATIONS)
 		{
 			if (config.theMode.equals(aMode))
 			{
@@ -78,7 +78,7 @@ public class Configuration
 		{
 			final OptionsParser parser = new OptionsParser(aMode);
 
-			final File[] fileNames = optionsDir.listFiles(new FilenameFilter()
+			final File[] fileNames = OPTIONS_DIR.listFiles(new FilenameFilter()
 			{
 				@Override
 				public boolean accept(final File aDir, final String aName)
@@ -99,7 +99,7 @@ public class Configuration
 
 			final ClassDataParser classParser = new ClassDataParser(aMode);
 
-			final File[] classDataFiles = classDataDir.listFiles(new FilenameFilter()
+			final File[] classDataFiles = CLASS_DATA_DIR.listFiles(new FilenameFilter()
 			{
 				@Override
 				public boolean accept(final File aDir, final String aName)
@@ -124,10 +124,10 @@ public class Configuration
 		catch (Exception ex)
 		{
 			ex.printStackTrace();
-			return theDefaultConfiguration;
+			return THE_DEFAULT_CONFIGURATION;
 		}
 
-		theConfigurations.add(config);
+		THE_CONFIGURATIONS.add(config);
 		return config;
 	}
 

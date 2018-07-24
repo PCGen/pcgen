@@ -30,7 +30,7 @@ import pcgen.util.Delta;
 
 public final class EqModSpellInfo
 {
-	private static final String s_CHARGES = "CHARGES";
+	private static final String S_CHARGES = "CHARGES";
 
 	private EqModSpellInfo()
 	{
@@ -75,15 +75,15 @@ public final class EqModSpellInfo
 		{
 			List<String> assoc = parent.removeAllAssociations(eqMod);
 			String listEntry = assoc.get(0);
-			String chargeInfo = EqModSpellInfo.getSpellInfoString(listEntry, s_CHARGES);
+			String chargeInfo = EqModSpellInfo.getSpellInfoString(listEntry, S_CHARGES);
 
 			if (!chargeInfo.isEmpty())
 			{
-				chargeInfo = s_CHARGES + '[' + chargeInfo + ']';
+				chargeInfo = S_CHARGES + '[' + chargeInfo + ']';
 
 				final int idx = listEntry.indexOf(chargeInfo);
 				listEntry = listEntry.substring(0, idx) + listEntry.substring(idx + chargeInfo.length());
-				listEntry += (s_CHARGES + '[' + Integer.toString(remainingCharges) + ']');
+				listEntry += (S_CHARGES + '[' + Integer.toString(remainingCharges) + ']');
 				assoc.set(0, listEntry);
 			}
 			for (String s : assoc)
@@ -97,7 +97,7 @@ public final class EqModSpellInfo
 	{
 		if (parent.hasAssociations(eqMod))
 		{
-			return EqModSpellInfo.getSpellInfo(parent.getFirstAssociation(eqMod), s_CHARGES);
+			return EqModSpellInfo.getSpellInfo(parent.getFirstAssociation(eqMod), S_CHARGES);
 		}
 
 		return 0;
@@ -156,7 +156,7 @@ public final class EqModSpellInfo
 
 		if (charges > 0)
 		{
-			spellInfo.append(s_CHARGES).append('[').append(charges).append("] ");
+			spellInfo.append(S_CHARGES).append('[').append(charges).append("] ");
 		}
 
 		if ((spellMetamagicFeats != null) && (spellMetamagicFeats.length > 0))

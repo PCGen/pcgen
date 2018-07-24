@@ -78,7 +78,7 @@ public final class TokenLibrary implements PluginLoader
 	 * Contains legal GroupingDefinition objects loaded from plugins
 	 */
 	private static final DoubleKeyMap<Class<?>, String, GroupingDefinition<?>> GROUPING_MAP = new DoubleKeyMap<>();
-	private static final DoubleKeyMap<Class<?>, String, ModifierFactory<?>> modifierMap = new DoubleKeyMap<>();
+	private static final DoubleKeyMap<Class<?>, String, ModifierFactory<?>> MODIFIER_MAP = new DoubleKeyMap<>();
 
 	/**
 	 * Contains the interface tokens mapped by the token name.
@@ -162,7 +162,7 @@ public final class TokenLibrary implements PluginLoader
 		{
 			String name = m.getIdentification();
 			Class<?> cl = m.getVariableFormat();
-			ModifierFactory<?> prev = modifierMap.put(cl, name, m);
+			ModifierFactory<?> prev = MODIFIER_MAP.put(cl, name, m);
 			if (prev != null)
 			{
 				Logging.errorPrint("Found a second " + name + " Modifier for " + cl);
@@ -599,7 +599,7 @@ public final class TokenLibrary implements PluginLoader
 			{
 				return null;
 			}
-			return (T) modifierMap.get(cl, key);
+			return (T) MODIFIER_MAP.get(cl, key);
 		}
 
 	}

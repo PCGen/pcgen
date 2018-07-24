@@ -54,7 +54,7 @@ import pcgen.util.Logging;
 public class HtmlSheetSupport
 {
 
-	private static final ThreadFactory threadFactory = new ThreadFactory()
+	private static final ThreadFactory THREAD_FACTORY = new ThreadFactory()
 	{
 
 		@Override
@@ -67,7 +67,7 @@ public class HtmlSheetSupport
 		}
 
 	};
-	private ExecutorService executor = Executors.newSingleThreadExecutor(threadFactory);
+	private ExecutorService executor = Executors.newSingleThreadExecutor(THREAD_FACTORY);
 
 	private WeakReference<CharacterFacade> characterRef;
 	private final File templateFile;

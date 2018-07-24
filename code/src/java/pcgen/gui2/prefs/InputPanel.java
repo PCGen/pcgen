@@ -41,10 +41,10 @@ import pcgen.system.LanguageBundle;
 @SuppressWarnings("serial")
 public class InputPanel extends PCGenPrefsPanel
 {
-	private static final String in_input = LanguageBundle.getString("in_Prefs_input");
+	private static final String IN_INPUT = LanguageBundle.getString("in_Prefs_input");
 
-	private static final String in_printDeprecation = LanguageBundle.getString("in_Prefs_printDeprecation");
-	private static final String in_printUnconstructed = LanguageBundle.getString("in_Prefs_printUnconstructed");
+	private static final String IN_PRINT_DEPRECATION = LanguageBundle.getString("in_Prefs_printDeprecation");
+	private static final String IN_PRINT_UNCONSTRUCTED = LanguageBundle.getString("in_Prefs_printUnconstructed");
 
 	private JCheckBox printDeprecationMessages = new JCheckBox();
 	private JCheckBox printUnconstructedDetail = new JCheckBox();
@@ -57,7 +57,7 @@ public class InputPanel extends PCGenPrefsPanel
 		GridBagLayout gridbag = new GridBagLayout();
 		GridBagConstraints c = new GridBagConstraints();
 		Border etched = null;
-		TitledBorder title1 = BorderFactory.createTitledBorder(etched, in_input);
+		TitledBorder title1 = BorderFactory.createTitledBorder(etched, IN_INPUT);
 
 		title1.setTitleJustification(TitledBorder.LEFT);
 		this.setBorder(title1);
@@ -69,12 +69,12 @@ public class InputPanel extends PCGenPrefsPanel
 		c.insets = new Insets(2, 2, 2, 2);
 
 		Utility.buildConstraints(c, 0, 0, 3, 1, 0, 0);
-		printDeprecationMessages = new JCheckBox(in_printDeprecation, SettingsHandler.outputDeprecationMessages());
+		printDeprecationMessages = new JCheckBox(IN_PRINT_DEPRECATION, SettingsHandler.outputDeprecationMessages());
 		gridbag.setConstraints(printDeprecationMessages, c);
 		this.add(printDeprecationMessages);
 
 		Utility.buildConstraints(c, 0, 1, 3, 1, 0, 0);
-		printUnconstructedDetail = new JCheckBox(in_printUnconstructed, SettingsHandler.inputUnconstructedMessages());
+		printUnconstructedDetail = new JCheckBox(IN_PRINT_UNCONSTRUCTED, SettingsHandler.inputUnconstructedMessages());
 		gridbag.setConstraints(printUnconstructedDetail, c);
 		this.add(printUnconstructedDetail);
 
@@ -91,7 +91,7 @@ public class InputPanel extends PCGenPrefsPanel
 	@Override
 	public String getTitle()
 	{
-		return in_input;
+		return IN_INPUT;
 	}
 
 	/**

@@ -457,7 +457,7 @@ public abstract class AbstractReferenceContext
 	public <T extends CDOMObject> List<T> getSortOrderedList(Class<T> cl)
 	{
 		List<T> returnList;
-		Comparator<CDOMObject> comp = Globals.pObjectNameComp;
+		Comparator<CDOMObject> comp = Globals.P_OBJECT_NAME_COMP;
 		//We arbitrarily use the sort order comparator as the second key
 		WeakReference<List<?>> wr = sortedMap.get(cl, comp);
 		if ((wr == null) || ((returnList = (List<T>) wr.get()) == null))

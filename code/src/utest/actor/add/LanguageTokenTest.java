@@ -27,12 +27,12 @@ public class LanguageTokenTest extends
 		AbstractPersistentCDOMChoiceActorTestCase<Language>
 {
 
-	private static final Persistent<Language> pca = new LanguageToken();
+	private static final Persistent<Language> PCA = new LanguageToken();
 
 	@Override
 	public Persistent<Language> getActor()
 	{
-		return pca;
+		return PCA;
 	}
 
 	@Override

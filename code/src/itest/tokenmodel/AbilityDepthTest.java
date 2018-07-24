@@ -45,7 +45,7 @@ import util.TestURI;
 public class AbilityDepthTest extends AbstractTokenModelTest
 {
 
-	private static final GrantedAbilityFacet grantedAbilityFacet = FacetLibrary
+	private static final GrantedAbilityFacet GRANTED_ABILITY_FACET = FacetLibrary
 		.getFacet(GrantedAbilityFacet.class);
 
 	//Registration by super.setUpContext()
@@ -154,7 +154,7 @@ public class AbilityDepthTest extends AbstractTokenModelTest
 	protected boolean containsExpected(Ability granted)
 	{
 		Collection<CNAbility> abilities =
-				grantedAbilityFacet.getPoolAbilities(id, BuildUtilities.getFeatCat());
+				GRANTED_ABILITY_FACET.getPoolAbilities(id, BuildUtilities.getFeatCat());
 		if (abilities.isEmpty())
 		{
 			System.err.println("No Abilities");
@@ -179,7 +179,7 @@ public class AbilityDepthTest extends AbstractTokenModelTest
 
 	protected int getCount()
 	{
-		return grantedAbilityFacet.getPoolAbilities(id, BuildUtilities.getFeatCat())
+		return GRANTED_ABILITY_FACET.getPoolAbilities(id, BuildUtilities.getFeatCat())
 			.size();
 	}
 

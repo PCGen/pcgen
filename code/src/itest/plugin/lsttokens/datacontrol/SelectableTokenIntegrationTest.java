@@ -38,7 +38,7 @@ public class SelectableTokenIntegrationTest
 	private static final String PROP_1 = "Property";
 	private static final String PROP_2 = "Psychology";
 	private static final StringManager STRING_MGR = new StringManager();
-	private static final SelectableToken token = new SelectableToken();
+	private static final SelectableToken TOKEN = new SelectableToken();
 	FactDefinition cd;
 
 	protected LoadContext context;
@@ -56,7 +56,7 @@ public class SelectableTokenIntegrationTest
 	public void setUp()
 	{
 		TokenRegistration.clearTokens();
-		TokenRegistration.register(token);
+		TokenRegistration.register(TOKEN);
 		resetContext();
 	}
 
@@ -81,7 +81,7 @@ public class SelectableTokenIntegrationTest
 	public void testValidStringYes()
 	{
 		assertNull(cd.getSelectable());
-		assertTrue(token.parseToken(context, cd, "YES").passed());
+		assertTrue(TOKEN.parseToken(context, cd, "YES").passed());
 		assertNotNull(cd.getSelectable());
 		assertTrue(cd.getSelectable().booleanValue());
 		context.getReferenceContext().importObject(cd);

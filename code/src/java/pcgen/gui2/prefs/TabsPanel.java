@@ -44,20 +44,20 @@ import pcgen.util.Logging;
 @SuppressWarnings("serial")
 public class TabsPanel extends PCGenPrefsPanel
 {
-	private static final String in_tabs = LanguageBundle.getString("in_Prefs_tabs");
+	private static final String IN_TABS = LanguageBundle.getString("in_Prefs_tabs");
 
-	private static final String in_charTabPlacement = LanguageBundle.getString("in_Prefs_charTabPlacement");
-	private static final String in_charTabLabel = LanguageBundle.getString("in_Prefs_charTabLabel");
-	private static final String in_mainTabPlacement = LanguageBundle.getString("in_Prefs_mainTabPlacement");
-	private static final String in_tabLabelPlain = LanguageBundle.getString("in_Prefs_tabLabelPlain");
-	private static final String in_tabLabelEpic = LanguageBundle.getString("in_Prefs_tabLabelEpic");
-	private static final String in_tabLabelRace = LanguageBundle.getString("in_Prefs_tabLabelRace");
-	private static final String in_tabLabelNetHack = LanguageBundle.getString("in_Prefs_tabLabelNetHack");
-	private static final String in_tabLabelFull = LanguageBundle.getString("in_Prefs_tabLabelFull");
-	private static final String in_tabPosTop = LanguageBundle.getString("in_Prefs_tabPosTop");
-	private static final String in_tabPosBottom = LanguageBundle.getString("in_Prefs_tabPosBottom");
-	private static final String in_tabPosLeft = LanguageBundle.getString("in_Prefs_tabPosLeft");
-	private static final String in_tabPosRight = LanguageBundle.getString("in_Prefs_tabPosRight");
+	private static final String IN_CHAR_TAB_PLACEMENT = LanguageBundle.getString("in_Prefs_charTabPlacement");
+	private static final String IN_CHAR_TAB_LABEL = LanguageBundle.getString("in_Prefs_charTabLabel");
+	private static final String IN_MAIN_TAB_PLACEMENT = LanguageBundle.getString("in_Prefs_mainTabPlacement");
+	private static final String IN_TAB_LABEL_PLAIN = LanguageBundle.getString("in_Prefs_tabLabelPlain");
+	private static final String IN_TAB_LABEL_EPIC = LanguageBundle.getString("in_Prefs_tabLabelEpic");
+	private static final String IN_TAB_LABEL_RACE = LanguageBundle.getString("in_Prefs_tabLabelRace");
+	private static final String IN_TAB_LABEL_NETHACK = LanguageBundle.getString("in_Prefs_tabLabelNetHack");
+	private static final String IN_TAB_LABEL_FULL = LanguageBundle.getString("in_Prefs_tabLabelFull");
+	private static final String IN_TAB_POS_TOP = LanguageBundle.getString("in_Prefs_tabPosTop");
+	private static final String IN_TAB_POS_BOTTOM = LanguageBundle.getString("in_Prefs_tabPosBottom");
+	private static final String IN_TAB_POS_LEFT = LanguageBundle.getString("in_Prefs_tabPosLeft");
+	private static final String IN_TAB_POS_RIGHT = LanguageBundle.getString("in_Prefs_tabPosRight");
 
 	private final JComboBoxEx charTabPlacementCombo;
 	private final JComboBoxEx mainTabPlacementCombo;
@@ -72,7 +72,7 @@ public class TabsPanel extends PCGenPrefsPanel
 		GridBagConstraints c = new GridBagConstraints();
 		JLabel label;
 		Border etched = null;
-		TitledBorder title1 = BorderFactory.createTitledBorder(etched, in_tabs);
+		TitledBorder title1 = BorderFactory.createTitledBorder(etched, IN_TABS);
 
 		title1.setTitleJustification(TitledBorder.LEFT);
 		this.setBorder(title1);
@@ -84,32 +84,32 @@ public class TabsPanel extends PCGenPrefsPanel
 		c.insets = new Insets(2, 2, 2, 2);
 
 		Utility.buildConstraints(c, 0, 0, 2, 1, 0, 0);
-		label = new JLabel(in_mainTabPlacement + ": ");
+		label = new JLabel(IN_MAIN_TAB_PLACEMENT + ": ");
 		gridbag.setConstraints(label, c);
 		this.add(label);
 		Utility.buildConstraints(c, 2, 0, 1, 1, 0, 0);
 		mainTabPlacementCombo =
-				new JComboBoxEx<>(new String[]{in_tabPosTop, in_tabPosBottom, in_tabPosLeft, in_tabPosRight});
+				new JComboBoxEx<>(new String[]{IN_TAB_POS_TOP, IN_TAB_POS_BOTTOM, IN_TAB_POS_LEFT, IN_TAB_POS_RIGHT});
 		gridbag.setConstraints(mainTabPlacementCombo, c);
 		this.add(mainTabPlacementCombo);
 
 		Utility.buildConstraints(c, 0, 1, 2, 1, 0, 0);
-		label = new JLabel(in_charTabPlacement + ": ");
+		label = new JLabel(IN_CHAR_TAB_PLACEMENT + ": ");
 		gridbag.setConstraints(label, c);
 		this.add(label);
 		Utility.buildConstraints(c, 2, 1, 1, 1, 0, 0);
 		charTabPlacementCombo =
-				new JComboBoxEx<>(new String[]{in_tabPosTop, in_tabPosBottom, in_tabPosLeft, in_tabPosRight});
+				new JComboBoxEx<>(new String[]{IN_TAB_POS_TOP, IN_TAB_POS_BOTTOM, IN_TAB_POS_LEFT, IN_TAB_POS_RIGHT});
 		gridbag.setConstraints(charTabPlacementCombo, c);
 		this.add(charTabPlacementCombo);
 
 		Utility.buildConstraints(c, 0, 2, 2, 1, 0, 0);
-		label = new JLabel(in_charTabLabel + ": ");
+		label = new JLabel(IN_CHAR_TAB_LABEL + ": ");
 		gridbag.setConstraints(label, c);
 		this.add(label);
 		Utility.buildConstraints(c, 2, 2, 1, 1, 0, 0);
 		tabLabelsCombo = new JComboBoxEx<>(
-			new String[]{in_tabLabelPlain, in_tabLabelEpic, in_tabLabelRace, in_tabLabelNetHack, in_tabLabelFull});
+			new String[]{IN_TAB_LABEL_PLAIN, IN_TAB_LABEL_EPIC, IN_TAB_LABEL_RACE, IN_TAB_LABEL_NETHACK, IN_TAB_LABEL_FULL});
 		gridbag.setConstraints(tabLabelsCombo, c);
 		this.add(tabLabelsCombo);
 
@@ -126,7 +126,7 @@ public class TabsPanel extends PCGenPrefsPanel
 	@Override
 	public String getTitle()
 	{
-		return in_tabs;
+		return IN_TABS;
 	}
 
 	/**

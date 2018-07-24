@@ -35,7 +35,7 @@ public class EquipmentListTest extends TestCase
 {
 
 	private Equipment eq = null;
-	private static final String originalKey = "OrigKey";
+	private static final String ORIGINAL_KEY = "OrigKey";
 	private boolean firstTime = true;
 
 	/**
@@ -92,7 +92,7 @@ public class EquipmentListTest extends TestCase
 		eq.put(ObjectKey.BASESIZE, mediumRef);
 		TestHelper.addType(eq, "WEAPON.MELEE.CHOCOLATE");
 
-		this.eq.put(StringKey.KEY_NAME, originalKey);
+		this.eq.put(StringKey.KEY_NAME, ORIGINAL_KEY);
 	}
 
 	/**

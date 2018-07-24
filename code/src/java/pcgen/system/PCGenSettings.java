@@ -32,12 +32,12 @@ import pcgen.output.publish.OutputDB;
 public final class PCGenSettings extends PropertyContext
 {
 
-	private static final PCGenSettings instance = new PCGenSettings();
+	private static final PCGenSettings INSTANCE = new PCGenSettings();
 	/**
 	 * This is the PropertyContext for the pcgen options, all keys that are used with
 	 * this context have a key name starting with 'OPTION'
 	 */
-	public static final PropertyContext OPTIONS_CONTEXT = instance.createChildContext("pcgen.options");
+	public static final PropertyContext OPTIONS_CONTEXT = INSTANCE.createChildContext("pcgen.options");
 	public static final String OPTION_SAVE_CUSTOM_EQUIPMENT = "saveCustomInLst";
 	public static final String OPTION_ALLOWED_IN_SOURCES = "optionAllowedInSources";
 	public static final String OPTION_SOURCES_ALLOW_MULTI_LINE = "optionSourcesAllowMultiLine";
@@ -84,7 +84,7 @@ public final class PCGenSettings extends PropertyContext
 	public static final String CONVERT_SOURCES = "pcgen.convert.sources";
 	public static final String CONVERT_DATA_LOG_FILE = "pcgen.convert.dataLogFile";
 
-	public static final PropertyContext GMGEN_OPTIONS_CONTEXT = instance.createChildContext("gmgen.options");
+	public static final PropertyContext GMGEN_OPTIONS_CONTEXT = INSTANCE.createChildContext("gmgen.options");
 
 	private PCGenSettings()
 	{
@@ -113,7 +113,7 @@ public final class PCGenSettings extends PropertyContext
 
 	public static PCGenSettings getInstance()
 	{
-		return instance;
+		return INSTANCE;
 	}
 
 	public static String getSelectedSpellSheet()

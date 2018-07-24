@@ -216,13 +216,13 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 	private static class LangTreeViewModel extends DelegatingListFacade<LanguageFacade>
 			implements TreeViewModel<LanguageFacade>, DataView<LanguageFacade>//, TreeView<LanguageFacade>
 	{
-		private static final ListFacade<TreeView<LanguageFacade>> views =
+		private static final ListFacade<TreeView<LanguageFacade>> VIEWS =
 				new DefaultListFacade<>(Arrays.asList(LanguageTreeView.values()));
 
 		@Override
 		public ListFacade<? extends TreeView<LanguageFacade>> getTreeViews()
 		{
-			return views;
+			return VIEWS;
 		}
 
 		@Override

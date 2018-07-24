@@ -26,12 +26,12 @@ import selectionactor.testsupport.AbstractSelectionActorTest;
 public class FavoredClassTokenTest extends AbstractSelectionActorTest<PCClass>
 {
 
-	private static final ChooseSelectionActor<PCClass> cra = new FavoredclassToken();
+	private static final ChooseSelectionActor<PCClass> CRA = new FavoredclassToken();
 
 	@Override
 	public ChooseSelectionActor<PCClass> getActor()
 	{
-		return cra;
+		return CRA;
 	}
 
 	@Override

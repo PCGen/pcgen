@@ -43,7 +43,7 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 public class AbilitySelectionTokenTest
 {
 
-	static final AbilitySelectionToken pca = new AbilitySelectionToken();
+	static final AbilitySelectionToken PCA = new AbilitySelectionToken();
 
 	protected LoadContext context;
 
@@ -62,10 +62,10 @@ public class AbilitySelectionTokenTest
 	{
 		Ability item = construct("ItemName");
 		AbilitySelection as = new AbilitySelection(item, null);
-		assertEquals("CATEGORY=FEAT|ItemName", pca.encodeChoice(as));
+		assertEquals("CATEGORY=FEAT|ItemName", PCA.encodeChoice(as));
 		Ability paren = construct("ParenName (test)");
 		as = new AbilitySelection(paren, null);
-		assertEquals("CATEGORY=FEAT|ParenName (test)", pca.encodeChoice(as));
+		assertEquals("CATEGORY=FEAT|ParenName (test)", PCA.encodeChoice(as));
 		Ability sel = construct("ChooseName");
 		sel.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
 		StringToken st = new plugin.lsttokens.choose.StringToken();
@@ -73,7 +73,7 @@ public class AbilitySelectionTokenTest
 		assertTrue(pr.passed());
 		Globals.getContext().commit();
 		as = new AbilitySelection(sel, "selection");
-		assertEquals("CATEGORY=FEAT|ChooseName|selection", pca.encodeChoice(as));
+		assertEquals("CATEGORY=FEAT|ChooseName|selection", PCA.encodeChoice(as));
 	}
 
 	@Test
@@ -81,7 +81,7 @@ public class AbilitySelectionTokenTest
 	{
 		try
 		{
-			pca.decodeChoice(context, "Category=Special Ability|ItemName");
+			PCA.decodeChoice(context, "Category=Special Ability|ItemName");
 			fail();
 		}
 		catch (IllegalArgumentException e)
@@ -90,10 +90,10 @@ public class AbilitySelectionTokenTest
 		}
 		Ability item = construct("ItemName");
 		AbilitySelection as = new AbilitySelection(item, null);
-		assertEquals(as, pca.decodeChoice(context, "CATEGORY=FEAT|ItemName"));
+		assertEquals(as, PCA.decodeChoice(context, "CATEGORY=FEAT|ItemName"));
 		Ability paren = construct("ParenName (test)");
 		as = new AbilitySelection(paren, null);
-		assertEquals(as, pca.decodeChoice(context, "CATEGORY=Feat|ParenName (test)"));
+		assertEquals(as, PCA.decodeChoice(context, "CATEGORY=Feat|ParenName (test)"));
 		Ability sel = construct("ChooseName");
 		sel.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
 		StringToken st = new plugin.lsttokens.choose.StringToken();
@@ -101,7 +101,7 @@ public class AbilitySelectionTokenTest
 		assertTrue(pr.passed());
 		Globals.getContext().commit();
 		as = new AbilitySelection(sel, "selection");
-		assertEquals(as, pca.decodeChoice(context, "CATEGORY=Feat|ChooseName|selection"));
+		assertEquals(as, PCA.decodeChoice(context, "CATEGORY=Feat|ChooseName|selection"));
 	}
 
 	protected Ability construct(String one)

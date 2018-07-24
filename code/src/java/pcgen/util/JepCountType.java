@@ -551,7 +551,7 @@ public abstract class JepCountType
 					}
 					else
 					{
-						final ParameterTree npt = ParameterTree.makeTree(ParameterTree.andString);
+						final ParameterTree npt = ParameterTree.makeTree(ParameterTree.AND_STRING);
 						npt.setLeftTree(pt);
 						pt = npt;
 						final ParameterTree npt1 = ParameterTree.makeTree((String) param);
@@ -569,11 +569,11 @@ public abstract class JepCountType
 		protected Collection<? extends T> doFilterP(final ParameterTree pt, Collection<T> coll) throws ParseException
 		{
 			final String c = pt.getContents();
-			if (c.equalsIgnoreCase(ParameterTree.orString) || c.equalsIgnoreCase(ParameterTree.andString))
+			if (c.equalsIgnoreCase(ParameterTree.OR_STRING) || c.equalsIgnoreCase(ParameterTree.AND_STRING))
 			{
 				final Set<T> a = new HashSet<>(doFilterP(pt.getLeftTree(), coll));
 				final Collection<? extends T> b = doFilterP(pt.getRightTree(), coll);
-				if (c.equalsIgnoreCase(ParameterTree.orString))
+				if (c.equalsIgnoreCase(ParameterTree.OR_STRING))
 				{
 					a.addAll(b);
 				}

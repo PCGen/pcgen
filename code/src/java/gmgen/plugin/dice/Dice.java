@@ -32,7 +32,7 @@ public class Dice extends Die
 	public Dice(final int num, final int sides, final int bias)
 	{
 		/* Holds the rolls of each die */
-		super(new NSidedModifiedDieConfig(num, sides, bias, Die.rand));
+		super(new NSidedModifiedDieConfig(num, sides, bias, Die.RAND));
 	}
 
 	/** Constructor for the Dice object

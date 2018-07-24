@@ -969,7 +969,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			final String matchedSection) throws TermEvaulatorException
 		{
 
-			Matcher subtokenMat = subtokenPat.matcher(expressionString);
+			Matcher subtokenMat = SUBTOKEN_PAT.matcher(expressionString);
 
 			if (!subtokenMat.find())
 			{
@@ -1063,7 +1063,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			}
 			else
 			{
-				Matcher numMat = numPat.matcher(types[1]);
+				Matcher numMat = NUM_PAT.matcher(types[1]);
 
 				if (!numMat.find())
 				{
@@ -1466,10 +1466,10 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 
 	};
 
-	static final String subtokenString = "(FEATAUTOTYPE|FEATNAME|FEATTYPE|VFEATTYPE)";
-	static final Pattern subtokenPat = Pattern.compile(subtokenString);
+	static final String SUBTOKEN_STRING = "(FEATAUTOTYPE|FEATNAME|FEATTYPE|VFEATTYPE)";
+	static final Pattern SUBTOKEN_PAT = Pattern.compile(SUBTOKEN_STRING);
 
-	static final Pattern numPat = Pattern.compile("\\d+");
+	static final Pattern NUM_PAT = Pattern.compile("\\d+");
 
 	private final String termConstructorPattern;
 	private final String[] termConstructorKeys;

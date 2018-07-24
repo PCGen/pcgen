@@ -695,7 +695,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	private static class DeityTreeViewModel implements TreeViewModel<DeityFacade>, DataView<DeityFacade>
 	{
 
-		private static final ListFacade<TreeView<DeityFacade>> views =
+		private static final ListFacade<TreeView<DeityFacade>> VIEWS =
 				new DefaultListFacade<>(Arrays.asList(DeityTreeView.values()));
 		private final List<DefaultDataViewColumn> columns =
 				Arrays.asList(new DefaultDataViewColumn("in_alignLabel", Object.class), //$NON-NLS-1$
@@ -716,7 +716,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		@Override
 		public ListFacade<? extends TreeView<DeityFacade>> getTreeViews()
 		{
-			return views;
+			return VIEWS;
 		}
 
 		@Override

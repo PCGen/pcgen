@@ -26,7 +26,7 @@ import pcgen.output.wrapper.CDOMObjectWrapper;
 
 public class StringKeyActorTest extends AbstractOutputTestCase
 {
-	private static final DeityFacet df = new DeityFacet();
+	private static final DeityFacet DF = new DeityFacet();
 
 	private static boolean classSetUpRun = false;
 
@@ -44,7 +44,7 @@ public class StringKeyActorTest extends AbstractOutputTestCase
 	private void classSetUp()
 	{
 		OutputDB.reset();
-		df.init();
+		DF.init();
 	}
 
 	public void testStringKeyActor()
@@ -52,7 +52,7 @@ public class StringKeyActorTest extends AbstractOutputTestCase
 		Deity d = new Deity();
 		d.setName("Bob");
 		String expectedResult = "Magical";
-		df.set(id, d);
+		DF.set(id, d);
 		d.put(StringKey.DAMAGE, expectedResult);
 		StringKeyActor ska = new StringKeyActor(StringKey.DAMAGE);
 		CDOMObjectWrapper.load(dsid, d.getClass(), "damage", ska);

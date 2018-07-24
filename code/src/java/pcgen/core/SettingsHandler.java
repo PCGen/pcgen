@@ -119,9 +119,9 @@ public final class SettingsHandler
 	private static Point leftUpperCorner = null;
 	private static int windowState = Frame.NORMAL;
 	private static int looknFeel = 1; // default to Java L&F
-	private static final SortedProperties options = new SortedProperties();
-	private static final Properties filepaths = new Properties();
-	private static final String fileLocation = Globals.getFilepathsPath();
+	private static final SortedProperties OPTIONS = new SortedProperties();
+	private static final Properties FILEPATHS = new Properties();
+	private static final String FILE_LOCATION = Globals.getFilepathsPath();
 	private static File pccFilesLocation = null;
 	private static File pcgPath = new File(Globals.getDefaultPath());
 	private static File lastUsedPcgPath = null; // NB: This is not saved to preferences 
@@ -167,8 +167,8 @@ public final class SettingsHandler
 	 *  See @javax.swing.SwingConstants
 	 */
 	private static int tabPlacement = SwingConstants.BOTTOM;
-	private static final String tmpPath = System.getProperty("java.io.tmpdir"); //$NON-NLS-1$
-	private static final File tempPath = new File(getTmpPath());
+	private static final String TMP_PATH = System.getProperty("java.io.tmpdir"); //$NON-NLS-1$
+	private static final File TEMP_PATH = new File(getTmpPath());
 	private static boolean useHigherLevelSlotsDefault = false;
 	private static boolean wantToLoadMasterworkAndMagic = false;
 	private static int nameDisplayStyle = Constants.DISPLAY_STYLE_NAME;
@@ -416,14 +416,14 @@ public final class SettingsHandler
 
 	public static Properties getFilepathProp()
 	{
-		return filepaths;
+		return FILEPATHS;
 	}
 
 	public static boolean getFirstRun()
 	{
 		// if filepaths.ini doesn't exist that means this is
 		// the first time PCGen has been run
-		final File aFile = new File(fileLocation);
+		final File aFile = new File(FILE_LOCATION);
 
 		return !aFile.exists();
 
@@ -825,7 +825,7 @@ public final class SettingsHandler
 
 	public static SortedProperties getOptions()
 	{
-		return options;
+		return OPTIONS;
 	}
 
 	public static Dimension getOptionsFromProperties(final PlayerCharacter aPC)
@@ -1845,7 +1845,7 @@ public final class SettingsHandler
 	 */
 	public static File getTempPath()
 	{
-		return tempPath;
+		return TEMP_PATH;
 	}
 
 	public static void setToolBarShown(final boolean argShowToolBar)
@@ -2044,7 +2044,7 @@ public final class SettingsHandler
 		// that the $HOME/Library/Preferences/pcgen directory exists
 		if (fType.equals("mac_user")) //$NON-NLS-1$
 		{
-			final String aLoc = Globals.defaultMacOptionsPath;
+			final String aLoc = Globals.DEFAULT_MAC_OPTIONS_PATH;
 			final File aFile = new File(aLoc);
 
 			if (!aFile.exists())
@@ -2065,17 +2065,17 @@ public final class SettingsHandler
 
 		try
 		{
-			out = new FileOutputStream(fileLocation);
+			out = new FileOutputStream(FILE_LOCATION);
 			getFilepathProp().store(out, header);
 		}
 		catch (FileNotFoundException fnfe)
 		{
-			final File f = new File(fileLocation);
+			final File f = new File(FILE_LOCATION);
 			if (!f.canWrite())
 			{
 				Logging
 					.errorPrint(LanguageBundle.getFormattedString(
-						"SettingsHandler.filepaths.readonly", fileLocation)); //$NON-NLS-1$
+						"SettingsHandler.filepaths.readonly", FILE_LOCATION)); //$NON-NLS-1$
 			}
 			else
 			{
@@ -2129,7 +2129,7 @@ public final class SettingsHandler
 		}
 		catch (FileNotFoundException fnfe)
 		{
-			final File f = new File(fileLocation);
+			final File f = new File(FILE_LOCATION);
 			if (!f.canWrite())
 			{
 				Logging.errorPrint(
@@ -2440,7 +2440,7 @@ public final class SettingsHandler
 
 	private static String getTmpPath()
 	{
-		return tmpPath;
+		return TMP_PATH;
 	}
 
 	private static String convertTabPlacementToString(final int placement)
@@ -2509,7 +2509,7 @@ public final class SettingsHandler
 
 		try
 		{
-			in = new FileInputStream(fileLocation);
+			in = new FileInputStream(FILE_LOCATION);
 			getFilepathProp().load(in);
 			String fType = SettingsHandler.getFilePaths();
 
@@ -2630,7 +2630,7 @@ public final class SettingsHandler
 		}
 		catch (FileNotFoundException fnfe)
 		{
-			final File f = new File(fileLocation);
+			final File f = new File(FILE_LOCATION);
 			if (!f.canWrite())
 			{
 				Logging.errorPrint(

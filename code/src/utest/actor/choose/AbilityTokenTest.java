@@ -37,7 +37,7 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 public class AbilityTokenTest
 {
 
-	private static final CategorizedChooser<Ability> pca = new AbilityToken();
+	private static final CategorizedChooser<Ability> PCA = new AbilityToken();
 	private static final String ITEM_NAME = "ItemName";
 
 	private LoadContext context;
@@ -61,7 +61,7 @@ public class AbilityTokenTest
 	@Test
 	public void testEncodeChoice()
 	{
-		assertEquals(getExpected(), pca.encodeChoice(getObject()));
+		assertEquals(getExpected(), PCA.encodeChoice(getObject()));
 	}
 
 	protected String getExpected()
@@ -73,13 +73,13 @@ public class AbilityTokenTest
 	public void testDecodeChoice()
 	{
 		assertEquals(getObject(),
-			pca.decodeChoice(context, getExpected(), BuildUtilities.getFeatCat()));
+			PCA.decodeChoice(context, getExpected(), BuildUtilities.getFeatCat()));
 	}
 
 	@Test
 	public void testLegacyDecodeChoice()
 	{
-		assertEquals(getObject(), pca.decodeChoice(context, "CATEGORY=FEAT|" + ITEM_NAME,
+		assertEquals(getObject(), PCA.decodeChoice(context, "CATEGORY=FEAT|" + ITEM_NAME,
 			BuildUtilities.getFeatCat()));
 	}
 

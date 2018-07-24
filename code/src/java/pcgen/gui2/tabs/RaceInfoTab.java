@@ -69,7 +69,7 @@ import pcgen.util.enumeration.Tab;
 public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 {
 
-	private static final TabTitle title = new TabTitle(Tab.RACE);
+	private static final TabTitle TITLE = new TabTitle(Tab.RACE);
 	private final FilteredTreeViewTable<Object, RaceFacade> raceTable;
 	private final FilteredTreeViewTable<Object, RaceFacade> selectedTable;
 	private final InfoPane infoPane;
@@ -188,7 +188,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	@Override
 	public TabTitle getTabTitle()
 	{
-		return title;
+		return TITLE;
 	}
 
 	private class InfoHandler implements ListSelectionListener
@@ -483,7 +483,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	private static class RaceTreeViewModel implements TreeViewModel<RaceFacade>
 	{
 
-		private static final DefaultListFacade<? extends TreeView<RaceFacade>> treeViews =
+		private static final DefaultListFacade<? extends TreeView<RaceFacade>> TREE_VIEWS =
 				new DefaultListFacade<TreeView<RaceFacade>>(Arrays.asList(RaceTreeView.values()));
 		private final CharacterFacade character;
 		private final boolean isAvailModel;
@@ -499,7 +499,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		@Override
 		public ListFacade<? extends TreeView<RaceFacade>> getTreeViews()
 		{
-			return treeViews;
+			return TREE_VIEWS;
 		}
 
 		@Override

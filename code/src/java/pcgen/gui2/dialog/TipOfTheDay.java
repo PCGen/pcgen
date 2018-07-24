@@ -53,7 +53,7 @@ public final class TipOfTheDay extends JDialog implements ActionListener
 {
 
 	private static final long serialVersionUID = 6109389084434712217L;
-	private static final UIPropertyContext propertyContext = UIPropertyContext.createContext("TipOfTheDay");
+	private static final UIPropertyContext PROPERTY_CONTEXT = UIPropertyContext.createContext("TipOfTheDay");
 	private static final String NEXT = "next";
 	private static final String PREV = "prev";
 	private static final String HTML_START =
@@ -86,7 +86,7 @@ public final class TipOfTheDay extends JDialog implements ActionListener
 
 	public static boolean showTipOfTheDay()
 	{
-		return propertyContext.getBoolean("showTipOfTheDay", true);
+		return PROPERTY_CONTEXT.getBoolean("showTipOfTheDay", true);
 	}
 
 	@Override
@@ -148,7 +148,7 @@ public final class TipOfTheDay extends JDialog implements ActionListener
 		panel.add(content, BorderLayout.CENTER);
 
 		chkShowTips = new JCheckBox(LanguageBundle.getString("in_tod_showTips"),
-			propertyContext.initBoolean("showTipOfTheDay", true));
+			PROPERTY_CONTEXT.initBoolean("showTipOfTheDay", true));
 
 		final JButton btnClose = new JButton(LanguageBundle.getString("in_close"));
 		btnClose.setMnemonic(LanguageBundle.getMnemonic("in_mn_close"));
@@ -214,7 +214,7 @@ public final class TipOfTheDay extends JDialog implements ActionListener
 	{
 		setVisible(false);
 
-		propertyContext.setBoolean("showTipOfTheDay", chkShowTips.isSelected());
+		PROPERTY_CONTEXT.setBoolean("showTipOfTheDay", chkShowTips.isSelected());
 
 		dispose();
 	}

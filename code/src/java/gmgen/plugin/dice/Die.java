@@ -28,7 +28,7 @@ public abstract class Die
 	private final DiceConfig dc;
 
 	/** Random number seed */
-	protected static final Random rand = new Random();
+	protected static final Random RAND = new Random();
 
 	protected Die(final DiceConfig dc)
 	{

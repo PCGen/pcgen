@@ -83,7 +83,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 		implements ListSelectionListener, ListListener<CampaignFacade>, ActionListener
 {
 
-	private static final UIPropertyContext context = 
+	private static final UIPropertyContext CONTEXT = 
 			UIPropertyContext.createContext("advancedSourceSelectionPanel"); //$NON-NLS-1$
 	private static final String PROP_SELECTED_GAME = "selectedGame"; //$NON-NLS-1$
 	private static final String PROP_SELECTED_SOURCES = "selectedSources."; //$NON-NLS-1$
@@ -200,7 +200,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 
 	private void initDefaults()
 	{
-		String defaultGame = context.initProperty(PROP_SELECTED_GAME, "");
+		String defaultGame = CONTEXT.initProperty(PROP_SELECTED_GAME, "");
 		GameModeDisplayFacade modeDisplay = null;
 		if (StringUtils.isNotEmpty(defaultGame))
 		{
@@ -231,7 +231,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 		if (mode != null)
 		{
 			List<String> sourceNames;
-			String defaultSelectedSources = context.initProperty(
+			String defaultSelectedSources = CONTEXT.initProperty(
 				PROP_SELECTED_SOURCES + mode.toString(), ""); //$NON-NLS-1$
 			if (defaultSelectedSources == null || "".equals(defaultSelectedSources))
 			{
@@ -290,7 +290,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 	private void setSelectedGameMode(GameModeDisplayFacade elementAt)
 	{
 		this.gameMode = elementAt.getGameMode();
-		context.setProperty(PROP_SELECTED_GAME, gameMode.toString());
+		CONTEXT.setProperty(PROP_SELECTED_GAME, gameMode.toString());
 		selectedCampaigns.clearContents();
 		availTreeViewModel.setGameModel(elementAt.getGameMode());
 		selectDefaultSources(gameMode);
@@ -380,7 +380,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 	void rememberSelectedSources()
 	{
 		String sources = StringUtils.join(getSelectedCampaigns(), "|"); //$NON-NLS-1$
-		context.setProperty(PROP_SELECTED_SOURCES + gameMode.toString(), sources);
+		CONTEXT.setProperty(PROP_SELECTED_SOURCES + gameMode.toString(), sources);
 	}
 
 	private class AddAction extends AbstractAction

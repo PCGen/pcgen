@@ -35,7 +35,7 @@ public enum Tab
 															"Companions", "in_companions"), CHARACTERSHEET(
 																	"Character Sheet", "in_character_sheet");
 
-	private static final Map<Object, Tab> byText;
+	private static final Map<Object, Tab> BY_TEXT;
 
 	static
 	{
@@ -48,7 +48,7 @@ public enum Tab
 				throw new InternalError("Two Tab objects must not have same 'text' field: " + t.toString());
 			}
 		}
-		byText = Collections.unmodifiableMap(map);
+		BY_TEXT = Collections.unmodifiableMap(map);
 	}
 	private final String text;
 	private final String label;
@@ -102,11 +102,11 @@ public enum Tab
 
 	public static boolean exists(String id)
 	{
-		return byText.containsKey(id);
+		return BY_TEXT.containsKey(id);
 	}
 
 	public static Tab getTab(String name)
 	{
-		return byText.get(name);
+		return BY_TEXT.get(name);
 	}
 }

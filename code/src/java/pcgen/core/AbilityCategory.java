@@ -512,9 +512,9 @@ public class AbilityCategory
 	@Override
 	public int hashCode()
 	{
-		final int PRIME = 31;
+		final int prime = 31;
 		int result = 1;
-		result = (PRIME * result) + ((keyName == null) ? 0 : keyName.hashCode());
+		result = (prime * result) + ((keyName == null) ? 0 : keyName.hashCode());
 		return result;
 	}
 

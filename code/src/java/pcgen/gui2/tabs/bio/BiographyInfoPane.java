@@ -81,9 +81,9 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 {
 	private static final String ALL_COMMAND = "ALL"; //$NON-NLS-1$
 	private static final String NONE_COMMAND = "NONE"; //$NON-NLS-1$
-	private static final JTextField templateTextField = new JTextField("PrototypeDisplayText"); //$NON-NLS-1$;
+	private static final JTextField TEMPLATE_TEXT_FIELD = new JTextField("PrototypeDisplayText"); //$NON-NLS-1$;
 	/** The fields that we always display */
-	private static final EnumSet<BiographyField> defaultBioFieds =
+	private static final EnumSet<BiographyField> DEFAULT_BIO_FIELDS =
 			EnumSet.range(BiographyField.NAME, BiographyField.WEIGHT);
 
 	private final TabTitle title = new TabTitle(LanguageBundle.getString("in_descBiography"), null); //$NON-NLS-1$
@@ -767,7 +767,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 				throw new IllegalStateException("The CharacterComboBoxModel has already been set"); //$NON-NLS-1$
 			}
 			this.combobox = new JComboBox<>(model);
-			combobox.setPreferredSize(new Dimension(10, templateTextField.getPreferredSize().height));
+			combobox.setPreferredSize(new Dimension(10, TEMPLATE_TEXT_FIELD.getPreferredSize().height));
 		}
 
 		/**
@@ -882,7 +882,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 		{
 			// Build list of choices
 			List<BiographyField> availFields = new ArrayList<>(Arrays.asList(BiographyField.values()));
-			availFields.removeAll(defaultBioFieds);
+			availFields.removeAll(DEFAULT_BIO_FIELDS);
 			for (BiographyField field : character.getDescriptionFacade().getCustomBiographyFields())
 			{
 				availFields.remove(field);

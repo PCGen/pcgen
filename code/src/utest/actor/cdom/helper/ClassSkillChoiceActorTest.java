@@ -27,12 +27,12 @@ public class ClassSkillChoiceActorTest extends
 		AbstractPersistentCDOMChoiceActorTestCase<Skill>
 {
 
-	private static final Persistent<Skill> pca = new ClassSkillChoiceActor(null, null);
+	private static final Persistent<Skill> PCA = new ClassSkillChoiceActor(null, null);
 
 	@Override
 	public Persistent<Skill> getActor()
 	{
-		return pca;
+		return PCA;
 	}
 
 	@Override

@@ -46,7 +46,7 @@ import pcgen.util.Logging;
 class PluginClassLoader extends PCGenTask
 {
 
-	private static final FilenameFilter pluginFilter = (dir, name) -> {
+	private static final FilenameFilter PLUGIN_FILTER = (dir, name) -> {
 		if (name.contains("plugin"))
 		{
 			return true;
@@ -228,7 +228,7 @@ class PluginClassLoader extends PCGenTask
 		{
 			return;
 		}
-		File[] pluginFiles = pluginDir.listFiles(PluginClassLoader.pluginFilter);
+		File[] pluginFiles = pluginDir.listFiles(PluginClassLoader.PLUGIN_FILTER);
 		for (final File file : pluginFiles)
 		{
 			if (file.isDirectory())

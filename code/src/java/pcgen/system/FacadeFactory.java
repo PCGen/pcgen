@@ -54,7 +54,7 @@ import pcgen.util.Logging;
 public final class FacadeFactory
 {
 
-	private static final PropertyContext sourcesContext =
+	private static final PropertyContext SOURCES_CONTEXT =
 			PCGenSettings.getInstance().createChildContext("customSources");
 	private static DefaultListFacade<SourceSelectionFacade> quickSources = null;
 	private static DefaultListFacade<CampaignFacade> campaigns = null;
@@ -64,7 +64,7 @@ public final class FacadeFactory
 	private static DefaultListFacade<SourceSelectionFacade> customSources;
 	private static Map<String, CampaignFacade> campaignMap;
 	private static Map<GameModeFacade, DefaultListFacade<CampaignFacade>> campaignListMap = null;
-	private static final CampaignInfoFactory campInfoFactory = new Gui2CampaignInfoFactory();
+	private static final CampaignInfoFactory CAMP_INFO_FACTORY = new Gui2CampaignInfoFactory();
 
 	private FacadeFactory()
 	{
@@ -194,14 +194,14 @@ public final class FacadeFactory
 
 	private static void initCustomSourceSelections()
 	{
-		String[] keys = sourcesContext.getStringArray("selectionNames");
+		String[] keys = SOURCES_CONTEXT.getStringArray("selectionNames");
 		if (keys == null)
 		{
 			return;
 		}
 		for (String name : keys)
 		{
-			PropertyContext context = sourcesContext.createChildContext(name);
+			PropertyContext context = SOURCES_CONTEXT.createChildContext(name);
 			String modeName = context.getProperty("gamemode");
 			GameMode mode = SystemCollections.getGameModeNamed(modeName);
 			if (mode == null)
@@ -264,7 +264,7 @@ public final class FacadeFactory
 		customSources.removeElement(source);
 		quickSources.removeElement(source);
 		displayedSources.removeElement(source);
-		PropertyContext context = sourcesContext.createChildContext(source.toString());
+		PropertyContext context = SOURCES_CONTEXT.createChildContext(source.toString());
 		context.removeProperty("gamemode");
 		context.removeProperty("campaigns");
 		setCustomSourceSelectionArray();
@@ -277,7 +277,7 @@ public final class FacadeFactory
 		{
 			sources.add(csel.toString());
 		}
-		sourcesContext.setStringArray("selectionNames", sources);
+		SOURCES_CONTEXT.setStringArray("selectionNames", sources);
 	}
 
 	public static void setDisplayedSources(SourceSelectionFacade[] sources)
@@ -354,7 +354,7 @@ public final class FacadeFactory
 	 */
 	public static CampaignInfoFactory getCampaignInfoFactory()
 	{
-		return campInfoFactory;
+		return CAMP_INFO_FACTORY;
 	}
 
 	public static boolean passesPrereqs(List<CampaignFacade> campaigns)
@@ -464,7 +464,7 @@ public final class FacadeFactory
 		private CustomSourceSelectionFacade(String name)
 		{
 			this.name = name;
-			this.context = FacadeFactory.sourcesContext.createChildContext(name);
+			this.context = FacadeFactory.SOURCES_CONTEXT.createChildContext(name);
 		}
 
 		private final DefaultListFacade<CampaignFacade> campaigns = new DefaultListFacade<>();

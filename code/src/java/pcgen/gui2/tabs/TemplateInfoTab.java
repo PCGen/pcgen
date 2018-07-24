@@ -432,7 +432,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 			Filter<CharacterFacade, TemplateFacade>, ListListener<TemplateFacade>
 	{
 
-		private static final DefaultListFacade<? extends TreeView<TemplateFacade>> treeViews =
+		private static final DefaultListFacade<? extends TreeView<TemplateFacade>> TREE_VIEWS =
 				new DefaultListFacade<TreeView<TemplateFacade>>(Arrays.asList(TemplateTreeView.values()));
 		private final CharacterFacade character;
 		private final boolean isAvailModel;
@@ -461,7 +461,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 		@Override
 		public ListFacade<? extends TreeView<TemplateFacade>> getTreeViews()
 		{
-			return treeViews;
+			return TREE_VIEWS;
 		}
 
 		@Override

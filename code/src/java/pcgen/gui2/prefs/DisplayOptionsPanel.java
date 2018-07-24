@@ -49,28 +49,28 @@ import pcgen.system.PCGenSettings;
 @SuppressWarnings("serial")
 public class DisplayOptionsPanel extends PCGenPrefsPanel
 {
-	private static final String in_displayOpts =
+	private static final String IN_DISPLAY_OPTS =
 			LanguageBundle.getString("in_Prefs_displayOpts"); //$NON-NLS-1$
 
-	private static final String in_useOutputNamesEquipment =
+	private static final String IN_USE_OUTPUT_NAMES_EQUIPMENT =
 			LanguageBundle.getString("in_Prefs_useOutputNamesEquipment"); //$NON-NLS-1$
-	private static final String in_useOutputNamesSpells =
+	private static final String IN_USE_OUTPUT_NAMES_SPELLS =
 			LanguageBundle.getString("in_Prefs_useOutputNamesSpells"); //$NON-NLS-1$
-	private static final String in_useOutputNamesOther =
+	private static final String IN_USE_OUTPUT_NAMES_OTHER =
 			LanguageBundle.getString("in_Prefs_useOutputNamesOther"); //$NON-NLS-1$
-	private static final String in_showSkillModifierBreakdown =
+	private static final String IN_SHOW_SKILL_MODIFIER_BREAKDOWN =
 			LanguageBundle.getString("in_Prefs_showSkillModifierBreakdown"); //$NON-NLS-1$
-	private static final String in_showSkillRanksBreakdown =
+	private static final String IN_SHOW_SKILL_RANKS_BREAKDOWN =
 			LanguageBundle.getString("in_Prefs_showSkillRanksBreakdown"); //$NON-NLS-1$
-	private static final String in_singleChoiceOption =
+	private static final String IN_SINGLE_CHOICE_OPTION =
 			LanguageBundle.getString("in_Prefs_singleChoiceOption"); //$NON-NLS-1$
-	private static final String in_cmNone =
+	private static final String IN_CM_NONE =
 			LanguageBundle.getString("in_Prefs_cmNone"); //$NON-NLS-1$
-	private static final String in_cmSelect =
+	private static final String IN_CM_SELECT =
 			LanguageBundle.getString("in_Prefs_cmSelect"); //$NON-NLS-1$
-	private static final String in_cmSelectExit =
+	private static final String IN_CM_SELECT_EXIT =
 			LanguageBundle.getString("in_Prefs_cmSelectExit"); //$NON-NLS-1$
-	private static final String[] singleChoiceMethods = {in_cmNone, in_cmSelect, in_cmSelectExit};
+	private static final String[] SINGLE_CHOICE_METHODS = {IN_CM_NONE, IN_CM_SELECT, IN_CM_SELECT_EXIT};
 
 	private final JCheckBox showSkillModifier = new JCheckBox();
 	private final JCheckBox showSkillRanks = new JCheckBox();
@@ -78,7 +78,7 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 	private final JCheckBox useOutputNamesEquipment = new JCheckBox();
 	private final JCheckBox useOutputNamesSpells = new JCheckBox();
 	private final JCheckBox useOutputNamesOther = new JCheckBox();
-	private final JComboBoxEx<String> cmbChoiceMethods = new JComboBoxEx<>(singleChoiceMethods);
+	private final JComboBoxEx<String> cmbChoiceMethods = new JComboBoxEx<>(SINGLE_CHOICE_METHODS);
 
 	/**
 	 * Instantiates a new display options panel.
@@ -89,7 +89,7 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 		GridBagConstraints c = new GridBagConstraints();
 		JLabel label;
 		Border etched = null;
-		TitledBorder title1 = BorderFactory.createTitledBorder(etched, in_displayOpts);
+		TitledBorder title1 = BorderFactory.createTitledBorder(etched, IN_DISPLAY_OPTS);
 		int line = 0;
 
 		title1.setTitleJustification(TitledBorder.LEADING);
@@ -103,12 +103,12 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 		// Automatically sort the options alphabetically.
 		final SortedMap<String, JComponent> options = new TreeMap<>();
 
-		options.put(in_showSkillModifierBreakdown, showSkillModifier);
-		options.put(in_showSkillRanksBreakdown, showSkillRanks);
-		options.put(in_singleChoiceOption, cmbChoiceMethods);
-		options.put(in_useOutputNamesEquipment, useOutputNamesEquipment);
-		options.put(in_useOutputNamesSpells, useOutputNamesSpells);
-		options.put(in_useOutputNamesOther, useOutputNamesOther);
+		options.put(IN_SHOW_SKILL_MODIFIER_BREAKDOWN, showSkillModifier);
+		options.put(IN_SHOW_SKILL_RANKS_BREAKDOWN, showSkillRanks);
+		options.put(IN_SINGLE_CHOICE_OPTION, cmbChoiceMethods);
+		options.put(IN_USE_OUTPUT_NAMES_EQUIPMENT, useOutputNamesEquipment);
+		options.put(IN_USE_OUTPUT_NAMES_SPELLS, useOutputNamesSpells);
+		options.put(IN_USE_OUTPUT_NAMES_OTHER, useOutputNamesOther);
 
 		for (Map.Entry<String, JComponent> entry : options.entrySet())
 		{
@@ -148,7 +148,7 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 	@Override
 	public String getTitle()
 	{
-		return in_displayOpts;
+		return IN_DISPLAY_OPTS;
 	}
 
 	/**

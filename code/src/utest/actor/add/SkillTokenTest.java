@@ -27,12 +27,12 @@ public class SkillTokenTest extends
 		AbstractPersistentCDOMChoiceActorTestCase<Skill>
 {
 
-	private static final Persistent<Skill> pca = new SkillToken();
+	private static final Persistent<Skill> PCA = new SkillToken();
 
 	@Override
 	public Persistent<Skill> getActor()
 	{
-		return pca;
+		return PCA;
 	}
 
 	@Override
