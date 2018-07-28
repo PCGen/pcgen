@@ -27,12 +27,12 @@ public class EquipTokenTest extends
 		AbstractPersistentCDOMChoiceActorTestCase<Equipment>
 {
 
-	private static final Persistent<Equipment> pca = new EquipToken();
+	private static final Persistent<Equipment> PCA = new EquipToken();
 
 	@Override
 	public Persistent<Equipment> getActor()
 	{
-		return pca;
+		return PCA;
 	}
 
 	@Override

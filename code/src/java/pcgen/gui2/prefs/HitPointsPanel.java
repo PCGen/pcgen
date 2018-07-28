@@ -45,7 +45,7 @@ import pcgen.system.LanguageBundle;
 @SuppressWarnings("serial")
 public class HitPointsPanel extends PCGenPrefsPanel
 {
-	private static final String in_hp = LanguageBundle.getString("in_Prefs_hp");
+	private static final String IN_HP = LanguageBundle.getString("in_Prefs_hp");
 
 	private final JCheckBox maxHpAtFirstLevel = new JCheckBox();
 	private final JCheckBox maxHpAtFirstClassLevel = new JCheckBox();
@@ -73,7 +73,7 @@ public class HitPointsPanel extends PCGenPrefsPanel
 		JLabel label;
 		ButtonGroup exclusiveGroup;
 		Border etched = null;
-		TitledBorder title1 = BorderFactory.createTitledBorder(etched, in_hp);
+		TitledBorder title1 = BorderFactory.createTitledBorder(etched, IN_HP);
 
 		title1.setTitleJustification(TitledBorder.LEFT);
 		this.setBorder(title1);
@@ -153,7 +153,7 @@ public class HitPointsPanel extends PCGenPrefsPanel
 	@Override
 	public String getTitle()
 	{
-		return in_hp;
+		return IN_HP;
 	}
 
 	/**

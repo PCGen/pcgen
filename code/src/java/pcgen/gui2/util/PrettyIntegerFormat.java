@@ -47,11 +47,11 @@ public final class PrettyIntegerFormat extends DecimalFormat
 
 	private static final class InstanceHolder
 	{
-		private static final DecimalFormat instance = new PrettyIntegerFormat();
+		private static final DecimalFormat INSTANCE = new PrettyIntegerFormat();
 	}
 
 	public static DecimalFormat getFormat()
 	{
-		return InstanceHolder.instance;
+		return InstanceHolder.INSTANCE;
 	}
 }

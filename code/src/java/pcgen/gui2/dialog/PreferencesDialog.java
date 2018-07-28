@@ -86,8 +86,8 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 	private static final long serialVersionUID = 5042379023317257550L;
 
 	// Resource strings
-	private static final String in_appearance = LanguageBundle.getString("in_Prefs_appearance"); //$NON-NLS-1$
-	private static final String in_character = LanguageBundle.getString("in_Prefs_character"); //$NON-NLS-1$
+	private static final String IN_APPERANCE = LanguageBundle.getString("in_Prefs_appearance"); //$NON-NLS-1$
+	private static final String IN_CHARACTER = LanguageBundle.getString("in_Prefs_character"); //$NON-NLS-1$
 	public static final String LB_PREFS_PLUGINS_RUN = "in_Prefs_pluginsRun"; //$NON-NLS-1$
 	public static final String LB_PREFS_PLUGIN_PCGEN_WIN = "in_Prefs_pluginPcgenWin"; //$NON-NLS-1$
 	public static final String LB_PREFS_PLUGIN_GMGEN_WIN = "in_Prefs_pluginGMGenWin"; //$NON-NLS-1$
@@ -241,8 +241,8 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 		settingsPanel.setPreferredSize(new Dimension(780, 420));
 
 		// Build the selection tree
-		characterNode = new DefaultMutableTreeNode(in_character);
-		settingsPanel.add(buildEmptyPanel("", LanguageBundle.getString("in_Prefs_charTip")), in_character);
+		characterNode = new DefaultMutableTreeNode(IN_CHARACTER);
+		settingsPanel.add(buildEmptyPanel("", LanguageBundle.getString("in_Prefs_charTip")), IN_CHARACTER);
 
 		characterStatsPanel = new CharacterStatsPanel(this);
 		addPanelToTree(characterNode, characterStatsPanel);
@@ -256,8 +256,8 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 		addPanelToTree(characterNode, defaultsPanel);
 		rootNode.add(characterNode);
 
-		appearanceNode = new DefaultMutableTreeNode(in_appearance);
-		settingsPanel.add(buildEmptyPanel("", LanguageBundle.getString("in_Prefs_appearanceTip")), in_appearance);
+		appearanceNode = new DefaultMutableTreeNode(IN_APPERANCE);
+		settingsPanel.add(buildEmptyPanel("", LanguageBundle.getString("in_Prefs_appearanceTip")), IN_APPERANCE);
 
 		colorsPanel = new ColorsPanel();
 		addPanelToTree(appearanceNode, colorsPanel);

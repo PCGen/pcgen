@@ -69,7 +69,7 @@ import pcgen.util.enumeration.Tab;
 public class GameModeFileLoader extends PCGenTask
 {
 
-	private static final FilenameFilter gameModeFileFilter = (aFile, aString) -> {
+	private static final FilenameFilter GAME_MODE_FILE_FILTER = (aFile, aString) -> {
 		try
 		{
 			final File d = new File(aFile, aString);
@@ -118,7 +118,7 @@ public class GameModeFileLoader extends PCGenTask
 	{
 		final String aDirectory = ConfigurationSettings.getSystemsDir() + File.separator + "gameModes" + File.separator;
 
-		return new File(aDirectory).list(gameModeFileFilter);
+		return new File(aDirectory).list(GAME_MODE_FILE_FILTER);
 	}
 
 	private static UnitSet DEFAULT_UNIT_SET;

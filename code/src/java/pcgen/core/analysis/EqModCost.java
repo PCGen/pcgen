@@ -39,7 +39,7 @@ import pcgen.util.Delta;
 
 public final class EqModCost
 {
-	private static final String s_CHARGES = "CHARGES";
+	private static final String S_CHARGES = "CHARGES";
 
 	private EqModCost()
 	{
@@ -235,13 +235,13 @@ public final class EqModCost
 	{
 		String modChoice = "";
 
-		while (costFormula.contains("%" + s_CHARGES))
+		while (costFormula.contains("%" + S_CHARGES))
 		{
-			final int idx = costFormula.indexOf("%" + s_CHARGES);
+			final int idx = costFormula.indexOf("%" + S_CHARGES);
 
 			if (modChoice.isEmpty())
 			{
-				modChoice = Integer.toString(EqModSpellInfo.getSpellInfo(listEntry, s_CHARGES));
+				modChoice = Integer.toString(EqModSpellInfo.getSpellInfo(listEntry, S_CHARGES));
 			}
 
 			costFormula = costFormula.substring(0, idx) + modChoice + costFormula.substring(idx + 8);

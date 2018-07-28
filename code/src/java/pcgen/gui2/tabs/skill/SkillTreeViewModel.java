@@ -51,7 +51,7 @@ public class SkillTreeViewModel
 		implements TreeViewModel<SkillFacade>, DataView<SkillFacade>, SkillBonusListener, ListSelectionListener
 {
 
-	private static final List<? extends DataViewColumn> columns =
+	private static final List<? extends DataViewColumn> COLUMNS =
 			Arrays.asList(new DefaultDataViewColumn("in_iskTotal", Integer.class, true),
 				new DefaultDataViewColumn("in_iskModifier", Integer.class, true),
 				new DefaultDataViewColumn("in_skillRanks", Float.class, true, true),
@@ -178,7 +178,7 @@ public class SkillTreeViewModel
 	@Override
 	public List<? extends DataViewColumn> getDataColumns()
 	{
-		return columns;
+		return COLUMNS;
 	}
 
 	@Override

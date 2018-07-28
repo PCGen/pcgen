@@ -93,7 +93,7 @@ public class JTreeViewTable<T> extends JTreeTable
 	protected TreeViewTableModel<T> treetableModel;
 	private TreeViewModel<T> viewModel;
 	protected CornerButtonPopupMenu cornerPopupMenu = new CornerButtonPopupMenu();
-	private static final PropertyContext baseContext = UIPropertyContext.createContext("tablePrefs");
+	private static final PropertyContext BASE_CONTEXT = UIPropertyContext.createContext("tablePrefs");
 
 	/**
 	 * Create a new instance of JTreeViewTable
@@ -308,7 +308,7 @@ public class JTreeViewTable<T> extends JTreeTable
 		viewColumn.setHeaderValue(view.getViewName());
 		sortModel();
 		getTableHeader().repaint();
-		PropertyContext context = baseContext.createChildContext(this.viewModel.getDataView().getPrefsKey());
+		PropertyContext context = BASE_CONTEXT.createChildContext(this.viewModel.getDataView().getPrefsKey());
 
 		int index = getIndex(viewModel.getTreeViews(), view);
 		if (index >= 0)
@@ -346,7 +346,7 @@ public class JTreeViewTable<T> extends JTreeTable
 	public void setTreeViewModel(TreeViewModel<T> viewModel)
 	{
 		ListFacade<? extends TreeView<T>> views = viewModel.getTreeViews();
-		PropertyContext context = baseContext.createChildContext(viewModel.getDataView().getPrefsKey());
+		PropertyContext context = BASE_CONTEXT.createChildContext(viewModel.getDataView().getPrefsKey());
 		int viewIndex = context.initInt(VIEW_INDEX_PREFS_KEY, viewModel.getDefaultTreeViewIndex());
 		TreeView<? super T> startingView = views.getElementAt(viewIndex);
 		DataView<T> dataView = viewModel.getDataView();
@@ -435,7 +435,7 @@ public class JTreeViewTable<T> extends JTreeTable
 		public void resetComponents()
 		{
 			ListFacade<? extends TreeView<T>> views = viewModel.getTreeViews();
-			PropertyContext context = baseContext.createChildContext(viewModel.getDataView().getPrefsKey());
+			PropertyContext context = BASE_CONTEXT.createChildContext(viewModel.getDataView().getPrefsKey());
 			int viewIndex = context.initInt(VIEW_INDEX_PREFS_KEY, viewModel.getDefaultTreeViewIndex());
 
 			ButtonGroup group = new ButtonGroup();

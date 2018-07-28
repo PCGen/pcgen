@@ -18,7 +18,7 @@
  */
 package pcgen.gui2.tabs;
 
-import static pcgen.gui2.tabs.equip.EquipmentSelection.equipmentArrayFlavor;
+import static pcgen.gui2.tabs.equip.EquipmentSelection.EQUIPMENT_ARRAY_FLAVOR;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -101,7 +101,7 @@ import pcgen.util.enumeration.Tab;
 public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab, TodoHandler
 {
 
-	private static final DataFlavor equipNodeArrayFlavor =
+	private static final DataFlavor EQUIP_NODE_ARRAY_FLAVOR =
 			new DataFlavor(DataFlavor.javaJVMLocalObjectMimeType + ";class=\"" //$NON-NLS-1$
 				+ EquipNode[].class.getName() + "\"", null); //$NON-NLS-1$
 	private final JDynamicTable equipmentTable;
@@ -713,7 +713,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 	private static class EquipNodeSelection implements Transferable
 	{
 
-		private static final DataFlavor[] FLAVORS = {equipNodeArrayFlavor, equipmentArrayFlavor};
+		private static final DataFlavor[] FLAVORS = {EQUIP_NODE_ARRAY_FLAVOR, EQUIPMENT_ARRAY_FLAVOR};
 		private final EquipNode[] nodeArray;
 
 		public EquipNodeSelection(EquipNode[] nodeArray)
@@ -736,11 +736,11 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		@Override
 		public Object getTransferData(DataFlavor flavor) throws UnsupportedFlavorException, IOException
 		{
-			if (flavor == equipNodeArrayFlavor)
+			if (flavor == EQUIP_NODE_ARRAY_FLAVOR)
 			{
 				return nodeArray;
 			}
-			if (flavor == equipmentArrayFlavor)
+			if (flavor == EQUIPMENT_ARRAY_FLAVOR)
 			{
 				EquipmentFacade[] equipArray = new EquipmentFacade[nodeArray.length];
 				for (int i = 0; i < equipArray.length; i++)
@@ -800,7 +800,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		@Override
 		public boolean canImport(TransferSupport support)
 		{
-			if (!support.isDataFlavorSupported(equipNodeArrayFlavor))
+			if (!support.isDataFlavorSupported(EQUIP_NODE_ARRAY_FLAVOR))
 			{
 				return false;
 			}
@@ -813,7 +813,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			EquipNode[] equipNodeArray = null;
 			try
 			{
-				equipNodeArray = (EquipNode[]) support.getTransferable().getTransferData(equipNodeArrayFlavor);
+				equipNodeArray = (EquipNode[]) support.getTransferable().getTransferData(EQUIP_NODE_ARRAY_FLAVOR);
 			}
 			catch (UnsupportedFlavorException | IOException ex)
 			{
@@ -896,7 +896,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			EquipmentFacade[] equipmentArray = null;
 			try
 			{
-				equipmentArray = (EquipmentFacade[]) support.getTransferable().getTransferData(equipmentArrayFlavor);
+				equipmentArray = (EquipmentFacade[]) support.getTransferable().getTransferData(EQUIPMENT_ARRAY_FLAVOR);
 			}
 			catch (UnsupportedFlavorException | IOException ex)
 			{
@@ -910,7 +910,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			EquipNode[] equipNodeArray = null;
 			try
 			{
-				equipNodeArray = (EquipNode[]) support.getTransferable().getTransferData(equipNodeArrayFlavor);
+				equipNodeArray = (EquipNode[]) support.getTransferable().getTransferData(EQUIP_NODE_ARRAY_FLAVOR);
 			}
 			catch (UnsupportedFlavorException | IOException ex)
 			{
@@ -935,7 +935,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			}
 			EquipmentSetFacade equipSet = character.getEquipmentSetRef().get();
 
-			if (support.isDataFlavorSupported(equipNodeArrayFlavor))
+			if (support.isDataFlavorSupported(EQUIP_NODE_ARRAY_FLAVOR))
 			{
 				EquipNode[] equipNodeArray = getEquipNodeArray(support);
 				if (equipNodeArray == null)
@@ -951,7 +951,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 				}
 				return true;
 			}
-			else if (support.isDataFlavorSupported(equipmentArrayFlavor))
+			else if (support.isDataFlavorSupported(EQUIPMENT_ARRAY_FLAVOR))
 			{
 				EquipmentFacade[] equipmentArray = getEquipmentArray(support);
 				if (equipmentArray == null)
@@ -989,7 +989,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			}
 			EquipmentSetFacade equipSet = character.getEquipmentSetRef().get();
 
-			if (support.isDataFlavorSupported(equipNodeArrayFlavor))
+			if (support.isDataFlavorSupported(EQUIP_NODE_ARRAY_FLAVOR))
 			{
 				EquipNode[] equipNodeArray = getEquipNodeArray(support);
 				if (equipNodeArray == null)
@@ -1003,7 +1003,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 					equipSet.addEquipment(node, equipNode.getEquipment(), quantity, beforeNode);
 				}
 			}
-			else if (support.isDataFlavorSupported(equipmentArrayFlavor))
+			else if (support.isDataFlavorSupported(EQUIPMENT_ARRAY_FLAVOR))
 			{
 				EquipmentFacade[] equipmentArray = getEquipmentArray(support);
 				if (equipmentArray == null)

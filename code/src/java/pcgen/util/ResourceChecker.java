@@ -25,12 +25,12 @@ import pcgen.system.LanguageBundle;
 public final class ResourceChecker
 {
 	/** Handle to resource bundle message for where to get missing resources */
-	static final String getItHereMsg = LanguageBundle.getString("in_FollowLink");
+	static final String GET_IT_HERE_MSG = LanguageBundle.getString("in_FollowLink");
 
 	/**
 	 * Handle to resource bundle message for when there is a missing resource
 	 */
-	static final String missingLibMsg = LanguageBundle.getString("MissingLibMessage").replace('|', '\n');
+	static final String MISSING_LIB_MSG = LanguageBundle.getString("MissingLibMessage").replace('|', '\n');
 
 	private ResourceChecker()
 	{

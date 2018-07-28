@@ -27,7 +27,7 @@ import pcgen.output.wrapper.CDOMObjectWrapper;
 public class IntegerKeyActorTest extends AbstractOutputTestCase
 {
 
-	private static final DeityFacet df = new DeityFacet();
+	private static final DeityFacet DF = new DeityFacet();
 
 	private static boolean classSetUpRun = false;
 
@@ -45,7 +45,7 @@ public class IntegerKeyActorTest extends AbstractOutputTestCase
 	private void classSetUp()
 	{
 		OutputDB.reset();
-		df.init();
+		DF.init();
 	}
 
 	public void testIntegerKeyActor()
@@ -53,7 +53,7 @@ public class IntegerKeyActorTest extends AbstractOutputTestCase
 		Deity d = new Deity();
 		d.setName("Bob");
 		Integer expectedResult = 475;
-		df.set(id, d);
+		DF.set(id, d);
 		d.put(IntegerKey.COST, expectedResult);
 		IntegerKeyActor ika = new IntegerKeyActor(IntegerKey.COST);
 		CDOMObjectWrapper.load(dsid, d.getClass(), "cost", ika);

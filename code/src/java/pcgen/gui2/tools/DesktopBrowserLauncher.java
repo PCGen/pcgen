@@ -31,8 +31,9 @@ import java.net.URI;
 final class DesktopBrowserLauncher
 {
 
-	private static final Desktop desktop = Desktop.getDesktop();
-	private static final Boolean isBrowseSupported = Desktop.isDesktopSupported() && desktop.isSupported(Action.BROWSE);
+	private static final Desktop DESKTOP = Desktop.getDesktop();
+	private static final Boolean IS_BROWSE_SUPPORTED =
+			Desktop.isDesktopSupported() && DESKTOP.isSupported(Action.BROWSE);
 
 	private DesktopBrowserLauncher()
 	{
@@ -44,7 +45,7 @@ final class DesktopBrowserLauncher
 	 */
 	static void browse(final URI uri) throws IOException
 	{
-		desktop.browse(uri);
+		DESKTOP.browse(uri);
 	}
 
 	/**
@@ -53,6 +54,6 @@ final class DesktopBrowserLauncher
 	 */
 	static boolean isBrowseSupported()
 	{
-		return isBrowseSupported;
+		return IS_BROWSE_SUPPORTED;
 	}
 }

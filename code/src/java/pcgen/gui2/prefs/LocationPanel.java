@@ -57,11 +57,11 @@ import pcgen.system.PCGenSettings;
 @SuppressWarnings("serial")
 public class LocationPanel extends PCGenPrefsPanel
 {
-	private static final String in_location = LanguageBundle.getString("in_Prefs_location");
+	private static final String IN_LOCATION = LanguageBundle.getString("in_Prefs_location");
 
-	private static final String in_browserPath = LanguageBundle.getString("in_Prefs_browserPath");
-	private static final String in_clearBrowserPath = LanguageBundle.getString("in_Prefs_clearBrowserPath");
-	private static final String in_choose = "...";
+	private static final String IN_BROWSER_PATH = LanguageBundle.getString("in_Prefs_browserPath");
+	private static final String IN_CLEAR_BROWSER_PATH = LanguageBundle.getString("in_Prefs_clearBrowserPath");
+	private static final String IN_CHOOSE = "...";
 
 	private final ButtonGroup groupFilesDir;
 	private final JRadioButton pcgenFilesDirRadio;
@@ -107,7 +107,7 @@ public class LocationPanel extends PCGenPrefsPanel
 	public LocationPanel()
 	{
 		Border etched = null;
-		TitledBorder title1 = BorderFactory.createTitledBorder(etched, in_location);
+		TitledBorder title1 = BorderFactory.createTitledBorder(etched, IN_LOCATION);
 
 		title1.setTitleJustification(TitledBorder.LEFT);
 		this.setBorder(title1);
@@ -119,7 +119,7 @@ public class LocationPanel extends PCGenPrefsPanel
 		constraints.insets = new Insets(2, 2, 2, 2);
 
 		Utility.buildConstraints(constraints, 0, 0, 1, 1, 0, 0);
-		JLabel label = new JLabel(in_browserPath + ": ");
+		JLabel label = new JLabel(IN_BROWSER_PATH + ": ");
 		gridbag.setConstraints(label, constraints);
 		this.add(label);
 		Utility.buildConstraints(constraints, 1, 0, 1, 1, 1, 0);
@@ -130,13 +130,13 @@ public class LocationPanel extends PCGenPrefsPanel
 		gridbag.setConstraints(browserPath, constraints);
 		this.add(browserPath);
 		Utility.buildConstraints(constraints, 2, 0, 1, 1, 0, 0);
-		browserPathButton = new JButton(in_choose);
+		browserPathButton = new JButton(IN_CHOOSE);
 		gridbag.setConstraints(browserPathButton, constraints);
 		this.add(browserPathButton);
 		browserPathButton.addActionListener(prefsButtonHandler);
 
 		Utility.buildConstraints(constraints, 1, 1, 1, 1, 0, 0);
-		clearBrowserPathButton = new JButton(in_clearBrowserPath);
+		clearBrowserPathButton = new JButton(IN_CLEAR_BROWSER_PATH);
 		gridbag.setConstraints(clearBrowserPathButton, constraints);
 		this.add(clearBrowserPathButton);
 		clearBrowserPathButton.addActionListener(prefsButtonHandler);
@@ -153,7 +153,7 @@ public class LocationPanel extends PCGenPrefsPanel
 		gridbag.setConstraints(pcgenCharacterDir, constraints);
 		this.add(pcgenCharacterDir);
 		Utility.buildConstraints(constraints, 2, 2, 1, 1, 0, 0);
-		pcgenCharacterDirButton = new JButton(in_choose);
+		pcgenCharacterDirButton = new JButton(IN_CHOOSE);
 		gridbag.setConstraints(pcgenCharacterDirButton, constraints);
 		this.add(pcgenCharacterDirButton);
 		pcgenCharacterDirButton.addActionListener(prefsButtonHandler);
@@ -172,7 +172,7 @@ public class LocationPanel extends PCGenPrefsPanel
 		gridbag.setConstraints(pcgenPortraitsDir, constraints);
 		this.add(pcgenPortraitsDir);
 		Utility.buildConstraints(constraints, 2, 3, 1, 1, 0, 0);
-		pcgenPortraitsDirButton = new JButton(in_choose);
+		pcgenPortraitsDirButton = new JButton(IN_CHOOSE);
 		gridbag.setConstraints(pcgenPortraitsDirButton, constraints);
 		this.add(pcgenPortraitsDirButton);
 		pcgenPortraitsDirButton.addActionListener(prefsButtonHandler);
@@ -189,7 +189,7 @@ public class LocationPanel extends PCGenPrefsPanel
 		gridbag.setConstraints(pcgenDataDir, constraints);
 		this.add(pcgenDataDir);
 		Utility.buildConstraints(constraints, 2, 4, 1, 1, 0, 0);
-		pcgenDataDirButton = new JButton(in_choose);
+		pcgenDataDirButton = new JButton(IN_CHOOSE);
 		gridbag.setConstraints(pcgenDataDirButton, constraints);
 		this.add(pcgenDataDirButton);
 		pcgenDataDirButton.addActionListener(prefsButtonHandler);
@@ -207,7 +207,7 @@ public class LocationPanel extends PCGenPrefsPanel
 		gridbag.setConstraints(pcgenCustomDir, constraints);
 		this.add(pcgenCustomDir);
 		Utility.buildConstraints(constraints, 2, 5, 1, 1, 0, 0);
-		pcgenCustomDirButton = new JButton(in_choose);
+		pcgenCustomDirButton = new JButton(IN_CHOOSE);
 		gridbag.setConstraints(pcgenCustomDirButton, constraints);
 		this.add(pcgenCustomDirButton);
 		pcgenCustomDirButton.addActionListener(prefsButtonHandler);
@@ -226,7 +226,7 @@ public class LocationPanel extends PCGenPrefsPanel
 		gridbag.setConstraints(pcgenVendorDataDir, constraints);
 		this.add(pcgenVendorDataDir);
 		Utility.buildConstraints(constraints, 2, 6, 1, 1, 0, 0);
-		pcgenVendorDataDirButton = new JButton(in_choose);
+		pcgenVendorDataDirButton = new JButton(IN_CHOOSE);
 		gridbag.setConstraints(pcgenVendorDataDirButton, constraints);
 		this.add(pcgenVendorDataDirButton);
 		pcgenVendorDataDirButton.addActionListener(prefsButtonHandler);
@@ -242,7 +242,7 @@ public class LocationPanel extends PCGenPrefsPanel
 		gridbag.setConstraints(pcgenHomebrewDataDir, constraints);
 		this.add(pcgenHomebrewDataDir);
 		Utility.buildConstraints(constraints, 2, 7, 1, 1, 0, 0);
-		pcgenHomebrewDataDirButton = new JButton(in_choose);
+		pcgenHomebrewDataDirButton = new JButton(IN_CHOOSE);
 		gridbag.setConstraints(pcgenHomebrewDataDirButton, constraints);
 		this.add(pcgenHomebrewDataDirButton);
 		pcgenHomebrewDataDirButton.addActionListener(prefsButtonHandler);
@@ -259,7 +259,7 @@ public class LocationPanel extends PCGenPrefsPanel
 		gridbag.setConstraints(pcgenDocsDir, constraints);
 		this.add(pcgenDocsDir);
 		Utility.buildConstraints(constraints, 2, 8, 1, 1, 0, 0);
-		pcgenDocsDirButton = new JButton(in_choose);
+		pcgenDocsDirButton = new JButton(IN_CHOOSE);
 		gridbag.setConstraints(pcgenDocsDirButton, constraints);
 		this.add(pcgenDocsDirButton);
 		pcgenDocsDirButton.addActionListener(prefsButtonHandler);
@@ -276,7 +276,7 @@ public class LocationPanel extends PCGenPrefsPanel
 		gridbag.setConstraints(pcgenSystemDir, constraints);
 		this.add(pcgenSystemDir);
 		Utility.buildConstraints(constraints, 2, 9, 1, 1, 0, 0);
-		pcgenSystemDirButton = new JButton(in_choose);
+		pcgenSystemDirButton = new JButton(IN_CHOOSE);
 		gridbag.setConstraints(pcgenSystemDirButton, constraints);
 		this.add(pcgenSystemDirButton);
 		pcgenSystemDirButton.addActionListener(prefsButtonHandler);
@@ -292,7 +292,7 @@ public class LocationPanel extends PCGenPrefsPanel
 		gridbag.setConstraints(pcgenOutputSheetDir, constraints);
 		this.add(pcgenOutputSheetDir);
 		Utility.buildConstraints(constraints, 2, 10, 1, 1, 0, 0);
-		pcgenOutputSheetDirButton = new JButton(in_choose);
+		pcgenOutputSheetDirButton = new JButton(IN_CHOOSE);
 		gridbag.setConstraints(pcgenOutputSheetDirButton, constraints);
 		this.add(pcgenOutputSheetDirButton);
 		pcgenOutputSheetDirButton.addActionListener(prefsButtonHandler);
@@ -307,7 +307,7 @@ public class LocationPanel extends PCGenPrefsPanel
 		gridbag.setConstraints(pcgenPreviewDir, constraints);
 		this.add(pcgenPreviewDir);
 		Utility.buildConstraints(constraints, 2, 11, 1, 1, 0, 0);
-		pcgenPreviewDirButton = new JButton(in_choose);
+		pcgenPreviewDirButton = new JButton(IN_CHOOSE);
 		gridbag.setConstraints(pcgenPreviewDirButton, constraints);
 		this.add(pcgenPreviewDirButton);
 		pcgenPreviewDirButton.addActionListener(prefsButtonHandler);
@@ -331,7 +331,7 @@ public class LocationPanel extends PCGenPrefsPanel
 		gridbag.setConstraints(pcgenBackupCharacterDir, constraints);
 		this.add(pcgenBackupCharacterDir);
 		Utility.buildConstraints(constraints, 2, 13, 1, 1, 0, 0);
-		pcgenBackupCharacterDirButton = new JButton(in_choose);
+		pcgenBackupCharacterDirButton = new JButton(IN_CHOOSE);
 		gridbag.setConstraints(pcgenBackupCharacterDirButton, constraints);
 		this.add(pcgenBackupCharacterDirButton);
 		pcgenBackupCharacterDirButton.addActionListener(prefsButtonHandler);
@@ -404,7 +404,7 @@ public class LocationPanel extends PCGenPrefsPanel
 		gridbag.setConstraints(pcgenFilesDir, constraints);
 		this.add(pcgenFilesDir);
 		Utility.buildConstraints(constraints, 2, 16, 1, 1, 0, 0);
-		pcgenFilesDirButton = new JButton(in_choose);
+		pcgenFilesDirButton = new JButton(IN_CHOOSE);
 		pcgenFilesDirButton.setEnabled(selectFilesDirRadio.isSelected());
 		gridbag.setConstraints(pcgenFilesDirButton, constraints);
 		this.add(pcgenFilesDirButton);
@@ -424,7 +424,7 @@ public class LocationPanel extends PCGenPrefsPanel
 	@Override
 	public String getTitle()
 	{
-		return in_location;
+		return IN_LOCATION;
 	}
 
 	/**

@@ -250,7 +250,7 @@ public class KitPanel extends FlippingSplitPane
 			Filter<CharacterFacade, KitFacade>, ListListener<KitFacade>
 	{
 
-		private static final DefaultListFacade<? extends TreeView<KitFacade>> treeViews =
+		private static final DefaultListFacade<? extends TreeView<KitFacade>> TREE_VIEWS =
 				new DefaultListFacade<TreeView<KitFacade>>(Arrays.asList(KitTreeView.values()));
 		private final List<DefaultDataViewColumn> columns;
 		private final CharacterFacade character;
@@ -283,7 +283,7 @@ public class KitPanel extends FlippingSplitPane
 		@Override
 		public ListFacade<? extends TreeView<KitFacade>> getTreeViews()
 		{
-			return treeViews;
+			return TREE_VIEWS;
 		}
 
 		@Override

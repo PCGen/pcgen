@@ -528,7 +528,7 @@ public class EquipCustomPanel extends FlippingSplitPane
 			Filter<EquipmentBuilderFacade, EquipModFacade>, ListListener<EquipModFacade>
 	{
 
-		private static final DefaultListFacade<? extends TreeView<EquipModFacade>> treeViews =
+		private static final DefaultListFacade<? extends TreeView<EquipModFacade>> TREE_VIEWS =
 				new DefaultListFacade<TreeView<EquipModFacade>>(Arrays.asList(EquipModTreeView.values()));
 		private final List<DefaultDataViewColumn> columns;
 		private final boolean isAvailModel;
@@ -561,7 +561,7 @@ public class EquipCustomPanel extends FlippingSplitPane
 		@Override
 		public ListFacade<? extends TreeView<EquipModFacade>> getTreeViews()
 		{
-			return treeViews;
+			return TREE_VIEWS;
 		}
 
 		@Override

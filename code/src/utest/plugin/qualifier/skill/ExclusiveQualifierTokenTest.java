@@ -44,9 +44,9 @@ public class ExclusiveQualifierTokenTest extends
 		AbstractQualifierTokenTestCase<CDOMObject, Skill>
 {
 
-	private static final CDOMPrimaryToken token = new ChooseLst();
-	private static final CDOMSecondaryToken subtoken = new SkillToken();
-	private static final CDOMLoader<CDOMObject> loader =
+	private static final CDOMPrimaryToken TOKEN = new ChooseLst();
+	private static final CDOMSecondaryToken SUBTOKEN = new SkillToken();
+	private static final CDOMLoader<CDOMObject> LOADER =
 			new CDOMTokenLoader<>();
 	private Skill s1, s2, s3, s4, s5;
 	private PCClass cl1;
@@ -68,7 +68,7 @@ public class ExclusiveQualifierTokenTest extends
 	@Override
 	public CDOMSecondaryToken<?> getSubToken()
 	{
-		return subtoken;
+		return SUBTOKEN;
 	}
 
 	@Override
@@ -86,13 +86,13 @@ public class ExclusiveQualifierTokenTest extends
 	@Override
 	public CDOMLoader<CDOMObject> getLoader()
 	{
-		return loader;
+		return LOADER;
 	}
 
 	@Override
 	public CDOMPrimaryToken<CDOMObject> getToken()
 	{
-		return token;
+		return TOKEN;
 	}
 
 	@Override

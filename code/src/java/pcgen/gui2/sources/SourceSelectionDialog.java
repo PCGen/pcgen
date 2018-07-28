@@ -83,7 +83,7 @@ import pcgen.util.Comparators;
 public class SourceSelectionDialog extends JDialog implements ActionListener, ChangeListener, ListSelectionListener
 {
 
-	private static final UIPropertyContext context =
+	private static final UIPropertyContext CONTEXT =
 			UIPropertyContext.createContext("SourceSelectionDialog"); //$NON-NLS-1$
 	private static final String PROP_SELECTED_SOURCE = "selectedSource"; //$NON-NLS-1$
 	private static final String LOAD_COMMAND = "Load"; //$NON-NLS-1$
@@ -183,7 +183,7 @@ public class SourceSelectionDialog extends JDialog implements ActionListener, Ch
 
 	private void initDefaults()
 	{
-		boolean useBasic = context.initBoolean("useBasic", true); //$NON-NLS-1$
+		boolean useBasic = CONTEXT.initBoolean("useBasic", true); //$NON-NLS-1$
 		SourceSelectionFacade selection = basicPanel.getSourceSelection();
 		if (selection != null && useBasic)
 		{
@@ -538,7 +538,7 @@ public class SourceSelectionDialog extends JDialog implements ActionListener, Ch
 		private void initDefaults()
 		{
 			final ListModel sortedModel = sourceList.getModel();
-			String defaultSelectedSource = context.initProperty(PROP_SELECTED_SOURCE, DEFAULT_SOURCE);
+			String defaultSelectedSource = CONTEXT.initProperty(PROP_SELECTED_SOURCE, DEFAULT_SOURCE);
 			int index = Collections.binarySearch(new AbstractList<Object>()
 			{
 
@@ -582,7 +582,7 @@ public class SourceSelectionDialog extends JDialog implements ActionListener, Ch
 			SourceSelectionFacade selection = getSourceSelection();
 			if (selection != null)
 			{
-				context.setProperty(PROP_SELECTED_SOURCE, selection.toString());
+				CONTEXT.setProperty(PROP_SELECTED_SOURCE, selection.toString());
 				makeSourceSelected(selection);
 			}
 			else

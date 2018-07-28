@@ -36,7 +36,7 @@ class ImagePreviewer extends JComponent
 {
 
 	private static final int SIZE = 200;
-	private static final String in_notAnImage = LanguageBundle.getString("in_ImagePreview_notAnImage");
+	private static final String IN_NOT_AN_IMAGE = LanguageBundle.getString("in_ImagePreview_notAnImage");
 	private BufferedImage image;
 
 	public ImagePreviewer()
@@ -98,7 +98,7 @@ class ImagePreviewer extends JComponent
 		{
 			g.setColor(UIManager.getColor("Panel.foreground"));
 			// TODO: I18N
-			g.drawString(in_notAnImage, textX, textY);
+			g.drawString(IN_NOT_AN_IMAGE, textX, textY);
 		}
 	}
 

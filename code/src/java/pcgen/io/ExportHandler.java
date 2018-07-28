@@ -109,7 +109,7 @@ public final class ExportHandler
 	private static final Float JEP_TRUE = 1.0f;
 
 	/** A map of output tokens to export */
-	private static final Map<String, Token> tokenMap = new HashMap<>();
+	private static final Map<String, Token> TOKEN_MAP = new HashMap<>();
 
 	/** 
 	 * A variable to hold the state of whether or not the output token map to
@@ -572,7 +572,7 @@ public final class ExportHandler
 	 */
 	public static void addToTokenMap(Token newToken)
 	{
-		Token test = tokenMap.put(newToken.getTokenName(), newToken);
+		Token test = TOKEN_MAP.put(newToken.getTokenName(), newToken);
 
 		if (test != null)
 		{
@@ -1949,9 +1949,9 @@ public final class ExportHandler
 				return 0;
 			}
 			// Else if the token is in the list of valid output tokens
-			else if (tokenMap.get(firstToken) != null)
+			else if (TOKEN_MAP.get(firstToken) != null)
 			{
-				Token token = tokenMap.get(firstToken);
+				Token token = TOKEN_MAP.get(firstToken);
 				if (token.isEncoded())
 				{
 					FileAccess.encodeWrite(output, token.getToken(tokenString, aPC, this));
@@ -3627,7 +3627,7 @@ public final class ExportHandler
 		// Make sure the token list has been populated
 		populateTokenMap();
 
-		final Token token = tokenMap.get(firstToken);
+		final Token token = TOKEN_MAP.get(firstToken);
 		if (token != null)
 		{
 			return token.getToken(aString, aPC, null);

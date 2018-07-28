@@ -41,7 +41,7 @@ import pcgen.system.LanguageBundle;
  */
 class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel
 {
-	private static final Map<String, PluginRef> pluginMap = new HashMap<>();
+	private static final Map<String, PluginRef> PLUGIN_MAP = new HashMap<>();
 
 	private JPanel mainPanel;
 	private JScrollPane jScrollPane1;
@@ -56,14 +56,14 @@ class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel
 	@Override
 	public void applyPreferences()
 	{
-		pluginMap.keySet().forEach(key -> pluginMap.get(key).applyPreferences());
+		PLUGIN_MAP.keySet().forEach(key -> PLUGIN_MAP.get(key).applyPreferences());
 	}
 
 	@Override
 	public void initPreferences()
 	{
-		PreferencesPluginsPanel.pluginMap.keySet()
-			.forEach(key -> PreferencesPluginsPanel.pluginMap.get(key).initPreferences());
+		PreferencesPluginsPanel.PLUGIN_MAP.keySet()
+			.forEach(key -> PreferencesPluginsPanel.PLUGIN_MAP.get(key).initPreferences());
 	}
 
 	@Override
@@ -81,7 +81,7 @@ class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel
 
 		mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
 
-		PreferencesPluginsPanel.pluginMap.keySet().forEach(key -> mainPanel.add(pluginMap.get(key)));
+		PreferencesPluginsPanel.PLUGIN_MAP.keySet().forEach(key -> mainPanel.add(PLUGIN_MAP.get(key)));
 
 		jScrollPane1.setViewportView(mainPanel);
 		add(jScrollPane1, BorderLayout.CENTER);

@@ -28,12 +28,12 @@ import selectionactor.testsupport.AbstractSelectionActorTest;
 public class CskillLstTest extends AbstractSelectionActorTest<Skill>
 {
 
-	private static final ChooseSelectionActor<Skill> cra = new CskillLst();
+	private static final ChooseSelectionActor<Skill> CRA = new CskillLst();
 
 	@Override
 	public ChooseSelectionActor<Skill> getActor()
 	{
-		return cra;
+		return CRA;
 	}
 
 	@Override

@@ -34,7 +34,7 @@ public final class SourceLogFormatter extends Formatter
 	private static final char SEPERATOR = ' ';
 	private final SimpleDateFormat df = new SimpleDateFormat("HH:mm:ss.S");
 	private final Date date = new Date();
-	private static final Pattern javaExtPattern = Pattern.compile("\\.java");
+	private static final Pattern JAVA_EXT_PATTERN = Pattern.compile("\\.java");
 
 	@Override
 	public String format(LogRecord record)
@@ -70,7 +70,7 @@ public final class SourceLogFormatter extends Formatter
 		{
 			if (caller.getLineNumber() >= 0)
 			{
-				sb.append(javaExtPattern.matcher(caller.getFileName()).replaceFirst(""));
+				sb.append(JAVA_EXT_PATTERN.matcher(caller.getFileName()).replaceFirst(""));
 				sb.append(':');
 				sb.append(caller.getLineNumber());
 			}

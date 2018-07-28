@@ -519,14 +519,14 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	private static class ClassTreeViewModel implements TreeViewModel<ClassFacade>, DataView<ClassFacade>
 	{
 
-		private static final List<DefaultDataViewColumn> columns =
+		private static final List<DefaultDataViewColumn> COLUMNS =
 				Arrays.asList(new DefaultDataViewColumn("in_clInfoHD", String.class), //$NON-NLS-1$
 					new DefaultDataViewColumn("in_clInfoType", String.class, true), //$NON-NLS-1$
 					new DefaultDataViewColumn("in_descrip", String.class, false), //$NON-NLS-1$
 					new DefaultDataViewColumn("in_baseStat", String.class), //$NON-NLS-1$
 					new DefaultDataViewColumn("in_spellType", String.class), //$NON-NLS-1$
 					new DefaultDataViewColumn("in_source", String.class)); //$NON-NLS-1$
-		private static final ListFacade<? extends TreeView<ClassFacade>> treeviews =
+		private static final ListFacade<? extends TreeView<ClassFacade>> TREE_VIEWS =
 				new DefaultListFacade<TreeView<ClassFacade>>(Arrays.asList(ClassTreeView.values()));
 		private final CharacterFacade character;
 
@@ -544,7 +544,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		@Override
 		public ListFacade<? extends TreeView<ClassFacade>> getTreeViews()
 		{
-			return treeviews;
+			return TREE_VIEWS;
 		}
 
 		@Override
@@ -610,7 +610,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		@Override
 		public List<? extends DataViewColumn> getDataColumns()
 		{
-			return columns;
+			return COLUMNS;
 		}
 
 		private static enum ClassTreeView implements TreeView<ClassFacade>
@@ -662,7 +662,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	private static class ClassTableModel extends AbstractTableModel implements ListListener<CharacterLevelFacade>
 	{
 
-		private static final String[] columns = {LanguageBundle.getString("in_level"), //$NON-NLS-1$
+		private static final String[] COLUMNS = {LanguageBundle.getString("in_level"), //$NON-NLS-1$
 			LanguageBundle.getString("in_class"), //$NON-NLS-1$
 			LanguageBundle.getString("in_source") //$NON-NLS-1$
 		};
@@ -689,7 +689,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		@Override
 		public String getColumnName(int column)
 		{
-			return columns[column];
+			return COLUMNS[column];
 		}
 
 		@Override

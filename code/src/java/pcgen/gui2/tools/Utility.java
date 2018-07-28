@@ -60,12 +60,12 @@ import pcgen.system.PCGenSettings;
 public final class Utility
 {
 
-	private static final KeyStroke escapeStroke = KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0);
+	private static final KeyStroke ESCAPE_STROKE = KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0);
 
 	/**
 	 * An action map key for the user requesting a dialog close via the ESC key.
 	 */
-	private static final String dispatchWindowClosingActionMapKey = "pcgen:WINDOW_CLOSING"; //$NON-NLS-1$
+	private static final String DISPATCH_WINDOW_CLOSING_ACTION_MAP_KEY = "pcgen:WINDOW_CLOSING"; //$NON-NLS-1$
 
 	private Utility()
 	{
@@ -392,7 +392,7 @@ public final class Utility
 	public static void installEscapeCloseOperation(final JDialog dialog)
 	{
 		JRootPane root = dialog.getRootPane();
-		root.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(escapeStroke, dispatchWindowClosingActionMapKey);
+		root.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(ESCAPE_STROKE, DISPATCH_WINDOW_CLOSING_ACTION_MAP_KEY);
 		Action dispatchClosing = new AbstractAction()
 		{
 			@Override
@@ -401,7 +401,7 @@ public final class Utility
 				dialog.dispatchEvent(new WindowEvent(dialog, WindowEvent.WINDOW_CLOSING));
 			}
 		};
-		root.getActionMap().put(dispatchWindowClosingActionMapKey, dispatchClosing);
+		root.getActionMap().put(DISPATCH_WINDOW_CLOSING_ACTION_MAP_KEY, dispatchClosing);
 	}
 
 	/**

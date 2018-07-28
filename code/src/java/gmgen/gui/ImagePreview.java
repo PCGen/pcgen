@@ -32,8 +32,8 @@ public final class ImagePreview extends JPanel implements PropertyChangeListener
 {
 	private static final int SIZE = 200;
 
-	private static final String in_notAnImage = LanguageBundle.getString("in_ImagePreview_notAnImage");
-	private static final String in_noCharacterPortrait =
+	private static final String IN_NOT_AN_IMAGE = LanguageBundle.getString("in_ImagePreview_notAnImage");
+	private static final String IN_NO_CHARACTER_PORTRAIT =
 			LanguageBundle.getString("in_ImagePreview_noCharacterPortrait");
 
 	private final JFileChooser jfc;
@@ -145,7 +145,7 @@ public final class ImagePreview extends JPanel implements PropertyChangeListener
 		{
 			g.setColor(UIManager.getColor("Panel.foreground"));
 			// TODO: I18N
-			g.drawString(aPC == null ? ImagePreview.in_notAnImage : ImagePreview.in_noCharacterPortrait, textX, textY);
+			g.drawString(aPC == null ? ImagePreview.IN_NOT_AN_IMAGE : ImagePreview.IN_NO_CHARACTER_PORTRAIT, textX, textY);
 		}
 	}
 

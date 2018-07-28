@@ -281,7 +281,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	// Constants for use in getBonus
 	private static String lastVariable;
 	// This marker is static so that the spells allocated to it can also be found in the cloned character.
-	private static final ObjectCache grantedSpellCache = new ObjectCache();
+	private static final ObjectCache GRANTED_SPELL_CACHE = new ObjectCache();
 
 	private final CharID id;
 	private final SAtoStringProcessor SA_TO_STRING_PROC;
@@ -9521,7 +9521,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			for (Spell spell : knownSpellFacet.getSet(id, classSpellList, spellLevel))
 			{
 				CharacterSpell acs = null;
-				Collection<? extends CharacterSpell> characterSpells = getCharacterSpells(grantedSpellCache);
+				Collection<? extends CharacterSpell> characterSpells = getCharacterSpells(GRANTED_SPELL_CACHE);
 				for (CharacterSpell cs : characterSpells)
 				{
 					Spell sp = cs.getSpell();
@@ -9536,7 +9536,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 				{
 					acs = new CharacterSpell(aClass, spell);
 					acs.addInfo(spellLevel, 1, Globals.getDefaultSpellBook());
-					addCharacterSpell(grantedSpellCache, acs);
+					addCharacterSpell(GRANTED_SPELL_CACHE, acs);
 				}
 				if (!cSpells.contains(acs))
 				{

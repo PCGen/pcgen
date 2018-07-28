@@ -46,7 +46,7 @@ import javax.swing.table.TableCellRenderer;
 public final class TableCellUtilities
 {
 
-	private static final DefaultTableCellRenderer dummyRenderer = new DefaultTableCellRenderer();
+	private static final DefaultTableCellRenderer DUMMY_RENDERER = new DefaultTableCellRenderer();
 
 	private TableCellUtilities()
 	{
@@ -54,8 +54,8 @@ public final class TableCellUtilities
 
 	public static void setToRowBackground(Component c, JTable table, int row)
 	{
-		dummyRenderer.getTableCellRendererComponent(table, null, false, false, row, 0);
-		Color bg = dummyRenderer.getBackground();
+		DUMMY_RENDERER.getTableCellRendererComponent(table, null, false, false, row, 0);
+		Color bg = DUMMY_RENDERER.getBackground();
 		// We have to create a new color object because Nimbus returns
 		// a color of type DerivedColor, which behaves strange, not sure
 		// why.

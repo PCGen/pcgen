@@ -49,7 +49,7 @@ import pcgen.system.LanguageBundle;
 public class DefaultsPanel extends PCGenPrefsPanel
 {
 	private static final String DEFAULT_PREVIEW_SHEET_KEY = "CharacterSheetInfoTab.defaultPreviewSheet.";
-	private static final String in_defaults = LanguageBundle.getString("in_Prefs_defaults");
+	private static final String IN_DEFAULTS = LanguageBundle.getString("in_Prefs_defaults");
 	private final JComboBoxEx<String> xpTableCombo = new JComboBoxEx<>();
 	private final JComboBoxEx<String> characterTypeCombo = new JComboBoxEx<>();
 	private final JComboBoxEx<String> previewSheetCombo = new JComboBoxEx<>();
@@ -63,7 +63,7 @@ public class DefaultsPanel extends PCGenPrefsPanel
 		GridBagConstraints c = new GridBagConstraints();
 		JLabel label;
 		Border etched = null;
-		TitledBorder title1 = BorderFactory.createTitledBorder(etched, in_defaults);
+		TitledBorder title1 = BorderFactory.createTitledBorder(etched, IN_DEFAULTS);
 
 		title1.setTitleJustification(TitledBorder.LEFT);
 		this.setBorder(title1);
@@ -110,7 +110,7 @@ public class DefaultsPanel extends PCGenPrefsPanel
 	@Override
 	public String getTitle()
 	{
-		return in_defaults;
+		return IN_DEFAULTS;
 	}
 
 	/**

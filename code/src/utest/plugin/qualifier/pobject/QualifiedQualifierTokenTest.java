@@ -42,9 +42,9 @@ public class QualifiedQualifierTokenTest extends
 		AbstractQualifierTokenTestCase<CDOMObject, Race>
 {
 
-	private static final CDOMPrimaryToken token = new ChooseLst();
-	private static final CDOMSecondaryToken subtoken = new RaceToken();
-	private static final CDOMLoader<CDOMObject> loader = new CDOMTokenLoader<>();
+	private static final CDOMPrimaryToken TOKEN = new ChooseLst();
+	private static final CDOMSecondaryToken SUBTOKEN = new RaceToken();
+	private static final CDOMLoader<CDOMObject> LOADER = new CDOMTokenLoader<>();
 	private Race s1;
 	private Race s2;
 
@@ -65,7 +65,7 @@ public class QualifiedQualifierTokenTest extends
 	@Override
 	public CDOMSecondaryToken<?> getSubToken()
 	{
-		return subtoken;
+		return SUBTOKEN;
 	}
 
 	@Override
@@ -83,13 +83,13 @@ public class QualifiedQualifierTokenTest extends
 	@Override
 	public CDOMLoader<CDOMObject> getLoader()
 	{
-		return loader;
+		return LOADER;
 	}
 
 	@Override
 	public CDOMPrimaryToken<CDOMObject> getToken()
 	{
-		return token;
+		return TOKEN;
 	}
 
 	@Override

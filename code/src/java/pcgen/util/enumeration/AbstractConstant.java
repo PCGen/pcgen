@@ -30,7 +30,7 @@ import java.lang.reflect.Modifier;
 public abstract class AbstractConstant implements Serializable
 {
 
-	private transient String _fieldName;
+	private transient String fieldName;
 
 	private void writeObject(ObjectOutputStream out) throws IOException
 	{
@@ -60,7 +60,7 @@ public abstract class AbstractConstant implements Serializable
 	{
 		try
 		{
-			_fieldName = (String) in.readObject();
+			fieldName = (String) in.readObject();
 		}
 		catch (ClassNotFoundException e)
 		{
@@ -72,7 +72,7 @@ public abstract class AbstractConstant implements Serializable
 	{
 		try
 		{
-			return getClass().getField(_fieldName).get(null);
+			return getClass().getField(fieldName).get(null);
 		}
 		catch (SecurityException | NoSuchFieldException | IllegalAccessException e)
 		{

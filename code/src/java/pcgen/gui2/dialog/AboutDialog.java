@@ -447,11 +447,11 @@ final class MainAbout extends JPanel
 		JPanel lPanel = new JPanel();
 
 		JScrollPane license = new JScrollPane();
-		JTextArea LGPLArea = new JTextArea();
+		JTextArea lgplArea = new JTextArea();
 
 		lPanel.setLayout(new BorderLayout());
 
-		LGPLArea.setEditable(false);
+		lgplArea.setEditable(false);
 
 		InputStream lgpl = ClassLoader.getSystemResourceAsStream("LICENSE"); //$NON-NLS-1$
 
@@ -459,19 +459,19 @@ final class MainAbout extends JPanel
 		{
 			try
 			{
-				LGPLArea.read(new InputStreamReader(lgpl), "LICENSE"); //$NON-NLS-1$
+				lgplArea.read(new InputStreamReader(lgpl), "LICENSE"); //$NON-NLS-1$
 			}
 			catch (IOException ioe)
 			{
-				LGPLArea.setText(LanguageBundle.getString("in_abt_license_read_err1")); //$NON-NLS-1$
+				lgplArea.setText(LanguageBundle.getString("in_abt_license_read_err1")); //$NON-NLS-1$
 			}
 		}
 		else
 		{
-			LGPLArea.setText(LanguageBundle.getString("in_abt_license_read_err2")); //$NON-NLS-1$
+			lgplArea.setText(LanguageBundle.getString("in_abt_license_read_err2")); //$NON-NLS-1$
 		}
 
-		license.setViewportView(LGPLArea);
+		license.setViewportView(lgplArea);
 		lPanel.add(license, BorderLayout.CENTER);
 
 		return lPanel;
