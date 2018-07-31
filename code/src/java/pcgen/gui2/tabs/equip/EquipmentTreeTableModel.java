@@ -155,6 +155,9 @@ public class EquipmentTreeTableModel implements TreeTableModel, ListListener<Equ
 						return "Qty";
 					case 4:
 						return "Wgt";
+					default:
+						//Case not caught, should this cause an error?
+						break;
 				}
 			case PHANTOM_SLOT:
 				switch (column)
@@ -175,6 +178,9 @@ public class EquipmentTreeTableModel implements TreeTableModel, ListListener<Equ
 						return equipSet.getQuantity(pathNode);
 					case 4:
 						return character.getInfoFactory().getWeight(pathNode.getEquipment());
+					default:
+						//Case not caught, should this cause an error?
+						break;
 				}
 			default:
 				return null;
@@ -285,13 +291,7 @@ public class EquipmentTreeTableModel implements TreeTableModel, ListListener<Equ
 		EquipNode parent = child.getParent();
 
 		int index = addNode(parent, child);
-		fireTreeNodesInserted(this, getPathToRoot(parent), new int[]
-				{
-					index
-				}, new Object[]
-				{
-					child
-				});
+		fireTreeNodesInserted(this, getPathToRoot(parent), new int[]{index}, new Object[]{child});
 	}
 
 	@Override
@@ -305,13 +305,7 @@ public class EquipmentTreeTableModel implements TreeTableModel, ListListener<Equ
 		int index = children.indexOf(child);
 
 		pathMap.remove(parent, index);
-		fireTreeNodesRemoved(this, getPathToRoot(parent), new int[]
-				{
-					index
-				}, new Object[]
-				{
-					child
-				});
+		fireTreeNodesRemoved(this, getPathToRoot(parent), new int[]{index}, new Object[]{child});
 
 	}
 
@@ -320,10 +314,7 @@ public class EquipmentTreeTableModel implements TreeTableModel, ListListener<Equ
 	{
 		pathMap.clear();
 		initPathMap();
-		fireTreeStructureChanged(this, new Object[]
-				{
-					root
-				}, null, null);
+		fireTreeStructureChanged(this, new Object[]{root}, null, null);
 	}
 
 	@Override
@@ -339,13 +330,7 @@ public class EquipmentTreeTableModel implements TreeTableModel, ListListener<Equ
 		List<EquipNode> children = pathMap.get(parent);
 
 		int index = Collections.binarySearch(children, child, pathComparator);
-		fireTreeNodesChanged(this, getPathToRoot(parent), new int[]
-				{
-					index
-				}, new Object[]
-				{
-					child
-				});
+		fireTreeNodesChanged(this, getPathToRoot(parent), new int[]{index}, new Object[]{child});
 	}
 
 	private Object[] getPathToRoot(EquipNode node)
@@ -407,9 +392,7 @@ public class EquipmentTreeTableModel implements TreeTableModel, ListListener<Equ
 	 * @param children the changed elements
 	 * @see EventListenerList
 	 */
-	protected void fireTreeNodesChanged(Object source, Object[] path,
-										int[] childIndices,
-										Object[] children)
+	protected void fireTreeNodesChanged(Object source, Object[] path, int[] childIndices, Object[] children)
 	{
 		// Guaranteed to return a non-null array
 		Object[] listeners = listenerList.getListenerList();
@@ -423,8 +406,7 @@ public class EquipmentTreeTableModel implements TreeTableModel, ListListener<Equ
 				// Lazily create the event:
 				if (e == null)
 				{
-					e = new TreeModelEvent(source, path,
-										   childIndices, children);
+					e = new TreeModelEvent(source, path, childIndices, children);
 				}
 				((TreeModelListener) listeners[i + 1]).treeNodesChanged(e);
 			}
@@ -443,9 +425,7 @@ public class EquipmentTreeTableModel implements TreeTableModel, ListListener<Equ
 	 * @param children the new elements
 	 * @see EventListenerList
 	 */
-	protected void fireTreeNodesInserted(Object source, Object[] path,
-										 int[] childIndices,
-										 Object[] children)
+	protected void fireTreeNodesInserted(Object source, Object[] path, int[] childIndices, Object[] children)
 	{
 		// Guaranteed to return a non-null array
 		Object[] listeners = listenerList.getListenerList();
@@ -459,8 +439,7 @@ public class EquipmentTreeTableModel implements TreeTableModel, ListListener<Equ
 				// Lazily create the event:
 				if (e == null)
 				{
-					e = new TreeModelEvent(source, path,
-										   childIndices, children);
+					e = new TreeModelEvent(source, path, childIndices, children);
 				}
 				((TreeModelListener) listeners[i + 1]).treeNodesInserted(e);
 			}
@@ -479,9 +458,7 @@ public class EquipmentTreeTableModel implements TreeTableModel, ListListener<Equ
 	 * @param children the removed elements
 	 * @see EventListenerList
 	 */
-	protected void fireTreeNodesRemoved(Object source, Object[] path,
-										int[] childIndices,
-										Object[] children)
+	protected void fireTreeNodesRemoved(Object source, Object[] path, int[] childIndices, Object[] children)
 	{
 		// Guaranteed to return a non-null array
 		Object[] listeners = listenerList.getListenerList();
@@ -495,8 +472,7 @@ public class EquipmentTreeTableModel implements TreeTableModel, ListListener<Equ
 				// Lazily create the event:
 				if (e == null)
 				{
-					e = new TreeModelEvent(source, path,
-										   childIndices, children);
+					e = new TreeModelEvent(source, path, childIndices, children);
 				}
 				((TreeModelListener) listeners[i + 1]).treeNodesRemoved(e);
 			}
@@ -515,9 +491,7 @@ public class EquipmentTreeTableModel implements TreeTableModel, ListListener<Equ
 	 * @param children the affected elements
 	 * @see EventListenerList
 	 */
-	protected void fireTreeStructureChanged(Object source, Object[] path,
-											int[] childIndices,
-											Object[] children)
+	protected void fireTreeStructureChanged(Object source, Object[] path, int[] childIndices, Object[] children)
 	{
 		// Guaranteed to return a non-null array
 		Object[] listeners = listenerList.getListenerList();
@@ -531,8 +505,7 @@ public class EquipmentTreeTableModel implements TreeTableModel, ListListener<Equ
 				// Lazily create the event:
 				if (e == null)
 				{
-					e = new TreeModelEvent(source, path,
-										   childIndices, children);
+					e = new TreeModelEvent(source, path, childIndices, children);
 				}
 				((TreeModelListener) listeners[i + 1]).treeStructureChanged(e);
 			}

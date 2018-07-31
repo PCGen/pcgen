@@ -24,6 +24,7 @@ import java.util.Locale;
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.LocaleDependentTestCase;
 import junit.framework.TestCase;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.TestHelper;
 
@@ -66,10 +67,11 @@ public class PreReqHandlerTest extends TestCase
 	}
 
 	/**
-	 * Print out as HTML
-	 * @throws Exception
+	 * Print out as HTML.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testToHtml() throws Exception
+	public void testToHtml() throws PersistenceLayerException
 	{
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		final List<Prerequisite> list = new ArrayList<>();
@@ -83,7 +85,9 @@ public class PreReqHandlerTest extends TestCase
 		final String htmlString = PrereqHandler.toHtmlString(list);
 		System.out.println(htmlString);
 		assertEquals(
-			"at least 15 ranks in Spellcraft and at least 1 Arcane spell of level 8 and at least 2 FEAT(s) of type Metamagic and at least 2 FEAT(s) of type ItemCreation and at least 20 of ( at least 1 ranks in TYPE.Knowledge )",
+			"at least 15 ranks in Spellcraft and at least 1 Arcane spell of level 8 and at least 2 FEAT(s) of type "
+					+ "Metamagic and at least 2 FEAT(s) of type ItemCreation and at least 20 of "
+					+ "( at least 1 ranks in TYPE.Knowledge )",
 			htmlString);
 		EnUsLocaleDependentTestCase.after();
 	}

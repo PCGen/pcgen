@@ -37,8 +37,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * @param <F>
  *            The format of the data stored in the Fact
  */
-public class FactParser<T extends CDOMObject, F> extends
-		AbstractNonEmptyToken<T> implements CDOMSecondaryToken<T>
+public class FactParser<T extends CDOMObject, F> extends AbstractNonEmptyToken<T> implements CDOMSecondaryToken<T>
 {
 
 	/**
@@ -65,8 +64,7 @@ public class FactParser<T extends CDOMObject, F> extends
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, T obj,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, T obj, String value)
 	{
 		FactKey<F> fk = def.getFactKey();
 		if (Constants.LST_DOT_CLEAR.equals(value))
@@ -75,8 +73,7 @@ public class FactParser<T extends CDOMObject, F> extends
 		}
 		else
 		{
-			Indirect<F> indirect =
-					def.getFormatManager().convertIndirect(value);
+			Indirect<F> indirect = def.getFormatManager().convertIndirect(value);
 			context.getObjectContext().put(obj, fk, indirect);
 		}
 		return ParseResult.SUCCESS;

@@ -124,7 +124,7 @@ public class SchoolsTokenTest extends AbstractChooseTokenTestCase
 	}
 
 	@Test
-	public void testInvalidInputNoBrackets() throws PersistenceLayerException
+	public void testInvalidInputNoBrackets()
 	{
 		assertFalse(parse("SCHOOLS|Sorry No [Brackets]"));
 		assertNoSideEffects();
@@ -173,14 +173,13 @@ public class SchoolsTokenTest extends AbstractChooseTokenTestCase
 	}
 
 	@Override
-	public void testInvalidInputOnlySubToken() throws PersistenceLayerException
+	public void testInvalidInputOnlySubToken()
 	{
 		// Must ignore due to 5.16 syntax
 	}
 
 	@Override
 	public void testInvalidInputOnlySubTokenPipe()
-		throws PersistenceLayerException
 	{
 		// Must ignore due to 5.16 syntax
 	}
@@ -192,31 +191,31 @@ public class SchoolsTokenTest extends AbstractChooseTokenTestCase
 	}
 
 	@Override
-	public void testUnparseIllegalAllItem() throws PersistenceLayerException
+	public void testUnparseIllegalAllItem()
 	{
 		//Ignore since SpellSchool doesn't have a RM
 	}
 
 	@Override
-	public void testUnparseIllegalAllType() throws PersistenceLayerException
+	public void testUnparseIllegalAllType()
 	{
 		//Ignore since SpellSchool doesn't have a RM
 	}
 
 	@Override
-	public void testUnparseIllegalItemAll() throws PersistenceLayerException
+	public void testUnparseIllegalItemAll()
 	{
 		//Ignore since SpellSchool doesn't have a RM
 	}
 
 	@Override
-	public void testUnparseIllegalTypeAll() throws PersistenceLayerException
+	public void testUnparseIllegalTypeAll()
 	{
 		//Ignore since SpellSchool doesn't have a RM
 	}
 
 	@Override
-	public void testUnparseLegal() throws PersistenceLayerException
+	public void testUnparseLegal()
 	{
 		//Ignore since SpellSchool doesn't have a RM
 	}

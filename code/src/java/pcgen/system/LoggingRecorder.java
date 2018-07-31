@@ -23,11 +23,10 @@ import java.io.StringWriter;
 import java.util.logging.FileHandler;
 import java.util.logging.LogRecord;
 
-
 public class LoggingRecorder extends FileHandler
 {
 
-	private static final StringWriter writer = new StringWriter();
+	private static final StringWriter WRITER = new StringWriter();
 
 	public LoggingRecorder() throws IOException
 	{
@@ -37,17 +36,17 @@ public class LoggingRecorder extends FileHandler
 	public synchronized void publish(LogRecord record)
 	{
 		super.publish(record);
-		LoggingRecorder.writer.write(getFormatter().format(record));
+		LoggingRecorder.WRITER.write(getFormatter().format(record));
 	}
 
 	public static String getLogs()
 	{
-		return writer.toString();
+		return WRITER.toString();
 	}
 
 	public static void clearLogs()
 	{
-		writer.getBuffer().setLength(0);
+		WRITER.getBuffer().setLength(0);
 	}
 
 }

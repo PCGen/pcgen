@@ -43,8 +43,7 @@ public class InitiativeBonusToken extends Token
 	//TODO: Merge InitiativeBonusToken, InitiativeMiscToken and InitiativeModToken
 	//to become INITIATIVE.BONUS, INITAITIVE.MISC & INITIATIVE.MOD
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		return Delta.toString(getInitiativeBonusToken(pc));
 	}
@@ -56,12 +55,10 @@ public class InitiativeBonusToken extends Token
 	 */
 	public static int getInitiativeBonusToken(PlayerCharacter pc)
 	{
-		String initiativeVar = ControlUtilities
-				.getControlToken(Globals.getContext(), CControl.INITIATIVEBONUS);
+		String initiativeVar = ControlUtilities.getControlToken(Globals.getContext(), CControl.INITIATIVEBONUS);
 		if (initiativeVar == null)
 		{
-			return pc.getDisplay().processOldInitiativeMod()
-				- pc.getVariableValue("INITCOMP", "").intValue();
+			return pc.getDisplay().processOldInitiativeMod() - pc.getVariableValue("INITCOMP", "").intValue();
 		}
 		return ((Number) pc.getGlobal(initiativeVar)).intValue();
 	}

@@ -28,13 +28,13 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class CRThresholdToken implements GameModeLstToken
 {
 
-    @Override
+	@Override
 	public String getTokenName()
 	{
 		return "CRTHRESHOLD";
 	}
 
-    @Override
+	@Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		gameMode.setCRThreshold(value);

@@ -24,7 +24,6 @@ import java.util.List;
 
 import pcgen.facade.util.event.ListListener;
 
-
 public final class ListFacades
 {
 
@@ -63,22 +62,22 @@ public final class ListFacades
 	private static class EmptyList implements ListFacade
 	{
 
-		private static final Iterator iterator = new Iterator()
+		private static final Iterator ITERATOR = new Iterator()
 		{
 
-            @Override
+			@Override
 			public boolean hasNext()
 			{
 				return false;
 			}
 
-            @Override
+			@Override
 			public Object next()
 			{
 				throw new UnsupportedOperationException();
 			}
 
-            @Override
+			@Override
 			public void remove()
 			{
 				throw new UnsupportedOperationException();
@@ -86,43 +85,43 @@ public final class ListFacades
 
 		};
 
-        @Override
+		@Override
 		public void addListListener(ListListener listener)
 		{
 			//This list never changes so there's no point in listening to it
 		}
 
-        @Override
+		@Override
 		public Object getElementAt(int index)
 		{
 			throw new IndexOutOfBoundsException();
 		}
 
-        @Override
+		@Override
 		public int getSize()
 		{
 			return 0;
 		}
 
-        @Override
+		@Override
 		public void removeListListener(ListListener listener)
 		{
 			//This list never changes so there's no point in listening to it
 		}
 
-        @Override
+		@Override
 		public Iterator iterator()
 		{
-			return iterator;
+			return ITERATOR;
 		}
 
-        @Override
+		@Override
 		public boolean isEmpty()
 		{
 			return true;
 		}
 
-        @Override
+		@Override
 		public boolean containsElement(Object element)
 		{
 			return false;

@@ -24,7 +24,6 @@ import java.util.EventObject;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.facade.util.ListFacade;
 
-
 public interface CharacterLevelsFacade extends ListFacade<CharacterLevelFacade>
 {
 
@@ -77,8 +76,7 @@ public interface CharacterLevelsFacade extends ListFacade<CharacterLevelFacade>
 	 * @param skill The skill to retrieve
 	 * @return A SkillBreakdown containing the modifier, ranks and total for the skill at the level.
 	 */
-	public SkillBreakdown getSkillBreakdown(CharacterLevelFacade level,
-		SkillFacade skill);
+	public SkillBreakdown getSkillBreakdown(CharacterLevelFacade level, SkillFacade skill);
 
 	/**
 	 * Retrieve the maximum number of ranks the character may have in a skill at a level.
@@ -126,8 +124,7 @@ public interface CharacterLevelsFacade extends ListFacade<CharacterLevelFacade>
 	 * @param ranks  The new number of ranks. 
 	 * @return The recommended level.
 	 */
-	public CharacterLevelFacade findNextLevelForSkill(SkillFacade skill,
-		CharacterLevelFacade baseLevel, float ranks);
+	public CharacterLevelFacade findNextLevelForSkill(SkillFacade skill, CharacterLevelFacade baseLevel, float ranks);
 
 	public static interface ClassListener extends EventListener
 	{

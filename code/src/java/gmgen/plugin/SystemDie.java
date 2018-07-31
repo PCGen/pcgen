@@ -19,7 +19,6 @@
  */
 package gmgen.plugin;
 
-
 import gmgen.plugin.dice.Die;
 import gmgen.plugin.dice.SystemDieConfig;
 
@@ -33,6 +32,6 @@ class SystemDie extends Die
 	 */
 	SystemDie(final int modifier)
 	{
-		super(new SystemDieConfig(1, 20, modifier, Die.rand));
+		super(new SystemDieConfig(1, 20, modifier, Die.RAND));
 	}
 }

@@ -29,8 +29,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * QTY token for Kit GEAR
  */
-public class QtyToken extends AbstractNonEmptyToken<KitGear> implements
-		CDOMPrimaryToken<KitGear>
+public class QtyToken extends AbstractNonEmptyToken<KitGear> implements CDOMPrimaryToken<KitGear>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -50,14 +49,12 @@ public class QtyToken extends AbstractNonEmptyToken<KitGear> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, KitGear kitGear,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, KitGear kitGear, String value)
 	{
 		Formula formula = FormulaFactory.getFormulaFor(value);
 		if (!formula.isValid())
 		{
-			return new ParseResult.Fail("Formula in " + getTokenName()
-					+ " was not valid: " + formula.toString());
+			return new ParseResult.Fail("Formula in " + getTokenName() + " was not valid: " + formula.toString());
 		}
 		kitGear.setQuantity(formula);
 		return ParseResult.SUCCESS;

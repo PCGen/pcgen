@@ -35,17 +35,16 @@ public class GrantedVarFacet extends AbstractSourcedListFacet<CharID, CDOMObject
 	 * The source facet to watch for the addition of new objects
 	 */
 	private CDOMObjectSourceFacet cdomSourceFacet;
-	
+
 	/**
 	 * The Scope Facet
 	 */
 	private ScopeFacet scopeFacet;
-	
+
 	/**
 	 * The global LoadContextFacet used to get VariableIDs
 	 */
-	private final LoadContextFacet loadContextFacet =
-			FacetLibrary.getFacet(LoadContextFacet.class);
+	private final LoadContextFacet loadContextFacet = FacetLibrary.getFacet(LoadContextFacet.class);
 
 	/**
 	 * The VariableStore Facet
@@ -66,8 +65,8 @@ public class GrantedVarFacet extends AbstractSourcedListFacet<CharID, CDOMObject
 		ScopeInstance inst = scopeFacet.get(id, cdo);
 		for (String VariableName : grantedVariables)
 		{
-			VariableID<?> varID = loadContextFacet.get(id.getDatasetID()).get()
-				.getVariableContext().getVariableID(inst, VariableName);
+			VariableID<?> varID = loadContextFacet.get(id.getDatasetID()).get().getVariableContext().getVariableID(inst,
+				VariableName);
 			processAdd(id, varID, source);
 		}
 	}
@@ -75,8 +74,7 @@ public class GrantedVarFacet extends AbstractSourcedListFacet<CharID, CDOMObject
 	private <T> void processAdd(CharID id, VariableID<T> varID, Object source)
 	{
 		T value = variableStoreFacet.getValue(id, varID);
-		variableStoreFacet.get(id).addVariableListener(varID,
-			new BridgeListener(id, this));
+		variableStoreFacet.get(id).addVariableListener(varID, new BridgeListener(id, this));
 		/*
 		 * CONSIDER This is a hard-coding based on array - the format manager, which is
 		 * available from the VariableID, might want to provide more insight. Currently,
@@ -106,16 +104,15 @@ public class GrantedVarFacet extends AbstractSourcedListFacet<CharID, CDOMObject
 		ScopeInstance inst = scopeFacet.get(id, cdo);
 		for (String s : list)
 		{
-			VariableID<?> varID = loadContextFacet.get(id.getDatasetID()).get()
-				.getVariableContext().getVariableID(inst, s);
+			VariableID<?> varID =
+					loadContextFacet.get(id.getDatasetID()).get().getVariableContext().getVariableID(inst, s);
 			processRemove(id, varID, source);
 		}
 	}
 
 	private <T> void processRemove(CharID id, VariableID<T> varID, Object source)
 	{
-		variableStoreFacet.get(id).removeVariableListener(varID,
-			new BridgeListener(id, this));
+		variableStoreFacet.get(id).removeVariableListener(varID, new BridgeListener(id, this));
 		T value = variableStoreFacet.getValue(id, varID);
 		if (value.getClass().isArray())
 		{

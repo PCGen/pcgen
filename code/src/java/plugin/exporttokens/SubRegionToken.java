@@ -35,8 +35,7 @@ public class SubRegionToken extends AbstractExportToken
 	}
 
 	@Override
-	public String getToken(String tokenSource, CharacterDisplay display,
-		ExportHandler eh)
+	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
 	{
 		String retString = display.getRegionString();
 		String subRegion = display.getSubRegion();
@@ -44,7 +43,7 @@ public class SubRegionToken extends AbstractExportToken
 		{
 			retString += (" (" + subRegion + ')');
 		}
-		
+
 		return retString;
 	}
 }

@@ -28,7 +28,6 @@ import pcgen.util.AbstractCountCommand;
 import pcgen.util.JepCountType;
 import pcgen.util.Logging;
 
-
 /**
  * {@code CountCommand} deals with the count() JEP command. The first parameter will
  * be the type of object being counted and further parameters will specify the criteria.
@@ -73,9 +72,7 @@ public class CountCommand extends AbstractCountCommand
 
 		if (pc == null)
 		{
-			throw new ParseException(
-				"Invalid parent (no PC): "
-					+ parent.getClass().getName());
+			throw new ParseException("Invalid parent (no PC): " + parent.getClass().getName());
 		}
 
 		// check the stack

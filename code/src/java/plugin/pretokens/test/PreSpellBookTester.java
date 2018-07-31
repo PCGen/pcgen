@@ -26,15 +26,13 @@ import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 
-
 public class PreSpellBookTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
 	@Override
 	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
 	{
-		final boolean prereqUsesBook =
-				prereq.getKey().toUpperCase().startsWith("Y"); //$NON-NLS-1$
+		final boolean prereqUsesBook = prereq.getKey().toUpperCase().startsWith("Y"); //$NON-NLS-1$
 		int runningTotal = 0;
 		final int requiredNumber = Integer.parseInt(prereq.getOperand());
 
@@ -46,8 +44,7 @@ public class PreSpellBookTester extends AbstractDisplayPrereqTest implements Pre
 			}
 		}
 
-		runningTotal =
-				prereq.getOperator().compare(runningTotal, requiredNumber);
+		runningTotal = prereq.getOperator().compare(runningTotal, requiredNumber);
 		return countedTotal(prereq, runningTotal);
 	}
 
@@ -55,7 +52,7 @@ public class PreSpellBookTester extends AbstractDisplayPrereqTest implements Pre
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "SPELLBOOK"; //$NON-NLS-1$

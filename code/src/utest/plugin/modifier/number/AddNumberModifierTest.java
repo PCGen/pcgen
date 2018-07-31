@@ -105,21 +105,21 @@ public class AddNumberModifierTest
 	public void testProcessZero4()
 	{
 		BasicCalculation<Number> modifier = new AddModifierFactory();
-		assertEquals(-4, modifier.process(-4,0));
+		assertEquals(-4, modifier.process(-4, 0));
 	}
 
 	@Test
 	public void testProcessMixed1()
 	{
 		BasicCalculation<Number> modifier = new AddModifierFactory();
-		assertEquals(-2, modifier.process(5,-7));
+		assertEquals(-2, modifier.process(5, -7));
 	}
 
 	@Test
 	public void testProcessMixed2()
 	{
 		BasicCalculation modifier = new AddModifierFactory();
-		assertEquals(-1, modifier.process(-4,3));
+		assertEquals(-1, modifier.process(-4, 3));
 	}
 
 	@Test
@@ -175,21 +175,21 @@ public class AddNumberModifierTest
 	public void testProcessDoubleZero4()
 	{
 		BasicCalculation<Number> modifier = new AddModifierFactory();
-		assertEquals(-4.3, modifier.process(-4.3,0.0));
+		assertEquals(-4.3, modifier.process(-4.3, 0.0));
 	}
 
 	@Test
 	public void testProcessDoubleMixed1()
 	{
 		BasicCalculation<Number> modifier = new AddModifierFactory();
-		assertEquals(1.6, modifier.process(3.2,-1.6));
+		assertEquals(1.6, modifier.process(3.2, -1.6));
 	}
 
 	@Test
 	public void testProcessDoubleMixed2()
 	{
 		BasicCalculation<Number> modifier = new AddModifierFactory();
-		assertEquals(-1.1, modifier.process(-4.2,3.1));
+		assertEquals(-1.1, modifier.process(-4.2, 3.1));
 	}
 
 	@Test

@@ -19,11 +19,11 @@
  */
 package pcgen.persistence.lst;
 
+import java.net.URI;
+
 import pcgen.core.SystemCollections;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
-
-import java.net.URI;
 
 /**
  * This class is a LstFileLoader used to load character traits.

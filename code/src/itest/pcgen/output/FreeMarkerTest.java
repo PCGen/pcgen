@@ -32,7 +32,7 @@ import pcgen.output.wrapper.CDOMObjectWrapper;
 public class FreeMarkerTest extends AbstractOutputTestCase
 {
 
-	private static final CheckFacet cf = new CheckFacet();
+	private static final CheckFacet CF = new CheckFacet();
 
 	private static boolean classSetUpRun = false;
 
@@ -53,7 +53,7 @@ public class FreeMarkerTest extends AbstractOutputTestCase
 	private void classSetUp()
 	{
 		OutputDB.reset();
-		cf.init();
+		CF.init();
 	}
 
 	public void testBasic()
@@ -83,15 +83,15 @@ public class FreeMarkerTest extends AbstractOutputTestCase
 		PCCheck pcc = new PCCheck();
 		pcc.setName("Willpower");
 		pcc.put(sn, new BasicIndirect<>(sm, "Will"));
-		cf.add(id, pcc);
+		CF.add(id, pcc);
 		pcc = new PCCheck();
 		pcc.setName("Reflex");
 		pcc.put(sn, new BasicIndirect<>(sm, "Ref"));
-		cf.add(id, pcc);
+		CF.add(id, pcc);
 		pcc = new PCCheck();
 		pcc.setName("Fortitude");
 		pcc.put(sn, new BasicIndirect<>(sm, "Fort"));
-		cf.add(id, pcc);
+		CF.add(id, pcc);
 
 		FactKeyActor<?> fka = new FactKeyActor<>(sn);
 		CDOMObjectWrapper.load(dsid, pcc.getClass(), "shortname", fka);

@@ -57,7 +57,7 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
  * <code>SkillTokenTest</code> contains tests to verify that the
- * SKILL token and its subtokens are working correctly.
+ * SKILL token and its sub tokens are working correctly.
  */
 
 @SuppressWarnings("nls")
@@ -206,8 +206,9 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test the behaviour of the weapon loop
-	 * @throws IOException
+	 * Test the behavior of the weapon loop.
+	 *
+	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
 	public void testWpnLoop() throws IOException
 	{
@@ -227,10 +228,10 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 
 	/**
 	 * Test the export of equipment using the eqtype token in a loop.
-	 * 
-	 * @throws Exception
+	 *
+	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
-	public void testEqtypeLoop() throws Exception
+	public void testEqtypeLoop() throws IOException
 	{
 		PlayerCharacter character = getCharacter();
 		final String gemLoop =
@@ -305,16 +306,16 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 			evaluateToken(
 				"FOR.1,((24-STRLEN[SKILL.0])),24, ,NONE,NONE,1", pc));
 		
-		String tok = "DFOR." +
-		"0" +
-		",${((count(\"ABILITIES\";\"CATEGORY=FEAT\")+1)/2)}" +
-		",1" +
-		",${(count(\"ABILITIES\";\"CATEGORY=FEAT\")+1)}" +
-		",${((count(\"ABILITIES\";\"CATEGORY=FEAT\")+1)/2)}" +
-		", \\FEAT.%.NAME\\ " +
-		",[" +
-		",]" +
-		",0";
+		String tok = "DFOR."
+			+ "0"
+			+ ",${((count(\"ABILITIES\";\"CATEGORY=FEAT\")+1)/2)}"
+			+ ",1"
+			+ ",${(count(\"ABILITIES\";\"CATEGORY=FEAT\")+1)}"
+			+ ",${((count(\"ABILITIES\";\"CATEGORY=FEAT\")+1)/2)}"
+			+ ", \\FEAT.%.NAME\\ "
+			+ ",["
+			+ ",]"
+			+ ",0";
 		
 		
 		//Logging.errorPrint( "DFOR Test: " + evaluateToken(tok, pc));
@@ -325,8 +326,8 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		// will assume that x is a well formed type of value.  This was to get around 
 		// the problems with DFOR not taking ((count("ABILITIES";"CATEGORY=FEAT")+1)
 		// since it could not figure out how to parse it to send to the right place.
-		assertEquals("Test for DFOR ","[ 1  5 ][ 2  6 ][ 3  7 ][ 4   ]", 
-				evaluateToken(tok, pc)	);
+		assertEquals("Test for DFOR ", "[ 1  5 ][ 2  6 ][ 3  7 ][ 4   ]", 
+			evaluateToken(tok, pc));
 					
 	}
 	
@@ -392,7 +393,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		assertEquals("Signed output", "+7", evaluateToken(
 			"VAR.NegLevels.INTVAL.SIGN", pc));
 	
-		String tok ="";
+		String tok = "";
 	
 		tok = "count(\"ABILITIES\", \"CATEGORY=Maneuver\")";		
 		// if this evaluates math wise, the values should be string "1.0"
@@ -401,7 +402,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		tok = "VAR.count(\"ABILITIES\", \"CATEGORY=Maneuver\")";		
 		assertTrue("Token: |" + tok + "| == 1.0: ",  evaluateToken(tok, pc).equals("1.0"));
 	
-		tok ="COUNT[\"ABILITIES\", \"CATEGORY=Maneuver\"]";		
+		tok = "COUNT[\"ABILITIES\", \"CATEGORY=Maneuver\"]";		
 		assertFalse("Token: |" + tok + "| != 1.0: ",  evaluateToken(tok, pc).equals("1.0"));
 		
 		tok = "count(\"ABILITIES\", \"CATEGORY=Maneuver(Special)\")";
@@ -425,18 +426,18 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 	public void testPartyFor() throws IOException
 	{
 		String outputToken =
-				"   <combatants>\n"
-					+ "|FOR.0,50,1,\n"
-					+ "	<name>\\\\%.NAME\\\\</name>\n"
-					+ "	<skills>\\\\%.FOR.0,COUNT[SKILLS],1,\\SKILL.%\\: \\SKILL.%.TOTAL.SIGN\\, ,; ,1\\\\</skills>\n"
-					+ ",<combatant>,</combatant>,1|\n" + "   </combatants>";
+		"   <combatants>\n"
+		+ "|FOR.0,50,1,\n"
+		+ "	<name>\\\\%.NAME\\\\</name>\n"
+		+ "	<skills>\\\\%.FOR.0,COUNT[SKILLS],1,\\SKILL.%\\: \\SKILL.%.TOTAL.SIGN\\, ,; ,1\\\\</skills>\n"
+		+ ",<combatant>,</combatant>,1|\n" + "   </combatants>";
 		List<PlayerCharacter> pcs = new ArrayList<>();
 		pcs.add(getCharacter());
 		String result = evaluatePartyToken(outputToken, pcs).trim();
-		assertEquals(
-			"Party skills output",
-			"<combatants>" + System.getProperty("line.separator") + 
-			"<combatant>	<name></name>	<skills> Balance: +9;  KNOWLEDGE (ARCANA): +11;  KNOWLEDGE (RELIGION): +8;  Tumble: +10; </skills></combatant>   </combatants>",
+		assertEquals("Party skills output", "<combatants>"
+			+ System.getProperty("line.separator")
+			+ "<combatant>	<name></name>	<skills> Balance: +9;  KNOWLEDGE (ARCANA): +11;  "
+			+ "KNOWLEDGE (RELIGION): +8;  Tumble: +10; </skills></combatant>   </combatants>",
 			result);
 	}
 	
@@ -457,17 +458,17 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 	private String evaluatePartyToken(String token, List<PlayerCharacter> pcs)
 		throws IOException
 	{
-        // Create temp file.
-        File temp = File.createTempFile("testTemplate", ".txt");
-    
-        // Delete temp file when program exits.
-        temp.deleteOnExit();
-    
-        // Write to temp file
-        BufferedWriter out = new BufferedWriter(new FileWriter(temp));
-        out.write(token);
-        out.close();
-		
+		// Create temp file.
+		File temp = File.createTempFile("testTemplate", ".txt");
+
+		// Delete temp file when program exits.
+		temp.deleteOnExit();
+
+		// Write to temp file
+		BufferedWriter out = new BufferedWriter(new FileWriter(temp));
+		out.write(token);
+		out.close();
+
 		StringWriter retWriter = new StringWriter();
 		BufferedWriter bufWriter = new BufferedWriter(retWriter);
 		ExportHandler export = new ExportHandler(temp);

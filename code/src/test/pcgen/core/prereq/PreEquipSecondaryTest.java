@@ -30,6 +30,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.character.WieldCategory;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
 
@@ -76,10 +77,9 @@ public class PreEquipSecondaryTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test equipment type tests
-	 * @throws Exception
+	 * Test equipment type tests.
 	 */
-	public void testType() throws Exception
+	public void testType()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -112,10 +112,9 @@ public class PreEquipSecondaryTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test wield category tests
-	 * @throws Exception
+	 * Test wield category tests.
 	 */
-	public void testWield() throws Exception
+	public void testWield()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -174,8 +173,10 @@ public class PreEquipSecondaryTest extends AbstractCharacterTestCase
 
 	/**
 	 * Verify that negated PREEQUIPSECONDARY tests work.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testNotEquipped() throws Exception
+	public void testNotEquipped() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 

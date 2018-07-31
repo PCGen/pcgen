@@ -93,9 +93,8 @@ public class AttackTokenTest extends AbstractCharacterTestCase
 
 	/**
 	 * Test the character's attack calcs with no bonus.
-	 * @throws Exception
 	 */
-	public void testBase() throws Exception
+	public void testBase()
 	{
 		assertEquals("Total melee attack no bonus", "+2", new AttackToken()
 			.getToken("ATTACK.MELEE.TOTAL", getCharacter(), null));
@@ -107,9 +106,8 @@ public class AttackTokenTest extends AbstractCharacterTestCase
 
 	/**
 	 * Test the character's attack calcs with a bonus.
-	 * @throws Exception
 	 */
-	public void testIterative() throws Exception
+	public void testIterative()
 	{
 		getCharacter().incrementClassLevel(1, myClass, true);
 		getCharacter().calcActiveBonuses();

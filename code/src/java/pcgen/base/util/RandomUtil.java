@@ -68,7 +68,7 @@ public final class RandomUtil
 		if (Logging.isDebugMode())
 		{
 			Logging.debugPrint("Generated random number between " //$NON-NLS-1$
-					+ "0 and " + high + ": " + rand); //$NON-NLS-1$//$NON-NLS-2$
+				+ "0 and " + high + ": " + rand); //$NON-NLS-1$//$NON-NLS-2$
 		}
 		return rand;
 	}

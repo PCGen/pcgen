@@ -34,13 +34,12 @@ public class Personality2Token extends AbstractExportToken
 		return "PERSONALITY2";
 	}
 
-	//TODO: Move this to a token that has all of the descriptive stuff about a cahracter
+	//TODO: Move this to a token that has all of the descriptive stuff about a character
 	/**
-	 * @see pcgen.io.exporttoken.AbstractExportToken#getToken(java.lang.String, pcgen.core.display.CharacterDisplay, pcgen.io.ExportHandler)
+	 * @see AbstractExportToken#getToken(String, CharacterDisplay, ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, CharacterDisplay display,
-		ExportHandler eh)
+	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
 	{
 		return display.getTrait2();
 	}

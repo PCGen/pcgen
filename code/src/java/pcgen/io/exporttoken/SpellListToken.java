@@ -61,8 +61,7 @@ public abstract class SpellListToken extends Token
 
 			classNum = Integer.parseInt(aTok.nextToken());
 
-			if (aTok.hasMoreTokens() && (tagType != SPELLTAG_TYPE)
-				&& (tagType != SPELLTAG_CLASS)
+			if (aTok.hasMoreTokens() && (tagType != SPELLTAG_TYPE) && (tagType != SPELLTAG_CLASS)
 				&& (tagType != SPELLTAG_MEMORIZE))
 			{
 				level = Integer.parseInt(aTok.nextToken());

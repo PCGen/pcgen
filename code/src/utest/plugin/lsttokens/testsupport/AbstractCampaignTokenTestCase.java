@@ -45,7 +45,7 @@ public abstract class AbstractCampaignTokenTestCase extends
 	}
 
 	@Test
-	public void testInvalidInputEmpty() throws PersistenceLayerException
+	public void testInvalidInputEmpty()
 	{
 		assertFalse(parse(""));
 		assertFalse(primaryProf.containsListFor(getListKey()));
@@ -53,7 +53,7 @@ public abstract class AbstractCampaignTokenTestCase extends
 	}
 
 	@Test
-	public void testInvalidInputNull() throws PersistenceLayerException
+	public void testInvalidInputNull()
 	{
 		assertFalse(parse(null));
 		assertFalse(primaryProf.containsListFor(getListKey()));
@@ -61,7 +61,7 @@ public abstract class AbstractCampaignTokenTestCase extends
 	}
 
 	@Test
-	public void testInvalidInputEndPipe() throws PersistenceLayerException
+	public void testInvalidInputEndPipe()
 	{
 		assertFalse(parse("String|"));
 		assertFalse(primaryProf.containsListFor(getListKey()));
@@ -69,7 +69,7 @@ public abstract class AbstractCampaignTokenTestCase extends
 	}
 
 	@Test
-	public void testInvalidInputStartPipe() throws PersistenceLayerException
+	public void testInvalidInputStartPipe()
 	{
 		assertFalse(parse("|String"));
 		assertFalse(primaryProf.containsListFor(getListKey()));
@@ -77,7 +77,7 @@ public abstract class AbstractCampaignTokenTestCase extends
 	}
 
 	@Test
-	public void testInvalidInputTwo() throws PersistenceLayerException
+	public void testInvalidInputTwo()
 	{
 		if (getSeparator() == null)
 		{
@@ -89,7 +89,6 @@ public abstract class AbstractCampaignTokenTestCase extends
 
 	@Test
 	public void testInvalidInputIncludeNoParen()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("String|INCLUDE:Incl"));
 		assertFalse(primaryProf.containsListFor(getListKey()));
@@ -98,7 +97,6 @@ public abstract class AbstractCampaignTokenTestCase extends
 
 	@Test
 	public void testInvalidInputIncludeDoubleParen()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("String|((INCLUDE:Incl))"));
 		assertFalse(primaryProf.containsListFor(getListKey()));
@@ -106,7 +104,7 @@ public abstract class AbstractCampaignTokenTestCase extends
 	}
 
 	@Test
-	public void testInvalidInputEmptyInclude() throws PersistenceLayerException
+	public void testInvalidInputEmptyInclude()
 	{
 		assertFalse(parse("String|(INCLUDE:)"));
 		assertFalse(primaryProf.containsListFor(getListKey()));
@@ -114,7 +112,7 @@ public abstract class AbstractCampaignTokenTestCase extends
 	}
 
 	@Test
-	public void testInvalidInputMixedInclude() throws PersistenceLayerException
+	public void testInvalidInputMixedInclude()
 	{
 		assertFalse(parse("String|(INCLUDE:This|CATEGORY=Cat,That)"));
 		assertFalse(primaryProf.containsListFor(getListKey()));
@@ -123,7 +121,6 @@ public abstract class AbstractCampaignTokenTestCase extends
 
 		@Test
 	public void testInvalidInputExcludeNoParen()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("String|EXCLUDE:Incl"));
 		assertFalse(primaryProf.containsListFor(getListKey()));
@@ -132,7 +129,6 @@ public abstract class AbstractCampaignTokenTestCase extends
 
 	@Test
 	public void testInvalidInputExcludeeDoubleParen()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("String|((EXCLUDE:Incl))"));
 		assertFalse(primaryProf.containsListFor(getListKey()));
@@ -140,7 +136,7 @@ public abstract class AbstractCampaignTokenTestCase extends
 	}
 
 	@Test
-	public void testInvalidInputEmptyExclude() throws PersistenceLayerException
+	public void testInvalidInputEmptyExclude()
 	{
 		assertFalse(parse("String|(EXCLUDE:)"));
 		assertFalse(primaryProf.containsListFor(getListKey()));
@@ -148,14 +144,14 @@ public abstract class AbstractCampaignTokenTestCase extends
 	}
 
 	@Test
-	public void testInvalidInputMixedExclude() throws PersistenceLayerException
+	public void testInvalidInputMixedExclude()
 	{
 		assertFalse(parse("String|(EXCLUDE:This|CATEGORY=Cat,That)"));
 		assertFalse(primaryProf.containsListFor(getListKey()));
 		assertNoSideEffects();
 	}
 
-	public void testInvalidInclude() throws PersistenceLayerException
+	public void testInvalidInclude()
 	{
 		if (!allowIncludeExclude())
 		{
@@ -163,7 +159,7 @@ public abstract class AbstractCampaignTokenTestCase extends
 		}
 	}
 
-	public void testInvalidExclude() throws PersistenceLayerException
+	public void testInvalidExclude()
 	{
 		if (!allowIncludeExclude())
 		{

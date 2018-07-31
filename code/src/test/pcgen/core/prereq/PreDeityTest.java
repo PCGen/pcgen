@@ -54,10 +54,11 @@ public class PreDeityTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test that the boolean version (Y/N) works
-	 * @throws Exception
+	 * Test that the boolean version (Y/N) works.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testBoolean() throws Exception
+	public void testBoolean() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -88,10 +89,11 @@ public class PreDeityTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test different formats for the option
-	 * @throws Exception
+	 * Test different formats for the option.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testFormat() throws Exception
+	public void testFormat() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -131,10 +133,11 @@ public class PreDeityTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test naming specific deities works as expected
-	 * @throws Exception
+	 * Test naming specific deities works as expected.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testName() throws Exception
+	public void testName() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -159,8 +162,9 @@ public class PreDeityTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test that the new standardised format works correctly.
-	 * @throws PersistenceLayerException
+	 * Test that the new standardized format works correctly.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	public void testNewFormat() throws PersistenceLayerException
 	{

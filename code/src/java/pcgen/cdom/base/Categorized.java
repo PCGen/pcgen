@@ -42,7 +42,7 @@ public interface Categorized<T extends Categorized<T>> extends Loadable
 	 *            The Category the Categorized should be set to
 	 */
 	public void setCDOMCategory(Category<T> category);
-	
+
 	@Override
 	public default ClassIdentity<? extends Loadable> getClassIdentity()
 	{

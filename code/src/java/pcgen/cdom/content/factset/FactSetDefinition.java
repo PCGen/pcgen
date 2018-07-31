@@ -45,8 +45,7 @@ import pcgen.util.Logging;
  * @param <F>
  *            The format of the data stored in the FactSet
  */
-public class FactSetDefinition<T extends CDOMObject, F> extends
-		ContentDefinition<T, F> implements FactSetInfo<T, F>
+public class FactSetDefinition<T extends CDOMObject, F> extends ContentDefinition<T, F> implements FactSetInfo<T, F>
 {
 
 	/**
@@ -65,16 +64,11 @@ public class FactSetDefinition<T extends CDOMObject, F> extends
 	protected void activateOutput(DataSetID dsID)
 	{
 		FactSetKeyActor<F> fca = new FactSetKeyActor<>(getFactSetKey());
-		CDOMWrapperInfoFacet wiFacet =
-				FacetLibrary.getFacet(CDOMWrapperInfoFacet.class);
+		CDOMWrapperInfoFacet wiFacet = FacetLibrary.getFacet(CDOMWrapperInfoFacet.class);
 		if (!wiFacet.set(dsID, getUsableLocation(), factSetName.toLowerCase(), fca))
 		{
-			Logging
-				.errorPrint(getUsableLocation().getSimpleName()
-					+ " output "
-					+ factSetName.toLowerCase()
-					+ " already exists, ignoring Visibility to EXPORT for FACTSET: "
-					+ factSetName);
+			Logging.errorPrint(getUsableLocation().getSimpleName() + " output " + factSetName.toLowerCase()
+				+ " already exists, ignoring Visibility to EXPORT for FACTSET: " + factSetName);
 		}
 	}
 

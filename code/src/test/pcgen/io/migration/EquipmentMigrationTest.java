@@ -74,8 +74,8 @@ public class EquipmentMigrationTest extends TestCase
 	 */
 	public void testMaxVer()
 	{
-		assertEquals("NewKey1", EquipmentMigration.getNewEquipmentKey("OldKey1", new int[]{6,0,0}, gameMode));
-		assertEquals("OldKey1", EquipmentMigration.getNewEquipmentKey("OldKey1", new int[]{6,0,2}, gameMode));
+	assertEquals("NewKey1", EquipmentMigration.getNewEquipmentKey("OldKey1", new int[]{6, 0, 0}, gameMode));
+	assertEquals("OldKey1", EquipmentMigration.getNewEquipmentKey("OldKey1", new int[]{6, 0, 2}, gameMode));
 	}
 
 	/**
@@ -83,8 +83,8 @@ public class EquipmentMigrationTest extends TestCase
 	 */
 	public void testNoCrossGameMode()
 	{
-		assertEquals("OldKey3", EquipmentMigration.getNewEquipmentKey("OldKey3", new int[]{6,0,0}, gameMode));
-		assertEquals("OldKey3", EquipmentMigration.getNewEquipmentKey("OldKey3", new int[]{5,17,0}, gameMode));
+	assertEquals("OldKey3", EquipmentMigration.getNewEquipmentKey("OldKey3", new int[]{6, 0, 0}, gameMode));
+	assertEquals("OldKey3", EquipmentMigration.getNewEquipmentKey("OldKey3", new int[]{5, 17, 0}, gameMode));
 	}
 
 	/**
@@ -92,7 +92,7 @@ public class EquipmentMigrationTest extends TestCase
 	 */
 	public void testCaseInsensitive()
 	{
-		assertEquals("NewKey1", EquipmentMigration.getNewEquipmentKey("OldKEY1", new int[]{6,0,0}, gameMode));
+	assertEquals("NewKey1", EquipmentMigration.getNewEquipmentKey("OldKEY1", new int[]{6, 0, 0}, gameMode));
 	}
 
 }

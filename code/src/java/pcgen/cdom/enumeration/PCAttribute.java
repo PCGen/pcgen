@@ -17,24 +17,14 @@ package pcgen.cdom.enumeration;
 
 public enum PCAttribute implements StringPCAttribute
 {
-	BIRTHDAY(PCStringKey.BIRTHDAY),
-	BIRTHPLACE(PCStringKey.BIRTHPLACE),
-	CATCHPHRASE(PCStringKey.CATCHPHRASE),
-	EYECOLOR(PCStringKey.EYECOLOR),
-	HAIRCOLOR(PCStringKey.HAIRCOLOR),
-	HAIRSTYLE(PCStringKey.HAIRSTYLE),
-	LOCATION(PCStringKey.LOCATION),
-	SPEECHTENDENCY(PCStringKey.SPEECHTENDENCY),
-	PERSONALITY1(PCStringKey.PERSONALITY1),
-	PERSONALITY2(PCStringKey.PERSONALITY2),
-	PHOBIAS(PCStringKey.PHOBIAS),
-	SKINCOLOR(PCStringKey.SKINCOLOR),
-	TABNAME(PCStringKey.TABNAME),
-	HANDED(PCStringKey.HANDED),
-	INTERESTS(PCStringKey.INTERESTS),
-	NAME(PCStringKey.NAME),
-	PLAYERSNAME(PCStringKey.PLAYERSNAME),
-	RESIDENCE(PCStringKey.RESIDENCE);
+	BIRTHDAY(PCStringKey.BIRTHDAY), BIRTHPLACE(PCStringKey.BIRTHPLACE), CATCHPHRASE(PCStringKey.CATCHPHRASE), EYECOLOR(
+			PCStringKey.EYECOLOR), HAIRCOLOR(PCStringKey.HAIRCOLOR), HAIRSTYLE(PCStringKey.HAIRSTYLE), LOCATION(
+					PCStringKey.LOCATION), SPEECHTENDENCY(PCStringKey.SPEECHTENDENCY), PERSONALITY1(
+							PCStringKey.PERSONALITY1), PERSONALITY2(PCStringKey.PERSONALITY2), PHOBIAS(
+									PCStringKey.PHOBIAS), SKINCOLOR(PCStringKey.SKINCOLOR), TABNAME(
+											PCStringKey.TABNAME), HANDED(PCStringKey.HANDED), INTERESTS(
+													PCStringKey.INTERESTS), NAME(PCStringKey.NAME), PLAYERSNAME(
+															PCStringKey.PLAYERSNAME), RESIDENCE(PCStringKey.RESIDENCE);
 
 	private final PCStringKey stringKey;
 
@@ -52,8 +42,6 @@ public enum PCAttribute implements StringPCAttribute
 	@Override
 	public String toString()
 	{
-		return "PCAttribute{" +
-				"stringKey=" + stringKey +
-				'}';
+		return "PCAttribute{" + "stringKey=" + stringKey + '}';
 	}
 }

@@ -34,8 +34,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * DOMAIN Token for KitDeity
  */
-public class DomainToken extends AbstractTokenWithSeparator<KitDeity> implements
-		CDOMPrimaryToken<KitDeity>
+public class DomainToken extends AbstractTokenWithSeparator<KitDeity> implements CDOMPrimaryToken<KitDeity>
 {
 
 	private static final Class<Domain> DOMAIN_CLASS = Domain.class;
@@ -64,15 +63,13 @@ public class DomainToken extends AbstractTokenWithSeparator<KitDeity> implements
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		KitDeity kitDeity, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, KitDeity kitDeity, String value)
 	{
 		StringTokenizer pipeTok = new StringTokenizer(value, Constants.PIPE);
 		while (pipeTok.hasMoreTokens())
 		{
 			String tokString = pipeTok.nextToken();
-			CDOMSingleRef<Domain> ref =
-					context.getReferenceContext().getCDOMReference(DOMAIN_CLASS, tokString);
+			CDOMSingleRef<Domain> ref = context.getReferenceContext().getCDOMReference(DOMAIN_CLASS, tokString);
 			kitDeity.addDomain(ref);
 		}
 		return ParseResult.SUCCESS;
@@ -86,7 +83,6 @@ public class DomainToken extends AbstractTokenWithSeparator<KitDeity> implements
 		{
 			return null;
 		}
-		return new String[]{ReferenceUtilities.joinLstFormat(domains,
-			Constants.PIPE)};
+		return new String[]{ReferenceUtilities.joinLstFormat(domains, Constants.PIPE)};
 	}
 }

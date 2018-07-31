@@ -30,22 +30,18 @@ public class ConditionallyGrantedKnownSpellFacet
 
 	public void update(CharID id)
 	{
-		Collection<AvailableSpell> set =
-				conditionallyKnownSpellFacet.getQualifiedSet(id);
+		Collection<AvailableSpell> set = conditionallyKnownSpellFacet.getQualifiedSet(id);
 		for (AvailableSpell as : set)
 		{
-			Collection<Object> sources =
-					conditionallyKnownSpellFacet.getSources(id, as);
+			Collection<Object> sources = conditionallyKnownSpellFacet.getSources(id, as);
 			for (Object source : sources)
 			{
-				knownSpellFacet.add(id, as.getSpelllist(), as.getLevel(),
-					as.getSpell(), source);
+				knownSpellFacet.add(id, as.getSpelllist(), as.getLevel(), as.getSpell(), source);
 			}
 		}
 	}
 
-	public void setConditionallyKnownSpellFacet(
-		ConditionallyKnownSpellFacet conditionallyKnownSpellFacet)
+	public void setConditionallyKnownSpellFacet(ConditionallyKnownSpellFacet conditionallyKnownSpellFacet)
 	{
 		this.conditionallyKnownSpellFacet = conditionallyKnownSpellFacet;
 	}
@@ -54,5 +50,5 @@ public class ConditionallyGrantedKnownSpellFacet
 	{
 		this.knownSpellFacet = knownSpellFacet;
 	}
-	
+
 }

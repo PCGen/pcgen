@@ -155,7 +155,7 @@ public enum SourceFormat
 	};
 
 	public abstract String getPublisher(Campaign campaign);
-	
+
 	public abstract String getField(CDOMObject cdo);
 
 	/**
@@ -199,10 +199,7 @@ public enum SourceFormat
 	 * @param includePage Should the page number be included in the output
 	 * @return A formatted string.
 	 */
-	public static String getFormattedString(
-		CDOMObject cdo,
-		SourceFormat format,
-		boolean includePage)
+	public static String getFormattedString(CDOMObject cdo, SourceFormat format, boolean includePage)
 	{
 		StringBuilder ret = new StringBuilder(100);
 		if (cdo.isType(Constants.TYPE_CUSTOM))

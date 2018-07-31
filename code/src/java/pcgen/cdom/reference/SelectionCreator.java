@@ -84,7 +84,7 @@ public interface SelectionCreator<T extends Loadable>
 	 * @return A description of the contents of this SelectionCreator
 	 */
 	public String getReferenceDescription();
-	
+
 	/**
 	 * Returns the ClassIdentity for this SelectionCreator. This is more specific than the
 	 * ReferenceClass, since this ClassIdentity will also contain information about the

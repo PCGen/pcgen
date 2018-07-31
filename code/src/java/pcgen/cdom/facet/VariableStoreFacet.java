@@ -27,15 +27,13 @@ import pcgen.cdom.formula.MonitorableVariableStore;
  * new formula system are stored) for each PlayerCharacter (identified by their
  * CharID).
  */
-public class VariableStoreFacet extends
-		AbstractItemFacet<CharID, MonitorableVariableStore>
+public class VariableStoreFacet extends AbstractItemFacet<CharID, MonitorableVariableStore>
 {
 
 	/**
 	 * The global LoadContextFacet used to get VariableIDs
 	 */
-	private final LoadContextFacet loadContextFacet =
-			FacetLibrary.getFacet(LoadContextFacet.class);
+	private final LoadContextFacet loadContextFacet = FacetLibrary.getFacet(LoadContextFacet.class);
 
 	public <T> T getValue(CharID id, VariableID<T> varID)
 	{

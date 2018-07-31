@@ -38,8 +38,7 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
  *
  */
 @SuppressWarnings("serial")
-public final class Ability extends PObject implements Categorized<Ability>,
-		AbilityFacade, Cloneable
+public final class Ability extends PObject implements Categorized<Ability>, AbilityFacade, Cloneable
 {
 	/**
 	 * Get the category of this ability
@@ -65,8 +64,7 @@ public final class Ability extends PObject implements Categorized<Ability>,
 		}
 		catch (CloneNotSupportedException e)
 		{
-			ShowMessageDelegate.showMessageDialog(e.getMessage(),
-				Constants.APPLICATION_NAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(e.getMessage(), Constants.APPLICATION_NAME, MessageType.ERROR);
 			return null;
 		}
 	}
@@ -84,20 +82,19 @@ public final class Ability extends PObject implements Categorized<Ability>,
 		txt.append(getDisplayName());
 		txt.append("\tCATEGORY:").append(getCategory());
 		txt.append("\t");
-		txt.append(StringUtil.joinToStringBuilder(Globals.getContext().unparse(
-				this), "\t"));
+		txt.append(StringUtil.joinToStringBuilder(Globals.getContext().unparse(this), "\t"));
 		txt.append("\t");
 		txt.append(PrerequisiteWriter.prereqsToString(this));
 		return txt.toString();
 	}
 
-    /**
-     * Compare an ability (category) to another one
-     * Returns the compare value from String.compareToIgnoreCase
-     * 
-     * @param obj the object that we're comparing against
-     * @return compare value
-     */
+	/**
+	 * Compare an ability (category) to another one
+	 * Returns the compare value from String.compareToIgnoreCase
+	 * 
+	 * @param obj the object that we're comparing against
+	 * @return compare value
+	 */
 	@Override
 	public int compareTo(final Object obj)
 	{
@@ -140,69 +137,72 @@ public final class Ability extends PObject implements Categorized<Ability>,
 	}
 
 	/**
-     * Equals function, uses compareTo to do the work
-     * 
+	 * Equals function, uses compareTo to do the work
+	 * 
 	 * @param other Ability to compare to
 	 * @return true if they are equal
 	 */
-    @Override
+	@Override
 	public boolean equals(final Object other)
 	{
 		return (other instanceof Ability) && (this.compareTo(other) == 0);
 	}
-    
-    /**
-     * Must be consistent with equals
-     */
-    @Override
-	public int hashCode() {
-    	//Can't be more complicated because the weird nature of compareTo
-    	return getKeyName().hashCode();
-    }
 
-    @Override
+	/**
+	 * Must be consistent with equals
+	 */
+	@Override
+	public int hashCode()
+	{
+		//Can't be more complicated because the weird nature of compareTo
+		return getKeyName().hashCode();
+	}
+
+	@Override
 	public Category<Ability> getCDOMCategory()
 	{
 		return get(ObjectKey.ABILITY_CAT);
 	}
 
-    @Override
+	@Override
 	public void setCDOMCategory(Category<Ability> cat)
 	{
 		put(ObjectKey.ABILITY_CAT, cat);
 	}
-	
+
 	@Override
 	public ListKey<Description> getDescriptionKey()
 	{
 		return ListKey.DESCRIPTION;
 	}
 
-    @Override
+	@Override
 	public List<String> getTypes()
 	{
 		List<Type> trueTypeList = getTrueTypeList(true);
 		List<String> typeNames = new ArrayList<>();
-		for (Type type : trueTypeList) {
+		for (Type type : trueTypeList)
+		{
 			typeNames.add(type.toString());
 		}
 		return typeNames;
 	}
 
-    @Override
+	@Override
 	public boolean isMult()
 	{
 		return getSafe(ObjectKey.MULTIPLE_ALLOWED);
 	}
 
-    @Override
+	@Override
 	public boolean isStackable()
 	{
 		return getSafe(ObjectKey.STACKS);
 	}
 
 	@Override
-	public double getCost() {
+	public double getCost()
+	{
 		return getSafe(ObjectKey.SELECTION_COST).doubleValue();
 	}
 }

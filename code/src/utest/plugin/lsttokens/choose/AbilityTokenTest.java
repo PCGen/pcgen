@@ -25,7 +25,6 @@ import pcgen.cdom.base.Loadable;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -130,13 +129,13 @@ public class AbilityTokenTest extends
 	}
 
 	@Override
-	public void testUnparseLegal() throws PersistenceLayerException
+	public void testUnparseLegal()
 	{
 		//Hard to get correct - doesn't assume Category :(
 	}
 
 	@Test
-	public void testInvalidBadCategory() throws PersistenceLayerException
+	public void testInvalidBadCategory()
 	{
 		assertFalse(parse("ABILITY|BadCat|TYPE=Foo"));
 		assertNoSideEffects();

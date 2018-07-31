@@ -80,77 +80,77 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidEmpty() throws PersistenceLayerException
+	public void testInvalidEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidListNameOnly() throws PersistenceLayerException
+	public void testInvalidListNameOnly()
 	{
 		assertFalse(parse("Familiar"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidListNameBarOnly() throws PersistenceLayerException
+	public void testInvalidListNameBarOnly()
 	{
 		assertFalse(parse("Familiar|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyListName() throws PersistenceLayerException
+	public void testInvalidEmptyListName()
 	{
 		assertFalse(parse("|Lion"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidTypeRaceBarOnly() throws PersistenceLayerException
+	public void testInvalidTypeRaceBarOnly()
 	{
 		assertFalse(parse("Familiar|Lion|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidTypeRaceTypeEmpty() throws PersistenceLayerException
+	public void testInvalidTypeRaceTypeEmpty()
 	{
 		assertFalse(parse("Familiar|RACETYPE="));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidRaceCommaStarting() throws PersistenceLayerException
+	public void testInvalidRaceCommaStarting()
 	{
 		assertFalse(parse("Familiar|,Lion"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidRaceCommaEnding() throws PersistenceLayerException
+	public void testInvalidRaceCommaEnding()
 	{
 		assertFalse(parse("Familiar|Lion,"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidRaceDoubleComma() throws PersistenceLayerException
+	public void testInvalidRaceDoubleComma()
 	{
 		assertFalse(parse("Familiar|Lion,,Tiger"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidRacePipe() throws PersistenceLayerException
+	public void testInvalidRacePipe()
 	{
 		assertFalse(parse("Familiar|Lion|Tiger"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidSpellEmbeddedPre() throws PersistenceLayerException
+	public void testInvalidSpellEmbeddedPre()
 	{
 		assertFalse(parse("Familiar|Lion|PRERACE:1,Human|Tiger"));
 		assertNoSideEffects();
@@ -158,7 +158,6 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 
 	@Test
 	public void testInvalidNonSensicalAnyLast()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("Familiar|Tiger,Any"));
 		assertNoSideEffects();
@@ -166,14 +165,13 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 
 	@Test
 	public void testInvalidNonSensicalAnyFirst()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("Familiar|Any,Lion"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmbeddedFA() throws PersistenceLayerException
+	public void testInvalidEmbeddedFA()
 	{
 		assertFalse(parse("Familiar|FOLLOWERADJUSTMENT:-4|Lion"));
 		assertNoSideEffects();
@@ -181,7 +179,6 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 
 	@Test
 	public void testInvalidOnlyFOLLOWERADJUSTMENT()
-			throws PersistenceLayerException
 	{
 		boolean parse = parse("Familiar|FOLLOWERADJUSTMENT:-3");
 		if (parse)
@@ -196,7 +193,6 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 
 	@Test
 	public void testInvalidMultipleFOLLOWERADJUSTMENT()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("Familiar|Lion|FOLLOWERADJUSTMENT:-2|FOLLOWERADJUSTMENT:-3"));
 		assertNoSideEffects();
@@ -204,42 +200,41 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 
 	@Test
 	public void testInvalidOnlyFOLLOWERADJUSTMENTBar()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("Familiar|FOLLOWERADJUSTMENT:-3|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyTimes() throws PersistenceLayerException
+	public void testInvalidEmptyTimes()
 	{
 		assertFalse(parse("Familiar||Lion"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidBadFA() throws PersistenceLayerException
+	public void testInvalidBadFA()
 	{
 		assertFalse(parse("Familiar|Lion|FOLLOWERADJUSTMENT:"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidFANaN() throws PersistenceLayerException
+	public void testInvalidFANaN()
 	{
 		assertFalse(parse("Familiar|Lion|FOLLOWERADJUSTMENT:-T"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidFADecimal() throws PersistenceLayerException
+	public void testInvalidFADecimal()
 	{
 		assertFalse(parse("Familiar|Lion|FOLLOWERADJUSTMENT:-4.5"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidOnlyPre() throws PersistenceLayerException
+	public void testInvalidOnlyPre()
 	{
 		try
 		{
@@ -390,7 +385,11 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 		construct(Race.class, "Psicrystal (Coward)");
 		construct(Race.class, "Psicrystal (Nimble)");
 		construct(Race.class, "Psicrystal (Observant)");
-		runRoundRobin("Psicrystal|Psicrystal (Artiste),Psicrystal (Bully),Psicrystal (Coward),Psicrystal (Friendly),Psicrystal (Hero),Psicrystal (Liar),Psicrystal (Meticulous),Psicrystal (Nimble),Psicrystal (Observant),Psicrystal (Poised),Psicrystal (Resolved),Psicrystal (Sage),Psicrystal (Single Minded),Psicrystal (Sneaky),Psicrystal (Sympathetic)");
+		runRoundRobin(
+			"Psicrystal|Psicrystal (Artiste),Psicrystal (Bully),Psicrystal (Coward),Psicrystal (Friendly),"
+			+ "Psicrystal (Hero),Psicrystal (Liar),Psicrystal (Meticulous),Psicrystal (Nimble),Psicrystal (Observant),"
+			+ "Psicrystal (Poised),Psicrystal (Resolved),Psicrystal (Sage),Psicrystal (Single Minded),"
+			+ "Psicrystal (Sneaky),Psicrystal (Sympathetic)");
 	}
 
 	@Override

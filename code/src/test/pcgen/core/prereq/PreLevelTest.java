@@ -34,6 +34,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
 
@@ -60,10 +61,11 @@ public class PreLevelTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test that Level works
-	 * @throws Exception
+	 * Test that Level works.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testLevel() throws Exception
+	public void testLevel() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(1, myClass, true);
@@ -105,10 +107,11 @@ public class PreLevelTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test that HD are counted
-	 * @throws Exception
+	 * Test that HD are counted.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testHD() throws Exception
+	public void testHD() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(2, myClass, true);
@@ -161,10 +164,11 @@ public class PreLevelTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Make sure BONUS:PCLEVEL is not counted
-	 * @throws Exception
+	 * Make sure BONUS:PCLEVEL is not counted.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testPCLevel() throws Exception
+	public void testPCLevel() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		LoadContext context = Globals.getContext();

@@ -26,8 +26,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 /**
  * Class deals with RACE Token
  */
-public class RaceToken extends AbstractBasicCampaignToken implements
-		CDOMPrimaryToken<Campaign>
+public class RaceToken extends AbstractBasicCampaignToken implements CDOMPrimaryToken<Campaign>
 {
 	@Override
 	public String getTokenName()

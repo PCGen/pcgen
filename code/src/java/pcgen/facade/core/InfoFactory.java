@@ -18,7 +18,6 @@
  */
 package pcgen.facade.core;
 
-
 /**
  * InfoFactory defines the interface to be used by the UI for extracting
  * information about objects for display to the user.
@@ -153,7 +152,7 @@ public interface InfoFactory
 	 * @return The description.
 	 */
 	public String getDescription(ClassFacade classFacade);
-	
+
 	/**
 	 * Get the description for a skill for this character.
 	 *
@@ -201,7 +200,7 @@ public interface InfoFactory
 	 * @return The description.
 	 */
 	public String getDescription(SpellFacade spellFacade);
-	
+
 	/**
 	 * Get the description for a temp bonus for this character.
 	 *
@@ -209,7 +208,7 @@ public interface InfoFactory
 	 * @return The description.
 	 */
 	public String getDescription(TempBonusFacade tempBonusFacade);
-	
+
 	/**
 	 * Get a display string of the deity's domains.
 	 *
@@ -217,7 +216,7 @@ public interface InfoFactory
 	 * @return The comma separated list of domains.
 	 */
 	public String getDomains(DeityFacade deityFacade);
-	
+
 	/**
 	 * Get a display string of the deity's pantheons.
 	 *

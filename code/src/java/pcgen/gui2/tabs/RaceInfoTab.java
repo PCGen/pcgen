@@ -69,7 +69,7 @@ import pcgen.util.enumeration.Tab;
 public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 {
 
-	private static final TabTitle title = new TabTitle(Tab.RACE);
+	private static final TabTitle TITLE = new TabTitle(Tab.RACE);
 	private final FilteredTreeViewTable<Object, RaceFacade> raceTable;
 	private final FilteredTreeViewTable<Object, RaceFacade> selectedTable;
 	private final InfoPane infoPane;
@@ -188,7 +188,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	@Override
 	public TabTitle getTabTitle()
 	{
-		return title;
+		return TITLE;
 	}
 
 	private class InfoHandler implements ListSelectionListener
@@ -410,26 +410,26 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			if (isAvailModel)
 			{
 				columns = Arrays.asList(new DefaultDataViewColumn("in_irTableStat", String.class, true), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_preReqs", String.class), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_size", String.class, true), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_movement", String.class, true), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_vision", String.class), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_favoredClass", String.class, true), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_lvlAdj", String.class, true), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_descrip", String.class, false), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_source", String.class, false)); //$NON-NLS-1$
+					new DefaultDataViewColumn("in_preReqs", String.class), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_size", String.class, true), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_movement", String.class, true), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_vision", String.class), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_favoredClass", String.class, true), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_lvlAdj", String.class, true), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_descrip", String.class, false), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_source", String.class, false)); //$NON-NLS-1$
 			}
 			else
 			{
 				columns = Arrays.asList(new DefaultDataViewColumn("in_irTableStat", String.class, false), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_preReqs", String.class, false), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_size", String.class, false), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_movement", String.class, false), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_vision", String.class, false), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_favoredClass", String.class, false), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_lvlAdj", String.class, false), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_descrip", String.class, false), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_source", String.class, false)); //$NON-NLS-1$
+					new DefaultDataViewColumn("in_preReqs", String.class, false), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_size", String.class, false), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_movement", String.class, false), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_vision", String.class, false), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_favoredClass", String.class, false), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_lvlAdj", String.class, false), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_descrip", String.class, false), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_source", String.class, false)); //$NON-NLS-1$
 			}
 		}
 
@@ -442,13 +442,14 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		@Override
 		public String getPrefsKey()
 		{
-			return isAvailModel ? "RaceTreeAvail" : "RaceTreeSelected";  //$NON-NLS-1$//$NON-NLS-2$
+			return isAvailModel ? "RaceTreeAvail" : "RaceTreeSelected"; //$NON-NLS-1$//$NON-NLS-2$
 		}
 
 		@Override
 		public Object getDataInternal(RaceFacade obj, int column)
 		{
-			switch(column){
+			switch (column)
+			{
 				case 0:
 					return infoFactory.getStatAdjustments(obj);
 				case 1:
@@ -482,8 +483,8 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	private static class RaceTreeViewModel implements TreeViewModel<RaceFacade>
 	{
 
-		private static final DefaultListFacade<? extends TreeView<RaceFacade>> treeViews
-				= new DefaultListFacade<TreeView<RaceFacade>>(Arrays.asList(RaceTreeView.values()));
+		private static final DefaultListFacade<? extends TreeView<RaceFacade>> TREE_VIEWS =
+				new DefaultListFacade<TreeView<RaceFacade>>(Arrays.asList(RaceTreeView.values()));
 		private final CharacterFacade character;
 		private final boolean isAvailModel;
 		private final DataView<RaceFacade> dataView;
@@ -498,7 +499,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		@Override
 		public ListFacade<? extends TreeView<RaceFacade>> getTreeViews()
 		{
-			return treeViews;
+			return TREE_VIEWS;
 		}
 
 		@Override
@@ -534,8 +535,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		NAME(LanguageBundle.getString("in_nameLabel")), //$NON-NLS-1$
 		TYPE_NAME(LanguageBundle.getString("in_typeName")), //$NON-NLS-1$
 		RACETYPE_NAME(LanguageBundle.getString("in_racetypeName")), //$NON-NLS-1$
-		RACETYPE_RACE_SUBTYPE_NAME(
-				LanguageBundle.getString("in_racetypeSubtypeName")), //$NON-NLS-1$
+		RACETYPE_RACE_SUBTYPE_NAME(LanguageBundle.getString("in_racetypeSubtypeName")), //$NON-NLS-1$
 		SOURCE_NAME(LanguageBundle.getString("in_sourceName")); //$NON-NLS-1$
 		private final String name;
 
@@ -558,31 +558,25 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 				case NAME:
 					return Collections.singletonList(new TreeViewPath<>(pobj));
 				case TYPE_NAME:
-					return Collections.singletonList(new TreeViewPath<>(pobj,
-                            pobj.getType()));
+					return Collections.singletonList(new TreeViewPath<>(pobj, pobj.getType()));
 				case RACETYPE_RACE_SUBTYPE_NAME:
 					List<String> subtypes = pobj.getRaceSubTypes();
 					if (!subtypes.isEmpty())
 					{
-						List<TreeViewPath<RaceFacade>> paths
-								= new ArrayList<>();
+						List<TreeViewPath<RaceFacade>> paths = new ArrayList<>();
 						String raceType = pobj.getRaceType();
 						for (String subtype : subtypes)
 						{
-							paths.add(new TreeViewPath<>(pobj,
-                                    raceType, subtype));
+							paths.add(new TreeViewPath<>(pobj, raceType, subtype));
 						}
 						return paths;
 					}
 					// No subtypes, fall through to treat it as a type tree.
-					return Collections.singletonList(new TreeViewPath<>(pobj,
-                            pobj.getRaceType()));
+					return Collections.singletonList(new TreeViewPath<>(pobj, pobj.getRaceType()));
 				case RACETYPE_NAME:
-					return Collections.singletonList(new TreeViewPath<>(pobj,
-                            pobj.getRaceType()));
+					return Collections.singletonList(new TreeViewPath<>(pobj, pobj.getRaceType()));
 				case SOURCE_NAME:
-					return Collections.singletonList(new TreeViewPath<>(pobj,
-                            pobj.getSourceForNodeDisplay()));
+					return Collections.singletonList(new TreeViewPath<>(pobj, pobj.getSourceForNodeDisplay()));
 				default:
 					throw new InternalError();
 			}

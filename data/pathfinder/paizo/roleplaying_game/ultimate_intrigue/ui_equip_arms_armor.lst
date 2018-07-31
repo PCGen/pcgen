@@ -12,7 +12,7 @@ Darts, Featherweight (10)		KEY:Darts (Featherweight/10)											TYPE:Ammunitio
 
 ####Block: Melee Weapons
 #NOTE:Since the only difference between spring blade and dagger was cost and special properties, the dagger proficiency made more sense than a seperate weapon proficiency.
-Spring Blade											PROFICIENCY:WEAPON|Dagger				TYPE:Weapon.Resizable.Melee.Light.Finesseable.Ranged.Thrown.Simple.Standard.Piercing.Slashing.Dagger.BladeLight									COST:70	WT:1					CRITMULT:x2	CRITRANGE:1			DAMAGE:1d4				EQMOD:Material ~ Steel.Material ~ Wood																	WIELD:Light								RANGE:10							SIZE:M	SOURCEPAGE:p.232																								SPROP:Free action to release the blade, move actrion to reset. DC 20 Perception check to spot when closed, +4 Sleight of Hand to conceal.
+Spring Blade											PROFICIENCY:WEAPON|Dagger				TYPE:Weapon.Resizable.Melee.Light.Finesseable.Ranged.Thrown.Simple.Standard.Piercing.Slashing.Dagger.BladeLight									COST:70	WT:1					CRITMULT:x2	CRITRANGE:1			DAMAGE:1d4				EQMOD:Material ~ Steel.Material ~ Wood																	WIELD:Light								RANGE:10							SIZE:M	SOURCEPAGE:p.232																								SPROP:Free action to release the blade, move action to reset. DC 20 Perception check to spot when closed, +4 Sleight of Hand to conceal.
 
 ####Ranged Weapons
 #NOTE:Description of wrist launchers states that anyone proficient with hand crossbows is proficient with these as well. Using hand crossbow proficiency was most direct way to accomplish this.

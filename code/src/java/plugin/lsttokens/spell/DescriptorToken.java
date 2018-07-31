@@ -32,8 +32,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with DESCRIPTOR Token
  */
-public class DescriptorToken extends AbstractTokenWithSeparator<Spell>
-		implements CDOMPrimaryToken<Spell>
+public class DescriptorToken extends AbstractTokenWithSeparator<Spell> implements CDOMPrimaryToken<Spell>
 {
 
 	@Override
@@ -49,8 +48,7 @@ public class DescriptorToken extends AbstractTokenWithSeparator<Spell>
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		Spell spell, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, Spell spell, String value)
 	{
 		StringTokenizer aTok = new StringTokenizer(value, Constants.PIPE);
 
@@ -62,16 +60,14 @@ public class DescriptorToken extends AbstractTokenWithSeparator<Spell>
 			{
 				if (!first)
 				{
-					return new ParseResult.Fail("  Non-sensical " + getTokenName()
-							+ ": .CLEAR was not the first list item: " + value);
+					return new ParseResult.Fail(
+						"  Non-sensical " + getTokenName() + ": .CLEAR was not the first list item: " + value);
 				}
-				context.getObjectContext().removeList(spell,
-						ListKey.SPELL_DESCRIPTOR);
+				context.getObjectContext().removeList(spell, ListKey.SPELL_DESCRIPTOR);
 			}
 			else
 			{
-				context.getObjectContext().addToList(spell,
-						ListKey.SPELL_DESCRIPTOR, tokString);
+				context.getObjectContext().addToList(spell, ListKey.SPELL_DESCRIPTOR, tokString);
 			}
 			first = false;
 		}
@@ -81,8 +77,7 @@ public class DescriptorToken extends AbstractTokenWithSeparator<Spell>
 	@Override
 	public String[] unparse(LoadContext context, Spell spell)
 	{
-		Changes<String> changes = context.getObjectContext().getListChanges(
-				spell, ListKey.SPELL_DESCRIPTOR);
+		Changes<String> changes = context.getObjectContext().getListChanges(spell, ListKey.SPELL_DESCRIPTOR);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;
@@ -98,10 +93,9 @@ public class DescriptorToken extends AbstractTokenWithSeparator<Spell>
 			{
 				sb.append(Constants.PIPE);
 			}
-			sb.append(StringUtil.joinToStringBuilder(changes.getAdded(),
-					Constants.PIPE));
+			sb.append(StringUtil.joinToStringBuilder(changes.getAdded(), Constants.PIPE));
 		}
-		return new String[] { sb.toString() };
+		return new String[]{sb.toString()};
 	}
 
 	@Override

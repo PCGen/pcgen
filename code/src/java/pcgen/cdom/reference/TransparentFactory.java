@@ -38,15 +38,14 @@ import pcgen.cdom.base.Loadable;
  * @param <T>
  *            The type of object managed by this TransparentFactory
  */
-public class TransparentFactory<T extends Loadable> implements
-		ManufacturableFactory<T>
+public class TransparentFactory<T extends Loadable> implements ManufacturableFactory<T>
 {
 
 	/**
 	 * The reference Class of object processed by this TrasnsparentFactory.
 	 */
 	private final Class<T> refClass;
-	
+
 	/**
 	 * The String representation of the Format of objects in this TransparentFactory (e.g.
 	 * "ABILITY=FEAT").
@@ -61,8 +60,7 @@ public class TransparentFactory<T extends Loadable> implements
 		this.formatRepresentation = Objects.requireNonNull(formatRepresentation);
 		if (objClass == null)
 		{
-			throw new IllegalArgumentException("Reference Class for "
-					+ getClass().getName() + " cannot be null");
+			throw new IllegalArgumentException("Reference Class for " + getClass().getName() + " cannot be null");
 		}
 		try
 		{
@@ -70,15 +68,13 @@ public class TransparentFactory<T extends Loadable> implements
 		}
 		catch (InstantiationException e)
 		{
-			throw new IllegalArgumentException("Class for "
-					+ getClass().getName()
-					+ " must possess a zero-argument constructor", e);
+			throw new IllegalArgumentException(
+				"Class for " + getClass().getName() + " must possess a zero-argument constructor", e);
 		}
 		catch (IllegalAccessException e)
 		{
-			throw new IllegalArgumentException("Class for "
-					+ getClass().getName()
-					+ " must possess a public zero-argument constructor", e);
+			throw new IllegalArgumentException(
+				"Class for " + getClass().getName() + " must possess a public zero-argument constructor", e);
 		}
 		refClass = objClass;
 	}
@@ -110,9 +106,8 @@ public class TransparentFactory<T extends Loadable> implements
 		}
 		catch (InstantiationException | IllegalAccessException e)
 		{
-			throw new UnreachableError("Class was tested at "
-				+ "construction to ensure it had a public, "
-				+ "zero-argument constructor");
+			throw new UnreachableError(
+				"Class was tested at " + "construction to ensure it had a public, " + "zero-argument constructor");
 		}
 	}
 
@@ -135,16 +130,15 @@ public class TransparentFactory<T extends Loadable> implements
 	}
 
 	@Override
-	public boolean resolve(ReferenceManufacturer<T> rm, String name,
-			CDOMSingleRef<T> value, UnconstructedValidator validator)
+	public boolean resolve(ReferenceManufacturer<T> rm, String name, CDOMSingleRef<T> value,
+		UnconstructedValidator validator)
 	{
-		throw new UnsupportedOperationException(
-				"Resolution should not occur on Transparent object");
+		throw new UnsupportedOperationException("Resolution should not occur on Transparent object");
 	}
 
 	@Override
-	public boolean populate(ReferenceManufacturer<T> parentCrm,
-			ReferenceManufacturer<T> rm, UnconstructedValidator validator)
+	public boolean populate(ReferenceManufacturer<T> parentCrm, ReferenceManufacturer<T> rm,
+		UnconstructedValidator validator)
 	{
 		// No work to do?
 		return true;
@@ -153,15 +147,13 @@ public class TransparentFactory<T extends Loadable> implements
 	@Override
 	public ManufacturableFactory<T> getParent()
 	{
-		throw new UnsupportedOperationException(
-				"Resolution of Parent should not occur on Transparent object");
+		throw new UnsupportedOperationException("Resolution of Parent should not occur on Transparent object");
 	}
 
 	@Override
 	public ClassIdentity<T> getReferenceIdentity()
 	{
-		throw new UnsupportedOperationException(
-				"Resolution to Identity should not occur on Transparent object");
+		throw new UnsupportedOperationException("Resolution to Identity should not occur on Transparent object");
 	}
 
 	@Override

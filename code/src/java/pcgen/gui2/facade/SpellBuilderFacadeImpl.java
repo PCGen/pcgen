@@ -49,14 +49,14 @@ import pcgen.core.PCClass;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
+import pcgen.core.spell.Spell;
 import pcgen.facade.core.AbilityFacade;
-import pcgen.facade.util.DefaultReferenceFacade;
 import pcgen.facade.core.InfoFacade;
-import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.core.SpellBuilderFacade;
 import pcgen.facade.util.DefaultListFacade;
+import pcgen.facade.util.DefaultReferenceFacade;
 import pcgen.facade.util.ListFacade;
-import pcgen.core.spell.Spell;
+import pcgen.facade.util.ReferenceFacade;
 import pcgen.util.Logging;
 
 /**
@@ -109,13 +109,12 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 	 * @param character The character which the item will belong to.
 	 * @param equip The equipment, if any, that the spell will be associated with.
 	 */
-	public SpellBuilderFacadeImpl(String choiceValue,
-		PlayerCharacter character, Equipment equip)
+	public SpellBuilderFacadeImpl(String choiceValue, PlayerCharacter character, Equipment equip)
 	{
 		this.character = character;
-		masterAvailableSpellFacet = FacetLibrary.getFacet(MasterAvailableSpellFacet.class);	
+		masterAvailableSpellFacet = FacetLibrary.getFacet(MasterAvailableSpellFacet.class);
 		datasetID = character.getCharID().getDatasetID();
-		
+
 		availClasses = new DefaultListFacade<>();
 		availSpellLevels = new DefaultListFacade<>();
 		availSpells = new DefaultListFacade<>();
@@ -135,8 +134,7 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 		requiredType = Type.NONE;
 		if (equip != null)
 		{
-			Type[] knownTypes =
-					new Type[]{Type.POTION, Type.SCROLL, Type.WAND, Type.RING};
+			Type[] knownTypes = new Type[]{Type.POTION, Type.SCROLL, Type.WAND, Type.RING};
 			for (Type itemType : knownTypes)
 			{
 				if (equip.isType(itemType.toString()))
@@ -179,15 +177,11 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 		// Add in any relevant restrictions from preferences on crafting
 		if (requiredType == Type.POTION)
 		{
-			maxSpellLevel =
-					Math.min(maxSpellLevel,
-						SettingsHandler.getMaxPotionSpellLevel());
+			maxSpellLevel = Math.min(maxSpellLevel, SettingsHandler.getMaxPotionSpellLevel());
 		}
 		else if (requiredType == Type.WAND)
 		{
-			maxSpellLevel =
-					Math.min(maxSpellLevel,
-						SettingsHandler.getMaxWandSpellLevel());
+			maxSpellLevel = Math.min(maxSpellLevel, SettingsHandler.getMaxWandSpellLevel());
 		}
 	}
 
@@ -201,8 +195,7 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 	{
 		//
 		// CLASS=Wizard|CLASS=Sorcerer|Metamagic=0|LEVEL=1|LEVEL=2|SPELLBOOKS=Y
-		final StringTokenizer aTok =
-				new StringTokenizer(choiceValue, "|", false);
+		final StringTokenizer aTok = new StringTokenizer(choiceValue, "|", false);
 
 		while (aTok.hasMoreTokens())
 		{
@@ -271,8 +264,7 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 		{
 			reqSpellType = aTok.nextToken();
 
-			if (reqSpellType.equalsIgnoreCase("ANY")
-				|| reqSpellType.equalsIgnoreCase("ALL"))
+			if (reqSpellType.equalsIgnoreCase("ANY") || reqSpellType.equalsIgnoreCase("ALL"))
 			{
 				reqSpellType = "";
 			}
@@ -314,17 +306,13 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 		{
 			for (String classKey : classList)
 			{
-				PObject obj =
-						Globals.getContext().getReferenceContext()
-							.silentlyGetConstructedCDOMObject(PCClass.class,
-								classKey);
+				PObject obj = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class,
+					classKey);
 
 				if (obj == null)
 				{
-					obj =
-							Globals.getContext().getReferenceContext()
-								.silentlyGetConstructedCDOMObject(Domain.class,
-									classKey);
+					obj = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Domain.class,
+						classKey);
 					if (obj != null)
 					{
 						domains.add((Domain) obj);
@@ -338,8 +326,7 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 		}
 		else
 		{
-			for (Spell spell : Globals.getContext().getReferenceContext()
-					.getConstructedCDOMObjects(Spell.class))
+			for (Spell spell : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Spell.class))
 			{
 				if (isSpellOfSubType(spell))
 				{
@@ -347,20 +334,17 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 				}
 			}
 
-			for (PCClass aClass : Globals.getContext().getReferenceContext()
-				.getConstructedCDOMObjects(PCClass.class))
+			for (PCClass aClass : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(PCClass.class))
 			{
 				if (!aClass.getSpellType().equals(Constants.NONE))
 				{
 					// Only adds if the class can cast
-					if (character.getSpellSupport(aClass).canCastSpells(
-						character))
+					if (character.getSpellSupport(aClass).canCastSpells(character))
 					{
 						continue;
 					}
 
-					if (!("".equals(reqSpellType))
-						&& (!reqSpellType.contains(aClass.getSpellType())))
+					if (!("".equals(reqSpellType)) && (!reqSpellType.contains(aClass.getSpellType())))
 					{
 						continue;
 					}
@@ -389,8 +373,7 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 				else
 				// must have books
 				{
-					if (!(obj instanceof PCClass)
-						|| !obj.getSafe(ObjectKey.SPELLBOOK))
+					if (!(obj instanceof PCClass) || !obj.getSafe(ObjectKey.SPELLBOOK))
 					{
 						classes.remove(i);
 					}
@@ -435,8 +418,8 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 		if (metaAllowed)
 		{
 			List<Ability> metamagicFeats = new ArrayList<>();
-			for (Ability anAbility : Globals.getContext().getReferenceContext()
-				.getManufacturerId(AbilityCategory.FEAT).getAllObjects())
+			for (Ability anAbility : Globals.getContext().getReferenceContext().getManufacturerId(AbilityCategory.FEAT)
+				.getAllObjects())
 			{
 				if (anAbility.isType("Metamagic"))
 				{
@@ -448,12 +431,10 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 		}
 	}
 
-	private void addSpellInfoToList(final Spell aSpell, List<PCClass> classes,
-		List<Domain> domains, String spellType)
+	private void addSpellInfoToList(final Spell aSpell, List<PCClass> classes, List<Domain> domains, String spellType)
 	{
 		Set<String> unfoundItems = new HashSet<>();
-		final HashMapToList<CDOMList<Spell>, Integer> levelInfo =
-				character.getSpellLevelInfo(aSpell);
+		final HashMapToList<CDOMList<Spell>, Integer> levelInfo = character.getSpellLevelInfo(aSpell);
 
 		if ((levelInfo == null) || (levelInfo.isEmpty()))
 		{
@@ -467,14 +448,11 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 				String key = spellList.getKeyName();
 
 				final PCClass aClass =
-						Globals.getContext().getReferenceContext()
-							.silentlyGetConstructedCDOMObject(PCClass.class,
-								key);
+						Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class, key);
 
 				if (aClass != null)
 				{
-					if (!("".equals(spellType))
-						&& (!spellType.contains(aClass.getSpellType())))
+					if (!("".equals(spellType)) && (!spellType.contains(aClass.getSpellType())))
 					{
 						continue;
 					}
@@ -491,15 +469,13 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 					if (!unfoundItems.contains(key))
 					{
 						unfoundItems.add(key);
-						Logging.errorPrint("Class " + key.substring(1)
-							+ " not found. Was used in spell " + aSpell);
+						Logging.errorPrint("Class " + key.substring(1) + " not found. Was used in spell " + aSpell);
 					}
 				}
 			}
 			else if (spellList instanceof DomainSpellList)
 			{
-				if (!("".equals(spellType))
-					&& (!spellType.contains("Divine")))
+				if (!("".equals(spellType)) && (!spellType.contains("Divine")))
 				{
 					continue;
 				}
@@ -507,8 +483,7 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 				String key = spellList.getKeyName();
 
 				final Domain aDomain =
-						Globals.getContext().getReferenceContext()
-							.silentlyGetConstructedCDOMObject(Domain.class, key);
+						Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Domain.class, key);
 
 				if (aDomain != null)
 				{
@@ -524,8 +499,7 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 					if (!unfoundItems.contains(key))
 					{
 						unfoundItems.add(key);
-						Logging.errorPrint("Domain " + key.substring(1)
-							+ " not found. Was used in spell " + aSpell);
+						Logging.errorPrint("Domain " + key.substring(1) + " not found. Was used in spell " + aSpell);
 					}
 				}
 			}
@@ -556,12 +530,9 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 
 				if (subType.startsWith("SCHOOL."))
 				{
-					SpellSchool ss =
-							Globals.getContext().getReferenceContext()
-								.silentlyGetConstructedCDOMObject(
-									SpellSchool.class, subType.substring(7));
-					if (ss == null
-						|| !aSpell.containsInList(ListKey.SPELL_SCHOOL, ss))
+					SpellSchool ss = Globals.getContext().getReferenceContext()
+						.silentlyGetConstructedCDOMObject(SpellSchool.class, subType.substring(7));
+					if (ss == null || !aSpell.containsInList(ListKey.SPELL_SCHOOL, ss))
 					{
 						isOfType = false;
 
@@ -571,8 +542,7 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 
 				if (subType.startsWith("SUBSCHOOL."))
 				{
-					if (!aSpell.containsInList(ListKey.SPELL_SUBSCHOOL,
-						subType.substring(10)))
+					if (!aSpell.containsInList(ListKey.SPELL_SUBSCHOOL, subType.substring(10)))
 					{
 						isOfType = false;
 
@@ -584,8 +554,7 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 				{
 					String descriptor = subType.substring(11);
 
-					if (!aSpell.containsInList(ListKey.SPELL_DESCRIPTOR,
-						descriptor))
+					if (!aSpell.containsInList(ListKey.SPELL_DESCRIPTOR, descriptor))
 					{
 						isOfType = false;
 
@@ -702,23 +671,20 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 		else if (castingClass instanceof Domain)
 		{
 			// TODO We should not be hardcoding the link between cleric and domains
-			aClass =
-					Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
-						PCClass.class, "Cleric");
+			aClass = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class,
+				"Cleric");
 		}
 		else
 		{
 			Logging
-				.errorPrint("Found Casting Class in recalc that was not a Class or Domain: "
-					+ castingClass.getClass());
+				.errorPrint("Found Casting Class in recalc that was not a Class or Domain: " + castingClass.getClass());
 			return;
 		}
 
 		if (aClass != null)
 		{
 			minClassLevel =
-					character.getSpellSupport(aClass).getMinLevelForSpellLevel(
-						spellLevel.get() + levelAdjust, true);
+					character.getSpellSupport(aClass).getMinLevelForSpellLevel(spellLevel.get() + levelAdjust, true);
 			minClassLevel = Math.max(1, minClassLevel);
 			if (aClass.hasMaxLevel())
 			{
@@ -727,9 +693,7 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 		}
 
 		updateAvailCasterLevels(minClassLevel, maxClassLevel);
-		int currCasterLevel =
-				casterLevel.get() == null ? 0 : casterLevel
-					.get();
+		int currCasterLevel = casterLevel.get() == null ? 0 : casterLevel.get();
 		if (currCasterLevel < minClassLevel)
 		{
 			casterLevel.set(minClassLevel);
@@ -755,9 +719,7 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 		}
 		else
 		{
-			Logging
-				.errorPrint("Found Casting Class that was not a Class or Domain: "
-					+ castingClass.getClass());
+			Logging.errorPrint("Found Casting Class that was not a Class or Domain: " + castingClass.getClass());
 		}
 
 		return spellTypes;

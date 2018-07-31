@@ -112,14 +112,14 @@ public class SizeTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.put(StringKey.SIZEFORMULA, null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testUnparseLegal() throws PersistenceLayerException
+	public void testUnparseLegal()
 	{
 		primaryProf.put(StringKey.SIZEFORMULA, "1");
 		expectSingle(getToken().unparse(primaryContext, primaryProf), "1");

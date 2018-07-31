@@ -23,7 +23,7 @@ import java.math.BigDecimal;
 /**
  * This contains helper functions for BigDecimal.
  */
-public class BigDecimalHelper
+public final class BigDecimalHelper
 {
 
 	private BigDecimalHelper()
@@ -77,8 +77,7 @@ public class BigDecimalHelper
 		}
 		catch (NumberFormatException exc)
 		{
-			Logging.errorPrint("Cannot trim zeroes from " + numberToTrim
-				+ " as is not a number. Using 0 instead.");
+			Logging.errorPrint("Cannot trim zeroes from " + numberToTrim + " as is not a number. Using 0 instead.");
 		}
 
 		return trimBigDecimal(aBigD).toString();

@@ -60,48 +60,27 @@ public final class KitLoader extends LstObjectFileLoader<Kit>
 
 	public KitLoader()
 	{
-		kitLoader.addLineLoader(new CDOMSubLineLoader<>("ALIGN",
-                KitAlignment.class));
-		kitLoader.addLineLoader(new CDOMSubLineLoader<>("RACE",
-                KitRace.class));
-		kitLoader.addLineLoader(new CDOMSubLineLoader<>("SKILL",
-                KitSkill.class));
-		kitLoader.addLineLoader(new CDOMSubLineLoader<>("GEAR",
-                KitGear.class));
-		kitLoader.addLineLoader(new CDOMSubLineLoader<>("SPELLS",
-                KitSpells.class));
-		kitLoader.addLineLoader(new CDOMSubLineLoader<>("STAT",
-                KitStat.class));
-		kitLoader.addLineLoader(new CDOMSubLineLoader<>("PROF",
-                KitProf.class));
-		kitLoader.addLineLoader(new CDOMSubLineLoader<>("FEAT",
-                KitAbilities.class));
-		kitLoader.addLineLoader(new CDOMSubLineLoader<>("ABILITY",
-                KitAbilities.class));
-		kitLoader.addLineLoader(new CDOMSubLineLoader<>("NAME",
-                KitBio.class));
-		kitLoader.addLineLoader(new CDOMSubLineLoader<>(
-                "LEVELABILITY", KitLevelAbility.class));
-		kitLoader.addLineLoader(new CDOMSubLineLoader<>("CLASS",
-                KitClass.class));
-		kitLoader.addLineLoader(new CDOMSubLineLoader<>("TEMPLATE",
-                KitTemplate.class));
-		kitLoader.addLineLoader(new CDOMSubLineLoader<>("DEITY",
-                KitDeity.class));
-		kitLoader.addLineLoader(new CDOMSubLineLoader<>("KIT",
-                KitKit.class));
-		kitLoader.addLineLoader(new CDOMSubLineLoader<>("TABLE",
-                KitTable.class));
-		kitLoader.addLineLoader(new CDOMSubLineLoader<>("SELECT",
-                KitSelect.class));
-		kitLoader.addLineLoader(new CDOMSubLineLoader<>("GENDER",
-                KitBio.class));
-		kitLoader.addLineLoader(new CDOMSubLineLoader<>("FUNDS",
-                KitFunds.class));
-		kitLoader.addLineLoader(new CDOMSubLineLoader<>(
-                "LANGBONUS", KitLangBonus.class));
-		kitLoader.addLineLoader(new CDOMSubLineLoader<>("AGE",
-                KitBio.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<>("ALIGN", KitAlignment.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<>("RACE", KitRace.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<>("SKILL", KitSkill.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<>("GEAR", KitGear.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<>("SPELLS", KitSpells.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<>("STAT", KitStat.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<>("PROF", KitProf.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<>("FEAT", KitAbilities.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<>("ABILITY", KitAbilities.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<>("NAME", KitBio.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<>("LEVELABILITY", KitLevelAbility.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<>("CLASS", KitClass.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<>("TEMPLATE", KitTemplate.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<>("DEITY", KitDeity.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<>("KIT", KitKit.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<>("TABLE", KitTable.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<>("SELECT", KitSelect.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<>("GENDER", KitBio.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<>("FUNDS", KitFunds.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<>("LANGBONUS", KitLangBonus.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<>("AGE", KitBio.class));
 	}
 
 	@Override
@@ -111,8 +90,8 @@ public final class KitLoader extends LstObjectFileLoader<Kit>
 	}
 
 	@Override
-	public Kit parseLine(LoadContext context, Kit target, String inputLine,
-			SourceEntry source) throws PersistenceLayerException
+	public Kit parseLine(LoadContext context, Kit target, String inputLine, SourceEntry source)
+		throws PersistenceLayerException
 	{
 		if (inputLine.startsWith("STARTPACK:"))
 		{
@@ -123,8 +102,8 @@ public final class KitLoader extends LstObjectFileLoader<Kit>
 			StringTokenizer st = new StringTokenizer(inputLine, "\t");
 			String firstToken = st.nextToken();
 			int colonLoc = firstToken.indexOf(':');
-			target = context.getReferenceContext().constructCDOMObject(Kit.class, firstToken
-					.substring(colonLoc + 1).intern());
+			target = context.getReferenceContext().constructCDOMObject(Kit.class,
+				firstToken.substring(colonLoc + 1).intern());
 			target.put(ObjectKey.SOURCE_CAMPAIGN, source.getCampaign());
 			target.setSourceURI(source.getURI());
 			context.addStatefulInformation(target);
@@ -134,22 +113,19 @@ public final class KitLoader extends LstObjectFileLoader<Kit>
 				int cLoc = token.indexOf(':');
 				if (cLoc == -1)
 				{
-					Logging.errorPrint("Invalid Token - "
-						+ "does not contain a colon: '" + token + "' on line :"
+					Logging.errorPrint("Invalid Token - " + "does not contain a colon: '" + token + "' on line :"
 						+ inputLine + " in " + source.getURI());
 					continue;
 				}
 				else if (cLoc == 0)
 				{
-					Logging.errorPrint("Invalid Token - starts with a colon: '"
-						+ token + "' on line :" + inputLine + " in "
-						+ source.getURI());
+					Logging.errorPrint("Invalid Token - starts with a colon: '" + token + "' on line :" + inputLine
+						+ " in " + source.getURI());
 					continue;
 				}
 
 				String key = token.substring(0, cLoc);
-				String value = (cLoc == token.length() - 1) ? null : token
-						.substring(cLoc + 1);
+				String value = (cLoc == token.length() - 1) ? null : token.substring(cLoc + 1);
 				if (context.processToken(target, key.intern(), value.intern()))
 				{
 					context.commit();
@@ -158,7 +134,7 @@ public final class KitLoader extends LstObjectFileLoader<Kit>
 				{
 					context.rollback();
 					Logging.replayParsedMessages();
-	 			}
+				}
 			}
 		}
 		else if (inputLine.startsWith("REGION:"))
@@ -180,10 +156,8 @@ public final class KitLoader extends LstObjectFileLoader<Kit>
 					else
 					{
 						context.rollback();
-						Logging.errorPrint("Invalid Stateful Token"
-							+ " from Region NONE: PREREGION:'" + region
-							+ "' on line :" + inputLine + " in "
-							+ source.getURI());
+						Logging.errorPrint("Invalid Stateful Token" + " from Region NONE: PREREGION:'" + region
+							+ "' on line :" + inputLine + " in " + source.getURI());
 						Logging.replayParsedMessages();
 					}
 					Logging.clearParseMessages();
@@ -194,9 +168,8 @@ public final class KitLoader extends LstObjectFileLoader<Kit>
 					String gt = st.nextToken();
 					if (!context.addStatefulToken(gt.intern()))
 					{
-						Logging.errorPrint("Invalid Stateful Token: '" + gt
-							+ "' on line :" + inputLine + " in "
-							+ source.getURI());
+						Logging.errorPrint(
+							"Invalid Stateful Token: '" + gt + "' on line :" + inputLine + " in " + source.getURI());
 					}
 				}
 			}
@@ -204,8 +177,7 @@ public final class KitLoader extends LstObjectFileLoader<Kit>
 		else
 		{
 			context.rollback();
-			if (kitLoader.parseSubLine(context, target, inputLine, source
-					.getURI()))
+			if (kitLoader.parseSubLine(context, target, inputLine, source.getURI()))
 			{
 				Logging.clearParseMessages();
 				context.commit();

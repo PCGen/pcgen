@@ -32,7 +32,7 @@ public class PCQualifierTokenTest extends
 		AbstractPCQualifierTokenTestCase<PCTemplate>
 {
 
-	private static final CDOMSecondaryToken subtoken = new TemplateToken();
+	private static final CDOMSecondaryToken SUBTOKEN = new TemplateToken();
 
 	private static final LstToken PC_TOKEN =
 			new PCToken();
@@ -47,7 +47,7 @@ public class PCQualifierTokenTest extends
 	@Override
 	public CDOMSecondaryToken<?> getSubToken()
 	{
-		return subtoken;
+		return SUBTOKEN;
 	}
 
 	@Override

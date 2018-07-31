@@ -49,22 +49,14 @@ import pcgen.system.LanguageBundle;
 @SuppressWarnings("serial")
 public class LanguagePanel extends PCGenPrefsPanel
 {
-	private static final String in_language =
-			LanguageBundle.getString("in_Prefs_language");
-	private static final String in_langEnglish =
-			LanguageBundle.getString("in_Prefs_langEnglish");
-	private static final String in_langFrench =
-			LanguageBundle.getString("in_Prefs_langFrench");
-	private static final String in_langGerman =
-			LanguageBundle.getString("in_Prefs_langGerman");
-	private static final String in_langItalian =
-			LanguageBundle.getString("in_Prefs_langItalian");
-	private static final String in_langSpanish =
-			LanguageBundle.getString("in_Prefs_langSpanish");
-	private static final String in_langPortuguese =
-			LanguageBundle.getString("in_Prefs_langPortuguese");
-	private static final String in_langSystem =
-			LanguageBundle.getString("in_Prefs_langSystem");
+	private static final String IN_LANGUAGE = LanguageBundle.getString("in_Prefs_language");
+	private static final String IN_LANG_ENGLISH = LanguageBundle.getString("in_Prefs_langEnglish");
+	private static final String IN_LANG_FRENCH = LanguageBundle.getString("in_Prefs_langFrench");
+	private static final String IN_LANG_GERMAN = LanguageBundle.getString("in_Prefs_langGerman");
+	private static final String IN_LANG_ITALIAN = LanguageBundle.getString("in_Prefs_langItalian");
+	private static final String IN_LANG_SPANISH = LanguageBundle.getString("in_Prefs_langSpanish");
+	private static final String IN_LANG_PORTUGUESE = LanguageBundle.getString("in_Prefs_langPortuguese");
+	private static final String IN_LANG_SYSTEM = LanguageBundle.getString("in_Prefs_langSystem");
 
 	private String[] unitSetNames = null;
 
@@ -89,8 +81,7 @@ public class LanguagePanel extends PCGenPrefsPanel
 		JLabel label;
 		ButtonGroup exclusiveGroup;
 		Border etched = null;
-		TitledBorder title1 =
-				BorderFactory.createTitledBorder(etched, in_language);
+		TitledBorder title1 = BorderFactory.createTitledBorder(etched, IN_LANGUAGE);
 
 		title1.setTitleJustification(TitledBorder.LEADING);
 		this.setBorder(title1);
@@ -103,44 +94,45 @@ public class LanguagePanel extends PCGenPrefsPanel
 		int line = 0;
 
 		// Use OS system language
-		line =
-				addLanguageOption(line, c, gridbag, this, langSystem =
-						new JRadioButton(in_langSystem), exclusiveGroup);
+		line = addLanguageOption(line, c, gridbag, this, langSystem = new JRadioButton(IN_LANG_SYSTEM), exclusiveGroup);
 
 		final SortedSet<JRadioButton> sorted =
-                new TreeSet<>((o1, o2) -> o1.getText().compareToIgnoreCase(o2.getText()));
+				new TreeSet<>((o1, o2) -> o1.getText().compareToIgnoreCase(o2.getText()));
 
-		sorted.add(langEng = new JRadioButton(in_langEnglish));
-		sorted.add(langFre = new JRadioButton(in_langFrench));
-		sorted.add(langGer = new JRadioButton(in_langGerman));
-		sorted.add(langIt = new JRadioButton(in_langItalian));
-		sorted.add(langEs = new JRadioButton(in_langSpanish));
-		sorted.add(langPt = new JRadioButton(in_langPortuguese));
+		sorted.add(langEng = new JRadioButton(IN_LANG_ENGLISH));
+		sorted.add(langFre = new JRadioButton(IN_LANG_FRENCH));
+		sorted.add(langGer = new JRadioButton(IN_LANG_GERMAN));
+		sorted.add(langIt = new JRadioButton(IN_LANG_ITALIAN));
+		sorted.add(langEs = new JRadioButton(IN_LANG_SPANISH));
+		sorted.add(langPt = new JRadioButton(IN_LANG_PORTUGUESE));
 
 		for (JRadioButton b : sorted)
 		{
 			line = addLanguageOption(line, c, gridbag, this, b, exclusiveGroup);
 		}
 
-		Utility.buildConstraints(c, 0,  line++, 3, 1, 0, 0);
+		Utility.buildConstraints(c, 0, line++, 3, 1, 0, 0);
 		label = new JLabel();
 		gridbag.setConstraints(label, c);
 		this.add(label);
 
-		Utility.buildConstraints(c, 0,  line++, 3, 1, 0, 0);
+		Utility.buildConstraints(c, 0, line++, 3, 1, 0, 0);
 		label = new JLabel();
 		gridbag.setConstraints(label, c);
 		this.add(label);
 
 		Utility.buildConstraints(c, 0, line, 1, 1, 0, 0);
 		final GameMode gameMode = SettingsHandler.getGame();
-		label = new JLabel(LanguageBundle.getFormattedString("in_Prefs_unitSetType", gameMode.getDisplayName())); //$NON-NLS-1$
+		label = new JLabel(
+			LanguageBundle.getFormattedString(
+				"in_Prefs_unitSetType", gameMode.getDisplayName())); //$NON-NLS-1$
 		gridbag.setConstraints(label, c);
 		this.add(label);
 
 		Utility.buildConstraints(c, 1, line++, 1, 1, 0, 0);
 		c.fill = GridBagConstraints.NONE;
-		Collection<UnitSet> unitSets = SettingsHandler.getGame().getModeContext().getReferenceContext().getConstructedCDOMObjects(UnitSet.class);
+		Collection<UnitSet> unitSets = SettingsHandler.getGame().getModeContext().getReferenceContext()
+			.getConstructedCDOMObjects(UnitSet.class);
 		unitSetNames = new String[unitSets.size()];
 		int i = 0;
 		for (UnitSet unitSet : unitSets)
@@ -155,7 +147,7 @@ public class LanguagePanel extends PCGenPrefsPanel
 		gridbag.setConstraints(unitSetType, c);
 		this.add(unitSetType);
 
-		Utility.buildConstraints(c, 0,  line++, 3, 1, 0, 0);
+		Utility.buildConstraints(c, 0, line++, 3, 1, 0, 0);
 		label = new JLabel(LanguageBundle.getString("in_Prefs_restartInfo")); //$NON-NLS-1$
 		gridbag.setConstraints(label, c);
 		this.add(label);
@@ -167,8 +159,7 @@ public class LanguagePanel extends PCGenPrefsPanel
 		this.add(label);
 	}
 
-	private static int addLanguageOption(int line,
-		final GridBagConstraints constraints, final GridBagLayout gridbag,
+	private static int addLanguageOption(int line, final GridBagConstraints constraints, final GridBagLayout gridbag,
 		final JPanel panel, final JRadioButton button, final ButtonGroup group)
 	{
 		Utility.buildConstraints(constraints, 0, line++, 2, 1, 0, 0);
@@ -228,21 +219,17 @@ public class LanguagePanel extends PCGenPrefsPanel
 			langSystem.setSelected(true);
 		}
 
-		origUnitSet =
-				SettingsHandler.getGame() != null
-					&& SettingsHandler.getGame().getUnitSet() != null
-					? SettingsHandler.getGame().getUnitSet().getDisplayName()
-					: "";
+		origUnitSet = SettingsHandler.getGame() != null && SettingsHandler.getGame().getUnitSet() != null
+			? SettingsHandler.getGame().getUnitSet().getDisplayName() : "";
 		if (unitSetType.getItemCount() > 0)
 		{
 			unitSetType.setSelectedIndex(0);
-			Collection<UnitSet> unitSets = SettingsHandler.getGame()
-					.getModeContext().getReferenceContext().getConstructedCDOMObjects(UnitSet.class);
-	
+			Collection<UnitSet> unitSets = SettingsHandler.getGame().getModeContext().getReferenceContext()
+				.getConstructedCDOMObjects(UnitSet.class);
+
 			for (int i = 0; i < unitSets.size(); ++i)
 			{
-				if (unitSetNames[i].equals(SettingsHandler.getGame().getUnitSet()
-						.getDisplayName()))
+				if (unitSetNames[i].equals(SettingsHandler.getGame().getUnitSet().getDisplayName()))
 				{
 					unitSetType.setSelectedIndex(i);
 				}
@@ -256,7 +243,7 @@ public class LanguagePanel extends PCGenPrefsPanel
 	@Override
 	public String getTitle()
 	{
-		return in_language;
+		return IN_LANGUAGE;
 	}
 
 	/**
@@ -265,12 +252,11 @@ public class LanguagePanel extends PCGenPrefsPanel
 	@Override
 	public void setOptionsBasedOnControls()
 	{
-		String langCountry[] = getSelectedLangCountry();
+		String[] langCountry = getSelectedLangCountry();
 		ConfigurationSettings.setLanguage(langCountry[0]);
 		ConfigurationSettings.setCountry(langCountry[1]);
-		
-		SettingsHandler.getGame().selectUnitSet(
-			(String) unitSetType.getSelectedItem());
+
+		SettingsHandler.getGame().selectUnitSet((String) unitSetType.getSelectedItem());
 	}
 
 	/**
@@ -279,7 +265,7 @@ public class LanguagePanel extends PCGenPrefsPanel
 	 */
 	private String[] getSelectedLangCountry()
 	{
-		String langCountry[] = new String[2];
+		String[] langCountry = new String[2];
 		if (langEng.isSelected())
 		{
 			langCountry[0] = "en";
@@ -321,18 +307,18 @@ public class LanguagePanel extends PCGenPrefsPanel
 	@Override
 	public boolean needsRestart()
 	{
-		String langCountry[] = getSelectedLangCountry();
-		
+		String[] langCountry = getSelectedLangCountry();
+
 		boolean needsRestart = !langCountry[0].equals(origLanguage);
-		
+
 		String unitSet = (String) unitSetType.getSelectedItem();
 		if (unitSet == null)
 		{
 			unitSet = "";
 		}
-		
+
 		needsRestart |= !unitSet.equals(origUnitSet);
-		
+
 		return needsRestart;
 	}
 

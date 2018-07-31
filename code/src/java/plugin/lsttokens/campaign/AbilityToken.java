@@ -26,8 +26,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 /**
  * Class deals with ABILITY Token for campaign
  */
-public class AbilityToken extends AbstractBasicCampaignToken implements
-		CDOMPrimaryToken<Campaign>
+public class AbilityToken extends AbstractBasicCampaignToken implements CDOMPrimaryToken<Campaign>
 {
 	@Override
 	public String getTokenName()

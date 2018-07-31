@@ -44,8 +44,7 @@ public class FavoredClassToken extends AbstractExportToken
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, CharacterDisplay display,
-		ExportHandler eh)
+	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
 	{
 		SortedSet<PCClass> favClass = display.getFavoredClasses();
 		return favClass.isEmpty() ? "" : StringUtil.join(favClass, ", ");

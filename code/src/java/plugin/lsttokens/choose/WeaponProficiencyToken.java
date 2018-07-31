@@ -27,8 +27,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * New chooser plugin, handles Weapon Proficiency.
  */
-public class WeaponProficiencyToken extends
-		AbstractQualifiedChooseToken<WeaponProf>
+public class WeaponProficiencyToken extends AbstractQualifiedChooseToken<WeaponProf>
 {
 
 	private static final Class<WeaponProf> WEAPONPROF_CLASS = WeaponProf.class;
@@ -48,8 +47,7 @@ public class WeaponProficiencyToken extends
 	@Override
 	public WeaponProf decodeChoice(LoadContext context, String s)
 	{
-		return context.getReferenceContext()
-			.silentlyGetConstructedCDOMObject(WEAPONPROF_CLASS, s);
+		return context.getReferenceContext().silentlyGetConstructedCDOMObject(WEAPONPROF_CLASS, s);
 	}
 
 	@Override
@@ -65,11 +63,10 @@ public class WeaponProficiencyToken extends
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-			CDOMObject obj, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
 	{
-		return super.parseTokenWithSeparator(context, context.getReferenceContext()
-				.getManufacturer(WEAPONPROF_CLASS), obj, value);
+		return super.parseTokenWithSeparator(context, context.getReferenceContext().getManufacturer(WEAPONPROF_CLASS),
+			obj, value);
 	}
 
 	@Override

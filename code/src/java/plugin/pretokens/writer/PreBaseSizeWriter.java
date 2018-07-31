@@ -18,13 +18,13 @@
  */
 package plugin.pretokens.writer;
 
+import java.io.IOException;
+import java.io.Writer;
+
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
-
-import java.io.IOException;
-import java.io.Writer;
 
 /**
  * Writer for PREBASESIZE
@@ -32,27 +32,26 @@ import java.io.Writer;
 public class PreBaseSizeWriter implements PrerequisiteWriterInterface
 {
 
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "basesize";
 	}
 
-    @Override
+	@Override
 	public PrerequisiteOperator[] operatorsHandled()
 	{
 		return null;
 	}
 
-    @Override
-	public void write(Writer writer, Prerequisite prereq)
-		throws PersistenceLayerException
+	@Override
+	public void write(Writer writer, Prerequisite prereq) throws PersistenceLayerException
 	{
 		try
 		{
 			writer.write("PREBASESIZE");
 			writer.write(prereq.getOperator().toString().toUpperCase());
-			writer.write(':' + (prereq.isOverrideQualify() ? "Q:":""));
+			writer.write(':' + (prereq.isOverrideQualify() ? "Q:" : ""));
 			writer.write(prereq.getOperand());
 		}
 		catch (IOException e)

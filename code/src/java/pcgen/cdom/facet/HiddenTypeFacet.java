@@ -30,9 +30,7 @@ import pcgen.core.Equipment;
 import pcgen.core.Skill;
 import pcgen.rules.context.LoadContext;
 
-public class HiddenTypeFacet extends
-		AbstractScopeFacet<DataSetID, Class<?>, Type> implements
-		DataSetInitializedFacet
+public class HiddenTypeFacet extends AbstractScopeFacet<DataSetID, Class<?>, Type> implements DataSetInitializedFacet
 {
 	private DataSetInitializationFacet datasetInitializationFacet;
 
@@ -56,8 +54,7 @@ public class HiddenTypeFacet extends
 		}
 	}
 
-	private void loadHiddenTypes(DataSetID id, ListKey<String> listKey,
-		Class<?> cl, Campaign c)
+	private void loadHiddenTypes(DataSetID id, ListKey<String> listKey, Class<?> cl, Campaign c)
 	{
 		List<String> hiddentypes = c.getSafeListFor(listKey);
 		for (String s : hiddentypes)
@@ -66,8 +63,7 @@ public class HiddenTypeFacet extends
 		}
 	}
 
-	public void setDataSetInitializationFacet(
-		DataSetInitializationFacet datasetInitializationFacet)
+	public void setDataSetInitializationFacet(DataSetInitializationFacet datasetInitializationFacet)
 	{
 		this.datasetInitializationFacet = datasetInitializationFacet;
 	}

@@ -59,7 +59,6 @@ import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenPropBundle;
 import pcgen.util.Logging;
 
-
 public class AboutDialog extends JDialog
 {
 
@@ -171,8 +170,7 @@ final class MainAbout extends JPanel
 		aCreditsPanel.add(emailLabel, gridBagConstraints1);
 
 		helperLabel.setText(LanguageBundle.getString("in_abt_monkeys")); //$NON-NLS-1$
-		gridBagConstraints1 = buildConstraints(0, 6,
-											   GridBagConstraints.NORTHWEST);
+		gridBagConstraints1 = buildConstraints(0, 6, GridBagConstraints.NORTHWEST);
 		aCreditsPanel.add(helperLabel, gridBagConstraints1);
 
 		// Info
@@ -207,8 +205,8 @@ final class MainAbout extends JPanel
 		aCreditsPanel.add(releaseDate, gridBagConstraints1);
 
 		javaVersion.setEditable(false);
-		javaVersion.setText(System.getProperty("java.runtime.version") + " (" +
-				System.getProperty("java.vm.vendor") + ")");
+		javaVersion
+			.setText(System.getProperty("java.runtime.version") + " (" + System.getProperty("java.vm.vendor") + ")");
 		javaVersion.setBorder(new EmptyBorder(new Insets(1, 1, 1, 1)));
 		javaVersion.setOpaque(false);
 
@@ -276,16 +274,17 @@ final class MainAbout extends JPanel
 		gridBagConstraints1.fill = GridBagConstraints.BOTH;
 		aCreditsPanel.add(monkeyTabPane, gridBagConstraints1);
 
-		monkeyTabPane.add(
-				LanguageBundle.getString("in_abt_code_mky"), buildMonkeyList(PCGenPropBundle.getCodeMonkeys())); //$NON-NLS-1$
-		monkeyTabPane.add(
-				LanguageBundle.getString("in_abt_list_mky"), buildMonkeyList(PCGenPropBundle.getListMonkeys())); //$NON-NLS-1$
-		monkeyTabPane.add(
-				LanguageBundle.getString("in_abt_test_mky"), buildMonkeyList(PCGenPropBundle.getTestMonkeys())); //$NON-NLS-1$
-		monkeyTabPane.add(
-				LanguageBundle.getString("in_abt_eng_mky"), buildMonkeyList(PCGenPropBundle.getEngineeringMonkeys())); //$NON-NLS-1$
+		monkeyTabPane.add(LanguageBundle.getString("in_abt_code_mky"), //$NON-NLS-1$
+			buildMonkeyList(PCGenPropBundle.getCodeMonkeys()));
+		monkeyTabPane.add(LanguageBundle.getString("in_abt_list_mky"), //$NON-NLS-1$
+			buildMonkeyList(PCGenPropBundle.getListMonkeys()));
+		monkeyTabPane.add(LanguageBundle.getString("in_abt_test_mky"), //$NON-NLS-1$
+			buildMonkeyList(PCGenPropBundle.getTestMonkeys()));
+		monkeyTabPane.add(LanguageBundle.getString("in_abt_eng_mky"), //$NON-NLS-1$
+			buildMonkeyList(PCGenPropBundle.getEngineeringMonkeys()));
 
-		monkeyTabPane.setToolTipTextAt(2, LanguageBundle.getString("in_abt_easter_egg")); // because there isn't one //$NON-NLS-1$
+		// because there isn't one 
+		monkeyTabPane.setToolTipTextAt(2, LanguageBundle.getString("in_abt_easter_egg")); //$NON-NLS-1$
 
 		return aCreditsPanel;
 	}
@@ -409,8 +408,7 @@ final class MainAbout extends JPanel
 	private JPanel buildSponsorsPanel()
 	{
 		TitledBorder title =
-				BorderFactory.createTitledBorder(null,
-					LanguageBundle.getString("in_abt_sponsorsTitle")); //$NON-NLS-1$
+				BorderFactory.createTitledBorder(null, LanguageBundle.getString("in_abt_sponsorsTitle")); //$NON-NLS-1$
 		title.setTitleJustification(TitledBorder.CENTER);
 		JLabelPane sponsorLabel = new JLabelPane();
 		JScrollPane sp = new JScrollPane(sponsorLabel);
@@ -419,7 +417,8 @@ final class MainAbout extends JPanel
 		sponsorLabel.setBackground(panel.getBackground());
 		panel.add(sp, BorderLayout.CENTER);
 
-		Collection<Sponsor> sponsors = Globals.getGlobalContext().getReferenceContext().getConstructedCDOMObjects(Sponsor.class);
+		Collection<Sponsor> sponsors =
+				Globals.getGlobalContext().getReferenceContext().getConstructedCDOMObjects(Sponsor.class);
 		StringBuilder sb = new StringBuilder();
 		sb.append("<html><b>");
 		sb.append(LanguageBundle.getString("in_abt_ourSponsors")).append("</b><br>");
@@ -448,11 +447,11 @@ final class MainAbout extends JPanel
 		JPanel lPanel = new JPanel();
 
 		JScrollPane license = new JScrollPane();
-		JTextArea LGPLArea = new JTextArea();
+		JTextArea lgplArea = new JTextArea();
 
 		lPanel.setLayout(new BorderLayout());
 
-		LGPLArea.setEditable(false);
+		lgplArea.setEditable(false);
 
 		InputStream lgpl = ClassLoader.getSystemResourceAsStream("LICENSE"); //$NON-NLS-1$
 
@@ -460,19 +459,19 @@ final class MainAbout extends JPanel
 		{
 			try
 			{
-				LGPLArea.read(new InputStreamReader(lgpl), "LICENSE"); //$NON-NLS-1$
+				lgplArea.read(new InputStreamReader(lgpl), "LICENSE"); //$NON-NLS-1$
 			}
 			catch (IOException ioe)
 			{
-				LGPLArea.setText(LanguageBundle.getString("in_abt_license_read_err1")); //$NON-NLS-1$
+				lgplArea.setText(LanguageBundle.getString("in_abt_license_read_err1")); //$NON-NLS-1$
 			}
 		}
 		else
 		{
-			LGPLArea.setText(LanguageBundle.getString("in_abt_license_read_err2")); //$NON-NLS-1$
+			lgplArea.setText(LanguageBundle.getString("in_abt_license_read_err2")); //$NON-NLS-1$
 		}
 
-		license.setViewportView(LGPLArea);
+		license.setViewportView(lgplArea);
 		lPanel.add(license, BorderLayout.CENTER);
 
 		return lPanel;

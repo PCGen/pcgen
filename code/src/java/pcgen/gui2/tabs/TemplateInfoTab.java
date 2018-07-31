@@ -37,10 +37,10 @@ import javax.swing.event.ListSelectionListener;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.InfoFactory;
 import pcgen.facade.core.TemplateFacade;
-import pcgen.facade.util.event.ListEvent;
-import pcgen.facade.util.event.ListListener;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.event.ListEvent;
+import pcgen.facade.util.event.ListListener;
 import pcgen.gui2.filter.Filter;
 import pcgen.gui2.filter.FilterBar;
 import pcgen.gui2.filter.FilterButton;
@@ -379,18 +379,18 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 			if (isAvailModel)
 			{
 				columns = Arrays.asList(new DefaultDataViewColumn("in_lvlAdj", String.class, true), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_modifier", String.class, true), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_preReqs", String.class, true), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_descrip", String.class, false), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_source", String.class, false)); //$NON-NLS-1$
+					new DefaultDataViewColumn("in_modifier", String.class, true), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_preReqs", String.class, true), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_descrip", String.class, false), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_source", String.class, false)); //$NON-NLS-1$
 			}
 			else
 			{
 				columns = Arrays.asList(new DefaultDataViewColumn("in_lvlAdj", String.class, false), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_modifier", String.class, false), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_preReqs", String.class, false), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_descrip", String.class, false), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_source", String.class, false)); //$NON-NLS-1$
+					new DefaultDataViewColumn("in_modifier", String.class, false), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_preReqs", String.class, false), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_descrip", String.class, false), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_source", String.class, false)); //$NON-NLS-1$
 			}
 		}
 
@@ -403,13 +403,14 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 		@Override
 		public String getPrefsKey()
 		{
-			return isAvailModel ? "TemplateTreeAvail" : "TemplateTreeSelected";  //$NON-NLS-1$//$NON-NLS-2$
+			return isAvailModel ? "TemplateTreeAvail" : "TemplateTreeSelected"; //$NON-NLS-1$//$NON-NLS-2$
 		}
 
 		@Override
 		public Object getDataInternal(TemplateFacade obj, int column)
 		{
-			switch(column){
+			switch (column)
+			{
 				case 0:
 					return infoFactory.getLevelAdjustment(obj);
 				case 1:
@@ -427,12 +428,12 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 	}
 
-	private static class TemplateTreeViewModel
-			implements TreeViewModel<TemplateFacade>, Filter<CharacterFacade, TemplateFacade>, ListListener<TemplateFacade>
+	private static class TemplateTreeViewModel implements TreeViewModel<TemplateFacade>,
+			Filter<CharacterFacade, TemplateFacade>, ListListener<TemplateFacade>
 	{
 
-		private static final DefaultListFacade<? extends TreeView<TemplateFacade>> treeViews
-				= new DefaultListFacade<TreeView<TemplateFacade>>(Arrays.asList(TemplateTreeView.values()));
+		private static final DefaultListFacade<? extends TreeView<TemplateFacade>> TREE_VIEWS =
+				new DefaultListFacade<TreeView<TemplateFacade>>(Arrays.asList(TemplateTreeView.values()));
 		private final CharacterFacade character;
 		private final boolean isAvailModel;
 		private final TemplateDataView dataView;
@@ -460,7 +461,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 		@Override
 		public ListFacade<? extends TreeView<TemplateFacade>> getTreeViews()
 		{
-			return treeViews;
+			return TREE_VIEWS;
 		}
 
 		@Override
@@ -547,11 +548,9 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 				case NAME:
 					return Collections.singletonList(new TreeViewPath<>(pobj));
 				case TYPE_NAME:
-					return Collections.singletonList(new TreeViewPath<>(pobj,
-                            pobj.getType()));
+					return Collections.singletonList(new TreeViewPath<>(pobj, pobj.getType()));
 				case SOURCE_NAME:
-					return Collections.singletonList(new TreeViewPath<>(pobj,
-                            pobj.getSourceForNodeDisplay()));
+					return Collections.singletonList(new TreeViewPath<>(pobj, pobj.getSourceForNodeDisplay()));
 				default:
 					throw new InternalError();
 			}

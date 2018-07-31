@@ -46,8 +46,7 @@ public final class SkillRank extends BonusObj
 			addBonusInfo(token);
 		}
 
-		if (!token.equals("LIST") && !token.equals("%LIST")
-			&& !token.equals("%CHOICE") && !token.equals("%VAR"))
+		if (!token.equals("LIST") && !token.equals("%LIST") && !token.equals("%CHOICE") && !token.equals("%VAR"))
 		{
 			//This is done entirely for the side effects
 			context.forgetMeNot(TokenUtilities.getReference(context, SKILL_CLASS, token));

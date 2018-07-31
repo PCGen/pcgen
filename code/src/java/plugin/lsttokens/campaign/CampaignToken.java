@@ -29,8 +29,8 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with CAMPAIGN Token
  */
-public class CampaignToken extends AbstractNonEmptyToken<Campaign> implements
-		CDOMPrimaryToken<Campaign>, InstallLstToken
+public class CampaignToken extends AbstractNonEmptyToken<Campaign>
+		implements CDOMPrimaryToken<Campaign>, InstallLstToken
 {
 
 	@Override
@@ -39,7 +39,7 @@ public class CampaignToken extends AbstractNonEmptyToken<Campaign> implements
 		return "CAMPAIGN";
 	}
 
-    @Override
+	@Override
 	public boolean parse(Campaign campaign, String value, URI sourceUri)
 	{
 		campaign.setName(value.intern());
@@ -47,8 +47,7 @@ public class CampaignToken extends AbstractNonEmptyToken<Campaign> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, Campaign campaign,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, Campaign campaign, String value)
 	{
 		/*
 		 * TODO This violates the CDOM direct-access token rules, but given how
@@ -61,13 +60,13 @@ public class CampaignToken extends AbstractNonEmptyToken<Campaign> implements
 		return ParseResult.SUCCESS;
 	}
 
-    @Override
+	@Override
 	public String[] unparse(LoadContext context, Campaign campaign)
 	{
-		return new String[] { campaign.getDisplayName() };
+		return new String[]{campaign.getDisplayName()};
 	}
 
-    @Override
+	@Override
 	public Class<Campaign> getTokenClass()
 	{
 		return Campaign.class;

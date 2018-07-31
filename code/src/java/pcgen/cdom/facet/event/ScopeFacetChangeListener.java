@@ -36,8 +36,7 @@ import pcgen.cdom.base.PCGenIdentifier;
  *            The Type of object changed in the events received by a
  *            ScopeFacetChangeListener
  */
-public interface ScopeFacetChangeListener<IDT extends PCGenIdentifier, S, T>
-		extends EventListener
+public interface ScopeFacetChangeListener<IDT extends PCGenIdentifier, S, T> extends EventListener
 {
 	/**
 	 * Method called when a CDOMObject has been added to a resource and this

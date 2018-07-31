@@ -29,14 +29,13 @@ import pcgen.util.Logging;
 /**
  * A prerequisite parser class that handles the parsing of pre HD tokens.
  */
-public class PreHDParser extends AbstractPrerequisiteParser implements
-		PrerequisiteParserInterface
+public class PreHDParser extends AbstractPrerequisiteParser implements PrerequisiteParserInterface
 {
 	/**
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String[] kindsHandled()
 	{
 		return new String[]{"HD", "HDSILENT"};
@@ -55,31 +54,27 @@ public class PreHDParser extends AbstractPrerequisiteParser implements
 	 * @throws PersistenceLayerException
 	 */
 	@Override
-	public Prerequisite parse(String kind,
-	                          String formula,
-	                          boolean invertResult,
-	                          boolean overrideQualify) throws PersistenceLayerException
+	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+		throws PersistenceLayerException
 	{
 		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
 
-		if(formula.contains("MIN") || formula.contains("MAX"))
+		if (formula.contains("MIN") || formula.contains("MAX"))
 		{
 			StringTokenizer tok = new StringTokenizer(formula, ",");
 			Prerequisite maxPrereq = new Prerequisite();
 			Prerequisite minPrereq = new Prerequisite();
 			boolean hasMin = false;
 			boolean hasMax = false;
-			while(tok.hasMoreTokens())
+			while (tok.hasMoreTokens())
 			{
 				String value = tok.nextToken();
 				String[] vals = value.split("=");
-				if (vals.length !=2)
+				if (vals.length != 2)
 				{
-					throw new PersistenceLayerException(
-							"PREHD must be either 'MIN=x', 'MAX=y' or "
-								+ "'MIN=x,MAX=y' where 'x' and 'y' are integers. '"
-								+ formula + "' is not valid. ");
-					
+					throw new PersistenceLayerException("PREHD must be either 'MIN=x', 'MAX=y' or "
+						+ "'MIN=x,MAX=y' where 'x' and 'y' are integers. '" + formula + "' is not valid. ");
+
 				}
 				String token = vals[0];
 				String hdVal = vals[1];
@@ -90,19 +85,17 @@ public class PreHDParser extends AbstractPrerequisiteParser implements
 				catch (NumberFormatException nfe)
 				{
 					throw new PersistenceLayerException(
-						"PREHD must be either 'MIN=x', 'MAX=y' or "
-							+ "'MIN=x,MAX=y' where 'x' and 'y' are integers. '"
-							+ formula + "' is not valid: " + hdVal
-							+ " is not an integer");
+						"PREHD must be either 'MIN=x', 'MAX=y' or " + "'MIN=x,MAX=y' where 'x' and 'y' are integers. '"
+							+ formula + "' is not valid: " + hdVal + " is not an integer");
 				}
 				if (token.equals("MIN"))
 				{
 					minPrereq.setKind("hd");
 					minPrereq.setOperator(PrerequisiteOperator.GTEQ);
 					minPrereq.setOperand(hdVal);
-					
+
 					hasMin = true;
-					
+
 				}
 				if (token.equals("MAX"))
 				{
@@ -123,12 +116,11 @@ public class PreHDParser extends AbstractPrerequisiteParser implements
 			{
 				prereq = minPrereq;
 			}
-			else if(hasMax)
+			else if (hasMax)
 			{
 				prereq = maxPrereq;
 			}
-			
-			
+
 		}
 		else
 		{
@@ -136,11 +128,11 @@ public class PreHDParser extends AbstractPrerequisiteParser implements
 			{
 				Logging.errorPrint("Deprecated use of PREHD found: ");
 				Logging.errorPrint("The PREHD:+ or PREHD:x-y syntax is no longer supported. "
-						+"The new format is  'MIN=x', 'MAX=y', or 'MIN=x,MAX=y' where x and y are integers. "
-						+"Passed formala was: " + formula);
+					+ "The new format is  'MIN=x', 'MAX=y', or 'MIN=x,MAX=y' where x and y are integers. "
+					+ "Passed formala was: " + formula);
 			}
-			
-			processOldSyntax(formula, prereq);	
+
+			processOldSyntax(formula, prereq);
 		}
 
 		if (invertResult)
@@ -155,9 +147,7 @@ public class PreHDParser extends AbstractPrerequisiteParser implements
 	 * @param prereq
 	 * @throws PersistenceLayerException
 	 */
-	private static void processOldSyntax(
-			String formula,
-			Prerequisite prereq) throws PersistenceLayerException
+	private static void processOldSyntax(String formula, Prerequisite prereq) throws PersistenceLayerException
 	{
 		int plusLoc = formula.indexOf('+');
 		if (plusLoc == -1)
@@ -166,15 +156,14 @@ public class PreHDParser extends AbstractPrerequisiteParser implements
 			if (minusLoc == -1)
 			{
 				throw new PersistenceLayerException(
-					"PREHD must be either 'x+' or 'x-y' where 'x' and 'y' are integers. '"
-						+ formula
+					"PREHD must be either 'x+' or 'x-y' where 'x' and 'y' are integers. '" + formula
 						+ "' is not valid: It does not have either a + or a -");
 			}
 			if (minusLoc != formula.lastIndexOf('-'))
 			{
 				throw new PersistenceLayerException(
-					"PREHD must be either 'x+' or 'x-y' where 'x' and 'y' are integers. '"
-						+ formula + "' is not valid: It has more than one -");
+					"PREHD must be either 'x+' or 'x-y' where 'x' and 'y' are integers. '" + formula
+						+ "' is not valid: It has more than one -");
 			}
 			String hd1String = formula.substring(0, minusLoc);
 			String hd2String = formula.substring(minusLoc + 1);
@@ -185,9 +174,8 @@ public class PreHDParser extends AbstractPrerequisiteParser implements
 			catch (NumberFormatException nfe)
 			{
 				throw new PersistenceLayerException(
-					"PREHD must be either 'x+' or 'x-y' where 'x' and 'y' are integers. '"
-						+ formula + "' is not valid: " + hd1String
-						+ " is not an integer");
+					"PREHD must be either 'x+' or 'x-y' where 'x' and 'y' are integers. '" + formula
+						+ "' is not valid: " + hd1String + " is not an integer");
 			}
 			try
 			{
@@ -196,9 +184,8 @@ public class PreHDParser extends AbstractPrerequisiteParser implements
 			catch (NumberFormatException nfe)
 			{
 				throw new PersistenceLayerException(
-					"PREHD must be either 'x+' or 'x-y' where 'x' and 'y' are integers. '"
-						+ formula + "' is not valid: " + hd2String
-						+ " is not an integer");
+					"PREHD must be either 'x+' or 'x-y' where 'x' and 'y' are integers. '" + formula
+						+ "' is not valid: " + hd2String + " is not an integer");
 			}
 
 			Prerequisite minPrereq = new Prerequisite();
@@ -221,8 +208,7 @@ public class PreHDParser extends AbstractPrerequisiteParser implements
 			if (plusLoc != formula.length() - 1)
 			{
 				throw new PersistenceLayerException(
-					"PREHD must be either 'x+' or 'x-y' where 'x' and 'y' are integers. '"
-						+ formula
+					"PREHD must be either 'x+' or 'x-y' where 'x' and 'y' are integers. '" + formula
 						+ "' has a + but does not end with it: It is not valid");
 			}
 			String hdString = formula.substring(0, plusLoc);
@@ -235,9 +221,8 @@ public class PreHDParser extends AbstractPrerequisiteParser implements
 			catch (NumberFormatException nfe)
 			{
 				throw new PersistenceLayerException(
-					"PREHD must be either 'x+' or 'x-y' where 'x' and 'y' are integers. '"
-						+ formula + "' is not valid: " + hdString
-						+ " is not an integer");
+					"PREHD must be either 'x+' or 'x-y' where 'x' and 'y' are integers. '" + formula
+						+ "' is not valid: " + hdString + " is not an integer");
 			}
 		}
 	}

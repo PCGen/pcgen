@@ -57,77 +57,77 @@ public class ForwardrefTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testInvalidEmpty() throws PersistenceLayerException
+	public void testInvalidEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidTypeOnly() throws PersistenceLayerException
+	public void testInvalidTypeOnly()
 	{
 		assertFalse(parse("SPELL"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidTypeBarOnly() throws PersistenceLayerException
+	public void testInvalidTypeBarOnly()
 	{
 		assertFalse(parse("SPELL|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyType() throws PersistenceLayerException
+	public void testInvalidEmptyType()
 	{
 		assertFalse(parse("|Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidBadType() throws PersistenceLayerException
+	public void testInvalidBadType()
 	{
 		assertFalse(parse("CAMPAIGN|Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidBadLeadingComma() throws PersistenceLayerException
+	public void testInvalidBadLeadingComma()
 	{
 		assertFalse(parse("SPELL|,Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidBadTrailingComma() throws PersistenceLayerException
+	public void testInvalidBadTrailingComma()
 	{
 		assertFalse(parse("SPELL|Fireball,"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidBadDoubleComma() throws PersistenceLayerException
+	public void testInvalidBadDoubleComma()
 	{
 		assertFalse(parse("SPELL|Fireball,,LightningBolt"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidCatTypeNoEqual() throws PersistenceLayerException
+	public void testInvalidCatTypeNoEqual()
 	{
 		assertFalse(parse("ABILITY|Abil"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNonCatTypeEquals() throws PersistenceLayerException
+	public void testInvalidNonCatTypeEquals()
 	{
 		assertFalse(parse("SPELL=Arcane|Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidDoubleEquals() throws PersistenceLayerException
+	public void testInvalidDoubleEquals()
 	{
 		assertFalse(parse("ABILITY=FEAT=Mutation|Fireball"));
 		assertNoSideEffects();
@@ -135,14 +135,13 @@ public class ForwardrefTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 
 	@Test
 	public void testInvalidSpellbookAndSpellBarOnly()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("SPELL|Fireball|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidSpellBarStarting() throws PersistenceLayerException
+	public void testInvalidSpellBarStarting()
 	{
 		assertFalse(parse("SPELL||Fireball"));
 		assertNoSideEffects();
@@ -159,8 +158,10 @@ public class ForwardrefTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	@Test
 	public void testRoundRobinJustAbility() throws PersistenceLayerException
 	{
-		AbilityCategory newCatp = primaryContext.getReferenceContext().constructCDOMObject(AbilityCategory.class, "NEWCAT");
-		AbilityCategory newCats = secondaryContext.getReferenceContext().constructCDOMObject(AbilityCategory.class, "NEWCAT");
+		AbilityCategory newCatp =
+				primaryContext.getReferenceContext().constructCDOMObject(AbilityCategory.class, "NEWCAT");
+		AbilityCategory newCats =
+				secondaryContext.getReferenceContext().constructCDOMObject(AbilityCategory.class, "NEWCAT");
 		constructAbility(primaryContext, newCatp, "Abil3");
 		constructAbility(secondaryContext, newCats, "Abil3");
 		runRoundRobin("ABILITY=NEWCAT|Abil3");
@@ -177,13 +178,14 @@ public class ForwardrefTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testRoundRobinAbilitySpell()
-			throws PersistenceLayerException
+	public void testRoundRobinAbilitySpell() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Lightning Bolt");
 		secondaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Lightning Bolt");
-		AbilityCategory newCatp = primaryContext.getReferenceContext().constructCDOMObject(AbilityCategory.class, "NEWCAT");
-		AbilityCategory newCats = secondaryContext.getReferenceContext().constructCDOMObject(AbilityCategory.class, "NEWCAT");
+		AbilityCategory newCatp =
+				primaryContext.getReferenceContext().constructCDOMObject(AbilityCategory.class, "NEWCAT");
+		AbilityCategory newCats =
+				secondaryContext.getReferenceContext().constructCDOMObject(AbilityCategory.class, "NEWCAT");
 		constructAbility(primaryContext, newCatp, "Abil3");
 		constructAbility(secondaryContext, newCats, "Abil3");
 		runRoundRobin("ABILITY=NEWCAT|Abil3", "SPELL|Lightning Bolt");

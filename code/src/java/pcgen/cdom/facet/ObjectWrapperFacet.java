@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.facet;
 
+import freemarker.template.TemplateModel;
+import freemarker.template.TemplateModelException;
 import pcgen.cdom.base.DataSetInitializedFacet;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
@@ -27,16 +29,13 @@ import pcgen.output.wrapper.CDOMObjectWrapper;
 import pcgen.output.wrapper.CDOMReferenceWrapper;
 import pcgen.output.wrapper.CNAbilitySelectionWrapper;
 import pcgen.rules.context.LoadContext;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
 
 /**
  * ObjectWrapperFacet stores information on the Wrappers available to Actors
  * when wrapping objects into TemplateModel objects for FreeMarker.
  */
-public class ObjectWrapperFacet extends
-		AbstractListFacet<DataSetID, PCGenObjectWrapper> implements
-		DataSetInitializedFacet
+public class ObjectWrapperFacet extends AbstractListFacet<DataSetID, PCGenObjectWrapper>
+		implements DataSetInitializedFacet
 {
 
 	private DataSetInitializationFacet datasetInitializationFacet;
@@ -78,8 +77,7 @@ public class ObjectWrapperFacet extends
 	 *             if no ObjectWrapper in this ObjectWrapperLibrary can wrap the
 	 *             given object into a TemplateModel
 	 */
-	public TemplateModel wrap(CharID id, Object toWrap)
-		throws TemplateModelException
+	public TemplateModel wrap(CharID id, Object toWrap) throws TemplateModelException
 	{
 		if (toWrap == null)
 		{
@@ -99,8 +97,7 @@ public class ObjectWrapperFacet extends
 		return SimpleWrapperLibrary.wrap(toWrap);
 	}
 
-	public void setDataSetInitializationFacet(
-		DataSetInitializationFacet datasetInitializationFacet)
+	public void setDataSetInitializationFacet(DataSetInitializationFacet datasetInitializationFacet)
 	{
 		this.datasetInitializationFacet = datasetInitializationFacet;
 	}

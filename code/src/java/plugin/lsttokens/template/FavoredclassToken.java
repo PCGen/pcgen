@@ -65,8 +65,7 @@ public class FavoredclassToken extends AbstractTokenWithSeparator<PCTemplate>
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		PCTemplate pct, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, PCTemplate pct, String value)
 	{
 		context.getObjectContext().remove(pct, ObjectKey.ANY_FAVORED_CLASS);
 		context.getObjectContext().removeList(pct, ListKey.FAVORED_CLASS);
@@ -74,8 +73,7 @@ public class FavoredclassToken extends AbstractTokenWithSeparator<PCTemplate>
 		return parseFavoredClass(context, pct, value);
 	}
 
-	public ParseResult parseFavoredClass(LoadContext context, CDOMObject cdo,
-			String value)
+	public ParseResult parseFavoredClass(LoadContext context, CDOMObject cdo, String value)
 	{
 		boolean foundAny = false;
 		boolean foundOther = false;
@@ -88,13 +86,11 @@ public class FavoredclassToken extends AbstractTokenWithSeparator<PCTemplate>
 			if (Constants.HIGHEST_LEVEL_CLASS.equalsIgnoreCase(token))
 			{
 				foundAny = true;
-				context.getObjectContext().put(cdo,
-						ObjectKey.ANY_FAVORED_CLASS, true);
+				context.getObjectContext().put(cdo, ObjectKey.ANY_FAVORED_CLASS, true);
 			}
 			else if (Constants.LST_PERCENT_LIST.equalsIgnoreCase(token))
 			{
-				context.getObjectContext().addToList(cdo, ListKey.NEW_CHOOSE_ACTOR,
-						this);
+				context.getObjectContext().addToList(cdo, ListKey.NEW_CHOOSE_ACTOR, this);
 			}
 			else
 			{
@@ -117,17 +113,14 @@ public class FavoredclassToken extends AbstractTokenWithSeparator<PCTemplate>
 					String parent = token.substring(0, dotLoc);
 					String subclass = token.substring(dotLoc + 1);
 					SubClassCategory scc = SubClassCategory.getConstant(parent);
-					ref = context.getReferenceContext().getManufacturerId(scc)
-						.getReference(subclass);
+					ref = context.getReferenceContext().getManufacturerId(scc).getReference(subclass);
 				}
-				context.getObjectContext().addToList(cdo,
-						ListKey.FAVORED_CLASS, ref);
+				context.getObjectContext().addToList(cdo, ListKey.FAVORED_CLASS, ref);
 			}
 		}
 		if (foundAny && foundOther)
 		{
-			return new ParseResult.Fail("Non-sensical " + getTokenName()
-				+ ": Contains " + Constants.HIGHEST_LEVEL_CLASS
+			return new ParseResult.Fail("Non-sensical " + getTokenName() + ": Contains " + Constants.HIGHEST_LEVEL_CLASS
 				+ " and a specific reference: " + value);
 		}
 		return ParseResult.SUCCESS;
@@ -136,12 +129,11 @@ public class FavoredclassToken extends AbstractTokenWithSeparator<PCTemplate>
 	@Override
 	public String[] unparse(LoadContext context, PCTemplate pct)
 	{
-		Changes<CDOMReference<? extends PCClass>> changes = context
-				.getObjectContext().getListChanges(pct, ListKey.FAVORED_CLASS);
-		Changes<ChooseSelectionActor<?>> listChanges = context.getObjectContext()
-				.getListChanges(pct, ListKey.NEW_CHOOSE_ACTOR);
-		Boolean anyfavored = context.getObjectContext().getObject(pct,
-				ObjectKey.ANY_FAVORED_CLASS);
+		Changes<CDOMReference<? extends PCClass>> changes =
+				context.getObjectContext().getListChanges(pct, ListKey.FAVORED_CLASS);
+		Changes<ChooseSelectionActor<?>> listChanges =
+				context.getObjectContext().getListChanges(pct, ListKey.NEW_CHOOSE_ACTOR);
+		Boolean anyfavored = context.getObjectContext().getObject(pct, ObjectKey.ANY_FAVORED_CLASS);
 		SortedSet<String> set = new TreeSet<>();
 		if (anyfavored != null && anyfavored)
 		{
@@ -154,8 +146,7 @@ public class FavoredclassToken extends AbstractTokenWithSeparator<PCTemplate>
 				String prefix = ref.getPersistentFormat();
 				if (prefix.startsWith("SUBCLASS="))
 				{
-					set.add(
-						prefix.substring(9) + Constants.DOT + ref.getLSTformat(false));
+					set.add(prefix.substring(9) + Constants.DOT + ref.getLSTformat(false));
 				}
 				else
 				{
@@ -176,8 +167,7 @@ public class FavoredclassToken extends AbstractTokenWithSeparator<PCTemplate>
 					}
 					catch (PersistenceLayerException e)
 					{
-						context.addWriteMessage("Error writing Prerequisite: "
-								+ e);
+						context.addWriteMessage("Error writing Prerequisite: " + e);
 						return null;
 					}
 				}
@@ -188,7 +178,7 @@ public class FavoredclassToken extends AbstractTokenWithSeparator<PCTemplate>
 			// Zero indicates no add or clear
 			return null;
 		}
-		return new String[] { StringUtil.join(set, Constants.PIPE) };
+		return new String[]{StringUtil.join(set, Constants.PIPE)};
 	}
 
 	@Override

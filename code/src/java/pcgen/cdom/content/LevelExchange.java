@@ -69,36 +69,30 @@ public class LevelExchange extends ConcretePrereqObject
 	 *            The minimum level that may be reached in the exchangeClass
 	 *            during any level exchange.
 	 */
-	public LevelExchange(CDOMSingleRef<PCClass> pcc, int minDonatingLvl,
-			int maxDonated, int donatingLowerBound)
+	public LevelExchange(CDOMSingleRef<PCClass> pcc, int minDonatingLvl, int maxDonated, int donatingLowerBound)
 	{
 		if (pcc == null)
 		{
-			throw new IllegalArgumentException(
-					"Error: Exchange Class must not be null");
+			throw new IllegalArgumentException("Error: Exchange Class must not be null");
 		}
 		if (minDonatingLvl <= 0)
 		{
 			throw new IllegalArgumentException(
-					"Error: Min Donating Level <= 0: "
-							+ "Cannot Allow Donations to produce negative levels");
+				"Error: Min Donating Level <= 0: " + "Cannot Allow Donations to produce negative levels");
 		}
 		if (maxDonated <= 0)
 		{
 			throw new IllegalArgumentException(
-					"Error: Max Donated Levels <= 0: "
-							+ "Cannot Allow Donations to produce negative levels");
+				"Error: Max Donated Levels <= 0: " + "Cannot Allow Donations to produce negative levels");
 		}
 		if (donatingLowerBound < 0)
 		{
 			throw new IllegalArgumentException(
-					"Error: Max Remaining Levels < 0: "
-							+ "Cannot Allow Donations to produce negative levels");
+				"Error: Max Remaining Levels < 0: " + "Cannot Allow Donations to produce negative levels");
 		}
 		if (minDonatingLvl - maxDonated > donatingLowerBound)
 		{
-			throw new IllegalArgumentException(
-					"Error: Donating Lower Bound cannot be reached");
+			throw new IllegalArgumentException("Error: Donating Lower Bound cannot be reached");
 		}
 		exchangeClass = pcc;
 		minDonatingLevel = minDonatingLvl;
@@ -161,8 +155,7 @@ public class LevelExchange extends ConcretePrereqObject
 	@Override
 	public int hashCode()
 	{
-		return minDonatingLevel * 23 + maxDonatedLevels * 31
-				+ donatingLowerLevelBound;
+		return minDonatingLevel * 23 + maxDonatedLevels * 31 + donatingLowerLevelBound;
 	}
 
 	/**
@@ -183,9 +176,7 @@ public class LevelExchange extends ConcretePrereqObject
 			return false;
 		}
 		LevelExchange other = (LevelExchange) obj;
-		return minDonatingLevel == other.minDonatingLevel
-				&& maxDonatedLevels == other.maxDonatedLevels
-				&& donatingLowerLevelBound == other.donatingLowerLevelBound
-				&& exchangeClass.equals(other.exchangeClass);
+		return minDonatingLevel == other.minDonatingLevel && maxDonatedLevels == other.maxDonatedLevels
+			&& donatingLowerLevelBound == other.donatingLowerLevelBound && exchangeClass.equals(other.exchangeClass);
 	}
 }

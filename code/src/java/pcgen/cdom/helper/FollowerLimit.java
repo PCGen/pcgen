@@ -54,13 +54,11 @@ public class FollowerLimit
 	{
 		if (clRef == null)
 		{
-			throw new IllegalArgumentException(
-					"Reference for FollowerLimit cannot be null");
+			throw new IllegalArgumentException("Reference for FollowerLimit cannot be null");
 		}
 		if (limit == null)
 		{
-			throw new IllegalArgumentException(
-					"Formula for FollowerLimit cannot be null");
+			throw new IllegalArgumentException("Formula for FollowerLimit cannot be null");
 		}
 		ref = clRef;
 		formula = limit;

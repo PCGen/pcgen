@@ -55,7 +55,7 @@ public class KitLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidInputNoNumber() throws PersistenceLayerException
+	public void testInvalidInputNoNumber()
 	{
 		assertFalse(parse("TestType"));
 		assertNoSideEffects();
@@ -63,28 +63,27 @@ public class KitLstTest extends AbstractGlobalTokenTestCase
 
 	@Test
 	public void testInvalidInputMissingNumber()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("|TestType"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputOnlyNumber() throws PersistenceLayerException
+	public void testInvalidInputOnlyNumber()
 	{
 		assertFalse(parse("2"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputMissingItem() throws PersistenceLayerException
+	public void testInvalidInputMissingItem()
 	{
 		assertFalse(parse("2|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputDoublePipe() throws PersistenceLayerException
+	public void testInvalidInputDoublePipe()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -93,7 +92,7 @@ public class KitLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidInputJoinedComma() throws PersistenceLayerException
+	public void testInvalidInputJoinedComma()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -104,7 +103,7 @@ public class KitLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidInputJoinedDot() throws PersistenceLayerException
+	public void testInvalidInputJoinedDot()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -115,7 +114,7 @@ public class KitLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidListEnd() throws PersistenceLayerException
+	public void testInvalidListEnd()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("1|TestWP1|"));
@@ -123,7 +122,7 @@ public class KitLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidListStart() throws PersistenceLayerException
+	public void testInvalidListStart()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("1||TestWP1"));
@@ -131,7 +130,7 @@ public class KitLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidNaNCount() throws PersistenceLayerException
+	public void testInvalidNaNCount()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("Count|TestWP1"));
@@ -139,7 +138,7 @@ public class KitLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidZeroCount() throws PersistenceLayerException
+	public void testInvalidZeroCount()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("0|TestWP1"));
@@ -147,7 +146,7 @@ public class KitLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidNegativeCount() throws PersistenceLayerException
+	public void testInvalidNegativeCount()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("-4|TestWP1"));
@@ -155,7 +154,7 @@ public class KitLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidListDoubleJoin() throws PersistenceLayerException
+	public void testInvalidListDoubleJoin()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -164,7 +163,7 @@ public class KitLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidInputCheckMult() throws PersistenceLayerException
+	public void testInvalidInputCheckMult()
 	{
 		// Explicitly do NOT build TestWP2
 		construct(primaryContext, "TestWP1");
@@ -221,7 +220,6 @@ public class KitLstTest extends AbstractGlobalTokenTestCase
 
 	@Test
 	public void testInputInvalidAddsAllNoSideEffect()
-			throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
@@ -241,7 +239,7 @@ public class KitLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidInputAllItem() throws PersistenceLayerException
+	public void testInvalidInputAllItem()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("1|ALL" + getJoinCharacter() + "TestWP1"));
@@ -249,7 +247,7 @@ public class KitLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidInputItemAll() throws PersistenceLayerException
+	public void testInvalidInputItemAll()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("1|TestWP1" + getJoinCharacter() + "ALL"));

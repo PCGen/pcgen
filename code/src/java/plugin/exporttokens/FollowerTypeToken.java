@@ -46,8 +46,7 @@ public class FollowerTypeToken extends Token
 	}
 
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		// Handle FOLLOWERTYPE.<type>x.subtag stuff
 		// New token syntax FOLLOWERTYPE.<type>.x instead of FOLLOWERTYPE.<type>x
@@ -72,8 +71,7 @@ public class FollowerTypeToken extends Token
 				// Error, not debug.  We want users to report
 				// use of the deprecated syntax so we can fix
 				// them as they are found.
-				Logging
-					.errorPrint("Old syntax FOLLOWERTYPEx will be replaced for FOLLOWERTYPE.x");
+				Logging.errorPrint("Old syntax FOLLOWERTYPEx will be replaced for FOLLOWERTYPE.x");
 
 				restString.append(startString);
 
@@ -81,11 +79,9 @@ public class FollowerTypeToken extends Token
 
 				for (int i = typeString.length() - 1; i > 0; i--)
 				{
-					if ((typeString.charAt(i) >= '0')
-						&& (typeString.charAt(i) <= '9'))
+					if ((typeString.charAt(i) >= '0') && (typeString.charAt(i) <= '9'))
 					{
-						followerIndex =
-								Integer.parseInt(typeString.substring(i));
+						followerIndex = Integer.parseInt(typeString.substring(i));
 						numCharToRemove++;
 					}
 					else
@@ -96,9 +92,7 @@ public class FollowerTypeToken extends Token
 
 				if (numCharToRemove > 0)
 				{
-					typeString =
-							typeString.substring(0, typeString.length()
-								- numCharToRemove);
+					typeString = typeString.substring(0, typeString.length() - numCharToRemove);
 				}
 			}
 
@@ -117,9 +111,7 @@ public class FollowerTypeToken extends Token
 		List<Follower> aList = getFollowersOfType(pc.getDisplay(), typeString);
 		if (followerIndex > -1 && followerIndex < aList.size())
 		{
-			result =
-					FollowerToken.getFollowerOutput(eh, restString
-						.toString(), aList.get(followerIndex));
+			result = FollowerToken.getFollowerOutput(eh, restString.toString(), aList.get(followerIndex));
 		}
 
 		return result;
@@ -132,8 +124,7 @@ public class FollowerTypeToken extends Token
 	 * @param typeString The follower type being looked for
 	 * @return The list of qualifying followers.
 	 */
-	private List<Follower> getFollowersOfType(CharacterDisplay display,
-		String typeString)
+	private List<Follower> getFollowersOfType(CharacterDisplay display, String typeString)
 	{
 		List<Follower> aList = new ArrayList<>();
 		for (Follower fol : display.getFollowerList())

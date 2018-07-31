@@ -39,8 +39,7 @@ import pcgen.cdom.facet.event.DataFacetChangeListener;
  * Player Character.
  * 
  */
-public class VariableFacet extends AbstractStorageFacet<CharID> implements
-		DataFacetChangeListener<CharID, CDOMObject>
+public class VariableFacet extends AbstractStorageFacet<CharID> implements DataFacetChangeListener<CharID, CDOMObject>
 {
 	private FormulaResolvingFacet formulaResolvingFacet;
 
@@ -122,8 +121,7 @@ public class VariableFacet extends AbstractStorageFacet<CharID> implements
 	 *         Player Character
 	 */
 	@SuppressWarnings("unchecked")
-	private Map<VariableKey, Map<Formula, Set<CDOMObject>>> getCachedMap(
-			CharID id)
+	private Map<VariableKey, Map<Formula, Set<CDOMObject>>> getCachedMap(CharID id)
 	{
 		return (Map<VariableKey, Map<Formula, Set<CDOMObject>>>) getCache(id);
 	}
@@ -141,8 +139,7 @@ public class VariableFacet extends AbstractStorageFacet<CharID> implements
 	 *            The CharID for which the Map should be returned
 	 * @return The Map for the Player Character represented by the given CharID
 	 */
-	private Map<VariableKey, Map<Formula, Set<CDOMObject>>> getConstructingCachedMap(
-			CharID id)
+	private Map<VariableKey, Map<Formula, Set<CDOMObject>>> getConstructingCachedMap(CharID id)
 	{
 		Map<VariableKey, Map<Formula, Set<CDOMObject>>> componentMap = getCachedMap(id);
 		if (componentMap == null)
@@ -170,8 +167,7 @@ public class VariableFacet extends AbstractStorageFacet<CharID> implements
 		Map<VariableKey, Map<Formula, Set<CDOMObject>>> vkMap = getCachedMap(id);
 		if (vkMap != null)
 		{
-			for (Iterator<Map<Formula, Set<CDOMObject>>> mit = vkMap.values()
-					.iterator(); mit.hasNext();)
+			for (Iterator<Map<Formula, Set<CDOMObject>>> mit = vkMap.values().iterator(); mit.hasNext();)
 			{
 				Map<Formula, Set<CDOMObject>> fMap = mit.next();
 				fMap.values().removeIf(set -> set.remove(source) && set.isEmpty());
@@ -223,8 +219,7 @@ public class VariableFacet extends AbstractStorageFacet<CharID> implements
 			Set<CDOMObject> sources = me.getValue();
 			for (CDOMObject source : sources)
 			{
-				double newVal = formulaResolvingFacet.resolve(id, f,
-						source.getQualifiedKey()).doubleValue();
+				double newVal = formulaResolvingFacet.resolve(id, f, source.getQualifiedKey()).doubleValue();
 				if (returnValue == null)
 				{
 					returnValue = newVal;
@@ -257,7 +252,7 @@ public class VariableFacet extends AbstractStorageFacet<CharID> implements
 		Map<VariableKey, Map<Formula, Set<CDOMObject>>> vkMap = getCachedMap(id);
 		return (vkMap != null) && vkMap.containsKey(vk);
 	}
-	
+
 	public int getVariableCount(CharID id)
 	{
 		Map<VariableKey, Map<Formula, Set<CDOMObject>>> vkMap = getCachedMap(id);
@@ -314,12 +309,10 @@ public class VariableFacet extends AbstractStorageFacet<CharID> implements
 		Map<VariableKey, Map<Formula, Set<CDOMObject>>> cm = getCachedMap(source);
 		if (cm != null)
 		{
-			for (Map.Entry<VariableKey, Map<Formula, Set<CDOMObject>>> me : cm
-				.entrySet())
+			for (Map.Entry<VariableKey, Map<Formula, Set<CDOMObject>>> me : cm.entrySet())
 			{
 				VariableKey vk = me.getKey();
-				for (Map.Entry<Formula, Set<CDOMObject>> fme : me.getValue()
-					.entrySet())
+				for (Map.Entry<Formula, Set<CDOMObject>> fme : me.getValue().entrySet())
 				{
 					Formula f = fme.getKey();
 					for (CDOMObject cdo : fme.getValue())

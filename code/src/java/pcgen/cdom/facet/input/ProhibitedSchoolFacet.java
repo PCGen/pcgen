@@ -25,7 +25,6 @@ import pcgen.core.SpellProhibitor;
  * a Player Character.
  * 
  */
-public class ProhibitedSchoolFacet extends
-		AbstractSourcedListFacet<CharID, SpellProhibitor>
+public class ProhibitedSchoolFacet extends AbstractSourcedListFacet<CharID, SpellProhibitor>
 {
 }

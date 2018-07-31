@@ -54,8 +54,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Deals with the QUALIFY token for Abilities
  */
-public class QualifyToken extends AbstractTokenWithSeparator<CDOMObject>
-		implements CDOMPrimaryToken<CDOMObject>
+public class QualifyToken extends AbstractTokenWithSeparator<CDOMObject> implements CDOMPrimaryToken<CDOMObject>
 {
 
 	@Override
@@ -66,9 +65,8 @@ public class QualifyToken extends AbstractTokenWithSeparator<CDOMObject>
 
 	public List<Class<? extends CDOMObject>> getLegalTypes()
 	{
-		return Arrays.asList(PCClassLevel.class, Ability.class, Deity.class,
-				Domain.class, Equipment.class, PCClass.class, Race.class,
-				Skill.class, Spell.class, PCTemplate.class, WeaponProf.class);
+		return Arrays.asList(PCClassLevel.class, Ability.class, Deity.class, Domain.class, Equipment.class,
+			PCClass.class, Race.class, Skill.class, Spell.class, PCTemplate.class, WeaponProf.class);
 	}
 
 	@Override
@@ -76,14 +74,12 @@ public class QualifyToken extends AbstractTokenWithSeparator<CDOMObject>
 	{
 		if (obj instanceof Ungranted)
 		{
-			return new ParseResult.Fail("Cannot use " + getTokenName()
-				+ " on an Ungranted object type: "
-				+ obj.getClass().getSimpleName());
+			return new ParseResult.Fail(
+				"Cannot use " + getTokenName() + " on an Ungranted object type: " + obj.getClass().getSimpleName());
 		}
 		if (!getLegalTypes().contains(obj.getClass()))
 		{
-			return new ParseResult.Fail("Cannot use QUALIFY on a "
-					+ obj.getClass());
+			return new ParseResult.Fail("Cannot use QUALIFY on a " + obj.getClass());
 		}
 		return super.parseNonEmptyToken(context, obj, value);
 	}
@@ -95,29 +91,24 @@ public class QualifyToken extends AbstractTokenWithSeparator<CDOMObject>
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		CDOMObject obj, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
 	{
 		if (value.indexOf(Constants.PIPE) == -1)
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " requires at least two arguments, QualifyType and Key: "
-					+ value);
+			return new ParseResult.Fail(
+				getTokenName() + " requires at least two arguments, QualifyType and Key: " + value);
 		}
 		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
 		String firstToken = st.nextToken();
-		ReferenceManufacturer<? extends Loadable> rm =
-				context.getManufacturer(firstToken);
+		ReferenceManufacturer<? extends Loadable> rm = context.getManufacturer(firstToken);
 		if (rm == null)
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " unable to generate manufacturer for type: " + value);
+			return new ParseResult.Fail(getTokenName() + " unable to generate manufacturer for type: " + value);
 		}
 
 		while (st.hasMoreTokens())
 		{
-			CDOMSingleRef<? extends Loadable> ref = rm.getReference(st
-					.nextToken());
+			CDOMSingleRef<? extends Loadable> ref = rm.getReference(st.nextToken());
 			context.getObjectContext().addToList(obj, ListKey.QUALIFY, new Qualifier(ref));
 		}
 
@@ -127,8 +118,7 @@ public class QualifyToken extends AbstractTokenWithSeparator<CDOMObject>
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
-		Changes<Qualifier> changes = context.getObjectContext().getListChanges(
-				obj, ListKey.QUALIFY);
+		Changes<Qualifier> changes = context.getObjectContext().getListChanges(obj, ListKey.QUALIFY);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;
@@ -141,16 +131,14 @@ public class QualifyToken extends AbstractTokenWithSeparator<CDOMObject>
 			String key = ref.getPersistentFormat();
 			map.addToListFor(key, ref);
 		}
-		Set<CDOMSingleRef<?>> set = new TreeSet<>(
-				ReferenceUtilities.REFERENCE_SORTER);
+		Set<CDOMSingleRef<?>> set = new TreeSet<>(ReferenceUtilities.REFERENCE_SORTER);
 		Set<String> returnSet = new TreeSet<>();
 		for (String key : map.getKeySet())
 		{
 			set.clear();
 			set.addAll(map.getListFor(key));
 			StringBuilder sb = new StringBuilder();
-			sb.append(key).append(Constants.PIPE).append(
-					ReferenceUtilities.joinLstFormat(set, Constants.PIPE));
+			sb.append(key).append(Constants.PIPE).append(ReferenceUtilities.joinLstFormat(set, Constants.PIPE));
 			returnSet.add(sb.toString());
 		}
 		return returnSet.toArray(new String[returnSet.size()]);

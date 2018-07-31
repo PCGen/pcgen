@@ -77,10 +77,10 @@ public final class CharacterSpell implements Comparable<CharacterSpell>
 
 		int i = 0;
 
-		for  (SpellInfo s : infoList)
+		for (SpellInfo s : infoList)
 		{
-			if (("".equals(bookName) || bookName.equals(s.getBook()))
-				&& (level == -1 || s.getActualLevel() == level) && (specialty == -1 || sp))
+			if (("".equals(bookName) || bookName.equals(s.getBook())) && (level == -1 || s.getActualLevel() == level)
+				&& (specialty == -1 || sp))
 			{
 				return i;
 			}
@@ -99,7 +99,6 @@ public final class CharacterSpell implements Comparable<CharacterSpell>
 	{
 		return infoList;
 	}
-
 
 	/**
 	 * Get Owner
@@ -175,13 +174,9 @@ public final class CharacterSpell implements Comparable<CharacterSpell>
 
 		for (SpellInfo s : infoList)
 		{
-			if (("".equals(bookName) || bookName.equals(s.getBook()))
-				&& (level == -1 || s.getActualLevel() == level)
-				&& (featList == null
-				|| featList.isEmpty() && (s.getFeatList() == null || s
-					.getFeatList().isEmpty())
-				|| s.getFeatList() != null && featList.toString()
-					.equals(s.getFeatList().toString())))
+			if (("".equals(bookName) || bookName.equals(s.getBook())) && (level == -1 || s.getActualLevel() == level)
+				&& (featList == null || featList.isEmpty() && (s.getFeatList() == null || s.getFeatList().isEmpty())
+					|| s.getFeatList() != null && featList.toString().equals(s.getFeatList().toString())))
 			{
 				return s;
 			}
@@ -245,8 +240,8 @@ public final class CharacterSpell implements Comparable<CharacterSpell>
 	 * @param featList
 	 * @return SpellInfo
 	 */
-	public SpellInfo addInfo(final int origLevel, final int level, final int times,
-			final String book, final List<Ability> featList)
+	public SpellInfo addInfo(final int origLevel, final int level, final int times, final String book,
+		final List<Ability> featList)
 	{
 		final SpellInfo si = new SpellInfo(this, origLevel, level, times, book);
 
@@ -269,7 +264,7 @@ public final class CharacterSpell implements Comparable<CharacterSpell>
 	 *         is less than, equal to, or greater than the specified object.
 	 * @see Comparable#compareTo(Object)
 	 */
-    @Override
+	@Override
 	public int compareTo(final CharacterSpell obj)
 	{
 		int compare = spell.compareTo(obj.spell);

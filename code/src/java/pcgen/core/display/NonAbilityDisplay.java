@@ -51,14 +51,14 @@ public final class NonAbilityDisplay
 		}
 
 		// An unlock will always override a lock, so check it first
-		boolean unlockedStat = po.getSafeListFor(ListKey.NONSTAT_TO_STAT_STATS).stream()
-				.anyMatch(v -> v.get().equals(stat));
-		if (unlockedStat) {
+		boolean unlockedStat =
+				po.getSafeListFor(ListKey.NONSTAT_TO_STAT_STATS).stream().anyMatch(v -> v.get().equals(stat));
+		if (unlockedStat)
+		{
 			return false;
 		}
 
-		return po.getSafeListFor(ListKey.NONSTAT_STATS).stream()
-				.anyMatch(v -> v.get().equals(stat));
+		return po.getSafeListFor(ListKey.NONSTAT_STATS).stream().anyMatch(v -> v.get().equals(stat));
 	}
 
 }

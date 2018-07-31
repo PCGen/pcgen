@@ -79,13 +79,11 @@ public class DataTable implements Loadable
 	{
 		if ((dataByRow != null) && !dataByRow.isEmpty())
 		{
-			throw new IllegalStateException(
-				"Column may not be added after rows are added");
+			throw new IllegalStateException("Column may not be added after rows are added");
 		}
 		if (columns.contains(Objects.requireNonNull(column)))
 		{
-			throw new IllegalArgumentException(
-				"Column may not be duplicate: " + column);
+			throw new IllegalArgumentException("Column may not be duplicate: " + column);
 		}
 		if (columns.isEmpty())
 		{
@@ -136,13 +134,10 @@ public class DataTable implements Loadable
 		{
 			TableColumn column = columns.get(i);
 			Object object = data[i];
-			if (!column.getFormatManager().getManagedClass()
-				.isAssignableFrom(object.getClass()))
+			if (!column.getFormatManager().getManagedClass().isAssignableFrom(object.getClass()))
 			{
-				throw new IllegalArgumentException("Item " + i
-					+ " in provided row was incorrect format, found: "
-					+ object.getClass() + " but requried "
-					+ column.getFormatManager().getManagedClass());
+				throw new IllegalArgumentException("Item " + i + " in provided row was incorrect format, found: "
+					+ object.getClass() + " but requried " + column.getFormatManager().getManagedClass());
 			}
 		}
 		//Cast should be enforced by behavior of addColumn
@@ -248,12 +243,9 @@ public class DataTable implements Loadable
 	 */
 	public FormatManager<?> getFormat(String columnName)
 	{
-		return columns.stream()
-			   .filter(column -> column.getName().equals(columnName))
-			   .findFirst()
-			   .orElseThrow(() -> new IllegalArgumentException(
-					   "Column Name must exist in the DataTable"))
-				.getFormatManager();
+		return columns.stream().filter(column -> column.getName().equals(columnName)).findFirst()
+			.orElseThrow(() -> new IllegalArgumentException("Column Name must exist in the DataTable"))
+			.getFormatManager();
 	}
 
 	/**
@@ -278,8 +270,7 @@ public class DataTable implements Loadable
 		int resultingColumnNumber = getColumnIndex(resultingColumn);
 		if (resultingColumnNumber == -1)
 		{
-			throw new IllegalArgumentException(
-				"Cannot find column named: " + resultingColumn);
+			throw new IllegalArgumentException("Cannot find column named: " + resultingColumn);
 		}
 		return lookup(lookupType, lookupValue, resultingColumnNumber);
 	}
@@ -324,8 +315,7 @@ public class DataTable implements Loadable
 
 	private Object[] getRow(LookupType lookupType, Object lookupValue)
 	{
-		Function<? super Map<Object, Object[]>, Object[]> p =
-				lookupType.getRowFor(lookupValue);
+		Function<? super Map<Object, Object[]>, Object[]> p = lookupType.getRowFor(lookupValue);
 		return p.apply(dataByRow);
 	}
 
@@ -337,7 +327,6 @@ public class DataTable implements Loadable
 	{
 		columns.trimToSize();
 	}
-
 
 	@Override
 	public String getKeyName()
@@ -403,7 +392,8 @@ public class DataTable implements Loadable
 		 * effect this would round down in situations where all of the lookup items are
 		 * integers.
 		 */
-		LASTLTEQ {
+		LASTLTEQ
+		{
 			@Override
 			public <V> Function<? super Map<Object, V>, V> getRowFor(Object lookupValue)
 			{

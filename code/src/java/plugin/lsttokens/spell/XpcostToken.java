@@ -25,8 +25,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 /**
  * Class deals with XPCOST Token
  */
-public class XpcostToken extends AbstractIntToken<Spell> implements
-		CDOMPrimaryToken<Spell>
+public class XpcostToken extends AbstractIntToken<Spell> implements CDOMPrimaryToken<Spell>
 {
 
 	/**

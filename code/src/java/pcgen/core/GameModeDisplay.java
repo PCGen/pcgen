@@ -19,14 +19,13 @@ package pcgen.core;
 
 import pcgen.facade.core.GameModeDisplayFacade;
 
-
 /**
  * Handles game modes.
  */
 public final class GameModeDisplay implements Comparable<Object>, GameModeDisplayFacade
 {
 	private GameMode gameMode;
-	
+
 	/**
 	 * Creates a new instance of GameModeMenuEntry.
 	 *
@@ -41,22 +40,23 @@ public final class GameModeDisplay implements Comparable<Object>, GameModeDispla
 	 * Get the game mode
 	 * @return gameMode
 	 */
-    @Override
+	@Override
 	public GameMode getGameMode()
 	{
 		return gameMode;
 	}
+
 	/**
 	 * Get the menu entry of the game mode
 	 * @return menuEntry
 	 */
-    @Override
+	@Override
 	public String toString()
 	{
 		return gameMode.getDisplayName();
 	}
 
-    @Override
+	@Override
 	public int compareTo(final Object obj)
 	{
 		if (obj != null)
@@ -77,7 +77,8 @@ public final class GameModeDisplay implements Comparable<Object>, GameModeDispla
 			//
 			// should throw a ClassCastException for non-PObjects,
 			// like the Comparable interface calls for
-			return gameMode.getDisplayName().compareToIgnoreCase(((GameModeDisplay) obj).getGameMode().getDisplayName());
+			return gameMode.getDisplayName()
+				.compareToIgnoreCase(((GameModeDisplay) obj).getGameMode().getDisplayName());
 		}
 		return 1;
 	}

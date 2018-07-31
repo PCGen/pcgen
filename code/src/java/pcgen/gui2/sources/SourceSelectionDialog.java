@@ -80,12 +80,11 @@ import pcgen.system.FacadeFactory;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Comparators;
 
-
-public class SourceSelectionDialog extends JDialog
-		implements ActionListener, ChangeListener, ListSelectionListener
+public class SourceSelectionDialog extends JDialog implements ActionListener, ChangeListener, ListSelectionListener
 {
 
-	private static final UIPropertyContext context = UIPropertyContext.createContext("SourceSelectionDialog"); //$NON-NLS-1$
+	private static final UIPropertyContext CONTEXT =
+			UIPropertyContext.createContext("SourceSelectionDialog"); //$NON-NLS-1$
 	private static final String PROP_SELECTED_SOURCE = "selectedSource"; //$NON-NLS-1$
 	private static final String LOAD_COMMAND = "Load"; //$NON-NLS-1$
 	private static final String CANCEL_COMMAND = "Cancel"; //$NON-NLS-1$
@@ -119,20 +118,17 @@ public class SourceSelectionDialog extends JDialog
 		CommonMenuText.name(loadButton, "load"); //$NON-NLS-1$
 		this.cancelButton = new JButton();
 		CommonMenuText.name(cancelButton, "cancel"); //$NON-NLS-1$
-		
+
 		this.hideunhideButton = new JButton();
 		CommonMenuText.name(hideunhideButton, "hideunhide"); //$NON-NLS-1$
 		this.deleteButton = new JButton();
 		CommonMenuText.name(deleteButton, "delete"); //$NON-NLS-1$
 		this.installDataButton = new JButton();
-		CommonMenuText.name(installDataButton, "mnuSourcesInstallData");  //$NON-NLS-1$
+		CommonMenuText.name(installDataButton, "mnuSourcesInstallData"); //$NON-NLS-1$
 		this.saveButton = new JButton();
-		CommonMenuText.name(saveButton, "saveSelection");  //$NON-NLS-1$
-		this.alwaysAdvancedCheck =
-				new JCheckBox(
-					LanguageBundle.getString("in_sourceAlwaysAdvanced"), //$NON-NLS-1$
-					!UIPropertyContext.getInstance().initBoolean(
-						UIPropertyContext.SOURCE_USE_BASIC_KEY, true));
+		CommonMenuText.name(saveButton, "saveSelection"); //$NON-NLS-1$
+		this.alwaysAdvancedCheck = new JCheckBox(LanguageBundle.getString("in_sourceAlwaysAdvanced"), //$NON-NLS-1$
+			!UIPropertyContext.getInstance().initBoolean(UIPropertyContext.SOURCE_USE_BASIC_KEY, true));
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		initComponents();
 		initDefaults();
@@ -141,8 +137,7 @@ public class SourceSelectionDialog extends JDialog
 
 	public static boolean skipSourceSelection()
 	{
-		return UIPropertyContext.getInstance().initBoolean(
-				UIPropertyContext.SKIP_SOURCE_SELECTION, false);
+		return UIPropertyContext.getInstance().initBoolean(UIPropertyContext.SKIP_SOURCE_SELECTION, false);
 	}
 
 	private void initComponents()
@@ -188,7 +183,7 @@ public class SourceSelectionDialog extends JDialog
 
 	private void initDefaults()
 	{
-		boolean useBasic = context.initBoolean("useBasic", true); //$NON-NLS-1$
+		boolean useBasic = CONTEXT.initBoolean("useBasic", true); //$NON-NLS-1$
 		SourceSelectionFacade selection = basicPanel.getSourceSelection();
 		if (selection != null && useBasic)
 		{
@@ -270,10 +265,8 @@ public class SourceSelectionDialog extends JDialog
 		{
 			final JList sourcesList = new JList<>();
 			final JTextField nameField = new JTextField();
-			ListFacade<SourceSelectionFacade> sources =
-                    new SortedListFacade<>(
-                            Comparators.toStringIgnoreCaseCollator(),
-                            FacadeFactory.getCustomSourceSelections());
+			ListFacade<SourceSelectionFacade> sources = new SortedListFacade<>(Comparators.toStringIgnoreCaseCollator(),
+				FacadeFactory.getCustomSourceSelections());
 			sourcesList.setModel(new FacadeListModel<>(sources));
 			sourcesList.addListSelectionListener(new ListSelectionListener()
 			{
@@ -288,10 +281,8 @@ public class SourceSelectionDialog extends JDialog
 			JPanel panel = new JPanel(new BorderLayout());
 			panel.add(new JScrollPane(sourcesList), BorderLayout.CENTER);
 			panel.add(nameField, BorderLayout.SOUTH);
-			int ret = JOptionPane.showOptionDialog(
-					this,
-					panel, "Save the source selection as...",
-					JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null, null, null);
+			int ret = JOptionPane.showOptionDialog(this, panel, "Save the source selection as...",
+				JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null, null, null);
 			if (ret == JOptionPane.OK_OPTION)
 			{
 				String name = nameField.getText();
@@ -345,10 +336,8 @@ public class SourceSelectionDialog extends JDialog
 
 			pane.setPreferredSize(new Dimension(300, 200));
 
-			int ret = JOptionPane.showOptionDialog(
-					this,
-					pane, "Select Sources to be visible",
-					JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null, null, null);
+			int ret = JOptionPane.showOptionDialog(this, pane, "Select Sources to be visible",
+				JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null, null, null);
 			if (ret == JOptionPane.OK_OPTION)
 			{
 				FacadeFactory.setDisplayedSources(model.getDisplayedSources());
@@ -370,7 +359,8 @@ public class SourceSelectionDialog extends JDialog
 		}
 		else
 		{
-			selection = FacadeFactory.createSourceSelection(advancedPanel.getSelectedGameMode(), advancedPanel.getSelectedCampaigns());
+			selection = FacadeFactory.createSourceSelection(advancedPanel.getSelectedGameMode(),
+				advancedPanel.getSelectedCampaigns());
 		}
 		if (selection == null)
 		{
@@ -384,10 +374,8 @@ public class SourceSelectionDialog extends JDialog
 		}
 		else
 		{
-			JOptionPane.showMessageDialog(this,
-										  "Some sources have unfulfilled prereqs",
-										  "Cannot Load Selected Sources",
-										  JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(this, "Some sources have unfulfilled prereqs", "Cannot Load Selected Sources",
+				JOptionPane.INFORMATION_MESSAGE);
 		}
 	}
 
@@ -400,8 +388,7 @@ public class SourceSelectionDialog extends JDialog
 		}
 		else
 		{
-			UIPropertyContext.getInstance().setBoolean(
-				UIPropertyContext.SOURCE_USE_BASIC_KEY,
+			UIPropertyContext.getInstance().setBoolean(UIPropertyContext.SOURCE_USE_BASIC_KEY,
 				!alwaysAdvancedCheck.isSelected());
 		}
 		super.setVisible(visible);
@@ -427,8 +414,7 @@ public class SourceSelectionDialog extends JDialog
 
 		public SourceSelectionFacade[] getDisplayedSources()
 		{
-			return displayedSources.toArray(new SourceSelectionFacade[displayedSources
-					.size()]);
+			return displayedSources.toArray(new SourceSelectionFacade[displayedSources.size()]);
 		}
 
 		@Override
@@ -516,10 +502,8 @@ public class SourceSelectionDialog extends JDialog
 			JLabel label = new JLabel(LanguageBundle.getString("in_qsrc_intro"));
 			label.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 			add(label, BorderLayout.NORTH);
-			ListFacade<SourceSelectionFacade> sources =
-                    new SortedListFacade<>(
-                            Comparators.toStringIgnoreCaseCollator(),
-                            FacadeFactory.getDisplayedSourceSelections());
+			ListFacade<SourceSelectionFacade> sources = new SortedListFacade<>(Comparators.toStringIgnoreCaseCollator(),
+				FacadeFactory.getDisplayedSourceSelections());
 			sourceList.setModel(new FacadeListModel<>(sources));
 			sourceList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 			sourceList.setCellRenderer(new SourceListCellRenderer());
@@ -544,7 +528,7 @@ public class SourceSelectionDialog extends JDialog
 			});
 			FlippingSplitPane mainPane = new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT, "quickSrcMain");
 			mainPane.setTopComponent(new JScrollPane(sourceList));
-			
+
 			linkAction.install();
 			infoPane.setPreferredSize(new Dimension(800, 150));
 			mainPane.setBottomComponent(infoPane);
@@ -554,8 +538,7 @@ public class SourceSelectionDialog extends JDialog
 		private void initDefaults()
 		{
 			final ListModel sortedModel = sourceList.getModel();
-			String defaultSelectedSource =
-					context.initProperty(PROP_SELECTED_SOURCE, DEFAULT_SOURCE);
+			String defaultSelectedSource = CONTEXT.initProperty(PROP_SELECTED_SOURCE, DEFAULT_SOURCE);
 			int index = Collections.binarySearch(new AbstractList<Object>()
 			{
 
@@ -599,7 +582,7 @@ public class SourceSelectionDialog extends JDialog
 			SourceSelectionFacade selection = getSourceSelection();
 			if (selection != null)
 			{
-				context.setProperty(PROP_SELECTED_SOURCE, selection.toString());
+				CONTEXT.setProperty(PROP_SELECTED_SOURCE, selection.toString());
 				makeSourceSelected(selection);
 			}
 			else
@@ -621,15 +604,15 @@ public class SourceSelectionDialog extends JDialog
 		{
 			advancedPanel.setSourceSelection(selection);
 			deleteButton.setEnabled(selection.isModifiable());
-			infoPane.setText(FacadeFactory.getCampaignInfoFactory()
-				.getHTMLInfo(selection));
+			infoPane.setText(FacadeFactory.getCampaignInfoFactory().getHTMLInfo(selection));
 		}
 
 		private class SourceListCellRenderer extends DefaultListCellRenderer
 		{
 
 			@Override
-			public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus)
+			public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected,
+				boolean cellHasFocus)
 			{
 				super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
 				setToolTipText("");

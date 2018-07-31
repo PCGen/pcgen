@@ -43,11 +43,10 @@ public class AlignmentToken extends AbstractExportToken
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, CharacterDisplay display,
-		ExportHandler eh)
+	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
 	{
 		String retString = "";
-		
+
 		if (!display.getSuppressBioField(BiographyField.ALIGNMENT))
 		{
 			if ("ALIGNMENT".equals(tokenSource))
@@ -59,7 +58,7 @@ public class AlignmentToken extends AbstractExportToken
 				retString = getShortToken(display);
 			}
 		}
-		
+
 		return retString;
 	}
 
@@ -84,8 +83,8 @@ public class AlignmentToken extends AbstractExportToken
 		{
 			return "";
 		}
-		
+
 		final PCAlignment alignment = display.getPCAlignment();
-		return alignment==null?"None":alignment.getKeyName();
+		return alignment == null ? "None" : alignment.getKeyName();
 	}
 }

@@ -25,8 +25,7 @@ import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class HeightfactorToken extends AbstractNonEmptyToken<UnitSet> implements
-		CDOMPrimaryToken<UnitSet>
+public class HeightfactorToken extends AbstractNonEmptyToken<UnitSet> implements CDOMPrimaryToken<UnitSet>
 {
 
 	@Override
@@ -36,8 +35,7 @@ public class HeightfactorToken extends AbstractNonEmptyToken<UnitSet> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, UnitSet us,
-			String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, UnitSet us, String value)
 	{
 		try
 		{
@@ -53,7 +51,7 @@ public class HeightfactorToken extends AbstractNonEmptyToken<UnitSet> implements
 	@Override
 	public String[] unparse(LoadContext context, UnitSet us)
 	{
-		return new String[] { us.getHeightFactor().toString() };
+		return new String[]{us.getHeightFactor().toString()};
 	}
 
 	@Override

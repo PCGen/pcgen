@@ -23,6 +23,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.jetbrains.annotations.NotNull;
+
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.helper.SpellLevel;
@@ -31,8 +33,6 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.chooser.CDOMChoiceManager;
 import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.rules.context.LoadContext;
-
-import org.jetbrains.annotations.NotNull;
 
 /**
  * This is a transitional class from PCGen 5.15+ to the final CDOM core. It is
@@ -43,8 +43,7 @@ import org.jetbrains.annotations.NotNull;
  * file when saved. Thus, encoding and decoding (to a 'persistent' string)
  * methods are provided.
  */
-public class SpellLevelChooseInformation implements
-		ChooseInformation<SpellLevel>
+public class SpellLevelChooseInformation implements ChooseInformation<SpellLevel>
 {
 
 	private final List<SpellLevelInfo> info;
@@ -85,15 +84,13 @@ public class SpellLevelChooseInformation implements
 		}
 		if (choice == null)
 		{
-			throw new IllegalArgumentException(
-				"PrimitiveChoiceSet cannot be null");
+			throw new IllegalArgumentException("PrimitiveChoiceSet cannot be null");
 		}
 		// Need to populate info first to avoid thread issues
 		info = new ArrayList<>(choice);
 		if (info.isEmpty())
 		{
-			throw new IllegalArgumentException(
-				"PrimitiveChoiceSet cannot be null");
+			throw new IllegalArgumentException("PrimitiveChoiceSet cannot be null");
 		}
 		setName = name;
 	}
@@ -174,8 +171,7 @@ public class SpellLevelChooseInformation implements
 	{
 		if (obj instanceof SpellLevelChooseInformation)
 		{
-			SpellLevelChooseInformation other =
-					(SpellLevelChooseInformation) obj;
+			SpellLevelChooseInformation other = (SpellLevelChooseInformation) obj;
 			if (title == null)
 			{
 				if (other.title != null)
@@ -293,8 +289,7 @@ public class SpellLevelChooseInformation implements
 	}
 
 	@Override
-	public void restoreChoice(PlayerCharacter pc, ChooseDriver owner,
-		SpellLevel choice)
+	public void restoreChoice(PlayerCharacter pc, ChooseDriver owner, SpellLevel choice)
 	{
 		choiceActor.restoreChoice(pc, owner, choice);
 	}
@@ -312,8 +307,7 @@ public class SpellLevelChooseInformation implements
 	}
 
 	@Override
-	public void removeChoice(PlayerCharacter pc, ChooseDriver owner,
-		SpellLevel item)
+	public void removeChoice(PlayerCharacter pc, ChooseDriver owner, SpellLevel item)
 	{
 		choiceActor.removeChoice(pc, owner, item);
 	}

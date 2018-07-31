@@ -61,7 +61,7 @@ public abstract class AbstractPCClassLevelTokenTestCase extends TestCase
 	protected static CampaignSourceEntry testCampaign;
 
 	@BeforeClass
-	public static void classSetUp() throws URISyntaxException
+	public static void classSetUp()
 	{
 		testCampaign = new CampaignSourceEntry(new Campaign(), TestURI.getURI());
 		classSetUpFired = true;
@@ -77,8 +77,10 @@ public abstract class AbstractPCClassLevelTokenTestCase extends TestCase
 		}
 		// Yea, this causes warnings...
 		TokenRegistration.register(getToken());
-		primaryContext = new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(), new ConsolidatedListCommitStrategy());
-		secondaryContext = new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(), new ConsolidatedListCommitStrategy());
+		primaryContext = new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),
+			new ConsolidatedListCommitStrategy());
+		secondaryContext = new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),
+			new ConsolidatedListCommitStrategy());
 		primaryProf = primaryContext.getReferenceContext().constructCDOMObject(PCClass.class,
 				"TestObj");
 		secondaryProf = secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class,
@@ -214,7 +216,7 @@ public abstract class AbstractPCClassLevelTokenTestCase extends TestCase
 	}
 
 	@Test
-	public void testOverwrite() throws PersistenceLayerException
+	public void testOverwrite()
 	{
 		parse(getLegalValue(), 1);
 		validateUnparsed(primaryContext, primaryProf.getOriginalClassLevel(1),

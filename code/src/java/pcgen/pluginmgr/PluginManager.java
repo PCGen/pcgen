@@ -29,7 +29,6 @@ import pcgen.base.lang.UnreachableError;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 
-
 public final class PluginManager implements pcgen.system.PluginLoader
 {
 
@@ -45,7 +44,7 @@ public final class PluginManager implements pcgen.system.PluginLoader
 		msgHandlerMgr = new MessageHandlerManager();
 	}
 
-	public synchronized static PluginManager getInstance()
+	public static synchronized PluginManager getInstance()
 	{
 		if (instance == null)
 		{
@@ -62,8 +61,7 @@ public final class PluginManager implements pcgen.system.PluginLoader
 		@Override
 		public int compare(InteractivePlugin arg0, InteractivePlugin arg1)
 		{
-			return Integer.valueOf(arg0.getPriority()).compareTo(
-					arg1.getPriority());
+			return Integer.valueOf(arg0.getPriority()).compareTo(arg1.getPriority());
 		}
 	};
 
@@ -75,9 +73,9 @@ public final class PluginManager implements pcgen.system.PluginLoader
 	public void startAllPlugins()
 	{
 		PCGenMessageHandler dispatcher = msgHandlerMgr.getPostbox();
-		for(InteractivePlugin plugin : pluginMap.keySet())
+		for (InteractivePlugin plugin : pluginMap.keySet())
 		{
-			if(pluginMap.get(plugin))
+			if (pluginMap.get(plugin))
 			{
 				plugin.start(dispatcher);
 				msgHandlerMgr.addMember(plugin);
@@ -95,34 +93,29 @@ public final class PluginManager implements pcgen.system.PluginLoader
 		}
 		catch (SecurityException e)
 		{
-			throw new UnreachableError("Access to Class " + clazz
-					+ " should not be prohibited", e);
+			throw new UnreachableError("Access to Class " + clazz + " should not be prohibited", e);
 		}
 		catch (IllegalAccessException e)
 		{
-			throw new UnreachableError("Access to Method LOG_NAME in Class "
-					+ clazz + " should not be prohibited", e);
+			throw new UnreachableError("Access to Method LOG_NAME in Class " + clazz + " should not be prohibited", e);
 		}
 		catch (NoSuchFieldException e)
 		{
-			Logging.errorPrint(clazz.getName()
-					+ " does not have LOG_NAME defined, "
-					+ "Plugin class implemented improperly");
+			Logging.errorPrint(
+				clazz.getName() + " does not have LOG_NAME defined, " + "Plugin class implemented improperly");
 		}
 		catch (IllegalArgumentException e)
 		{
-			Logging.errorPrint(clazz.getName()
-					+ " does not have LOG_NAME defined to "
-					+ "take a Plugin as the argument, "
-					+ "Plugin class implemented improperly");
+			Logging.errorPrint(clazz.getName() + " does not have LOG_NAME defined to "
+				+ "take a Plugin as the argument, " + "Plugin class implemented improperly");
 		}
 		return logName;
 	}
 
-    @Override
+	@Override
 	public void loadPlugin(Class<?> clazz) throws Exception
 	{
-    	InteractivePlugin pl = (InteractivePlugin) clazz.newInstance();
+		InteractivePlugin pl = (InteractivePlugin) clazz.newInstance();
 
 		String logName = getLogName(clazz, pl);
 		String plName = pl.getPluginName();
@@ -131,8 +124,7 @@ public final class PluginManager implements pcgen.system.PluginLoader
 
 		if ((logName == null) || (plName == null))
 		{
-			Logging.log(Logging.WARNING, "Plugin " + clazz.getCanonicalName() + " needs"
-					+ " 'name' property.");
+			Logging.log(Logging.WARNING, "Plugin " + clazz.getCanonicalName() + " needs" + " 'name' property.");
 		}
 		else
 		{
@@ -141,13 +133,10 @@ public final class PluginManager implements pcgen.system.PluginLoader
 		}
 	}
 
-    @Override
+	@Override
 	public Class<?>[] getPluginClasses()
 	{
-		return new Class[]
-				{
-			InteractivePlugin.class
-				};
+		return new Class[]{InteractivePlugin.class};
 	}
 
 	/**

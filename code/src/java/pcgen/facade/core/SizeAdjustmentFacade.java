@@ -17,7 +17,6 @@
  */
 package pcgen.facade.core;
 
-
 /**
  * SizeAdjustmentFacade defines the methods used by the user interface to 
  * interact with Size Adjustment objects.  

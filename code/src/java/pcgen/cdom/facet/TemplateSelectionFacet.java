@@ -25,8 +25,7 @@ import pcgen.core.PCTemplate;
  * TemplateSelectionFacet is a Facet that tracks the PCTemplates of a Player
  * Character with the CHOOSE selection that was made (if CHOOSE was present)
  */
-public class TemplateSelectionFacet extends
-		AbstractAssociationFacet<CharID, PCTemplate, Object>
+public class TemplateSelectionFacet extends AbstractAssociationFacet<CharID, PCTemplate, Object>
 {
 
 }

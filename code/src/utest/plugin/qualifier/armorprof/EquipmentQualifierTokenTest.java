@@ -48,7 +48,8 @@ public class EquipmentQualifierTokenTest extends
 	static ChooseLst token = new ChooseLst();
 	static ArmorProficiencyToken subtoken = new ArmorProficiencyToken();
 	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
-	private static final plugin.qualifier.armorprof.EquipmentToken EQUIPMENT_TOKEN = new plugin.qualifier.armorprof.EquipmentToken();
+	private static final plugin.qualifier.armorprof.EquipmentToken EQUIPMENT_TOKEN =
+			new plugin.qualifier.armorprof.EquipmentToken();
 
 	private ArmorProf ap1, ap2;
 
@@ -101,7 +102,7 @@ public class EquipmentQualifierTokenTest extends
 	}
 
 	@Test
-	public void testGetSet() throws PersistenceLayerException
+	public void testGetSet()
 	{
 		setUpPC();
 		initializeObjects();		
@@ -117,7 +118,7 @@ public class EquipmentQualifierTokenTest extends
 	}
 
 	@Test
-	public void testGetSetFiltered() throws PersistenceLayerException
+	public void testGetSetFiltered()
 	{
 		setUpPC();
 		initializeObjects();		

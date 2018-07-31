@@ -56,7 +56,7 @@ public class SpellChoicePanel extends JPanel
 	private final JComboBox<Integer> casterLevelComboBox;
 	private final JComboBox<String> spellTypeComboBox;
 	private final JList<AbilityFacade> metamagicList;
-	
+
 	private CharacterComboBoxModel<InfoFacade> classModel;
 	private CharacterComboBoxModel<Integer> spellLevelModel;
 	private CharacterComboBoxModel<InfoFacade> spellModel;
@@ -65,7 +65,7 @@ public class SpellChoicePanel extends JPanel
 	private CharacterComboBoxModel<String> spellTypeModel;
 	private final SpellBuilderFacade spellBuilderFacade;
 	private MetamagicFeatListModel metamgicModel;
-	
+
 	/**
 	 * Create a new spell choice panel instance.
 	 * @param spellBuilderFacade The facade that manages the selection.
@@ -73,7 +73,7 @@ public class SpellChoicePanel extends JPanel
 	public SpellChoicePanel(SpellBuilderFacade spellBuilderFacade)
 	{
 		this.spellBuilderFacade = spellBuilderFacade;
-		
+
 		this.classComboBox = new JComboBox<>();
 		this.spellLevelComboBox = new JComboBox<>();
 		this.spellComboBox = new JComboBox<>();
@@ -85,7 +85,7 @@ public class SpellChoicePanel extends JPanel
 		initModels();
 		initComponents();
 	}
-	
+
 	/**
 	 * Create the various box models which will drive the choices. 
 	 */
@@ -102,7 +102,7 @@ public class SpellChoicePanel extends JPanel
 		classModel.setListFacade(spellBuilderFacade.getClasses());
 		classModel.setReference(spellBuilderFacade.getClassRef());
 		classComboBox.setModel(classModel);
-		
+
 		spellLevelModel = new CharacterComboBoxModel<Integer>()
 		{
 			@Override
@@ -114,7 +114,7 @@ public class SpellChoicePanel extends JPanel
 		spellLevelModel.setListFacade(spellBuilderFacade.getLevels());
 		spellLevelModel.setReference(spellBuilderFacade.getSpellLevelRef());
 		spellLevelComboBox.setModel(spellLevelModel);
-		
+
 		spellModel = new CharacterComboBoxModel<InfoFacade>()
 		{
 			@Override
@@ -126,7 +126,7 @@ public class SpellChoicePanel extends JPanel
 		spellModel.setListFacade(spellBuilderFacade.getSpells());
 		spellModel.setReference(spellBuilderFacade.getSpellRef());
 		spellComboBox.setModel(spellModel);
-		
+
 		variantModel = new DisablingCharacterComboBoxModel(variantComboBox)
 		{
 
@@ -139,7 +139,7 @@ public class SpellChoicePanel extends JPanel
 		variantModel.setListFacade(spellBuilderFacade.getVariants());
 		variantModel.setReference(spellBuilderFacade.getVariantRef());
 		variantComboBox.setModel(variantModel);
-		
+
 		casterLevelModel = new CharacterComboBoxModel<Integer>()
 		{
 			@Override
@@ -151,7 +151,7 @@ public class SpellChoicePanel extends JPanel
 		casterLevelModel.setListFacade(spellBuilderFacade.getCasterLevels());
 		casterLevelModel.setReference(spellBuilderFacade.getCasterLevelRef());
 		casterLevelComboBox.setModel(casterLevelModel);
-		
+
 		spellTypeModel = new CharacterComboBoxModel<String>()
 		{
 			@Override
@@ -163,7 +163,7 @@ public class SpellChoicePanel extends JPanel
 		spellTypeModel.setListFacade(spellBuilderFacade.getSpellTypes());
 		spellTypeModel.setReference(spellBuilderFacade.getSpellTypeRef());
 		spellTypeComboBox.setModel(spellTypeModel);
-		
+
 		metamgicModel = new MetamagicFeatListModel();
 		metamgicModel.setListFacade(spellBuilderFacade.getAvailMetamagicFeats());
 		metamagicList.setModel(metamgicModel);
@@ -179,14 +179,12 @@ public class SpellChoicePanel extends JPanel
 
 		addGridBagLayer(this, "in_sumClass", classComboBox); //$NON-NLS-1$
 		addGridBagLayer(this, "in_csdSpLvl", spellLevelComboBox); //$NON-NLS-1$
-		spellComboBox
-			.setPrototypeDisplayValue("PrototypeDisplayValueForAVeryLongSpellName"); //$NON-NLS-1$
+		spellComboBox.setPrototypeDisplayValue("PrototypeDisplayValueForAVeryLongSpellName"); //$NON-NLS-1$
 		addGridBagLayer(this, "in_spellName", spellComboBox); //$NON-NLS-1$
 		addGridBagLayer(this, "in_csdVariant", variantComboBox); //$NON-NLS-1$
 		if (metamgicModel.getSize() > 0)
 		{
-			metamagicList
-				.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+			metamagicList.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 			metamagicList.setVisibleRowCount(4);
 			JScrollPane listScroller = new JScrollPane(metamagicList);
 			listScroller.setPreferredSize(new Dimension(250, 80));
@@ -194,7 +192,7 @@ public class SpellChoicePanel extends JPanel
 		}
 		addGridBagLayer(this, "in_casterLvl", casterLevelComboBox); //$NON-NLS-1$
 		addGridBagLayer(this, "in_csdSpellType", spellTypeComboBox); //$NON-NLS-1$
-		
+
 		setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
 	}
 
@@ -217,8 +215,7 @@ public class SpellChoicePanel extends JPanel
 	 * DisablingCharacterComboBoxModel is a model that disables its combo box
 	 * when there are no possible selections.
 	 */
-	private abstract class DisablingCharacterComboBoxModel extends
-			CharacterComboBoxModel<String>
+	private abstract class DisablingCharacterComboBoxModel extends CharacterComboBoxModel<String>
 	{
 
 		private final JComboBox<String> box;
@@ -241,8 +238,7 @@ public class SpellChoicePanel extends JPanel
 	 * MetamagicFeatListModel holds the data for a list of metamagic feats and 
 	 * commits the choices mode into the facade. 
 	 */
-	private class MetamagicFeatListModel extends FacadeListModel<AbilityFacade>
-			implements ListSelectionListener
+	private class MetamagicFeatListModel extends FacadeListModel<AbilityFacade> implements ListSelectionListener
 	{
 
 		@Override

@@ -26,8 +26,7 @@ import pcgen.core.display.CharacterDisplay;
 import pcgen.util.enumeration.View;
 import pcgen.util.enumeration.Visibility;
 
-public class PCCountVisibleTemplatesTermEvaluator 
-		extends BasePCDTermEvaluator implements TermEvaluator
+public class PCCountVisibleTemplatesTermEvaluator extends BasePCDTermEvaluator implements TermEvaluator
 {
 	public PCCountVisibleTemplatesTermEvaluator(String originalText)
 	{
@@ -39,7 +38,7 @@ public class PCCountVisibleTemplatesTermEvaluator
 	{
 		Float count = 0.0f;
 
-		for ( PCTemplate template : display.getTemplateSet() )
+		for (PCTemplate template : display.getTemplateSet())
 		{
 			final Visibility vis = template.getSafe(ObjectKey.VISIBILITY);
 

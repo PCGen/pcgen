@@ -26,7 +26,6 @@ import pcgen.core.PCClass;
  * PCClass for a Player Character.
  * 
  */
-public class DomainSpellCountFacet extends
-		AbstractAssociationFacet<CharID, PCClass, Integer>
+public class DomainSpellCountFacet extends AbstractAssociationFacet<CharID, PCClass, Integer>
 {
 }

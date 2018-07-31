@@ -65,16 +65,14 @@ public final class VisionType extends AbstractConstant
 		{
 			int mod = fields[i].getModifiers();
 
-			if (Modifier.isStatic(mod) && Modifier.isFinal(mod)
-				&& Modifier.isPublic(mod))
+			if (Modifier.isStatic(mod) && Modifier.isFinal(mod) && Modifier.isPublic(mod))
 			{
 				try
 				{
 					Object o = fields[i].get(null);
 					if (o instanceof VisionType)
 					{
-						typeMap.put(new CaseInsensitiveString(fields[i]
-							.getName()), (VisionType) o);
+						typeMap.put(new CaseInsensitiveString(fields[i].getName()), (VisionType) o);
 					}
 				}
 				catch (IllegalArgumentException | IllegalAccessException e)
@@ -93,8 +91,7 @@ public final class VisionType extends AbstractConstant
 		{
 			return "";
 		}
-		for (Map.Entry<CaseInsensitiveString, VisionType> me : typeMap
-			.entrySet())
+		for (Map.Entry<CaseInsensitiveString, VisionType> me : typeMap.entrySet())
 		{
 			if (me.getValue().equals(this))
 			{

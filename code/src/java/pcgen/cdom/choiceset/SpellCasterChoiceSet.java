@@ -43,8 +43,7 @@ import pcgen.core.PlayerCharacter;
  * will not vary by the PlayerCharacter used to resolve the
  * SpellCasterChoiceSet.
  */
-public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
-		PrimitiveChoiceSet<PCClass>
+public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements PrimitiveChoiceSet<PCClass>
 {
 
 	/**
@@ -143,9 +142,8 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 	 *            objects contained within the SpellCasterChoiceSet that were
 	 *            referenced by key
 	 */
-	public SpellCasterChoiceSet(CDOMGroupRef<PCClass> allRef,
-			List<String> spelltype, PrimitiveChoiceSet<PCClass> typePCS,
-			PrimitiveChoiceSet<PCClass> primPCS)
+	public SpellCasterChoiceSet(CDOMGroupRef<PCClass> allRef, List<String> spelltype,
+		PrimitiveChoiceSet<PCClass> typePCS, PrimitiveChoiceSet<PCClass> primPCS)
 	{
 		super("SPELLCASTER", typePCS == null ? EMPTY_CHOICE_SET : typePCS);
 		types = typePCS;
@@ -243,8 +241,7 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 		{
 			for (PCClass pcc : types.getSet(pc))
 			{
-				if ((pcc.get(fk) != null)
-					&& (pc.getClassKeyed(pcc.getKeyName()) != null))
+				if ((pcc.get(fk) != null) && (pc.getClassKeyed(pcc.getKeyName()) != null))
 				{
 					returnSet.add(pcc);
 				}
@@ -261,8 +258,7 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 				TYPE: for (String type : spelltypes)
 				{
 					String spelltype = pcc.getResolved(fk);
-					if (type.equalsIgnoreCase(spelltype)
-							&& pc.getClassKeyed(pcc.getKeyName()) != null)
+					if (type.equalsIgnoreCase(spelltype) && pc.getClassKeyed(pcc.getKeyName()) != null)
 					{
 						returnSet.add(pcc);
 						break TYPE;
@@ -281,8 +277,7 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 	@Override
 	public int hashCode()
 	{
-		return (types == null ? 0 : types.hashCode() * 29)
-				+ (primitives == null ? 0 : primitives.hashCode());
+		return (types == null ? 0 : types.hashCode() * 29) + (primitives == null ? 0 : primitives.hashCode());
 	}
 
 	/**

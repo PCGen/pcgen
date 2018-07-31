@@ -34,8 +34,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Deals with SPROP token
  */
-public class SpropToken extends AbstractTokenWithSeparator<Equipment> implements
-		CDOMPrimaryToken<Equipment>
+public class SpropToken extends AbstractTokenWithSeparator<Equipment> implements CDOMPrimaryToken<Equipment>
 {
 
 	@Override
@@ -51,13 +50,11 @@ public class SpropToken extends AbstractTokenWithSeparator<Equipment> implements
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		Equipment eq, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, Equipment eq, String value)
 	{
 		if (Constants.LST_DOT_CLEAR.equals(value))
 		{
-			context.getObjectContext().removeList(eq,
-					ListKey.SPECIAL_PROPERTIES);
+			context.getObjectContext().removeList(eq, ListKey.SPECIAL_PROPERTIES);
 			return ParseResult.SUCCESS;
 		}
 
@@ -66,16 +63,14 @@ public class SpropToken extends AbstractTokenWithSeparator<Equipment> implements
 		{
 			return ParseResult.INTERNAL_ERROR;
 		}
-		context.getObjectContext()
-				.addToList(eq, ListKey.SPECIAL_PROPERTIES, sa);
+		context.getObjectContext().addToList(eq, ListKey.SPECIAL_PROPERTIES, sa);
 		return ParseResult.SUCCESS;
 	}
 
 	@Override
 	public String[] unparse(LoadContext context, Equipment eq)
 	{
-		Changes<SpecialProperty> changes = context.getObjectContext()
-				.getListChanges(eq, ListKey.SPECIAL_PROPERTIES);
+		Changes<SpecialProperty> changes = context.getObjectContext().getListChanges(eq, ListKey.SPECIAL_PROPERTIES);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;
@@ -96,17 +91,15 @@ public class SpropToken extends AbstractTokenWithSeparator<Equipment> implements
 				if (sp.hasPrerequisites())
 				{
 					sb.append(Constants.PIPE);
-					sb.append(getPrerequisiteString(context, sp
-							.getPrerequisiteList()));
+					sb.append(getPrerequisiteString(context, sp.getPrerequisiteList()));
 				}
 				list.add(sb.toString());
 			}
 		}
 		if (list.isEmpty())
 		{
-			context.addWriteMessage(getTokenName()
-					+ " was expecting non-empty changes to include "
-					+ "added items or global clear");
+			context.addWriteMessage(
+				getTokenName() + " was expecting non-empty changes to include " + "added items or global clear");
 			return null;
 		}
 		return list.toArray(new String[list.size()]);

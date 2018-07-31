@@ -68,7 +68,7 @@ public class AbbToken extends AbstractNonEmptyToken<PCStat> implements CDOMPrima
 		{
 			return null;
 		}
-		return new String[] { abb };
+		return new String[]{abb};
 	}
 
 	@Override

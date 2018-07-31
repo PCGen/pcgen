@@ -46,8 +46,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * New chooser plugin, handles feat selection.
  */
 public class ChooseFeatSelectionToken extends AbstractTokenWithSeparator<CDOMObject>
-		implements CDOMSecondaryToken<CDOMObject>,
-		Chooser<AbilitySelection>
+		implements CDOMSecondaryToken<CDOMObject>, Chooser<AbilitySelection>
 {
 
 	@Override
@@ -62,8 +61,8 @@ public class ChooseFeatSelectionToken extends AbstractTokenWithSeparator<CDOMObj
 		return '|';
 	}
 
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		ReferenceManufacturer<Ability> rm, CDOMObject obj, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, ReferenceManufacturer<Ability> rm,
+		CDOMObject obj, String value)
 	{
 		int pipeLoc = value.lastIndexOf('|');
 		String activeValue;
@@ -86,8 +85,7 @@ public class ChooseFeatSelectionToken extends AbstractTokenWithSeparator<CDOMObj
 				if (title == null || title.isEmpty())
 				{
 					return new ParseResult.Fail(
-						getParentToken() + Constants.COLON + getTokenName()
-							+ " had TITLE= but no title: " + value);
+						getParentToken() + Constants.COLON + getTokenName() + " had TITLE= but no title: " + value);
 				}
 				activeValue = value.substring(0, pipeLoc);
 			}
@@ -98,23 +96,20 @@ public class ChooseFeatSelectionToken extends AbstractTokenWithSeparator<CDOMObj
 			}
 		}
 
-		PrimitiveCollection<Ability> prim =
-				context.getChoiceSet(rm, activeValue);
+		PrimitiveCollection<Ability> prim = context.getChoiceSet(rm, activeValue);
 		if (prim == null)
 		{
 			return ParseResult.INTERNAL_ERROR;
 		}
 		if (!prim.getGroupingState().isValid())
 		{
-			return new ParseResult.Fail("Non-sensical " + getFullName()
-				+ ": Contains ANY and a specific reference: " + value);
+			return new ParseResult.Fail(
+				"Non-sensical " + getFullName() + ": Contains ANY and a specific reference: " + value);
 		}
-		PrimitiveChoiceSet<AbilitySelection> pcs =
-				new CollectionToAbilitySelection(AbilityCategory.FEAT, prim);
+		PrimitiveChoiceSet<AbilitySelection> pcs = new CollectionToAbilitySelection(AbilityCategory.FEAT, prim);
 		//be tricky for compatibility
 		BasicChooseInformation<AbilitySelection> tc =
-				new BasicChooseInformation<>(
-						"ABILITYSELECTION", pcs, AbilityCategory.FEAT.getPersistentFormat());
+				new BasicChooseInformation<>("ABILITYSELECTION", pcs, AbilityCategory.FEAT.getPersistentFormat());
 		tc.setTitle(title);
 		tc.setChoiceActor(this);
 		context.getObjectContext().put(obj, ObjectKey.CHOOSE_INFO, tc);
@@ -134,15 +129,13 @@ public class ChooseFeatSelectionToken extends AbstractTokenWithSeparator<CDOMObj
 	}
 
 	@Override
-	public void applyChoice(ChooseDriver owner, AbilitySelection st,
-		PlayerCharacter pc)
+	public void applyChoice(ChooseDriver owner, AbilitySelection st, PlayerCharacter pc)
 	{
 		restoreChoice(pc, owner, st);
 	}
 
 	@Override
-	public void removeChoice(PlayerCharacter pc, ChooseDriver owner,
-		AbilitySelection choice)
+	public void removeChoice(PlayerCharacter pc, ChooseDriver owner, AbilitySelection choice)
 	{
 		pc.removeAssoc(owner, getListKey(), choice);
 		List<ChooseSelectionActor<?>> actors = owner.getActors();
@@ -156,8 +149,7 @@ public class ChooseFeatSelectionToken extends AbstractTokenWithSeparator<CDOMObj
 	}
 
 	@Override
-	public void restoreChoice(PlayerCharacter pc, ChooseDriver owner,
-		AbilitySelection choice)
+	public void restoreChoice(PlayerCharacter pc, ChooseDriver owner, AbilitySelection choice)
 	{
 		pc.addAssoc(owner, getListKey(), choice);
 		List<ChooseSelectionActor<?>> actors = owner.getActors();
@@ -171,15 +163,13 @@ public class ChooseFeatSelectionToken extends AbstractTokenWithSeparator<CDOMObj
 	}
 
 	@Override
-	public List<AbilitySelection> getCurrentlySelected(ChooseDriver owner,
-		PlayerCharacter pc)
+	public List<AbilitySelection> getCurrentlySelected(ChooseDriver owner, PlayerCharacter pc)
 	{
 		return pc.getAssocList(owner, getListKey());
 	}
 
 	@Override
-	public boolean allow(AbilitySelection choice, PlayerCharacter pc,
-		boolean allowStack)
+	public boolean allow(AbilitySelection choice, PlayerCharacter pc, boolean allowStack)
 	{
 		/*
 		 * This is universally true, as any filter for qualify, etc. was dealt
@@ -195,12 +185,10 @@ public class ChooseFeatSelectionToken extends AbstractTokenWithSeparator<CDOMObj
 	}
 
 	@Override
-	public ParseResult parseTokenWithSeparator(LoadContext context,
-		CDOMObject obj, String value)
+	public ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
 	{
-		return parseTokenWithSeparator(context,
-			context.getReferenceContext().getManufacturerId(AbilityCategory.FEAT), obj,
-			value);
+		return parseTokenWithSeparator(context, context.getReferenceContext().getManufacturerId(AbilityCategory.FEAT),
+			obj, value);
 	}
 
 	@Override
@@ -216,26 +204,22 @@ public class ChooseFeatSelectionToken extends AbstractTokenWithSeparator<CDOMObj
 
 	protected AssociationListKey<AbilitySelection> getListKey()
 	{
-		return AssociationListKey.getKeyFor(AbilitySelection.class,
-			"CHOOSE*FEATSELECTION");
+		return AssociationListKey.getKeyFor(AbilitySelection.class, "CHOOSE*FEATSELECTION");
 	}
 
 	@Override
 	public AbilitySelection decodeChoice(LoadContext context, String s)
 	{
-		Ability ability = context.getReferenceContext()
-			.getManufacturerId(AbilityCategory.FEAT).getActiveObject(s);
+		Ability ability = context.getReferenceContext().getManufacturerId(AbilityCategory.FEAT).getActiveObject(s);
 
 		if (ability == null)
 		{
 			List<String> choices = new ArrayList<>();
 			String baseKey = AbilityUtilities.getUndecoratedName(s, choices);
-			ability = context.getReferenceContext()
-				.getManufacturerId(AbilityCategory.FEAT).getActiveObject(baseKey);
+			ability = context.getReferenceContext().getManufacturerId(AbilityCategory.FEAT).getActiveObject(baseKey);
 			if (ability == null)
 			{
-				throw new IllegalArgumentException("String in decodeChoice "
-					+ "must be a Feat Key "
+				throw new IllegalArgumentException("String in decodeChoice " + "must be a Feat Key "
 					+ "(or Feat Key with Selection if appropriate), was: " + s);
 			}
 			return new AbilitySelection(ability, choices.get(0));

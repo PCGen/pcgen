@@ -22,12 +22,11 @@ package pcgen.core.term;
 
 import pcgen.core.display.CharacterDisplay;
 
-public class PCCountNotesTermEvaluator
-		extends BasePCDTermEvaluator implements TermEvaluator
+public class PCCountNotesTermEvaluator extends BasePCDTermEvaluator implements TermEvaluator
 {
 	public PCCountNotesTermEvaluator(String originalText)
 	{
-		this.originalText = originalText; 
+		this.originalText = originalText;
 	}
 
 	@Override

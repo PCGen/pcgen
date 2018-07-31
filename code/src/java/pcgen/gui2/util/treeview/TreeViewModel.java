@@ -20,16 +20,15 @@ package pcgen.gui2.util.treeview;
 
 import pcgen.facade.util.ListFacade;
 
-
 public interface TreeViewModel<E>
 {
 
-    ListFacade<? extends TreeView<E>> getTreeViews();
+	ListFacade<? extends TreeView<E>> getTreeViews();
 
-    int getDefaultTreeViewIndex();
+	int getDefaultTreeViewIndex();
 
-    DataView<E> getDataView();
+	DataView<E> getDataView();
 
-    ListFacade<E> getDataModel();
+	ListFacade<E> getDataModel();
 
 }

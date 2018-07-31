@@ -32,7 +32,7 @@ import pcgen.output.wrapper.CDOMObjectWrapper;
 public class ObjectKeyActorTest extends AbstractOutputTestCase
 {
 
-	private static final DeityFacet df = new DeityFacet();
+	private static final DeityFacet DF = new DeityFacet();
 
 	private static boolean classSetUpRun = false;
 
@@ -50,7 +50,7 @@ public class ObjectKeyActorTest extends AbstractOutputTestCase
 	private void classSetUp()
 	{
 		OutputDB.reset();
-		df.init();
+		DF.init();
 	}
 
 	public void testBasicObjectKeyActor()
@@ -58,7 +58,7 @@ public class ObjectKeyActorTest extends AbstractOutputTestCase
 		Deity d = new Deity();
 		d.setName("Bob");
 		BigDecimal expectedResult = new BigDecimal("4.063");
-		df.set(id, d);
+		DF.set(id, d);
 		d.put(ObjectKey.COST, expectedResult);
 		ObjectKeyActor<BigDecimal> oka =
 				new ObjectKeyActor<>(ObjectKey.COST);
@@ -74,7 +74,7 @@ public class ObjectKeyActorTest extends AbstractOutputTestCase
 		str.setName("Strength");
 		BigDecimal expectedResult = new BigDecimal("4.063");
 		str.put(ObjectKey.COST, expectedResult);
-		df.set(id, d);
+		DF.set(id, d);
 		d.put(ObjectKey.SPELL_STAT, CDOMDirectSingleRef.getRef(str));
 		ObjectKeyActor<BigDecimal> oka_cost =
 				new ObjectKeyActor<>(ObjectKey.COST);

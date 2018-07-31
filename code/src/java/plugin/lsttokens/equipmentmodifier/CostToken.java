@@ -29,8 +29,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Deals with COST token
  */
-public class CostToken extends AbstractNonEmptyToken<EquipmentModifier>
-		implements CDOMPrimaryToken<EquipmentModifier>
+public class CostToken extends AbstractNonEmptyToken<EquipmentModifier> implements CDOMPrimaryToken<EquipmentModifier>
 {
 
 	@Override
@@ -40,14 +39,12 @@ public class CostToken extends AbstractNonEmptyToken<EquipmentModifier>
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		EquipmentModifier mod, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, EquipmentModifier mod, String value)
 	{
 		Formula formula = FormulaFactory.getFormulaFor(value);
 		if (!formula.isValid())
 		{
-			return new ParseResult.Fail("Formula in " + getTokenName()
-					+ " was not valid: " + formula.toString());
+			return new ParseResult.Fail("Formula in " + getTokenName() + " was not valid: " + formula.toString());
 		}
 		context.getObjectContext().put(mod, FormulaKey.COST, formula);
 		return ParseResult.SUCCESS;
@@ -61,7 +58,7 @@ public class CostToken extends AbstractNonEmptyToken<EquipmentModifier>
 		{
 			return null;
 		}
-		return new String[] { f.toString() };
+		return new String[]{f.toString()};
 	}
 
 	@Override

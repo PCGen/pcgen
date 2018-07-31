@@ -134,9 +134,7 @@ public final class KitGear extends BaseKit
 		for (NamedFormula lookup : lookups)
 		{
 			KitTable kt = aKit.getTable(lookup.getName());
-			KitGear gear =
-					kt.getEntry(aPC, lookup.getFormula().resolve(aPC, "")
-						.intValue());
+			KitGear gear = kt.getEntry(aPC, lookup.getFormula().resolve(aPC, "").intValue());
 			gear.processLookups(aKit, aPC);
 			overlayGear(gear);
 		}
@@ -167,8 +165,7 @@ public final class KitGear extends BaseKit
 	}
 
 	@Override
-	public boolean testApply(Kit aKit, PlayerCharacter aPC,
-		List<String> warnings)
+	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
 	{
 		actingQuantity = quantity;
 		actingCost = maxCost;
@@ -195,12 +192,10 @@ public final class KitGear extends BaseKit
 			aBuyRate = 0;
 		}
 
-		List<Equipment> eqList =
-                new ArrayList<>(equip.getContainedObjects());
+		List<Equipment> eqList = new ArrayList<>(equip.getContainedObjects());
 		if (actingCost != null)
 		{
-			final BigDecimal bdMaxCost =
-					new BigDecimal(Integer.toString(actingCost));
+			final BigDecimal bdMaxCost = new BigDecimal(Integer.toString(actingCost));
 			for (Iterator<Equipment> i = eqList.iterator(); i.hasNext();)
 			{
 				if (i.next().getCost(aPC).compareTo(bdMaxCost) > 0)
@@ -241,16 +236,14 @@ public final class KitGear extends BaseKit
 			if (theEquipment.isType("Natural") || (sizeToPC != null && sizeToPC)
 				|| (!theEquipment.isWeapon() && !theEquipment.isAmmunition()))
 			{
-				tryResize =
-						Globals.canResizeHaveEffect(theEquipment, null);
+				tryResize = Globals.canResizeHaveEffect(theEquipment, null);
 			}
 		}
 		else
 		{
 			if (sizeToPC != null && sizeToPC)
 			{
-				tryResize =
-						Globals.canResizeHaveEffect(theEquipment, null);
+				tryResize = Globals.canResizeHaveEffect(theEquipment, null);
 			}
 			else
 			{
@@ -311,26 +304,20 @@ public final class KitGear extends BaseKit
 			if (fixedTotalCost == null)
 			{
 				final BigDecimal bdBuyRate =
-						new BigDecimal(Integer.toString(aBuyRate))
-							.multiply(new BigDecimal("0.01"));
-	
+						new BigDecimal(Integer.toString(aBuyRate)).multiply(new BigDecimal("0.01"));
+
 				// Check to see if the PC can afford to buy this equipment. If
 				// not, then decrement the quantity and try again.
-				theCost =
-						eqCost.multiply(new BigDecimal(Integer.toString(theQty)))
-							.multiply(bdBuyRate);
-	
+				theCost = eqCost.multiply(new BigDecimal(Integer.toString(theQty))).multiply(bdBuyRate);
+
 				while (theQty > 0)
 				{
 					if (theCost.compareTo(pcGold) <= 0) // PC has enough?
 					{
 						break;
 					}
-	
-					theCost =
-							eqCost.multiply(
-								new BigDecimal(Integer.toString(--theQty)))
-								.multiply(bdBuyRate);
+
+					theCost = eqCost.multiply(new BigDecimal(Integer.toString(--theQty))).multiply(bdBuyRate);
 				}
 			}
 
@@ -345,8 +332,8 @@ public final class KitGear extends BaseKit
 
 		if (outOfFunds)
 		{
-			warnings.add("GEAR: Could not purchase " + (origQty - theQty) + " "
-				+ theEquipment.getName() + ". Not enough funds.");
+			warnings.add("GEAR: Could not purchase " + (origQty - theQty) + " " + theEquipment.getName()
+				+ ". Not enough funds.");
 		}
 
 		//
@@ -366,13 +353,11 @@ public final class KitGear extends BaseKit
 		{
 			theLocation = actingLocation;
 			if (!theLocation.equalsIgnoreCase("DEFAULT")
-					&& !theLocation.equalsIgnoreCase(Constants.EQUIP_LOCATION_CARRIED)
-					&& !theLocation.equalsIgnoreCase(Constants.EQUIP_LOCATION_NOTCARRIED)
-					&& !theLocation.equalsIgnoreCase(Constants.EQUIP_LOCATION_EQUIPPED))
+				&& !theLocation.equalsIgnoreCase(Constants.EQUIP_LOCATION_CARRIED)
+				&& !theLocation.equalsIgnoreCase(Constants.EQUIP_LOCATION_NOTCARRIED)
+				&& !theLocation.equalsIgnoreCase(Constants.EQUIP_LOCATION_EQUIPPED))
 			{
-				theTarget =
-						EquipmentUtilities.findEquipmentByBaseKey(
-							aPC.getEquipmentMasterList(), theLocation);
+				theTarget = EquipmentUtilities.findEquipmentByBaseKey(aPC.getEquipmentMasterList(), theLocation);
 			}
 			else if (theLocation.equalsIgnoreCase("DEFAULT"))
 			{
@@ -382,8 +367,7 @@ public final class KitGear extends BaseKit
 			EquipSet eSet = null;
 			if (theTarget != null)
 			{
-				eSet = aPC.getEquipSetForItem(aPC.getEquipSetByIdPath(EquipSet.DEFAULT_SET_PATH),
-						theTarget);
+				eSet = aPC.getEquipSetForItem(aPC.getEquipSetByIdPath(EquipSet.DEFAULT_SET_PATH), theTarget);
 			}
 			if (eSet == null)
 			{
@@ -391,18 +375,17 @@ public final class KitGear extends BaseKit
 			}
 			if (eSet == null)
 			{
-				warnings.add("GEAR: Could not find location " + theLocation
-					+ " for gear " + testApplyEquipment.getName() + ".");
+				warnings.add(
+					"GEAR: Could not find location " + theLocation + " for gear " + testApplyEquipment.getName() + ".");
 				return false;
 			}
 			else
 			{
-				EquipSet eqSet = aPC.addEquipToTarget(eSet, theTarget, theLocation,
-						testApplyEquipment, new Float(-1.0f));
+				EquipSet eqSet =
+						aPC.addEquipToTarget(eSet, theTarget, theLocation, testApplyEquipment, new Float(-1.0f));
 				if (eqSet == null)
 				{
-					warnings.add("GEAR: Could not equip " + testApplyEquipment.getName()
-						+ " to " + theLocation);
+					warnings.add("GEAR: Could not equip " + testApplyEquipment.getName() + " to " + theLocation);
 				}
 			}
 		}
@@ -412,8 +395,7 @@ public final class KitGear extends BaseKit
 	@Override
 	public void apply(PlayerCharacter aPC)
 	{
-		final Equipment existing =
-				aPC.getEquipmentNamed(theEquipment.getName());
+		final Equipment existing = aPC.getEquipmentNamed(theEquipment.getName());
 
 		if (existing == null)
 		{
@@ -431,12 +413,10 @@ public final class KitGear extends BaseKit
 		Equipment theTarget = null;
 		EquipSet eSet;
 		if (!theLocation.equalsIgnoreCase(Constants.EQUIP_LOCATION_CARRIED)
-				&& !theLocation.equalsIgnoreCase(Constants.EQUIP_LOCATION_NOTCARRIED)
-				&& !theLocation.equalsIgnoreCase(Constants.EQUIP_LOCATION_EQUIPPED))
+			&& !theLocation.equalsIgnoreCase(Constants.EQUIP_LOCATION_NOTCARRIED)
+			&& !theLocation.equalsIgnoreCase(Constants.EQUIP_LOCATION_EQUIPPED))
 		{
-			theTarget =
-					EquipmentUtilities.findEquipmentByBaseKey(
-						aPC.getEquipmentMasterList(), theLocation);
+			theTarget = EquipmentUtilities.findEquipmentByBaseKey(aPC.getEquipmentMasterList(), theLocation);
 			if (theTarget == null)
 			{
 				theLocation = Constants.EQUIP_LOCATION_CARRIED;
@@ -448,16 +428,13 @@ public final class KitGear extends BaseKit
 		}
 		else
 		{
-			eSet =
-				aPC.getEquipSetForItem(aPC.getEquipSetByIdPath(EquipSet.DEFAULT_SET_PATH),
-					theTarget);
+			eSet = aPC.getEquipSetForItem(aPC.getEquipSetByIdPath(EquipSet.DEFAULT_SET_PATH), theTarget);
 		}
 
 		//
 		// Equip the item to the default EquipSet.
 		//
-		aPC.addEquipToTarget(eSet, theTarget, theLocation, theEquipment,
-			new Float(theQty));
+		aPC.addEquipToTarget(eSet, theTarget, theLocation, theEquipment, new Float(theQty));
 
 		aPC.setGold(aPC.getGold().subtract(theCost));
 	}

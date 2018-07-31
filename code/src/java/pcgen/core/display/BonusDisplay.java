@@ -39,12 +39,12 @@ public final class BonusDisplay
 	public static String getBonusDisplayName(BonusManager.TempBonusInfo ti)
 	{
 		final StringBuilder buffer = new StringBuilder(50);
-	
+
 		buffer.append(ti.source);
 		buffer.append(" [");
-	
+
 		Object targetObj = ti.target;
-	
+
 		if (targetObj instanceof PlayerCharacter)
 		{
 			buffer.append("PC");
@@ -57,9 +57,9 @@ public final class BonusDisplay
 		{
 			buffer.append("NONE");
 		}
-	
+
 		buffer.append(']');
-	
+
 		return buffer.toString();
 	}
 

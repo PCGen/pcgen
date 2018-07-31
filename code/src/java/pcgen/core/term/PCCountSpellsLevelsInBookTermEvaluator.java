@@ -22,19 +22,17 @@ package pcgen.core.term;
 
 import java.util.List;
 
-import pcgen.core.PlayerCharacter;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
+import pcgen.core.PlayerCharacter;
 import pcgen.core.character.CharacterSpell;
 
-public class PCCountSpellsLevelsInBookTermEvaluator
-		extends BasePCTermEvaluator implements TermEvaluator
+public class PCCountSpellsLevelsInBookTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
 	final int classNum;
 	final int sbookNum;
 
-	public PCCountSpellsLevelsInBookTermEvaluator(
-			String originalText, int[] nums)
+	public PCCountSpellsLevelsInBookTermEvaluator(String originalText, int[] nums)
 	{
 		this.originalText = originalText;
 		classNum = nums[0];
@@ -53,17 +51,15 @@ public class PCCountSpellsLevelsInBookTermEvaluator
 
 		final PObject pObj = pc.getSpellClassAtIndex(classNum);
 
-
 		if (pObj != null)
 		{
 			for (int levelNum = 0; levelNum >= 0; ++levelNum)
 			{
-				final List<CharacterSpell> aList =
-						pc.getCharacterSpells(pObj, null, bookName, levelNum);
+				final List<CharacterSpell> aList = pc.getCharacterSpells(pObj, null, bookName, levelNum);
 
 				if (aList.isEmpty())
 				{
-					return (float)levelNum;
+					return (float) levelNum;
 				}
 			}
 		}

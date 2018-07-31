@@ -22,7 +22,7 @@ public class EquipBonus
 
 	public final BonusObj bonus;
 	public final String conditions;
-	
+
 	public EquipBonus(BonusObj bonus, String conditions)
 	{
 		this.bonus = bonus;
@@ -32,8 +32,7 @@ public class EquipBonus
 	@Override
 	public String toString()
 	{
-		return "EquipBonus [bonus=" + bonus + ", conditions=" + conditions
-			+ "]";
+		return "EquipBonus [bonus=" + bonus + ", conditions=" + conditions + "]";
 	}
 
 }

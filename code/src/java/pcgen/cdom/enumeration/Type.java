@@ -35,7 +35,7 @@ public final class Type implements TypeSafeConstant, Comparable<Type>
 	/**
 	 * This Map contains the mappings from Strings to the Type Safe Constant
 	 */
-	private static final CaseInsensitiveMap<Type> typeMap = new CaseInsensitiveMap<>();
+	private static final CaseInsensitiveMap<Type> TYPE_MAP = new CaseInsensitiveMap<>();
 
 	public static final Type NATURAL = getConstant("Natural");
 
@@ -88,11 +88,10 @@ public final class Type implements TypeSafeConstant, Comparable<Type>
 	public static final Type WAND = getConstant("Wand");
 
 	public static final Type MONSTER = getConstant("Monster");
-	
+
 	public static final Type SHIELD = getConstant("Shield");
 
 	public static final Type ARMOR = getConstant("Armor");
-
 
 	/**
 	 * This is used to provide a unique ordinal to each constant in this class
@@ -162,11 +161,11 @@ public final class Type implements TypeSafeConstant, Comparable<Type>
 	 */
 	public static Type getConstant(String name)
 	{
-		Type type = typeMap.get(name);
+		Type type = TYPE_MAP.get(name);
 		if (type == null)
 		{
 			type = new Type(name);
-			typeMap.put(name, type);
+			TYPE_MAP.put(name, type);
 		}
 		return type;
 	}
@@ -184,11 +183,10 @@ public final class Type implements TypeSafeConstant, Comparable<Type>
 	 */
 	public static Type valueOf(String name)
 	{
-		Type type = typeMap.get(name);
+		Type type = TYPE_MAP.get(name);
 		if (type == null)
 		{
-			throw new IllegalArgumentException(name
-					+ " is not a previously defined Type");
+			throw new IllegalArgumentException(name + " is not a previously defined Type");
 		}
 		return type;
 	}
@@ -204,7 +202,7 @@ public final class Type implements TypeSafeConstant, Comparable<Type>
 	 */
 	public static Collection<Type> getAllConstants()
 	{
-		return Collections.unmodifiableCollection(typeMap.values());
+		return Collections.unmodifiableCollection(TYPE_MAP.values());
 	}
 
 	/**
@@ -219,7 +217,7 @@ public final class Type implements TypeSafeConstant, Comparable<Type>
 	 */
 	public static void clearConstants()
 	{
-		typeMap.clear();
+		TYPE_MAP.clear();
 	}
 
 	@Override

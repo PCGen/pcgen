@@ -33,11 +33,10 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with BOOKTYPE Token
  */
-public class BooktypeToken extends AbstractTokenWithSeparator<Campaign>
-		implements CDOMPrimaryToken<Campaign>
+public class BooktypeToken extends AbstractTokenWithSeparator<Campaign> implements CDOMPrimaryToken<Campaign>
 {
 
-    @Override
+	@Override
 	public String getTokenName()
 	{
 		return "BOOKTYPE";
@@ -50,8 +49,7 @@ public class BooktypeToken extends AbstractTokenWithSeparator<Campaign>
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context, Campaign campaign,
-		String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, Campaign campaign, String value)
 	{
 		context.getObjectContext().removeList(campaign, ListKey.BOOK_TYPE);
 
@@ -63,11 +61,10 @@ public class BooktypeToken extends AbstractTokenWithSeparator<Campaign>
 		return ParseResult.SUCCESS;
 	}
 
-    @Override
+	@Override
 	public String[] unparse(LoadContext context, Campaign campaign)
 	{
-		Changes<String> changes = context.getObjectContext().getListChanges(
-				campaign, ListKey.BOOK_TYPE);
+		Changes<String> changes = context.getObjectContext().getListChanges(campaign, ListKey.BOOK_TYPE);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;
@@ -77,10 +74,10 @@ public class BooktypeToken extends AbstractTokenWithSeparator<Campaign>
 		{
 			return null;
 		}
-		return new String[] { StringUtil.join(added, Constants.PIPE) };
+		return new String[]{StringUtil.join(added, Constants.PIPE)};
 	}
 
-    @Override
+	@Override
 	public Class<Campaign> getTokenClass()
 	{
 		return Campaign.class;

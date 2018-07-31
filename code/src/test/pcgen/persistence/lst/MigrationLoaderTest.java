@@ -151,8 +151,8 @@ public class MigrationLoaderTest
 	@Test
 	public void testParseAbilityLine() throws Exception
 	{
-		String abilityMigration = "ABILITY:Special Ability|Animal Fury	NEWKEY:Animal Fury ~ Rage Power	" +
-				"MAXVER:6.00.00	MAXDEVVER:6.01.01";
+		String abilityMigration = "ABILITY:Special Ability|Animal Fury	NEWKEY:Animal Fury ~ Rage Power	"
+									+ "MAXVER:6.00.00	MAXDEVVER:6.01.01";
 		migrationLoader.parseLine(null, abilityMigration, new URI("http://UNIT_TEST_CASE"));
 		boolean found = false;
 		List<MigrationRule> migrationRuleList =

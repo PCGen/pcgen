@@ -58,9 +58,7 @@ import pcgen.rules.context.LoadContext;
 /**
  * This Facet stores the Actors usable in Freemarker for a given DataSetID.
  */
-public class CDOMWrapperInfoFacet
-		extends
-		AbstractSubAssociationFacet<DataSetID, Class<?>, String, OutputActor<?>>
+public class CDOMWrapperInfoFacet extends AbstractSubAssociationFacet<DataSetID, Class<?>, String, OutputActor<?>>
 		implements DataSetInitializedFacet
 {
 
@@ -120,8 +118,7 @@ public class CDOMWrapperInfoFacet
 	 *            The key of the actor to be returned
 	 * @return the Actor for the given DataSetID, Identity (class) and key
 	 */
-	public <T> OutputActor<? super T> getActor(DataSetID dsID,
-		Class<T> identity, String key)
+	public <T> OutputActor<? super T> getActor(DataSetID dsID, Class<T> identity, String key)
 	{
 		@SuppressWarnings("unchecked")
 		OutputActor<T> actor = (OutputActor<T>) get(dsID, identity, key);
@@ -144,12 +141,11 @@ public class CDOMWrapperInfoFacet
 		return new HashMap<>();
 	}
 
-	public void setDataSetInitializationFacet(
-		DataSetInitializationFacet datasetInitializationFacet)
+	public void setDataSetInitializationFacet(DataSetInitializationFacet datasetInitializationFacet)
 	{
 		this.datasetInitializationFacet = datasetInitializationFacet;
 	}
-	
+
 	public void init()
 	{
 		datasetInitializationFacet.addDataSetInitializedFacet(this);

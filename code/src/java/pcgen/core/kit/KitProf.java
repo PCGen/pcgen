@@ -42,8 +42,7 @@ public final class KitProf extends BaseKit
 {
 	private Integer choiceCount;
 
-	private final List<CDOMSingleRef<WeaponProf>> profList =
-            new ArrayList<>();
+	private final List<CDOMSingleRef<WeaponProf>> profList = new ArrayList<>();
 	private Boolean racialProf;
 
 	// These members store the state of an instance of this class.  They are
@@ -86,8 +85,7 @@ public final class KitProf extends BaseKit
 	}
 
 	@Override
-	public boolean testApply(Kit aKit, PlayerCharacter aPC,
-		List<String> warnings)
+	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
 	{
 		thePObject = null;
 		weaponProfs = null;
@@ -105,8 +103,7 @@ public final class KitProf extends BaseKit
 			}
 			if (!aPC.hasBonusWeaponProfs(pcRace))
 			{
-				warnings
-					.add("PROF: Race has already selected bonus weapon proficiency");
+				warnings.add("PROF: Race has already selected bonus weapon proficiency");
 
 				return false;
 			}
@@ -149,8 +146,7 @@ public final class KitProf extends BaseKit
 			thePObject = pcClass;
 			if (!aPC.hasBonusWeaponProfs(pcClass))
 			{
-				warnings
-					.add("PROF: Class has already selected bonus weapon proficiency");
+				warnings.add("PROF: Class has already selected bonus weapon proficiency");
 
 				return false;
 			}
@@ -168,8 +164,7 @@ public final class KitProf extends BaseKit
 			}
 			else
 			{
-				warnings.add("PROF: Weapon proficiency \"" + wp.getKeyName()
-					+ "\" is not in list of choices");
+				warnings.add("PROF: Weapon proficiency \"" + wp.getKeyName() + "\" is not in list of choices");
 			}
 		}
 
@@ -201,11 +196,8 @@ public final class KitProf extends BaseKit
 			//
 			while (true)
 			{
-				xs =
-						Globals
-							.getChoiceFromList("Choose Proficiencies",
-								aProfList, new ArrayList<>(),
-								numberOfChoices, aPC);
+				xs = Globals.getChoiceFromList("Choose Proficiencies", aProfList, new ArrayList<>(), numberOfChoices,
+					aPC);
 
 				if (!xs.isEmpty())
 				{
@@ -230,9 +222,8 @@ public final class KitProf extends BaseKit
 
 	private PersistentTransitionChoice<WeaponProf> getPTC(CDOMObject cdo)
 	{
-		List<PersistentTransitionChoice<?>> adds =
-				cdo.getListFor(ListKey.ADD);
-		for (PersistentTransitionChoice<?> ptc: adds)
+		List<PersistentTransitionChoice<?>> adds = cdo.getListFor(ListKey.ADD);
+		for (PersistentTransitionChoice<?> ptc : adds)
 		{
 			if (ptc.getChoiceClass().equals(WeaponProf.class))
 			{

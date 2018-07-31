@@ -56,7 +56,7 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 	protected static CampaignSourceEntry testCampaign;
 
 	@BeforeClass
-	public static void classSetUp() throws URISyntaxException
+	public static void classSetUp()
 	{
 		Locale.setDefault(Locale.US);
 		testCampaign = new CampaignSourceEntry(new Campaign(), TestURI.getURI());
@@ -72,8 +72,10 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 			classSetUp();
 		}
 		TokenRegistration.register(getToken());
-		primaryContext = new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(), new ConsolidatedListCommitStrategy());
-		secondaryContext = new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(), new ConsolidatedListCommitStrategy());
+		primaryContext = new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),
+			new ConsolidatedListCommitStrategy());
+		secondaryContext = new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),
+			new ConsolidatedListCommitStrategy());
 		primaryProf = primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(),
 				"TestObj");
 		secondaryProf = secondaryContext.getReferenceContext().constructCDOMObject(
@@ -265,7 +267,7 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 	public abstract <T extends CDOMObject> CDOMLoader<T> getLoader();
 
 	@Test
-	public void testOverwrite() throws PersistenceLayerException
+	public void testOverwrite()
 	{
 		parse(getLegalValue());
 		validateUnparsed(primaryContext, primaryProf, getLegalValue());
@@ -307,7 +309,7 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 	}
 
 	@Test
-	public void testCleanup() throws PersistenceLayerException
+	public void testCleanup()
 	{
 		String s = new String(getLegalValue());
 		WeakReference<String> wr = new WeakReference<>(s);
@@ -321,7 +323,7 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 	}
 
 	@Test
-	public void testAvoidContext() throws PersistenceLayerException
+	public void testAvoidContext()
 	{
 		RuntimeLoadContext context = new RuntimeLoadContext(
 			RuntimeReferenceContext.createRuntimeReferenceContext(),

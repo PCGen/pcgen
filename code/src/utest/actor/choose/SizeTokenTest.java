@@ -27,12 +27,12 @@ public class SizeTokenTest extends
 		AbstractPersistentCDOMChoiceActorTestCase<SizeAdjustment>
 {
 
-	static final SizeToken pca = new SizeToken();
+	static final SizeToken PCA = new SizeToken();
 
 	@Override
 	public Chooser<SizeAdjustment> getActor()
 	{
-		return pca;
+		return PCA;
 	}
 
 	@Override

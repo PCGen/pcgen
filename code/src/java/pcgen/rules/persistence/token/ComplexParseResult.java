@@ -32,8 +32,7 @@ import pcgen.util.Logging;
  */
 public class ComplexParseResult implements ParseResult
 {
-	private final List<QueuedMessage> queuedMessages =
-            new LinkedList<>();
+	private final List<QueuedMessage> queuedMessages = new LinkedList<>();
 
 	public ComplexParseResult()
 	{
@@ -55,15 +54,15 @@ public class ComplexParseResult implements ParseResult
 		addParseMessage(Logging.LST_ERROR, msg);
 	}
 
-    public void addWarningMessage(String msg)
-    {
-        addParseMessage(Logging.LST_WARNING, msg);
-    }
+	public void addWarningMessage(String msg)
+	{
+		addParseMessage(Logging.LST_WARNING, msg);
+	}
 
-    public void addInfoMessage(String msg)
-    {
-        addParseMessage(Logging.LST_INFO, msg);
-    }
+	public void addInfoMessage(String msg)
+	{
+		addParseMessage(Logging.LST_INFO, msg);
+	}
 
 	protected void addParseMessage(Level lvl, String msg)
 	{

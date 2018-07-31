@@ -25,7 +25,6 @@ import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 import pcgen.gui2.facade.MockUIDelegate;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.chooser.ChooserFactory;
@@ -52,7 +51,7 @@ public class GlobalTemplateTest extends AbstractGrantedListTokenTest<PCTemplate>
 	}
 
 	@Test
-	public void testChoose() throws PersistenceLayerException
+	public void testChoose()
 	{
 		Race source = create(Race.class, "Source");
 		PCTemplate granted = create(PCTemplate.class, "Granted");
@@ -72,7 +71,7 @@ public class GlobalTemplateTest extends AbstractGrantedListTokenTest<PCTemplate>
 	}
 
 	@Test
-	public void testList() throws PersistenceLayerException
+	public void testList()
 	{
 		Race source = create(Race.class, "Source");
 		PCTemplate granted = create(PCTemplate.class, "Granted");

@@ -47,20 +47,19 @@ import pcgen.gui2.util.treeview.TreeViewModel;
 import pcgen.gui2.util.treeview.TreeViewPath;
 import pcgen.system.LanguageBundle;
 
-
-public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
-		DataView<SkillFacade>, SkillBonusListener, ListSelectionListener
+public class SkillTreeViewModel
+		implements TreeViewModel<SkillFacade>, DataView<SkillFacade>, SkillBonusListener, ListSelectionListener
 {
 
-	private static final List<? extends DataViewColumn> columns = Arrays.asList(
-			new DefaultDataViewColumn("in_iskTotal", Integer.class, true),
-			new DefaultDataViewColumn("in_iskModifier", Integer.class, true),
-			new DefaultDataViewColumn("in_skillRanks", Float.class, true, true),
-			new DefaultDataViewColumn("in_classString", String.class, true),
-			new DefaultDataViewColumn("in_skillSkillCost", String.class,
-				SkillCost.CLASS.getCost() != SkillCost.CROSS_CLASS.getCost()),
-			new DefaultDataViewColumn("in_descrip", String.class), //$NON-NLS-1$
-			new DefaultDataViewColumn("in_source", String.class));
+	private static final List<? extends DataViewColumn> COLUMNS =
+			Arrays.asList(new DefaultDataViewColumn("in_iskTotal", Integer.class, true),
+				new DefaultDataViewColumn("in_iskModifier", Integer.class, true),
+				new DefaultDataViewColumn("in_skillRanks", Float.class, true, true),
+				new DefaultDataViewColumn("in_classString", String.class, true),
+				new DefaultDataViewColumn("in_skillSkillCost", String.class,
+					SkillCost.CLASS.getCost() != SkillCost.CROSS_CLASS.getCost()),
+				new DefaultDataViewColumn("in_descrip", String.class), //$NON-NLS-1$
+				new DefaultDataViewColumn("in_source", String.class));
 	private final DefaultListFacade<TreeView<SkillFacade>> treeviews;
 	private final CharacterFacade character;
 	private final CharacterLevelsFacade levels;
@@ -73,12 +72,8 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 		this.levels = character.getCharacterLevelsFacade();
 		this.selectionModel = selectionModel;
 
-		List<? extends TreeView<SkillFacade>> views = Arrays.asList(SkillTreeView.NAME,
-																	SkillTreeView.TYPE_NAME,
-																	SkillTreeView.KEYSTAT_NAME,
-																	SkillTreeView.KEYSTAT_TYPE_NAME, 
-																	COST_NAME,
-																	COST_TYPE_NAME);
+		List<? extends TreeView<SkillFacade>> views = Arrays.asList(SkillTreeView.NAME, SkillTreeView.TYPE_NAME,
+			SkillTreeView.KEYSTAT_NAME, SkillTreeView.KEYSTAT_TYPE_NAME, COST_NAME, COST_TYPE_NAME);
 		treeviews = new DefaultListFacade<>(views);
 	}
 
@@ -124,7 +119,7 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 	@Override
 	public String getPrefsKey()
 	{
-		return "SkillTreeAvail";  //$NON-NLS-1$
+		return "SkillTreeAvail"; //$NON-NLS-1$
 	}
 
 	@Override
@@ -132,7 +127,8 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 	{
 		if (selectionModel.isSelectionEmpty())
 		{
-			switch(column){
+			switch (column)
+			{
 				case 0:
 				case 1:
 				case 4:
@@ -149,9 +145,10 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 			}
 		}
 		int index = selectionModel.getMinSelectionIndex();
-			CharacterLevelFacade level = levels.getElementAt(index);
-			SkillBreakdown skillBreakdown = levels.getSkillBreakdown(level, obj);
-		switch(column){
+		CharacterLevelFacade level = levels.getElementAt(index);
+		SkillBreakdown skillBreakdown = levels.getSkillBreakdown(level, obj);
+		switch (column)
+		{
 			case 0:
 				return skillBreakdown.total;
 			case 1:
@@ -160,8 +157,8 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 				return skillBreakdown.ranks;
 			case 3:
 				return levels.getSkillCost(level, obj) == SkillCost.CLASS
-						? LanguageBundle.getString("in_yes") :  //$NON-NLS-1$
-						  LanguageBundle.getString("in_no");    //$NON-NLS-1$
+					? LanguageBundle.getString("in_yes") : //$NON-NLS-1$
+					LanguageBundle.getString("in_no"); //$NON-NLS-1$
 			case 4:
 				return levels.getSkillCost(level, obj).getCost();
 			case 5:
@@ -181,7 +178,7 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 	@Override
 	public List<? extends DataViewColumn> getDataColumns()
 	{
-		return columns;
+		return COLUMNS;
 	}
 
 	@Override
@@ -197,10 +194,9 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 	 * @param path The paths under which the skills should be shown.
 	 * @return The TreeViewPath.
 	 */
-	protected static TreeViewPath<SkillFacade> createTreeViewPath(SkillFacade pobj,
-		Object... path)
+	protected static TreeViewPath<SkillFacade> createTreeViewPath(SkillFacade pobj, Object... path)
 	{
-		Object displayPath[];
+		Object[] displayPath;
 		if (path.length > 0 && StringUtils.isEmpty(String.valueOf(path[path.length - 1])))
 		{
 			displayPath = Arrays.copyOf(path, path.length - 1);
@@ -250,13 +246,10 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 					path = createTreeViewPath(pobj, pobj.getDisplayType());
 					break;
 				case KEYSTAT_NAME:
-					path = new TreeViewPath<>(pobj,
-                            pobj.getKeyStat());
+					path = new TreeViewPath<>(pobj, pobj.getKeyStat());
 					break;
 				case KEYSTAT_TYPE_NAME:
-					path =
-							createTreeViewPath(pobj, pobj.getKeyStat(),
-								pobj.getDisplayType());
+					path = createTreeViewPath(pobj, pobj.getKeyStat(), pobj.getDisplayType());
 					break;
 				default:
 					throw new InternalError();
@@ -323,9 +316,8 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 		{
 			return;
 		}
-		
-		if (table.getSelectedTreeView() == COST_NAME
-			|| table.getSelectedTreeView() == COST_TYPE_NAME)
+
+		if (table.getSelectedTreeView() == COST_NAME || table.getSelectedTreeView() == COST_TYPE_NAME)
 		{
 			table.setTreeViewModel(this);
 		}

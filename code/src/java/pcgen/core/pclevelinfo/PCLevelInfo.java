@@ -37,12 +37,12 @@ import pcgen.core.bonus.BonusUtilities;
  */
 public final class PCLevelInfo implements Cloneable
 {
-	private List<PCLevelInfoStat>            statsPostModified    = null;
-	private List<PCLevelInfoStat>            statsPreModified     = null;
-	private String          classKeyName         = "";
-	private int             classLevel 			 = 0;
-	private int             skillPointsGained    = Integer.MIN_VALUE;
-	private int             skillPointsRemaining = 0;
+	private List<PCLevelInfoStat> statsPostModified = null;
+	private List<PCLevelInfoStat> statsPreModified = null;
+	private String classKeyName = "";
+	private int classLevel = 0;
+	private int skillPointsGained = Integer.MIN_VALUE;
+	private int skillPointsRemaining = 0;
 
 	/**
 	 * Creates a new PCLevelInfo object.
@@ -130,9 +130,9 @@ public final class PCLevelInfo implements Cloneable
 		// If this information in not saved on PCG, then try to recalc it
 		if ((skillPointsGained == Integer.MIN_VALUE) && (!classKeyName.isEmpty()))
 		{
-			final PCClass aClass = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class, classKeyName);
-			skillPointsGained = pc.recalcSkillPointMod(aClass, classLevel) +
-				getBonusSkillPool(pc);
+			final PCClass aClass = Globals.getContext().getReferenceContext()
+				.silentlyGetConstructedCDOMObject(PCClass.class, classKeyName);
+			skillPointsGained = pc.recalcSkillPointMod(aClass, classLevel) + getBonusSkillPool(pc);
 		}
 
 		return skillPointsGained;
@@ -172,7 +172,7 @@ public final class PCLevelInfo implements Cloneable
 
 		if (statsPreModified != null)
 		{
-			for ( PCLevelInfoStat stat : statsPreModified )
+			for (PCLevelInfoStat stat : statsPreModified)
 			{
 				if (stat.getStat().equals(aStat))
 				{
@@ -183,7 +183,7 @@ public final class PCLevelInfo implements Cloneable
 
 		if (includePost && (statsPostModified != null))
 		{
-			for ( PCLevelInfoStat stat : statsPostModified )
+			for (PCLevelInfoStat stat : statsPostModified)
 			{
 				if (stat.getStat().equals(aStat))
 				{
@@ -209,10 +209,7 @@ public final class PCLevelInfo implements Cloneable
 	 * @param  isPreMod  Whether the increment should be pre or post the
 	 *                   calculation of other benefits gained at this level.
 	 */
-	public void addModifiedStat(
-		final PCStat  stat,
-		final int     mod,
-		final boolean isPreMod)
+	public void addModifiedStat(final PCStat stat, final int mod, final boolean isPreMod)
 	{
 		final List<PCLevelInfoStat> statList;
 
@@ -264,20 +261,18 @@ public final class PCLevelInfo implements Cloneable
 	 */
 	private int getBonusSkillPool(PlayerCharacter aPC)
 	{
-		int           returnValue = 0;
-		final PCClass aClass      = aPC.getClassKeyed(classKeyName);
+		int returnValue = 0;
+		final PCClass aClass = aPC.getClassKeyed(classKeyName);
 
 		final String purchaseName = SettingsHandler.getGame().getPurchaseModeMethodName();
 		if (purchaseName != null)
 		{
 			PointBuyMethod pbm = SettingsHandler.getGame().getContext().getReferenceContext()
-					.silentlyGetConstructedCDOMObject(PointBuyMethod.class,
-							purchaseName);
+				.silentlyGetConstructedCDOMObject(PointBuyMethod.class, purchaseName);
 
 			List<BonusObj> bonusList = BonusUtilities.getBonusFromList(pbm.getBonuses(), "SKILLPOOL", "NUMBER");
 			returnValue += (int) aPC.calcBonusFromList(bonusList, null);
 		}
-
 
 		if (aClass != null)
 		{
@@ -289,17 +284,13 @@ public final class PCLevelInfo implements Cloneable
 
 		if (classLevel == 1)
 		{
-			returnValue +=
-				(int) aPC.getTotalBonusTo("SKILLPOOL", "CLASS." + classKeyName);
+			returnValue += (int) aPC.getTotalBonusTo("SKILLPOOL", "CLASS." + classKeyName);
 		}
 
-		returnValue += (int) aPC.getTotalBonusTo(
-				"SKILLPOOL",
-				"CLASS." + classKeyName + ";LEVEL." + Integer.toString(classLevel));
+		returnValue += (int) aPC.getTotalBonusTo("SKILLPOOL",
+			"CLASS." + classKeyName + ";LEVEL." + Integer.toString(classLevel));
 
-		returnValue += (int) aPC.getTotalBonusTo(
-				"SKILLPOOL",
-				"LEVEL." + aPC.getCharacterLevel(this));
+		returnValue += (int) aPC.getTotalBonusTo("SKILLPOOL", "LEVEL." + aPC.getCharacterLevel(this));
 
 		return returnValue;
 	}
@@ -310,7 +301,7 @@ public final class PCLevelInfo implements Cloneable
 		PCLevelInfo clone = new PCLevelInfo(classKeyName);
 		if (statsPostModified != null)
 		{
-			for ( PCLevelInfoStat stat : statsPostModified )
+			for (PCLevelInfoStat stat : statsPostModified)
 			{
 				if (clone.statsPostModified == null)
 				{
@@ -321,7 +312,7 @@ public final class PCLevelInfo implements Cloneable
 		}
 		if (statsPreModified != null)
 		{
-			for ( PCLevelInfoStat stat : statsPreModified )
+			for (PCLevelInfoStat stat : statsPreModified)
 			{
 				if (clone.statsPreModified == null)
 				{
@@ -353,10 +344,8 @@ public final class PCLevelInfo implements Cloneable
 		if (o instanceof PCLevelInfo)
 		{
 			PCLevelInfo other = (PCLevelInfo) o;
-			return classLevel == other.classLevel
-				&& skillPointsGained == other.skillPointsGained
-				&& skillPointsRemaining == other.skillPointsRemaining
-				&& classKeyName.equals(other.classKeyName)
+			return classLevel == other.classLevel && skillPointsGained == other.skillPointsGained
+				&& skillPointsRemaining == other.skillPointsRemaining && classKeyName.equals(other.classKeyName)
 				&& Objects.equals(statsPreModified, other.statsPreModified)
 				&& Objects.equals(statsPostModified, other.statsPostModified);
 		}

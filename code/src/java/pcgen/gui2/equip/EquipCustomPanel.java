@@ -42,17 +42,17 @@ import javax.swing.event.ListSelectionListener;
 
 import pcgen.cdom.base.Constants;
 import pcgen.facade.core.CharacterFacade;
-import pcgen.facade.util.DefaultReferenceFacade;
 import pcgen.facade.core.EquipModFacade;
 import pcgen.facade.core.EquipmentBuilderFacade;
 import pcgen.facade.core.EquipmentBuilderFacade.EquipmentHead;
 import pcgen.facade.core.EquipmentFacade;
 import pcgen.facade.core.SizeAdjustmentFacade;
+import pcgen.facade.util.DefaultListFacade;
+import pcgen.facade.util.DefaultReferenceFacade;
+import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
 import pcgen.facade.util.event.ReferenceEvent;
-import pcgen.facade.util.DefaultListFacade;
-import pcgen.facade.util.ListFacade;
 import pcgen.gui2.filter.Filter;
 import pcgen.gui2.filter.FilterBar;
 import pcgen.gui2.filter.FilteredListFacade;
@@ -106,7 +106,7 @@ public class EquipCustomPanel extends FlippingSplitPane
 	private final RemoveEqmodAction removeAction;
 	private final EquipmentBuilderFacade builder;
 	private EquipInfoHandler equipInfoHandler;
-	
+
 	private final ListFacade<EquipmentHead> validHeads;
 	private HeadBoxModel headBoxModel;
 	private SizeBoxModel sizeBoxModel;
@@ -124,9 +124,7 @@ public class EquipCustomPanel extends FlippingSplitPane
 		super("customEquip");
 		this.character = character;
 		this.builder = builder;
-		validHeads =
-                new DefaultListFacade<>(
-                        builder.getEquipmentHeads());
+		validHeads = new DefaultListFacade<>(builder.getEquipmentHeads());
 
 		this.availableTable = new FilteredTreeViewTable<>();
 		this.selectedTable = new FilteredTreeViewTable<>();
@@ -142,7 +140,7 @@ public class EquipCustomPanel extends FlippingSplitPane
 		this.equipModInfoPane = new InfoPane(LanguageBundle.getString("in_igEqModInfo")); //$NON-NLS-1$
 		this.equipInfoPane = new InfoPane(LanguageBundle.getString("in_igEqInfo")); //$NON-NLS-1$
 		this.renderer = new EquipQualifiedTreeCellRenderer(character, builder.getEquipment());
-		
+
 		this.nameAction = new NameAction();
 		this.spropAction = new SPropAction();
 		this.costAction = new CostAction();
@@ -161,11 +159,9 @@ public class EquipCustomPanel extends FlippingSplitPane
 	 */
 	private void initHeadMaps()
 	{
-		availEqmodModelMap =
-                new HashMap<>();
-		selectedEqmodModelMap =
-                new HashMap<>();
-		
+		availEqmodModelMap = new HashMap<>();
+		selectedEqmodModelMap = new HashMap<>();
+
 		for (EquipmentHead head : validHeads)
 		{
 			availEqmodModelMap.put(head, new EquipModTreeViewModel(character, builder, head, true));
@@ -198,13 +194,13 @@ public class EquipCustomPanel extends FlippingSplitPane
 			bannerBox.add(headLabel);
 			bannerBox.add(Box.createHorizontalStrut(5));
 			Dimension prefDim = headCombo.getPreferredSize();
-			prefDim.width += 15; 
+			prefDim.width += 15;
 			headCombo.setMaximumSize(prefDim);
 			bannerBox.add(headCombo);
 		}
 		bannerBox.add(Box.createHorizontalGlue());
 		upperPanel.add(bannerBox, BorderLayout.NORTH);
-		
+
 		FlippingSplitPane topPane = new FlippingSplitPane("equipCustTop");
 		upperPanel.add(topPane, BorderLayout.CENTER);
 
@@ -231,7 +227,7 @@ public class EquipCustomPanel extends FlippingSplitPane
 		topPane.setLeftComponent(availPanel);
 
 		JPanel selPanel = new JPanel(new BorderLayout());
-		
+
 		Box equipButtonBox = Box.createHorizontalBox();
 		equipButtonBox.add(Box.createHorizontalGlue());
 		nameButton.setHorizontalTextPosition(SwingConstants.LEADING);
@@ -282,7 +278,7 @@ public class EquipCustomPanel extends FlippingSplitPane
 		box.add(Box.createHorizontalGlue());
 		box.setBorder(new EmptyBorder(0, 0, 5, 0));
 		selPanel.add(box, BorderLayout.SOUTH);
-		
+
 		topPane.setRightComponent(selPanel);
 		FlippingSplitPane bottomPane = new FlippingSplitPane("equipCustBottom");
 		bottomPane.setLeftComponent(equipModInfoPane);
@@ -290,7 +286,6 @@ public class EquipCustomPanel extends FlippingSplitPane
 		setBottomComponent(bottomPane);
 		setResizeWeight(0.75);
 	}
-
 
 	private void initDefaults()
 	{
@@ -300,7 +295,7 @@ public class EquipCustomPanel extends FlippingSplitPane
 		EquipModInfoHandler eqModInfoHandler = new EquipModInfoHandler(character, builder);
 		availableTable.getSelectionModel().addListSelectionListener(eqModInfoHandler);
 		selectedTable.getSelectionModel().addListSelectionListener(eqModInfoHandler);
-		
+
 		availableTable.addActionListener(addAction);
 		sizeBoxModel = new SizeBoxModel();
 		sizeCombo.setModel(sizeBoxModel);
@@ -327,7 +322,7 @@ public class EquipCustomPanel extends FlippingSplitPane
 			equipInfoPane.setText(character.getInfoFactory().getHTMLInfo(equip));
 		}
 
-        @Override
+		@Override
 		public void valueChanged(ListSelectionEvent e)
 		{
 			if (!e.getValueIsAdjusting())
@@ -351,7 +346,7 @@ public class EquipCustomPanel extends FlippingSplitPane
 			this.builder = builder;
 		}
 
-        @Override
+		@Override
 		public void valueChanged(ListSelectionEvent e)
 		{
 			if (!e.getValueIsAdjusting())
@@ -376,9 +371,8 @@ public class EquipCustomPanel extends FlippingSplitPane
 				if (obj instanceof EquipModFacade && obj != currObj)
 				{
 					currObj = (EquipModFacade) obj;
-					equipModInfoPane.setText(character.getInfoFactory()
-						.getHTMLInfo((EquipModFacade) obj, builder
-							.getEquipment()));
+					equipModInfoPane
+						.setText(character.getInfoFactory().getHTMLInfo((EquipModFacade) obj, builder.getEquipment()));
 				}
 			}
 		}
@@ -393,7 +387,7 @@ public class EquipCustomPanel extends FlippingSplitPane
 			putValue(SMALL_ICON, Icons.Forward16.getImageIcon());
 		}
 
-        @Override
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			List<Object> data = availableTable.getSelectedData();
@@ -418,7 +412,7 @@ public class EquipCustomPanel extends FlippingSplitPane
 			putValue(SMALL_ICON, Icons.Back16.getImageIcon());
 		}
 
-        @Override
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			List<Object> data = selectedTable.getSelectedData();
@@ -426,8 +420,7 @@ public class EquipCustomPanel extends FlippingSplitPane
 			{
 				if (eqMod instanceof EquipModFacade)
 				{
-					builder.removeModFromEquipment((EquipModFacade) eqMod,
-						currentHead);
+					builder.removeModFromEquipment((EquipModFacade) eqMod, currentHead);
 				}
 			}
 			equipInfoHandler.refreshInfo();
@@ -443,15 +436,12 @@ public class EquipCustomPanel extends FlippingSplitPane
 			super(LanguageBundle.getString("in_nameLabel")); //$NON-NLS-1$
 		}
 
-        @Override
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			Object result =
-					JOptionPane.showInputDialog(EquipCustomPanel.this,
-						LanguageBundle.getString("in_eqCust_NewName"),
-						Constants.APPLICATION_NAME,
-						JOptionPane.QUESTION_MESSAGE, null, null, builder
-							.getEquipment().toString());
+			Object result = JOptionPane.showInputDialog(EquipCustomPanel.this,
+				LanguageBundle.getString("in_eqCust_NewName"), Constants.APPLICATION_NAME, JOptionPane.QUESTION_MESSAGE,
+				null, null, builder.getEquipment().toString());
 			String selectedValue = result == null ? "" : result.toString();
 			builder.setName(selectedValue);
 			equipInfoHandler.refreshInfo();
@@ -465,17 +455,14 @@ public class EquipCustomPanel extends FlippingSplitPane
 			super(LanguageBundle.getString("in_eqCust_SProp")); //$NON-NLS-1$
 		}
 
-        @Override
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			Object result =
-					JOptionPane.showInputDialog(EquipCustomPanel.this,
-						LanguageBundle.getString("in_eqCust_NewSProp"),
-						Constants.APPLICATION_NAME,
-						JOptionPane.QUESTION_MESSAGE, null, null, builder
-							.getEquipment().getRawSpecialProperties());
+			Object result = JOptionPane.showInputDialog(EquipCustomPanel.this,
+				LanguageBundle.getString("in_eqCust_NewSProp"), Constants.APPLICATION_NAME,
+				JOptionPane.QUESTION_MESSAGE, null, null, builder.getEquipment().getRawSpecialProperties());
 			String selectedValue = result == null ? "" : result.toString();
-        	builder.setSProp(selectedValue);
+			builder.setSProp(selectedValue);
 			equipInfoHandler.refreshInfo();
 		}
 	}
@@ -487,17 +474,14 @@ public class EquipCustomPanel extends FlippingSplitPane
 			super(LanguageBundle.getString("in_igEqModelColCost")); //$NON-NLS-1$
 		}
 
-        @Override
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			Object result =
-					JOptionPane.showInputDialog(EquipCustomPanel.this,
-						LanguageBundle.getString("in_eqCust_NewCost"),
-						Constants.APPLICATION_NAME,
-						JOptionPane.QUESTION_MESSAGE, null, null, character
-							.getInfoFactory().getCost(builder.getEquipment()));
+			Object result = JOptionPane.showInputDialog(EquipCustomPanel.this,
+				LanguageBundle.getString("in_eqCust_NewCost"), Constants.APPLICATION_NAME, JOptionPane.QUESTION_MESSAGE,
+				null, null, character.getInfoFactory().getCost(builder.getEquipment()));
 			String selectedValue = result == null ? "" : result.toString();
-        	builder.setCost(selectedValue);
+			builder.setCost(selectedValue);
 			equipInfoHandler.refreshInfo();
 		}
 	}
@@ -509,22 +493,14 @@ public class EquipCustomPanel extends FlippingSplitPane
 			super(LanguageBundle.getString("in_igEqModelColWeight")); //$NON-NLS-1$
 		}
 
-        @Override
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			Object result =
-					JOptionPane
-						.showInputDialog(
-							EquipCustomPanel.this,
-							LanguageBundle.getString("in_eqCust_NewWeight"),
-							Constants.APPLICATION_NAME,
-							JOptionPane.QUESTION_MESSAGE,
-							null,
-							null,
-							character.getInfoFactory().getWeight(
-								builder.getEquipment()));
+			Object result = JOptionPane.showInputDialog(EquipCustomPanel.this,
+				LanguageBundle.getString("in_eqCust_NewWeight"), Constants.APPLICATION_NAME,
+				JOptionPane.QUESTION_MESSAGE, null, null, character.getInfoFactory().getWeight(builder.getEquipment()));
 			String selectedValue = result == null ? "" : result.toString();
-        	builder.setWeight(selectedValue);
+			builder.setWeight(selectedValue);
 			equipInfoHandler.refreshInfo();
 		}
 	}
@@ -536,31 +512,23 @@ public class EquipCustomPanel extends FlippingSplitPane
 			super(LanguageBundle.getString("in_igInfoLabelTextDamage")); //$NON-NLS-1$
 		}
 
-        @Override
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			Object result =
-					JOptionPane
-						.showInputDialog(
-							EquipCustomPanel.this,
-							LanguageBundle.getString("in_eqCust_NewDamage"),
-							Constants.APPLICATION_NAME,
-							JOptionPane.QUESTION_MESSAGE,
-							null,
-							null,
-							builder.getDamage());
+					JOptionPane.showInputDialog(EquipCustomPanel.this, LanguageBundle.getString("in_eqCust_NewDamage"),
+						Constants.APPLICATION_NAME, JOptionPane.QUESTION_MESSAGE, null, null, builder.getDamage());
 			String selectedValue = result == null ? "" : result.toString();
-        	builder.setDamage(selectedValue);
+			builder.setDamage(selectedValue);
 			equipInfoHandler.refreshInfo();
 		}
 	}
 
-	private static class EquipModTreeViewModel
-			implements TreeViewModel<EquipModFacade>, DataView<EquipModFacade>,
+	private static class EquipModTreeViewModel implements TreeViewModel<EquipModFacade>, DataView<EquipModFacade>,
 			Filter<EquipmentBuilderFacade, EquipModFacade>, ListListener<EquipModFacade>
 	{
 
-		private static final DefaultListFacade<? extends TreeView<EquipModFacade>> treeViews =
+		private static final DefaultListFacade<? extends TreeView<EquipModFacade>> TREE_VIEWS =
 				new DefaultListFacade<TreeView<EquipModFacade>>(Arrays.asList(EquipModTreeView.values()));
 		private final List<DefaultDataViewColumn> columns;
 		private final boolean isAvailModel;
@@ -568,8 +536,8 @@ public class EquipCustomPanel extends FlippingSplitPane
 		private final EquipmentBuilderFacade builder;
 		private final EquipmentHead head;
 
-		public EquipModTreeViewModel(CharacterFacade character,
-			EquipmentBuilderFacade builder, EquipmentHead head, boolean isAvailModel)
+		public EquipModTreeViewModel(CharacterFacade character, EquipmentBuilderFacade builder, EquipmentHead head,
+			boolean isAvailModel)
 		{
 			this.builder = builder;
 			this.head = head;
@@ -590,39 +558,40 @@ public class EquipCustomPanel extends FlippingSplitPane
 			}
 		}
 
-        @Override
+		@Override
 		public ListFacade<? extends TreeView<EquipModFacade>> getTreeViews()
 		{
-			return treeViews;
+			return TREE_VIEWS;
 		}
 
-        @Override
+		@Override
 		public int getDefaultTreeViewIndex()
 		{
 			return 0;
 		}
 
-        @Override
+		@Override
 		public DataView<EquipModFacade> getDataView()
 		{
 			return this;
 		}
 
-        @Override
+		@Override
 		public ListFacade<EquipModFacade> getDataModel()
 		{
-        	if (isAvailModel)
-        	{
-        		return equipMods;
-        	}
-        	
-        	return builder.getSelectedList(head);
+			if (isAvailModel)
+			{
+				return equipMods;
+			}
+
+			return builder.getSelectedList(head);
 		}
 
 		@Override
 		public Object getData(EquipModFacade element, int column)
 		{
-			switch(column){
+			switch (column)
+			{
 				case 0:
 					return element.getSource();
 				default:
@@ -634,26 +603,26 @@ public class EquipCustomPanel extends FlippingSplitPane
 		public void setData(Object value, EquipModFacade element, int column)
 		{
 		}
-		
-        @Override
+
+		@Override
 		public List<? extends DataViewColumn> getDataColumns()
 		{
 			return columns;
 		}
 
-        @Override
+		@Override
 		public void elementAdded(ListEvent<EquipModFacade> e)
 		{
 			//equipMods.elementAdded(e);
 		}
 
-        @Override
+		@Override
 		public void elementRemoved(ListEvent<EquipModFacade> e)
 		{
 			//equipMods.elementRemoved(e);
 		}
 
-        @Override
+		@Override
 		public void elementsChanged(ListEvent<EquipModFacade> e)
 		{
 			//equipMods.refilter();
@@ -665,7 +634,7 @@ public class EquipCustomPanel extends FlippingSplitPane
 			//equipMods.refilter();
 		}
 
-        @Override
+		@Override
 		public boolean accept(EquipmentBuilderFacade context, EquipModFacade element)
 		{
 			return true;
@@ -674,7 +643,7 @@ public class EquipCustomPanel extends FlippingSplitPane
 		@Override
 		public String getPrefsKey()
 		{
-			return isAvailModel ? "EqModTreeAvail" : "EqModTreeSelected";  //$NON-NLS-1$//$NON-NLS-2$
+			return isAvailModel ? "EqModTreeAvail" : "EqModTreeSelected"; //$NON-NLS-1$//$NON-NLS-2$
 		}
 
 	}
@@ -691,14 +660,14 @@ public class EquipCustomPanel extends FlippingSplitPane
 			this.name = name;
 		}
 
-        @Override
+		@Override
 		public String getViewName()
 		{
 			return name;
 		}
 
 		@SuppressWarnings("unchecked")
-        @Override
+		@Override
 		public List<TreeViewPath<EquipModFacade>> getPaths(EquipModFacade pobj)
 		{
 			switch (this)
@@ -707,8 +676,7 @@ public class EquipCustomPanel extends FlippingSplitPane
 					return Collections.singletonList(new TreeViewPath<>(pobj));
 				case TYPE_NAME:
 					TreeViewPath<EquipModFacade> path =
-							createTreeViewPath(pobj, (Object[]) pobj
-								.getDisplayType().split("\\.")); //$NON-NLS-1$
+							createTreeViewPath(pobj, (Object[]) pobj.getDisplayType().split("\\.")); //$NON-NLS-1$
 					return Arrays.asList(path);
 				case SOURCE_NAME:
 					return Collections.singletonList(new TreeViewPath<>(pobj, pobj.getSourceForNodeDisplay()));
@@ -723,8 +691,7 @@ public class EquipCustomPanel extends FlippingSplitPane
 		 * @param path The paths under which the equipment modifier should be shown.
 		 * @return The TreeViewPath.
 		 */
-		private static TreeViewPath<EquipModFacade> createTreeViewPath(EquipModFacade pobj,
-		                                                               Object... path)
+		private static TreeViewPath<EquipModFacade> createTreeViewPath(EquipModFacade pobj, Object... path)
 		{
 			if (path.length == 0)
 			{
@@ -747,8 +714,7 @@ public class EquipCustomPanel extends FlippingSplitPane
 		public HeadBoxModel()
 		{
 			setListFacade(validHeads);
-			headRef = new DefaultReferenceFacade<>(
-                    currentHead);
+			headRef = new DefaultReferenceFacade<>(currentHead);
 			setReference(headRef);
 		}
 

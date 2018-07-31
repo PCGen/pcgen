@@ -33,6 +33,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.StringTokenizer;
 
+import org.nfunk.jep.ParseException;
+
 import pcgen.base.lang.UnreachableError;
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.cdom.base.CDOMObject;
@@ -61,8 +63,6 @@ import pcgen.util.AbstractCountCommand.JepEquipmentCountEnum;
 import pcgen.util.enumeration.View;
 import pcgen.util.enumeration.Visibility;
 
-import org.nfunk.jep.ParseException;
-
 public abstract class JepCountType
 {
 
@@ -74,8 +74,7 @@ public abstract class JepCountType
 	public static final JepCountType ABILITIESDISTINCT = new JepCountAbilities()
 	{
 		@Override
-		protected Double countData(Collection<? extends CNAbility> filtered,
-			PlayerCharacter pc)
+		protected Double countData(Collection<? extends CNAbility> filtered, PlayerCharacter pc)
 		{
 			if (assocList.isEmpty())
 			{
@@ -102,8 +101,7 @@ public abstract class JepCountType
 	{
 
 		@Override
-		protected Double countData(Collection<? extends CNAbility> filtered,
-			PlayerCharacter pc)
+		protected Double countData(Collection<? extends CNAbility> filtered, PlayerCharacter pc)
 		{
 			double accum = 0;
 			for (final CNAbility ab : filtered)
@@ -127,63 +125,50 @@ public abstract class JepCountType
 			return accum;
 		}
 
-
 	};
 
-	public static final JepCountType CAMPAIGNHISTORY =
-			new JepCountFilterable<ChronicleEntry>()
+	public static final JepCountType CAMPAIGNHISTORY = new JepCountFilterable<ChronicleEntry>()
+	{
+		@Override
+		protected Collection<ChronicleEntry> getData(final PlayerCharacter pc)
+		{
+			return pc.getDisplay().getChronicleEntries();
+		}
+
+		@Override
+		public Double count(PlayerCharacter pc, Object[] params) throws ParseException
+		{
+			final Object[] par = params.length > 0 ? params : new String[]{"EXPORT=YES"};
+			return super.count(pc, par);
+		}
+
+		@Override
+		protected Set<ChronicleEntry> filterSetP(final String c, Collection<ChronicleEntry> coll) throws ParseException
+		{
+			final String[] keyValue = c.split("=");
+
+			if (!"EXPORT".equalsIgnoreCase(keyValue[0]))
 			{
-				@Override
-				protected Collection<ChronicleEntry> getData(
-					final PlayerCharacter pc)
+				throw new ParseException("Bad parameter to count(\"CAMPAIGNHISTORY\" ... )" + c);
+			}
+			if (!"NO".equalsIgnoreCase(keyValue[1]) && !"YES".equalsIgnoreCase(keyValue[1]))
+			{
+				throw new ParseException("Bad EXPORT value to count(\"CAMPAIGNHISTORY\" ... )" + c);
+			}
+
+			boolean wantExport = "YES".equalsIgnoreCase(keyValue[1]);
+			final Set<ChronicleEntry> cs = new HashSet<>();
+			for (ChronicleEntry ce : coll)
+			{
+				if (ce.isOutputEntry() == wantExport)
 				{
-					return pc.getDisplay().getChronicleEntries();
+					cs.add(ce);
 				}
+			}
+			return cs;
+		}
 
-				@Override
-				public Double count(PlayerCharacter pc, Object[] params)
-					throws ParseException
-				{
-					final Object[] par =
-							params.length > 0 ? params
-								: new String[]{"EXPORT=YES"};
-					return super.count(pc, par);
-				}
-
-				@Override
-				protected Set<ChronicleEntry> filterSetP(final String c,
-					Collection<ChronicleEntry> coll) throws ParseException
-				{
-					final String[] keyValue = c.split("=");
-
-					if (!"EXPORT".equalsIgnoreCase(keyValue[0]))
-					{
-						throw new ParseException(
-							"Bad parameter to count(\"CAMPAIGNHISTORY\" ... )"
-								+ c);
-					}
-					if (!"NO".equalsIgnoreCase(keyValue[1])
-						&& !"YES".equalsIgnoreCase(keyValue[1]))
-					{
-						throw new ParseException(
-							"Bad EXPORT value to count(\"CAMPAIGNHISTORY\" ... )"
-								+ c);
-					}
-
-					boolean wantExport = "YES".equalsIgnoreCase(keyValue[1]);
-					final Set<ChronicleEntry> cs =
-                            new HashSet<>();
-					for (ChronicleEntry ce : coll)
-					{
-						if (ce.isOutputEntry() == wantExport)
-						{
-							cs.add(ce);
-						}
-					}
-					return cs;
-				}
-
-			};
+	};
 
 	public static final JepCountType CLASSES = new JepCountCDOMObject<PCClass>()
 	{
@@ -193,7 +178,7 @@ public abstract class JepCountType
 			return pc.getDisplay().getClassSet();
 		}
 	};
-	
+
 	public static final JepCountType DOMAINS = new JepCountCDOMObject<Domain>()
 	{
 		@Override
@@ -212,8 +197,7 @@ public abstract class JepCountType
 		}
 
 		@Override
-		protected Set<? extends Equipment> filterSetP(final String c,
-			Collection<Equipment> coll) throws ParseException
+		protected Set<? extends Equipment> filterSetP(final String c, Collection<Equipment> coll) throws ParseException
 		{
 			final String[] keyValue = c.split("=");
 
@@ -225,8 +209,7 @@ public abstract class JepCountType
 			}
 			catch (IllegalArgumentException ex)
 			{
-				Logging.errorPrint("Bad parameter to count(\"Equipment\"), "
-					+ c);
+				Logging.errorPrint("Bad parameter to count(\"Equipment\"), " + c);
 				return new HashSet<>();
 			}
 
@@ -238,7 +221,6 @@ public abstract class JepCountType
 				case TYPE:
 					filterPObjectByType(it, keyValue[1]);
 					break;
-
 				case WIELDCATEGORY:
 					while (it.hasNext())
 					{
@@ -249,13 +231,10 @@ public abstract class JepCountType
 						}
 					}
 					break;
-
 				// TODO have no idea how to get a suitable list of equipment
 				// and test for this.
-
 				case LOCATION:
-					if ("CARRIED".equalsIgnoreCase(keyValue[1])
-						|| "Equipped".equalsIgnoreCase(keyValue[1]))
+					if ("CARRIED".equalsIgnoreCase(keyValue[1]) || "Equipped".equalsIgnoreCase(keyValue[1]))
 					{
 						//					while (it.hasNext())
 						//					{
@@ -273,8 +252,10 @@ public abstract class JepCountType
 					break;
 				case WDC:
 					break;
+				default:
+					//Case not caught, should this cause an error?
+					break;
 			}
-
 			return cs;
 		}
 	};
@@ -301,8 +282,7 @@ public abstract class JepCountType
 	public static final JepCountType RACESUBTYPE = new JepCountType()
 	{
 		@Override
-		public Number count(PlayerCharacter pc, Object[] params)
-			throws ParseException
+		public Number count(PlayerCharacter pc, Object[] params) throws ParseException
 		{
 			return pc.getDisplay().getRacialSubTypeCount();
 		}
@@ -330,8 +310,7 @@ public abstract class JepCountType
 		}
 	};
 
-	public abstract Number count(PlayerCharacter pc, Object[] params)
-		throws ParseException;
+	public abstract Number count(PlayerCharacter pc, Object[] params) throws ParseException;
 
 	private static final class AspectFilter implements ObjectFilter<CNAbility>
 	{
@@ -342,10 +321,10 @@ public abstract class JepCountType
 			this.keyValue = keyValue;
 		}
 
+		@Override
 		public boolean accept(CNAbility o)
 		{
-			return o.getAbility().get(MapKey.ASPECT,
-				AspectName.getConstant(keyValue[1])) != null;
+			return o.getAbility().get(MapKey.ASPECT, AspectName.getConstant(keyValue[1])) != null;
 		}
 	}
 
@@ -358,6 +337,7 @@ public abstract class JepCountType
 			this.vi = vi;
 		}
 
+		@Override
 		public boolean accept(CNAbility o)
 		{
 			return o.getAbility().getSafe(ObjectKey.VISIBILITY).equals(vi);
@@ -373,6 +353,7 @@ public abstract class JepCountType
 			type = typ;
 		}
 
+		@Override
 		public boolean accept(CNAbility o)
 		{
 			//isType already accounts for A.B.C, so we don't have to do that here
@@ -389,6 +370,7 @@ public abstract class JepCountType
 			type = typ;
 		}
 
+		@Override
 		public boolean accept(CNAbility o)
 		{
 			//Since this is exclude on "any" we have to expand this out
@@ -396,8 +378,7 @@ public abstract class JepCountType
 			Ability a = o.getAbility();
 			while (tok.hasMoreTokens())
 			{
-				if (a.containsInList(ListKey.TYPE,
-					Type.getConstant(tok.nextToken())))
+				if (a.containsInList(ListKey.TYPE, Type.getConstant(tok.nextToken())))
 				{
 					return false;
 				}
@@ -415,6 +396,7 @@ public abstract class JepCountType
 			nature = n;
 		}
 
+		@Override
 		public boolean accept(CNAbility o)
 		{
 			return o.getNature().equals(nature);
@@ -432,6 +414,7 @@ public abstract class JepCountType
 			assocList = list;
 		}
 
+		@Override
 		public boolean accept(CNAbility o)
 		{
 			List<String> assocs = new ArrayList<>();
@@ -456,6 +439,7 @@ public abstract class JepCountType
 			this.name = keyValue;
 		}
 
+		@Override
 		public boolean accept(CNAbility o)
 		{
 			return o.getAbility().getDisplayName().equalsIgnoreCase(name);
@@ -471,6 +455,7 @@ public abstract class JepCountType
 			this.cat = cat;
 		}
 
+		@Override
 		public boolean accept(CNAbility o)
 		{
 			Category<Ability> parentCategory = o.getAbilityCategory().getParentCategory();
@@ -478,12 +463,10 @@ public abstract class JepCountType
 		}
 	}
 
-	public static abstract class JepCountCDOMObject<T extends CDOMObject>
-			extends JepCountFilterable<T>
+	public abstract static class JepCountCDOMObject<T extends CDOMObject> extends JepCountFilterable<T>
 	{
 		@Override
-		public Double count(PlayerCharacter pc, Object[] params)
-			throws ParseException
+		public Double count(PlayerCharacter pc, Object[] params) throws ParseException
 		{
 			return super.count(pc, validateParams(params));
 		}
@@ -492,7 +475,6 @@ public abstract class JepCountType
 		// counted and get a count of all e.g. count("ABILITIES") will return a
 		// count of all abilities with no filtering at all.
 		protected Object[] validateParams(final Object[] params)
-			throws ParseException
 		{
 			Object[] p = new Object[1];
 			if (1 > params.length)
@@ -507,15 +489,13 @@ public abstract class JepCountType
 		}
 
 		@Override
-		protected Set<? extends T> filterSetP(final String c, Collection<T> coll)
-			throws ParseException
+		protected Set<? extends T> filterSetP(final String c, Collection<T> coll) throws ParseException
 		{
 			final String[] keyValue = c.split("=");
 
 			if (!"TYPE".equalsIgnoreCase(keyValue[0]))
 			{
-				throw new ParseException(
-					"Bad parameter to count(\"CLASSES\" ... )" + c);
+				throw new ParseException("Bad parameter to count(\"CLASSES\" ... )" + c);
 			}
 
 			final Set<T> cs = new HashSet<>(coll);
@@ -525,8 +505,7 @@ public abstract class JepCountType
 			return cs;
 		}
 
-		protected void filterPObjectByType(final Iterator<? extends T> it,
-			final String tString)
+		protected void filterPObjectByType(final Iterator<? extends T> it, final String tString)
 		{
 			// If we want all then we don't need to filter.
 			if (!"ALL".equalsIgnoreCase(tString))
@@ -554,7 +533,7 @@ public abstract class JepCountType
 		}
 	}
 
-	public static abstract class JepCountFilterable<T> extends JepCountType
+	public abstract static class JepCountFilterable<T> extends JepCountType
 	{
 		protected abstract Collection<T> getData(final PlayerCharacter pc);
 
@@ -572,36 +551,29 @@ public abstract class JepCountType
 					}
 					else
 					{
-						final ParameterTree npt =
-								ParameterTree.makeTree(ParameterTree.andString);
+						final ParameterTree npt = ParameterTree.makeTree(ParameterTree.AND_STRING);
 						npt.setLeftTree(pt);
 						pt = npt;
-						final ParameterTree npt1 =
-								ParameterTree.makeTree((String) param);
+						final ParameterTree npt1 = ParameterTree.makeTree((String) param);
 						pt.setRightTree(npt1);
 					}
 				}
 				catch (ParseException pe)
 				{
-					Logging.errorPrint(MessageFormat.format(
-						"Malformed parameter to count {0}", param), pe);
+					Logging.errorPrint(MessageFormat.format("Malformed parameter to count {0}", param), pe);
 				}
 			}
 			return pt;
 		}
 
-		protected Collection<? extends T> doFilterP(final ParameterTree pt,
-			Collection<T> coll) throws ParseException
+		protected Collection<? extends T> doFilterP(final ParameterTree pt, Collection<T> coll) throws ParseException
 		{
 			final String c = pt.getContents();
-			if (c.equalsIgnoreCase(ParameterTree.orString)
-				|| c.equalsIgnoreCase(ParameterTree.andString))
+			if (c.equalsIgnoreCase(ParameterTree.OR_STRING) || c.equalsIgnoreCase(ParameterTree.AND_STRING))
 			{
-				final Set<T> a =
-                        new HashSet<>(doFilterP(pt.getLeftTree(), coll));
-				final Collection<? extends T> b =
-						doFilterP(pt.getRightTree(), coll);
-				if (c.equalsIgnoreCase(ParameterTree.orString))
+				final Set<T> a = new HashSet<>(doFilterP(pt.getLeftTree(), coll));
+				final Collection<? extends T> b = doFilterP(pt.getRightTree(), coll);
+				if (c.equalsIgnoreCase(ParameterTree.OR_STRING))
 				{
 					a.addAll(b);
 				}
@@ -615,15 +587,14 @@ public abstract class JepCountType
 		}
 
 		@Override
-		public Double count(PlayerCharacter pc, Object[] params)
-			throws ParseException
+		public Double count(PlayerCharacter pc, Object[] params) throws ParseException
 		{
 			final ParameterTree pt = convertParams(params);
 			Collection<T> data = getData(pc);
 			Collection<? extends T> results;
 			if (pt == null)
 			{
-				results = data;	
+				results = data;
 			}
 			else
 			{
@@ -632,18 +603,16 @@ public abstract class JepCountType
 			return countData(results, pc);
 		}
 
-		protected Double countData(final Collection<? extends T> filtered,
-			PlayerCharacter pc)
+		protected Double countData(final Collection<? extends T> filtered, PlayerCharacter pc)
 		{
 			return (double) filtered.size();
 		}
 
-		protected abstract Collection<? extends T> filterSetP(String c,
-			Collection<T> coll) throws ParseException;
+		protected abstract Collection<? extends T> filterSetP(String c, Collection<T> coll) throws ParseException;
 
 	}
 
-	public static abstract class JepCountAbilities extends JepCountFilterable<CNAbility>
+	public abstract static class JepCountAbilities extends JepCountFilterable<CNAbility>
 	{
 		protected final List<String> assocList = new ArrayList<>();
 
@@ -655,8 +624,7 @@ public abstract class JepCountType
 		}
 
 		@Override
-		protected Collection<? extends CNAbility> filterSetP(final String c,
-			Collection<CNAbility> coll)
+		protected Collection<? extends CNAbility> filterSetP(final String c, Collection<CNAbility> coll)
 		{
 			final String[] keyValue = c.split("=");
 			final JepAbilityCountEnum en;
@@ -701,9 +669,7 @@ public abstract class JepCountType
 					}
 					catch (IllegalArgumentException ex)
 					{
-						Logging
-							.errorPrint("Bad parameter to count(\"Ability\"), no such NATURE "
-								+ c);
+						Logging.errorPrint("Bad parameter to count(\"Ability\"), no such NATURE " + c);
 					}
 
 					break;
@@ -726,14 +692,16 @@ public abstract class JepCountType
 					}
 					catch (IllegalArgumentException ex)
 					{
-						Logging
-							.errorPrint("Bad parameter to count(\"Ability\"), no such Visibility "
-								+ keyValue[1]);
+						Logging.errorPrint("Bad parameter to count(\"Ability\"), no such Visibility " + keyValue[1]);
 					}
 					break;
 
 				case ASPECT:
 					filter = new AspectFilter(keyValue);
+					break;
+
+				default:
+					//Case not caught, should this cause an error?
 					break;
 			}
 
@@ -752,6 +720,7 @@ public abstract class JepCountType
 			return ret;
 		}
 	}
+
 	public interface ObjectFilter<T>
 	{
 		public boolean accept(T o);
@@ -764,8 +733,7 @@ public abstract class JepCountType
 		for (int i = 0; i < fields.length; i++)
 		{
 			int mod = fields[i].getModifiers();
-			if (Modifier.isStatic(mod) && Modifier.isFinal(mod)
-					&& Modifier.isPublic(mod))
+			if (Modifier.isStatic(mod) && Modifier.isFinal(mod) && Modifier.isPublic(mod))
 			{
 				try
 				{
@@ -782,7 +750,6 @@ public abstract class JepCountType
 			}
 		}
 	}
-
 
 	/**
 	 * Returns the constant for the given String (the search for the constant is
@@ -823,8 +790,7 @@ public abstract class JepCountType
 	{
 
 		@Override
-		public Number count(PlayerCharacter pc, Object[] params)
-			throws ParseException
+		public Number count(PlayerCharacter pc, Object[] params) throws ParseException
 		{
 			SkillFilter sf = null;
 			View v = View.ALL;
@@ -834,8 +800,7 @@ public abstract class JepCountType
 			}
 			if (params.length > 2)
 			{
-				Logging
-					.errorPrint("count(\"SKILLSIT\") allows up to 2 parameters");
+				Logging.errorPrint("count(\"SKILLSIT\") allows up to 2 parameters");
 			}
 			int nextparameter = 0;
 			//There is at least one parameter, but we don't know what kind
@@ -861,23 +826,18 @@ public abstract class JepCountType
 				v = View.getViewFromName(filtername.substring(5));
 				if (v == null)
 				{
-					Logging
-						.errorPrint("count(\"SKILLSIT\") found View it does not understand: "
-							+ filtername
-							+ " Legal values are: "
-							+ Arrays.asList(View.values()));
+					Logging.errorPrint("count(\"SKILLSIT\") found View it does not understand: " + filtername
+						+ " Legal values are: " + Arrays.asList(View.values()));
 				}
 			}
 			else
 			{
-				Logging
-					.errorPrint("count(\"SKILLSIT\") found parameter (Skill Filter?) "
-						+ "it does not understand: " + filtername);
+				Logging.errorPrint(
+					"count(\"SKILLSIT\") found parameter (Skill Filter?) " + "it does not understand: " + filtername);
 			}
 			while (nextparameter != params.length)
 			{
-				Logging.errorPrint("count(\"SKILLSIT\") found parameter "
-					+ "it did not expect (out of order?): '"
+				Logging.errorPrint("count(\"SKILLSIT\") found parameter " + "it did not expect (out of order?): '"
 					+ params[nextparameter++] + "'.  Parameter was ignored.");
 			}
 			return processCount(pc, sf, v);
@@ -891,19 +851,15 @@ public abstract class JepCountType
 			}
 			int count = 0;
 			final List<Skill> skills =
-					SkillDisplay.getSkillListInOutputOrder(pc, pc.getDisplay()
-						.getPartialSkillList(v));
+					SkillDisplay.getSkillListInOutputOrder(pc, pc.getDisplay().getPartialSkillList(v));
 			for (Skill sk : skills)
 			{
 				if (pc.includeSkill(sk, sf) && sk.qualifies(pc, null))
 				{
 					count++; //For the skill
-					for (String situation : sk
-						.getUniqueListFor(ListKey.SITUATION))
+					for (String situation : sk.getUniqueListFor(ListKey.SITUATION))
 					{
-						double bonus =
-								pc.getTotalBonusTo("SITUATION", sk.getKeyName()
-									+ '=' + situation);
+						double bonus = pc.getTotalBonusTo("SITUATION", sk.getKeyName() + '=' + situation);
 						if (bonus > 0.01 || bonus < -0.01)
 						{
 							count++;
@@ -918,8 +874,8 @@ public abstract class JepCountType
 		{
 			if (pc == null)
 			{
-				return SkillFilter.getByValue(PCGenSettings.OPTIONS_CONTEXT.initInt(
-					PCGenSettings.OPTION_SKILL_FILTER, SkillFilter.Usable.getValue()));
+				return SkillFilter.getByValue(PCGenSettings.OPTIONS_CONTEXT.initInt(PCGenSettings.OPTION_SKILL_FILTER,
+					SkillFilter.Usable.getValue()));
 			}
 			else
 			{

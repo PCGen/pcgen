@@ -33,8 +33,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with SPELLRES Token
  */
-public class SpellresToken extends AbstractTokenWithSeparator<Spell> implements
-		CDOMPrimaryToken<Spell>
+public class SpellresToken extends AbstractTokenWithSeparator<Spell> implements CDOMPrimaryToken<Spell>
 {
 
 	@Override
@@ -50,8 +49,7 @@ public class SpellresToken extends AbstractTokenWithSeparator<Spell> implements
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		Spell spell, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, Spell spell, String value)
 	{
 		StringTokenizer aTok = new StringTokenizer(value, Constants.PIPE);
 
@@ -63,16 +61,13 @@ public class SpellresToken extends AbstractTokenWithSeparator<Spell> implements
 			{
 				if (!first)
 				{
-					return new ParseResult.Fail("Non-sensical use of .CLEAR in "
-							+ getTokenName() + ": " + value);
+					return new ParseResult.Fail("Non-sensical use of .CLEAR in " + getTokenName() + ": " + value);
 				}
-				context.getObjectContext().removeList(spell,
-						ListKey.SPELL_RESISTANCE);
+				context.getObjectContext().removeList(spell, ListKey.SPELL_RESISTANCE);
 			}
 			else
 			{
-				context.getObjectContext().addToList(spell,
-						ListKey.SPELL_RESISTANCE, tok);
+				context.getObjectContext().addToList(spell, ListKey.SPELL_RESISTANCE, tok);
 			}
 			first = false;
 		}
@@ -82,8 +77,7 @@ public class SpellresToken extends AbstractTokenWithSeparator<Spell> implements
 	@Override
 	public String[] unparse(LoadContext context, Spell spell)
 	{
-		Changes<String> changes = context.getObjectContext().getListChanges(
-				spell, ListKey.SPELL_RESISTANCE);
+		Changes<String> changes = context.getObjectContext().getListChanges(spell, ListKey.SPELL_RESISTANCE);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;
@@ -105,12 +99,11 @@ public class SpellresToken extends AbstractTokenWithSeparator<Spell> implements
 		}
 		if (sb.length() == 0)
 		{
-			context.addWriteMessage(getTokenName()
-					+ " was expecting non-empty changes to include "
-					+ "added items or global clear");
+			context.addWriteMessage(
+				getTokenName() + " was expecting non-empty changes to include " + "added items or global clear");
 			return null;
 		}
-		return new String[] { sb.toString() };
+		return new String[]{sb.toString()};
 	}
 
 	@Override

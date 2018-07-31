@@ -39,11 +39,9 @@ public class SimpleLoader<T extends Loadable> extends LstLineFileLoader
 	}
 
 	@Override
-	public void parseLine(LoadContext context, String lstLine, URI sourceURI)
-			throws PersistenceLayerException
+	public void parseLine(LoadContext context, String lstLine, URI sourceURI) throws PersistenceLayerException
 	{
-		StringTokenizer colToken = new StringTokenizer(lstLine,
-				SystemLoader.TAB_DELIM);
+		StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 		String firstToken = colToken.nextToken().trim();
 		Loadable loadable = getLoadable(context, firstToken.intern(), sourceURI);
 		if (loadable == null)
@@ -57,8 +55,7 @@ public class SimpleLoader<T extends Loadable> extends LstLineFileLoader
 		}
 	}
 
-	protected T getLoadable(LoadContext context, String firstToken,
-			URI sourceURI) throws PersistenceLayerException
+	protected T getLoadable(LoadContext context, String firstToken, URI sourceURI)
 	{
 		String name = processFirstToken(context, firstToken);
 		if (name == null)

@@ -69,8 +69,7 @@ public class SubtractingFormula implements ReferenceFormula<Integer>
 	{
 		if (numbers == null || numbers.length != 1)
 		{
-			throw new IllegalArgumentException(
-					"SubtractingFormula only has one back-reference");
+			throw new IllegalArgumentException("SubtractingFormula only has one back-reference");
 		}
 		return numbers[0].intValue() - sub;
 	}
@@ -112,7 +111,6 @@ public class SubtractingFormula implements ReferenceFormula<Integer>
 	@Override
 	public boolean equals(Object obj)
 	{
-		return obj instanceof SubtractingFormula
-				&& ((SubtractingFormula) obj).sub == sub;
+		return obj instanceof SubtractingFormula && ((SubtractingFormula) obj).sub == sub;
 	}
 }

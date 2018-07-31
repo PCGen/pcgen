@@ -33,9 +33,8 @@ import pcgen.core.WeaponProf;
  * implicitly granted to a Player Character via NATURALATTACKS
  * 
  */
-public class NaturalWeaponProfFacet extends
-		AbstractSourcedListFacet<CharID, WeaponProf> implements
-		DataFacetChangeListener<CharID, CDOMObject>
+public class NaturalWeaponProfFacet extends AbstractSourcedListFacet<CharID, WeaponProf>
+		implements DataFacetChangeListener<CharID, CDOMObject>
 {
 
 	/**
@@ -58,8 +57,7 @@ public class NaturalWeaponProfFacet extends
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
 		// Natural Weapon Proficiencies
-		List<CDOMSingleRef<WeaponProf>> iwp = cdo
-				.getListFor(ListKey.IMPLIED_WEAPONPROF);
+		List<CDOMSingleRef<WeaponProf>> iwp = cdo.getListFor(ListKey.IMPLIED_WEAPONPROF);
 		if (iwp != null)
 		{
 			CharID id = dfce.getCharID();

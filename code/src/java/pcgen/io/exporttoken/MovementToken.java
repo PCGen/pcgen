@@ -46,8 +46,7 @@ public class MovementToken extends AbstractExportToken
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, CharacterDisplay display,
-		ExportHandler eh)
+	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
 	{
 		String retString = "";
 		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
@@ -99,8 +98,7 @@ public class MovementToken extends AbstractExportToken
 
 	public static String getRateToken(double movement)
 	{
-		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(
-			movement)
+		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(movement)
 			+ Globals.getGameModeUnitSet().getDistanceUnit();
 	}
 }

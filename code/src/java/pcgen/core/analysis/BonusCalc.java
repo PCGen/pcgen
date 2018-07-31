@@ -52,28 +52,22 @@ public final class BonusCalc
 		return (int) BonusCalc.charBonusTo(po, "STAT", stat.getKeyName(), aPC);
 	}
 
-	public static double bonusTo(
-		PObject po,
-		String aType,
-		String aName,
-		final Object obj,
-		final Collection<BonusObj> aBonusList,
-		final PlayerCharacter aPC)
+	public static double bonusTo(PObject po, String aType, String aName, final Object obj,
+		final Collection<BonusObj> aBonusList, final PlayerCharacter aPC)
 	{
 		if ((aBonusList == null) || (aBonusList.isEmpty()))
 		{
 			return 0;
 		}
-	
+
 		double retVal = 0;
-	
+
 		aType = aType.toUpperCase();
 		aName = aName.toUpperCase();
-	
+
 		final String aTypePlusName = new StringBuilder(aType).append('.').append(aName).append('.').toString();
-	
-		if (!BonusCalc.dontRecurse && (po instanceof Ability)
-			&& (AbilityUtilities.isFeat(obj))
+
+		if (!BonusCalc.dontRecurse && (po instanceof Ability) && (AbilityUtilities.isFeat(obj))
 			&& !Globals.checkRule(RuleConstants.FEATPRE))
 		{
 			// SUCK!  This is horrid, but bonusTo is actually recursive with respect to
@@ -81,77 +75,65 @@ public final class BonusCalc
 			// dependencies.  I am loathe to break working code.
 			// This addresses bug #709677 -- Feats give bonuses even if you no longer qualify
 			BonusCalc.dontRecurse = true;
-	
+
 			boolean returnZero = false;
-	
+
 			if (!po.qualifies(aPC, po))
 			{
 				returnZero = true;
 			}
-	
+
 			BonusCalc.dontRecurse = false;
-	
+
 			if (returnZero)
 			{
 				return 0;
 			}
 		}
-	
+
 		int iTimes = 1;
-	
+
 		if (aPC != null && "VAR".equals(aType))
 		{
 			iTimes = Math.max(1, aPC.getConsolidatedAssociationList(po).size());
 		}
-	
+
 		for (BonusObj bonus : aBonusList)
 		{
 			String bString = bonus.toString().toUpperCase();
-	
+
 			if (aPC != null && !aPC.getConsolidatedAssociationList(po).isEmpty())
 			{
 				int span = 4;
 				int idx = bString.indexOf("%VAR");
-	
+
 				if (idx == -1)
 				{
 					idx = bString.indexOf("%LIST|");
 					span = 5;
 				}
-	
+
 				if (idx >= 0)
 				{
 					final String firstPart = bString.substring(0, idx);
 					final String secondPart = bString.substring(idx + span);
-	
+
 					for (String assoc : aPC.getConsolidatedAssociationList(po))
 					{
-						final String xString = new StringBuilder(50)
-							.append(firstPart)
-							.append(assoc)
-							.append(secondPart)
+						final String xString = new StringBuilder(50).append(firstPart).append(assoc).append(secondPart)
 							.toString().toUpperCase();
 
-						retVal += BonusCalc.calcBonus(
-							po,
-							xString,
-							aType,
-							aName,
-							aTypePlusName,
-							obj,
-							iTimes,
-							bonus,
-							aPC);
+						retVal +=
+								BonusCalc.calcBonus(po, xString, aType, aName, aTypePlusName, obj, iTimes, bonus, aPC);
 					}
 				}
 			}
 			else
 			{
-				retVal += BonusCalc.calcBonus(po,
-					bString, aType, aName, aTypePlusName, obj, iTimes, bonus, aPC);
+				retVal += BonusCalc.calcBonus(po, bString, aType, aName, aTypePlusName, obj, iTimes, bonus, aPC);
 			}
 		}
-	
+
 		return retVal;
 	}
 
@@ -167,20 +149,12 @@ public final class BonusCalc
 	 * @param aPC
 	 * @return the bonus
 	 */
-	public static double charBonusTo(
-		PObject po,
-		final String aType,
-		final String aName,
-		final PlayerCharacter aPC)
+	public static double charBonusTo(PObject po, final String aType, final String aName, final PlayerCharacter aPC)
 	{
 		return bonusTo(po, aType, aName, aPC, po.getBonusList(aPC), aPC);
 	}
 
-	public static double equipBonusTo(
-		Equipment po,
-		final String aType,
-		final String aName,
-		final PlayerCharacter aPC)
+	public static double equipBonusTo(Equipment po, final String aType, final String aName, final PlayerCharacter aPC)
 	{
 		return bonusTo(po, aType, aName, po, po.getBonusList(po), aPC);
 	}
@@ -199,59 +173,45 @@ public final class BonusCalc
 	 * @param aPC
 	 * @return the value of the bonus
 	 */
-	private static double calcBonus(
-		PObject po,
-		final String bString,
-		final String aType,
-		final String aName,
-		String aTypePlusName,
-		final Object obj,
-		final int iTimes,
-		final BonusObj aBonusObj,
-		final PlayerCharacter aPC)
+	private static double calcBonus(PObject po, final String bString, final String aType, final String aName,
+		String aTypePlusName, final Object obj, final int iTimes, final BonusObj aBonusObj, final PlayerCharacter aPC)
 	{
 		final StringTokenizer aTok = new StringTokenizer(bString, "|");
-	
+
 		if (aTok.countTokens() < 3)
 		{
 			Logging.errorPrint("Badly formed BONUS:" + bString);
-	
+
 			return 0;
 		}
-	
+
 		String aString = aTok.nextToken();
-	
-		if (!aString.equalsIgnoreCase(aType) || aString.endsWith("%LIST")
-			|| aName.equals("ALL"))
+
+		if (!aString.equalsIgnoreCase(aType) || aString.endsWith("%LIST") || aName.equals("ALL"))
 		{
 			return 0;
 		}
-	
+
 		final String aList = aTok.nextToken();
-	
-		if (!aList.equals("LIST")
-			&& !aList.equals("ALL")
-			&& (!aList.toUpperCase().contains(aName.toUpperCase())))
+
+		if (!aList.equals("LIST") && !aList.equals("ALL") && (!aList.toUpperCase().contains(aName.toUpperCase())))
 		{
 			return 0;
 		}
-	
-		if (aList.equals("ALL")
-			&& ((aName.contains("STAT="))
-				|| (aName.contains("TYPE="))
-				|| (aName.contains("LIST"))
-				|| (aName.contains("VAR"))))
+
+		if (aList.equals("ALL") && ((aName.contains("STAT=")) || (aName.contains("TYPE=")) || (aName.contains("LIST"))
+			|| (aName.contains("VAR"))))
 		{
 			return 0;
 		}
-	
+
 		if (aTok.hasMoreTokens())
 		{
 			aString = aTok.nextToken();
 		}
-	
+
 		double iBonus = 0;
-	
+
 		if (obj instanceof PlayerCharacter)
 		{
 			iBonus = ((PlayerCharacter) obj).getVariableValue(aString, "").doubleValue();
@@ -272,9 +232,9 @@ public final class BonusCalc
 				Logging.errorPrint("calcBonus NumberFormatException in BONUS: " + aString, e);
 			}
 		}
-	
+
 		final String possibleBonusTypeString = aBonusObj.getTypeString();
-	
+
 		// must meet criteria before adding any bonuses
 		if (obj instanceof PlayerCharacter)
 		{
@@ -290,13 +250,13 @@ public final class BonusCalc
 				return 0;
 			}
 		}
-	
+
 		double bonus = 0;
 
 		String bonusTypeString = null;
-	
+
 		final StringTokenizer bTok = new StringTokenizer(aList, ",");
-	
+
 		if (aList.equalsIgnoreCase("LIST"))
 		{
 			bTok.nextToken();
@@ -309,7 +269,7 @@ public final class BonusCalc
 			bonus = iBonus;
 			bonusTypeString = possibleBonusTypeString;
 		}
-	
+
 		while (bTok.hasMoreTokens())
 		{
 			if (bTok.nextToken().equalsIgnoreCase(aName))
@@ -318,19 +278,19 @@ public final class BonusCalc
 				bonusTypeString = possibleBonusTypeString;
 			}
 		}
-	
+
 		if (obj instanceof Equipment)
 		{
 			((Equipment) obj).setBonusStackFor(bonus * iTimes, aTypePlusName + bonusTypeString);
 		}
-	
+
 		// The "ALL" subtag is used to build the stacking bonusMap
 		// not to get a bonus value, so just return
 		if (aList.equals("ALL"))
 		{
 			return 0;
 		}
-	
+
 		return bonus * iTimes;
 	}
 

@@ -47,6 +47,7 @@ public class CampaignHistoryTokenTest  extends AbstractCharacterTestCase
 	/**
 	 * @throws java.lang.Exception
 	 */
+	@Override
 	@Before
 	public void setUp() throws Exception
 	{

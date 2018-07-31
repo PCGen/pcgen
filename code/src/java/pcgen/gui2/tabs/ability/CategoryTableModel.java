@@ -22,9 +22,9 @@ import javax.swing.JTable;
 
 import pcgen.facade.core.AbilityCategoryFacade;
 import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.event.ChangeEvent;
 import pcgen.facade.util.event.ChangeListener;
-import pcgen.facade.util.ListFacade;
 import pcgen.gui2.filter.Filter;
 import pcgen.gui2.filter.FilteredListFacadeTableModel;
 
@@ -33,17 +33,14 @@ import pcgen.gui2.filter.FilteredListFacadeTableModel;
  * their pool points.
  * 
  */
-public class CategoryTableModel extends
-		FilteredListFacadeTableModel<AbilityCategoryFacade> implements
-		ChangeListener
+public class CategoryTableModel extends FilteredListFacadeTableModel<AbilityCategoryFacade> implements ChangeListener
 {
 
 	boolean installed = false;
 	private final JTable categoryTable;
-	
-	public CategoryTableModel(CharacterFacade character,
-							  ListFacade<AbilityCategoryFacade> categories,
-							  Filter<CharacterFacade, AbilityCategoryFacade> filter, JTable theCategoryTable)
+
+	public CategoryTableModel(CharacterFacade character, ListFacade<AbilityCategoryFacade> categories,
+		Filter<CharacterFacade, AbilityCategoryFacade> filter, JTable theCategoryTable)
 	{
 		super(character);
 		this.categoryTable = theCategoryTable;
@@ -75,8 +72,7 @@ public class CategoryTableModel extends
 	@Override
 	public void setValueAt(Object aValue, int rowIndex, int columnIndex)
 	{
-		character.setRemainingSelection(sortedList.getElementAt(rowIndex),
-										(Integer) aValue);
+		character.setRemainingSelection(sortedList.getElementAt(rowIndex), (Integer) aValue);
 	}
 
 	@Override
@@ -143,7 +139,7 @@ public class CategoryTableModel extends
 				fireTableRowsUpdated(i, i);
 			}
 		}
-		
+
 		if (facade != null)
 		{
 			for (int i = 0; i < sortedList.getSize(); i++)

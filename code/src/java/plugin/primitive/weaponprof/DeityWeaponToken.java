@@ -42,8 +42,7 @@ public class DeityWeaponToken implements PrimitiveToken<WeaponProf>
 	private static final Class<WeaponProf> WEAPONPROF_CLASS = WeaponProf.class;
 
 	@Override
-	public boolean initialize(LoadContext context, Class<WeaponProf> cl,
-			String value, String args)
+	public boolean initialize(LoadContext context, Class<WeaponProf> cl, String value, String args)
 	{
 		return (value == null) && (args == null);
 	}
@@ -93,8 +92,7 @@ public class DeityWeaponToken implements PrimitiveToken<WeaponProf>
 			return Collections.emptySet();
 		}
 		HashSet<R> set = new HashSet<>();
-		List<CDOMReference<WeaponProf>> dwp = deity
-				.getSafeListFor(ListKey.DEITYWEAPON);
+		List<CDOMReference<WeaponProf>> dwp = deity.getSafeListFor(ListKey.DEITYWEAPON);
 		for (CDOMReference<WeaponProf> ref : dwp)
 		{
 			set.addAll(c.convert(ref));

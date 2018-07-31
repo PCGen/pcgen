@@ -35,10 +35,10 @@ import javax.swing.event.ListSelectionListener;
 
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.KitFacade;
-import pcgen.facade.util.event.ListEvent;
-import pcgen.facade.util.event.ListListener;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.event.ListEvent;
+import pcgen.facade.util.event.ListListener;
 import pcgen.gui2.filter.Filter;
 import pcgen.gui2.filter.FilterBar;
 import pcgen.gui2.filter.FilterButton;
@@ -139,7 +139,6 @@ public class KitPanel extends FlippingSplitPane
 		setResizeWeight(0.75);
 	}
 
-
 	private void initDefaults()
 	{
 		InfoHandler infoHandler = new InfoHandler(character);
@@ -148,7 +147,7 @@ public class KitPanel extends FlippingSplitPane
 
 		KitFilterHandler kitFilterHandler = new KitFilterHandler(character);
 		kitFilterHandler.install();
-		
+
 		availableTable.addActionListener(addAction);
 	}
 
@@ -188,7 +187,7 @@ public class KitPanel extends FlippingSplitPane
 			this.character = character;
 		}
 
-        @Override
+		@Override
 		public void valueChanged(ListSelectionEvent e)
 		{
 			if (!e.getValueIsAdjusting())
@@ -231,7 +230,7 @@ public class KitPanel extends FlippingSplitPane
 			putValue(SMALL_ICON, Icons.Forward16.getImageIcon());
 		}
 
-        @Override
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			List<Object> data = availableTable.getSelectedData();
@@ -247,12 +246,11 @@ public class KitPanel extends FlippingSplitPane
 
 	}
 
-	private static class KitTreeViewModel
-			implements TreeViewModel<KitFacade>, DataView<KitFacade>,
+	private static class KitTreeViewModel implements TreeViewModel<KitFacade>, DataView<KitFacade>,
 			Filter<CharacterFacade, KitFacade>, ListListener<KitFacade>
 	{
 
-		private static final DefaultListFacade<? extends TreeView<KitFacade>> treeViews =
+		private static final DefaultListFacade<? extends TreeView<KitFacade>> TREE_VIEWS =
 				new DefaultListFacade<TreeView<KitFacade>>(Arrays.asList(KitTreeView.values()));
 		private final List<DefaultDataViewColumn> columns;
 		private final CharacterFacade character;
@@ -272,35 +270,35 @@ public class KitPanel extends FlippingSplitPane
 				kits.setDelegate(kitList);
 				character.getKits().addListListener(this);
 				columns = Arrays.asList(new DefaultDataViewColumn("in_descrip", String.class, false), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_source", String.class, false)); //$NON-NLS-1$
+					new DefaultDataViewColumn("in_source", String.class, false)); //$NON-NLS-1$
 			}
 			else
 			{
 				kits = null;
 				columns = Arrays.asList(new DefaultDataViewColumn("in_descrip", String.class, false), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_source", String.class, false)); //$NON-NLS-1$
+					new DefaultDataViewColumn("in_source", String.class, false)); //$NON-NLS-1$
 			}
 		}
 
-        @Override
+		@Override
 		public ListFacade<? extends TreeView<KitFacade>> getTreeViews()
 		{
-			return treeViews;
+			return TREE_VIEWS;
 		}
 
-        @Override
+		@Override
 		public int getDefaultTreeViewIndex()
 		{
 			return 0;
 		}
 
-        @Override
+		@Override
 		public DataView<KitFacade> getDataView()
 		{
 			return this;
 		}
 
-        @Override
+		@Override
 		public ListFacade<KitFacade> getDataModel()
 		{
 			if (isAvailModel)
@@ -316,7 +314,8 @@ public class KitPanel extends FlippingSplitPane
 		@Override
 		public Object getData(KitFacade element, int column)
 		{
-			switch(column){
+			switch (column)
+			{
 				case 0:
 					return character.getInfoFactory().getDescription(element);
 				case 1:
@@ -331,25 +330,25 @@ public class KitPanel extends FlippingSplitPane
 		{
 		}
 
-        @Override
+		@Override
 		public List<? extends DataViewColumn> getDataColumns()
 		{
 			return columns;
 		}
 
-        @Override
+		@Override
 		public void elementAdded(ListEvent<KitFacade> e)
 		{
 			kits.refilter();
 		}
 
-        @Override
+		@Override
 		public void elementRemoved(ListEvent<KitFacade> e)
 		{
 			kits.refilter();
 		}
 
-        @Override
+		@Override
 		public void elementsChanged(ListEvent<KitFacade> e)
 		{
 			kits.refilter();
@@ -361,17 +360,16 @@ public class KitPanel extends FlippingSplitPane
 			kits.refilter();
 		}
 
-        @Override
+		@Override
 		public boolean accept(CharacterFacade context, KitFacade element)
 		{
-			return !element.isPermanent()
-				|| !context.getKits().containsElement(element);
+			return !element.isPermanent() || !context.getKits().containsElement(element);
 		}
 
 		@Override
 		public String getPrefsKey()
 		{
-			return isAvailModel ? "KitTreeAvail" : "KitTreeSelected";  //$NON-NLS-1$//$NON-NLS-2$
+			return isAvailModel ? "KitTreeAvail" : "KitTreeSelected"; //$NON-NLS-1$//$NON-NLS-2$
 		}
 
 	}
@@ -389,14 +387,14 @@ public class KitPanel extends FlippingSplitPane
 			this.name = name;
 		}
 
-        @Override
+		@Override
 		public String getViewName()
 		{
 			return name;
 		}
 
 		@SuppressWarnings("unchecked")
-        @Override
+		@Override
 		public List<TreeViewPath<KitFacade>> getPaths(KitFacade pobj)
 		{
 			switch (this)
@@ -405,8 +403,7 @@ public class KitPanel extends FlippingSplitPane
 					return Collections.singletonList(new TreeViewPath<>(pobj));
 				case TYPE_NAME:
 					TreeViewPath<KitFacade> path =
-							createTreeViewPath(pobj, (Object[]) pobj
-								.getDisplayType().split("\\.")); //$NON-NLS-1$
+							createTreeViewPath(pobj, (Object[]) pobj.getDisplayType().split("\\.")); //$NON-NLS-1$
 					return Arrays.asList(path);
 				case SOURCE_NAME:
 					return Collections.singletonList(new TreeViewPath<>(pobj, pobj.getSource()));
@@ -421,8 +418,7 @@ public class KitPanel extends FlippingSplitPane
 		 * @param path The paths under which the kit should be shown.
 		 * @return The TreeViewPath.
 		 */
-		private static TreeViewPath<KitFacade> createTreeViewPath(KitFacade pobj,
-		                                                          Object... path)
+		private static TreeViewPath<KitFacade> createTreeViewPath(KitFacade pobj, Object... path)
 		{
 			if (path.length == 0)
 			{

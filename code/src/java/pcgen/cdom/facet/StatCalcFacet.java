@@ -30,25 +30,16 @@ import pcgen.core.PCStat;
 public class StatCalcFacet
 {
 
-	private StatValueFacet statValueFacet = FacetLibrary
-		.getFacet(StatValueFacet.class);
-	private StatLockFacet statLockFacet = FacetLibrary
-		.getFacet(StatLockFacet.class);
-	private UnlockedStatFacet unlockedStatFacet = FacetLibrary
-		.getFacet(UnlockedStatFacet.class);
-	private NonStatStatFacet nonStatStatFacet = FacetLibrary
-			.getFacet(NonStatStatFacet.class);
-	private NonStatToStatFacet nonStatToStatFacet = FacetLibrary
-			.getFacet(NonStatToStatFacet.class);
-	private StatMinValueFacet statMinValueFacet = FacetLibrary
-			.getFacet(StatMinValueFacet.class);
-	private StatMaxValueFacet statMaxValueFacet = FacetLibrary
-			.getFacet(StatMaxValueFacet.class);
+	private StatValueFacet statValueFacet = FacetLibrary.getFacet(StatValueFacet.class);
+	private StatLockFacet statLockFacet = FacetLibrary.getFacet(StatLockFacet.class);
+	private UnlockedStatFacet unlockedStatFacet = FacetLibrary.getFacet(UnlockedStatFacet.class);
+	private NonStatStatFacet nonStatStatFacet = FacetLibrary.getFacet(NonStatStatFacet.class);
+	private NonStatToStatFacet nonStatToStatFacet = FacetLibrary.getFacet(NonStatToStatFacet.class);
+	private StatMinValueFacet statMinValueFacet = FacetLibrary.getFacet(StatMinValueFacet.class);
+	private StatMaxValueFacet statMaxValueFacet = FacetLibrary.getFacet(StatMaxValueFacet.class);
 
-	private VariableCheckingFacet variableCheckingFacet = FacetLibrary
-		.getFacet(VariableCheckingFacet.class);
-	private BonusCheckingFacet bonusCheckingFacet = FacetLibrary
-		.getFacet(BonusCheckingFacet.class);
+	private VariableCheckingFacet variableCheckingFacet = FacetLibrary.getFacet(VariableCheckingFacet.class);
+	private BonusCheckingFacet bonusCheckingFacet = FacetLibrary.getFacet(BonusCheckingFacet.class);
 
 	/**
 	 * Calculate the total for the requested stat. If equipment or temporary
@@ -84,17 +75,14 @@ public class StatCalcFacet
 		{
 			maxStatValue = val.intValue();
 		}
-		
+
 		// Only check for a lock if the stat hasn't been unlocked
 		if (!unlockedStatFacet.contains(id, stat))
 		{
 			val = statLockFacet.getLockedStat(id, stat);
 			if (val != null)
 			{
-				int total =
-						val.intValue()
-							+ (int) bonusCheckingFacet.getBonus(id,
-								"LOCKEDSTAT", stat.getKeyName());
+				int total = val.intValue() + (int) bonusCheckingFacet.getBonus(id, "LOCKEDSTAT", stat.getKeyName());
 				total = Math.min(maxStatValue, total);
 				return Math.max(minStatValue, total);
 			}
@@ -142,9 +130,7 @@ public class StatCalcFacet
 			}
 		}
 
-		int z =
-				variableCheckingFacet.getVariableValue(id,
-					"BASE." + stat.getKeyName()).intValue();
+		int z = variableCheckingFacet.getVariableValue(id, "BASE." + stat.getKeyName()).intValue();
 
 		if (z != 0)
 		{
@@ -158,20 +144,19 @@ public class StatCalcFacet
 
 	public int getStatModFor(CharID id, PCStat stat)
 	{
-		return variableCheckingFacet.getVariableValue(id,
-			stat.getSafe(FormulaKey.STAT_MOD).toString(),
-			"STAT:" + stat.getKeyName()).intValue();
+		return variableCheckingFacet
+			.getVariableValue(id, stat.getSafe(FormulaKey.STAT_MOD).toString(), "STAT:" + stat.getKeyName()).intValue();
 	}
 
 	public int getModFornumber(CharID id, int aNum, PCStat stat)
 	{
-		return variableCheckingFacet.getVariableValue(id,
-			stat.getSafe(FormulaKey.STAT_MOD).toString(),
-			Integer.toString(aNum)).intValue();
+		return variableCheckingFacet
+			.getVariableValue(id, stat.getSafe(FormulaKey.STAT_MOD).toString(), Integer.toString(aNum)).intValue();
 	}
 
 	/**
-	 * Retrieve the value of the stat with just the included bonuses. This may exclude things such as temporary or equipment bonuses at the caller's discretion.
+	 * Retrieve the value of the stat with just the included bonuses.
+	 * This may exclude things such as temporary or equipment bonuses at the caller's discretion.
 	 * 
 	 * @param stat
 	 *            The stat to calculate the bonus for.

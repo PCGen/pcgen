@@ -32,8 +32,8 @@ import pcgen.util.Logging;
 /**
  * Class deals with LEGS Token
  */
-public class SizeNumToken extends AbstractIntToken<SizeAdjustment> implements
-		CDOMPrimaryToken<SizeAdjustment>, PostValidationToken<SizeAdjustment>
+public class SizeNumToken extends AbstractIntToken<SizeAdjustment>
+		implements CDOMPrimaryToken<SizeAdjustment>, PostValidationToken<SizeAdjustment>
 {
 
 	@Override
@@ -61,8 +61,7 @@ public class SizeNumToken extends AbstractIntToken<SizeAdjustment> implements
 	}
 
 	@Override
-	public boolean process(LoadContext context,
-		Collection<? extends SizeAdjustment> obj)
+	public boolean process(LoadContext context, Collection<? extends SizeAdjustment> obj)
 	{
 		boolean returnValue = true;
 		Map<Integer, SizeAdjustment> map = new TreeMap<>();
@@ -71,16 +70,15 @@ public class SizeNumToken extends AbstractIntToken<SizeAdjustment> implements
 			Integer sizenum = sa.get(IntegerKey.SIZENUM);
 			if (sizenum == null)
 			{
-				Logging.errorPrint("Size: " + sa.getKeyName()
-					+ " did not have a SIZENUM (cannot be assumed)");
+				Logging.errorPrint("Size: " + sa.getKeyName() + " did not have a SIZENUM (cannot be assumed)");
 				returnValue = false;
 				continue;
 			}
 			SizeAdjustment previous = map.put(sizenum, sa);
 			if (previous != null)
 			{
-				Logging.errorPrint("Size: " + sa.getKeyName() + " and size: "
-					+ previous.getKeyName() + " had identical SIZENUM: " + sizenum);
+				Logging.errorPrint("Size: " + sa.getKeyName() + " and size: " + previous.getKeyName()
+					+ " had identical SIZENUM: " + sizenum);
 				returnValue = false;
 			}
 		}

@@ -50,7 +50,7 @@ public class RequiredTokenTest extends TestCase
 	protected static CampaignSourceEntry testCampaign;
 
 	@BeforeClass
-	public static void classSetUp() throws URISyntaxException
+	public static void classSetUp()
 	{
 		testCampaign =
 				new CampaignSourceEntry(new Campaign(), TestURI.getURI());
@@ -82,19 +82,19 @@ public class RequiredTokenTest extends TestCase
 	}
 
 	@Test
-	public void testInvalidInputNullString() throws PersistenceLayerException
+	public void testInvalidInputNullString()
 	{
 		assertFalse(token.parseToken(context, cd, null).passed());
 	}
 
 	@Test
-	public void testInvalidInputEmptyString() throws PersistenceLayerException
+	public void testInvalidInputEmptyString()
 	{
 		assertFalse(token.parseToken(context, cd, "").passed());
 	}
 
 	@Test
-	public void testValidStringYes() throws PersistenceLayerException
+	public void testValidStringYes()
 	{
 		assertNull(cd.getRequired());
 		assertTrue(token.parseToken(context, cd, "YES").passed());
@@ -107,7 +107,7 @@ public class RequiredTokenTest extends TestCase
 	}
 
 	@Test
-	public void testValidStringNo() throws PersistenceLayerException
+	public void testValidStringNo()
 	{
 		assertNull(cd.getRequired());
 		assertTrue(token.parseToken(context, cd, "NO").passed());

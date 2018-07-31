@@ -38,7 +38,6 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
-
 public final class BioSetLoader extends LstLineFileLoader
 {
 	private static String regionName = Constants.NONE;
@@ -58,8 +57,7 @@ public final class BioSetLoader extends LstLineFileLoader
 	}
 
 	@Override
-	public void loadLstFile(LoadContext context, URI fileName)
-			throws PersistenceLayerException
+	public void loadLstFile(LoadContext context, URI fileName) throws PersistenceLayerException
 	{
 		currentAgeSetIndex = 0;
 		final GameMode game = SystemCollections.getGameModeNamed(gameMode);
@@ -77,18 +75,16 @@ public final class BioSetLoader extends LstLineFileLoader
 			int pipeLoc = line.indexOf('|');
 			if (pipeLoc == -1)
 			{
-				Logging.errorPrint("Found invalid AGESET " + "in Bio Settings "
-						+ sourceURI + ", was expecting a |: " + lstLine);
+				Logging.errorPrint(
+					"Found invalid AGESET " + "in Bio Settings " + sourceURI + ", was expecting a |: " + lstLine);
 				return;
 			}
 			String ageIndexString = line.substring(0, pipeLoc);
 			try
 			{
 				currentAgeSetIndex = Integer.parseInt(ageIndexString);
-				StringTokenizer colToken = new StringTokenizer(line
-						.substring(pipeLoc + 1), SystemLoader.TAB_DELIM);
-				AgeSet ageSet = new AgeSet(colToken.nextToken().intern(),
-						currentAgeSetIndex);
+				StringTokenizer colToken = new StringTokenizer(line.substring(pipeLoc + 1), SystemLoader.TAB_DELIM);
+				AgeSet ageSet = new AgeSet(colToken.nextToken().intern(), currentAgeSetIndex);
 				while (colToken.hasMoreTokens())
 				{
 					parseTokens(context, ageSet, colToken);
@@ -98,24 +94,20 @@ public final class BioSetLoader extends LstLineFileLoader
 				Integer oldIndex = bioSet.addToNameMap(ageSet);
 				if (oldIndex != null && oldIndex != currentAgeSetIndex)
 				{
-					Logging.errorPrint("Incompatible Index for AGESET "
-							+ "in Bio Settings " + sourceURI + ": " + oldIndex
-							+ " and " + currentAgeSetIndex + " for "
-							+ ageSet.getName());
+					Logging.errorPrint("Incompatible Index for AGESET " + "in Bio Settings " + sourceURI + ": "
+						+ oldIndex + " and " + currentAgeSetIndex + " for " + ageSet.getName());
 				}
 
 			}
 			catch (NumberFormatException e)
 			{
-				Logging.errorPrint("Illegal Index for AGESET "
-						+ "in Bio Settings " + sourceURI + ": "
-						+ ageIndexString + " was not an integer");
+				Logging.errorPrint("Illegal Index for AGESET " + "in Bio Settings " + sourceURI + ": " + ageIndexString
+					+ " was not an integer");
 			}
 		}
 		else
 		{
-			final StringTokenizer colToken = new StringTokenizer(lstLine,
-					SystemLoader.TAB_DELIM);
+			final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 			String colString;
 			String raceName = "";
 			List<String> preReqList = null;
@@ -147,20 +139,18 @@ public final class BioSetLoader extends LstLineFileLoader
 
 					if (preReqList != null)
 					{
-						final StringBuilder sBuf = new StringBuilder(100+colString.length());
+						final StringBuilder sBuf = new StringBuilder(100 + colString.length());
 						sBuf.append(colString);
 
 						for (String aPreReqList : preReqList)
 						{
-							sBuf.append('[').append(aPreReqList).append(
-									']');
+							sBuf.append('[').append(aPreReqList).append(']');
 						}
 
 						aString = sBuf.toString();
 					}
 
-					bioSet.addToUserMap(regionName, raceName.intern(), 
-							aString.intern(), currentAgeSetIndex);
+					bioSet.addToUserMap(regionName, raceName.intern(), aString.intern(), currentAgeSetIndex);
 				}
 			}
 		}
@@ -174,11 +164,11 @@ public final class BioSetLoader extends LstLineFileLoader
 			while (tok.hasMoreTokens())
 			{
 				// in the code below, I use "new String()" to unlink the string from the containing file to save memory,
-				// but I don't intern() the string because it's not fully parsed yet so don't want to add permgen overhead
-				// to a string that's just going to get GC'd eventually
+				// but I don't intern() the string because it's not fully parsed yet so don't want to add permgen
+				// overhead to a string that's just going to get GC'd eventually
 				//
-				// This pessimization might be removable if we get all impls of CDOMToken.parseToken() to intern. But right
-				// now there are too many of them...
+				// This pessimization might be removable if we get all impls of CDOMToken.parseToken() to intern. But
+				// right now there are too many of them...
 
 				String currentTok = tok.nextToken();
 				if (currentTok.startsWith("BONUS:"))
@@ -225,8 +215,7 @@ public final class BioSetLoader extends LstLineFileLoader
 		}
 		catch (PersistenceLayerException e)
 		{
-			Logging.errorPrint("Error in token parse: "
-					+ e.getLocalizedMessage());
+			Logging.errorPrint("Error in token parse: " + e.getLocalizedMessage());
 		}
 	}
 }

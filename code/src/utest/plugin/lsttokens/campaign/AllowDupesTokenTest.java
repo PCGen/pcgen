@@ -52,14 +52,14 @@ public class AllowDupesTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testInvalidEmpty() throws PersistenceLayerException
+	public void testInvalidEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidType() throws PersistenceLayerException
+	public void testInvalidType()
 	{
 		assertFalse(parse("SKILL"));
 		assertNoSideEffects();

@@ -30,14 +30,13 @@ import pcgen.util.Delta;
 
 public final class EqModSpellInfo
 {
-	private static final String s_CHARGES = "CHARGES";
+	private static final String S_CHARGES = "CHARGES";
 
 	private EqModSpellInfo()
 	{
 	}
 
-	public static String getSpellInfoString(final String listEntry,
-			final String desiredInfo)
+	public static String getSpellInfoString(final String listEntry, final String desiredInfo)
 	{
 		final int offs = listEntry.indexOf(desiredInfo + "[");
 		final int offs2 = listEntry.indexOf(']', offs + 1);
@@ -50,8 +49,7 @@ public final class EqModSpellInfo
 		return "";
 	}
 
-	public static int getSpellInfo(final String listEntry,
-			final String desiredInfo)
+	public static int getSpellInfo(final String listEntry, final String desiredInfo)
 	{
 		int modValue = 0;
 		final String info = getSpellInfoString(listEntry, desiredInfo);
@@ -71,25 +69,21 @@ public final class EqModSpellInfo
 		return modValue;
 	}
 
-	public static void setRemainingCharges(Equipment parent,
-			EquipmentModifier eqMod, final int remainingCharges)
+	public static void setRemainingCharges(Equipment parent, EquipmentModifier eqMod, final int remainingCharges)
 	{
 		if (parent.hasAssociations(eqMod))
 		{
 			List<String> assoc = parent.removeAllAssociations(eqMod);
 			String listEntry = assoc.get(0);
-			String chargeInfo = EqModSpellInfo.getSpellInfoString(listEntry,
-					s_CHARGES);
+			String chargeInfo = EqModSpellInfo.getSpellInfoString(listEntry, S_CHARGES);
 
 			if (!chargeInfo.isEmpty())
 			{
-				chargeInfo = s_CHARGES + '[' + chargeInfo + ']';
+				chargeInfo = S_CHARGES + '[' + chargeInfo + ']';
 
 				final int idx = listEntry.indexOf(chargeInfo);
-				listEntry = listEntry.substring(0, idx)
-						+ listEntry.substring(idx + chargeInfo.length());
-				listEntry += (s_CHARGES + '['
-						+ Integer.toString(remainingCharges) + ']');
+				listEntry = listEntry.substring(0, idx) + listEntry.substring(idx + chargeInfo.length());
+				listEntry += (S_CHARGES + '[' + Integer.toString(remainingCharges) + ']');
 				assoc.set(0, listEntry);
 			}
 			for (String s : assoc)
@@ -99,13 +93,11 @@ public final class EqModSpellInfo
 		}
 	}
 
-	public static int getRemainingCharges(Equipment parent,
-			EquipmentModifier eqMod)
+	public static int getRemainingCharges(Equipment parent, EquipmentModifier eqMod)
 	{
 		if (parent.hasAssociations(eqMod))
 		{
-			return EqModSpellInfo.getSpellInfo(parent
-					.getFirstAssociation(eqMod), s_CHARGES);
+			return EqModSpellInfo.getSpellInfo(parent.getFirstAssociation(eqMod), S_CHARGES);
 		}
 
 		return 0;
@@ -113,8 +105,7 @@ public final class EqModSpellInfo
 
 	public static int getUsedCharges(Equipment parent, EquipmentModifier eqMod)
 	{
-		return eqMod.get(IntegerKey.MAX_CHARGES)
-				- getRemainingCharges(parent, eqMod);
+		return eqMod.get(IntegerKey.MAX_CHARGES) - getRemainingCharges(parent, eqMod);
 	}
 
 	/**
@@ -146,17 +137,13 @@ public final class EqModSpellInfo
 	 * @param charges
 	 *            how many times can it be cast
 	 */
-	public static void setSpellInfo(Equipment parent, EquipmentModifier eqMod,
-			final CDOMObject spellCastingClass, final Spell theSpell,
-			final String spellVariant, final String spellType,
-			final int spellLevel, final int spellCasterLevel,
-			final Object[] spellMetamagicFeats, final int charges)
+	public static void setSpellInfo(Equipment parent, EquipmentModifier eqMod, final CDOMObject spellCastingClass,
+		final Spell theSpell, final String spellVariant, final String spellType, final int spellLevel,
+		final int spellCasterLevel, final Object[] spellMetamagicFeats, final int charges)
 	{
 		final StringBuilder spellInfo = new StringBuilder(100);
-		spellInfo.append("SPELLNAME[").append(theSpell.getKeyName()).append(
-				"] ");
-		spellInfo.append("CASTER[").append(spellCastingClass.getKeyName())
-				.append("] ");
+		spellInfo.append("SPELLNAME[").append(theSpell.getKeyName()).append("] ");
+		spellInfo.append("CASTER[").append(spellCastingClass.getKeyName()).append("] ");
 
 		if (!spellVariant.isEmpty())
 		{
@@ -169,8 +156,7 @@ public final class EqModSpellInfo
 
 		if (charges > 0)
 		{
-			spellInfo.append(s_CHARGES).append('[').append(charges)
-					.append("] ");
+			spellInfo.append(S_CHARGES).append('[').append(charges).append("] ");
 		}
 
 		if ((spellMetamagicFeats != null) && (spellMetamagicFeats.length > 0))

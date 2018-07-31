@@ -41,9 +41,7 @@ public class RequestAddPreferencesPanelMessage extends PCGenMessage
 	 * @param name The name of the panel.
 	 * @param prefsPanel The panel to be added.
 	 */
-	public RequestAddPreferencesPanelMessage(
-		Object source, String name,
-		PreferencesPanel prefsPanel)
+	public RequestAddPreferencesPanelMessage(Object source, String name, PreferencesPanel prefsPanel)
 	{
 		super(source);
 		this.name = name;

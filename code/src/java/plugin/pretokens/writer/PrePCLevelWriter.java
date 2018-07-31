@@ -16,36 +16,34 @@
  */
 package plugin.pretokens.writer;
 
+import java.io.IOException;
+import java.io.Writer;
+import java.util.List;
+
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.AbstractPrerequisiteWriter;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 
-import java.io.IOException;
-import java.io.Writer;
-import java.util.List;
-
-public class PrePCLevelWriter extends AbstractPrerequisiteWriter implements
-		PrerequisiteWriterInterface
+public class PrePCLevelWriter extends AbstractPrerequisiteWriter implements PrerequisiteWriterInterface
 {
 
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "pclevel";
 	}
 
-    @Override
+	@Override
 	public PrerequisiteOperator[] operatorsHandled()
 	{
-		return new PrerequisiteOperator[]{PrerequisiteOperator.GTEQ,
-				PrerequisiteOperator.LT, PrerequisiteOperator.LTEQ,PrerequisiteOperator.GT};
+		return new PrerequisiteOperator[]{PrerequisiteOperator.GTEQ, PrerequisiteOperator.LT, PrerequisiteOperator.LTEQ,
+			PrerequisiteOperator.GT};
 	}
 
-    @Override
-	public void write(Writer writer, Prerequisite prereq)
-		throws PersistenceLayerException
+	@Override
+	public void write(Writer writer, Prerequisite prereq) throws PersistenceLayerException
 	{
 		checkValidOperator(prereq, operatorsHandled());
 
@@ -54,23 +52,23 @@ public class PrePCLevelWriter extends AbstractPrerequisiteWriter implements
 			if (prereq.getOperator().equals(PrerequisiteOperator.LT))
 			{
 				writer.write('!');
-				writer.write("PREPCLEVEL:"  + (prereq.isOverrideQualify() ? "Q:":"") + "MIN=");
+				writer.write("PREPCLEVEL:" + (prereq.isOverrideQualify() ? "Q:" : "") + "MIN=");
 				writer.write(prereq.getOperand());
 			}
-			else if(prereq.getOperator().equals(PrerequisiteOperator.GT))
+			else if (prereq.getOperator().equals(PrerequisiteOperator.GT))
 			{
 				writer.write('!');
-				writer.write("PREPCLEVEL:"  + (prereq.isOverrideQualify() ? "Q:":"") + "MAX=");
-				writer.write(prereq.getOperand());	
+				writer.write("PREPCLEVEL:" + (prereq.isOverrideQualify() ? "Q:" : "") + "MAX=");
+				writer.write(prereq.getOperand());
 			}
 			else if (prereq.getOperator().equals(PrerequisiteOperator.GTEQ))
 			{
-				writer.write("PREPCLEVEL:"  + (prereq.isOverrideQualify() ? "Q:":"") + "MIN=");
+				writer.write("PREPCLEVEL:" + (prereq.isOverrideQualify() ? "Q:" : "") + "MIN=");
 				writer.write(prereq.getOperand());
 			}
-			else if(prereq.getOperator().equals(PrerequisiteOperator.LTEQ))
+			else if (prereq.getOperator().equals(PrerequisiteOperator.LTEQ))
 			{
-				writer.write("PREPCLEVEL:"  + (prereq.isOverrideQualify() ? "Q:":"") + "MAX=");
+				writer.write("PREPCLEVEL:" + (prereq.isOverrideQualify() ? "Q:" : "") + "MAX=");
 				writer.write(prereq.getOperand());
 			}
 
@@ -82,8 +80,7 @@ public class PrePCLevelWriter extends AbstractPrerequisiteWriter implements
 	}
 
 	@Override
-	public boolean specialCase(Writer writer, Prerequisite prereq)
-		throws IOException
+	public boolean specialCase(Writer writer, Prerequisite prereq) throws IOException
 	{
 		//
 		// If this is a PREMULT...
@@ -102,17 +99,15 @@ public class PrePCLevelWriter extends AbstractPrerequisiteWriter implements
 				final Prerequisite elementGTEQ = prereqList.get(0);
 				final Prerequisite elementLTEQ = prereqList.get(1);
 				if ("pclevel".equalsIgnoreCase(elementGTEQ.getKind())
-					&& elementGTEQ.getOperator().equals(
-						PrerequisiteOperator.GTEQ)
+					&& elementGTEQ.getOperator().equals(PrerequisiteOperator.GTEQ)
 					&& "pclevel".equalsIgnoreCase(elementLTEQ.getKind())
-					&& elementLTEQ.getOperator().equals(
-						PrerequisiteOperator.LTEQ))
+					&& elementLTEQ.getOperator().equals(PrerequisiteOperator.LTEQ))
 				{
 					if (prereq.getOperator().equals(PrerequisiteOperator.LT))
 					{
 						writer.write('!');
 					}
-					writer.write("PREPCLEVEL:" + (prereq.isOverrideQualify() ? "Q:":""));
+					writer.write("PREPCLEVEL:" + (prereq.isOverrideQualify() ? "Q:" : ""));
 					writer.write("MIN=");
 					writer.write(elementGTEQ.getOperand());
 					writer.write(",MAX=");

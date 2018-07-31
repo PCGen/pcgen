@@ -52,9 +52,9 @@ import javax.swing.table.TableColumn;
 
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.StatFacade;
+import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
-import pcgen.facade.util.ListFacade;
 import pcgen.gui2.tabs.Utilities;
 import pcgen.gui2.util.FontManipulation;
 import pcgen.gui2.util.PrettyIntegerFormat;
@@ -118,11 +118,9 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 		field.getActionMap().put(MOVEDOWN, action);
 	}
 
-	private void startEditingNextRow(final JTable statsTable,
-			final int col, final int nextRow, JTextField textField)
+	private void startEditingNextRow(final JTable statsTable, final int col, final int nextRow, JTextField textField)
 	{
-		if (nextRow >= 0 && nextRow < getRowCount()
-				&& col >= 0 && col < getColumnCount())
+		if (nextRow >= 0 && nextRow < getRowCount() && col >= 0 && col < getColumnCount())
 		{
 			statsTable.editCellAt(nextRow, col);
 			textField.requestFocusInWindow();
@@ -144,12 +142,14 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 		statsTable.setAutoCreateColumnsFromModel(false);
 		DefaultTableColumnModel columnModel = new DefaultTableColumnModel();
 		{
-			TableColumn column = Utilities.createTableColumn(ABILITY_NAME, "Ability", new AbilityHeaderCellRenderer(), true);
+			TableColumn column =
+					Utilities.createTableColumn(ABILITY_NAME, "Ability", new AbilityHeaderCellRenderer(), true);
 			column.setIdentifier(ABILITY_COLUMN_ID);
 			columnModel.addColumn(column);
 
 			String htmlText = "<html><div align=\"center\">Final<br>Score</div></html>";
-			column = Utilities.createTableColumn(FINAL_ABILITY_SCORE, htmlText, new FixedHeaderCellRenderer(htmlText), false);
+			column = Utilities.createTableColumn(FINAL_ABILITY_SCORE, htmlText, new FixedHeaderCellRenderer(htmlText),
+				false);
 			column.setCellRenderer(new ValueRenderer());
 			columnModel.addColumn(column);
 
@@ -160,7 +160,8 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 			columnModel.addColumn(column);
 
 			htmlText = "<html><div align=\"center\">Editable<br>Score</div></html>";
-			column = Utilities.createTableColumn(EDITABLE_SCORE, htmlText, new FixedHeaderCellRenderer(htmlText), false);
+			column = Utilities.createTableColumn(EDITABLE_SCORE, htmlText, new FixedHeaderCellRenderer(htmlText),
+				false);
 			column.setIdentifier(EDITABLE_COLUMN_ID);
 			columnModel.addColumn(column);
 
@@ -195,12 +196,14 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 	{
 
 		/**
-		 * @see javax.swing.table.TableCellRenderer#getTableCellRendererComponent(javax.swing.JTable, java.lang.Object, boolean, boolean, int, int)
+		 * @see TableCellRenderer#getTableCellRendererComponent(JTable, Object, boolean, boolean, int, int)
 		 */
 		@Override
-		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column)
+		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
+			int row, int column)
 		{
-			Component comp = table.getTableHeader().getDefaultRenderer().getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+			Component comp = table.getTableHeader().getDefaultRenderer().getTableCellRendererComponent(table, value,
+				isSelected, hasFocus, row, column);
 			JLabel label = (JLabel) comp;
 			label.setHorizontalAlignment(SwingConstants.CENTER);
 			return label;
@@ -222,16 +225,18 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 		}
 
 		/**
-		 * @see javax.swing.table.TableCellRenderer#getTableCellRendererComponent(javax.swing.JTable, java.lang.Object, boolean, boolean, int, int)
+		 * @see TableCellRenderer#getTableCellRendererComponent(JTable, Object, boolean, boolean, int, int)
 		 */
 		@Override
-		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column)
+		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
+			int row, int column)
 		{
 			if (table == null)
 			{
 				return this;
 			}
-			return table.getTableHeader().getDefaultRenderer().getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+			return table.getTableHeader().getDefaultRenderer().getTableCellRendererComponent(table, value, isSelected,
+				hasFocus, row, column);
 		}
 
 	}
@@ -248,7 +253,8 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 		}
 
 		@Override
-		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column)
+		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
+			int row, int column)
 		{
 			Font tableFont = table.getFont();
 			if (column < 3)
@@ -293,10 +299,11 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 		}
 
 		/**
-		 * @see javax.swing.table.TableCellRenderer#getTableCellRendererComponent(javax.swing.JTable, java.lang.Object, boolean, boolean, int, int)
+		 * @see TableCellRenderer#getTableCellRendererComponent(JTable, Object, boolean, boolean, int, int)
 		 */
 		@Override
-		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column)
+		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
+			int row, int column)
 		{
 			setFont(FontManipulation.title(table.getFont()));
 			setBackground(table.getBackground());
@@ -317,9 +324,7 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 		int maxWidth = 0;
 		for (StatFacade aStat : stats)
 		{
-			Component cell = renderer.getTableCellRendererComponent(table,
-					aStat,
-					false, false, -1, columnIndex);
+			Component cell = renderer.getTableCellRendererComponent(table, aStat, false, false, -1, columnIndex);
 			maxWidth = Math.max(maxWidth, cell.getPreferredSize().width);
 		}
 		//we add some extra spacing to prevent ellipses from showing
@@ -338,7 +343,7 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 		int vbarWidth = scrollPane.getVerticalScrollBar().getPreferredSize().width;
 		size.width += vbarWidth;
 		table.setPreferredScrollableViewportSize(size);
-		
+
 		//because of the extra viewport size in the table it will
 		//always look a bit off center, adding a row header to
 		//the scroll pane fixes this
@@ -364,8 +369,7 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 		}
 	}
 
-	public static class SpinnerEditor extends AbstractCellEditor
-			implements TableCellEditor, ChangeListener
+	public static class SpinnerEditor extends AbstractCellEditor implements TableCellEditor, ChangeListener
 	{
 
 		protected final JSpinner spinner;
@@ -398,10 +402,8 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 		}
 
 		@Override
-		public Component getTableCellEditorComponent(JTable table, Object value,
-				boolean isSelected,
-				int row,
-				int column)
+		public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row,
+			int column)
 		{
 			spinner.setValue(value);
 			spinner.addChangeListener(this);
@@ -497,9 +499,8 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 	{
 
 		@Override
-		public Component getTableCellRendererComponent(JTable jTable,
-				Object value, boolean isSelected, boolean hasFocus, int row,
-				int column)
+		public Component getTableCellRendererComponent(JTable jTable, Object value, boolean isSelected,
+			boolean hasFocus, int row, int column)
 		{
 			setFont(FontManipulation.title(jTable.getFont()));
 			// Those two does not seem to change anything.

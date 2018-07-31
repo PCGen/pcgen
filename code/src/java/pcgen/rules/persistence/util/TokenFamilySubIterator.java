@@ -40,8 +40,7 @@ import pcgen.rules.persistence.token.CDOMSecondaryToken;
  *            iterating over tokens (will be the class of the object being
  *            loaded, such as Race or Ability)
  */
-public class TokenFamilySubIterator<C> implements
-		Iterator<CDOMSecondaryToken<? super C>>
+public class TokenFamilySubIterator<C> implements Iterator<CDOMSecondaryToken<? super C>>
 {
 	/**
 	 * The Object class, "cached" due to common use
@@ -58,7 +57,7 @@ public class TokenFamilySubIterator<C> implements
 	 * True if nextToken has been used and needs to be refreshed
 	 */
 	private boolean needNewToken = true;
-	
+
 	/**
 	 * The "acting" class for which tokens are being retrieved. This can be
 	 * either the class being loaded (e.g. Race) or a parent Class (e.g.
@@ -71,13 +70,13 @@ public class TokenFamilySubIterator<C> implements
 	 * returned.
 	 */
 	private final String parentToken;
-	
+
 	/**
 	 * The underlying Iterator that is incrementing across the
 	 * CDOMSecondaryTokens in the actingClass.
 	 */
 	private Iterator<CDOMSecondaryToken<? super C>> subIterator;
-	
+
 	/**
 	 * The token names that have been used. This is necessary since a specific
 	 * class (e.g. Race) can have a "local" version of a token. If that local
@@ -102,8 +101,7 @@ public class TokenFamilySubIterator<C> implements
 	{
 		actingClass = cl;
 		parentToken = parentName;
-		subIterator = TokenFamily.CURRENT.getSubTokens(cl, parentToken)
-				.iterator();
+		subIterator = TokenFamily.CURRENT.getSubTokens(cl, parentToken).iterator();
 	}
 
 	/**
@@ -170,8 +168,7 @@ public class TokenFamilySubIterator<C> implements
 			return null;
 		}
 		actingClass = actingClass.getSuperclass();
-		Set<CDOMSecondaryToken<? super C>> st =
-				TokenFamily.CURRENT.getSubTokens(actingClass, parentToken);
+		Set<CDOMSecondaryToken<? super C>> st = TokenFamily.CURRENT.getSubTokens(actingClass, parentToken);
 		subIterator = st.iterator();
 		return getNext();
 	}
@@ -186,7 +183,6 @@ public class TokenFamilySubIterator<C> implements
 	@Override
 	public void remove()
 	{
-		throw new UnsupportedOperationException(
-				"Iterator does not support remove");
+		throw new UnsupportedOperationException("Iterator does not support remove");
 	}
 }

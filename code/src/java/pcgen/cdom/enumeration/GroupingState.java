@@ -77,8 +77,8 @@ public enum GroupingState
 		{
 			if (state != EMPTY)
 			{
-				Logging.errorPrint("Attempt to add '" + state + "' grouping state to "
-					+ "'ALLOWS_NONE' resulted in 'INVALID'.");
+				Logging.errorPrint(
+					"Attempt to add '" + state + "' grouping state to " + "'ALLOWS_NONE' resulted in 'INVALID'.");
 				return INVALID;
 			}
 			return state == EMPTY ? ALLOWS_NONE : INVALID;
@@ -122,10 +122,8 @@ public enum GroupingState
 			{
 				return this;
 			}
-			Logging
-				.errorPrint("Attempt to add '" + state
-					+ "' grouping state to 'ALLOWS_INTERSECTION' "
-					+ "resulted in 'INVALID'.");
+			Logging.errorPrint(
+				"Attempt to add '" + state + "' grouping state to 'ALLOWS_INTERSECTION' " + "resulted in 'INVALID'.");
 			return INVALID;
 		}
 
@@ -172,9 +170,7 @@ public enum GroupingState
 				return this;
 			}
 			Logging
-					.errorPrint("Attempt to add '"
-							+ state
-							+ "' grouping state to 'ALLOWS_UNION' resulted in 'INVALID'.");
+				.errorPrint("Attempt to add '" + state + "' grouping state to 'ALLOWS_UNION' resulted in 'INVALID'.");
 			return INVALID;
 		}
 
@@ -214,12 +210,10 @@ public enum GroupingState
 		{
 			if (state == ALLOWS_NONE)
 			{
-				Logging.errorPrint("Attempt to add 'ALLOWS_NONE' "
-					+ "grouping state to 'ANY' resulted in 'INVALID'.");
+				Logging.errorPrint("Attempt to add 'ALLOWS_NONE' " + "grouping state to 'ANY' resulted in 'INVALID'.");
 				return INVALID;
 			}
-			return state == EMPTY ? ANY : state == ALLOWS_NONE ? INVALID
-					: state;
+			return state == EMPTY ? ANY : state == ALLOWS_NONE ? INVALID : state;
 		}
 
 		@Override

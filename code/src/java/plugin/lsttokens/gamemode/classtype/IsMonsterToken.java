@@ -24,8 +24,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Implements the ISMONSTER token on ClassType
  */
-public class IsMonsterToken extends AbstractNonEmptyToken<ClassType>
-		implements CDOMPrimaryToken<ClassType>
+public class IsMonsterToken extends AbstractNonEmptyToken<ClassType> implements CDOMPrimaryToken<ClassType>
 {
 
 	@Override
@@ -35,8 +34,7 @@ public class IsMonsterToken extends AbstractNonEmptyToken<ClassType>
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, ClassType classType,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, ClassType classType, String value)
 	{
 		boolean set;
 		char firstChar = value.charAt(0);
@@ -44,8 +42,7 @@ public class IsMonsterToken extends AbstractNonEmptyToken<ClassType>
 		{
 			if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
 			{
-				return new ParseResult.Fail(
-					"You should use 'YES' as the " + getTokenName() + ": " + value);
+				return new ParseResult.Fail("You should use 'YES' as the " + getTokenName() + ": " + value);
 			}
 			set = true;
 		}
@@ -53,13 +50,11 @@ public class IsMonsterToken extends AbstractNonEmptyToken<ClassType>
 		{
 			if (firstChar != 'N' && firstChar != 'n')
 			{
-				return new ParseResult.Fail("You should use 'YES' or 'NO' as the "
-					+ getTokenName() + ": " + value);
+				return new ParseResult.Fail("You should use 'YES' or 'NO' as the " + getTokenName() + ": " + value);
 			}
 			if (value.length() > 1 && !value.equalsIgnoreCase("NO"))
 			{
-				return new ParseResult.Fail("You should use 'YES' or 'NO' as the "
-					+ getTokenName() + ": " + value);
+				return new ParseResult.Fail("You should use 'YES' or 'NO' as the " + getTokenName() + ": " + value);
 			}
 			set = false;
 		}

@@ -66,24 +66,25 @@ public abstract class PcGenGUITestCase extends TestCase
 
 	/**
 	 * Run the test.
+	 *
 	 * @param character The PC
 	 * @param mode The game mode
-	 * @throws Exception
+	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
-	public void runTest(String character, String mode) throws Exception
+	public void runTest(String character, String mode) throws IOException
 	{
 		System.out.println("RUNTEST with the character: " + character
 			+ " and the game mode: " + mode);
 		// Delete the old generated output for this test 
-		File outputFolder= new File("code/testsuite/output");
+		File outputFolder = new File("code/testsuite/output");
 		outputFolder.mkdirs();
 		String outputFileName = character + ".xml";
 		File outputFileFile = new File(outputFolder, outputFileName);
 		outputFileFile.delete();
 		String outputFile = outputFileFile.getCanonicalPath();
-		
+
 		String configFolder = "testsuite";
-		
+
 		String pccLoc = TestHelper.findDataFolder();
 
 		// The String holder for the XML of the expected result
@@ -98,19 +99,19 @@ public abstract class PcGenGUITestCase extends TestCase
 		{
 			TestHelper.createDummySettingsFile(TEST_CONFIG_FILE, configFolder,
 				pccLoc);
-					
-//					new File(TEST_CONFIG_FILE);
-//			BufferedWriter bw =
-//					new BufferedWriter(new OutputStreamWriter(
-//						new FileOutputStream(configFile), "UTF-8"));
-//			bw.write("settingsPath=" + configFolder + "\r\n");
-//			if (pccLoc != null)
-//			{
-//				System.out.println("Using PCC Location of '" + pccLoc + "'.");
-//				bw.write("pccFilesPath=" + pccLoc + "\r\n");
-//			}
-//			bw.write("customPathr=testsuite\\\\customdata\r\n");
-//			bw.close();
+
+			//					new File(TEST_CONFIG_FILE);
+			//			BufferedWriter bw =
+			//					new BufferedWriter(new OutputStreamWriter(
+			//						new FileOutputStream(configFile), "UTF-8"));
+			//			bw.write("settingsPath=" + configFolder + "\r\n");
+			//			if (pccLoc != null)
+			//			{
+			//				System.out.println("Using PCC Location of '" + pccLoc + "'.");
+			//				bw.write("pccFilesPath=" + pccLoc + "\r\n");
+			//			}
+			//			bw.write("customPathr=testsuite\\\\customdata\r\n");
+			//			bw.close();
 
 			// Fire off PCGen, which will produce an XML file 
 			String characterFile = "code/testsuite/PCGfiles/" + character
@@ -123,9 +124,8 @@ public abstract class PcGenGUITestCase extends TestCase
 			// Read in the actual XML produced by PCGen
 			actual = readFile(new File(outputFile));
 			// Read in the expected XML
-			expected =
-					readFile(new File("code/testsuite/csheets/" + character
-						+ ".xml"));
+			expected = readFile(
+				new File("code/testsuite/csheets/" + character + ".xml"));
 		}
 		finally
 		{
@@ -133,8 +133,7 @@ public abstract class PcGenGUITestCase extends TestCase
 		}
 
 		Diff myDiff = DiffBuilder.compare(Input.fromString(expected))
-	              .withTest(Input.fromString(actual))
-	              .build();
+			.withTest(Input.fromString(actual)).build();
 
 		Assert.assertFalse(myDiff.toString(), myDiff.hasDifferences());
 	}
@@ -157,14 +156,17 @@ public abstract class PcGenGUITestCase extends TestCase
 				new BufferedReader(new InputStreamReader(new FileInputStream(
 					outputFile), "UTF-8"));
 		StringBuilder output = new StringBuilder();
-		try {
+		try
+		{
 			String line = br.readLine();
 			while (line != null)
 			{
 				output.append(line).append("\n");
 				line = br.readLine();
 			}
-		} catch (IOException e) {
+		}
+		catch (IOException e)
+		{
 			br.close();
 			fail();
 		}

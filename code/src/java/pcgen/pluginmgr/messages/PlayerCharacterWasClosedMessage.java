@@ -39,8 +39,7 @@ public class PlayerCharacterWasClosedMessage extends PCGenMessage
 	 * @param source The object advising of the event.
 	 * @param pc The character that was closed.
 	 */
-	public PlayerCharacterWasClosedMessage(Object source,
-		PlayerCharacter pc)
+	public PlayerCharacterWasClosedMessage(Object source, PlayerCharacter pc)
 	{
 		super(source);
 		this.pc = pc;

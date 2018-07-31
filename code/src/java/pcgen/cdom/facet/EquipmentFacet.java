@@ -33,8 +33,7 @@ import pcgen.output.publish.OutputDB;
  * 
  */
 public class EquipmentFacet extends AbstractSourcedListFacet<CharID, Equipment>
-		implements DataFacetChangeListener<CharID, Equipment>,
-		SetFacet<CharID, Equipment>
+		implements DataFacetChangeListener<CharID, Equipment>, SetFacet<CharID, Equipment>
 {
 	/**
 	 * Adds all of the Equipment that is possessed by a Player Character.

@@ -37,8 +37,7 @@ import pcgen.util.enumeration.Load;
  */
 public class LoadFacet
 {
-	private static final Formula LOADSCORE_FORMULA = FormulaFactory
-			.getFormulaFor("LOADSCORE");
+	private static final Formula LOADSCORE_FORMULA = FormulaFactory.getFormulaFor("LOADSCORE");
 
 	private FormulaResolvingFacet formulaResolvingFacet;
 	private TotalWeightFacet totalWeightFacet;
@@ -58,22 +57,19 @@ public class LoadFacet
 		Float weight = totalWeightFacet.getTotalWeight(id);
 		double dbl = weight / getMaxLoad(id).doubleValue();
 
-		Float lightMult = SettingsHandler.getGame().getLoadInfo()
-				.getLoadMultiplier("LIGHT");
+		Float lightMult = SettingsHandler.getGame().getLoadInfo().getLoadMultiplier("LIGHT");
 		if (lightMult != null && dbl <= lightMult.doubleValue())
 		{
 			return Load.LIGHT;
 		}
 
-		Float mediumMult = SettingsHandler.getGame().getLoadInfo()
-				.getLoadMultiplier("MEDIUM");
+		Float mediumMult = SettingsHandler.getGame().getLoadInfo().getLoadMultiplier("MEDIUM");
 		if (mediumMult != null && dbl <= mediumMult.doubleValue())
 		{
 			return Load.MEDIUM;
 		}
 
-		Float heavyMult = SettingsHandler.getGame().getLoadInfo()
-				.getLoadMultiplier("HEAVY");
+		Float heavyMult = SettingsHandler.getGame().getLoadInfo().getLoadMultiplier("HEAVY");
 		if (heavyMult != null && dbl <= heavyMult.doubleValue())
 		{
 			return Load.HEAVY;
@@ -111,23 +107,16 @@ public class LoadFacet
 	 */
 	public Float getMaxLoad(CharID id, double mult)
 	{
-		int loadScore = formulaResolvingFacet.resolve(id, LOADSCORE_FORMULA, "")
-				.intValue();
-		final BigDecimal loadValue = SettingsHandler.getGame().getLoadInfo()
-				.getLoadScoreValue(loadScore);
-		String formula = SettingsHandler.getGame().getLoadInfo()
-				.getLoadModifierFormula();
+		int loadScore = formulaResolvingFacet.resolve(id, LOADSCORE_FORMULA, "").intValue();
+		final BigDecimal loadValue = SettingsHandler.getGame().getLoadInfo().getLoadScoreValue(loadScore);
+		String formula = SettingsHandler.getGame().getLoadInfo().getLoadModifierFormula();
 		if (formula != null)
 		{
-			formula = formula.replaceAll(Pattern.quote("$$SCORE$$"), Double
-					.toString(loadValue.doubleValue() * mult
-							* getLoadMultForSize(id)));
-			return (float) formulaResolvingFacet.resolve(id,
-					FormulaFactory.getFormulaFor(formula), "").intValue();
+			formula = formula.replaceAll(Pattern.quote("$$SCORE$$"),
+				Double.toString(loadValue.doubleValue() * mult * getLoadMultForSize(id)));
+			return (float) formulaResolvingFacet.resolve(id, FormulaFactory.getFormulaFor(formula), "").intValue();
 		}
-		return (float) (
-				loadValue.doubleValue() * mult
-						* getLoadMultForSize(id));
+		return (float) (loadValue.doubleValue() * mult * getLoadMultForSize(id));
 	}
 
 	/**
@@ -143,9 +132,7 @@ public class LoadFacet
 	private double getLoadMultForSize(CharID id)
 	{
 		SizeAdjustment sadj = sizeFacet.get(id);
-		double mult =
-				SettingsHandler.getGame().getLoadInfo().getSizeAdjustment(sadj)
-					.doubleValue();
+		double mult = SettingsHandler.getGame().getLoadInfo().getSizeAdjustment(sadj).doubleValue();
 		mult += bonusCheckingFacet.getBonus(id, "LOADMULT", "TYPE=SIZE");
 		return mult;
 	}

@@ -59,8 +59,7 @@ public class ArmorProfFacet implements DataFacetChangeListener<CharID, CDOMObjec
 	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
-		List<ArmorProfProvider> armorProfs = cdo
-				.getListFor(ListKey.AUTO_ARMORPROF);
+		List<ArmorProfProvider> armorProfs = cdo.getListFor(ListKey.AUTO_ARMORPROF);
 		if (armorProfs != null)
 		{
 			armorProfProviderFacet.addAll(dfce.getCharID(), armorProfs, cdo);
@@ -88,8 +87,7 @@ public class ArmorProfFacet implements DataFacetChangeListener<CharID, CDOMObjec
 		armorProfProviderFacet.removeAll(dfce.getCharID(), dfce.getCDOMObject());
 	}
 
-	public void setArmorProfProviderFacet(
-		ArmorProfProviderFacet armorProfProviderFacet)
+	public void setArmorProfProviderFacet(ArmorProfProviderFacet armorProfProviderFacet)
 	{
 		this.armorProfProviderFacet = armorProfProviderFacet;
 	}

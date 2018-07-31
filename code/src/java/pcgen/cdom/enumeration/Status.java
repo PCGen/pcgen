@@ -28,12 +28,14 @@ import pcgen.gui2.UIPropertyContext;
  */
 public enum Status
 {
-	Release {
+	Release
+	{
 		@Override
 		public String toString()
 		{
 			return "Release";
 		}
+
 		@Override
 		public int getColor()
 		{
@@ -41,12 +43,14 @@ public enum Status
 		}
 	},
 
-	Alpha {
+	Alpha
+	{
 		@Override
 		public String toString()
 		{
 			return "Alpha";
 		}
+
 		@Override
 		public int getColor()
 		{
@@ -54,12 +58,14 @@ public enum Status
 		}
 	},
 
-	Beta {
+	Beta
+	{
 		@Override
 		public String toString()
 		{
 			return "Beta";
 		}
+
 		@Override
 		public int getColor()
 		{
@@ -67,12 +73,14 @@ public enum Status
 		}
 	},
 
-	TestOnly {
+	TestOnly
+	{
 		@Override
 		public String toString()
 		{
 			return "Test Only";
 		}
+
 		@Override
 		public int getColor()
 		{

@@ -55,7 +55,7 @@ public class RaceTypeTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidEmptyInput() throws PersistenceLayerException
+	public void testInvalidEmptyInput()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
@@ -110,7 +110,7 @@ public class RaceTypeTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.put(getObjectKey(), null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
@@ -122,7 +122,7 @@ public class RaceTypeTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseLegal() throws PersistenceLayerException
+	public void testUnparseLegal()
 	{
 		Prerequisite p = new Prerequisite();
 		p.setKind("RACETYPE");
@@ -151,7 +151,7 @@ public class RaceTypeTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail() throws PersistenceLayerException
+	public void testUnparseGenericsFail()
 	{
 		ObjectKey objectKey = getObjectKey();
 		primaryProf.put(objectKey, new Object());

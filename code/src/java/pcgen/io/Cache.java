@@ -35,7 +35,8 @@ final class Cache
 
 	Cache()
 	{
-		//should define some default or make the default constructor private making users of the cache to define its initial size
+		//should define some default
+		//or make the default constructor private making users of the cache to define its initial size
 		map = new HashMap<>();
 	}
 

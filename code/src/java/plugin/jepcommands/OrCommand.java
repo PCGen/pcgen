@@ -19,10 +19,11 @@
 
 package plugin.jepcommands;
 
-import org.nfunk.jep.ParseException;
-import pcgen.util.PCGenCommand;
-
 import java.util.Stack;
+
+import org.nfunk.jep.ParseException;
+
+import pcgen.util.PCGenCommand;
 
 /**
  * <p>
@@ -40,14 +41,14 @@ public class OrCommand extends PCGenCommand
 	public OrCommand()
 	{
 		super();
-        numberOfParameters = -1;
-    }
+		numberOfParameters = -1;
+	}
 
 	/**
 	 * Gets the name of the function handled by this class.
 	 * @return The name of the function.
 	 */
-    @Override
+	@Override
 	public String getFunctionName()
 	{
 		return "OR";
@@ -59,13 +60,13 @@ public class OrCommand extends PCGenCommand
 	 * @throws ParseException
 	 */
 	@Override
-    @SuppressWarnings({"unchecked"})
-    //Uses JEP, which doesn't use generics
+	@SuppressWarnings({"unchecked"})
+	//Uses JEP, which doesn't use generics
 	public void run(final Stack inStack) throws ParseException
 	{
 
-        // check the stack
-        checkStack(inStack);
+		// check the stack
+		checkStack(inStack);
 
 		// Check if stack is null
 		if (null == inStack)
@@ -73,46 +74,48 @@ public class OrCommand extends PCGenCommand
 			throw new ParseException("Stack argument null");
 		}
 
-        final Stack newStack = new Stack();
-        int   paramCount     = curNumberOfParameters;
+		final Stack newStack = new Stack();
+		int paramCount = curNumberOfParameters;
 
-        while (paramCount > 0)
-        {
-            paramCount--;
-            newStack.push(inStack.pop());
-        }
-
-        int paramCount1 = curNumberOfParameters;
-        Object result   = 0.0;
-
-        while (paramCount1 > 0)
+		while (paramCount > 0)
 		{
-            paramCount1--;
-
-            final Object operand = newStack.pop();
-
-            // If we're haven't found a true value yet
-            if (operand instanceof Number)
-            {
-                if (((Number) operand).doubleValue() != 0.0d) {
-                    result = operand;
-                    break;
-                }
-            }
-            else if (operand instanceof Boolean)
-            {
-                if ((Boolean) operand) {
-                    result = operand;
-                    break;
-                }
-            }
-            else
-            {
-                throw new ParseException("Invalid parameter type for: " + operand);
-            }
+			paramCount--;
+			newStack.push(inStack.pop());
 		}
 
-        // finally, put back the result
-        inStack.push(result);
+		int paramCount1 = curNumberOfParameters;
+		Object result = 0.0;
+
+		while (paramCount1 > 0)
+		{
+			paramCount1--;
+
+			final Object operand = newStack.pop();
+
+			// If we're haven't found a true value yet
+			if (operand instanceof Number)
+			{
+				if (((Number) operand).doubleValue() != 0.0d)
+				{
+					result = operand;
+					break;
+				}
+			}
+			else if (operand instanceof Boolean)
+			{
+				if ((Boolean) operand)
+				{
+					result = operand;
+					break;
+				}
+			}
+			else
+			{
+				throw new ParseException("Invalid parameter type for: " + operand);
+			}
+		}
+
+		// finally, put back the result
+		inStack.push(result);
 	}
 }

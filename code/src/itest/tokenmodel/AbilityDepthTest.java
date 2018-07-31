@@ -27,7 +27,6 @@ import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.GrantedAbilityFacet;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.core.Ability;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.AbilityLst;
@@ -46,7 +45,7 @@ import util.TestURI;
 public class AbilityDepthTest extends AbstractTokenModelTest
 {
 
-	private static final GrantedAbilityFacet grantedAbilityFacet = FacetLibrary
+	private static final GrantedAbilityFacet GRANTED_ABILITY_FACET = FacetLibrary
 		.getFacet(GrantedAbilityFacet.class);
 
 	//Registration by super.setUpContext()
@@ -75,7 +74,7 @@ public class AbilityDepthTest extends AbstractTokenModelTest
 	}
 
 	@Override
-	protected void setUpContext() throws PersistenceLayerException
+	protected void setUpContext()
 	{
 		super.setUpContext();
 		TokenRegistration.register(ABILITY_LST);
@@ -155,7 +154,7 @@ public class AbilityDepthTest extends AbstractTokenModelTest
 	protected boolean containsExpected(Ability granted)
 	{
 		Collection<CNAbility> abilities =
-				grantedAbilityFacet.getPoolAbilities(id, BuildUtilities.getFeatCat());
+				GRANTED_ABILITY_FACET.getPoolAbilities(id, BuildUtilities.getFeatCat());
 		if (abilities.isEmpty())
 		{
 			System.err.println("No Abilities");
@@ -180,7 +179,7 @@ public class AbilityDepthTest extends AbstractTokenModelTest
 
 	protected int getCount()
 	{
-		return grantedAbilityFacet.getPoolAbilities(id, BuildUtilities.getFeatCat())
+		return GRANTED_ABILITY_FACET.getPoolAbilities(id, BuildUtilities.getFeatCat())
 			.size();
 	}
 

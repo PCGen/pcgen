@@ -22,21 +22,20 @@ package pcgen.core.term;
 
 import pcgen.core.PlayerCharacter;
 
-public class PCHasClassTermEvaluator
-		extends BasePCTermEvaluator implements TermEvaluator
+public class PCHasClassTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
 
 	private final String source;
 
-	public PCHasClassTermEvaluator(
-			String originalText, String source)
+	public PCHasClassTermEvaluator(String originalText, String source)
 	{
 		this.originalText = originalText;
-		this.source       = source;
+		this.source = source;
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc) {
+	public Float resolve(PlayerCharacter pc)
+	{
 		return pc.getClassKeyed(source) != null ? 1.0f : 0.0f;
 	}
 

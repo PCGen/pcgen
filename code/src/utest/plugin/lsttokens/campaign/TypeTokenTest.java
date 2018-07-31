@@ -52,42 +52,42 @@ public class TypeTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testInvalidListEmpty() throws PersistenceLayerException
+	public void testInvalidListEmpty()
 	{
 		assertFalse(parse("."));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidListTrailing() throws PersistenceLayerException
+	public void testInvalidListTrailing()
 	{
 		assertFalse(parse("Type."));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidListLeading() throws PersistenceLayerException
+	public void testInvalidListLeading()
 	{
 		assertFalse(parse(".Type"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidListDouble() throws PersistenceLayerException
+	public void testInvalidListDouble()
 	{
 		assertFalse(parse("One..Type"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidListTooMany() throws PersistenceLayerException
+	public void testInvalidListTooMany()
 	{
 		assertFalse(parse("One.Two.Three.Oops"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmpty() throws PersistenceLayerException
+	public void testInvalidEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();

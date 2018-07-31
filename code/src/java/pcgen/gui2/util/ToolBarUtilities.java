@@ -29,27 +29,27 @@ import javax.swing.SwingConstants;
 public final class ToolBarUtilities
 {
 
-    private ToolBarUtilities()
-    {
-    }
+	private ToolBarUtilities()
+	{
+	}
 
-    public static JToolBar createDefaultToolBar()
-    {
-        JToolBar toolbar = new JToolBar();
-        toolbar.setFloatable(false);
-        toolbar.setRollover(true);
-        return toolbar;
-    }
+	public static JToolBar createDefaultToolBar()
+	{
+		JToolBar toolbar = new JToolBar();
+		toolbar.setFloatable(false);
+		toolbar.setRollover(true);
+		return toolbar;
+	}
 
-    public static JButton createToolBarButton(Action action)
-    {
-        JButton button = new JButton();
-        button.putClientProperty("hideActionText", true);
-        button.setFocusable(false);
-        button.setHorizontalTextPosition(SwingConstants.CENTER);
-        button.setVerticalTextPosition(SwingConstants.BOTTOM);
-        button.setAction(action);
-        return button;
-    }
+	public static JButton createToolBarButton(Action action)
+	{
+		JButton button = new JButton();
+		button.putClientProperty("hideActionText", true);
+		button.setFocusable(false);
+		button.setHorizontalTextPosition(SwingConstants.CENTER);
+		button.setVerticalTextPosition(SwingConstants.BOTTOM);
+		button.setAction(action);
+		return button;
+	}
 
 }

@@ -19,6 +19,8 @@
  */
 package pcgen.inttest.game_3e;
 
+import java.io.IOException;
+
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.inttest.PcgenFtlTestCase;
@@ -60,10 +62,11 @@ public class pcGenGUISWizSamTest extends PcgenFtlTestCase
 	}
 
 	/**
-	 * Run test
-	 * @throws Exception
+	 * Run test.
+	 *
+	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
-	public void testSWizSam() throws Exception
+	public void testSWizSam() throws IOException
 	{
 		runTest("3e_SWizSam", "3e");
 	}

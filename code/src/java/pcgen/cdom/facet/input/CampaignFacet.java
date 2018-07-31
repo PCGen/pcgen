@@ -33,8 +33,7 @@ public class CampaignFacet extends AbstractListFacet<CharID, Campaign>
 {
 	private ExpandedCampaignFacet expandedCampaignFacet;
 
-	public void setExpandedCampaignFacet(
-		ExpandedCampaignFacet expandedCampaignFacet)
+	public void setExpandedCampaignFacet(ExpandedCampaignFacet expandedCampaignFacet)
 	{
 		this.expandedCampaignFacet = expandedCampaignFacet;
 	}

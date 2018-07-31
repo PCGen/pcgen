@@ -51,23 +51,20 @@ public final class ChannelCompatibility
 	 * @return The acting WriteableReferenceFacade based on whether the STATINPUT code
 	 *         control has been used
 	 */
-	public static WriteableReferenceFacade<Number> getStatScore(CharID id,
-		PCStat stat)
+	public static WriteableReferenceFacade<Number> getStatScore(CharID id, PCStat stat)
 	{
 		LoadContext context = Globals.getContext();
-		String channelName =
-				ControlUtilities.getControlToken(context, CControl.STATINPUT);
+		String channelName = ControlUtilities.getControlToken(context, CControl.STATINPUT);
 		if (channelName == null)
 		{
 			return StatAdapter.generate(id, stat);
 		}
 		else
 		{
-			return (WriteableReferenceFacade<Number>) context.getVariableContext()
-				.getChannel(id, stat, channelName);
+			return (WriteableReferenceFacade<Number>) context.getVariableContext().getChannel(id, stat, channelName);
 		}
 	}
-	
+
 	/**
 	 * Gets the current Alignment for the PC represented by the given CharID.
 	 * 
@@ -78,8 +75,7 @@ public final class ChannelCompatibility
 	 */
 	public static PCAlignment getCurrentAlignment(CharID id)
 	{
-		String channelName = ControlUtilities
-				.getControlToken(Globals.getContext(), CControl.ALIGNMENTINPUT);
+		String channelName = ControlUtilities.getControlToken(Globals.getContext(), CControl.ALIGNMENTINPUT);
 		return (PCAlignment) ChannelUtilities.readGlobalChannel(id, channelName);
 	}
 
@@ -93,8 +89,7 @@ public final class ChannelCompatibility
 	 */
 	public static void setCurrentAlignment(CharID id, PCAlignment align)
 	{
-		String channelName = ControlUtilities
-				.getControlToken(Globals.getContext(), CControl.ALIGNMENTINPUT);
+		String channelName = ControlUtilities.getControlToken(Globals.getContext(), CControl.ALIGNMENTINPUT);
 		ChannelUtilities.setGlobalChannel(id, channelName, align);
 	}
 }

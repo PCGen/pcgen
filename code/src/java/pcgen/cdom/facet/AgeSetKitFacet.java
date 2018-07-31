@@ -38,16 +38,15 @@ import pcgen.core.PlayerCharacter;
  * AgeSetKitFacet stores
  * 
  */
-public class AgeSetKitFacet extends AbstractStorageFacet<CharID> implements
-		DataFacetChangeListener<CharID, Integer>
+public class AgeSetKitFacet extends AbstractStorageFacet<CharID> implements DataFacetChangeListener<CharID, Integer>
 {
-	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
-			.getFacet(PlayerCharacterTrackingFacet.class);
+	private final PlayerCharacterTrackingFacet trackingFacet =
+			FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
 
 	private AgeFacet ageFacet;
 
 	private AgeSetFacet ageSetFacet;
-	
+
 	private BioSetFacet bioSetFacet;
 
 	/**

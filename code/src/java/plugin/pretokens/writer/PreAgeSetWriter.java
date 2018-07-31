@@ -16,38 +16,33 @@
  */
 package plugin.pretokens.writer;
 
+import java.io.IOException;
+import java.io.Writer;
+
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.AbstractPrerequisiteWriter;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 
-
-import java.io.IOException;
-import java.io.Writer;
-
-public class PreAgeSetWriter extends AbstractPrerequisiteWriter implements
-		PrerequisiteWriterInterface
+public class PreAgeSetWriter extends AbstractPrerequisiteWriter implements PrerequisiteWriterInterface
 {
 
-    @Override
+	@Override
 	public String kindHandled()
 	{
-		return "AGESET";  //$NON-NLS-1$
+		return "AGESET"; //$NON-NLS-1$
 	}
 
-    @Override
+	@Override
 	public PrerequisiteOperator[] operatorsHandled()
 	{
-		return new PrerequisiteOperator[]{PrerequisiteOperator.GTEQ,
-				PrerequisiteOperator.LT, PrerequisiteOperator.LTEQ,
-				PrerequisiteOperator.GT, PrerequisiteOperator.EQ,
-				PrerequisiteOperator.NEQ};
+		return new PrerequisiteOperator[]{PrerequisiteOperator.GTEQ, PrerequisiteOperator.LT, PrerequisiteOperator.LTEQ,
+			PrerequisiteOperator.GT, PrerequisiteOperator.EQ, PrerequisiteOperator.NEQ};
 	}
 
-    @Override
-	public void write(Writer writer, Prerequisite prereq)
-		throws PersistenceLayerException
+	@Override
+	public void write(Writer writer, Prerequisite prereq) throws PersistenceLayerException
 	{
 		checkValidOperator(prereq, operatorsHandled());
 		try
@@ -56,7 +51,7 @@ public class PreAgeSetWriter extends AbstractPrerequisiteWriter implements
 			{
 				writer.write('!');
 			}
-			writer.write("PREAGESET:" + (prereq.isOverrideQualify() ? "Q:":""));
+			writer.write("PREAGESET:" + (prereq.isOverrideQualify() ? "Q:" : ""));
 			writer.write(prereq.getOperand());
 			writer.write(',');
 			writer.write(prereq.getKey());
@@ -67,11 +62,8 @@ public class PreAgeSetWriter extends AbstractPrerequisiteWriter implements
 		}
 	}
 
-
-
 	@Override
-	public boolean specialCase(Writer writer, Prerequisite prereq)
-			throws IOException
+	public boolean specialCase(Writer writer, Prerequisite prereq) throws IOException
 	{
 		PrerequisiteOperator po = getConsolidateMethod(kindHandled(), prereq, false);
 		if (po == null)
@@ -83,10 +75,8 @@ public class PreAgeSetWriter extends AbstractPrerequisiteWriter implements
 			writer.write('!');
 		}
 
-		writer.write("PRE" + kindHandled().toUpperCase() + ':'
-				+ (prereq.isOverrideQualify() ? "Q:" : ""));
-		writer.write(po.equals(PrerequisiteOperator.GTEQ) ? prereq.getOperand()
-				: "1");
+		writer.write("PRE" + kindHandled().toUpperCase() + ':' + (prereq.isOverrideQualify() ? "Q:" : ""));
+		writer.write(po.equals(PrerequisiteOperator.GTEQ) ? prereq.getOperand() : "1");
 		for (Prerequisite p : prereq.getPrerequisites())
 		{
 			writer.write(',');
@@ -94,5 +84,5 @@ public class PreAgeSetWriter extends AbstractPrerequisiteWriter implements
 		}
 		return true;
 	}
-	
+
 }

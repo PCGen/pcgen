@@ -55,18 +55,15 @@ public class ChangeProf extends ConcretePrereqObject
 	 *            effectively placed for the PlayerCharacter that possesses this
 	 *            ChangeProf.
 	 */
-	public ChangeProf(CDOMReference<WeaponProf> sourceProf,
-			CDOMGroupRef<WeaponProf> resultType)
+	public ChangeProf(CDOMReference<WeaponProf> sourceProf, CDOMGroupRef<WeaponProf> resultType)
 	{
 		if (sourceProf == null)
 		{
-			throw new IllegalArgumentException(
-					"Source Prof for ChangeProf cannot be null");
+			throw new IllegalArgumentException("Source Prof for ChangeProf cannot be null");
 		}
 		if (resultType == null)
 		{
-			throw new IllegalArgumentException(
-					"Resulting Prof Type for ChangeProf cannot be null");
+			throw new IllegalArgumentException("Resulting Prof Type for ChangeProf cannot be null");
 		}
 		source = sourceProf;
 		result = resultType;
@@ -126,7 +123,7 @@ public class ChangeProf extends ConcretePrereqObject
 		ChangeProf other = (ChangeProf) obj;
 		return source.equals(other.source) && result.equals(other.result);
 	}
-	
+
 	@Override
 	public String toString()
 	{

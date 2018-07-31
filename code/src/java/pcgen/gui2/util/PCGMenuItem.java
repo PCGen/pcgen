@@ -38,7 +38,7 @@ public class PCGMenuItem extends JMenuItem
 	{
 		super();
 	}
-	
+
 	public PCGMenuItem(Action a)
 	{
 		super(a);

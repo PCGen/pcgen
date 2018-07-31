@@ -49,7 +49,7 @@ public interface CDOMInterfaceToken<R, W> extends CDOMToken<W>
 	 *         persistent format of the given Loadable for this CDOMInterfaceToken.
 	 */
 	public String[] unparse(LoadContext context, W loadable);
-	
+
 	/**
 	 * Returns the Read Interface for this CDOMInterfaceToken.
 	 * 

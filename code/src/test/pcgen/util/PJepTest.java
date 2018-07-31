@@ -93,9 +93,9 @@ public class PJepTest extends AbstractCharacterTestCase
 	{
 		final PJEP jep = new PJEP();
 
-		jep
-			.parseExpression("max(max(var(\"BL=Wizard\")+var(\"CL=Wizard\"),var(\"BL=Sorcerer\")+var(\"CL=Sorcerer\")),var(\"BL=Cleric\")+var(\"CL=Cleric\"))");
-
+		jep.parseExpression(
+			"max(max(var(\"BL=Wizard\")+var(\"CL=Wizard\"),var(\"BL=Sorcerer\")+var(\"CL=Sorcerer\")),"
+					+ "var(\"BL=Cleric\")+var(\"CL=Cleric\"))");
 		assertFalse(jep.hasError());
 	}
 

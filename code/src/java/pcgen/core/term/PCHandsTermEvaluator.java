@@ -26,11 +26,10 @@ import pcgen.cdom.util.CControl;
 import pcgen.core.PlayerCharacter;
 import pcgen.util.Logging;
 
-public class PCHandsTermEvaluator
-		extends BasePCTermEvaluator implements TermEvaluator {
+public class PCHandsTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
+{
 
-	public PCHandsTermEvaluator(
-			String originalText)
+	public PCHandsTermEvaluator(String originalText)
 	{
 		this.originalText = originalText;
 	}
@@ -40,11 +39,10 @@ public class PCHandsTermEvaluator
 	{
 		if (pc.hasControl(CControl.CREATUREHANDS))
 		{
-			Logging.errorPrint("HANDS term is deprecated (does not function) "
-				+ "when CREATUREHANDS CodeControl is used");
+			Logging
+				.errorPrint("HANDS term is deprecated (does not function) " + "when CREATUREHANDS CodeControl is used");
 		}
-		return (float) FacetLibrary.getFacet(HandsFacet.class).getHands(
-			pc.getCharID());
+		return (float) FacetLibrary.getFacet(HandsFacet.class).getHands(pc.getCharID());
 	}
 
 	@Override

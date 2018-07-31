@@ -37,8 +37,7 @@ class TrackingManufacturer<T extends Loadable> implements ReferenceManufacturer<
 	private final ReferenceManufacturer<T> rm;
 	private final TrackingReferenceContext context;
 
-	protected TrackingManufacturer(TrackingReferenceContext trc,
-	                               ReferenceManufacturer<T> mfg)
+	protected TrackingManufacturer(TrackingReferenceContext trc, ReferenceManufacturer<T> mfg)
 	{
 		context = trc;
 		rm = mfg;
@@ -259,7 +258,7 @@ class TrackingManufacturer<T extends Loadable> implements ReferenceManufacturer<
 	{
 		return rm.unconvert(arg0);
 	}
-	
+
 	@Override
 	public FormatManager<?> getComponentManager()
 	{

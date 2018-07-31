@@ -33,8 +33,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.QualifierToken;
 import pcgen.util.Logging;
 
-public class EquippedToken implements QualifierToken<Equipment>,
-		PrimitiveFilter<Equipment>
+public class EquippedToken implements QualifierToken<Equipment>, PrimitiveFilter<Equipment>
 {
 
 	private PrimitiveCollection<Equipment> pcs = null;
@@ -72,15 +71,13 @@ public class EquippedToken implements QualifierToken<Equipment>,
 	}
 
 	@Override
-	public boolean initialize(LoadContext context,
-		SelectionCreator<Equipment> sc, String condition, String value,
+	public boolean initialize(LoadContext context, SelectionCreator<Equipment> sc, String condition, String value,
 		boolean negate)
 	{
 		if (condition != null)
 		{
-			Logging.addParseMessage(Level.SEVERE, getTokenName()
-				+ " Must not be a conditional Qualifier (no equals), e.g. "
-				+ getTokenName());
+			Logging.addParseMessage(Level.SEVERE,
+				getTokenName() + " Must not be a conditional Qualifier (no equals), e.g. " + getTokenName());
 			return false;
 		}
 		negated = negate;
@@ -99,9 +96,7 @@ public class EquippedToken implements QualifierToken<Equipment>,
 	@Override
 	public GroupingState getGroupingState()
 	{
-		GroupingState gs =
-				pcs == null ? GroupingState.ANY : pcs.getGroupingState()
-					.reduce();
+		GroupingState gs = pcs == null ? GroupingState.ANY : pcs.getGroupingState().reduce();
 		return negated ? gs.negate() : gs;
 	}
 
@@ -130,11 +125,9 @@ public class EquippedToken implements QualifierToken<Equipment>,
 	}
 
 	@Override
-	public <R> Collection<? extends R> getCollection(PlayerCharacter pc,
-		Converter<Equipment, R> c)
+	public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<Equipment, R> c)
 	{
-		Converter<Equipment, R> conv =
-				new AddFilterConverter<>(c, this);
+		Converter<Equipment, R> conv = new AddFilterConverter<>(c, this);
 		conv = negated ? new NegateFilterConverter<>(conv) : conv;
 		return pcs.getCollection(pc, conv);
 	}

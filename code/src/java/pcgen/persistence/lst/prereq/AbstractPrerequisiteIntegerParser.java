@@ -26,17 +26,13 @@ package pcgen.persistence.lst.prereq;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 
-
-public abstract class AbstractPrerequisiteIntegerParser extends
-		AbstractPrerequisiteParser
+public abstract class AbstractPrerequisiteIntegerParser extends AbstractPrerequisiteParser
 {
 	@Override
-	public Prerequisite parse(String kind, String formula,
-		boolean invertResult, boolean overrideQualify)
+	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
 		throws PersistenceLayerException
 	{
-		Prerequisite prereq =
-				super.parse(kind, formula, invertResult, overrideQualify);
+		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
 
 		try
 		{
@@ -44,8 +40,7 @@ public abstract class AbstractPrerequisiteIntegerParser extends
 		}
 		catch (NumberFormatException nfe)
 		{
-			throw new PersistenceLayerException("'" + formula
-				+ "' is not a valid integer");
+			throw new PersistenceLayerException("'" + formula + "' is not a valid integer");
 		}
 
 		if (invertResult)

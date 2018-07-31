@@ -21,8 +21,7 @@ public class RuntimeLoadContext extends LoadContextInst
 {
 	private final String contextType;
 
-	public RuntimeLoadContext(AbstractReferenceContext rc,
-			ListCommitStrategy lcs)
+	public RuntimeLoadContext(AbstractReferenceContext rc, ListCommitStrategy lcs)
 	{
 		super(rc, new RuntimeListContext(lcs), new RuntimeObjectContext());
 		contextType = "Runtime";

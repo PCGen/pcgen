@@ -18,6 +18,8 @@
 package pcgen.cdom.facet;
 
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.analysis.LevelFacet.LevelChangeEvent;
+import pcgen.cdom.facet.analysis.LevelFacet.LevelChangeListener;
 import pcgen.cdom.facet.model.ClassFacet;
 import pcgen.cdom.facet.model.ClassFacet.ClassLevelChangeEvent;
 import pcgen.cdom.facet.model.ClassFacet.ClassLevelChangeListener;
@@ -79,13 +81,12 @@ public class ClassLevelChangeFacet implements ClassLevelChangeListener
 	 *            The LevelChangeEvent containing the information about the
 	 *            level change
 	 * 
-	 * @see pcgen.cdom.facet.analysis.LevelFacet.LevelChangeListener#levelChanged(pcgen.cdom.facet.analysis.LevelFacet.LevelChangeEvent)
+	 * @see LevelChangeListener#levelChanged(LevelChangeEvent)
 	 */
 	@Override
 	public void levelChanged(ClassLevelChangeEvent lce)
 	{
-		update(lce.getCharID(), lce.getPCClass(), lce.getOldLevel(),
-			lce.getNewLevel());
+		update(lce.getCharID(), lce.getPCClass(), lce.getOldLevel(), lce.getNewLevel());
 	}
 
 	/**
@@ -95,7 +96,7 @@ public class ClassLevelChangeFacet implements ClassLevelChangeListener
 	 * @param lce
 	 *            The ClassLevelObjectChangeEvent containing the information
 	 *            about the level change
-	 * @see pcgen.cdom.facet.model.ClassFacet.ClassLevelChangeListener#levelObjectChanged(pcgen.cdom.facet.model.ClassFacet.ClassLevelObjectChangeEvent)
+	 * @see ClassLevelChangeListener#levelObjectChanged(ClassLevelObjectChangeEvent)
 	 */
 	@Override
 	public void levelObjectChanged(ClassLevelObjectChangeEvent lce)

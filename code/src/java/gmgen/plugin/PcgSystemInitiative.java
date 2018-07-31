@@ -20,14 +20,13 @@
  */
 package gmgen.plugin;
 
+import gmgen.plugin.dice.Dice;
 import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.display.CharacterDisplay;
-
-import gmgen.plugin.dice.Dice;
 
 public class PcgSystemInitiative extends SystemInitiative
 {
@@ -38,67 +37,57 @@ public class PcgSystemInitiative extends SystemInitiative
 	{
 		this.pc = pc;
 		display = pc.getDisplay();
-		PCStat stat = Globals.getContext().getReferenceContext()
-				.silentlyGetConstructedCDOMObject(PCStat.class, "DEX");
+		PCStat stat = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCStat.class, "DEX");
 		this.attribute = new SystemAttribute("Dexterity", pc.getTotalStatFor(stat));
 		incrementalBonus = 0;
 		die = new Dice(1, 20);
 	}
 
-    @Override
+	@Override
 	public SystemAttribute getAttribute()
 	{
-		PCStat stat = Globals.getContext().getReferenceContext()
-				.silentlyGetConstructedCDOMObject(PCStat.class, "DEX");
+		PCStat stat = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCStat.class, "DEX");
 		return new SystemAttribute("Dexterity", pc.getTotalStatFor(stat));
 	}
 
-    @Override
+	@Override
 	public void setBonus(int bonus)
 	{
-		String initiativeVar = ControlUtilities
-			.getControlToken(Globals.getContext(), CControl.INITIATIVE);
+		String initiativeVar = ControlUtilities.getControlToken(Globals.getContext(), CControl.INITIATIVE);
 		if (initiativeVar == null)
 		{
 			this.incrementalBonus = bonus - display.processOldInitiativeMod();
 		}
 		else
 		{
-			this.incrementalBonus =
-					bonus - ((Number) pc.getGlobal(initiativeVar)).intValue();
+			this.incrementalBonus = bonus - ((Number) pc.getGlobal(initiativeVar)).intValue();
 		}
 		setCurrentInitiative(roll + getModifier() + mod);
 	}
 
-    @Override
+	@Override
 	public int getBonus()
 	{
-		String initiativeVar = ControlUtilities
-			.getControlToken(Globals.getContext(), CControl.INITIATIVE);
-		String initiativeStatVar = ControlUtilities
-			.getControlToken(Globals.getContext(), CControl.INITIATIVESTAT);
+		String initiativeVar = ControlUtilities.getControlToken(Globals.getContext(), CControl.INITIATIVE);
+		String initiativeStatVar = ControlUtilities.getControlToken(Globals.getContext(), CControl.INITIATIVESTAT);
 		if (initiativeVar == null)
 		{
-			PCStat dex = Globals.getContext().getReferenceContext()
-				.silentlyGetConstructedCDOMObject(PCStat.class, "DEX");
-			return display.processOldInitiativeMod() - pc.getStatModFor(dex)
-				+ incrementalBonus;
+			PCStat dex =
+					Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCStat.class, "DEX");
+			return display.processOldInitiativeMod() - pc.getStatModFor(dex) + incrementalBonus;
 		}
-		return ((Number) pc.getGlobal(initiativeVar)).intValue()
-			- ((Number) pc.getGlobal(initiativeStatVar)).intValue()
+		return ((Number) pc.getGlobal(initiativeVar)).intValue() - ((Number) pc.getGlobal(initiativeStatVar)).intValue()
 			+ incrementalBonus;
 	}
 
-    @Override
+	@Override
 	public int getModifier()
 	{
-		String initiativeVar = ControlUtilities
-			.getControlToken(Globals.getContext(), CControl.INITIATIVE);
+		String initiativeVar = ControlUtilities.getControlToken(Globals.getContext(), CControl.INITIATIVE);
 		if (initiativeVar == null)
 		{
 			return pc.getDisplay().processOldInitiativeMod() + incrementalBonus;
 		}
-		return ((Number) pc.getGlobal(initiativeVar)).intValue()
-			+ incrementalBonus;
+		return ((Number) pc.getGlobal(initiativeVar)).intValue() + incrementalBonus;
 	}
 }

@@ -30,26 +30,23 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 /**
  * Writes PRETYPE token
  */
-public class PreTypeWriter extends AbstractPrerequisiteWriter implements
-		PrerequisiteWriterInterface
+public class PreTypeWriter extends AbstractPrerequisiteWriter implements PrerequisiteWriterInterface
 {
 
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "type";
 	}
 
-    @Override
+	@Override
 	public PrerequisiteOperator[] operatorsHandled()
 	{
-		return new PrerequisiteOperator[]{PrerequisiteOperator.EQ,
-			PrerequisiteOperator.NEQ};
+		return new PrerequisiteOperator[]{PrerequisiteOperator.EQ, PrerequisiteOperator.NEQ};
 	}
 
-    @Override
-	public void write(Writer writer, Prerequisite prereq)
-		throws PersistenceLayerException
+	@Override
+	public void write(Writer writer, Prerequisite prereq) throws PersistenceLayerException
 	{
 		checkValidOperator(prereq, operatorsHandled());
 
@@ -60,7 +57,7 @@ public class PreTypeWriter extends AbstractPrerequisiteWriter implements
 				writer.write('!');
 			}
 
-			writer.write("PRETYPE:" + (prereq.isOverrideQualify() ? "Q:":"") + "1,");
+			writer.write("PRETYPE:" + (prereq.isOverrideQualify() ? "Q:" : "") + "1,");
 			writer.write(prereq.getKey());
 		}
 		catch (IOException e)
@@ -70,8 +67,7 @@ public class PreTypeWriter extends AbstractPrerequisiteWriter implements
 	}
 
 	@Override
-	public boolean specialCase(Writer writer, Prerequisite prereq)
-			throws IOException
+	public boolean specialCase(Writer writer, Prerequisite prereq) throws IOException
 	{
 		// If this is NOT a PREMULT... fail
 		if (prereq.getKind() != null)
@@ -130,16 +126,13 @@ public class PreTypeWriter extends AbstractPrerequisiteWriter implements
 		{
 			return false;
 		}
-		if (!PrerequisiteOperator.GTEQ.equals(prereq.getOperator())
-				^ !PrerequisiteOperator.EQ.equals(oper))
+		if (!PrerequisiteOperator.GTEQ.equals(prereq.getOperator()) ^ !PrerequisiteOperator.EQ.equals(oper))
 		{
 			writer.write('!');
 		}
 
-		writer.write("PRE" + kindHandled().toUpperCase() + ':'
-				+ (prereq.isOverrideQualify() ? "Q:" : ""));
-		writer.write(oper.equals(PrerequisiteOperator.EQ) ? prereq.getOperand()
-				: "1");
+		writer.write("PRE" + kindHandled().toUpperCase() + ':' + (prereq.isOverrideQualify() ? "Q:" : ""));
+		writer.write(oper.equals(PrerequisiteOperator.EQ) ? prereq.getOperand() : "1");
 		for (Prerequisite p : prereq.getPrerequisites())
 		{
 			writer.write(',');

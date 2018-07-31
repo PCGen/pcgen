@@ -82,17 +82,14 @@ public final class SpellCast extends BonusObj
 
 			if (sci.getType() != null)
 			{
-				sb.append(Constants.LST_TYPE_DOT).append(
-					((SpellCastInfo) obj).getType());
+				sb.append(Constants.LST_TYPE_DOT).append(((SpellCastInfo) obj).getType());
 			}
 			else if (sci.getPcClassName() != null)
 			{
-				sb.append(Constants.LST_CLASS_DOT).append(
-					((SpellCastInfo) obj).getPcClassName());
+				sb.append(Constants.LST_CLASS_DOT).append(((SpellCastInfo) obj).getPcClassName());
 			}
 
-			sb.append(Constants.LST_SEMI_LEVEL_DOT).append(
-				((SpellCastInfo) obj).getLevel());
+			sb.append(Constants.LST_SEMI_LEVEL_DOT).append(((SpellCastInfo) obj).getLevel());
 		}
 		else
 		{

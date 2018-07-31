@@ -50,7 +50,8 @@ public class EquipmentQualifierTokenTest extends
 	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 	private ShieldProf sp1, sp2;
 
-	private static final plugin.qualifier.shieldprof.EquipmentToken EQUIPMENT_TOKEN = new plugin.qualifier.shieldprof.EquipmentToken();
+	private static final plugin.qualifier.shieldprof.EquipmentToken EQUIPMENT_TOKEN =
+			new plugin.qualifier.shieldprof.EquipmentToken();
 
 	public EquipmentQualifierTokenTest()
 	{
@@ -101,7 +102,7 @@ public class EquipmentQualifierTokenTest extends
 	}
 
 	@Test
-	public void testGetSet() throws PersistenceLayerException
+	public void testGetSet()
 	{
 		setUpPC();
 		initializeObjects();		
@@ -117,7 +118,7 @@ public class EquipmentQualifierTokenTest extends
 	}
 
 	@Test
-	public void testGetSetFiltered() throws PersistenceLayerException
+	public void testGetSetFiltered()
 	{
 		setUpPC();
 		initializeObjects();		

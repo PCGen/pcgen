@@ -37,8 +37,7 @@ import pcgen.util.Logging;
  * @param <F>
  *            The format of the data stored in the Fact
  */
-public class FactDefinitionEnforcer<T extends CDOMObject, F> implements
-		DeferredToken<T>, LstToken
+public class FactDefinitionEnforcer<T extends CDOMObject, F> implements DeferredToken<T>, LstToken
 {
 
 	/**
@@ -72,9 +71,8 @@ public class FactDefinitionEnforcer<T extends CDOMObject, F> implements
 		{
 			return true;
 		}
-		Logging.errorPrint("FACT " + def.getFactName()
-			+ " was required but not set in " + obj.getClass().getSimpleName()
-			+ " " + obj.getKeyName());
+		Logging.errorPrint("FACT " + def.getFactName() + " was required but not set in "
+			+ obj.getClass().getSimpleName() + " " + obj.getKeyName());
 		return false;
 	}
 

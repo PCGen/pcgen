@@ -35,12 +35,11 @@ public class CRToken extends AbstractExportToken
 	}
 
 	@Override
-	public String getToken(String tokenSource, CharacterDisplay display,
-		ExportHandler eh)
+	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
 	{
 		String retString = "";
 		Integer cr = display.calcCR();
-		
+
 		if (cr == null)
 		{
 			retString = "0";

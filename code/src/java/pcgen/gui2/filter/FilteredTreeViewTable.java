@@ -31,11 +31,10 @@ import pcgen.gui2.util.treeview.TreeView;
 import pcgen.gui2.util.treeview.TreeViewModel;
 import pcgen.gui2.util.treeview.TreeViewPath;
 
-
 public class FilteredTreeViewTable<C, E> extends JTreeViewTable<E> implements FilterHandler
 {
 
-	private static final TreeView<Object> searchView = new TreeView<Object>()
+	private static final TreeView<Object> SEARCH_VIEW = new TreeView<Object>()
 	{
 
 		@Override
@@ -128,7 +127,7 @@ public class FilteredTreeViewTable<C, E> extends JTreeViewTable<E> implements Fi
 		}
 		sortModel();
 	}
-	
+
 	@Override
 	public void setSearchEnabled(boolean searchMode)
 	{
@@ -140,7 +139,7 @@ public class FilteredTreeViewTable<C, E> extends JTreeViewTable<E> implements Fi
 				if (searchMode)
 				{
 					tempView = treetableModel.getSelectedTreeView();
-					setTreeView(searchView);
+					setTreeView(SEARCH_VIEW);
 					cornerPopupMenu.setTreeViewsEnabled(false);
 				}
 				else

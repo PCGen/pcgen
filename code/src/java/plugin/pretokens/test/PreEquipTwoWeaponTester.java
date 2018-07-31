@@ -26,7 +26,6 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
 
-
 public class PreEquipTwoWeaponTester extends PreEquippedTester implements PrerequisiteTest
 {
 
@@ -34,15 +33,14 @@ public class PreEquipTwoWeaponTester extends PreEquippedTester implements Prereq
 	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
 		throws PrerequisiteException
 	{
-		return passesPreEquipHandleTokens(prereq, character,
-				EquipmentLocation.EQUIPPED_TWO_HANDS);
+		return passesPreEquipHandleTokens(prereq, character, EquipmentLocation.EQUIPPED_TWO_HANDS);
 	}
 
 	/**
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "EQUIPTWOWEAPON"; //$NON-NLS-1$

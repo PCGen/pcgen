@@ -64,8 +64,7 @@ public class FormulaKey implements TypeSafeConstant
 
 	public static final FormulaKey CRMOD = getConstant("CRMOD");
 
-	public static final FormulaKey SELECT = getConstant("SELECT",
-			FormulaFactory.ONE);
+	public static final FormulaKey SELECT = getConstant("SELECT", FormulaFactory.ONE);
 
 	public static final FormulaKey NUMCHOICES = getConstant("NUMCHOICES");
 
@@ -87,8 +86,7 @@ public class FormulaKey implements TypeSafeConstant
 			public Formula getDefault()
 			{
 				SizeAdjustment def = SizeUtilities.getDefaultSizeAdjustment();
-				CDOMDirectSingleRef<SizeAdjustment> ref =
-						CDOMDirectSingleRef.getRef(def);
+				CDOMDirectSingleRef<SizeAdjustment> ref = CDOMDirectSingleRef.getRef(def);
 				return new FixedSizeFormula(ref);
 			}
 
@@ -112,13 +110,11 @@ public class FormulaKey implements TypeSafeConstant
 	{
 		if (name == null)
 		{
-			throw new IllegalArgumentException(
-					"Name for FormulaKey cannot be null");
+			throw new IllegalArgumentException("Name for FormulaKey cannot be null");
 		}
 		if (def == null)
 		{
-			throw new IllegalArgumentException(
-					"Formula for FormulaKey cannot be null");
+			throw new IllegalArgumentException("Formula for FormulaKey cannot be null");
 		}
 		ordinal = ordinalCount++;
 		fieldName = name;
@@ -209,8 +205,7 @@ public class FormulaKey implements TypeSafeConstant
 		FormulaKey key = typeMap.get(name);
 		if (key == null)
 		{
-			throw new IllegalArgumentException(name
-					+ " is not a previously defined FormulaKey");
+			throw new IllegalArgumentException(name + " is not a previously defined FormulaKey");
 		}
 		return key;
 	}

@@ -114,13 +114,12 @@ public enum EqModNameOpt
 				}
 				first = false;
 
-				String spellName = EqModSpellInfo.getSpellInfoString(
-						listEntry, "SPELLNAME");
+				String spellName = EqModSpellInfo.getSpellInfoString(listEntry, "SPELLNAME");
 
 				if (SettingsHandler.guiUsesOutputNameSpells())
 				{
 					final Spell aSpell = Globals.getContext().getReferenceContext()
-							.silentlyGetConstructedCDOMObject(Spell.class, spellName);
+						.silentlyGetConstructedCDOMObject(Spell.class, spellName);
 
 					if (aSpell != null)
 					{
@@ -130,16 +129,14 @@ public enum EqModNameOpt
 
 				sb.append(spellName);
 
-				final String info = EqModSpellInfo.getSpellInfoString(
-						listEntry, "VARIANT");
+				final String info = EqModSpellInfo.getSpellInfoString(listEntry, "VARIANT");
 
 				if (!info.isEmpty())
 				{
 					sb.append(" (").append(info).append(')');
 				}
 
-				String metaFeat = EqModSpellInfo.getSpellInfoString(
-						listEntry, "METAFEATS");
+				String metaFeat = EqModSpellInfo.getSpellInfoString(listEntry, "METAFEATS");
 				List<String> metaFeats = CoreUtility.split(metaFeat, ',');
 
 				if (!metaFeats.isEmpty())
@@ -147,12 +144,8 @@ public enum EqModNameOpt
 					sb.append('/').append(StringUtil.join(metaFeats, "/"));
 				}
 
-				sb.append('/').append(
-						EqModSpellInfo.getSpellInfoString(listEntry,
-								"CASTER"));
-				sb.append('/').append(
-						CoreUtility.ordinal(EqModSpellInfo.getSpellInfo(
-								listEntry, "CASTERLEVEL")));
+				sb.append('/').append(EqModSpellInfo.getSpellInfoString(listEntry, "CASTER"));
+				sb.append('/').append(CoreUtility.ordinal(EqModSpellInfo.getSpellInfo(listEntry, "CASTERLEVEL")));
 			}
 
 			return sb.toString().trim().replace('|', ' ');
@@ -178,8 +171,7 @@ public enum EqModNameOpt
 		EqModNameOpt eqmno = typeMap.get(optName);
 		if (eqmno == null)
 		{
-			throw new IllegalArgumentException(optName
-					+ " is not a valid EqModNameOpt");
+			throw new IllegalArgumentException(optName + " is not a valid EqModNameOpt");
 		}
 		return eqmno;
 	}
@@ -200,8 +192,7 @@ public enum EqModNameOpt
 			int mod = f.getModifiers();
 			String name = f.getName();
 
-			if (Modifier.isStatic(mod) && Modifier.isFinal(mod)
-					&& Modifier.isPublic(mod))
+			if (Modifier.isStatic(mod) && Modifier.isFinal(mod) && Modifier.isPublic(mod))
 			{
 				try
 				{
@@ -212,9 +203,7 @@ public enum EqModNameOpt
 						if (typeMap.containsKey(name))
 						{
 							throw new UnreachableError(
-									"Attempt to redefine constant value "
-											+ name + ", value was "
-											+ typeMap.get(name));
+								"Attempt to redefine constant value " + name + ", value was " + typeMap.get(name));
 						}
 						typeMap.put(name, tObj);
 					}

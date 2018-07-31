@@ -32,12 +32,12 @@ import selectionactor.testsupport.AbstractSelectionActorTest;
 public class CcskillTokenTest extends AbstractSelectionActorTest<Skill>
 {
 
-	private static final CcskillToken cra = new CcskillToken();
+	private static final CcskillToken CRA = new CcskillToken();
 
 	@Override
 	public ChooseSelectionActor<Skill> getActor()
 	{
-		return cra;
+		return CRA;
 	}
 
 	@Override

@@ -27,11 +27,9 @@ import javax.swing.RootPaneContainer;
 public final class CursorControlUtilities
 {
 
-	private static final Cursor WAIT_CURSOR = Cursor
-			.getPredefinedCursor(Cursor.WAIT_CURSOR);
+	private static final Cursor WAIT_CURSOR = Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR);
 
-	private static final Cursor DEFAULT_CURSOR = Cursor
-			.getPredefinedCursor(Cursor.DEFAULT_CURSOR);
+	private static final Cursor DEFAULT_CURSOR = Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR);
 
 	private static final MouseAdapter CLICK_CONSUMER = new MouseAdapter()
 	{
@@ -45,8 +43,7 @@ public final class CursorControlUtilities
 
 	public static void startWaitCursor(JComponent component)
 	{
-		RootPaneContainer root = ((RootPaneContainer) component
-				.getTopLevelAncestor());
+		RootPaneContainer root = ((RootPaneContainer) component.getTopLevelAncestor());
 		root.getGlassPane().setCursor(WAIT_CURSOR);
 		root.getGlassPane().addMouseListener(CLICK_CONSUMER);
 		root.getGlassPane().setVisible(true);
@@ -55,8 +52,7 @@ public final class CursorControlUtilities
 
 	public static void stopWaitCursor(JComponent component)
 	{
-		RootPaneContainer root = ((RootPaneContainer) component
-				.getTopLevelAncestor());
+		RootPaneContainer root = ((RootPaneContainer) component.getTopLevelAncestor());
 		root.getGlassPane().setCursor(DEFAULT_CURSOR);
 		root.getGlassPane().removeMouseListener(CLICK_CONSUMER);
 		root.getGlassPane().setVisible(false);

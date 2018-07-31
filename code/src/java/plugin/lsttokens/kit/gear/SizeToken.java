@@ -29,8 +29,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * SIZE token for KitGear
  */
-public class SizeToken extends AbstractNonEmptyToken<KitGear> implements
-		CDOMPrimaryToken<KitGear>
+public class SizeToken extends AbstractNonEmptyToken<KitGear> implements CDOMPrimaryToken<KitGear>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -50,8 +49,7 @@ public class SizeToken extends AbstractNonEmptyToken<KitGear> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, KitGear kitGear,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, KitGear kitGear, String value)
 	{
 		if ("PC".equals(value))
 		{
@@ -60,8 +58,7 @@ public class SizeToken extends AbstractNonEmptyToken<KitGear> implements
 		else
 		{
 			CDOMSingleRef<SizeAdjustment> size =
-					context.getReferenceContext().getCDOMReference(
-						SizeAdjustment.class, value);
+					context.getReferenceContext().getCDOMReference(SizeAdjustment.class, value);
 			kitGear.setSize(size);
 		}
 		return ParseResult.SUCCESS;
@@ -78,8 +75,8 @@ public class SizeToken extends AbstractNonEmptyToken<KitGear> implements
 			{
 				return null;
 			}
-			return new String[] { "PC" };
+			return new String[]{"PC"};
 		}
-		return new String[] { sz.getLSTformat(false) };
+		return new String[]{sz.getLSTformat(false)};
 	}
 }

@@ -72,13 +72,12 @@ public class StatTokenTest extends AbstractKitTokenTestCase<KitStat>
 
 	@Test
 	public void testInvalidInputEmptyValue()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("STR="));
 	}
 
 	@Test
-	public void testInvalidInputEmptyStat() throws PersistenceLayerException
+	public void testInvalidInputEmptyStat()
 	{
 		assertFalse(parse("=2"));
 	}

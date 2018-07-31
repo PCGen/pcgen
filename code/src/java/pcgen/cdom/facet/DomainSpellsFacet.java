@@ -36,14 +36,13 @@ import pcgen.core.spell.Spell;
  * Character due to the Domain selections of the Player Character.
  * 
  */
-public class DomainSpellsFacet extends
-		AbstractSourcedListFacet<CharID, CDOMList<Spell>> implements
-		DataFacetChangeListener<CharID, Domain>
+public class DomainSpellsFacet extends AbstractSourcedListFacet<CharID, CDOMList<Spell>>
+		implements DataFacetChangeListener<CharID, Domain>
 {
 
-	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
-			.getFacet(PlayerCharacterTrackingFacet.class);
-	
+	private final PlayerCharacterTrackingFacet trackingFacet =
+			FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
+
 	private DomainFacet domainFacet;
 
 	private ClassFacet classFacet;
@@ -76,8 +75,7 @@ public class DomainSpellsFacet extends
 			{
 				PlayerCharacter pc = trackingFacet.getPC(id);
 				final int maxLevel = pc.getSpellSupport(domainClass).getMaxCastLevel();
-				DomainApplication.addSpellsToClassForLevels(pc, domain,
-						domainClass, 0, maxLevel);
+				DomainApplication.addSpellsToClassForLevels(pc, domain, domainClass, 0, maxLevel);
 			}
 		}
 	}
@@ -92,7 +90,7 @@ public class DomainSpellsFacet extends
 				return aClass;
 			}
 		}
-		
+
 		return null;
 	}
 

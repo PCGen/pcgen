@@ -25,11 +25,12 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.gui2.converter.event.TokenProcessEvent;
 import pcgen.gui2.converter.event.TokenProcessorPlugin;
 
-public abstract class AbstractPreEqualConvertPlugin implements
-		TokenProcessorPlugin
+public abstract class AbstractPreEqualConvertPlugin implements TokenProcessorPlugin
 {
-	public static final String FLOW_LEFT = "Set unspecified values to next identified value (items queue until set/equals sign flows left)";
-	public static final String FLOW_RIGHT = "Set unspecified values to previous identified value (equals sign holds on unspecified items until redefined)";
+	public static final String FLOW_LEFT =
+			"Set unspecified values to next identified value " + "(items queue until set/equals sign flows left)";
+	public static final String FLOW_RIGHT = "Set unspecified values to previous identified value "
+		+ "(equals sign holds on unspecified items until redefined)";
 	public static final String SET_ONE = "Set unspecified values to one (identify as 'present')";
 
 	// Just process over these magical tokens for now
@@ -41,13 +42,11 @@ public abstract class AbstractPreEqualConvertPlugin implements
 		int commaLoc = formula.indexOf(',');
 		if (commaLoc == -1)
 		{
-			return "Prerequisite " + tpe.getKey() + " must have a count: "
-					+ formula;
+			return "Prerequisite " + tpe.getKey() + " must have a count: " + formula;
 		}
 		if (commaLoc == formula.length() - 1)
 		{
-			return "Prerequisite " + tpe.getKey()
-					+ " can not have only a count: " + formula;
+			return "Prerequisite " + tpe.getKey() + " can not have only a count: " + formula;
 		}
 		String num = formula.substring(0, commaLoc);
 
@@ -57,8 +56,7 @@ public abstract class AbstractPreEqualConvertPlugin implements
 		}
 		catch (NumberFormatException nfe)
 		{
-			return "'" + num + "' in " + tpe.getKey()
-					+ " is not a valid integer";
+			return "'" + num + "' in " + tpe.getKey() + " is not a valid integer";
 		}
 
 		String rest = formula.substring(commaLoc + 1);
@@ -167,8 +165,7 @@ public abstract class AbstractPreEqualConvertPlugin implements
 				String oneResult = one.toString();
 				String rightResult = right.toString();
 				String leftResult = left.toString();
-				if (oneResult.equals(leftResult)
-						&& leftResult.equals(rightResult))
+				if (oneResult.equals(leftResult) && leftResult.equals(rightResult))
 				{
 					tpe.append(oneResult);
 				}
@@ -182,8 +179,7 @@ public abstract class AbstractPreEqualConvertPlugin implements
 					choice.add(rightResult);
 					choice.add(leftResult);
 					String decision = tpe.getDecider().getConversionDecision(
-							"Resolve ambiguity for " + getProcessedToken()
-									+ ":" + formula, descr, choice, 0);
+						"Resolve ambiguity for " + getProcessedToken() + ":" + formula, descr, choice, 0);
 					tpe.append(decision);
 				}
 			}

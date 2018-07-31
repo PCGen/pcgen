@@ -51,15 +51,12 @@ import pcgen.system.LanguageBundle;
 @SuppressWarnings("serial")
 public class CopySettingsPanel extends PCGenPrefsPanel
 {
-	private static final String in_copy_settings =
-		LanguageBundle.getString("in_Prefs_copy");
-	
-	private final JComboBoxEx gameModeSelect = new JComboBoxEx<>();
-	private final JButton copyButton =
-			new JButton(LanguageBundle.getString("in_copy"));
+	private static final String IN_COPY_SETTINGS = LanguageBundle.getString("in_Prefs_copy");
 
-	private final List<PCGenPrefsPanel> affectedPanels =
-            new ArrayList<>();
+	private final JComboBoxEx gameModeSelect = new JComboBoxEx<>();
+	private final JButton copyButton = new JButton(LanguageBundle.getString("in_copy"));
+
+	private final List<PCGenPrefsPanel> affectedPanels = new ArrayList<>();
 
 	/**
 	 * Instantiates a new copy settings panel.
@@ -70,8 +67,7 @@ public class CopySettingsPanel extends PCGenPrefsPanel
 		GridBagConstraints c = new GridBagConstraints();
 		JLabel label;
 		Border etched = null;
-		TitledBorder title1 =
-				BorderFactory.createTitledBorder(etched, in_copy_settings);
+		TitledBorder title1 = BorderFactory.createTitledBorder(etched, IN_COPY_SETTINGS);
 
 		title1.setTitleJustification(TitledBorder.LEFT);
 		this.setBorder(title1);
@@ -82,10 +78,9 @@ public class CopySettingsPanel extends PCGenPrefsPanel
 		c.anchor = GridBagConstraints.LINE_START;
 		c.insets = new Insets(2, 2, 2, 2);
 
-		gameModeSelect.setAllItems(SystemCollections
-			.getUnmodifiableGameModeList().toArray());
+		gameModeSelect.setAllItems(SystemCollections.getUnmodifiableGameModeList().toArray());
 		gameModeSelect.sortItems();
-		
+
 		Utility.buildConstraints(c, 0, 1, 1, 1, 0, 0);
 		label = new JLabel(LanguageBundle.getString("in_Prefs_copyFrom"));
 		gridbag.setConstraints(label, c);
@@ -94,20 +89,18 @@ public class CopySettingsPanel extends PCGenPrefsPanel
 		gridbag.setConstraints(gameModeSelect, c);
 		this.add(gameModeSelect);
 		Utility.buildConstraints(c, 3, 1, 1, 1, 0, 0);
-		label =
-				new JLabel(LanguageBundle.getFormattedString(
-					"in_Prefs_copyTo", SettingsHandler.getGame().getName()));
+		label = new JLabel(LanguageBundle.getFormattedString("in_Prefs_copyTo", SettingsHandler.getGame().getName()));
 		gridbag.setConstraints(label, c);
 		this.add(label);
 		Utility.buildConstraints(c, 4, 1, 1, 1, 0, 0);
 		gridbag.setConstraints(copyButton, c);
 		this.add(copyButton);
-		
+
 		copyButton.addActionListener(new CopyButtonListener());
-		
+
 		Utility.buildConstraints(c, 0, 2, 4, 1, 0, 0);
 		label = new JLabel(LanguageBundle.getString("in_Prefs_copyDesc"));
-		
+
 		gridbag.setConstraints(label, c);
 		this.add(label);
 
@@ -124,9 +117,9 @@ public class CopySettingsPanel extends PCGenPrefsPanel
 	@Override
 	public String getTitle()
 	{
-		return in_copy_settings;
+		return IN_COPY_SETTINGS;
 	}
-	
+
 	/**
 	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#setOptionsBasedOnControls()
 	 */
@@ -153,7 +146,7 @@ public class CopySettingsPanel extends PCGenPrefsPanel
 	 */
 	public void registerAffectedPanel(PCGenPrefsPanel panel)
 	{
-		affectedPanels .add(panel);
+		affectedPanels.add(panel);
 	}
 
 	/**
@@ -168,15 +161,13 @@ public class CopySettingsPanel extends PCGenPrefsPanel
 		@Override
 		public void actionPerformed(ActionEvent actionEvent)
 		{
-			GameMode gmFrom =  (GameMode) gameModeSelect.getSelectedItem();
+			GameMode gmFrom = (GameMode) gameModeSelect.getSelectedItem();
 			GameMode gmTo = SettingsHandler.getGame();
 
 			// Copy the settings from one mode to the other
 			gmTo.setAllStatsValue(gmFrom.getAllStatsValue());
-			gmTo
-				.setRollMethodExpressionByName(gmFrom.getRollMethodExpressionName());
-			if (gmTo
-				.getPurchaseMethodByName(gmFrom.getPurchaseModeMethodName()) != null)
+			gmTo.setRollMethodExpressionByName(gmFrom.getRollMethodExpressionName());
+			if (gmTo.getPurchaseMethodByName(gmFrom.getPurchaseModeMethodName()) != null)
 			{
 				gmTo.setPurchaseMethodName(gmFrom.getPurchaseModeMethodName());
 			}
@@ -187,15 +178,11 @@ public class CopySettingsPanel extends PCGenPrefsPanel
 				gmTo.setDefaultXPTableName(gmFrom.getDefaultXPTableName());
 			}
 			String currentICS =
-					SettingsHandler.getPCGenOption("InfoCharacterSheet."
-						+ gmTo.getName() + ".CurrentSheet", "");
-			String fromGmICS =
-					SettingsHandler.getPCGenOption("InfoCharacterSheet."
-						+ gmFrom.getName() + ".CurrentSheet", currentICS);
-			SettingsHandler.setPCGenOption("InfoCharacterSheet."
-				+ gmTo.getName() + ".CurrentSheet", fromGmICS);
+					SettingsHandler.getPCGenOption("InfoCharacterSheet." + gmTo.getName() + ".CurrentSheet", "");
+			String fromGmICS = SettingsHandler
+				.getPCGenOption("InfoCharacterSheet." + gmFrom.getName() + ".CurrentSheet", currentICS);
+			SettingsHandler.setPCGenOption("InfoCharacterSheet." + gmTo.getName() + ".CurrentSheet", fromGmICS);
 
-			
 			// Refresh the affected settings panels
 			for (PCGenPrefsPanel panel : affectedPanels)
 			{
@@ -203,10 +190,9 @@ public class CopySettingsPanel extends PCGenPrefsPanel
 			}
 
 			// Let the user know it is done
-			ShowMessageDelegate.showMessageDialog(
-				LanguageBundle.getString("in_Prefs_copyDone"),
+			ShowMessageDelegate.showMessageDialog(LanguageBundle.getString("in_Prefs_copyDone"),
 				Constants.APPLICATION_NAME, MessageType.INFORMATION);
-			
+
 		}
 	}
 }

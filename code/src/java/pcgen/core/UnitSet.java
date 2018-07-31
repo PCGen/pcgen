@@ -26,7 +26,6 @@ import java.text.DecimalFormat;
 
 import pcgen.cdom.base.Loadable;
 
-
 /**
  * {@code UnitSet}.
  *
@@ -131,7 +130,7 @@ public final class UnitSet implements Loadable
 	 * 
 	 * @param n name.
 	 */
-    @Override
+	@Override
 	public void setName(final String n)
 	{
 		name = n;
@@ -142,7 +141,7 @@ public final class UnitSet implements Loadable
 	 * 
 	 * @return String name.
 	 */
-    @Override
+	@Override
 	public String getDisplayName()
 	{
 		return name;
@@ -309,31 +308,31 @@ public final class UnitSet implements Loadable
 		return weightDisplayPattern.format(convertWeightToUnitSet(weightInPounds));
 	}
 
-    @Override
+	@Override
 	public URI getSourceURI()
 	{
 		return sourceURI;
 	}
 
-    @Override
+	@Override
 	public void setSourceURI(URI source)
 	{
 		sourceURI = source;
 	}
 
-    @Override
+	@Override
 	public String getKeyName()
 	{
 		return getDisplayName();
 	}
 
-    @Override
+	@Override
 	public boolean isInternal()
 	{
 		return isInternal;
 	}
 
-    @Override
+	@Override
 	public boolean isType(String type)
 	{
 		return false;
@@ -388,6 +387,5 @@ public final class UnitSet implements Loadable
 	{
 		return weightFactor;
 	}
-
 
 }

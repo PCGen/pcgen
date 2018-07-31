@@ -45,27 +45,22 @@ import pcgen.system.LanguageBundle;
 @SuppressWarnings("serial")
 public class HitPointsPanel extends PCGenPrefsPanel
 {
-	private static final String in_hp = LanguageBundle.getString("in_Prefs_hp");
+	private static final String IN_HP = LanguageBundle.getString("in_Prefs_hp");
 
 	private final JCheckBox maxHpAtFirstLevel = new JCheckBox();
 	private final JCheckBox maxHpAtFirstClassLevel = new JCheckBox();
 
 	// "HP Roll Methods"
-	private final JRadioButton hpAutomax =
-			new JRadioButton(LanguageBundle.getString("in_Prefs_hpAutoMax"));
-	private final JRadioButton hpAverage =
-			new JRadioButton(LanguageBundle.getString("in_Prefs_hpAverage"));
-	private final JRadioButton hpPercentage =
-			new JRadioButton(LanguageBundle.getString("in_Prefs_hpPercentage"));
-	private final JRadioButton hpStandard =
-			new JRadioButton(LanguageBundle.getString("in_Prefs_hpStandard"));
-	private final JRadioButton hpUserRolled =
-			new JRadioButton(LanguageBundle.getString("in_Prefs_hpUserRolled"));
+	private final JRadioButton hpAutomax = new JRadioButton(LanguageBundle.getString("in_Prefs_hpAutoMax"));
+	private final JRadioButton hpAverage = new JRadioButton(LanguageBundle.getString("in_Prefs_hpAverage"));
+	private final JRadioButton hpPercentage = new JRadioButton(LanguageBundle.getString("in_Prefs_hpPercentage"));
+	private final JRadioButton hpStandard = new JRadioButton(LanguageBundle.getString("in_Prefs_hpStandard"));
+	private final JRadioButton hpUserRolled = new JRadioButton(LanguageBundle.getString("in_Prefs_hpUserRolled"));
 	private final JRadioButton hpAverageRoundedUp =
 			new JRadioButton(LanguageBundle.getString("in_Prefs_hpAverageRoundedUp"));
 
 	private final WholeNumberField hpPct = new WholeNumberField(0, 6);
-	
+
 	/**
 	 * Instantiates a new hit points panel.
 	 */
@@ -78,7 +73,7 @@ public class HitPointsPanel extends PCGenPrefsPanel
 		JLabel label;
 		ButtonGroup exclusiveGroup;
 		Border etched = null;
-		TitledBorder title1 = BorderFactory.createTitledBorder(etched, in_hp);
+		TitledBorder title1 = BorderFactory.createTitledBorder(etched, IN_HP);
 
 		title1.setTitleJustification(TitledBorder.LEFT);
 		this.setBorder(title1);
@@ -158,9 +153,9 @@ public class HitPointsPanel extends PCGenPrefsPanel
 	@Override
 	public String getTitle()
 	{
-		return in_hp;
+		return IN_HP;
 	}
-	
+
 	/**
 	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#setOptionsBasedOnControls()
 	 */

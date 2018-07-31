@@ -14,8 +14,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with DONOTADD Token
  */
-public class DonotaddToken extends AbstractTokenWithSeparator<PCClassLevel> implements
-		CDOMPrimaryToken<PCClassLevel>
+public class DonotaddToken extends AbstractTokenWithSeparator<PCClassLevel> implements CDOMPrimaryToken<PCClassLevel>
 {
 	@Override
 	public String getTokenName()
@@ -30,8 +29,7 @@ public class DonotaddToken extends AbstractTokenWithSeparator<PCClassLevel> impl
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		PCClassLevel po, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, PCClassLevel po, String value)
 	{
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		while (tok.hasMoreTokens())
@@ -48,8 +46,7 @@ public class DonotaddToken extends AbstractTokenWithSeparator<PCClassLevel> impl
 			else
 			{
 				ComplexParseResult pr = new ComplexParseResult();
-				pr.addErrorMessage(getTokenName()
-					+ " encountered an invalid 'Do Not Add' type: " + value);
+				pr.addErrorMessage(getTokenName() + " encountered an invalid 'Do Not Add' type: " + value);
 				pr.addErrorMessage("  Legal values are: HITDIE, SKILLPOINTS");
 				return pr;
 			}
@@ -62,7 +59,7 @@ public class DonotaddToken extends AbstractTokenWithSeparator<PCClassLevel> impl
 	public String[] unparse(LoadContext context, PCClassLevel po)
 	{
 		Boolean increaseHitDice = context.getObjectContext().getObject(po, ObjectKey.DONTADD_HITDIE);
-		Boolean increaseSkills  = context.getObjectContext().getObject(po, ObjectKey.DONTADD_SKILLPOINTS);
+		Boolean increaseSkills = context.getObjectContext().getObject(po, ObjectKey.DONTADD_SKILLPOINTS);
 
 		if ((increaseHitDice == null) && (increaseSkills == null))
 		{
@@ -84,7 +81,7 @@ public class DonotaddToken extends AbstractTokenWithSeparator<PCClassLevel> impl
 			sb.append("SKILLPOINTS");
 		}
 
-		return new String[] { sb.toString() };
+		return new String[]{sb.toString()};
 	}
 
 	@Override

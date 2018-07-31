@@ -49,7 +49,7 @@ public class ValueTokenTest extends TestCase
 	protected static CampaignSourceEntry testCampaign;
 
 	@BeforeClass
-	public static void classSetUp() throws URISyntaxException
+	public static void classSetUp()
 	{
 		testCampaign =
 				new CampaignSourceEntry(new Campaign(), TestURI.getURI());
@@ -82,13 +82,13 @@ public class ValueTokenTest extends TestCase
 	}
 
 	@Test
-	public void testInvalidInputNullString() throws PersistenceLayerException
+	public void testInvalidInputNullString()
 	{
 		assertFalse(token.parseToken(context, function, null).passed());
 	}
 
 	@Test
-	public void testInvalidInputEmptyString() throws PersistenceLayerException
+	public void testInvalidInputEmptyString()
 	{
 		try
 		{
@@ -101,7 +101,7 @@ public class ValueTokenTest extends TestCase
 	}
 
 	@Test
-	public void testInvalidFormula() throws PersistenceLayerException
+	public void testInvalidFormula()
 	{
 		try
 		{
@@ -114,7 +114,7 @@ public class ValueTokenTest extends TestCase
 	}
 
 	@Test
-	public void testInvalidNonMatchingDefine() throws PersistenceLayerException
+	public void testInvalidNonMatchingDefine()
 	{
 		assertTrue(token.parseToken(context, function, "3+4").passed());
 		try
@@ -128,14 +128,14 @@ public class ValueTokenTest extends TestCase
 	}
 
 	@Test
-	public void testInvalidAllowMatchingDefine() throws PersistenceLayerException
+	public void testInvalidAllowMatchingDefine()
 	{
 		assertTrue(token.parseToken(context, function, "3+4").passed());
 		assertTrue(token.parseToken(context, function, "3+4").passed());
 	}
 
 	@Test
-	public void testValidStringString() throws PersistenceLayerException
+	public void testValidStringString()
 	{
 		assertTrue(token.parseToken(context, function, "2+3").passed());
 		String[] unparsed = token.unparse(context, function);
@@ -145,7 +145,7 @@ public class ValueTokenTest extends TestCase
 	}
 
 	@Test
-	public void testValidStringNo() throws PersistenceLayerException
+	public void testValidStringNo()
 	{
 		assertTrue(token.parseToken(context, function, "3-4").passed());
 		String[] unparsed = token.unparse(context, function);

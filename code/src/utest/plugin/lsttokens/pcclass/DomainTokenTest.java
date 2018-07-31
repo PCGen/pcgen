@@ -118,7 +118,7 @@ public class DomainTokenTest extends AbstractListInputTokenTestCase<PCClass, Dom
 	}
 
 	@Test
-	public void testInvalidEmptyPre() throws PersistenceLayerException
+	public void testInvalidEmptyPre()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("TestWP1|"));
@@ -127,7 +127,6 @@ public class DomainTokenTest extends AbstractListInputTokenTestCase<PCClass, Dom
 
 	@Test
 	public void testInvalidTrailingAfterPre()
-		throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -158,7 +157,6 @@ public class DomainTokenTest extends AbstractListInputTokenTestCase<PCClass, Dom
 
 	@Test
 	public void testInvalidInputBadPrerequisite()
-			throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
@@ -167,14 +165,14 @@ public class DomainTokenTest extends AbstractListInputTokenTestCase<PCClass, Dom
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.removeListFor(ListKey.DOMAIN);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testUnparseSingle() throws PersistenceLayerException
+	public void testUnparseSingle()
 	{
 		Domain wp1 = construct(primaryContext, "TestWP1");
 		primaryProf.addToListFor(ListKey.DOMAIN, buildQO(wp1));
@@ -183,7 +181,7 @@ public class DomainTokenTest extends AbstractListInputTokenTestCase<PCClass, Dom
 	}
 
 	@Test
-	public void testUnparseNullInList() throws PersistenceLayerException
+	public void testUnparseNullInList()
 	{
 		primaryProf.addToListFor(ListKey.DOMAIN, null);
 		try
@@ -198,7 +196,7 @@ public class DomainTokenTest extends AbstractListInputTokenTestCase<PCClass, Dom
 	}
 
 	@Test
-	public void testUnparseMultiple() throws PersistenceLayerException
+	public void testUnparseMultiple()
 	{
 		Domain wp1 = construct(primaryContext, getLegalValue());
 		primaryProf.addToListFor(ListKey.DOMAIN, buildQO(wp1));
@@ -211,7 +209,7 @@ public class DomainTokenTest extends AbstractListInputTokenTestCase<PCClass, Dom
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail() throws PersistenceLayerException
+	public void testUnparseGenericsFail()
 	{
 		ListKey objectKey = ListKey.DOMAIN;
 		primaryProf.addToListFor(objectKey, new Object());

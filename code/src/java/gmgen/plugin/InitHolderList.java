@@ -22,25 +22,24 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
+import gmgen.plugin.dice.Dice;
+import gmgen.plugin.dice.Die;
 import pcgen.core.SettingsHandler;
 import plugin.initiative.InitiativePlugin;
 
-import gmgen.plugin.dice.Dice;
-import gmgen.plugin.dice.Die;
-
 /**
  */
-public class InitHolderList extends ArrayList<InitHolder> {
+public class InitHolderList extends ArrayList<InitHolder>
+{
 
 	/**
 	 * Gets the Max Init of the InitHolderList object, minimum 20
 	 *
 	 * @return the highest initiative in the list (minimum 20)
 	 */
-	public int getMaxInit() {
-		return this.stream()
-			.mapToInt(holder -> holder.getInitiative().getCurrentInitiative())
-			.max().orElse(20);
+	public int getMaxInit()
+	{
+		return this.stream().mapToInt(holder -> holder.getInitiative().getCurrentInitiative()).max().orElse(20);
 	}
 
 	/**
@@ -53,7 +52,8 @@ public class InitHolderList extends ArrayList<InitHolder> {
 	 *          table object.
 	 * @return The Vector that contains a table row.
 	 */
-	public Vector<Object> getRowVector(int i, List<String> columnOrder) {
+	public Vector<Object> getRowVector(int i, List<String> columnOrder)
+	{
 		return this.get(i).getRowVector(columnOrder);
 	}
 
@@ -65,10 +65,12 @@ public class InitHolderList extends ArrayList<InitHolder> {
 	 *          String to compare
 	 * @return Unique Name
 	 */
-	public String getUniqueName(String name) {
+	public String getUniqueName(String name)
+	{
 		int i = 1;
 		String workingName = name;
-		while (!isUniqueName(workingName)) {
+		while (!isUniqueName(workingName))
+		{
 			workingName = workingName.replaceAll(" \\(\\d.*\\)", "") + " (" + i + ")";
 			i++;
 		}
@@ -82,7 +84,8 @@ public class InitHolderList extends ArrayList<InitHolder> {
 	 *          String to compare
 	 * @return if the string is unique or not
 	 */
-	public boolean isUniqueName(String name) {
+	public boolean isUniqueName(String name)
+	{
 		return this.stream().noneMatch(c -> c.getName().equals(name));
 	}
 
@@ -93,11 +96,13 @@ public class InitHolderList extends ArrayList<InitHolder> {
 	 *          The Combatant to be added
 	 * @return if the add is successful.
 	 */
-    @Override
-	public boolean add(InitHolder user) {
+	@Override
+	public boolean add(InitHolder user)
+	{
 		boolean result = super.add(user);
 
-		if (result) {
+		if (result)
+		{
 			this.sort();
 		}
 
@@ -107,11 +112,14 @@ public class InitHolderList extends ArrayList<InitHolder> {
 	/**
 	 * Calculate the initiative
 	 */
-	public void calculateNumberField() {
+	public void calculateNumberField()
+	{
 		int j = 1;
 
-		for (InitHolder c : this) {
-			if (c instanceof Combatant) {
+		for (InitHolder c : this)
+		{
+			if (c instanceof Combatant)
+			{
 				Combatant cbt = (Combatant) c;
 				cbt.setNumber(j);
 				j++;
@@ -120,23 +128,30 @@ public class InitHolderList extends ArrayList<InitHolder> {
 	}
 
 	/** Rolls an initiative check for the whole list */
-	public void check() {
+	public void check()
+	{
 		Die d20 = new Dice(1, 20);
 		boolean pcroll = SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".rollPCInitiatives", true);
 
-		for (InitHolder c : this) {
+		for (InitHolder c : this)
+		{
 			int roll = d20.roll();
 			boolean doroll = true;
-			if (!pcroll && c instanceof Combatant) {
+			if (!pcroll && c instanceof Combatant)
+			{
 				Combatant com = (Combatant) c;
-				if (com.getCombatantType().equals("PC")) {
+				if (com.getCombatantType().equals("PC"))
+				{
 					doroll = false;
 				}
 			}
 
-			if (doroll) {
+			if (doroll)
+			{
 				c.getInitiative().checkExtRoll(roll);
-			} else {
+			}
+			else
+			{
 				c.getInitiative().resetCurrentInitiative();
 			}
 		}
@@ -154,16 +169,16 @@ public class InitHolderList extends ArrayList<InitHolder> {
 	 *          Initiative value to check
 	 * @return if it is active
 	 */
-	public boolean initValid(int init) {
+	public boolean initValid(int init)
+	{
 
-		return this.stream()
-				   .filter(c -> c.getStatus() != State.Dead)
-				   .mapToInt(c -> c.getInitiative().getCurrentInitiative())
-				   .anyMatch(cInit -> cInit == init);
+		return this.stream().filter(c -> c.getStatus() != State.Dead)
+			.mapToInt(c -> c.getInitiative().getCurrentInitiative()).anyMatch(cInit -> cInit == init);
 	}
 
 	/** sorts the list based on initiative */
-	public void sort() {
+	public void sort()
+	{
 		this.sort(new InitHolderComperator());
 	}
 }

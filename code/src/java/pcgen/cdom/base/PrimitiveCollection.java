@@ -25,7 +25,7 @@ import pcgen.core.PlayerCharacter;
 
 public interface PrimitiveCollection<T>
 {
-	
+
 	@SuppressWarnings("rawtypes")
 	PrimitiveCollection INVALID = new PrimitiveCollection()
 	{

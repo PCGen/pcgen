@@ -24,19 +24,18 @@ import java.util.List;
 
 import pcgen.core.GameMode;
 
-
 public class DummySystemLoader implements SystemLoader
 {
 
 	private List<URI> chosenCamps = Collections.emptyList();
 
-    @Override
+	@Override
 	public void setChosenCampaignSourcefiles(List<URI> l, GameMode game)
 	{
 		chosenCamps = l;
 	}
 
-    @Override
+	@Override
 	public List<URI> getChosenCampaignSourcefiles(GameMode game)
 	{
 		return chosenCamps;

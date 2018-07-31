@@ -22,8 +22,7 @@ import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.base.QualifyingObject;
 import pcgen.core.spell.Spell;
 
-public class AvailableSpell extends ConcretePrereqObject implements
-		QualifyingObject
+public class AvailableSpell extends ConcretePrereqObject implements QualifyingObject
 {
 
 	private final CDOMList<Spell> spelllist;

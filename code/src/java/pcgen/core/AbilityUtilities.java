@@ -41,7 +41,7 @@ import pcgen.core.utils.LastGroupSeparator.GroupingMismatchException;
  */
 public final class AbilityUtilities
 {
-	private AbilityUtilities ()
+	private AbilityUtilities()
 	{
 	}
 
@@ -60,8 +60,7 @@ public final class AbilityUtilities
 			mc.act(mc.driveChoice(aPC), ability, aPC);
 		}
 
-		for (TransitionChoice<Kit> kit : ability
-			.getSafeListFor(ListKey.KIT_CHOICE))
+		for (TransitionChoice<Kit> kit : ability.getSafeListFor(ListKey.KIT_CHOICE))
 		{
 			kit.act(kit.driveChoice(aPC), ability, aPC);
 		}
@@ -77,11 +76,9 @@ public final class AbilityUtilities
 		aPC.calcActiveBonuses();
 	}
 
-	public static void adjustPool(final Ability ability,
-			final PlayerCharacter aPC, final boolean addIt)
+	public static void adjustPool(final Ability ability, final PlayerCharacter aPC, final boolean addIt)
 	{
-		double abilityCount =
-				ability.getSafe(ObjectKey.SELECTION_COST).doubleValue();
+		double abilityCount = ability.getSafe(ObjectKey.SELECTION_COST).doubleValue();
 		if (addIt)
 		{
 			abilityCount *= -1;
@@ -115,9 +112,8 @@ public final class AbilityUtilities
 	 * @return the name with sub-choices stripped from it
 	 * @throws GroupingMismatchException If there are mismatched brackets
 	 */
-	public static String getUndecoratedName(
-			final String name, 
-			final Collection<String> specifics) throws GroupingMismatchException
+	public static String getUndecoratedName(final String name, final Collection<String> specifics)
+		throws GroupingMismatchException
 	{
 		LastGroupSeparator lgs = new LastGroupSeparator(name);
 		String subName = lgs.process();
@@ -138,8 +134,7 @@ public final class AbilityUtilities
 	 *
 	 * @return true if the association has already been selected
 	 */
-	public static boolean alreadySelected(PlayerCharacter pc, Ability ability,
-		String selection, boolean allowStack)
+	public static boolean alreadySelected(PlayerCharacter pc, Ability ability, String selection, boolean allowStack)
 	{
 		Collection<CNAbility> cnAbilities = pc.getMatchingCNAbilities(ability);
 		if (cnAbilities.isEmpty())
@@ -158,8 +153,7 @@ public final class AbilityUtilities
 			return false;
 		}
 		ChooseInformation<?> info = ability.get(ObjectKey.CHOOSE_INFO);
-		Object decoded =
-				info.decodeChoice(Globals.getContext(), selection);
+		Object decoded = info.decodeChoice(Globals.getContext(), selection);
 		for (CNAbility cna : cnAbilities)
 		{
 			List<?> oldSelections = pc.getDetailedAssociations(cna);
@@ -188,8 +182,7 @@ public final class AbilityUtilities
 			return false;
 		}
 		return (ability.getCDOMCategory() == AbilityCategory.FEAT)
-				|| (
-				ability.getCDOMCategory().getParentCategory() == AbilityCategory.FEAT);
+			|| (ability.getCDOMCategory().getParentCategory() == AbilityCategory.FEAT);
 	}
 
 	public static Ability validateCNAList(List<CNAbility> list)
@@ -204,8 +197,7 @@ public final class AbilityUtilities
 			else
 			{
 				if (!cna.getAbility().getKeyName().equals(a.getKeyName())
-					|| !a.getCDOMCategory().equals(
-						cna.getAbilityCategory().getParentCategory()))
+					|| !a.getCDOMCategory().equals(cna.getAbilityCategory().getParentCategory()))
 				{
 					throw new IllegalArgumentException(
 						"CNAbility list must be a consistent list of Abilities (same object)");
@@ -215,8 +207,7 @@ public final class AbilityUtilities
 		return a;
 	}
 
-	public static void driveChooseAndAdd(CNAbility cna, PlayerCharacter pc,
-		boolean toAdd)
+	public static void driveChooseAndAdd(CNAbility cna, PlayerCharacter pc, boolean toAdd)
 	{
 		Ability ability = cna.getAbility();
 		if (!ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
@@ -224,22 +215,18 @@ public final class AbilityUtilities
 			CNAbilitySelection cnas = new CNAbilitySelection(cna);
 			if (toAdd)
 			{
-				pc.addAbility(cnas, UserSelection.getInstance(),
-					UserSelection.getInstance());
+				pc.addAbility(cnas, UserSelection.getInstance(), UserSelection.getInstance());
 			}
 			else
 			{
-				pc.removeAbility(cnas, UserSelection.getInstance(),
-					UserSelection.getInstance());
+				pc.removeAbility(cnas, UserSelection.getInstance(), UserSelection.getInstance());
 			}
 		}
 		AbilityCategory category = (AbilityCategory) cna.getAbilityCategory();
 		// how many sub-choices to make
 		ArrayList<String> reservedList = new ArrayList<>();
 
-		ChoiceManagerList<?> aMan =
-				ChooserUtilities.getConfiguredController(cna, pc, category,
-					reservedList);
+		ChoiceManagerList<?> aMan = ChooserUtilities.getConfiguredController(cna, pc, category, reservedList);
 		if (aMan != null)
 		{
 			processSelection(pc, cna, aMan, toAdd);
@@ -248,8 +235,8 @@ public final class AbilityUtilities
 		//TODO Log error? (or MULT:NO?)
 	}
 
-	private static <T> void processSelection(
-		PlayerCharacter pc, CNAbility cna, ChoiceManagerList<T> aMan, boolean toAdd)
+	private static <T> void processSelection(PlayerCharacter pc, CNAbility cna, ChoiceManagerList<T> aMan,
+		boolean toAdd)
 	{
 		ArrayList<T> availableList = new ArrayList<>();
 		ArrayList<T> selectedList = new ArrayList<>();
@@ -268,15 +255,11 @@ public final class AbilityUtilities
 		List<T> newSelections;
 		if (toAdd)
 		{
-			newSelections =
-					aMan.doChooser(pc, availableList, selectedList,
-						reservedList);
+			newSelections = aMan.doChooser(pc, availableList, selectedList, reservedList);
 		}
 		else
 		{
-			newSelections =
-					aMan.doChooserRemove(pc, availableList, selectedList,
-						reservedList);
+			newSelections = aMan.doChooserRemove(pc, availableList, selectedList, reservedList);
 		}
 
 		//Need to use only the new ones
@@ -295,15 +278,13 @@ public final class AbilityUtilities
 		{
 			String selection = aMan.encodeChoice(sel);
 			CNAbilitySelection cnas = new CNAbilitySelection(cna, selection);
-			pc.addAbility(cnas, UserSelection.getInstance(),
-				UserSelection.getInstance());
+			pc.addAbility(cnas, UserSelection.getInstance(), UserSelection.getInstance());
 		}
 		for (T sel : removedSelections)
 		{
 			String selection = aMan.encodeChoice(sel);
 			CNAbilitySelection cnas = new CNAbilitySelection(cna, selection);
-			pc.removeAbility(cnas, UserSelection.getInstance(),
-				UserSelection.getInstance());
+			pc.removeAbility(cnas, UserSelection.getInstance(), UserSelection.getInstance());
 		}
 	}
 }

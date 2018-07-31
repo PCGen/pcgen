@@ -35,7 +35,7 @@ public final class ExportUtilities
 	private ExportUtilities()
 	{
 	}
-	
+
 	/**
 	 * Retrieve the extension that should be used for the output file. This is base don the template name.  
 	 * @param templateFilename The filename of the export template.
@@ -51,14 +51,12 @@ public final class ExportUtilities
 
 		if (templateFilename.endsWith(".ftl"))
 		{
-			templateFilename = templateFilename.substring(0, templateFilename.length()-4);
+			templateFilename = templateFilename.substring(0, templateFilename.length() - 4);
 		}
-		String extension =
-				StringUtils.substringAfterLast(templateFilename, ".");
+		String extension = StringUtils.substringAfterLast(templateFilename, ".");
 		if (StringUtils.isEmpty(extension))
 		{
-			extension =
-					StringUtils.substringAfterLast(templateFilename, "-");
+			extension = StringUtils.substringAfterLast(templateFilename, "-");
 		}
 
 		return extension;
@@ -82,9 +80,7 @@ public final class ExportUtilities
 	public static boolean isPdfTemplate(String templateFilename)
 	{
 		String extension = getOutputExtension(templateFilename, false);
-		return (extension.equalsIgnoreCase("pdf")
-			|| extension.equalsIgnoreCase("fo")
-			|| extension.equalsIgnoreCase("xslt")
-			|| extension.equalsIgnoreCase("xsl"));
+		return (extension.equalsIgnoreCase("pdf") || extension.equalsIgnoreCase("fo")
+			|| extension.equalsIgnoreCase("xslt") || extension.equalsIgnoreCase("xsl"));
 	}
 }

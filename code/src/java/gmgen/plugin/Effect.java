@@ -38,7 +38,7 @@ public class Effect extends Event
 		super("", player, description, duration, 0, alert);
 	}
 
-    @Override
+	@Override
 	public String getEndText()
 	{
 		return "Effect " + getName() + " Completed or Occurred";
@@ -51,36 +51,39 @@ public class Effect extends Event
 	 *@param  columnOrder  The current table's column order
 	 *@return              The Row Vector
 	 */
-    @Override
+	@Override
 	public Vector<Object> getRowVector(List<String> columnOrder)
 	{
 		Vector<Object> rowVector = new Vector<>();
 
-		for ( final String columnName : columnOrder )
+		for (final String columnName : columnOrder)
 		{
 			switch (columnName)
 			{
-				case "Name":  // Event's name
+				case "Name": // Event's name
 					rowVector.add("");
 					break;
-				case "Player":  // Player's Name who cast the spell
+				case "Player": // Player's Name who cast the spell
 					rowVector.add("Owner: " + getPlayer());
 					break;
-				case "Status":  // Event's Status
+				case "Status": // Event's Status
 					rowVector.add(getStatus());
 					break;
-				case "Init":  // Event's Initiative
+				case "Init": // Event's Initiative
 					rowVector.add("");
 					break;
-				case "Dur":  // Event's Duration
+				case "Dur": // Event's Duration
 					rowVector.add(String.valueOf(getDuration()));
 					break;
-				case "+":  // Ignored
-				case "#":  // Ignored
-				case "HP":  // Ignored
-				case "HP Max":  // Ignored
-				case "Type":  //PC, Enemy, Ally, -
+				case "+": // Ignored
+				case "#": // Ignored
+				case "HP": // Ignored
+				case "HP Max": // Ignored
+				case "Type": //PC, Enemy, Ally, -
 					rowVector.add("");
+					break;
+				default:
+					//Case not caught, should this cause an error?
 					break;
 			}
 		}
@@ -95,7 +98,7 @@ public class Effect extends Event
 	 *@param  colNumber    What column number has been edited
 	 *@param  data         The new value for the field
 	 */
-    @Override
+	@Override
 	public void editRow(List<String> columnOrder, int colNumber, Object data)
 	{
 		String columnName = columnOrder.get(colNumber);
@@ -103,19 +106,21 @@ public class Effect extends Event
 
 		switch (columnName)
 		{
-			case "Name":  // Spell's Name
+			case "Name": // Spell's Name
 				setName(strData);
 				break;
-			case "Player":  // Name of the player who cast the spell
+			case "Player": // Name of the player who cast the spell
 				setPlayer(strData);
 				break;
-			case "Status":  // SPell's status
+			case "Status": // SPell's status
 				setStatus(State.getState(strData));
 				break;
-			case "Dur":  // Spell's duration
-
+			case "Dur": // Spell's duration
 				Integer intData = Integer.valueOf(strData);
 				setDuration(intData);
+				break;
+			default:
+				//Case not caught, should this cause an error?
 				break;
 		}
 	}

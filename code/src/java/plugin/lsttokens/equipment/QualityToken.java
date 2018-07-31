@@ -33,8 +33,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Deals with ACCHECK token
  */
-public class QualityToken extends AbstractNonEmptyToken<Equipment> implements
-		CDOMPrimaryToken<Equipment>
+public class QualityToken extends AbstractNonEmptyToken<Equipment> implements CDOMPrimaryToken<Equipment>
 {
 
 	@Override
@@ -44,31 +43,30 @@ public class QualityToken extends AbstractNonEmptyToken<Equipment> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		Equipment eq, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, Equipment eq, String value)
 	{
 		int pipeLoc = value.indexOf(Constants.PIPE);
 		if (pipeLoc == -1)
 		{
-			return new ParseResult.Fail(getTokenName() + " expecting '|', format is: "
-					+ "QualityType|Quality value was: " + value);
+			return new ParseResult.Fail(
+				getTokenName() + " expecting '|', format is: " + "QualityType|Quality value was: " + value);
 		}
 		if (pipeLoc != value.lastIndexOf(Constants.PIPE))
 		{
-			return new ParseResult.Fail(getTokenName() + " expecting only one '|', "
-					+ "format is: QualityType|Quality value was: " + value);
+			return new ParseResult.Fail(
+				getTokenName() + " expecting only one '|', " + "format is: QualityType|Quality value was: " + value);
 		}
 		String key = value.substring(0, pipeLoc);
 		if (key.isEmpty())
 		{
-			return new ParseResult.Fail(getTokenName() + " expecting non-empty type, "
-					+ "format is: QualityType|Quality value was: " + value);
+			return new ParseResult.Fail(
+				getTokenName() + " expecting non-empty type, " + "format is: QualityType|Quality value was: " + value);
 		}
 		String val = value.substring(pipeLoc + 1);
 		if (val.isEmpty())
 		{
-			return new ParseResult.Fail(getTokenName() + " expecting non-empty value, "
-					+ "format is: QualityType|Quality value was: " + value);
+			return new ParseResult.Fail(
+				getTokenName() + " expecting non-empty value, " + "format is: QualityType|Quality value was: " + value);
 		}
 		context.getObjectContext().put(eq, MapKey.QUALITY, key, val);
 		return ParseResult.SUCCESS;
@@ -77,8 +75,7 @@ public class QualityToken extends AbstractNonEmptyToken<Equipment> implements
 	@Override
 	public String[] unparse(LoadContext context, Equipment eq)
 	{
-		MapChanges<String, String> changes = context.getObjectContext()
-				.getMapChanges(eq, MapKey.QUALITY);
+		MapChanges<String, String> changes = context.getObjectContext().getMapChanges(eq, MapKey.QUALITY);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;
@@ -87,8 +84,7 @@ public class QualityToken extends AbstractNonEmptyToken<Equipment> implements
 		Map<String, String> added = changes.getAdded();
 		for (Map.Entry<String, String> me : added.entrySet())
 		{
-			set.add(new StringBuilder().append(me.getKey()).append(
-					Constants.PIPE).append(me.getValue()).toString());
+			set.add(new StringBuilder().append(me.getKey()).append(Constants.PIPE).append(me.getValue()).toString());
 		}
 		return set.toArray(new String[set.size()]);
 	}

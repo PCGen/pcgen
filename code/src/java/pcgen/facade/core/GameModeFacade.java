@@ -22,17 +22,16 @@ import java.util.List;
 
 import pcgen.util.enumeration.Tab;
 
-
 public interface GameModeFacade
 {
 
-    @Override
+	@Override
 	public String toString();
 
 	public String getName();
 
 	public String getDisplayName();
-	
+
 	public String getDefaultSourceTitle();
 
 	public List<String> getDefaultDataSetList();
@@ -40,20 +39,20 @@ public interface GameModeFacade
 	public String getInfoSheet();
 
 	public String getInfoSheetSkill();
-	
+
 	public String getOutputSheetDirectory();
-	
+
 	public String getOutputSheetDefault(String type);
-	
+
 	public String getCharSheetDir();
 
 	public String getDefaultCharSheet();
-	
+
 	/**
 	 * @return The displayable name for the character height units
 	 */
 	public String getHeightUnit();
-	
+
 	/**
 	 * @return The displayable name for the character weight units
 	 */
@@ -85,5 +84,5 @@ public interface GameModeFacade
 	 * @return true if the tab should be displayed, false if not.
 	 */
 	public boolean getTabShown(Tab tab);
-	
+
 }

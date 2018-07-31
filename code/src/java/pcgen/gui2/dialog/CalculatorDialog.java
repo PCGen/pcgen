@@ -58,7 +58,7 @@ public class CalculatorDialog extends JDialog
 		initComponents();
 		pack();
 		setSize(700, 500);
-		
+
 		Utility.installEscapeCloseOperation(this);
 	}
 
@@ -68,9 +68,10 @@ public class CalculatorDialog extends JDialog
 		contentPane.setLayout(new BorderLayout());
 		outputText.setEditable(false);
 		contentPane.add(formulaPanel, BorderLayout.NORTH);
-	 
-	    JScrollPane js = new JScrollPane( outputText, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED ) ;
-	    contentPane.add(js, BorderLayout.CENTER);
+
+		JScrollPane js = new JScrollPane(outputText, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
+			ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		contentPane.add(js, BorderLayout.CENTER);
 		setDefaultCloseOperation(HIDE_ON_CLOSE);
 	}
 
@@ -80,7 +81,7 @@ public class CalculatorDialog extends JDialog
 		private final JButton clearButton;
 		private final JTextField formulaText;
 		private final JTextArea outputText;
-		
+
 		public ButtonPanel(JTextField formulaText, JTextArea outputText)
 		{
 			calcButton = new JButton(LanguageBundle.getString("in_calculate"));
@@ -89,20 +90,20 @@ public class CalculatorDialog extends JDialog
 			this.outputText = outputText;
 			initComponents();
 		}
-		
+
 		private void initComponents()
 		{
 			setLayout(new BorderLayout());
-			
+
 			calcButton.setActionCommand("CALCULATE");
 			calcButton.addActionListener(this);
 			clearButton.setActionCommand("CLEAR");
 			clearButton.addActionListener(this);
-			
+
 			add(calcButton, BorderLayout.WEST);
 			add(clearButton, BorderLayout.EAST);
 		}
-		
+
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
@@ -115,8 +116,8 @@ public class CalculatorDialog extends JDialog
 				{
 					VariableProcessor vp = currentPC.getVariableProcessor();
 					vp.pauseCache();
-					outputText.append(currentPC.getNameRef() + ": " + formula + " = "
-						+ currentPC.getVariable(formula, true) + "\n");
+					outputText.append(
+						currentPC.getNameRef() + ": " + formula + " = " + currentPC.getVariable(formula, true) + "\n");
 					vp.restartCache();
 				}
 				else
@@ -126,18 +127,18 @@ public class CalculatorDialog extends JDialog
 				formulaText.requestFocus();
 
 			}
-			else if  ("CLEAR".equals(e.getActionCommand()))
+			else if ("CLEAR".equals(e.getActionCommand()))
 			{
 				outputText.setText("");
 			}
 		}
 	}
-	
+
 	private class FormulaPanel extends JPanel
 	{
 		private final JTextField formulaText;
 		private final ButtonPanel buttonPanel;
-		
+
 		public FormulaPanel(JTextArea outputText)
 		{
 			formulaText = new JTextField();
@@ -145,11 +146,11 @@ public class CalculatorDialog extends JDialog
 			initComponents();
 
 		}
-		
+
 		private void initComponents()
 		{
 			setLayout(new BorderLayout());
-			
+
 			add(formulaText, BorderLayout.CENTER);
 			add(buttonPanel, BorderLayout.EAST);
 		}

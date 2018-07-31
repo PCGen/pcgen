@@ -49,14 +49,13 @@ public class AnyToken<T extends CDOMObject> implements QualifierToken<T>
 	}
 
 	@Override
-	public boolean initialize(LoadContext context, SelectionCreator<T> sc,
-			String condition, String value, boolean negate)
+	public boolean initialize(LoadContext context, SelectionCreator<T> sc, String condition, String value,
+		boolean negate)
 	{
 		if (condition != null)
 		{
-			Logging.addParseMessage(Level.SEVERE, "Cannot make "
-					+ getTokenName()
-					+ " into a conditional Qualifier, remove =");
+			Logging.addParseMessage(Level.SEVERE,
+				"Cannot make " + getTokenName() + " into a conditional Qualifier, remove =");
 			return false;
 		}
 		if (sc == null)

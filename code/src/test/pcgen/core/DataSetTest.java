@@ -25,6 +25,7 @@ import pcgen.facade.core.AbilityFacade;
 import pcgen.facade.core.BodyStructureFacade;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.ListFacade;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
@@ -57,9 +58,12 @@ public class DataSetTest extends TestCase
 		DataSet dataset = new DataSet(Globals.getContext(), SettingsHandler.getGame(), new DefaultListFacade<>());
 		ListFacade<BodyStructureFacade> locations = dataset.getEquipmentLocations();
 		assertNotNull("Body Structure should not be null", locations);
-		assertTrue("Expected to find Equipped", checkBodyStructurePresent(locations, Constants.EQUIP_LOCATION_EQUIPPED));
-		assertTrue("Expected to find Carried", checkBodyStructurePresent(locations, Constants.EQUIP_LOCATION_CARRIED));
-		assertTrue("Expected to find Not Carried", checkBodyStructurePresent(locations, Constants.EQUIP_LOCATION_NOTCARRIED));
+		assertTrue("Expected to find Equipped",
+			checkBodyStructurePresent(locations, Constants.EQUIP_LOCATION_EQUIPPED));
+		assertTrue("Expected to find Carried",
+			checkBodyStructurePresent(locations, Constants.EQUIP_LOCATION_CARRIED));
+		assertTrue("Expected to find Not Carried",
+			checkBodyStructurePresent(locations, Constants.EQUIP_LOCATION_NOTCARRIED));
 		assertEquals("Incorrect size of body structures list", 3, locations.getSize());
 	}
 
@@ -93,9 +97,10 @@ public class DataSetTest extends TestCase
 
 	/**
 	 * Verify the getPrereqAbilities method is functioning correctly.
-	 * @throws Exception
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testGetPrereqAbilities() throws Exception
+	public void testGetPrereqAbilities() throws PersistenceLayerException
 	{
 		Ability acrobatics = TestHelper.makeAbility("Acrobatics", BuildUtilities.getFeatCat(), "general");
 		Ability dodge = TestHelper.makeAbility("Dodge", BuildUtilities.getFeatCat(), "general");

@@ -39,16 +39,14 @@ public abstract class VersionAwareToken
 	{
 		// extract the tokens from the version line
 		String[] tokens = version.split(" |\\.|\\-", 4); //$NON-NLS-1$
-	
+
 		if (tokens.length < 3)
 		{
-			Logging
-				.log(Logging.LST_ERROR, "Invalid version in " + getTokenName()
-					+ ':' + version + " must have 3 number parts e.g. "
-					+ getTokenName() + ":6.0.2");
+			Logging.log(Logging.LST_ERROR, "Invalid version in " + getTokenName() + ':' + version
+				+ " must have 3 number parts e.g. " + getTokenName() + ":6.0.2");
 			return false;
 		}
-		
+
 		for (int idx = 0; idx < 3 && idx < tokens.length; idx++)
 		{
 			try
@@ -63,10 +61,8 @@ public abstract class VersionAwareToken
 				}
 				else
 				{
-					Logging.log(Logging.LST_ERROR, "Invalid version in "
-						+ getTokenName() + ':' + version
-						+ " must have 3 number parts e.g. " + getTokenName()
-						+ ":6.0.2");
+					Logging.log(Logging.LST_ERROR, "Invalid version in " + getTokenName() + ':' + version
+						+ " must have 3 number parts e.g. " + getTokenName() + ":6.0.2");
 					return false;
 				}
 			}

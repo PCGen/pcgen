@@ -55,7 +55,6 @@ public final class UIPropertyContext extends PropertyContext
 	public static final String SOURCE_USE_BASIC_KEY = "SourceSelectionDialog.useBasic"; //$NON-NLS-1$
 	/** What should the chooser do with a single choice? */
 	private static final String SINGLE_CHOICE_ACTION = "singleChoiceAction"; //$NON-NLS-1$
-	
 
 	/**
 	 * The character property for the initial tab to open
@@ -219,15 +218,14 @@ public final class UIPropertyContext extends PropertyContext
 
 	public static int getSingleChoiceAction()
 	{
-		return getInstance().initInt(SINGLE_CHOICE_ACTION,
-			Constants.CHOOSER_SINGLE_CHOICE_METHOD_NONE);
+		return getInstance().initInt(SINGLE_CHOICE_ACTION, Constants.CHOOSER_SINGLE_CHOICE_METHOD_NONE);
 	}
-	
+
 	public static void setSingleChoiceAction(int action)
 	{
 		getInstance().setInt(SINGLE_CHOICE_ACTION, action);
 	}
-	
+
 	/**
 	 * Attempts to create the property key for this character for the given property.
 	 * This allows for character specific properties such that the key created with this method

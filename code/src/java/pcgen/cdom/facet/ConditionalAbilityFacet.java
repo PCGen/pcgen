@@ -35,8 +35,7 @@ import pcgen.cdom.helper.CNAbilitySelection;
  * are active / granted to the Player Character.
  * 
  */
-public class ConditionalAbilityFacet extends
-		AbstractSingleSourceListFacet<CNAbilitySelection, Object>
+public class ConditionalAbilityFacet extends AbstractSingleSourceListFacet<CNAbilitySelection, Object>
 {
 	private PrerequisiteFacet prerequisiteFacet;
 

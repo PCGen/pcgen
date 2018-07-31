@@ -73,7 +73,7 @@ public class WieldTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testBadInput() throws PersistenceLayerException
+	public void testBadInput()
 	{
 		try
 		{
@@ -87,7 +87,7 @@ public class WieldTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testBadInputEmpty() throws PersistenceLayerException
+	public void testBadInputEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
@@ -130,7 +130,7 @@ public class WieldTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.put(getObjectKey(), null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
@@ -142,7 +142,7 @@ public class WieldTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testUnparseLegal() throws PersistenceLayerException
+	public void testUnparseLegal()
 	{
 		primaryProf.put(getObjectKey(), primaryContext.getReferenceContext()
 				.silentlyGetConstructedCDOMObject(WieldCategory.class,
@@ -153,7 +153,7 @@ public class WieldTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail() throws PersistenceLayerException
+	public void testUnparseGenericsFail()
 	{
 		ObjectKey objectKey = getObjectKey();
 		primaryProf.put(objectKey, new Object());

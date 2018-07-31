@@ -29,14 +29,14 @@ public abstract class AbstractGlobalYesNoTokenTestCase extends
 	public abstract ObjectKey<Boolean> getObjectKey();
 
 	@Test
-	public void testInvalidInputString() throws PersistenceLayerException
+	public void testInvalidInputString()
 	{
 		internalTestInvalidInputString(null);
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputStringSet() throws PersistenceLayerException
+	public void testInvalidInputStringSet()
 	{
 		assertTrue(parse("YES"));
 		assertTrue(parseSecondary("YES"));
@@ -46,7 +46,6 @@ public abstract class AbstractGlobalYesNoTokenTestCase extends
 	}
 
 	public void internalTestInvalidInputString(Object val)
-		throws PersistenceLayerException
 	{
 		assertEquals(val, primaryProf.get(getObjectKey()));
 		assertFalse(parse("String"));
@@ -64,7 +63,7 @@ public abstract class AbstractGlobalYesNoTokenTestCase extends
 	}
 
 	@Test
-	public void testValidInputs() throws PersistenceLayerException
+	public void testValidInputs()
 	{
 		assertTrue(parse("YES"));
 		assertEquals(Boolean.TRUE, primaryProf.get(getObjectKey()));
@@ -109,19 +108,19 @@ public abstract class AbstractGlobalYesNoTokenTestCase extends
 	}
 
 	@Test
-	public void testUnparseYes() throws PersistenceLayerException
+	public void testUnparseYes()
 	{
 		expectSingle(setAndUnparse(true), "YES");
 	}
 
 	@Test
-	public void testUnparseNo() throws PersistenceLayerException
+	public void testUnparseNo()
 	{
 		expectSingle(setAndUnparse(false), "NO");
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.put(getObjectKey(), null);
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
@@ -130,7 +129,7 @@ public abstract class AbstractGlobalYesNoTokenTestCase extends
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail() throws PersistenceLayerException
+	public void testUnparseGenericsFail()
 	{
 		ObjectKey objectKey = getObjectKey();
 		primaryProf.put(objectKey, new Object());

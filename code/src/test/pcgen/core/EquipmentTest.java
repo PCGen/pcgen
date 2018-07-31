@@ -47,7 +47,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 
 	private Equipment eq = null;
 	private Equipment eqDouble = null;
-	private static final String OriginalKey = "OrigKey";
+	private static final String ORIGINAL_KEY = "OrigKey";
 	private CampaignSourceEntry source;
 
 	/**
@@ -108,7 +108,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		eq = eqLoader.parseLine(Globals.getContext(), null,
 			"Dummy	SIZE:M 	KEY:OrigKey	TYPE:Weapon", source);
 		eq = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
-				Equipment.class, OriginalKey);
+				Equipment.class, ORIGINAL_KEY);
 
 		eqDouble = eqLoader.parseLine(Globals.getContext(), null,
 			"Double	SIZE:M 	KEY:DoubleKey	TYPE:Weapon.Double", source);
@@ -122,13 +122,18 @@ public class EquipmentTest extends AbstractCharacterTestCase
 			.parseLine(
 				Globals.getContext(),
 				null,
-				"+1 (Enhancement to Weapon or Ammunition)	KEY:PLUS1W	FORMATCAT:MIDDLE	NAMEOPT:TEXT=+1	TYPE:Ammunition.Weapon	PLUS:1	VISIBLE:QUALIFY	ITYPE:Masterwork.Enhancement.Magic.Plus1	SOURCEPAGE:RSRD SpecialMaterials.rtf	BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement	ASSIGNTOALL:NO",
+				"+1 (Enhancement to Weapon or Ammunition)	KEY:PLUS1W	FORMATCAT:MIDDLE	NAMEOPT:TEXT=+1	"
+				+ "TYPE:Ammunition.Weapon	PLUS:1	VISIBLE:QUALIFY	ITYPE:Masterwork.Enhancement.Magic.Plus1	"
+				+ "SOURCEPAGE:RSRD SpecialMaterials.rtf	BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement	ASSIGNTOALL:NO",
 				source);
 		loader
 			.parseLine(
 				Globals.getContext(),
 				null,
-				"Masterwork		KEY:MWORKW	FORMATCAT:FRONT	NAMEOPT:NORMAL	TYPE:MasterworkQuality.Ammunition.Weapon	COST:0	VISIBLE:QUALIFY	ITYPE:Masterwork	SOURCEPAGE:SRDEquipmentI.rtf	BONUS:ITEMCOST|TYPE=Ammunition|6	BONUS:ITEMCOST|TYPE=Weapon|300	BONUS:WEAPON|TOHIT|1|TYPE=Enhancement	ASSIGNTOALL:YES",
+				"Masterwork		KEY:MWORKW	FORMATCAT:FRONT	NAMEOPT:NORMAL	TYPE:MasterworkQuality.Ammunition.Weapon"
+				+ "	COST:0	VISIBLE:QUALIFY	ITYPE:Masterwork	SOURCEPAGE:SRDEquipmentI.rtf	"
+				+ "BONUS:ITEMCOST|TYPE=Ammunition|6	BONUS:ITEMCOST|TYPE=Weapon|300	"
+				+ "BONUS:WEAPON|TOHIT|1|TYPE=Enhancement	ASSIGNTOALL:YES",
 				source);
 
 		SettingsHandler.getGame().addPlusCalculation(
@@ -143,7 +148,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	// Original Key was what I expected
 	public void testcreateKeyForAutoResize001()
 	{
-		is(this.eq.getKeyName(), strEq(OriginalKey));
+		is(this.eq.getKeyName(), strEq(ORIGINAL_KEY));
 	}
 
 	/** 
@@ -155,7 +160,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		
 		final String expectedKey =
 				Constants.AUTO_RESIZE_PREFIX + newSize.getKeyName().toUpperCase()
-					+ OriginalKey;
+					+ ORIGINAL_KEY;
 
 		is(this.eq.createKeyForAutoResize(newSize), strEq(expectedKey));
 	}
@@ -169,7 +174,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 
 		final String expectedKey =
 				Constants.AUTO_RESIZE_PREFIX + newSize.getKeyName().toUpperCase().substring(0, 1)
-					+ OriginalKey;
+					+ ORIGINAL_KEY;
 
 		is(this.eq.createKeyForAutoResize(newSize), strEq(expectedKey));
 	}
@@ -177,7 +182,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	/** Try empty new size */
 	public void testcreateKeyForAutoResize004()
 	{
-		is(this.eq.createKeyForAutoResize(null), strEq(OriginalKey));
+		is(this.eq.createKeyForAutoResize(null), strEq(ORIGINAL_KEY));
 	}
 
 	/** Ensure that second customisation will work correctly */
@@ -187,7 +192,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 
 		String expectedKey =
 				Constants.AUTO_RESIZE_PREFIX + newSize.getKeyName().toUpperCase().substring(0, 1)
-					+ OriginalKey;
+					+ ORIGINAL_KEY;
 
 		is(this.eq.createKeyForAutoResize(newSize), strEq(expectedKey));
 
@@ -195,7 +200,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 
 		expectedKey =
 				Constants.AUTO_RESIZE_PREFIX + newSize.getKeyName().toUpperCase().substring(0, 1)
-					+ OriginalKey;
+					+ ORIGINAL_KEY;
 
 		is(this.eq.createKeyForAutoResize(newSize), strEq(expectedKey));
 	}
@@ -203,10 +208,10 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	/** Try nonsense abbreviation for Size */
 	public void testcreateKeyForAutoResize006()
 	{
-		String unExpectedKey = Constants.AUTO_RESIZE_PREFIX + "X" + OriginalKey;
+		String unExpectedKey = Constants.AUTO_RESIZE_PREFIX + "X" + ORIGINAL_KEY;
 
 		is(this.eq.createKeyForAutoResize(null), not(strEq(unExpectedKey)));
-		is(this.eq.createKeyForAutoResize(null), strEq(OriginalKey));
+		is(this.eq.createKeyForAutoResize(null), strEq(ORIGINAL_KEY));
 	}
 
 	/*****************************************************************************
@@ -240,7 +245,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		eq.setName("Pointy Stick (Large)");
 		eq.put(StringKey.KEY_NAME, newKey);
 
-		String expectedKey = Constants.AUTO_RESIZE_PREFIX + "L" + OriginalKey;
+		String expectedKey = Constants.AUTO_RESIZE_PREFIX + "L" + ORIGINAL_KEY;
 
 		// confirm test set up
 		is(eq.getKeyName(), strEq(expectedKey));
@@ -263,7 +268,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		eq.setName("Pointy Stick (+1/Large)");
 		eq.put(StringKey.KEY_NAME, newKey);
 
-		String expectedKey = Constants.AUTO_RESIZE_PREFIX + "L" + OriginalKey;
+		String expectedKey = Constants.AUTO_RESIZE_PREFIX + "L" + ORIGINAL_KEY;
 
 		// confirm test set up
 		is(eq.getKeyName(), strEq(expectedKey));
@@ -285,7 +290,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		eq.setName("Pointy Stick (+1/Large/Speed)");
 		eq.put(StringKey.KEY_NAME, newKey);
 
-		String expectedKey = Constants.AUTO_RESIZE_PREFIX + "L" + OriginalKey;
+		String expectedKey = Constants.AUTO_RESIZE_PREFIX + "L" + ORIGINAL_KEY;
 
 		// confirm test set up
 		is(eq.getKeyName(), strEq(expectedKey));
@@ -306,7 +311,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		eq.setName("Pointy Stick (+1/Speed)");
 		eq.put(StringKey.KEY_NAME, newKey);
 
-		String expectedKey = Constants.AUTO_RESIZE_PREFIX + "L" + OriginalKey;
+		String expectedKey = Constants.AUTO_RESIZE_PREFIX + "L" + ORIGINAL_KEY;
 
 		// confirm test set up
 		is(eq.getKeyName(), strEq(expectedKey));
@@ -455,7 +460,8 @@ public class EquipmentTest extends AbstractCharacterTestCase
 			.parseLine(
 				Globals.getContext(),
 				null,
-				"Hidden Mod	KEY:HIDDENMOD	FORMATCAT:PARENS	NAMEOPT:TEXT=Foo	TYPE:Ammunition.Weapon	VISIBLE:QUALIFY	ITYPE:Masterwork.Enhancement.Magic.Plus1",
+				"Hidden Mod	KEY:HIDDENMOD	FORMATCAT:PARENS	NAMEOPT:TEXT=Foo	TYPE:Ammunition.Weapon	"
+				+ "VISIBLE:QUALIFY	ITYPE:Masterwork.Enhancement.Magic.Plus1",
 				source);
 		EquipmentModifier eqMod =
 				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
@@ -465,7 +471,8 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		.parseLine(
 			Globals.getContext(),
 			null,
-			"Hidden Mod 2	KEY:HIDDENMOD2	FORMATCAT:PARENS	NAMEOPT:NOTHING	TYPE:Ammunition.Weapon	VISIBLE:QUALIFY	ITYPE:Masterwork.Enhancement.Magic.Plus1",
+			"Hidden Mod 2	KEY:HIDDENMOD2	FORMATCAT:PARENS	NAMEOPT:NOTHING	TYPE:Ammunition.Weapon	"
+			+ "VISIBLE:QUALIFY	ITYPE:Masterwork.Enhancement.Magic.Plus1",
 			source);
 	EquipmentModifier eqMod2 =
 			Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
@@ -476,7 +483,8 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	.parseLine(
 		Globals.getContext(),
 		null,
-		"Hidden Mod 2	KEY:HIDDENMOD3	FORMATCAT:PARENS	NAMEOPT:NOTHING	TYPE:Ammunition.Weapon	VISIBLE:QUALIFY	ITYPE:Masterwork.Enhancement.Magic.Plus1",
+		"Hidden Mod 2	KEY:HIDDENMOD3	FORMATCAT:PARENS	NAMEOPT:NOTHING	TYPE:Ammunition.Weapon	"
+		+ "VISIBLE:QUALIFY	ITYPE:Masterwork.Enhancement.Magic.Plus1",
 		source);
 EquipmentModifier eqMod3 =
 		Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
@@ -527,9 +535,10 @@ assertNotNull("Eqmod should be present", eqMod);
 	/**
 	 * Test the use of HEADPLUSTOTAL in COST and BONUS:ITEMCOST formulas on 
 	 * both primary and alternate heads.
-	 * @throws Exception
+	 * 
+	 * @throws PersistenceLayerException  if there is a problem with the LST syntax
 	 */
-	public void testGetCostWithHeadPlus() throws Exception
+	public void testGetCostWithHeadPlus() throws PersistenceLayerException
 	{
 		GenericLoader<EquipmentModifier> loader =
 				new GenericLoader<>(EquipmentModifier.class);
@@ -537,7 +546,8 @@ assertNotNull("Eqmod should be present", eqMod);
 			.parseLine(
 				Globals.getContext(),
 				null,
-				"HeadPlusTest		KEY:HEADPT	FORMATCAT:FRONT	NAMEOPT:NORMAL	TYPE:MasterworkQuality.Weapon	COST:HEADPLUSTOTAL*20	BONUS:ITEMCOST|TYPE=Weapon|HEADPLUSTOTAL*5	VISIBLE:YES",
+				"HeadPlusTest		KEY:HEADPT	FORMATCAT:FRONT	NAMEOPT:NORMAL	TYPE:MasterworkQuality.Weapon	"
+				+ "COST:HEADPLUSTOTAL*20	BONUS:ITEMCOST|TYPE=Weapon|HEADPLUSTOTAL*5	VISIBLE:YES",
 				source);
 		EquipmentModifier eqMod =
 				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
@@ -548,7 +558,8 @@ assertNotNull("Eqmod should be present", eqMod);
 			.parseLine(
 				Globals.getContext(),
 				null,
-				"HeadPlusTest		KEY:HEADPT2	FORMATCAT:FRONT	NAMEOPT:NORMAL	TYPE:MasterworkQuality.Weapon	COST:HEADPLUSTOTAL*21	BONUS:ITEMCOST|TYPE=Weapon|HEADPLUSTOTAL*7	VISIBLE:YES",
+				"HeadPlusTest		KEY:HEADPT2	FORMATCAT:FRONT	NAMEOPT:NORMAL	TYPE:MasterworkQuality.Weapon	"
+				+ "COST:HEADPLUSTOTAL*21	BONUS:ITEMCOST|TYPE=Weapon|HEADPLUSTOTAL*7	VISIBLE:YES",
 				source);
 		EquipmentModifier eqMod2 =
 				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(

@@ -51,17 +51,15 @@ public class SetModifierFactory<T> extends AbstractFixedSetModifierFactory<T[]>
 	}
 
 	@Override
-	public FormulaModifier<T[]> getModifier(String instructions,
-		ManagerFactory managerFactory, FormulaManager ignored, PCGenScope varScope,
-		FormatManager<T[]> formatManager)
+	public FormulaModifier<T[]> getModifier(String instructions, ManagerFactory managerFactory, FormulaManager ignored,
+		PCGenScope varScope, FormatManager<T[]> formatManager)
 	{
 		Indirect<T[]> indirect = formatManager.convertIndirect(instructions);
 		return new SetIndirectArrayModifier(formatManager, indirect);
 	}
 
 	@Override
-	public FormulaModifier<T[]> getFixedModifier(FormatManager<T[]> fmtManager,
-		String instructions)
+	public FormulaModifier<T[]> getFixedModifier(FormatManager<T[]> fmtManager, String instructions)
 	{
 		T[] toSet = fmtManager.convert(instructions);
 		return new SetDirectArrayModifier(fmtManager, toSet);
@@ -79,8 +77,7 @@ public class SetModifierFactory<T> extends AbstractFixedSetModifierFactory<T[]>
 		 */
 		private T[] toSet;
 
-		private SetDirectArrayModifier(FormatManager<T[]> formatManager,
-			T[] toSet)
+		private SetDirectArrayModifier(FormatManager<T[]> formatManager, T[] toSet)
 		{
 			super(formatManager);
 			this.toSet = toSet;
@@ -117,8 +114,7 @@ public class SetModifierFactory<T> extends AbstractFixedSetModifierFactory<T[]>
 		 */
 		private Indirect<T[]> toSet;
 
-		private SetIndirectArrayModifier(FormatManager<T[]> formatManager,
-			Indirect<T[]> toSet)
+		private SetIndirectArrayModifier(FormatManager<T[]> formatManager, Indirect<T[]> toSet)
 		{
 			super(formatManager);
 			this.toSet = toSet;

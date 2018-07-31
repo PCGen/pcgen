@@ -37,8 +37,7 @@ import pcgen.util.BigDecimalHelper;
 /**
  * Deals with CONTAINS token
  */
-public class ContainsToken extends AbstractTokenWithSeparator<Equipment>
-		implements CDOMPrimaryToken<Equipment>
+public class ContainsToken extends AbstractTokenWithSeparator<Equipment> implements CDOMPrimaryToken<Equipment>
 {
 
 	@Override
@@ -54,8 +53,7 @@ public class ContainsToken extends AbstractTokenWithSeparator<Equipment>
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		Equipment eq, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, Equipment eq, String value)
 	{
 		StringTokenizer pipeTok = new StringTokenizer(value, Constants.PIPE);
 
@@ -66,38 +64,32 @@ public class ContainsToken extends AbstractTokenWithSeparator<Equipment>
 		if (weightCapacity.charAt(0) == Constants.CHAR_ASTERISK)
 		{
 			hadAsterisk = true;
-			context.getObjectContext().put(eq,
-					ObjectKey.CONTAINER_CONSTANT_WEIGHT, Boolean.TRUE);
+			context.getObjectContext().put(eq, ObjectKey.CONTAINER_CONSTANT_WEIGHT, Boolean.TRUE);
 			weightCapacity = weightCapacity.substring(1);
 		}
 
 		int percentLoc = weightCapacity.indexOf(Constants.PERCENT);
 		if (percentLoc != weightCapacity.lastIndexOf(Constants.PERCENT))
 		{
-			return new ParseResult.Fail("Cannot have two weight reduction "
-							+ "characters (indicated by %): " + value);
+			return new ParseResult.Fail("Cannot have two weight reduction " + "characters (indicated by %): " + value);
 		}
 		if (percentLoc != -1)
 		{
 			if (hadAsterisk)
 			{
 				return new ParseResult.Fail("Cannot have Constant Weight (indicated by *) "
-								+ "and weight reduction (indicated by %): "
-								+ value);
+					+ "and weight reduction (indicated by %): " + value);
 			}
 			String redString = weightCapacity.substring(0, percentLoc);
 			weightCapacity = weightCapacity.substring(percentLoc + 1);
 
 			try
 			{
-				context.getObjectContext().put(eq,
-						IntegerKey.CONTAINER_REDUCE_WEIGHT,
-						Integer.valueOf(redString));
+				context.getObjectContext().put(eq, IntegerKey.CONTAINER_REDUCE_WEIGHT, Integer.valueOf(redString));
 			}
 			catch (NumberFormatException ex)
 			{
-				return new ParseResult.Fail("Weight Reduction (indicated by %) must be an integer: "
-								+ value);
+				return new ParseResult.Fail("Weight Reduction (indicated by %) must be an integer: " + value);
 			}
 		}
 
@@ -110,23 +102,19 @@ public class ContainsToken extends AbstractTokenWithSeparator<Equipment>
 		{
 			try
 			{
-				weightCap = BigDecimalHelper.trimBigDecimal(new BigDecimal(
-						weightCapacity));
+				weightCap = BigDecimalHelper.trimBigDecimal(new BigDecimal(weightCapacity));
 				if (BigDecimal.ZERO.compareTo(weightCap) > 0)
 				{
-					return new ParseResult.Fail(
-						"Weight Capacity must be >= 0: " + weightCapacity
-							+ "\n  Use 'UNLIM' (not -1) for unlimited Count");
+					return new ParseResult.Fail("Weight Capacity must be >= 0: " + weightCapacity
+						+ "\n  Use 'UNLIM' (not -1) for unlimited Count");
 				}
 			}
 			catch (NumberFormatException ex)
 			{
-				return new ParseResult.Fail("Weight Capacity must be 'UNLIM or a number >= 0: "
-								+ weightCapacity);
+				return new ParseResult.Fail("Weight Capacity must be 'UNLIM or a number >= 0: " + weightCapacity);
 			}
 		}
-		context.getObjectContext().put(eq, ObjectKey.CONTAINER_WEIGHT_CAPACITY,
-				weightCap);
+		context.getObjectContext().put(eq, ObjectKey.CONTAINER_WEIGHT_CAPACITY, weightCap);
 
 		Capacity totalCap = null;
 		boolean limited = true;
@@ -150,7 +138,7 @@ public class ContainsToken extends AbstractTokenWithSeparator<Equipment>
 			{
 				limited = false;
 				context.getObjectContext().addToList(eq, ListKey.CAPACITY,
-						new Capacity(typeString, Capacity.UNLIMITED));
+					new Capacity(typeString, Capacity.UNLIMITED));
 			}
 			else
 			{
@@ -166,34 +154,29 @@ public class ContainsToken extends AbstractTokenWithSeparator<Equipment>
 				{
 					try
 					{
-						itemNumber = BigDecimalHelper
-								.trimBigDecimal(new BigDecimal(itemNumString));
+						itemNumber = BigDecimalHelper.trimBigDecimal(new BigDecimal(itemNumString));
 					}
 					catch (NumberFormatException ex)
 					{
-						return new ParseResult.Fail("Item Number for " + itemType
-										+ " must be 'UNLIM' or a number > 0: "
-										+ itemNumString);
+						return new ParseResult.Fail(
+							"Item Number for " + itemType + " must be 'UNLIM' or a number > 0: " + itemNumString);
 					}
 					if (BigDecimal.ZERO.compareTo(itemNumber) >= 0)
 					{
-						return new ParseResult.Fail("Cannot have negative quantity of "
-							+ itemType + ": " + value);
+						return new ParseResult.Fail("Cannot have negative quantity of " + itemType + ": " + value);
 					}
 				}
 				if (limited)
 				{
 					limitedCapacity = limitedCapacity.add(itemNumber);
 				}
-				context.getObjectContext().addToList(eq, ListKey.CAPACITY,
-						new Capacity(itemType, itemNumber));
+				context.getObjectContext().addToList(eq, ListKey.CAPACITY, new Capacity(itemType, itemNumber));
 			}
 		}
 
 		if (totalCap == null)
 		{
-			BigDecimal totalCapacity = limited ? limitedCapacity
-					: Capacity.UNLIMITED;
+			BigDecimal totalCapacity = limited ? limitedCapacity : Capacity.UNLIMITED;
 			totalCap = Capacity.getTotalCapacity(totalCapacity);
 		}
 
@@ -204,32 +187,27 @@ public class ContainsToken extends AbstractTokenWithSeparator<Equipment>
 	@Override
 	public String[] unparse(LoadContext context, Equipment eq)
 	{
-		Changes<Capacity> changes = context.getObjectContext().getListChanges(
-				eq, ListKey.CAPACITY);
-		Capacity totalCapacity = context.getObjectContext().getObject(eq,
-				ObjectKey.TOTAL_CAPACITY);
+		Changes<Capacity> changes = context.getObjectContext().getListChanges(eq, ListKey.CAPACITY);
+		Capacity totalCapacity = context.getObjectContext().getObject(eq, ObjectKey.TOTAL_CAPACITY);
 		if (totalCapacity == null && (changes == null || changes.isEmpty()))
 		{
 			return null;
 		}
 		StringBuilder sb = new StringBuilder();
 
-		Boolean b = context.getObjectContext().getObject(eq,
-				ObjectKey.CONTAINER_CONSTANT_WEIGHT);
+		Boolean b = context.getObjectContext().getObject(eq, ObjectKey.CONTAINER_CONSTANT_WEIGHT);
 		if (b != null && b.booleanValue())
 		{
 			sb.append(Constants.CHAR_ASTERISK);
 		}
 
-		Integer reducePercent = context.getObjectContext().getInteger(eq,
-				IntegerKey.CONTAINER_REDUCE_WEIGHT);
+		Integer reducePercent = context.getObjectContext().getInteger(eq, IntegerKey.CONTAINER_REDUCE_WEIGHT);
 		if (reducePercent != null)
 		{
 			sb.append(reducePercent).append(Constants.PERCENT);
 		}
 
-		BigDecimal cap = context.getObjectContext().getObject(eq,
-				ObjectKey.CONTAINER_WEIGHT_CAPACITY);
+		BigDecimal cap = context.getObjectContext().getObject(eq, ObjectKey.CONTAINER_WEIGHT_CAPACITY);
 		if (cap == null)
 		{
 			// CONSIDER ERROR??
@@ -250,7 +228,7 @@ public class ContainsToken extends AbstractTokenWithSeparator<Equipment>
 			if (Capacity.UNLIMITED.equals(totalCapacity.getCapacity()))
 			{
 				// Special Case: Nothing additional
-				return new String[] { sb.toString() };
+				return new String[]{sb.toString()};
 			}
 		}
 		BigDecimal limitedCapacity = BigDecimal.ZERO;
@@ -275,13 +253,12 @@ public class ContainsToken extends AbstractTokenWithSeparator<Equipment>
 			}
 		}
 		if (!limitedCapacity.equals(totalCapacity.getCapacity())
-				&& !Capacity.UNLIMITED.equals(totalCapacity.getCapacity()))
+			&& !Capacity.UNLIMITED.equals(totalCapacity.getCapacity()))
 		{
 			// Need to write out total
-			sb.append("Total").append(Constants.EQUALS).append(
-					totalCapacity.getCapacity());
+			sb.append("Total").append(Constants.EQUALS).append(totalCapacity.getCapacity());
 		}
-		return new String[] { sb.toString() };
+		return new String[]{sb.toString()};
 	}
 
 	@Override

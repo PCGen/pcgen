@@ -39,21 +39,18 @@ public class ChargesToken extends AbstractNonEmptyToken<EquipmentModifier>
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		EquipmentModifier mod, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, EquipmentModifier mod, String value)
 	{
 		int pipeLoc = value.indexOf(Constants.PIPE);
 		if (pipeLoc == -1)
 		{
-			return new ParseResult.Fail(getTokenName()
-							+ " has no | : must be of format <min charges>|<max charges>: "
-							+ value);
+			return new ParseResult.Fail(
+				getTokenName() + " has no | : must be of format <min charges>|<max charges>: " + value);
 		}
 		if (value.lastIndexOf(Constants.PIPE) != pipeLoc)
 		{
-			return new ParseResult.Fail(getTokenName()
-							+ " has two | : must be of format <min charges>|<max charges>: "
-							+ value);
+			return new ParseResult.Fail(
+				getTokenName() + " has two | : must be of format <min charges>|<max charges>: " + value);
 		}
 		String minChargeString = value.substring(0, pipeLoc);
 		int minCharges;
@@ -62,14 +59,12 @@ public class ChargesToken extends AbstractNonEmptyToken<EquipmentModifier>
 			minCharges = Integer.parseInt(minChargeString);
 			if (minCharges < 0)
 			{
-				return new ParseResult.Fail(getTokenName()
-						+ " min charges must be >= zero: " + value);
+				return new ParseResult.Fail(getTokenName() + " min charges must be >= zero: " + value);
 			}
 		}
 		catch (NumberFormatException nfe)
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " min charges is not an integer: " + value);
+			return new ParseResult.Fail(getTokenName() + " min charges is not an integer: " + value);
 		}
 
 		String maxChargeString = value.substring(pipeLoc + 1);
@@ -84,56 +79,47 @@ public class ChargesToken extends AbstractNonEmptyToken<EquipmentModifier>
 		}
 		catch (NumberFormatException nfe)
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " max charges is not an integer: " + value);
+			return new ParseResult.Fail(getTokenName() + " max charges is not an integer: " + value);
 		}
 
 		if (minCharges > maxCharges)
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " max charges must be >= min charges: " + value);
+			return new ParseResult.Fail(getTokenName() + " max charges must be >= min charges: " + value);
 		}
 
-		context.getObjectContext().put(mod, IntegerKey.MIN_CHARGES,
-				minCharges);
-		context.getObjectContext().put(mod, IntegerKey.MAX_CHARGES,
-				maxCharges);
+		context.getObjectContext().put(mod, IntegerKey.MIN_CHARGES, minCharges);
+		context.getObjectContext().put(mod, IntegerKey.MAX_CHARGES, maxCharges);
 		return ParseResult.SUCCESS;
 	}
 
 	@Override
 	public String[] unparse(LoadContext context, EquipmentModifier mod)
 	{
-		Integer max = context.getObjectContext().getInteger(mod,
-				IntegerKey.MAX_CHARGES);
-		Integer min = context.getObjectContext().getInteger(mod,
-				IntegerKey.MIN_CHARGES);
+		Integer max = context.getObjectContext().getInteger(mod, IntegerKey.MAX_CHARGES);
+		Integer min = context.getObjectContext().getInteger(mod, IntegerKey.MIN_CHARGES);
 		if (max == null && min == null)
 		{
 			return null;
 		}
 		if (max == null || min == null)
 		{
-			context
-				.addWriteMessage("EquipmentModifier requires both MAX_CHARGES and MIN_CHARGES for "
-					+ getTokenName() + " if one of the two is present");
+			context.addWriteMessage("EquipmentModifier requires both MAX_CHARGES and MIN_CHARGES for " + getTokenName()
+				+ " if one of the two is present");
 			return null;
 		}
 		int minInt = min.intValue();
 		if (minInt < 0)
 		{
-			context
-					.addWriteMessage("EquipmentModifier requires MIN_CHARGES be > 0");
+			context.addWriteMessage("EquipmentModifier requires MIN_CHARGES be > 0");
 			return null;
 		}
 		if (max.intValue() < minInt)
 		{
-			context
-					.addWriteMessage("EquipmentModifier requires MAX_CHARGES be "
-							+ "greater than MIN_CHARGES for " + getTokenName());
+			context.addWriteMessage(
+				"EquipmentModifier requires MAX_CHARGES be " + "greater than MIN_CHARGES for " + getTokenName());
 			return null;
 		}
-		return new String[] { min + Constants.PIPE + max };
+		return new String[]{min + Constants.PIPE + max};
 	}
 
 	@Override

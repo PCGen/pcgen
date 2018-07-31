@@ -22,8 +22,8 @@ package pcgen.core.term;
 
 import pcgen.core.display.CharacterDisplay;
 
-public class ConstantZeroTermEvaluator
-		extends BasePCDTermEvaluator implements TermEvaluator {
+public class ConstantZeroTermEvaluator extends BasePCDTermEvaluator implements TermEvaluator
+{
 
 	public ConstantZeroTermEvaluator(String originalText)
 	{
@@ -40,7 +40,7 @@ public class ConstantZeroTermEvaluator
 	public boolean isSourceDependant()
 	{
 		return false;
-	}	
+	}
 
 	public boolean isStatic()
 	{

@@ -31,7 +31,7 @@ public abstract class AbstractTypeSafeTokenTestCase<T extends CDOMObject, CT> ex
 	public abstract boolean isClearLegal();
 
 	@Test
-	public void testValidInputs() throws PersistenceLayerException
+	public void testValidInputs()
 	{
 		if (requiresPreconstruction())
 		{
@@ -65,7 +65,7 @@ public abstract class AbstractTypeSafeTokenTestCase<T extends CDOMObject, CT> ex
 	public abstract ObjectKey<CT> getObjectKey();
 
 	@Test
-	public void testReplacementInputs() throws PersistenceLayerException
+	public void testReplacementInputs()
 	{
 		String[] unparsed;
 		if (requiresPreconstruction())
@@ -93,7 +93,7 @@ public abstract class AbstractTypeSafeTokenTestCase<T extends CDOMObject, CT> ex
 	}
 
 	@Test
-	public void testInvalidPreconstruction() throws PersistenceLayerException
+	public void testInvalidPreconstruction()
 	{
 		if (requiresPreconstruction())
 		{
@@ -112,7 +112,7 @@ public abstract class AbstractTypeSafeTokenTestCase<T extends CDOMObject, CT> ex
 	}
 
 	@Test
-	public void testInvalidEmptyInput() throws PersistenceLayerException
+	public void testInvalidEmptyInput()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
@@ -169,7 +169,7 @@ public abstract class AbstractTypeSafeTokenTestCase<T extends CDOMObject, CT> ex
 	}
 
 	@Override
-	public void testOverwrite() throws PersistenceLayerException
+	public void testOverwrite()
 	{
 		if (requiresPreconstruction())
 		{
@@ -192,14 +192,14 @@ public abstract class AbstractTypeSafeTokenTestCase<T extends CDOMObject, CT> ex
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.put(getObjectKey(), null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testUnparseLegal() throws PersistenceLayerException
+	public void testUnparseLegal()
 	{
 		CT o = getConstant(getLegalValue());
 		primaryProf.put(getObjectKey(), o);
@@ -208,7 +208,7 @@ public abstract class AbstractTypeSafeTokenTestCase<T extends CDOMObject, CT> ex
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail() throws PersistenceLayerException
+	public void testUnparseGenericsFail()
 	{
 		ObjectKey objectKey = getObjectKey();
 		primaryProf.put(objectKey, new Object());

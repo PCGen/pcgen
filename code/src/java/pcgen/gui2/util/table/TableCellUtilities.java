@@ -46,7 +46,7 @@ import javax.swing.table.TableCellRenderer;
 public final class TableCellUtilities
 {
 
-	private static final DefaultTableCellRenderer dummyRenderer = new DefaultTableCellRenderer();
+	private static final DefaultTableCellRenderer DUMMY_RENDERER = new DefaultTableCellRenderer();
 
 	private TableCellUtilities()
 	{
@@ -54,17 +54,15 @@ public final class TableCellUtilities
 
 	public static void setToRowBackground(Component c, JTable table, int row)
 	{
-		dummyRenderer.getTableCellRendererComponent(table, null, false, false, row, 0);
-		Color bg = dummyRenderer.getBackground();
+		DUMMY_RENDERER.getTableCellRendererComponent(table, null, false, false, row, 0);
+		Color bg = DUMMY_RENDERER.getBackground();
 		// We have to create a new color object because Nimbus returns
 		// a color of type DerivedColor, which behaves strange, not sure
 		// why.
 		c.setBackground(new Color(bg.getRed(), bg.getGreen(), bg.getBlue()));
 	}
 
-	public static class RadioButtonEditor extends AbstractCellEditor
-			implements ActionListener,
-			TableCellEditor
+	public static class RadioButtonEditor extends AbstractCellEditor implements ActionListener, TableCellEditor
 	{
 
 		private JRadioButton button;
@@ -83,9 +81,8 @@ public final class TableCellUtilities
 		}
 
 		@Override
-		public Component getTableCellEditorComponent(JTable table, Object value,
-													 boolean isSelected,
-													 int row, int column)
+		public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row,
+			int column)
 		{
 			boolean selected = false;
 			if (value instanceof Boolean)
@@ -108,8 +105,7 @@ public final class TableCellUtilities
 
 	}
 
-	public static class SpinnerEditor extends AbstractCellEditor
-			implements TableCellEditor, ChangeListener
+	public static class SpinnerEditor extends AbstractCellEditor implements TableCellEditor, ChangeListener
 	{
 
 		protected final JSpinner spinner;
@@ -137,10 +133,8 @@ public final class TableCellUtilities
 		}
 
 		@Override
-		public Component getTableCellEditorComponent(JTable table, Object value,
-													 boolean isSelected,
-													 int row,
-													 int column)
+		public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row,
+			int column)
 		{
 			spinner.setValue(value);
 			return spinner;
@@ -167,7 +161,7 @@ public final class TableCellUtilities
 		}
 
 	}
-	
+
 	public static class ToggleButtonRenderer extends JComponent implements TableCellRenderer
 	{
 
@@ -184,16 +178,10 @@ public final class TableCellUtilities
 		}
 
 		@Override
-		public Component getTableCellRendererComponent(JTable table,
-													   Object value,
-													   boolean isSelected,
-													   boolean hasFocus,
-													   int row,
-													   int column)
+		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
+			int row, int column)
 		{
-			renderer.getTableCellRendererComponent(table, value, isSelected,
-												hasFocus, row,
-												column);
+			renderer.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
 			if (value == null)
 			{
 				return renderer;
@@ -228,18 +216,12 @@ public final class TableCellUtilities
 		}
 
 		@Override
-		public Component getTableCellRendererComponent(JTable table,
-													   Object value,
-													   boolean isSelected,
-													   boolean hasFocus,
-													   int row,
-													   int column)
+		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
+			int row, int column)
 		{
 			if (value == null)
 			{
-				return super.getTableCellRendererComponent(table, value,
-														   isSelected,
-														   hasFocus, row, column);
+				return super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
 			}
 			spinner.setValue(value);
 			spinner.setEnabled(table.isCellEditable(row, column));
@@ -286,7 +268,8 @@ public final class TableCellUtilities
 		}
 
 		@Override
-		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column)
+		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
+			int row, int column)
 		{
 			super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
 			setEnabled((table == null) || table.isEnabled());

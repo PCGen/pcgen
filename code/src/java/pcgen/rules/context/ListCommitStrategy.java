@@ -41,40 +41,33 @@ public interface ListCommitStrategy
 	 * @param allowed TODO: often the same as the owner.
 	 * @return The new AssociatedPrereqObject, now part of the list.
 	 */
-	public <T extends CDOMObject> AssociatedPrereqObject addToMasterList(String tokenName,
-			CDOMObject owner, CDOMReference<? extends CDOMList<T>> list,
-			T allowed);
+	public <T extends CDOMObject> AssociatedPrereqObject addToMasterList(String tokenName, CDOMObject owner,
+		CDOMReference<? extends CDOMList<T>> list, T allowed);
 
-	public <T extends CDOMObject> void removeFromMasterList(String tokenName,
-			CDOMObject owner, CDOMReference<? extends CDOMList<T>> list,
-			T allowed);
+	public <T extends CDOMObject> void removeFromMasterList(String tokenName, CDOMObject owner,
+		CDOMReference<? extends CDOMList<T>> list, T allowed);
 
-	public <T extends CDOMList<?>> Changes<CDOMReference<T>> getMasterListChanges(
-		String tokenName, CDOMObject owner, Class<T> cl);
+	public <T extends CDOMList<?>> Changes<CDOMReference<T>> getMasterListChanges(String tokenName, CDOMObject owner,
+		Class<T> cl);
 
 	public boolean hasMasterLists();
 
-	public <T extends CDOMObject> AssociatedChanges<T> getChangesInMasterList(
-		String tokenName, CDOMObject owner,
+	public <T extends CDOMObject> AssociatedChanges<T> getChangesInMasterList(String tokenName, CDOMObject owner,
 		CDOMReference<? extends CDOMList<T>> swl);
 
-	public <T extends CDOMObject> AssociatedPrereqObject addToList(
-		String tokenName, CDOMObject owner,
+	public <T extends CDOMObject> AssociatedPrereqObject addToList(String tokenName, CDOMObject owner,
 		CDOMReference<? extends CDOMList<? super T>> list, CDOMReference<T> allowed);
 
-	public Collection<CDOMReference<? extends CDOMList<?>>> getChangedLists(
-		CDOMObject owner, Class<? extends CDOMList<?>> cl);
+	public Collection<CDOMReference<? extends CDOMList<?>>> getChangedLists(CDOMObject owner,
+		Class<? extends CDOMList<?>> cl);
 
-	public void removeAllFromList(String tokenName, CDOMObject owner,
-		CDOMReference<? extends CDOMList<?>> swl);
+	public void removeAllFromList(String tokenName, CDOMObject owner, CDOMReference<? extends CDOMList<?>> swl);
 
-	public <T extends CDOMObject> AssociatedPrereqObject removeFromList(String tokenName,
-		CDOMObject owner, CDOMReference<? extends CDOMList<? super T>> swl,
-		CDOMReference<T> ref);
+	public <T extends CDOMObject> AssociatedPrereqObject removeFromList(String tokenName, CDOMObject owner,
+		CDOMReference<? extends CDOMList<? super T>> swl, CDOMReference<T> ref);
 
-	public <T extends CDOMObject> AssociatedChanges<CDOMReference<T>> getChangesInList(
-		String tokenName, CDOMObject owner,
-		CDOMReference<? extends CDOMList<T>> swl);
+	public <T extends CDOMObject> AssociatedChanges<CDOMReference<T>> getChangesInList(String tokenName,
+		CDOMObject owner, CDOMReference<? extends CDOMList<T>> swl);
 
 	public void setSourceURI(URI sourceURI);
 

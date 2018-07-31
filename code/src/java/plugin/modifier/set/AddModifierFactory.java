@@ -62,17 +62,15 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 	}
 
 	@Override
-	public FormulaModifier<T[]> getModifier(String instructions,
-		ManagerFactory managerFactory, FormulaManager ignored, PCGenScope varScope,
-		FormatManager<T[]> formatManager)
+	public FormulaModifier<T[]> getModifier(String instructions, ManagerFactory managerFactory, FormulaManager ignored,
+		PCGenScope varScope, FormatManager<T[]> formatManager)
 	{
 		Indirect<T[]> indirect = formatManager.convertIndirect(instructions);
 		return new AddIndirectArrayModifier(formatManager, indirect);
 	}
 
 	@Override
-	public FormulaModifier<T[]> getFixedModifier(FormatManager<T[]> fmtManager,
-		String instructions)
+	public FormulaModifier<T[]> getFixedModifier(FormatManager<T[]> fmtManager, String instructions)
 	{
 		T[] toAdd = fmtManager.convert(instructions);
 		return new AddDirectArrayModifier(fmtManager, toAdd);
@@ -90,8 +88,7 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 		 */
 		private T[] toAdd;
 
-		private AddDirectArrayModifier(FormatManager<T[]> formatManager,
-			T[] toAdd)
+		private AddDirectArrayModifier(FormatManager<T[]> formatManager, T[] toAdd)
 		{
 			super(formatManager);
 			this.toAdd = toAdd;
@@ -128,8 +125,7 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 		 */
 		private Indirect<T[]> toAdd;
 
-		private AddIndirectArrayModifier(FormatManager<T[]> formatManager,
-			Indirect<T[]> toAdd)
+		private AddIndirectArrayModifier(FormatManager<T[]> formatManager, Indirect<T[]> toAdd)
 		{
 			super(formatManager);
 			this.toAdd = toAdd;
@@ -179,10 +175,9 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 			@SuppressWarnings("unchecked")
 			T[] input = (T[]) evalManager.get(EvaluationManager.INPUT);
 			Set<T> newSet = new HashSet<>();
-            Collections.addAll(newSet, input);
-            Collections.addAll(newSet, getArray());
-			Class<?> component =
-					fmtManager.getManagedClass().getComponentType();
+			Collections.addAll(newSet, input);
+			Collections.addAll(newSet, getArray());
+			Class<?> component = fmtManager.getManagedClass().getComponentType();
 			@SuppressWarnings("unchecked")
 			T[] newArray = (T[]) Array.newInstance(component, newSet.size());
 			return newSet.toArray(newArray);

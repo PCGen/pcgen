@@ -44,12 +44,10 @@ public class StatValueFacet extends AbstractScopeFacet<CharID, PCStat, Number>
 	/**
 	 * The global LoadContextFacet used to get VariableIDs
 	 */
-	private final LoadContextFacet loadContextFacet =
-			FacetLibrary.getFacet(LoadContextFacet.class);
+	private final LoadContextFacet loadContextFacet = FacetLibrary.getFacet(LoadContextFacet.class);
 
 	private static final ScopeFacet SCOPE_FACET = FacetLibrary.getFacet(ScopeFacet.class);
-	private static final VariableStoreFacet RESULT_FACET =
-			FacetLibrary.getFacet(VariableStoreFacet.class);
+	private static final VariableStoreFacet RESULT_FACET = FacetLibrary.getFacet(VariableStoreFacet.class);
 
 	/**
 	 * Gets the stat value for the PlayerCharacter identified by the given CharID and the
@@ -67,8 +65,7 @@ public class StatValueFacet extends AbstractScopeFacet<CharID, PCStat, Number>
 	{
 		if (stat == null)
 		{
-			throw new IllegalArgumentException(
-				"Object for getting stat value may not be null");
+			throw new IllegalArgumentException("Object for getting stat value may not be null");
 		}
 		String channelName = getStatChannelName();
 		if (channelName == null)
@@ -208,8 +205,7 @@ public class StatValueFacet extends AbstractScopeFacet<CharID, PCStat, Number>
 
 	private String getStatChannelName()
 	{
-		return ControlUtilities.getControlToken(Globals.getContext(),
-			CControl.STATINPUT);
+		return ControlUtilities.getControlToken(Globals.getContext(), CControl.STATINPUT);
 	}
 
 	private VariableID<Number> getVarID(CharID id, PCStat stat, String channelName)
@@ -219,9 +215,8 @@ public class StatValueFacet extends AbstractScopeFacet<CharID, PCStat, Number>
 		ScopeInstance scopeInst = instFactory.get(stat.getLocalScopeName(), stat);
 		try
 		{
-			VariableID<Number> varID =
-					(VariableID<Number>) loadContextFacet.get(id.getDatasetID()).get()
-					.getVariableContext().getVariableID(scopeInst, varName);
+			VariableID<Number> varID = (VariableID<Number>) loadContextFacet.get(id.getDatasetID()).get()
+				.getVariableContext().getVariableID(scopeInst, varName);
 			return varID;
 		}
 		catch (NullPointerException e)

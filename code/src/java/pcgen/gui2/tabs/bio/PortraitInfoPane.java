@@ -59,12 +59,11 @@ import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 
-
 @SuppressWarnings("serial")
 public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 {
 
-	private static final TabTitle tabTitle = new TabTitle("in_portrait", null);
+	private static final TabTitle TAB_TITLE = new TabTitle("in_portrait", null);
 	private static final int MAX_PORTRAIT_HEIGHT = 400;
 	private final PortraitPane portraitPane;
 	private final ThumbnailPane tnPane;
@@ -96,27 +95,26 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 		panel.add(loadButton, gbc);
 		Utility.buildConstraints(gbc, 1, 2, 1, 1, 0, 0, GridBagConstraints.NONE, GridBagConstraints.WEST);
 		panel.add(clearButton, gbc);
-		
+
 		Utility.buildConstraints(gbc, 2, 1, 1, 1, 0, 0, GridBagConstraints.VERTICAL, GridBagConstraints.CENTER);
 		zoomSlider.setInverted(true);
 		zoomSlider.setPreferredSize(new Dimension(20, 10));
 		panel.add(zoomSlider, gbc);
-		
+
 		Utility.buildConstraints(gbc, 3, 0, 1, 1, 0, 0, GridBagConstraints.HORIZONTAL, GridBagConstraints.CENTER);
 		panel.add(new JLabel(LanguageBundle.getString("in_thumbnailPortrait")), gbc);
-		
+
 		Utility.buildConstraints(gbc, 3, 1, 1, 1, 0, 0, GridBagConstraints.NONE, GridBagConstraints.NORTH);
 		panel.add(tnPane, gbc);
-		
+
 		this.setViewportView(panel);
 	}
 
 	private BufferedImage createDefaultPortrait()
 	{
 		ImageIcon defaultPortrait = Icons.DefaultPortrait.getImageIcon();
-		BufferedImage bufImage = new BufferedImage(defaultPortrait.getIconWidth(),
-				defaultPortrait.getIconHeight(),
-				BufferedImage.TYPE_INT_ARGB);
+		BufferedImage bufImage = new BufferedImage(defaultPortrait.getIconWidth(), defaultPortrait.getIconHeight(),
+			BufferedImage.TYPE_INT_ARGB);
 		defaultPortrait.paintIcon(this, bufImage.createGraphics(), 0, 0);
 		return bufImage;
 	}
@@ -150,7 +148,7 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 	@Override
 	public TabTitle getTabTitle()
 	{
-		return tabTitle;
+		return TAB_TITLE;
 	}
 
 	private class LoadAction extends AbstractAction implements PropertyChangeListener
@@ -268,7 +266,7 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 					else
 					{
 						Logging.errorPrint("Unable to read portrait file " //$NON-NLS-1$
-								+ file.getAbsolutePath());
+							+ file.getAbsolutePath());
 					}
 				}
 			}

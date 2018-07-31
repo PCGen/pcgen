@@ -20,44 +20,40 @@
 
 package pcgen.core.term;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
-import pcgen.core.PlayerCharacter;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentUtilities;
+import pcgen.core.PlayerCharacter;
 
-public class PCCountEqTypeTermEvaluator
-		extends BasePCTermEvaluator implements TermEvaluator
+public class PCCountEqTypeTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
 
 	final String[] types;
 	private final int merge;
-	
-	public PCCountEqTypeTermEvaluator(
-			String originalText,
-			String[] types,
-			final int merge)
+
+	public PCCountEqTypeTermEvaluator(String originalText, String[] types, final int merge)
 	{
 		this.originalText = originalText;
-		this.types        = types;
-		this.merge        = merge;
+		this.types = types;
+		this.merge = merge;
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc) {
+	public Float resolve(PlayerCharacter pc)
+	{
 
 		List<Equipment> aList = new ArrayList<>();
-		
+
 		int cur = 0;
 		String aType = types[cur];
-		
+
 		if ("CONTAINER".equals(aType))
 		{
 			cur++;
-			final List<Equipment> equipList = 
-					pc.getEquipmentListInOutputOrder(merge);
-			for ( Equipment eq : equipList )
+			final List<Equipment> equipList = pc.getEquipmentListInOutputOrder(merge);
+			for (Equipment eq : equipList)
 			{
 				if (eq.acceptsChildren())
 				{
@@ -75,9 +71,8 @@ public class PCCountEqTypeTermEvaluator
 			cur++;
 			// Special check for ACITEM which is really anything with AC 
 			// in the bonus section, but is not type SHIELD or ARMOR
-			final List<Equipment> equipList =
-					pc.getEquipmentListInOutputOrder(merge);
-			for ( Equipment eq : equipList )
+			final List<Equipment> equipList = pc.getEquipmentListInOutputOrder(merge);
+			for (Equipment eq : equipList)
 			{
 				if (eq.altersAC(pc) && !eq.isArmor() && !eq.isShield())
 				{
@@ -104,7 +99,7 @@ public class PCCountEqTypeTermEvaluator
 		{
 			final String curTok = types[cur];
 			cur++;
-			
+
 			if ("NOT".equalsIgnoreCase(curTok))
 			{
 				aList = EquipmentUtilities.removeEqType(aList, types[cur]);
@@ -112,7 +107,7 @@ public class PCCountEqTypeTermEvaluator
 			}
 			else if ("ADD".equalsIgnoreCase(curTok))
 			{
-				aList = pc.addEqType(aList,  types[cur]);
+				aList = pc.addEqType(aList, types[cur]);
 				cur++;
 			}
 			else if ("IS".equalsIgnoreCase(curTok))
@@ -120,8 +115,7 @@ public class PCCountEqTypeTermEvaluator
 				aList = EquipmentUtilities.removeNotEqType(aList, types[cur]);
 				cur++;
 			}
-			else if ("EQUIPPED".equalsIgnoreCase(curTok) || 
-					 "NOTEQUIPPED".equalsIgnoreCase(curTok))
+			else if ("EQUIPPED".equalsIgnoreCase(curTok) || "NOTEQUIPPED".equalsIgnoreCase(curTok))
 			{
 				final boolean eFlag = "EQUIPPED".equalsIgnoreCase(curTok);
 

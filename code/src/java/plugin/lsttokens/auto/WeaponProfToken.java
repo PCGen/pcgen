@@ -46,8 +46,8 @@ import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
-public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implements
-		CDOMSecondaryToken<CDOMObject>, ChooseSelectionActor<WeaponProf>
+public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject>
+		implements CDOMSecondaryToken<CDOMObject>, ChooseSelectionActor<WeaponProf>
 {
 
 	private static final Class<WeaponProf> WEAPONPROF_CLASS = WeaponProf.class;
@@ -70,8 +70,7 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		CDOMObject obj, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj, String value)
 	{
 		String weaponProfs;
 		Prerequisite prereq = null; // Do not initialize, null is significant!
@@ -92,21 +91,19 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 					if (isPre)
 					{
 						String errorText =
-								"Invalid " + getTokenName() + ": " + value
-									+ "  PRExxx must be at the END of the Token";
+								"Invalid " + getTokenName() + ": " + value + "  PRExxx must be at the END of the Token";
 						Logging.errorPrint(errorText);
 						return new ParseResult.Fail(errorText);
 					}
 					prereq = getPrerequisite(token);
 					if (prereq == null)
 					{
-						return new ParseResult.Fail("Error generating Prerequisite "
-								+ prereq + " in " + getFullName());
+						return new ParseResult.Fail("Error generating Prerequisite " + prereq + " in " + getFullName());
 					}
 					int preStart = value.indexOf(token) - 1;
 					weaponProfs = value.substring(0, preStart);
 					isPre = true;
-					
+
 					ParseResult fail = checkForLoopPrereqs(prereq, context);
 					if (fail != null)
 					{
@@ -118,8 +115,7 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 		else
 		{
 			return new ParseResult.Fail(
-				"Use of [] for Prerequisites has been removed. "
-					+ "Please use | based standard");
+				"Use of [] for Prerequisites has been removed. " + "Please use | based standard");
 		}
 
 		ParseResult pr = checkForIllegalSeparator('|', weaponProfs);
@@ -147,8 +143,7 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 				}
 				else
 				{
-					ConditionalSelectionActor<WeaponProf> cca =
-							new ConditionalSelectionActor<>(this);
+					ConditionalSelectionActor<WeaponProf> cca = new ConditionalSelectionActor<>(this);
 					cca.addPrerequisite(prereq);
 					cra = cca;
 				}
@@ -158,26 +153,24 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 			{
 				foundOther = true;
 				context.getObjectContext().put(obj, ObjectKey.HAS_DEITY_WEAPONPROF,
-						new QualifiedObject<>(Boolean.TRUE, prereq));
+					new QualifiedObject<>(Boolean.TRUE, prereq));
 			}
 			else
 			{
 				if (Constants.LST_ALL.equalsIgnoreCase(token))
 				{
 					foundAny = true;
-					CDOMGroupRef<WeaponProf> allRef = context.getReferenceContext()
-							.getCDOMAllReference(WEAPONPROF_CLASS);
+					CDOMGroupRef<WeaponProf> allRef =
+							context.getReferenceContext().getCDOMAllReference(WEAPONPROF_CLASS);
 					wpp.addWeaponProfAll(allRef);
 				}
 				else
 				{
 					foundOther = true;
-					if (token.startsWith(Constants.LST_TYPE_DOT)
-							|| token.startsWith(Constants.LST_TYPE_EQUAL))
+					if (token.startsWith(Constants.LST_TYPE_DOT) || token.startsWith(Constants.LST_TYPE_EQUAL))
 					{
-						CDOMGroupRef<WeaponProf> rr = TokenUtilities
-								.getTypeReference(context, WEAPONPROF_CLASS,
-										token.substring(5));
+						CDOMGroupRef<WeaponProf> rr =
+								TokenUtilities.getTypeReference(context, WEAPONPROF_CLASS, token.substring(5));
 						if (rr == null)
 						{
 							return ParseResult.INTERNAL_ERROR;
@@ -186,8 +179,8 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 					}
 					else
 					{
-						CDOMSingleRef<WeaponProf> ref = context.getReferenceContext()
-								.getCDOMReference(WEAPONPROF_CLASS, token);
+						CDOMSingleRef<WeaponProf> ref =
+								context.getReferenceContext().getCDOMReference(WEAPONPROF_CLASS, token);
 						wpp.addWeaponProf(ref);
 					}
 				}
@@ -196,8 +189,8 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 
 		if (foundAny && foundOther)
 		{
-			return new ParseResult.Fail("Non-sensical " + getFullName()
-					+ ": Contains ANY and a specific reference: " + value);
+			return new ParseResult.Fail(
+				"Non-sensical " + getFullName() + ": Contains ANY and a specific reference: " + value);
 		}
 		if (!wpp.isEmpty())
 		{
@@ -224,7 +217,7 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 			if (prereq.getKey().startsWith("TYPE"))
 			{
 				return new ParseResult.Fail("AUTO:WEAPONPROF may not use PREWEAPONPROF requirements "
-						+ " other than specific named proficiencies.");
+					+ " other than specific named proficiencies.");
 			}
 		}
 
@@ -243,12 +236,10 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
 		List<String> list = new ArrayList<>();
-		Changes<ChooseSelectionActor<?>> listChanges = context.getObjectContext()
-				.getListChanges(obj, ListKey.NEW_CHOOSE_ACTOR);
-		Changes<WeaponProfProvider> changes = context.getObjectContext().getListChanges(obj,
-				ListKey.WEAPONPROF);
-		QualifiedObject<Boolean> deityweap = context.getObjectContext().getObject(obj,
-				ObjectKey.HAS_DEITY_WEAPONPROF);
+		Changes<ChooseSelectionActor<?>> listChanges =
+				context.getObjectContext().getListChanges(obj, ListKey.NEW_CHOOSE_ACTOR);
+		Changes<WeaponProfProvider> changes = context.getObjectContext().getListChanges(obj, ListKey.WEAPONPROF);
+		QualifiedObject<Boolean> deityweap = context.getObjectContext().getObject(obj, ObjectKey.HAS_DEITY_WEAPONPROF);
 		Collection<WeaponProfProvider> added = changes.getAdded();
 		Collection<ChooseSelectionActor<?>> listAdded = listChanges.getAdded();
 		boolean foundAny = false;
@@ -266,8 +257,7 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 					}
 					catch (PersistenceLayerException e)
 					{
-						context.addWriteMessage("Error writing Prerequisite: "
-								+ e);
+						context.addWriteMessage("Error writing Prerequisite: " + e);
 						return null;
 					}
 				}
@@ -291,9 +281,8 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 			{
 				if (!wpp.isValid())
 				{
-					context.addWriteMessage("Non-sensical "
-							+ "WeaponProfProvider in " + getFullName()
-							+ ": Had invalid contents");
+					context.addWriteMessage(
+						"Non-sensical " + "WeaponProfProvider in " + getFullName() + ": Had invalid contents");
 					return null;
 				}
 				StringBuilder sb = new StringBuilder(wpp.getLstFormat());
@@ -302,18 +291,15 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 				{
 					if (prereqs.size() > 1)
 					{
-						context.addWriteMessage("Error: "
-								+ obj.getClass().getSimpleName()
-								+ " had more than one Prerequisite for "
-								+ getFullName());
+						context.addWriteMessage("Error: " + obj.getClass().getSimpleName()
+							+ " had more than one Prerequisite for " + getFullName());
 						return null;
 					}
 					sb.append('|');
 					sb.append(context.getPrerequisiteString(prereqs));
 				}
 				String lstFormat = sb.toString();
-				boolean isUnconditionalAll = Constants.LST_ALL
-						.equals(lstFormat);
+				boolean isUnconditionalAll = Constants.LST_ALL.equals(lstFormat);
 				foundAny |= isUnconditionalAll;
 				foundOther |= !isUnconditionalAll;
 				list.add(lstFormat);
@@ -321,8 +307,8 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 		}
 		if (foundAny && foundOther)
 		{
-			context.addWriteMessage("Non-sensical " + getFullName()
-					+ ": Contains ANY and a specific reference: " + list);
+			context
+				.addWriteMessage("Non-sensical " + getFullName() + ": Contains ANY and a specific reference: " + list);
 			return null;
 		}
 		if (list.isEmpty())

@@ -29,7 +29,6 @@ import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.core.Ability;
 import pcgen.core.Language;
 import pcgen.core.PCTemplate;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.AbilityLst;
@@ -49,7 +48,7 @@ public class AutoWeaponProfListTargetTest extends AbstractTokenModelTest
 	private static AbilityLst abLst = new AbilityLst();
 
 	@Test
-	public void testFromTemplate() throws PersistenceLayerException
+	public void testFromTemplate()
 	{
 		PCTemplate source = create(PCTemplate.class, "Source");
 		Ability granted = createGrantedObject();
@@ -90,7 +89,7 @@ public class AutoWeaponProfListTargetTest extends AbstractTokenModelTest
 	}
 
 	@Test
-	public void testFromAbility() throws PersistenceLayerException
+	public void testFromAbility()
 	{
 		Ability source = BuildUtilities.buildFeat(context, "Source");
 		Ability granted = createGrantedObject();

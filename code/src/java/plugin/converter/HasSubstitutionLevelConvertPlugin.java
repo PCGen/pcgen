@@ -25,20 +25,20 @@ import pcgen.gui2.converter.event.TokenProcessorPlugin;
 public class HasSubstitutionLevelConvertPlugin implements TokenProcessorPlugin
 {
 	// Just ignore this useless token
-    @Override
+	@Override
 	public String process(TokenProcessEvent tpe)
 	{
 		tpe.consume();
 		return null;
 	}
 
-    @Override
+	@Override
 	public Class<? extends CDOMObject> getProcessedClass()
 	{
 		return PCClass.class;
 	}
 
-    @Override
+	@Override
 	public String getProcessedToken()
 	{
 		return "HASSUBSTITUTIONLEVEL";

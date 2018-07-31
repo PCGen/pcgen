@@ -39,27 +39,23 @@ public class GlobalVarModel implements TemplateHashModel
 	/**
 	 * The global LoadContextFacet used to get VariableIDs
 	 */
-	private final LoadContextFacet loadContextFacet =
-			FacetLibrary.getFacet(LoadContextFacet.class);
+	private final LoadContextFacet loadContextFacet = FacetLibrary.getFacet(LoadContextFacet.class);
 
 	/**
 	 * The global VariableStore Facet used to get VariableID values
 	 */
-	private final VariableStoreFacet variableStoreFacet = FacetLibrary
-		.getFacet(VariableStoreFacet.class);
+	private final VariableStoreFacet variableStoreFacet = FacetLibrary.getFacet(VariableStoreFacet.class);
 
 	/**
 	 * The global ScopeFacet used to get VariableScopes
 	 */
-	private final ScopeFacet scopeFacet = FacetLibrary
-		.getFacet(ScopeFacet.class);
+	private final ScopeFacet scopeFacet = FacetLibrary.getFacet(ScopeFacet.class);
 
 	/**
 	 * The global ObjectWrapperFacet used to wrap the current value of a
 	 * variable
 	 */
-	private final ObjectWrapperFacet wrapperFacet = FacetLibrary
-		.getFacet(ObjectWrapperFacet.class);
+	private final ObjectWrapperFacet wrapperFacet = FacetLibrary.getFacet(ObjectWrapperFacet.class);
 
 	/**
 	 * The underlying CharID for this InfoModel
@@ -91,8 +87,8 @@ public class GlobalVarModel implements TemplateHashModel
 	public TemplateModel get(String varName) throws TemplateModelException
 	{
 		ScopeInstance varScope = scopeFacet.getGlobalScope(id);
-		VariableID<?> varID = loadContextFacet.get(id.getDatasetID()).get()
-				.getVariableContext().getVariableID(varScope, varName);
+		VariableID<?> varID =
+				loadContextFacet.get(id.getDatasetID()).get().getVariableContext().getVariableID(varScope, varName);
 		Object value = variableStoreFacet.getValue(id, varID);
 		return wrapperFacet.wrap(id, value);
 	}

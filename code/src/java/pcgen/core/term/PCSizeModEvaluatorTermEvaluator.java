@@ -24,8 +24,7 @@ import pcgen.cdom.util.CControl;
 import pcgen.core.PlayerCharacter;
 import pcgen.util.Logging;
 
-public class PCSizeModEvaluatorTermEvaluator 
-		extends BasePCTermEvaluator implements TermEvaluator
+public class PCSizeModEvaluatorTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
 	public PCSizeModEvaluatorTermEvaluator(String originalText)
 	{
@@ -37,8 +36,8 @@ public class PCSizeModEvaluatorTermEvaluator
 	{
 		if (pc.hasControl(CControl.SIZEMODDEFENSE))
 		{
-			Logging.errorPrint("SIZEMOD term is deprecated (does not function)"
-					+ " when SIZEMODDEFENSE CodeControl is used");
+			Logging.errorPrint(
+				"SIZEMOD term is deprecated (does not function)" + " when SIZEMODDEFENSE CodeControl is used");
 		}
 		return (float) pc.getSizeAdjustmentBonusTo("COMBAT", "AC");
 	}

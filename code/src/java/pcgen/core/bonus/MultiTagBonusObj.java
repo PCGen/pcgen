@@ -19,15 +19,13 @@ package pcgen.core.bonus;
 
 import pcgen.rules.context.LoadContext;
 
-
-
 /**
  * {@code MultiTagBonusObj}
  */
 public abstract class MultiTagBonusObj extends BonusObj
 {
 
-    @Override
+	@Override
 	protected boolean parseToken(LoadContext context, final String token)
 	{
 		for (int i = 0; i < getBonusTagLength(); ++i)
@@ -52,7 +50,7 @@ public abstract class MultiTagBonusObj extends BonusObj
 		return true;
 	}
 
-    @Override
+	@Override
 	protected String unparseToken(final Object obj)
 	{
 		if (obj instanceof Integer)

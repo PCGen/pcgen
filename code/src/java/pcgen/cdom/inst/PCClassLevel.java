@@ -49,8 +49,7 @@ public final class PCClassLevel extends CDOMObject implements Cloneable
 	@Override
 	public boolean equals(Object obj)
 	{
-		return obj instanceof PCClassLevel
-				&& ((PCClassLevel) obj).isCDOMEqual(this);
+		return obj instanceof PCClassLevel && ((PCClassLevel) obj).isCDOMEqual(this);
 	}
 
 	/**

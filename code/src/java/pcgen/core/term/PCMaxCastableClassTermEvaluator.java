@@ -29,8 +29,7 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.spell.Spell;
 
-public class PCMaxCastableClassTermEvaluator 
-		extends BasePCTermEvaluator implements TermEvaluator
+public class PCMaxCastableClassTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
 
 	private final ClassSpellList spellList;
@@ -39,8 +38,7 @@ public class PCMaxCastableClassTermEvaluator
 	{
 		this.originalText = originalText;
 		this.spellList = Globals.getContext().getReferenceContext()
-				.silentlyGetConstructedCDOMObject(ClassSpellList.class,
-						classKey);
+			.silentlyGetConstructedCDOMObject(ClassSpellList.class, classKey);
 		// TODO Warning if null? or is null gate in resolve not necessary?
 	}
 

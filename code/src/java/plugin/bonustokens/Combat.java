@@ -28,41 +28,34 @@ import pcgen.util.Logging;
  */
 public final class Combat extends MultiTagBonusObj
 {
-	private static final String[] BONUS_TAGS =
-			{"AC", "ATTACKS", "ATTACKS-SECONDARY", "DAMAGE",
-				"DAMAGESIZE", "DAMAGE-PRIMARY", "DAMAGE-SECONDARY",
-				"DAMAGE-SHORTRANGE", "DEFENSE", "INITIATIVE", "RANGEPENALTY", 
-				"REACH", "TOHIT", "TOHIT-PRIMARY", "TOHIT-SECONDARY", 
-				"TOHIT-SHORTRANGE", "BASEAB", "EPICAB"};
+	private static final String[] BONUS_TAGS = {"AC", "ATTACKS", "ATTACKS-SECONDARY", "DAMAGE", "DAMAGESIZE",
+		"DAMAGE-PRIMARY", "DAMAGE-SECONDARY", "DAMAGE-SHORTRANGE", "DEFENSE", "INITIATIVE", "RANGEPENALTY", "REACH",
+		"TOHIT", "TOHIT-PRIMARY", "TOHIT-SECONDARY", "TOHIT-SHORTRANGE", "BASEAB", "EPICAB"};
 
 	@Override
 	protected boolean parseToken(LoadContext context, String token)
 	{
 		if ("BAB".equalsIgnoreCase(token))
 		{
-			Logging.errorPrint("BONUS:COMBAT|BAB has been removed due to "
-				+ "unusual behavior around epic class levels.  "
-				+ "Please use BONUS:COMBAT|BASEAB or BONUS:COMBAT|EPICAB",
-				context);
+			Logging
+				.errorPrint("BONUS:COMBAT|BAB has been removed due to " + "unusual behavior around epic class levels.  "
+					+ "Please use BONUS:COMBAT|BASEAB or BONUS:COMBAT|EPICAB", context);
 			return false;
 		}
 		if (ControlUtilities.hasControlToken(context, CControl.ACVARTOTAL))
 		{
 			if ("AC".equals(token))
 			{
-				Logging.errorPrint(
-					"BONUS:COMBAT|AC is deprecated when ACVARTOTAL control is used: "
-							+ token, context);
-					return false;
-				}
+				Logging.errorPrint("BONUS:COMBAT|AC is deprecated when ACVARTOTAL control is used: " + token, context);
+				return false;
 			}
+		}
 		if (ControlUtilities.hasControlToken(context, CControl.INITIATIVE))
 		{
 			if ("INITIATIVE".equals(token))
 			{
-				Logging.errorPrint(
-					"BONUS:COMBAT|INITIATIVE is disabled when INITIATIVE control is used: "
-						+ token, context);
+				Logging.errorPrint("BONUS:COMBAT|INITIATIVE is disabled when INITIATIVE control is used: " + token,
+					context);
 				return false;
 			}
 		}
@@ -70,10 +63,9 @@ public final class Combat extends MultiTagBonusObj
 		{
 			if ("REACH".equals(token))
 			{
-				Logging.errorPrint("BONUS:COMBAT|REACH"
-						+ " is disabled when PCREACH control is used: " + token,
-						context);
-					return false;
+				Logging.errorPrint("BONUS:COMBAT|REACH" + " is disabled when PCREACH control is used: " + token,
+					context);
+				return false;
 			}
 		}
 		return super.parseToken(context, token);

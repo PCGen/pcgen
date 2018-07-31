@@ -27,8 +27,7 @@ import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class GlobalToken extends AbstractNonEmptyToken<DatasetVariable>
-		implements CDOMPrimaryToken<DatasetVariable>
+public class GlobalToken extends AbstractNonEmptyToken<DatasetVariable> implements CDOMPrimaryToken<DatasetVariable>
 {
 
 	@Override
@@ -38,14 +37,12 @@ public class GlobalToken extends AbstractNonEmptyToken<DatasetVariable>
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		DatasetVariable dv, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, DatasetVariable dv, String value)
 	{
 		//Just a name
 		if (dv.getDisplayName() != null)
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " must be the first token on the line");
+			return new ParseResult.Fail(getTokenName() + " must be the first token on the line");
 		}
 		String format;
 		String varName;
@@ -64,32 +61,28 @@ public class GlobalToken extends AbstractNonEmptyToken<DatasetVariable>
 		FormatManager<?> formatManager;
 		try
 		{
-			formatManager =
-					context.getReferenceContext().getFormatManager(format);
+			formatManager = context.getReferenceContext().getFormatManager(format);
 		}
 		catch (NullPointerException | IllegalArgumentException e)
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " does not support format " + format + ", found in " + value
+			return new ParseResult.Fail(getTokenName() + " does not support format " + format + ", found in " + value
 				+ " due to " + e.getMessage());
 		}
 		PCGenScope scope = context.getActiveScope();
 
 		if (!DatasetVariable.isLegalName(varName))
 		{
-			return new ParseResult.Fail(varName
-				+ " is not a valid variable name");
+			return new ParseResult.Fail(varName + " is not a valid variable name");
 		}
 
 		try
 		{
-			context.getVariableContext().assertLegalVariableID(varName, scope,
-				formatManager);
+			context.getVariableContext().assertLegalVariableID(varName, scope, formatManager);
 		}
 		catch (LegalVariableException e)
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " encountered an exception in varible definition : " + e.getMessage());
+			return new ParseResult.Fail(
+				getTokenName() + " encountered an exception in varible definition : " + e.getMessage());
 		}
 		dv.setName(varName);
 		dv.setFormat(formatManager);

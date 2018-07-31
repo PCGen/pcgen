@@ -44,8 +44,8 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with FAVCLASS Token
  */
-public class FavclassToken extends AbstractTokenWithSeparator<Race> implements
-		CDOMPrimaryToken<Race>, ChooseSelectionActor<PCClass>
+public class FavclassToken extends AbstractTokenWithSeparator<Race>
+		implements CDOMPrimaryToken<Race>, ChooseSelectionActor<PCClass>
 {
 	public static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
 	public static final Class<SubClass> SUBCLASS_CLASS = SubClass.class;
@@ -63,8 +63,7 @@ public class FavclassToken extends AbstractTokenWithSeparator<Race> implements
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		Race race, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, Race race, String value)
 	{
 		context.getObjectContext().remove(race, ObjectKey.ANY_FAVORED_CLASS);
 		context.getObjectContext().removeList(race, ListKey.FAVORED_CLASS);
@@ -72,23 +71,21 @@ public class FavclassToken extends AbstractTokenWithSeparator<Race> implements
 
 		boolean foundAny = false;
 		boolean foundOther = false;
-		
+
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
-		
+
 		while (tok.hasMoreTokens())
 		{
 			String token = tok.nextToken();
 			if (Constants.HIGHEST_LEVEL_CLASS.equalsIgnoreCase(token))
 			{
 				foundAny = true;
-				context.getObjectContext().put(race,
-						ObjectKey.ANY_FAVORED_CLASS, true);
+				context.getObjectContext().put(race, ObjectKey.ANY_FAVORED_CLASS, true);
 			}
 			else if (Constants.LST_PERCENT_LIST.equalsIgnoreCase(token))
 			{
 				foundOther = true;
-				context.getObjectContext().addToList(race, ListKey.NEW_CHOOSE_ACTOR,
-						this);
+				context.getObjectContext().addToList(race, ListKey.NEW_CHOOSE_ACTOR, this);
 			}
 			else
 			{
@@ -111,17 +108,14 @@ public class FavclassToken extends AbstractTokenWithSeparator<Race> implements
 					String parent = token.substring(0, dotLoc);
 					String subclass = token.substring(dotLoc + 1);
 					SubClassCategory scc = SubClassCategory.getConstant(parent);
-					ref = context.getReferenceContext().getManufacturerId(scc)
-						.getReference(subclass);
+					ref = context.getReferenceContext().getManufacturerId(scc).getReference(subclass);
 				}
-				context.getObjectContext().addToList(race,
-						ListKey.FAVORED_CLASS, ref);
+				context.getObjectContext().addToList(race, ListKey.FAVORED_CLASS, ref);
 			}
 		}
 		if (foundAny && foundOther)
 		{
-			return new ParseResult.Fail("Non-sensical " + getTokenName()
-				+ ": Contains " + Constants.HIGHEST_LEVEL_CLASS
+			return new ParseResult.Fail("Non-sensical " + getTokenName() + ": Contains " + Constants.HIGHEST_LEVEL_CLASS
 				+ " and a specific reference: " + value);
 		}
 		return ParseResult.SUCCESS;
@@ -130,12 +124,11 @@ public class FavclassToken extends AbstractTokenWithSeparator<Race> implements
 	@Override
 	public String[] unparse(LoadContext context, Race race)
 	{
-		Changes<CDOMReference<? extends PCClass>> changes = context
-				.getObjectContext().getListChanges(race, ListKey.FAVORED_CLASS);
-		Changes<ChooseSelectionActor<?>> listChanges = context.getObjectContext()
-				.getListChanges(race, ListKey.NEW_CHOOSE_ACTOR);
-		Boolean anyfavored = context.getObjectContext().getObject(race,
-				ObjectKey.ANY_FAVORED_CLASS);
+		Changes<CDOMReference<? extends PCClass>> changes =
+				context.getObjectContext().getListChanges(race, ListKey.FAVORED_CLASS);
+		Changes<ChooseSelectionActor<?>> listChanges =
+				context.getObjectContext().getListChanges(race, ListKey.NEW_CHOOSE_ACTOR);
+		Boolean anyfavored = context.getObjectContext().getObject(race, ObjectKey.ANY_FAVORED_CLASS);
 		SortedSet<String> set = new TreeSet<>();
 		if (anyfavored != null && anyfavored)
 		{
@@ -148,8 +141,7 @@ public class FavclassToken extends AbstractTokenWithSeparator<Race> implements
 				String prefix = ref.getPersistentFormat();
 				if (prefix.startsWith("SUBCLASS="))
 				{
-					set.add(
-						prefix.substring(9) + Constants.DOT + ref.getLSTformat(false));
+					set.add(prefix.substring(9) + Constants.DOT + ref.getLSTformat(false));
 				}
 				else
 				{
@@ -170,8 +162,7 @@ public class FavclassToken extends AbstractTokenWithSeparator<Race> implements
 					}
 					catch (PersistenceLayerException e)
 					{
-						context.addWriteMessage("Error writing Prerequisite: "
-								+ e);
+						context.addWriteMessage("Error writing Prerequisite: " + e);
 						return null;
 					}
 				}
@@ -182,7 +173,7 @@ public class FavclassToken extends AbstractTokenWithSeparator<Race> implements
 			// Zero indicates no add or clear
 			return null;
 		}
-		return new String[] { StringUtil.join(set, Constants.PIPE) };
+		return new String[]{StringUtil.join(set, Constants.PIPE)};
 	}
 
 	@Override

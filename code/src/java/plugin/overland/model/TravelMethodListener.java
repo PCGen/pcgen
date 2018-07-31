@@ -31,9 +31,9 @@ public interface TravelMethodListener extends EventListener
 	void unmodifiedSpeedUpdated(EventObject e);
 
 	void speedUpdated(EventObject e);
-	
+
 	void useDaysChanged(TravelSpeedEvent e);
-	
+
 	/**
 	 * 
 	 * @param e the changed property is the new comment

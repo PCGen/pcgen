@@ -79,9 +79,7 @@ public class EquipmentModels
 
 	public enum EquipView
 	{
-		FULL,
-		UNEQUIPPED,
-		EQUIPPED;
+		FULL, UNEQUIPPED, EQUIPPED;
 
 		@Override
 		public String toString()
@@ -124,9 +122,8 @@ public class EquipmentModels
 	private final DisplayableFilter<? super CharacterFacade, ? super EquipmentFacade> filter;
 
 	public EquipmentModels(CharacterFacade character, JComboBox equipBox, JTableEx eqTable,
-		DisplayableFilter<? super CharacterFacade, ? super EquipmentFacade> filter,
-		JTreeTable eqSetTable, JButton equipButton, JButton unequipButton, 
-		JButton moveUpButton, JButton moveDownButton)
+		DisplayableFilter<? super CharacterFacade, ? super EquipmentFacade> filter, JTreeTable eqSetTable,
+		JButton equipButton, JButton unequipButton, JButton moveUpButton, JButton moveDownButton)
 	{
 		this.character = character;
 		this.unequippedList = new UnequippedList(character);
@@ -147,7 +144,7 @@ public class EquipmentModels
 		this.moveUpAction = new MoveUpAction();
 		this.moveDownAction = new MoveDownAction();
 		this.filterHandler = new EquipFilterHandler();
-		
+
 		this.equipViewBox = equipBox;
 		this.equipmentTable = eqTable;
 		this.equipmentSetTable = eqSetTable;
@@ -207,7 +204,7 @@ public class EquipmentModels
 			}
 		}
 	}
-	
+
 	private static JScrollPane prepareScrollPane(JTable table)
 	{
 		JScrollPane pane = new JScrollPane(table);
@@ -215,9 +212,7 @@ public class EquipmentModels
 		size.height += 30; // account for the header which has not been prepared yet
 		final int decorationHeight = 80;
 		final int decorationWidth = 70;
-		Rectangle screenBounds =
-				GraphicsEnvironment.getLocalGraphicsEnvironment()
-					.getMaximumWindowBounds();
+		Rectangle screenBounds = GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds();
 		if (size.height > screenBounds.height - decorationHeight)
 		{
 			size.height = screenBounds.height - decorationHeight;
@@ -230,7 +225,7 @@ public class EquipmentModels
 		pane.setPreferredSize(size);
 		return pane;
 	}
-	
+
 	private class EquipFilterHandler implements FilterHandler
 	{
 
@@ -282,6 +277,9 @@ public class EquipmentModels
 					selectedModel = equippedModel;
 					equipAction.setEnabled(false);
 					break;
+				default:
+					//Case not caught, should this cause an error?
+					break;
 			}
 			equipmentTable.setModel(selectedModel);
 			filterHandler.refilter();
@@ -289,8 +287,7 @@ public class EquipmentModels
 
 	}
 
-	private static class EquippedTableModel extends EquipmentTableModel
-			implements ReferenceListener<EquipmentSetFacade>
+	private static class EquippedTableModel extends EquipmentTableModel implements ReferenceListener<EquipmentSetFacade>
 	{
 
 		public EquippedTableModel(CharacterFacade character)
@@ -334,8 +331,7 @@ public class EquipmentModels
 					data[i][0] = path.getEquipment();
 					data[i][1] = equipSet.getQuantity(path);
 				}
-				Object[] columns = {
-					LanguageBundle.getString("in_equipItem"), //$NON-NLS-1$
+				Object[] columns = {LanguageBundle.getString("in_equipItem"), //$NON-NLS-1$
 					LanguageBundle.getString("in_equipQuantityAbbrev"), //$NON-NLS-1$
 				};
 				DefaultTableModel tableModel = new DefaultTableModel(data, columns)
@@ -374,13 +370,9 @@ public class EquipmentModels
 				JLabel help = new JLabel(LanguageBundle.getString("in_equipSelectUnequipQty")); //$NON-NLS-1$
 				panel.add(help, BorderLayout.NORTH);
 				panel.add(pane, BorderLayout.CENTER);
-				int res =
-						JOptionPane.showConfirmDialog(
-							JOptionPane.getFrameForComponent(equipmentTable),
-							panel,
-							LanguageBundle.getString("in_equipUnequipSel"), //$NON-NLS-1$
-							JOptionPane.OK_CANCEL_OPTION,
-							JOptionPane.PLAIN_MESSAGE);
+				int res = JOptionPane.showConfirmDialog(JOptionPane.getFrameForComponent(equipmentTable), panel,
+					LanguageBundle.getString("in_equipUnequipSel"), //$NON-NLS-1$
+					JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
 
 				if (res == JOptionPane.OK_OPTION)
 				{
@@ -391,12 +383,12 @@ public class EquipmentModels
 				}
 			}
 		}
-		
+
 		public void install()
 		{
 			equipmentSetTable.addActionListener(this);
 		}
-		
+
 		public void uninstall()
 		{
 			equipmentSetTable.removeActionListener(this);
@@ -444,10 +436,9 @@ public class EquipmentModels
 					EquipmentFacade equipmentFacade = equipment.get(i);
 					data[i][0] = equipmentFacade;
 					data[i][1] = unequippedList.getQuantity(equipmentFacade);
-					data[i][2] = getInitialNode(equipMap, equipSet, equipmentFacade); 
+					data[i][2] = getInitialNode(equipMap, equipSet, equipmentFacade);
 				}
-				Object[] columns = {
-					LanguageBundle.getString("in_equipItem"), //$NON-NLS-1$
+				Object[] columns = {LanguageBundle.getString("in_equipItem"), //$NON-NLS-1$
 					LanguageBundle.getString("in_equipQuantityAbbrev"), //$NON-NLS-1$
 					LanguageBundle.getString("in_equipContainer") //$NON-NLS-1$
 				};
@@ -489,13 +480,9 @@ public class EquipmentModels
 				JLabel help = new JLabel(LanguageBundle.getString("in_equipSelectQtyLoc")); //$NON-NLS-1$
 				panel.add(help, BorderLayout.NORTH);
 				panel.add(pane, BorderLayout.CENTER);
-				int res =
-						JOptionPane.showConfirmDialog(
-							JOptionPane.getFrameForComponent(equipmentTable),
-							panel,
-							LanguageBundle.getString("in_equipEquipSel"), //$NON-NLS-1$
-							JOptionPane.OK_CANCEL_OPTION,
-							JOptionPane.PLAIN_MESSAGE);
+				int res = JOptionPane.showConfirmDialog(JOptionPane.getFrameForComponent(equipmentTable), panel,
+					LanguageBundle.getString("in_equipEquipSel"), //$NON-NLS-1$
+					JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
 
 				if (res == JOptionPane.OK_OPTION)
 				{
@@ -508,8 +495,7 @@ public class EquipmentModels
 			}
 		}
 
-		private EquipNode getInitialNode(MapToList<EquipmentFacade, EquipNode> equipMap,
-			EquipmentSetFacade equipSet,
+		private EquipNode getInitialNode(MapToList<EquipmentFacade, EquipNode> equipMap, EquipmentSetFacade equipSet,
 			EquipmentFacade equipmentFacade)
 		{
 			// First see if the user has selected a suitable node in the equipped tree
@@ -523,7 +509,7 @@ public class EquipmentModels
 					return path;
 				}
 			}
-			
+
 			// Check if the preferred location can be found in the list
 			String preferredNodeName = equipSet.getPreferredLoc(equipmentFacade);
 			for (EquipNode node : possibleNodeList)
@@ -533,16 +519,16 @@ public class EquipmentModels
 					return node;
 				}
 			}
-			
+
 			// Fall back to the first item in the list
 			return equipMap.getElementInList(equipmentFacade, 0);
 		}
-		
+
 		public void install()
 		{
 			equipmentTable.addActionListener(this);
 		}
-		
+
 		public void uninstall()
 		{
 			equipmentTable.removeActionListener(this);
@@ -569,7 +555,8 @@ public class EquipmentModels
 		}
 
 		@Override
-		public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row, int column)
+		public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row,
+			int column)
 		{
 			EquipmentFacade equipment = (EquipmentFacade) table.getValueAt(row, 0);
 			int maxQuantity = equipmentList.getQuantity(equipment);
@@ -578,7 +565,8 @@ public class EquipmentModels
 			{
 				minQuantity = maxQuantity = 0;
 			}
-			SpinnerNumberModel model = new SpinnerNumberModel(((Integer) value).intValue(), minQuantity, maxQuantity, 1);
+			SpinnerNumberModel model =
+					new SpinnerNumberModel(((Integer) value).intValue(), minQuantity, maxQuantity, 1);
 			spinner.setModel(model);
 			return spinner;
 		}
@@ -623,7 +611,8 @@ public class EquipmentModels
 		}
 
 		@Override
-		public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row, int column)
+		public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row,
+			int column)
 		{
 			EquipmentFacade equipment = (EquipmentFacade) table.getValueAt(row, 0);
 			if (comboBox != null)
@@ -668,12 +657,11 @@ public class EquipmentModels
 			}
 		}
 
-		
 		public void install()
 		{
 			equipmentSetTable.addActionListener(this);
 		}
-		
+
 		public void uninstall()
 		{
 			equipmentSetTable.removeActionListener(this);
@@ -704,12 +692,12 @@ public class EquipmentModels
 				selectNodeInEquipmentSetTable(paths.get(0));
 			}
 		}
-		
+
 		public void install()
 		{
 			equipmentSetTable.addActionListener(this);
 		}
-		
+
 		public void uninstall()
 		{
 			equipmentSetTable.removeActionListener(this);

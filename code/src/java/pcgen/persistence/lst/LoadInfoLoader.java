@@ -27,7 +27,6 @@ import pcgen.core.system.LoadInfo;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 
-
 public class LoadInfoLoader extends SimpleLoader<LoadInfo>
 {
 
@@ -37,13 +36,22 @@ public class LoadInfoLoader extends SimpleLoader<LoadInfo>
 		super(LoadInfo.class);
 	}
 
+	/* (non-Javadoc)
+	 * @see SimpleLoader#getLoadable(LoadContext, String, URI)
+	 */
 	@Override
-	protected LoadInfo getLoadable(LoadContext context, String firstToken,
-			URI sourceURI) throws PersistenceLayerException
+	protected LoadInfo getLoadable(LoadContext context, String firstToken, URI sourceURI)
 	{
-		LoadInfo loadable = context.getReferenceContext().constructNowIfNecessary(LoadInfo.class,
-				getGameMode());
-		LstUtils.processToken(context, loadable, sourceURI, firstToken);
+		LoadInfo loadable = context.getReferenceContext().constructNowIfNecessary(LoadInfo.class, getGameMode());
+		try
+		{
+			LstUtils.processToken(context, loadable, sourceURI, firstToken);
+		}
+		catch (PersistenceLayerException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return loadable;
 	}
 }

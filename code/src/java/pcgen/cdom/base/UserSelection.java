@@ -21,12 +21,12 @@ public final class UserSelection
 {
 
 	private static final UserSelection INSTANCE = new UserSelection();
-	
+
 	private UserSelection()
 	{
 		//Private
 	}
-	
+
 	public static UserSelection getInstance()
 	{
 		return INSTANCE;

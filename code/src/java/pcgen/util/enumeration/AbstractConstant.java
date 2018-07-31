@@ -30,7 +30,7 @@ import java.lang.reflect.Modifier;
 public abstract class AbstractConstant implements Serializable
 {
 
-	private transient String _fieldName;
+	private transient String fieldName;
 
 	private void writeObject(ObjectOutputStream out) throws IOException
 	{
@@ -40,8 +40,7 @@ public abstract class AbstractConstant implements Serializable
 			try
 			{
 				int mod = aF.getModifiers();
-				if (Modifier.isStatic(mod) && Modifier.isFinal(mod)
-						&& Modifier.isPublic(mod))
+				if (Modifier.isStatic(mod) && Modifier.isFinal(mod) && Modifier.isPublic(mod))
 				{
 					//Use == to get exact object match (do not use .equals())
 					if (this == aF.get(null))
@@ -49,7 +48,8 @@ public abstract class AbstractConstant implements Serializable
 						out.writeObject(aF.getName());
 					}
 				}
-			} catch (IllegalAccessException e)
+			}
+			catch (IllegalAccessException e)
 			{
 				throw new IOException(e.getLocalizedMessage());
 			}
@@ -60,7 +60,7 @@ public abstract class AbstractConstant implements Serializable
 	{
 		try
 		{
-			_fieldName = (String) in.readObject();
+			fieldName = (String) in.readObject();
 		}
 		catch (ClassNotFoundException e)
 		{
@@ -72,12 +72,11 @@ public abstract class AbstractConstant implements Serializable
 	{
 		try
 		{
-			return getClass().getField(_fieldName).get(null);
+			return getClass().getField(fieldName).get(null);
 		}
 		catch (SecurityException | NoSuchFieldException | IllegalAccessException e)
 		{
-			throw new InvalidObjectException("Failed to resolve object: "
-				+ e.getLocalizedMessage());
+			throw new InvalidObjectException("Failed to resolve object: " + e.getLocalizedMessage());
 		}
 	}
 }

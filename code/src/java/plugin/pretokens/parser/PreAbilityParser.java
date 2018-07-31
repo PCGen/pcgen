@@ -24,14 +24,13 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteListParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
-import pcgen.util.Logging;
 import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
 
 /**
  * A prerequisite parser class that handles the parsing of pre ability tokens.
  */
-public class PreAbilityParser extends AbstractPrerequisiteListParser implements
-		PrerequisiteParserInterface
+public class PreAbilityParser extends AbstractPrerequisiteListParser implements PrerequisiteParserInterface
 {
 	private static final String CATEGORY = "CATEGORY.";
 	private static final String CATEGORY_EQUALS = "CATEGORY=";
@@ -40,7 +39,7 @@ public class PreAbilityParser extends AbstractPrerequisiteListParser implements
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String[] kindsHandled()
 	{
 		return new String[]{"ability", "feat"};
@@ -59,10 +58,8 @@ public class PreAbilityParser extends AbstractPrerequisiteListParser implements
 	 * @throws PersistenceLayerException
 	 */
 	@Override
-	public Prerequisite parse(String kind,
-	                          String formula,
-	                          boolean invertResult,
-	                          boolean overrideQualify) throws PersistenceLayerException
+	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+		throws PersistenceLayerException
 	{
 		if ("feat".equalsIgnoreCase(kind))
 		{
@@ -82,7 +79,7 @@ public class PreAbilityParser extends AbstractPrerequisiteListParser implements
 		{
 			setCategory(prereq, "FEAT");
 		}
-		
+
 		//
 		// Negate the feat names wrapped in []'s. Then need to bump up the required number of matches
 		//
@@ -96,7 +93,7 @@ public class PreAbilityParser extends AbstractPrerequisiteListParser implements
 
 		//Removed invert stuff because super.parse already does this, and these lines re-invert.
 		prereq.setOverrideQualify(overrideQualify);
-		
+
 		return prereq;
 	}
 
@@ -115,15 +112,13 @@ public class PreAbilityParser extends AbstractPrerequisiteListParser implements
 	 * @param prereq The prereq to be processed.
 	 * @throws PersistenceLayerException If more than one category entry is found 
 	 */
-	private static void extractCategory(Prerequisite prereq)
-		throws PersistenceLayerException
+	private static void extractCategory(Prerequisite prereq) throws PersistenceLayerException
 	{
 		String categoryName = "";
 		if (prereq.getPrerequisiteCount() == 0)
 		{
 			String preKey = prereq.getKey();
-			if (preKey.toUpperCase().startsWith(CATEGORY)
-				|| preKey.toUpperCase().startsWith(CATEGORY_EQUALS))
+			if (preKey.toUpperCase().startsWith(CATEGORY) || preKey.toUpperCase().startsWith(CATEGORY_EQUALS))
 			{
 				String tempCat = preKey.substring((CATEGORY.length()));
 				if (tempCat.toUpperCase().trim().equals("ANY"))
@@ -140,8 +135,7 @@ public class PreAbilityParser extends AbstractPrerequisiteListParser implements
 		}
 
 		// Copy to a temporary list as we wil be adjusting the main one.
-		List<Prerequisite> prereqList =
-				new ArrayList<>(prereq.getPrerequisites());
+		List<Prerequisite> prereqList = new ArrayList<>(prereq.getPrerequisites());
 		for (Prerequisite p : prereqList)
 		{
 			if (p.getKind() == null) // PREMULT
@@ -151,23 +145,18 @@ public class PreAbilityParser extends AbstractPrerequisiteListParser implements
 			else
 			{
 				String preKey = p.getKey();
-				if (preKey.toUpperCase().startsWith(CATEGORY)
-					|| preKey.toUpperCase().startsWith(CATEGORY_EQUALS))
+				if (preKey.toUpperCase().startsWith(CATEGORY) || preKey.toUpperCase().startsWith(CATEGORY_EQUALS))
 				{
 					String tempCat = preKey.substring((CATEGORY.length()));
 					if (!categoryName.isEmpty())
 					{
 						throw new PersistenceLayerException(LanguageBundle
-							.getFormattedString(
-								"Errors.PreAbility.MultipleCategory",
-								categoryName, tempCat));
+							.getFormattedString("Errors.PreAbility.MultipleCategory", categoryName, tempCat));
 					}
 					else if (p != prereqList.get(0))
 					{
-						throw new PersistenceLayerException(LanguageBundle
-							.getFormattedString(
-								"Errors.PreAbility.CategoryNotFirst",
-								tempCat));
+						throw new PersistenceLayerException(
+							LanguageBundle.getFormattedString("Errors.PreAbility.CategoryNotFirst", tempCat));
 					}
 
 					if (tempCat.toUpperCase().trim().equals("ANY"))

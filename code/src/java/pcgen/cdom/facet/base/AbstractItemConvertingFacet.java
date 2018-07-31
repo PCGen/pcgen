@@ -54,8 +54,7 @@ import pcgen.cdom.facet.event.DataFacetChangeEvent;
  * null is a valid source.
  * 
  */
-public abstract class AbstractItemConvertingFacet<S, D> extends
-		AbstractDataFacet<CharID, D>
+public abstract class AbstractItemConvertingFacet<S, D> extends AbstractDataFacet<CharID, D>
 {
 	/**
 	 * Add the converted version of the given object with the given source to
@@ -85,8 +84,7 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 		if (target.dest == null)
 		{
 			target.dest = convert(obj);
-			fireDataFacetChangeEvent(id, target.dest,
-					DataFacetChangeEvent.DATA_ADDED);
+			fireDataFacetChangeEvent(id, target.dest, DataFacetChangeEvent.DATA_ADDED);
 		}
 	}
 
@@ -214,8 +212,7 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 		removeCache(id);
 		for (Target tgt : componentMap.values())
 		{
-			fireDataFacetChangeEvent(id, tgt.dest,
-					DataFacetChangeEvent.DATA_REMOVED);
+			fireDataFacetChangeEvent(id, tgt.dest, DataFacetChangeEvent.DATA_REMOVED);
 		}
 		return componentMap;
 	}
@@ -426,8 +423,7 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 				if (origTarget != null)
 				{
 					S obj = me.getKey();
-					Target target = getConstructingCachedSetFor(destination,
-							obj);
+					Target target = getConstructingCachedSetFor(destination, obj);
 					//This could be dangerous!
 					target.dest = origTarget.dest;
 					target.set.addAll(origTarget.set);
@@ -459,13 +455,11 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 	 *            The source for the given object to be removed from the list of
 	 *            sources for that object
 	 */
-	private void processRemoval(CharID id, Map<S, Target> componentMap, S obj,
-		Object source)
+	private void processRemoval(CharID id, Map<S, Target> componentMap, S obj, Object source)
 	{
 		if (obj == null)
 		{
-			throw new IllegalArgumentException(
-					"Object to remove may not be null");
+			throw new IllegalArgumentException("Object to remove may not be null");
 		}
 		Target target = componentMap.get(obj);
 		if (target != null)
@@ -474,8 +468,7 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 			if (target.set.isEmpty())
 			{
 				componentMap.remove(obj);
-				fireDataFacetChangeEvent(id, target.dest,
-						DataFacetChangeEvent.DATA_REMOVED);
+				fireDataFacetChangeEvent(id, target.dest, DataFacetChangeEvent.DATA_REMOVED);
 			}
 		}
 	}
@@ -498,8 +491,7 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 		Map<S, Target> componentMap = getCachedMap(id);
 		if (componentMap != null)
 		{
-			for (Iterator<Target> it = componentMap.values().iterator(); it
-					.hasNext();)
+			for (Iterator<Target> it = componentMap.values().iterator(); it.hasNext();)
 			{
 				Target target = it.next();
 				if (target != null)
@@ -507,8 +499,7 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 					if (target.set.remove(source) && target.set.isEmpty())
 					{
 						it.remove();
-						fireDataFacetChangeEvent(id, target.dest,
-								DataFacetChangeEvent.DATA_REMOVED);
+						fireDataFacetChangeEvent(id, target.dest, DataFacetChangeEvent.DATA_REMOVED);
 					}
 				}
 			}
@@ -563,8 +554,7 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 		/**
 		 * The set of objects from which the converted object has been received
 		 */
-		public Set<Object> set =
-                Collections.newSetFromMap(new IdentityHashMap<>());
+		public Set<Object> set = Collections.newSetFromMap(new IdentityHashMap<>());
 
 		/**
 		 * The converted ("destination") object
@@ -615,7 +605,7 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 		}
 		return set;
 	}
-	
+
 	public D getResultFor(CharID id, S obj)
 	{
 		Map<S, Target> componentMap = getCachedMap(id);

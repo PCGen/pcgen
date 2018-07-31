@@ -17,7 +17,6 @@
  */
 package pcgen.core.bonus.util;
 
-
 /**
  * Used for any Bonus class that can't find the proper object
  */

@@ -76,7 +76,6 @@ import pcgen.gui2.facade.MockUIDelegate;
 import pcgen.io.PCGIOHandler;
 import pcgen.io.PCGVer2Creator;
 import pcgen.output.channel.ChannelUtilities;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.persistence.lst.LevelLoader;
 import pcgen.rules.context.AbstractReferenceContext;
@@ -134,11 +133,10 @@ public abstract class AbstractSaveRestoreTest extends TestCase
 			SettingsHandler.setGame("3.5");
 			GameMode mode = SettingsHandler.getGame();
 			mode.setBonusFeatLevels("3|3");
-			LevelLoader
-				.parseLine(
-					mode,
-					"LEVEL:LEVEL	MINXP:(LEVEL*LEVEL-LEVEL)*500		CSKILLMAX:LEVEL+ClassSkillMax+3	CCSKILLMAX:(LEVEL+CrossClassSkillMax+3)/2",
-					0, TestURI.getURI(), "Default");
+			LevelLoader.parseLine(mode,
+				"LEVEL:LEVEL	MINXP:(LEVEL*LEVEL-LEVEL)*500		"
+			+ "CSKILLMAX:LEVEL+ClassSkillMax+3	CCSKILLMAX:(LEVEL+CrossClassSkillMax+3)/2",
+				0, TestURI.getURI(), "Default");
 			mode.setAlignmentText("Alignment");
 		}
 	}
@@ -226,7 +224,7 @@ public abstract class AbstractSaveRestoreTest extends TestCase
 	protected WeaponProfFacet weaponProfFacet;
 	protected Race human;
 
-	protected void setUpContext() throws PersistenceLayerException
+	protected void setUpContext()
 	{
 		ChooserFactory.pushChooserClassname(RandomChooser.class.getName());
 		TokenRegistration.clearTokens();

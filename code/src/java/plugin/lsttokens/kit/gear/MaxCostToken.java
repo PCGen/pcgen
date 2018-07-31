@@ -27,8 +27,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * MAXCOST token for KIT Gear
  */
-public class MaxCostToken extends AbstractToken implements
-		CDOMPrimaryToken<KitGear>
+public class MaxCostToken extends AbstractToken implements CDOMPrimaryToken<KitGear>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -62,9 +61,8 @@ public class MaxCostToken extends AbstractToken implements
 		}
 		catch (NumberFormatException nfe)
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " expected an integer.  Tag must be of the form: "
-				+ getTokenName() + ":<int>");
+			return new ParseResult.Fail(
+				getTokenName() + " expected an integer.  Tag must be of the form: " + getTokenName() + ":<int>");
 		}
 	}
 

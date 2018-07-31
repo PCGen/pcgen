@@ -30,8 +30,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Deals with CRITMULT token
  */
-public class CritmultToken extends AbstractNonEmptyToken<Equipment> implements
-		CDOMPrimaryToken<Equipment>
+public class CritmultToken extends AbstractNonEmptyToken<Equipment> implements CDOMPrimaryToken<Equipment>
 {
 
 	@Override
@@ -45,8 +44,7 @@ public class CritmultToken extends AbstractNonEmptyToken<Equipment> implements
 	{
 		if (ControlUtilities.hasControlToken(context, CControl.CRITMULT))
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " is disabled when CRITMULT control is used: " + value);
+			return new ParseResult.Fail(getTokenName() + " is disabled when CRITMULT control is used: " + value);
 		}
 		Integer cm = null;
 		if ((!value.isEmpty()) && (value.charAt(0) == 'x'))
@@ -61,8 +59,7 @@ public class CritmultToken extends AbstractNonEmptyToken<Equipment> implements
 			}
 			catch (NumberFormatException nfe)
 			{
-				return new ParseResult.Fail(getTokenName()
-						+ " was expecting an Integer: " + value);
+				return new ParseResult.Fail(getTokenName() + " was expecting an Integer: " + value);
 			}
 		}
 		else if ("-".equals(value))
@@ -71,9 +68,8 @@ public class CritmultToken extends AbstractNonEmptyToken<Equipment> implements
 		}
 		if (cm == null)
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " was expecting x followed by an integer "
-					+ "or the special value '-' (representing no value)");
+			return new ParseResult.Fail(getTokenName() + " was expecting x followed by an integer "
+				+ "or the special value '-' (representing no value)");
 		}
 		EquipmentHead primHead = eq.getEquipmentHead(1);
 		context.getObjectContext().put(primHead, IntegerKey.CRIT_MULT, cm);
@@ -88,8 +84,7 @@ public class CritmultToken extends AbstractNonEmptyToken<Equipment> implements
 		{
 			return null;
 		}
-		Integer mult = context.getObjectContext().getInteger(head,
-				IntegerKey.CRIT_MULT);
+		Integer mult = context.getObjectContext().getInteger(head, IntegerKey.CRIT_MULT);
 		if (mult == null)
 		{
 			return null;
@@ -109,7 +104,7 @@ public class CritmultToken extends AbstractNonEmptyToken<Equipment> implements
 		{
 			retString = "x" + multInt;
 		}
-		return new String[] { retString };
+		return new String[]{retString};
 	}
 
 	@Override

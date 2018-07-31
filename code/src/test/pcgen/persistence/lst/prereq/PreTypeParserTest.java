@@ -24,16 +24,20 @@ import org.junit.Test;
 
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.persistence.PersistenceLayerException;
 import plugin.pretokens.parser.PreTypeParser;
 
 @SuppressWarnings("nls")
 public class PreTypeParserTest extends EnUsLocaleDependentTestCase
 {
+	
 	/**
-	 * @throws Exception
+	 * Test new style.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testNewStyle() throws Exception
+	public void testNewStyle() throws PersistenceLayerException
 	{
 		PreTypeParser producer = new PreTypeParser();
 
@@ -52,11 +56,14 @@ public class PreTypeParserTest extends EnUsLocaleDependentTestCase
 				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 	}
 
+	
 	/**
-	 * @throws Exception
+	 * Test new style 2.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testNewStyle2() throws Exception
+	public void testNewStyle2() throws PersistenceLayerException
 	{
 		PreTypeParser producer = new PreTypeParser();
 

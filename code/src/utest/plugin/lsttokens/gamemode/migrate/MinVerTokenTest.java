@@ -17,7 +17,10 @@
  */
 package plugin.lsttokens.gamemode.migrate;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -35,11 +38,9 @@ public class MinVerTokenTest
 	private MinVerToken token;
 	private String gameModeName;
 
-	/**
-	 * @throws java.lang.Exception
-	 */
+	
 	@Before
-	public void setUp() throws Exception
+	public void setUp()
 	{
 		migrationRule = new MigrationRule(ObjectType.SOURCE, "OldKey");
 		token = new MinVerToken();

@@ -36,8 +36,8 @@ import pcgen.core.PCTemplate;
  * the PCTemplate objects possessed by the PlayerCharacter.
  * 
  */
-public class RegionFacet extends AbstractDataFacet<CharID, String> implements
-		DataFacetChangeListener<CharID, PCTemplate>
+public class RegionFacet extends AbstractDataFacet<CharID, String>
+		implements DataFacetChangeListener<CharID, PCTemplate>
 {
 
 	/*
@@ -231,8 +231,7 @@ public class RegionFacet extends AbstractDataFacet<CharID, String> implements
 		 * building of Region.NONE or we have to double test here? or two ways
 		 * of specifying NONE?
 		 */
-		return (r == null && Constants.NONE.equals(current))
-				|| (r != null && r.toString().equalsIgnoreCase(current));
+		return (r == null && Constants.NONE.equals(current)) || (r != null && r.toString().equalsIgnoreCase(current));
 	}
 
 	/**
@@ -334,8 +333,7 @@ public class RegionFacet extends AbstractDataFacet<CharID, String> implements
 	public String getFullRegion(CharID id)
 	{
 		final String sub = getSubRegion(id);
-		final StringBuilder tempRegName = new StringBuilder(40)
-				.append(getRegion(id));
+		final StringBuilder tempRegName = new StringBuilder(40).append(getRegion(id));
 
 		if (!sub.equals(Constants.NONE))
 		{
@@ -357,27 +355,26 @@ public class RegionFacet extends AbstractDataFacet<CharID, String> implements
 		public Region region;
 
 		public SubRegion subregion;
-		
+
 		@Override
 		public String toString()
 		{
 			return region + " " + subregion + " " + cachedRegion;
 		}
-		
+
 		@Override
 		public int hashCode()
 		{
 			return (region == null ? -1 : region.hashCode());
 		}
-		
+
 		@Override
 		public boolean equals(Object o)
 		{
 			if (o instanceof RegionCacheInfo)
 			{
 				RegionCacheInfo other = (RegionCacheInfo) o;
-				return Objects.equals(region, other.region)
-					&& Objects.equals(subregion, other.subregion)
+				return Objects.equals(region, other.region) && Objects.equals(subregion, other.subregion)
 					&& Objects.equals(cachedRegion, other.cachedRegion);
 			}
 			return false;
@@ -446,12 +443,10 @@ public class RegionFacet extends AbstractDataFacet<CharID, String> implements
 		{
 			if (current != null)
 			{
-				fireDataFacetChangeEvent(id, current,
-						DataFacetChangeEvent.DATA_REMOVED);
+				fireDataFacetChangeEvent(id, current, DataFacetChangeEvent.DATA_REMOVED);
 			}
 			rci.cachedRegion = newRegion;
-			fireDataFacetChangeEvent(id, newRegion,
-					DataFacetChangeEvent.DATA_ADDED);
+			fireDataFacetChangeEvent(id, newRegion, DataFacetChangeEvent.DATA_ADDED);
 		}
 	}
 

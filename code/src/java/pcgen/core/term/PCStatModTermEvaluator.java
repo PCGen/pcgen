@@ -25,22 +25,21 @@ import pcgen.core.PCStat;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.util.Logging;
 
-public class PCStatModTermEvaluator
-		extends BasePCDTermEvaluator implements TermEvaluator
+public class PCStatModTermEvaluator extends BasePCDTermEvaluator implements TermEvaluator
 {
 	private final String statAbbrev;
-	
+
 	public PCStatModTermEvaluator(String originalText, String statAbbrev)
 	{
 		this.originalText = originalText;
-		this.statAbbrev   = statAbbrev;
+		this.statAbbrev = statAbbrev;
 	}
 
 	@Override
 	public Float resolve(CharacterDisplay display)
 	{
-		final PCStat stat = Globals.getContext().getReferenceContext()
-				.silentlyGetConstructedCDOMObject(PCStat.class, statAbbrev);
+		final PCStat stat =
+				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCStat.class, statAbbrev);
 		if (stat == null)
 		{
 			Logging.errorPrint("Unable to find stat for " + statAbbrev + " in " + originalText);

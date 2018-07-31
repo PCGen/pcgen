@@ -26,14 +26,13 @@ import pcgen.util.Logging;
 /**
  * A prerequisite parser class that handles the parsing of pre vision tokens.
  */
-public class PreVisionParser extends AbstractPrerequisiteListParser implements
-		PrerequisiteParserInterface
+public class PreVisionParser extends AbstractPrerequisiteListParser implements PrerequisiteParserInterface
 {
 	/**
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String[] kindsHandled()
 	{
 		return new String[]{"VISION"};
@@ -58,10 +57,8 @@ public class PreVisionParser extends AbstractPrerequisiteListParser implements
 	 * @throws PersistenceLayerException
 	 */
 	@Override
-	public Prerequisite parse(String kind,
-	                          String formula,
-	                          boolean invertResult,
-	                          boolean overrideQualify) throws PersistenceLayerException
+	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+		throws PersistenceLayerException
 	{
 		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
 		if (!validateNotZero(prereq))
@@ -78,8 +75,7 @@ public class PreVisionParser extends AbstractPrerequisiteListParser implements
 		{
 			if ("0".equals(prereq.getOperand()))
 			{
-				Logging
-						.deprecationPrint("Found PREVISION that is invalid (vision=0 is always true)");
+				Logging.deprecationPrint("Found PREVISION that is invalid (vision=0 is always true)");
 				Logging.deprecationPrint("  You should use =1 or =ANY");
 				returnValue &= false;
 			}

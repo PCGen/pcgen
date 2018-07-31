@@ -11,13 +11,13 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class MenutooltipToken implements GameModeLstToken
 {
 
-    @Override
+	@Override
 	public String getTokenName()
 	{
 		return "MENUTOOLTIP";
 	}
 
-    @Override
+	@Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		gameMode.setModeToolTip(value.replace('|', '\n'));

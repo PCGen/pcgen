@@ -21,9 +21,9 @@ package pcgen.core;
 
 import java.util.StringTokenizer;
 
-import pcgen.util.Logging;
-
 import org.apache.commons.lang3.StringUtils;
+
+import pcgen.util.Logging;
 
 /**
  * {@code RollInfo}.
@@ -72,7 +72,6 @@ public final class RollInfo
 	/** Total result never less than this. */
 	private int totalFloor = Integer.MIN_VALUE;
 
-
 	/**
 	 * Check that the rollString is valid.
 	 * @param rollString The string to be checked
@@ -82,7 +81,7 @@ public final class RollInfo
 	{
 		return parseRollInfo(new RollInfo(), rollString);
 	}
-	
+
 	private static String parseRollInfo(RollInfo rollInfo, String rollString)
 	{
 		// To really do this right, we change the token string
@@ -112,8 +111,7 @@ public final class RollInfo
 
 					if (!"d".equals(tok))
 					{
-						return "Bad roll parsing in '" + rollString
-							+ "': missing 'd'";
+						return "Bad roll parsing in '" + rollString + "': missing 'd'";
 					}
 				}
 				else
@@ -129,8 +127,7 @@ public final class RollInfo
 
 			if (rollInfo.sides < 1)
 			{
-				return "Bad roll parsing in '" + rollString + "': sides < 1: "
-					+ rollInfo.sides;
+				return "Bad roll parsing in '" + rollString + "': sides < 1: " + rollInfo.sides;
 			}
 
 			while (st.hasMoreTokens())
@@ -142,13 +139,11 @@ public final class RollInfo
 					case '/':
 						parseChars = "mM+-tT";
 
-						final int keepTop =
-								Integer.parseInt(st.nextToken(parseChars));
+						final int keepTop = Integer.parseInt(st.nextToken(parseChars));
 
 						if (keepTop > rollInfo.times)
 						{
-							return "Bad keepTop in '" + rollString
-								+ "': times: " + rollInfo.times + "; keepTop: "
+							return "Bad keepTop in '" + rollString + "': times: " + rollInfo.times + "; keepTop: "
 								+ keepTop;
 						}
 
@@ -165,14 +160,12 @@ public final class RollInfo
 					case '\\':
 						parseChars = "mM+-tT";
 
-						final int keepBottom =
-								Integer.parseInt(st.nextToken(parseChars));
+						final int keepBottom = Integer.parseInt(st.nextToken(parseChars));
 
 						if (keepBottom > rollInfo.times)
 						{
-							return "Bad keepBottom in '" + rollString
-								+ "': times: " + rollInfo.times
-								+ "; keepBottom: " + keepBottom;
+							return "Bad keepBottom in '" + rollString + "': times: " + rollInfo.times + "; keepBottom: "
+								+ keepBottom;
 						}
 
 						rollInfo.keepList = new boolean[rollInfo.times];
@@ -190,28 +183,24 @@ public final class RollInfo
 						tok = st.nextToken(parseChars);
 						rollInfo.keepList = new boolean[rollInfo.times];
 
-						final StringTokenizer keepSt =
-								new StringTokenizer(tok, ",");
+						final StringTokenizer keepSt = new StringTokenizer(tok, ",");
 
 						while (keepSt.hasMoreTokens())
 						{
-							rollInfo.keepList[Integer.parseInt(keepSt
-								.nextToken(",")) - 1] = true;
+							rollInfo.keepList[Integer.parseInt(keepSt.nextToken(",")) - 1] = true;
 						}
 
 						break;
 
 					case 'm':
 						parseChars = "M+-tT";
-						rollInfo.rerollBelow =
-								Integer.parseInt(st.nextToken(parseChars));
+						rollInfo.rerollBelow = Integer.parseInt(st.nextToken(parseChars));
 
 						break;
 
 					case 'M':
 						parseChars = "m+-tT";
-						rollInfo.rerollAbove =
-								Integer.parseInt(st.nextToken(parseChars));
+						rollInfo.rerollAbove = Integer.parseInt(st.nextToken(parseChars));
 
 						break;
 
@@ -223,30 +212,25 @@ public final class RollInfo
 
 					case '-':
 						parseChars = "tT";
-						rollInfo.modifier =
-								-Integer.parseInt(st.nextToken(" "));
+						rollInfo.modifier = -Integer.parseInt(st.nextToken(" "));
 
 						break;
 
 					case 't':
 						parseChars = "T";
-						rollInfo.totalFloor =
-								Integer.parseInt(st.nextToken(" "));
+						rollInfo.totalFloor = Integer.parseInt(st.nextToken(" "));
 
 						break;
 
 					case 'T':
 						parseChars = "t";
-						rollInfo.totalCeiling =
-								Integer.parseInt(st.nextToken(" "));
+						rollInfo.totalCeiling = Integer.parseInt(st.nextToken(" "));
 
 						break;
 
 					default:
-						Logging.errorPrint("Bizarre dice parser error in '"
-							+ rollString + "': not a valid delimiter");
-						return "Bad roll parsing in '" + rollString
-							+ "': invalid delimiter '" + tok.charAt(0) + "'.";
+						Logging.errorPrint("Bizarre dice parser error in '" + rollString + "': not a valid delimiter");
+						return "Bad roll parsing in '" + rollString + "': invalid delimiter '" + tok.charAt(0) + "'.";
 				}
 			}
 		}
@@ -255,21 +239,20 @@ public final class RollInfo
 		{
 			if (Logging.isDebugMode())
 			{
-				Logging.debugPrint("Bad roll string in '" + rollString + "': "
-					+ ex, ex);
+				Logging.debugPrint("Bad roll string in '" + rollString + "': " + ex, ex);
 			}
 			return "Bad roll string in '" + rollString + "': " + ex;
 		}
 		return "";
 	}
-	
+
 	/**
 	 * Private constructor for use only when validating a roll string. 
 	 */
 	private RollInfo()
 	{
 	}
-	
+
 	/**
 	 * Construct a {@code RollInfo} from a string.  The
 	 * rules:<ol>

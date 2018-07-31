@@ -25,7 +25,6 @@ import pcgen.cdom.facet.input.GlobalAddedSkillCostFacet;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.core.Skill;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.CskillLst;
@@ -68,7 +67,7 @@ public class GlobalCSkillTest extends AbstractContentTokenTest
 	}
 
 	@Test
-	public void testList() throws PersistenceLayerException
+	public void testList()
 	{
 		PCTemplate source = create(PCTemplate.class, "Source");
 		ParseResult result = token.parseToken(context, source, "LIST");

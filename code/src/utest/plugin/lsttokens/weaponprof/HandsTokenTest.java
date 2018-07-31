@@ -70,7 +70,7 @@ public class HandsTokenTest extends AbstractIntegerTokenTestCase<WeaponProf>
 	}
 
 	@Test
-	public void testValidSpecialCase() throws PersistenceLayerException
+	public void testValidSpecialCase()
 	{
 		assertTrue(parse("1IFLARGERTHANWEAPON"));
 		assertEquals(Integer.valueOf(-1), primaryProf.get(IntegerKey.HANDS));
@@ -80,7 +80,7 @@ public class HandsTokenTest extends AbstractIntegerTokenTestCase<WeaponProf>
 	}
 
 	@Test
-	public void testUnparseSpecialCase() throws PersistenceLayerException
+	public void testUnparseSpecialCase()
 	{
 		String[] unparsed = setAndUnparse(-1);
 		assertNotNull(unparsed);

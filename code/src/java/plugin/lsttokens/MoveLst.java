@@ -33,9 +33,7 @@ import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-
-public class MoveLst extends AbstractTokenWithSeparator<CDOMObject> implements
-		CDOMPrimaryToken<CDOMObject>
+public class MoveLst extends AbstractTokenWithSeparator<CDOMObject> implements CDOMPrimaryToken<CDOMObject>
 {
 
 	@Override
@@ -50,16 +48,12 @@ public class MoveLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		{
 			if (Integer.parseInt(mod) < 0)
 			{
-				return new ParseResult.Fail(
-						"Invalid movement (cannot be negative): " + mod
-								+ " in MOVE: " + value);
+				return new ParseResult.Fail("Invalid movement (cannot be negative): " + mod + " in MOVE: " + value);
 			}
 		}
 		catch (NumberFormatException nfe)
 		{
-			return new ParseResult.Fail(
-					"Invalid movement (must be an integer >= 0): " + mod
-							+ " in MOVE: " + value);
+			return new ParseResult.Fail("Invalid movement (must be an integer >= 0): " + mod + " in MOVE: " + value);
 		}
 		return ParseResult.SUCCESS;
 	}
@@ -71,14 +65,12 @@ public class MoveLst extends AbstractTokenWithSeparator<CDOMObject> implements
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		CDOMObject obj, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
 	{
 		if (obj instanceof Ungranted)
 		{
-			return new ParseResult.Fail("Cannot use " + getTokenName()
-				+ " on an Ungranted object type: "
-				+ obj.getClass().getSimpleName());
+			return new ParseResult.Fail(
+				"Cannot use " + getTokenName() + " on an Ungranted object type: " + obj.getClass().getSimpleName());
 		}
 		StringTokenizer moves = new StringTokenizer(value, Constants.COMMA);
 		Movement cm;
@@ -112,9 +104,7 @@ public class MoveLst extends AbstractTokenWithSeparator<CDOMObject> implements
 			}
 			if (moves.countTokens() != 0)
 			{
-				return new ParseResult.Fail(
-						"Badly formed MOVE token "
-								+ "(extra value at end of list): " + value);
+				return new ParseResult.Fail("Badly formed MOVE token " + "(extra value at end of list): " + value);
 			}
 		}
 		cm.setMoveRatesFlag(0);
@@ -125,8 +115,7 @@ public class MoveLst extends AbstractTokenWithSeparator<CDOMObject> implements
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
-		Changes<Movement> changes = context.getObjectContext().getListChanges(
-				obj, ListKey.MOVEMENT);
+		Changes<Movement> changes = context.getObjectContext().getListChanges(obj, ListKey.MOVEMENT);
 		Collection<Movement> added = changes.getAdded();
 		if (added == null || added.isEmpty())
 		{

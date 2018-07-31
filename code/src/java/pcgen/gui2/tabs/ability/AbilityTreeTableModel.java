@@ -32,10 +32,10 @@ import javax.swing.tree.MutableTreeNode;
 import pcgen.facade.core.AbilityCategoryFacade;
 import pcgen.facade.core.AbilityFacade;
 import pcgen.facade.core.CharacterFacade;
-import pcgen.facade.util.event.ListEvent;
-import pcgen.facade.util.event.ListListener;
 import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.SortedListFacade;
+import pcgen.facade.util.event.ListEvent;
+import pcgen.facade.util.event.ListListener;
 import pcgen.gui2.tabs.Utilities;
 import pcgen.gui2.util.JTreeTable;
 import pcgen.gui2.util.table.Row;
@@ -76,14 +76,12 @@ public class AbilityTreeTableModel extends AbstractTreeTableModel implements Sor
 		treeTable.setAutoCreateColumnsFromModel(false);
 		DefaultTableColumnModel model = new DefaultTableColumnModel();
 		TableCellRenderer headerRenderer = treeTable.getTableHeader().getDefaultRenderer();
-		model.addColumn(Utilities.createTableColumn(0,
-				"in_featSelectedAbilities", headerRenderer, true)); //$NON-NLS-1$
+		model.addColumn(Utilities.createTableColumn(0, "in_featSelectedAbilities", headerRenderer, true)); //$NON-NLS-1$
 		model.addColumn(Utilities.createTableColumn(1, "in_featChoices", //$NON-NLS-1$
-				headerRenderer, true));
+			headerRenderer, true));
 		treeTable.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 		treeTable.setColumnModel(model);
-		treeTable.setDefaultRenderer(String.class,
-				new TableCellUtilities.AlignRenderer(SwingConstants.LEFT, true));
+		treeTable.setDefaultRenderer(String.class, new TableCellUtilities.AlignRenderer(SwingConstants.LEFT, true));
 	}
 
 	@Override
@@ -139,8 +137,7 @@ public class AbilityTreeTableModel extends AbstractTreeTableModel implements Sor
 		public RootTreeTableNode(ListFacade<AbilityCategoryFacade> cats)
 		{
 			super(Collections.singletonList(new Object()));
-			this.cats = new SortedListFacade<>(Comparators.toStringIgnoreCaseComparator(),
-                    cats);
+			this.cats = new SortedListFacade<>(Comparators.toStringIgnoreCaseComparator(), cats);
 			addChildren();
 			cats.addListListener(this);
 		}
@@ -190,7 +187,7 @@ public class AbilityTreeTableModel extends AbstractTreeTableModel implements Sor
 			setUserObject(category);
 			setValues(Collections.singletonList(category));
 			this.abilities = new SortedListFacade<>(Comparators.toStringIgnoreCaseComparator(),
-                    character.getAbilities(category));
+				character.getAbilities(category));
 			addChildren();
 			abilities.addListListener(this);
 		}

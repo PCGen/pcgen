@@ -62,8 +62,7 @@ public class ScopeFacet extends AbstractItemFacet<CharID, ScopeInstanceFactory>
 	 * @return The ScopeInstance for the CharID representing the PlayerCharacter
 	 *         and the given LegalScope and VarScoped objects
 	 */
-	public ScopeInstance get(CharID id, String legalScopeName,
-		VarScoped scopedObject)
+	public ScopeInstance get(CharID id, String legalScopeName, VarScoped scopedObject)
 	{
 		return get(id).get(legalScopeName, scopedObject);
 	}

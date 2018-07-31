@@ -36,7 +36,6 @@ import pcgen.base.util.TripleKeyMapToList;
 import pcgen.base.util.WeightedCollection;
 import pcgen.cdom.base.GroupDefinition;
 import pcgen.cdom.base.Loadable;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenLibrary.SubTokenIterator;
 import pcgen.rules.persistence.TokenLibrary.TokenIterator;
@@ -57,12 +56,11 @@ import pcgen.util.Logging;
 public class TokenSupport
 {
 	private final TokenFamily localTokens = new TokenFamily(new Revision(0, 0, 0));
-	
-	private final DoubleKeyMapToList<Class<?>, String, CDOMToken<?>> tokenCache =
-            new DoubleKeyMapToList<>();
+
+	private final DoubleKeyMapToList<Class<?>, String, CDOMToken<?>> tokenCache = new DoubleKeyMapToList<>();
 
 	private final TripleKeyMapToList<Class<?>, String, String, CDOMToken<?>> subTokenCache =
-            new TripleKeyMapToList<>(HashMap.class, CaseInsensitiveMap.class, CaseInsensitiveMap.class);
+			new TripleKeyMapToList<>(HashMap.class, CaseInsensitiveMap.class, CaseInsensitiveMap.class);
 
 	/**
 	 * The StagingInfoFactory used to as a Proxy factory for Interface tokens.
@@ -93,38 +91,32 @@ public class TokenSupport
 	 *            The value of the token to be processed
 	 * @return true if the parsing was successful; false otherwise
 	 */
-	public <T extends Loadable> boolean processToken(
-		LoadContext context, T target, String tokenName, String tokenValue)
-		throws PersistenceLayerException
+	public <T extends Loadable> boolean processToken(LoadContext context, T target, String tokenName, String tokenValue)
 	{
 		//Interface tokens override everything else... even if NOT VALID!
-		CDOMInterfaceToken<?, ?> interfaceToken =
-				TokenLibrary.getInterfaceToken(tokenName);
+		CDOMInterfaceToken<?, ?> interfaceToken = TokenLibrary.getInterfaceToken(tokenName);
 		if (interfaceToken != null)
 		{
 			if (interfaceToken.getTokenClass().isAssignableFrom(target.getClass()))
 			{
 				//Must be true to be consistent with if above
 				@SuppressWarnings("unchecked")
-				CDOMInterfaceToken<?, T> token =
-						(CDOMInterfaceToken<?, T>) interfaceToken;
-				return processInterfaceToken(context, target, tokenName, tokenValue,
-					token);
+				CDOMInterfaceToken<?, T> token = (CDOMInterfaceToken<?, T>) interfaceToken;
+				return processInterfaceToken(context, target, tokenName, tokenValue, token);
 			}
 			else
 			{
 				Logging.addParseMessage(Logging.LST_ERROR,
-					"Interface Token '" + tokenName + "' '" + tokenValue
-						+ "' not compatible with Object " + target.getClass().getName()
-						+ ' ' + target + " in " + context.getSourceURI());
+					"Interface Token '" + tokenName + "' '" + tokenValue + "' not compatible with Object "
+						+ target.getClass().getName() + ' ' + target + " in " + context.getSourceURI());
 				return false;
 			}
 		}
 		return processClassTokens(context, target, tokenName, tokenValue);
 	}
 
-	private <T extends Loadable> boolean processClassTokens(LoadContext context,
-		T target, String tokenName, String tokenValue)
+	private <T extends Loadable> boolean processClassTokens(LoadContext context, T target, String tokenName,
+		String tokenValue)
 	{
 		//Must be true
 		@SuppressWarnings("unchecked")
@@ -142,10 +134,8 @@ public class TokenSupport
 				catch (IllegalArgumentException e)
 				{
 					e.printStackTrace();
-					Logging.addParseMessage(
-						Logging.LST_ERROR,
-						"Token generated an IllegalArgumentException: "
-							+ e.getLocalizedMessage());
+					Logging.addParseMessage(Logging.LST_ERROR,
+						"Token generated an IllegalArgumentException: " + e.getLocalizedMessage());
 					parse = new ParseResult.Fail("Token processing failed");
 				}
 				// Need to add messages as there may be warnings.
@@ -156,32 +146,30 @@ public class TokenSupport
 				}
 				if (Logging.isLoggable(Logging.LST_ERROR))
 				{
-					Logging.addParseMessage(Logging.LST_ERROR,
-						"Failed in parsing typeStr: " + tokenName + ' ' + tokenValue
-							+ " for " + cl.getName() + ' ' + target.getDisplayName());
+					Logging.addParseMessage(Logging.LST_ERROR, "Failed in parsing typeStr: " + tokenName + ' '
+						+ tokenValue + " for " + cl.getName() + ' ' + target.getDisplayName());
 				}
 			}
 		}
 		if (tokenName.startsWith(" "))
 		{
-			Logging.addParseMessage(Logging.LST_ERROR, "Illegal whitespace at start of token '" + tokenName
-				+ "' '" + tokenValue + "' for " + cl.getName() + ' '
-				+ target.getDisplayName() + " in " + context.getSourceURI());
+			Logging.addParseMessage(Logging.LST_ERROR,
+				"Illegal whitespace at start of token '" + tokenName + "' '" + tokenValue + "' for " + cl.getName()
+					+ ' ' + target.getDisplayName() + " in " + context.getSourceURI());
 		}
 		else
 		{
-			Logging.addParseMessage(Logging.LST_ERROR, "Illegal Token '" + tokenName
-				+ "' '" + tokenValue + "' for " + cl.getName() + ' '
-				+ target.getDisplayName() + " in " + context.getSourceURI());
+			Logging.addParseMessage(Logging.LST_ERROR, "Illegal Token '" + tokenName + "' '" + tokenValue + "' for "
+				+ cl.getName() + ' ' + target.getDisplayName() + " in " + context.getSourceURI());
 		}
 		return false;
 	}
 
-	private <R, W> boolean processInterfaceToken(LoadContext context, W target,
-		String tokenName, String tokenValue, CDOMInterfaceToken<R, W> interfaceToken)
+	private <R, W> boolean processInterfaceToken(LoadContext context, W target, String tokenName, String tokenValue,
+		CDOMInterfaceToken<R, W> interfaceToken)
 	{
-		StagingInfo<R, W> info = stagingFactory.produceStaging(
-			interfaceToken.getReadInterface(), interfaceToken.getTokenClass());
+		StagingInfo<R, W> info =
+				stagingFactory.produceStaging(interfaceToken.getReadInterface(), interfaceToken.getTokenClass());
 		ParseResult parse;
 		try
 		{
@@ -191,29 +179,25 @@ public class TokenSupport
 		{
 			e.printStackTrace();
 			Logging.addParseMessage(Logging.LST_ERROR,
-				"Token generated an IllegalArgumentException: "
-					+ e.getLocalizedMessage());
+				"Token generated an IllegalArgumentException: " + e.getLocalizedMessage());
 			parse = new ParseResult.Fail("Token processing failed");
 		}
 		// Need to add messages as there may be warnings.
 		parse.addMessagesToLog(context.getSourceURI());
 		if (parse.passed())
 		{
-			context.addDeferredMethodController(
-				new DeferredMethodController<>(info.getStagingObject(), target));
+			context.addDeferredMethodController(new DeferredMethodController<>(info.getStagingObject(), target));
 			return true;
 		}
 		if (Logging.isLoggable(Logging.LST_INFO))
 		{
-			Logging.addParseMessage(Logging.LST_INFO,
-				"Failed in parsing token: " + tokenName + ' ' + tokenValue + " for "
-					+ target.getClass().getName() + ' ' + target);
+			Logging.addParseMessage(Logging.LST_INFO, "Failed in parsing token: " + tokenName + ' ' + tokenValue
+				+ " for " + target.getClass().getName() + ' ' + target);
 		}
 		return false;
 	}
 
-	private <T extends Loadable> List<? extends CDOMToken<T>> getTokens(Class<T> cl,
-	                                                                    String name)
+	private <T extends Loadable> List<? extends CDOMToken<T>> getTokens(Class<T> cl, String name)
 	{
 		List list = tokenCache.getListFor(cl, name);
 		if (list == null)
@@ -223,8 +207,7 @@ public class TokenSupport
 			{
 				tokenCache.addToListFor(cl, name, local);
 			}
-			for (Iterator<? extends CDOMToken<T>> it =
-                 new TokenIterator<>(cl, name); it.hasNext();)
+			for (Iterator<? extends CDOMToken<T>> it = new TokenIterator<>(cl, name); it.hasNext();)
 			{
 				CDOMToken<T> token = it.next();
 				tokenCache.addToListFor(cl, name, token);
@@ -234,8 +217,7 @@ public class TokenSupport
 		return list;
 	}
 
-	private <T> List<? extends CDOMToken<T>> getTokens(
-			Class<T> cl, String name, String subtoken)
+	private <T> List<? extends CDOMToken<T>> getTokens(Class<T> cl, String name, String subtoken)
 	{
 		List list = subTokenCache.getListFor(cl, name, subtoken);
 		if (list == null)
@@ -245,9 +227,7 @@ public class TokenSupport
 			{
 				subTokenCache.addToListFor(cl, name, subtoken, local);
 			}
-			for (Iterator<CDOMSubToken<T>> it =
-                 new SubTokenIterator<>(cl, name, subtoken); it
-				.hasNext();)
+			for (Iterator<CDOMSubToken<T>> it = new SubTokenIterator<>(cl, name, subtoken); it.hasNext();)
 			{
 				CDOMToken<T> token = it.next();
 				subTokenCache.addToListFor(cl, name, subtoken, token);
@@ -257,8 +237,7 @@ public class TokenSupport
 		return list;
 	}
 
-	public <T> ParseResult processSubToken(LoadContext context, T cdo,
-		String tokenName, String key, String value)
+	public <T> ParseResult processSubToken(LoadContext context, T cdo, String tokenName, String key, String value)
 	{
 		ComplexParseResult cpr = new ComplexParseResult();
 		Class<T> cl = (Class<T>) cdo.getClass();
@@ -279,19 +258,17 @@ public class TokenSupport
 		/*
 		 * CONSIDER Better option than toString, given that T != CDOMObject
 		 */
-		cpr.addErrorMessage("Illegal " + tokenName + " subtoken '" + key + "' '" + value
-			+ "' for " + cl.getName() + ' ' + cdo);
+		cpr.addErrorMessage(
+			"Illegal " + tokenName + " subtoken '" + key + "' '" + value + "' for " + cl.getName() + ' ' + cdo);
 		return cpr;
 	}
 
 	public <T> String[] unparseSubtoken(LoadContext context, T cdo, String tokenName)
 	{
 		char separator = tokenName.charAt(0) == '*' ? ':' : '|';
-		Collection<String> set = new WeightedCollection<>(
-                String.CASE_INSENSITIVE_ORDER);
+		Collection<String> set = new WeightedCollection<>(String.CASE_INSENSITIVE_ORDER);
 		Class<T> cl = (Class<T>) cdo.getClass();
-		TokenFamilySubIterator<T> it =
-                new TokenFamilySubIterator<>(cl, tokenName);
+		TokenFamilySubIterator<T> it = new TokenFamilySubIterator<>(cl, tokenName);
 		while (it.hasNext())
 		{
 			CDOMSecondaryToken<? super T> token = it.next();
@@ -333,11 +310,9 @@ public class TokenSupport
 	 *            The Loadable object to be unparsed
 	 * @return A Collection of Strings indicating the tokens that would build the object
 	 */
-	public <T extends Loadable, R extends Loadable> Collection<String> unparse(
-		LoadContext context, T loadable)
+	public <T extends Loadable, R extends Loadable> Collection<String> unparse(LoadContext context, T loadable)
 	{
-		Collection<String> set = new WeightedCollection<>(
-                String.CASE_INSENSITIVE_ORDER);
+		Collection<String> set = new WeightedCollection<>(String.CASE_INSENSITIVE_ORDER);
 		@SuppressWarnings("unchecked")
 		Class<T> cl = (Class<T>) loadable.getClass();
 		for (CDOMInterfaceToken<?, ?> interfaceToken : TokenLibrary.getInterfaceTokens())
@@ -345,8 +320,7 @@ public class TokenSupport
 			if (interfaceToken.getClass().isAssignableFrom(cl))
 			{
 				@SuppressWarnings("unchecked")
-				CDOMInterfaceToken<?, T> token =
-						(CDOMInterfaceToken<?, T>) interfaceToken;
+				CDOMInterfaceToken<?, T> token = (CDOMInterfaceToken<?, T>) interfaceToken;
 				String[] s = token.unparse(context, loadable);
 				if (s != null)
 				{
@@ -379,8 +353,7 @@ public class TokenSupport
 
 	public Collection<DeferredToken<? extends Loadable>> getDeferredTokens()
 	{
-		List<DeferredToken<? extends Loadable>> c =
-                new ArrayList<>();
+		List<DeferredToken<? extends Loadable>> c = new ArrayList<>();
 		c.addAll(localTokens.getDeferredTokens());
 		c.addAll(TokenFamily.CURRENT.getDeferredTokens());
 		return c;

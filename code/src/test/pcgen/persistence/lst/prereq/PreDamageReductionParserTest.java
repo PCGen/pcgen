@@ -32,11 +32,9 @@ import plugin.pretokens.parser.PreDamageReductionParser;
 @SuppressWarnings("nls")
 public class PreDamageReductionParserTest extends EnUsLocaleDependentTestCase
 {
-	/**
-	 * @throws Exception
-	 */
+	
 	@Test
-	public void testMultipleFails() throws Exception
+	public void testMultipleFails()
 	{
 		PreDamageReductionParser parser = new PreDamageReductionParser();
 
@@ -53,11 +51,14 @@ public class PreDamageReductionParserTest extends EnUsLocaleDependentTestCase
 		}
 	}
 
+	
 	/**
-	 * @throws Exception
+	 * Test multiple passes.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testMultiplePasses() throws Exception
+	public void testMultiplePasses() throws PersistenceLayerException
 	{
 		PreDamageReductionParser parser = new PreDamageReductionParser();
 
@@ -65,15 +66,20 @@ public class PreDamageReductionParserTest extends EnUsLocaleDependentTestCase
 				parser.parse("DR", "1,Evil=5,Magic.10", false, false);
 
 		assertEquals(
-			"<prereq operator=\"GTEQ\" operand=\"1\" >\n<prereq kind=\"dr\" key=\"Evil\" operator=\"GTEQ\" operand=\"5\" >\n</prereq>\n<prereq kind=\"dr\" key=\"Magic\" operator=\"GTEQ\" operand=\"10\" >\n</prereq>\n</prereq>\n",
+			"<prereq operator=\"GTEQ\" operand=\"1\" >\n<prereq kind=\"dr\" key=\"Evil\" "
+			+ "operator=\"GTEQ\" operand=\"5\" >\n</prereq>\n<prereq kind=\"dr\" key=\"Magic\" "
+			+ "operator=\"GTEQ\" operand=\"10\" >\n</prereq>\n</prereq>\n",
 			prereq.toString());
 	}
 
+	
 	/**
-	 * @throws Exception
+	 * Test no value.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testNoValue() throws Exception
+	public void testNoValue() throws PersistenceLayerException
 	{
 		PreDamageReductionParser parser = new PreDamageReductionParser();
 
@@ -81,7 +87,9 @@ public class PreDamageReductionParserTest extends EnUsLocaleDependentTestCase
 				parser.parse("DR", "1,Evil=5,Magic", false, false);
 
 		assertEquals(
-			"<prereq operator=\"GTEQ\" operand=\"1\" >\n<prereq kind=\"dr\" key=\"Evil\" operator=\"GTEQ\" operand=\"5\" >\n</prereq>\n<prereq kind=\"dr\" key=\"Magic\" operator=\"GTEQ\" operand=\"0\" >\n</prereq>\n</prereq>\n",
+			"<prereq operator=\"GTEQ\" operand=\"1\" >\n<prereq kind=\"dr\" key=\"Evil\" "
+					+ "operator=\"GTEQ\" operand=\"5\" >\n</prereq>\n<prereq kind=\"dr\" key=\"Magic\" "
+					+ "operator=\"GTEQ\" operand=\"0\" >\n</prereq>\n</prereq>\n",
 			prereq.toString());
 	}
 }

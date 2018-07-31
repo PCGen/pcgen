@@ -17,11 +17,10 @@
  */
 package pcgen.facade.core;
 
-import pcgen.facade.util.ReferenceFacade;
-
 import java.util.List;
 
 import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.ReferenceFacade;
 
 /**
  *  {@code ChooserFacade} defines the interface for backing general choosers,
@@ -40,8 +39,8 @@ public interface ChooserFacade
 	public enum ChooserTreeViewType
 	{
 		/** A flat display of just the choice name. */
-		NAME, 
-		
+		NAME,
+
 		/** A hierarchical display of choice names within their types. */
 		TYPE_NAME;
 	}
@@ -89,19 +88,18 @@ public interface ChooserFacade
 	 */
 	void rollback();
 
-
 	/**
 	 * Get the name of the chooser. This will be displayed as 
 	 * the title of the chooser dialog box.
 	 * @return the name of this chooser
 	 */
 	String getName();
-	
+
 	/**
 	 * @return The title for the available list in its tree mode.
 	 */
 	String getAvailableTableTypeNameTitle();
-	
+
 	/**
 	 * @return The title for the available list in its flat mode.
 	 */
@@ -111,7 +109,7 @@ public interface ChooserFacade
 	 * @return The starting tree view for the chooser.
 	 */
 	ChooserTreeViewType getDefaultView();
-	
+
 	/**
 	 * @return The title for the selected list.
 	 */
@@ -131,7 +129,7 @@ public interface ChooserFacade
 	 * @return The label for the number of selections remaining.
 	 */
 	String getSelectionCountName();
-	
+
 	/**
 	 * Get the names of parent branches under which the item should be 
 	 * displayed. If an empty list is returned the item will be displayed 
@@ -140,7 +138,7 @@ public interface ChooserFacade
 	 * @return The names of branches under which the node should be displayed.
 	 */
 	List<String> getBranchNames(InfoFacade item);
-	
+
 	/**
 	 * Does the user need to use up all remaining selections before they can 
 	 * commit the chooser.

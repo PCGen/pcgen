@@ -21,7 +21,6 @@ import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.StartingLanguageFacet;
 import pcgen.core.Language;
 import pcgen.core.PCTemplate;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.template.LangbonusToken;
@@ -38,7 +37,7 @@ public class TemplateLangbonusTest extends AbstractTokenModelTest
 	protected StartingLanguageFacet startingLanguageFacet;
 	
 	@Test
-	public void testSimple() throws PersistenceLayerException
+	public void testSimple()
 	{
 		PCTemplate source = create(PCTemplate.class, "Source");
 		Language granted = create(Language.class, "Granted");

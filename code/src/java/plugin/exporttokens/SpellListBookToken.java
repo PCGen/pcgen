@@ -18,6 +18,8 @@
  */
 package plugin.exporttokens;
 
+import java.util.List;
+
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
@@ -25,8 +27,6 @@ import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.character.CharacterSpell;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.SpellListToken;
-
-import java.util.List;
 
 /**
  * {@code SpellListBookToken} gives a comma delimited list of spells
@@ -45,14 +45,11 @@ public class SpellListBookToken extends SpellListToken
 	}
 
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		StringBuilder retValue = new StringBuilder();
 
-		SpellListTokenParams params =
-				new SpellListTokenParams(tokenSource,
-					SpellListToken.SPELLTAG_BOOK);
+		SpellListTokenParams params = new SpellListTokenParams(tokenSource, SpellListToken.SPELLTAG_BOOK);
 
 		final PObject aObject = pc.getSpellClassAtIndex(params.getClassNum());
 
@@ -65,9 +62,7 @@ public class SpellListBookToken extends SpellListToken
 				bookName = pc.getDisplay().getSpellBookNames().get(params.getBookNum());
 			}
 
-			final List<CharacterSpell> spells =
-					pc.getCharacterSpells(aObject,
-						null, bookName, params.getLevel());
+			final List<CharacterSpell> spells = pc.getCharacterSpells(aObject, null, bookName, params.getLevel());
 
 			boolean needcomma = false;
 			for (CharacterSpell cs : spells)

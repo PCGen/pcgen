@@ -39,8 +39,8 @@ import pcgen.core.PCStat;
  *
  * 
  */
-public class StatMaxValueFacet extends AbstractSourcedListFacet<CharID, StatLock> implements
-		DataFacetChangeListener<CharID, CDOMObject>
+public class StatMaxValueFacet extends AbstractSourcedListFacet<CharID, StatLock>
+		implements DataFacetChangeListener<CharID, CDOMObject>
 {
 	private FormulaResolvingFacet formulaResolvingFacet;
 
@@ -111,21 +111,17 @@ public class StatMaxValueFacet extends AbstractSourcedListFacet<CharID, StatLock
 		Map<StatLock, Set<Object>> componentMap = getCachedMap(id);
 		if (componentMap != null)
 		{
-			for (Entry<StatLock, Set<Object>> me : componentMap
-					.entrySet())
+			for (Entry<StatLock, Set<Object>> me : componentMap.entrySet())
 			{
 				Set<Object> set = me.getValue();
 				StatLock lock = me.getKey();
-				if (lock.getLockedStat()
-						.equals(stat))
+				if (lock.getLockedStat().equals(stat))
 				{
 					for (Object source : set)
 					{
 						String sourceString =
-								(source instanceof CDOMObject) ? ((CDOMObject) source)
-										.getQualifiedKey() : "";
-						Number val = formulaResolvingFacet.resolve(id, lock
-								.getLockValue(), sourceString);
+								(source instanceof CDOMObject) ? ((CDOMObject) source).getQualifiedKey() : "";
+						Number val = formulaResolvingFacet.resolve(id, lock.getLockValue(), sourceString);
 						if (val.doubleValue() < max.doubleValue())
 						{
 							hit = true;

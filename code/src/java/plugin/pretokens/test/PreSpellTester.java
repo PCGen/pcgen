@@ -32,12 +32,10 @@ import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.core.spell.Spell;
-import pcgen.util.Logging;
 import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
 
-
-public class PreSpellTester extends AbstractPrerequisiteTest implements
-		PrerequisiteTest
+public class PreSpellTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 
 	@Override
@@ -51,9 +49,8 @@ public class PreSpellTester extends AbstractPrerequisiteTest implements
 		}
 		catch (NumberFormatException e)
 		{
-			Logging
-				.errorPrint(LanguageBundle
-					.getString("PreSpell.error.badly_formed_attribute") + prereq.toString()); //$NON-NLS-1$
+			Logging.errorPrint(
+				LanguageBundle.getString("PreSpell.error.badly_formed_attribute") + prereq.toString()); //$NON-NLS-1$
 		}
 
 		// Build a list of all possible spells
@@ -63,15 +60,14 @@ public class PreSpellTester extends AbstractPrerequisiteTest implements
 		//Needs to add domain spells as well
 		for (Domain d : display.getDomainSet())
 		{
-			aArrayList.addAll(character.getAllSpellsInLists(Collections
-			.singletonList(d.get(ObjectKey.DOMAIN_SPELLLIST))));
+			aArrayList
+				.addAll(character.getAllSpellsInLists(Collections.singletonList(d.get(ObjectKey.DOMAIN_SPELLLIST))));
 		}
 
 		//Are there Innate Spell-like abilities?
 		if (character.getAutoSpells())
 		{
-			Collection<CDOMReference<Spell>> mods = display.getRace()
-					.getListMods(Spell.SPELLS);
+			Collection<CDOMReference<Spell>> mods = display.getRace().getListMods(Spell.SPELLS);
 			if (mods != null)
 			{
 				for (CDOMReference<Spell> ref : mods)
@@ -91,8 +87,7 @@ public class PreSpellTester extends AbstractPrerequisiteTest implements
 				runningTotal++;
 			}
 		}
-		runningTotal =
-				prereq.getOperator().compare(runningTotal, requiredNumber);
+		runningTotal = prereq.getOperator().compare(runningTotal, requiredNumber);
 		return countedTotal(prereq, runningTotal);
 	}
 
@@ -100,7 +95,7 @@ public class PreSpellTester extends AbstractPrerequisiteTest implements
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "SPELL"; //$NON-NLS-1$
@@ -110,8 +105,7 @@ public class PreSpellTester extends AbstractPrerequisiteTest implements
 	public String toHtmlString(final Prerequisite prereq)
 	{
 		final Object[] args =
-				new Object[]{prereq.getOperator().toDisplayString(),
-					prereq.getOperand(), prereq.getKey()};
+				new Object[]{prereq.getOperator().toDisplayString(), prereq.getOperand(), prereq.getKey()};
 		return LanguageBundle.getFormattedString("PreSpell.toHtml", args); //$NON-NLS-1$
 	}
 

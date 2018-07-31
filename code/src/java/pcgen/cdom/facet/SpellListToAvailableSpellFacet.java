@@ -26,8 +26,7 @@ import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.helper.AvailableSpell;
 import pcgen.core.spell.Spell;
 
-public class SpellListToAvailableSpellFacet implements
-		DataFacetChangeListener<CharID, CDOMList<Spell>>
+public class SpellListToAvailableSpellFacet implements DataFacetChangeListener<CharID, CDOMList<Spell>>
 {
 	private MasterAvailableSpellFacet masterAvailableSpellFacet;
 	private SpellListFacet spellListFacet;
@@ -42,8 +41,7 @@ public class SpellListToAvailableSpellFacet implements
 		}
 		else
 		{
-			availableSpellFacet.add(id, as.getSpelllist(), as.getLevel(),
-				as.getSpell(), source);
+			availableSpellFacet.add(id, as.getSpelllist(), as.getLevel(), as.getSpell(), source);
 		}
 	}
 
@@ -55,8 +53,7 @@ public class SpellListToAvailableSpellFacet implements
 		}
 		else
 		{
-			availableSpellFacet.remove(id, as.getSpelllist(), as.getLevel(),
-				as.getSpell(), source);
+			availableSpellFacet.remove(id, as.getSpelllist(), as.getLevel(), as.getSpell(), source);
 		}
 	}
 
@@ -65,8 +62,7 @@ public class SpellListToAvailableSpellFacet implements
 	{
 		CharID id = dfce.getCharID();
 		CDOMList<Spell> list = dfce.getCDOMObject();
-		Collection<AvailableSpell> spells =
-				masterAvailableSpellFacet.getSet(id.getDatasetID());
+		Collection<AvailableSpell> spells = masterAvailableSpellFacet.getSet(id.getDatasetID());
 		for (AvailableSpell as : spells)
 		{
 			if (as.getSpelllist().equals(list))
@@ -81,8 +77,7 @@ public class SpellListToAvailableSpellFacet implements
 	{
 		CharID id = dfce.getCharID();
 		CDOMList<Spell> list = dfce.getCDOMObject();
-		Collection<AvailableSpell> spells =
-				masterAvailableSpellFacet.getSet(id.getDatasetID());
+		Collection<AvailableSpell> spells = masterAvailableSpellFacet.getSet(id.getDatasetID());
 		for (AvailableSpell as : spells)
 		{
 			if (as.getSpelllist().equals(list))
@@ -97,20 +92,17 @@ public class SpellListToAvailableSpellFacet implements
 		spellListFacet.addDataFacetChangeListener(this);
 	}
 
-	public void setSpellListFacet(
-		SpellListFacet spellListFacet)
+	public void setSpellListFacet(SpellListFacet spellListFacet)
 	{
 		this.spellListFacet = spellListFacet;
 	}
 
-	public void setMasterAvailableSpellFacet(
-		MasterAvailableSpellFacet masterAvailableSpellFacet)
+	public void setMasterAvailableSpellFacet(MasterAvailableSpellFacet masterAvailableSpellFacet)
 	{
 		this.masterAvailableSpellFacet = masterAvailableSpellFacet;
 	}
 
-	public void setConditionallyAvailableSpellFacet(
-		ConditionallyAvailableSpellFacet conditionallyAvailableSpellFacet)
+	public void setConditionallyAvailableSpellFacet(ConditionallyAvailableSpellFacet conditionallyAvailableSpellFacet)
 	{
 		this.conditionallyAvailableSpellFacet = conditionallyAvailableSpellFacet;
 	}

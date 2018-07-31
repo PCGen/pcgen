@@ -39,8 +39,7 @@ public class SpellcasterToken implements PrimitiveToken<PCClass>, PrimitiveFilte
 	private CDOMReference<PCClass> allClasses;
 
 	@Override
-	public boolean initialize(LoadContext context, Class<PCClass> cl,
-			String value, String args)
+	public boolean initialize(LoadContext context, Class<PCClass> cl, String value, String args)
 	{
 		allClasses = context.getReferenceContext().getCDOMAllReference(PCCLASS_CLASS);
 		return (value == null) && (args == null);
@@ -73,8 +72,8 @@ public class SpellcasterToken implements PrimitiveToken<PCClass>, PrimitiveFilte
 	private boolean isSpellCaster(PCClass pcc)
 	{
 		return pcc.getSafe(ObjectKey.USE_SPELL_SPELL_STAT).booleanValue()
-				|| pcc.getSafe(ObjectKey.CASTER_WITHOUT_SPELL_STAT).booleanValue()
-				|| (pcc.get(ObjectKey.SPELL_STAT) != null);
+			|| pcc.getSafe(ObjectKey.CASTER_WITHOUT_SPELL_STAT).booleanValue()
+			|| (pcc.get(ObjectKey.SPELL_STAT) != null);
 	}
 
 	@Override
@@ -96,8 +95,7 @@ public class SpellcasterToken implements PrimitiveToken<PCClass>, PrimitiveFilte
 	}
 
 	@Override
-	public <R> Collection<? extends R> getCollection(PlayerCharacter pc,
-			Converter<PCClass, R> c)
+	public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<PCClass, R> c)
 	{
 		return c.convert(allClasses, this);
 	}

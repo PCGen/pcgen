@@ -47,24 +47,16 @@ import pcgen.system.LanguageBundle;
 @SuppressWarnings("serial")
 public class ColorsPanel extends PCGenPrefsPanel
 {
-	private static final String in_color = LanguageBundle.getString("in_Prefs_color");
-	private static final String in_colorPrereqQualify =
-			LanguageBundle.getString("in_Prefs_colorPrereqQualify");
-	private static final String in_colorPrereqFail =
-			LanguageBundle.getString("in_Prefs_colorPrereqFail");
-	private static final String in_colorAutoFeat =
-			LanguageBundle.getString("in_Prefs_colorAutoFeat");
-	private static final String in_colorVirtFeat =
-			LanguageBundle.getString("in_Prefs_colorVirtFeat");
+	private static final String IN_COLOR = LanguageBundle.getString("in_Prefs_color");
+	private static final String IN_COLOR_PREREQ_QUALIFY = LanguageBundle.getString("in_Prefs_colorPrereqQualify");
+	private static final String IN_COLOR_PREREQ_FAIL = LanguageBundle.getString("in_Prefs_colorPrereqFail");
+	private static final String IN_COLOR_AUTO_FEAT = LanguageBundle.getString("in_Prefs_colorAutoFeat");
+	private static final String IN_COLOR_VIRT_FEAT = LanguageBundle.getString("in_Prefs_colorVirtFeat");
 
-	private static final String in_colorSourceRelease =
-			LanguageBundle.getString("in_Prefs_colorStatusRelease");
-	private static final String in_colorSourceAlpha =
-			LanguageBundle.getString("in_Prefs_colorStatusAlpha");
-	private static final String in_colorSourceBeta =
-			LanguageBundle.getString("in_Prefs_colorStatusBeta");
-	private static final String in_colorSourceTest =
-			LanguageBundle.getString("in_Prefs_colorStatusTest");
+	private static final String IN_COLOR_SOURCE_RELEASE = LanguageBundle.getString("in_Prefs_colorStatusRelease");
+	private static final String IN_COLOR_SOURCE_ALPHA = LanguageBundle.getString("in_Prefs_colorStatusAlpha");
+	private static final String IN_COLOR_SOURCE_BETA = LanguageBundle.getString("in_Prefs_colorStatusBeta");
+	private static final String IN_COLOR_SOURCE_TEST = LanguageBundle.getString("in_Prefs_colorStatusTest");
 
 	private final JButton featAutoColor;
 	private final JButton featVirtualColor;
@@ -84,8 +76,7 @@ public class ColorsPanel extends PCGenPrefsPanel
 	public ColorsPanel()
 	{
 		JLabel label;
-		TitledBorder title1 =
-				BorderFactory.createTitledBorder(null, in_color);
+		TitledBorder title1 = BorderFactory.createTitledBorder(null, IN_COLOR);
 
 		title1.setTitleJustification(TitledBorder.LEFT);
 		this.setBorder(title1);
@@ -99,32 +90,16 @@ public class ColorsPanel extends PCGenPrefsPanel
 		int col = 0;
 
 		// NB - not alphabetized!
-		col =
-				addColorsOption(col, c, gridbag, this, prereqQualifyColor =
-						new JButton(in_colorPrereqQualify));
-		col =
-				addColorsOption(col, c, gridbag, this, prereqFailColor =
-						new JButton(in_colorPrereqFail));
-		col =
-				addColorsOption(col, c, gridbag, this, featAutoColor =
-						new JButton(in_colorAutoFeat));
-		col =
-				addColorsOption(col, c, gridbag, this, featVirtualColor =
-						new JButton(in_colorVirtFeat));
+		col = addColorsOption(col, c, gridbag, this, prereqQualifyColor = new JButton(IN_COLOR_PREREQ_QUALIFY));
+		col = addColorsOption(col, c, gridbag, this, prereqFailColor = new JButton(IN_COLOR_PREREQ_FAIL));
+		col = addColorsOption(col, c, gridbag, this, featAutoColor = new JButton(IN_COLOR_AUTO_FEAT));
+		col = addColorsOption(col, c, gridbag, this, featVirtualColor = new JButton(IN_COLOR_VIRT_FEAT));
 
-		col =
-				addColorsOption(col, c, gridbag, this, sourceStatusRelease =
-						new JButton(in_colorSourceRelease));
-		col =
-				addColorsOption(col, c, gridbag, this, sourceStatusAlpha =
-						new JButton(in_colorSourceAlpha));
-		col =
-				addColorsOption(col, c, gridbag, this, sourceStatusBeta =
-						new JButton(in_colorSourceBeta));
-		col =
-				addColorsOption(col, c, gridbag, this, sourceStatusTest =
-						new JButton(in_colorSourceTest));
-		
+		col = addColorsOption(col, c, gridbag, this, sourceStatusRelease = new JButton(IN_COLOR_SOURCE_RELEASE));
+		col = addColorsOption(col, c, gridbag, this, sourceStatusAlpha = new JButton(IN_COLOR_SOURCE_ALPHA));
+		col = addColorsOption(col, c, gridbag, this, sourceStatusBeta = new JButton(IN_COLOR_SOURCE_BETA));
+		col = addColorsOption(col, c, gridbag, this, sourceStatusTest = new JButton(IN_COLOR_SOURCE_TEST));
+
 		Utility.buildConstraints(c, 5, 20, 1, 1, 1, 1);
 		c.fill = GridBagConstraints.BOTH;
 		label = new JLabel(" ");
@@ -132,9 +107,8 @@ public class ColorsPanel extends PCGenPrefsPanel
 		this.add(label);
 	}
 
-	private int addColorsOption(int col, final GridBagConstraints c,
-		final GridBagLayout gridbag, final Container colorsPanel,
-		final AbstractButton button)
+	private int addColorsOption(int col, final GridBagConstraints c, final GridBagLayout gridbag,
+		final Container colorsPanel, final AbstractButton button)
 	{
 		Utility.buildConstraints(c, 0, col++, 1, 1, 0, 0);
 		gridbag.setConstraints(button, c);
@@ -150,7 +124,7 @@ public class ColorsPanel extends PCGenPrefsPanel
 	@Override
 	public String getTitle()
 	{
-		return in_color;
+		return IN_COLOR;
 	}
 
 	/**
@@ -198,15 +172,12 @@ public class ColorsPanel extends PCGenPrefsPanel
 			{
 				// Do nothing
 			}
-			else if ((source == prereqQualifyColor)
-				|| (source == prereqFailColor) || (source == featAutoColor)
+			else if ((source == prereqQualifyColor) || (source == prereqFailColor) || (source == featAutoColor)
 				|| (source == featVirtualColor))
 			{
-				final Color newColor =
-						JColorChooser.showDialog(Globals.getRootFrame(),
-							LanguageBundle.getString("in_Prefs_colorSelect")
-								+ source.getText().toLowerCase(), source
-								.getForeground());
+				final Color newColor = JColorChooser.showDialog(Globals.getRootFrame(),
+					LanguageBundle.getString("in_Prefs_colorSelect") + source.getText().toLowerCase(),
+					source.getForeground());
 
 				if (newColor != null)
 				{

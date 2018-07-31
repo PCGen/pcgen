@@ -40,8 +40,7 @@ public class MoveToken extends AbstractExportToken
 	}
 
 	@Override
-	public String getToken(String tokenSource, CharacterDisplay display,
-		ExportHandler eh)
+	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
 	{
 		String retString = "";
 		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
@@ -87,13 +86,12 @@ public class MoveToken extends AbstractExportToken
 	public static String getMoveXToken(CharacterDisplay display, int moveIndex)
 	{
 		NamedValue move = display.getMovementValues().get(moveIndex);
-		return move.getName() + ' '
-				+ MovementToken.getRateToken(move.getWeight());
+		return move.getName() + ' ' + MovementToken.getRateToken(move.getWeight());
 	}
 
 	public static String getSquaresToken(CharacterDisplay display, int moveIndex)
 	{
-		return Integer.toString((int) (display.getMovementValues().get(moveIndex)
-				.getWeight() / SettingsHandler.getGame().getSquareSize()));
+		return Integer.toString(
+			(int) (display.getMovementValues().get(moveIndex).getWeight() / SettingsHandler.getGame().getSquareSize()));
 	}
 }

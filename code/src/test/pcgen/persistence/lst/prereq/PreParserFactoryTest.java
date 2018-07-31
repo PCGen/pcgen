@@ -26,6 +26,7 @@ import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.LocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.persistence.PersistenceLayerException;
 
 
 @SuppressWarnings("nls")
@@ -61,10 +62,13 @@ public class PreParserFactoryTest extends AbstractCharacterTestCase
 		LocaleDependentTestCase.after();
 	}
 	
+	
 	/**
-	 * @throws Exception
+	 * Test not equal.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testNotEqual() throws Exception
+	public void testNotEqual() throws PersistenceLayerException
 	{
 		PreParserFactory factory = PreParserFactory.getInstance();
 
@@ -75,18 +79,21 @@ public class PreParserFactoryTest extends AbstractCharacterTestCase
 			prereq.toString());
 	}
 
+
 	/**
-	 * @throws Exception
+	 * Test override qualifies.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testOverrideQualifies() throws Exception
+	public void testOverrideQualifies() throws PersistenceLayerException
 	{
 		PreParserFactory factory = PreParserFactory.getInstance();
 
 		Prerequisite prereq = factory.parse("PREVARNEQ:Q:Enraged,1");
 
 		assertEquals(
-			"<prereq kind=\"var\" key=\"Enraged\" operator=\"NEQ\" operand=\"1\" override-qualify=\"true\" >\n</prereq>\n",
-			prereq.toString());
+		"<prereq kind=\"var\" key=\"Enraged\" operator=\"NEQ\" operand=\"1\" override-qualify=\"true\" >\n</prereq>\n",
+		prereq.toString());
 	}
 
 	public void testSkillTypeKnowledge() throws Exception
@@ -97,8 +104,8 @@ public class PreParserFactoryTest extends AbstractCharacterTestCase
 
 		assertEquals(
 			"<prereq operator=\"GTEQ\" operand=\"20\" >\n"
-				+ "<prereq kind=\"skill\" total-values=\"true\" key=\"TYPE.Knowledge\" operator=\"GTEQ\" operand=\"1\" >\n"
-				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
+			+ "<prereq kind=\"skill\" total-values=\"true\" key=\"TYPE.Knowledge\" operator=\"GTEQ\" operand=\"1\" >\n"
+			+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 
 	}
 

@@ -40,7 +40,6 @@ public interface GroupingCollection<T>
 	 */
 	public String getInstructions();
 
-	
 	/**
 	 * Runs the given Consumer on any relevant objects in this GroupingCollection.
 	 * 

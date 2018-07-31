@@ -31,13 +31,13 @@ public interface ParseResult
 	 * Object to be returned from parsing operations that succeeded with no messages.
 	 */
 	public static Pass SUCCESS = new Pass();
-	
+
 	/*
 	 * Temporary object for reporting errors that should be investigated further.
 	 * See plugin.lsttokens.race.FeatToken.
 	 */
 	public static Fail INTERNAL_ERROR = new Fail("Internal error.");
-	
+
 	/**
 	 * State of the parse operation.
 	 * @return True if the parse was successful.
@@ -154,5 +154,5 @@ public interface ParseResult
 	{
 		return message.message + " (Source: " + uri + " )";
 	}
-	
+
 }

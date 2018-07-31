@@ -17,6 +17,8 @@
  */
 package pcgen.output.wrapper;
 
+import freemarker.template.TemplateModel;
+import freemarker.template.TemplateModelException;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.FacetLibrary;
@@ -24,8 +26,6 @@ import pcgen.cdom.facet.ObjectWrapperFacet;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.output.base.PCGenObjectWrapper;
 import pcgen.output.base.SimpleWrapperLibrary;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
 
 /**
  * A CNAbilitySelectionWrapper is an ObjectWrapper capable of producing a
@@ -33,12 +33,10 @@ import freemarker.template.TemplateModelException;
  */
 public class CDOMReferenceWrapper implements PCGenObjectWrapper
 {
-	private static final ObjectWrapperFacet WRAPPER_FACET = FacetLibrary
-		.getFacet(ObjectWrapperFacet.class);
+	private static final ObjectWrapperFacet WRAPPER_FACET = FacetLibrary.getFacet(ObjectWrapperFacet.class);
 
 	@Override
-	public TemplateModel wrap(CharID id, Object o)
-		throws TemplateModelException
+	public TemplateModel wrap(CharID id, Object o) throws TemplateModelException
 	{
 		if (o instanceof CDOMSingleRef)
 		{

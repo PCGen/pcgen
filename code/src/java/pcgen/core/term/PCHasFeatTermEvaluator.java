@@ -24,23 +24,21 @@ import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.PlayerCharacter;
 
-public class PCHasFeatTermEvaluator
-		extends BasePCTermEvaluator implements TermEvaluator
+public class PCHasFeatTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
 	private final String feat;
 
 	public PCHasFeatTermEvaluator(String originalText, String feat)
 	{
 		this.originalText = originalText;
-		this.feat         = feat;
+		this.feat = feat;
 	}
 
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		boolean hasFeat =
-				pc.hasAbilityKeyed(AbilityCategory.FEAT, feat)
-					|| pc.hasAbilityKeyed(AbilityCategory.FEAT, AbilityUtilities.removeChoicesFromName(feat));
+		boolean hasFeat = pc.hasAbilityKeyed(AbilityCategory.FEAT, feat)
+			|| pc.hasAbilityKeyed(AbilityCategory.FEAT, AbilityUtilities.removeChoicesFromName(feat));
 		return hasFeat ? 1.0f : 0.0f;
 	}
 

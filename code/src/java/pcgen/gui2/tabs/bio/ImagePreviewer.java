@@ -24,18 +24,19 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+
 import javax.imageio.ImageIO;
 import javax.swing.JComponent;
 import javax.swing.UIManager;
+
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
-
 
 class ImagePreviewer extends JComponent
 {
 
 	private static final int SIZE = 200;
-	private static final String in_notAnImage = LanguageBundle.getString("in_ImagePreview_notAnImage");
+	private static final String IN_NOT_AN_IMAGE = LanguageBundle.getString("in_ImagePreview_notAnImage");
 	private BufferedImage image;
 
 	public ImagePreviewer()
@@ -82,8 +83,7 @@ class ImagePreviewer extends JComponent
 			final int side = Math.max(width, height);
 			final double scale = (double) SIZE / (double) side;
 
-			g.drawImage(image, 0, 0, (int) (scale * width),
-						(int) (scale * height), null);
+			g.drawImage(image, 0, 0, (int) (scale * width), (int) (scale * height), null);
 
 			// Annotate with original dimensions.  Overlay black on white so
 			// the values are visible against most possible image backgrounds.
@@ -98,8 +98,7 @@ class ImagePreviewer extends JComponent
 		{
 			g.setColor(UIManager.getColor("Panel.foreground"));
 			// TODO: I18N
-			g.drawString(in_notAnImage,
-						 textX, textY);
+			g.drawString(IN_NOT_AN_IMAGE, textX, textY);
 		}
 	}
 

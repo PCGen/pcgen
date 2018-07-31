@@ -17,15 +17,15 @@
  */
 package pcgen.output.model;
 
+import freemarker.template.TemplateHashModel;
+import freemarker.template.TemplateModel;
+import freemarker.template.TemplateModelException;
+import freemarker.template.TemplateScalarModel;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.CDOMWrapperInfoFacet;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.output.base.OutputActor;
-import freemarker.template.TemplateHashModel;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
-import freemarker.template.TemplateScalarModel;
 
 /**
  * A CDOMObjectModel is a wrapper around a CDOMObject which serves as a
@@ -33,8 +33,7 @@ import freemarker.template.TemplateScalarModel;
  */
 public class CDOMObjectModel implements TemplateHashModel, TemplateScalarModel
 {
-	private static final CDOMWrapperInfoFacet WRAPPER_FACET = FacetLibrary
-		.getFacet(CDOMWrapperInfoFacet.class);
+	private static final CDOMWrapperInfoFacet WRAPPER_FACET = FacetLibrary.getFacet(CDOMWrapperInfoFacet.class);
 
 	/**
 	 * The underlying CDOMObject, from which information is retrieved
@@ -79,20 +78,17 @@ public class CDOMObjectModel implements TemplateHashModel, TemplateScalarModel
 		return proc(cl, key);
 	}
 
-	private <T> TemplateModel proc(Class<T> cl, String key)
-		throws TemplateModelException
+	private <T> TemplateModel proc(Class<T> cl, String key) throws TemplateModelException
 	{
 		/*
 		 * What if it didn't previously exist (e.g. cl==SubClass.class)...
 		 * shouldn't be able to get here really (in that case)
 		 */
-		OutputActor<? super T> actor =
-				WRAPPER_FACET.getActor(id.getDatasetID(), cl, key);
+		OutputActor<? super T> actor = WRAPPER_FACET.getActor(id.getDatasetID(), cl, key);
 		if (actor == null)
 		{
-			throw new TemplateModelException("object of type "
-				+ cdo.getClass().getSimpleName()
-				+ " did not have output of type " + key);
+			throw new TemplateModelException(
+				"object of type " + cdo.getClass().getSimpleName() + " did not have output of type " + key);
 		}
 		@SuppressWarnings("unchecked")
 		T obj = (T) cdo;

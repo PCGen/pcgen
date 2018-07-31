@@ -39,8 +39,7 @@ public class FollowerOfToken extends Token
 	}
 
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		return getFollowerOfToken(pc);
 	}
@@ -63,8 +62,7 @@ public class FollowerOfToken extends Token
 			{
 				if (aFollower.getFileName().equals(pc.getDisplay().getFileName()))
 				{
-					retString =
-							aFollower.getType() + " of " + masterDisplay.getName();
+					retString = aFollower.getType() + " of " + masterDisplay.getName();
 				}
 			}
 		}

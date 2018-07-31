@@ -28,6 +28,7 @@ import org.junit.Test;
 
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.persistence.PersistenceLayerException;
 import plugin.pretokens.parser.PreTemplateParser;
 
 /**
@@ -37,11 +38,14 @@ import plugin.pretokens.parser.PreTemplateParser;
 public class PreTemplateParserTest extends EnUsLocaleDependentTestCase
 {
 
+	
 	/**
-	 * @throws Exception
+	 * Test 990007 1.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void test990007_1() throws Exception
+	public void test990007_1() throws PersistenceLayerException
 	{
 		PreTemplateParser parser = new PreTemplateParser();
 
@@ -53,11 +57,14 @@ public class PreTemplateParserTest extends EnUsLocaleDependentTestCase
 			prereq.toString());
 	}
 
+	
 	/**
-	 * @throws Exception
+	 * Test 990007 2.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void test990007_2() throws Exception
+	public void test990007_2() throws PersistenceLayerException
 	{
 		PreTemplateParser parser = new PreTemplateParser();
 

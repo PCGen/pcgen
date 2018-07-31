@@ -98,8 +98,7 @@ public enum SkillArmorCheck
 			min = calculateMin(pc);
 			max = calculateMax(pc);
 		}
-		return getMultiplier()
-			* Math.min(min, (max + (int) pc.getTotalBonusTo("MISC", "ACCHECK")));
+		return getMultiplier() * Math.min(min, (max + (int) pc.getTotalBonusTo("MISC", "ACCHECK")));
 	}
 
 	protected int getMultiplier()
@@ -116,26 +115,22 @@ public enum SkillArmorCheck
 
 			switch (load)
 			{
-			case LIGHT:
-				penalty = SettingsHandler.getGame().getLoadInfo()
-						.getLoadCheckPenalty("LIGHT");
-				break;
+				case LIGHT:
+					penalty = SettingsHandler.getGame().getLoadInfo().getLoadCheckPenalty("LIGHT");
+					break;
 
-			case MEDIUM:
-				penalty = SettingsHandler.getGame().getLoadInfo()
-						.getLoadCheckPenalty("MEDIUM");
-				break;
+				case MEDIUM:
+					penalty = SettingsHandler.getGame().getLoadInfo().getLoadCheckPenalty("MEDIUM");
+					break;
 
-			case HEAVY:
-			case OVERLOAD:
-				penalty = SettingsHandler.getGame().getLoadInfo()
-						.getLoadCheckPenalty("HEAVY");
-				break;
+				case HEAVY:
+				case OVERLOAD:
+					penalty = SettingsHandler.getGame().getLoadInfo().getLoadCheckPenalty("HEAVY");
+					break;
 
-			default:
-				throw new UnreachableError(
-						"Internal Error: In Skill.modifier the load " + load
-								+ " is not supported.");
+				default:
+					throw new UnreachableError(
+						"Internal Error: In Skill.modifier the load " + load + " is not supported.");
 			}
 		}
 		return penalty;

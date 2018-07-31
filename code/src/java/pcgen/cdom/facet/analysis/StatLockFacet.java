@@ -19,8 +19,8 @@ package pcgen.cdom.facet.analysis;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.Map.Entry;
+import java.util.Set;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
@@ -38,8 +38,8 @@ import pcgen.core.PCStat;
  * Player Character.
  * 
  */
-public class StatLockFacet extends AbstractSourcedListFacet<CharID, StatLock> implements
-		DataFacetChangeListener<CharID, CDOMObject>
+public class StatLockFacet extends AbstractSourcedListFacet<CharID, StatLock>
+		implements DataFacetChangeListener<CharID, CDOMObject>
 {
 	private FormulaResolvingFacet formulaResolvingFacet;
 
@@ -109,8 +109,7 @@ public class StatLockFacet extends AbstractSourcedListFacet<CharID, StatLock> im
 		Map<StatLock, Set<Object>> componentMap = getCachedMap(id);
 		if (componentMap != null)
 		{
-			for (Entry<StatLock, Set<Object>> me : componentMap
-					.entrySet())
+			for (Entry<StatLock, Set<Object>> me : componentMap.entrySet())
 			{
 				Set<Object> set = me.getValue();
 				StatLock lock = me.getKey();
@@ -119,10 +118,8 @@ public class StatLockFacet extends AbstractSourcedListFacet<CharID, StatLock> im
 					for (Object source : set)
 					{
 						String sourceString =
-								(source instanceof CDOMObject) ? ((CDOMObject) source)
-										.getQualifiedKey() : "";
-						Number val = formulaResolvingFacet.resolve(id, lock
-								.getLockValue(), sourceString);
+								(source instanceof CDOMObject) ? ((CDOMObject) source).getQualifiedKey() : "";
+						Number val = formulaResolvingFacet.resolve(id, lock.getLockValue(), sourceString);
 						if (val.doubleValue() > max.doubleValue())
 						{
 							hit = true;

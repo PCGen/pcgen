@@ -21,8 +21,11 @@ package pcgen.gui2.filter;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.JToggleButton;
+
 import org.apache.commons.lang3.StringUtils;
+
 import pcgen.gui2.UIPropertyContext;
 import pcgen.system.PropertyContext;
 
@@ -32,8 +35,7 @@ import pcgen.system.PropertyContext;
  * will become inactive. Selecting and deselecting the button will trigger its FilterHandler
  * to refilter its contents.
  */
-public class FilterButton<C, E> extends JToggleButton
-		implements DisplayableFilter<C, E>, ActionListener
+public class FilterButton<C, E> extends JToggleButton implements DisplayableFilter<C, E>, ActionListener
 {
 
 	private FilterHandler filterHandler;

@@ -114,8 +114,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		}
 		else
 		{
-			theData = new TreeSet<>(
-                    new WeightedItemComparator<>(comp));
+			theData = new TreeSet<>(new WeightedItemComparator<>(comp));
 		}
 	}
 
@@ -189,8 +188,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		for (WeightedItem<E> item : theData)
 		{
 			E wiElement = item.getElement();
-			if (wiElement == null && element == null || wiElement != null
-					&& wiElement.equals(element))
+			if (wiElement == null && element == null || wiElement != null && wiElement.equals(element))
 			{
 				item.addWeight(weight);
 				return true;
@@ -298,8 +296,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		for (WeightedItem<E> item : theData)
 		{
 			E wiElement = item.getElement();
-			if (wiElement == null && element == null || wiElement != null
-					&& wiElement.equals(element))
+			if (wiElement == null && element == null || wiElement != null && wiElement.equals(element))
 			{
 				return true;
 			}
@@ -322,8 +319,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		for (WeightedItem<E> item : theData)
 		{
 			E wiElement = item.getElement();
-			if (wiElement == null && element == null || wiElement != null
-					&& wiElement.equals(element))
+			if (wiElement == null && element == null || wiElement != null && wiElement.equals(element))
 			{
 				return item.theWeight;
 			}
@@ -352,8 +348,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		{
 			WeightedItem<E> item = it.next();
 			E wiElement = item.getElement();
-			if (wiElement == null && element == null || wiElement != null
-					&& wiElement.equals(element))
+			if (wiElement == null && element == null || wiElement != null && wiElement.equals(element))
 			{
 				it.remove();
 				return true;
@@ -416,8 +411,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		 * is no solution for sorting a WeightedCollection and thus it is not
 		 * possible to actually sort before doing the comparison. - thpr 2/5/07
 		 */
-		return obj instanceof WeightedCollection
-				&& theData.equals(((WeightedCollection<?>) obj).theData);
+		return obj instanceof WeightedCollection && theData.equals(((WeightedCollection<?>) obj).theData);
 	}
 
 	/**
@@ -541,8 +535,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		@Override
 		public int hashCode()
 		{
-			return theWeight * 29
-					+ (theElement == null ? 0 : theElement.hashCode());
+			return theWeight * 29 + (theElement == null ? 0 : theElement.hashCode());
 		}
 
 		/**
@@ -555,9 +548,8 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 			if (obj instanceof WeightedItem)
 			{
 				WeightedItem<?> item = (WeightedItem<?>) obj;
-				return theWeight == item.theWeight
-						&& (theElement == null && item.theElement == null || theElement != null
-								&& theElement.equals(item.theElement));
+				return theWeight == item.theWeight && (theElement == null && item.theElement == null
+					|| theElement != null && theElement.equals(item.theElement));
 			}
 			//Arguably unreachable code
 			return false;
@@ -604,8 +596,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		@Override
 		public E next()
 		{
-			if (currentEntry == null
-					|| currentReturned >= currentEntry.theWeight)
+			if (currentEntry == null || currentReturned >= currentEntry.theWeight)
 			{
 				currentEntry = iter.next();
 				currentReturned = 0;
@@ -628,8 +619,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	private class UnweightedIterator implements Iterator<E>
 	{
 		/** An iterator that iterates over the raw data elements. */
-		private final Iterator<WeightedItem<E>> realIterator = theData
-				.iterator();
+		private final Iterator<WeightedItem<E>> realIterator = theData.iterator();
 
 		/**
 		 * Checks if there are any more elements in the iteration.
@@ -672,8 +662,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	 *            The type of the object underlying the WeightedItem objects
 	 *            that this WeightedItemComparator can compare.
 	 */
-	private static class WeightedItemComparator<WICT> implements
-			Comparator<WeightedItem<WICT>>
+	private static class WeightedItemComparator<WICT> implements Comparator<WeightedItem<WICT>>
 	{
 
 		/**

@@ -32,7 +32,6 @@ import java.util.logging.LogRecord;
 import javax.swing.SwingUtilities;
 
 import pcgen.gui2.PCGenStatusBar;
-import pcgen.gui2.util.SwingWorker;
 import pcgen.system.PCGenTask;
 import pcgen.system.PCGenTaskEvent;
 import pcgen.system.PCGenTaskListener;
@@ -40,93 +39,94 @@ import pcgen.util.Logging;
 
 public class StatusWorker extends SwingWorker<List<LogRecord>> implements PCGenTaskListener
 {
-		private final String statusMsg;
-		private final PCGenTask task;
-		private final PCGenStatusBar statusBar;
-		private boolean dirty = false;
-		private List<LogRecord> errors = new ArrayList<>();
+	private final String statusMsg;
+	private final PCGenTask task;
+	private final PCGenStatusBar statusBar;
+	private boolean dirty = false;
+	private List<LogRecord> errors = new ArrayList<>();
 
-		/**
-		 * @param statusMsg - text to display in status bar
-		 * @param task to be executed
-		 * @param statusBar the PCGen status Bar
-		 */
-		public StatusWorker(String statusMsg, PCGenTask task, PCGenStatusBar statusBar)
+	/**
+	 * @param statusMsg - text to display in status bar
+	 * @param task to be executed
+	 * @param statusBar the PCGen status Bar
+	 */
+	public StatusWorker(String statusMsg, PCGenTask task, PCGenStatusBar statusBar)
+	{
+		super();
+		this.statusMsg = statusMsg;
+		this.task = task;
+		this.statusBar = statusBar;
+	}
+
+	@Override
+	public List<LogRecord> construct()
+	{
+		final String oldMessage = statusBar.getContextMessage();
+		statusBar.startShowingProgress(statusMsg, false);
+		statusBar.getProgressBar().getModel().setRangeProperties(task.getProgress(), 1, 0, task.getMaximum(), true);
+
+		task.addPCGenTaskListener(this);
+
+		try
 		{
-			super();
-			this.statusMsg = statusMsg;
-			this.task = task;
-			this.statusBar = statusBar;
+			task.execute();
+		}
+		catch (Exception e)
+		{
+			Logging.errorPrint(e.getLocalizedMessage(), e);
 		}
 
-		@Override
-		public List<LogRecord> construct()
-		{	
-			final String oldMessage = statusBar.getContextMessage();
-			statusBar.startShowingProgress(statusMsg, false);
-			statusBar.getProgressBar().getModel().setRangeProperties(task.getProgress(), 1, 0, task.getMaximum(), true);
+		task.removePCGenTaskListener(this);
 
-			task.addPCGenTaskListener(this);
-
-			try
+		SwingUtilities.invokeLater(new Runnable()
+		{
+			@Override
+			public void run()
 			{
-				task.execute();
+				statusBar.setContextMessage(oldMessage);
 			}
-			catch (Exception e)
-			{
-				Logging.errorPrint(e.getLocalizedMessage(), e);
-			}
+		});
+		return errors;
+	}
 
-			task.removePCGenTaskListener(this);
+	@Override
+	public void finished()
+	{
+		statusBar.endShowingProgress();
+		super.finished();
+	}
 
+	@Override
+	public void progressChanged(final PCGenTaskEvent event)
+	{
+		if (!dirty)
+		{
+			dirty = true;
 			SwingUtilities.invokeLater(new Runnable()
 			{
 				@Override
 				public void run()
 				{
-					statusBar.setContextMessage(oldMessage);
+					statusBar.getProgressBar().getModel().setRangeProperties(task.getProgress(), 1, 0,
+						task.getMaximum(), true);
+					statusBar.getProgressBar().setString(task.getMessage());
+					dirty = false;
 				}
 			});
-			return errors;
 		}
+	}
 
-		@Override
-		public void finished()
-		{
-			statusBar.endShowingProgress();
-			super.finished();
-		}
+	@Override
+	public void errorOccurred(PCGenTaskEvent event)
+	{
+		errors.add(event.getErrorRecord());
+	}
 
-		@Override
-		public void progressChanged(final PCGenTaskEvent event)
-		{
-			if (!dirty)
-			{
-				dirty = true;
-				SwingUtilities.invokeLater(new Runnable()
-				{
-					@Override
-					public void run()
-					{
-						statusBar.getProgressBar().getModel().setRangeProperties(task.getProgress(), 1, 0, task.getMaximum(), true);
-						statusBar.getProgressBar().setString(task.getMessage());
-						dirty = false;
-					}
-				});
-			}
-		}
-
-		@Override
-		public void errorOccurred(PCGenTaskEvent event)
-		{
-			errors.add(event.getErrorRecord());
-		}
-
-		/**
-		 * @return records for all errors reported by the task
-		 */
-		public List<LogRecord> getErrors()
-		{
-			return errors;
-		}
+	/**
+	 * @return records for all errors reported by the task
+	 */
+	public List<LogRecord> getErrors()
+	{
+		return errors;
+	}
 }

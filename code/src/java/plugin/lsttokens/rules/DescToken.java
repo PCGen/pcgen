@@ -26,8 +26,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with DESC Token
  */
-public class DescToken extends AbstractNonEmptyToken<RuleCheck> implements
-		CDOMPrimaryToken<RuleCheck>
+public class DescToken extends AbstractNonEmptyToken<RuleCheck> implements CDOMPrimaryToken<RuleCheck>
 {
 
 	@Override
@@ -37,14 +36,13 @@ public class DescToken extends AbstractNonEmptyToken<RuleCheck> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-			RuleCheck rule, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, RuleCheck rule, String value)
 	{
 		rule.setDesc(value);
 		return ParseResult.SUCCESS;
 	}
 
-    @Override
+	@Override
 	public String[] unparse(LoadContext context, RuleCheck rule)
 	{
 		String description = rule.getDesc();
@@ -52,10 +50,10 @@ public class DescToken extends AbstractNonEmptyToken<RuleCheck> implements
 		{
 			return null;
 		}
-		return new String[] { description };
+		return new String[]{description};
 	}
 
-    @Override
+	@Override
 	public Class<RuleCheck> getTokenClass()
 	{
 		return RuleCheck.class;

@@ -25,7 +25,6 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.ParseResult;
 
-
 public abstract class AbstractPrerequisiteParser implements PrerequisiteParserInterface
 {
 	/**
@@ -40,12 +39,8 @@ public abstract class AbstractPrerequisiteParser implements PrerequisiteParserIn
 	 * @return PreReq 
 	 * @throws PersistenceLayerException 
 	 */
-    @Override
-	public Prerequisite parse(
-		String kind,
-		String formula,
-		boolean invertResult,
-		boolean overrideQualify)
+	@Override
+	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
 		throws PersistenceLayerException
 	{
 		// Check to make sure that this class can parse this token
@@ -65,9 +60,8 @@ public abstract class AbstractPrerequisiteParser implements PrerequisiteParserIn
 
 		if (!foundTag)
 		{
-			throw new PersistenceLayerException(this.getClass().getName()
-				+ " can not parse a Prerequisite tag of '" + kind + ":"
-				+ formula + "'");
+			throw new PersistenceLayerException(
+				this.getClass().getName() + " can not parse a Prerequisite tag of '" + kind + ":" + formula + "'");
 		}
 
 		// If we can parse this token then set the kind and invert flag.
@@ -88,21 +82,18 @@ public abstract class AbstractPrerequisiteParser implements PrerequisiteParserIn
 	{
 		if (value.charAt(0) == separator)
 		{
-			return new ParseResult.Fail("PRE"+kind
-				+ " arguments may not start with " + separator + " : " + value);
+			return new ParseResult.Fail("PRE" + kind + " arguments may not start with " + separator + " : " + value);
 		}
 		if (value.charAt(value.length() - 1) == separator)
 		{
-			return new ParseResult.Fail("PRE"+kind
-				+ " arguments may not end with " + separator + " : " + value);
+			return new ParseResult.Fail("PRE" + kind + " arguments may not end with " + separator + " : " + value);
 		}
 		if (value.contains(String.valueOf(new char[]{separator, separator})))
 		{
-			return new ParseResult.Fail("PRE"+kind
-				+ " arguments uses double separator " + separator + separator
-				+ " : " + value);
+			return new ParseResult.Fail(
+				"PRE" + kind + " arguments uses double separator " + separator + separator + " : " + value);
 		}
 		return ParseResult.SUCCESS;
 	}
-    
+
 }

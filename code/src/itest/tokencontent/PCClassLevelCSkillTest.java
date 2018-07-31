@@ -26,7 +26,6 @@ import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.PCClass;
 import pcgen.core.Skill;
 import pcgen.gui2.facade.MockUIDelegate;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.chooser.ChooserFactory;
@@ -56,7 +55,7 @@ public class PCClassLevelCSkillTest extends AbstractTokenModelTest
 	}
 
 	@Test
-	public void testDirect() throws PersistenceLayerException
+	public void testDirect()
 	{
 		PCClassLevel pcl = dragon.getOriginalClassLevel(1);
 		ParseResult result = token.parseToken(context, pcl, "MySkill");

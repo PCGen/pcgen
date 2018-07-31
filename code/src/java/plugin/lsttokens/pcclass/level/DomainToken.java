@@ -43,8 +43,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with DOMAIN Token
  */
-public class DomainToken extends AbstractTokenWithSeparator<PCClassLevel> implements
-		CDOMPrimaryToken<PCClassLevel>
+public class DomainToken extends AbstractTokenWithSeparator<PCClassLevel> implements CDOMPrimaryToken<PCClassLevel>
 {
 
 	private static final Class<Domain> DOMAIN_CLASS = Domain.class;
@@ -62,8 +61,7 @@ public class DomainToken extends AbstractTokenWithSeparator<PCClassLevel> implem
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		PCClassLevel pcl, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, PCClassLevel pcl, String value)
 	{
 		StringTokenizer pipeTok = new StringTokenizer(value, Constants.PIPE);
 
@@ -72,12 +70,10 @@ public class DomainToken extends AbstractTokenWithSeparator<PCClassLevel> implem
 
 		if (looksLikeAPrerequisite(tok))
 		{
-			return new ParseResult.Fail("Cannot have only PRExxx subtoken in "
-				+ getTokenName() + ": " + value);
+			return new ParseResult.Fail("Cannot have only PRExxx subtoken in " + getTokenName() + ": " + value);
 		}
 
-		List<QualifiedObject<CDOMSingleRef<Domain>>> toAdd =
-				new ArrayList<>();
+		List<QualifiedObject<CDOMSingleRef<Domain>>> toAdd = new ArrayList<>();
 		boolean foundClear = false;
 		while (true)
 		{
@@ -85,18 +81,16 @@ public class DomainToken extends AbstractTokenWithSeparator<PCClassLevel> implem
 			{
 				if (!first)
 				{
-					return new ParseResult.Fail("  Non-sensical " + getTokenName()
-							+ ": .CLEAR was not the first list item");
+					return new ParseResult.Fail(
+						"  Non-sensical " + getTokenName() + ": .CLEAR was not the first list item");
 				}
 				context.getObjectContext().removeList(pcl, ListKey.DOMAIN);
 				foundClear = true;
 			}
 			else
 			{
-				CDOMSingleRef<Domain> domain = context.getReferenceContext().getCDOMReference(
-					DOMAIN_CLASS, tok);
-				QualifiedObject<CDOMSingleRef<Domain>> qo = new QualifiedObject<>(
-						domain);
+				CDOMSingleRef<Domain> domain = context.getReferenceContext().getCDOMReference(DOMAIN_CLASS, tok);
+				QualifiedObject<CDOMSingleRef<Domain>> qo = new QualifiedObject<>(domain);
 				toAdd.add(qo);
 				context.getObjectContext().addToList(pcl, ListKey.DOMAIN, qo);
 			}
@@ -114,9 +108,7 @@ public class DomainToken extends AbstractTokenWithSeparator<PCClassLevel> implem
 		}
 		if (foundClear)
 		{
-			return new ParseResult.Fail(
-					"Cannot use PREREQs when using .CLEAR in "
-							+ getTokenName());
+			return new ParseResult.Fail("Cannot use PREREQs when using .CLEAR in " + getTokenName());
 		}
 
 		while (true)
@@ -124,8 +116,8 @@ public class DomainToken extends AbstractTokenWithSeparator<PCClassLevel> implem
 			Prerequisite prereq = getPrerequisite(tok);
 			if (prereq == null)
 			{
-				return new ParseResult.Fail("   (Did you put feats after the "
-						+ "PRExxx tags in " + getTokenName() + ":?)");
+				return new ParseResult.Fail(
+					"   (Did you put feats after the " + "PRExxx tags in " + getTokenName() + ":?)");
 			}
 			for (PrereqObject pro : toAdd)
 			{
@@ -144,26 +136,23 @@ public class DomainToken extends AbstractTokenWithSeparator<PCClassLevel> implem
 	@Override
 	public String[] unparse(LoadContext context, PCClassLevel pcc)
 	{
-		Changes<QualifiedObject<CDOMSingleRef<Domain>>> changes = context
-				.getObjectContext().getListChanges(pcc, ListKey.DOMAIN);
+		Changes<QualifiedObject<CDOMSingleRef<Domain>>> changes =
+				context.getObjectContext().getListChanges(pcc, ListKey.DOMAIN);
 		List<String> returnList = new ArrayList<>();
 		if (changes.includesGlobalClear())
 		{
 			returnList.add(Constants.LST_DOT_CLEAR);
 		}
-		Collection<QualifiedObject<CDOMSingleRef<Domain>>> removedItems = changes
-				.getRemoved();
+		Collection<QualifiedObject<CDOMSingleRef<Domain>>> removedItems = changes.getRemoved();
 		if (removedItems != null && !removedItems.isEmpty())
 		{
-			context.addWriteMessage(getTokenName()
-					+ " does not support .CLEAR.");
+			context.addWriteMessage(getTokenName() + " does not support .CLEAR.");
 			return null;
 		}
 		Collection<QualifiedObject<CDOMSingleRef<Domain>>> added = changes.getAdded();
 		if (added != null && !added.isEmpty())
 		{
-			HashMapToList<List<Prerequisite>, CDOMSingleRef<Domain>> m =
-					new HashMapToList<>();
+			HashMapToList<List<Prerequisite>, CDOMSingleRef<Domain>> m = new HashMapToList<>();
 			for (QualifiedObject<CDOMSingleRef<Domain>> qo : added)
 			{
 				m.addToListFor(qo.getPrerequisiteList(), qo.getRawObject());

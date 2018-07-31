@@ -27,16 +27,15 @@ import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 
-public class PCBaseSpellStatTermEvaluator
-		extends BasePCTermEvaluator implements TermEvaluator {
+public class PCBaseSpellStatTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
+{
 
 	private final String source;
 
-	public PCBaseSpellStatTermEvaluator(
-			String originalText, String source)
+	public PCBaseSpellStatTermEvaluator(String originalText, String source)
 	{
 		this.originalText = originalText;
-		this.source       = source;
+		this.source = source;
 	}
 
 	@Override
@@ -46,8 +45,8 @@ public class PCBaseSpellStatTermEvaluator
 
 		if (pcClass == null)
 		{
-			pcClass = Globals.getContext().getReferenceContext()
-					.silentlyGetConstructedCDOMObject(PCClass.class, source);
+			pcClass =
+					Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class, source);
 		}
 		//null safe to pass in
 		return (float) getBaseSpellStatBonus(pc, pcClass);
@@ -59,7 +58,7 @@ public class PCBaseSpellStatTermEvaluator
 		{
 			return 0;
 		}
-		
+
 		int baseSpellStat = 0;
 		CDOMSingleRef<PCStat> ssref = pcClass.get(ObjectKey.SPELL_STAT);
 		if (ssref != null)

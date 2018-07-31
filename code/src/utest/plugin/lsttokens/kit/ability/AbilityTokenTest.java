@@ -69,7 +69,7 @@ public class AbilityTokenTest extends AbstractKitTokenTestCase<KitAbilities>
 	}
 
 	@Test
-	public void testInvalidInputEmptyCount() throws PersistenceLayerException
+	public void testInvalidInputEmptyCount()
 	{
 		assertTrue(parse("CATEGORY=FEAT|Fireball"));
 		assertConstructionError();
@@ -104,7 +104,7 @@ public class AbilityTokenTest extends AbstractKitTokenTestCase<KitAbilities>
 	}
 
 	@Test
-	public void testInvalidListEnd() throws PersistenceLayerException
+	public void testInvalidListEnd()
 	{
 		assertFalse(parse("CATEGORY=FEAT|TestWP1" + getJoinCharacter()));
 	}
@@ -115,13 +115,13 @@ public class AbilityTokenTest extends AbstractKitTokenTestCase<KitAbilities>
 	}
 
 	@Test
-	public void testInvalidListStart() throws PersistenceLayerException
+	public void testInvalidListStart()
 	{
 		assertFalse(parse("CATEGORY=FEAT|" + getJoinCharacter() + "TestWP1"));
 	}
 
 	@Test
-	public void testInvalidListDoubleJoin() throws PersistenceLayerException
+	public void testInvalidListDoubleJoin()
 	{
 		assertFalse(parse("CATEGORY=FEAT|TestWP2" + getJoinCharacter() + getJoinCharacter()
 				+ "TestWP1"));

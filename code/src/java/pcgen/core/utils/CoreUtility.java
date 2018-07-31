@@ -44,9 +44,9 @@ import pcgen.util.Logging;
 public final class CoreUtility
 {
 
-	private static final double epsilon = 0.0001d;
+	private static final double EPSILON = 0.0001d;
 
-	public static final Comparator<Equipment> equipmentComparator = new Comparator<Equipment>()
+	public static final Comparator<Equipment> EQUIPMENT_COMPARATOR = new Comparator<Equipment>()
 	{
 		private int compareInts(final int obj1Index, final int obj2Index)
 		{
@@ -64,7 +64,7 @@ public final class CoreUtility
 			}
 		}
 
-        @Override
+		@Override
 		public int compare(final Equipment obj1, final Equipment obj2)
 		{
 			int o1i = obj1.getOutputIndex();
@@ -81,32 +81,28 @@ public final class CoreUtility
 				return result1;
 			}
 
-			final int result2 = compareInts(obj1.getOutputSubindex(), obj2
-					.getOutputSubindex());
+			final int result2 = compareInts(obj1.getOutputSubindex(), obj2.getOutputSubindex());
 
 			if (result2 != 0)
 			{
 				return result2;
 			}
 
-			final int result3 = obj1.getName().compareToIgnoreCase(
-					obj2.getName());
+			final int result3 = obj1.getName().compareToIgnoreCase(obj2.getName());
 
 			if (result3 != 0)
 			{
 				return result3;
 			}
 
-			final int result4 = obj1.getAppliedName().compareToIgnoreCase(
-					obj2.getAppliedName());
+			final int result4 = obj1.getAppliedName().compareToIgnoreCase(obj2.getAppliedName());
 
 			if (result4 != 0)
 			{
 				return result4;
 			}
 
-			return obj1.getParentName().compareToIgnoreCase(
-					obj2.getParentName());
+			return obj1.getParentName().compareToIgnoreCase(obj2.getParentName());
 		}
 
 		@Override
@@ -135,8 +131,7 @@ public final class CoreUtility
 	 */
 	public static boolean isNetURL(final URL url)
 	{
-		return "http".equalsIgnoreCase(url.getProtocol())
-				|| "ftp".equalsIgnoreCase(url.getProtocol());
+		return "http".equalsIgnoreCase(url.getProtocol()) || "ftp".equalsIgnoreCase(url.getProtocol());
 	}
 
 	/**
@@ -217,8 +212,7 @@ public final class CoreUtility
 	 *            the epsilon (or deadband)
 	 * @return TRUE {@literal if abs(a - b) < eps}, else FALSE
 	 */
-	public static boolean compareDouble(final double a, final double b,
-			final double eps)
+	public static boolean compareDouble(final double a, final double b, final double eps)
 	{
 		// If the difference is less than epsilon, treat as equal.
 		return Math.abs(a - b) < eps;
@@ -236,7 +230,7 @@ public final class CoreUtility
 	public static boolean doublesEqual(final double a, final double b)
 	{
 		// If the difference is less than epsilon, treat as equal.
-		return compareDouble(a, b, epsilon);
+		return compareDouble(a, b, EPSILON);
 	}
 
 	/**
@@ -244,11 +238,10 @@ public final class CoreUtility
 	 * @param d the double that we would like the floor value for
 	 * @return the floor after adding epsilon
 	 */
-	public static double epsilonFloor (double d)
+	public static double epsilonFloor(double d)
 	{
-		return Math.floor(d + epsilon);
+		return Math.floor(d + EPSILON);
 	}
-
 
 	/**
 	 * Changes a path to make sure all instances of \ or / are replaced with
@@ -260,8 +253,7 @@ public final class CoreUtility
 	 */
 	public static String fixFilenamePath(final String argFileName)
 	{
-		return argFileName.replace('/', File.separatorChar).replace('\\',
-				File.separatorChar);
+		return argFileName.replace('/', File.separatorChar).replace('\\', File.separatorChar);
 	}
 
 	/**
@@ -369,23 +361,23 @@ public final class CoreUtility
 		{
 			switch (iValue % 10)
 			{
-			case 1:
-				suffix = "st";
+				case 1:
+					suffix = "st";
 
-				break;
+					break;
 
-			case 2:
-				suffix = "nd";
+				case 2:
+					suffix = "nd";
 
-				break;
+					break;
 
-			case 3:
-				suffix = "rd";
+				case 3:
+					suffix = "rd";
 
-				break;
+					break;
 
-			default:
-				break;
+				default:
+					break;
 			}
 		}
 
@@ -443,16 +435,14 @@ public final class CoreUtility
 	 * 
 	 * @return merged list
 	 */
-	public static List<Equipment> mergeEquipmentList(
-			final Collection<Equipment> equip, final int merge)
+	public static List<Equipment> mergeEquipmentList(final Collection<Equipment> equip, final int merge)
 	{
 		List<Equipment> workingList = new ArrayList<>();
 		for (Equipment e : equip)
 		{
 			workingList.add(e.clone());
 		}
-		workingList.sort(equipmentComparator);
-		 
+		workingList.sort(EQUIPMENT_COMPARATOR);
 
 		// no merging, just sorting (calling this is really stupid,
 		// just use the sort above)
@@ -474,8 +464,7 @@ public final class CoreUtility
 
 				// no container merge or Temporary Bonus generated equipment
 				// must not merge
-				if (eq1.isContainer() || eq1.isType("TEMPORARY")
-						|| eq2.isType("TEMPORARY"))
+				if (eq1.isContainer() || eq1.isType("TEMPORARY") || eq2.isType("TEMPORARY"))
 				{
 					continue;
 				}
@@ -485,9 +474,8 @@ public final class CoreUtility
 					// merge all like equipment together
 					if (merge == Constants.MERGE_ALL
 
-					// merge like equipment within same container
-						|| (merge == Constants.MERGE_LOCATION
-							&& (eq1.getLocation() == eq2.getLocation())
+						// merge like equipment within same container
+						|| (merge == Constants.MERGE_LOCATION && (eq1.getLocation() == eq2.getLocation())
 							&& eq1.getParentName().equals(eq2.getParentName())))
 					{
 						workingList.remove(eq2);
@@ -544,8 +532,7 @@ public final class CoreUtility
 	{
 		if (!ver.equals(compVer))
 		{
-			return compareVersions(convertVersionToNumber(ver),
-					convertVersionToNumber(compVer));
+			return compareVersions(convertVersionToNumber(ver), convertVersionToNumber(compVer));
 		}
 		return 0;
 	}
@@ -560,8 +547,7 @@ public final class CoreUtility
 	 */
 	public static boolean isPriorToCurrent(String version)
 	{
-		return CoreUtility.compareVersions(version, PCGenPropBundle
-				.getVersionNumber()) <= 0;
+		return CoreUtility.compareVersions(version, PCGenPropBundle.getVersionNumber()) <= 0;
 	}
 
 	/**
@@ -573,7 +559,7 @@ public final class CoreUtility
 	 */
 	public static int[] convertVersionToNumber(String version)
 	{
-		int[] intVer = { 0, 0, 0 };
+		int[] intVer = {0, 0, 0};
 
 		// extract the tokens from the version line
 		String[] tokens = version.split(" |\\.|\\-", 4); //$NON-NLS-1$
@@ -635,19 +621,18 @@ public final class CoreUtility
 	public static URL processFileToURL(String value) throws MalformedURLException
 	{
 		StringBuilder inputPath = new StringBuilder(100);
-		inputPath
-				.append(SettingsHandler.getPcgenSponsorDir().getAbsolutePath());
+		inputPath.append(SettingsHandler.getPcgenSponsorDir().getAbsolutePath());
 		inputPath.append(File.separator).append(value);
-	
+
 		// Not a URL; make sure to fix the path syntax
 		String convertedPath = fixFilenamePath(inputPath.toString());
-	
+
 		// Make sure the path starts with a separator
 		if (!convertedPath.startsWith(File.separator))
 		{
 			convertedPath = File.separator + convertedPath;
 		}
-	
+
 		return new URL("file:" + inputPath);
 	}
 }

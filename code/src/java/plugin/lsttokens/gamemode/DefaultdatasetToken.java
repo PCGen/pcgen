@@ -33,17 +33,17 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class DefaultdatasetToken implements GameModeLstToken
 {
 
-    @Override
+	@Override
 	public String getTokenName()
 	{
 		return "DEFAULTDATASET";
 	}
 
-    @Override
+	@Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		String[] tokens = value.split("\\|");
-		
+
 		final StringTokenizer aTok = new StringTokenizer(tokens[0], ",", false);
 		gameMode.clearDefaultDataSetList();
 

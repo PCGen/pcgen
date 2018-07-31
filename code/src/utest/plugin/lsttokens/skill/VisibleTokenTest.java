@@ -63,14 +63,14 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testInvalidInputString() throws PersistenceLayerException
+	public void testInvalidInputString()
 	{
 		internalTestInvalidInputString(null);
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputStringSet() throws PersistenceLayerException
+	public void testInvalidInputStringSet()
 	{
 		assertTrue(parse("EXPORT"));
 		assertEquals(Visibility.OUTPUT_ONLY, primaryProf.get(ObjectKey.VISIBILITY));
@@ -79,7 +79,6 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<Skill>
 
 	@Test
 	public void testInvalidInputStringSetDisplay()
-		throws PersistenceLayerException
 	{
 		assertTrue(parse("DISPLAY"));
 		assertEquals(Visibility.DISPLAY_ONLY, primaryProf.get(ObjectKey.VISIBILITY));
@@ -87,7 +86,6 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	}
 
 	public void internalTestInvalidInputString(Object val)
-		throws PersistenceLayerException
 	{
 		assertEquals(val, primaryProf.get(ObjectKey.VISIBILITY));
 		assertFalse(parse("Always"));
@@ -115,7 +113,7 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testValidInputs() throws PersistenceLayerException
+	public void testValidInputs()
 	{
 		assertTrue(parse("DISPLAY"));
 		assertEquals(Visibility.DISPLAY_ONLY, primaryProf.get(ObjectKey.VISIBILITY));
@@ -169,7 +167,7 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.put(getObjectKey(), null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
@@ -181,14 +179,14 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testUnparseLegal() throws PersistenceLayerException
+	public void testUnparseLegal()
 	{
 		primaryProf.put(getObjectKey(), Visibility.DEFAULT);
 		expectSingle(getToken().unparse(primaryContext, primaryProf), Visibility.DEFAULT.getLSTFormat());
 	}
 
 	@Test
-	public void testUnparseIllegal() throws PersistenceLayerException
+	public void testUnparseIllegal()
 	{
 		primaryProf.put(getObjectKey(), Visibility.HIDDEN);
 		assertBadUnparse();
@@ -196,7 +194,7 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<Skill>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail() throws PersistenceLayerException
+	public void testUnparseGenericsFail()
 	{
 		ObjectKey objectKey = getObjectKey();
 		primaryProf.put(objectKey, new Object());

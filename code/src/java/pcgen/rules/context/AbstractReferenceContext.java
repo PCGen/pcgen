@@ -99,30 +99,28 @@ public abstract class AbstractReferenceContext
 	private static final Class<DataTable> DATA_TABLE_CLASS = DataTable.class;
 	private static final Class<TableColumn> TABLE_COLUMN_CLASS = TableColumn.class;
 
-	private DoubleKeyMap<Class<?>, Object, WeakReference<List<?>>> sortedMap =
-            new DoubleKeyMap<>();
+	private DoubleKeyMap<Class<?>, Object, WeakReference<List<?>>> sortedMap = new DoubleKeyMap<>();
 
 	private final Map<CDOMObject, CDOMSingleRef<?>> directRefCache = new HashMap<>();
 
 	private URI sourceURI;
-	
+
 	private URI extractURI;
-	
+
 	private final SimpleFormatManagerLibrary fmtLibrary = new SimpleFormatManagerLibrary();
 
 	public void initialize()
 	{
 		FormatUtilities.loadDefaultFormats(fmtLibrary);
 		fmtLibrary.addFormatManager(new DiceFormat());
-		fmtLibrary.addFormatManagerBuilder(new ColumnFormatFactory(
-			this.getManufacturer(AbstractReferenceContext.TABLE_COLUMN_CLASS)));
-		fmtLibrary.addFormatManagerBuilder(new TableFormatFactory(
-			this.getManufacturer(AbstractReferenceContext.DATA_TABLE_CLASS)));
+		fmtLibrary.addFormatManagerBuilder(
+			new ColumnFormatFactory(this.getManufacturer(AbstractReferenceContext.TABLE_COLUMN_CLASS)));
+		fmtLibrary.addFormatManagerBuilder(
+			new TableFormatFactory(this.getManufacturer(AbstractReferenceContext.DATA_TABLE_CLASS)));
 	}
 
-	public abstract <T extends Loadable> ReferenceManufacturer<T> getManufacturer(
-		Class<T> cl);
-	
+	public abstract <T extends Loadable> ReferenceManufacturer<T> getManufacturer(Class<T> cl);
+
 	/**
 	 * Returns true if this AbstractReferenceContext has a Manufacturer for the given
 	 * ClassIdentity.
@@ -134,7 +132,7 @@ public abstract class AbstractReferenceContext
 	 *         ClassIdentity; false otherwise
 	 */
 	public abstract <T extends Loadable> boolean hasManufacturer(ClassIdentity<T> classIdentity);
-	
+
 	protected abstract <T extends Loadable> ReferenceManufacturer<T> constructReferenceManufacturer(
 		ClassIdentity<T> identity);
 
@@ -162,8 +160,7 @@ public abstract class AbstractReferenceContext
 		return getManufacturer(c).getAllReference();
 	}
 
-	public <T extends Loadable> CDOMGroupRef<T> getCDOMTypeReference(
-			Class<T> c, String... val)
+	public <T extends Loadable> CDOMGroupRef<T> getCDOMTypeReference(Class<T> c, String... val)
 	{
 		return getManufacturer(c).getTypeReference(val);
 	}
@@ -173,8 +170,7 @@ public abstract class AbstractReferenceContext
 		T obj;
 		if (CATEGORIZED_CLASS.isAssignableFrom(c))
 		{
-			throw new UnsupportedOperationException(
-				"Categorized can't be built directly with null category");
+			throw new UnsupportedOperationException("Categorized can't be built directly with null category");
 		}
 		else
 		{
@@ -184,14 +180,12 @@ public abstract class AbstractReferenceContext
 		return obj;
 	}
 
-	public <T extends Loadable> void constructIfNecessary(Class<T> cl,
-			String value)
+	public <T extends Loadable> void constructIfNecessary(Class<T> cl, String value)
 	{
 		getManufacturer(cl).constructIfNecessary(value);
 	}
 
-	public <T extends Loadable> CDOMSingleRef<T> getCDOMReference(Class<T> c,
-			String val)
+	public <T extends Loadable> CDOMSingleRef<T> getCDOMReference(Class<T> c, String val)
 	{
 		return getManufacturer(c).getReference(val);
 	}
@@ -213,8 +207,7 @@ public abstract class AbstractReferenceContext
 		return getCDOMReference(c, val);
 	}
 
-	public <T extends Loadable> T silentlyGetConstructedCDOMObject(Class<T> c,
-		String val)
+	public <T extends Loadable> T silentlyGetConstructedCDOMObject(Class<T> c, String val)
 	{
 		return getManufacturer(c).getActiveObject(val);
 	}
@@ -248,8 +241,7 @@ public abstract class AbstractReferenceContext
 		return false;
 	}
 
-	public <T extends Loadable> Collection<T> getConstructedCDOMObjects(
-			Class<T> c)
+	public <T extends Loadable> Collection<T> getConstructedCDOMObjects(Class<T> c)
 	{
 		// if (CategorizedCDOMObject.class.isAssignableFrom(c))
 		// {
@@ -273,8 +265,7 @@ public abstract class AbstractReferenceContext
 		return set;
 	}
 
-	public <T extends Loadable> boolean containsConstructedCDOMObject(
-			Class<T> c, String s)
+	public <T extends Loadable> boolean containsConstructedCDOMObject(Class<T> c, String s)
 	{
 		return getManufacturer(c).containsObjectKeyed(s);
 	}
@@ -327,8 +318,7 @@ public abstract class AbstractReferenceContext
 					{
 						//Now an error to explicitly create this match, see CODE-1928
 						Logging.errorPrint("Cannot explicitly create a SUBCLASS that matches the parent class.  "
-								+ "Use ALLOWBASECLASS.  "
-								+ "Tokens on the offending SUBCLASS line will be ignored");
+							+ "Use ALLOWBASECLASS.  " + "Tokens on the offending SUBCLASS line will be ignored");
 						pcc.removeFromListFor(ListKey.SUB_CLASS, subcl);
 						continue;
 					}
@@ -416,15 +406,13 @@ public abstract class AbstractReferenceContext
 		return returnGood;
 	}
 
-	private <T extends Loadable> boolean processResolution(
-			UnconstructedValidator validator, ReferenceManufacturer<T> rs)
+	private <T extends Loadable> boolean processResolution(UnconstructedValidator validator,
+		ReferenceManufacturer<T> rs)
 	{
 		ManufacturableFactory<T> factory = rs.getFactory();
 		ManufacturableFactory<T> parent = factory.getParent();
-		ReferenceManufacturer<T> manufacturer = (parent == null) ? null
-				: getManufacturerFac(parent);
-		return factory.populate(manufacturer, rs, validator)
-				&& rs.resolveReferences(validator);
+		ReferenceManufacturer<T> manufacturer = (parent == null) ? null : getManufacturerFac(parent);
+		return factory.populate(manufacturer, rs, validator) && rs.resolveReferences(validator);
 	}
 
 	public void buildDeferredObjects()
@@ -452,11 +440,9 @@ public abstract class AbstractReferenceContext
 	 *            The ClassIdentity for which the ReferenceManufacturer should be returned
 	 * @return The ReferenceManufacturer for the given ClassIdentity
 	 */
-	public abstract <T extends Loadable> ReferenceManufacturer<T> getManufacturerId(
-			ClassIdentity<T> classIdentity);
+	public abstract <T extends Loadable> ReferenceManufacturer<T> getManufacturerId(ClassIdentity<T> classIdentity);
 
-	public <T extends CDOMObject> List<T> getSortedList(Class<T> cl,
-		IntegerKey key)
+	public <T extends CDOMObject> List<T> getSortedList(Class<T> cl, IntegerKey key)
 	{
 		List<T> returnList;
 		WeakReference<List<?>> wr = sortedMap.get(cl, key);
@@ -471,7 +457,7 @@ public abstract class AbstractReferenceContext
 	public <T extends CDOMObject> List<T> getSortOrderedList(Class<T> cl)
 	{
 		List<T> returnList;
-		Comparator<CDOMObject> comp = Globals.pObjectNameComp;
+		Comparator<CDOMObject> comp = Globals.P_OBJECT_NAME_COMP;
 		//We arbitrarily use the sort order comparator as the second key
 		WeakReference<List<?>> wr = sortedMap.get(cl, comp);
 		if ((wr == null) || ((returnList = (List<T>) wr.get()) == null))
@@ -482,8 +468,7 @@ public abstract class AbstractReferenceContext
 		return Collections.unmodifiableList(returnList);
 	}
 
-	private <T extends CDOMObject> List<T> generateList(Class<T> cl,
-		Comparator<? super T> comp)
+	private <T extends CDOMObject> List<T> generateList(Class<T> cl, Comparator<? super T> comp)
 	{
 		Set<T> tm = new TreeSet<>(comp);
 		tm.addAll(getConstructedCDOMObjects(cl));
@@ -503,8 +488,7 @@ public abstract class AbstractReferenceContext
 	 *            returned
 	 * @return The ReferenceManufacturer for the given ManufacturableFactory
 	 */
-	public abstract <T extends Loadable> ReferenceManufacturer<T> getManufacturerFac(
-		ManufacturableFactory<T> factory);
+	public abstract <T extends Loadable> ReferenceManufacturer<T> getManufacturerFac(ManufacturableFactory<T> factory);
 
 	abstract <T extends CDOMObject> T performCopy(T object, String copyName);
 
@@ -512,8 +496,7 @@ public abstract class AbstractReferenceContext
 
 	public FormatManager<?> getFormatManager(String clName)
 	{
-		if ((!fmtLibrary.hasFormatManager(clName))
-			&& (StringPClassUtil.getClassForBasic(clName) != null))
+		if ((!fmtLibrary.hasFormatManager(clName)) && (StringPClassUtil.getClassForBasic(clName) != null))
 		{
 			importCDOMToFormat(clName);
 		}
@@ -525,14 +508,13 @@ public abstract class AbstractReferenceContext
 		Class<? extends Loadable> cl = StringPClassUtil.getClassForBasic(name);
 		if (cl == null)
 		{
-			throw new IllegalArgumentException(
-				"Invalid Data Definition Location (no class): " + name);
+			throw new IllegalArgumentException("Invalid Data Definition Location (no class): " + name);
 		}
 		ReferenceManufacturer<? extends Loadable> mgr = getManufacturer(cl);
 		if (!name.equalsIgnoreCase(mgr.getIdentifierType()))
 		{
-			throw new IllegalArgumentException("Invalid Data: " + name
-				+ " did not return a matching manufacturer: " + mgr.getIdentifierType());
+			throw new IllegalArgumentException(
+				"Invalid Data: " + name + " did not return a matching manufacturer: " + mgr.getIdentifierType());
 		}
 		fmtLibrary.addFormatManager(mgr);
 	}
@@ -544,16 +526,15 @@ public abstract class AbstractReferenceContext
 	 *            The Class of object to return
 	 * @return The List of items, sorted by their sort key
 	 */
-	public <T extends Loadable & SortKeyRequired> List<T> getSortkeySortedCDOMObjects(
-		Class<T> cl)
+	public <T extends Loadable & SortKeyRequired> List<T> getSortkeySortedCDOMObjects(Class<T> cl)
 	{
 		List<T> items = new ArrayList<>(getConstructedCDOMObjects(cl));
 		items.sort(SortKeyComparator.getInstance());
 		return items;
 	}
 
-  /**
-   * Returns the ReferenceManufacturer for a given Format name and class.
+	/**
+	 * Returns the ReferenceManufacturer for a given Format name and class.
 	 * 
 	 * @param formatName
 	 *            The (persistent) name of the format for which the ReferenceManufacturer
@@ -563,8 +544,8 @@ public abstract class AbstractReferenceContext
 	 *            ReferenceManufacturer to be returned
 	 * @return The ReferenceManufacturer for a given Format name and class
 	 */
-	public abstract <T extends Loadable> ReferenceManufacturer<T> getManufacturerByFormatName(
-		String formatName, Class<T> cl);
+	public abstract <T extends Loadable> ReferenceManufacturer<T> getManufacturerByFormatName(String formatName,
+		Class<T> cl);
 
 	/**
 	 * Returns the ReferenceManufacturer for a given Format name and class.
@@ -574,6 +555,5 @@ public abstract class AbstractReferenceContext
 	 *            should be returned
 	 * @return The ReferenceManufacturer for a given Format name and class
 	 */
-	public abstract ReferenceManufacturer<?> getManufacturerByFormatName(
-		String formatName);
+	public abstract ReferenceManufacturer<?> getManufacturerByFormatName(String formatName);
 }

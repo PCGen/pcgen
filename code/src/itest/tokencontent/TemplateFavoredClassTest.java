@@ -22,7 +22,6 @@ import pcgen.cdom.facet.analysis.FavoredClassFacet;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.gui2.facade.MockUIDelegate;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.chooser.ChooserFactory;
@@ -53,7 +52,7 @@ public class TemplateFavoredClassTest extends AbstractTokenModelTest
 	}
 
 	@Test
-	public void testDirect() throws PersistenceLayerException
+	public void testDirect()
 	{
 		PCTemplate source = create(PCTemplate.class, "Source");
 		ParseResult result = token.parseToken(context, source, "Favorite");
@@ -72,7 +71,7 @@ public class TemplateFavoredClassTest extends AbstractTokenModelTest
 	}
 
 	@Test
-	public void testList() throws PersistenceLayerException
+	public void testList()
 	{
 		PCTemplate source = create(PCTemplate.class, "Source");
 		ParseResult result = token.parseToken(context, source, "%LIST");

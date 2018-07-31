@@ -28,7 +28,7 @@ import pcgen.core.SettingsHandler;
  */
 public class SystemHP
 {
-	
+
 	private State state = State.Nothing;
 	private SystemAttribute attribute;
 	private boolean firstround;
@@ -94,7 +94,7 @@ public class SystemHP
 	public void setCurrent(int current)
 	{
 		int currentHP = current;
-		
+
 		if (currentHP > max)
 		{
 			currentHP = max;
@@ -135,8 +135,8 @@ public class SystemHP
 			PcgCombatant pcgcbt = (PcgCombatant) cbt;
 			PlayerCharacter pc = pcgcbt.getPC();
 
-			PCStat stat = Globals.getContext().getReferenceContext()
-					.silentlyGetConstructedCDOMObject(PCStat.class, "CON");
+			PCStat stat =
+					Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCStat.class, "CON");
 			if (damage > pc.getTotalStatFor(stat))
 			{
 				return true;
@@ -334,17 +334,14 @@ public class SystemHP
 		//TODO: Make it so that we can use static finals from somewhere here
 		//      and not "1" or "2"
 		//		Should we also set up static constants for "Initiative.Damage.Death" . . .
-		int disabledType =
-			SettingsHandler.getGMGenOption(
-				"Initiative.Damage.Disabled",
-				1);
-		
+		int disabledType = SettingsHandler.getGMGenOption("Initiative.Damage.Disabled", 1);
+
 		int disabledLowRange = 0;
 		if (disabledType == 2)
 		{
-			disabledLowRange = -1 * Math.max(0,attribute.getModifier());
+			disabledLowRange = -1 * Math.max(0, attribute.getModifier());
 		}
-		
+
 		if (current <= 0 && current >= disabledLowRange)
 		{
 			state = State.Disabled;
@@ -357,10 +354,7 @@ public class SystemHP
 		//TODO: Make it so that we can use static finals from somewhere here
 		//      and not "1" or "2"
 		//		Should we also set up static constants for "Initiative.Damage.Death" . . .
-		int deathType =
-			SettingsHandler.getGMGenOption(
-				"Initiative.Damage.Death",
-				1);
+		int deathType = SettingsHandler.getGMGenOption("Initiative.Damage.Death", 1);
 
 		if (deathType == 1)
 		{
@@ -517,17 +511,14 @@ public class SystemHP
 		//TODO: Make it so that we can use static finals from somewhere here
 		//      and not "1" or "2"
 		//		Should we also set up static constants for "Initiative.Damage.Death" . . .
-		int disabledType =
-			SettingsHandler.getGMGenOption(
-				"Initiative.Damage.Disabled",
-				1);
-		
+		int disabledType = SettingsHandler.getGMGenOption("Initiative.Damage.Disabled", 1);
+
 		int disabledBonus = 0;
 		if (disabledType == 2)
 		{
-			disabledBonus = Math.max(0,attribute.getModifier());
+			disabledBonus = Math.max(0, attribute.getModifier());
 		}
-		
+
 		if ((state == State.Nothing || state == State.Staggered || state == State.Unconsious) && (subdual > 0))
 		{
 			if (subdual >= current && subdual <= (current + disabledBonus))

@@ -68,8 +68,7 @@ public class AddingFormula implements ReferenceFormula<Integer>
 	{
 		if (numbers == null || numbers.length != 1)
 		{
-			throw new IllegalArgumentException(
-					"AddingFormula only has one back-reference");
+			throw new IllegalArgumentException("AddingFormula only has one back-reference");
 		}
 		return numbers[0].intValue() + add;
 	}

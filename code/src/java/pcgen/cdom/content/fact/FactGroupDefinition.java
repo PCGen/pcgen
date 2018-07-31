@@ -42,8 +42,7 @@ import pcgen.rules.persistence.ChoiceSetLoadUtilities;
  *            The Type of object this FactGroupDefinition contains (the content
  *            of the fact)
  */
-public class FactGroupDefinition<T extends CDOMObject, F> implements
-		GroupDefinition<T>, GroupingDefinition<T>
+public class FactGroupDefinition<T extends CDOMObject, F> implements GroupDefinition<T>, GroupingDefinition<T>
 {
 
 	/**

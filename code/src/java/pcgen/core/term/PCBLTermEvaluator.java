@@ -22,22 +22,23 @@ package pcgen.core.term;
 
 import pcgen.core.PlayerCharacter;
 
-public class PCBLTermEvaluator
-		extends BasePCTermEvaluator implements TermEvaluator {
+public class PCBLTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
+{
 
 	private final String source;
 
-	public PCBLTermEvaluator(
-			String originalText, String source)
+	public PCBLTermEvaluator(String originalText, String source)
 	{
 		this.originalText = originalText;
 		this.source = source;
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc) {
+	public Float resolve(PlayerCharacter pc)
+	{
 
-		if (source.isEmpty()) {
+		if (source.isEmpty())
+		{
 			return 0.0f;
 		}
 

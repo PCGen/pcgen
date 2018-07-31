@@ -17,6 +17,14 @@
  */
 package pcgen.cdom.facet;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
+import org.junit.Before;
+import org.junit.Test;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.CharID;
@@ -34,11 +42,7 @@ import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
-
-import org.junit.Before;
-import org.junit.Test;
 import plugin.lsttokens.testsupport.BuildUtilities;
-import static org.junit.Assert.*;
 
 public class StatIntegrationTest
 {

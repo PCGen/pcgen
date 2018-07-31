@@ -35,8 +35,7 @@ public final class TaskStrategyMessage
 		{
 			if (listeners[i] == TaskStrategyListener.class)
 			{
-				((TaskStrategyListener) listeners[i + 1]).processMessage(owner,
-						string);
+				((TaskStrategyListener) listeners[i + 1]).processMessage(owner, string);
 			}
 		}
 	}
@@ -48,8 +47,7 @@ public final class TaskStrategyMessage
 		{
 			if (listeners[i] == TaskStrategyListener.class)
 			{
-				((TaskStrategyListener) listeners[i + 1]).processStatus(source,
-						string);
+				((TaskStrategyListener) listeners[i + 1]).processStatus(source, string);
 			}
 		}
 	}
@@ -61,8 +59,7 @@ public final class TaskStrategyMessage
 		{
 			if (listeners[i] == TaskStrategyListener.class)
 			{
-				((TaskStrategyListener) listeners[i + 1]).processActiveItem(
-						source, string);
+				((TaskStrategyListener) listeners[i + 1]).processActiveItem(source, string);
 			}
 		}
 	}

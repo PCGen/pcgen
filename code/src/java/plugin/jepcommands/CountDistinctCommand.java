@@ -28,7 +28,6 @@ import pcgen.util.AbstractCountCommand;
 import pcgen.util.JepCountType;
 import pcgen.util.Logging;
 
-
 /**
  * {@code CountDistinctCommand} deals with the count() JEP command. The first parameter will
  * be the type of object being counted and further parameters will specify the criteria.
@@ -37,7 +36,6 @@ import pcgen.util.Logging;
 public class CountDistinctCommand extends AbstractCountCommand
 {
 
-	
 	/**
 	 * Constructor.
 	 */
@@ -74,9 +72,7 @@ public class CountDistinctCommand extends AbstractCountCommand
 
 		if (pc == null)
 		{
-			throw new ParseException(
-				"Invalid parent (no PC): "
-					+ parent.getClass().getName());
+			throw new ParseException("Invalid parent (no PC): " + parent.getClass().getName());
 		}
 
 		// check the stack
@@ -92,8 +88,7 @@ public class CountDistinctCommand extends AbstractCountCommand
 			final Object toCount = inStack.pop();
 			if (toCount instanceof String)
 			{
-				JepCountType countEnum =
-						JepCountType.valueOf(toCount + "DISTINCT");
+				JepCountType countEnum = JepCountType.valueOf(toCount + "DISTINCT");
 				if (countEnum == null)
 				{
 					// Fall back to count

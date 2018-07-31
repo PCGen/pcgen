@@ -20,8 +20,6 @@ package pcgen.cdom.helper;
 
 import java.util.Collection;
 
-import pcgen.cdom.facet.base.AbstractStorageFacet;
-
 import org.jetbrains.annotations.Nullable;
 import org.springframework.beans.factory.ListableBeanFactory;
 import org.springframework.beans.factory.support.BeanDefinitionReader;
@@ -29,6 +27,8 @@ import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
+
+import pcgen.cdom.facet.base.AbstractStorageFacet;
 
 /**
  * The Class {@code SpringHelper} is a simple helper for
@@ -40,7 +40,7 @@ public final class SpringHelper
 	{
 	}
 
-	private static final ListableBeanFactory beanFactory;
+	private static final ListableBeanFactory BEAN_FACTORY;
 
 	static
 	{
@@ -48,7 +48,7 @@ public final class SpringHelper
 		DefaultListableBeanFactory xbf = new DefaultListableBeanFactory();
 		BeanDefinitionReader beanReader = new XmlBeanDefinitionReader(xbf);
 		beanReader.loadBeanDefinitions(appClassRes);
-		beanFactory = xbf;
+		BEAN_FACTORY = xbf;
 	}
 
 	/**
@@ -60,16 +60,16 @@ public final class SpringHelper
 	 */
 	public static @Nullable <T> T getBean(Class<T> cl)
 	{
-		String[] beanNamesForType = beanFactory.getBeanNamesForType(cl);
-		if (beanNamesForType.length ==0) 
+		String[] beanNamesForType = BEAN_FACTORY.getBeanNamesForType(cl);
+		if (beanNamesForType.length == 0)
 		{
 			return null;
 		}
-		return beanFactory.getBean(beanNamesForType[0], cl);
+		return BEAN_FACTORY.getBean(beanNamesForType[0], cl);
 	}
-	
+
 	public static Collection<AbstractStorageFacet> getStorageBeans()
 	{
-		return beanFactory.getBeansOfType(AbstractStorageFacet.class).values();
+		return BEAN_FACTORY.getBeansOfType(AbstractStorageFacet.class).values();
 	}
 }

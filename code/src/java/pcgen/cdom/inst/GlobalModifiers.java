@@ -39,9 +39,9 @@ public class GlobalModifiers extends CDOMObject
 	public boolean equals(Object o)
 	{
 		if (o instanceof GlobalModifiers)
-	{
+		{
 			return isCDOMEqual((CDOMObject) o);
-	}
+		}
 		return false;
 	}
 

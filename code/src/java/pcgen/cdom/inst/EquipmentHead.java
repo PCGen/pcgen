@@ -63,8 +63,7 @@ public final class EquipmentHead extends CDOMObject
 	{
 		if (source == null)
 		{
-			throw new IllegalArgumentException(
-				"Source for EquipmentHead cannot be null");
+			throw new IllegalArgumentException("Source for EquipmentHead cannot be null");
 		}
 		index = idx;
 		headSource = source;

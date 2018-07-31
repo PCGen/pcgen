@@ -59,14 +59,11 @@ public class VariableProcessorPC extends VariableProcessor
 	 */
 
 	@Override
-	Float getInternalVariable(
-			final CharacterSpell aSpell,
-			String valString,
-			final String src)
+	Float getInternalVariable(final CharacterSpell aSpell, String valString, final String src)
 	{
-        TermEvaluator evaluator = EvaluatorFactory.PC.getTermEvaluator(valString, src);
+		TermEvaluator evaluator = EvaluatorFactory.PC.getTermEvaluator(valString, src);
 
-        return (evaluator == null) ? null : evaluator.resolve(pc, aSpell);
+		return (evaluator == null) ? null : evaluator.resolve(pc, aSpell);
 	}
 
 }

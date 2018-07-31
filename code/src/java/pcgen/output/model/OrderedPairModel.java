@@ -30,8 +30,7 @@ import pcgen.output.base.SimpleWrapperLibrary;
  * A OrderedPairModel wraps a OrderedPair object into a TemplateScalarModel and
  * TemplateSequenceModel (of length 2).
  */
-public class OrderedPairModel implements TemplateScalarModel,
-		TemplateSequenceModel, Supplier<OrderedPair>
+public class OrderedPairModel implements TemplateScalarModel, TemplateSequenceModel, Supplier<OrderedPair>
 {
 
 	/**

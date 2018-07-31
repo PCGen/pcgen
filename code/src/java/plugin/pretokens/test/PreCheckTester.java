@@ -28,7 +28,7 @@ public class PreCheckTester extends AbstractPrerequisiteTest implements Prerequi
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "CHECK"; //$NON-NLS-1$
@@ -41,7 +41,8 @@ public class PreCheckTester extends AbstractPrerequisiteTest implements Prerequi
 
 		final String checkName = prereq.getKey();
 		final int operand = character.getVariableValue(prereq.getOperand(), "").intValue(); //$NON-NLS-1$
-		PCCheck check = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCCheck.class, checkName);
+		PCCheck check =
+				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCCheck.class, checkName);
 		if (check != null)
 		{
 			final int characterCheckBonus = character.getTotalCheck(check);

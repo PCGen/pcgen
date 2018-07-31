@@ -41,41 +41,40 @@ public class OptionsParser
 {
 	private final SAXParser theParser;
 	private final GameMode theMode;
-	
+
 	/**
 	 * Creates a new OptionsParser for the specified game mode.
-	 * 
+	 *
 	 * @param aMode The game mode to parse options for.
-	 * 
-	 * @throws ParserConfigurationException
-	 * @throws SAXException
+	 * @throws ParserConfigurationException the parser configuration exception
+	 * @throws SAXException the SAX exception
 	 */
-	public OptionsParser(final GameMode aMode) 
-		throws ParserConfigurationException, SAXException
+	public OptionsParser(final GameMode aMode) throws ParserConfigurationException, SAXException
 	{
 		theMode = aMode;
-		
+
 		final SAXParserFactory parserFactory = SAXParserFactory.newInstance();
 		parserFactory.setValidating(true);
 		theParser = parserFactory.newSAXParser();
 	}
-	
+
 	/**
+	 * Parses the.
+	 *
 	 * @param aFileName File to parse.
 	 * @return a list of generator options
-	 * @throws SAXException
-	 * @throws IOException
+	 * @throws SAXException the SAX exception
+	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
-	public List<GeneratorOption> parse( final File aFileName ) 
-		throws SAXException, IOException
+	public List<GeneratorOption> parse(final File aFileName) throws SAXException, IOException
 	{
 		final List<GeneratorOption> ret = new ArrayList<>();
-		
+
 		try
 		{
 			theParser.parse(aFileName, new OptionHandler(theMode, ret));
 		}
-		catch (IllegalArgumentException ex )
+		catch (IllegalArgumentException ex)
 		{
 			// Do nothing, means we weren't the right game mode for this file.
 		}
@@ -86,34 +85,33 @@ public class OptionsParser
 class OptionHandler extends DefaultHandler
 {
 	private final List<GeneratorOption> theList;
-	
+
 	private GameMode theGameMode = null;
 	private boolean theValidFlag = false;
-	
+
 	private GeneratorOption theCurrentOption = null;
-	
-	public OptionHandler( final GameMode aMode, final List<GeneratorOption> aList )
+
+	public OptionHandler(final GameMode aMode, final List<GeneratorOption> aList)
 	{
 		theGameMode = aMode;
 		theList = aList;
 	}
-	
+
 	/**
 	 * @throws SAXException 
 	 * 
-	 * @see org.xml.sax.helpers.DefaultHandler#startElement(java.lang.String, java.lang.String, java.lang.String, org.xml.sax.Attributes)
+	 * @see DefaultHandler#startElement(String, String, String, Attributes)
 	 */
 	@Override
-	public void startElement(	final String uri, final String localName,
-								final String aName, final Attributes anAttrs) 
+	public void startElement(final String uri, final String localName, final String aName, final Attributes anAttrs)
 		throws SAXException
 	{
-		if ( "npcgen_options".equals(aName) ) //$NON-NLS-1$
+		if ("npcgen_options".equals(aName)) //$NON-NLS-1$
 		{
-			if ( anAttrs != null )
+			if (anAttrs != null)
 			{
 				final String gm = anAttrs.getValue("game_mode"); //$NON-NLS-1$
-				if ( ! SystemCollections.getGameModeNamed(gm).equals(theGameMode) )
+				if (!SystemCollections.getGameModeNamed(gm).equals(theGameMode))
 				{
 					throw new IllegalArgumentException("Incorrect game mode"); //$NON-NLS-1$
 				}
@@ -121,43 +119,43 @@ class OptionHandler extends DefaultHandler
 			}
 			return;
 		}
-		
-		if (!theValidFlag )
+
+		if (!theValidFlag)
 		{
 			throw new SAXException("NPCGen.Options.InvalidFileFormat"); //$NON-NLS-1$
 		}
-		if ( "align".equals(aName) ) //$NON-NLS-1$
+		if ("align".equals(aName)) //$NON-NLS-1$
 		{
 			theCurrentOption = new AlignGeneratorOption();
 		}
-		else if ( "race".equals(aName) ) //$NON-NLS-1$
+		else if ("race".equals(aName)) //$NON-NLS-1$
 		{
 			theCurrentOption = new RaceGeneratorOption();
 		}
-		else if ( "gender".equals(aName) ) //$NON-NLS-1$
+		else if ("gender".equals(aName)) //$NON-NLS-1$
 		{
 			theCurrentOption = new GenderGeneratorOption();
 		}
-		else if ( "class".equals(aName) ) //$NON-NLS-1$
+		else if ("class".equals(aName)) //$NON-NLS-1$
 		{
 			theCurrentOption = new ClassGeneratorOption();
 		}
-		else if ( "level".equals(aName) ) //$NON-NLS-1$
+		else if ("level".equals(aName)) //$NON-NLS-1$
 		{
 			theCurrentOption = new LevelGeneratorOption();
 		}
-		else if ( "choice".equals(aName) ) //$NON-NLS-1$
+		else if ("choice".equals(aName)) //$NON-NLS-1$
 		{
 			int weight = 1;
 			final String weightStr = anAttrs.getValue("weight"); //$NON-NLS-1$
-			if ( weightStr != null )
+			if (weightStr != null)
 			{
-				weight = Integer.parseInt( weightStr );
+				weight = Integer.parseInt(weightStr);
 			}
 			theCurrentOption.addChoice(weight, anAttrs.getValue("value")); //$NON-NLS-1$
 		}
 
-		if ( ! "choice".equals(aName) )
+		if (!"choice".equals(aName))
 		{
 			theCurrentOption.setName(anAttrs.getValue("name")); //$NON-NLS-1$
 			theList.add(theCurrentOption);

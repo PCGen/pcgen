@@ -27,6 +27,7 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.core.Globals;
 import pcgen.core.Language;
 import pcgen.core.PlayerCharacter;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.TestHelper;
 
@@ -54,10 +55,11 @@ public class PreLangTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test the PRELANG code
-	 * @throws Exception
+	 * Test the PRELANG code.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testLang() throws Exception
+	public void testLang() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		character.addFreeLanguage(elven, elven);

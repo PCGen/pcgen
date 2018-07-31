@@ -31,37 +31,36 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.system.PluginLoader;
 import pcgen.util.Logging;
 
-
 public final class PreParserFactory implements PluginLoader
 {
 	private static PreParserFactory instance = null;
-	private static Map<String, PrerequisiteParserInterface> parserLookup =
-            new HashMap<>();
+	private static Map<String, PrerequisiteParserInterface> parserLookup = new HashMap<>();
 
 	private PreParserFactory() throws PersistenceLayerException
 	{
 		register(new PreMultParser());
 	}
 
-    @Override
+	@Override
 	public void loadPlugin(Class<?> clazz) throws Exception
 	{
 		register((PrerequisiteParserInterface) clazz.newInstance());
 	}
 
 	@SuppressWarnings("unchecked")
-    @Override
+	@Override
 	public Class[] getPluginClasses()
 	{
 		return new Class[]{PrerequisiteParserInterface.class};
 	}
 
 	/**
+	 * Gets the single instance of PreParserFactory.
+	 *
 	 * @return Returns the instance.
-	 * @throws PersistenceLayerException
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public static PreParserFactory getInstance()
-		throws PersistenceLayerException
+	public static PreParserFactory getInstance() throws PersistenceLayerException
 	{
 		if (instance == null)
 		{
@@ -76,8 +75,7 @@ public final class PreParserFactory implements PluginLoader
 		return parserLookup.get(kind.toLowerCase());
 	}
 
-	public static void register(PrerequisiteParserInterface testClass)
-		throws PersistenceLayerException
+	public static void register(PrerequisiteParserInterface testClass) throws PersistenceLayerException
 	{
 		String[] kindsHandled = testClass.kindsHandled();
 
@@ -87,11 +85,9 @@ public final class PreParserFactory implements PluginLoader
 
 			if (test != null)
 			{
-				throw new PersistenceLayerException("Error registering '"
-					+ testClass.getClass().getName() + "' as test '"
-					+ kindsHandled[i]
-					+ "'. The test is already registered to '"
-					+ test.getClass().getName() + "'");
+				throw new PersistenceLayerException(
+					"Error registering '" + testClass.getClass().getName() + "' as test '" + kindsHandled[i]
+						+ "'. The test is already registered to '" + test.getClass().getName() + "'");
 			}
 
 			parserLookup.put(kindsHandled[i].toLowerCase(), testClass);
@@ -100,8 +96,7 @@ public final class PreParserFactory implements PluginLoader
 
 	public static List<Prerequisite> parse(final List<String> preStrings)
 	{
-		final List<Prerequisite> ret =
-                new ArrayList<>(preStrings.size());
+		final List<Prerequisite> ret = new ArrayList<>(preStrings.size());
 		for (String prestr : preStrings)
 		{
 			try
@@ -112,15 +107,15 @@ public final class PreParserFactory implements PluginLoader
 			}
 			catch (PersistenceLayerException ple)
 			{
-				Logging.errorPrint(ple.getMessage(), ple); //The message is now produced at a lower level, and thus has to be localised there.
-				//Logging.errorPrintLocalised(PropertyFactory.getString("PrereqHandler.Unable_to_parse"), object); //$NON-NLS-1$
+				Logging.errorPrint(ple.getMessage(), ple);
+				//The message is now produced at a lower level, and thus has to be localized there.
+	//Logging.errorPrintLocalised(PropertyFactory.getString("PrereqHandler.Unable_to_parse"), object); //$NON-NLS-1$
 			}
 		}
 		return ret;
 	}
 
-	public Prerequisite parse(String prereqStr)
-		throws PersistenceLayerException
+	public Prerequisite parse(String prereqStr) throws PersistenceLayerException
 	{
 
 		if ((prereqStr == null) || (prereqStr.length() <= 0))
@@ -131,8 +126,7 @@ public final class PreParserFactory implements PluginLoader
 		int index = prereqStr.indexOf(':');
 		if (index < 0)
 		{
-			throw new PersistenceLayerException("'" + prereqStr + "'"
-				+ " is a badly formatted prereq.");
+			throw new PersistenceLayerException("'" + prereqStr + "'" + " is a badly formatted prereq.");
 		}
 
 		String kind = prereqStr.substring(0, index);
@@ -155,20 +149,15 @@ public final class PreParserFactory implements PluginLoader
 		PrerequisiteParserInterface parser = getParser(kind);
 		if (parser == null)
 		{
-			throw new PersistenceLayerException(
-				"Can not determine which parser to use for " + "'" + prereqStr
-					+ "'");
+			throw new PersistenceLayerException("Can not determine which parser to use for " + "'" + prereqStr + "'");
 		}
 		try
 		{
-			Prerequisite prereq =
-					parser.parse(kind, formula, invertResult, overrideQualify);
+			Prerequisite prereq = parser.parse(kind, formula, invertResult, overrideQualify);
 			//sanity check to make sure we have not got a top level element that
 			// is a PREMULT with only 1 element.
-			while (prereq.getKind() == null
-				&& prereq.getPrerequisiteCount() == 1
-				&& prereq.getOperator().equals(PrerequisiteOperator.GTEQ)
-				&& prereq.getOperand().equals("1"))
+			while (prereq.getKind() == null && prereq.getPrerequisiteCount() == 1
+				&& prereq.getOperator().equals(PrerequisiteOperator.GTEQ) && prereq.getOperand().equals("1"))
 			{
 				Prerequisite sub = prereq.getPrerequisites().get(0);
 				sub.setOriginalCheckmult(prereq.isOriginalCheckMult());
@@ -178,8 +167,7 @@ public final class PreParserFactory implements PluginLoader
 		}
 		catch (Throwable t)
 		{
-			throw new PersistenceLayerException("Can not parse '" + prereqStr
-				+ "': " + t.getMessage());
+			throw new PersistenceLayerException("Can not parse '" + prereqStr + "': " + t.getMessage());
 		}
 	}
 
@@ -191,10 +179,9 @@ public final class PreParserFactory implements PluginLoader
 	 */
 	public static boolean isPreReqString(String token)
 	{
-		return (token.startsWith("PRE") || token.startsWith("!PRE"))
-			&& (token.indexOf(':') > 0);
+		return (token.startsWith("PRE") || token.startsWith("!PRE")) && (token.indexOf(':') > 0);
 	}
-	
+
 	public static void clear()
 	{
 		parserLookup.clear();

@@ -18,7 +18,15 @@
 package pcgen.gui2.facade;
 
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
 import java.net.URI;
+
+import org.junit.Before;
+import org.junit.Test;
 
 import pcgen.AbstractJunit4CharacterTestCase;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -40,10 +48,6 @@ import pcgen.facade.core.UIDelegate;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
-
-import org.junit.Before;
-import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  * CharacterLevelsFacadeImplTest checks that CharacterLevelsFacadeImpl is working ok.
@@ -218,7 +222,8 @@ public class CharacterLevelsFacadeImplTest extends AbstractJunit4CharacterTestCa
 		assertEquals(
 			"Level for 1 rank umd - scan from lvl 1 as higher all spent for non prohibited class",
 			charLvlsFI.getElementAt(0),
-			charLvlsFI.findNextLevelForSkill(CharacterLevelsFacadeImplTest.umdSkill, charLvlsFI.getElementAt(17), 1.0f));
+			charLvlsFI.findNextLevelForSkill(CharacterLevelsFacadeImplTest.umdSkill, charLvlsFI.getElementAt(17),
+				1.0f));
 		// 6. Advise that the skill cannot be advanced.
 		assertNull("Level for rank 21 spellcraft - cannot be advanced",
 				charLvlsFI.findNextLevelForSkill(CharacterLevelsFacadeImplTest.spellcraftSkill,

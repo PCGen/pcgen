@@ -17,13 +17,13 @@
  */
 package pcgen.output.actor;
 
+import freemarker.template.TemplateModel;
+import freemarker.template.TemplateModelException;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.output.base.OutputActor;
 import pcgen.output.base.SimpleWrapperLibrary;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
 
 /**
  * An OutputNameActor is designed to process an interpolation and convert the
@@ -35,8 +35,7 @@ import freemarker.template.TemplateModelException;
 public class OutputNameActor implements OutputActor<CDOMObject>
 {
 	@Override
-	public TemplateModel process(CharID id, CDOMObject d)
-		throws TemplateModelException
+	public TemplateModel process(CharID id, CDOMObject d) throws TemplateModelException
 	{
 		String outputName = OutputNameFormatting.getOutputName(d);
 		return SimpleWrapperLibrary.wrap(outputName);

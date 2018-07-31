@@ -15,7 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
- package pcgen.gui2.doomsdaybook;
+package pcgen.gui2.doomsdaybook;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
@@ -50,6 +50,15 @@ import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 
+import org.jdom2.DataConversionException;
+import org.jdom2.DocType;
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.input.SAXBuilder;
+import org.xml.sax.EntityResolver;
+import org.xml.sax.InputSource;
+
+import gmgen.util.LogUtilities;
 import pcgen.core.doomsdaybook.CRRule;
 import pcgen.core.doomsdaybook.DataElement;
 import pcgen.core.doomsdaybook.DataElementComperator;
@@ -64,15 +73,6 @@ import pcgen.gui2.tools.Icons;
 import pcgen.gui2.util.FontManipulation;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
-
-import gmgen.util.LogUtilities;
-import org.jdom2.DataConversionException;
-import org.jdom2.DocType;
-import org.jdom2.Document;
-import org.jdom2.Element;
-import org.jdom2.input.SAXBuilder;
-import org.xml.sax.EntityResolver;
-import org.xml.sax.InputSource;
 import plugin.doomsdaybook.RandomNamePlugin;
 
 /**
@@ -81,10 +81,8 @@ import plugin.doomsdaybook.RandomNamePlugin;
  */
 public class NameGenPanel extends JPanel
 {
-	private final Preferences namePrefs =
-			Preferences.userNodeForPackage(NameGenPanel.class);
-	private final Map<String, List<RuleSet>> categories =
-            new HashMap<>();
+	private final Preferences namePrefs = Preferences.userNodeForPackage(NameGenPanel.class);
+	private final Map<String, List<RuleSet>> categories = new HashMap<>();
 	private JButton generateButton;
 	private JButton jButton1;
 	private JCheckBox chkStructure;
@@ -124,7 +122,7 @@ public class NameGenPanel extends JPanel
 	private final VariableHashMap allVars = new VariableHashMap();
 
 	private Rule lastRule = null;
-	
+
 	/** Creates new form NameGenPanel */
 	public NameGenPanel()
 	{
@@ -519,22 +517,21 @@ public class NameGenPanel extends JPanel
 
 		JPanel adjustNamePanel = new JPanel();
 		adjustNamePanel.setLayout(new BorderLayout());
-		
+
 		JLabel adjNameLabel = new JLabel(LanguageBundle.getString("in_rndNameAdjust")); //$NON-NLS-1$
-		
+
 		adjustNamePanel.add(adjNameLabel, BorderLayout.NORTH);
-		
+
 		buttonPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
 		// CODE-2099 Component needed to have correct vertical space available.
 		JLabel nb = new JLabel(" "); //$NON-NLS-1$
 		buttonPanel.add(nb);
 
 		adjustNamePanel.add(buttonPanel, BorderLayout.CENTER);
-		
+
 		add(adjustNamePanel, BorderLayout.SOUTH);
 
 		genCtrlPanel.add(jPanel7, BorderLayout.CENTER);
-		
 
 		// Name display
 		nameDisplayPanel.setLayout(new BorderLayout());
@@ -567,7 +564,7 @@ public class NameGenPanel extends JPanel
 
 		JPanel topPanel = new JPanel();
 		topPanel.setLayout(new BoxLayout(topPanel, BoxLayout.Y_AXIS));
-		
+
 		namePanel.setLayout(new BoxLayout(namePanel, BoxLayout.X_AXIS));
 
 		FontManipulation.xxlarge(name);
@@ -642,10 +639,9 @@ public class NameGenPanel extends JPanel
 				}
 			}
 
-			ComboBoxModel<RuleSet> catalogModel =
-					new DefaultComboBoxModel<>(catalogs);
+			ComboBoxModel<RuleSet> catalogModel = new DefaultComboBoxModel<>(catalogs);
 			cbCatalog.setModel(catalogModel);
-			if(oldSelected>=0)
+			if (oldSelected >= 0)
 			{
 				cbCatalog.setSelectedIndex(oldSelected);
 			}
@@ -761,11 +757,11 @@ public class NameGenPanel extends JPanel
 					{
 						loadFromDocument(nameSet);
 					}
-				} catch (Exception e)
+				}
+				catch (Exception e)
 				{
 					Logging.errorPrint(e.getMessage(), e);
-					JOptionPane.showMessageDialog(this, "XML Error with file "
-							+ dataFile.getName());
+					JOptionPane.showMessageDialog(this, "XML Error with file " + dataFile.getName());
 				}
 			}
 
@@ -773,8 +769,7 @@ public class NameGenPanel extends JPanel
 		}
 		else
 		{
-			JOptionPane.showMessageDialog(this, "No data files in directory "
-				+ path.getPath());
+			JOptionPane.showMessageDialog(this, "No data files in directory " + path.getPath());
 		}
 	}
 
@@ -812,8 +807,7 @@ public class NameGenPanel extends JPanel
 		this.loadCatalogDD();
 	}
 
-	private void loadFromDocument(Document nameSet)
-		throws DataConversionException
+	private void loadFromDocument(Document nameSet) throws DataConversionException
 	{
 		Element generator = nameSet.getRootElement();
 		java.util.List<?> rulesets = generator.getChildren("RULESET");
@@ -836,9 +830,8 @@ public class NameGenPanel extends JPanel
 
 	private String loadList(Element list) throws DataConversionException
 	{
-		pcgen.core.doomsdaybook.DDList dataList =
-				new pcgen.core.doomsdaybook.DDList(allVars, list
-					.getAttributeValue("title"), list.getAttributeValue("id"));
+		pcgen.core.doomsdaybook.DDList dataList = new pcgen.core.doomsdaybook.DDList(allVars,
+			list.getAttributeValue("title"), list.getAttributeValue("id"));
 		java.util.List<?> elements = list.getChildren();
 
 		for (final Object element : elements)
@@ -849,15 +842,13 @@ public class NameGenPanel extends JPanel
 			if (elementName.equals("VALUE"))
 			{
 				WeightedDataValue dv =
-						new WeightedDataValue(child.getText(), child
-								.getAttribute("weight").getIntValue());
+						new WeightedDataValue(child.getText(), child.getAttribute("weight").getIntValue());
 				List<?> subElements = child.getChildren("SUBVALUE");
 
 				for (final Object subElement1 : subElements)
 				{
 					Element subElement = (Element) subElement1;
-					dv.addSubValue(subElement.getAttributeValue("type"),
-							subElement.getText());
+					dv.addSubValue(subElement.getAttributeValue("type"), subElement.getText());
 				}
 
 				dataList.add(dv);
@@ -869,12 +860,9 @@ public class NameGenPanel extends JPanel
 		return dataList.getId();
 	}
 
-	private String loadRule(Element rule, String id)
-		throws DataConversionException
+	private String loadRule(Element rule, String id) throws DataConversionException
 	{
-		Rule dataRule =
-				new Rule(allVars, id, id, rule.getAttribute("weight")
-					.getIntValue());
+		Rule dataRule = new Rule(allVars, id, id, rule.getAttribute("weight").getIntValue());
 		java.util.List<?> elements = rule.getChildren();
 
 		for (final Object element : elements)
@@ -919,10 +907,8 @@ public class NameGenPanel extends JPanel
 
 	private RuleSet loadRuleSet(Element ruleSet) throws DataConversionException
 	{
-		RuleSet rs =
-				new RuleSet(allVars, ruleSet.getAttributeValue("title"),
-					ruleSet.getAttributeValue("id"), ruleSet
-						.getAttributeValue("usage"));
+		RuleSet rs = new RuleSet(allVars, ruleSet.getAttributeValue("title"), ruleSet.getAttributeValue("id"),
+			ruleSet.getAttributeValue("usage"));
 		java.util.List<?> elements = ruleSet.getChildren();
 		ListIterator<?> elementsIterator = elements.listIterator();
 		int num = 0;
@@ -970,8 +956,7 @@ public class NameGenPanel extends JPanel
 				}
 			}
 
-			DefaultComboBoxModel<DataElement> structModel =
-					new DefaultComboBoxModel<>(struct);
+			DefaultComboBoxModel<DataElement> structModel = new DefaultComboBoxModel<>(struct);
 			cbStructure.setModel(structModel);
 			cbStructure.setEnabled(true);
 		}
@@ -1034,9 +1019,7 @@ public class NameGenPanel extends JPanel
 				InputStream dtdIn;
 				try
 				{
-					dtdIn =
-							new FileInputStream(new File(parent,
-								"generator.dtd"));
+					dtdIn = new FileInputStream(new File(parent, "generator.dtd"));
 				}
 				catch (FileNotFoundException e)
 				{

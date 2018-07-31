@@ -34,8 +34,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * PROF Token part of Kit Prof Lst Token
  */
-public class ProfToken extends AbstractTokenWithSeparator<KitProf> implements
-		CDOMPrimaryToken<KitProf>
+public class ProfToken extends AbstractTokenWithSeparator<KitProf> implements CDOMPrimaryToken<KitProf>
 {
 	private static final Class<WeaponProf> WEAPONPROF_CLASS = WeaponProf.class;
 
@@ -63,15 +62,13 @@ public class ProfToken extends AbstractTokenWithSeparator<KitProf> implements
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		KitProf obj, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, KitProf obj, String value)
 	{
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		while (tok.hasMoreTokens())
 		{
 			String tokText = tok.nextToken();
-			CDOMSingleRef<WeaponProf> ref =
-					context.getReferenceContext().getCDOMReference(WEAPONPROF_CLASS, tokText);
+			CDOMSingleRef<WeaponProf> ref = context.getReferenceContext().getCDOMReference(WEAPONPROF_CLASS, tokText);
 			obj.addProficiency(ref);
 		}
 		return ParseResult.SUCCESS;
@@ -85,7 +82,6 @@ public class ProfToken extends AbstractTokenWithSeparator<KitProf> implements
 		{
 			return null;
 		}
-		return new String[]{ReferenceUtilities.joinLstFormat(ref,
-			Constants.PIPE)};
+		return new String[]{ReferenceUtilities.joinLstFormat(ref, Constants.PIPE)};
 	}
 }

@@ -69,7 +69,7 @@ public class InfoGuidePane extends JComponent implements UIResource
 		initComponents();
 		initListeners();
 	}
-	
+
 	private static JEditorPane createHtmlPane()
 	{
 		JEditorPane htmlPane = new JEditorPane();
@@ -83,12 +83,9 @@ public class InfoGuidePane extends JComponent implements UIResource
 	private void initComponents()
 	{
 		mainPanel = new JPanel();
-		mainPanel.setBorder(BorderFactory.createTitledBorder(null,
-			 "",
-			 TitledBorder.CENTER,
-			 TitledBorder.DEFAULT_POSITION,
-			 null));
-		
+		mainPanel.setBorder(
+			BorderFactory.createTitledBorder(null, "", TitledBorder.CENTER, TitledBorder.DEFAULT_POSITION, null));
+
 		mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
 		mainPanel.setPreferredSize(new Dimension(650, 450));
 		setOpaque(false);
@@ -106,24 +103,21 @@ public class InfoGuidePane extends JComponent implements UIResource
 		sourcesPanel.add(new JLabel(LanguageBundle.getString("in_si_sources")), gbc1);
 		sourcesPanel.add(campaignList, gbc2);
 
-
 		JEditorPane guidePane = createHtmlPane();
-		guidePane.setText(LanguageBundle.getFormattedString("in_si_whatnext",
-															Icons.New16.getImageIcon(),
-															Icons.Open16.getImageIcon()));
+		guidePane.setText(LanguageBundle.getFormattedString("in_si_whatnext", Icons.New16.getImageIcon(),
+			Icons.Open16.getImageIcon()));
 
 		mainPanel.add(sourcesPanel);
 		mainPanel.add(guidePane);
 		mainPanel.add(tipPane);
 		refreshDisplayedSources(null);
 
-        JPanel outerPanel = new JPanel(new FlowLayout());
-        outerPanel.add(mainPanel);
+		JPanel outerPanel = new JPanel(new FlowLayout());
+		outerPanel.add(mainPanel);
 		setLayout(new BorderLayout());
 		add(outerPanel, BorderLayout.CENTER);
 
-		tipPane.setText(LanguageBundle.getFormattedString("in_si_tip",
-			TipOfTheDayHandler.getInstance().getNextTip()));
+		tipPane.setText(LanguageBundle.getFormattedString("in_si_tip", TipOfTheDayHandler.getInstance().getNextTip()));
 	}
 
 	private void initListeners()
@@ -137,24 +131,23 @@ public class InfoGuidePane extends JComponent implements UIResource
 				boolean show = e.getNewReference() == null;
 				if (show)
 				{
-					tipPane.setText(LanguageBundle.getFormattedString("in_si_tip",
-						TipOfTheDayHandler.getInstance().getNextTip()));
+					tipPane.setText(
+						LanguageBundle.getFormattedString("in_si_tip", TipOfTheDayHandler.getInstance().getNextTip()));
 				}
 				setVisible(show);
 			}
 
 		});
-		frame.getCurrentSourceSelectionRef().addReferenceListener(
-				new ReferenceListener<SourceSelectionFacade>()
-				{
+		frame.getCurrentSourceSelectionRef().addReferenceListener(new ReferenceListener<SourceSelectionFacade>()
+		{
 
-					@Override
-					public void referenceChanged(ReferenceEvent<SourceSelectionFacade> e)
-					{
-						refreshDisplayedSources(e.getNewReference());
-					}
+			@Override
+			public void referenceChanged(ReferenceEvent<SourceSelectionFacade> e)
+			{
+				refreshDisplayedSources(e.getNewReference());
+			}
 
-				});
+		});
 	}
 
 	private void refreshDisplayedSources(SourceSelectionFacade sources)

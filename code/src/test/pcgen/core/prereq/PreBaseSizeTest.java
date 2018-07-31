@@ -32,6 +32,7 @@ import pcgen.core.Race;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
 
@@ -59,10 +60,11 @@ public class PreBaseSizeTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test the PREBASESIZE code
-	 * @throws Exception
+	 * Test the PREBASESIZE code.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testBaseSize() throws Exception
+	public void testBaseSize() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		character.setRace(race);
@@ -108,9 +110,10 @@ public class PreBaseSizeTest extends AbstractCharacterTestCase
 
 	/**
 	 * Test to make sure template SIZE: changes the base size.
-	 * @throws Exception
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testModBaseSize() throws Exception
+	public void testModBaseSize() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		character.setRace(race);
@@ -156,10 +159,11 @@ public class PreBaseSizeTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Tests to make sure the base size does not includ SIZEMOD adjustments
-	 * @throws Exception
+	 * Tests to make sure the base size does not include SIZEMOD adjustments.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testBaseSizePlusMod() throws Exception
+	public void testBaseSizePlusMod() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		LoadContext context = Globals.getContext();

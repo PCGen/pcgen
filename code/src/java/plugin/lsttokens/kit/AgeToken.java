@@ -27,8 +27,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * AGE token for Kits
  */
-public class AgeToken extends AbstractNonEmptyToken<KitBio> implements 
-	CDOMPrimaryToken<KitBio>
+public class AgeToken extends AbstractNonEmptyToken<KitBio> implements CDOMPrimaryToken<KitBio>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -48,14 +47,13 @@ public class AgeToken extends AbstractNonEmptyToken<KitBio> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, KitBio kitName,
-			String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, KitBio kitName, String value)
 	{
 		try
 		{
 			kitName.setCharacterAge(Integer.valueOf(value));
 		}
-		catch(NumberFormatException e)
+		catch (NumberFormatException e)
 		{
 			return new ParseResult.Fail("Illegal value for AGE: " + value);
 		}
@@ -70,7 +68,7 @@ public class AgeToken extends AbstractNonEmptyToken<KitBio> implements
 		{
 			return null;
 		}
-		return new String[] { bd.toString() };
+		return new String[]{bd.toString()};
 	}
 
 }

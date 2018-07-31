@@ -31,11 +31,8 @@ import pcgen.cdom.facet.model.ClassFacet;
 import pcgen.core.PCClass;
 import pcgen.core.Skill;
 
-
-public class GlobalToSkillCostFacet extends
-		AbstractSubScopeFacet<PCClass, SkillCost, Skill> implements
-		ScopeFacetChangeListener<CharID, SkillCost, Skill>,
-		DataFacetChangeListener<CharID, PCClass>
+public class GlobalToSkillCostFacet extends AbstractSubScopeFacet<PCClass, SkillCost, Skill>
+		implements ScopeFacetChangeListener<CharID, SkillCost, Skill>, DataFacetChangeListener<CharID, PCClass>
 {
 
 	private ClassFacet classFacet;
@@ -124,14 +121,12 @@ public class GlobalToSkillCostFacet extends
 		}
 	}
 
-	public void setGlobalSkillCostFacet(
-		GlobalSkillCostFacet globalSkillCostFacet)
+	public void setGlobalSkillCostFacet(GlobalSkillCostFacet globalSkillCostFacet)
 	{
 		this.globalSkillCostFacet = globalSkillCostFacet;
 	}
 
-	public void setGlobalAddedSkillCostFacet(
-		GlobalAddedSkillCostFacet globalAddedSkillCostFacet)
+	public void setGlobalAddedSkillCostFacet(GlobalAddedSkillCostFacet globalAddedSkillCostFacet)
 	{
 		this.globalAddedSkillCostFacet = globalAddedSkillCostFacet;
 	}
@@ -141,8 +136,7 @@ public class GlobalToSkillCostFacet extends
 		this.classFacet = classFacet;
 	}
 
-	public void setMasterUsableSkillFacet(
-		MasterUsableSkillFacet masterUsableSkillFacet)
+	public void setMasterUsableSkillFacet(MasterUsableSkillFacet masterUsableSkillFacet)
 	{
 		this.masterUsableSkillFacet = masterUsableSkillFacet;
 	}

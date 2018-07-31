@@ -61,7 +61,6 @@ import pcgen.gui2.util.treeview.TreeViewModel;
 import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
 
-
 @SuppressWarnings("serial")
 public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 {
@@ -81,15 +80,16 @@ public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 	{
 		super("SpellBooks");
 		this.availableTable = new FilteredTreeViewTable<>();
-		this.selectedTable = new JTreeViewTable<SuperNode>(){
-			
+		this.selectedTable = new JTreeViewTable<SuperNode>()
+		{
+
 			@Override
 			public void setTreeViewModel(TreeViewModel<SuperNode> viewModel)
 			{
 				super.setTreeViewModel(viewModel);
 				sortModel();
 			}
-			
+
 		};
 		this.spellRenderer = new QualifiedSpellTreeCellRenderer();
 		this.addButton = new JButton();
@@ -105,8 +105,9 @@ public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 	{
 		availableTable.setTreeCellRenderer(spellRenderer);
 		selectedTable.setTreeCellRenderer(spellRenderer);
-		selectedTable.setRowSorter(new SortableTableRowSorter(){
-			
+		selectedTable.setRowSorter(new SortableTableRowSorter()
+		{
+
 			@Override
 			public SortableTableModel getModel()
 			{
@@ -175,10 +176,8 @@ public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 		models.put(TreeViewModelHandler.class, new TreeViewModelHandler(character));
 		models.put(AddSpellAction.class, new AddSpellAction(character));
 		models.put(RemoveSpellAction.class, new RemoveSpellAction(character));
-		models.put(SpellInfoHandler.class, new SpellInfoHandler(character, availableTable,
-				selectedTable, spellsPane));
-		models.put(ClassInfoHandler.class, new ClassInfoHandler(character, availableTable,
-				selectedTable, classPane));
+		models.put(SpellInfoHandler.class, new SpellInfoHandler(character, availableTable, selectedTable, spellsPane));
+		models.put(ClassInfoHandler.class, new ClassInfoHandler(character, availableTable, selectedTable, classPane));
 		models.put(SpellBookModel.class, new SpellBookModel(character));
 		models.put(SpellFilterHandler.class, new SpellFilterHandler(character));
 		return models;
@@ -298,8 +297,7 @@ public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 			{
 				if (object instanceof SpellNode)
 				{
-					character.getSpellSupport().addToSpellBook(
-							(SpellNode) object, bookname);
+					character.getSpellSupport().addToSpellBook((SpellNode) object, bookname);
 				}
 			}
 		}
@@ -337,8 +335,7 @@ public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 				if (object instanceof SpellNode)
 				{
 					SpellNode node = (SpellNode) object;
-					character.getSpellSupport().removeFromSpellBook(node,
-							node.getRootNode().getName());
+					character.getSpellSupport().removeFromSpellBook(node, node.getRootNode().getName());
 				}
 			}
 		}
@@ -366,8 +363,10 @@ public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 		public TreeViewModelHandler(CharacterFacade character)
 		{
 			this.character = character;
-			availableModel = new SpellTreeViewModel(character.getSpellSupport().getKnownSpellNodes(), false, "SpellBooksAva", character.getInfoFactory());
-			selectedModel = new SpellTreeViewModel(character.getSpellSupport().getBookSpellNodes(), true, "SpellBooksSel", character.getInfoFactory());
+			availableModel = new SpellTreeViewModel(character.getSpellSupport().getKnownSpellNodes(), false,
+				"SpellBooksAva", character.getInfoFactory());
+			selectedModel = new SpellTreeViewModel(character.getSpellSupport().getBookSpellNodes(), true,
+				"SpellBooksSel", character.getInfoFactory());
 		}
 
 		public void install()
@@ -398,6 +397,7 @@ public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 		{
 			qFilterButton.setFilter(this);
 		}
+
 		@Override
 		public boolean accept(CharacterFacade context, SuperNode element)
 		{

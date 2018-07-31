@@ -41,7 +41,7 @@ public abstract class TextFieldListener implements DocumentListener
 	{
 		this.textField = textField;
 	}
-	
+
 	/**
 	 * @see javax.swing.event.DocumentListener#insertUpdate(javax.swing.event.DocumentEvent)
 	 */

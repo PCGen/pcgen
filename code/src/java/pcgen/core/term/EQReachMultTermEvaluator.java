@@ -34,23 +34,17 @@ public class EQReachMultTermEvaluator extends BaseEQTermEvaluator implements Ter
 	}
 
 	@Override
-	public Float resolve(
-			Equipment eq,
-			boolean primary,
-			PlayerCharacter pc)
+	public Float resolve(Equipment eq, boolean primary, PlayerCharacter pc)
 	{
 		return TermUtil.convertToFloat(originalText, evaluate(eq, primary, pc));
 	}
 
 	@Override
-	public String evaluate(
-			Equipment eq,
-			boolean primary,
-			PlayerCharacter pc) {
+	public String evaluate(Equipment eq, boolean primary, PlayerCharacter pc)
+	{
 		if (pc.hasControl(CControl.EQREACH))
 		{
-			Logging.errorPrint("REACHMULT term"
-				+ " is disabled when EQREACH control is used");
+			Logging.errorPrint("REACHMULT term" + " is disabled when EQREACH control is used");
 			return "0";
 		}
 		return String.valueOf(eq.getSafe(IntegerKey.REACH_MULT));

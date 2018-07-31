@@ -29,8 +29,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with CR Token
  */
-public class CrToken extends AbstractNonEmptyToken<PCTemplate> implements
-		CDOMPrimaryToken<PCTemplate>
+public class CrToken extends AbstractNonEmptyToken<PCTemplate> implements CDOMPrimaryToken<PCTemplate>
 {
 
 	@Override
@@ -40,13 +39,11 @@ public class CrToken extends AbstractNonEmptyToken<PCTemplate> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		PCTemplate template, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, PCTemplate template, String value)
 	{
 		try
 		{
-			context.getObjectContext().put(template, ObjectKey.CR_MODIFIER,
-					new BigDecimal(value));
+			context.getObjectContext().put(template, ObjectKey.CR_MODIFIER, new BigDecimal(value));
 			return ParseResult.SUCCESS;
 		}
 		catch (NumberFormatException nfe)
@@ -58,13 +55,12 @@ public class CrToken extends AbstractNonEmptyToken<PCTemplate> implements
 	@Override
 	public String[] unparse(LoadContext context, PCTemplate pct)
 	{
-		BigDecimal mod = context.getObjectContext().getObject(pct,
-				ObjectKey.CR_MODIFIER);
+		BigDecimal mod = context.getObjectContext().getObject(pct, ObjectKey.CR_MODIFIER);
 		if (mod == null)
 		{
 			return null;
 		}
-		return new String[] { mod.toString() };
+		return new String[]{mod.toString()};
 	}
 
 	@Override

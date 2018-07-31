@@ -33,8 +33,7 @@ import pcgen.core.ShieldProf;
  * ProfProvider objects.
  * 
  */
-public class AutoListShieldProfFacet extends
-		AbstractItemConvertingFacet<ShieldProf, ProfProvider<ShieldProf>>
+public class AutoListShieldProfFacet extends AbstractItemConvertingFacet<ShieldProf, ProfProvider<ShieldProf>>
 		implements PerspectiveLocation
 {
 

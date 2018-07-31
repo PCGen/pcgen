@@ -26,8 +26,6 @@ import pcgen.cdom.base.SimpleAssociatedObject;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMGroupRef;
-import pcgen.persistence.PersistenceLayerException;
-
 import org.junit.Test;
 
 public abstract class AbstractListContextTokenTestCase<T extends CDOMObject, TC extends CDOMObject>
@@ -37,14 +35,14 @@ public abstract class AbstractListContextTokenTestCase<T extends CDOMObject, TC 
 	protected abstract CDOMReference<? extends CDOMList<? extends PrereqObject>> getListReference();
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.removeAllFromList(getListReference());
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testUnparseSingle() throws PersistenceLayerException
+	public void testUnparseSingle()
 	{
 		TC wp1 = construct(primaryContext, "TestWP1");
 		addToList(CDOMDirectSingleRef.getRef(wp1));
@@ -53,7 +51,7 @@ public abstract class AbstractListContextTokenTestCase<T extends CDOMObject, TC 
 	}
 
 	@Test
-	public void testUnparseMultiple() throws PersistenceLayerException
+	public void testUnparseMultiple()
 	{
 		TC wp1 = construct(primaryContext, "TestWP1");
 		addToList(CDOMDirectSingleRef.getRef(wp1));
@@ -64,7 +62,7 @@ public abstract class AbstractListContextTokenTestCase<T extends CDOMObject, TC 
 	}
 
 	@Test
-	public void testUnparseDupe() throws PersistenceLayerException
+	public void testUnparseDupe()
 	{
 		if (allowDups())
 		{
@@ -85,7 +83,7 @@ public abstract class AbstractListContextTokenTestCase<T extends CDOMObject, TC 
 	}
 
 	@Test
-	public void testUnparseNullInList() throws PersistenceLayerException
+	public void testUnparseNullInList()
 	{
 		addToList(null);
 		try
@@ -100,7 +98,7 @@ public abstract class AbstractListContextTokenTestCase<T extends CDOMObject, TC 
 	}
 
 	@Test
-	public void testUnparseType() throws PersistenceLayerException
+	public void testUnparseType()
 	{
 		if (isTypeLegal())
 		{
@@ -117,7 +115,7 @@ public abstract class AbstractListContextTokenTestCase<T extends CDOMObject, TC 
 	}
 
 	@Test
-	public void testUnparseAll() throws PersistenceLayerException
+	public void testUnparseAll()
 	{
 		if (isTypeLegal())
 		{

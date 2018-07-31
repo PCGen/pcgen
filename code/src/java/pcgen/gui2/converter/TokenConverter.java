@@ -45,23 +45,22 @@ import pcgen.util.Logging;
 public class TokenConverter
 {
 
-	private static final DoubleKeyMap<Class<?>, String, TokenProcessorPlugin> map = new DoubleKeyMap<>();
+	private static final DoubleKeyMap<Class<?>, String, TokenProcessorPlugin> MAP = new DoubleKeyMap<>();
 
-	private static final DoubleKeyMap<Class<?>, String, Boolean> cached = new DoubleKeyMap<>();
+	private static final DoubleKeyMap<Class<?>, String, Boolean> CACHED = new DoubleKeyMap<>();
 
-	private static final DoubleKeyMapToList<Class<?>, String, TokenProcessorPlugin> tokenCache = new DoubleKeyMapToList<>();
+	private static final DoubleKeyMapToList<Class<?>, String, TokenProcessorPlugin> TOKEN_CACHE =
+			new DoubleKeyMapToList<>();
 
-	private static final DefaultTokenProcessor defaultProc = new DefaultTokenProcessor();
+	private static final DefaultTokenProcessor DEFAULT_PROC = new DefaultTokenProcessor();
 
 	public static void addToTokenMap(TokenProcessorPlugin tpp)
 	{
-		TokenProcessorPlugin old = map.put(tpp.getProcessedClass(), tpp
-				.getProcessedToken(), tpp);
+		TokenProcessorPlugin old = MAP.put(tpp.getProcessedClass(), tpp.getProcessedToken(), tpp);
 		if (old != null)
 		{
-			Logging.errorPrint("More than one Conversion token for "
-					+ tpp.getProcessedClass().getSimpleName() + ' '
-					+ tpp.getProcessedToken() + " found");
+			Logging.errorPrint("More than one Conversion token for " + tpp.getProcessedClass().getSimpleName() + ' '
+				+ tpp.getProcessedToken() + " found");
 		}
 	}
 
@@ -79,10 +78,7 @@ public class TokenConverter
 			@Override
 			public Class[] getPluginClasses()
 			{
-				return new Class[]
-						{
-							TokenProcessorPlugin.class
-						};
+				return new Class[]{TokenProcessorPlugin.class};
 			}
 		};
 	}
@@ -93,7 +89,7 @@ public class TokenConverter
 		String key = tpe.getKey();
 
 		ensureCategoryExists(tpe);
-		
+
 		List<TokenProcessorPlugin> tokens = getTokens(cl, key);
 		String error = "";
 		try
@@ -111,13 +107,12 @@ public class TokenConverter
 			}
 			if (!tpe.isConsumed())
 			{
-				error += defaultProc.process(tpe);
+				error += DEFAULT_PROC.process(tpe);
 			}
 		}
 		catch (Exception ex)
 		{
-			Logging.errorPrint("Parse of " + tpe.getKey() + ':'
-					+ tpe.getValue() + " failed");
+			Logging.errorPrint("Parse of " + tpe.getKey() + ':' + tpe.getValue() + " failed");
 			ex.printStackTrace();
 		}
 		return tpe.isConsumed() ? null : error;
@@ -138,13 +133,12 @@ public class TokenConverter
 		String value = tpe.getValue();
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		String cat = tok.nextToken();
-		Category<Ability> category = tpe.getContext().getReferenceContext()
-				.silentlyGetConstructedCDOMObject(AbilityCategory.class, cat);
+		Category<Ability> category =
+				tpe.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(AbilityCategory.class, cat);
 		if (category == null)
 		{
-//			Logging.log(Logging.INFO, "Found new cat " + cat + " in " + tpe);
-			tpe.getContext().getReferenceContext().constructCDOMObject(
-				AbilityCategory.class, cat);
+			//			Logging.log(Logging.INFO, "Found new cat " + cat + " in " + tpe);
+			tpe.getContext().getReferenceContext().constructCDOMObject(AbilityCategory.class, cat);
 		}
 	}
 
@@ -185,7 +179,7 @@ public class TokenConverter
 
 		protected TokenProcessorPlugin grabToken(Class<?> cl, String key)
 		{
-			return map.get(cl, key);
+			return MAP.get(cl, key);
 		}
 
 		@Override
@@ -203,24 +197,22 @@ public class TokenConverter
 		@Override
 		public void remove()
 		{
-			throw new UnsupportedOperationException(
-					"Iterator does not support remove");
+			throw new UnsupportedOperationException("Iterator does not support remove");
 		}
 	}
 
 	public static List<TokenProcessorPlugin> getTokens(Class<?> cl, String name)
 	{
-		List<TokenProcessorPlugin> list = tokenCache.getListFor(cl, name);
-		if (!cached.containsKey(cl, name))
+		List<TokenProcessorPlugin> list = TOKEN_CACHE.getListFor(cl, name);
+		if (!CACHED.containsKey(cl, name))
 		{
-			for (Iterator<TokenProcessorPlugin> it = new ConverterIterator(cl,
-					name); it.hasNext();)
+			for (Iterator<TokenProcessorPlugin> it = new ConverterIterator(cl, name); it.hasNext();)
 			{
 				TokenProcessorPlugin token = it.next();
-				tokenCache.addToListFor(cl, name, token);
+				TOKEN_CACHE.addToListFor(cl, name, token);
 			}
-			list = tokenCache.getListFor(cl, name);
-			cached.put(cl, name, Boolean.TRUE);
+			list = TOKEN_CACHE.getListFor(cl, name);
+			CACHED.put(cl, name, Boolean.TRUE);
 		}
 		return list;
 	}

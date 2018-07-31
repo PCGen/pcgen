@@ -113,7 +113,7 @@ public class SpellsIntegrationTest extends
 		commit(
 				testCampaign,
 				tc,
-				"SpellBook|TIMES=2|TIMEUNIT=Week|CASTERLEVEL=15|Fireball,CL+5|Lightning Bolt,25|!PRECLASS:1,Cleric=1|PRERACE:1,Human");
+"SpellBook|TIMES=2|TIMEUNIT=Week|CASTERLEVEL=15|Fireball,CL+5|Lightning Bolt,25|!PRECLASS:1,Cleric=1|PRERACE:1,Human");
 		emptyCommit(modCampaign, tc);
 		completeRoundRobin(tc);
 	}

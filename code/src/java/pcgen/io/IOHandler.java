@@ -20,6 +20,7 @@ package pcgen.io;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -62,14 +63,12 @@ public abstract class IOHandler
 	 *
 	 * @param path a character (PCG) file path
 	 */
-	public final void readForPreview(final PlayerCharacter aPC,
-		final String path)
+	public final void readForPreview(final PlayerCharacter aPC, final String path)
 	{
 		internalRead(aPC, path, false);
 	}
 
-	private void internalRead(final PlayerCharacter aPC, final String path,
-		final boolean validate)
+	private void internalRead(final PlayerCharacter aPC, final String path, final boolean validate)
 	{
 		InputStream in = null;
 
@@ -96,8 +95,7 @@ public abstract class IOHandler
 				}
 				catch (NullPointerException e)
 				{
-					Logging.errorPrint(
-						"Could not create file inputStream IOHandler::read", e);
+					Logging.errorPrint("Could not create file inputStream IOHandler::read", e);
 				}
 			}
 		}
@@ -106,30 +104,35 @@ public abstract class IOHandler
 	/////////////////////////////////////////////////////////////////////////////
 	////////////////////////////// Convenience //////////////////////////////////
 	/////////////////////////////////////////////////////////////////////////////
-	
+
 	/**
 	 * Writes the contents of the PlayerCharacter to a file.
-	 *
+	 * 
 	 * <br>author: Thomas Behr 11-03-02
 	 *
 	 * @param aPC        the PlayerCharacter to write
 	 * @param filename   the name of the output file
-	 * @throws IOException
-	 * @throws NullPointerException
+	 * @throws FileNotFoundException the file not found exception
+	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
-	public final void write(PlayerCharacter aPC, String filename)
-			throws IOException, NullPointerException
+	public final void write(PlayerCharacter aPC, String filename) throws FileNotFoundException, IOException
 	{
 		write(aPC, null, null, filename);
 	}
 
 	/**
 	 * Writes the contents of the PlayerCharacter to a file.
+	 *
 	 * @param aPC        the PlayerCharacter to write
+	 * @param mode  the mode
+	 * @param campaigns  the campaigns
 	 * @param filename   the name of the output file
+	 * @throws FileNotFoundException the file not found exception
+	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
 	public final void write(PlayerCharacter aPC, GameMode mode, List<CampaignFacade> campaigns, String filename)
-		throws IOException
+			throws FileNotFoundException, IOException
+		
 	{
 		try (OutputStream out = new FileOutputStream(filename))
 		{
@@ -148,11 +151,10 @@ public abstract class IOHandler
 	public void createBackupForFile(File outFile)
 	{
 		// Make a backup of the old file, if it exists and isn't empty
-		if (PCGenSettings.getCreatePcgBackup() && outFile.exists()
-			&& outFile.length() > 0)
+		if (PCGenSettings.getCreatePcgBackup() && outFile.exists() && outFile.length() > 0)
 		{
 			String file = outFile.getName();
-			String backupPcgPath = PCGenSettings.getBackupPcgDir(); 
+			String backupPcgPath = PCGenSettings.getBackupPcgDir();
 			if (backupPcgPath == null || backupPcgPath.isEmpty())
 			{
 				backupPcgPath = outFile.getParent();
@@ -177,8 +179,7 @@ public abstract class IOHandler
 	 * @param in    the stream to be read from
 	 * @param validate
 	 */
-	protected abstract void read(PlayerCharacter aPC, InputStream in,
-		final boolean validate);
+	protected abstract void read(PlayerCharacter aPC, InputStream in, final boolean validate);
 
 	/////////////////////////////////////////////////////////////////////////////
 	////////////////////////////// Abstract /////////////////////////////////////

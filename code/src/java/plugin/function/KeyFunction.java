@@ -51,14 +51,12 @@ public class KeyFunction implements FormulaFunction
 	}
 
 	@Override
-	public FormatManager<?> allowArgs(SemanticsVisitor visitor, Node[] args,
-		FormulaSemantics semantics)
+	public FormatManager<?> allowArgs(SemanticsVisitor visitor, Node[] args, FormulaSemantics semantics)
 	{
 		if (args.length != 1)
 		{
 			throw new SemanticsFailureException("Function " + getFunctionName()
-				+ " received incorrect # of arguments, expected: 1 got " + args.length
-				+ " " + Arrays.asList(args));
+				+ " received incorrect # of arguments, expected: 1 got " + args.length + " " + Arrays.asList(args));
 		}
 		FormatManager<?> objClass = (FormatManager<?>) args[0].jjtAccept(visitor,
 			semantics.getWith(FormulaSemantics.ASSERTED, Optional.empty()));
@@ -68,25 +66,22 @@ public class KeyFunction implements FormulaFunction
 		}
 		else
 		{
-			throw new SemanticsFailureException("Parse Error: Invalid Object Format: "
-				+ objClass + " is not capable of being identified");
+			throw new SemanticsFailureException(
+				"Parse Error: Invalid Object Format: " + objClass + " is not capable of being identified");
 		}
 	}
 
 	@Override
-	public Object evaluate(EvaluateVisitor visitor, Node[] args,
-		EvaluationManager manager)
+	public Object evaluate(EvaluateVisitor visitor, Node[] args, EvaluationManager manager)
 	{
 		Identified result = (Identified) args[0].jjtAccept(visitor, manager);
 		return result.getKeyName();
 	}
 
 	@Override
-	public FormatManager<?> getDependencies(DependencyVisitor visitor,
-		DependencyManager manager, Node[] args)
+	public FormatManager<?> getDependencies(DependencyVisitor visitor, DependencyManager manager, Node[] args)
 	{
-		args[0].jjtAccept(visitor,
-			manager.getWith(DependencyManager.ASSERTED, Optional.empty()));
+		args[0].jjtAccept(visitor, manager.getWith(DependencyManager.ASSERTED, Optional.empty()));
 		return FormatUtilities.STRING_MANAGER;
 	}
 

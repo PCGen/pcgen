@@ -25,8 +25,7 @@ import pcgen.cdom.enumeration.AssociationKey;
  * SimpleAssociatedObject is a minimal implementation of the
  * AssociatedPrereqObject interface.
  */
-public class SimpleAssociatedObject extends ConcretePrereqObject implements
-		AssociatedPrereqObject
+public class SimpleAssociatedObject extends ConcretePrereqObject implements AssociatedPrereqObject
 {
 
 	/**

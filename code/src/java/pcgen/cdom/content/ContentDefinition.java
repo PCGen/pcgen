@@ -240,8 +240,7 @@ public abstract class ContentDefinition<T extends CDOMObject, F> extends UserCon
 	{
 		if (set && CDOMObject.class.equals(usableLocation))
 		{
-			throw new UnsupportedOperationException(
-				"Global ContentDefinition cannot be required");
+			throw new UnsupportedOperationException("Global ContentDefinition cannot be required");
 		}
 		required = set;
 	}

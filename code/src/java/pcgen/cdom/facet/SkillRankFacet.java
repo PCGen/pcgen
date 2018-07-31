@@ -103,7 +103,6 @@ public class SkillRankFacet extends AbstractStorageFacet<CharID>
 		}
 		clMap.put(pcc, value);
 
-		
 		Float newRank = getRank(id, skill);
 		support.fireSkillRankChangeEvent(id, skill, oldRank, newRank);
 	}
@@ -237,8 +236,7 @@ public class SkillRankFacet extends AbstractStorageFacet<CharID>
 		private final float oldRnk;
 		private final float newRnk;
 
-		public SkillRankChangeEvent(CharID source, Skill sk, float oldRank,
-			float newRank)
+		public SkillRankChangeEvent(CharID source, Skill sk, float oldRank, float newRank)
 		{
 			super(source);
 			if (source == null)
@@ -349,16 +347,14 @@ public class SkillRankFacet extends AbstractStorageFacet<CharID>
 		 * @param newRank
 		 *            The character's new rank for the given skill.
 		 */
-		protected void fireSkillRankChangeEvent(CharID id, Skill sk,
-			float oldRank, float newRank)
+		protected void fireSkillRankChangeEvent(CharID id, Skill sk, float oldRank, float newRank)
 		{
 			if (oldRank == newRank)
 			{
 				// Nothing to do
 				return;
 			}
-			SkillRankChangeListener[] listeners =
-					listenerList.getListeners(SkillRankChangeListener.class);
+			SkillRankChangeListener[] listeners = listenerList.getListeners(SkillRankChangeListener.class);
 			/*
 			 * This list is decremented from the end of the list to the
 			 * beginning in order to maintain consistent operation with how Java
@@ -371,8 +367,7 @@ public class SkillRankFacet extends AbstractStorageFacet<CharID>
 				// Lazily create event
 				if (ccEvent == null)
 				{
-					ccEvent =
-							new SkillRankChangeEvent(id, sk, oldRank, newRank);
+					ccEvent = new SkillRankChangeEvent(id, sk, oldRank, newRank);
 				}
 				listeners[i].rankChanged(ccEvent);
 			}

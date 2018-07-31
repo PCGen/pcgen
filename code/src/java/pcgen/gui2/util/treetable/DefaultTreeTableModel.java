@@ -26,47 +26,47 @@ import java.util.List;
 public class DefaultTreeTableModel extends AbstractTreeTableModel
 {
 
-    private List<Class<?>> columnClasses;
-    private List<String> columnNames;
-    private int columnCount;
+	private List<Class<?>> columnClasses;
+	private List<String> columnNames;
+	private int columnCount;
 
-    protected DefaultTreeTableModel()
-    {
-        super();
-    }
+	protected DefaultTreeTableModel()
+	{
+		super();
+	}
 
-    protected DefaultTreeTableModel(TreeTableNode root)
-    {
-        super(root);
-    }
+	protected DefaultTreeTableModel(TreeTableNode root)
+	{
+		super(root);
+	}
 
-    protected TreeTableNode createDefaultTreeTableNode()
-    {
-        return new DefaultTreeTableNode();
-    }
+	protected TreeTableNode createDefaultTreeTableNode()
+	{
+		return new DefaultTreeTableNode();
+	}
 
 	@Override
-    public int getColumnCount()
-    {
-        return columnCount;
-    }
+	public int getColumnCount()
+	{
+		return columnCount;
+	}
 
-    @Override
-    public Class<?> getColumnClass(int column)
-    {
-        switch (column)
-        {
-            case 0:
-                return TreeTableNode.class;
-            default:
-                return columnClasses.get(column);
-        }
-    }
+	@Override
+	public Class<?> getColumnClass(int column)
+	{
+		switch (column)
+		{
+			case 0:
+				return TreeTableNode.class;
+			default:
+				return columnClasses.get(column);
+		}
+	}
 
-    @Override
-    public String getColumnName(int column)
-    {
-        return columnNames.get(column);
-    }
+	@Override
+	public String getColumnName(int column)
+	{
+		return columnNames.get(column);
+	}
 
 }

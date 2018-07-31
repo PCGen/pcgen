@@ -31,8 +31,7 @@ import pcgen.core.Domain;
  * SpellLists available to the Player Character.
  * 
  */
-public class DomainSpellListFacet implements
-		DataFacetChangeListener<CharID, Domain>
+public class DomainSpellListFacet implements DataFacetChangeListener<CharID, Domain>
 {
 
 	private SpellListFacet spellListFacet;
@@ -56,8 +55,7 @@ public class DomainSpellListFacet implements
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, Domain> dfce)
 	{
-		DomainSpellList list =
-				dfce.getCDOMObject().get(ObjectKey.DOMAIN_SPELLLIST);
+		DomainSpellList list = dfce.getCDOMObject().get(ObjectKey.DOMAIN_SPELLLIST);
 		//list should never be null??
 		spellListFacet.add(dfce.getCharID(), list, dfce.getCDOMObject());
 	}

@@ -76,28 +76,24 @@ public class SummaryPanel extends ConvertSubPanel
 
 		JLabel introLabel = new JLabel("Ready to convert.");
 		GridBagConstraints gbc = new GridBagConstraints();
-		Utility
-			.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1,
-				1.0, 0, GridBagConstraints.HORIZONTAL,
-				GridBagConstraints.NORTHWEST);
+		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1, 1.0, 0, GridBagConstraints.HORIZONTAL,
+			GridBagConstraints.NORTHWEST);
 		gbc.insets = new Insets(50, 25, 10, 25);
 		panel.add(introLabel, gbc);
 
 		JLabel instructLabel = new JLabel("Press Next to begin converting using the following settings:");
-		Utility
-			.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1,
-				1.0, 0, GridBagConstraints.HORIZONTAL,
-				GridBagConstraints.NORTHWEST);
+		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1, 1.0, 0, GridBagConstraints.HORIZONTAL,
+			GridBagConstraints.NORTHWEST);
 		gbc.insets = new Insets(10, 25, 20, 25);
 		panel.add(instructLabel, gbc);
 
-		JLabel labels[] = new JLabel[4];
-		JComponent values[] = new JComponent[4];
+		JLabel[] labels = new JLabel[4];
+		JComponent[] values = new JComponent[4];
 		labels[0] = new JLabel("Source Folder:");
 		labels[1] = new JLabel("Destination Folder:");
 		labels[2] = new JLabel("Game mode:");
 		labels[3] = new JLabel("Sources:");
-		
+
 		values[0] = new JLabel(pc.get(ObjectKey.DIRECTORY).getAbsolutePath());
 		values[1] = new JLabel(pc.get(ObjectKey.WRITE_DIRECTORY).getAbsolutePath());
 		values[2] = new JLabel(pc.get(ObjectKey.GAME_MODE).getDisplayName());
@@ -110,11 +106,11 @@ public class SummaryPanel extends ConvertSubPanel
 		}
 		JTextArea campText = new JTextArea(campDisplay.toString());
 		campText.setEditable(false);
-		JScrollPane scrollPane = new JScrollPane(campText); 
+		JScrollPane scrollPane = new JScrollPane(campText);
 		values[3] = scrollPane;
 
 		// Place the labels on the page and lay them out
-		Font plainFont = FontManipulation.plain(panel.getFont()); 
+		Font plainFont = FontManipulation.plain(panel.getFont());
 		for (int i = 0; i < labels.length; i++)
 		{
 			Utility.buildRelativeConstraints(gbc, 1, 1, 0, 0, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST);
@@ -122,18 +118,13 @@ public class SummaryPanel extends ConvertSubPanel
 			panel.add(labels[i], gbc);
 			if (i < labels.length - 1)
 			{
-				Utility
-					.buildRelativeConstraints(gbc,
-						GridBagConstraints.REMAINDER, 1, 1.0, 0,
-						GridBagConstraints.HORIZONTAL,
-						GridBagConstraints.NORTHWEST);
+				Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1, 1.0, 0,
+					GridBagConstraints.HORIZONTAL, GridBagConstraints.NORTHWEST);
 			}
 			else
 			{
-				Utility.buildRelativeConstraints(gbc,
-					GridBagConstraints.REMAINDER, GridBagConstraints.REMAINDER,
-					1.0, 1.0, GridBagConstraints.BOTH,
-					GridBagConstraints.NORTHWEST);
+				Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, GridBagConstraints.REMAINDER, 1.0,
+					1.0, GridBagConstraints.BOTH, GridBagConstraints.NORTHWEST);
 			}
 			gbc.insets = new Insets(10, 10, 10, 25);
 			panel.add(values[i], gbc);

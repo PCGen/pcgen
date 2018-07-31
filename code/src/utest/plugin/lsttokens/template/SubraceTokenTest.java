@@ -84,7 +84,7 @@ public class SubraceTokenTest extends
 	}
 
 	@Test
-	public void testReplacementYes() throws PersistenceLayerException
+	public void testReplacementYes()
 	{
 		String[] unparsed;
 		getConstant("TestWP1");
@@ -103,7 +103,7 @@ public class SubraceTokenTest extends
 	}
 
 	@Test
-	public void testOverwriteYes() throws PersistenceLayerException
+	public void testOverwriteYes()
 	{
 		parse("YES");
 		validateUnparsed(primaryContext, primaryProf, "YES");
@@ -113,7 +113,7 @@ public class SubraceTokenTest extends
 	}
 
 	@Test
-	public void testOverwriteWithYes() throws PersistenceLayerException
+	public void testOverwriteWithYes()
 	{
 		parse("TestWP1");
 		validateUnparsed(primaryContext, primaryProf, "TestWP1");
@@ -123,14 +123,14 @@ public class SubraceTokenTest extends
 	}
 
 	@Test
-	public void testUnparseYes() throws PersistenceLayerException
+	public void testUnparseYes()
 	{
 		primaryProf.put(ObjectKey.USETEMPLATENAMEFORSUBRACE, true);
 		expectSingle(getToken().unparse(primaryContext, primaryProf), "YES");
 	}
 
 	@Test
-	public void testUnparseIllegal() throws PersistenceLayerException
+	public void testUnparseIllegal()
 	{
 		assertEquals(0, primaryContext.getWriteMessageCount());
 		SubRace o = getConstant(getLegalValue());
@@ -141,7 +141,7 @@ public class SubraceTokenTest extends
 	}
 
 	@Test
-	public void testUnparseLegalWithFalse() throws PersistenceLayerException
+	public void testUnparseLegalWithFalse()
 	{
 		assertEquals(0, primaryContext.getWriteMessageCount());
 		SubRace o = getConstant(getLegalValue());

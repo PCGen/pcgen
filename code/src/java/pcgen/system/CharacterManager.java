@@ -24,6 +24,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.logging.Level;
 
+import org.apache.commons.lang3.ObjectUtils;
+import org.apache.commons.lang3.StringUtils;
+
 import pcgen.cdom.base.Constants;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
@@ -47,9 +50,6 @@ import pcgen.pluginmgr.PluginManager;
 import pcgen.pluginmgr.messages.PlayerCharacterWasLoadedMessage;
 import pcgen.util.Logging;
 
-import org.apache.commons.lang3.ObjectUtils;
-import org.apache.commons.lang3.StringUtils;
-
 /**
  * This class stores the characters that are currently opened by
  * PCGen. It also handles creating new characters and opening
@@ -61,17 +61,17 @@ import org.apache.commons.lang3.StringUtils;
 public final class CharacterManager
 {
 
-	private static final PartyFacadeImpl characters;
-	private static final RecentFileList recentCharacters;
-	private static final RecentFileList recentParties;
-	private static final PCGenMessageHandler messageHandler;
+	private static final PartyFacadeImpl CHARACTERS;
+	private static final RecentFileList RECENT_CHARACTERS;
+	private static final RecentFileList RECENT_PARTIES;
+	private static final PCGenMessageHandler MESSAGE_HANDLER;
 
 	static
 	{
-		characters = new PartyFacadeImpl();
-		recentCharacters = new RecentFileList(PCGenSettings.RECENT_CHARACTERS);
-		recentParties = new RecentFileList(PCGenSettings.RECENT_PARTIES);
-		messageHandler = PluginManager.getInstance().getPostbox();
+		CHARACTERS = new PartyFacadeImpl();
+		RECENT_CHARACTERS = new RecentFileList(PCGenSettings.RECENT_CHARACTERS);
+		RECENT_PARTIES = new RecentFileList(PCGenSettings.RECENT_PARTIES);
+		MESSAGE_HANDLER = PluginManager.getInstance().getPostbox();
 	}
 
 	private CharacterManager()
@@ -96,32 +96,31 @@ public final class CharacterManager
 			CharacterFacade character = new CharacterFacadeImpl(pc, delegate, dataset);
 			String name = createNewCharacterName();
 			character.setName(name);
-			characters.addElement(character);
-			Logging.log(Logging.INFO, "Created new character " + name + '.'); //$NON-NLS-1$ //$NON-NLS-2$
-			messageHandler.handleMessage(new PlayerCharacterWasLoadedMessage(delegate, pc));
+			CHARACTERS.addElement(character);
+			Logging.log(Logging.INFO, "Created new character " + name + '.'); //$NON-NLS-1$ 
+			MESSAGE_HANDLER.handleMessage(new PlayerCharacterWasLoadedMessage(delegate, pc));
 			return character;
 		}
 		catch (final Exception e)
 		{
 			Logging.errorPrint("Unable to create character with data " //$NON-NLS-1$
 				+ dataset, e);
-			delegate.showErrorMessage(
-				LanguageBundle.getString("in_cmCreateErrorTitle"), //$NON-NLS-1$
+			delegate.showErrorMessage(LanguageBundle.getString("in_cmCreateErrorTitle"), //$NON-NLS-1$
 				LanguageBundle.getFormattedString("in_cmCreateErrorMessage", //$NON-NLS-1$
 					e.getMessage()));
 			return null;
 		}
-		
+
 	}
 
 	public static ListFacade<File> getRecentCharacters()
 	{
-		return recentCharacters;
+		return RECENT_CHARACTERS;
 	}
 
 	public static ListFacade<File> getRecentParties()
 	{
-		return recentParties;
+		return RECENT_PARTIES;
 	}
 
 	/**
@@ -141,11 +140,10 @@ public final class CharacterManager
 		{
 			return null;
 		}
-		
+
 		return createChracterFacade(delegate, dataset, newPC);
 	}
 
-	
 	/**
 	 * This opens an existing character from a file and adds it to the
 	 * list of open characters. If there is a character already open
@@ -156,8 +154,8 @@ public final class CharacterManager
 	 * @param blockLoadedMessage Should we stop the character loaded message being sent out to listeners.
 	 * @return The character that was opened.
 	 */
-	public static PlayerCharacter openPlayerCharacter(File file,
-		UIDelegate delegate, DataSetFacade dataset, boolean blockLoadedMessage)
+	public static PlayerCharacter openPlayerCharacter(File file, UIDelegate delegate, DataSetFacade dataset,
+		boolean blockLoadedMessage)
 	{
 		final PlayerCharacter newPC = openPcInternal(file, delegate, dataset, blockLoadedMessage);
 
@@ -165,14 +163,14 @@ public final class CharacterManager
 		{
 			return null;
 		}
-		
+
 		createChracterFacade(delegate, dataset, newPC);
 		return newPC;
 	}
-	
+
 	@SuppressWarnings("unchecked")
-	private static PlayerCharacter openPcInternal(File file,
-		UIDelegate delegate, DataSetFacade dataset, boolean blockLoadedMessage)
+	private static PlayerCharacter openPcInternal(File file, UIDelegate delegate, DataSetFacade dataset,
+		boolean blockLoadedMessage)
 	{
 		@SuppressWarnings("rawtypes")
 		List campaigns = ListFacades.wrap(dataset.getCampaigns());
@@ -187,46 +185,43 @@ public final class CharacterManager
 			dataset.refreshEquipment();
 			newPC.calcActiveBonuses();
 
-			if (!showLoadNotices(true, ioHandler.getErrors(), file.getName(),
-				delegate))
+			if (!showLoadNotices(true, ioHandler.getErrors(), file.getName(), delegate))
 			{
 				// if we've had errors, then abort trying to add the new PC, it's most likely "broken"
 				return null;
 			}
-			if (!showLoadNotices(false, ioHandler.getWarnings(), file.getName(),
-				delegate))
+			if (!showLoadNotices(false, ioHandler.getWarnings(), file.getName(), delegate))
 			{
 				return null;
 			}
 			Logging.log(Logging.INFO, "Loaded character " + newPC.getName() //$NON-NLS-1$
 				+ " - " + file.getAbsolutePath()); //$NON-NLS-1$
-	
+
 			// if it's not broken, then only warnings should have been generated, and we won't count those
 			// Register the character so that future checks to see if file already loaded will work
 			Globals.getPCList().add(newPC);
 			if (!blockLoadedMessage)
 			{
-				messageHandler.handleMessage(new PlayerCharacterWasLoadedMessage(delegate, newPC));
+				MESSAGE_HANDLER.handleMessage(new PlayerCharacterWasLoadedMessage(delegate, newPC));
 			}
 			return newPC;
-	
+
 		}
 		catch (final Exception e)
 		{
 			Logging.errorPrint("Unable to load character " + file, e); //$NON-NLS-1$
-			delegate.showErrorMessage(
-				LanguageBundle.getString("in_cmLoadErrorTitle"), //$NON-NLS-1$
+			delegate.showErrorMessage(LanguageBundle.getString("in_cmLoadErrorTitle"), //$NON-NLS-1$
 				LanguageBundle.getFormattedString("in_cmLoadErrorMessage", //$NON-NLS-1$
 					file, e.getMessage()));
 			return null;
 		}
 	}
 
-	private static CharacterFacade createChracterFacade(UIDelegate delegate,
-		DataSetFacade dataset, final PlayerCharacter newPC)
+	private static CharacterFacade createChracterFacade(UIDelegate delegate, DataSetFacade dataset,
+		final PlayerCharacter newPC)
 	{
 		CharacterFacade character = new CharacterFacadeImpl(newPC, delegate, dataset);
-		characters.addElement(character);
+		CHARACTERS.addElement(character);
 		return character;
 	}
 
@@ -298,10 +293,9 @@ public final class CharacterManager
 	{
 		Logging.log(Logging.INFO, "Loading party " + file.getAbsolutePath()); //$NON-NLS-1$
 		PCGIOHandler ioHandler = new PCGIOHandler();
-		ioHandler.readCharacterFileList(file).forEach(charFile ->
-				openCharacter(charFile, delegate, dataset));
-		characters.setFile(file);
-		return characters;
+		ioHandler.readCharacterFileList(file).forEach(charFile -> openCharacter(charFile, delegate, dataset));
+		CHARACTERS.setFile(file);
+		return CHARACTERS;
 	}
 
 	public static SourceSelectionFacade getRequiredSourcesForParty(File pcpFile, UIDelegate delegate)
@@ -329,8 +323,7 @@ public final class CharacterManager
 			}
 			else if (gameMode != game)
 			{
-				Logging.errorPrint("Characters in " + pcpFile.getAbsolutePath()
-						+ " do not share the same game mode");
+				Logging.errorPrint("Characters in " + pcpFile.getAbsolutePath() + " do not share the same game mode");
 				return null;
 			}
 
@@ -361,8 +354,7 @@ public final class CharacterManager
 		SourceSelectionFacade selection = ioHandler.readSources(pcgFile);
 		if (!ioHandler.getErrors().isEmpty())
 		{
-			ioHandler.getErrors().forEach(msg ->
-			{
+			ioHandler.getErrors().forEach(msg -> {
 				delegate.showErrorMessage(Constants.APPLICATION_NAME, msg);
 				Logging.errorPrint(msg);
 			});
@@ -378,9 +370,7 @@ public final class CharacterManager
 	 */
 	public static boolean characterFilenameValid(CharacterFacade character)
 	{
-		if (character.getFileRef().get() == null
-			|| StringUtils.isEmpty(character.getFileRef().get()
-				.getName()))
+		if (character.getFileRef().get() == null || StringUtils.isEmpty(character.getFileRef().get().getName()))
 		{
 			return false;
 		}
@@ -392,7 +382,7 @@ public final class CharacterManager
 		}
 		return !file.isDirectory() && (!file.exists() || file.canWrite());
 	}
-	
+
 	/**
 	 * Saves this character to the character's file specified
 	 * by character.getFileRef().getReference()
@@ -409,9 +399,8 @@ public final class CharacterManager
 			return false;
 		}
 
-		Logging.log(Logging.INFO,
-			"Saving character " + character.getNameRef().get() //$NON-NLS-1$
-				+ " - " + file.getAbsolutePath()); //$NON-NLS-1$
+		Logging.log(Logging.INFO, "Saving character " + character.getNameRef().get() //$NON-NLS-1$
+			+ " - " + file.getAbsolutePath()); //$NON-NLS-1$
 
 		if (character instanceof CharacterFacadeImpl)
 		{
@@ -423,40 +412,37 @@ public final class CharacterManager
 			catch (final NullPointerException e)
 			{
 				Logging.errorPrint("Could not save " + character.getNameRef().get(), e);
-				delegate.showErrorMessage(Constants.APPLICATION_NAME,
-										  "Could not save " + character.getNameRef().get());
+				delegate.showErrorMessage(Constants.APPLICATION_NAME, "Could not save " + character.getNameRef().get());
 				return false;
 			}
 			catch (final IOException e)
 			{
 				Logging.errorPrint("Could not save " + character.getNameRef().get(), e);
 				delegate.showErrorMessage(Constants.APPLICATION_NAME,
-										  "Could not save " + character.getNameRef().get()
-						+ " due to the error:\n" + e.getMessage());
+					"Could not save " + character.getNameRef().get() + " due to the error:\n" + e.getMessage());
 				return false;
 			}
 		}
 		else
 		{
 			Logging.errorPrint("Could not save " + character.getNameRef().get()
-					+ " due to unexpected class of character: "
-					+ character.getClass().getCanonicalName());
+				+ " due to unexpected class of character: " + character.getClass().getCanonicalName());
 			return false;
 		}
 
-		recentCharacters.addRecentFile(file);
+		RECENT_CHARACTERS.addRecentFile(file);
 		return true;
 	}
 
 	public static boolean saveCurrentParty()
 	{
-		File file = characters.getFileRef().get();
+		File file = CHARACTERS.getFileRef().get();
 		if (file == null)
 		{
 			return false;
 		}
 		Logging.log(Logging.INFO, "Saving party " + file.getAbsolutePath()); //$NON-NLS-1$
-		characters.save();
+		CHARACTERS.save();
 		return true;
 	}
 
@@ -468,38 +454,37 @@ public final class CharacterManager
 	 */
 	public static void removeCharacter(CharacterFacade character)
 	{
-		characters.removeElement(character);
+		CHARACTERS.removeElement(character);
 		// This advises the message handler also.
 		character.closeCharacter();
 		File charFile = character.getFileRef().get();
-		recentCharacters.addRecentFile(charFile);
-		if (characters.isEmpty())
+		RECENT_CHARACTERS.addRecentFile(charFile);
+		if (CHARACTERS.isEmpty())
 		{
-			recentParties.addRecentFile(characters.getFileRef().get());
-			characters.setFile(null);
+			RECENT_PARTIES.addRecentFile(CHARACTERS.getFileRef().get());
+			CHARACTERS.setFile(null);
 		}
-		Logging.log(Logging.INFO,
-			"Closed character " + character.getNameRef().get()  //$NON-NLS-1$
-				+ " - " + charFile.getAbsolutePath()); //$NON-NLS-1$
+		Logging.log(Logging.INFO, "Closed character " + character.getNameRef().get() //$NON-NLS-1$
+			+ " - " + charFile.getAbsolutePath()); //$NON-NLS-1$
 	}
 
 	public static void removeAllCharacters()
 	{
-		for (final CharacterFacade characterFacade : characters)
+		for (final CharacterFacade characterFacade : CHARACTERS)
 		{
-			recentCharacters.addRecentFile(characterFacade.getFileRef().get());
+			RECENT_CHARACTERS.addRecentFile(characterFacade.getFileRef().get());
 			// This advises the message handler also.
 			characterFacade.closeCharacter();
 		}
-		characters.clearContents();
-		recentParties.addRecentFile(characters.getFileRef().get());
-		characters.setFile(null);
+		CHARACTERS.clearContents();
+		RECENT_PARTIES.addRecentFile(CHARACTERS.getFileRef().get());
+		CHARACTERS.setFile(null);
 		Logging.log(Logging.INFO, "Closed all characters"); //$NON-NLS-1$
 	}
 
 	public static PartyFacade getCharacters()
 	{
-		return characters;
+		return CHARACTERS;
 	}
 
 	/**
@@ -539,7 +524,7 @@ public final class CharacterManager
 		}
 		return null;
 	}
-	
+
 	private static String createNewCharacterName()
 	{
 		String name = "Unnamed ";
@@ -553,7 +538,7 @@ public final class CharacterManager
 
 	private static boolean isNameUsed(String name)
 	{
-		for (final CharacterFacade character : characters)
+		for (final CharacterFacade character : CHARACTERS)
 		{
 			if (character.getNameRef().get().equals(name))
 			{
@@ -564,4 +549,3 @@ public final class CharacterManager
 	}
 
 }
-

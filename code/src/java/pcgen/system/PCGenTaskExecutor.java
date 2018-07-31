@@ -22,7 +22,6 @@ import java.util.LinkedList;
 
 import org.apache.commons.lang3.math.Fraction;
 
-
 class PCGenTaskExecutor extends PCGenTask implements PCGenTaskListener
 {
 
@@ -36,7 +35,7 @@ class PCGenTaskExecutor extends PCGenTask implements PCGenTaskListener
 		tasks.add(task);
 	}
 
-    @Override
+	@Override
 	public void execute()
 	{
 		progressMultiplier = Fraction.getFraction(1, tasks.size());
@@ -51,7 +50,7 @@ class PCGenTaskExecutor extends PCGenTask implements PCGenTaskListener
 		}
 	}
 
-    @Override
+	@Override
 	public void progressChanged(PCGenTaskEvent event)
 	{
 		if (currentTask.getMaximum() == 0)
@@ -64,7 +63,7 @@ class PCGenTaskExecutor extends PCGenTask implements PCGenTaskListener
 		setValues(currentTask.getMessage(), progress.getNumerator(), progress.getDenominator());
 	}
 
-    @Override
+	@Override
 	public void errorOccurred(PCGenTaskEvent event)
 	{
 		sendErrorMessage(event.getErrorRecord());

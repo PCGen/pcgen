@@ -91,8 +91,7 @@ public abstract class ConvertSubPanel implements ProgressMonitor
 			super();
 			if (sourceObject == null)
 			{
-				throw new IllegalArgumentException(
-						"Source for ProgressSupport cannot be null");
+				throw new IllegalArgumentException("Source for ProgressSupport cannot be null");
 			}
 			source = sourceObject;
 			listenerList = new EventListenerList();
@@ -135,17 +134,15 @@ public abstract class ConvertSubPanel implements ProgressMonitor
 					}
 					switch (ccEvent.getID())
 					{
-					case ProgressEvent.ALLOWED:
-					case ProgressEvent.AUTO_ADVANCE:
-						((ProgressListener) listeners[i + 1])
-								.progressAllowed(ccEvent);
-						break;
-					case ProgressEvent.NOT_ALLOWED:
-						((ProgressListener) listeners[i + 1])
-								.progressNotAllowed(ccEvent);
-						break;
-					default:
-						break;
+						case ProgressEvent.ALLOWED:
+						case ProgressEvent.AUTO_ADVANCE:
+							((ProgressListener) listeners[i + 1]).progressAllowed(ccEvent);
+							break;
+						case ProgressEvent.NOT_ALLOWED:
+							((ProgressListener) listeners[i + 1]).progressNotAllowed(ccEvent);
+							break;
+						default:
+							break;
 					}
 				}
 			}

@@ -31,11 +31,11 @@ import javax.swing.LookAndFeel;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 
+import com.l2fprod.gui.plaf.skin.SkinLookAndFeel;
+
 import pcgen.system.ConfigurationSettings;
 import pcgen.util.Logging;
 import pcgen.util.SkinLFResourceChecker;
-
-import com.l2fprod.gui.plaf.skin.SkinLookAndFeel;
 
 /**
  * {@code UIFactory}.
@@ -46,35 +46,33 @@ public final class LookAndFeelManager
 	private static final boolean HAS_SKIN_LAF = SkinLFResourceChecker.getMissingResourceCount() == 0;
 	private static final String SYSTEM_LAF_CLASS = UIManager.getSystemLookAndFeelClassName();
 	private static final String CROSS_LAF_CLASS = UIManager.getCrossPlatformLookAndFeelClassName();
-	private static final LookAndFeelHandler[] lafHandlers;
-	private static final Map<String, LookAndFeelHandler> lafMap = new HashMap<>();
+	private static final LookAndFeelHandler[] LAF_HANDLERS;
+	private static final Map<String, LookAndFeelHandler> LAF_MAP = new HashMap<>();
 
 	static
 	{
-		Comparator<LookAndFeelInfo> lafcomp = (o1, o2) ->
-		{
-            //System laf goes first
-            if (o1.getClassName().equals(SYSTEM_LAF_CLASS))
-            {
-                return -1;
-            }
-            if (o2.getClassName().equals(SYSTEM_LAF_CLASS))
-            {
-                return 1;
-            }
-            //Cross Platfrom laf goes second
-            if (o1.getClassName().equals(CROSS_LAF_CLASS))
-            {
-                return -1;
-            }
-            if (o2.getClassName().equals(CROSS_LAF_CLASS))
-            {
-                return 1;
-            }
-            //the rest don't matter
-            return 0;
-        };
-
+		Comparator<LookAndFeelInfo> lafcomp = (o1, o2) -> {
+			//System laf goes first
+			if (o1.getClassName().equals(SYSTEM_LAF_CLASS))
+			{
+				return -1;
+			}
+			if (o2.getClassName().equals(SYSTEM_LAF_CLASS))
+			{
+				return 1;
+			}
+			//Cross Platfrom laf goes second
+			if (o1.getClassName().equals(CROSS_LAF_CLASS))
+			{
+				return -1;
+			}
+			if (o2.getClassName().equals(CROSS_LAF_CLASS))
+			{
+				return 1;
+			}
+			//the rest don't matter
+			return 0;
+		};
 
 		LookAndFeelInfo[] lafInfo = UIManager.getInstalledLookAndFeels();
 		//Sort them so that they are in a UI friendly order
@@ -85,7 +83,7 @@ public final class LookAndFeelManager
 		{
 			length++;
 		}
-		lafHandlers = new LookAndFeelHandler[length];
+		LAF_HANDLERS = new LookAndFeelHandler[length];
 		for (int i = 0; i < lafInfo.length; i++)
 		{
 			LookAndFeelInfo info = lafInfo[i];
@@ -107,8 +105,8 @@ public final class LookAndFeelManager
 				tooltip = "Sets the look to " + name + " look";
 			}
 			LookAndFeelHandler handler = new LookAndFeelHandler(name, info.getClassName(), tooltip);
-			lafHandlers[i] = handler;
-			lafMap.put(name, handler);
+			LAF_HANDLERS[i] = handler;
+			LAF_MAP.put(name, handler);
 		}
 		if (HAS_SKIN_LAF)
 		{
@@ -116,8 +114,8 @@ public final class LookAndFeelManager
 			String tooltip = "Sets the look to skinned";
 			LookAndFeelHandler skinhandler = new LookAndFeelHandler(name, null, tooltip);
 			//the Skin LAF always goes last
-			lafHandlers[lafInfo.length] = skinhandler;
-			lafMap.put(name, skinhandler);
+			LAF_HANDLERS[lafInfo.length] = skinhandler;
+			LAF_MAP.put(name, skinhandler);
 		}
 		UIManager.setInstalledLookAndFeels(lafInfo);
 	}
@@ -156,16 +154,13 @@ public final class LookAndFeelManager
 	private static LookAndFeelInfo getNimbusLaf()
 	{
 		LookAndFeelInfo[] lafInfo = UIManager.getInstalledLookAndFeels();
-		return Arrays.stream(lafInfo)
-					 .filter(lookAndFeelInfo -> "nimbus".equalsIgnoreCase
-							 (lookAndFeelInfo.getName()))
-					 .findFirst()
-					 .orElse(null);
+		return Arrays.stream(lafInfo).filter(lookAndFeelInfo -> "nimbus".equalsIgnoreCase(lookAndFeelInfo.getName()))
+			.findFirst().orElse(null);
 	}
-	
+
 	public static Action[] getActions()
 	{
-		return lafHandlers;
+		return LAF_HANDLERS;
 	}
 
 	public static String getCurrentThemePack()
@@ -221,7 +216,7 @@ public final class LookAndFeelManager
 
 	public static void setLookAndFeel(String name)
 	{
-		LookAndFeelHandler handler = lafMap.get(name);
+		LookAndFeelHandler handler = LAF_MAP.get(name);
 		if (handler == null)
 		{
 			Logging.errorPrint("Look and Feel " + name + " cannot be found");
@@ -288,7 +283,7 @@ public final class LookAndFeelManager
 		{
 			//This is the default operation
 			String name = (String) getValue(NAME);
-			ConfigurationSettings.setSystemProperty("lookAndFeel", name);		
+			ConfigurationSettings.setSystemProperty("lookAndFeel", name);
 		}
 
 	}

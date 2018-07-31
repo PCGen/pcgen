@@ -34,7 +34,7 @@ import pcgen.system.PCGenSettings;
 
 /**
  * The Class {@code LevelUpPanel} is responsible for
- * displaying levelling up related preferences and allowing the 
+ * displaying leveling up related preferences and allowing the 
  * preferences to be edited by the user.
  * 
  * 
@@ -42,17 +42,14 @@ import pcgen.system.PCGenSettings;
 @SuppressWarnings("serial")
 public class LevelUpPanel extends PCGenPrefsPanel
 {
-	private static final String in_levelUp =
-		LanguageBundle.getString("in_Prefs_levelUp");
+	private static final String IN_LEVEL_UP = LanguageBundle.getString("in_Prefs_levelUp");
 
-	private static final String in_statWindow =
-		LanguageBundle.getString("in_Prefs_statWindow");
-	private static final String in_warnFirstLevelUp =
-		LanguageBundle.getString("in_Prefs_warnFirstLevelUp");
+	private static final String IN_START_WINDOW = LanguageBundle.getString("in_Prefs_statWindow");
+	private static final String IN_WARN_FIRST_LEVEL_UP = LanguageBundle.getString("in_Prefs_warnFirstLevelUp");
 
 	private final JCheckBox showWarningAtFirstLevelUp = new JCheckBox();
 	private final JCheckBox statDialogShownAtLevelUp = new JCheckBox();
-	
+
 	/**
 	 * Instantiates a new leveling up panel.
 	 */
@@ -62,8 +59,7 @@ public class LevelUpPanel extends PCGenPrefsPanel
 		GridBagConstraints c = new GridBagConstraints();
 		JLabel label;
 		Border etched = null;
-		TitledBorder title1 =
-				BorderFactory.createTitledBorder(etched, in_levelUp);
+		TitledBorder title1 = BorderFactory.createTitledBorder(etched, IN_LEVEL_UP);
 
 		title1.setTitleJustification(TitledBorder.LEFT);
 		this.setBorder(title1);
@@ -75,12 +71,12 @@ public class LevelUpPanel extends PCGenPrefsPanel
 		c.insets = new Insets(2, 2, 2, 2);
 
 		Utility.buildConstraints(c, 0, 2, 2, 1, 0, 0);
-		statDialogShownAtLevelUp.setText(in_statWindow);
+		statDialogShownAtLevelUp.setText(IN_START_WINDOW);
 		gridbag.setConstraints(statDialogShownAtLevelUp, c);
 		this.add(statDialogShownAtLevelUp);
 
 		Utility.buildConstraints(c, 0, 3, 2, 1, 0, 0);
-		showWarningAtFirstLevelUp.setText(in_warnFirstLevelUp);
+		showWarningAtFirstLevelUp.setText(IN_WARN_FIRST_LEVEL_UP);
 		gridbag.setConstraints(showWarningAtFirstLevelUp, c);
 		this.add(showWarningAtFirstLevelUp);
 
@@ -97,19 +93,17 @@ public class LevelUpPanel extends PCGenPrefsPanel
 	@Override
 	public String getTitle()
 	{
-		return in_levelUp;
+		return IN_LEVEL_UP;
 	}
-	
+
 	/**
 	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#setOptionsBasedOnControls()
 	 */
 	@Override
 	public void setOptionsBasedOnControls()
 	{
-		SettingsHandler.setShowStatDialogAtLevelUp(statDialogShownAtLevelUp
-			.isSelected());
-		PCGenSettings.OPTIONS_CONTEXT.setBoolean(
-			PCGenSettings.OPTION_SHOW_WARNING_AT_FIRST_LEVEL_UP,
+		SettingsHandler.setShowStatDialogAtLevelUp(statDialogShownAtLevelUp.isSelected());
+		PCGenSettings.OPTIONS_CONTEXT.setBoolean(PCGenSettings.OPTION_SHOW_WARNING_AT_FIRST_LEVEL_UP,
 			showWarningAtFirstLevelUp.isSelected());
 	}
 
@@ -119,11 +113,9 @@ public class LevelUpPanel extends PCGenPrefsPanel
 	@Override
 	public void applyOptionValuesToControls()
 	{
-		statDialogShownAtLevelUp.setSelected(SettingsHandler
-			.getShowStatDialogAtLevelUp());
-		showWarningAtFirstLevelUp.setSelected(PCGenSettings.OPTIONS_CONTEXT
-			.getBoolean(PCGenSettings.OPTION_SHOW_WARNING_AT_FIRST_LEVEL_UP,
-				true));
+		statDialogShownAtLevelUp.setSelected(SettingsHandler.getShowStatDialogAtLevelUp());
+		showWarningAtFirstLevelUp.setSelected(
+			PCGenSettings.OPTIONS_CONTEXT.getBoolean(PCGenSettings.OPTION_SHOW_WARNING_AT_FIRST_LEVEL_UP, true));
 	}
 
 }

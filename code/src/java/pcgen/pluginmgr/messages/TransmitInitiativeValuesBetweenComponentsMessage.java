@@ -30,8 +30,7 @@ import pcgen.pluginmgr.PCGenMessage;
  */
 
 @SuppressWarnings("serial")
-public class TransmitInitiativeValuesBetweenComponentsMessage extends
-		PCGenMessage
+public class TransmitInitiativeValuesBetweenComponentsMessage extends PCGenMessage
 {
 
 	private final InitHolderList initHolderList;
@@ -41,8 +40,7 @@ public class TransmitInitiativeValuesBetweenComponentsMessage extends
 	 * @param source The source of the message.
 	 * @param theList The initiative list
 	 */
-	public TransmitInitiativeValuesBetweenComponentsMessage(
-		Object source, InitHolderList theList)
+	public TransmitInitiativeValuesBetweenComponentsMessage(Object source, InitHolderList theList)
 	{
 		super(source);
 		this.initHolderList = theList;

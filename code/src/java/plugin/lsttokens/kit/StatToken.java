@@ -40,8 +40,8 @@ import pcgen.rules.persistence.token.ParseResult;
  * The tag format is:<br>
  * {@code STAT:STR=15|DEX=14|WIS=10|CON=10|INT=10|CHA=18}
  */
-public class StatToken extends AbstractTokenWithSeparator<KitStat> implements
-		CDOMPrimaryToken<KitStat>, DeferredToken<Kit>
+public class StatToken extends AbstractTokenWithSeparator<KitStat>
+		implements CDOMPrimaryToken<KitStat>, DeferredToken<Kit>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -67,8 +67,7 @@ public class StatToken extends AbstractTokenWithSeparator<KitStat> implements
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		KitStat kitStat, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, KitStat kitStat, String value)
 	{
 		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
 		while (st.hasMoreTokens())
@@ -77,25 +76,20 @@ public class StatToken extends AbstractTokenWithSeparator<KitStat> implements
 			int equalLoc = token.indexOf('=');
 			if (equalLoc == -1)
 			{
-				return new ParseResult.Fail("Illegal " + getTokenName()
-						+ " did not have Stat=X format: " + value);
+				return new ParseResult.Fail("Illegal " + getTokenName() + " did not have Stat=X format: " + value);
 			}
 			if (equalLoc != token.lastIndexOf('='))
 			{
-				return new ParseResult.Fail("Illegal " + getTokenName()
-						+ " had two equal signs, is not Stat=X format: "
-						+ value);
+				return new ParseResult.Fail(
+					"Illegal " + getTokenName() + " had two equal signs, is not Stat=X format: " + value);
 			}
 			String statName = token.substring(0, equalLoc);
 			if (statName.isEmpty())
 			{
-				return new ParseResult.Fail("Illegal " + getTokenName()
-					+ " had no stat, is not Stat=X format: "
-					+ value);
+				return new ParseResult.Fail(
+					"Illegal " + getTokenName() + " had no stat, is not Stat=X format: " + value);
 			}
-			CDOMSingleRef<PCStat> stat =
-					context.getReferenceContext().getCDOMReference(
-						PCStat.class, statName);
+			CDOMSingleRef<PCStat> stat = context.getReferenceContext().getCDOMReference(PCStat.class, statName);
 			String formula = token.substring(equalLoc + 1);
 			if (formula.isEmpty())
 			{
@@ -104,8 +98,8 @@ public class StatToken extends AbstractTokenWithSeparator<KitStat> implements
 			Formula statValue = FormulaFactory.getFormulaFor(formula);
 			if (!statValue.isValid())
 			{
-				return new ParseResult.Fail("StatValue in " + getTokenName()
-						+ " was not valid: " + statValue.toString());
+				return new ParseResult.Fail(
+					"StatValue in " + getTokenName() + " was not valid: " + statValue.toString());
 			}
 			kitStat.addStat(stat, statValue);
 		}
@@ -115,7 +109,7 @@ public class StatToken extends AbstractTokenWithSeparator<KitStat> implements
 	@Override
 	public String[] unparse(LoadContext context, KitStat kitStat)
 	{
-		return kitStat.isEmpty() ? null : new String[] { kitStat.toString() };
+		return kitStat.isEmpty() ? null : new String[]{kitStat.toString()};
 	}
 
 	@Override

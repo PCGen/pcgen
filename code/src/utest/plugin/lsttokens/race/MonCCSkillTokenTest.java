@@ -47,9 +47,11 @@ public class MonCCSkillTokenTest extends
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		ClassSkillList a = primaryContext.getReferenceContext().constructCDOMObject(ClassSkillList.class, "Scary Monster");
+		ClassSkillList a =
+				primaryContext.getReferenceContext().constructCDOMObject(ClassSkillList.class, "Scary Monster");
 		a.addType(Type.MONSTER);
-		ClassSkillList b = secondaryContext.getReferenceContext().constructCDOMObject(ClassSkillList.class, "Scary Monster");
+		ClassSkillList b =
+				secondaryContext.getReferenceContext().constructCDOMObject(ClassSkillList.class, "Scary Monster");
 		b.addType(Type.MONSTER);
 	}
 
@@ -124,7 +126,7 @@ public class MonCCSkillTokenTest extends
 	}
 
 	@Test
-	public void testInvalidInputAllPattern() throws PersistenceLayerException
+	public void testInvalidInputAllPattern()
 	{
 		assertFalse(parse("ALL" + getJoinCharacter() + "Pattern%"));
 		assertNoSideEffects();

@@ -25,7 +25,6 @@ import pcgen.core.Race;
  * RaceSelectionFacet is a Facet that tracks the Race of a Player Character with
  * the CHOOSE selection that was made
  */
-public class RaceSelectionFacet extends
-		AbstractAssociationFacet<CharID, Race, Object>
+public class RaceSelectionFacet extends AbstractAssociationFacet<CharID, Race, Object>
 {
 }

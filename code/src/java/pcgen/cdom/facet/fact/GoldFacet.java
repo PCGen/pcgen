@@ -18,8 +18,8 @@
 package pcgen.cdom.facet.fact;
 
 import java.math.BigDecimal;
-
 import java.math.RoundingMode;
+
 import pcgen.cdom.base.ItemFacet;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractItemFacet;
@@ -30,8 +30,7 @@ import pcgen.output.publish.OutputDB;
  * system.
  * 
  */
-public class GoldFacet extends AbstractItemFacet<CharID, BigDecimal> implements
-		ItemFacet<CharID, BigDecimal>
+public class GoldFacet extends AbstractItemFacet<CharID, BigDecimal> implements ItemFacet<CharID, BigDecimal>
 {
 
 	/**
@@ -54,8 +53,8 @@ public class GoldFacet extends AbstractItemFacet<CharID, BigDecimal> implements
 			old = BigDecimal.ZERO;
 		}
 		// I don't really like this hack, but setScale just won't work right...
-		BigDecimal newGold = new BigDecimal(old.doubleValue() + delta).divide(
-				BigDecimal.ONE, 2, RoundingMode.HALF_EVEN);
+		BigDecimal newGold =
+				new BigDecimal(old.doubleValue() + delta).divide(BigDecimal.ONE, 2, RoundingMode.HALF_EVEN);
 		/*
 		 * TODO What is this delta produces a negative value, but allowDebt is
 		 * false?

@@ -25,6 +25,7 @@ import org.junit.Test;
 
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.TestHelper;
 import plugin.pretokens.parser.PreStatParser;
 
@@ -39,29 +40,35 @@ public class PreStatParserTest extends EnUsLocaleDependentTestCase
 		TestHelper.loadPlugins();
 	}
 
+	
 	/**
-	 * @throws Exception
+	 * Test dex 9.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testDex9() throws Exception
+	public void testDex9() throws PersistenceLayerException
 	{
 		PreStatParser producer = new PreStatParser();
 
 		Prerequisite prereq = producer.parse("STAT", "1,DEX=9", false, false);
 
-		//		assertEquals("<prereq operator=\"gteq\" operand=\"1\" >\n"
-		//				+ "<prereq kind=\"stat\" key=\"DEX\" operator=\"gteq\" operand=\"9\" >\n" + "</prereq>\n" + "</prereq>\n",
-		//				prereq.toString());
+		//assertEquals("<prereq operator=\"gteq\" operand=\"1\" >\n"
+		//	+ "<prereq kind=\"stat\" key=\"DEX\" operator=\"gteq\" operand=\"9\" >\n" + "</prereq>\n" + "</prereq>\n",
+		//	prereq.toString());
 		assertEquals(
 			"<prereq kind=\"stat\" key=\"DEX\" operator=\"GTEQ\" operand=\"9\" >\n"
 				+ "</prereq>\n", prereq.toString());
 	}
 
+	
 	/**
-	 * @throws Exception
+	 * Test dex 9 a.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testDex9a() throws Exception
+	public void testDex9a() throws PersistenceLayerException
 	{
 		PreParserFactory parser = PreParserFactory.getInstance();
 		Prerequisite prereq = parser.parse("PRESTAT:1,DEX=9");
@@ -71,11 +78,14 @@ public class PreStatParserTest extends EnUsLocaleDependentTestCase
 				+ "</prereq>\n", prereq.toString());
 	}
 
+	
 	/**
-	 * @throws Exception
+	 * Test dex 9 str 13.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testDex9Str13() throws Exception
+	public void testDex9Str13() throws PersistenceLayerException
 	{
 		PreStatParser producer = new PreStatParser();
 
@@ -90,29 +100,35 @@ public class PreStatParserTest extends EnUsLocaleDependentTestCase
 				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 	}
 
+	
 	/**
-	 * @throws Exception
+	 * Test dex equal 9.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testDexEqual9() throws Exception
+	public void testDexEqual9() throws PersistenceLayerException
 	{
 		PreStatParser producer = new PreStatParser();
 
 		Prerequisite prereq = producer.parse("STATEQ", "1,DEX=9", false, false);
 
 		//		assertEquals("<prereq operator=\"gteq\" operand=\"1\" >\n"
-		//		    + "<prereq kind=\"stat\" key=\"DEX\" operator=\"eq\" operand=\"9\" >\n" + "</prereq>\n" + "</prereq>\n",
-		//		    prereq.toString());
+		//		+ "<prereq kind=\"stat\" key=\"DEX\" operator=\"eq\" operand=\"9\" >\n" + "</prereq>\n" + "</prereq>\n",
+		//		prereq.toString());
 		assertEquals(
 			"<prereq kind=\"stat\" key=\"DEX\" operator=\"EQ\" operand=\"9\" >\n"
 				+ "</prereq>\n", prereq.toString());
 	}
 
+	
 	/**
-	 * @throws Exception
+	 * Test dex negative.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testDexNegative() throws Exception
+	public void testDexNegative() throws PersistenceLayerException
 	{
 		PreStatParser producer = new PreStatParser();
 
@@ -123,11 +139,14 @@ public class PreStatParserTest extends EnUsLocaleDependentTestCase
 				+ "</prereq>\n", prereq.toString());
 	}
 
+	
 	/**
-	 * @throws Exception
+	 * Test empty.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testEmpty() throws Exception
+	public void testEmpty() throws PersistenceLayerException
 	{
 		PreStatParser producer = new PreStatParser();
 

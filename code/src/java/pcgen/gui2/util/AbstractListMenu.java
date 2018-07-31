@@ -32,7 +32,6 @@ import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
 
-
 public abstract class AbstractListMenu<E> extends JMenu implements ListListener<E>
 {
 
@@ -91,7 +90,7 @@ public abstract class AbstractListMenu<E> extends JMenu implements ListListener<
 		oldSize = listModel.getSize();
 		for (int i = 0; i < oldSize; i++)
 		{
-			add(createMenuItem(listModel.getElementAt(i), i), i+offset);
+			add(createMenuItem(listModel.getElementAt(i), i), i + offset);
 		}
 		checkEnabled();
 	}
@@ -121,7 +120,7 @@ public abstract class AbstractListMenu<E> extends JMenu implements ListListener<
 			oldSize = listModel.getSize();
 			for (int x = 0; x < oldSize; x++)
 			{
-				add(createMenuItem(listModel.getElementAt(x), x), x+offset);
+				add(createMenuItem(listModel.getElementAt(x), x), x + offset);
 			}
 			listModel.addListListener(this);
 		}
@@ -147,8 +146,7 @@ public abstract class AbstractListMenu<E> extends JMenu implements ListListener<
 
 		private final Object item;
 
-		public CheckBoxMenuItem(Object item, boolean selected,
-				ItemListener listener)
+		public CheckBoxMenuItem(Object item, boolean selected, ItemListener listener)
 		{
 			this.item = item;
 			setSelected(selected);
@@ -164,10 +162,7 @@ public abstract class AbstractListMenu<E> extends JMenu implements ListListener<
 		@Override
 		public Object[] getSelectedObjects()
 		{
-			return new Object[]
-					{
-						item
-					};
+			return new Object[]{item};
 		}
 
 		@Override

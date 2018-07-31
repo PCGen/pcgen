@@ -38,8 +38,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * TOTALCOST Token for Kit Startpack line. This specifies the total 
  * purchase cost of the kit.
  */
-public class TotalCostToken extends AbstractNonEmptyToken<Kit> implements
-		CDOMPrimaryToken<Kit>
+public class TotalCostToken extends AbstractNonEmptyToken<Kit> implements CDOMPrimaryToken<Kit>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -59,8 +58,7 @@ public class TotalCostToken extends AbstractNonEmptyToken<Kit> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, Kit kit,
-			String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, Kit kit, String value)
 	{
 		ParsingSeparator sep = new ParsingSeparator(value, '|');
 		sep.addGroupingPair('[', ']');
@@ -69,14 +67,12 @@ public class TotalCostToken extends AbstractNonEmptyToken<Kit> implements
 		String activeValue = sep.next();
 		if (looksLikeAPrerequisite(activeValue))
 		{
-			return new ParseResult.Fail("Cannot have only PRExxx subtoken in "
-					+ getTokenName());
+			return new ParseResult.Fail("Cannot have only PRExxx subtoken in " + getTokenName());
 		}
 		Formula f = FormulaFactory.getFormulaFor(activeValue);
 		if (!f.isValid())
 		{
-			return new ParseResult.Fail("Formula in " + getTokenName()
-					+ " was not valid: " + f.toString());
+			return new ParseResult.Fail("Formula in " + getTokenName() + " was not valid: " + f.toString());
 		}
 		List<Prerequisite> prereqs = new ArrayList<>();
 
@@ -86,8 +82,8 @@ public class TotalCostToken extends AbstractNonEmptyToken<Kit> implements
 			Prerequisite prereq = getPrerequisite(activeValue);
 			if (prereq == null)
 			{
-				return new ParseResult.Fail("   (Did you put total costs after the "
-					+ "PRExxx tags in " + getTokenName() + ":?)");
+				return new ParseResult.Fail(
+					"   (Did you put total costs after the " + "PRExxx tags in " + getTokenName() + ":?)");
 			}
 			prereqs.add(prereq);
 		}

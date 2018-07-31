@@ -11,13 +11,13 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class WcstepsformulaToken implements GameModeLstToken
 {
 
-    @Override
+	@Override
 	public String getTokenName()
 	{
 		return "WCSTEPSFORMULA";
 	}
 
-    @Override
+	@Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		gameMode.setWCStepsFormula(value);

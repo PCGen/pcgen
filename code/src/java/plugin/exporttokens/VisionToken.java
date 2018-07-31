@@ -41,8 +41,7 @@ public class VisionToken extends AbstractExportToken
 	}
 
 	@Override
-	public String getToken(String tokenSource, CharacterDisplay display,
-		ExportHandler eh)
+	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
 	{
 		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
 		aTok.nextToken();
@@ -74,9 +73,7 @@ public class VisionToken extends AbstractExportToken
 			return "";
 		}
 
-		List<Vision> subList =
-				visionList.subList(Math.max(startIndex, 0), Math.min(
-					visionIndex, visionList.size()));
+		List<Vision> subList = visionList.subList(Math.max(startIndex, 0), Math.min(visionIndex, visionList.size()));
 
 		StringBuilder result = new StringBuilder();
 		for (Vision vision : subList)
@@ -100,7 +97,7 @@ public class VisionToken extends AbstractExportToken
 				result.append(')');
 			}
 		}
-		
+
 		return result.toString();
 	}
 }

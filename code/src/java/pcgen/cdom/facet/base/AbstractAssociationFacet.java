@@ -41,8 +41,7 @@ import pcgen.cdom.facet.event.DataFacetChangeEvent;
  * 
  * null is NOT a valid base object or association.
  */
-public abstract class AbstractAssociationFacet<IDT extends PCGenIdentifier, S, A>
-		extends AbstractScopeFacet<IDT, S, A>
+public abstract class AbstractAssociationFacet<IDT extends PCGenIdentifier, S, A> extends AbstractScopeFacet<IDT, S, A>
 {
 
 	/**
@@ -62,8 +61,7 @@ public abstract class AbstractAssociationFacet<IDT extends PCGenIdentifier, S, A
 	{
 		if (obj == null)
 		{
-			throw new IllegalArgumentException(
-				"Object for getting association may not be null");
+			throw new IllegalArgumentException("Object for getting association may not be null");
 		}
 		Map<S, A> map = getCachedMap(id);
 		if (map != null)
@@ -99,11 +97,9 @@ public abstract class AbstractAssociationFacet<IDT extends PCGenIdentifier, S, A
 		A old = getConstructingCachedMap(id).put(obj, association);
 		if (old != null)
 		{
-			fireScopeFacetChangeEvent(id, obj, old,
-				DataFacetChangeEvent.DATA_REMOVED);
+			fireScopeFacetChangeEvent(id, obj, old, DataFacetChangeEvent.DATA_REMOVED);
 		}
-		fireScopeFacetChangeEvent(id, obj, association,
-			DataFacetChangeEvent.DATA_ADDED);
+		fireScopeFacetChangeEvent(id, obj, association, DataFacetChangeEvent.DATA_ADDED);
 	}
 
 	/**
@@ -126,8 +122,7 @@ public abstract class AbstractAssociationFacet<IDT extends PCGenIdentifier, S, A
 			if (old != null)
 			{
 				// Only send out notifications if we really removed something.
-				fireScopeFacetChangeEvent(id, obj, old,
-					DataFacetChangeEvent.DATA_REMOVED);
+				fireScopeFacetChangeEvent(id, obj, old, DataFacetChangeEvent.DATA_REMOVED);
 			}
 		}
 	}
@@ -165,8 +160,7 @@ public abstract class AbstractAssociationFacet<IDT extends PCGenIdentifier, S, A
 		}
 		for (Map.Entry<S, A> entry : componentMap.entrySet())
 		{
-			fireScopeFacetChangeEvent(id, entry.getKey(), entry.getValue(),
-				DataFacetChangeEvent.DATA_REMOVED);
+			fireScopeFacetChangeEvent(id, entry.getKey(), entry.getValue(), DataFacetChangeEvent.DATA_REMOVED);
 		}
 		return componentMap;
 	}
@@ -202,8 +196,7 @@ public abstract class AbstractAssociationFacet<IDT extends PCGenIdentifier, S, A
 		{
 			return Collections.emptySet();
 		}
-		return Collections
-			.unmodifiableSet(new ListSet<>(componentMap.keySet()));
+		return Collections.unmodifiableSet(new ListSet<>(componentMap.keySet()));
 	}
 
 	/**

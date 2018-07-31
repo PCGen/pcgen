@@ -27,24 +27,28 @@ import pcgen.core.term.TermEvaulatorException;
 public class TermUtilitiesTest extends PCGenTestCase
 {
 
-    public TermUtilitiesTest(String name) {
-        super(name);
-    }
+	public TermUtilitiesTest(String name)
+	{
+		super(name);
+	}
 
-    @Override
-    public void setUp() throws Exception {
-        super.setUp();
-    }
+	@Override
+	public void setUp() throws Exception
+	{
+		super.setUp();
+	}
 
-    @Override
-    public void tearDown() throws Exception {
-        super.tearDown();
-    }
+	@Override
+	public void tearDown() throws Exception
+	{
+		super.tearDown();
+	}
 
 	/**
 	 * Method: checkEqTypeTypesArray(String originalText, String[] types, int first)
 	 */
-	public void testcheckEqTypeTypesArray01() {
+	public void testcheckEqTypeTypesArray01()
+	{
 		boolean ok;
 		try
 		{
@@ -62,7 +66,8 @@ public class TermUtilitiesTest extends PCGenTestCase
 	/**
 	 * Method: checkEqTypeTypesArray(String originalText, String[] types, int first)
 	 */
-	public void testcheckEqTypeTypesArray02() {
+	public void testcheckEqTypeTypesArray02()
+	{
 		boolean ok;
 		try
 		{
@@ -80,7 +85,8 @@ public class TermUtilitiesTest extends PCGenTestCase
 	/**
 	 * Method: checkEqTypeTypesArray(String originalText, String[] types, int first)
 	 */
-	public void testcheckEqTypeTypesArray03() {
+	public void testcheckEqTypeTypesArray03()
+	{
 		boolean ok;
 		try
 		{
@@ -98,7 +104,8 @@ public class TermUtilitiesTest extends PCGenTestCase
 	/**
 	 * Method: checkEqTypeTypesArray(String originalText, String[] types, int first)
 	 */
-	public void testcheckEqTypeTypesArray04() {
+	public void testcheckEqTypeTypesArray04()
+	{
 		boolean ok;
 		try
 		{
@@ -116,7 +123,8 @@ public class TermUtilitiesTest extends PCGenTestCase
 	/**
 	 * Method: checkEqTypeTypesArray(String originalText, String[] types, int first)
 	 */
-	public void testcheckEqTypeTypesArray05() {
+	public void testcheckEqTypeTypesArray05()
+	{
 		boolean ok;
 		try
 		{
@@ -134,7 +142,8 @@ public class TermUtilitiesTest extends PCGenTestCase
 	/**
 	 * Method: checkEqTypeTypesArray(String originalText, String[] types, int first)
 	 */
-	public void testcheckEqTypeTypesArray06() {
+	public void testcheckEqTypeTypesArray06()
+	{
 		boolean ok;
 		try
 		{
@@ -152,7 +161,8 @@ public class TermUtilitiesTest extends PCGenTestCase
 	/**
 	 * Method: checkEqTypeTypesArray(String originalText, String[] types, int first)
 	 */
-	public void testcheckEqTypeTypesArray07() {
+	public void testcheckEqTypeTypesArray07()
+	{
 		boolean ok;
 		try
 		{
@@ -170,7 +180,8 @@ public class TermUtilitiesTest extends PCGenTestCase
 	/**
 	 * Method: checkEqTypeTypesArray(String originalText, String[] types, int first)
 	 */
-	public void testcheckEqTypeTypesArray08() {
+	public void testcheckEqTypeTypesArray08()
+	{
 		boolean ok;
 		try
 		{
@@ -188,7 +199,8 @@ public class TermUtilitiesTest extends PCGenTestCase
 	/**
 	 * Method: checkEquipmentTypesArray(String originalText, String[] types, int first)
 	 */
-	public void testcheckEquipmentTypesArray01() {
+	public void testcheckEquipmentTypesArray01()
+	{
 		boolean ok;
 		try
 		{
@@ -206,7 +218,8 @@ public class TermUtilitiesTest extends PCGenTestCase
 	/**
 	 * Method: checkEquipmentTypesArray(String originalText, String[] types, int first)
 	 */
-	public void testcheckEquipmentTypesArray02() {
+	public void testcheckEquipmentTypesArray02()
+	{
 		boolean ok;
 		try
 		{
@@ -224,7 +237,8 @@ public class TermUtilitiesTest extends PCGenTestCase
 	/**
 	 * Method: checkEquipmentTypesArray(String originalText, String[] types, int first)
 	 */
-	public void testcheckEquipmentTypesArray03() {
+	public void testcheckEquipmentTypesArray03()
+	{
 		boolean ok;
 		try
 		{
@@ -242,7 +256,8 @@ public class TermUtilitiesTest extends PCGenTestCase
 	/**
 	 * Method: checkEquipmentTypesArray(String originalText, String[] types, int first)
 	 */
-	public void testcheckEquipmentTypesArray04() {
+	public void testcheckEquipmentTypesArray04()
+	{
 		boolean ok;
 		try
 		{
@@ -260,7 +275,8 @@ public class TermUtilitiesTest extends PCGenTestCase
 	/**
 	 * Method: checkEquipmentTypesArray(String originalText, String[] types, int first)
 	 */
-	public void testcheckEquipmentTypesArray05() {
+	public void testcheckEquipmentTypesArray05()
+	{
 		boolean ok;
 		try
 		{
@@ -278,7 +294,8 @@ public class TermUtilitiesTest extends PCGenTestCase
 	/**
 	 * Method: checkEquipmentTypesArray(String originalText, String[] types, int first)
 	 */
-	public void testcheckEquipmentTypesArray06() {
+	public void testcheckEquipmentTypesArray06()
+	{
 		boolean ok;
 		try
 		{
@@ -296,7 +313,8 @@ public class TermUtilitiesTest extends PCGenTestCase
 	/**
 	 * Method: checkEquipmentTypesArray(String originalText, String[] types, int first)
 	 */
-	public void testcheckEquipmentTypesArray07() {
+	public void testcheckEquipmentTypesArray07()
+	{
 		boolean ok;
 		try
 		{
@@ -314,7 +332,8 @@ public class TermUtilitiesTest extends PCGenTestCase
 	/**
 	 * Method: checkEquipmentTypesArray(String originalText, String[] types, int first)
 	 */
-	public void testcheckEquipmentTypesArray08() {
+	public void testcheckEquipmentTypesArray08()
+	{
 		boolean ok;
 		try
 		{
@@ -333,7 +352,8 @@ public class TermUtilitiesTest extends PCGenTestCase
 	/**
 	 * Method: splitAndConvertIntegers(final String source, int numOfFields)
 	 */
-	public void testSplitAndConvertIntegers01() {
+	public void testSplitAndConvertIntegers01()
+	{
 		boolean ok;
 		int[] nums = new int[1];
 		try
@@ -356,7 +376,8 @@ public class TermUtilitiesTest extends PCGenTestCase
 	/**
 	 * Method: splitAndConvertIntegers(final String source, int numOfFields)
 	 */
-	public void testSplitAndConvertIntegers02() {
+	public void testSplitAndConvertIntegers02()
+	{
 		boolean ok;
 		int[] nums = new int[1];
 		try
@@ -372,7 +393,7 @@ public class TermUtilitiesTest extends PCGenTestCase
 		{
 			ok = false;
 		}
-		
+
 		is(ok, eq(true), "two ints is ok");
 		is(nums[0], eq(3), "two ints is ok:first");
 		is(nums[1], eq(57), "two ints is ok:second");
@@ -381,7 +402,8 @@ public class TermUtilitiesTest extends PCGenTestCase
 	/**
 	 * Method: splitAndConvertIntegers(final String source, int numOfFields)
 	 */
-	public void testSplitAndConvertIntegers03() {
+	public void testSplitAndConvertIntegers03()
+	{
 		boolean ok;
 		int[] nums = new int[1];
 		try
@@ -407,13 +429,14 @@ public class TermUtilitiesTest extends PCGenTestCase
 	/**
 	 * Method: splitAndConvertIntegers(final String source, int numOfFields)
 	 */
-	public void testSplitAndConvertIntegers04() {
+	public void testSplitAndConvertIntegers04()
+	{
 		boolean ok;
 		try
 		{
 			ok = true;
 			TermUtilities.splitAndConvertIntegers(
-					"Test.3.57.67.foo", "3.57.67.foo", 3);
+				"Test.3.57.67.foo", "3.57.67.foo", 3);
 		}
 		catch (NumberFormatException e)
 		{
@@ -430,7 +453,8 @@ public class TermUtilitiesTest extends PCGenTestCase
 	/**
 	 * Method: extractContentsOfBrackets(String expressionString, String src, int fixed)
 	 */
-	public void testExtractContentsOfBrackets01() {
+	public void testExtractContentsOfBrackets01()
+	{
 		String orig = "COUNT[MARSHMALLOWS.FOO]";
 		String inside = "";
 		int length = orig.indexOf('[');
@@ -453,7 +477,8 @@ public class TermUtilitiesTest extends PCGenTestCase
 	/**
 	 * Method: extractContentsOfBrackets(String expressionString, String src, int fixed)
 	 */
-	public void testExtractContentsOfBrackets02() {
+	public void testExtractContentsOfBrackets02()
+	{
 		String orig = "COUNT[MARSHMALLOWS.FOO";
 		int length = orig.indexOf('[');
 
@@ -474,7 +499,8 @@ public class TermUtilitiesTest extends PCGenTestCase
 	/**
 	 * Method: extractContentsOfBrackets(String expressionString, String src, int fixed)
 	 */
-	public void testExtractContentsOfBrackets03() {
+	public void testExtractContentsOfBrackets03()
+	{
 		String orig = "COUNT[MARSHMALLOWS.FOO]B";
 		int length = orig.indexOf('[');
 
@@ -496,7 +522,8 @@ public class TermUtilitiesTest extends PCGenTestCase
 	/**
 	 * Method: splitAndConvertIntegers(final String source, int numOfFields)
 	 */
-	public void testConvertToIntegers01() {
+	public void testConvertToIntegers01()
+	{
 		boolean ok;
 		int[] nums = new int[1];
 		try
@@ -516,7 +543,8 @@ public class TermUtilitiesTest extends PCGenTestCase
 	/**
 	 * Method: splitAndConvertIntegers(final String source, int numOfFields)
 	 */
-	public void testConvertToIntegers02() {
+	public void testConvertToIntegers02()
+	{
 		boolean ok;
 		int[] nums = new int[1];
 		try
@@ -537,7 +565,8 @@ public class TermUtilitiesTest extends PCGenTestCase
 	/**
 	 * Method: splitAndConvertIntegers(final String source, int numOfFields)
 	 */
-	public void testConvertToIntegers03() {
+	public void testConvertToIntegers03()
+	{
 		boolean ok;
 		int[] nums = new int[1];
 		try
@@ -559,7 +588,8 @@ public class TermUtilitiesTest extends PCGenTestCase
 	/**
 	 * Method: splitAndConvertIntegers(final String source, int numOfFields)
 	 */
-	public void testConvertToIntegers04() {
+	public void testConvertToIntegers04()
+	{
 		boolean ok;
 		try
 		{
@@ -577,7 +607,8 @@ public class TermUtilitiesTest extends PCGenTestCase
 	/**
 	 * Method: splitAndConvertIntegers(final String source, int numOfFields)
 	 */
-	public void testConvertToIntegers05() {
+	public void testConvertToIntegers05()
+	{
 		boolean ok;
 		try
 		{

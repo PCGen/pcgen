@@ -37,8 +37,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with REPEATLEVEL Token
  */
-public class RepeatlevelToken extends AbstractTokenWithSeparator<PCTemplate>
-		implements CDOMPrimaryToken<PCTemplate>
+public class RepeatlevelToken extends AbstractTokenWithSeparator<PCTemplate> implements CDOMPrimaryToken<PCTemplate>
 {
 
 	@Override
@@ -54,8 +53,7 @@ public class RepeatlevelToken extends AbstractTokenWithSeparator<PCTemplate>
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		PCTemplate template, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, PCTemplate template, String value)
 	{
 		ParseResult pr = checkForIllegalSeparator(':', value);
 		if (!pr.passed())
@@ -68,30 +66,25 @@ public class RepeatlevelToken extends AbstractTokenWithSeparator<PCTemplate>
 		int endRepeat = value.indexOf(Constants.COLON);
 		if (endRepeat < 0)
 		{
-			return new ParseResult.Fail("Malformed " + getTokenName()
-					+ " Token (No Colon): " + value);
+			return new ParseResult.Fail("Malformed " + getTokenName() + " Token (No Colon): " + value);
 		}
 		int endLevel = value.indexOf(Constants.COLON, endRepeat + 1);
 		if (endLevel < 0)
 		{
-			return new ParseResult.Fail("Malformed " + getTokenName()
-					+ " Token (Only One Colon): " + value);
+			return new ParseResult.Fail("Malformed " + getTokenName() + " Token (Only One Colon): " + value);
 		}
 		int endAssignType = value.indexOf(Constants.COLON, endLevel + 1);
 		if (endAssignType == -1)
 		{
-			return new ParseResult.Fail("Malformed " + getTokenName()
-					+ " Token (Only Two Colons): " + value);
+			return new ParseResult.Fail("Malformed " + getTokenName() + " Token (Only Two Colons): " + value);
 		}
 
 		String repeatedInfo = value.substring(0, endRepeat);
-		StringTokenizer repeatToken = new StringTokenizer(repeatedInfo,
-				Constants.PIPE);
+		StringTokenizer repeatToken = new StringTokenizer(repeatedInfo, Constants.PIPE);
 		if (repeatToken.countTokens() != 3)
 		{
-			return new ParseResult.Fail("Malformed " + getTokenName()
-					+ " Token (incorrect PIPE count in repeat): "
-					+ repeatedInfo);
+			return new ParseResult.Fail(
+				"Malformed " + getTokenName() + " Token (incorrect PIPE count in repeat): " + repeatedInfo);
 		}
 
 		String levelIncrement = repeatToken.nextToken();
@@ -102,14 +95,13 @@ public class RepeatlevelToken extends AbstractTokenWithSeparator<PCTemplate>
 		}
 		catch (NumberFormatException nfe)
 		{
-			return new ParseResult.Fail("Malformed " + getTokenName()
-					+ " Token (Level Increment was not an Integer): "
-					+ levelIncrement);
+			return new ParseResult.Fail(
+				"Malformed " + getTokenName() + " Token (Level Increment was not an Integer): " + levelIncrement);
 		}
 		if (lvlIncrement <= 0)
 		{
-			return new ParseResult.Fail("Malformed " + getTokenName()
-					+ " Token (Level Increment was <= 0): " + lvlIncrement);
+			return new ParseResult.Fail(
+				"Malformed " + getTokenName() + " Token (Level Increment was <= 0): " + lvlIncrement);
 		}
 
 		String consecutiveString = repeatToken.nextToken();
@@ -120,14 +112,13 @@ public class RepeatlevelToken extends AbstractTokenWithSeparator<PCTemplate>
 		}
 		catch (NumberFormatException nfe)
 		{
-			return new ParseResult.Fail("Malformed " + getTokenName()
-					+ " Token (Consecutive Value was not an Integer): "
-					+ consecutiveString);
+			return new ParseResult.Fail(
+				"Malformed " + getTokenName() + " Token (Consecutive Value was not an Integer): " + consecutiveString);
 		}
 		if (consecutive < 0)
 		{
-			return new ParseResult.Fail("Malformed " + getTokenName()
-					+ " Token (Consecutive String was <= 0): " + consecutive);
+			return new ParseResult.Fail(
+				"Malformed " + getTokenName() + " Token (Consecutive String was <= 0): " + consecutive);
 		}
 
 		String maxLevelString = repeatToken.nextToken();
@@ -138,14 +129,12 @@ public class RepeatlevelToken extends AbstractTokenWithSeparator<PCTemplate>
 		}
 		catch (NumberFormatException nfe)
 		{
-			return new ParseResult.Fail("Malformed " + getTokenName()
-					+ " Token (Max Level was not an Integer): "
-					+ maxLevelString);
+			return new ParseResult.Fail(
+				"Malformed " + getTokenName() + " Token (Max Level was not an Integer): " + maxLevelString);
 		}
 		if (maxLevel <= 0)
 		{
-			return new ParseResult.Fail("Malformed " + getTokenName()
-					+ " Token (Max Level was <= 0): " + maxLevel);
+			return new ParseResult.Fail("Malformed " + getTokenName() + " Token (Max Level was <= 0): " + maxLevel);
 		}
 
 		String levelString = value.substring(endRepeat + 1, endLevel);
@@ -156,32 +145,28 @@ public class RepeatlevelToken extends AbstractTokenWithSeparator<PCTemplate>
 		}
 		catch (NumberFormatException nfe)
 		{
-			return new ParseResult.Fail("Malformed " + getTokenName()
-					+ " Token (Level was not a number): " + levelString);
+			return new ParseResult.Fail(
+				"Malformed " + getTokenName() + " Token (Level was not a number): " + levelString);
 		}
 		if (iLevel <= 0)
 		{
-			return new ParseResult.Fail("Malformed " + getTokenName()
-					+ " Token (Level was <= 0): " + iLevel);
+			return new ParseResult.Fail("Malformed " + getTokenName() + " Token (Level was <= 0): " + iLevel);
 		}
 
 		if (iLevel > maxLevel)
 		{
-			return new ParseResult.Fail("Malformed " + getTokenName()
-					+ " Token (Starting Level was > Maximum Level)");
+			return new ParseResult.Fail("Malformed " + getTokenName() + " Token (Starting Level was > Maximum Level)");
 		}
 		if (iLevel + lvlIncrement > maxLevel)
 		{
-			return new ParseResult.Fail("Malformed " + getTokenName()
-				+ " Token (Does not repeat, Staring Level + Increment > Maximum Level)");
+			return new ParseResult.Fail(
+				"Malformed " + getTokenName() + " Token (Does not repeat, Staring Level + Increment > Maximum Level)");
 		}
-		if (consecutive != 0
-				&& ((maxLevel - iLevel) / lvlIncrement) < consecutive)
+		if (consecutive != 0 && ((maxLevel - iLevel) / lvlIncrement) < consecutive)
 		{
 			ComplexParseResult cpr = new ComplexParseResult();
-			cpr.addErrorMessage("Malformed " + getTokenName()
-					+ " Token (Does not use Skip Interval value): "
-					+ consecutive);
+			cpr.addErrorMessage(
+				"Malformed " + getTokenName() + " Token (Does not use Skip Interval value): " + consecutive);
 			cpr.addErrorMessage("  You should set the interval to zero");
 			return cpr;
 		}
@@ -198,8 +183,7 @@ public class RepeatlevelToken extends AbstractTokenWithSeparator<PCTemplate>
 		consolidator.put(IntegerKey.MAX_LEVEL, maxLevel);
 		consolidator.put(IntegerKey.LEVEL_INCREMENT, lvlIncrement);
 		consolidator.put(IntegerKey.START_LEVEL, iLevel);
-		context.getObjectContext().addToList(template,
-				ListKey.REPEATLEVEL_TEMPLATES, consolidator);
+		context.getObjectContext().addToList(template, ListKey.REPEATLEVEL_TEMPLATES, consolidator);
 		context.getReferenceContext().getManufacturer(PCTemplate.class).addDerivativeObject(consolidator);
 
 		for (int count = consecutive; iLevel <= maxLevel; iLevel += lvlIncrement)
@@ -208,10 +192,8 @@ public class RepeatlevelToken extends AbstractTokenWithSeparator<PCTemplate>
 			{
 				PCTemplate derivative = new PCTemplate();
 				derivative.put(IntegerKey.LEVEL, count);
-				context.getReferenceContext().getManufacturer(PCTemplate.class)
-					.addDerivativeObject(derivative);
-				context.getObjectContext().addToList(consolidator,
-						ListKey.LEVEL_TEMPLATES, derivative);
+				context.getReferenceContext().getManufacturer(PCTemplate.class).addDerivativeObject(derivative);
+				context.getObjectContext().addToList(consolidator, ListKey.LEVEL_TEMPLATES, derivative);
 				try
 				{
 					if (!context.processToken(derivative, typeStr, contentStr))
@@ -242,8 +224,7 @@ public class RepeatlevelToken extends AbstractTokenWithSeparator<PCTemplate>
 	@Override
 	public String[] unparse(LoadContext context, PCTemplate pct)
 	{
-		Changes<PCTemplate> changes = context.getObjectContext()
-				.getListChanges(pct, ListKey.REPEATLEVEL_TEMPLATES);
+		Changes<PCTemplate> changes = context.getObjectContext().getListChanges(pct, ListKey.REPEATLEVEL_TEMPLATES);
 		Collection<PCTemplate> added = changes.getAdded();
 		if (added == null || added.isEmpty())
 		{
@@ -261,13 +242,11 @@ public class RepeatlevelToken extends AbstractTokenWithSeparator<PCTemplate>
 			sb.append(consecutive).append(Constants.PIPE);
 			sb.append(maxLevel).append(Constants.COLON);
 			sb.append(iLevel).append(Constants.COLON);
-			Changes<PCTemplate> subchanges = context.getObjectContext()
-					.getListChanges(agg, ListKey.LEVEL_TEMPLATES);
+			Changes<PCTemplate> subchanges = context.getObjectContext().getListChanges(agg, ListKey.LEVEL_TEMPLATES);
 			Collection<PCTemplate> perAddCollection = subchanges.getAdded();
 			if (perAddCollection == null || perAddCollection.isEmpty())
 			{
-				context.addWriteMessage("Invalid Consolidator built in "
-						+ getTokenName() + ": had no subTemplates");
+				context.addWriteMessage("Invalid Consolidator built in " + getTokenName() + ": had no subTemplates");
 				return null;
 			}
 			PCTemplate next = perAddCollection.iterator().next();

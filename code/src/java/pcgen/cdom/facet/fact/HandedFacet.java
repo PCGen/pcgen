@@ -79,7 +79,7 @@ public class HandedFacet extends AbstractItemFacet<CharID, Handed>
 		Handed g = get(id);
 		if (Logging.isDebugMode())
 		{
-			Logging.debugPrint("HandedFacet handed value "+g);
+			Logging.debugPrint("HandedFacet handed value " + g);
 		}
 		return g == null ? Handed.getDefaultValue() : g;
 	}

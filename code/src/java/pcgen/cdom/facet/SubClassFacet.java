@@ -26,7 +26,6 @@ import pcgen.core.PCClass;
  * Character, in relation to the parent PCClass objects.
  * 
  */
-public class SubClassFacet extends
-		AbstractAssociationFacet<CharID, PCClass, String>
+public class SubClassFacet extends AbstractAssociationFacet<CharID, PCClass, String>
 {
 }

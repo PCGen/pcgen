@@ -38,8 +38,8 @@ import pcgen.core.PlayerCharacter;
  */
 public class KitChoiceFacet implements DataFacetChangeListener<CharID, CDOMObject>
 {
-	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
-		.getFacet(PlayerCharacterTrackingFacet.class);
+	private final PlayerCharacterTrackingFacet trackingFacet =
+			FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
 
 	private RaceFacet raceFacet;
 
@@ -72,8 +72,7 @@ public class KitChoiceFacet implements DataFacetChangeListener<CharID, CDOMObjec
 		if (!aPC.isImporting())
 		{
 			CDOMObject cdo = dfce.getCDOMObject();
-			for (TransitionChoice<Kit> kit : cdo
-				.getSafeListFor(ListKey.KIT_CHOICE))
+			for (TransitionChoice<Kit> kit : cdo.getSafeListFor(ListKey.KIT_CHOICE))
 			{
 				kit.act(kit.driveChoice(aPC), cdo, aPC);
 			}

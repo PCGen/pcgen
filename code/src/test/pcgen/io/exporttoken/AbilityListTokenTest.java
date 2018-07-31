@@ -136,45 +136,31 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
         addAbility(featCategory, ab6);
 
 
-        is(character
-			.getVariableValue("count(\"ABILITIES\",\"CATEGORY=FEAT\",\"VISIBILITY=DEFAULT\")",""),
-			eq(4.0, 0.1),
-			"count(\"ABILITIES\",\"CATEGORY=FEAT\",\"VISIBILITY=DEFAULT\")");
+		is(character.getVariableValue("count(\"ABILITIES\",\"CATEGORY=FEAT\",\"VISIBILITY=DEFAULT\")", ""),
+			eq(4.0, 0.1), "count(\"ABILITIES\",\"CATEGORY=FEAT\",\"VISIBILITY=DEFAULT\")");
 
-		is(character
-				.getVariableValue("count(\"ABILITIES\",\"CATEGORY=FEAT\",\"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY\")",""),
-				eq(5.0, 0.1),
-				"count(\"ABILITIES\",\"CATEGORY=FEAT\",\"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY\")");
+		is(character.getVariableValue(
+			"count(\"ABILITIES\",\"CATEGORY=FEAT\",\"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY\")", ""),
+			eq(5.0, 0.1), "count(\"ABILITIES\",\"CATEGORY=FEAT\",\"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY\")");
 
-		is(character
-				.getVariableValue("count(\"ABILITIES\",\"CATEGORY=FEAT[and]TYPE=Fighter\",\"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY\")",""),
-				eq(2.0, 0.1),
-				"count(\"ABILITIES\",\"CATEGORY=FEAT[and]TYPE=Fighter\",\"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY\")");
+		is(character.getVariableValue(
+			"count(\"ABILITIES\",\"CATEGORY=FEAT[and]TYPE=Fighter\",\"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY\")",
+			""), eq(2.0, 0.1),
+			"count(\"ABILITIES\",\"CATEGORY=FEAT[and]TYPE=Fighter\",\"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY\")");
 
-        is(character
-                .getVariableValue("count(\"ABILITIES\",\"CATEGORY=BARDIC[and]TYPE=Bardic.General\")", ""),
-                eq(1.0, 0.1),
-                "count(\"ABILITIES\",\"CATEGORY=BARDIC[and]TYPE=Bardic.General\")");
+		is(character.getVariableValue("count(\"ABILITIES\",\"CATEGORY=BARDIC[and]TYPE=Bardic.General\")", ""),
+			eq(1.0, 0.1), "count(\"ABILITIES\",\"CATEGORY=BARDIC[and]TYPE=Bardic.General\")");
 
-        is(character
-				.getVariableValue("count(\"ABILITIES\",\"NATURE=AUTOMATIC\")",""),
-				eq(0.0, 0.1),
-				"count(\"ABILITIES\",\"NATURE=AUTOMATIC\")");
+		is(character.getVariableValue("count(\"ABILITIES\",\"NATURE=AUTOMATIC\")", ""), eq(0.0, 0.1),
+			"count(\"ABILITIES\",\"NATURE=AUTOMATIC\")");
 
-		is(character
-				.getVariableValue("count(\"ABILITIES\",\"NATURE=VIRTUAL\")",""),
-				eq(0.0, 0.1),
-				"count(\"ABILITIES\",\"NATURE=VIRTUAL\")");
+		is(character.getVariableValue("count(\"ABILITIES\",\"NATURE=VIRTUAL\")", ""), eq(0.0, 0.1),
+			"count(\"ABILITIES\",\"NATURE=VIRTUAL\")");
 
-		is(character
-				.getVariableValue("count(\"ABILITIES\",\"NATURE=NORMAL\")",""),
-				eq(6.0, 0.1),
-				"count(\"ABILITIES\",\"NATURE=NORMAL\")");
+		is(character.getVariableValue("count(\"ABILITIES\",\"NATURE=NORMAL\")", ""), eq(6.0, 0.1),
+			"count(\"ABILITIES\",\"NATURE=NORMAL\")");
 
-        is(character
-                .getVariableValue("count(\"ABILITIES\")",""),
-                eq(6.0, 0.1),
-                "count(\"ABILITIES\")");
+		is(character.getVariableValue("count(\"ABILITIES\")", ""), eq(6.0, 0.1), "count(\"ABILITIES\")");
 	}
 
 	/**

@@ -31,7 +31,7 @@ public class SignedInteger extends Number implements Comparable<SignedInteger>
 
 	/** Version for serialisation. */
 	private static final long serialVersionUID = 3744855657358887537L;
-	
+
 	/** The integer value being represented. */
 	private final int value;
 
@@ -43,7 +43,7 @@ public class SignedInteger extends Number implements Comparable<SignedInteger>
 	{
 		this.value = value;
 	}
-	
+
 	@Override
 	public double doubleValue()
 	{

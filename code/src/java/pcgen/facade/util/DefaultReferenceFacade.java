@@ -25,7 +25,6 @@ import org.apache.commons.lang3.ObjectUtils;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
 
-
 public class DefaultReferenceFacade<E> implements WriteableReferenceFacade<E>
 {
 
@@ -42,24 +41,25 @@ public class DefaultReferenceFacade<E> implements WriteableReferenceFacade<E>
 		this.object = object;
 	}
 
-    @Override
+	@Override
 	public void addReferenceListener(ReferenceListener<? super E> listener)
 	{
 		listenerList.add(ReferenceListener.class, listener);
 	}
 
-    @Override
+	@Override
 	public void removeReferenceListener(ReferenceListener<? super E> listener)
 	{
 		listenerList.remove(ReferenceListener.class, listener);
 	}
 
-    @Override
+	@Override
 	public E get()
 	{
 		return object;
 	}
 
+	@Override
 	public void set(E object)
 	{
 		if (ObjectUtils.equals(this.object, object))

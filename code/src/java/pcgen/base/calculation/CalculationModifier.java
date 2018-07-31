@@ -114,8 +114,7 @@ public final class CalculationModifier<T> extends AbstractPCGenModifier<T>
 		if (o instanceof CalculationModifier)
 		{
 			CalculationModifier<?> other = (CalculationModifier<?>) o;
-			return (other.getUserPriority() == getUserPriority())
-				&& other.toDo.equals(toDo);
+			return (other.getUserPriority() == getUserPriority()) && other.toDo.equals(toDo);
 		}
 		return false;
 	}

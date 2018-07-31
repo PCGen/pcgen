@@ -22,8 +22,7 @@ package pcgen.core.term;
 
 import pcgen.core.PlayerCharacter;
 
-public class PCCountSABTermEvaluator
-		extends BasePCTermEvaluator implements TermEvaluator
+public class PCCountSABTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
 	public PCCountSABTermEvaluator(String originalText)
 	{

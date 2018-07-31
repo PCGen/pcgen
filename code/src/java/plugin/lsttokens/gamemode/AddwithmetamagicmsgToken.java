@@ -29,13 +29,13 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class AddwithmetamagicmsgToken implements GameModeLstToken
 {
 
-    @Override
+	@Override
 	public String getTokenName()
 	{
 		return "ADDWITHMETAMAGICMSG";
 	}
 
-    @Override
+	@Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		gameMode.setAddWithMetamagicMessage(value);

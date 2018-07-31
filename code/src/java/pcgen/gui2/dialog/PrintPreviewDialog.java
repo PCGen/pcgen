@@ -59,16 +59,6 @@ import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.SwingWorker;
 
-import pcgen.cdom.base.Constants;
-import pcgen.facade.core.CharacterFacade;
-import pcgen.gui2.PCGenFrame;
-import pcgen.gui2.tools.Icons;
-import pcgen.gui2.tools.Utility;
-import pcgen.system.BatchExporter;
-import pcgen.system.ConfigurationSettings;
-import pcgen.util.Logging;
-import pcgen.util.fop.FopTask;
-
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.filefilter.FileFilterUtils;
 import org.apache.commons.io.filefilter.IOFileFilter;
@@ -78,6 +68,16 @@ import org.apache.fop.apps.FOUserAgent;
 import org.apache.fop.render.awt.AWTRenderer;
 import org.apache.fop.render.awt.viewer.PreviewPanel;
 import org.jetbrains.annotations.NotNull;
+
+import pcgen.cdom.base.Constants;
+import pcgen.facade.core.CharacterFacade;
+import pcgen.gui2.PCGenFrame;
+import pcgen.gui2.tools.Icons;
+import pcgen.gui2.tools.Utility;
+import pcgen.system.BatchExporter;
+import pcgen.system.ConfigurationSettings;
+import pcgen.util.Logging;
+import pcgen.util.fop.FopTask;
 
 /**
  * Dialog to allow the preview of character export.
@@ -142,8 +142,8 @@ public final class PrintPreviewDialog extends JDialog implements ActionListener
 		{
 
 			@Override
-			public Component getListCellRendererComponent(JList<? extends Object> list,
-				Object value, int index, boolean isSelected, boolean cellHasFocus)
+			public Component getListCellRendererComponent(JList<? extends Object> list, Object value, int index,
+				boolean isSelected, boolean cellHasFocus)
 			{
 				super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
 				if (value != null)
@@ -169,13 +169,12 @@ public final class PrintPreviewDialog extends JDialog implements ActionListener
 		{
 
 			@Override
-			public Component getListCellRendererComponent(JList<? extends Object> list,
-				Object value, int index, boolean isSelected, boolean cellHasFocus)
+			public Component getListCellRendererComponent(JList<? extends Object> list, Object value, int index,
+				boolean isSelected, boolean cellHasFocus)
 			{
 				NumberFormat format = NumberFormat.getPercentInstance();
 				String formattedValue = format.format(value);
-				return super.getListCellRendererComponent(list, formattedValue, index,
-					isSelected, cellHasFocus);
+				return super.getListCellRendererComponent(list, formattedValue, index, isSelected, cellHasFocus);
 			}
 
 		});
@@ -319,8 +318,7 @@ public final class PrintPreviewDialog extends JDialog implements ActionListener
 	/**
 	 * A JFormattedTextField that edits percentages.
 	 */
-	private static class PercentEditor extends JFormattedTextField
-			implements ComboBoxEditor, PropertyChangeListener
+	private static class PercentEditor extends JFormattedTextField implements ComboBoxEditor, PropertyChangeListener
 	{
 
 		public PercentEditor(JComboBox<Double> comboBox)
@@ -377,7 +375,7 @@ public final class PrintPreviewDialog extends JDialog implements ActionListener
 		{
 			URI osPath = new File(ConfigurationSettings.getOutputSheetsDir()).toURI();
 			File xsltFile = new File(osPath.resolve(uri));
-			
+
 			FOUserAgent userAgent = FopTask.getFactory().newFOUserAgent();
 			AWTRenderer renderer = new AWTRenderer(userAgent, null, false, false);
 			PipedOutputStream out = new PipedOutputStream();
@@ -386,9 +384,12 @@ public final class PrintPreviewDialog extends JDialog implements ActionListener
 			thread.setDaemon(true);
 			thread.start();
 			BatchExporter.exportCharacter(character, out);
-			try{
+			try
+			{
 				thread.join();
-			}catch(InterruptedException ex){
+			}
+			catch (InterruptedException ex)
+			{
 				//pass on the interrupt and hope it stops
 				thread.interrupt();
 			}
@@ -451,9 +452,7 @@ public final class PrintPreviewDialog extends JDialog implements ActionListener
 			File dir = new File(ConfigurationSettings.getOutputSheetsDir());
 			Collection<File> files = FileUtils.listFiles(dir, fileFilter, dirFilter);
 			URI osPath = new File(ConfigurationSettings.getOutputSheetsDir()).toURI();
-			Object[] uriList = files.stream()
-			                        .map(v -> osPath.relativize(v.toURI()))
-			                        .toArray();
+			Object[] uriList = files.stream().map(v -> osPath.relativize(v.toURI())).toArray();
 			return uriList;
 		}
 

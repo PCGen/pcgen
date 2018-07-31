@@ -34,13 +34,13 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class ResizableEquipTypeToken implements GameModeLstToken
 {
 
-    @Override
+	@Override
 	public String getTokenName()
 	{
 		return "RESIZABLEEQUIPTYPE";
 	}
 
-    @Override
+	@Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		List<String> typelist = new ArrayList<>();

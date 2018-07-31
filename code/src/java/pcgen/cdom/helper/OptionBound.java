@@ -76,7 +76,7 @@ public class OptionBound
 	public boolean isOption(PlayerCharacter pc, int value)
 	{
 		return (minOption == null || minOption.resolve(pc, "").intValue() <= value)
-				&& (maxOption == null || maxOption.resolve(pc, "").intValue() >= value);
+			&& (maxOption == null || maxOption.resolve(pc, "").intValue() >= value);
 	}
 
 	/**

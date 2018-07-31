@@ -17,7 +17,12 @@
  */
 package pcgen.cdom.base;
 
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+
 import org.jetbrains.annotations.NotNull;
+
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.core.PlayerCharacter;
@@ -25,16 +30,11 @@ import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.core.chooser.UserInputManager;
 import pcgen.rules.context.LoadContext;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-
-public class UserChooseInformation implements ChooseInformation<String>,
-		Chooser<String>
+public class UserChooseInformation implements ChooseInformation<String>, Chooser<String>
 {
-	
+
 	public static final String UCI_NAME = "User Input";
-	
+
 	/**
 	 * The title (presented to the user) of this ChoiceSet
 	 */
@@ -89,15 +89,13 @@ public class UserChooseInformation implements ChooseInformation<String>,
 	}
 
 	@Override
-	public void restoreChoice(PlayerCharacter pc, ChooseDriver owner,
-		String choice)
+	public void restoreChoice(PlayerCharacter pc, ChooseDriver owner, String choice)
 	{
 		pc.addAssoc(owner, getListKey(), choice);
 	}
 
 	@Override
-	public List<String> getCurrentlySelected(ChooseDriver owner,
-		PlayerCharacter pc)
+	public List<String> getCurrentlySelected(ChooseDriver owner, PlayerCharacter pc)
 	{
 		return pc.getAssocList(owner, getListKey());
 	}

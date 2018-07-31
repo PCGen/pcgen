@@ -39,8 +39,7 @@ public class CombatHasBeenInitiatedMessage extends PCGenMessage
 	 * Create a new instance of CombatHasBeenInitiatedMessage
 	 * @param source
 	 */
-	public CombatHasBeenInitiatedMessage(
-		Object source)
+	public CombatHasBeenInitiatedMessage(Object source)
 	{
 		super(source);
 	}

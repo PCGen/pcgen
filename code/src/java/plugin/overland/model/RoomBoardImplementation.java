@@ -28,7 +28,7 @@ class RoomBoardImplementation implements RoomBoard
 	private final PairList<RBCost> animals; //holds animal costs
 	private final PairList<RBCost> foods; //holds inn costs
 	private final PairList<RBCost> inns; //holds inn costs
-	
+
 	/**
 	 * @param inns
 	 * @param foods
@@ -45,7 +45,7 @@ class RoomBoardImplementation implements RoomBoard
 	/**
 	 * @return the animals
 	 */
-    @Override
+	@Override
 	public PairList<RBCost> getAnimals()
 	{
 		return animals;
@@ -54,7 +54,7 @@ class RoomBoardImplementation implements RoomBoard
 	/**
 	 * @return the foods
 	 */
-    @Override
+	@Override
 	public PairList<RBCost> getFoods()
 	{
 		return foods;
@@ -63,7 +63,7 @@ class RoomBoardImplementation implements RoomBoard
 	/**
 	 * @return the inns
 	 */
-    @Override
+	@Override
 	public PairList<RBCost> getInns()
 	{
 		return inns;

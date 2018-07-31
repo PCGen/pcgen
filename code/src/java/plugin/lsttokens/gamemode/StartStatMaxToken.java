@@ -17,11 +17,10 @@
  */
 package plugin.lsttokens.gamemode;
 
-import pcgen.core.GameMode;
-import pcgen.persistence.lst.GameModeLstToken;
-
 import java.net.URI;
 
+import pcgen.core.GameMode;
+import pcgen.persistence.lst.GameModeLstToken;
 
 /**
  * {@code StartStatMaxToken}
@@ -29,16 +28,13 @@ import java.net.URI;
 public class StartStatMaxToken implements GameModeLstToken
 {
 
-    @Override
+	@Override
 	public String getTokenName()
 	{
 		return "STARTSTATMAX";
 	}
 
-
-
-
-    @Override
+	@Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		try

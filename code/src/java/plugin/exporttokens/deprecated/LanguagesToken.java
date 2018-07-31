@@ -46,8 +46,7 @@ public class LanguagesToken extends AbstractExportToken
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, CharacterDisplay display,
-		ExportHandler eh)
+	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
 	{
 		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
 		aTok.nextToken();
@@ -55,8 +54,7 @@ public class LanguagesToken extends AbstractExportToken
 		int languageIndex = 0;
 		int startIndex = 0;
 
-		List<Language> languageList =
-				new ArrayList<>(display.getSortedLanguageSet());
+		List<Language> languageList = new ArrayList<>(display.getSortedLanguageSet());
 
 		if (aTok.hasMoreTokens())
 		{
@@ -85,8 +83,7 @@ public class LanguagesToken extends AbstractExportToken
 		}
 
 		List<Language> subList =
-				languageList.subList(Math.max(startIndex, 0), Math.min(
-					languageIndex, languageList.size()));
+				languageList.subList(Math.max(startIndex, 0), Math.min(languageIndex, languageList.size()));
 
 		return StringUtil.join(subList, ", ");
 	}

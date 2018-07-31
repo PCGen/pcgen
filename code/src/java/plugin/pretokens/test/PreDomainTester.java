@@ -26,7 +26,6 @@ import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.util.Logging;
 
-
 public class PreDomainTester extends AbstractDisplayPrereqTest
 {
 
@@ -43,16 +42,17 @@ public class PreDomainTester extends AbstractDisplayPrereqTest
 		}
 		catch (NumberFormatException e)
 		{
-			Logging.errorPrintLocalised(
-				"PreDomain.error.bad_operand", prereq.toString()); //$NON-NLS-1$
+			Logging.errorPrintLocalised("PreDomain.error.bad_operand", prereq.toString()); //$NON-NLS-1$
 		}
-		
-		if ( prereq.getKey().equalsIgnoreCase("ANY") ) {
+
+		if (prereq.getKey().equalsIgnoreCase("ANY"))
+		{
 			runningTotal = display.getDomainCount();
-		} else {
-			Domain domain = Globals.getContext().getReferenceContext()
-					.silentlyGetConstructedCDOMObject(DOMAIN_CLASS, prereq
-							.getKey());
+		}
+		else
+		{
+			Domain domain = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(DOMAIN_CLASS,
+				prereq.getKey());
 			final boolean hasDomain = domain != null && display.hasDomain(domain);
 			runningTotal = hasDomain ? 1 : 0;
 		}
@@ -65,7 +65,7 @@ public class PreDomainTester extends AbstractDisplayPrereqTest
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "DOMAIN"; //$NON-NLS-1$

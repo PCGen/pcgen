@@ -26,16 +26,14 @@ import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 
-public class PCCountSpellsKnownTermEvaluator
-		extends BasePCTermEvaluator implements TermEvaluator
+public class PCCountSpellsKnownTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
 	private final int[] nums;
 
-	public PCCountSpellsKnownTermEvaluator(
-			String originalText, int[] nums)
+	public PCCountSpellsKnownTermEvaluator(String originalText, int[] nums)
 	{
 		this.originalText = originalText;
-		this.nums         = nums;
+		this.nums = nums;
 	}
 
 	@Override
@@ -58,9 +56,7 @@ public class PCCountSpellsKnownTermEvaluator
 
 				if (pObj != null)
 				{
-					count = (float) pc.getCharacterSpells(
-									pObj,
-									null, Globals.getDefaultSpellBook(), nums[1]).size();
+					count = (float) pc.getCharacterSpells(pObj, null, Globals.getDefaultSpellBook(), nums[1]).size();
 				}
 			}
 		}

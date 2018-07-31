@@ -22,16 +22,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-import pcgen.core.PlayerCharacter;
-import pcgen.core.VariableProcessor;
-import pcgen.persistence.lst.LstUtils;
-import pcgen.system.PluginLoader;
-
 import org.nfunk.jep.ASTFunNode;
 import org.nfunk.jep.JEP;
 import org.nfunk.jep.Node;
 import org.nfunk.jep.ParseException;
 import org.nfunk.jep.function.PostfixMathCommand;
+
+import pcgen.core.PlayerCharacter;
+import pcgen.core.VariableProcessor;
+import pcgen.persistence.lst.LstUtils;
+import pcgen.system.PluginLoader;
 
 /**
  * {@code PJEP}
@@ -49,35 +49,33 @@ public final class PJEP extends JEP
 {
 	private Object parent;
 	private String variableSource;
-	private static List<Class<PCGenCommand>> commandList =
-            new ArrayList<>();
+	private static List<Class<PCGenCommand>> commandList = new ArrayList<>();
 	private List<PCGenCommand> localCommandList = new ArrayList<>();
 
 	public static void addCommand(Class<PCGenCommand> clazz)
 	{
 		commandList.add(clazz);
 	}
+
 	public static PluginLoader getJepPluginLoader()
 	{
 		return new PluginLoader()
 		{
 
-            @Override
+			@Override
 			public void loadPlugin(Class clazz) throws Exception
 			{
 				addCommand(clazz);
 			}
 
-            @Override
+			@Override
 			public Class[] getPluginClasses()
 			{
-				return new Class[]
-						{
-							PCGenCommand.class
-						};
+				return new Class[]{PCGenCommand.class};
 			}
 		};
 	}
+
 	public PJEP()
 	{
 		setAllowUndeclared(true);
@@ -104,7 +102,7 @@ public final class PJEP extends JEP
 		addVariable("FALSE", 0);
 	}
 
-    @Override
+	@Override
 	public Node parseExpression(String expression_in)
 	{
 		if (updateVariables())
@@ -193,8 +191,8 @@ public final class PJEP extends JEP
 		 * 
 		 * @throws ParseException
 		 */
-//		@SuppressWarnings("unchecked") //Uses JEP, which doesn't use generics
-        @Override
+		//		@SuppressWarnings("unchecked") //Uses JEP, which doesn't use generics
+		@Override
 		public void run(Stack inStack) throws ParseException
 		{
 			LstUtils.deprecationWarning("Jep function cl deprecated, use classlevel instead");
@@ -265,8 +263,7 @@ public final class PJEP extends JEP
 				}
 				if (aPC == null)
 				{
-					throw new ParseException("Invalid parent (no PC): "
-						+ parent.getClass().getName());
+					throw new ParseException("Invalid parent (no PC): " + parent.getClass().getName());
 				}
 
 				// ";BEFORELEVEL="

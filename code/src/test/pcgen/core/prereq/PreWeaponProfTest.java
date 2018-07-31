@@ -34,6 +34,7 @@ import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.WeaponProf;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.FeatLoader;
 import pcgen.persistence.lst.prereq.PreParserFactory;
@@ -62,10 +63,11 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 	}
 	
 	/**
-	 * Test with a simple weapon proficiency
-	 * @throws Exception
+	 * Test with a simple weapon proficiency.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testOneOption() throws Exception
+	public void testOneOption() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -100,10 +102,11 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 
 
 	/**
-	 * Tests to see if a character has a certain number of weaponprofs from a list
-	 * @throws Exception
+	 * Tests to see if a character has a certain number of weaponprofs from a list.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testMultiple() throws Exception
+	public void testMultiple() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		PCTemplate pct = new PCTemplate();
@@ -137,10 +140,11 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 	}
 	
 	/**
-	 * Test a preweaponprof that checks for a number of profs of a certain type
-	 * @throws Exception
+	 * Test a preweaponprof that checks for a number of profs of a certain type.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testType() throws Exception
+	public void testType() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		PCTemplate pctls = new PCTemplate();
@@ -176,10 +180,11 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 	}
 	
 	/**
-	 * Test with negation
-	 * @throws Exception
+	 * Test with negation.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testInverse() throws Exception
+	public void testInverse() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		PCTemplate pct = new PCTemplate();
@@ -215,10 +220,11 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 	/**
 	 * Test the preweaponprof with weaponprofs added by a AUTO:WEAPONPROF tag
 	 * This is probably more an integration test than a unit test
-	 * This test was written to help find the source of bug 1699779
-	 * @throws Exception
+	 * This test was written to help find the source of bug 1699779.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testWeaponProfAddedWithAutoWeaponProf() throws Exception
+	public void testWeaponProfAddedWithAutoWeaponProf() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -257,10 +263,11 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 	
 	/**
 	 * Test Preweaponprof with a feat that has a bonus tag
-	 * This test was written to help find the source of bug 1699779
-	 * @throws Exception
+	 * This test was written to help find the source of bug 1699779.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testWithFeatThatGrantsBonus() throws Exception
+	public void testWithFeatThatGrantsBonus() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		PCTemplate pctls = new PCTemplate();

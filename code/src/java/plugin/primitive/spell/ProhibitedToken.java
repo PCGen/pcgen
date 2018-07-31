@@ -41,8 +41,7 @@ public class ProhibitedToken implements PrimitiveToken<Spell>, PrimitiveFilter<S
 	private CDOMReference<Spell> allSpells;
 
 	@Override
-	public boolean initialize(LoadContext context, Class<Spell> cl,
-		String value, String args)
+	public boolean initialize(LoadContext context, Class<Spell> cl, String value, String args)
 	{
 		if (args != null)
 		{
@@ -124,8 +123,7 @@ public class ProhibitedToken implements PrimitiveToken<Spell>, PrimitiveFilter<S
 	}
 
 	@Override
-	public <R> Collection<? extends R> getCollection(PlayerCharacter pc,
-			Converter<Spell, R> c)
+	public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<Spell, R> c)
 	{
 		return c.convert(allSpells, this);
 	}

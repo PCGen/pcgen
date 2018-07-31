@@ -25,8 +25,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 /**
  * Class deals with COPYMASTERCHECK Token
  */
-public class CopymastercheckToken extends AbstractStringToken<CompanionMod>
-		implements CDOMPrimaryToken<CompanionMod>
+public class CopymastercheckToken extends AbstractStringToken<CompanionMod> implements CDOMPrimaryToken<CompanionMod>
 {
 
 	@Override

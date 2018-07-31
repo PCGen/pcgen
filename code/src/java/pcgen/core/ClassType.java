@@ -22,7 +22,6 @@ import java.net.URI;
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.Loadable;
 
-
 /**
  * {@code Campaign}.
  * A simple structure.
@@ -45,20 +44,20 @@ public final class ClassType implements Cloneable, Loadable
 	private boolean isMonster = false;
 
 	/**
-     * Get the name of the class type.
-     * @return name of the class type
+	 * Get the name of the class type.
+	 * @return name of the class type
 	 */
-    public String getName()
+	public String getName()
 	{
 		return theName;
 	}
 
-    /**
-     * Set the name of the class type.
-     * @param aName
-     */
+	/**
+	 * Set the name of the class type.
+	 * @param aName
+	 */
 	@Override
-	public void setName( final String aName )
+	public void setName(final String aName)
 	{
 		theName = aName;
 	}
@@ -165,7 +164,6 @@ public final class ClassType implements Cloneable, Loadable
 			throw new UnreachableError(e);
 		}
 	}
-
 
 	@Override
 	public URI getSourceURI()

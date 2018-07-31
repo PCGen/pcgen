@@ -23,8 +23,7 @@ package pcgen.core.term;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 
-public class PCCountSpellsInbookTermEvaluator
-		extends BasePCTermEvaluator implements TermEvaluator
+public class PCCountSpellsInbookTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
 	private final String book;
 
@@ -37,8 +36,7 @@ public class PCCountSpellsInbookTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		return SettingsHandler.getPrintSpellsWithPC() ?
-			   (float) pc.countSpellsInBook(book) : 0.0f;
+		return SettingsHandler.getPrintSpellsWithPC() ? (float) pc.countSpellsInBook(book) : 0.0f;
 	}
 
 	@Override

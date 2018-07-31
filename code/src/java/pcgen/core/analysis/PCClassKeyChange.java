@@ -58,8 +58,7 @@ public final class PCClassKeyChange
 		}
 	}
 
-	private static void renameVariables(String oldClass, CDOMObject pcc,
-			String newClass)
+	private static void renameVariables(String oldClass, CDOMObject pcc, String newClass)
 	{
 		//
 		// Go through the variable list (DEFINE) and adjust the class to the new
@@ -67,13 +66,12 @@ public final class PCClassKeyChange
 		//
 		for (VariableKey vk : pcc.getVariableKeys())
 		{
-			pcc.put(vk, FormulaFactory.getFormulaFor(pcc.get(vk).toString()
-					.replaceAll("=" + oldClass, "=" + newClass)));
+			pcc.put(vk,
+				FormulaFactory.getFormulaFor(pcc.get(vk).toString().replaceAll("=" + oldClass, "=" + newClass)));
 		}
 	}
 
-	private static void renameBonusTarget(CDOMObject cdo, String oldClass,
-			String newClass)
+	private static void renameBonusTarget(CDOMObject cdo, String oldClass, String newClass)
 	{
 		//
 		// Go through the bonus list (BONUS) and adjust the class to the new
@@ -96,10 +94,8 @@ public final class PCClassKeyChange
 						break;
 					}
 					LoadContext context = Globals.getContext();
-					final BonusObj aBonus = Bonus.newBonus(context, bonus.substring(0,
-							offs + 1)
-							+ newClass
-							+ bonus.substring(offs + oldClass.length() + 1));
+					final BonusObj aBonus = Bonus.newBonus(context,
+						bonus.substring(0, offs + 1) + newClass + bonus.substring(offs + oldClass.length() + 1));
 
 					if (aBonus != null)
 					{

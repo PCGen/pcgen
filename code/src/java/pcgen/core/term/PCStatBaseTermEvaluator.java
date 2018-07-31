@@ -24,22 +24,21 @@ import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.core.display.CharacterDisplay;
 
-public class PCStatBaseTermEvaluator 
-		extends BasePCDTermEvaluator implements TermEvaluator
+public class PCStatBaseTermEvaluator extends BasePCDTermEvaluator implements TermEvaluator
 {
 	private final String statAbbrev;
-	
-	public PCStatBaseTermEvaluator (String originalText, String statAbbrev)
+
+	public PCStatBaseTermEvaluator(String originalText, String statAbbrev)
 	{
 		this.originalText = originalText;
-		this.statAbbrev   = statAbbrev;
+		this.statAbbrev = statAbbrev;
 	}
 
 	@Override
 	public Float resolve(CharacterDisplay display)
 	{
-		PCStat stat = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
-				PCStat.class, statAbbrev);
+		PCStat stat =
+				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCStat.class, statAbbrev);
 		return (float) display.getBaseStatFor(stat);
 	}
 

@@ -255,10 +255,8 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 
 	private static void setPanelTitle(JComponent panel, String title)
 	{
-		panel.setBorder(BorderFactory.createTitledBorder(null,
-				title,
-				TitledBorder.CENTER,
-				TitledBorder.DEFAULT_POSITION));
+		panel.setBorder(
+			BorderFactory.createTitledBorder(null, title, TitledBorder.CENTER, TitledBorder.DEFAULT_POSITION));
 	}
 
 	/**
@@ -289,20 +287,18 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		statsPanel.setLayout(new BoxLayout(statsPanel, BoxLayout.Y_AXIS));
 
 		StatTableModel.initializeTable(statsTable);
-		JScrollPane pane
-				= new JScrollPane(statsTable,
-						ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
-						ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER)
-				{
+		JScrollPane pane = new JScrollPane(statsTable, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
+			ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER)
+		{
 
-					@Override
-					public Dimension getMaximumSize()
-					{
-						//This prevents the scroll pane from taking up more space than it needs.
-						return super.getPreferredSize();
-					}
+			@Override
+			public Dimension getMaximumSize()
+			{
+				//This prevents the scroll pane from taking up more space than it needs.
+				return super.getPreferredSize();
+			}
 
-				};
+		};
 		pane.setBorder(BorderFactory.createEmptyBorder());
 		JPanel statsBox = new JPanel();
 		statsBox.setLayout(new BoxLayout(statsBox, BoxLayout.X_AXIS));
@@ -624,18 +620,17 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		Border highlightBorder = BorderFactory.createLineBorder(Color.GREEN, 3);
 		comp.setBorder(highlightBorder);
 
-		SwingUtilities.invokeLater(() ->
-		{
-            try
-            {
-                Thread.sleep(500);
-            }
-            catch (InterruptedException e)
-            {
-                // Ignored as we'll exit shortly anyway.
-            }
-            comp.setBorder(oldBorder);
-        });
+		SwingUtilities.invokeLater(() -> {
+			try
+			{
+				Thread.sleep(500);
+			}
+			catch (InterruptedException e)
+			{
+				// Ignored as we'll exit shortly anyway.
+			}
+			comp.setBorder(oldBorder);
+		});
 	}
 
 	@Override
@@ -647,15 +642,15 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		models.put(ComboBoxRendererHandler.class, new ComboBoxRendererHandler(character));
 		models.put(ComboBoxModelHandler.class, new ComboBoxModelHandler(character));
 
-		models.put(RandomNameAction.class, new RandomNameAction(character,
-				(JFrame) SwingUtilities.getWindowAncestor(this)));
+		models.put(RandomNameAction.class,
+			new RandomNameAction(character, (JFrame) SwingUtilities.getWindowAncestor(this)));
 		models.put(ClassLevelTableModel.class, new ClassLevelTableModel(character, classLevelTable, classComboBox));
 
 		models.put(GenerateRollsAction.class, new GenerateRollsAction(character));
-		models.put(RollMethodAction.class, new RollMethodAction(character,
-				(JFrame) SwingUtilities.getWindowAncestor(this)));
-		models.put(CreateMonsterAction.class, new CreateMonsterAction(
-				character, (JFrame) SwingUtilities.getWindowAncestor(this)));
+		models.put(RollMethodAction.class,
+			new RollMethodAction(character, (JFrame) SwingUtilities.getWindowAncestor(this)));
+		models.put(CreateMonsterAction.class,
+			new CreateMonsterAction(character, (JFrame) SwingUtilities.getWindowAncestor(this)));
 		models.put(AddLevelsAction.class, new AddLevelsAction(character));
 		models.put(RemoveLevelsAction.class, new RemoveLevelsAction(character));
 		models.put(StatTableModel.class, new StatTableModel(character, statsTable));
@@ -879,61 +874,64 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			DataSetFacade dataset = character.getDataSet();
 
 			//initialize character type model
-			characterTypeModel = new CharacterComboBoxModel<String>(dataset.getCharacterTypes(), character.getCharacterTypeRef())
-			{
+			characterTypeModel =
+					new CharacterComboBoxModel<String>(dataset.getCharacterTypes(), character.getCharacterTypeRef())
+					{
 
-				@Override
-				public void setSelectedItem(Object anItem)
-				{
-					character.setCharacterType((String) anItem);
-				}
+						@Override
+						public void setSelectedItem(Object anItem)
+						{
+							character.setCharacterType((String) anItem);
+						}
 
-			};
+					};
 
 			//initialize gender model
-			genderModel = new CharacterComboBoxModel<GenderFacade>(character.getAvailableGenders(), character.getGenderRef())
-			{
+			genderModel =
+					new CharacterComboBoxModel<GenderFacade>(character.getAvailableGenders(), character.getGenderRef())
+					{
 
-				@Override
-				public void setSelectedItem(Object anItem)
-				{
-					character.setGender((GenderFacade) anItem);
-				}
+						@Override
+						public void setSelectedItem(Object anItem)
+						{
+							character.setGender((GenderFacade) anItem);
+						}
 
-			};
+					};
 
 			//initialize handed model
-			handsModel = new CharacterComboBoxModel<HandedFacade>(character.getAvailableHands(), character.getHandedRef())
-			{
+			handsModel =
+					new CharacterComboBoxModel<HandedFacade>(character.getAvailableHands(), character.getHandedRef())
+					{
 
-				@Override
-				public void setSelectedItem(Object anItem)
-				{
-					character.setHanded((HandedFacade) anItem);
-				}
+						@Override
+						public void setSelectedItem(Object anItem)
+						{
+							character.setHanded((HandedFacade) anItem);
+						}
 
-			};
+					};
 
 			if (!dataset.getAlignments().isEmpty())
 			{
 				//initialize alignment model
-				alignmentModel = new CharacterComboBoxModel<PCAlignment>(dataset.getAlignments(), character.getAlignmentRef())
-				{
+				alignmentModel =
+						new CharacterComboBoxModel<PCAlignment>(dataset.getAlignments(), character.getAlignmentRef())
+						{
 
-					@Override
-					public void setSelectedItem(Object anItem)
-					{
-						character.setAlignment((PCAlignment) anItem);
-					}
+							@Override
+							public void setSelectedItem(Object anItem)
+							{
+								character.setAlignment((PCAlignment) anItem);
+							}
 
-				};
+						};
 			}
 
 			if (dataset.hasDeityDomain())
 			{
 				//initialize deity model
-				deityModel = new CharacterComboBoxModel<DeityFacade>(dataset.getDeities(),
-					character.getDeityRef())
+				deityModel = new CharacterComboBoxModel<DeityFacade>(dataset.getDeities(), character.getDeityRef())
 				{
 
 					@Override
@@ -958,7 +956,8 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			};
 
 			//initialize age category model
-			ageCatModel = new CharacterComboBoxModel<SimpleFacade>(character.getAgeCategories(), character.getAgeCategoryRef())
+			ageCatModel = new CharacterComboBoxModel<SimpleFacade>(character.getAgeCategories(),
+				character.getAgeCategoryRef())
 			{
 
 				@Override
@@ -983,7 +982,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 
 			classModel = new FacadeComboBoxModel<>(dataset.getClasses(), null);
 		}
-		
+
 		public void install()
 		{
 			characterTypeComboBox.setModel(characterTypeModel);
@@ -1051,7 +1050,8 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		}
 
 		@Override
-		public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus)
+		public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected,
+			boolean cellHasFocus)
 		{
 			super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
 			setToolTipText(value == null ? null : value.toString());
@@ -1064,7 +1064,8 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 	{
 
 		@Override
-		public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus)
+		public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected,
+			boolean cellHasFocus)
 		{
 			super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
 			if (value instanceof InfoFacade && !character.isQualifiedFor((InfoFacade) value))
@@ -1088,7 +1089,8 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 	{
 
 		@Override
-		public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus)
+		public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected,
+			boolean cellHasFocus)
 		{
 			super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
 			if (value instanceof ClassFacade && !character.isQualifiedFor((ClassFacade) value))
@@ -1162,11 +1164,14 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			String gender = character.getGenderRef().get() != null ? character.getGenderRef().get().toString() : ""; //$NON-NLS-1$
+			String gender =
+					character.getGenderRef().get()
+					!= null ? character.getGenderRef().get().toString() : ""; //$NON-NLS-1$
 			RandomNameDialog dialog = new RandomNameDialog(frame, gender);
 			dialog.setVisible(true);
 			String chosenName = dialog.getChosenName();
-			if (chosenName != null && !chosenName.isEmpty() && !chosenName.equals(LanguageBundle.getString("in_rndNmDefault"))) //$NON-NLS-1$
+			if (chosenName != null && !chosenName.isEmpty()
+				&& !chosenName.equals(LanguageBundle.getString("in_rndNmDefault"))) //$NON-NLS-1$
 			{
 				character.setName(chosenName);
 			}
@@ -1180,7 +1185,8 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 	 * Handler for actions from the generate rolls button. Also defines the
 	 * appearance of the button.
 	 */
-	private final class GenerateRollsAction extends AbstractAction implements ListListener<CharacterLevelFacade>, ReferenceListener<Integer>
+	private final class GenerateRollsAction extends AbstractAction
+			implements ListListener<CharacterLevelFacade>, ReferenceListener<Integer>
 	{
 
 		private final CharacterFacade character;
@@ -1328,8 +1334,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			KitSelectionDialog kitDialog
-					= new KitSelectionDialog(frame, character);
+			KitSelectionDialog kitDialog = new KitSelectionDialog(frame, character);
 			Utility.setComponentRelativeLocation(frame, kitDialog);
 			kitDialog.setVisible(true);
 		}
@@ -1365,15 +1370,12 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 
 		public void install()
 		{
-			CharacterLevelsFacade characterLevelsFacade
-					= character.getCharacterLevelsFacade();
+			CharacterLevelsFacade characterLevelsFacade = character.getCharacterLevelsFacade();
 			int maxLvl = characterLevelsFacade.getSize();
 			if (maxLvl > 0)
 			{
-				ClassFacade classTaken
-						= characterLevelsFacade
-						.getClassTaken(characterLevelsFacade
-								.getElementAt(maxLvl - 1));
+				ClassFacade classTaken =
+						characterLevelsFacade.getClassTaken(characterLevelsFacade.getElementAt(maxLvl - 1));
 				classComboBox.setSelectedItem(classTaken);
 			}
 		}
@@ -1463,8 +1465,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 	 * reference is updated. The handler also knows how to react to install and
 	 * uninstall actions when the displayed character changes.
 	 */
-	private class LabelHandler
-			implements ReferenceListener<String>
+	private class LabelHandler implements ReferenceListener<String>
 	{
 
 		private ReferenceFacade<String> reference = null;
@@ -1534,8 +1535,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 	 * changes.
 	 */
 	@SuppressWarnings("TodoComment")
-	private class TodoListHandler
-			implements ListListener<TodoFacade>, HyperlinkListener
+	private class TodoListHandler implements ListListener<TodoFacade>, HyperlinkListener
 	{
 
 		private final CharacterFacade character;

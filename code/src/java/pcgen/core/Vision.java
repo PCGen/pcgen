@@ -68,7 +68,8 @@ public class Vision extends CDOMObject implements Comparable<Vision>
 	}
 
 	@Override
-	public String toString() {
+	public String toString()
+	{
 		try
 		{
 			return toString(Integer.parseInt(distance.toString()));
@@ -95,8 +96,7 @@ public class Vision extends CDOMObject implements Comparable<Vision>
 		if (obj instanceof Vision)
 		{
 			Vision v = (Vision) obj;
-			return distance.equals(v.distance)
-					&& visionType.equals(v.visionType);
+			return distance.equals(v.distance) && visionType.equals(v.visionType);
 		}
 		return false;
 	}
@@ -112,7 +112,7 @@ public class Vision extends CDOMObject implements Comparable<Vision>
 		return toString(distance.resolve(aPC, "").intValue());
 	}
 
-    @Override
+	@Override
 	public int compareTo(Vision v)
 	{
 		//CONSIDER This is potentially a slow method, but definitely works - thpr 10/26/06
@@ -125,8 +125,7 @@ public class Vision extends CDOMObject implements Comparable<Vision>
 		int commaLoc = visionType.indexOf(',');
 		if (commaLoc != -1)
 		{
-			throw new IllegalArgumentException("Invalid Vision: " + visionType
-				+ ". May not contain a comma");
+			throw new IllegalArgumentException("Invalid Vision: " + visionType + ". May not contain a comma");
 		}
 		int quoteLoc = visionType.indexOf('\'');
 		int openParenLoc = visionType.indexOf('(');
@@ -136,13 +135,12 @@ public class Vision extends CDOMObject implements Comparable<Vision>
 		{
 			if (visionType.indexOf(')') != -1)
 			{
-				throw new IllegalArgumentException("Invalid Vision: "
-					+ visionType + ". Had close paren without open paren");
+				throw new IllegalArgumentException(
+					"Invalid Vision: " + visionType + ". Had close paren without open paren");
 			}
 			if (quoteLoc != -1)
 			{
-				throw new IllegalArgumentException("Invalid Vision: "
-					+ visionType + ". Had quote parens");
+				throw new IllegalArgumentException("Invalid Vision: " + visionType + ". Had quote parens");
 			}
 			type = visionType;
 			distance = FormulaFactory.ZERO;
@@ -152,8 +150,8 @@ public class Vision extends CDOMObject implements Comparable<Vision>
 			int length = visionType.length();
 			if (visionType.indexOf(')') != length - 1)
 			{
-				throw new IllegalArgumentException("Invalid Vision: "
-					+ visionType + ". Close paren not at end of string");
+				throw new IllegalArgumentException(
+					"Invalid Vision: " + visionType + ". Close paren not at end of string");
 			}
 			int endDistance = length - 1;
 			if (quoteLoc != -1)
@@ -165,17 +163,14 @@ public class Vision extends CDOMObject implements Comparable<Vision>
 				else
 				{
 					throw new IllegalArgumentException(
-						"Invalid Vision: "
-							+ visionType
-							+ ". Foot character ' not immediately before close paren");
+						"Invalid Vision: " + visionType + ". Foot character ' not immediately before close paren");
 				}
 			}
 			type = visionType.substring(0, openParenLoc).trim();
 			String dist = visionType.substring(openParenLoc + 1, endDistance);
 			if (dist.isEmpty())
 			{
-				throw new IllegalArgumentException("Invalid Vision: "
-					+ visionType + ". No Distance provided");
+				throw new IllegalArgumentException("Invalid Vision: " + visionType + ". No Distance provided");
 			}
 			if (quoteLoc != -1)
 			{
@@ -186,23 +181,18 @@ public class Vision extends CDOMObject implements Comparable<Vision>
 				catch (NumberFormatException nfe)
 				{
 					throw new IllegalArgumentException(
-						"Invalid Vision: "
-							+ visionType
-							+ ". Vision Distance with Foot character ' was not an integer");
+						"Invalid Vision: " + visionType + ". Vision Distance with Foot character ' was not an integer");
 				}
 			}
 			distance = FormulaFactory.getFormulaFor(dist);
 			if (!distance.isValid())
 			{
-				throw new IllegalArgumentException(
-						"Invalid: Vision Distance was not valid: "
-								+ distance);
+				throw new IllegalArgumentException("Invalid: Vision Distance was not valid: " + distance);
 			}
 		}
 		if (type.isEmpty())
 		{
-			throw new IllegalArgumentException("Invalid Vision: " + visionType
-				+ ". No Vision Type provided");
+			throw new IllegalArgumentException("Invalid Vision: " + visionType + ". No Vision Type provided");
 		}
 		return new Vision(VisionType.getVisionType(type), distance);
 	}
@@ -218,6 +208,5 @@ public class Vision extends CDOMObject implements Comparable<Vision>
 	{
 		return toString();
 	}
-	
-	
+
 }

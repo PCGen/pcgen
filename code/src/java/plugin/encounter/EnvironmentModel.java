@@ -15,7 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
- package plugin.encounter;
+package plugin.encounter;
 
 import java.io.File;
 import java.util.NoSuchElementException;
@@ -23,11 +23,10 @@ import java.util.Vector;
 
 import javax.swing.DefaultComboBoxModel;
 
-import pcgen.system.LanguageBundle;
-import pcgen.util.Logging;
-
 import gmgen.io.ReadXML;
 import gmgen.io.VectorTable;
+import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
 
 public class EnvironmentModel extends DefaultComboBoxModel<Object>
 {
@@ -57,7 +56,7 @@ public class EnvironmentModel extends DefaultComboBoxModel<Object>
 		{
 			// TODO Make it so that the view also indicate that the file is missing.
 			Logging.errorPrintLocalised("in_plugin_encounter_error_missing", f); //$NON-NLS-1$
-			
+
 			return;
 		}
 

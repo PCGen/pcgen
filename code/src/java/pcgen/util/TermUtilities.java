@@ -24,33 +24,32 @@ import java.util.regex.Pattern;
 
 import pcgen.core.term.TermEvaulatorException;
 
-public class TermUtilities {
-	public static final String dString = "(?:NOT|ADD|IS)";
-	public static final Pattern dPat = Pattern.compile(dString);
-	public static final String sString = "(?:EQUIPPED|NOTEQUIPPED)";
-	public static final Pattern sPat = Pattern.compile(sString);
+public final class TermUtilities
+{
+	public static final String D_STRING = "(?:NOT|ADD|IS)";
+	public static final Pattern D_PAT = Pattern.compile(D_STRING);
+	public static final String S_STRING = "(?:EQUIPPED|NOTEQUIPPED)";
+	public static final Pattern S_PAT = Pattern.compile(S_STRING);
 
 	private TermUtilities()
 	{
 	}
 
-	public static void checkEqTypeTypesArray(
-			String originalText,
-			String[] types, 
-			int first) throws TermEvaulatorException
+	public static void checkEqTypeTypesArray(String originalText, String[] types, int first)
+		throws TermEvaulatorException
 	{
 		int cur = first + 1;
 
 		while (cur < types.length)
 		{
 			// "(?:NOT|ADD|IS)"
-			if (dPat.matcher(types[cur]).matches())
+			if (D_PAT.matcher(types[cur]).matches())
 			{
 				cur++;
 				if (cur >= types.length)
 				{
 					StringBuilder sB = new StringBuilder();
-					sB.append(types[cur-1]);
+					sB.append(types[cur - 1]);
 					sB.append(" must be followed by a type in ");
 					sB.append(originalText);
 					throw new TermEvaulatorException(sB.toString());
@@ -58,8 +57,7 @@ public class TermUtilities {
 				cur++;
 			}
 			// "(?:EQUIPPED|NOTEQUIPPED)"
-			else if (sPat.matcher(types[cur]).matches() || 
-					 "".equalsIgnoreCase(types[cur]))
+			else if (S_PAT.matcher(types[cur]).matches() || "".equalsIgnoreCase(types[cur]))
 			{
 				cur++;
 			}
@@ -75,23 +73,21 @@ public class TermUtilities {
 		}
 	}
 
-	public static void checkEquipmentTypesArray(
-			String originalText,
-			String[] types, 
-			int first) throws TermEvaulatorException
+	public static void checkEquipmentTypesArray(String originalText, String[] types, int first)
+		throws TermEvaulatorException
 	{
 		int cur = first;
 
 		while (cur < types.length)
 		{
 			// "(?:NOT|ADD|IS)"			
-			if (dPat.matcher(types[cur]).matches())
+			if (D_PAT.matcher(types[cur]).matches())
 			{
 				cur++;
 				if (cur >= types.length)
 				{
 					StringBuilder sB = new StringBuilder();
-					sB.append(types[cur-1]);
+					sB.append(types[cur - 1]);
 					sB.append(" must be followed by a type in ");
 					sB.append(originalText);
 					throw new TermEvaulatorException(sB.toString());
@@ -114,10 +110,8 @@ public class TermUtilities {
 		}
 	}
 
-	public static String extractContentsOfBrackets(
-			String expressionString,
-			String src,
-			int fixed) throws TermEvaulatorException
+	public static String extractContentsOfBrackets(String expressionString, String src, int fixed)
+		throws TermEvaulatorException
 	{
 		int expEnd = expressionString.lastIndexOf(']');
 
@@ -126,7 +120,8 @@ public class TermUtilities {
 			StringBuilder sB = new StringBuilder();
 			sB.append("Badly formed formula ");
 			sB.append(expressionString);
-			if (!"".equals(src)) {
+			if (!"".equals(src))
+			{
 				sB.append(" in ");
 				sB.append(src);
 			}
@@ -139,10 +134,8 @@ public class TermUtilities {
 		return expressionString.substring(fixed, expEnd);
 	}
 
-	public static int[] splitAndConvertIntegers(
-			String expressionString,
-			final String clause,
-			int numOfFields) throws TermEvaulatorException
+	public static int[] splitAndConvertIntegers(String expressionString, final String clause, int numOfFields)
+		throws TermEvaulatorException
 	{
 		final String[] sA = clause.split("\\.", numOfFields);
 		if (sA.length < numOfFields)
@@ -169,19 +162,13 @@ public class TermUtilities {
 		return fields;
 	}
 
-	public static int[] convertToIntegers(
-			String expressionString,
-			String intString,
-			int fixed,
-			int numToExtract) throws TermEvaulatorException
+	public static int[] convertToIntegers(String expressionString, String intString, int fixed, int numToExtract)
+		throws TermEvaulatorException
 	{
 		int[] nums;
 		try
 		{
-			nums = splitAndConvertIntegers(
-					expressionString,
-					intString,
-					numToExtract);
+			nums = splitAndConvertIntegers(expressionString, intString, numToExtract);
 		}
 		catch (NumberFormatException n)
 		{

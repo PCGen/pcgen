@@ -103,16 +103,14 @@ public interface ObjectCommitStrategy
 	public String getString(CDOMObject cdo, StringKey sk);
 
 	public boolean containsListFor(CDOMObject obj, ListKey<?> lk);
-	
+
 	public boolean containsSetFor(CDOMObject obj, FactSetKey<?> lk);
-	
-	public <T> void removePatternFromList(CDOMObject cdo, ListKey<T> lk,
-			String pattern);
+
+	public <T> void removePatternFromList(CDOMObject cdo, ListKey<T> lk, String pattern);
 
 	public void clearPrerequisiteList(ConcretePrereqObject cpo);
 
-	public <T> PatternChanges<T> getListPatternChanges(CDOMObject cdo,
-			ListKey<T> lk);
+	public <T> PatternChanges<T> getListPatternChanges(CDOMObject cdo, ListKey<T> lk);
 
 	public boolean wasRemoved(CDOMObject cdo, ObjectKey<?> ok);
 

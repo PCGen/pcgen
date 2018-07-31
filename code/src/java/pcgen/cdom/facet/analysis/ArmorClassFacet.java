@@ -41,8 +41,7 @@ public class ArmorClassFacet
 	 */
 	private PrerequisiteFacet prerequisiteFacet;
 
-	private PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
-			.getFacet(PlayerCharacterTrackingFacet.class);
+	private PlayerCharacterTrackingFacet trackingFacet = FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
 
 	/**
 	 * Calculates the Armor Class of a certain type. These types are defined in
@@ -64,10 +63,8 @@ public class ArmorClassFacet
 		/*
 		 * CONSIDER should AC types be a type safe list?
 		 */
-		final List<ACControl> addList = SettingsHandler.getGame()
-				.getACTypeAddString(type);
-		final List<ACControl> removeList = SettingsHandler.getGame()
-				.getACTypeRemoveString(type);
+		final List<ACControl> addList = SettingsHandler.getGame().getACTypeAddString(type);
+		final List<ACControl> removeList = SettingsHandler.getGame().getACTypeRemoveString(type);
 
 		if ((addList == null) && (removeList == null))
 		{
@@ -84,8 +81,7 @@ public class ArmorClassFacet
 			{
 				if (prerequisiteFacet.qualifies(id, acc, null))
 				{
-					armorClass += Integer.parseInt(BonusToken.getBonusToken(
-							"BONUS.COMBAT.AC." + acc.getType(), pc));
+					armorClass += Integer.parseInt(BonusToken.getBonusToken("BONUS.COMBAT.AC." + acc.getType(), pc));
 				}
 			}
 		}
@@ -97,8 +93,7 @@ public class ArmorClassFacet
 			{
 				if (prerequisiteFacet.qualifies(id, acc, null))
 				{
-					armorClass -= Integer.parseInt(BonusToken.getBonusToken(
-							"BONUS.COMBAT.AC." + acc.getType(), pc));
+					armorClass -= Integer.parseInt(BonusToken.getBonusToken("BONUS.COMBAT.AC." + acc.getType(), pc));
 				}
 			}
 		}

@@ -24,7 +24,7 @@ import pcgen.gui2.converter.event.TokenProcessorPlugin;
 public class KeyConvertPlugin implements TokenProcessorPlugin
 {
 	// Just process over these magical tokens for now
-    @Override
+	@Override
 	public String process(TokenProcessEvent tpe)
 	{
 		tpe.append(tpe.getKey());
@@ -34,13 +34,13 @@ public class KeyConvertPlugin implements TokenProcessorPlugin
 		return null;
 	}
 
-    @Override
+	@Override
 	public Class<? extends CDOMObject> getProcessedClass()
 	{
 		return CDOMObject.class;
 	}
 
-    @Override
+	@Override
 	public String getProcessedToken()
 	{
 		return "KEY";

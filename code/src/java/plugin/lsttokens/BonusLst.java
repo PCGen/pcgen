@@ -40,13 +40,10 @@ import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
-
-public class BonusLst implements CDOMPrimaryToken<CDOMObject>,
-		DeferredToken<CDOMObject>
+public class BonusLst implements CDOMPrimaryToken<CDOMObject>, DeferredToken<CDOMObject>
 {
 	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
-	private static final Class<AbilityCategory> ABILITY_CATEGORY_CLASS =
-			AbilityCategory.class;
+	private static final Class<AbilityCategory> ABILITY_CATEGORY_CLASS = AbilityCategory.class;
 
 	/**
 	 * Returns token name
@@ -60,28 +57,23 @@ public class BonusLst implements CDOMPrimaryToken<CDOMObject>,
 	}
 
 	@Override
-	public ParseResult parseToken(LoadContext context, CDOMObject obj,
-		String value)
+	public ParseResult parseToken(LoadContext context, CDOMObject obj, String value)
 	{
 		if (obj instanceof Ungranted)
 		{
-			return new ParseResult.Fail("Cannot use " + getTokenName()
-				+ " on an Ungranted object type: "
-				+ obj.getClass().getSimpleName());
+			return new ParseResult.Fail(
+				"Cannot use " + getTokenName() + " on an Ungranted object type: " + obj.getClass().getSimpleName());
 		}
 		if (value.indexOf("PREAPPLY:") != -1)
 		{
 			return new ParseResult.Fail(
-				"Use of PREAPPLY prohibited on a BONUS , "
-					+ "please use TEMPBONUS with: " + value);
+				"Use of PREAPPLY prohibited on a BONUS , " + "please use TEMPBONUS with: " + value);
 		}
-		final String v =
-				value.replaceAll(Pattern.quote("<this>"), obj.getKeyName());
+		final String v = value.replaceAll(Pattern.quote("<this>"), obj.getKeyName());
 		BonusObj bon = Bonus.newBonus(context, v);
 		if (bon == null)
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " was given invalid bonus: " + value);
+			return new ParseResult.Fail(getTokenName() + " was given invalid bonus: " + value);
 		}
 		bon.setTokenSource(getTokenName());
 		context.getObjectContext().addToList(obj, ListKey.BONUS, bon);
@@ -97,8 +89,7 @@ public class BonusLst implements CDOMPrimaryToken<CDOMObject>,
 			return null;
 		}
 
-		Changes<BonusObj> changes = context.getObjectContext().getListChanges(obj,
-				ListKey.BONUS);
+		Changes<BonusObj> changes = context.getObjectContext().getListChanges(obj, ListKey.BONUS);
 		if (changes == null || changes.isEmpty())
 		{
 			// Empty indicates no token present
@@ -144,19 +135,14 @@ public class BonusLst implements CDOMPrimaryToken<CDOMObject>,
 				{
 					for (Object o : bonus.getBonusInfoList())
 					{
-						if (context.getReferenceContext().silentlyGetConstructedCDOMObject(
-								ABILITY_CATEGORY_CLASS, o.toString()) == null)
+						if (context.getReferenceContext().silentlyGetConstructedCDOMObject(ABILITY_CATEGORY_CLASS,
+							o.toString()) == null)
 						{
-							LoadContext dummyCtx =
-									new RuntimeLoadContext(context.getReferenceContext(),
-										new ConsolidatedListCommitStrategy());
+							LoadContext dummyCtx = new RuntimeLoadContext(context.getReferenceContext(),
+								new ConsolidatedListCommitStrategy());
 							dummyCtx.setSourceURI(obj.getSourceURI());
-							Logging.errorPrint(
-								"BONUS: " + bonus + " in "
-									+ obj.getClass().getSimpleName() + ' '
-									+ obj.getKeyName()
-									+ " contained an invalid AbilityCategory "
-									+ o.toString(), dummyCtx);
+							Logging.errorPrint("BONUS: " + bonus + " in " + obj.getClass().getSimpleName() + ' '
+								+ obj.getKeyName() + " contained an invalid AbilityCategory " + o.toString(), dummyCtx);
 							returnValue = false;
 						}
 					}
@@ -166,13 +152,11 @@ public class BonusLst implements CDOMPrimaryToken<CDOMObject>,
 					for (Object o : bonus.getBonusInfoList())
 					{
 						String classKey = o.toString();
-						final PCClass aClass = context.getReferenceContext()
-								.silentlyGetConstructedCDOMObject(
-										PCCLASS_CLASS, classKey);
+						final PCClass aClass =
+								context.getReferenceContext().silentlyGetConstructedCDOMObject(PCCLASS_CLASS, classKey);
 						if (aClass == null)
 						{
-							Logging.errorPrint("Could not find class '"
-									+ classKey + "' for UDAM token", context);
+							Logging.errorPrint("Could not find class '" + classKey + "' for UDAM token", context);
 						}
 					}
 				}

@@ -30,7 +30,8 @@ import pcgen.system.LanguageBundle;
  */
 public enum Handed implements HandedFacade
 {
-	Right {
+	Right
+	{
 		@Override
 		public String toString()
 		{
@@ -38,7 +39,8 @@ public enum Handed implements HandedFacade
 		}
 	},
 
-	Left {
+	Left
+	{
 		@Override
 		public String toString()
 		{
@@ -46,7 +48,8 @@ public enum Handed implements HandedFacade
 		}
 	},
 
-	Ambidextrous {
+	Ambidextrous
+	{
 		@Override
 		public String toString()
 		{
@@ -54,7 +57,8 @@ public enum Handed implements HandedFacade
 		}
 	},
 
-	None {
+	None
+	{
 		@Override
 		public String toString()
 		{
@@ -62,7 +66,8 @@ public enum Handed implements HandedFacade
 		}
 	},
 
-	Other {
+	Other
+	{
 		@Override
 		public String toString()
 		{
@@ -74,7 +79,7 @@ public enum Handed implements HandedFacade
 	{
 		return Right;
 	}
-	
+
 	/**
 	 * Retrieve a Gender object to match the name ({@link #name()}) or localized name
 	 * (output by {@link #toString()}). The localized lookup is kept for legacy purpose

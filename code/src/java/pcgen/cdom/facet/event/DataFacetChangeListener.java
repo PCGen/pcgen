@@ -33,8 +33,7 @@ import pcgen.cdom.base.PCGenIdentifier;
  *            The Type object of changed in the events received by a
  *            DataFacetChangeListener
  */
-public interface DataFacetChangeListener<IDT extends PCGenIdentifier, T>
-		extends EventListener
+public interface DataFacetChangeListener<IDT extends PCGenIdentifier, T> extends EventListener
 {
 	/**
 	 * Method called when a CDOMObject has been added to a resource and

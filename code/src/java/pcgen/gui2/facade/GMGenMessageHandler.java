@@ -17,14 +17,13 @@
  */
 package pcgen.gui2.facade;
 
+import java.io.File;
+import java.util.Iterator;
+
 import gmgen.plugin.InitHolder;
 import gmgen.plugin.InitHolderList;
 import gmgen.plugin.PcgCombatant;
 import gmgen.pluginmgr.messages.FileMenuSaveMessage;
-
-import java.io.File;
-import java.util.Iterator;
-
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.facade.core.CharacterFacade;
@@ -51,7 +50,7 @@ public class GMGenMessageHandler implements PCGenMessageHandler
 
 	private final PCGenFrame delegate;
 	private final PCGenMessageHandler messageHandler;
-	
+
 	/**
 	 * Create a new instance of GMGenMessageHandler
 	 * @param delegate The PCGenFrame instance containing the UI.
@@ -61,8 +60,7 @@ public class GMGenMessageHandler implements PCGenMessageHandler
 		this.delegate = delegate;
 		this.messageHandler = mh;
 	}
-	
-	
+
 	@Override
 	public void handleMessage(PCGenMessage message)
 	{
@@ -95,7 +93,6 @@ public class GMGenMessageHandler implements PCGenMessageHandler
 		}
 	}
 
-
 	private void handleSavePcgMessage(PCGenMessage message)
 	{
 		RequestToSavePlayerCharacterMessage smessage = (RequestToSavePlayerCharacterMessage) message;
@@ -115,8 +112,7 @@ public class GMGenMessageHandler implements PCGenMessageHandler
 	{
 	}
 
-	private void handleInitHolderListSendMessage(
-		TransmitInitiativeValuesBetweenComponentsMessage message)
+	private void handleInitHolderListSendMessage(TransmitInitiativeValuesBetweenComponentsMessage message)
 	{
 		InitHolderList list = message.getInitHolderList();
 
@@ -131,7 +127,7 @@ public class GMGenMessageHandler implements PCGenMessageHandler
 				PlayerCharacter aPC = pcg.getPC();
 				Globals.getPCList().add(aPC);
 				aPC.setDirty(true);
-//				addPCTab(aPC);
+				//				addPCTab(aPC);
 			}
 		}
 	}
@@ -142,17 +138,14 @@ public class GMGenMessageHandler implements PCGenMessageHandler
 
 		if (PCGFile.isPCGenCharacterFile(pcFile))
 		{
-			PlayerCharacter playerCharacter =
-					CharacterManager.openPlayerCharacter(pcFile, delegate,
-						delegate.getLoadedDataSetRef().get(),
-						message.isBlockLoadedMessage());
+			PlayerCharacter playerCharacter = CharacterManager.openPlayerCharacter(pcFile, delegate,
+				delegate.getLoadedDataSetRef().get(), message.isBlockLoadedMessage());
 			message.setPlayerCharacter(playerCharacter);
 			message.consume();
 		}
 		else if (PCGFile.isPCGenPartyFile(pcFile))
 		{
-			CharacterManager.openParty(pcFile, delegate, delegate
-				.getLoadedDataSetRef().get());
+			CharacterManager.openParty(pcFile, delegate, delegate.getLoadedDataSetRef().get());
 		}
 	}
 

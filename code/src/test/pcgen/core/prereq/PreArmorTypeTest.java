@@ -24,6 +24,7 @@ import pcgen.core.Ability;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
@@ -79,10 +80,11 @@ public class PreArmorTypeTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test armor type tests
-	 * @throws Exception
+	 * Test armor type tests.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testType() throws Exception
+	public void testType() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -125,10 +127,9 @@ public class PreArmorTypeTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test LIST
-	 * @throws Exception
+	 * Test LIST.
 	 */
-	public void testList() throws Exception
+	public void testList()
 	{
 		final PlayerCharacter character = getCharacter();
 

@@ -28,18 +28,18 @@ import pcgen.base.util.WeightedCollection;
 public class LevelGeneratorOption extends GeneratorOption
 {
 	private WeightedCollection<Integer> theChoices = null;
-	
+
 	/**
 	 * @see pcgen.core.npcgen.GeneratorOption#addChoice(int, java.lang.String)
 	 */
 	@Override
 	public void addChoice(final int aWeight, final String aValue)
 	{
-		if ( theChoices == null )
+		if (theChoices == null)
 		{
 			theChoices = new WeightedCollection<>();
 		}
-		
+
 		final StringTokenizer tok = new StringTokenizer(aValue, ","); //$NON-NLS-1$
 		final int minVal = Integer.parseInt(tok.nextToken());
 		int maxVal = minVal;
@@ -64,4 +64,3 @@ public class LevelGeneratorOption extends GeneratorOption
 		return theChoices;
 	}
 }
-

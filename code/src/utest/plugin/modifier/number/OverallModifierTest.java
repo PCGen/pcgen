@@ -17,10 +17,11 @@
  */
 package plugin.modifier.number;
 
-import pcgen.base.calculation.CalculationInfo;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
-import static org.junit.Assert.*;
+
+import pcgen.base.calculation.CalculationInfo;
 
 public class OverallModifierTest
 {

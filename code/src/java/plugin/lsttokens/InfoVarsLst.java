@@ -33,8 +33,7 @@ import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class InfoVarsLst extends AbstractTokenWithSeparator<CDOMObject>
-		implements CDOMPrimaryToken<CDOMObject>
+public class InfoVarsLst extends AbstractTokenWithSeparator<CDOMObject> implements CDOMPrimaryToken<CDOMObject>
 {
 	@Override
 	public String getTokenName()
@@ -49,15 +48,13 @@ public class InfoVarsLst extends AbstractTokenWithSeparator<CDOMObject>
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		CDOMObject cdo, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject cdo, String value)
 	{
 		int pipeLoc = value.indexOf(Constants.PIPE);
 		if (pipeLoc == -1)
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " expecting '|', format is: InfoName|Info value was: "
-				+ value);
+			return new ParseResult.Fail(
+				getTokenName() + " expecting '|', format is: InfoName|Info value was: " + value);
 		}
 		String key = value.substring(0, pipeLoc);
 		//key length 0 caught by charAt(0) test above
@@ -68,11 +65,9 @@ public class InfoVarsLst extends AbstractTokenWithSeparator<CDOMObject>
 			PCGenScope scope = context.getActiveScope();
 			if (!varContext.isLegalVariableID(scope, name))
 			{
-				return new ParseResult.Fail(getTokenName()
-					+ " found an error. " + name
-					+ " is not a legal variable name in scope "
-					+ scope.getName() + " in " + cdo.getClass().getSimpleName()
-					+ ' ' + cdo.getKeyName());
+				return new ParseResult.Fail(
+					getTokenName() + " found an error. " + name + " is not a legal variable name in scope "
+						+ scope.getName() + " in " + cdo.getClass().getSimpleName() + ' ' + cdo.getKeyName());
 			}
 		}
 		CaseInsensitiveString cis = new CaseInsensitiveString(key);

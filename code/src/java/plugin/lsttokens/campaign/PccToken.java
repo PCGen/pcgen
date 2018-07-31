@@ -33,8 +33,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with PCC Token
  */
-public class PccToken extends AbstractTokenWithSeparator<Campaign> implements
-		CDOMPrimaryToken<Campaign>
+public class PccToken extends AbstractTokenWithSeparator<Campaign> implements CDOMPrimaryToken<Campaign>
 {
 
 	@Override
@@ -50,11 +49,9 @@ public class PccToken extends AbstractTokenWithSeparator<Campaign> implements
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		Campaign campaign, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, Campaign campaign, String value)
 	{
-		CampaignSourceEntry cse = context.getCampaignSourceEntry(campaign,
-				value);
+		CampaignSourceEntry cse = context.getCampaignSourceEntry(campaign, value);
 		if (cse == null)
 		{
 			// Error
@@ -64,11 +61,10 @@ public class PccToken extends AbstractTokenWithSeparator<Campaign> implements
 		return ParseResult.SUCCESS;
 	}
 
-    @Override
+	@Override
 	public String[] unparse(LoadContext context, Campaign campaign)
 	{
-		Changes<CampaignSourceEntry> cseChanges = context.getObjectContext().getListChanges(
-				campaign, ListKey.FILE_PCC);
+		Changes<CampaignSourceEntry> cseChanges = context.getObjectContext().getListChanges(campaign, ListKey.FILE_PCC);
 		Collection<CampaignSourceEntry> added = cseChanges.getAdded();
 		if (added == null)
 		{
@@ -83,7 +79,7 @@ public class PccToken extends AbstractTokenWithSeparator<Campaign> implements
 		return set.toArray(new String[set.size()]);
 	}
 
-    @Override
+	@Override
 	public Class<Campaign> getTokenClass()
 	{
 		return Campaign.class;

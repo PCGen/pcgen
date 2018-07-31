@@ -24,7 +24,6 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.Equipment;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTypeSafeListTestCase;
@@ -85,7 +84,7 @@ public class AltTypeTokenTest extends AbstractTypeSafeListTestCase<Equipment, Ty
 	}
 
 	@Test
-	public void testReplacementRemove() throws PersistenceLayerException
+	public void testReplacementRemove()
 	{
 		String[] unparsed;
 		assertTrue(parse("REMOVE.TestWP1"));
@@ -106,7 +105,7 @@ public class AltTypeTokenTest extends AbstractTypeSafeListTestCase<Equipment, Ty
 	}
 
 	@Test
-	public void testReplacementRemoveTwo() throws PersistenceLayerException
+	public void testReplacementRemoveTwo()
 	{
 		String[] unparsed;
 		assertTrue(parse("TestWP1"));
@@ -121,7 +120,6 @@ public class AltTypeTokenTest extends AbstractTypeSafeListTestCase<Equipment, Ty
 
 	@Test
 	public void testInputInvalidRemoveNoTrailing()
-		throws PersistenceLayerException
 	{
 		assertFalse(parse("TestWP1.REMOVE"));
 		assertNoSideEffects();
@@ -129,21 +127,20 @@ public class AltTypeTokenTest extends AbstractTypeSafeListTestCase<Equipment, Ty
 
 	@Test
 	public void testInputInvalidAddNoTrailing()
-		throws PersistenceLayerException
 	{
 		assertFalse(parse("TestWP1.ADD"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInputInvalidAddRemove() throws PersistenceLayerException
+	public void testInputInvalidAddRemove()
 	{
 		assertFalse(parse("TestWP1.ADD.REMOVE.TestWP2"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInputInvalidRemoveAdd() throws PersistenceLayerException
+	public void testInputInvalidRemoveAdd()
 	{
 		assertFalse(parse("TestWP1.REMOVE.ADD.TestWP2"));
 		assertNoSideEffects();
@@ -151,28 +148,28 @@ public class AltTypeTokenTest extends AbstractTypeSafeListTestCase<Equipment, Ty
 
 	@Test
     @Override
-	public void testInputInvalidClearDot() throws PersistenceLayerException
+	public void testInputInvalidClearDot()
 	{
 		assertFalse(parse(".CLEAR."));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInputInvalidEmbeddedClear() throws PersistenceLayerException
+	public void testInputInvalidEmbeddedClear()
 	{
 		assertFalse(parse("Type1.CLEAR"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInputInvalidClearDirect() throws PersistenceLayerException
+	public void testInputInvalidClearDirect()
 	{
 		assertFalse(parse(".CLEARType1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testValidClearDot() throws PersistenceLayerException
+	public void testValidClearDot()
 	{
 		assertTrue(parse(".CLEAR.TestWP1"));
 		assertNoSideEffects();

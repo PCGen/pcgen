@@ -33,8 +33,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.QualifierToken;
 import pcgen.util.Logging;
 
-public class QualifiedToken<T extends CDOMObject> implements QualifierToken<T>,
-		PrimitiveFilter<T>
+public class QualifiedToken<T extends CDOMObject> implements QualifierToken<T>, PrimitiveFilter<T>
 {
 
 	private Class<T> refClass;
@@ -52,14 +51,13 @@ public class QualifiedToken<T extends CDOMObject> implements QualifierToken<T>,
 	}
 
 	@Override
-	public boolean initialize(LoadContext context, SelectionCreator<T> sc,
-			String condition, String value, boolean negate)
+	public boolean initialize(LoadContext context, SelectionCreator<T> sc, String condition, String value,
+		boolean negate)
 	{
 		if (condition != null)
 		{
-			Logging.addParseMessage(Level.SEVERE, "Cannot make "
-					+ getTokenName()
-					+ " into a conditional Qualifier, remove =");
+			Logging.addParseMessage(Level.SEVERE,
+				"Cannot make " + getTokenName() + " into a conditional Qualifier, remove =");
 			return false;
 		}
 		if (sc == null)
@@ -157,9 +155,7 @@ public class QualifiedToken<T extends CDOMObject> implements QualifierToken<T>,
 	@Override
 	public GroupingState getGroupingState()
 	{
-		GroupingState gs =
-				(pcs == null) ? GroupingState.ANY : pcs.getGroupingState()
-					.reduce();
+		GroupingState gs = (pcs == null) ? GroupingState.ANY : pcs.getGroupingState().reduce();
 		return negated ? gs.negate() : gs;
 	}
 

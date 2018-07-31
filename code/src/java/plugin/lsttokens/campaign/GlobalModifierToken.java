@@ -33,8 +33,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with VARIABLE Token
  */
-public class GlobalModifierToken extends AbstractTokenWithSeparator<Campaign>
-		implements CDOMPrimaryToken<Campaign>
+public class GlobalModifierToken extends AbstractTokenWithSeparator<Campaign> implements CDOMPrimaryToken<Campaign>
 {
 
 	@Override
@@ -50,8 +49,7 @@ public class GlobalModifierToken extends AbstractTokenWithSeparator<Campaign>
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		Campaign campaign, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, Campaign campaign, String value)
 	{
 		CampaignSourceEntry cse = context.getCampaignSourceEntry(campaign, value);
 		if (cse == null)
@@ -61,30 +59,25 @@ public class GlobalModifierToken extends AbstractTokenWithSeparator<Campaign>
 		}
 		if (!cse.getIncludeItems().isEmpty())
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " does not support Include");
+			return new ParseResult.Fail(getTokenName() + " does not support Include");
 		}
 		if (!cse.getExcludeItems().isEmpty())
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " does not support Exclude");
+			return new ParseResult.Fail(getTokenName() + " does not support Exclude");
 		}
 		if (!cse.getPrerequisites().isEmpty())
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " does not support Prerequisites");
+			return new ParseResult.Fail(getTokenName() + " does not support Prerequisites");
 		}
-		context.getObjectContext().addToList(campaign, ListKey.FILE_GLOBALMOD,
-			cse);
+		context.getObjectContext().addToList(campaign, ListKey.FILE_GLOBALMOD, cse);
 		return ParseResult.SUCCESS;
 	}
 
-    @Override
+	@Override
 	public String[] unparse(LoadContext context, Campaign campaign)
 	{
 		Changes<CampaignSourceEntry> cseChanges =
-				context.getObjectContext().getListChanges(campaign,
-					ListKey.FILE_GLOBALMOD);
+				context.getObjectContext().getListChanges(campaign, ListKey.FILE_GLOBALMOD);
 		Collection<CampaignSourceEntry> added = cseChanges.getAdded();
 		if (added == null)
 		{
@@ -99,7 +92,7 @@ public class GlobalModifierToken extends AbstractTokenWithSeparator<Campaign>
 		return set.toArray(new String[set.size()]);
 	}
 
-    @Override
+	@Override
 	public Class<Campaign> getTokenClass()
 	{
 		return Campaign.class;

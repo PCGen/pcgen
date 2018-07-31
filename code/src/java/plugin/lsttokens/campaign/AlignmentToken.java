@@ -26,8 +26,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 /**
  * Class deals with ALIGNMENT Token
  */
-public class AlignmentToken extends AbstractBasicCampaignToken implements
-		CDOMPrimaryToken<Campaign>
+public class AlignmentToken extends AbstractBasicCampaignToken implements CDOMPrimaryToken<Campaign>
 {
 	@Override
 	public String getTokenName()

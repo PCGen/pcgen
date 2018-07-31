@@ -24,7 +24,6 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.core.kit.KitLevelAbility;
 import pcgen.io.Compatibility;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -33,8 +32,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Deals with ABILITY lst token within KitLevelAbility
  */
-public class AbilityToken extends AbstractToken implements
-		CDOMPrimaryToken<KitLevelAbility>
+public class AbilityToken extends AbstractToken implements CDOMPrimaryToken<KitLevelAbility>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -54,26 +52,16 @@ public class AbilityToken extends AbstractToken implements
 	}
 
 	@Override
-	public ParseResult parseToken(LoadContext context, KitLevelAbility kitAbility,
-		String value)
+	public ParseResult parseToken(LoadContext context, KitLevelAbility kitAbility, String value)
 	{
 		if (!value.startsWith("PROMPT:"))
 		{
-			return new ParseResult.Fail("Expected " + getTokenName()
-				+ " to start with PROMPT: " + value);
+			return new ParseResult.Fail("Expected " + getTokenName() + " to start with PROMPT: " + value);
 		}
 		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
 		String first = st.nextToken();
 		PersistentTransitionChoice<?> ptc;
-		try
-		{
-			ptc = Compatibility.processOldAdd(
-					context, first);
-		}
-		catch (PersistenceLayerException e)
-		{
-			return new ParseResult.Fail(e.getMessage());
-		}
+		ptc = Compatibility.processOldAdd(context, first);
 		if (ptc == null)
 		{
 			return new ParseResult.Fail("Error was in " + getTokenName() + ' ' + value);
@@ -85,8 +73,8 @@ public class AbilityToken extends AbstractToken implements
 			String choiceString = st.nextToken();
 			if (!choiceString.startsWith("CHOICE:"))
 			{
-				return new ParseResult.Fail("Expected " + getTokenName()
-					+ " choice string to start with CHOICE: " + value);
+				return new ParseResult.Fail(
+					"Expected " + getTokenName() + " choice string to start with CHOICE: " + value);
 			}
 			String choice = choiceString.substring(7);
 			if (first.equals("FEAT") && !choice.startsWith("CATEGORY="))
@@ -103,8 +91,7 @@ public class AbilityToken extends AbstractToken implements
 			 */
 			if (ptc.decodeChoice(context, choice) == null)
 			{
-				return new ParseResult.Fail(choiceString
-					+ " is not a valid selection for ADD:" + first);
+				return new ParseResult.Fail(choiceString + " is not a valid selection for ADD:" + first);
 			}
 			kitAbility.addChoice(choice);
 		}

@@ -74,21 +74,21 @@ public class DomainsTokenTest extends AbstractCDOMTokenTestCase<Spell>
 	}
 
 	@Test
-	public void testInvalidInputEmpty() throws PersistenceLayerException
+	public void testInvalidInputEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputClassOnly() throws PersistenceLayerException
+	public void testInvalidInputClassOnly()
 	{
 		assertFalse(parse("Fire"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputLevelOnly() throws PersistenceLayerException
+	public void testInvalidInputLevelOnly()
 	{
 		assertFalse(parse("3"));
 		assertNoSideEffects();
@@ -96,21 +96,20 @@ public class DomainsTokenTest extends AbstractCDOMTokenTestCase<Spell>
 
 	@Test
 	public void testInvalidInputChainClassOnly()
-		throws PersistenceLayerException
 	{
 		assertFalse(parse("Fire=3|Good"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputDoubleEquals() throws PersistenceLayerException
+	public void testInvalidInputDoubleEquals()
 	{
 		assertFalse(parse("Fire==4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputBadLevel() throws PersistenceLayerException
+	public void testInvalidInputBadLevel()
 	{
 		assertFalse(parse("Fire=Good"));
 		assertNoSideEffects();
@@ -118,42 +117,41 @@ public class DomainsTokenTest extends AbstractCDOMTokenTestCase<Spell>
 
 	@Test
 	public void testInvalidInputNegativeLevel()
-		throws PersistenceLayerException
 	{
 		assertFalse(parse("Fire=-4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputLeadingBar() throws PersistenceLayerException
+	public void testInvalidInputLeadingBar()
 	{
 		assertFalse(parse("|Fire=4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputTrailingBar() throws PersistenceLayerException
+	public void testInvalidInputTrailingBar()
 	{
 		assertFalse(parse("Fire=4|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputDoublePipe() throws PersistenceLayerException
+	public void testInvalidInputDoublePipe()
 	{
 		assertFalse(parse("Fire=3||Good=4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputDoubleComma() throws PersistenceLayerException
+	public void testInvalidInputDoubleComma()
 	{
 		assertFalse(parse("Fire,,Good=4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputLeadingComma() throws PersistenceLayerException
+	public void testInvalidInputLeadingComma()
 	{
 		assertFalse(parse(",Fire=4"));
 		assertNoSideEffects();
@@ -161,14 +159,13 @@ public class DomainsTokenTest extends AbstractCDOMTokenTestCase<Spell>
 
 	@Test
 	public void testInvalidInputTrailingEquals()
-		throws PersistenceLayerException
 	{
 		assertFalse(parse("Fire=4="));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputDoubleSet() throws PersistenceLayerException
+	public void testInvalidInputDoubleSet()
 	{
 		assertFalse(parse("Fire=4=3"));
 		assertNoSideEffects();
@@ -176,14 +173,13 @@ public class DomainsTokenTest extends AbstractCDOMTokenTestCase<Spell>
 
 	@Test
 	public void testInvalidInputTrailingComma()
-		throws PersistenceLayerException
 	{
 		assertFalse(parse("Fire,=4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEmptyType() throws PersistenceLayerException
+	public void testInvalidInputEmptyType()
 	{
 		assertFalse(parse("TYPE.=4"));
 		assertNoSideEffects();
@@ -191,7 +187,6 @@ public class DomainsTokenTest extends AbstractCDOMTokenTestCase<Spell>
 
 	@Test
 	public void testInvalidInputEmptyPrerequisite()
-		throws PersistenceLayerException
 	{
 		assertFalse(parse("Fire=4[]"));
 		assertNoSideEffects();
@@ -199,7 +194,6 @@ public class DomainsTokenTest extends AbstractCDOMTokenTestCase<Spell>
 
 	@Test
 	public void testInvalidInputOpenEndedPrerequisite()
-		throws PersistenceLayerException
 	{
 		assertFalse(parse("Fire=4[PRERACE:1,Human"));
 		assertNoSideEffects();
@@ -207,14 +201,13 @@ public class DomainsTokenTest extends AbstractCDOMTokenTestCase<Spell>
 
 	@Test
 	public void testInvalidInputNegativePrerequisite()
-		throws PersistenceLayerException
 	{
 		assertFalse(parse("Fire=-1[PRERACE:1,Human]"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNegativePre() throws PersistenceLayerException
+	public void testInvalidInputNegativePre()
 	{
 		assertFalse(parse("Fire=-1[PRERACE:1,Human]"));
 		assertNoSideEffects();
@@ -222,14 +215,13 @@ public class DomainsTokenTest extends AbstractCDOMTokenTestCase<Spell>
 
 	@Test
 	public void testInvalidInputBadPrerequisite()
-		throws PersistenceLayerException
 	{
 		assertFalse(parse("Fire=4[PREFOO:1,Human]"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNotClass() throws PersistenceLayerException
+	public void testInvalidInputNotClass()
 	{
 		assertTrue(parse("Fire=4"));
 		assertConstructionError();
@@ -237,7 +229,6 @@ public class DomainsTokenTest extends AbstractCDOMTokenTestCase<Spell>
 
 	@Test
 	public void testInvalidInputNotClassCompound()
-		throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(DomainSpellList.class, "Fire");
 		secondaryContext.getReferenceContext().constructCDOMObject(DomainSpellList.class, "Fire");
@@ -247,7 +238,7 @@ public class DomainsTokenTest extends AbstractCDOMTokenTestCase<Spell>
 	}
 
 	@Test
-	public void testValidInputClearAll() throws PersistenceLayerException
+	public void testValidInputClearAll()
 	{
 		assertTrue(parse(Constants.LST_DOT_CLEAR_ALL));
 		assertCleanConstruction();
@@ -307,7 +298,7 @@ public class DomainsTokenTest extends AbstractCDOMTokenTestCase<Spell>
 	}
 
 	// @Test(expected = IllegalArgumentException.class)
-	public void testInvalidInputAllPlus() throws PersistenceLayerException
+	public void testInvalidInputAllPlus()
 	{
 		try
 		{
@@ -321,7 +312,7 @@ public class DomainsTokenTest extends AbstractCDOMTokenTestCase<Spell>
 	}
 
 	// @Test(expected = IllegalArgumentException.class)
-	public void testInvalidInputPlusAll() throws PersistenceLayerException
+	public void testInvalidInputPlusAll()
 	{
 		try
 		{
@@ -344,7 +335,7 @@ public class DomainsTokenTest extends AbstractCDOMTokenTestCase<Spell>
 	}
 
 	@Test
-	public void testReplacementInputs() throws PersistenceLayerException
+	public void testReplacementInputs()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(DomainSpellList.class, "Fire");
 		secondaryContext.getReferenceContext().constructCDOMObject(DomainSpellList.class, "Fire");
@@ -379,7 +370,7 @@ public class DomainsTokenTest extends AbstractCDOMTokenTestCase<Spell>
 	}
 
 	@Test
-	public void testClearPrereqInvalid() throws PersistenceLayerException
+	public void testClearPrereqInvalid()
 	{
 		assertEquals(0, primaryContext.getWriteMessageCount());
 		primaryContext.getReferenceContext().constructCDOMObject(DomainSpellList.class, "Fire");

@@ -46,8 +46,8 @@ import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
-public class ShieldProfToken extends AbstractNonEmptyToken<CDOMObject> implements
-		CDOMSecondaryToken<CDOMObject>, ChooseSelectionActor<ShieldProf>
+public class ShieldProfToken extends AbstractNonEmptyToken<CDOMObject>
+		implements CDOMSecondaryToken<CDOMObject>, ChooseSelectionActor<ShieldProf>
 {
 
 	private static final Class<ShieldProf> SHIELDPROF_CLASS = ShieldProf.class;
@@ -72,8 +72,7 @@ public class ShieldProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		CDOMObject obj, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj, String value)
 	{
 		String shieldProf;
 		Prerequisite prereq = null; // Do not initialize, null is significant!
@@ -94,16 +93,14 @@ public class ShieldProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 					if (isPre)
 					{
 						String errorText =
-								"Invalid " + getTokenName() + ": " + value
-									+ "  PRExxx must be at the END of the Token";
+								"Invalid " + getTokenName() + ": " + value + "  PRExxx must be at the END of the Token";
 						Logging.errorPrint(errorText);
 						return new ParseResult.Fail(errorText);
 					}
 					prereq = getPrerequisite(token);
 					if (prereq == null)
 					{
-						return new ParseResult.Fail("Error generating Prerequisite "
-								+ prereq + " in " + getFullName());
+						return new ParseResult.Fail("Error generating Prerequisite " + prereq + " in " + getFullName());
 					}
 					int preStart = value.indexOf(token) - 1;
 					shieldProf = value.substring(0, preStart);
@@ -114,8 +111,7 @@ public class ShieldProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 		else
 		{
 			return new ParseResult.Fail(
-				"Use of [] for Prerequisites has been removed. "
-					+ "Please use | based standard");
+				"Use of [] for Prerequisites has been removed. " + "Please use | based standard");
 		}
 
 		ParseResult pr = checkForIllegalSeparator('|', shieldProf);
@@ -146,8 +142,7 @@ public class ShieldProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 				}
 				else
 				{
-					ConditionalSelectionActor<ShieldProf> cca =
-							new ConditionalSelectionActor<>(this);
+					ConditionalSelectionActor<ShieldProf> cca = new ConditionalSelectionActor<>(this);
 					cca.addPrerequisite(prereq);
 					cra = cca;
 				}
@@ -156,16 +151,13 @@ public class ShieldProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 			else if (Constants.LST_ALL.equalsIgnoreCase(aProf))
 			{
 				foundAny = true;
-				shieldProfs.add(context.getReferenceContext()
-						.getCDOMAllReference(SHIELDPROF_CLASS));
+				shieldProfs.add(context.getReferenceContext().getCDOMAllReference(SHIELDPROF_CLASS));
 			}
-			else if (aProf.startsWith("SHIELDTYPE.")
-					|| aProf.startsWith("SHIELDTYPE="))
+			else if (aProf.startsWith("SHIELDTYPE.") || aProf.startsWith("SHIELDTYPE="))
 			{
 				foundOther = true;
-				CDOMReference<Equipment> ref = TokenUtilities.getTypeReference(
-						context, EQUIPMENT_CLASS, "SHIELD."
-								+ aProf.substring(11));
+				CDOMReference<Equipment> ref =
+						TokenUtilities.getTypeReference(context, EQUIPMENT_CLASS, "SHIELD." + aProf.substring(11));
 				if (ref == null)
 				{
 					return ParseResult.INTERNAL_ERROR;
@@ -175,14 +167,13 @@ public class ShieldProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 			else
 			{
 				foundOther = true;
-				shieldProfs.add(context.getReferenceContext().getCDOMReference(SHIELDPROF_CLASS,
-						aProf));
+				shieldProfs.add(context.getReferenceContext().getCDOMReference(SHIELDPROF_CLASS, aProf));
 			}
 		}
 		if (foundAny && foundOther)
 		{
-			return new ParseResult.Fail("Non-sensical " + getFullName()
-					+ ": Contains ANY and a specific reference: " + value);
+			return new ParseResult.Fail(
+				"Non-sensical " + getFullName() + ": Contains ANY and a specific reference: " + value);
 		}
 
 		if (!shieldProfs.isEmpty() || !equipTypes.isEmpty())
@@ -201,10 +192,9 @@ public class ShieldProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
-		Changes<ShieldProfProvider> changes = context.getObjectContext().getListChanges(obj,
-				ListKey.AUTO_SHIELDPROF);
-		Changes<ChooseSelectionActor<?>> listChanges = context.getObjectContext()
-				.getListChanges(obj, ListKey.NEW_CHOOSE_ACTOR);
+		Changes<ShieldProfProvider> changes = context.getObjectContext().getListChanges(obj, ListKey.AUTO_SHIELDPROF);
+		Changes<ChooseSelectionActor<?>> listChanges =
+				context.getObjectContext().getListChanges(obj, ListKey.NEW_CHOOSE_ACTOR);
 		Collection<ShieldProfProvider> added = changes.getAdded();
 		Set<String> set = new TreeSet<>();
 		Collection<ChooseSelectionActor<?>> listAdded = listChanges.getAdded();
@@ -223,8 +213,7 @@ public class ShieldProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 					}
 					catch (PersistenceLayerException e)
 					{
-						context.addWriteMessage("Error writing Prerequisite: "
-								+ e);
+						context.addWriteMessage("Error writing Prerequisite: " + e);
 						return null;
 					}
 				}
@@ -239,8 +228,7 @@ public class ShieldProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 				if (spp.hasPrerequisites())
 				{
 					sb.append('|');
-					sb.append(getPrerequisiteString(context, spp
-							.getPrerequisiteList()));
+					sb.append(getPrerequisiteString(context, spp.getPrerequisiteList()));
 				}
 				String ab = sb.toString();
 				boolean isUnconditionalAll = Constants.LST_ALL.equals(ab);
@@ -251,8 +239,8 @@ public class ShieldProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 		}
 		if (foundAny && foundOther)
 		{
-			context.addWriteMessage("Non-sensical " + getFullName()
-					+ ": Contains ANY and a specific reference: " + set);
+			context
+				.addWriteMessage("Non-sensical " + getFullName() + ": Contains ANY and a specific reference: " + set);
 			return null;
 		}
 		if (set.isEmpty())

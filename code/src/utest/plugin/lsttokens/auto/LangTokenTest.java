@@ -30,7 +30,8 @@ import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import plugin.lsttokens.testsupport.AbstractAutoTokenTestCase;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
-public class LangTokenTest extends AbstractAutoTokenTestCase<Language> {
+public class LangTokenTest extends AbstractAutoTokenTestCase<Language>
+{
 
 	static LangToken subtoken = new LangToken();
 
@@ -73,7 +74,7 @@ public class LangTokenTest extends AbstractAutoTokenTestCase<Language> {
 
 	@SuppressWarnings({"unchecked", "rawtypes"})
 	@Test
-	public void testUnparseGenericsFail() throws PersistenceLayerException
+	public void testUnparseGenericsFail()
 	{
 		ListKey listKey = ListKey.AUTO_LANGUAGE;
 		primaryProf.addToListFor(listKey, new Object());
@@ -81,7 +82,8 @@ public class LangTokenTest extends AbstractAutoTokenTestCase<Language> {
 		{
 			getToken().unparse(primaryContext, primaryProf);
 			fail();
-		} catch (ClassCastException e)
+		}
+		catch (ClassCastException e)
 		{
 			// Yep!
 		}
@@ -107,7 +109,7 @@ public class LangTokenTest extends AbstractAutoTokenTestCase<Language> {
 	@Override
 	protected ConsolidationRule getConsolidationRule()
 	{
-		return strings -> new String[] { "LANG|TestWP1|TestWP2|TestWP1|TestWP2|TestWP3" };
+		return strings -> new String[]{"LANG|TestWP1|TestWP2|TestWP1|TestWP2|TestWP3"};
 	}
 	
 	/**

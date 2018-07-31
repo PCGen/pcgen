@@ -20,7 +20,6 @@ package pcgen.facade.util.event;
 
 import java.util.EventObject;
 
-
 public class ReferenceEvent<E> extends EventObject
 {
 

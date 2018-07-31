@@ -128,8 +128,7 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 	 * @param  thingsToAdd  The list of things that will be added by this kit
 	 *                      wrapped in KitWrapper objects
 	 */
-	public void processKit(final PlayerCharacter pc,
-		final List<BaseKit> thingsToAdd)
+	public void processKit(final PlayerCharacter pc, final List<BaseKit> thingsToAdd)
 	{
 		processKit(pc, thingsToAdd, -1);
 	}
@@ -145,8 +144,7 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 	 * @param  kitNo        An integer that will be used to set the kit number
 	 *                      in items of equipment added by this kit
 	 */
-	public void processKit(final PlayerCharacter pc,
-		final List<BaseKit> thingsToAdd, final int kitNo)
+	public void processKit(final PlayerCharacter pc, final List<BaseKit> thingsToAdd, final int kitNo)
 	{
 		BigDecimal totalCostToBeCharged = getTotalCostToBeCharged(pc);
 		if (totalCostToBeCharged != null)
@@ -226,18 +224,15 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 	 */
 	public BigDecimal getTotalCostToBeCharged(PlayerCharacter aPC)
 	{
-		BigDecimal theCost = null; 
+		BigDecimal theCost = null;
 		BigDecimal fixedTotalCost = getTotalCost(aPC);
 		if (fixedTotalCost != null)
 		{
 			fixedTotalCost = fixedTotalCost.setScale(3);
-			BigDecimal buyRate =
-					new BigDecimal(SettingsHandler.getGearTab_BuyRate());
-			theCost =
-					fixedTotalCost.multiply(buyRate).divide(
-						new BigDecimal(100).setScale(3), RoundingMode.FLOOR);
+			BigDecimal buyRate = new BigDecimal(SettingsHandler.getGearTab_BuyRate());
+			theCost = fixedTotalCost.multiply(buyRate).divide(new BigDecimal(100).setScale(3), RoundingMode.FLOOR);
 		}
-		
+
 		return theCost;
 	}
 
@@ -273,12 +268,11 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 	 * @param thingsToAdd List of kit actions to be taken.
 	 * @param warnings List of issues to be reported to the user.
 	 */
-	public void testApplyKit(PlayerCharacter aPC, List<BaseKit> thingsToAdd,
-		List<String> warnings)
+	public void testApplyKit(PlayerCharacter aPC, List<BaseKit> thingsToAdd, List<String> warnings)
 	{
 		testApplyKit(aPC, thingsToAdd, warnings, false);
 	}
-	
+
 	/**
 	 * Test applying the kit and record the choices made and any warnings 
 	 * encountered. Note these changes are made on a copy of the character.
@@ -288,17 +282,16 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 	 * @param warnings List of issues to be reported to the user.
 	 * @param subkit Is this kit being added by a parent kit?
 	 */
-	public void testApplyKit(PlayerCharacter aPC, List<BaseKit> thingsToAdd,
-		List<String> warnings, boolean subkit)
+	public void testApplyKit(PlayerCharacter aPC, List<BaseKit> thingsToAdd, List<String> warnings, boolean subkit)
 	{
 		// Ensure a reset of random values from a prior run
 		selectValue = -1;
-		
+
 		// We will create a copy of the PC since we may need to add classes and
 		// levels to the PC that the user may choose not to apply.
 		// NOTE: These methods need to be called in the correct order.
 		PlayerCharacter tempPC = subkit ? aPC : aPC.clone();
-		
+
 		for (KitStat kStat : getStats())
 		{
 			kStat.testApply(this, tempPC, warnings);
@@ -310,8 +303,7 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 			{
 				continue;
 			}
-			if (selectValue != -1 && bk.isOptional()
-				&& !bk.isOption(tempPC, selectValue))
+			if (selectValue != -1 && bk.isOptional() && !bk.isOption(tempPC, selectValue))
 			{
 				continue;
 			}
@@ -320,13 +312,12 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 				thingsToAdd.add(bk);
 			}
 		}
-		
+
 		BigDecimal totalCostToBeCharged = getTotalCostToBeCharged(tempPC);
 		if (totalCostToBeCharged != null)
 		{
 			BigDecimal pcGold = tempPC.getGold();
-			if (pcGold.compareTo(BigDecimal.ZERO) >= 0
-				&& pcGold.compareTo(totalCostToBeCharged) < 0)
+			if (pcGold.compareTo(BigDecimal.ZERO) >= 0 && pcGold.compareTo(totalCostToBeCharged) < 0)
 			{
 				warnings.add("Could not purchase kit. Not enough funds.");
 			}
@@ -335,12 +326,12 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 				tempPC.setGold(pcGold.subtract(totalCostToBeCharged));
 			}
 		}
-		
+
 	}
 
 	private static class ObjectTypeComparator implements Comparator<BaseKit>
 	{
-        @Override
+		@Override
 		public int compare(BaseKit bk1, BaseKit bk2)
 		{
 			String name1 = bk1.getObjectName();
@@ -392,8 +383,8 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 			}
 			info.append(bk);
 		}
-		info.append("  <b>Source</b>: ").append(SourceFormat.getFormattedString(this,
-		Globals.getSourceDisplay(), true));
+		info.append("  <b>Source</b>: ")
+			.append(SourceFormat.getFormattedString(this, Globals.getSourceDisplay(), true));
 		info.append("</html>");
 		//TODO ListKey.KIT_TASKS
 		return info.toString();
@@ -402,8 +393,7 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 	private String getPreReqHTMLStrings(PlayerCharacter aPC)
 	{
 		StringBuilder sb = new StringBuilder();
-		sb.append(PrerequisiteUtilities.preReqHTMLStringsForList(aPC, this,
-			getPrerequisiteList(), false));
+		sb.append(PrerequisiteUtilities.preReqHTMLStringsForList(aPC, this, getPrerequisiteList(), false));
 		sb.append(AllowUtilities.getAllowInfo(aPC, this));
 		return sb.toString();
 	}
@@ -414,8 +404,7 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 		{
 			return;
 		}
-		if (aKit.getSafe(ObjectKey.APPLY_MODE) == KitApply.PERMANENT
-			&& aPC.containsKit(aKit))
+		if (aKit.getSafe(ObjectKey.APPLY_MODE) == KitApply.PERMANENT && aPC.containsKit(aKit))
 		{
 			return;
 		}
@@ -428,8 +417,7 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 			if (!warnings.isEmpty())
 			{
 				Logging.log(Logging.WARNING,
-					"The following warnings were encountered when applying the kit "
-						+ aKit.getKeyName());
+					"The following warnings were encountered when applying the kit " + aKit.getKeyName());
 				for (String string : warnings)
 				{
 					Logging.log(Logging.WARNING, "  " + string);
@@ -456,7 +444,6 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 		return StringUtil.join(trueTypeList, ".");
 	}
 
-    
 	@Override
 	public boolean isPermanent()
 	{

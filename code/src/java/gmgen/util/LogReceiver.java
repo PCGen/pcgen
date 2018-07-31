@@ -18,7 +18,6 @@
  */
 package gmgen.util;
 
-
 /**
  * LogReceiver is an interface specifying methods to be called for logging messages.
  * It is used by the LogUtilities class to allow log messages to be sent to any

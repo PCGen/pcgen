@@ -40,8 +40,7 @@ import pcgen.cdom.enumeration.GroupingState;
  *            The Class of the underlying objects contained by this
  *            CDOMCompoundOrReference
  */
-public class CDOMCompoundOrReference<T extends PrereqObject> extends
-		CDOMGroupRef<T>
+public class CDOMCompoundOrReference<T extends PrereqObject> extends CDOMGroupRef<T>
 {
 
 	/**
@@ -49,7 +48,7 @@ public class CDOMCompoundOrReference<T extends PrereqObject> extends
 	 * CDOMCompoundOrReference.
 	 */
 	private final ClassIdentity<T> identity;
-	
+
 	/**
 	 * The list of underlying references that this CDOMCompoundOrReference
 	 * contains
@@ -92,9 +91,8 @@ public class CDOMCompoundOrReference<T extends PrereqObject> extends
 		 */
 		if (!getReferenceClass().equals(ref.getReferenceClass()))
 		{
-			throw new IllegalArgumentException("Cannot add reference of "
-					+ ref.getReferenceClass()
-					+ " to CDOMCompoundOrReference of " + getReferenceClass());
+			throw new IllegalArgumentException("Cannot add reference of " + ref.getReferenceClass()
+				+ " to CDOMCompoundOrReference of " + getReferenceClass());
 		}
 		references.add(ref);
 	}
@@ -173,8 +171,7 @@ public class CDOMCompoundOrReference<T extends PrereqObject> extends
 	@Override
 	public void addResolution(T item)
 	{
-		throw new IllegalStateException(
-				"CompoundReference cannot be given a resolution");
+		throw new IllegalStateException("CompoundReference cannot be given a resolution");
 	}
 
 	/**
@@ -260,10 +257,8 @@ public class CDOMCompoundOrReference<T extends PrereqObject> extends
 	@Override
 	public String getReferenceDescription()
 	{
-		StringJoiner joiner =
-				new StringJoiner(" OR ", identity.getReferenceDescription() + "[", "]");
-		references.stream().map(r -> r.getReferenceDescription())
-			.forEach(d -> joiner.add(d));
+		StringJoiner joiner = new StringJoiner(" OR ", identity.getReferenceDescription() + "[", "]");
+		references.stream().map(r -> r.getReferenceDescription()).forEach(d -> joiner.add(d));
 		return joiner.toString();
 	}
 

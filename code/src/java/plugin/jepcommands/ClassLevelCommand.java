@@ -1,5 +1,7 @@
 package plugin.jepcommands;
 
+import java.util.Stack;
+
 import org.nfunk.jep.ParseException;
 
 import pcgen.core.GameMode;
@@ -8,8 +10,6 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.VariableProcessor;
 import pcgen.util.PCGenCommand;
 import pcgen.util.PJEP;
-
-import java.util.Stack;
 
 /**
  * JEP command for class level (cl)
@@ -40,13 +40,13 @@ public class ClassLevelCommand extends PCGenCommand
 	 * Gets the name of the function handled by this class.
 	 * @return The name of the function.
 	 */
-    @Override
+	@Override
 	public String getFunctionName()
 	{
 		return "CLASSLEVEL";
 	}
 
-    @Override
+	@Override
 	public boolean updateVariables(final PJEP jep)
 	{
 		boolean updated = false;
@@ -90,7 +90,7 @@ public class ClassLevelCommand extends PCGenCommand
 	 * @throws ParseException
 	 */
 	@SuppressWarnings("unchecked") //Uses JEP, which doesn't use generics
-    @Override
+	@Override
 	public void run(final Stack inStack) throws ParseException
 	{
 		// check the stack
@@ -98,34 +98,33 @@ public class ClassLevelCommand extends PCGenCommand
 
 		// get the parameter from the stack
 
-        int paramCount = curNumberOfParameters;
+		int paramCount = curNumberOfParameters;
 
-        String applied = null;
-        String className = null;
+		String applied = null;
+		String className = null;
 
-        if (paramCount > 2)
-        {
+		if (paramCount > 2)
+		{
 			throw new ParseException("Invalid number of parameters");
-        }
+		}
 
-        if (paramCount >= 2)
-        {
+		if (paramCount >= 2)
+		{
 			String p2 = inStack.pop().toString();
 			if (p2.startsWith("APPLIEDAS="))
 			{
 				applied = p2.substring(10);
 			}
-        }
+		}
 
-        if (paramCount >= 1)
-        {
-    		String p1 = inStack.pop().toString();
+		if (paramCount >= 1)
+		{
+			String p1 = inStack.pop().toString();
 			if (p1.startsWith("APPLIEDAS="))
 			{
 				if (applied != null)
 				{
-					throw new ParseException(
-						"Formula had two APPLIEDAS= entries");
+					throw new ParseException("Formula had two APPLIEDAS= entries");
 				}
 				applied = p1.substring(10);
 			}
@@ -134,7 +133,7 @@ public class ClassLevelCommand extends PCGenCommand
 				//Should be a class name
 				className = p1;
 			}
-        }
+		}
 
 		/*
 		 * If there was no parameter showing the class, and this is used in a
@@ -172,8 +171,7 @@ public class ClassLevelCommand extends PCGenCommand
 			}
 			else
 			{
-				throw new ParseException("Did not understand APPLIEDAS="
-					+ applied);
+				throw new ParseException("Did not understand APPLIEDAS=" + applied);
 			}
 		}
 
@@ -194,8 +192,7 @@ public class ClassLevelCommand extends PCGenCommand
 		}
 		if (pc == null)
 		{
-			throw new ParseException("Invalid parent (no PC): "
-				+ parent.getClass().getName());
+			throw new ParseException("Invalid parent (no PC): " + parent.getClass().getName());
 		}
 		return pc;
 	}

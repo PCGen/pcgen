@@ -29,8 +29,8 @@ import pcgen.cdom.base.Loadable;
  *            The Class of object this SimpleReferenceManufacturer can
  *            manufacture
  */
-public class SimpleReferenceManufacturer<T extends Loadable> extends
-		AbstractReferenceManufacturer<T> implements ReferenceManufacturer<T>
+public class SimpleReferenceManufacturer<T extends Loadable> extends AbstractReferenceManufacturer<T>
+		implements ReferenceManufacturer<T>
 {
 	/**
 	 * Constructs a new SimpleReferenceManufacturer that will construct or
@@ -44,7 +44,7 @@ public class SimpleReferenceManufacturer<T extends Loadable> extends
 	{
 		super(factory);
 	}
-	
+
 	@Override
 	public String toString()
 	{

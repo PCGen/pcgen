@@ -38,10 +38,11 @@ public class PreRaceParserTest extends EnUsLocaleDependentTestCase
 
 	/**
 	 * Test that exclusions are parsed properly.
-	 * @throws Exception
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testExclusions() throws Exception
+	public void testExclusions() throws PersistenceLayerException
 	{
 		PreRaceParser parser = new PreRaceParser();
 
@@ -51,18 +52,17 @@ public class PreRaceParserTest extends EnUsLocaleDependentTestCase
 
 		assertEquals("PRERACE with an excluded race",
 			"<prereq operator=\"GTEQ\" operand=\"2\" >\n"
-				+ "<prereq kind=\"race\" count-multiples=\"true\" key=\"Elf%\" operator=\"GTEQ\" operand=\"1\" >\n"
-				+ "</prereq>\n"
-				+ "<prereq kind=\"race\" count-multiples=\"true\" key=\"Elf (aquatic)\" operator=\"LT\" operand=\"1\" >\n"
-				+ "</prereq>\n</prereq>\n", prereq.toString());
+			+ "<prereq kind=\"race\" count-multiples=\"true\" key=\"Elf%\" operator=\"GTEQ\" operand=\"1\" >\n"
+			+ "</prereq>\n"
+			+ "<prereq kind=\"race\" count-multiples=\"true\" key=\"Elf (aquatic)\" operator=\"LT\" operand=\"1\" >\n"
+			+ "</prereq>\n</prereq>\n", prereq.toString());
 	}
 	
 	/**
-	 * Test that an error is produced if separators are incorrect
-	 * @throws Exception
+	 * Test that an error is produced if separators are incorrect.
 	 */
 	@Test
-	public void testInvalidSeparators() throws Exception
+	public void testInvalidSeparators()
 	{
 		try
 		{
@@ -78,10 +78,9 @@ public class PreRaceParserTest extends EnUsLocaleDependentTestCase
 	
 	/**
 	 * Test that an error is produced if separators are incorrect
-	 * @throws Exception
 	 */
 	@Test
-	public void testInvalidCharacter() throws Exception
+	public void testInvalidCharacter()
 	{
 		try
 		{

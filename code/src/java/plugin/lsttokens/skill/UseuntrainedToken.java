@@ -25,8 +25,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 /**
  * Class deals with USEUNTRAINED Token
  */
-public class UseuntrainedToken extends AbstractYesNoToken<Skill> implements
-		CDOMPrimaryToken<Skill>
+public class UseuntrainedToken extends AbstractYesNoToken<Skill> implements CDOMPrimaryToken<Skill>
 {
 
 	@Override

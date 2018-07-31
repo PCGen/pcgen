@@ -20,6 +20,7 @@
 package pcgen.gui2.util.event;
 
 import java.util.EventListener;
+
 import javax.swing.event.TableColumnModelEvent;
 
 /**
@@ -27,6 +28,7 @@ import javax.swing.event.TableColumnModelEvent;
  */
 public interface DynamicTableColumnModelListener extends EventListener
 {
-    public void availableColumnAdded(TableColumnModelEvent event);
-    public void availableColumnRemove(TableColumnModelEvent event);
+	public void availableColumnAdded(TableColumnModelEvent event);
+
+	public void availableColumnRemove(TableColumnModelEvent event);
 }

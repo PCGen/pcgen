@@ -40,9 +40,8 @@ import pcgen.core.ShieldProf;
  * ShieldProf ProfProviders for a Player Character.
  * 
  */
-public class ShieldProfProviderFacet extends
-		AbstractQualifiedListFacet<ProfProvider<ShieldProf>> implements
-		DataFacetChangeListener<CharID, ProfProvider<ShieldProf>>, PerspectiveLocation
+public class ShieldProfProviderFacet extends AbstractQualifiedListFacet<ProfProvider<ShieldProf>>
+		implements DataFacetChangeListener<CharID, ProfProvider<ShieldProf>>, PerspectiveLocation
 {
 
 	/**

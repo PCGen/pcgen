@@ -44,9 +44,6 @@ public class DereferencingConverter<T> implements Converter<T, T>
 	@Override
 	public Collection<T> convert(ObjectContainer<T> orig, PrimitiveFilter<T> lim)
 	{
-		return orig.getContainedObjects()
-		   .stream()
-		   .filter(o -> lim.allow(character, o))
-		   .collect(Collectors.toSet());
+		return orig.getContainedObjects().stream().filter(o -> lim.allow(character, o)).collect(Collectors.toSet());
 	}
 }

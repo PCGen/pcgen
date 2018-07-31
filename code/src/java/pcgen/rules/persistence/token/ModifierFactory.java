@@ -72,9 +72,8 @@ public interface ModifierFactory<T>
 	 *            The FormatManager for the FormulaModifier to be returned
 	 * @return a FormulaModifier with the given instructions
 	 */
-	public FormulaModifier<T> getModifier(String instructions,
-		ManagerFactory managerFactory, FormulaManager formulaManager, PCGenScope varScope,
-		FormatManager<T> formatManager);
+	public FormulaModifier<T> getModifier(String instructions, ManagerFactory managerFactory,
+		FormulaManager formulaManager, PCGenScope varScope, FormatManager<T> formatManager);
 
 	/**
 	 * Returns a FormulaModifier with the given instructions.
@@ -92,6 +91,5 @@ public interface ModifierFactory<T>
 	 * 
 	 * @return a FormulaModifier with the given instructions
 	 */
-	public FormulaModifier<T> getFixedModifier(FormatManager<T> formatManager,
-		String instructions);
+	public FormulaModifier<T> getFixedModifier(FormatManager<T> formatManager, String instructions);
 }

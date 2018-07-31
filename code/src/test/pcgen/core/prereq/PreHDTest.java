@@ -33,6 +33,7 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.SizeAdjustment;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
@@ -64,10 +65,11 @@ public class PreHDTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test the PREHD code
-	 * @throws Exception
+	 * Test the PREHD code.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testHD() throws Exception
+	public void testHD() throws PersistenceLayerException
 	{
 		race.setName("Human");
 		CDOMDirectSingleRef<SizeAdjustment> mediumRef = CDOMDirectSingleRef.getRef(medium);
@@ -122,10 +124,11 @@ public class PreHDTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Tests using monster class levels
-	 * @throws Exception
+	 * Tests using monster class levels.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testClassLevels() throws Exception
+	public void testClassLevels() throws PersistenceLayerException
 	{
 		monClass.setName("Humanoid");
 		monClass.put(ObjectKey.IS_MONSTER, true);

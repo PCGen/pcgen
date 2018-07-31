@@ -106,39 +106,27 @@ public abstract class PObjectModel
 		{
 			if (objectString.startsWith(TYPE_PREFIX_SKILL))
 			{
-				returnValue =
-						new SkillModel(objectString.substring(TYPE_PREFIX_SKILL
-							.length()));
+				returnValue = new SkillModel(objectString.substring(TYPE_PREFIX_SKILL.length()));
 			}
 			else if (objectString.startsWith(TYPE_PREFIX_CHECK))
 			{
-				returnValue =
-						new CheckModel(objectString.substring(TYPE_PREFIX_CHECK
-							.length()));
+				returnValue = new CheckModel(objectString.substring(TYPE_PREFIX_CHECK.length()));
 			}
 			else if (objectString.startsWith(TYPE_PREFIX_ATTACK))
 			{
-				returnValue =
-						new AttackModel(objectString
-							.substring(TYPE_PREFIX_ATTACK.length()));
+				returnValue = new AttackModel(objectString.substring(TYPE_PREFIX_ATTACK.length()));
 			}
 			else if (objectString.startsWith(TYPE_PREFIX_SPELL))
 			{
-				returnValue =
-						new SpellModel(objectString.substring(TYPE_PREFIX_SPELL
-							.length()));
+				returnValue = new SpellModel(objectString.substring(TYPE_PREFIX_SPELL.length()));
 			}
 			else if (objectString.startsWith(TYPE_PREFIX_SAVE))
 			{
-				returnValue =
-						new SaveModel(objectString.substring(TYPE_PREFIX_SAVE
-							.length()));
+				returnValue = new SaveModel(objectString.substring(TYPE_PREFIX_SAVE.length()));
 			}
 			else if (objectString.startsWith(TYPE_PREFIX_DICE_ROLL))
 			{
-				returnValue =
-						new DiceRollModel(objectString
-							.substring(TYPE_PREFIX_DICE_ROLL.length()));
+				returnValue = new DiceRollModel(objectString.substring(TYPE_PREFIX_DICE_ROLL.length()));
 			}
 		}
 

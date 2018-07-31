@@ -57,25 +57,25 @@ public class CountTokenTest extends AbstractKitTokenTestCase<KitSkill>
 	}
 
 	@Test
-	public void testInvalidInputFormula() throws PersistenceLayerException
+	public void testInvalidInputFormula()
 	{
 		assertFalse(parse("FormulaProhibited"));
 	}
 
 	@Test
-	public void testInvalidInputZero() throws PersistenceLayerException
+	public void testInvalidInputZero()
 	{
 		assertFalse(parse("0"));
 	}
 
 	@Test
-	public void testInvalidInputNegative() throws PersistenceLayerException
+	public void testInvalidInputNegative()
 	{
 		assertFalse(parse("-1"));
 	}
 
 	@Test
-	public void testInvalidInputDecimal() throws PersistenceLayerException
+	public void testInvalidInputDecimal()
 	{
 		assertFalse(parse("1.5"));
 	}

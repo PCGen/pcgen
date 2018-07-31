@@ -35,7 +35,7 @@ import pcgen.core.PCClass;
 public class LegalDeityFacet
 {
 	private ClassFacet classFacet;
-	
+
 	private PrerequisiteFacet prerequisiteFacet;
 
 	/*
@@ -74,8 +74,7 @@ public class LegalDeityFacet
 			result = false;
 			CLASS: for (PCClass aClass : classFacet.getSet(id))
 			{
-				List<CDOMReference<Deity>> deityList = aClass
-						.getListFor(ListKey.DEITY);
+				List<CDOMReference<Deity>> deityList = aClass.getListFor(ListKey.DEITY);
 				if (deityList == null)
 				{
 					result = true;

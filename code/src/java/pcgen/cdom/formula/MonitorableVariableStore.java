@@ -49,8 +49,7 @@ public class MonitorableVariableStore extends SimpleVariableStore
 	 *            The VariableListener that will listen for changes to the given
 	 *            VariableID
 	 */
-	public <T> void addVariableListener(VariableID<T> varID,
-		VariableListener<? super T> listener)
+	public <T> void addVariableListener(VariableID<T> varID, VariableListener<? super T> listener)
 	{
 		addVariableListener(0, varID, listener);
 	}
@@ -68,8 +67,7 @@ public class MonitorableVariableStore extends SimpleVariableStore
 	 *            The VariableListener that will listen for changes to the given
 	 *            VariableID
 	 */
-	public <T> void addVariableListener(int priority, VariableID<T> varID,
-		VariableListener<? super T> listener)
+	public <T> void addVariableListener(int priority, VariableID<T> varID, VariableListener<? super T> listener)
 	{
 		listenerList.addToListFor(priority, varID, listener);
 	}
@@ -84,8 +82,7 @@ public class MonitorableVariableStore extends SimpleVariableStore
 	 *            The VariableListener to be removed from the listener list for
 	 *            the given VariableID
 	 */
-	public <T> void removeVariableListener(VariableID<T> varID,
-		VariableListener<? super T> listener)
+	public <T> void removeVariableListener(VariableID<T> varID, VariableListener<? super T> listener)
 	{
 		removeVariableListener(0, varID, listener);
 	}
@@ -107,8 +104,7 @@ public class MonitorableVariableStore extends SimpleVariableStore
 	 *            The VariableListener to be removed from the listener list for the given
 	 *            VariableID
 	 */
-	public <T> void removeVariableListener(int priority, VariableID<T> varID,
-		VariableListener<? super T> listener)
+	public <T> void removeVariableListener(int priority, VariableID<T> varID, VariableListener<? super T> listener)
 	{
 		listenerList.removeFromListFor(0, varID, listener);
 	}

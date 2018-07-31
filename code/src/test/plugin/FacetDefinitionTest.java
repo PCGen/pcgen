@@ -40,7 +40,7 @@ import org.junit.Test;
 public class FacetDefinitionTest
 {
 	/** The file in which we expect all facets to be defined. */
-	final static String appContextFile = "code/src/java/applicationContext.xml"; 
+	static final String APP_CONTEXT_FILE = "code/src/java/applicationContext.xml"; 
 	/**
 	 * Array of exceptions to normal names. Each entry is a pair of
 	 * Java source file name and JAR file name. 
@@ -187,7 +187,7 @@ public class FacetDefinitionTest
 				sourceFolder.getPath().replace(File.separatorChar, '.')
 					.replace("code.src.java.", "");
 		String contextData =
-				FileUtils.readFileToString(new File(appContextFile), "UTF-8");
+				FileUtils.readFileToString(new File(APP_CONTEXT_FILE), "UTF-8");
 
 		for (Iterator<File> facetSourceFileIter =
 				FileUtils.iterateFiles(sourceFolder, new String[]{"java"},

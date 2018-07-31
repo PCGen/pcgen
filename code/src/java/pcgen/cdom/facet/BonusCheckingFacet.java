@@ -42,8 +42,8 @@ import pcgen.core.bonus.BonusPair;
  */
 public class BonusCheckingFacet
 {
-	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
-			.getFacet(PlayerCharacterTrackingFacet.class);
+	private final PlayerCharacterTrackingFacet trackingFacet =
+			FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
 
 	/**
 	 * Returns a specific bonus for a given Bonus type and Bonus name on the
@@ -96,8 +96,7 @@ public class BonusCheckingFacet
 		{
 			BonusObj bonus = me.getKey();
 			CDOMObject source = me.getValue();
-			iBonus += getBonusValue(id, bonus, source.getQualifiedKey())
-					.doubleValue();
+			iBonus += getBonusValue(id, bonus, source.getQualifiedKey()).doubleValue();
 		}
 
 		return iBonus;
@@ -119,8 +118,7 @@ public class BonusCheckingFacet
 	 * @return The bonus provided by a specific BonusObj object when provided by
 	 *         the source identified by the given String
 	 */
-	private Number getBonusValue(CharID id, BonusObj bonus,
-		String sourceIdentifier)
+	private Number getBonusValue(CharID id, BonusObj bonus, String sourceIdentifier)
 	{
 		PlayerCharacter pc = trackingFacet.getPC(id);
 		return bonus.resolve(pc, sourceIdentifier);
@@ -152,8 +150,7 @@ public class BonusCheckingFacet
 	 *         BonusObj objects when provided by the source identified by the
 	 *         given String
 	 */
-	public double getAllBonusValues(CharID id, Collection<BonusObj> bonuses,
-		String sourceIdentifier)
+	public double getAllBonusValues(CharID id, Collection<BonusObj> bonuses, String sourceIdentifier)
 	{
 		PlayerCharacter pc = trackingFacet.getPC(id);
 		double value = 0;
@@ -206,7 +203,7 @@ public class BonusCheckingFacet
 						// Strip off the bonus name and the trailing . 
 						if (key.startsWith(bonusName))
 						{
-							key = key.substring(bonusName.length()+1);
+							key = key.substring(bonusName.length() + 1);
 						}
 						list.add(key);
 					}

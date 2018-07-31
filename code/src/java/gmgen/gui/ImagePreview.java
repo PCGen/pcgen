@@ -15,12 +15,12 @@ import javax.swing.JFileChooser;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 
+import org.apache.commons.lang3.StringUtils;
+
 import pcgen.core.PlayerCharacter;
 import pcgen.io.PCGFile;
 import pcgen.io.PCGIOHandler;
 import pcgen.system.LanguageBundle;
-
-import org.apache.commons.lang3.StringUtils;
 
 /**
  * A panel for previewing graphics in a file chooser.  This includes previewing
@@ -28,16 +28,13 @@ import org.apache.commons.lang3.StringUtils;
  *
  * TODO Support PCG portraits
  */
-public final class ImagePreview
-		extends JPanel
-		implements PropertyChangeListener
+public final class ImagePreview extends JPanel implements PropertyChangeListener
 {
 	private static final int SIZE = 200;
 
-	private static final String in_notAnImage
-			= LanguageBundle.getString("in_ImagePreview_notAnImage");
-	private static final String in_noCharacterPortrait
-			= LanguageBundle.getString("in_ImagePreview_noCharacterPortrait");
+	private static final String IN_NOT_AN_IMAGE = LanguageBundle.getString("in_ImagePreview_notAnImage");
+	private static final String IN_NO_CHARACTER_PORTRAIT =
+			LanguageBundle.getString("in_ImagePreview_noCharacterPortrait");
 
 	private final JFileChooser jfc;
 
@@ -72,7 +69,7 @@ public final class ImagePreview
 		return jfc;
 	}
 
-    @Override
+	@Override
 	public void propertyChange(final PropertyChangeEvent evt)
 	{
 		try
@@ -90,8 +87,7 @@ public final class ImagePreview
 	 * @param file
 	 * @throws IOException
 	 */
-	private void updateImage(final File file)
-			throws IOException
+	private void updateImage(final File file) throws IOException
 	{
 		if (file == null || !file.exists())
 		{
@@ -107,9 +103,7 @@ public final class ImagePreview
 
 			final String portraitPath = aPC.getDisplay().getPortraitPath();
 
-			image = StringUtils.isEmpty(portraitPath)
-					? null
-					:  ImageIO.read(new File(portraitPath));
+			image = StringUtils.isEmpty(portraitPath) ? null : ImageIO.read(new File(portraitPath));
 		}
 		else
 		{
@@ -120,7 +114,7 @@ public final class ImagePreview
 		repaint();
 	}
 
-    @Override
+	@Override
 	protected void paintComponent(final Graphics g)
 	{
 		g.setColor(UIManager.getColor("Panel.background"));
@@ -136,8 +130,7 @@ public final class ImagePreview
 			final int side = Math.max(width, height);
 			final double scale = SIZE / (double) side;
 
-			g.drawImage(image, 0, 0, (int) (scale * width),
-					(int) (scale * height), null);
+			g.drawImage(image, 0, 0, (int) (scale * width), (int) (scale * height), null);
 
 			// Annotate with original dimensions.  Overlay black on white so
 			// the values are visible against most possible image backgrounds.
@@ -152,12 +145,12 @@ public final class ImagePreview
 		{
 			g.setColor(UIManager.getColor("Panel.foreground"));
 			// TODO: I18N
-			g.drawString(aPC == null ? ImagePreview.in_notAnImage : ImagePreview.in_noCharacterPortrait,
-					textX, textY);
+			g.drawString(aPC == null ? ImagePreview.IN_NOT_AN_IMAGE : ImagePreview.IN_NO_CHARACTER_PORTRAIT, textX, textY);
 		}
 	}
 
-	private static int getFontHeightHint(final Graphics g) {
+	private static int getFontHeightHint(final Graphics g)
+	{
 		return g.getFontMetrics().getHeight();
 	}
 }

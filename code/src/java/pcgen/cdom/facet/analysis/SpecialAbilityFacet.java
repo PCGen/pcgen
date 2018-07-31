@@ -37,13 +37,12 @@ import pcgen.core.SpecialAbility;
  * SpecialAbilityFacet tracks the SpecialAbility objects on a Player Character.
  * 
  */
-public class SpecialAbilityFacet extends
-		AbstractQualifiedListFacet<SpecialAbility> implements
-		DataFacetChangeListener<CharID, CDOMObject>
+public class SpecialAbilityFacet extends AbstractQualifiedListFacet<SpecialAbility>
+		implements DataFacetChangeListener<CharID, CDOMObject>
 {
 
-	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
-		.getFacet(PlayerCharacterTrackingFacet.class);
+	private final PlayerCharacterTrackingFacet trackingFacet =
+			FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
 
 	private CDOMObjectConsolidationFacet consolidationFacet;
 
@@ -126,8 +125,7 @@ public class SpecialAbilityFacet extends
 	 *         each of the objects in this SpecialAbilityFacet for which the
 	 *         Player Character qualifies.
 	 */
-	public <T> List<T> getAllResolved(CharID id,
-		QualifiedActor<SpecialAbility, T> qa)
+	public <T> List<T> getAllResolved(CharID id, QualifiedActor<SpecialAbility, T> qa)
 	{
 		return actOnQualifiedSet(id, qa);
 	}

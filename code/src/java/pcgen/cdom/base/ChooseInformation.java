@@ -17,13 +17,14 @@
  */
 package pcgen.cdom.base;
 
+import java.util.Collection;
+
 import org.jetbrains.annotations.NotNull;
+
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.rules.context.LoadContext;
-
-import java.util.Collection;
 
 /**
  * This is a interface is provided as convenience to hold a set of choices and the number
@@ -98,7 +99,7 @@ public interface ChooseInformation<T>
 	 *         PlayerCharacter
 	 */
 	public Collection<? extends T> getSet(PlayerCharacter pc);
-	
+
 	void restoreChoice(PlayerCharacter pc, ChooseDriver owner, T item);
 
 	void removeChoice(PlayerCharacter pc, ChooseDriver owner, T item);
@@ -107,16 +108,12 @@ public interface ChooseInformation<T>
 
 	CharSequence composeDisplay(@NotNull Collection<? extends T> collection);
 
-
-
 	public T decodeChoice(LoadContext context, String persistentFormat);
 
 	public String encodeChoice(T item);
-
 
 	public void setChoiceActor(Chooser<T> actor);
 
 	public Chooser<T> getChoiceActor();
 
 }
-

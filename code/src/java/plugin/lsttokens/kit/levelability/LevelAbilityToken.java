@@ -55,8 +55,7 @@ public class LevelAbilityToken extends AbstractNonEmptyToken<KitLevelAbility>
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		KitLevelAbility kitLA, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, KitLevelAbility kitLA, String value)
 	{
 		int equalLoc = value.indexOf('=');
 		if (equalLoc == -1)
@@ -65,18 +64,15 @@ public class LevelAbilityToken extends AbstractNonEmptyToken<KitLevelAbility>
 		}
 		if (equalLoc != value.lastIndexOf('='))
 		{
-			return new ParseResult.Fail(getTokenName() + " requires a single =: "
-					+ value);
+			return new ParseResult.Fail(getTokenName() + " requires a single =: " + value);
 		}
 		String className = value.substring(0, equalLoc);
 		if (className.isEmpty())
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " requires a class name before =: " + value);
+			return new ParseResult.Fail(getTokenName() + " requires a class name before =: " + value);
 		}
 		String level = value.substring(equalLoc + 1);
-		CDOMSingleRef<PCClass> cl = context.getReferenceContext().getCDOMReference(PCClass.class,
-				className);
+		CDOMSingleRef<PCClass> cl = context.getReferenceContext().getCDOMReference(PCClass.class, className);
 		try
 		{
 			Integer lvl = Integer.valueOf(level);
@@ -88,9 +84,8 @@ public class LevelAbilityToken extends AbstractNonEmptyToken<KitLevelAbility>
 		}
 		catch (NumberFormatException nfe)
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " expected an integer.  Tag must be of the form: "
-					+ getTokenName() + ":<int>");
+			return new ParseResult.Fail(
+				getTokenName() + " expected an integer.  Tag must be of the form: " + getTokenName() + ":<int>");
 		}
 		kitLA.setClass(cl);
 		return ParseResult.SUCCESS;
@@ -105,7 +100,7 @@ public class LevelAbilityToken extends AbstractNonEmptyToken<KitLevelAbility>
 			return null;
 		}
 		Integer lvl = kitLA.getLevel();
-		return new String[] { cl.getLSTformat(false) + '=' + lvl };
+		return new String[]{cl.getLSTformat(false) + '=' + lvl};
 	}
 
 	@Override

@@ -17,16 +17,25 @@
  */
 package pcgen.gui2.prefs;
 
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Frame;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
 import pcgen.cdom.base.Constants;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui2.tools.Utility;
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-
 
 class NewPurchaseMethodDialog extends JDialog
 {
@@ -133,13 +142,13 @@ class NewPurchaseMethodDialog extends JDialog
 
 		setTitle("Enter name and points for Purchase Method");
 		addWindowListener(new WindowAdapter()
+		{
+			@Override
+			public void windowClosing(WindowEvent evt)
 			{
-				@Override
-				public void windowClosing(WindowEvent evt)
-				{
-					closeDialog();
-				}
-			});
+				closeDialog();
+			}
+		});
 
 		jPanel1.setLayout(new FlowLayout(FlowLayout.LEFT));
 
@@ -202,18 +211,16 @@ class NewPurchaseMethodDialog extends JDialog
 	{
 		if (getEnteredName().isEmpty())
 		{
-			ShowMessageDelegate.showMessageDialog(
-				"Please enter a name for this method.",
-				Constants.APPLICATION_NAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog("Please enter a name for this method.", Constants.APPLICATION_NAME,
+				MessageType.ERROR);
 
 			return;
 		}
 
 		if (getEnteredPoints() <= 0)
 		{
-			ShowMessageDelegate.showMessageDialog(
-				"Invalid points value. Please try again.",
-				Constants.APPLICATION_NAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog("Invalid points value. Please try again.", Constants.APPLICATION_NAME,
+				MessageType.ERROR);
 
 			return;
 		}

@@ -41,7 +41,7 @@ public final class SizeUtilities
 				return s;
 			}
 		}
-	
+
 		return null;
 	}
 }

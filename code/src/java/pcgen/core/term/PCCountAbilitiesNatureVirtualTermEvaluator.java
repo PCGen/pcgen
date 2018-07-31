@@ -27,19 +27,16 @@ import pcgen.cdom.enumeration.Nature;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
 
-public class PCCountAbilitiesNatureVirtualTermEvaluator 
-		extends BasePCCountAbilitiesNatureTermEvaluator implements TermEvaluator
+public class PCCountAbilitiesNatureVirtualTermEvaluator extends BasePCCountAbilitiesNatureTermEvaluator
+		implements TermEvaluator
 {
-	public PCCountAbilitiesNatureVirtualTermEvaluator(
-			String originalText,
-			AbilityCategory abCat,
-			boolean visible,
-			boolean hidden)
+	public PCCountAbilitiesNatureVirtualTermEvaluator(String originalText, AbilityCategory abCat, boolean visible,
+		boolean hidden)
 	{
 		this.originalText = originalText;
-		this.abCat        = abCat;
-		this.visible      = visible;
-		this.hidden       = hidden;
+		this.abCat = abCat;
+		this.visible = visible;
+		this.hidden = hidden;
 	}
 
 	@Override

@@ -34,8 +34,7 @@ import pcgen.util.Logging;
 /**
  * Class deals with GAMEMODE Token
  */
-public class GamemodeToken extends AbstractTokenWithSeparator<Campaign>
-		implements CDOMPrimaryToken<Campaign>
+public class GamemodeToken extends AbstractTokenWithSeparator<Campaign> implements CDOMPrimaryToken<Campaign>
 {
 
 	@Override
@@ -51,8 +50,7 @@ public class GamemodeToken extends AbstractTokenWithSeparator<Campaign>
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		Campaign campaign, String gameMode)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, Campaign campaign, String gameMode)
 	{
 		context.getObjectContext().removeList(campaign, ListKey.GAME_MODE);
 
@@ -64,11 +62,10 @@ public class GamemodeToken extends AbstractTokenWithSeparator<Campaign>
 		return ParseResult.SUCCESS;
 	}
 
-    @Override
+	@Override
 	public String[] unparse(LoadContext context, Campaign campaign)
 	{
-		Changes<String> changes = context.getObjectContext().getListChanges(
-				campaign, ListKey.GAME_MODE);
+		Changes<String> changes = context.getObjectContext().getListChanges(campaign, ListKey.GAME_MODE);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;
@@ -76,14 +73,13 @@ public class GamemodeToken extends AbstractTokenWithSeparator<Campaign>
 		Collection<String> added = changes.getAdded();
 		if (added == null || added.isEmpty())
 		{
-			Logging.errorPrint("Found Game Mode changes in "
-					+ campaign.getKeyName() + " but none were added");
+			Logging.errorPrint("Found Game Mode changes in " + campaign.getKeyName() + " but none were added");
 			return null;
 		}
-		return new String[] { StringUtil.join(added, Constants.PIPE) };
+		return new String[]{StringUtil.join(added, Constants.PIPE)};
 	}
 
-    @Override
+	@Override
 	public Class<Campaign> getTokenClass()
 	{
 		return Campaign.class;

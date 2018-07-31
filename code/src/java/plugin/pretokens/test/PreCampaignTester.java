@@ -46,7 +46,8 @@ public class PreCampaignTester extends AbstractDisplayPrereqTest implements Prer
 {
 
 	@Override
-	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source) throws PrerequisiteException
+	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
+		throws PrerequisiteException
 	{
 		final int number;
 		try
@@ -55,26 +56,22 @@ public class PreCampaignTester extends AbstractDisplayPrereqTest implements Prer
 		}
 		catch (NumberFormatException exceptn)
 		{
-			throw new PrerequisiteException(LanguageBundle.getFormattedString(
-				"PreFeat.error", prereq.toString())); //$NON-NLS-1$
+			throw new PrerequisiteException(
+				LanguageBundle.getFormattedString("PreFeat.error", prereq.toString())); //$NON-NLS-1$
 		}
 
 		int runningTotal = 0;
 		if (prereq.getKey().startsWith("BOOKTYPE="))
 		{
-			runningTotal +=
-					countCampaignByBookType(prereq.getKey().substring(9), false);
+			runningTotal += countCampaignByBookType(prereq.getKey().substring(9), false);
 		}
 		else if (prereq.getKey().startsWith("INCLUDESBOOKTYPE="))
 		{
-			runningTotal +=
-					countCampaignByBookType(prereq.getKey().substring(17), true);
+			runningTotal += countCampaignByBookType(prereq.getKey().substring(17), true);
 		}
 		else if (prereq.getKey().startsWith("INCLUDES="))
 		{
-			runningTotal +=
-					countCampaignByName(prereq.getKey().substring(9), source,
-						true);
+			runningTotal += countCampaignByName(prereq.getKey().substring(9), source, true);
 		}
 		else
 		{
@@ -94,8 +91,7 @@ public class PreCampaignTester extends AbstractDisplayPrereqTest implements Prer
 	 * 
 	 * @return the number of matching campaigns
 	 */
-	private int countCampaignByBookType(String bookType,
-		boolean includeSubCampaigns)
+	private int countCampaignByBookType(String bookType, boolean includeSubCampaigns)
 	{
 		Set<Campaign> matchingCampaigns = new HashSet<>();
 		PersistenceManager pMan = PersistenceManager.getInstance();
@@ -122,7 +118,7 @@ public class PreCampaignTester extends AbstractDisplayPrereqTest implements Prer
 						matchingCampaigns.add(camp);
 						break;
 					}
-				}				
+				}
 			}
 		}
 		return matchingCampaigns.size();
@@ -136,8 +132,7 @@ public class PreCampaignTester extends AbstractDisplayPrereqTest implements Prer
 	 * @param includeSubCampaigns Should we count included sub campaigns that match
 	 * @return The number of matching campaigns
 	 */
-	private int countCampaignByName(final String key, CDOMObject source,
-		boolean includeSubCampaigns)
+	private int countCampaignByName(final String key, CDOMObject source, boolean includeSubCampaigns)
 	{
 		int total = 0;
 		Campaign campaignToFind = Globals.getCampaignKeyedSilently(key);
@@ -196,8 +191,7 @@ public class PreCampaignTester extends AbstractDisplayPrereqTest implements Prer
 	 * @param campList The list being built up.
 	 * @param aCampaign The campaign to be added.
 	 */
-	private static void addChildrenRecursively(List<Campaign> campList,
-	                                           Campaign aCampaign)
+	private static void addChildrenRecursively(List<Campaign> campList, Campaign aCampaign)
 	{
 		campList.add(aCampaign);
 		for (Campaign subCampaign : aCampaign.getSubCampaigns())
@@ -210,7 +204,7 @@ public class PreCampaignTester extends AbstractDisplayPrereqTest implements Prer
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "CAMPAIGN"; //$NON-NLS-1$
@@ -225,10 +219,8 @@ public class PreCampaignTester extends AbstractDisplayPrereqTest implements Prer
 			return prereq.getKey();
 		}
 
-		final String foo = LanguageBundle.getFormattedString(
-				"PreCampaign.toHtml", //$NON-NLS-1$
-				prereq.getOperator().toDisplayString(),
-				prereq.getOperand(), prereq.getKey());
+		final String foo = LanguageBundle.getFormattedString("PreCampaign.toHtml", //$NON-NLS-1$
+			prereq.getOperator().toDisplayString(), prereq.getOperand(), prereq.getKey());
 		return foo;
 	}
 

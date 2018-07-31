@@ -57,42 +57,42 @@ public class MonsterClassTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Test
-	public void testInvalidNoColon() throws PersistenceLayerException
+	public void testInvalidNoColon()
 	{
 		assertFalse(parse("Fighter"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidTwoColon() throws PersistenceLayerException
+	public void testInvalidTwoColon()
 	{
 		assertFalse(parse("Fighter:4:1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidLevelNegative() throws PersistenceLayerException
+	public void testInvalidLevelNegative()
 	{
 		assertFalse(parse("Fighter:-4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidLevelZero() throws PersistenceLayerException
+	public void testInvalidLevelZero()
 	{
 		assertFalse(parse("Fighter:0"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidLevelNaN() throws PersistenceLayerException
+	public void testInvalidLevelNaN()
 	{
 		assertFalse(parse("Fighter:Level"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testBadClass() throws PersistenceLayerException
+	public void testBadClass()
 	{
 		assertTrue(parse("Fighter:4"));
 		assertConstructionError();
@@ -125,14 +125,14 @@ public class MonsterClassTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.put(ObjectKey.MONSTER_CLASS, null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testUnparseSingle() throws PersistenceLayerException
+	public void testUnparseSingle()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
 		CDOMSingleRef<PCClass> cl = primaryContext.getReferenceContext().getCDOMReference(
@@ -166,7 +166,7 @@ public class MonsterClassTokenTest extends AbstractCDOMTokenTestCase<Race>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail() throws PersistenceLayerException
+	public void testUnparseGenericsFail()
 	{
 		ObjectKey objectKey = ObjectKey.MONSTER_CLASS;
 		primaryProf.put(objectKey, new Object());

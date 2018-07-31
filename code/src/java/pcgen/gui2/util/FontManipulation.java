@@ -81,7 +81,7 @@ public class FontManipulation
 		Font font = container.getFont();
 		container.setFont(xxlarge(font));
 	}
-	
+
 	/**
 	 * For extra large font.
 	 * 
@@ -139,7 +139,6 @@ public class FontManipulation
 		return f.deriveFont(f.getSize() * 0.917f);
 	}
 
-
 	/**
 	 * Change font of container for a bit smaller font.
 	 * 
@@ -185,7 +184,7 @@ public class FontManipulation
 	{
 		return f.deriveFont(Font.ITALIC);
 	}
-	
+
 	/**
 	 * For plain font.
 	 * 
@@ -196,7 +195,7 @@ public class FontManipulation
 	{
 		return f.deriveFont(Font.PLAIN);
 	}
-	
+
 	/**
 	 * For bold font.
 	 * 
@@ -207,7 +206,7 @@ public class FontManipulation
 	{
 		return f.deriveFont(Font.BOLD);
 	}
-	
+
 	/**
 	 * For italic font.
 	 * 
@@ -218,7 +217,7 @@ public class FontManipulation
 	{
 		return f.deriveFont(Font.ITALIC);
 	}
-	
+
 	/**
 	 * For bold italic font.
 	 * 

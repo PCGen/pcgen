@@ -76,7 +76,7 @@ public class StatTokenTest extends AbstractCDOMTokenTestCase<Spell>
 	}
 
 	@Test
-	public void testInvalidNotAStat() throws PersistenceLayerException
+	public void testInvalidNotAStat()
 	{
 		if (parse("NAN"))
 		{
@@ -89,7 +89,7 @@ public class StatTokenTest extends AbstractCDOMTokenTestCase<Spell>
 	}
 
 	@Test
-	public void testInvalidMultipleStatComma() throws PersistenceLayerException
+	public void testInvalidMultipleStatComma()
 	{
 		if (parse("STR,INT"))
 		{
@@ -102,7 +102,7 @@ public class StatTokenTest extends AbstractCDOMTokenTestCase<Spell>
 	}
 
 	@Test
-	public void testInvalidMultipleStatBar() throws PersistenceLayerException
+	public void testInvalidMultipleStatBar()
 	{
 		if (parse("STR|INT"))
 		{
@@ -115,7 +115,7 @@ public class StatTokenTest extends AbstractCDOMTokenTestCase<Spell>
 	}
 
 	@Test
-	public void testInvalidMultipleStatDot() throws PersistenceLayerException
+	public void testInvalidMultipleStatDot()
 	{
 		if (parse("STR.INT"))
 		{
@@ -146,7 +146,7 @@ public class StatTokenTest extends AbstractCDOMTokenTestCase<Spell>
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.put(getObjectKey(), null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
@@ -158,7 +158,7 @@ public class StatTokenTest extends AbstractCDOMTokenTestCase<Spell>
 	}
 
 	@Test
-	public void testUnparseLegal() throws PersistenceLayerException
+	public void testUnparseLegal()
 	{
 		primaryProf.put(getObjectKey(), CDOMDirectSingleRef.getRef(ps));
 		expectSingle(getToken().unparse(primaryContext, primaryProf), ps.getKeyName());
@@ -166,7 +166,7 @@ public class StatTokenTest extends AbstractCDOMTokenTestCase<Spell>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail() throws PersistenceLayerException
+	public void testUnparseGenericsFail()
 	{
 		ObjectKey objectKey = getObjectKey();
 		primaryProf.put(objectKey, new Object());

@@ -121,8 +121,7 @@ public class GroupGroupingToken<T extends Loadable> implements GroupingDefinitio
 		@Override
 		public void process(PCGenScoped o, Consumer<PCGenScoped> consumer)
 		{
-			if ((o instanceof CDOMObject) && ((CDOMObject) o)
-				.containsInList(ListKey.GROUP, groupingInfo.getValue()))
+			if ((o instanceof CDOMObject) && ((CDOMObject) o).containsInList(ListKey.GROUP, groupingInfo.getValue()))
 			{
 				if (childGrouping == null)
 				{
@@ -131,8 +130,7 @@ public class GroupGroupingToken<T extends Loadable> implements GroupingDefinitio
 				else
 				{
 					GroupingInfo<?> childInfo = groupingInfo.getChild();
-					for (PCGenScoped childObject : o
-						.getChildren(childInfo.getObjectType()))
+					for (PCGenScoped childObject : o.getChildren(childInfo.getObjectType()))
 					{
 						childGrouping.process(childObject, consumer);
 					}

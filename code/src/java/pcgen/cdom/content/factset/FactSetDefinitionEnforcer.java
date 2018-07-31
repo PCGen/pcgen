@@ -39,8 +39,7 @@ import pcgen.util.Logging;
  * @param <F>
  *            The format of the data stored in the FactSet
  */
-public class FactSetDefinitionEnforcer<T extends CDOMObject, F> implements
-		DeferredToken<T>, LstToken
+public class FactSetDefinitionEnforcer<T extends CDOMObject, F> implements DeferredToken<T>, LstToken
 {
 
 	/**
@@ -79,9 +78,8 @@ public class FactSetDefinitionEnforcer<T extends CDOMObject, F> implements
 		{
 			return true;
 		}
-		Logging.errorPrint("FACTSET " + def.getFactSetName()
-			+ " was required but not set in " + obj.getClass().getSimpleName()
-			+ " " + obj.getKeyName());
+		Logging.errorPrint("FACTSET " + def.getFactSetName() + " was required but not set in "
+			+ obj.getClass().getSimpleName() + " " + obj.getKeyName());
 		return false;
 	}
 

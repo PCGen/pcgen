@@ -23,8 +23,7 @@ import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class HandsToken extends AbstractNonEmptyToken<WieldCategory> implements
-		CDOMPrimaryToken<WieldCategory>
+public class HandsToken extends AbstractNonEmptyToken<WieldCategory> implements CDOMPrimaryToken<WieldCategory>
 {
 
 	@Override
@@ -34,8 +33,7 @@ public class HandsToken extends AbstractNonEmptyToken<WieldCategory> implements
 	}
 
 	@Override
-	public ParseResult parseNonEmptyToken(LoadContext context,
-			WieldCategory wc, String value)
+	public ParseResult parseNonEmptyToken(LoadContext context, WieldCategory wc, String value)
 	{
 		//TODO zero and 999 are magical values :(
 		try
@@ -43,17 +41,15 @@ public class HandsToken extends AbstractNonEmptyToken<WieldCategory> implements
 			int intValue = Integer.valueOf(value).intValue();
 			if (intValue < 0)
 			{
-				return new ParseResult.Fail(getTokenName()
-						+ " must be an integer >= " + 0);
+				return new ParseResult.Fail(getTokenName() + " must be an integer >= " + 0);
 			}
 			wc.setHandsRequired(Integer.parseInt(value));
 			return ParseResult.SUCCESS;
 		}
 		catch (NumberFormatException nfe)
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " expected an integer.  Tag must be of the form: "
-					+ getTokenName() + ":<int>");
+			return new ParseResult.Fail(
+				getTokenName() + " expected an integer.  Tag must be of the form: " + getTokenName() + ":<int>");
 		}
 	}
 

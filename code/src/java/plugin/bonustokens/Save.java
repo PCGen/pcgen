@@ -34,9 +34,7 @@ public final class Save extends BonusObj
 	{
 		if (ControlUtilities.hasControlToken(context, CControl.TOTALSAVE))
 		{
-			Logging.errorPrint(
-				"BONUS:SAVE is disabled when TOTALSAVE code control is used: " + argToken,
-				context);
+			Logging.errorPrint("BONUS:SAVE is disabled when TOTALSAVE code control is used: " + argToken, context);
 			return false;
 		}
 		boolean isBase = false;
@@ -94,9 +92,7 @@ public final class Save extends BonusObj
 			return Constants.LST_PERCENT_LIST;
 		}
 
-		String token = ((CheckInfo) obj).isBase()
-			? "BASE."
-			: Constants.EMPTY_STRING;
+		String token = ((CheckInfo) obj).isBase() ? "BASE." : Constants.EMPTY_STRING;
 
 		return token + ((CheckInfo) obj).getPobj().getLSTformat(false);
 	}

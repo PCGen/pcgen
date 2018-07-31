@@ -59,8 +59,7 @@ public class DeityWeaponProfFacet extends AbstractSourcedListFacet<CharID, Weapo
 	public void dataAdded(DataFacetChangeEvent<CharID, Deity> dfce)
 	{
 		Deity deity = dfce.getCDOMObject();
-		List<CDOMReference<WeaponProf>> weaponList = deity
-				.getListFor(ListKey.DEITYWEAPON);
+		List<CDOMReference<WeaponProf>> weaponList = deity.getListFor(ListKey.DEITYWEAPON);
 		if (weaponList != null)
 		{
 			for (CDOMReference<WeaponProf> ref : weaponList)

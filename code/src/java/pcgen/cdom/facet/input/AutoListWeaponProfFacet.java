@@ -27,8 +27,7 @@ import pcgen.core.WeaponProf;
  * granted to a Player Character via AUTO:WEAPONPROF
  * 
  */
-public class AutoListWeaponProfFacet extends
-		AbstractSourcedListFacet<CharID, WeaponProf>
+public class AutoListWeaponProfFacet extends AbstractSourcedListFacet<CharID, WeaponProf>
 {
 	private WeaponProfFacet weaponProfFacet;
 

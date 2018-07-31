@@ -28,7 +28,7 @@ public enum View
 	HIDDEN_EXPORT("HIDDEN_EXPORT"), // Show only those not visible
 	VISIBLE_DISPLAY("VISIBLE_DISPLAY"), // Shows types visible to the GUI
 	VISIBLE_EXPORT("VISIBLE_EXPORT"); // Shows types visible to the Export
-	
+
 	private final String text;
 
 	/**

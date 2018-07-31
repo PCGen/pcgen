@@ -32,9 +32,8 @@ import pcgen.output.publish.OutputDB;
  * DomainFacet is a Facet that tracks the Domains possessed by a Player
  * Character.
  */
-public class DomainFacet extends
-		AbstractSingleSourceListFacet<Domain, ClassSource> implements
-		PerspectiveLocation, SetFacet<CharID, Domain>
+public class DomainFacet extends AbstractSingleSourceListFacet<Domain, ClassSource>
+		implements PerspectiveLocation, SetFacet<CharID, Domain>
 {
 	public void init()
 	{

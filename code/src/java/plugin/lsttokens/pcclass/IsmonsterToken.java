@@ -25,8 +25,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 /**
  * Class deals with ISMONSTER Token
  */
-public class IsmonsterToken extends AbstractYesNoToken<PCClass> implements
-		CDOMPrimaryToken<PCClass>
+public class IsmonsterToken extends AbstractYesNoToken<PCClass> implements CDOMPrimaryToken<PCClass>
 {
 
 	@Override

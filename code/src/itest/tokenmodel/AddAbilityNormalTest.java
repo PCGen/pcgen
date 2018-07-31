@@ -28,7 +28,6 @@ import pcgen.cdom.helper.ClassSource;
 import pcgen.core.Ability;
 import pcgen.core.Domain;
 import pcgen.core.PCClass;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.ability.StackToken;
@@ -136,21 +135,21 @@ public class AddAbilityNormalTest extends AbstractAddListTokenTest<Ability>
 
 	//TODO CODE-2016/CODE-1921 (needs to be consistent with other methods of ADD:)
 	@Override
-	public void testFromAbility() throws PersistenceLayerException
+	public void testFromAbility()
 	{
 		//Not supported equivalent to other methods
 	}
 
 	//TODO CODE-2016 (needs to be consistent with other methods of ADD:)
 	@Override
-	public void testFromClass() throws PersistenceLayerException
+	public void testFromClass()
 	{
 		//Not supported equivalent to other methods
 	}
 
 	//TODO this appears to be a bug - is only applied once?
 	@Test
-	public void testMult() throws PersistenceLayerException
+	public void testMult()
 	{
 		TokenRegistration.register(new NoChoiceToken());
 		TokenRegistration.register(new StackToken());
@@ -165,6 +164,7 @@ public class AddAbilityNormalTest extends AbstractAddListTokenTest<Ability>
 		assocCheck = new AssocCheck()
 		{
 			
+			@Override
 			public boolean check(CNAbility g)
 			{
 				if (pc.getDetailedAssociationCount(g) == 2)

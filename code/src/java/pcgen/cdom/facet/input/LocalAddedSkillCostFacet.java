@@ -29,7 +29,6 @@ import pcgen.core.Skill;
  * LocalAddedSkillCostFacet.
  * 
  */
-public class LocalAddedSkillCostFacet extends
-		AbstractSubScopeFacet<PCClass, SkillCost, Skill>
+public class LocalAddedSkillCostFacet extends AbstractSubScopeFacet<PCClass, SkillCost, Skill>
 {
 }

@@ -48,11 +48,9 @@ public class AbstractPrerequisiteTestTest extends AbstractCharacterTestCase
 		return new TestSuite(AbstractPrerequisiteTestTest.class);
 	}
 
-	/**
-	 * @throws Exception
-	 */
+	
 	@SuppressWarnings("nls")
-	public void testVisionNotHandledFail() throws Exception
+	public void testVisionNotHandledFail()
 	{
 		final Prerequisite prereq = new Prerequisite();
 		prereq.setKind("wield");

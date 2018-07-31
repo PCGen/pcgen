@@ -50,8 +50,8 @@ public class AbilityLoader extends BasicLoader<Ability>
 	 * @param lk The key under which the files to be processed are stored.
 	 * @param changeLogWriter The stream we will record any changes to.
 	 */
-	public AbilityLoader(EditorLoadContext lc, Class<Ability> cl,
-		ListKey<CampaignSourceEntry> lk, Writer changeLogWriter)
+	public AbilityLoader(EditorLoadContext lc, Class<Ability> cl, ListKey<CampaignSourceEntry> lk,
+		Writer changeLogWriter)
 	{
 		super(lc, cl, lk, changeLogWriter);
 
@@ -59,8 +59,7 @@ public class AbilityLoader extends BasicLoader<Ability>
 	}
 
 	@Override
-	public List<CDOMObject> process(StringBuilder sb, int line,
-		String lineString, ConversionDecider decider)
+	public List<CDOMObject> process(StringBuilder sb, int line, String lineString, ConversionDecider decider)
 		throws PersistenceLayerException, InterruptedException
 	{
 		// We do a scan for the category first and ensure the ability category is defined.
@@ -70,15 +69,13 @@ public class AbilityLoader extends BasicLoader<Ability>
 			if (tok.startsWith("CATEGORY:"))
 			{
 				String abilityCatName = tok.substring(9);
-				final Category<Ability> cat =
-						context.getReferenceContext().silentlyGetConstructedCDOMObject(
-							ABILITY_CATEGORY_CLASS, abilityCatName);
+				final Category<Ability> cat = context.getReferenceContext()
+					.silentlyGetConstructedCDOMObject(ABILITY_CATEGORY_CLASS, abilityCatName);
 				if (cat == null)
 				{
-//					Logging.log(Logging.INFO, "Found new cat " + abilityCatName
-//						+ " at line " + line + ": " + lineString);
-					context.getReferenceContext().constructCDOMObject(
-						ABILITY_CATEGORY_CLASS, abilityCatName);
+					//					Logging.log(Logging.INFO, "Found new cat " + abilityCatName
+					//						+ " at line " + line + ": " + lineString);
+					context.getReferenceContext().constructCDOMObject(ABILITY_CATEGORY_CLASS, abilityCatName);
 				}
 
 			}

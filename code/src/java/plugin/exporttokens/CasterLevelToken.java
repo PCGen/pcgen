@@ -18,14 +18,14 @@
  */
 package plugin.exporttokens;
 
+import java.util.StringTokenizer;
+
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 import pcgen.util.Logging;
-
-import java.util.StringTokenizer;
 
 /**
  * Deals with following tokens
@@ -45,8 +45,7 @@ public class CasterLevelToken extends Token
 	}
 
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
 		String tag = aTok.nextToken(); // burn off CASTERLEVEL
@@ -74,8 +73,7 @@ public class CasterLevelToken extends Token
 
 		if (varName.equals("TOTAL") || varName.equals(""))
 		{
-			return Integer.toString(pc.getVariableValue(tokenSource, "TOTAL")
-				.intValue());
+			return Integer.toString(pc.getVariableValue(tokenSource, "TOTAL").intValue());
 		}
 		return getClassToken(pc, i);
 	}
@@ -96,8 +94,7 @@ public class CasterLevelToken extends Token
 			PCClass pcClass = display.getClassList().get(classNumber);
 			cString = "CLASS:" + pcClass.getKeyName();
 		}
-		return Float.toString(pc.getVariableValue(TOKENNAME, cString)
-			.intValue());
+		return Float.toString(pc.getVariableValue(TOKENNAME, cString).intValue());
 	}
 
 }

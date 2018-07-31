@@ -17,10 +17,11 @@
  */
 package pcgen.output.base;
 
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
 import java.util.ArrayList;
 import java.util.Collection;
+
+import freemarker.template.TemplateModel;
+import freemarker.template.TemplateModelException;
 import pcgen.output.wrapper.AgeSetWrapper;
 import pcgen.output.wrapper.BooleanWrapper;
 import pcgen.output.wrapper.CategoryWrapper;
@@ -37,9 +38,8 @@ import pcgen.output.wrapper.TypeSafeConstantWrapper;
 public final class SimpleWrapperLibrary
 {
 
-	private static final Collection<SimpleObjectWrapper> WRAPPER_LIST =
-            new ArrayList<>();
-	
+	private static final Collection<SimpleObjectWrapper> WRAPPER_LIST = new ArrayList<>();
+
 	static
 	{
 		WRAPPER_LIST.add(new StringWrapper());
@@ -73,8 +73,7 @@ public final class SimpleWrapperLibrary
 	 *             if no ObjectWrapper in this SimpleWrapperLibrary can wrap the
 	 *             given object into a TemplateModel
 	 */
-	public static TemplateModel wrap(Object toWrap)
-		throws TemplateModelException
+	public static TemplateModel wrap(Object toWrap) throws TemplateModelException
 	{
 		if (toWrap == null)
 		{

@@ -1,6 +1,14 @@
 package pcgen.rules.persistence;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
 import java.net.URI;
+
+import org.junit.Before;
+import org.junit.Test;
 
 import pcgen.base.format.NumberManager;
 import pcgen.base.format.StringManager;
@@ -11,10 +19,6 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
 import util.TestURI;
-
-import org.junit.Before;
-import org.junit.Test;
-import static org.junit.Assert.*;
 
 public class TableLoaderTest
 {

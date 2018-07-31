@@ -48,9 +48,9 @@ import pcgen.output.publish.OutputDB;
  * SizeFacet tracks the SizeAdjustment for a Player Character.
  * 
  */
-public class SizeFacet extends AbstractDataFacet<CharID, SizeAdjustment> implements
-		DataFacetChangeListener<CharID, CDOMObject>, LevelChangeListener,
-		BonusChangeListener, ItemFacet<CharID, SizeAdjustment>
+public class SizeFacet extends AbstractDataFacet<CharID, SizeAdjustment>
+		implements DataFacetChangeListener<CharID, CDOMObject>, LevelChangeListener, BonusChangeListener,
+		ItemFacet<CharID, SizeAdjustment>
 {
 	private static final Class<SizeAdjustment> SIZEADJUSTMENT_CLASS = SizeAdjustment.class;
 
@@ -77,8 +77,7 @@ public class SizeFacet extends AbstractDataFacet<CharID, SizeAdjustment> impleme
 		SizeFacetInfo info = getInfo(id);
 		if (info == null)
 		{
-			return SizeUtilities.getDefaultSizeAdjustment().get(
-				IntegerKey.SIZEORDER);
+			return SizeUtilities.getDefaultSizeAdjustment().get(IntegerKey.SIZEORDER);
 		}
 		return info.racialSizeInt;
 	}
@@ -93,8 +92,7 @@ public class SizeFacet extends AbstractDataFacet<CharID, SizeAdjustment> impleme
 		{
 			// get the base size for the race
 			Formula size = race.getSafe(FormulaKey.SIZE);
-			iSize = formulaResolvingFacet.resolve(id, size, "")
-					.intValue();
+			iSize = formulaResolvingFacet.resolve(id, size, "").intValue();
 
 			// now check and see if a template has set the
 			// size of the character in question
@@ -104,8 +102,7 @@ public class SizeFacet extends AbstractDataFacet<CharID, SizeAdjustment> impleme
 				Formula sizeFormula = template.get(FormulaKey.SIZE);
 				if (sizeFormula != null)
 				{
-					iSize = formulaResolvingFacet.resolve(id, sizeFormula,
-							template.getKeyName()).intValue();
+					iSize = formulaResolvingFacet.resolve(id, sizeFormula, template.getKeyName()).intValue();
 				}
 			}
 		}
@@ -128,8 +125,7 @@ public class SizeFacet extends AbstractDataFacet<CharID, SizeAdjustment> impleme
 		SizeFacetInfo info = getInfo(id);
 		if (info == null)
 		{
-			return SizeUtilities.getDefaultSizeAdjustment().get(
-				IntegerKey.SIZEORDER);
+			return SizeUtilities.getDefaultSizeAdjustment().get(IntegerKey.SIZEORDER);
 		}
 		return info.sizeInt;
 	}
@@ -162,27 +158,23 @@ public class SizeFacet extends AbstractDataFacet<CharID, SizeAdjustment> impleme
 			//
 			// Must still be a valid size
 			//
-			int maxIndex = Globals.getContext().getReferenceContext()
-					.getConstructedObjectCount(SIZEADJUSTMENT_CLASS) - 1;
+			int maxIndex =
+					Globals.getContext().getReferenceContext().getConstructedObjectCount(SIZEADJUSTMENT_CLASS) - 1;
 			iSize = Math.min(maxIndex, Math.max(0, iSize));
 		}
 
 		info.sizeInt = iSize;
 		SizeAdjustment oldSize = info.sizeAdj;
-		SizeAdjustment newSize =
-				Globals.getContext().getReferenceContext()
-					.getSortedList(SizeAdjustment.class, IntegerKey.SIZEORDER)
-					.get(sizeInt(id));
+		SizeAdjustment newSize = Globals.getContext().getReferenceContext()
+			.getSortedList(SizeAdjustment.class, IntegerKey.SIZEORDER).get(sizeInt(id));
 		info.sizeAdj = newSize;
 		if (oldSize != newSize)
 		{
 			if (oldSize != null)
 			{
-				fireDataFacetChangeEvent(id, oldSize,
-						DataFacetChangeEvent.DATA_REMOVED);
+				fireDataFacetChangeEvent(id, oldSize, DataFacetChangeEvent.DATA_REMOVED);
 			}
-			fireDataFacetChangeEvent(id, newSize,
-					DataFacetChangeEvent.DATA_ADDED);
+			fireDataFacetChangeEvent(id, newSize, DataFacetChangeEvent.DATA_ADDED);
 		}
 	}
 
@@ -190,7 +182,7 @@ public class SizeFacet extends AbstractDataFacet<CharID, SizeAdjustment> impleme
 	{
 		return sizesToAdvance(race, levelFacet.getMonsterLevelCount(id));
 	}
-	
+
 	int sizesToAdvance(Race race, int monsterLevelCount)
 	{
 		List<Integer> hda = race.getListFor(ListKey.HITDICE_ADVANCEMENT);
@@ -227,8 +219,7 @@ public class SizeFacet extends AbstractDataFacet<CharID, SizeAdjustment> impleme
 	public SizeAdjustment get(CharID id)
 	{
 		SizeFacetInfo info = getInfo(id);
-		return info == null ? SizeUtilities.getDefaultSizeAdjustment()
-				: info.sizeAdj;
+		return info == null ? SizeUtilities.getDefaultSizeAdjustment() : info.sizeAdj;
 	}
 
 	/**
@@ -299,7 +290,7 @@ public class SizeFacet extends AbstractDataFacet<CharID, SizeAdjustment> impleme
 		private int sizeInt;
 		private int racialSizeInt;
 		private SizeAdjustment sizeAdj;
-		
+
 		@Override
 		public int hashCode()
 		{
@@ -316,9 +307,7 @@ public class SizeFacet extends AbstractDataFacet<CharID, SizeAdjustment> impleme
 			if (o instanceof SizeFacetInfo)
 			{
 				SizeFacetInfo sfi = (SizeFacetInfo) o;
-				return (sizeInt == sfi.sizeInt)
-					&& (racialSizeInt == sfi.racialSizeInt)
-					&& sizeAdj.equals(sizeAdj);
+				return (sizeInt == sfi.sizeInt) && (racialSizeInt == sfi.racialSizeInt) && sizeAdj.equals(sizeAdj);
 			}
 			return false;
 		}

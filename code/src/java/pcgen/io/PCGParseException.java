@@ -39,8 +39,8 @@ final class PCGParseException extends Exception
 	 */
 	PCGParseException(String errorMethod, String errorLine, String errorMessage)
 	{
-		super("Method: " + errorMethod + Constants.LINE_SEPARATOR + "Line: "
-			+ errorLine + Constants.LINE_SEPARATOR + "Message: " + errorMessage);
+		super("Method: " + errorMethod + Constants.LINE_SEPARATOR + "Line: " + errorLine + Constants.LINE_SEPARATOR
+			+ "Message: " + errorMessage);
 
 		this.errorMethod = errorMethod;
 		this.errorLine = errorLine;
@@ -58,7 +58,7 @@ final class PCGParseException extends Exception
 	/**
 	 * @return error message
 	 */
-    @Override
+	@Override
 	public String getMessage()
 	{
 		return errorMessage;

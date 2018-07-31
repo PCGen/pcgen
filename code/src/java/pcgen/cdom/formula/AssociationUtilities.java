@@ -52,13 +52,12 @@ public final class AssociationUtilities
 			}
 			if (priorityNumber < 0)
 			{
-				throw new IllegalArgumentException("Priority must be an integer >= 0. "
-					+ priorityNumber + " was not positive");
+				throw new IllegalArgumentException(
+					"Priority must be an integer >= 0. " + priorityNumber + " was not positive");
 			}
 			return priorityNumber;
 		}
-		throw new IllegalArgumentException(
-			"Association " + assocName + " not recognized");
+		throw new IllegalArgumentException("Association " + assocName + " not recognized");
 	}
 
 	/**

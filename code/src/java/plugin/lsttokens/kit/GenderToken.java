@@ -33,8 +33,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * GENDER token for Kits
  */
-public class GenderToken extends AbstractTokenWithSeparator<KitBio> implements
-		CDOMPrimaryToken<KitBio>
+public class GenderToken extends AbstractTokenWithSeparator<KitBio> implements CDOMPrimaryToken<KitBio>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -60,8 +59,7 @@ public class GenderToken extends AbstractTokenWithSeparator<KitBio> implements
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		KitBio kitGender, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, KitBio kitGender, String value)
 	{
 		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
 		while (st.hasMoreTokens())

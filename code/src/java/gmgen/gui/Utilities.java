@@ -18,7 +18,6 @@
  */
 package gmgen.gui;
 
-
 import java.net.URL;
 
 import javax.swing.ImageIcon;
@@ -32,7 +31,6 @@ final class Utilities
 	private Utilities()
 	{
 	}
-
 
 	private static final String RESOURE_PREFIX = "resources/";
 

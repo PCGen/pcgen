@@ -23,8 +23,7 @@ import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class NameToken extends AbstractNonEmptyToken<TabInfo> implements
-		CDOMPrimaryToken<TabInfo>
+public class NameToken extends AbstractNonEmptyToken<TabInfo> implements CDOMPrimaryToken<TabInfo>
 {
 
 	@Override
@@ -34,8 +33,7 @@ public class NameToken extends AbstractNonEmptyToken<TabInfo> implements
 	}
 
 	@Override
-	public ParseResult parseNonEmptyToken(LoadContext context, TabInfo ti,
-			String value)
+	public ParseResult parseNonEmptyToken(LoadContext context, TabInfo ti, String value)
 	{
 		ti.setTabName(value);
 		return ParseResult.SUCCESS;
@@ -49,7 +47,7 @@ public class NameToken extends AbstractNonEmptyToken<TabInfo> implements
 		{
 			return null;
 		}
-		return new String[] { key };
+		return new String[]{key};
 	}
 
 	@Override

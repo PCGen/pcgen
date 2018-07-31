@@ -33,7 +33,6 @@ import pcgen.core.PCStat;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SizeAdjustment;
 import pcgen.output.channel.ChannelUtilities;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
@@ -59,7 +58,8 @@ import plugin.primitive.language.LangBonusToken;
  * tested in a utest environment should probably not be dependent on
  * PlayerCharacter in a fully isolated system
  */
-public abstract class AbstractCharacterUsingTestCase extends TestCase {
+public abstract class AbstractCharacterUsingTestCase extends TestCase
+{
 
 	protected PCStat str;
 	protected PCStat cha;
@@ -111,7 +111,7 @@ public abstract class AbstractCharacterUsingTestCase extends TestCase {
 		context.loadCampaignFacets();
 	}
 
-	protected void setUpPC() throws PersistenceLayerException
+	protected void setUpPC()
 	{
 		TokenRegistration.register(AUTO_LANG_TOKEN);
 		TokenRegistration.register(ABILITY_VISIBLE_TOKEN);

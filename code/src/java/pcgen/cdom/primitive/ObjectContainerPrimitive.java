@@ -63,8 +63,7 @@ public class ObjectContainerPrimitive<T> implements PrimitiveCollection<T>
 	 *      pcgen.cdom.base.Converter)
 	 */
 	@Override
-	public <R> Collection<? extends R> getCollection(PlayerCharacter pc,
-		Converter<T, R> c)
+	public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<T, R> c)
 	{
 		return c.convert(group);
 	}
@@ -113,7 +112,6 @@ public class ObjectContainerPrimitive<T> implements PrimitiveCollection<T>
 	@Override
 	public boolean equals(Object obj)
 	{
-		return (obj instanceof ObjectContainerPrimitive)
-			&& ((ObjectContainerPrimitive<?>) obj).group.equals(group);
+		return (obj instanceof ObjectContainerPrimitive) && ((ObjectContainerPrimitive<?>) obj).group.equals(group);
 	}
 }
