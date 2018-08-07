@@ -1,0 +1,103 @@
+<group-set>
+      <game-name>d20 3.5</game-name>
+      <groups>
+            <group>
+                  <name>PCGen Party</name>
+                  <combatants>
+|FOR.0,50,1,
+                              <name>\\%.NAME\\</name>
+                              <altname>\\%.TABNAME\\</altname>
+                              <itPlayer>\\%.PLAYERNAME\\</itPlayer>
+                              <itToken>\\%.FOR.0,STRLEN[PORTRAIT]/STRLEN[PORTRAIT],1,URL:file:\PORTRAIT\,,,\\</itToken>
+                              <itCount>1</itCount>
+                              <itCategory>NPC</itCategory>
+                              <size>
+                                    <name>\\%.SIZELONG\\</name>
+                              </size>
+                              <type>\\%.RACETYPE\\</type>
+                              <descriptor>\\%.FOR.0,COUNT[RACESUBTYPES],1,\RACESUBTYPE.%\; ,,,\\</descriptor>
+                              <race>\\%.RACE\\</race>
+                              <levels>\\%.CLASSLIST\\</levels>
+                              <hitDice>
+                                    <value>\\%.HITDICE\\ (\\%.HP\\ hp)</value>
+                              </hitDice>
+                              <hp>
+                                    <base>\\%.HP\\</base>
+                              </hp>
+					<itInitiativeModifier>\\%.INITIATIVEMISC\\</itInitiativeModifier>
+                              <speed>\\%.MOVEMENT\\</speed>
+                              <armorClass>
+                                    <armor>
+                                          <base>\\%.VAR.AC.Armor+AC.Shield+AC.NaturalArmor.INTVAL\\</base>
+                                    </armor>
+                                    <dexterity>
+                                          <base>\\%.VAR.AC.Ability.INTVAL\\</base>
+                                    </dexterity>
+                                    <other>
+                                    	<base>\\%.VAR.AC.Deflection+AC.Dodge+AC.Insight+AC.Misc+AC.ClassDefense.INTVAL\\</base>
+                                    </other>
+                                    <maxDexBonus>\\%.MAXDEX\\</maxDexBonus>
+                                    <value>\\%.AC.Total\\</value>
+                              </armorClass>
+                              <baseAttack>\\%.ATTACK.MELEE.BASE\\</baseAttack>
+                              <grapple>
+                              </grapple>
+                              <space>\\%.FACE\\</space>
+                              <reach>\\%.REACH\\</reach>
+                              <fortSave>
+                                    <base>\\%.CHECK.FORTITUDE.TOTAL.NOSTAT\\</base>
+                              </fortSave>
+                              <reflexSave>
+                                    <base>\\%.CHECK.REFLEX.TOTAL.NOSTAT\\</base>
+                              </reflexSave>
+                              <willSave>
+                                    <base>\\%.CHECK.2.TOTAL.NOSTAT\\</base>
+                              </willSave>
+                              <str>
+                                    <base>\\%.STAT.0\\</base>
+                              </str>
+                              <dex>
+                                    <base>\\%.STAT.1\\</base>
+                              </dex>
+                              <con>
+                                    <base>\\%.STAT.2\\</base>
+                              </con>
+                              <int>
+                                    <base>\\%.STAT.3\\</base>
+                              </int>
+                              <wis>
+                                    <base>\\%.STAT.4\\</base>
+                              </wis>
+                              <cha>
+                                    <base>\\%.STAT.5\\</base>
+                              </cha>
+                              <alignment>\\%.ALIGNMENT\\</alignment>
+                              <attack>\\%.FOR.0,COUNT[EQTYPE.Weapon],1,\WEAPON.%.NAME.NOSTAR\ \WEAPON.%.THHIT.0\ (\WEAPON.%.DAMAGE\); ,,,\\</attack>
+                              <fullAttack>\\%.FOR.0,COUNT[EQTYPE.Weapon],1,\WEAPON.%.NAME.NOSTAR\ \WEAPON.%.THHIT\ (\WEAPON.%.DAMAGE\ crit: \WEAPON.%.CRIT\/x\WEAPON.%.MULT\); ,,,\\</fullAttack>
+                              <specialAttacks>\\%.ABILITYALLLIST.Special Ability.TYPE=SpecialAttack\\</specialAttacks>
+                              <specialQualities>\\%.ABILITYALLLIST.Special Ability.TYPE=SpecialQualities\\ \\%.SPECIALLIST\\</specialQualities>
+                              <skills>\\%.SKILLLISTMODS\\</skills>
+                              <feats>\\%.FEATALLLIST.!TYPE=Epic\\</feats>
+                              <epicFeats>\\%.FEATALLLIST.TYPE=Epic\\</epicFeats>
+                              <environment>\\%.LOCATION\\</environment>
+                              <challengeRating>\\%.CR\\</challengeRating>
+                              <treasure>\\%.MISC.FUNDS\\</treasure>
+                              <levelAdjustment>\\%.VAR.ECL-TL.INTVAL\\</levelAdjustment>
+                              <height>\\%.HEIGHT\\</height>
+                              <family></family>
+                              <age>\\%.AGE\\</age>
+                              <meleeCombat>
+                                    <base>\\%.ATTACK.MELEE.BASE\\</base>
+                              </meleeCombat>
+                              <rangedCombat>
+                                    <base>\\%.ATTACK.RANGED.BASE\\</base>
+                              </rangedCombat>
+          				<itNotes> \\%.DESC\\ \\%.MISC.MAGIC\\ \\%.MISC.COMPANIONS\\ \\%.FOR.0,COUNT[NOTES],1,\NOTE.%.NAME\: \NOTE.%.VALUE\ ,,,\\</itNotes>
+                              <weight>\\WEIGHT\\</weight>
+                              <armorCheckPenalty>\\%.ACCHECK\\</armorCheckPenalty>
+                              <gender>\\%.GENDER.LONG\\</gender>
+,<combatant>,</combatant>,1|
+                  </combatants>
+            </group>
+      </groups>
+</group-set>
