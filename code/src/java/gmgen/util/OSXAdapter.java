@@ -16,11 +16,14 @@
 
 package gmgen.util;
 
-import com.apple.eawt.AppEvent;
-import com.apple.eawt.Application;
-import com.apple.eawt.PreferencesHandler;
-import com.apple.eawt.QuitHandler;
-import com.apple.eawt.QuitResponse;
+import java.awt.desktop.AppEvent;
+import java.awt.desktop.AboutEvent;
+import java.awt.desktop.PreferencesEvent;
+import java.awt.desktop.QuitEvent;
+import java.awt.Desktop;
+import java.awt.desktop.PreferencesHandler;
+import java.awt.desktop.QuitHandler;
+import java.awt.desktop.QuitResponse;
 
 import gmgen.GMGenSystem;
 
@@ -45,15 +48,15 @@ public final class OSXAdapter
 		}
 		mainApp = inApp;
 		theAdapter = new OSXAdapter();
-		Application osxApplication = Application.getApplication();
-		osxApplication.setPreferencesHandler(new OSXPreferencesHandler());
-		osxApplication.setQuitHandler(new OSXQuitHandler());
+		Desktop osxDesktop = Desktop.getDesktop();
+		osxDesktop.setPreferencesHandler(new OSXPreferencesHandler());
+		osxDesktop.setQuitHandler(new OSXQuitHandler());
 	}
 
 	private static class OSXPreferencesHandler implements PreferencesHandler
 	{
 		@Override
-		public void handlePreferences(final AppEvent.PreferencesEvent preferencesEvent)
+		public void handlePreferences(final PreferencesEvent preferencesEvent)
 		{
 			mainApp.mPreferencesActionPerformedMac();
 		}
@@ -62,7 +65,7 @@ public final class OSXAdapter
 	private static class OSXQuitHandler implements QuitHandler
 	{
 		@Override
-		public void handleQuitRequestWith(final AppEvent.QuitEvent quitEvent, final QuitResponse quitResponse)
+		public void handleQuitRequestWith(final QuitEvent quitEvent, final QuitResponse quitResponse)
 		{
 			mainApp.exitFormMac();
 		}
