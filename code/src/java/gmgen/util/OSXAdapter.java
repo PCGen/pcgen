@@ -16,11 +16,9 @@
 
 package gmgen.util;
 
-import java.awt.desktop.AppEvent;
-import java.awt.desktop.AboutEvent;
+import java.awt.Desktop;
 import java.awt.desktop.PreferencesEvent;
 import java.awt.desktop.QuitEvent;
-import java.awt.Desktop;
 import java.awt.desktop.PreferencesHandler;
 import java.awt.desktop.QuitHandler;
 import java.awt.desktop.QuitResponse;
