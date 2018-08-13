@@ -65,23 +65,14 @@ ${pcstring('RACESUBTYPE.${racesubtype}')}
 
 <hr />
 
-<b>Initiative</b> ${pcstring('INITIATIVEMOD')} = ${pcstring('STAT.1.MOD')}[STAT] ${pcstring('INITIATIVEBONUS.SIGN')}[MISC]<br>
+<b>Perception</b> ${pcvar('VAR.PerceptionTotal')} = ${pcvar('VAR.PerceptionAbility')}[STAT] + ${pcvar('VAR.PerceptionProf')}[PROF] + ${pcvar('VAR.PerceptionItem')}[ITEM]<br>
 
-<b>Armor Class</b> ${pcvar('AC.Total')} = ${pcstring('AC.Base.SIGN')}[BASE]
+<b>Armor Class</b> ${pcvar('AC.AC')} = ${pcstring('AC.Base.SIGN')}[BASE]
 <#if (pcvar('AC.Size') != 0)> 
 ${pcstring('AC.Size.SIGN')}[SIZE] 
 </#if>
 <#if (pcvar('AC.Ability') != 0)> 
 ${pcstring('AC.Ability.SIGN')}[STAT] 
-</#if>
-<#if (pcvar('AC.NaturalArmor') != 0)> 
-${pcstring('AC.NaturalArmor.SIGN')}[NATURAL] 
-</#if>
-<#if (pcvar('AC.Deflection') != 0)> 
-${pcstring('AC.Deflection.SIGN')}[NATURAL]
-</#if>
-<#if (pcvar('AC.Misc') != 0)> 
-${pcstring('AC.Misc.SIGN')}[MISC]
 </#if>
 <#if (pcvar('AC.Armor') != 0)> 
 ${pcstring('AC.Armor.SIGN')}[ARMOR] ${pcstring('EQ.IS.ARMOR.0.NAME')}
@@ -90,6 +81,24 @@ ${pcstring('AC.Armor.SIGN')}[ARMOR] ${pcstring('EQ.IS.ARMOR.0.NAME')}
 ${pcstring('AC.Shield.SIGN')}[SHIELD] ${pcstring('EQ.IS.SHIELD.0.NAME')}
 </#if>
 <br>
+
+<b>Armor Class</b> ${pcvar('AC.TAC')} = ${pcstring('AC.Base.SIGN')}[BASE]
+<#if (pcvar('AC.Size') != 0)> 
+${pcstring('AC.Size.SIGN')}[SIZE] 
+</#if>
+<#if (pcvar('AC.Ability') != 0)> 
+${pcstring('AC.Ability.SIGN')}[STAT] 
+</#if>
+<#if (pcvar('AC.ArmorTAC') != 0)> 
+${pcstring('AC.Armor.SIGN')}[ARMOR] ${pcstring('EQ.IS.ARMOR.0.NAME')}
+</#if>
+<#if (pcvar('AC.ShieldTAC') != 0)> 
+${pcstring('AC.Shield.SIGN')}[SHIELD] ${pcstring('EQ.IS.SHIELD.0.NAME')}
+</#if>
+<br>
+
+
+
 
 <hr />
 <b>Ability Scores</b>
@@ -477,6 +486,16 @@ ${pcstring('WEAPON.${weap}.MISC')}[MISC]
 </@loop>
 </blockquote>
 
+<#if (pcvar('count("ABILITIES","CATEGORY=Class")') != 0)>
+<b>Proficiency</b>
+</#if>
+<blockquote>
+<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Class")')-1 ; ability , ability_has_next>
+<b>${pcstring('ABILITYALL.Class.${ability}.KEY')}</b> [<i>${pcstring('ABILITYALL.Class.${ability}.SOURCE')}</i>]<br>
+</@loop>
+</blockquote>
+
+
 
 <#if (pcvar('count("ABILITIES","CATEGORY=Natural Attack")') != 0)>
 <b>Natural Attack Abilities</b>
@@ -523,9 +542,6 @@ ${pcstring('WEAPON.${weap}.MISC')}[MISC]
 
 <#if (pcvar('FEATPOINTS') != 0)>
 <font color="#FF0000" size="+1"><strong>Unspent Feat Points: ${pcstring('FEATPOINTS.INTVAL')}</strong></font>
-</#if>
-<#if (pcvar('SKILLPOINTS.UNUSED') != 0)>
-<font color="#FF0000" size="+1"><strong>Unspent Skill Points: ${pcstring('SKILLPOINTS.UNUSED.INTVAL')}</strong></font>
 </#if>
 
 <p>Skill Breakdown</p>
