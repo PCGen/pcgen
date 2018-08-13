@@ -1,5 +1,5 @@
 Unarmed					TYPE:Unarmed
-Solarian Weapon				TYPE:Solarian Weapon
+Solarian Weapon				TYPE:Solarian Weapon.ADVANCED MELEE.ADVANCED MELEE WEAPONS
 
 ###Block:BASIC MELEE WEAPONS
 Unarmed strike				TYPE:B.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee.Uncategorized
