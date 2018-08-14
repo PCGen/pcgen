@@ -15,12 +15,14 @@
  */
 package pcgen.gui2.plaf;
 
-import com.apple.eawt.AboutHandler;
-import com.apple.eawt.AppEvent;
-import com.apple.eawt.Application;
-import com.apple.eawt.PreferencesHandler;
-import com.apple.eawt.QuitHandler;
-import com.apple.eawt.QuitResponse;
+import java.awt.Desktop;
+import java.awt.desktop.AboutHandler;
+import java.awt.desktop.PreferencesHandler;
+import java.awt.desktop.QuitHandler;
+import java.awt.desktop.QuitResponse;
+import java.awt.desktop.AboutEvent;
+import java.awt.desktop.PreferencesEvent;
+import java.awt.desktop.QuitEvent;
 
 import pcgen.gui2.PCGenUIManager;
 
@@ -30,7 +32,7 @@ import pcgen.gui2.PCGenUIManager;
 public final class MacGUIHandler
 {
 	private static MacGUIHandler theAdapter;
-	private static Application theApp;
+	private static Desktop theDesktop;
 
 	private MacGUIHandler()
 	{
@@ -50,16 +52,16 @@ public final class MacGUIHandler
 
 		// set up the Application menu
 		theAdapter = new MacGUIHandler();
-		theApp = Application.getApplication();
-		theApp.setAboutHandler(new OSXAboutHandler());
-		theApp.setPreferencesHandler(new OSXPreferencesHandler());
-		theApp.setQuitHandler(new OSXQuitHandler());
+		theDesktop = Desktop.getDesktop();
+		theDesktop.setAboutHandler(new OSXAboutHandler());
+		theDesktop.setPreferencesHandler(new OSXPreferencesHandler());
+		theDesktop.setQuitHandler(new OSXQuitHandler());
 	}
 
 	private static class OSXAboutHandler implements AboutHandler
 	{
 		@Override
-		public void handleAbout(final AppEvent.AboutEvent aboutEvent)
+		public void handleAbout(final AboutEvent aboutEvent)
 		{
 			PCGenUIManager.displayAboutDialog();
 		}
@@ -68,7 +70,7 @@ public final class MacGUIHandler
 	private static class OSXPreferencesHandler implements PreferencesHandler
 	{
 		@Override
-		public void handlePreferences(final AppEvent.PreferencesEvent preferencesEvent)
+		public void handlePreferences(final PreferencesEvent preferencesEvent)
 		{
 			PCGenUIManager.displayPreferencesDialog();
 		}
@@ -77,7 +79,7 @@ public final class MacGUIHandler
 	private static class OSXQuitHandler implements QuitHandler
 	{
 		@Override
-		public void handleQuitRequestWith(final AppEvent.QuitEvent quitEvent, final QuitResponse quitResponse)
+		public void handleQuitRequestWith(final QuitEvent quitEvent, final QuitResponse quitResponse)
 		{
 			PCGenUIManager.closePCGen();
 		}
