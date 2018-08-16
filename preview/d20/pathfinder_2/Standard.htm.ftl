@@ -364,27 +364,27 @@ ${pcstring('MOVE.${movement}.NAME')}&nbsp;${pcstring('MOVE.${movement}.RATE')}
       <table summary="AC Table">
         <tr>
 
-          <td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>EAC</b></font>
-            <font style="font-size:5pt" color="white"><br />Energy Armor Class</font></td>
-          <td align="center" class="border9"><b>${pcstring('AC.EAC')}</b></td>
+          <td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>AC</b></font>
+            <font style="font-size:5pt" color="white"><br />Armor Class</font></td>
+          <td align="center" class="border9"><b>${pcstring('AC.AC')}</b></td>
           <td align="center" class="font7"><b>=</b></td>
           <td align="center" class="border9"><b>${pcstring('AC.Base')}</b></td>
           <td align="center" class="font7"><b>+</b></td>
           <td align="center" class="border9"><b>${pcstring('AC.Ability')}</b></td>
           <td align="center" class="font7"><b>+</b></td>
-          <td align="center" class="border9"><b>${pcstring('AC.EAC_Armor')}</b></td>
+          <td align="center" class="border9"><b>${pcstring('AC.Armor')}</b></td>
           <td align="center" class="font7"><b>+</b></td>
           <td align="center" class="border9"><b>${pcstring('AC.Misc')}</b></td>
 			<td align="center" class="font7"><b></b></td>
-		  <td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>KAC</b></font>
-            <font style="font-size:5pt" color="white"><br /> Kinetic Armor Class</font></td>
-          <td align="center" class="border9"><b>${pcstring('AC.KAC')}</b></td>
+		  <td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>TAC</b></font>
+            <font style="font-size:5pt" color="white"><br /> Touch Armor Class</font></td>
+          <td align="center" class="border9"><b>${pcstring('AC.TAC')}</b></td>
           <td align="center" class="font7"><b>=</b></td>
           <td align="center" class="border9"><b>${pcstring('AC.Base')}</b></td>
           <td align="center" class="font7"><b>+</b></td>
           <td align="center" class="border9"><b>${pcstring('AC.Ability')}</b></td>
           <td align="center" class="font7"><b>+</b></td>
-          <td align="center" class="border9"><b>${pcstring('AC.KAC_Armor')}</b></td>
+          <td align="center" class="border9"><b>${pcstring('AC.ArmorTAC')}</b></td>
           <td align="center" class="font7"><b>+</b></td>
           <td align="center" class="border9"><b>${pcstring('AC.Misc')}</b></td>
 
@@ -433,23 +433,27 @@ ${pcstring('MOVE.${movement}.NAME')}&nbsp;${pcstring('MOVE.${movement}.RATE')}
   <tr>
   <td width="20%" valign="top">
 <!-- START Initiative Table -->
-   <table summary="Initiative Table">
+   <table summary="PERCEPTION Table">
     <tr>
-     <td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>INITIATIVE</b></font><font style="font-size:5pt" color="white"><br />Modifier</font></td>
-     <td align="center" class="border10"><b>${pcstring('INITIATIVEMOD')}</b></td>
+     <td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>PERCEPTION</b></font><font style="font-size:5pt" color="white"><br />Modifier</font></td>
+     <td align="center" class="border10"><b>${pcvar('VAR.PerceptionTotal')}</b></td>
      <td align="center" class="font7"><b>=</b></td>
-     <td align="center" class="border10"><b>${pcstring('STAT.1.MOD')}</b></td>
+     <td align="center" class="border10"><b>${pcvar('VAR.PerceptionAbility')}</b></td>
      <td align="center" class="font7"><b>+</b></td>
-     <td align="center" class="border10"><b>${pcstring('INITIATIVEBONUS')}</b></td>
+     <td align="center" class="border10"><b>${pcvar('VAR.PerceptionProf')}</b></td>
+     <td align="center" class="font7"><b>+</b></td>
+     <td align="center" class="border10"><b>${pcvar('VAR.PerceptionItem')}</b></td>
      <td width="50%" rowspan="2" align="center"><br /></td>
     </tr>
     <tr>
      <td align="center" width="50" class="font7"></td>
      <td align="center" width="25" valign="top" class="font7">TOTAL</td>
      <td align="center"></td>
-     <td align="center" width="25" class="font6">DEX</td>
+     <td align="center" width="25" class="font6">WIS</td>
      <td align="center"></td>
-     <td align="center" width="25" class="font6">MISC</td>
+     <td align="center" width="25" class="font6">PROF</td>
+     <td align="center"></td>
+     <td align="center" width="25" class="font6">ITEM</td>
     </tr>
    </table>
 <!-- STOP Initiative Table -->

@@ -38,14 +38,14 @@ NAME:UseFullAbilityDescriptions	VAR:DisplayFullAbility		DEFAULT:Yes					DESC:Use
 #
 #NAME:AnyRangeForAbilities		PARM:ABILRANGE			DEFAULT:No					DESC:Allow any range for ability scores
 NAME:BonusSpellsKnown			PARM:BONUSSPELLKNOWN		DEFAULT:No					DESC:Add stat bonus to Spells Known
-NAME:bypassClassPreReqs			PARM:CLASSPRE			DEFAULT:No					DESC:Bypass Class Prerequisites
-NAME:bypassFeatPreReqs			PARM:FEATPRE			DEFAULT:No					DESC:Bypass Feat Prerequisites
-NAME:bypassMaxSkillRanks		PARM:SKILLMAX			DEFAULT:No					DESC:Bypass Max Skill Ranks
-NAME:FreeClothesAtFirst			PARM:FREECLOTHES			DEFAULT:Yes					DESC:Ask For Free Clothing at First Level
-NAME:ClothingEncumbrance		PARM:CLOTHINGENCUMBRANCE	DEFAULT:Yes					DESC:First set of equipped clothing counts towards encumbrance
+#NAME:bypassClassPreReqs			PARM:CLASSPRE			DEFAULT:No					DESC:Bypass Class Prerequisites
+#NAME:bypassFeatPreReqs			PARM:FEATPRE			DEFAULT:No					DESC:Bypass Feat Prerequisites
+#NAME:bypassMaxSkillRanks		PARM:SKILLMAX			DEFAULT:No					DESC:Bypass Max Skill Ranks
+#NAME:FreeClothesAtFirst			PARM:FREECLOTHES			DEFAULT:Yes					DESC:Ask For Free Clothing at First Level
+#NAME:ClothingEncumbrance		PARM:CLOTHINGENCUMBRANCE	DEFAULT:Yes					DESC:First set of equipped clothing counts towards encumbrance
 NAME:IntBonusLang				PARM:INTBONUSLANG			DEFAULT:Yes					DESC:Allow Selection of Int bonus Languages after 1st level
 NAME:IncreaseIntBeforeLevel		PARM:INTBEFORE			DEFAULT:Yes					DESC:Increment STAT before calculating skill points when leveling
-NAME:RetrocativeSkillBonus		PARM:RETROSKILL			DEFAULT:Yes					DESC:Changes to bonus skill points are retroactive
+#NAME:RetrocativeSkillBonus		PARM:RETROSKILL			DEFAULT:Yes					DESC:Changes to bonus skill points are retroactive
 NAME:IgnoreLevelCap			PARM:LEVELCAP			DEFAULT:No					DESC:Ignore Level Cap
 NAME:InHandEquipped			PARM:EQUIPATTACK			DEFAULT:No					DESC:Treat Weapons In Hand As Equipped For Attacks
 
@@ -56,14 +56,14 @@ NAME:SpellAlignmentRestriction	PARM:PROHIBITSPELLS		DEFAULT:Yes					DESC:Restric
 
 NAME:AmmoStacksWithWeapon		PARM:AMMOSTACKSWITHWEAPON	DEFAULT:No				DESC:Do ammunition enhancement bonus stack with those of the weapon
 
-NAME:CombatManueverBonus		PARM:USE_CMB		DEFAULT:Yes	EXCLUDE:USE_GRAPPLE	DESC:Use Pathfinder Combat Manuever Bonus
-NAME:Grapple				PARM:USE_GRAPPLE		DEFAULT:No	EXCLUDE:USE_CMB		DESC:Use 3.5 Grapple
+#NAME:CombatManueverBonus		PARM:USE_CMB		DEFAULT:Yes	EXCLUDE:USE_GRAPPLE	DESC:Use Pathfinder Combat Manuever Bonus
+#NAME:Grapple				PARM:USE_GRAPPLE		DEFAULT:No	EXCLUDE:USE_CMB		DESC:Use 3.5 Grapple
 
 #
 # The following are optional/alternative rule subsystems
 #
 #NAME:HeroPoints				PARM:HEROPOINTS			DEFAULT:YES				DESC:Use Hero Points from Pathfinder RPG Advanced Player's Guide
-NAME:WordsOfPower				PARM:WORDSOFPOWER			DEFAULT:YES				DESC:Use Words of Power from Pathfinder RPG Ultimate Magic
+#NAME:WordsOfPower				PARM:WORDSOFPOWER			DEFAULT:YES				DESC:Use Words of Power from Pathfinder RPG Ultimate Magic
 
 #
 # Done

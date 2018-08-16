@@ -62,7 +62,7 @@ TAB:DOMAINS		NAME:in_domains		CONTEXT:tabpages\tabdomains.html
 TAB:FEATS		NAME:in_feats		CONTEXT:tabpages\tabfeatsandabilities.html
 TAB:INVENTORY	NAME:in_inventory		CONTEXT:tabpages\tabinventory.html
 TAB:RACE		NAME:in_race		CONTEXT:tabpages\tabraces.html
-TAB:SKILLS		NAME:in_skills		CONTEXT:tabpages\tabskills.html
+TAB:SKILLS		NAME:in_skills		CONTEXT:tabpages\tabskills.html			VISIBLE:NO
 TAB:SPELLS		NAME:in_spells		CONTEXT:tabpages\tabspells.html
 TAB:SUMMARY		NAME:in_summary		CONTEXT:tabpages\tabsummary.html
 # Inventory subpanels
@@ -152,13 +152,15 @@ CLASSTYPE:Monster		CRFORMULA:0		ISMONSTER:YES	XPPENALTY:NO
 CLASSTYPE:Companion	CRFORMULA:NONE	ISMONSTER:YES	XPPENALTY:NO
 
 #AC Types
-ACTYPE:AC				ADD:TOTAL		REMOVE:ShieldTAC|TAC
+ACTYPE:AC				ADD:TOTAL		REMOVE:ShieldTAC|TAC|ArmorTAC
 ACTYPE:TAC				ADD:TOTAL		REMOVE:Armor|ArmorEnhancement|Shield|ShieldEnhancement|NaturalArmor|NaturalArmorEnhancement|CMD	
-ACTYPE:ShieldTAC				ADD:ShieldTAC
+ACTYPE:ShieldTAC			ADD:ShieldTAC
+ACTYPE:ArmorTAC			ADD:ArmorTAC
 
 
+ACTYPE:Misc					ADD:TOTAL		REMOVE:Base|Armor|ArmorEnhancement|Shield|ShieldEnhancement|Ability|Size|NaturalArmor|NaturalArmorEnhancement|Dodge|Deflection|TouchMisc|CMD|ShieldTAC|TAC|ArmorTAC
 
-
+ACTYPE:ItemProf		ADD:ItemProf
 
 
 
@@ -178,7 +180,6 @@ ACTYPE:NaturalArmor			ADD:NaturalArmor|NaturalArmorEnhancement
 ACTYPE:NaturalArmorEnhancement	ADD:NaturalArmorEnhancement
 ACTYPE:Dodge				ADD:Dodge
 ACTYPE:Deflection				ADD:Deflection
-ACTYPE:Misc					ADD:TOTAL		REMOVE:Base|Armor|ArmorEnhancement|Shield|ShieldEnhancement|Ability|Size|NaturalArmor|NaturalArmorEnhancement|Dodge|Deflection|TouchMisc|CMD
 ACTYPE:Circumstance			ADD:Circumstance
 ACTYPE:Insight				ADD:Insight
 ACTYPE:Morale				ADD:Morale
@@ -222,7 +223,7 @@ WEAPONCATEGORY:Exotic
 WEAPONCATEGORY:Natural
 
 # Non-proficient penalty
-WEAPONNONPROFPENALTY:-4
+WEAPONNONPROFPENALTY:-2
 
 # Number of hands required to wield weapon categories
 #											Object Size difference
@@ -327,10 +328,10 @@ ABILITYCATEGORY:Natural Attack	VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO		FRACTIONALP
 ###COMMENT: Internal Category is for all hidden abilities.
 
 
-PREVIEWDIR:d20/fantasy
+PREVIEWDIR:d20/pathfinder_2
 PREVIEWSHEET:Standard.htm.ftl
 
-OUTPUTSHEET:DIRECTORY|d20/fantasy
+OUTPUTSHEET:DIRECTORY|d20/pathfinder_2
 OUTPUTSHEET:DEFAULT.PDF|csheet_fantasy_std_blue.xslt
 OUTPUTSHEET:DEFAULT.HTM|csheet_fantasy_std.htm
 

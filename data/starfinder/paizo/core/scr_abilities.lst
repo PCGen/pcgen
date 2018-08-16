@@ -894,6 +894,7 @@ Devastation blade (apocalypse)			CATEGORY:Weapon		TYPE:Weapon Proficiency		AUTO:
 Doshko (dimensional blade)				CATEGORY:Weapon		TYPE:Weapon Proficiency		AUTO:WEAPONPROF|Doshko (dimensional blade)					BONUS:WEAPONPROF=Doshko (dimensional blade)|TOHIT|ToHit_AdvancedMeleeWeapon|TYPE=Class					BONUS:WEAPONPROF=Doshko (dimensional blade)|DAMAGE|Damage_AdvancedMeleeWeapon|TYPE=Class																										TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
 Curve blade (dimensional slice)			CATEGORY:Weapon		TYPE:Weapon Proficiency		AUTO:WEAPONPROF|Curve blade (dimensional slice)					BONUS:WEAPONPROF=Curve blade (dimensional slice)|TOHIT|ToHit_AdvancedMeleeWeapon|TYPE=Class				BONUS:WEAPONPROF=Curve blade (dimensional slice)|DAMAGE|Damage_AdvancedMeleeWeapon|TYPE=Class																									TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
 Swoop hammer (mach III)					CATEGORY:Weapon		TYPE:Weapon Proficiency		AUTO:WEAPONPROF|Swoop hammer (mach III)						BONUS:WEAPONPROF=Swoop hammer (mach III)|TOHIT|ToHit_AdvancedMeleeWeapon|TYPE=Class						BONUS:WEAPONPROF=Swoop hammer (mach III)|DAMAGE|Damage_AdvancedMeleeWeapon|TYPE=Class																											TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Solarian Weapon						CATEGORY:Weapon		TYPE:Weapon Proficiency		AUTO:WEAPONPROF|Solarian Weapon							BONUS:WEAPONPROF=Solarian Weapon|TOHIT|ToHit_AdvancedMeleeWeapon|TYPE=Class							BONUS:WEAPONPROF=Solarian Weapon|DAMAGE|Damage_AdvancedMeleeWeapon|TYPE=Class																											TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
 #
 Zero pistol (frostbite-class)				CATEGORY:Weapon		TYPE:Weapon Proficiency		AUTO:WEAPONPROF|Zero pistol (frostbite-class)					BONUS:WEAPONPROF=Zero pistol (frostbite-class)|TOHIT|ToHit_SmallArms|TYPE=Class						BONUS:WEAPONPROF=Zero pistol (frostbite-class)|DAMAGE|Damage_SmallArms|TYPE=Class																				TYPE:SMALL ARMS
 Zero pistol (hailstorm-class)				CATEGORY:Weapon		TYPE:Weapon Proficiency		AUTO:WEAPONPROF|Zero pistol (hailstorm-class)					BONUS:WEAPONPROF=Zero pistol (hailstorm-class)|TOHIT|ToHit_SmallArms|TYPE=Class						BONUS:WEAPONPROF=Zero pistol (hailstorm-class)|DAMAGE|Damage_SmallArms|TYPE=Class																				TYPE:SMALL ARMS
@@ -1077,7 +1078,7 @@ CATEGORY=Class|Technomancer.MOD	BONUS:VAR|CS_Computers|1|TYPE=TechnomancerClass	
 ###Block: Archetype Support for Vars/Bonuses
 CATEGORY=Class|Mechanic.MOD		ABILITY:Mechanic Class Feature|AUTOMATIC|Mechanic Class Feature ~ OVERRIDE|PRECLASS:1,Mechanic=10	
 CATEGORY=Class|Mystic.MOD		BONUS:SPELLKNOWN|CLASS=Mystic;LEVEL=1|-1|PREVAREQ:MysticHighestCastableLVL,1|PREFACT:1,ABILITIES,MysticArchetype=True	BONUS:SPELLKNOWN|CLASS=Mystic;LEVEL=2|-1|PREVAREQ:MysticHighestCastableLVL,2|PREFACT:1,ABILITIES,MysticArchetype=True	BONUS:SPELLKNOWN|CLASS=Mystic;LEVEL=3|-1|PREVAREQ:MysticHighestCastableLVL,3|PREFACT:1,ABILITIES,MysticArchetype=True	BONUS:SPELLKNOWN|CLASS=Mystic;LEVEL=4|-1|PREVAREQ:MysticHighestCastableLVL,4|PREFACT:1,ABILITIES,MysticArchetype=True	BONUS:SPELLKNOWN|CLASS=Mystic;LEVEL=5|-1|PREVAREQ:MysticHighestCastableLVL,5|PREFACT:1,ABILITIES,MysticArchetype=True	BONUS:SPELLKNOWN|CLASS=Mystic;LEVEL=6|-1|PREVAREQ:MysticHighestCastableLVL,6|PREFACT:1,ABILITIES,MysticArchetype=True	BONUS:ABILITYPOOL|Mystic LV 9 Archetype Choice|1||PREFACT:1,ABILITIES,MysticArchetype=True
-CATEGORY=Class|Solarian.MOD		ABILITY:Solarian Class Feature|AUTOMATIC|Solarian Class Feature ~ ZENITH REVELATIONS|PRECLASS:1,Solarion=10	
+CATEGORY=Class|Solarian.MOD		ABILITY:Solarian Class Feature|AUTOMATIC|Solarian Class Feature ~ ZENITH REVELATIONS|PRECLASS:1,Solarian=10	
 CATEGORY=Class|Soldier.MOD		ABILITY:Soldier Class Feature|AUTOMATIC|Soldier Class Feature ~ SECONDARY FIGHTING STYLE|PRECLASS:1,Soldier=10	ABILITY:Soldier Class Feature|AUTOMATIC|Soldier Class Feature ~ SECONDARY STYLE TECHNIQUE|PRECLASS:1,Soldier=10	
 CATEGORY=Class|Technomancer.MOD	ABILITY:Technomancer Class Feature|AUTOMATIC|Technomancer Class Feature ~ MAGIC HACK|PRECLASS:1,Technomancer=5	BONUS:ABILITYPOOL|Technomancer LV 8 Archetype Choice|1|PREVARGTEQ:TechnomacerLVL,8|PREFACT:1,ABILITIES,TechnomancerArchetype=true
 
@@ -2177,30 +2178,30 @@ Add Language		SORTKEY:Z_Award	CATEGORY:Class Feature	TYPE:Class Feature.GM_Award
 
 
 ###Block:
-Solarion Weapon Crystal ~ Graviton crystal (least)	CATEGORY:Internal	TYPE:SolarianWeaponCrystal
-Solarion Weapon Crystal ~ Photon crystal (least)	CATEGORY:Internal	TYPE:SolarianWeaponCrystal	
-Solarion Weapon Crystal ~ W-boson crystal (least)	CATEGORY:Internal	TYPE:SolarianWeaponCrystal	
-Solarion Weapon Crystal ~ Gluon crystal (least)		CATEGORY:Internal	TYPE:SolarianWeaponCrystal
-Solarion Weapon Crystal ~ Graviton crystal (minor)	CATEGORY:Internal	TYPE:SolarianWeaponCrystal
-Solarion Weapon Crystal ~ Photon crystal (minor)	CATEGORY:Internal	TYPE:SolarianWeaponCrystal	
-Solarion Weapon Crystal ~ W-boson crystal (minor)	CATEGORY:Internal	TYPE:SolarianWeaponCrystal	
-Solarion Weapon Crystal ~ Gluon crystal (minor)		CATEGORY:Internal	TYPE:SolarianWeaponCrystal
-Solarion Weapon Crystal ~ Graviton crystal (lesser)	CATEGORY:Internal	TYPE:SolarianWeaponCrystal
-Solarion Weapon Crystal ~ Photon crystal (lesser)	CATEGORY:Internal	TYPE:SolarianWeaponCrystal	
-Solarion Weapon Crystal ~ W-boson crystal (lesser)	CATEGORY:Internal	TYPE:SolarianWeaponCrystal
-Solarion Weapon Crystal ~ Gluon crystal (lesser)	CATEGORY:Internal	TYPE:SolarianWeaponCrystal	
-Solarion Weapon Crystal ~ Graviton crystal (standard)	CATEGORY:Internal	TYPE:SolarianWeaponCrystal
-Solarion Weapon Crystal ~ Photon crystal (standard)	CATEGORY:Internal	TYPE:SolarianWeaponCrystal
-Solarion Weapon Crystal ~ W-boson crystal (standard)	CATEGORY:Internal	TYPE:SolarianWeaponCrystal
-Solarion Weapon Crystal ~ Gluon crystal (standard)	CATEGORY:Internal	TYPE:SolarianWeaponCrystal
-Solarion Weapon Crystal ~ Graviton crystal (greater)	CATEGORY:Internal	TYPE:SolarianWeaponCrystal
-Solarion Weapon Crystal ~ Photon crystal (greater)	CATEGORY:Internal	TYPE:SolarianWeaponCrystal
-Solarion Weapon Crystal ~ W-boson crystal (greater)	CATEGORY:Internal	TYPE:SolarianWeaponCrystal
-Solarion Weapon Crystal ~ Gluon crystal (greater)	CATEGORY:Internal	TYPE:SolarianWeaponCrystal	
-Solarion Weapon Crystal ~ Gluon crystal (true)		CATEGORY:Internal	TYPE:SolarianWeaponCrystal
-Solarion Weapon Crystal ~ Graviton crystal (true)	CATEGORY:Internal	TYPE:SolarianWeaponCrystal	
-Solarion Weapon Crystal ~ Photon crystal (true)		CATEGORY:Internal	TYPE:SolarianWeaponCrystal
-Solarion Weapon Crystal ~ W-boson crystal (true)	CATEGORY:Internal	TYPE:SolarianWeaponCrystal	
+Solarian Weapon Crystal ~ Graviton crystal (least)	CATEGORY:Internal	TYPE:SolarianWeaponCrystal
+Solarian Weapon Crystal ~ Photon crystal (least)	CATEGORY:Internal	TYPE:SolarianWeaponCrystal	
+Solarian Weapon Crystal ~ W-boson crystal (least)	CATEGORY:Internal	TYPE:SolarianWeaponCrystal	
+Solarian Weapon Crystal ~ Gluon crystal (least)		CATEGORY:Internal	TYPE:SolarianWeaponCrystal
+Solarian Weapon Crystal ~ Graviton crystal (minor)	CATEGORY:Internal	TYPE:SolarianWeaponCrystal
+Solarian Weapon Crystal ~ Photon crystal (minor)	CATEGORY:Internal	TYPE:SolarianWeaponCrystal	
+Solarian Weapon Crystal ~ W-boson crystal (minor)	CATEGORY:Internal	TYPE:SolarianWeaponCrystal	
+Solarian Weapon Crystal ~ Gluon crystal (minor)		CATEGORY:Internal	TYPE:SolarianWeaponCrystal
+Solarian Weapon Crystal ~ Graviton crystal (lesser)	CATEGORY:Internal	TYPE:SolarianWeaponCrystal
+Solarian Weapon Crystal ~ Photon crystal (lesser)	CATEGORY:Internal	TYPE:SolarianWeaponCrystal	
+Solarian Weapon Crystal ~ W-boson crystal (lesser)	CATEGORY:Internal	TYPE:SolarianWeaponCrystal
+Solarian Weapon Crystal ~ Gluon crystal (lesser)	CATEGORY:Internal	TYPE:SolarianWeaponCrystal	
+Solarian Weapon Crystal ~ Graviton crystal (standard)	CATEGORY:Internal	TYPE:SolarianWeaponCrystal
+Solarian Weapon Crystal ~ Photon crystal (standard)	CATEGORY:Internal	TYPE:SolarianWeaponCrystal
+Solarian Weapon Crystal ~ W-boson crystal (standard)	CATEGORY:Internal	TYPE:SolarianWeaponCrystal
+Solarian Weapon Crystal ~ Gluon crystal (standard)	CATEGORY:Internal	TYPE:SolarianWeaponCrystal
+Solarian Weapon Crystal ~ Graviton crystal (greater)	CATEGORY:Internal	TYPE:SolarianWeaponCrystal
+Solarian Weapon Crystal ~ Photon crystal (greater)	CATEGORY:Internal	TYPE:SolarianWeaponCrystal
+Solarian Weapon Crystal ~ W-boson crystal (greater)	CATEGORY:Internal	TYPE:SolarianWeaponCrystal
+Solarian Weapon Crystal ~ Gluon crystal (greater)	CATEGORY:Internal	TYPE:SolarianWeaponCrystal	
+Solarian Weapon Crystal ~ Gluon crystal (true)		CATEGORY:Internal	TYPE:SolarianWeaponCrystal
+Solarian Weapon Crystal ~ Graviton crystal (true)	CATEGORY:Internal	TYPE:SolarianWeaponCrystal	
+Solarian Weapon Crystal ~ Photon crystal (true)		CATEGORY:Internal	TYPE:SolarianWeaponCrystal
+Solarian Weapon Crystal ~ W-boson crystal (true)	CATEGORY:Internal	TYPE:SolarianWeaponCrystal	
 
 #
 Fortitude +1	KEY:Ring of Resistance +1 ~ Fort Boost	CATEGORY:Internal	TYPE:Ring of Resistance +1	BONUS:SAVE|Fortitude|1
