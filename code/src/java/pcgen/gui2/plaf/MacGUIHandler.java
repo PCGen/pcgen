@@ -32,7 +32,6 @@ import pcgen.gui2.PCGenUIManager;
 public final class MacGUIHandler
 {
 	private static MacGUIHandler theAdapter;
-	private static Desktop theDesktop;
 
 	private MacGUIHandler()
 	{
@@ -52,7 +51,7 @@ public final class MacGUIHandler
 
 		// set up the Application menu
 		theAdapter = new MacGUIHandler();
-		theDesktop = Desktop.getDesktop();
+		Desktop theDesktop = Desktop.getDesktop();
 		theDesktop.setAboutHandler(new OSXAboutHandler());
 		theDesktop.setPreferencesHandler(new OSXPreferencesHandler());
 		theDesktop.setQuitHandler(new OSXQuitHandler());
