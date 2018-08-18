@@ -381,7 +381,7 @@ Enlarge/Reduce Weapon List	CATEGORY:Internal	DEFINE:DamageSizeAdjustment|0	BONUS
 ###BLOCK: GM AWARD
 # Ability Name		SORTKEY		Category of Ability		Type							Description										Stackable?	Multiple?	Choose				Auto Language	Bonus Ability Pool				Bonus to HP			Bonus to skill		Bonus to skill rank	Bonus to spell cast/day				Bonus to spell known/L				Cost
 +1 Bonus Feat		SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality			DESC:GM awarded PC with +1 feat.						STACK:YES	MULT:YES	CHOOSE:NOCHOICE						BONUS:ABILITYPOOL|FEAT|1																													COST:0
-+1 Skill Rank		SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality			DESC:GM awarded PC with +1 skill rank (won't exceed max ranks).	STACK:YES	MULT:YES	CHOOSE:SKILL|TYPE=Base																				BONUS:SKILLRANK|%LIST|1															COST:0
++1 Skill Rank		SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality			DESC:GM awarded PC with +1 skill rank (won't exceed max ranks).	STACK:YES	MULT:YES	CHOOSE:SKILL|!RANKS=MAXRANK[TYPE=Base]																	BONUS:SKILLRANK|%LIST|1															COST:0
 +1 Skill Bonus		SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality			DESC:GM awarded PC with +1 skill bonus.					STACK:YES	MULT:YES	CHOOSE:SKILL|TYPE=Base																BONUS:SKILL|%LIST|1																			COST:0
 +1 Hit Point		SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality			DESC:GM awarded PC with +1 hit point.					STACK:YES	MULT:YES	CHOOSE:NOCHOICE													BONUS:HP|CURRENTMAX|1																							COST:0
 +1 Spell per Day		SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award					DESC:GM awarded PC with +1 spell per day.					STACK:YES	MULT:YES	CHOOSE:NOCHOICE						BONUS:ABILITYPOOL|GM Bonus Spell Cast|1																											COST:0
@@ -419,6 +419,49 @@ Add Language		SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQual
 +1 INT Score Bonus	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality	DESC:GM awarded PC with +1 INT bonus.	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:STAT|INT|1	COST:0
 +1 WIS Score Bonus	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality	DESC:GM awarded PC with +1 WIS bonus.	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:STAT|WIS|1	COST:0
 +1 CHA Score Bonus	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality	DESC:GM awarded PC with +1 CHA bonus.	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:STAT|CHA|1	COST:0
+
+###BLOCK: Negative GM AWARD
+# Ability Name		SORTKEY		Category of Ability		Type							Description										Stackable?	Multiple?	Choose				Auto Language	Bonus Ability Pool				Bonus to HP			Bonus to skill		Bonus to skill rank	Bonus to spell cast/day				Bonus to spell known/L				Cost
+-1 Bonus Feat		SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality			DESC:GM Penalized PC with -1 feat.						STACK:YES	MULT:YES	CHOOSE:NOCHOICE						BONUS:ABILITYPOOL|FEAT|-1																													COST:0
+-1 Skill Rank		SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality			DESC:GM Penalized PC with -1 skill rank (won't exceed max ranks).	STACK:YES	MULT:YES	CHOOSE:SKILL|TYPE=Base																				BONUS:SKILLRANK|%LIST|-1														COST:0
+-1 Skill Bonus		SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality			DESC:GM Penalized PC with -1 skill bonus.					STACK:YES	MULT:YES	CHOOSE:SKILL|TYPE=Base																BONUS:SKILL|%LIST|-1																			COST:0
+-1 Hit Point		SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality			DESC:GM Penalized PC with -1 hit point.					STACK:YES	MULT:YES	CHOOSE:NOCHOICE													BONUS:HP|CURRENTMAX|-1																							COST:0
+-1 Spell per Day		SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award					DESC:GM Penalized PC with -1 spell per day.				STACK:YES	MULT:YES	CHOOSE:NOCHOICE						BONUS:ABILITYPOOL|GM Penalized Spell Cast|1																											COST:0
+-1 Spell Known		SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award					DESC:GM Penalized PC with -1 spell known.					STACK:YES	MULT:YES	CHOOSE:NOCHOICE						BONUS:ABILITYPOOL|GM Penalized Spell Known|1																										COST:0
+
+# Spells known
+-1 Level 1 Spell Known	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:SpecialQuality.GM Penalized Spell Known	DESC:GM Penalized PC with -1 level 1 spell known.				STACK:YES	MULT:YES	CHOOSE:CLASS|SPELLCASTER																														BONUS:SPELLKNOWN|CLASS=%LIST;LEVEL=1|-1
+-1 Level 2 Spell Known	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:SpecialQuality.GM Penalized Spell Known	DESC:GM Penalized PC with -1 level 2 spell known.				STACK:YES	MULT:YES	CHOOSE:CLASS|SPELLCASTER																														BONUS:SPELLKNOWN|CLASS=%LIST;LEVEL=2|-1
+-1 Level 3 Spell Known	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:SpecialQuality.GM Penalized Spell Known	DESC:GM Penalized PC with -1 level 3 spell known.				STACK:YES	MULT:YES	CHOOSE:CLASS|SPELLCASTER																														BONUS:SPELLKNOWN|CLASS=%LIST;LEVEL=3|-1
+-1 Level 4 Spell Known	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:SpecialQuality.GM Penalized Spell Known	DESC:GM Penalized PC with -1 level 4 spell known.				STACK:YES	MULT:YES	CHOOSE:CLASS|SPELLCASTER																														BONUS:SPELLKNOWN|CLASS=%LIST;LEVEL=4|-1
+-1 Level 5 Spell Known	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:SpecialQuality.GM Penalized Spell Known	DESC:GM Penalized PC with -1 level 5 spell known.				STACK:YES	MULT:YES	CHOOSE:CLASS|SPELLCASTER																														BONUS:SPELLKNOWN|CLASS=%LIST;LEVEL=5|-1
+-1 Level 6 Spell Known	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:SpecialQuality.GM Penalized Spell Known	DESC:GM Penalized PC with -1 level 6 spell known.				STACK:YES	MULT:YES	CHOOSE:CLASS|SPELLCASTER																														BONUS:SPELLKNOWN|CLASS=%LIST;LEVEL=6|-1
+-1 Level 7 Spell Known	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:SpecialQuality.GM Penalized Spell Known	DESC:GM Penalized PC with -1 level 7 spell known.				STACK:YES	MULT:YES	CHOOSE:CLASS|SPELLCASTER																														BONUS:SPELLKNOWN|CLASS=%LIST;LEVEL=7|-1
+-1 Level 8 Spell Known	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:SpecialQuality.GM Penalized Spell Known	DESC:GM Penalized PC with -1 level 8 spell known.				STACK:YES	MULT:YES	CHOOSE:CLASS|SPELLCASTER																														BONUS:SPELLKNOWN|CLASS=%LIST;LEVEL=8|-1
+-1 Level 9 Spell Known	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:SpecialQuality.GM Penalized Spell Known	DESC:GM Penalized PC with -1 level 9 spell known.				STACK:YES	MULT:YES	CHOOSE:CLASS|SPELLCASTER																														BONUS:SPELLKNOWN|CLASS=%LIST;LEVEL=9|-1
+
+# Spells per day
+-1 Level 1 Spell Cast	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:SpecialQuality.GM Penalized Spell Cast	DESC:GM Penalized PC with -1 level 1 spell per day.			STACK:YES	MULT:YES	CHOOSE:CLASS|SPELLCASTER																							BONUS:SPELLCAST|CLASS=%LIST;LEVEL=1|-1
+-1 Level 2 Spell Cast	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:SpecialQuality.GM Penalized Spell Cast	DESC:GM Penalized PC with -1 level 2 spell per day.			STACK:YES	MULT:YES	CHOOSE:CLASS|SPELLCASTER																							BONUS:SPELLCAST|CLASS=%LIST;LEVEL=2|-1
+-1 Level 3 Spell Cast	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:SpecialQuality.GM Penalized Spell Cast	DESC:GM Penalized PC with -1 level 3 spell per day.			STACK:YES	MULT:YES	CHOOSE:CLASS|SPELLCASTER																							BONUS:SPELLCAST|CLASS=%LIST;LEVEL=3|-1
+-1 Level 4 Spell Cast	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:SpecialQuality.GM Penalized Spell Cast	DESC:GM Penalized PC with -1 level 4 spell per day.			STACK:YES	MULT:YES	CHOOSE:CLASS|SPELLCASTER																							BONUS:SPELLCAST|CLASS=%LIST;LEVEL=4|-1
+-1 Level 5 Spell Cast	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:SpecialQuality.GM Penalized Spell Cast	DESC:GM Penalized PC with -1 level 5 spell per day.			STACK:YES	MULT:YES	CHOOSE:CLASS|SPELLCASTER																							BONUS:SPELLCAST|CLASS=%LIST;LEVEL=5|-1
+-1 Level 6 Spell Cast	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:SpecialQuality.GM Penalized Spell Cast	DESC:GM Penalized PC with -1 level 6 spell per day.			STACK:YES	MULT:YES	CHOOSE:CLASS|SPELLCASTER																							BONUS:SPELLCAST|CLASS=%LIST;LEVEL=6|-1
+-1 Level 7 Spell Cast	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:SpecialQuality.GM Penalized Spell Cast	DESC:GM Penalized PC with -1 level 7 spell per day.			STACK:YES	MULT:YES	CHOOSE:CLASS|SPELLCASTER																							BONUS:SPELLCAST|CLASS=%LIST;LEVEL=7|-1
+-1 Level 8 Spell Cast	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:SpecialQuality.GM Penalized Spell Cast	DESC:GM Penalized PC with -1 level 8 spell per day.			STACK:YES	MULT:YES	CHOOSE:CLASS|SPELLCASTER																							BONUS:SPELLCAST|CLASS=%LIST;LEVEL=8|-1
+-1 Level 9 Spell Cast	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:SpecialQuality.GM Penalized Spell Cast	DESC:GM Penalized PC with -1 level 9 spell per day.			STACK:YES	MULT:YES	CHOOSE:CLASS|SPELLCASTER																							BONUS:SPELLCAST|CLASS=%LIST;LEVEL=9|-1
+
+
+###Block: GM Negative Award to Ability Scores
+# Ability Name		SORTKEY		Category of Ability		Type					Description						Stackable?	Multiple?	Choose		Bonus to stat	Cost
+-1 STR Score Bonus	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality	DESC:GM Penalized PC with -1 STR bonus.	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:STAT|STR|-1	COST:0
+-1 DEX Score Bonus	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality	DESC:GM Penalized PC with -1 DEX bonus.	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:STAT|DEX|-1	COST:0
+-1 CON Score Bonus	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality	DESC:GM Penalized PC with -1 CON bonus.	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:STAT|CON|-1	COST:0
+-1 INT Score Bonus	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality	DESC:GM Penalized PC with -1 INT bonus.	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:STAT|INT|-1	COST:0
+-1 WIS Score Bonus	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality	DESC:GM Penalized PC with -1 WIS bonus.	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:STAT|WIS|-1	COST:0
+-1 CHA Score Bonus	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality	DESC:GM Penalized PC with -1 CHA bonus.	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:STAT|CHA|-1	COST:0
+
+
 
 
 ###Block: House Rules / Homebrew Support
