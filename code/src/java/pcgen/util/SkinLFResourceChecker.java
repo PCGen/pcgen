@@ -26,7 +26,7 @@ public final class SkinLFResourceChecker
 {
 	private static int missingResourceCount;
 	private static StringBuilder resourceBuffer;
-	private static final String whereToGetIt =
+	private static final String WHERE_TO_GET_IT =
 			"<a href=\"http://prdownloads.sourceforge.net/pcgen/skin.zip\">skin.zip</a>";
 
 	static
@@ -59,8 +59,8 @@ public final class SkinLFResourceChecker
 	{
 		if (missingResourceCount != 0)
 		{
-			return resourceBuffer + "\n" + ResourceChecker.getItHereMsg + whereToGetIt + '\n'
-				+ ResourceChecker.missingLibMsg; //TODO Why does this have hardcoded file separators? JK070115
+			return resourceBuffer + "\n" + ResourceChecker.GET_IT_HERE_MSG + WHERE_TO_GET_IT + '\n'
+				+ ResourceChecker.MISSING_LIB_MSG; //TODO Why does this have hardcoded file separators? JK070115
 		}
 
 		return "";

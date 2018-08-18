@@ -23,7 +23,6 @@ import pcgen.cdom.facet.input.RaceInputFacet;
 import pcgen.core.PCClass;
 import pcgen.core.Race;
 import pcgen.gui2.facade.MockUIDelegate;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.chooser.ChooserFactory;
@@ -56,7 +55,7 @@ public class RaceFavClassTest extends AbstractTokenModelTest
 	}
 
 	@Test
-	public void testDirect() throws PersistenceLayerException
+	public void testDirect()
 	{
 		Race source = create(Race.class, "Source");
 		ParseResult result = token.parseToken(context, source, "Favorite");
@@ -75,7 +74,7 @@ public class RaceFavClassTest extends AbstractTokenModelTest
 	}
 
 	@Test
-	public void testList() throws PersistenceLayerException
+	public void testList()
 	{
 		Race source = create(Race.class, "Source");
 		ParseResult result = token.parseToken(context, source, "%LIST");

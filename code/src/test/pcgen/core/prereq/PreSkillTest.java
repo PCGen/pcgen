@@ -145,10 +145,8 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		super.tearDown();
 	}
 
-	/**
-	 * @throws Exception
-	 */
-	public void testDexType() throws Exception
+	
+	public void testDexType()
 	{
 		final Prerequisite prereq = new Prerequisite();
 		prereq.setKind("skill");
@@ -161,10 +159,8 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		assertTrue(passes);
 	}
 
-	/**
-	 * @throws Exception
-	 */
-	public void testDexTypeEqualsFails() throws Exception
+	
+	public void testDexTypeEqualsFails()
 	{
 		final Prerequisite prereq = new Prerequisite();
 		prereq.setKind("skill");
@@ -177,10 +173,8 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		assertFalse(passes);
 	}
 
-	/**
-	 * @throws Exception
-	 */
-	public void testDexTypeEqualsPasses() throws Exception
+	
+	public void testDexTypeEqualsPasses()
 	{
 		final Prerequisite prereq = new Prerequisite();
 		prereq.setKind("skill");
@@ -193,10 +187,8 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		assertTrue(passes);
 	}
 
-	/**
-	 * @throws Exception
-	 */
-	public void testKnowedgeSubType() throws Exception
+	
+	public void testKnowedgeSubType()
 	{
 		final Prerequisite prereq = new Prerequisite();
 		prereq.setKind("skill");
@@ -211,10 +203,8 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		assertTrue(passes);
 	}
 
-	/**
-	 * @throws Exception
-	 */
-	public void testKnowedgeSubTypeFail() throws Exception
+	
+	public void testKnowedgeSubTypeFail()
 	{
 		final Prerequisite prereq = new Prerequisite();
 		prereq.setKind("skill");
@@ -228,10 +218,8 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		assertFalse(passes);
 	}
 
-	/**
-	 * @throws Exception
-	 */
-	public void testKnowedgeSubTypePasesExact() throws Exception
+	
+	public void testKnowedgeSubTypePasesExact()
 	{
 		final Prerequisite prereq = new Prerequisite();
 		prereq.setKind("skill");
@@ -245,10 +233,8 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		assertTrue(passes);
 	}
 
-	/**
-	 * @throws Exception
-	 */
-	public void testKnowedgeType() throws Exception
+
+	public void testKnowedgeType()
 	{
 		final Prerequisite prereq = new Prerequisite();
 		prereq.setKind("skill");
@@ -261,10 +247,8 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		assertTrue(passes);
 	}
 
-	/**
-	 * @throws Exception
-	 */
-	public void testKnowedgeWrongSubType() throws Exception
+	
+	public void testKnowedgeWrongSubType()
 	{
 		final Prerequisite prereq = new Prerequisite();
 		prereq.setKind("skill");
@@ -278,10 +262,8 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		assertFalse(passes);
 	}
 
-	/**
-	 * @throws Exception
-	 */
-	public void testPass() throws Exception
+	
+	public void testPass()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -298,10 +280,8 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		assertTrue(passes);
 	}
 
-	/**
-	 * @throws Exception
-	 */
-	public void testTotalType() throws Exception
+	
+	public void testTotalType()
 	{
 		//		PreSkillTotalParser producer = new PreSkillTotalParser();
 
@@ -325,10 +305,8 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		assertTrue(passes);
 	}
 
-	/**
-	 * @throws Exception
-	 */
-	public void testType() throws Exception
+	
+	public void testType()
 	{
 		final Prerequisite subreq = new Prerequisite();
 		subreq.setKind("skill");

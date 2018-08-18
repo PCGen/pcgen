@@ -33,7 +33,7 @@ public abstract class AbstractBigDecimalIntegrationTestCase<T extends CDOMObject
 	public abstract boolean isPositiveAllowed();
 
 	@Test
-	public void testArchitectire() throws PersistenceLayerException
+	public void testArchitectire()
 	{
 		assertTrue(isPositiveAllowed() || isNegativeAllowed());
 	}

@@ -30,7 +30,7 @@ import pcgen.output.testsupport.AbstractOutputTestCase;
 public class FactKeyActorTest extends AbstractOutputTestCase
 {
 
-	private static final DeityFacet df = new DeityFacet();
+	private static final DeityFacet DF = new DeityFacet();
 
 	private static boolean classSetUpRun = false;
 
@@ -48,7 +48,7 @@ public class FactKeyActorTest extends AbstractOutputTestCase
 	private void classSetUp()
 	{
 		OutputDB.reset();
-		df.init();
+		DF.init();
 	}
 
 	public void testFactKeyActor()
@@ -56,7 +56,7 @@ public class FactKeyActorTest extends AbstractOutputTestCase
 		Deity d = new Deity();
 		d.setName("Bob");
 		Integer expectedResult = 475;
-		df.set(id, d);
+		DF.set(id, d);
 		NumberManager mgr = new NumberManager();
 		FactKey<Number> fk = FactKey.getConstant("cost", mgr);
 		d.put(fk, new BasicIndirect<>(mgr, expectedResult));

@@ -55,10 +55,10 @@ import pcgen.system.LanguageBundle;
 @SuppressWarnings("serial")
 public class LookAndFeelPanel extends PCGenPrefsPanel
 {
-	private static final String in_lookAndFeel = LanguageBundle.getString("in_Prefs_lookAndFeel");
+	private static final String IN_LOOK_AND_FEEL = LanguageBundle.getString("in_Prefs_lookAndFeel");
 
-	private static final String in_skinnedLAF = LanguageBundle.getString("in_Prefs_skinnedLAF");
-	private static final String in_choose = "...";
+	private static final String IN_SKINNED_LAF = LanguageBundle.getString("in_Prefs_skinnedLAF");
+	private static final String IN_CHOOSE = "...";
 
 	private final JRadioButton[] laf;
 	private final JRadioButton skinnedLookFeel = new JRadioButton();
@@ -77,7 +77,7 @@ public class LookAndFeelPanel extends PCGenPrefsPanel
 		JLabel label;
 		ButtonGroup exclusiveGroup;
 		Border etched = null;
-		TitledBorder title1 = BorderFactory.createTitledBorder(etched, in_lookAndFeel);
+		TitledBorder title1 = BorderFactory.createTitledBorder(etched, IN_LOOK_AND_FEEL);
 
 		title1.setTitleJustification(TitledBorder.LEFT);
 		this.setBorder(title1);
@@ -106,7 +106,7 @@ public class LookAndFeelPanel extends PCGenPrefsPanel
 		}
 
 		skinnedLookFeel.addActionListener(actions[actions.length - 1]);
-		skinnedLookFeel.setText(in_skinnedLAF + ": ");
+		skinnedLookFeel.setText(IN_SKINNED_LAF + ": ");
 		skinnedLookFeel.setToolTipText(LanguageBundle.getString("in_Prefs_skinnedLAFTooltip"));
 		skinnedLookFeel.setMnemonic(LanguageBundle.getMnemonic("in_mn_Prefs_skinnedLAF"));
 		Utility.buildConstraints(c, 0, laf.length, 3, 1, 0, 0);
@@ -120,7 +120,7 @@ public class LookAndFeelPanel extends PCGenPrefsPanel
 		gridbag.setConstraints(themepackLabel, c);
 		this.add(themepackLabel);
 		Utility.buildConstraints(c, 4, laf.length, 1, 1, 0, 0);
-		themepack = new JButton(in_choose);
+		themepack = new JButton(IN_CHOOSE);
 		themepack.setToolTipText(LanguageBundle.getString("in_Prefs_chooseSkinTooltip"));
 		gridbag.setConstraints(themepack, c);
 		this.add(themepack);
@@ -207,7 +207,7 @@ public class LookAndFeelPanel extends PCGenPrefsPanel
 	@Override
 	public String getTitle()
 	{
-		return in_lookAndFeel;
+		return IN_LOOK_AND_FEEL;
 	}
 
 	/**

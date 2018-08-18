@@ -30,6 +30,7 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
 
@@ -55,10 +56,11 @@ public class PreCheckTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test that Base Checks work
-	 * @throws Exception
+	 * Test that Base Checks work.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testBase() throws Exception
+	public void testBase() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(1, myClass, true);

@@ -63,7 +63,7 @@ import pcgen.util.Logging;
 public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 {
 
-	private static final TabTitle tabTitle = new TabTitle("in_portrait", null);
+	private static final TabTitle TAB_TITLE = new TabTitle("in_portrait", null);
 	private static final int MAX_PORTRAIT_HEIGHT = 400;
 	private final PortraitPane portraitPane;
 	private final ThumbnailPane tnPane;
@@ -148,7 +148,7 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 	@Override
 	public TabTitle getTabTitle()
 	{
-		return tabTitle;
+		return TAB_TITLE;
 	}
 
 	private class LoadAction extends AbstractAction implements PropertyChangeListener

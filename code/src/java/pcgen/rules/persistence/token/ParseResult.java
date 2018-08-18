@@ -17,8 +17,6 @@
  */
 package pcgen.rules.persistence.token;
 
-import static pcgen.rules.persistence.token.ParseResult.generateText;
-
 import java.net.URI;
 import java.util.logging.Level;
 

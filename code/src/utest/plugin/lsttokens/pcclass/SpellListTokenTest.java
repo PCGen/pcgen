@@ -67,28 +67,28 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidInputString() throws PersistenceLayerException
+	public void testInvalidInputString()
 	{
 		assertFalse(parse("String"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputOnlyNumber() throws PersistenceLayerException
+	public void testInvalidInputOnlyNumber()
 	{
 		assertFalse(parse("1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNoObject() throws PersistenceLayerException
+	public void testInvalidNoObject()
 	{
 		assertFalse(parse("1|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidDoublePipe() throws PersistenceLayerException
+	public void testInvalidDoublePipe()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("1||TestWP1"));
@@ -96,14 +96,14 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidInputNaN() throws PersistenceLayerException
+	public void testInvalidInputNaN()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("NaN|TestWP1"));
 	}
 
 	@Test
-	public void testInvalidInputType() throws PersistenceLayerException
+	public void testInvalidInputType()
 	{
 		try
 		{
@@ -116,7 +116,7 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidInputUnbuilt() throws PersistenceLayerException
+	public void testInvalidInputUnbuilt()
 	{
 		assertTrue(parse("1|String"));
 		assertConstructionError();
@@ -124,14 +124,13 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 
 	@Test
 	public void testInvalidInputUnbuiltDomain()
-			throws PersistenceLayerException
 	{
 		assertTrue(parse("1|DOMAIN.String"));
 		assertConstructionError();
 	}
 
 	@Test
-	public void testInvalidInputNoCount() throws PersistenceLayerException
+	public void testInvalidInputNoCount()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -140,7 +139,7 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidInputJoinedDot() throws PersistenceLayerException
+	public void testInvalidInputJoinedDot()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -149,13 +148,13 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testValidInputAll() throws PersistenceLayerException
+	public void testValidInputAll()
 	{
 		assertTrue(parse("1|ALL"));
 	}
 
 	@Test
-	public void testInvalidListEnd() throws PersistenceLayerException
+	public void testInvalidListEnd()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("1|TestWP1|"));
@@ -163,7 +162,7 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidListStart() throws PersistenceLayerException
+	public void testInvalidListStart()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("1||TestWP1"));
@@ -171,7 +170,7 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidZeroCount() throws PersistenceLayerException
+	public void testInvalidZeroCount()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("0|TestWP1"));
@@ -179,7 +178,7 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidDomainOnly() throws PersistenceLayerException
+	public void testInvalidDomainOnly()
 	{
 		if (parse("0|DOMAIN"))
 		{
@@ -189,14 +188,14 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidDomainDotOnly() throws PersistenceLayerException
+	public void testInvalidDomainDotOnly()
 	{
 		assertFalse(parse("0|DOMAIN."));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidDomainDoubleDot() throws PersistenceLayerException
+	public void testInvalidDomainDoubleDot()
 	{
 		constructDomain(primaryContext, "TestWP1");
 		if (parse("0|DOMAIN.TestWP1."))
@@ -208,7 +207,6 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 
 	@Test
 	public void testInvalidDomainSeparatorClarification()
-			throws PersistenceLayerException
 	{
 		constructDomain(primaryContext, "TestWP1");
 		constructDomain(primaryContext, "TestWP2");
@@ -221,7 +219,7 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidNegativeCount() throws PersistenceLayerException
+	public void testInvalidNegativeCount()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -230,7 +228,7 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidListDoubleJoin() throws PersistenceLayerException
+	public void testInvalidListDoubleJoin()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -239,7 +237,7 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidInputCheckMult() throws PersistenceLayerException
+	public void testInvalidInputCheckMult()
 	{
 		// Explicitly do NOT build TestWP2
 		construct(primaryContext, "TestWP1");
@@ -248,7 +246,7 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidInputAnyItem() throws PersistenceLayerException
+	public void testInvalidInputAnyItem()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("1|ALL|TestWP1"));
@@ -256,7 +254,7 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidInputItemAny() throws PersistenceLayerException
+	public void testInvalidInputItemAny()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("1|TestWP1|ALL"));
@@ -265,7 +263,6 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 
 	@Test
 	public void testInputInvalidAddsAllNoSideEffect()
-			throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
@@ -370,14 +367,14 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.put(ObjectKey.CHOOSE_LANGAUTO, null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testUnparseSingle() throws PersistenceLayerException
+	public void testUnparseSingle()
 	{
 		ClassSpellList wp1 = construct(primaryContext, "TestWP1");
 		PersistentTransitionChoice<CDOMListObject<Spell>> tc = buildChoice(CDOMDirectSingleRef
@@ -388,7 +385,7 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseBadCount() throws PersistenceLayerException
+	public void testUnparseBadCount()
 	{
 		ClassSpellList wp1 = construct(primaryContext, "TestWP1");
 		ReferenceChoiceSet<ClassSpellList> rcs = new ReferenceChoiceSet<>(
@@ -419,7 +416,7 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	// }
 
 	@Test
-	public void testUnparseMultiple() throws PersistenceLayerException
+	public void testUnparseMultiple()
 	{
 		ClassSpellList wp1 = construct(primaryContext, "TestWP1");
 		ClassSpellList wp2 = construct(primaryContext, "TestWP2");
@@ -432,7 +429,7 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseNullInList() throws PersistenceLayerException
+	public void testUnparseNullInList()
 	{
 		ClassSpellList wp1 = construct(primaryContext, "TestWP1");
 		ReferenceChoiceSet<ClassSpellList> rcs = buildRCS(CDOMDirectSingleRef
@@ -452,7 +449,7 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail() throws PersistenceLayerException
+	public void testUnparseGenericsFail()
 	{
 		ObjectKey objectKey = ObjectKey.SPELLLIST_CHOICE;
 		primaryProf.put(objectKey, new Object());

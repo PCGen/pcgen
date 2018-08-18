@@ -48,7 +48,7 @@ import pcgen.system.LanguageBundle;
 public final class Logging
 {
 	private static boolean debugMode = false;
-	private static final Toolkit s_TOOLKIT = Toolkit.getDefaultToolkit();
+	private static final Toolkit S_TOOLKIT = Toolkit.getDefaultToolkit();
 
 	/** Log level for error output. */
 	public static final Level ERROR = Level.SEVERE;
@@ -233,7 +233,7 @@ public final class Logging
 	{
 		if (debugMode)
 		{
-			s_TOOLKIT.beep();
+			S_TOOLKIT.beep();
 		}
 
 		final String msg = LanguageBundle.getString(aKey);
@@ -256,7 +256,7 @@ public final class Logging
 	{
 		if (debugMode)
 		{
-			s_TOOLKIT.beep();
+			S_TOOLKIT.beep();
 		}
 
 		final String msg = LanguageBundle.getFormattedString(aKey, varargs);
@@ -287,7 +287,7 @@ public final class Logging
 	{
 		if (debugMode)
 		{
-			s_TOOLKIT.beep();
+			S_TOOLKIT.beep();
 		}
 
 		Logger l = getLogger();
@@ -355,7 +355,7 @@ public final class Logging
 	{
 		if (debugMode)
 		{
-			s_TOOLKIT.beep();
+			S_TOOLKIT.beep();
 		}
 
 		Logger l = getLogger();
@@ -376,7 +376,7 @@ public final class Logging
 	{
 		if (debugMode)
 		{
-			s_TOOLKIT.beep();
+			S_TOOLKIT.beep();
 		}
 
 		Logger l = getLogger();
@@ -396,7 +396,7 @@ public final class Logging
 	{
 		if (debugMode)
 		{
-			s_TOOLKIT.beep();
+			S_TOOLKIT.beep();
 		}
 
 		Logger l = getLogger();
@@ -423,7 +423,7 @@ public final class Logging
 	{
 		if (debugMode)
 		{
-			s_TOOLKIT.beep();
+			S_TOOLKIT.beep();
 		}
 
 		Logger l = getLogger();

@@ -34,8 +34,9 @@ ABILITYCATEGORY:Kineticist Infusion or Wild Talent Earth				VISIBLE:QUALIFY	EDIT
 ABILITYCATEGORY:Kineticist Infusion or Wild Talent Fire				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Infusion Wild Talent Fire.Utility Wild Talent Fire							DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Kineticist Infusion or Wild Talent Water				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Infusion Wild Talent Water.Utility Wild Talent Water							DISPLAYLOCATION:Class Features
 
-
-
+# Occultist class features
+ABILITYCATEGORY:Occultist Mental Focus		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:OccultistMentalFocus		PLURAL:Occultist Mental Foci			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Occultist Physical Enhancement	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:OccultistPhysicalEnhancement	PLURAL:Occultist Physical Enhancements	DISPLAYLOCATION:Class Features
 
 
 

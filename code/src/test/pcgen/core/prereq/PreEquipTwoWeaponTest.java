@@ -75,10 +75,9 @@ public class PreEquipTwoWeaponTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test equipment type tests
-	 * @throws Exception
+	 * Test equipment type tests.
 	 */
-	public void testType() throws Exception
+	public void testType()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -111,10 +110,9 @@ public class PreEquipTwoWeaponTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test wield category tests
-	 * @throws Exception
+	 * Test wield category tests.
 	 */
-	public void testWield() throws Exception
+	public void testWield()
 	{
 		final PlayerCharacter character = getCharacter();
 

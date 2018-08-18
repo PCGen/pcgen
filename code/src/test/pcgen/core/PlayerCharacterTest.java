@@ -277,9 +277,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		super.tearDown();
 	}
 	
-	/**
-	 * @throws Exception
-	 */
+
 	public void testGetBonusFeatsForNewLevel1() throws Exception
 	{
 		readyToRun();
@@ -290,9 +288,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		assertEquals(2, (int) character.getRemainingFeatPoints(true));
 	}
 
-	/**
-	 * @throws Exception
-	 */
+	
 	public void testGetBonusFeatsForNewLevel3() throws Exception
 	{
 		readyToRun();
@@ -307,9 +303,8 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 * Test bonus monster feats where there default monster mode is off.
 	 * Note: As PCClass grants feats which do not exist, the feat pool gets 
 	 * incremented instead.
-	 * @throws Exception
 	 */
-	public void testGetMonsterBonusFeatsForNewLevel1() throws Exception
+	public void testGetMonsterBonusFeatsForNewLevel1()
 	{
 		readyToRun();
 		final PlayerCharacter character = new PlayerCharacter();
@@ -355,10 +350,9 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	/**
 	 * Test stacking rules for a mixture of normal progression and 
 	 * levelsperfeat progression. Stacking should only occur within like 
-	 * leveltypes or within standard progression
-	 * @throws Exception
+	 * leveltypes or within standard progression.
 	 */
-	public void testGetMonsterBonusFeatsForNewLevel2() throws Exception
+	public void testGetMonsterBonusFeatsForNewLevel2()
 	{
 		readyToRun();
 		final PlayerCharacter pc = new PlayerCharacter();
@@ -379,10 +373,9 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	}
 	
 	/**
-	 * Tests getVariableValue
-	 * @throws Exception
+	 * Tests getVariableValue.
 	 */
-	public void testGetVariableValue1() throws Exception
+	public void testGetVariableValue1()
 	{
 		readyToRun();
 		LoadContext context = Globals.getContext();
@@ -412,10 +405,9 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Tests getVariableValue for stat modifier
-	 * @throws Exception
+	 * Tests getVariableValue for stat modifier.
 	 */
-	public void testGetVariableValueStatMod() throws Exception
+	public void testGetVariableValueStatMod()
 	{
 		readyToRun();
 		//Logging.setDebugMode(true);
@@ -431,10 +423,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 			0.1);
 	}
 
-	/**
-	 * @throws Exception
-	 */
-	public void testGetVariableValueStatModNew() throws Exception
+	public void testGetVariableValueStatModNew()
 	{
 		readyToRun();
 		//Logging.setDebugMode(true);
@@ -540,10 +529,9 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Tests CL variable
-	 * @throws Exception
+	 * Tests CL variable.
 	 */
-	public void testGetClassVar() throws Exception
+	public void testGetClassVar()
 	{
 		readyToRun();
 		//Logging.setDebugMode(true);

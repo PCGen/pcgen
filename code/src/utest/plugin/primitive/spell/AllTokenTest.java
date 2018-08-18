@@ -90,55 +90,47 @@ public class AllTokenTest extends
 //		doPrimitiveIllegalTarget("Foo");
 //	}
 
-	public void testPrimitiveIllegalBadArgs() throws PersistenceLayerException
+	public void testPrimitiveIllegalBadArgs()
 	{
 		doPrimitiveIllegalTarget("Foo[Hi]");
 	}
 
 	public void testPrimitiveIllegalBadKnownEquals()
-			throws PersistenceLayerException
 	{
 		doPrimitiveIllegalTarget("Foo[KNOWN=]");
 	}
 
 	public void testPrimitiveIllegalBadKnownEqualsBad()
-			throws PersistenceLayerException
 	{
 		doPrimitiveIllegalTarget("Foo[KNOWN=Bad]");
 	}
 
 	public void testPrimitiveIllegalBadLevelMax()
-			throws PersistenceLayerException
 	{
 		doPrimitiveIllegalTarget("Foo[LEVELMAX]");
 	}
 
 	public void testPrimitiveIllegalBadLevelMaxEquals()
-			throws PersistenceLayerException
 	{
 		doPrimitiveIllegalTarget("Foo[LEVELMAX=]");
 	}
 
 	public void testPrimitiveIllegalBadLevelMaxEqualsBad()
-			throws PersistenceLayerException
 	{
 		doPrimitiveIllegalTarget("Foo[LEVELMAX=3-]");
 	}
 
 	public void testPrimitiveIllegalBadLevelMin()
-			throws PersistenceLayerException
 	{
 		doPrimitiveIllegalTarget("Foo[LEVELMIN]");
 	}
 
 	public void testPrimitiveIllegalBadLevelMinEquals()
-			throws PersistenceLayerException
 	{
 		doPrimitiveIllegalTarget("Foo[LEVELMIN=]");
 	}
 
 	public void testPrimitiveIllegalBadLevelMinEqualsBad()
-			throws PersistenceLayerException
 	{
 		doPrimitiveIllegalTarget("Foo[LEVELMIN=3+]");
 	}

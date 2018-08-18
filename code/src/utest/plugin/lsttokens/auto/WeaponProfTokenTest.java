@@ -71,14 +71,14 @@ public class WeaponProfTokenTest extends AbstractAutoTokenTestCase<WeaponProf>
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.removeListFor(ListKey.WEAPONPROF);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testUnparseSingleEmpty() throws PersistenceLayerException
+	public void testUnparseSingleEmpty()
 	{
 		WeaponProfProvider wpp = new WeaponProfProvider();
 		primaryProf.addToListFor(ListKey.WEAPONPROF, wpp);
@@ -98,7 +98,7 @@ public class WeaponProfTokenTest extends AbstractAutoTokenTestCase<WeaponProf>
 	}
 
 	@Test
-	public void testUnparseDeityWeaponsAll() throws PersistenceLayerException
+	public void testUnparseDeityWeaponsAll()
 	{
 		loadAllReference();
 		primaryProf.put(ObjectKey.HAS_DEITY_WEAPONPROF,
@@ -107,7 +107,7 @@ public class WeaponProfTokenTest extends AbstractAutoTokenTestCase<WeaponProf>
 	}
 
 	@Test
-	public void testUnparseIndivAll() throws PersistenceLayerException
+	public void testUnparseIndivAll()
 	{
 		WeaponProfProvider wpp = new WeaponProfProvider();
 		wpp.addWeaponProfAll(primaryContext.getReferenceContext()
@@ -120,7 +120,7 @@ public class WeaponProfTokenTest extends AbstractAutoTokenTestCase<WeaponProf>
 	}
 
 	@Test
-	public void testUnparseDeityWeapons() throws PersistenceLayerException
+	public void testUnparseDeityWeapons()
 	{
 		primaryProf.put(ObjectKey.HAS_DEITY_WEAPONPROF,
 				new QualifiedObject<>(Boolean.TRUE));
@@ -129,7 +129,7 @@ public class WeaponProfTokenTest extends AbstractAutoTokenTestCase<WeaponProf>
 	}
 
 	@Test
-	public void testUnparseDeityWeaponsFalse() throws PersistenceLayerException
+	public void testUnparseDeityWeaponsFalse()
 	{
 		primaryProf.put(ObjectKey.HAS_DEITY_WEAPONPROF,
 				new QualifiedObject<>(Boolean.FALSE));
@@ -156,7 +156,7 @@ public class WeaponProfTokenTest extends AbstractAutoTokenTestCase<WeaponProf>
 	}
 
 	@Test
-	public void testUnparseNullInList() throws PersistenceLayerException
+	public void testUnparseNullInList()
 	{
 		WeaponProfProvider wpp = new WeaponProfProvider();
 		wpp.addWeaponProf(null);
@@ -174,7 +174,7 @@ public class WeaponProfTokenTest extends AbstractAutoTokenTestCase<WeaponProf>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail() throws PersistenceLayerException
+	public void testUnparseGenericsFail()
 	{
 		ListKey listKey = ListKey.WEAPONPROF;
 		primaryProf.addToListFor(listKey, new Object());
@@ -191,7 +191,6 @@ public class WeaponProfTokenTest extends AbstractAutoTokenTestCase<WeaponProf>
 
 	@Test
 	public void testInvalidAllPlusDeityWeaponsIllegal()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse(getSubTokenName() + '|' + "DEITYWEAPONS|ALL"));
 		assertNoSideEffects();
@@ -199,14 +198,12 @@ public class WeaponProfTokenTest extends AbstractAutoTokenTestCase<WeaponProf>
 
 	@Test
 	public void testValidPrereqLegal()
-			throws PersistenceLayerException
 	{
 		assertTrue(parse(getSubTokenName() + '|' + "CROSSBOW|PREWEAPONPROF:1,DAGGER"));
 	}
 
 	@Test
 	public void testInvalidPrereqIllegal()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse(getSubTokenName() + '|' + "CROSSBOW|PREWEAPONPROF:1,TYPE=Piercing"));
 	}

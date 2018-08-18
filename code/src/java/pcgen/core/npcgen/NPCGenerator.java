@@ -68,7 +68,7 @@ import pcgen.util.enumeration.Visibility;
  */
 public final class NPCGenerator
 {
-	private static final NPCGenerator theInstance = new NPCGenerator();
+	private static final NPCGenerator THE_INSTANCE = new NPCGenerator();
 
 	private Configuration theConfiguration = null;
 
@@ -87,8 +87,8 @@ public final class NPCGenerator
 	 */
 	public static NPCGenerator getInst()
 	{
-		theInstance.setConfiguration(SettingsHandler.getGame());
-		return theInstance;
+		THE_INSTANCE.setConfiguration(SettingsHandler.getGame());
+		return THE_INSTANCE;
 	}
 
 	private void setConfiguration(final GameMode aGameMode)

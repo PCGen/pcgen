@@ -76,7 +76,6 @@ import pcgen.gui2.facade.MockUIDelegate;
 import pcgen.io.PCGIOHandler;
 import pcgen.io.PCGVer2Creator;
 import pcgen.output.channel.ChannelUtilities;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.persistence.lst.LevelLoader;
 import pcgen.rules.context.AbstractReferenceContext;
@@ -225,7 +224,7 @@ public abstract class AbstractSaveRestoreTest extends TestCase
 	protected WeaponProfFacet weaponProfFacet;
 	protected Race human;
 
-	protected void setUpContext() throws PersistenceLayerException
+	protected void setUpContext()
 	{
 		ChooserFactory.pushChooserClassname(RandomChooser.class.getName());
 		TokenRegistration.clearTokens();

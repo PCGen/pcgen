@@ -63,29 +63,31 @@ import pcgen.system.PCGenSettings;
 @SuppressWarnings("serial")
 public class OutputPanel extends PCGenPrefsPanel
 {
-	private static final String in_output = LanguageBundle.getString("in_Prefs_output");
+	private static final String IN_OUTPUT = LanguageBundle.getString("in_Prefs_output");
 
-	private static final String in_alwaysOverwrite = LanguageBundle.getString("in_Prefs_alwaysOverwrite");
-	private static final String in_invalidToHitText = LanguageBundle.getString("in_Prefs_invalidToHitText");
-	private static final String in_invalidDmgText = LanguageBundle.getString("in_Prefs_invalidDmgText");
-	private static final String in_outputSheetEqSet = LanguageBundle.getString("in_Prefs_templateEqSet");
-	private static final String in_paperType = LanguageBundle.getString("in_Prefs_paperType");
-	private static final String in_postExportCommandStandard =
+	private static final String IN_ALWAYS_OVERWRITE = LanguageBundle.getString("in_Prefs_alwaysOverwrite");
+	private static final String IN_INVALID_TO_HIT_TEXT = LanguageBundle.getString("in_Prefs_invalidToHitText");
+	private static final String IN_INVALID_DMG_TEXT = LanguageBundle.getString("in_Prefs_invalidDmgText");
+	private static final String IN_OUTPUT_SHEET_EQ_SET = LanguageBundle.getString("in_Prefs_templateEqSet");
+	private static final String IN_PAPER_TYPE = LanguageBundle.getString("in_Prefs_paperType");
+	private static final String IN_POST_EXPORT_COMAND_STANDARD =
 			LanguageBundle.getString("in_Prefs_postExportCommandStandard");
-	private static final String in_postExportCommandPDF = LanguageBundle.getString("in_Prefs_postExportCommandPDF");
-	private static final String in_removeTemp = LanguageBundle.getString("in_Prefs_removeTemp");
-	private static final String in_saveOutputSheetWithPC = LanguageBundle.getString("in_Prefs_saveOutputSheetWithPC");
-	private static final String in_showSingleBoxPerBundle = LanguageBundle.getString("in_Prefs_showSingleBoxPerBundle");
-	private static final String in_weaponProfPrintout = LanguageBundle.getString("in_Prefs_weaponProfPrintout");
-	private static final String in_skillFilter = LanguageBundle.getString("in_Prefs_skillFilterLabel");
-	private static final String in_choose = LanguageBundle.getString("...");
-	private static final String in_generateTempFileWithPdf =
+	private static final String IN_POST_EXPORT_COMMAND_PDF = LanguageBundle.getString("in_Prefs_postExportCommandPDF");
+	private static final String IN_REMOVE_TEMP = LanguageBundle.getString("in_Prefs_removeTemp");
+	private static final String IN_SAVE_OUTPUT_SHEET_WITH_PC =
+			LanguageBundle.getString("in_Prefs_saveOutputSheetWithPC");
+	private static final String IN_SHOW_SINGLE_BOX_PER_BUNDLE =
+			LanguageBundle.getString("in_Prefs_showSingleBoxPerBundle");
+	private static final String IN_WEAPON_PROF_PRINTOUT = LanguageBundle.getString("in_Prefs_weaponProfPrintout");
+	private static final String IN_SKILL_FILTER = LanguageBundle.getString("in_Prefs_skillFilterLabel");
+	private static final String IN_CHOOSE = LanguageBundle.getString("...");
+	private static final String IN_GENERATE_TEMP_FILE_WITH_PDF =
 			LanguageBundle.getString("in_Prefs_generateTempFileWithPdf");
 
 	private final JCheckBox printSpellsWithPC = new JCheckBox();
-	private final JCheckBox removeTempFiles = new JCheckBox(in_removeTemp);
+	private final JCheckBox removeTempFiles = new JCheckBox(IN_REMOVE_TEMP);
 	private final JCheckBox saveOutputSheetWithPC = new JCheckBox();
-	private final JCheckBox generateTempFileWithPdf = new JCheckBox(in_generateTempFileWithPdf);
+	private final JCheckBox generateTempFileWithPdf = new JCheckBox(IN_GENERATE_TEMP_FILE_WITH_PDF);
 
 	private final JCheckBox weaponProfPrintout;
 	private final JButton outputSheetEqSetButton;
@@ -124,7 +126,7 @@ public class OutputPanel extends PCGenPrefsPanel
 		GridBagConstraints c = new GridBagConstraints();
 		JLabel label;
 		Border etched = null;
-		TitledBorder title1 = BorderFactory.createTitledBorder(etched, in_output);
+		TitledBorder title1 = BorderFactory.createTitledBorder(etched, IN_OUTPUT);
 
 		title1.setTitleJustification(TitledBorder.LEADING);
 		this.setBorder(title1);
@@ -170,7 +172,7 @@ public class OutputPanel extends PCGenPrefsPanel
 		outputSheetPDFDefaultButton.addActionListener(prefsButtonHandler);
 
 		Utility.buildConstraints(c, 0, 2, 1, 1, 0, 0);
-		label = new JLabel(in_outputSheetEqSet);
+		label = new JLabel(IN_OUTPUT_SHEET_EQ_SET);
 		gridbag.setConstraints(label, c);
 		this.add(label);
 		Utility.buildConstraints(c, 1, 2, 1, 1, 0, 0);
@@ -187,7 +189,7 @@ public class OutputPanel extends PCGenPrefsPanel
 		outputSheetEqSetButton.addActionListener(prefsButtonHandler);
 
 		Utility.buildConstraints(c, 0, 3, 3, 1, 0, 0);
-		saveOutputSheetWithPC.setText(in_saveOutputSheetWithPC);
+		saveOutputSheetWithPC.setText(IN_SAVE_OUTPUT_SHEET_WITH_PC);
 		gridbag.setConstraints(saveOutputSheetWithPC, c);
 		this.add(saveOutputSheetWithPC);
 
@@ -212,7 +214,7 @@ public class OutputPanel extends PCGenPrefsPanel
 		this.add(printSpellsWithPC);
 
 		Utility.buildConstraints(c, 0, 6, 1, 1, 0, 0);
-		label = new JLabel(in_paperType);
+		label = new JLabel(IN_PAPER_TYPE);
 		gridbag.setConstraints(label, c);
 		this.add(label);
 		Utility.buildConstraints(c, 1, 6, 2, 1, 0, 0);
@@ -234,12 +236,12 @@ public class OutputPanel extends PCGenPrefsPanel
 		this.add(removeTempFiles);
 
 		Utility.buildConstraints(c, 0, 8, 3, 1, 0, 0);
-		weaponProfPrintout = new JCheckBox(in_weaponProfPrintout, SettingsHandler.getWeaponProfPrintout());
+		weaponProfPrintout = new JCheckBox(IN_WEAPON_PROF_PRINTOUT, SettingsHandler.getWeaponProfPrintout());
 		gridbag.setConstraints(weaponProfPrintout, c);
 		this.add(weaponProfPrintout);
 
 		Utility.buildConstraints(c, 0, 9, 1, 1, 0, 0);
-		label = new JLabel(in_postExportCommandStandard);
+		label = new JLabel(IN_POST_EXPORT_COMAND_STANDARD);
 		gridbag.setConstraints(label, c);
 		this.add(label);
 		Utility.buildConstraints(c, 1, 9, 2, 1, 0, 0);
@@ -248,7 +250,7 @@ public class OutputPanel extends PCGenPrefsPanel
 		this.add(postExportCommandStandard);
 
 		Utility.buildConstraints(c, 0, 10, 1, 1, 0, 0);
-		label = new JLabel(in_postExportCommandPDF);
+		label = new JLabel(IN_POST_EXPORT_COMMAND_PDF);
 		gridbag.setConstraints(label, c);
 		this.add(label);
 		Utility.buildConstraints(c, 1, 10, 2, 1, 0, 0);
@@ -257,7 +259,7 @@ public class OutputPanel extends PCGenPrefsPanel
 		this.add(postExportCommandPDF);
 
 		Utility.buildConstraints(c, 0, 11, 1, 1, 0, 0);
-		label = new JLabel(in_skillFilter);
+		label = new JLabel(IN_SKILL_FILTER);
 		gridbag.setConstraints(label, c);
 		this.add(label);
 		Utility.buildConstraints(c, 1, 11, GridBagConstraints.REMAINDER, 1, 0, 0);
@@ -269,7 +271,7 @@ public class OutputPanel extends PCGenPrefsPanel
 		this.add(skillFilter);
 
 		Utility.buildConstraints(c, 0, 12, 1, 1, 0, 0);
-		label = new JLabel(in_invalidToHitText);
+		label = new JLabel(IN_INVALID_TO_HIT_TEXT);
 		gridbag.setConstraints(label, c);
 		this.add(label);
 		Utility.buildConstraints(c, 1, 12, 2, 1, 0, 0);
@@ -278,7 +280,7 @@ public class OutputPanel extends PCGenPrefsPanel
 		this.add(invalidToHitText);
 
 		Utility.buildConstraints(c, 0, 13, 1, 1, 0, 0);
-		label = new JLabel(in_invalidDmgText);
+		label = new JLabel(IN_INVALID_DMG_TEXT);
 		gridbag.setConstraints(label, c);
 		this.add(label);
 		Utility.buildConstraints(c, 1, 13, GridBagConstraints.REMAINDER, 1, 0, 0);
@@ -287,12 +289,12 @@ public class OutputPanel extends PCGenPrefsPanel
 		this.add(invalidDmgText);
 
 		Utility.buildConstraints(c, 0, 14, 3, 1, 0, 0);
-		alwaysOverwrite = new JCheckBox(in_alwaysOverwrite, SettingsHandler.getAlwaysOverwrite());
+		alwaysOverwrite = new JCheckBox(IN_ALWAYS_OVERWRITE, SettingsHandler.getAlwaysOverwrite());
 		gridbag.setConstraints(alwaysOverwrite, c);
 		this.add(alwaysOverwrite);
 
 		Utility.buildConstraints(c, 0, 15, 3, 1, 0, 0);
-		showSingleBoxPerBundle = new JCheckBox(in_showSingleBoxPerBundle, SettingsHandler.getShowSingleBoxPerBundle());
+		showSingleBoxPerBundle = new JCheckBox(IN_SHOW_SINGLE_BOX_PER_BUNDLE, SettingsHandler.getShowSingleBoxPerBundle());
 		gridbag.setConstraints(showSingleBoxPerBundle, c);
 		this.add(showSingleBoxPerBundle);
 
@@ -318,7 +320,7 @@ public class OutputPanel extends PCGenPrefsPanel
 
 	private JButton createChooseButton()
 	{
-		JButton button = new JButton(in_choose);
+		JButton button = new JButton(IN_CHOOSE);
 		button.setMargin(new Insets(0, 3, 0, 3));
 		return button;
 	}
@@ -329,7 +331,7 @@ public class OutputPanel extends PCGenPrefsPanel
 	@Override
 	public String getTitle()
 	{
-		return in_output;
+		return IN_OUTPUT;
 	}
 
 	/**

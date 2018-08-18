@@ -46,7 +46,7 @@ public class AbilityTokenTest extends AbstractCharacterUsingTestCase
 	private static final LstToken ADD_TOKEN = new AddLst();
 	private static final LstToken ADD_ABILITY_TOKEN = new AbilityToken();
 
-	private static final AbilityToken pca = new AbilityToken();
+	private static final AbilityToken PCA = new AbilityToken();
 
 	protected LoadContext context;
 
@@ -66,7 +66,7 @@ public class AbilityTokenTest extends AbstractCharacterUsingTestCase
 		Ability item = construct("ItemName");
 		CNAbilitySelection as = new CNAbilitySelection(CNAbilityFactory
 			.getCNAbility(BuildUtilities.getFeatCat(), Nature.NORMAL, item));
-		assertEquals("CATEGORY=FEAT|NATURE=NORMAL|ItemName", pca
+		assertEquals("CATEGORY=FEAT|NATURE=NORMAL|ItemName", PCA
 			.encodeChoice(as));
 	}
 
@@ -75,7 +75,7 @@ public class AbilityTokenTest extends AbstractCharacterUsingTestCase
 	{
 		try
 		{
-			pca.decodeChoice(context, "CATEGORY=FEAT|NATURE=NORMAL|ItemName");
+			PCA.decodeChoice(context, "CATEGORY=FEAT|NATURE=NORMAL|ItemName");
 			fail();
 		}
 		catch (IllegalArgumentException e)
@@ -85,7 +85,7 @@ public class AbilityTokenTest extends AbstractCharacterUsingTestCase
 		Ability item = construct("ItemName");
 		CNAbilitySelection as = new CNAbilitySelection(CNAbilityFactory
 			.getCNAbility(BuildUtilities.getFeatCat(), Nature.NORMAL, item));
-		assertEquals(as, pca
+		assertEquals(as, PCA
 			.decodeChoice(context, "CATEGORY=FEAT|NATURE=NORMAL|ItemName"));
 	}
 
@@ -93,19 +93,12 @@ public class AbilityTokenTest extends AbstractCharacterUsingTestCase
 	@Test
 	public void testWithChoose()
 	{
-		try
-		{
-			setUpPC();
-			//Need to make sure we use the character related context
-			context = Globals.getContext();
-			context.getReferenceContext().importObject(BuildUtilities.getFeatCat());
-			TokenRegistration.register(ADD_TOKEN);
-			TokenRegistration.register(ADD_ABILITY_TOKEN);
-		}
-		catch (PersistenceLayerException e1)
-		{
-			fail("Cannot set up PC");
-		}
+		setUpPC();
+		//Need to make sure we use the character related context
+		context = Globals.getContext();
+		context.getReferenceContext().importObject(BuildUtilities.getFeatCat());
+		TokenRegistration.register(ADD_TOKEN);
+		TokenRegistration.register(ADD_ABILITY_TOKEN);
 		Ability item = construct("ChooseAbility");
 		Ability parent = construct("Parent");
 		context.getReferenceContext().constructCDOMObject(Language.class, "Foo");
@@ -155,48 +148,48 @@ public class AbilityTokenTest extends AbstractCharacterUsingTestCase
 		CNAbilitySelection revFFCAS = new CNAbilitySelection(
 			CNAbilityFactory.getCNAbility(ff, Nature.NORMAL, item), "Rev");
 		
-		assertTrue(pca.allow(fooCAS, pc, false));
-		assertTrue(pca.allow(barCAS, pc, false));
-		assertTrue(pca.allow(gooCAS, pc, false));
-		assertTrue(pca.allow(wowCAS, pc, false));
-		assertTrue(pca.allow(revFFCAS, pc, false));
+		assertTrue(PCA.allow(fooCAS, pc, false));
+		assertTrue(PCA.allow(barCAS, pc, false));
+		assertTrue(PCA.allow(gooCAS, pc, false));
+		assertTrue(PCA.allow(wowCAS, pc, false));
+		assertTrue(PCA.allow(revFFCAS, pc, false));
 		pc.applyAbility(badCACAS, source);
 		//Should have had no effect
-		assertTrue(pca.allow(fooCAS, pc, false));
-		assertTrue(pca.allow(barCAS, pc, false));
-		assertTrue(pca.allow(gooCAS, pc, false));
-		assertTrue(pca.allow(wowCAS, pc, false));
-		assertTrue(pca.allow(revFFCAS, pc, false));
+		assertTrue(PCA.allow(fooCAS, pc, false));
+		assertTrue(PCA.allow(barCAS, pc, false));
+		assertTrue(PCA.allow(gooCAS, pc, false));
+		assertTrue(PCA.allow(wowCAS, pc, false));
+		assertTrue(PCA.allow(revFFCAS, pc, false));
 		pc.applyAbility(fooCAS, source);
-		assertFalse(pca.allow(fooCAS, pc, false));
-		assertTrue(pca.allow(barCAS, pc, false));
-		assertTrue(pca.allow(gooCAS, pc, false));
-		assertTrue(pca.allow(wowCAS, pc, false));
-		assertTrue(pca.allow(revFFCAS, pc, false));
+		assertFalse(PCA.allow(fooCAS, pc, false));
+		assertTrue(PCA.allow(barCAS, pc, false));
+		assertTrue(PCA.allow(gooCAS, pc, false));
+		assertTrue(PCA.allow(wowCAS, pc, false));
+		assertTrue(PCA.allow(revFFCAS, pc, false));
 		pc.applyAbility(barCAS, source);
-		assertFalse(pca.allow(fooCAS, pc, false));
-		assertFalse(pca.allow(barCAS, pc, false));
-		assertTrue(pca.allow(gooCAS, pc, false));
-		assertTrue(pca.allow(wowCAS, pc, false));
-		assertTrue(pca.allow(revFFCAS, pc, false));
+		assertFalse(PCA.allow(fooCAS, pc, false));
+		assertFalse(PCA.allow(barCAS, pc, false));
+		assertTrue(PCA.allow(gooCAS, pc, false));
+		assertTrue(PCA.allow(wowCAS, pc, false));
+		assertTrue(PCA.allow(revFFCAS, pc, false));
 		pc.applyAbility(gooCAS, source);
-		assertFalse(pca.allow(fooCAS, pc, false));
-		assertFalse(pca.allow(barCAS, pc, false));
-		assertFalse(pca.allow(gooCAS, pc, false));
-		assertTrue(pca.allow(wowCAS, pc, false));
-		assertTrue(pca.allow(revFFCAS, pc, false));
+		assertFalse(PCA.allow(fooCAS, pc, false));
+		assertFalse(PCA.allow(barCAS, pc, false));
+		assertFalse(PCA.allow(gooCAS, pc, false));
+		assertTrue(PCA.allow(wowCAS, pc, false));
+		assertTrue(PCA.allow(revFFCAS, pc, false));
 		pc.applyAbility(wowFFCAS, source);
-		assertFalse(pca.allow(fooCAS, pc, false));
-		assertFalse(pca.allow(barCAS, pc, false));
-		assertFalse(pca.allow(gooCAS, pc, false));
-		assertFalse(pca.allow(wowCAS, pc, false));
-		assertTrue(pca.allow(revFFCAS, pc, false));
+		assertFalse(PCA.allow(fooCAS, pc, false));
+		assertFalse(PCA.allow(barCAS, pc, false));
+		assertFalse(PCA.allow(gooCAS, pc, false));
+		assertFalse(PCA.allow(wowCAS, pc, false));
+		assertTrue(PCA.allow(revFFCAS, pc, false));
 		pc.applyAbility(revCAS, source);
-		assertFalse(pca.allow(fooCAS, pc, false));
-		assertFalse(pca.allow(barCAS, pc, false));
-		assertFalse(pca.allow(gooCAS, pc, false));
-		assertFalse(pca.allow(wowCAS, pc, false));
-		assertFalse(pca.allow(revFFCAS, pc, false));
+		assertFalse(PCA.allow(fooCAS, pc, false));
+		assertFalse(PCA.allow(barCAS, pc, false));
+		assertFalse(PCA.allow(gooCAS, pc, false));
+		assertFalse(PCA.allow(wowCAS, pc, false));
+		assertFalse(PCA.allow(revFFCAS, pc, false));
 	}
 
 	protected Ability construct(String one)

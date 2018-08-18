@@ -31,8 +31,8 @@ import javax.swing.JFileChooser;
  */
 public class ImageFileChooserPreview extends JComponent implements PropertyChangeListener
 {
-	private static final int previewWidth = 100;
-	private static final int previewHeight = 100;
+	private static final int PREVIEW_WIDTH = 100;
+	private static final int PREVIEW_HEIGHT = 100;
 	private File imageFile = null;
 	private ImageIcon imageThumb = null;
 
@@ -42,7 +42,7 @@ public class ImageFileChooserPreview extends JComponent implements PropertyChang
 	 */
 	public ImageFileChooserPreview(JFileChooser parent)
 	{
-		setPreferredSize(new Dimension(previewWidth, previewHeight));
+		setPreferredSize(new Dimension(PREVIEW_WIDTH, PREVIEW_HEIGHT));
 		parent.addPropertyChangeListener(this);
 	}
 
@@ -60,13 +60,13 @@ public class ImageFileChooserPreview extends JComponent implements PropertyChang
 		imageThumb = new ImageIcon(imageFile.getPath());
 
 		// Check if thumb requires scaling
-		if ((imageThumb.getIconHeight() < previewHeight) && (imageThumb.getIconWidth() < previewWidth))
+		if ((imageThumb.getIconHeight() < PREVIEW_HEIGHT) && (imageThumb.getIconWidth() < PREVIEW_WIDTH))
 		{
 			return;
 		}
 
-		int w = previewWidth;
-		int h = previewHeight;
+		int w = PREVIEW_WIDTH;
+		int h = PREVIEW_HEIGHT;
 
 		if (imageThumb.getIconHeight() > imageThumb.getIconWidth())
 		{

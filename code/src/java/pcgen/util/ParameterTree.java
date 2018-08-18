@@ -27,8 +27,8 @@ public class ParameterTree
 	String contents;
 	ParameterTree left = null;
 	ParameterTree right = null;
-	public static final String orString = "[or]";
-	public static final String andString = "[and]";
+	public static final String OR_STRING = "[or]";
+	public static final String AND_STRING = "[and]";
 	static String orPatString = "\\[or\\]";
 	static String andPatString = "\\[and\\]";
 
@@ -41,16 +41,16 @@ public class ParameterTree
 	static Pattern pat = Pattern.compile(patString);
 
 	// the grouping pattern & matcher
-	private static final String parenString = '(' + leftPatString + '|' + rightPatString + ')';
-	private static final Pattern parenPattern = Pattern.compile(parenString);
+	private static final String PAREN_STRING = '(' + leftPatString + '|' + rightPatString + ')';
+	private static final Pattern PAREN_PATTERN = Pattern.compile(PAREN_STRING);
 
 	// the opertor pattern & matcher
-	private static final String operatorString = '(' + orPatString + '|' + andPatString + ')';
-	private static final Pattern operatorPattern = Pattern.compile(operatorString);
+	private static final String OPERATOR_STRING = '(' + orPatString + '|' + andPatString + ')';
+	private static final Pattern OPERATOR_PATTERN = Pattern.compile(OPERATOR_STRING);
 
 	private static int getIndexOfClosingParen(final String s, final int start) throws ParseException
 	{
-		final Matcher aMat = parenPattern.matcher(s);
+		final Matcher aMat = PAREN_PATTERN.matcher(s);
 
 		aMat.find(start);
 		int level = 1;
@@ -91,7 +91,7 @@ public class ParameterTree
 
 	private static ParameterTree makeTree(final String source, final boolean operatorNeeded) throws ParseException
 	{
-		final Matcher pM = parenPattern.matcher(source);
+		final Matcher pM = PAREN_PATTERN.matcher(source);
 		final boolean hasP = pM.find();
 
 		ParameterTree t;
@@ -113,7 +113,7 @@ public class ParameterTree
 
 				t = toTree(pre, operatorNeeded);
 
-				final Matcher rM = operatorPattern.matcher(t.getContents());
+				final Matcher rM = OPERATOR_PATTERN.matcher(t.getContents());
 
 				if (rM.find())
 				{
@@ -159,7 +159,7 @@ public class ParameterTree
 
 				ParameterTree c = r;
 
-				final Matcher cM = operatorPattern.matcher(r.getContents());
+				final Matcher cM = OPERATOR_PATTERN.matcher(r.getContents());
 
 				if (!cM.find())
 				{
@@ -187,7 +187,7 @@ public class ParameterTree
 	{
 		String s = source;
 		// the opertor matcher
-		Matcher oM = operatorPattern.matcher(s);
+		Matcher oM = OPERATOR_PATTERN.matcher(s);
 		ParameterTree cT = new ParameterTree(""); //current Tree
 
 		boolean hasO = oM.find();
@@ -204,7 +204,7 @@ public class ParameterTree
 				cT = new ParameterTree(oM.group());
 				final int end = oM.end();
 				s = s.substring(end);
-				oM = operatorPattern.matcher(s);
+				oM = OPERATOR_PATTERN.matcher(s);
 				hasO = oM.find();
 			}
 		}
@@ -220,7 +220,7 @@ public class ParameterTree
 			final ParameterTree R = new ParameterTree(oM.group()); // root Tree - must be an operator (it matched)
 
 			// is the "root" of the current tree an operator
-			final Matcher cM = operatorPattern.matcher(cT.getContents());
+			final Matcher cM = OPERATOR_PATTERN.matcher(cT.getContents());
 
 			if (cM.find())
 			{
@@ -246,7 +246,7 @@ public class ParameterTree
 		{
 
 			final ParameterTree p = new ParameterTree(s.substring(start));
-			final Matcher cM = operatorPattern.matcher(cT.getContents());
+			final Matcher cM = OPERATOR_PATTERN.matcher(cT.getContents());
 
 			if (cM.find())
 			{

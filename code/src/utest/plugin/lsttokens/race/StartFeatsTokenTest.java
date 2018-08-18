@@ -99,21 +99,21 @@ public class StartFeatsTokenTest extends AbstractCDOMTokenTestCase<Race>
 	// }
 
 	@Test
-	public void testInvalidEquation() throws PersistenceLayerException
+	public void testInvalidEquation()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "1+2").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidString() throws PersistenceLayerException
+	public void testInvalidString()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "String").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidDecimal() throws PersistenceLayerException
+	public void testInvalidDecimal()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "4.0").passed());
 		assertNoSideEffects();
@@ -178,7 +178,7 @@ public class StartFeatsTokenTest extends AbstractCDOMTokenTestCase<Race>
 	// }
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.addToListFor(ListKey.BONUS, null);
 		try

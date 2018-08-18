@@ -60,7 +60,7 @@ import pcgen.util.Logging;
 public class DebugDialog extends JDialog
 {
 
-	private static final MemoryMXBean memoryBean = ManagementFactory.getMemoryMXBean();
+	private static final MemoryMXBean MEMORY_BEAN = ManagementFactory.getMemoryMXBean();
 	private final LogPanel logPanel;
 	private final MemoryPanel memoryPanel;
 
@@ -386,9 +386,9 @@ public class DebugDialog extends JDialog
 		{
 			if ("COLLECT".equals(e.getActionCommand()))
 			{
-				memoryBean.gc();
+				MEMORY_BEAN.gc();
 				Logging.log(Logging.INFO, MessageFormat.format("Memory used after manual GC, Heap: {0}, Non heap: {1}",
-					memoryBean.getHeapMemoryUsage().getUsed(), memoryBean.getNonHeapMemoryUsage().getUsed()));
+					MEMORY_BEAN.getHeapMemoryUsage().getUsed(), MEMORY_BEAN.getNonHeapMemoryUsage().getUsed()));
 			}
 			else
 			{
@@ -401,7 +401,7 @@ public class DebugDialog extends JDialog
 	private static class MemoryTableModel extends AbstractTableModel
 	{
 
-		private static final long megaByte = 1024 * 1024;
+		private static final long MEGABYTE = 1024 * 1024;
 
 		@Override
 		public int getRowCount()
@@ -456,11 +456,11 @@ public class DebugDialog extends JDialog
 			MemoryUsage usage;
 			if (rowIndex == 0)
 			{
-				usage = memoryBean.getHeapMemoryUsage();
+				usage = MEMORY_BEAN.getHeapMemoryUsage();
 			}
 			else
 			{
-				usage = memoryBean.getNonHeapMemoryUsage();
+				usage = MEMORY_BEAN.getNonHeapMemoryUsage();
 			}
 			switch (columnIndex)
 			{

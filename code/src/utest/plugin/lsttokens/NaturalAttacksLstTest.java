@@ -65,112 +65,112 @@ public class NaturalAttacksLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidEmpty() throws PersistenceLayerException
+	public void testInvalidEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNameOnly() throws PersistenceLayerException
+	public void testInvalidNameOnly()
 	{
 		assertFalse(parse("Claw"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNameTypeOnly() throws PersistenceLayerException
+	public void testInvalidNameTypeOnly()
 	{
 		assertFalse(parse("Claw,Nasty"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNameTypeMult() throws PersistenceLayerException
+	public void testInvalidNameTypeMult()
 	{
 		assertFalse(parse("Claw,Nasty,*2"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyDamage() throws PersistenceLayerException
+	public void testInvalidEmptyDamage()
 	{
 		assertFalse(parse("Claw,Nasty,*2,"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyName() throws PersistenceLayerException
+	public void testInvalidEmptyName()
 	{
 		assertFalse(parse(",Nasty,*2,1d4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyAttacks() throws PersistenceLayerException
+	public void testInvalidEmptyAttacks()
 	{
 		assertFalse(parse("Claw,Nasty,,1d4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidPipeEnding() throws PersistenceLayerException
+	public void testInvalidPipeEnding()
 	{
 		assertFalse(parse("Claw,Nasty,*1,1d4|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidPipeStarting() throws PersistenceLayerException
+	public void testInvalidPipeStarting()
 	{
 		assertFalse(parse("|Claw,Nasty,*1,1d4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidType1() throws PersistenceLayerException
+	public void testInvalidType1()
 	{
 		assertFalse(parse("Claw,Nasty.,*1,1d4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidType2() throws PersistenceLayerException
+	public void testInvalidType2()
 	{
 		assertFalse(parse("Claw,.Nasty,*1,1d4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidType3() throws PersistenceLayerException
+	public void testInvalidType3()
 	{
 		assertFalse(parse("Claw,Nasty..Natural,*1,1d4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidAttacksNaN() throws PersistenceLayerException
+	public void testInvalidAttacksNaN()
 	{
 		assertFalse(parse("Claw,Nasty.Natural,xx,1d4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidAttacksHandsNaN() throws PersistenceLayerException
+	public void testInvalidAttacksHandsNaN()
 	{
 		assertFalse(parse("Claw,Nasty.Natural,2,1d4,xx"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidReservedName() throws PersistenceLayerException
+	public void testInvalidReservedName()
 	{
 		assertFalse(parse("None,Nasty,*1,1d4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidOnlyPre() throws PersistenceLayerException
+	public void testInvalidOnlyPre()
 	{
 		try
 		{

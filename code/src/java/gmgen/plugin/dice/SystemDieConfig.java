@@ -51,7 +51,7 @@ public class SystemDieConfig implements DiceConfig
 	@Override
 	public int roll()
 	{
-		return IntStream.generate(() -> Die.rand.nextInt(sides) + 1).map(SystemDieConfig::systemExplode)
+		return IntStream.generate(() -> Die.RAND.nextInt(sides) + 1).map(SystemDieConfig::systemExplode)
 			.map(v -> v + bias).limit(n).sum();
 	}
 

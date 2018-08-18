@@ -18,7 +18,7 @@
  */
 package pcgen.gui2.tabs;
 
-import static pcgen.gui2.tabs.equip.EquipmentSelection.equipmentArrayFlavor;
+import static pcgen.gui2.tabs.equip.EquipmentSelection.EQUIPMENT_ARRAY_FLAVOR;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
@@ -111,7 +111,7 @@ import pcgen.util.enumeration.Tab;
 public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoTab
 {
 
-	private static final Set<String> primaryTypes = new HashSet<>();
+	private static final Set<String> PRIMARY_TYPES = new HashSet<>();
 	private final FilteredTreeViewTable<CharacterFacade, EquipmentFacade> availableTable;
 	private final FilteredTreeViewTable<CharacterFacade, EquipmentFacade> purchasedTable;
 	private final EquipmentRenderer equipmentRenderer;
@@ -867,7 +867,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			this.character = character;
 			this.equipmentList = character.getDataSet().getEquipment();
 
-			if (primaryTypes.isEmpty())
+			if (PRIMARY_TYPES.isEmpty())
 			{
 				for (int i = 0; i < equipmentList.getSize(); i++)
 				{
@@ -875,7 +875,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 					List<String> types = eq.getTypesForDisplay();
 					if (!types.isEmpty())
 					{
-						primaryTypes.add(types.get(0));
+						PRIMARY_TYPES.add(types.get(0));
 					}
 				}
 			}
@@ -1066,7 +1066,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 						List<TreeViewPath<EquipmentFacade>> paths = new ArrayList<>();
 						for (String type : types)
 						{
-							if (primaryTypes.contains(type))
+							if (PRIMARY_TYPES.contains(type))
 							{
 								for (String subType : types)
 								{
@@ -1087,7 +1087,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 						List<TreeViewPath<EquipmentFacade>> paths = new ArrayList<>(types.size());
 						for (String type : types)
 						{
-							if (primaryTypes.contains(type))
+							if (PRIMARY_TYPES.contains(type))
 							{
 								paths.add(new TreeViewPath<>(pobj, type));
 							}
@@ -1210,7 +1210,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		@Override
 		public boolean canImport(TransferSupport support)
 		{
-			if (!support.isDataFlavorSupported(equipmentArrayFlavor))
+			if (!support.isDataFlavorSupported(EQUIPMENT_ARRAY_FLAVOR))
 			{
 				return false;
 			}
@@ -1223,7 +1223,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			EquipmentFacade[] equipmentArray = null;
 			try
 			{
-				equipmentArray = (EquipmentFacade[]) support.getTransferable().getTransferData(equipmentArrayFlavor);
+				equipmentArray = (EquipmentFacade[]) support.getTransferable().getTransferData(EQUIPMENT_ARRAY_FLAVOR);
 			}
 			catch (UnsupportedFlavorException | IOException ex)
 			{

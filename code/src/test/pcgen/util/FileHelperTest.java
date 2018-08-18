@@ -55,10 +55,9 @@ public class FileHelperTest extends TestCase
 	}
 
 	/**
-	 * Test the relative paths
-	 * @throws Exception
+	 * Test the relative paths.
 	 */
-	public void testRelativePaths() throws Exception
+	public void testRelativePaths()
 	{
 		final File base = new File("/one/two/three/four/foo.txt");
 
@@ -69,9 +68,8 @@ public class FileHelperTest extends TestCase
 
 	/**
 	 * Test relative paths but back one (../)
-	 * @throws Exception
 	 */
-	public void testRelativePathBack1() throws Exception
+	public void testRelativePathBack1()
 	{
 		final File base = new File("/one/two/three/four/foo.txt");
 
@@ -83,9 +81,8 @@ public class FileHelperTest extends TestCase
 
 	/**
 	 * Test relative path back two (../../)
-	 * @throws Exception
 	 */
-	public void testRelativePathBack2() throws Exception
+	public void testRelativePathBack2()
 	{
 		final File base = new File("/one/two/three/four/foo.txt");
 
@@ -95,10 +92,9 @@ public class FileHelperTest extends TestCase
 	}
 
 	/**
-	 * Test realtive path one ahead (./foobar)
-	 * @throws Exception
+	 * Test relative path one ahead (./foobar)
 	 */
-	public void testRelativePathAhead1() throws Exception
+	public void testRelativePathAhead1()
 	{
 		final File base = new File("/one/two/three/four/foo.txt");
 
@@ -109,10 +105,9 @@ public class FileHelperTest extends TestCase
 	}
 
 	/**
-	 * Test realtive path one ahead (./foobar/foobar)
-	 * @throws Exception
+	 * Test relative path one ahead (./foobar/foobar)
 	 */
-	public void testRelativePathAhead2() throws Exception
+	public void testRelativePathAhead2()
 	{
 		final File base = new File("/one/two/three/four/foo.txt");
 
@@ -124,10 +119,9 @@ public class FileHelperTest extends TestCase
 	}
 
 	/**
-	 * Test realtive path different branch
-	 * @throws Exception
+	 * Test relative path different branch.
 	 */
-	public void testRelativePathDifferentBranch() throws Exception
+	public void testRelativePathDifferentBranch()
 	{
 		final File base = new File("/one/two/three/four/foo.txt");
 
@@ -139,10 +133,9 @@ public class FileHelperTest extends TestCase
 	}
 
 	/**
-	 * Test realtive path, unrelated
-	 * @throws Exception
+	 * Test relative path, unrelated.
 	 */
-	public void testRelativePathUnrelated() throws Exception
+	public void testRelativePathUnrelated()
 	{
 		final File base = new File("/one/two/three/four/foo.txt");
 

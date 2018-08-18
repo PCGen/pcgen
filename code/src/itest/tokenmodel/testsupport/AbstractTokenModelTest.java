@@ -59,7 +59,6 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SizeAdjustment;
 import pcgen.output.channel.ChannelUtilities;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.persistence.lst.GlobalModifierLoader;
 import pcgen.rules.context.AbstractReferenceContext;
@@ -190,7 +189,7 @@ public abstract class AbstractTokenModelTest extends TestCase
 		id = pc.getCharID();
 	}
 
-	protected void setUpContext() throws PersistenceLayerException
+	protected void setUpContext()
 	{
 		ChooserFactory.pushChooserClassname(RandomChooser.class.getName());
 		TokenRegistration.clearTokens();

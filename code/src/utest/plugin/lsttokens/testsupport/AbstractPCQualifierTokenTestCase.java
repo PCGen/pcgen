@@ -22,7 +22,6 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Race;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
@@ -71,8 +70,7 @@ public abstract class AbstractPCQualifierTokenTestCase<T extends CDOMObject>
 	private T wp1, wp2, wp3;
 
 	@Test
-	public void testGetSet() throws PersistenceLayerException,
-		InstantiationException, IllegalAccessException
+	public void testGetSet()
 	{
 		setUpPC();
 		initializeObjects();
@@ -131,8 +129,7 @@ public abstract class AbstractPCQualifierTokenTestCase<T extends CDOMObject>
 	}
 
 	@Test
-	public void testGetSetFiltered() throws PersistenceLayerException,
-		InstantiationException, IllegalAccessException
+	public void testGetSetFiltered()
 	{
 		setUpPC();
 		initializeObjects();
@@ -152,8 +149,7 @@ public abstract class AbstractPCQualifierTokenTestCase<T extends CDOMObject>
 	}
 
 	@Test
-	public void testGetSetNegated() throws PersistenceLayerException,
-		InstantiationException, IllegalAccessException
+	public void testGetSetNegated()
 	{
 		setUpPC();
 		initializeObjects();

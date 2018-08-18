@@ -474,7 +474,7 @@ public abstract class JepCountType
 		// By adding this it means that we can call count with just the object to be
 		// counted and get a count of all e.g. count("ABILITIES") will return a
 		// count of all abilities with no filtering at all.
-		protected Object[] validateParams(final Object[] params) throws ParseException
+		protected Object[] validateParams(final Object[] params)
 		{
 			Object[] p = new Object[1];
 			if (1 > params.length)
@@ -551,7 +551,7 @@ public abstract class JepCountType
 					}
 					else
 					{
-						final ParameterTree npt = ParameterTree.makeTree(ParameterTree.andString);
+						final ParameterTree npt = ParameterTree.makeTree(ParameterTree.AND_STRING);
 						npt.setLeftTree(pt);
 						pt = npt;
 						final ParameterTree npt1 = ParameterTree.makeTree((String) param);
@@ -569,11 +569,11 @@ public abstract class JepCountType
 		protected Collection<? extends T> doFilterP(final ParameterTree pt, Collection<T> coll) throws ParseException
 		{
 			final String c = pt.getContents();
-			if (c.equalsIgnoreCase(ParameterTree.orString) || c.equalsIgnoreCase(ParameterTree.andString))
+			if (c.equalsIgnoreCase(ParameterTree.OR_STRING) || c.equalsIgnoreCase(ParameterTree.AND_STRING))
 			{
 				final Set<T> a = new HashSet<>(doFilterP(pt.getLeftTree(), coll));
 				final Collection<? extends T> b = doFilterP(pt.getRightTree(), coll);
-				if (c.equalsIgnoreCase(ParameterTree.orString))
+				if (c.equalsIgnoreCase(ParameterTree.OR_STRING))
 				{
 					a.addAll(b);
 				}

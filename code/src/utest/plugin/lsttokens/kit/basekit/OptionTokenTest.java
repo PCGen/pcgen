@@ -52,19 +52,19 @@ public class OptionTokenTest extends AbstractKitTokenTestCase<BaseKit>
 	}
 
 	@Test
-	public void testInvalidInputTrailing() throws PersistenceLayerException
+	public void testInvalidInputTrailing()
 	{
 		assertFalse(parse("Formula,"));
 	}
 
 	@Test
-	public void testInvalidInputStarting() throws PersistenceLayerException
+	public void testInvalidInputStarting()
 	{
 		assertFalse(parse(",Formula"));
 	}
 
 	@Test
-	public void testInvalidInputDouble() throws PersistenceLayerException
+	public void testInvalidInputDouble()
 	{
 		assertFalse(parse("Start,,Formula"));
 	}
@@ -94,7 +94,7 @@ public class OptionTokenTest extends AbstractKitTokenTestCase<BaseKit>
 	}
 
 	@Test
-	public void testInvalidListEnd() throws PersistenceLayerException
+	public void testInvalidListEnd()
 	{
 		assertFalse(parse("TestWP1" + getJoinCharacter()));
 	}
@@ -105,13 +105,13 @@ public class OptionTokenTest extends AbstractKitTokenTestCase<BaseKit>
 	}
 
 	@Test
-	public void testInvalidListStart() throws PersistenceLayerException
+	public void testInvalidListStart()
 	{
 		assertFalse(parse(getJoinCharacter() + "TestWP1"));
 	}
 
 	@Test
-	public void testInvalidListDoubleJoin() throws PersistenceLayerException
+	public void testInvalidListDoubleJoin()
 	{
 		assertFalse(parse("TestWP2" + getJoinCharacter() + getJoinCharacter()
 				+ "TestWP1"));

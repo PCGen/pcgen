@@ -55,7 +55,7 @@ import pcgen.system.LanguageBundle;
 public class CharacterStatsPanel extends PCGenPrefsPanel
 {
 
-	private static final String in_abilities = LanguageBundle.getString("in_Prefs_abilities");
+	private static final String IN_ABILITIES = LanguageBundle.getString("in_Prefs_abilities");
 	private String[] pMode;
 	private String[] pModeMethodName;
 	private JDialog parent;
@@ -97,7 +97,7 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 		JLabel label;
 		ButtonGroup exclusiveGroup;
 		Border etched = null;
-		TitledBorder title1 = BorderFactory.createTitledBorder(etched, in_abilities);
+		TitledBorder title1 = BorderFactory.createTitledBorder(etched, IN_ABILITIES);
 
 		title1.setTitleJustification(TitledBorder.LEFT);
 		this.setBorder(title1);
@@ -423,7 +423,7 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 	@Override
 	public String getTitle()
 	{
-		return in_abilities;
+		return IN_ABILITIES;
 	}
 
 	/**

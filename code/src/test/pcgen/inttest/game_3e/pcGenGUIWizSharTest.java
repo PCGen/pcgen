@@ -19,6 +19,8 @@
  */
 package pcgen.inttest.game_3e;
 
+import java.io.IOException;
+
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.inttest.PcgenFtlTestCase;
@@ -59,10 +61,11 @@ public class pcGenGUIWizSharTest extends PcgenFtlTestCase
 	}
 
 	/**
-	 * Run the test
-	 * @throws Exception
+	 * Run the test.
+	 *
+	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
-	public void testWizShar() throws Exception
+	public void testWizShar() throws IOException
 	{
 		runTest("3e_WizShar", "3e");
 	}

@@ -31,7 +31,7 @@ import pcgen.core.SettingsHandler;
 final class LegacySettings extends PropertyContext
 {
 	/** Our singleton instance */
-	private static final LegacySettings instance = new LegacySettings();
+	private static final LegacySettings INSTANCE = new LegacySettings();
 
 	/**
 	 * Create a new LegacySettings instance. Private to avoid multiples.
@@ -46,7 +46,7 @@ final class LegacySettings extends PropertyContext
 	 */
 	public static LegacySettings getInstance()
 	{
-		return instance;
+		return INSTANCE;
 	}
 
 	@Override

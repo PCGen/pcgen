@@ -40,7 +40,7 @@ import pcgen.rules.persistence.token.QualifierToken;
 public final class TokenRegistration
 {
 
-	public static final Set<String> ppiSet = new HashSet<>();
+	public static final Set<String> PPI_SET = new HashSet<>();
 
 	private TokenRegistration()
 	{
@@ -50,11 +50,11 @@ public final class TokenRegistration
 		throws PersistenceLayerException
 	{
 		String s = Arrays.asList(ppi.kindsHandled()).toString();
-		if (!ppiSet.contains(s))
+		if (!PPI_SET.contains(s))
 		{
 //			try {
 				PreParserFactory.register(ppi);
-				ppiSet.add(s);
+				PPI_SET.add(s);
 				TokenLibrary.addToTokenMap(ppi);
 //			} catch (PersistenceLayerException e) {
 //				Logging.log(Logging.WARNING,
@@ -63,15 +63,15 @@ public final class TokenRegistration
 		}
 	}
 
-	public static final Set<LstToken> tokenSet = new HashSet<>();
+	public static final Set<LstToken> TOKEN_SET = new HashSet<>();
 
 	public static void register(LstToken token)
 	{
-		if (!tokenSet.contains(token))
+		if (!TOKEN_SET.contains(token))
 		{
 			TokenLibrary.addToTokenMap(token);
 			TokenStore.inst().addToTokenMap(token);
-			tokenSet.add(token);
+			TOKEN_SET.add(token);
 			if (token instanceof QualifierToken)
 			{
 				TokenLibrary.addToQualifierMap((QualifierToken<?>) token);
@@ -83,13 +83,13 @@ public final class TokenRegistration
 		}
 	}
 
-	public static final Set<Token> exportSet = new HashSet<>();
+	public static final Set<Token> EXPORT_SET = new HashSet<>();
 
 	public static void register(Token token)
 	{
-		if (!exportSet.contains(token))
+		if (!EXPORT_SET.contains(token))
 		{
-			exportSet.add(token);
+			EXPORT_SET.add(token);
 			ExportHandler.addToTokenMap(token);
 		}
 	}
@@ -98,21 +98,21 @@ public final class TokenRegistration
 	{
 		TokenLibrary.reset();
 		TokenStore.reset();
-		tokenSet.clear();
-		ppiSet.clear();
+		TOKEN_SET.clear();
+		PPI_SET.clear();
 		PreParserFactory.clear();
 	}
 
-	public static final Set<String> pwSet = new HashSet<>();
+	public static final Set<String> PW_SET = new HashSet<>();
 
 	public static void register(PrerequisiteWriterInterface writer)
 		throws PersistenceLayerException
 	{
 		String s = writer.kindHandled();
-		if (!pwSet.contains(s))
+		if (!PW_SET.contains(s))
 		{
 			PrerequisiteWriterFactory.register(writer);
-			pwSet.add(s);
+			PW_SET.add(s);
 		}
 	}
 
@@ -128,14 +128,14 @@ public final class TokenRegistration
 		}
 	}
 
-	public static final Set<ModifierFactory<?>> mSet = new HashSet<>();
+	public static final Set<ModifierFactory<?>> M_SET = new HashSet<>();
 
 	public static void register(ModifierFactory<?> m)
 	{
-		if (!mSet.contains(m))
+		if (!M_SET.contains(m))
 		{
 			TokenLibrary.addToModifierMap(m);
-			mSet.add(m);
+			M_SET.add(m);
 		}
 	}
 }

@@ -82,7 +82,7 @@ public class ProhibitedTokenTest extends
 		return token;
 	}
 
-	public void testPrimitiveIllegalNoTarget() throws PersistenceLayerException
+	public void testPrimitiveIllegalNoTarget()
 	{
 		doPrimitiveIllegalTarget("Maybe");
 	}

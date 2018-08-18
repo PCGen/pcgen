@@ -34,6 +34,7 @@ import pcgen.cdom.enumeration.VariableKey;
 import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
@@ -74,10 +75,11 @@ public class DescriptionTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test PREREQs for Desc
-	 * @throws Exception
+	 * Test PREREQs for Desc.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testPreReqs() throws Exception
+	public void testPreReqs() throws PersistenceLayerException
 	{
 		final Ability dummy =
 				TestHelper.makeAbility("dummy", BuildUtilities.getFeatCat(), "Foo");

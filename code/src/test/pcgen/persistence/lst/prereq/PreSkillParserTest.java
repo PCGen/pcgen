@@ -10,6 +10,7 @@ import org.junit.Test;
 
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.persistence.PersistenceLayerException;
 import plugin.pretokens.parser.PreSkillParser;
 
 /**
@@ -20,11 +21,14 @@ import plugin.pretokens.parser.PreSkillParser;
 @SuppressWarnings("nls")
 public class PreSkillParserTest extends EnUsLocaleDependentTestCase
 {
+	
 	/**
-	 * @throws Exception
+	 * Test 1.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void test1() throws Exception
+	public void test1() throws PersistenceLayerException
 	{
 		PreSkillParser producer = new PreSkillParser();
 
@@ -43,11 +47,14 @@ public class PreSkillParserTest extends EnUsLocaleDependentTestCase
 		+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 	}
 
+	
 	/**
-	 * @throws Exception
+	 * Test 2.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void test2() throws Exception
+	public void test2() throws PersistenceLayerException
 	{
 		PreSkillParser producer = new PreSkillParser();
 

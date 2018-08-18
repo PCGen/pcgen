@@ -73,7 +73,6 @@ public class AlignTokenTest extends AbstractKitTokenTestCase<KitAlignment>
 
 	@Test
 	public void testInvalidInputEmptySpellbook()
-			throws PersistenceLayerException
 	{
 		if (parse("NoAlign"))
 		{

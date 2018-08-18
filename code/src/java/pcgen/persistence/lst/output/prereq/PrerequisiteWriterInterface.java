@@ -43,9 +43,11 @@ public interface PrerequisiteWriterInterface
 	PrerequisiteOperator[] operatorsHandled();
 
 	/**
-	 * @param writer
-	 * @param prereq
-	 * @throws PersistenceLayerException
+	 * Write.
+	 *
+	 * @param writer the writer
+	 * @param prereq the prereq
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	void write(Writer writer, Prerequisite prereq) throws PersistenceLayerException;
 

@@ -1043,9 +1043,7 @@
 							<xsl:with-param name="attribute" select="'weapon.hilight'"/>
 						</xsl:call-template>
 						<fo:block font-size="7pt">
-							<xsl:value-of select="critical/range"/>
-							<xsl:text>/x</xsl:text>
-							<xsl:value-of select="critical/multiplier"/>
+							<xsl:value-of select="critical"/>
 						</fo:block>
 					</fo:table-cell>
 					<fo:table-cell>

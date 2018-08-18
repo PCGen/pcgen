@@ -31,12 +31,11 @@ public abstract class PreEquippedTester extends AbstractPrerequisiteTest
 	/**
 	 * Process the tokens and return the number that is not passed.
 	 *
-	 * @param prereq
+	 * @param prereq the prereq
 	 * @param character The pc to use.
 	 * @param equippedType The equipped type to look for (e.g. Equipment.EQUIPPED_TWO_HANDS)
-	 *
-	 * @return the number that did not pass
-	 * @throws PrerequisiteException
+	 * @return the number that did not pass.
+	 * @throws PrerequisiteException the prerequisite exception
 	 */
 	public int passesPreEquipHandleTokens(final Prerequisite prereq, final PlayerCharacter character,
 		final EquipmentLocation equippedType) throws PrerequisiteException

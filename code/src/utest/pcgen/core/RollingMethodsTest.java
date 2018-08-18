@@ -16,30 +16,30 @@ import pcgen.base.util.RandomUtil;
 public class RollingMethodsTest extends TestCase
 {
 
-	static final int sides = 6;
-	static final int times = 4;
-	static final int keep = 3;
-	static final int reroll = 1;
-	static final long seed = -5450594;
+	static final int SIDES = 6;
+	static final int TIMES = 4;
+	static final int KEEP = 3;
+	static final int REROLL = 1;
+	static final long SEED = -5450594;
 
 	public final void testRoll()
 	{
-		final Random random = new Random(seed);
+		final Random random = new Random(SEED);
 		RandomUtil.setRandomGenerator(random);
 
-		random.setSeed(seed);
-		int[] rolls = IntStream.generate(() -> RollingMethods.roll(sides)).limit(times).sorted().toArray();
+		random.setSeed(SEED);
+		int[] rolls = IntStream.generate(() -> RollingMethods.roll(SIDES)).limit(TIMES).sorted().toArray();
 
 		// Make sure the raw dice roll is in the correct range
 		assertTrue(IntStream.of(rolls).min().getAsInt() > 0);
-		assertTrue(IntStream.of(rolls).max().getAsInt() <= sides);
+		assertTrue(IntStream.of(rolls).max().getAsInt() <= SIDES);
 
 		// compute the sum of all the rolls
 		final int sum = IntStream.of(rolls).sum();
 
 		// rest the seed so we generate the same random numbers
-		random.setSeed(seed);
-		final int testSum = RollingMethods.roll(times, sides);
+		random.setSeed(SEED);
+		final int testSum = RollingMethods.roll(TIMES, SIDES);
 
 		// verify the RollingMethods generates the correct results
 		assertEquals(sum, testSum);
@@ -47,31 +47,31 @@ public class RollingMethodsTest extends TestCase
 
 	public final void testTopRoll()
 	{
-		final Random random = new Random(seed);
+		final Random random = new Random(SEED);
 		RandomUtil.setRandomGenerator(random);
 
-		final int[] keepArr = IntStream.rangeClosed(times - keep, keep).toArray();
+		final int[] keepArr = IntStream.rangeClosed(TIMES - KEEP, KEEP).toArray();
 
-		random.setSeed(seed);
-		int[] rolls = IntStream.generate(() -> RollingMethods.roll(sides)).limit(times).sorted().toArray();
+		random.setSeed(SEED);
+		int[] rolls = IntStream.generate(() -> RollingMethods.roll(SIDES)).limit(TIMES).sorted().toArray();
 
 		// compute the sum of all the rolls
 		final int sum = IntStream.of(rolls).sum();
 
 		// drop the lowest N rolls and sum
-		final int dropSum = sum-IntStream.of(rolls).limit(times-keep).sum();
+		final int dropSum = sum-IntStream.of(rolls).limit(TIMES-KEEP).sum();
 
 		// reset the seed so we generate the same random numbers
-		random.setSeed(seed);
-		final int testDropSum = RollingMethods.roll(times, sides, keepArr);
+		random.setSeed(SEED);
+		final int testDropSum = RollingMethods.roll(TIMES, SIDES, keepArr);
 
 		// verify the RollingMethods generates the correct results
 		assertEquals(dropSum, testDropSum);
 
-		final String topStr = "roll("+times+","+sides+",top("+keep+"))";
+		final String topStr = "roll("+TIMES+","+SIDES+",top("+KEEP+"))";
 		
 		// reset the seed so we generate the same random numbers
-		random.setSeed(seed);
+		random.setSeed(SEED);
 
 		// verify the RollingMethods generates the correct results
 		final int strDropSum = RollingMethods.roll(topStr);
@@ -81,20 +81,20 @@ public class RollingMethodsTest extends TestCase
 
 	public final void testRerollRoll()
 	{
-		final Random random = new Random(seed);
+		final Random random = new Random(SEED);
 		RandomUtil.setRandomGenerator(random);
 
-		random.setSeed(seed);
+		random.setSeed(SEED);
 		int[] rolls =
-				IntStream.generate(() -> RollingMethods.roll(sides - reroll) + reroll).limit(times).sorted().toArray();
+				IntStream.generate(() -> RollingMethods.roll(SIDES - REROLL) + REROLL).limit(TIMES).sorted().toArray();
 
 		// compute the sum of all the rolls
 		final int sum = IntStream.of(rolls).sum();
 
-		final String rerollStr = "roll("+times+","+sides+",reroll("+reroll+"))";
+		final String rerollStr = "roll("+TIMES+","+SIDES+",reroll("+REROLL+"))";
 		
 		// reset the seed so we generate the same random numbers
-		random.setSeed(seed);
+		random.setSeed(SEED);
 
 		// verify the RollingMethods generates the correct results
 		final int strSum = RollingMethods.roll(rerollStr);

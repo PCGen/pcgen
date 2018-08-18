@@ -29,7 +29,7 @@ import pcgen.facade.core.UIDelegate;
 public final class ChooserFactory
 {
 	private static UIDelegate delegate;
-	private static final Stack<String> interfaceClassNameStack = new Stack<>();
+	private static final Stack<String> INTERFACE_CLASS_NAME_STACK = new Stack<>();
 
 	/**
 	 * Deliberately private so it can't be instantiated.
@@ -49,11 +49,11 @@ public final class ChooserFactory
 	 */
 	public static ChoiceHandler getChoiceHandler()
 	{
-		if (interfaceClassNameStack.isEmpty())
+		if (INTERFACE_CLASS_NAME_STACK.isEmpty())
 		{
 			return null;
 		}
-		String className = interfaceClassNameStack.peek();
+		String className = INTERFACE_CLASS_NAME_STACK.peek();
 		try
 		{
 			Class<?> c = Class.forName(className);
@@ -76,7 +76,7 @@ public final class ChooserFactory
 	 */
 	public static void pushChooserClassname(String chooserClassname)
 	{
-		ChooserFactory.interfaceClassNameStack.push(chooserClassname);
+		ChooserFactory.INTERFACE_CLASS_NAME_STACK.push(chooserClassname);
 	}
 
 	/**
@@ -86,11 +86,11 @@ public final class ChooserFactory
 	 */
 	public static String popChooserClassname()
 	{
-		if (ChooserFactory.interfaceClassNameStack.isEmpty())
+		if (ChooserFactory.INTERFACE_CLASS_NAME_STACK.isEmpty())
 		{
 			return null;
 		}
-		return ChooserFactory.interfaceClassNameStack.pop();
+		return ChooserFactory.INTERFACE_CLASS_NAME_STACK.pop();
 	}
 
 	/**

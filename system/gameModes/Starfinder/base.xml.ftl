@@ -640,10 +640,7 @@
 					<output>${pcstring('WEAPON.${weap}.OUTPUTNAME')}</output>
 				</name>
 				<category>${pcstring('WEAPON.${weap}.CATEGORY')}</category>
-				<critical>
-					<range>${pcstring('WEAPON.${weap}.CRIT')}</range>
-					<multiplier>${pcstring('WEAPON.${weap}.MULT')}</multiplier>
-				</critical>
+				<critical>${pcstring('WEAPON.${weap}.QUALITY.Critical')}</critical>
 				<to_hit>
 					<hit>${pcstring('WEAPON.${weap}.HIT')}</hit>
 					<magic_hit>${pcstring('WEAPON.${weap}.MAGICHIT')}</magic_hit>

@@ -88,28 +88,28 @@ public abstract class AbstractSpellCastingTokenTestCase extends
 	}
 
 	@Test
-	public void testInvalidListEmpty() throws PersistenceLayerException
+	public void testInvalidListEmpty()
 	{
 		assertFalse(parse("", 2));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidListEnd() throws PersistenceLayerException
+	public void testInvalidListEnd()
 	{
 		assertFalse(parse("1,", 2));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidListStart() throws PersistenceLayerException
+	public void testInvalidListStart()
 	{
 		assertFalse(parse(",1", 2));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidListDoubleJoin() throws PersistenceLayerException
+	public void testInvalidListDoubleJoin()
 	{
 		assertFalse(parse("1,,2", 2));
 		assertNoSideEffects();
@@ -117,7 +117,6 @@ public abstract class AbstractSpellCastingTokenTestCase extends
 
 	@Test
 	public void testInvalidListNegativeNumber()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("1,-2", 2));
 		assertNoSideEffects();
@@ -166,7 +165,7 @@ public abstract class AbstractSpellCastingTokenTestCase extends
 	}
 
 	@Test
-	public void testUnparseSingle() throws PersistenceLayerException
+	public void testUnparseSingle()
 	{
 		primaryProf1.addToListFor(getListKey(), FormulaFactory.ONE);
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf1);
@@ -174,7 +173,7 @@ public abstract class AbstractSpellCastingTokenTestCase extends
 	}
 
 	@Test
-	public void testUnparseNullInList() throws PersistenceLayerException
+	public void testUnparseNullInList()
 	{
 		primaryProf1.addToListFor(getListKey(), null);
 		try
@@ -189,7 +188,7 @@ public abstract class AbstractSpellCastingTokenTestCase extends
 	}
 
 	@Test
-	public void testUnparseMultiple() throws PersistenceLayerException
+	public void testUnparseMultiple()
 	{
 		primaryProf1
 				.addToListFor(getListKey(), FormulaFactory.getFormulaFor(1));

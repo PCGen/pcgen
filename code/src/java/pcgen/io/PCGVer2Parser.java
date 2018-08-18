@@ -137,7 +137,6 @@ import pcgen.io.migration.RaceMigration;
 import pcgen.io.migration.SourceMigration;
 import pcgen.io.migration.SpellMigration;
 import pcgen.output.channel.ChannelCompatibility;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.system.FacadeFactory;
@@ -2312,7 +2311,7 @@ final class PCGVer2Parser implements PCGParser
 		eSet.setTempBonusList(aList);
 	}
 
-	private void parseCharacterTypeLine(final String line) throws PCGParseException
+	private void parseCharacterTypeLine(final String line)
 	{
 		final StringTokenizer stok = new StringTokenizer(line.substring(IOConstants.TAG_CHARACTERTYPE.length() + 1),
 			IOConstants.TAG_END, false);
@@ -2328,7 +2327,7 @@ final class PCGVer2Parser implements PCGParser
 		thePC.setCharacterType(characterType);
 	}
 
-	private void parsePreviewSheetLine(final String line) throws PCGParseException
+	private void parsePreviewSheetLine(final String line)
 	{
 		final StringTokenizer stok = new StringTokenizer(line.substring(IOConstants.TAG_PREVIEWSHEET.length() + 1),
 			IOConstants.TAG_END, false);
@@ -2356,7 +2355,7 @@ final class PCGVer2Parser implements PCGParser
 		}
 	}
 
-	private void parseExperienceTableLine(final String line) throws PCGParseException
+	private void parseExperienceTableLine(final String line)
 	{
 		final StringTokenizer stok = new StringTokenizer(line.substring(IOConstants.TAG_EXPERIENCETABLE.length() + 1),
 			IOConstants.TAG_END, false);
@@ -5670,16 +5669,7 @@ final class PCGVer2Parser implements PCGParser
 			final String dString = EntityEncoder.decode(it2.next().getText());
 
 			PersistentTransitionChoice<?> ptc = null;
-			try
-			{
-				ptc = Compatibility.processOldAdd(Globals.getContext(), dString);
-			}
-			catch (PersistenceLayerException ple)
-			{
-				warnings.add(pObj.getDisplayName() + "(" + pObj.getClass().getName()
-					+ ")\nCould not process LevelAbility: " + dString + "\n" + ple.getLocalizedMessage());
-				return;
-			}
+			ptc = Compatibility.processOldAdd(Globals.getContext(), dString);
 
 			if (ptc == null)
 			{

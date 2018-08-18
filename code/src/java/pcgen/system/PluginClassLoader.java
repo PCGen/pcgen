@@ -23,7 +23,6 @@ import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Modifier;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.Collection;
@@ -47,7 +46,7 @@ import pcgen.util.Logging;
 class PluginClassLoader extends PCGenTask
 {
 
-	private static final FilenameFilter pluginFilter = (dir, name) -> {
+	private static final FilenameFilter PLUGIN_FILTER = (dir, name) -> {
 		if (name.contains("plugin"))
 		{
 			return true;
@@ -229,7 +228,7 @@ class PluginClassLoader extends PCGenTask
 		{
 			return;
 		}
-		File[] pluginFiles = pluginDir.listFiles(PluginClassLoader.pluginFilter);
+		File[] pluginFiles = pluginDir.listFiles(PluginClassLoader.PLUGIN_FILTER);
 		for (final File file : pluginFiles)
 		{
 			if (file.isDirectory())
@@ -262,7 +261,7 @@ class PluginClassLoader extends PCGenTask
 
 		private final Map<String, byte[]> classDefinitions = new HashMap<>();
 
-		private JarClassLoader(URL url) throws MalformedURLException
+		private JarClassLoader(URL url)
 		{
 			super(new URL[]{url});
 		}

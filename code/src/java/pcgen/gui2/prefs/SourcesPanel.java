@@ -50,7 +50,7 @@ import pcgen.util.Logging;
 @SuppressWarnings("serial")
 public class SourcesPanel extends PCGenPrefsPanel
 {
-	private static final String in_sources = LanguageBundle.getString("in_Prefs_sources"); //$NON-NLS-1$
+	private static final String IN_SOURCES = LanguageBundle.getString("in_Prefs_sources"); //$NON-NLS-1$
 
 	private final JCheckBox campLoad = new JCheckBox();
 	private final JCheckBox charCampLoad = new JCheckBox();
@@ -75,7 +75,7 @@ public class SourcesPanel extends PCGenPrefsPanel
 		GridBagConstraints c = new GridBagConstraints();
 		JLabel label;
 		Border etched = null;
-		TitledBorder title1 = BorderFactory.createTitledBorder(etched, in_sources);
+		TitledBorder title1 = BorderFactory.createTitledBorder(etched, IN_SOURCES);
 
 		title1.setTitleJustification(TitledBorder.LEADING);
 		this.setBorder(title1);
@@ -176,7 +176,7 @@ public class SourcesPanel extends PCGenPrefsPanel
 	@Override
 	public String getTitle()
 	{
-		return in_sources;
+		return IN_SOURCES;
 	}
 
 	/**

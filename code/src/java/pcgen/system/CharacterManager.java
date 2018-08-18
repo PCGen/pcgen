@@ -61,17 +61,17 @@ import pcgen.util.Logging;
 public final class CharacterManager
 {
 
-	private static final PartyFacadeImpl characters;
-	private static final RecentFileList recentCharacters;
-	private static final RecentFileList recentParties;
-	private static final PCGenMessageHandler messageHandler;
+	private static final PartyFacadeImpl CHARACTERS;
+	private static final RecentFileList RECENT_CHARACTERS;
+	private static final RecentFileList RECENT_PARTIES;
+	private static final PCGenMessageHandler MESSAGE_HANDLER;
 
 	static
 	{
-		characters = new PartyFacadeImpl();
-		recentCharacters = new RecentFileList(PCGenSettings.RECENT_CHARACTERS);
-		recentParties = new RecentFileList(PCGenSettings.RECENT_PARTIES);
-		messageHandler = PluginManager.getInstance().getPostbox();
+		CHARACTERS = new PartyFacadeImpl();
+		RECENT_CHARACTERS = new RecentFileList(PCGenSettings.RECENT_CHARACTERS);
+		RECENT_PARTIES = new RecentFileList(PCGenSettings.RECENT_PARTIES);
+		MESSAGE_HANDLER = PluginManager.getInstance().getPostbox();
 	}
 
 	private CharacterManager()
@@ -96,9 +96,9 @@ public final class CharacterManager
 			CharacterFacade character = new CharacterFacadeImpl(pc, delegate, dataset);
 			String name = createNewCharacterName();
 			character.setName(name);
-			characters.addElement(character);
+			CHARACTERS.addElement(character);
 			Logging.log(Logging.INFO, "Created new character " + name + '.'); //$NON-NLS-1$ 
-			messageHandler.handleMessage(new PlayerCharacterWasLoadedMessage(delegate, pc));
+			MESSAGE_HANDLER.handleMessage(new PlayerCharacterWasLoadedMessage(delegate, pc));
 			return character;
 		}
 		catch (final Exception e)
@@ -115,12 +115,12 @@ public final class CharacterManager
 
 	public static ListFacade<File> getRecentCharacters()
 	{
-		return recentCharacters;
+		return RECENT_CHARACTERS;
 	}
 
 	public static ListFacade<File> getRecentParties()
 	{
-		return recentParties;
+		return RECENT_PARTIES;
 	}
 
 	/**
@@ -202,7 +202,7 @@ public final class CharacterManager
 			Globals.getPCList().add(newPC);
 			if (!blockLoadedMessage)
 			{
-				messageHandler.handleMessage(new PlayerCharacterWasLoadedMessage(delegate, newPC));
+				MESSAGE_HANDLER.handleMessage(new PlayerCharacterWasLoadedMessage(delegate, newPC));
 			}
 			return newPC;
 
@@ -221,7 +221,7 @@ public final class CharacterManager
 		final PlayerCharacter newPC)
 	{
 		CharacterFacade character = new CharacterFacadeImpl(newPC, delegate, dataset);
-		characters.addElement(character);
+		CHARACTERS.addElement(character);
 		return character;
 	}
 
@@ -294,8 +294,8 @@ public final class CharacterManager
 		Logging.log(Logging.INFO, "Loading party " + file.getAbsolutePath()); //$NON-NLS-1$
 		PCGIOHandler ioHandler = new PCGIOHandler();
 		ioHandler.readCharacterFileList(file).forEach(charFile -> openCharacter(charFile, delegate, dataset));
-		characters.setFile(file);
-		return characters;
+		CHARACTERS.setFile(file);
+		return CHARACTERS;
 	}
 
 	public static SourceSelectionFacade getRequiredSourcesForParty(File pcpFile, UIDelegate delegate)
@@ -430,19 +430,19 @@ public final class CharacterManager
 			return false;
 		}
 
-		recentCharacters.addRecentFile(file);
+		RECENT_CHARACTERS.addRecentFile(file);
 		return true;
 	}
 
 	public static boolean saveCurrentParty()
 	{
-		File file = characters.getFileRef().get();
+		File file = CHARACTERS.getFileRef().get();
 		if (file == null)
 		{
 			return false;
 		}
 		Logging.log(Logging.INFO, "Saving party " + file.getAbsolutePath()); //$NON-NLS-1$
-		characters.save();
+		CHARACTERS.save();
 		return true;
 	}
 
@@ -454,15 +454,15 @@ public final class CharacterManager
 	 */
 	public static void removeCharacter(CharacterFacade character)
 	{
-		characters.removeElement(character);
+		CHARACTERS.removeElement(character);
 		// This advises the message handler also.
 		character.closeCharacter();
 		File charFile = character.getFileRef().get();
-		recentCharacters.addRecentFile(charFile);
-		if (characters.isEmpty())
+		RECENT_CHARACTERS.addRecentFile(charFile);
+		if (CHARACTERS.isEmpty())
 		{
-			recentParties.addRecentFile(characters.getFileRef().get());
-			characters.setFile(null);
+			RECENT_PARTIES.addRecentFile(CHARACTERS.getFileRef().get());
+			CHARACTERS.setFile(null);
 		}
 		Logging.log(Logging.INFO, "Closed character " + character.getNameRef().get() //$NON-NLS-1$
 			+ " - " + charFile.getAbsolutePath()); //$NON-NLS-1$
@@ -470,21 +470,21 @@ public final class CharacterManager
 
 	public static void removeAllCharacters()
 	{
-		for (final CharacterFacade characterFacade : characters)
+		for (final CharacterFacade characterFacade : CHARACTERS)
 		{
-			recentCharacters.addRecentFile(characterFacade.getFileRef().get());
+			RECENT_CHARACTERS.addRecentFile(characterFacade.getFileRef().get());
 			// This advises the message handler also.
 			characterFacade.closeCharacter();
 		}
-		characters.clearContents();
-		recentParties.addRecentFile(characters.getFileRef().get());
-		characters.setFile(null);
+		CHARACTERS.clearContents();
+		RECENT_PARTIES.addRecentFile(CHARACTERS.getFileRef().get());
+		CHARACTERS.setFile(null);
 		Logging.log(Logging.INFO, "Closed all characters"); //$NON-NLS-1$
 	}
 
 	public static PartyFacade getCharacters()
 	{
-		return characters;
+		return CHARACTERS;
 	}
 
 	/**
@@ -538,7 +538,7 @@ public final class CharacterManager
 
 	private static boolean isNameUsed(String name)
 	{
-		for (final CharacterFacade character : characters)
+		for (final CharacterFacade character : CHARACTERS)
 		{
 			if (character.getNameRef().get().equals(name))
 			{

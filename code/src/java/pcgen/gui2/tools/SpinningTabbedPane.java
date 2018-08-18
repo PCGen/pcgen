@@ -69,7 +69,7 @@ public class SpinningTabbedPane extends JTabbedPane
 	private static final int UNGROUP_CHILD_OFFSET = 20;
 	private static final int UNGROUP_SELF_OFFSET = 24;
 	private static final int UNGROUP_SINGLE_OFFSET = 28;
-	private static final String[] labels = {LanguageBundle.getString("in_top"), // place
+	private static final String[] LABELS = {LanguageBundle.getString("in_top"), // place
 		LanguageBundle.getString("in_left"), LanguageBundle.getString("in_bottom"),
 		LanguageBundle.getString("in_right"), LanguageBundle.getString("in_beginning"), // move left/right
 		LanguageBundle.getString("in_left"), LanguageBundle.getString("in_end"), LanguageBundle.getString("in_right"),
@@ -85,7 +85,7 @@ public class SpinningTabbedPane extends JTabbedPane
 		LanguageBundle.getString("in_ungroupRight"), LanguageBundle.getString("in_ungroupUp"), // ungroup single
 		LanguageBundle.getString("in_ungroupLeft"), LanguageBundle.getString("in_ungroupDown"),
 		LanguageBundle.getString("in_ungroupRight")};
-	private static final ImageIcon[] icons = {Utilities.UP_ICON, // place
+	private static final ImageIcon[] ICONS = {Utilities.UP_ICON, // place
 		Utilities.LEFT_ICON, Utilities.DOWN_ICON, Utilities.RIGHT_ICON, Utilities.BEGINNING_ICON, // move left/right
 		Utilities.LEFT_ICON, Utilities.END_ICON, Utilities.RIGHT_ICON, Utilities.TOP_ICON, // move up/down
 		Utilities.UP_ICON, Utilities.BOTTOM_ICON, Utilities.DOWN_ICON, Utilities.UP_ICON, // group
@@ -94,7 +94,7 @@ public class SpinningTabbedPane extends JTabbedPane
 		Utilities.BEGINNING_ICON, Utilities.BOTTOM_ICON, Utilities.END_ICON, Utilities.TOP_ICON, // ungroup self
 		Utilities.BEGINNING_ICON, Utilities.BOTTOM_ICON, Utilities.END_ICON, Utilities.UP_ICON, // ungroup single
 		Utilities.LEFT_ICON, Utilities.DOWN_ICON, Utilities.RIGHT_ICON};
-	private static final String[] tips =
+	private static final String[] TIPS =
 			{LanguageBundle.getString("in_spinTips1"), LanguageBundle.getString("in_spinTips2"),
 				LanguageBundle.getString("in_spinTips3"), LanguageBundle.getString("in_spinTips4"),
 				LanguageBundle.getString("in_spinTips5"), LanguageBundle.getString("in_spinTips6"),
@@ -181,7 +181,7 @@ public class SpinningTabbedPane extends JTabbedPane
 
 	private static void setMenuItem(@NotNull JMenuItem menuItem, int offset)
 	{
-		String label = labels[offset];
+		String label = LABELS[offset];
 
 		menuItem.setText(label);
 
@@ -190,8 +190,8 @@ public class SpinningTabbedPane extends JTabbedPane
 			menuItem.setMnemonic(label.charAt(0));
 		}
 
-		menuItem.setIcon(icons[offset]);
-		menuItem.setToolTipText(tips[offset]);
+		menuItem.setIcon(ICONS[offset]);
+		menuItem.setToolTipText(TIPS[offset]);
 	}
 
 	// Need to use action events instead  XXX
@@ -434,8 +434,8 @@ public class SpinningTabbedPane extends JTabbedPane
 		int offset = SpinningTabbedPane.offsetForPlacement(pane.getTabPlacement()) + SpinningTabbedPane.TAB_OFFSET;
 
 		setTitleAt(index, getPlainTitleAt(index));
-		setIconAt(index, SpinningTabbedPane.icons[offset]);
-		setToolTipTextAt(index, SpinningTabbedPane.tips[offset]);
+		setIconAt(index, SpinningTabbedPane.ICONS[offset]);
+		setToolTipTextAt(index, SpinningTabbedPane.TIPS[offset]);
 	}
 
 	public interface PopupMenuPolicy
@@ -1198,13 +1198,13 @@ public class SpinningTabbedPane extends JTabbedPane
 
 		private IndexedAction(int index, int offset)
 		{
-			this(index, SpinningTabbedPane.labels[offset], SpinningTabbedPane.icons[offset]);
-			String label = SpinningTabbedPane.labels[offset];
+			this(index, SpinningTabbedPane.LABELS[offset], SpinningTabbedPane.ICONS[offset]);
+			String label = SpinningTabbedPane.LABELS[offset];
 			if (label != null)
 			{
 				putValue(Action.MNEMONIC_KEY, (int) label.charAt(0));
 			}
-			putValue(Action.SHORT_DESCRIPTION, SpinningTabbedPane.tips[index]);
+			putValue(Action.SHORT_DESCRIPTION, SpinningTabbedPane.TIPS[index]);
 		}
 
 		private IndexedAction(int index, String name, ImageIcon icon)

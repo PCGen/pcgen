@@ -45,7 +45,7 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 	}
 
 	@Test
-	public void testValidInputSimple() throws PersistenceLayerException
+	public void testValidInputSimple()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "Rheinhessen");
 		List<?> coll;
@@ -57,7 +57,7 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 	}
 
 	@Test
-	public void testValidInputNonEnglish() throws PersistenceLayerException
+	public void testValidInputNonEnglish()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(),
 				"Niederösterreich");
@@ -70,7 +70,7 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 	}
 
 	@Test
-	public void testValidInputSpace() throws PersistenceLayerException
+	public void testValidInputSpace()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "Finger Lakes");
 		List<?> coll;
@@ -82,7 +82,7 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 	}
 
 	@Test
-	public void testValidInputHyphen() throws PersistenceLayerException
+	public void testValidInputHyphen()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(),
 				"Languedoc-Roussillon");
@@ -95,7 +95,7 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 	}
 
 	@Test
-	public void testValidInputY() throws PersistenceLayerException
+	public void testValidInputY()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "Yarra Valley");
 		List<?> coll;
@@ -107,7 +107,7 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 	}
 
 	@Test
-	public void testValidInputList() throws PersistenceLayerException
+	public void testValidInputList()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(),
 				"Niederösterreich");
@@ -123,7 +123,7 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 	}
 
 	@Test
-	public void testValidInputMultList() throws PersistenceLayerException
+	public void testValidInputMultList()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(),
 				"Niederösterreich");
@@ -149,7 +149,7 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 	}
 
 	@Test
-	public void testInvalidListEmpty() throws PersistenceLayerException
+	public void testInvalidListEmpty()
 	{
 		assertFalse(parse(""));
 		assertNull(primaryProf.getListFor(getListKey()));
@@ -157,7 +157,7 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 	}
 
 	@Test
-	public void testInvalidEmpty() throws PersistenceLayerException
+	public void testInvalidEmpty()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "TestWP1");
 		assertFalse(parse(""));
@@ -166,7 +166,7 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 	}
 
 	@Test
-	public void testInvalidListEnd() throws PersistenceLayerException
+	public void testInvalidListEnd()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "TestWP1");
 		assertFalse(parse("TestWP1" + getJoinCharacter()));
@@ -175,7 +175,7 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 	}
 
 	@Test
-	public void testInvalidListStart() throws PersistenceLayerException
+	public void testInvalidListStart()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "TestWP1");
 		assertFalse(parse(getJoinCharacter() + "TestWP1"));
@@ -184,7 +184,7 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 	}
 
 	@Test
-	public void testInvalidListDoubleJoin() throws PersistenceLayerException
+	public void testInvalidListDoubleJoin()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "TestWP1");
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "TestWP2");
@@ -274,7 +274,7 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 	public abstract boolean isClearDotLegal();
 
 	@Test
-	public void testReplacementInputs() throws PersistenceLayerException
+	public void testReplacementInputs()
 	{
 		String[] unparsed;
 		if (isClearLegal())
@@ -303,7 +303,7 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 	}
 
 	@Test
-	public void testReplacementInputsTwo() throws PersistenceLayerException
+	public void testReplacementInputsTwo()
 	{
 		String[] unparsed;
 		assertTrue(parse("TestWP1"));
@@ -320,7 +320,7 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 	}
 
 	@Test
-	public void testInputInvalidClear() throws PersistenceLayerException
+	public void testInputInvalidClear()
 	{
 		if (isClearLegal())
 		{
@@ -331,7 +331,7 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 	}
 
 	@Test
-	public void testInputInvalidClearDot() throws PersistenceLayerException
+	public void testInputInvalidClearDot()
 	{
 		if (isClearDotLegal())
 		{
@@ -361,7 +361,6 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 
 	@Test
 	public void testInputInvalidAddsBasicNoSideEffect()
-			throws PersistenceLayerException
 	{
 		assertTrue(parse("TestWP1" + getJoinCharacter() + "TestWP2"));
 		assertTrue(parseSecondary("TestWP1" + getJoinCharacter() + "TestWP2"));
@@ -410,14 +409,14 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		getUnparseTarget().removeListFor(getListKey());
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testUnparseSingle() throws PersistenceLayerException
+	public void testUnparseSingle()
 	{
 		getUnparseTarget().addToListFor(getListKey(),
 				getConstant(getLegalValue()));
@@ -426,7 +425,7 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 	}
 
 	@Test
-	public void testUnparseNullInList() throws PersistenceLayerException
+	public void testUnparseNullInList()
 	{
 		getUnparseTarget().addToListFor(getListKey(), null);
 		try
@@ -441,7 +440,7 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 	}
 
 	@Test
-	public void testUnparseMultiple() throws PersistenceLayerException
+	public void testUnparseMultiple()
 	{
 		getUnparseTarget().addToListFor(getListKey(),
 				getConstant(getLegalValue()));

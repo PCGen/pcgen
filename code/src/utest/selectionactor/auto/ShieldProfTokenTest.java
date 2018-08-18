@@ -26,12 +26,12 @@ import selectionactor.testsupport.AbstractSelectionActorTest;
 public class ShieldProfTokenTest extends AbstractSelectionActorTest<ShieldProf>
 {
 
-	private static final ChooseSelectionActor cra = new ShieldProfToken();
+	private static final ChooseSelectionActor CRA = new ShieldProfToken();
 
 	@Override
 	public ChooseSelectionActor<ShieldProf> getActor()
 	{
-		return cra;
+		return CRA;
 	}
 
 	@Override

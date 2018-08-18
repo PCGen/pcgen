@@ -55,13 +55,13 @@ public class ApplyTokenTest extends AbstractCDOMTokenTestCase<Kit>
 	}
 
 	@Test
-	public void testInvalidInputString() throws PersistenceLayerException
+	public void testInvalidInputString()
 	{
 		internalTestInvalidInputString(null);
 	}
 
 	@Test
-	public void testInvalidInputStringSet() throws PersistenceLayerException
+	public void testInvalidInputStringSet()
 	{
 		assertTrue(parse("INSTANT"));
 		assertTrue(parseSecondary("INSTANT"));
@@ -70,7 +70,6 @@ public class ApplyTokenTest extends AbstractCDOMTokenTestCase<Kit>
 	}
 
 	public void internalTestInvalidInputString(Object val)
-			throws PersistenceLayerException
 	{
 		assertEquals(val, primaryProf.get(ObjectKey.APPLY_MODE));
 		assertFalse(parse("Always"));
@@ -88,7 +87,7 @@ public class ApplyTokenTest extends AbstractCDOMTokenTestCase<Kit>
 	}
 
 	@Test
-	public void testValidInputs() throws PersistenceLayerException
+	public void testValidInputs()
 	{
 		assertTrue(parse("INSTANT"));
 		assertEquals(KitApply.INSTANT, primaryProf.get(ObjectKey.APPLY_MODE));

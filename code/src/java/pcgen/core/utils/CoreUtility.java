@@ -44,9 +44,9 @@ import pcgen.util.Logging;
 public final class CoreUtility
 {
 
-	private static final double epsilon = 0.0001d;
+	private static final double EPSILON = 0.0001d;
 
-	public static final Comparator<Equipment> equipmentComparator = new Comparator<Equipment>()
+	public static final Comparator<Equipment> EQUIPMENT_COMPARATOR = new Comparator<Equipment>()
 	{
 		private int compareInts(final int obj1Index, final int obj2Index)
 		{
@@ -230,7 +230,7 @@ public final class CoreUtility
 	public static boolean doublesEqual(final double a, final double b)
 	{
 		// If the difference is less than epsilon, treat as equal.
-		return compareDouble(a, b, epsilon);
+		return compareDouble(a, b, EPSILON);
 	}
 
 	/**
@@ -240,7 +240,7 @@ public final class CoreUtility
 	 */
 	public static double epsilonFloor(double d)
 	{
-		return Math.floor(d + epsilon);
+		return Math.floor(d + EPSILON);
 	}
 
 	/**
@@ -442,7 +442,7 @@ public final class CoreUtility
 		{
 			workingList.add(e.clone());
 		}
-		workingList.sort(equipmentComparator);
+		workingList.sort(EQUIPMENT_COMPARATOR);
 
 		// no merging, just sorting (calling this is really stupid,
 		// just use the sort above)

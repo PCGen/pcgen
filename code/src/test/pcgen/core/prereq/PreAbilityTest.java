@@ -47,8 +47,9 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test the function of the ANY key 
-	 * @throws PersistenceLayerException
+	 * Test the function of the ANY key.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	public void testAnyMatch() throws PersistenceLayerException
 	{
@@ -73,8 +74,9 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test the function of the category matching 
-	 * @throws PersistenceLayerException
+	 * Test the function of the category matching.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	public void testCategoryMatch() throws PersistenceLayerException
 	{
@@ -106,8 +108,9 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test the function of the catgeory matching 
-	 * @throws PersistenceLayerException
+	 * Test the function of the category matching.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	public void testKeyMatch() throws PersistenceLayerException
 	{
@@ -146,8 +149,9 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test the function of the type matching 
-	 * @throws PersistenceLayerException
+	 * Test the function of the type matching.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	public void testTypeMatch() throws PersistenceLayerException
 	{
@@ -183,8 +187,9 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test the function of the SERVESAS token with direct key matching 
-	 * @throws PersistenceLayerException
+	 * Test the function of the SERVESAS token with direct key matching.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	public void testKeyMatchWithServesAs() throws PersistenceLayerException
 	{
@@ -229,8 +234,9 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test the function of the SERVESAS token with type matching 
-	 * @throws PersistenceLayerException
+	 * Test the function of the SERVESAS token with type matching .
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	public void testTypeMatchWithServesAs() throws PersistenceLayerException
 	{
@@ -268,8 +274,9 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test the function of the category matching 
-	 * @throws PersistenceLayerException
+	 * Test the function of the category matching.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	public void testCategoryMatchWithServesAs() throws PersistenceLayerException
 	{

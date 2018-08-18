@@ -25,6 +25,7 @@ import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.RuleCheck;
 import pcgen.core.SettingsHandler;
+import pcgen.persistence.PersistenceLayerException;
 import plugin.pretokens.parser.PreRuleParser;
 
 /**
@@ -87,10 +88,10 @@ public class PreRuleTest extends AbstractCharacterTestCase
 
 	/**
 	 * Test to ensure that we return false when races don't match.
-	 * 
-	 * @throws Exception
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void ruleDisabled() throws Exception
+	public void ruleDisabled() throws PersistenceLayerException
 	{
 		assertFalse("Our rule should start as false", Globals
 			.checkRule("PRERULE"));
@@ -108,10 +109,10 @@ public class PreRuleTest extends AbstractCharacterTestCase
 
 	/**
 	 * Test to ensure that we return false when races don't match.
-	 * 
-	 * @throws Exception
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void ruleEnabled() throws Exception
+	public void ruleEnabled() throws PersistenceLayerException
 	{
 		RuleCheck preRule = SettingsHandler.getGame().getModeContext().getReferenceContext()
 				.silentlyGetConstructedCDOMObject(RuleCheck.class, "PRERULE");

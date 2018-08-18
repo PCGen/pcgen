@@ -719,10 +719,10 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit
 	@Override
 	public Action[] getActions()
 	{
-		return TextAction.augmentList(super.getActions(), ExtendedHTMLEditorKit.defaultActions);
+		return TextAction.augmentList(super.getActions(), ExtendedHTMLEditorKit.DEFAULT_ACTIONS);
 	}
 
-	private static final Action[] defaultActions = {new PasteAction()};
+	private static final Action[] DEFAULT_ACTIONS = {new PasteAction()};
 
 	/**
 	 * PasteAction

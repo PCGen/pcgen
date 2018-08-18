@@ -58,48 +58,48 @@ public class DefaultVariableValueTokenTest extends
 	}
 
 	@Test
-	public void testInvalidInputNullString() throws PersistenceLayerException
+	public void testInvalidInputNullString()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, null)
 			.passed());
 	}
 
 	@Test
-	public void testInvalidInputEmptyString() throws PersistenceLayerException
+	public void testInvalidInputEmptyString()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "").passed());
 	}
 
 	@Test
-	public void testInvalidInputNotAType() throws PersistenceLayerException
+	public void testInvalidInputNotAType()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "BADTYPE|45")
 			.passed());
 	}
 
 	@Test
-	public void testInvalidInputEmptyType() throws PersistenceLayerException
+	public void testInvalidInputEmptyType()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "|3")
 			.passed());
 	}
 
 	@Test
-	public void testInvalidTypeValue() throws PersistenceLayerException
+	public void testInvalidTypeValue()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "NUMBER|3r")
 			.passed());
 	}
 
 	@Test
-	public void testInvalidInputDoublePipe() throws PersistenceLayerException
+	public void testInvalidInputDoublePipe()
 	{
 		assertFalse(token
 			.parseToken(primaryContext, primaryProf, "STRING||Def").passed());
 	}
 
 	@Test
-	public void testInvalidInputTooManyArgs() throws PersistenceLayerException
+	public void testInvalidInputTooManyArgs()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf,
 			"STRING|Def|Abc").passed());
@@ -107,14 +107,13 @@ public class DefaultVariableValueTokenTest extends
 
 	@Test
 	public void testInvalidDefaultEmptyNumber()
-		throws PersistenceLayerException
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "NUMBER|")
 			.passed());
 	}
 
 	@Test
-	public void testValidDefultEmptyString() throws PersistenceLayerException
+	public void testValidDefultEmptyString()
 	{
 		assertTrue(token.parseToken(primaryContext, primaryProf, "STRING|")
 			.passed());
@@ -125,7 +124,7 @@ public class DefaultVariableValueTokenTest extends
 	}
 
 	@Test
-	public void testValidStringNo() throws PersistenceLayerException
+	public void testValidStringNo()
 	{
 		ParseResult pr =
 				token

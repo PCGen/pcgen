@@ -162,8 +162,8 @@ public class FilterBar<C, E> extends JPanel implements DisplayableFilter<C, E>
 		{
 		}
 
-		private static final int[] yup = {1, 4, 4};
-		private static final int[] ydown = {4, 1, 1};
+		private static final int[] YUP = {1, 4, 4};
+		private static final int[] YDOWN = {4, 1, 1};
 
 		@Override
 		public void paint(Graphics g)
@@ -187,12 +187,12 @@ public class FilterBar<C, E> extends JPanel implements DisplayableFilter<C, E>
 			int[] ys;
 			if (open)
 			{
-				ys = yup;
+				ys = YUP;
 
 			}
 			else
 			{
-				ys = ydown;
+				ys = YDOWN;
 			}
 			g.setColor(f);
 			g.drawPolygon(xs, ys, 3);

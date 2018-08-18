@@ -82,21 +82,21 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Spell>
 	}
 
 	@Test
-	public void testInvalidInputEmpty() throws PersistenceLayerException
+	public void testInvalidInputEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputClassOnly() throws PersistenceLayerException
+	public void testInvalidInputClassOnly()
 	{
 		assertFalse(parse("Wizard"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputLevelOnly() throws PersistenceLayerException
+	public void testInvalidInputLevelOnly()
 	{
 		assertFalse(parse("3"));
 		assertNoSideEffects();
@@ -104,21 +104,20 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Spell>
 
 	@Test
 	public void testInvalidInputChainClassOnly()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("Wizard=3|Sorcerer"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputDoubleEquals() throws PersistenceLayerException
+	public void testInvalidInputDoubleEquals()
 	{
 		assertFalse(parse("Wizard==4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputBadLevel() throws PersistenceLayerException
+	public void testInvalidInputBadLevel()
 	{
 		assertFalse(parse("Wizard=Sorcerer"));
 		assertNoSideEffects();
@@ -126,42 +125,41 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Spell>
 
 	@Test
 	public void testInvalidInputNegativeLevel()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("Wizard=-4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputLeadingBar() throws PersistenceLayerException
+	public void testInvalidInputLeadingBar()
 	{
 		assertFalse(parse("|Wizard=4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputTrailingBar() throws PersistenceLayerException
+	public void testInvalidInputTrailingBar()
 	{
 		assertFalse(parse("Wizard=4|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputDoublePipe() throws PersistenceLayerException
+	public void testInvalidInputDoublePipe()
 	{
 		assertFalse(parse("Wizard=3||Sorcerer=4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputDoubleComma() throws PersistenceLayerException
+	public void testInvalidInputDoubleComma()
 	{
 		assertFalse(parse("Wizard,,Sorcerer=4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputLeadingComma() throws PersistenceLayerException
+	public void testInvalidInputLeadingComma()
 	{
 		assertFalse(parse(",Wizard=4"));
 		assertNoSideEffects();
@@ -169,14 +167,13 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Spell>
 
 	@Test
 	public void testInvalidInputTrailingEquals()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("Wizard=4="));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputDoubleSet() throws PersistenceLayerException
+	public void testInvalidInputDoubleSet()
 	{
 		assertFalse(parse("Wizard=4=3"));
 		assertNoSideEffects();
@@ -184,14 +181,13 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Spell>
 
 	@Test
 	public void testInvalidInputTrailingComma()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("Wizard,=4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEmptyType() throws PersistenceLayerException
+	public void testInvalidInputEmptyType()
 	{
 		assertFalse(parse("TYPE.=4"));
 		assertNoSideEffects();
@@ -199,7 +195,6 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Spell>
 
 	@Test
 	public void testInvalidInputEmptyPrerequisite()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("Wizard=4[]"));
 		assertNoSideEffects();
@@ -207,7 +202,6 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Spell>
 
 	@Test
 	public void testInvalidInputOpenEndedPrerequisite()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("Wizard=4[PRERACE:1,Human"));
 		assertNoSideEffects();
@@ -215,14 +209,13 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Spell>
 
 	@Test
 	public void testInvalidInputNegativePrerequisite()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("Wizard=-1[PRERACE:1,Human]"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNegativePre() throws PersistenceLayerException
+	public void testInvalidInputNegativePre()
 	{
 		assertFalse(parse("Wizard=-1[PRERACE:1,Human]"));
 		assertNoSideEffects();
@@ -230,14 +223,13 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Spell>
 
 	@Test
 	public void testInvalidInputBadPrerequisite()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("Fire=4[PREFOO:1,Human]"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNotClass() throws PersistenceLayerException
+	public void testInvalidInputNotClass()
 	{
 		assertTrue(parse("Wizard=4"));
 		assertConstructionError();
@@ -245,7 +237,6 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Spell>
 
 	@Test
 	public void testInvalidInputNotClassCompound()
-			throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(ClassSpellList.class, "Wizard");
 		secondaryContext.getReferenceContext()
@@ -255,7 +246,7 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Spell>
 	}
 
 	@Test
-	public void testValidInputClearAll() throws PersistenceLayerException
+	public void testValidInputClearAll()
 	{
 		assertTrue(parse(Constants.LST_DOT_CLEAR_ALL));
 		assertCleanConstruction();
@@ -343,7 +334,7 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Spell>
 	}
 
 	// @Test(expected = IllegalArgumentException.class)
-	public void testInvalidInputAllPlus() throws PersistenceLayerException
+	public void testInvalidInputAllPlus()
 	{
 		try
 		{
@@ -357,7 +348,7 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Spell>
 	}
 
 	// @Test(expected = IllegalArgumentException.class)
-	public void testInvalidInputPlusAll() throws PersistenceLayerException
+	public void testInvalidInputPlusAll()
 	{
 		try
 		{
@@ -381,7 +372,6 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Spell>
 
 	@Test
 	public void testInvalidRoundRobinMixedPrereqs()
-		throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(ClassSpellList.class, "Wizard");
 		primaryContext.getReferenceContext().constructCDOMObject(ClassSpellList.class, "Cleric");
@@ -397,7 +387,7 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Spell>
 	}
 
 	@Test
-	public void testReplacementInputs() throws PersistenceLayerException
+	public void testReplacementInputs()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(ClassSpellList.class, "Wizard");
 		secondaryContext.getReferenceContext()
@@ -415,7 +405,7 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Spell>
 	}
 
 	@Test
-	public void testReplacementTypeDot() throws PersistenceLayerException
+	public void testReplacementTypeDot()
 	{
 		String[] unparsed;
 		assertTrue(parse("TYPE.Arcane=1"));
@@ -442,7 +432,7 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Spell>
 	}
 
 	@Test
-	public void testClearPrereqInvalid() throws PersistenceLayerException
+	public void testClearPrereqInvalid()
 	{
 		assertEquals(0, primaryContext.getWriteMessageCount());
 		primaryContext.getReferenceContext().constructCDOMObject(ClassSpellList.class, "Wizard");

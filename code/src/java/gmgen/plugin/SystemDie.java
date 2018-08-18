@@ -32,6 +32,6 @@ class SystemDie extends Die
 	 */
 	SystemDie(final int modifier)
 	{
-		super(new SystemDieConfig(1, 20, modifier, Die.rand));
+		super(new SystemDieConfig(1, 20, modifier, Die.RAND));
 	}
 }

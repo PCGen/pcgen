@@ -24,17 +24,21 @@ import org.junit.Test;
 
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.persistence.PersistenceLayerException;
 import plugin.pretokens.parser.PreCheckParser;
 
 
 @SuppressWarnings("nls")
 public class PreCheckParserTest extends EnUsLocaleDependentTestCase
 {
+	
 	/**
-	 * @throws Exception
+	 * Test base fort 4 will 7.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testBaseFort4Will7() throws Exception
+	public void testBaseFort4Will7() throws PersistenceLayerException
 	{
 		PreCheckParser parser = new PreCheckParser();
 
@@ -51,11 +55,14 @@ public class PreCheckParserTest extends EnUsLocaleDependentTestCase
 				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 	}
 
+	
 	/**
-	 * @throws Exception
+	 * Test base will 7.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testBaseWill7() throws Exception
+	public void testBaseWill7() throws PersistenceLayerException
 	{
 		PreCheckParser parser = new PreCheckParser();
 
@@ -67,11 +74,14 @@ public class PreCheckParserTest extends EnUsLocaleDependentTestCase
 				+ "</prereq>\n", prereq.toString());
 	}
 
+	
 	/**
-	 * @throws Exception
+	 * Test fort 3.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testFort3() throws Exception
+	public void testFort3() throws PersistenceLayerException
 	{
 		PreCheckParser parser = new PreCheckParser();
 

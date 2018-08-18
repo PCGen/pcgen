@@ -26,6 +26,7 @@ import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.LocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.persistence.PersistenceLayerException;
 
 
 @SuppressWarnings("nls")
@@ -61,10 +62,13 @@ public class PreParserFactoryTest extends AbstractCharacterTestCase
 		LocaleDependentTestCase.after();
 	}
 	
+	
 	/**
-	 * @throws Exception
+	 * Test not equal.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testNotEqual() throws Exception
+	public void testNotEqual() throws PersistenceLayerException
 	{
 		PreParserFactory factory = PreParserFactory.getInstance();
 
@@ -75,10 +79,13 @@ public class PreParserFactoryTest extends AbstractCharacterTestCase
 			prereq.toString());
 	}
 
+
 	/**
-	 * @throws Exception
+	 * Test override qualifies.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testOverrideQualifies() throws Exception
+	public void testOverrideQualifies() throws PersistenceLayerException
 	{
 		PreParserFactory factory = PreParserFactory.getInstance();
 

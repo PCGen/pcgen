@@ -44,16 +44,17 @@ public interface PrerequisiteParserInterface
 	public String[] kindsHandled();
 
 	/**
+	 * Parses the.
+	 *
 	 * @param kind the kind of the prerequisite (less the "PRE" prefix)
 	 * @param formula The body of the prerequisite;
 	 * @param invertResult If the prerequisite should invert the result
 	 * before it is returned
-	 * @param overrideQualify
-	 *
+	 * @param overrideQualify the override qualify
 	 * @return Returns a Prerequisite instance containing the parsed contents
 	 * of the input string "value". If the input could not be parsed
 	 * for any reason a PersistenceLayerException will be thrown.
-	 * @throws PersistenceLayerException
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
 		throws PersistenceLayerException;

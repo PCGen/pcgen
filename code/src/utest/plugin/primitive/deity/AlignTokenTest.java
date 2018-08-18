@@ -89,12 +89,11 @@ public class AlignTokenTest extends
 	}
 
 	public void testPrimitiveIllegalSpelledOut()
-			throws PersistenceLayerException
 	{
 		doPrimitiveIllegalTarget("LawfulGood");
 	}
 
-	public void testPrimitiveIllegalMultiple() throws PersistenceLayerException
+	public void testPrimitiveIllegalMultiple()
 	{
 		doPrimitiveIllegalTarget("LG.NG");
 	}

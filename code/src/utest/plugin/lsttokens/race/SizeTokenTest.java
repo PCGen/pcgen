@@ -127,14 +127,14 @@ public class SizeTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.put(FormulaKey.SIZE, null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testUnparseLegal() throws PersistenceLayerException
+	public void testUnparseLegal()
 	{
 		FixedSizeFormula fsf = new FixedSizeFormula(CDOMDirectSingleRef.getRef(ps));
 		primaryProf.put(FormulaKey.SIZE, fsf);

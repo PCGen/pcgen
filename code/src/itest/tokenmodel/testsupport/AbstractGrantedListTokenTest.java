@@ -28,13 +28,12 @@ import pcgen.core.PCCheck;
 import pcgen.core.PCStat;
 import pcgen.core.character.CompanionMod;
 import pcgen.output.channel.ChannelCompatibility;
-import pcgen.persistence.PersistenceLayerException;
 
 public abstract class AbstractGrantedListTokenTest<T extends CDOMObject>
 		extends AbstractAddListTokenTest<T>
 {
 	@Test
-	public void testFromAlignment() throws PersistenceLayerException
+	public void testFromAlignment()
 	{
 		T granted = createGrantedObject();
 		processToken(lg);
@@ -50,7 +49,7 @@ public abstract class AbstractGrantedListTokenTest<T extends CDOMObject>
 	//BioSet not *supposed* to do things like this
 
 	@Test
-	public void testFromCampaign() throws PersistenceLayerException
+	public void testFromCampaign()
 	{
 		Campaign source = create(Campaign.class, "Source");
 		T granted = createGrantedObject();
@@ -66,7 +65,7 @@ public abstract class AbstractGrantedListTokenTest<T extends CDOMObject>
 	}
 
 	@Test
-	public void testFromCheck() throws PersistenceLayerException
+	public void testFromCheck()
 	{
 		PCCheck source = create(PCCheck.class, "Source");
 		T granted = createGrantedObject();
@@ -83,7 +82,7 @@ public abstract class AbstractGrantedListTokenTest<T extends CDOMObject>
 	}
 
 	@Test
-	public void testFromCompanionMod() throws PersistenceLayerException
+	public void testFromCompanionMod()
 	{
 		CompanionList cat = create(CompanionList.class, "Category");
 		context.getReferenceContext().importObject(cat);
@@ -102,7 +101,7 @@ public abstract class AbstractGrantedListTokenTest<T extends CDOMObject>
 	}
 
 	@Test
-	public void testFromEqMod() throws PersistenceLayerException
+	public void testFromEqMod()
 	{
 		EquipmentModifier source = create(EquipmentModifier.class, "Source");
 		Equipment e = create(Equipment.class, "Parent");
@@ -126,7 +125,7 @@ public abstract class AbstractGrantedListTokenTest<T extends CDOMObject>
 	//Skill not *supposed* to do things like this
 
 	@Test
-	public void testFromStat() throws PersistenceLayerException
+	public void testFromStat()
 	{
 		PCStat source = cha;
 		T granted = createGrantedObject();

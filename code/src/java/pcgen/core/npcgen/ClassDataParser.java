@@ -69,11 +69,10 @@ public class ClassDataParser
 
 	/**
 	 * Creates a new <tt>ClassDataParser</tt> for the specified game mode.
-	 * 
+	 *
 	 * @param aMode The game mode to parse class options for.
-	 * 
-	 * @throws ParserConfigurationException
-	 * @throws SAXException
+	 * @throws ParserConfigurationException the parser configuration exception
+	 * @throws SAXException the SAX exception
 	 */
 	public ClassDataParser(final GameMode aMode) throws ParserConfigurationException, SAXException
 	{
@@ -86,14 +85,12 @@ public class ClassDataParser
 
 	/**
 	 * Parses a XML class data options file.
-	 * 
+	 *
 	 * @param aFileName File to parse.
-	 * 
 	 * @return A <tt>List</tt> of <tt>ClassData</tt> objects representing the
 	 * options in the file.
-	 * 
-	 * @throws SAXException
-	 * @throws IOException
+	 * @throws SAXException the SAX exception
+	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
 	public List<ClassData> parse(final File aFileName) throws SAXException, IOException
 	{

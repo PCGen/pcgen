@@ -20,6 +20,7 @@ package pcgen.io;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -106,26 +107,32 @@ public abstract class IOHandler
 
 	/**
 	 * Writes the contents of the PlayerCharacter to a file.
-	 *
+	 * 
 	 * <br>author: Thomas Behr 11-03-02
 	 *
 	 * @param aPC        the PlayerCharacter to write
 	 * @param filename   the name of the output file
-	 * @throws IOException
-	 * @throws NullPointerException
+	 * @throws FileNotFoundException the file not found exception
+	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
-	public final void write(PlayerCharacter aPC, String filename) throws IOException, NullPointerException
+	public final void write(PlayerCharacter aPC, String filename) throws FileNotFoundException, IOException
 	{
 		write(aPC, null, null, filename);
 	}
 
 	/**
 	 * Writes the contents of the PlayerCharacter to a file.
+	 *
 	 * @param aPC        the PlayerCharacter to write
+	 * @param mode  the mode
+	 * @param campaigns  the campaigns
 	 * @param filename   the name of the output file
+	 * @throws FileNotFoundException the file not found exception
+	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
 	public final void write(PlayerCharacter aPC, GameMode mode, List<CampaignFacade> campaigns, String filename)
-		throws IOException
+			throws FileNotFoundException, IOException
+		
 	{
 		try (OutputStream out = new FileOutputStream(filename))
 		{

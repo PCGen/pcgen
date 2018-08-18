@@ -32,14 +32,13 @@ import pcgen.core.Domain;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
-import pcgen.persistence.PersistenceLayerException;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 public abstract class AbstractAddListTokenTest<T extends CDOMObject>
 		extends AbstractTokenModelTest
 {
 	@Test
-	public void testFromAbility() throws PersistenceLayerException
+	public void testFromAbility()
 	{
 		Ability source = BuildUtilities.buildFeat(context, "Source");
 		T granted = createGrantedObject();
@@ -59,7 +58,7 @@ public abstract class AbstractAddListTokenTest<T extends CDOMObject>
 	//BioSet not *supposed* to do things like this
 
 	@Test
-	public void testFromClass() throws PersistenceLayerException
+	public void testFromClass()
 	{
 		PCClass source = create(PCClass.class, "Source");
 		T granted = createGrantedObject();
@@ -74,7 +73,7 @@ public abstract class AbstractAddListTokenTest<T extends CDOMObject>
 	}
 
 	@Test
-	public void testFromClassLevel() throws PersistenceLayerException
+	public void testFromClassLevel()
 	{
 		PCClassLevel source = create(PCClassLevel.class, "Source");
 		T granted = createGrantedObject();
@@ -89,7 +88,7 @@ public abstract class AbstractAddListTokenTest<T extends CDOMObject>
 	}
 
 	@Test
-	public void testFromDeity() throws PersistenceLayerException
+	public void testFromDeity()
 	{
 		Deity source = create(Deity.class, "Source");
 		T granted = createGrantedObject();
@@ -104,7 +103,7 @@ public abstract class AbstractAddListTokenTest<T extends CDOMObject>
 	}
 
 	@Test
-	public void testFromDomain() throws PersistenceLayerException
+	public void testFromDomain()
 	{
 		Domain source = create(Domain.class, "Source");
 		PCClass pcc = create(PCClass.class, "Class");
@@ -123,7 +122,7 @@ public abstract class AbstractAddListTokenTest<T extends CDOMObject>
 	//Language not *supposed* to do things like this
 
 	@Test
-	public void testFromRace() throws PersistenceLayerException
+	public void testFromRace()
 	{
 		Race source = create(Race.class, "Source");
 		T granted = createGrantedObject();
@@ -143,7 +142,7 @@ public abstract class AbstractAddListTokenTest<T extends CDOMObject>
 	//Skill not *supposed* to do things like this
 
 	@Test
-	public void testFromTemplate() throws PersistenceLayerException
+	public void testFromTemplate()
 	{
 		PCTemplate source = create(PCTemplate.class, "Source");
 		T granted = createGrantedObject();

@@ -27,12 +27,12 @@ public class WeaponBonusListActorTest extends
 		AbstractPersistentCDOMChoiceActorTestCase<WeaponProf>
 {
 
-	private static final Persistent<WeaponProf> pca = new WeaponbonusToken();
+	private static final Persistent<WeaponProf> PCA = new WeaponbonusToken();
 
 	@Override
 	public Persistent<WeaponProf> getActor()
 	{
-		return pca;
+		return PCA;
 	}
 
 	@Override

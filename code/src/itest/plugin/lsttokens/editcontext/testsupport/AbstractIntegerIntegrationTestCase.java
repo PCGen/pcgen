@@ -62,7 +62,7 @@ public abstract class AbstractIntegerIntegrationTestCase<T extends CDOMObject>
 	}
 
 	@Test
-	public void testArchitectire() throws PersistenceLayerException
+	public void testArchitectire()
 	{
 		assertTrue(isPositiveAllowed() || isNegativeAllowed());
 	}

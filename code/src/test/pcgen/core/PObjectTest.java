@@ -101,10 +101,9 @@ public class PObjectTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test DR
-	 * @throws Exception
+	 * Test DR.
 	 */
-	public void testDR() throws Exception
+	public void testDR()
 	{
 		Race race = new Race();
 		LoadContext context = Globals.getContext();
@@ -141,9 +140,9 @@ public class PObjectTest extends AbstractCharacterTestCase
 	/**
 	 * Test the processing of getPCCText to ensure that it correctly produces
 	 * an LST representation of an object and that the LST can then be reloaded
-	 * to recrete the object.
+	 * to recreate the object.
 	 *
-	 * @throws PersistenceLayerException
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	public void testGetPCCText() throws PersistenceLayerException
 	{

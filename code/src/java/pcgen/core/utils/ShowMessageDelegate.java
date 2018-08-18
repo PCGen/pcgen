@@ -24,7 +24,7 @@ import java.util.Observable;
  */
 public final class ShowMessageDelegate extends Observable
 {
-	private static final ShowMessageDelegate instance = new ShowMessageDelegate();
+	private static final ShowMessageDelegate INSTANCE = new ShowMessageDelegate();
 
 	private ShowMessageDelegate()
 	{
@@ -43,9 +43,9 @@ public final class ShowMessageDelegate extends Observable
 
 	public static void showMessageDialog(final MessageWrapper messageWrapper)
 	{
-		instance.setChanged();
-		instance.notifyObservers(messageWrapper);
-		if (instance.countObservers() == 0 && messageWrapper.getMessage() != null
+		INSTANCE.setChanged();
+		INSTANCE.notifyObservers(messageWrapper);
+		if (INSTANCE.countObservers() == 0 && messageWrapper.getMessage() != null
 			&& !messageWrapper.getMessage().toString().isEmpty())
 		{
 			System.out.println(messageWrapper.getTitle() + ": " + messageWrapper.getMessage());
@@ -57,7 +57,7 @@ public final class ShowMessageDelegate extends Observable
 	 */
 	public static ShowMessageDelegate getInstance()
 	{
-		return instance;
+		return INSTANCE;
 	}
 
 }

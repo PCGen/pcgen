@@ -40,7 +40,7 @@ public final class Comparators
 	private static final ToStringIgnoreCaseCollator tSICCol = new ToStringIgnoreCaseCollator();
 	private static final IntegerComparator iC = new IntegerComparator();
 	private static final NumberComparator nC = new NumberComparator();
-	private static final DateComparator dC = new DateComparator();
+	private static final DateComparator DC = new DateComparator();
 	private static final HashCodeComparator hCC = new HashCodeComparator();
 	private static final TreeTableNodeComparator treeNodeComp = new TreeTableNodeComparator();
 
@@ -99,7 +99,7 @@ public final class Comparators
 
 	public static Comparator<Date> dateComparator()
 	{
-		return dC;
+		return DC;
 	}
 
 	public static Comparator<String> ignoreCaseStringComparator()
@@ -218,14 +218,14 @@ public final class Comparators
 	private static final class ToStringIgnoreCaseCollator implements Comparator<Object>, Serializable
 	{
 
-		private static final Collator collator = Collator.getInstance();
+		private static final Collator COLLATOR = Collator.getInstance();
 
 		@Override
 		public int compare(Object o1, Object o2)
 		{
 			String s1 = (o1 == null) ? "" : o1.toString();
 			String s2 = (o2 == null) ? "" : o2.toString();
-			return collator.compare(s1, s2);
+			return COLLATOR.compare(s1, s2);
 		}
 
 	}

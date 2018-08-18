@@ -21,7 +21,6 @@ import org.junit.Test;
 
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.spell.Spell;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractStringTokenTestCase;
@@ -64,13 +63,13 @@ public class TargetAreaTokenTest extends AbstractStringTokenTestCase<Spell>
 	}
 
 	@Test
-	public void testGoodParentheses() throws PersistenceLayerException
+	public void testGoodParentheses()
 	{
 		assertTrue(parse("(first)"));
 	}
 	
 	@Test
-	public void testBadParentheses() throws PersistenceLayerException
+	public void testBadParentheses()
 	{
 		assertFalse("Missing end paren should have been flagged.", parse("(first"));
 		assertFalse("Missing start paren should have been flagged.", parse("first)"));

@@ -37,7 +37,7 @@ class NSidedModifiedDieConfig implements DiceConfig
 	@Override
 	public int roll()
 	{
-		return IntStream.generate(() -> Die.rand.nextInt(sides) + 1).map(v -> v + bias).limit(n).sum();
+		return IntStream.generate(() -> Die.RAND.nextInt(sides) + 1).map(v -> v + bias).limit(n).sum();
 	}
 
 	@Override

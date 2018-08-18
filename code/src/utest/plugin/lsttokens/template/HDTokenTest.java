@@ -77,42 +77,42 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	}
 
 	@Test
-	public void testInvalidInputHDonly() throws PersistenceLayerException
+	public void testInvalidInputHDonly()
 	{
 		assertFalse(parse("3+"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputPipe() throws PersistenceLayerException
+	public void testInvalidInputPipe()
 	{
 		assertFalse(parse("3+|SR|3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputOneColon() throws PersistenceLayerException
+	public void testInvalidInputOneColon()
 	{
 		assertFalse(parse("3+:SR|2"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEmptyHD() throws PersistenceLayerException
+	public void testInvalidInputEmptyHD()
 	{
 		assertFalse(parse(":DR:3/+1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEmptySubtype() throws PersistenceLayerException
+	public void testInvalidInputEmptySubtype()
 	{
 		assertFalse(parse("4+::3/+1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEmptyDR() throws PersistenceLayerException
+	public void testInvalidInputEmptyDR()
 	{
 		assertFalse(parse("3+:DR:"));
 		assertNoSideEffects();
@@ -120,49 +120,48 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 
 	@Test
 	public void testInvalidInputEmptyDRNoColon()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("3+:DR"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNoSlashDR() throws PersistenceLayerException
+	public void testInvalidInputNoSlashDR()
 	{
 		assertFalse(parse("3+:DR:1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputTwoSlashDR() throws PersistenceLayerException
+	public void testInvalidInputTwoSlashDR()
 	{
 		assertFalse(parse("3+:DR:1/3/+4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNegativeLegs() throws PersistenceLayerException
+	public void testInvalidInputNegativeLegs()
 	{
 		assertFalse(parse("3+:LEGS:-4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEmptySR() throws PersistenceLayerException
+	public void testInvalidInputEmptySR()
 	{
 		assertFalse(parse("3+:SR:"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEmptySA() throws PersistenceLayerException
+	public void testInvalidInputEmptySA()
 	{
 		assertFalse(parse("3+:SAB:"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEmptyCR() throws PersistenceLayerException
+	public void testInvalidInputEmptyCR()
 	{
 		assertFalse(parse("3+:CR:"));
 		assertNoSideEffects();
@@ -170,7 +169,6 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 
 	@Test
 	public void testInvalidInputEmptySRNoColon()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("3+:SR"));
 		assertNoSideEffects();
@@ -178,7 +176,6 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 
 	@Test
 	public void testInvalidInputEmptySANoColon()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("3+:SAB"));
 		assertNoSideEffects();
@@ -186,14 +183,13 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 
 	@Test
 	public void testInvalidInputEmptyCRNoColon()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("3+:CR"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNoAbbrs() throws PersistenceLayerException
+	public void testInvalidInputNoAbbrs()
 	{
 		assertFalse(parse("3+:C:3"));
 		assertFalse(parse("3+:D:1/+2"));
@@ -205,7 +201,7 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	}
 
 	@Test
-	public void testInvalidInputBadClear() throws PersistenceLayerException
+	public void testInvalidInputBadClear()
 	{
 		assertFalse(parse(".CLEARSTUFF"));
 		assertNoSideEffects();
@@ -213,7 +209,6 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 
 	@Test
 	public void testInvalidInputNoSpecificClear()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse(".CLEAR.3+:CR:3"));
 		assertNoSideEffects();
@@ -221,7 +216,6 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 
 	@Test
 	public void testInvalidInputBadHDRangePlus()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("+3:SAB:Special Abil"));
 		assertNoSideEffects();
@@ -229,7 +223,6 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 
 	@Test
 	public void testInvalidInputBadHDRangeMult()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("*3:SAB:Special Abil"));
 		assertNoSideEffects();
@@ -237,7 +230,6 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 
 	@Test
 	public void testInvalidInputBadHDRangeTwoDash()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("1--3:SAB:Special Abil"));
 		assertNoSideEffects();
@@ -245,7 +237,6 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 
 	@Test
 	public void testInvalidInputBadHDRangeEndDash()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("4-:SAB:Special Abil"));
 		assertNoSideEffects();
@@ -253,14 +244,13 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 
 	@Test
 	public void testInvalidInputBadHDRangeUpTo()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("-4:SAB:Special Abil"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidBadTemplateToken() throws PersistenceLayerException
+	public void testInvalidBadTemplateToken()
 	{
 		assertFalse(parse("5:CR:x"));
 		assertNoSideEffects();
@@ -373,7 +363,7 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	}
 
 	@Test
-	public void testParseClear() throws PersistenceLayerException
+	public void testParseClear()
 	{
 		assertTrue(parse(Constants.LST_DOT_CLEAR));
 		assertCleanConstruction();

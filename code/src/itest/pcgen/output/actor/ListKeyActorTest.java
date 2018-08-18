@@ -27,7 +27,7 @@ import pcgen.output.wrapper.CDOMObjectWrapper;
 public class ListKeyActorTest extends AbstractOutputTestCase
 {
 
-	private static final DeityFacet df = new DeityFacet();
+	private static final DeityFacet DF = new DeityFacet();
 
 	private static boolean classSetUpRun = false;
 
@@ -45,7 +45,7 @@ public class ListKeyActorTest extends AbstractOutputTestCase
 	private void classSetUp()
 	{
 		OutputDB.reset();
-		df.init();
+		DF.init();
 	}
 
 	public void testListKeyActor()
@@ -54,7 +54,7 @@ public class ListKeyActorTest extends AbstractOutputTestCase
 		d.setName("Bob");
 		String expectedResult1 = "Magical";
 		String expectedResult2 = "Long";
-		df.set(id, d);
+		DF.set(id, d);
 		d.addToListFor(ListKey.BOOK_TYPE, expectedResult1);
 		d.addToListFor(ListKey.BOOK_TYPE, expectedResult2);
 		ListKeyActor lka = new ListKeyActor(ListKey.BOOK_TYPE);

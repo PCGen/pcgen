@@ -93,7 +93,7 @@ public class CSkillTokenTest extends AbstractListInputTokenTestCase<Domain, Skil
 		runRoundRobin("LIST");
 	}
 
-	public void testAllowClearList() throws PersistenceLayerException
+	public void testAllowClearList()
 	{
 		assertTrue(parse(".CLEAR.LIST"));
 	}

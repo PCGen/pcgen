@@ -485,8 +485,8 @@ public class BatchExporter
 	 *
 	 * @param character the loaded CharacterFacade to export
 	 * @param outputStream the OutputStream that the character will be exported to
-	 * @throws IOException
-	 * @throws ExportException
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 * @throws ExportException if there is an export exception
 	 */
 	public static void exportCharacter(CharacterFacade character, OutputStream outputStream)
 		throws IOException, ExportException

@@ -26,12 +26,12 @@ import selectionactor.testsupport.AbstractSelectionActorTest;
 public class LangTokenTest extends AbstractSelectionActorTest<Language>
 {
 
-	private static final ChooseSelectionActor cra = new LangToken();
+	private static final ChooseSelectionActor CRA = new LangToken();
 
 	@Override
 	public ChooseSelectionActor<Language> getActor()
 	{
-		return cra;
+		return CRA;
 	}
 
 	@Override

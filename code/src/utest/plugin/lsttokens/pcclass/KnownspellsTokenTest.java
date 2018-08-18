@@ -82,7 +82,7 @@ public class KnownspellsTokenTest extends AbstractListInputTokenTestCase<PCClass
 	}
 
 	@Test
-	public void testInvalidInputEmpty() throws PersistenceLayerException
+	public void testInvalidInputEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
@@ -90,7 +90,7 @@ public class KnownspellsTokenTest extends AbstractListInputTokenTestCase<PCClass
 
 	@Override
 	@Test
-	public void testInvalidInputJoinedComma() throws PersistenceLayerException
+	public void testInvalidInputJoinedComma()
 	{
 		if (getJoinCharacter() != ',')
 		{
@@ -102,14 +102,14 @@ public class KnownspellsTokenTest extends AbstractListInputTokenTestCase<PCClass
 	}
 
 	@Test
-	public void testInvalidInputTwoType() throws PersistenceLayerException
+	public void testInvalidInputTwoType()
 	{
 		assertFalse(parse("TYPE=TestWP1,TYPE=TestWP2"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputSpellAndType() throws PersistenceLayerException
+	public void testInvalidInputSpellAndType()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("TestWP1,TYPE=TestWP2"));
@@ -117,49 +117,49 @@ public class KnownspellsTokenTest extends AbstractListInputTokenTestCase<PCClass
 	}
 
 	@Test
-	public void testInvalidInputLevelEmpty() throws PersistenceLayerException
+	public void testInvalidInputLevelEmpty()
 	{
 		assertFalse(parse("LEVEL="));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputLevelNaN() throws PersistenceLayerException
+	public void testInvalidInputLevelNaN()
 	{
 		assertFalse(parse("LEVEL=One"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputLevelDouble() throws PersistenceLayerException
+	public void testInvalidInputLevelDouble()
 	{
 		assertFalse(parse("LEVEL=1.0"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputStart() throws PersistenceLayerException
+	public void testInvalidInputStart()
 	{
 		assertFalse(parse(",LEVEL=2"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEnd() throws PersistenceLayerException
+	public void testInvalidInputEnd()
 	{
 		assertFalse(parse("LEVEL=2,"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNegative() throws PersistenceLayerException
+	public void testInvalidInputNegative()
 	{
 		assertFalse(parse("LEVEL=-2"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputDouble() throws PersistenceLayerException
+	public void testInvalidInputDouble()
 	{
 		if (isTypeLegal())
 		{
@@ -169,7 +169,7 @@ public class KnownspellsTokenTest extends AbstractListInputTokenTestCase<PCClass
 	}
 
 	@Test
-	public void testInvalidInputTwoLevel() throws PersistenceLayerException
+	public void testInvalidInputTwoLevel()
 	{
 		assertFalse(parse("LEVEL=1,LEVEL=2"));
 		assertNoSideEffects();
@@ -268,7 +268,7 @@ public class KnownspellsTokenTest extends AbstractListInputTokenTestCase<PCClass
 	}
 
 	@Test
-	public void testUnparseOne() throws PersistenceLayerException
+	public void testUnparseOne()
 	{
 		Spell fireball = primaryContext.getReferenceContext().constructCDOMObject(Spell.class,
 				"Fireball");
@@ -280,7 +280,7 @@ public class KnownspellsTokenTest extends AbstractListInputTokenTestCase<PCClass
 	}
 
 	@Test
-	public void testUnparseMultiple() throws PersistenceLayerException
+	public void testUnparseMultiple()
 	{
 		Spell fireball = primaryContext.getReferenceContext().constructCDOMObject(Spell.class,
 				"Fireball");
@@ -297,7 +297,7 @@ public class KnownspellsTokenTest extends AbstractListInputTokenTestCase<PCClass
 	}
 
 	@Test
-	public void testUnparseLevel() throws PersistenceLayerException
+	public void testUnparseLevel()
 	{
 		CDOMGroupRef<Spell> all = primaryContext.getReferenceContext()
 				.getCDOMAllReference(Spell.class);
@@ -308,7 +308,7 @@ public class KnownspellsTokenTest extends AbstractListInputTokenTestCase<PCClass
 	}
 
 	@Test
-	public void testUnparseNegativeLevel() throws PersistenceLayerException
+	public void testUnparseNegativeLevel()
 	{
 		try
 		{
@@ -325,7 +325,7 @@ public class KnownspellsTokenTest extends AbstractListInputTokenTestCase<PCClass
 	}
 
 	@Test
-	public void testUnparseTypeLevel() throws PersistenceLayerException
+	public void testUnparseTypeLevel()
 	{
 		CDOMGroupRef<Spell> cool = primaryContext.getReferenceContext().getCDOMTypeReference(
 				Spell.class, "Cool");
@@ -336,7 +336,7 @@ public class KnownspellsTokenTest extends AbstractListInputTokenTestCase<PCClass
 	}
 
 	@Test
-	public void testUnparseMultTypeLevel() throws PersistenceLayerException
+	public void testUnparseMultTypeLevel()
 	{
 		CDOMGroupRef<Spell> cool = primaryContext.getReferenceContext().getCDOMTypeReference(
 				Spell.class, "Cool");
@@ -351,7 +351,7 @@ public class KnownspellsTokenTest extends AbstractListInputTokenTestCase<PCClass
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.addToListFor(ListKey.KNOWN_SPELLS, null);
 		try

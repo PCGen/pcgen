@@ -80,7 +80,7 @@ public class PCQualifierTokenTest extends
 	}
 
 	@Override
-	protected void setUpPC() throws PersistenceLayerException
+	protected void setUpPC()
 	{
 		super.setUpPC();
 		construct(primaryContext, "Goo");

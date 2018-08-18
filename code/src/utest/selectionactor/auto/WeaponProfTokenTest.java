@@ -26,12 +26,12 @@ import selectionactor.testsupport.AbstractSelectionActorTest;
 public class WeaponProfTokenTest extends AbstractSelectionActorTest<WeaponProf>
 {
 
-	private static final ChooseSelectionActor cra = new WeaponProfToken();
+	private static final ChooseSelectionActor CRA = new WeaponProfToken();
 
 	@Override
 	public ChooseSelectionActor<WeaponProf> getActor()
 	{
-		return cra;
+		return CRA;
 	}
 
 	@Override

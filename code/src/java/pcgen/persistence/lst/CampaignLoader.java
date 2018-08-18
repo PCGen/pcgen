@@ -140,7 +140,7 @@ public class CampaignLoader extends LstLineFileLoader
 	/**
 	 * Parses a campaign LST file and adds it to the Global container if not already added.
 	 * @param filePath The file path to load.
-	 * @throws PersistenceLayerException
+	 * @throws PersistenceLayerException  if problems with lst file.
 	 */
 	public void loadCampaignLstFile(URI filePath) throws PersistenceLayerException
 	{

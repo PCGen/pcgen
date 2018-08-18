@@ -29,6 +29,7 @@ import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.output.channel.ChannelCompatibility;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
@@ -53,10 +54,11 @@ public class PreDeityDomainTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test for a single domain
-	 * @throws Exception
+	 * Test for a single domain.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testSingle() throws Exception
+	public void testSingle() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 

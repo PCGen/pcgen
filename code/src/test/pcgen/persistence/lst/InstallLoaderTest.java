@@ -158,8 +158,12 @@ public final class InstallLoaderTest extends TestCase
 
 	/**
 	 * Validate the test data can be loaded successfully.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
+	 * @throws URISyntaxException the URI syntax exception
+	 * @throws ParseException the parse exception
 	 */
-	public void testParseLine() throws Exception
+	public void testParseLine() throws PersistenceLayerException, URISyntaxException, ParseException
 	{
 		InstallableCampaign camp = loadInstallData(INSTALL_DATA);
 

@@ -31,6 +31,7 @@ import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
@@ -59,10 +60,11 @@ public class PreCSkillTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test that CSkill works
-	 * @throws Exception
+	 * Test that CSkill works.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testCSkill() throws Exception
+	public void testCSkill() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(1, myClass, true);

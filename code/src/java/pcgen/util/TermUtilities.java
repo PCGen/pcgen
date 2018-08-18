@@ -26,10 +26,10 @@ import pcgen.core.term.TermEvaulatorException;
 
 public final class TermUtilities
 {
-	public static final String dString = "(?:NOT|ADD|IS)";
-	public static final Pattern dPat = Pattern.compile(dString);
-	public static final String sString = "(?:EQUIPPED|NOTEQUIPPED)";
-	public static final Pattern sPat = Pattern.compile(sString);
+	public static final String D_STRING = "(?:NOT|ADD|IS)";
+	public static final Pattern D_PAT = Pattern.compile(D_STRING);
+	public static final String S_STRING = "(?:EQUIPPED|NOTEQUIPPED)";
+	public static final Pattern S_PAT = Pattern.compile(S_STRING);
 
 	private TermUtilities()
 	{
@@ -43,7 +43,7 @@ public final class TermUtilities
 		while (cur < types.length)
 		{
 			// "(?:NOT|ADD|IS)"
-			if (dPat.matcher(types[cur]).matches())
+			if (D_PAT.matcher(types[cur]).matches())
 			{
 				cur++;
 				if (cur >= types.length)
@@ -57,7 +57,7 @@ public final class TermUtilities
 				cur++;
 			}
 			// "(?:EQUIPPED|NOTEQUIPPED)"
-			else if (sPat.matcher(types[cur]).matches() || "".equalsIgnoreCase(types[cur]))
+			else if (S_PAT.matcher(types[cur]).matches() || "".equalsIgnoreCase(types[cur]))
 			{
 				cur++;
 			}
@@ -81,7 +81,7 @@ public final class TermUtilities
 		while (cur < types.length)
 		{
 			// "(?:NOT|ADD|IS)"			
-			if (dPat.matcher(types[cur]).matches())
+			if (D_PAT.matcher(types[cur]).matches())
 			{
 				cur++;
 				if (cur >= types.length)

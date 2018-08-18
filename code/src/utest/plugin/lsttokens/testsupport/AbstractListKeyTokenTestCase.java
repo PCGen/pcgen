@@ -24,7 +24,6 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMGroupRef;
-import pcgen.persistence.PersistenceLayerException;
 
 public abstract class AbstractListKeyTokenTestCase<T extends CDOMObject, TC extends CDOMObject>
 		extends AbstractListInputTokenTestCase<T, TC>
@@ -33,14 +32,14 @@ public abstract class AbstractListKeyTokenTestCase<T extends CDOMObject, TC exte
 	protected abstract ListKey<CDOMReference<TC>> getListKey();
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.removeListFor(getListKey());
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testUnparseSingle() throws PersistenceLayerException
+	public void testUnparseSingle()
 	{
 		TC wp1 = construct(primaryContext, "TestWP1");
 		addToList(CDOMDirectSingleRef.getRef(wp1));
@@ -49,7 +48,7 @@ public abstract class AbstractListKeyTokenTestCase<T extends CDOMObject, TC exte
 	}
 
 	@Test
-	public void testUnparseMultiple() throws PersistenceLayerException
+	public void testUnparseMultiple()
 	{
 		TC wp1 = construct(primaryContext, "TestWP1");
 		addToList(CDOMDirectSingleRef.getRef(wp1));
@@ -85,7 +84,7 @@ public abstract class AbstractListKeyTokenTestCase<T extends CDOMObject, TC exte
 	// }
 
 	@Test
-	public void testUnparseNullInList() throws PersistenceLayerException
+	public void testUnparseNullInList()
 	{
 		addToList(null);
 		try
@@ -100,7 +99,7 @@ public abstract class AbstractListKeyTokenTestCase<T extends CDOMObject, TC exte
 	}
 
 	@Test
-	public void testUnparseType() throws PersistenceLayerException
+	public void testUnparseType()
 	{
 		if (isTypeLegal())
 		{
@@ -118,7 +117,7 @@ public abstract class AbstractListKeyTokenTestCase<T extends CDOMObject, TC exte
 	}
 
 	@Test
-	public void testUnparseAll() throws PersistenceLayerException
+	public void testUnparseAll()
 	{
 		if (isTypeLegal())
 		{

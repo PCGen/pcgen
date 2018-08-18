@@ -62,7 +62,7 @@ public final class ListFacades
 	private static class EmptyList implements ListFacade
 	{
 
-		private static final Iterator iterator = new Iterator()
+		private static final Iterator ITERATOR = new Iterator()
 		{
 
 			@Override
@@ -112,7 +112,7 @@ public final class ListFacades
 		@Override
 		public Iterator iterator()
 		{
-			return iterator;
+			return ITERATOR;
 		}
 
 		@Override

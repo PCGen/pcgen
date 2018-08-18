@@ -38,9 +38,7 @@ import plugin.pretokens.parser.PreAbilityParser;
 public class PreAbilityParserTest extends EnUsLocaleDependentTestCase
 {
 
-	/**
-	 * @throws Exception
-	 */
+	
 	@Test
 	public void testCategoryInterpretation() throws Exception
 	{
@@ -79,9 +77,7 @@ public class PreAbilityParserTest extends EnUsLocaleDependentTestCase
 			+ "</prereq>\n", prereq.toString());
 	}
 
-	/**
-	 * @throws Exception
-	 */
+	
 	@Test
 	public void testSingleEntry() throws Exception
 	{
@@ -93,9 +89,7 @@ public class PreAbilityParserTest extends EnUsLocaleDependentTestCase
 				+ "</prereq>\n", prereq.toString());
 	}
 
-	/**
-	 * @throws Exception
-	 */
+	
 	@Test
 	public void testNegates() throws Exception
 	{
@@ -110,9 +104,7 @@ public class PreAbilityParserTest extends EnUsLocaleDependentTestCase
 		+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 	}
 
-	/**
-	 * @throws Exception
-	 */
+	
 	@Test
 	public void testNoKey() throws Exception
 	{
@@ -126,10 +118,9 @@ public class PreAbilityParserTest extends EnUsLocaleDependentTestCase
 	
 	/**
 	 * Test that an error is produced if two categories are specified.
-	 * @throws Exception
 	 */
 	@Test
-	public void testTwoCategories() throws Exception
+	public void testTwoCategories()
 	{
 		try
 		{
@@ -145,11 +136,10 @@ public class PreAbilityParserTest extends EnUsLocaleDependentTestCase
 	}
 	
 	/**
-	 * Test that an error is produced if separators are incorrect
-	 * @throws Exception
+	 * Test that an error is produced if separators are incorrect.
 	 */
 	@Test
-	public void testInvalidSeparators() throws Exception
+	public void testInvalidSeparators()
 	{
 		try
 		{
@@ -164,11 +154,10 @@ public class PreAbilityParserTest extends EnUsLocaleDependentTestCase
 	}
 	
 	/**
-	 * Test that an error is produced if separators are incorrect
-	 * @throws Exception
+	 * Test that an error is produced if separators are incorrect.
 	 */
 	@Test
-	public void testInvalidCharacter() throws Exception
+	public void testInvalidCharacter()
 	{
 		try
 		{

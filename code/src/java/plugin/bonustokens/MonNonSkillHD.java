@@ -30,7 +30,7 @@ import pcgen.core.bonus.MultiTagBonusObj;
 
 public final class MonNonSkillHD extends MultiTagBonusObj
 {
-	private static final String[] bonusTags = {"NUMBER", "LOCKNUMBER"};
+	private static final String[] BONUS_TAGS = {"NUMBER", "LOCKNUMBER"};
 
 	/**
 	 * Return the bonus tag handled by this class.
@@ -51,7 +51,7 @@ public final class MonNonSkillHD extends MultiTagBonusObj
 	@Override
 	protected String getBonusTag(final int tagNumber)
 	{
-		return bonusTags[tagNumber];
+		return BONUS_TAGS[tagNumber];
 	}
 
 	/**
@@ -62,6 +62,6 @@ public final class MonNonSkillHD extends MultiTagBonusObj
 	@Override
 	protected int getBonusTagLength()
 	{
-		return bonusTags.length;
+		return BONUS_TAGS.length;
 	}
 }

@@ -76,56 +76,56 @@ public class SabLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidDoublePipe() throws PersistenceLayerException
+	public void testInvalidDoublePipe()
 	{
 		assertFalse(parse("SA Number %||VarF"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEndingPipe() throws PersistenceLayerException
+	public void testInvalidEndingPipe()
 	{
 		assertFalse(parse("SA Number|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidStartingPipe() throws PersistenceLayerException
+	public void testInvalidStartingPipe()
 	{
 		assertFalse(parse("|Var"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidVarAfterPre() throws PersistenceLayerException
+	public void testInvalidVarAfterPre()
 	{
 		assertFalse(parse("SA % plus %|Var|PRECLASS:1,Fighter|Var2"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidDotClear() throws PersistenceLayerException
+	public void testInvalidDotClear()
 	{
 		assertFalse(parse("SA % plus %|Var|.CLEAR|Var2"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidOnlyPre() throws PersistenceLayerException
+	public void testInvalidOnlyPre()
 	{
 		assertFalse(parse("PRECLASS:1,Fighter"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidClearPre() throws PersistenceLayerException
+	public void testInvalidClearPre()
 	{
 		assertFalse(parse(".CLEAR|PRERACE:1,Dwarf"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidClearSabPre() throws PersistenceLayerException
+	public void testInvalidClearSabPre()
 	{
 		assertFalse(parse(".CLEAR|SabText|PRERACE:1,Dwarf"));
 		assertNoSideEffects();

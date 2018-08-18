@@ -49,14 +49,14 @@ import pcgen.system.LanguageBundle;
 @SuppressWarnings("serial")
 public class LanguagePanel extends PCGenPrefsPanel
 {
-	private static final String in_language = LanguageBundle.getString("in_Prefs_language");
-	private static final String in_langEnglish = LanguageBundle.getString("in_Prefs_langEnglish");
-	private static final String in_langFrench = LanguageBundle.getString("in_Prefs_langFrench");
-	private static final String in_langGerman = LanguageBundle.getString("in_Prefs_langGerman");
-	private static final String in_langItalian = LanguageBundle.getString("in_Prefs_langItalian");
-	private static final String in_langSpanish = LanguageBundle.getString("in_Prefs_langSpanish");
-	private static final String in_langPortuguese = LanguageBundle.getString("in_Prefs_langPortuguese");
-	private static final String in_langSystem = LanguageBundle.getString("in_Prefs_langSystem");
+	private static final String IN_LANGUAGE = LanguageBundle.getString("in_Prefs_language");
+	private static final String IN_LANG_ENGLISH = LanguageBundle.getString("in_Prefs_langEnglish");
+	private static final String IN_LANG_FRENCH = LanguageBundle.getString("in_Prefs_langFrench");
+	private static final String IN_LANG_GERMAN = LanguageBundle.getString("in_Prefs_langGerman");
+	private static final String IN_LANG_ITALIAN = LanguageBundle.getString("in_Prefs_langItalian");
+	private static final String IN_LANG_SPANISH = LanguageBundle.getString("in_Prefs_langSpanish");
+	private static final String IN_LANG_PORTUGUESE = LanguageBundle.getString("in_Prefs_langPortuguese");
+	private static final String IN_LANG_SYSTEM = LanguageBundle.getString("in_Prefs_langSystem");
 
 	private String[] unitSetNames = null;
 
@@ -81,7 +81,7 @@ public class LanguagePanel extends PCGenPrefsPanel
 		JLabel label;
 		ButtonGroup exclusiveGroup;
 		Border etched = null;
-		TitledBorder title1 = BorderFactory.createTitledBorder(etched, in_language);
+		TitledBorder title1 = BorderFactory.createTitledBorder(etched, IN_LANGUAGE);
 
 		title1.setTitleJustification(TitledBorder.LEADING);
 		this.setBorder(title1);
@@ -94,17 +94,17 @@ public class LanguagePanel extends PCGenPrefsPanel
 		int line = 0;
 
 		// Use OS system language
-		line = addLanguageOption(line, c, gridbag, this, langSystem = new JRadioButton(in_langSystem), exclusiveGroup);
+		line = addLanguageOption(line, c, gridbag, this, langSystem = new JRadioButton(IN_LANG_SYSTEM), exclusiveGroup);
 
 		final SortedSet<JRadioButton> sorted =
 				new TreeSet<>((o1, o2) -> o1.getText().compareToIgnoreCase(o2.getText()));
 
-		sorted.add(langEng = new JRadioButton(in_langEnglish));
-		sorted.add(langFre = new JRadioButton(in_langFrench));
-		sorted.add(langGer = new JRadioButton(in_langGerman));
-		sorted.add(langIt = new JRadioButton(in_langItalian));
-		sorted.add(langEs = new JRadioButton(in_langSpanish));
-		sorted.add(langPt = new JRadioButton(in_langPortuguese));
+		sorted.add(langEng = new JRadioButton(IN_LANG_ENGLISH));
+		sorted.add(langFre = new JRadioButton(IN_LANG_FRENCH));
+		sorted.add(langGer = new JRadioButton(IN_LANG_GERMAN));
+		sorted.add(langIt = new JRadioButton(IN_LANG_ITALIAN));
+		sorted.add(langEs = new JRadioButton(IN_LANG_SPANISH));
+		sorted.add(langPt = new JRadioButton(IN_LANG_PORTUGUESE));
 
 		for (JRadioButton b : sorted)
 		{
@@ -243,7 +243,7 @@ public class LanguagePanel extends PCGenPrefsPanel
 	@Override
 	public String getTitle()
 	{
-		return in_language;
+		return IN_LANGUAGE;
 	}
 
 	/**

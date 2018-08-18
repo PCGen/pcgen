@@ -26,6 +26,7 @@ import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Deity;
 import pcgen.core.PlayerCharacter;
 import pcgen.output.channel.ChannelCompatibility;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
@@ -51,9 +52,10 @@ public class PreDeityAlignTest extends AbstractCharacterTestCase
 
 	/**
 	 * Test that alignment abbreviation values work correctly in Deity Align tests.
-	 * @throws Exception
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testAbbrev() throws Exception
+	public void testAbbrev() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		ChannelCompatibility.setCurrentAlignment(character.getCharID(), ng);
