@@ -86,7 +86,7 @@ Tracker ~ Favored Class Bonus	CATEGORY:Internal
 ###Block: Favored Class Bonuses
 # Ability Name	Unique Key						Category of Ability		Type				Visible		Stackable?	Multiple?	Choose														Bonus to HP			Bonus to skill rank
 Bonus Hit Point	KEY:Favored Class Bonus ~ Hit Point		CATEGORY:Special Ability	TYPE:FavoredClassBonus	VISIBLE:DISPLAY	STACK:YES	MULT:YES	CHOOSE:NOCHOICE													BONUS:HP|CURRENTMAX|1
-Bonus Skill Rank	KEY:Favored Class Bonus ~ Skill Rank	CATEGORY:Special Ability	TYPE:FavoredClassBonus	VISIBLE:DISPLAY	STACK:YES	MULT:YES	CHOOSE:SKILL|TYPE=Charisma|TYPE=Dexterity|TYPE=Intelligence|TYPE=Strength|TYPE=Wisdom					BONUS:SKILLRANK|LIST|1
+Bonus Skill Rank	KEY:Favored Class Bonus ~ Skill Rank	CATEGORY:Special Ability	TYPE:FavoredClassBonus	VISIBLE:DISPLAY	STACK:YES	MULT:YES	CHOOSE:SKILL|!RANKS=MAXRANK[TYPE=Base]													BONUS:SKILLRANK|LIST|1
 
 ###Block: New Class Grantor System - Supports Pathfinder Unchained, and eventually the EVANGELIST Prestige class.
 # Ability Name		Category of Ability	Define																	Ability																													Modify VAR
