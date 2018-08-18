@@ -933,8 +933,7 @@ Bracers of the Merciful Knight												TYPE:Magic.Wondrous.Bracer.LesserMediu
 Burglar's Bracers															TYPE:Magic.Wondrous.Bracer.LesserMinor																																COST:1000	WT:1																								SOURCEPAGE:p.273
 Charm Bracelet															TYPE:Magic.Wondrous.Bracer.LesserMedium																																COST:8000	WT:0																								SOURCEPAGE:p.273
 Dimensional Shackles.MOD													TYPE:LesserMajor																																				COST:28000	WT:5																								SOURCEPAGE:p.273
-###Implement: Wearer must also gain AC bonus when wielding 2 weapons.
-Duelist's Vambraces														TYPE:Magic.Wondrous.Bracer.LesserMedium																																COST:8000	WT:2																								SOURCEPAGE:p.273																																																																										BONUS:COMBAT|TOHIT-SECONDARY|2	BONUS:COMBAT|AC|1|TYPE=Deflection|PREMULT:1,[PREEQUIP:1,TYPE=Weapon.Double],[PREEQUIPTWOWEAPON:2,TYPE=Melee]
+Duelist's Vambraces														TYPE:Magic.Wondrous.Bracer.LesserMedium																																COST:8000	WT:2																								SOURCEPAGE:p.273																																																																										BONUS:COMBAT|AC|1|TYPE=Deflection|PREMULT:1,[PREEQUIP:1,TYPE=Weapon.Double],[PREEQUIPTWOWEAPON:2,TYPE=Melee]	SPROP:once per round, when attacking with an off-handed weapon, the wearer can reduce any penalties on attack rolls made with that weapon by 2
 High Elven Bracers														TYPE:Magic.Wondrous.Bracer.LesserMajor																																COST:30000	WT:1																								SOURCEPAGE:p.273
 Inquisitor's Bastion Vambraces												TYPE:Magic.Wondrous.Bracer.GreaterMinor																																COST:4000	WT:3																								SOURCEPAGE:p.273
 Longarm Bracers															TYPE:Magic.Wondrous.Bracer.GreaterMinor																																COST:7200	WT:1																								SOURCEPAGE:p.274
