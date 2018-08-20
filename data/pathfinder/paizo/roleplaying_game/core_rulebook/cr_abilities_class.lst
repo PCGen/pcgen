@@ -726,7 +726,7 @@ Weapon Training	KEY:Fighter ~ Weapon Training	CATEGORY:Special Ability	TYPE:Figh
 CATEGORY=Special Ability|Fighter ~ Weapon Training.MOD	DEFINE:WeaponTrainingTierOne|0	BONUS:VAR|WeaponTrainingTierOne|WeaponTrainingBase+MAX(count("ABILITIES","CATEGORY=Special Ability","TYPE=WeaponTraining")-1,0)
 CATEGORY=Special Ability|Fighter ~ Weapon Training.MOD	DEFINE:WeaponTrainingTierTwo|0	BONUS:VAR|WeaponTrainingTierTwo|WeaponTrainingBase+MAX(count("ABILITIES","CATEGORY=Special Ability","TYPE=WeaponTraining")-2,0)
 CATEGORY=Special Ability|Fighter ~ Weapon Training.MOD	DEFINE:WeaponTrainingTierThree|0	BONUS:VAR|WeaponTrainingTierThree|WeaponTrainingBase+MAX(count("ABILITIES","CATEGORY=Special Ability","TYPE=WeaponTraining")-3,0)
-CATEGORY=Special Ability|Fighter ~ Weapon Training.MOD	DEFINE:WeaponTrainingFour|0		BONUS:VAR|WeaponTrainingTierFour|WeaponTrainingBase+MAX(count("ABILITIES","CATEGORY=Special Ability","TYPE=WeaponTraining")-4,0)
+CATEGORY=Special Ability|Fighter ~ Weapon Training.MOD	DEFINE:WeaponTrainingTierFour|0	BONUS:VAR|WeaponTrainingTierFour|WeaponTrainingBase+MAX(count("ABILITIES","CATEGORY=Special Ability","TYPE=WeaponTraining")-4,0)
 
 
 CATEGORY=Special Ability|Fighter ~ Weapon Training.MOD	DEFINE:WeaponTrainingAxes|0
