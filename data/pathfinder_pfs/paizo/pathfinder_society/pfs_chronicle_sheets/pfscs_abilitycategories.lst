@@ -40,8 +40,9 @@ ABILITYCATEGORY:Chronicle_PZO9539						VISIBLE:QUALIFY	EDITABLE:YES								CATEG
 ABILITYCATEGORY:Chronicle_PZO9540						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9540											DISPLAYNAME:Pathfinder Module: Fangwood Keep										DISPLAYLOCATION:Chronicles
 ABILITYCATEGORY:Chronicle_PZO9541						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9541											DISPLAYNAME:Pathfinder Module: Doom Comes to Dustpawn									DISPLAYLOCATION:Chronicles
 
-ABILITYCATEGORY:Chronicle_PFS_Special_Ascendance_Day			VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PFS_Special_Ascendance_Day								DISPLAYNAME:PFS Special Ascendance Day											DISPLAYLOCATION:Chronicles
-ABILITYCATEGORY:Chronicle_PFS_Special_Year_of_the_Risen_Rune	VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PFS_Special_Year_of_the_Risen_Rune						DISPLAYNAME:PFS Special Year of the Risen Rune										DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_PFS_Special_Ascendance_Day			VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PFS_Special_Ascendance_Day								DISPLAYNAME:PFS Special: Ascendance Day											DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_PFS_Special_Year_of_the_Risen_Rune	VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PFS_Special_Year_of_the_Risen_Rune						DISPLAYNAME:PFS Special: Year of the Risen Rune										DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_PFS_Special_Grand_Melee_4711	VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PFS_Special_Grand_Melee_4711						DISPLAYNAME:PFS Special: Grand Melee 4711										DISPLAYLOCATION:Chronicles
 
 #
 # DONE
