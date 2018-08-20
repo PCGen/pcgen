@@ -169,3 +169,6 @@ Orc			KEY:RaceSubtype ~ Orc				VISIBLE:NO					RACESUBTYPE:Orc			TYPE:Racial Heri
 Tengu			KEY:RaceSubtype ~ Tengu				VISIBLE:NO					RACESUBTYPE:Tengu			TYPE:Racial Heritage
 Tiefling		KEY:RaceSubtype ~ Tiefling			VISIBLE:NO					RACESUBTYPE:Tiefling		TYPE:Racial Heritage
 Svirfneblin		KEY:RaceSubtype ~ Svirfneblin			VISIBLE:NO					RACESUBTYPE:Svirfneblin		TYPE:Racial Heritage
+
+# Tiefling Subrace
+Tiefling				KEY:Tiefling (Base)		VISIBLE:NO

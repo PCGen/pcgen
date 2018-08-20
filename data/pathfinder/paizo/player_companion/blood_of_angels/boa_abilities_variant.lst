@@ -224,7 +224,7 @@ CATEGORY=Special Ability|Aasimar Variant ~ Honey and wine.MOD
 CATEGORY=Special Ability|Aasimar Variant ~ Breathe thin air.MOD
 CATEGORY=Special Ability|Aasimar Variant ~ Swim speed.MOD																																																																																																																											MOVE:Swim,20
 CATEGORY=Special Ability|Aasimar Variant ~ Crit confirmation.MOD
-CATEGORY=Special Ability|Aasimar Variant ~ Unnatural aura.MOD																																																																																																																														ABILITY:Special Ability|NORMAL|Aasimar ~ Unnatural Aura
+#CATEGORY=Special Ability|Aasimar Variant ~ Unnatural aura.MOD																																																																																																																														ABILITY:Special Ability|NORMAL|Aasimar ~ Unnatural Aura
 CATEGORY=Special Ability|Aasimar Variant ~ Aasimar Resilliance.MOD
 CATEGORY=Special Ability|Aasimar Variant ~ Exceptional grace.MOD																																																																																																																																																					BONUS:SKILL|Acrobatics|2|TYPE=Racial
 CATEGORY=Special Ability|Aasimar Variant ~ Spear of Purity 1/day.MOD																																																											SPELLS:Innate|TIMES=1|CASTERLEVEL=AasimarSpellLikeLVL|Spear of Purity
