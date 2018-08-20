@@ -166,11 +166,11 @@ Tengu Language Selections						CATEGORY:Special Ability																									
 
 
 ###Block: Set up Tiefling default abilities
-# Ability Name		Category of Ability		Type				Ability
-Race Traits ~ Tiefling	CATEGORY:Internal							ABILITY:Tiefling Subrace|AUTOMATIC|Tiefling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingAltRace	ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Darkvision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingDarkvision	ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Fiendish Resistance|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingFiendishResistance	ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Fiendish Sorcery|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingFiendishSorcery	ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Fiendish Language|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingFiendishLanguage
+# Ability Name		Category of Ability		Type				Template				Ability
+Race Traits ~ Tiefling	CATEGORY:Internal												ABILITY:Tiefling Subrace|AUTOMATIC|Tiefling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingAltRace	ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Darkvision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingDarkvision	ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Fiendish Resistance|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingFiendishResistance	ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Fiendish Sorcery|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingFiendishSorcery	ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Fiendish Language|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingFiendishLanguage
 
 
-Tiefling			CATEGORY:Special Ability	TYPE:TieflingSubrace	TEMPLATE:Tiefling	ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Stats|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingStats	ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Skilled|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSkilled	ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Spell-Like Ability|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSLA
+Tiefling			CATEGORY:Special Ability	TYPE:TieflingSubrace	TEMPLATE:Tiefling (Base)	ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Stats|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingStats	ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Skilled|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSkilled	ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Spell-Like Ability|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSLA
 
 
 ###Block: Default Tiefling Abilities (POOL=6)
