@@ -34,6 +34,7 @@ Urea												TYPE:Goods.Alchemical.Consumable.Reagent							COST:0.5	WT:0		SO
 Brewer's Kit										TYPE:Goods.Tools											COST:20	WT:25		SOURCEPAGE:p.13
 Brewer's Kit (Masterwork)								TYPE:Goods.Tools.Masterwork									COST:20	WT:75		SOURCEPAGE:p.13
 Crucible											TYPE:Goods.Tools											COST:20	WT:30		SOURCEPAGE:p.5
+Crucible (Portable)											TYPE:Goods.Tools											COST:20	WT:3		SOURCEPAGE:p.5
 Filter											TYPE:Goods.Tools											COST:.5	WT:.5		SOURCEPAGE:p.5
 Oozing Vat (Small)									TYPE:Goods.Tools											COST:1	WT:2		SOURCEPAGE:p.23
 Oozing Vat (Medium)									TYPE:Goods.Tools											COST:10	WT:20		SOURCEPAGE:p.23
