@@ -69,7 +69,7 @@ WEAPONPROF:arg_profs_weapon.lst
 ABILITY:@/pathfinder/paizo/roleplaying_game/bestiary/b1_abilities_race_arg.lst|!PRECAMPAIGN:1,Bestiary
 ABILITYCATEGORY:@/pathfinder/paizo/roleplaying_game/bestiary/b1_abilitycategories_arg.lst|!PRECAMPAIGN:1,Bestiary
 RACE:@/pathfinder/paizo/roleplaying_game/bestiary/b1_races_arg.lst|!PRECAMPAIGN:1,Bestiary
-TEMPLATE:@/pathfinder/paizo/roleplaying_game/bestiary/b1_templates.lst|(INCLUDE:Default Language ~ Tengu,Tiefling (Base))|!PRECAMPAIGN:1,Bestiary
+TEMPLATE:@/pathfinder/paizo/roleplaying_game/bestiary/b1_templates.lst|(INCLUDE:Default Language ~ Tengu|Tiefling (Base))|!PRECAMPAIGN:1,Bestiary
 
 FORWARDREF:RACE|Companion (Dinosaur (Pteranodon)),Companion (Dinosaur (Stegosaurus)),Companion (Rhinoceros)
 
