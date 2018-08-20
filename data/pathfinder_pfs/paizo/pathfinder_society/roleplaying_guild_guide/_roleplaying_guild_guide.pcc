@@ -42,6 +42,7 @@ COPYRIGHT:PCGen dataset conversion for "Guide to Pathfinder Society Organized Pl
 # Data files
 ABILITYCATEGORY:rgg_abilitycategories.lst
 ABILITY:rgg_abilities.lst
+ABILITY:rgg_abilities_um.lst|PRECAMPAIGN:1,Ultimate Combat
 KIT:rgg_kits.lst
 TEMPLATE:rgg_templates.lst
 
