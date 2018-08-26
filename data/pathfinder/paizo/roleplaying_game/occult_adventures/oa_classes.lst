@@ -206,7 +206,7 @@ CLASS:Phantom	BONUS:VAR|ClassSavePoor_Will|classlevel()|PREVAREQ:UseFractionalSa
 CLASS:Phantom	STARTSKILLPTS:2
 
 
-CLASS:Psychic Detective		VISIBLE:NO	SPELLSTAT:INT	SPELLBOOK:YES	FACT:SpellType|Arcane	BONUS:CASTERLEVEL|Psychic Detective|CL	SPELLLIST:2|Psychic|Psychic Detective
+CLASS:Psychic Detective		VISIBLE:NO	SPELLSTAT:INT	SPELLBOOK:YES	FACT:SpellType|Arcane	BONUS:CASTERLEVEL|Psychic Detective|Caster_Level_BL_Stripped_PsychicDetective	SPELLLIST:2|Psychic|Psychic Detective	DEFINE:Caster_Level_PsychicDetective|0	DEFINE:CasterLevelBLPsychicDetective|0	DEFINE:Caster_Level_BL_Stripped_PsychicDetective|0	BONUS:VAR|Caster_Level_BL_Stripped_PsychicDetective|Caster_Level_PsychicDetective-CasterLevelBLPsychicDetective	BONUS:VAR|Caster_Level_PsychicDetective|PsychicDetectiveLVL+Caster_Level_Bonus+CasterLevelBLPsychicDetective	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_PsychicDetective|TYPE=Base	BONUS:VAR|Caster_Level_Total__Arcane|Caster_Level_PsychicDetective
 1	CAST:0,1
 2	CAST:0,2
 3	CAST:0,3

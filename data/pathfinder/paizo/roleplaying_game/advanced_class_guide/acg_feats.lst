@@ -257,7 +257,7 @@ Shaman Hex		KEY:Hex Selection ~ Shaman Hex	CATEGORY:Internal		TYPE:Hex Selection
 
 ###Block: Backwards feat support
 CATEGORY=FEAT|Raging Vitality.MOD	BONUS:VAR|BloodrageConBonus|2	
-CATEGORY=FEAT|Arcane Strike.MOD	BONUS:VAR|ArcaneStrikeLVL|charbonusto("CASTERLEVEL","Arcanist")+var("BL=Arcanist")+charbonusto("CASTERLEVEL","Bloodrager")+var("BL=Bloodrager")+charbonusto("CASTERLEVEL","Skald")+var("BL=Skald")
+#CATEGORY=FEAT|Arcane Strike.MOD	BONUS:VAR|ArcaneStrikeLVL|charbonusto("CASTERLEVEL","Arcanist")+var("BL=Arcanist")+charbonusto("CASTERLEVEL","Bloodrager")+var("BL=Bloodrager")+charbonusto("CASTERLEVEL","Skald")+var("BL=Skald")
 
 ###Block: support for skald's raging song as a bardic performance
 CATEGORY=FEAT|Extra Performance.MOD	PRE:.CLEAR

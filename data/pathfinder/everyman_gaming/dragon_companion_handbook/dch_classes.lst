@@ -8,7 +8,7 @@ CLASS:Dragon Paragon	PRERACE:1,Dragon%,Kobold%
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Dragon Paragon	STARTSKILLPTS:6	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Fly|Heal|Intimidate|TYPE=Knowledge|Linguistics|Perception|Sense Motive|Spellcraft|Stealth|Survival|Swim|Use Magic Device
 # Class Name		Spell Stat		Memorize	Caster level							Use Spell List
-CLASS:Dragon Paragon	SPELLSTAT:CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Dragon Paragon|CL+CasterLevelBonus	SPELLLIST:2|Sorcerer|Wizard
+CLASS:Dragon Paragon	SPELLSTAT:CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Dragon Paragon|Caster_Level_BL_Stripped_DragonParagon	SPELLLIST:2|Sorcerer|Wizard		DEFINE:Caster_Level_DragonParagon|0	DEFINE:CasterLevelBLDragonParagon|0	DEFINE:Caster_Level_BL_Stripped_DragonParagon|0	BONUS:VAR|Caster_Level_BL_Stripped_DragonParagon|Caster_Level_Rogue-CasterLevelBLDragonParagon	BONUS:VAR|Caster_Level_DragonParagon|DragonParagonLVL+Caster_Level_Bonus+CasterLevelBLDragonParagon	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_DragonParagon|TYPE=Base	BONUS:VAR|Caster_Level_Total__Arcane|Caster_Level_DragonParagon
 ###Block
 1	ABILITY:Dragon Paragon Class Feature|AUTOMATIC|Dragon Paragon ~ Weapon and Armor Proficiency
 1	ABILITY:Dragon Paragon Class Feature|AUTOMATIC|Dragon Paragon ~ Dragon Exemplar

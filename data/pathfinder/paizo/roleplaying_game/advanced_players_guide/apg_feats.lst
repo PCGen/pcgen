@@ -353,7 +353,7 @@ CATEGORY=FEAT|Trample.MOD				TYPE:MountedMastery
 CATEGORY=FEAT|Unseat.MOD				TYPE:MountedMastery
 
 # Arcane Strike
-CATEGORY=FEAT|Arcane Strike.MOD								BONUS:VAR|ArcaneStrikeLVL|charbonusto("CASTERLEVEL","Summoner")+var("BL=Summoner")+charbonusto("CASTERLEVEL","Witch")+var("BL=Witch")
+#CATEGORY=FEAT|Arcane Strike.MOD								BONUS:VAR|ArcaneStrikeLVL|charbonusto("CASTERLEVEL","Summoner")+var("BL=Summoner")+charbonusto("CASTERLEVEL","Witch")+var("BL=Witch")
 
 # Channel Feats
 CATEGORY=FEAT|Improved Channel.MOD								BONUS:VAR|OracleChannelDC|2	BONUS:VAR|UndeadServitudeDC|2
