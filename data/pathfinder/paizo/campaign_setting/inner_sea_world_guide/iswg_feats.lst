@@ -50,4 +50,4 @@ Aldori Dueling Mastery (One-Handed)				CATEGORY:FEAT					VISIBLE:NO													
 Aldori Dueling Mastery (Two-Handed)				CATEGORY:FEAT					VISIBLE:NO																																																																																																																																																																																																																																																																																																																																																																																																																																																																					TEMPDESC:If you wield an Aldori dueling sword in two hands, you gain a +1 shield bonus to your AC.																																																																				TEMPBONUS:PC|COMBAT|AC|1|TYPE=Shield
 
 # Arcane Strike
-CATEGORY=FEAT|Arcane Strike.MOD	BONUS:VAR|ArcaneStrikeLVL|charbonusto("CASTERLEVEL","Red Mantis Assassin")+var("BL=Red Mantis Assassin")
+#CATEGORY=FEAT|Arcane Strike.MOD	BONUS:VAR|ArcaneStrikeLVL|charbonusto("CASTERLEVEL","Red Mantis Assassin")+var("BL=Red Mantis Assassin")

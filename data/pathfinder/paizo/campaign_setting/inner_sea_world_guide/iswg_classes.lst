@@ -53,13 +53,13 @@ CLASS:Low Templar	STARTSKILLPTS:2	CSKILL:Appraise|Bluff|TYPE=Craft|Diplomacy|Dis
 10	BONUS:ABILITYPOOL|Low Templar Final Choice|1							ABILITY:Special Ability|AUTOMATIC|Planar Cohort ~ Low
 
 # Class Name			Product Identity?	Hit Dice	Type			Max Level	Source Page		Define			Combat bonus																	Save bonus																																				Modify VAR																																																																		FACT
-CLASS:Red Mantis Assassin	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.282	DEFINE:RedMantisLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|RedMantisLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|RMA	FACT:SpellType|Arcane
+CLASS:Red Mantis Assassin	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.282	DEFINE:RedMantisAssassinLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|RedMantisLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|RMA	FACT:SpellType|Arcane
 # Class Name			Required Ability																				Required AL	Required Skill
 CLASS:Red Mantis Assassin	PREABILITY:4,CATEGORY=FEAT,Alertness,Exotic Weapon Proficiency (Sawtooth Sabre),Two-Weapon Fighting,Weapon Focus (Sawtooth Sabre)	PREALIGN:LE	PRESKILL:3,Intimidate=5,Perception=5,Stealth=5
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Red Mantis Assassin	STARTSKILLPTS:6	CSKILL:Acrobatics|Appraise|Bluff|Climb|Disguise|Escape Artist|Heal|Intimidate|Knowledge (Local)|Knowledge (Nature)|Knowledge (Nobility)|Knowledge (Religion)|Perception|Sense Motive|Stealth
 # Class Name			Spell Stat		Memorize	Spell Scoll Prohibited										Caster level					Use Spell List
-CLASS:Red Mantis Assassin	SPELLSTAT:CHA	MEMORIZE:NO	PROHIBITED:Abjuration,Conjuration,Divination,Enchantment,Evocation,Necromancy	BONUS:CASTERLEVEL|Red Mantis Assassin|CL	SPELLLIST:2|Sorcerer|Wizard
+CLASS:Red Mantis Assassin	SPELLSTAT:CHA	MEMORIZE:NO	PROHIBITED:Abjuration,Conjuration,Divination,Enchantment,Evocation,Necromancy	BONUS:CASTERLEVEL|Red Mantis Assassin|Caster_Level_RedMantisAssassin	SPELLLIST:2|Sorcerer|Wizard		DEFINE:Caster_Level_RedMantisAssassin|0	DEFINE:CasterLevelBLRedMantisAssassin|0	DEFINE:Caster_Level_BL_Stripped_RedMantisAssassin|0	BONUS:VAR|Caster_Level_BL_Stripped_RedMantisAssassin|Caster_Level_RedMantisAssassin-CasterLevelBLRedMantisAssassin	BONUS:VAR|Caster_Level_RedMantisAssassin|RedMantisAssassinLVL+Caster_Level_Bonus+CasterLevelBLRedMantisAssassin	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_RedMantisAssassin|TYPE=Base	BONUS:VAR|Caster_Level_Total__Arcane|Caster_Level_RedMantisAssassin
 ###Block: Weapon & Armor Proficiencies
 1	ABILITY:Class Feature|AUTOMATIC|RMA Weapon Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfLight|TYPE=WeaponProfMartial
@@ -69,9 +69,9 @@ CLASS:Red Mantis Assassin	SPELLSTAT:CHA	MEMORIZE:NO	PROHIBITED:Abjuration,Conjur
 3											ABILITY:Special Ability|AUTOMATIC|Red Shroud
 4	BONUS:VAR|SneakAttackDice|1						ABILITY:Special Ability|AUTOMATIC|Summon Mantis
 5	BONUS:VAR|SabreFighting|1						ABILITY:Special Ability|AUTOMATIC|Resurrection Sense
-6											ABILITY:Special Ability|AUTOMATIC|Mantis Form|PREVARLT:RedMantisLvl,8
+6											ABILITY:Special Ability|AUTOMATIC|Mantis Form|PREVARLT:RedMantisAssassinLvl,8
 7	BONUS:VAR|SneakAttackDice|1
-8											ABILITY:Special Ability|AUTOMATIC|Fading	ABILITY:Special Ability|AUTOMATIC|Blood Mantis Form|PREVARLT:RedMantisLvl,10
+8											ABILITY:Special Ability|AUTOMATIC|Fading	ABILITY:Special Ability|AUTOMATIC|Blood Mantis Form|PREVARLT:RedMantisAssassinLvl,10
 9											ABILITY:Special Ability|AUTOMATIC|Mantis Doom
 10	BONUS:VAR|SneakAttackDice|1						ABILITY:Special Ability|AUTOMATIC|Death Mantis Form
 ###Block: Spells

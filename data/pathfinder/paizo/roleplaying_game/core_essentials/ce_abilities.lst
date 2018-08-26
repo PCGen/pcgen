@@ -6,6 +6,11 @@ CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_Highest|0
 CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_Highest__Arcane|0
 CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_Highest__Divine|0
 CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_Bonus|0
+CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_Total__Arcane|0
+CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_Total__Divine|0
+CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_Total|0
+
+
 # Combined to get Highest Arcane or Divine caster level
 CATEGORY=Internal|Default.MOD								BONUS:VAR|Caster_Level_Highest|max(Caster_Level_Highest__Arcane,Caster_Level_Highest__Divine)
 

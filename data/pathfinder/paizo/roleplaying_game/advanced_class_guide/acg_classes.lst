@@ -11,7 +11,7 @@ CLASS:Arcanist	HD:6		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.8	DEFINE:ArcanistLVL|
 # Class Name	Skill Pts/Lvl
 CLASS:Arcanist	STARTSKILLPTS:2
 # Class Name	Spell Stat		Spell Stat Bonus		Memorize		Spellbook		Caster level			Use Spell List
-CLASS:Arcanist	SPELLSTAT:INT	BONUSSPELLSTAT:NONE	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Arcanist|CL	SPELLLIST:1|Wizard
+CLASS:Arcanist	SPELLSTAT:INT	BONUSSPELLSTAT:NONE	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Arcanist|CL	SPELLLIST:1|Wizard	DEFINE:Caster_Level_Arcanist|0	DEFINE:CasterLevelBLArcanist|0	BONUS:VAR|Caster_Level_Arcanist|ArcanistLVL+Caster_Level_Bonus+CasterLevelBLArcanist	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Arcanist|TYPE=Base	BONUS:VAR|Caster_Level_Total__Arcane|Caster_Level_Arcanist
 1	ABILITY:Class|AUTOMATIC|Arcanist
 ###Block: Level Progression
 1	ABILITY:Arcanist Class Feature|AUTOMATIC|Arcanist ~ Weapon and Armor Proficiency
@@ -40,7 +40,7 @@ CLASS:Bloodrager	HD:10		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.15	DEFINE:Bloodrag
 # Class Name	Skill Pts/Lvl
 CLASS:Bloodrager	STARTSKILLPTS:4
 # Class Name	Spell Stat		Memorize	Caster level								Use Spell List
-CLASS:Bloodrager	SPELLSTAT:CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Bloodrager|CL|PRECLASS:1,Bloodrager=4	SPELLLIST:1|Bloodrager
+CLASS:Bloodrager	SPELLSTAT:CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Bloodrager|Caster_Level_Bloodrager|PRECLASS:1,Bloodrager=4	SPELLLIST:1|Bloodrager	DEFINE:Caster_Level_Bloodrager|0	DEFINE:CasterLevelBLBloodrager|0	BONUS:VAR|Caster_Level_Bloodrager|BloodragerLVL+Caster_Level_Bonus+CasterLevelBLBloodrager	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Bloodrager|TYPE=Base	BONUS:VAR|Caster_Level_Total__Arcane|Caster_Level_Bloodrager
 1	ABILITY:Class|AUTOMATIC|Bloodrager
 ###Block: Level Progression
 1	ABILITY:Bloodrager Class Feature|AUTOMATIC|Bloodrager ~ Weapon and Armor Proficiency
@@ -166,7 +166,7 @@ CLASS:Investigator	HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.30	DEFINE:Investi
 # Class Name		Skill Pts/Lvl
 CLASS:Investigator	STARTSKILLPTS:6
 # Class Name		Spell Stat		Memorize		Spellbook		Caster level				Use Spell List
-CLASS:Investigator	SPELLSTAT:INT	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Investigator|CL	SPELLLIST:1|Alchemist
+CLASS:Investigator	SPELLSTAT:INT	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Investigator|Caster_Level_Investigator	SPELLLIST:1|Alchemist	DEFINE:Caster_Level_Investigator|0	DEFINE:CasterLevelBLInvestigator|0	BONUS:VAR|Caster_Level_Investigator|InvestigatorLVL+Caster_Level_Bonus+CasterLevelBLInvestigator	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Investigator|TYPE=Base	BONUS:VAR|Caster_Level_Total__Arcane|Caster_Level_Investigator
 1	ABILITY:Class|AUTOMATIC|Investigator
 ###Block: Alchemist Book
 1	ABILITY:Internal|AUTOMATIC|Free Formula Book|PREMULT:1,[PREMULT:2,[PREPCLEVEL:MAX=0],[PRECLASS:1,Investigator=1]],[PREMULT:2,[!PRECLASS:1,TYPE.Base=0],[PRECLASS:1,Investigator=1]]
@@ -272,7 +272,7 @@ CLASS:Skald		HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.49	DEFINE:SkaldLVL|0	BO
 # Class Name	Skill Pts/Lvl
 CLASS:Skald		STARTSKILLPTS:4
 # Class Name	Spell Stat		Memorize		Spellbook		Caster level			Use Spell List
-CLASS:Skald		SPELLSTAT:CHA	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Skald|CL	SPELLLIST:1|Bard
+CLASS:Skald		SPELLSTAT:CHA	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Skald|Caster_Level_BL_Stripped_Skald	SPELLLIST:1|Bard	DEFINE:Caster_Level_Skald|0	DEFINE:CasterLevelBLSkald|0	DEFINE:Caster_Level_BL_Stripped_Skald|0	BONUS:VAR|Caster_Level_BL_Stripped_Skald|Caster_Level_Skald-CasterLevelBLSkald	BONUS:VAR|Caster_Level_Skald|SkaldLVL+Caster_Level_Bonus+CasterLevelBLSkald	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Skald|TYPE=Base	BONUS:VAR|Caster_Level_Total__Arcane|Caster_Level_Skald
 1	ABILITY:Class|AUTOMATIC|Skald
 ###Block: Class Abilities
 1	ABILITY:Skald Class Feature|AUTOMATIC|Skald ~ Weapon and Armor Proficiency
