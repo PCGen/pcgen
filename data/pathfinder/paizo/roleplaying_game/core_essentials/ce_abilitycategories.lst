@@ -1,7 +1,8 @@
 # CVS $Revision: 20121 $ $Author: zaister $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 #SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy85k5	SOURCEDATE:2009-09
 
-ABILITYCATEGORY:Race Size	VISIBLE:NO	EDITABLE:NO	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Race Size
+ABILITYCATEGORY:Racial Size				VISIBLE:NO	EDITABLE:NO	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Racial Size
+ABILITYCATEGORY:Race Size					VISIBLE:YES		EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Racial Size	TYPE:Race Size						PLURAL:Sizes			DISPLAYLOCATION:Racial Abilities
 
 
 # Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Specific choices list		Plural description for UI			Display Location
@@ -29,5 +30,4 @@ ABILITYCATEGORY:Class	VISIBLE:NO	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CA
 
 ABILITYCATEGORY:Size						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal	TYPE:Size							PLURAL:Sizes			DISPLAYLOCATION:Racial Abilities
 
-ABILITYCATEGORY:Racial Size					VISIBLE:YES		EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Race Size	TYPE:Race Size						PLURAL:Sizes			DISPLAYLOCATION:Racial Abilities
 
