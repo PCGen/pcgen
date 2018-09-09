@@ -203,7 +203,7 @@ Ability Drained (Charisma)		VISIBLE:NO	SOURCEPAGE:p.555	TEMPDESC:You have tempor
 
 ###Block: Negative Levels
 # Template Name	Visible	Source Page		Temporary effect description					Temporary Bonus																																									TEMPVALUE
-Energy Drained	VISIBLE:NO	SOURCEPAGE:p.562	TEMPDESC:You have gained one or more negative levels	TEMPBONUS:ANYPC|SAVE|Fortitude,Reflex,Will|-1*(%CHOICE)	TEMPBONUS:ANYPC|COMBAT|TOHIT|-1*(%CHOICE)	TEMPBONUS:ANYPC|HP|CURRENTMAX|-5*(%CHOICE)	TEMPBONUS:ANYPC|SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*(%CHOICE)	TEMPVALUE:MIN=1|MAX=20|TITLE=Negative Levels
+Energy Drained	VISIBLE:NO	SOURCEPAGE:p.562	TEMPDESC:You have gained one or more negative levels	TEMPBONUS:ANYPC|SAVE|Fortitude,Reflex,Will|-1*(%CHOICE)	TEMPBONUS:ANYPC|COMBAT|TOHIT|-1*(%CHOICE)	TEMPBONUS:ANYPC|HP|CURRENTMAX|-5*(%CHOICE)	TEMPBONUS:ANYPC|SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*(%CHOICE)	TEMPVALUE:MIN=1|MAX=20|TITLE=Negative Levels	TEMPBONUS:ANYPC|CASTERLEVEL|ALLSPELLS|-1*(%CHOICE)
 
 ###Block: Conditions
 # Template Name	Visible	Source Page		Temporary effect description																																																																																												Temporary Bonus
