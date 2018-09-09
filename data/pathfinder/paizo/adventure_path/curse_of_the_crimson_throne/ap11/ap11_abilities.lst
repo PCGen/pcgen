@@ -21,3 +21,7 @@ Dance of Death									CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural.
 Deathless										CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural							DESC:As a manifestation of Death incarnate, a danse macabre is not itself subject to permanent destruction.																						SOURCEPAGE:p.81
 Lifesense										CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural							DESC:Any creature hit by a chained spirit's chains or incorporeal touch attack must succeed on a DC 25 Will save or take 1d6 points of Charisma drain.														SOURCEPAGE:p.81
 #Danse Macabre Unholy Fortitude	OUTPUTNAME:Unholy Fortitude	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary		DEFINE:ChainedSpiritBonusHP|0	DESC:A danse macabre gains bonus hit points equal to its Charisma modifier times its Hit Dice, and a bonus to its Fortitude saves equal to its Charisma modifier.					BONUS:SAVE|Fortitude|CHA	BONUS:HP|CURRENTMAX|ChainedSpiritBonusHP	BONUS:VAR|ChainedSpiritBonusHP|HD*CHA		SOURCEPAGE:p.81
+
+
+
+Umbral Half-Dragon		CATEGORY:Internal		TYPE:HalfDragonType	VISIBLE:DISPLAY	TEMPLATE:Umbral Half-Dragon	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Negative Energy|Immunity to Negative Energy|Immunity to Strength Drain			BONUS:VAR|BreathWeaponDice|6	BONUS:VAR|BreathWeaponDice|1|PREVAREQ:HD,0	BONUS:VAR|BreathWeaponDamageDie|8	BONUS:VAR|BreathWeaponCone|30	SOURCEPAGE:p.170
