@@ -633,6 +633,6 @@ public final class CoreUtility
 			convertedPath = File.separator + convertedPath;
 		}
 
-		return new URL("file:" + inputPath);
+		return new URL("file:" + convertedPath);
 	}
 }
