@@ -143,15 +143,7 @@ public class HitDiceToken extends Token
 				int hitDie = display.getLevelHitDie(pcClass, i + 1).getDie();
 				if (hitDie != 0)
 				{
-					Integer num = hdMap.get(hitDie);
-					if (num == null)
-					{
-						hdMap.put(hitDie, 1);
-					}
-					else
-					{
-						hdMap.put(hitDie, num.intValue() + 1);
-					}
+					hdMap.merge(hitDie, 1, (a, b) -> a.intValue() + b);
 				}
 			}
 		}
@@ -203,15 +195,7 @@ public class HitDiceToken extends Token
 			for (int i = 0; i < display.getLevel(pcClass); i++)
 			{
 				int hitDie = display.getLevelHitDie(pcClass, i + 1).getDie();
-				Integer num = hdMap.get(hitDie);
-				if (num == null)
-				{
-					hdMap.put(hitDie, 1);
-				}
-				else
-				{
-					hdMap.put(hitDie, num.intValue() + 1);
-				}
+				hdMap.merge(hitDie, 1, (a, b) -> a.intValue() + b);
 			}
 
 			Set<Integer> keys = hdMap.keySet();
