@@ -26,14 +26,18 @@ import java.io.FileWriter;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.Writer;
+import java.text.DateFormat;
 import java.text.Format;
 import java.text.MessageFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.TimeZone;
 
 import org.apache.commons.lang3.time.DateFormatUtils;
 
@@ -164,11 +168,15 @@ public final class Tips
 
 	private static void writePOT(Iterable<String> tips, Writer bw) throws IOException
 	{
+
+		TimeZone tz = TimeZone.getTimeZone("UTC");
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm'Z'");
+		df.setTimeZone(tz);
+
 		// header stuff
-		Calendar now = Calendar.getInstance();
 		bw.write("msgid \"\"\n" + "msgstr \"\"\n" + "\"Project-Id-Version: PCGen-tips 6.x\\n\"\n"
 			+ "\"Report-Msgid-Bugs-To: \\n\"\n" + "\"POT-Creation-Date: "
-			+ DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.format(now) + "\\n\"\n"
+			+ df.format(new Date()) + "\\n\"\n"
 			+ "\"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\\n\"\n" + "\"Last-Translator: FULL NAME <EMAIL@ADDRESS>\\n\"\n"
 			+ "\"Language-Team: LANGUAGE <LL@li.org>\\n\"\n" + "\"MIME-Version: 1.0\\n\"\n"
 			+ "\"Content-Type: text/plain; charset=UTF-8\\n\"\n" + "\"Content-Transfer-Encoding: 8bit\\n\"\n\n");
