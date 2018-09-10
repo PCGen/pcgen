@@ -48,22 +48,6 @@ public final class CoreUtility
 
 	public static final Comparator<Equipment> EQUIPMENT_COMPARATOR = new Comparator<Equipment>()
 	{
-		private int compareInts(final int obj1Index, final int obj2Index)
-		{
-			if (obj1Index > obj2Index)
-			{
-				return 1;
-			}
-			else if (obj1Index < obj2Index)
-			{
-				return -1;
-			}
-			else
-			{
-				return 0;
-			}
-		}
-
 		@Override
 		public int compare(final Equipment obj1, final Equipment obj2)
 		{
@@ -74,14 +58,14 @@ public final class CoreUtility
 			o1i = (o1i == 0) ? 999 : o1i;
 			o2i = (o2i == 0) ? 999 : o2i;
 
-			final int result1 = compareInts(o1i, o2i);
+			final int result1 = Integer.compare(o1i, o2i);
 
 			if (result1 != 0)
 			{
 				return result1;
 			}
 
-			final int result2 = compareInts(obj1.getOutputSubindex(), obj2.getOutputSubindex());
+			final int result2 = Integer.compare(obj1.getOutputSubindex(), obj2.getOutputSubindex());
 
 			if (result2 != 0)
 			{
@@ -507,13 +491,13 @@ public final class CoreUtility
 	{
 		if (ver[0] != compVer[0])
 		{
-			return Integer.valueOf(ver[0]).compareTo(compVer[0]);
+			return Integer.compare(ver[0], compVer[0]);
 		}
 		if (ver[1] != compVer[1])
 		{
-			return Integer.valueOf(ver[1]).compareTo(compVer[1]);
+			return Integer.compare(ver[1], compVer[1]);
 		}
-		return Integer.valueOf(ver[2]).compareTo(compVer[2]);
+		return Integer.compare(ver[2], compVer[2]);
 	}
 
 	/**
