@@ -414,18 +414,6 @@ public final class CoreUtility
 	}
 
 	/**
-	 * Unescape the : character
-	 * 
-	 * @param in
-	 *            the string to operate on
-	 * @return the modified string
-	 */
-	public static String unEscapeColons2(final String in)
-	{
-		return in.replaceAll(Pattern.quote("&#59;"), ":");
-	}
-
-	/**
 	 * Merge the equipment list
 	 * 
 	 * @param equip
