@@ -165,7 +165,7 @@ dependencies {
     compile group: 'org.springframework', name: 'spring-beans', version:'5.0.8.RELEASE'
     compile group: 'org.springframework', name: 'spring-web', version:'5.0.8.RELEASE'
     compile group: 'skinlf', name: 'skinlf', version: '1.2.3'
-    compile group: 'org.apache.commons', name: 'commons-lang3', version:'3.7'
+    compile group: 'org.apache.commons', name: 'commons-lang3', version:'3.8'
     compile group: 'org.apache.xmlgraphics', name: 'fop', version:'2.3'
     compile group: 'org.apache.commons', name: 'commons-collections4', version: '4.2'
     compile group: 'jep', name: 'jep', version:'2.4.1'
