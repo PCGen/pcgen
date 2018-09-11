@@ -114,14 +114,7 @@ public class CDOMCompoundOrReference<T extends PrereqObject> extends CDOMGroupRe
 	@Override
 	public boolean contains(T item)
 	{
-		for (CDOMReference<T> ref : references)
-		{
-			if (ref.contains(item))
-			{
-				return true;
-			}
-		}
-		return false;
+		return references.stream().anyMatch(ref -> ref.contains(item));
 	}
 
 	/**
