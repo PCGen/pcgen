@@ -367,15 +367,7 @@ public final class InfoTabbedPane extends JTabbedPane implements CharacterSelect
 		{
 			if (timingMap.containsKey(o1) && timingMap.containsKey(o2))
 			{
-				long dif = timingMap.get(o1) - timingMap.get(o2);
-				if (dif < 0)
-				{
-					return -1;
-				}
-				if (dif > 0)
-				{
-					return 1;
-				}
+				return Long.compare(timingMap.get(o1), timingMap.get(o2));
 			}
 			else if (timingMap.containsKey(o1))
 			{
