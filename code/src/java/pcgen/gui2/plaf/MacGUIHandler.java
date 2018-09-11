@@ -51,6 +51,7 @@ public final class MacGUIHandler
 
 		// set up the Application menu
 		theAdapter = new MacGUIHandler();
+		MacGUIHandler.initialize();
 		Desktop theDesktop = Desktop.getDesktop();
 		theDesktop.setAboutHandler(new OSXAboutHandler());
 		theDesktop.setPreferencesHandler(new OSXPreferencesHandler());
