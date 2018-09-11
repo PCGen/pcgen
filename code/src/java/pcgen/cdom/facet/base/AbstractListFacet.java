@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedHashSet;
+import java.util.List;
 
 import pcgen.cdom.base.PCGenIdentifier;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
@@ -251,7 +252,7 @@ public abstract class AbstractListFacet<IDT extends PCGenIdentifier, T> extends 
 		{
 			return Collections.emptySet();
 		}
-		return Collections.unmodifiableList(new ArrayList<>(componentSet));
+		return List.copyOf(componentSet);
 	}
 
 	/**

@@ -17,17 +17,17 @@
  */
 package pcgen.cdom.base;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-import java.util.Set;
-
 import pcgen.base.util.ListSet;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteUtilities;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+import java.util.Set;
 
 /**
  * A ConcretePrereqObject is an object that contains a list of Prerequisites.
@@ -61,12 +61,7 @@ public class ConcretePrereqObject implements Cloneable, PrereqObject
 		{
 			return Collections.emptyList();
 		}
-		/*
-		 * TODO This is an ugly facade, but required for easy compatibility with
-		 * 5.14 - to be changed once 5.14 code is gone and this can be changed
-		 * to return Collection or Set (or perhaps ListSet?)
-		 */
-		return Collections.unmodifiableList(new ArrayList<>(thePrereqs));
+		return List.copyOf(thePrereqs);
 	}
 
 	/**
