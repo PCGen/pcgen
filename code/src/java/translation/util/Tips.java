@@ -30,7 +30,6 @@ import java.text.DateFormat;
 import java.text.Format;
 import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
@@ -39,16 +38,12 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TimeZone;
 
-import org.apache.commons.lang3.time.DateFormatUtils;
-
 /**
  * This class allows the generation of a PO Template file from the tips.txt files,
  * and also generate translated tips ({@code tips_XX.txt}) from a PO file 
  * (whose name is {@code _XX.po}).
  * PO Template and PO files are message catalog used in gettext.
  * The duplicates from the tips files should appear only once in the PO Template files.
- *
- * This class tries to be independent of code, but still needs Apache Commons Lang.
  *
  * @see <a href="http://www.gnu.org/software/gettext/manual/gettext.html">GNU gettext manual</a>
  */
