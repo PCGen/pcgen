@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
@@ -93,26 +94,26 @@ public class EquipmentTableParser
 		}
 
 		// Resolve all links now that all tables should have been read in.
-		for (final EquipmentItem item : theLinkTable.keySet())
+		for (final Map.Entry<EquipmentItem, String> equipmentItemStringEntry : theLinkTable.entrySet())
 		{
-			final EquipmentTable table = EquipmentTable.get(theLinkTable.get(item));
+			final EquipmentTable table = EquipmentTable.get(equipmentItemStringEntry.getValue());
 			if (table == null)
 			{
-				Logging.errorPrint("Could not find linked table " + theLinkTable.get(item) + " for " + item);
+				Logging.errorPrint("Could not find linked table " + equipmentItemStringEntry.getValue() + " for " + equipmentItemStringEntry.getKey());
 				continue;
 			}
-			item.setLookup(table);
+			equipmentItemStringEntry.getKey().setLookup(table);
 		}
 
-		for (final EqmodItem item : theEqmodLinkTable.keySet())
+		for (final Map.Entry<EqmodItem, String> eqmodItemStringEntry : theEqmodLinkTable.entrySet())
 		{
-			final EqmodTable table = EqmodTable.get(theEqmodLinkTable.get(item));
+			final EqmodTable table = EqmodTable.get(eqmodItemStringEntry.getValue());
 			if (table == null)
 			{
-				Logging.errorPrint("Could not find linked table " + theEqmodLinkTable.get(item) + " for " + item);
+				Logging.errorPrint("Could not find linked table " + eqmodItemStringEntry.getValue() + " for " + eqmodItemStringEntry.getKey());
 				continue;
 			}
-			item.setLookup(table);
+			eqmodItemStringEntry.getKey().setLookup(table);
 		}
 		return ret;
 	}
