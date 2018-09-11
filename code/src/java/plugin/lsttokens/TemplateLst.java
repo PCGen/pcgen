@@ -125,24 +125,15 @@ public class TemplateLst extends AbstractToken implements CDOMPrimaryToken<CDOMO
 		{
 			CDOMCompoundOrReference<PCTemplate> ref =
 					new CDOMCompoundOrReference<>(PCTEMPLATE_IDENTITY, Constants.LST_CHOOSE_COLON);
-			for (CDOMReference<PCTemplate> r : list)
-			{
-				ref.addReference(r);
-			}
+			list.forEach(ref::addReference);
 			ref.trimToSize();
 			list.clear();
 			list.add(ref);
 		}
-		for (CDOMReference<PCTemplate> ref : list)
-		{
-			context.getObjectContext().addToList(cdo, lk, ref);
-		}
+		list.forEach(ref -> context.getObjectContext().addToList(cdo, lk, ref));
 		if (!removelist.isEmpty())
 		{
-			for (CDOMReference<PCTemplate> ref : removelist)
-			{
-				context.getObjectContext().addToList(cdo, ListKey.REMOVE_TEMPLATES, ref);
-			}
+			removelist.forEach(ref -> context.getObjectContext().addToList(cdo, ListKey.REMOVE_TEMPLATES, ref));
 		}
 		return ParseResult.SUCCESS;
 	}
