@@ -40,7 +40,7 @@ pmd {
 }
 
 spotbugs {
-	toolVersion = '3.1.5'
+    toolVersion = '3.1.6'
 }
 
 group = 'net.sourceforge.pcgen'

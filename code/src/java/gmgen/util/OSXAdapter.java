@@ -17,6 +17,7 @@
 package gmgen.util;
 
 import com.apple.eawt.AppEvent;
+
 import com.apple.eawt.Application;
 import com.apple.eawt.PreferencesHandler;
 import com.apple.eawt.QuitHandler;

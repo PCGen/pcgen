@@ -432,11 +432,11 @@ public final class Main
 	}
 
 	/**
-	 * @return an ArgumentParser used to peform argument parsing
+	 * @return an ArgumentParser used to perform argument parsing
 	 */
 	private static ArgumentParser getParser()
 	{
-		ArgumentParser parser = ArgumentParsers.newArgumentParser(Constants.APPLICATION_NAME).defaultHelp(false)
+		ArgumentParser parser = ArgumentParsers.newFor(Constants.APPLICATION_NAME).build().defaultHelp(false)
 			.description("RPG Character Generator").version(PCGenPropBundle.getVersionNumber());
 
 		parser.addArgument("-v", "--verbose").help("verbose logging").type(Boolean.class).action(Arguments.count());
