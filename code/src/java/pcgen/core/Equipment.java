@@ -6262,7 +6262,7 @@ public final class Equipment extends PObject
 	@Override
 	public List<String> getChildTypes()
 	{
-		return Arrays.asList(new String[]{"EQUIPMENT.PART"});
+		return Arrays.asList("EQUIPMENT.PART");
 	}
 
 	@Override
