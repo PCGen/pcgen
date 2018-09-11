@@ -137,20 +137,13 @@ public class SystemHP
 
 			PCStat stat =
 					Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCStat.class, "CON");
-			if (damage > pc.getTotalStatFor(stat))
-			{
-				return true;
-			}
+			return damage > pc.getTotalStatFor(stat);
 		}
 		else
 		{
-			if (damage > cbt.getHP().getAttribute().getValue())
-			{
-				return true;
-			}
+			return damage > cbt.getHP().getAttribute().getValue();
 		}
 
-		return false;
 	}
 
 	/**
