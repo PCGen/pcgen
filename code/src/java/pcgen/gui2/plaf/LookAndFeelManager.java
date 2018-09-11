@@ -261,12 +261,12 @@ public final class LookAndFeelManager
 		return new SkinLookAndFeel();
 	}
 
-	public static class LookAndFeelHandler extends AbstractAction
+	public static final class LookAndFeelHandler extends AbstractAction
 	{
 
 		private final String className;
 
-		LookAndFeelHandler(String name, String className, String tooltip)
+		private LookAndFeelHandler(String name, String className, String tooltip)
 		{
 			super(name);
 			this.className = className;

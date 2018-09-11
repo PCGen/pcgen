@@ -24,15 +24,9 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.util.stream.IntStream;
 
-import javax.swing.Action;
-import javax.swing.BorderFactory;
-import javax.swing.ButtonGroup;
-import javax.swing.JButton;
-import javax.swing.JFileChooser;
-import javax.swing.JLabel;
-import javax.swing.JRadioButton;
-import javax.swing.JTextField;
+import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 import javax.swing.filechooser.FileFilter;
@@ -53,7 +47,7 @@ import org.apache.commons.lang3.StringUtils;
  * preferences to be edited by the user.
  */
 @SuppressWarnings("serial")
-public class LookAndFeelPanel extends PCGenPrefsPanel
+public final class LookAndFeelPanel extends PCGenPrefsPanel
 {
 	private static final String IN_LOOK_AND_FEEL = LanguageBundle.getString("in_Prefs_lookAndFeel");
 
@@ -61,10 +55,9 @@ public class LookAndFeelPanel extends PCGenPrefsPanel
 	private static final String IN_CHOOSE = "...";
 
 	private final JRadioButton[] laf;
-	private final JRadioButton skinnedLookFeel = new JRadioButton();
+	private final AbstractButton skinnedLookFeel = new JRadioButton();
 	private final JButton themepack;
 	private final JTextField themepackLabel;
-	private final PrefsButtonListener prefsButtonHandler = new PrefsButtonListener();
 	private String oldLAF;
 	private String oldThemePack;
 
@@ -85,7 +78,7 @@ public class LookAndFeelPanel extends PCGenPrefsPanel
 		this.setLayout(gridbag);
 		GridBagConstraints c = new GridBagConstraints();
 		c.fill = GridBagConstraints.HORIZONTAL;
-		c.anchor = GridBagConstraints.WEST;
+		c.anchor = GridBagConstraints.LINE_START;
 		c.insets = new Insets(2, 2, 2, 2);
 
 		exclusiveGroup = new ButtonGroup();
@@ -124,6 +117,7 @@ public class LookAndFeelPanel extends PCGenPrefsPanel
 		themepack.setToolTipText(LanguageBundle.getString("in_Prefs_chooseSkinTooltip"));
 		gridbag.setConstraints(themepack, c);
 		this.add(themepack);
+		PrefsButtonListener prefsButtonHandler = new PrefsButtonListener();
 		themepack.addActionListener(prefsButtonHandler);
 
 		Utility.buildConstraints(c, 0, laf.length + 1, 5, 1, 0, 0);
@@ -235,10 +229,7 @@ public class LookAndFeelPanel extends PCGenPrefsPanel
 	{
 		oldLAF = LookAndFeelManager.getCurrentLAF();
 		oldThemePack = LookAndFeelManager.getCurrentThemePack();
-		for (int i = 0; i < laf.length; i++)
-		{
-			laf[i].setSelected(oldLAF.equals(laf[i].getText()));
-		}
+		IntStream.range(0, laf.length).forEach(i -> laf[i].setSelected(oldLAF.equals(laf[i].getText())));
 		skinnedLookFeel.setSelected(oldLAF.equals("Skinned"));
 	}
 
@@ -249,14 +240,12 @@ public class LookAndFeelPanel extends PCGenPrefsPanel
 		{
 			JButton source = (JButton) actionEvent.getSource();
 
-			if (source == null)
-			{
-				// Do nothing
-			}
-			else if (source == themepack)
-			{
-				selectThemePack();
-				themepackLabel.setText(LookAndFeelManager.getCurrentThemePack());
+			if (source != null) {
+				if (source == themepack)
+				{
+					selectThemePack();
+					themepackLabel.setText(LookAndFeelManager.getCurrentThemePack());
+				}
 			}
 		}
 	}
