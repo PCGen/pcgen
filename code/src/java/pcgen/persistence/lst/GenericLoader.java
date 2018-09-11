@@ -18,6 +18,7 @@
  */
 package pcgen.persistence.lst;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Modifier;
 import java.util.Objects;
 import java.util.StringTokenizer;
@@ -69,10 +70,10 @@ public class GenericLoader<T extends CDOMObject> extends LstObjectFileLoader<T>
 		{
 			try
 			{
-				po = baseClass.newInstance();
+				po = baseClass.getConstructor().newInstance();
 				newConstructionActions(context, po);
 			}
-			catch (InstantiationException | IllegalAccessException e)
+			catch (InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e)
 			{
 				throw new UnreachableError(e);
 			}
