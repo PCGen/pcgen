@@ -76,7 +76,6 @@ public final class SubstitutionClassApplication
 			SubstitutionClass sc = (SubstitutionClass) selected;
 			SubstitutionLevelSupport.applyLevelArrayModsToLevel(sc, cl, aLevel, aPC);
 			aPC.setSubstitutionClassName(aPC.getActiveClassLevel(cl, aLevel), sc.getKeyName());
-			return;
 		}
 		else
 		{
@@ -87,7 +86,6 @@ public final class SubstitutionClassApplication
 			 * it returned right away without calling this method.
 			 */
 			aPC.removeSubstitutionClassName(aPC.getActiveClassLevel(cl, aLevel));
-			return;
 		}
 
 	}

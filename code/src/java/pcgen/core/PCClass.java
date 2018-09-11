@@ -1202,7 +1202,6 @@ public class PCClass extends PObject implements InfoFacade, Cloneable
 		{
 			Logging.errorPrint("No current pc in subLevel()? How did this happen?");
 
-			return;
 		}
 	}
 

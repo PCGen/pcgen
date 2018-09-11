@@ -2200,7 +2200,6 @@ final class PCGVer2Parser implements PCGParser
 						line, pcgpex.getMessage());
 					warnings.add(msg);
 
-					return;
 				}
 			}
 			else

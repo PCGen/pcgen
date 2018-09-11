@@ -230,7 +230,6 @@ public final class AbilityUtilities
 		if (aMan != null)
 		{
 			processSelection(pc, cna, aMan, toAdd);
-			return;
 		}
 		//TODO Log error? (or MULT:NO?)
 	}

@@ -381,7 +381,6 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 					if (switchTabs)
 					{
 						frame.setSelectedCharacter(character);
-						return;
 					}
 					else
 					{
