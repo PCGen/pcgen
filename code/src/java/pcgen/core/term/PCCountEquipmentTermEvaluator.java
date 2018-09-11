@@ -46,10 +46,7 @@ public class PCCountEquipmentTermEvaluator extends BasePCTermEvaluator implement
 		List<Equipment> aList = new ArrayList<>();
 		final List<Equipment> equipList = pc.getEquipmentListInOutputOrder(merge);
 
-		for (Equipment eq : equipList)
-		{
-			aList.add(eq);
-		}
+        aList.addAll(equipList);
 
 		// This is new, it's to deal with the fact that the code uses an array
 		// now instead of the deprecated StringTokeniser class.  We can have
