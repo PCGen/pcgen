@@ -56,7 +56,7 @@ public class SuppressBioFieldFacet extends AbstractStorageFacet<CharID>
 		Set<BiographyField> suppressedFields = (Set<BiographyField>) getCache(id);
 		if (suppressedFields == null)
 		{
-			suppressedFields = Collections.synchronizedSet(new HashSet<BiographyField>());
+			suppressedFields = Collections.synchronizedSet(new HashSet<>());
 			setCache(id, suppressedFields);
 		}
 

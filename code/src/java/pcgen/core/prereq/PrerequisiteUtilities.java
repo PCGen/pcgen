@@ -465,10 +465,7 @@ public final class PrerequisiteUtilities
 				{
 					for (CDOMReference<Ability> ref : cna.getAbility().getSafeListFor(ListKey.SERVES_AS_ABILITY))
 					{
-						for (Ability ab : ref.getContainedObjects())
-						{
-							abilityList.add(ab);
-						}
+						abilityList.addAll(ref.getContainedObjects());
 					}
 				}
 			}

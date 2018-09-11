@@ -142,10 +142,7 @@ public class AutoLanguageFacet extends AbstractQualifiedListFacet<QualifiedObjec
 		for (QualifiedObject<CDOMReference<Language>> qo : getQualifiedSet(id))
 		{
 			Collection<Language> langList = qo.getRawObject().getContainedObjects();
-			for (Language l : langList)
-			{
-				list.add(l);
-			}
+			list.addAll(langList);
 		}
 		return list;
 	}
