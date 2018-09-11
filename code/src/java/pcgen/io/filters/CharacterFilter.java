@@ -77,7 +77,6 @@ public class CharacterFilter implements OutputFilter
 						new BufferedReader(new InputStreamReader(new FileInputStream(filterFile),
 								StandardCharsets.UTF_8
 						));
-
 				outputFilterName = filterName;
 				outputFilter = new HashMap<>();
 
