@@ -44,6 +44,14 @@ javafx {
     }
 }
 
+pmd {
+    toolVersion = '6.5.0'
+}
+
+spotbugs {
+    toolVersion = '3.1.6'
+}
+
 group = 'net.sourceforge.pcgen'
 
 description = """PCGen"""
