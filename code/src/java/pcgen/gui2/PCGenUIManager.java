@@ -46,8 +46,7 @@ public final class PCGenUIManager
 
 	public static void initializeGUI()
 	{
-		// Don't start macOS GUI if we're on Java 9 since it doesn't work.
-		if (SystemUtils.IS_OS_MAC_OSX && (System.getProperty("java.runtime.version").charAt(0) != '9'))
+		if (SystemUtils.IS_OS_MAC_OSX)
 		{
 			MacGUIHandler.initialize();
 		}

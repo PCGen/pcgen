@@ -202,9 +202,10 @@ Power Attack (Natural Primary - Single)	CATEGORY:FEAT		VISIBLE:NO															
 
 
 
-# Extend Arcane Strike:
+###Blocl: Extend Arcane Strike:
 #Arcane Strike.MOD					BONUS:VAR|ArcaneStrikeLVL|min((1+(charbonusto("CASTERLEVEL","Wizard")+var("BL=Wizard")+charbonusto("CASTERLEVEL","Sorcerer")+var("BL=Sorcerer")+charbonusto("CASTERLEVEL","Bard")+var("BL=Bard")+charbonusto("CASTERLEVEL","Summoner")+var("BL=Summoner")+charbonusto("CASTERLEVEL","Witch")+var("BL=Witch")+charbonusto("CASTERLEVEL","Magus")+var("BL=Magus"))/5),5)
-CATEGORY=FEAT|Arcane Strike.MOD							BONUS:VAR|ArcaneStrikeLVL|charbonusto("CASTERLEVEL","Wizard")+var("BL=Wizard")+charbonusto("CASTERLEVEL","Sorcerer")+var("BL=Sorcerer")+charbonusto("CASTERLEVEL","Bard")+var("BL=Bard")
+CATEGORY=FEAT|Arcane Strike.MOD	BONUS:VAR|ArcaneStrikeLVL|Caster_Level_Total__Arcane
+#charbonusto("CASTERLEVEL","Wizard")+var("BL=Wizard")+charbonusto("CASTERLEVEL","Sorcerer")+var("BL=Sorcerer")+charbonusto("CASTERLEVEL","Bard")+var("BL=Bard")
 
 ###Block: Modified Feats for Sorcerer Bloodlines -Converted to new system
 # Ability Name					Type

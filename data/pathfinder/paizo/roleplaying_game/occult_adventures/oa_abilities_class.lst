@@ -317,6 +317,30 @@ CATEGORY=CLASS|Occultist.MOD		DEFINE:Occultist_CF_OutsideContact|0
 CATEGORY=CLASS|Occultist.MOD		DEFINE:Occultist_CF_BindingCircles|0
 CATEGORY=CLASS|Occultist.MOD		DEFINE:Occultist_CF_FastCircles|0
 CATEGORY=CLASS|Occultist.MOD		DEFINE:Occultist_CF_ImplementMastery|0
+
+CATEGORY=CLASS|Occultist.MOD		DEFINE:OccultistSchool_Abjuration|0
+CATEGORY=CLASS|Occultist.MOD		DEFINE:OccultistSchool_Conjuration|0
+CATEGORY=CLASS|Occultist.MOD		DEFINE:OccultistSchool_Divination|0
+CATEGORY=CLASS|Occultist.MOD		DEFINE:OccultistSchool_Enchantment|0
+CATEGORY=CLASS|Occultist.MOD		DEFINE:OccultistSchool_Evocation|0
+CATEGORY=CLASS|Occultist.MOD		DEFINE:OccultistSchool_Illusion|0
+CATEGORY=CLASS|Occultist.MOD		DEFINE:OccultistSchool_Necromancy|0
+CATEGORY=CLASS|Occultist.MOD		DEFINE:OccultistSchool_Transmutation|0
+CATEGORY=CLASS|Occultist.MOD		DEFINE:Occultist_CF_Implement2|0
+CATEGORY=CLASS|Occultist.MOD		DEFINE:Occultist_CF_Implement6|0
+CATEGORY=CLASS|Occultist.MOD		DEFINE:Occultist_CF_Implement10|0
+CATEGORY=CLASS|Occultist.MOD		DEFINE:Occultist_CF_Implement14|0
+CATEGORY=CLASS|Occultist.MOD		DEFINE:Occultist_CF_Implement18|0
+CATEGORY=CLASS|Occultist.MOD		DEFINE:Occultist_CF_FocusPowers3|0
+CATEGORY=CLASS|Occultist.MOD		DEFINE:Occultist_CF_FocusPowers5|0
+CATEGORY=CLASS|Occultist.MOD		DEFINE:Occultist_CF_FocusPowers7|0
+CATEGORY=CLASS|Occultist.MOD		DEFINE:Occultist_CF_FocusPowers9|0
+CATEGORY=CLASS|Occultist.MOD		DEFINE:Occultist_CF_FocusPowers11|0
+CATEGORY=CLASS|Occultist.MOD		DEFINE:Occultist_CF_FocusPowers13|0
+CATEGORY=CLASS|Occultist.MOD		DEFINE:Occultist_CF_FocusPowers15|0
+CATEGORY=CLASS|Occultist.MOD		DEFINE:Occultist_CF_FocusPowers17|0
+CATEGORY=CLASS|Occultist.MOD		DEFINE:Occultist_CF_FocusPowers19|0
+
 ###Block:
 CATEGORY=CLASS|Occultist.MOD		BONUS:VAR|Occultist_CF_ClassSkills|1|PREFACT:1,ABILITIES,Occultist_CF_ClassSkills=True
 CATEGORY=CLASS|Occultist.MOD		BONUS:VAR|Occultist_CF_WeaponandArmorProficiency|1|PREFACT:1,ABILITIES,Occultist_CF_WeaponandArmorProficiency=True
@@ -334,6 +358,30 @@ CATEGORY=CLASS|Occultist.MOD		BONUS:VAR|Occultist_CF_OutsideContact|1|PREFACT:1,
 CATEGORY=CLASS|Occultist.MOD		BONUS:VAR|Occultist_CF_BindingCircles|1|PREFACT:1,ABILITIES,Occultist_CF_BindingCircles=True
 CATEGORY=CLASS|Occultist.MOD		BONUS:VAR|Occultist_CF_FastCircles|1|PREFACT:1,ABILITIES,Occultist_CF_FastCircles=True
 CATEGORY=CLASS|Occultist.MOD		BONUS:VAR|Occultist_CF_ImplementMastery|1|PREFACT:1,ABILITIES,Occultist_CF_ImplementMastery=True
+
+CATEGORY=CLASS|Occultist.MOD		BONUS:VAR|OccultistSchool_Abjuration|1|PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True
+CATEGORY=CLASS|Occultist.MOD		BONUS:VAR|OccultistSchool_Conjuration|1|PREFACT:1,ABILITIES,OccultistSchool_Conjuration=True
+CATEGORY=CLASS|Occultist.MOD		BONUS:VAR|OccultistSchool_Divination|1|PREFACT:1,ABILITIES,OccultistSchool_Divination=True
+CATEGORY=CLASS|Occultist.MOD		BONUS:VAR|OccultistSchool_Enchantment|1|PREFACT:1,ABILITIES,OccultistSchool_Enchantment=True
+CATEGORY=CLASS|Occultist.MOD		BONUS:VAR|OccultistSchool_Evocation|1|PREFACT:1,ABILITIES,OccultistSchool_Evocation=True
+CATEGORY=CLASS|Occultist.MOD		BONUS:VAR|OccultistSchool_Illusion|1|PREFACT:1,ABILITIES,OccultistSchool_Illusion=True
+CATEGORY=CLASS|Occultist.MOD		BONUS:VAR|OccultistSchool_Necromancy|1|PREFACT:1,ABILITIES,OccultistSchool_Necromancy=True
+CATEGORY=CLASS|Occultist.MOD		BONUS:VAR|OccultistSchool_Transmutation|1|PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+CATEGORY=CLASS|Occultist.MOD		BONUS:VAR|Occultist_CF_Implement2|1|PREFACT:1,ABILITIES,Occultist_CF_Implement2=True
+CATEGORY=CLASS|Occultist.MOD		BONUS:VAR|Occultist_CF_Implement6|1|PREFACT:1,ABILITIES,Occultist_CF_Implement6=True
+CATEGORY=CLASS|Occultist.MOD		BONUS:VAR|Occultist_CF_Implement10|1|PREFACT:1,ABILITIES,Occultist_CF_Implement10=True
+CATEGORY=CLASS|Occultist.MOD		BONUS:VAR|Occultist_CF_Implement14|1|PREFACT:1,ABILITIES,Occultist_CF_Implement14=True
+CATEGORY=CLASS|Occultist.MOD		BONUS:VAR|Occultist_CF_Implement18|1|PREFACT:1,ABILITIES,Occultist_CF_Implement18=True
+CATEGORY=CLASS|Occultist.MOD		BONUS:VAR|Occultist_CF_FocusPowers3|1|PREFACT:1,ABILITIES,Occultist_CF_FocusPowers3=True
+CATEGORY=CLASS|Occultist.MOD		BONUS:VAR|Occultist_CF_FocusPowers5|1|PREFACT:1,ABILITIES,Occultist_CF_FocusPowers5=True
+CATEGORY=CLASS|Occultist.MOD		BONUS:VAR|Occultist_CF_FocusPowers7|1|PREFACT:1,ABILITIES,Occultist_CF_FocusPowers7=True
+CATEGORY=CLASS|Occultist.MOD		BONUS:VAR|Occultist_CF_FocusPowers9|1|PREFACT:1,ABILITIES,Occultist_CF_FocusPowers9=True
+CATEGORY=CLASS|Occultist.MOD		BONUS:VAR|Occultist_CF_FocusPowers11|1|PREFACT:1,ABILITIES,Occultist_CF_FocusPowers11=True
+CATEGORY=CLASS|Occultist.MOD		BONUS:VAR|Occultist_CF_FocusPowers13|1|PREFACT:1,ABILITIES,Occultist_CF_FocusPowers13=True
+CATEGORY=CLASS|Occultist.MOD		BONUS:VAR|Occultist_CF_FocusPowers15|1|PREFACT:1,ABILITIES,Occultist_CF_FocusPowers15=True
+CATEGORY=CLASS|Occultist.MOD		BONUS:VAR|Occultist_CF_FocusPowers17|1|PREFACT:1,ABILITIES,Occultist_CF_FocusPowers17=True
+CATEGORY=CLASS|Occultist.MOD		BONUS:VAR|Occultist_CF_FocusPowers19|1|PREFACT:1,ABILITIES,Occultist_CF_FocusPowers19=True
+
 ###Block:
 CATEGORY=CLASS|Psychic.MOD		DEFINE:Psychic_CF_ClassSkills|0
 CATEGORY=CLASS|Psychic.MOD		DEFINE:Psychic_CF_WeaponandArmorProficiency|0
@@ -1025,6 +1073,16 @@ CATEGORY=Special Ability|Occultist ~ Implements.MOD			BONUS:VAR|OccultistImpleme
 CATEGORY=Special Ability|Occultist ~ Implements.MOD			BONUS:VAR|OccultistImplementSchool|-1|PREVARGTEQ:OccultistLVL,10|PREVAREQ:Occultist_CF_Implement10,1
 CATEGORY=Special Ability|Occultist ~ Implements.MOD			BONUS:VAR|OccultistImplementSchool|-1|PREVARGTEQ:OccultistLVL,14|PREVAREQ:Occultist_CF_Implement14,1
 CATEGORY=Special Ability|Occultist ~ Implements.MOD			BONUS:VAR|OccultistImplementSchool|-1|PREVARGTEQ:OccultistLVL,18|PREVAREQ:Occultist_CF_Implement18,1
+
+CATEGORY=Special Ability|Occultist ~ Focus Powers.MOD			BONUS:VAR|OccultistFocusPower|-1|PREVARGTEQ:OccultistLVL,3|PREVAREQ:Occultist_CF_FocusPowers3,1
+CATEGORY=Special Ability|Occultist ~ Focus Powers.MOD			BONUS:VAR|OccultistFocusPower|-1|PREVARGTEQ:OccultistLVL,5|PREVAREQ:Occultist_CF_FocusPowers5,1
+CATEGORY=Special Ability|Occultist ~ Focus Powers.MOD			BONUS:VAR|OccultistFocusPower|-1|PREVARGTEQ:OccultistLVL,7|PREVAREQ:Occultist_CF_FocusPowers7,1
+CATEGORY=Special Ability|Occultist ~ Focus Powers.MOD			BONUS:VAR|OccultistFocusPower|-1|PREVARGTEQ:OccultistLVL,9|PREVAREQ:Occultist_CF_FocusPowers9,1
+CATEGORY=Special Ability|Occultist ~ Focus Powers.MOD			BONUS:VAR|OccultistFocusPower|-1|PREVARGTEQ:OccultistLVL,11|PREVAREQ:Occultist_CF_FocusPowers11,1
+CATEGORY=Special Ability|Occultist ~ Focus Powers.MOD			BONUS:VAR|OccultistFocusPower|-1|PREVARGTEQ:OccultistLVL,13|PREVAREQ:Occultist_CF_FocusPowers13,1
+CATEGORY=Special Ability|Occultist ~ Focus Powers.MOD			BONUS:VAR|OccultistFocusPower|-1|PREVARGTEQ:OccultistLVL,15|PREVAREQ:Occultist_CF_FocusPowers15,1
+CATEGORY=Special Ability|Occultist ~ Focus Powers.MOD			BONUS:VAR|OccultistFocusPower|-1|PREVARGTEQ:OccultistLVL,17|PREVAREQ:Occultist_CF_FocusPowers17,1
+CATEGORY=Special Ability|Occultist ~ Focus Powers.MOD			BONUS:VAR|OccultistFocusPower|-1|PREVARGTEQ:OccultistLVL,19|PREVAREQ:Occultist_CF_FocusPowers19,1
 
 ###Block: Psychic
 # Ability Name			Unique Key								Category of Ability		Type										Description																																																																																																																																																																																																																																																																																																																													Source Page
