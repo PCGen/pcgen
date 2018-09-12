@@ -56,8 +56,7 @@ public class GenericLocalVariableLoader<T extends CDOMObject> extends GenericLoa
 	public GenericLocalVariableLoader(Class<T> cl, String varScope)
 	{
 		super(cl);
-		Objects.requireNonNull(varScope, "VariableScope cannot be null");
-		this.varScope = varScope;
+		this.varScope = Objects.requireNonNull(varScope, "VariableScope cannot be null");
 	}
 
 	@Override
