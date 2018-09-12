@@ -543,7 +543,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 			campDisplay.append(campaigns.get(i).getDisplayName());
 			campDisplay.append("\n");
 		}
-		Logging.log(Logging.INFO, "Sources: " + campDisplay.toString());
+		Logging.log(Logging.INFO, "Sources: " + campDisplay);
 		Logging.log(Logging.INFO, "Logging changes to " + changeLogFile.getAbsolutePath());
 	}
 

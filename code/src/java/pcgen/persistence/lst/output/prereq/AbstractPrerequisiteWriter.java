@@ -61,7 +61,7 @@ public class AbstractPrerequisiteWriter
 			kind = "<NULL>";
 		}
 		throw new PersistenceLayerException("Cannot write token: LST syntax only supports "
-			+ comparatorString.toString() + " operators for PRE" + kind.toUpperCase() + ": " + prereq.toString());
+			+ comparatorString + " operators for PRE" + kind.toUpperCase() + ": " + prereq.toString());
 	}
 
 	protected boolean checkForPremultOfKind(final Prerequisite prereq, final String kind, final boolean multiplesOnly)
