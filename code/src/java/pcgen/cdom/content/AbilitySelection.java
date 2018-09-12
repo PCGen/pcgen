@@ -186,12 +186,6 @@ public class AbilitySelection extends Selection<Ability, String> implements Comp
 		return getObject().getKeyName();
 	}
 
-	public boolean containsAssociation(String a)
-	{
-		String assoc = getSelection();
-		return (a == assoc) || ((a != null) && a.equalsIgnoreCase(assoc));
-	}
-
 	@Override
 	public String toString()
 	{
