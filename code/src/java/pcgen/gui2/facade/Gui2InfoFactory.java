@@ -1253,8 +1253,7 @@ public class Gui2InfoFactory implements InfoFactory
 			infoText.appendI18nElement("in_requirements", aString); //$NON-NLS-1$
 		}
 
-		List<BaseKit> sortedObjects = new ArrayList<>();
-		sortedObjects.addAll(kit.getSafeListFor(ListKey.KIT_TASKS));
+		List<BaseKit> sortedObjects = new ArrayList<>(kit.getSafeListFor(ListKey.KIT_TASKS));
 		sortedObjects.sort(Comparator.comparing(o -> o.getObjectName()));
 
 		String lastObjectName = EMPTY_STRING;
