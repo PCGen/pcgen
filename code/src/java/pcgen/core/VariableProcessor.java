@@ -127,7 +127,7 @@ public abstract class VariableProcessor
 	{
 		Float result = getJepOnlyVariableValue(aSpell, varString, src, spellLevelTemp);
 
-		if (null == result)
+		if (result == null)
 		{
 			result = processBrokenParser(aSpell, varString, src, spellLevelTemp);
 

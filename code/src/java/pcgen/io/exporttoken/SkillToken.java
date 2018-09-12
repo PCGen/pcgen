@@ -423,12 +423,12 @@ public class SkillToken extends Token
 						else
 						{
 							SkillCost newCost = pc.getSkillCostForClass(aSkill, pcc);
-							if (SkillCost.CLASS == newCost || SkillCost.EXCLUSIVE == cost)
+							if (newCost == SkillCost.CLASS || cost == SkillCost.EXCLUSIVE)
 							{
 								cost = newCost;
 							}
 						}
-						if (SkillCost.CLASS == cost)
+						if (cost == SkillCost.CLASS)
 						{
 							break;
 						}
