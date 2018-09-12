@@ -28,13 +28,10 @@ public final class Compatibility
 		{
 			int level = Integer.parseInt(templateKey.substring(1));
 			List<PCTemplate> levelTemplates = template.getListFor(ListKey.LEVEL_TEMPLATES);
-			for (final PCTemplate templ : levelTemplates)
-			{
-				if (level == templ.get(IntegerKey.LEVEL))
-				{
-					return templ;
-				}
-			}
+			return levelTemplates.stream()
+					.filter(templ -> level == templ.get(IntegerKey.LEVEL))
+					.findFirst()
+					.orElse(null);
 		}
 		else
 		{
