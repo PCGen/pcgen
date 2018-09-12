@@ -295,7 +295,7 @@ public class EquipmentModel
 					}
 					setIcon(icon);
 
-					if (!character.isQualifiedFor(equip))
+					if (!super.character.isQualifiedFor(equip))
 					{
 						setForeground(UIPropertyContext.getNotQualifiedColor());
 					}
