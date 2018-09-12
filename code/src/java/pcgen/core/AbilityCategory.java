@@ -383,7 +383,7 @@ public class AbilityCategory
 	 */
 	public boolean isVisibleTo(PlayerCharacter pc, View v)
 	{
-		if (visibility.equals(Visibility.QUALIFY))
+		if (visibility == Visibility.QUALIFY)
 		{
 			/*
 			 * Note that hasAbilityVisibleTo is apparently not how data is

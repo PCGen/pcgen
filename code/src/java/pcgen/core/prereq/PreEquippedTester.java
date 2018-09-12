@@ -106,11 +106,11 @@ public abstract class PreEquippedTester extends AbstractPrerequisiteTest
 		final PrerequisiteOperator operator = prereq.getOperator();
 
 		int runningTotal;
-		if (operator.equals(PrerequisiteOperator.EQ) || operator.equals(PrerequisiteOperator.GTEQ))
+		if (operator == PrerequisiteOperator.EQ || operator == PrerequisiteOperator.GTEQ)
 		{
 			runningTotal = isEquipped ? 1 : 0;
 		}
-		else if (operator.equals(PrerequisiteOperator.NEQ) || operator.equals(PrerequisiteOperator.LT))
+		else if (operator == PrerequisiteOperator.NEQ || operator == PrerequisiteOperator.LT)
 		{
 			runningTotal = isEquipped ? 0 : 1;
 		}

@@ -1129,7 +1129,7 @@ public final class Equipment extends PObject
 		for (Iterator<EquipmentModifier> it = modList.iterator(); it.hasNext();)
 		{
 			EquipmentModifier eqMod = it.next();
-			if (eqMod.getSafe(ObjectKey.VISIBILITY).equals(Visibility.HIDDEN))
+			if (eqMod.getSafe(ObjectKey.VISIBILITY) == Visibility.HIDDEN)
 			{
 				it.remove();
 			}
@@ -1308,7 +1308,7 @@ public final class Equipment extends PObject
 	 */
 	public void setLocation(final EquipmentLocation newLocation)
 	{
-		if (EquipmentLocation.CONTAINED.equals(newLocation))
+		if (EquipmentLocation.CONTAINED == newLocation)
 		{
 			location = EquipmentLocation.CARRIED_NEITHER;
 		}
@@ -2058,7 +2058,7 @@ public final class Equipment extends PObject
 	{
 		Visibility vis = eqMod.getSafe(ObjectKey.VISIBILITY);
 
-		if (Visibility.QUALIFY.equals(vis))
+		if (Visibility.QUALIFY == vis)
 		{
 			bonusPrimary = true;
 			if (PrereqHandler.passesAll(eqMod, this, null))
@@ -2093,7 +2093,7 @@ public final class Equipment extends PObject
 	{
 		Visibility vis = eqMod.getSafe(ObjectKey.VISIBILITY);
 
-		if (Visibility.QUALIFY.equals(vis))
+		if (Visibility.QUALIFY == vis)
 		{
 			bonusPrimary = primaryHead;
 			return PrereqHandler.passesAll(eqMod, this, pc);
