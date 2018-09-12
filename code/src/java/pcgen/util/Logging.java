@@ -24,6 +24,7 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.net.URI;
 import java.text.NumberFormat;
+import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -70,9 +71,6 @@ public final class Logging
 
 	/** Log level for application debug output. */
 	public static final Level DEBUG = Level.FINER;
-
-	private static Logger pcgenLogger;
-	private static Logger pluginLogger;
 
 	/**
 	 * Do any required initialization of the Logger.
@@ -136,8 +134,8 @@ public final class Logging
 	 */
 	private static void retainRootLoggers()
 	{
-		pcgenLogger = Logger.getLogger("pcgen");
-		pluginLogger = Logger.getLogger("plugin");
+		Logger pcgenLogger = Logger.getLogger("pcgen");
+		Logger pluginLogger = Logger.getLogger("plugin");
 	}
 
 	/**
@@ -592,20 +590,17 @@ public final class Logging
 	{
 		Map<Thread, StackTraceElement[]> allThreads = Thread.getAllStackTraces();
 		StringBuilder b = new StringBuilder();
-		for (Thread t : allThreads.keySet())
-		{
+		allThreads.forEach((key, traces) -> {
 			b.append("Thread: ");
-			b.append(t.getName());
+			b.append(key.getName());
 			b.append(", stacktrace:\n");
-			StackTraceElement[] traces = allThreads.get(t);
-			for (StackTraceElement element : traces)
-			{
+			for (StackTraceElement element : traces) {
 				b.append("  ");
 				b.append(element.toString());
 				b.append('\n');
 			}
 
-		}
+		});
 		System.out.println("==== Thread listing ====");
 		System.out.println(b);
 		System.out.println("===== end listing  =====");
@@ -667,7 +662,7 @@ public final class Logging
 		Logger.getLogger("plugin").setLevel(level);
 	}
 
-	private static LinkedList<QueuedMessage> queuedMessages = new LinkedList<>();
+	private static final AbstractList<QueuedMessage> queuedMessages = new LinkedList<>();
 
 	public static void addParseMessage(Level lvl, String msg)
 	{
