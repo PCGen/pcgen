@@ -6256,7 +6256,7 @@ public final class Equipment extends PObject
 	@Override
 	public List<String> getChildTypes()
 	{
-		return Arrays.asList("EQUIPMENT.PART");
+		return Collections.singletonList("EQUIPMENT.PART");
 	}
 
 	@Override
