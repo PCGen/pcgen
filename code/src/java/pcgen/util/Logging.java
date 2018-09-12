@@ -44,7 +44,7 @@ import org.apache.commons.lang3.SystemUtils;
  * This contains logging functions. It is a proxy for the 
  * Java logging API.
  */
-@SuppressWarnings("PMD.MoreThanOneLogger")
+@SuppressWarnings({"PMD.MoreThanOneLogger", "ClassWithMultipleLoggers"})
 public final class Logging
 {
 	private static boolean debugMode = false;
