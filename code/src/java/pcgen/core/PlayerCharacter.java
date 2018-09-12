@@ -7089,7 +7089,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		 *
 		 * @return bonus
 		 */
-		public int getBonus()
+		private int getBonus()
 		{
 			return bonus;
 		}
@@ -7099,7 +7099,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		 *
 		 * @return type
 		 */
-		public String getType()
+		private String getType()
 		{
 			return type;
 		}
@@ -7109,7 +7109,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		 *
 		 * @param newBonus
 		 */
-		public void setBonus(final int newBonus)
+		private void setBonus(final int newBonus)
 		{
 			bonus = newBonus;
 		}
@@ -9012,7 +9012,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 	private Set<Ability> getAbilityList(Category<Ability> cat, Nature nature)
 	{
-		Set<Ability> newSet  new HashSet<>();
+		Set<Ability> newSet = new HashSet<>();
 		Collection<CNAbility> cnas = grantedAbilityFacet.getPoolAbilities(id, cat, nature);
 		for (CNAbility cna : cnas)
 		{
