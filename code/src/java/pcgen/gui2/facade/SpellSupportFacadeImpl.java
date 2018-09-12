@@ -26,6 +26,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -1190,7 +1191,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade, EquipmentList
 				return false;
 			}
 			final RootNodeImpl other = (RootNodeImpl) obj;
-			if ((this.name == null) ? (other.name != null) : !this.name.equals(other.name))
+			if (!Objects.equals(this.name, other.name))
 			{
 				return false;
 			}
