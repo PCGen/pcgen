@@ -85,7 +85,7 @@ class DescriptionFacadeImpl implements DescriptionFacade
 		notes = new DefaultListFacade<>();
 		addDefaultNotes();
 
-		charDisplay.getNotesList().forEach(item -> notes.addElement(item));
+		charDisplay.getNotesList().forEach(notes::addElement);
 
 		bioData.put(BiographyField.BIRTHDAY, DescriptionFacadeImpl.newDefaultBioFieldFor(pc, PCStringKey.BIRTHDAY));
 		bioData.put(BiographyField.BIRTHPLACE,
