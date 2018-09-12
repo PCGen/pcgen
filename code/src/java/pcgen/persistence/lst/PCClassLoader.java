@@ -166,7 +166,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 		{
 			String name = lineIdentifier.substring(6);
 
-			if (pcClass == null || !name.equals(pcClass.getKeyName()) && (name.indexOf(".MOD") < 0))
+			if (pcClass == null || !name.equals(pcClass.getKeyName()) && (!name.contains(".MOD")))
 			{
 				if (pcClass != null)
 				{

@@ -95,7 +95,7 @@ public class EqmodToken extends AbstractTokenWithSeparator<KitGear> implements C
 				String assocTok = pipeTok.nextToken();
 				if (assocTok.indexOf(']') != -1)
 				{
-					if (assocTok.indexOf("[]") != -1)
+					if (assocTok.contains("[]"))
 					{
 						return new ParseResult.Fail("Found empty assocation in " + getTokenName() + ": " + value);
 					}

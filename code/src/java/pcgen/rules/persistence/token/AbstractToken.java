@@ -101,7 +101,7 @@ public abstract class AbstractToken
 		{
 			return new ParseResult.Fail(getTokenName() + " arguments may not end with " + separator + " : " + value);
 		}
-		if (value.indexOf(String.valueOf(new char[]{separator, separator})) != -1)
+		if (value.contains(String.valueOf(new char[]{separator, separator})))
 		{
 			return new ParseResult.Fail(
 				getTokenName() + " arguments uses double separator " + separator + separator + " : " + value);

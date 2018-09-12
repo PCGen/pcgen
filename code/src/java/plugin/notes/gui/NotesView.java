@@ -417,7 +417,7 @@ public class NotesView extends JPanel
 				String dirName = fLoad.getSelectedFile().getParent();
 
 				String extension = EXTENSION;
-				if (fileName.indexOf(extension) < 0)
+				if (!fileName.contains(extension))
 				{
 					fileName += extension;
 				}

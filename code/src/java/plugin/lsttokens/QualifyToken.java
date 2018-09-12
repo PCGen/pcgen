@@ -93,7 +93,7 @@ public class QualifyToken extends AbstractTokenWithSeparator<CDOMObject> impleme
 	@Override
 	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
 	{
-		if (value.indexOf(Constants.PIPE) == -1)
+		if (!value.contains(Constants.PIPE))
 		{
 			return new ParseResult.Fail(
 				getTokenName() + " requires at least two arguments, QualifyType and Key: " + value);

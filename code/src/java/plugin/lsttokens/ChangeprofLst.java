@@ -110,7 +110,7 @@ public class ChangeprofLst extends AbstractTokenWithSeparator<CDOMObject> implem
 				cpr.addErrorMessage("  Tag was: " + value);
 				return cpr;
 			}
-			if (newType.indexOf(Constants.DOT) != -1)
+			if (newType.contains(Constants.DOT))
 			{
 				ComplexParseResult cpr = new ComplexParseResult();
 				cpr.addErrorMessage(

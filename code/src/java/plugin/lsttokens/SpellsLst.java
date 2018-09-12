@@ -188,7 +188,7 @@ public class SpellsLst extends AbstractNonEmptyToken<CDOMObject> implements CDOM
 		{
 			return new ParseResult.Fail(getTokenName() + " Spell arguments may not end with , : " + token);
 		}
-		if (token.indexOf(",,") != -1)
+		if (token.contains(",,"))
 		{
 			return new ParseResult.Fail(getTokenName() + " Spell arguments uses double separator ,, : " + token);
 		}
