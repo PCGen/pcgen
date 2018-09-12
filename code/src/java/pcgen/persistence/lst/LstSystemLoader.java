@@ -47,12 +47,7 @@ public final class LstSystemLoader implements SystemLoader
 	@Override
 	public void setChosenCampaignSourcefiles(List<URI> l, GameMode game)
 	{
-		List<URI> files = chosenCampaignSourcefiles.get(game.getName());
-		if (files == null)
-		{
-			files = new ArrayList<>();
-			chosenCampaignSourcefiles.put(game.getName(), files);
-		}
+		List<URI> files = chosenCampaignSourcefiles.computeIfAbsent(game.getName(), k -> new ArrayList<>());
 		files.clear();
 		files.addAll(l);
 		SettingsHandler.getOptions().setProperty("pcgen.files.chosenCampaignSourcefiles." + game.getName(),
@@ -65,12 +60,6 @@ public final class LstSystemLoader implements SystemLoader
 	@Override
 	public List<URI> getChosenCampaignSourcefiles(GameMode game)
 	{
-		List<URI> files = chosenCampaignSourcefiles.get(game.getName());
-		if (files == null)
-		{
-			files = new ArrayList<>();
-			chosenCampaignSourcefiles.put(game.getName(), files);
-		}
-		return files;
+		return chosenCampaignSourcefiles.computeIfAbsent(game.getName(), k -> new ArrayList<>());
 	}
 }
