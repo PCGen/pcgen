@@ -72,8 +72,6 @@ import org.apache.commons.lang3.SystemUtils;
 public final class Main
 {
 
-
-
 	private static PropertyContextFactory configFactory;
 
 	private static boolean startNameGen;
