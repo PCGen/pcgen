@@ -261,8 +261,8 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 			}
 			setBackground(table.getBackground());
 			setForeground(table.getForeground());
-			Integer mod = (Integer) value;
-			if (mod.intValue() == 0 && column > 3)
+			Number mod = (Integer) value;
+			if ((mod.intValue() == 0) && (column > 3))
 			{
 				setText("—");
 			}
