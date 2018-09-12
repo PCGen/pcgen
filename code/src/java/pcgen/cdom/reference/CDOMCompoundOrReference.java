@@ -258,7 +258,7 @@ public class CDOMCompoundOrReference<T extends PrereqObject> extends CDOMGroupRe
 	public String getReferenceDescription()
 	{
 		StringJoiner joiner = new StringJoiner(" OR ", identity.getReferenceDescription() + "[", "]");
-		references.stream().map(r -> r.getReferenceDescription()).forEach(d -> joiner.add(d));
+		references.stream().map(CDOMReference::getReferenceDescription).forEach(joiner::add);
 		return joiner.toString();
 	}
 

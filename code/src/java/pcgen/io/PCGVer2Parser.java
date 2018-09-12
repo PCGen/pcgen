@@ -341,7 +341,7 @@ final class PCGVer2Parser implements PCGParser
 		//tName = PC
 		String sourceStr = sName.substring(IOConstants.TAG_TEMPBONUS.length() + 1);
 		String targetStr = tName.substring(IOConstants.TAG_TEMPBONUSTARGET.length() + 1);
-		Object oSource = null;
+		CDOMObject oSource = null;
 
 		if (sourceStr.startsWith(IOConstants.TAG_FEAT + '='))
 		{
@@ -408,7 +408,7 @@ final class PCGVer2Parser implements PCGParser
 
 		if (oSource != null)
 		{
-			sourceStr = ((CDOMObject) oSource).getKeyName();
+			sourceStr = oSource.getKeyName();
 		}
 
 		if (targetStr.equals(IOConstants.TAG_PC))
@@ -417,8 +417,8 @@ final class PCGVer2Parser implements PCGParser
 		}
 		else
 		{
-			Object oTarget = thePC.getEquipmentNamed(targetStr);
-			targetStr = ((CDOMObject) oTarget).getDisplayName();
+			CDOMObject oTarget = thePC.getEquipmentNamed(targetStr);
+			targetStr = oTarget.getDisplayName();
 		}
 
 		return thePC.getTempBonusMap(sourceStr, targetStr);
