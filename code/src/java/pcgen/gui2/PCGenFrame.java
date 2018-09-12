@@ -789,7 +789,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		}
 		if (unsavedPCs.size() > 1)
 		{
-			Object[] options = new Object[]{LanguageBundle.getString("in_closeOptSaveAll"), //$NON-NLS-1$
+			Object[] options = {LanguageBundle.getString("in_closeOptSaveAll"), //$NON-NLS-1$
 				LanguageBundle.getString("in_closeOptSaveNone"), //$NON-NLS-1$
 				LanguageBundle.getString("in_closeOptChoose"), //$NON-NLS-1$
 				LanguageBundle.getString("in_cancel") //$NON-NLS-1$
@@ -1140,7 +1140,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 			boolean gameModesSame = checkGameModeEquality(sources, currentSourceSelection.get());
 			if (!dontLoadSources && !sourcesSame && gameModesSame)
 			{
-				Object[] btnNames = new Object[]{LanguageBundle.getString("in_loadPcDiffSourcesLoaded"),
+				Object[] btnNames = {LanguageBundle.getString("in_loadPcDiffSourcesLoaded"),
 					LanguageBundle.getString("in_loadPcDiffSourcesCharacter"), LanguageBundle.getString("in_cancel")};
 				int choice = JOptionPane.showOptionDialog(this,
 					LanguageBundle.getFormattedString("in_loadPcDiffSources",
