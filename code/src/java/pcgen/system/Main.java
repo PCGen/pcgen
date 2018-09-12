@@ -124,9 +124,7 @@ public final class Main
 		// Manually output the property values to avoid them being cut off at 40 characters
 		Set<String> keys = props.stringPropertyNames();
 		//$NON-NLS-1$
-		keys.forEach(key -> {
-			pwriter.println(key + '=' + props.getProperty(key));
-		});
+		keys.forEach(key -> pwriter.println(key + '=' + props.getProperty(key)));
 		Logging.log(Level.CONFIG, writer.toString());
 	}
 

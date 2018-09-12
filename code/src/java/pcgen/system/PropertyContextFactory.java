@@ -172,9 +172,7 @@ public class PropertyContextFactory
 		File settingsDir = new File((dir == null) ? ConfigurationSettings.getSettingsDir() : dir);
 		if (settingsDir.exists() || settingsDir.mkdirs())
 		{
-			contextMap.values().forEach(context -> {
-				savePropertyContext(settingsDir, context);
-			});
+			contextMap.values().forEach(context -> savePropertyContext(settingsDir, context));
 		}
 		else
 		{

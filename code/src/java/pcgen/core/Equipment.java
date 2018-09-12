@@ -3321,9 +3321,7 @@ public final class Equipment extends PObject
 		if (eqMod.isType("BaseMaterial"))
 		{
 			baseItem.get().getEquipmentHead(bPrimary ? 1 : 2).getSafeListFor(ListKey.EQMOD).stream()
-				.filter(baseMod -> baseMod.isType("BaseMaterial")).forEach(baseMod -> {
-					head.addToListFor(ListKey.EQMOD, baseMod);
-				});
+				.filter(baseMod -> baseMod.isType("BaseMaterial")).forEach(baseMod -> head.addToListFor(ListKey.EQMOD, baseMod));
 		}
 		else if (eqMod.isType("MagicalEnhancement"))
 		{
