@@ -24,6 +24,7 @@ import java.util.Set;
 import java.util.StringJoiner;
 import java.util.TreeSet;
 
+import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.PrimitiveCollection;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.primitive.PrimitiveUtilities;
@@ -155,7 +156,7 @@ public class FilteredReference<T> extends CDOMGroupRef<T>
 	public String getReferenceDescription()
 	{
 		StringJoiner joiner = new StringJoiner(", ", baseSet.getReferenceDescription() + " except: [", "]");
-		filterSet.stream().map(r -> r.getReferenceDescription()).forEach(d -> joiner.add(d));
+		filterSet.stream().map(CDOMReference::getReferenceDescription).forEach(joiner::add);
 		return joiner.toString();
 	}
 
