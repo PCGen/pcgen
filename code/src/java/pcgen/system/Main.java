@@ -71,8 +71,6 @@ import pcgen.util.PJEP;
 public final class Main
 {
 
-
-
 	private static PropertyContextFactory configFactory;
 
 	// TODO: move startup modes into an extensible class based system
