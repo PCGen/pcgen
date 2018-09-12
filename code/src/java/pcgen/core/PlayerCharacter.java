@@ -5481,7 +5481,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		return bonusManager.listBonusesFor(bonusType, bonusName);
 	}
 
-	public boolean loadDescriptionFilesInDirectory(final String aDirectory)
+	public void loadDescriptionFilesInDirectory(final String aDirectory)
 	{
 		new File(aDirectory).list((dir, name) -> {
 			final File descriptionFile = new File(dir, name);
@@ -5539,7 +5539,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			return false;
 		});
 
-		return false;
 	}
 
 	public void makeIntoExClass(final PCClass fromClass)
