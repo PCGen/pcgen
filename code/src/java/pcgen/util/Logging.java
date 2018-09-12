@@ -696,14 +696,9 @@ public final class Logging
 	public static void replayParsedMessages()
 	{
 		Logger l = getLogger();
-		for (QueuedMessage msg : queuedMessages)
-		{
-			if (l.isLoggable(msg.level))
-			{
-				l.log(msg.level, msg.message, msg.stackTrace);
-			}
-
-		}
+		queuedMessages.stream().
+				filter(msg -> l.isLoggable(msg.level)).
+				forEach(msg -> l.log(msg.level, msg.message, msg.stackTrace));
 		queuedMessageMark = -1;
 	}
 
@@ -719,7 +714,7 @@ public final class Logging
 		public final String message;
 		public final StackTraceElement[] stackTrace;
 
-		public QueuedMessage(Level lvl, String msg)
+		private QueuedMessage(Level lvl, String msg)
 		{
 			level = lvl;
 			message = msg;
@@ -730,7 +725,7 @@ public final class Logging
 		 * Temporary constructor for use with ParseResult conversion.
 		 * See addParseMessage above.
 		 */
-		public QueuedMessage(Level lvl, String msg, StackTraceElement[] stack)
+		private QueuedMessage(Level lvl, String msg, StackTraceElement[] stack)
 		{
 			level = lvl;
 			message = msg;
