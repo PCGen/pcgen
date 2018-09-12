@@ -89,12 +89,7 @@ public final class TreasureGenerator
 
 	public static void addTable(final GameMode aMode, final EquipmentTable aTable)
 	{
-		List<EquipmentTable> tables = THE_TREASURE_TABLES.get(aMode);
-		if (tables == null)
-		{
-			tables = new ArrayList<>();
-			THE_TREASURE_TABLES.put(aMode, tables);
-		}
+		List<EquipmentTable> tables = THE_TREASURE_TABLES.computeIfAbsent(aMode, k -> new ArrayList<>());
 		tables.add(aTable);
 	}
 }
