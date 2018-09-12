@@ -496,8 +496,7 @@ public final class EquipmentList
 
 					// Iterate over list, creating an item for each choice.
 					final Iterator<Object> equipIter = equipChoice.getChoiceIterator(true);
-					for (; equipIter.hasNext();)
-					{
+					while (equipIter.hasNext()) {
 						final String mwChoice = String.valueOf(equipIter.next());
 						eq = eq.clone();
 						eq.addEqModifier(eqMod, true, null, mwChoice, equipChoice);
@@ -549,8 +548,7 @@ public final class EquipmentList
 
 				// Iterate over list, creating an item for each choice.
 				final Iterator<Object> equipIter = equipChoice.getChoiceIterator(true);
-				for (; equipIter.hasNext();)
-				{
+				while (equipIter.hasNext()) {
 					final String choice = String.valueOf(equipIter.next());
 					createItem(eq, eqMasterwork, null, choice, equipChoice);
 				}
