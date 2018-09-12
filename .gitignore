@@ -4,6 +4,8 @@ batch-convert.jar
 plugins/*.jar
 plugins/*plugins/
 
+characters/*
+
 bin/
 code/bin/
 code/build/
@@ -56,5 +58,8 @@ installers/win-installer/includes/data.nsh
 
 # IntelliJ IDE
 .idea/
+out/
+
+# pmd
 /.pmd
 /.ruleset
