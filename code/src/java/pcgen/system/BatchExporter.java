@@ -243,12 +243,7 @@ public class BatchExporter
 				return false;
 			}
 		}
-		catch (final IOException e)
-		{
-			Logging.errorPrint("BatchExporter.exportCharacterToPDF failed", e); //$NON-NLS-1$
-			return false;
-		}
-		catch (final ExportException e)
+		catch (final IOException | ExportException e)
 		{
 			Logging.errorPrint("BatchExporter.exportCharacterToPDF failed", e); //$NON-NLS-1$
 			return false;
@@ -273,18 +268,11 @@ public class BatchExporter
 			character.export(new ExportHandler(templateFile), bw);
 			character.setDefaultOutputSheet(false, templateFile);
 			return true;
-		}
-		catch (final UnsupportedEncodingException e)
+		} catch (final IOException e)
 		{
 			Logging.errorPrint("Unable to create output file " + outFile.getAbsolutePath(), e);
 			return false;
-		}
-		catch (final IOException e)
-		{
-			Logging.errorPrint("Unable to create output file " + outFile.getAbsolutePath(), e);
-			return false;
-		}
-		catch (final ExportException e)
+		} catch (final ExportException e)
 		{
 			// Error will already be reported to the log
 			return false;
@@ -361,12 +349,7 @@ public class BatchExporter
 			}
 			task.run();
 		}
-		catch (final IOException e)
-		{
-			Logging.errorPrint("BatchExporter.exportPartyToPDF failed", e);
-			return false;
-		}
-		catch (final ExportException e)
+		catch (final IOException | ExportException e)
 		{
 			Logging.errorPrint("BatchExporter.exportPartyToPDF failed", e);
 			return false;
@@ -390,13 +373,7 @@ public class BatchExporter
 		{
 			party.export(new ExportHandler(templateFile), bw);
 			return true;
-		}
-		catch (final UnsupportedEncodingException e)
-		{
-			Logging.errorPrint("Unable to create output file " + outFile.getAbsolutePath(), e);
-			return false;
-		}
-		catch (final IOException e)
+		} catch (final IOException e)
 		{
 			Logging.errorPrint("Unable to create output file " + outFile.getAbsolutePath(), e);
 			return false;
