@@ -479,10 +479,7 @@ public class CharacterFacadeImpl
 	private void refreshKitList()
 	{
 		List<Kit> kits = new ArrayList<>();
-		for (Kit kit : charDisplay.getKitInfo())
-		{
-			kits.add(kit);
-		}
+		kits.addAll(charDisplay.getKitInfo());
 		kitList.updateContents(kits);
 	}
 
