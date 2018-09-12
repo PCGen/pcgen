@@ -18,6 +18,7 @@ characters/*
 !characters/Everything.pcg
 !characters/Sorcerer.pcg
 !characters/SpecialWizard.pcg
+
 bin/
 code/bin/
 code/build/
@@ -139,3 +140,8 @@ installers/win-installer/includes/data.nsh
 
 # IntelliJ IDE
 .idea/
+out/
+
+# pmd
+/.pmd
+/.ruleset
