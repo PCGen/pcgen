@@ -198,9 +198,9 @@ final class EntityMap
 	 */
 	public String get(String key)
 	{
-		final Object value = map.get(key);
+		final String value = map.get(key);
 
-		return (value == null) ? key : (String) value;
+		return (value == null) ? key : value;
 	}
 
 	/**
