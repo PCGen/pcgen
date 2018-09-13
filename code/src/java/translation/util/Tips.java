@@ -30,6 +30,7 @@ import java.text.DateFormat;
 import java.text.Format;
 import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
@@ -163,15 +164,10 @@ public final class Tips
 
 	private static void writePOT(Iterable<String> tips, Writer bw) throws IOException
 	{
-
-		TimeZone tz = TimeZone.getTimeZone("UTC");
-		DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm'Z'");
-		df.setTimeZone(tz);
-
 		// header stuff
 		bw.write("msgid \"\"\n" + "msgstr \"\"\n" + "\"Project-Id-Version: PCGen-tips 6.x\\n\"\n"
 			+ "\"Report-Msgid-Bugs-To: \\n\"\n" + "\"POT-Creation-Date: "
-			+ df.format(new Date()) + "\\n\"\n"
+			+ Instant.now() + "\\n\"\n"
 			+ "\"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\\n\"\n" + "\"Last-Translator: FULL NAME <EMAIL@ADDRESS>\\n\"\n"
 			+ "\"Language-Team: LANGUAGE <LL@li.org>\\n\"\n" + "\"MIME-Version: 1.0\\n\"\n"
 			+ "\"Content-Type: text/plain; charset=UTF-8\\n\"\n" + "\"Content-Transfer-Encoding: 8bit\\n\"\n\n");
