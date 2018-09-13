@@ -103,10 +103,7 @@ public class BridgeListener implements VariableListener<Object>
 		{
 			//Note order sensitivity
 			toRemove.removeAll(toAdd);
-			for (Object o : oldValue)
-			{
-				toAdd.add(o);
-			}
+			Collections.addAll(toAdd, oldValue);
 		}
 		return new ImmutablePair<>(toRemove, toAdd);
 	}
