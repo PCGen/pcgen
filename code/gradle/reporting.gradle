@@ -43,14 +43,4 @@ spotbugs {
 //	}
 //}
 
-gradleLint.rules = [
-	'dependency-parentheses',
-	'unused-exclude-by-dep',
-	'unused-exclude-by-conf',
-	'rename-nebula-stash',
-	'overridden-dependency-version',
-	'archaic-wrapper',
-	'all-nebula-renames',
-]
-
-task allReports { dependsOn = ['checkstyleMain', 'pmdMain', 'spotbugsMain', 'lintGradle'] }
+task allReports { dependsOn = ['checkstyleMain', 'pmdMain', 'spotbugsMain'] }
