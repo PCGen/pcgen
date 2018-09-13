@@ -31,6 +31,7 @@ import java.text.Format;
 import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
@@ -343,12 +344,10 @@ public final class Tips
 					{
 						File newFile = new File(subfile, translationName);
 						log("Found {0}, creating {1}", tipsFile, newFile);
-						BufferedWriter bw = null;
-						BufferedReader reader = null;
-						try
+						try(BufferedReader reader = new BufferedReader(new FileReader(tipsFile));
+							Writer bw = new BufferedWriter(new FileWriter(newFile)))
 						{
-							reader = new BufferedReader(new FileReader(tipsFile));
-							bw = new BufferedWriter(new FileWriter(newFile));
+
 							String readLine = reader.readLine();
 							while (readLine != null)
 							{
@@ -378,33 +377,6 @@ public final class Tips
 						{
 							// TODO Auto-generated catch block
 							e.printStackTrace();
-						}
-						finally
-						{
-							try
-							{
-								if (reader != null)
-								{
-									reader.close();
-								}
-							}
-							catch (IOException e)
-							{
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}
-							try
-							{
-								if (bw != null)
-								{
-									bw.close();
-								}
-							}
-							catch (IOException e)
-							{
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}
 						}
 
 					}
