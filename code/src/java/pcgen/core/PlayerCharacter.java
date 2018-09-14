@@ -2280,16 +2280,15 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			lastVariable = variableString;
 			value = getVariableValue(variableString, Constants.EMPTY_STRING);
 			includeBonus = false;
-			found = true;
 			lastVariable = null;
 		}
 
-		if (found && includeBonus)
+		if (includeBonus)
 		{
 			value += getTotalBonusTo("VAR", variableString);
 		}
 
-		return new Float(value);
+		return (float) value;
 	}
 
 	public void setPointBuyPoints(final int argPointBuyPoints)
