@@ -199,7 +199,7 @@ dependencies {
 
     slowtestRuntime configurations.testRuntime
    
-    spotbugs 'com.github.spotbugs:spotbugs:3.1.6'
+    spotbugs 'com.github.spotbugs:spotbugs:3.1.7'
     spotbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.8.0'
 }
 
