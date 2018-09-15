@@ -14,7 +14,7 @@ checkstyle {
 	configFile = new File('code/standards/checkstyle.xml')
 	ignoreFailures = true
 	showViolations = false
-	toolVersion = '8.9'
+	toolVersion = '8.12'
 	sourceSets = []
 }
 
@@ -24,7 +24,7 @@ pmd {
 	ruleSetFiles = files('code/standards/ruleset.xml')
 	consoleOutput = true
 	sourceSets = []
-	toolVersion = "6.2.0"
+	toolVersion = "6.7.0"
 }
 
 spotbugs {
@@ -32,6 +32,7 @@ spotbugs {
 	omitVisitors = ['Naming', 'CrossSiteScripting', 'DontUseEnum', 'DoInsideDoPrivileged']
 	reportLevel = 'low'
 	ignoreFailures = 'true'
+	toolVersion = '3.1.7'
 }
 
 //Unable to determine how to do this with SpotBugs - this is consistent with their docs, but dumps stack
