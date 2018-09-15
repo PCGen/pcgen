@@ -49,8 +49,8 @@ description = """PCGen"""
 
 defaultTasks 'build'
 
-sourceCompatibility = "1.9"
-targetCompatibility = "1.9"
+sourceCompatibility = "1.10"
+targetCompatibility = "1.10"
 
 ext {
     binDir = "code/bin"
