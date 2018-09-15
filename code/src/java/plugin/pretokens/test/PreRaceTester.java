@@ -19,6 +19,7 @@
  */
 package plugin.pretokens.test;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.StringTokenizer;
@@ -52,33 +53,21 @@ public class PreRaceTester extends AbstractDisplayPrereqTest implements Prerequi
 
 			StringTokenizer tok = new StringTokenizer(requiredRace.substring(5), ".");
 
-			String type;
-			boolean match = false;
 			int count = 0;
 			int matchCount = 0;
 
 			while (tok.hasMoreTokens())
 			{
 				count++;
-				match = false;
-				type = tok.nextToken();
+				String type = tok.nextToken();
 				if (pcRace.isType(type))
 				{
 					matchCount++;
-					match = true;
 					continue;
 				}
-				if (!match)
-				{
-					for (Race mock : racesImitated)
-					{
-						if (mock.isType(type))
-						{
-							matchCount++;
-							match = true;
-							break;
-						}
-					}
+				if (racesImitated.stream().anyMatch(mock -> mock.isType(type))) {
+					matchCount++;
+					break;
 				}
 			}
 			if (count == matchCount)
@@ -92,7 +81,7 @@ public class PreRaceTester extends AbstractDisplayPrereqTest implements Prerequi
 		{
 			String raceToMatch = requiredRace.substring(9);
 			String raceType = display.getRaceType();
-			boolean isMatchingRaceType = raceType.equalsIgnoreCase(requiredRace.substring(9)) ? true : false;
+			boolean isMatchingRaceType = raceType.equalsIgnoreCase(requiredRace.substring(9));
 			if (isMatchingRaceType)
 			{
 				++runningTotal;
@@ -180,14 +169,11 @@ public class PreRaceTester extends AbstractDisplayPrereqTest implements Prerequi
 		return countedTotal(prereq, runningTotal);
 	}
 
-	private int checkForServesAsRaceWildcard(String requiredRace, int wild, Set<Race> imitatedRaces)
+	private static int checkForServesAsRaceWildcard(String requiredRace, int wild, Collection<Race> imitatedRaces)
 	{
-		for (Race mock : imitatedRaces)
-		{
-			if (mock.getDisplayName().regionMatches(true, 0, requiredRace, 0, wild))
-			{
-				return 1;
-			}
+		if (imitatedRaces.stream().map(CDOMObject::getDisplayName).anyMatch(
+				dn -> dn.regionMatches(true, 0, requiredRace, 0, wild))) {
+			return 1;
 		}
 		return 0;
 	}
@@ -197,10 +183,9 @@ public class PreRaceTester extends AbstractDisplayPrereqTest implements Prerequi
 		Set<Race> servesAs = new HashSet<>();
 		if (pcRace != null)
 		{
-			for (CDOMReference<Race> ref : pcRace.getSafeListFor(ListKey.SERVES_AS_RACE))
-			{
-				servesAs.addAll(ref.getContainedObjects());
-			}
+			pcRace.getSafeListFor(ListKey.SERVES_AS_RACE).stream()
+					.map(CDOMReference::getContainedObjects)
+					.forEach(servesAs::addAll);
 		}
 		return servesAs;
 	}
