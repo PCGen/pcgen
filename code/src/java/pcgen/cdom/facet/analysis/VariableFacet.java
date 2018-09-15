@@ -306,15 +306,9 @@ public class VariableFacet extends AbstractStorageFacet<CharID> implements DataF
 		{
 			for (Map.Entry<VariableKey, Map<Formula, Set<CDOMObject>>> me : cm.entrySet())
 			{
-				VariableKey vk = me.getKey();
-				for (Map.Entry<Formula, Set<CDOMObject>> fme : me.getValue().entrySet())
-				{
-					Formula f = fme.getKey();
-					for (CDOMObject cdo : fme.getValue())
-					{
-						add(copy, vk, f, cdo);
-					}
-				}
+				VariableKey variableKey = me.getKey();
+				me.getValue()
+						.forEach((f, value) -> value.forEach(cdo -> add(copy, variableKey, f, cdo)));
 			}
 		}
 	}
