@@ -40,7 +40,7 @@ public final class PrettyIntegerFormat extends DecimalFormat
 	{
 		// + and - should not need to be internationalized
 		DecimalFormatSymbols decimalFormatSymbols = getDecimalFormatSymbols();
-		decimalFormatSymbols.setMinusSign('\u2212');
+		decimalFormatSymbols.setMinusSign('−');
 		setDecimalFormatSymbols(decimalFormatSymbols);
 		setPositivePrefix("+"); //$NON-NLS-1$
 	}
