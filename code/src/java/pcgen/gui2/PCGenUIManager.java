@@ -25,7 +25,7 @@ import pcgen.gui2.plaf.MacGUIHandler;
 import pcgen.pluginmgr.PluginManager;
 import pcgen.system.Main;
 
-import javax.swing.*;
+import javax.swing.SwingUtilities;
 
 /**
  * The PCGenUIManager is responsible for starting up and shutting down PCGen's
