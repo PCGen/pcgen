@@ -15,19 +15,19 @@
 import static org.apache.tools.ant.taskdefs.condition.Os.*
 
 plugins {
-    id 'com.gradle.build-scan' version '1.15.1'
+    id 'com.gradle.build-scan' version '1.16'
     id 'eclipse'
     id 'application'
     id 'build-dashboard'
     id 'checkstyle'
-    id "com.github.spotbugs" version '1.6.2'
+    id "com.github.spotbugs" version '3.1.7'
     id 'java'
     id 'maven'
     id 'pmd'
     id "de.undercouch.download" version '3.4.3'
     id 'edu.sc.seis.launch4j' version '2.4.4'
     id 'com.github.ben-manes.versions' version '0.20.0'
-    id 'nebula.lint' version '9.3.4'
+    id 'nebula.lint' version '10.1.0'
     id "com.dorongold.task-tree" version '1.3'
 }
 
