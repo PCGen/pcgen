@@ -17,16 +17,15 @@
  */
 package pcgen.gui2;
 
-import javax.swing.SwingUtilities;
-
-import org.apache.commons.lang3.SystemUtils;
-
 import gmgen.GMGenSystem;
+import org.apache.commons.lang3.SystemUtils;
 import pcgen.gui2.dialog.PreferencesDialog;
 import pcgen.gui2.facade.GMGenMessageHandler;
 import pcgen.gui2.plaf.MacGUIHandler;
 import pcgen.pluginmgr.PluginManager;
 import pcgen.system.Main;
+
+import javax.swing.*;
 
 /**
  * The PCGenUIManager is responsible for starting up and shutting down PCGen's
@@ -46,8 +45,7 @@ public final class PCGenUIManager
 
 	public static void initializeGUI()
 	{
-		// Don't start macOS GUI if we're on Java 9 since it doesn't work.
-		if (SystemUtils.IS_OS_MAC_OSX && (System.getProperty("java.runtime.version").charAt(0) != '9'))
+		if (SystemUtils.IS_OS_MAC_OSX)
 		{
 			MacGUIHandler.initialize();
 		}

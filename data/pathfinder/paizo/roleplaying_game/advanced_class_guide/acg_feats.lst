@@ -257,7 +257,7 @@ Shaman Hex		KEY:Hex Selection ~ Shaman Hex	CATEGORY:Internal		TYPE:Hex Selection
 
 ###Block: Backwards feat support
 CATEGORY=FEAT|Raging Vitality.MOD	BONUS:VAR|BloodrageConBonus|2	
-CATEGORY=FEAT|Arcane Strike.MOD	BONUS:VAR|ArcaneStrikeLVL|charbonusto("CASTERLEVEL","Bloodrager")+var("BL=Bloodrager")+charbonusto("CASTERLEVEL","Skald")+var("BL=Skald")
+#CATEGORY=FEAT|Arcane Strike.MOD	BONUS:VAR|ArcaneStrikeLVL|charbonusto("CASTERLEVEL","Arcanist")+var("BL=Arcanist")+charbonusto("CASTERLEVEL","Bloodrager")+var("BL=Bloodrager")+charbonusto("CASTERLEVEL","Skald")+var("BL=Skald")
 
 ###Block: support for skald's raging song as a bardic performance
 CATEGORY=FEAT|Extra Performance.MOD	PRE:.CLEAR
@@ -271,7 +271,6 @@ CATEGORY=FEAT|Evolved Companion.MOD	DEFINE:EvolvedCompanionFeatCount_NBC|0	DEFIN
 Animal Companion of Nature Bond Class Feature		KEY:AC_Nature Bond Companion	CATEGORY:Internal	MULT:YES	CHOOSE:NOCHOICE	STACK:YES	BONUS:VAR|EvolvedCompanionFeatCount_NBC|1		TYPE:Evolved Companion	DESC:Typical Nature Bond Companion is from Druid or Ranger
 Animal Companion of Divine Bond Class Feature		KEY:AC_Divine Bond Companion	CATEGORY:Internal	MULT:YES	CHOOSE:NOCHOICE	STACK:YES	BONUS:VAR|EvolvedCompanionFeatCount_DBC|1		TYPE:Evolved Companion	DESC:Typical Divine Bond Companion is from Paladin
 Animal Companion of Mount Class Feature			KEY:AC_Mount			CATEGORY:Internal	MULT:YES	CHOOSE:NOCHOICE	STACK:YES	BONUS:VAR|EvolvedCompanionFeatCount_Mount|1	TYPE:Evolved Companion	DESC:Typical Mount Class Feature is from Cavalier or the alternative Samurai
-
 
 #
 # End

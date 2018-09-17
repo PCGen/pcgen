@@ -1,7 +1,7 @@
 
 
 
-CLASS:Rogue.MOD		SPELLSTAT:INT	MEMORIZE:YES	FACT:SPELLTYPE|Arcane	BONUS:CASTERLEVEL|Rogue|CL	SPELLLIST:2|Wizard|Rogue
+CLASS:Rogue.MOD		SPELLSTAT:INT	MEMORIZE:YES	FACT:SPELLTYPE|Arcane	BONUS:CASTERLEVEL|Rogue|Caster_Level_Rogue	SPELLLIST:2|Wizard|Rogue		DEFINE:Caster_Level_Rogue|0	DEFINE:CasterLevelBLRogue|0	DEFINE:Caster_Level_BL_Stripped_Rogue|0	BONUS:VAR|Caster_Level_BL_Stripped_Rogue|Caster_Level_Rogue-CasterLevelBLRogue	BONUS:VAR|Caster_Level_Rogue|RogueLVL+Caster_Level_Bonus+CasterLevelBLRogue	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Rogue|TYPE=Base	BONUS:VAR|Caster_Level_Total__Arcane|Caster_Level_Rogue
 1:REPEATLEVEL:1	CAST:RogueCast0,RogueCast1,RogueCast2,RogueCast3,RogueCast4,RogueCast5,RogueCast6
 
 

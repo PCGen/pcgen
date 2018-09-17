@@ -81,16 +81,8 @@ public class SignedInteger extends Number implements Comparable<SignedInteger>
 	@Override
 	public int compareTo(SignedInteger arg0)
 	{
-		if (value == arg0.value)
-		{
-			return 0;
-		}
-		if (value > arg0.value)
-		{
-			return 1;
-		}
-		return -1;
-	}
+        return Integer.compare(value, arg0.value);
+    }
 
 	@Override
 	public int hashCode()
