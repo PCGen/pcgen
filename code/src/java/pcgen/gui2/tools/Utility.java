@@ -19,6 +19,7 @@
 package pcgen.gui2.tools;
 
 import java.awt.Component;
+import java.awt.Desktop;
 import java.awt.Dimension;
 import java.awt.FontMetrics;
 import java.awt.GraphicsEnvironment;
@@ -61,6 +62,10 @@ public final class Utility
 {
 
 	private static final KeyStroke ESCAPE_STROKE = KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0);
+
+	private static final Desktop DESKTOP = Desktop.getDesktop();
+	private static final Boolean IS_BROWSE_SUPPORTED =
+			Desktop.isDesktopSupported() && DESKTOP.isSupported(Desktop.Action.BROWSE);
 
 	/**
 	 * An action map key for the user requesting a dialog close via the ESC key.
@@ -320,7 +325,6 @@ public final class Utility
 	 *
 	 * @param url URL to display in browser.
 	 * @throws IOException if file doesn't exist
-	 * @see DesktopBrowserLauncher
 	 */
 	public static void viewInBrowser(String url) throws IOException
 	{
@@ -332,7 +336,6 @@ public final class Utility
 	 *
 	 * @param file Path of the file to display in browser.
 	 * @throws IOException if file doesn't exist
-	 * @see DesktopBrowserLauncher
 	 */
 	public static void viewInBrowser(File file) throws IOException
 	{
@@ -344,7 +347,6 @@ public final class Utility
 	 *
 	 * @param url URL to display in browser.
 	 * @throws IOException if the URL is bad or the browser can not be launched
-	 * @see DesktopBrowserLauncher
 	 */
 	static void viewInBrowser(URL url) throws IOException
 	{
@@ -363,7 +365,6 @@ public final class Utility
 	 *
 	 * @param uri URI to display in browser.
 	 * @throws IOException if browser can not be launched
-	 * @see DesktopBrowserLauncher
 	 */
 	private static void viewInBrowser(URI uri) throws IOException
 	{
@@ -374,14 +375,15 @@ public final class Utility
 		// pick one and it doesn't work, at least they
 		// might know enough to try selecting one the
 		// next time.
-		if (!DesktopBrowserLauncher.isBrowseSupported() && SystemUtils.IS_OS_WINDOWS
+		if (!IS_BROWSE_SUPPORTED && SystemUtils.IS_OS_WINDOWS
 			&& (PCGenSettings.getBrowserPath() == null))
 		{
 			selectDefaultBrowser(null);
 		}
 
-		DesktopBrowserLauncher.browse(uri);
-
+		if (IS_BROWSE_SUPPORTED) {
+			DESKTOP.browse(uri);
+		}
 	}
 
 	/**
