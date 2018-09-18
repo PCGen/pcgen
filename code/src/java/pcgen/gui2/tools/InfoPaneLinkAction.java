@@ -72,7 +72,7 @@ public class InfoPaneLinkAction implements HyperlinkListener
 		{
 			try
 			{
-				Utility.viewInBrowser(e.getURL());
+				DesktopBrowserLauncher.viewInBrowser(e.getURL());
 			}
 			catch (IOException e1)
 			{

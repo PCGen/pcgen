@@ -103,18 +103,12 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 		changeLogFile = new File(dataLogFileName);
 	}
 
-	/**
-	 * @see pcgen.gui2.converter.panel.ConvertSubPanel#autoAdvance(pcgen.cdom.base.CDOMObject)
-	 */
 	@Override
 	public boolean autoAdvance(CDOMObject pc)
 	{
 		return false;
 	}
 
-	/**
-	 * @see pcgen.gui2.converter.panel.ConvertSubPanel#performAnalysis(pcgen.cdom.base.CDOMObject)
-	 */
 	@Override
 	public boolean performAnalysis(final CDOMObject pc)
 	{
@@ -132,7 +126,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 			        .filter(PCGFile::isPCGenCampaignFile)
 			        .map(uri -> Globals.getCampaignByURI(uri, false))
 			        .filter(Objects::nonNull)
-			        .forEach(c -> totalCampaigns.add(c));
+			        .forEach(subcampaign -> totalCampaigns.add(subcampaign));
 		}
 		sortCampaignsByRank(totalCampaigns);
 
@@ -227,9 +221,6 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 		return true;
 	}
 
-	/**
-	 * @see pcgen.gui2.converter.panel.ConvertSubPanel#setupDisplay(javax.swing.JPanel, pcgen.cdom.base.CDOMObject)
-	 */
 	@Override
 	public void setupDisplay(JPanel panel, CDOMObject pc)
 	{
@@ -476,9 +467,6 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 
 	}
 
-	/**
-	 * @see pcgen.gui2.converter.ConversionDecider#getConversionDecision(String, List, List, int)
-	 */
 	@Override
 	public String getConversionDecision(String overallDescription, List<String> choiceDescriptions,
 		List<String> choiceTokenResults, int defaultChoice)
@@ -538,7 +526,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 	 */
 	private static void sortCampaignsByRank(final List<Campaign> aSelectedCampaignsList)
 	{
-		aSelectedCampaignsList.sort(Comparator.comparingInt(c -> c.getSafe(IntegerKey.CAMPAIGN_RANK)));
+		aSelectedCampaignsList.sort(Comparator.comparingInt(campaign -> campaign.getSafe(IntegerKey.CAMPAIGN_RANK)));
 
 	}
 
