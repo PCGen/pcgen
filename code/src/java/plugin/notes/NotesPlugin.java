@@ -122,11 +122,6 @@ public class NotesPlugin implements InteractivePlugin
 		return LanguageBundle.getString(IN_NAME);
 	}
 
-	public static boolean isRecognizedFileType(File launch)
-	{
-		return PCGFile.isPCGenCharacterOrPartyFile(launch);
-	}
-
 	/**
 	 * Gets the {@code JPanel} view for the notes plugin
 	 *
