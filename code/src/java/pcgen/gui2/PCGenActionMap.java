@@ -26,7 +26,6 @@ import java.util.Collection;
 import javax.swing.ActionMap;
 import javax.swing.JOptionPane;
 
-import gmgen.GMGenSystem;
 import pcgen.cdom.content.Sponsor;
 import pcgen.core.Globals;
 import pcgen.facade.core.AbilityFacade;
@@ -51,6 +50,7 @@ import pcgen.gui2.dialog.ExportDialog;
 import pcgen.gui2.dialog.KitSelectionDialog;
 import pcgen.gui2.dialog.PrintPreviewDialog;
 import pcgen.gui2.solverview.SolverViewFrame;
+import pcgen.gui2.tools.DesktopBrowserLauncher;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.PCGenAction;
 import pcgen.gui2.tools.Utility;
@@ -58,6 +58,8 @@ import pcgen.system.CharacterManager;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
+
+import gmgen.GMGenSystem;
 
 /**
  * The PCGenActionMap is the action map for the PCGenFrame, and as such
@@ -1028,7 +1030,7 @@ public final class PCGenActionMap extends ActionMap
 		{
 			try
 			{
-				Utility.viewInBrowser(new File(ConfigurationSettings.getDocsDir(), "index.html"));
+				DesktopBrowserLauncher.viewInBrowser(new File(ConfigurationSettings.getDocsDir(), "index.html"));
 			}
 			catch (IOException ex)
 			{

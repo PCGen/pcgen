@@ -29,6 +29,7 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.URL;
 import java.util.Collection;
 
 import javax.swing.BorderFactory;
@@ -51,6 +52,7 @@ import org.apache.commons.lang3.StringUtils;
 import pcgen.cdom.content.Sponsor;
 import pcgen.core.Globals;
 import pcgen.gui2.PCGenFrame;
+import pcgen.gui2.tools.DesktopBrowserLauncher;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.GridBoxLayout;
@@ -225,44 +227,30 @@ final class MainAbout extends JPanel
 
 		// Web site button
 		wwwSite.setText(PCGenPropBundle.getWWWHome());
-		wwwSite.addActionListener(new ActionListener()
-		{
-
-			@Override
-			public void actionPerformed(ActionEvent e)
+		wwwSite.addActionListener(event -> {
+			try
 			{
-				try
-				{
-					Utility.viewInBrowser(wwwSite.getText());
-				}
-				catch (IOException ioe)
-				{
-					Logging.errorPrint(LanguageBundle.getString("in_abt_browser_err"), ioe); //$NON-NLS-1$
-				}
+				DesktopBrowserLauncher.viewInBrowser(new URL(wwwSite.getText()));
 			}
-
+			catch (IOException ioe)
+			{
+				Logging.errorPrint(LanguageBundle.getString("in_abt_browser_err"), ioe); //$NON-NLS-1$
+			}
 		});
 		gridBagConstraints1 = buildConstraints(1, 4, GridBagConstraints.WEST);
 		aCreditsPanel.add(wwwSite, gridBagConstraints1);
 
 		// Mailing list button
 		mailingList.setText(PCGenPropBundle.getMailingList());
-		mailingList.addActionListener(new ActionListener()
-		{
-
-			@Override
-			public void actionPerformed(ActionEvent e)
+		mailingList.addActionListener(event -> {
+			try
 			{
-				try
-				{
-					Utility.viewInBrowser(mailingList.getText());
-				}
-				catch (IOException ioe)
-				{
-					Logging.errorPrint(LanguageBundle.getString("in_abt_browser_err"), ioe); //$NON-NLS-1$
-				}
+				DesktopBrowserLauncher.viewInBrowser(new URL(mailingList.getText()));
 			}
-
+			catch (IOException ioe)
+			{
+				Logging.errorPrint(LanguageBundle.getString("in_err_browser_err"), ioe); //$NON-NLS-1$
+			}
 		});
 		gridBagConstraints1 = buildConstraints(1, 5, GridBagConstraints.WEST);
 		aCreditsPanel.add(mailingList, gridBagConstraints1);
