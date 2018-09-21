@@ -35,19 +35,12 @@ import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.character.Follower;
 import pcgen.facade.core.CampaignFacade;
-import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.DataSetFacade;
 import pcgen.facade.util.DefaultReferenceFacade;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.ListFacade;
 import pcgen.util.TestHelper;
 
-/**
- * The Class <code></code> ...
- *
- * <br/>
- * 
- */
 public class CompanionSupportFacadeImplTest extends AbstractCharacterTestCase
 {
 
