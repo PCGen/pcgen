@@ -41,7 +41,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Observer;
@@ -68,14 +67,7 @@ import javax.swing.WindowConstants;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-import org.apache.commons.lang3.StringUtils;
-import org.lobobrowser.html.HtmlRendererContext;
-import org.lobobrowser.html.gui.HtmlPanel;
-import org.lobobrowser.html.test.SimpleHtmlRendererContext;
-import org.lobobrowser.html.test.SimpleUserAgentContext;
-
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.content.Sponsor;
 import pcgen.core.Globals;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.facade.core.CampaignFacade;
@@ -121,6 +113,12 @@ import pcgen.system.PropertyContext;
 import pcgen.util.Logging;
 import pcgen.util.chooser.ChoiceHandler;
 import pcgen.util.chooser.ChooserFactory;
+
+import org.apache.commons.lang3.StringUtils;
+import org.lobobrowser.html.HtmlRendererContext;
+import org.lobobrowser.html.gui.HtmlPanel;
+import org.lobobrowser.html.test.SimpleHtmlRendererContext;
+import org.lobobrowser.html.test.SimpleUserAgentContext;
 
 /**
  * The main window for PCGen. In addition this class is responsible for providing 
@@ -1765,10 +1763,6 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 			{
 				showMatureDialog(loader.getMatureInfo());
 			}
-			if (context.initBoolean(PCGenSettings.OPTION_SHOW_SPONSORS_ON_LOAD, true))
-			{
-				showSponsorsDialog();
-			}
 		}
 
 	}
@@ -1870,75 +1864,6 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		aFrame.getContentPane().add(jPanel3, BorderLayout.SOUTH);
 
 		aFrame.setSize(new Dimension(456, 176));
-		Utility.setComponentRelativeLocation(this, aFrame);
-		aFrame.setVisible(true);
-	}
-
-	public void showSponsorsDialog()
-	{
-		Collection<Sponsor> sponsors =
-				Globals.getGlobalContext().getReferenceContext().getConstructedCDOMObjects(Sponsor.class);
-
-		if (sponsors.size() <= 1)
-		{
-			return;
-		}
-
-		String title = LanguageBundle.getString("in_sponsorTitle"); //$NON-NLS-1$
-
-		final JDialog aFrame = new JDialog(this, title, true);
-		final JButton jClose = new JButton(LanguageBundle.getString("in_close")); //$NON-NLS-1$
-		jClose.setMnemonic(LanguageBundle.getMnemonic("in_mn_close")); //$NON-NLS-1$
-		final JPanel jPanel = new JPanel();
-		final JCheckBox jCheckBox = new JCheckBox(LanguageBundle.getString("in_licShowOnLoad")); //$NON-NLS-1$
-		jPanel.add(jCheckBox);
-		final PropertyContext context = PCGenSettings.OPTIONS_CONTEXT;
-		jCheckBox.setSelected(context.getBoolean(PCGenSettings.OPTION_SHOW_SPONSORS_ON_LOAD));
-		jCheckBox.addItemListener(
-			evt -> context.setBoolean(PCGenSettings.OPTION_SHOW_SPONSORS_ON_LOAD, jCheckBox.isSelected()));
-		jPanel.add(jClose);
-		jClose.addActionListener(evt -> aFrame.dispose());
-
-		StringBuilder sb = new StringBuilder(500);
-
-		sb.append("<html>");
-		for (Sponsor sponsor : sponsors)
-		{
-			if (!"PCGEN".equals(sponsor.getKeyName()))
-			{
-				continue;
-			}
-			sb.append("<img src='").append(sponsor.getBannerImage()).append("'><br>");
-		}
-
-		String s = "";
-		if (sponsors.size() > 2)
-		{
-			s = "s";
-		}
-		sb.append("<H2><CENTER>").append(LanguageBundle.getString("in_sponsorThanks")).append(s) //$NON-NLS-2$
-			.append(":</CENTER></h2>");
-		int size = 172;
-		for (Sponsor sponsor : sponsors)
-		{
-			if ("PCGEN".equals(sponsor.getKeyName()))
-			{
-				continue;
-			}
-
-			size += 70;
-			sb.append("<img src='").append(sponsor.getBannerImage()).append("'><br>");
-		}
-		sb.append("</html>");
-
-		HtmlPanel htmlPanel = new HtmlPanel();
-		HtmlRendererContext theRendererContext = new SimpleHtmlRendererContext(htmlPanel, new SimpleUserAgentContext());
-		htmlPanel.setHtml(sb.toString(), "", theRendererContext);
-
-		aFrame.getContentPane().setLayout(new BorderLayout());
-		aFrame.getContentPane().add(htmlPanel, BorderLayout.CENTER);
-		aFrame.getContentPane().add(jPanel, BorderLayout.SOUTH);
-		aFrame.setSize(new Dimension(505, size));
 		Utility.setComponentRelativeLocation(this, aFrame);
 		aFrame.setVisible(true);
 	}

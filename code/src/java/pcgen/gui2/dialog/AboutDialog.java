@@ -28,7 +28,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
-import java.util.Collection;
 
 import javax.swing.BorderFactory;
 import javax.swing.Icon;
@@ -43,21 +42,17 @@ import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.EmptyBorder;
-import javax.swing.border.TitledBorder;
 
-import org.apache.commons.lang3.StringUtils;
-
-import pcgen.cdom.content.Sponsor;
-import pcgen.core.Globals;
 import pcgen.gui2.PCGenFrame;
 import pcgen.gui2.tools.DesktopBrowserLauncher;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.GridBoxLayout;
-import pcgen.gui2.util.JLabelPane;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenPropBundle;
 import pcgen.util.Logging;
+
+import org.apache.commons.lang3.StringUtils;
 
 public class AboutDialog extends JDialog
 {
@@ -107,7 +102,6 @@ final class MainAbout extends JPanel
 		mainPane.add(LanguageBundle.getString("in_abt_libraries"), buildIncludesPanel()); //$NON-NLS-1$
 		mainPane.add(LanguageBundle.getString("in_abt_license"), buildLicensePanel()); //$NON-NLS-1$
 		mainPane.add(LanguageBundle.getString("in_abt_awards"), buildAwardsPanel()); //$NON-NLS-1$
-		mainPane.add(LanguageBundle.getString("in_abt_sponsors"), buildSponsorsPanel()); //$NON-NLS-1$
 
 		setLayout(new BorderLayout());
 
@@ -388,37 +382,6 @@ final class MainAbout extends JPanel
 
 		sp.setViewportView(aPanel);
 		panel.add(sp, BorderLayout.CENTER);
-		return panel;
-	}
-
-	private JPanel buildSponsorsPanel()
-	{
-		TitledBorder title =
-				BorderFactory.createTitledBorder(null, LanguageBundle.getString("in_abt_sponsorsTitle")); //$NON-NLS-1$
-		title.setTitleJustification(TitledBorder.CENTER);
-		JLabelPane sponsorLabel = new JLabelPane();
-		JScrollPane sp = new JScrollPane(sponsorLabel);
-		sp.setBorder(title);
-		JPanel panel = new JPanel(new BorderLayout());
-		sponsorLabel.setBackground(panel.getBackground());
-		panel.add(sp, BorderLayout.CENTER);
-
-		Collection<Sponsor> sponsors =
-				Globals.getGlobalContext().getReferenceContext().getConstructedCDOMObjects(Sponsor.class);
-		StringBuilder sb = new StringBuilder();
-		sb.append("<html><b>");
-		sb.append(LanguageBundle.getString("in_abt_ourSponsors")).append("</b><br>");
-		for (Sponsor sponsor : sponsors)
-		{
-			if ("PCGEN".equals(sponsor.getKeyName()))
-			{
-				continue;
-			}
-
-			sb.append("<img src='").append(sponsor.getBannerImage()).append("'><br>");
-		}
-		sb.append("</html>");
-		sponsorLabel.setText(sb.toString());
 		return panel;
 	}
 

@@ -18,7 +18,6 @@
 package pcgen.core.utils;
 
 import java.io.File;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -29,7 +28,6 @@ import java.util.regex.Pattern;
 
 import pcgen.cdom.base.Constants;
 import pcgen.core.Equipment;
-import pcgen.core.SettingsHandler;
 import pcgen.system.PCGenPropBundle;
 import pcgen.util.Logging;
 
@@ -590,21 +588,4 @@ public final class CoreUtility
 		return (ver1[0] == ver2[0] && ver1[1] == ver2[1]);
 	}
 
-	public static URL processFileToURL(String value) throws MalformedURLException
-	{
-		StringBuilder inputPath = new StringBuilder(100);
-		inputPath.append(SettingsHandler.getPcgenSponsorDir().getAbsolutePath());
-		inputPath.append(File.separator).append(value);
-
-		// Not a URL; make sure to fix the path syntax
-		String convertedPath = fixFilenamePath(inputPath.toString());
-
-		// Make sure the path starts with a separator
-		if (!convertedPath.startsWith(File.separator))
-		{
-			convertedPath = File.separator + convertedPath;
-		}
-
-		return new URL("file:" + convertedPath);
-	}
 }
