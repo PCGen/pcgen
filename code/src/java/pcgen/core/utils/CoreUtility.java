@@ -25,6 +25,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Locale;
 import java.util.regex.Pattern;
 
 import pcgen.cdom.base.Constants;
@@ -115,7 +116,15 @@ public final class CoreUtility
 	 */
 	public static boolean isNetURL(final URL url)
 	{
-		return "http".equalsIgnoreCase(url.getProtocol()) || "ftp".equalsIgnoreCase(url.getProtocol());
+		switch (url.getProtocol().toLowerCase(Locale.ENGLISH))
+		{
+			case "http":
+			case "ftp":
+			case "https":
+				return true;
+			default:
+				return false;
+		}
 	}
 
 	/**
