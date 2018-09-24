@@ -1,11 +1,11 @@
 /*
  * Copyright 2012 Vincent Lhote
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
@@ -26,23 +26,18 @@ import java.io.FileWriter;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.Writer;
-import java.text.DateFormat;
 import java.text.Format;
 import java.text.MessageFormat;
-import java.text.SimpleDateFormat;
 import java.time.Instant;
-import java.util.Arrays;
 import java.util.Collection;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-import java.util.TimeZone;
 
 /**
  * This class allows the generation of a PO Template file from the tips.txt files,
- * and also generate translated tips ({@code tips_XX.txt}) from a PO file 
+ * and also generate translated tips ({@code tips_XX.txt}) from a PO file
  * (whose name is {@code _XX.po}).
  * PO Template and PO files are message catalog used in gettext.
  * The duplicates from the tips files should appear only once in the PO Template files.
@@ -74,7 +69,7 @@ public final class Tips
 	}
 
 	/**
-	 * 
+	 *
 	 * @param rootDirectory root of the directories to parse
 	 * @param filename the name of the filename to parse
 	 */
@@ -246,7 +241,7 @@ public final class Tips
 	}
 
 	/**
-	 * 
+	 *
 	 * @param rootDirectory directory to search in (only done in sub-directories of this)
 	 * @param translation PO file
 	 * @param translationName name for new translation filename (like tips_fr.txt)
