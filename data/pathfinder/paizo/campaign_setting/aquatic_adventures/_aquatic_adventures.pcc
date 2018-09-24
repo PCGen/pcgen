@@ -3,7 +3,7 @@ KEY:Aquatic Adventures
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Campaign Setting
 RANK:3
-STATUS:ALPHA
+STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
@@ -39,9 +39,12 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Campaign Setting: Aquatic Adv
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+DATACONTROL:aqua_datacontrols.lst
+
 # Data Files
 ABILITY:aqua_abilities_class.lst
 ABILITY:aqua_abilities_companion.lst
+ABILITY:aqua_abilities_feat.lst
 ABILITYCATEGORY:aqua_abilitycategories.lst
 EQUIPMENT:aqua_equip.lst
 EQUIPMOD:aqua_equipmods.lst
@@ -61,9 +64,9 @@ FORWARDREF:CLASSSPELLLIST|Medium,Mesmerist,Occultist,Psychic,Spiritualist
 
 # ENTRY DATE: 2017-06
 # LST MONKEY: Gary Davies, Gwen T.
-# LICENSE MONKEY:
+# LICENSE MONKEY: Paul (Nylanfs) Grosse
 # RELEASE REVIEW #
-# BETA:
+# BETA: Andrew (LegacyKing) Maitland
 # RELEASE:
 # Built for PCGen Version: 6.07.08
 # Updated to work with version: -
