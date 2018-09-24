@@ -136,4 +136,4 @@ Stannum Crown																WT:2	SOURCEPAGE:p.269	TYPE:Magic.Artifact
 Thought Record																WT:2	SOURCEPAGE:p.269	TYPE:Magic.Artifact
 
 # Kinetic Blast
-Kinetic Blast	WT:0	KEY:Kinetic Blast	PROFICIENCY:WEAPON|Kinetic Blast	DAMAGE:1d6	TYPE:Weapon.Ranged.Kinetic Blast	SPROP:See Kinetic Blast
+#Kinetic Blast	WT:0	KEY:Kinetic Blast	PROFICIENCY:WEAPON|Kinetic Blast	DAMAGE:1d6	TYPE:Weapon.Ranged.Kinetic Blast	SPROP:See Kinetic Blast
