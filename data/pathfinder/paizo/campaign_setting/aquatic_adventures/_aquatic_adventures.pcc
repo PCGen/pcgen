@@ -39,12 +39,10 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Campaign Setting: Aquatic Adv
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-DATACONTROL:aqua_datacontrols.lst
 
 # Data Files
 ABILITY:aqua_abilities_class.lst
 ABILITY:aqua_abilities_companion.lst
-ABILITY:aqua_abilities_feat.lst
 ABILITYCATEGORY:aqua_abilitycategories.lst
 EQUIPMENT:aqua_equip.lst
 EQUIPMOD:aqua_equipmods.lst
