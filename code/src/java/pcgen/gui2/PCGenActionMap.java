@@ -21,13 +21,10 @@ package pcgen.gui2;
 import java.awt.event.ActionEvent;
 import java.io.File;
 import java.io.IOException;
-import java.util.Collection;
 
 import javax.swing.ActionMap;
 import javax.swing.JOptionPane;
 
-import pcgen.cdom.content.Sponsor;
-import pcgen.core.Globals;
 import pcgen.facade.core.AbilityFacade;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.ClassFacade;
@@ -140,7 +137,6 @@ public final class PCGenActionMap extends ActionMap
 	public static final String HELP_CONTEXT_COMMAND = HELP_COMMAND + ".context";
 	public static final String HELP_DOCS_COMMAND = HELP_COMMAND + ".docs";
 	public static final String HELP_OGL_COMMAND = HELP_COMMAND + ".ogl";
-	public static final String HELP_SPONSORS_COMMAND = HELP_COMMAND + ".sponsors";
 	public static final String HELP_TIPOFTHEDAY_COMMAND = HELP_COMMAND + ".tod";
 	public static final String HELP_ABOUT_COMMAND = HELP_COMMAND + ".about";
 	private final PCGenFrame frame;
@@ -240,7 +236,6 @@ public final class PCGenActionMap extends ActionMap
 		put(HELP_CONTEXT_COMMAND, new ContextHelpAction());
 		put(HELP_DOCS_COMMAND, new DocsHelpAction());
 		put(HELP_OGL_COMMAND, new OGLHelpAction());
-		put(HELP_SPONSORS_COMMAND, new SponsorsHelpAction());
 		put(HELP_TIPOFTHEDAY_COMMAND, new TipOfTheDayHelpAction());
 		put(HELP_ABOUT_COMMAND, new AboutHelpAction());
 	}
@@ -1054,30 +1049,6 @@ public final class PCGenActionMap extends ActionMap
 		public void actionPerformed(ActionEvent e)
 		{
 			frame.showOGLDialog();
-		}
-
-	}
-
-	private class SponsorsHelpAction extends PCGenAction
-	{
-
-		public SponsorsHelpAction()
-		{
-			super("mnuHelpSponsors", HELP_SPONSORS_COMMAND);
-		}
-
-		@Override
-		public void actionPerformed(ActionEvent e)
-		{
-			Collection<Sponsor> sponsors =
-					Globals.getGlobalContext().getReferenceContext().getConstructedCDOMObjects(Sponsor.class);
-			if (sponsors.size() > 1)
-			{
-				frame.showSponsorsDialog();
-				return;
-			}
-			JOptionPane.showMessageDialog(frame, "There are no sponsors", "Missing Sponsors",
-				JOptionPane.INFORMATION_MESSAGE);
 		}
 
 	}
