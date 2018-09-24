@@ -1,7 +1,0 @@
-SOURCELONG:Aquatic Adventures	SOURCESHORT:AquA	SOURCEWEB:http://paizo.com/products/btpy9toq?Pathfinder-Campaign-Setting-Aquatic-Adventures	SOURCEDATE:2017-06
-# ORIGINAL ENTRY: Gary Davies
-# ORIGINAL ENTRY DATE: 2017-07
-
-
-
-FOLLOWER:CavalierMountLVL=1	TYPE:Cavalier Mount	ABILITY:Special Ability|AUTOMATIC|Order of the Waves ~ Waverider Mount Swim Speed Bonus|PREMOVE:1,Swim=5
