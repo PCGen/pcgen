@@ -70,7 +70,7 @@ public class EnvironmentModel extends DefaultComboBoxModel<Object>
 		{
 			try
 			{
-				List<String> row = (ArrayList<String>)table.get(x);
+				List<String> row = (ArrayList<String>) table.get(x);
 				this.addElement(row.get(0));
 			}
 			catch (NoSuchElementException e)
