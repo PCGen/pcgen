@@ -39,15 +39,16 @@ import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 import javax.swing.text.JTextComponent;
 
-import org.apache.commons.lang3.SystemUtils;
-
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
+import pcgen.gui2.tools.DesktopBrowserLauncher;
 import pcgen.gui2.tools.Utility;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.ConfigurationSettings.SettingsFilesPath;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
+
+import org.apache.commons.lang3.SystemUtils;
 
 /**
  * The Class {@code LocationPanel} is responsible for
@@ -497,7 +498,7 @@ public class LocationPanel extends PCGenPrefsPanel
 			}
 			else if (source == browserPathButton)
 			{
-				Utility.selectDefaultBrowser(getParent());
+				DesktopBrowserLauncher.selectDefaultBrowser();
 				browserPath.setText(String.valueOf(PCGenSettings.getBrowserPath()));
 			}
 			else if (source == clearBrowserPathButton)

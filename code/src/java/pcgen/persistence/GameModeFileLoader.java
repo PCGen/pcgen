@@ -24,14 +24,12 @@ import java.util.Collection;
 
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.content.Sponsor;
 import pcgen.cdom.content.TabInfo;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.AbilityCategory;
 import pcgen.core.CustomData;
 import pcgen.core.GameMode;
-import pcgen.core.Globals;
 import pcgen.core.PaperInfo;
 import pcgen.core.PointBuyCost;
 import pcgen.core.QualifiedObject;
@@ -106,7 +104,6 @@ public class GameModeFileLoader extends PCGenTask
 			setMaximum(gameFiles.length + 1);
 			loadGameModes(gameFiles);
 		}
-		loadSponsorsLstFile();
 	}
 
 	/**
@@ -133,29 +130,8 @@ public class GameModeFileLoader extends PCGenTask
 	private final LstLineFileLoader statCheckLoader = new StatsAndChecksLoader();
 	private final LstLineFileLoader migrationLoader = new MigrationLoader();
 	private final LstLineFileLoader bioLoader = new BioSetLoader();
-	private final LstLineFileLoader sponsorLoader = new SimplePrefixLoader<>(Sponsor.class, "SPONSOR");
 	private final LstLineFileLoader equipIconLoader = new EquipIconLoader();
 	private final LstLineFileLoader codeControlLoader = new CodeControlLoader();
-
-	/**
-	 * Load a sponsors lst file.
-	 * First try the game mode directory. If that fails, try
-	 * reading the file from the default game mode directory.
-	 */
-	private void loadSponsorsLstFile()
-	{
-		File sponsorDir = new File(ConfigurationSettings.getSystemsDir(), "sponsors");
-
-		try
-		{
-			File sponsorFile = new File(sponsorDir, "sponsors.lst");
-			sponsorLoader.loadLstFile(Globals.getGlobalContext(), sponsorFile.toURI(), null);
-		}
-		catch (final PersistenceLayerException ple)
-		{
-			Logging.errorPrint("Warning: sponsors file is missing");
-		}
-	}
 
 	private void loadGameModes(String[] gameFiles)
 	{

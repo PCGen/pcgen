@@ -1,0 +1,48 @@
+#  Sun Sep 23 13:50:08 2018 -- reformated by PCGen PrettyLST v6.06.00
+###Block:BASIC MELEE WEAPONS
+# Weapon Name				Type
+Sword cane (tactical)			TYPE:P.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee.Uncategorized
+Sword cane (advanced)			TYPE:P.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee.Uncategorized
+Sword cane (ultrathin)			TYPE:P.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee.Uncategorized
+Sword cane (zero-edge)			TYPE:P.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee.Uncategorized
+Sword cane (molecular rift)		TYPE:P.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee.Uncategorized
+Sword cane (dimensional slice)	TYPE:P.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee.Uncategorized
+
+###Block:ADVANCED MELEE WEAPONS
+# One-Handed Weapons
+
+# Two-Handed Weapons
+# Weapon Name				Type
+Xenolash (immature)			TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Xenolash (mature)				TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Xenolash (blooming)			TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Xenolash (seeded)				TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+
+# SMALL ARMS
+Nightarch needler (tactical)		TYPE:SMALL ARMS
+Nightarch needler (advanced)		TYPE:SMALL ARMS
+Nightarch needler (elite)		TYPE:SMALL ARMS
+Nightarch needler (paragon)		TYPE:SMALL ARMS
+
+# LONGARMS
+Kalo shredder (slipstream-class)	TYPE:LONGARMS
+Kalo shredder (cascade-class)		TYPE:LONGARMS
+Kalo shredder (torrent-class)		TYPE:LONGARMS
+Kalo shredder (deluge-class)		TYPE:LONGARMS
+Kalo shredder (monsoon-class)		TYPE:LONGARMS
+
+# HEAVY WEAPONS
+Starheart cannon (red star)		TYPE:HEAVY WEAPONS
+Starheart cannon (yellow star)	TYPE:HEAVY WEAPONS
+Starheart cannon (white star)		TYPE:HEAVY WEAPONS
+Starheart cannon (blue star)		TYPE:HEAVY WEAPONS
+Anacite ion cannon (static)		TYPE:HEAVY WEAPONS
+Anacite ion cannon (aurora)		TYPE:HEAVY WEAPONS
+Anacite ion cannon (storm)		TYPE:HEAVY WEAPONS
+Anacite ion cannon (tempest)		TYPE:HEAVY WEAPONS
+
+# SNIPER WEAPONS
+Shobhad horizon striker (tactical)	TYPE:F.SNIPER WEAPONS
+Shobhad horizon striker (advanced)	TYPE:F.SNIPER WEAPONS
+Shobhad horizon striker (elite)	TYPE:F.SNIPER WEAPONS
+Shobhad horizon striker (paragon)	TYPE:F.SNIPER WEAPONS

@@ -36,6 +36,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.logging.Handler;
@@ -102,18 +103,12 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 		changeLogFile = new File(dataLogFileName);
 	}
 
-	/**
-	 * @see pcgen.gui2.converter.panel.ConvertSubPanel#autoAdvance(pcgen.cdom.base.CDOMObject)
-	 */
 	@Override
 	public boolean autoAdvance(CDOMObject pc)
 	{
 		return false;
 	}
 
-	/**
-	 * @see pcgen.gui2.converter.panel.ConvertSubPanel#performAnalysis(pcgen.cdom.base.CDOMObject)
-	 */
 	@Override
 	public boolean performAnalysis(final CDOMObject pc)
 	{
@@ -125,18 +120,13 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 		for (Campaign campaign : pc.getSafeListFor(ListKey.CAMPAIGN))
 		{
 			// Add all sub-files to the main campaign, regardless of exclusions
-			for (CampaignSourceEntry fName : campaign.getSafeListFor(ListKey.FILE_PCC))
-			{
-				URI uri = fName.getURI();
-				if (PCGFile.isPCGenCampaignFile(uri))
-				{
-					Campaign c = Globals.getCampaignByURI(uri, false);
-					if (c != null)
-					{
-						totalCampaigns.add(c);
-					}
-				}
-			}
+			campaign.getSafeListFor(ListKey.FILE_PCC)
+			        .stream()
+			        .map(CampaignSourceEntry::getURI)
+			        .filter(PCGFile::isPCGenCampaignFile)
+			        .map(uri -> Globals.getCampaignByURI(uri, false))
+			        .filter(Objects::nonNull)
+			        .forEach(subcampaign -> totalCampaigns.add(subcampaign));
 		}
 		sortCampaignsByRank(totalCampaigns);
 
@@ -231,9 +221,6 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 		return true;
 	}
 
-	/**
-	 * @see pcgen.gui2.converter.panel.ConvertSubPanel#setupDisplay(javax.swing.JPanel, pcgen.cdom.base.CDOMObject)
-	 */
 	@Override
 	public void setupDisplay(JPanel panel, CDOMObject pc)
 	{
@@ -480,9 +467,6 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 
 	}
 
-	/**
-	 * @see pcgen.gui2.converter.ConversionDecider#getConversionDecision(String, List, List, int)
-	 */
 	@Override
 	public String getConversionDecision(String overallDescription, List<String> choiceDescriptions,
 		List<String> choiceTokenResults, int defaultChoice)
@@ -540,17 +524,9 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 	 *
 	 * @param aSelectedCampaignsList List of Campaign objects to sort
 	 */
-	private void sortCampaignsByRank(final List<Campaign> aSelectedCampaignsList)
+	private static void sortCampaignsByRank(final List<Campaign> aSelectedCampaignsList)
 	{
-		aSelectedCampaignsList.sort(new Comparator<Campaign>()
-		{
-			@Override
-			public int compare(Campaign c1, Campaign c2)
-			{
-				return c1.getSafe(IntegerKey.CAMPAIGN_RANK) - c2.getSafe(IntegerKey.CAMPAIGN_RANK);
-			}
-
-		});
+		aSelectedCampaignsList.sort(Comparator.comparingInt(campaign -> campaign.getSafe(IntegerKey.CAMPAIGN_RANK)));
 
 	}
 

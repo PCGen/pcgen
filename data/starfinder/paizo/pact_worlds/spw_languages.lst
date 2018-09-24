@@ -1,0 +1,8 @@
+#  Sun Sep 23 13:50:08 2018 -- reformated by PCGen PrettyLST v6.06.00
+# Language			Type			Description
+Bantrid			TYPE:Spoken.World	DESC:(Bantrids, inhabitants of Hibb)
+
+
+# Understand Language Group
+
+Understand Bantrid	TYPE:Understand	DESC:(Bantrids, inhabitants of Hibb)

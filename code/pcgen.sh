@@ -47,7 +47,7 @@ if [ $available_memory -eq $available_memory ]; then
 fi
 
 # To load all sources takes more than the default 64MB.
-javaargs="-Xms${default_min_memory}m -Xmx${default_max_memory}m"
+javaargs="-Xms${default_min_memory}m -Xmx${default_max_memory}m -Dsun.java2d.dpiaware=false"
 
 while [ "x$1" != x ]
 do

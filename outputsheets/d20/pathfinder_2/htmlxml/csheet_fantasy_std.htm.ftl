@@ -16,6 +16,11 @@ Email: tir.gwaith@gmail.com
 $Revision: 24109 $
 $Author: amaitland $
 $Date: 2014-06-12 11:36:12 +1000 (Thu, 12 Jun 2014) $
+
+Revision: $
+$Author: bgrinstead $
+$Date: 2017-09-21
+
 -->
 <head>
 <meta http-equiv="content-type" content="text-html; charset=utf-8" />
@@ -130,7 +135,8 @@ $Date: 2014-06-12 11:36:12 +1000 (Thu, 12 Jun 2014) $
  <!-- <td colspan="1" class="h">${pcstring('CLASS.${class}')}>-->
  <!-- 	</#if>>-->
  <!-- 	</@loop>-->
- <td colspan="1" class="h">${pcstring('CLASSLIST')}
+ <td colspan="1" class="h">
+${pcstring('ABILITYALL.Theme.VISIBLE.0.TYPE=Theme')?capitalize} ${pcstring('CLASSLIST')}
 	<#if (pcvar('count("ABILITIES","CATEGORY=Archetype","TYPE=Archetype","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
 	(${pcstring('ABILITYLIST.Archetype.TYPE=Archetype')})
 	</#if>
@@ -358,27 +364,27 @@ ${pcstring('MOVE.${movement}.NAME')}&nbsp;${pcstring('MOVE.${movement}.RATE')}
       <table summary="AC Table">
         <tr>
 
-          <td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>EAC</b></font>
-            <font style="font-size:5pt" color="white"><br />Energy Armor Class</font></td>
-          <td align="center" class="border9"><b>${pcstring('AC.EAC')}</b></td>
+          <td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>AC</b></font>
+            <font style="font-size:5pt" color="white"><br />Armor Class</font></td>
+          <td align="center" class="border9"><b>${pcstring('AC.AC')}</b></td>
           <td align="center" class="font7"><b>=</b></td>
           <td align="center" class="border9"><b>${pcstring('AC.Base')}</b></td>
           <td align="center" class="font7"><b>+</b></td>
           <td align="center" class="border9"><b>${pcstring('AC.Ability')}</b></td>
           <td align="center" class="font7"><b>+</b></td>
-          <td align="center" class="border9"><b>${pcstring('AC.EAC_Armor')}</b></td>
+          <td align="center" class="border9"><b>${pcstring('AC.Armor')}</b></td>
           <td align="center" class="font7"><b>+</b></td>
           <td align="center" class="border9"><b>${pcstring('AC.Misc')}</b></td>
 			<td align="center" class="font7"><b></b></td>
-		  <td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>KAC</b></font>
-            <font style="font-size:5pt" color="white"><br /> Kinetic Armor Class</font></td>
-          <td align="center" class="border9"><b>${pcstring('AC.KAC')}</b></td>
+		  <td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>TAC</b></font>
+            <font style="font-size:5pt" color="white"><br /> Touch Armor Class</font></td>
+          <td align="center" class="border9"><b>${pcstring('AC.TAC')}</b></td>
           <td align="center" class="font7"><b>=</b></td>
           <td align="center" class="border9"><b>${pcstring('AC.Base')}</b></td>
           <td align="center" class="font7"><b>+</b></td>
           <td align="center" class="border9"><b>${pcstring('AC.Ability')}</b></td>
           <td align="center" class="font7"><b>+</b></td>
-          <td align="center" class="border9"><b>${pcstring('AC.KAC_Armor')}</b></td>
+          <td align="center" class="border9"><b>${pcstring('AC.ArmorTAC')}</b></td>
           <td align="center" class="font7"><b>+</b></td>
           <td align="center" class="border9"><b>${pcstring('AC.Misc')}</b></td>
 
@@ -427,23 +433,27 @@ ${pcstring('MOVE.${movement}.NAME')}&nbsp;${pcstring('MOVE.${movement}.RATE')}
   <tr>
   <td width="20%" valign="top">
 <!-- START Initiative Table -->
-   <table summary="Initiative Table">
+   <table summary="PERCEPTION Table">
     <tr>
-     <td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>INITIATIVE</b></font><font style="font-size:5pt" color="white"><br />Modifier</font></td>
-     <td align="center" class="border10"><b>${pcstring('INITIATIVEMOD')}</b></td>
+     <td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>PERCEPTION</b></font><font style="font-size:5pt" color="white"><br />Modifier</font></td>
+     <td align="center" class="border10"><b>${pcvar('VAR.PerceptionTotal')}</b></td>
      <td align="center" class="font7"><b>=</b></td>
-     <td align="center" class="border10"><b>${pcstring('STAT.1.MOD')}</b></td>
+     <td align="center" class="border10"><b>${pcvar('VAR.PerceptionAbility')}</b></td>
      <td align="center" class="font7"><b>+</b></td>
-     <td align="center" class="border10"><b>${pcstring('INITIATIVEBONUS')}</b></td>
+     <td align="center" class="border10"><b>${pcvar('VAR.PerceptionProf')}</b></td>
+     <td align="center" class="font7"><b>+</b></td>
+     <td align="center" class="border10"><b>${pcvar('VAR.PerceptionItem')}</b></td>
      <td width="50%" rowspan="2" align="center"><br /></td>
     </tr>
     <tr>
      <td align="center" width="50" class="font7"></td>
      <td align="center" width="25" valign="top" class="font7">TOTAL</td>
      <td align="center"></td>
-     <td align="center" width="25" class="font6">DEX</td>
+     <td align="center" width="25" class="font6">WIS</td>
      <td align="center"></td>
-     <td align="center" width="25" class="font6">MISC</td>
+     <td align="center" width="25" class="font6">PROF</td>
+     <td align="center"></td>
+     <td align="center" width="25" class="font6">ITEM</td>
     </tr>
    </table>
 <!-- STOP Initiative Table -->
@@ -548,8 +558,16 @@ Wisdom
    <table width="100%" summary="Saving Throws">
      <tr>
 	   <td align="left" valign="top" class="border8"><div class="font6">CONDITIONAL MODIFIERS:</div>
-<@loop from=0 to=pcvar('countdistinct("ABILITIES","ASPECT=SaveBonus")-1') ; ability , ability_has_next>
-	 ${pcstring('ABILITYALL.ANY.${ability}.ASPECT=SaveBonus.ASPECT.SaveBonus')} <br />
+<#assign condCount = 0>
+<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Racial Trait","TYPE=Racial Trait","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; RacialTrait , RacialTrait_has_next>
+<#if (pcstring("ABILITYALL.Racial Trait.VISIBLE.${RacialTrait}.TYPE.ASPECT.BonusSave")!= "")>
+<#if (condCount > 0)>
+, 
+</#if>
+${pcstring("ABILITYALL.Racial Trait.VISIBLE.${RacialTrait}.TYPE.ASPECT.BonusSave")?lower_case}
+<#assign condCount++>
+<#else>
+</#if>
 </@loop>
     </td>
     </tr>
@@ -663,7 +681,11 @@ Wisdom
     <tr>
      <td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>${pcstring('WEAPONH.TOTALHIT')}<br /></b></font></td>
      <td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>${pcstring('WEAPONH.DAMAGE')}<br /></b></font></td>
-     <td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>${pcstring('WEAPONH.CRIT')}/x${pcstring('WEAPONH.MULT')}<br /></b></font></td>
+     <#if (pcstring("WEAPON.QUALITY.Critical") = "")>
+	 <td align="center" bgcolor="white" class="border8"><b>-</b></td>
+	 <#else>)
+     <td align="center" bgcolor="white" class="border8"><b>${pcstring('WEAPON.QUALITY.Critical')}</b></td>
+	 </#if>
      <td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>${pcstring('REACH')}<br /></b></font></td>
     </tr>
 	<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=UnarmedDisplay","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; ability , ability_has_next>
@@ -782,7 +804,7 @@ Wisdom
     <tr>
      <td align="left" height="15" bgcolor="black" width="8%"><font style="font-size:8pt" color="white"><b>&nbsp;&nbsp;Range</b></font></td>
 <@loop from=0 to=4 ; range , range_has_next>
-     <td width="18%" align="center" bgcolor="black" class="border"><font style="font-size:8pt" color="white"><b>${pcstring('WEAPON.${weap}.RANGELIST.${range}')}'<br /></b></font></td>
+     <td width="18%" align="center" bgcolor="black" class="border"><font style="font-size:8pt" color="white"><b>${pcstring('WEAPON.${weap}.RANGELIST.${range}')}<br /></b></font></td>
 </@loop>
     </tr>
     <tr>
@@ -820,7 +842,11 @@ Wisdom
      <td align="center" bgcolor="white" class="border8 font8"><b>${pcstring('WEAPON.${weap}.HAND')}<br /></b></td>
      <td align="center" bgcolor="white" class="border8 font8"><b>${pcstring('WEAPON.${weap}.TYPE')}<br /></b></td>
      <td align="center" bgcolor="white" class="border8 font8"><b>${pcstring('WEAPON.${weap}.SIZE')}<br /></b></td>
-     <td align="center" bgcolor="white" class="border8 font8"><b>${pcstring('WEAPON.${weap}.CRIT')}/x${pcstring('WEAPON.${weap}.MULT')}<br /></b></td>
+		 <#if (pcstring("WEAPON.${weap}.QUALITY.Critical") = "")>
+			<td align="center" bgcolor="white" class="border8"><b>-</b></td>
+		 <#else>)
+			<td align="center" bgcolor="white" class="border8"><b>${pcstring('WEAPON.${weap}.QUALITY.Critical')}</b></td>
+		 </#if>
      <td align="center" bgcolor="white" class="border8 font8"><b>${pcstring('WEAPON.${weap}.REACH')}${pcstring('WEAPON.${weap}.REACHUNIT')}<br /></b></td>
     </tr>
    </table>
@@ -839,7 +865,11 @@ Wisdom
      <td align="center" bgcolor="white" class="border8"><b>${pcstring('WEAPON.${weap}.HAND')}<br /></b></td>
      <td align="center" bgcolor="white" class="border8"><b>${pcstring('WEAPON.${weap}.TYPE')}<br /></b></td>
      <td align="center" bgcolor="white" class="border8"><b>${pcstring('WEAPON.${weap}.SIZE')}<br /></b></td>
-     <td align="center" bgcolor="white" class="border8"><b>${pcstring('WEAPON.${weap}.CRIT')}/x${pcstring('WEAPON.${weap}.MULT')}<br /></b></td>
+	 <#if (pcstring("WEAPON.${weap}.QUALITY.Critical") = "")>
+	 <td align="center" bgcolor="white" class="border8"><b>-</b></td>
+	 <#else>)
+     <td align="center" bgcolor="white" class="border8"><b>${pcstring('WEAPON.${weap}.QUALITY.Critical')}</b></td>
+	 </#if>
     </tr>
    </table>
    <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Weapon Table">
@@ -847,7 +877,7 @@ Wisdom
     <tr>
      <td align="left" height="15" bgcolor="black" width="8%"><font style="font-size:8pt" color="white"><b>&nbsp;&nbsp;Range</b></font></td>
 <@loop from=0 to=4 ; range , range_has_next>
-     <td width="18%" align="center" bgcolor="black" class="border"><font style="font-size:8pt" color="white"><b>${pcstring('WEAPON.${weap}.RANGELIST.${range}')}'<br /></b></font></td>
+     <td width="18%" align="center" bgcolor="black" class="border"><font style="font-size:8pt" color="white"><b>${pcstring('WEAPON.${weap}.RANGELIST.${range}')}<br /></b></font></td>
 </@loop>
     </tr>
     <tr>
@@ -922,7 +952,11 @@ Wisdom
     <tr>
      <td align="center" bgcolor="white" class="border8"><b>${pcstring('WEAPON.${weap}.TOTALHIT')}<br /></b></td>
      <td align="center" bgcolor="white" class="border8"><b>${pcstring('WEAPON.${weap}.DAMAGE')}<br /></b></td>
-     <td align="center" bgcolor="white" class="border8"><b>${pcstring('WEAPON.${weap}.CRIT')}/x${pcstring('WEAPON.${weap}.MULT')}<br /></b></td>
+		 <#if (pcstring("WEAPON.${weap}.QUALITY.Critical") = "")>
+		 <td align="center" bgcolor="white" class="border8"><b>-</b></td>
+		 <#else>)
+		 <td align="center" bgcolor="white" class="border8"><b>${pcstring('WEAPON.${weap}.QUALITY.Critical')}</b></td>
+		 </#if>
     </tr>
    </table>
    <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Weapon Table">
@@ -955,7 +989,11 @@ Wisdom
      <td align="center" bgcolor="white" class="border8"><b>${pcstring('WEAPON.${weap}.HAND')}<br /></b></td>
      <td align="center" bgcolor="white" class="border8"><b>${pcstring('WEAPON.${weap}.TYPE')}<br /></b></td>
      <td align="center" bgcolor="white" class="border8"><b>${pcstring('WEAPON.${weap}.SIZE')}<br /></b></td>
-     <td align="center" bgcolor="white" class="border8"><b>${pcstring('WEAPON.${weap}.CRIT')}/x${pcstring('WEAPON.${weap}.MULT')}<br /></b></td>
+		 <#if (pcstring("WEAPON.${weap}.QUALITY.Critical") = "")>
+			<td align="center" bgcolor="white" class="border8"><b>-</b></td>
+		 <#else>)
+			<td align="center" bgcolor="white" class="border8"><b>${pcstring('WEAPON.${weap}.QUALITY.Critical')}</b></td>
+		 </#if>
      <td align="center" bgcolor="white" class="border8"><b>${pcstring('WEAPON.${weap}.RANGE')}<br /></b></td>
     </tr>
    </table>
@@ -1122,11 +1160,11 @@ Wisdom
      <td width="50%" valign="top">
       <table width="100%" cellspacing="0" cellpadding="0" border="0" summary="Equipment Table Left Column"> <!-- Equipment Table left pane -->
        <tr>
-        <td valign="top" width="70%" class="border8"><b>ITEM</b></td>
-        <td valign="top" width="12%" class="border8" align="center"><b>LOCATION</b></td>
-        <td valign="top" width="6%" class="border8" align="center"><b>QTY</b></td>
-        <td valign="top" width="6%" class="border8" align="center"><b>WT.</b></td>
-        <td valign="top" width="6%" class="border8" align="center"><b>COST</b></td>
+        <td valign="top" width="60%" class="border8"><b>ITEM</b></td>
+        <td valign="top" width="15%" class="border8" align="center"><b>LOCATION</b></td>
+        <td valign="top" width="8%" class="border8" align="center"><b>QTY</b></td>
+        <td valign="top" width="8%" class="border8" align="center"><b>BULK</b></td>
+        <td valign="top" width="9%" class="border8" align="center"><b>COST</b></td>
        </tr>
 <@loop from=0 to=(pcvar("COUNT[EQUIPMENT.Not.Coin.NOT.Gem]")-1)/2 ; equip1, equip1_has_next >
 	<@equipmentRow equip1=equip1 />
@@ -1136,18 +1174,18 @@ Wisdom
      <td width="50%" valign="top">
       <table width="100%" cellspacing="0" cellpadding="0" border="0" summary="Equipment Table Right Column"> <!-- Equipment Table right pane -->
        <tr>
-        <td valign="top" width="70%" class="border8"><b>ITEM</b></td>
-        <td valign="top" width="12%" class="border8" align="center"><b>LOCATION</b></td>
-        <td valign="top" width="6%" class="border8" align="center"><b>QTY</b></td>
-        <td valign="top" width="6%" class="border8" align="center"><b>WT.</b></td>
-        <td valign="top" width="6%" class="border8" align="center"><b>COST</b></td>
+        <td valign="top" width="60%" class="border8"><b>ITEM</b></td>
+        <td valign="top" width="15%" class="border8" align="center"><b>LOCATION</b></td>
+        <td valign="top" width="8%" class="border8" align="center"><b>QTY</b></td>
+        <td valign="top" width="8%" class="border8" align="center"><b>BULK</b></td>
+        <td valign="top" width="9%" class="border8" align="center"><b>COST</b></td>
        </tr>
 <@loop from=((pcvar("COUNT[EQUIPMENT.Not.Coin.NOT.Gem]")-1)/2)+1 to=pcvar("COUNT[EQUIPMENT.Not.Coin.NOT.Gem]")-1 ; equip2, equip2_has_next >
 	<@equipmentRow equip1=equip2 />
 </@loop>
        <tr>
-        <td valign="top" width="41%" class="border" align="right" colspan="1"><font style="font-size: x-small">TOTAL WEIGHT CARRIED/VALUE&nbsp;&nbsp;</font></td>
-        <td valign="top" width="3%" class="border" align="center" colspan="2" nowrap><font style="font-size: x-small">${pcstring('TOTAL.WEIGHT')}</font></td>
+        <td valign="top" width="41%" class="border" align="right" colspan="1"><font style="font-size: x-small">TOTAL BULK CARRIED/VALUE&nbsp;&nbsp;</font></td>
+        <td valign="top" width="3%" class="border" align="center" colspan="2" nowrap><font style="font-size: x-small">${pcstring('TOTAL.WEIGHT.INTVAL')}</font></td>
         <td valign="top" width="3%" class="border" align="center" colspan="2" nowrap><font style="font-size: x-small">${pcstring('TOTAL.VALUE')}</font></td>
        </tr>
       </table>
@@ -1160,17 +1198,18 @@ Wisdom
   <tr>
    <td width="50%" valign="top">
 <!-- START Weight Table -->
-    <table width="100%" cellspacing="0" cellpadding="3" summary="Weight Allowance Table">
+    <table width="100%" cellspacing="0" cellpadding="3" summary="Bulk Allowance Table">
      <tr>
-      <td bgcolor="black" align="center" colspan="6"><font color="white" style="font-size: small"><b>WEIGHT ALLOWANCE</b></font></td>
+      <td bgcolor="black" align="center" colspan="6"><font color="white" style="font-size: small"><b>BULK ALLOWANCE</b></font></td>
      </tr>
      <tr>
+	 <#assign overburdened = pcstring('WEIGHT.Overburdened')?number>
       <td valign="top" class="border8" align="right"><b>Light</b></td>
       <td valign="top" class="border8">${pcstring('WEIGHT.LIGHT')}</td>
-      <td valign="top" class="border8" align="right"><b>Medium</b></td>
-      <td valign="top" class="border8">${pcstring('WEIGHT.MEDIUM')}</td>
-      <td valign="top" class="border8" align="right"><b>Heavy</b></td>
-      <td valign="top" class="border8">${pcstring('WEIGHT.HEAVY')}</td>
+      <td valign="top" class="border8" align="right"><b>Encumbered</b></td>
+      <td valign="top" class="border8">${pcstring('WEIGHT.Encumbered')}</td>
+      <td valign="top" class="border8" align="right"><b>Overburdened</b></td>
+      <td valign="top" class="border8">${overburdened+1}</td>
      </tr>
     </table>
 <!-- STOP Weight Table -->
@@ -1244,7 +1283,11 @@ Wisdom
       <td colspan="2" bgcolor="black" align="center" class="border"><font color="white" style="font-size: small"><b>DAMAGE:</b></font></td>
       <td colspan="2" align="center" class="border">${pcstring('FOLLOWERTYPE.FAMILIAR.0.WEAPON.${wep}.DAMAGE')}</td>
       <td colspan="2" bgcolor="black" align="center" class="border"><font color="white" style="font-size: small"><b>CRITICAL:</b></font></td>
-      <td colspan="2" align="center" class="border">${pcstring('FOLLOWERTYPE.FAMILIAR.0.WEAPON.${wep}.CRIT')}/x${pcstring('FOLLOWERTYPE.FAMILIAR.0.WEAPON.${wep}.MULT')}</td>
+	  <#if (pcstring("FOLLOWERTYPE.FAMILIAR.0.WEAPON.${wep}.QUALITY.Critical") = "")>
+	 <td align="center" bgcolor="white" class="border8"><b>-</b></td>
+	 <#else>)
+     <td align="center" bgcolor="white" class="border8"><b>${pcstring('FOLLOWERTYPE.FAMILIAR.0.WEAPON.${wep}.QUALITY.Critical')}</b></td>
+	 </#if>
       </tr>
 </@loop>
      <tr>
@@ -1282,7 +1325,11 @@ Wisdom
       <td colspan="2" bgcolor="black" align="center" class="border"><font color="white" style="font-size: small"><b>DAMAGE:</b></font></td>
       <td colspan="2" align="center" class="border">${pcstring('FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.${wep}.DAMAGE')}</td>
       <td colspan="2" bgcolor="black" align="center" class="border"><font color="white" style="font-size: small"><b>CRITICAL:</b></font></td>
-      <td colspan="2" align="center" class="border">${pcstring('FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.${wep}.CRIT')}/x${pcstring('FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.${wep}.MULT')}</td>
+	  <#if (pcstring("FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.${wep}.QUALITY.Critical") = "")>
+		  <td align="center" bgcolor="white" class="border8"><b>-</b></td>
+		  <#else>)
+		  <td align="center" bgcolor="white" class="border8"><b>${pcstring('FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.${wep}.QUALITY.Critical')}</b></td>
+		  </#if>
       </tr>
 </@loop>
      <tr>
@@ -1321,7 +1368,12 @@ Wisdom
       <td colspan="2" bgcolor="black" align="center" class="border"><font color="white" style="font-size: small"><b>DAMAGE:</b></font></td>
       <td colspan="2" align="center" class="border">${pcstring('FOLLOWERTYPE.ANIMAL COMPANION.${anm}.WEAPON.${wep}.DAMAGE')}</td>
       <td colspan="2" bgcolor="black" align="center" class="border"><font color="white" style="font-size: small"><b>CRITICAL:</b></font></td>
-      <td colspan="2" align="center" class="border">${pcstring('FOLLOWERTYPE.ANIMAL COMPANION.${anm}.WEAPON.${wep}.CRIT')}/x${pcstring('FOLLOWERTYPE.ANIMAL COMPANION.${anm}.WEAPON.${wep}.MULT')}</td>
+		  <#if (pcstring("FOLLOWERTYPE.ANIMAL COMPANION.${anm}.WEAPON.${wep}.QUALITY.Critical") = "")>
+		  <td align="center" bgcolor="white" class="border8"><b>-</b></td>
+		  <#else>)
+		  <td align="center" bgcolor="white" class="border8"><b>${pcstring('FOLLOWERTYPE.ANIMAL COMPANION.${anm}.WEAPON.${wep}.QUALITY.Critical')}</b></td>
+		  </#if>
+	  
       </tr>
 </@loop>
      <tr>
@@ -1826,44 +1878,102 @@ ${pcstring('ABILITYALL.Racial Trait.VISIBLE.${RacialTrait}.TYPE=Racial Trait.DES
 </#if>
 <!-- STOP Racial Traits Table -->
 
-<!-- START Theme Table -->
-<#if (pcvar('count("ABILITIES","CATEGORY=Theme","TYPE=Theme","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
+
+<!-- START Ancestry Table -->
+<#if (pcvar('count("ABILITIES","CATEGORY=Ancestry","TYPE=Ancestry","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
    <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
     <tr>
-     <th bgcolor="black" align="center" colspan="2"><font color="white" style="font-size: small"><b> ${pcstring('ABILITYALL.Theme.VISIBLE.0.TYPE=Theme.ASPECT.Title')} THEME & BENEFITS</b></font></th>
+     <th bgcolor="black" align="center" colspan="2"><font color="white" style="font-size: small"><b>AncestryS</b></font></th>
     </tr>
-<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Theme","TYPE=Theme","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; ClassFeature , ClassFeature_has_next>
-<#if (ClassFeature % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
+<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Ancestry","TYPE=Ancestry","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; Ancestry , Ancestry_has_next>
+<#if (Ancestry % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
      <td valign="top" width="70%" class="font8"><b>
-<#assign typeOfAbility = pcstring("ABILITYALL.Theme.VISIBLE.${ClassFeature}.TYPE=Theme.TYPE")?lower_case />
-<#if (pcstring("ABILITYALL.Theme.VISIBLE.${ClassFeature}.TYPE=Theme.HASASPECT.Name") = "Y")>
-${pcstring('ABILITYALL.Theme.VISIBLE.${ClassFeature}.TYPE=Theme.ASPECT.Name')}
+<#assign typeOfAbility = pcstring("ABILITYALL.Ancestry.VISIBLE.${Ancestry}.TYPE=Ancestry.TYPE")?lower_case />
+<#if (pcstring("ABILITYALL.Ancestry.VISIBLE.${Ancestry}.TYPE=Ancestry.HASASPECT.Name") = "Y")>
+${pcstring('ABILITYALL.Ancestry.VISIBLE.${Ancestry}.TYPE=Ancestry.ASPECT.Name')}
 <@typeOfAbilitySuffix typeOfAbility=typeOfAbility />
 <#else>
-${pcstring('ABILITYALL.Theme.VISIBLE.${ClassFeature}.TYPE=Theme')}
+${pcstring('ABILITYALL.Ancestry.VISIBLE.${Ancestry}.TYPE=Ancestry')}
 <@typeOfAbilitySuffix typeOfAbility=typeOfAbility />
 </#if>
 </b>
 </td>
-<td class="font8" valign="top"	width="30%" align="right">[${pcstring('ABILITYALL.Theme.VISIBLE.${ClassFeature}.TYPE=Theme.SOURCE')}]</td>
+<td class="font8" valign="top"	width="30%" align="right">[${pcstring('ABILITYALL.Ancestry.VISIBLE.${Ancestry}.TYPE=Ancestry.SOURCE')}]</td>
 <tr>
-<#if (ClassFeature % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
+<#if (Ancestry % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
 <td class="font8" valign="top"	align="indent" colspan="2">&#160;&#160;&#160;&#160;
-${pcstring('ABILITYALL.Theme.VISIBLE.${ClassFeature}.TYPE=Theme.DESC')}</td>
+${pcstring('ABILITYALL.Ancestry.VISIBLE.${Ancestry}.TYPE=Ancestry.DESC')}</td>
     </tr>
 </@loop>
    </table>
 </#if>
-<!-- STOP Theme Table -->
+<!-- STOP Ancestry Table -->
 
+<!-- START Background Table -->
+<#if (pcvar('count("ABILITIES","CATEGORY=Background","TYPE=Background","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
+   <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
+    <tr>
+     <th bgcolor="black" align="center" colspan="2"><font color="white" style="font-size: small"><b>BackgroundS</b></font></th>
+    </tr>
+<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Background","TYPE=Background","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; Background , Background_has_next>
+<#if (Background % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
+     <td valign="top" width="70%" class="font8"><b>
+<#assign typeOfAbility = pcstring("ABILITYALL.Background.VISIBLE.${Background}.TYPE=Background.TYPE")?lower_case />
+<#if (pcstring("ABILITYALL.Background.VISIBLE.${Background}.TYPE=Background.HASASPECT.Name") = "Y")>
+${pcstring('ABILITYALL.Background.VISIBLE.${Background}.TYPE=Background.ASPECT.Name')}
+<@typeOfAbilitySuffix typeOfAbility=typeOfAbility />
+<#else>
+${pcstring('ABILITYALL.Background.VISIBLE.${Background}.TYPE=Background')}
+<@typeOfAbilitySuffix typeOfAbility=typeOfAbility />
+</#if>
+</b>
+</td>
+<td class="font8" valign="top"	width="30%" align="right">[${pcstring('ABILITYALL.Background.VISIBLE.${Background}.TYPE=Background.SOURCE')}]</td>
+<tr>
+<#if (Background % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
+<td class="font8" valign="top"	align="indent" colspan="2">&#160;&#160;&#160;&#160;
+${pcstring('ABILITYALL.Background.VISIBLE.${Background}.TYPE=Background.DESC')}</td>
+    </tr>
+</@loop>
+   </table>
+</#if>
+<!-- STOP Background Table -->
 
-<!-- START Class Features Table -->
+<!-- START Ancestry Table -->
+<#if (pcvar('count("ABILITIES","CATEGORY=Ancestry","TYPE=Ancestry","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
+   <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
+    <tr>
+     <th bgcolor="black" align="center" colspan="2"><font color="white" style="font-size: small"><b>AncestryS</b></font></th>
+    </tr>
+<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Ancestry","TYPE=Ancestry","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; Ancestry , Ancestry_has_next>
+<#if (Ancestry % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
+     <td valign="top" width="70%" class="font8"><b>
+<#assign typeOfAbility = pcstring("ABILITYALL.Ancestry.VISIBLE.${Ancestry}.TYPE=Ancestry.TYPE")?lower_case />
+<#if (pcstring("ABILITYALL.Ancestry.VISIBLE.${Ancestry}.TYPE=Ancestry.HASASPECT.Name") = "Y")>
+${pcstring('ABILITYALL.Ancestry.VISIBLE.${Ancestry}.TYPE=Ancestry.ASPECT.Name')}
+<@typeOfAbilitySuffix typeOfAbility=typeOfAbility />
+<#else>
+${pcstring('ABILITYALL.Ancestry.VISIBLE.${Ancestry}.TYPE=Ancestry')}
+<@typeOfAbilitySuffix typeOfAbility=typeOfAbility />
+</#if>
+</b>
+</td>
+<td class="font8" valign="top"	width="30%" align="right">[${pcstring('ABILITYALL.Ancestry.VISIBLE.${Ancestry}.TYPE=Ancestry.SOURCE')}]</td>
+<tr>
+<#if (Ancestry % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
+<td class="font8" valign="top"	align="indent" colspan="2">&#160;&#160;&#160;&#160;
+${pcstring('ABILITYALL.Ancestry.VISIBLE.${Ancestry}.TYPE=Ancestry.DESC')}</td>
+    </tr>
+</@loop>
+   </table>
+</#if>
+<!-- STOP Ancestry Table -->
+
+<!-- START Class Feature Table -->
 <#if (pcvar('count("ABILITIES","CATEGORY=Class Feature","TYPE=Class Feature","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
    <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
     <tr>
-
-     <th bgcolor="black" align="center" colspan="2"><font color="white" style="font-size: small"><b>CLASS FEATURES</b></font></th>
-
+     <th bgcolor="black" align="center" colspan="2"><font color="white" style="font-size: small"><b>Class Features</b></font></th>
     </tr>
 <@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Class Feature","TYPE=Class Feature","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; ClassFeature , ClassFeature_has_next>
 <#if (ClassFeature % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
@@ -1887,34 +1997,37 @@ ${pcstring('ABILITYALL.Class Feature.VISIBLE.${ClassFeature}.TYPE=Class Feature.
 </@loop>
    </table>
 </#if>
-<!-- STOP Class Features Table -->
+<!-- STOP Class Feature Table -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<!-- START Ancestry Feat Table -->
+<#if (pcvar('count("ABILITIES","CATEGORY=Ancestry Feat","TYPE=Ancestry Feat","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
+   <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
+    <tr>
+     <th bgcolor="black" align="center" colspan="2"><font color="white" style="font-size: small"><b>Ancestry Feats</b></font></th>
+    </tr>
+<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Ancestry Feat","TYPE=Ancestry Feat","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; AncestryFeat , AncestryFeat_has_next>
+<#if (AncestryFeat % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
+     <td valign="top" width="70%" class="font8"><b>
+<#assign typeOfAbility = pcstring("ABILITYALL.Ancestry Feat.VISIBLE.${AncestryFeat}.TYPE=Ancestry Feat.TYPE")?lower_case />
+<#if (pcstring("ABILITYALL.Ancestry Feat.VISIBLE.${AncestryFeat}.TYPE=Ancestry Feat.HASASPECT.Name") = "Y")>
+${pcstring('ABILITYALL.Ancestry Feat.VISIBLE.${AncestryFeat}.TYPE=Ancestry Feat.ASPECT.Name')}
+<@typeOfAbilitySuffix typeOfAbility=typeOfAbility />
+<#else>
+${pcstring('ABILITYALL.Ancestry Feat.VISIBLE.${AncestryFeat}.TYPE=Ancestry Feat')}
+<@typeOfAbilitySuffix typeOfAbility=typeOfAbility />
+</#if>
+</b>
+</td>
+<td class="font8" valign="top"	width="30%" align="right">[${pcstring('ABILITYALL.Ancestry Feat.VISIBLE.${AncestryFeat}.TYPE=Ancestry Feat.SOURCE')}]</td>
+<tr>
+<#if (AncestryFeat % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
+<td class="font8" valign="top"	align="indent" colspan="2">&#160;&#160;&#160;&#160;
+${pcstring('ABILITYALL.Ancestry Feat.VISIBLE.${AncestryFeat}.TYPE=Ancestry Feat.DESC')}</td>
+    </tr>
+</@loop>
+   </table>
+</#if>
+<!-- STOP Ancestry Feat Table -->
 
 
 

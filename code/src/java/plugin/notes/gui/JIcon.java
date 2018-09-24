@@ -47,6 +47,7 @@ import javax.swing.filechooser.FileSystemView;
 import org.apache.commons.lang3.SystemUtils;
 
 import gmgen.GMGenSystem;
+import pcgen.io.PCGFile;
 import pcgen.util.Logging;
 import plugin.notes.NotesPlugin;
 
@@ -58,12 +59,11 @@ import plugin.notes.NotesPlugin;
 class JIcon extends JPanel
 {
 	private final File launch;
-	private NotesPlugin plugin;
+	private final NotesPlugin plugin;
 
 	// Variables declaration - do not modify
 	private JButton button;
 	private JLabel label;
-	private JMenuItem deleteMI;
 	private JPopupMenu contextMenu;
 
 	/**
@@ -139,7 +139,6 @@ class JIcon extends JPanel
 			}
 			catch (Exception e)
 			{
-				System.out.println(e.getMessage());
 				e.printStackTrace();
 			}
 		}
@@ -150,7 +149,7 @@ class JIcon extends JPanel
 	 */
 	private void launchFile()
 	{
-		if (NotesPlugin.isRecognizedFileType(launch))
+		if (PCGFile.isPCGenCharacterOrPartyFile(launch))
 		{
 			plugin.loadRecognizedFileType(launch);
 		}
@@ -280,7 +279,7 @@ class JIcon extends JPanel
 
 		contextMenu = new JPopupMenu();
 		JMenuItem launchMI = new JMenuItem();
-		deleteMI = new JMenuItem();
+		JMenuItem deleteMI = new JMenuItem();
 		button = new JButton();
 		label = new JLabel();
 
