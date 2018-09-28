@@ -17,6 +17,7 @@
  */
 package pcgen.gui2.prefs;
 
+import java.awt.Dialog;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Frame;
@@ -54,7 +55,7 @@ class NewPurchaseMethodDialog extends JDialog
 	 * @param parent
 	 * @param modal
 	 */
-	public NewPurchaseMethodDialog(JDialog parent, boolean modal)
+	NewPurchaseMethodDialog(Dialog parent, boolean modal)
 	{
 		super(parent, modal);
 		initComponents();
@@ -72,18 +73,16 @@ class NewPurchaseMethodDialog extends JDialog
 		Utility.setComponentRelativeLocation(parent, this);
 	}
 
-	public String getEnteredName()
+	String getEnteredName()
 	{
 		return nameEdit.getText().trim();
 	}
 
-	public int getEnteredPoints()
+	int getEnteredPoints()
 	{
 		try
 		{
-			final int points = Integer.parseInt(pointsEdit.getText());
-
-			return points;
+			return Integer.parseInt(pointsEdit.getText());
 		}
 		catch (Exception exc)
 		{
@@ -93,7 +92,7 @@ class NewPurchaseMethodDialog extends JDialog
 		return -1;
 	}
 
-	public boolean getWasCancelled()
+	boolean getWasCancelled()
 	{
 		return wasCancelled;
 	}
