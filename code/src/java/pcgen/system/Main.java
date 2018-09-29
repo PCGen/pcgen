@@ -334,7 +334,6 @@ public final class Main
 		PropertyContextFactory defaultFactory = PropertyContextFactory.getDefaultFactory();
 		defaultFactory.registerPropertyContext(PCGenSettings.getInstance());
 		defaultFactory.registerPropertyContext(UIPropertyContext.getInstance());
-		defaultFactory.registerPropertyContext(LegacySettings.getInstance());
 		defaultFactory.loadPropertyContexts();
 	}
 
