@@ -46,10 +46,8 @@ public final class FactKey<T>
 
 	private FactKey(String name, FormatManager<T> fmtManager)
 	{
-		Objects.requireNonNull(name, "Name for FactKey cannot be null");
-		Objects.requireNonNull(fmtManager, "FormatManager for FactKey cannot be null");
-		fieldName = name;
-		formatManager = fmtManager;
+		fieldName = Objects.requireNonNull(name, "Name for FactKey cannot be null");
+		formatManager = Objects.requireNonNull(fmtManager, "FormatManager for FactKey cannot be null");
 	}
 
 	/**
