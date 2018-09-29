@@ -279,7 +279,7 @@ public final class ConfigurationSettings extends PropertyContext
 	/**
 	 * @return "User Dir" dir Settings Files Path value.
 	 */
-	public static String getUserSettingsDirFromFilePath()
+	public static String getUserSetti   ngsDirFromFilePath()
 	{
 		return getSettingsDirFromFilePath(getDefaultSettingsFilesPath());
 	}
