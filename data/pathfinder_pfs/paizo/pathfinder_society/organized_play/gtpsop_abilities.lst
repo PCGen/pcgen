@@ -5,10 +5,10 @@ SOURCELONG:Guide To Pathfinder Society Organized Play	SOURCESHORT:GTPSOPv5	SOURC
 # Updated by: Vincent Lhote
 
 # Ability Name			Category of Ability	Type			Define													Multiple?	Choose		Modify VAR																							Aspects
-CATEGORY=Internal|Default.MOD								DEFINE:Society_Faction_Pool|0	DEFINE:PFS_System|0	DEFINE:PFS_Character_ID|0						BONUS:VAR|Society_Faction_Pool|1|TYPE=Base|PRECLASS:1,TYPE.Base=1	BONUS:VAR|PFS_System|1	BONUS:VAR|PFS_Character_ID|1|PRECHARACTERTYPE:1,PC
+CATEGORY=Internal|Default.MOD								DEFINE:Society_Faction_Pool|0	DEFINE:Society_System|0	DEFINE:PFS_Character_ID|0						BONUS:VAR|Society_Faction_Pool|1|TYPE=Base|PRECLASS:1,TYPE.Base=1	BONUS:VAR|Society_System|1	BONUS:VAR|PFS_Character_ID|1|PRECHARACTERTYPE:1,PC
 
 
-PFS Character ID			CATEGORY:Internal		TYPE:Society ID															MULT:YES	CHOOSE:USERINPUT																									ASPECT:PFS_ID|%1|%LIST
+PFS Character ID			CATEGORY:Internal		TYPE:Society ID															MULT:YES	CHOOSE:USERINPUT																									ASPECT:Society_ID|%1|%LIST
 
 
 Society Faction		KEY:Faction Access ~ Society Faction	CATEGORY:Background		SORTKEY:Faction_1	TYPE:Faction Selection		VISIBLE:YES		NAMEISPI:YES	COST:1	MULT:YES	CHOOSE:ABILITYSELECTION|Background|TYPE=Active Faction		ABILITY:Society Faction|AUTOMATIC|%LIST			ASPECT:NAME|%1|%CHOICE	DESC:Your current faction is %1|%LIST
