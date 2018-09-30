@@ -20,20 +20,23 @@ package pcgen.gui2.prefs;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.text.ParseException;
 
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
+import javax.swing.JSpinner;
+import javax.swing.SpinnerNumberModel;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 
 import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.tools.Utility;
-import pcgen.gui2.util.WholeNumberField;
 import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
 
 /**
  * The Class {@code HitPointsPanel} is responsible for
@@ -59,7 +62,8 @@ public class HitPointsPanel extends PCGenPrefsPanel
 	private final JRadioButton hpAverageRoundedUp =
 			new JRadioButton(LanguageBundle.getString("in_Prefs_hpAverageRoundedUp"));
 
-	private final WholeNumberField hpPct = new WholeNumberField(0, 6);
+	private final SpinnerNumberModel spinnerNumberModel = new SpinnerNumberModel(0, 0, 100, 1);
+	private final JSpinner hpPercentSpinner = new JSpinner(spinnerNumberModel);
 
 	/**
 	 * Instantiates a new hit points panel.
@@ -124,8 +128,8 @@ public class HitPointsPanel extends PCGenPrefsPanel
 		exclusiveGroup.add(hpPercentage);
 
 		Utility.buildConstraints(c, 2, iRow++, 1, 1, 0, 0);
-		gridbag.setConstraints(hpPct, c);
-		this.add(hpPct);
+		gridbag.setConstraints(hpPercentSpinner, c);
+		this.add(hpPercentSpinner);
 
 		Utility.buildConstraints(c, 1, iRow++, GridBagConstraints.REMAINDER, 1, 0, 0);
 		gridbag.setConstraints(hpAverageRoundedUp, c);
@@ -162,6 +166,17 @@ public class HitPointsPanel extends PCGenPrefsPanel
 	@Override
 	public void setOptionsBasedOnControls()
 	{
+		try
+		{
+			hpPercentSpinner.commitEdit();
+		} catch (ParseException e)
+		{
+			// I was unable to get this to actually happen. In order to press the OK button
+			// the control must be exited, and the editor returns to the model's state.
+			// In the event this causes user confusion it might be worth making this a dialog instead.
+			Logging.errorPrint("invalid hp selected", e);
+		}
+
 		if (hpStandard.isSelected())
 		{
 			SettingsHandler.setHPRollMethod(Constants.HP_STANDARD);
@@ -186,8 +201,7 @@ public class HitPointsPanel extends PCGenPrefsPanel
 		{
 			SettingsHandler.setHPRollMethod(Constants.HP_AVERAGE_ROUNDED_UP);
 		}
-
-		SettingsHandler.setHPPercent(hpPct.getValue());
+		SettingsHandler.setHPPercent((Integer) hpPercentSpinner.getValue());
 		SettingsHandler.setHPMaxAtFirstLevel(maxHpAtFirstLevel.isSelected());
 		SettingsHandler.setHPMaxAtFirstClassLevel(maxHpAtFirstClassLevel.isSelected());
 	}
@@ -233,7 +247,7 @@ public class HitPointsPanel extends PCGenPrefsPanel
 				break;
 		}
 
-		hpPct.setValue(SettingsHandler.getHPPercent());
+		hpPercentSpinner.setValue(SettingsHandler.getHPPercent());
 		maxHpAtFirstLevel.setSelected(SettingsHandler.isHPMaxAtFirstLevel());
 		maxHpAtFirstClassLevel.setSelected(SettingsHandler.isHPMaxAtFirstClassLevel());
 	}
