@@ -224,6 +224,12 @@ WIELDCATEGORY:TooSmall		HANDS:999
 WIELDCATEGORY:TooLarge		HANDS:999
 WIELDCATEGORY:Unusable		HANDS:999
 WIELDCATEGORY:None		HANDS:0
+WIELDCATEGORY:OneHandOnly			HANDS:1
+WIELDCATEGORY:OneHandOnlyTooSmall		HANDS:999
+WIELDCATEGORY:OneHandOnlyTooLarge		HANDS:999
+WIELDCATEGORY:TwoHandsOnly			HANDS:2
+WIELDCATEGORY:TwoHandsOnlyTooSmall		HANDS:999
+WIELDCATEGORY:TwoHandsOnlyTooLarge		HANDS:999
 
 # Light weapon vs PC size changes
 WIELDCATEGORY:Light		PREVARLTEQ:EQUIP.SIZE.INT,PC.SIZE.INT-1	SWITCH:TooSmall
@@ -243,6 +249,14 @@ WIELDCATEGORY:TwoHanded		PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT-2	SWITCH:Light
 WIELDCATEGORY:TwoHanded		PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT-1	SWITCH:OneHanded
 WIELDCATEGORY:TwoHanded		PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+1	SWITCH:TooLarge
 
+# For Bows
+WIELDCATEGORY:TwoHandsOnly	PREVARLTEQ:EQUIP.SIZE.INT,PC.SIZE.INT-1	SWITCH:TwoHandsOnlyTooSmall
+WIELDCATEGORY:TwoHandsOnly	PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+1	SWITCH:TwoHandsOnlyTooLarge
+
+# Other
+WIELDCATEGORY:OneHandOnly	PREVARLTEQ:EQUIP.SIZE.INT,PC.SIZE.INT-1	SWITCH:OneHandOnlyTooSmall
+WIELDCATEGORY:OneHandOnly	PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+1	SWITCH:OneHandOnlyTooLarge
+
 #
 # Wield Category Steps
 #  This is used when figuring bonuses that allow you to wield Larger or Smaller size weapons
@@ -253,6 +267,15 @@ WIELDCATEGORY:Light		UP:OneHanded|TwoHanded
 WIELDCATEGORY:OneHanded		UP:TwoHanded			DOWN:Light
 WIELDCATEGORY:TwoHanded						DOWN:OneHanded|Light
 WIELDCATEGORY:TooLarge						DOWN:TwoHanded|OneHanded|Light	ZERO:TwoHanded
+
+WIELDCATEGORY:TwoHandsOnly	UP:TwoHandsOnlyTooLarge	DOWN:TwoHandsOnlyTooSmall
+WIELDCATEGORY:OneHandOnlyOnly	UP:OneHandOnlyTooLarge	DOWN:OneHandOnlyTooSmall
+
+WIELDCATEGORY:TwoHandsOnlyTooSmall							UP:TwoHandsOnly
+WIELDCATEGORY:TwoHandsOnlyTooLarge							DOWN:TwoHandsOnly
+
+WIELDCATEGORY:OneHandOnlyTooSmall							UP:OneHandOnly
+WIELDCATEGORY:OneHandOnlyTooLarge							DOWN:OneHandOnly
 
 #
 # Dice rolling methods for character creation
