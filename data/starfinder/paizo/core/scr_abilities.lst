@@ -2223,8 +2223,3 @@ Will +4		KEY:Ring of Resistance +4 ~ Will Boost	CATEGORY:Internal	TYPE:Ring of R
 Will +5		KEY:Ring of Resistance +5 ~ Will Boost	CATEGORY:Internal	TYPE:Ring of Resistance +5	BONUS:SAVE|Will|5
 
 
-# Society Support
-Use Starfinder Society		CATEGORY:Internal	COST:0	TYPE:Rule	DEFINE:Society_System|0	DEFINE:Society_Character_ID|0		BONUS:VAR|Society_System|1	BONUS:VAR|Society_Character_ID|1|PRECHARACTERTYPE:1,PC
-
-
-SFS Character ID			CATEGORY:Internal		TYPE:Society ID															MULT:YES	CHOOSE:USERINPUT																									ASPECT:Society_ID|%1|%LIST

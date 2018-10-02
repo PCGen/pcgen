@@ -1,0 +1,77 @@
+CAMPAIGN:Starfinder Society Roleplaying Guild Guide
+KEY:Starfinder Society Roleplaying Guild Guide
+RANK:1
+BOOKTYPE:Supplement
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+GAMEMODE:Starfinder
+STATUS:BETA
+TYPE:Paizo.Core
+SOURCELONG:Starfinder Society Roleplaying Guild Guide
+SOURCESHORT:SSRGG
+SOURCEDATE:2017-09
+PUBNAMELONG:Paizo
+PUBNAMESHORT:PZO
+PUBNAMEWEB:http://www.paizo.com
+COPYRIGHT:Copyright 2017, Paizo, Inc.
+#COMMENT: Starfinder Society Roleplaying Guild Guide
+
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a &copy; 2000, Wizards of the Coast, Inc.System Reference Document &copy; 2000, Wizards of the Coast, Inc.; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.Starfinder Core Rulebook &copy; 2017, Paizo Inc.; Authors: Logan Bonner, Jason Bulmahn, Amanda Hamon Kunz, Jason Keeley, Robert G. McCreary, Stephen Radney-MacFarland, Mark Seifter, Owen K.C. Stephens, and James L. Sutter, with Alexander Augunas, Judy Bauer, John Compton, Adam Daigle, Crystal Frasier, Lissa Guillet, Thurston Hillman, Erik Mona, Mark Moreland, Jessica Price, F. Wesley Schneider, Amber E. Scott, and Josh Vogt.
+COPYRIGHT:Starfinder Society Roleplaying Guild Guide, Version 1.0 © 2017, Paizo Inc. All Rights Reserved.
+COPYRIGHT:Paizo, Paizo Inc., the Paizo golem logo, Pathfinder, the Pathfinder logo, and Pathfinder Society are registered trademarks of Paizo Inc.; Pathfinder Accessories, Pathfinder Adventure Card Game, Pathfinder Adventure Path, Pathfinder Adventures, Pathfinder Battles, Pathfinder Campaign Setting, Pathfinder Cards, Pathfinder Combat Pad, Pathfinder Flip-Mat, Pathfinder Legends, Pathfinder Map Pack, Pathfinder Module, Pathfinder Pawns, Pathfinder Player Companion, Pathfinder Roleplaying Game, Pathfinder Tales, Starfinder, the Starfinder logo, Starfinder Adventure Path, Starfinder Combat Pad, Starfinder Flip-Mat, Starfinder Pawns, and Starfinder Society are trademarks of Paizo Inc.
+COPYRIGHT:PCGen dataset conversion for "Starfinder Society Roleplaying Guild Guide" Copyright 2018, PCGen Data team (Including, but not limited to Andrew Maitland (LegacyKing).
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+#EXTRAFILE:additionalResources.txt
+
+# COVER should be cover_gameMode_pub_book.file
+#COVER:../../_artwork/cover_sf_paizo_scr.jpg
+COVER:*/_images/starfinder/PZOSFS0000E_cover.png
+# LOGO should be logo_pub.file
+LOGO:*/_images/logo/Paizo_Publishing.png
+
+
+DATACONTROL:sfs__datacontrols.lst
+
+ABILITY:sfs_abilities.lst
+ABILITYCATEGORY:sfs_abilitycategories.lst
+EQUIPMENT:sfs_equip.lst
+TEMPLATE:sfs_templates.lst
+
+###Block: ENABLED Society Systems
+
+INFOTEXT:Starfinder Society Roleplaying Guild Guide version 1.0
+INFOTEXT:Enabled systems to date: Starfinder Core Rulebook
+
+
+# Core Rulebook
+PCC:../core/_society/_.pcc|PRECAMPAIGN:1,INCLUDES=Starfinder Core Rulebook
+
+# Pact Worlds
+#PCC:../pact_worlds/_society/_.pcc|PRECAMPAIGN:1,INCLUDES=Starfinder Pact Worlds
+
+# Alien Archive
+#PCC:../alien_archive/_society/_.pcc|PRECAMPAIGN:1,INCLUDES=Starfinder Alien Archive
+
+
+
+
+
+
+###Block: Revisions
+# LK - 0.01 Initial update
+
+INFOTEXT:Supports 6.07.09
+# ENTRY DATE: 2018-10
+# LST MONKEY: Andrew "LegacyKing" Maitland
+# RELEASE REVIEW #
+# BETA:
+# RELEASE:
+# Built for PCGen Version: 6.07.09
+# Updated to work with version: -
+# MINVER:6.7
+# MINDEVVER:6.07.09
+# COMMENTS:
