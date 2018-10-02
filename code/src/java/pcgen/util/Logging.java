@@ -685,11 +685,6 @@ public final class Logging
 
 	private static int queuedMessageMark = -1;
 
-	public static void markParseMessages()
-	{
-		queuedMessageMark = queuedMessages.size();
-	}
-
 	public static void rewindParseMessages()
 	{
 		while (queuedMessageMark > -1 && queuedMessages.size() > queuedMessageMark)
