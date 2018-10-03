@@ -29,6 +29,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import pcgen.base.formula.Formula;
 import pcgen.base.formula.base.VarScoped;
@@ -719,25 +720,6 @@ public abstract class CDOMObject extends ConcretePrereqObject
 	}
 
 	/**
-	 * Remove the value associated with the primary and secondary keys 
-	 * from the map.
-	 *  
-	 * @param mapKey The MapKey of the entry we are removing
-	 * @param key2 The secondary key of the entry we are removing
-	 * @return true if the key and its associated value were successfully removed 
-	 *         from the map; false otherwise
-	 */
-	public final <K, V> boolean removeFromMap(MapKey<K, V> mapKey, K key2)
-	{
-		boolean removed = mapChar != null && mapChar.removeFromMapFor(mapKey, key2);
-		if (removed && mapChar.isEmpty())
-		{
-			mapChar = null;
-		}
-		return removed;
-	}
-
-	/**
 	 * Retrieve the set of mapkeys held.
 	 * 
 	 * @return The set of mapkeys.
@@ -863,11 +845,6 @@ public abstract class CDOMObject extends ConcretePrereqObject
 				cdomListMods = null;
 			}
 		}
-	}
-
-	public final boolean hasListMods(CDOMReference<? extends CDOMList<?>> listRef)
-	{
-		return cdomListMods != null && cdomListMods.containsListFor(listRef);
 	}
 
 	public final <BT extends CDOMObject, L extends CDOMList<BT>> Collection<CDOMReference<BT>> getListMods(
@@ -1049,14 +1026,7 @@ public abstract class CDOMObject extends ConcretePrereqObject
 		{
 			return false;
 		}
-		for (CDOMReference<T> ref : references)
-		{
-			if (ref.contains(element))
-			{
-				return true;
-			}
-		}
-		return false;
+		return references.stream().anyMatch(ref -> ref.contains(element));
 	}
 
 	public ListKey<Description> getDescriptionKey()
@@ -1122,17 +1092,10 @@ public abstract class CDOMObject extends ConcretePrereqObject
 	@Override
 	public List<BonusObj> getActiveBonuses(final PlayerCharacter pc)
 	{
-		final List<BonusObj> aList = new ArrayList<>();
 
-		for (BonusObj bonus : getRawBonusList(pc))
-		{
-			if (pc.isApplied(bonus))
-			{
-				aList.add(bonus);
-			}
-		}
-
-		return aList;
+		return getRawBonusList(pc).stream()
+		                          .filter(pc::isApplied)
+		                          .collect(Collectors.toList());
 	}
 
 	public List<BonusObj> getBonusList(PlayerCharacter assocStore)
@@ -1225,14 +1188,7 @@ public abstract class CDOMObject extends ConcretePrereqObject
 		{
 			return true;
 		}
-		for (InfoBoolean info : prerequisites)
-		{
-			if (!aPC.solve(info.getFormula()))
-			{
-				return false;
-			}
-		}
-		return true;
+		return prerequisites.stream().allMatch(info -> aPC.solve(info.getFormula()));
 	}
 
 	@Override
@@ -1243,14 +1199,7 @@ public abstract class CDOMObject extends ConcretePrereqObject
 		{
 			return true;
 		}
-		for (InfoBoolean info : requirements)
-		{
-			if (!aPC.solve(info.getFormula()))
-			{
-				return false;
-			}
-		}
-		return true;
+		return requirements.stream().allMatch(info -> aPC.solve(info.getFormula()));
 	}
 
 	/*
