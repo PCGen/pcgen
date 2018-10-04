@@ -1087,6 +1087,7 @@ CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_DivinersFortune|1|TYPE=Bool
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_ElementalWall|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_ElementalWall=True
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_EnchantingSmile|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_EnchantingSmile=True
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_EnergyAbsorption|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_EnergyAbsorption=True
+CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_ExtendedIllusion|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_ExtendedIllusion=True
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_ForceMissile|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_ForceMissile=True
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_GraveTouch|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_GraveTouch=True
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_IntenseSpells|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_IntenseSpells=True
@@ -1115,6 +1116,7 @@ CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_DivinersFortune|0
 CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_ElementalWall|0
 CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_EnchantingSmile|0
 CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_EnergyAbsorption|0
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_ExtendedIllusion|0
 CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_ForceMissile|0
 CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_GraveTouch|0
 CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_IntenseSpells|0	
