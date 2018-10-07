@@ -29,7 +29,7 @@ COPYRIGHT:PCGen dataset conversion for "Starfinder Society Roleplaying Guild Gui
 
 # COVER should be cover_gameMode_pub_book.file
 #COVER:../../_artwork/cover_sf_paizo_scr.jpg
-COVER:*/_images/starfinder/PZOSFS0000E_cover.png
+COVER:*/_images/starfinder/PZOSFS0000E_cover.PNG
 # LOGO should be logo_pub.file
 LOGO:*/_images/logo/Paizo_Publishing.png
 
