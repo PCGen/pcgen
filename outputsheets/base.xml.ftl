@@ -1781,6 +1781,16 @@
 	<@abilityBlock category="Class Feature" nature="ALL" hidden=false typeName="Class Feature" nodeName="class_feature" />
 	</class_features>
 
+		<!--
+	  ====================================
+	  ====================================
+			Words of Power
+	  ====================================
+	  ====================================-->
+	<words_of_powers>
+	<@abilityBlock category="Words of Power" nature="ALL" hidden=false typeName="WordsOfPowerOutput" nodeName="words_of_power" />
+	</words_of_powers>
+
 	<!--
 	  ====================================
 	  ====================================
