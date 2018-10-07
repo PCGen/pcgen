@@ -2134,8 +2134,12 @@ ${pcstring('TEMPBONUS.${temp}')}
 </td></tr>
 </#if>
 
-
+<#if (pcvar("UseAlternativeSpellListing_a") = 1)>
+<#include "common/common-spells-prep-spell-innate.ftl">
+<#else>
 <#include "common/common-spells.ftl">
+</#if>
+
 
 <#if (pcstring("BIO") != '' || pcstring('DESC') != '') >
 <br style="page-break-after: always" />
