@@ -665,8 +665,49 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
      <td align="center" width="12%" valign="bottom" class="font6">BULL RUSH</td>
      <td align="center" width="12%" valign="bottom" class="font6">OVERRUN</td>
     </tr>
+   <br />
+
+<#if (pcvar("CMD") > 0)>
+   <tr>
+     <td align="center" bgcolor="black"><font style="font-size:10pt" color="white"><b>CMB</b></font></td>
+     <td align="center" class="border10"><b>${pcstring('VAR.CMB_DirtyTrick.INTVAL.SIGN')}</b></td>
+     <td align="center" class="border10"><b>${pcstring('VAR.CMB_Drag.INTVAL.SIGN')}</b></td>
+     <td align="center" class="border10"><b>${pcstring('VAR.CMB_Reposition.INTVAL.SIGN')}</b></td>
+     <td align="center" class="border10"><b>${pcstring('VAR.CMB_Steal.INTVAL.SIGN')}</b></td>
+   </tr>
+   <tr>
+     <td align="center" bgcolor="black"><font style="font-size:10pt" color="white"><b>CMD</b></font></td>
+     <td align="center" class="border10"><b>${pcstring('VAR.CMD_DirtyTrick.INTVAL')}</b></td>
+     <td align="center" class="border10"><b>${pcstring('VAR.CMD_Drag.INTVAL')}</b></td>
+     <td align="center" class="border10"><b>${pcstring('VAR.CMD_Reposition.INTVAL')}</b></td>
+     <td align="center" class="border10"><b>${pcstring('VAR.CMD_Steal.INTVAL')}</b></td>
+    </tr>
+<#else>
+   <tr>
+     <td align="center" bgcolor="black"><font style="font-size:10pt" color="white"><b>OFFENSE</b></font></td>
+     <td align="center" class="border10"><b>${pcstring('VAR.CMB_DirtyTrick.INTVAL.SIGN')}</b></td>
+     <td align="center" class="border10"><b>${pcstring('VAR.CMB_Drag.INTVAL.SIGN')}</b></td>
+     <td align="center" class="border10"><b>${pcstring('VAR.CMB_Reposition.INTVAL.SIGN')}</b></td>
+     <td align="center" class="border10"><b>${pcstring('VAR.CMB_Steal.INTVAL.SIGN')}</b></td>
+    </tr>
+    <tr>
+     <td align="center" bgcolor="black"><font style="font-size:10pt" color="white"><b>DEFENSE</b></font></td>
+     <td align="center" class="border10"><b>${pcstring('VAR.CMB_DirtyTrick_DEF.INTVAL')}</b></td>
+     <td align="center" class="border10"><b>${pcstring('VAR.CMB_Drag_DEF.INTVAL')}</b></td>
+     <td align="center" class="border10"><b>${pcstring('VAR.CMB_Reposition_DEF.INTVAL')}</b></td>
+     <td align="center" class="border10"><b>${pcstring('VAR.CMB_Steal_DEF.INTVAL')}</b></td>
+    </tr>
+</#if>
+    <tr>
+     <td align="center" width="28%"></td>
+     <td align="center" width="12%" valign="bottom" class="font6">DIRTY TRICK</td>
+     <td align="center" width="12%" valign="bottom" class="font6">DRAG</td>
+     <td align="center" width="12%" valign="bottom" class="font6">REPOSITION</td>
+     <td align="center" width="12%" valign="bottom" class="font6">STEAL</td>
+    </tr>
    </table>
    <br />
+
 <#else>
     <tr>
      <td align="center" bgcolor="black"><font style="font-size:10pt" color="white"><b>GRAPPLE</b></font><font style="font-size:5pt" color="white"><br />ATTACK BONUS</font></td>

@@ -575,6 +575,12 @@
 				<sunder_attack>${pcstring('VAR.CMB_Sunder.INTVAL.SIGN')}</sunder_attack>
 				<bullrush_attack>${pcstring('VAR.CMB_BullRush.INTVAL.SIGN')}</bullrush_attack>
 				<overrun_attack>${pcstring('VAR.CMB_Overrun.INTVAL.SIGN')}</overrun_attack>
+
+
+
+
+
+
 				<!-- Defense values -->
 				<defense>${pcstring('VAR.CMD.INTVAL')}</defense>
 				<grapple_defense>${pcstring('VAR.CMD_Grapple.INTVAL')}</grapple_defense>
@@ -589,6 +595,7 @@
 				<sunder_defense>${pcstring('VAR.CMD_Sunder.INTVAL')}</sunder_defense>
 				<bullrush_defense>${pcstring('VAR.CMD_BullRush.INTVAL')}</bullrush_defense>
 				<overrun_defense>${pcstring('VAR.CMD_Overrun.INTVAL')}</overrun_defense>
+
 
 				<#else>
 				<!-- Pathfinder Beta version -->
@@ -609,6 +616,17 @@
 				<overrun_defense>${pcstring('VAR.CMB_Overrun_DEF.INTVAL')}</overrun_defense>
 				</#if>
 			</cmb>
+			<cmb2>
+				<dirtytrick_attack>${pcstring('VAR.CMB_dirtytrick.INTVAL.SIGN')}</dirtytrick_attack>
+				<drag_attack>${pcstring('VAR.CMB_Drag.INTVAL.SIGN')}</drag_attack>
+				<reposition_attack>${pcstring('VAR.CMB_Reposition.INTVAL.SIGN')}</reposition_attack>
+				<steal_attack>${pcstring('VAR.CMB_Steal.INTVAL.SIGN')}</steal_attack>
+				<dirtytrick_defense>${pcstring('VAR.CMD_dirtytrick.INTVAL')}</dirtytrick_defense>
+				<drag_defense>${pcstring('VAR.CMD_Drag.INTVAL')}</drag_defense>
+				<reposition_defense>${pcstring('VAR.CMD_Reposition.INTVAL')}</reposition_defense>
+				<steal_defense>${pcstring('VAR.CMD_Steal.INTVAL')}</steal_defense>
+			</cmb2>
+
 			<#else>
 			<grapple>
 				<total>${pcstring('ATTACK.GRAPPLE.TOTAL')}</total>

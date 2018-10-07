@@ -33,10 +33,10 @@ CATEGORY=Special Ability|Prestige Class ~ Channel Energy.MOD																				
 
 ###Block: CMB Definitions
 # Ability Name									Define									Auto Weapon Prof				Modify VAR
-CATEGORY=FEAT|CMB Output.MOD							DEFINE:CMB_DirtyTricks|0	DEFINE:CMD_DirtyTricks|0							BONUS:VAR|CMB_DirtyTricks|CMB	BONUS:VAR|CMD_DirtyTricks|CMD
-CATEGORY=FEAT|CMB Output.MOD							DEFINE:CMB_Drag|0	DEFINE:CMD_Drag|0											BONUS:VAR|CMB_Drag|CMB	BONUS:VAR|CMD_Drag|CMD
-CATEGORY=FEAT|CMB Output.MOD							DEFINE:CMB_Reposition|0	DEFINE:CMD_Reposition|0									BONUS:VAR|CMB_Reposition|CMB	BONUS:VAR|CMD_Reposition|CMD
-CATEGORY=FEAT|CMB Output.MOD							DEFINE:CMB_Steal|0	DEFINE:CMD_Steal|0									BONUS:VAR|CMB_Steal|CMB	BONUS:VAR|CMD_Steal|CMD
+CATEGORY=Internal|CMB.MOD							DEFINE:CMB_DirtyTrick|0	DEFINE:CMD_DirtyTrick|0							BONUS:VAR|CMB_DirtyTrick|CMB	BONUS:VAR|CMD_DirtyTrick|CMD
+CATEGORY=Internal|CMB.MOD							DEFINE:CMB_Drag|0	DEFINE:CMD_Drag|0											BONUS:VAR|CMB_Drag|CMB	BONUS:VAR|CMD_Drag|CMD
+CATEGORY=Internal|CMB.MOD							DEFINE:CMB_Reposition|0	DEFINE:CMD_Reposition|0									BONUS:VAR|CMB_Reposition|CMB	BONUS:VAR|CMD_Reposition|CMD
+CATEGORY=Internal|CMB.MOD							DEFINE:CMB_Steal|0	DEFINE:CMD_Steal|0									BONUS:VAR|CMB_Steal|CMB	BONUS:VAR|CMD_Steal|CMD
 
 ## Monk Weapons
 CATEGORY=Special Ability|Weapon and Armor Proficiency ~ Monk.MOD											AUTO:WEAPONPROF|Sword (Temple)
@@ -3732,3 +3732,6 @@ Core Domain ~ Trade Subdomain			CATEGORY:Internal		ABILITY:Special Ability|AUTOM
 Core Domain ~ Undead Subdomain		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Domain Power ~ Death's Kiss|!PREABILITY:1,CATEGORY=Internal,DisableDomainLVL1 (Weather)|PREVARGTEQ:DomainDeathAbilityTriggerLVL,1	ABILITY:Special Ability|AUTOMATIC|Domain Power ~ Death's Embrace|PREVARGTEQ:DomainDeathAbilityTriggerLVL,8	ABILITY:Internal|AUTOMATIC|Domain Base ~ Death
 Core Domain ~ Wards Subdomain			CATEGORY:Internal		ABILITY:FEAT|AUTOMATIC|Scribe Scroll	ABILITY:Special Ability|AUTOMATIC|Domain Power ~ Blast Rune|!PREABILITY:1,CATEGORY=Internal,DisableDomainLVL1 (Weather)|PREVARGTEQ:DomainRuneAbilityTriggerLVL,1	ABILITY:Special Ability|AUTOMATIC|Domain Power ~ Warding Rune|PREVARGTEQ:DomainRuneAbilityTriggerLVL,6	ABILITY:Internal|AUTOMATIC|Domain Base ~ Rune
 Core Domain ~ Wind Subdomain			CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Domain Power ~ Wind Blast|!PREABILITY:1,CATEGORY=Internal,DisableDomainLVL1 (Weather)|PREVARGTEQ:DomainAirAbilityTriggerLVL,1	ABILITY:Special Ability|AUTOMATIC|Domain Power ~ Electricity Resistance|PREVARGTEQ:DomainAirAbilityTriggerLVL,6	ABILITY:Internal|AUTOMATIC|Domain Base ~ Air
+
+
+
