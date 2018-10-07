@@ -1,4 +1,8 @@
 
+# COMMENT: We use this to apply the Rules and display them automatically.
+CATEGORY=Internal|Default.MOD	ABILITY:Rules|AUTOMATIC|Use Starfinder Society Roleplaying Guild Guide Rules
+
+
 # Society Support
 Use Starfinder Society Roleplaying Guild Guide Rules		CATEGORY:Internal	COST:0	TYPE:Rule	DEFINE:Society_System|0	DEFINE:Society_Character_ID|0		BONUS:VAR|Society_System|1|TYPE=Boolean	BONUS:VAR|Society_Character_ID|1|PRECHARACTERTYPE:1,PC	FACT:UsingStarfinderSocietyRules|true
 
@@ -59,7 +63,7 @@ Basic Purchasing Plan ~ Mnemonic editor (mk 2)				SORTKEY:Basic Purchasing Plan 
 Basic Purchasing Plan ~ Mnemonic editor (mk 3)				SORTKEY:Basic Purchasing Plan 1o	KEY:Basic Purchasing Plan ~ Mnemonic editor (mk 3)						COST:0	BONUS:VAR|SocietyFamePointsSpent|12	TYPE:Society Boon.All-Factions.All-Factions Tier 0.Tier 0.Slotless Boon.Limited-Use	PREVARGTEQ:ReputationTier_All,0	CATEGORY:Special Ability
 Basic Purchasing Plan ~ Mnemonic editor (mk 4)				SORTKEY:Basic Purchasing Plan 1p	KEY:Basic Purchasing Plan ~ Mnemonic editor (mk 4)						COST:0	BONUS:VAR|SocietyFamePointsSpent|16	TYPE:Society Boon.All-Factions.All-Factions Tier 0.Tier 0.Slotless Boon.Limited-Use	PREVARGTEQ:ReputationTier_All,0	CATEGORY:Special Ability
 Starship Towing			COST:0	BONUS:VAR|SocietyFamePointsSpent|5	TYPE:Society Boon.All-Factions.All-Factions Tier 0.Tier 0	PREVARGTEQ:ReputationTier_All,0	CATEGORY:Special Ability
-Amatuer Hireling Access		COST:0	BONUS:VAR|SocietyFamePointsSpent|2	TYPE:Society Boon.All-Factions.All-Factions Tier 1.Tier 1	PREVARGTEQ:ReputationTier_All,1	CATEGORY:Special Ability
+Amateur Hireling Access		COST:0	BONUS:VAR|SocietyFamePointsSpent|2	TYPE:Society Boon.All-Factions.All-Factions Tier 1.Tier 1	PREVARGTEQ:ReputationTier_All,1	CATEGORY:Special Ability
 Sellback Plan			COST:0	BONUS:VAR|SocietyFamePointsSpent|1	TYPE:Society Boon.All-Factions.All-Factions Tier 1.Tier 1	PREVARGTEQ:ReputationTier_All,1	CATEGORY:Special Ability
 Professional Hireling Access	COST:0	BONUS:VAR|SocietyFamePointsSpent|2	TYPE:Society Boon.All-Factions.All-Factions Tier 2.Tier 2	PREVARGTEQ:ReputationTier_All,2	CATEGORY:Special Ability
 Elite Hireling Access		COST:0	BONUS:VAR|SocietyFamePointsSpent|2	TYPE:Society Boon.All-Factions.All-Factions Tier 2.Tier 2	PREVARGTEQ:ReputationTier_All,2	CATEGORY:Special Ability
@@ -122,7 +126,7 @@ Wayfinders Champion			COST:0	BONUS:VAR|SocietyFamePointsSpent|2	TYPE:Society Boo
 First Contact Step-In			COST:0	BONUS:VAR|SocietyFamePointsSpent|1	TYPE:Society Boon.Wayfinders.Wayfinders Tier 1.Tier 1	PREVARGTEQ:ReputationTier_Wayfinders,1	CATEGORY:Special Ability
 Improved Drift Engine			COST:0	BONUS:VAR|SocietyFamePointsSpent|1	TYPE:Society Boon.Wayfinders.Wayfinders Tier 1.Tier 1	PREVARGTEQ:ReputationTier_Wayfinders,1	CATEGORY:Special Ability
 Mobile Translator				COST:0	BONUS:VAR|SocietyFamePointsSpent|2	TYPE:Society Boon.Wayfinders.Wayfinders Tier 1.Tier 1	PREVARGTEQ:ReputationTier_Wayfinders,1	CATEGORY:Special Ability
-Worldwide Expert				COST:0	BONUS:VAR|SocietyFamePointsSpent|0	TYPE:Society Boon.Wayfinders.Wayfinders Tier 1.Tier 1	PREVARGTEQ:ReputationTier_Wayfinders,1	CATEGORY:Special Ability
+Worldwide Explorer			COST:0	BONUS:VAR|SocietyFamePointsSpent|0	TYPE:Society Boon.Wayfinders.Wayfinders Tier 1.Tier 1	PREVARGTEQ:ReputationTier_Wayfinders,1	CATEGORY:Special Ability
 Enhanced Shield Regeneration		COST:0	BONUS:VAR|SocietyFamePointsSpent|2	TYPE:Society Boon.Wayfinders.Wayfinders Tier 2.Tier 2	PREVARGTEQ:ReputationTier_Wayfinders,2	CATEGORY:Special Ability
 Living Translator				COST:0	BONUS:VAR|SocietyFamePointsSpent|2	TYPE:Society Boon.Wayfinders.Wayfinders Tier 2.Tier 2	PREVARGTEQ:ReputationTier_Wayfinders,2	CATEGORY:Special Ability
 Wayfinders Champion (Improved)	COST:0	BONUS:VAR|SocietyFamePointsSpent|4	TYPE:Society Boon.Wayfinders.Wayfinders Tier 2.Tier 2	PREVARGTEQ:ReputationTier_Wayfinders,2	CATEGORY:Special Ability
