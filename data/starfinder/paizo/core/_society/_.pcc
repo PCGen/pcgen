@@ -1,0 +1,27 @@
+CAMPAIGN:Starfinder Society Roleplaying Guild Guide - Core Rulebook Mods
+#RANK:1
+#BOOKTYPE:Supplement
+#PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+#GAMEMODE:Starfinder
+#STATUS:BETA
+#TYPE:Paizo.Core
+
+INFOTEXT:Starfinder Society Roleplaying Guild Guide for Core Rulebook
+
+
+ABILITY:_abilities.lst
+
+###Block: Revisions
+# LK - 0.01 Initial update
+
+INFOTEXT:Supports 6.07.08
+# ENTRY DATE: 2018-10
+# LST MONKEY: Andrew "LegacyKing" Maitland
+# RELEASE REVIEW #
+# BETA:
+# RELEASE:
+# Built for PCGen Version: 6.07.03
+# Updated to work with version: -
+# MINVER:6.7
+# MINDEVVER:6.07.03
+# COMMENTS:
