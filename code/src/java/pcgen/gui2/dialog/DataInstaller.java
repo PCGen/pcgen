@@ -282,7 +282,6 @@ public class DataInstaller extends JFrame
 				final InstallLoader loader = new InstallLoader();
 				loader.loadLstString(null, dataSet.toURI(), installInfo.toString());
 				campaign = loader.getCampaign();
-				in.close();
 			}
 			catch (IOException e)
 			{
@@ -748,7 +747,6 @@ public class DataInstaller extends JFrame
 					files.add(entry.getName());
 				}
 			}
-			in.close();
 		}
 		catch (IOException e)
 		{

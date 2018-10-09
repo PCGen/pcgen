@@ -18,10 +18,12 @@
  */
 package plugin.exporttokens.deprecated;
 
+import java.util.stream.Collectors;
+
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
 import pcgen.core.display.CharacterDisplay;
-import pcgen.core.display.DisplayUtilities;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbstractExportToken;
 
@@ -57,7 +59,9 @@ public class WeaponProfsToken extends AbstractExportToken
 	{
 		if (SettingsHandler.getWeaponProfPrintout())
 		{
-			return DisplayUtilities.joinDisplayName(display.getSortedWeaponProfs(), ", ");
+			return display.getSortedWeaponProfs().stream()
+			                    .map(CDOMObject::getDisplayName)
+			                    .collect(Collectors.joining(", "));
 		}
 		else
 		{

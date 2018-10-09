@@ -400,6 +400,7 @@
 						<xsl:apply-templates select="afflictions"/>
 						<xsl:apply-templates select="racial_traits"/>
 						<xsl:apply-templates select="class_features"/>
+						<xsl:apply-templates select="words_of_powers"/>
 						<xsl:apply-templates select="special_attacks"/>
 						<xsl:apply-templates select="special_qualities"/>
 						<xsl:apply-templates select="prestige_awards"/>

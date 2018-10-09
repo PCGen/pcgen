@@ -40,7 +40,6 @@ Age ~ Venerable	CATEGORY:Internal	BONUS:STAT|STR,DEX,CON|-6|TYPE=Age|PREVAREQ:Us
 Rules ~ Use Age Rules (Monsters)		COST:0	CATEGORY:Internal	TYPE:OptionalRules	BONUS:VAR|UseAgeRules|1|TYPE=Bool
 Rules ~ Use Age Rules (Negate Penalties)	COST:0	CATEGORY:Internal	TYPE:OptionalRules	BONUS:VAR|UseAgeRulesNegateAgePenalties|1|TYPE=Bool
 
-
 #	This system is designed to be expandable to new classes. Each class is designated as either "Arcane" or "Divine".
 #	BONUS:CASTERLEVEL|ClassName|ClassName_Caster_Level	DEFINE:ClassName_Caster_Level|0	BONUS:VAR|ClassName_Caster_Level|CL+Caster_Level_Bonus	BONUS:VAR|Caster_Level_Highest__Divine|ClassName_Caster_Level|TYPE=Base
 #	You can then determine Caster level for any class "ClassName_Caster_Level" or meet prereqs based upon Highest Caster Level for Arcane or Divine.
@@ -944,3 +943,6 @@ Large		KEY:Race Size ~ L	TYPE:Race Size	SORTKEY:6	CATEGORY:Racial Size	TEMPLATE:
 Huge		KEY:Race Size ~ H	TYPE:Race Size	SORTKEY:7	CATEGORY:Racial Size	TEMPLATE:SIZE_H	PREFACT:1,ABILITIES,RaceSizeAllowed_Huge=true
 Gargantuan	KEY:Race Size ~ G	TYPE:Race Size	SORTKEY:8	CATEGORY:Racial Size	TEMPLATE:SIZE_G	PREFACT:1,ABILITIES,RaceSizeAllowed_Gargantuan=true
 Colossal	KEY:Race Size ~ C	TYPE:Race Size	SORTKEY:9	CATEGORY:Racial Size	TEMPLATE:SIZE_C	PREFACT:1,ABILITIES,RaceSizeAllowed_Colossal=true
+
+###Block:
+Rules ~ Preview Sheet - Use Alternative Spell Listing Method	COST:0	CATEGORY:Internal	TYPE:OptionalRules	BONUS:VAR|UseAlternativeSpellListing_a|1|TYPE=Bool	DEFINE:UseAlternativeSpellListing_a|0	DESC:Sets the Standard Sheet to display MEMORIZED/PREPRARED Spells first.

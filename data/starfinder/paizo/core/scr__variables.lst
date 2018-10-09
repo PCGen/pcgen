@@ -27,7 +27,7 @@ LOCAL:PC.EQUIPMENT|UpgradeSlot
 LOCAL:PC.EQUIPMENT|UpgradeSlotTaken
 
 
-
+GLOBAL:NUMBER=AndroidUpgradeSlotTaken
 
 
 
