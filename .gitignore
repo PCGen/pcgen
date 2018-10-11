@@ -1,15 +1,16 @@
-
 *.ini
 
 batch-convert.jar
 plugins/*.jar
 plugins/*plugins/
 
-/bin/
-/code/bin/
-/code/build/
-/code/comp-manifest
-/code/manifest
+characters/*
+
+bin/
+code/bin/
+code/build/
+code/comp-manifest
+code/manifest
 
 hs_err_*.log
 checkstyle-cachefile
@@ -28,32 +29,37 @@ pcgen.log
 pcgen.log.*
 pcgen_low_mem.bat
 
-/output/
-/build/
-/libs/
-/code/testsuite/output/
+output/
+build/
+libs/
+code/testsuite/output/
 .gradle/
 pcgen-batch-convert.jar
-/.metadata
-/Trunk.bat
-/target/
-/.settings/
-/variable_report.csv
-/variable_report.html
+.metadata
+Trunk.bat
+target/
+.settings/
+variable_report.csv
+variable_report.html
 
-.idea/
-
-/data/customsources/*
+data/customsources/*
 !data/customsources/readme-customsources.txt
-/.nb-gradle/
-/jre/
-/installers/win-installer/project.nsh
-/installers/win-installer/includes/constants.nsh
-/.checkstyle
-/installers/win-installer/includes/data.nsh
-/.nb-gradle-properties
+.nb-gradle/
+jre/
+installers/win-installer/project.nsh
+installers/win-installer/includes/constants.nsh
+.checkstyle
+installers/win-installer/includes/data.nsh
+.nb-gradle-properties
 
+# Eclipse IDE
 .classpath
 .project
+
+# IntelliJ IDE
+.idea/
+out/
+
+# pmd
 /.pmd
 /.ruleset

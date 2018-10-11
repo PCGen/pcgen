@@ -250,18 +250,9 @@ public final class Comparators
 			final double d1 = o1.doubleValue();
 			final double d2 = o2.doubleValue();
 
-			if (d1 < d2)
-			{
-				return -1;
-			}
+            return Double.compare(d1, d2);
 
-			if (d1 > d2)
-			{
-				return 1;
-			}
-
-			return 0;
-		}
+        }
 
 	}
 
@@ -274,18 +265,9 @@ public final class Comparators
 			final long n1 = o1.getTime();
 			final long n2 = o2.getTime();
 
-			if (n1 < n2)
-			{
-				return -1;
-			}
+            return Long.compare(n1, n2);
 
-			if (n1 > n2)
-			{
-				return 1;
-			}
-
-			return 0;
-		}
+        }
 
 	}
 

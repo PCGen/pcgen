@@ -19,8 +19,8 @@
 	<xsl:template match="basics">	
 		<!-- Character Header -->
 		<xsl:choose>		<!-- Determine which header to use -->
-			<xsl:when test="rules/pfs/os > 0">		
-				<!-- PFS Header -->
+			<xsl:when test="rules/society/os > 0">		
+				<!-- society Header -->
 				<fo:table table-layout="fixed" width="100%">
 				<xsl:attribute name="width"><xsl:value-of select="$pagePrintableWidth" />mm</xsl:attribute>
 				<xsl:choose>
@@ -298,7 +298,7 @@
 								<xsl:with-param name="attribute" select="'bio'"/>
 							</xsl:call-template>
 							<fo:block font-size="8pt" padding-top="3pt">
-								<xsl:value-of select="rules/pfs/id_number"/>
+								<xsl:value-of select="rules/society/id_number"/>
 							</fo:block>
 						</fo:table-cell>
 						<fo:table-cell><fo:block/></fo:table-cell>
@@ -422,7 +422,7 @@
 								<xsl:with-param name="attribute" select="'bio'"/>
 							</xsl:call-template>
 							<fo:block font-size="8pt" padding-top="3pt">	
-								<xsl:value-of select="rules/pfs/faction"/>	
+								<xsl:value-of select="rules/society/faction"/>	
 							</fo:block>
 						</fo:table-cell>
 						<fo:table-cell><fo:block/></fo:table-cell>
@@ -984,11 +984,11 @@
 	<!--
 ====================================
 ====================================
-	TEMPLATE - PFS HEADER
+	TEMPLATE - society HEADER
 ====================================
 ====================================-->
 
-	<!-- PFS Header -->
+	<!-- society Header -->
 	<xsl:template match="header_pfs">
 
 	</xsl:template>

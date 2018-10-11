@@ -24,9 +24,8 @@ import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
 
 /**
- * The Class {@code InventoryInfoTab} is a placeholder for the yet to be
- * implemented Inventory tab.
- * -0800 (Fri, 25 Feb 2011) $
+ * The Class {@code InventoryInfoTab} implements the "Inventory" tab
+ * including both purchasing and equiping items.
  */
 @SuppressWarnings("serial")
 public class InventoryInfoTab extends JTabbedPane implements CharacterInfoTab, TodoHandler

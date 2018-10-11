@@ -1010,7 +1010,7 @@ public class BonusManager
 				continue;
 			}
 
-			String aDesc = aCreator.getSafe(StringKey.DESCRIPTION);
+			String aDesc = aCreator.getSafe(StringKey.TEMP_DESCRIPTION);
 
 			if (!aList.contains(aDesc))
 			{

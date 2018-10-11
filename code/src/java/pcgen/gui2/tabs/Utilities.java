@@ -28,8 +28,12 @@ import pcgen.gui2.util.SignIcon;
 import pcgen.gui2.util.SignIcon.Sign;
 import pcgen.system.LanguageBundle;
 
-public class Utilities
+public final class Utilities
 {
+
+	private Utilities()
+	{
+	}
 
 	public static JButton createSignButton(Sign sign)
 	{

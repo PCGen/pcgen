@@ -520,7 +520,6 @@ public class SourceFileLoader extends PCGenTask implements Observer
 			dataset = new DataSet(context, selectedGame, new DefaultListFacade<>(selectedCampaigns));
 			//			//  Show the licenses
 			//			showLicensesIfNeeded();
-			//			showSponsorsIfNeeded();
 		}
 		catch (Throwable thr)
 		{

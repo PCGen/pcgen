@@ -22,7 +22,8 @@
 #NAME:CraftItemPenalty			VAR:SYS_CIP				DEFAULT:Yes					DESC:Improper tools incure a -2 circumstance penalty
 NAME:LoadPenaltyToAcAndSkills		VAR:SYS_LDPACSK			DEFAULT:Yes					DESC:Apply Load Penalty to AC and Skills
 NAME:WeightPenaltyToSkill		VAR:SYS_WTPSK			DEFAULT:Yes					DESC:Apply Weight Penalty to Skills
-NAME:WeaponSizePenalty			VAR:SYS_35WP			DEFAULT:Yes					DESC:Apply 3.5 Size Category Penalty to Attacks
+NAME:WeaponSizePenalty			VAR:SYS_35WP			DEFAULT:No					DESC:Apply 3.5 Size Category Penalty to Attacks
+
 #NAME:ClericDomainBonus			VAR:SYS_DOMAIN			DEFAULT:Yes					DESC:Apply Casterlevel Bonuses from Domains to all Spells
 NAME:DisplayTypeTraits			VAR:DISPLAYTYPETRAITS		DEFAULT:No					DESC:Display full text of Type Traits on output
 NAME:DisplayConditionalSkills		VAR:DISPLAYSKILLUSE		DEFAULT:Yes					DESC:Display conditional skill uses on output

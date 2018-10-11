@@ -7,14 +7,14 @@ SOURCELONG:People of the Sands	SOURCESHORT:PSand	SOURCEWEB:http://paizo.com/prod
 # New Equipment
 # ==============================
 
-Burner						TYPE:Goods							COST:3	WT:1		SOURCEPAGE:p.28
+Burner						TYPE:Goods.General							COST:3	WT:1		SOURCEPAGE:p.28
 Fuel Pellet (10)					TYPE:Goods.Alchemical.Consumable			COST:0.3			SOURCEPAGE:p.28
 Purification Pellet				TYPE:Goods.Alchemical.Consumable			COST:10			SOURCEPAGE:p.28
 Salt Tablets (10)					TYPE:Goods.Alchemical.Consumable			COST:1			SOURCEPAGE:p.28
 Serpent Line					TYPE:Goods.Alchemical					COST:12	WT:5		SOURCEPAGE:p.28
 Smoke Signal					TYPE:Goods.Alchemical.Consumable			COST:5	WT:1		SOURCEPAGE:p.28
 Sun Cream						TYPE:Goods.Alchemical.Consumable			COST:10	WT:0.5	SOURCEPAGE:p.28
-Veil							TYPE:Goods							COST:0.1			SOURCEPAGE:p.28
+Veil							TYPE:Goods.General							COST:0.1			SOURCEPAGE:p.28
 
 # ==============================
 # New Magic Items

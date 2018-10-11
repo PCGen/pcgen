@@ -17,16 +17,12 @@
  */
 package pcgen.core.analysis;
 
-import pcgen.cdom.base.CDOMObject;
+import junit.framework.TestCase;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PObject;
-import junit.framework.TestCase;
 
 /**
  * Verify the function of the OutputNameFormatting class.
- *
- * <br/>
- * 
  */
 public class OutputNameFormattingTest extends TestCase
 {

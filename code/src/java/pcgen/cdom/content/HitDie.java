@@ -192,7 +192,7 @@ public class HitDie extends ConcretePrereqObject implements Comparable<HitDie>
 	@Override
 	public int compareTo(HitDie other)
 	{
-		return die == other.die ? 0 : die < other.die ? -1 : 1;
+		return Integer.compare(die, other.die);
 	}
 
 }

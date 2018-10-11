@@ -32,8 +32,6 @@ import java.util.TreeSet;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
-import org.apache.commons.lang3.StringUtils;
-
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.DoubleKeyMapToList;
 import pcgen.base.util.HashMapToList;
@@ -83,7 +81,7 @@ import pcgen.facade.util.DefaultReferenceFacade;
 import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
-import pcgen.gui2.tools.Utility;
+import pcgen.gui2.tools.DesktopBrowserLauncher;
 import pcgen.gui2.util.HtmlInfoBuilder;
 import pcgen.io.ExportUtilities;
 import pcgen.system.BatchExporter;
@@ -92,6 +90,8 @@ import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Tab;
 import pcgen.util.enumeration.View;
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * The Class {@code SpellSupportFacadeImpl} marshals the spell data for a
@@ -1277,7 +1277,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade, EquipmentList
 		{
 			try
 			{
-				Utility.viewInBrowser(outputFile);
+				DesktopBrowserLauncher.viewInBrowser(outputFile);
 			}
 			catch (IOException e)
 			{

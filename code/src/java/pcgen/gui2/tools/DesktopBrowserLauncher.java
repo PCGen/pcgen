@@ -19,16 +19,23 @@ package pcgen.gui2.tools;
 
 import java.awt.Desktop;
 import java.awt.Desktop.Action;
+import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
+
+import javax.swing.JFileChooser;
+
+import pcgen.system.PCGenSettings;
+
+import org.apache.commons.lang3.SystemUtils;
 
 /**
  * Provide an utility method to open files with {@link Desktop}.
- * Non package elements should use {@link Utility#viewInBrowser} which is public.
- * 
- *
  */
-final class DesktopBrowserLauncher
+public final class  DesktopBrowserLauncher
 {
 
 	private static final Desktop DESKTOP = Desktop.getDesktop();
@@ -40,20 +47,82 @@ final class DesktopBrowserLauncher
 	}
 
 	/**
-	 * @see Desktop#isDesktopSupported()
-	 * @throws IOException if {@link Desktop} is not supported and throws an exception
+	 * View a file (should be browsable) in a browser.
+	 *
+	 * @param file Path of the file to display in browser.
+	 * @throws IOException if file doesn't exist
 	 */
-	static void browse(final URI uri) throws IOException
+	public static void viewInBrowser(File file) throws IOException
 	{
+		viewInBrowser(file.toURI());
+	}
+
+	/**
+	 * View a URL in a browser
+	 *
+	 * @param url URL to display in browser.
+	 * @throws IOException if the URL is bad or the browser can not be launched
+	 */
+	public static void viewInBrowser(URL url) throws IOException
+	{
+		try
+		{
+			viewInBrowser(url.toURI());
+		}
+		catch (final URISyntaxException e)
+		{
+			throw new MalformedURLException(e.getMessage());
+		}
+	}
+
+	/**
+	 * View a URI in a browser.
+	 *
+	 * @param uri URI to display in browser.
+	 * @throws IOException if browser can not be launched
+	 */
+	private static void viewInBrowser(URI uri) throws IOException
+	{
+		// Windows tends to lock up or not actually
+		// display anything unless we've specified a
+		// default browser, so at least make the user
+		// aware that (s)he needs one. If they don't
+		// pick one and it doesn't work, at least they
+		// might know enough to try selecting one the
+		// next time.
+		if (!IS_BROWSE_SUPPORTED && SystemUtils.IS_OS_WINDOWS
+				&& (PCGenSettings.getBrowserPath() == null))
+		{
+			selectDefaultBrowser();
+		}
+
 		DESKTOP.browse(uri);
 	}
 
 	/**
-	 * @return {@code true} if {@link #browse} is supported
-	 * @see Desktop#isSupported(Action)
+	 * Sets the default browser.
 	 */
-	static boolean isBrowseSupported()
+	public static void selectDefaultBrowser()
 	{
-		return IS_BROWSE_SUPPORTED;
+		final JFileChooser fc = new JFileChooser();
+		fc.setDialogTitle("Find and select your preferred html browser.");
+
+		if (SystemUtils.IS_OS_MAC || SystemUtils.IS_OS_MAC_OSX)
+		{
+			fc.putClientProperty("JFileChooser.appBundleIsTraversable", "never");
+		}
+
+		if (PCGenSettings.getBrowserPath() != null)
+		{
+			fc.setCurrentDirectory(new File(PCGenSettings.getBrowserPath()));
+		}
+
+		final int returnVal = fc.showOpenDialog(null);
+
+		if (returnVal == JFileChooser.APPROVE_OPTION)
+		{
+			final File file = fc.getSelectedFile();
+			PCGenSettings.OPTIONS_CONTEXT.setProperty(PCGenSettings.BROWSER_PATH, file.getAbsolutePath());
+		}
 	}
 }

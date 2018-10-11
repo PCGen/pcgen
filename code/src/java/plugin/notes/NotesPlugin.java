@@ -27,18 +27,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
-import org.apache.commons.lang3.StringUtils;
-
-import gmgen.GMGenSystem;
-import gmgen.GMGenSystemView;
-import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
-import gmgen.pluginmgr.messages.FileMenuOpenMessage;
-import gmgen.pluginmgr.messages.GMGenBeingClosedMessage;
-import gmgen.pluginmgr.messages.RequestAddPreferencesPanelMessage;
-import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.tools.Utility;
-import pcgen.io.PCGFile;
 import pcgen.pluginmgr.InteractivePlugin;
 import pcgen.pluginmgr.PCGenMessage;
 import pcgen.pluginmgr.PCGenMessageHandler;
@@ -47,6 +37,15 @@ import pcgen.pluginmgr.messages.RequestOpenPlayerCharacterMessage;
 import pcgen.system.LanguageBundle;
 import plugin.notes.gui.NotesView;
 import plugin.notes.gui.PreferencesNotesPanel;
+
+import gmgen.GMGenSystem;
+import gmgen.GMGenSystemView;
+import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
+import gmgen.pluginmgr.messages.FileMenuOpenMessage;
+import gmgen.pluginmgr.messages.GMGenBeingClosedMessage;
+import gmgen.pluginmgr.messages.RequestAddPreferencesPanelMessage;
+import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * The {@code NotesPlugin} controls the various classes that are involved
@@ -120,11 +119,6 @@ public class NotesPlugin implements InteractivePlugin
 	private static String getLocalizedName()
 	{
 		return LanguageBundle.getString(IN_NAME);
-	}
-
-	public static boolean isRecognizedFileType(File launch)
-	{
-		return PCGFile.isPCGenCharacterOrPartyFile(launch);
 	}
 
 	/**

@@ -259,9 +259,8 @@ public class DebugDialog extends JDialog
 
 		private int determineCaretPosition(MouseEvent e)
 		{
-			logText.setCaretPosition(logText.viewToModel(e.getPoint()));
-			int caretPos = logText.getCaretPosition();
-			return caretPos;
+			logText.setCaretPosition(logText.viewToModel2D(e.getPoint()));
+			return logText.getCaretPosition();
 		}
 
 		private class LogHandler extends Handler implements Runnable

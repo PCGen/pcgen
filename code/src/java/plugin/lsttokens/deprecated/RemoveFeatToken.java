@@ -313,14 +313,7 @@ public class RemoveFeatToken extends AbstractNonEmptyToken<CDOMObject>
 			Logging.errorPrint("Didn't have any associations for Ability: " + choice.getAbilityKey());
 			return false;
 		}
-		for (String a : associationList)
-		{
-			if (choice.containsAssociation(a))
-			{
-				return true;
-			}
-		}
-		return false;
+		return associationList.stream().anyMatch(choice::containsAssociation);
 	}
 
 	@Override

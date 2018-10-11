@@ -17,7 +17,7 @@ CLASS:Nightblade	STARTSKILLPTS:6	CSKILL:Acrobatics|Appraise|Bluff|Climb|TYPE=Cra
 CLASS:Nightblade	FACT:SpellType|Arcane
 CLASS:Nightblade	SPELLSTAT:CHA	MEMORIZE:NO
 CLASS:Nightblade	BONUS:CASTERLEVEL|Nightblade|Caster_Level_BL_Stripped_Nightblade	DEFINE:Caster_Level_BL_Stripped_Nightblade|0	BONUS:VAR|Caster_Level_BL_Stripped_Nightblade|Caster_Level_Nightblade-CasterLevelBLNightblade	BONUS:VAR|Caster_Level_Nightblade|CL+Caster_Level_Bonus+CasterLevelBLNightblade	DEFINE:CasterLevelBLNightblade|0	BONUS:VAR|CasterLevelBL_Nightblade|charbonusto("PCLEVEL","Nightblade")	
-CLASS:Nightblade	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Nightblade|TYPE=Base
+CLASS:Nightblade	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Nightblade|TYPE=Base	BONUS:VAR|Caster_Level_Total__Arcane|Caster_Level_Nightblade
 ###Block
 1	CAST:0,1
 2	CAST:0,2

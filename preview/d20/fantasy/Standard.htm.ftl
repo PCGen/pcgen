@@ -665,8 +665,49 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
      <td align="center" width="12%" valign="bottom" class="font6">BULL RUSH</td>
      <td align="center" width="12%" valign="bottom" class="font6">OVERRUN</td>
     </tr>
+   <br />
+
+<#if (pcvar("CMD") > 0)>
+   <tr>
+     <td align="center" bgcolor="black"><font style="font-size:10pt" color="white"><b>CMB</b></font></td>
+     <td align="center" class="border10"><b>${pcstring('VAR.CMB_DirtyTrick.INTVAL.SIGN')}</b></td>
+     <td align="center" class="border10"><b>${pcstring('VAR.CMB_Drag.INTVAL.SIGN')}</b></td>
+     <td align="center" class="border10"><b>${pcstring('VAR.CMB_Reposition.INTVAL.SIGN')}</b></td>
+     <td align="center" class="border10"><b>${pcstring('VAR.CMB_Steal.INTVAL.SIGN')}</b></td>
+   </tr>
+   <tr>
+     <td align="center" bgcolor="black"><font style="font-size:10pt" color="white"><b>CMD</b></font></td>
+     <td align="center" class="border10"><b>${pcstring('VAR.CMD_DirtyTrick.INTVAL')}</b></td>
+     <td align="center" class="border10"><b>${pcstring('VAR.CMD_Drag.INTVAL')}</b></td>
+     <td align="center" class="border10"><b>${pcstring('VAR.CMD_Reposition.INTVAL')}</b></td>
+     <td align="center" class="border10"><b>${pcstring('VAR.CMD_Steal.INTVAL')}</b></td>
+    </tr>
+<#else>
+   <tr>
+     <td align="center" bgcolor="black"><font style="font-size:10pt" color="white"><b>OFFENSE</b></font></td>
+     <td align="center" class="border10"><b>${pcstring('VAR.CMB_DirtyTrick.INTVAL.SIGN')}</b></td>
+     <td align="center" class="border10"><b>${pcstring('VAR.CMB_Drag.INTVAL.SIGN')}</b></td>
+     <td align="center" class="border10"><b>${pcstring('VAR.CMB_Reposition.INTVAL.SIGN')}</b></td>
+     <td align="center" class="border10"><b>${pcstring('VAR.CMB_Steal.INTVAL.SIGN')}</b></td>
+    </tr>
+    <tr>
+     <td align="center" bgcolor="black"><font style="font-size:10pt" color="white"><b>DEFENSE</b></font></td>
+     <td align="center" class="border10"><b>${pcstring('VAR.CMB_DirtyTrick_DEF.INTVAL')}</b></td>
+     <td align="center" class="border10"><b>${pcstring('VAR.CMB_Drag_DEF.INTVAL')}</b></td>
+     <td align="center" class="border10"><b>${pcstring('VAR.CMB_Reposition_DEF.INTVAL')}</b></td>
+     <td align="center" class="border10"><b>${pcstring('VAR.CMB_Steal_DEF.INTVAL')}</b></td>
+    </tr>
+</#if>
+    <tr>
+     <td align="center" width="28%"></td>
+     <td align="center" width="12%" valign="bottom" class="font6">DIRTY TRICK</td>
+     <td align="center" width="12%" valign="bottom" class="font6">DRAG</td>
+     <td align="center" width="12%" valign="bottom" class="font6">REPOSITION</td>
+     <td align="center" width="12%" valign="bottom" class="font6">STEAL</td>
+    </tr>
    </table>
    <br />
+
 <#else>
     <tr>
      <td align="center" bgcolor="black"><font style="font-size:10pt" color="white"><b>GRAPPLE</b></font><font style="font-size:5pt" color="white"><br />ATTACK BONUS</font></td>
@@ -1925,7 +1966,35 @@ ${pcstring('ABILITYALL.Class Feature.VISIBLE.${ClassFeature}.TYPE=Class Feature.
 </#if>
 <!-- STOP Class Features Table -->
 
-
+<!-- START Words of Power Table -->
+<#if (pcvar('countdistinct("ABILITIES","CATEGORY=Words of Power","TYPE=WordsOfPowerOutput","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
+   <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
+    <tr>
+     <th bgcolor="black" align="center" colspan="2"><font color="white" style="font-size: small"><b>Words of Power</b></font></th>
+    </tr>
+<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Words of Power","TYPE=WordsOfPowerOutput","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; ClassFeature , ClassFeature_has_next>
+<#if (ClassFeature % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
+     <td valign="top" width="70%" class="font8"><b>
+<#assign typeOfAbility = pcstring("ABILITYALL.Words of Power.VISIBLE.${ClassFeature}.TYPE=WordsOfPowerOutput.TYPE")?lower_case />
+<#if (pcstring("ABILITYALL.Words of Power.VISIBLE.${ClassFeature}.TYPE=WordsOfPowerOutput.HASASPECT.Name") = "Y")>
+${pcstring('ABILITYALL.Words of Power.VISIBLE.${ClassFeature}.TYPE=WordsOfPowerOutput.ASPECT.Name')}
+<@typeOfAbilitySuffix typeOfAbility=typeOfAbility />
+<#else>
+${pcstring('ABILITYALL.Words of Power.VISIBLE.${ClassFeature}.TYPE=WordsOfPowerOutput')}
+<@typeOfAbilitySuffix typeOfAbility=typeOfAbility />
+</#if>
+</b>
+</td>
+<td class="font8" valign="top"	width="30%" align="right">[${pcstring('ABILITYALL.Words of Power.VISIBLE.${ClassFeature}.TYPE=WordsOfPowerOutput.SOURCE')}]</td>
+<tr>
+<#if (ClassFeature % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
+<td class="font8" valign="top"	align="indent" colspan="2">&#160;&#160;&#160;&#160;
+${pcstring('ABILITYALL.Words of Power.VISIBLE.${ClassFeature}.TYPE=WordsOfPowerOutput.DESC')}</td>
+    </tr>
+</@loop>
+   </table>
+</#if>
+<!-- STOP Words of Power Table -->
 
 
 
@@ -2093,8 +2162,12 @@ ${pcstring('TEMPBONUS.${temp}')}
 </td></tr>
 </#if>
 
-
+<#if (pcvar("UseAlternativeSpellListing_a") = 1)>
+<#include "common/common-spells-prep-spell-innate.ftl">
+<#else>
 <#include "common/common-spells.ftl">
+</#if>
+
 
 <#if (pcstring("BIO") != '' || pcstring('DESC') != '') >
 <br style="page-break-after: always" />

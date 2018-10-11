@@ -249,7 +249,7 @@ CLASS:Mage Hunter	PREABILITY:2,CATEGORY=FEAT,Improved Initiative,Step Up	PREATT:
 # Class Name	Skill Pts/Lvl
 CLASS:Mage Hunter	STARTSKILLPTS:4
 # Class Name	Spell Stat		Memorize	Caster level							Use Spell List
-CLASS:Mage Hunter	SPELLSTAT:CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Mage Hunter|MageHunterInitiatorLVL	SPELLLIST:1|Sorcerer
+CLASS:Mage Hunter	SPELLSTAT:CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Mage Hunter|MageHunterInitiatorLVL	SPELLLIST:1|Sorcerer	BONUS:VAR|Caster_Level_Highest__Arcane|MageHunterInitiatorLVL|TYPE=Base	BONUS:VAR|Caster_Level_Total__Arcane|MageHunterInitiatorLVL
 ###Block: Level Progression
 1	ABILITY:Mage Hunter Class Feature|AUTOMATIC|Mage Hunter ~ Martial Arcanist|PREVARGTEQ:MageHunterLVL,1
 1	ABILITY:Mage Hunter Class Feature|AUTOMATIC|Mage Hunter ~ Arcane Tenacity|PREVARGTEQ:MageHunterLVL,1

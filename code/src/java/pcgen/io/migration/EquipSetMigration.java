@@ -141,7 +141,7 @@ public final class EquipSetMigration
 			int equipOutputOrder1 = equip1 == null ? 99999 : equip1.getOutputIndex();
 			if (equipOutputOrder0 != equipOutputOrder1)
 			{
-				return ((Integer) equipOutputOrder0).compareTo(equipOutputOrder1);
+				return Integer.compare(equipOutputOrder0, equipOutputOrder1);
 			}
 
 			String sortKey0 = getSortKey(equip0);

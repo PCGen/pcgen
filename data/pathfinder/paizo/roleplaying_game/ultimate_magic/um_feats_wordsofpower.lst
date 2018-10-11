@@ -14,7 +14,7 @@ Experimental Spellcaster Rest		CATEGORY:FEAT		TYPE:Internal																					
 # NEEDS CODE WORK: Need to know if character has levels in a limited-spell-known class.
 # NEEDS CODE WORK: Technically needs caster level 1, not a level in a spellcasting class.
 # COMMENT: Doesn't police the appropriate level, type (effect), number (1 or 2), or class of words.
-Extra Word					CATEGORY:FEAT		TYPE:General	PREMULT:1,[PRECLASS:1,SPELLCASTER=1],[PREVARGTEQ:CasterLevel_Highest,1]	PREMULT:1,[PREABILITY:1,CATEGORY=Archetype,TYPE.WordsOfPower],[PREABILITY:1,CATEGORY=FEAT,Experimental Spellcaster]					DESC:Learn an additional effect word, or two lower-level words.																																														BONUS:ABILITYPOOL|Extra Word|1	SOURCEPAGE:p.166
+Extra Word					CATEGORY:FEAT		TYPE:General	PREMULT:1,[PRECLASS:1,SPELLCASTER=1],[PREVARGTEQ:CasterLevel_Highest,1]	PREMULT:1,[PREABILITY:1,CATEGORY=Archetype,TYPE.WordsOfPower],[PREABILITY:1,CATEGORY=FEAT,Experimental Spellcaster]					DESC:Learn an additional effect word, or two lower-level words.						STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																		BONUS:ABILITYPOOL|Extra Word|1	SOURCEPAGE:p.166
 # COMMENT: Doesn't police the appropriate level, type (meta), or number of words.
 Meta Word Mastery				CATEGORY:FEAT		TYPE:General	PREMULT:1,[PREABILITY:1,CATEGORY=Archetype,TYPE.WordsOfPower],[PREABILITY:1,CATEGORY=FEAT,Experimental Spellcaster]																	DESC:You can use meta words three additional times per day, and learn an additional meta word.	STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																		BONUS:ABILITYPOOL|Extra Word|1	SOURCEPAGE:p.166
 

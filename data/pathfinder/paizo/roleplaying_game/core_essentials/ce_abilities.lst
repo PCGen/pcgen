@@ -6,6 +6,11 @@ CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_Highest|0
 CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_Highest__Arcane|0
 CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_Highest__Divine|0
 CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_Bonus|0
+CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_Total__Arcane|0
+CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_Total__Divine|0
+CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_Total|0
+
+
 # Combined to get Highest Arcane or Divine caster level
 CATEGORY=Internal|Default.MOD								BONUS:VAR|Caster_Level_Highest|max(Caster_Level_Highest__Arcane,Caster_Level_Highest__Divine)
 
@@ -34,7 +39,6 @@ Age ~ Venerable	CATEGORY:Internal	BONUS:STAT|STR,DEX,CON|-6|TYPE=Age|PREVAREQ:Us
 ###Block: Age rules
 Rules ~ Use Age Rules (Monsters)		COST:0	CATEGORY:Internal	TYPE:OptionalRules	BONUS:VAR|UseAgeRules|1|TYPE=Bool
 Rules ~ Use Age Rules (Negate Penalties)	COST:0	CATEGORY:Internal	TYPE:OptionalRules	BONUS:VAR|UseAgeRulesNegateAgePenalties|1|TYPE=Bool
-
 
 #	This system is designed to be expandable to new classes. Each class is designated as either "Arcane" or "Divine".
 #	BONUS:CASTERLEVEL|ClassName|ClassName_Caster_Level	DEFINE:ClassName_Caster_Level|0	BONUS:VAR|ClassName_Caster_Level|CL+Caster_Level_Bonus	BONUS:VAR|Caster_Level_Highest__Divine|ClassName_Caster_Level|TYPE=Base
@@ -928,3 +932,17 @@ L	KEY:SIZE L	TYPE:Size	SORTKEY:6	CATEGORY:Internal	TEMPLATE:SIZE_L
 H	KEY:SIZE H	TYPE:Size	SORTKEY:7	CATEGORY:Internal	TEMPLATE:SIZE_H
 G	KEY:SIZE G	TYPE:Size	SORTKEY:8	CATEGORY:Internal	TEMPLATE:SIZE_G
 C	KEY:SIZE C	TYPE:Size	SORTKEY:9	CATEGORY:Internal	TEMPLATE:SIZE_C
+
+
+Fine		KEY:Race Size ~ F	TYPE:Race Size	SORTKEY:1	CATEGORY:Racial Size	TEMPLATE:SIZE_F	PREFACT:1,ABILITIES,RaceSizeAllowed_Fine=true
+Diminutive	KEY:Race Size ~ D	TYPE:Race Size	SORTKEY:2	CATEGORY:Racial Size	TEMPLATE:SIZE_D	PREFACT:1,ABILITIES,RaceSizeAllowed_Diminutive=true
+Tiny		KEY:Race Size ~ T	TYPE:Race Size	SORTKEY:3	CATEGORY:Racial Size	TEMPLATE:SIZE_T	PREFACT:1,ABILITIES,RaceSizeAllowed_Tiny=true
+Small		KEY:Race Size ~ S	TYPE:Race Size	SORTKEY:4	CATEGORY:Racial Size	TEMPLATE:SIZE_S	PREFACT:1,ABILITIES,RaceSizeAllowed_Small=true
+Medium	KEY:Race Size ~ M	TYPE:Race Size	SORTKEY:5	CATEGORY:Racial Size	TEMPLATE:SIZE_M	PREFACT:1,ABILITIES,RaceSizeAllowed_Medium=true
+Large		KEY:Race Size ~ L	TYPE:Race Size	SORTKEY:6	CATEGORY:Racial Size	TEMPLATE:SIZE_L	PREFACT:1,ABILITIES,RaceSizeAllowed_Large=true
+Huge		KEY:Race Size ~ H	TYPE:Race Size	SORTKEY:7	CATEGORY:Racial Size	TEMPLATE:SIZE_H	PREFACT:1,ABILITIES,RaceSizeAllowed_Huge=true
+Gargantuan	KEY:Race Size ~ G	TYPE:Race Size	SORTKEY:8	CATEGORY:Racial Size	TEMPLATE:SIZE_G	PREFACT:1,ABILITIES,RaceSizeAllowed_Gargantuan=true
+Colossal	KEY:Race Size ~ C	TYPE:Race Size	SORTKEY:9	CATEGORY:Racial Size	TEMPLATE:SIZE_C	PREFACT:1,ABILITIES,RaceSizeAllowed_Colossal=true
+
+###Block:
+Rules ~ Preview Sheet - Use Alternative Spell Listing Method	COST:0	CATEGORY:Internal	TYPE:OptionalRules	BONUS:VAR|UseAlternativeSpellListing_a|1|TYPE=Bool	DEFINE:UseAlternativeSpellListing_a|0	DESC:Sets the Standard Sheet to display MEMORIZED/PREPRARED Spells first.

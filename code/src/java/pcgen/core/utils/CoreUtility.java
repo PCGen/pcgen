@@ -18,18 +18,17 @@
 package pcgen.core.utils;
 
 import java.io.File;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Locale;
 import java.util.regex.Pattern;
 
 import pcgen.cdom.base.Constants;
 import pcgen.core.Equipment;
-import pcgen.core.SettingsHandler;
 import pcgen.system.PCGenPropBundle;
 import pcgen.util.Logging;
 
@@ -48,22 +47,6 @@ public final class CoreUtility
 
 	public static final Comparator<Equipment> EQUIPMENT_COMPARATOR = new Comparator<Equipment>()
 	{
-		private int compareInts(final int obj1Index, final int obj2Index)
-		{
-			if (obj1Index > obj2Index)
-			{
-				return 1;
-			}
-			else if (obj1Index < obj2Index)
-			{
-				return -1;
-			}
-			else
-			{
-				return 0;
-			}
-		}
-
 		@Override
 		public int compare(final Equipment obj1, final Equipment obj2)
 		{
@@ -74,14 +57,14 @@ public final class CoreUtility
 			o1i = (o1i == 0) ? 999 : o1i;
 			o2i = (o2i == 0) ? 999 : o2i;
 
-			final int result1 = compareInts(o1i, o2i);
+			final int result1 = Integer.compare(o1i, o2i);
 
 			if (result1 != 0)
 			{
 				return result1;
 			}
 
-			final int result2 = compareInts(obj1.getOutputSubindex(), obj2.getOutputSubindex());
+			final int result2 = Integer.compare(obj1.getOutputSubindex(), obj2.getOutputSubindex());
 
 			if (result2 != 0)
 			{
@@ -131,7 +114,15 @@ public final class CoreUtility
 	 */
 	public static boolean isNetURL(final URL url)
 	{
-		return "http".equalsIgnoreCase(url.getProtocol()) || "ftp".equalsIgnoreCase(url.getProtocol());
+		switch (url.getProtocol().toLowerCase(Locale.ENGLISH))
+		{
+			case "http":
+			case "ftp":
+			case "https":
+				return true;
+			default:
+				return false;
+		}
 	}
 
 	/**
@@ -414,18 +405,6 @@ public final class CoreUtility
 	}
 
 	/**
-	 * Unescape the : character
-	 * 
-	 * @param in
-	 *            the string to operate on
-	 * @return the modified string
-	 */
-	public static String unEscapeColons2(final String in)
-	{
-		return in.replaceAll(Pattern.quote("&#59;"), ":");
-	}
-
-	/**
 	 * Merge the equipment list
 	 * 
 	 * @param equip
@@ -507,13 +486,13 @@ public final class CoreUtility
 	{
 		if (ver[0] != compVer[0])
 		{
-			return Integer.valueOf(ver[0]).compareTo(compVer[0]);
+			return Integer.compare(ver[0], compVer[0]);
 		}
 		if (ver[1] != compVer[1])
 		{
-			return Integer.valueOf(ver[1]).compareTo(compVer[1]);
+			return Integer.compare(ver[1], compVer[1]);
 		}
-		return Integer.valueOf(ver[2]).compareTo(compVer[2]);
+		return Integer.compare(ver[2], compVer[2]);
 	}
 
 	/**
@@ -618,21 +597,4 @@ public final class CoreUtility
 		return (ver1[0] == ver2[0] && ver1[1] == ver2[1]);
 	}
 
-	public static URL processFileToURL(String value) throws MalformedURLException
-	{
-		StringBuilder inputPath = new StringBuilder(100);
-		inputPath.append(SettingsHandler.getPcgenSponsorDir().getAbsolutePath());
-		inputPath.append(File.separator).append(value);
-
-		// Not a URL; make sure to fix the path syntax
-		String convertedPath = fixFilenamePath(inputPath.toString());
-
-		// Make sure the path starts with a separator
-		if (!convertedPath.startsWith(File.separator))
-		{
-			convertedPath = File.separator + convertedPath;
-		}
-
-		return new URL("file:" + inputPath);
-	}
 }

@@ -18,8 +18,9 @@
 package plugin.encounter;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.Vector;
 
 import javax.swing.DefaultComboBoxModel;
 
@@ -69,7 +70,8 @@ public class EnvironmentModel extends DefaultComboBoxModel<Object>
 		{
 			try
 			{
-				this.addElement(((Vector) table.get(x)).firstElement());
+				List<String> row = (ArrayList<String>) table.get(x);
+				this.addElement(row.get(0));
 			}
 			catch (NoSuchElementException e)
 			{
