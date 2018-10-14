@@ -1,0 +1,56 @@
+# CVS $Revision: $ $Author: $ -- Fri Jun 30 20:50:52 2017 -- reformated by PCGen PrettyLST v6.06.00
+# SOURCELONG:Ultimate Wilderness	SOURCESHORT:UW	SOURCEWEB:http://paizo.com/products/btpy9ujo	SOURCEDATE:2017-11
+
+# Name									Dataformat			Required	Selectable		Visible	Displayname					Explanation
+FACTDEF:ABILITY|Shifter_Archetype_ClassSkills			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Shifter Class Features	EXPLANATION:Determines whether the archetype alters -
+FACTDEF:ABILITY|Shifter_Archetype_WeaponProficiencies		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Shifter Class Features	EXPLANATION:Determines whether the archetype alters -
+FACTDEF:ABILITY|Shifter_Archetype_ArmorProficiencies		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Shifter Class Features	EXPLANATION:Determines whether the archetype alters -
+FACTDEF:ABILITY|Shifter_Archetype_ShieldProficiency		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Shifter Class Features	EXPLANATION:Determines whether the archetype alters -
+FACTDEF:ABILITY|Shifter_Archetype_BonusLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Shifter Class Features	EXPLANATION:Determines whether the archetype alters -
+FACTDEF:ABILITY|Shifter_Archetype_ShifterAspect			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Shifter Class Features	EXPLANATION:Determines whether the archetype alters -
+FACTDEF:ABILITY|Shifter_Archetype_ShifterClaws			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Shifter Class Features	EXPLANATION:Determines whether the archetype alters -
+FACTDEF:ABILITY|Shifter_Archetype_WildEmpathy			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Shifter Class Features	EXPLANATION:Determines whether the archetype alters -
+FACTDEF:ABILITY|Shifter_Archetype_DefensiveInstinct		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Shifter Class Features	EXPLANATION:Determines whether the archetype alters -
+FACTDEF:ABILITY|Shifter_Archetype_Track				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Shifter Class Features	EXPLANATION:Determines whether the archetype alters -
+FACTDEF:ABILITY|Shifter_Archetype_WoodlandStride		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Shifter Class Features	EXPLANATION:Determines whether the archetype alters -
+FACTDEF:ABILITY|Shifter_Archetype_WildShape			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Shifter Class Features	EXPLANATION:Determines whether the archetype alters -
+FACTDEF:ABILITY|Shifter_Archetype_TracklessStep			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Shifter Class Features	EXPLANATION:Determines whether the archetype alters -
+FACTDEF:ABILITY|Shifter_Archetype_ShiftersFury			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Shifter Class Features	EXPLANATION:Determines whether the archetype alters -
+FACTDEF:ABILITY|Shifter_Archetype_ChimericAspect		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Shifter Class Features	EXPLANATION:Determines whether the archetype alters -
+FACTDEF:ABILITY|Shifter_Archetype_GreaterChimericAspect	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Shifter Class Features	EXPLANATION:Determines whether the archetype alters -
+FACTDEF:ABILITY|Shifter_Archetype_ThousandFaces			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Shifter Class Features	EXPLANATION:Determines whether the archetype alters -
+FACTDEF:ABILITY|Shifter_Archetype_TimelessBody			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Shifter Class Features	EXPLANATION:Determines whether the archetype alters -
+FACTDEF:ABILITY|Shifter_Archetype_FinalAspect			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Shifter Class Features	EXPLANATION:Determines whether the archetype alters -
+
+FACTDEF:ABILITY|Shifter_Archetype_ShifterAspect1		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Shifter Class Features	EXPLANATION:Determines whether the archetype alters -
+FACTDEF:ABILITY|Shifter_Archetype_ShifterAspect2		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Shifter Class Features	EXPLANATION:Determines whether the archetype alters -
+FACTDEF:ABILITY|Shifter_Archetype_ShifterAspect3		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Shifter Class Features	EXPLANATION:Determines whether the archetype alters -
+FACTDEF:ABILITY|Shifter_Archetype_ShifterAspect4		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Shifter Class Features	EXPLANATION:Determines whether the archetype alters -
+FACTDEF:ABILITY|Shifter_Archetype_ShifterAspect5		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Shifter Class Features	EXPLANATION:Determines whether the archetype alters -
+
+
+FACTDEF:ABILITY|Shifter_CF_ClassSkills				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Shifter Class Features	EXPLANATION:Determines whether the archetype replaces -
+FACTDEF:ABILITY|Shifter_CF_WeaponProficiencies			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Shifter Class Features	EXPLANATION:Determines whether the archetype replaces -
+FACTDEF:ABILITY|Shifter_CF_ArmorProficiencies			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Shifter Class Features	EXPLANATION:Determines whether the archetype replaces -
+FACTDEF:ABILITY|Shifter_CF_ShieldProficiency			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Shifter Class Features	EXPLANATION:Determines whether the archetype replaces -
+FACTDEF:ABILITY|Shifter_CF_BonusLanguages				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Shifter Class Features	EXPLANATION:Determines whether the archetype replaces -
+FACTDEF:ABILITY|Shifter_CF_ShifterAspect				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Shifter Class Features	EXPLANATION:Determines whether the archetype replaces -
+FACTDEF:ABILITY|Shifter_CF_ShifterClaws				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Shifter Class Features	EXPLANATION:Determines whether the archetype replaces -
+FACTDEF:ABILITY|Shifter_CF_WildEmpathy				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Shifter Class Features	EXPLANATION:Determines whether the archetype replaces -
+FACTDEF:ABILITY|Shifter_CF_DefensiveInstinct			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Shifter Class Features	EXPLANATION:Determines whether the archetype replaces -
+FACTDEF:ABILITY|Shifter_CF_Track					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Shifter Class Features	EXPLANATION:Determines whether the archetype replaces -
+FACTDEF:ABILITY|Shifter_CF_WoodlandStride				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Shifter Class Features	EXPLANATION:Determines whether the archetype replaces -
+FACTDEF:ABILITY|Shifter_CF_WildShape				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Shifter Class Features	EXPLANATION:Determines whether the archetype replaces -
+FACTDEF:ABILITY|Shifter_CF_TracklessStep				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Shifter Class Features	EXPLANATION:Determines whether the archetype replaces -
+FACTDEF:ABILITY|Shifter_CF_ShiftersFury				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Shifter Class Features	EXPLANATION:Determines whether the archetype replaces -
+FACTDEF:ABILITY|Shifter_CF_ChimericAspect				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Shifter Class Features	EXPLANATION:Determines whether the archetype replaces -
+FACTDEF:ABILITY|Shifter_CF_GreaterChimericAspect		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Shifter Class Features	EXPLANATION:Determines whether the archetype replaces -
+FACTDEF:ABILITY|Shifter_CF_ThousandFaces				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Shifter Class Features	EXPLANATION:Determines whether the archetype replaces -
+FACTDEF:ABILITY|Shifter_CF_TimelessBody				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Shifter Class Features	EXPLANATION:Determines whether the archetype replaces -
+FACTDEF:ABILITY|Shifter_CF_FinalAspect				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Shifter Class Features	EXPLANATION:Determines whether the archetype replaces -
+
+FACTDEF:ABILITY|Shifter_CF_ShifterAspect1				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Shifter Class Features	EXPLANATION:Determines whether the archetype replaces -
+FACTDEF:ABILITY|Shifter_CF_ShifterAspect2				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Shifter Class Features	EXPLANATION:Determines whether the archetype replaces -
+FACTDEF:ABILITY|Shifter_CF_ShifterAspect3				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Shifter Class Features	EXPLANATION:Determines whether the archetype replaces -
+FACTDEF:ABILITY|Shifter_CF_ShifterAspect4				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Shifter Class Features	EXPLANATION:Determines whether the archetype replaces -
+FACTDEF:ABILITY|Shifter_CF_ShifterAspect5				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Shifter Class Features	EXPLANATION:Determines whether the archetype replaces -
