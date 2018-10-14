@@ -8,7 +8,8 @@ SOURCELONG:Adventurer's Handbook: Genius Guide Volume 1	SOURCESHORT:SGGAH	SOURCE
 # Ability Name						Type						Modify VAR
 CATEGORY=FEAT|Arcane Armor Training.MOD		TYPE:Magister
 CATEGORY=FEAT|Arcane Armor Mastery.MOD		TYPE:Magister
-CATEGORY=FEAT|Arcane Strike.MOD			TYPE:Magister				BONUS:VAR|ArcaneStrikeLVL|charbonusto("CASTERLEVEL","Archon")+var("BL=Archon")+charbonusto("CASTERLEVEL","Death Mage")+var("BL=Death Mage")+charbonusto("CASTERLEVEL","Magister")+var("BL=Magister")
+CATEGORY=FEAT|Arcane Strike.MOD			TYPE:Magister
+#BONUS:VAR|ArcaneStrikeLVL|charbonusto("CASTERLEVEL","Archon")+var("BL=Archon")+charbonusto("CASTERLEVEL","Death Mage")+var("BL=Death Mage")+charbonusto("CASTERLEVEL","Magister")+var("BL=Magister")
 CATEGORY=FEAT|Armor Proficiency (Medium).MOD	TYPE:Magister
 CATEGORY=FEAT|Augment Summoning.MOD			TYPE:Magister
 CATEGORY=FEAT|Combat Casting.MOD			TYPE:Magister

@@ -173,7 +173,7 @@ Word of Healing					CATEGORY:FEAT			TYPE:General				PREABILITY:1,CATEGORY=Specia
 # Arcane Strike
 # Feat Name					Unique Key					Type				Visible		Required Ability								Auto Feat							Modify VAR
 # Ability Name						Unique Key					Category of Ability	Type				Visible		Required Ability								Ability									Modify VAR
-CATEGORY=FEAT|Arcane Strike.MOD																																								BONUS:VAR|ArcaneStrikeLVL|charbonusto("CASTERLEVEL","Magus")+var("BL=Magus")
+#CATEGORY=FEAT|Arcane Strike.MOD																																								BONUS:VAR|ArcaneStrikeLVL|charbonusto("CASTERLEVEL","Magus")+var("BL=Magus")
 
 # Feat Name					Unique Key					Type				Visible		Required Ability								Auto Feat							Modify VAR
 CATEGORY=FEAT|Channel Smite.MOD													TYPE:UndeadLordBonus

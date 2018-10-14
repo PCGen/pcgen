@@ -455,7 +455,6 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 						}
 						while (newLine != null);
 
-						br.close();
 					}
 					pane.setText(sb.toString());
 				}
@@ -522,7 +521,6 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 						}
 						while (newLine != null);
 
-						br.close();
 					}
 					pane.setText(sb.toString());
 				}

@@ -128,8 +128,6 @@ public final class SettingsHandler
 	private static File backupPcgPath = null;
 	private static boolean createPcgBackup = true;
 	private static File portraitsPath = new File(Globals.getDefaultPath());
-	private static File pcgenSponsorDir = new File(Globals.getDefaultPath() + File.separator + "system" //$NON-NLS-1$
-		+ File.separator + "sponsors"); //$NON-NLS-1$
 
 	/**
 	 * Where to load the system lst files from.
@@ -1367,21 +1365,6 @@ public final class SettingsHandler
 			return pcgPath;
 		}
 		return lastUsedPcgPath;
-	}
-
-	public static void setPcgenSponsorDir(final File aFile)
-	{
-		pcgenSponsorDir = aFile;
-	}
-
-	/**
-	 * @deprecated 
-	 * @return the sponsor directory
-	 */
-	@Deprecated
-	public static File getPcgenSponsorDir()
-	{
-		return pcgenSponsorDir;
 	}
 
 	public static void setPcgenOutputSheetDir(final File aFile)

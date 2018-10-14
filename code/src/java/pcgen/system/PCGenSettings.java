@@ -43,10 +43,7 @@ public final class PCGenSettings extends PropertyContext
 	public static final String OPTION_SOURCES_ALLOW_MULTI_LINE = "optionSourcesAllowMultiLine";
 	public static final String OPTION_SHOW_LICENSE = "showLicense";
 	public static final String OPTION_SHOW_MATURE_ON_LOAD = "showMatureOnLoad";
-	public static final String OPTION_SHOW_SPONSORS_ON_LOAD = "showSponsorsOnLoad";
 	public static final String OPTION_CREATE_PCG_BACKUP = "createPcgBackup";
-	public static final String OPTION_SHOW_HP_DIALOG_AT_LEVELUP = "showHPDialogAtLevelUp";
-	public static final String OPTION_SHOW_STAT_DIALOG_AT_LEVELUP = "showStatDialogAtLevelUp";
 	public static final String OPTION_SHOW_WARNING_AT_FIRST_LEVEL_UP = "showWarningAtFirstLevelUp";
 	public static final String OPTION_AUTO_RESIZE_EQUIP = "autoResizeEquip";
 	public static final String OPTION_SHOW_SKILL_MOD_BREAKDOWN = "showSkillModBreakdown";

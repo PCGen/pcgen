@@ -550,11 +550,6 @@ public class PluginBuildTest extends TestCase
 		jarPrefix = "Paper-";
 		sourceFolder = new File("code/src/java/plugin/lsttokens/paper");
 		checkPluginJars(jarPrefix, sourceFolder, jarFolder);
-
-		jarPrefix = "Sponsor-";
-		sourceFolder = new File("code/src/java/plugin/lsttokens/sponsor");
-		checkPluginJars(jarPrefix, sourceFolder, jarFolder);
-		
 	}
 
 	/**

@@ -135,8 +135,7 @@ $Date: 2017-09-21
  <!-- <td colspan="1" class="h">${pcstring('CLASS.${class}')}>-->
  <!-- 	</#if>>-->
  <!-- 	</@loop>-->
- <td colspan="1" class="h">
-${pcstring('ABILITYALL.Theme.VISIBLE.0.TYPE=Theme')?capitalize} ${pcstring('CLASSLIST')}
+ <td colspan="1" class="h">${pcstring('CLASSLIST')}
 	<#if (pcvar('count("ABILITIES","CATEGORY=Archetype","TYPE=Archetype","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
 	(${pcstring('ABILITYLIST.Archetype.TYPE=Archetype')})
 	</#if>
@@ -681,11 +680,7 @@ ${pcstring("ABILITYALL.Racial Trait.VISIBLE.${RacialTrait}.TYPE.ASPECT.BonusSave
     <tr>
      <td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>${pcstring('WEAPONH.TOTALHIT')}<br /></b></font></td>
      <td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>${pcstring('WEAPONH.DAMAGE')}<br /></b></font></td>
-     <#if (pcstring("WEAPON.QUALITY.Critical") = "")>
-	 <td align="center" bgcolor="white" class="border8"><b>-</b></td>
-	 <#else>)
-     <td align="center" bgcolor="white" class="border8"><b>${pcstring('WEAPON.QUALITY.Critical')}</b></td>
-	 </#if>
+     <td align="center" bgcolor="white" class="border8"><b>-</b></td>
      <td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>${pcstring('REACH')}<br /></b></font></td>
     </tr>
 	<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=UnarmedDisplay","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; ability , ability_has_next>
@@ -1878,44 +1873,102 @@ ${pcstring('ABILITYALL.Racial Trait.VISIBLE.${RacialTrait}.TYPE=Racial Trait.DES
 </#if>
 <!-- STOP Racial Traits Table -->
 
-<!-- START Theme Table -->
-<#if (pcvar('count("ABILITIES","CATEGORY=Theme","TYPE=Theme","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
+
+<!-- START Ancestry Table -->
+<#if (pcvar('count("ABILITIES","CATEGORY=Ancestry","TYPE=Ancestry","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
    <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
     <tr>
-     <th bgcolor="black" align="center" colspan="2"><font color="white" style="font-size: small"><b> ${pcstring('ABILITYALL.Theme.VISIBLE.0.TYPE=Theme.ASPECT.Title')} THEME & BENEFITS</b></font></th>
+     <th bgcolor="black" align="center" colspan="2"><font color="white" style="font-size: small"><b>AncestryS</b></font></th>
     </tr>
-<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Theme","TYPE=Theme","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; ClassFeature , ClassFeature_has_next>
-<#if (ClassFeature % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
+<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Ancestry","TYPE=Ancestry","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; Ancestry , Ancestry_has_next>
+<#if (Ancestry % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
      <td valign="top" width="70%" class="font8"><b>
-<#assign typeOfAbility = pcstring("ABILITYALL.Theme.VISIBLE.${ClassFeature}.TYPE=Theme.TYPE")?lower_case />
-<#if (pcstring("ABILITYALL.Theme.VISIBLE.${ClassFeature}.TYPE=Theme.HASASPECT.Name") = "Y")>
-${pcstring('ABILITYALL.Theme.VISIBLE.${ClassFeature}.TYPE=Theme.ASPECT.Name')}
+<#assign typeOfAbility = pcstring("ABILITYALL.Ancestry.VISIBLE.${Ancestry}.TYPE=Ancestry.TYPE")?lower_case />
+<#if (pcstring("ABILITYALL.Ancestry.VISIBLE.${Ancestry}.TYPE=Ancestry.HASASPECT.Name") = "Y")>
+${pcstring('ABILITYALL.Ancestry.VISIBLE.${Ancestry}.TYPE=Ancestry.ASPECT.Name')}
 <@typeOfAbilitySuffix typeOfAbility=typeOfAbility />
 <#else>
-${pcstring('ABILITYALL.Theme.VISIBLE.${ClassFeature}.TYPE=Theme')}
+${pcstring('ABILITYALL.Ancestry.VISIBLE.${Ancestry}.TYPE=Ancestry')}
 <@typeOfAbilitySuffix typeOfAbility=typeOfAbility />
 </#if>
 </b>
 </td>
-<td class="font8" valign="top"	width="30%" align="right">[${pcstring('ABILITYALL.Theme.VISIBLE.${ClassFeature}.TYPE=Theme.SOURCE')}]</td>
+<td class="font8" valign="top"	width="30%" align="right">[${pcstring('ABILITYALL.Ancestry.VISIBLE.${Ancestry}.TYPE=Ancestry.SOURCE')}]</td>
 <tr>
-<#if (ClassFeature % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
+<#if (Ancestry % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
 <td class="font8" valign="top"	align="indent" colspan="2">&#160;&#160;&#160;&#160;
-${pcstring('ABILITYALL.Theme.VISIBLE.${ClassFeature}.TYPE=Theme.DESC')}</td>
+${pcstring('ABILITYALL.Ancestry.VISIBLE.${Ancestry}.TYPE=Ancestry.DESC')}</td>
     </tr>
 </@loop>
    </table>
 </#if>
-<!-- STOP Theme Table -->
+<!-- STOP Ancestry Table -->
 
+<!-- START Background Table -->
+<#if (pcvar('count("ABILITIES","CATEGORY=Background","TYPE=Background","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
+   <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
+    <tr>
+     <th bgcolor="black" align="center" colspan="2"><font color="white" style="font-size: small"><b>BackgroundS</b></font></th>
+    </tr>
+<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Background","TYPE=Background","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; Background , Background_has_next>
+<#if (Background % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
+     <td valign="top" width="70%" class="font8"><b>
+<#assign typeOfAbility = pcstring("ABILITYALL.Background.VISIBLE.${Background}.TYPE=Background.TYPE")?lower_case />
+<#if (pcstring("ABILITYALL.Background.VISIBLE.${Background}.TYPE=Background.HASASPECT.Name") = "Y")>
+${pcstring('ABILITYALL.Background.VISIBLE.${Background}.TYPE=Background.ASPECT.Name')}
+<@typeOfAbilitySuffix typeOfAbility=typeOfAbility />
+<#else>
+${pcstring('ABILITYALL.Background.VISIBLE.${Background}.TYPE=Background')}
+<@typeOfAbilitySuffix typeOfAbility=typeOfAbility />
+</#if>
+</b>
+</td>
+<td class="font8" valign="top"	width="30%" align="right">[${pcstring('ABILITYALL.Background.VISIBLE.${Background}.TYPE=Background.SOURCE')}]</td>
+<tr>
+<#if (Background % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
+<td class="font8" valign="top"	align="indent" colspan="2">&#160;&#160;&#160;&#160;
+${pcstring('ABILITYALL.Background.VISIBLE.${Background}.TYPE=Background.DESC')}</td>
+    </tr>
+</@loop>
+   </table>
+</#if>
+<!-- STOP Background Table -->
 
-<!-- START Class Features Table -->
+<!-- START Ancestry Table -->
+<#if (pcvar('count("ABILITIES","CATEGORY=Ancestry","TYPE=Ancestry","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
+   <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
+    <tr>
+     <th bgcolor="black" align="center" colspan="2"><font color="white" style="font-size: small"><b>AncestryS</b></font></th>
+    </tr>
+<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Ancestry","TYPE=Ancestry","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; Ancestry , Ancestry_has_next>
+<#if (Ancestry % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
+     <td valign="top" width="70%" class="font8"><b>
+<#assign typeOfAbility = pcstring("ABILITYALL.Ancestry.VISIBLE.${Ancestry}.TYPE=Ancestry.TYPE")?lower_case />
+<#if (pcstring("ABILITYALL.Ancestry.VISIBLE.${Ancestry}.TYPE=Ancestry.HASASPECT.Name") = "Y")>
+${pcstring('ABILITYALL.Ancestry.VISIBLE.${Ancestry}.TYPE=Ancestry.ASPECT.Name')}
+<@typeOfAbilitySuffix typeOfAbility=typeOfAbility />
+<#else>
+${pcstring('ABILITYALL.Ancestry.VISIBLE.${Ancestry}.TYPE=Ancestry')}
+<@typeOfAbilitySuffix typeOfAbility=typeOfAbility />
+</#if>
+</b>
+</td>
+<td class="font8" valign="top"	width="30%" align="right">[${pcstring('ABILITYALL.Ancestry.VISIBLE.${Ancestry}.TYPE=Ancestry.SOURCE')}]</td>
+<tr>
+<#if (Ancestry % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
+<td class="font8" valign="top"	align="indent" colspan="2">&#160;&#160;&#160;&#160;
+${pcstring('ABILITYALL.Ancestry.VISIBLE.${Ancestry}.TYPE=Ancestry.DESC')}</td>
+    </tr>
+</@loop>
+   </table>
+</#if>
+<!-- STOP Ancestry Table -->
+
+<!-- START Class Feature Table -->
 <#if (pcvar('count("ABILITIES","CATEGORY=Class Feature","TYPE=Class Feature","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
    <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
     <tr>
-
-     <th bgcolor="black" align="center" colspan="2"><font color="white" style="font-size: small"><b>CLASS FEATURES</b></font></th>
-
+     <th bgcolor="black" align="center" colspan="2"><font color="white" style="font-size: small"><b>Class Features</b></font></th>
     </tr>
 <@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Class Feature","TYPE=Class Feature","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; ClassFeature , ClassFeature_has_next>
 <#if (ClassFeature % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
@@ -1939,37 +1992,127 @@ ${pcstring('ABILITYALL.Class Feature.VISIBLE.${ClassFeature}.TYPE=Class Feature.
 </@loop>
    </table>
 </#if>
-<!-- STOP Class Features Table -->
+<!-- STOP Class Feature Table -->
+
+<!-- START Ancestry Feat Table -->
+<#if (pcvar('count("ABILITIES","CATEGORY=Ancestry Feat","TYPE=Ancestry Feat","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
+   <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
+    <tr>
+     <th bgcolor="black" align="center" colspan="2"><font color="white" style="font-size: small"><b>Ancestry Feats</b></font></th>
+    </tr>
+<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Ancestry Feat","TYPE=Ancestry Feat","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; AncestryFeat , AncestryFeat_has_next>
+<#if (AncestryFeat % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
+     <td valign="top" width="70%" class="font8"><b>
+<#assign typeOfAbility = pcstring("ABILITYALL.Ancestry Feat.VISIBLE.${AncestryFeat}.TYPE=Ancestry Feat.TYPE")?lower_case />
+<#if (pcstring("ABILITYALL.Ancestry Feat.VISIBLE.${AncestryFeat}.TYPE=Ancestry Feat.HASASPECT.Name") = "Y")>
+${pcstring('ABILITYALL.Ancestry Feat.VISIBLE.${AncestryFeat}.TYPE=Ancestry Feat.ASPECT.Name')}
+<@typeOfAbilitySuffix typeOfAbility=typeOfAbility />
+<#else>
+${pcstring('ABILITYALL.Ancestry Feat.VISIBLE.${AncestryFeat}.TYPE=Ancestry Feat')}
+<@typeOfAbilitySuffix typeOfAbility=typeOfAbility />
+</#if>
+</b>
+</td>
+<td class="font8" valign="top"	width="30%" align="right">[${pcstring('ABILITYALL.Ancestry Feat.VISIBLE.${AncestryFeat}.TYPE=Ancestry Feat.SOURCE')}]</td>
+<tr>
+<#if (AncestryFeat % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
+<td class="font8" valign="top"	align="indent" colspan="2">&#160;&#160;&#160;&#160;
+${pcstring('ABILITYALL.Ancestry Feat.VISIBLE.${AncestryFeat}.TYPE=Ancestry Feat.DESC')}</td>
+    </tr>
+</@loop>
+   </table>
+</#if>
+<!-- STOP Ancestry Feat Table -->
 
 
 
+<!-- START Special Action Table -->
+<#if (pcvar('count("ABILITIES","CATEGORY=Special Action","TYPE=Special Action","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
+   <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
+    <tr>
+     <th bgcolor="black" align="center" colspan="2"><font color="white" style="font-size: small"><b>Special Actions</b></font></th>
+    </tr>
+<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Special Action","TYPE=Special Action","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; SpecialAction , SpecialAction_has_next>
+<#if (SpecialAction % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
+     <td valign="top" width="70%" class="font8"><b>
+<#assign typeOfAbility = pcstring("ABILITYALL.Special Action.VISIBLE.${SpecialAction}.TYPE=Special Action.TYPE")?lower_case />
+<#if (pcstring("ABILITYALL.Special Action.VISIBLE.${SpecialAction}.TYPE=Special Action.HASASPECT.Name") = "Y")>
+${pcstring('ABILITYALL.Special Action.VISIBLE.${SpecialAction}.TYPE=Special Action.ASPECT.Name')}
+<@typeOfAbilitySuffix typeOfAbility=typeOfAbility />
+<#else>
+${pcstring('ABILITYALL.Special Action.VISIBLE.${SpecialAction}.TYPE=Special Action')}
+<@typeOfAbilitySuffix typeOfAbility=typeOfAbility />
+</#if>
+</b>
+</td>
+<td class="font8" valign="top"	width="30%" align="right">[${pcstring('ABILITYALL.Special Action.VISIBLE.${SpecialAction}.TYPE=Special Action.SOURCE')}]</td>
+<tr>
+<#if (SpecialAction % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
+<td class="font8" valign="top"	align="indent" colspan="1">&#160;&#160;&#160;&#160;
+${pcstring('ABILITYALL.Special Action.VISIBLE.${SpecialAction}.TYPE=Special Action.ASPECT.Trait')}</td>
+<#if (pcstring("ABILITYALL.Special Action.VISIBLE.${SpecialAction}.TYPE=Special Action.HASASPECT.Cost") = "Y")>
+<td class="font8" valign="top"	align="indent" colspan="1">&#160;&#160;&#160;&#160;
+${pcstring('ABILITYALL.Special Action.VISIBLE.${SpecialAction}.TYPE=Special Action.ASPECT.Cost')}</td>
+    </tr>
+</#if>
+<#if (pcstring("ABILITYALL.Special Action.VISIBLE.${SpecialAction}.TYPE=Special Action.HASASPECT.Requirement") = "Y")>
+<tr>
+<td class="font8" valign="top"	align="indent" colspan="2">&#160;&#160;&#160;&#160;
+${pcstring('ABILITYALL.Special Action.VISIBLE.${SpecialAction}.TYPE=Special Action.ASPECT.Requirement')}</td>
+    </tr>
+<tr>
+</#if>
+<#if (pcstring("ABILITYALL.Special Action.VISIBLE.${SpecialAction}.TYPE=Special Action.HASASPECT.Frequency") = "Y")>
+<tr>
+<td class="font8" valign="top"	align="indent" colspan="2">&#160;&#160;&#160;&#160;
+${pcstring('ABILITYALL.Special Action.VISIBLE.${SpecialAction}.TYPE=Special Action.ASPECT.Frequency')}</td>
+    </tr>
+</#if>
+<#if (pcstring("ABILITYALL.Special Action.VISIBLE.${SpecialAction}.TYPE=Special Action.HASASPECT.Trigger") = "Y")>
+<tr>
+<td class="font8" valign="top"	align="indent" colspan="2">&#160;&#160;&#160;&#160;
+${pcstring('ABILITYALL.Special Action.VISIBLE.${SpecialAction}.TYPE=Special Action.ASPECT.Trigger')}</td>
+    </tr>
+</#if>
+<#if (pcstring("ABILITYALL.Special Action.VISIBLE.${SpecialAction}.TYPE=Special Action.HASASPECT.Enhancement") = "Y")>
+<tr>
+<td class="font8" valign="top"	align="indent" colspan="2">&#160;&#160;&#160;&#160;
+${pcstring('ABILITYALL.Special Action.VISIBLE.${SpecialAction}.TYPE=Special Action.ASPECT.Enhancement')}</td>
+    </tr>
+</#if>
+<#if (pcstring("ABILITYALL.Special Action.VISIBLE.${SpecialAction}.TYPE=Special Action.HASASPECT.Success") = "Y")>
+<tr>
+<td class="font8" valign="top"	align="indent" colspan="2">&#160;&#160;&#160;&#160;
+${pcstring('ABILITYALL.Special Action.VISIBLE.${SpecialAction}.TYPE=Special Action.ASPECT.Success')}</td>
+    </tr>
+</#if>
+<#if (pcstring("ABILITYALL.Special Action.VISIBLE.${SpecialAction}.TYPE=Special Action.HASASPECT.CriticalSuccess") = "Y")>
+<tr>
+<td class="font8" valign="top"	align="indent" colspan="2">&#160;&#160;&#160;&#160;
+${pcstring('ABILITYALL.Special Action.VISIBLE.${SpecialAction}.TYPE=Special Action.ASPECT.CriticalSuccess')}</td>
+    </tr>
+</#if>
+<#if (pcstring("ABILITYALL.Special Action.VISIBLE.${SpecialAction}.TYPE=Special Action.HASASPECT.Failure") = "Y")>
+<tr>
+<td class="font8" valign="top"	align="indent" colspan="2">&#160;&#160;&#160;&#160;
+${pcstring('ABILITYALL.Special Action.VISIBLE.${SpecialAction}.TYPE=Special Action.ASPECT.Failure')}</td>
+    </tr>
+</#if>
+<#if (pcstring("ABILITYALL.Special Action.VISIBLE.${SpecialAction}.TYPE=Special Action.HASASPECT.CriticalFailure") = "Y")>
+<tr>
+<td class="font8" valign="top"	align="indent" colspan="2">&#160;&#160;&#160;&#160;
+${pcstring('ABILITYALL.Special Action.VISIBLE.${SpecialAction}.TYPE=Special Action.ASPECT.CriticalFailure')}</td>
+    </tr>
+</#if>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<tr>
+<td class="font8" valign="top"	align="indent" colspan="2">&#160;&#160;&#160;&#160;
+${pcstring('ABILITYALL.Special Action.VISIBLE.${SpecialAction}.TYPE=Special Action.DESC')}</td>
+    </tr>
+</@loop>
+   </table>
+</#if>
+<!-- STOP Special Action Table -->
 
 
 

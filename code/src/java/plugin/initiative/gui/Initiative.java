@@ -1630,7 +1630,6 @@ public class Initiative extends javax.swing.JPanel
 			Document saveDocument = new Document(party);
 			xmlOut.output(saveDocument, fr);
 			fr.flush();
-			fr.close();
 		}
 	}
 

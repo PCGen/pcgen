@@ -1,11 +1,11 @@
 /*
  * Copyright 2012 Vincent Lhote
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
@@ -28,23 +28,19 @@ import java.io.IOException;
 import java.io.Writer;
 import java.text.Format;
 import java.text.MessageFormat;
-import java.util.Calendar;
+import java.time.Instant;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import org.apache.commons.lang3.time.DateFormatUtils;
-
 /**
  * This class allows the generation of a PO Template file from the tips.txt files,
- * and also generate translated tips ({@code tips_XX.txt}) from a PO file 
+ * and also generate translated tips ({@code tips_XX.txt}) from a PO file
  * (whose name is {@code _XX.po}).
  * PO Template and PO files are message catalog used in gettext.
  * The duplicates from the tips files should appear only once in the PO Template files.
- *
- * This class tries to be independent of code, but still needs Apache Commons Lang.
  *
  * @see <a href="http://www.gnu.org/software/gettext/manual/gettext.html">GNU gettext manual</a>
  */
@@ -73,7 +69,7 @@ public final class Tips
 	}
 
 	/**
-	 * 
+	 *
 	 * @param rootDirectory root of the directories to parse
 	 * @param filename the name of the filename to parse
 	 */
@@ -165,10 +161,9 @@ public final class Tips
 	private static void writePOT(Iterable<String> tips, Writer bw) throws IOException
 	{
 		// header stuff
-		Calendar now = Calendar.getInstance();
 		bw.write("msgid \"\"\n" + "msgstr \"\"\n" + "\"Project-Id-Version: PCGen-tips 6.x\\n\"\n"
 			+ "\"Report-Msgid-Bugs-To: \\n\"\n" + "\"POT-Creation-Date: "
-			+ DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.format(now) + "\\n\"\n"
+			+ Instant.now() + "\\n\"\n"
 			+ "\"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\\n\"\n" + "\"Last-Translator: FULL NAME <EMAIL@ADDRESS>\\n\"\n"
 			+ "\"Language-Team: LANGUAGE <LL@li.org>\\n\"\n" + "\"MIME-Version: 1.0\\n\"\n"
 			+ "\"Content-Type: text/plain; charset=UTF-8\\n\"\n" + "\"Content-Transfer-Encoding: 8bit\\n\"\n\n");
@@ -246,7 +241,7 @@ public final class Tips
 	}
 
 	/**
-	 * 
+	 *
 	 * @param rootDirectory directory to search in (only done in sub-directories of this)
 	 * @param translation PO file
 	 * @param translationName name for new translation filename (like tips_fr.txt)
@@ -344,12 +339,10 @@ public final class Tips
 					{
 						File newFile = new File(subfile, translationName);
 						log("Found {0}, creating {1}", tipsFile, newFile);
-						BufferedWriter bw = null;
-						BufferedReader reader = null;
-						try
+						try(BufferedReader reader = new BufferedReader(new FileReader(tipsFile));
+							Writer bw = new BufferedWriter(new FileWriter(newFile)))
 						{
-							reader = new BufferedReader(new FileReader(tipsFile));
-							bw = new BufferedWriter(new FileWriter(newFile));
+
 							String readLine = reader.readLine();
 							while (readLine != null)
 							{
@@ -379,33 +372,6 @@ public final class Tips
 						{
 							// TODO Auto-generated catch block
 							e.printStackTrace();
-						}
-						finally
-						{
-							try
-							{
-								if (reader != null)
-								{
-									reader.close();
-								}
-							}
-							catch (IOException e)
-							{
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}
-							try
-							{
-								if (bw != null)
-								{
-									bw.close();
-								}
-							}
-							catch (IOException e)
-							{
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}
 						}
 
 					}

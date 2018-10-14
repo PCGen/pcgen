@@ -796,7 +796,7 @@ Axe Beak (Combat-Trained)		TYPE:Mount.Goods.Transportation.Container	CONTAINS:*6
 Axe Beak Egg				TYPE:Mount.Goods									COST:1000	WT:10		SOURCEPAGE:p.80
 Camel						TYPE:Mount.Goods.Transportation.Container	CONTAINS:*900|Any		COST:150	WT:1500	SOURCEPAGE:p.81
 Dire Bat (Riding)				TYPE:Mount.Goods.Transportation.Container	CONTAINS:*520|Any		COST:300	WT:400	SOURCEPAGE:p.82
-Dire bat (Riding/Combat-Trained)	TYPE:Mount.Goods.Transportation.Container	CONTAINS:*520|Any		COST:450	WT:450	SOURCEPAGE:p.82
+Dire Bat (Riding/Combat-Trained)	TYPE:Mount.Goods.Transportation.Container	CONTAINS:*520|Any		COST:450	WT:450	SOURCEPAGE:p.82
 Dog (Riding).MOD																	WT:50		SOURCEPAGE:p.82
 Donkey.MOD																		WT:600	SOURCEPAGE:p.82
 Elephant					TYPE:Mount.Goods.Transportation.Container	CONTAINS:*9600|Any	COST:1000	WT:10000	SOURCEPAGE:p.82

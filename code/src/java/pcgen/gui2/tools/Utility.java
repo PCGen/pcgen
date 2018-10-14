@@ -30,29 +30,19 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
 import java.awt.image.RenderedImage;
-import java.io.File;
-import java.io.IOException;
 import java.lang.reflect.Field;
-import java.net.MalformedURLException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.JComponent;
 import javax.swing.JDialog;
-import javax.swing.JFileChooser;
 import javax.swing.JRootPane;
 import javax.swing.JTabbedPane;
 import javax.swing.KeyStroke;
 import javax.swing.SwingUtilities;
 
-import org.apache.commons.lang3.SystemUtils;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.Nullable;
-
-import pcgen.system.PCGenSettings;
 
 /**
  * Convenience methods from various sources.
@@ -285,104 +275,6 @@ public final class Utility
 			screenSize.y + ((screenSize.height - frameSize.height) / 2));
 	}
 
-	/**
-	 * Sets the default browser.
-	 *
-	 * @param parent The component to show the dialog over.
-	 */
-	public static void selectDefaultBrowser(Component parent)
-	{
-		final JFileChooser fc = new JFileChooser();
-		fc.setDialogTitle("Find and select your preferred html browser.");
-
-		if (SystemUtils.IS_OS_MAC || SystemUtils.IS_OS_MAC_OSX)
-		{
-			// On MacOS X, do not traverse file bundles
-			fc.putClientProperty("JFileChooser.appBundleIsTraversable", "never");
-		}
-
-		if (PCGenSettings.getBrowserPath() != null)
-		{
-			fc.setCurrentDirectory(new File(PCGenSettings.getBrowserPath()));
-		}
-
-		final int returnVal = fc.showOpenDialog(parent);
-
-		if (returnVal == JFileChooser.APPROVE_OPTION)
-		{
-			final File file = fc.getSelectedFile();
-			PCGenSettings.OPTIONS_CONTEXT.setProperty(PCGenSettings.BROWSER_PATH, file.getAbsolutePath());
-		}
-	}
-
-	/**
-	 * View a URL in a browser.  Uses BrowserLauncher class.
-	 *
-	 * @param url URL to display in browser.
-	 * @throws IOException if file doesn't exist
-	 * @see DesktopBrowserLauncher
-	 */
-	public static void viewInBrowser(String url) throws IOException
-	{
-		viewInBrowser(new URL(url));
-	}
-
-	/**
-	 * View a file (should be browsable) in a browser.
-	 *
-	 * @param file Path of the file to display in browser.
-	 * @throws IOException if file doesn't exist
-	 * @see DesktopBrowserLauncher
-	 */
-	public static void viewInBrowser(File file) throws IOException
-	{
-		viewInBrowser(file.toURI());
-	}
-
-	/**
-	 * View a URL in a browser
-	 *
-	 * @param url URL to display in browser.
-	 * @throws IOException if the URL is bad or the browser can not be launched
-	 * @see DesktopBrowserLauncher
-	 */
-	static void viewInBrowser(URL url) throws IOException
-	{
-		try
-		{
-			viewInBrowser(url.toURI());
-		}
-		catch (final URISyntaxException e)
-		{
-			throw new MalformedURLException(e.getMessage());
-		}
-	}
-
-	/**
-	 * View a URI in a browser.
-	 *
-	 * @param uri URI to display in browser.
-	 * @throws IOException if browser can not be launched
-	 * @see DesktopBrowserLauncher
-	 */
-	private static void viewInBrowser(URI uri) throws IOException
-	{
-		// Windows tends to lock up or not actually
-		// display anything unless we've specified a
-		// default browser, so at least make the user
-		// aware that (s)he needs one. If they don't
-		// pick one and it doesn't work, at least they
-		// might know enough to try selecting one the
-		// next time.
-		if (!DesktopBrowserLauncher.isBrowseSupported() && SystemUtils.IS_OS_WINDOWS
-			&& (PCGenSettings.getBrowserPath() == null))
-		{
-			selectDefaultBrowser(null);
-		}
-
-		DesktopBrowserLauncher.browse(uri);
-
-	}
 
 	/**
 	 * Add a keyboard shortcut to allow ESC to close the dialog.

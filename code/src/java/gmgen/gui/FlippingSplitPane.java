@@ -503,7 +503,7 @@ public class FlippingSplitPane extends JSplitPane
 	/**
 	 * Menu item for Center item in popup menu.
 	 */
-	private class CenterMenuItem extends JMenuItem
+	private final class CenterMenuItem extends JMenuItem
 	{
 		CenterMenuItem()
 		{
@@ -538,7 +538,7 @@ public class FlippingSplitPane extends JSplitPane
 	/**
 	 * Menu item for Continuous layout item in options menu.
 	 */
-	private class ContinuousLayoutMenuItem extends JCheckBoxMenuItem
+	private final class ContinuousLayoutMenuItem extends JCheckBoxMenuItem
 	{
 		ContinuousLayoutMenuItem()
 		{
@@ -568,7 +568,7 @@ public class FlippingSplitPane extends JSplitPane
 	/**
 	 * Menu item for Flip item in popup menu.
 	 */
-	private class FlipMenuItem extends JMenuItem
+	private final class FlipMenuItem extends JMenuItem
 	{
 		FlipMenuItem()
 		{
@@ -603,7 +603,7 @@ public class FlippingSplitPane extends JSplitPane
 	/**
 	 * Menu item for Lock/Unlock item in popup menu.
 	 */
-	private class LockMenuItem extends JMenuItem
+	private final class LockMenuItem extends JMenuItem
 	{
 		LockMenuItem()
 		{
@@ -639,7 +639,7 @@ public class FlippingSplitPane extends JSplitPane
 	/**
 	 * Menu item for One touch expandable item in options menu.
 	 */
-	private class OneTouchExpandableMenuItem extends JCheckBoxMenuItem
+	private final class OneTouchExpandableMenuItem extends JCheckBoxMenuItem
 	{
 		OneTouchExpandableMenuItem()
 		{
@@ -657,7 +657,7 @@ public class FlippingSplitPane extends JSplitPane
 	/**
 	 * Menu for Options item in popup menu.
 	 */
-	private class OptionsMenu extends JMenu
+	private final class OptionsMenu extends JMenu
 	{
 		OptionsMenu()
 		{
@@ -730,7 +730,7 @@ public class FlippingSplitPane extends JSplitPane
 	/**
 	 * Menu item for Reset item in popup menu.
 	 */
-	private class ResetMenuItem extends JMenuItem
+	private final class ResetMenuItem extends JMenuItem
 	{
 		ResetMenuItem()
 		{
