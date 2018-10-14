@@ -1,6 +1,6 @@
 
 # COMMENT: This will serve the same purpose as Pathfinder, trying to limit it's super use though
-Default	CATEGORY:Internal	BONUS:HP|CURRENTMAX|RaceHP	BONUS:VAR|StarfinderSystem|1	BONUS:VAR|Resolve|max(1,Resolve_PCLvl+KeyAbilityBonus)	DEFINE:Resolve_PCLvl|0	BONUS:VAR|Resolve_PCLvl|max(1,TL/2)		ABILITY:Internal|AUTOMATIC|Movement	BONUS:VAR|SkillCap_Level|TL				BONUS:VAR|SkillCap_Acrobatics|SkillCap_Level	DEFINE:Damage_OperativeWeapon|0
+Default	CATEGORY:Internal		BONUS:HP|CURRENTMAX|RaceHP	BONUS:VAR|StarfinderSystem|1	BONUS:VAR|Resolve|max(1,Resolve_PCLvl+KeyAbilityBonus)	DEFINE:Resolve_PCLvl|0	BONUS:VAR|Resolve_PCLvl|max(1,TL/2)		ABILITY:Internal|AUTOMATIC|Movement	BONUS:VAR|SkillCap_Level|TL				BONUS:VAR|SkillCap_Acrobatics|SkillCap_Level	DEFINE:Damage_OperativeWeapon|0
 CATEGORY=Internal|Default.MOD	DEFINE:SkillCap_Athletics|0					BONUS:VAR|SkillCap_Athletics|SkillCap_Level
 CATEGORY=Internal|Default.MOD	DEFINE:SkillCap_Bluff|0						BONUS:VAR|SkillCap_Bluff|SkillCap_Level	
 CATEGORY=Internal|Default.MOD	DEFINE:SkillCap_Computers|0					BONUS:VAR|SkillCap_Computers|SkillCap_Level	

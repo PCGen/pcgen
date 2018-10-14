@@ -7,6 +7,8 @@ Credit	COST:1	TYPE:Credit.Coin
 
 
 ###Block:BASIC MELEE WEAPONS
+#Weapon
+
 
 # One-Handed Weapons
 Unarmed strike			KEY:Unarmed strike			PROFICIENCY:WEAPON|Unarmed strike					MODIFY:ItemLevel|SET|0	QUALITY:Level|0	COST:0	PART:1|MODIFY:Damage|SET|1d3		DAMAGE:1d3	TYPE:RESIZABLE.Weapon.Melee.Prof Group Basic Melee.B.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized.ToHit_UseStr.Damage_UseStr	WIELD:OneHanded	QUALITY:Critical|-		QUALITY:Bulk|-				SPROP:Archaic.nonlethal
@@ -21,7 +23,7 @@ Dueling sword, buzzblade	KEY:Dueling sword (buzzblade)		PROFICIENCY:WEAPON|Dueli
 Battleglove, nova			KEY:Battleglove (nova)			PROFICIENCY:WEAPON|Battleglove (nova)				MODIFY:ItemLevel|SET|13	QUALITY:Level|13	COST:52500	PART:1|MODIFY:Damage|SET|3d10		DAMAGE:3d10	TYPE:RESIZABLE.B.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized.ToHit_UseStr.Damage_UseStr	WIELD:OneHanded	QUALITY:Critical|-		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		SPROP:Powered (capacity 20, usage 1)
 Battleglove, gravity		KEY:Battleglove (gravity)		PROFICIENCY:WEAPON|Battleglove (gravity)				MODIFY:ItemLevel|SET|17	QUALITY:Level|17	COST:214850	PART:1|MODIFY:Damage|SET|5d10		DAMAGE:5d10	TYPE:RESIZABLE.B.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized.ToHit_UseStr.Damage_UseStr	WIELD:OneHanded	QUALITY:Critical|-		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		SPROP:Powered (capacity 20, usage 1)
 Dueling sword, molecular rift	KEY:Dueling sword (molecular rift)	PROFICIENCY:WEAPON|Dueling sword (molecular rift)		MODIFY:ItemLevel|SET|18	QUALITY:Level|18	COST:331200	PART:1|MODIFY:Damage|SET|10d6		DAMAGE:10d6	TYPE:RESIZABLE.S.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized.ToHit_UseStr.Damage_UseStr	WIELD:OneHanded	QUALITY:Critical|-		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		SPROP:Analog
-Peacemaker				KEY:Peacemaker				PROFICIENCY:WEAPON|Peacemaker						MODIFY:ItemLevel|SET|16	QUALITY:Level|16	COST:185300	PART:1|MODIFY:Damage|SET|6d6		DAMAGE:6d6	TYPE:RESIZABLE.B.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized.Damage_UseStr.Operative		WIELD:OneHanded	QUALITY:Critical|Knockdown	QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		SPROP:Operative, powered (capacity 20, usage 2), stun
+Peacemaker				KEY:Peacemaker				PROFICIENCY:WEAPON|Peacemaker						MODIFY:ItemLevel|SET|16	QUALITY:Level|16	COST:185300	PART:1|MODIFY:Damage|SET|6d6		DAMAGE:6d6	TYPE:RESIZABLE.B.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized.Damage_UseStr.Operative	WIELD:OneHanded	QUALITY:Critical|Knockdown	QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		SPROP:Operative, powered (capacity 20, usage 2), stun
 Dueling sword, ripper		KEY:Dueling sword (ripper)		PROFICIENCY:WEAPON|Dueling sword (ripper)				MODIFY:ItemLevel|SET|15	QUALITY:Level|15	COST:109250	PART:1|MODIFY:Damage|SET|7d6		DAMAGE:7d6	TYPE:RESIZABLE.S.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized.ToHit_UseStr.Damage_UseStr	WIELD:OneHanded	QUALITY:Critical|-		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		SPROP:Powered (capacity 20, usage 1)
 
 # Operative sub group

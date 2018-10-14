@@ -13,11 +13,10 @@ SIZE ~ Medium	VISIBLE:NO	SIZE:M
 
 
 
-
-
-
-Medium					VISIBLE:NO
-Large L	PREVAREQ:RaceIsLong,1	VISIBLE:NO
+Tiny						VISIBLE:NO	
+Small						VISIBLE:NO	
+Medium					VISIBLE:NO	
+Large L	PREVAREQ:RaceIsLong,1	VISIBLE:NO	
 Large T	PREVAREQ:RaceIsLong,0	VISIBLE:NO
 
 
