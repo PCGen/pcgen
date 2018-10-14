@@ -1,0 +1,100 @@
+# CVS $Revision$ $Author$ -- Wed Nov 20 08:25:04 2013 -- reformated by prettylst.pl v1.50 (build 21703)
+CAMPAIGN:Ultimate Wilderness
+GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing.Pathfinder RPG
+RANK:1
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder|Golarion
+STATUS:BETA
+PRECAMPAIGN:6,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic,INCLUDES=Ultimate Combat,INCLUDES=Advanced Class Guide,INCLUDES=Bestiary
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Ultimate Wilderness
+SOURCESHORT:UW
+SOURCEWEB:http://paizo.com/products/btpy9ujo
+SOURCEDATE:2017-11
+ISOGL:YES
+
+COVER:ultimate_wilderness.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy9ujo|Download this publication from Paizo Publishing!
+
+DESC:Answer the Call! Wild, untamed lands hold a wealth of mystery and danger, providing the perfect backdrop for heroic adventure. Whether adventurers are climbing mountains in search of a dragon's lair, carving their way through the jungle, or seeking a long-lost holy city covered by desert sands, Pathfinder RPG Ultimate Wilderness gives them the tools to survive the wilds. A new 20-level base class, the shifter, puts animalistic powers into the hands "or claws" of player characters and villains alike, with new class features derived from animalistic attributes. Overviews of druidic sects and rituals, as well as new archetypes, character options, spells, and more, round out the latest contribution to the Pathfinder RPG rules!
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder Roleplaying Game Core Rulebook Copyright 2009, Paizo Inc.; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:Animal Lord, Cat Lord from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Atomie from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Axe Beak from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Dragon, Faerie from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Brian Jaeger and Gary Gygax.
+COPYRIGHT:Hippocampus from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Authors: Scott Greene and Erica Balsley, based on original material by Gary Gygax.
+COPYRIGHT:Kelpie from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Lawrence Schick.
+COPYRIGHT:Korred from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Leprechaun from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Mite from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Ian Livingstone and Mark Barnes.
+COPYRIGHT:Nereid from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Slime Mold from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene.
+COPYRIGHT:Pathfinder Roleplaying Game Ultimate Wilderness Copyright 2017, Paizo Inc.; Authors: Alexander Augunas, John Bennett, Robert Brookes, John Compton, Dan Dillon, Steven T. Helt, Thurston Hillman, Eric Hindley, Mikko Kallio, Jason Keeley, Isabelle Lee, Jason Nelson, Stephen Radney-MacFarland, Alex Riggs, David N. Ross, David Schwartz, Mark Seifter, Jeffery Swank, and Linda Zayas-Palmer.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Ultimate Wilderness Copyright 2017, PCGen Data team (Including, but not limited to Gary Davies, Gwen T., Regan Anderson).
+
+#Do Not Remove Comment
+#EXTRAFILE:OGL.txt
+DATACONTROL:uw__datacontrols.lst
+
+ABILITY:uw_abilities_class.lst
+ABILITY:uw_abilities_companion.lst
+ABILITY:uw_abilities_race.lst
+ABILITYCATEGORY:uw_abilitycategories.lst
+CLASS:uw_classes.lst
+COMPANIONMOD:uw_companionmods.lst
+DEITY:uw_deities.lst
+DOMAIN:uw_domains.lst
+EQUIPMENT:uw_equip_arms_armor.lst
+EQUIPMENT:uw_equip_general.lst
+EQUIPMENT:uw_equip_magic_items.lst
+EQUIPMOD:uw_equipmods.lst
+ABILITY:uw_feats.lst
+KIT:uw_kits.lst
+KIT:uw_kits_companion.lst
+KIT:uw_kits_race.lst
+LANGUAGE:uw_languages.lst
+WEAPONPROF:uw_profs_weapon.lst
+RACE:uw_races.lst
+RACE:uw_races_companion.lst
+SKILL:uw_skills.lst
+SPELL:uw_spells.lst
+TEMPLATE:uw_templates.lst
+
+ABILITY:support/uw_abilities_class_arg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
+ABILITY:support/uw_abilities_class_fap.lst|PRECAMPAIGN:1,INCLUDES=Faiths and Philosophies
+ABILITY:support/uw_abilities_class_oa.lst|PRECAMPAIGN:1,INCLUDES=Occult Adventures
+ABILITY:support/uw_abilities_class_pu.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Unchained
+ABILITY:support/uw_abilities_class_ui.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Intrigue
+ABILITY:support/uw_abilities_companion_pu.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Unchained
+RACE:support/uw_races_companion_arg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
+RACE:support/uw_races_companion_b3.lst|PRECAMPAIGN:1,INCLUDES=Bestiary 3
+RACE:support/uw_races_companion_b4.lst|PRECAMPAIGN:1,INCLUDES=Bestiary 4
+RACE:support/uw_races_companion_b5.lst|PRECAMPAIGN:1,INCLUDES=Bestiary 5
+RACE:support/uw_races_companion_b6.lst|PRECAMPAIGN:1,INCLUDES=Bestiary 6
+
+FORWARDREF:ABILITY=FEAT|Psychic Sensitivity
+FORWARDREF:CLASSSPELLLIST|Medium,Mesmerist,Occultist,Psychic,Spiritualist
+
+# ENTRY DATE: 2017-01
+# LST MONKEY: Gary Davies, Gwen T., Regan Anderson
+# LICENSE MONKEY: Paul (Nylanfs) Grosse
+# RELEASE REVIEW #
+# BETA: Andrew (LegacyKing) Maitland
+# RELEASE:
+# Built for PCGen Version: 6.07.09
+# Updated to work with version: -
+# MINVER:6.7
+# MINDEVVER:6.07.09
+
