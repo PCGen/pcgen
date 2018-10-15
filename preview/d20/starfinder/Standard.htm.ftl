@@ -694,59 +694,6 @@ ${pcstring("ABILITYALL.Racial Trait.VISIBLE.${RacialTrait}.TYPE.ASPECT.BonusSave
 
    </#if>
 
-<!-- STOP Unarmed Attack Table -->
-	<#-- create variable x -->
-	<#assign fab = pcstring('WEAPONH.TOTALHIT')?keep_before("/")?number>
-	<#assign fab_1 = pcvar('VAR.FAB_1.INTVAL') + fab>
-	<#assign fab_2 = pcvar('VAR.FAB_2.INTVAL') + fab>
-	<#assign fab_3 = pcvar('VAR.FAB_3.INTVAL') + fab>
-	<#assign fab_4 = pcvar('VAR.FAB_4.INTVAL') + fab>
-	<#assign fab_5 = pcvar('VAR.FAB_5.INTVAL') + fab>
-	<#assign fab_6 = pcvar('VAR.FAB_6.INTVAL') + fab>
-	<#assign fab_7 = pcvar('VAR.FAB_7.INTVAL') + fab>
-	<#assign fab_8 = pcvar('VAR.FAB_8.INTVAL') + fab>
-	<#assign fab_9 = pcvar('VAR.FAB_9.INTVAL') + fab>
-
-<#if (pcvar("FlurryLvl") >= 1)>
-<!-- START Flurry Attack Table -->
-   <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Flurry Attack">
-    <tr>
-     <td align="center" height="25" bgcolor="black" rowspan="2" width="40%"><font style="font-size:10pt" color="white"><b>Flurry of Blows</b></font></td>
-     <td align="center" bgcolor="black" width="60%" height="15"><font style="font-size:6pt" color="white"><b>TOTAL ATTACK BONUS</b></font></td>
-    </tr>
-    <tr>
-     <td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>
-     <#if (fab_1 >= 0)>+</#if><#t>${fab_1}<#t>
-     <#if (pcvar("FlurryAttacks") >= 2)>
-     /<#if (fab_2 >= 0)>+</#if><#t>${fab_2}<#t>
-     </#if>
-     <#if (pcvar("FlurryAttacks") >= 3)>
-     /<#if (fab_3 >= 0)>+</#if><#t>${fab_3}
-     </#if>
-     <#if (pcvar("FlurryAttacks") >= 4)>
-     /<#if (fab_4 >= 0)>+</#if><#t>${fab_4}
-     </#if>
-     <#if (pcvar("FlurryAttacks") >= 5)>
-     /<#if (fab_5 >= 0)>+</#if><#t>${fab_5}
-     </#if>
-     <#if (pcvar("FlurryAttacks") >= 6)>
-     /<#if (fab_6 >= 0)>+</#if><#t>${fab_6}
-     </#if>
-     <#if (pcvar("FlurryAttacks") >= 7)>
-     /<#if (fab_7 >= 0)>+</#if><#t>${fab_7}
-     </#if>
-     <#if (pcvar("FlurryAttacks") >= 8)>
-     /<#if (fab_7 >= 0)>+</#if><#t>${fab_8}
-     </#if>
-     <#if (pcvar("FlurryAttacks") >= 9)>
-     /<#if (fab_7 >= 0)>+</#if><#t>${fab_9}
-     </#if>
-     <br /></b></font></td>
-    </tr>
-   </table>
-   <font style="font-size:2pt"><br /></font>
-<!-- STOP Flurry Attack Table -->
-</#if>
 
 
 
