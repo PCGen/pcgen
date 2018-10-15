@@ -27,7 +27,7 @@ plugins {
     id "de.undercouch.download" version '3.4.3'
     id 'edu.sc.seis.launch4j' version '2.4.4'
     id 'com.github.ben-manes.versions' version '0.20.0'
-    id "com.dorongold.task-tree" version '1.3'
+    id "com.dorongold.task-tree" version '1.3.1'
 }
 
 group = 'net.sourceforge.pcgen'
@@ -187,7 +187,7 @@ dependencies {
 
     slowtestRuntime configurations.testRuntime
    
-    spotbugs 'com.github.spotbugs:spotbugs:3.1.6'
+    spotbugs 'com.github.spotbugs:spotbugs:3.1.7'
     spotbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.8.0'
 }
 
