@@ -79,7 +79,7 @@ repositories {
     mavenCentral()
     ivy {
         url "http://pcgen.sourceforge.net/mvnrepo"
-        layout "pattern", {
+        patternLayout {
             artifact "[organisation]/jars/[artifact]-[revision].[ext]"
         }
     }
