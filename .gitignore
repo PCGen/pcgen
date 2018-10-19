@@ -1,7 +1,9 @@
 # Local PCGen configuration files (these are created when you run PCGen from the root dir)
-*.ini
-config.ini.junit
+/pcgen.ini
+/config.ini
+/config.ini.junit
 .settings/
+#settings/
 
 # Batch converter
 batch-convert.jar
@@ -24,12 +26,20 @@ hs_err_*.log
 checkstyle-cachefile
 .checkstyle
 
-# Exclude equipment and party sheets (which are generated?)
+# Exclude most? equipment and party sheets (which are generated?)
 outputsheets/d20/*/htmlxml/eqsheet*.htm
 outputsheets/d20/*/htmlxml/psheet*.htm
+!outputsheets/d20/fantasy_craft/htmlxml/psheet_fantasy_std.htm
+!outputsheets/d20/fantasy_craft/htmlxml/eqsheet_fantasy_std.htm
+!outputsheets/d20/fantasy/htmlxml/eqsheet_fantasy_consumables.htm
+!outputsheets/d20/fantasy/htmlxml/eqsheet_fantasy_std.htm
+!outputsheets/d20/fantasy/htmlxml/psheet_fantasy_std.htm
+!outputsheets/d20/fantasy/htmlxml/psheet_fantasy_std_PFRPG.htm
+!outputsheets/d20/modern/htmlxml/psheet_modern_std.htm
+!outputsheets/d20/modern/htmlxml/eqsheet_modern_std.htm
 
 # Custom shell and batch scripts
-pcgen.sh
+/pcgen.sh
 pcgen_low_mem.bat
 Trunk.bat
 
