@@ -32,6 +32,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenLibrary;
 import pcgen.util.Logging;
 
+@SuppressWarnings("PMD.UnusedImports")
 public final class Bonus
 {
 	static final String BONUS_UNDEFINED = "*UNDEFINED";
