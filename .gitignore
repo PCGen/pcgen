@@ -1,33 +1,47 @@
+# Local PCGen configuration files (these are created when you run PCGen from the root dir)
 *.ini
+config.ini.junit
+.settings/
 
+# Batch converter
 batch-convert.jar
+
+# Plugins
 plugins/*.jar
 plugins/*plugins/
 
+# characters that you might create, see the .gitignore file in that folder
 characters/*
 
-bin/
-code/bin/
-code/build/
-code/comp-manifest
-code/manifest
-
+# JVM Error log if Java craches
 hs_err_*.log
+
+# Checkstyle configuration
 checkstyle-cachefile
-config.ini.junit
+.checkstyle
 
 code/build.eclipse/
 code/manifest-tests
-pcgendev.iml
 
-outputsheets/d20/*/htmlxml/*.htm
 
-pcgen.exe
-pcgen.jar
+# Exclude equipment and party sheets (which are generated?)
+outputsheets/d20/*/htmlxml/eqsheet*.htm
+outputsheets/d20/*/htmlxml/psheet*.htm
+
+# Custom shell and batch scripts
+pcgen.sh
+pcgen_low_mem.bat
+Trunk.bat
+
+# Generated Logs
 pcgen.log
 pcgen.log.*
-pcgen_low_mem.bat
+variable_report.csv
+variable_report.html
 
+# Binaries / Binary folders produced by the build
+pcgen.exe
+pcgen.jar
 output/
 build/
 libs/
@@ -35,20 +49,25 @@ code/testsuite/output/
 .gradle/
 pcgen-batch-convert.jar
 .metadata
-Trunk.bat
+bin/
+code/bin/
+code/build/
+code/comp-manifest
+code/manifest
 target/
-.settings/
-variable_report.csv
-variable_report.html
 
+# Data we want to exclude, see .gitignore files within
 data/customsources/*
 !data/customsources/readme-customsources.txt
-.nb-gradle/
-jre/
+
+# Installers
+
 installers/win-installer/project.nsh
 installers/win-installer/includes/constants.nsh
-.checkstyle
 installers/win-installer/includes/data.nsh
+
+# Netbeans IDE
+.nb-gradle/
 .nb-gradle-properties
 
 # Eclipse IDE
@@ -58,7 +77,11 @@ installers/win-installer/includes/data.nsh
 # IntelliJ IDE
 .idea/
 out/
+pcgendev.iml
 
 # pmd
 /.pmd
 /.ruleset
+
+# Misc
+jre/
