@@ -17,8 +17,8 @@
  */
 package pcgen.core.bonus;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.ArrayList; //NOPMD
+import java.util.List; //NOPMD
 import java.util.StringTokenizer;
 
 import pcgen.base.formula.Formula;
@@ -32,6 +32,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenLibrary;
 import pcgen.util.Logging;
 
+@SuppressWarnings("PMD")
 public final class Bonus
 {
 	static final String BONUS_UNDEFINED = "*UNDEFINED";
