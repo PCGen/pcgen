@@ -6,7 +6,7 @@ dist: trusty
 matrix:
   include:
     - os: linux
-      jdk: oraclejdk10
+      jdk: openjdk11
   allow_failures:  
       - os: osx
         osx_image: xcode9
