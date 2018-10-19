@@ -1,11 +1,5 @@
 #!/bin/sh
 set -e
-if command git rev-parse >/dev/null 2>&1
-then
-  cd "$(git rev-parse --show-toplevel)/output"
-else
-  cd "$(dirname "$0")"
-fi
 
 available_memory="unknown"
 default_min_memory=256
