@@ -169,7 +169,8 @@ public class HitPointsPanel extends PCGenPrefsPanel
 		try
 		{
 			hpPercentSpinner.commitEdit();
-		} catch (ParseException e)
+		}
+		catch (ParseException e)
 		{
 			// I was unable to get this to actually happen. In order to press the OK button
 			// the control must be exited, and the editor returns to the model's state.
