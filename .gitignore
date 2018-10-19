@@ -3,7 +3,7 @@
 /config.ini
 /config.ini.junit
 .settings/
-#settings/
+/settings/
 
 # Batch converter
 batch-convert.jar
