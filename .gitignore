@@ -24,10 +24,6 @@ hs_err_*.log
 checkstyle-cachefile
 .checkstyle
 
-code/build.eclipse/
-code/manifest-tests
-
-
 # Exclude equipment and party sheets (which are generated?)
 outputsheets/d20/*/htmlxml/eqsheet*.htm
 outputsheets/d20/*/htmlxml/psheet*.htm
@@ -46,9 +42,9 @@ variable_report.html
 # Binaries / Binary folders produced by the build
 pcgen.exe
 pcgen.jar
-output/
-build/
-libs/
+/output/
+/build/
+/libs/
 code/testsuite/output/
 .gradle/
 pcgen-batch-convert.jar
@@ -63,13 +59,11 @@ target/
 # Data we want to exclude, see .gitignore files within
 data/customsources/*
 !data/customsources/readme-customsources.txt
-
 !data/homebrew/readme.txt
 !data/homebrew/conversion_support/
 !data/homebrew/my_pathfinder_campaign/
 
 # Installers
-
 installers/win-installer/project.nsh
 installers/win-installer/includes/constants.nsh
 installers/win-installer/includes/data.nsh
@@ -81,6 +75,7 @@ installers/win-installer/includes/data.nsh
 # Eclipse IDE
 .classpath
 .project
+code/build.eclipse/
 
 # IntelliJ IDE
 .idea/
@@ -93,3 +88,4 @@ pcgendev.iml
 
 # Misc
 jre/
+code/manifest-tests
