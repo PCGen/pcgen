@@ -79,7 +79,7 @@ repositories {
     mavenCentral()
     ivy {
         url "http://pcgen.sourceforge.net/mvnrepo"
-        layout "pattern", {
+        patternLayout {
             artifact "[organisation]/jars/[artifact]-[revision].[ext]"
         }
     }
@@ -152,9 +152,9 @@ compileJava {
 dependencies {
     compile group: 'cobra', name: 'cobra', version:'0.98.4-pcgen'
     compile group: 'commons-io', name: 'commons-io', version:'2.6'
-    compile group: 'org.springframework', name: 'spring-core', version:'5.1.0.RELEASE'
-    compile group: 'org.springframework', name: 'spring-beans', version:'5.1.0.RELEASE'
-    compile group: 'org.springframework', name: 'spring-web', version:'5.1.0.RELEASE'
+    compile group: 'org.springframework', name: 'spring-core', version:'5.1.1.RELEASE'
+    compile group: 'org.springframework', name: 'spring-beans', version:'5.1.1.RELEASE'
+    compile group: 'org.springframework', name: 'spring-web', version:'5.1.1.RELEASE'
     compile group: 'skinlf', name: 'skinlf', version: '1.2.3'
     compile group: 'org.apache.commons', name: 'commons-lang3', version:'3.8.1'
     compile group: 'org.apache.xmlgraphics', name: 'fop', version:'2.3'
@@ -191,7 +191,7 @@ dependencies {
 
     slowtestRuntime configurations.testRuntime
    
-    spotbugs 'com.github.spotbugs:spotbugs:3.1.7'
+    spotbugs 'com.github.spotbugs:spotbugs:3.1.8'
     spotbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.8.0'
 }
 
