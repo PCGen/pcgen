@@ -12,6 +12,10 @@ plugins/*plugins/
 
 # characters that you might create, see the .gitignore file in that folder
 characters/*
+!characters/CodeMonkey.pcg
+!characters/Everything.pcg
+!characters/Sorcerer.pcg
+!characters/SpecialWizard.pcg
 
 # JVM Error log if Java craches
 hs_err_*.log
@@ -59,6 +63,10 @@ target/
 # Data we want to exclude, see .gitignore files within
 data/customsources/*
 !data/customsources/readme-customsources.txt
+
+!data/homebrew/readme.txt
+!data/homebrew/conversion_support/
+!data/homebrew/my_pathfinder_campaign/
 
 # Installers
 
