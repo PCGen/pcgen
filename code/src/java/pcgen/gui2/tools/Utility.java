@@ -340,20 +340,6 @@ public final class Utility
 		// macOS
 		System.setProperty("com.apple.mrj.application.apple.menu.about.name", title);
 		System.setProperty("apple.awt.application.name", title);
-
-		// X11
-		Toolkit xToolkit = Toolkit.getDefaultToolkit();
-		try
-		{
-			Field awtAppClassNameField = xToolkit.getClass().getDeclaredField("awtAppClassName"); //$NON-NLS-1$
-			awtAppClassNameField.setAccessible(true);
-			awtAppClassNameField.set(xToolkit, title);
-		}
-		catch (NoSuchFieldException | IllegalAccessException e)
-		{
-			// Rather than do a OS system condition, just ignore this expected exception
-			//Logging.log(Level.FINEST, "Can not set name of application for window manager", e);
-		}
 	}
 
 	public static void configurePlatformUI()
