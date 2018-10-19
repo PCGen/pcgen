@@ -6,6 +6,7 @@ dist: trusty
 matrix:
   include:
     - os: linux
+      jdk: openjdk10
     - env: JDK='OpenJDK 10'
       install: . ./install-jdk.sh -F 10 -L GPL
   allow_failures:
