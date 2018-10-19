@@ -6,9 +6,8 @@ dist: trusty
 matrix:
   include:
     - os: linux
-      jdk: oraclejdk10
-    - env: JDK='Oracle JDK 10'
-      install: . ./install-jdk.sh -F 10 -L BCL
+    - env: JDK='OpenJDK 10'
+      install: . ./install-jdk.sh -F 10 -L GPL
   allow_failures:
       - os: osx
         osx_image: xcode9
