@@ -261,6 +261,22 @@ task syncLibsToRoot(type: Sync, dependsOn: [copyToLibs, jar, converterJar]) {
     exclude "pcgen-*.jar"
 }
 
+task installToRoot(type: Copy, dependsOn: [syncLibsToRoot, createExe, jar,
+                                           converterJar]) {
+    description="Copy the executable file into the root to create a working environment"
+    from "$buildDir/libs/pcgen-${version}.jar"
+    from "$buildDir/libs/pcgen-${version}-batch-convert.jar"
+    from "$buildDir/launch4j/pcgen.exe"
+    from("$projectDir/code/pcgen.sh") {
+        filter(FixCrLfFilter, eol:FixCrLfFilter.CrLf.newInstance("lf"))
+        fileMode 0755
+    }
+    into projectDir
+
+    rename "(.+)-$version(.+)", '$1$2'
+    mustRunAfter clean
+}
+
 task cleanOutput(type: Delete) {
     description="Clean up things copied to the output folder by the build"
     delete outputDir
