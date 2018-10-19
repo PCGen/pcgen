@@ -6,6 +6,7 @@ dist: trusty
 matrix:
   include:
     - os: linux
+      jdk: oraclejdk10
     - env: JDK='Oracle JDK 10'
       install: . ./install-jdk.sh -F 10 -L BCL
   allow_failures:
