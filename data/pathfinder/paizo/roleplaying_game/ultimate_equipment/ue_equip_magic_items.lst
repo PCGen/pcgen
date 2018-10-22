@@ -111,7 +111,7 @@ Ring of Continuation														TYPE:Magic.Ring.GreaterMajor	COST:56000	WT:0		
 Ring of Counterspells.MOD													TYPE:GreaterMinor			COST:4000	WT:0					SOURCEPAGE:p.168
 Ring of Craft Magic														TYPE:Magic.Ring.LesserMedium	COST:12000	WT:0					SOURCEPAGE:p.168
 Ring of Curing															TYPE:Magic.Ring.LesserMedium	COST:10000	WT:0					SOURCEPAGE:p.168
-Ring of Delayed Doom.MOD													TYPE:LesserMajor			COST:45000	WT:0					SOURCEPAGE:p.169
+Ring of Delayed Doom													TYPE:Magic.Ring.LesserMajor			COST:45000	WT:0					SOURCEPAGE:p.169
 Ring of Djinni Calling.MOD													TYPE:GreaterMajor			COST:125000	WT:0					SOURCEPAGE:p.169
 Ring of Ectoplasmic Invigoration												TYPE:Magic.Ring.LesserMedium	COST:12000	WT:0					SOURCEPAGE:p.169
 Ring of Elemental Command (Air).MOD												TYPE:GreaterMajor			COST:200000	WT:0					SOURCEPAGE:p.169
