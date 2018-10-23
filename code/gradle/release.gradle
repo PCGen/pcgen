@@ -184,13 +184,13 @@ launch4j {
 task downloadJRE doLast {
     def major = 11
     def micro = 0
-    def update = 0
+    def update = 1
     def extension = 'zip'
     def jre64Dir = new File("${projectDir}/jre/jre_64")
     if(!jre64Dir.exists()){
         //Only download Windows libraries. Need to add more OS if we go multi OS at any time.
-        def fileName = "openjdk-${major}_windows-x64_bin"
-        def jre64URL = "https://download.java.net/java/ga/jdk${major}/${fileName}.${extension}"
+        def fileName = "openjdk-${major}.${micro}.${update}_windows-x64_bin"
+        def jre64URL = "https://download.java.net/java/GA/jdk${major}/13/GPL/${fileName}.${extension}"
         println("Downloading JRE ${major}.${micro}.${update} from ${jre64URL}")
         if(!jre64Dir.exists()){
             download {
