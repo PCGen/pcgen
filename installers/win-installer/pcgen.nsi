@@ -167,20 +167,20 @@ Section "JRE 64 Bit" Section5
         SectionIn RO
 
         ;Use the right java version
-        DetailPrint "JRE extraction..."
+        DetailPrint "Java extraction..."
         SetOutPath "$INSTDIR\${APPDIR}\jre"
         File /a /r "${SrcDir}\..\..\jre\jre_x64\*.*"
         DetailPrint "Java extraction complete!"
 SectionEnd
 
 #Section "JRE 32 Bit" Section6
-#        SectionIn RO
+        SectionIn RO
 
-#        ;Use the right java version
-#        DetailPrint "JRE extraction..."
-#        SetOutPath "$INSTDIR\${APPDIR}\jre"
-#        File /a /r "${SrcDir}\..\..\jre\jre_x32\*.*"
-#        DetailPrint "Java extraction complete!"
+        ;Use the right java version
+        DetailPrint "Java extraction..."
+        SetOutPath "$INSTDIR\${APPDIR}\jre"
+        File /a /r "${SrcDir}\..\..\jre\jre_x32\*.*"
+        DetailPrint "Java extraction complete!"
 #SectionEnd
 
 Section -FinishSection
@@ -269,13 +269,13 @@ SectionEnd
 Function .onInit
   #Determine the bitness of the OS and enable the correct section
   IntOp $0 ${SF_SELECTED} | ${SF_RO}
-#  ${If} ${RunningX64}
+  ${If} ${RunningX64}
     SectionSetFlags ${Section5} $0
-#    SectionSetFlags ${Section6} ${SECTION_OFF}
-#  ${Else}
-#    SectionSetFlags ${Section5} ${SECTION_OFF} 
-#    SectionSetFlags ${Section6} $0
-#  ${EndIf}
+    SectionSetFlags ${Section6} ${SECTION_OFF}
+  ${Else}
+    SectionSetFlags ${Section5} ${SECTION_OFF} 
+    SectionSetFlags ${Section6} $0
+  ${EndIf}
 FunctionEnd
 
 ; eof
