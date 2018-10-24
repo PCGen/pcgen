@@ -12,8 +12,8 @@
 !define APPNAME "PCGen"
 !define APPNAMEANDVERSION "${APPNAME} ${LONGVER}"
 !define APPDIR "${LONGVER}"
-!define TargetVer "1.7"
-!define OverVer "1.9"
+!define TargetVer "1.10"
+!define OverVer "1.11"
 !define OutName "pcgen-${LONGVER}_win_install"
 
 ;Change the icons
@@ -169,17 +169,7 @@ Section "JRE 64 Bit" Section5
         ;Use the right java version
         DetailPrint "JRE extraction..."
         SetOutPath "$INSTDIR\${APPDIR}\jre"
-        File /a /r "${SrcDir}\..\..\jre\jre_64\jre\*.*"
-        DetailPrint "JRE extraction complete!"
-SectionEnd
-
-Section "JRE 32 Bit" Section6
-        SectionIn RO
-
-        ;Use the right java version
-        DetailPrint "JRE extraction..."
-        SetOutPath "$INSTDIR\${APPDIR}\jre"
-        File /a /r "${SrcDir}\..\..\jre\jre_32\jre\*.*"
+        File /a /r "${SrcDir}\..\..\jre\jre_64\jdk-11.0.1\*.*"
         DetailPrint "JRE extraction complete!"
 SectionEnd
 
@@ -269,13 +259,7 @@ SectionEnd
 Function .onInit
   #Determine the bitness of the OS and enable the correct section
   IntOp $0 ${SF_SELECTED} | ${SF_RO}
-  ${If} ${RunningX64}
-    SectionSetFlags ${Section5} $0
-    SectionSetFlags ${Section6} ${SECTION_OFF}
-  ${Else}
-    SectionSetFlags ${Section5} ${SECTION_OFF} 
-    SectionSetFlags ${Section6} $0
-  ${EndIf}
+  SectionSetFlags ${Section5} $0
 FunctionEnd
 
 ; eof

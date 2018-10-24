@@ -25,12 +25,10 @@ import java.awt.GraphicsEnvironment;
 import java.awt.GridBagConstraints;
 import java.awt.Point;
 import java.awt.Rectangle;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
 import java.awt.image.RenderedImage;
-import java.lang.reflect.Field;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
@@ -340,20 +338,6 @@ public final class Utility
 		// macOS
 		System.setProperty("com.apple.mrj.application.apple.menu.about.name", title);
 		System.setProperty("apple.awt.application.name", title);
-
-		// X11
-		Toolkit xToolkit = Toolkit.getDefaultToolkit();
-		try
-		{
-			Field awtAppClassNameField = xToolkit.getClass().getDeclaredField("awtAppClassName"); //$NON-NLS-1$
-			awtAppClassNameField.setAccessible(true);
-			awtAppClassNameField.set(xToolkit, title);
-		}
-		catch (NoSuchFieldException | IllegalAccessException e)
-		{
-			// Rather than do a OS system condition, just ignore this expected exception
-			//Logging.log(Level.FINEST, "Can not set name of application for window manager", e);
-		}
 	}
 
 	public static void configurePlatformUI()
