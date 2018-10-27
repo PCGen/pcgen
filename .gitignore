@@ -141,6 +141,7 @@ installers/win-installer/includes/data.nsh
 # IntelliJ IDE
 .idea/
 out/
+pcgen.iml
 
 # pmd
 /.pmd
