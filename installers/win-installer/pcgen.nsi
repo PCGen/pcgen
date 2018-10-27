@@ -169,7 +169,7 @@ Section "JRE 64 Bit" Section5
         ;Use the right java version
         DetailPrint "JRE extraction..."
         SetOutPath "$INSTDIR\${APPDIR}\jre"
-        File /a /r "${SrcDir}\..\..\jre\jre_64\jdk-11\*.*"
+        File /a /r "${SrcDir}\..\..\jre\jre_64\jdk-11.0.1\*.*"
         DetailPrint "JRE extraction complete!"
 SectionEnd
 
