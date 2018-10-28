@@ -976,8 +976,14 @@ public final class Equipment extends PObject
 	 */
 	public void addToEqModifierList(final EquipmentModifier eqMod, final boolean bPrimary)
 	{
-
-		usePrimaryCache = false;
+		if (bPrimary)
+		{
+			usePrimaryCache = false;
+		}
+		else
+		{
+			useSecondaryCache = false;
+		}
 		eqMod.setVariableParent(this);
 		getEquipmentHead(bPrimary ? 1 : 2).addToListFor(ListKey.EQMOD, eqMod);
 		setDirty(true);
