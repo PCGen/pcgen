@@ -47,8 +47,7 @@ public abstract class AbstractNEPCalculation<T> implements NEPCalculation<T>
 	 */
 	protected AbstractNEPCalculation(BasicCalculation<T> calc)
 	{
-		Objects.requireNonNull(calc, "BasicCalculation cannot be null");
-		basicCalc = calc;
+		basicCalc = Objects.requireNonNull(calc, "BasicCalculation cannot be null");
 	}
 
 	@Override
