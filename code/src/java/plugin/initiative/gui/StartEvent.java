@@ -27,6 +27,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.BorderFactory;
 import javax.swing.JFormattedTextField;
 import javax.swing.JPanel;
+import javax.swing.JSpinner;
 
 import gmgen.plugin.Event;
 import pcgen.core.SettingsHandler;
@@ -48,10 +49,8 @@ public class StartEvent extends javax.swing.JDialog
 
 	protected javax.swing.JLabel effectLabel;
 	protected javax.swing.JLabel initiativeLabel;
-	protected javax.swing.JSlider sDuration;
-	protected javax.swing.JSlider sInit;
-	protected JFormattedTextField lDuration;
-	protected JFormattedTextField lInit;
+	protected JSpinner lDuration;
+	protected JSpinner lInit;
 	protected javax.swing.JTextField tEffect;
 	protected javax.swing.JTextField tName;
 	protected javax.swing.JTextField tPlayer;
@@ -269,8 +268,7 @@ public class StartEvent extends javax.swing.JDialog
 	protected void addInitiative()
 	{
 		initiativeLabel = new javax.swing.JLabel();
-		sInit = Utils.buildSlider(1, 50);
-		lInit = Utils.buildIntegerFieldWithSlider(sInit);
+		lInit = Utils.buildIntegerField(1, 50);
 		lInit.setValue(1);
 
 		java.awt.GridBagConstraints gridBagConstraints;
@@ -281,13 +279,6 @@ public class StartEvent extends javax.swing.JDialog
 		gridBagConstraints.insets = new java.awt.Insets(0, 0, 5, 0);
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
 		mainPanel.add(initiativeLabel, gridBagConstraints);
-
-		gridBagConstraints = new java.awt.GridBagConstraints();
-		gridBagConstraints.gridx = 2;
-		gridBagConstraints.gridy = gridBagRow;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-		mainPanel.add(sInit, gridBagConstraints);
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;
@@ -304,8 +295,7 @@ public class StartEvent extends javax.swing.JDialog
 	protected void addDuration()
 	{
 		durationLabel = new javax.swing.JLabel();
-		sDuration = Utils.buildSlider(1, 50);
-		lDuration = Utils.buildIntegerFieldWithSlider(sDuration);
+		lDuration = Utils.buildIntegerField(1, 50);
 		lDuration.setValue(1);
 
 		java.awt.GridBagConstraints gridBagConstraints;
@@ -316,15 +306,6 @@ public class StartEvent extends javax.swing.JDialog
 		gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
 		mainPanel.add(durationLabel, gridBagConstraints);
-
-		gridBagConstraints = new java.awt.GridBagConstraints();
-		gridBagConstraints.gridx = 2;
-		gridBagConstraints.gridy = gridBagRow;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.ipadx = -80;
-		gridBagConstraints.ipady = 4;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-		mainPanel.add(sDuration, gridBagConstraints);
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;

@@ -20,8 +20,15 @@
  */
 package plugin.initiative.gui;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import javax.swing.ComboBoxModel;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
 import javax.swing.JComponent;
-import javax.swing.JFormattedTextField;
+import javax.swing.JSpinner;
 import javax.swing.JPanel;
 
 import pcgen.core.SettingsHandler;
@@ -29,6 +36,8 @@ import pcgen.gui2.dialog.AbstractDialog;
 import pcgen.util.Logging;
 import plugin.initiative.InitiativePlugin;
 import plugin.initiative.XMLCombatant;
+
+import gmgen.plugin.Combatant;
 
 /**
  * <p>
@@ -43,7 +52,7 @@ public class AddCombatant extends AbstractDialog
 	/** The initiative component */
 	public Initiative initiative;
 
-	private javax.swing.JComboBox typeCombo;
+	private javax.swing.JComboBox<String> typeCombo;
 
 	private javax.swing.JLabel nameLabel;
 	private javax.swing.JLabel conLabel;
@@ -67,26 +76,22 @@ public class AddCombatant extends AbstractDialog
 
 	private javax.swing.JSeparator jSeparator1;
 
-	private javax.swing.JSlider bonusSlider;
-	private javax.swing.JSlider hpSlider;
-	private javax.swing.JSlider numberSlider;
-
 	private javax.swing.JTextField nameField;
 	private javax.swing.JTextField playerField;
 
-	private JFormattedTextField crField;
-	private JFormattedTextField strField;
-	private JFormattedTextField dexField;
-	private JFormattedTextField conField;
-	private JFormattedTextField intField;
-	private JFormattedTextField wisField;
-	private JFormattedTextField chaField;
-	private JFormattedTextField fortitudeField;
-	private JFormattedTextField reflexField;
-	private JFormattedTextField willField;
-	private JFormattedTextField bonusField;
-	private JFormattedTextField hpField;
-	private JFormattedTextField numberField;
+	private JSpinner crField;
+	private JSpinner strField;
+	private JSpinner dexField;
+	private JSpinner conField;
+	private JSpinner intField;
+	private JSpinner wisField;
+	private JSpinner chaField;
+	private JSpinner fortitudeField;
+	private JSpinner reflexField;
+	private JSpinner willField;
+	private JSpinner bonusField;
+	private JSpinner hpField;
+	private JSpinner numberField;
 
 	/**
 	 * <p>Creates new dialog for Adding a new Combatant This contructor is used if
@@ -104,16 +109,6 @@ public class AddCombatant extends AbstractDialog
 		setLocation(parent.getX() + 100, parent.getY() + 100);
 		this.initiative = initiative;
 
-		boolean bHP = SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".doHP", true);
-
-		hpSlider.setEnabled(bHP);
-
-		int maxHp = SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".dbMaxHP", 100);
-
-		int maxNum = SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".dbMaxNum", 20);
-
-		numberSlider.setMaximum(maxNum);
-		hpSlider.setMaximum(maxHp);
 		pack();
 	}
 
@@ -132,7 +127,7 @@ public class AddCombatant extends AbstractDialog
 		{
 			for (int i = 1; i <= getIntegerValue(numberField, 1); i++)
 			{
-				XMLCombatant xmlcbt = new XMLCombatant(nameField.getText() + " (" + i + ')', playerField.getText(),
+				Combatant xmlcbt = new XMLCombatant(nameField.getText() + " (" + i + ')', playerField.getText(),
 					getIntegerValue(strField, 10), getIntegerValue(dexField, 10), getIntegerValue(conField, 10),
 					getIntegerValue(intField, 10), getIntegerValue(wisField, 10), getIntegerValue(chaField, 10),
 					getIntegerValue(fortitudeField, 0), getIntegerValue(reflexField, 0), getIntegerValue(willField, 0),
@@ -146,7 +141,7 @@ public class AddCombatant extends AbstractDialog
 		// If if not, just add one
 		else
 		{
-			XMLCombatant xmlcbt = new XMLCombatant(nameField.getText(), playerField.getText(),
+			Combatant xmlcbt = new XMLCombatant(nameField.getText(), playerField.getText(),
 				getIntegerValue(strField, 10), getIntegerValue(dexField, 10), getIntegerValue(conField, 10),
 				getIntegerValue(intField, 10), getIntegerValue(wisField, 10), getIntegerValue(chaField, 10),
 				getIntegerValue(fortitudeField, 0), getIntegerValue(reflexField, 0), getIntegerValue(willField, 0),
@@ -172,11 +167,7 @@ public class AddCombatant extends AbstractDialog
 
 		java.awt.GridBagConstraints gridBagConstraints;
 
-		bonusSlider = Utils.buildSlider(-20, 20);
-		numberSlider = Utils.buildSlider(1, 20);
-		hpSlider = Utils.buildSlider(1, 100, 5, 25);
-
-		typeCombo = new javax.swing.JComboBox();
+		typeCombo = new JComboBox<>();
 
 		jSeparator1 = new javax.swing.JSeparator();
 
@@ -203,7 +194,7 @@ public class AddCombatant extends AbstractDialog
 		nameField = new javax.swing.JTextField();
 		playerField = new javax.swing.JTextField();
 
-		crField = Utils.buildFloatField(-10, 50);
+		crField = Utils.buildFloatField(-10, 50, .5);
 		conField = Utils.buildIntegerField(0, 100);
 		strField = Utils.buildIntegerField(0, 100);
 		dexField = Utils.buildIntegerField(0, 100);
@@ -214,9 +205,9 @@ public class AddCombatant extends AbstractDialog
 		reflexField = Utils.buildIntegerField(-20, 50);
 		willField = Utils.buildIntegerField(-20, 50);
 
-		bonusField = Utils.buildIntegerFieldWithSlider(bonusSlider);
-		hpField = Utils.buildIntegerFieldWithSlider(hpSlider);
-		numberField = Utils.buildIntegerFieldWithSlider(numberSlider);
+		bonusField = Utils.buildIntegerField(-20, 20);
+		hpField = Utils.buildIntegerField(1, 1000);
+		numberField = Utils.buildIntegerField(1, 20);
 
 		center.setLayout(new java.awt.GridBagLayout());
 
@@ -262,14 +253,6 @@ public class AddCombatant extends AbstractDialog
 		gridBagConstraints.insets = new java.awt.Insets(0, 5, 10, 0);
 		center.add(bonusLabel, gridBagConstraints);
 
-		gridBagConstraints = new java.awt.GridBagConstraints();
-		gridBagConstraints.gridx = 2;
-		gridBagConstraints.gridy = 2;
-		gridBagConstraints.gridwidth = 3;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-		center.add(bonusSlider, gridBagConstraints);
-
 		numberLabel.setText("Number");
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 0;
@@ -277,14 +260,6 @@ public class AddCombatant extends AbstractDialog
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
 		gridBagConstraints.insets = new java.awt.Insets(0, 5, 10, 0);
 		center.add(numberLabel, gridBagConstraints);
-
-		gridBagConstraints = new java.awt.GridBagConstraints();
-		gridBagConstraints.gridx = 2;
-		gridBagConstraints.gridy = 4;
-		gridBagConstraints.gridwidth = 3;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-		center.add(numberSlider, gridBagConstraints);
 
 		neg20Label.setForeground(new java.awt.Color(204, 204, 204));
 		neg20Label.setText("-20");
@@ -302,14 +277,6 @@ public class AddCombatant extends AbstractDialog
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
 		gridBagConstraints.insets = new java.awt.Insets(0, 5, 10, 0);
 		center.add(hpLabel, gridBagConstraints);
-
-		gridBagConstraints = new java.awt.GridBagConstraints();
-		gridBagConstraints.gridx = 2;
-		gridBagConstraints.gridy = 3;
-		gridBagConstraints.gridwidth = 3;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-		center.add(hpSlider, gridBagConstraints);
 
 		typeLabel.setText("Type");
 		gridBagConstraints = new java.awt.GridBagConstraints();
@@ -536,7 +503,7 @@ public class AddCombatant extends AbstractDialog
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
 		center.add(noteLabel, gridBagConstraints);
 
-		crField.setText("1");
+		crField.setValue(1);
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;
@@ -555,23 +522,19 @@ public class AddCombatant extends AbstractDialog
 	 */
 	private void initDropDown()
 	{
-		java.util.Vector<String> vType = new java.util.Vector<>();
-		vType.add("Enemy");
-		vType.add("Ally");
-		vType.add("PC");
-		vType.add("Non Combatant");
+		String[] vTypes = {"Enemy", "Ally", "PC", "Non Combatant"};
 
-		javax.swing.DefaultComboBoxModel typeModel = new javax.swing.DefaultComboBoxModel(vType);
+		ComboBoxModel<String> typeModel = new DefaultComboBoxModel<>(vTypes);
 		typeCombo.setModel(typeModel);
 	}
 
 	/**
 	 * <p>Returns the integer value of the given field</p>
-	 * @param field A {@code JFormattedTextField} with an <code>Integer</code> value
+	 * @param field A {@code JSpinner} with an <code>Integer</code> value
 	 * @param defaultValue
 	 * @return int
 	 */
-	private int getIntegerValue(JFormattedTextField field, int defaultValue)
+	private int getIntegerValue(JSpinner field, int defaultValue)
 	{
 		int returnValue = defaultValue;
 		if (field.isValid() && field.getValue() instanceof Integer)
@@ -583,11 +546,11 @@ public class AddCombatant extends AbstractDialog
 
 	/**
 	 * <p>Returns the float value of the given field</p>
-	 * @param field A {@code JFormattedTextField} with an <code>Float</code> value
+	 * @param field A {@code JSpinner} with an <code>Float</code> value
 	 * @param defaultValue
 	 * @return float
 	 */
-	private float getFloatValue(JFormattedTextField field, float defaultValue)
+	private float getFloatValue(JSpinner field, float defaultValue)
 	{
 		float returnValue = defaultValue;
 		if (field.isValid() && field.getValue() instanceof Float)

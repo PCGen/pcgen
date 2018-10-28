@@ -22,10 +22,12 @@ package plugin.initiative.gui;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.text.ParseException;
 import java.util.List;
 
 import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
+import javax.swing.JSpinner;
 import javax.swing.JTextField;
 
 import gmgen.plugin.Combatant;
@@ -33,9 +35,13 @@ import gmgen.plugin.PcgCombatant;
 import gmgen.plugin.PlayerCharacterOutput;
 import gmgen.plugin.SystemAttribute;
 import gmgen.plugin.dice.Dice;
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.Nullable;
+
 import pcgen.core.Globals;
 import pcgen.core.PCCheck;
 import pcgen.core.PlayerCharacter;
+import pcgen.util.Logging;
 import plugin.initiative.SaveModel;
 import plugin.initiative.XMLCombatant;
 
@@ -79,16 +85,13 @@ public class SavingThrowDialog extends javax.swing.JDialog
 	private javax.swing.JRadioButton reflexSelection;
 	private javax.swing.JRadioButton willSelection;
 	private javax.swing.JSeparator jSeparator1;
-	private javax.swing.JSlider saveDCSlider;
-	private javax.swing.JSlider saveMagicSlider;
-	private javax.swing.JSlider saveTempSlider;
-	private javax.swing.JTextField saveAbility;
-	private javax.swing.JTextField saveBase;
-	private JFormattedTextField saveDC;
-	private JFormattedTextField saveMagic;
-	private javax.swing.JTextField saveMisc;
-	private JFormattedTextField saveTemp;
-	private javax.swing.JTextField saveTotal;
+	private JSpinner saveAbility;
+	private JSpinner saveBase;
+	private JSpinner saveDC;
+	private JSpinner saveMagic;
+	private JSpinner saveMisc;
+	private JSpinner saveTemp;
+	private JSpinner saveTotal;
 	private int lastRoll = 0;
 	private int retValue = CANCEL_OPTION;
 	private SaveModel m_saveModel;
@@ -187,7 +190,7 @@ public class SavingThrowDialog extends javax.swing.JDialog
 	 */
 	public int getDC()
 	{
-		return getFieldValue(saveDC);
+		return ((Integer) saveDC.getValue());
 	}
 
 	/**
@@ -264,7 +267,7 @@ public class SavingThrowDialog extends javax.swing.JDialog
 	 */
 	public int getTotal()
 	{
-		return getFieldValue(saveTotal);
+		 return (Integer)saveTotal.getValue();
 	}
 
 	/**
@@ -356,11 +359,11 @@ public class SavingThrowDialog extends javax.swing.JDialog
 				base = xmlcbt.getSave("Will") - mod;
 			}
 
-			magic = parseInt(saveMagic.getText());
-			misc = parseInt(saveMisc.getText());
+			magic =(Integer)saveMagic.getValue();
+			misc = (Integer)saveMisc.getValue();
 		}
 
-		setDefaults(base, ability, magic, misc, parseInt(saveTemp.getText()));
+		setDefaults(base, ability, magic, misc, (Integer)saveTemp.getValue());
 	}
 
 	/**
@@ -375,10 +378,10 @@ public class SavingThrowDialog extends javax.swing.JDialog
 	 */
 	private void setDefaults(int base, int ability, int magic, int misc, int temp)
 	{
-		saveBase.setText(Integer.toString(base));
-		saveAbility.setText(Integer.toString(ability));
+		saveBase.setValue(base);
+		saveAbility.setValue(ability);
 		saveMagic.setValue(magic);
-		saveMisc.setText(Integer.toString(misc));
+		saveMisc.setValue(misc);
 		saveTemp.setValue(temp);
 		calculate();
 	}
@@ -389,18 +392,18 @@ public class SavingThrowDialog extends javax.swing.JDialog
 	 * @param field
 	 * @return value
 	 */
-	private int getFieldValue(JTextField field)
+	private int getFieldValue(JSpinner field)
 	{
 		try
 		{
-			return Integer.parseInt(field.getText());
-		}
-		catch (NumberFormatException e)
+			field.commitEdit();
+		} catch (ParseException e)
 		{
-			field.setText("0");
+			// todo: implement error message
+			Logging.errorPrint("Failed to parse", e);
+			return 0;
 		}
-
-		return 0;
+		return (Integer)field.getValue();
 	}
 
 	/**
@@ -465,7 +468,7 @@ public class SavingThrowDialog extends javax.swing.JDialog
 		total += getFieldValue(saveMagic);
 		total += getFieldValue(saveMisc);
 		total += getFieldValue(saveTemp);
-		saveTotal.setText(Integer.toString(total));
+		saveTotal.setValue(Integer.toString(total));
 		setXMLCache(total);
 	}
 
@@ -492,51 +495,6 @@ public class SavingThrowDialog extends javax.swing.JDialog
 		this.lastRoll = roll;
 		setVisible(false);
 		dispose();
-	}
-
-	/**
-	 *
-	 * <p>Builds a formatted text field with specified min and max</p>
-	 * @param min
-	 * @param max
-	 * @return JFormattedTextField
-	 */
-	private JFormattedTextField buildIntegerField(int min, int max)
-	{
-		final JFormattedTextField returnValue = Utils.buildIntegerField(min, max);
-		returnValue.addPropertyChangeListener(new PropertyChangeListener()
-		{
-
-			@Override
-			public void propertyChange(PropertyChangeEvent evt)
-			{
-				if ("value".equals(evt.getPropertyName()))
-				{
-					calculate();
-				}
-			}
-		});
-		return returnValue;
-	}
-
-	/**
-	 *
-	 * <p>Parses a string representing an integer value.</p>
-	 * @param number
-	 * @return int
-	 */
-	private int parseInt(String number)
-	{
-		try
-		{
-			return Integer.parseInt(number);
-		}
-		catch (NumberFormatException e)
-		{
-			// TODO:  Exception Needs to be handled
-		}
-
-		return 0;
 	}
 
 	/**
@@ -613,18 +571,15 @@ public class SavingThrowDialog extends javax.swing.JDialog
 
 		jSeparator1 = new javax.swing.JSeparator();
 
-		saveTempSlider = Utils.buildSlider(-5, 20);
-		saveMagicSlider = Utils.buildSlider(-5, 20);
-		saveDCSlider = Utils.buildSlider(0, 50);
 
-		saveBase = buildIntegerField(-50, 50);
-		saveAbility = buildIntegerField(-50, 50);
-		saveMisc = buildIntegerField(-50, 50);
-		saveTotal = buildIntegerField(-50, 50);
+		saveBase = Utils.buildIntegerField(-50, 50);
+		saveAbility = Utils.buildIntegerField(-50, 50);
+		saveMisc = Utils.buildIntegerField(-50, 50);
+		saveTotal = Utils.buildIntegerField(-50, 50);
 
-		saveMagic = Utils.buildIntegerFieldWithSlider(saveMagicSlider);
-		saveTemp = Utils.buildIntegerFieldWithSlider(saveTempSlider);
-		saveDC = Utils.buildIntegerFieldWithSlider(saveDCSlider);
+		saveMagic = Utils.buildIntegerField(-5, 20);
+		saveTemp = Utils.buildIntegerField(-5, 20);
+		saveDC = Utils.buildIntegerField(0, 50);
 
 		setTitle("Saving Throw");
 		addWindowListener(new java.awt.event.WindowAdapter()
@@ -746,7 +701,6 @@ public class SavingThrowDialog extends javax.swing.JDialog
 		jPanel2.add(jLabel6, gridBagConstraints);
 
 		saveTotal.setBackground(new java.awt.Color(204, 204, 204));
-		saveTotal.setEditable(false);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = 7;
@@ -755,32 +709,11 @@ public class SavingThrowDialog extends javax.swing.JDialog
 		jPanel2.add(saveTotal, gridBagConstraints);
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
-		gridBagConstraints.gridx = 2;
-		gridBagConstraints.gridy = 6;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-		gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 2);
-		jPanel2.add(saveTempSlider, gridBagConstraints);
-
-		gridBagConstraints = new java.awt.GridBagConstraints();
-		gridBagConstraints.gridx = 2;
-		gridBagConstraints.gridy = 4;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-		gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 2);
-		jPanel2.add(saveMagicSlider, gridBagConstraints);
-
-		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = 9;
 		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
 		jPanel2.add(saveDC, gridBagConstraints);
-
-		gridBagConstraints = new java.awt.GridBagConstraints();
-		gridBagConstraints.gridx = 2;
-		gridBagConstraints.gridy = 9;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-		gridBagConstraints.insets = new java.awt.Insets(10, 5, 0, 2);
-		jPanel2.add(saveDCSlider, gridBagConstraints);
 
 		jLabel7.setText("Difficulty Class");
 		gridBagConstraints = new java.awt.GridBagConstraints();
