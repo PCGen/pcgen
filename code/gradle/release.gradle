@@ -183,39 +183,51 @@ launch4j {
 
 task downloadJRE doLast {
     def major = 11
-    def micro = 0
-    def update = 1
+    def archs = ['x64','x32']
+    def osList = ['windows']
     def extension = 'zip'
-    def jre64Dir = new File("${projectDir}/jre/jre_64")
-    if(!jre64Dir.exists()){
-        //Only download Windows libraries. Need to add more OS if we go multi OS at any time.
-        def fileName = "openjdk-${major}.${micro}.${update}_windows-x64_bin"
-        def jre64URL = "https://download.java.net/java/GA/jdk${major}/13/GPL/${fileName}.${extension}"
-        println("Downloading JRE ${major}.${micro}.${update} from ${jre64URL}")
-        if(!jre64Dir.exists()){
-            download {
-                src jre64URL
-                dest new File("${projectDir}/jre/", "jre_64.${extension}")
-                overwrite false
-            }
-            //Now untar them
-            fileTree(dir: "${projectDir}/jre/").include("*.${extension}").each { simLib ->
-                copy {
-                    println "Unzip $simLib.name"
-                    def name = simLib.name - '.$extension'
-                    def zipFile = file("${projectDir}/jre/${simLib.name}")
-                    def outputDir = "${projectDir}/jre/jre_64/"
-                    from zipTree(zipFile)
-                    into outputDir
-                }
-                if(major > 8) {
-                    copy {
-                        from "${projectDir}/jre/jre_64/${fileName}"
-                        into "${projectDir}/jre/jre_64/jre"
+    osList.each{
+        def os = "${it}"
+        archs.each {
+            def arch = "${it}"
+            def url = "https://api.adoptopenjdk.net/v2/binary/nightly/openjdk${major}?openjdk_impl=hotspot&os=${os}&arch=${arch}&release=latest&type=jre"
+            def jreDir = new File("${projectDir}/jre/jre_${arch}")
+            if(!jreDir.exists()){
+                //Only download Windows libraries. Need to add more OS if we go multi OS at any time.
+                println("Downloading Java ${major} from ${url}")
+                if(!jreDir.exists()){
+                    download {
+                        src url
+                        dest new File("${projectDir}/jre/", "jre_${arch}.${extension}")
+                        overwrite false
                     }
-                    project.delete(files("${projectDir}/jre/jre_64/${fileName}"))
+                    //Now untar them
+                    fileTree(dir: "${projectDir}/jre/").include("*.${extension}").each { simLib ->
+                        copy {
+                            println "Unzip $simLib.name"
+                            def name = simLib.name - '.$extension'
+                            def zipFile = file("${projectDir}/jre/${simLib.name}")
+                            def outputDir = "${projectDir}/jre/jre_${arch}/"
+                            from zipTree(zipFile)
+                            into outputDir
+                            eachFile { fcd ->
+                                def relPath = fcd.relativePath
+                                if(relPath.lastName.startsWith("jdk-")  && fcd.isDirectory()) {
+                                    fcd.exclude()
+                                } else {
+                                    def segments = relPath.segments
+                                    fcd.relativePath = new RelativePath( !fcd.isDirectory() ,(segments[1..-1]) as String[]  )
+                                }
+                            }
+                        }
+                        new File("${projectDir}/jre/${simLib.name}").delete()
+                    }
+                    file("${projectDir}/jre/jre_${arch}").list().each { f->
+                        if(f.startsWith("jdk")) {
+                            file("${projectDir}/jre/jre_${arch}/"+f).deleteDir()
+                        }
+                    }
                 }
-                new File("${projectDir}/jre/${simLib.name}").delete()
             }
         }
     }
