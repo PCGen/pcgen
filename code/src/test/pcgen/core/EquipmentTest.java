@@ -638,7 +638,8 @@ assertNotNull("Eqmod should be present", eqMod);
 	 */
 	public void testAddEqModifierSetsEquipmentAsParentOfTheModifier()
 	{
-		EquipmentModifier eqMod = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(EquipmentModifier.class, "PLUS1W");
+		EquipmentModifier eqMod = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
+				EquipmentModifier.class, "PLUS1W");
 		assertNotNull("Eqmod should be present", eqMod);
 		assertNull("Eqmod parent should be null at beginning", eqMod.getVariableParent());
 
