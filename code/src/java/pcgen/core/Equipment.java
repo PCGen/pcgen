@@ -2405,15 +2405,7 @@ public final class Equipment extends PObject
 				}
 			}
 
-			head.addToListFor(ListKey.EQMOD, aMod);
-			if (bPrimary)
-			{
-				usePrimaryCache = false;
-			}
-			else
-			{
-				useSecondaryCache = false;
-			}
+			addToEqModifierList(aMod, bPrimary);
 		}
 
 		//
