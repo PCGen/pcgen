@@ -163,7 +163,7 @@ Section "-Local" Section4
 
 SectionEnd
 
-Section "JRE 64 Bit" Section5
+Section "Java 64 Bit" Section5
         SectionIn RO
 
         ;Use the right java version
@@ -173,7 +173,7 @@ Section "JRE 64 Bit" Section5
         DetailPrint "Java extraction complete!"
 SectionEnd
 
-#Section "JRE 32 Bit" Section6
+Section "Java 32 Bit" Section6
         SectionIn RO
 
         ;Use the right java version
@@ -181,7 +181,7 @@ SectionEnd
         SetOutPath "$INSTDIR\${APPDIR}\jre"
         File /a /r "${SrcDir}\..\..\jre\jre_x32\*.*"
         DetailPrint "Java extraction complete!"
-#SectionEnd
+SectionEnd
 
 Section -FinishSection
 
