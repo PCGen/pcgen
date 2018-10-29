@@ -13,7 +13,7 @@ checkstyle {
 	ignoreFailures = true
 	showViolations = false
 	sourceSets = []
-	toolVersion = '8.0'
+	toolVersion = '8.14'
 }
 
 pmd {
@@ -21,12 +21,7 @@ pmd {
     ruleSets = []
 	ruleSetFiles = files('code/standards/ruleset.xml')
 	sourceSets = [] // This ensures pmd does not run on a normal build, use pmdmain to execute
-	toolVersion = "5.8.1"
+	toolVersion = "6.0.0"
 }
 
-jdepend {
-	ignoreFailures = true
-	sourceSets = []
-}
-
-task allReports { dependsOn = ['checkstyleMain', 'pmdMain', 'jdependMain'] }
+task allReports { dependsOn = ['checkstyleMain', 'pmdMain'] }
