@@ -118,7 +118,7 @@ public final class ArrayUtilities
 	 * the empty array is returned. Note in NONE of those cases is the returned array
 	 * different than the original - so this method is NOT insulating against modification
 	 * of the original arrays.
-	 * 
+	 *
 	 * @param arrayClass
 	 *            The class of the resulting array to be built
 	 * @param first
@@ -187,9 +187,9 @@ public final class ArrayUtilities
 	 * Calculates the difference between two arrays, using the comparison method on the
 	 * given "new" List.
 	 * 
-	 * @param oldArray
+	 * @param oldList
 	 *            The "old" array for comparison
-	 * @param newArray
+	 * @param newList
 	 *            The "new" array for comparison
 	 * @return A Tuple indicating the items removed (present in the "old" array but not
 	 *         the "new" array) and the items added (present in the "new" array, but not
