@@ -632,4 +632,19 @@ assertNotNull("Eqmod should be present", eqMod);
 		assertFalse("Should not have choice Bad", aEquip.isPreType("EQMOD=PLUS1W(Bad)"));
 		
 	}
+
+	/**
+	 * EquipmentModifiers must have a parent in order to be rendered to an output sheet
+	 */
+	public void testAddEqModifierSetsEquipmentAsParentOfTheModifier()
+	{
+		EquipmentModifier eqMod = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
+				EquipmentModifier.class, "PLUS1W");
+		assertNotNull("Eqmod should be present", eqMod);
+		assertNull("Eqmod parent should be null at beginning", eqMod.getVariableParent());
+
+		Equipment aEquip = eq.clone();
+		aEquip.addEqModifier(eqMod, true, null);
+		assertSame("Eqmod parent should be the equipment", aEquip, eqMod.getVariableParent());
+	}
 }
