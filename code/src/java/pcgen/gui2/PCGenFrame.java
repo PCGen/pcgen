@@ -44,7 +44,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Observer;
-import java.util.concurrent.ExecutionException;
 import java.util.logging.LogRecord;
 
 import javax.swing.Action;
@@ -64,7 +63,6 @@ import javax.swing.KeyStroke;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
-import javax.swing.SwingWorker;
 import javax.swing.WindowConstants;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -101,6 +99,7 @@ import pcgen.gui2.tabs.InfoTabbedPane;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.ShowMessageGuiObserver;
+import pcgen.gui2.util.SwingWorker;
 import pcgen.io.PCGFile;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.system.CharacterManager;
@@ -1677,10 +1676,10 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 
 		private final SourceSelectionFacade sources;
 		private final SourceFileLoader loader;
-		private final SwingWorker<List<LogRecord>, List<LogRecord>> worker;
+		private final SwingWorker<List<LogRecord>> worker;
 		private final UIDelegate delegate;
 
-		private SourceLoadWorker(SourceSelectionFacade sources, UIDelegate delegate)
+		public SourceLoadWorker(SourceSelectionFacade sources, UIDelegate delegate)
 		{
 			this.sources = sources;
 			this.delegate = delegate;
@@ -1691,23 +1690,16 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		@Override
 		public void run()
 		{
-			worker.execute();
+			worker.start();
 			//wait until the worker finish and post any errors that occurred
-			try
-			{
-				statusBar.setSourceLoadErrors(worker.get());
-			}
-			catch (InterruptedException | ExecutionException e)
-			{
-				Logging.errorPrint("execution exception during PCGenFrame run", e);
-			}
+			statusBar.setSourceLoadErrors(worker.get());
 			//now that the SourceFileLoader has finished
 			//handle licenses and whatnot
-			String sec15 = " "
-					+ readTextFromFile(
-					ConfigurationSettings.getSystemsDir() + File.separator + "opengaminglicense.10a.txt")
-					+ loader.getOGL();
-			section15 = sec15;
+			StringBuilder sec15 = new StringBuilder(" ");
+			sec15.append(
+				readTextFromFile(ConfigurationSettings.getSystemsDir() + File.separator + "opengaminglicense.10a.txt"));
+			sec15.append(loader.getOGL());
+			section15 = sec15.toString();
 			try
 			{
 				showLicenses();
