@@ -196,6 +196,18 @@ CATEGORY=Internal|Base Size ~ Colossal.MOD																																						
 CATEGORY=Internal|Base Size ~ Colossal.MOD																																																																																																																																																																																																																							BONUS:STAT|STR|-2|PREVARGTEQ:SizeDecrease,7|PREVAREQ:BypassSizeMods,0	BONUS:STAT|DEX|2|PREVARGTEQ:SizeDecrease,7|PREVAREQ:BypassSizeMods,0
 CATEGORY=Internal|Base Size ~ Colossal.MOD																																																																																																																																																																																																																							BONUS:STAT|DEX|2|PREVARGTEQ:SizeDecrease,8|PREVAREQ:BypassSizeMods,0
 
+###Block: Race Size Selections
+Fine		KEY:Base Race Size ~ F	TYPE:Race Size Selection	CATEGORY:Racial Size	TEMPLATE:SIZE_F	PREFACT:1,ABILITIES,RaceSizeAllowed_Fine=true		
+Diminutive	KEY:Base Race Size ~ D	TYPE:Race Size Selection	CATEGORY:Racial Size	TEMPLATE:SIZE_D	PREFACT:1,ABILITIES,RaceSizeAllowed_Diminutive=true	
+Tiny		KEY:Base Race Size ~ T	TYPE:Race Size Selection	CATEGORY:Racial Size	TEMPLATE:SIZE_T	PREFACT:1,ABILITIES,RaceSizeAllowed_Tiny=true		
+Small		KEY:Base Race Size ~ S	TYPE:Race Size Selection	CATEGORY:Racial Size	TEMPLATE:SIZE_S	PREFACT:1,ABILITIES,RaceSizeAllowed_Small=true		
+Medium	KEY:Base Race Size ~ M	TYPE:Race Size Selection	CATEGORY:Racial Size	TEMPLATE:SIZE_M	PREFACT:1,ABILITIES,RaceSizeAllowed_Medium=true		
+Large		KEY:Base Race Size ~ L	TYPE:Race Size Selection	CATEGORY:Racial Size	TEMPLATE:SIZE_L	PREFACT:1,ABILITIES,RaceSizeAllowed_Large=true		
+Huge		KEY:Base Race Size ~ H	TYPE:Race Size Selection	CATEGORY:Racial Size	TEMPLATE:SIZE_H	PREFACT:1,ABILITIES,RaceSizeAllowed_Huge=true		
+Gargantuan	KEY:Base Race Size ~ G	TYPE:Race Size Selection	CATEGORY:Racial Size	TEMPLATE:SIZE_G	PREFACT:1,ABILITIES,RaceSizeAllowed_Gargantuan=true	
+Colossal	KEY:Base Race Size ~ C	TYPE:Race Size Selection	CATEGORY:Racial Size	TEMPLATE:SIZE_C	PREFACT:1,ABILITIES,RaceSizeAllowed_Colossal=true		
+
+
 ###Block: Race Builder or Homebrew Suport
 Reset Attack Start Value ~ Gore	CATEGORY:Internal	BONUS:VAR|GoreAttacks|-1
 Reset Attack Start Value ~ Hoof	CATEGORY:Internal	BONUS:VAR|HoofAttacks|-2
