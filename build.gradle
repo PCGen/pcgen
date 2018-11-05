@@ -15,7 +15,7 @@
 import static org.apache.tools.ant.taskdefs.condition.Os.*
 
 plugins {
-    id 'com.gradle.build-scan' version '1.16'
+    id 'com.gradle.build-scan' version '2.0.1'
     id 'eclipse'
     id 'application'
     id 'build-dashboard'
