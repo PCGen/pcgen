@@ -59,7 +59,7 @@ public class StagingInfoFactory
 	 *         well as a Staging for the write interface
 	 * @param <R>
 	 *            The component type of the read interface of the object to be proxied
-	 * @param <w>
+	 * @param <W>
 	 *            The component type of the write interface of the object to be proxied
 	 */
 	public <R, W> StagingInfo<R, W> produceStaging(Class<R> readInterface,
