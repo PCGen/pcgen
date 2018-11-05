@@ -21,7 +21,7 @@ pmd {
     ruleSets = []
 	ruleSetFiles = files('code/standards/ruleset.xml')
 	sourceSets = [] // This ensures pmd does not run on a normal build, use pmdmain to execute
-	toolVersion = "6.6.0"
+	toolVersion = "6.9.0"
 }
 
 task allReports { dependsOn = ['checkstyleMain', 'pmdMain'] }
