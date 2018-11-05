@@ -126,6 +126,8 @@ public final class ArrayUtilities
 	 * @param second
 	 *            The second array to be merged
 	 * @return A merged array containing the contents of the two given arrays
+	 * @param <T>
+	 *            The component type of the Arrays to be merged
 	 */
 	public static <T> T[] mergeArray(Class<T> arrayClass, T[] first, T[] second)
 	{
@@ -157,6 +159,8 @@ public final class ArrayUtilities
 	 * @return A Tuple indicating the items removed (present in the "old" array but not
 	 *         the "new" array) and the items added (present in the "new" array, but not
 	 *         the "old" array)
+	 * @param <T>
+	 *            The component type of the Arrays to be compared
 	 */
 	public static <T> Tuple<List<T>, List<T>> calculateIdentityDifference(T[] oldArray, T[] newArray)
 	{
@@ -175,6 +179,8 @@ public final class ArrayUtilities
 	 * @return A Tuple indicating the items removed (present in the "old" array but not
 	 *         the "new" array) and the items added (present in the "new" array, but not
 	 *         the "old" array)
+	 * @param <T>
+	 *            The component type of the Arrays to be compared
 	 */
 	public static <T> Tuple<List<T>, List<T>> calculateDifference(T[] oldArray, T[] newArray)
 	{
@@ -194,6 +200,8 @@ public final class ArrayUtilities
 	 * @return A Tuple indicating the items removed (present in the "old" array but not
 	 *         the "new" array) and the items added (present in the "new" array, but not
 	 *         the "old" array)
+	 * @param <T>
+	 *            The component type of the Arrays to be compared
 	 */
 	private static <T> Tuple<List<T>, List<T>> processComparison(List<T> oldList,
 		List<T> newList)

@@ -47,6 +47,8 @@ public class NamedIndirect<T>
 	 * 
 	 * @param name
 	 *            The name of this NamedIndirect
+	 * @param manager
+	 *            The FormatManager used to convert the instructions
 	 * @param instructions
 	 *            The instructions to be used to determine the value of this NamedIndirect
 	 */
