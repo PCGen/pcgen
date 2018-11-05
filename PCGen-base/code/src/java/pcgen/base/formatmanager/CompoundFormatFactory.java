@@ -41,6 +41,18 @@ public class CompoundFormatFactory implements FormatManagerFactory
 	 */
 	private final char applicationSeparator;
 
+	/**
+	 * Constructs a new CompoundFormatFactory using the given separator characters.
+	 * 
+	 * @param definitionSeparator
+	 *            The separator character for separating different definitions in format
+	 *            instructions.
+	 * @param applicationSeparator
+	 *            The separator character used to separate the primary object from the
+	 *            secondary values and the secondary values from each other, in the String
+	 *            representation of Compound objects managed by a CompoundFormatManager
+	 *            produced by this factory.
+	 */
 	public CompoundFormatFactory(char definitionSeparator, char applicationSeparator)
 	{
 		this.definitionSeparator = definitionSeparator;

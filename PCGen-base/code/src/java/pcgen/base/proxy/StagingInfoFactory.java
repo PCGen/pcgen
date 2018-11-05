@@ -15,6 +15,7 @@
  */
 package pcgen.base.proxy;
 
+import java.lang.reflect.Proxy;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,6 +57,10 @@ public class StagingInfoFactory
 	 *            object and the returned Staging
 	 * @return A StagingInfo containing the necessary Proxy objects for the interfaces as
 	 *         well as a Staging for the write interface
+	 * @param <R>
+	 *            The component type of the read interface of the object to be proxied
+	 * @param <W>
+	 *            The component type of the write interface of the object to be proxied
 	 */
 	public <R, W> StagingInfo<R, W> produceStaging(Class<R> readInterface,
 		Class<W> writeInterface)
@@ -63,10 +68,10 @@ public class StagingInfoFactory
 		StagingProxy<R, W> factory =
 				new StagingProxy<>(processors, readInterface, writeInterface);
 		@SuppressWarnings("unchecked")
-		W writeProxy = (W) java.lang.reflect.Proxy.newProxyInstance(
+		W writeProxy = (W) Proxy.newProxyInstance(
 			writeInterface.getClassLoader(), new Class[]{writeInterface}, factory);
 		@SuppressWarnings("unchecked")
-		R readProxy = (R) java.lang.reflect.Proxy.newProxyInstance(
+		R readProxy = (R) Proxy.newProxyInstance(
 			readInterface.getClassLoader(), new Class[]{readInterface}, factory);
 		return new StagingInfo<>(readProxy, writeProxy, factory);
 	}

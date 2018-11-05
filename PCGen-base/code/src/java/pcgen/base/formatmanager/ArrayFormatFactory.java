@@ -50,6 +50,18 @@ public class ArrayFormatFactory implements FormatManagerFactory
 	 */
 	private final char groupSep;
 
+	/**
+	 * Constructs a new ArrayFormatFactory with the given separator characters.
+	 * 
+	 * @param groupSep
+	 *            The group separator character used to parse instructions and separate
+	 *            groups of lists that will be part of the array in an ArrayFormatManager
+	 *            produced by this factory.
+	 * @param listSep
+	 *            The separator character used to parse lists in the instructions and
+	 *            separate list items that will be part of the array processed by an
+	 *            ArrayFormatManager produced by this factory.
+	 */
 	public ArrayFormatFactory(char groupSep, char listSep)
 	{
 		this.groupSep = groupSep;
