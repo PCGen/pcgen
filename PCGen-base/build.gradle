@@ -60,8 +60,8 @@ test {
 }
 
 jacocoTestReport {
-    afterEvaluate {
-       	classDirectories = files(classDirectories.files.collect {fileTree(dir: it, exclude: testSources)})
+    afterEvaluate { 
+        classDirectories = files(classDirectories.files.collect {fileTree(dir: it, exclude: testSources)})
     }
     reports {
         html {
