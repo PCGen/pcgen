@@ -107,7 +107,7 @@ public class DynamicSolverManager implements SolverManager
 	 * The Stack, used during processing, to identify what items are being processed and
 	 * to detect loops.
 	 */
-	private Stack<VariableID<?>> varStack = new Stack<>();
+	private final Stack<VariableID<?>> varStack = new Stack<>();
 
 	/**
 	 * Constructs a new DynamicSolverManager which will use the given FormulaMananger and

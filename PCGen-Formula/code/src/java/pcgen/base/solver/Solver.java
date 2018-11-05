@@ -250,7 +250,7 @@ public class Solver<T>
 		/**
 		 * The format name of the format that this DefaultValue is representing
 		 */
-		private String formatName;
+		private final String formatName;
 		
 		private DefaultValue(String formatName)
 		{

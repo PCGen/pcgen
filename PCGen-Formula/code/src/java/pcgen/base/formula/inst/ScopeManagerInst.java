@@ -39,14 +39,14 @@ public class ScopeManagerInst implements LegalScopeManager
 	/**
 	 * The Map of LegalScope objects to their list of child LegalScope objects.
 	 */
-	private HashMapToList<LegalScope, LegalScope> scopeChildren =
+	private final HashMapToList<LegalScope, LegalScope> scopeChildren =
 			new HashMapToList<LegalScope, LegalScope>();
 
 	/**
 	 * A set of the LegalScope objects loaded in this ScopeManagerInst. Note that this is
 	 * distinct from the keys of scopeChildren, since only parents are loaded as keys.
 	 */
-	private CaseInsensitiveMap<LegalScope> scopes = new CaseInsensitiveMap<LegalScope>();
+	private final CaseInsensitiveMap<LegalScope> scopes = new CaseInsensitiveMap<LegalScope>();
 
 	/**
 	 * Registers a LegalScope with this LegalScopeManager.

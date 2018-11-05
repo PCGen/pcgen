@@ -12,171 +12,75 @@
   <description>
     PMD rules customised for PCGen's code.
   </description>
+
+   <exclude-pattern>.*/test/.*</exclude-pattern>
+   <exclude-pattern>.*/formula/parse/.*</exclude-pattern>
+   <include-pattern>.*/formula/parse/Operator.java</include-pattern>
+   <include-pattern>.*/formula/parse/SimpleNode.java</include-pattern>
+
   <rule ref="category/java/bestpractices.xml">
-    <exclude name="AbstractClassWithoutAbstractMethod"/>
-    <exclude name="AccessorClassGeneration"/>
-    <exclude name="AccessorMethodGeneration"/>
-    <exclude name="ArrayIsStoredDirectly"/>
-    <exclude name="AvoidPrintStackTrace"/>
-    <exclude name="AvoidReassigningParameters"/>
-    <exclude name="AvoidStringBufferField"/>
-    <exclude name="ConstantsInInterface"/>
-    <exclude name="ForLoopCanBeForeach"/>
-    <exclude name="GuardLogStatement"/>
-    <exclude name="JUnit4TestShouldUseTestAnnotation"/>
-    <exclude name="LooseCoupling"/>
-    <exclude name="MethodReturnsInternalArray"/>
-    <exclude name="OneDeclarationPerLine"/>
-    <exclude name="PositionLiteralsFirstInCaseInsensitiveComparisons"/>
-    <exclude name="PositionLiteralsFirstInComparisons"/>
-    <exclude name="PreserveStackTrace"/>
-    <exclude name="ReplaceHashtableWithMap"/>
-    <exclude name="ReplaceVectorWithList"/>
-    <exclude name="SwitchStmtsShouldHaveDefault"/>
+    <!-- We need to decide on our logging policy in the libraries - trying to minimize external dependencies means no Apache logging, etc.-->
     <exclude name="SystemPrintln"/>
-    <exclude name="UnusedFormalParameter"/>
-    <exclude name="UnusedLocalVariable"/>
-    <exclude name="UnusedPrivateField"/>
-    <exclude name="UnusedPrivateMethod"/>
-    <exclude name="UseCollectionIsEmpty"/>
     <!-- This is excluded because it's a tradeoff: it creates a warning to use it, which then has to be addressed -->
     <exclude name="UseVarargs"/>
   </rule>
   <rule ref="category/java/codestyle.xml">
-    <exclude name="AbstractNaming"/>
+    <!-- This is excluded because this generates "noise pollution" just having empty constructors -->
     <exclude name="AtLeastOneConstructor"/>
-    <exclude name="AvoidFinalLocalVariable"/>
-    <exclude name="AvoidPrefixingMethodParameters"/>
-    <exclude name="AvoidProtectedFieldInFinalClass"/>
-    <exclude name="AvoidProtectedMethodInFinalClassNotExtending"/>
-    <exclude name="BooleanGetMethodName"/>
+    <!-- This is excluded because it's unnecessarily verbose -->
     <exclude name="CallSuperInConstructor"/>
+    <!-- This is excluded because we use "Utilities" not "Utils" -->
     <exclude name="ClassNamingConventions"/>
     <exclude name="CommentDefaultAccessModifier"/>
-    <exclude name="ConfusingTernary"/>
     <exclude name="DefaultPackage"/>
-    <exclude name="EmptyMethodInAbstractClassShouldBeAbstract"/>
-    <exclude name="FieldDeclarationsShouldBeAtStartOfClass"/>
-    <exclude name="ForLoopShouldBeWhileLoop"/>
     <exclude name="GenericsNaming"/>
     <!-- This is excluded because and this generates "noise pollution" around the usage of final, our semantic usage is as a trigger it is necessary, not when it's possible -->
     <exclude name="LocalVariableCouldBeFinal"/>
+    <!-- This is excluded because we aim for clarity not terse-ness -->
     <exclude name="LongVariable"/>
     <!-- This is excluded because and this generates "noise pollution" around the usage of final, our semantic usage is as a trigger it is necessary, not when it's possible -->
     <exclude name="MethodArgumentCouldBeFinal"/>
-    <exclude name="MethodNamingConventions"/>
+    <!-- We just don't do this - it often decreases clarity even though it allows better refactoring -->
     <exclude name="OnlyOneReturn"/>
-    <exclude name="PrematureDeclaration"/>
-    <exclude name="ShortClassName"/>
     <exclude name="ShortVariable"/>
-    <exclude name="SuspiciousConstantFieldName"/>
-    <exclude name="UnnecessaryConstructor"/>
-    <exclude name="UnnecessaryFullyQualifiedName"/>
-    <exclude name="UnnecessaryLocalBeforeReturn"/>
     <!-- This is excluded because we use "public" in Interfaces almost universally (as a semantic hint as to its real behavior) -->
     <exclude name="UnnecessaryModifier"/>
-    <exclude name="UnnecessaryReturn"/>
     <!-- This is excluded because we use "useless" parenthesis for readability -->
     <exclude name="UselessParentheses"/>
-    <exclude name="UselessQualifiedThis"/>
-    <exclude name="VariableNamingConventions"/>
   </rule>
   <rule ref="category/java/design.xml">
-    <exclude name="AvoidCatchingGenericException"/>
-    <exclude name="AvoidDeeplyNestedIfStmts"/>
-    <exclude name="AvoidThrowingNullPointerException"/>
-    <exclude name="AvoidThrowingRawExceptionTypes"/>
-    <exclude name="ClassWithOnlyPrivateConstructorsShouldBeFinal"/>
-    <exclude name="CollapsibleIfStatements"/>
-    <exclude name="CouplingBetweenObjects"/>
+    <!-- Interesting, but very subjective -->
     <exclude name="CyclomaticComplexity"/>
     <exclude name="DataClass"/>
-    <exclude name="ExcessiveClassLength"/>
-    <exclude name="ExcessiveMethodLength"/>
-    <exclude name="ExcessiveImports"/>
-    <exclude name="ExcessiveParameterList"/>
-    <exclude name="ExcessivePublicCount"/>
-    <exclude name="GodClass"/>
-    <exclude name="FinalFieldCouldBeStatic"/>
-    <exclude name="ImmutableField"/>
+    <!-- Interesting, but very subjective -->
     <exclude name="LawOfDemeter"/>
-    <exclude name="LogicInversion"/>
-    <exclude name="NcssCount"/>
-    <exclude name="NPathComplexity"/>
-    <exclude name="SignatureDeclareThrowsException"/>
+    <!-- We just don't do this - it often decreases clarity even though it allows better refactoring -->
     <exclude name="SimplifyBooleanReturns"/>
-    <exclude name="SimplifyBooleanExpressions"/>
-    <exclude name="SimplifyConditional"/>
-    <exclude name="SingularField"/>
-    <exclude name="SwitchDensity"/>
-    <exclude name="TooManyFields"/>
-    <exclude name="TooManyMethods"/>
-    <exclude name="UseObjectForClearerAPI"/>
-    <exclude name="UseUtilityClass"/>
-    <exclude name="UselessOverridingMethod"/>
   </rule>
   <rule ref="category/java/errorprone.xml">
-    <exclude name="AssignmentInOperand"/>
-    <exclude name="AssignmentToNonFinalStatic"/>
-    <exclude name="AvoidBranchingStatementAsLastInLoop"/>
-    <exclude name="AvoidCatchingNPE"/>
-    <exclude name="AvoidCatchingThrowable"/>
-    <exclude name="AvoidDecimalLiteralsInBigDecimalConstructor"/>
     <exclude name="AvoidDuplicateLiterals"/>
     <exclude name="AvoidFieldNameMatchingMethodName"/>
-    <exclude name="AvoidFieldNameMatchingTypeName"/>
     <exclude name="AvoidLiteralsInIfCondition"/>
+    <!-- This is excluded because we aren't beans -->
     <exclude name="BeanMembersShouldSerialize"/>
-    <exclude name="CloneThrowsCloneNotSupportedException"/>
-    <exclude name="CompareObjectsWithEquals"/>
-    <exclude name="ConstructorCallsOverridableMethod"/>
+    <!-- This is excluded because there are so many false positives -->
     <exclude name="DataflowAnomalyAnalysis"/>
-    <exclude name="DoNotCallGarbageCollectionExplicitly"/>
-    <exclude name="DoNotCallSystemExit"/>
-    <exclude name="EmptyCatchBlock"/>
+    <!-- Another scenario: We need to decide on our logging policy in the libraries - trying to minimize external dependencies means no Apache logging, etc.-->
     <exclude name="EmptyIfStmt"/>
-    <exclude name="EmptyStatementNotInLoop"/>
-    <exclude name="ImportFromSamePackage"/>
-    <exclude name="InstantiationToGetClass"/>
-    <exclude name="LoggerIsNotStaticFinal"/>
-    <exclude name="MissingBreakInSwitch"/>
-    <exclude name="MissingSerialVersionUID"/>
-    <exclude name="NullAssignment"/>
-    <exclude name="OverrideBothEqualsAndHashcode"/>
-    <exclude name="ProperCloneImplementation"/>
-    <exclude name="ReturnEmptyArrayRatherThanNull"/>
-    <exclude name="SimpleDateFormatNeedsLocale"/>
-    <exclude name="SingleMethodSingleton"/>
-    <exclude name="UseEqualsToCompareStrings"/>
-    <exclude name="UseLocaleWithCaseConversions"/>
   </rule>
   <rule ref="category/java/multithreading.xml">
     <exclude name="AvoidSynchronizedAtMethodLevel"/>
-    <exclude name="DoNotUseThreads"/>
-    <exclude name="NonThreadSafeSingleton"/>
+    <!-- Interesting, but very too many false positives -->
     <exclude name="UseConcurrentHashMap"/>
   </rule>
   <rule ref="category/java/performance.xml">
-    <exclude name="AppendCharacterWithChar"/>
-    <exclude name="AvoidFileStream"/>
-    <exclude name="AvoidInstantiatingObjectsInLoops"/>
-    <exclude name="StringInstantiation"/>
     <!-- This is excluded because it's a micro-optimization (JIT compilation would eliminate the performance penalty) and enforcing it encourages writing less readable code -->
     <exclude name="ConsecutiveAppendsShouldReuse"/>
+    <!-- Ignored because it's buggy, see https://github.com/pmd/pmd/issues/561 -->
     <exclude name="ConsecutiveLiteralAppends"/>
-    <exclude name="InefficientEmptyStringCheck"/>
-    <exclude name="InefficientStringBuffering"/>
-    <exclude name="InsufficientStringBufferDeclaration"/>
-    <exclude name="IntegerInstantiation"/>
+    <!-- Interesting, but it's "possible" - so what? -->
     <exclude name="OptimizableToArrayCall"/>
+    <!-- We just don't do this - it often decreases clarity -->
     <exclude name="RedundantFieldInitializer"/>
-    <exclude name="SimplifyStartsWith"/>
-    <exclude name="StringToString"/>
-    <exclude name="TooFewBranchesForASwitchStatement"/>
-    <exclude name="UnnecessaryWrapperObjectCreation"/>
-    <exclude name="UseArrayListInsteadOfVector"/>
-    <exclude name="UseIndexOfChar"/>
-    <exclude name="UseStringBufferForStringAppends"/>
-    <exclude name="UselessStringValueOf"/>
   </rule>
 </ruleset>

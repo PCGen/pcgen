@@ -57,6 +57,7 @@ import pcgen.base.formula.operator.string.StringAdd;
  * FormulaUtilities are a general set of utilities for dealing with Formulas.
  * This generally assists with loading libraries with "built-in" capabilities.
  */
+@SuppressWarnings("PMD.ExcessiveImports")
 public final class FormulaUtilities
 {
 

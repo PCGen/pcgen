@@ -163,16 +163,16 @@ public final class ArgFunction implements FormulaFunction
 		int argNum = Integer.parseInt(node.getText());
 		Optional<ArgumentDependencyManager> argManager =
 				manager.get(ArgumentDependencyManager.KEY);
-		if (!argManager.isPresent())
+		if (argManager.isPresent())
+		{
+			argManager.get().addArgument(argNum);
+		}
+		else
 		{
 			manager.get(DependencyManager.LOG)
 				.add("Encountered ARG Function, "
 					+ "but DependencyManager did not have an ArgumentDependencyManager, "
 					+ "so unable to log the dependency");
-		}
-		else
-		{
-			argManager.get().addArgument(argNum);
 		}
 		return (FormatManager<?>) visitor.visit((SimpleNode) masterArgs[argNum], manager);
 	}

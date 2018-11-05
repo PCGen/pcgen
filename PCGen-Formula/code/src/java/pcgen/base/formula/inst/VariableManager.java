@@ -50,7 +50,7 @@ public class VariableManager implements VariableLibrary
 	 * variable.
 	 */
 	@SuppressWarnings("PMD.LooseCoupling")
-	private DoubleKeyMap<String, LegalScope, FormatManager<?>> variableDefs =
+	private final DoubleKeyMap<String, LegalScope, FormatManager<?>> variableDefs =
 			new DoubleKeyMap<>(CaseInsensitiveMap.class, HashMap.class);
 
 	/**

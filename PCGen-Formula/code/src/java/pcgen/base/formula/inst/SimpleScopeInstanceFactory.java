@@ -44,20 +44,20 @@ public class SimpleScopeInstanceFactory implements ScopeInstanceFactory
 	 * to the instantiated "children" ScopeInstance objects within the provided
 	 * LegalScope.
 	 */
-	private DoubleKeyMapToList<ScopeInstance, LegalScope, ScopeInstance> scopeInstances =
+	private final DoubleKeyMapToList<ScopeInstance, LegalScope, ScopeInstance> scopeInstances =
 			new DoubleKeyMapToList<ScopeInstance, LegalScope, ScopeInstance>();
 
 	/**
 	 * Contains a map from the owning VarScoped object to the ScopeInstance for
 	 * that object.
 	 */
-	private Map<VarScoped, ScopeInstance> objectToInstanceCache =
+	private final Map<VarScoped, ScopeInstance> objectToInstanceCache =
 			new HashMap<VarScoped, ScopeInstance>();
 
 	/**
 	 * Contains a map from a format to the global ScopeInstance for that format.
 	 */
-	private Map<String, ScopeInstance> globals =
+	private final Map<String, ScopeInstance> globals =
 			new HashMap<String, ScopeInstance>();
 
 	/**

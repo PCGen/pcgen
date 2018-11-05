@@ -78,7 +78,7 @@ import pcgen.base.util.FormatManager;
  * object. The objects that each of the methods on the FormulaParserVistor
  * interface of SemanticsVisitor returns implement the FormatManager interface.
  */
-@SuppressWarnings("PMD.TooManyMethods")
+@SuppressWarnings({ "PMD.TooManyMethods", "PMD.ExcessiveImports"})
 public class SemanticsVisitor implements FormulaParserVisitor
 {
 	/*
@@ -229,7 +229,7 @@ public class SemanticsVisitor implements FormulaParserVisitor
 		catch (NumberFormatException e)
 		{
 			throw new SemanticsFailureException(
-				node.getClass() + " had invalid number: " + node.getText());
+				node.getClass() + " had invalid number: " + node.getText(), e);
 		}
 	}
 
@@ -426,7 +426,7 @@ public class SemanticsVisitor implements FormulaParserVisitor
 		catch (IllegalArgumentException e)
 		{
 			throw new SemanticsFailureException(
-				"Invalid " + assertedFormat.getIdentifierType() + ": " + e.getMessage());
+				"Invalid " + assertedFormat.getIdentifierType() + ": " + e.getMessage(), e);
 		}
 	}
 
