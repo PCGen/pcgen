@@ -1,0 +1,78 @@
+SOURCELONG:Wrath of the Righteous Player's Guide	SOURCESHORT:WOTRPG	SOURCEWEB:http://paizo.com/store/pathfinder/adventures/adventurePath/wrathOfTheRighteous	SOURCEDATE:2012-07
+# Original Entry by: Jason D (ding50@yahoo.com)
+
+###Block: Touched by Divinity domain choice for ability pool from the APG
+#COMMENT: Up to the user to ensure they choose a domain that applies to their chosen deity
+Agathion				KEY:Touched by Divinity ~ Agathion			CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Shield of Faith,11+WIS
+Ancestors				KEY:Touched by Divinity ~ Ancestors			CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Deathwatch,11+WIS
+Arcane					KEY:Touched by Divinity ~ Arcane			CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Magic Aura,11+WIS
+Archon					KEY:Touched by Divinity ~ Archon			CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Divine Favor,11+WIS
+Ash						KEY:Touched by Divinity ~ Ash				CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Burning Hands,11+WIS
+Azata					KEY:Touched by Divinity ~ Azata				CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Expeditious Retreat,11+WIS
+Blood					KEY:Touched by Divinity ~ Blood				CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Magic Weapon,11+WIS
+Catastrophe				KEY:Touched by Divinity ~ Catastrophe		CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|True Strike,11+WIS
+Caves					KEY:Touched by Divinity ~ Caves				CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Magic Stone,11+WIS
+Cloud					KEY:Touched by Divinity ~ Cloud				CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Obscuring Mist,11+WIS
+Construct				KEY:Touched by Divinity ~ Construct			CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Animate Rope,11+WIS
+Curse					KEY:Touched by Divinity ~ Curse				CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Bane,11+WIS
+Daemon					KEY:Touched by Divinity ~ Daemon			CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Cause Fear,11+WIS
+Day						KEY:Touched by Divinity ~ Day				CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Endure Elements,11+WIS
+Decay					KEY:Touched by Divinity ~ Decay				CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Entangle,11+WIS
+Deception				KEY:Touched by Divinity ~ Deception			CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Disguise Self,11+WIS
+Defense					KEY:Touched by Divinity ~ Defense			CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Shield,11+WIS
+Demon					KEY:Touched by Divinity ~ Demon				CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Doom,11+WIS
+Devil					KEY:Touched by Divinity ~ Devil				CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Command,11+WIS
+Divine					KEY:Touched by Divinity ~ Divine			CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Identify,11+WIS
+Exploration				KEY:Touched by Divinity ~ Exploration		CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Expeditious Retreat,11+WIS
+Family					KEY:Touched by Divinity ~ Family			CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Bless,11+WIS
+Fate					KEY:Touched by Divinity ~ Fate				CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|True Strike,11+WIS
+Feather					KEY:Touched by Divinity ~ Feather			CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Calm Animals,11+WIS
+Ferocity				KEY:Touched by Divinity ~ Ferocity			CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Enlarge Person,11+WIS
+Freedom					KEY:Touched by Divinity ~ Freedom			CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Sanctuary,11+WIS
+Fur						KEY:Touched by Divinity ~ Fur				CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Magic Fang,11+WIS
+Growth					KEY:Touched by Divinity ~ Growth			CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Enlarge Person,11+WIS
+Heroism					KEY:Touched by Divinity ~ Heroism			CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Shield of Faith,11+WIS
+Home					KEY:Touched by Divinity ~ Home				CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Alarm,11+WIS
+Honor					KEY:Touched by Divinity ~ Honor				CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Shield of Faith,11+WIS
+Ice						KEY:Touched by Divinity ~ Ice				CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Obscuring Mist,11+WIS
+Inevitable				KEY:Touched by Divinity ~ Inevitable		CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Protection from Chaos,11+WIS
+Insanity				KEY:Touched by Divinity ~ Insanity			CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Confusion (Lesser),11+WIS
+Language				KEY:Touched by Divinity ~ Language			CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Comprehend Languages,11+WIS
+Leadership				KEY:Touched by Divinity ~ Leadership		CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Bless,11+WIS
+Light					KEY:Touched by Divinity ~ Light				CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Faerie Fire,11+WIS
+Loss					KEY:Touched by Divinity ~ Loss				CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Obscuring Mist,11+WIS
+Love					KEY:Touched by Divinity ~ Love				CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Charm Person,11+WIS
+Lust					KEY:Touched by Divinity ~ Lust				CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Charm Person,11+WIS
+Martyr					KEY:Touched by Divinity ~ Martyr			CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Divine Favor,11+WIS
+Memory					KEY:Touched by Divinity ~ Memory			CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Comprehend Languages,11+WIS
+Metal					KEY:Touched by Divinity ~ Metal				CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Magic Stone,11+WIS
+Murder					KEY:Touched by Divinity ~ Murder			CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Cause Fear,11+WIS
+Night					KEY:Touched by Divinity ~ Night				CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Sleep,11+WIS
+Nightmare				KEY:Touched by Divinity ~ Nightmare			CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Confusion (Lesser),11+WIS
+Oceans					KEY:Touched by Divinity ~ Oceans			CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Obscuring Mist,11+WIS
+Protean					KEY:Touched by Divinity ~ Protean			CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Confusion (Lesser),11+WIS
+#COMMENT: Because Purity allows the choice of any of the Protection from XXX spells, we use another ability category to choose which one.
+Purity					KEY:Touched by Divinity ~ Purity			CATEGORY:Special Ability	TYPE:TouchedByDivinity		BONUS:ABILITYPOOL|Purity Subdomain Spell Choice|1
+Rage					KEY:Touched by Divinity ~ Rage				CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|True Strike,11+WIS
+Resolve					KEY:Touched by Divinity ~ Resolve			CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Bless,11+WIS
+Restoration				KEY:Touched by Divinity ~ Restoration		CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Cure Light Wounds,11+WIS
+Resurrection			KEY:Touched by Divinity ~ Resurrection		CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Cure Light Wounds,11+WIS
+Revolution				KEY:Touched by Divinity ~ Revolution		CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Remove Fear,11+WIS
+Seasons					KEY:Touched by Divinity ~ Seasons			CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Goodberry,11+WIS
+Souls					KEY:Touched by Divinity ~ Souls				CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Deathwatch,11+WIS
+Smoke					KEY:Touched by Divinity ~ Smoke				CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Burning Hands,11+WIS
+Storms					KEY:Touched by Divinity ~ Storms			CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Obscuring Mist,11+WIS
+Tactics					KEY:Touched by Divinity ~ Tactics			CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Magic Weapon,11+WIS
+Thievery				KEY:Touched by Divinity ~ Thievery			CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Disguise Self,11+WIS
+Thought					KEY:Touched by Divinity ~ Thought			CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Comprehend Languages,11+WIS
+Toil					KEY:Touched by Divinity ~ Toil				CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Command,11+WIS
+Trade					KEY:Touched by Divinity ~ Trade				CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Floating Disk,11+WIS
+Undead					KEY:Touched by Divinity ~ Undead			CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Cause Fear,11+WIS
+Wards					KEY:Touched by Divinity ~ Wards				CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Arcane Lock,11+WIS
+Wind					KEY:Touched by Divinity ~ Wind				CATEGORY:Special Ability	TYPE:TouchedByDivinity		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Whispering Wind,11+WIS
+
+# Purity subdomain
+Protection from Chaos	KEY:Purity Subdomain ~ Chaos				CATEGORY:Special Ability	TYPE:TbdPuritySubdomain		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Protection from Chaos,11+WIS
+Protection from Evil	KEY:Purity Subdomain ~ Evil					CATEGORY:Special Ability	TYPE:TbdPuritySubdomain		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Protection from Evil,11+WIS
+Protection from Good	KEY:Purity Subdomain ~ Good					CATEGORY:Special Ability	TYPE:TbdPuritySubdomain		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Protection from Good,11+WIS
+Protection from Law		KEY:Purity Subdomain ~ Law					CATEGORY:Special Ability	TYPE:TbdPuritySubdomain		SPELLS:Innate|TIMES=TbdTimesPerDay|CASTERLEVEL=(max(TL,1))|Protection from Law,11+WIS
