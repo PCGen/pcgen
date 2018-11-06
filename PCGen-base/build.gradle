@@ -9,14 +9,14 @@
  */
 
 plugins {
-	id 'java'
-	id 'eclipse'
-	id "jacoco"
-	id 'ivy-publish'
-	id 'checkstyle'
-	id 'pmd'
-	id 'jdepend'
-    id "com.github.spotbugs" version '1.6.1'
+    id 'java'
+    id 'eclipse'
+    id "jacoco"
+    id 'ivy-publish'
+    id 'checkstyle'
+    id 'pmd'
+    id "com.github.spotbugs" version '1.6.5'
+    id 'com.github.ben-manes.versions' version '0.20.0'
 }
 
 group = 'net.sourceforge.pcgen'
@@ -24,7 +24,8 @@ description = """PCGen base library"""
 
 defaultTasks 'clean', 'build'
 
-sourceCompatibility = 1.8
+sourceCompatibility = "1.11"
+targetCompatibility = "1.11"
 
 ext {
     majorVersion = 1
@@ -59,8 +60,8 @@ test {
 }
 
 jacocoTestReport {
-    afterEvaluate {
-       	classDirectories = files(classDirectories.files.collect {fileTree(dir: it, exclude: testSources)})
+    afterEvaluate { 
+        classDirectories = files(classDirectories.files.collect {fileTree(dir: it, exclude: testSources)})
     }
     reports {
         html {

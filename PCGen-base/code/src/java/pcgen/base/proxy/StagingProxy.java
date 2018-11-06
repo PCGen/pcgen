@@ -17,6 +17,7 @@ package pcgen.base.proxy;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -212,7 +213,7 @@ class StagingProxy<R, W> implements InvocationHandler, Staging<W>
 		PropertyProcessor processor = getProcessors.get(methodName);
 		ReadableHandler handler = processor.getInvocationHandler(methodName, args);
 		@SuppressWarnings("unchecked")
-		W extractor = (W) java.lang.reflect.Proxy.newProxyInstance(
+		W extractor = (W) Proxy.newProxyInstance(
 			writeInterface.getClassLoader(), new Class[]{writeInterface}, handler);
 		if (stagedMethodCalls != null)
 		{

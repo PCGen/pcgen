@@ -2,108 +2,77 @@
 
 <!--
    - Code quality rule set for use with the PCGen Java code.
-   - See https://pmd.github.io/pmd-5.5.1/pmd-java/rules/index.html
-   - for descriptions of the rules applied. 
+   - See https://pmd.github.io/pmd-6.0.0/pmd_rules_java.html
+   - for descriptions of the rules applied.
  -->
 <ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    name="PCGen Code Rules"
-    xmlns="http://pmd.sf.net/ruleset/1.0.0"
-    xsi:noNamespaceSchemaLocation="http://pmd.sf.net/ruleset_xml_schema.xsd"
-    xsi:schemaLocation="http://pmd.sf.net/ruleset/1.0.0 
-                        http://pmd.sf.net/ruleset_xml_schema.xsd" >
-
+         name="PCGen Code Rules"
+         xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+         xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
   <description>
-  PMD rules customised for PCGen's code. 
+    PMD rules customised for PCGen's code.
   </description>
-
-   <exclude-pattern>.*/test/.*</exclude-pattern>
-
-  <!--<rule ref="rulesets/java/android.xml">-->
-  <rule ref="rulesets/java/basic.xml">
-    <exclude name="AvoidUsingHardCodedIP" />
-  </rule>
-  <rule ref="rulesets/java/braces.xml" />
-  <rule ref="rulesets/java/clone.xml">
-    <exclude name="ProperCloneImplementation" />
-    <exclude name="CloneThrowsCloneNotSupportedException" />
-  </rule>
-  <rule ref="rulesets/java/codesize.xml" />
-  <!--<rule ref="rulesets/java/comments.xml" />-->
-  <!--<rule ref="rulesets/java/controversial.xml />-->
-  <rule ref="rulesets/java/coupling.xml">
-    <exclude name="LoosePackageCoupling" />
-    <exclude name="CouplingBetweenObjects" />
-    <exclude name="ExcessiveImports" />
-    <exclude name="LawOfDemeter" />
-  </rule>
-  <rule ref="rulesets/java/design.xml">
-    <exclude name="AccessorMethodGeneration" />
-    <exclude name="AccessorClassGeneration" />
-    <exclude name="SimplifyBooleanReturns" />
-    <exclude name="AvoidSynchronizedAtMethodLevel" />
+  <exclude-pattern>.*/test/.*</exclude-pattern>
+  <rule ref="category/java/bestpractices.xml">
     <!-- This is excluded because it's a tradeoff: it creates a warning to use it, which then has to be addressed -->
-    <exclude name="UseVarargs" />
+    <exclude name="UseVarargs"/>
   </rule>
-  <rule ref="rulesets/java/empty.xml">
-    <exclude name="EmptyCatchBlock" />
-    <exclude name="EmptyIfStmt" />
-    <exclude name="EmptyStaticInitializer" />
-    <exclude name="EmptyInitializer" />
-    <exclude name="EmptyStatementNotInLoop" />
-  </rule>
-  <rule ref="rulesets/java/finalizers.xml"/>
-  <rule ref="rulesets/java/imports.xml" />
-  <!--<rule ref="rulesets/java/j2ee.xml" />-->
-  <!--<rule ref="rulesets/java/javabeans.xml" />-->
-  <rule ref="rulesets/java/junit.xml" >
-    <exclude name="UseAssertTrueInsteadOfAssertEquals" />
-    <exclude name="JUnitTestContainsTooManyAsserts" />
-    <exclude name="UseAssertSameInsteadOfAssertTrue" />
-    <exclude name="UseAssertEqualsInsteadOfAssertTrue" />
-    <exclude name="JUnitSpelling" />
-    <exclude name="JUnitAssertionsShouldIncludeMessage" />
-    <exclude name="JUnitTestsShouldIncludeAssert" />
-    <exclude name="TestClassWithoutTestCases" />
-  </rule>
-  <!--<rule ref="rulesets/java/jakarta.xml" />-->
-  <rule ref="rulesets/java/logging-jakarta-commons.xml" />
-  <rule ref="rulesets/java/logging-java.xml" />
-  <rule ref="rulesets/java/migrating.xml">
-    <exclude name="IntegerInstantiation" />
-    <exclude name="ReplaceVectorWithList" />
-    <exclude name="ReplaceHashtableWithMap" />
-    <exclude name="ReplaceEnumerationWithIterator" />
-    <exclude name="JUnit4TestShouldUseBeforeAnnotation" />
-    <exclude name="JUnit4TestShouldUseAfterAnnotation" />
-    <exclude name="JUnit4TestShouldUseTestAnnotation" />
-    <exclude name="JUnit4SuitesShouldUseSuiteAnnotation" />
-    <exclude name="JUnitUseExpected" />
-  </rule>
-  <!--<rule ref="rulesets/java/naming.xml" />-->
-  <rule ref="rulesets/java/optimizations.xml">
-    <exclude name="RedundantFieldInitializer" />
+  <rule ref="category/java/codestyle.xml">
+    <!-- This is excluded because this generates "noise pollution" just having empty constructors -->
+    <exclude name="AtLeastOneConstructor"/>
+    <!-- This is excluded because it's unnecessarily verbose -->
+    <exclude name="CallSuperInConstructor"/>
+    <!-- This is excluded because we use "Utilities" not "Utils" -->
+    <exclude name="ClassNamingConventions"/>
+    <exclude name="CommentDefaultAccessModifier"/>
+    <exclude name="DefaultPackage"/>
+    <!-- TODO Only a couple of these - worth investigating -->
+    <exclude name="LinguisticNaming"/>
+    <exclude name="GenericsNaming"/>
     <!-- This is excluded because and this generates "noise pollution" around the usage of final, our semantic usage is as a trigger it is necessary, not when it's possible -->
-    <exclude name="MethodArgumentCouldBeFinal" />
+    <exclude name="LocalVariableCouldBeFinal"/>
+    <!-- This is excluded because we aim for clarity not terse-ness -->
+    <exclude name="LongVariable"/>
     <!-- This is excluded because and this generates "noise pollution" around the usage of final, our semantic usage is as a trigger it is necessary, not when it's possible -->
-    <exclude name="LocalVariableCouldBeFinal" />
-  </rule>
-  <rule ref="rulesets/java/strictexception.xml" />
-  <rule ref="rulesets/java/strings.xml">
-    <exclude name="AvoidDuplicateLiterals" />
-    <exclude name="InefficientStringBuffering" />
-    <exclude name="AppendCharacterWithChar" />
-    <exclude name="ConsecutiveLiteralAppends" />
-    <exclude name="AvoidStringBufferField" />
-    <!-- This is excluded because it's a micro-optimization (JIT compilation would eliminate the performance penalty) and enforcing it encourages writing less readable code -->
-    <exclude name="ConsecutiveAppendsShouldReuse" />
-  </rule>
-  <!--<rule ref="rulesets/java/sunsecure.xml">-->
-  <rule ref="rulesets/java/typeresolution.xml" />
-  <rule ref="rulesets/java/unnecessary.xml">
-    <!-- This is excluded because we use "useless" parenthesis for readability -->
-    <exclude name="UselessParentheses" />
+    <exclude name="MethodArgumentCouldBeFinal"/>
+    <!-- We just don't do this - it often decreases clarity even though it allows better refactoring -->
+    <exclude name="OnlyOneReturn"/>
+    <exclude name="ShortVariable"/>
     <!-- This is excluded because we use "public" in Interfaces almost universally (as a semantic hint as to its real behavior) -->
-    <exclude name="UnnecessaryModifier" />
+    <exclude name="UnnecessaryModifier"/>
+    <!-- This is excluded because we use "useless" parenthesis for readability -->
+    <exclude name="UselessParentheses"/>
   </rule>
-  <rule ref="rulesets/java/unusedcode.xml" />
+  <rule ref="category/java/design.xml">
+    <!-- Interesting, but very subjective -->
+    <exclude name="CyclomaticComplexity"/>
+    <!-- Interesting, but very subjective -->
+    <exclude name="LawOfDemeter"/>
+    <!-- We just don't do this - it often decreases clarity even though it allows better refactoring -->
+    <exclude name="SimplifyBooleanReturns"/>
+  </rule>
+  <rule ref="category/java/errorprone.xml">
+    <exclude name="AvoidDuplicateLiterals"/>
+    <exclude name="AvoidFieldNameMatchingMethodName"/>
+    <exclude name="AvoidLiteralsInIfCondition"/>
+    <!-- This is excluded because we aren't beans -->
+    <exclude name="BeanMembersShouldSerialize"/>
+    <!-- This is excluded because there are so many false positives -->
+    <exclude name="DataflowAnomalyAnalysis"/>
+    <!-- TODO Only a small handful of these - worth investigating -->
+    <exclude name="MissingSerialVersionUID"/>
+  </rule>
+  <rule ref="category/java/multithreading.xml">
+    <exclude name="AvoidSynchronizedAtMethodLevel"/>
+    <!-- Interesting, but very too many false positives -->
+    <exclude name="UseConcurrentHashMap"/>
+  </rule>
+  <rule ref="category/java/performance.xml">
+    <!-- This is excluded because it's a micro-optimization (JIT compilation would eliminate the performance penalty) and enforcing it encourages writing less readable code -->
+    <exclude name="ConsecutiveAppendsShouldReuse"/>
+    <!-- Interesting, but it's "possible" - so what? -->
+    <exclude name="OptimizableToArrayCall"/>
+    <!-- We just don't do this - it often decreases clarity -->
+    <exclude name="RedundantFieldInitializer"/>
+  </rule>
 </ruleset>

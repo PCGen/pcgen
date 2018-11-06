@@ -42,6 +42,8 @@ public final class ObjectUtil
 	 *            to this object
 	 * @return A Predicate that indicates whether the object provided to the Predicate is
 	 *         equal (identity equal, meaning ==) to the object provided to this method
+	 * @param <T>
+	 *            The component type of the Object to be checked for equality
 	 */
 	public static <T> Predicate<? super T> identityEquals(T object)
 	{
