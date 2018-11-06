@@ -15,12 +15,12 @@
 import static org.apache.tools.ant.taskdefs.condition.Os.*
 
 plugins {
-    id 'com.gradle.build-scan' version '1.16'
+    id 'com.gradle.build-scan' version '2.0.1'
     id 'eclipse'
     id 'application'
     id 'build-dashboard'
     id 'checkstyle'
-    id "com.github.spotbugs" version '1.6.4'
+    id "com.github.spotbugs" version '1.6.5'
     id 'java'
     id 'maven'
     id 'pmd'
@@ -152,9 +152,9 @@ compileJava {
 dependencies {
     compile group: 'cobra', name: 'cobra', version:'0.98.4-pcgen'
     compile group: 'commons-io', name: 'commons-io', version:'2.6'
-    compile group: 'org.springframework', name: 'spring-core', version:'5.1.1.RELEASE'
-    compile group: 'org.springframework', name: 'spring-beans', version:'5.1.1.RELEASE'
-    compile group: 'org.springframework', name: 'spring-web', version:'5.1.1.RELEASE'
+    compile group: 'org.springframework', name: 'spring-core', version:'5.1.2.RELEASE'
+    compile group: 'org.springframework', name: 'spring-beans', version:'5.1.2.RELEASE'
+    compile group: 'org.springframework', name: 'spring-web', version:'5.1.2.RELEASE'
     compile group: 'skinlf', name: 'skinlf', version: '1.2.3'
     compile group: 'org.apache.commons', name: 'commons-lang3', version:'3.8.1'
     compile group: 'org.apache.xmlgraphics', name: 'fop', version:'2.3'

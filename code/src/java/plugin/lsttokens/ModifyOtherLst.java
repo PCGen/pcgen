@@ -41,7 +41,7 @@ import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.cdom.grouping.GroupingCollection;
 import pcgen.core.Campaign;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMInterfaceToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
@@ -50,7 +50,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * Implements the MODIFYOTHER token for remotely modifying variables in the new variable
  * system.
  */
-public class ModifyOtherLst extends AbstractTokenWithSeparator<VarHolder>
+public class ModifyOtherLst extends AbstractNonEmptyToken<VarHolder>
 		implements CDOMInterfaceToken<VarContainer, VarHolder>, CDOMPrimaryToken<VarHolder>
 {
 
@@ -60,15 +60,9 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<VarHolder>
 		return "MODIFYOTHER";
 	}
 
-	@Override
-	protected char separator()
-	{
-		return '|';
-	}
-
 	//MODIFYOTHER:EQUIPMENT|GROUP=Martial|EqCritRange|ADD|1
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context, VarHolder obj, String value)
+	public ParseResult parseNonEmptyToken(LoadContext context, VarHolder obj, String value)
 	{
 		//TODO These instanceof checks will fail - the VarHolder is a proxy :(
 		if (obj instanceof Ungranted)
