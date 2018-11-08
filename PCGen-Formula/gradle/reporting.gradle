@@ -10,6 +10,7 @@
 
 checkstyle {
 	configFile = new File('code/standards/checkstyle.xml')
+	configProperties = [ "suppressionFile" : project(':').file('code/standards/suppressions.xml')]
 	ignoreFailures = true
 	showViolations = false
 	sourceSets = []
