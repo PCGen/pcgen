@@ -4,7 +4,7 @@ SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pa
 
 ###BLOCK: Armor
 # Equipment Name			Output Name			Required Armor Proficiency	Type										Cost		Weight	AC Penalty Check	Modifier		Maximum DEX Bonus	Requires Modification?	Size		Source Page		% of Spell Failure	Combat bonus
-Rag Armor (Dark Creeper)	OUTPUTNAME:Rag Armor	PROFICIENCY:ARMOR|Leather	TYPE:Armor.Light.ArmorProfLight.Suit.Standard.Nonmetal	COST:0	WT:15		ACCHECK:0		EQMOD:Material ~ Leather	MAXDEX:6		MODS:NO			SIZE:S	SOURCEPAGE:p.53	SPELLFAILURE:10		BONUS:COMBAT|AC|2|TYPE=Armor|PRERACE:1,Dark Creeper
+Rag Armor (Dark Creeper)	OUTPUTNAME:Rag Armor	PROFICIENCY:ARMOR|Leather	TYPE:Armor.Light.ArmorProfLight.Suit.Standard.Nonmetal	COST:0	WT:15		ACCHECK:0		EQMOD:Material ~ Leather	MODIFY:EQ_MaxDex|SET|6		MODS:NO			SIZE:S	SOURCEPAGE:p.53	SPELLFAILURE:10		BONUS:COMBAT|AC|2|TYPE=Armor|PRERACE:1,Dark Creeper
 
 ###BLOCK: Weapons
 # Equipment Name	Required Weapon Proficiency	Type																		Cost		Weight	Crit Mult	Crit Range	Damage	Modifier	Wield Category	Range		Size		Source Page		Special Property

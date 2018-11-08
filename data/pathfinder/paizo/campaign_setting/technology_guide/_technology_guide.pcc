@@ -35,6 +35,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Campaign Setting: Technology 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+VARIABLE:tg__variables.lst
 
 # Data Files
 ABILITY:tg_abilities_class.lst

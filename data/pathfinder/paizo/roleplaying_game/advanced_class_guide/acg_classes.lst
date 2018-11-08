@@ -42,6 +42,9 @@ CLASS:Bloodrager	STARTSKILLPTS:4
 # Class Name	Spell Stat		Memorize	Caster level								Use Spell List
 CLASS:Bloodrager	SPELLSTAT:CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Bloodrager|Caster_Level_Bloodrager|PRECLASS:1,Bloodrager=4	SPELLLIST:1|Bloodrager	DEFINE:Caster_Level_Bloodrager|0	DEFINE:CasterLevelBLBloodrager|0	BONUS:VAR|Caster_Level_Bloodrager|BloodragerLVL+Caster_Level_Bonus+CasterLevelBLBloodrager	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Bloodrager|TYPE=Base	BONUS:VAR|Caster_Level_Total__Arcane|Caster_Level_Bloodrager
 1	ABILITY:Class|AUTOMATIC|Bloodrager
+###Block:
+1:REPEATLEVEL:1	MODIFY:BloodragerLVL|ADD|1
+
 ###Block: Level Progression
 1	ABILITY:Bloodrager Class Feature|AUTOMATIC|Bloodrager ~ Weapon and Armor Proficiency
 1	ABILITY:Bloodrager Class Feature|AUTOMATIC|Bloodrager ~ Bloodline|PREVAREQ:Bloodrager_CF_Bloodline,0

@@ -43,6 +43,8 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Advanced Class Guide" Cop
 #Do Not Remove Comment
 #EXTRAFILE:OGL.txt
 DATACONTROL:acg__datacontrols.lst
+VARIABLE:acg__variables.lst
+
 ABILITY:acg_abilities_globalvar.lst
 
 ABILITY:acg_abilities_class.lst

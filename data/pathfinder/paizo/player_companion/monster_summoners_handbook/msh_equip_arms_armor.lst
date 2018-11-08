@@ -6,7 +6,7 @@ SOURCELONG:Monster Summoner's Handbook	SOURCESHORT:MSH	SOURCEWEB:http://paizo.co
 # Magic Armor
 # ==============================
 
-Armor of Fragmenting Stone			PROFICIENCY:ARMOR|Full Plate		TYPE:Enhancement.Armor.Heavy.ArmorProfHeavy.Suit.Specific		COST:1500	WT:60		ACCHECK:-6							EQMOD:MAGIC_COST|16000.PLUS2A.STEEL		MAXDEX:1								SOURCEPAGE:p.20	SPELLFAILURE:35		BONUS:COMBAT|AC|9|TYPE=Armor|PREVAREQ:DisableArmorBonus,0		BONUS:VAR|ArmorCheckPenalty|6			SPROP:Summon Medium earth elemental 1/day for up to 7 rounds.
+Armor of Fragmenting Stone			PROFICIENCY:ARMOR|Full Plate		TYPE:Enhancement.Armor.Heavy.ArmorProfHeavy.Suit.Specific		COST:1500	WT:60		ACCHECK:-6							EQMOD:MAGIC_COST|16000.PLUS2A.STEEL		MODIFY:EQ_MaxDex|SET|1								SOURCEPAGE:p.20	SPELLFAILURE:35		BONUS:COMBAT|AC|9|TYPE=Armor|PREVAREQ:DisableArmorBonus,0		BONUS:VAR|ArmorCheckPenalty|6			SPROP:Summon Medium earth elemental 1/day for up to 7 rounds.
 
 # ==============================
 # Magic Weapon

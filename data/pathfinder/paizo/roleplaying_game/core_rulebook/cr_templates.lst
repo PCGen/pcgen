@@ -2,6 +2,7 @@
 SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original RSRD Entry by: PCGen Data Team
 # Pathfinder RPG Entry by: Stefan Radermacher
+Activate Test Mode		DEFINE:TestMode|0	BONUS:VAR|TestMode|1
 
 # Template Name			Visible	Template										Modify VAR						Apply Kit
 Wizard Spellbook			VISIBLE:NO																			KIT:1|Wizard Spellbook

@@ -16,8 +16,8 @@ Siege Engine Ammunition (Weighted Bolt)			TYPE:Ammunition.Resizable.SiegeAmmo			
 # New Magic Armor
 # ==============================
 
-Death's Preservation Banded Mail		PROFICIENCY:ARMOR|Banded Mail			TYPE:Armor.Magic.Heavy.ArmorProfHeavy.Suit.Specific							COST:250	WT:35		ACCHECK:-6		EQMOD:Special Ability ~ Fortification / Light ~ Armor.Special Ability ~ Enhancement Cost|13000.Special Ability ~ +2 ~ Armor.Material ~ Steel	MAXDEX:1		SOURCEPAGE:p.30	SPELLFAILURE:35																			BONUS:COMBAT|AC|7|TYPE=Armor									BONUS:VAR|ArmorCheckPenalty|6
-Dragonform Armor					PROFICIENCY:ARMOR|Leather			TYPE:Armor.Magic.Light.ArmorProfLight.Suit.Specific.Nonmetal					COST:10	WT:15		ACCHECK:0		EQMOD:Special Ability ~ Enhancement Cost|22950.Special Ability ~ +1 ~ Armor.Material ~ Leather		MAXDEX:6		SOURCEPAGE:p.30	SPELLFAILURE:10																			BONUS:COMBAT|AC|2|TYPE=Armor									BONUS:VAR|ArmorCheckPenalty|0
+Death's Preservation Banded Mail		PROFICIENCY:ARMOR|Banded Mail			TYPE:Armor.Magic.Heavy.ArmorProfHeavy.Suit.Specific							COST:250	WT:35		ACCHECK:-6		EQMOD:Special Ability ~ Fortification / Light ~ Armor.Special Ability ~ Enhancement Cost|13000.Special Ability ~ +2 ~ Armor.Material ~ Steel	MODIFY:EQ_MaxDex|SET|1		SOURCEPAGE:p.30	SPELLFAILURE:35																			BONUS:COMBAT|AC|7|TYPE=Armor									BONUS:VAR|ArmorCheckPenalty|6
+Dragonform Armor					PROFICIENCY:ARMOR|Leather			TYPE:Armor.Magic.Light.ArmorProfLight.Suit.Specific.Nonmetal					COST:10	WT:15		ACCHECK:0		EQMOD:Special Ability ~ Enhancement Cost|22950.Special Ability ~ +1 ~ Armor.Material ~ Leather		MODIFY:EQ_MaxDex|SET|6		SOURCEPAGE:p.30	SPELLFAILURE:10																			BONUS:COMBAT|AC|2|TYPE=Armor									BONUS:VAR|ArmorCheckPenalty|0
 
 # ==============================
 # New Magic Weapons

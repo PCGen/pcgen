@@ -4,7 +4,7 @@ SOURCELONG:Cheliax, Empire of Devils	SOURCESHORT:CEOD	SOURCEWEB:http://paizo.com
 
 ###Block: Armor
 # Equipment Name		Required Armor Proficiency		Type										Cost		Weight	AC Penalty Check	Modifier				Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus			Special Property
-Abrogailian Corset	PROFICIENCY:ARMOR|Studded Leather	TYPE:Armor.Light.ArmorProfLight.Suit.Specific.Nonmetal	COST:25	WT:10		ACCHECK:-1		EQMOD:Special Ability ~ Enhancement Cost|8000.Special Ability ~ +3 ~ Armor	MAXDEX:5		SOURCEPAGE:p.20	SPELLFAILURE:15		BONUS:COMBAT|AC|3|TYPE=Armor	SPROP:prevent 20 points of damage per day, after that nauseated for 1 round (Fort DC 18 negates)
+Abrogailian Corset	PROFICIENCY:ARMOR|Studded Leather	TYPE:Armor.Light.ArmorProfLight.Suit.Specific.Nonmetal	COST:25	WT:10		ACCHECK:-1		EQMOD:Special Ability ~ Enhancement Cost|8000.Special Ability ~ +3 ~ Armor	MODIFY:EQ_MaxDex|SET|5		SOURCEPAGE:p.20	SPELLFAILURE:15		BONUS:COMBAT|AC|3|TYPE=Armor	SPROP:prevent 20 points of damage per day, after that nauseated for 1 round (Fort DC 18 negates)
 
 ###Block: Weapons
 # Equipment Name	Required Weapon Proficiency		Type												Cost		Weight	Crit Mult	Crit Range	Damage	Modifier					Wield Category	Size		Source Page		Special Property

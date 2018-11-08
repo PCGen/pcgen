@@ -3,8 +3,8 @@ SOURCELONG:Adventurer's Handbook: Genius Guide Volume 1	SOURCESHORT:SGGAH	SOURCE
 # Original Entry by: Paul Shipley (elro the onk)
 
 # Modifier Name	Unique Key		Type		Cost		Visible		Type granted	Source Page		Required Type	Combat bonus	Bonus Armor Mods								Change Armor Type
-Layered		KEY:Special Quality ~ Layered ~ Armor	TYPE:Armor	COST:0	VISIBLE:QUALIFY	ITYPE:Layered	SOURCEPAGE:p.64	PRETYPE:1,Heavy	BONUS:COMBAT|AC|1	BONUS:EQMARMOR|ACCHECK|-1	BONUS:EQMARMOR|MAXDEX|-1	ARMORTYPE:Medium|Heavy
-
+Layered		KEY:Special Quality ~ Layered ~ Armor	TYPE:Armor	COST:0	VISIBLE:QUALIFY	ITYPE:Layered	SOURCEPAGE:p.64	PRETYPE:1,Heavy	BONUS:COMBAT|AC|1	BONUS:EQMARMOR|ACCHECK|-1		ARMORTYPE:Medium|Heavy
+# BONUS:EQMARMOR|MAXDEX|-1
 
 
 

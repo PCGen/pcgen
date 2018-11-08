@@ -23,7 +23,7 @@ Wrist Launcher, Heavy			KEY:Wrist Launcher (Heavy)			PROFICIENCY:WEAPON|Crossbow
 # New Magical Armor
 # ==============================
 
-Diviner's Blight											PROFICIENCY:ARMOR|Leather				TYPE:Armor.Magic.ArmorProfLight.Light.Suit.Specific.Nonmetal.GreaterMajor															COST:10	WT:15		ACCHECK:0													EQMOD:Special Ability ~ Enhancement Cost|15000.Special Ability ~ +4 ~ Armor.Material ~ Leather											MAXDEX:6									SPELLFAILURE:10				SOURCEPAGE:p.237		BONUS:COMBAT|AC|2|TYPE=Armor		BONUS:VAR|ArmorCheckPenalty|0
+Diviner's Blight											PROFICIENCY:ARMOR|Leather				TYPE:Armor.Magic.ArmorProfLight.Light.Suit.Specific.Nonmetal.GreaterMajor															COST:10	WT:15		ACCHECK:0													EQMOD:Special Ability ~ Enhancement Cost|15000.Special Ability ~ +4 ~ Armor.Material ~ Leather											MODIFY:EQ_MaxDex|SET|6									SPELLFAILURE:10				SOURCEPAGE:p.237		BONUS:COMBAT|AC|2|TYPE=Armor		BONUS:VAR|ArmorCheckPenalty|0
 Lockpick Shield											PROFICIENCY:SHIELD|Shield (Light)			TYPE:Shield.Magic.Specific.LesserMedium.Light																				COST:9	WT:6		ACCHECK:-1		CRITMULT:x2	CRITRANGE:1			DAMAGE:1d3				EQMOD:Special Ability ~ Enhancement Cost|3000.Special Ability ~ +2 ~ Shield.Material ~ Steel								WIELD:Light												SPELLFAILURE:5		SIZE:M	SOURCEPAGE:p.237		BONUS:COMBAT|AC|1|TYPE=Shield		BONUS:VAR|ArmorCheckPenalty|1		BONUS:WEAPON|TOHIT|4|PREWEAPONPROF:1,Shieldbash			SPROP:Shield can attempt Disable Device check with +10 total bonus.
 
 # ==============================

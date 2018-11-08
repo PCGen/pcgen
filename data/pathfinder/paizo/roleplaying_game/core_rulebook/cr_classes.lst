@@ -167,6 +167,8 @@ CLASS:Fighter	HD:10		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.55	DEFINE:FighterLVL|
 # Class Name	Skill Pts/Lvl
 CLASS:Fighter	STARTSKILLPTS:2
 ###Block:Proficiencies
+1:REPEATLEVEL:1	MODIFY:FighterLVL|ADD|1
+###Block:
 1	ABILITY:Class|AUTOMATIC|Fighter
 1	ABILITY:Fighter Class Feature|AUTOMATIC|Weapon and Armor Proficiency ~ Fighter|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterWeaponProficiencies,TYPE.FighterArmorProficiencies,TYPE.FighterHeavyArmorProficiency,TYPE.FighterMediumArmorProficiency,TYPE.FighterLightArmorProficiency,TYPE.FighterShieldProficiency,TYPE.FighterTowerShieldProficiency
 1	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Martial|Weapon Prof ~ Simple|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterWeaponProficiencies

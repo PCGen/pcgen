@@ -8,11 +8,41 @@ SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPC	SOURCEWEB:http://www.mywebsite
 #	DESC:
 
 # Race or Racial Trait Blank
-#	KEY:xxx ~
+#	KEY:Warforged ~
 #	CATEGORY:Special Ability
-#	TYPE:xxx Race Trait.Race Trait.SpecialQuality
+#	TYPE:Warforged Race Trait.Race Trait.SpecialQuality
 #	SOURCEPAGE:p.
 #	DESC:
+
+
+Race Traits ~ Warforged	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|TYPE=Warforged Race Trait
+
+
+
+
+Focused Training		KEY:Warforged ~ Focused Training		CATEGORY:Special Ability	TYPE:Warforged Race Trait.Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Warforged gain one skill of their choice as a class skill.	BONUS:ABILITYPOOL|Base Class Skill|1
+Tireless			KEY:Warforged ~ Tireless			CATEGORY:Special Ability	TYPE:Warforged Race Trait.Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Warforged are immune to the fatigued and exhausted conditions, and receive Endurance as a bonus feat.  They must still rest/sleep for 8 hours to regain class abilities as normal. 
+Composite Body		KEY:Warforged ~ Composite Body		CATEGORY:Special Ability	TYPE:Warforged Race Trait.Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Warforged bodies are composed of stone, metal and wood, and thus are vulnerable to effects which target creatures composed of these substances, like heat metal, repel wood, and the rust monster's rusting touch. Spells which target objects only (such as stone shape) have no effect on a warforged.
+Stability			KEY:Warforged ~ Stability			CATEGORY:Special Ability	TYPE:Warforged Race Trait.Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Warforged receive a +2 racial bonus to their Combat Maneuver Defense when resisting a bull rush, overrun, reposition or trip attempts while standing on the ground	ASPECT:CombatBonus|+2 racial bonus to their Combat Maneuver Defense when resisting a bull rush, overrun, reposition or trip attempts while standing on the ground
+Artificial Metabolism	KEY:Warforged ~ Artificial Metabolism	CATEGORY:Special Ability	TYPE:Warforged Race Trait.Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Warforged are resistant to some effects (*bonuses listed under Type) and regain only half the normal hit points from magical healing, unless they affect constructs (such as the make whole spell) or originate from the warforged itself. The warforged still gains full benefit from fast healing.  They gain a +2 racial bonus to Stabilization checks and to checks to remove negative levels. They are immune to bleed effects and go unconscious at 0 or less hit points.	ASPECT:CombatBonus|+2 racial bonus to Stabilization checks and to checks to remove negative levels
+
+# Focused Training - Grants one class skill
+Choose Base Skill									CATEGORY:Internal			TYPE:Base Class Skill Selection	MULT:YES	STACK:NO	CHOOSE:SKILL|TYPE=Base	CSKILL:LIST
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 #insert your data here

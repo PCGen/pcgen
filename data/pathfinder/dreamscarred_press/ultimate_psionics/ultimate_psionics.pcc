@@ -59,6 +59,8 @@ COPYRIGHT:Psionics Augmented. Copyright 2013, Dreamscarred Press.
 COPYRIGHT:Ultimate Psionics. Copyright 2013, Dreamscarred Press.
 COPYRIGHT:PCGen dataset conversion for "Ultimate Psionics", Copyright 2014, PCGen Data Team (including, but not limited to, Douglas Limmer, Paul Shipley, Paul Grosse, and Andrew Maitland).
 
+VARIABLE:up__variables.lst
+
 ABILITYCATEGORY:up_abilitycategories.lst
 ABILITY:up_abilities.lst
 ABILITY:up_abilities_class.lst

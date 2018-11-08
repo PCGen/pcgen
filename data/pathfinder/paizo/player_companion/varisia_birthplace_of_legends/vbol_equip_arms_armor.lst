@@ -4,7 +4,7 @@ SOURCELONG:Varisia, Birthplace of Legends	SOURCESHORT:VBoL	SOURCEWEB:http://paiz
 
 ###BLOCK: Armor
 # Equipment Name	Required Armor Proficiency	Type										Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus
-Hide Shirt		PROFICIENCY:ARMOR|Hide Shirt	TYPE:Armor.Light.ArmorProfLight.Suit.Standard.Nonmetal	COST:20	WT:18		ACCHECK:-1		MAXDEX:4		SOURCEPAGE:p.14	SPELLFAILURE:15		BONUS:COMBAT|AC|3|TYPE=Armor
+Hide Shirt		PROFICIENCY:ARMOR|Hide Shirt	TYPE:Armor.Light.ArmorProfLight.Suit.Standard.Nonmetal	COST:20	WT:18		ACCHECK:-1		MODIFY:Eq_MaxDex|MIN|4|PRIORITY=200		SOURCEPAGE:p.14	SPELLFAILURE:15		BONUS:COMBAT|AC|3|TYPE=Armor
 
 ###BLOCK: Shield
 # Equipment Name		Required Shield Proficiency		Type					Cost		Weight	AC Penalty Check	Source Page		% of Spell Failure	Combat bonus

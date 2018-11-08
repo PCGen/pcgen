@@ -1,6 +1,8 @@
 # CVS $Revision: 21407 $ $Author: evilmynex $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Pathfinder RPG Entry by: Chris 'Barak' Chandler
+CATEGORY=Internal|Default.MOD		ABILITY:Special Ability|AUTOMATIC|TESTS|PREVAREQ:TestMode,1
+TESTS	CATEGORY:Special Ability	TYPE:SpecialQuality	INFO:Desc|Testing the LoadScore value of {0}	INFOVARS:Desc|LoadScore
 
 ###Block: Exotic Proficiencies
 # Ability Name			Category of Ability	Define																																					Ability																													Stat bonus						Modify VAR

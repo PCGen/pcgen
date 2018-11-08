@@ -43,6 +43,8 @@ COPYRIGHT:PCGen dataset conversion for the "Adventurer's Handbook: Genius Guide 
 #Do Not Remove Comment
 #EXTRAFILE:OGL.txt
 
+VARIABLE:sggah__variables.lst
+
 ABILITY:sggah_abilities_class.lst
 ABILITY:sggah_abilities_class_apg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
 ABILITY:sggah_abilities_class_um.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic

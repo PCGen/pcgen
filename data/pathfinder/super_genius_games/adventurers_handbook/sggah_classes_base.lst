@@ -202,3 +202,6 @@ CLASS:War Master	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Climb|TYPE=Craft|Diplomac
 18	BONUS:ABILITYPOOL|War Master Talent|1
 19								BONUS:VAR|WMRallyTimes|1
 20													ABILITY:Special Ability|AUTOMATIC|Warlord ~ War Master
+###Block:
+1:REPEATLEVEL:1	MODIFY:WarMasterLvl|ADD|1
+

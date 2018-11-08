@@ -33,3 +33,7 @@
 
 # DONE
 #
+
+ABILITYCATEGORY:Base Class Skill	CATEGORY:Internal	TYPE:Base Class Skill Selection	DISPLAYLOCATION:Racial Abilities	EDITABLE:YES	EDITPOOL:NO	VISIBLE:QUALIFY
+
+

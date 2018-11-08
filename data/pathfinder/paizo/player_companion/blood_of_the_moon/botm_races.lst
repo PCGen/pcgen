@@ -5,9 +5,9 @@
 Skinwalker	STARTFEATS:1	FACT:BaseSize|M	SIZE:M	MOVE:Walk,30	BONUS:VAR|HasLowlightVision|1	ABILITY:Internal|AUTOMATIC|Race Traits ~ Skinwalker	LEGS:2	HANDS:2	RACETYPE:Humanoid	RACESUBTYPE:Shapechanger	TYPE:Base.PC	SOURCEPAGE:p.7	FACT:IsPC|True
 
 # Conversion version
-#	MODIFYOTHER:STAT|Wisdom|Bonus.Race|ADD|2
-#	MODIFYOTHER:STAT|Intelligence|Bonus.Race|ADD|-2
-#	MODIFY:MOVE=Walk.Base|ADD|30
+#	MODIFYOTHER:STAT|Wisdom|Bonus_Race|ADD|2
+#	MODIFYOTHER:STAT|Intelligence|Bonus_Race|ADD|-2
+#	MODIFY:MOVE=Walk_Base|ADD|30
 #	MODIFY:FLAG=HasLowlightVision|SET|True
-#	MODIFY:VAR=LEGS.Race|SET|2
-#	MODIFY:VAR=HANDS.Race|SET|2
+#	MODIFY:VAR=LEGS_Race|SET|2
+#	MODIFY:VAR=HANDS_Race|SET|2

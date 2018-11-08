@@ -3,7 +3,7 @@ SOURCELONG:Curse of the Crimson Throne Player's Guide	SOURCESHORT:COTCTPG	SOURCE
 
 ### BLOCK: Armor
 # Equipment Name	Output Name				Required Weapon Proficiency		Required Armor Proficiency	Required Shield Proficiency		Type													Cost		Weight	AC Penalty Check	Crit Mult	Crit Range	Damage	Modifier	Wield Category	Maximum DEX Bonus	Range		Reach		Source Page		% of Spell Failure	Combat bonus
-Hide Shirt													PROFICIENCY:ARMOR|Hide Shirt							TYPE:Armor.Light.ArmorProfLight.Suit.Standard.Nonmetal				COST:90	WT:25		ACCHECK:-3													MAXDEX:4						SOURCEPAGE:p.13	SPELLFAILURE:20		BONUS:COMBAT|AC|4|TYPE=Armor
+Hide Shirt													PROFICIENCY:ARMOR|Hide Shirt							TYPE:Armor.Light.ArmorProfLight.Suit.Standard.Nonmetal				COST:90	WT:25		ACCHECK:-3													MODIFY:Eq_MaxDex|MIN|4|PRIORITY=200						SOURCEPAGE:p.13	SPELLFAILURE:20		BONUS:COMBAT|AC|4|TYPE=Armor
 
 ### BLOCK: Shield
 Klar																			PROFICIENCY:SHIELD|Shield (Light)	TYPE:Shield.Light.Standard									COST:12	WT:6		ACCHECK:-1																				SOURCEPAGE:p.13	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Shield

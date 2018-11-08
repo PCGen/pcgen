@@ -43,7 +43,8 @@ CLASS:Aegis		STARTSKILLPTS:4	CSKILL:Acrobatics|Autohypnosis|Climb|TYPE=Craft|Fly
 5																			ABILITY:Internal|AUTOMATIC|Master Craftsman ~ Aegis|!PREABILITY:1,CATEGORY=Archetype,TYPE.AegisMasterCraftsman
 12	BONUS:VAR|CannibalizeTimes|floor((CL-10)/2)											ABILITY:Special Ability|AUTOMATIC|Cannibalize Suit ~ Aegis|!PREABILITY:1,CATEGORY=Archetype,TYPE.AegisCannibalizeSuit
 20																			ABILITY:Special Ability|AUTOMATIC|Perfect Merger ~ Aegis|!PREABILITY:1,CATEGORY=Archetype,TYPE.AegisPerfectMerger
-
+###Block:
+1:REPEATLEVEL:1	MODIFY:AegisLVL|ADD|1
 
 ###Block: Cryptic
 

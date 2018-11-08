@@ -1,6 +1,12 @@
 # CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPC	SOURCEWEB:http://www.mywebsite.com	SOURCEDATE:2008-01
 
+
+
+Warforged		SIZE:M		SOURCEPAGE:p.x	RACETYPE:Monstrous Humanoid	TYPE:Monstrous Humanoid.Base.PC	RACESUBTYPE:Warforged	MOVE:Walk,30	LEGS:2	HANDS:2	STARTFEATS:1	NATURALATTACKS:Slam,Natural.Melee.Weapon,*2,1d4	ABILITY:Internal|AUTOMATIC|Race Traits ~ Warforged	AUTO:LANG|Common	FACT:IsPC|true	SORTKEY:a_base_pc
+####
+
+
 # Blank Race Template
 #	SIZE:
 #	SOURCEPAGE:p.

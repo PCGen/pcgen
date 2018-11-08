@@ -77,6 +77,8 @@ COPYRIGHT:PCGen dataset conversion for "Psionics Expanded", Copyright 2013, PCGe
 #ABILITY:@/pathfinder/paizo/roleplaying_game/advanced_players_guide/pfapg_abilities_traits.lst|(INCLUDE:CATEGORY=Special Ability,Adopted ~ Trait)
 #ABILITY:@/pathfinder/paizo/roleplaying_game/ultimate_combat/pfuc_abilities_archetypes.lst|(INCLUDE:CATEGORY=Special Ability,Confounding Blades ~ Advanced Rogue Talent)
 
+VARIABLE:pse__variables.lst
+
 ABILITYCATEGORY:psionics_expanded_ability_categories.lst
 ABILITY:psionics_expanded_abilities_class_base.lst
 ABILITY:psionics_expanded_abilities_class_prestige.lst
