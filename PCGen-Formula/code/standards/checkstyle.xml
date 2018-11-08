@@ -90,7 +90,7 @@
     <module name="SuppressWarningsFilter"/>
 
 	<module name="SuppressionFilter">
-		<property name="file" value="code/standards/suppressions.xml"/>
+		<property name="file" value="${suppressionFile}" default="suppressions.xml"/>
 	</module>
   
 </module>
