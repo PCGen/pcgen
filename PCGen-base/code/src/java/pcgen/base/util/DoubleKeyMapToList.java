@@ -386,8 +386,7 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 	 * @param key1
 	 *            The primary key to retrieve keys for.
 	 * 
-	 * @return A <tt>Set</tt> of secondary key objects for the given primary
-	 *         key.
+	 * @return A Set of secondary key objects for the given primary key.
 	 */
 	public Set<K2> getSecondaryKeySet(K1 key1)
 	{
