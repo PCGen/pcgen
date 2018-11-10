@@ -81,7 +81,7 @@ GLOBAL:NUMBER=LoadScore
 
 
 # ArmorType
-LOCAL:ARMORTYPE|STRING=SpeedType
+LOCAL:PC.ARMORTYPE|STRING=SpeedType
 
 
 # Vision Modes

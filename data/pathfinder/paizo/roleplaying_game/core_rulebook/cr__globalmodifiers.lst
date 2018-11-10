@@ -29,7 +29,7 @@ MODIFY:Load|SET|if(BaseEncumbrance>MediumEncumbrance||BaseEncumbrance<=HeavyEncu
 MODIFY:Load|SET|if(BaseEncumbrance>=OverloadEncumbrance,"Overload",value())
 
 # A-Replace - Requires Tom's Modify Code
-MODIFY:Speed|SET|if((lookup(get("TABLE[STRING]","Carrying Loads"),Load,get("COLUMN[STRING]","Speed Type"))=="Reduced"||(getOther("ARMORTYPE",ArmorType,SpeedType)=="Reduced")),ceil((movement/5)*2/3)*5,value())|PRIORITY=1000001
+MODIFY:Speed|SET|if((lookup(get("TABLE[STRING]","Carrying Loads"),Load,get("COLUMN[STRING]","Speed Type"))=="Reduced"||(getOther("PC.ARMORTYPE",ArmorType,SpeedType)=="Reduced")),ceil((movement/5)*2/3)*5,value())|PRIORITY=1000001
 
 # MODIFY:Speed|SET|if((lookup(get("TABLE[STRING]","Carrying Loads"),Load,get("COLUMN[STRING]","Speed Type"))=="Reduced")||(getOther("ARMORTYPE",ArmorType,SpeedType)=="Reduced"),ceil((movement/5)*2/3)*5,value())|PRIORITY=1000001
 
