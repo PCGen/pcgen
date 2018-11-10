@@ -1,0 +1,76 @@
+
+MODIFY:AC_Score|SET|MaxDex
+
+
+
+
+
+
+# 
+# MODIFY:PC_MaxDex|SET|Dex|PRIORITY=1
+# Set this value to 1000 w/ Priority 1 so we do not Prematurely drop Eq_MaxDex when Armor is not present
+# MODIFY:Eq_MaxDex|SET|1000|PRIORITY=1
+# MODIFY:MediumEncumbrancePenalty|SET|min(3,Dex)
+# MODIFY:HeavyEncumbrancePenalty|SET|min(1,Dex)
+
+# Tom
+MODIFY:MaxDexBonusToAC|SET|Dex|PRIORITY=50
+
+#MODIFY:MaxDexBonusToAC|MIN|lookup(...)|PRIORITY=100
+
+# Global Var getting Equipment Var
+MODIFY:MaxDexBonusToAC|MIN|MaximumDexBonus
+
+
+# Rules for Encumbrance
+MODIFY:Load|SET|"Light"
+#MODIFY:Load|SET|if(BaseEncumbrance>LightEncumbrance||BaseEncumbrance<=MediumEncumbrance,"Medium",value())
+#MODIFY:Load|SET|if(BaseEncumbrance>MediumEncumbrance||BaseEncumbrance<=HeavyEncumbrance,"Heavy",value())
+MODIFY:Load|SET|if(BaseEncumbrance>=OverloadEncumbrance,"Overload",value())
+
+# A-Replace - Requires Tom's Modify Code
+# MODIFY:Speed|SET|if(lookup(get("TABLE[STRING]","Carrying Loads"),Load,get("COLUMN[STRING]","Speed Type")=="Reduced"&&if(dropIntoContext(get("ARMORTYPE",ArmorType),SpeedType)=="Reduced",ceil((movement/5)*2/3)*5,value())|PRIORITY=1000001
+
+
+MODIFY:Speed|SET|if(lookup(get("TABLE[STRING]","Carrying Loads"),Load,get("COLUMN[STRING]","Speed Type"))=="Overburdened",0,value())|PRIORITY=1000002
+
+# This
+#MODIFY:Speed|SET|if(lookup(get("TABLE[STRING]","Carrying Loads"),Load,get("COLUMN[STRING]","Speed Type"))=="Reduced",ceil((movement/5)*2/3)*5,value())|PRIORITY=1000001
+# and
+#MODIFY:Speed|SET|if(dropIntoContext(get("ARMORTYPE",ArmorType),SpeedType))=="Reduced",ceil((movement/5)*2/3)*5,value()|PRIORITY=1000
+# Will be replaced by #A-Replace
+
+#	MODIFY:PC_MaxDex|SET|if(Encumbrance==("Medium"),MediumEncumbrancePenalty,value())+if(Encumbrance==("Heavy"),HeavyEncumbrancePenalty,value())+if(Encumbrance==("Overloaded"),0,value())|PRIORITY=1000
+
+
+# This formula takes the minimal value of PC Eq_MaxDex or Eq_MaxDex
+MODIFY:MaxDex|SET|min(Eq_MaxDex,PC_MaxDex)
+
+
+# 
+MODIFY:SizeMult|SET|1|PRIORITY=50
+
+MODIFY:BaseEncumbrance|SET|if(LoadScore>29,4*floor((LoadScore-20)/10),1)*lookup(get("TABLE[NUMBER]","Carrying Capacity"),if(LoadScore>29,(LoadScore%10)+20,LoadScore),get("COLUMN[NUMBER]","Capacity"))*SizeMult|PRIORITY=50
+MODIFY:BaseEncumbrance|MULTIPLY|if(Legs>=4,4,1)|PRIORITY=100
+
+
+
+MODIFY:LightEncumbrance|SET|BaseEncumbrance/3
+MODIFY:MediumEncumbrance|SET|(BaseEncumbrance*2)/3
+MODIFY:HeavyEncumbrance|SET|BaseEncumbrance
+MODIFY:OverloadEncumbrance|SET|BaseEncumbrance+1
+
+
+#MODIFY:EncumbracePenalty|SET|if(TotalWeight
+
+# SIZENAME:F	MODIFY:SizeMult|SET|0.125|PRIORITY=100
+# SIZENAME:D	MODIFY:SizeMult|SET|0.25|PRIORITY=100
+# SIZENAME:T	MODIFY:SizeMult|SET|0.5|PRIORITY=100
+# SIZENAME:S	MODIFY:SizeMult|SET|0.75|PRIORITY=100
+# SIZENAME:M	MODIFY:SizeMult|SET|1
+# SIZENAME:L	MODIFY:SizeMult|SET|2|PRIORITY=100
+# SIZENAME:H	MODIFY:SizeMult|SET|4|PRIORITY=100
+# SIZENAME:G	MODIFY:SizeMult|SET|8|PRIORITY=100
+# SIZENAME:C	MODIFY:SizeMult|SET|16|PRIORITY=100
+
+
