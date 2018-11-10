@@ -79,3 +79,10 @@ GLOBAL:NUMBER=ArmorTrainingLVL
 GLOBAL:NUMBER=Capacity
 GLOBAL:NUMBER=LoadScore
 
+
+# ArmorType
+LOCAL:ARMORTYPE|STRING=SpeedType
+
+
+# Vision Modes
+

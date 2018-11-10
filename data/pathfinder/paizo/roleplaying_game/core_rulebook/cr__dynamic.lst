@@ -1,0 +1,9 @@
+
+
+ARMORTYPE:Light
+ARMORTYPE:Medium	
+# MODIFY:SpeedType|SET|"Reduced"
+ARMORTYPE:Heavy
+# MODIFY:SpeedType|SET|"Reduced"
+
+

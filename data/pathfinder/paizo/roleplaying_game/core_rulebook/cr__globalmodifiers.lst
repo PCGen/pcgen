@@ -24,12 +24,14 @@ MODIFY:MaxDexBonusToAC|MIN|MaximumDexBonus
 
 # Rules for Encumbrance
 MODIFY:Load|SET|"Light"
-#MODIFY:Load|SET|if(BaseEncumbrance>LightEncumbrance||BaseEncumbrance<=MediumEncumbrance,"Medium",value())
-#MODIFY:Load|SET|if(BaseEncumbrance>MediumEncumbrance||BaseEncumbrance<=HeavyEncumbrance,"Heavy",value())
+MODIFY:Load|SET|if(BaseEncumbrance>LightEncumbrance||BaseEncumbrance<=MediumEncumbrance,"Medium",value())
+MODIFY:Load|SET|if(BaseEncumbrance>MediumEncumbrance||BaseEncumbrance<=HeavyEncumbrance,"Heavy",value())
 MODIFY:Load|SET|if(BaseEncumbrance>=OverloadEncumbrance,"Overload",value())
 
 # A-Replace - Requires Tom's Modify Code
-# MODIFY:Speed|SET|if(lookup(get("TABLE[STRING]","Carrying Loads"),Load,get("COLUMN[STRING]","Speed Type")=="Reduced"&&if(dropIntoContext(get("ARMORTYPE",ArmorType),SpeedType)=="Reduced",ceil((movement/5)*2/3)*5,value())|PRIORITY=1000001
+MODIFY:Speed|SET|if((lookup(get("TABLE[STRING]","Carrying Loads"),Load,get("COLUMN[STRING]","Speed Type"))=="Reduced"||(getOther("ARMORTYPE",ArmorType,SpeedType)=="Reduced")),ceil((movement/5)*2/3)*5,value())|PRIORITY=1000001
+
+# MODIFY:Speed|SET|if((lookup(get("TABLE[STRING]","Carrying Loads"),Load,get("COLUMN[STRING]","Speed Type"))=="Reduced")||(getOther("ARMORTYPE",ArmorType,SpeedType)=="Reduced"),ceil((movement/5)*2/3)*5,value())|PRIORITY=1000001
 
 
 MODIFY:Speed|SET|if(lookup(get("TABLE[STRING]","Carrying Loads"),Load,get("COLUMN[STRING]","Speed Type"))=="Overburdened",0,value())|PRIORITY=1000002
