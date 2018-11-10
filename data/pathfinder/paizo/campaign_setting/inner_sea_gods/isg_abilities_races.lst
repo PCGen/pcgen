@@ -1,0 +1,46 @@
+# CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Inner Sea Gods	SOURCESHORT:ISG	SOURCEDATE:2014-04
+# Original Entry by: Jason D
+
+###Block: Add new subtypes
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Herald Traits|PRERACE:1,RACESUBTYPE=Herald
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Spawn of Rovagug Traits|PRERACE:1,RACESUBTYPE=Spawn of Rovagug
+
+Herald Traits																CATEGORY:Special Ability	VISIBLE:NO												TEMPLATE:Herald
+Spawn of Rovagug Traits														CATEGORY:Special Ability	VISIBLE:NO												TEMPLATE:Spawn of Rovagug
+
+###Block: New Ability Focus options
+Glittering Radiance					CATEGORY:Ability Focus	TYPE:Ability Focus
+
+###Block: Herald Subtype Abilities
+# Ability Name						Unique Key									Category of Ability				Type										Define			Description																																																																																												Ability							Modify VAR																					Source Page		Aspects
+Always Armed					KEY:Herald ~ Always Armed					CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural							DESC:Heralds can summon their signature weapon as a standard action. If its herald doesn't have a signature weapon, it can summon any nonmagical weapon as a standard action (including special materials); the weapon disappears if it leaves the herald's grasp.
+Emissary						KEY:Herald ~ Emissary						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary						DESC:Heralds can always be summoned by the faithful using greater planar ally or gate, regardless of limitations of that spell, even if it's not an outsider.
+
+###Block: Spawn of Rovagug Subtype Abilities
+# Ability Name						Unique Key									Category of Ability				Type										Define			Description																																																																																												Ability							Modify VAR																					Source Page		Aspects
+Hibernation						KEY:Spawn of Rovagug ~ Hibernation			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary						DESC:Spawn of Rovagug can sleep for years, decades, or even centuries and do not need to eat or breathe during these periods of dormancy. If a spawn of Rovagug is forced into an environment where it cannot breathe and would suffocate, it goes into hibernation until conditions are right for it to reawaken. While in hibernation, a spawn of Rovagug's damage reduction improves to 50/epic and it gains immunity to any spell or spell-like ability that allows spell resistance as well as all divination effects.
+Regeneration					KEY:Spawn of Rovagug ~ Regeneration			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyHP				DESC:All spawn of Rovagug possess regeneration, and no form of attack can suppress this regeneration; they regenerate even if disintegrated or slain by a death effect. If a spawn of Rovagug fails a save against an effect that would kill it instantly, it rises from death 3 rounds later with 1 hit point if no further damage is dealt to its remains. It can be banished or otherwise transported as a means to save a region, but a method to kill Spawn of Rovagug has yet to be discovered.
+Unstoppable Force				KEY:Spawn of Rovagug ~ Unstoppable Force	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary						DESC:A spawn of Rovagug can always charge, even if its movement is impeded or its path is blocked by another creature. It receives a +20 racial bonus on combat maneuver checks to overrun and Strength checks to break or destroy objects, and can make one such check as a free action as part of a charge. In addition, the natural weapons of a spawn of Rovagug ignore all forms of damage reduction and hardness.														BONUS:VAR|CMB_Overrun|20|TYPE=Racial
+
+###Block: Beastiary
+###Block: Lawgiver Abilities
+# Ability Name						Unique Key									Category of Ability				Type										Define						Description																																																																																																				Ability								Modify VAR																								Source Page		Aspects
+Immunity to Rust				KEY:Lawgiver ~ Immunity to Rust				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity							DESC:Though made of metal, the Lawgiver is immune to rust and rusting effects.									ASPECT:Immunity|Rust
+Freeze							KEY:Lawgiver ~ Freeze						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary									DESC:The Lawgiver can hold itself so still it appears to be a statue. When using freeze it can take 20 on its Stealth check to hide in plain sight as a metal statue.
+Change Shape					KEY:Lawgiver ~ Change Shape					CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural									DESC:A giant eagle (per Beastiary) or two-headed golden eagle (same stats as an eagle, but with two bite attacks) as Beast Shape IV.
+
+###Block: Orsheval Abilities
+Electric Hooves					KEY:Orsheval ~ Electric Hooves				CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural										DESC:An orsheval's hoof does an additional 1d4 electricity damage on a successful strike.						ASPECT:Ability Benefit|(+1d4 electricity)
+Glittering Radiance				KEY:Orsheval ~ Glittering Radiance			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			DEFINE:OrshevalGlitterDC|0	DESC:An orsheval usually glows with a golden light equivalent to that of a candle. In battle, its glow increases, filling the area within 5 feet of it with shining motes. These motes cling to all creatures in the affected area, outlining them as glitterdust for 6 rounds. Opponents in the area must succeed at a DC %1 Will save or be blinded; a blinded creature may attempt a new saving throw each round at the end of its turn to end the blindness. The motes persist for 1 round after the orsheval moves from a square, leaving a trailing cloud that can affect creatures that move into the affected area. The orsheval can suppress or reactivate the glow or motes as a free action.|OrshevalGlitterDC		ABILITY:Ability Focus|AUTOMATIC|Glittering Radiance		BONUS:VAR|OrshevalGlitterDC|10+(HD/2)+CON		BONUS:VAR|OrshevalGlitterDC|2|PREABILITY:1,CATEGORY=FEAT,Ability Focus (Glittering Radiance)		ASPECT:Ability Benefit|(5' radius, as glitterdust for 6 rounds, Will DC %1 negates blindness, at will free action)|OrshevalGlitterDC
+Truespeech						KEY:Orsheval ~ Truespeech					CATEGORY:Special Ability	TYPE:Communicate.Supernatural										DESC:An orsheval can speak with any creature that has a language, as if using a tongues spell (caster level 5th).  This ability is always active.
+
+###Block: Basileus Abilities
+Gaze							KEY:Basileus ~ Gaze							CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			DEFINE:BaslieusGazeDC|0		DESC:Death (if 6 HD or less) or 6d6 damage and panicked for 2d4 rounds (7 HD or more), range 30 feet, Will DC %1 negates the death or panicked effect. This gaze is a mind-affecting fear effect that causes its targets to perceive Basileus as the most terrifying thing that it can imagine.|BaslieusGazeDC		ABILITY:Ability Focus|AUTOMATIC|Gaze	BONUS:VAR|BaslieusGazeDC|10+(HD/2)+CHA		BONUS:VAR|BaslieusGazeDC|2|PREABILITY:1,CATEGORY=FEAT,Ability Focus (Gaze)					ASPECT:Ability Benefit|(30' range, death (< 7 HD) or panicked 2d4 rounds (if 7 HD+), Will DC %1 negates)|BaslieusGazeDC
+Terror Shape					KEY:Basileus ~ Terror Shape					CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural										DESC:While using his gaze ability, Basileus manifests one to five monstrous limbs that can make slam attacks.
+Veil of Forms					KEY:Basileus ~ Veil of Forms				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural									DESC:All creatures see Basileus as a powerful and attractive member of thier own race. While using this ability, Basileus's gaze ability is suppressed. He can activate or suppress this ability as a free action.
+
+###Block: Accomplice Devil (Hesperian) Abilities
+Detect Good						KEY:Hesperian ~ Detect Good					CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.Sense									DESC:An Accomplice Devil can Detect Good as a constant ability.
+Change Shape					KEY:Hesperian ~ Change Shape				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural									DESC:Any Medium humanoid or a Medium amphisbaena (snake with a head at both ends). In amphisbaena form, the Accomplice Devil gains All-Around Vision and can use his bite attack.
+Poison							KEY:Hesperian ~ Poison						CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary									DESC:In amphisbaena form, the Accomplice Devil has a poisonous bite - Injury; Save Fort DC %1; Frequency 1/round for 4 rounds; Effect 1d2 Con damage; Cure 1 save.|PoisonSaveDC		ABILITY:Ability Focus|AUTOMATIC|Poison	BONUS:VAR|PoisonSaveDC|2|PREABILITY:1,CATEGORY=FEAT,Ability Focus (Poison)		ASPECT:Ability Benefit|(DC %1)|PoisonSaveDC

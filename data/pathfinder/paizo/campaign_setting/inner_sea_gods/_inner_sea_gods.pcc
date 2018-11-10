@@ -51,16 +51,23 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Campaign Setting: Inner Sea G
 
 DATACONTROL:isg__datacontrols.lst
 
+# Advanced Player Guide Support
+RACE:isg_races_apg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+
 # Data files
 ABILITY:isg_abilities.lst
 ABILITY:isg_abilities_faith.lst
 ABILITY:isg_abilities_feat.lst
+ABILITY:isg_abilities_races.lst
 ABILITYCATEGORY:isg_abilitycategories.lst
 CLASS:isg_classes.lst
 DEITY:isg_deities.lst
 DOMAIN:isg_domains.lst
 EQUIPMENT:isg_equip.lst
+KIT:isg_kits_race.lst
+RACE:isg_races.lst
 SPELL:isg_spells.lst
+TEMPLATE:isg_templates.lst
 
 # ENTRY DATE: 2015-02
 # LST MONKEY: Andrew Maitland

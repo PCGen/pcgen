@@ -1,0 +1,125 @@
+SOURCELONG:Inner Sea Gods	SOURCESHORT:ISG	SOURCEDATE:2014-04
+# Original Entry by: Jason D
+
+STARTPACK:Lawgiver Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Lawgiver],[!PRERACE:1,%]	SOURCEPAGE:p.276
+ALIGN:LN
+RACE:Lawgiver	!PRERACE:1,%
+NAME:Lawgiver
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Appraise					RANK:9
+SKILL:Knowledge (Engineering)	RANK:9
+SKILL:Knowledge (Local)			RANK:9
+SKILL:Knowledge (Religion)		RANK:9
+SKILL:Perception				RANK:18
+SKILL:Sense Motive				RANK:18
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Awesome Blow
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Overrun
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Toughness
+LANGBONUS:Draconic|Infernal
+GEAR:Warhammer	SIZE:G	LOCATION:Primary Hand	EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Axiomatic ~ Weapon
+
+
+STARTPACK:Orsheval Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Orsheval]		SOURCEPAGE:277
+ALIGN:LN
+RACE:Orsheval	!PRERACE:1,%
+NAME:Orsheval
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Acrobatics				RANK:3
+SKILL:Appraise					RANK:3
+SKILL:Knowledge (Local)			RANK:3
+SKILL:Knowledge (Nobility)		RANK:3
+SKILL:Knowledge (Planes)		RANK:3
+SKILL:Knowledge (Religion)		RANK:3
+SKILL:Perception				RANK:5
+SKILL:Sense Motive				RANK:5
+SKILL:Swim						RANK:2
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Endurance
+ABILITY:CATEGORY=FEAT|Run
+
+
+STARTPACK:Basileus Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Basileus],[!PRERACE:1,%]	SOURCEPAGE:p.278
+ALIGN:LE
+RACE:Basileus	!PRERACE:1,%
+NAME:Basileus
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+SKILL:Acrobatics				RANK:16
+SKILL:Bluff						RANK:16
+SKILL:Diplomacy					RANK:16
+SKILL:Disguise					RANK:16
+SKILL:Intimidate				RANK:16
+SKILL:Knowledge (Arcana)		RANK:16
+SKILL:Knowledge (History)		RANK:8
+SKILL:Knowledge (Nobility)		RANK:8
+SKILL:Knowledge (Planes)		RANK:16
+SKILL:Perception				RANK:16
+SKILL:Perform (Oratory)			RANK:16
+SKILL:Sense Motive				RANK:16
+SKILL:Sleight of Hand			RANK:16
+SKILL:Spellcraft				RANK:16
+SKILL:Stealth					RANK:16
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Deceitful
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Iron Will
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Persuasive
+LANGBONUS:Abyssal|Aklo|Aquan|Common|Elven|Giant|Undercommon
+
+
+STARTPACK:Devil (Accomplice) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Devil (Accomplice)],[!PRERACE:1,%]	SOURCEPAGE:p.278
+ALIGN:LE
+RACE:Devil (Accomplice)	!PRERACE:1,%
+NAME:Accomplice Devil (Hesperian)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Bluff						RANK:6
+SKILL:Diplomacy					RANK:6
+SKILL:Intimidate				RANK:6
+SKILL:Knowledge (Local)			RANK:6
+SKILL:Knowledge (Planes)		RANK:6
+SKILL:Knowledge (Religion)		RANK:6
+SKILL:Perception				RANK:6
+SKILL:Sense Motive				RANK:6
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+GEAR:Mace (Heavy)	SIZE:M	LOCATION:Primary Hand
+
+
+
+
+
+
+
+
+
+STARTPACK:Tarrasque (Spawn of Rovagug)	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Tarrasque],[!PRERACE:1,%]		SOURCEPAGE:p.304
+ALIGN:CE
+RACE:Tarrasque	!PRERACE:1,%
+NAME:Tarrasque
+STAT:STR=11|DEX=10|CON=10|INT=11|WIS=11|CHA=10
+SKILL:Perception	RANK:30
+ABILITY:CATEGORY=FEAT|Awesome Blow
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Bleeding Critical
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Critical Focus
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Critical (Bite)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Run
+ABILITY:CATEGORY=FEAT|Staggering Critical
+TEMPLATE:Tarrasque (Spawn of Rovagug)
