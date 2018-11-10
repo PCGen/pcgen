@@ -26,6 +26,7 @@ import java.util.TreeSet;
 import pcgen.base.util.Indirect;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.FactSetKey;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.list.DomainList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
@@ -83,4 +84,14 @@ public final class Deity extends PObject implements DeityFacade
 		return charDeityPantheon;
 	}
 
+	/**
+	 * Indicates if this is the "UNSELECTED" Deity for the loaded GameMode.
+	 * 
+	 * @return true if this is the "Unselected" Deity; false otherwise
+	 */
+	public boolean isUnselected()
+	{
+		return getSafeListFor(ListKey.GROUP).stream()
+			.filter(s -> "Unselected".equalsIgnoreCase(s)).findFirst().isPresent();
+	}
 }
