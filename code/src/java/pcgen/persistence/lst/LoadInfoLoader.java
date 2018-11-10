@@ -36,9 +36,6 @@ public class LoadInfoLoader extends SimpleLoader<LoadInfo>
 		super(LoadInfo.class);
 	}
 
-	/* (non-Javadoc)
-	 * @see SimpleLoader#getLoadable(LoadContext, String, URI)
-	 */
 	@Override
 	protected LoadInfo getLoadable(LoadContext context, String firstToken, URI sourceURI)
 	{
