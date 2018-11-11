@@ -98,3 +98,4 @@ public class DelegatingSingleton<E> extends AbstractListFacade<E>
 		}
 	}
 }
+
