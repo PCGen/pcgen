@@ -80,7 +80,7 @@ public class DelegatingSingleton<E> extends AbstractListFacade<E>
 	public boolean containsElement(E element)
 	{
 		E item = underlying.get();
-		return (item == null) ? false : item.equals(element);
+		return (item != null) && item.equals(element);
 	}
 
 	@Override
