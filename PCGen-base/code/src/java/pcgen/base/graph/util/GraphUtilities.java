@@ -23,7 +23,7 @@ import java.util.List;
 import pcgen.base.graph.base.Graph;
 
 /**
- * EdgeUtilities is a utility class designed to provide utility methods when working with
+ * GraphUtilities is a utility class designed to provide utility methods when working with
  * pcgen.base.graph.base.Graph Objects.
  */
 public class GraphUtilities
@@ -40,7 +40,6 @@ public class GraphUtilities
 	 */
 	public static boolean equals(Graph<?, ?> graphA, Graph<?, ?> graphB)
 	{
-		@SuppressWarnings("unchecked")
 		List<?> nodeListA = graphA.getNodeList();
 		List<?> nodeListB = graphB.getNodeList();
 		int thisNodeSize = nodeListA.size();
@@ -52,7 +51,7 @@ public class GraphUtilities
 		nodeListB = new ArrayList<>(nodeListB);
 		if (nodeListB.retainAll(nodeListA))
 		{
-			// Other Graph contains extra nodes
+			// GraphB contains nodes not in GraphA
 			return false;
 		}
 		// Here, the node lists are identical...
@@ -65,7 +64,7 @@ public class GraphUtilities
 		}
 		// (potentially wasteful, but defensive copy so we know it is editable)
 		edgeListB = new ArrayList<>(edgeListB);
-		// possible that the Other Graph contains extra edges
+		// possible that GraphB contains edges not in GraphA
 		return !edgeListB.retainAll(edgeListA);
 	}
 
