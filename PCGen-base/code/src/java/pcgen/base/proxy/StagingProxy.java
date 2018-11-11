@@ -19,7 +19,6 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -62,6 +61,11 @@ class StagingProxy<R, W> implements InvocationHandler, Staging<W>
 	 * interpreting the given interfaces.
 	 */
 	private final List<PropertyProcessor> processors;
+
+	/**
+	 * The object underlying this StagingProxy for reading Read Only properties.
+	 */
+	private final R underlying;
 
 	/**
 	 * This is the read interface (interface with "get" methods) served by this
@@ -107,7 +111,7 @@ class StagingProxy<R, W> implements InvocationHandler, Staging<W>
 	 *            this StagingProxy.
 	 */
 	StagingProxy(List<PropertyProcessor> processorList, Class<R> readInterface,
-		Class<W> writeInterface)
+		Class<W> writeInterface, R underlying)
 	{
 		if (!readInterface.isInterface())
 		{
@@ -122,6 +126,7 @@ class StagingProxy<R, W> implements InvocationHandler, Staging<W>
 					+ writeInterface.getCanonicalName());
 		}
 		processors = new ArrayList<>(processorList);
+		this.underlying = Objects.requireNonNull(underlying);
 		this.readInterface = Objects.requireNonNull(readInterface);
 		this.writeInterface = Objects.requireNonNull(writeInterface);
 		evaluateMethods();
@@ -146,7 +151,19 @@ class StagingProxy<R, W> implements InvocationHandler, Staging<W>
 
 	private void processMethods(Method[] readMethods, Method[] writeMethods)
 	{
-		List<Method> readMethodList = new ArrayList<>(Arrays.asList(readMethods));
+		List<Method> readMethodList = new ArrayList<>();
+		List<Method> readOnlyMethodList = new ArrayList<>();
+		for (Method readMethod : readMethods)
+		{
+			if (readMethod.isAnnotationPresent(ReadOnly.class))
+			{
+				readOnlyMethodList.add(readMethod);
+			}
+			else
+			{
+				readMethodList.add(readMethod);
+			}
+		}
 		Set<Object> propertyNames = Collections.newSetFromMap(new CaseInsensitiveMap<>());
 		Set<Object> writeMethodNames =
 				Collections.newSetFromMap(new CaseInsensitiveMap<>());
@@ -164,16 +181,16 @@ class StagingProxy<R, W> implements InvocationHandler, Staging<W>
 			}
 			for (PropertyProcessor processor : processors)
 			{
-				if (processor.isProcessedMethod(method))
+				if (processor.isProcessedWriteMethod(method))
 				{
-					String property = processor.getPropertyName(name);
+					String property = processor.getPropertyNameFromWrite(name);
 					if (!propertyNames.add(property))
 					{
 						throw new IllegalArgumentException(
 							"Duplicate Property Name: " + property);
 					}
 					setMethods.add(name);
-					Method claimed = processor.claimMethod(method, readMethods);
+					Method claimed = processor.claimMethod(method, readMethodList);
 					readMethodList.remove(claimed);
 					consumedMethodNames.add(claimed.getName());
 					getProcessors.put(claimed.getName(), processor);
@@ -182,6 +199,7 @@ class StagingProxy<R, W> implements InvocationHandler, Staging<W>
 			}
 			unusedMethodNames.add(name);
 		}
+		//Write interface allowed to duplicate the reads, so need to clean up
 		unusedMethodNames.removeAll(consumedMethodNames);
 		if (!unusedMethodNames.isEmpty())
 		{
@@ -191,6 +209,27 @@ class StagingProxy<R, W> implements InvocationHandler, Staging<W>
 		if (!readMethodList.isEmpty())
 		{
 			throw new IllegalArgumentException("Had Leftover Methods: " + readMethodList);
+		}
+		processReadOnlyMethods(readOnlyMethodList, propertyNames);
+	}
+
+	private void processReadOnlyMethods(List<Method> readOnlyMethodList,
+		Set<Object> propertyNames)
+	{
+		if (!readOnlyMethodList.isEmpty())
+		{
+			ReadOnlyProcessor ulProcessor = new ReadOnlyProcessor(underlying);
+			for (Method readOnlyMethod : readOnlyMethodList)
+			{
+				String name = readOnlyMethod.getName();
+				String property = ulProcessor.getPropertyNameFromRead(name);
+				if (!propertyNames.add(property))
+				{
+					throw new IllegalArgumentException(
+						"Read Only Property Name duplicated read/write name: " + property);
+				}
+				getProcessors.put(name, ulProcessor);
+			}
 		}
 	}
 
@@ -211,7 +250,8 @@ class StagingProxy<R, W> implements InvocationHandler, Staging<W>
 			return null;
 		}
 		PropertyProcessor processor = getProcessors.get(methodName);
-		ReadableHandler handler = processor.getInvocationHandler(methodName, args);
+		ReadableHandler handler =
+				processor.getInvocationHandler(methodName, args, method.getReturnType());
 		@SuppressWarnings("unchecked")
 		W extractor = (W) Proxy.newProxyInstance(
 			writeInterface.getClassLoader(), new Class[]{writeInterface}, handler);

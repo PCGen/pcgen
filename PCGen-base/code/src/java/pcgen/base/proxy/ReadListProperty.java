@@ -15,6 +15,7 @@
  */
 package pcgen.base.proxy;
 
+import java.lang.reflect.Array;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,15 +37,20 @@ public class ReadListProperty implements ReadableHandler
 	 */
 	private final List<Object> value = new ArrayList<>();
 
+	private final Class<?> arrayClass;
+
 	/**
 	 * Constructs a new ReadListProperty for the given Property name.
 	 * 
 	 * @param propertyName
 	 *            The Property name that this ReadListProperty will process
+	 * @param arrayClass
+	 *            The Class of objects this ReadListProperty will process
 	 */
-	public ReadListProperty(String propertyName)
+	public ReadListProperty(String propertyName, Class<?> arrayClass)
 	{
 		this.addMethodName = "add" + Objects.requireNonNull(propertyName);
+		this.arrayClass = Objects.requireNonNull(arrayClass);
 	}
 
 	@Override
@@ -65,6 +71,8 @@ public class ReadListProperty implements ReadableHandler
 	@Override
 	public Object getResult()
 	{
-		return value;
+		Object[] array =
+				(Object[]) Array.newInstance(arrayClass.getComponentType(), value.size());
+		return value.toArray(array);
 	}
 }

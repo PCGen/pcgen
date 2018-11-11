@@ -16,6 +16,7 @@
 package pcgen.base.proxy;
 
 import java.lang.reflect.Method;
+import java.util.List;
 
 /**
  * An ItemProcessor is a PropertyProcessor that handles Item-based properties. These are
@@ -26,7 +27,7 @@ public class ItemProcessor implements PropertyProcessor
 {
 
 	@Override
-	public boolean isProcessedMethod(Method method)
+	public boolean isProcessedWriteMethod(Method method)
 	{
 		return method.getName().regionMatches(true, 0, "set", 0, 3)
 			&& (method.getParameterTypes().length == 1)
@@ -34,15 +35,21 @@ public class ItemProcessor implements PropertyProcessor
 	}
 
 	@Override
-	public String getPropertyName(String methodName)
+	public String getPropertyNameFromWrite(String methodName)
 	{
 		return methodName.substring(3);
 	}
 
 	@Override
-	public Method claimMethod(Method setMethod, Method[] possibleReadMethods)
+	public String getPropertyNameFromRead(String methodName)
 	{
-		String propertyName = getPropertyName(setMethod.getName());
+		return methodName.substring(3);
+	}
+
+	@Override
+	public Method claimMethod(Method setMethod, List<Method> possibleReadMethods)
+	{
+		String propertyName = getPropertyNameFromWrite(setMethod.getName());
 		Method getMethod = PropertyProcessor.retrieveMethod("get" + propertyName,
 			possibleReadMethods);
 		if (getMethod.getParameterTypes().length != 0)
@@ -62,9 +69,9 @@ public class ItemProcessor implements PropertyProcessor
 	}
 
 	@Override
-	public ReadableHandler getInvocationHandler(String methodName, Object[] args)
+	public ReadableHandler getInvocationHandler(String readMethodName, Object[] args,
+		Class<?> propertyClass)
 	{
-		return new ReadItemProperty(methodName.substring(3));
+		return new ReadItemProperty(getPropertyNameFromRead(readMethodName));
 	}
-
 }
