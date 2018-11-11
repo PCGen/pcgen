@@ -34,6 +34,7 @@ import pcgen.base.graph.base.EdgeChangeEvent;
 import pcgen.base.graph.base.Graph;
 import pcgen.base.graph.base.GraphChangeListener;
 import pcgen.base.graph.base.NodeChangeEvent;
+import pcgen.base.graph.util.GraphUtilities;
 
 /**
  * This Graph uses redundant storage to improve query speed for certain methods.
@@ -398,40 +399,8 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 	@Override
 	public boolean equals(Object other)
 	{
-		if (!(other instanceof Graph))
-		{
-			return false;
-		}
-		@SuppressWarnings("unchecked")
-		Graph<N, ET> otherGraph = (Graph<N, ET>) other;
-		List<N> otherNodeList = otherGraph.getNodeList();
-		int thisNodeSize = nodeMap.size();
-		if (thisNodeSize != otherNodeList.size())
-		{
-			return false;
-		}
-		// (potentially wasteful, but defensive copy)
-		otherNodeList = new ArrayList<>(otherNodeList);
-		if (otherNodeList.retainAll(nodeMap.keySet()))
-		{
-			// Some nodes are not identical
-			return false;
-		}
-		// Here, the node lists are identical...
-		List<ET> otherEdgeList = otherGraph.getEdgeList();
-		int thisEdgeSize = edgeSet.size();
-		if (thisEdgeSize != otherEdgeList.size())
-		{
-			return false;
-		}
-		// (potentially wasteful, but defensive copy)
-		otherEdgeList = new ArrayList<>(otherEdgeList);
-		if (otherEdgeList.retainAll(edgeSet))
-		{
-			// Other Graph contains extra edges
-			return false;
-		}
-		return true;
+		return (other instanceof Graph)
+				&& GraphUtilities.equals(this, (Graph<?, ?>) other);
 	}
 
 	/**
