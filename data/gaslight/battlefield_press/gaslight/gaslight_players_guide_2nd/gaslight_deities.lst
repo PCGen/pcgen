@@ -1,4 +1,4 @@
 # CVS $Revision: $ $Author: $ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
 
-# Deity Name	Domains	FACT
-DEITY:None		DOMAINS:ALL	FACT:SYMBOL|None
+# Deity Name				Domains	FACT
+DEITY:None		GROUP:UNSELECTED	DOMAINS:ALL	FACT:SYMBOL|None
