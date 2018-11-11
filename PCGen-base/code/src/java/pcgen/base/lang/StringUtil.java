@@ -33,6 +33,10 @@ import java.util.stream.Collectors;
  */
 public final class StringUtil
 {
+	/**
+	 * An empty String array.
+	 */
+	public static final String[] EMPTY_STRING_ARRAY = new String[0];
 
 	/**
 	 * Provides a Comparator for Strings that sorts in Case Sensitive Order.
