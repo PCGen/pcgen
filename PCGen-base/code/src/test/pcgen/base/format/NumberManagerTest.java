@@ -16,6 +16,8 @@
  */
 package pcgen.base.format;
 
+import java.util.Comparator;
+
 import junit.framework.TestCase;
 
 /**
@@ -133,4 +135,14 @@ public class NumberManagerTest extends TestCase
 	{
 		assertTrue(manager.isDirect());
 	}
+
+	public void testGetComparator()
+	{
+		Comparator<Number> comparator = new NumberManager().getComparator();
+		assertEquals(0, comparator.compare(Integer.valueOf(1), Integer.valueOf(1)));
+		assertEquals(1, comparator.compare(Integer.valueOf(21), Integer.valueOf(12)));
+		assertEquals(-1, comparator.compare(Integer.valueOf(1), Integer.valueOf(2)));
+		assertEquals(0, comparator.compare(Integer.valueOf(1), Double.valueOf(1)));
+	}
+
 }

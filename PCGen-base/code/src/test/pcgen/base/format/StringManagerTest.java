@@ -16,6 +16,8 @@
  */
 package pcgen.base.format;
 
+import java.util.Comparator;
+
 import junit.framework.TestCase;
 
 /**
@@ -85,6 +87,15 @@ public class StringManagerTest extends TestCase
 	public void testGetIdentifier()
 	{
 		assertEquals("STRING", manager.getIdentifierType());
+	}
+
+	public void testGetComparator()
+	{
+		Comparator<String> comparator = new StringManager().getComparator();
+		assertEquals(0, comparator.compare("A", "A"));
+		assertEquals(-1, comparator.compare("A", "AB"));
+		assertEquals(1, comparator.compare("BA", "AB"));
+		assertEquals(0, comparator.compare("A", "a"));
 	}
 
 	public void testHashCodeEquals()

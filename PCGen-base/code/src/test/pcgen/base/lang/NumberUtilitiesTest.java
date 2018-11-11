@@ -111,6 +111,15 @@ public class NumberUtilitiesTest extends TestCase
 		assertEquals(Integer.valueOf(0), NumberUtilities.add(3, -3));
 	}
 
+	public void testSubtract()
+	{
+		assertEquals(Integer.valueOf(0), NumberUtilities.subtract(3, 3));
+		assertEquals(Integer.valueOf(1), NumberUtilities.subtract(3, 2));
+		assertEquals(Double.valueOf(0.5), NumberUtilities.subtract(3, 2.5));
+		assertEquals(Double.valueOf(-1.5), NumberUtilities.subtract(1.5, 3));
+		assertEquals(Integer.valueOf(6), NumberUtilities.subtract(3, -3));
+	}
+
 	public void testMax()
 	{
 		assertEquals(Integer.valueOf(3), NumberUtilities.max(3, 3));

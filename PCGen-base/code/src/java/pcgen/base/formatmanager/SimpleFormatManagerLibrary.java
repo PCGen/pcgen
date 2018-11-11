@@ -67,7 +67,7 @@ public final class SimpleFormatManagerLibrary implements FormatManagerLibrary
 		if (sqBracketLoc != -1)
 		{
 			int lengthMinusOne = formatName.length() - 1;
-			if (formatName.indexOf(']') != lengthMinusOne)
+			if (formatName.lastIndexOf(']') != lengthMinusOne)
 			{
 				throw new IllegalArgumentException(
 					"Format Name must have matching open and close brackets, found: "

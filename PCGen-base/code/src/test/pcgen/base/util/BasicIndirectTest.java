@@ -121,6 +121,8 @@ public class BasicIndirectTest extends TestCase
 				new BasicIndirect<>(new StringManager(), "Hi!");
 		assertTrue(indirectDouble.equals(indirectDoubleToo));
 		assertTrue(indirectDoubleToo.equals(indirectDouble));
+		assertEquals(indirectDouble.hashCode(), indirectDoubleToo.hashCode());
+		assertFalse(indirectDouble.equals(new Object()));
 		assertFalse(indirectDouble.equals(indirectInt));
 		assertFalse(indirectDouble.equals(indirectString));
 		assertFalse(indirectString.equals(indirectStringHi));

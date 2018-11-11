@@ -634,9 +634,7 @@ public class DoubleKeyMapTest extends TestCase
 		assertTrue(keys.contains(Double.valueOf(3)));
 		assertEquals(Character.valueOf(CONST_B), map.get(Double.valueOf(2)));
 		assertEquals(Character.valueOf('C'), map.get(Double.valueOf(3)));
-
 	}
-
 
 	@Test
 	public void testClone()
@@ -663,4 +661,59 @@ public class DoubleKeyMapTest extends TestCase
 		assertNull(dkm.get(i1, d5));
 	}
 
+	@Test
+	public void testReadOnlyMap()
+	{
+		dkm = new DoubleKeyMap<>();
+		populate();
+		Map<Double, Character> map = dkm.getReadOnlyMapFor(Integer.valueOf(1));
+		assertNotNull(map);
+		assertFalse(map.isEmpty());
+		Set<Double> keys = map.keySet();
+		assertEquals(3, keys.size());
+		assertTrue(keys.contains(Double.valueOf(1)));
+		assertTrue(keys.contains(Double.valueOf(2)));
+		assertTrue(keys.contains(Double.valueOf(3)));
+		assertEquals(Character.valueOf(CONST_A), map.get(Double.valueOf(1)));
+		assertEquals(Character.valueOf(CONST_B), map.get(Double.valueOf(2)));
+		assertEquals(Character.valueOf('C'), map.get(Double.valueOf(3)));
+		dkm.remove(Integer.valueOf(1), Double.valueOf(1));
+		assertEquals(2, keys.size());
+		assertTrue(keys.contains(Double.valueOf(2)));
+		assertTrue(keys.contains(Double.valueOf(3)));
+		assertEquals(Character.valueOf(CONST_B), map.get(Double.valueOf(2)));
+		assertEquals(Character.valueOf('C'), map.get(Double.valueOf(3)));
+		try
+		{
+			//Shouldn't alter dkm
+			keys.remove(Double.valueOf(2));
+			fail();
+		}
+		catch (UnsupportedOperationException e)
+		{
+			//Expected
+		}
+		dkm.removeAll(Integer.valueOf(1));
+		//Now map is independent, but not empty
+		assertEquals(2, keys.size());
+		assertTrue(keys.contains(Double.valueOf(2)));
+		assertTrue(keys.contains(Double.valueOf(3)));
+		assertEquals(Character.valueOf(CONST_B), map.get(Double.valueOf(2)));
+		assertEquals(Character.valueOf('C'), map.get(Double.valueOf(3)));
+		map = dkm.getReadOnlyMapFor(Integer.valueOf(2));
+		keys = map.keySet();
+		assertEquals(2, keys.size());
+		assertTrue(keys.contains(Double.valueOf(1)));
+		assertTrue(keys.contains(Double.valueOf(2)));
+		assertEquals(Character.valueOf(CONST_D), map.get(Double.valueOf(1)));
+		assertEquals(Character.valueOf('E'), map.get(Double.valueOf(2)));
+		dkm.clear();
+		//Again, we are now independent, but not empty
+		keys = map.keySet();
+		assertEquals(2, keys.size());
+		assertTrue(keys.contains(Double.valueOf(1)));
+		assertTrue(keys.contains(Double.valueOf(2)));
+		assertEquals(Character.valueOf(CONST_D), map.get(Double.valueOf(1)));
+		assertEquals(Character.valueOf('E'), map.get(Double.valueOf(2)));
+	}
 }
