@@ -105,10 +105,13 @@ class StagingProxy<R, W> implements InvocationHandler, Staging<W>
 	 *            consider when interpreting the given interfaces
 	 * @param readInterface
 	 *            The read interface (interface with "get" methods) served by this
-	 *            StagingProxy.
+	 *            StagingProxy
 	 * @param writeInterface
 	 *            The write interface (interface with "set"/"add"/"put" methods) served by
-	 *            this StagingProxy.
+	 *            this StagingProxy
+	 * @param underlying
+	 *            The object underlying this StagingProxy for reading Read Only properties
+	 * 
 	 */
 	StagingProxy(List<PropertyProcessor> processorList, Class<R> readInterface,
 		Class<W> writeInterface, R underlying)

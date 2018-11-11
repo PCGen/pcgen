@@ -102,6 +102,8 @@ public interface PropertyProcessor
 	 * @param args
 	 *            The arguments that may be needed to construct the appropriate
 	 *            ReadableHandler
+	 * @param arrayClass
+	 *            The Class of objects the property will contain
 	 * @return A ReadableHandler for the given method name and arguments
 	 */
 	public ReadableHandler getInvocationHandler(String methodName, Object[] args,
