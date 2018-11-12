@@ -17,6 +17,8 @@
  */
 package pcgen.base.formula.operator.generic;
 
+import java.lang.reflect.Array;
+
 import junit.framework.TestCase;
 
 public class GenericEqualsTest extends TestCase
@@ -25,6 +27,8 @@ public class GenericEqualsTest extends TestCase
 	private static final Class<Number> NUMBER_CLASS = Number.class;
 	private static final Class<Boolean> BOOLEAN_CLASS = Boolean.class;
 	private static final Class<Integer> INTEGER_CLASS = Integer.class;
+	private static final Class<Number[]> NUMBER_ARRAY_CLASS =
+			(Class<Number[]>) Array.newInstance(NUMBER_CLASS, 0).getClass();
 
 	private final GenericEquals op = new GenericEquals();
 
@@ -66,6 +70,10 @@ public class GenericEqualsTest extends TestCase
 	{
 		assertNull(op.abstractEvaluate(BOOLEAN_CLASS, INTEGER_CLASS, null));
 		assertNull(op.abstractEvaluate(NUMBER_CLASS, BOOLEAN_CLASS, null));
+		//Don't handle arrays
+		assertNull(op.abstractEvaluate(NUMBER_ARRAY_CLASS, NUMBER_ARRAY_CLASS, null));
+		assertNull(op.abstractEvaluate(NUMBER_CLASS, NUMBER_ARRAY_CLASS, null));
+		assertNull(op.abstractEvaluate(NUMBER_ARRAY_CLASS, NUMBER_CLASS, null));
 	}
 
 	public void testAbstractEvaluateLegal()

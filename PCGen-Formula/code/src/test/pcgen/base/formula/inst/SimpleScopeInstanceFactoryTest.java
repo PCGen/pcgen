@@ -71,6 +71,15 @@ public class SimpleScopeInstanceFactoryTest extends TestCase
 		{
 			//ok
 		}
+		try
+		{
+			factory.getGlobalInstance("Global.Local");
+			fail("Expected failure due to non global scope");
+		}
+		catch (IllegalArgumentException e)
+		{
+			//ok
+		}
 		ScopeInstance globalInst = factory.getGlobalInstance("Global");
 		assertNull(globalInst.getParentScope());
 		assertEquals("Global", globalInst.getLegalScope().getName());

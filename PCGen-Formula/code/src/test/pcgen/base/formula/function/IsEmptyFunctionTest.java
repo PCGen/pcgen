@@ -22,6 +22,7 @@ import org.junit.Test;
 
 import pcgen.base.format.ArrayFormatManager;
 import pcgen.base.format.NumberManager;
+import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.VariableLibrary;
@@ -74,6 +75,7 @@ public class IsEmptyFunctionTest extends AbstractFormulaTestCase
 		assertEquals(1, vars.size());
 		VariableID<?> var = vars.get(0);
 		assertEquals("a", var.getName());
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.TRUE);
 	}
 
 	@Test
@@ -88,6 +90,7 @@ public class IsEmptyFunctionTest extends AbstractFormulaTestCase
 		assertEquals(1, vars.size());
 		VariableID<?> var = vars.get(0);
 		assertEquals("a", var.getName());
+		evaluatesTo(FormatUtilities.BOOLEAN_MANAGER, formula, node, Boolean.FALSE);
 	}
 
 	protected VariableID<Number[]> getArrayVariable(String formula)

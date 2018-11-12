@@ -500,6 +500,11 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 		assertEquals(0, altstore.get(arms));
 		assertEquals(0, altstore.get(limbs));
 
+		getManager().removeModifier(legs, four, source);
+		assertEquals(2, store.get(arms));
+		assertEquals(0, store.get(legs));
+		assertEquals(2, store.get(limbs));
+
 	}
 
 	@Test
