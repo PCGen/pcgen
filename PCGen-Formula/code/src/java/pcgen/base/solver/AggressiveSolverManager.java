@@ -244,6 +244,7 @@ public class AggressiveSolverManager implements SolverManager
 		}
 		DependencyManager dependencyManager =
 				managerFactory.generateDependencyManager(formulaManager, source);
+		dependencyManager = managerFactory.withVariables(dependencyManager);
 		dependencyManager = dependencyManager.getWith(DependencyManager.ASSERTED,
 			Optional.of(varID.getFormatManager()));
 		modifier.getDependencies(dependencyManager);
@@ -270,10 +271,6 @@ public class AggressiveSolverManager implements SolverManager
 	{
 		Optional<VariableList> potentialVariables =
 				dependencyManager.get(DependencyManager.VARIABLES);
-		if (!potentialVariables.isPresent())
-		{
-			return;
-		}
 		List<VariableID<?>> dependentVarIDs = potentialVariables.get().getVariables();
 		Set<DefaultDirectionalGraphEdge<VariableID<?>>> edges =
 				dependencies.getAdjacentEdges(varID);

@@ -1,4 +1,4 @@
-package pcgen.base.formula.base;
+package pcgen.base.formula.inst;
 
 import java.util.Collection;
 import java.util.List;
@@ -7,6 +7,7 @@ import java.util.Optional;
 import org.junit.Test;
 
 import junit.framework.TestCase;
+import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.inst.ScopeManagerInst;
 import pcgen.base.formula.inst.SimpleLegalScope;
 
@@ -60,9 +61,20 @@ public class ScopeManagerInstTest extends TestCase
 		{
 			//ok
 		}
+		legalScopeManager.registerScope(globalScope);
+		legalScopeManager.registerScope(subScope);
 		try
 		{
 			legalScopeManager.registerScope(new SimpleLegalScope(globalScope, "SubScope"));
+			fail("dupe name be rejected in registerScope");
+		}
+		catch (IllegalArgumentException e)
+		{
+			//ok
+		}
+		try
+		{
+			legalScopeManager.registerScope(new SimpleLegalScope(globalScope, "Sub.Scope"));
 			fail("dupe name be rejected in registerScope");
 		}
 		catch (IllegalArgumentException e)

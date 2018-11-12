@@ -15,7 +15,7 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.base.formula.base;
+package pcgen.base.formula.inst;
 
 import org.junit.Test;
 
@@ -23,6 +23,11 @@ import junit.framework.TestCase;
 import pcgen.base.format.BooleanManager;
 import pcgen.base.format.NumberManager;
 import pcgen.base.formatmanager.FormatUtilities;
+import pcgen.base.formula.base.LegalScope;
+import pcgen.base.formula.base.ScopeInstance;
+import pcgen.base.formula.base.ScopeInstanceFactory;
+import pcgen.base.formula.base.VariableID;
+import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.exception.LegalVariableException;
 import pcgen.base.formula.inst.ScopeManagerInst;
 import pcgen.base.formula.inst.SimpleLegalScope;
@@ -30,10 +35,11 @@ import pcgen.base.formula.inst.SimpleScopeInstanceFactory;
 import pcgen.base.formula.inst.VariableManager;
 import pcgen.base.testsupport.SimpleVarScoped;
 
-public class VariableLibraryTest extends TestCase
+public class VariableManagerTest extends TestCase
 {
 
 	private NumberManager numberManager = FormatUtilities.NUMBER_MANAGER;
+	private BooleanManager booleanManager = FormatUtilities.BOOLEAN_MANAGER;
 	private ScopeInstanceFactory instanceFactory;
 	private ScopeManagerInst legalScopeManager;
 	private VariableLibrary variableLibrary;
@@ -148,6 +154,15 @@ public class VariableLibraryTest extends TestCase
 		variableLibrary.assertLegalVariableID("Walk", globalScope, numberManager);
 		//Dupe is safe
 		variableLibrary.assertLegalVariableID("Walk", globalScope, numberManager);
+		try
+		{
+			variableLibrary.assertLegalVariableID("Walk", globalScope, booleanManager);
+			fail("different format should fail");
+		}
+		catch (LegalVariableException e)
+		{
+			//expected
+		}
 		try
 		{
 			variableLibrary.assertLegalVariableID("Walk", eqScope, numberManager);
@@ -464,7 +479,6 @@ public class VariableLibraryTest extends TestCase
 	@Test
 	public void testProveReuse()
 	{
-		BooleanManager booleanManager = FormatUtilities.BOOLEAN_MANAGER;
 		SimpleLegalScope globalScope = new SimpleLegalScope("Global");
 		legalScopeManager.registerScope(globalScope);
 		LegalScope eqScope =

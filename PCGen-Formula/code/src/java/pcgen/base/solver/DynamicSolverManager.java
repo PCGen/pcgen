@@ -299,6 +299,7 @@ public class DynamicSolverManager implements SolverManager
 				managerFactory.generateDependencyManager(formulaManager, source);
 		dependencyManager = dependencyManager.getWith(DependencyManager.ASSERTED,
 			Optional.of(varID.getFormatManager()));
+		dependencyManager = managerFactory.withVariables(dependencyManager);
 		dependencyManager = dependencyManager.getWith(DependencyManager.DYNAMIC,
 			new DynamicManager());
 		modifier.getDependencies(dependencyManager);

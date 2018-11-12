@@ -44,6 +44,14 @@ public class ValueFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
+	public void testInvalidNoInputFormat()
+	{
+		String formula = "value()";
+		SimpleNode node = TestUtilities.doParse(formula);
+		isNotValid(formula, node, FormatUtilities.NUMBER_MANAGER, Optional.empty());
+	}
+
+	@Test
 	public void testIntegerPositive()
 	{
 		String formula = "value()";

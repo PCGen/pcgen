@@ -103,6 +103,18 @@ public class SolverFactoryTest extends TestCase
 		//But this is safe
 		factory.addSolverFormat(Number.class, AbstractModifier.setNumber(108, 28));
 		assertEquals(108, factory.getDefault(Number.class));
+		try
+		{
+			factory.addSolverFormat(Number.class, AbstractModifier.setNumber(111, 228));
+			fail("You can't reset a default to a different value");
+		}
+		catch (IllegalArgumentException | NullPointerException e)
+		{
+			//ok
+		}
+		//But you can set it to the same thing
+		factory.addSolverFormat(Number.class, AbstractModifier.setNumber(108, 28));
+		assertTrue(factory.validateDefaults().get());
 	}
 
 	@Test

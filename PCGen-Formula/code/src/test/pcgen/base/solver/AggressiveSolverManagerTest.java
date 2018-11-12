@@ -142,5 +142,8 @@ public class AggressiveSolverManagerTest extends AbstractSolverManagerTest
 
 		manager.addModifier(str, modMod, strInst);
 		assertEquals(3, store.get(str));
+		
+		manager.removeModifier(mod, modifier, strInst);
+		assertEquals(0, store.get(str));
 	}
 }
