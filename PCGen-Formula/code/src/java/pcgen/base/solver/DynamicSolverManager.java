@@ -339,10 +339,6 @@ public class DynamicSolverManager implements SolverManager
 		}
 		Optional<VariableList> potentialVariables =
 				dependencyManager.get(DependencyManager.VARIABLES);
-		if (!potentialVariables.isPresent())
-		{
-			return;
-		}
 		List<VariableID<?>> dependentVarIDs = potentialVariables.get().getVariables();
 		Set<DefaultDirectionalGraphEdge<VariableID<?>>> edges =
 				dependencies.getAdjacentEdges(varID);
