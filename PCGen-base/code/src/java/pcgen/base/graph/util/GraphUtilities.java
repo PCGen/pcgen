@@ -26,7 +26,7 @@ import pcgen.base.graph.base.Graph;
  * GraphUtilities is a utility class designed to provide utility methods when working with
  * pcgen.base.graph.base.Graph Objects.
  */
-public class GraphUtilities
+public final class GraphUtilities
 {
 
 	private GraphUtilities()
