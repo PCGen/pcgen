@@ -16,6 +16,7 @@
 package pcgen.base.proxy;
 
 import java.lang.reflect.Method;
+import java.util.List;
 
 /**
  * A MapProcessor is a PropertyProcessor that handles Map-based properties. These are
@@ -29,7 +30,7 @@ public class MapProcessor implements PropertyProcessor
 {
 
 	@Override
-	public boolean isProcessedMethod(Method method)
+	public boolean isProcessedWriteMethod(Method method)
 	{
 		return method.getName().regionMatches(true, 0, "put", 0, 3)
 			&& (method.getParameterTypes().length == 2)
@@ -38,16 +39,22 @@ public class MapProcessor implements PropertyProcessor
 	}
 
 	@Override
-	public String getPropertyName(String methodName)
+	public String getPropertyNameFromWrite(String methodName)
 	{
 		return "put".equalsIgnoreCase(methodName) ? "" : methodName.substring(3);
 	}
 
 	@Override
-	public Method claimMethod(Method putMethod, Method[] possibleReadMethods)
+	public String getPropertyNameFromRead(String methodName)
+	{
+		return "get".equalsIgnoreCase(methodName) ? "" : methodName.substring(3);
+	}
+
+	@Override
+	public Method claimMethod(Method putMethod, List<Method> possibleReadMethods)
 	{
 		String name = putMethod.getName();
-		String propertyName = getPropertyName(name);
+		String propertyName = getPropertyNameFromWrite(name);
 		Method getMethod = PropertyProcessor.retrieveMethod("get" + propertyName,
 			possibleReadMethods);
 		Class<?>[] getParams = getMethod.getParameterTypes();
@@ -75,11 +82,10 @@ public class MapProcessor implements PropertyProcessor
 	}
 
 	@Override
-	public ReadableHandler getInvocationHandler(String methodName, Object[] args)
+	public ReadableHandler getInvocationHandler(String readMethodName, Object[] args,
+		Class<?> propertyClass)
 	{
-		String propertyName =
-				"get".equalsIgnoreCase(methodName) ? "" : methodName.substring(3);
-		return new ReadMapProperty(propertyName, args[0]);
+		return new ReadMapProperty(getPropertyNameFromRead(readMethodName), args[0]);
 	}
 
 }

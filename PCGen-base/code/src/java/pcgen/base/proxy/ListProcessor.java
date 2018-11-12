@@ -16,6 +16,7 @@
 package pcgen.base.proxy;
 
 import java.lang.reflect.Method;
+import java.util.List;
 
 /**
  * A ListProcessor is a PropertyProcessor that handles List-based properties. These are
@@ -26,7 +27,7 @@ public class ListProcessor implements PropertyProcessor
 {
 
 	@Override
-	public boolean isProcessedMethod(Method method)
+	public boolean isProcessedWriteMethod(Method method)
 	{
 		return method.getName().regionMatches(true, 0, "add", 0, 3)
 			&& (method.getParameterTypes().length == 1)
@@ -34,15 +35,21 @@ public class ListProcessor implements PropertyProcessor
 	}
 
 	@Override
-	public String getPropertyName(String methodName)
+	public String getPropertyNameFromWrite(String methodName)
 	{
 		return methodName.substring(3);
 	}
 
 	@Override
-	public Method claimMethod(Method addMethod, Method[] possibleReadMethods)
+	public String getPropertyNameFromRead(String methodName)
 	{
-		String propertyName = getPropertyName(addMethod.getName());
+		return methodName.substring(3, methodName.length() - 5);
+	}
+
+	@Override
+	public Method claimMethod(Method addMethod, List<Method> possibleReadMethods)
+	{
+		String propertyName = getPropertyNameFromWrite(addMethod.getName());
 		Method getMethod = PropertyProcessor
 			.retrieveMethod("get" + propertyName + "Array", possibleReadMethods);
 		if (getMethod.getParameterTypes().length != 0)
@@ -70,9 +77,11 @@ public class ListProcessor implements PropertyProcessor
 	}
 
 	@Override
-	public ReadableHandler getInvocationHandler(String methodName, Object[] args)
+	public ReadableHandler getInvocationHandler(String readMethodName, Object[] args,
+		Class<?> propertyClass)
 	{
-		return new ReadListProperty(methodName);
+		return new ReadListProperty(getPropertyNameFromRead(readMethodName),
+			propertyClass);
 	}
 
 }

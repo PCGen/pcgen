@@ -16,6 +16,7 @@
 package pcgen.base.proxy;
 
 import java.lang.reflect.Method;
+import java.util.List;
 
 /**
  * A PropertyProcessor is capable of evaluating read and write methods and determining if
@@ -48,7 +49,7 @@ public interface PropertyProcessor
 	 * @return true if the given Method is a method processed by this PropertyProcessor;
 	 *         false otherwise
 	 */
-	public boolean isProcessedMethod(Method writeMethod);
+	public boolean isProcessedWriteMethod(Method writeMethod);
 
 	/**
 	 * Returns the property name given a write method name.
@@ -57,7 +58,16 @@ public interface PropertyProcessor
 	 *            The write method name to be converted to the property name
 	 * @return The property name as derived from the given write method name
 	 */
-	public String getPropertyName(String writeMethodName);
+	public String getPropertyNameFromWrite(String writeMethodName);
+
+	/**
+	 * Returns the property name given a read method name.
+	 * 
+	 * @param readMethodName
+	 *            The read method name to be converted to the property name
+	 * @return The property name as derived from the given read method name
+	 */
+	public String getPropertyNameFromRead(String readMethodName);
 
 	/**
 	 * Returns the Method "claimed" as being the "read" Method associated with the given
@@ -82,7 +92,7 @@ public interface PropertyProcessor
 	 * @return A Method from the array of possible "read" Methods that is "claimed" as
 	 *         being the "read" Method associated with the given "write" Method
 	 */
-	public Method claimMethod(Method writeMethod, Method[] possibleReadMethods);
+	public Method claimMethod(Method writeMethod, List<Method> possibleReadMethods);
 
 	/**
 	 * Returns a ReadableHandler for the given method name and arguments.
@@ -92,9 +102,12 @@ public interface PropertyProcessor
 	 * @param args
 	 *            The arguments that may be needed to construct the appropriate
 	 *            ReadableHandler
+	 * @param propertyClass
+	 *            The Class of objects the property will contain
 	 * @return A ReadableHandler for the given method name and arguments
 	 */
-	public ReadableHandler getInvocationHandler(String methodName, Object[] args);
+	public ReadableHandler getInvocationHandler(String methodName, Object[] args,
+		Class<?> propertyClass);
 
 	/**
 	 * Returns a Method from the given Array of Method objects which has the given Method
@@ -110,7 +123,7 @@ public interface PropertyProcessor
 	 * @throws IllegalArgumentException
 	 *             if none of the Methods in the given Array has the given name
 	 */
-	public static Method retrieveMethod(String methodName, Method[] possibleMethods)
+	public static Method retrieveMethod(String methodName, List<Method> possibleMethods)
 	{
 		for (Method m : possibleMethods)
 		{

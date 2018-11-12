@@ -55,6 +55,8 @@ public class StagingInfoFactory
 	 * @param writeInterface
 	 *            The write interface to be used to construct both the returned Proxy
 	 *            object and the returned Staging
+	 * @param underlying
+	 *            The underlying object to be used for @ReadOnly methods
 	 * @return A StagingInfo containing the necessary Proxy objects for the interfaces as
 	 *         well as a Staging for the write interface
 	 * @param <R>
@@ -63,10 +65,10 @@ public class StagingInfoFactory
 	 *            The component type of the write interface of the object to be proxied
 	 */
 	public <R, W> StagingInfo<R, W> produceStaging(Class<R> readInterface,
-		Class<W> writeInterface)
+		Class<W> writeInterface, R underlying)
 	{
 		StagingProxy<R, W> factory =
-				new StagingProxy<>(processors, readInterface, writeInterface);
+				new StagingProxy<>(processors, readInterface, writeInterface, underlying);
 		@SuppressWarnings("unchecked")
 		W writeProxy = (W) Proxy.newProxyInstance(
 			writeInterface.getClassLoader(), new Class[]{writeInterface}, factory);
