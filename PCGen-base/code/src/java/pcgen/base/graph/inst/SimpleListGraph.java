@@ -29,6 +29,7 @@ import pcgen.base.graph.base.EdgeChangeEvent;
 import pcgen.base.graph.base.Graph;
 import pcgen.base.graph.base.GraphChangeListener;
 import pcgen.base.graph.base.NodeChangeEvent;
+import pcgen.base.graph.util.GraphUtilities;
 
 /**
  * This class is a simple Graph which stores a List of the nodes and edges in
@@ -258,36 +259,8 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 	@Override
 	public boolean equals(Object other)
 	{
-		if (!(other instanceof Graph))
-		{
-			return false;
-		}
-		@SuppressWarnings("unchecked")
-		Graph<N, ET> otherGraph = (Graph<N, ET>) other;
-		List<N> otherNodeList = otherGraph.getNodeList();
-		int thisNodeSize = nodeList.size();
-		if (thisNodeSize != otherNodeList.size())
-		{
-			return false;
-		}
-		// (potentially wasteful, but defensive copy)
-		otherNodeList = new ArrayList<>(otherNodeList);
-		if (otherNodeList.retainAll(nodeList))
-		{
-			// Other Graph contains extra nodes
-			return false;
-		}
-		// Here, the node lists are identical...
-		List<ET> otherEdgeList = otherGraph.getEdgeList();
-		int thisEdgeSize = edgeList.size();
-		if (thisEdgeSize != otherEdgeList.size())
-		{
-			return false;
-		}
-		// (potentially wasteful, but defensive copy)
-		otherEdgeList = new ArrayList<>(otherEdgeList);
-		// possible that the Other Graph contains extra edges
-		return !otherEdgeList.retainAll(edgeList);
+		return (other instanceof Graph)
+			&& GraphUtilities.equals(this, (Graph<?, ?>) other);
 	}
 
 	/**
