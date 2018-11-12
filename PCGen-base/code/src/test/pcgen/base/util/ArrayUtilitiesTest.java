@@ -17,6 +17,7 @@ package pcgen.base.util;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.IntFunction;
 
 import org.junit.Test;
 
@@ -235,5 +236,25 @@ public class ArrayUtilitiesTest extends TestCase
 		assertTrue(removed.contains(six));
 		assertTrue(removed.contains(four));
 		assertTrue(removed.contains(three));
+	}
+	
+	@Test
+	public void testUsingArray()
+	{
+		Integer[] startingArray = new Integer[4];
+		IntFunction<Integer[]> function = ArrayUtilities.usingArray(startingArray);
+		Integer[] array = function.apply(3);
+		assertTrue(array.length >= 3);
+		//Identity equality is fine
+		assertEquals(startingArray, array);
+		array = function.apply(4);
+		assertTrue(array.length >= 4);
+		//Identity equality is fine
+		assertEquals(startingArray, array);
+		array = function.apply(5);
+		assertTrue(array.length >= 5);
+		//Different since length in function was greater than original array.
+		assertNotSame(startingArray, array);
+		
 	}
 }
