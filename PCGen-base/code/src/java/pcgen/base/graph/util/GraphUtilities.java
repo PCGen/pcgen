@@ -29,6 +29,11 @@ import pcgen.base.graph.base.Graph;
 public class GraphUtilities
 {
 
+	private GraphUtilities()
+	{
+		//Don't construct a utility class
+	}
+
 	/**
 	 * Checks for equality between two Graph objects.
 	 * 
