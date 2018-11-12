@@ -49,7 +49,7 @@ public final class PCGenUIManager
 		{
 			MacGUIHandler.initialize();
 		}
-		pcgenFrame = new PCGenFrame();
+		pcgenFrame = new PCGenFrame(new UIContext());
 		PluginManager pluginMgr = PluginManager.getInstance();
 		GMGenMessageHandler handler = new GMGenMessageHandler(pcgenFrame, pluginMgr.getPostbox());
 		pluginMgr.addMember(handler);

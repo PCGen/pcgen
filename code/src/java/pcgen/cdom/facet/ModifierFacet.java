@@ -17,20 +17,17 @@
  */
 package pcgen.cdom.facet;
 
-import java.util.List;
-
 import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VarScoped;
 import pcgen.base.solver.Modifier;
 import pcgen.base.util.FormatManager;
-import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.content.VarModifier;
 import pcgen.cdom.enumeration.CharID;
-import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.facet.model.VarScopedFacet;
+import pcgen.cdom.formula.PCGenScoped;
 import pcgen.cdom.formula.local.DefinedWrappingModifier;
 import pcgen.cdom.formula.local.ModifierDecoration;
 import pcgen.cdom.formula.scope.PCGenScope;
@@ -40,7 +37,7 @@ import pcgen.rules.context.LoadContext;
  * ModifierFacet checks each item added to a PlayerCharacter to see if it has
  * MODIFY: entries on the object, and if so, adds them to the Solver system.
  */
-public class ModifierFacet implements DataFacetChangeListener<CharID, VarScoped>
+public class ModifierFacet implements DataFacetChangeListener<CharID, PCGenScoped>
 {
 	private ScopeFacet scopeFacet;
 
@@ -51,17 +48,12 @@ public class ModifierFacet implements DataFacetChangeListener<CharID, VarScoped>
 	private LoadContextFacet loadContextFacet = FacetLibrary.getFacet(LoadContextFacet.class);
 
 	@Override
-	public void dataAdded(DataFacetChangeEvent<CharID, VarScoped> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, PCGenScoped> dfce)
 	{
 		CharID id = dfce.getCharID();
-		VarScoped vs = dfce.getCDOMObject();
-		if (!(vs instanceof CDOMObject))
-		{
-			return;
-		}
-		CDOMObject obj = (CDOMObject) vs;
-		List<VarModifier<?>> modifiers = obj.getListFor(ListKey.MODIFY);
-		if (modifiers != null)
+		PCGenScoped obj = dfce.getCDOMObject();
+		VarModifier<?>[] modifiers = obj.getModifierArray();
+		if (modifiers.length > 0)
 		{
 			ScopeInstance inst = scopeFacet.get(id, obj);
 			for (VarModifier<?> vm : modifiers)
@@ -95,17 +87,12 @@ public class ModifierFacet implements DataFacetChangeListener<CharID, VarScoped>
 	}
 
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<CharID, VarScoped> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, PCGenScoped> dfce)
 	{
 		CharID id = dfce.getCharID();
-		VarScoped vs = dfce.getCDOMObject();
-		if (!(vs instanceof CDOMObject))
-		{
-			return;
-		}
-		CDOMObject obj = (CDOMObject) vs;
-		List<VarModifier<?>> modifiers = obj.getListFor(ListKey.MODIFY);
-		if (modifiers != null)
+		PCGenScoped obj = dfce.getCDOMObject();
+		VarModifier<?>[] modifiers = obj.getModifierArray();
+		if (modifiers.length > 0)
 		{
 			ScopeInstance inst = scopeFacet.get(id, obj);
 			for (VarModifier<?> vm : modifiers)

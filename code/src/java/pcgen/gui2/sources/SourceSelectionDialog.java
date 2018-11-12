@@ -65,6 +65,7 @@ import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.ListFacades;
 import pcgen.facade.util.SortedListFacade;
 import pcgen.gui2.PCGenFrame;
+import pcgen.gui2.UIContext;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.dialog.DataInstaller;
 import pcgen.gui2.filter.FilteredListFacadeTableModel;
@@ -105,14 +106,14 @@ public class SourceSelectionDialog extends JDialog implements ActionListener, Ch
 	private final JButton saveButton;
 	private final JCheckBox alwaysAdvancedCheck;
 
-	public SourceSelectionDialog(PCGenFrame frame)
+	public SourceSelectionDialog(PCGenFrame frame, UIContext uiContext)
 	{
 		super(frame, true);
 		this.frame = frame;
 		setTitle(LanguageBundle.getString("in_mnuSourcesLoadSelect")); //$NON-NLS-1$
 		this.tabs = new JTabbedPane();
 		this.basicPanel = new QuickSourceSelectionPanel();
-		this.advancedPanel = new AdvancedSourceSelectionPanel(frame);
+		this.advancedPanel = new AdvancedSourceSelectionPanel(frame, uiContext);
 		this.buttonPanel = new JPanel();
 		this.loadButton = new JButton();
 		CommonMenuText.name(loadButton, "load"); //$NON-NLS-1$

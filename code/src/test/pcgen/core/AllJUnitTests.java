@@ -52,7 +52,6 @@ public final class AllJUnitTests
 		suite.addTest(new TestSuite(PCClassTest.class));
 		suite.addTest(new TestSuite(PlayerCharacterTest.class));
 		suite.addTest(new TestSuite(PObjectTest.class));
-		suite.addTest(new TestSuite(PObjectUtilitiesTest.class));
 		suite.addTest(new TestSuite(PrereqHandlerTest.class));
 		suite.addTest(new TestSuite(CoreUtilityTest.class));
 
