@@ -15,14 +15,15 @@
  */
 package pcgen.base.formula.operator.array;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
 import pcgen.base.formula.base.OperatorAction;
 import pcgen.base.formula.parse.Operator;
-import pcgen.base.util.ArrayUtilities;
 import pcgen.base.util.FormatManager;
-import pcgen.base.util.Tuple;
 
 /**
  * ArraySubtract performs a difference on two Arrays or an Array and an individual item.
@@ -64,11 +65,19 @@ public class ArraySubtract implements OperatorAction
 	@Override
 	public Object evaluate(Object left, Object right)
 	{
-		Object[] removes =
-				right.getClass().isArray() ? (Object[]) right : new Object[]{right};
-		Tuple<List<Object>, List<Object>> diff =
-				ArrayUtilities.calculateDifference((Object[]) left, removes);
-		List<Object> resultList = diff.getSecond();
-		return resultList.toArray(new Object[]{resultList.size()});
+		if (!left.getClass().isArray())
+		{
+			throw new IllegalArgumentException(
+				"First argument to ArraySubtract must be an array");
+		}
+		List<Object> toRemoveList = right.getClass().isArray()
+			? Arrays.asList((Object[]) right) : Collections.singletonList(right);
+		List<Object> originalList = new ArrayList<>(Arrays.asList((Object[]) left));
+		//WARNING: This is NOT .removeAll since we are respecting quantity
+		for (Object o : toRemoveList)
+		{
+			originalList.remove(o);
+		}
+		return originalList.toArray(new Object[]{originalList.size()});
 	}
 }

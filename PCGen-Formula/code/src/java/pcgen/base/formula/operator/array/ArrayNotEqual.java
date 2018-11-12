@@ -16,6 +16,7 @@
 package pcgen.base.formula.operator.array;
 
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.Optional;
 
 import pcgen.base.formatmanager.FormatUtilities;
@@ -50,9 +51,9 @@ public class ArrayNotEqual implements OperatorAction
 	@Override
 	public Object evaluate(Object left, Object right)
 	{
-		Object[] first = (Object[]) left;
-		Object[] second = (Object[]) right;
-		return !Arrays.deepEquals(first, second);
+		Object first = Objects.requireNonNull(left);
+		Object second = Objects.requireNonNull(right);
+		return !Arrays.deepEquals((Object[]) first, (Object[]) second);
 	}
 
 }
