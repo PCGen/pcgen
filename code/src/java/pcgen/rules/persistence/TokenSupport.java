@@ -300,11 +300,12 @@ public class TokenSupport
 		Class<T> cl = (Class<T>) loadable.getClass();
 		for (CDOMInterfaceToken<?, ?> interfaceToken : TokenLibrary.getInterfaceTokens())
 		{
-			if (interfaceToken.getClass().isAssignableFrom(cl))
+			if (interfaceToken.getReadInterface().isAssignableFrom(cl))
 			{
 				@SuppressWarnings("unchecked")
-				CDOMInterfaceToken<?, T> token = (CDOMInterfaceToken<?, T>) interfaceToken;
-				String[] s = token.unparse(context, loadable);
+				CDOMInterfaceToken<R, T> token = (CDOMInterfaceToken<R, T>) interfaceToken;
+				@SuppressWarnings("unchecked")
+				String[] s = token.unparse(context, (R) loadable);
 				if (s != null)
 				{
 					for (String aString : s)

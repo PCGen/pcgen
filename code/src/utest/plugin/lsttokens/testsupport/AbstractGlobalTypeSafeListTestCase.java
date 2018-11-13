@@ -211,24 +211,24 @@ public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 		if (isClearLegal())
 		{
 			assertTrue(parse(Constants.LST_DOT_CLEAR));
-			unparsed = getToken().unparse(primaryContext, primaryProf);
+			unparsed = getWriteToken().unparse(primaryContext, primaryProf);
 			assertNull("Expected item to be null", unparsed);
 		}
 		if (isClearDotLegal())
 		{
 			assertTrue(parse(".CLEAR.TestWP1"));
-			unparsed = getToken().unparse(primaryContext, primaryProf);
+			unparsed = getWriteToken().unparse(primaryContext, primaryProf);
 			assertNull("Expected item to be equal", unparsed);
 		}
 		assertTrue(parse("TestWP1"));
 		assertTrue(parse("TestWP2"));
-		unparsed = getToken().unparse(primaryContext, primaryProf);
+		unparsed = getWriteToken().unparse(primaryContext, primaryProf);
 		assertEquals("Expected item to be equal", "TestWP1"
 				+ getJoinCharacter() + "TestWP2", unparsed[0]);
 		if (isClearLegal())
 		{
 			assertTrue(parse(Constants.LST_DOT_CLEAR));
-			unparsed = getToken().unparse(primaryContext, primaryProf);
+			unparsed = getWriteToken().unparse(primaryContext, primaryProf);
 			assertNull("Expected item to be null", unparsed);
 		}
 	}
@@ -239,13 +239,13 @@ public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 		String[] unparsed;
 		assertTrue(parse("TestWP1"));
 		assertTrue(parse("TestWP2"));
-		unparsed = getToken().unparse(primaryContext, primaryProf);
+		unparsed = getWriteToken().unparse(primaryContext, primaryProf);
 		assertEquals("Expected item to be equal", "TestWP1"
 				+ getJoinCharacter() + "TestWP2", unparsed[0]);
 		if (isClearDotLegal())
 		{
 			assertTrue(parse(".CLEAR.TestWP1"));
-			unparsed = getToken().unparse(primaryContext, primaryProf);
+			unparsed = getWriteToken().unparse(primaryContext, primaryProf);
 			assertEquals("Expected item to be equal", "TestWP2", unparsed[0]);
 		}
 	}
@@ -351,7 +351,7 @@ public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 	public void testUnparseNull()
 	{
 		primaryProf.removeListFor(getListKey());
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		assertNull(getWriteToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
@@ -359,7 +359,7 @@ public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 	{
 		primaryProf.addToListFor(getListKey(),
 				getConstant(getLegalValue()));
-		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		String[] unparsed = getWriteToken().unparse(primaryContext, primaryProf);
 		expectSingle(unparsed, getLegalValue());
 	}
 
@@ -369,7 +369,7 @@ public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 		primaryProf.addToListFor(getListKey(), null);
 		try
 		{
-			getToken().unparse(primaryContext, primaryProf);
+			getWriteToken().unparse(primaryContext, primaryProf);
 			fail();
 		}
 		catch (NullPointerException e)
@@ -385,7 +385,7 @@ public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 				getConstant(getLegalValue()));
 		primaryProf.addToListFor(getListKey(),
 				getConstant(getAlternateLegalValue()));
-		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		String[] unparsed = getWriteToken().unparse(primaryContext, primaryProf);
 		expectSingle(unparsed, getLegalValue() + getJoinCharacter()
 				+ getAlternateLegalValue());
 	}

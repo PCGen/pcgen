@@ -46,7 +46,13 @@ public class MoveLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Override
-	public CDOMPrimaryToken<CDOMObject> getToken()
+	public CDOMPrimaryToken<CDOMObject> getReadToken()
+	{
+		return token;
+	}
+
+	@Override
+	public CDOMPrimaryToken<CDOMObject> getWriteToken()
 	{
 		return token;
 	}
@@ -118,7 +124,7 @@ public class MoveLstTest extends AbstractGlobalTokenTestCase
 	public void testValidInputNumber()
 	{
 		assertTrue(parse("30"));
-		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		String[] unparsed = getWriteToken().unparse(primaryContext, primaryProf);
 		assertNotNull(unparsed);
 		assertEquals(1, unparsed.length);
 		assertEquals("Expected item to be equal", "Walk,30", unparsed[0]);

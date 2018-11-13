@@ -106,7 +106,7 @@ public abstract class AbstractGlobalFormulaTokenTestCase extends
 	public void testUnparseNull()
 	{
 		primaryProf.put(getFormulaKey(), null);
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		assertNull(getWriteToken().unparse(primaryContext, primaryProf));
 	}
 
 	private void setAndUnparseMatch(Formula val)
@@ -117,7 +117,7 @@ public abstract class AbstractGlobalFormulaTokenTestCase extends
 	protected String[] setAndUnparse(Formula val)
 	{
 		setFormula(val);
-		return getToken().unparse(primaryContext, primaryProf);
+		return getWriteToken().unparse(primaryContext, primaryProf);
 	}
 
 	protected void setFormula(Formula val)
