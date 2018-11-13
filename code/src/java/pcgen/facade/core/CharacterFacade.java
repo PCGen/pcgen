@@ -28,6 +28,7 @@ import javax.swing.undo.UndoManager;
 
 import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.cdom.meta.CorePerspective;
@@ -67,13 +68,13 @@ public interface CharacterFacade extends CompanionFacade
 
 	public UndoManager getUndoManager();
 
-	public ReferenceFacade<GenderFacade> getGenderRef();
+	public ReferenceFacade<Gender> getGenderRef();
 
 	public void setAlignment(PCAlignment alignment);
 
 	public ReferenceFacade<PCAlignment> getAlignmentRef();
 
-	public void setGender(GenderFacade gender);
+	public void setGender(Gender gender);
 
 	public void setGender(String gender);
 
@@ -418,7 +419,7 @@ public interface CharacterFacade extends CompanionFacade
 
 	public ListFacade<HandedFacade> getAvailableHands();
 
-	public ListFacade<GenderFacade> getAvailableGenders();
+	public ListFacade<Gender> getAvailableGenders();
 
 	/**
 	 * @return The domains which the character has access to.
