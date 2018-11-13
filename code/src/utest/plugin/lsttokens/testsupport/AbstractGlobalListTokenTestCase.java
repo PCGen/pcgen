@@ -172,7 +172,7 @@ public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>
 		{
 			try
 			{
-				boolean result = getToken().parseToken(primaryContext, primaryProf,
+				boolean result = getReadToken().parseToken(primaryContext, primaryProf,
 						"TYPE=TestType").passed();
 				if (result)
 				{

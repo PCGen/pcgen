@@ -36,7 +36,6 @@ import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMInterfaceToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
@@ -44,7 +43,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * (new) formula system.
  */
 public class ModifyLst extends AbstractNonEmptyToken<VarHolder>
-		implements CDOMInterfaceToken<VarContainer, VarHolder>, CDOMPrimaryToken<VarHolder>
+		implements CDOMInterfaceToken<VarContainer, VarHolder>
 {
 
 	@Override
@@ -160,7 +159,7 @@ public class ModifyLst extends AbstractNonEmptyToken<VarHolder>
 	}
 
 	@Override
-	public String[] unparse(LoadContext context, VarHolder obj)
+	public String[] unparse(LoadContext context, VarContainer obj)
 	{
 		List<String> modifiers = new ArrayList<>();
 		for (VarModifier<?> vm : obj.getModifierArray())
