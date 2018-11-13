@@ -1,5 +1,5 @@
 /*
- * Copyright 2007 (C) Tom Parker <thpr@users.sourceforge.net>
+ * Copyright 2018 (C) Tom Parker <thpr@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -17,6 +17,10 @@
  */
 package pcgen.rules.persistence.token;
 
-public interface CDOMPrimaryToken<T> extends CDOMToken<T>, CDOMWriteToken<T>
+import pcgen.persistence.lst.LstToken;
+import pcgen.rules.context.LoadContext;
+
+public interface CDOMWriteToken<T> extends LstToken
 {
+	public String[] unparse(LoadContext context, T obj);
 }

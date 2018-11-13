@@ -23,11 +23,12 @@ import java.util.List;
 import pcgen.base.formula.base.VarScoped;
 import pcgen.cdom.base.Categorized;
 import pcgen.cdom.base.Category;
-import pcgen.cdom.formula.PCGenScoped;
 import pcgen.cdom.base.Loadable;
+import pcgen.cdom.base.VarContainer;
 import pcgen.cdom.base.VarHolder;
 import pcgen.cdom.content.RemoteModifier;
 import pcgen.cdom.content.VarModifier;
+import pcgen.cdom.formula.PCGenScoped;
 
 /**
  * A Dynamic is an object designed to behave as defined by the Data, rather than having
@@ -36,7 +37,8 @@ import pcgen.cdom.content.VarModifier;
  * By having almost no information hard-coded, this class produces a very flexible
  * framework for use in a data driven system.
  */
-public class Dynamic implements Loadable, VarHolder, PCGenScoped, Categorized<Dynamic>
+public class Dynamic
+		implements Loadable, VarHolder, VarContainer, PCGenScoped, Categorized<Dynamic>
 {
 
 	/**

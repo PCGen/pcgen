@@ -70,11 +70,14 @@ public class SpellknownLstTest extends AbstractGlobalTokenTestCase
 		return PCTemplate.class;
 	}
 
-	/**
-	 * @see plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase#getToken()
-	 */
 	@Override
-	public CDOMPrimaryToken<CDOMObject> getToken()
+	public CDOMPrimaryToken<CDOMObject> getReadToken()
+	{
+		return token;
+	}
+
+	@Override
+	public CDOMPrimaryToken<CDOMObject> getWriteToken()
 	{
 		return token;
 	}

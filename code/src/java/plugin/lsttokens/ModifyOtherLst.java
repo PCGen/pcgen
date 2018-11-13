@@ -33,7 +33,6 @@ import pcgen.cdom.grouping.GroupingCollection;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMInterfaceToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.ModifyLst.ModifyException;
 
@@ -42,7 +41,7 @@ import plugin.lsttokens.ModifyLst.ModifyException;
  * system.
  */
 public class ModifyOtherLst extends AbstractNonEmptyToken<VarHolder>
-		implements CDOMInterfaceToken<VarContainer, VarHolder>, CDOMPrimaryToken<VarHolder>
+		implements CDOMInterfaceToken<VarContainer, VarHolder>
 {
 
 	@Override
@@ -106,7 +105,7 @@ public class ModifyOtherLst extends AbstractNonEmptyToken<VarHolder>
 	}
 
 	@Override
-	public String[] unparse(LoadContext context, VarHolder obj)
+	public String[] unparse(LoadContext context, VarContainer obj)
 	{
 		RemoteModifier<?>[] added = obj.getRemoteModifierArray();
 		List<String> modifiers = new ArrayList<>();
