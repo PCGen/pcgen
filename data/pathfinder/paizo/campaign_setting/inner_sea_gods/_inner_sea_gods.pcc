@@ -52,7 +52,10 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Campaign Setting: Inner Sea G
 DATACONTROL:isg__datacontrols.lst
 
 # Advanced Player Guide Support
-RACE:isg_races_apg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+ABILITY:isg_abilities_apg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+
+# Ultimate Magic Support
+ABILITY:isg_abilities_um.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
 
 # Data files
 ABILITY:isg_abilities.lst

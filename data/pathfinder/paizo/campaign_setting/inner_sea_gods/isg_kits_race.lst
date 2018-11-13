@@ -75,7 +75,7 @@ ABILITY:CATEGORY=FEAT|Persuasive
 LANGBONUS:Abyssal|Aklo|Aquan|Common|Elven|Giant|Undercommon
 
 
-STARTPACK:Devil (Accomplice) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Devil (Accomplice)],[!PRERACE:1,%]	SOURCEPAGE:p.278
+STARTPACK:Devil (Accomplice) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Devil (Accomplice)],[!PRERACE:1,%]	SOURCEPAGE:p.279
 ALIGN:LE
 RACE:Devil (Accomplice)	!PRERACE:1,%
 NAME:Accomplice Devil (Hesperian)
@@ -94,7 +94,126 @@ ABILITY:CATEGORY=FEAT|Iron Will
 GEAR:Mace (Heavy)	SIZE:M	LOCATION:Primary Hand
 
 
+STARTPACK:The Menotherian Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,The Menotherian],[!PRERACE:1,%]	SOURCEPAGE:p.280
+ALIGN:CN
+RACE:The Menotherian	!PRERACE:1,%
+NAME:The Menotherian
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Acrobatics				RANK:15
+SKILL:Bluff						RANK:15
+SKILL:Diplomacy					RANK:15
+SKILL:Heal						RANK:7
+SKILL:Intimidate				RANK:15
+SKILL:Knowledge (History)		RANK:8
+SKILL:Knowledge (Nature)		RANK:8
+SKILL:Knowledge (Planes)		RANK:8
+SKILL:Perception				RANK:15
+SKILL:Perform (Dance)			RANK:7
+SKILL:Sense Motive				RANK:15
+SKILL:Spellcraft				RANK:7
+SKILL:Stealth					RANK:15
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Step Up
+ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
+ABILITY:CATEGORY=FEAT|Weapon Focus (Sting)
+LANGBONUS:Abyssal|Common|Elven
 
+
+STARTPACK:Vendenopterix Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Vendenopterix],[!PRERACE:1,%]	SOURCEPAGE:p.281
+ALIGN:CN
+RACE:Vendenopterix	!PRERACE:1,%
+NAME:Vendenopterix
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Bluff						RANK:6
+SKILL:Diplomacy					RANK:6
+SKILL:Disguise					RANK:6
+SKILL:Knowledge (Planes)		RANK:3
+SKILL:Perception				RANK:6
+SKILL:Perform (Dance)			RANK:3
+SKILL:Survival					RANK:6
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+
+
+STARTPACK:Thais Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Thais],[!PRERACE:1,%]	SOURCEPAGE:p.282
+ALIGN:CG
+RACE:Thais	!PRERACE:1,%
+NAME:Thais
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=10|CHA=10
+SKILL:Acrobatics				RANK:17
+SKILL:Bluff						RANK:17
+SKILL:Diplomacy					RANK:17
+SKILL:Disguise					RANK:7
+SKILL:Heal						RANK:7
+SKILL:Intimidate				RANK:8
+SKILL:Knowledge (Local)			RANK:7
+SKILL:Knowledge (Planes)		RANK:7
+SKILL:Knowledge (Religion)		RANK:7
+SKILL:Perception				RANK:17
+SKILL:Perform (Dance)			RANK:17
+SKILL:Profession (Courtesan)	RANK:8
+SKILL:Sense Motive				RANK:17
+SKILL:Sleight of Hand			RANK:17
+SKILL:Stealth					RANK:17
+ABILITY:CATEGORY=FEAT|Combat Expertise
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Mobility
+LANGBONUS:Auran|Celestial|Common|Draconic|Infernal
+GEAR:Halberd	SIZE:L	LOCATION:Both Hands	EQMOD:Special Ability ~ +2 ~ Weapon.Special Ability ~ Anarchic ~ Weapon.Special Ability ~ Keen ~ Weapon
+
+
+STARTPACK:Ataxian Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Ataxian],[!PRERACE:1,%]	SOURCEPAGE:p.283
+ALIGN:CG
+RACE:Ataxian	!PRERACE:1,%
+NAME:Ataxian
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Acrobatics				RANK:4
+SKILL:Handle Animal				RANK:4
+SKILL:Knowledge (Local)			RANK:4
+SKILL:Knowledge (Religion)		RANK:4
+SKILL:Perception				RANK:4
+SKILL:Stealth					RANK:4
+ABILITY:CATEGORY=FEAT|Agile Maneuvers
+ABILITY:CATEGORY=FEAT|Combat Casting
+
+
+STARTPACK:Night Monarch Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Night Monarch],[!PRERACE:1,%]	SOURCEPAGE:p.282
+ALIGN:CG
+RACE:Night Monarch	!PRERACE:1,%
+NAME:Night Monarch
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Diplomacy					RANK:18
+SKILL:Handle Animal				RANK:18
+SKILL:Heal						RANK:18
+SKILL:Knowledge (Geography)		RANK:18
+SKILL:Knowledge (Nature)		RANK:18
+SKILL:Knowledge (Planes)		RANK:18
+SKILL:Knowledge (Religion)		RANK:18
+SKILL:Perception				RANK:18
+SKILL:Sense Motive				RANK:18
+SKILL:Stealth					RANK:18
+SKILL:Survival					RANK:18
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Snatch
+ABILITY:CATEGORY=FEAT|Wind Stance
+LANGBONUS:Auran|Celestial|Common
 
 
 
