@@ -52,10 +52,10 @@ import org.apache.commons.lang3.StringUtils;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.BiographyField;
+import pcgen.cdom.enumeration.Gender;
 import pcgen.core.PCAlignment;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.DeityFacade;
-import pcgen.facade.core.GenderFacade;
 import pcgen.facade.core.HandedFacade;
 import pcgen.facade.core.SimpleFacade;
 import pcgen.facade.util.ListFacade;
@@ -346,18 +346,18 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 	private static class GenderItem extends BioItem
 	{
 
-		private final CharacterComboBoxModel<GenderFacade> genderModel;
+		private final CharacterComboBoxModel<Gender> genderModel;
 
 		public GenderItem(final CharacterFacade character)
 		{
 			super("in_gender", BiographyField.GENDER, character); //$NON-NLS-1$
-			genderModel = new CharacterComboBoxModel<GenderFacade>()
+			genderModel = new CharacterComboBoxModel<Gender>()
 			{
 
 				@Override
 				public void setSelectedItem(Object anItem)
 				{
-					character.setGender((GenderFacade) anItem);
+					character.setGender((Gender) anItem);
 				}
 
 			};

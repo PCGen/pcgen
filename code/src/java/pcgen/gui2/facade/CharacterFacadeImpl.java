@@ -144,7 +144,6 @@ import pcgen.facade.core.EquipmentListFacade.EquipmentListEvent;
 import pcgen.facade.core.EquipmentListFacade.EquipmentListListener;
 import pcgen.facade.core.EquipmentSetFacade;
 import pcgen.facade.core.GearBuySellFacade;
-import pcgen.facade.core.GenderFacade;
 import pcgen.facade.core.HandedFacade;
 import pcgen.facade.core.InfoFacade;
 import pcgen.facade.core.InfoFactory;
@@ -206,10 +205,10 @@ public class CharacterFacadeImpl
 	private DefaultListFacade<TempBonusFacade> availTempBonuses;
 	private WriteableReferenceFacade<PCAlignment> alignment;
 	private DefaultListFacade<EquipmentSetFacade> equipmentSets;
-	private DefaultReferenceFacade<GenderFacade> gender;
+	private DefaultReferenceFacade<Gender> gender;
 	private DefaultListFacade<CharacterLevelFacade> pcClassLevels;
 	private DefaultListFacade<HandedFacade> availHands;
-	private DefaultListFacade<GenderFacade> availGenders;
+	private DefaultListFacade<Gender> availGenders;
 	private Map<StatFacade, WriteableReferenceFacade<Number>> statScoreMap;
 	private final UndoManager undoManager;
 	private final DelegatingDataSet dataSet;
@@ -402,7 +401,7 @@ public class CharacterFacadeImpl
 					break;
 				}
 			}
-			for (GenderFacade pcGender : availGenders)
+			for (Gender pcGender : availGenders)
 			{
 				if (pcGender.equals(theCharacter.getGenderObject()))
 				{
@@ -647,7 +646,7 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public ListFacade<GenderFacade> getAvailableGenders()
+	public ListFacade<Gender> getAvailableGenders()
 	{
 		return availGenders;
 	}
@@ -1405,15 +1404,15 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public ReferenceFacade<GenderFacade> getGenderRef()
+	public ReferenceFacade<Gender> getGenderRef()
 	{
 		return gender;
 	}
 
 	@Override
-	public void setGender(GenderFacade gender)
+	public void setGender(Gender gender)
 	{
-		theCharacter.setGender((Gender) gender);
+		theCharacter.setGender(gender);
 		Gender newGender = theCharacter.getGenderObject();
 		this.selectedGender = newGender.toString();
 		this.gender.set(newGender);
@@ -1426,7 +1425,7 @@ public class CharacterFacadeImpl
 		this.selectedGender = gender;
 		if (charDisplay.getRace() != null)
 		{
-			for (GenderFacade raceGender : availGenders)
+			for (Gender raceGender : availGenders)
 			{
 				if (raceGender.toString().equals(gender))
 				{
@@ -1781,7 +1780,7 @@ public class CharacterFacadeImpl
 					break;
 				}
 			}
-			for (GenderFacade pcGender : availGenders)
+			for (Gender pcGender : availGenders)
 			{
 				if (pcGender.equals(theCharacter.getGenderObject()))
 				{

@@ -64,6 +64,7 @@ import javax.swing.event.HyperlinkListener;
 
 import org.apache.commons.lang3.StringUtils;
 
+import pcgen.cdom.enumeration.Gender;
 import pcgen.core.PCAlignment;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.CharacterLevelFacade;
@@ -71,7 +72,6 @@ import pcgen.facade.core.CharacterLevelsFacade;
 import pcgen.facade.core.ClassFacade;
 import pcgen.facade.core.DataSetFacade;
 import pcgen.facade.core.DeityFacade;
-import pcgen.facade.core.GenderFacade;
 import pcgen.facade.core.HandedFacade;
 import pcgen.facade.core.InfoFacade;
 import pcgen.facade.core.RaceFacade;
@@ -871,7 +871,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 	private class ComboBoxModelHandler
 	{
 		private final CharacterFacade character;
-		private final CharacterComboBoxModel<GenderFacade> genderModel;
+		private final CharacterComboBoxModel<Gender> genderModel;
 		private final CharacterComboBoxModel<HandedFacade> handsModel;
 		private CharacterComboBoxModel<PCAlignment> alignmentModel;
 		private CharacterComboBoxModel<DeityFacade> deityModel;
@@ -901,13 +901,13 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 
 			//initialize gender model
 			genderModel =
-					new CharacterComboBoxModel<GenderFacade>(character.getAvailableGenders(), character.getGenderRef())
+					new CharacterComboBoxModel<Gender>(character.getAvailableGenders(), character.getGenderRef())
 					{
 
 						@Override
 						public void setSelectedItem(Object anItem)
 						{
-							character.setGender((GenderFacade) anItem);
+							character.setGender((Gender) anItem);
 						}
 
 					};
