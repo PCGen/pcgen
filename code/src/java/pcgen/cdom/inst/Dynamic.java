@@ -16,7 +16,6 @@
 package pcgen.cdom.inst;
 
 import java.net.URI;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -29,6 +28,7 @@ import pcgen.cdom.base.VarHolder;
 import pcgen.cdom.content.RemoteModifier;
 import pcgen.cdom.content.VarModifier;
 import pcgen.cdom.formula.PCGenScoped;
+import pcgen.cdom.helper.VarHolderSupport;
 
 /**
  * A Dynamic is an object designed to behave as defined by the Data, rather than having
@@ -62,19 +62,10 @@ public class Dynamic
 	private String name;
 
 	/**
-	 * The lazily-instantiated List of (local) VarModifier objects for this Dynamic.
+	 * Support object to store the variable information on an object (i.e. delegate that
+	 * implements VarHolder).
 	 */
-	private List<VarModifier<?>> modifiers;
-
-	/**
-	 * The lazily-instantiated List of RemoteModifier objects for this Dynamic.
-	 */
-	private List<RemoteModifier<?>> remoteModifiers;
-
-	/**
-	 * The lazily-instantiated List of granted variable objects for this Dynamic.
-	 */
-	private List<String> grantedVars;
+	private VarHolderSupport varHolder = new VarHolderSupport();
 
 	@Override
 	public URI getSourceURI()
@@ -166,54 +157,45 @@ public class Dynamic
 		return category.getDisplayName() + ":" + name;
 	}
 
+	/*
+	 * Begin implementation / delegation of the VarHolder interface.
+	 */
 	@Override
 	public void addModifier(VarModifier<?> vm)
 	{
-		if (modifiers == null)
-		{
-			modifiers = new ArrayList<>();
-		}
-		modifiers.add(vm);
+		varHolder.addModifier(vm);
 	}
 
 	@Override
 	public VarModifier<?>[] getModifierArray()
 	{
-		return (modifiers == null) ? VarModifier.EMPTY_VARMODIFIER
-			: modifiers.toArray(new VarModifier[modifiers.size()]);
+		return varHolder.getModifierArray();
 	}
 
 	@Override
 	public void addRemoteModifier(RemoteModifier<?> vm)
 	{
-		if (remoteModifiers == null)
-		{
-			remoteModifiers = new ArrayList<>();
-		}
-		remoteModifiers.add(vm);
+		varHolder.addRemoteModifier(vm);
 	}
 
 	@Override
 	public RemoteModifier<?>[] getRemoteModifierArray()
 	{
-		return (remoteModifiers == null) ? RemoteModifier.EMPTY_REMOTEMODIFIER
-			: remoteModifiers.toArray(new RemoteModifier[remoteModifiers.size()]);
+		return varHolder.getRemoteModifierArray();
 	}
 
 	@Override
 	public void addGrantedVariable(String variableName)
 	{
-		if (grantedVars == null)
-		{
-			grantedVars = new ArrayList<>();
-		}
-		grantedVars.add(variableName);
+		varHolder.addGrantedVariable(variableName);
 	}
 
 	@Override
 	public String[] getGrantedVariableArray()
 	{
-		return (grantedVars == null) ? new String[0]
-			: grantedVars.toArray(new String[grantedVars.size()]);
+		return varHolder.getGrantedVariableArray();
 	}
+	/*
+	 * End implementation / delegation of the VarHolder interface.
+	 */
 }
