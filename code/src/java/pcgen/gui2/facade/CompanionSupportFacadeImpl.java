@@ -38,7 +38,6 @@ import pcgen.facade.core.CompanionFacade;
 import pcgen.facade.core.CompanionStubFacade;
 import pcgen.facade.core.CompanionSupportFacade;
 import pcgen.facade.core.PartyFacade;
-import pcgen.facade.core.RaceFacade;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.DefaultMapFacade;
 import pcgen.facade.util.ListFacade;
@@ -363,7 +362,7 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 		{
 			File file = delegate.getFileRef().get();
 			String name = delegate.getNameRef().get();
-			RaceFacade race = delegate.getRaceRef().get();
+			Race race = delegate.getRaceRef().get();
 			if (file.equals(character.getFileRef().get()) && name.equals(character.getNameRef().get())
 				&& (race == null || race.equals(character.getRaceRef().get())))
 			{

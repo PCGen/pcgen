@@ -49,7 +49,6 @@ import pcgen.facade.core.EquipmentFacade;
 import pcgen.facade.core.GameModeFacade;
 import pcgen.facade.core.GearBuySellFacade;
 import pcgen.facade.core.KitFacade;
-import pcgen.facade.core.RaceFacade;
 import pcgen.facade.util.AbstractMapFacade;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.ListFacade;
@@ -60,7 +59,7 @@ import pcgen.util.enumeration.View;
 public class DataSet implements DataSetFacade
 {
 
-	private final DefaultListFacade<RaceFacade> races;
+	private final DefaultListFacade<Race> races;
 	private final DefaultListFacade<ClassFacade> classes;
 	private final DefaultListFacade<Deity> deities;
 	private final DefaultListFacade<Skill> skills;
@@ -320,7 +319,7 @@ public class DataSet implements DataSetFacade
 	}
 
 	@Override
-	public ListFacade<RaceFacade> getRaces()
+	public ListFacade<Race> getRaces()
 	{
 		return races;
 	}

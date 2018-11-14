@@ -19,8 +19,8 @@ package pcgen.gui2.facade;
 
 import java.io.File;
 
+import pcgen.core.Race;
 import pcgen.facade.core.CompanionFacade;
-import pcgen.facade.core.RaceFacade;
 import pcgen.facade.util.DefaultReferenceFacade;
 import pcgen.facade.util.ReferenceFacade;
 
@@ -35,7 +35,7 @@ public class CompanionNotLoaded implements CompanionFacade
 
 	private final DefaultReferenceFacade<String> nameRef;
 	private final DefaultReferenceFacade<File> fileRef;
-	private final DefaultReferenceFacade<RaceFacade> raceRef;
+	private final DefaultReferenceFacade<Race> raceRef;
 	private final String companionType;
 
 	/**
@@ -45,7 +45,7 @@ public class CompanionNotLoaded implements CompanionFacade
 	 * @param race The race of the companion.
 	 * @param compType The type of companion.
 	 */
-	public CompanionNotLoaded(String name, File file, RaceFacade race, String compType)
+	public CompanionNotLoaded(String name, File file, Race race, String compType)
 	{
 		this.nameRef = new DefaultReferenceFacade<>(name);
 		this.fileRef = new DefaultReferenceFacade<>(file);
@@ -66,7 +66,7 @@ public class CompanionNotLoaded implements CompanionFacade
 	}
 
 	@Override
-	public ReferenceFacade<RaceFacade> getRaceRef()
+	public ReferenceFacade<Race> getRaceRef()
 	{
 		return raceRef;
 	}

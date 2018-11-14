@@ -27,6 +27,7 @@ import pcgen.core.PCAlignment;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
+import pcgen.core.Race;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.Skill;
 import pcgen.facade.core.AbilityCategoryFacade;
@@ -39,7 +40,6 @@ import pcgen.facade.core.EquipmentFacade;
 import pcgen.facade.core.GameModeFacade;
 import pcgen.facade.core.GearBuySellFacade;
 import pcgen.facade.core.KitFacade;
-import pcgen.facade.core.RaceFacade;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.DefaultMapFacade;
 import pcgen.facade.util.ListFacade;
@@ -57,7 +57,7 @@ public class MockDataSetFacade implements DataSetFacade
 	private DefaultListFacade<BodyStructure> equipmentLoc;
 	private DefaultMapFacade<AbilityCategoryFacade, ListFacade<AbilityFacade>> abilityMap;
 	private final GameMode game;
-	private DefaultListFacade<RaceFacade> races;
+	private DefaultListFacade<Race> races;
 	private DefaultListFacade<Skill> skills;
 	private DefaultListFacade<PCStat> stats;
 	private DefaultListFacade<GearBuySellFacade> gearBuySellSchemes;
@@ -181,7 +181,7 @@ public class MockDataSetFacade implements DataSetFacade
 	}
 
     @Override
-	public ListFacade<RaceFacade> getRaces()
+	public ListFacade<Race> getRaces()
 	{
 		return races;
 	}
