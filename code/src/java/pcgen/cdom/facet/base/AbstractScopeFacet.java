@@ -24,9 +24,11 @@ import java.util.IdentityHashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Optional;
 import java.util.Set;
 import java.util.TreeMap;
 
+import pcgen.base.util.ArrayUtilities;
 import pcgen.base.util.GenericMapToList;
 import pcgen.base.util.MapToList;
 import pcgen.cdom.base.PCGenIdentifier;
@@ -307,18 +309,15 @@ public class AbstractScopeFacet<IDT extends PCGenIdentifier, S, T> extends Abstr
 	 *            The ScopeFacetChangeListener to receive ScopeFacetChangeEvents
 	 *            from this AbstractScopeFacet
 	 */
+	@SuppressWarnings("unchecked")
 	public void addScopeFacetChangeListener(int priority,
 		ScopeFacetChangeListener<? super IDT, ? super S, ? super T> listener)
 	{
-		ScopeFacetChangeListener<? super IDT, ? super S, ? super T>[] dfcl = listeners.get(priority);
-		int newSize = (dfcl == null) ? 1 : (dfcl.length + 1);
-		ScopeFacetChangeListener<? super IDT, ? super S, ? super T>[] newArray = new ScopeFacetChangeListener[newSize];
-		if (dfcl != null)
-		{
-			System.arraycopy(dfcl, 0, newArray, 1, dfcl.length);
-		}
-		newArray[0] = listener;
-		listeners.put(priority, newArray);
+		ScopeFacetChangeListener<? super IDT, ? super S, ? super T>[] dfcl =
+				listeners.get(priority);
+		dfcl = Optional.ofNullable(dfcl).orElse(new ScopeFacetChangeListener[0]);
+		listeners.put(priority, ArrayUtilities.prependOnCopy(listener, dfcl,
+			ScopeFacetChangeListener.class));
 	}
 
 	/**
