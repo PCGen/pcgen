@@ -30,6 +30,7 @@ import pcgen.core.Globals;
 import pcgen.core.Kit;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.DomainApplication;
+import pcgen.output.channel.compat.DeityCompat;
 
 /**
  * Deal with Dieties via Kits
@@ -114,7 +115,7 @@ public class KitDeity extends BaseKit
 			warnings.add("DEITY: Cannot select deity \"" + theDeity.getDisplayName() + "\"");
 			return false;
 		}
-		aPC.setDeity(theDeity);
+		DeityCompat.setCurrentDeity(aPC.getCharID(), theDeity);
 
 		if (theDomains == null || theDomains.isEmpty())
 		{
@@ -215,7 +216,7 @@ public class KitDeity extends BaseKit
 		{
 			return;
 		}
-		aPC.setDeity(theDeity);
+		DeityCompat.setCurrentDeity(aPC.getCharID(), theDeity);
 
 		if (domainsToAdd != null)
 		{

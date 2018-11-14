@@ -118,7 +118,6 @@ import pcgen.cdom.facet.input.UserSpecialAbilityFacet;
 import pcgen.cdom.facet.model.ArmorProfProviderFacet;
 import pcgen.cdom.facet.model.BioSetFacet;
 import pcgen.cdom.facet.model.ClassFacet;
-import pcgen.cdom.facet.model.DeityFacet;
 import pcgen.cdom.facet.model.DomainFacet;
 import pcgen.cdom.facet.model.LanguageFacet;
 import pcgen.cdom.facet.model.RaceFacet;
@@ -133,7 +132,6 @@ import pcgen.core.AgeSet;
 import pcgen.core.ArmorProf;
 import pcgen.core.BioSet;
 import pcgen.core.ChronicleEntry;
-import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.Equipment;
 import pcgen.core.FollowerOption;
@@ -241,7 +239,6 @@ public class CharacterDisplay
 	private WeaponProfModelFacet weaponProfFacet = FacetLibrary.getFacet(WeaponProfModelFacet.class);
 	private LanguageFacet languageFacet = FacetLibrary.getFacet(LanguageFacet.class);
 	private InitiativeFacet initiativeFacet = FacetLibrary.getFacet(InitiativeFacet.class);
-	private DeityFacet deityFacet = FacetLibrary.getFacet(DeityFacet.class);
 	private PortraitThumbnailRectFacet portraitThumbnailRectFacet =
 			FacetLibrary.getFacet(PortraitThumbnailRectFacet.class);
 	private PreviewSheetFacet previewSheetFacet = FacetLibrary.getFacet(PreviewSheetFacet.class);
@@ -778,16 +775,6 @@ public class CharacterDisplay
 	public String getCurrentEquipSetName()
 	{
 		return getSafeStringFor(PCStringKey.CURRENT_EQUIP_SET_NAME);
-	}
-
-	/**
-	 * Get the deity.
-	 * 
-	 * @return deity
-	 */
-	public Deity getDeity()
-	{
-		return deityFacet.get(id);
 	}
 
 	/**
@@ -1493,19 +1480,6 @@ public class CharacterDisplay
 	public Collection<NoteItem> getNotesList()
 	{
 		return noteItemFacet.getSet(id);
-	}
-
-	/**
-	 * Check if the character has the given Deity.
-	 * 
-	 * @param deity
-	 *            Deity to check for.
-	 * @return {@code true} if the character has the Deity,
-	 *         {@code false} otherwise.
-	 */
-	public boolean hasDeity(final Deity deity)
-	{
-		return deityFacet.matches(id, deity);
 	}
 
 	/**

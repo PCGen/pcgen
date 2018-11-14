@@ -30,7 +30,6 @@ import pcgen.cdom.facet.model.CheckFacet;
 import pcgen.cdom.facet.model.ClassFacet;
 import pcgen.cdom.facet.model.ClassLevelFacet;
 import pcgen.cdom.facet.model.CompanionModFacet;
-import pcgen.cdom.facet.model.DeityFacet;
 import pcgen.cdom.facet.model.DomainFacet;
 import pcgen.cdom.facet.model.DynamicConsolidationFacet;
 import pcgen.cdom.facet.model.ExpandedCampaignFacet;
@@ -98,7 +97,6 @@ public final class FacetInitialization
 		LevelFacet levelFacet = FacetLibrary.getFacet(LevelFacet.class);
 		SizeFacet sizeFacet = FacetLibrary.getFacet(SizeFacet.class);
 		BonusChangeFacet bonusChangeFacet = FacetLibrary.getFacet(BonusChangeFacet.class);
-		DeityFacet deityFacet = FacetLibrary.getFacet(DeityFacet.class);
 		DomainFacet domainFacet = FacetLibrary.getFacet(DomainFacet.class);
 		CompanionModFacet companionModFacet = FacetLibrary.getFacet(CompanionModFacet.class);
 		StatFacet statFacet = FacetLibrary.getFacet(StatFacet.class);
@@ -158,7 +156,6 @@ public final class FacetInitialization
 		bioSetFacet.addDataFacetChangeListener(charObjectFacet); //model done
 		checkFacet.addDataFacetChangeListener(charObjectFacet); //model done
 		classFacet.addDataFacetChangeListener(charObjectFacet); //model done
-		deityFacet.addDataFacetChangeListener(charObjectFacet); //model done
 		domainFacet.addDataFacetChangeListener(charObjectFacet); //model done
 		raceFacet.addDataFacetChangeListener(charObjectFacet); //model done
 		sizeFacet.addDataFacetChangeListener(charObjectFacet);

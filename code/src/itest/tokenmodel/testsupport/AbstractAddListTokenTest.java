@@ -33,6 +33,7 @@ import pcgen.core.Domain;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
+import pcgen.output.channel.compat.DeityCompat;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 import org.junit.jupiter.api.Test;
@@ -97,10 +98,10 @@ public abstract class AbstractAddListTokenTest<T extends CDOMObject>
 		T granted = createGrantedObject();
 		processToken(source);
 		assertEquals(0, getCount());
-		deityFacet.set(id, source);
+		DeityCompat.setCurrentDeity(id, source);
 		assertTrue(containsExpected(granted));
 		assertEquals(1, getCount());
-		deityFacet.remove(id);
+		DeityCompat.setCurrentDeity(id, null);
 		assertEquals(0, getCount());
 		assertTrue(cleanedSideEffects());
 	}

@@ -22,6 +22,7 @@ import java.util.Collections;
 
 import pcgen.core.Deity;
 import pcgen.core.PlayerCharacter;
+import pcgen.output.channel.compat.DeityCompat;
 import pcgen.rules.persistence.token.AbstractPCQualifierToken;
 
 public class PCToken extends AbstractPCQualifierToken<Deity>
@@ -30,7 +31,7 @@ public class PCToken extends AbstractPCQualifierToken<Deity>
 	@Override
 	protected Collection<Deity> getPossessed(PlayerCharacter pc)
 	{
-		Deity deity = pc.getDisplay().getDeity();
+		Deity deity = DeityCompat.getCurrentDeity(pc.getCharID());
 		if (deity == null)
 		{
 			return Collections.emptyList();

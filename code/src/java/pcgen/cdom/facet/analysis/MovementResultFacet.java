@@ -36,7 +36,6 @@ import pcgen.cdom.facet.FormulaResolvingFacet;
 import pcgen.cdom.facet.base.AbstractStorageFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
-import pcgen.cdom.facet.model.DeityFacet;
 import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.Equipment;
@@ -62,7 +61,6 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID>
 	private BaseMovementFacet baseMovementFacet;
 	private RaceFacet raceFacet;
 	private TemplateFacet templateFacet;
-	private DeityFacet deityFacet;
 	private EquipmentFacet equipmentFacet;
 	private BonusCheckingFacet bonusCheckingFacet;
 	private UnencumberedArmorFacet unencumberedArmorFacet;
@@ -605,11 +603,6 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID>
 		this.templateFacet = templateFacet;
 	}
 
-	public void setDeityFacet(DeityFacet deityFacet)
-	{
-		this.deityFacet = deityFacet;
-	}
-
 	public void setEquipmentFacet(EquipmentFacet equipmentFacet)
 	{
 		this.equipmentFacet = equipmentFacet;
@@ -649,7 +642,6 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID>
 	public void init()
 	{
 		raceFacet.addDataFacetChangeListener(2000, this);
-		deityFacet.addDataFacetChangeListener(2000, this);
 		templateFacet.addDataFacetChangeListener(2000, this);
 	}
 

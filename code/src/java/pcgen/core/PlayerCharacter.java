@@ -79,20 +79,24 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.facet.ActiveSpellsFacet;
+import pcgen.cdom.facet.AddFacet;
 import pcgen.cdom.facet.AddedBonusFacet;
 import pcgen.cdom.facet.AddedTemplateFacet;
 import pcgen.cdom.facet.AppliedBonusFacet;
 import pcgen.cdom.facet.AutoEquipmentFacet;
 import pcgen.cdom.facet.AutoLanguageGrantedFacet;
 import pcgen.cdom.facet.AvailableSpellFacet;
+import pcgen.cdom.facet.BonusActiviationFacet;
 import pcgen.cdom.facet.BonusChangeFacet;
 import pcgen.cdom.facet.BonusSkillRankChangeFacet;
+import pcgen.cdom.facet.CalcBonusFacet;
 import pcgen.cdom.facet.CheckBonusFacet;
 import pcgen.cdom.facet.ClassSpellListFacet;
 import pcgen.cdom.facet.ConditionalAbilityFacet;
 import pcgen.cdom.facet.ConditionallyGrantedAbilityFacet;
 import pcgen.cdom.facet.ConditionallyGrantedAvailableSpellFacet;
 import pcgen.cdom.facet.ConditionallyGrantedKnownSpellFacet;
+import pcgen.cdom.facet.DeityWeaponProfFacet;
 import pcgen.cdom.facet.DirectAbilityFacet;
 import pcgen.cdom.facet.DomainSpellCountFacet;
 import pcgen.cdom.facet.EquipSetFacet;
@@ -102,6 +106,7 @@ import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.GlobalModifierFacet;
 import pcgen.cdom.facet.GrantedAbilityFacet;
 import pcgen.cdom.facet.HitPointFacet;
+import pcgen.cdom.facet.KitChoiceFacet;
 import pcgen.cdom.facet.KitFacet;
 import pcgen.cdom.facet.KnownSpellFacet;
 import pcgen.cdom.facet.LevelInfoFacet;
@@ -109,6 +114,7 @@ import pcgen.cdom.facet.MasterFacet;
 import pcgen.cdom.facet.NoteItemFacet;
 import pcgen.cdom.facet.PlayerCharacterTrackingFacet;
 import pcgen.cdom.facet.PrimaryWeaponFacet;
+import pcgen.cdom.facet.RemoveFacet;
 import pcgen.cdom.facet.SaveableBonusFacet;
 import pcgen.cdom.facet.SavedAbilitiesFacet;
 import pcgen.cdom.facet.ScopeFacet;
@@ -193,7 +199,6 @@ import pcgen.cdom.facet.model.BioSetFacet;
 import pcgen.cdom.facet.model.CheckFacet;
 import pcgen.cdom.facet.model.ClassFacet;
 import pcgen.cdom.facet.model.CompanionModFacet;
-import pcgen.cdom.facet.model.DeityFacet;
 import pcgen.cdom.facet.model.DomainFacet;
 import pcgen.cdom.facet.model.ExpandedCampaignFacet;
 import pcgen.cdom.facet.model.LanguageFacet;
@@ -257,6 +262,7 @@ import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.io.exporttoken.EqToken;
 import pcgen.output.channel.ChannelUtilities;
 import pcgen.output.channel.compat.AlignmentCompat;
+import pcgen.output.channel.compat.DeityCompat;
 import pcgen.persistence.lst.GlobalModifierLoader;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
@@ -358,7 +364,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	private final DomainInputFacet domainInputFacet = FacetLibrary.getFacet(DomainInputFacet.class);
 	private final TemplateFacet templateFacet = FacetLibrary.getFacet(TemplateFacet.class);
 	private final TemplateInputFacet templateInputFacet = FacetLibrary.getFacet(TemplateInputFacet.class);
-	private final DeityFacet deityFacet = FacetLibrary.getFacet(DeityFacet.class);
 	private final RaceFacet raceFacet = FacetLibrary.getFacet(RaceFacet.class);
 	private final RaceInputFacet raceInputFacet = FacetLibrary.getFacet(RaceInputFacet.class);
 	private final StatFacet statFacet = FacetLibrary.getFacet(StatFacet.class);
@@ -624,8 +629,24 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		{
 			ChannelUtilities.setDirtyOnChannelChange(this, CControl.ALIGNMENTINPUT);
 		}
+		if (isFeatureEnabled(CControl.DOMAINFEATURE))
+		{
+			deityWatchSetup(context);
+		}
 		ChannelUtilities.setDirtyOnChannelChange(this, CControl.HAIRSTYLEINPUT);
 		ChannelUtilities.setDirtyOnChannelChange(this, CControl.HANDEDINPUT);
+	}
+
+	private void deityWatchSetup(LoadContext context)
+	{
+		ChannelUtilities.watchChannel(this, CControl.DEITYINPUT, activeSpellsFacet);
+		ChannelUtilities.watchChannel(this, CControl.DEITYINPUT, FacetLibrary.getFacet(AddFacet.class));
+		ChannelUtilities.watchChannel(this, CControl.DEITYINPUT, FacetLibrary.getFacet(DeityWeaponProfFacet.class));
+		ChannelUtilities.watchChannel(this, CControl.DEITYINPUT, FacetLibrary.getFacet(KitChoiceFacet.class));
+		ChannelUtilities.watchChannel(this, CControl.DEITYINPUT, FacetLibrary.getFacet(RemoveFacet.class));
+		ChannelUtilities.watchChannel(this, CControl.DEITYINPUT, FacetLibrary.getFacet(BonusActiviationFacet.class), 1000);
+		ChannelUtilities.watchChannel(this, CControl.DEITYINPUT, FacetLibrary.getFacet(CalcBonusFacet.class), 5000);
+		ChannelUtilities.watchChannel(this, CControl.DEITYINPUT, moveResultFacet, 2000);
 	}
 
 	@Override
@@ -961,16 +982,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	public void setCurrentEquipSetName(final String aName)
 	{
 		setStringFor(PCStringKey.CURRENT_EQUIP_SET_NAME, aName);
-	}
-
-	/**
-	 * Get the deity.
-	 *
-	 * @return deity
-	 */
-	public Deity getDeity()
-	{
-		return deityFacet.get(id);
 	}
 
 	/**
@@ -2925,14 +2936,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	public double getBonusDueToType(final String mainType, final String subType, final String bonusType)
 	{
 		return bonusManager.getBonusDueToType(mainType, subType, bonusType);
-	}
-
-	public void setDeity(final Deity aDeity)
-	{
-		if (canSelectDeity(aDeity) && deityFacet.set(id, aDeity))
-		{
-			setDirty(true);
-		}
 	}
 
 	/**
@@ -6148,7 +6151,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		list.addAll(companionModFacet.getSet(id));
 
 		// Deity
-		Deity deity = deityFacet.get(id);
+		Deity deity = DeityCompat.getCurrentDeity(getCharID());
 		if (deity != null)
 		{
 			list.add(deity);

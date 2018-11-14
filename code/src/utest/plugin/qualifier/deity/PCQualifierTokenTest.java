@@ -18,16 +18,23 @@ package plugin.qualifier.deity;
 
 import java.net.URISyntaxException;
 
+import pcgen.ControlTestSupport;
+import pcgen.cdom.util.CControl;
 import pcgen.core.Deity;
+import pcgen.output.channel.compat.DeityCompat;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.AbstractReferenceContext;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.QualifierToken;
+
 import plugin.lsttokens.choose.DeityToken;
 import plugin.lsttokens.testsupport.AbstractPCQualifierTokenTestCase;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.lsttokens.testsupport.TransparentPlayerCharacter;
 
 import org.junit.jupiter.api.BeforeEach;
+import util.FormatSupport;
 
 public class PCQualifierTokenTest extends
 		AbstractPCQualifierTokenTestCase<Deity>
@@ -65,14 +72,33 @@ public class PCQualifierTokenTest extends
 	}
 
 	@Override
+	protected boolean typeHasDefault()
+	{
+		return true;
+	}
+
+	@Override
 	protected void addToPCSet(TransparentPlayerCharacter pc, Deity item)
 	{
-		pc.display.deity = item;
+		DeityCompat.setCurrentDeity(pc.getCharID(), item);
 	}
 
 	@Override
 	protected Class<? extends QualifierToken<?>> getQualifierClass()
 	{
 		return plugin.qualifier.deity.PCToken.class;
+	}
+
+	@Override
+	protected void additionalSetup(LoadContext context)
+	{
+		ControlTestSupport.enableFeature(context, CControl.DOMAINFEATURE);
+		Deity none = new Deity();
+		none.setName("None");
+		AbstractReferenceContext ref = context.getReferenceContext();
+		ref.importObject(none);
+		FormatSupport.addNoneAsDefault(context,
+			ref.getManufacturer(Deity.class));
+		super.additionalSetup(context);
 	}
 }

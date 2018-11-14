@@ -96,6 +96,7 @@ import pcgen.core.pclevelinfo.PCLevelInfoStat;
 import pcgen.core.spell.Spell;
 import pcgen.output.channel.ChannelUtilities;
 import pcgen.output.channel.compat.AlignmentCompat;
+import pcgen.output.channel.compat.DeityCompat;
 import pcgen.output.channel.compat.HandedCompat;
 import pcgen.system.PCGenPropBundle;
 import pcgen.util.FileHelper;
@@ -1018,9 +1019,9 @@ public final class PCGVer2Creator
 	 */
 	private void appendDeityLine(StringBuilder buffer)
 	{
-		if (charDisplay.getDeity() != null)
+		final Deity aDeity = DeityCompat.getCurrentDeity(charDisplay.getCharID());
+		if (aDeity != null)
 		{
-			final Deity aDeity = charDisplay.getDeity();
 
 			buffer.append(IOConstants.TAG_DEITY).append(':');
 			buffer.append(EntityEncoder.encode(aDeity.getKeyName()));

@@ -647,7 +647,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	private static boolean allowControl(LoadContext context, CControl control)
 	{
 		return control.getControllingFeature().isEmpty() || ControlUtilities
-			.hasControlToken(context, control.getControllingFeature().get());
+			.isFeatureEnabled(context, control.getControllingFeature().get());
 	}
 
 	/**
@@ -753,6 +753,19 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		if (RaceUtilities.getUnselectedRace() == null)
 		{
 			Logging.errorPrint(gameMode.getName() + " did not have required Race with 'Unselected' Group");
+		}
+		if (ControlUtilities.isFeatureEnabled(context, CControl.DOMAINFEATURE))
+		{
+			long unselectedDeityCount = refContext.getConstructedCDOMObjects(Deity.class)
+					.stream()
+					.filter(Deity::isUnselected)
+					.count();
+			if (unselectedDeityCount != 1)
+			{
+				Logging.errorPrint(gameMode.getName()
+					+ " did not have one Deity with 'Unselected' Group (found: "
+					+ unselectedDeityCount + ")");
+			}
 		}
 	}
 

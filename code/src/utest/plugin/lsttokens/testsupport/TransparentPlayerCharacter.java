@@ -34,7 +34,6 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.core.Ability;
-import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.Language;
 import pcgen.core.PCClass;
@@ -72,15 +71,8 @@ public class TransparentPlayerCharacter extends PlayerCharacter
 			super(id);
 		}
 
-		public Deity deity;
 		public Set<Domain> domainSet = new ListSet<>();
 		public Set<Language> languageSet = new ListSet<>();
-
-		@Override
-		public Deity getDeity()
-		{
-			return deity;
-		}
 
 		@Override
 		public Set<Domain> getDomainSet()

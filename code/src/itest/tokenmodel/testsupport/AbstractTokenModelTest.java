@@ -19,6 +19,7 @@ package tokenmodel.testsupport;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import pcgen.ControlTestSupport;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.content.fact.FactDefinition;
@@ -35,7 +36,6 @@ import pcgen.cdom.facet.model.CheckFacet;
 import pcgen.cdom.facet.model.ClassFacet;
 import pcgen.cdom.facet.model.ClassLevelFacet;
 import pcgen.cdom.facet.model.CompanionModFacet;
-import pcgen.cdom.facet.model.DeityFacet;
 import pcgen.cdom.facet.model.DomainFacet;
 import pcgen.cdom.facet.model.ExpandedCampaignFacet;
 import pcgen.cdom.facet.model.LanguageFacet;
@@ -44,6 +44,7 @@ import pcgen.cdom.facet.model.SkillFacet;
 import pcgen.cdom.facet.model.StatFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.cdom.facet.model.WeaponProfModelFacet;
+import pcgen.cdom.util.CControl;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.Language;
@@ -126,7 +127,6 @@ public abstract class AbstractTokenModelTest
 	protected ClassFacet classFacet;
 	protected ClassLevelFacet classLevelFacet;
 	protected CompanionModFacet companionModFacet;
-	protected DeityFacet deityFacet;
 	protected DomainFacet domainFacet;
 	protected ExpandedCampaignFacet expandedCampaignFacet;
 	protected LanguageFacet languageFacet;
@@ -189,7 +189,6 @@ public abstract class AbstractTokenModelTest
 		classFacet = FacetLibrary.getFacet(ClassFacet.class);
 		classLevelFacet = FacetLibrary.getFacet(ClassLevelFacet.class);
 		companionModFacet = FacetLibrary.getFacet(CompanionModFacet.class);
-		deityFacet = FacetLibrary.getFacet(DeityFacet.class);
 		domainFacet = FacetLibrary.getFacet(DomainFacet.class);
 		expandedCampaignFacet =
 				FacetLibrary.getFacet(ExpandedCampaignFacet.class);
@@ -209,7 +208,7 @@ public abstract class AbstractTokenModelTest
 
 		context = Globals.getContext();
 		AbstractReferenceContext ref = context.getReferenceContext();
-		BuildUtilities.enableAlignmentFeature(ref);
+		ControlTestSupport.enableFeature(context, CControl.ALIGNMENTFEATURE);
 
 		BuildUtilities.buildUnselectedRace(context);
 		ref.importObject(BuildUtilities.createAlignment("None", "NONE"));
