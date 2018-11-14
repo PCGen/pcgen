@@ -341,31 +341,21 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID>
 
 		private void increaseMoveArray(double moveRate, String moveType, Double moveMult, String multOp)
 		{
-			// could not find an existing one so
-			// need to add new item to array
-			//
-			double[] tempMove = movements;
-			String[] tempType = movementTypes;
-			double[] tempMult = movementMult;
-			String[] tempMultOp = movementMultOp;
+			// could not find an existing one so need to add new item to array
 
 			// now increase the size of the array by one
-			movements = new double[tempMove.length + 1];
-			movementTypes = new String[tempMove.length + 1];
-			movementMult = new double[tempMove.length + 1];
-			movementMultOp = new String[tempMove.length + 1];
-
-			System.arraycopy(tempMove, 0, movements, 0, tempMove.length);
-			System.arraycopy(tempType, 0, movementTypes, 0, tempMove.length);
-			System.arraycopy(tempMult, 0, movementMult, 0, tempMove.length);
-			System.arraycopy(tempMultOp, 0, movementMultOp, 0, tempMove.length);
+			int newSize = movements.length + 1;
+			movements = Arrays.copyOf(movements, newSize);
+			movementTypes = Arrays.copyOf(movementTypes, newSize);
+			movementMult = Arrays.copyOf(movementMult, newSize);
+			movementMultOp = Arrays.copyOf(movementMultOp, newSize);
 
 			// the size is larger, but arrays start at 0
 			// so an array length=3 would have 0, 1, 2 as the targets
-			movements[tempMove.length] = moveRate;
-			movementTypes[tempMove.length] = moveType;
-			movementMult[tempMove.length] = moveMult;
-			movementMultOp[tempMove.length] = multOp;
+			movements[newSize - 1] = moveRate;
+			movementTypes[newSize - 1] = moveType;
+			movementMult[newSize - 1] = moveMult;
+			movementMultOp[newSize - 1] = multOp;
 		}
 
 		/**

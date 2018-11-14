@@ -7273,8 +7273,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		aClone.outputSheetPDF = outputSheetPDF;
 		aClone.defaultDomainSource = defaultDomainSource;
 
-		aClone.ageSetKitSelections = new boolean[ageSetKitSelections.length];
-		System.arraycopy(ageSetKitSelections, 0, aClone.ageSetKitSelections, 0, ageSetKitSelections.length);
+		aClone.ageSetKitSelections =
+				Arrays.copyOf(ageSetKitSelections, ageSetKitSelections.length);
 
 		// Not sure what this is for
 		aClone.importing = false;

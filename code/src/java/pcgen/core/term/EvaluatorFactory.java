@@ -20,6 +20,7 @@
 
 package pcgen.core.term;
 
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -81,13 +82,8 @@ public final class EvaluatorFactory
 	private static TermEvaluatorBuilder[] addStatBuilder(TermEvaluatorBuilder[] builderArray)
 	{
 		int end = builderArray.length;
-
-		TermEvaluatorBuilder[] tempArray = new TermEvaluatorBuilder[end + 1];
-
-		System.arraycopy(builderArray, 0, tempArray, 0, end);
-
+		TermEvaluatorBuilder[] tempArray = Arrays.copyOf(builderArray, end + 1);
 		tempArray[end] = makeStatBuilder();
-
 		return tempArray;
 	}
 

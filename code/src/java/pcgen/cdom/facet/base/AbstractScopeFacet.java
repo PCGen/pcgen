@@ -27,6 +27,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 
+import pcgen.base.util.ArrayUtilities;
 import pcgen.base.util.GenericMapToList;
 import pcgen.base.util.MapToList;
 import pcgen.cdom.base.PCGenIdentifier;
@@ -310,15 +311,9 @@ public class AbstractScopeFacet<IDT extends PCGenIdentifier, S, T> extends Abstr
 	public void addScopeFacetChangeListener(int priority,
 		ScopeFacetChangeListener<? super IDT, ? super S, ? super T> listener)
 	{
-		ScopeFacetChangeListener<? super IDT, ? super S, ? super T>[] dfcl = listeners.get(priority);
-		int newSize = (dfcl == null) ? 1 : (dfcl.length + 1);
-		ScopeFacetChangeListener<? super IDT, ? super S, ? super T>[] newArray = new ScopeFacetChangeListener[newSize];
-		if (dfcl != null)
-		{
-			System.arraycopy(dfcl, 0, newArray, 1, dfcl.length);
-		}
-		newArray[0] = listener;
-		listeners.put(priority, newArray);
+		ScopeFacetChangeListener<? super IDT, ? super S, ? super T>[] dfcl =
+				listeners.get(priority);
+		listeners.put(priority, ArrayUtilities.prependOnCopy(listener, dfcl));
 	}
 
 	/**

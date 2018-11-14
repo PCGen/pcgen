@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens;
 
+import pcgen.base.util.ArrayUtilities;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.NonInteractive;
@@ -126,16 +127,6 @@ public class AddLst extends AbstractNonEmptyToken<CDOMObject> implements CDOMPri
 		Changes<PersistentTransitionChoice<?>> changes = context.getObjectContext().getListChanges(obj, ListKey.ADD);
 		if (changes.includesGlobalClear())
 		{
-			String[] returnVal;
-			if (unparsed == null)
-			{
-				returnVal = new String[1];
-			}
-			else
-			{
-				returnVal = new String[unparsed.length + 1];
-				System.arraycopy(unparsed, 0, returnVal, 1, unparsed.length);
-			}
 			StringBuilder clearSB = new StringBuilder();
 			clearSB.append(Constants.LST_DOT_CLEAR);
 			if (obj instanceof PCClassLevel)
@@ -144,8 +135,7 @@ public class AddLst extends AbstractNonEmptyToken<CDOMObject> implements CDOMPri
 				Integer lvl = obj.get(IntegerKey.LEVEL);
 				clearSB.append(lvl);
 			}
-			returnVal[0] = clearSB.toString();
-			unparsed = returnVal;
+			unparsed = ArrayUtilities.prependOnCopy(clearSB.toString(), unparsed);
 		}
 		return unparsed;
 	}

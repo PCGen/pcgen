@@ -29,6 +29,7 @@ import java.awt.event.FocusEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 
 import javax.swing.AbstractButton;
@@ -976,33 +977,22 @@ public final class PurchaseModeFrame extends JDialog
 		{
 			final int nrEntries = (currentPurchaseScoreMax - currentPurchaseScoreMin) + 1;
 
-			Object[][] newValues = new Object[nrEntries][2];
+			final int preLength = currentValues.length;
+			Object[][] newValues = Arrays.copyOf(currentValues, nrEntries);
 
-			if (nrRows < 0)
+			// Only happens if adding rows
+			for (int i = 0; i < nrRows; ++i)
 			{
-				// removing rows
-				System.arraycopy(currentValues, 0, newValues, 0, nrEntries);
-			}
-			else
-			{
-				// adding rows
-				System.arraycopy(currentValues, 0, newValues, 0, currentValues.length);
+				final int score = ((i + currentPurchaseScoreMax) - nrRows) + 1;
+				newValues[i + preLength][0] = score;
 
-				final int preLength = currentValues.length;
-
-				for (int i = 0; i < nrRows; ++i)
+				int preVal = -1;
+				if ((i + preLength) != 0)
 				{
-					final int score = ((i + currentPurchaseScoreMax) - nrRows) + 1;
-					newValues[i + preLength][0] = score;
-
-					int preVal = -1;
-					if ((i + preLength) != 0)
-					{
-						preVal = (Integer) newValues[(i + preLength) - 1][1];
-					}
-
-					newValues[i + preLength][1] = preVal + 1;
+					preVal = (Integer) newValues[(i + preLength) - 1][1];
 				}
+
+				newValues[i + preLength][1] = preVal + 1;
 			}
 
 			currentValues = newValues;
