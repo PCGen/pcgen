@@ -27,6 +27,7 @@ import pcgen.core.PCAlignment;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
+import pcgen.core.SizeAdjustment;
 import pcgen.facade.core.AbilityCategoryFacade;
 import pcgen.facade.core.AbilityFacade;
 import pcgen.facade.core.CampaignFacade;
@@ -38,7 +39,6 @@ import pcgen.facade.core.GameModeFacade;
 import pcgen.facade.core.GearBuySellFacade;
 import pcgen.facade.core.KitFacade;
 import pcgen.facade.core.RaceFacade;
-import pcgen.facade.core.SizeAdjustmentFacade;
 import pcgen.facade.core.SkillFacade;
 import pcgen.facade.core.generator.StatGenerationFacade;
 import pcgen.facade.util.DefaultListFacade;
@@ -304,7 +304,7 @@ public class MockDataSetFacade implements DataSetFacade
 	 * @see pcgen.facade.core.DataSetFacade#getSizes()
 	 */
 	@Override
-	public ListFacade<SizeAdjustmentFacade> getSizes()
+	public ListFacade<SizeAdjustment> getSizes()
 	{
 		// TODO Auto-generated method stub
 		return null;
