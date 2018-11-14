@@ -754,6 +754,19 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		{
 			Logging.errorPrint(gameMode.getName() + " did not have required Race with 'Unselected' Group");
 		}
+		if (ControlUtilities.isFeatureEnabled(context, CControl.DOMAINFEATURE))
+		{
+			long unselectedDeityCount = refContext.getConstructedCDOMObjects(Deity.class)
+					.stream()
+					.filter(Deity::isUnselected)
+					.count();
+			if (unselectedDeityCount != 1)
+			{
+				Logging.errorPrint(gameMode.getName()
+					+ " did not have one Deity with 'Unselected' Group (found: "
+					+ unselectedDeityCount + ")");
+			}
+		}
 	}
 
 	private void referenceAllCategories(LoadContext context)

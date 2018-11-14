@@ -42,6 +42,7 @@ import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 import pcgen.core.character.CompanionMod;
 import pcgen.output.channel.compat.AlignmentCompat;
+import pcgen.output.channel.compat.DeityCompat;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 import org.junit.jupiter.api.Test;
@@ -151,10 +152,10 @@ public abstract class AbstractContentTokenTest extends AbstractTokenModelTest
 		Deity source = create(Deity.class, "Source");
 		processToken(source);
 		assertEquals(baseCount(), targetFacetCount());
-		deityFacet.set(id, source);
+		DeityCompat.setCurrentDeity(id, source);
 		assertTrue(containsExpected());
 		assertEquals(baseCount() + 1, targetFacetCount());
-		deityFacet.remove(id);
+		DeityCompat.setCurrentDeity(id, null);
 		assertEquals(baseCount(), targetFacetCount());
 	}
 

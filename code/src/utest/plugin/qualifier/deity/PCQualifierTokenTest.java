@@ -19,6 +19,7 @@ package plugin.qualifier.deity;
 import java.net.URISyntaxException;
 
 import pcgen.core.Deity;
+import pcgen.output.channel.compat.DeityCompat;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.QualifierToken;
@@ -67,7 +68,7 @@ public class PCQualifierTokenTest extends
 	@Override
 	protected void addToPCSet(TransparentPlayerCharacter pc, Deity item)
 	{
-		pc.display.deity = item;
+		DeityCompat.setCurrentDeity(pc.getCharID(), item);
 	}
 
 	@Override

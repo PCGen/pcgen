@@ -35,7 +35,6 @@ import pcgen.cdom.facet.model.CheckFacet;
 import pcgen.cdom.facet.model.ClassFacet;
 import pcgen.cdom.facet.model.ClassLevelFacet;
 import pcgen.cdom.facet.model.CompanionModFacet;
-import pcgen.cdom.facet.model.DeityFacet;
 import pcgen.cdom.facet.model.DomainFacet;
 import pcgen.cdom.facet.model.ExpandedCampaignFacet;
 import pcgen.cdom.facet.model.LanguageFacet;
@@ -126,7 +125,6 @@ public abstract class AbstractTokenModelTest
 	protected ClassFacet classFacet;
 	protected ClassLevelFacet classLevelFacet;
 	protected CompanionModFacet companionModFacet;
-	protected DeityFacet deityFacet;
 	protected DomainFacet domainFacet;
 	protected ExpandedCampaignFacet expandedCampaignFacet;
 	protected LanguageFacet languageFacet;
@@ -189,7 +187,6 @@ public abstract class AbstractTokenModelTest
 		classFacet = FacetLibrary.getFacet(ClassFacet.class);
 		classLevelFacet = FacetLibrary.getFacet(ClassLevelFacet.class);
 		companionModFacet = FacetLibrary.getFacet(CompanionModFacet.class);
-		deityFacet = FacetLibrary.getFacet(DeityFacet.class);
 		domainFacet = FacetLibrary.getFacet(DomainFacet.class);
 		expandedCampaignFacet =
 				FacetLibrary.getFacet(ExpandedCampaignFacet.class);

@@ -29,6 +29,7 @@ import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.PrereqHandler;
+import pcgen.output.channel.compat.DeityCompat;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.PrimitiveToken;
 
@@ -86,7 +87,7 @@ public class DeityToken implements PrimitiveToken<Domain>
 	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<Domain, R> c)
 	{
 		HashSet<R> returnSet = new HashSet<>();
-		Deity deity = pc.getDisplay().getDeity();
+		Deity deity = DeityCompat.getCurrentDeity(pc.getCharID());
 		if (deity == null)
 		{
 			return returnSet;
