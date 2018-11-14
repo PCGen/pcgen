@@ -216,7 +216,7 @@ public final class ArrayUtilities
 		}
 		return new Tuple<>(removedList, newList);
 	}
-	
+
 	/**
 	 * Clones an array, adding 1 to the length, and placing the given object at the
 	 * beginning of the new array. The length of the new array will be the length of the
@@ -234,6 +234,49 @@ public final class ArrayUtilities
 	@SuppressWarnings("unchecked")
 	public static <T> T[] prependOnCopy(T object, T[] array)
 	{
+		return addOnCopy(array, 0, object);
+	}
+
+	/**
+	 * Clones an array, adding 1 to the length, and placing the given object at the end of
+	 * the new array. The length of the new array will be the length of the given array +
+	 * 1. null is a legal value for the given array.
+	 * 
+	 * @param object
+	 *            The object to be placed at the end of the returned array
+	 * @param array
+	 *            The original array, to be placed in the latter portion of the new array
+	 * @return A new array with the contents of the given array as the first set of the
+	 *         contents and the given object as the last element
+	 * @param <T>
+	 *            The type of the array and the object to be added to the array
+	 */
+	@SuppressWarnings("unchecked")
+	public static <T> T[] addOnCopy(T[] array, T object)
+	{
+		return addOnCopy(array, (array == null) ? 0 : array.length, object);
+	}
+
+	/**
+	 * Clones an array, adding 1 to the length, and placing the given object at the given
+	 * index. Otherwise, the order of the objects in the given array is maintained. The
+	 * length of the new array will be the length of the given array + 1. null is a legal
+	 * value for the given array.
+	 * 
+	 * @param array
+	 *            The original array, to be placed in the latter portion of the new array
+	 * @param index
+	 *            The index at which the given object will be placed
+	 * @param object
+	 *            The object to be inserted into the array at the given index
+	 * @return A new array with the contents of the given array as the first set of the
+	 *         contents and the given object as the last object
+	 * @param <T>
+	 *            The type of the array and the object to be added to the array
+	 */
+	@SuppressWarnings("unchecked")
+	public static <T> T[] addOnCopy(T[] array, int index, T object)
+	{
 		T[] newArray;
 		if (array == null)
 		{
@@ -241,11 +284,52 @@ public final class ArrayUtilities
 		}
 		else
 		{
-			int newSize = (array.length + 1);
+			int origSize = array.length;
+			int newSize = (origSize + 1);
 			newArray = (T[]) Array.newInstance(array.getClass().getComponentType(), newSize);
-			System.arraycopy(array, 0, newArray, 1, array.length);
+			if (index != 0)
+			{
+				System.arraycopy(array, 0, newArray, 0, index);
+			}
+			if (index != origSize)
+			{
+				System.arraycopy(array, index, newArray, index + 1, origSize - index);
+			}
 		}
-		newArray[0] = object;
+		newArray[index] = object;
 		return newArray;
 	}
+
+	/**
+	 * Clones an array, removing 1 from the length, by removing the object at the given
+	 * index in the given array. Other than the removal, the order of the objects in the
+	 * given array is maintained. The length of the new array will be the length of the
+	 * given array - 1.
+	 * 
+	 * @param array
+	 *            The original array
+	 * @param index
+	 *            The index location of the object to be removed from the array
+	 * @return A new array with the object at the given index in the original array
+	 *         removed.
+	 * @param <T>
+	 *            The type of object in the array
+	 */
+	public static <T> T[] removeOnCopy(T[] array, int index)
+	{
+		int newSize = array.length - 1;
+		@SuppressWarnings("unchecked")
+		T[] newArray =
+				(T[]) Array.newInstance(array.getClass().getComponentType(), newSize);
+		if (index != 0)
+		{
+			System.arraycopy(array, 0, newArray, 0, index);
+		}
+		if (index != newSize)
+		{
+			System.arraycopy(array, index + 1, newArray, index, newSize - index);
+		}
+		return newArray;
+	}
+
 }

@@ -288,4 +288,98 @@ public class ArrayUtilitiesTest extends TestCase
 		assertTrue(Arrays.deepEquals(ArrayUtilities.prependOnCopy(2, array),
 			new Object[]{2, 3, no}));
 	}
+
+	@Test
+	public void testAddOnCopy()
+	{
+		Integer[] array = null;
+		array = ArrayUtilities.addOnCopy(array, 4);
+		assertTrue(array.length == 1);
+		assertTrue(array[0] == 4);
+		array = ArrayUtilities.addOnCopy(array, 3);
+		assertTrue(array.length == 2);
+		assertTrue(array[0] == 4);
+		assertTrue(array[1] == 3);
+		assertTrue(Arrays.deepEquals(ArrayUtilities.addOnCopy(array, 2),
+			new Integer[]{4, 3, 2}));
+	}
+
+	@Test
+	public void testAddOnCopyObject()
+	{
+		Object[] array = null;
+		Object no = new Object();
+		array = ArrayUtilities.addOnCopy(array, no);
+		assertTrue(array.length == 1);
+		assertTrue(array[0].equals(no));
+		array = ArrayUtilities.addOnCopy(array, 3);
+		assertTrue(array.length == 2);
+		assertTrue(array[0].equals(no));
+		assertTrue(array[1].equals(3));
+		assertTrue(Arrays.deepEquals(ArrayUtilities.addOnCopy(array, 2),
+			new Object[]{no, 3, 2}));
+	}
+
+	@Test
+	public void testAddOnCopyNumber()
+	{
+		Integer[] array = null;
+		array = ArrayUtilities.addOnCopy(array, 0, 4);
+		assertTrue(array.length == 1);
+		assertTrue(array[0].equals(4));
+		array = ArrayUtilities.addOnCopy(array, 1, 3);
+		assertTrue(array.length == 2);
+		assertTrue(array[0].equals(4));
+		assertTrue(array[1].equals(3));
+		assertTrue(Arrays.deepEquals(ArrayUtilities.addOnCopy(array, 1, 2),
+			new Integer[]{4, 2, 3}));
+	}
+
+	@Test
+	public void testAddOnCopyObjectNumber()
+	{
+		Object[] array = null;
+		Object no = new Object();
+		array = ArrayUtilities.addOnCopy(array, 0, no);
+		assertTrue(array.length == 1);
+		assertTrue(array[0].equals(no));
+		array = ArrayUtilities.addOnCopy(array, 1, 3);
+		assertTrue(array.length == 2);
+		assertTrue(array[0].equals(no));
+		assertTrue(array[1].equals(3));
+		assertTrue(Arrays.deepEquals(ArrayUtilities.addOnCopy(array, 1, 2),
+			new Object[]{no, 2, 3}));
+	}
+
+	@Test
+	public void testRemoveOnCopy()
+	{
+		Object[] array = new Object[]{4, 2, 3};
+		array = ArrayUtilities.removeOnCopy(array, 1);
+		assertTrue(array.length == 2);
+		assertTrue(array[0].equals(4));
+		assertTrue(array[1].equals(3));
+		array = ArrayUtilities.removeOnCopy(array, 1);
+		assertTrue(array.length == 1);
+		assertTrue(array[0].equals(4));
+		array = ArrayUtilities.removeOnCopy(array, 0);
+		assertTrue(array.length == 0);
+	}
+
+	@Test
+	public void testRemoveOnCopyObject()
+	{
+		Object no = new Object();
+		Object[] array = new Object[]{no, 2, 3};
+		array = ArrayUtilities.removeOnCopy(array, 1);
+		assertTrue(array.length == 2);
+		assertTrue(array[0].equals(no));
+		assertTrue(array[1].equals(3));
+		array = ArrayUtilities.removeOnCopy(array, 1);
+		assertTrue(array.length == 1);
+		assertTrue(array[0].equals(no));
+		array = ArrayUtilities.removeOnCopy(array, 0);
+		assertTrue(array.length == 0);
+	}
+
 }
