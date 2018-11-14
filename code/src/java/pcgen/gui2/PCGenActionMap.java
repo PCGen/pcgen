@@ -29,13 +29,13 @@ import javax.swing.JOptionPane;
 import gmgen.GMGenSystem;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
+import pcgen.core.Skill;
 import pcgen.facade.core.AbilityFacade;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.ClassFacade;
 import pcgen.facade.core.ItemFacade;
 import pcgen.facade.core.KitFacade;
 import pcgen.facade.core.RaceFacade;
-import pcgen.facade.core.SkillFacade;
 import pcgen.facade.core.SourceSelectionFacade;
 import pcgen.facade.core.SpellFacade;
 import pcgen.facade.util.ReferenceFacade;
@@ -208,7 +208,7 @@ public final class PCGenActionMap extends ActionMap
 		put(ABILITY_FILTERS_COMMAND,
 			new DefaultFiltersAction("mnuToolsFiltersAbility", ABILITY_FILTERS_COMMAND, AbilityFacade.class));
 		put(SKILL_FILTERS_COMMAND,
-			new DefaultFiltersAction("mnuToolsFiltersSkill", SKILL_FILTERS_COMMAND, SkillFacade.class));
+			new DefaultFiltersAction("mnuToolsFiltersSkill", SKILL_FILTERS_COMMAND, Skill.class));
 		put(EQUIPMENT_FILTERS_COMMAND,
 			new DefaultFiltersAction("mnuToolsFiltersEquipment", EQUIPMENT_FILTERS_COMMAND, ItemFacade.class));
 		put(SPELL_FILTERS_COMMAND,
@@ -231,7 +231,7 @@ public final class PCGenActionMap extends ActionMap
 		put(ABILITY_GENERATORS_COMMAND,
 			new DefaultGeneratorsAction("mnuToolsGeneratorsAbility", ABILITY_GENERATORS_COMMAND, AbilityFacade.class));
 		put(SKILL_GENERATORS_COMMAND,
-			new DefaultGeneratorsAction("mnuToolsGeneratorsSkill", SKILL_GENERATORS_COMMAND, SkillFacade.class));
+			new DefaultGeneratorsAction("mnuToolsGeneratorsSkill", SKILL_GENERATORS_COMMAND, Skill.class));
 		put(EQUIPMENT_GENERATORS_COMMAND,
 			new DefaultGeneratorsAction("mnuToolsGeneratorsEquipment", EQUIPMENT_GENERATORS_COMMAND, ItemFacade.class));
 		put(SPELL_GENERATORS_COMMAND,

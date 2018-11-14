@@ -25,23 +25,20 @@ import java.util.List;
 
 import pcgen.base.formula.Formula;
 import pcgen.base.formula.base.VarScoped;
-import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.bonus.BonusObj;
-import pcgen.facade.core.SkillFacade;
 
 /**
  * {@code Skill}.
  * 
  */
-public final class Skill extends PObject implements SkillFacade, ChooseDriver, VarScoped
+public final class Skill extends PObject implements ChooseDriver, VarScoped
 {
 	public String getKeyStatAbb()
 	{
@@ -59,25 +56,6 @@ public final class Skill extends PObject implements SkillFacade, ChooseDriver, V
 	public int hashCode()
 	{
 		return getKeyName().hashCode();
-	}
-
-	@Override
-	public String getKeyStat()
-	{
-		return getKeyStatAbb();
-	}
-
-	@Override
-	public boolean isUntrained()
-	{
-		return getSafe(ObjectKey.USE_UNTRAINED);
-	}
-
-	@Override
-	public String getDisplayType()
-	{
-		List<Type> trueTypeList = getTrueTypeList(true);
-		return StringUtil.join(trueTypeList, ".");
 	}
 
 	@Override

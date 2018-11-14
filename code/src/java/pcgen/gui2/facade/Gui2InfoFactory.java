@@ -110,7 +110,6 @@ import pcgen.facade.core.InfoFacade;
 import pcgen.facade.core.InfoFactory;
 import pcgen.facade.core.KitFacade;
 import pcgen.facade.core.RaceFacade;
-import pcgen.facade.core.SkillFacade;
 import pcgen.facade.core.SpellFacade;
 import pcgen.facade.core.TempBonusFacade;
 import pcgen.gui2.util.HtmlInfoBuilder;
@@ -418,13 +417,12 @@ public class Gui2InfoFactory implements InfoFactory
 	}
 
 	@Override
-	public String getHTMLInfo(SkillFacade skillFacade)
+	public String getHTMLInfo(Skill skill)
 	{
-		if (!(skillFacade instanceof Skill))
+		if (skill == null)
 		{
 			return EMPTY_STRING;
 		}
-		Skill skill = (Skill) skillFacade;
 
 		final HtmlInfoBuilder infoText = new HtmlInfoBuilder();
 
@@ -1483,10 +1481,6 @@ public class Gui2InfoFactory implements InfoFactory
 		{
 			return getHTMLInfo((RaceFacade) facade);
 		}
-		if (facade instanceof SkillFacade)
-		{
-			return getHTMLInfo((SkillFacade) facade);
-		}
 		if (facade instanceof SpellFacade)
 		{
 			return getHTMLInfo((SpellFacade) facade);
@@ -1993,20 +1987,19 @@ public class Gui2InfoFactory implements InfoFactory
 	}
 
 	@Override
-	public String getDescription(SkillFacade skillFacade)
+	public String getDescription(Skill skill)
 	{
-		if (skillFacade == null || !(skillFacade instanceof Skill))
+		if (skill == null)
 		{
 			return EMPTY_STRING;
 		}
 		try
 		{
-			Skill skill = (Skill) skillFacade;
 			return DescriptionFormatting.piWrapDesc(skill, pc.getDescription(skill), false);
 		}
 		catch (Exception e)
 		{
-			Logging.errorPrint("Failed to get description for " + skillFacade, e); //$NON-NLS-1$
+			Logging.errorPrint("Failed to get description for " + skill, e); //$NON-NLS-1$
 			return EMPTY_STRING;
 		}
 	}

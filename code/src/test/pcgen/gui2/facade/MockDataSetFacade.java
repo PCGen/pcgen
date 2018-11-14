@@ -28,6 +28,7 @@ import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.SizeAdjustment;
+import pcgen.core.Skill;
 import pcgen.facade.core.AbilityCategoryFacade;
 import pcgen.facade.core.AbilityFacade;
 import pcgen.facade.core.CampaignFacade;
@@ -39,7 +40,6 @@ import pcgen.facade.core.GameModeFacade;
 import pcgen.facade.core.GearBuySellFacade;
 import pcgen.facade.core.KitFacade;
 import pcgen.facade.core.RaceFacade;
-import pcgen.facade.core.SkillFacade;
 import pcgen.facade.core.generator.StatGenerationFacade;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.DefaultMapFacade;
@@ -59,7 +59,7 @@ public class MockDataSetFacade implements DataSetFacade
 	private DefaultMapFacade<AbilityCategoryFacade, ListFacade<AbilityFacade>> abilityMap;
 	private final GameMode game;
 	private DefaultListFacade<RaceFacade> races;
-	private DefaultListFacade<SkillFacade> skills;
+	private DefaultListFacade<Skill> skills;
 	private DefaultListFacade<PCStat> stats;
 	private DefaultListFacade<GearBuySellFacade> gearBuySellSchemes;
 	private DefaultListFacade<ClassFacade> classes;
@@ -227,7 +227,7 @@ public class MockDataSetFacade implements DataSetFacade
 	 * @see pcgen.facade.core.DataSetFacade#getSkills()
 	 */
     @Override
-	public ListFacade<SkillFacade> getSkills()
+	public ListFacade<Skill> getSkills()
 	{
 		return skills;
 	}
@@ -236,7 +236,7 @@ public class MockDataSetFacade implements DataSetFacade
 	 * @see pcgen.facade.core.DataSetFacade#getSpeakLanguageSkill()
 	 */
     @Override
-	public SkillFacade getSpeakLanguageSkill()
+	public Skill getSpeakLanguageSkill()
 	{
 		// TODO Auto-generated method stub
 		return null;
