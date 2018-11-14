@@ -257,4 +257,35 @@ public class ArrayUtilitiesTest extends TestCase
 		assertNotSame(startingArray, array);
 		
 	}
+
+	@Test
+	public void testPrependOnCopy()
+	{
+		Integer[] array = null;
+		array = ArrayUtilities.prependOnCopy(4, array);
+		assertTrue(array.length == 1);
+		assertTrue(array[0] == 4);
+		array = ArrayUtilities.prependOnCopy(3, array);
+		assertTrue(array.length == 2);
+		assertTrue(array[0] == 3);
+		assertTrue(array[1] == 4);
+		assertTrue(Arrays.deepEquals(ArrayUtilities.prependOnCopy(2, array),
+			new Integer[]{2, 3, 4}));
+	}
+
+	@Test
+	public void testPrependOnCopyObject()
+	{
+		Object[] array = null;
+		Object no = new Object();
+		array = ArrayUtilities.prependOnCopy(no, array);
+		assertTrue(array.length == 1);
+		assertTrue(array[0].equals(no));
+		array = ArrayUtilities.prependOnCopy(3, array);
+		assertTrue(array.length == 2);
+		assertTrue(array[0].equals(3));
+		assertTrue(array[1].equals(no));
+		assertTrue(Arrays.deepEquals(ArrayUtilities.prependOnCopy(2, array),
+			new Object[]{2, 3, no}));
+	}
 }
