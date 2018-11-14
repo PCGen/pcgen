@@ -22,6 +22,8 @@ import java.util.Arrays;
 
 import org.apache.commons.lang3.StringUtils;
 
+import pcgen.base.util.ArrayUtilities;
+
 public class TreeViewPath<E>
 {
 
@@ -59,10 +61,8 @@ public class TreeViewPath<E>
 		{
 			throw new IllegalArgumentException("path in TreePath must be non null and not empty.");
 		}
-		this.length = path.length + pobjs.length;
-		this.path = new Object[length];
-		System.arraycopy(path, 0, this.path, 0, path.length);
-		System.arraycopy(pobjs, 0, this.path, path.length, pobjs.length);
+		this.path = ArrayUtilities.mergeArray(Object.class, path, pobjs);
+		this.length = this.path.length;
 	}
 
 	private TreeViewPath(Object[] path, int length)
