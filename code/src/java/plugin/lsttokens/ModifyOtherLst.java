@@ -31,7 +31,6 @@ import pcgen.base.text.ParsingSeparator;
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.base.Loadable;
 import pcgen.cdom.base.Ungranted;
 import pcgen.cdom.base.VarContainer;
 import pcgen.cdom.base.VarHolder;
@@ -105,7 +104,7 @@ public class ModifyOtherLst extends AbstractNonEmptyToken<VarHolder>
 		PCGenScope scope = context.getActiveScope();
 		String groupingName = sep.next();
 
-		GroupingCollection<? extends Loadable> group = context.getGrouping(lvs, groupingName);
+		GroupingCollection<?> group = context.getGrouping(lvs, groupingName);
 		if (group == null)
 		{
 			return new ParseResult.Fail(getTokenName() + " unable to build group from: " + groupingName);
