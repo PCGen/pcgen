@@ -147,7 +147,6 @@ import pcgen.facade.core.InfoFactory;
 import pcgen.facade.core.KitFacade;
 import pcgen.facade.core.LanguageChooserFacade;
 import pcgen.facade.core.RaceFacade;
-import pcgen.facade.core.SkillFacade;
 import pcgen.facade.core.SpellFacade;
 import pcgen.facade.core.SpellSupportFacade;
 import pcgen.facade.core.TempBonusFacade;
@@ -2281,13 +2280,12 @@ public class CharacterFacadeImpl
 		int numSkillLangSelected = 0;
 		int skillLangMax = 0;
 		//TODO: Need to cope with multiple skill languages
-		SkillFacade speakLangSkill = dataSet.getSpeakLanguageSkill();
+		Skill speakLangSkill = dataSet.getSpeakLanguageSkill();
 		if (speakLangSkill != null)
 		{
-			Skill skill = (Skill) speakLangSkill;
-			List<String> langList = theCharacter.getAssociationList(skill);
+			List<String> langList = theCharacter.getAssociationList(speakLangSkill);
 			numSkillLangSelected = langList.size();
-			skillLangMax = SkillRankControl.getTotalRank(theCharacter, skill).intValue();
+			skillLangMax = SkillRankControl.getTotalRank(theCharacter, speakLangSkill).intValue();
 		}
 
 		int skillLangRemain = skillLangMax - numSkillLangSelected;
@@ -2327,7 +2325,7 @@ public class CharacterFacadeImpl
 		chooserList.addElement(
 			new LanguageChooserFacadeImpl(this, LanguageBundle.getString("in_sumLangBonus"), cna)); //$NON-NLS-1$
 
-		SkillFacade speakLangSkill = dataSet.getSpeakLanguageSkill();
+		Skill speakLangSkill = dataSet.getSpeakLanguageSkill();
 		if (speakLangSkill != null)
 		{
 			chooserList.addElement(

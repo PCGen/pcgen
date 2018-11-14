@@ -30,6 +30,7 @@ import pcgen.core.PCAlignment;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.SizeAdjustment;
+import pcgen.core.Skill;
 import pcgen.facade.core.AbilityCategoryFacade;
 import pcgen.facade.core.AbilityFacade;
 import pcgen.facade.core.CampaignFacade;
@@ -40,7 +41,6 @@ import pcgen.facade.core.GameModeFacade;
 import pcgen.facade.core.GearBuySellFacade;
 import pcgen.facade.core.KitFacade;
 import pcgen.facade.core.RaceFacade;
-import pcgen.facade.core.SkillFacade;
 import pcgen.facade.core.generator.StatGenerationFacade;
 import pcgen.facade.util.AbstractMapFacade;
 import pcgen.facade.util.DelegatingListFacade;
@@ -63,8 +63,8 @@ public class DelegatingDataSet implements DataSetFacade
 
 	private final DelegatingListFacade<RaceFacade> races;
 	private final DelegatingListFacade<ClassFacade> classes;
+	private final DelegatingListFacade<Skill> skills;
 	private final DelegatingListFacade<Deity> deities;
-	private final DelegatingListFacade<SkillFacade> skills;
 	private final DelegatingListFacade<PCTemplate> templates;
 	private final DelegatingListFacade<PCAlignment> alignments;
 	private final DelegatingListFacade<KitFacade> kits;
@@ -236,7 +236,7 @@ public class DelegatingDataSet implements DataSetFacade
 	}
 
 	@Override
-	public ListFacade<SkillFacade> getSkills()
+	public ListFacade<Skill> getSkills()
 	{
 		return skills;
 	}
@@ -297,7 +297,7 @@ public class DelegatingDataSet implements DataSetFacade
 	}
 
 	@Override
-	public SkillFacade getSpeakLanguageSkill()
+	public Skill getSpeakLanguageSkill()
 	{
 		return delegate.getSpeakLanguageSkill();
 	}

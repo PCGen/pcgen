@@ -49,7 +49,6 @@ import pcgen.facade.core.CharacterLevelFacade;
 import pcgen.facade.core.CharacterLevelsFacade;
 import pcgen.facade.core.ClassFacade;
 import pcgen.facade.core.DataSetFacade;
-import pcgen.facade.core.SkillFacade;
 import pcgen.facade.core.UIDelegate;
 import pcgen.facade.util.AbstractListFacade;
 import pcgen.system.LanguageBundle;
@@ -106,7 +105,7 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 		SkillFacet skillFacet = FacetLibrary.getFacet(SkillFacet.class);
 		skillFacet.removeDataFacetChangeListener(this);
 		BonusChangeFacet bcf = FacetLibrary.getFacet(BonusChangeFacet.class);
-		for (SkillFacade skillFacade : dataSetFacade.getSkills())
+		for (Skill skillFacade : dataSetFacade.getSkills())
 		{
 			bcf.removeBonusChangeListener(this, "SKILLRANK", skillFacade.getKeyName().toUpperCase());
 		}
@@ -128,7 +127,7 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 		SkillFacet skillFacet = FacetLibrary.getFacet(SkillFacet.class);
 		skillFacet.addDataFacetChangeListener(this);
 		BonusChangeFacet bcf = FacetLibrary.getFacet(BonusChangeFacet.class);
-		for (SkillFacade skillFacade : dataSetFacade.getSkills())
+		for (Skill skillFacade : dataSetFacade.getSkills())
 		{
 			bcf.addBonusChangeListener(this, "SKILLRANK", skillFacade.getKeyName().toUpperCase());
 		}
@@ -352,7 +351,7 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 	}
 
 	@Override
-	public SkillCost getSkillCost(CharacterLevelFacade level, SkillFacade skill)
+	public SkillCost getSkillCost(CharacterLevelFacade level, Skill skill)
 	{
 		if (level != null && level instanceof CharacterLevelFacadeImpl && charDisplay != null)
 		{
@@ -368,7 +367,7 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 	}
 
 	@Override
-	public boolean isClassSkillForMaxRanks(CharacterLevelFacade level, SkillFacade skill)
+	public boolean isClassSkillForMaxRanks(CharacterLevelFacade level, Skill skill)
 	{
 		for (int i = 0; i < charLevels.size(); i++)
 		{
@@ -389,7 +388,7 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 	}
 
 	@Override
-	public int getSkillModifier(CharacterLevelFacade level, SkillFacade skill)
+	public int getSkillModifier(CharacterLevelFacade level, Skill skill)
 	{
 		if (skill instanceof Skill)
 		{
@@ -399,7 +398,7 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 	}
 
 	@Override
-	public float getSkillRanks(CharacterLevelFacade level, SkillFacade skill)
+	public float getSkillRanks(CharacterLevelFacade level, Skill skill)
 	{
 		// TODO Ranks aren't stored by level - have compromised by returning the total. Further discussion needed 
 		if (skill instanceof Skill)
@@ -410,7 +409,7 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 	}
 
 	@Override
-	public int getSkillTotal(CharacterLevelFacade level, SkillFacade skill)
+	public int getSkillTotal(CharacterLevelFacade level, Skill skill)
 	{
 		// TODO Ranks aren't stored by level - have compromised by returning the total. Further discussion needed 
 		if (skill instanceof Skill)
@@ -424,7 +423,7 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 	}
 
 	@Override
-	public SkillBreakdown getSkillBreakdown(CharacterLevelFacade level, SkillFacade skill)
+	public SkillBreakdown getSkillBreakdown(CharacterLevelFacade level, Skill skill)
 	{
 		SkillBreakdown sb = new SkillBreakdown();
 		// TODO Ranks aren't stored by level - have compromised by returning the total. Further discussion needed 
@@ -460,7 +459,7 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 	}
 
 	@Override
-	public boolean investSkillPoints(CharacterLevelFacade level, SkillFacade skill, int points)
+	public boolean investSkillPoints(CharacterLevelFacade level, Skill skill, int points)
 	{
 		if (points == 0 || level == null || !(level instanceof CharacterLevelFacadeImpl))
 		{
@@ -557,7 +556,7 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 	}
 
 	@Override
-	public CharacterLevelFacade findNextLevelForSkill(SkillFacade skill, CharacterLevelFacade baseLevel, float newRank)
+	public CharacterLevelFacade findNextLevelForSkill(Skill skill, CharacterLevelFacade baseLevel, float newRank)
 	{
 		Skill aSkill = (Skill) skill;
 		SkillCost skillCost = getSkillCost(baseLevel, aSkill);
@@ -691,7 +690,7 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 	 * @param skill 
 	 * @return The level with spent points, or null if none match
 	 */
-	private CharacterLevelFacade findLevelWithSpentSkillPoints(int points, SkillFacade skill)
+	private CharacterLevelFacade findLevelWithSpentSkillPoints(int points, Skill skill)
 	{
 		for (int i = charLevels.size() - 1; i >= 0; i--)
 		{
@@ -714,7 +713,7 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 	 * @param pcClass The class being checked.
 	 * @return true if the character took ranks of the skill in the class.
 	 */
-	private boolean classHasRanksIn(SkillFacade skill, ClassFacade pcClass)
+	private boolean classHasRanksIn(Skill skill, ClassFacade pcClass)
 	{
 		Double rank = theCharacter.getSkillRankForClass((Skill) skill, (PCClass) pcClass);
 		return (rank != null) && (rank > 0.0d);

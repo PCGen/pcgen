@@ -50,7 +50,6 @@ import pcgen.facade.core.GameModeFacade;
 import pcgen.facade.core.GearBuySellFacade;
 import pcgen.facade.core.KitFacade;
 import pcgen.facade.core.RaceFacade;
-import pcgen.facade.core.SkillFacade;
 import pcgen.facade.core.generator.StatGenerationFacade;
 import pcgen.facade.util.AbstractMapFacade;
 import pcgen.facade.util.DefaultListFacade;
@@ -65,7 +64,7 @@ public class DataSet implements DataSetFacade
 	private final DefaultListFacade<RaceFacade> races;
 	private final DefaultListFacade<ClassFacade> classes;
 	private final DefaultListFacade<Deity> deities;
-	private final DefaultListFacade<SkillFacade> skills;
+	private final DefaultListFacade<Skill> skills;
 	private final DefaultListFacade<PCTemplate> templates;
 	private final DefaultListFacade<PCAlignment> alignments;
 	private final DefaultListFacade<KitFacade> kits;
@@ -74,7 +73,7 @@ public class DataSet implements DataSetFacade
 	private final LoadContext context;
 	private final GameMode gameMode;
 	private final ListFacade<CampaignFacade> campaigns;
-	private SkillFacade speakLanguageSkill = null;
+	private Skill speakLanguageSkill = null;
 	private final DefaultListFacade<BodyStructure> bodyStructures;
 	private final DefaultListFacade<EquipmentFacade> equipment;
 	private final DefaultListFacade<String> xpTableNames;
@@ -316,7 +315,7 @@ public class DataSet implements DataSetFacade
 	}
 
 	@Override
-	public ListFacade<SkillFacade> getSkills()
+	public ListFacade<Skill> getSkills()
 	{
 		return skills;
 	}
@@ -376,20 +375,19 @@ public class DataSet implements DataSetFacade
 	}
 
 	@Override
-	public SkillFacade getSpeakLanguageSkill()
+	public Skill getSpeakLanguageSkill()
 	{
 		if (speakLanguageSkill != null)
 		{
 			return speakLanguageSkill;
 		}
 
-		for (SkillFacade aSkillFacade : skills)
+		for (Skill aSkill : skills)
 		{
-			Skill aSkill = (Skill) aSkillFacade;
 			ChooseInformation<?> chooseInfo = aSkill.get(ObjectKey.CHOOSE_INFO);
 			if ((chooseInfo != null) && "LANG".equals(chooseInfo.getName()))
 			{
-				speakLanguageSkill = aSkillFacade;
+				speakLanguageSkill = aSkill;
 			}
 		}
 

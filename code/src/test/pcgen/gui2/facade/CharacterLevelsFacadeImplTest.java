@@ -43,7 +43,6 @@ import pcgen.core.XPTable;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.facade.core.CharacterLevelFacade;
 import pcgen.facade.core.DataSetFacade;
-import pcgen.facade.core.SkillFacade;
 import pcgen.facade.core.UIDelegate;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.rules.context.LoadContext;

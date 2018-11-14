@@ -26,6 +26,7 @@ import pcgen.core.PCAlignment;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.SizeAdjustment;
+import pcgen.core.Skill;
 import pcgen.facade.core.generator.StatGenerationFacade;
 import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.MapFacade;
@@ -47,7 +48,7 @@ public interface DataSetFacade
 	 */
 	public List<AbilityFacade> getPrereqAbilities(AbilityFacade abilityFacade);
 
-	public ListFacade<SkillFacade> getSkills();
+	public ListFacade<Skill> getSkills();
 
 	public ListFacade<RaceFacade> getRaces();
 
@@ -67,7 +68,7 @@ public interface DataSetFacade
 
 	public ListFacade<StatGenerationFacade> getStatGenerators();
 
-	public SkillFacade getSpeakLanguageSkill();
+	public Skill getSpeakLanguageSkill();
 
 	public ListFacade<EquipmentFacade> getEquipment();
 

@@ -20,6 +20,7 @@ package pcgen.facade.core;
 
 import pcgen.core.Deity;
 import pcgen.core.PCTemplate;
+import pcgen.core.Skill;
 
 /**
  * InfoFactory defines the interface to be used by the UI for extracting
@@ -63,7 +64,7 @@ public interface InfoFactory
 
 	public String getHTMLInfo(ClassFacade pcClass, ClassFacade parentClass);
 
-	public String getHTMLInfo(SkillFacade skill);
+	public String getHTMLInfo(Skill skill);
 
 	public String getHTMLInfo(AbilityFacade ability);
 
@@ -162,7 +163,7 @@ public interface InfoFactory
 	 * @param skillFacade The skill to be described.
 	 * @return The description.
 	 */
-	public String getDescription(SkillFacade skillFacade);
+	public String getDescription(Skill skillFacade);
 
 	/**
 	 * Get the description of a piece of equipment for this character.
