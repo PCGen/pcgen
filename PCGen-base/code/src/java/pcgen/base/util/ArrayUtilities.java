@@ -216,4 +216,36 @@ public final class ArrayUtilities
 		}
 		return new Tuple<>(removedList, newList);
 	}
+	
+	/**
+	 * Clones an array, adding 1 to the length, and placing the given object at the
+	 * beginning of the new array. The length of the new array will be the length of the
+	 * given array + 1. null is a legal value for the given array.
+	 * 
+	 * @param object
+	 *            The object to be placed at the beginning of the returned array
+	 * @param array
+	 *            The original array, to be placed in the latter portion of the new array
+	 * @return A new array with the given object as the first object and the current
+	 *         contents of the array as the rest of the contents.
+	 * @param <T>
+	 *            The type of the array and the object to be added to the array
+	 */
+	@SuppressWarnings("unchecked")
+	public static <T> T[] prependOnCopy(T object, T[] array)
+	{
+		T[] newArray;
+		if (array == null)
+		{
+			newArray = (T[]) Array.newInstance(object.getClass(), 1);
+		}
+		else
+		{
+			int newSize = (array.length + 1);
+			newArray = (T[]) Array.newInstance(array.getClass().getComponentType(), newSize);
+			System.arraycopy(array, 0, newArray, 1, array.length);
+		}
+		newArray[0] = object;
+		return newArray;
+	}
 }
