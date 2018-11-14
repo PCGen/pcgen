@@ -37,9 +37,9 @@ import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableCellRenderer;
 
+import pcgen.core.Language;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.LanguageChooserFacade;
-import pcgen.facade.core.LanguageFacade;
 import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
@@ -51,10 +51,10 @@ import pcgen.gui2.util.SignIcon.Sign;
 import pcgen.gui2.util.table.TableCellUtilities;
 import pcgen.system.LanguageBundle;
 
-public class LanguageTableModel extends AbstractTableModel implements ListListener<LanguageFacade>
+public class LanguageTableModel extends AbstractTableModel implements ListListener<Language>
 {
 
-	private ListFacade<LanguageFacade> languages;
+	private ListFacade<Language> languages;
 	private ListFacade<LanguageChooserFacade> choosers;
 	private CharacterFacade character;
 	private JTable table;
@@ -142,28 +142,28 @@ public class LanguageTableModel extends AbstractTableModel implements ListListen
 	}
 
 	@Override
-	public void elementAdded(ListEvent<LanguageFacade> e)
+	public void elementAdded(ListEvent<Language> e)
 	{
 		fireTableRowsInserted(e.getIndex(), e.getIndex());
 		editor.cancelCellEditing();
 	}
 
 	@Override
-	public void elementRemoved(ListEvent<LanguageFacade> e)
+	public void elementRemoved(ListEvent<Language> e)
 	{
 		fireTableRowsDeleted(e.getIndex(), e.getIndex());
 		editor.cancelCellEditing();
 	}
 
 	@Override
-	public void elementsChanged(ListEvent<LanguageFacade> e)
+	public void elementsChanged(ListEvent<Language> e)
 	{
 		fireTableDataChanged();
 		editor.cancelCellEditing();
 	}
 
 	@Override
-	public void elementModified(ListEvent<LanguageFacade> e)
+	public void elementModified(ListEvent<Language> e)
 	{
 		fireTableRowsUpdated(e.getIndex(), e.getIndex());
 	}
@@ -268,7 +268,7 @@ public class LanguageTableModel extends AbstractTableModel implements ListListen
 			}
 			else
 			{
-				LanguageFacade lang = (LanguageFacade) getValueAt(table.getEditingRow(), 0);
+				Language lang = (Language) getValueAt(table.getEditingRow(), 0);
 				character.removeLanguage(lang);
 			}
 			cancelCellEditing();
@@ -321,8 +321,8 @@ public class LanguageTableModel extends AbstractTableModel implements ListListen
 			TableCellUtilities.setToRowBackground(this, jTable, row);
 			if (row < languages.getSize())
 			{
-				boolean automatic = value instanceof LanguageFacade && character.isAutomatic((LanguageFacade) value);
-				boolean removable = value instanceof LanguageFacade && character.isRemovable((LanguageFacade) value);
+				boolean automatic = value instanceof Language && character.isAutomatic((Language) value);
+				boolean removable = value instanceof Language && character.isRemovable((Language) value);
 				if (automatic)
 				{
 					cellLabel.setForeground(UIPropertyContext.getAutomaticColor());

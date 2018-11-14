@@ -150,7 +150,6 @@ import pcgen.facade.core.InfoFacade;
 import pcgen.facade.core.InfoFactory;
 import pcgen.facade.core.KitFacade;
 import pcgen.facade.core.LanguageChooserFacade;
-import pcgen.facade.core.LanguageFacade;
 import pcgen.facade.core.RaceFacade;
 import pcgen.facade.core.SimpleFacade;
 import pcgen.facade.core.SkillFacade;
@@ -221,7 +220,7 @@ public class CharacterFacadeImpl
 	private PlayerCharacter theCharacter;
 	private CharacterDisplay charDisplay;
 	private DefaultReferenceFacade<EquipmentSetFacade> equipSet;
-	private DefaultListFacade<LanguageFacade> languages;
+	private DefaultListFacade<Language> languages;
 	private EquipmentListFacadeImpl purchasedEquip;
 	private DefaultReferenceFacade<File> file;
 	private DefaultReferenceFacade<HandedFacade> handedness;
@@ -2452,9 +2451,8 @@ public class CharacterFacadeImpl
 		currBonusLangs = new ArrayList<>();
 		CNAbility a = theCharacter.getBonusLanguageAbility();
 		List<String> currBonusLangNameList = theCharacter.getAssociationList(a);
-		for (LanguageFacade langFacade : languages)
+		for (Language lang : languages)
 		{
-			Language lang = (Language) langFacade;
 			if (currBonusLangNameList.contains(lang.getKeyName()))
 			{
 				currBonusLangs.add(lang);
@@ -2525,7 +2523,7 @@ public class CharacterFacadeImpl
 	 * @see pcgen.facade.core.CharacterFacade#getLanguages()
 	 */
 	@Override
-	public ListFacade<LanguageFacade> getLanguages()
+	public ListFacade<Language> getLanguages()
 	{
 		return languages;
 	}
@@ -2555,7 +2553,7 @@ public class CharacterFacadeImpl
 	 * @see pcgen.facade.core.CharacterFacade#removeLanguage(LanguageFacade)
 	 */
 	@Override
-	public void removeLanguage(LanguageFacade lang)
+	public void removeLanguage(Language lang)
 	{
 		ChooseDriver owner = getLaguageOwner(lang);
 		if (owner == null)
@@ -2577,7 +2575,7 @@ public class CharacterFacadeImpl
 	 * @param lang The language to be found.
 	 * @return The granting rules object, or null if none or automatic.
 	 */
-	private ChooseDriver getLaguageOwner(LanguageFacade lang)
+	private ChooseDriver getLaguageOwner(Language lang)
 	{
 		if (currBonusLangs.contains(lang))
 		{
@@ -2844,7 +2842,7 @@ public class CharacterFacadeImpl
 	 * @see pcgen.facade.core.CharacterFacade#isAutomatic(LanguageFacade)
 	 */
 	@Override
-	public boolean isAutomatic(LanguageFacade language)
+	public boolean isAutomatic(Language language)
 	{
 		if (autoLanguagesCache == null)
 		{
@@ -2857,7 +2855,7 @@ public class CharacterFacadeImpl
 	 * @see pcgen.facade.core.CharacterFacade#isRemovable(LanguageFacade)
 	 */
 	@Override
-	public boolean isRemovable(LanguageFacade language)
+	public boolean isRemovable(Language language)
 	{
 		if (isAutomatic(language))
 		{
