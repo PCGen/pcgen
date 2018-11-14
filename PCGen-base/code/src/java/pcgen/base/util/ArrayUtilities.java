@@ -228,6 +228,8 @@ public final class ArrayUtilities
 	 *            The original array, to be placed in the latter portion of the new array
 	 * @return A new array with the given object as the first object and the current
 	 *         contents of the array as the rest of the contents.
+	 * @param <T>
+	 *            The type of the array and the object to be added to the array
 	 */
 	@SuppressWarnings("unchecked")
 	public static <T> T[] prependOnCopy(T object, T[] array)
