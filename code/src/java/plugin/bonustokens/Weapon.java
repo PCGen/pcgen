@@ -40,7 +40,6 @@ public final class Weapon extends MultiTagBonusObj
 	/**
 	 * Get by index, an individual weapon attribute that may be bonused.
 	 * @param tagNumber the index of the weapon attribute.
-	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
 	 * @return The weapon attribute.
 	 */
 	@Override
@@ -51,7 +50,6 @@ public final class Weapon extends MultiTagBonusObj
 
 	/**
 	 * Get the number of weapon attributes that may be bonused.
-	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
 	 * @return The number of weapon attributes.
 	 */
 	@Override

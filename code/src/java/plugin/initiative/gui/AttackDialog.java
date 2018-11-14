@@ -570,8 +570,6 @@ public class AttackDialog extends JDialog
 		}
 
 		/**
-		 * @see javax.swing.table.TableModel#setValueAt(java.lang.Object, int, int)
-		 *
 		 * In addition to setting the value this method also calls recalcRow.
 		 */
 		@Override
