@@ -41,6 +41,7 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ClassIdentity;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.content.RollMethod;
+import pcgen.cdom.inst.Dynamic;
 import pcgen.util.Logging;
 import pcgen.util.StringPClassUtil;
 
@@ -1257,6 +1258,10 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable> implemen
 	@Override
 	public String getIdentifierType()
 	{
+		if (Dynamic.class.equals(getManagedClass()))
+		{
+			return factory.getPersistentFormat();
+		}
 		return StringPClassUtil.getStringFor(getManagedClass());
 	}
 

@@ -6956,7 +6956,7 @@ jar-all-plugins - Generate the plugin jar files
 		</jar>
 	</target>
 	
-	<target name="jar-modifier-plugins" depends="jar-modifier-bool-plugins, jar-modifier-cdom-plugins, jar-modifier-dice-plugins, jar-modifier-number-plugins, jar-modifier-orderedpair-plugins, jar-modifier-set-plugins, jar-modifier-string-plugins" description="Build (Link) Lst Modifier Token plugin jar files">
+	<target name="jar-modifier-plugins" depends="jar-modifier-bool-plugins, jar-modifier-cdom-plugins, jar-modifier-dice-plugins, jar-modifier-dynamic-plugins, jar-modifier-number-plugins, jar-modifier-orderedpair-plugins, jar-modifier-set-plugins, jar-modifier-string-plugins" description="Build (Link) Lst Modifier Token plugin jar files">
 	</target>
 
 	<target name="jar-modifier-bool-plugins" depends="makeplugindirs" description="Build (Link) Boolean Modifier Token plugin jar files">
@@ -6987,6 +6987,17 @@ jar-all-plugins - Generate the plugin jar files
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/modifier/dice/SetModifierFactory.class" />
+				</patternset>
+			</fileset>
+		</jar>
+	</target>
+
+	<target name="jar-modifier-dynamic-plugins" depends="makeplugindirs" description="Build (Link) Dice Modifier Token plugin jar files">
+		<!-- Dynamic Modifier tokens-->
+		<jar jarfile="${lstplugins.dir}/DynamicModifier-SET.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/modifier/dynamic/SetModifierFactory.class" />
 				</patternset>
 			</fileset>
 		</jar>
