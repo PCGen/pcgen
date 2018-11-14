@@ -19,9 +19,9 @@
 package plugin.exporttokens.deprecated;
 
 import pcgen.cdom.enumeration.BiographyField;
-import pcgen.core.display.CharacterDisplay;
+import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
-import pcgen.io.exporttoken.AbstractExportToken;
+import pcgen.io.exporttoken.Token;
 
 /**
  * Deal with:
@@ -30,25 +30,19 @@ import pcgen.io.exporttoken.AbstractExportToken;
  * GENDER.SHORT
  * GENDER.LONG
  */
-public class GenderToken extends AbstractExportToken
+public class GenderToken extends Token
 {
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return "GENDER";
 	}
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-	 */
 	@Override
-	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		String retString = "";
-		if (!display.getSuppressBioField(BiographyField.GENDER))
+		if (!pc.getDisplay().getSuppressBioField(BiographyField.GENDER))
 		{
 			/*
 			 * TODO Short and long result are the same as Gender is no longer
@@ -56,11 +50,11 @@ public class GenderToken extends AbstractExportToken
 			 */
 			if ("GENDER".equals(tokenSource) || "GENDER.SHORT".equals(tokenSource))
 			{
-				retString = display.getGenderObject().toString();
+				retString = pc.getGenderString();
 			}
 			else if ("GENDER.LONG".equals(tokenSource))
 			{
-				retString = display.getGenderObject().toString();
+				retString = pc.getGenderString();
 			}
 		}
 

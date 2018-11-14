@@ -10171,4 +10171,14 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			return sizeFacet.racialSizeInt(id);
 		}
 	}
+
+	public String getGenderString()
+	{
+		return genderFacet.getGender(id).toString();
+	}
+
+	public Gender getGenderObject()
+	{
+		return genderFacet.getGender(id);
+	}
 }

@@ -531,7 +531,7 @@ public final class BioSet extends PObject implements NonInteractive
 
 		while (genderTok.hasMoreTokens())
 		{
-			if (genderTok.nextToken().equals(pc.getDisplay().getGenderObject().toString()))
+			if (genderTok.nextToken().equals(pc.getGenderString()))
 			{
 				final String htWtLine = genderTok.nextToken();
 				final StringTokenizer htwtTok = new StringTokenizer(htWtLine, "|", false);

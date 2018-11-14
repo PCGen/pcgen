@@ -237,7 +237,7 @@ public class PlayerCharacterOutput
 
 	public String getGender()
 	{
-		return display.getGenderObject().toString();
+		return pc.getGenderString();
 	}
 
 	String getHitDice()

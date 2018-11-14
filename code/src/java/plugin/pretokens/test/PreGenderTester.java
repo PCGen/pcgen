@@ -19,20 +19,20 @@
 package plugin.pretokens.test;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.core.display.CharacterDisplay;
-import pcgen.core.prereq.AbstractDisplayPrereqTest;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.core.prereq.PrerequisiteTest;
 
-public class PreGenderTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+public class PreGenderTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 
 	@Override
-	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
+	public int passes(final Prerequisite prereq, final PlayerCharacter pc, CDOMObject source)
 	{
 		int runningTotal;
-		boolean genderMatches = display.getGenderObject().toString().startsWith(prereq.getKey());
+		boolean genderMatches = pc.getGenderString().startsWith(prereq.getKey());
 		if (prereq.getOperator().equals(PrerequisiteOperator.EQ))
 		{
 			runningTotal = genderMatches ? 1 : 0;

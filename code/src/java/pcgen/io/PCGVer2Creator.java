@@ -1491,7 +1491,7 @@ public final class PCGVer2Creator
 	private void appendGenderLine(StringBuilder buffer)
 	{
 		buffer.append(IOConstants.TAG_GENDER).append(':');
-		buffer.append(EntityEncoder.encode(charDisplay.getGenderObject().name()));
+		buffer.append(EntityEncoder.encode(thePC.getGenderObject().name()));
 		buffer.append(IOConstants.LINE_SEP);
 	}
 
