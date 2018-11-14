@@ -102,7 +102,6 @@ public class ArrayComponentModifier<T> implements Modifier<T[]>
 		}
 		//We create a new array as defensive (ownership not transferred on INPUT)
 		T[] result = Arrays.copyOf(input, length);
-		System.arraycopy(input, 0, result, 0, length);
 		EvaluationManager subManager =
 				manager.getWith(EvaluationManager.INPUT, input[location]);
 		subManager = subManager.getWith(EvaluationManager.ASSERTED,
