@@ -34,9 +34,9 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+import pcgen.core.PCTemplate;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.InfoFactory;
-import pcgen.facade.core.TemplateFacade;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.event.ListEvent;
@@ -69,12 +69,12 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 {
 
 	private final TabTitle tabTitle = new TabTitle(Tab.TEMPLATES);
-	private final FilteredTreeViewTable<CharacterFacade, TemplateFacade> availableTable;
-	private final FilteredTreeViewTable<CharacterFacade, TemplateFacade> selectedTable;
+	private final FilteredTreeViewTable<CharacterFacade, PCTemplate> availableTable;
+	private final FilteredTreeViewTable<CharacterFacade, PCTemplate> selectedTable;
 	private final JButton addButton;
 	private final JButton removeButton;
 	private final InfoPane infoPane;
-	private final FilterButton<CharacterFacade, TemplateFacade> qFilterButton;
+	private final FilterButton<CharacterFacade, PCTemplate> qFilterButton;
 	private final QualifiedTreeCellRenderer qualifiedRenderer;
 
 	public TemplateInfoTab()
@@ -97,7 +97,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 		setOrientation(VERTICAL_SPLIT);
 
 		JPanel availPanel = new JPanel(new BorderLayout());
-		FilterBar<CharacterFacade, TemplateFacade> bar = new FilterBar<>();
+		FilterBar<CharacterFacade, PCTemplate> bar = new FilterBar<>();
 		bar.addDisplayableFilter(new SearchFilterPanel());
 		qFilterButton.setText(LanguageBundle.getString("in_igQualFilter")); //$NON-NLS-1$
 		bar.addDisplayableFilter(qFilterButton);
@@ -118,7 +118,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 		topPane.setLeftComponent(availPanel);
 
 		JPanel selPanel = new JPanel(new BorderLayout());
-		FilterBar<CharacterFacade, TemplateFacade> filterBar = new FilterBar<>();
+		FilterBar<CharacterFacade, PCTemplate> filterBar = new FilterBar<>();
 		filterBar.addDisplayableFilter(new SearchFilterPanel());
 
 		selectedTable.setDisplayableFilter(filterBar);
@@ -224,9 +224,9 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 						obj = selectedTable.getModel().getValueAt(selectedRow, 0);
 					}
 				}
-				if (obj instanceof TemplateFacade)
+				if (obj instanceof PCTemplate)
 				{
-					text = character.getInfoFactory().getHTMLInfo((TemplateFacade) obj);
+					text = character.getInfoFactory().getHTMLInfo((PCTemplate) obj);
 					infoPane.setText(text);
 				}
 			}
@@ -252,9 +252,9 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 			List<Object> data = availableTable.getSelectedData();
 			for (Object object : data)
 			{
-				if (object instanceof TemplateFacade)
+				if (object instanceof PCTemplate)
 				{
-					character.addTemplate((TemplateFacade) object);
+					character.addTemplate((PCTemplate) object);
 					return;
 				}
 			}
@@ -291,9 +291,9 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 			List<Object> data = selectedTable.getSelectedData();
 			for (Object object : data)
 			{
-				if (object instanceof TemplateFacade)
+				if (object instanceof PCTemplate)
 				{
-					character.removeTemplate((TemplateFacade) object);
+					character.removeTemplate((PCTemplate) object);
 					return;
 				}
 			}
@@ -315,10 +315,10 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 	private class QualifiedFilterHandler
 	{
 
-		private final Filter<CharacterFacade, TemplateFacade> qFilter = new Filter<CharacterFacade, TemplateFacade>()
+		private final Filter<CharacterFacade, PCTemplate> qFilter = new Filter<CharacterFacade, PCTemplate>()
 		{
 			@Override
-			public boolean accept(CharacterFacade context, TemplateFacade element)
+			public boolean accept(CharacterFacade context, PCTemplate element)
 			{
 				return character.isQualifiedFor(element);
 			}
@@ -365,7 +365,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 		}
 	}
 
-	private class TemplateDataView extends CachedDataView<TemplateFacade>
+	private class TemplateDataView extends CachedDataView<PCTemplate>
 	{
 
 		private final List<DefaultDataViewColumn> columns;
@@ -407,7 +407,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 		}
 
 		@Override
-		public Object getDataInternal(TemplateFacade obj, int column)
+		public Object getDataInternal(PCTemplate obj, int column)
 		{
 			switch (column)
 			{
@@ -428,16 +428,16 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 	}
 
-	private static class TemplateTreeViewModel implements TreeViewModel<TemplateFacade>,
-			Filter<CharacterFacade, TemplateFacade>, ListListener<TemplateFacade>
+	private static class TemplateTreeViewModel implements TreeViewModel<PCTemplate>,
+			Filter<CharacterFacade, PCTemplate>, ListListener<PCTemplate>
 	{
 
-		private static final DefaultListFacade<? extends TreeView<TemplateFacade>> TREE_VIEWS =
-				new DefaultListFacade<TreeView<TemplateFacade>>(Arrays.asList(TemplateTreeView.values()));
+		private static final DefaultListFacade<? extends TreeView<PCTemplate>> TREE_VIEWS =
+				new DefaultListFacade<TreeView<PCTemplate>>(Arrays.asList(TemplateTreeView.values()));
 		private final CharacterFacade character;
 		private final boolean isAvailModel;
 		private final TemplateDataView dataView;
-		private final FilteredListFacade<CharacterFacade, TemplateFacade> templates;
+		private final FilteredListFacade<CharacterFacade, PCTemplate> templates;
 
 		public TemplateTreeViewModel(CharacterFacade character, boolean isAvailModel, TemplateDataView dataView)
 		{
@@ -459,7 +459,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 		}
 
 		@Override
-		public ListFacade<? extends TreeView<TemplateFacade>> getTreeViews()
+		public ListFacade<? extends TreeView<PCTemplate>> getTreeViews()
 		{
 			return TREE_VIEWS;
 		}
@@ -471,13 +471,13 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 		}
 
 		@Override
-		public DataView<TemplateFacade> getDataView()
+		public DataView<PCTemplate> getDataView()
 		{
 			return dataView;
 		}
 
 		@Override
-		public ListFacade<TemplateFacade> getDataModel()
+		public ListFacade<PCTemplate> getDataModel()
 		{
 			if (isAvailModel)
 			{
@@ -490,38 +490,38 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 		}
 
 		@Override
-		public void elementAdded(ListEvent<TemplateFacade> e)
+		public void elementAdded(ListEvent<PCTemplate> e)
 		{
 			templates.refilter();
 		}
 
 		@Override
-		public void elementRemoved(ListEvent<TemplateFacade> e)
+		public void elementRemoved(ListEvent<PCTemplate> e)
 		{
 			templates.refilter();
 		}
 
 		@Override
-		public void elementsChanged(ListEvent<TemplateFacade> e)
+		public void elementsChanged(ListEvent<PCTemplate> e)
 		{
 			templates.refilter();
 		}
 
 		@Override
-		public void elementModified(ListEvent<TemplateFacade> e)
+		public void elementModified(ListEvent<PCTemplate> e)
 		{
 			templates.refilter();
 		}
 
 		@Override
-		public boolean accept(CharacterFacade context, TemplateFacade element)
+		public boolean accept(CharacterFacade context, PCTemplate element)
 		{
 			return !context.getTemplates().containsElement(element);
 		}
 
 	}
 
-	private enum TemplateTreeView implements TreeView<TemplateFacade>
+	private enum TemplateTreeView implements TreeView<PCTemplate>
 	{
 
 		NAME("in_nameLabel"), //$NON-NLS-1$
@@ -541,7 +541,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 		}
 
 		@Override
-		public List<TreeViewPath<TemplateFacade>> getPaths(TemplateFacade pobj)
+		public List<TreeViewPath<PCTemplate>> getPaths(PCTemplate pobj)
 		{
 			switch (this)
 			{

@@ -29,10 +29,9 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.bonus.BonusObj;
-import pcgen.facade.core.TemplateFacade;
 import pcgen.util.enumeration.View;
 
-public final class PCTemplate extends PObject implements TemplateFacade, ChooseDriver
+public final class PCTemplate extends PObject implements ChooseDriver
 {
 	/**
 	 * Get the total adjustment to Challenge rating of a character at a given

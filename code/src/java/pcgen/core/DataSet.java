@@ -55,7 +55,6 @@ import pcgen.facade.core.RaceFacade;
 import pcgen.facade.core.SizeAdjustmentFacade;
 import pcgen.facade.core.SkillFacade;
 import pcgen.facade.core.StatFacade;
-import pcgen.facade.core.TemplateFacade;
 import pcgen.facade.core.generator.StatGenerationFacade;
 import pcgen.facade.util.AbstractMapFacade;
 import pcgen.facade.util.DefaultListFacade;
@@ -71,7 +70,7 @@ public class DataSet implements DataSetFacade
 	private final DefaultListFacade<ClassFacade> classes;
 	private final DefaultListFacade<DeityFacade> deities;
 	private final DefaultListFacade<SkillFacade> skills;
-	private final DefaultListFacade<TemplateFacade> templates;
+	private final DefaultListFacade<PCTemplate> templates;
 	private final DefaultListFacade<PCAlignment> alignments;
 	private final DefaultListFacade<KitFacade> kits;
 	private final DefaultListFacade<StatFacade> stats;
@@ -345,7 +344,7 @@ public class DataSet implements DataSetFacade
 	}
 
 	@Override
-	public ListFacade<TemplateFacade> getTemplates()
+	public ListFacade<PCTemplate> getTemplates()
 	{
 		return templates;
 	}

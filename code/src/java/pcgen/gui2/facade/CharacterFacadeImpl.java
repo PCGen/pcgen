@@ -158,7 +158,6 @@ import pcgen.facade.core.SpellFacade;
 import pcgen.facade.core.SpellSupportFacade;
 import pcgen.facade.core.StatFacade;
 import pcgen.facade.core.TempBonusFacade;
-import pcgen.facade.core.TemplateFacade;
 import pcgen.facade.core.TodoFacade;
 import pcgen.facade.core.UIDelegate;
 import pcgen.facade.core.UIDelegate.CustomEquipResult;
@@ -253,7 +252,7 @@ public class CharacterFacadeImpl
 	private DefaultListFacade<DomainFacade> availDomains;
 	private DefaultReferenceFacade<Integer> maxDomains;
 	private DefaultReferenceFacade<Integer> remainingDomains;
-	private DefaultListFacade<TemplateFacade> templates;
+	private DefaultListFacade<PCTemplate> templates;
 	private ListFacade<RaceFacade> raceList;
 	private DefaultListFacade<KitFacade> kitList;
 	private DefaultReferenceFacade<File> portrait;
@@ -4131,14 +4130,12 @@ public class CharacterFacadeImpl
 	 * @see pcgen.facade.core.CharacterFacade#addTemplate(TemplateFacade)
 	 */
 	@Override
-	public void addTemplate(TemplateFacade templateFacade)
+	public void addTemplate(PCTemplate template)
 	{
-		if (templateFacade == null || !(templateFacade instanceof PCTemplate))
+		if (template == null)
 		{
 			return;
 		}
-
-		PCTemplate template = (PCTemplate) templateFacade;
 
 		if (!PrereqHandler.passesAll(template, theCharacter, template))
 		{
@@ -4177,14 +4174,12 @@ public class CharacterFacadeImpl
 	 * @see pcgen.facade.core.CharacterFacade#removeTemplate(TemplateFacade)
 	 */
 	@Override
-	public void removeTemplate(TemplateFacade templateFacade)
+	public void removeTemplate(PCTemplate template)
 	{
-		if (templateFacade == null || !(templateFacade instanceof PCTemplate))
+		if (template == null)
 		{
 			return;
 		}
-
-		PCTemplate template = (PCTemplate) templateFacade;
 
 		if (charDisplay.hasTemplate(template) && template.isRemovable())
 		{
@@ -4208,9 +4203,9 @@ public class CharacterFacadeImpl
 				templates.addElement(template);
 			}
 		}
-		for (Iterator<TemplateFacade> iterator = templates.iterator(); iterator.hasNext();)
+		for (Iterator<PCTemplate> iterator = templates.iterator(); iterator.hasNext();)
 		{
-			PCTemplate pcTemplate = (PCTemplate) iterator.next();
+			PCTemplate pcTemplate = iterator.next();
 			if (!pcTemplates.contains(pcTemplate))
 			{
 				iterator.remove();
@@ -4222,7 +4217,7 @@ public class CharacterFacadeImpl
 	 * @see pcgen.facade.core.CharacterFacade#getTemplates()
 	 */
 	@Override
-	public ListFacade<TemplateFacade> getTemplates()
+	public ListFacade<PCTemplate> getTemplates()
 	{
 		return templates;
 	}
@@ -4791,4 +4786,14 @@ public class CharacterFacadeImpl
 		return theCharacter.getCharID();
 	}
 
+	@Override
+	public boolean isQualifiedFor(PCTemplate template)
+	{
+		if (template == null)
+		{
+			return false;
+		}
+		return PrereqHandler.passesAll(template, theCharacter, template)
+			&& theCharacter.isQualified(template);
+	}
 }

@@ -114,7 +114,6 @@ import pcgen.facade.core.RaceFacade;
 import pcgen.facade.core.SkillFacade;
 import pcgen.facade.core.SpellFacade;
 import pcgen.facade.core.TempBonusFacade;
-import pcgen.facade.core.TemplateFacade;
 import pcgen.gui2.util.HtmlInfoBuilder;
 import pcgen.io.exporttoken.EqToken;
 import pcgen.io.exporttoken.WeaponToken;
@@ -1215,14 +1214,12 @@ public class Gui2InfoFactory implements InfoFactory
 	 * @see pcgen.facade.core.InfoFactory#getHTMLInfo(TemplateFacade)
 	 */
 	@Override
-	public String getHTMLInfo(TemplateFacade templateFacade)
+	public String getHTMLInfo(PCTemplate template)
 	{
-		if (templateFacade == null)
+		if (template == null)
 		{
 			return EMPTY_STRING;
 		}
-
-		PCTemplate template = (PCTemplate) templateFacade;
 
 		final HtmlInfoBuilder infoText = new HtmlInfoBuilder();
 
@@ -1542,10 +1539,6 @@ public class Gui2InfoFactory implements InfoFactory
 		{
 			return getHTMLInfo((TempBonusFacade) facade);
 		}
-		if (facade instanceof TemplateFacade)
-		{
-			return getHTMLInfo((TemplateFacade) facade);
-		}
 
 		final HtmlInfoBuilder infoText = new HtmlInfoBuilder();
 		infoText.appendTitleElement(facade.toString());
@@ -1726,13 +1719,8 @@ public class Gui2InfoFactory implements InfoFactory
 	 * @see pcgen.facade.core.InfoFactory#getLevelAdjustment(TemplateFacade)
 	 */
 	@Override
-	public String getLevelAdjustment(TemplateFacade templateFacade)
+	public String getLevelAdjustment(PCTemplate template)
 	{
-		if (!(templateFacade instanceof PCTemplate))
-		{
-			return EMPTY_STRING;
-		}
-		PCTemplate template = (PCTemplate) templateFacade;
 		return ADJ_FMT.format(template.getSafe(FormulaKey.LEVEL_ADJUSTMENT).resolve(pc, EMPTY_STRING));
 	}
 
@@ -1740,13 +1728,8 @@ public class Gui2InfoFactory implements InfoFactory
 	 * @see pcgen.facade.core.InfoFactory#getModifier(TemplateFacade)
 	 */
 	@Override
-	public String getModifier(TemplateFacade templateFacade)
+	public String getModifier(PCTemplate template)
 	{
-		if (!(templateFacade instanceof PCTemplate))
-		{
-			return EMPTY_STRING;
-		}
-		PCTemplate template = (PCTemplate) templateFacade;
 		return TemplateModifier.modifierString(template, pc);
 	}
 
@@ -1754,15 +1737,10 @@ public class Gui2InfoFactory implements InfoFactory
 	 * @see pcgen.facade.core.InfoFactory#getPreReqHTML(TemplateFacade)
 	 */
 	@Override
-	public String getPreReqHTML(TemplateFacade templateFacade)
+	public String getPreReqHTML(PCTemplate template)
 	{
-		if (!(templateFacade instanceof PCTemplate))
-		{
-			return EMPTY_STRING;
-		}
 		StringBuilder sb = new StringBuilder();
 		sb.append("<html>");
-		PCTemplate template = (PCTemplate) templateFacade;
 		sb.append(PrerequisiteUtilities.preReqHTMLStringsForList(pc, null, template.getPrerequisiteList(), false));
 		sb.append(AllowUtilities.getAllowInfo(pc, template));
 		sb.append("</html>");
@@ -2067,20 +2045,19 @@ public class Gui2InfoFactory implements InfoFactory
 	 * @see pcgen.facade.core.InfoFactory#getDescription(TemplateFacade)
 	 */
 	@Override
-	public String getDescription(TemplateFacade templateFacade)
+	public String getDescription(PCTemplate template)
 	{
-		if (templateFacade == null || !(templateFacade instanceof PCTemplate))
+		if (template == null)
 		{
 			return EMPTY_STRING;
 		}
 		try
 		{
-			PCTemplate template = (PCTemplate) templateFacade;
 			return DescriptionFormatting.piWrapDesc(template, pc.getDescription(template), false);
 		}
 		catch (Exception e)
 		{
-			Logging.errorPrint("Failed to get description for " + templateFacade, e); //$NON-NLS-1$
+			Logging.errorPrint("Failed to get description for " + template, e); //$NON-NLS-1$
 			return EMPTY_STRING;
 		}
 	}

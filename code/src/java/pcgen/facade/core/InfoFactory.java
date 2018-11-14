@@ -18,6 +18,8 @@
  */
 package pcgen.facade.core;
 
+import pcgen.core.PCTemplate;
+
 /**
  * InfoFactory defines the interface to be used by the UI for extracting
  * information about objects for display to the user.
@@ -25,11 +27,11 @@ package pcgen.facade.core;
 public interface InfoFactory
 {
 
-	public String getLevelAdjustment(TemplateFacade template);
+	public String getLevelAdjustment(PCTemplate template);
 
-	public String getModifier(TemplateFacade template);
+	public String getModifier(PCTemplate template);
 
-	public String getPreReqHTML(TemplateFacade template);
+	public String getPreReqHTML(PCTemplate template);
 
 	public float getCost(EquipmentFacade equipment);
 
@@ -85,7 +87,7 @@ public interface InfoFactory
 	 */
 	public String getHTMLInfo(EquipModFacade equipmod, EquipmentFacade equipFacade);
 
-	public String getHTMLInfo(TemplateFacade template);
+	public String getHTMLInfo(PCTemplate template);
 
 	public String getHTMLInfo(SpellFacade spell);
 
@@ -143,7 +145,7 @@ public interface InfoFactory
 	 * @param templateFacade The template to be described.
 	 * @return The description.
 	 */
-	public String getDescription(TemplateFacade templateFacade);
+	public String getDescription(PCTemplate templateFacade);
 
 	/**
 	 * Get the description for a class for this character.
