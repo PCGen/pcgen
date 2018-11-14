@@ -10145,4 +10145,14 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	{
 		return solverManagerFacet.get(id).solve(formula);
 	}
+
+	public String getGenderString()
+	{
+		return genderFacet.getGender(id).toString();
+	}
+
+	public Gender getGenderObject()
+	{
+		return genderFacet.getGender(id);
+	}
 }

@@ -177,6 +177,7 @@ import pcgen.io.ExportException;
 import pcgen.io.ExportHandler;
 import pcgen.io.PCGIOHandler;
 import pcgen.output.channel.ChannelCompatibility;
+import pcgen.output.channel.compat.GenderAdapter;
 import pcgen.pluginmgr.PluginManager;
 import pcgen.pluginmgr.messages.PlayerCharacterWasClosedMessage;
 import pcgen.rules.context.LoadContext;
@@ -389,7 +390,7 @@ public class CharacterFacadeImpl
 		{
 			availHands.addElement(handed);
 		}
-		for (Gender gender : Gender.values())
+		for (Gender gender : GenderAdapter.getAvailableGenders())
 		{
 			availGenders.addElement(gender);
 		}
@@ -406,7 +407,7 @@ public class CharacterFacadeImpl
 			}
 			for (GenderFacade pcGender : availGenders)
 			{
-				if (pcGender.equals(charDisplay.getGenderObject()))
+				if (pcGender.equals(theCharacter.getGenderObject()))
 				{
 					gender.set(pcGender);
 					break;
@@ -1497,7 +1498,7 @@ public class CharacterFacadeImpl
 	public void setGender(GenderFacade gender)
 	{
 		theCharacter.setGender((Gender) gender);
-		Gender newGender = charDisplay.getGenderObject();
+		Gender newGender = theCharacter.getGenderObject();
 		this.selectedGender = newGender.toString();
 		this.gender.set(newGender);
 		refreshLanguageList();
@@ -1904,7 +1905,7 @@ public class CharacterFacadeImpl
 			}
 			for (GenderFacade pcGender : availGenders)
 			{
-				if (pcGender.equals(charDisplay.getGenderObject()))
+				if (pcGender.equals(theCharacter.getGenderObject()))
 				{
 					gender.set(pcGender);
 					break;

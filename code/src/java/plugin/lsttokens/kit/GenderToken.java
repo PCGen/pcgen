@@ -22,9 +22,11 @@ import java.util.Collection;
 import java.util.StringTokenizer;
 
 import pcgen.base.lang.StringUtil;
+import pcgen.base.util.Indirect;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.core.kit.KitBio;
+import pcgen.output.channel.compat.GenderAdapter;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -64,7 +66,7 @@ public class GenderToken extends AbstractTokenWithSeparator<KitBio> implements C
 		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
 		while (st.hasMoreTokens())
 		{
-			kitGender.addGender(Gender.valueOf(st.nextToken()));
+			kitGender.addGender(GenderAdapter.getGenderReference(context, st.nextToken()));
 		}
 		return ParseResult.SUCCESS;
 	}
@@ -72,16 +74,16 @@ public class GenderToken extends AbstractTokenWithSeparator<KitBio> implements C
 	@Override
 	public String[] unparse(LoadContext context, KitBio kitGender)
 	{
-		Collection<Gender> genders = kitGender.getGenders();
+		Collection<Indirect<Gender>> genders = kitGender.getGenders();
 		if (genders == null)
 		{
 			return null;
 		}
 		String[] g = new String[genders.size()];
 		int i = 0;
-		for (Gender gender : genders)
+		for (Indirect<Gender> genderIndirect : genders)
 		{
-			g[i++] = gender.name();
+			g[i++] = genderIndirect.get().name();
 		}
 		return new String[]{StringUtil.join(g, Constants.PIPE)};
 	}

@@ -19,6 +19,7 @@ package pcgen.core.npcgen;
 
 import pcgen.base.util.WeightedCollection;
 import pcgen.cdom.enumeration.Gender;
+import pcgen.output.channel.compat.GenderAdapter;
 
 /**
  * This class represents a particular gender generator option.
@@ -39,9 +40,11 @@ public class GenderGeneratorOption extends GeneratorOption
 			theChoices = new WeightedCollection<>();
 		}
 
+		Gender[] allGenders = GenderAdapter.getAvailableGenders();
+		
 		if (aValue.equals("*")) //$NON-NLS-1$
 		{
-			for (final Gender gender : Gender.values())
+			for (final Gender gender : allGenders)
 			{
 				if (!theChoices.contains(gender))
 				{
@@ -51,7 +54,7 @@ public class GenderGeneratorOption extends GeneratorOption
 			return;
 		}
 
-		for (final Gender gender : Gender.values())
+		for (final Gender gender : allGenders)
 		{
 			if (gender.toString().equalsIgnoreCase(aValue))
 			{
