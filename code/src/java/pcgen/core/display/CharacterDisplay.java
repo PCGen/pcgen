@@ -163,7 +163,7 @@ import pcgen.core.character.Follower;
 import pcgen.core.character.SpellBook;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.spell.Spell;
-import pcgen.output.channel.ChannelCompatibility;
+import pcgen.output.channel.compat.AlignmentCompat;
 import pcgen.util.enumeration.Load;
 import pcgen.util.enumeration.View;
 import pcgen.util.enumeration.VisionType;
@@ -768,7 +768,7 @@ public class CharacterDisplay
 	 */
 	public PCAlignment getPCAlignment()
 	{
-		return ChannelCompatibility.getCurrentAlignment(id);
+		return AlignmentCompat.getCurrentAlignment(id);
 	}
 
 	public Object getGlobal(String varName)
