@@ -264,7 +264,7 @@ import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.io.PCGFile;
 import pcgen.io.exporttoken.EqToken;
-import pcgen.output.channel.ChannelCompatibility;
+import pcgen.output.channel.compat.AlignmentCompat;
 import pcgen.persistence.lst.GlobalModifierLoader;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
@@ -6231,7 +6231,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 		if (!SettingsHandler.getGame().getAlignmentText().isEmpty())
 		{
-			PCAlignment align = ChannelCompatibility.getCurrentAlignment(id);
+			PCAlignment align = AlignmentCompat.getCurrentAlignment(id);
 			if (align != null)
 			{
 				list.add(align);

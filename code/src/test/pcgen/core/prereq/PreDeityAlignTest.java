@@ -25,7 +25,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Deity;
 import pcgen.core.PlayerCharacter;
-import pcgen.output.channel.ChannelCompatibility;
+import pcgen.output.channel.compat.AlignmentCompat;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
@@ -58,7 +58,7 @@ public class PreDeityAlignTest extends AbstractCharacterTestCase
 	public void testAbbrev() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
-		ChannelCompatibility.setCurrentAlignment(character.getCharID(), ng);
+		AlignmentCompat.setCurrentAlignment(character.getCharID(), ng);
 		character.setDeity(deity);
 		assertEquals("Deity should have been set for character.", deity,
 			character.getDeity());

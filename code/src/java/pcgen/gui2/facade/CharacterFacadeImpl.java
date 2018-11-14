@@ -177,6 +177,7 @@ import pcgen.io.ExportException;
 import pcgen.io.ExportHandler;
 import pcgen.io.PCGIOHandler;
 import pcgen.output.channel.ChannelCompatibility;
+import pcgen.output.channel.compat.AlignmentCompat;
 import pcgen.pluginmgr.PluginManager;
 import pcgen.pluginmgr.messages.PlayerCharacterWasClosedMessage;
 import pcgen.rules.context.LoadContext;
@@ -1382,7 +1383,7 @@ public class CharacterFacadeImpl
 		PCAlignment savedAlignmnet = charDisplay.getPCAlignment();
 		for (PCClass aClass : classList)
 		{
-			ChannelCompatibility.setCurrentAlignment(theCharacter.getCharID(), newAlign);
+			AlignmentCompat.setCurrentAlignment(theCharacter.getCharID(), newAlign);
 			{
 				if (!theCharacter.isQualified(aClass))
 				{
@@ -1408,7 +1409,7 @@ public class CharacterFacadeImpl
 			if (!delegate.showWarningConfirm(Constants.APPLICATION_NAME,
 				LanguageBundle.getString("in_sumExClassesWarning") + Constants.LINE_SEPARATOR + unqualified))
 			{
-				ChannelCompatibility.setCurrentAlignment(theCharacter.getCharID(), savedAlignmnet);
+				AlignmentCompat.setCurrentAlignment(theCharacter.getCharID(), savedAlignmnet);
 				return false;
 			}
 
