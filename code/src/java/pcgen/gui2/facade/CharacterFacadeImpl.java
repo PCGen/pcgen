@@ -133,7 +133,6 @@ import pcgen.facade.core.ClassFacade;
 import pcgen.facade.core.CompanionSupportFacade;
 import pcgen.facade.core.CoreViewNodeFacade;
 import pcgen.facade.core.DataSetFacade;
-import pcgen.facade.core.DeityFacade;
 import pcgen.facade.core.DescriptionFacade;
 import pcgen.facade.core.DomainFacade;
 import pcgen.facade.core.EquipModFacade;
@@ -211,7 +210,7 @@ public class CharacterFacadeImpl
 	private final UndoManager undoManager;
 	private final DelegatingDataSet dataSet;
 	private DefaultReferenceFacade<RaceFacade> race;
-	private DefaultReferenceFacade<DeityFacade> deity;
+	private DefaultReferenceFacade<Deity> deity;
 	private DefaultReferenceFacade<String> tabName;
 	private DefaultReferenceFacade<String> name;
 	private DefaultReferenceFacade<String> playersName;
@@ -1940,19 +1939,16 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public ReferenceFacade<DeityFacade> getDeityRef()
+	public ReferenceFacade<Deity> getDeityRef()
 	{
 		return deity;
 	}
 
 	@Override
-	public void setDeity(DeityFacade deity)
+	public void setDeity(Deity deity)
 	{
 		this.deity.set(deity);
-		if (deity instanceof Deity)
-		{
-			theCharacter.setDeity((Deity) deity);
-		}
+		theCharacter.setDeity(deity);
 		refreshLanguageList();
 		buildAvailableDomainsList();
 	}
@@ -3622,13 +3618,12 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public boolean isQualifiedFor(DeityFacade deityFacade)
+	public boolean isQualifiedFor(Deity aDeity)
 	{
-		if (!(deityFacade instanceof Deity))
+		if (aDeity == null)
 		{
 			return false;
 		}
-		Deity aDeity = (Deity) deityFacade;
 		return PrereqHandler.passesAll(aDeity, theCharacter, aDeity) && theCharacter.isQualified(aDeity);
 	}
 

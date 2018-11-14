@@ -53,9 +53,9 @@ import org.apache.commons.lang3.StringUtils;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.Gender;
+import pcgen.core.Deity;
 import pcgen.core.PCAlignment;
 import pcgen.facade.core.CharacterFacade;
-import pcgen.facade.core.DeityFacade;
 import pcgen.facade.core.HandedFacade;
 import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.event.ListEvent;
@@ -435,13 +435,13 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 		public DeityItem(final CharacterFacade character)
 		{
 			super("in_deity", BiographyField.DEITY, character); //$NON-NLS-1$
-			CharacterComboBoxModel<DeityFacade> deityModel = new CharacterComboBoxModel<DeityFacade>()
+			CharacterComboBoxModel<Deity> deityModel = new CharacterComboBoxModel<Deity>()
 			{
 
 				@Override
 				public void setSelectedItem(Object anItem)
 				{
-					character.setDeity((DeityFacade) anItem);
+					character.setDeity((Deity) anItem);
 				}
 
 			};

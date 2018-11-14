@@ -45,7 +45,6 @@ import pcgen.facade.core.AbilityFacade;
 import pcgen.facade.core.CampaignFacade;
 import pcgen.facade.core.ClassFacade;
 import pcgen.facade.core.DataSetFacade;
-import pcgen.facade.core.DeityFacade;
 import pcgen.facade.core.EquipmentFacade;
 import pcgen.facade.core.GameModeFacade;
 import pcgen.facade.core.GearBuySellFacade;
@@ -67,7 +66,7 @@ public class DataSet implements DataSetFacade
 
 	private final DefaultListFacade<RaceFacade> races;
 	private final DefaultListFacade<ClassFacade> classes;
-	private final DefaultListFacade<DeityFacade> deities;
+	private final DefaultListFacade<Deity> deities;
 	private final DefaultListFacade<SkillFacade> skills;
 	private final DefaultListFacade<PCTemplate> templates;
 	private final DefaultListFacade<PCAlignment> alignments;
@@ -337,7 +336,7 @@ public class DataSet implements DataSetFacade
 	}
 
 	@Override
-	public ListFacade<DeityFacade> getDeities()
+	public ListFacade<Deity> getDeities()
 	{
 		return deities;
 	}

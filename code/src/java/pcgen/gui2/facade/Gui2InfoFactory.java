@@ -103,7 +103,6 @@ import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.core.spell.Spell;
 import pcgen.facade.core.AbilityFacade;
 import pcgen.facade.core.ClassFacade;
-import pcgen.facade.core.DeityFacade;
 import pcgen.facade.core.DomainFacade;
 import pcgen.facade.core.EquipModFacade;
 import pcgen.facade.core.EquipmentFacade;
@@ -604,13 +603,13 @@ public class Gui2InfoFactory implements InfoFactory
 	}
 
 	@Override
-	public String getHTMLInfo(DeityFacade deityFacade)
+	public String getHTMLInfo(Deity deityFacade)
 	{
-		if (!(deityFacade instanceof Deity))
+		if (deityFacade == null)
 		{
 			return EMPTY_STRING;
 		}
-		Deity aDeity = (Deity) deityFacade;
+		Deity aDeity = deityFacade;
 
 		final HtmlInfoBuilder infoText = new HtmlInfoBuilder();
 
@@ -1468,10 +1467,6 @@ public class Gui2InfoFactory implements InfoFactory
 		{
 			return getHTMLInfo((ClassFacade) facade, null);
 		}
-		if (facade instanceof DeityFacade)
-		{
-			return getHTMLInfo((DeityFacade) facade);
-		}
 		if (facade instanceof DomainFacade)
 		{
 			return getHTMLInfo((DomainFacade) facade);
@@ -2055,20 +2050,19 @@ public class Gui2InfoFactory implements InfoFactory
 	}
 
 	@Override
-	public String getDescription(DeityFacade deityFacade)
+	public String getDescription(Deity deity)
 	{
-		if (deityFacade == null || !(deityFacade instanceof Deity))
+		if (deity == null)
 		{
 			return EMPTY_STRING;
 		}
 		try
 		{
-			Deity deity = (Deity) deityFacade;
 			return DescriptionFormatting.piWrapDesc(deity, pc.getDescription(deity), false);
 		}
 		catch (Exception e)
 		{
-			Logging.errorPrint("Failed to get description for " + deityFacade, e); //$NON-NLS-1$
+			Logging.errorPrint("Failed to get description for " + deity, e); //$NON-NLS-1$
 			return EMPTY_STRING;
 		}
 	}
@@ -2183,13 +2177,13 @@ public class Gui2InfoFactory implements InfoFactory
 	}
 
 	@Override
-	public String getDomains(DeityFacade deityFacade)
+	public String getDomains(Deity deityFacade)
 	{
-		if (deityFacade == null || !(deityFacade instanceof Deity))
+		if (deityFacade == null)
 		{
 			return EMPTY_STRING;
 		}
-		Deity deity = (Deity) deityFacade;
+		Deity deity = deityFacade;
 		Set<String> set = new TreeSet<>();
 		for (CDOMReference<Domain> ref : deity.getSafeListMods(Deity.DOMAINLIST))
 		{
@@ -2205,13 +2199,13 @@ public class Gui2InfoFactory implements InfoFactory
 	}
 
 	@Override
-	public String getPantheons(DeityFacade deityFacade)
+	public String getPantheons(Deity deityFacade)
 	{
-		if (deityFacade == null || !(deityFacade instanceof Deity))
+		if (deityFacade == null)
 		{
 			return EMPTY_STRING;
 		}
-		Deity deity = (Deity) deityFacade;
+		Deity deity = deityFacade;
 		Set<String> set = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
 		FactSetKey<String> fk = FactSetKey.valueOf("Pantheon");
 		for (Indirect<String> indirect : deity.getSafeSetFor(fk))
@@ -2230,13 +2224,13 @@ public class Gui2InfoFactory implements InfoFactory
 	 * @return The comma separated list of weapons.
 	 */
 	@Override
-	public String getFavoredWeapons(DeityFacade deityFacade)
+	public String getFavoredWeapons(Deity deityFacade)
 	{
-		if (deityFacade == null || !(deityFacade instanceof Deity))
+		if (deityFacade == null)
 		{
 			return EMPTY_STRING;
 		}
-		Deity deity = (Deity) deityFacade;
+		Deity deity = deityFacade;
 		List<CDOMReference<WeaponProf>> wpnList = deity.getSafeListFor(ListKey.DEITYWEAPON);
 		return ReferenceUtilities.joinLstFormat(wpnList, ",");
 	}

@@ -32,6 +32,7 @@ import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.cdom.meta.CorePerspective;
+import pcgen.core.Deity;
 import pcgen.core.Language;
 import pcgen.core.PCAlignment;
 import pcgen.core.PCTemplate;
@@ -389,9 +390,9 @@ public interface CharacterFacade extends CompanionFacade
 	 */
 	public void setFile(File file);
 
-	public ReferenceFacade<DeityFacade> getDeityRef();
+	public ReferenceFacade<Deity> getDeityRef();
 
-	public void setDeity(DeityFacade deity);
+	public void setDeity(Deity deity);
 
 	/**
 	 * @return The domains that the character knows
@@ -634,7 +635,7 @@ public interface CharacterFacade extends CompanionFacade
 	 * @param deity The deity to be checked.
 	 * @return True if the character can take the deity, false if not.
 	 */
-	public boolean isQualifiedFor(DeityFacade deity);
+	public boolean isQualifiedFor(Deity deity);
 
 	/**
 	 * Check if the character meets all requirements to take the temporary bonus.
