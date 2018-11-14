@@ -39,6 +39,7 @@ import pcgen.core.PCAlignment;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.Race;
 import pcgen.core.VariableProcessor;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.ListFacade;
@@ -323,18 +324,18 @@ public interface CharacterFacade extends CompanionFacade
 	 * @return a reference to this character's Race
 	 */
 	@Override
-	public ReferenceFacade<RaceFacade> getRaceRef();
+	public ReferenceFacade<Race> getRaceRef();
 
 	/**
 	 * @return A reference to a list containing the character's race.
 	 */
-	public ListFacade<RaceFacade> getRaceAsList();
+	public ListFacade<Race> getRaceAsList();
 
 	/**
 	 * Sets this character's race
 	 * @param race
 	 */
-	public void setRace(RaceFacade race);
+	public void setRace(Race race);
 
 	/**
 	 * @return a reference to this character's tab name
@@ -619,11 +620,18 @@ public interface CharacterFacade extends CompanionFacade
 	public void refreshRollMethod();
 
 	/**
-	 * Check if the character meets all requirements to be of the onject.
+	 * Check if the character meets all requirements to be of the object.
 	 * @param infoFacade The object to be checked.
 	 * @return True if the character qualifies for the object, false if not.
 	 */
 	public boolean isQualifiedFor(InfoFacade infoFacade);
+
+	/**
+	 * Check if the character meets all requirements to be of the race.
+	 * @param race The race to be checked.
+	 * @return True if the character qualifies for the race, false if not.
+	 */
+	public boolean isQualifiedFor(Race race);
 
 	/**
 	 * Check if the character meets all requirements to take the domain.

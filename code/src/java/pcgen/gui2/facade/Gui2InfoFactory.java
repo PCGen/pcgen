@@ -109,7 +109,6 @@ import pcgen.facade.core.EquipmentFacade;
 import pcgen.facade.core.InfoFacade;
 import pcgen.facade.core.InfoFactory;
 import pcgen.facade.core.KitFacade;
-import pcgen.facade.core.RaceFacade;
 import pcgen.facade.core.SpellFacade;
 import pcgen.facade.core.TempBonusFacade;
 import pcgen.gui2.util.HtmlInfoBuilder;
@@ -159,7 +158,7 @@ public class Gui2InfoFactory implements InfoFactory
 	}
 
 	@Override
-	public String getFavoredClass(RaceFacade race)
+	public String getFavoredClass(Race race)
 	{
 		if (!(race instanceof Race))
 		{
@@ -170,7 +169,7 @@ public class Gui2InfoFactory implements InfoFactory
 	}
 
 	@Override
-	public String getHTMLInfo(RaceFacade raceFacade)
+	public String getHTMLInfo(Race raceFacade)
 	{
 		if (!(raceFacade instanceof Race))
 		{
@@ -206,7 +205,8 @@ public class Gui2InfoFactory implements InfoFactory
 			appendFacts(infoText, race);
 
 			infoText.appendLineBreak();
-			String size = race.getSize();
+			String size = getSize(race);
+			
 			if (StringUtils.isNotEmpty(size))
 			{
 				infoText.appendI18nElement("in_size", size); //$NON-NLS-1$
@@ -1477,10 +1477,6 @@ public class Gui2InfoFactory implements InfoFactory
 		{
 			return getHTMLInfo((KitFacade) facade);
 		}
-		if (facade instanceof RaceFacade)
-		{
-			return getHTMLInfo((RaceFacade) facade);
-		}
 		if (facade instanceof SpellFacade)
 		{
 			return getHTMLInfo((SpellFacade) facade);
@@ -1533,7 +1529,7 @@ public class Gui2InfoFactory implements InfoFactory
 	}
 
 	@Override
-	public String getLevelAdjustment(RaceFacade raceFacade)
+	public String getLevelAdjustment(Race raceFacade)
 	{
 		if (!(raceFacade instanceof Race))
 		{
@@ -1544,7 +1540,7 @@ public class Gui2InfoFactory implements InfoFactory
 	}
 
 	@Override
-	public int getNumMonsterClassLevels(RaceFacade raceFacade)
+	public int getNumMonsterClassLevels(Race raceFacade)
 	{
 		if (!(raceFacade instanceof Race))
 		{
@@ -1560,7 +1556,7 @@ public class Gui2InfoFactory implements InfoFactory
 	}
 
 	@Override
-	public String getPreReqHTML(RaceFacade raceFacade)
+	public String getPreReqHTML(Race raceFacade)
 	{
 		if (!(raceFacade instanceof Race))
 		{
@@ -1576,7 +1572,7 @@ public class Gui2InfoFactory implements InfoFactory
 	}
 
 	@Override
-	public String getStatAdjustments(RaceFacade raceFacade)
+	public String getStatAdjustments(Race raceFacade)
 	{
 		if (!(raceFacade instanceof Race))
 		{
@@ -1614,7 +1610,7 @@ public class Gui2InfoFactory implements InfoFactory
 	}
 
 	@Override
-	public String getVision(RaceFacade race)
+	public String getVision(Race race)
 	{
 		if (!(race instanceof Race))
 		{
@@ -1931,7 +1927,7 @@ public class Gui2InfoFactory implements InfoFactory
 	}
 
 	@Override
-	public String getDescription(RaceFacade raceFacade)
+	public String getDescription(Race raceFacade)
 	{
 		if (raceFacade == null || !(raceFacade instanceof Race))
 		{
@@ -2285,7 +2281,7 @@ public class Gui2InfoFactory implements InfoFactory
 	}
 
 	@Override
-	public String getMovement(RaceFacade race)
+	public String getMovement(Race race)
 	{
 		if (!(race instanceof Race))
 		{
@@ -2368,6 +2364,13 @@ public class Gui2InfoFactory implements InfoFactory
 			first = false;
 		}
 		return sb.toString();
+	}
+
+	@Override
+	public String getSize(Race race)
+	{
+		Formula formula = race.get(FormulaKey.SIZE);
+		return (formula == null) ? "" : formula.toString();
 	}
 
 }

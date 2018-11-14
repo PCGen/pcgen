@@ -146,7 +146,6 @@ import pcgen.facade.core.InfoFacade;
 import pcgen.facade.core.InfoFactory;
 import pcgen.facade.core.KitFacade;
 import pcgen.facade.core.LanguageChooserFacade;
-import pcgen.facade.core.RaceFacade;
 import pcgen.facade.core.SpellFacade;
 import pcgen.facade.core.SpellSupportFacade;
 import pcgen.facade.core.TempBonusFacade;
@@ -206,7 +205,7 @@ public class CharacterFacadeImpl
 	private Map<PCStat, WriteableReferenceFacade<Number>> statScoreMap;
 	private final UndoManager undoManager;
 	private final DelegatingDataSet dataSet;
-	private DefaultReferenceFacade<RaceFacade> race;
+	private DefaultReferenceFacade<Race> race;
 	private DefaultReferenceFacade<Deity> deity;
 	private DefaultReferenceFacade<String> tabName;
 	private DefaultReferenceFacade<String> name;
@@ -247,7 +246,7 @@ public class CharacterFacadeImpl
 	private DefaultReferenceFacade<Integer> maxDomains;
 	private DefaultReferenceFacade<Integer> remainingDomains;
 	private DefaultListFacade<PCTemplate> templates;
-	private ListFacade<RaceFacade> raceList;
+	private ListFacade<Race> raceList;
 	private DefaultListFacade<KitFacade> kitList;
 	private DefaultReferenceFacade<File> portrait;
 	private RectangleReference cropRect;
@@ -1715,7 +1714,7 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public ReferenceFacade<RaceFacade> getRaceRef()
+	public ReferenceFacade<Race> getRaceRef()
 	{
 		return race;
 	}
@@ -1724,13 +1723,13 @@ public class CharacterFacadeImpl
 	 * @return A reference to a list containing the character's race.
 	 */
 	@Override
-	public ListFacade<RaceFacade> getRaceAsList()
+	public ListFacade<Race> getRaceAsList()
 	{
 		return raceList;
 	}
 
 	@Override
-	public void setRace(RaceFacade race)
+	public void setRace(Race race)
 	{
 		// TODO: We don't have a HP dialog implemented yet, so don't try to show it
 		SettingsHandler.setShowHPDialogAtLevelUp(false);
@@ -4269,4 +4268,11 @@ public class CharacterFacadeImpl
 		return PrereqHandler.passesAll(template, theCharacter, template)
 			&& theCharacter.isQualified(template);
 	}
+
+	@Override
+	public boolean isQualifiedFor(Race qRace)
+	{
+		return theCharacter.isQualified(qRace);
+	}
+
 }
