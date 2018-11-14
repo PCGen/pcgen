@@ -82,8 +82,7 @@ public class CDOMTransparentTypeRef<T extends Loadable> extends CDOMGroupRef<T> 
 	{
 		super(objClass.getSimpleName() + " " + Arrays.deepToString(typeArray));
 		this.formatRepresentation = Objects.requireNonNull(formatRepresentation);
-		types = new String[typeArray.length];
-		System.arraycopy(typeArray, 0, types, 0, typeArray.length);
+		types = Arrays.copyOf(typeArray, typeArray.length);
 		refClass = objClass;
 	}
 
