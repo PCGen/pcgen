@@ -153,11 +153,6 @@ public class DiceBagPluginView implements Observer
 		}
 	}
 
-	/**
-	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
-	 *
-	 * Forwards update messages on to the appropriate handlers.
-	 */
 	@Override
 	public void update(Observable o, Object arg)
 	{
@@ -344,27 +339,18 @@ public class DiceBagPluginView implements Observer
 	 */
 	private class ChildListener extends InternalFrameAdapter
 	{
-		/**
-		 * @see javax.swing.event.InternalFrameListener#internalFrameActivated(javax.swing.event.InternalFrameEvent)
-		 */
 		@Override
 		public void internalFrameActivated(InternalFrameEvent e)
 		{
 			DiceBagPluginView.this.internalFrameActivated(e);
 		}
 
-		/**
-		 * @see javax.swing.event.InternalFrameListener#internalFrameClosed(javax.swing.event.InternalFrameEvent)
-		 */
 		@Override
 		public void internalFrameClosed(InternalFrameEvent e)
 		{
 			DiceBagPluginView.this.internalFrameClosed(e);
 		}
 
-		/**
-		 * @see javax.swing.event.InternalFrameListener#internalFrameClosing(javax.swing.event.InternalFrameEvent)
-		 */
 		@Override
 		public void internalFrameClosing(InternalFrameEvent e)
 		{

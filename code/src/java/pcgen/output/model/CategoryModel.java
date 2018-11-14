@@ -46,9 +46,6 @@ public class CategoryModel implements TemplateScalarModel
 		this.category = cat;
 	}
 
-	/*
-	 * @see freemarker.template.TemplateScalarModel#getAsString()
-	 */
 	@Override
 	public String getAsString() throws TemplateModelException
 	{

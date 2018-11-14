@@ -481,9 +481,6 @@ public class DiceBagView extends JInternalFrame implements Observer
 	 */
 	private class BagListener implements ActionListener
 	{
-		/**
-		 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
-		 */
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
@@ -538,27 +535,19 @@ public class DiceBagView extends JInternalFrame implements Observer
 	 */
 	private class BagTableModel extends AbstractTableModel
 	{
-		/**
-		 * @see javax.swing.table.TableModel#isCellEditable(int, int)
-		 */
 		@Override
 		public boolean isCellEditable(int rowIndex, int columnIndex)
 		{
 			return true;
 		}
 
-		/**
-		 * @see javax.swing.table.TableModel#getColumnClass(int)
-		 */
 		@Override
 		public Class<?> getColumnClass(int columnIndex)
 		{
 			return String.class;
 		}
 
-		/**
-		 * @see javax.swing.table.TableModel#getColumnCount()
-		 *
+		/*
 		 * Always a single column
 		 */
 		@Override
@@ -567,9 +556,6 @@ public class DiceBagView extends JInternalFrame implements Observer
 			return 1;
 		}
 
-		/**
-		 * @see javax.swing.table.TableModel#getColumnName(int)
-		 */
 		@Override
 		public String getColumnName(int column)
 		{
@@ -577,8 +563,6 @@ public class DiceBagView extends JInternalFrame implements Observer
 		}
 
 		/**
-		 * @see javax.swing.table.TableModel#getRowCount()
-		 *
 		 * We add one more row than the number of dice in the bag;
 		 * users can type in that row to add a new die.
 		 */
@@ -589,8 +573,6 @@ public class DiceBagView extends JInternalFrame implements Observer
 		}
 
 		/**
-		 * @see javax.swing.table.TableModel#setValueAt(java.lang.Object, int, int)
-		 *
 		 * Sets the value at the specified index, or adds a new die at the end.
 		 */
 		@Override

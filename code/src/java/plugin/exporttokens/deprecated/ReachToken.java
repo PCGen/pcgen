@@ -32,9 +32,6 @@ import pcgen.io.exporttoken.Token;
 //REACH
 public class ReachToken extends Token
 {
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{

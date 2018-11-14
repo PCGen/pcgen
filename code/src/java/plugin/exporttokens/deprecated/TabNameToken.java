@@ -27,19 +27,12 @@ import pcgen.io.exporttoken.AbstractExportToken;
  */
 public class TabNameToken extends AbstractExportToken
 {
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return "TABNAME";
 	}
 
-	//TODO: move this into the NameToken as NAME.TAB
-	/**
-	 * @see AbstractExportToken#getToken(String, CharacterDisplay, ExportHandler)
-	 */
 	@Override
 	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
 	{

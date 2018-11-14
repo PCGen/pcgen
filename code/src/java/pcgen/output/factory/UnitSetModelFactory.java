@@ -35,9 +35,6 @@ public class UnitSetModelFactory implements ModeModelFactory
 	 * not in place today for GameMode.
 	 */
 
-	/**
-	 * @see pcgen.output.base.ModeModelFactory#generate(pcgen.core.GameMode mode)
-	 */
 	@Override
 	public UnitSetModel generate(GameMode mode)
 	{
