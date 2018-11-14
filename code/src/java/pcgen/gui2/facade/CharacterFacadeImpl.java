@@ -178,6 +178,7 @@ import pcgen.io.ExportHandler;
 import pcgen.io.PCGIOHandler;
 import pcgen.output.channel.ChannelCompatibility;
 import pcgen.output.channel.compat.AlignmentCompat;
+import pcgen.output.channel.compat.HandedCompat;
 import pcgen.pluginmgr.PluginManager;
 import pcgen.pluginmgr.messages.PlayerCharacterWasClosedMessage;
 import pcgen.rules.context.LoadContext;
@@ -386,7 +387,7 @@ public class CharacterFacadeImpl
 
 		availHands = new DefaultListFacade<>();
 		availGenders = new DefaultListFacade<>();
-		for (Handed handed : Handed.values())
+		for (Handed handed : HandedCompat.getAvailableHanded())
 		{
 			availHands.addElement(handed);
 		}
