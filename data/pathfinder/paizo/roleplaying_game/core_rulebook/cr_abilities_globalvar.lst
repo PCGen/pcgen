@@ -431,6 +431,10 @@ CATEGORY=Class|Fighter.MOD	DEFINE:Fighter_CF_BonusFeats|0
 CATEGORY=Class|Fighter.MOD	DEFINE:Fighter_CF_Bravery|0
 CATEGORY=Class|Fighter.MOD	DEFINE:Fighter_CF_ArmorTraining|0
 CATEGORY=Class|Fighter.MOD	DEFINE:Fighter_CF_WeaponTraining|0
+CATEGORY=Class|Fighter.MOD	DEFINE:Fighter_CF_WeaponTraining1|0
+CATEGORY=Class|Fighter.MOD	DEFINE:Fighter_CF_WeaponTraining2|0
+CATEGORY=Class|Fighter.MOD	DEFINE:Fighter_CF_WeaponTraining3|0
+CATEGORY=Class|Fighter.MOD	DEFINE:Fighter_CF_WeaponTraining4|0
 CATEGORY=Class|Fighter.MOD	DEFINE:Fighter_CF_ArmorMastery|0
 CATEGORY=Class|Fighter.MOD	DEFINE:Fighter_CF_WeaponMastery|0
 CATEGORY=Class|Fighter.MOD	DEFINE:Fighter_CF_ArmorTraining1|0
@@ -472,6 +476,10 @@ CATEGORY=Class|Fighter.MOD							BONUS:VAR|Fighter_CF_BonusFeats|1|TYPE=Boolean|
 CATEGORY=Class|Fighter.MOD							BONUS:VAR|Fighter_CF_Bravery|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_Bravery=True
 CATEGORY=Class|Fighter.MOD							BONUS:VAR|Fighter_CF_ArmorTraining|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_ArmorTraining=True
 CATEGORY=Class|Fighter.MOD							BONUS:VAR|Fighter_CF_WeaponTraining|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_WeaponTraining=True
+CATEGORY=Class|Fighter.MOD							BONUS:VAR|Fighter_CF_WeaponTraining1|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_WeaponTraining1=True
+CATEGORY=Class|Fighter.MOD							BONUS:VAR|Fighter_CF_WeaponTraining2|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_WeaponTraining2=True
+CATEGORY=Class|Fighter.MOD							BONUS:VAR|Fighter_CF_WeaponTraining3|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_WeaponTraining3=True
+CATEGORY=Class|Fighter.MOD							BONUS:VAR|Fighter_CF_WeaponTraining4|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_WeaponTraining4=True
 CATEGORY=Class|Fighter.MOD							BONUS:VAR|Fighter_CF_ArmorMastery|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_ArmorMastery=True
 CATEGORY=Class|Fighter.MOD							BONUS:VAR|Fighter_CF_WeaponMastery|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_WeaponMastery=True
 CATEGORY=Class|Fighter.MOD							BONUS:VAR|Fighter_CF_ArmorTraining1|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_ArmorTraining1=True
