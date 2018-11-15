@@ -37,7 +37,6 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.WeaponProf;
 import pcgen.core.character.WieldCategory;
-import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.system.LanguageBundle;
 
@@ -79,7 +78,7 @@ public class WeaponhToken extends WeaponToken
 		//Weapono Token
 		aTok.nextToken();
 
-		Equipment eq = getWeaponEquipment(pc.getDisplay());
+		Equipment eq = getWeaponEquipment(pc);
 
 		if (eq != null)
 		{
@@ -102,7 +101,7 @@ public class WeaponhToken extends WeaponToken
 	 * @param display The character used to generate the size.
 	 * @return The Unarmed Strike equipment.
 	 */
-	public static Equipment getWeaponEquipment(CharacterDisplay display)
+	public static Equipment getWeaponEquipment(PlayerCharacter pc)
 	{
 		// Creating a fake Unarmed Strike equipment so we
 		// don't need it in the .lst files anymore
@@ -147,7 +146,7 @@ public class WeaponhToken extends WeaponToken
 		head.put(IntegerKey.CRIT_MULT, 2);
 		head.put(IntegerKey.CRIT_RANGE, 1);
 		eq.put(ObjectKey.MOD_CONTROL, EqModControl.NO);
-		SizeAdjustment sa = display.getSizeAdjustment();
+		SizeAdjustment sa = pc.getSizeAdjustment();
 		CDOMDirectSingleRef<SizeAdjustment> ref = CDOMDirectSingleRef.getRef(sa);
 		eq.put(ObjectKey.SIZE, ref);
 		eq.put(ObjectKey.BASESIZE, ref);

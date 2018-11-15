@@ -318,7 +318,7 @@ public class PlayerCharacterOutput
 
 	public String getSize()
 	{
-		return display.getSize();
+		return pc.getSizeAdjustment().getKeyName();
 	}
 
 	String getSpecialAbilities()
