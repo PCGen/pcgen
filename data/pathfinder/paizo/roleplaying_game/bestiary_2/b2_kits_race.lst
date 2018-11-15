@@ -2354,12 +2354,12 @@ ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=FEAT|Multiattack
 ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Vital Strike
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Inflict Light Wounds
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Shield
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Bleed
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Magic
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Poison
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Read Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Inflict Light Wounds
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Shield
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Bleed
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Detect Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Detect Poison
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Read Magic
 
 
 STARTPACK:Dragon (Umbral/Adult) Default	TYPE:Default Monster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Umbral)],[!PRERACE:1,%]	SOURCEPAGE:p.102
@@ -2389,23 +2389,23 @@ ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Skill Focus (Stealth)
 ABILITY:CATEGORY=FEAT|Snatch
 ABILITY:CATEGORY=FEAT|Vital Strike
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dispel Magic
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Inflict Serious Wounds
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Command Undead
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Invisibility
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Web
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Grease
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Inflict Light Wounds
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Magic Missile
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Reduce Person
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Shield
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Bleed
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Magic
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Poison
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Disrupt Undead
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mage Hand
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Ray of Frost
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Read Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Dispel Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Inflict Serious Wounds
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Command Undead
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Invisibility
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Web
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Grease
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Inflict Light Wounds
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Magic Missile
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Reduce Person
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Shield
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Bleed
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Detect Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Detect Poison
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Disrupt Undead
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Mage Hand
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Ray of Frost
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Read Magic
 
 
 STARTPACK:Dragon (Umbral/Ancient) Default	TYPE:Default Monster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Umbral)],[!PRERACE:1,%]	SOURCEPAGE:p.102
@@ -2442,42 +2442,42 @@ ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Skill Focus (Stealth)
 ABILITY:CATEGORY=FEAT|Snatch
 ABILITY:CATEGORY=FEAT|Vital Strike
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Destruction
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Limited Wish
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Harm
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mislead
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Veil
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Command (Greater)
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Slay Living
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Teleport
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Unhallow
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Enervation
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Inflict Critical Wounds
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Phantasmal Killer
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Unholy Blight
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dispel Magic
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Haste
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Inflict Serious Wounds
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Lightning Bolt
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Alter Self
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Blur
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Command Undead
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Invisibility
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Web
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Grease
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Inflict Light Wounds
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Magic Missile
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Reduce Person
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Shield
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Acid Splash
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Bleed
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Magic
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Poison
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Disrupt Undead
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Ghost Sound
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mage Hand
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Ray of Frost
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Read Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Destruction
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Limited Wish
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Harm
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Mislead
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Veil
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Command (Greater)
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Slay Living
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Teleport
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Unhallow
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Enervation
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Inflict Critical Wounds
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Phantasmal Killer
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Unholy Blight
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Dispel Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Haste
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Inflict Serious Wounds
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Lightning Bolt
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Alter Self
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Blur
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Command Undead
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Invisibility
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Web
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Grease
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Inflict Light Wounds
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Magic Missile
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Reduce Person
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Shield
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Acid Splash
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Bleed
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Detect Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Detect Poison
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Disrupt Undead
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Ghost Sound
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Mage Hand
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Ray of Frost
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Read Magic
 
 
 STARTPACK:Dust Digger Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dust Digger]
