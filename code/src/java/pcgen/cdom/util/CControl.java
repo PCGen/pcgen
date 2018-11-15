@@ -75,7 +75,11 @@ public final class CControl
 	public static final String STATMODSAVE = "STATMODSAVE";
 	public static final String RACESAVE = "RACESAVE";
 
+	public static final String BASESIZE = "BASESIZE";
+	public static final String PCSIZE = "PCSIZE";
+
 	public static final CControl ALIGNMENTINPUT = new CControl("ALIGNMENTINPUT", "Alignment");
+
 
 	/**
 	 * The name of a code control that contains a default value. This is used when a Code

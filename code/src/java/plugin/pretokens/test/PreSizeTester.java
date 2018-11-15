@@ -22,29 +22,29 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
+import pcgen.core.PlayerCharacter;
 import pcgen.core.SizeAdjustment;
-import pcgen.core.display.CharacterDisplay;
-import pcgen.core.prereq.AbstractDisplayPrereqTest;
+import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.rules.context.AbstractReferenceContext;
 
-public class PreSizeTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+public class PreSizeTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 
 	@Override
-	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
+	public int passes(final Prerequisite prereq, final PlayerCharacter pc, CDOMObject source)
 	{
 		final int targetSize = getTargetSizeInt(prereq.getOperand());
 
-		final int runningTotal = prereq.getOperator().compare(display.sizeInt(), targetSize);
+		final int runningTotal = prereq.getOperator().compare(pc.sizeInt(), targetSize);
 
 		return countedTotal(prereq, runningTotal);
 	}
 
 	@Override
-	public int passes(final Prerequisite prereq, final Equipment equipment, CharacterDisplay display)
+	public int passes(final Prerequisite prereq, final Equipment equipment, PlayerCharacter pc)
 		throws PrerequisiteException
 	{
 		final int targetSize = getTargetSizeInt(prereq.getOperand());

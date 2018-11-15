@@ -3755,7 +3755,7 @@ public class CharacterFacadeImpl
 	public EquipmentFacade getEquipmentSizedForCharacter(EquipmentFacade equipment)
 	{
 		final Equipment equip = (Equipment) equipment;
-		final SizeAdjustment newSize = charDisplay.getSizeAdjustment();
+		final SizeAdjustment newSize = theCharacter.getSizeAdjustment();
 		if (equip.getSizeAdjustment() == newSize || !Globals.canResizeHaveEffect(equip, null))
 		{
 			return equipment;

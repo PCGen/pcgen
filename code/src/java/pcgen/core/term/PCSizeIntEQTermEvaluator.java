@@ -69,7 +69,7 @@ public class PCSizeIntEQTermEvaluator extends BasePCTermEvaluator implements Ter
 			}
 		}
 
-		return (float) pc.getDisplay().sizeInt() + modSize;
+		return (float) pc.sizeInt() + modSize;
 	}
 
 	@Override

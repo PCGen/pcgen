@@ -20,9 +20,9 @@
 
 package pcgen.core.term;
 
-import pcgen.core.display.CharacterDisplay;
+import pcgen.core.PlayerCharacter;
 
-public class PCSizeIntTermEvaluator extends BasePCDTermEvaluator implements TermEvaluator
+public class PCSizeIntTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
 	public PCSizeIntTermEvaluator(String expressionString)
 	{
@@ -30,9 +30,9 @@ public class PCSizeIntTermEvaluator extends BasePCDTermEvaluator implements Term
 	}
 
 	@Override
-	public Float resolve(CharacterDisplay display)
+	public Float resolve(PlayerCharacter pc)
 	{
-		return (float) display.sizeInt();
+		return (float) pc.sizeInt();
 	}
 
 	@Override

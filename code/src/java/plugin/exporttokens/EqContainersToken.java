@@ -353,7 +353,7 @@ public class EqContainersToken extends Token
 		{
 			retString = Globals.adjustDamage(retString,
 				pc.getDisplay().getRace().getSafe(FormulaKey.SIZE).resolve(pc, "").intValue(),
-				pc.getDisplay().sizeInt());
+				pc.sizeInt());
 		}
 
 		return retString;
