@@ -322,10 +322,10 @@ Clouded Shift						KEY:Opportunist ~ Edge ~ Clouded Shift					CATEGORY:Special A
 Poison Use							KEY:Opportunist ~ Edge ~ Poison Use						CATEGORY:Special Ability	TYPE:OpportunistEdge.SpecialQuality.Extraordinary.Poison Use														SOURCEPAGE:p.20		DESC:The opportunist no longer risks poisoning himself when applying poison to a weapon.
 Rogue Talent						KEY:Opportunist ~ Edge ~ Rogue Talent					CATEGORY:Special Ability	TYPE:OpportunistEdge.SpecialQuality.Extraordinary				DEFINE:OpportunistRogueTalent|0		DEFINE:RogueTalentLVL|0		SOURCEPAGE:p.20		DESC:The opportunist can select one of the following rogue talents for which he qualifies, treating his fighter level as his rogue level: deft palm, fast fingers, fast stealth, honeyed words, lasting poison, minor magic, or quick trapsmith. The opportunist can select this edge multiple times.																																														BONUS:VAR|RogueTalentLVL|FighterLVL		BONUS:VAR|OpportunistRogueTalent|1			BONUS:ABILITYPOOL|Opportunist Rogue Talent|OpportunistRogueTalent			STACK:YES	MULT:YES		CHOOSE:NOCHOICE
 
-Bluff								KEY:Opportunist ~ Bluff Skill Rank						CATEGORY:Internal			TYPE:OpportunistSkillRank	BONUS:SKILLRANK|Bluff|1
-Sense Motive						KEY:Opportunist ~ Sense Motive Skill Rank					CATEGORY:Internal			TYPE:OpportunistSkillRank	BONUS:SKILLRANK|Sense Motive|1
-Sleight of Hand						KEY:Opportunist ~ Sleight of Hand Skill Rank				CATEGORY:Internal			TYPE:OpportunistSkillRank	BONUS:SKILLRANK|Sleight of Hand|1
-Stealth							KEY:Opportunist ~ Stealth Skill Rank					CATEGORY:Internal			TYPE:OpportunistSkillRank	BONUS:SKILLRANK|Stealth|1
+Bluff								KEY:Opportunist ~ Bluff Skill Rank						CATEGORY:Internal			TYPE:OpportunistSkillRank	BONUS:SKILLRANK|Bluff|1			CHOOSE:NOCHOICE	MULT:YES	STACK:YES
+Sense Motive						KEY:Opportunist ~ Sense Motive Skill Rank					CATEGORY:Internal			TYPE:OpportunistSkillRank	BONUS:SKILLRANK|Sense Motive|1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES
+Sleight of Hand						KEY:Opportunist ~ Sleight of Hand Skill Rank				CATEGORY:Internal			TYPE:OpportunistSkillRank	BONUS:SKILLRANK|Sleight of Hand|1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES
+Stealth							KEY:Opportunist ~ Stealth Skill Rank					CATEGORY:Internal			TYPE:OpportunistSkillRank	BONUS:SKILLRANK|Stealth|1		CHOOSE:NOCHOICE	MULT:YES	STACK:YES
 
 CATEGORY=Special Ability|Rogue Talent ~ Deft Palm.MOD			TYPE:OpportunistTalent
 CATEGORY=Special Ability|Rogue Talent ~ Fast Fingers.MOD		TYPE:OpportunistTalent
