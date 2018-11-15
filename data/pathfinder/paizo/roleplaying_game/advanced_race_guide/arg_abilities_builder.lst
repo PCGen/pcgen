@@ -600,12 +600,12 @@ Grappling Appendages	KEY:Builder Racial Trait ~ Grappling Appendages	CATEGORY:Sp
 
 #Block: Monstrous Other
 #COMMENT: Handle on ad hoc basis.
-Multi-Armed			KEY:Builder Racial Trait ~ Multi-Armed		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.RacialTrait.BuilderOtherTrait.Monstrous						DESC:Gain extra arm; can be taken twice.	DESC:[Cost: %1]|4																											STACK:YES	MULT:YES	CHOOSE:NOCHOICE															BONUS:VAR|ARG_RaceBuilderPoints|-4	BONUS:VAR|Arms|1	DEFINE:Arms|0		COST:0	SOURCEPAGE:p.239
+Multi-Armed			KEY:Builder Racial Trait ~ Multi-Armed		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.RacialTrait.BuilderOtherTrait.Monstrous						DESC:Gain extra arm; can be taken twice.	DESC:[Cost: %1]|4																											STACK:YES	MULT:YES	CHOOSE:NOCHOICE															BONUS:VAR|ARG_RaceBuilderPoints|-4	BONUS:VAR|RaceArms|1	DEFINE:RaceArms|0		COST:0	SOURCEPAGE:p.239
 # COMMENT: Handle on ad hoc basis.
-Quadruped			KEY:Builder Racial Trait ~ Quadruped		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.RacialTrait.BuilderOtherTrait.Monstrous						DESC:Four legs and two arms; +4 racial bonus vs trip, +10 untyped bonus to base speed, use weapons and armor as if medium; gain 2 more legs for each +1 RP (additional +4 vs trip per extra pair).	DESC:[Cost: %1]|2		BONUS:VAR|Legs|2																				BONUS:VAR|ARG_RaceBuilderPoints|-2								COST:0	SOURCEPAGE:p.239	ABILITY:Internal|AUTOMATIC|Tracker ~ Race Builder Quadruped	CHOOSE:NOCHOICE	MULT:YES	STACK:YES
+Quadruped			KEY:Builder Racial Trait ~ Quadruped		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.RacialTrait.BuilderOtherTrait.Monstrous						DESC:Four legs and two arms; +4 racial bonus vs trip, +10 untyped bonus to base speed, use weapons and armor as if medium; gain 2 more legs for each +1 RP (additional +4 vs trip per extra pair).	DESC:[Cost: %1]|2		BONUS:VAR|RaceLegs|2																				BONUS:VAR|ARG_RaceBuilderPoints|-2								COST:0	SOURCEPAGE:p.239	ABILITY:Internal|AUTOMATIC|Tracker ~ Race Builder Quadruped	CHOOSE:NOCHOICE	MULT:YES	STACK:YES
 
-# COMMENT: 4 Legs, use BONUS:VAR in base to grant additional per taken.
-Tracker ~ Race Builder Quadruped	CATEGORY:Internal	BONUS:VAR|Legs|2	BONUS:VAR|Arms|2	BONUS:MOVEADD|TYPE.Walk|10
+# COMMENT: 4 RaceLegs, use BONUS:VAR in base to grant additional per taken.
+Tracker ~ Race Builder Quadruped	CATEGORY:Internal	BONUS:VAR|RaceLegs|2	BONUS:VAR|RaceArms|2	BONUS:MOVEADD|TYPE.Walk|10
 
 
 
