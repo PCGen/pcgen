@@ -22,6 +22,23 @@ import pcgen.base.formula.base.LegalScope;
 import pcgen.cdom.formula.PCGenScoped;
 import pcgen.cdom.formula.scope.PCGenScope;
 
+/**
+ * A GroupingScopeFilter decorates a GroupingCollection in order to filter out objects
+ * based on their scope.
+ * 
+ * As context: In general, the grouping objects returned when analyzing something like
+ * GROUP=x are naive to their surroundings. They simply check for a GROUP= or a key, they
+ * do not check that that actual object they are checking is the correct type of object
+ * (Race, Skill, whatever). This could, of course, produce some nasty false positives.
+ * This filter enforces that larger contract (ensuring the appropriate scope) so that
+ * combined with the underlying GroupingCollection, one has both objects limited to a
+ * specific scope (the first argument of MODIFYOTHER, as enforced by this filter) as well
+ * as those that meet the appropriate grouping (the second argument of MODIFYOTHER, as
+ * enforced by the underlying GroupingCollection).
+ *
+ * @param <T>
+ *            The class of the object being stored in this GroupingScopeFilter
+ */
 public class GroupingScopeFilter<T> implements GroupingCollection<T>
 {
 	/**
