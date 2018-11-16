@@ -59,7 +59,7 @@ public class AllGroupingToken<T extends Loadable> implements GroupingDefinition<
 		AllGrouping<T> allGrouping = new AllGrouping<>(info);
 		if (info.hasChild())
 		{
-			GroupingCollection<? extends Loadable> childCollection =
+			GroupingCollection<?> childCollection =
 					ChoiceSetLoadUtilities.getDynamicGroup(context, info.getChild());
 			allGrouping.setChild(childCollection);
 		}
@@ -104,7 +104,7 @@ public class AllGroupingToken<T extends Loadable> implements GroupingDefinition<
 			this.groupingInfo = Objects.requireNonNull(groupingInfo);
 		}
 
-		public void setChild(GroupingCollection<? extends Loadable> childCollection)
+		public void setChild(GroupingCollection<?> childCollection)
 		{
 			childGrouping = childCollection;
 		}
