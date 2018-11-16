@@ -2337,21 +2337,21 @@ STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 #ABILITY:CATEGORY=FEAT|Hover
 #ABILITY:CATEGORY=FEAT|Iron Will
 #ABILITY:CATEGORY=FEAT|Weapon Focus (Gore)
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Lightning Bolt
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Restoration (Lesser)
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Scorching Ray
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Color Spray
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Cure Light Wounds
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Disguise Self
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Remove Fear
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Sanctuary
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Arcane Mark
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Create Water
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Magic
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Guidance
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mage Hand
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mending
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Stabilize
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Lightning Bolt
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Restoration (Lesser)
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Scorching Ray
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Color Spray
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Cure Light Wounds
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Disguise Self
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Remove Fear
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Sanctuary
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Arcane Mark
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Create Water
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Detect Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Guidance
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Mage Hand
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Mending
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Stabilize
 
 
 STARTPACK:Kongamato Default	TYPE:Default Monster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Kongamato],[!PRERACE:1,%]	SOURCEPAGE:p.169

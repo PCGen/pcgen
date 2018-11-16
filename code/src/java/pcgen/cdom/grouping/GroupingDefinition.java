@@ -15,7 +15,6 @@
  */
 package pcgen.cdom.grouping;
 
-import pcgen.cdom.base.Loadable;
 import pcgen.rules.context.LoadContext;
 
 /**
@@ -25,7 +24,7 @@ import pcgen.rules.context.LoadContext;
  * @param <T>
  *            The format of the object that this GroupingDefinition can process.
  */
-public interface GroupingDefinition<T extends Loadable>
+public interface GroupingDefinition<T>
 {
 
 	/**

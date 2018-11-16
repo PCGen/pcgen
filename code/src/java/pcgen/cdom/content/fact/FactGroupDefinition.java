@@ -21,7 +21,6 @@ import pcgen.base.util.FormatManager;
 import pcgen.base.util.ObjectContainer;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.GroupDefinition;
-import pcgen.cdom.base.Loadable;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.grouping.GroupingCollection;
 import pcgen.cdom.grouping.GroupingDefinition;
@@ -116,7 +115,7 @@ public class FactGroupDefinition<T extends CDOMObject, F> implements GroupDefini
 		FactGrouping<T, F> groupGrouping = new FactGrouping<>(def, info);
 		if (info.hasChild())
 		{
-			GroupingCollection<? extends Loadable> childCollection =
+			GroupingCollection<?> childCollection =
 					ChoiceSetLoadUtilities.getDynamicGroup(context, info.getChild());
 			groupGrouping.setChild(childCollection);
 		}

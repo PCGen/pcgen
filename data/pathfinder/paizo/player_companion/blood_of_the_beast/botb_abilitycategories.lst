@@ -64,7 +64,7 @@ ABILITYCATEGORY:First Mothers Fang Exotic Ranged Weapon			VISIBLE:QUALIFY	EDITAB
 ABILITYCATEGORY:First Mothers Fang Social Talent				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FirstMothersFangSocialTalent												PLURAL:First Mothers Fang Social Talents			DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:First Mothers Fang Social Grace Skill				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:FirstMothersFangSocialGraceSkill											PLURAL:First Mothers Fang Social Grace Skills		DISPLAYLOCATION:Class Features
 
-ABILITYCATEGORY:Opportunist Bonus Skill Point					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OpportunistSkillRank													PLURAL:Opportunist Bonus Skill Points			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Opportunist Bonus Skill Point					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:OpportunistSkillRank													PLURAL:Opportunist Bonus Skill Points			DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Opportunist Edge							VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OpportunistEdge														PLURAL:Opportunist Edges					DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Opportunist Rogue Talent						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OpportunistTalent														PLURAL:Opportunist Rogue Talents				DISPLAYLOCATION:Class Features
 
