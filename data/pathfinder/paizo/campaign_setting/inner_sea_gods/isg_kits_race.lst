@@ -216,6 +216,49 @@ ABILITY:CATEGORY=FEAT|Wind Stance
 LANGBONUS:Auran|Celestial|Common
 
 
+STARTPACK:Azata (Thyrlien) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Azata (Thyrlien)],[!PRERACE:1,%]	SOURCEPAGE:p.283
+ALIGN:CG
+RACE:Azata (Thyrlien)	!PRERACE:1,%
+NAME:Azata (Thyrlien)
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+SKILL:Acrobatics				RANK:6
+SKILL:Knowledge (Planes)		RANK:6
+SKILL:Knowledge (Religion)		RANK:6
+SKILL:Perception				RANK:6
+SKILL:TYPE.Perform				RANK:6
+SKILL:Stealth					RANK:6
+SKILL:Survival					RANK:6
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+LANGBONUS:Infernal
+
+
+STARTPACK:The Grim White Stag Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,The Grim White Stag],[!PRERACE:1,%]	SOURCEPAGE:p.282
+ALIGN:LG
+RACE:The Grim White Stag	!PRERACE:1,%
+NAME:The Grim White Stag
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Acrobatics				RANK:9
+SKILL:Handle Animal				RANK:9
+SKILL:Intimidate				RANK:18
+SKILL:Knowledge (Nature)		RANK:9
+SKILL:Perception				RANK:18
+SKILL:Sense Motive				RANK:9
+SKILL:Stealth					RANK:18
+SKILL:Survival					RANK:9
+SKILL:Swim						RANK:9
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Endurance
+ABILITY:CATEGORY=FEAT|Greater Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Critical (Gore)
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Run
+ABILITY:CATEGORY=FEAT|Weapon Focus (Gore)
+
+
 
 
 
