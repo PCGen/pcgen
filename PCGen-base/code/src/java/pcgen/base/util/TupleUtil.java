@@ -58,12 +58,8 @@ public final class TupleUtil
 		HashMapToList<String, String> hml = new HashMapToList<>();
 		unconverted.forEach(t -> hml.addToListFor(t.getSecond(), t.getFirst()));
 		List<String> results = new ArrayList<String>();
-		for (String right : hml.getKeySet())
-		{
-			List<String> leftItems = hml.getListFor(right);
-			StringBuilder sb = StringUtil.joinToStringBuilder(leftItems, separator);
-			results.add(sb.append(right).toString());
-		}
+		hml.getKeySet().forEach(right -> results
+			.add(StringUtil.join(hml.getListFor(right), separator) + right));
 		return results;
 	}
 

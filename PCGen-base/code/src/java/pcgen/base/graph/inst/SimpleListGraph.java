@@ -112,10 +112,7 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 		{
 			return false;
 		}
-		for (N node : e.getAdjacentNodes())
-		{
-			addNode(node);
-		}
+		e.getAdjacentNodes().forEach(node -> addNode(node));
 		edgeList.add(e);
 		gcs.fireGraphEdgeChangeEvent(e, EdgeChangeEvent.EDGE_ADDED);
 		return true;
