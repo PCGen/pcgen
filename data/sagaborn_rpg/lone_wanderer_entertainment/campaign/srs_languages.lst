@@ -1,11 +1,12 @@
-Common	TYPE:Spoken.Default
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# Language	Product Identity?	Type
+Common				TYPE:Spoken.Default
 
-Dwarven	TYPE:Spoken
-Northern	TYPE:Spoken
-Ishian	TYPE:Spoken	NAMEISPI:YES
-Elven		TYPE:Spoken
-Fey		TYPE:Spoken
-Navirite	TYPE:Spoken	NAMEISPI:YES
-Uthgardian	TYPE:Spoken	NAMEISPI:YES
-Goblin	TYPE:Spoken
-
+Dwarven				TYPE:Spoken
+Northern				TYPE:Spoken
+Ishian	NAMEISPI:YES	TYPE:Spoken
+Elven					TYPE:Spoken
+Fey					TYPE:Spoken
+Navirite	NAMEISPI:YES	TYPE:Spoken
+Uthgardian	NAMEISPI:YES	TYPE:Spoken
+Goblin				TYPE:Spoken

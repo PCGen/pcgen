@@ -1,191 +1,192 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
-SOURCELONG:System Reference Document 5.0	SOURCESHORT:SRD5	SOURCEWEB:http://dnd.wizards.com/articles/features/systems-reference-document-srd	SOURCEDATE:2016-01
+SOURCELONG:System Reference Document	SOURCESHORT:SRD5	SOURCEWEB:http://dnd.wizards.com/articles/features/systems-reference-document-srd	SOURCEDATE:2016-01
 # Original Entry: See contributors listed in PCC file.
 
 
-# Equipment Name							Unique Key					Type						Contains									Cost		Weight	Base Quantity	Special Property
-Coin (Platinum)													TYPE:Coin.Money														COST:10	WT:0.02
-Coin (Gold)														TYPE:Coin.Money														COST:1	WT:0.02
-Coin (Electrum)													TYPE:Coin.Money														COST:0.5	WT:0.02
-Coin (Silver)													TYPE:Coin.Money														COST:0.1	WT:0.02
-Coin (Copper)													TYPE:Coin.Money														COST:0.01	WT:0.02
+# Equipment Name							Unique Key						Type						Contains									Number of Pages	Page Usage	Cost		Weight	Base Quantity	Special Property
+Coin (Platinum)														TYPE:Coin.Money																			COST:10	WT:0.02
+Coin (Gold)															TYPE:Coin.Money																			COST:1	WT:0.02
+Coin (Electrum)														TYPE:Coin.Money																			COST:0.5	WT:0.02
+Coin (Silver)														TYPE:Coin.Money																			COST:0.1	WT:0.02
+Coin (Copper)														TYPE:Coin.Money																			COST:0.01	WT:0.02
 
 
 
 
-Abacus														TYPE:Gear															COST:2	WT:2
-Acid (vial)														TYPE:Gear															COST:25	WT:1
-Alchemist's fire (flask)											TYPE:Gear															COST:50	WT:1
+Abacus															TYPE:Gear																				COST:2	WT:2
+Acid (vial)															TYPE:Gear																				COST:25	WT:1
+Alchemist's fire (flask)												TYPE:Gear																				COST:50	WT:1
 # Ammunition
-Arrows (20)														TYPE:Gear.Ammunition.Arrow												COST:1	WT:1		BASEQTY:20
-Blowgun needles (50)												TYPE:Gear.Ammunition.Blowgun Needle											COST:1	WT:1		BASEQTY:50
-Crossbow bolts (20)												TYPE:Gear.Ammunition.Crossbow Bolt											COST:1	WT:1.5	BASEQTY:20
-Sling bullets (20)												TYPE:Gear.Ammunition.Sling Bullet											COST:0.04	WT:1.5	BASEQTY:20
+Arrows (20)															TYPE:Gear.Ammunition.Arrow																	COST:1	WT:1		BASEQTY:20
+Blowgun needles (50)													TYPE:Gear.Ammunition.Blowgun Needle																COST:1	WT:1		BASEQTY:50
+Crossbow bolts (20)													TYPE:Gear.Ammunition.Crossbow Bolt																COST:1	WT:1.5	BASEQTY:20
+Sling bullets (20)													TYPE:Gear.Ammunition.Sling Bullet																COST:0.04	WT:1.5	BASEQTY:20
 #
-Antitoxin (vial)													TYPE:Gear															COST:50	WT:0
+Antitoxin (vial)														TYPE:Gear																				COST:50	WT:0
 # Arcane focus
-Crystal								KEY:Arcane Focus (Crystal)						TYPE:Gear.Arcane Focus													COST:10	WT:1
-Orb									KEY:Arcane Focus (Orb)						TYPE:Gear.Arcane Focus													COST:20	WT:3
-Rod									KEY:Arcane Focus (Rod)						TYPE:Gear.Arcane Focus													COST:10	WT:2
-Staff									KEY:Arcane Focus (Staff)						TYPE:Gear.Arcane Focus													COST:5	WT:4
-Wand									KEY:Arcane Focus (Wand)						TYPE:Gear.Arcane Focus													COST:10	WT:1
+Crystal								KEY:Arcane Focus (Crystal)			TYPE:Gear.Arcane Focus																		COST:10	WT:1
+Orb									KEY:Arcane Focus (Orb)				TYPE:Gear.Arcane Focus																		COST:20	WT:3
+Rod									KEY:Arcane Focus (Rod)				TYPE:Gear.Arcane Focus																		COST:10	WT:2
+Staff									KEY:Arcane Focus (Staff)			TYPE:Gear.Arcane Focus																		COST:5	WT:4
+Wand									KEY:Arcane Focus (Wand)				TYPE:Gear.Arcane Focus																		COST:10	WT:1
 #
-Backpack														TYPE:Gear.Container			CONTAINS:30									COST:2	WT:5
-Ball bearings (bag of 1,000)					KEY:Ball bearings (bag of 1000)	TYPE:Gear															COST:1	WT:2
-Barrel														TYPE:Gear															COST:2	WT:70
-Basket														TYPE:Gear.Container			CONTAINS:UNLIM|Any							COST:0.4	WT:2
-Bedroll														TYPE:Gear															COST:1	WT:7
-Bell															TYPE:Gear															COST:1	WT:0
-Blanket														TYPE:Gear															COST:0.5	WT:3
-Block and tackle													TYPE:Gear															COST:1	WT:5
-Book															TYPE:Gear															COST:25	WT:5
-Bottle, glass							KEY:Bottle (Glass)			TYPE:Gear															COST:2	WT:2
-Bucket														TYPE:Gear															COST:0.05	WT:2
-Caltrops (bag of 20)												TYPE:Gear															COST:1	WT:2
-Candle														TYPE:Gear															COST:0.01	WT:0
-Case, crossbow bolt						KEY:Case (Crossbow Bolt)		TYPE:Gear.Container			CONTAINS:UNLIM|Total=10|Paper=10|Documents=10|Scroll=10	COST:1	WT:1
-Case, map or scroll						KEY:Case (Map or Scroll)		TYPE:Gear.Container			CONTAINS:UNLIM|Total=10|Paper=10|Documents=10|Scroll=10	COST:1	WT:1
-Chain (10 feet)													TYPE:Gear															COST:5	WT:10
-Chalk (1 piece)													TYPE:Gear															COST:0.01	WT:0
-Chest															TYPE:Gear.Container			CONTAINS:300								COST:5	WT:25
-Climber's kit													TYPE:Gear															COST:25	WT:12
-Clothes, Common							KEY:Clothes (Common)			TYPE:Gear.Clothing													COST:0.5	WT:3
-Clothes, Costume							KEY:Clothes (Costume)			TYPE:Gear.Clothing													COST:5	WT:4
-Clothes, Fine							KEY:Clothes (Fine)			TYPE:Gear.Clothing													COST:15	WT:6
-Clothes, Traveler's						KEY:Clothes (Traveler's)		TYPE:Gear.Clothing													COST:2	WT:4
-Component pouch													TYPE:Gear															COST:25	WT:2
-Crowbar														TYPE:Gear															COST:2	WT:5
+Backpack															TYPE:Gear.Container			CONTAINS:30														COST:2	WT:5
+Ball bearings (bag of 1,000)					KEY:Ball bearings (bag of 1000)		TYPE:Gear																				COST:1	WT:2
+Barrel															TYPE:Gear																				COST:2	WT:70
+Basket															TYPE:Gear.Container			CONTAINS:UNLIM|Any												COST:0.4	WT:2
+Bedroll															TYPE:Gear																				COST:1	WT:7
+Bell																TYPE:Gear																				COST:1	WT:0
+Blanket															TYPE:Gear																				COST:0.5	WT:3
+Block and tackle														TYPE:Gear																				COST:1	WT:5
+Book																TYPE:Gear																				COST:25	WT:5
+Bottle, glass							KEY:Bottle (Glass)				TYPE:Gear																				COST:2	WT:2
+Bucket															TYPE:Gear																				COST:0.05	WT:2
+Caltrops (bag of 20)													TYPE:Gear																				COST:1	WT:2
+Candle															TYPE:Gear																				COST:0.01	WT:0
+Case, crossbow bolt						KEY:Case (Crossbow Bolt)			TYPE:Gear.Container			CONTAINS:UNLIM|Total=10|Paper=10|Documents=10|Scroll=10						COST:1	WT:1
+Case, map or scroll						KEY:Case (Map or Scroll)			TYPE:Gear.Container			CONTAINS:UNLIM|Total=10|Paper=10|Documents=10|Scroll=10						COST:1	WT:1
+Chain (10 feet)														TYPE:Gear																				COST:5	WT:10
+Chalk (1 piece)														TYPE:Gear																				COST:0.01	WT:0
+Chest																TYPE:Gear.Container			CONTAINS:300													COST:5	WT:25
+Climber's kit														TYPE:Gear																				COST:25	WT:12
+Clothes, Common							KEY:Clothes (Common)				TYPE:Gear.Clothing																		COST:0.5	WT:3
+Clothes, Costume							KEY:Clothes (Costume)				TYPE:Gear.Clothing																		COST:5	WT:4
+Clothes, Fine							KEY:Clothes (Fine)				TYPE:Gear.Clothing																		COST:15	WT:6
+Clothes, Traveler's						KEY:Clothes (Traveler's)			TYPE:Gear.Clothing																		COST:2	WT:4
+Component pouch														TYPE:Gear																				COST:25	WT:2
+Crowbar															TYPE:Gear																				COST:2	WT:5
 # Druidic Focus
-Sprig of mistletoe						KEY:Druidic Focus (Sprig of mistletoe)						TYPE:Gear.Druidic Focus													COST:1	WT:0
-Totem									KEY:Druidic Focus (Totem)						TYPE:Gear.Druidic Focus													COST:1	WT:0
-Wooden staff							KEY:Druidic Focus (Wooden staff)						TYPE:Gear.Druidic Focus													COST:5	WT:4
-Yew wand								KEY:Druidic Focus (Yew wand)						TYPE:Gear.Druidic Focus													COST:10	WT:1
+Sprig of mistletoe						KEY:Druidic Focus (Sprig of mistletoe)	TYPE:Gear.Druidic Focus																		COST:1	WT:0
+Totem									KEY:Druidic Focus (Totem)			TYPE:Gear.Druidic Focus																		COST:1	WT:0
+Wooden staff							KEY:Druidic Focus (Wooden staff)		TYPE:Gear.Druidic Focus																		COST:5	WT:4
+Yew wand								KEY:Druidic Focus (Yew wand)			TYPE:Gear.Druidic Focus																		COST:10	WT:1
 #
-Fishing tackle													TYPE:Gear															COST:1	WT:4
-Flask or tankard													TYPE:Gear															COST:0.02	WT:1
-Grappling hook													TYPE:Gear															COST:2	WT:4
-Hammer														TYPE:Gear															COST:1	WT:3
-Hammer, sledge							KEY:Hammer (Sledge)			TYPE:Gear															COST:2	WT:10
-Healer's kit													TYPE:Gear															COST:5	WT:3
+Fishing tackle														TYPE:Gear																				COST:1	WT:4
+Flask or tankard														TYPE:Gear																				COST:0.02	WT:1
+Grappling hook														TYPE:Gear																				COST:2	WT:4
+Hammer															TYPE:Gear																				COST:1	WT:3
+Hammer, sledge							KEY:Hammer (Sledge)				TYPE:Gear																				COST:2	WT:10
+Healer's kit														TYPE:Gear																				COST:5	WT:3
 # Holy Symbol
-Holy Symbol (Amulet)												TYPE:Gear.Holy Symbol													COST:5	WT:1
-Holy Symbol (Emblem)												TYPE:Gear.Holy Symbol													COST:5	WT:0
-Holy Symbol (Reliquary)												TYPE:Gear.Holy Symbol													COST:5	WT:2
-Holy water (flask)												TYPE:Gear															COST:25	WT:1
+Holy Symbol (Amulet)													TYPE:Gear.Holy Symbol																		COST:5	WT:1
+Holy Symbol (Emblem)													TYPE:Gear.Holy Symbol																		COST:5	WT:0
+Holy Symbol (Reliquary)													TYPE:Gear.Holy Symbol																		COST:5	WT:2
+Holy water (flask)													TYPE:Gear																				COST:25	WT:1
 #
-Hourglass														TYPE:Gear															COST:25	WT:1
-Hunting trap													TYPE:Gear															COST:5	WT:25
-Ink (1 ounce bottle)												TYPE:Gear															COST:10	WT:0
-Ink pen														TYPE:Gear															COST:0.02	WT:0
-Jug or pitcher													TYPE:Gear															COST:0.02	WT:4
-Ladder (10-foot)													TYPE:Gear															COST:0.1	WT:25
-Lamp															TYPE:Gear															COST:0.5	WT:1
-Lantern, bullseye							KEY:Lantern (Bullseye)			TYPE:Gear															COST:10	WT:2
-Lantern, hooded							KEY:Lantern (Hooded)			TYPE:Gear															COST:5	WT:2
-Lock															TYPE:Gear															COST:10	WT:1
-Magnifying glass													TYPE:Gear															COST:100	WT:0
-Manacles														TYPE:Gear															COST:2	WT:6
-Mess kit														TYPE:Gear															COST:0.2	WT:1
-Mirror, steel							KEY:Mirror (Steel)			TYPE:Gear															COST:5	WT:0.5
-Oil (flask)														TYPE:Gear															COST:0.1	WT:1
-Paper (one sheet)													TYPE:Gear.Paper														COST:0.2	WT:0
-Parchment (one sheet)												TYPE:Gear.Paper														COST:0.1	WT:0
-Perfume (vial)													TYPE:Gear															COST:5	WT:0
-Pick, miner's							KEY:Pick (Miner's)			TYPE:Gear															COST:2	WT:10
-Piton															TYPE:Gear															COST:0.05	WT:0.25
-Poison, basic (vial)						KEY:Poison (Basic/Vial)			TYPE:Gear															COST:100	WT:0
-Pole (10-foot)													TYPE:Gear															COST:0.05	WT:7
-Pot, iron								KEY:Pot (Iron)				TYPE:Gear															COST:2	WT:10
-Potion of healing													TYPE:Gear															COST:50	WT:0.5
-Pouch															TYPE:Gear.Container			CONTAINS:6									COST:0.5	WT:1
-Quiver														TYPE:Gear.Container			CONTAINS:UNLIM|Any							COST:1	WT:1
-Ram, portable							KEY:Ram (Portable)			TYPE:Gear															COST:4	WT:35
-Rations (1 day)													TYPE:Gear															COST:0.5	WT:2
-Robes															TYPE:Gear															COST:1	WT:4
-Rope, hempen (50 feet)						KEY:Rope (Hempen/50)			TYPE:Gear															COST:1	WT:10
-Rope, silk (50 feet)						KEY:Rope (Silk/50)			TYPE:Gear															COST:10	WT:5
-Sack															TYPE:Gear.Container			CONTAINS:30									COST:0.01	WT:0.5
-Scale, merchant's							KEY:Scale (Merchant's)			TYPE:Gear															COST:5	WT:3
-Sealing wax														TYPE:Gear															COST:0.5	WT:0
-Shovel														TYPE:Gear															COST:2	WT:5
-Signal whistle													TYPE:Gear															COST:0.05	WT:0
-Signet ring														TYPE:Gear															COST:5	WT:0
-Soap															TYPE:Gear															COST:0.02
-Spellbook														TYPE:Gear															COST:50	WT:3
-Spikes, iron (10)							KEY:Spikes (Iron/10)			TYPE:Gear															COST:1	WT:5		BASEQTY:10
-Spyglass														TYPE:Gear															COST:1000	WT:1
-Tent, two-person							KEY:Tent (Two-person)			TYPE:Gear															COST:2	WT:20
-Tinderbox														TYPE:Gear															COST:0.5	WT:1
-Torch															TYPE:Gear															COST:0.01	WT:1
-Vial															TYPE:Gear															COST:1	WT:0
-Waterskin														TYPE:Gear															COST:0.2	WT:5
-Whetstone														TYPE:Gear															COST:0.01	WT:1
+Hourglass															TYPE:Gear																				COST:25	WT:1
+Hunting trap														TYPE:Gear																				COST:5	WT:25
+Ink (1 ounce bottle)													TYPE:Gear																				COST:10	WT:0
+Ink pen															TYPE:Gear																				COST:0.02	WT:0
+Jug or pitcher														TYPE:Gear																				COST:0.02	WT:4
+Ladder (10-foot)														TYPE:Gear																				COST:0.1	WT:25
+Lamp																TYPE:Gear																				COST:0.5	WT:1
+Lantern, bullseye							KEY:Lantern (Bullseye)				TYPE:Gear																				COST:10	WT:2
+Lantern, hooded							KEY:Lantern (Hooded)				TYPE:Gear																				COST:5	WT:2
+Lock																TYPE:Gear																				COST:10	WT:1
+Magnifying glass														TYPE:Gear																				COST:100	WT:0
+Manacles															TYPE:Gear																				COST:2	WT:6
+Mess kit															TYPE:Gear																				COST:0.2	WT:1
+Mirror, steel							KEY:Mirror (Steel)				TYPE:Gear																				COST:5	WT:0.5
+Oil (flask)															TYPE:Gear																				COST:0.1	WT:1
+Paper (one sheet)														TYPE:Gear.Paper																			COST:0.2	WT:0
+Parchment (one sheet)													TYPE:Gear.Paper																			COST:0.1	WT:0
+Perfume (vial)														TYPE:Gear																				COST:5	WT:0
+Pick, miner's							KEY:Pick (Miner's)				TYPE:Gear																				COST:2	WT:10
+Piton																TYPE:Gear																				COST:0.05	WT:0.25
+Poison, basic (vial)						KEY:Poison (Basic/Vial)				TYPE:Gear																				COST:100	WT:0
+Pole (10-foot)														TYPE:Gear																				COST:0.05	WT:7
+Pot, iron								KEY:Pot (Iron)					TYPE:Gear																				COST:2	WT:10
+Potion of healing														TYPE:Gear																				COST:50	WT:0.5
+Pouch																TYPE:Gear.Container			CONTAINS:6														COST:0.5	WT:1
+Quiver															TYPE:Gear.Container			CONTAINS:UNLIM|Any												COST:1	WT:1
+Ram, portable							KEY:Ram (Portable)				TYPE:Gear																				COST:4	WT:35
+Rations (1 day)														TYPE:Gear																				COST:0.5	WT:2
+Robes																TYPE:Gear																				COST:1	WT:4
+Rope, hempen (50 feet)						KEY:Rope (Hempen/50)				TYPE:Gear																				COST:1	WT:10
+Rope, silk (50 feet)						KEY:Rope (Silk/50)				TYPE:Gear																				COST:10	WT:5
+Sack																TYPE:Gear.Container			CONTAINS:30														COST:0.01	WT:0.5
+Scale, merchant's							KEY:Scale (Merchant's)				TYPE:Gear																				COST:5	WT:3
+Sealing wax															TYPE:Gear																				COST:0.5	WT:0
+Shovel															TYPE:Gear																				COST:2	WT:5
+Signal whistle														TYPE:Gear																				COST:0.05	WT:0
+Signet ring															TYPE:Gear																				COST:5	WT:0
+Soap																TYPE:Gear																				COST:0.02
+Spellbook															TYPE:Gear																				COST:50	WT:3
+Spikes, iron (10)							KEY:Spikes (Iron/10)				TYPE:Gear																				COST:1	WT:5		BASEQTY:10
+Spyglass															TYPE:Gear																				COST:1000	WT:1
+Tent, two-person							KEY:Tent (Two-person)				TYPE:Gear																				COST:2	WT:20
+Tinderbox															TYPE:Gear																				COST:0.5	WT:1
+Torch																TYPE:Gear																				COST:0.01	WT:1
+Vial																TYPE:Gear																				COST:1	WT:0
+Waterskin															TYPE:Gear																				COST:0.2	WT:5
+Whetstone															TYPE:Gear																				COST:0.01	WT:1
 
 ###
 # Artisan's Tools
-Alchemist's Supplies												TYPE:Gear.Artisan's Tools												COST:50	WT:8
-Brewer's Supplies													TYPE:Gear.Artisan's Tools												COST:20	WT:9
-Calligrapher's Supplies												TYPE:Gear.Artisan's Tools												COST:10	WT:5
-Carpenter's Tools													TYPE:Gear.Artisan's Tools												COST:8	WT:6
-Cartographer's Tools												TYPE:Gear.Artisan's Tools												COST:15	WT:6
-Cobbler's Tools													TYPE:Gear.Artisan's Tools												COST:5	WT:5
-Cook's Utensils													TYPE:Gear.Artisan's Tools												COST:1	WT:8
-Glassblower's Tools												TYPE:Gear.Artisan's Tools												COST:30	WT:5
-Jeweler's Tools													TYPE:Gear.Artisan's Tools												COST:25	WT:2
-Leatherworker's Tools												TYPE:Gear.Artisan's Tools												COST:5	WT:5
-Mason's Tools													TYPE:Gear.Artisan's Tools												COST:10	WT:8
-Painter's Supplies												TYPE:Gear.Artisan's Tools												COST:10	WT:5
-Potter's Tools													TYPE:Gear.Artisan's Tools												COST:10	WT:3
-Smith's Tools													TYPE:Gear.Artisan's Tools												COST:20	WT:8
-Tinker's Tools													TYPE:Gear.Artisan's Tools												COST:50	WT:10
-Weaver's Tools													TYPE:Gear.Artisan's Tools												COST:1	WT:5
-Woodcarver's Tools												TYPE:Gear.Artisan's Tools												COST:1	WT:5
-Disguise Kit													TYPE:Gear.Artisan's Tools												COST:25	WT:3
-Forgery Kit														TYPE:Gear.Artisan's Tools												COST:15	WT:5
-Herbalism Kit													TYPE:Gear.Artisan's Tools												COST:5	WT:3
+Alchemist's Supplies													TYPE:Gear.Artisan's Tools																	COST:50	WT:8
+Brewer's Supplies														TYPE:Gear.Artisan's Tools																	COST:20	WT:9
+Calligrapher's Supplies													TYPE:Gear.Artisan's Tools																	COST:10	WT:5
+Carpenter's Tools														TYPE:Gear.Artisan's Tools																	COST:8	WT:6
+Cartographer's Tools													TYPE:Gear.Artisan's Tools																	COST:15	WT:6
+Cobbler's Tools														TYPE:Gear.Artisan's Tools																	COST:5	WT:5
+Cook's Utensils														TYPE:Gear.Artisan's Tools																	COST:1	WT:8
+Glassblower's Tools													TYPE:Gear.Artisan's Tools																	COST:30	WT:5
+Jeweler's Tools														TYPE:Gear.Artisan's Tools																	COST:25	WT:2
+Leatherworker's Tools													TYPE:Gear.Artisan's Tools																	COST:5	WT:5
+Mason's Tools														TYPE:Gear.Artisan's Tools																	COST:10	WT:8
+Painter's Supplies													TYPE:Gear.Artisan's Tools																	COST:10	WT:5
+Potter's Tools														TYPE:Gear.Artisan's Tools																	COST:10	WT:3
+Smith's Tools														TYPE:Gear.Artisan's Tools																	COST:20	WT:8
+Tinker's Tools														TYPE:Gear.Artisan's Tools																	COST:50	WT:10
+Weaver's Tools														TYPE:Gear.Artisan's Tools																	COST:1	WT:5
+Woodcarver's Tools													TYPE:Gear.Artisan's Tools																	COST:1	WT:5
+Disguise Kit														TYPE:Gear.Artisan's Tools																	COST:25	WT:3
+Forgery Kit															TYPE:Gear.Artisan's Tools																	COST:15	WT:5
+Herbalism Kit														TYPE:Gear.Artisan's Tools																	COST:5	WT:3
 # Gaming Set
-Dice Set														TYPE:Gear.Gaming Set													COST:0.1	WT:0
-Dragonchess Set													TYPE:Gear.Gaming Set													COST:1	WT:0.5
-Playing Card Set													TYPE:Gear.Gaming Set													COST:5	WT:0
-Three-Dragon Ante Set												TYPE:Gear.Gaming Set													COST:1	WT:0
+Dice Set															TYPE:Gear.Gaming Set																		COST:0.1	WT:0
+Dragonchess Set														TYPE:Gear.Gaming Set																		COST:1	WT:0.5
+Playing Card Set														TYPE:Gear.Gaming Set																		COST:5	WT:0
+Three-Dragon Ante Set													TYPE:Gear.Gaming Set																		COST:1	WT:0
 # Musical Instrument
-Bagpipes														TYPE:Gear.Musical Instrument												COST:30	WT:6
-Drum															TYPE:Gear.Musical Instrument												COST:6	WT:3
-Dulcimer														TYPE:Gear.Musical Instrument												COST:25	WT:10
-Flute															TYPE:Gear.Musical Instrument												COST:2	WT:1
-Lute															TYPE:Gear.Musical Instrument												COST:35	WT:2
-Lyre															TYPE:Gear.Musical Instrument												COST:30	WT:2
-Horn															TYPE:Gear.Musical Instrument												COST:3	WT:2
-Pan flute														TYPE:Gear.Musical Instrument												COST:12	WT:2
-Shawm															TYPE:Gear.Musical Instrument												COST:2	WT:1
-Viol															TYPE:Gear.Musical Instrument												COST:30	WT:1
+Bagpipes															TYPE:Gear.Musical Instrument																	COST:30	WT:6
+Drum																TYPE:Gear.Musical Instrument																	COST:6	WT:3
+Dulcimer															TYPE:Gear.Musical Instrument																	COST:25	WT:10
+Flute																TYPE:Gear.Musical Instrument																	COST:2	WT:1
+Lute																TYPE:Gear.Musical Instrument																	COST:35	WT:2
+Lyre																TYPE:Gear.Musical Instrument																	COST:30	WT:2
+Horn																TYPE:Gear.Musical Instrument																	COST:3	WT:2
+Pan flute															TYPE:Gear.Musical Instrument																	COST:12	WT:2
+Shawm																TYPE:Gear.Musical Instrument																	COST:2	WT:1
+Viol																TYPE:Gear.Musical Instrument																	COST:30	WT:1
 #
-Navigator's Tools													TYPE:Gear															COST:25	WT:2
-Poisoner's Kit													TYPE:Gear															COST:50	WT:2
-Thieves' Tools													TYPE:Gear															COST:25	WT:1					SPROP:+%|Proficiency_Bonus|PREABILITY:1,CATEGORY=Internal,Tool Proficiency ~ Thieves' Tools
+Navigator's Tools														TYPE:Gear																				COST:25	WT:2
+Poisoner's Kit														TYPE:Gear																				COST:50	WT:2
+Thieves' Tools														TYPE:Gear																				COST:25	WT:1					SPROP:+%|Proficiency_Bonus|PREABILITY:1,CATEGORY=Internal,Tool Proficiency ~ Thieves' Tools
 
 
 #Equipment Packs	The starting equipment you get from your class includes a collection of useful adventuring gear, put together in a pack. The contents of these packs are listed here. If you are buying your starting equipment, you can purchase a pack for the price shown, which might be cheaper than buying the items individually.
-Burglar's Pack													TYPE:Gear															COST:16						SPROP:Includes a backpack, a bag of 1,000 ball bearings, 10 feet of string, a bell, 5 candles, a crowbar, a hammer, 10 pitons, a hooded lantern, 2 flasks of oil, 5 days rations, a tinderbox, and a waterskin. The pack also has 50 feet of hempen rope strapped to the side of it.
-Diplomat's Pack													TYPE:Gear															COST:39						SPROP:Includes a chest, 2 cases for maps and scrolls, a set of fine clothes, a bottle of ink, an ink pen, a lamp, 2 flasks of oil, 5 sheets of paper, a vial of perfume, sealing wax, and soap.
-Dungeoneer's Pack													TYPE:Gear															COST:12						SPROP:Includes a backpack, a crowbar, a hammer, 10 pitons, 10 torches, a tinderbox, 10 days of rations, and a waterskin. The pack also has 50 feet of hempen rope strapped to the side of it.
-Entertainer's Pack												TYPE:Gear															COST:40						SPROP:Includes a backpack, a bedroll, 2 costumes, 5 candles, 5 days of rations, a waterskin, and a disguise kit.
-Explorer's Pack													TYPE:Gear															COST:10						SPROP:Includes a backpack, a bedroll, a mess kit, a tinderbox, 10 torches, 10 days of rations, and a waterskin. The pack also has 50 feet of hempen rope strapped to the side of it.
-Priest's Pack													TYPE:Gear															COST:19						SPROP:Includes a backpack, a blanket, 10 candles, a tinderbox, an alms box, 2 blocks of incense, a censer, vestments, 2 days of rations, and a waterskin.
-Scholar's Pack													TYPE:Gear															COST:40						SPROP:Includes a backpack, a book of lore, a bottle of ink, an ink pen, 10 sheets of parchment, a little bag of sand, and a small knife.
+Burglar's Pack														TYPE:Gear																				COST:16						SPROP:Includes a backpack, a bag of 1,000 ball bearings, 10 feet of string, a bell, 5 candles, a crowbar, a hammer, 10 pitons, a hooded lantern, 2 flasks of oil, 5 days rations, a tinderbox, and a waterskin. The pack also has 50 feet of hempen rope strapped to the side of it.
+Diplomat's Pack														TYPE:Gear																				COST:39						SPROP:Includes a chest, 2 cases for maps and scrolls, a set of fine clothes, a bottle of ink, an ink pen, a lamp, 2 flasks of oil, 5 sheets of paper, a vial of perfume, sealing wax, and soap.
+Dungeoneer's Pack														TYPE:Gear																				COST:12						SPROP:Includes a backpack, a crowbar, a hammer, 10 pitons, 10 torches, a tinderbox, 10 days of rations, and a waterskin. The pack also has 50 feet of hempen rope strapped to the side of it.
+Entertainer's Pack													TYPE:Gear																				COST:40						SPROP:Includes a backpack, a bedroll, 2 costumes, 5 candles, 5 days of rations, a waterskin, and a disguise kit.
+Explorer's Pack														TYPE:Gear																				COST:10						SPROP:Includes a backpack, a bedroll, a mess kit, a tinderbox, 10 torches, 10 days of rations, and a waterskin. The pack also has 50 feet of hempen rope strapped to the side of it.
+Priest's Pack														TYPE:Gear																				COST:19						SPROP:Includes a backpack, a blanket, 10 candles, a tinderbox, an alms box, 2 blocks of incense, a censer, vestments, 2 days of rations, and a waterskin.
+Scholar's Pack														TYPE:Gear																				COST:40						SPROP:Includes a backpack, a book of lore, a bottle of ink, an ink pen, 10 sheets of parchment, a little bag of sand, and a small knife.
 
 # Background Specific Equipment, no actual price given
 Dice Set.COPY=Set of weighted dice
 Playing Card Set.COPY=Deck of marked cards
 Signet ring.COPY=Signet ring of an imaginary duke
 
-Stoppered bottles filled with colored liquid								TYPE:Gear.ConArtist																	BASEQTY:10
-Set of weighted dice.MOD											TYPE:Gear.ConArtist
-Deck of marked cards.MOD											TYPE:Gear.ConArtist
-Signet ring of an imaginary duke.MOD									TYPE:Gear.ConArtist
+Stoppered bottles filled with colored liquid									TYPE:Gear.ConArtist																						BASEQTY:10
+Set of weighted dice.MOD												TYPE:Gear.ConArtist
+Deck of marked cards.MOD												TYPE:Gear.ConArtist
+Signet ring of an imaginary duke.MOD										TYPE:Gear.ConArtist
 
 Clothes (Common).COPY=Clothes (Common/Dark)
-Clothes (Common/Dark).MOD																																		SPROP:Includes hood
+Clothes (Common/Dark).MOD																																								SPROP:Includes hood
 
 Pouch.COPY=Belt Pouch
 
@@ -202,7 +203,7 @@ Vestments
 Ink (1 ounce bottle).COPY=bottle of black ink
 Ink pen.COPY=Quill
 
-letter from a dead colleague																																		SPROP:posing a question you have not yet been able to answer
+letter from a dead colleague																																								SPROP:posing a question you have not yet been able to answer
 Quill
 small knife
 bottle of black ink
@@ -227,8 +228,8 @@ Scroll Case
 
 
 
-Wizard Spellbook	KEY:Spellbook ~ Wizard		TYPE:SPELLBOOK	NUMPAGES:400	PAGEUSAGE:1
-Warlock Book of Shadows	TYPE:SPELLBOOK	PAGEUSAGE:1	NUMPAGES:400
+Wizard Spellbook							KEY:Spellbook ~ Wizard				TYPE:SPELLBOOK														NUMPAGES:400	PAGEUSAGE:1
+Warlock Book of Shadows													TYPE:SPELLBOOK														NUMPAGES:400	PAGEUSAGE:1
 
 alms box
 Block of Incense

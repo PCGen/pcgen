@@ -1,23 +1,24 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 #SOURCELONG:Inner Sea Gods	SOURCESHORT:ISG	SOURCEDATE:2014-04
 # Original Entry by: Andrew Maitland, Stefan Radermacher
 
-# Ability Category				Visible		Editable?		Change Pool?	Category of Object		Type of Object							Plural description for UI		Display Location
-ABILITYCATEGORY:Aligned Class		CATEGORY:Aligned Class		VISIBLE:NO	EDITABLE:NO	EDITPOOL:YES	FRACTIONALPOOL:NO	
+# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object							Plural description for UI		Display Location
+ABILITYCATEGORY:Aligned Class			VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Aligned Class
 
-ABILITYCATEGORY:Evangelist Class Feature	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Evangelist Class Feature.EvangelistClassFeatures	PLURAL:Evangelist Class Features	DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Exalted Class Feature	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Exalted Class Feature.ExaltedClassFeatures		PLURAL:Exalted Class Features		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Sentinel Class Feature	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Sentinel Class Feature.SentinelClassFeatures	PLURAL:Sentinel Class Features	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Evangelist Class Feature	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Evangelist Class Feature.EvangelistClassFeatures	PLURAL:Evangelist Class Features	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Exalted Class Feature	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Exalted Class Feature.ExaltedClassFeatures		PLURAL:Exalted Class Features		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Sentinel Class Feature	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Sentinel Class Feature.SentinelClassFeatures	PLURAL:Sentinel Class Features	DISPLAYLOCATION:Class Features
 
 
 #ABILITYCATEGORY:Evangelist Aligned Class	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Evangelist Aligned Class											DISPLAYLOCATION:Class Features
 # select any previously held class
 
 
-ABILITYCATEGORY:Arcane Depth			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Arcane Depth													DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Evangelist Aligned Class			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Aligned Class	DISPLAYLOCATION:Class Features	TYPE:Aligned Class
+ABILITYCATEGORY:Arcane Depth			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Arcane Depth													DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Evangelist Aligned Class	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Aligned Class		TYPE:Aligned Class												DISPLAYLOCATION:Class Features
 
-ABILITYCATEGORY:Norgorber Aspect Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:NorgorberAspectChoice									DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Norgorber Aspect Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:NorgorberAspectChoice											DISPLAYLOCATION:Class Features
 
 #
 # End

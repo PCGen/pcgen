@@ -1,8 +1,9 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Second Darkness, Chapter 3 - The Armageddon Echo	SOURCESHORT:AP15	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy85ep	SOURCEDATE:2008-10
 # Original Entry by Eddy Anthony (MoSaT)
 
-# Equipment Name		Output Name				Type									Cost		Weight	Base Quantity	Modifier	Requires Modification?	Source Page		Special Property
-Bolt, Acid					KEY:Bolt (Acid)		TYPE:Ammunition.Resizable.Standard.Bolt.Individual	COST:40	WT:0.1	BASEQTY:1		EQMOD:Material ~ Steel	MODS:YES			SOURCEPAGE:p.18	SPROP:1d4 points of additional acid damage
-Bolt (Fire)			OUTPUTNAME:Fire Bolt		TYPE:Ammunition.Resizable.Standard.Bolt.Individual	COST:50	WT:0.1	BASEQTY:1		EQMOD:Material ~ Steel	MODS:YES			SOURCEPAGE:p.18	SPROP:1d4 points of additional fire damage
-Bolt (Drow/Poison)	OUTPUTNAME:Drow Poison Bolt	TYPE:Ammunition.Resizable.Standard.Bolt.Individual	COST:100	WT:0.1	BASEQTY:1		EQMOD:Material ~ Steel	MODS:YES			SOURCEPAGE:p.18	SPROP:DC 13 Fortitude save or fall unconscious for 1 minute
+# Equipment Name		Unique Key		Output Name				Type									Cost		Weight	Base Quantity	Modifier			Requires Modification?	Source Page		Special Property
+Bolt, Acid			KEY:Bolt (Acid)						TYPE:Ammunition.Resizable.Standard.Bolt.Individual	COST:40	WT:0.1	BASEQTY:1		EQMOD:Material ~ Steel	MODS:YES			SOURCEPAGE:p.18	SPROP:1d4 points of additional acid damage
+Bolt (Fire)						OUTPUTNAME:Fire Bolt		TYPE:Ammunition.Resizable.Standard.Bolt.Individual	COST:50	WT:0.1	BASEQTY:1		EQMOD:Material ~ Steel	MODS:YES			SOURCEPAGE:p.18	SPROP:1d4 points of additional fire damage
+Bolt (Drow/Poison)				OUTPUTNAME:Drow Poison Bolt	TYPE:Ammunition.Resizable.Standard.Bolt.Individual	COST:100	WT:0.1	BASEQTY:1		EQMOD:Material ~ Steel	MODS:YES			SOURCEPAGE:p.18	SPROP:DC 13 Fortitude save or fall unconscious for 1 minute

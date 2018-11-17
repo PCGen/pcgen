@@ -1,3 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/products/btpy8rv2?Pathfinder-Roleplaying-Game-Advanced-Race-Guide	SOURCEDATE:2012-06
 # ORIGINAL ENTRY: Scott Meyer (guru_scott)
@@ -13,7 +14,7 @@ Constrict										KEY:Crawling Vine ~ Constrict		CATEGORY:Special Ability	TYPE:
 CATEGORY=Internal|Eidolon Companion Progression ~ Standard.MOD																				DEFINE:IsWildCallerEidolon|0																		ABILITY:Internal|AUTOMATIC|Eidolon ~ Wild Caller|PREVAREQ:IsWildCallerEidolon,1																																																																																																									BONUS:VAR|IsWildCallerEidolon|mastervar("IsWildCallerEidolon")
 CATEGORY=Internal|Eidolon Companion Progression ~ Standard.MOD																				DEFINE:ShaitanBinder|0																			ABILITY:Internal|AUTOMATIC|Eidolon ~ Shaitan Binder|PREVAREQ:ShaitanBinder,1																																																																																																										BONUS:VAR|ShaitanBinder|mastervar("ShaitanBinder")
 
-Eidolon ~ Wild Caller						CATEGORY:Internal																																																																																																																																																							BONUS:VAR|EidolonEvolution|(MasterLevel>=4)+(MasterLevel>=8)+(MasterLevel>=12)+(MasterLevel>=16)+(MasterLevel>=20)
+Eidolon ~ Wild Caller														CATEGORY:Internal																																																																																																																																																							BONUS:VAR|EidolonEvolution|(MasterLevel>=4)+(MasterLevel>=8)+(MasterLevel>=12)+(MasterLevel>=16)+(MasterLevel>=20)
 Eidolon ~ Shaitan Binder													CATEGORY:Internal																																	ABILITY:Special Ability|AUTOMATIC|Evolution ~ Basic Magic|PREVARGTEQ:MasterLevel,4	ABILITY:Special Ability|AUTOMATIC|Evolution ~ Minor Magic|PREVARGTEQ:MasterLevel,6	ABILITY:Special Ability|AUTOMATIC|Evolution ~ Major Magic|PREVARGTEQ:MasterLevel,8	ABILITY:Special Ability|AUTOMATIC|Shaitan Binder Eidolon ~ Earth Glide|PREVARGTEQ:MasterLevel,10|PREABILITY:1,CATEGORY=Special Ability,Evolution ~ Burrow	ABILITY:Special Ability|AUTOMATIC|Evolution ~ Ultimate Magic|PREVARGTEQ:MasterLevel,12	ABILITY:Special Ability|AUTOMATIC|Shaitan Binder Eidolon ~ Noble Eidolon|PREVARGTEQ:MasterLevel,20	BONUS:ABILITYPOOL|Shaitan Binder Eidolon Stat Bonus|1|PREABILITY:1,CATEGORY=Internal,Eidolon Type ~ Biped	BONUS:VAR|Eidolon_CF_ShareSpells|1
 
 

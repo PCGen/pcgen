@@ -1,3 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Monster Focus: Skeletons	SOURCESHORT:MFS	SOURCEWEB:http://minotaurrpg.com/monster-focus/skeletons/	SOURCEDATE:2013-04
 # ORIGINAL ENTRY: Stefan Radermacher
@@ -13,7 +14,7 @@ Obsidian Knuckle	TYPE:Goods.Alchemical.Consumable		COST:100	WT:0.5	SOURCEPAGE:p.
 Sun Crystal		TYPE:Goods.Alchemical.Consumable		COST:60			SOURCEPAGE:p.2
 
 ###Block: Magic Weapons
-# Equipment Name	Required Weapon Proficiency		Type											Cost		Weight	Crit Mult	Crit Range	Damage	Modifier					Wield Category	Size		Source Page		Special Property
+# Equipment Name	Required Weapon Proficiency		Type											Cost		Weight	Crit Mult	Crit Range	Damage	Modifier															Wield Category	Size		Source Page		Special Property
 Bone Sword		PROFICIENCY:WEAPON|Longsword		TYPE:Weapon.Resizable.Melee.Martial.Specific.Slashing.Sword		COST:15	WT:4		CRITMULT:x2	CRITRANGE:2	DAMAGE:1d8	EQMOD:Material ~ Bone.Special Ability ~ Enhancement Cost|8000.Special Ability ~ +2 ~ Weapon	WIELD:OneHanded	SIZE:M	SOURCEPAGE:p.3	SPROP:1/day when delivering a killing blow, animate the killed creature as a swift action as if using Lesser Animate Dead
 Spine Mace		PROFICIENCY:WEAPON|Mace (Heavy)	TYPE:Weapon.Resizable.Melee.Simple.Specific.Bludgeoning.Mace	COST:12	WT:8		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d8	EQMOD:Material ~ Bone.Special Ability ~ Enhancement Cost|8000.Special Ability ~ +1 ~ Weapon	WIELD:OneHanded	SIZE:M	SOURCEPAGE:p.3	SPROP:Deals 1d6 extra to skeletons. 1/day can emit a silent scream, all undead within 30 ft. flee as if panicked (DC 13 Will negates).
 

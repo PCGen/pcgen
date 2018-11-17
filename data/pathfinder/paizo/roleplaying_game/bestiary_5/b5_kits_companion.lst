@@ -1,3 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 SOURCELONG:Bestiary 5	SOURCESHORT:B5	SOURCEWEB:http://paizo.com/products/btpy9g9x	SOURCEDATE:2015-12
 
 #Animal Companions
@@ -95,35 +96,35 @@ STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=10
 STARTPACK:Familiar ~ Chicken	TYPE:Familiar	VISIBLE:NO	SOURCEPAGE:p.112
 ALIGN:TN
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
-SKILL:Perception			RANK:1
+SKILL:Perception	RANK:1
 ABILITY:CATEGORY=FEAT|Improved Initiative
 
 
 STARTPACK:Familiar ~ Flying Fox	TYPE:Familiar	VISIBLE:NO	SOURCEPAGE:p.112
 ALIGN:TN
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
-SKILL:Perception			RANK:1
+SKILL:Perception	RANK:1
 ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 
 
 STARTPACK:Familiar ~ Penguin	TYPE:Familiar	VISIBLE:NO	SOURCEPAGE:p.112
 ALIGN:TN
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
-SKILL:Perception			RANK:1
+SKILL:Perception	RANK:1
 ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 
 
 STARTPACK:Familiar ~ Red Panda	TYPE:Familiar	VISIBLE:NO	SOURCEPAGE:p.112
 ALIGN:TN
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
-SKILL:Perception			RANK:1
+SKILL:Perception	RANK:1
 ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 
 STARTPACK:Familiar ~ Seal	TYPE:Familiar	VISIBLE:NO	SOURCEPAGE:p.113
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
-SKILL:Perception			RANK:1
+SKILL:Perception	RANK:1
 ABILITY:CATEGORY=FEAT|Improved Initiative
 
 
@@ -141,14 +142,14 @@ ABILITY:CATEGORY=FEAT|Weapon Finesse
 STARTPACK:Familiar ~ Liminal Sprite	TYPE:Improved Familiar	VISIBLE:NO	SOURCEPAGE:p.158
 ALIGN:CN
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
-SKILL:Diplomacy			RANK:3
-SKILL:Escape Artist		RANK:3
-SKILL:Fly				RANK:3
-SKILL:Knowledge (local)		RANK:3
-SKILL:Perception			RANK:3
-SKILL:Perform (comedy)		RANK:3
-SKILL:Sense Motive		RANK:3
-SKILL:Stealth			RANK:3
+SKILL:Diplomacy		RANK:3
+SKILL:Escape Artist	RANK:3
+SKILL:Fly			RANK:3
+SKILL:Knowledge (local)	RANK:3
+SKILL:Perception		RANK:3
+SKILL:Perform (comedy)	RANK:3
+SKILL:Sense Motive	RANK:3
+SKILL:Stealth		RANK:3
 ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=FEAT|Weapon Finesse
 
@@ -239,8 +240,8 @@ ABILITY:CATEGORY=FEAT|Weapon Focus (Tendrils)
 STARTPACK:Familiar ~ Xiao	TYPE:Improved Familiar	VISIBLE:NO	SOURCEPAGE:p.284
 ALIGN:CN
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
-SKILL:Disable Device		RANK:1
-SKILL:Perception			RANK:1
-SKILL:Sleight of Hand		RANK:1
+SKILL:Disable Device	RANK:1
+SKILL:Perception		RANK:1
+SKILL:Sleight of Hand	RANK:1
 ABILITY:CATEGORY=FEAT|Stealthy
 ABILITY:CATEGORY=FEAT|Weapon Finesse

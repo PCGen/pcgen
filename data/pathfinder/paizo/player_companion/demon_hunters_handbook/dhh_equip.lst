@@ -1,3 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 
 # Kits
@@ -19,17 +20,17 @@ Sun Cinder				KEY:Sun Cinder				TYPE:Gear	COST:25	WT:1		SOURCEPAGE:p.18
 Slime Slow				KEY:Slime Slow				TYPE:Gear	COST:15	WT:0.5	SOURCEPAGE:p.18
 
 ###Block: Magic Items
-# Equipment Name
-Dagger (Base).COPY=Dagger of Repossession	VISIBLE:YES	EQMOD:Material ~ Steel
+# Equipment Name					Modifier			Visible
+Dagger (Base).COPY=Dagger of Repossession	EQMOD:Material ~ Steel	VISIBLE:YES
 
 ###Block:
-# Equipment Name			Product Identity?	Type					Cost		Weight	Source, Long Desc.			Source, Short Desc.	Source Page
+# Equipment Name			Product Identity?	Type							Cost		Weight	Source, Long Desc.			Source, Short Desc.	Source Page
 Azata's Whimsy			NAMEISPI:YES	TYPE:Wondrous.SLOT_Neck.Magic.Amulet	COST:8000	WT:0												SOURCEPAGE:p.28
-Bastion Banner						TYPE:Wondrous.SLOT_None.Magic		COST:182000	WT:3												SOURCEPAGE:p.28
-Caltrop Bead (Iron)					TYPE:Wondrous.SLOT_None.Magic		COST:40	WT:2												SOURCEPAGE:p.28
-Caltrop Bead (Cold Iron)				TYPE:Wondrous.SLOT_None.Magic		COST:80	WT:2												SOURCEPAGE:p.28
-Dagger of Repossession.MOD									COST:14702			SOURCELONG:Demon Hunter's Handbook	SOURCESHORT:DHH		SOURCEPAGE:p.29
-Dawnflower's Light					TYPE:Wondrous.SLOT_None.Magic		COST:40000	WT:2												SOURCEPAGE:p.29
-Deadlimb Pins						TYPE:Wondrous.SLOT_None.Magic		COST:60000	WT:1												SOURCEPAGE:p.29
+Bastion Banner						TYPE:Wondrous.SLOT_None.Magic			COST:182000	WT:3												SOURCEPAGE:p.28
+Caltrop Bead (Iron)					TYPE:Wondrous.SLOT_None.Magic			COST:40	WT:2												SOURCEPAGE:p.28
+Caltrop Bead (Cold Iron)				TYPE:Wondrous.SLOT_None.Magic			COST:80	WT:2												SOURCEPAGE:p.28
+Dagger of Repossession.MOD											COST:14702			SOURCELONG:Demon Hunter's Handbook	SOURCESHORT:DHH		SOURCEPAGE:p.29
+Dawnflower's Light					TYPE:Wondrous.SLOT_None.Magic			COST:40000	WT:2												SOURCEPAGE:p.29
+Deadlimb Pins						TYPE:Wondrous.SLOT_None.Magic			COST:60000	WT:1												SOURCEPAGE:p.29
 Thorned Manacles						TYPE:Wondrous.SLOT_Wrist.Magic.Bracers	COST:35600	WT:2												SOURCEPAGE:p.29
-Warding Lips						TYPE:Wondrous.SLOT_None.Magic		COST:1900	WT:0												SOURCEPAGE:p.29
+Warding Lips						TYPE:Wondrous.SLOT_None.Magic			COST:1900	WT:0												SOURCEPAGE:p.29

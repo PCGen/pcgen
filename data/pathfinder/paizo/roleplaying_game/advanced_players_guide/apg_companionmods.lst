@@ -1,25 +1,26 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 21399 $ $Author: evilmynex $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 # Original Entry by: gjorbjond & Andrew Maitland
 
 # Favored Class Bonus Hit Points
-# Class of the Master			Type				Damage Reduction	Ability									Define			Bonus Ability Pool								Bonus DR		Bonus to HP							Modify VAR
-FOLLOWER:AnimalCompanionLVL=1		TYPE:Animal Companion																																BONUS:HP|CURRENTMAX|mastervar("AnimalCompHP")
+# Class of the Master			Type				Damage Reduction	Ability									Define											Bonus Ability Pool								Bonus DR		Bonus to HP							Modify VAR
+FOLLOWER:AnimalCompanionLVL=1		TYPE:Animal Companion																																								BONUS:HP|CURRENTMAX|mastervar("AnimalCompHP")
 
 # Animal Companion Skill Bonus
-FOLLOWER:AnimalCompanionLVL=1		TYPE:Animal Companion																		BONUS:ABILITYPOOL|Companion Bonus Skill|mastervar("AnimalCompSP")
+FOLLOWER:AnimalCompanionLVL=1		TYPE:Animal Companion																										BONUS:ABILITYPOOL|Companion Bonus Skill|mastervar("AnimalCompSP")
 
 # Favored Class Bonus DR
 FOLLOWER:AnimalCompDR=1			TYPE:Animal Companion	DR:1/Magic
-FOLLOWER:AnimalCompDR=3			TYPE:Animal Companion																													BONUS:DR|Magic|1
-FOLLOWER:AnimalCompDR=5			TYPE:Animal Companion																													BONUS:DR|Magic|1
-FOLLOWER:AnimalCompDR=7			TYPE:Animal Companion																													BONUS:DR|Magic|1
-FOLLOWER:AnimalCompDR=9			TYPE:Animal Companion																													BONUS:DR|Magic|1
-FOLLOWER:AnimalCompDR=11		TYPE:Animal Companion																													BONUS:DR|Magic|1
-FOLLOWER:AnimalCompDR=13		TYPE:Animal Companion																													BONUS:DR|Magic|1
-FOLLOWER:AnimalCompDR=15		TYPE:Animal Companion																													BONUS:DR|Magic|1
-FOLLOWER:AnimalCompDR=17		TYPE:Animal Companion																													BONUS:DR|Magic|1
-FOLLOWER:AnimalCompDR=19		TYPE:Animal Companion																													BONUS:DR|Magic|1
+FOLLOWER:AnimalCompDR=3			TYPE:Animal Companion																																					BONUS:DR|Magic|1
+FOLLOWER:AnimalCompDR=5			TYPE:Animal Companion																																					BONUS:DR|Magic|1
+FOLLOWER:AnimalCompDR=7			TYPE:Animal Companion																																					BONUS:DR|Magic|1
+FOLLOWER:AnimalCompDR=9			TYPE:Animal Companion																																					BONUS:DR|Magic|1
+FOLLOWER:AnimalCompDR=11		TYPE:Animal Companion																																					BONUS:DR|Magic|1
+FOLLOWER:AnimalCompDR=13		TYPE:Animal Companion																																					BONUS:DR|Magic|1
+FOLLOWER:AnimalCompDR=15		TYPE:Animal Companion																																					BONUS:DR|Magic|1
+FOLLOWER:AnimalCompDR=17		TYPE:Animal Companion																																					BONUS:DR|Magic|1
+FOLLOWER:AnimalCompDR=19		TYPE:Animal Companion																																					BONUS:DR|Magic|1
 
 
 # Nature Warden Companion abilities
@@ -30,12 +31,12 @@ FOLLOWER:CompanionBondLVL=5		TYPE:Animal Companion				ABILITY:Special Ability|AU
 
 
 # Aspect Evolution Diversion
-FOLLOWER:EidolonAspect=1		TYPE:Eidolon																			BONUS:ABILITYPOOL|Eidolon Evolution|-1
-FOLLOWER:EidolonAspect=2		TYPE:Eidolon																			BONUS:ABILITYPOOL|Eidolon Evolution|-1
-FOLLOWER:EidolonAspect=3		TYPE:Eidolon																			BONUS:ABILITYPOOL|Eidolon Evolution|-1
+FOLLOWER:EidolonAspect=1		TYPE:Eidolon																											BONUS:ABILITYPOOL|Eidolon Evolution|-1
+FOLLOWER:EidolonAspect=2		TYPE:Eidolon																											BONUS:ABILITYPOOL|Eidolon Evolution|-1
+FOLLOWER:EidolonAspect=3		TYPE:Eidolon																											BONUS:ABILITYPOOL|Eidolon Evolution|-1
 
 # Base Eidolon
-FOLLOWER:EidolonCompanionLVL=1	TYPE:Eidolon															DEFINE:MasterLevel|0																							BONUS:VAR|MasterLevel|mastervar("EidolonCompanionLVL")		DEFINE:EidolonDisableSkillPointProgression|0	BONUS:VAR|EidolonDisableSkillPointProgression|mastervar("EidolonDisableSkillPointProgression")	
+FOLLOWER:EidolonCompanionLVL=1	TYPE:Eidolon															DEFINE:MasterLevel|0	DEFINE:EidolonDisableSkillPointProgression|0																							BONUS:VAR|MasterLevel|mastervar("EidolonCompanionLVL")	BONUS:VAR|EidolonDisableSkillPointProgression|mastervar("EidolonDisableSkillPointProgression")
 
 
 
@@ -67,29 +68,29 @@ FOLLOWER:EidolonCompanionBonusHD=20	TYPE:Eidolon	HD:1
 FOLLOWER:CavalierMountLVL=1	TYPE:Cavalier Mount	BONUS:HP|CURRENTMAX|mastervar("CavalierMountGrantedHP")
 
 ###Block:Companion for Cavalier ~ Per Ultimate Wilderness, cavalier mounts may use light armor proficiency in place of share spells to qualify for archetypes
-# Class of the Master		Type				Hit Dice	Ability																								Define												Bonus Ability Pool					Bonus to HP							Stat bonus			Modify VAR															Main Race Type
-FOLLOWER:CavalierMountLVL=1	TYPE:Cavalier Mount			ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training	ABILITY:Animal Trick|NORMAL|Animal Training ~ Combat Training	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|!PREABILITY:1,CATEGORY=Archetype,TYPE.CF_CompanionShareSpells	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0	DEFINE:CavalierMountHP|0				BONUS:HP|CURRENTMAX|var("CavalierMountHP")					BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1									RACETYPE:Animal
+# Class of the Master		Type				Hit Dice	Ability																																								Define												Bonus Ability Pool					Bonus to HP							Stat bonus			Modify VAR															Main Race Type
+FOLLOWER:CavalierMountLVL=1	TYPE:Cavalier Mount			ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training	ABILITY:Animal Trick|NORMAL|Animal Training ~ Combat Training	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|!PREABILITY:1,CATEGORY=Archetype,TYPE.CF_CompanionShareSpells	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0	DEFINE:CavalierMountHP|0									BONUS:HP|CURRENTMAX|var("CavalierMountHP")					BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1									RACETYPE:Animal
 FOLLOWER:CavalierMountLVL=1	TYPE:Cavalier Mount			ABILITY:Special Ability|AUTOMATIC|Companion ~ Link
 #FOLLOWER:CavalierMountLVL=1	TYPE:Cavalier Mount			ABILITY:Archetype|AUTOMATIC|Companion ~ Block Share Spells Archetypes
-FOLLOWER:CavalierMountLVL=2	TYPE:Cavalier Mount	HD:1																																																												BONUS:VAR|MasterLevel|1
-FOLLOWER:CavalierMountLVL=3	TYPE:Cavalier Mount			ABILITY:Special Ability|AUTOMATIC|Companion ~ Evasion																																														BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:CavalierMountLVL=4	TYPE:Cavalier Mount	HD:1																																								BONUS:ABILITYPOOL|Companion Stat Increase|1													BONUS:VAR|MasterLevel|1
-FOLLOWER:CavalierMountLVL=5	TYPE:Cavalier Mount	HD:1																																																												BONUS:VAR|MasterLevel|1
-FOLLOWER:CavalierMountLVL=6	TYPE:Cavalier Mount	HD:1		ABILITY:Special Ability|AUTOMATIC|Companion ~ Devotion																																													BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:CavalierMountLVL=7	TYPE:Cavalier Mount																																																													BONUS:VAR|MasterLevel|1
-FOLLOWER:CavalierMountLVL=8	TYPE:Cavalier Mount	HD:1																																																												BONUS:VAR|MasterLevel|1
-FOLLOWER:CavalierMountLVL=9	TYPE:Cavalier Mount	HD:1		ABILITY:Special Ability|AUTOMATIC|Companion ~ Multiattack																													BONUS:ABILITYPOOL|Companion Stat Increase|1									BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:CavalierMountLVL=10	TYPE:Cavalier Mount	HD:1																																																												BONUS:VAR|MasterLevel|1
-FOLLOWER:CavalierMountLVL=11	TYPE:Cavalier Mount																																																													BONUS:VAR|MasterLevel|1
-FOLLOWER:CavalierMountLVL=12	TYPE:Cavalier Mount	HD:1																																																								BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:CavalierMountLVL=13	TYPE:Cavalier Mount	HD:1																																																												BONUS:VAR|MasterLevel|1
-FOLLOWER:CavalierMountLVL=14	TYPE:Cavalier Mount	HD:1																																								BONUS:ABILITYPOOL|Companion Stat Increase|1													BONUS:VAR|MasterLevel|1
-FOLLOWER:CavalierMountLVL=15	TYPE:Cavalier Mount																																																									BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:CavalierMountLVL=16	TYPE:Cavalier Mount	HD:1		ABILITY:Special Ability|AUTOMATIC|Companion ~ Improved Evasion																																																BONUS:VAR|MasterLevel|1
-FOLLOWER:CavalierMountLVL=17	TYPE:Cavalier Mount	HD:1																																																												BONUS:VAR|MasterLevel|1
-FOLLOWER:CavalierMountLVL=18	TYPE:Cavalier Mount	HD:1																																																								BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:CavalierMountLVL=19	TYPE:Cavalier Mount																																																													BONUS:VAR|MasterLevel|1
-FOLLOWER:CavalierMountLVL=20	TYPE:Cavalier Mount	HD:1																																								BONUS:ABILITYPOOL|Companion Stat Increase|1													BONUS:VAR|MasterLevel|1
+FOLLOWER:CavalierMountLVL=2	TYPE:Cavalier Mount	HD:1																																																																												BONUS:VAR|MasterLevel|1
+FOLLOWER:CavalierMountLVL=3	TYPE:Cavalier Mount			ABILITY:Special Ability|AUTOMATIC|Companion ~ Evasion																																																														BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:CavalierMountLVL=4	TYPE:Cavalier Mount	HD:1																																																								BONUS:ABILITYPOOL|Companion Stat Increase|1													BONUS:VAR|MasterLevel|1
+FOLLOWER:CavalierMountLVL=5	TYPE:Cavalier Mount	HD:1																																																																												BONUS:VAR|MasterLevel|1
+FOLLOWER:CavalierMountLVL=6	TYPE:Cavalier Mount	HD:1		ABILITY:Special Ability|AUTOMATIC|Companion ~ Devotion																																																													BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:CavalierMountLVL=7	TYPE:Cavalier Mount																																																																													BONUS:VAR|MasterLevel|1
+FOLLOWER:CavalierMountLVL=8	TYPE:Cavalier Mount	HD:1																																																																												BONUS:VAR|MasterLevel|1
+FOLLOWER:CavalierMountLVL=9	TYPE:Cavalier Mount	HD:1		ABILITY:Special Ability|AUTOMATIC|Companion ~ Multiattack																																													BONUS:ABILITYPOOL|Companion Stat Increase|1									BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:CavalierMountLVL=10	TYPE:Cavalier Mount	HD:1																																																																												BONUS:VAR|MasterLevel|1
+FOLLOWER:CavalierMountLVL=11	TYPE:Cavalier Mount																																																																													BONUS:VAR|MasterLevel|1
+FOLLOWER:CavalierMountLVL=12	TYPE:Cavalier Mount	HD:1																																																																								BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:CavalierMountLVL=13	TYPE:Cavalier Mount	HD:1																																																																												BONUS:VAR|MasterLevel|1
+FOLLOWER:CavalierMountLVL=14	TYPE:Cavalier Mount	HD:1																																																								BONUS:ABILITYPOOL|Companion Stat Increase|1													BONUS:VAR|MasterLevel|1
+FOLLOWER:CavalierMountLVL=15	TYPE:Cavalier Mount																																																																									BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:CavalierMountLVL=16	TYPE:Cavalier Mount	HD:1		ABILITY:Special Ability|AUTOMATIC|Companion ~ Improved Evasion																																																																BONUS:VAR|MasterLevel|1
+FOLLOWER:CavalierMountLVL=17	TYPE:Cavalier Mount	HD:1																																																																												BONUS:VAR|MasterLevel|1
+FOLLOWER:CavalierMountLVL=18	TYPE:Cavalier Mount	HD:1																																																																								BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:CavalierMountLVL=19	TYPE:Cavalier Mount																																																																													BONUS:VAR|MasterLevel|1
+FOLLOWER:CavalierMountLVL=20	TYPE:Cavalier Mount	HD:1																																																								BONUS:ABILITYPOOL|Companion Stat Increase|1													BONUS:VAR|MasterLevel|1
 #
 
 

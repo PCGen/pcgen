@@ -1,12 +1,13 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Bestiary 2	SOURCESHORT:B2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8hif	SOURCEDATE:2010-12
 
 
 ###Block: Weapons
-# Equipment Name		Unique Key					Output Name		Required Weapon Proficiency		Type															Cost		Weight	Crit Mult	Crit Range	Damage	Modifier		Wield Category	Range		Size		Source Page		Weapon prop. bonus
+# Equipment Name		Unique Key					Output Name		Required Weapon Proficiency		Type															Cost		Weight	Crit Mult	Crit Range	Damage	Modifier								Wield Category	Range		Size		Source Page		Weapon prop. bonus
 Leprechaun Shillelagh	KEY:Leprechaun Shillelagh					PROFICIENCY:WEAPON|Club			TYPE:Magic.Weapon.Melee.OneHanded.Ranged.Thrown.Simple.Standard.Bludgeoning.Club.Hammer	COST:0	WT:3		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d8	EQMOD:Special Ability ~ +1 ~ Weapon.Material ~ Wood	WIELD:OneHanded	RANGE:10	SIZE:S	SOURCEPAGE:p.177
-Gaff													PROFICIENCY:WEAPON|Gaff			TYPE:Weapon.Melee.TwoHanded.Simple.Standard.Piercing							COST:0	WT:0		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d8				WIELD:TwoHanded			SIZE:M	SOURCEPAGE:p.129
-Maul of the Titans	KEY:Elysian Maul of the Titans				PROFICIENCY:WEAPON|Greatclub		TYPE:Magic.Wondrous.Tool.Weapon.Martial.Melee.TwoHanded.Bludgeoning.Specific.Club.Hammer	COST:25305	WT:320	CRITMULT:x2	CRITRANGE:4	DAMAGE:6d8	EQMOD:Special Ability ~ +3 ~ Weapon	WIELD:TwoHanded			SIZE:C	SOURCEPAGE:p.266	BONUS:WEAPON|TOHIT|-4|TYPE=StrengthPenalty|!PRESTAT:1,STR=18
-Rhoka Sword												PROFICIENCY:WEAPON|Rhoka Sword	TYPE:Weapon.Exotic.Weapon.Melee.OneHanded.Piercing.Sword						COST:0	WT:0		CRITMULT:x2	CRITRANGE:3	DAMAGE:1d8				WIELD:OneHanded			SIZE:M	SOURCEPAGE:p.276
-Rock (Korred)								OUTPUTNAME:Rock	PROFICIENCY:WEAPON|Rock			TYPE:Weapon.Simple.Ranged.Standard.Bludgeoning.Thrown.Rock						COST:0	WT:100	CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6							RANGE:140	SIZE:S	SOURCEPAGE:p.303
-Rock (Huge)									OUTPUTNAME:Rock	PROFICIENCY:WEAPON|Rock			TYPE:Weapon.Simple.Ranged.Standard.Bludgeoning.Thrown.Rock						COST:0	WT:100	CRITMULT:x2	CRITRANGE:1	DAMAGE:2d6							RANGE:140	SIZE:C	SOURCEPAGE:p.303
+Gaff													PROFICIENCY:WEAPON|Gaff			TYPE:Weapon.Melee.TwoHanded.Simple.Standard.Piercing							COST:0	WT:0		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d8										WIELD:TwoHanded			SIZE:M	SOURCEPAGE:p.129
+Maul of the Titans	KEY:Elysian Maul of the Titans				PROFICIENCY:WEAPON|Greatclub		TYPE:Magic.Wondrous.Tool.Weapon.Martial.Melee.TwoHanded.Bludgeoning.Specific.Club.Hammer	COST:25305	WT:320	CRITMULT:x2	CRITRANGE:4	DAMAGE:6d8	EQMOD:Special Ability ~ +3 ~ Weapon				WIELD:TwoHanded			SIZE:C	SOURCEPAGE:p.266	BONUS:WEAPON|TOHIT|-4|TYPE=StrengthPenalty|!PRESTAT:1,STR=18
+Rhoka Sword												PROFICIENCY:WEAPON|Rhoka Sword	TYPE:Weapon.Exotic.Weapon.Melee.OneHanded.Piercing.Sword						COST:0	WT:0		CRITMULT:x2	CRITRANGE:3	DAMAGE:1d8										WIELD:OneHanded			SIZE:M	SOURCEPAGE:p.276
+Rock (Korred)								OUTPUTNAME:Rock	PROFICIENCY:WEAPON|Rock			TYPE:Weapon.Simple.Ranged.Standard.Bludgeoning.Thrown.Rock						COST:0	WT:100	CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6													RANGE:140	SIZE:S	SOURCEPAGE:p.303
+Rock (Huge)									OUTPUTNAME:Rock	PROFICIENCY:WEAPON|Rock			TYPE:Weapon.Simple.Ranged.Standard.Bludgeoning.Thrown.Rock						COST:0	WT:100	CRITMULT:x2	CRITRANGE:1	DAMAGE:2d6													RANGE:140	SIZE:C	SOURCEPAGE:p.303

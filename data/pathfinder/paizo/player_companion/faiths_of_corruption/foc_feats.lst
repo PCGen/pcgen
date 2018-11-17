@@ -1,21 +1,22 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 9628 $ $Author: zaister $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
-SOURCELONG:Faiths of Corruption	SOURCESHORT:FOC	SOURCEWEB:http://paizo.com/products/btpy8odc?Pathfinder-Player-Companion-Faiths-of-Corruption	SOURCEDATE:2011-10
+SOURCELONG:Pathfinder Player Companion: Faiths of Corruption	SOURCESHORT:FOC	SOURCEWEB:http://paizo.com/products/btpy8odc	SOURCEDATE:2011-10
 # Original Entry by:Stefan Radermacher
 
 ###Block: New Feats
 # Feat Name		Type			Required Ability									Required AL		Required Class			Required Deity		Required Feat						Required Stat	PRETOTALAB		Description																				Source Page
-# Ability Name	Category of Ability	Type			Required Ability									Required AL		Required Deity		Multiple Requirements									Required Stat	PRETOTALAB		Description																				Source Page
-Firebrand		CATEGORY:FEAT		TYPE:Combat																PREDEITY:1,Asmodeus																			DESC:You can make use of a torch as a deadly, macelike weapon.											SOURCEPAGE:p.24
-Ordered Mind	CATEGORY:FEAT		TYPE:General												PREALIGN:LG,LN,LE	PREDEITY:1,Asmodeus	PREMULT:1,[PRECLASS:1,SPELLCASTER=7],[PREVARGTEQ:CasterLevel_Highest,7]							DESC:Your study of Hell's laws improves your counterspells.												SOURCEPAGE:p.24
-Destroy Identity	CATEGORY:FEAT		TYPE:General	PREABILITY:1,CATEGORY=FEAT,Critical Focus								PREDEITY:1,Lamashtu																PRETOTALAB:11	DESC:You are able to use your weapons to destroy some of your opponent's most distinctive physical characteristics.		SOURCEPAGE:p.24
-Fearsome Finish	CATEGORY:FEAT		TYPE:General	PREABILITY:1,CATEGORY=FEAT,Intimidating Prowess							PREDEITY:1,Lamashtu																			DESC:When you slay enemies, you frighten other opponents.												SOURCEPAGE:p.24
-Reject Poison	CATEGORY:FEAT		TYPE:General	PREABILITY:1,CATEGORY=Special Ability,Poison Use						PREDEITY:1,Norgorber	PREMULT:1,[PREVARGTEQ:PreStatScore_DEX,13],[PREVARGTEQ:FeatDexRequirement,13]						DESC:You are a careful poisoner, and know how to protect yourself against exposure to the ill effects of most substances.	SOURCEPAGE:p.24
-Shadow Dodge	CATEGORY:FEAT		TYPE:General															PREDEITY:1,Norgorber	PREMULT:1,[PREVARGTEQ:PreStatScore_DEX,13],[PREVARGTEQ:FeatDexRequirement,13]						DESC:You use light and darkness to your advantage, confusing your enemies and confounding their senses.				SOURCEPAGE:p.24
-Merciless Rush	CATEGORY:FEAT		TYPE:General	PREABILITY:1,CATEGORY=FEAT,Improved Bull Rush							PREDEITY:1,Rovagug																			DESC:You are a determined foe, and though hordes may stand against you, they will not stand long.					SOURCEPAGE:p.25
-Squash Flat		CATEGORY:FEAT		TYPE:General	PREABILITY:2,CATEGORY=FEAT,Improved Bull Rush,Merciless Rush				PREDEITY:1,Rovagug																			DESC:You are able to bull rush an opponent straight to the ground.										SOURCEPAGE:p.25
-Shatter Resolve	CATEGORY:FEAT		TYPE:General	PREABILITY:1,CATEGORY=Special Ability,Channel Negative Energy				PREDEITY:1,Urgathoa																			DESC:Damaging a foe with negative energy causes despair.												SOURCEPAGE:p.25
-Bloodletting	CATEGORY:FEAT		TYPE:General															PREDEITY:1,Zon-Kuthon																			DESC:When you attack with a piercing or slashing weapon, the wounds you cause bleed profusely.						SOURCEPAGE:p.25
-Welcome Pain	CATEGORY:FEAT		TYPE:General	PREABILITY:1,CATEGORY=FEAT,Iron Will								PREDEITY:1,Zon-Kuthon																			DESC:Your appreciation of pain grants you great stamina.												SOURCEPAGE:p.25
+# Ability Name	Category of Ability	Type			Required Ability									Required AL		Required Deity		Multiple Requirements										PRETOTALAB		Description																				Source Page
+Firebrand		CATEGORY:FEAT		TYPE:Combat																PREDEITY:1,Asmodeus																	DESC:You can make use of a torch as a deadly, macelike weapon.											SOURCEPAGE:p.24
+Ordered Mind	CATEGORY:FEAT		TYPE:General												PREALIGN:LG,LN,LE	PREDEITY:1,Asmodeus	PREMULT:1,[PRECLASS:1,SPELLCASTER=7],[PREVARGTEQ:CasterLevel_Highest,7]					DESC:Your study of Hell's laws improves your counterspells.												SOURCEPAGE:p.24
+Destroy Identity	CATEGORY:FEAT		TYPE:General	PREABILITY:1,CATEGORY=FEAT,Critical Focus								PREDEITY:1,Lamashtu														PRETOTALAB:11	DESC:You are able to use your weapons to destroy some of your opponent's most distinctive physical characteristics.		SOURCEPAGE:p.24
+Fearsome Finish	CATEGORY:FEAT		TYPE:General	PREABILITY:1,CATEGORY=FEAT,Intimidating Prowess							PREDEITY:1,Lamashtu																	DESC:When you slay enemies, you frighten other opponents.												SOURCEPAGE:p.24
+Reject Poison	CATEGORY:FEAT		TYPE:General	PREABILITY:1,CATEGORY=Special Ability,Poison Use						PREDEITY:1,Norgorber	PREMULT:1,[PREVARGTEQ:PreStatScore_DEX,13],[PREVARGTEQ:FeatDexRequirement,13]				DESC:You are a careful poisoner, and know how to protect yourself against exposure to the ill effects of most substances.	SOURCEPAGE:p.24
+Shadow Dodge	CATEGORY:FEAT		TYPE:General															PREDEITY:1,Norgorber	PREMULT:1,[PREVARGTEQ:PreStatScore_DEX,13],[PREVARGTEQ:FeatDexRequirement,13]				DESC:You use light and darkness to your advantage, confusing your enemies and confounding their senses.				SOURCEPAGE:p.24
+Merciless Rush	CATEGORY:FEAT		TYPE:General	PREABILITY:1,CATEGORY=FEAT,Improved Bull Rush							PREDEITY:1,Rovagug																	DESC:You are a determined foe, and though hordes may stand against you, they will not stand long.					SOURCEPAGE:p.25
+Squash Flat		CATEGORY:FEAT		TYPE:General	PREABILITY:2,CATEGORY=FEAT,Improved Bull Rush,Merciless Rush				PREDEITY:1,Rovagug																	DESC:You are able to bull rush an opponent straight to the ground.										SOURCEPAGE:p.25
+Shatter Resolve	CATEGORY:FEAT		TYPE:General	PREABILITY:1,CATEGORY=Special Ability,Channel Negative Energy				PREDEITY:1,Urgathoa																	DESC:Damaging a foe with negative energy causes despair.												SOURCEPAGE:p.25
+Bloodletting	CATEGORY:FEAT		TYPE:General															PREDEITY:1,Zon-Kuthon																	DESC:When you attack with a piercing or slashing weapon, the wounds you cause bleed profusely.						SOURCEPAGE:p.25
+Welcome Pain	CATEGORY:FEAT		TYPE:General	PREABILITY:1,CATEGORY=FEAT,Iron Will								PREDEITY:1,Zon-Kuthon																	DESC:Your appreciation of pain grants you great stamina.												SOURCEPAGE:p.25
 
 ###Block: Feat benefits
 # Feat Name			Benefits

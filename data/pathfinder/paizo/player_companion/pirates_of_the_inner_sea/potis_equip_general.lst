@@ -1,26 +1,27 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 17891 $ $Author: amaitland $ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
-SOURCELONG:Pirates of the Inner Sea	SOURCESHORT:POTIS	SOURCEWEB:http://paizo.com/products/btpy8qif?Pathfinder-Player-Companion-Pirates-of-the-Inner-Sea	SOURCEDATE:2012-04
+SOURCELONG:Pathfinder Player Companion: Pirates of the Inner Sea	SOURCESHORT:POTIS	SOURCEWEB:http://paizo.com/products/btpy8qif	SOURCEDATE:2012-04
 # Original Entry by: Stefan Radermacher
 
 ###Block: Adventuring Gear
-# Equipment Name				Output Name							Type					Contains			Cost		Weight	Source Page
-Chest (Small Treasure)			OUTPUTNAME:Chest, Small Treasure			TYPE:Goods.Container.General	CONTAINS:UNLIM|Any	COST:3	WT:25		SOURCEPAGE:p.19
-Chest (Medium Treasure)			OUTPUTNAME:Chest, Medium Treasure			TYPE:Goods.Container.General	CONTAINS:UNLIM|Any	COST:7	WT:50		SOURCEPAGE:p.19
-Chest (Large Treasure)			OUTPUTNAME:Chest, Large Treasure			TYPE:Goods.Container.General	CONTAINS:UNLIM|Any	COST:15	WT:100	SOURCEPAGE:p.19
-Chest (Huge Treasure)			OUTPUTNAME:Chest, Huge Treasure			TYPE:Goods.Container.General	CONTAINS:UNLIM|Any	COST:37	WT:250	SOURCEPAGE:p.19
-Eye Patch													TYPE:Goods								COST:0.1			SOURCEPAGE:p.19
-Flag (Ensign of Courtesy/Small)	OUTPUTNAME:Flag, Ensign of Courtesy, Small	TYPE:Goods								COST:2			SOURCEPAGE:p.20
-Flag (Ensign of Courtesy/Large)	OUTPUTNAME:Flag, Ensign of Courtesy, Large	TYPE:Goods								COST:5	WT:1		SOURCEPAGE:p.20
-Flag (Personal Signal/Small)		OUTPUTNAME:Flag, Personal Signal, Small		TYPE:Goods								COST:4			SOURCEPAGE:p.20
-Flag (Personal Signal/Large)		OUTPUTNAME:Flag, Personal Signal, Large		TYPE:Goods								COST:10	WT:1		SOURCEPAGE:p.20
-Peg Leg													TYPE:Goods.Resizable						COST:10	WT:5		SOURCEPAGE:p.19
-Prosthetic Arm												TYPE:Goods.Resizable						COST:10	WT:3		SOURCEPAGE:p.19
-Prosthetic Foot												TYPE:Goods.Resizable						COST:1	WT:2		SOURCEPAGE:p.19
-Prosthetic Hand												TYPE:Goods.Resizable						COST:1	WT:1		SOURCEPAGE:p.19
-Prosthetic Leg												TYPE:Goods.Resizable						COST:20	WT:6		SOURCEPAGE:p.19
-Tattoo													TYPE:Goods												SOURCEPAGE:p.20
+# Equipment Name				Output Name							Type																							Contains			Cost		Weight	Source Page
+Chest (Small Treasure)			OUTPUTNAME:Chest, Small Treasure			TYPE:Goods.Container.General																			CONTAINS:UNLIM|Any	COST:3	WT:25		SOURCEPAGE:p.19
+Chest (Medium Treasure)			OUTPUTNAME:Chest, Medium Treasure			TYPE:Goods.Container.General																			CONTAINS:UNLIM|Any	COST:7	WT:50		SOURCEPAGE:p.19
+Chest (Large Treasure)			OUTPUTNAME:Chest, Large Treasure			TYPE:Goods.Container.General																			CONTAINS:UNLIM|Any	COST:15	WT:100	SOURCEPAGE:p.19
+Chest (Huge Treasure)			OUTPUTNAME:Chest, Huge Treasure			TYPE:Goods.Container.General																			CONTAINS:UNLIM|Any	COST:37	WT:250	SOURCEPAGE:p.19
+Eye Patch													TYPE:Goods																										COST:0.1			SOURCEPAGE:p.19
+Flag (Ensign of Courtesy/Small)	OUTPUTNAME:Flag, Ensign of Courtesy, Small	TYPE:Goods																										COST:2			SOURCEPAGE:p.20
+Flag (Ensign of Courtesy/Large)	OUTPUTNAME:Flag, Ensign of Courtesy, Large	TYPE:Goods																										COST:5	WT:1		SOURCEPAGE:p.20
+Flag (Personal Signal/Small)		OUTPUTNAME:Flag, Personal Signal, Small		TYPE:Goods																										COST:4			SOURCEPAGE:p.20
+Flag (Personal Signal/Large)		OUTPUTNAME:Flag, Personal Signal, Large		TYPE:Goods																										COST:10	WT:1		SOURCEPAGE:p.20
+Peg Leg													TYPE:Goods.Resizable																								COST:10	WT:5		SOURCEPAGE:p.19
+Prosthetic Arm												TYPE:Goods.Resizable																								COST:10	WT:3		SOURCEPAGE:p.19
+Prosthetic Foot												TYPE:Goods.Resizable																								COST:1	WT:2		SOURCEPAGE:p.19
+Prosthetic Hand												TYPE:Goods.Resizable																								COST:1	WT:1		SOURCEPAGE:p.19
+Prosthetic Leg												TYPE:Goods.Resizable																								COST:20	WT:6		SOURCEPAGE:p.19
+Tattoo													TYPE:Goods																														SOURCEPAGE:p.20
 
-Tattoo.MOD					TYPE:Tattoo Head.Tattoo Shoulders.Tattoo Neck.Tattoo Chest.Tattoo Body.Tattoo Belt.Tattoo Wrist.Tattoo Hands.Tattoo Ring.Tattoo Feet
+Tattoo.MOD													TYPE:Tattoo Head.Tattoo Shoulders.Tattoo Neck.Tattoo Chest.Tattoo Body.Tattoo Belt.Tattoo Wrist.Tattoo Hands.Tattoo Ring.Tattoo Feet
 
 ###Block: Special Substances and Items
 # Equipment Name	Type						Cost		Weight	Source Page

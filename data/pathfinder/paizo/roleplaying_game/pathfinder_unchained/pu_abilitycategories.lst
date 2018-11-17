@@ -1,3 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 21663 $ $Author: amaitland $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 #SOURCELONG:Pathfinder Unchained	SOURCESHORT:PU	SOURCEWEB:http://paizo.com/products/btpy97vo	SOURCEDATE:2015-04
 # Original Entry by: Stefan Radermacher
@@ -49,12 +50,13 @@ ABILITYCATEGORY:Variant Multiclass				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	
 ABILITYCATEGORY:Signature Skill 5 Ranks			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:Signature Skill 05					PLURAL:Signature Skills					DISPLAYLOCATION:Feats
 
 ###Block: Unchained Archetype Support
-ABILITYCATEGORY:Unchained Monk Archetype		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Archetype	TYPE:Unchained Monk Archetype			PLURAL:Unchained Monk Archetypes			DISPLAYLOCATION:Archetype
+# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Base Pool number				Category of Object		Type of Object			Plural description for UI		Display Location
+ABILITYCATEGORY:Unchained Monk Archetype	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO												CATEGORY:Archetype		TYPE:Unchained Monk Archetype	PLURAL:Unchained Monk Archetypes	DISPLAYLOCATION:Archetype
 
-ABILITYCATEGORY:ABP Physical Prowess			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_ABPPhysicalProwess		CATEGORY:Special Ability	TYPE:ABP Physical Prowess				PLURAL:ABP Physical Prowess				DISPLAYLOCATION:Automatic Bonus Progression
-ABILITYCATEGORY:ABP Mental Prowess				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_ABPMentalProwess		CATEGORY:Special Ability	TYPE:ABP Mental Prowess					PLURAL:ABP Mental Prowess				DISPLAYLOCATION:Automatic Bonus Progression
-ABILITYCATEGORY:ABP Legendary Gifts				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_ABPLegendaryGifts		CATEGORY:Special Ability	TYPE:ABP Legendary Gifts				PLURAL:ABP Legendary Gifts				DISPLAYLOCATION:Automatic Bonus Progression
-ABILITYCATEGORY:ABP Legendary Ability			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_ABPLegendaryGiftsAbility	CATEGORY:Special Ability	TYPE:ABP Legendary Ability				PLURAL:ABP Legendary Abilities			DISPLAYLOCATION:Automatic Bonus Progression
+ABILITYCATEGORY:ABP Physical Prowess	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_ABPPhysicalProwess		CATEGORY:Special Ability	TYPE:ABP Physical Prowess	PLURAL:ABP Physical Prowess		DISPLAYLOCATION:Automatic Bonus Progression
+ABILITYCATEGORY:ABP Mental Prowess		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_ABPMentalProwess		CATEGORY:Special Ability	TYPE:ABP Mental Prowess		PLURAL:ABP Mental Prowess		DISPLAYLOCATION:Automatic Bonus Progression
+ABILITYCATEGORY:ABP Legendary Gifts		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_ABPLegendaryGifts		CATEGORY:Special Ability	TYPE:ABP Legendary Gifts	PLURAL:ABP Legendary Gifts		DISPLAYLOCATION:Automatic Bonus Progression
+ABILITYCATEGORY:ABP Legendary Ability	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_ABPLegendaryGiftsAbility	CATEGORY:Special Ability	TYPE:ABP Legendary Ability	PLURAL:ABP Legendary Abilities	DISPLAYLOCATION:Automatic Bonus Progression
 
 #
 # End

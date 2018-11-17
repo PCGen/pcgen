@@ -1,6 +1,7 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Define			Combat bonus																	Save bonus																														Modify VAR																																																																	FACT
+# Class Name	Hit Dice	Type			Max Level	Source Page		Define			Combat bonus																	Save bonus																															Modify VAR																																																																	FACT
 CLASS:Bloatmage	HD:6		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.60	DEFINE:BloatmageLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:VAR|BloatmageLVL|CL	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:Abb|BM	FACT:ClassType|Caster
 # Class Name	Required Ability								Req. Spell Type		Required Text
 CLASS:Bloatmage	PREABILITY:2,CATEGORY=FEAT,Bloatmage Initiate,Spell Focus	PRESPELLTYPE:1,Arcane=3	PRETEXT:Feats: Bloatmage Initiate, Spell Focus (any school). Spells: Able to cast 3rd-level arcane spells.

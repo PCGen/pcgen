@@ -1,5 +1,6 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
-SOURCELONG:System Reference Document 5.0	SOURCESHORT:SRD5	SOURCEWEB:http://dnd.wizards.com/articles/features/systems-reference-document-srd	SOURCEDATE:2016-01
+SOURCELONG:System Reference Document	SOURCESHORT:SRD5	SOURCEWEB:http://dnd.wizards.com/articles/features/systems-reference-document-srd	SOURCEDATE:2016-01
 # Original Entry: See contributors listed in PCC file.
 
 # 5.1 Update
@@ -20,7 +21,7 @@ Poison Spray	KEY:Poison Spray		TYPE:Arcane.Divine.Spell	SCHOOL:Conjuration				CO
 
 
 ###Block: Master List
-# Spell Name				Unique Key					Type					Classes of caster		School			Sub-School		Components																																																											Casting Time																Range							Duration						Save Info							Source Page		Description																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																					Source Index
+# Spell Name				Unique Key					Type					Classes of caster		School			Sub-School		Components																																																											Casting Time																Range							Duration						Save Info							Source Page		Description
 Acid Arrow					KEY:Acid Arrow				TYPE:Arcane.Divine.Spell					SCHOOL:Evocation					COMPS:V, S, M																																																										CASTTIME:1 action																RANGE:90 feet					DURATION:Instantaneous												SOURCEPAGE:p.114	DESC:A shimmering green arrow streaks toward a target  within range and bursts in a spray of acid. Make a  ranged spell attack against the target. On a hit, the  target takes 4d4 acid damage immediately and 2d4  acid damage at the end of its next turn. On a miss, the arrow splashes the target with acid for half as  much of the initial damage and no damage at the end of its next turn. At Higher Levels. When you cast this spell using a spell slot of 3rd level or higher, the damage (both initial and later) increases by 1d4 for each slot level above 2nd.
 Acid Splash					KEY:Acid Splash				TYPE:Arcane.Divine.Spell					SCHOOL:Conjuration				COMPS:V, S																																																											CASTTIME:1 action																RANGE:60 feet					DURATION:Instantaneous				SAVEINFO:Dexterity	SAVEINFO:Dexterity	SOURCEPAGE:p.114	DESC:You hurl a bubble of acid. Choose one creature within range, or choose two creatures within range that are within 5 feet of each other. A target must succeed on a Dexterity saving throw or take 1d6 acid damage. This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).
 Aid						KEY:Aid					TYPE:Arcane.Divine.Spell					SCHOOL:Abjuration					COMPS:V, S, M (a tiny strip of white cloth)																																																					CASTTIME:1 action																RANGE:30 feet					DURATION:8 hours													SOURCEPAGE:p.114	DESC:Your spell bolsters your allies with toughness and resolve. Choose up to three creatures within range. Each target's hit point maximum and current hit points increase by 5 for the duration. At Higher Levels. When you cast this spell using a spell slot of 3rd level or higher, a target's hit points increase by an additional 5 for each slot level above 2nd.
@@ -1141,6 +1142,7 @@ Weird.MOD																CLASSES:Wizard=9
 Wish.MOD																CLASSES:Wizard=9
 
 ###Block: Warlock Book of Shadows -- Ritual Spells from the SRD
+# Spell Name			Classes of caster
 Find Familiar.MOD			CLASSES:Warlock Book of Shadows=1
 Alarm.MOD				CLASSES:Warlock Book of Shadows=1
 Animal Messenger.MOD		CLASSES:Warlock Book of Shadows=1
@@ -1169,6 +1171,3 @@ Tiny Hut.MOD			CLASSES:Warlock Book of Shadows=1
 Unseen Servant.MOD		CLASSES:Warlock Book of Shadows=1
 Water Breathing.MOD		CLASSES:Warlock Book of Shadows=1
 Water Walk.MOD			CLASSES:Warlock Book of Shadows=1
-
-
-

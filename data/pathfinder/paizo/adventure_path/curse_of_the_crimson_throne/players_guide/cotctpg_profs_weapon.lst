@@ -1,10 +1,11 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Curse of the Crimson Throne Player's Guide	SOURCESHORT:COTCTPG	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy8bdb	SOURCEDATE:2008-02
 
-# Weapon Name	Type
-Starknife		TYPE:Martial.Melee.Piercing.Sword
-Klar	KEY:Klar (as weapon)	TYPE:Martial.Melee.Slashing
-Earth Breaker	TYPE:Martial.Melee.Bludgeoning.MeleeTwoHanded
-Sawtooth Sabre	TYPE:Exotic.Melee.Slashing.Sword
+# Weapon Name	Unique Key			Type
+Starknife						TYPE:Martial.Melee.Piercing.Sword
+Klar			KEY:Klar (as weapon)	TYPE:Martial.Melee.Slashing
+Earth Breaker					TYPE:Martial.Melee.Bludgeoning.MeleeTwoHanded
+Sawtooth Sabre					TYPE:Exotic.Melee.Slashing.Sword
 Bladed Scarf	KEY:Scarf (Bladed)	TYPE:Exotic.Melee.Slashing.MeleeTwoHanded
-Shoanti Bola	TYPE:Exotic.Ranged.Bludgeoning.Piercing.Thrown
+Shoanti Bola					TYPE:Exotic.Ranged.Bludgeoning.Piercing.Thrown

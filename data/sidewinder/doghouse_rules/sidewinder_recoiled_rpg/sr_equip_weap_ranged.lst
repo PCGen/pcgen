@@ -1,3 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Sidewinder: Recoiled	SOURCESHORT:S:R	SOURCEWEB:http://www.doghouserules.net/recoiled/index.html	SOURCEDATE:2004-12
 # Original Entry by: Lone Jedi (MSRD by bD_92 and Hugo)
@@ -6,68 +7,68 @@ SOURCELONG:Sidewinder: Recoiled	SOURCESHORT:S:R	SOURCEWEB:http://www.doghouserul
 # Equipment Name					Required Proficiency				Type														Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier		Range		Size		Weapon prop. bonus	Special Property		Source Page
 #Handguns -------------------------------------------------------------------------------------------------------
 #Muzzleloaders
-# Equipment Name				Required Weapon Proficiency					Type												Contains			Cost		Weight	Crit Mult	Crit Range	Damage	Range		Size		Source Page		Weapon prop. bonus
-Harpers Ferry Pistol			PROFICIENCY:WEAPON|Harpers Ferry Pistol			TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal						COST:2	WT:2.5	CRITMULT:x2	CRITRANGE:1	DAMAGE:2d8	RANGE:20	SIZE:M	SOURCEPAGE:p.136
-US Percussion Navy Pistol		PROFICIENCY:WEAPON|US Percussion Navy Pistol		TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal						COST:5	WT:2.5	CRITMULT:x2	CRITRANGE:1	DAMAGE:2d8	RANGE:20	SIZE:M	SOURCEPAGE:p.136
-US Percussion Navy Pistol (Rifled)	PROFICIENCY:WEAPON|US Percussion Navy Pistol		TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal						COST:7	WT:2.5	CRITMULT:x2	CRITRANGE:1	DAMAGE:2d8	RANGE:30	SIZE:M	SOURCEPAGE:p.136
-Allen and Thurber Pepperbox		PROFICIENCY:WEAPON|Allen and Thurber Pepperbox		TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal						COST:20	WT:4		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d4	RANGE:10	SIZE:M	SOURCEPAGE:p.136
-Pocket Deringer				PROFICIENCY:WEAPON|Pocket Deringer				TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal						COST:11	WT:0.5	CRITMULT:x2	CRITRANGE:1	DAMAGE:2d6	RANGE:10	SIZE:T	SOURCEPAGE:p.136
+# Equipment Name				Required Weapon Proficiency				Type												Contains			Cost		Weight	Crit Mult	Crit Range	Damage	Range		Size		Source Page		Weapon prop. bonus
+Harpers Ferry Pistol			PROFICIENCY:WEAPON|Harpers Ferry Pistol		TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal						COST:2	WT:2.5	CRITMULT:x2	CRITRANGE:1	DAMAGE:2d8	RANGE:20	SIZE:M	SOURCEPAGE:p.136
+US Percussion Navy Pistol		PROFICIENCY:WEAPON|US Percussion Navy Pistol	TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal						COST:5	WT:2.5	CRITMULT:x2	CRITRANGE:1	DAMAGE:2d8	RANGE:20	SIZE:M	SOURCEPAGE:p.136
+US Percussion Navy Pistol (Rifled)	PROFICIENCY:WEAPON|US Percussion Navy Pistol	TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal						COST:7	WT:2.5	CRITMULT:x2	CRITRANGE:1	DAMAGE:2d8	RANGE:30	SIZE:M	SOURCEPAGE:p.136
+Allen and Thurber Pepperbox		PROFICIENCY:WEAPON|Allen and Thurber Pepperbox	TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal						COST:20	WT:4		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d4	RANGE:10	SIZE:M	SOURCEPAGE:p.136
+Pocket Deringer				PROFICIENCY:WEAPON|Pocket Deringer			TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal						COST:11	WT:0.5	CRITMULT:x2	CRITRANGE:1	DAMAGE:2d6	RANGE:10	SIZE:T	SOURCEPAGE:p.136
 
 #Breechloaders
-Sharps Pepperbox				PROFICIENCY:WEAPON|Sharps Pepperbox				TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal						COST:10	WT:1.5	CRITMULT:x2	CRITRANGE:1	DAMAGE:2d4	RANGE:10	SIZE:T	SOURCEPAGE:p.137
-Remington Double-Derringer		PROFICIENCY:WEAPON|Remington Double-Derringer		TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal						COST:8	WT:0.5	CRITMULT:x2	CRITRANGE:1	DAMAGE:2d6	RANGE:10	SIZE:T	SOURCEPAGE:p.137
+Sharps Pepperbox				PROFICIENCY:WEAPON|Sharps Pepperbox			TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal						COST:10	WT:1.5	CRITMULT:x2	CRITRANGE:1	DAMAGE:2d4	RANGE:10	SIZE:T	SOURCEPAGE:p.137
+Remington Double-Derringer		PROFICIENCY:WEAPON|Remington Double-Derringer	TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal						COST:8	WT:0.5	CRITMULT:x2	CRITRANGE:1	DAMAGE:2d6	RANGE:10	SIZE:T	SOURCEPAGE:p.137
 
 #Single-Action Revolvers
-Colt Walker Dragoon			PROFICIENCY:WEAPON|Colt Walker Dragoon			TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal						COST:20	WT:4.5	CRITMULT:x2	CRITRANGE:1	DAMAGE:2d6	RANGE:40	SIZE:M	SOURCEPAGE:p.137
-Colt New Model Army			PROFICIENCY:WEAPON|Colt New Model Army			TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal						COST:18	WT:3		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d6	RANGE:30	SIZE:M	SOURCEPAGE:p.137
-Remington Pocket Pistol			PROFICIENCY:WEAPON|Remington Pocket Pistol		TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal						COST:15	WT:1		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d4	RANGE:20	SIZE:S	SOURCEPAGE:p.137
-Reid's Knuckleduster			PROFICIENCY:WEAPON|Reid's Knuckleduster			TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal						COST:2	WT:1		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d4	RANGE:10	SIZE:T	SOURCEPAGE:p.137
-Colt Peacemaker				PROFICIENCY:WEAPON|Colt Peacemaker				TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal						COST:18	WT:3		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d6	RANGE:30	SIZE:M	SOURCEPAGE:p.138
-S&W Schofield				PROFICIENCY:WEAPON|S&W Schofield				TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal						COST:28	WT:2.5	CRITMULT:x2	CRITRANGE:1	DAMAGE:2d6	RANGE:30	SIZE:M	SOURCEPAGE:p.138
+Colt Walker Dragoon			PROFICIENCY:WEAPON|Colt Walker Dragoon		TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal						COST:20	WT:4.5	CRITMULT:x2	CRITRANGE:1	DAMAGE:2d6	RANGE:40	SIZE:M	SOURCEPAGE:p.137
+Colt New Model Army			PROFICIENCY:WEAPON|Colt New Model Army		TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal						COST:18	WT:3		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d6	RANGE:30	SIZE:M	SOURCEPAGE:p.137
+Remington Pocket Pistol			PROFICIENCY:WEAPON|Remington Pocket Pistol	TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal						COST:15	WT:1		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d4	RANGE:20	SIZE:S	SOURCEPAGE:p.137
+Reid's Knuckleduster			PROFICIENCY:WEAPON|Reid's Knuckleduster		TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal						COST:2	WT:1		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d4	RANGE:10	SIZE:T	SOURCEPAGE:p.137
+Colt Peacemaker				PROFICIENCY:WEAPON|Colt Peacemaker			TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal						COST:18	WT:3		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d6	RANGE:30	SIZE:M	SOURCEPAGE:p.138
+S&W Schofield				PROFICIENCY:WEAPON|S&W Schofield			TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal						COST:28	WT:2.5	CRITMULT:x2	CRITRANGE:1	DAMAGE:2d6	RANGE:30	SIZE:M	SOURCEPAGE:p.138
 
 #Double-Action Revolvers
-Starr Army Revolver			PROFICIENCY:WEAPON|Starr Army Revolver			TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal.Semiauto					COST:20	WT:3		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d6	RANGE:30	SIZE:M	SOURCEPAGE:p.139	BONUS:WEAPON|TOHIT|-1
-Webley RIC					PROFICIENCY:WEAPON|Webley RIC					TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal.Semiauto					COST:22	WT:2		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d6	RANGE:30	SIZE:S	SOURCEPAGE:p.139	BONUS:WEAPON|TOHIT|-1
-Colt Lightning				PROFICIENCY:WEAPON|Colt Lightning				TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal.Semiauto					COST:25	WT:2		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d4	RANGE:20	SIZE:S	SOURCEPAGE:p.139	BONUS:WEAPON|TOHIT|-1
-Colt Thunderer				PROFICIENCY:WEAPON|Colt Thunderer				TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal.Semiauto					COST:28	WT:2.5	CRITMULT:x2	CRITRANGE:1	DAMAGE:2d6	RANGE:30	SIZE:M	SOURCEPAGE:p.139	BONUS:WEAPON|TOHIT|-1
+Starr Army Revolver			PROFICIENCY:WEAPON|Starr Army Revolver		TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal.Semiauto					COST:20	WT:3		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d6	RANGE:30	SIZE:M	SOURCEPAGE:p.139	BONUS:WEAPON|TOHIT|-1
+Webley RIC					PROFICIENCY:WEAPON|Webley RIC				TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal.Semiauto					COST:22	WT:2		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d6	RANGE:30	SIZE:S	SOURCEPAGE:p.139	BONUS:WEAPON|TOHIT|-1
+Colt Lightning				PROFICIENCY:WEAPON|Colt Lightning			TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal.Semiauto					COST:25	WT:2		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d4	RANGE:20	SIZE:S	SOURCEPAGE:p.139	BONUS:WEAPON|TOHIT|-1
+Colt Thunderer				PROFICIENCY:WEAPON|Colt Thunderer			TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal.Semiauto					COST:28	WT:2.5	CRITMULT:x2	CRITRANGE:1	DAMAGE:2d6	RANGE:30	SIZE:M	SOURCEPAGE:p.139	BONUS:WEAPON|TOHIT|-1
 
 #Longarms -------------------------------------------------------------------------------------------------------
 #Muskets
-M1816 Flintlock Musket			PROFICIENCY:WEAPON|M1816 Flintlock Musket			TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal						COST:8	WT:9		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d12	RANGE:70	SIZE:L	SOURCEPAGE:p.140
-M1842 Percussion Musket			PROFICIENCY:WEAPON|M1842 Percussion Musket		TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal						COST:8	WT:9		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d12	RANGE:70	SIZE:L	SOURCEPAGE:p.140
+M1816 Flintlock Musket			PROFICIENCY:WEAPON|M1816 Flintlock Musket		TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal						COST:8	WT:9		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d12	RANGE:70	SIZE:L	SOURCEPAGE:p.140
+M1842 Percussion Musket			PROFICIENCY:WEAPON|M1842 Percussion Musket	TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal						COST:8	WT:9		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d12	RANGE:70	SIZE:L	SOURCEPAGE:p.140
 
 #Rifles
-Harpers Ferry Rifle			PROFICIENCY:WEAPON|Harpers Ferry Rifle			TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal						COST:10	WT:8.5	CRITMULT:x2	CRITRANGE:1	DAMAGE:2d12	RANGE:70	SIZE:L	SOURCEPAGE:p.141
-Hawken Rifle				PROFICIENCY:WEAPON|Hawken Rifle				TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal						COST:25	WT:10		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d12	RANGE:80	SIZE:L	SOURCEPAGE:p.141
-Sharps Rifle				PROFICIENCY:WEAPON|Sharps Rifle				TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal						COST:25	WT:9.5	CRITMULT:x2	CRITRANGE:1	DAMAGE:2d8	RANGE:90	SIZE:L	SOURCEPAGE:p.141
-Sharps Carbine				PROFICIENCY:WEAPON|Sharps Carbine				TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal						COST:25	WT:8		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d8	RANGE:80	SIZE:L	SOURCEPAGE:p.141
-Spencer Carbine				PROFICIENCY:WEAPON|Spencer Carbine				TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal.Semiauto					COST:35	WT:8.5	CRITMULT:x2	CRITRANGE:1	DAMAGE:2d10	RANGE:70	SIZE:L	SOURCEPAGE:p.141
-Henry Rifle					PROFICIENCY:WEAPON|Henry Rifle				TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal.Semiauto					COST:42	WT:9.5	CRITMULT:x2	CRITRANGE:1	DAMAGE:2d8	RANGE:60	SIZE:L	SOURCEPAGE:p.141
-Winchester 73				PROFICIENCY:WEAPON|Winchester 73				TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal.Semiauto					COST:35	WT:10		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d8	RANGE:70	SIZE:L	SOURCEPAGE:p.142
-Sharps Big Fifty				PROFICIENCY:WEAPON|Sharps Big Fifty				TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal						COST:40	WT:14		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d12	RANGE:120	SIZE:L	SOURCEPAGE:p.142
+Harpers Ferry Rifle			PROFICIENCY:WEAPON|Harpers Ferry Rifle		TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal						COST:10	WT:8.5	CRITMULT:x2	CRITRANGE:1	DAMAGE:2d12	RANGE:70	SIZE:L	SOURCEPAGE:p.141
+Hawken Rifle				PROFICIENCY:WEAPON|Hawken Rifle			TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal						COST:25	WT:10		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d12	RANGE:80	SIZE:L	SOURCEPAGE:p.141
+Sharps Rifle				PROFICIENCY:WEAPON|Sharps Rifle			TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal						COST:25	WT:9.5	CRITMULT:x2	CRITRANGE:1	DAMAGE:2d8	RANGE:90	SIZE:L	SOURCEPAGE:p.141
+Sharps Carbine				PROFICIENCY:WEAPON|Sharps Carbine			TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal						COST:25	WT:8		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d8	RANGE:80	SIZE:L	SOURCEPAGE:p.141
+Spencer Carbine				PROFICIENCY:WEAPON|Spencer Carbine			TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal.Semiauto					COST:35	WT:8.5	CRITMULT:x2	CRITRANGE:1	DAMAGE:2d10	RANGE:70	SIZE:L	SOURCEPAGE:p.141
+Henry Rifle					PROFICIENCY:WEAPON|Henry Rifle			TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal.Semiauto					COST:42	WT:9.5	CRITMULT:x2	CRITRANGE:1	DAMAGE:2d8	RANGE:60	SIZE:L	SOURCEPAGE:p.141
+Winchester 73				PROFICIENCY:WEAPON|Winchester 73			TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal.Semiauto					COST:35	WT:10		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d8	RANGE:70	SIZE:L	SOURCEPAGE:p.142
+Sharps Big Fifty				PROFICIENCY:WEAPON|Sharps Big Fifty			TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal						COST:40	WT:14		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d12	RANGE:120	SIZE:L	SOURCEPAGE:p.142
 
 #Shotguns
-Loomis Side-By-Side			PROFICIENCY:WEAPON|Loomis Side-By-Side			TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal						COST:20	WT:9		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d6	RANGE:20	SIZE:L	SOURCEPAGE:p.142
-Remington Single-Barrel			PROFICIENCY:WEAPON|Remington Single-Barrel		TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal						COST:25	WT:8		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d8	RANGE:30	SIZE:L	SOURCEPAGE:p.142
-Remington-Whitmore M1873		PROFICIENCY:WEAPON|Remington-Whitmore M1873		TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal						COST:35	WT:10		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d10	RANGE:30	SIZE:L	SOURCEPAGE:p.142
-Winchester Lever-Action			PROFICIENCY:WEAPON|Winchester Lever-Action		TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal.Semiauto					COST:40	WT:9		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d10	RANGE:30	SIZE:L	SOURCEPAGE:p.142
+Loomis Side-By-Side			PROFICIENCY:WEAPON|Loomis Side-By-Side		TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal						COST:20	WT:9		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d6	RANGE:20	SIZE:L	SOURCEPAGE:p.142
+Remington Single-Barrel			PROFICIENCY:WEAPON|Remington Single-Barrel	TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal						COST:25	WT:8		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d8	RANGE:30	SIZE:L	SOURCEPAGE:p.142
+Remington-Whitmore M1873		PROFICIENCY:WEAPON|Remington-Whitmore M1873	TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal						COST:35	WT:10		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d10	RANGE:30	SIZE:L	SOURCEPAGE:p.142
+Winchester Lever-Action			PROFICIENCY:WEAPON|Winchester Lever-Action	TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal.Semiauto					COST:40	WT:9		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d10	RANGE:30	SIZE:L	SOURCEPAGE:p.142
 
 #Exotic Firearms ------------------------------------------------------------------------------------------------
-Gatling Gun (HMG)				PROFICIENCY:WEAPON|Heavy Machine Gun			TYPE:Weapon.Exotic.Ranged.Standard.Firearm.Ballistic.HMG							COST:1500	WT:90		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d12	RANGE:70	SIZE:H	SOURCEPAGE:p.143
+Gatling Gun (HMG)				PROFICIENCY:WEAPON|Heavy Machine Gun		TYPE:Weapon.Exotic.Ranged.Standard.Firearm.Ballistic.HMG							COST:1500	WT:90		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d12	RANGE:70	SIZE:H	SOURCEPAGE:p.143
 
 #Simple Ranged Weapons ------------------------------------------------------------------------------------------
-Crossbow					PROFICIENCY:WEAPON|Crossbow					TYPE:Weapon.Simple.Ranged.Standard.Piercing.Wooden.Container		CONTAINS:UNLIM|Bolt=1	COST:4	WT:7		CRITMULT:x2	CRITRANGE:2	DAMAGE:1d10	RANGE:40	SIZE:M	SOURCEPAGE:p.144
-Javelin					PROFICIENCY:WEAPON|Javelin					TYPE:Weapon.Simple.Ranged.Standard.Thrown.Piercing.Wooden							COST:1	WT:2		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	RANGE:30	SIZE:M	SOURCEPAGE:p.144
-Whip						PROFICIENCY:WEAPON|Whip						TYPE:Weapon.Simple.Ranged.Slashing.Standard									COST:1	WT:2		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d2	RANGE:15	SIZE:S	SOURCEPAGE:p.144	BONUS:WEAPON|TOHIT|1|PREABILITY:1,CATEGORY=FEAT,Point Blank Shot
+Crossbow					PROFICIENCY:WEAPON|Crossbow				TYPE:Weapon.Simple.Ranged.Standard.Piercing.Wooden.Container		CONTAINS:UNLIM|Bolt=1	COST:4	WT:7		CRITMULT:x2	CRITRANGE:2	DAMAGE:1d10	RANGE:40	SIZE:M	SOURCEPAGE:p.144
+Javelin					PROFICIENCY:WEAPON|Javelin				TYPE:Weapon.Simple.Ranged.Standard.Thrown.Piercing.Wooden							COST:1	WT:2		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	RANGE:30	SIZE:M	SOURCEPAGE:p.144
+Whip						PROFICIENCY:WEAPON|Whip					TYPE:Weapon.Simple.Ranged.Slashing.Standard									COST:1	WT:2		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d2	RANGE:15	SIZE:S	SOURCEPAGE:p.144	BONUS:WEAPON|TOHIT|1|PREABILITY:1,CATEGORY=FEAT,Point Blank Shot
 
 #Archaic Ranged Weapons -----------------------------------------------------------------------------------------
-Bow						PROFICIENCY:WEAPON|Bow						TYPE:Weapon.Archaic.Ranged.Standard.Piercing.Wooden.Container		CONTAINS:UNLIM|Arrow=1	COST:4	WT:3		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	RANGE:40	SIZE:L	SOURCEPAGE:p.144
-Shuriken					PROFICIENCY:WEAPON|Shuriken					TYPE:Weapon.Archaic.Ranged.Piercing.Thrown.Standard.Metal							COST:0.5	WT:0.5	CRITMULT:x2	CRITRANGE:1	DAMAGE:1	RANGE:10	SIZE:T	SOURCEPAGE:p.144
+Bow						PROFICIENCY:WEAPON|Bow					TYPE:Weapon.Archaic.Ranged.Standard.Piercing.Wooden.Container		CONTAINS:UNLIM|Arrow=1	COST:4	WT:3		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	RANGE:40	SIZE:L	SOURCEPAGE:p.144
+Shuriken					PROFICIENCY:WEAPON|Shuriken				TYPE:Weapon.Archaic.Ranged.Piercing.Thrown.Standard.Metal							COST:0.5	WT:0.5	CRITMULT:x2	CRITRANGE:1	DAMAGE:1	RANGE:10	SIZE:T	SOURCEPAGE:p.144
 
 #Exotic Ranged Weapons ------------------------------------------------------------------------------------------
-Bola						PROFICIENCY:WEAPON|Bola						TYPE:Weapon.Exotic.Ranged.Bashing.Standard									COST:2	WT:2		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d4	RANGE:10	SIZE:M	SOURCEPAGE:p.144	BONUS:WEAPON|TOHIT|1|PREABILITY:1,CATEGORY=FEAT,Point Blank Shot
-Lasso						PROFICIENCY:WEAPON|Lasso					TYPE:Weapon.Exotic.Ranged.Standard											COST:1	WT:3		CRITMULT:-	CRITRANGE:0	DAMAGE:0	RANGE:20	SIZE:S	SOURCEPAGE:p.145
-Net						PROFICIENCY:WEAPON|Net						TYPE:Weapon.Exotic.Ranged.Standard											COST:2	WT:2		CRITMULT:-	CRITRANGE:0	DAMAGE:0	RANGE:10	SIZE:S	SOURCEPAGE:p.145
+Bola						PROFICIENCY:WEAPON|Bola					TYPE:Weapon.Exotic.Ranged.Bashing.Standard									COST:2	WT:2		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d4	RANGE:10	SIZE:M	SOURCEPAGE:p.144	BONUS:WEAPON|TOHIT|1|PREABILITY:1,CATEGORY=FEAT,Point Blank Shot
+Lasso						PROFICIENCY:WEAPON|Lasso				TYPE:Weapon.Exotic.Ranged.Standard											COST:1	WT:3		CRITMULT:-	CRITRANGE:0	DAMAGE:0	RANGE:20	SIZE:S	SOURCEPAGE:p.145
+Net						PROFICIENCY:WEAPON|Net					TYPE:Weapon.Exotic.Ranged.Standard											COST:2	WT:2		CRITMULT:-	CRITRANGE:0	DAMAGE:0	RANGE:10	SIZE:S	SOURCEPAGE:p.145
 
 ###Block:Explosives
 # Equipment Name			Type					Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage		Range		Size		Special Property		Source Page
