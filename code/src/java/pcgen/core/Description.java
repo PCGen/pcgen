@@ -254,7 +254,7 @@ public class Description extends ConcretePrereqObject
 							joinString = ", ";
 						}
 						Collections.sort(assocList);
-						buf.append(StringUtil.joinToStringBuilder(assocList, joinString));
+						buf.append(StringUtil.join(assocList, joinString));
 					}
 					else if (var.startsWith(VAR_FEATS))
 					{
