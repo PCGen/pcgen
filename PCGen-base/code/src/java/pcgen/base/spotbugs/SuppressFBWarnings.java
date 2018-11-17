@@ -22,7 +22,7 @@ import java.lang.annotation.RetentionPolicy;
  * Replacement annotation for the SuppressFBWarnings annotation to avoid having our entire
  * development tree dependent upon SpotBugs.
  */
-@Retention(value = RetentionPolicy.CLASS)
+@Retention(RetentionPolicy.CLASS)
 public @interface SuppressFBWarnings
 {
 	/**
