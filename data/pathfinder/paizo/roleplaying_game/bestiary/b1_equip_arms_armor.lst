@@ -1,11 +1,12 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
 
 
 ###BLOCK: Armor
-# Equipment Name			Output Name			Required Armor Proficiency	Type										Cost		Weight	AC Penalty Check	Modifier		Maximum DEX Bonus	Requires Modification?	Size		Source Page		% of Spell Failure	Combat bonus
+# Equipment Name			Output Name			Required Armor Proficiency	Type										Cost		Weight	AC Penalty Check	Modifier				Maximum DEX Bonus	Requires Modification?	Size		Source Page		% of Spell Failure	Combat bonus
 Rag Armor (Dark Creeper)	OUTPUTNAME:Rag Armor	PROFICIENCY:ARMOR|Leather	TYPE:Armor.Light.ArmorProfLight.Suit.Standard.Nonmetal	COST:0	WT:15		ACCHECK:0		EQMOD:Material ~ Leather	MAXDEX:6		MODS:NO			SIZE:S	SOURCEPAGE:p.53	SPELLFAILURE:10		BONUS:COMBAT|AC|2|TYPE=Armor|PRERACE:1,Dark Creeper
 
 ###BLOCK: Weapons
-# Equipment Name	Required Weapon Proficiency	Type																		Cost		Weight	Crit Mult	Crit Range	Damage	Modifier	Wield Category	Range		Size		Source Page		Special Property
+# Equipment Name	Required Weapon Proficiency	Type																		Cost		Weight	Crit Mult	Crit Range	Damage	Modifier			Wield Category	Range		Size		Source Page		Special Property
 Aklys			PROFICIENCY:WEAPON|Club		TYPE:Weapon.Resizable.Melee.OneHanded.Ranged.Thrown.Simple.Finesseable.Bludgeoning.Piercing.Slashing.Club	COST:0	WT:3		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	EQMOD:Material ~ Wood	WIELD:OneHanded	RANGE:10	SIZE:S	SOURCEPAGE:p.70	SPROP:A 20-footlong cord limits the Aklys's range, but allows it to be retrieved as a move equivalent action after it has been thrown.

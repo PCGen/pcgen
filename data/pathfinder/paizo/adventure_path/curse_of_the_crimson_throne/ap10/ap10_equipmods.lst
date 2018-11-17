@@ -1,12 +1,13 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Curse of the Crimson Throne, Chapter 4: A History of Ashes	SOURCESHORT:AP10	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy82u9	SOURCEDATE:2008-07
 # Original Entry by: Paul Grosse
 
-# Modifier Name	Unique Key	Type					Plus		Visible		Source Page		Required Type							Weapon prop. bonus									Special Property																Apply to both heads
-Guided		KEY:Special Ability ~ Guided ~ Weapon	TYPE:Weapon.Melee.Thrown	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.22	PRETYPE:2,Enhancement,Weapon	PRETYPE:1,Melee,Thrown	BONUS:WEAPON|TOHIT,DAMAGE|WIS-STR|PRETYPE:1,Weapon	SPROP:A weapon with the guided property allows its wielder to use his instinct when striking blows with it	ASSIGNTOALL:NO
+# Modifier Name						Unique Key						Type					Plus		Visible		Source Page		Required Type							Weapon prop. bonus						Special Property																Apply to both heads
+Guided							KEY:Special Ability ~ Guided ~ Weapon	TYPE:Weapon.Melee.Thrown	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.22	PRETYPE:2,Enhancement,Weapon	PRETYPE:1,Melee,Thrown	BONUS:WEAPON|TOHIT,DAMAGE|WIS-STR|PRETYPE:1,Weapon	SPROP:A weapon with the guided property allows its wielder to use his instinct when striking blows with it	ASSIGNTOALL:NO
 
 
 
 
 #Old KEYs
-Special Ability ~ Guided ~ Weapon.COPY=GUIDED	VISIBLE:NO
+Special Ability ~ Guided ~ Weapon.COPY=GUIDED															VISIBLE:NO

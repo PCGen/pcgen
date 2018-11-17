@@ -1,3 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 21407 $ $Author: evilmynex $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 #SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8255	SOURCEDATE:2009-08
 # Original Entry by: Stefan Radermacher
@@ -15,10 +16,10 @@ ABILITYCATEGORY:Obsessive Bonus		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACT
 ABILITYCATEGORY:Adaptability Bonus Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:SkillFocus		PLURAL:Adaptability Bonus Feats	DISPLAYLOCATION:Feats
 
 ###Block:
-# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI	Display Location
-ABILITYCATEGORY:Favored Class					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FavoredClass		PLURAL:Favored Classes		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Favored Class Bonus				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FavoredClassBonus	PLURAL:Favored Class Bonuses	DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Favored Class Bonus ~ Skill Rank	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability					PLURAL:Favored Class Bonuses	DISPLAYLOCATION:Class Features	ABILITYLIST:Favored Class Bonus ~ Skill Rank	
+# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object		Specific choices list					Plural description for UI	Display Location
+ABILITYCATEGORY:Favored Class					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FavoredClass										PLURAL:Favored Classes		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Favored Class Bonus				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FavoredClassBonus									PLURAL:Favored Class Bonuses	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Favored Class Bonus ~ Skill Rank	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability					ABILITYLIST:Favored Class Bonus ~ Skill Rank	PLURAL:Favored Class Bonuses	DISPLAYLOCATION:Class Features
 
 
 
@@ -34,7 +35,7 @@ ABILITYCATEGORY:Monk Class Feature				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		
 ABILITYCATEGORY:Paladin Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Paladin Class Feature.PaladinClassFeatures						PLURAL:Paladin Class Features				DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Ranger Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Ranger Class Feature.RangerClassFeatures						PLURAL:Ranger Class Features				DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Rogue Class Feature				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Rogue Class Feature.RogueClassFeatures						PLURAL:Rogue Class Features				DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Sorcerer Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Sorcerer Class Feature					PLURAL:Sorcerer Class Features			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Sorcerer Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Sorcerer Class Feature									PLURAL:Sorcerer Class Features			DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Wizard Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Wizard Class Feature.WizardClassFeatures						PLURAL:Wizard Class Features				DISPLAYLOCATION:Class Features
 # Prestige Classes
 ABILITYCATEGORY:Assassin Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Assassin Class Feature.AssassinClassFeatures					PLURAL:Assassin Class Features			DISPLAYLOCATION:Class Features
@@ -91,19 +92,19 @@ ABILITYCATEGORY:Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTION
 ABILITYCATEGORY:Giant Spider Type	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:GiantSpiderType					PLURAL:Giant Spider Types	DISPLAYLOCATION:Racial Abilities
 
 ###Block: Class Bonus Feat Categories
-# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object					Specific choices list								Plural description for UI		Display Location
-ABILITYCATEGORY:Fighter Bonus Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Combat																	PLURAL:Fighter Bonus Feats		DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Monk Bonus Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MonkBonusFeat.Meditation														PLURAL:Monk Bonus Feats			DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Combat Trick Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Combat																	PLURAL:Combat Trick Feats		DISPLAYLOCATION:Feats	POOL:Pool_CombatFeat
-ABILITYCATEGORY:Weapon Training		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:WeaponFocus																PLURAL:Weapon Trainings			DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Ranger Bonus Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RangerBonusFeat															PLURAL:Ranger Bonus Feats		DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Wizard Bonus Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:WizardBonus.ItemCreation.Metamagic												PLURAL:Wizard Bonus Feats		DISPLAYLOCATION:Feats
+# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Base Pool number		Category of Object				Type of Object					Plural description for UI		Display Location
+ABILITYCATEGORY:Fighter Bonus Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:FEAT					TYPE:Combat						PLURAL:Fighter Bonus Feats		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Monk Bonus Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:Special Ability			TYPE:MonkBonusFeat.Meditation			PLURAL:Monk Bonus Feats			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Combat Trick Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_CombatFeat	CATEGORY:FEAT					TYPE:Combat						PLURAL:Combat Trick Feats		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Weapon Training			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:FEAT					TYPE:WeaponFocus					PLURAL:Weapon Trainings			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Ranger Bonus Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:Special Ability			TYPE:RangerBonusFeat				PLURAL:Ranger Bonus Feats		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Wizard Bonus Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:FEAT					TYPE:WizardBonus.ItemCreation.Metamagic	PLURAL:Wizard Bonus Feats		DISPLAYLOCATION:Feats
 
-ABILITYCATEGORY:Sorcerer Bloodline		VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Sorcerer Bloodline
-ABILITYCATEGORY:Sorcerer Bloodline Power	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Sorcerer Bloodline Power														PLURAL:Sorcerer Bloodline Powers	DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Sorcerer Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:Sorcerer Bloodline Feat														PLURAL:Sorcerer Bloodline Feats	DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Crossblooded Bloodline	VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Crossblooded Bloodline
-ABILITYCATEGORY:Eldritch Heritage Bloodline	VISIBLE:NO	EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Eldritch Heritage Bloodline
+ABILITYCATEGORY:Sorcerer Bloodline			VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:Sorcerer Bloodline
+ABILITYCATEGORY:Sorcerer Bloodline Power		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:Special Ability			TYPE:Sorcerer Bloodline Power			PLURAL:Sorcerer Bloodline Powers	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Sorcerer Bloodline Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:Internal					TYPE:Sorcerer Bloodline Feat			PLURAL:Sorcerer Bloodline Feats	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Crossblooded Bloodline		VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:Crossblooded Bloodline
+ABILITYCATEGORY:Eldritch Heritage Bloodline	VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:Eldritch Heritage Bloodline
 
 
 ###Block: Class Feature Categories
@@ -126,7 +127,7 @@ ABILITYCATEGORY:Combat Style					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACT
 ABILITYCATEGORY:Hunter's Bond					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:HuntersBond						PLURAL:Hunter's Bond				DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Rogue Talent					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:RogueTalent						PLURAL:Rogue Talents				DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Advanced Talent				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:RogueAdvancedTalent				PLURAL:Rogue Advanced Talents			DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Bloodline				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Internal			TYPE:Bloodline Selection					PLURAL:Bloodlines			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Bloodline					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Internal			TYPE:Bloodline Selection				PLURAL:Bloodlines					DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Arcane Bond					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:ArcaneBond						PLURAL:Arcane Bonds				DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:New Arcana					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Internal			TYPE:SorcererNewArcana												DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Arcane Opposition School			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_ArcaneOppositionSchool		CATEGORY:Special Ability	TYPE:ArcaneOppositionSchool				PLURAL:Arcane Opposition Schools		DISPLAYLOCATION:Class Features
@@ -149,9 +150,9 @@ ABILITYCATEGORY:Necromancer Channeling	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES
 
 
 ###Block: Sorcerer Bloodline Abilities
-# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI		Display Location
-ABILITYCATEGORY:Knowledge Class Skill		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Class Skill		TYPE:Knowledge				PLURAL:Knowledge Class Skills		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Arcane Bloodline School Power	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	ABILITYLIST:Arcane Bloodline ~ School Power Choice							DISPLAYLOCATION:Class Features
+# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object	Specific choices list						Plural description for UI	Display Location
+ABILITYCATEGORY:Knowledge Class Skill		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Class Skill		TYPE:Knowledge										PLURAL:Knowledge Class Skills	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Arcane Bloodline School Power	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability				ABILITYLIST:Arcane Bloodline ~ School Power Choice						DISPLAYLOCATION:Class Features
 
 
 
@@ -171,109 +172,109 @@ ABILITYCATEGORY:Animal Trick	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONA
 ###Block: Prestige Classes --------------------------
 
 # Loremaster
-# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Base Pool number				Category of Object				Type of Object						Specific choices list						Plural description for UI			Display Location
-ABILITYCATEGORY:Loremaster Secret				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability			TYPE:LoremasterSecret														PLURAL:Loremaster Secrets			DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Add Spoken Language				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO												CATEGORY:Special Ability			TYPE:AddSpokenLanguage																					DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Cosmopolitan Spoken Language		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO												CATEGORY:Special Ability			TYPE:AddSpokenLanguage																					DISPLAYLOCATION:Feats
+# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Base Pool number				Category of Object			Type of Object						Specific choices list								Plural description for UI			Display Location
+ABILITYCATEGORY:Loremaster Secret				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability		TYPE:LoremasterSecret																PLURAL:Loremaster Secrets			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Add Spoken Language				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO												CATEGORY:Special Ability		TYPE:AddSpokenLanguage																							DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Cosmopolitan Spoken Language		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO												CATEGORY:Special Ability		TYPE:AddSpokenLanguage																							DISPLAYLOCATION:Feats
 
 # Master Category
 ABILITYCATEGORY:Intelligent Item				VISIBLE:NO																		CATEGORY:Intelligent Item
 
 # Child Categories
-ABILITYCATEGORY:Intelligent Item Alignment		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES											CATEGORY:Intelligent Item			TYPE:IntelligentAlignment													PLURAL:Intelligent Item Alignment		DISPLAYLOCATION:Intelligent Magic Item
-ABILITYCATEGORY:Intelligent Item Languages		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES											CATEGORY:Intelligent Item			TYPE:IntItemLang															PLURAL:Intelligent Item Languages		DISPLAYLOCATION:Intelligent Magic Item
-ABILITYCATEGORY:Intelligent Item Power			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES											CATEGORY:Intelligent Item			TYPE:ItemStandardPower														PLURAL:Intelligent Item Power			DISPLAYLOCATION:Intelligent Magic Item
-ABILITYCATEGORY:Intelligent Item Purpose			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES											CATEGORY:Intelligent Item			TYPE:ItemPurpose															PLURAL:Intelligent Item Purpose		DISPLAYLOCATION:Intelligent Magic Item
-ABILITYCATEGORY:Intelligent Item Purpose Power		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES											CATEGORY:Intelligent Item			TYPE:ItemPurposePower														PLURAL:Intelligent Item Purpose Power	DISPLAYLOCATION:Intelligent Magic Item
+ABILITYCATEGORY:Intelligent Item Alignment		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES											CATEGORY:Intelligent Item		TYPE:IntelligentAlignment															PLURAL:Intelligent Item Alignment		DISPLAYLOCATION:Intelligent Magic Item
+ABILITYCATEGORY:Intelligent Item Languages		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES											CATEGORY:Intelligent Item		TYPE:IntItemLang																	PLURAL:Intelligent Item Languages		DISPLAYLOCATION:Intelligent Magic Item
+ABILITYCATEGORY:Intelligent Item Power			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES											CATEGORY:Intelligent Item		TYPE:ItemStandardPower																PLURAL:Intelligent Item Power			DISPLAYLOCATION:Intelligent Magic Item
+ABILITYCATEGORY:Intelligent Item Purpose			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES											CATEGORY:Intelligent Item		TYPE:ItemPurpose																	PLURAL:Intelligent Item Purpose		DISPLAYLOCATION:Intelligent Magic Item
+ABILITYCATEGORY:Intelligent Item Purpose Power		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES											CATEGORY:Intelligent Item		TYPE:ItemPurposePower																PLURAL:Intelligent Item Purpose Power	DISPLAYLOCATION:Intelligent Magic Item
 
 # Master Category
-ABILITYCATEGORY:Afflictions					VISIBLE:YES		EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Afflictions																					PLURAL:Afflictions				DISPLAYLOCATION:Misc
-ABILITYCATEGORY:GM Awards					VISIBLE:YES		EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability			TYPE:GM_Award															PLURAL:GM Awards					DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Afflictions					VISIBLE:YES		EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Afflictions																						PLURAL:Afflictions				DISPLAYLOCATION:Misc
+ABILITYCATEGORY:GM Awards					VISIBLE:YES		EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability		TYPE:GM_Award																	PLURAL:GM Awards					DISPLAYLOCATION:Misc
 
 
 # Child Category
 #ABILITYCATEGORY:Affliction				VISIBLE:YES		EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Afflictions
 
 # Extra Channel Category
-ABILITYCATEGORY:Extra Channel					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability			TYPE:ExtraChannel															PLURAL:Extra Channels				DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Extra Channel					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability		TYPE:ExtraChannel																	PLURAL:Extra Channels				DISPLAYLOCATION:Feats
 
 # Feat Choices
-ABILITYCATEGORY:Weapon Focus					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT													ABILITYLIST:Weapon Focus												DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Greater Weapon Focus			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT													ABILITYLIST:Greater Weapon Focus											DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Improved Critical				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT													ABILITYLIST:Improved Critical												DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Greater Weapon Specialization		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT													ABILITYLIST:Greater Weapon Specialization										DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Weapon Specialization			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT													ABILITYLIST:Weapon Specialization											DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Exotic Weapon Proficiency			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT													ABILITYLIST:Exotic Weapon Proficiency										DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Martial Weapon Proficiency		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT													ABILITYLIST:Martial Weapon Proficiency										DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Skill Focus					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT													ABILITYLIST:Skill Focus													DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Spell Focus					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT													ABILITYLIST:Spell Focus													DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Teamwork Feat					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT													TYPE:Teamwork														DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Weapon Focus					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT												ABILITYLIST:Weapon Focus														DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Greater Weapon Focus			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT												ABILITYLIST:Greater Weapon Focus													DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Improved Critical				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT												ABILITYLIST:Improved Critical														DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Greater Weapon Specialization		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT												ABILITYLIST:Greater Weapon Specialization												DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Weapon Specialization			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT												ABILITYLIST:Weapon Specialization													DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Exotic Weapon Proficiency			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT												ABILITYLIST:Exotic Weapon Proficiency												DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Martial Weapon Proficiency		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT												ABILITYLIST:Martial Weapon Proficiency												DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Skill Focus					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT												ABILITYLIST:Skill Focus															DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Spell Focus					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT												ABILITYLIST:Spell Focus															DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Teamwork Feat					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT				TYPE:Teamwork																								DISPLAYLOCATION:Feats
 
 
 # COMMENT: This can be used to allow Users to see Monster Traits - Requires all 'ABILITY:Special Ability|AUTOMATIC' to 'ABILITY:Racial Trait|AUTOMATIC'
-ABILITYCATEGORY:Racial Trait					VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO												CATEGORY:Special Ability			TYPE:RacialTrait.SpecialQuality.SpecialAttack																	DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Class Feature					VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO												CATEGORY:Special Ability			TYPE:ClassFeatures.SpecialQuality.SpecialAttack										PLURAL:Class Features				DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Class Ability					VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO												CATEGORY:Special Ability			TYPE:ClassAbility.SpecialQuality.SpecialAttack										PLURAL:Class Features				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Racial Trait					VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO												CATEGORY:Special Ability		TYPE:RacialTrait.SpecialQuality.SpecialAttack																			DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Class Feature					VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO												CATEGORY:Special Ability		TYPE:ClassFeatures.SpecialQuality.SpecialAttack												PLURAL:Class Features				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Class Ability					VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO												CATEGORY:Special Ability		TYPE:ClassAbility.SpecialQuality.SpecialAttack												PLURAL:Class Features				DISPLAYLOCATION:Class Features
 
 
-ABILITYCATEGORY:Special Mount Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO												CATEGORY:Internal					TYPE:SpecialMountSelection																				DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Permanency Applied Effects		VISIBLE:YES		EDITABLE:YES	EDITPOOL:YES											CATEGORY:Special Ability			TYPE:PermanencySpell																					DISPLAYLOCATION:Misc
-ABILITYCATEGORY:Optional Rules Systems			VISIBLE:YES		EDITABLE:YES	EDITPOOL:YES											CATEGORY:Internal					TYPE:OptionalRules																					DISPLAYLOCATION:Misc
-ABILITYCATEGORY:Pact						VISIBLE:YES		EDITABLE:YES	EDITPOOL:YES											CATEGORY:Special Ability			TYPE:Pact																							DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Special Mount Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO												CATEGORY:Internal				TYPE:SpecialMountSelection																						DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Permanency Applied Effects		VISIBLE:YES		EDITABLE:YES	EDITPOOL:YES											CATEGORY:Special Ability		TYPE:PermanencySpell																							DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Optional Rules Systems			VISIBLE:YES		EDITABLE:YES	EDITPOOL:YES											CATEGORY:Internal				TYPE:OptionalRules																							DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Pact						VISIBLE:YES		EDITABLE:YES	EDITPOOL:YES											CATEGORY:Special Ability		TYPE:Pact																									DISPLAYLOCATION:Misc
 
 # Duplicated Multiple Times - Needs to be placed in the CORE Folder once that is all set up.
 ABILITYCATEGORY:Background					VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Background
 #
-ABILITYCATEGORY:Human Ethnicity				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Background				TYPE:HumanEthnicity														PLURAL:Human Ethnicities			DISPLAYLOCATION:Background
-ABILITYCATEGORY:Region of Origin				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Background				TYPE:Region																PLURAL:Regions of Origin			DISPLAYLOCATION:Background
+ABILITYCATEGORY:Human Ethnicity				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Background			TYPE:HumanEthnicity																PLURAL:Human Ethnicities			DISPLAYLOCATION:Background
+ABILITYCATEGORY:Region of Origin				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Background			TYPE:Region																		PLURAL:Regions of Origin			DISPLAYLOCATION:Background
 
-ABILITYCATEGORY:Headband of Intellect Skill Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability			TYPE:HeadbandSkill																					DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Headband of Intellect Skill Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability		TYPE:HeadbandSkill																							DISPLAYLOCATION:Misc
 
-ABILITYCATEGORY:Intelligence-Based Skill			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO												CATEGORY:Special Ability			TYPE:IntBaseSkill																						DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Intelligence-Based Skill			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO												CATEGORY:Special Ability		TYPE:IntBaseSkill																								DISPLAYLOCATION:Class Features
 
-ABILITYCATEGORY:Raging Selection				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability			TYPE:RageSelection																					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Raging Selection				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability		TYPE:RageSelection																							DISPLAYLOCATION:Class Features
 
 # For keeping the output the same
 #ABILITYCATEGORY:Sorcerer Draconic Bloodline		VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Sorcerer Draconic Bloodline
 
 # Remove "Sorcerer Draconic Bloodline" and "Sorcerer Elemental Bloodline" after next version
-ABILITYCATEGORY:Sorcerer Draconic Bloodline		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability			TYPE:Sorcerer Draconic Bloodline Choice																		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Sorcerer Elemental Bloodline		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability			TYPE:Sorcerer Elemental Bloodline Choice																		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Sorcerer Draconic Bloodline		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability		TYPE:Sorcerer Draconic Bloodline Choice																				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Sorcerer Elemental Bloodline		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability		TYPE:Sorcerer Elemental Bloodline Choice																				DISPLAYLOCATION:Class Features
 
-ABILITYCATEGORY:Draconic Bloodline Type			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability			TYPE:Sorcerer Draconic Bloodline Choice																		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Elemental Bloodline Type			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability			TYPE:Sorcerer Elemental Bloodline Choice																		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Draconic Bloodline Type			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability		TYPE:Sorcerer Draconic Bloodline Choice																				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Elemental Bloodline Type			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability		TYPE:Sorcerer Elemental Bloodline Choice																				DISPLAYLOCATION:Class Features
 
 ABILITYCATEGORY:Blood of Dragons Bloodline		VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Blood of Dragons Bloodline
-ABILITYCATEGORY:Dragon Disciple Bloodline			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Internal					TYPE:Dragon Disciple Bloodline Choice																		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Dragon Disciple Bloodline			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Internal				TYPE:Dragon Disciple Bloodline Choice																				DISPLAYLOCATION:Class Features
 
 
 
-ABILITYCATEGORY:Temp Feat					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_Temp_Feat			CATEGORY:FEAT					TYPE:*																							DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Temp Combat Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_Temp_Combat_Feat		CATEGORY:FEAT					TYPE:Combat																							DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Temp Feat					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_Temp_Feat			CATEGORY:FEAT				TYPE:*																									DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Temp Combat Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_Temp_Combat_Feat		CATEGORY:FEAT				TYPE:Combat																									DISPLAYLOCATION:Feats
 
-ABILITYCATEGORY:Barbarian Class Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		POOL:Pool_Barbarian_Class_Selection	CATEGORY:Class					TYPE:Barbarian Class Selection																			DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Monk Class Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		POOL:Pool_Monk_Class_Selection	CATEGORY:Class					TYPE:Monk Class Selection																				DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Rogue Class Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		POOL:Pool_Rogue_Class_Selection	CATEGORY:Class					TYPE:Rogue Class Selection																				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Barbarian Class Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		POOL:Pool_Barbarian_Class_Selection	CATEGORY:Class				TYPE:Barbarian Class Selection																					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Monk Class Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		POOL:Pool_Monk_Class_Selection	CATEGORY:Class				TYPE:Monk Class Selection																						DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Rogue Class Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		POOL:Pool_Rogue_Class_Selection	CATEGORY:Class				TYPE:Rogue Class Selection																						DISPLAYLOCATION:Class Features
 
 # GM Spell Award
-ABILITYCATEGORY:GM Bonus Spell Known			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability			TYPE:GM Bonus Spell Known																				DISPLAYLOCATION:Misc
-ABILITYCATEGORY:GM Bonus Spell Cast				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability			TYPE:GM Bonus Spell Cast																				DISPLAYLOCATION:Misc
+ABILITYCATEGORY:GM Bonus Spell Known			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability		TYPE:GM Bonus Spell Known																						DISPLAYLOCATION:Misc
+ABILITYCATEGORY:GM Bonus Spell Cast				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability		TYPE:GM Bonus Spell Cast																						DISPLAYLOCATION:Misc
 
-ABILITYCATEGORY:GM Penalized Spell Known			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability			TYPE:GM Penalized Spell Known																				DISPLAYLOCATION:Misc
-ABILITYCATEGORY:GM Penalized Spell Cast			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability			TYPE:GM Penalized Spell Cast																				DISPLAYLOCATION:Misc
+ABILITYCATEGORY:GM Penalized Spell Known			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability		TYPE:GM Penalized Spell Known																						DISPLAYLOCATION:Misc
+ABILITYCATEGORY:GM Penalized Spell Cast			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability		TYPE:GM Penalized Spell Cast																						DISPLAYLOCATION:Misc
 
 
 # Homebrew Support
-ABILITYCATEGORY:Human Subrace					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO	CATEGORY:Internal	TYPE:HumanSubrace		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Human Subrace					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Internal				TYPE:HumanSubrace																								DISPLAYLOCATION:Racial Abilities
 
 ## REMOVE - When Bloodline Conversion Complete
-ABILITYCATEGORY:Aberrant Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:AberrantBloodline				ABILITYLIST:Skill Focus(Knowledge (Dungeoneering))			PLURAL:Aberrant Bloodline Feats	DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Abyssal Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:AbyssalBloodline				ABILITYLIST:Skill Focus(Knowledge (Planes))				PLURAL:Abyssal Bloodline Feats	DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Arcane Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:ArcaneBloodline				ABILITYLIST:Skill Focus(Knowledge (Arcana))				PLURAL:Arcane Bloodline Feats		DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Celestial Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:CelestialBloodline				ABILITYLIST:Skill Focus(Knowledge (Religion))				PLURAL:Celestial Bloodline Feats	DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Destined Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:DestinedBloodline				ABILITYLIST:Skill Focus(Knowledge (History))				PLURAL:Destined Bloodline Feats	DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Draconic Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:DraconicBloodline				ABILITYLIST:Skill Focus(Knowledge (Arcana))|Skill Focus (Fly)	PLURAL:Draconic Bloodline Feats	DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Elemental Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:ElementalBloodline				ABILITYLIST:Skill Focus(Knowledge (Planes))				PLURAL:Elemental Bloodline Feats	DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Fey Bloodline Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:FeyBloodline					ABILITYLIST:Skill Focus(Knowledge (Nature))				PLURAL:Fey Bloodline Feats		DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Infernal Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:InfernalBloodline				ABILITYLIST:Skill Focus(Knowledge (Planes))				PLURAL:Infernal Bloodline Feats	DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Undead Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:UndeadBloodline				ABILITYLIST:Skill Focus(Knowledge (Religion))				PLURAL:Undead Bloodline Feats		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Aberrant Bloodline Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT				TYPE:AberrantBloodline					ABILITYLIST:Skill Focus(Knowledge (Dungeoneering))			PLURAL:Aberrant Bloodline Feats		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Abyssal Bloodline Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT				TYPE:AbyssalBloodline					ABILITYLIST:Skill Focus(Knowledge (Planes))				PLURAL:Abyssal Bloodline Feats		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Arcane Bloodline Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT				TYPE:ArcaneBloodline					ABILITYLIST:Skill Focus(Knowledge (Arcana))				PLURAL:Arcane Bloodline Feats			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Celestial Bloodline Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT				TYPE:CelestialBloodline					ABILITYLIST:Skill Focus(Knowledge (Religion))				PLURAL:Celestial Bloodline Feats		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Destined Bloodline Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT				TYPE:DestinedBloodline					ABILITYLIST:Skill Focus(Knowledge (History))				PLURAL:Destined Bloodline Feats		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Draconic Bloodline Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT				TYPE:DraconicBloodline					ABILITYLIST:Skill Focus(Knowledge (Arcana))|Skill Focus (Fly)	PLURAL:Draconic Bloodline Feats		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Elemental Bloodline Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT				TYPE:ElementalBloodline					ABILITYLIST:Skill Focus(Knowledge (Planes))				PLURAL:Elemental Bloodline Feats		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Fey Bloodline Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT				TYPE:FeyBloodline						ABILITYLIST:Skill Focus(Knowledge (Nature))				PLURAL:Fey Bloodline Feats			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Infernal Bloodline Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT				TYPE:InfernalBloodline					ABILITYLIST:Skill Focus(Knowledge (Planes))				PLURAL:Infernal Bloodline Feats		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Undead Bloodline Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT				TYPE:UndeadBloodline					ABILITYLIST:Skill Focus(Knowledge (Religion))				PLURAL:Undead Bloodline Feats			DISPLAYLOCATION:Feats

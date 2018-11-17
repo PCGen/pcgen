@@ -1,9 +1,10 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Fort Griffin Echo Vol. 1 No. 1	SOURCESHORT:FGE1-1	SOURCEWEB:http://www.doghouserules.net/echo/index.html	SOURCEDATE:2002-01
 # Original Entry by: Lone Jedi
 
 ###Block:Ranged Weapons
 #Rifles
-# Equipment Name			Required Proficiency					Type											Cost		Weight	Crit Mult	Crit Range	Damage	Range		Size		Source Page
+# Equipment Name			Required Weapon Proficiency				Type											Cost		Weight	Crit Mult	Crit Range	Damage	Range		Size		Source Page
 Colt Ring-Lever Rifle (.34)	PROFICIENCY:WEAPON|Colt Ring-Lever Rifle (.34)	TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal	COST:130	WT:12		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d6	RANGE:60	SIZE:L	SOURCEPAGE:p.5
 Colt Ring-Lever Rifle (.44)	PROFICIENCY:WEAPON|Colt Ring-Lever Rifle (.44)	TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal	COST:150	WT:15.5	CRITMULT:x2	CRITRANGE:1	DAMAGE:2d8	RANGE:60	SIZE:L	SOURCEPAGE:p.5

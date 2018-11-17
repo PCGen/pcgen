@@ -1,3 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 20125 $ $Author: zaister $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
 
@@ -3253,15 +3254,15 @@ STAT:STR=12|DEX=13|CON=14|INT=8|WIS=15|CHA=10
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Death Knell|Hold Person|Silence
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Bless|Cause Fear|Cure Light Wounds|Protection from Law
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Bleed|Detect Poison|Read Magic|Resistance
-GEAR:Breastplate						SIZE:M	LOCATION:Equipped		EQMOD:Special Quality ~ Masterwork ~ Armor
-GEAR:Shield (Heavy/Steel)				SIZE:M	LOCATION:Equipped
-GEAR:Rapier							SIZE:M	LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
-GEAR:Crossbow (Hand)					SIZE:M	LOCATION:Carried
-GEAR:Bolt (Crossbow)			QTY:20			LOCATION:Carried
-GEAR:Poison (Drow Poison)		QTY:4				LOCATION:Carried
-GEAR:Potion of Invisibility						LOCATION:Carried
+GEAR:Breastplate							SIZE:M	LOCATION:Equipped		EQMOD:Special Quality ~ Masterwork ~ Armor
+GEAR:Shield (Heavy/Steel)					SIZE:M	LOCATION:Equipped
+GEAR:Rapier								SIZE:M	LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Crossbow (Hand)						SIZE:M	LOCATION:Carried
+GEAR:Bolt (Crossbow)				QTY:20			LOCATION:Carried
+GEAR:Poison (Drow Poison)			QTY:4				LOCATION:Carried
+GEAR:Potion of Invisibility							LOCATION:Carried
 GEAR:Scroll of Dispel Magic (Divine)					LOCATION:Carried
-GEAR:Wand of Cure Light Wounds					LOCATION:Carried
+GEAR:Wand of Cure Light Wounds						LOCATION:Carried
 
 STARTPACK:Dryad Default	TYPE:Default Monster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dryad],[!PRERACE:1,%]	SOURCEPAGE:p.116
 ALIGN:CG
@@ -6873,7 +6874,7 @@ GEAR:Boots of Levitation			LOCATION:Equipped
 GEAR:Headband of Vast Intelligence +2	LOCATION:Equipped
 GEAR:Ring of Protection +2			LOCATION:Equipped
 GEAR:Potion of Invisibility			LOCATION:Carried
-GEAR:Scroll of Dominate Person			LOCATION:Carried
+GEAR:Scroll of Dominate Person		LOCATION:Carried
 GEAR:Scroll of Teleport				LOCATION:Carried
 LANGBONUS:Abyssal|Aklo|Aquan
 SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Circle of Death

@@ -1,7 +1,10 @@
-Unarmed					TYPE:Unarmed
-Solarian Weapon				TYPE:Solarian Weapon.ADVANCED MELEE.ADVANCED MELEE WEAPONS
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# Weapon Name	Type
+Unarmed		TYPE:Unarmed
+Solarian Weapon	TYPE:Solarian Weapon.ADVANCED MELEE.ADVANCED MELEE WEAPONS
 
 ###Block:BASIC MELEE WEAPONS
+# Weapon Name				Type
 Unarmed strike				TYPE:B.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee.Uncategorized
 Club						TYPE:B.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee.Uncategorized
 Baton (tactical)				TYPE:B.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee.Uncategorized
@@ -33,6 +36,7 @@ Staff (hardlight)				TYPE:B.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basi
 Spear (gravity)				TYPE:P.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee.Uncategorized
 ###Block:ADVANCED MELEE WEAPONS
 # One-Handed Weapons
+# Weapon Name				Type
 Skyfire sword (tactical)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
 Skyfire sword (inferno)			TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
 Plasma sword (tactical)			TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
@@ -201,63 +205,63 @@ Needler rifle				TYPE:LONGARMS
 
 Zero cannon (tactical)			TYPE:HEAVY WEAPONS
 Zero cannon (advanced)			TYPE:HEAVY WEAPONS
-Zero cannon (elite)			TYPE:HEAVY WEAPONS	
+Zero cannon (elite)			TYPE:HEAVY WEAPONS
 Flamethrower (ifrit-class)		TYPE:HEAVY WEAPONS
-Flamethrower (salamander-class)	TYPE:HEAVY WEAPONS	
-Flamethrower (hellhound-class)	TYPE:HEAVY WEAPONS	
-Flamethrower (firedrake-class)	TYPE:HEAVY WEAPONS	
+Flamethrower (salamander-class)	TYPE:HEAVY WEAPONS
+Flamethrower (hellhound-class)	TYPE:HEAVY WEAPONS
+Flamethrower (firedrake-class)	TYPE:HEAVY WEAPONS
 Flamethrower (phoenix-class)		TYPE:HEAVY WEAPONS
-Artillery laser (azimuth)		TYPE:HEAVY WEAPONS	
-Artillery laser (corona)		TYPE:HEAVY WEAPONS	
+Artillery laser (azimuth)		TYPE:HEAVY WEAPONS
+Artillery laser (corona)		TYPE:HEAVY WEAPONS
 Artillery laser (aphelion)		TYPE:HEAVY WEAPONS
 Autobeam artillery (tactical)		TYPE:HEAVY WEAPONS
 Artillery laser (perihelion)		TYPE:HEAVY WEAPONS
 Autobeam artillery (advanced)		TYPE:HEAVY WEAPONS
 Artillery laser (parallax)		TYPE:HEAVY WEAPONS
 Autobeam artillery (elite)		TYPE:HEAVY WEAPONS
-Artillery laser (zenith)		TYPE:HEAVY WEAPONS	
-Plasma cannon (red star)		TYPE:HEAVY WEAPONS	
+Artillery laser (zenith)		TYPE:HEAVY WEAPONS
+Plasma cannon (red star)		TYPE:HEAVY WEAPONS
 Plasma cannon (yellow star)		TYPE:HEAVY WEAPONS
 Plasma cannon (white star)		TYPE:HEAVY WEAPONS
-Plasma cannon (blue star)		TYPE:HEAVY WEAPONS	
+Plasma cannon (blue star)		TYPE:HEAVY WEAPONS
 Reaction cannon (light)			TYPE:HEAVY WEAPONS
-Machine gun (squad)			TYPE:HEAVY WEAPONS	
+Machine gun (squad)			TYPE:HEAVY WEAPONS
 X-gen gun (tactical)			TYPE:HEAVY WEAPONS
 Reaction cannon (tactical)		TYPE:HEAVY WEAPONS
-Machine gun (light)			TYPE:HEAVY WEAPONS	
+Machine gun (light)			TYPE:HEAVY WEAPONS
 X-gen gun (advanced)			TYPE:HEAVY WEAPONS
 Reaction cannon (heavy)			TYPE:HEAVY WEAPONS
 Stellar cannon (light)			TYPE:HEAVY WEAPONS
 Crossbolter (advanced)			TYPE:HEAVY WEAPONS
 Machine gun (medium)			TYPE:HEAVY WEAPONS
 X-gen gun (elite)				TYPE:HEAVY WEAPONS
-Crossbolter (elite)			TYPE:HEAVY WEAPONS	
+Crossbolter (elite)			TYPE:HEAVY WEAPONS
 Reaction cannon (advanced)		TYPE:HEAVY WEAPONS
 Stellar cannon (heavy)			TYPE:HEAVY WEAPONS
-Machine gun (heavy)			TYPE:HEAVY WEAPONS	
+Machine gun (heavy)			TYPE:HEAVY WEAPONS
 Reaction cannon (elite)			TYPE:HEAVY WEAPONS
 Crossbolter (paragon)			TYPE:HEAVY WEAPONS
-Reaction cannon (paragon)		TYPE:HEAVY WEAPONS	
-X-gen gun (paragon)			TYPE:HEAVY WEAPONS	
+Reaction cannon (paragon)		TYPE:HEAVY WEAPONS
+X-gen gun (paragon)			TYPE:HEAVY WEAPONS
 Shock caster (static)			TYPE:HEAVY WEAPONS
 Shock caster (aurora)			TYPE:HEAVY WEAPONS
 Shock caster (storm)			TYPE:HEAVY WEAPONS
 Shock caster (tempest)			TYPE:HEAVY WEAPONS
-Screamer (thunderstrike)		TYPE:HEAVY WEAPONS	
+Screamer (thunderstrike)		TYPE:HEAVY WEAPONS
 Screamer (LFD)				TYPE:HEAVY WEAPONS
 Screamer (HFD)				TYPE:HEAVY WEAPONS
 NIL grenade launcher (merc)		TYPE:HEAVY WEAPONS
 NIL grenade launcher (squad)		TYPE:HEAVY WEAPONS
 IMDS missile launcher			TYPE:HEAVY WEAPONS
 
-Shirren-eye rifle (tactical)	TYPE:P.SNIPER WEAPONS
-Shirren-eye rifle (advanced)	TYPE:P.SNIPER WEAPONS
-Shirren-eye rifle (elite)	TYPE:P.SNIPER WEAPONS	
-Shirren-eye rifle (paragon)	TYPE:P.SNIPER WEAPONS
-Shirren-eye rifle (warpshot)	TYPE:P.SNIPER WEAPONS
+Shirren-eye rifle (tactical)		TYPE:P.SNIPER WEAPONS
+Shirren-eye rifle (advanced)		TYPE:P.SNIPER WEAPONS
+Shirren-eye rifle (elite)		TYPE:P.SNIPER WEAPONS
+Shirren-eye rifle (paragon)		TYPE:P.SNIPER WEAPONS
+Shirren-eye rifle (warpshot)		TYPE:P.SNIPER WEAPONS
 
-Grenades	TYPE:Grenades
+Grenades					TYPE:Grenades
 
-Carbonedge shuriken	TYPE:Special Weapons
-Nyfiber net			TYPE:Special Weapons
-Bow				TYPE:Special Weapons
+Carbonedge shuriken			TYPE:Special Weapons
+Nyfiber net					TYPE:Special Weapons
+Bow						TYPE:Special Weapons

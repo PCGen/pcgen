@@ -1,24 +1,25 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/products/btpy8rv2?Pathfinder-Roleplaying-Game-Advanced-Race-Guide	SOURCEDATE:2012-06
 # ORIGINAL ENTRY: Douglas Limmer
 # ORIGINAL ENTRY DATE: 2012/07/30
 
 # COMMENT: Dummy goblin weaponprofs to avoid errors
-# Weapon Name			Type
-Dogslicer				TYPE:Goblin
-Horsechopper			TYPE:Goblin
+# Weapon Name			Unique Key				Type
+Dogslicer									TYPE:Goblin
+Horsechopper								TYPE:Goblin
 
 # COMMENT: Dwarven weaponprofs
-Dwarven Boulder Helmet	KEY:Helmet (Dwarven Boulder)	TYPE:Melee.Dwarven.Bludgeoning.Exotic
-Dwarven Double Waraxe	KEY:Waraxe (Dwarven Double)		TYPE:Melee.Dwarven.Slashing.Exotic
-Dwarven Longaxe	KEY:Longaxe (Dwarven)			TYPE:Melee.Dwarven.Slashing.Exotic
-Dwarven Longhammer	KEY:Longhammer (Dwarven)		TYPE:Melee.Dwarven.Bludgeoning.Exotic.Reach
+Dwarven Boulder Helmet		KEY:Helmet (Dwarven Boulder)	TYPE:Melee.Dwarven.Bludgeoning.Exotic
+Dwarven Double Waraxe		KEY:Waraxe (Dwarven Double)	TYPE:Melee.Dwarven.Slashing.Exotic
+Dwarven Longaxe			KEY:Longaxe (Dwarven)		TYPE:Melee.Dwarven.Slashing.Exotic
+Dwarven Longhammer		KEY:Longhammer (Dwarven)	TYPE:Melee.Dwarven.Bludgeoning.Exotic.Reach
 
 # COMMENT: Catfolk Claw Blades
 #Claw Blades (Catfolk)		TYPE:Melee.Light.ClawBlades.Slashing.Piercing.Finesseable
 
 # COMMENT: Kobold tail attachment weaponprofs
-Kobold Tail Attachment		TYPE:Melee.Light.Natural.KoboldTailAttachment
+Kobold Tail Attachment							TYPE:Melee.Light.Natural.KoboldTailAttachment
 #Tail Attachment (Long Lash)				TYPE:KoboldTailAttachment
 #Tail Attachment (Pounder)				TYPE:KoboldTailAttachment
 #Tail Attachment (Razored)				TYPE:KoboldTailAttachment
@@ -26,21 +27,21 @@ Kobold Tail Attachment		TYPE:Melee.Light.Natural.KoboldTailAttachment
 #Tail Attachment (Sweeper)				TYPE:KoboldTailAttachment
 
 # COMMENT: Ratfolk Tailblade weaponprof
-Ratfolk Tailblade	KEY:Tailblade (Ratfolk)		TYPE:Melee.Light.RatfolkTailblade.Slashing
+Ratfolk Tailblade			KEY:Tailblade (Ratfolk)		TYPE:Melee.Light.RatfolkTailblade.Slashing
 
 # COMMENT: Tengu Terror Kite Proficiency
-Terror Kite				TYPE:TerrorKite
+Terror Kite									TYPE:TerrorKite
 
 # COMMENT: Gillman Sea-Knife
-Sea-Knife				TYPE:Melee.Light.SeaKnife.Slashing.Piercing.Martial
+Sea-Knife									TYPE:Melee.Light.SeaKnife.Slashing.Piercing.Martial
 
 #
 # Weapon Groups
 #
-Dogslicer.MOD			TYPE:Weapon Group Blades Light
-Waraxe (Dwarven Double).MOD	TYPE:Weapon Group Axes.Weapon Group Double
-Helmet (Dwarven Boulder).MOD	TYPE:Weapon Group Close
-Horsechopper.MOD			TYPE:Weapon Group Pole Arms
-Longhammer (Dwarven).MOD	TYPE:Weapon Group Hammers
-Longaxe (Dwarven).MOD		TYPE:Weapon Group Axes
-Sea-Knife.MOD			TYPE:Weapon Group Blades Light
+Dogslicer.MOD								TYPE:Weapon Group Blades Light
+Waraxe (Dwarven Double).MOD						TYPE:Weapon Group Axes.Weapon Group Double
+Helmet (Dwarven Boulder).MOD						TYPE:Weapon Group Close
+Horsechopper.MOD								TYPE:Weapon Group Pole Arms
+Longhammer (Dwarven).MOD						TYPE:Weapon Group Hammers
+Longaxe (Dwarven).MOD							TYPE:Weapon Group Axes
+Sea-Knife.MOD								TYPE:Weapon Group Blades Light

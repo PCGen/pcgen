@@ -1,9 +1,10 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 
 
-SMALL		VISIBLE:NO	SIZE:S
-MEDIUM	VISIBLE:NO	SIZE:M
-LARGE		VISIBLE:NO	SIZE:L
+# Template Name	Size		Visible	Caster level									Caster level bonus							Bonus to spell cast/day																																													Add
+SMALL			SIZE:S	VISIBLE:NO
+MEDIUM		SIZE:M	VISIBLE:NO
+LARGE			SIZE:L	VISIBLE:NO
 
 
-Psychic Detective	VISIBLE:NO		BONUS:SPELLCAST|CLASS=Investigator;LEVEL=1|-10	BONUS:SPELLCAST|CLASS=Investigator;LEVEL=2|-10	BONUS:SPELLCAST|CLASS=Investigator;LEVEL=3|-10	BONUS:SPELLCAST|CLASS=Investigator;LEVEL=4|-10	BONUS:SPELLCAST|CLASS=Investigator;LEVEL=5|-10	BONUS:SPELLCAST|CLASS=Investigator;LEVEL=6|-10	BONUS:CASTERLEVEL|Psychic Detective|classlevel("Investigator")-1	BONUS:PCLEVEL|Psychic Detective|classlevel("Investigator")	ADD:SPELLCASTER|Psychic Detective
-
+Psychic Detective			VISIBLE:NO	BONUS:CASTERLEVEL|Psychic Detective|classlevel("Investigator")-1	BONUS:PCLEVEL|Psychic Detective|classlevel("Investigator")	BONUS:SPELLCAST|CLASS=Investigator;LEVEL=1|-10	BONUS:SPELLCAST|CLASS=Investigator;LEVEL=2|-10	BONUS:SPELLCAST|CLASS=Investigator;LEVEL=3|-10	BONUS:SPELLCAST|CLASS=Investigator;LEVEL=4|-10	BONUS:SPELLCAST|CLASS=Investigator;LEVEL=5|-10	BONUS:SPELLCAST|CLASS=Investigator;LEVEL=6|-10	ADD:SPELLCASTER|Psychic Detective

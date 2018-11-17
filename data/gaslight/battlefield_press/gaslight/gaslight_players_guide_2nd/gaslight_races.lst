@@ -1,18 +1,19 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 25436 $ $Author: amaitland $ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Gaslight - A Victorian Era Fantasy - Role Playing Game - Second Edition	SOURCESHORT:Gaslight	SOURCEWEB:http://www.battlefieldpress.com	SOURCEDATE:2013-11
 #Original Entry: Andrew Maitland
 
 ###Block: Gaslight Races
-# Race Name	Skills/Level		Starting Feats	Size		Move				Face/Space	Reach		Vision			Bonus Languages	Stat bonus											Modify VAR				Bonus language			Class Skill	Auto Language	Ability								Nb Legs	Nb Hands	Main Race Type		Race Subtype					Type			Challenge Rating	Source Page
-Beast Man					STARTFEATS:1	SIZE:M	MOVE:Walk,30		FACE:5,5	REACH:5					LANGBONUS:ALL																		BONUS:LANGUAGES|NUMBER|-1			AUTO:LANG|English	ABILITY:Internal|AUTOMATIC|Racial Trait ~ Beast Man					RACETYPE:Humanoid												CR:1/2		SOURCEPAGE:p.70
-Human		XTRASKILLPTSPERLVL:1	STARTFEATS:2	SIZE:M	MOVE:Walk,30		FACE:5,5	REACH:5					LANGBONUS:ALL																												ABILITY:Internal|AUTOMATIC|Racial Trait ~ Human						RACETYPE:Humanoid												CR:1/2		SOURCEPAGE:p.71
-Ratling					STARTFEATS:1	SIZE:M	MOVE:Walk,30		FACE:5,5	REACH:5					LANGBONUS:ALL																												ABILITY:Internal|AUTOMATIC|Racial Trait ~ Ratling					RACETYPE:Humanoid		RACESUBTYPE:Ratling							CR:1/2		SOURCEPAGE:p.72
-Vampire					STARTFEATS:1	SIZE:M	MOVE:Walk,30		FACE:5,5	REACH:5	VISION:Low-Light Vision	LANGBONUS:ALL																												ABILITY:Internal|AUTOMATIC|Racial Trait ~ Vampire					RACETYPE:Humanoid												CR:1/2		SOURCEPAGE:p.73
-Werewolf					STARTFEATS:1	SIZE:M	MOVE:Walk,30		FACE:5,5	REACH:5	VISION:Low-Light Vision	LANGBONUS:ALL																												ABILITY:Internal|AUTOMATIC|Racial Trait ~ Werewolf					RACETYPE:Humanoid		RACESUBTYPE:Lycanthrope|Shapeshifter				CR:1/2		SOURCEPAGE:p.74
-Wildling					STARTFEATS:1	SIZE:M	MOVE:Walk,30		FACE:5,5	REACH:5					LANGBONUS:ALL																												ABILITY:Internal|AUTOMATIC|Racial Trait ~ Wildling					RACETYPE:Humanoid		RACESUBTYPE:Fey								CR:1/2		SOURCEPAGE:p.75
+# Race Name	Skills/Level		Starting Feats	Size		Move				Face/Space	Reach		Vision			Bonus Languages	Stat bonus											Modify VAR				Class Skill	Auto Language	Ability								Nb Legs	Nb Hands	Main Race Type		Race Subtype					Type			Challenge Rating	Source Page		Bonus language
+Beast Man					STARTFEATS:1	SIZE:M	MOVE:Walk,30		FACE:5,5	REACH:5					LANGBONUS:ALL																				AUTO:LANG|English	ABILITY:Internal|AUTOMATIC|Racial Trait ~ Beast Man					RACETYPE:Humanoid												CR:1/2		SOURCEPAGE:p.70	BONUS:LANGUAGES|NUMBER|-1
+Human		XTRASKILLPTSPERLVL:1	STARTFEATS:2	SIZE:M	MOVE:Walk,30		FACE:5,5	REACH:5					LANGBONUS:ALL																							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Human						RACETYPE:Humanoid												CR:1/2		SOURCEPAGE:p.71
+Ratling					STARTFEATS:1	SIZE:M	MOVE:Walk,30		FACE:5,5	REACH:5					LANGBONUS:ALL																							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Ratling					RACETYPE:Humanoid		RACESUBTYPE:Ratling							CR:1/2		SOURCEPAGE:p.72
+Vampire					STARTFEATS:1	SIZE:M	MOVE:Walk,30		FACE:5,5	REACH:5	VISION:Low-Light Vision	LANGBONUS:ALL																							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Vampire					RACETYPE:Humanoid												CR:1/2		SOURCEPAGE:p.73
+Werewolf					STARTFEATS:1	SIZE:M	MOVE:Walk,30		FACE:5,5	REACH:5	VISION:Low-Light Vision	LANGBONUS:ALL																							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Werewolf					RACETYPE:Humanoid		RACESUBTYPE:Lycanthrope|Shapeshifter				CR:1/2		SOURCEPAGE:p.74
+Wildling					STARTFEATS:1	SIZE:M	MOVE:Walk,30		FACE:5,5	REACH:5					LANGBONUS:ALL																							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Wildling					RACETYPE:Humanoid		RACESUBTYPE:Fey								CR:1/2		SOURCEPAGE:p.75
 
-Ghost						STARTFEATS:1	SIZE:M	MOVE:Walk,40		FACE:5	REACH:5																																			ABILITY:Internal|AUTOMATIC|Racial Trait ~ Ghost		LEGS:2	HANDS:2	RACETYPE:Not declared	RACESUBTYPE:Not declared			TYPE:Not declared				SOURCEPAGE:p.00
-Pixie						STARTFEATS:1	SIZE:S	MOVE:Walk,20,Fly,60	FACE:5	REACH:5								BONUS:STAT|STR|-2	BONUS:STAT|DEX|2	BONUS:STAT|WIS|-2	BONUS:STAT|CHA|2	BONUS:VAR|Maneuverability|4						CSKILL:Fly				ABILITY:Internal|AUTOMATIC|Racial Trait ~ Pixie		LEGS:2	HANDS:2	RACETYPE:Not Declared								TYPE:Not Declared				SOURCEPAGE:p.00
+Ghost						STARTFEATS:1	SIZE:M	MOVE:Walk,40		FACE:5	REACH:5																														ABILITY:Internal|AUTOMATIC|Racial Trait ~ Ghost		LEGS:2	HANDS:2	RACETYPE:Not declared	RACESUBTYPE:Not declared			TYPE:Not declared				SOURCEPAGE:p.00
+Pixie						STARTFEATS:1	SIZE:S	MOVE:Walk,20,Fly,60	FACE:5	REACH:5								BONUS:STAT|STR|-2	BONUS:STAT|DEX|2	BONUS:STAT|WIS|-2	BONUS:STAT|CHA|2	BONUS:VAR|Maneuverability|4	CSKILL:Fly				ABILITY:Internal|AUTOMATIC|Racial Trait ~ Pixie		LEGS:2	HANDS:2	RACETYPE:Not Declared								TYPE:Not Declared				SOURCEPAGE:p.00
 
 
 #

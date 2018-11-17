@@ -1,16 +1,17 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 20122 $ $Author: zaister $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 # Original Entry by: gjorbjond
 
-# Race Name	Starting Feats	Size		Move			Face/Space	Reach		Stat bonus					Modify VAR						Ability								Nb Legs	Nb Hands	Monster Class Name and Starting Level	Source Page		Apply Kit
-Eidolon	STARTFEATS:1	FACT:BaseSize|M	SIZE:M	MOVE:Walk,20			REACH:5	BONUS:STAT|CON|2	BONUS:STAT|INT|-4	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Eidolon	LEGS:0	HANDS:7	MONSTERCLASS:Eidolon:1		RACESUBTYPE:Eidolon		SOURCEPAGE:p.56	KIT:1|Eidolon	BONUS:VAR|DisableRaceTypeGrantedProfs|1
+# Race Name	Starting Feats	Size		Move			Reach		Stat bonus					Modify VAR													Ability								Nb Legs	Nb Hands	Monster Class Name and Starting Level	Race Subtype		Source Page		Apply Kit		FACT
+Eidolon	STARTFEATS:1	SIZE:M	MOVE:Walk,20	REACH:5	BONUS:STAT|CON|2	BONUS:STAT|INT|-4	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base	BONUS:VAR|DisableRaceTypeGrantedProfs|1	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Eidolon	LEGS:0	HANDS:7	MONSTERCLASS:Eidolon:1				RACESUBTYPE:Eidolon	SOURCEPAGE:p.56	KIT:1|Eidolon	FACT:BaseSize|M
 
 ###Block:
-# Race Name		SORTKEY			Output Name				Starting Feats	Size		Move				Face/Space	Reach		Var. Min. Value		Bonus to skill				Stat bonus																	Modify VAR				Weapon prof. bonus					Ability															Nb Legs	Define				Monster Class Name and Starting Level	Main Race Type	Race Subtype								Type				Challenge Rating	Source Page		Apply Kit
-Familiar (Parrot)	SORTKEY:z_Companion	OUTPUTNAME:Familiar [NAME]	STARTFEATS:1	FACT:BaseSize|T	SIZE:T	MOVE:Walk,10,Fly,40			REACH:0	PREVARGTEQ:NotAllowed,1	BONUS:SKILL|Climb,Swim|DEX-STR	BONUS:STAT|STR|-8	BONUS:STAT|DEX|4	BONUS:STAT|CON|-2	BONUS:STAT|INT|-8	BONUS:STAT|WIS|4	BONUS:STAT|CHA|-4	BONUS:VAR|Maneuverability|3	BONUS:WEAPONPROF=Claw|DAMAGE|max(0,(STR/2))	ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability	ABILITY:Internal|AUTOMATIC|Bite	LEGS:2	DEFINE:Maneuverability|0	MONSTERCLASS:Animal:1				RACETYPE:Animal	RACESUBTYPE:Familiar|Augmented Magical Beast|FamiliarBase	TYPE:Companion.Familiar	CR:1/6		SOURCEPAGE:p.133	KIT:1|Familiar ~ Raven
+# Race Name		SORTKEY			Output Name				Starting Feats	Size		Move				Reach		Var. Min. Value		Bonus to skill				Stat bonus																	Modify VAR				Weapon prof. bonus					Ability															Nb Legs	Define				Monster Class Name and Starting Level	Main Race Type	Race Subtype								Type				Challenge Rating	Source Page		Apply Kit			FACT
+Familiar (Parrot)	SORTKEY:z_Companion	OUTPUTNAME:Familiar [NAME]	STARTFEATS:1	SIZE:T	MOVE:Walk,10,Fly,40	REACH:0	PREVARGTEQ:NotAllowed,1	BONUS:SKILL|Climb,Swim|DEX-STR	BONUS:STAT|STR|-8	BONUS:STAT|DEX|4	BONUS:STAT|CON|-2	BONUS:STAT|INT|-8	BONUS:STAT|WIS|4	BONUS:STAT|CHA|-4	BONUS:VAR|Maneuverability|3	BONUS:WEAPONPROF=Claw|DAMAGE|max(0,(STR/2))	ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability	ABILITY:Internal|AUTOMATIC|Bite	LEGS:2	DEFINE:Maneuverability|0	MONSTERCLASS:Animal:1				RACETYPE:Animal	RACESUBTYPE:Familiar|Augmented Magical Beast|FamiliarBase	TYPE:Companion.Familiar	CR:1/6		SOURCEPAGE:p.133	KIT:1|Familiar ~ Raven	FACT:BaseSize|T
 
 # Animal Version
-Parrot	STARTFEATS:1	FACT:BaseSize|T	SIZE:T	MOVE:Walk,10,Fly,40			REACH:0		BONUS:SKILL|Climb,Swim|DEX-STR	BONUS:STAT|STR|-8	BONUS:STAT|DEX|4	BONUS:STAT|CON|-2	BONUS:STAT|INT|-8	BONUS:STAT|WIS|4	BONUS:STAT|CHA|-4	BONUS:VAR|Maneuverability|3	BONUS:WEAPONPROF=Claw|DAMAGE|max(0,(STR/2))	ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability	ABILITY:Internal|AUTOMATIC|Bite	LEGS:2	DEFINE:Maneuverability|0	MONSTERCLASS:Animal:1				RACETYPE:Animal		TYPE:Animal	CR:1/6		SOURCEPAGE:p.133	KIT:1|Familiar ~ Raven
+Parrot											STARTFEATS:1	SIZE:T	MOVE:Walk,10,Fly,40	REACH:0					BONUS:SKILL|Climb,Swim|DEX-STR	BONUS:STAT|STR|-8	BONUS:STAT|DEX|4	BONUS:STAT|CON|-2	BONUS:STAT|INT|-8	BONUS:STAT|WIS|4	BONUS:STAT|CHA|-4	BONUS:VAR|Maneuverability|3	BONUS:WEAPONPROF=Claw|DAMAGE|max(0,(STR/2))	ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability	ABILITY:Internal|AUTOMATIC|Bite	LEGS:2	DEFINE:Maneuverability|0	MONSTERCLASS:Animal:1				RACETYPE:Animal											TYPE:Animal			CR:1/6		SOURCEPAGE:p.133	KIT:1|Familiar ~ Raven	FACT:BaseSize|T
 
 #
 # End

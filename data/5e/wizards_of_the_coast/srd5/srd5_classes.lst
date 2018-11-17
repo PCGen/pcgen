@@ -1,5 +1,6 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
-SOURCELONG:System Reference Document 5.0	SOURCESHORT:SRD5	SOURCEWEB:http://dnd.wizards.com/articles/features/systems-reference-document-srd	SOURCEDATE:2016-01
+SOURCELONG:System Reference Document	SOURCESHORT:SRD5	SOURCEWEB:http://dnd.wizards.com/articles/features/systems-reference-document-srd	SOURCEDATE:2016-01
 # Original Entry: See contributors listed in PCC file.
 
 
@@ -574,7 +575,9 @@ CLASS:Wizard	SPELLSTAT:INT	MEMORIZE:YES	BONUS:CASTERLEVEL|Wizard|CL
 20	CAST:99,WizardCast1,WizardCast2,WizardCast3,WizardCast4,WizardCast5,WizardCast6,WizardCast7,WizardCast8,WizardCast9
 
 
-CLASS:Warlock Book of Shadows	TYPE:Other	FACT:SpellType|Arcane	VISIBLE:NO
+# Class Name			Type		Visible	FACT
+CLASS:Warlock Book of Shadows	TYPE:Other	VISIBLE:NO	FACT:SpellType|Arcane
+# Class Name			Spell Stat		Memorize		Caster level
 CLASS:Warlock Book of Shadows	SPELLSTAT:CHA	MEMORIZE:YES	BONUS:CASTERLEVEL|Warlock Book of Shadows|WarlockLVL|PREABILITY:1,CATEGORY=Special Ability,Eldritch Invocation ~ Book of Ancient Secrets
 1:REPEATLEVEL:1	CAST:0,1
-	
+

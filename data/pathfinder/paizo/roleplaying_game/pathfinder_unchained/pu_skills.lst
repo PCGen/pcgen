@@ -1,7 +1,8 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 
 ###Block: Updated Background Skills
-# Skill Name					Type
+# Skill Name					Type			Source, Long Desc.			Source, Short Desc.	Source Page
 Appraise.MOD					TYPE:Background
 Handle Animal.MOD					TYPE:Background
 Knowledge (engineering).MOD			TYPE:Background
@@ -14,7 +15,7 @@ Sleight of Hand.MOD				TYPE:Background
 Craft (Alchemy).MOD				TYPE:Background
 Craft (Armor).MOD					TYPE:Background
 Craft (Baskets).MOD				TYPE:Background
-Craft (Blacksmithing).MOD			TYPE:Background	SOURCELONG:Pathfinder Unchained	SOURCESHORT:PU	SOURCEPAGE:p.51
+Craft (Blacksmithing).MOD			TYPE:Background	SOURCELONG:Pathfinder Unchained	SOURCESHORT:PU		SOURCEPAGE:p.51
 Craft (Books).MOD					TYPE:Background
 Craft (Bows).MOD					TYPE:Background
 Craft (Calligraphy).MOD				TYPE:Background
@@ -81,7 +82,7 @@ Profession (Woodcutter).MOD			TYPE:Background
 
 
 ###Block: New Skills
-# Skill Name							Key Stat	Untrained?		Classes	Type						Required Var. value
+# Skill Name							Key Stat	Untrained?		Classes	Type							Required Var. value
 Artistry								KEYSTAT:INT						TYPE:Intelligence.Base.Background		PREVAREQ:UsePathfinderUnchainedSkills,1
 Lore (           )						KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background.Lore	PREVAREQ:UsePathfinderUnchainedSkills,1
 
@@ -105,15 +106,15 @@ Lore (Military commanders)					KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Inte
 
 ###Block: Consolidated Skills
 #Acrobatics		KEY:Consolidated Skill ~ Acrobatics		PREVAREQ:UseConsolidatedSkills,1	ACHECK:YES	USEUNTRAINED:YES	KEYSTAT:DEX	DESC:Replaces....
-# Skill Name	Unique Key						Key Stat	Untrained?		Skill Penalty?	Required Var. value			Description
-Athletics		KEY:Consolidated Skill ~ Athletics		KEYSTAT:STR	USEUNTRAINED:YES	ACHECK:YES		PREVAREQ:UseConsolidatedSkills,1	DESC:Replaces....	TYPE:Consolidated Skills
-Finesse		KEY:Consolidated Skill ~ Finesse		KEYSTAT:DEX	USEUNTRAINED:NO	ACHECK:YES		PREVAREQ:UseConsolidatedSkills,1	DESC:Replaces....	TYPE:Consolidated Skills
-Influence		KEY:Consolidated Skill ~ Influence		KEYSTAT:CHA	USEUNTRAINED:YES				PREVAREQ:UseConsolidatedSkills,1	DESC:Replaces....	TYPE:Consolidated Skills
-Nature		KEY:Consolidated Skill ~ Nature		KEYSTAT:INT	USEUNTRAINED:NO				PREVAREQ:UseConsolidatedSkills,1	DESC:Replaces....	TYPE:Consolidated Skills
+# Skill Name	Unique Key						Key Stat	Untrained?		Skill Penalty?	Type					Required Var. value			Description
+Athletics		KEY:Consolidated Skill ~ Athletics		KEYSTAT:STR	USEUNTRAINED:YES	ACHECK:YES		TYPE:Consolidated Skills	PREVAREQ:UseConsolidatedSkills,1	DESC:Replaces....
+Finesse		KEY:Consolidated Skill ~ Finesse		KEYSTAT:DEX	USEUNTRAINED:NO	ACHECK:YES		TYPE:Consolidated Skills	PREVAREQ:UseConsolidatedSkills,1	DESC:Replaces....
+Influence		KEY:Consolidated Skill ~ Influence		KEYSTAT:CHA	USEUNTRAINED:YES				TYPE:Consolidated Skills	PREVAREQ:UseConsolidatedSkills,1	DESC:Replaces....
+Nature		KEY:Consolidated Skill ~ Nature		KEYSTAT:INT	USEUNTRAINED:NO				TYPE:Consolidated Skills	PREVAREQ:UseConsolidatedSkills,1	DESC:Replaces....
 #Perception		KEY:Consolidated Skill ~ Perception		PREVAREQ:UseConsolidatedSkills,1			USEUNTRAINED:YES	KEYSTAT:WIS	DESC:Replaces....
-Performance		KEY:Consolidated Skill ~ Performance	KEYSTAT:CHA	USEUNTRAINED:YES				PREVAREQ:UseConsolidatedSkills,1	DESC:Replaces....	TYPE:Consolidated Skills
-Religion		KEY:Consolidated Skill ~ Religion		KEYSTAT:INT	USEUNTRAINED:NO				PREVAREQ:UseConsolidatedSkills,1	DESC:Replaces....	TYPE:Consolidated Skills
-Society		KEY:Consolidated Skill ~ Society		KEYSTAT:INT	USEUNTRAINED:NO				PREVAREQ:UseConsolidatedSkills,1	DESC:Replaces....	TYPE:Consolidated Skills
+Performance		KEY:Consolidated Skill ~ Performance	KEYSTAT:CHA	USEUNTRAINED:YES				TYPE:Consolidated Skills	PREVAREQ:UseConsolidatedSkills,1	DESC:Replaces....
+Religion		KEY:Consolidated Skill ~ Religion		KEYSTAT:INT	USEUNTRAINED:NO				TYPE:Consolidated Skills	PREVAREQ:UseConsolidatedSkills,1	DESC:Replaces....
+Society		KEY:Consolidated Skill ~ Society		KEYSTAT:INT	USEUNTRAINED:NO				TYPE:Consolidated Skills	PREVAREQ:UseConsolidatedSkills,1	DESC:Replaces....
 #Spellcraft		KEY:Consolidated Skill ~ Spellcraft		PREVAREQ:UseConsolidatedSkills,1			USEUNTRAINED:NO	KEYSTAT:INT	DESC:Replaces....
 #Stealth		KEY:Consolidated Skill ~ Stealth		PREVAREQ:UseConsolidatedSkills,1	ACHECK:YES	USEUNTRAINED:YES	KEYSTAT:DEX	DESC:Replaces....
 #Survival		KEY:Consolidated Skill ~ Survival		PREVAREQ:UseConsolidatedSkills,1			USEUNTRAINED:YES	KEYSTAT:WIS	DESC:Replaces....

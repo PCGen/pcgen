@@ -1,6 +1,8 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
 # SOURCELONG:Undead Slayer's Handbook	SOURCESHORT:USH	SOURCEWEB:http://paizo.com/products/btpy94vx?Pathfinder-Player-Companion-Undead-Slayer-s-Handbook	SOURCEDATE:2014-04
 # ORIGINAL ENTRY: Gwen T. (evilpixie87)
 # ORIGINAL ENTRY DATE: 27 May 2016
 
-ABILITYCATEGORY:Soul Warden Bonus Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Soul Warden Bonus Feat				PLURAL:Soul Warden Bonus Feats					DISPLAYLOCATION:Feats
+# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location
+ABILITYCATEGORY:Soul Warden Bonus Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Soul Warden Bonus Feat	PLURAL:Soul Warden Bonus Feats	DISPLAYLOCATION:Feats

@@ -1,45 +1,47 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 
-Unarmed				TYPE:Weapons.Automatic Weapon Proficiency.Unarmed
-Unarmed Strike			TYPE:Weapons.Automatic Weapon Proficiency.Unarmed
+# Weapon Name		Type
+Unarmed			TYPE:Weapons.Automatic Weapon Proficiency.Unarmed
+Unarmed Strike		TYPE:Weapons.Automatic Weapon Proficiency.Unarmed
 
 # Light
-Dagger				TYPE:Weapons.Automatic Weapon Proficiency.Light.Weapon.Melee
-Stiletto				TYPE:Weapons.Automatic Weapon Proficiency.Light.Weapon.Melee
-Whip					TYPE:Weapons.Automatic Weapon Proficiency.Light.Weapon.Melee
+Dagger			TYPE:Weapons.Automatic Weapon Proficiency.Light.Weapon.Melee
+Stiletto			TYPE:Weapons.Automatic Weapon Proficiency.Light.Weapon.Melee
+Whip				TYPE:Weapons.Automatic Weapon Proficiency.Light.Weapon.Melee
 
 # Medium
-Handaxe				TYPE:Weapons.Automatic Weapon Proficiency.Medium.Weapon.Melee
-Mace					TYPE:Weapons.Automatic Weapon Proficiency.Medium.Weapon.Melee
-Quarterstaff			TYPE:Weapons.Automatic Weapon Proficiency.Medium.Weapon.Melee
-Rapier				TYPE:Weapons.Automatic Weapon Proficiency.Medium.Weapon.Melee
-Scimitar				TYPE:Weapons.Automatic Weapon Proficiency.Medium.Weapon.Melee
-Short Spear				TYPE:Weapons.Automatic Weapon Proficiency.Medium.Weapon.Melee
-Short Sword				TYPE:Weapons.Automatic Weapon Proficiency.Medium.Weapon.Melee
+Handaxe			TYPE:Weapons.Automatic Weapon Proficiency.Medium.Weapon.Melee
+Mace				TYPE:Weapons.Automatic Weapon Proficiency.Medium.Weapon.Melee
+Quarterstaff		TYPE:Weapons.Automatic Weapon Proficiency.Medium.Weapon.Melee
+Rapier			TYPE:Weapons.Automatic Weapon Proficiency.Medium.Weapon.Melee
+Scimitar			TYPE:Weapons.Automatic Weapon Proficiency.Medium.Weapon.Melee
+Short Spear			TYPE:Weapons.Automatic Weapon Proficiency.Medium.Weapon.Melee
+Short Sword			TYPE:Weapons.Automatic Weapon Proficiency.Medium.Weapon.Melee
 
 # Large
-Battle Axe				TYPE:Weapons.Automatic Weapon Proficiency.Large.Weapon.Melee
-Longsword				TYPE:Weapons.Automatic Weapon Proficiency.Large.Weapon.Melee
-Falchion				TYPE:Weapons.Automatic Weapon Proficiency.Large.Weapon.Melee
-Morningstar				TYPE:Weapons.Automatic Weapon Proficiency.Large.Weapon.Melee
-Spear					TYPE:Weapons.Automatic Weapon Proficiency.Large.Weapon.Melee
-Trident				TYPE:Weapons.Automatic Weapon Proficiency.Large.Weapon.Melee
-Warhammer				TYPE:Weapons.Automatic Weapon Proficiency.Large.Weapon.Melee
+Battle Axe			TYPE:Weapons.Automatic Weapon Proficiency.Large.Weapon.Melee
+Longsword			TYPE:Weapons.Automatic Weapon Proficiency.Large.Weapon.Melee
+Falchion			TYPE:Weapons.Automatic Weapon Proficiency.Large.Weapon.Melee
+Morningstar			TYPE:Weapons.Automatic Weapon Proficiency.Large.Weapon.Melee
+Spear				TYPE:Weapons.Automatic Weapon Proficiency.Large.Weapon.Melee
+Trident			TYPE:Weapons.Automatic Weapon Proficiency.Large.Weapon.Melee
+Warhammer			TYPE:Weapons.Automatic Weapon Proficiency.Large.Weapon.Melee
 
 # Extra Large
-Great Axe				TYPE:Weapons.Automatic Weapon Proficiency.Extra Large.Weapon.Melee
-Great Sword				TYPE:Weapons.Automatic Weapon Proficiency.Extra Large.Weapon.Melee
-Halberd				TYPE:Weapons.Automatic Weapon Proficiency.Extra Large.Weapon.Melee
+Great Axe			TYPE:Weapons.Automatic Weapon Proficiency.Extra Large.Weapon.Melee
+Great Sword			TYPE:Weapons.Automatic Weapon Proficiency.Extra Large.Weapon.Melee
+Halberd			TYPE:Weapons.Automatic Weapon Proficiency.Extra Large.Weapon.Melee
 
 # Ranged
-Bolas					TYPE:Weapons.Automatic Weapon Proficiency.Ranged.Weapon
-Crossbow				TYPE:Weapons.Automatic Weapon Proficiency.Ranged.Weapon
-Shortbow				TYPE:Weapons.Automatic Weapon Proficiency.Ranged.Weapon
-Longbow				TYPE:Weapons.Automatic Weapon Proficiency.Ranged.Weapon
-Composite Shortbow		TYPE:Weapons.Automatic Weapon Proficiency.Ranged.Weapon
-Composite Longbow			TYPE:Weapons.Automatic Weapon Proficiency.Ranged.Weapon
-Sling					TYPE:Weapons.Automatic Weapon Proficiency.Ranged.Weapon
+Bolas				TYPE:Weapons.Automatic Weapon Proficiency.Ranged.Weapon
+Crossbow			TYPE:Weapons.Automatic Weapon Proficiency.Ranged.Weapon
+Shortbow			TYPE:Weapons.Automatic Weapon Proficiency.Ranged.Weapon
+Longbow			TYPE:Weapons.Automatic Weapon Proficiency.Ranged.Weapon
+Composite Shortbow	TYPE:Weapons.Automatic Weapon Proficiency.Ranged.Weapon
+Composite Longbow		TYPE:Weapons.Automatic Weapon Proficiency.Ranged.Weapon
+Sling				TYPE:Weapons.Automatic Weapon Proficiency.Ranged.Weapon
 
 # Exotic
-Bastard Sword			TYPE:Weapons.Exotic.Weapon.Melee
-Dwarven Battleaxe			TYPE:Weapons.Exotic.Weapon.Melee
-Iron Chain Whip			TYPE:Weapons.Exotic.Weapon.Melee
+Bastard Sword		TYPE:Weapons.Exotic.Weapon.Melee
+Dwarven Battleaxe		TYPE:Weapons.Exotic.Weapon.Melee
+Iron Chain Whip		TYPE:Weapons.Exotic.Weapon.Melee

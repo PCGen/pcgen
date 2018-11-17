@@ -1,5 +1,6 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
-SOURCELONG:Dragonslayer's Handbook	SOURCESHORT:DSH	SOURCEWEB:http://paizo.com/products/btpy8yw4?Pathfinder-Player-Companion-Dragonslayer-s-Handbook	SOURCEDATE:2013-07
+SOURCELONG:Pathfinder Player Companion: Dragonslayer's Handbook	SOURCESHORT:DSH	SOURCEWEB:http://paizo.com/products/btpy8yw4	SOURCEDATE:2013-07
 # ORIGINAL ENTRY: Gwen T. (evilpixie87)
 # ORIGINAL ENTRY DATE: 23 May 2016
 
@@ -7,60 +8,57 @@ SOURCELONG:Dragonslayer's Handbook	SOURCESHORT:DSH	SOURCEWEB:http://paizo.com/pr
 # New Kits
 # ==============================
 
-STARTPACK:Knight's Kit (Fire)		TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:751
-GEAR:Chain (10 Ft)					QTY:5		SIZE:PC	LOCATION:Sack
-GEAR:Crowbar						QTY:1		SIZE:PC	LOCATION:Sack
-GEAR:Everburning Torch					QTY:1		SIZE:PC	LOCATION:Sack
-GEAR:Fire Ward Gel					QTY:1		SIZE:PC	LOCATION:Sack
-GEAR:Boots (Fire-Resistant)				QTY:1		SIZE:PC	LOCATION:Sack
-GEAR:Potion of Protection from Energy (Fire)	QTY:1		SIZE:PC	LOCATION:Sack
-GEAR:Sack							QTY:3		SIZE:PC	LOCATION:Carried
-GEAR:Shield Sconce					QTY:1		SIZE:PC	LOCATION:Sack
-GEAR:Lock (Simple)					QTY:1		SIZE:PC	LOCATION:Sack
-GEAR:Weapon Cord						QTY:1		SIZE:PC	LOCATION:Sack
+STARTPACK:Knight's Kit (Fire)	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:751
+GEAR:Chain (10 Ft)					QTY:5	SIZE:PC	LOCATION:Sack
+GEAR:Crowbar						QTY:1	SIZE:PC	LOCATION:Sack
+GEAR:Everburning Torch					QTY:1	SIZE:PC	LOCATION:Sack
+GEAR:Fire Ward Gel					QTY:1	SIZE:PC	LOCATION:Sack
+GEAR:Boots (Fire-Resistant)				QTY:1	SIZE:PC	LOCATION:Sack
+GEAR:Potion of Protection from Energy (Fire)	QTY:1	SIZE:PC	LOCATION:Sack
+GEAR:Sack							QTY:3	SIZE:PC	LOCATION:Carried
+GEAR:Shield Sconce					QTY:1	SIZE:PC	LOCATION:Sack
+GEAR:Lock (Simple)					QTY:1	SIZE:PC	LOCATION:Sack
+GEAR:Weapon Cord						QTY:1	SIZE:PC	LOCATION:Sack
 
-STARTPACK:Knight's Kit (Cold)		TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:751
-GEAR:Chain (10 Ft)					QTY:5		SIZE:PC	LOCATION:Sack
-GEAR:Crowbar						QTY:1		SIZE:PC	LOCATION:Sack
-GEAR:Everburning Torch					QTY:1		SIZE:PC	LOCATION:Sack
-GEAR:Frost Ward Gel					QTY:1		SIZE:PC	LOCATION:Sack
-GEAR:Boots (Fire-Resistant)				QTY:1		SIZE:PC	LOCATION:Sack
-GEAR:Potion of Protection from Energy (Cold)	QTY:1		SIZE:PC	LOCATION:Sack
-GEAR:Sack							QTY:3		SIZE:PC	LOCATION:Carried
-GEAR:Shield Sconce					QTY:1		SIZE:PC	LOCATION:Sack
-GEAR:Lock (Simple)					QTY:1		SIZE:PC	LOCATION:Sack
-GEAR:Weapon Cord						QTY:1		SIZE:PC	LOCATION:Sack
+STARTPACK:Knight's Kit (Cold)	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:751
+GEAR:Chain (10 Ft)					QTY:5	SIZE:PC	LOCATION:Sack
+GEAR:Crowbar						QTY:1	SIZE:PC	LOCATION:Sack
+GEAR:Everburning Torch					QTY:1	SIZE:PC	LOCATION:Sack
+GEAR:Frost Ward Gel					QTY:1	SIZE:PC	LOCATION:Sack
+GEAR:Boots (Fire-Resistant)				QTY:1	SIZE:PC	LOCATION:Sack
+GEAR:Potion of Protection from Energy (Cold)	QTY:1	SIZE:PC	LOCATION:Sack
+GEAR:Sack							QTY:3	SIZE:PC	LOCATION:Carried
+GEAR:Shield Sconce					QTY:1	SIZE:PC	LOCATION:Sack
+GEAR:Lock (Simple)					QTY:1	SIZE:PC	LOCATION:Sack
+GEAR:Weapon Cord						QTY:1	SIZE:PC	LOCATION:Sack
 
-STARTPACK:Tracker's Kit			TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:563
-GEAR:Area Map						QTY:1		SIZE:PC	LOCATION:Sack
-GEAR:Climber's Kit					QTY:1		SIZE:PC	LOCATION:Sack
-GEAR:Elixir of Swimming					QTY:1		SIZE:PC	LOCATION:Sack
-GEAR:Everburning Torch					QTY:1		SIZE:PC	LOCATION:Sack
-GEAR:Footprint Book					QTY:1		SIZE:PC	LOCATION:Sack
-GEAR:Grappling Hook					QTY:1		SIZE:PC	LOCATION:Sack
-GEAR:Hammer							QTY:1		SIZE:PC	LOCATION:Sack
-GEAR:Piton							QTY:8		SIZE:PC	LOCATION:Sack
-GEAR:Sack							QTY:4		SIZE:PC	LOCATION:Carried
-GEAR:Rope (Silk/50 ft)					QTY:2		SIZE:PC	LOCATION:Sack
+STARTPACK:Tracker's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:563
+GEAR:Area Map		QTY:1	SIZE:PC	LOCATION:Sack
+GEAR:Climber's Kit	QTY:1	SIZE:PC	LOCATION:Sack
+GEAR:Elixir of Swimming	QTY:1	SIZE:PC	LOCATION:Sack
+GEAR:Everburning Torch	QTY:1	SIZE:PC	LOCATION:Sack
+GEAR:Footprint Book	QTY:1	SIZE:PC	LOCATION:Sack
+GEAR:Grappling Hook	QTY:1	SIZE:PC	LOCATION:Sack
+GEAR:Hammer			QTY:1	SIZE:PC	LOCATION:Sack
+GEAR:Piton			QTY:8	SIZE:PC	LOCATION:Sack
+GEAR:Sack			QTY:4	SIZE:PC	LOCATION:Carried
+GEAR:Rope (Silk/50 ft)	QTY:2	SIZE:PC	LOCATION:Sack
 
-STARTPACK:Trickster's Kit		TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:474
-GEAR:Alchemical Grease					QTY:1		SIZE:PC	LOCATION:Sack
-GEAR:Board Game (Common)				QTY:1		SIZE:PC	LOCATION:Sack
-GEAR:Candle							QTY:5		SIZE:PC	LOCATION:Sack
-GEAR:Candle Lamp						QTY:1		SIZE:PC	LOCATION:Sack
-GEAR:Snorkel (Common)					QTY:1		SIZE:PC	LOCATION:Sack
-GEAR:Fake Footprint Shoes				QTY:1		SIZE:PC	LOCATION:Sack
-GEAR:Grappling Hook					QTY:1		SIZE:PC	LOCATION:Sack
-GEAR:Mirror (Small/Steel)				QTY:1		SIZE:PC	LOCATION:Sack
-GEAR:Periscope						QTY:1		SIZE:PC	LOCATION:Sack
-GEAR:Potion of Eagle's Splendor			QTY:1		SIZE:PC	LOCATION:Sack
-GEAR:Sack							QTY:2		SIZE:PC	LOCATION:Carried
-GEAR:Scent Cloak						QTY:1		SIZE:PC	LOCATION:Sack
-GEAR:Rope (Silk/50 ft)					QTY:1		SIZE:PC	LOCATION:Sack
-GEAR:Smokestick						QTY:1		SIZE:PC	LOCATION:Sack
-GEAR:Sneezing Powder					QTY:1		SIZE:PC	LOCATION:Sack
-GEAR:Tindertwig						QTY:5		SIZE:PC	LOCATION:Sack
-GEAR:Twine (50 ft.)					QTY:1		SIZE:PC	LOCATION:Sack
-
-
-
+STARTPACK:Trickster's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:474
+GEAR:Alchemical Grease			QTY:1	SIZE:PC	LOCATION:Sack
+GEAR:Board Game (Common)		QTY:1	SIZE:PC	LOCATION:Sack
+GEAR:Candle					QTY:5	SIZE:PC	LOCATION:Sack
+GEAR:Candle Lamp				QTY:1	SIZE:PC	LOCATION:Sack
+GEAR:Snorkel (Common)			QTY:1	SIZE:PC	LOCATION:Sack
+GEAR:Fake Footprint Shoes		QTY:1	SIZE:PC	LOCATION:Sack
+GEAR:Grappling Hook			QTY:1	SIZE:PC	LOCATION:Sack
+GEAR:Mirror (Small/Steel)		QTY:1	SIZE:PC	LOCATION:Sack
+GEAR:Periscope				QTY:1	SIZE:PC	LOCATION:Sack
+GEAR:Potion of Eagle's Splendor	QTY:1	SIZE:PC	LOCATION:Sack
+GEAR:Sack					QTY:2	SIZE:PC	LOCATION:Carried
+GEAR:Scent Cloak				QTY:1	SIZE:PC	LOCATION:Sack
+GEAR:Rope (Silk/50 ft)			QTY:1	SIZE:PC	LOCATION:Sack
+GEAR:Smokestick				QTY:1	SIZE:PC	LOCATION:Sack
+GEAR:Sneezing Powder			QTY:1	SIZE:PC	LOCATION:Sack
+GEAR:Tindertwig				QTY:5	SIZE:PC	LOCATION:Sack
+GEAR:Twine (50 ft.)			QTY:1	SIZE:PC	LOCATION:Sack

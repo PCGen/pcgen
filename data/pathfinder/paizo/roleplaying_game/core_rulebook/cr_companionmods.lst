@@ -1,3 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 21407 $ $Author: evilmynex $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original Entry by: Andrew Maitland
@@ -26,8 +27,8 @@ FOLLOWER:AnimalCompanionLVL=20	TYPE:Animal Companion	HD:1
 FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training|Base Companion ~ Animal Companion
 
 ###Block:Special Mount - Same Table but slightly different animal list was warranted plus INT needs to be locked at 6
-# Class of the Master		Type				Ability										Auto Armor Prof				Define			Define Stat				Modify VAR								Main Race Type
-FOLLOWER:SpecialMountLVL=1	TYPE:Special Mount	ABILITY:Special Ability|AUTOMATIC|Base Companion ~ Special Mount|Animal Tricks and Training	AUTO:ARMORPROF|ARMORTYPE=Barding	DEFINE:MasterLevel|0	DEFINESTAT:MINVALUE|INT|6	BONUS:VAR|MasterLevel|MASTERVAR("SpecialMountLVL")	RACETYPE:Animal	DEFINE:BonusTricks|0	BONUS:VAR|BonusTricks|1+MASTERVAR("SpecialMountLVL")/3
+# Class of the Master		Type				Ability															Auto Armor Prof				Define							Define Stat				Modify VAR																		Main Race Type
+FOLLOWER:SpecialMountLVL=1	TYPE:Special Mount	ABILITY:Special Ability|AUTOMATIC|Base Companion ~ Special Mount|Animal Tricks and Training	AUTO:ARMORPROF|ARMORTYPE=Barding	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0	DEFINESTAT:MINVALUE|INT|6	BONUS:VAR|MasterLevel|MASTERVAR("SpecialMountLVL")	BONUS:VAR|BonusTricks|1+MASTERVAR("SpecialMountLVL")/3	RACETYPE:Animal
 ###Block: HD
 # Class of the Master		Type				Hit Dice
 FOLLOWER:SpecialMountLVL=2	TYPE:Special Mount	HD:1
@@ -49,8 +50,8 @@ FOLLOWER:SpecialMountLVL=20	TYPE:Special Mount	HD:1
 FOLLOWER:SpecialMountLVL=11	TYPE:Special Mount	RACETYPE:Animal/Magical Beast	TEMPLATE:Celestial Creature
 
 ###Block: Familiar
-# Class of the Master	Type			Ability									Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Define											Modify VAR																Main Race Type
-FOLLOWER:FamiliarLVL=1	TYPE:Familiar											COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:max(1,MASTER/FamiliarHPDivisor)	USEMASTERSKILL:YES	DEFINE:MasterLevel|0	DEFINE:FamiliarHPDivisor|0	BONUS:VAR|MasterLevel|MASTERVAR("FamiliarLVL")	BONUS:VAR|FamiliarHPDivisor|2		RACETYPE:Animal/Magical Beast	BONUS:VAR|CompanionHD|MasterLevel	DEFINE:CompanionHD|0
+# Class of the Master	Type			Ability									Copy Masters BAB		Copy Masters Checks	HP formula based on Master				Use Masters skills?	Define												Modify VAR																		Main Race Type
+FOLLOWER:FamiliarLVL=1	TYPE:Familiar											COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:max(1,MASTER/FamiliarHPDivisor)	USEMASTERSKILL:YES	DEFINE:MasterLevel|0	DEFINE:FamiliarHPDivisor|0	DEFINE:CompanionHD|0	BONUS:VAR|MasterLevel|MASTERVAR("FamiliarLVL")	BONUS:VAR|FamiliarHPDivisor|2	BONUS:VAR|CompanionHD|MasterLevel	RACETYPE:Animal/Magical Beast
 FOLLOWER:FamiliarLVL=1	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Companion ~ Familiar
 
 ###Block: Specific Familiars

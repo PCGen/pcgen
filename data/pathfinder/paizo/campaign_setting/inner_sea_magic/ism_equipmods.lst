@@ -1,22 +1,23 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 #SOURCELONG:Inner Sea Magic	SOURCESHORT:ISM	SOURCEWEB:http://paizo.com/products/btpy8mfs?Pathfinder-Campaign-Setting-Inner-Sea-Magic	SOURCEDATE:2011-07
 # Original Entry by: Mark Means
 
 #EQSLOT:Belt		CONTAINS:Belt,Girdle=1										NUMBER:TORSO
-# Modifier Name	Unique Key			Type					Visible		Type granted		Bonus Equip Mods		Modify the item cost				Special Property
+# Modifier Name	Unique Key								Type					Visible		Type granted		Bonus Equip Mods		Modify the item cost				Special Property
 Magical Tattoo	KEY:Special Quality ~ Magical Tattoo / Belt		TYPE:Wonderous.Belt		VISIBLE:QUALIFY	ITYPE:Tattoo Belt		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.BELT|BASECOST		SPROP:Tattoo
 
 #EQSLOT:Body		CONTAINS:Bodywear,Robe,Body,Vestments=1							NUMBER:TORSO
 Magical Tattoo	KEY:Special Quality ~ Magical Tattoo / Body		TYPE:Wonderous.Body		VISIBLE:QUALIFY	ITYPE:Tattoo Body		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Body|BASECOST		SPROP:Tattoo
 
 #EQSLOT:Chest		CONTAINS:Shirt,Chest,Mantle,Vest=1								NUMBER:TORSO
-Magical Tattoo	KEY:Special Quality ~ Magical Tattoo / Chest		TYPE:Wonderous.Chest		VISIBLE:QUALIFY	ITYPE:Tattoo Chest		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Chest|BASECOST		SPROP:Tattoo
+Magical Tattoo	KEY:Special Quality ~ Magical Tattoo / Chest		TYPE:Wonderous.Chest		VISIBLE:QUALIFY	ITYPE:Tattoo Chest	BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Chest|BASECOST		SPROP:Tattoo
 
 #EQSLOT:Feet		CONTAINS:Footwear,Boot,Feet,Shoes,Slippers=1						NUMBER:LEGS
 Magical Tattoo	KEY:Special Quality ~ Magical Tattoo / Feet		TYPE:Wonderous.Feet		VISIBLE:QUALIFY	ITYPE:Tattoo Feet		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Feet|BASECOST		SPROP:Tattoo
 
 #EQSLOT:Hands		CONTAINS:Handwear,Glove,Hands,Gauntlet=1							NUMBER:HANDS
-Magical Tattoo	KEY:Special Quality ~ Magical Tattoo / Hands		TYPE:Wonderous.Hands		VISIBLE:QUALIFY	ITYPE:Tattoo Hands		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Hands|BASECOST		SPROP:Tattoo
+Magical Tattoo	KEY:Special Quality ~ Magical Tattoo / Hands		TYPE:Wonderous.Hands		VISIBLE:QUALIFY	ITYPE:Tattoo Hands	BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Hands|BASECOST		SPROP:Tattoo
 
 #EQSLOT:Head		CONTAINS:Headgear,Head,Circlet,Crown,Hat,Helm,Mask=1					NUMBER:HEAD
 Magical Tattoo	KEY:Special Quality ~ Magical Tattoo / Head		TYPE:Wonderous.Head		VISIBLE:QUALIFY	ITYPE:Tattoo Head		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Head|BASECOST		SPROP:Tattoo
@@ -31,18 +32,18 @@ Magical Tattoo	KEY:Special Quality ~ Magical Tattoo / Ring		TYPE:Wonderous.Ring	
 Magical Tattoo	KEY:Special Quality ~ Magical Tattoo / Shoulders	TYPE:Wonderous.Shoulders	VISIBLE:QUALIFY	ITYPE:Tattoo Shoulders	BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Shoulders|BASECOST	SPROP:Tattoo
 
 #EQSLOT:Wrist		CONTAINS:Armwear,Bracer,Wrist,Bracelet=1							NUMBER:HANDS
-Magical Tattoo	KEY:Special Quality ~ Magical Tattoo / Wrist		TYPE:Wonderous.Wrist		VISIBLE:QUALIFY	ITYPE:Tattoo Wrist		BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Wrist|BASECOST		SPROP:Tattoo
+Magical Tattoo	KEY:Special Quality ~ Magical Tattoo / Wrist		TYPE:Wonderous.Wrist		VISIBLE:QUALIFY	ITYPE:Tattoo Wrist	BONUS:EQM|WEIGHTADD|-WT	BONUS:ITEMCOST|TYPE.Wrist|BASECOST		SPROP:Tattoo
 
 
 ###Block: Spell Tattoo
-# Modifier Name					Unique Key		Naming Option	Type				Cost											Visible		Type granted				Source Page			Required Type			Prohibited Type			Choose
-Spell Effect (Single Use/Completion)	KEY:Special Ability ~ Spell Effect / Completion / Spell Tattoo / Arcane	NAMEOPT:SPELL	TYPE:SpellTattoo.Arcane	COST:4*(25*(max((%SPELLLEVEL),(1/2)))*%CASTERLEVEL+%SPELLCOST)	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic.Consumable.Arcane	SOURCEPAGE:p.16	PRETYPE:1,SpellTattoo	!PRETYPE:1,Divine						CHOOSE:EQBUILDER.SPELL|Arcane|0|9
-Spell Effect (Single Use/Completion)	KEY:Special Ability ~ Spell Effect / Completion / Spell Tattoo / Divine	NAMEOPT:SPELL	TYPE:SpellTattoo.Divine	COST:4*(25*(max((%SPELLLEVEL),(1/2)))*%CASTERLEVEL+%SPELLCOST)	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic.Consumable.Divine	SOURCEPAGE:p.16	PRETYPE:1,SpellTattoo	!PRETYPE:1,Arcane						CHOOSE:EQBUILDER.SPELL|Divine|0|9
+# Modifier Name					Unique Key											Naming Option	Type				Cost											Visible		Type granted					Source Page		Required Type		Prohibited Type	Choose
+Spell Effect (Single Use/Completion)	KEY:Special Ability ~ Spell Effect / Completion / Spell Tattoo / Arcane	NAMEOPT:SPELL	TYPE:SpellTattoo.Arcane	COST:4*(25*(max((%SPELLLEVEL),(1/2)))*%CASTERLEVEL+%SPELLCOST)	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic.Consumable.Arcane	SOURCEPAGE:p.16	PRETYPE:1,SpellTattoo	!PRETYPE:1,Divine	CHOOSE:EQBUILDER.SPELL|Arcane|0|9
+Spell Effect (Single Use/Completion)	KEY:Special Ability ~ Spell Effect / Completion / Spell Tattoo / Divine	NAMEOPT:SPELL	TYPE:SpellTattoo.Divine	COST:4*(25*(max((%SPELLLEVEL),(1/2)))*%CASTERLEVEL+%SPELLCOST)	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic.Consumable.Divine	SOURCEPAGE:p.16	PRETYPE:1,SpellTattoo	!PRETYPE:1,Arcane	CHOOSE:EQBUILDER.SPELL|Divine|0|9
 
 ###Block: Riffle Scroll
-# Modifier Name					Unique Key		Naming Option	Type					Cost											Visible		Type granted				Source Page			Required Type			Prohibited Type			Choose
-Spell Effect (Single Use/Completion)	KEY:Special Ability ~ Spell Effect / Completion / Riffle Scroll / Arcane	NAMEOPT:SPELL	TYPE:RiffleScroll.Arcane	COST:(25*(max((%SPELLLEVEL+1),(1/2)))*%CASTERLEVEL)+%SPELLCOST	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic.Consumable.Arcane	SOURCEPAGE:p.14	PRETYPE:1,RiffleScroll	!PRETYPE:1,Divine						CHOOSE:EQBUILDER.SPELL|Arcane|0|8
-Spell Effect (Single Use/Completion)	KEY:Special Ability ~ Spell Effect / Completion / Riffle Scroll / Divine	NAMEOPT:SPELL	TYPE:RiffleScroll.Divine	COST:(25*(max((%SPELLLEVEL+1),(1/2)))*%CASTERLEVEL)+%SPELLCOST	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic.Consumable.Divine	SOURCEPAGE:p.14	PRETYPE:1,RiffleScroll	!PRETYPE:1,Arcane						CHOOSE:EQBUILDER.SPELL|Divine|0|8
+# Modifier Name									Unique Key												Naming Option	Type					Cost											Visible		Type granted					Source Page		Required Type		Prohibited Type	Choose
+Spell Effect (Single Use/Completion)					KEY:Special Ability ~ Spell Effect / Completion / Riffle Scroll / Arcane	NAMEOPT:SPELL	TYPE:RiffleScroll.Arcane	COST:(25*(max((%SPELLLEVEL+1),(1/2)))*%CASTERLEVEL)+%SPELLCOST	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic.Consumable.Arcane	SOURCEPAGE:p.14	PRETYPE:1,RiffleScroll	!PRETYPE:1,Divine	CHOOSE:EQBUILDER.SPELL|Arcane|0|8
+Spell Effect (Single Use/Completion)					KEY:Special Ability ~ Spell Effect / Completion / Riffle Scroll / Divine	NAMEOPT:SPELL	TYPE:RiffleScroll.Divine	COST:(25*(max((%SPELLLEVEL+1),(1/2)))*%CASTERLEVEL)+%SPELLCOST	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic.Consumable.Divine	SOURCEPAGE:p.14	PRETYPE:1,RiffleScroll	!PRETYPE:1,Arcane	CHOOSE:EQBUILDER.SPELL|Divine|0|8
 
 #
 ###END
@@ -52,62 +53,62 @@ Spell Effect (Single Use/Completion)	KEY:Special Ability ~ Spell Effect / Comple
 
 
 #Old KEYs
-Special Quality ~ Magical Tattoo / Belt.COPY=TattooBelt		VISIBLE:NO	TYPE:Belt
-Special Quality ~ Magical Tattoo / Belt.COPY=TattooGirdle		VISIBLE:NO	TYPE:Girdle
-Special Quality ~ Magical Tattoo / Body.COPY=TattooBodywear		VISIBLE:NO	TYPE:Bodywear
-Special Quality ~ Magical Tattoo / Body.COPY=TattooRobe		VISIBLE:NO	TYPE:Robe
-Special Quality ~ Magical Tattoo / Body.COPY=TattooMantle		VISIBLE:NO	TYPE:Mantle
-Special Quality ~ Magical Tattoo / Body.COPY=TattooVest		VISIBLE:NO	TYPE:Vest
-Special Quality ~ Magical Tattoo / Chest.COPY=TattooShirt		VISIBLE:NO	TYPE:Shirt
-Special Quality ~ Magical Tattoo / Chest.COPY=TattooChest		VISIBLE:NO	TYPE:Chest
-Special Quality ~ Magical Tattoo / Chest.COPY=TattooMantle		VISIBLE:NO	TYPE:Mantle
-Special Quality ~ Magical Tattoo / Chest.COPY=TattooVest		VISIBLE:NO	TYPE:Vest
-Special Quality ~ Magical Tattoo / Feet.COPY=TattooFootwear		VISIBLE:NO	TYPE:Footwear
-Special Quality ~ Magical Tattoo / Feet.COPY=TattooBoot		VISIBLE:NO	TYPE:Boot
-Special Quality ~ Magical Tattoo / Feet.COPY=TattooFeet		VISIBLE:NO	TYPE:Feet
-Special Quality ~ Magical Tattoo / Feet.COPY=TattooShoes		VISIBLE:NO	TYPE:Shoes
-Special Quality ~ Magical Tattoo / Feet.COPY=TattooSlippers		VISIBLE:NO	TYPE:Slippers
-Special Quality ~ Magical Tattoo / Hands.COPY=TattooHandwear	VISIBLE:NO	TYPE:Handwear
-Special Quality ~ Magical Tattoo / Hands.COPY=TattooGlove		VISIBLE:NO	TYPE:Glove
-Special Quality ~ Magical Tattoo / Hands.COPY=TattooHands		VISIBLE:NO	TYPE:Hands
-Special Quality ~ Magical Tattoo / Hands.COPY=TattooGauntlet	VISIBLE:NO	TYPE:Gauntlet
-Special Quality ~ Magical Tattoo / Head.COPY=TattooHeadgear		VISIBLE:NO	TYPE:Headgear
-Special Quality ~ Magical Tattoo / Head.COPY=TattooHead		VISIBLE:NO	TYPE:Head
-Special Quality ~ Magical Tattoo / Head.COPY=TattooCirclet		VISIBLE:NO	TYPE:Circlet
-Special Quality ~ Magical Tattoo / Head.COPY=TattooCrown		VISIBLE:NO	TYPE:Crown
-Special Quality ~ Magical Tattoo / Head.COPY=TattooHat		VISIBLE:NO	TYPE:Hat
-Special Quality ~ Magical Tattoo / Head.COPY=TattooHelm		VISIBLE:NO	TYPE:Helm
-Special Quality ~ Magical Tattoo / Head.COPY=TattooMask		VISIBLE:NO	TYPE:Mask
-Special Quality ~ Magical Tattoo / Neck.COPY=TattooNeckwear		VISIBLE:NO	TYPE:Neckwear
-Special Quality ~ Magical Tattoo / Neck.COPY=TattooAmulet		VISIBLE:NO	TYPE:Amulet
-Special Quality ~ Magical Tattoo / Neck.COPY=TattooNeck		VISIBLE:NO	TYPE:Neck
-Special Quality ~ Magical Tattoo / Neck.COPY=TattooBrooch		VISIBLE:NO	TYPE:Brooch
-Special Quality ~ Magical Tattoo / Neck.COPY=TattooMedallion	VISIBLE:NO	TYPE:Medallion
-Special Quality ~ Magical Tattoo / Neck.COPY=TattooNecklace		VISIBLE:NO	TYPE:Necklace
-Special Quality ~ Magical Tattoo / Neck.COPY=TattooPeriapt		VISIBLE:NO	TYPE:Periapt
-Special Quality ~ Magical Tattoo / Neck.COPY=TattooScarab		VISIBLE:NO	TYPE:Scarab
-Special Quality ~ Magical Tattoo / Ring.COPY=TattooRing		VISIBLE:NO	TYPE:Ring
-Special Quality ~ Magical Tattoo / Shoulders.COPY=TattooCape	VISIBLE:NO	TYPE:Cape
-Special Quality ~ Magical Tattoo / Shoulders.COPY=TattooShoulders	VISIBLE:NO	TYPE:Shoulders
-Special Quality ~ Magical Tattoo / Shoulders.COPY=TattooCloak	VISIBLE:NO	TYPE:Cloak
-Special Quality ~ Magical Tattoo / Wrist.COPY=TattooArmwear		VISIBLE:NO	TYPE:Armwear
-Special Quality ~ Magical Tattoo / Wrist.COPY=TattooBracer		VISIBLE:NO	TYPE:Bracer
-Special Quality ~ Magical Tattoo / Wrist.COPY=TattooWrist		VISIBLE:NO	TYPE:Wrist
-Special Quality ~ Magical Tattoo / Wrist.COPY=TattooBracelet	VISIBLE:NO	TYPE:Bracelet
+Special Quality ~ Magical Tattoo / Belt.COPY=TattooBelt																		TYPE:Belt															VISIBLE:NO
+Special Quality ~ Magical Tattoo / Belt.COPY=TattooGirdle																		TYPE:Girdle															VISIBLE:NO
+Special Quality ~ Magical Tattoo / Body.COPY=TattooBodywear																		TYPE:Bodywear														VISIBLE:NO
+Special Quality ~ Magical Tattoo / Body.COPY=TattooRobe																		TYPE:Robe															VISIBLE:NO
+Special Quality ~ Magical Tattoo / Body.COPY=TattooMantle																		TYPE:Mantle															VISIBLE:NO
+Special Quality ~ Magical Tattoo / Body.COPY=TattooVest																		TYPE:Vest															VISIBLE:NO
+Special Quality ~ Magical Tattoo / Chest.COPY=TattooShirt																		TYPE:Shirt															VISIBLE:NO
+Special Quality ~ Magical Tattoo / Chest.COPY=TattooChest																		TYPE:Chest															VISIBLE:NO
+Special Quality ~ Magical Tattoo / Chest.COPY=TattooMantle																		TYPE:Mantle															VISIBLE:NO
+Special Quality ~ Magical Tattoo / Chest.COPY=TattooVest																		TYPE:Vest															VISIBLE:NO
+Special Quality ~ Magical Tattoo / Feet.COPY=TattooFootwear																		TYPE:Footwear														VISIBLE:NO
+Special Quality ~ Magical Tattoo / Feet.COPY=TattooBoot																		TYPE:Boot															VISIBLE:NO
+Special Quality ~ Magical Tattoo / Feet.COPY=TattooFeet																		TYPE:Feet															VISIBLE:NO
+Special Quality ~ Magical Tattoo / Feet.COPY=TattooShoes																		TYPE:Shoes															VISIBLE:NO
+Special Quality ~ Magical Tattoo / Feet.COPY=TattooSlippers																		TYPE:Slippers														VISIBLE:NO
+Special Quality ~ Magical Tattoo / Hands.COPY=TattooHandwear																	TYPE:Handwear														VISIBLE:NO
+Special Quality ~ Magical Tattoo / Hands.COPY=TattooGlove																		TYPE:Glove															VISIBLE:NO
+Special Quality ~ Magical Tattoo / Hands.COPY=TattooHands																		TYPE:Hands															VISIBLE:NO
+Special Quality ~ Magical Tattoo / Hands.COPY=TattooGauntlet																	TYPE:Gauntlet														VISIBLE:NO
+Special Quality ~ Magical Tattoo / Head.COPY=TattooHeadgear																		TYPE:Headgear														VISIBLE:NO
+Special Quality ~ Magical Tattoo / Head.COPY=TattooHead																		TYPE:Head															VISIBLE:NO
+Special Quality ~ Magical Tattoo / Head.COPY=TattooCirclet																		TYPE:Circlet														VISIBLE:NO
+Special Quality ~ Magical Tattoo / Head.COPY=TattooCrown																		TYPE:Crown															VISIBLE:NO
+Special Quality ~ Magical Tattoo / Head.COPY=TattooHat																		TYPE:Hat															VISIBLE:NO
+Special Quality ~ Magical Tattoo / Head.COPY=TattooHelm																		TYPE:Helm															VISIBLE:NO
+Special Quality ~ Magical Tattoo / Head.COPY=TattooMask																		TYPE:Mask															VISIBLE:NO
+Special Quality ~ Magical Tattoo / Neck.COPY=TattooNeckwear																		TYPE:Neckwear														VISIBLE:NO
+Special Quality ~ Magical Tattoo / Neck.COPY=TattooAmulet																		TYPE:Amulet															VISIBLE:NO
+Special Quality ~ Magical Tattoo / Neck.COPY=TattooNeck																		TYPE:Neck															VISIBLE:NO
+Special Quality ~ Magical Tattoo / Neck.COPY=TattooBrooch																		TYPE:Brooch															VISIBLE:NO
+Special Quality ~ Magical Tattoo / Neck.COPY=TattooMedallion																	TYPE:Medallion														VISIBLE:NO
+Special Quality ~ Magical Tattoo / Neck.COPY=TattooNecklace																		TYPE:Necklace														VISIBLE:NO
+Special Quality ~ Magical Tattoo / Neck.COPY=TattooPeriapt																		TYPE:Periapt														VISIBLE:NO
+Special Quality ~ Magical Tattoo / Neck.COPY=TattooScarab																		TYPE:Scarab															VISIBLE:NO
+Special Quality ~ Magical Tattoo / Ring.COPY=TattooRing																		TYPE:Ring															VISIBLE:NO
+Special Quality ~ Magical Tattoo / Shoulders.COPY=TattooCape																	TYPE:Cape															VISIBLE:NO
+Special Quality ~ Magical Tattoo / Shoulders.COPY=TattooShoulders																	TYPE:Shoulders														VISIBLE:NO
+Special Quality ~ Magical Tattoo / Shoulders.COPY=TattooCloak																	TYPE:Cloak															VISIBLE:NO
+Special Quality ~ Magical Tattoo / Wrist.COPY=TattooArmwear																		TYPE:Armwear														VISIBLE:NO
+Special Quality ~ Magical Tattoo / Wrist.COPY=TattooBracer																		TYPE:Bracer															VISIBLE:NO
+Special Quality ~ Magical Tattoo / Wrist.COPY=TattooWrist																		TYPE:Wrist															VISIBLE:NO
+Special Quality ~ Magical Tattoo / Wrist.COPY=TattooBracelet																	TYPE:Bracelet														VISIBLE:NO
 
 
 ###Block: Spell Tattoo
-# Modifier Name					Unique Key		Naming Option	Type				Cost											Visible		Type granted				Source Page			Required Type			Prohibited Type			Choose
-Divine						KEY:TATTOO_DIVINE				TYPE:SpellTattoo													VISIBLE:NO	ITYPE:Divine													!PRETYPE:1,Divine,Arcane
-Arcane						KEY:TATTOO_ARCANE				TYPE:SpellTattoo													VISIBLE:NO	ITYPE:Arcane													!PRETYPE:1,Divine,Arcane
+# Modifier Name												Unique Key		Type			Visible	Type granted	Prohibited Type
+Divine													KEY:TATTOO_DIVINE	TYPE:SpellTattoo	VISIBLE:NO	ITYPE:Divine	!PRETYPE:1,Divine,Arcane
+Arcane													KEY:TATTOO_ARCANE	TYPE:SpellTattoo	VISIBLE:NO	ITYPE:Arcane	!PRETYPE:1,Divine,Arcane
 
-Special Ability ~ Spell Effect / Completion / Spell Tattoo / Arcane.COPY=TATTA_1USE	VISIBLE:NO
-Special Ability ~ Spell Effect / Completion / Spell Tattoo / Divine.COPY=TATTD_1USE	VISIBLE:NO
+Special Ability ~ Spell Effect / Completion / Spell Tattoo / Arcane.COPY=TATTA_1USE							VISIBLE:NO
+Special Ability ~ Spell Effect / Completion / Spell Tattoo / Divine.COPY=TATTD_1USE							VISIBLE:NO
 
 ###Block: Riffle Scroll
-# Modifier Name					Unique Key		Naming Option	Type					Cost											Visible		Type granted				Source Page			Required Type			Prohibited Type			Choose
-Divine						KEY:RIFFLE_DIVINE				TYPE:RiffleScroll														VISIBLE:NO	ITYPE:Divine													!PRETYPE:1,Divine,Arcane
-Arcane						KEY:RIFFLE_ARCANE				TYPE:RiffleScroll														VISIBLE:NO	ITYPE:Arcane													!PRETYPE:1,Divine,Arcane
+# Modifier Name													Unique Key		Type			Visible	Type granted	Prohibited Type
+Divine														KEY:RIFFLE_DIVINE	TYPE:RiffleScroll	VISIBLE:NO	ITYPE:Divine	!PRETYPE:1,Divine,Arcane
+Arcane														KEY:RIFFLE_ARCANE	TYPE:RiffleScroll	VISIBLE:NO	ITYPE:Arcane	!PRETYPE:1,Divine,Arcane
 
-Special Ability ~ Spell Effect / Completion / Riffle Scroll / Arcane.COPY=RIFFA_1USE	VISIBLE:NO
-Special Ability ~ Spell Effect / Completion / Riffle Scroll / Divine.COPY=RIFFD_1USE	VISIBLE:NO
+Special Ability ~ Spell Effect / Completion / Riffle Scroll / Arcane.COPY=RIFFA_1USE							VISIBLE:NO
+Special Ability ~ Spell Effect / Completion / Riffle Scroll / Divine.COPY=RIFFD_1USE							VISIBLE:NO

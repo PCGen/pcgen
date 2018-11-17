@@ -1,7 +1,9 @@
-SOURCELONG:Starfinder Alien Archive	SOURCESHORT:SAA	SOURCEWEB:http://paizo.com/products/btpy9ujg	SOURCEDATE:2017-11
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Starfinder Alien Archive	SOURCESHORT:SAA	SOURCEDATE:2017-10
 # Original Entry by: Brad Grinstead
 
 ###Technological Items###
-Memory Expunger		TYPE:Goods.TechItem.General.MemoryExpunger		QUALITY:Level|13		COST:50000		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1													SOURCEPAGE:p.57
+# Equipment Name	Type								Cost		Weight	Source Page		Modify VAR			Quality and value
+Memory Expunger	TYPE:Goods.TechItem.General.MemoryExpunger	COST:50000	WT:0.1	SOURCEPAGE:p.57	BONUS:VAR|BulkLight|1	QUALITY:Level|13	QUALITY:Bulk|L
 
 ###Drugs, Medicinals, and Poisons###

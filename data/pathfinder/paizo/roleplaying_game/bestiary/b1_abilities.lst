@@ -1,3 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 20125 $ $Author: zaister $ -- Mon Nov 28 13:37:33 2011 -- reformated by prettylst.pl v1.39 (build 11455)
 SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
 #Original Entry by Chris 'Barak' Chandler
@@ -7,4 +8,5 @@ Rabies		CATEGORY:Afflictions	TYPE:Disease.Affliction	DESC:Disease, injury; Fort 
 
 
 ###Block:
+# Ability Name			Define
 CATEGORY=Internal|Default.MOD	DEFINE:QualifyAsHumanoid|0

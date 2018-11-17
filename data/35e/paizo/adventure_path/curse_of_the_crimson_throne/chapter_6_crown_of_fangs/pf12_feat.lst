@@ -1,8 +1,9 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Curse of the Crimson Throne - Chapter 6: Crown of Fangs	SOURCESHORT:CotCT:CoF	SOURCEWEB:http://paizo.com/store/paizo/v5748btpy84el	SOURCEDATE:2008-08
 
 # Feat Name		Type			Required Feat		Required Skill			Description										Source Page
-# Ability Name	Category of Ability	Type			Required Ability					Required Skill			Description										Source Page
+# Ability Name	Category of Ability	Type			Required Ability						Required Skill			Description										Source Page
 Harmonic Spell	CATEGORY:FEAT		TYPE:General	PREABILITY:1,CATEGORY=FEAT,Bard ~ Bardic Music	PRESKILL:1,TYPE.Perform=8	DESC:You can weave bardic music effects into your spellcasting.	SOURCEPAGE:p.59
 
 #
