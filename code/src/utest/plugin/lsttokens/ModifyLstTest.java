@@ -202,6 +202,14 @@ public class ModifyLstTest extends AbstractGlobalTokenTestCase
 		runRoundRobin("MyVar|ADD|3|PRIORITY=1090");
 	}
 
+	//TODO Ignore for now; reactivate later
+//	@Test
+//	public void testInvalidObject()
+//	{
+//		assertFalse(token.parseToken(primaryContext, new Campaign(),
+//				"MyVar|ADD|3").passed());
+//	}
+
 	@Override
 	protected String getLegalValue()
 	{
