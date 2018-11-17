@@ -22,6 +22,7 @@ import java.util.List;
 
 import pcgen.core.BodyStructure;
 import pcgen.core.PCAlignment;
+import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.facade.core.generator.StatGenerationFacade;
 import pcgen.facade.util.ListFacade;
@@ -60,7 +61,7 @@ public interface DataSetFacade
 
 	public ListFacade<PCAlignment> getAlignments();
 
-	public ListFacade<StatFacade> getStats();
+	public ListFacade<PCStat> getStats();
 
 	public ListFacade<StatGenerationFacade> getStatGenerators();
 

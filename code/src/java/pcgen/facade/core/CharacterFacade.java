@@ -33,6 +33,7 @@ import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.cdom.meta.CorePerspective;
 import pcgen.core.Language;
 import pcgen.core.PCAlignment;
+import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.VariableProcessor;
@@ -81,26 +82,26 @@ public interface CharacterFacade extends CompanionFacade
 	 * @param stat The stat to retrieve the base for
 	 * @return A reference to the base score for the stat
 	 */
-	public ReferenceFacade<Number> getScoreBaseRef(StatFacade stat);
+	public ReferenceFacade<Number> getScoreBaseRef(PCStat stat);
 
 	/**
 	 * @param stat The stat to retrieve the mod total for
 	 * @return The modifier for the stat total
 	 */
-	public int getModTotal(StatFacade stat);
+	public int getModTotal(PCStat stat);
 
 	/**
 	 * @param stat The stat to retrieve the base score of
 	 * @return The base (user set) score for the stat
 	 */
-	public int getScoreBase(StatFacade stat);
+	public int getScoreBase(PCStat stat);
 
 	/**
 	 * Update the base score of the stat.
 	 * @param stat The stat to be set.
 	 * @param score The new base score.
 	 */
-	public void setScoreBase(StatFacade stat, int score);
+	public void setScoreBase(PCStat stat, int score);
 
 	/**
 	 * Retrieve the display string for the score total. This may be a 
@@ -111,13 +112,13 @@ public interface CharacterFacade extends CompanionFacade
 	 * @param stat The stat to be retrieved
 	 * @return The display string for the score total
 	 */
-	public String getScoreTotalString(StatFacade stat);
+	public String getScoreTotalString(PCStat stat);
 
 	/**
 	 * @param stat The stat to retrieve the racial bonus of.
 	 * @return The racial bonus to the stat score.
 	 */
-	public int getScoreRaceBonus(StatFacade stat);
+	public int getScoreRaceBonus(PCStat stat);
 
 	/**
 	 * Retrieve the bonus to the stat score from sources other than the 
@@ -125,7 +126,7 @@ public interface CharacterFacade extends CompanionFacade
 	 * @param stat The stat to retrieve the other bonus of.
 	 * @return The misc bonus to the stat score
 	 */
-	public int getScoreOtherBonus(StatFacade stat);
+	public int getScoreOtherBonus(PCStat stat);
 
 	public void addAbility(AbilityCategoryFacade category, AbilityFacade ability);
 

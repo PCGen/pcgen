@@ -50,8 +50,9 @@ import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
 
+import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.core.PCStat;
 import pcgen.facade.core.CharacterFacade;
-import pcgen.facade.core.StatFacade;
 import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
@@ -78,7 +79,7 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 	private static final int FINAL_ABILITY_SCORE = 1;
 	private static final int ABILITY_MOD = 2;
 	private final CharacterFacade character;
-	private final ListFacade<StatFacade> stats;
+	private final ListFacade<PCStat> stats;
 	private final StatRenderer renderer = new StatRenderer();
 	private final SpinnerEditor editor = new SpinnerEditor();
 	private final JTable table;
@@ -89,9 +90,9 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 		this.table = jtable;
 		this.stats = character.getDataSet().getStats();
 		int min = Integer.MAX_VALUE;
-		for (StatFacade sf : stats)
+		for (PCStat sf : stats)
 		{
-			min = Math.min(sf.getMinValue(), min);
+			min = Math.min(sf.getSafe(IntegerKey.MIN_VALUE), min);
 		}
 		editor.setMinValue(min);
 
@@ -313,7 +314,7 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 		TableColumn abilityColumn = table.getColumn(ABILITY_COLUMN_ID);
 		int columnIndex = abilityColumn.getModelIndex();
 		int maxWidth = 0;
-		for (StatFacade aStat : stats)
+		for (PCStat aStat : stats)
 		{
 			Component cell = renderer.getTableCellRendererComponent(table, aStat, false, false, -1, columnIndex);
 			maxWidth = Math.max(maxWidth, cell.getPreferredSize().width);
@@ -340,7 +341,7 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 		//the scroll pane fixes this
 		scrollPane.setRowHeaderView(Box.createHorizontalStrut(vbarWidth));
 
-		for (StatFacade aStat : stats)
+		for (PCStat aStat : stats)
 		{
 			character.getScoreBaseRef(aStat).addReferenceListener(this);
 		}
@@ -354,7 +355,7 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 			editor.cancelCellEditing();
 		}
 
-		for (StatFacade aStat : stats)
+		for (PCStat aStat : stats)
 		{
 			character.getScoreBaseRef(aStat).removeReferenceListener(this);
 		}
@@ -449,7 +450,7 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex)
 	{
-		StatFacade stat = stats.getElementAt(rowIndex);
+		PCStat stat = stats.getElementAt(rowIndex);
 		switch (columnIndex)
 		{
 			case ABILITY_NAME:
@@ -497,9 +498,9 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 			// Those two does not seem to change anything.
 			setBackground(jTable.getBackground());
 			setForeground(jTable.getForeground());
-			StatFacade stat = (StatFacade) value;
+			PCStat stat = (PCStat) value;
 			//TODO: this should really call stat.toString()
-			setText(stat.getName());
+			setText(stat.getDisplayName());
 			return this;
 		}
 
