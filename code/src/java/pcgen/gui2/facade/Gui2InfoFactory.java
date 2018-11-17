@@ -2446,16 +2446,7 @@ public class Gui2InfoFactory implements InfoFactory
 		{
 			targetSet.addAll(TempBonusHelper.getEquipmentApplyString(tempBonus.getOriginObj()));
 		}
-		StringBuilder target = new StringBuilder(40);
-		for (String string : targetSet)
-		{
-			target.append(string).append(";"); //$NON-NLS-1$
-		}
-		if (target.length() > 0)
-		{
-			target.deleteCharAt(target.length() - 1);
-		}
-		return target.toString();
+		return StringUtil.join(targetSet, ";");
 	}
 
 	/**
