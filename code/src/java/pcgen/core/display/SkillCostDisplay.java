@@ -102,7 +102,7 @@ public final class SkillCostDisplay
 		}
 
 		StringBuilder bonusDetails = new StringBuilder();
-		bonusDetails.append(StringUtil.joinToStringBuilder(explanation, " "));
+		bonusDetails.append(StringUtil.join(explanation, " "));
 
 		// TODO: Need to add other bonuses which are not encoded as bonus
 		// objects

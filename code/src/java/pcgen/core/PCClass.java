@@ -23,12 +23,12 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.SortedMap;
+import java.util.StringJoiner;
 import java.util.StringTokenizer;
 import java.util.TreeMap;
 
 import org.apache.commons.lang3.StringUtils;
 
-import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMListObject;
 import pcgen.cdom.base.CDOMObject;
@@ -524,25 +524,22 @@ public class PCClass extends PObject implements ClassFacade, Cloneable
 	@Override
 	public String getPCCText()
 	{
-		final StringBuilder pccTxt = new StringBuilder(200);
-		pccTxt.append("CLASS:").append(getDisplayName());
-		pccTxt.append("\t");
-		pccTxt.append(PrerequisiteWriter.prereqsToString(this));
-		pccTxt.append("\t");
-		pccTxt.append(StringUtil.joinToStringBuilder(Globals.getContext().unparse(this), "\t"));
+		StringJoiner txt = new StringJoiner("\t");
+		txt.add("CLASS:" + getDisplayName());
+		txt.add(PrerequisiteWriter.prereqsToString(this));
+		Globals.getContext().unparse(this).forEach(item -> txt.add(item));
 
 		// now all the level-based stuff
 		final String lineSep = System.getProperty("line.separator");
 
 		for (Map.Entry<Integer, PCClassLevel> me : levelMap.entrySet())
 		{
-			pccTxt.append(lineSep).append(me.getKey()).append('\t');
-			pccTxt.append(PrerequisiteWriter.prereqsToString(me.getValue()));
-			pccTxt.append("\t");
-			pccTxt.append(StringUtil.joinToStringBuilder(Globals.getContext().unparse(me.getValue()), "\t"));
+			txt.add(lineSep + " " + me.getKey());
+			txt.add(PrerequisiteWriter.prereqsToString(me.getValue()));
+			Globals.getContext().unparse(me.getValue()).forEach(item -> txt.add(item));
 		}
 
-		return pccTxt.toString();
+		return txt.toString();
 	}
 
 	/*

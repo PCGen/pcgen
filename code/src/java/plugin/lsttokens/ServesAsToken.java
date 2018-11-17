@@ -144,7 +144,7 @@ public class ServesAsToken extends AbstractTokenWithSeparator<CDOMObject> implem
 		for (String mapKey : map.getKeySet())
 		{
 			Set<String> set = new TreeSet<String>(map.getListFor(mapKey));
-			returnList.add(mapKey + '|' + StringUtil.joinToStringBuilder(set, Constants.PIPE));
+			returnList.add(mapKey + '|' + StringUtil.join(set, Constants.PIPE));
 		}
 		return returnList.toArray(new String[returnList.size()]);
 	}
