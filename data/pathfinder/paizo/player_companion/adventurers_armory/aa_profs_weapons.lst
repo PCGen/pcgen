@@ -1,65 +1,66 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 12254 $ $Author: jbaril $ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
-SOURCELONG:Adventurer's Armory	SOURCESHORT:AA	SOURCEWEB:http://paizo.com/products/btpy8dmf?Pathfinder-Player-Companion-Adventurers-Armory	SOURCEDATE:2010-04
+SOURCELONG:Pathfinder Player Companion: Adventurer's Armory	SOURCESHORT:AA	SOURCEWEB:http://paizo.com/products/btpy8dmf	SOURCEDATE:2010-04
 
 # Weapon Name		Type
 
-# Weapon Name		Type
-Hanbo				TYPE:Simple.Melee
-Mere Club			TYPE:Simple.Melee
-Cestus			TYPE:Simple.Melee
-Stake				TYPE:Simple.Melee
-Bayonet			TYPE:Simple.Melee
-Stingchuck			TYPE:Simple.Melee.Ranged
+# Weapon Name		Unique Key				Type
+Hanbo									TYPE:Simple.Melee
+Mere Club								TYPE:Simple.Melee
+Cestus								TYPE:Simple.Melee
+Stake									TYPE:Simple.Melee
+Bayonet								TYPE:Simple.Melee
+Stingchuck								TYPE:Simple.Melee.Ranged
 
-Blade Boot			TYPE:Martial.Melee
-Dogslicer			TYPE:Martial.Melee
-Switchblade Knife		TYPE:Martial.Melee
-War Razor			TYPE:Martial.Melee
-Combat Scabbard		TYPE:Martial.Melee
-Klar				TYPE:Martial.Melee
-Scizore			TYPE:Martial.Melee
-Terbutje			TYPE:Martial.Melee
-Bardiche			TYPE:Martial.Melee
-Bec de corbin		TYPE:Martial.Melee
-Bill				TYPE:Martial.Melee
-Earth Breaker		TYPE:Martial.Melee
-Glaive-Guisarme		TYPE:Martial.Melee
-Lucerne Hammer		TYPE:Martial.Melee
-Ogre Hook			TYPE:Martial.Melee
-Syringe spear		TYPE:Martial.Melee.Thrown
-Horsechopper		TYPE:Martial.Melee
+Blade Boot								TYPE:Martial.Melee
+Dogslicer								TYPE:Martial.Melee
+Switchblade Knife							TYPE:Martial.Melee
+War Razor								TYPE:Martial.Melee
+Combat Scabbard							TYPE:Martial.Melee
+Klar									TYPE:Martial.Melee
+Scizore								TYPE:Martial.Melee
+Terbutje								TYPE:Martial.Melee
+Bardiche								TYPE:Martial.Melee
+Bec de corbin							TYPE:Martial.Melee
+Bill									TYPE:Martial.Melee
+Earth Breaker							TYPE:Martial.Melee
+Glaive-Guisarme							TYPE:Martial.Melee
+Lucerne Hammer							TYPE:Martial.Melee
+Ogre Hook								TYPE:Martial.Melee
+Syringe spear							TYPE:Martial.Melee.Thrown
+Horsechopper							TYPE:Martial.Melee
 
-Flambard			TYPE:Exotic.Melee
-Garrote			TYPE:Exotic.Melee
-Rhoka				TYPE:Exotic.Melee
+Flambard								TYPE:Exotic.Melee
+Garrote								TYPE:Exotic.Melee
+Rhoka									TYPE:Exotic.Melee
 
-Butterfly Knife		TYPE:Exotic.Melee
-Maulaxe			TYPE:Exotic.Melee.Ranged.Thrown.Dwarven
-Pata				TYPE:Exotic.Melee
-Chain Spear			TYPE:Exotic.Melee
-Aldori Dueling Sword	TYPE:Exotic.Melee
-Urumi				TYPE:Exotic.Melee
-Bladed Scarf		TYPE:Exotic.Melee
-Shoanti Bola		TYPE:Exotic.Ranged
+Butterfly Knife							TYPE:Exotic.Melee
+Maulaxe								TYPE:Exotic.Melee.Ranged.Thrown.Dwarven
+Pata									TYPE:Exotic.Melee
+Chain Spear								TYPE:Exotic.Melee
+Aldori Dueling Sword						TYPE:Exotic.Melee
+Urumi									TYPE:Exotic.Melee
+Bladed Scarf							TYPE:Exotic.Melee
+Shoanti Bola							TYPE:Exotic.Ranged
 
-Aklys				TYPE:Exotic.Melee.Ranged
-Rope Gauntlet		TYPE:Exotic.Melee
-Sawtooth Sabre		TYPE:Exotic.Melee
-Sika				TYPE:Exotic.Melee
+Aklys									TYPE:Exotic.Melee.Ranged
+Rope Gauntlet							TYPE:Exotic.Melee
+Sawtooth Sabre							TYPE:Exotic.Melee
+Sika									TYPE:Exotic.Melee
 Swordbrekaer Dagger	KEY:Swordbreaker (Dagger)	TYPE:Exotic.Melee
-Battle Poi			TYPE:Exotic.Melee
-Falcata			TYPE:Exotic.Melee.Tengu
-Khopesh			TYPE:Exotic.Melee.Tengu
-Scorpion Whip		TYPE:Exotic.Melee
-Shotel			TYPE:Exotic.Melee
-Temple Sword		TYPE:Exotic.Melee.Monk
-Mancatcher			TYPE:Exotic.Melee
-Boomerang			TYPE:Exotic.Ranged
-Double Crossbow	KEY:Crossbow (Double)		TYPE:Exotic.Ranged
+Battle Poi								TYPE:Exotic.Melee
+Falcata								TYPE:Exotic.Melee.Tengu
+Khopesh								TYPE:Exotic.Melee.Tengu
+Scorpion Whip							TYPE:Exotic.Melee
+Shotel								TYPE:Exotic.Melee
+Temple Sword							TYPE:Exotic.Melee.Monk
+Mancatcher								TYPE:Exotic.Melee
+Boomerang								TYPE:Exotic.Ranged
+Double Crossbow		KEY:Crossbow (Double)		TYPE:Exotic.Ranged
 Launching Crossbow	KEY:Crossbow (Launching)	TYPE:Exotic.Ranged
-Lasso				TYPE:Exotic.Melee
-Sling Glove			TYPE:Exotic.Melee
-Throwing Shield		TYPE:Exotic.Melee.Ranged
+Lasso									TYPE:Exotic.Melee
+Sling Glove								TYPE:Exotic.Melee
+Throwing Shield							TYPE:Exotic.Melee.Ranged
 
 ###Block: Weapon Groups
 # Equipment Name				Type

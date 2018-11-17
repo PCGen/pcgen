@@ -1,3 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 #Original Entry: Arknight
@@ -243,7 +244,7 @@ CLASS:Elocator	STARTSKILLPTS:6	CSKILL:Autohypnosis|Balance|Climb|Concentration|T
 
 # Class Name		Hit Dice	Type					Max Level	Source Page				Combat bonus															Save bonus																					Modify VAR																											FACT
 CLASS:Psionic Fist	HD:6		TYPE:PC.Prestige.Psionic	MAXLEVEL:10	SOURCEPAGE:PsionicClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity	FACT:ClassType|Prestige	FACT:Abb|PFi	FACT:SpellType|Psionic
-# Class Name		Required Ability														Required Skill			PRETOTALAB
+# Class Name		Required Ability															Required Skill			PRETOTALAB
 CLASS:Psionic Fist	PREABILITY:1,CATEGORY=Special Ability,Monk ~ Still Mind	PREABILITY:1,CATEGORY=FEAT,Wild Talent	PRESKILL:1,Concentration=9	PRETOTALAB:4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Psionic Fist	STARTSKILLPTS:4	CSKILL:Autohypnosis|Concentration|TYPE=Craft|Escape Artist|Hide|Jump|Knowledge (Psionics)|Listen|Move Silently|Psicraft|Sense Motive|Spot|Tumble

@@ -1,28 +1,29 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 16794 $ $Author: amaitland $ -- Tue May 29 18:21:08 2012 -- reformated by prettylst.pl v1.39 (build 16265)
-SOURCELONG:Pirates of the Inner Sea	SOURCESHORT:POTIS	SOURCEWEB:http://paizo.com/products/btpy8qif?Pathfinder-Player-Companion-Pirates-of-the-Inner-Sea	SOURCEDATE:2012-04
+SOURCELONG:Pathfinder Player Companion: Pirates of the Inner Sea	SOURCESHORT:POTIS	SOURCEWEB:http://paizo.com/products/btpy8qif	SOURCEDATE:2012-04
 # Original Entry by: Stefan Radermacher
 
 # SIMPLE
 # -- light melee
-# Weapon Name	Type
-Brass Knife		TYPE:Simple.Light.Melee.Ranged.Piercing.Slashing.MeleePiercing.MeleeSlashing.RangedPiercing.RangedSlashing
-Hook Hand		TYPE:Simple.Light.Melee.Slashing
+# Weapon Name	Unique Key			Type
+Brass Knife						TYPE:Simple.Light.Melee.Ranged.Piercing.Slashing.MeleePiercing.MeleeSlashing.RangedPiercing.RangedSlashing
+Hook Hand						TYPE:Simple.Light.Melee.Slashing
 # -- 2-handers
-Bayonet		TYPE:Simple.TwoHanded.Melee.Piercing.MeleePiercing.TwoHanded
-Boarding Pike	TYPE:Simple.TwoHanded.Melee.Piercing.MeleePiercing.TwoHanded
+Bayonet						TYPE:Simple.TwoHanded.Melee.Piercing.MeleePiercing.TwoHanded
+Boarding Pike					TYPE:Simple.TwoHanded.Melee.Piercing.MeleePiercing.TwoHanded
 
 # MARTIAL
 # -- light
 Boarding Axe	KEY:Axe (Boarding)	TYPE:Martial.Light.Melee.Slashing.MeleeSlashing
-Cat-O'-Nine-Tails	TYPE:Martial.Light.Melee.Slashing.MeleeSlashing
+Cat-O'-Nine-Tails					TYPE:Martial.Light.Melee.Slashing.MeleeSlashing
 # 1-handers
-Cutlass		TYPE:Martial.OneHanded.Melee.Slashing.MeleeSlashing.Sword
+Cutlass						TYPE:Martial.OneHanded.Melee.Slashing.MeleeSlashing.Sword
 
 # EXOTIC
-Boarding Gaff	TYPE:Exotic.TwoHanded.Melee.Slashing.MeleeSlashing.TwoHanded
-Harpoon		TYPE:Exotic.TwoHanded.Melee.Ranged.Piercing.MeleePiercing.TwoHanded
+Boarding Gaff					TYPE:Exotic.TwoHanded.Melee.Slashing.MeleeSlashing.TwoHanded
+Harpoon						TYPE:Exotic.TwoHanded.Melee.Ranged.Piercing.MeleePiercing.TwoHanded
 # -- ranged
-Grappling Hook	TYPE:Exotic.Thrown.Piercing.RangedPiercing
+Grappling Hook					TYPE:Exotic.Thrown.Piercing.RangedPiercing
 
 #
 # End

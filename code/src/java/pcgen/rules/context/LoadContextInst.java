@@ -579,7 +579,7 @@ abstract class LoadContextInst implements LoadContext
 	}
 
 	@Override
-	public <T> GroupingCollection<? extends Loadable> getGrouping(PCGenScope scope, String groupingName)
+	public <T> GroupingCollection<?> getGrouping(PCGenScope scope, String groupingName)
 	{
 		try
 		{
@@ -888,7 +888,7 @@ abstract class LoadContextInst implements LoadContext
 		}
 
 		@Override
-		public <T> GroupingCollection<? extends Loadable> getGrouping(PCGenScope scope, String groupingName)
+		public <T> GroupingCollection<?> getGrouping(PCGenScope scope, String groupingName)
 		{
 			return parent.getGrouping(scope, groupingName);
 		}

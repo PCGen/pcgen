@@ -1,3 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Thu Nov 26 22:25:37 2015 -- reformated by PCGen PrettyLST v6.05.01
 SOURCELONG:Occult Adventures	SOURCESHORT:OA	SOURCEWEB:http://paizo.com/products/btpy9a0h
 
@@ -69,20 +70,21 @@ Youthful Appearance.MOD		TYPE:Psychic	CLASSES:Medium=1
 
 
 ###Block: Occultist Spells
+# Spell Name			Classes of caster
 Hex Ward.MOD			CLASSES:Occultist=1[PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True]
 Icicle Dagger.MOD			CLASSES:Occultist=1[PREFACT:1,ABILITIES,OccultistSchool_Conjuration=True]
 Anticipate Peril.MOD		CLASSES:Occultist=1[PREFACT:1,ABILITIES,OccultistSchool_Divination=True]
 Diagnose Disease.MOD		CLASSES:Occultist=1[PREFACT:1,ABILITIES,OccultistSchool_Divination=True]
 Forbid Action.MOD			CLASSES:Occultist=1[PREFACT:1,ABILITIES,OccultistSchool_Enchantment=True]
-Murderous Command.MOD				CLASSES:Occultist=1[PREFACT:1,ABILITIES,OccultistSchool_Enchantment=True]
-Shadow Weapon.MOD				CLASSES:Occultist=1[PREFACT:1,ABILITIES,OccultistSchool_Illusion=True]
+Murderous Command.MOD		CLASSES:Occultist=1[PREFACT:1,ABILITIES,OccultistSchool_Enchantment=True]
+Shadow Weapon.MOD			CLASSES:Occultist=1[PREFACT:1,ABILITIES,OccultistSchool_Illusion=True]
 Decompose Corpse.MOD		CLASSES:Occultist=1[PREFACT:1,ABILITIES,OccultistSchool_Necromancy=True]
 Restore Corpse.MOD		CLASSES:Occultist=1[PREFACT:1,ABILITIES,OccultistSchool_Necromancy=True]
 Vocal Alteration.MOD		CLASSES:Occultist=1[PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True]
 Youthful Appearance.MOD		CLASSES:Occultist=1[PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True]
 Share Memory.MOD			CLASSES:Occultist=2[PREFACT:1,ABILITIES,OccultistSchool_Divination=True]
 Defensive Shock.MOD		CLASSES:Occultist=2[PREFACT:1,ABILITIES,OccultistSchool_Evocation=True]
-Protective Penumbra.MOD			CLASSES:Occultist=2[PREFACT:1,ABILITIES,OccultistSchool_Evocation=True]
+Protective Penumbra.MOD		CLASSES:Occultist=2[PREFACT:1,ABILITIES,OccultistSchool_Evocation=True]
 Disguise Other.MOD		CLASSES:Occultist=2[PREFACT:1,ABILITIES,OccultistSchool_Illusion=True]
 Ghostly Disguise.MOD		CLASSES:Occultist=2[PREFACT:1,ABILITIES,OccultistSchool_Illusion=True]
 Symbol Of Mirroring.MOD		CLASSES:Occultist=2[PREFACT:1,ABILITIES,OccultistSchool_Illusion=True]

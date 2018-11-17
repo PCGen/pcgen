@@ -1,3 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision$ $Author$ -- Sat Sep  6 20:29:21 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Eclipse - The Codex Persona	SOURCESHORT:Eclipse	SOURCEWEB:http://www.lulu.com/content/435647	SOURCEDATE:2005-01
 # ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
@@ -5,6 +6,7 @@ SOURCELONG:Eclipse - The Codex Persona	SOURCESHORT:Eclipse	SOURCEWEB:http://www.
 
 #	ABILITY:Internal|VIRTUAL|Make CSKILL ~ x1|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(x1),Full Skill Buy(x1)
 
+# Skill Name					Type					Ability
 Alt Rule Skill ~ Acrobatics.MOD		TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Alt Rule Skill ~ Acrobatics|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy (Alt Rule Skill ~ Acrobatics),Full Skill Buy (Alt Rule Skill ~ Acrobatics)
 Alt Rule Skill ~ Appraise.MOD			TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Alt Rule Skill ~ Appraise|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy (Alt Rule Skill ~ Appraise),Full Skill Buy (Alt Rule Skill ~ Appraise)
 Alt Rule Skill ~ Athletics.MOD		TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Alt Rule Skill ~ Athletics|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy (Alt Rule Skill ~ Athletics),Full Skill Buy (Alt Rule Skill ~ Athletics)
@@ -26,4 +28,3 @@ Alt Rule Skill ~ Socialize.MOD		TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VI
 Alt Rule Skill ~ Stealth.MOD			TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Alt Rule Skill ~ Stealth|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy (Alt Rule Skill ~ Stealth),Full Skill Buy (Alt Rule Skill ~ Stealth)
 Alt Rule Skill ~ Survival.MOD			TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Alt Rule Skill ~ Survival|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy (Alt Rule Skill ~ Survival),Full Skill Buy (Alt Rule Skill ~ Survival)
 Alt Rule Skill ~ Thievery.MOD			TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Alt Rule Skill ~ Thievery|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy (Alt Rule Skill ~ Thievery),Full Skill Buy (Alt Rule Skill ~ Thievery)
-

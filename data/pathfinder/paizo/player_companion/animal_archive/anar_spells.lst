@@ -1,6 +1,7 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 # $Revision$ $Author$
-SOURCELONG:Pathfinder Player Companion Animal Archive	SOURCESHORT:AnAr	SOURCEWEB:http://paizo.com/products/btpy8tdj?Pathfinder-Player-Companion-Animal-Archive	SOURCEDATE:2013-03
+SOURCELONG:Pathfinder Player Companion: Animal Archive	SOURCESHORT:AnAr	SOURCEWEB:http://paizo.com/products/btpy8tdj	SOURCEDATE:2013-03
 
 # Spell Name		Type				Classes of caster									School			Sub-School			Components		Casting Time			Range			Item		Target Area or Effect								Duration						Save Info					Spell Resistance		Source Page		FACT
 Bleed for Your Master	TYPE:Arcane.Divine	CLASSES:Antipaladin=2|Druid,Ranger,Sorcerer,Witch,Wizard=3		SCHOOL:Enchantment	SUBSCHOOL:Compulsion	COMPS:V, S		CASTTIME:1 immediate action	RANGE:Touch				TARGETAREA:your animal companion, familiar, or fiendish servant	DURATION:instantaneous				SAVEINFO:None				SPELLRES:No			SOURCEPAGE:p.22

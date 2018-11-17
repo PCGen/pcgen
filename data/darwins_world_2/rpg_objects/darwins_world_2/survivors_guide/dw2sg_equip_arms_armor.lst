@@ -1,3 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 25130 $ $Author: amaitland $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw	SOURCEDATE:2006-01
 
@@ -44,7 +45,7 @@ Shield (Riot)			OUTPUTNAME:Shield, [NAME]						PROFICIENCY:SHIELD|Shield	TYPE:Sh
 
 
 ###Block: Ammumition
-# Equipment Name				Output Name							Required Weapon Proficiency			Type													Alt Type					Contains					Cost		Weight	Crit Mult	Crit Range	Alt Crit Mult	Alt Crit Range	Damage	Alt Damage		Modifier		Alt EQModifier	Range		Reach		Size		Source Page		Special Property											FACT
+# Equipment Name				Output Name							Required Weapon Proficiency			Type													Alt Type					Contains					Cost		Weight	Crit Mult	Crit Range	Alt Crit Mult	Alt Crit Range	Damage	Alt Damage		Modifier		Alt EQModifier	Requires Modification?	Range		Reach		Size		Source Page		Special Property											FACT
 Bullet (5.56mm/20).MOD																																											COST:30
 Bullet (7.62mm/20).MOD																																											COST:30
 Bullet (7.62mmR/20).MOD																																											COST:30
@@ -87,28 +88,28 @@ Bolt (Crossbow).MOD																																											COST:1.5
 
 # Equipment Name			Output Name							Type									Cost		Weight	Source Page
 # Packs
-Bullet (.22LR/50)				OUTPUTNAME:.22LR Bullets, 50 pack										TYPE:Ammunition.Standard.Metal.Bullet																			COST:30	WT:0																													SOURCEPAGE:p.372
-Rockets (AT-5/5)				OUTPUTNAME:AT-5 Rockets, 5 pack										TYPE:Ammunition.Standard.Metal.AT5																				COST:2500	WT:0																													SOURCEPAGE:p.129
-Flechettes (Gauss/50)			OUTPUTNAME:Gauss Flechette, 50 pack										TYPE:Ammunition.Standard.Metal.Gauss																			COST:100	WT:0																													SOURCEPAGE:p.129
-Rockets (Gyrojet/30)			OUTPUTNAME:Gyrojet Rockets, 30 pack										TYPE:Ammunition.Standard.Metal.Gyrojet																			COST:500	WT:0																													SOURCEPAGE:p.129
-Rockets (Hydra 70 M247/5)		OUTPUTNAME:Hydra 70 (M247) Rockets, 5 pack								TYPE:Ammunition.Standard.Metal.Hydra70																			COST:1000	WT:0																													SOURCEPAGE:p.129
-Rockets (Hydra 70 M255/5)		OUTPUTNAME:Hydra 70 (M255) Rockets, 5 pack								TYPE:Ammunition.Standard.Metal.Hydra70																			COST:1000	WT:0																													SOURCEPAGE:p.129
-Rockets (Hydra 70 M261/5)		OUTPUTNAME:Hydra 70 (M261) Rockets, 5 pack								TYPE:Ammunition.Standard.Metal.Hydra70																			COST:1000	WT:0																													SOURCEPAGE:p.129
-Rockets (Hydra 70 M264/5)		OUTPUTNAME:Hydra 70 (M264) Rockets, 5 pack								TYPE:Ammunition.Standard.Metal.Hydra70																			COST:200	WT:0																													SOURCEPAGE:p.129
-Rockets (Ramjet/30)			OUTPUTNAME:Ramjet Rockets, 30 pack										TYPE:Ammunition.Standard.Metal.Ramjet																			COST:700	WT:0																													SOURCEPAGE:p.129
-Rockets (TOW II/5)			OUTPUTNAME:TOW II Rockets, 5 pack										TYPE:Ammunition.Standard.Metal.TOWII																			COST:2000	WT:0																													SOURCEPAGE:p.129
+Bullet (.22LR/50)				OUTPUTNAME:.22LR Bullets, 50 pack										TYPE:Ammunition.Standard.Metal.Bullet																			COST:30	WT:0																																	SOURCEPAGE:p.372
+Rockets (AT-5/5)				OUTPUTNAME:AT-5 Rockets, 5 pack										TYPE:Ammunition.Standard.Metal.AT5																				COST:2500	WT:0																																	SOURCEPAGE:p.129
+Flechettes (Gauss/50)			OUTPUTNAME:Gauss Flechette, 50 pack										TYPE:Ammunition.Standard.Metal.Gauss																			COST:100	WT:0																																	SOURCEPAGE:p.129
+Rockets (Gyrojet/30)			OUTPUTNAME:Gyrojet Rockets, 30 pack										TYPE:Ammunition.Standard.Metal.Gyrojet																			COST:500	WT:0																																	SOURCEPAGE:p.129
+Rockets (Hydra 70 M247/5)		OUTPUTNAME:Hydra 70 (M247) Rockets, 5 pack								TYPE:Ammunition.Standard.Metal.Hydra70																			COST:1000	WT:0																																	SOURCEPAGE:p.129
+Rockets (Hydra 70 M255/5)		OUTPUTNAME:Hydra 70 (M255) Rockets, 5 pack								TYPE:Ammunition.Standard.Metal.Hydra70																			COST:1000	WT:0																																	SOURCEPAGE:p.129
+Rockets (Hydra 70 M261/5)		OUTPUTNAME:Hydra 70 (M261) Rockets, 5 pack								TYPE:Ammunition.Standard.Metal.Hydra70																			COST:1000	WT:0																																	SOURCEPAGE:p.129
+Rockets (Hydra 70 M264/5)		OUTPUTNAME:Hydra 70 (M264) Rockets, 5 pack								TYPE:Ammunition.Standard.Metal.Hydra70																			COST:200	WT:0																																	SOURCEPAGE:p.129
+Rockets (Ramjet/30)			OUTPUTNAME:Ramjet Rockets, 30 pack										TYPE:Ammunition.Standard.Metal.Ramjet																			COST:700	WT:0																																	SOURCEPAGE:p.129
+Rockets (TOW II/5)			OUTPUTNAME:TOW II Rockets, 5 pack										TYPE:Ammunition.Standard.Metal.TOWII																			COST:2000	WT:0																																	SOURCEPAGE:p.129
 
 # Singles
-Bullet (.22LR)				OUTPUTNAME:.22LR Bullet												TYPE:Ammunition.Standard.Metal.Bullet.Individual																	COST:0.6	WT:0																													SOURCEPAGE:p.372
-Rocket (AT-5)				OUTPUTNAME:AT-5 Rocket												TYPE:Ammunition.Standard.Metal.AT5																				COST:500	WT:0																													SOURCEPAGE:p.129
-Flechette (Gauss)				OUTPUTNAME:Gauss Flechette											TYPE:Ammunition.Standard.Metal.Gauss																			COST:2	WT:0																													SOURCEPAGE:p.129
-Rocket (Gyrojet)				OUTPUTNAME:Gyrojet Rocket											TYPE:Ammunition.Standard.Metal.Gyrojet																			COST:17	WT:0																													SOURCEPAGE:p.129
-Rocket (Hydra 70 M247)			OUTPUTNAME:Hydra 70 (M247) Rocket										TYPE:Ammunition.Standard.Metal.Hydra70																			COST:200	WT:0																													SOURCEPAGE:p.129
-Rocket (Hydra 70 M255)			OUTPUTNAME:Hydra 70 (M255) Rocket										TYPE:Ammunition.Standard.Metal.Hydra70																			COST:200	WT:0																													SOURCEPAGE:p.129
-Rocket (Hydra 70 M261)			OUTPUTNAME:Hydra 70 (M261) Rocket										TYPE:Ammunition.Standard.Metal.Hydra70																			COST:200	WT:0																													SOURCEPAGE:p.129
-Rocket (Hydra 70 M264)			OUTPUTNAME:Hydra 70 (M264) Rocket										TYPE:Ammunition.Standard.Metal.Hydra70																			COST:40	WT:0																													SOURCEPAGE:p.129
-Rocket (Ramjet)				OUTPUTNAME:Ramjet Rockets											TYPE:Ammunition.Standard.Metal.Ramjet																			COST:25	WT:0																													SOURCEPAGE:p.129
-Rocket (TOW II)				OUTPUTNAME:TOW II Rockets											TYPE:Ammunition.Standard.Metal.TOWII																			COST:400	WT:0																													SOURCEPAGE:p.129
+Bullet (.22LR)				OUTPUTNAME:.22LR Bullet												TYPE:Ammunition.Standard.Metal.Bullet.Individual																	COST:0.6	WT:0																																	SOURCEPAGE:p.372
+Rocket (AT-5)				OUTPUTNAME:AT-5 Rocket												TYPE:Ammunition.Standard.Metal.AT5																				COST:500	WT:0																																	SOURCEPAGE:p.129
+Flechette (Gauss)				OUTPUTNAME:Gauss Flechette											TYPE:Ammunition.Standard.Metal.Gauss																			COST:2	WT:0																																	SOURCEPAGE:p.129
+Rocket (Gyrojet)				OUTPUTNAME:Gyrojet Rocket											TYPE:Ammunition.Standard.Metal.Gyrojet																			COST:17	WT:0																																	SOURCEPAGE:p.129
+Rocket (Hydra 70 M247)			OUTPUTNAME:Hydra 70 (M247) Rocket										TYPE:Ammunition.Standard.Metal.Hydra70																			COST:200	WT:0																																	SOURCEPAGE:p.129
+Rocket (Hydra 70 M255)			OUTPUTNAME:Hydra 70 (M255) Rocket										TYPE:Ammunition.Standard.Metal.Hydra70																			COST:200	WT:0																																	SOURCEPAGE:p.129
+Rocket (Hydra 70 M261)			OUTPUTNAME:Hydra 70 (M261) Rocket										TYPE:Ammunition.Standard.Metal.Hydra70																			COST:200	WT:0																																	SOURCEPAGE:p.129
+Rocket (Hydra 70 M264)			OUTPUTNAME:Hydra 70 (M264) Rocket										TYPE:Ammunition.Standard.Metal.Hydra70																			COST:40	WT:0																																	SOURCEPAGE:p.129
+Rocket (Ramjet)				OUTPUTNAME:Ramjet Rockets											TYPE:Ammunition.Standard.Metal.Ramjet																			COST:25	WT:0																																	SOURCEPAGE:p.129
+Rocket (TOW II)				OUTPUTNAME:TOW II Rockets											TYPE:Ammunition.Standard.Metal.TOWII																			COST:400	WT:0																																	SOURCEPAGE:p.129
 Cannister (Flame Pistol)		OUTPUTNAME:Flamethrower Cannister										TYPE:Ammunition.FlameCannister																				COST:50	WT:0
 Tank (Flamethrower)			OUTPUTNAME:Flamethrower Tank											TYPE:Ammunition.FlameCannister																				COST:250	WT:0
 
@@ -117,79 +118,79 @@ Tank (Flamethrower)			OUTPUTNAME:Flamethrower Tank											TYPE:Ammunition.Fla
 #
 #	DW2 & MSRD Melee Weapons
 #	Simple Weapons Melee
-# Equipment Name				Output Name							Required Weapon Proficiency			Type													Alt Type					Contains					Cost		Weight	Crit Mult	Crit Range	Alt Crit Mult	Alt Crit Range	Damage	Alt Damage		Modifier		Alt EQModifier	Range		Reach		Size		Source Page		Special Property											FACT
+# Equipment Name				Output Name							Required Weapon Proficiency			Type													Alt Type					Contains					Cost		Weight	Crit Mult	Crit Range	Alt Crit Mult	Alt Crit Range	Damage	Alt Damage		Modifier		Alt EQModifier	Requires Modification?	Range		Reach		Size		Source Page		Special Property											FACT
 Brass Knuckles.MOD																																											COST:10
 Cleaver.MOD																																													COST:5
 Club.MOD																																													COST:1
-Club (Spiked)				OUTPUTNAME:Club, Spiked					PROFICIENCY:WEAPON|Club				TYPE:Weapon.Simple.Melee.Bludgeoning.Piercing.Standard.Wooden															COST:1	WT:8		CRITMULT:x2	CRITRANGE:1							DAMAGE:1d8														SIZE:M	SOURCEPAGE:p.188
-Dagger (Punching)				OUTPUTNAME:Dagger, Punching				PROFICIENCY:WEAPON|Dagger			TYPE:Weapon.Simple.Melee.Piercing.Standard.Metal																	COST:5	WT:2		CRITMULT:x3	CRITRANGE:1							DAMAGE:1d4														SIZE:T	SOURCEPAGE:p.188
-Gauntlet													PROFICIENCY:WEAPON|Gauntlet			TYPE:Weapon.Melee.Finesseable.Simple.Standard.Bludgeoning.Unarmed.Gauntlet													COST:5	WT:2		CRITMULT:-	CRITRANGE:1							DAMAGE:1d3														SIZE:T	SOURCEPAGE:p.188
-Gauntlet (Spiked)				OUTPUTNAME:Gauntlet, [NAME]				PROFICIENCY:WEAPON|Gauntlet			TYPE:Weapon.Melee.Finesseable.Simple.Standard.Piercing.Unarmed.Gauntlet														COST:7	WT:2		CRITMULT:x2	CRITRANGE:1							DAMAGE:1d4														SIZE:T	SOURCEPAGE:p.188
-Ketch-All Pole												PROFICIENCY:WEAPON|Ketch-All Pole		TYPE:Weapon.Melee.Simple.Standard.Bludgeoning.Standard.Metal															COST:15	WT:8		CRITMULT:x2	CRITRANGE:1							DAMAGE:1d4												REACH:10	SIZE:L	SOURCEPAGE:p.188	SPROP:* See Text (p. 189) *
+Club (Spiked)				OUTPUTNAME:Club, Spiked					PROFICIENCY:WEAPON|Club				TYPE:Weapon.Simple.Melee.Bludgeoning.Piercing.Standard.Wooden															COST:1	WT:8		CRITMULT:x2	CRITRANGE:1							DAMAGE:1d8																		SIZE:M	SOURCEPAGE:p.188
+Dagger (Punching)				OUTPUTNAME:Dagger, Punching				PROFICIENCY:WEAPON|Dagger			TYPE:Weapon.Simple.Melee.Piercing.Standard.Metal																	COST:5	WT:2		CRITMULT:x3	CRITRANGE:1							DAMAGE:1d4																		SIZE:T	SOURCEPAGE:p.188
+Gauntlet													PROFICIENCY:WEAPON|Gauntlet			TYPE:Weapon.Melee.Finesseable.Simple.Standard.Bludgeoning.Unarmed.Gauntlet													COST:5	WT:2		CRITMULT:-	CRITRANGE:1							DAMAGE:1d3																		SIZE:T	SOURCEPAGE:p.188
+Gauntlet (Spiked)				OUTPUTNAME:Gauntlet, [NAME]				PROFICIENCY:WEAPON|Gauntlet			TYPE:Weapon.Melee.Finesseable.Simple.Standard.Piercing.Unarmed.Gauntlet														COST:7	WT:2		CRITMULT:x2	CRITRANGE:1							DAMAGE:1d4																		SIZE:T	SOURCEPAGE:p.188
+Ketch-All Pole												PROFICIENCY:WEAPON|Ketch-All Pole		TYPE:Weapon.Melee.Simple.Standard.Bludgeoning.Standard.Metal															COST:15	WT:8		CRITMULT:x2	CRITRANGE:1							DAMAGE:1d4																REACH:10	SIZE:L	SOURCEPAGE:p.188	SPROP:* See Text (p. 189) *
 Knife.MOD																																													COST:2
 Metal Baton.MOD																																												COST:10
-Quarterstaff												PROFICIENCY:WEAPON|Quarterstaff		TYPE:Weapon.Melee.Simple.Double.Standard.Bludgeoning.Quarterstaff			ALTTYPE:Weapon.Melee.Bludgeoning							COST:1	WT:4		CRITMULT:x2	CRITRANGE:1	ALTCRITMULT:x2	ALTCRITRANGE:1	DAMAGE:1d6	ALTDAMAGE:1d6	EQMOD:WOOD		ALTEQMOD:WOOD					SIZE:L	SOURCEPAGE:p.188
+Quarterstaff												PROFICIENCY:WEAPON|Quarterstaff		TYPE:Weapon.Melee.Simple.Double.Standard.Bludgeoning.Quarterstaff			ALTTYPE:Weapon.Melee.Bludgeoning							COST:1	WT:4		CRITMULT:x2	CRITRANGE:1	ALTCRITMULT:x2	ALTCRITRANGE:1	DAMAGE:1d6	ALTDAMAGE:1d6	EQMOD:WOOD		ALTEQMOD:WOOD									SIZE:L	SOURCEPAGE:p.188
 Sap.MOD																																													COST:2
-Shock Gloves												PROFICIENCY:WEAPON|Shock Gloves		TYPE:Weapon.Melee.Simple.Electricity.Unarmed.Standard.Container									CONTAINS:1|PwrCell=1			COST:500	WT:1		CRITMULT:x2	CRITRANGE:1							DAMAGE:1d8														SIZE:S	SOURCEPAGE:p.188	SPROP:Damage is in addition to normal unarmed damage
-Stun Baton													PROFICIENCY:WEAPON|Stun Baton			TYPE:Weapon.Simple.Melee.Electricity.Standard.Metal.Container									CONTAINS:1|PwrBelt=1|PwrBack=1	COST:750	WT:3		CRITMULT:x2	CRITRANGE:1							DAMAGE:3d6														SIZE:M	SOURCEPAGE:p.188	SPROP:Power Beltpack or Backpack; Non-lethal damage or 1d6 lethal damage.
+Shock Gloves												PROFICIENCY:WEAPON|Shock Gloves		TYPE:Weapon.Melee.Simple.Electricity.Unarmed.Standard.Container									CONTAINS:1|PwrCell=1			COST:500	WT:1		CRITMULT:x2	CRITRANGE:1							DAMAGE:1d8																		SIZE:S	SOURCEPAGE:p.188	SPROP:Damage is in addition to normal unarmed damage
+Stun Baton													PROFICIENCY:WEAPON|Stun Baton			TYPE:Weapon.Simple.Melee.Electricity.Standard.Metal.Container									CONTAINS:1|PwrBelt=1|PwrBack=1	COST:750	WT:3		CRITMULT:x2	CRITRANGE:1							DAMAGE:3d6																		SIZE:M	SOURCEPAGE:p.188	SPROP:Power Beltpack or Backpack; Non-lethal damage or 1d6 lethal damage.
 Stun gun.MOD																																												COST:50
 Tonfa.MOD																																													COST:10
 
-Unarmed Strike												PROFICIENCY:WEAPON|Unarmed Strike		TYPE:Weapon.Natural.Melee.Simple.Unarmed.Subdual.Standard.Monk.Bludgeoning													COST:0	WT:0		CRITMULT:x2	CRITRANGE:1							DAMAGE:1d3														SIZE:M		MODS:NO	
+Unarmed Strike												PROFICIENCY:WEAPON|Unarmed Strike		TYPE:Weapon.Natural.Melee.Simple.Unarmed.Subdual.Standard.Monk.Bludgeoning													COST:0	WT:0		CRITMULT:x2	CRITRANGE:1							DAMAGE:1d3										MODS:NO							SIZE:M
 
 #	Archaic Melee Weapons
-# Equipment Name				Output Name							Required Weapon Proficiency			Type													Alt Type					Contains					Cost		Weight	Crit Mult	Crit Range	Alt Crit Mult	Alt Crit Range	Damage	Alt Damage		Modifier		Alt EQModifier	Range		Reach		Size		Source Page		Special Property											FACT
-Battleaxe													PROFICIENCY:WEAPON|Battleaxe			TYPE:Weapon.Melee.Archaic.Standard.Slashing																		COST:10	WT:7		CRITMULT:x3	CRITRANGE:1							DAMAGE:1d8														SIZE:M	SOURCEPAGE:p.188
+# Equipment Name				Output Name							Required Weapon Proficiency			Type													Alt Type					Contains					Cost		Weight	Crit Mult	Crit Range	Alt Crit Mult	Alt Crit Range	Damage	Alt Damage		Modifier		Alt EQModifier	Requires Modification?	Range		Reach		Size		Source Page		Special Property											FACT
+Battleaxe													PROFICIENCY:WEAPON|Battleaxe			TYPE:Weapon.Melee.Archaic.Standard.Slashing																		COST:10	WT:7		CRITMULT:x3	CRITRANGE:1							DAMAGE:1d8																		SIZE:M	SOURCEPAGE:p.188
 Bayonet (Fixed).MOD																																											COST:12
-Energy Pike													PROFICIENCY:WEAPON|Energy Pike		TYPE:Weapon.Melee.Archaic.Standard.Piercing.Metal.Futuristic.Container								CONTAINS:1|PwrBelt=1|PwrBack=1	COST:5000	WT:4		CRITMULT:x2	CRITRANGE:3							DAMAGE:2d8												REACH:10	SIZE:L	SOURCEPAGE:p.188	SPROP:Power Beltpack or Backpack; 30'Radius Glow
-Falchion													PROFICIENCY:WEAPON|Falchion			TYPE:Weapon.Archaic.Melee.Standard.Slashing.Metal																	COST:12	WT:16		CRITMULT:x2	CRITRANGE:3							DAMAGE:2d4														SIZE:L	SOURCEPAGE:p.188
-Flail (Heavy)				OUTPUTNAME:Flail, [NAME]				PROFICIENCY:WEAPON|Flail			TYPE:Weapon.Melee.Archaic.Standard.Bludgeoning.Flail																	COST:20	WT:20		CRITMULT:x2	CRITRANGE:2							DAMAGE:1d10														SIZE:L	SOURCEPAGE:p.188
-Flail (Light)				OUTPUTNAME:Flail, [NAME]				PROFICIENCY:WEAPON|Flail			TYPE:Weapon.Melee.Archaic.Standard.Bludgeoning.Flail																	COST:15	WT:5		CRITMULT:x2	CRITRANGE:1							DAMAGE:1d8														SIZE:M	SOURCEPAGE:p.188
-Greataxe													PROFICIENCY:WEAPON|Greataxe			TYPE:Weapon.Melee.Archaic.Standard.Slashing.Axe																		COST:20	WT:20		CRITMULT:x3	CRITRANGE:1							DAMAGE:1d12														SIZE:L	SOURCEPAGE:p.188
-Greatclub													PROFICIENCY:WEAPON|Greatclub			TYPE:Weapon.Melee.Archaic.Standard.Bludgeoning.Club																	COST:5	WT:10		CRITMULT:x2	CRITRANGE:1							DAMAGE:1d10														SIZE:L	SOURCEPAGE:p.188
-Greatsword													PROFICIENCY:WEAPON|Greatsword			TYPE:Weapon.Melee.Archaic.Standard.Slashing.Sword																	COST:30	WT:15		CRITMULT:x2	CRITRANGE:2							DAMAGE:2d6														SIZE:L	SOURCEPAGE:p.188
+Energy Pike													PROFICIENCY:WEAPON|Energy Pike		TYPE:Weapon.Melee.Archaic.Standard.Piercing.Metal.Futuristic.Container								CONTAINS:1|PwrBelt=1|PwrBack=1	COST:5000	WT:4		CRITMULT:x2	CRITRANGE:3							DAMAGE:2d8																REACH:10	SIZE:L	SOURCEPAGE:p.188	SPROP:Power Beltpack or Backpack; 30'Radius Glow
+Falchion													PROFICIENCY:WEAPON|Falchion			TYPE:Weapon.Archaic.Melee.Standard.Slashing.Metal																	COST:12	WT:16		CRITMULT:x2	CRITRANGE:3							DAMAGE:2d4																		SIZE:L	SOURCEPAGE:p.188
+Flail (Heavy)				OUTPUTNAME:Flail, [NAME]				PROFICIENCY:WEAPON|Flail			TYPE:Weapon.Melee.Archaic.Standard.Bludgeoning.Flail																	COST:20	WT:20		CRITMULT:x2	CRITRANGE:2							DAMAGE:1d10																		SIZE:L	SOURCEPAGE:p.188
+Flail (Light)				OUTPUTNAME:Flail, [NAME]				PROFICIENCY:WEAPON|Flail			TYPE:Weapon.Melee.Archaic.Standard.Bludgeoning.Flail																	COST:15	WT:5		CRITMULT:x2	CRITRANGE:1							DAMAGE:1d8																		SIZE:M	SOURCEPAGE:p.188
+Greataxe													PROFICIENCY:WEAPON|Greataxe			TYPE:Weapon.Melee.Archaic.Standard.Slashing.Axe																		COST:20	WT:20		CRITMULT:x3	CRITRANGE:1							DAMAGE:1d12																		SIZE:L	SOURCEPAGE:p.188
+Greatclub													PROFICIENCY:WEAPON|Greatclub			TYPE:Weapon.Melee.Archaic.Standard.Bludgeoning.Club																	COST:5	WT:10		CRITMULT:x2	CRITRANGE:1							DAMAGE:1d10																		SIZE:L	SOURCEPAGE:p.188
+Greatsword													PROFICIENCY:WEAPON|Greatsword			TYPE:Weapon.Melee.Archaic.Standard.Slashing.Sword																	COST:30	WT:15		CRITMULT:x2	CRITRANGE:2							DAMAGE:2d6																		SIZE:L	SOURCEPAGE:p.188
 Hatchet.MOD																																													COST:5
 Longsword.MOD																																												COST:20
 Machete.MOD																																													COST:10
-Plasma Sword												PROFICIENCY:WEAPON|Plasma Sword		TYPE:Weapon.Archaic.Melee.Standard.Slashing.Energy.Sword.Futuristic.Container							CONTAINS:1|PwrBelt=1|PwrBack=1	COST:5000	WT:1		CRITMULT:x2	CRITRANGE:2							DAMAGE:2d8														SIZE:M	SOURCEPAGE:p.188	SPROP:Power Beltpack or Backpack
-Pick														PROFICIENCY:WEAPON|Pick				TYPE:Weapon.Martial.Melee.Standard.Piercing.Pick																	COST:5	WT:4		CRITMULT:x4	CRITRANGE:1							DAMAGE:1d4														SIZE:S	SOURCEPAGE:p.188
-Pickaxe													PROFICIENCY:WEAPON|Pickaxe			TYPE:Weapon.Martial.Melee.Standard.Piercing.Pick																	COST:10	WT:6		CRITMULT:x4	CRITRANGE:1							DAMAGE:1d6														SIZE:M	SOURCEPAGE:p.188
-Power Sword													PROFICIENCY:WEAPON|Power Sword		TYPE:Weapon.Archaic.Melee.Standard.Slashing.Metal.Sword.Futuristic.Container							CONTAINS:1|PwrBelt=1|PwrBack=1	COST:5000	WT:2		CRITMULT:x2	CRITRANGE:3							DAMAGE:2d6														SIZE:M	SOURCEPAGE:p.188	SPROP:Power Beltpack or Backpack
+Plasma Sword												PROFICIENCY:WEAPON|Plasma Sword		TYPE:Weapon.Archaic.Melee.Standard.Slashing.Energy.Sword.Futuristic.Container							CONTAINS:1|PwrBelt=1|PwrBack=1	COST:5000	WT:1		CRITMULT:x2	CRITRANGE:2							DAMAGE:2d8																		SIZE:M	SOURCEPAGE:p.188	SPROP:Power Beltpack or Backpack
+Pick														PROFICIENCY:WEAPON|Pick				TYPE:Weapon.Martial.Melee.Standard.Piercing.Pick																	COST:5	WT:4		CRITMULT:x4	CRITRANGE:1							DAMAGE:1d4																		SIZE:S	SOURCEPAGE:p.188
+Pickaxe													PROFICIENCY:WEAPON|Pickaxe			TYPE:Weapon.Martial.Melee.Standard.Piercing.Pick																	COST:10	WT:6		CRITMULT:x4	CRITRANGE:1							DAMAGE:1d6																		SIZE:M	SOURCEPAGE:p.188
+Power Sword													PROFICIENCY:WEAPON|Power Sword		TYPE:Weapon.Archaic.Melee.Standard.Slashing.Metal.Sword.Futuristic.Container							CONTAINS:1|PwrBelt=1|PwrBack=1	COST:5000	WT:2		CRITMULT:x2	CRITRANGE:3							DAMAGE:2d6																		SIZE:M	SOURCEPAGE:p.188	SPROP:Power Beltpack or Backpack
 Rapier.MOD																																													COST:30
 Spear.MOD																																													COST:10
 Straight Razor.MOD																																											COST:3
 
 #	Exotic Melee Weapons
-# Equipment Name				Output Name							Required Weapon Proficiency			Type													Alt Type					Contains					Cost		Weight	Crit Mult	Crit Range	Alt Crit Mult	Alt Crit Range	Damage	Alt Damage		Modifier		Alt EQModifier	Range		Reach		Size		Source Page		Special Property											FACT
-Axe (Raider Double)			OUTPUTNAME:Axe, [NAME]					PROFICIENCY:WEAPON|Axe (Raider Double)	TYPE:Weapon.Exotic.Melee.Slashing.Standard.Double.Axe					ALTTYPE:Weapon.Melee.Slashing								COST:200	WT:25		CRITMULT:x3	CRITRANGE:1	ALTCRITMULT:x3	ALTCRITRANGE:1	DAMAGE:1d8	ALTDAMAGE:1d8											SIZE:L	SOURCEPAGE:p.188
+# Equipment Name				Output Name							Required Weapon Proficiency			Type													Alt Type					Contains					Cost		Weight	Crit Mult	Crit Range	Alt Crit Mult	Alt Crit Range	Damage	Alt Damage		Modifier		Alt EQModifier	Requires Modification?	Range		Reach		Size		Source Page		Special Property											FACT
+Axe (Raider Double)			OUTPUTNAME:Axe, [NAME]					PROFICIENCY:WEAPON|Axe (Raider Double)	TYPE:Weapon.Exotic.Melee.Slashing.Standard.Double.Axe					ALTTYPE:Weapon.Melee.Slashing								COST:200	WT:25		CRITMULT:x3	CRITRANGE:1	ALTCRITMULT:x3	ALTCRITRANGE:1	DAMAGE:1d8	ALTDAMAGE:1d8															SIZE:L	SOURCEPAGE:p.188
 Chain.MOD																																													COST:10
 Chain Saw.MOD																																												COST:300
-Chainsword													PROFICIENCY:WEAPON|Chainsword			TYPE:Weapon.Exotic.Melee.Slashing.Standard.Metal.Futuristic																COST:3000	WT:8		CRITMULT:x2	CRITRANGE:3							DAMAGE:3d6														SIZE:M	SOURCEPAGE:p.132
-Flail (Dire)				OUTPUTNAME:Flail, [NAME]				PROFICIENCY:WEAPON|Flail (Dire)		TYPE:Weapon.Exotic.Melee.Bludgeoning.Standard.Double.Flail				ALTTYPE:Weapon.Melee.Bludgeoning							COST:200	WT:20		CRITMULT:x2	CRITRANGE:1	ALTCRITMULT:x2	ALTCRITRANGE:1	DAMAGE:1d8	ALTDAMAGE:1d8											SIZE:L	SOURCEPAGE:p.188
+Chainsword													PROFICIENCY:WEAPON|Chainsword			TYPE:Weapon.Exotic.Melee.Slashing.Standard.Metal.Futuristic																COST:3000	WT:8		CRITMULT:x2	CRITRANGE:3							DAMAGE:3d6																		SIZE:M	SOURCEPAGE:p.132
+Flail (Dire)				OUTPUTNAME:Flail, [NAME]				PROFICIENCY:WEAPON|Flail (Dire)		TYPE:Weapon.Exotic.Melee.Bludgeoning.Standard.Double.Flail				ALTTYPE:Weapon.Melee.Bludgeoning							COST:200	WT:20		CRITMULT:x2	CRITRANGE:1	ALTCRITMULT:x2	ALTCRITRANGE:1	DAMAGE:1d8	ALTDAMAGE:1d8															SIZE:L	SOURCEPAGE:p.188
 Kama.MOD																																													COST:30
 Katana.MOD																																													COST:200
 Kukri.MOD																																													COST:30
 Nunchaku.MOD																																												COST:20
 Three-Section Staff.MOD																																											COST:20
-Warp-Field Sword												PROFICIENCY:WEAPON|Warp-Field Sword		TYPE:Weapon.Exotic.Melee.Slashing.Standard.Metal.Futuristic.Container								CONTAINS:1|PwrMini=1			COST:15000	WT:3		CRITMULT:x2	CRITRANGE:2							DAMAGE:2d6														SIZE:M	SOURCEPAGE:p.188	SPROP:Minifusion Cell
+Warp-Field Sword												PROFICIENCY:WEAPON|Warp-Field Sword		TYPE:Weapon.Exotic.Melee.Slashing.Standard.Metal.Futuristic.Container								CONTAINS:1|PwrMini=1			COST:15000	WT:3		CRITMULT:x2	CRITRANGE:2							DAMAGE:2d6																		SIZE:M	SOURCEPAGE:p.188	SPROP:Minifusion Cell
 
 #Not Included
 #Taser.MOD		COST:100
 
 # Other Ranged Weapons
-# Equipment Name				Output Name							Required Weapon Proficiency			Type													Alt Type					Contains					Cost		Weight	Crit Mult	Crit Range	Alt Crit Mult	Alt Crit Range	Damage	Alt Damage		Modifier		Alt EQModifier	Range		Reach		Size		Source Page		Special Property											FACT
+# Equipment Name				Output Name							Required Weapon Proficiency			Type													Alt Type					Contains					Cost		Weight	Crit Mult	Crit Range	Alt Crit Mult	Alt Crit Range	Damage	Alt Damage		Modifier		Alt EQModifier	Requires Modification?	Range		Reach		Size		Source Page		Special Property											FACT
 Compound Bow.MOD																																												COST:30
 Crossbow.MOD																																												COST:30
-Crossbow (Grapple-Firing)										PROFICIENCY:WEAPON|Crossbow			TYPE:Weapon.Simple.Ranged.Standard.Piercing.Wooden.Container									CONTAINS:UNLIM|BoltGrapple=1		COST:50	WT:12		CRITMULT:-	CRITRANGE:2							DAMAGE:1d3										RANGE:120			SIZE:M	SOURCEPAGE:p.167	SPROP:1 Bolt											FACT:RateOfFire|1
-Crossbow (Hand)												PROFICIENCY:WEAPON|Crossbow			TYPE:Weapon.Simple.Ranged.Standard.Piercing.Wooden.Container									CONTAINS:UNLIM|BoltHand=1		COST:40	WT:3		CRITMULT:-	CRITRANGE:2							DAMAGE:1d4										RANGE:30			SIZE:T	SOURCEPAGE:p.167	SPROP:1 Bolt											FACT:RateOfFire|1
-Crossbow (Repeating)											PROFICIENCY:WEAPON|Repeating Crossbow	TYPE:Weapon.Simple.Ranged.Standard.Piercing.Wooden.Container									CONTAINS:UNLIM|Bolt=5			COST:75	WT:16		CRITMULT:-	CRITRANGE:2							DAMAGE:1d8										RANGE:80			SIZE:M	SOURCEPAGE:p.167	SPROP:1 Bolt											FACT:RateOfFire|1
+Crossbow (Grapple-Firing)										PROFICIENCY:WEAPON|Crossbow			TYPE:Weapon.Simple.Ranged.Standard.Piercing.Wooden.Container									CONTAINS:UNLIM|BoltGrapple=1		COST:50	WT:12		CRITMULT:-	CRITRANGE:2							DAMAGE:1d3														RANGE:120			SIZE:M	SOURCEPAGE:p.167	SPROP:1 Bolt											FACT:RateOfFire|1
+Crossbow (Hand)												PROFICIENCY:WEAPON|Crossbow			TYPE:Weapon.Simple.Ranged.Standard.Piercing.Wooden.Container									CONTAINS:UNLIM|BoltHand=1		COST:40	WT:3		CRITMULT:-	CRITRANGE:2							DAMAGE:1d4														RANGE:30			SIZE:T	SOURCEPAGE:p.167	SPROP:1 Bolt											FACT:RateOfFire|1
+Crossbow (Repeating)											PROFICIENCY:WEAPON|Repeating Crossbow	TYPE:Weapon.Simple.Ranged.Standard.Piercing.Wooden.Container									CONTAINS:UNLIM|Bolt=5			COST:75	WT:16		CRITMULT:-	CRITRANGE:2							DAMAGE:1d8														RANGE:80			SIZE:M	SOURCEPAGE:p.167	SPROP:1 Bolt											FACT:RateOfFire|1
 Flamethrower.MOD																																												COST:280
 Javelin.MOD																																													COST:10
 Pepper Spray.MOD																																												COST:40
-Sling														PROFICIENCY:WEAPON|Sling			TYPE:Weapon.Archaic.Ranged.Standard.Ballistic.Container.Projectile.Sling							CONTAINS:1|SlingBullet=1		COST:10	WT:0		CRITMULT:-	CRITRANGE:1							DAMAGE:1d4				EQMOD:LEATHER				RANGE:50			SIZE:S	SOURCEPAGE:p.167	SPROP:1 Shot/Stone										FACT:RateOfFire|1
-Slingshot													PROFICIENCY:WEAPON|Slingshot			TYPE:Weapon.Simple.Ranged.Standard.Ballistic.Container.Projectile.Sling								CONTAINS:1|SlingBullet=1		COST:20	WT:1		CRITMULT:-	CRITRANGE:1							DAMAGE:1d3										RANGE:50			SIZE:T	SOURCEPAGE:p.167	SPROP:1 Shot/Stone										FACT:RateOfFire|1
+Sling														PROFICIENCY:WEAPON|Sling			TYPE:Weapon.Archaic.Ranged.Standard.Ballistic.Container.Projectile.Sling							CONTAINS:1|SlingBullet=1		COST:10	WT:0		CRITMULT:-	CRITRANGE:1							DAMAGE:1d4				EQMOD:LEATHER								RANGE:50			SIZE:S	SOURCEPAGE:p.167	SPROP:1 Shot/Stone										FACT:RateOfFire|1
+Slingshot													PROFICIENCY:WEAPON|Slingshot			TYPE:Weapon.Simple.Ranged.Standard.Ballistic.Container.Projectile.Sling								CONTAINS:1|SlingBullet=1		COST:20	WT:1		CRITMULT:-	CRITRANGE:1							DAMAGE:1d3														RANGE:50			SIZE:T	SOURCEPAGE:p.167	SPROP:1 Shot/Stone										FACT:RateOfFire|1
 Shuriken.MOD																																												COST:10
-Speargun													PROFICIENCY:WEAPON|Speargun			TYPE:Weapon.Simple.Ranged.Standard.Piercing.Wooden.Container									CONTAINS:1|SpeargunSpear=1		COST:60	WT:5		CRITMULT:-	CRITRANGE:1							DAMAGE:2d6										RANGE:10			SIZE:L	SOURCEPAGE:p.167	SPROP:1 Speargun Spear;* See Text (p. 168) *						FACT:RateOfFire|1
+Speargun													PROFICIENCY:WEAPON|Speargun			TYPE:Weapon.Simple.Ranged.Standard.Piercing.Wooden.Container									CONTAINS:1|SpeargunSpear=1		COST:60	WT:5		CRITMULT:-	CRITRANGE:1							DAMAGE:2d6														RANGE:10			SIZE:L	SOURCEPAGE:p.167	SPROP:1 Speargun Spear;* See Text (p. 168) *						FACT:RateOfFire|1
 Whip.MOD																																													COST:20
 
 

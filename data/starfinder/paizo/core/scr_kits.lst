@@ -1,3 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 
 
 
@@ -18,5 +19,4 @@ FUNDS:cr	QTY:1000
 # Anything should be added here that ALL playable races get
 
 STARTPACK:Solarian Weapon	VISIBLE:NO
-GEAR:Solarian Weapon	LOCATION:Primary Hand	SIZE:PC
-
+GEAR:Solarian Weapon	SIZE:PC	LOCATION:Primary Hand

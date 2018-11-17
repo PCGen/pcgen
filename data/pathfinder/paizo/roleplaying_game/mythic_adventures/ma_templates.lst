@@ -1,6 +1,7 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
 
-# Template Name							Unique Key						Visible	Required Movement Rate	Prohibited Movement Rate	Add to base move			Move			Race Subtype
+# Template Name							Unique Key						Visible	Required Movement Rate	Prohibited Movement Rate	Add to base move			Clone Movement		Race Subtype
 Mythic Simple Template ~ Agile (Not Implemented)	KEY:Mythic Simple Template ~ Agile
 Mythic Simple Template ~ Arcane (Not Implemented)	KEY:Mythic Simple Template ~ Arcane
 Mythic Simple Template ~ Divine (Not Implemented)	KEY:Mythic Simple Template ~ Divine
@@ -9,20 +10,21 @@ Mythic Simple Template ~ Savage (Not Implemented)	KEY:Mythic Simple Template ~ S
 
 
 #
-Mythic															VISIBLE:NO																		RACESUBTYPE:Mythic
+Mythic															VISIBLE:NO																			RACESUBTYPE:Mythic
 
-Has Swim Speed	KEY:Swimming Master ~ Has Swim												VISIBLE:NO	PREMOVE:1,Swim=1							BONUS:MOVEADD|TYPE.Swim|30
-No Swim Speed	KEY:Swimming Master ~ No Swim												VISIBLE:NO					!PREMOVE:1,Swim=1								MOVECLONE:Walk,Swim,*1
+Has Swim Speed							KEY:Swimming Master ~ Has Swim		VISIBLE:NO	PREMOVE:1,Swim=1							BONUS:MOVEADD|TYPE.Swim|30
+No Swim Speed							KEY:Swimming Master ~ No Swim			VISIBLE:NO					!PREMOVE:1,Swim=1								MOVECLONE:Walk,Swim,*1
 
-Has Climb Speed	KEY:Climbing Master ~ Has Climb												VISIBLE:NO	PREMOVE:1,Climb=1							BONUS:MOVEADD|TYPE.Climb|30
-No Climb Speed	KEY:Climbing Master ~ No Climb												VISIBLE:NO					!PREMOVE:1,Climb=1							MOVECLONE:Walk,Climb,*1
+Has Climb Speed							KEY:Climbing Master ~ Has Climb		VISIBLE:NO	PREMOVE:1,Climb=1							BONUS:MOVEADD|TYPE.Climb|30
+No Climb Speed							KEY:Climbing Master ~ No Climb		VISIBLE:NO					!PREMOVE:1,Climb=1							MOVECLONE:Walk,Climb,*1
 
 ###Block: Aspect of the Beast
-Doesn't Have Darkvision	KEY:Mythic Aspect of the Beast ~ Doesn't Have Darkvision	VISIBLE:NO	PREVARLTEQ:DarkvisionRange,0	BONUS:VAR|DarkvisionRange|30|TYPE=Base|PREVARLT:HasLowlightVision,1	BONUS:VAR|DarkvisionRange|60|TYPE=Base|PREVARGTEQ:HasLowlightVision,1
-Has Darkvision		KEY:Mythic Aspect of the Beast ~ Has Darkvision			VISIBLE:NO	PREVARGTEQ:DarkvisionRange,1	BONUS:VAR|DarkvisionRange|30+(10*MythicLevel)
+# Template Name			Unique Key									Visible	Required Ability				Var. Min. Value			Var. Max. Value			Modify VAR																							Weapon prof. bonus			Ability
+Doesn't Have Darkvision		KEY:Mythic Aspect of the Beast ~ Doesn't Have Darkvision	VISIBLE:NO												PREVARLTEQ:DarkvisionRange,0	BONUS:VAR|DarkvisionRange|30|TYPE=Base|PREVARLT:HasLowlightVision,1	BONUS:VAR|DarkvisionRange|60|TYPE=Base|PREVARGTEQ:HasLowlightVision,1
+Has Darkvision			KEY:Mythic Aspect of the Beast ~ Has Darkvision			VISIBLE:NO							PREVARGTEQ:DarkvisionRange,1						BONUS:VAR|DarkvisionRange|30+(10*MythicLevel)
 
-Doesn't Have Claws	KEY:Mythic Aspect of the Beast ~ Doesn't Have Claws		VISIBLE:NO	PREABILITY:0,CATEGORY=Internal,Claw	ABILITY:Internal|AUTOMATIC|Claw
-Has Claws			KEY:Mythic Aspect of the Beast ~ Has Claws			VISIBLE:NO	PREABILITY:1,CATEGORY=Internal,Claw	BONUS:WEAPONPROF=Claw|DAMAGESIZE|1
+Doesn't Have Claws		KEY:Mythic Aspect of the Beast ~ Doesn't Have Claws		VISIBLE:NO	PREABILITY:0,CATEGORY=Internal,Claw																																									ABILITY:Internal|AUTOMATIC|Claw
+Has Claws				KEY:Mythic Aspect of the Beast ~ Has Claws			VISIBLE:NO	PREABILITY:1,CATEGORY=Internal,Claw																																			BONUS:WEAPONPROF=Claw|DAMAGESIZE|1
 
 #
-Augment Summoning (Mythic)	KEY:Mythic Arugment Summoning	VISIBLE:YES	
+Augment Summoning (Mythic)	KEY:Mythic Arugment Summoning						VISIBLE:YES

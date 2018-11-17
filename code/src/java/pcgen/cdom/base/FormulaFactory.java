@@ -18,6 +18,7 @@
 package pcgen.cdom.base;
 
 import java.util.Objects;
+import java.util.Optional;
 
 import pcgen.base.formula.Formula;
 import pcgen.base.formula.base.DependencyManager;
@@ -372,6 +373,7 @@ public final class FormulaFactory
 	{
 		NEPFormula<T> formula = getNEPFormulaFor(formatManager, expression);
 		FormulaSemantics semantics = managerFactory.generateFormulaSemantics(formulaManager, varScope);
+		semantics = semantics.getWith(FormulaSemantics.INPUT_FORMAT, Optional.of(formatManager));
 		try
 		{
 			formula.isValid(semantics);

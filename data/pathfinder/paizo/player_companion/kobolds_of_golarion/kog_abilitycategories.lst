@@ -1,3 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
 #SOURCELONG:Kobolds of Golarion	SOURCESHORT:KOG	SOURCEWEB:http://paizo.com/products/btpy8yw0?Pathfinder-Player-Companion-Kobolds-of-Golarion	SOURCEDATE:2013-06
 # ORIGINAL ENTRY: Gwen T. (evilpixie87)
@@ -5,11 +6,9 @@
 
 
 
-ABILITYCATEGORY:Dragon Herald Patron						VISIBLE:QUALIFY		EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DragonHeraldPatron			PLURAL:Dragon Herald Patrons						DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Dragonmaw Scale Color						VISIBLE:QUALIFY		EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DragonmawScaleColor		PLURAL:Dragonmaw Scale Colors						DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Mixed Scale Color							VISIBLE:QUALIFY		EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MixedScaleColor			PLURAL:Mixed Scale Colors						DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Swarm Fighter Teamwork Feat					VISIBLE:QUALIFY		EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Teamwork				PLURAL:Swarm Fighter Teamwork Feats					DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Trap Subdomain Supernatural Ranger Trap			VISIBLE:QUALIFY		EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RangerTrap				PLURAL:Trap Subdomain Supernatural Ranger Traps			DISPLAYLOCATION:Class Features
-
-
-
+# Ability Category							Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI				Display Location
+ABILITYCATEGORY:Dragon Herald Patron				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DragonHeraldPatron		PLURAL:Dragon Herald Patrons				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Dragonmaw Scale Color				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DragonmawScaleColor	PLURAL:Dragonmaw Scale Colors				DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Mixed Scale Color					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MixedScaleColor		PLURAL:Mixed Scale Colors				DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Swarm Fighter Teamwork Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Teamwork			PLURAL:Swarm Fighter Teamwork Feats			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Trap Subdomain Supernatural Ranger Trap	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RangerTrap			PLURAL:Trap Subdomain Supernatural Ranger Traps	DISPLAYLOCATION:Class Features

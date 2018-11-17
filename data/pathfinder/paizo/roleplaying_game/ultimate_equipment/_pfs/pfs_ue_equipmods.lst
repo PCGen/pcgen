@@ -1,25 +1,26 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 17406 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Ultimate Equipment	SOURCESHORT:UE	SOURCEWEB:http://paizo.com/products/btpy8tmc?Pathfinder-Roleplaying-Game-Ultimate-Equipment	SOURCEDATE:2012-08
 # Original Entry by: Stefan Radermacher
 
 #   Special Materials: All special materials, except angel skin, living steel and wyroot, are legal for play.
-# Modifier Name		Type			!PRECHARACTERTYPE
+# Modifier Name						Type			!PRECHARACTERTYPE
 Material ~ Angelskin ~ Armor / Light.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
 Material ~ Angelskin ~ Armor / Medium.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
-Material ~ Living Steel ~ Ammunition.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Material ~ Living Steel ~ Ammunition.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
 Material ~ Living Steel ~ Armor / Light.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
 Material ~ Living Steel ~ Armor / Medium.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
 Material ~ Living Steel ~ Armor / Heavy.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
-Material ~ Living Steel ~ Shield.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
-Material ~ Living Steel ~ Weapon.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
-Material ~ Living Steel ~ Item.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
-Material ~ Wyroot / 1 Life Point.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Material ~ Living Steel ~ Shield.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Material ~ Living Steel ~ Weapon.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Material ~ Living Steel ~ Item.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Material ~ Wyroot / 1 Life Point.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
 Material ~ Wyroot / 2 Life Points.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
 Material ~ Wyroot / 3 Life Points.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
 
 #   All armor special abilities on pages 114-123, except dastard, are legal for play.
 # NOTES: "Dastard" is shown in both UE annd APG but is barred in the additional resources guide entry for UE. The function in both books is identical. The assumption here is that the APG version is also barred.
-Special Ability ~ Dastard ~ Armor.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Special Ability ~ Dastard ~ Armor.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
 
 #   All weapon special abilities on pages 134-149, except unholy, are legal for play.
-Special Ability ~ Unholy ~ Weapon.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Special Ability ~ Unholy ~ Weapon.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC

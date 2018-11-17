@@ -1,3 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Thu Nov 26 22:25:37 2015 -- reformated by PCGen PrettyLST v6.05.01
 SOURCELONG:Occult Adventures	SOURCESHORT:OA	SOURCEWEB:http://paizo.com/products/btpy9a0h
 
@@ -35,31 +36,27 @@ Unliving Rage.MOD			TYPE:Psychic	CLASSES:Mesmerist=2
 
 
 # Occultist
-Discern Next Of Kin.MOD		CLASSES:Occultist=1[PREFACT:1,ABILITIES,OccultistSchool_Divination=True]
-Heightened Awareness.MOD	CLASSES:Occultist=1[PREFACT:1,ABILITIES,OccultistSchool_Divination=True]
-Memorize Page.MOD			CLASSES:Occultist=1[PREFACT:1,ABILITIES,OccultistSchool_Enchantment=True]
-Alter Musical Instrument.MOD	CLASSES:Occultist=1[PREFACT:1,ABILITIES,OccultistSchool_Illusion=True]
-Blurred Movement.MOD		CLASSES:Occultist=1[PREFACT:1,ABILITIES,OccultistSchool_Illusion=True]
-Disguise Weapon.MOD		CLASSES:Occultist=1[PREFACT:1,ABILITIES,OccultistSchool_Illusion=True]
-Mirror Polish.MOD			CLASSES:Occultist=1[PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True]
-Refine Improvised Weapon.MOD	CLASSES:Occultist=1[PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True]
-Sundering Shards.MOD		CLASSES:Occultist=1[PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True]
-Crimson Confession.MOD		CLASSES:Occultist=2[PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True]
-Investigative Mind.MOD		CLASSES:Occultist=2[PREFACT:1,ABILITIES,OccultistSchool_Enchantment=True]
-Mirror Hideaway.MOD		CLASSES:Occultist=2[PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True]
-Pierce Disguise.MOD		CLASSES:Occultist=3[PREFACT:1,ABILITIES,OccultistSchool_Divination=True]
-Symbol Of Laughter.MOD		CLASSES:Occultist=3[PREFACT:1,ABILITIES,OccultistSchool_Enchantment=True]
-Adjustable Disguise.MOD		CLASSES:Occultist=3[PREFACT:1,ABILITIES,OccultistSchool_Illusion=True]
-Heart Of The Metal.MOD		CLASSES:Occultist=3[PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True]
-Enchantment Foil.MOD		CLASSES:Occultist=4[PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True]
-Contingent Scroll.MOD		CLASSES:Occultist=4[PREFACT:1,ABILITIES,OccultistSchool_Evocation=True]
-Planeslayer's Call.MOD		CLASSES:Occultist=4[PREFACT:1,ABILITIES,OccultistSchool_Enchantment=True]
-Flaming Sphere (Greater).MOD	CLASSES:Occultist=4[PREFACT:1,ABILITIES,OccultistSchool_Evocation=True]
-Unbearable Brightness.MOD	CLASSES:Occultist=4[PREFACT:1,ABILITIES,OccultistSchool_Evocation=True]
-Mirror Transport.MOD		CLASSES:Occultist=4[PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True]
+Discern Next Of Kin.MOD					CLASSES:Occultist=1[PREFACT:1,ABILITIES,OccultistSchool_Divination=True]
+Heightened Awareness.MOD				CLASSES:Occultist=1[PREFACT:1,ABILITIES,OccultistSchool_Divination=True]
+Memorize Page.MOD						CLASSES:Occultist=1[PREFACT:1,ABILITIES,OccultistSchool_Enchantment=True]
+Alter Musical Instrument.MOD				CLASSES:Occultist=1[PREFACT:1,ABILITIES,OccultistSchool_Illusion=True]
+Blurred Movement.MOD					CLASSES:Occultist=1[PREFACT:1,ABILITIES,OccultistSchool_Illusion=True]
+Disguise Weapon.MOD					CLASSES:Occultist=1[PREFACT:1,ABILITIES,OccultistSchool_Illusion=True]
+Mirror Polish.MOD						CLASSES:Occultist=1[PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True]
+Refine Improvised Weapon.MOD				CLASSES:Occultist=1[PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True]
+Sundering Shards.MOD					CLASSES:Occultist=1[PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True]
+Crimson Confession.MOD					CLASSES:Occultist=2[PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True]
+Investigative Mind.MOD					CLASSES:Occultist=2[PREFACT:1,ABILITIES,OccultistSchool_Enchantment=True]
+Mirror Hideaway.MOD					CLASSES:Occultist=2[PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True]
+Pierce Disguise.MOD					CLASSES:Occultist=3[PREFACT:1,ABILITIES,OccultistSchool_Divination=True]
+Symbol Of Laughter.MOD					CLASSES:Occultist=3[PREFACT:1,ABILITIES,OccultistSchool_Enchantment=True]
+Adjustable Disguise.MOD					CLASSES:Occultist=3[PREFACT:1,ABILITIES,OccultistSchool_Illusion=True]
+Heart Of The Metal.MOD					CLASSES:Occultist=3[PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True]
+Enchantment Foil.MOD					CLASSES:Occultist=4[PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True]
+Contingent Scroll.MOD					CLASSES:Occultist=4[PREFACT:1,ABILITIES,OccultistSchool_Evocation=True]
+Planeslayer's Call.MOD					CLASSES:Occultist=4[PREFACT:1,ABILITIES,OccultistSchool_Enchantment=True]
+Flaming Sphere (Greater).MOD				CLASSES:Occultist=4[PREFACT:1,ABILITIES,OccultistSchool_Evocation=True]
+Unbearable Brightness.MOD				CLASSES:Occultist=4[PREFACT:1,ABILITIES,OccultistSchool_Evocation=True]
+Mirror Transport.MOD					CLASSES:Occultist=4[PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True]
 
-Air Step.MOD			CLASSES:Occultist=2[PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True]
-
-
-
-
+Air Step.MOD						CLASSES:Occultist=2[PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True]

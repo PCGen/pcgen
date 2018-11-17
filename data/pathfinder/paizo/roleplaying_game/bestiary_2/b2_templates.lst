@@ -1,3 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 21419 $ $Author: evilmynex $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Bestiary 2	SOURCESHORT:B2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8hif	SOURCEDATE:2010-12
 
@@ -90,8 +91,8 @@ Ravener		HITDIE:8|CLASS.TYPE=Monster	CR:2			TEMPLATE:Undead	SOURCEPAGE:p.230	PRE
 ###Block: Spriggan Size Alteration template
 # NEEDS DATA WORK: BONUS:COMBAT|TOHIT|4 should be BONUS:WEAPON|TOHIT|4,
 # NEEDS DATA WORK:   but I couldn't get that to work.
-# Template Name			Size		Face/Space	Reach		Define				Combat bonus							Add to base move			Stat bonus								Modify VAR					Wield Category bonus
-Spriggan Size Alteration	SIZE:L			REACH:10	DEFINE:SizeAlterationActive|0	BONUS:COMBAT|TOHIT|4	BONUS:COMBAT|DAMAGESIZE|2	BONUS:MOVEADD|TYPE.Walk|10	BONUS:STAT|STR|12	BONUS:STAT|DEX|-2	BONUS:STAT|CON|6	BONUS:VAR|SizeAlterationActive|1	BONUS:WIELDCATEGORY|ALL|2
+# Template Name			Size		Reach		Define				Combat bonus							Add to base move			Stat bonus								Modify VAR					Wield Category bonus
+Spriggan Size Alteration	SIZE:L	REACH:10	DEFINE:SizeAlterationActive|0	BONUS:COMBAT|TOHIT|4	BONUS:COMBAT|DAMAGESIZE|2	BONUS:MOVEADD|TYPE.Walk|10	BONUS:STAT|STR|12	BONUS:STAT|DEX|-2	BONUS:STAT|CON|6	BONUS:VAR|SizeAlterationActive|1	BONUS:WIELDCATEGORY|ALL|2
 
 
 ###Block: Worm that Walks template
@@ -121,20 +122,20 @@ Whale Bite		VISIBLE:NO	ABILITY:Internal|AUTOMATIC|Bite
 ###Block: Zombie (Juju) template
 # NEEDS CODE WORK: This template seems to try to use the Juju Zombie Flight
 # NEEDS CODE WORK:   twice, for some unknown reason.
-# Template Name			Hit Dice Size			Challenge Rating	Visible	Damage Reduction		Template															Source Page		Define			Required Movement Rate	Prohibited Movement Rate	Prohibited Race			Bonus DR											Bonus to skill				Stat bonus					Modify VAR																										Weapon prof. bonus				Ability																																														Apply Kit		Subrace			Main Race Type
-Zombie (Juju)			HITDIE:8|CLASS.TYPE=Monster	CR:1					DR:5/Magic and Slashing	TEMPLATE:Undead	TEMPLATE:Juju Zombie Flight									SOURCEPAGE:p.291	DEFINE:NoTypeTraits|0										!PRERACE:1,RACETYPE=Undead	BONUS:DR|Magic|5|PRELEVEL:MIN=11	BONUS:DR|Slashing|5|PRELEVEL:MIN=11	BONUS:SKILL|Climb|8|TYPE=Racial	BONUS:STAT|DEX|2	BONUS:STAT|STR|4	BONUS:VAR|AC_Natural_Armor|3|TYPE=Base.STACK	BONUS:VAR|NoTypeTraits|1	BONUS:VAR|ChannelResistance|4	BONUS:VAR|FireResistanceBonus|10|TYPE=Resistance	BONUS:WEAPONPROF=Slam|DAMAGE|max(0,STR/2)	ABILITY:Internal|AUTOMATIC|Slam	ABILITY:Special Ability|AUTOMATIC|Channel Resistance|Immunity to Cold|Immunity to Electricity|Immunity to Electricity|Juju Zombie ~ Immunity to Magic Missile|Resistance to Fire|Undead Traits	ABILITY:FEAT|AUTOMATIC|Improved Initiative|Toughness	KIT:1|CE|LE|NE	SUBRACE:Zombie (Juju)	RACETYPE:Undead
+# Template Name			Unique Key				Hit Dice Size			Challenge Rating	Visible	Damage Reduction		Template															Source Page		Define			Required Movement Rate	Prohibited Movement Rate	Prohibited Race			Bonus DR											Bonus to skill				Stat bonus					Modify VAR																										Weapon prof. bonus				Ability																																														Apply Kit		Subrace			Main Race Type	Race Subtype		Type
+Zombie (Juju)								HITDIE:8|CLASS.TYPE=Monster	CR:1					DR:5/Magic and Slashing	TEMPLATE:Undead	TEMPLATE:Juju Zombie Flight									SOURCEPAGE:p.291	DEFINE:NoTypeTraits|0										!PRERACE:1,RACETYPE=Undead	BONUS:DR|Magic|5|PRELEVEL:MIN=11	BONUS:DR|Slashing|5|PRELEVEL:MIN=11	BONUS:SKILL|Climb|8|TYPE=Racial	BONUS:STAT|DEX|2	BONUS:STAT|STR|4	BONUS:VAR|AC_Natural_Armor|3|TYPE=Base.STACK	BONUS:VAR|NoTypeTraits|1	BONUS:VAR|ChannelResistance|4	BONUS:VAR|FireResistanceBonus|10|TYPE=Resistance	BONUS:WEAPONPROF=Slam|DAMAGE|max(0,STR/2)	ABILITY:Internal|AUTOMATIC|Slam	ABILITY:Special Ability|AUTOMATIC|Channel Resistance|Immunity to Cold|Immunity to Electricity|Immunity to Electricity|Juju Zombie ~ Immunity to Magic Missile|Resistance to Fire|Undead Traits	ABILITY:FEAT|AUTOMATIC|Improved Initiative|Toughness	KIT:1|CE|LE|NE	SUBRACE:Zombie (Juju)	RACETYPE:Undead
 
 #Block: Templates to choose the correct maneuverability for flying Juju Zombies.
-Juju Zombie Flight										VISIBLE:NO					TEMPLATE:CHOOSE:Juju Zombie No Flight|Juju Zombie Winged Flight|Juju Zombie Magical Flight
-Juju Zombie No Flight										VISIBLE:NO																																!PREMOVE:1,Fly=1
-Juju Zombie Winged Flight									VISIBLE:NO																												PREMOVE:1,Fly=1																																				BONUS:VAR|Maneuverability|-Maneuverability
-Juju Zombie Magical Flight									VISIBLE:NO																												PREMOVE:1,Fly=1
+Juju Zombie Flight															VISIBLE:NO					TEMPLATE:CHOOSE:Juju Zombie No Flight|Juju Zombie Winged Flight|Juju Zombie Magical Flight
+Juju Zombie No Flight															VISIBLE:NO																																!PREMOVE:1,Fly=1
+Juju Zombie Winged Flight														VISIBLE:NO																												PREMOVE:1,Fly=1																																				BONUS:VAR|Maneuverability|-Maneuverability
+Juju Zombie Magical Flight														VISIBLE:NO																												PREMOVE:1,Fly=1
 
 
-Dhampir		KEY:RaceSubtype ~ Dhampir				VISIBLE:NO					RACESUBTYPE:Dhampir			TYPE:Racial Heritage	
-Fetchling		KEY:RaceSubtype ~ Fetchling				VISIBLE:NO					RACESUBTYPE:Fetchling			TYPE:Racial Heritage
-Grippli		KEY:RaceSubtype ~ Grippli				VISIBLE:NO					RACESUBTYPE:Grippli			TYPE:Racial Heritage
-Ifrit			KEY:RaceSubtype ~ Ifrit					VISIBLE:NO					RACESUBTYPE:Ifrit				TYPE:Racial Heritage
-Oread			KEY:RaceSubtype ~ Oread					VISIBLE:NO					RACESUBTYPE:Oread				TYPE:Racial Heritage
-Sylph			KEY:RaceSubtype ~ Sylph					VISIBLE:NO					RACESUBTYPE:Sylph				TYPE:Racial Heritage
-Undine		KEY:RaceSubtype ~ Undine				VISIBLE:NO					RACESUBTYPE:Undine			TYPE:Racial Heritage
+Dhampir				KEY:RaceSubtype ~ Dhampir									VISIBLE:NO																																																																																																																																																													RACESUBTYPE:Dhampir	TYPE:Racial Heritage
+Fetchling				KEY:RaceSubtype ~ Fetchling									VISIBLE:NO																																																																																																																																																													RACESUBTYPE:Fetchling	TYPE:Racial Heritage
+Grippli				KEY:RaceSubtype ~ Grippli									VISIBLE:NO																																																																																																																																																													RACESUBTYPE:Grippli	TYPE:Racial Heritage
+Ifrit					KEY:RaceSubtype ~ Ifrit										VISIBLE:NO																																																																																																																																																													RACESUBTYPE:Ifrit		TYPE:Racial Heritage
+Oread					KEY:RaceSubtype ~ Oread										VISIBLE:NO																																																																																																																																																													RACESUBTYPE:Oread		TYPE:Racial Heritage
+Sylph					KEY:RaceSubtype ~ Sylph										VISIBLE:NO																																																																																																																																																													RACESUBTYPE:Sylph		TYPE:Racial Heritage
+Undine				KEY:RaceSubtype ~ Undine									VISIBLE:NO																																																																																																																																																													RACESUBTYPE:Undine	TYPE:Racial Heritage

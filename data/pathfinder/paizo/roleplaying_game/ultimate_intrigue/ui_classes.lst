@@ -1,9 +1,11 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Fri Jun 30 20:50:52 2017 -- reformated by PCGen PrettyLST v6.06.00
-SOURCELONG:Ultimate Intrigue	SOURCESHORT:UI	SOURCEWEB:http://paizo.com/products/btpy9j6p?Pathfinder-Roleplaying-Game-Ultimate-Intrigue	SOURCEDATE:2016-04
+SOURCELONG:Ultimate Intrigue	SOURCESHORT:UI	SOURCEDATE:2016-04
 
 #Vigilante
-# Class Name	Hit Dice	Type			Max Level	Source Page		Define			Combat bonus																																				Save bonus																																										Modify VAR																																																																																				FACT
-CLASS:Vigilante	HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.9	DEFINE:VigilanteLVL|0	BONUS:COMBAT|BASEAB|VigilanteLVL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0,VigilanteFullBAB,0	BONUS:COMBAT|BASEAB|VigilanteLVL|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0,VigilanteFullBAB,1		BONUS:SAVE|BASE.Fortitude|VigilanteLVL/3|PREVAREQ:Vigilante_CF_FortSaves,0	BONUS:SAVE|BASE.Reflex|VigilanteLVL/2+2|PREVAREQ:Vigilante_CF_ReflexSaves,0	BONUS:SAVE|BASE.Will|VigilanteLVL/2+2|PREVAREQ:Vigilante_CF_WillSaves,0	BONUS:VAR|VigilanteLVL|CL	BONUS:VAR|ClassBABModerate|VigilanteLVL|PREVAREQ:UseFractionalBAB,1,VigilanteFullBAB,0	BONUS:VAR|ClassBABFull|VigilanteLVL|PREVAREQ:UseFractionalBAB,1,VigilanteFullBAB,1	BONUS:VAR|ClassSavePoor_Fortitude|VigilanteLVL|PREVAREQ:UseFractionalSave,1|PREVAREQ:Vigilante_CF_FortSaves,0	BONUS:VAR|ClassSaveGood_Reflex|VigilanteLVL|PREVAREQ:UseFractionalSave,1|PREVAREQ:Vigilante_CF_ReflexSaves,0	BONUS:VAR|ClassSaveGood_Will|VigilanteLVL|PREVAREQ:UseFractionalSave,1|PREVAREQ:Vigilante_CF_WillSaves,0	FACT:Abb|Vig	FACT:ClassType|PC
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Define			Combat bonus																																			Save bonus																																					Modify VAR																																																																																									FACT
+CLASS:Vigilante	HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.9	DEFINE:VigilanteLVL|0	BONUS:COMBAT|BASEAB|VigilanteLVL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0,VigilanteFullBAB,0	BONUS:COMBAT|BASEAB|VigilanteLVL|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0,VigilanteFullBAB,1	BONUS:SAVE|BASE.Fortitude|VigilanteLVL/3|PREVAREQ:Vigilante_CF_FortSaves,0	BONUS:SAVE|BASE.Reflex|VigilanteLVL/2+2|PREVAREQ:Vigilante_CF_ReflexSaves,0	BONUS:SAVE|BASE.Will|VigilanteLVL/2+2|PREVAREQ:Vigilante_CF_WillSaves,0	BONUS:VAR|VigilanteLVL|CL	BONUS:VAR|ClassBABModerate|VigilanteLVL|PREVAREQ:UseFractionalBAB,1,VigilanteFullBAB,0	BONUS:VAR|ClassBABFull|VigilanteLVL|PREVAREQ:UseFractionalBAB,1,VigilanteFullBAB,1	BONUS:VAR|ClassSavePoor_Fortitude|VigilanteLVL|PREVAREQ:UseFractionalSave,1|PREVAREQ:Vigilante_CF_FortSaves,0	BONUS:VAR|ClassSaveGood_Reflex|VigilanteLVL|PREVAREQ:UseFractionalSave,1|PREVAREQ:Vigilante_CF_ReflexSaves,0	BONUS:VAR|ClassSaveGood_Will|VigilanteLVL|PREVAREQ:UseFractionalSave,1|PREVAREQ:Vigilante_CF_WillSaves,0	FACT:Abb|Vig	FACT:ClassType|PC
 # Class Name	Skill Pts/Lvl
 CLASS:Vigilante	STARTSKILLPTS:6
 ###Block
@@ -23,7 +25,10 @@ CLASS:Vigilante	STARTSKILLPTS:6
 20	ABILITY:Vigilante Class Feature|AUTOMATIC|Vigilante ~ Vengeance Strike|PREVAREQ:Vigilante_CF_VengeanceStrike,0|PREVARGTEQ:Vigilante_CFP_Level,20
 
 
-CLASS:VWarlock	TYPE:Support	FACT:SpellType|Arcane	MAXLEVEL:20	VISIBLE:NO	SPELLSTAT:INT	KNOWNSPELLS:LEVEL=0	SPELLBOOK:YES	BONUS:CASTERLEVEL|VWarlock|CL	SPELLLIST:2|Wizard|Sorcerer
+# Class Name	Type			Max Level	Visible	FACT
+CLASS:VWarlock	TYPE:Support	MAXLEVEL:20	VISIBLE:NO	FACT:SpellType|Arcane
+# Class Name	Spell Stat		Automatically Known Spell Levels	Spellbook		Caster level			Use Spell List
+CLASS:VWarlock	SPELLSTAT:INT	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|VWarlock|CL	SPELLLIST:2|Wizard|Sorcerer
 ###Block: Spell progression
 1	CAST:3,1
 2	CAST:4,2
@@ -45,4 +50,3 @@ CLASS:VWarlock	TYPE:Support	FACT:SpellType|Arcane	MAXLEVEL:20	VISIBLE:NO	SPELLST
 18	CAST:5,5,5,5,5,4,3
 19	CAST:5,5,5,5,5,5,4
 20	CAST:5,5,5,5,5,5,5
-

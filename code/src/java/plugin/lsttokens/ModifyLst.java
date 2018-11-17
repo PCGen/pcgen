@@ -36,7 +36,7 @@ import pcgen.cdom.content.VarModifier;
 import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.core.Campaign;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMInterfaceToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
@@ -45,7 +45,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * The MODIFY token defined by ModifyLst defines a calculation to be performed in the
  * (new) formula system.
  */
-public class ModifyLst extends AbstractTokenWithSeparator<VarHolder>
+public class ModifyLst extends AbstractNonEmptyToken<VarHolder>
 		implements CDOMInterfaceToken<VarContainer, VarHolder>, CDOMPrimaryToken<VarHolder>
 {
 
@@ -56,13 +56,7 @@ public class ModifyLst extends AbstractTokenWithSeparator<VarHolder>
 	}
 
 	@Override
-	protected char separator()
-	{
-		return '|';
-	}
-
-	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context, VarHolder obj, String value)
+	public ParseResult parseNonEmptyToken(LoadContext context, VarHolder obj, String value)
 	{
 		//TODO These instanceof checks will fail - the VarHolder is a proxy :(
 		if (obj instanceof Ungranted)

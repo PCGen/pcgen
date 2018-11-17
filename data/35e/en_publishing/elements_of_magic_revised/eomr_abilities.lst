@@ -1,3 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 SOURCELONG:Elements of Magic (Revised)	SOURCESHORT:EOM	SOURCEWEB:http://www.enworld.org/forum/e-n-publishing/	SOURCEDATE:2002-01
 #Original Entry: Joe Frazier, Clean up by Andrew Maitland
 
@@ -25,7 +26,7 @@ Spiritual Medium		CATEGORY:Special Ability	TYPE:SpecialQuality.MinorBoon.Superna
 
 ###Block: Moderate Boons
 # Ability Name				Output Name				Category of Ability		Type								Visible		Required Vision									Prohibited Vision				Define					Description																																							Stackable?	Multiple?	Choose																							Ability									Bonus Ability Pool				Modify VAR					Add to vision			Allow Follower		Allowed Companions												Vision			Source Page
-Animagus										CATEGORY:Special Ability	TYPE:SpecialQuality.ModerateBoon																													DESC:You can transform into the shape of the following animals as a standard action, %1|%CHOICE																								STACK:NO	MULT:YES	CHOOSE:RACE|RACETYPE=Animal																																																																							SOURCEPAGE:p.7
+Animagus										CATEGORY:Special Ability	TYPE:SpecialQuality.ModerateBoon																													DESC:You can transform into the shape of the following animals as a standard action, %1|%CHOICE																									STACK:NO	MULT:YES	CHOOSE:RACE|RACETYPE=Animal																																																																							SOURCEPAGE:p.7
 Sixth Sense										CATEGORY:Special Ability	TYPE:SpecialQuality.ModerateBoon																													DESC:Mage gains the supernatural ability to see and hear incorporeal undead.																																																																																																											SOURCEPAGE:p.7
 Mage Summon Familiar			OUTPUTNAME:Summon Familiar	CATEGORY:Special Ability	TYPE:SpecialQuality.ModerateBoon																							DEFINE:FamiliarLVL|0																																											STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																																		FOLLOWERS:Familiar|1	COMPANIONLIST:Familiar|Bat,Cat,Hawk,Lizard,Owl,Rat,Raven,Snake (Viper/Tiny),Toad,Weasel					SOURCEPAGE:p.7
 Mage Trackless Step			OUTPUTNAME:Trackless Step	CATEGORY:Special Ability	TYPE:SpecialQuality.ModerateBoon.Supernatural																																																																					MULT:NO																																																																												SOURCEPAGE:p.7

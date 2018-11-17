@@ -31,6 +31,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import pcgen.base.format.dice.DiceFormat;
+import pcgen.base.formatmanager.ArrayFormatFactory;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formatmanager.SimpleFormatManagerLibrary;
 import pcgen.base.util.DoubleKeyMap;
@@ -112,6 +113,7 @@ public abstract class AbstractReferenceContext
 	public void initialize()
 	{
 		FormatUtilities.loadDefaultFormats(fmtLibrary);
+		fmtLibrary.addFormatManagerBuilder(new ArrayFormatFactory('\n', ','));
 		fmtLibrary.addFormatManager(new DiceFormat());
 		fmtLibrary.addFormatManagerBuilder(
 			new ColumnFormatFactory(this.getManufacturer(AbstractReferenceContext.TABLE_COLUMN_CLASS)));
@@ -546,14 +548,4 @@ public abstract class AbstractReferenceContext
 	 */
 	public abstract <T extends Loadable> ReferenceManufacturer<T> getManufacturerByFormatName(String formatName,
 		Class<T> cl);
-
-	/**
-	 * Returns the ReferenceManufacturer for a given Format name and class.
-	 * 
-	 * @param formatName
-	 *            The (persistent) name of the format for which the ReferenceManufacturer
-	 *            should be returned
-	 * @return The ReferenceManufacturer for a given Format name and class
-	 */
-	public abstract ReferenceManufacturer<?> getManufacturerByFormatName(String formatName);
 }

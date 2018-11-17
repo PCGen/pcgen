@@ -1,10 +1,11 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 17892 $ $Author: amaitland $ -- Mon Nov 24 13:31:57 2014 -- reformated by prettylst.pl v1.51 (build 25135)
 SOURCELONG:Shattered Star, Part 1 - Shards of Sin	SOURCESHORT:AP61	SOURCEWEB:http://paizo.com/products/btpy8rcj?Pathfinder-Adventure-Path-61-Shards-of-Sin	SOURCEDATE:2013-02
 # ORIGINAL ENTRY: Stefan Radermacher
 # ORIGINAL ENTRY DATE: 24 November 2014
 
 ####Block: Melee Weapons
-# Equipment Name	Required Weapon Proficiency		Type												Cost		Weight	Crit Mult	Crit Range	Damage	Modifier		Wield Category	Size		Source Page		Special Property
+# Equipment Name	Required Weapon Proficiency		Type												Cost		Weight	Crit Mult	Crit Range	Damage	Modifier						Wield Category	Size		Source Page		Special Property
 Injection Spear	PROFICIENCY:WEAPON|Injection Spear	TYPE:Weapon.Resizable.Melee.TwoHanded.Exotic.Standard.Piercing.Spear	COST:60	WT:8		CRITMULT:x3	CRITRANGE:1	DAMAGE:1d8	EQMOD:Material ~ Steel.Material ~ Wood	WIELD:TwoHanded	SIZE:M	SOURCEPAGE:p.148	SPROP:Can be used to inject target with liquid on a hit; hods up to 5 doses
 
 ###Block: Tools

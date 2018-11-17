@@ -1,3 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Psionics Expanded	SOURCESHORT:PsiEx	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2012-07
 # ORIGINAL ENTRY: Douglas Limmer
@@ -6,8 +7,8 @@ SOURCELONG:Psionics Expanded	SOURCESHORT:PsiEx	SOURCEWEB:http://dreamscarredpres
 ###Block: Astral suits
 # NEEDS CODE/DATA WORK: Astral Armor and Astral Juggernaut should override other worn armor.
 # WORKAROUND: Right now, they take a slot.
-# Equipment Name	Required Armor Proficiency	Type									Cost		Weight	AC Penalty Check	Modifier		Maximum DEX Bonus	Source Page		% of Spell Failure	Ability																				Combat bonus													Bonus Equip Mods							Bonus Armor Mods
-Astral Skin		PROFICIENCY:ARMOR|Astral Suit	TYPE:Skin.AstralSuit						COST:0	WT:0											SOURCEPAGE:p.29					ABILITY:Special Ability|AUTOMATIC|Astral Skin ~ Aegis|PREABILITY:1,CATEGORY=Special Ability,Form Astral Suit ~ Aegis
+# Equipment Name	Required Armor Proficiency	Type									Cost		Weight	AC Penalty Check	Modifier							Maximum DEX Bonus	Source Page		% of Spell Failure	Ability																				Combat bonus													Bonus Equip Mods							Bonus Armor Mods
+Astral Skin		PROFICIENCY:ARMOR|Astral Suit	TYPE:Skin.AstralSuit						COST:0	WT:0																SOURCEPAGE:p.29					ABILITY:Special Ability|AUTOMATIC|Astral Skin ~ Aegis|PREABILITY:1,CATEGORY=Special Ability,Form Astral Suit ~ Aegis
 Astral Armor	PROFICIENCY:ARMOR|Astral Suit	TYPE:Armor.Medium.ArmorProfMedium.Suit.AstralSuit	COST:-150	WT:40		ACCHECK:-5		EQMOD:Special Quality ~ Masterwork ~ Armor	MAXDEX:2		SOURCEPAGE:p.30	SPELLFAILURE:30		ABILITY:Special Ability|AUTOMATIC|Astral Armor ~ Aegis|PREABILITY:1,CATEGORY=Special Ability,Form Astral Suit ~ Aegis		BONUS:COMBAT|AC|6|TYPE=Armor											BONUS:EQM|WEIGHTADD|-10|PREVARGT:AstralSuitLVL,7	BONUS:EQMARMOR|ACCHECK|1|PREVARGT:AstralSuitLVL,7	BONUS:EQMARMOR|ACCHECK|1|PREABILITY:1,CATEGORY=Special Ability,Flexible Suit ~ Aegis	BONUS:EQMARMOR|MAXDEX|1|PREVARGT:AstralSuitLVL,7	BONUS:EQMARMOR|SPELLFAILURE|-5|PREVARGT:AstralSuitLVL,7
 Astral Juggernaut	PROFICIENCY:ARMOR|Astral Suit	TYPE:Armor.Heavy.ArmorProfHeavy.Suit.AstralSuit		COST:-150	WT:50		ACCHECK:-7		EQMOD:Special Quality ~ Masterwork ~ Armor	MAXDEX:0		SOURCEPAGE:p.30	SPELLFAILURE:40		ABILITY:Special Ability|AUTOMATIC|Astral Juggernaut ~ Aegis|PREABILITY:1,CATEGORY=Special Ability,Form Astral Suit ~ Aegis	BONUS:COMBAT|AC|8|TYPE=Armor	BONUS:COMBAT|AC|1|TYPE=Armor.STACK|PREVARGT:AstralSuitLVL,6										BONUS:EQMARMOR|ACCHECK|1|PREVARGT:AstralSuitLVL,6	BONUS:EQMARMOR|ACCHECK|1|PREABILITY:1,CATEGORY=Special Ability,Flexible Suit ~ Aegis	BONUS:EQMARMOR|MAXDEX|1|PREVARGT:AstralSuitLVL,6	BONUS:EQMARMOR|SPELLFAILURE|-5|PREVARGT:AstralSuitLVL,6
 
@@ -25,11 +26,11 @@ Deadly Fist		PROFICIENCY:WEAPON|Deadly Fist	TYPE:Weapon.Melee.Special.Unarmed.Mo
 
 ###Block: The Soul Archer's Mind Arrow
 # COMMENT: Necessary free hand simulated by requiring 1 hand "slot".
-# Equipment Name	Required Weapon Proficiency	Type									Cost		Weight	Slot Needed	Crit Mult	Crit Range	Damage	Modifier		Range		Size		Source Page		Weapon prop. bonus
+# Equipment Name	Required Weapon Proficiency	Type									Cost		Weight	Slot Needed	Crit Mult	Crit Range	Damage	Modifier							Range		Size		Source Page		Weapon prop. bonus
 Mind Arrow		PROFICIENCY:WEAPON|Mind Blade	TYPE:Weapon.Ranged.Projectile.Piercing.MindArrow	COST:0	WT:0		SLOTS:1	CRITMULT:x3	CRITRANGE:1	DAMAGE:1d8	EQMOD:Special Ability ~ Psionic Blade ~ Weapon	RANGE:110	SIZE:M	SOURCEPAGE:p.46	BONUS:WEAPON|DAMAGE|WIS
 
 ###Block: Mind bolts
-# Equipment Name					Output Name							Required Weapon Proficiency	Type									Cost		Weight	Slot Needed	Crit Mult	Crit Range	Damage	Modifier		Range		Size		Source Page
+# Equipment Name					Output Name							Required Weapon Proficiency	Type									Cost		Weight	Slot Needed	Crit Mult	Crit Range	Damage	Modifier							Range		Size		Source Page
 Mind Bolt (Long Range Bludgeoning)		OUTPUTNAME:Mind Bolt, Long Range Bludgeoning	PROFICIENCY:WEAPON|Mind Bolt	TYPE:Weapon.Ranged.Projectile.Bludgeoning.MindBolt	COST:0	WT:0		SLOTS:0	CRITMULT:x2	CRITRANGE:2	DAMAGE:1d6	EQMOD:Special Ability ~ Psionic Blade ~ Weapon	RANGE:100	SIZE:M	SOURCEPAGE:p.8
 Mind Bolt (Long Range Piercing)		OUTPUTNAME:Mind Bolt, Long Range Piercing		PROFICIENCY:WEAPON|Mind Bolt	TYPE:Weapon.Ranged.Projectile.Piercing.MindBolt		COST:0	WT:0		SLOTS:0	CRITMULT:x2	CRITRANGE:2	DAMAGE:1d6	EQMOD:Special Ability ~ Psionic Blade ~ Weapon	RANGE:100	SIZE:M	SOURCEPAGE:p.8
 Mind Bolt (Long Range Slashing)		OUTPUTNAME:Mind Bolt, Long Range Slashing		PROFICIENCY:WEAPON|Mind Bolt	TYPE:Weapon.Ranged.Projectile.Slashing.MindBolt		COST:0	WT:0		SLOTS:0	CRITMULT:x2	CRITRANGE:2	DAMAGE:1d6	EQMOD:Special Ability ~ Psionic Blade ~ Weapon	RANGE:100	SIZE:M	SOURCEPAGE:p.8
@@ -61,7 +62,7 @@ Flurry of Fists	PROFICIENCY:WEAPON|Unarmed Strike	TYPE:Weapon.Melee.Special.Unar
 Flurry of Strikes	PROFICIENCY:WEAPON|Unarmed Strike	TYPE:Weapon.Melee.Special.Unarmed.Monk.Bludgeoning.Finesseable.Close	COST:0	WT:0		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d3	WIELD:Light		MODS:NO			SIZE:M	SOURCEPAGE:p.19	BONUS:WEAPON|WEAPONBAB|MeditantFlurryBABBonus	BONUS:WEAPON|ATTACKS|MeditantFlurryExtraAttacks	BONUS:WEAPON|TOHIT|-2
 
 ###Block: Astral Warrior weapons
-# Equipment Name				Required Weapon Proficiency			Type											Cost		Weight	Crit Mult	Crit Range	Damage	Modifier		Wield Category	Size		Source Page
+# Equipment Name				Required Weapon Proficiency			Type											Cost		Weight	Crit Mult	Crit Range	Damage	Modifier							Wield Category	Size		Source Page
 Astral Warrior Weapon (Bludgeoning)	PROFICIENCY:WEAPON|Astral Warrior Weapon	TYPE:Weapon.Melee.OneHanded.Finesseable.Standard.Bludgeoning	COST:0	WT:0		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d8	EQMOD:Special Quality ~ Masterwork ~ Weapon	WIELD:OneHanded	SIZE:M	SOURCEPAGE:p.66
 Astral Warrior Weapon (Piercing)	PROFICIENCY:WEAPON|Astral Warrior Weapon	TYPE:Weapon.Melee.OneHanded.Finesseable.Standard.Piercing		COST:0	WT:0		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d8	EQMOD:Special Quality ~ Masterwork ~ Weapon	WIELD:OneHanded	SIZE:M	SOURCEPAGE:p.66
 Astral Warrior Weapon (Slashing)	PROFICIENCY:WEAPON|Astral Warrior Weapon	TYPE:Weapon.Melee.OneHanded.Finesseable.Standard.Slashing		COST:0	WT:0		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d8	EQMOD:Special Quality ~ Masterwork ~ Weapon	WIELD:OneHanded	SIZE:M	SOURCEPAGE:p.66

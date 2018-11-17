@@ -1,15 +1,16 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
 
-# Ability Name	Category of Ability
+# Ability Name	Category of Ability	Define			Ability							Modify VAR
 Arcanist		CATEGORY:Class
-Bloodrager		CATEGORY:Class	DEFINE:BloodrageLVL|0	BONUS:VAR|BloodrageLVL|BloodragerLVL
+Bloodrager		CATEGORY:Class		DEFINE:BloodrageLVL|0									BONUS:VAR|BloodrageLVL|BloodragerLVL
 Brawler		CATEGORY:Class
 Hunter		CATEGORY:Class
 Investigator	CATEGORY:Class
 Shaman		CATEGORY:Class
 Skald			CATEGORY:Class
 Slayer		CATEGORY:Class
-Swashbuckler	CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Panache Tracker
+Swashbuckler	CATEGORY:Class						ABILITY:Internal|AUTOMATIC|Panache Tracker
 Warpriest		CATEGORY:Class
 
 ###Block:

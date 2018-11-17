@@ -14,7 +14,7 @@ SOURCELONG:Pathfinder Chronicles: Cities of Golarion
 SOURCESHORT:CoG
 SOURCEWEB:http://paizo.com/products/btpy8b9l?Pathfinder-Chronicles-Cities-of-Golarion
 SOURCEDATE:2009-11
-ISOGL:Yes
+ISOGL:YES
 
 COVER:cities_of_golarion.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
@@ -41,7 +41,7 @@ SPELL:cog_spells.lst
 # LICENSE MONKEY: Paul Grosse
 # RELEASE REVIEW #
 # BETA: Andrew Maitland
-# RELEASE: 
+# RELEASE:
 # Built for PCGen Version: 6.07.03
 # Updated to work with version: -
 # MINVER:6.7

@@ -23,6 +23,7 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.util.Objects;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
@@ -53,14 +54,19 @@ import pcgen.system.LanguageBundle;
 public class InfoGuidePane extends JComponent implements UIResource
 {
 
+	/**
+	 * The context indicating what items are currently loaded/being processed in the UI
+	 */
+	private final UIContext uiContext;
 	private final PCGenFrame frame;
 	private final JEditorPane gameModeLabel;
 	private final JEditorPane campaignList;
 	private final JEditorPane tipPane;
 	private JPanel mainPanel;
 
-	public InfoGuidePane(PCGenFrame frame)
+	public InfoGuidePane(PCGenFrame frame, UIContext uiContext)
 	{
+		this.uiContext = Objects.requireNonNull(uiContext);
 		this.frame = frame;
 		this.gameModeLabel = createHtmlPane();
 		this.campaignList = createHtmlPane();
@@ -138,16 +144,17 @@ public class InfoGuidePane extends JComponent implements UIResource
 			}
 
 		});
-		frame.getCurrentSourceSelectionRef().addReferenceListener(new ReferenceListener<SourceSelectionFacade>()
-		{
-
-			@Override
-			public void referenceChanged(ReferenceEvent<SourceSelectionFacade> e)
+		uiContext.getCurrentSourceSelectionRef()
+			.addReferenceListener(new ReferenceListener<SourceSelectionFacade>()
 			{
-				refreshDisplayedSources(e.getNewReference());
-			}
 
-		});
+				@Override
+				public void referenceChanged(ReferenceEvent<SourceSelectionFacade> e)
+				{
+					refreshDisplayedSources(e.getNewReference());
+				}
+
+			});
 	}
 
 	private void refreshDisplayedSources(SourceSelectionFacade sources)
