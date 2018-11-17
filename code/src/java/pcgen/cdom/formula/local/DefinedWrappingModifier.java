@@ -22,7 +22,6 @@ import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FunctionLibrary;
-import pcgen.base.formula.base.VarScoped;
 import pcgen.base.solver.Modifier;
 import pcgen.base.util.FormatManager;
 
@@ -49,7 +48,7 @@ public class DefinedWrappingModifier<T> implements Modifier<T>
 	/**
 	 * The value of the defined function.
 	 */
-	private final VarScoped definedValue;
+	private final Object definedValue;
 
 	/**
 	 * The FormatManager indicating the format of the return value for the defined
@@ -71,7 +70,7 @@ public class DefinedWrappingModifier<T> implements Modifier<T>
 	 *            The FormatManager indicating the format of the return value for this
 	 *            DefinedWrappingModifier
 	 */
-	public DefinedWrappingModifier(FormulaModifier<T> modifier, String definedName, VarScoped definedValue,
+	public DefinedWrappingModifier(FormulaModifier<T> modifier, String definedName, Object definedValue,
 		FormatManager<?> formatManager)
 	{
 		this.modifier = Objects.requireNonNull(modifier);
