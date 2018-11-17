@@ -53,7 +53,6 @@ import pcgen.facade.core.KitFacade;
 import pcgen.facade.core.RaceFacade;
 import pcgen.facade.core.SizeAdjustmentFacade;
 import pcgen.facade.core.SkillFacade;
-import pcgen.facade.core.StatFacade;
 import pcgen.facade.core.generator.StatGenerationFacade;
 import pcgen.facade.util.AbstractMapFacade;
 import pcgen.facade.util.DefaultListFacade;
@@ -72,7 +71,7 @@ public class DataSet implements DataSetFacade
 	private final DefaultListFacade<PCTemplate> templates;
 	private final DefaultListFacade<PCAlignment> alignments;
 	private final DefaultListFacade<KitFacade> kits;
-	private final DefaultListFacade<StatFacade> stats;
+	private final DefaultListFacade<PCStat> stats;
 	private final AbilityMap abilityMap;
 	private final LoadContext context;
 	private final GameMode gameMode;
@@ -367,7 +366,7 @@ public class DataSet implements DataSetFacade
 	}
 
 	@Override
-	public ListFacade<StatFacade> getStats()
+	public ListFacade<PCStat> getStats()
 	{
 		return stats;
 	}

@@ -152,7 +152,6 @@ import pcgen.facade.core.RaceFacade;
 import pcgen.facade.core.SkillFacade;
 import pcgen.facade.core.SpellFacade;
 import pcgen.facade.core.SpellSupportFacade;
-import pcgen.facade.core.StatFacade;
 import pcgen.facade.core.TempBonusFacade;
 import pcgen.facade.core.TodoFacade;
 import pcgen.facade.core.UIDelegate;
@@ -207,7 +206,7 @@ public class CharacterFacadeImpl
 	private DefaultListFacade<CharacterLevelFacade> pcClassLevels;
 	private DefaultListFacade<HandedFacade> availHands;
 	private DefaultListFacade<Gender> availGenders;
-	private Map<StatFacade, WriteableReferenceFacade<Number>> statScoreMap;
+	private Map<PCStat, WriteableReferenceFacade<Number>> statScoreMap;
 	private final UndoManager undoManager;
 	private final DelegatingDataSet dataSet;
 	private DefaultReferenceFacade<RaceFacade> race;
@@ -348,7 +347,7 @@ public class CharacterFacadeImpl
 		refreshKitList();
 
 		statScoreMap = new HashMap<>();
-		for (StatFacade stat : dataSet.getStats())
+		for (PCStat stat : dataSet.getStats())
 		{
 			if (stat instanceof PCStat)
 			{
@@ -486,7 +485,7 @@ public class CharacterFacadeImpl
 		allowDebt = false;
 	}
 
-	private WriteableReferenceFacade<Number> getStatReferenceFacade(StatFacade stat)
+	private WriteableReferenceFacade<Number> getStatReferenceFacade(PCStat stat)
 	{
 		return ChannelCompatibility.getStatScore(theCharacter.getCharID(), (PCStat) stat);
 	}
@@ -998,7 +997,7 @@ public class CharacterFacadeImpl
 	 */
 	private boolean allAbilitiesAreZero()
 	{
-		for (StatFacade stat : dataSet.getStats())
+		for (PCStat stat : dataSet.getStats())
 		{
 			ReferenceFacade<Number> facade = getScoreBaseRef(stat);
 
@@ -1434,7 +1433,7 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public int getModTotal(StatFacade stat)
+	public int getModTotal(PCStat stat)
 	{
 		if (stat instanceof PCStat && !charDisplay.isNonAbility((PCStat) stat))
 		{
@@ -1444,7 +1443,7 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public ReferenceFacade<Number> getScoreBaseRef(StatFacade stat)
+	public ReferenceFacade<Number> getScoreBaseRef(PCStat stat)
 	{
 		WriteableReferenceFacade<Number> score = statScoreMap.get(stat);
 		if (score == null)
@@ -1456,7 +1455,7 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public int getScoreBase(StatFacade stat)
+	public int getScoreBase(PCStat stat)
 	{
 		if (!(stat instanceof PCStat))
 		{
@@ -1466,7 +1465,7 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public String getScoreTotalString(StatFacade stat)
+	public String getScoreTotalString(PCStat stat)
 	{
 		if (!(stat instanceof PCStat))
 		{
@@ -1481,7 +1480,7 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public int getScoreRaceBonus(StatFacade stat)
+	public int getScoreRaceBonus(PCStat stat)
 	{
 		if (!(stat instanceof PCStat))
 		{
@@ -1500,7 +1499,7 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public int getScoreOtherBonus(StatFacade stat)
+	public int getScoreOtherBonus(PCStat stat)
 	{
 		if (!(stat instanceof PCStat))
 		{
@@ -1519,7 +1518,7 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public void setScoreBase(StatFacade stat, int score)
+	public void setScoreBase(PCStat stat, int score)
 	{
 		WriteableReferenceFacade<Number> facade = statScoreMap.get(stat);
 		if (facade == null)
@@ -3010,7 +3009,7 @@ public class CharacterFacadeImpl
 			theCharacter.setPointBuyPoints(availablePool);
 
 			// Make sure all scores are within the valid range
-			for (StatFacade stat : statScoreMap.keySet())
+			for (PCStat stat : statScoreMap.keySet())
 			{
 				WriteableReferenceFacade<Number> score = statScoreMap.get(stat);
 				if (score.get().intValue() < SettingsHandler.getGame().getPurchaseScoreMin(theCharacter)

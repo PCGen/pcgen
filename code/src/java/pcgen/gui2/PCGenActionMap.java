@@ -27,6 +27,7 @@ import javax.swing.ActionMap;
 import javax.swing.JOptionPane;
 
 import gmgen.GMGenSystem;
+import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.facade.core.AbilityFacade;
 import pcgen.facade.core.CharacterFacade;
@@ -37,7 +38,6 @@ import pcgen.facade.core.RaceFacade;
 import pcgen.facade.core.SkillFacade;
 import pcgen.facade.core.SourceSelectionFacade;
 import pcgen.facade.core.SpellFacade;
-import pcgen.facade.core.StatFacade;
 import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
@@ -221,7 +221,7 @@ public final class PCGenActionMap extends ActionMap
 		put(GENERATORS_COMMAND, new GeneratorsAction());
 		put(TREASURE_GENERATORS_COMMAND, new TreasureGeneratorsAction());
 		put(STAT_GENERATORS_COMMAND,
-			new DefaultGeneratorsAction("mnuToolsGeneratorsStat", STAT_GENERATORS_COMMAND, StatFacade.class));
+			new DefaultGeneratorsAction("mnuToolsGeneratorsStat", STAT_GENERATORS_COMMAND, PCStat.class));
 		put(RACE_GENERATORS_COMMAND,
 			new DefaultGeneratorsAction("mnuToolsGeneratorsRace", RACE_GENERATORS_COMMAND, RaceFacade.class));
 		put(TEMPLATE_GENERATORS_COMMAND, new DefaultGeneratorsAction("mnuToolsGeneratorsTemplate",

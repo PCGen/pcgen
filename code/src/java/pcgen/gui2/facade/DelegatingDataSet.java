@@ -26,6 +26,7 @@ import java.util.Set;
 
 import pcgen.core.BodyStructure;
 import pcgen.core.PCAlignment;
+import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.facade.core.AbilityCategoryFacade;
 import pcgen.facade.core.AbilityFacade;
@@ -40,7 +41,6 @@ import pcgen.facade.core.KitFacade;
 import pcgen.facade.core.RaceFacade;
 import pcgen.facade.core.SizeAdjustmentFacade;
 import pcgen.facade.core.SkillFacade;
-import pcgen.facade.core.StatFacade;
 import pcgen.facade.core.generator.StatGenerationFacade;
 import pcgen.facade.util.AbstractMapFacade;
 import pcgen.facade.util.DelegatingListFacade;
@@ -68,7 +68,7 @@ public class DelegatingDataSet implements DataSetFacade
 	private final DelegatingListFacade<PCTemplate> templates;
 	private final DelegatingListFacade<PCAlignment> alignments;
 	private final DelegatingListFacade<KitFacade> kits;
-	private final DelegatingListFacade<StatFacade> stats;
+	private final DelegatingListFacade<PCStat> stats;
 	private final DelegatingAbilitiesMap abilities;
 	private final DelegatingListFacade<CampaignFacade> campaigns;
 	private final DelegatingListFacade<BodyStructure> bodyStructures;
@@ -284,7 +284,7 @@ public class DelegatingDataSet implements DataSetFacade
 	}
 
 	@Override
-	public ListFacade<StatFacade> getStats()
+	public ListFacade<PCStat> getStats()
 	{
 		return stats;
 	}
