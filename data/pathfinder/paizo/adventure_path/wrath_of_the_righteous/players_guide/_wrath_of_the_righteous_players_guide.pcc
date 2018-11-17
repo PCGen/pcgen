@@ -3,7 +3,7 @@ KEY:Wrath of the Righteous Player's Guide
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Adventure Path.Wrath of the Righteous
 RANK:3
-STATUS:RELEASE
+STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
@@ -34,10 +34,10 @@ COPYRIGHT:PCGen dataset conversion for "Wrath of the Righteous Player's Guide" C
 #EXTRAFILE:OGL.txt
 
 # APG Support
-ABILITY:wotr_abilities_apg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+ABILITY:support/wotr_abilities_apg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
 
 # Mythic Support
-ABILITY:wotr_abilities_mythic.lst|PRECAMPAIGN:1,INCLUDES=Mythic Adventures
+ABILITY:support/wotr_abilities_mythic.lst|PRECAMPAIGN:1,INCLUDES=Mythic Adventures
 
 # Data files
 ABILITY:wotr_abilities.lst

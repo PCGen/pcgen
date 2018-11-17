@@ -25,7 +25,7 @@ COPYRIGHT:PCGen dataset conversion for "Starfinder Alien Archive" Copyright 2018
 
 
 # COVER should be cover_gameMode_pub_book.file
-COVER:*/_images/starfinder/PZO7105_cover.jpg
+COVER:PZO7105_cover.jpg
 # LOGO should be logo_pub.file
 LOGO:*/_images/logo/Paizo_Publishing.png
 
