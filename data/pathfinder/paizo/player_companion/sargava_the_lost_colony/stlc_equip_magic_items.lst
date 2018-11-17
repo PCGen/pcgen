@@ -1,12 +1,13 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Thu Sep 26 01:19:49 2013 -- reformated by prettylst.pl v1.50 (build 21406)
-SOURCELONG:Sargava, the Lost Colony	SOURCESHORT:STLC	SOURCEWEB:http://paizo.com/pathfinder/pathfinderCompanion/pathfinderRPG/v5748btpy8ey2	SOURCEDATE:2010-07
+SOURCELONG:Pathfinder Companion: Sargava, the Lost Colony	SOURCESHORT:STLC	SOURCEWEB:http://paizo.com/products/btpy8ey2	SOURCEDATE:2010-07
 
 ###Block: Staves
-# Equipment Name		Type			Cost		Weight	Modifier					Source Page		Special Property
+# Equipment Name		Type			Cost		Weight	Modifier								Source Page		Special Property
 Staff of Spirit-Talking	TYPE:Magic.Staff	COST:39050	WT:5		EQMOD:Special Ability ~ Staff Charges|CHARGES[10]	SOURCEPAGE:p.29	SPROP:Speak with Animals (1 charge), Speak with Plants (1 charge), Command Plants (1 charge), Commune with Nature (2 charges), Stone Tell (2 Charges)
 
 ###Block: Wondrous Items
-# Equipment Name		Type					Cost		Weight	Modifier					Source Page		Special Property
+# Equipment Name		Type					Cost		Weight	Modifier								Source Page		Special Property
 Cloak of the Jungle	TYPE:Magic.Wondrous.Cloak	COST:2400	WT:1		EQMOD:Special Ability ~ Uses per Day / 1|CHARGES[1]	SOURCEPAGE:p.28	SPROP:Once per day, assume the form of a Large tree or shrub, as Tree Shape, for up to 1 hour.
-Expedition Pavilion	TYPE:Magic.Wondrous		COST:6400	WT:10								SOURCEPAGE:p.28
-Jungle Boots		TYPE:Magic.Wondrous.Boot	COST:6000	WT:1								SOURCEPAGE:p.29	SPROP:Move through normal undergrowth without hindrance.
+Expedition Pavilion	TYPE:Magic.Wondrous		COST:6400	WT:10											SOURCEPAGE:p.28
+Jungle Boots		TYPE:Magic.Wondrous.Boot	COST:6000	WT:1											SOURCEPAGE:p.29	SPROP:Move through normal undergrowth without hindrance.

@@ -1,0 +1,13 @@
+
+###Student of Perfection
+# Class Name				Hit Dice	Type			Max Level	Source Page		Define						Combat bonus																	Save bonus																						Modify VAR																																																																		FACT
+CLASS:Student of Perfection	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.102	DEFINE:StudentOfPerfectionLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|StudentOfPerfectionLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|SoP
+# Class Name				Requirements
+CLASS:Student of Perfection	PREALIGN:LG,LN,LE	PREABILITY:2,CATEGORY=FEAT,Improved Unarmed Strike,Perfect Style	PRESKILL:1,Acrobatics=5,Climb=5,Escape Artist=5,Stealth=5,Swim=5	PRESKILL:1,TYPE.Craft=5,TYPE.Knowledge=5,Perception=5,TYPE.Perform=5,Sense Motive=5
+# Class Name				Skill Pts/Lvl		Class Skill
+CLASS:Student of Perfection	STARTSKILLPTS:4	CSKILL:Acrobatics|Climb|TYPE.Craft|Escape Artist|Intimidate|Knowledge (history)|Knowledge (planes)|Knowledge (religion)|Perception|TYPE.Perform|Ride|Sense Motive|Stealth|Swim		AUTO:WEAPONPROF|TYPE=Monk
+###Block: Normal Level Progression
+1	ABILITY:Special Ability|AUTOMATIC|Student of Perfection ~ AC Bonus|Student of Perfection ~ Ki Pool|Student of Perfection ~ Martial Artist
+2	ABILITY:Special Ability|AUTOMATIC|Student of Perfection ~ Ki Powers
+3	ABILITY:Special Ability|AUTOMATIC|Student of Perfection ~ Bonus Feat
+10	ABILITY:Special Ability|AUTOMATIC|Student of Perfection ~ Perfection

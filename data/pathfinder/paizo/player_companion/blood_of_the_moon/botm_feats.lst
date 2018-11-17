@@ -1,23 +1,24 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
 
 # Feat Name				Type			Required Ability									Required Race		Required Skill		Required Stat	Required Template			Required Text													PRETOTALAB		Description																Source Page		Aspects																																																										Benefits
-# Ability Name		Category of Ability	Type			Required Ability									Required Race		Required Skill		Required Stat	Required Template								Required Text													PRETOTALAB		Source Page		Aspects
-Extra Feature		CATEGORY:FEAT		TYPE:General												PRERACE:1,Skinwalker					PRESTAT:1,CON=13											PRETEXT:Prerequisites: Con 13 , skinwalker.											SOURCEPAGE:p.7
-Fast Change			CATEGORY:FEAT		TYPE:General												PRERACE:1,Skinwalker					PREMULT:1,[PREVARGTEQ:PreStatScore_DEX,13],[PREVARGTEQ:FeatDexRequirement,13]	PRETEXT:Prerequisites: Dex 13 , base attack bonus +6, skinwalker.					PRETOTALAB:6	SOURCEPAGE:p.7
-Bat Shape			CATEGORY:FEAT		TYPE:General																				PRESTAT:1,CHA=13	PRETEMPLATE:1,Werebat-Kin						PRETEXT:Prerequisites: Cha 13 , werebat-kin.											SOURCEPAGE:p.9
-Bloodmarked Flight	CATEGORY:FEAT		TYPE:General																							PRETEMPLATE:1,Werebat-Kin						PRETEXT:Prerequisites: Base attack bonus +5, werebat-kin.						PRETOTALAB:5	SOURCEPAGE:p.9
-Dire Bat Shape		CATEGORY:FEAT		TYPE:General																				PRESTAT:1,CHA=13	PRETEMPLATE:1,Werebat-Kin						PRETEXT:Prerequisites: Cha i3 , Bat Shape, base attack bonus +3 , were bat-kin.		PRETOTALAB:3	SOURCEPAGE:p.9
-Bear Hug			CATEGORY:FEAT		TYPE:Combat		PREABILITY:2,CATEGORY=FEAT,Beartrap Bite,Weapon Focus (Bite)									PRESTAT:1,STR=17											PRETEXT:Prerequisites: Str 17, Beartrap Bite, Weapon Focus (bite), base attack bonus +8.	PRETOTALAB:6	SOURCEPAGE:p.11
-Beartrap Bite		CATEGORY:FEAT		TYPE:Combat		PREABILITY:1,CATEGORY=FEAT,Weapon Focus (Bite)																									PRETEXT:Prerequisites: Weapon Focus (bite), base attack bonus +6.					PRETOTALAB:6	SOURCEPAGE:p.11
-Ferocious Loyalty		CATEGORY:FEAT		TYPE:Teamwork																																																			SOURCEPAGE:p.11	ASPECT:CombatBonus|+1 morale bonus on attack rolls against any foe that currently threatens an ally who also has this feat. Whenever an ally with this feat is rendered helpless or killed within 30 feet of you, you gain a +2 morale bonus on attack rolls for 1 minute or until the foe responsible is rendered helpless or killed, whichever comes first.
-Swarm Scatter		CATEGORY:FEAT		TYPE:Teamwork																																																			SOURCEPAGE:p.19
-Swarm Strike		CATEGORY:FEAT		TYPE:Teamwork																																																			SOURCEPAGE:p.19
-Motivating Display	CATEGORY:FEAT		TYPE:Combat		PREABILITY:2,CATEGORY=FEAT,Dazzling Display,Weapon Focus										PRESTAT:1,CHA=13											PRETEXT:Prerequisites: Cha i3 , Dazzling Display, Weapon Focus.								SOURCEPAGE:p.23
-Surprising Combatant	CATEGORY:FEAT		TYPE:Combat		PREABILITY:1,CATEGORY=FEAT,Improved Initiative								PRESKILL:1,Bluff=3														PRETEXT:Prerequisites: Improved Initiative, Bluff 3 ranks.									SOURCEPAGE:p.23
-Violent Display		CATEGORY:FEAT		TYPE:Combat		PREABILITY:2,CATEGORY=FEAT,Dazzling Display,Weapon Focus																							PRETEXT:Prerequisites: Dazzling Display, Weapon Focus, base attack bonus +6.			PRETOTALAB:6	SOURCEPAGE:p.23
-Wolf Savage			CATEGORY:FEAT		TYPE:Combat.Style																																																			SOURCEPAGE:p.25
-Wolf Style			CATEGORY:FEAT		TYPE:Combat.Style																																																			SOURCEPAGE:p.25
-Wolf Trip			CATEGORY:FEAT		TYPE:Combat.Style																																																			SOURCEPAGE:p.25
+# Ability Name		Category of Ability	Type			Required Ability									Multiple Requirements										Required Race		Required Skill		Required Stat	Required Template			Required Text													PRETOTALAB		Source Page		Aspects
+Extra Feature		CATEGORY:FEAT		TYPE:General																									PRERACE:1,Skinwalker					PRESTAT:1,CON=13						PRETEXT:Prerequisites: Con 13 , skinwalker.											SOURCEPAGE:p.7
+Fast Change			CATEGORY:FEAT		TYPE:General												PREMULT:1,[PREVARGTEQ:PreStatScore_DEX,13],[PREVARGTEQ:FeatDexRequirement,13]	PRERACE:1,Skinwalker													PRETEXT:Prerequisites: Dex 13 , base attack bonus +6, skinwalker.					PRETOTALAB:6	SOURCEPAGE:p.7
+Bat Shape			CATEGORY:FEAT		TYPE:General																																	PRESTAT:1,CHA=13	PRETEMPLATE:1,Werebat-Kin	PRETEXT:Prerequisites: Cha 13 , werebat-kin.											SOURCEPAGE:p.9
+Bloodmarked Flight	CATEGORY:FEAT		TYPE:General																																				PRETEMPLATE:1,Werebat-Kin	PRETEXT:Prerequisites: Base attack bonus +5, werebat-kin.						PRETOTALAB:5	SOURCEPAGE:p.9
+Dire Bat Shape		CATEGORY:FEAT		TYPE:General																																	PRESTAT:1,CHA=13	PRETEMPLATE:1,Werebat-Kin	PRETEXT:Prerequisites: Cha i3 , Bat Shape, base attack bonus +3 , were bat-kin.		PRETOTALAB:3	SOURCEPAGE:p.9
+Bear Hug			CATEGORY:FEAT		TYPE:Combat		PREABILITY:2,CATEGORY=FEAT,Beartrap Bite,Weapon Focus (Bite)																						PRESTAT:1,STR=17						PRETEXT:Prerequisites: Str 17, Beartrap Bite, Weapon Focus (bite), base attack bonus +8.	PRETOTALAB:6	SOURCEPAGE:p.11
+Beartrap Bite		CATEGORY:FEAT		TYPE:Combat		PREABILITY:1,CATEGORY=FEAT,Weapon Focus (Bite)																																	PRETEXT:Prerequisites: Weapon Focus (bite), base attack bonus +6.					PRETOTALAB:6	SOURCEPAGE:p.11
+Ferocious Loyalty		CATEGORY:FEAT		TYPE:Teamwork																																																											SOURCEPAGE:p.11	ASPECT:CombatBonus|+1 morale bonus on attack rolls against any foe that currently threatens an ally who also has this feat. Whenever an ally with this feat is rendered helpless or killed within 30 feet of you, you gain a +2 morale bonus on attack rolls for 1 minute or until the foe responsible is rendered helpless or killed, whichever comes first.
+Swarm Scatter		CATEGORY:FEAT		TYPE:Teamwork																																																											SOURCEPAGE:p.19
+Swarm Strike		CATEGORY:FEAT		TYPE:Teamwork																																																											SOURCEPAGE:p.19
+Motivating Display	CATEGORY:FEAT		TYPE:Combat		PREABILITY:2,CATEGORY=FEAT,Dazzling Display,Weapon Focus																							PRESTAT:1,CHA=13						PRETEXT:Prerequisites: Cha i3 , Dazzling Display, Weapon Focus.								SOURCEPAGE:p.23
+Surprising Combatant	CATEGORY:FEAT		TYPE:Combat		PREABILITY:1,CATEGORY=FEAT,Improved Initiative																					PRESKILL:1,Bluff=3									PRETEXT:Prerequisites: Improved Initiative, Bluff 3 ranks.									SOURCEPAGE:p.23
+Violent Display		CATEGORY:FEAT		TYPE:Combat		PREABILITY:2,CATEGORY=FEAT,Dazzling Display,Weapon Focus																															PRETEXT:Prerequisites: Dazzling Display, Weapon Focus, base attack bonus +6.			PRETOTALAB:6	SOURCEPAGE:p.23
+Wolf Savage			CATEGORY:FEAT		TYPE:Combat.Style																																																											SOURCEPAGE:p.25
+Wolf Style			CATEGORY:FEAT		TYPE:Combat.Style																																																											SOURCEPAGE:p.25
+Wolf Trip			CATEGORY:FEAT		TYPE:Combat.Style																																																											SOURCEPAGE:p.25
 
 ###Block:
 # Ability Name					Description

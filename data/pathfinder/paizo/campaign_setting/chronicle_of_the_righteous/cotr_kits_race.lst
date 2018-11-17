@@ -1,5 +1,6 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
-SOURCELONG:Chronicle of the Righteous	SOURCESHORT:COTR	SOURCEWEB:http://paizo.com/products/btpy8xe9?Pathfinder-Campaign-Setting-Chronicle-of-the-Righteous	SOURCEDATE:2013-05
+SOURCELONG:Chronicle of the Righteous	SOURCESHORT:CotR	SOURCEWEB:http://paizo.com/products/btpy8xe9?Pathfinder-Campaign-Setting-Chronicle-of-the-Righteous	SOURCEDATE:2013-05
 # ORIGINAL ENTRY: Gwen T. (evilpixie87)
 # ORIGINAL ENTRY DATE: 16 June 2016
 
@@ -52,7 +53,7 @@ ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=FEAT|Lightning Reflexes
 ABILITY:CATEGORY=FEAT|Mobility
 ABILITY:CATEGORY=FEAT|Power Attack
-GEAR:Mace (Heavy)			LOCATION:Primary Hand	EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Flaming ~ Weapon
+GEAR:Mace (Heavy)	LOCATION:Primary Hand	EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Flaming ~ Weapon
 
 
 STARTPACK:Angel (Choral) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Angel (Choral)],[!PRERACE:1,%]	SOURCEPAGE:p.60
@@ -89,10 +90,10 @@ SKILL:Sense Motive		RANK:4
 SKILL:Stealth			RANK:4
 ABILITY:CATEGORY=FEAT|Skill Focus (Stealth)
 ABILITY:CATEGORY=FEAT|Two-Weapon Fighting
-GEAR:Leather			LOCATION:Equipped
-GEAR:Longsword			LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
-GEAR:Sword (Short)		LOCATION:Secondary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
-GEAR:Shortbow			LOCATION:Carried
+GEAR:Leather		LOCATION:Equipped
+GEAR:Longsword		LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Sword (Short)	LOCATION:Secondary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Shortbow		LOCATION:Carried
 
 
 STARTPACK:Azata (Veranallia) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Azata (Veranallia)],[!PRERACE:1,%]	SOURCEPAGE:p.62
@@ -100,7 +101,7 @@ ALIGN:CG
 RACE:Azata (Veranallia)	!PRERACE:1,%
 NAME:Veranallia
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
-SKILL:Bluff			RANK:24
+SKILL:Bluff				RANK:24
 SKILL:Climb				RANK:24
 SKILL:Escape Artist		RANK:24
 SKILL:Heal				RANK:24
@@ -173,5 +174,4 @@ SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Create Water
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Detect Poison
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Light
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Purify Food and Drink
-GEAR:Sickle		SIZE:M	LOCATION:Primary Hand	EQMOD:Special Ability ~ +3 ~ Weapon.Special Ability ~ Icy Burst ~ Weapon
-
+GEAR:Sickle	SIZE:M	LOCATION:Primary Hand	EQMOD:Special Ability ~ +3 ~ Weapon.Special Ability ~ Icy Burst ~ Weapon

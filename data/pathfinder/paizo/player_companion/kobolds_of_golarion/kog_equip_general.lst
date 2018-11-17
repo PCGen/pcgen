@@ -1,5 +1,6 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
-SOURCELONG:Kobolds of Golarion	SOURCESHORT:KOG	SOURCEWEB:http://paizo.com/products/btpy8yw0?Pathfinder-Player-Companion-Kobolds-of-Golarion	SOURCEDATE:2013-06
+SOURCELONG:Pathfinder Player Companion: Kobolds of Golarion	SOURCESHORT:KOG	SOURCEWEB:http://paizo.com/products/btpy8yw0	SOURCEDATE:2013-06
 # ORIGINAL ENTRY: Gwen T. (evilpixie87)
 # ORIGINAL ENTRY DATE: 9 May 2016
 
@@ -7,29 +8,30 @@ SOURCELONG:Kobolds of Golarion	SOURCESHORT:KOG	SOURCEWEB:http://paizo.com/produc
 # New Equipment
 # ==============================
 
-Blightburn Paste								TYPE:Goods.Alchemical.Consumable									COST:5000		WT:45		SOURCEPAGE:p.29
-Caphorite Dust				NAMEISPI:Yes		TYPE:Goods.Alchemical.Consumable.Light Source							COST:25		WT:0.5	SOURCEPAGE:p.29
-Cytillesh Stun Vial			NAMEISPI:Yes		TYPE:Goods.Alchemical.Vial.Consumable								COST:75		WT:0.5	SOURCEPAGE:p.29
-Decoy Pressure Switch							TYPE:Goods.Tools												COST:60		WT:0		SOURCEPAGE:p.28
-Decoy Trap Door								TYPE:Goods.Tools												COST:120		WT:0		SOURCEPAGE:p.28
-Decoy Tripwire								TYPE:Goods.Tools												COST:25		WT:0		SOURCEPAGE:p.28
-Fake Area Map								TYPE:Goods.Tools												COST:20		WT:0		SOURCEPAGE:p.28
-Fake Coins									TYPE:Goods.Tools												COST:5		WT:0.5	SOURCEPAGE:p.28
-Paper Wall Paste								TYPE:Goods.Alchemical.Consumable									COST:10		WT:2		SOURCEPAGE:p.29
-Trapped Disguise Kit							TYPE:Goods.Tools												COST:50		WT:8		SOURCEPAGE:p.28
-Trapped Scroll Case							TYPE:Goods.Tools												COST:40		WT:1		SOURCEPAGE:p.29
+# Equipment Name		Product Identity?	Type								Number of Pages	Page Usage				Cost		Weight	Source Page
+Blightburn Paste					TYPE:Goods.Alchemical.Consumable											COST:5000	WT:45		SOURCEPAGE:p.29
+Caphorite Dust		NAMEISPI:YES	TYPE:Goods.Alchemical.Consumable.Light Source									COST:25	WT:0.5	SOURCEPAGE:p.29
+Cytillesh Stun Vial	NAMEISPI:YES	TYPE:Goods.Alchemical.Vial.Consumable										COST:75	WT:0.5	SOURCEPAGE:p.29
+Decoy Pressure Switch				TYPE:Goods.Tools														COST:60	WT:0		SOURCEPAGE:p.28
+Decoy Trap Door					TYPE:Goods.Tools														COST:120	WT:0		SOURCEPAGE:p.28
+Decoy Tripwire					TYPE:Goods.Tools														COST:25	WT:0		SOURCEPAGE:p.28
+Fake Area Map					TYPE:Goods.Tools														COST:20	WT:0		SOURCEPAGE:p.28
+Fake Coins						TYPE:Goods.Tools														COST:5	WT:0.5	SOURCEPAGE:p.28
+Paper Wall Paste					TYPE:Goods.Alchemical.Consumable											COST:10	WT:2		SOURCEPAGE:p.29
+Trapped Disguise Kit				TYPE:Goods.Tools														COST:50	WT:8		SOURCEPAGE:p.28
+Trapped Scroll Case				TYPE:Goods.Tools														COST:40	WT:1		SOURCEPAGE:p.29
 
 # ==============================
 # New Magic Items
 # ==============================
 
-Displacing Stone								TYPE:Magic.Wondrous.Consumable									COST:430		WT:0		SOURCEPAGE:p.30
-Dragon Herald Vestments							TYPE:Magic.Wondrous.Robe										COST:30000		WT:1		SOURCEPAGE:p.30
-Hezzilreen's Spellbook			NAMEISPI:Yes		TYPE:Magic.Wondrous.Spellbook		NUMPAGES:100	PAGEUSAGE:max(SPELLLEVEL,1)	COST:8000		WT:2		SOURCEPAGE:p.26
-Imploding Stone								TYPE:Magic.Wondrous.Consumable									COST:3300		WT:0		SOURCEPAGE:p.30
-Levitating Land Mine							TYPE:Magic.Wondrous.Consumable									COST:750		WT:3		SOURCEPAGE:p.31
-Paralyzing Snare								TYPE:Magic.Wondrous.Consumable									COST:2250		WT:2		SOURCEPAGE:p.31
-Scarecrow Lure								TYPE:Magic.Wondrous											COST:850		WT:40		SOURCEPAGE:p.31
-Trapped Beverage								TYPE:Magic.Wondrous.Consumable									COST:300		WT:2		SOURCEPAGE:p.31
-Trapped Puzzle Box							TYPE:Magic.Wondrous.Consumable									COST:750		WT:0.5	SOURCEPAGE:p.31
-Trapped Sword								TYPE:Magic.Wondrous											COST:850		WT:4		SOURCEPAGE:p.31
+Displacing Stone					TYPE:Magic.Wondrous.Consumable											COST:430	WT:0		SOURCEPAGE:p.30
+Dragon Herald Vestments				TYPE:Magic.Wondrous.Robe												COST:30000	WT:1		SOURCEPAGE:p.30
+Hezzilreen's Spellbook	NAMEISPI:YES	TYPE:Magic.Wondrous.Spellbook				NUMPAGES:100	PAGEUSAGE:max(SPELLLEVEL,1)	COST:8000	WT:2		SOURCEPAGE:p.26
+Imploding Stone					TYPE:Magic.Wondrous.Consumable											COST:3300	WT:0		SOURCEPAGE:p.30
+Levitating Land Mine				TYPE:Magic.Wondrous.Consumable											COST:750	WT:3		SOURCEPAGE:p.31
+Paralyzing Snare					TYPE:Magic.Wondrous.Consumable											COST:2250	WT:2		SOURCEPAGE:p.31
+Scarecrow Lure					TYPE:Magic.Wondrous													COST:850	WT:40		SOURCEPAGE:p.31
+Trapped Beverage					TYPE:Magic.Wondrous.Consumable											COST:300	WT:2		SOURCEPAGE:p.31
+Trapped Puzzle Box				TYPE:Magic.Wondrous.Consumable											COST:750	WT:0.5	SOURCEPAGE:p.31
+Trapped Sword					TYPE:Magic.Wondrous													COST:850	WT:4		SOURCEPAGE:p.31

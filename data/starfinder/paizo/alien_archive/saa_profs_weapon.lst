@@ -1,0 +1,56 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+###Block:BASIC MELEE WEAPONS
+# Weapon Name	Type
+Spear (gravity)	TYPE:P.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee.Uncategorized
+
+###Block:ADVANCED MELEE WEAPONS
+# One-Handed Weapons
+# Weapon Name		Type
+Bone Cestus (austere)	TYPE:B.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee.Uncategorized
+Bone Cestus (measured)	TYPE:B.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee.Uncategorized
+Bone Cestus (imposing)	TYPE:B.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee.Uncategorized
+Bone Cestus (severe)	TYPE:B.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee.Uncategorized
+
+# Two-Handed Weapons
+Shadowstaff			TYPE:B.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee.Uncategorized
+Shadowstaff (lesser)	TYPE:B.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee.Uncategorized
+Eoxian Wrackstaff		TYPE:B.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee.Uncategorized
+
+###Block:ADVANCED MELEE WEAPONS
+# One-Handed Weapons
+# Weapon Name				Type
+Electrovore glove (static)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Electrovore glove (aurora)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Electrovore glove (storm)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Electrovore glove (tempest)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+
+# Two-handed Weapons
+Dragonglaive (basic)			TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Dragonglaive (thunderhead)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Dragonglaive (stormstrike)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Dragonglaive (skyshatter)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Dragonglaive (wyrmlord)			TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+
+
+# SMALL ARMS
+
+
+
+# LONGARMS
+AG Assault Rifle				TYPE:LONGARMS
+AG Accelerator Rifle			TYPE:LONGARMS
+AG RPPR					TYPE:LONGARMS
+
+
+# HEAVY WEAPONS
+Acid lancer (corroder-class)		TYPE:HEAVY WEAPONS
+Acid lancer (melter-class)		TYPE:HEAVY WEAPONS
+Acid lancer (liquefier-class)		TYPE:HEAVY WEAPONS
+Acid lancer (disintegrator-class)	TYPE:HEAVY WEAPONS
+
+# SNIPER WEAPONS
+Diasporan rifle (tactical)		TYPE:F.SNIPER WEAPONS
+Diasporan rifle (advanced)		TYPE:F.SNIPER WEAPONS
+Diasporan rifle (elite)			TYPE:F.SNIPER WEAPONS
+Diasporan rifle (ultra)			TYPE:F.SNIPER WEAPONS
+Diasporan rifle (imperial)		TYPE:F.SNIPER WEAPONS

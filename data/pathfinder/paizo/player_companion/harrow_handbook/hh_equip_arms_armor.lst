@@ -1,0 +1,7 @@
+SOURCELONG:Pathfinder Player Companion: The Harrow Handbook		SOURCESHORT:HH	SOURCEWEB:http://paizo.com/products/btpy95zm	SOURCEDATE:2014-07
+
+Dart.COPY=Deck of Slivering Fate			EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Limning ~ Weapon.Special Ability ~ Enhancement Cost|4700									SOURCEPAGE:p.30		SPROP:When this 54 card harrow deck's wielder uses the Deadly Dealer feat, the cards deal slashing damage instead of piercing,and the bonus damage from the Arcane Strike feat is doubled.
+Sword (Short).COPY=Rabbit's Blade			EQMOD:Special Ability ~ +2 ~ Weapon.Special Quality ~ Broken ~ Weapon.Special Ability ~ Enhancement Cost|14000	BONUS:WEAPON|TOHIT,DAMAGE|2|TYPE=CONDITION	SOURCEPAGE:p.31		SPROP:When wielder is threatening two or more strong foes and has no nearby allies, can gain use of Cleave or Great Cleave feats.
+Dagger.COPY=Snakebite Dagger				EQMOD:Special Ability ~ +1 ~ Weapon.Material ~ Living Steel ~ Weapon.Special Ability ~ Enhancement Cost|6958									SOURCEPAGE:p.31		SPROP:DC of any injury poison coating this blade increases by 2; 1/day wielder can cause the dagger to seep neurotoxin (DC 16 Will save or be affected by modify memory)
+
+Stoneplate.COPY=Man Mountain Armor			EQMOD:Special Ability ~ +1 ~ Armor.Special Ability ~ Titanic ~ Armor.Special Ability ~ Enhancement Cost|26400					SOURCEPAGE:p.31		SPROP:3 times/day, can turn area around wearer into difficult terrain when struck in melee combat, may knock adjacent opponents prone.

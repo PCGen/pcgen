@@ -1,0 +1,3 @@
+ABILITYCATEGORY:Student of Perfection Bonus Feat Selection		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:StudentOfPerfectionBonusFeat																					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Student of Perfection Ki Power				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:StudentOfPerfectionKiPower													PLURAL:Ki Powers						DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Perfection Stat Bonus					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:PerfectionStatBonus																						DISPLAYLOCATION:Class Features

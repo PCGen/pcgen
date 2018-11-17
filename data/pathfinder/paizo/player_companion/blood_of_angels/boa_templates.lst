@@ -1,5 +1,6 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 21418 $ $Author: evilmynex $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
-SOURCELONG:Blood of Angels	SOURCESHORT:BOA	SOURCEWEB:http://paizo.com/products/btpy8sa7?Pathfinder-Player-Companion-Blood-of-Angels	SOURCEDATE:2012-07
+SOURCELONG:Pathfinder Player Companion: Blood of Angels	SOURCESHORT:BOA	SOURCEWEB:http://paizo.com/products/btpy8sa7	SOURCEDATE:2012-07
 
 ###Block: Template to activate bardic masterpieces
 # Template Name				Visible	Ability

@@ -1,10 +1,11 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 21638 $ $Author: amaitland $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 # Original Entry By: W. Robert 'Mynex' Reed III
 # Entry Date: August 2013
 SOURCELONG:Bestiary 3	SOURCESHORT:B3	SOURCEWEB:http://paizo.com/products/btpy8odu?Pathfinder-Roleplaying-Game-Bestiary-3	SOURCEDATE:2012-01
 
-# Weapon Name	Type
+# Weapon Name	Unique Key			Type
 Chain Dagger	KEY:Dagger (Chain)	TYPE:Weapon.Simple.Light.Melee.Dagger.Piercing.Slashing.MeleeSlashing.MeleePiercing
-Binding Contract	TYPE:Weapon.Melee.OneHanded.Exotic.Reach.Finesseable.Slashing.Flail
-Feathers		TYPE:Weapon.Melee.Slashing.Exotic.Finesseable
-Cannon		TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.SiegeFirearm.Bludgeoning.Piercing.Firearm
+Binding Contract					TYPE:Weapon.Melee.OneHanded.Exotic.Reach.Finesseable.Slashing.Flail
+Feathers						TYPE:Weapon.Melee.Slashing.Exotic.Finesseable
+Cannon						TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.SiegeFirearm.Bludgeoning.Piercing.Firearm
