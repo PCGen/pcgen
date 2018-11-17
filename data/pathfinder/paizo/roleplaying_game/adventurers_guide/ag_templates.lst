@@ -1,0 +1,14 @@
+Angel of Eiseth					VISIBLE:NO		RACETYPE:Outsider		RACESUBTYPE:Evil|Extraplanar|Lawful		BONUS:VAR|FireResistanceBonus|30	ABILITY:Special Ability|AUTOMATIC|Universal Monster Rule ~ See in Darkness|Telepathy	BONUS:VAR|TelepathyRange|50	MOVE:Fly,50		BONUS:VAR|Maneuverability|4
+
+Lantern Lighter Darkvision			VISIBLE:NO		TEMPLATE:CHOOSE:Lantern Lighter New Darkvision|Lantern Lighter Bonus Darkvision
+Lantern Lighter New Darkvision		VISIBLE:NO		!PREVISION:1,Darkvision=ANY					BONUS:VAR|DarkvisionRange|60|TYPE=Base
+Lantern Lighter Bonus Darkvision		VISIBLE:NO		PREVISION:1,Darkvision=ANY					BONUS:VAR|DarkvisionRange|30
+
+Rivethun Enhanced Familiar			VISIBLE:NO		PREVAREQ:FamiliarIsSpiritAnimal,0				ABILITY:Special Ability|AUTOMATIC|Rivethun Emissary ~ Enhanced Familiar
+Rivethun Enhanced Spirit Animal		VISIBLE:NO		PREVARGT:FamiliarIsSpiritAnimal,0				ABILITY:Special Ability|AUTOMATIC|Rivethun Emissary ~ Enhanced Spirit Animal
+
+Combat Expertise Feat				VISIBLE:NO		!PREABILITY:1,CATEGORY=FEAT,Combat Expertise		ABILITY:FEAT|VIRTUAL|Combat Expertise
+Lore Warden Bonus Feat				VISIBLE:NO		PREABILITY:1,CATEGORY=FEAT,Combat Expertise		BONUS:ABILITYPOOL|Fighter Bonus Feat|1
+
+Channel Smite Feat				VISIBLE:NO		!PREABILITY:1,CATEGORY=FEAT,Channel Smite			ABILITY:FEAT|VIRTUAL|Channel Smite
+Death Slayer Bonus Feat				VISIBLE:NO		PREABILITY:1,CATEGORY=FEAT,Channel Smite			BONUS:ABILITYPOOL|Death Slayer Bonus Feat|1
