@@ -1,0 +1,8 @@
+# CVS $Revision: $ $Author: $ -- Sat May 26 02:28:48 2018 -- reformated by PCGen PrettyLST v6.06.00
+
+
+# Ability Name								SORTKEY				Unique Key									Category of Ability	Type				Description																	Stackable?	Multiple?	Choose			Bonus Ability Pool		Bonus to HP			Bonus to skill		Stat bonus			Cost
+1-4 Devotion Points (+2 Bonus to a Single Skill)		SORTKEY:Devotion Reward 1	KEY:Devotion Reward ~ +2 Bonus to a Single Skill		CATEGORY:Devotion		TYPE:Devotion Reward	DESC:Each PC gains a permanent +2 bonus to a skill of her choice.								STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=Base										BONUS:SKILL|%LIST|2					COST:0
+5-7 Devotion Points (+5 Hit Points)					SORTKEY:Devotion Reward 2	KEY:Devotion Reward ~ +5 Hit Points					CATEGORY:Devotion		TYPE:Devotion Reward	DESC:Each PC gains 5 permanent hit points.																								BONUS:HP|CURRENTMAX|5									COST:0
+8-9 Devotion Points (Bonus Feat)					SORTKEY:Devotion Reward 3	KEY:Devotion Reward ~ Bonus Feat					CATEGORY:Devotion		TYPE:Devotion Reward	DESC:Each PC gains a bonus feat of his choice (the PC must qualify as normal for the feat's prerequisites).									BONUS:ABILITYPOOL|FEAT|1													COST:0
+10+ Devotion Points (+2 Bonus to a Single Ability Score)	SORTKEY:Devotion Reward 4	KEY:Devotion Reward ~ +2 Bonus to a Single Ability Score	CATEGORY:Devotion		TYPE:Devotion Reward	DESC:Each PC gains a +2 increase to an ability score of her choice.							STACK:NO	MULT:YES	CHOOSE:PCSTAT|ALL															BONUS:STAT|%LIST|2	COST:0

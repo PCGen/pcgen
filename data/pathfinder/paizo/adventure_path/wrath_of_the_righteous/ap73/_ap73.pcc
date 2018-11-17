@@ -1,0 +1,69 @@
+# CVS $Revision$ $Author$ -- Mon Nov  6 20:04:41 2017 -- reformated by PCGen PrettyLST v6.06.00
+CAMPAIGN:Wrath of the Righteous, Part 1: The Worldwound Incursion
+KEY:Pathfinder Adventure Path #73
+GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing.Pathfinder Adventure Path.Wrath of the Righteous
+RANK:3
+STATUS:BETA
+GENRE:Fantasy
+BOOKTYPE:Adventure
+SETTING:Pathfinder|Golarion
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules,INCLUDESBOOKTYPE=Complete Core
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:1,INCLUDES=Ultimate Combat,INCLUDES=Ultimate Equipment
+PRECAMPAIGN:1,INCLUDES=Mythic Adventures
+PUBNAMELONG:Paizo Publishing
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Pathfinder Adventure Path #73
+SOURCESHORT:AP73
+SOURCEWEB:http://paizo.com/products/btpy90q9
+SOURCEDATE:2013-09
+ISOGL:YES
+
+COVER:PZO9073.png
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy90q9|Buy this publication from Paizo Publishing!
+DESC:For more than a hundred years, the demon-infested Worldwound has warred against humanity, its Abyssal armies clashing with crusaders, barbarians, mercenaries, and heroes along the border of lost Sarkoris. But when one of the magical wardstones that helps hedge the demons into their savage realm is sabotaged, the crusader city of Kenabres is attacked and devastated by the demonic hordes. Can a small band of heroes destined for mythic greatness survive long enough to hold back the forces of chaos and evil until help arrives, or will they become the latest in a long line of victims slaughtered by Deskari, the demon lord of the Locust Host?
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, and Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Basidirond from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Cave Fisher from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Lawrence Schick.
+COPYRIGHT:Demon, Nabasu from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Demon Lord, Dagon from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene.
+COPYRIGHT:Demon Lord, Kostchtchie from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on material by Gary Gygax.
+COPYRIGHT:Demon Lord, Pazuzu from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on material by Gary Gygax.
+COPYRIGHT:Huecuva from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Underworld Oracle.
+COPYRIGHT:Mongrelman from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Pathfinder Adventure Path #73: The Worldwound Incursion Copyright 2013, Paizo Publishing, LLC; Author: Amber E. Scott.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Adventure Path #73: The Worldwound Incursion" Copyright 2018, PCGen Data Team (including, but not limited to Regan Anderson, Andrew Maitland, Paul Grosse, and Stefan Radermacher).
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# Data files
+EQUIPMENT:ap73_equip.lst
+
+ABILITY:ap73_abilities.lst
+ABILITYCATEGORY:ap73_abilitycategories.lst
+
+# ENTRY DATE: 2018-11
+# LST MONKEY: Regan Anderson
+# LICENSE MONKEY: Paul Grosse
+# RELEASE REVIEW #
+# BETA: Andrew Maitland
+# RELEASE:
+# Built for PCGen Version: 6.08.00
+# Updated to work with version: -
+# MINVER:6.08.00
+# MINDEVVER:6.08.00
+# COMMENTS:
+
+
+#
+# End
+#
