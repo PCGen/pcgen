@@ -657,17 +657,6 @@ public interface CharacterFacade extends CompanionFacade
 	 */
 	public boolean isQualifiedFor(EquipmentFacade equipFacade, EquipModFacade eqModFacade);
 
-	public void addCharacterChangeListener(CharacterChangeListener listener);
-
-	public void removeCharacterChangeListener(CharacterChangeListener listener);
-
-	public static interface CharacterChangeListener
-	{
-
-		public void characterChanged();
-
-	}
-
 	public Nature getAbilityNature(AbilityFacade ability);
 	//
 	//	/**
