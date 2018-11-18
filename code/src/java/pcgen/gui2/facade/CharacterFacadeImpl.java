@@ -99,7 +99,6 @@ import pcgen.core.Race;
 import pcgen.core.RollingMethods;
 import pcgen.core.RuleConstants;
 import pcgen.core.SettingsHandler;
-import pcgen.core.SimpleFacadeImpl;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.Skill;
 import pcgen.core.VariableProcessor;
@@ -151,7 +150,6 @@ import pcgen.facade.core.InfoFactory;
 import pcgen.facade.core.KitFacade;
 import pcgen.facade.core.LanguageChooserFacade;
 import pcgen.facade.core.RaceFacade;
-import pcgen.facade.core.SimpleFacade;
 import pcgen.facade.core.SkillFacade;
 import pcgen.facade.core.SpellFacade;
 import pcgen.facade.core.SpellSupportFacade;
@@ -235,8 +233,8 @@ public class CharacterFacadeImpl
 	private DefaultReferenceFacade<String> previewSheet;
 	private DefaultReferenceFacade<SkillFilter> skillFilter;
 	private DefaultReferenceFacade<Integer> age;
-	private DefaultReferenceFacade<SimpleFacade> ageCategory;
-	private DefaultListFacade<SimpleFacade> ageCategoryList;
+	private DefaultReferenceFacade<String> ageCategory;
+	private DefaultListFacade<String> ageCategoryList;
 	private DefaultReferenceFacade<String> poolPointText;
 	private DefaultReferenceFacade<String> statTotalLabelText;
 	private DefaultReferenceFacade<String> statTotalText;
@@ -602,7 +600,7 @@ public class CharacterFacadeImpl
 		ageCategoryList = new DefaultListFacade<>();
 		for (String ageCat : cats)
 		{
-			ageCategoryList.addElement(new SimpleFacadeImpl(ageCat));
+			ageCategoryList.addElement(ageCat);
 		}
 	}
 
@@ -2766,9 +2764,9 @@ public class CharacterFacadeImpl
 		if (ageSet != null)
 		{
 			String ageCatName = ageSet.getName();
-			for (SimpleFacade ageCatFacade : ageCategoryList)
+			for (String ageCatFacade : ageCategoryList)
 			{
-				if (ageCatFacade.toString().equals(ageCatName))
+				if (ageCatFacade.equals(ageCatName))
 				{
 					ageCategory.set(ageCatFacade);
 				}
@@ -2783,13 +2781,13 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public ListFacade<SimpleFacade> getAgeCategories()
+	public ListFacade<String> getAgeCategories()
 	{
 		return ageCategoryList;
 	}
 
 	@Override
-	public void setAgeCategory(final SimpleFacade ageCat)
+	public void setAgeCategory(final String ageCat)
 	{
 		if (ageCat == this.ageCategory.get())
 		{
@@ -2820,7 +2818,7 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public ReferenceFacade<SimpleFacade> getAgeCategoryRef()
+	public ReferenceFacade<String> getAgeCategoryRef()
 	{
 		return ageCategory;
 	}

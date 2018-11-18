@@ -547,19 +547,19 @@ public interface CharacterFacade extends CompanionFacade
 	/**
 	 * @return A list of the defined age categories.  
 	 */
-	public ListFacade<SimpleFacade> getAgeCategories();
+	public ListFacade<String> getAgeCategories();
 
 	/**
 	 * Set the character's age category. Will also reset their age if the age category 
 	 * has changed.
 	 * @param ageCat The new age category to be set
 	 */
-	public void setAgeCategory(final SimpleFacade ageCat);
+	public void setAgeCategory(final String ageCat);
 
 	/**
 	 * @return A reference to the age category of the character.
 	 */
-	public ReferenceFacade<SimpleFacade> getAgeCategoryRef();
+	public ReferenceFacade<String> getAgeCategoryRef();
 
 	/**
 	 * @return A reference to the label text for the character's stats total 
