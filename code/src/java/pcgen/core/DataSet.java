@@ -42,7 +42,6 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.facade.core.AbilityCategoryFacade;
 import pcgen.facade.core.AbilityFacade;
-import pcgen.facade.core.BodyStructureFacade;
 import pcgen.facade.core.CampaignFacade;
 import pcgen.facade.core.ClassFacade;
 import pcgen.facade.core.DataSetFacade;
@@ -80,7 +79,7 @@ public class DataSet implements DataSetFacade
 	private final GameMode gameMode;
 	private final ListFacade<CampaignFacade> campaigns;
 	private SkillFacade speakLanguageSkill = null;
-	private final DefaultListFacade<BodyStructureFacade> bodyStructures;
+	private final DefaultListFacade<BodyStructure> bodyStructures;
 	private final DefaultListFacade<EquipmentFacade> equipment;
 	private final DefaultListFacade<String> xpTableNames;
 	private DefaultListFacade<GearBuySellFacade> gearBuySellSchemes;
@@ -402,7 +401,7 @@ public class DataSet implements DataSetFacade
 	}
 
 	@Override
-	public ListFacade<BodyStructureFacade> getEquipmentLocations()
+	public ListFacade<BodyStructure> getEquipmentLocations()
 	{
 		return bodyStructures;
 	}

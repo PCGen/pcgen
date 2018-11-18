@@ -20,6 +20,7 @@ package pcgen.facade.core;
 
 import java.util.List;
 
+import pcgen.core.BodyStructure;
 import pcgen.core.PCAlignment;
 import pcgen.facade.core.generator.StatGenerationFacade;
 import pcgen.facade.util.ListFacade;
@@ -72,7 +73,7 @@ public interface DataSetFacade
 	 */
 	public void addEquipment(EquipmentFacade equip);
 
-	public ListFacade<BodyStructureFacade> getEquipmentLocations();
+	public ListFacade<BodyStructure> getEquipmentLocations();
 
 	public ListFacade<String> getXPTableNames();
 

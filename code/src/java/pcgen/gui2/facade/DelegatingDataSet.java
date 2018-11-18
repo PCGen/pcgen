@@ -24,10 +24,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import pcgen.core.BodyStructure;
 import pcgen.core.PCAlignment;
 import pcgen.facade.core.AbilityCategoryFacade;
 import pcgen.facade.core.AbilityFacade;
-import pcgen.facade.core.BodyStructureFacade;
 import pcgen.facade.core.CampaignFacade;
 import pcgen.facade.core.ClassFacade;
 import pcgen.facade.core.DataSetFacade;
@@ -71,7 +71,7 @@ public class DelegatingDataSet implements DataSetFacade
 	private final DelegatingListFacade<StatFacade> stats;
 	private final DelegatingAbilitiesMap abilities;
 	private final DelegatingListFacade<CampaignFacade> campaigns;
-	private final DelegatingListFacade<BodyStructureFacade> bodyStructures;
+	private final DelegatingListFacade<BodyStructure> bodyStructures;
 	private final DelegatingListFacade<EquipmentFacade> equipment;
 	private final DelegatingListFacade<String> xpTableNames;
 	private final DelegatingListFacade<GearBuySellFacade> gearBuySellSchemes;
@@ -315,7 +315,7 @@ public class DelegatingDataSet implements DataSetFacade
 	}
 
 	@Override
-	public ListFacade<BodyStructureFacade> getEquipmentLocations()
+	public ListFacade<BodyStructure> getEquipmentLocations()
 	{
 		return bodyStructures;
 	}

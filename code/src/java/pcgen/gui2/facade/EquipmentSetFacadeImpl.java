@@ -47,7 +47,6 @@ import pcgen.core.SystemCollections;
 import pcgen.core.character.EquipSet;
 import pcgen.core.character.EquipSlot;
 import pcgen.core.display.CharacterDisplay;
-import pcgen.facade.core.BodyStructureFacade;
 import pcgen.facade.core.DataSetFacade;
 import pcgen.facade.core.EquipmentFacade;
 import pcgen.facade.core.EquipmentListFacade;
@@ -147,10 +146,10 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentListListene
 		nodeList = new DefaultListFacade<>();
 		equipSlotNodeMap = new LinkedHashMap<>();
 		int index = 0;
-		for (BodyStructureFacade bodyStruct : dataSet.getEquipmentLocations())
+		for (BodyStructure bodyStruct : dataSet.getEquipmentLocations())
 		{
 			String structString = bodyStruct.toString();
-			EquipNodeImpl node = new EquipNodeImpl((BodyStructure) bodyStruct, index++);
+			EquipNodeImpl node = new EquipNodeImpl(bodyStruct, index++);
 			nodeList.addElement(node);
 
 			// Add locations for this body structure
@@ -348,7 +347,7 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentListListene
 	 * @param quantity The number being added (or negative if being removed)
 	 * @param root The BodyStructure in which the item is being placed or removed
 	 */
-	private void updateTotalWeight(Equipment equip, float quantity, BodyStructureFacade root)
+	private void updateTotalWeight(Equipment equip, float quantity, BodyStructure root)
 	{
 		if (!Constants.EQUIP_LOCATION_NOTCARRIED.equals(root.toString()))
 		{
@@ -653,7 +652,7 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentListListene
 	public boolean moveEquipment(EquipNode node, int numRowsToMove)
 	{
 		// Confirm our assumptions
-		if (!(node instanceof EquipNodeImpl) || !(node.getBodyStructure() instanceof BodyStructure)
+		if (!(node instanceof EquipNodeImpl) || (node.getBodyStructure() == null)
 			|| (node.getNodeType() != NodeType.EQUIPMENT) || (node.getParent() == null))
 		{
 			return false;
@@ -662,7 +661,7 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentListListene
 		{
 			return true;
 		}
-		BodyStructure bodyStruct = (BodyStructure) node.getBodyStructure();
+		BodyStructure bodyStruct = node.getBodyStructure();
 		if (!bodyStruct.isHoldsAnyType())
 		{
 			return false;
@@ -722,19 +721,19 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentListListene
 	public boolean sortEquipment(EquipNode parentNode)
 	{
 		// Confirm our assumptions
-		if (!(parentNode instanceof EquipNodeImpl) || !(parentNode.getBodyStructure() instanceof BodyStructure)
+		if (!(parentNode instanceof EquipNodeImpl) || (parentNode.getBodyStructure() == null)
 			|| ((parentNode.getNodeType() != NodeType.EQUIPMENT) && (parentNode.getNodeType() != NodeType.BODY_SLOT)))
 		{
 			return false;
 		}
-		BodyStructure bodyStruct = (BodyStructure) parentNode.getBodyStructure();
+		BodyStructure bodyStruct = parentNode.getBodyStructure();
 		if (!bodyStruct.isHoldsAnyType())
 		{
 			return false;
 		}
 
 		String pid = ((EquipNodeImpl) parentNode).idPath;
-		boolean isBodyStructure = parentNode.getBodyStructure() instanceof BodyStructure;
+		boolean isBodyStructure = parentNode.getBodyStructure() != null;
 		List<EquipNodeImpl> childList = new ArrayList<>();
 		Map<String, EquipNodeImpl> origPathToNode = buildPathNodeMap();
 		Map<String, EquipSet> origPathToEquipSet = buildPathEquipSetMap();
@@ -1379,7 +1378,7 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentListListene
 		// Is this a body structure? Then check if the object be placed there
 		if (node.getNodeType() == NodeType.BODY_SLOT)
 		{
-			BodyStructure root = (BodyStructure) node.getBodyStructure();
+			BodyStructure root = node.getBodyStructure();
 			if (root.isHoldsAnyType())
 			{
 				return !root.isForbidden(item.getTrueTypeList(false));
@@ -1443,7 +1442,7 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentListListene
 	 */
 	protected EquipNode getNaturalWeaponLoc(EquipmentFacade equipment)
 	{
-		if (!(equipment instanceof Equipment) || (equipment == null))
+		if (!(equipment instanceof Equipment))
 		{
 			return null;
 		}
@@ -1734,7 +1733,7 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentListListene
 		}
 
 		@Override
-		public BodyStructureFacade getBodyStructure()
+		public BodyStructure getBodyStructure()
 		{
 			return bodyStructure;
 		}
@@ -1977,8 +1976,8 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentListListene
 		@Override
 		public int compare(EquipNodeImpl o1, EquipNodeImpl o2)
 		{
-			BodyStructureFacade bodyStruct1 = o1.getBodyStructure();
-			BodyStructureFacade bodyStruct2 = o2.getBodyStructure();
+			BodyStructure bodyStruct1 = o1.getBodyStructure();
+			BodyStructure bodyStruct2 = o2.getBodyStructure();
 
 			if (bodyStruct1 != bodyStruct2)
 			{
