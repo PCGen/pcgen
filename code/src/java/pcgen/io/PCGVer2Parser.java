@@ -52,7 +52,6 @@ import pcgen.cdom.enumeration.Handed;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
-import pcgen.cdom.enumeration.NumericPCAttribute;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.cdom.enumeration.Region;
@@ -134,6 +133,7 @@ import pcgen.io.migration.RaceMigration;
 import pcgen.io.migration.SourceMigration;
 import pcgen.io.migration.SpellMigration;
 import pcgen.output.channel.ChannelUtilities;
+import pcgen.output.channel.compat.AgeCompat;
 import pcgen.output.channel.compat.AlignmentCompat;
 import pcgen.output.channel.compat.DeityCompat;
 import pcgen.output.channel.compat.HandedCompat;
@@ -483,7 +483,7 @@ final class PCGVer2Parser implements PCGParser
 	{
 		try
 		{
-			thePC.setPCAttribute(NumericPCAttribute.AGE,
+			AgeCompat.setCurrentAge(thePC.getCharID(),
 				Integer.parseInt(line.substring(IOConstants.TAG_AGE.length() + 1)));
 		}
 		catch (NumberFormatException nfe)
@@ -4628,7 +4628,7 @@ final class PCGVer2Parser implements PCGParser
 	{
 		try
 		{
-			thePC.setPCAttribute(NumericPCAttribute.WEIGHT,
+			thePC.setWeight(
 				Integer.parseInt(line.substring(IOConstants.TAG_WEIGHT.length() + 1)));
 		}
 		catch (NumberFormatException nfe)

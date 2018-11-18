@@ -26,11 +26,11 @@ import java.util.Optional;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.LocaleDependentTestCase;
-import pcgen.cdom.enumeration.NumericPCAttribute;
 import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.display.CharacterDisplay;
+import pcgen.output.channel.compat.AgeCompat;
 import pcgen.output.channel.compat.SkinColorCompat;
 import pcgen.persistence.lst.BioSetLoader;
 import pcgen.persistence.lst.BioSetLoaderTest;
@@ -100,7 +100,7 @@ public class BioSetTest extends AbstractCharacterTestCase
 		for (int ageCat = 0; ageCat < MAX_AGE.length; ageCat++)
 		{
 			currBioSet.randomize("AGECAT" + ageCat, pc);
-			final int age = pc.getDisplay().getAge();
+			final int age = AgeCompat.getCurrentAge(pc.getCharID());
 			//System.out.println("Age for cat " + ageCat + " is " + age + ".");
 			assertTrue(
 					(age >= BASE_AGE[ageCat] && age <= MAX_AGE[ageCat]), "Generated age " + age + " is not between "
@@ -140,25 +140,25 @@ public class BioSetTest extends AbstractCharacterTestCase
 		final Race human = new Race();
 		human.setName("Human");
 		pc.setRace(human);
-		pc.setPCAttribute(NumericPCAttribute.AGE, 12);
+		AgeCompat.setCurrentAge(pc.getCharID(), 12);
 		int idx = display.getAgeSetIndex();
-		assertEquals(0, idx, "Ageset for " + display.getAge() + ".");
+		assertEquals(0, idx, "Ageset for " + AgeCompat.getCurrentAge(pc.getCharID()) + ".");
 
-		pc.setPCAttribute(NumericPCAttribute.AGE, 17);
+		AgeCompat.setCurrentAge(pc.getCharID(), 17);
 		idx = display.getAgeSetIndex();
-		assertEquals(0, idx, "Ageset for " + display.getAge() + ".");
+		assertEquals(0, idx, "Ageset for " + AgeCompat.getCurrentAge(pc.getCharID()) + ".");
 
-		pc.setPCAttribute(NumericPCAttribute.AGE, 36);
+		AgeCompat.setCurrentAge(pc.getCharID(), 36);
 		idx = display.getAgeSetIndex();
-		assertEquals(1, idx, "Ageset for " + display.getAge() + ".");
+		assertEquals(1, idx, "Ageset for " + AgeCompat.getCurrentAge(pc.getCharID()) + ".");
 
-		pc.setPCAttribute(NumericPCAttribute.AGE, 54);
+		AgeCompat.setCurrentAge(pc.getCharID(), 54);
 		idx = display.getAgeSetIndex();
-		assertEquals(2, idx, "Ageset for " + display.getAge() + ".");
+		assertEquals(2, idx, "Ageset for " + AgeCompat.getCurrentAge(pc.getCharID()) + ".");
 
-		pc.setPCAttribute(NumericPCAttribute.AGE, 72);
+		AgeCompat.setCurrentAge(pc.getCharID(), 72);
 		idx = display.getAgeSetIndex();
-		assertEquals(3, idx, "Ageset for " + display.getAge() + ".");
+		assertEquals(3, idx, "Ageset for " + AgeCompat.getCurrentAge(pc.getCharID()) + ".");
 
 		Optional<Region> region = pc.getDisplay().getRegion();
 		SettingsHandler.getGameAsProperty().get().getBioSet().getAgeSet(region, idx);

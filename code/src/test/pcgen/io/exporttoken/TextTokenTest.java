@@ -20,10 +20,10 @@ package pcgen.io.exporttoken;
 import static org.junit.Assert.assertEquals;
 
 import pcgen.AbstractCharacterTestCase;
-import pcgen.cdom.enumeration.NumericPCAttribute;
 import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
+import pcgen.output.channel.compat.AgeCompat;
 
 import plugin.exporttokens.TextToken;
 
@@ -89,43 +89,43 @@ public class TextTokenTest extends AbstractCharacterTestCase
 		ExportHandler eh = ExportHandler.createExportHandler(null);
 		PlayerCharacter character = getCharacter();
 
-		character.setPCAttribute(NumericPCAttribute.AGE, 1);
+		AgeCompat.setCurrentAge(character.getCharID(), 1);
 		assertEquals("Suffix 1", "st", tok.getToken("TEXT.NUMSUFFIX.AGE",
 			getCharacter(), eh));
-		character.setPCAttribute(NumericPCAttribute.AGE, 2);
+		AgeCompat.setCurrentAge(character.getCharID(), 2);
 		assertEquals("Suffix 2", "nd", tok.getToken("TEXT.NUMSUFFIX.AGE",
 			getCharacter(), eh));
-		character.setPCAttribute(NumericPCAttribute.AGE, 3);
+		AgeCompat.setCurrentAge(character.getCharID(), 3);
 		assertEquals("Suffix 3", "rd", tok.getToken("TEXT.NUMSUFFIX.AGE",
 			getCharacter(), eh));
-		character.setPCAttribute(NumericPCAttribute.AGE, 4);
+		AgeCompat.setCurrentAge(character.getCharID(), 4);
 		assertEquals("Suffix 4", "th", tok.getToken("TEXT.NUMSUFFIX.AGE",
 			getCharacter(), eh));
-		character.setPCAttribute(NumericPCAttribute.AGE, 11);
+		AgeCompat.setCurrentAge(character.getCharID(), 11);
 		assertEquals("Suffix 11", "th", tok.getToken("TEXT.NUMSUFFIX.AGE",
 			getCharacter(), eh));
-		character.setPCAttribute(NumericPCAttribute.AGE, 12);
+		AgeCompat.setCurrentAge(character.getCharID(), 12);
 		assertEquals("Suffix 12", "th", tok.getToken("TEXT.NUMSUFFIX.AGE",
 			getCharacter(), eh));
-		character.setPCAttribute(NumericPCAttribute.AGE, 13);
+		AgeCompat.setCurrentAge(character.getCharID(), 13);
 		assertEquals("Suffix 13", "th", tok.getToken("TEXT.NUMSUFFIX.AGE",
 			getCharacter(), eh));
-		character.setPCAttribute(NumericPCAttribute.AGE, 14);
+		AgeCompat.setCurrentAge(character.getCharID(), 14);
 		assertEquals("Suffix 14", "th", tok.getToken("TEXT.NUMSUFFIX.AGE",
 			getCharacter(), eh));
-		character.setPCAttribute(NumericPCAttribute.AGE, 21);
+		AgeCompat.setCurrentAge(character.getCharID(), 21);
 		assertEquals("Suffix 21", "st", tok.getToken("TEXT.NUMSUFFIX.AGE",
 			getCharacter(), eh));
-		character.setPCAttribute(NumericPCAttribute.AGE, 22);
+		AgeCompat.setCurrentAge(character.getCharID(), 22);
 		assertEquals("Suffix 22", "nd", tok.getToken("TEXT.NUMSUFFIX.AGE",
 			getCharacter(), eh));
-		character.setPCAttribute(NumericPCAttribute.AGE, 23);
+		AgeCompat.setCurrentAge(character.getCharID(), 23);
 		assertEquals("Suffix 23", "rd", tok.getToken("TEXT.NUMSUFFIX.AGE",
 			getCharacter(), eh));
-		character.setPCAttribute(NumericPCAttribute.AGE, 24);
+		AgeCompat.setCurrentAge(character.getCharID(), 24);
 		assertEquals("Suffix 24", "th", tok.getToken("TEXT.NUMSUFFIX.AGE",
 			getCharacter(), eh));
-		character.setPCAttribute(NumericPCAttribute.AGE, 133);
+		AgeCompat.setCurrentAge(character.getCharID(), 133);
 		assertEquals("Suffix 133", "rd", tok.getToken("TEXT.NUMSUFFIX.AGE",
 			getCharacter(), eh));
 	}
