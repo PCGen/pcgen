@@ -20,8 +20,10 @@ package pcgen.core.kit;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import pcgen.base.lang.StringUtil;
+import pcgen.base.util.Indirect;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.NumericPCAttribute;
 import pcgen.cdom.enumeration.PCAttribute;
@@ -36,7 +38,8 @@ public class KitBio extends BaseKit
 {
 	private String theCharacterName = null;
 	private Integer theCharacterAge = null;
-	private List<Gender> theGenders = null;
+	private List<Indirect<Gender>> theGenders = null;
+	private List<String> theGenderNames = null;
 	private Gender selectedGender = null;
 
 	/**
@@ -121,7 +124,10 @@ public class KitBio extends BaseKit
 			if (theGenders.size() > 1)
 			{
 				List<Gender> selList = new ArrayList<>(1);
-				selList = Globals.getChoiceFromList("Choose Gender", theGenders, selList, 1, aPC);
+				List<Gender> theGenderObjects = theGenders.stream().map(g -> g.get())
+						.collect(Collectors.toList());
+				selList = Globals.getChoiceFromList("Choose Gender", theGenderObjects,
+					selList, 1, aPC);
 				if (selList.size() == 1)
 				{
 					selectedGender = selList.get(0);
@@ -129,7 +135,7 @@ public class KitBio extends BaseKit
 			}
 			else
 			{
-				selectedGender = theGenders.get(0);
+				selectedGender = theGenders.get(0).get();
 			}
 		}
 		apply(aPC);
@@ -158,20 +164,22 @@ public class KitBio extends BaseKit
 		return info.toString();
 	}
 
-	public void addGender(Gender gender)
+	public void addGender(Indirect<Gender> gender)
 	{
 		if (theGenders == null)
 		{
 			theGenders = new ArrayList<>();
+			theGenderNames = new ArrayList<>();
 		}
-		if (theGenders.contains(gender))
+		if (theGenderNames.contains(gender.getUnconverted()))
 		{
 			throw new IllegalArgumentException("Cannot add Gender: " + gender + " twice");
 		}
+		theGenderNames.add(gender.getUnconverted());
 		theGenders.add(gender);
 	}
 
-	public Collection<Gender> getGenders()
+	public Collection<Indirect<Gender>> getGenders()
 	{
 		return theGenders;
 	}
