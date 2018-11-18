@@ -25,7 +25,7 @@ import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.enumeration.Handed;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PCTemplate;
-import pcgen.output.channel.compat.HandedAdapter;
+import pcgen.output.channel.compat.HandedCompat;
 
 public class HandedFacetTest extends TestCase
 {
@@ -51,14 +51,14 @@ public class HandedFacetTest extends TestCase
 	@Test
 	public void testHandedUnsetNull()
 	{
-		assertEquals(HandedAdapter.getDefaultHanded(), facet.getHanded(id));
+		assertEquals(HandedCompat.getDefaultHanded(), facet.getHanded(id));
 	}
 
 	@Test
 	public void testWithNothingInTemplates()
 	{
 		tfacet.add(id, new PCTemplate(), this);
-		assertEquals(HandedAdapter.getDefaultHanded(), facet.getHanded(id));
+		assertEquals(HandedCompat.getDefaultHanded(), facet.getHanded(id));
 	}
 
 	@Test
@@ -67,7 +67,7 @@ public class HandedFacetTest extends TestCase
 		facet.setHanded(id, Handed.Left);
 		assertEquals(Handed.Left, facet.getHanded(id));
 		facet.removeHanded(id);
-		assertEquals(HandedAdapter.getDefaultHanded(), facet.getHanded(id));
+		assertEquals(HandedCompat.getDefaultHanded(), facet.getHanded(id));
 	}
 
 }

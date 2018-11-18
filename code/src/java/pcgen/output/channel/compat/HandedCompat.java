@@ -4,14 +4,33 @@ import java.util.Arrays;
 
 import pcgen.cdom.enumeration.Handed;
 
-public class HandedAdapter
+/**
+ * HandedCompat contains utility methods for communication of the PCs Handed value through
+ * a channel.
+ */
+public final class HandedCompat
 {
 
+	private HandedCompat()
+	{
+		//Do not construct utility class
+	}
+
+	/**
+	 * Returns the Default value for Handed.
+	 * 
+	 * @return The Default value for Handed
+	 */
 	public static Handed getDefaultHanded()
 	{
 		return Handed.Right;
 	}
 
+	/**
+	 * Returns an array of the available Handed objects.
+	 * 
+	 * @return An array of the available Handed objects
+	 */
 	public static Handed[] getAvailableHanded()
 	{
 		return Handed.values();

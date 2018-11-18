@@ -20,7 +20,7 @@ package pcgen.cdom.facet.fact;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Handed;
 import pcgen.cdom.facet.base.AbstractItemFacet;
-import pcgen.output.channel.compat.HandedAdapter;
+import pcgen.output.channel.compat.HandedCompat;
 import pcgen.util.Logging;
 
 /**
@@ -82,6 +82,6 @@ public class HandedFacet extends AbstractItemFacet<CharID, Handed>
 		{
 			Logging.debugPrint("HandedFacet handed value " + g);
 		}
-		return g == null ? HandedAdapter.getDefaultHanded() : g;
+		return g == null ? HandedCompat.getDefaultHanded() : g;
 	}
 }
