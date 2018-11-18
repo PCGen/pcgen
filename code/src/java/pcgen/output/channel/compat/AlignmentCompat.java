@@ -24,8 +24,16 @@ import pcgen.core.Globals;
 import pcgen.core.PCAlignment;
 import pcgen.output.channel.ChannelUtilities;
 
-public class AlignmentCompat
+/**
+ * AlignmentCompat contains utility methods for communication of the PCs alignment through a channel.
+ */
+public final class AlignmentCompat
 {
+
+	private AlignmentCompat()
+	{
+		//Do not construct utility class
+	}
 
 	/**
 	 * Gets the current Alignment for the PC represented by the given CharID.
