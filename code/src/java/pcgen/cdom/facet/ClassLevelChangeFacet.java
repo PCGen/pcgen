@@ -18,8 +18,6 @@
 package pcgen.cdom.facet;
 
 import pcgen.cdom.enumeration.CharID;
-import pcgen.cdom.facet.analysis.LevelFacet.LevelChangeEvent;
-import pcgen.cdom.facet.analysis.LevelFacet.LevelChangeListener;
 import pcgen.cdom.facet.model.ClassFacet;
 import pcgen.cdom.facet.model.ClassFacet.ClassLevelChangeEvent;
 import pcgen.cdom.facet.model.ClassFacet.ClassLevelChangeListener;
