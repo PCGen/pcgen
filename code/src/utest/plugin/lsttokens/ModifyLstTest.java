@@ -19,13 +19,11 @@ package plugin.lsttokens;
 
 import java.net.URISyntaxException;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.VarHolder;
-import pcgen.core.Campaign;
 import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
@@ -205,13 +203,12 @@ public class ModifyLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	//TODO Ignore for now; reactivate later, see CODE-3299
-	@Ignore
-	@Test
-	public void testInvalidObject()
-	{
-		assertFalse(token.parseToken(primaryContext, new Campaign(),
-				"MyVar|ADD|3").passed());
-	}
+//	@Test
+//	public void testInvalidObject()
+//	{
+//		assertFalse(token.parseToken(primaryContext, new Campaign(),
+//				"MyVar|ADD|3").passed());
+//	}
 
 	@Override
 	protected String getLegalValue()
