@@ -31,6 +31,9 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.bonus.BonusObj;
 import pcgen.util.enumeration.View;
 
+/**
+ * The CDOMObject for Templates.
+ */
 public final class PCTemplate extends PObject implements ChooseDriver
 {
 	/**
