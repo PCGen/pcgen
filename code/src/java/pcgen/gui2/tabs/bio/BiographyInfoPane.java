@@ -57,7 +57,6 @@ import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.DeityFacade;
 import pcgen.facade.core.GenderFacade;
 import pcgen.facade.core.HandedFacade;
-import pcgen.facade.core.SimpleFacade;
 import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
@@ -459,13 +458,13 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 		public AgeItem(final CharacterFacade character)
 		{
 			super("in_age", BiographyField.AGE, character); //$NON-NLS-1$
-			CharacterComboBoxModel<SimpleFacade> ageModel = new CharacterComboBoxModel<SimpleFacade>()
+			CharacterComboBoxModel<String> ageModel = new CharacterComboBoxModel<String>()
 			{
 
 				@Override
 				public void setSelectedItem(Object anItem)
 				{
-					character.setAgeCategory((SimpleFacade) anItem);
+					character.setAgeCategory((String) anItem);
 				}
 
 			};

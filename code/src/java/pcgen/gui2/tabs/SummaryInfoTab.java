@@ -75,7 +75,6 @@ import pcgen.facade.core.GenderFacade;
 import pcgen.facade.core.HandedFacade;
 import pcgen.facade.core.InfoFacade;
 import pcgen.facade.core.RaceFacade;
-import pcgen.facade.core.SimpleFacade;
 import pcgen.facade.core.TodoFacade;
 import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.event.ListEvent;
@@ -876,7 +875,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		private CharacterComboBoxModel<PCAlignment> alignmentModel;
 		private CharacterComboBoxModel<DeityFacade> deityModel;
 		private final DeferredCharacterComboBoxModel<RaceFacade> raceModel;
-		private final CharacterComboBoxModel<SimpleFacade> ageCatModel;
+		private final CharacterComboBoxModel<String> ageCatModel;
 		private final FacadeComboBoxModel<ClassFacade> classModel;
 		private final CharacterComboBoxModel<String> xpTableModel;
 		private final CharacterComboBoxModel<String> characterTypeModel;
@@ -969,14 +968,14 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			};
 
 			//initialize age category model
-			ageCatModel = new CharacterComboBoxModel<SimpleFacade>(character.getAgeCategories(),
+			ageCatModel = new CharacterComboBoxModel<String>(character.getAgeCategories(),
 				character.getAgeCategoryRef())
 			{
 
 				@Override
 				public void setSelectedItem(Object anItem)
 				{
-					character.setAgeCategory((SimpleFacade) anItem);
+					character.setAgeCategory((String) anItem);
 				}
 
 			};
