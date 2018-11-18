@@ -39,7 +39,7 @@ import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.spell.Spell;
-import pcgen.output.channel.compat.GenderAdapter;
+import pcgen.output.channel.compat.GenderCompat;
 import pcgen.system.ConfigurationSettings;
 
 public class Configuration
@@ -198,7 +198,7 @@ public class Configuration
 				ret.add((GenderGeneratorOption) opt);
 			}
 		}
-		for (Gender gender : GenderAdapter.getAvailableGenders())
+		for (Gender gender : GenderCompat.getAvailableGenders())
 		{
 			final GenderGeneratorOption opt = new GenderGeneratorOption();
 			opt.setName(gender.toString());

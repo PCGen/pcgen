@@ -177,7 +177,7 @@ import pcgen.io.ExportException;
 import pcgen.io.ExportHandler;
 import pcgen.io.PCGIOHandler;
 import pcgen.output.channel.ChannelCompatibility;
-import pcgen.output.channel.compat.GenderAdapter;
+import pcgen.output.channel.compat.GenderCompat;
 import pcgen.pluginmgr.PluginManager;
 import pcgen.pluginmgr.messages.PlayerCharacterWasClosedMessage;
 import pcgen.rules.context.LoadContext;
@@ -390,7 +390,7 @@ public class CharacterFacadeImpl
 		{
 			availHands.addElement(handed);
 		}
-		for (Gender gender : GenderAdapter.getAvailableGenders())
+		for (Gender gender : GenderCompat.getAvailableGenders())
 		{
 			availGenders.addElement(gender);
 		}

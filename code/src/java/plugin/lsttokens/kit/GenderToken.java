@@ -26,7 +26,7 @@ import pcgen.base.util.Indirect;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.core.kit.KitBio;
-import pcgen.output.channel.compat.GenderAdapter;
+import pcgen.output.channel.compat.GenderCompat;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -66,7 +66,7 @@ public class GenderToken extends AbstractTokenWithSeparator<KitBio> implements C
 		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
 		while (st.hasMoreTokens())
 		{
-			kitGender.addGender(GenderAdapter.getGenderReference(context, st.nextToken()));
+			kitGender.addGender(GenderCompat.getGenderReference(context, st.nextToken()));
 		}
 		return ParseResult.SUCCESS;
 	}
