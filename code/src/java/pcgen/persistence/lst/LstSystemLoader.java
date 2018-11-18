@@ -59,7 +59,7 @@ public final class LstSystemLoader implements SystemLoader
 			StringUtil.join(files, ", "));
 	}
 
-	/*
+	/**
 	 * CODE-1889 to remove use of this method
 	 */
 	@Override
