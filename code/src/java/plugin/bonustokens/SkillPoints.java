@@ -39,7 +39,6 @@ public final class SkillPoints extends MultiTagBonusObj
 	/**
 	 * Get by index, an individual skill point attribute that may be bonused.
 	 * @param tagNumber the index of the skill point attribute.
-	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
 	 * @return The skill point attribute.
 	 */
 	@Override
@@ -50,7 +49,6 @@ public final class SkillPoints extends MultiTagBonusObj
 
 	/**
 	 * Get the number of skill point attributes that may be bonused.
-	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
 	 * @return The number of skill point attributes.
 	 */
 	@Override
