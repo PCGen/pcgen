@@ -17,11 +17,13 @@
  */
 package pcgen.gui2.facade;
 
+import java.util.Arrays;
 import java.util.EnumMap;
 import java.util.EnumSet;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -287,11 +289,12 @@ class DescriptionFacadeImpl implements DescriptionFacade
 	@Override
 	public void setBiographyField(final BiographyField field, final String newValue)
 	{
-		// TODO: generify this
-		Set<BiographyField> canBeDirectlySet = EnumSet.of(BiographyField.LOCATION, BiographyField.SPEECH_PATTERN,
-			BiographyField.INTERESTS, BiographyField.BIRTHPLACE, BiographyField.PERSONALITY_TRAIT_1,
-			BiographyField.PERSONALITY_TRAIT_2, BiographyField.CITY, BiographyField.PHOBIAS,
-			BiographyField.CATCH_PHRASE, BiographyField.HAIR_STYLE, BiographyField.BIRTHDAY);
+		/**
+		 * The Set of BiographyField objects that can be directlySet since they are
+		 * related to a PCAttribute.
+		 */
+		Set<BiographyField> canBeDirectlySet = Arrays.stream(BiographyField.values())
+			.filter(x -> (x.getPcattr() != null)).collect(Collectors.toSet());
 
 		if (canBeDirectlySet.contains(field))
 		{

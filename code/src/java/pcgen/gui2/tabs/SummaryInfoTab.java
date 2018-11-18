@@ -100,6 +100,7 @@ import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.FacadeComboBoxModel;
 import pcgen.gui2.util.FontManipulation;
+import pcgen.gui2.util.ManagedField;
 import pcgen.gui2.util.SignIcon;
 import pcgen.gui2.util.SignIcon.Sign;
 import pcgen.gui2.util.SimpleTextIcon;
@@ -729,9 +730,21 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		private final LabelHandler statTotalHandler;
 		private final LabelHandler modTotalLabelHandler;
 		private final LabelHandler modTotalHandler;
-		private final TextFieldHandler charNameHandler;
-		private final TextFieldHandler playerNameHandler;
-		private final TextFieldHandler tabNameHandler;
+		
+		/**
+		 * Field for Character Name
+		 */
+		private final ManagedField charNameHandler;
+
+		/**
+		 * Field for PlayerName
+		 */
+		private final ManagedField playerNameHandler;
+
+		/**
+		 * Field for Tab Name
+		 */
+		private final ManagedField tabNameHandler;
 		private final FormattedFieldHandler ageHandler;
 		private final FormattedFieldHandler expHandler;
 		private final FormattedFieldHandler nextLevelHandler;

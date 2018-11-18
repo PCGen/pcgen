@@ -66,6 +66,7 @@ import pcgen.gui2.tabs.TabTitle;
 import pcgen.gui2.tabs.models.CharacterComboBoxModel;
 import pcgen.gui2.tabs.models.FormattedFieldHandler;
 import pcgen.gui2.tabs.models.TextFieldHandler;
+import pcgen.gui2.util.ManagedField;
 import pcgen.gui2.util.ScrollablePanel;
 import pcgen.system.LanguageBundle;
 
@@ -667,7 +668,11 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 		private JLabel trailinglabel = null;
 		private final BiographyField bioField;
 		private final CharacterFacade character;
-		private TextFieldHandler textFieldHandler;
+		
+		/**
+		 * The ManagedField holding the information for this BioItem.
+		 */
+		private ManagedField textFieldHandler;
 		private FormattedFieldHandler formattedFieldHandler;
 
 		protected BioItem(String text, BiographyField bioField, CharacterFacade character)
@@ -740,7 +745,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			}
 		}
 
-		protected void setTextFieldHandler(TextFieldHandler handler)
+		protected void setTextFieldHandler(ManagedField handler)
 		{
 			if (textField != null)
 			{
