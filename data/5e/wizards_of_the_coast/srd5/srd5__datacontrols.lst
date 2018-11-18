@@ -1,3 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 # SOURCELONG:System Reference Document 5.0	SOURCESHORT:SRD5	SOURCEWEB:http://dnd.wizards.com/articles/features/systems-reference-document-srd
 # Original Entry: See contributors listed in PCC file.
@@ -12,31 +13,32 @@
 # Once a dataset takes on the responsibility of a DATACONTROL file, then it
 # MUST include these entries (or something near equivalent [additional
 # SELECT-ability would be legal]) in one of the DATACONTROL files.
-FACTDEF:RACE|BaseSize	DATAFORMAT:SIZEADJUSTMENT	VISIBLE:YES	REQUIRED:NO	EXPLANATION:All Races must have a Size - in the case of multiple sizes, use the SMALLEST allowed.
+# Name						Dataformat				Required	Selectable		Visible	Displayname			Explanation
+FACTDEF:RACE|BaseSize				DATAFORMAT:SIZEADJUSTMENT	REQUIRED:NO				VISIBLE:YES					EXPLANATION:All Races must have a Size - in the case of multiple sizes, use the SMALLEST allowed.
 
-# Name						Dataformat		Selectable		Visible
-FACTDEF:ABILITY|AppliedName			DATAFORMAT:String				VISIBLE:YES
+# Name						Dataformat				Required	Selectable		Visible	Displayname			Explanation
+FACTDEF:ABILITY|AppliedName			DATAFORMAT:String								VISIBLE:YES
 
-FACTDEF:CLASS|Abb					DATAFORMAT:String				VISIBLE:YES
-FACTDEF:CLASS|ClassType				DATAFORMAT:String				VISIBLE:YES
-FACTDEF:CLASS|SpellType				DATAFORMAT:String	SELECTABLE:YES	VISIBLE:YES
+FACTDEF:CLASS|Abb					DATAFORMAT:String								VISIBLE:YES
+FACTDEF:CLASS|ClassType				DATAFORMAT:String								VISIBLE:YES
+FACTDEF:CLASS|SpellType				DATAFORMAT:String					SELECTABLE:YES	VISIBLE:YES
 
-FACTDEF:DEITY|Symbol				DATAFORMAT:String				VISIBLE:YES
-FACTDEF:DEITY|Worshippers			DATAFORMAT:String				VISIBLE:YES
-FACTDEF:DEITY|Title				DATAFORMAT:String				VISIBLE:YES
-FACTDEF:DEITY|Appearance			DATAFORMAT:String				VISIBLE:YES
+FACTDEF:DEITY|Symbol				DATAFORMAT:String								VISIBLE:YES
+FACTDEF:DEITY|Worshippers			DATAFORMAT:String								VISIBLE:YES
+FACTDEF:DEITY|Title				DATAFORMAT:String								VISIBLE:YES
+FACTDEF:DEITY|Appearance			DATAFORMAT:String								VISIBLE:YES
 
-FACTDEF:EQUIPMENT|RateOfFire			DATAFORMAT:String				VISIBLE:YES
+FACTDEF:EQUIPMENT|RateOfFire			DATAFORMAT:String								VISIBLE:YES
 
-FACTDEF:TEMPLATE|AppliedName			DATAFORMAT:String				VISIBLE:YES
+FACTDEF:TEMPLATE|AppliedName			DATAFORMAT:String								VISIBLE:YES
 
-FACTSETDEF:DEITY|Pantheon			DATAFORMAT:String	SELECTABLE:YES	VISIBLE:YES
-FACTSETDEF:DEITY|Race				DATAFORMAT:String				VISIBLE:YES
+FACTSETDEF:DEITY|Pantheon			DATAFORMAT:String					SELECTABLE:YES	VISIBLE:YES
+FACTSETDEF:DEITY|Race				DATAFORMAT:String								VISIBLE:YES
 
 
-FACTDEF:EQUIPMENT|ShortRange			DATAFORMAT:Number				VISIBLE:YES
-FACTDEF:EQUIPMENT|LongRange			DATAFORMAT:Number				VISIBLE:YES
-FACTDEF:EQUIPMENT|RangeLongMult		DATAFORMAT:Number				VISIBLE:YES
+FACTDEF:EQUIPMENT|ShortRange			DATAFORMAT:Number								VISIBLE:YES
+FACTDEF:EQUIPMENT|LongRange			DATAFORMAT:Number								VISIBLE:YES
+FACTDEF:EQUIPMENT|RangeLongMult		DATAFORMAT:Number								VISIBLE:YES
 
 
 
@@ -51,15 +53,7 @@ DEFAULTVARIABLEVALUE:ALIGNMENT|None
 
 
 
-FACTDEF:ABILITY|IsPC		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:IsPC	EXPLANATION:Determines whether a race is a PC to begin with.
+FACTDEF:ABILITY|IsPC				DATAFORMAT:BOOLEAN		REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:IsPC		EXPLANATION:Determines whether a race is a PC to begin with.
 
-# Name			Dataformat		Required	Selectable		Visible	Displayname			Explanation
-FACTDEF:RACE|RACETYPE	DATAFORMAT:String	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:RaceType	EXPLANATION:Determines what the 'RACE TYPE' is.
-
-
-
-
-
-
-
-
+# Name						Dataformat				Required	Selectable		Visible	Displayname			Explanation
+FACTDEF:RACE|RACETYPE				DATAFORMAT:String			REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:RaceType	EXPLANATION:Determines what the 'RACE TYPE' is.

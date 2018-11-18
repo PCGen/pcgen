@@ -1,5 +1,6 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
-SOURCELONG:Chronicle of the Righteous	SOURCESHORT:COTR	SOURCEWEB:http://paizo.com/products/btpy8xe9?Pathfinder-Campaign-Setting-Chronicle-of-the-Righteous	SOURCEDATE:2013-05
+SOURCELONG:Chronicle of the Righteous	SOURCESHORT:CotR	SOURCEWEB:http://paizo.com/products/btpy8xe9?Pathfinder-Campaign-Setting-Chronicle-of-the-Righteous	SOURCEDATE:2013-05
 # ORIGINAL ENTRY: Gwen T. (evilpixie87)
 # ORIGINAL ENTRY DATE: 16 June 2016
 
@@ -7,11 +8,11 @@ SOURCELONG:Chronicle of the Righteous	SOURCESHORT:COTR	SOURCEWEB:http://paizo.co
 # New Prestige Class
 # ==============================
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Define				Combat bonus																	Save bonus																						Modify VAR																																																																			FACT
+# Class Name		Hit Dice	Type			Max Level	Source Page		Define				Combat bonus																	Save bonus																						Modify VAR																																																																			FACT
 CLASS:Mystery Cultist	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.48	DEFINE:MysteryCultistLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|MysteryCultistLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|MyC
-# Class Name	Multiple Requirements																																	Required Skill
-CLASS:Mystery Cultist	PREALIGN:LG,NG,CG	PREABILITY:1,CATEGORY=FEAT,Celestial Obedience	PREFACTSET:1,DEITY,PANTHEON=Empyreal Lords	PRESKILL:1,Knowledge (Religion)=7	PRELANG:1,Celestial
-# Class Name	Skill Pts/Lvl	Class Skill
+# Class Name		Required Ability						Required AL		Required Language		Required Skill				PREFACTSET
+CLASS:Mystery Cultist	PREABILITY:1,CATEGORY=FEAT,Celestial Obedience	PREALIGN:LG,NG,CG	PRELANG:1,Celestial	PRESKILL:1,Knowledge (Religion)=7	PREFACTSET:1,DEITY,PANTHEON=Empyreal Lords
+# Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Mystery Cultist	STARTSKILLPTS:2	CSKILL:Diplomacy|Heal|Intimidate|Knowledge (Planes)|Knowledge (Religion)|Sense Motive|Spellcraft
 ###Block: Level Progression
 2	ADD:SPELLCASTER|ANY

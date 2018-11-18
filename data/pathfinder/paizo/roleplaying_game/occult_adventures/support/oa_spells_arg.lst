@@ -1,3 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Thu Nov 26 22:25:37 2015 -- reformated by PCGen PrettyLST v6.05.01
 SOURCELONG:Occult Adventures	SOURCESHORT:OA	SOURCEWEB:http://paizo.com/products/btpy9a0h
 
@@ -5,6 +6,7 @@ SOURCELONG:Occult Adventures	SOURCESHORT:OA	SOURCEWEB:http://paizo.com/products/
 
 # Spell Name			Type			Classes of caster
 # Agonizing Rebuke appears on Mesmerist list at both L2 & L3...
+# Spell Name			Type			Classes of caster
 Agonizing Rebuke.MOD		TYPE:Psychic	CLASSES:Mesmerist=2
 Agonizing Rebuke.MOD		TYPE:Psychic	CLASSES:Mesmerist=3
 Bestow Insight.MOD		TYPE:Psychic	CLASSES:Medium,Mesmerist=2

@@ -1,5 +1,6 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
-SOURCELONG:Dungeoneer's Handbook	SOURCESHORT:DH	SOURCEWEB:http://paizo.com/products/btpy8wfn?Pathfinder-Player-Companion-Dungeoneers-Handbook	SOURCEDATE:2013-03
+SOURCELONG:Pathfinder Player Companion: Dungeoneer's Handbook	SOURCESHORT:DH	SOURCEWEB:http://paizo.com/products/btpy8wfn	SOURCEDATE:2013-03
 # Original RSRD Entry by: PCGen Data Team
 # Pathfinder RPG Entry by: Scott Meyer
 
@@ -24,7 +25,7 @@ GEAR:Buoy (Common)			QTY:1	SIZE:PC
 GEAR:Chain (10 Ft)			QTY:3	SIZE:PC
 GEAR:Fishing Net (25 Sq Ft)		QTY:1	SIZE:PC
 GEAR:Bottle (Glass)			QTY:1	SIZE:PC
-GEAR:Soap			QTY:1	SIZE:PC
+GEAR:Soap					QTY:1	SIZE:PC
 GEAR:Sunrod					QTY:3	SIZE:PC
 GEAR:Waterproof Bag			QTY:1	SIZE:PC
 GEAR:Lantern (Bullseye/Waterproof)	QTY:1	SIZE:PC

@@ -31,6 +31,7 @@ import pcgen.cdom.base.PrimitiveCollection;
 import pcgen.cdom.grouping.GroupingCollection;
 import pcgen.cdom.grouping.GroupingDefinition;
 import pcgen.cdom.grouping.GroupingInfo;
+import pcgen.cdom.grouping.GroupingScopeFilter;
 import pcgen.cdom.primitive.CompoundAndPrimitive;
 import pcgen.cdom.primitive.CompoundOrPrimitive;
 import pcgen.cdom.primitive.NegatingPrimitive;
@@ -465,11 +466,12 @@ public final class ChoiceSetLoadUtilities
 	 * @return A GroupingCollection based on the given GroupingInfo interpreted within the
 	 *         given LoadContext
 	 */
-	public static <T, G extends Loadable> GroupingCollection<? extends Loadable> getDynamicGroup(LoadContext context,
+	public static <T, G> GroupingCollection<?> getDynamicGroup(LoadContext context,
 		GroupingInfo<G> info)
 	{
+		Class<G> groupingClass = info.getManagedClass(context);
 		GroupingDefinition<G> groupingDefinition =
-				TokenLibrary.getGrouping(info.getIdentity(), info.getCharacteristic());
+				TokenLibrary.getGrouping(groupingClass, info.getCharacteristic());
 		if (groupingDefinition == null)
 		{
 			/*
@@ -477,9 +479,10 @@ public final class ChoiceSetLoadUtilities
 			 * is a key, since object names should be usable directly. Therefore, try
 			 * processing it as a Key.
 			 */
-			groupingDefinition = TokenLibrary.getGrouping(info.getIdentity(), "KEY");
+			groupingDefinition = TokenLibrary.getGrouping(groupingClass, "KEY");
 		}
-		return groupingDefinition.process(context, info);
+		GroupingCollection<G> collection = groupingDefinition.process(context, info);
+		return new GroupingScopeFilter<>(info.getScope(), collection);
 	}
 
 }

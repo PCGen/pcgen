@@ -1,0 +1,27 @@
+Anderos Salve and Mulibrous Tincture	TYPE:Goods.Alchemical.Consumable			COST:5			SOURCEPAGE:p.168
+Applecheek						TYPE:Goods.Alchemical.Consumable			COST:10	WT:1		SOURCEPAGE:p.44
+Boniface Paint					TYPE:Goods.Alchemical.Consumable			COST:15	WT:5		SOURCEPAGE:p.44
+Cooking Powder					TYPE:Goods.Alchemical.Consumable			COST:2	WT:1		SOURCEPAGE:p.44
+Lantern Honey					TYPE:Goods.Alchemical.Consumable			COST:150			SOURCEPAGE:p.114
+Nostalgia Oil					TYPE:Goods.Alchemical.Consumable			COST:80			SOURCEPAGE:p.147
+Phantom Ash						TYPE:Goods.Alchemical.Consumable			COST:10			SOURCEPAGE:p.168
+Scarsalve						TYPE:Goods.Alchemical.Consumable			COST:10	WT:1		SOURCEPAGE:p.84
+Sparkle Smoke					TYPE:Goods.Alchemical.Consumable			COST:25	WT:1		SOURCEPAGE:p.45
+Tiller's Gum					TYPE:Goods.Alchemical.Consumable			COST:100			SOURCEPAGE:p.45
+
+Branding Iron (Common)				TYPE:Goods.General.Consumable				COST:2	WT:5		SOURCEPAGE:p.96
+Branding Iron (Custom Shape)			TYPE:Goods.General.Consumable				COST:10	WT:5		SOURCEPAGE:p.96
+Caparison						TYPE:Goods.General					COST:2	WT:4		SOURCEPAGE:p.14
+Mithral Horseshoes				TYPE:Goods.General					COST:550	WT:0.5	SOURCEPAGE:p.14
+Pathfinder Chronicle				TYPE:Goods.General					COST:50	WT:1		SOURCEPAGE:p.14
+Spice (Black Cumin)				TYPE:Goods.General.Consumable				COST:15	WT:0.1	SOURCEPAGE:p.14
+Spice (Flaming Sumac)				TYPE:Goods.General.Consumable				COST:20	WT:0.1	SOURCEPAGE:p.14
+Spice (Golden Cardamom)				TYPE:Goods.General.Consumable				COST:30	WT:0.1	SOURCEPAGE:p.14
+Spice (Striped Nutmeg)				TYPE:Goods.General.Consumable				COST:100	WT:0.1	SOURCEPAGE:p.14
+Spice (Sunrise Cinnamon)			TYPE:Goods.General.Consumable				COST:15	WT:0.1	SOURCEPAGE:p.14
+Spice (Tiger Cloves)				TYPE:Goods.General.Consumable				COST:25	WT:0.1	SOURCEPAGE:p.14
+Spice (Violet Salt)				TYPE:Goods.General.Consumable				COST:5	WT:0.1	SOURCEPAGE:p.14
+Sunblock Kohl					TYPE:Goods.General.Consumable				COST:10			SOURCEPAGE:p.15
+Signifer Mask					TYPE:Goods.Clothing.Resizable.Headgear		COST:75	WT:2		SOURCEPAGE:p.97
+
+Poison (Breath of the Mantis God)		TYPE:Goods.Poison.Consumable				COST:1500			SOURCEPAGE:p.158	NAMEISPI:YES		SPROP:Inhaled; Fort DC 21; Freq 1 min (6); Effect 1d4 bleed/1d3 Con dmg (see text); Cure 2 consecutive saves

@@ -22,7 +22,6 @@ import java.io.File;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.reflect.Modifier;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.Collection;
@@ -157,12 +156,6 @@ class PluginClassLoader extends PCGenTask
 
 	private boolean processClass(Class<?> clazz)
 	{
-		int modifiers = clazz.getModifiers();
-		if (Modifier.isInterface(modifiers) || Modifier.isAbstract(modifiers))
-		{
-			return false;
-		}
-
 		boolean loaded = false;
 		for (final Class<?> key : loaderMap.getKeySet())
 		{

@@ -43,8 +43,8 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 import java.util.Observer;
-import java.util.concurrent.ExecutionException;
 import java.util.logging.LogRecord;
 
 import javax.swing.Action;
@@ -64,7 +64,6 @@ import javax.swing.KeyStroke;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
-import javax.swing.SwingWorker;
 import javax.swing.WindowConstants;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -101,6 +100,7 @@ import pcgen.gui2.tabs.InfoTabbedPane;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.ShowMessageGuiObserver;
+import pcgen.gui2.util.SwingWorker;
 import pcgen.io.PCGFile;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.system.CharacterManager;
@@ -131,6 +131,12 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 	private final PCGenActionMap actionMap;
 	private final CharacterTabs characterTabs;
 	private final PCGenStatusBar statusBar;
+
+	/**
+	 * The context indicating what items are currently loaded/being processed in the UI
+	 */
+	private final UIContext uiContext;
+
 	private final DefaultReferenceFacade<SourceSelectionFacade> currentSourceSelection;
 	private final DefaultReferenceFacade<CharacterFacade> currentCharacterRef;
 	private final DefaultReferenceFacade<DataSetFacade> currentDataSetRef;
@@ -142,13 +148,14 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 	private String section15 = null;
 	private String lastCharacterPath = null;
 
-	public PCGenFrame()
+	public PCGenFrame(UIContext uiContext)
 	{
+		this.uiContext = Objects.requireNonNull(uiContext);
 		Globals.setRootFrame(this);
-		this.currentSourceSelection = new DefaultReferenceFacade<>();
+		this.currentSourceSelection = uiContext.getCurrentSourceSelectionRef();
 		this.currentCharacterRef = new DefaultReferenceFacade<>();
 		this.currentDataSetRef = new DefaultReferenceFacade<>();
-		this.actionMap = new PCGenActionMap(this);
+		this.actionMap = new PCGenActionMap(this, uiContext);
 		this.characterTabs = new CharacterTabs(this);
 		this.statusBar = new PCGenStatusBar(this);
 		this.filenameListener = new FilenameListener();
@@ -169,8 +176,8 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		root.setActionMap(actionMap);
 		root.setInputMap(JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT, createInputMap(actionMap));
 
-		characterTabs.add(new InfoGuidePane(this));
-		setJMenuBar(new PCGenMenuBar(this));
+		characterTabs.add(new InfoGuidePane(this, uiContext));
+		setJMenuBar(new PCGenMenuBar(this, uiContext));
 		add(new PCGenToolBar(this), BorderLayout.NORTH);
 		add(characterTabs, BorderLayout.CENTER);
 		add(statusBar, BorderLayout.SOUTH);
@@ -528,14 +535,6 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		{
 			character.getFileRef().addReferenceListener(filenameListener);
 		}
-	}
-
-	/**
-	 * @return A reference to the currently loaded sources.
-	 */
-	public ReferenceFacade<SourceSelectionFacade> getCurrentSourceSelectionRef()
-	{
-		return currentSourceSelection;
 	}
 
 	/**
@@ -1458,7 +1457,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 	{
 		if (sourceSelectionDialog == null)
 		{
-			sourceSelectionDialog = new SourceSelectionDialog(this);
+			sourceSelectionDialog = new SourceSelectionDialog(this, uiContext);
 		}
 		Utility.setComponentRelativeLocation(this, sourceSelectionDialog);
 		sourceSelectionDialog.setVisible(true);
@@ -1677,10 +1676,10 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 
 		private final SourceSelectionFacade sources;
 		private final SourceFileLoader loader;
-		private final SwingWorker<List<LogRecord>, List<LogRecord>> worker;
+		private final SwingWorker<List<LogRecord>> worker;
 		private final UIDelegate delegate;
 
-		private SourceLoadWorker(SourceSelectionFacade sources, UIDelegate delegate)
+		public SourceLoadWorker(SourceSelectionFacade sources, UIDelegate delegate)
 		{
 			this.sources = sources;
 			this.delegate = delegate;
@@ -1691,23 +1690,16 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		@Override
 		public void run()
 		{
-			worker.execute();
+			worker.start();
 			//wait until the worker finish and post any errors that occurred
-			try
-			{
-				statusBar.setSourceLoadErrors(worker.get());
-			}
-			catch (InterruptedException | ExecutionException e)
-			{
-				Logging.errorPrint("execution exception during PCGenFrame run", e);
-			}
+			statusBar.setSourceLoadErrors(worker.get());
 			//now that the SourceFileLoader has finished
 			//handle licenses and whatnot
-			String sec15 = " "
-					+ readTextFromFile(
-					ConfigurationSettings.getSystemsDir() + File.separator + "opengaminglicense.10a.txt")
-					+ loader.getOGL();
-			section15 = sec15;
+			StringBuilder sec15 = new StringBuilder(" ");
+			sec15.append(
+				readTextFromFile(ConfigurationSettings.getSystemsDir() + File.separator + "opengaminglicense.10a.txt"));
+			sec15.append(loader.getOGL());
+			section15 = sec15.toString();
 			try
 			{
 				showLicenses();

@@ -20,10 +20,8 @@ import java.util.Objects;
 import java.util.Stack;
 
 import pcgen.base.formula.base.LegalScope;
-import pcgen.cdom.base.ClassIdentity;
-import pcgen.cdom.base.Loadable;
+import pcgen.base.util.FormatManager;
 import pcgen.cdom.formula.scope.PCGenScope;
-import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.rules.context.LoadContext;
 
 /**
@@ -96,21 +94,15 @@ public class GroupingInfoFactory
 		depth = 0;
 		expected.clear();
 		fullTokenizer = new GroupingTokenizer(instructions);
-		ReferenceManufacturer<? extends Loadable> formatManager =
-				context.getReferenceContext().getManufacturerByFormatName(scopeName[1]);
-		if (formatManager == null)
-		{
-			throw new GroupingStateException("Unable to determine FormatManager for Scope: " + fullScopeName);
-		}
-		return continueTypeSafeProcessing(formatManager);
+		FormatManager<?> formatManager = scope.getFormatManager(context);
+		return continueTypeSafeProcessing(scope, formatManager);
 	}
 
-	private <T extends Loadable> GroupingInfo<T> continueTypeSafeProcessing(ReferenceManufacturer<T> formatManager)
-		throws GroupingStateException
+	private <T> GroupingInfo<T> continueTypeSafeProcessing(
+		PCGenScope scope, FormatManager<T> formatManager) throws GroupingStateException
 	{
 		GroupingInfo<T> topInfo = new GroupingInfo<>();
-		ClassIdentity<T> refId = formatManager.getReferenceIdentity();
-		topInfo.setIdentity(refId);
+		topInfo.setScope(scope);
 		activeInfo = topInfo;
 		consumeGrouping();
 		if (fullTokenizer.hasNext())

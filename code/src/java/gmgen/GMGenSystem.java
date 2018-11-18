@@ -31,26 +31,12 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JSeparator;
-import javax.swing.SwingWorker;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.MenuEvent;
 import javax.swing.event.MenuListener;
 
-import pcgen.core.SettingsHandler;
-import pcgen.gui2.PCGenActionMap;
-import pcgen.gui2.plaf.MacGUIHandler;
-import pcgen.gui2.tools.CommonMenuText;
-import pcgen.gui2.tools.Icons;
-import pcgen.gui2.tools.Utility;
-import pcgen.pluginmgr.PCGenMessage;
-import pcgen.pluginmgr.PCGenMessageHandler;
-import pcgen.pluginmgr.PluginManager;
-import pcgen.pluginmgr.messages.FocusOrStateChangeOccurredMessage;
-import pcgen.pluginmgr.messages.RequestFileOpenedMessageForCurrentlyOpenedPCsMessage;
-import pcgen.system.LanguageBundle;
-import pcgen.system.PCGenPropBundle;
-import pcgen.util.Logging;
+import org.apache.commons.lang3.SystemUtils;
 
 import gmgen.gui.PreferencesDialog;
 import gmgen.gui.PreferencesRootTreeNode;
@@ -65,7 +51,21 @@ import gmgen.pluginmgr.messages.GMGenBeingClosedMessage;
 import gmgen.pluginmgr.messages.RequestAddPreferencesPanelMessage;
 import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
 import gmgen.util.LogUtilities;
-import org.apache.commons.lang3.SystemUtils;
+import pcgen.core.SettingsHandler;
+import pcgen.gui2.PCGenActionMap;
+import pcgen.gui2.plaf.MacGUIHandler;
+import pcgen.gui2.tools.CommonMenuText;
+import pcgen.gui2.tools.Icons;
+import pcgen.gui2.tools.Utility;
+import pcgen.gui2.util.SwingWorker;
+import pcgen.pluginmgr.PCGenMessage;
+import pcgen.pluginmgr.PCGenMessageHandler;
+import pcgen.pluginmgr.PluginManager;
+import pcgen.pluginmgr.messages.FocusOrStateChangeOccurredMessage;
+import pcgen.pluginmgr.messages.RequestFileOpenedMessageForCurrentlyOpenedPCsMessage;
+import pcgen.system.LanguageBundle;
+import pcgen.system.PCGenPropBundle;
+import pcgen.util.Logging;
 
 /**
  * {@code GMGenSystem} is the main class of the GMGen application.
@@ -162,7 +162,7 @@ public final class GMGenSystem extends JFrame
 		super(LanguageBundle.getFormattedString("in_gmgen_frameTitle", APPLICATION_NAME)); //$NON-NLS-1$
 		pluginManager = PluginManager.getInstance();
 		messageHandler = pluginManager.getPostbox();
-		new Renderer().execute();
+		new Renderer().start();
 	}
 
 	private void initialize()
@@ -661,18 +661,19 @@ public final class GMGenSystem extends JFrame
 		dialog.setVisible(true);
 	}
 
-	private class Renderer extends SwingWorker<String, String>
+	private class Renderer extends SwingWorker
 	{
+
 		@Override
-		public void done()
+		public Object construct()
 		{
-			GMGenSystem.this.initialize();
+			return "";
 		}
 
 		@Override
-		protected String doInBackground()
+		public void finished()
 		{
-			return "";
+			GMGenSystem.this.initialize();
 		}
 	}
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Thomas Parker, 2009-18.
+ * Copyright (c) Thomas Parker, 2009.
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -17,7 +17,6 @@
  */
 package pcgen.cdom.facet;
 
-import java.util.List;
 import java.util.Set;
 import java.util.function.Consumer;
 
@@ -26,11 +25,9 @@ import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VarScoped;
 import pcgen.base.solver.Modifier;
 import pcgen.base.util.FormatManager;
-import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.content.RemoteModifier;
 import pcgen.cdom.content.VarModifier;
 import pcgen.cdom.enumeration.CharID;
-import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.facet.base.AbstractAssociationFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
@@ -69,47 +66,39 @@ public class RemoteModifierFacet extends AbstractAssociationFacet<CharID, Remote
 		 */
 		for (RemoteModifier<?> remoteModifier : getSet(id))
 		{
-			processAdd(id, remoteModifier, addedObject);
+			PCGenScoped modSource = get(id, remoteModifier);
+			processAdd(id, remoteModifier, addedObject, modSource);
 		}
 		/*
 		 * Look at what addedObject can modify on others.
 		 */
-		if (addedObject instanceof CDOMObject)
+		RemoteModifier<?>[] remoteModifierArray = addedObject.getRemoteModifierArray();
+		if (remoteModifierArray.length > 0)
 		{
-			List<RemoteModifier<?>> remoteModifierList = ((CDOMObject) addedObject).getListFor(ListKey.REMOTE_MODIFIER);
-			if (remoteModifierList != null)
+			Set<PCGenScoped> targets = varScopedFacet.getSet(id);
+			for (RemoteModifier<?> remoteModifier : remoteModifierArray)
 			{
-				/*
-				 * TODO using ALL targets is exhaustive... It would be nice for this to be
-				 * reduced someday, but for now, with so many types of grouping going on
-				 * (3!), we need to keep this one simple until we have all the use cases
-				 * in one place and can make some sensible decisions over what has to be
-				 * implemented and where it needs to be done.
-				 */
-				Set<? extends PCGenScoped> targetSet = varScopedFacet.getSet(id);
-				for (RemoteModifier<?> remoteModifier : remoteModifierList)
+				set(id, remoteModifier, addedObject);
+				//Apply to existing as necessary
+				for (PCGenScoped obj : targets)
 				{
-					set(id, remoteModifier, addedObject);
-					//Apply to existing as necessary
-					for (PCGenScoped target : targetSet)
-					{
-						processAdd(id, remoteModifier, target);
-					}
+					processAdd(id, remoteModifier, obj, addedObject);
 				}
 			}
 		}
 	}
 
-	private <MT> void processAdd(CharID id, RemoteModifier<MT> remoteModifier, PCGenScoped targetParent)
+	private <MT> void processAdd(CharID id, RemoteModifier<MT> remoteModifier,
+		VarScoped targetObject, PCGenScoped modSource)
 	{
-		PCGenScoped modSource = get(id, remoteModifier);
+		ScopeInstance modSourceInstance = scopeFacet.get(id, modSource);
 		VarModifier<MT> varModifier = remoteModifier.getVarModifier();
 		FormulaModifier<MT> formulaModifier = varModifier.getModifier();
-		ScopeInstance sourceInstance = scopeFacet.get(id, modSource);
-		Consumer<PCGenScoped> consumer = target -> solverManagerFacet.addModifier(id, varModifier, target,
-			getModifier(id, formulaModifier, modSource, sourceInstance, target, scopeFacet.get(id, target)),
-			sourceInstance);
-		remoteModifier.getGrouping().process(targetParent, consumer);
+		Consumer<PCGenScoped> consumer = target -> solverManagerFacet.addModifier(id,
+			varModifier, target, getModifier(id, formulaModifier, modSource,
+				modSourceInstance, target, scopeFacet.get(id, target)),
+			scopeFacet.get(id, target));
+		remoteModifier.getGrouping().process(modSource, consumer);
 	}
 
 	private <T> Modifier<T> getModifier(CharID id, FormulaModifier<T> modifier, VarScoped source,
@@ -151,40 +140,39 @@ public class RemoteModifierFacet extends AbstractAssociationFacet<CharID, Remote
 		 */
 		for (RemoteModifier<?> remoteModifier : getSet(id))
 		{
-			processRemove(id, remoteModifier, addedObject);
+			PCGenScoped modSource = get(id, remoteModifier);
+			processRemove(id, remoteModifier, addedObject, modSource);
 		}
 		/*
 		 * Look at what addedObject can modify on others.
 		 */
-		if (addedObject instanceof CDOMObject)
+		RemoteModifier<?>[] remoteModifierArray = addedObject.getRemoteModifierArray();
+		if (remoteModifierArray.length > 0)
 		{
-			List<RemoteModifier<?>> remoteModifierList = ((CDOMObject) addedObject).getListFor(ListKey.REMOTE_MODIFIER);
-			if (remoteModifierList != null)
+			Set<? extends VarScoped> targets = varScopedFacet.getSet(id);
+			for (RemoteModifier<?> remoteModifier : remoteModifierArray)
 			{
-				Set<? extends PCGenScoped> targetSet = varScopedFacet.getSet(id);
-				for (RemoteModifier<?> remoteModifier : remoteModifierList)
+				remove(id, remoteModifier);
+				//RemoveFrom existing as necessary
+				for (VarScoped obj : targets)
 				{
-					remove(id, remoteModifier);
-					//RemoveFrom existing as necessary
-					for (PCGenScoped target : targetSet)
-					{
-						processRemove(id, remoteModifier, target);
-					}
+					processRemove(id, remoteModifier, obj, addedObject);
 				}
 			}
 		}
 	}
 
-	private <MT> void processRemove(CharID id, RemoteModifier<MT> remoteModifier, PCGenScoped targetParent)
+	private <MT> void processRemove(CharID id, RemoteModifier<MT> remoteModifier,
+		VarScoped targetObject, PCGenScoped modSource)
 	{
-		PCGenScoped modSource = get(id, remoteModifier);
+		ScopeInstance modSourceInstance = scopeFacet.get(id, modSource);
 		VarModifier<MT> varModifier = remoteModifier.getVarModifier();
 		FormulaModifier<MT> formulaModifier = varModifier.getModifier();
-		ScopeInstance sourceInstance = scopeFacet.get(id, modSource);
-		Consumer<PCGenScoped> consumer = target -> solverManagerFacet.removeModifier(id, varModifier, target,
-			getModifier(id, formulaModifier, modSource, sourceInstance, target, scopeFacet.get(id, target)),
-			sourceInstance);
-		remoteModifier.getGrouping().process(targetParent, consumer);
+		Consumer<PCGenScoped> consumer = target -> solverManagerFacet.removeModifier(id,
+			varModifier, target, getModifier(id, formulaModifier, modSource,
+				modSourceInstance, target, scopeFacet.get(id, target)),
+			scopeFacet.get(id, target));
+		remoteModifier.getGrouping().process(modSource, consumer);
 	}
 
 	public void setScopeFacet(ScopeFacet scopeFacet)
@@ -203,10 +191,10 @@ public class RemoteModifierFacet extends AbstractAssociationFacet<CharID, Remote
 	}
 
 	/**
-	 * Initializes the connections for ArmorProfFacet to other facets.
+	 * Initializes the connections for RemoteModifierFacet to other facets.
 	 * 
 	 * This method is automatically called by the Spring framework during
-	 * initialization of the ArmorProfFacet.
+	 * initialization of the RemoteModifierFacet.
 	 */
 	public void init()
 	{

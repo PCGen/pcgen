@@ -1,3 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 21421 $ $Author: evilmynex $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Ultimate Magic	SOURCESHORT:UM	SOURCEWEB:http://paizo.com/pathfinderRPG/v5748btpy8g7s	SOURCEDATE:2011-05
 # ORIGINAL ENTRY: Stefan Radermacher, Eric Smith (Maredudd), Douglas Limmer, and Paul Shipley
@@ -17,7 +18,7 @@ CATEGORY=Archetype|Witch Archetype ~ Gravewalker.MOD									TYPE:PFSNotLegal	!P
 CATEGORY=Archetype|Druid Archetype ~ Pack Lord.MOD									TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
 CATEGORY=Archetype|Summoner Archetype ~ Master Summoner.MOD								TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
 CATEGORY=Archetype|Druid Archetype ~ Reincarnated Druid.MOD								TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
-CATEGORY=Special Ability|Wildblooded ~ Sanguine.MOD								TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Wildblooded ~ Sanguine.MOD									TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
 CATEGORY=Archetype|Summoner Archetype ~ Synthesist.MOD								TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
 CATEGORY=Archetype|Cleric Archetype ~ Undead Lord.MOD									TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
 CATEGORY=Archetype|Alchemist Archetype ~ Vivisectionist.MOD								TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC

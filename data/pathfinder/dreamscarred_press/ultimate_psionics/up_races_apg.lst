@@ -1,3 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Ultimate Psionics	SOURCESHORT:UP	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2013-12
 # ORIGINAL ENTRY: Douglas Limmer
@@ -5,8 +6,8 @@ SOURCELONG:Ultimate Psionics	SOURCESHORT:UP	SOURCEWEB:http://dreamscarredpress.c
 
 # CONSIDER:
 #   Add aquatic form from UM
-# Race Name	Starting Feats	Size		Move			Face/Space	Reach		Vision			Serves As			Combat bonus				Stat bonus								Modify VAR			Ability							Nb Legs	Nb Hands	Define		Monster Class Name and Starting Level	Main Race Type		Source Page		Apply Kit
-Horror	STARTFEATS:0	FACT:BaseSize|M	SIZE:M	MOVE:Walk,20			REACH:5	VISION:Darkvision (60')	SERVESAS:RACE|Eidolon	BONUS:COMBAT|AC|2|TYPE=NaturalArmor	BONUS:STAT|STR|6	BONUS:STAT|DEX|2	BONUS:STAT|CON|2	BONUS:VAR|EidHeads|1	ABILITY:Internal|AUTOMATIC|Race Traits ~ Horror	LEGS:2	HANDS:7	DEFINE:EidHeads|0	MONSTERCLASS:Horror:1				RACETYPE:Construct	SOURCEPAGE:p.268	KIT:1|Horror
+# Race Name	Starting Feats	Size		Move			Reach		Vision			Serves As			Combat bonus				Stat bonus								Modify VAR			Ability							Nb Legs	Nb Hands	Define		Monster Class Name and Starting Level	Main Race Type		Source Page		Apply Kit		FACT
+Horror	STARTFEATS:0	SIZE:M	MOVE:Walk,20	REACH:5	VISION:Darkvision (60')	SERVESAS:RACE|Eidolon	BONUS:COMBAT|AC|2|TYPE=NaturalArmor	BONUS:STAT|STR|6	BONUS:STAT|DEX|2	BONUS:STAT|CON|2	BONUS:VAR|EidHeads|1	ABILITY:Internal|AUTOMATIC|Race Traits ~ Horror	LEGS:2	HANDS:7	DEFINE:EidHeads|0	MONSTERCLASS:Horror:1				RACETYPE:Construct	SOURCEPAGE:p.268	KIT:1|Horror	FACT:BaseSize|M
 
 # NEEDS CODE/DATA WORK: RACETYPE:Eidolon needed to allow some eidolon evolutions - but only one RACETYPE allowed!
 # NEEDS CODE WORK: SERVESAS:RACE|Eidolon (Whatever) doesn't seem to be working.

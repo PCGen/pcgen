@@ -1,4 +1,6 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 
 
+# Template Name				Visible	Main Race Type	Race Subtype
 Race Type ~ Animal			VISIBLE:NO	RACETYPE:Animal
-Race Subtype ~ Animal Companion	VISIBLE:NO	RACESUBTYPE:Animal Companion
+Race Subtype ~ Animal Companion	VISIBLE:NO				RACESUBTYPE:Animal Companion

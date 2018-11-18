@@ -19,7 +19,6 @@ import java.util.function.Consumer;
 
 import pcgen.base.util.Indirect;
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.Loadable;
 import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.formula.PCGenScoped;
 import pcgen.cdom.grouping.GroupingCollection;
@@ -105,7 +104,7 @@ public class FactGrouping<T extends CDOMObject, F> implements GroupingCollection
 	 * @param childCollection
 	 *            The child GroupingCollection for this FactGrouping
 	 */
-	public void setChild(GroupingCollection<? extends Loadable> childCollection)
+	public void setChild(GroupingCollection<?> childCollection)
 	{
 		childGrouping = childCollection;
 	}

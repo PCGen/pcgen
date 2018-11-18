@@ -24,7 +24,7 @@ import org.junit.Test;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.VarHolder;
-import pcgen.core.Skill;
+import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
@@ -37,7 +37,7 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 public class ModifyLstTest extends AbstractGlobalTokenTestCase
 {
 	private static ModifyLst token = new ModifyLst();
-	private static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<>();
+	private static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
@@ -48,15 +48,15 @@ public class ModifyLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Override
-	public CDOMLoader<Skill> getLoader()
+	public CDOMLoader<PCTemplate> getLoader()
 	{
 		return loader;
 	}
 
 	@Override
-	public Class<Skill> getCDOMClass()
+	public Class<PCTemplate> getCDOMClass()
 	{
-		return Skill.class;
+		return PCTemplate.class;
 	}
 
 	@Override

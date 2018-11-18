@@ -1,14 +1,15 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
-SOURCELONG:Pathfinder Player Companion: Weapon Master's Handbook	SOURCESHORT:WMH	SOURCEWEB:http://paizo.com/products/btpy9hdy?Pathfinder-Player-Companion-Weapon-Masters-Handbook	SOURCEDATE:2015-12
+SOURCELONG:Pathfinder Player Companion: Weapon Master's Handbook	SOURCESHORT:WMH	SOURCEWEB:http://paizo.com/products/btpy9hdy	SOURCEDATE:2015-12
 
-# Modifier Name	Type		Plus		Cost		Visible		Source Page		Required Type
-Driving		KEY:Special Ability ~ Driving ~ Weapon	TYPE:Weapon	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Ranged	PRETYPE:1,Enhancement
+# Modifier Name	Unique Key							Type		Plus		Cost		Visible		Source Page		Required Type
+Driving		KEY:Special Ability ~ Driving ~ Weapon		TYPE:Weapon	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Ranged	PRETYPE:1,Enhancement
 Heart-Piercing	KEY:Special Ability ~ Heart-Piercing ~ Weapon	TYPE:Weapon	PLUS:5			VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:2,Ranged,Piercing	PRETYPE:1,Enhancement
-Leveraging		KEY:Special Ability ~ Leveraging ~ Weapon	TYPE:Weapon	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Melee	PRETYPE:1,Enhancement
-Liberating		KEY:Special Ability ~ Liberating ~ Weapon	TYPE:Weapon			COST:7000	VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Enhancement
-Quaking		KEY:Special Ability ~ Quaking ~ Weapon	TYPE:Weapon	PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:2,Melee,Bludgeoning	PRETYPE:1,Enhancement
-Sharding		KEY:Special Ability ~ Sharding ~ Weapon	TYPE:Weapon	PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Melee,Thrown	PRETYPE:1,Enhancement
-Vampiric		KEY:Special Ability ~ Vampiric ~ Weapon	TYPE:Weapon	PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Melee	PRETYPE:1,Enhancement
+Leveraging		KEY:Special Ability ~ Leveraging ~ Weapon		TYPE:Weapon	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Melee	PRETYPE:1,Enhancement
+Liberating		KEY:Special Ability ~ Liberating ~ Weapon		TYPE:Weapon			COST:7000	VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Enhancement
+Quaking		KEY:Special Ability ~ Quaking ~ Weapon		TYPE:Weapon	PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:2,Melee,Bludgeoning	PRETYPE:1,Enhancement
+Sharding		KEY:Special Ability ~ Sharding ~ Weapon		TYPE:Weapon	PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Melee,Thrown	PRETYPE:1,Enhancement
+Vampiric		KEY:Special Ability ~ Vampiric ~ Weapon		TYPE:Weapon	PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Melee	PRETYPE:1,Enhancement
 
 
 
@@ -34,6 +35,7 @@ Vampiric		KEY:Special Ability ~ Vampiric ~ Weapon	TYPE:Weapon	PLUS:2			VISIBLE:Q
 
 
 #Old KEYs
+# Modifier Name									Visible
 Special Ability ~ Driving ~ Weapon.COPY=Driving				VISIBLE:NO
 Special Ability ~ Heart-Piercing ~ Weapon.COPY=Heart-Piercing	VISIBLE:NO
 Special Ability ~ Leveraging ~ Weapon.COPY=Leveraging			VISIBLE:NO

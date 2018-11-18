@@ -1,3 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Sidewinder: Recoiled	SOURCESHORT:S:R	SOURCEWEB:http://www.doghouserules.net/recoiled/index.html	SOURCEDATE:2004-12
 # Original Entry by: Lone Jedi and Max Kuney (MSRD by Paul King, Barak, & Hugo)
@@ -76,7 +77,7 @@ CATEGORY=FEAT|Drive-By Attack.MOD				TYPE:.CLEAR	TYPE:General																			
 CATEGORY=FEAT|Educated.MOD					TYPE:.CLEAR	TYPE:General.Smart.Dedicated.Preacher.Professor.Sawbones.Showman																		DESC:Provides a bonus to any two Knowledge skills.																	SOURCEPAGE:p.110
 CATEGORY=FEAT|Elusive Target.MOD				TYPE:.CLEAR	TYPE:General.Fast.Grifter.Maverick.Pugilist.Rustler																				DESC:You can duck and dodge behind others when in melee combat, making it hard to shoot you from a distance.							SOURCEPAGE:p.110
 CATEGORY=FEAT|Endurance.MOD					TYPE:.CLEAR	TYPE:General.Tough.Brave.Desperado.Scout.TinStar.Wrangler.Prospector																	DESC:You can keep going long after others have tired.																	SOURCEPAGE:p.110
-CATEGORY=FEAT|Exotic Firearms Proficiency.MOD		TYPE:.CLEAR	TYPE:General.Soldier																																																	SOURCEPAGE:p.110
+CATEGORY=FEAT|Exotic Firearms Proficiency.MOD		TYPE:.CLEAR	TYPE:General.Soldier																																																		SOURCEPAGE:p.110
 CATEGORY=FEAT|Exotic Melee Weapon Proficiency.MOD	TYPE:.CLEAR	TYPE:General.Soldier																									DESC:You are proficient in a specific exotic melee weapon.																SOURCEPAGE:p.110
 CATEGORY=FEAT|Far Shot.MOD					TYPE:.CLEAR	TYPE:General.Dedicated.Brave.Gunslinger.MountainMan.PonySoldier.Scout.Soldier.Hunter														DESC:You can get extra distance from ranged weapons.																	SOURCEPAGE:p.111
 CATEGORY=FEAT|Focused.MOD					TYPE:.CLEAR	TYPE:General.Fast.Mariner																								DESC:Provides a bonus on Balance and Concentration checks.																SOURCEPAGE:p.111

@@ -1,0 +1,19 @@
+SOURCELONG:Pathfinder Player Companion: The Harrow Handbook		SOURCESHORT:HH	SOURCEWEB:http://paizo.com/products/btpy95zm	SOURCEDATE:2014-07
+
+# ==============================
+# New Equipment
+# ==============================
+
+Harrow Carrying Case				TYPE:Goods.General			CONTAINS:5|Total=2|CardDeck=1|HarrowMat=1		COST:10		WT:2			SOURCEPAGE:p.30		SPROP:Protects cards against rips, tears, water damage, bending, and flames.
+Harrow Mat						TYPE:Goods.General.HarrowMat										COST:80		WT:1			SOURCEPAGE:p.30		SPROP:Gain a +4 circumstance bonus on Bluff or Diplomacy checks (harrower's choice) to convince the subjects of your harrowing that your words are true.
+
+# ==============================
+# New Magic Items
+# ==============================
+
+Backbiter's Focus					TYPE:Magic.Rod												COST:78000		WT:1			SOURCEPAGE:p.30		SPROP:Can curse a weapon to deal half damage for 7 rounds, magic weapons get a saving throw
+Bastion Boots					TYPE:Magic.Wondrous.Boot										COST:10500		WT:4			SOURCEPAGE:p.30		SPROP:Can be used as an immovable rod, even when worn; grants wearer a +4 bonus to CMD against combat maneuvers to move them.
+Fate-Reader's Lenses 				TYPE:Magic.Wondrous.CardDeck										COST:11250					SOURCEPAGE:p.30		SPROP:Two linked harrow decks allow user to look into a card and see through corresponding card from other deck
+Medium's Harrow Mat				TYPE:Magic.Wondrous.HarrowMat										COST:2500		WT:1			SOURCEPAGE:p.31		SPROP:If used as an additional focus while casting harrowing or greater harrowing, treat caster level as 1 higher; when used to perform a harrowing over a grave, for each card drawn related to the past, the harrower can draw twice and choose which card to place.
+Mute Marionette					TYPE:Magic.Wondrous											COST:16500		WT:2			SOURCEPAGE:p.31		SPROP:Each marionette is attuned to a single creature type or subtype from the ranger's list of favored enemies; can be used to cause confusion or hamper spells and spell-like abilities of attuned creatures.
+Traveler's Grandiose Carrying Case		TYPE:Magic.Wondrous			CONTAINS:5|Total=2|CardDeck=1|HarrowMat=1		COST:1200		WT:2			SOURCEPAGE:p.31		SPROP:Harrow deck stored in case gains a +2 bonus on saves against effects that specifically target the deck.

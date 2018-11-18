@@ -1,4 +1,5 @@
-SOURCELONG:Andoran Birthplace of Freedom	SOURCESHORT:ABOF	SOURCEWEB:http://paizo.com/products/btpy9dz4?Pathfinder-Campaign-Setting-Andoran-Birthplace-of-Freedom	SOURCEDATE:2015-05
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Andoran, Birthplace of Freedom	SOURCESHORT:ABOF	SOURCEDATE:2015-05
 # ORIGINAL ENTRY: James Parker, with Gwen T. (evilpixie87)
 
 STARTPACK:NPC (Corrupt Politician)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,%],[!PRERACE:1,Human]	SOURCEPAGE:p.52
@@ -6,7 +7,7 @@ RACE:Human	!PRERACE:1,%
 ABILITY:CATEGORY=Ability Bonus|+2 Charisma
 NAME:Corrupt Politician
 ALIGN:TN
-CLASS:Bard		LEVEL:5
+CLASS:Bard	LEVEL:5
 ABILITY:CATEGORY=Archetype|Bard Archetype ~ Court Bard
 ABILITY:CATEGORY=Favored Class|Bard
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
@@ -33,8 +34,8 @@ ABILITY:CATEGORY=FEAT|Enforcer
 ABILITY:CATEGORY=FEAT|Lingering Performance
 ABILITY:CATEGORY=FEAT|Skill Focus (Intimidate)
 ABILITY:CATEGORY=FEAT|Weapon Finesse
-GEAR:Padded					LOCATION:Equipped
-GEAR:Sap					LOCATION:Primary Hand	EQMOD:MWORKW
+GEAR:Padded	LOCATION:Equipped
+GEAR:Sap	LOCATION:Primary Hand	EQMOD:MWORKW
 SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Enter Image
 SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Honeyed Tongue
 SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Suggestion
@@ -55,7 +56,7 @@ RACE:Human	!PRERACE:1,%
 ABILITY:CATEGORY=Ability Bonus|+2 Dexterity
 NAME:Eagle Knight
 ALIGN:LG
-CLASS:Fighter		LEVEL:3
+CLASS:Fighter	LEVEL:3
 ABILITY:CATEGORY=Favored Class|Fighter
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
@@ -73,12 +74,12 @@ ABILITY:CATEGORY=FEAT|Iron Will
 #ABILITY:CATEGORY=FEAT|Weapon Finesse
 ABILITY:CATEGORY=Fighter Bonus Feat|Power Attack
 ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Focus (greatsword)
-GEAR:Breastplate				LOCATION:Equipped			EQMOD:MWORKA
-GEAR:Greatsword				LOCATION:Both Hands		EQMOD:MWORKW
-GEAR:Longbow (Composite)		LOCATION:Carried			EQMOD:MWORKW.BOWSTR|+1
-GEAR:Arrows (20)				LOCATION:Carried
-GEAR:Holy Symbol	EQMOD:Holy Symbol (Wooden)		LOCATION:Carried
-GEAR:Backpack				LOCATION:Carried
+GEAR:Breastplate			LOCATION:Equipped		EQMOD:MWORKA
+GEAR:Greatsword			LOCATION:Both Hands	EQMOD:MWORKW
+GEAR:Longbow (Composite)	LOCATION:Carried		EQMOD:MWORKW.BOWSTR|+1
+GEAR:Arrows (20)			LOCATION:Carried
+GEAR:Holy Symbol			LOCATION:Carried		EQMOD:Holy Symbol (Wooden)
+GEAR:Backpack			LOCATION:Carried
 
 
 STARTPACK:NPC (Lumber Consortium Enforcer)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,%],[!PRERACE:1,Human]	SOURCEPAGE:p.57
@@ -86,7 +87,7 @@ RACE:Human	!PRERACE:1,%
 ABILITY:CATEGORY=Ability Bonus|+2 Strength
 NAME:Lumber Consortium Enforcer
 ALIGN:NE
-CLASS:Brawler		LEVEL:4
+CLASS:Brawler	LEVEL:4
 ABILITY:CATEGORY=Favored Class|Brawler
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
@@ -107,8 +108,8 @@ ABILITY:CATEGORY=FEAT|Enforcer
 ABILITY:CATEGORY=FEAT|Improved Unarmed Strike
 ABILITY:CATEGORY=FEAT|Intimidating Prowess
 ABILITY:CATEGORY=Brawler Bonus Feat|Power Attack
-GEAR:Chain Shirt				LOCATION:Equipped			EQMOD:MWORKA
-GEAR:Longspear				LOCATION:Both Hands		EQMOD:MWORKW
+GEAR:Chain Shirt				LOCATION:Equipped		EQMOD:MWORKA
+GEAR:Longspear				LOCATION:Both Hands	EQMOD:MWORKW
 GEAR:Handaxe				LOCATION:Carried
-GEAR:Javelin		QTY:3		LOCATION:Carried
+GEAR:Javelin			QTY:3	LOCATION:Carried
 GEAR:Cloak of Resistance +1		LOCATION:Equipped

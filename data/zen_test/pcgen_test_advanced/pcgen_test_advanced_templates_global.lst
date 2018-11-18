@@ -1,20 +1,21 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision$ $Author$ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
-# Template Name	Visible	Template					Source Page					Define Stat			Required Var. value	Bonus to skill									Bonus to skill rank		Stat bonus		Bonus language			Class Skill		Ability												Region		Removable?		Innate Spells
+# Template Name	Visible	Template					Source Page					Define Stat			Required Var. value	Bonus to skill									Bonus to skill rank		Stat bonus		Class Skill		Ability												Region		Removable?		Innate Spells										Bonus language
 SIZE_MASTER
 
-TEST-91																																																			ABILITY:FEAT|VIRTUAL|Test91(Balance)	ABILITY:FEAT|AUTOMATIC|Test91(Hide)
-TEST-92																																																			ABILITY:FEAT|VIRTUAL|Test92(Balance)	ABILITY:FEAT|AUTOMATIC|Test92(Hide)
-TEST-93																																																			ABILITY:FEAT|VIRTUAL|Test93(Balance)	ABILITY:FEAT|AUTOMATIC|Test93(Hide)
-TEST-94																																																			ABILITY:FEAT|VIRTUAL|Test94(Balance)	ABILITY:FEAT|AUTOMATIC|Test94(Hide)
+TEST-91																																														ABILITY:FEAT|VIRTUAL|Test91(Balance)	ABILITY:FEAT|AUTOMATIC|Test91(Hide)
+TEST-92																																														ABILITY:FEAT|VIRTUAL|Test92(Balance)	ABILITY:FEAT|AUTOMATIC|Test92(Hide)
+TEST-93																																														ABILITY:FEAT|VIRTUAL|Test93(Balance)	ABILITY:FEAT|AUTOMATIC|Test93(Hide)
+TEST-94																																														ABILITY:FEAT|VIRTUAL|Test94(Balance)	ABILITY:FEAT|AUTOMATIC|Test94(Hide)
 
 Test-96				TEMPLATE:Test-96a|Test-96f|Test-96h
 
-Test-96a																																																CSKILL:Test96a
+Test-96a																																											CSKILL:Test96a
 Test-96f																																			BONUS:SKILLRANK|Test96f|20
 Test-96h																								BONUS:SKILL|Test96h|20
 
-# Template Name	Visible	Template					Source Page					Define Stat			Required Var. value	Bonus to skill									Bonus to skill rank		Stat bonus		Bonus language			Class Skill		Ability												Region		Removable?		Innate Spells
-Region Order																																																		ABILITY:Special Ability|AUTOMATIC|Order Works|PREREGION:1,Order			REGION:Order
+# Template Name	Visible	Template					Source Page					Define Stat			Required Var. value	Bonus to skill									Bonus to skill rank		Stat bonus		Class Skill		Ability												Region		Removable?		Innate Spells										Bonus language
+Region Order																																													ABILITY:Special Ability|AUTOMATIC|Order Works|PREREGION:1,Order			REGION:Order
 
 
 Int Bonus +1	VISIBLE:NO																	PREVAREQ:INTSCORE,2																	BONUS:STAT|INT|1
@@ -31,17 +32,17 @@ CODE-1986b																								BONUS:SKILL|Perception (Notice unusual stonewo
 
 
 # TEST-26
-# Template Name	Visible	Template					Source Page					Define Stat			Required Var. value	Bonus to skill									Bonus to skill rank		Stat bonus		Bonus language			Class Skill		Ability												Region		Removable?		Innate Spells
-TEST-26																																																			ABILITY:FEAT|AUTOMATIC|Toughness|Weapon Focus (DEITYWEAPON)
+# Template Name	Visible	Template					Source Page					Define Stat			Required Var. value	Bonus to skill									Bonus to skill rank		Stat bonus		Class Skill		Ability												Region		Removable?		Innate Spells										Bonus language
+TEST-26																																														ABILITY:FEAT|AUTOMATIC|Toughness|Weapon Focus (DEITYWEAPON)
 
 
-TEST-69																																																																			REMOVABLE:NO
+TEST-69																																																														REMOVABLE:NO
 
-TEST-64																																																																						SPELLS:Innate|TIMES=3|TIMEUNIT=Hour|CASTERLEVEL=10|Magic Missile,20
+TEST-64																																																																	SPELLS:Innate|TIMES=3|TIMEUNIT=Hour|CASTERLEVEL=10|Magic Missile,20
 
-TEST-66A																																																																						SPELLS:TestSixSix|TIMES=1|CASTERLEVEL=5|Fireball
+TEST-66A																																																																	SPELLS:TestSixSix|TIMES=1|CASTERLEVEL=5|Fireball
 
-Add one language																																										BONUS:LANGUAGES|NUMBER|1
+Add one language																																																																												BONUS:LANGUAGES|NUMBER|1
 
 ###Templates
 
@@ -67,9 +68,9 @@ Template-73
 
 
 
-CODE-362																																																			ABILITY:Special Ability|AUTOMATIC|TYPE=CodeThreeSixTwo
-CODE-362_B																																																			ABILITY:Special Ability|AUTOMATIC|TYPE=Code_Three_Six_Two
-CODE-362_C																																																			ABILITY:Special Ability Sub|AUTOMATIC|TYPE=CodeThreeSixTwo
+CODE-362																																														ABILITY:Special Ability|AUTOMATIC|TYPE=CodeThreeSixTwo
+CODE-362_B																																														ABILITY:Special Ability|AUTOMATIC|TYPE=Code_Three_Six_Two
+CODE-362_C																																														ABILITY:Special Ability Sub|AUTOMATIC|TYPE=CodeThreeSixTwo
 
 
 ###Block: Charlies Test 1.0 - PCGEN v. 5.17.4 Cycle Testing

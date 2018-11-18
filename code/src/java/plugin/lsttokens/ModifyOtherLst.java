@@ -31,7 +31,6 @@ import pcgen.base.text.ParsingSeparator;
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.base.Loadable;
 import pcgen.cdom.base.Ungranted;
 import pcgen.cdom.base.VarContainer;
 import pcgen.cdom.base.VarHolder;
@@ -41,7 +40,7 @@ import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.cdom.grouping.GroupingCollection;
 import pcgen.core.Campaign;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMInterfaceToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
@@ -50,7 +49,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * Implements the MODIFYOTHER token for remotely modifying variables in the new variable
  * system.
  */
-public class ModifyOtherLst extends AbstractTokenWithSeparator<VarHolder>
+public class ModifyOtherLst extends AbstractNonEmptyToken<VarHolder>
 		implements CDOMInterfaceToken<VarContainer, VarHolder>, CDOMPrimaryToken<VarHolder>
 {
 
@@ -60,15 +59,9 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<VarHolder>
 		return "MODIFYOTHER";
 	}
 
-	@Override
-	protected char separator()
-	{
-		return '|';
-	}
-
 	//MODIFYOTHER:EQUIPMENT|GROUP=Martial|EqCritRange|ADD|1
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context, VarHolder obj, String value)
+	public ParseResult parseNonEmptyToken(LoadContext context, VarHolder obj, String value)
 	{
 		//TODO These instanceof checks will fail - the VarHolder is a proxy :(
 		if (obj instanceof Ungranted)
@@ -111,7 +104,7 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<VarHolder>
 		PCGenScope scope = context.getActiveScope();
 		String groupingName = sep.next();
 
-		GroupingCollection<? extends Loadable> group = context.getGrouping(lvs, groupingName);
+		GroupingCollection<?> group = context.getGrouping(lvs, groupingName);
 		if (group == null)
 		{
 			return new ParseResult.Fail(getTokenName() + " unable to build group from: " + groupingName);

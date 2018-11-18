@@ -17,8 +17,8 @@ package pcgen.cdom.grouping;
 
 import java.util.Objects;
 
-import pcgen.cdom.base.ClassIdentity;
-import pcgen.cdom.base.Loadable;
+import pcgen.cdom.formula.scope.PCGenScope;
+import pcgen.rules.context.LoadContext;
 
 /**
  * GroupingInfo contains the (hierarchical) information about how items are grouped in the
@@ -28,7 +28,7 @@ import pcgen.cdom.base.Loadable;
  *            The Format (class) of the type of object which this GroupingInfo is
  *            identifying
  */
-public class GroupingInfo<T extends Loadable>
+public class GroupingInfo<T>
 {
 	/*
 	 * Note that the constructor and all set methods are package since field are set
@@ -66,9 +66,9 @@ public class GroupingInfo<T extends Loadable>
 	private GroupingInfo<?> child;
 
 	/**
-	 * The ClassIdentity of items identified by this GroupingInfo.
+	 * The PGenScope of objects that this GroupingInfo should identify.
 	 */
-	private ClassIdentity<T> identity;
+	private PCGenScope scope;
 
 	/**
 	 * Constructs a new GroupingInfo.
@@ -206,24 +206,35 @@ public class GroupingInfo<T extends Loadable>
 	}
 
 	/**
-	 * Sets the ClassIdentity of the objects this GroupingInfo is identifying.
+	 * Sets the Scope of the objects this GroupingInfo is identifying.
 	 * 
-	 * @param identity
-	 *            The ClassIdentity of the objects this GroupingInfo is identifying
+	 * @param scope
+	 *            The Scope of the objects this GroupingInfo is identifying
 	 */
-	public void setIdentity(ClassIdentity<T> identity)
+	public void setScope(PCGenScope scope)
 	{
-		this.identity = identity;
+		this.scope = scope;
 	}
 
 	/**
-	 * Returns the ClassIdentity of the objects this GroupingInfo is identifying.
+	 * Returns the Scope of the objects this GroupingInfo is identifying.
 	 * 
-	 * @return The ClassIdentity of the objects this GroupingInfo is identifying
+	 * @return The Scope of the objects this GroupingInfo is identifying
 	 */
-	public ClassIdentity<T> getIdentity()
+	public PCGenScope getScope()
 	{
-		return identity;
+		return scope;
+	}
+
+	/**
+	 * Returns the Class of objects managed by this GroupingInfo.
+	 * 
+	 * @return The Class of objects managed by this GroupingInfo
+	 */
+	@SuppressWarnings("unchecked")
+	public Class<T> getManagedClass(LoadContext context)
+	{
+		return (Class<T>) scope.getFormatManager(context).getManagedClass();
 	}
 
 }

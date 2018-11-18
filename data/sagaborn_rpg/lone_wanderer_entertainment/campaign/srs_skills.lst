@@ -1,33 +1,29 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 
-Acrobatics	KEYSTAT:DEX						TYPE:Dexterity.Class.Default.Base		DESC:Balance ,Escape Artist, Juggle, Tumble
-Athletics	KEYSTAT:STR						TYPE:Strength.Class.Default.Base		DESC:Climb, Jump, Swim
-Awareness	KEYSTAT:WIS						TYPE:Wisdom.Class.Default.Base		DESC:Investigate, Listen, Search, Spot, Sense Motive, etc.
-Endurance	KEYSTAT:CON						TYPE:Constitution.Class.Default.Base	DESC:Run, Swim, Hold Breath, Row, Endure Pain/Torture, Endure Heat or Cold Better, etc.
-Knowledge	KEYSTAT:INT						TYPE:Intelligence.Class.Default.Base	DESC:Appraise, Knowledge (history, legends, herbology, monster lore, etc.), Detect Poison, etc.
-Persuasion	KEYSTAT:CHA						TYPE:Charisma.Class.Default.Base		DESC:Bluff, Diplomacy, Gather Information, Intimidate, etc.
-Spellcraft			VISIBLE:GUI				TYPE:Class.Default.Base				DESC:Spell Sight, Focusing, Ravaging, etc.
-Survival	KEYSTAT:WIS						TYPE:Wisdom.Class.Default.Base		DESC:Track, Forage, Hunt, Start Fire, Fletch, Skin, Set Snares, Fish, Identify Edible Foods & Herbs, Locate Potable Water, Detect Poison, etc.
-Thievery	KEYSTAT:DEX						TYPE:Dexterity.Class.Default.Base		DESC:Sneak, Hide, Pick Locks, Find/Set/Disarm Traps, etc.
-+1 Skill Pool			VISIBLE:GUI				TYPE:Class.Default.Base				DESC:Spell Sight, Focusing, Ravaging, etc.
+# Skill Name	Key Stat	Type							Visible		Required Ability									Bonus to skill									Bonus to skill rank									Description
+Acrobatics		KEYSTAT:DEX	TYPE:Dexterity.Class.Default.Base																																							DESC:Balance ,Escape Artist, Juggle, Tumble
+Athletics		KEYSTAT:STR	TYPE:Strength.Class.Default.Base																																							DESC:Climb, Jump, Swim
+Awareness		KEYSTAT:WIS	TYPE:Wisdom.Class.Default.Base																																							DESC:Investigate, Listen, Search, Spot, Sense Motive, etc.
+Endurance		KEYSTAT:CON	TYPE:Constitution.Class.Default.Base																																						DESC:Run, Swim, Hold Breath, Row, Endure Pain/Torture, Endure Heat or Cold Better, etc.
+Knowledge		KEYSTAT:INT	TYPE:Intelligence.Class.Default.Base																																						DESC:Appraise, Knowledge (history, legends, herbology, monster lore, etc.), Detect Poison, etc.
+Persuasion		KEYSTAT:CHA	TYPE:Charisma.Class.Default.Base																																							DESC:Bluff, Diplomacy, Gather Information, Intimidate, etc.
+Spellcraft				TYPE:Class.Default.Base				VISIBLE:GUI																																				DESC:Spell Sight, Focusing, Ravaging, etc.
+Survival		KEYSTAT:WIS	TYPE:Wisdom.Class.Default.Base																																							DESC:Track, Forage, Hunt, Start Fire, Fletch, Skin, Set Snares, Fish, Identify Edible Foods & Herbs, Locate Potable Water, Detect Poison, etc.
+Thievery		KEYSTAT:DEX	TYPE:Dexterity.Class.Default.Base																																							DESC:Sneak, Hide, Pick Locks, Find/Set/Disarm Traps, etc.
++1 Skill Pool			TYPE:Class.Default.Base				VISIBLE:GUI																																				DESC:Spell Sight, Focusing, Ravaging, etc.
 
-Spellcraft.MOD	BONUS:SKILLRANK|Spellcraft (INT)|skillinfo("TOTALRANK", "Spellcraft")	BONUS:SKILL|Spellcraft (INT)|skillinfo("MISC", "Spellcraft")
-Spellcraft.MOD	BONUS:SKILLRANK|Spellcraft (WIS)|skillinfo("TOTALRANK", "Spellcraft")	BONUS:SKILL|Spellcraft (WIS)|skillinfo("MISC", "Spellcraft")
-Spellcraft.MOD	BONUS:SKILLRANK|Spellcraft (CHA)|skillinfo("TOTALRANK", "Spellcraft")	BONUS:SKILL|Spellcraft (CHA)|skillinfo("MISC", "Spellcraft")
+Spellcraft.MOD																								BONUS:SKILL|Spellcraft (INT)|skillinfo("MISC", "Spellcraft")	BONUS:SKILLRANK|Spellcraft (INT)|skillinfo("TOTALRANK", "Spellcraft")
+Spellcraft.MOD																								BONUS:SKILL|Spellcraft (WIS)|skillinfo("MISC", "Spellcraft")	BONUS:SKILLRANK|Spellcraft (WIS)|skillinfo("TOTALRANK", "Spellcraft")
+Spellcraft.MOD																								BONUS:SKILL|Spellcraft (CHA)|skillinfo("MISC", "Spellcraft")	BONUS:SKILLRANK|Spellcraft (CHA)|skillinfo("TOTALRANK", "Spellcraft")
 
 
-Spellcraft (INT)	KEYSTAT:INT	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Spellcasting Ability ~ Int	TYPE:Intelligence.Class.Default.Base	DESC:Spell Sight, Focusing, Ravaging, etc.
-Spellcraft (WIS)	KEYSTAT:WIS	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Spellcasting Ability ~ Wis	TYPE:Wisdom.Class.Default.Base	DESC:Spell Sight, Focusing, Ravaging, etc.
-Spellcraft (CHA)	KEYSTAT:CHA	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Spellcasting Ability ~ Cha	TYPE:Charisma.Class.Default.Base	DESC:Spell Sight, Focusing, Ravaging, etc.
+Spellcraft (INT)	KEYSTAT:INT	TYPE:Intelligence.Class.Default.Base	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Spellcasting Ability ~ Int																								DESC:Spell Sight, Focusing, Ravaging, etc.
+Spellcraft (WIS)	KEYSTAT:WIS	TYPE:Wisdom.Class.Default.Base		VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Spellcasting Ability ~ Wis																								DESC:Spell Sight, Focusing, Ravaging, etc.
+Spellcraft (CHA)	KEYSTAT:CHA	TYPE:Charisma.Class.Default.Base		VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Spellcasting Ability ~ Cha																								DESC:Spell Sight, Focusing, Ravaging, etc.
 
 ###Block: Situational
+# Skill Name	Situational Skill
 Persuasion.MOD	SITUATION:animals
 Persuasion.MOD	SITUATION:disguise
 Persuasion.MOD	SITUATION:forgery
 Persuasion.MOD	SITUATION:lying
-
-
-
-
-
-
-
