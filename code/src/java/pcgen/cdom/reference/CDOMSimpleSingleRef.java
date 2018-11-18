@@ -135,7 +135,6 @@ public class CDOMSimpleSingleRef<T> extends CDOMSingleRef<T>
 	 * 		   Use any LST format.  Ignored in this specific implementation.
 	 * @return A representation of this CDOMSimpleSingleRef, suitable for
 	 *         storing in an LST file.
-	 * @see pcgen.cdom.base.CDOMReference#getLSTformat(boolean)
 	 */
 	@Override
 	public String getLSTformat(boolean useAny)
@@ -143,15 +142,6 @@ public class CDOMSimpleSingleRef<T> extends CDOMSingleRef<T>
 		return getName();
 	}
 
-	/**
-	 * Returns true if this CDOMSimpleSingleRef is equal to the given Object.
-	 * Equality is defined as being another CDOMSimpleSingleRef object with
-	 * equal Class represented by the reference and equal name of the underlying
-	 * reference. This is NOT a deep .equals, in that the actual contents of
-	 * this CDOMSimpleSingleRef are not tested.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{
@@ -163,11 +153,6 @@ public class CDOMSimpleSingleRef<T> extends CDOMSingleRef<T>
 		return false;
 	}
 
-	/**
-	 * Returns the consistent-with-equals hashCode for this CDOMSimpleSingleRef
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{

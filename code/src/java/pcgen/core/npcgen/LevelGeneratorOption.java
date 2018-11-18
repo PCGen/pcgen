@@ -29,9 +29,6 @@ public class LevelGeneratorOption extends GeneratorOption
 {
 	private WeightedCollection<Integer> theChoices = null;
 
-	/**
-	 * @see pcgen.core.npcgen.GeneratorOption#addChoice(int, java.lang.String)
-	 */
 	@Override
 	public void addChoice(final int aWeight, final String aValue)
 	{

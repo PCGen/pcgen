@@ -80,7 +80,6 @@ public final class CDOMTypeRef<T> extends CDOMGroupRef<T>
 	 * 
 	 * @return A representation of this CDOMTypeRef, suitable for storing in an
 	 *         LST file.
-	 * @see pcgen.cdom.base.CDOMReference#getLSTformat(boolean)
 	 */
 	@Override
 	public String getLSTformat(boolean useAny)
@@ -113,14 +112,6 @@ public final class CDOMTypeRef<T> extends CDOMGroupRef<T>
 		return referencedList.contains(item);
 	}
 
-	/**
-	 * Returns true if this CDOMTypeRef is equal to the given Object. Equality
-	 * is defined as being another CDOMTypeRef object with equal Class
-	 * represented by the reference and equal types. This is NOT a deep .equals,
-	 * in that the actual contents of this CDOMTypeRef are not tested.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{
@@ -133,11 +124,6 @@ public final class CDOMTypeRef<T> extends CDOMGroupRef<T>
 		return false;
 	}
 
-	/**
-	 * Returns the consistent-with-equals hashCode for this CDOMTypeRef
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{

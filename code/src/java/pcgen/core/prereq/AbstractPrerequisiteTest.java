@@ -40,9 +40,6 @@ public abstract class AbstractPrerequisiteTest implements PrerequisiteTest
 	 *
 	 * @throws  PrerequisiteException  Oops, haven't implemented passes with
 	 *                                 this signature in the subclass
-	 *
-	 * @see     pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.prereq.Prerequisite,
-	 *          pcgen.core.PlayerCharacter, CDOMObject)
 	 */
 	@Override
 	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)

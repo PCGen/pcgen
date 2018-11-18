@@ -42,18 +42,12 @@ public class PCBaseHDTermEvaluator extends BasePCTermEvaluator implements TermEv
 		this.originalText = expressionString;
 	}
 
-	/**
-	 * @see pcgen.core.term.TermEvaluator#resolve(pcgen.core.PlayerCharacter)
-	 */
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
 		return pc.getDisplay().getBaseHD();
 	}
 
-	/**
-	 * @see pcgen.core.term.TermEvaluator#isSourceDependant()
-	 */
 	@Override
 	public boolean isSourceDependant()
 	{

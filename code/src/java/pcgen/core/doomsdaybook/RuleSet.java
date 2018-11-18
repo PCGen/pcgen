@@ -402,9 +402,6 @@ public class RuleSet extends ArrayList<String> implements DataElement
 		return weight;
 	}
 
-	/**
-	 * @see java.util.AbstractCollection#toString()
-	 */
 	@Override
 	public String toString()
 	{

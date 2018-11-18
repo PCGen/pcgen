@@ -28,9 +28,6 @@ public class GenderGeneratorOption extends GeneratorOption
 {
 	private WeightedCollection<Gender> theChoices = null;
 
-	/**
-	 * @see pcgen.core.npcgen.GeneratorOption#addChoice(int, java.lang.String)
-	 */
 	@Override
 	public void addChoice(final int aWeight, final String aValue)
 	{

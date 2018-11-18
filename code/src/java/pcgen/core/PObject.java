@@ -83,8 +83,6 @@ public class PObject extends CDOMObject
 
 	/**
 	 * Compares the keys of the object.
-	 * 
-	 * @see java.lang.Comparable#compareTo(java.lang.Object)
 	 */
 	@Override
 	public int compareTo(final Object obj)
@@ -97,9 +95,6 @@ public class PObject extends CDOMObject
 		return 1;
 	}
 
-	/**
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(final Object obj)
 	{
