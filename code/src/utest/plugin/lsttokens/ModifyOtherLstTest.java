@@ -70,7 +70,7 @@ public class ModifyOtherLstTest extends AbstractGlobalTokenTestCase
 		return token;
 	}
 
-	//TODO Ignore for now; reactivate later
+	//TODO Ignore for now; reactivate later, see CODE-3299
 //	@Test
 //	public void testInvalidObject()
 //	{

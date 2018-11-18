@@ -202,7 +202,7 @@ public class ModifyLstTest extends AbstractGlobalTokenTestCase
 		runRoundRobin("MyVar|ADD|3|PRIORITY=1090");
 	}
 
-	//TODO Ignore for now; reactivate later
+	//TODO Ignore for now; reactivate later, see CODE-3299
 //	@Test
 //	public void testInvalidObject()
 //	{
