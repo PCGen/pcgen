@@ -241,7 +241,7 @@ public class CharacterFacadeImpl
 	private RectangleReference cropRect;
 	private String selectedGender;
 	private List<Language> currBonusLangs;
-	private DefaultReferenceFacade<String> skinColor;
+	private WriteableReferenceFacade<String> skinColor;
 	private DefaultReferenceFacade<String> hairColor;
 	private DefaultReferenceFacade<String> eyeColor;
 	private DefaultReferenceFacade<Integer> heightRef;
@@ -389,7 +389,8 @@ public class CharacterFacadeImpl
 		xpTableName = new DefaultReferenceFacade<>(charDisplay.getXPTableName());
 		hpRef = new DefaultReferenceFacade<>(theCharacter.hitPoints());
 
-		skinColor = new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.SKINCOLOR));
+		skinColor = CoreInterfaceUtilities.getReferenceFacade(
+			theCharacter.getCharID(), CControl.SKINCOLORINPUT);
 		hairColor = new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.HAIRCOLOR));
 		eyeColor = new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.EYECOLOR));
 		weightRef = new DefaultReferenceFacade<>();
@@ -1773,7 +1774,6 @@ public class CharacterFacadeImpl
 	public void setSkinColor(String color)
 	{
 		skinColor.set(color);
-		theCharacter.setPCAttribute(PCStringKey.SKINCOLOR, color);
 	}
 
 	@Override
