@@ -21,6 +21,9 @@ import pcgen.cdom.inst.CodeControl;
 import pcgen.cdom.util.CControl;
 import pcgen.rules.persistence.token.AbstractStringStoringToken;
 
+/**
+ * LST token for the BASESIZE code control.
+ */
 public class BaseSizeToken extends AbstractStringStoringToken<CodeControl>
 {
 	@Override
