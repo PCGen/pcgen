@@ -105,12 +105,6 @@ public class ConditionalSelectionActor<T> extends ConcretePrereqObject implement
 		actor.removeChoice(cdo, choice, pc);
 	}
 
-	/**
-	 * Returns true if the given object is a ConditionalSelectionActor with
-	 * identical underlying ChooseSelectionActor and Prerequisites.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{
@@ -122,11 +116,6 @@ public class ConditionalSelectionActor<T> extends ConcretePrereqObject implement
 		return false;
 	}
 
-	/**
-	 * Returns a consistent-with-equals hashCode for this ConditionalSelectionActor
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{

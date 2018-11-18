@@ -95,8 +95,6 @@ public class ConditionallyGrantedAbilityFacet extends AbstractListFacet<CharID, 
 	 * ensure we are storing the conditionally granted abilities by their
 	 * identity (Ability has old behavior in .equals and Abilities are still
 	 * cloned)
-	 * 
-	 * @see pcgen.cdom.facet.base.AbstractListFacet#getComponentSet()
 	 */
 	@Override
 	protected Set<CNAbilitySelection> getComponentSet()

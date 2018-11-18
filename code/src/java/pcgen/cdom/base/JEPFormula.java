@@ -53,23 +53,12 @@ public class JEPFormula implements Formula
 		return formula;
 	}
 
-	/**
-	 * Returns the consistent-with-equals hashCode for this JEPFormula
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{
 		return formula.hashCode();
 	}
 
-	/**
-	 * Returns true if this JEPFormula is equal to the given Object. Equality is
-	 * defined as being another JEPFormula object with equal value.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{
