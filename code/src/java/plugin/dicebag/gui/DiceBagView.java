@@ -547,7 +547,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 			return String.class;
 		}
 
-		/*
+		/**
 		 * Always a single column
 		 */
 		@Override
