@@ -57,9 +57,9 @@ public class ModifyLst extends AbstractNonEmptyToken<VarHolder>
 	public ParseResult parseNonEmptyToken(LoadContext context, VarHolder obj, String value)
 	{
 		/*
-		 * TODO Need to check the object type of the VarHolder to make sure it is legal.
-		 * Note it's a proxy, so a @ReadOnly method needs to be used to support the
-		 * analysis.
+		 * TODO CODE-3299 Need to check the object type of the VarHolder to make sure it
+		 * is legal. Note it's a proxy, so a @ReadOnly method needs to be used to support
+		 * the analysis.
 		 */
 		try
 		{
