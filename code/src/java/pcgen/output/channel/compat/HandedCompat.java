@@ -42,6 +42,11 @@ public final class HandedCompat
 	 * when the localized name was saved in the character files (instead of the
 	 * {@link #name()}).
 	 * 
+	 * Note: This will dump stack if there is not a matching Handed value, as the
+	 * Handed.valueOf(x) call for the existing Enumeration will fail. This is consistent
+	 * with the existing design (as it can't really go wrong) and isn't needed
+	 * long term because the load system ensures data is internally consistent.
+	 * 
 	 * @param name
 	 *            The localized display name of the Handed.
 	 * @return The matching Handed.
