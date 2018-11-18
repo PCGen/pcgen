@@ -41,7 +41,7 @@ public final class LstSystemLoader implements SystemLoader
 
 	private final Map<String, List<URI>> chosenCampaignSourcefiles = new HashMap<>();
 
-	/*
+	/**
 	 * CODE-1889 to remove use of this method
 	 */
 	@Override
