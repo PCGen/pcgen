@@ -390,9 +390,9 @@ public class CharacterFacadeImpl
 		{
 			availHands.addElement(handed);
 		}
-		for (Gender gender : GenderCompat.getAvailableGenders())
+		for (Gender availableGender : GenderCompat.getAvailableGenders())
 		{
-			availGenders.addElement(gender);
+			availGenders.addElement(availableGender);
 		}
 
 		if (charDisplay.getRace() != null)
