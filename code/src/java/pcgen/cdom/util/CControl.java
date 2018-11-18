@@ -104,6 +104,11 @@ public final class CControl
 	public static final String ALIGNMENTFEATURE = "ALIGNMENTFEATURE";
 
 	/**
+	 * Code Control for the Skin Color Input Channel.
+	 */
+	public static final CControl SKINCOLORINPUT = new CControl("SKINCOLORINPUT", ChannelUtilities.createVarName("SkinColor"), Optional.empty(), "STRING", true, false);
+	
+	/**
 	 * The name of a code control that contains a default value. This is used when a Code
 	 * Control is already used internally and is overridden by data (rather than just
 	 * being an on/off switch for data)

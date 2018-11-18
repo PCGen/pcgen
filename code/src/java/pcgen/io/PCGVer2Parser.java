@@ -136,6 +136,7 @@ import pcgen.io.migration.SourceMigration;
 import pcgen.io.migration.SpellMigration;
 import pcgen.output.channel.compat.AlignmentCompat;
 import pcgen.output.channel.compat.HandedCompat;
+import pcgen.output.channel.compat.SkinColorCompat;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.system.FacadeFactory;
@@ -3716,7 +3717,7 @@ final class PCGVer2Parser implements PCGParser
 
 	private void parseSkinColorLine(final String line)
 	{
-		thePC.setPCAttribute(PCAttribute.SKINCOLOR,
+		SkinColorCompat.setCurrentSkinColor(thePC.getCharID(), 
 			EntityEncoder.decode(line.substring(IOConstants.TAG_SKINCOLOR.length() + 1)));
 	}
 

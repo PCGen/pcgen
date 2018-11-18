@@ -26,7 +26,7 @@ public enum BiographyField
 {
 	NAME("in_nameLabel", PCAttribute.NAME), PLAYERNAME("in_player", PCAttribute.PLAYERSNAME),
 	GENDER("in_gender", null), HANDED("in_handString", null), ALIGNMENT("in_alignString", null),
-	DEITY("in_deity", null), AGE("in_age", null), SKIN_TONE("in_appSkintoneColor", PCAttribute.SKINCOLOR),
+	DEITY("in_deity", null), AGE("in_age", null), SKIN_TONE("in_appSkintoneColor", null),
 	HAIR_COLOR("in_appHairColor", PCAttribute.HAIRCOLOR), HAIR_STYLE("in_style", PCAttribute.HAIRSTYLE),
 	EYE_COLOR("in_appEyeColor", PCAttribute.EYECOLOR), HEIGHT("in_height", null), WEIGHT("in_weight", null),
 	SPEECH_PATTERN("in_speech", PCAttribute.SPEECHTENDENCY), BIRTHDAY("in_birthday", PCAttribute.BIRTHDAY),
