@@ -303,9 +303,6 @@ public class CharacterFacadeImpl
 		undoManager = new UndoManager();
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#closeCharacter()
-	 */
 	@Override
 	public void closeCharacter()
 	{
@@ -644,27 +641,18 @@ public class CharacterFacadeImpl
 		return charName.startsWith("Unnamed"); //$NON-NLS-1$
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getAvailableHands()
-	 */
 	@Override
 	public ListFacade<HandedFacade> getAvailableHands()
 	{
 		return availHands;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getAvailableGenders()
-	 */
 	@Override
 	public ListFacade<GenderFacade> getAvailableGenders()
 	{
 		return availGenders;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#addAbility(AbilityCategoryFacade, AbilityFacade)
-	 */
 	@Override
 	public void addAbility(AbilityCategoryFacade category, AbilityFacade ability)
 	{
@@ -677,9 +665,6 @@ public class CharacterFacadeImpl
 		hpRef.set(theCharacter.hitPoints());
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#removeAbility(AbilityCategoryFacade, AbilityFacade)
-	 */
 	@Override
 	public void removeAbility(AbilityCategoryFacade category, AbilityFacade ability)
 	{
@@ -689,81 +674,54 @@ public class CharacterFacadeImpl
 		hpRef.set(theCharacter.hitPoints());
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getAbilities(AbilityCategoryFacade)
-	 */
 	@Override
 	public ListFacade<AbilityFacade> getAbilities(AbilityCategoryFacade category)
 	{
 		return characterAbilities.getAbilities(category);
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getActiveAbilityCategories()
-	 */
 	@Override
 	public ListFacade<AbilityCategoryFacade> getActiveAbilityCategories()
 	{
 		return characterAbilities.getActiveAbilityCategories();
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getTotalSelections(AbilityCategoryFacade)
-	 */
 	@Override
 	public int getTotalSelections(AbilityCategoryFacade category)
 	{
 		return characterAbilities.getTotalSelections(category);
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getRemainingSelections(AbilityCategoryFacade)
-	 */
 	@Override
 	public int getRemainingSelections(AbilityCategoryFacade category)
 	{
 		return characterAbilities.getRemainingSelections(category);
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#addAbilityCatSelectionListener(ChangeListener)
-	 */
 	@Override
 	public void addAbilityCatSelectionListener(ChangeListener listener)
 	{
 		characterAbilities.addAbilityCatSelectionListener(listener);
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#removeAbilityCatSelectionListener(ChangeListener)
-	 */
 	@Override
 	public void removeAbilityCatSelectionListener(ChangeListener listener)
 	{
 		characterAbilities.removeAbilityCatSelectionListener(listener);
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#setRemainingSelection(AbilityCategoryFacade, int)
-	 */
 	@Override
 	public void setRemainingSelection(AbilityCategoryFacade category, int remaining)
 	{
 		characterAbilities.setRemainingSelection(category, remaining);
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#hasAbility(AbilityCategoryFacade, AbilityFacade)
-	 */
 	@Override
 	public boolean hasAbility(AbilityCategoryFacade category, AbilityFacade ability)
 	{
 		return characterAbilities.hasAbility(category, ability);
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getAbilityNature(AbilityFacade)
-	 */
 	@Override
 	public Nature getAbilityNature(AbilityFacade ability)
 	{
@@ -786,9 +744,6 @@ public class CharacterFacadeImpl
 		return nature;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#addCharacterLevels(ClassFacade[])
-	 */
 	@Override
 	public void addCharacterLevels(ClassFacade[] classes)
 	{
@@ -882,9 +837,6 @@ public class CharacterFacadeImpl
 		heightRef.set((int) Math.round(Globals.getGameModeUnitSet().convertHeightToUnitSet(charDisplay.getHeight())));
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#removeCharacterLevels(int)
-	 */
 	@Override
 	public void removeCharacterLevels(int levels)
 	{
@@ -940,9 +892,6 @@ public class CharacterFacadeImpl
 		}
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getClassLevel(ClassFacade)
-	 */
 	@Override
 	public int getClassLevel(ClassFacade c)
 	{
@@ -1201,9 +1150,6 @@ public class CharacterFacadeImpl
 		}
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getAvailableTempBonuses()
-	 */
 	@Override
 	public ListFacade<TempBonusFacade> getAvailableTempBonuses()
 	{
@@ -1233,9 +1179,6 @@ public class CharacterFacadeImpl
 
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#addTempBonus(TempBonusFacade)
-	 */
 	@Override
 	public void addTempBonus(TempBonusFacade bonusFacade)
 	{
@@ -1275,9 +1218,6 @@ public class CharacterFacadeImpl
 		postLevellingUpdates();
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#removeTempBonus(TempBonusFacade)
-	 */
 	@Override
 	public void removeTempBonus(TempBonusFacade bonusFacade)
 	{
@@ -1300,9 +1240,6 @@ public class CharacterFacadeImpl
 		postLevellingUpdates();
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#setTempBonusActive(TempBonusFacade, boolean)
-	 */
 	@Override
 	public void setTempBonusActive(TempBonusFacade bonusFacade, boolean active)
 	{
@@ -1325,27 +1262,18 @@ public class CharacterFacadeImpl
 		refreshStatScores();
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getTempBonuses()
-	 */
 	@Override
 	public ListFacade<TempBonusFacade> getTempBonuses()
 	{
 		return appliedTempBonuses;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getAlignmentRef()
-	 */
 	@Override
 	public ReferenceFacade<PCAlignment> getAlignmentRef()
 	{
 		return alignment;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#setAlignment(PCAlignment)
-	 */
 	@Override
 	public void setAlignment(PCAlignment alignment)
 	{
@@ -1465,36 +1393,24 @@ public class CharacterFacadeImpl
 		charLevelsFacade.classListRefreshRequired();
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getDataSet()
-	 */
 	@Override
 	public DataSetFacade getDataSet()
 	{
 		return dataSet;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getEquipmentSets()
-	 */
 	@Override
 	public ListFacade<EquipmentSetFacade> getEquipmentSets()
 	{
 		return equipmentSets;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getGenderRef()
-	 */
 	@Override
 	public ReferenceFacade<GenderFacade> getGenderRef()
 	{
 		return gender;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#setGender(GenderFacade)
-	 */
 	@Override
 	public void setGender(GenderFacade gender)
 	{
@@ -1521,9 +1437,6 @@ public class CharacterFacadeImpl
 		}
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getModTotal(StatFacade)
-	 */
 	@Override
 	public int getModTotal(StatFacade stat)
 	{
@@ -1534,9 +1447,6 @@ public class CharacterFacadeImpl
 		return 0;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getScoreBaseRef(StatFacade)
-	 */
 	@Override
 	public ReferenceFacade<Number> getScoreBaseRef(StatFacade stat)
 	{
@@ -1549,9 +1459,6 @@ public class CharacterFacadeImpl
 		return score;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getScoreBase(StatFacade)
-	 */
 	@Override
 	public int getScoreBase(StatFacade stat)
 	{
@@ -1562,9 +1469,6 @@ public class CharacterFacadeImpl
 		return theCharacter.getBaseStatFor((PCStat) stat);
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getScoreTotalString(StatFacade)
-	 */
 	@Override
 	public String getScoreTotalString(StatFacade stat)
 	{
@@ -1580,9 +1484,6 @@ public class CharacterFacadeImpl
 		return SettingsHandler.getGame().getStatDisplayText(theCharacter.getTotalStatFor((PCStat) stat));
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getScoreRaceBonus(StatFacade)
-	 */
 	@Override
 	public int getScoreRaceBonus(StatFacade stat)
 	{
@@ -1602,9 +1503,6 @@ public class CharacterFacadeImpl
 		return rBonus;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getScoreOtherBonus(StatFacade)
-	 */
 	@Override
 	public int getScoreOtherBonus(StatFacade stat)
 	{
@@ -1624,9 +1522,6 @@ public class CharacterFacadeImpl
 		return theCharacter.getTotalStatFor(activeStat) - theCharacter.getBaseStatFor(activeStat) - iRace;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#setScoreBase(StatFacade, int)
-	 */
 	@Override
 	public void setScoreBase(StatFacade stat, int score)
 	{
@@ -1763,9 +1658,6 @@ public class CharacterFacadeImpl
 		return null;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#rollStats()
-	 */
 	@Override
 	public void rollStats()
 	{
@@ -1796,9 +1688,6 @@ public class CharacterFacadeImpl
 		}
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#isStatRollEnabled()
-	 */
 	@Override
 	public boolean isStatRollEnabled()
 	{
@@ -1827,18 +1716,12 @@ public class CharacterFacadeImpl
 		poolPointText.set(Integer.toString(poolPointsUsed) + " / " + Integer.toString(poolPointsTotal)); //$NON-NLS-1$
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getUndoManager()
-	 */
 	@Override
 	public UndoManager getUndoManager()
 	{
 		return undoManager;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getRaceRef()
-	 */
 	@Override
 	public ReferenceFacade<RaceFacade> getRaceRef()
 	{
@@ -1847,8 +1730,6 @@ public class CharacterFacadeImpl
 
 	/**
 	 * @return A reference to a list containing the character's race.
-	 * 
-	 * @see pcgen.facade.core.CharacterFacade#getRaceAsList()
 	 */
 	@Override
 	public ListFacade<RaceFacade> getRaceAsList()
@@ -1856,9 +1737,6 @@ public class CharacterFacadeImpl
 		return raceList;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#setRace(RaceFacade)
-	 */
 	@Override
 	public void setRace(RaceFacade race)
 	{
@@ -1942,18 +1820,12 @@ public class CharacterFacadeImpl
 		}
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getTabNameRef()
-	 */
 	@Override
 	public ReferenceFacade<String> getTabNameRef()
 	{
 		return tabName;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#setTabName(String)
-	 */
 	@Override
 	public void setTabName(String name)
 	{
@@ -1961,18 +1833,12 @@ public class CharacterFacadeImpl
 		theCharacter.setPCAttribute(PCAttribute.TABNAME, name);
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getNameRef()
-	 */
 	@Override
 	public ReferenceFacade<String> getNameRef()
 	{
 		return name;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#setName(String)
-	 */
 	@Override
 	public void setName(String name)
 	{
@@ -1992,8 +1858,6 @@ public class CharacterFacadeImpl
 	 * Check  whether the field should be output. 
 	 * @param field The BiographyField to check export rules for.
 	 * @return true if the field should be output, false if it may not be.
-	 * 
-	 * @see pcgen.facade.core.CharacterFacade#getExportBioField(BiographyField)
 	 */
 	@Override
 	public boolean getExportBioField(BiographyField field)
@@ -2005,8 +1869,6 @@ public class CharacterFacadeImpl
 	 * Set whether the field should be output. 
 	 * @param field The BiographyField to set export rules for.
 	 * @param export Should the field be shown in output.
-	 * 
-	 * @see pcgen.facade.core.CharacterFacade#setExportBioField(BiographyField, boolean)
 	 */
 	@Override
 	public void setExportBioField(BiographyField field, boolean export)
@@ -2014,18 +1876,12 @@ public class CharacterFacadeImpl
 		theCharacter.setSuppressBioField(field, !export);
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getSkinColorRef()
-	 */
 	@Override
 	public ReferenceFacade<String> getSkinColorRef()
 	{
 		return skinColor;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#setSkinColor(String)
-	 */
 	@Override
 	public void setSkinColor(String color)
 	{
@@ -2033,18 +1889,12 @@ public class CharacterFacadeImpl
 		theCharacter.setPCAttribute(PCAttribute.SKINCOLOR, color);
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getHairColorRef()
-	 */
 	@Override
 	public ReferenceFacade<String> getHairColorRef()
 	{
 		return hairColor;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#setHairColor(String)
-	 */
 	@Override
 	public void setHairColor(String color)
 	{
@@ -2052,18 +1902,12 @@ public class CharacterFacadeImpl
 		theCharacter.setPCAttribute(PCAttribute.HAIRCOLOR, color);
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getEyeColorRef()
-	 */
 	@Override
 	public ReferenceFacade<String> getEyeColorRef()
 	{
 		return eyeColor;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#setEyeColor(String)
-	 */
 	@Override
 	public void setEyeColor(String color)
 	{
@@ -2071,18 +1915,12 @@ public class CharacterFacadeImpl
 		theCharacter.setEyeColor(color);
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getHeightRef()
-	 */
 	@Override
 	public ReferenceFacade<Integer> getHeightRef()
 	{
 		return heightRef;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#setHeight(int)
-	 */
 	@Override
 	public void setHeight(int height)
 	{
@@ -2091,18 +1929,12 @@ public class CharacterFacadeImpl
 		theCharacter.setHeight(heightInInches);
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getWeightRef()
-	 */
 	@Override
 	public ReferenceFacade<Integer> getWeightRef()
 	{
 		return weightRef;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#setWeight(int)
-	 */
 	@Override
 	public void setWeight(int weight)
 	{
@@ -2111,18 +1943,12 @@ public class CharacterFacadeImpl
 		theCharacter.setPCAttribute(NumericPCAttribute.WEIGHT, weightInPounds);
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getDeityRef()
-	 */
 	@Override
 	public ReferenceFacade<DeityFacade> getDeityRef()
 	{
 		return deity;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#setDeity(DeityFacade)
-	 */
 	@Override
 	public void setDeity(DeityFacade deity)
 	{
@@ -2135,9 +1961,6 @@ public class CharacterFacadeImpl
 		buildAvailableDomainsList();
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#addDomain(DomainFacade)
-	 */
 	@Override
 	public void addDomain(DomainFacade domainFacade)
 	{
@@ -2192,18 +2015,12 @@ public class CharacterFacadeImpl
 		}
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getDomains()
-	 */
 	@Override
 	public ListFacade<DomainFacade> getDomains()
 	{
 		return domains;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#removeDomain(DomainFacade)
-	 */
 	@Override
 	public void removeDomain(DomainFacade domain)
 	{
@@ -2240,27 +2057,18 @@ public class CharacterFacadeImpl
 		}
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getMaxDomains()
-	 */
 	@Override
 	public ReferenceFacade<Integer> getMaxDomains()
 	{
 		return maxDomains;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getRemainingDomainSelectionsRef()
-	 */
 	@Override
 	public ReferenceFacade<Integer> getRemainingDomainSelectionsRef()
 	{
 		return remainingDomains;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getAvailableDomains()
-	 */
 	@Override
 	public ListFacade<DomainFacade> getAvailableDomains()
 	{
@@ -2403,18 +2211,12 @@ public class CharacterFacadeImpl
 		}
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getEquipmentSetRef()
-	 */
 	@Override
 	public ReferenceFacade<EquipmentSetFacade> getEquipmentSetRef()
 	{
 		return equipSet;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#setEquipmentSet(EquipmentSetFacade)
-	 */
 	@Override
 	public void setEquipmentSet(EquipmentSetFacade set)
 	{
@@ -2522,18 +2324,12 @@ public class CharacterFacadeImpl
 		Logging.log(Logging.DEBUG, "refreshLanguageList took " + (endTime - startTime) + " ms.");
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getLanguages()
-	 */
 	@Override
 	public ListFacade<LanguageFacade> getLanguages()
 	{
 		return languages;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getLanguageChoosers()
-	 */
 	@Override
 	public ListFacade<LanguageChooserFacade> getLanguageChoosers()
 	{
@@ -2552,9 +2348,6 @@ public class CharacterFacadeImpl
 		return chooserList;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#removeLanguage(LanguageFacade)
-	 */
 	@Override
 	public void removeLanguage(LanguageFacade lang)
 	{
@@ -2591,18 +2384,12 @@ public class CharacterFacadeImpl
 		return null;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getFileRef()
-	 */
 	@Override
 	public ReferenceFacade<File> getFileRef()
 	{
 		return file;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#setFile(File)
-	 */
 	@Override
 	public void setFile(File file)
 	{
@@ -2652,9 +2439,6 @@ public class CharacterFacadeImpl
 		return exportPc;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#export(ExportHandler, BufferedWriter)
-	 */
 	@Override
 	public void export(ExportHandler theHandler, BufferedWriter buf) throws ExportException
 	{
@@ -2705,9 +2489,6 @@ public class CharacterFacadeImpl
 			.errorPrint("Unable to export using " + theHandler.getTemplateFile() + " due to concurrent modifications.");
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#setDefaultOutputSheet(boolean, File)
-	 */
 	@Override
 	public void setDefaultOutputSheet(boolean pdf, File outputSheet)
 	{
@@ -2734,9 +2515,6 @@ public class CharacterFacadeImpl
 		}
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getDefaultOutputSheet(boolean)
-	 */
 	@Override
 	public String getDefaultOutputSheet(boolean pdf)
 	{
@@ -2765,18 +2543,12 @@ public class CharacterFacadeImpl
 		return context.getProperty(UIPropertyContext.DEFAULT_HTML_OUTPUT_SHEET);
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getHandedRef()
-	 */
 	@Override
 	public ReferenceFacade<HandedFacade> getHandedRef()
 	{
 		return handedness;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#setHanded(HandedFacade)
-	 */
 	@Override
 	public void setHanded(HandedFacade handedness)
 	{
@@ -2784,18 +2556,12 @@ public class CharacterFacadeImpl
 		theCharacter.setHanded((Handed) handedness);
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getPlayersNameRef()
-	 */
 	@Override
 	public ReferenceFacade<String> getPlayersNameRef()
 	{
 		return playersName;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#setPlayersName(String)
-	 */
 	@Override
 	public void setPlayersName(String name)
 	{
@@ -2803,9 +2569,6 @@ public class CharacterFacadeImpl
 		theCharacter.setPCAttribute(PCAttribute.PLAYERSNAME, name);
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#isQualifiedFor(ClassFacade)
-	 */
 	@Override
 	public boolean isQualifiedFor(ClassFacade c)
 	{
@@ -2816,9 +2579,6 @@ public class CharacterFacadeImpl
 		return false;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getUIDelegate()
-	 */
 	@Override
 	public UIDelegate getUIDelegate()
 	{
@@ -2841,9 +2601,6 @@ public class CharacterFacadeImpl
 		theCharacter.setDirty(false);
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#isAutomatic(LanguageFacade)
-	 */
 	@Override
 	public boolean isAutomatic(LanguageFacade language)
 	{
@@ -2854,9 +2611,6 @@ public class CharacterFacadeImpl
 		return autoLanguagesCache.contains(language);
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#isRemovable(LanguageFacade)
-	 */
 	@Override
 	public boolean isRemovable(LanguageFacade language)
 	{
@@ -2874,27 +2628,18 @@ public class CharacterFacadeImpl
 		return true;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getCharacterLevelsFacade()
-	 */
 	@Override
 	public CharacterLevelsFacade getCharacterLevelsFacade()
 	{
 		return charLevelsFacade;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getDescriptionFacade()
-	 */
 	@Override
 	public DescriptionFacade getDescriptionFacade()
 	{
 		return descriptionFacade;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#setXP(int)
-	 */
 	@Override
 	public void setXP(final int xp)
 	{
@@ -2906,18 +2651,12 @@ public class CharacterFacadeImpl
 		theCharacter.setXP(xp);
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getXPRef()
-	 */
 	@Override
 	public ReferenceFacade<Integer> getXPRef()
 	{
 		return currentXP;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#adjustXP(int)
-	 */
 	@Override
 	public void adjustXP(final int xp)
 	{
@@ -2927,27 +2666,18 @@ public class CharacterFacadeImpl
 		checkForNewLevel();
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getXPForNextLevelRef()
-	 */
 	@Override
 	public ReferenceFacade<Integer> getXPForNextLevelRef()
 	{
 		return xpForNextlevel;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getXPTableNameRef()
-	 */
 	@Override
 	public ReferenceFacade<String> getXPTableNameRef()
 	{
 		return xpTableName;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#setXPTable(String)
-	 */
 	@Override
 	public void setXPTable(String newTable)
 	{
@@ -2969,18 +2699,12 @@ public class CharacterFacadeImpl
 		updateLevelTodo();
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getCharacterTypeRef()
-	 */
 	@Override
 	public ReferenceFacade<String> getCharacterTypeRef()
 	{
 		return characterType;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#setCharacterType(String)
-	 */
 	@Override
 	public void setCharacterType(String newType)
 	{
@@ -2993,18 +2717,12 @@ public class CharacterFacadeImpl
 		characterAbilities.rebuildAbilityLists();
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getPreviewSheetRef()
-	 */
 	@Override
 	public ReferenceFacade<String> getPreviewSheetRef()
 	{
 		return previewSheet;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#setPreviewSheet(String)
-	 */
 	@Override
 	public void setPreviewSheet(String newSheet)
 	{
@@ -3012,18 +2730,12 @@ public class CharacterFacadeImpl
 		theCharacter.setPreviewSheet(newSheet);
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getSkillFilterRef()
-	 */
 	@Override
 	public ReferenceFacade<SkillFilter> getSkillFilterRef()
 	{
 		return skillFilter;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#setSkillFilter(SkillFilter)
-	 */
 	@Override
 	public void setSkillFilter(SkillFilter newFilter)
 	{
@@ -3031,9 +2743,6 @@ public class CharacterFacadeImpl
 		theCharacter.setSkillFilter(newFilter);
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#setAge(int)
-	 */
 	@Override
 	public void setAge(final int age)
 	{
@@ -3069,27 +2778,18 @@ public class CharacterFacadeImpl
 		}
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getAgeRef()
-	 */
 	@Override
 	public ReferenceFacade<Integer> getAgeRef()
 	{
 		return age;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getAgeCategories()
-	 */
 	@Override
 	public ListFacade<SimpleFacade> getAgeCategories()
 	{
 		return ageCategoryList;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#setAgeCategory(SimpleFacade)
-	 */
 	@Override
 	public void setAgeCategory(final SimpleFacade ageCat)
 	{
@@ -3121,9 +2821,6 @@ public class CharacterFacadeImpl
 		}
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getAgeCategoryRef()
-	 */
 	@Override
 	public ReferenceFacade<SimpleFacade> getAgeCategoryRef()
 	{
@@ -3247,18 +2944,12 @@ public class CharacterFacadeImpl
 		return pcPlayerLevels <= maxDiddleLevel;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getStatTotalLabelTextRef()
-	 */
 	@Override
 	public ReferenceFacade<String> getStatTotalLabelTextRef()
 	{
 		return statTotalLabelText;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getStatTotalTextRef()
-	 */
 	@Override
 	public ReferenceFacade<String> getStatTotalTextRef()
 	{
@@ -3267,8 +2958,6 @@ public class CharacterFacadeImpl
 
 	/**
 	 * @return A reference to the label text for the character's modifier total
-	 * 
-	 * @see pcgen.facade.core.CharacterFacade#getModTotalLabelTextRef()
 	 */
 	@Override
 	public ReferenceFacade<String> getModTotalLabelTextRef()
@@ -3278,8 +2967,6 @@ public class CharacterFacadeImpl
 
 	/**
 	 * @return A reference to the text for the character's modifier total
-	 * 
-	 * @see pcgen.facade.core.CharacterFacade#getModTotalTextRef()
 	 */
 	@Override
 	public ReferenceFacade<String> getModTotalTextRef()
@@ -3287,9 +2974,6 @@ public class CharacterFacadeImpl
 		return modTotalText;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getTodoList()
-	 */
 	@Override
 	public ListFacade<TodoFacade> getTodoList()
 	{
@@ -3304,27 +2988,18 @@ public class CharacterFacadeImpl
 		return theCharacter;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getTotalHPRef()
-	 */
 	@Override
 	public ReferenceFacade<Integer> getTotalHPRef()
 	{
 		return hpRef;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getRollMethodRef()
-	 */
 	@Override
 	public ReferenceFacade<Integer> getRollMethodRef()
 	{
 		return rollMethodRef;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#refreshRollMethod()
-	 */
 	@Override
 	public void refreshRollMethod()
 	{
@@ -3379,9 +3054,6 @@ public class CharacterFacadeImpl
 		scoreRef.set(newScore);
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#adjustFunds(BigDecimal)
-	 */
 	@Override
 	public void adjustFunds(BigDecimal modVal)
 	{
@@ -3390,9 +3062,6 @@ public class CharacterFacadeImpl
 		updateWealthFields();
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#setFunds(BigDecimal)
-	 */
 	@Override
 	public void setFunds(BigDecimal newVal)
 	{
@@ -3400,36 +3069,24 @@ public class CharacterFacadeImpl
 		updateWealthFields();
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getFundsRef()
-	 */
 	@Override
 	public ReferenceFacade<BigDecimal> getFundsRef()
 	{
 		return fundsRef;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getWealthRef()
-	 */
 	@Override
 	public ReferenceFacade<BigDecimal> getWealthRef()
 	{
 		return wealthRef;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getWealthRef()
-	 */
 	@Override
 	public ReferenceFacade<GearBuySellFacade> getGearBuySellRef()
 	{
 		return gearBuySellSchemeRef;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#setGearBuySellRef(GearBuySellFacade)
-	 */
 	@Override
 	public void setGearBuySellRef(GearBuySellFacade gearBuySell)
 	{
@@ -3450,36 +3107,24 @@ public class CharacterFacadeImpl
 		wealthRef.set(theCharacter.totalValue());
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#setAllowDebt(boolean)
-	 */
 	@Override
 	public void setAllowDebt(boolean allowDebt)
 	{
 		this.allowDebt = allowDebt;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#isAllowDebt()
-	 */
 	@Override
 	public boolean isAllowDebt()
 	{
 		return allowDebt;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getPurchasedEquipment()
-	 */
 	@Override
 	public EquipmentListFacade getPurchasedEquipment()
 	{
 		return purchasedEquip;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#addPurchasedEquipment(EquipmentFacade, int, boolean, boolean)
-	 */
 	@Override
 	public void addPurchasedEquipment(EquipmentFacade equipment, int quantity, boolean customize, boolean free)
 	{
@@ -3630,9 +3275,6 @@ public class CharacterFacadeImpl
 		return result == CustomEquipResult.PURCHASE ? newEquip : null;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#removePurchasedEquipment(EquipmentFacade, int, boolean)
-	 */
 	@Override
 	public void removePurchasedEquipment(EquipmentFacade equipment, int quantity, boolean free)
 	{
@@ -3697,9 +3339,6 @@ public class CharacterFacadeImpl
 		updateWealthFields();
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#removePurchasedEquipment(EquipmentFacade, int, boolean)
-	 */
 	@Override
 	public void deleteCustomEquipment(EquipmentFacade eqFacade)
 	{
@@ -3732,9 +3371,6 @@ public class CharacterFacadeImpl
 
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#isQualifiedFor(EquipmentFacade)
-	 */
 	@Override
 	public boolean isQualifiedFor(EquipmentFacade equipment)
 	{
@@ -3749,9 +3385,6 @@ public class CharacterFacadeImpl
 		return accept;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getEquipmentSizedForCharacter(EquipmentFacade)
-	 */
 	@Override
 	public EquipmentFacade getEquipmentSizedForCharacter(EquipmentFacade equipment)
 	{
@@ -3817,8 +3450,6 @@ public class CharacterFacadeImpl
 	 * Whether we should automatically resize all purchased gear to match the 
 	 * character's size.
 	 * @return true if equipment should be auto resize.
-	 * 
-	 * @see pcgen.facade.core.CharacterFacade#isAutoResize()
 	 */
 	@Override
 	public boolean isAutoResize()
@@ -3831,8 +3462,6 @@ public class CharacterFacadeImpl
 	 * the character's size.
 	 * 
 	 * @param autoResize The new value for auto resize equipment option.
-	 * 
-	 * @see pcgen.facade.core.CharacterFacade#setAutoResize(boolean)
 	 */
 	@Override
 	public void setAutoResize(boolean autoResize)
@@ -3840,9 +3469,6 @@ public class CharacterFacadeImpl
 		theCharacter.setAutoResize(autoResize);
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#createEquipmentSet(String)
-	 */
 	@Override
 	public EquipmentSetFacade createEquipmentSet(String setName)
 	{
@@ -3856,9 +3482,6 @@ public class CharacterFacadeImpl
 		return facade;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#deleteEquipmentSet(EquipmentSetFacade)
-	 */
 	@Override
 	public void deleteEquipmentSet(EquipmentSetFacade set)
 	{
@@ -3873,27 +3496,18 @@ public class CharacterFacadeImpl
 		equipmentSets.removeElement(set);
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getCarriedWeightRef()
-	 */
 	@Override
 	public ReferenceFacade<String> getCarriedWeightRef()
 	{
 		return carriedWeightRef;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getLoadRef()
-	 */
 	@Override
 	public ReferenceFacade<String> getLoadRef()
 	{
 		return loadRef;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getWeightLimitRef()
-	 */
 	@Override
 	public ReferenceFacade<String> getWeightLimitRef()
 	{
@@ -3906,36 +3520,24 @@ public class CharacterFacadeImpl
 		refreshTotalWeight();
 	}
 
-	/**
-	 * @see pcgen.facade.util.event.ListListener#elementAdded(ListEvent)
-	 */
 	@Override
 	public void elementAdded(ListEvent<EquipmentFacade> e)
 	{
 		refreshTotalWeight();
 	}
 
-	/**
-	 * @see pcgen.facade.util.event.ListListener#elementRemoved(ListEvent)
-	 */
 	@Override
 	public void elementRemoved(ListEvent<EquipmentFacade> e)
 	{
 		refreshTotalWeight();
 	}
 
-	/**
-	 * @see pcgen.facade.util.event.ListListener#elementsChanged(ListEvent)
-	 */
 	@Override
 	public void elementsChanged(ListEvent<EquipmentFacade> e)
 	{
 		refreshTotalWeight();
 	}
 
-	/**
-	 * @see pcgen.facade.util.event.ListListener#elementModified(ListEvent)
-	 */
 	@Override
 	public void elementModified(ListEvent<EquipmentFacade> e)
 	{
@@ -3988,18 +3590,12 @@ public class CharacterFacadeImpl
 		hpRef.set(theCharacter.hitPoints());
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getInfoFactory()
-	 */
 	@Override
 	public InfoFactory getInfoFactory()
 	{
 		return infoFactory;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#isQualifiedFor(InfoFacade)
-	 */
 	@Override
 	public boolean isQualifiedFor(InfoFacade infoFacade)
 	{
@@ -4030,9 +3626,6 @@ public class CharacterFacadeImpl
 		return true;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#isQualifiedFor(DeityFacade)
-	 */
 	@Override
 	public boolean isQualifiedFor(DeityFacade deityFacade)
 	{
@@ -4044,9 +3637,6 @@ public class CharacterFacadeImpl
 		return PrereqHandler.passesAll(aDeity, theCharacter, aDeity) && theCharacter.isQualified(aDeity);
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#isQualifiedFor(DomainFacade)
-	 */
 	@Override
 	public boolean isQualifiedFor(DomainFacade domainFacade)
 	{
@@ -4064,9 +3654,6 @@ public class CharacterFacadeImpl
 		return true;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#isQualifiedFor(TempBonusFacade)
-	 */
 	@Override
 	public boolean isQualifiedFor(TempBonusFacade tempBonusFacade)
 	{
@@ -4084,9 +3671,6 @@ public class CharacterFacadeImpl
 		return true;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#isQualifiedFor(SpellFacade, ClassFacade)
-	 */
 	@Override
 	public boolean isQualifiedFor(SpellFacade spellFacade, ClassFacade classFacade)
 	{
@@ -4110,9 +3694,6 @@ public class CharacterFacadeImpl
 		return true;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#isQualifiedFor(EquipmentFacade, EquipModFacade)
-	 */
 	@Override
 	public boolean isQualifiedFor(EquipmentFacade equipFacade, EquipModFacade eqModFacade)
 	{
@@ -4128,9 +3709,6 @@ public class CharacterFacadeImpl
 		return equip.canAddModifier(theCharacter, eqMod, true);
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#addTemplate(TemplateFacade)
-	 */
 	@Override
 	public void addTemplate(PCTemplate template)
 	{
@@ -4172,9 +3750,6 @@ public class CharacterFacadeImpl
 		}
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#removeTemplate(TemplateFacade)
-	 */
 	@Override
 	public void removeTemplate(PCTemplate template)
 	{
@@ -4215,36 +3790,24 @@ public class CharacterFacadeImpl
 		}
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getTemplates()
-	 */
 	@Override
 	public ListFacade<PCTemplate> getTemplates()
 	{
 		return templates;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getSpellSupport()
-	 */
 	@Override
 	public SpellSupportFacade getSpellSupport()
 	{
 		return spellSupportFacade;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getPortraitRef()
-	 */
 	@Override
 	public ReferenceFacade<File> getPortraitRef()
 	{
 		return portrait;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#setPortrait(File)
-	 */
 	@Override
 	public void setPortrait(File file)
 	{
@@ -4252,18 +3815,12 @@ public class CharacterFacadeImpl
 		theCharacter.setPortraitPath(file == null ? null : file.getAbsolutePath());
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getThumbnailCropRef()
-	 */
 	@Override
 	public ReferenceFacade<Rectangle> getThumbnailCropRef()
 	{
 		return cropRect;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#setThumbnailCrop(Rectangle)
-	 */
 	@Override
 	public void setThumbnailCrop(Rectangle rect)
 	{
@@ -4271,27 +3828,18 @@ public class CharacterFacadeImpl
 		theCharacter.setPortraitThumbnailRect(rect);
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#isDirty()
-	 */
 	@Override
 	public boolean isDirty()
 	{
 		return theCharacter.isDirty();
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getCompanionSupport()
-	 */
 	@Override
 	public CompanionSupportFacade getCompanionSupport()
 	{
 		return companionSupportFacade;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getCompanionType()
-	 */
 	@Override
 	public String getCompanionType()
 	{
@@ -4303,9 +3851,6 @@ public class CharacterFacadeImpl
 		return null;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getMaster()
-	 */
 	@Override
 	public CharacterStubFacade getMaster()
 	{
@@ -4341,9 +3886,6 @@ public class CharacterFacadeImpl
 			super(rect == null ? null : (Rectangle) rect.clone());
 		}
 
-		/**
-		 * @see pcgen.facade.util.DefaultReferenceFacade#get()
-		 */
 		@Override
 		public Rectangle get()
 		{
@@ -4355,9 +3897,6 @@ public class CharacterFacadeImpl
 			return rect;
 		}
 
-		/**
-		 *   // @see pcgen.facade.util.DefaultReferenceFacade#set(E)
-		 */
 		@Override
 		public void set(Rectangle rect)
 		{
@@ -4380,18 +3919,12 @@ public class CharacterFacadeImpl
 
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getKits()
-	 */
 	@Override
 	public DefaultListFacade<KitFacade> getKits()
 	{
 		return kitList;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#addKit(KitFacade)
-	 */
 	@Override
 	public void addKit(KitFacade obj)
 	{
@@ -4583,9 +4116,6 @@ public class CharacterFacadeImpl
 		return charges;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#addNote(List)
-	 */
 	@Override
 	public void addNote(List<EquipmentFacade> targets)
 	{
@@ -4629,9 +4159,6 @@ public class CharacterFacadeImpl
 	 */
 	public class LanguageListener implements DataFacetChangeListener<CharID, Language>
 	{
-		/**
-		 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(DataFacetChangeEvent)
-		 */
 		@Override
 		public void dataAdded(DataFacetChangeEvent<CharID, Language> dfce)
 		{
@@ -4642,9 +4169,6 @@ public class CharacterFacadeImpl
 			refreshLanguageList();
 		}
 
-		/**
-		 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(DataFacetChangeEvent)
-		 */
 		@Override
 		public void dataRemoved(DataFacetChangeEvent<CharID, Language> dfce)
 		{
@@ -4673,9 +4197,6 @@ public class CharacterFacadeImpl
 			refreshTemplates();
 		}
 
-		/**
-		 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(DataFacetChangeEvent)
-		 */
 		@Override
 		public void dataRemoved(DataFacetChangeEvent<CharID, PCTemplate> dfce)
 		{
@@ -4693,9 +4214,6 @@ public class CharacterFacadeImpl
 	 */
 	public class XPListener implements DataFacetChangeListener<CharID, Integer>
 	{
-		/**
-		 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(DataFacetChangeEvent)
-		 */
 		@Override
 		public void dataAdded(DataFacetChangeEvent<CharID, Integer> dfce)
 		{
@@ -4706,9 +4224,6 @@ public class CharacterFacadeImpl
 			checkForNewLevel();
 		}
 
-		/**
-		 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(DataFacetChangeEvent)
-		 */
 		@Override
 		public void dataRemoved(DataFacetChangeEvent<CharID, Integer> dfce)
 		{
@@ -4723,9 +4238,6 @@ public class CharacterFacadeImpl
 	 */
 	public class AutoEquipListener implements DataFacetChangeListener<CharID, QualifiedObject<CDOMReference<Equipment>>>
 	{
-		/**
-		 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(DataFacetChangeEvent)
-		 */
 		@Override
 		public void dataAdded(DataFacetChangeEvent<CharID, QualifiedObject<CDOMReference<Equipment>>> dfce)
 		{
@@ -4736,9 +4248,6 @@ public class CharacterFacadeImpl
 			refreshEquipment();
 		}
 
-		/**
-		 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(DataFacetChangeEvent)
-		 */
 		@Override
 		public void dataRemoved(DataFacetChangeEvent<CharID, QualifiedObject<CDOMReference<Equipment>>> dfce)
 		{
@@ -4751,9 +4260,6 @@ public class CharacterFacadeImpl
 
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getCoreViewTree(CorePerspective)
-	 */
 	@Override
 	public List<CoreViewNodeFacade> getCoreViewTree(CorePerspective pers)
 	{
@@ -4761,9 +4267,6 @@ public class CharacterFacadeImpl
 		return coreDebugList;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#getCharID()
-	 */
 	@Override
 	public CharID getCharID()
 	{

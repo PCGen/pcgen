@@ -1247,9 +1247,6 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			update();
 		}
 
-		/**
-		 * @see pcgen.facade.util.event.ListListener#elementsChanged(ListEvent)
-		 */
 		@Override
 		public void elementsChanged(ListEvent<CharacterLevelFacade> e)
 		{

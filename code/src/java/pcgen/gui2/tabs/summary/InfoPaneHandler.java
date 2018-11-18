@@ -123,45 +123,30 @@ public class InfoPaneHandler implements ReferenceListener<Object>, ListListener<
 		support.uninstall();
 	}
 
-	/**
-	 * @see pcgen.facade.util.event.ReferenceListener#referenceChanged(ReferenceEvent)
-	 */
 	@Override
 	public void referenceChanged(ReferenceEvent<Object> e)
 	{
 		scheduleRefresh();
 	}
 
-	/**
-	 * @see pcgen.facade.util.event.ListListener#elementAdded(ListEvent)
-	 */
 	@Override
 	public void elementAdded(ListEvent<CharacterLevelFacade> e)
 	{
 		scheduleRefresh();
 	}
 
-	/**
-	 * @see pcgen.facade.util.event.ListListener#elementRemoved(ListEvent)
-	 */
 	@Override
 	public void elementRemoved(ListEvent<CharacterLevelFacade> e)
 	{
 		scheduleRefresh();
 	}
 
-	/**
-	 * @see pcgen.facade.util.event.ListListener#elementModified(ListEvent)
-	 */
 	@Override
 	public void elementModified(ListEvent<CharacterLevelFacade> e)
 	{
 		scheduleRefresh();
 	}
 
-	/**
-	 * @see pcgen.facade.util.event.ListListener#elementsChanged(ListEvent)
-	 */
 	@Override
 	public void elementsChanged(ListEvent<CharacterLevelFacade> e)
 	{

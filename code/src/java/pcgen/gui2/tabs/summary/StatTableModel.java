@@ -195,9 +195,6 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 	private static class AbilityHeaderCellRenderer implements TableCellRenderer
 	{
 
-		/**
-		 * @see TableCellRenderer#getTableCellRendererComponent(JTable, Object, boolean, boolean, int, int)
-		 */
 		@Override
 		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
 			int row, int column)
@@ -224,9 +221,6 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 			setBorder(BorderFactory.createEmptyBorder(2, 5, 2, 10));
 		}
 
-		/**
-		 * @see TableCellRenderer#getTableCellRendererComponent(JTable, Object, boolean, boolean, int, int)
-		 */
 		@Override
 		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
 			int row, int column)
@@ -298,9 +292,6 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 			setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 7));
 		}
 
-		/**
-		 * @see TableCellRenderer#getTableCellRendererComponent(JTable, Object, boolean, boolean, int, int)
-		 */
 		@Override
 		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
 			int row, int column)

@@ -1930,10 +1930,6 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 	 */
 	private class FilenameListener implements ReferenceListener<File>
 	{
-		/**
-		 * @see pcgen.facade.util.event.ReferenceListener#referenceChanged(ReferenceEvent)
-		 */
-
 		@Override
 		public void referenceChanged(ReferenceEvent<File> e)
 		{
