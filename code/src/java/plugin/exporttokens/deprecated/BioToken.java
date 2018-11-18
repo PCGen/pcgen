@@ -31,21 +31,12 @@ import pcgen.io.exporttoken.AbstractExportToken;
  */
 public class BioToken extends AbstractExportToken
 {
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return "BIO";
 	}
 
-	/**
-	 * TODO  Could expand Token itself or even create a sub class of Token so that
-	 * the beforeValue and afterValue can be handled more cleanly. 
-	 *
-	 * @see AbstractExportToken#getToken(String, CharacterDisplay, ExportHandler)
-	 */
 	@Override
 	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
 	{

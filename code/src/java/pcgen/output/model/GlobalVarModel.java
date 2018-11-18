@@ -80,8 +80,6 @@ public class GlobalVarModel implements TemplateHashModel
 	/**
 	 * Gets the global variable (new formula system) represented by the given
 	 * key.
-	 * 
-	 * @see freemarker.template.TemplateHashModel#get(java.lang.String)
 	 */
 	@Override
 	public TemplateModel get(String varName) throws TemplateModelException
@@ -93,9 +91,6 @@ public class GlobalVarModel implements TemplateHashModel
 		return wrapperFacet.wrap(id, value);
 	}
 
-	/**
-	 * @see freemarker.template.TemplateHashModel#isEmpty()
-	 */
 	@Override
 	public boolean isEmpty() throws TemplateModelException
 	{
