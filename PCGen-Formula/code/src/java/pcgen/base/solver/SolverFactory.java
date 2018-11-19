@@ -23,6 +23,7 @@ import java.util.Map.Entry;
 import java.util.Objects;
 
 import pcgen.base.formula.base.DefaultStore;
+import pcgen.base.spotbugs.SuppressFBWarnings;
 import pcgen.base.util.ComplexResult;
 import pcgen.base.util.FailureResult;
 import pcgen.base.util.FormatManager;
@@ -167,6 +168,7 @@ public class SolverFactory implements DefaultStore
 	 * @return The default value for the given Format
 	 */
 	@Override
+	@SuppressFBWarnings("NP_NULL_PARAM_DEREF_ALL_TARGETS_DANGEROUS")
 	public <T> T getDefault(Class<T> varFormat)
 	{
 		@SuppressWarnings("unchecked")
