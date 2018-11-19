@@ -4225,24 +4225,6 @@ public class CharacterFacadeImpl
 	}
 
 	/**
-	 * @see pcgen.facade.core.CharacterFacade#addCharacterChangeListener(CharacterChangeListener)
-	 */
-	@Override
-	public void addCharacterChangeListener(CharacterChangeListener listener)
-	{
-		//TODO: implement this
-	}
-
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#removeCharacterChangeListener(CharacterChangeListener)
-	 */
-	@Override
-	public void removeCharacterChangeListener(CharacterChangeListener listener)
-	{
-		//TODO: implement this
-	}
-
-	/**
 	 * @see pcgen.facade.core.CharacterFacade#getSpellSupport()
 	 */
 	@Override
