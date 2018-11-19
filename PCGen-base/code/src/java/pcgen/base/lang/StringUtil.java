@@ -22,6 +22,7 @@ package pcgen.base.lang;
 
 import java.util.Collection;
 import java.util.Comparator;
+import java.util.StringJoiner;
 import java.util.StringTokenizer;
 import java.util.regex.Pattern;
 import java.util.stream.Collector;
@@ -70,7 +71,7 @@ public final class StringUtil
 	 */
 	public static String join(Collection<?> collection, char separator)
 	{
-		return joinToStringBuilder(collection, separator).toString();
+		return join(collection, Character.toString(separator)).toString();
 	}
 	
 	/**
@@ -88,69 +89,16 @@ public final class StringUtil
 	 */
 	public static String join(Collection<?> collection, String separator)
 	{
-		return joinToStringBuilder(collection, separator).toString();
-	}
+		StringJoiner result = new StringJoiner(separator);
 
-	/**
-	 * Concatenates the Collection of Objects (converted to Strings using
-	 * .toString()) into a StringBuilder using the separator as the delimiter.
-	 * 
-	 * This method is value-semantic and will not modify or maintain a reference
-	 * to the given Collection of Objects. Ownership of the returned
-	 * StringBuilder is transferred to the calling object. No reference to the
-	 * StringBuilder is maintained by StringUtil.
-	 * 
-	 * @param collection
-	 *            An Collection of objects
-	 * @param separator
-	 *            The separating character
-	 * @return A 'separator' separated StringBuilder
-	 */
-	public static StringBuilder joinToStringBuilder(Collection<?> collection,
-		char separator)
-	{
-		return joinToStringBuilder(collection, Character.toString(separator));
-	}
-
-	/**
-	 * Concatenates the Collection of Objects (converted to Strings using
-	 * .toString()) into a StringBuilder using the separator as the delimiter.
-	 * 
-	 * This method is value-semantic and will not modify or maintain a reference
-	 * to the given Collection of Objects. Ownership of the returned
-	 * StringBuilder is transferred to the calling object. No reference to the
-	 * StringBuilder is maintained by StringUtil.
-	 * 
-	 * @param collection
-	 *            An Collection of objects
-	 * @param separator
-	 *            The separating String
-	 * @return A 'separator' separated StringBuilder
-	 */
-	public static StringBuilder joinToStringBuilder(Collection<?> collection,
-		String separator)
-	{
 		if (collection == null)
 		{
-			return new StringBuilder();
+			return result.toString();
 		}
 
-		StringBuilder result = new StringBuilder(collection.size() * 10);
-
-		boolean needjoin = false;
-
-		for (Object obj : collection)
-		{
-			if (needjoin)
-			{
-				result.append(separator);
-			}
-			needjoin = true;
-			//This .toString() prevents null from working
-			result.append(obj.toString());
-		}
-
-		return result;
+		//This .toString() prevents null from working
+		collection.forEach(obj -> result.add(obj.toString()));
+		return result.toString();
 	}
 
 	/**
@@ -173,20 +121,11 @@ public final class StringUtil
 			return "";
 		}
 
-		StringBuilder result = new StringBuilder(stringArray.length * 10);
-
-		boolean needjoin = false;
-
+		StringJoiner result = new StringJoiner(separator);
 		for (String obj : stringArray)
 		{
-			if (needjoin)
-			{
-				result.append(separator);
-			}
-			needjoin = true;
-			result.append(obj);
+			result.add(obj);
 		}
-
 		return result.toString();
 	}
 

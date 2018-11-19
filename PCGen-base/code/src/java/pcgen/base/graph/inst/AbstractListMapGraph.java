@@ -296,11 +296,8 @@ public abstract class AbstractListMapGraph<N, ET extends Edge<N>> implements
 		 * ConcurrentModificationException (since the set for GraphNode gn would
 		 * be modified by removeEdge while inside this Iterator).
 		 */
-		for (ET edge : nodeEdgeMap.remove(node))
-		{
-			// FUTURE Consider Check of return values of removeEdge here to ensure success??
-			removeEdge(edge);
-		}
+		// FUTURE Consider Check of return values of removeEdge here to ensure success??
+		nodeEdgeMap.remove(node).forEach(edge -> removeEdge(edge));
 		/*
 		 * containsNode test means we don't need to check return value of remove
 		 * we 'know' it is present (barring an internal error!). This remove

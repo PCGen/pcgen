@@ -24,7 +24,6 @@ import java.util.NoSuchElementException;
 import java.util.Objects;
 import java.util.StringTokenizer;
 
-import pcgen.base.lang.StringUtil;
 import pcgen.base.util.OneToOneMap;
 
 /**
@@ -270,10 +269,9 @@ public class ParsingSeparator implements Iterator<String>
 		}
 		else
 		{
-			StringBuilder sb =
-					StringUtil.joinToStringBuilder(groupingPairs.keySet(), "");
-			sb.append(
-				StringUtil.joinToStringBuilder(groupingPairs.values(), ""));
+			StringBuilder sb = new StringBuilder();
+			groupingPairs.keySet().forEach(item -> sb.append(item));
+			groupingPairs.values().forEach(item -> sb.append(item));
 			separatorString = sb.append(separator).toString();
 		}
 		baseTokenizer = new StringTokenizer(baseString, separatorString, true);

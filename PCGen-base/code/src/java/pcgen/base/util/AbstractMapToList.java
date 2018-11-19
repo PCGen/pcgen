@@ -223,16 +223,12 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 	@Override
 	public void addAllLists(MapToList<K, V> mtl)
 	{
-		for (K key : mtl.getKeySet())
-		{
 		/*
-			 * Note, this grab of the list for the key is safe regardless of
-			 * whether mtl's getListFor is reference or value-semantic, as
-			 * addAllToListFor is committed to be value-semantic and not keep or
-			 * modify the received list.
+		 * Note, this grab of the list for the key is safe regardless of whether mtl's
+		 * getListFor is reference or value-semantic, as addAllToListFor is committed to
+		 * be value-semantic and not keep or modify the received list.
 		 */
-			addAllToListFor(key, mtl.getListFor(key));
-		}
+		mtl.getKeySet().forEach(key -> addAllToListFor(key, mtl.getListFor(key)));
 	}
 
 	/**
