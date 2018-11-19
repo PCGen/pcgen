@@ -32,7 +32,6 @@ public final class ArmorProf extends PObject implements Comparable<Object>, Ungr
 	 *
 	 * @param o1 Object
 	 * @return int
-	 * @see Comparable#compareTo(Object)
 	 */
 	@Override
 	public int compareTo(final Object o1)

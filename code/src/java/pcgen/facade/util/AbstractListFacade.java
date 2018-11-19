@@ -96,7 +96,6 @@ public abstract class AbstractListFacade<E> implements ListFacade<E>
 	 * @param source the {@code ListFacade} that changed, typically "this"
 	 * @param element the element that was added
 	 * @param index the index of the element that was added.
-	 * @see EventListenerList
 	 */
 	protected void fireElementAdded(Object source, E element, int index)
 	{
@@ -123,7 +122,6 @@ public abstract class AbstractListFacade<E> implements ListFacade<E>
 	 * @param source the {@code ListFacade} that changed, typically "this"
 	 * @param element the element that was removed
 	 * @param index the index of the element that was removed.
-	 * @see EventListenerList
 	 */
 	protected void fireElementRemoved(Object source, E element, int index)
 	{
@@ -147,7 +145,6 @@ public abstract class AbstractListFacade<E> implements ListFacade<E>
 	 * <b>after</b> the contents of this list have greatly changed.
 	 *
 	 * @param source the {@code ListFacade} that changed, typically "this"
-	 * @see EventListenerList
 	 */
 	protected void fireElementsChanged(Object source)
 	{
@@ -174,7 +171,6 @@ public abstract class AbstractListFacade<E> implements ListFacade<E>
 	 * @param source the {@code ListFacade} that changed, typically "this"
 	 * @param element the element that was modified
 	 * @param index the index of the element that was modified.
-	 * @see EventListenerList
 	 */
 	protected void fireElementModified(Object source, E element, int index)
 	{

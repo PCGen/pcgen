@@ -66,7 +66,6 @@ public abstract class AbstractMapFacade<K, V> implements MapFacade<K, V>
 	 * {@code MapFacade} that changed, typically "this"
 	 * @param key the new key
 	 * @param value the value associated with the new key
-	 * @see EventListenerList
 	 */
 	protected void fireKeyAdded(Object source, K key, V value)
 	{
@@ -93,7 +92,6 @@ public abstract class AbstractMapFacade<K, V> implements MapFacade<K, V>
 	 * {@code MapFacade} that changed, typically "this"
 	 * @param key the removed key
 	 * @param value the value associated with the key
-	 * @see EventListenerList
 	 */
 	protected void fireKeyRemoved(Object source, K key, V value)
 	{
@@ -121,7 +119,6 @@ public abstract class AbstractMapFacade<K, V> implements MapFacade<K, V>
 	 * @param key the removed key
 	 * @param value the value associated with the key
 	 * @param cause optional parameter used to indicate the underlying event that caused the modification
-	 * @see EventListenerList
 	 */
 	protected void fireKeyModified(Object source, K key, V value, FacadeEvent cause)
 	{
@@ -149,7 +146,6 @@ public abstract class AbstractMapFacade<K, V> implements MapFacade<K, V>
 	 * @param key the removed key
 	 * @param oldValue the old value associated with the key
 	 * @param newValue the new value associated with the key
-	 * @see EventListenerList
 	 */
 	protected void fireValueChanged(Object source, K key, V oldValue, V newValue)
 	{
@@ -177,7 +173,6 @@ public abstract class AbstractMapFacade<K, V> implements MapFacade<K, V>
 	 * @param key the removed key
 	 * @param value the value associated with the key
 	 * @param cause optional parameter used to indicate the underlying event that caused the modification
-	 * @see EventListenerList
 	 */
 	protected void fireValueModified(Object source, K key, V value, FacadeEvent cause)
 	{
@@ -202,7 +197,6 @@ public abstract class AbstractMapFacade<K, V> implements MapFacade<K, V>
 	 *
 	 * @param source the
 	 * {@code MapFacade} that changed, typically "this"
-	 * @see EventListenerList
 	 */
 	protected void fireKeysChanged(Object source)
 	{

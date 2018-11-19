@@ -181,12 +181,6 @@ public class WeaponProfProvider extends ConcretePrereqObject implements Qualifyi
 		return sb.toString();
 	}
 
-	/**
-	 * Returns true if the given object is a WeaponProfProvider with identical
-	 * underlying WeaponProfs and WeaponProf TYPEs and Prerequisites.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{
@@ -240,11 +234,6 @@ public class WeaponProfProvider extends ConcretePrereqObject implements Qualifyi
 		return false;
 	}
 
-	/**
-	 * Returns a consistent-with-equals hashCode for this WeaponProfProvider
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{

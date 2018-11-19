@@ -157,8 +157,6 @@ public class EquipmentTableParser
 		/**
 		 * @throws  SAXException
 		 * @throws  IllegalArgumentException if the file being processed is not the same GameMode as requested.
-		 * 
-		 * @see  DefaultHandler#startElement(String, String, String, Attributes)
 		 */
 		@Override
 		public void startElement(final String uri, final String localName, final String aName, final Attributes anAttrs)
@@ -362,9 +360,6 @@ public class EquipmentTableParser
 			}
 		}
 
-		/**
-		 * @see org.xml.sax.helpers.DefaultHandler#endElement(java.lang.String, java.lang.String, java.lang.String)
-		 */
 		@Override
 		public void endElement(final String uri, final String localName, final String qName)
 		{

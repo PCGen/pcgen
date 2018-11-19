@@ -70,7 +70,6 @@ public final class CDOMAllRef<T> extends CDOMGroupRef<T>
 	 * 
 	 * @return A representation of this CDOMAllRef, suitable for storing in an
 	 *         LST file.
-	 * @see pcgen.cdom.base.CDOMReference#getLSTformat(boolean)
 	 */
 	@Override
 	public String getLSTformat(boolean useAny)
@@ -103,25 +102,12 @@ public final class CDOMAllRef<T> extends CDOMGroupRef<T>
 		return referencedList.contains(item);
 	}
 
-	/**
-	 * Returns true if this CDOMAllRef is equal to the given Object. Equality is
-	 * defined as being another CDOMAllRef object with equal ClassIdentity represented
-	 * by the reference. This is NOT a deep .equals, in that the actual contents
-	 * of this CDOMReference are not tested.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{
 		return obj instanceof CDOMAllRef && identity.equals(((CDOMAllRef<?>) obj).identity);
 	}
 
-	/**
-	 * Returns the consistent-with-equals hashCode for this CDOMAllRef
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{

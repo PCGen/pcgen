@@ -109,8 +109,6 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 	 * @param   other  Object
 	 *
 	 * @return  int
-	 *
-	 * @see     java.lang.Comparable#compareTo(Object)
 	 */
 	@Override
 	public int compareTo(final Object other)

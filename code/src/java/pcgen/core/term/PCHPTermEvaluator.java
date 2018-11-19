@@ -39,18 +39,12 @@ public class PCHPTermEvaluator extends BasePCTermEvaluator implements TermEvalua
 		this.originalText = originalText;
 	}
 
-	/**
-	 * @see pcgen.core.term.BasePCTermEvaluator#resolve(pcgen.core.PlayerCharacter)
-	 */
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
 		return (float) pc.hitPoints();
 	}
 
-	/**
-	 * @see pcgen.core.term.TermEvaluator#isSourceDependant()
-	 */
 	@Override
 	public boolean isSourceDependant()
 	{

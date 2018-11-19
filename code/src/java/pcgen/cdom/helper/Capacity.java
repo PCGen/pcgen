@@ -106,12 +106,6 @@ public class Capacity
 		return new Capacity(null, capacity);
 	}
 
-	/**
-	 * Returns a String representation of this Capacity.
-	 * 
-	 * @return A String representation of this Capacity.
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString()
 	{
@@ -123,23 +117,12 @@ public class Capacity
 		return sb.toString();
 	}
 
-	/**
-	 * Returns a consistent-with-equals hashCode for this Capacity
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{
 		return type == null ? 0 : type.hashCode() ^ limit.hashCode();
 	}
 
-	/**
-	 * Returns true if the given object is a Capacity with identical underlying
-	 * type and capacity limit.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{

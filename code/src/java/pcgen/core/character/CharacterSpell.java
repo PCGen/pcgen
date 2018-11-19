@@ -262,7 +262,6 @@ public final class CharacterSpell implements Comparable<CharacterSpell>
 	 * @param obj the CharacterSpell to compare with
 	 * @return a negative integer, zero, or a positive integer as this object
 	 *         is less than, equal to, or greater than the specified object.
-	 * @see Comparable#compareTo(Object)
 	 */
 	@Override
 	public int compareTo(final CharacterSpell obj)
