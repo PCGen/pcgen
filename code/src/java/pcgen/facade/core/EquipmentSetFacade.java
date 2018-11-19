@@ -21,6 +21,7 @@ package pcgen.facade.core;
 import java.util.EventListener;
 import java.util.EventObject;
 
+import pcgen.core.BodyStructure;
 import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.ReferenceFacade;
 
@@ -172,7 +173,7 @@ public interface EquipmentSetFacade
 
 		public EquipmentFacade getEquipment();
 
-		public BodyStructureFacade getBodyStructure();
+		public BodyStructure getBodyStructure();
 
 	}
 

@@ -28,7 +28,6 @@ import java.util.Set;
 
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.character.EquipSlot;
-import pcgen.facade.core.BodyStructureFacade;
 
 /**
  * The Class {@code BodyStructure} represents a part of a character's
@@ -36,7 +35,7 @@ import pcgen.facade.core.BodyStructureFacade;
  *
  * 
  */
-public class BodyStructure implements BodyStructureFacade
+public class BodyStructure
 {
 
 	private String name;

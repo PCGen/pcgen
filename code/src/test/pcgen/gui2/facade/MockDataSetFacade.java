@@ -20,12 +20,12 @@ package pcgen.gui2.facade;
 import java.util.List;
 
 import pcgen.core.AbilityCategory;
+import pcgen.core.BodyStructure;
 import pcgen.core.GameMode;
 import pcgen.core.PCAlignment;
 import pcgen.core.PCClass;
 import pcgen.facade.core.AbilityCategoryFacade;
 import pcgen.facade.core.AbilityFacade;
-import pcgen.facade.core.BodyStructureFacade;
 import pcgen.facade.core.CampaignFacade;
 import pcgen.facade.core.ClassFacade;
 import pcgen.facade.core.DataSetFacade;
@@ -55,7 +55,7 @@ import pcgen.facade.util.MapFacade;
 public class MockDataSetFacade implements DataSetFacade
 {
 
-	private DefaultListFacade<BodyStructureFacade> equipmentLoc;
+	private DefaultListFacade<BodyStructure> equipmentLoc;
 	private DefaultMapFacade<AbilityCategoryFacade, ListFacade<AbilityFacade>> abilityMap;
 	private final GameMode game;
 	private DefaultListFacade<RaceFacade> races;
@@ -175,7 +175,7 @@ public class MockDataSetFacade implements DataSetFacade
 	 * @see pcgen.facade.core.DataSetFacade#getEquipmentLocations()
 	 */
     @Override
-	public ListFacade<BodyStructureFacade> getEquipmentLocations()
+	public ListFacade<BodyStructure> getEquipmentLocations()
 	{
 		return equipmentLoc;
 	}
@@ -200,7 +200,7 @@ public class MockDataSetFacade implements DataSetFacade
 		return null;
 	}
 
-	public void addEquipmentLocation(BodyStructureFacade elf)
+	public void addEquipmentLocation(BodyStructure elf)
 	{
 		equipmentLoc.addElement(elf);
 	}
