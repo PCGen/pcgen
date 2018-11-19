@@ -1,26 +1,27 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 
 
 # CVS $Revision: 21677 $ $Author: jdempsey $ -- Tue Sep  4 07:13:30 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 ###Block: Ultimate Combat
 # Light
-# Armor Name
+# Armor Name		Unique Key
 Haramaki
 Silken Ceremonial Armor
 Lamellar Cuirass
-Leather Lamellar	KEY:Lamellar (Leather)
+Leather Lamellar		KEY:Lamellar (Leather)
 
 # Medium
 Do-maru
 Kikko Armor
-Horn Lamellar	KEY:Lamellar (Horn)
+Horn Lamellar		KEY:Lamellar (Horn)
 Four-mirror Armor
-Steel Lamellar	KEY:Lamellar (Steel)
+Steel Lamellar		KEY:Lamellar (Steel)
 Mountain Pattern Armor
 
 # Heavy
 Kusari Gusoku
-Iron Lamellar	KEY:Lamellar (Iron)
+Iron Lamellar		KEY:Lamellar (Iron)
 Tatami-do
 O-yoroi
 Stone Coat

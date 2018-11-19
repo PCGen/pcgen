@@ -116,24 +116,12 @@ public class ChangeArmorType implements Processor<String>
 		return String.class;
 	}
 
-	/**
-	 * Returns the consistent-with-equals hashCode for this ChangeArmorType
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{
 		return 31 * source.hashCode() + result.hashCode();
 	}
 
-	/**
-	 * Returns true if this ChangeArmorType is equal to the given Object.
-	 * Equality is defined as being another ChangeArmorType object with equal
-	 * source and result armor types.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{

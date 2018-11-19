@@ -90,9 +90,6 @@ public class ItemFacetModel<T> implements TemplateHashModel, TemplateScalarModel
 		this.facet = facet;
 	}
 
-	/**
-	 * @see freemarker.template.TemplateHashModel#get(java.lang.String)
-	 */
 	@Override
 	public TemplateModel get(String arg0) throws TemplateModelException
 	{
@@ -119,18 +116,12 @@ public class ItemFacetModel<T> implements TemplateHashModel, TemplateScalarModel
 		return cache;
 	}
 
-	/**
-	 * @see freemarker.template.TemplateHashModel#isEmpty()
-	 */
 	@Override
 	public boolean isEmpty() throws TemplateModelException
 	{
 		return (facet.get(id) == null) || getInternalHashModel().isEmpty();
 	}
 
-	/**
-	 * @see freemarker.template.TemplateScalarModel#getAsString()
-	 */
 	@Override
 	public String getAsString() throws TemplateModelException
 	{
@@ -146,9 +137,6 @@ public class ItemFacetModel<T> implements TemplateHashModel, TemplateScalarModel
 		return obj.toString();
 	}
 
-	/**
-	 * @see java.lang.Iterable#iterator()
-	 */
 	@Override
 	public Iterator<T> iterator()
 	{

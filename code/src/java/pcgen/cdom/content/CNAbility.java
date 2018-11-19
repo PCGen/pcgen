@@ -224,9 +224,6 @@ public class CNAbility extends ConcretePrereqObject
 		return ability.getDisplayName();
 	}
 
-	/**
-	 * @see pcgen.cdom.base.Reducible#getCDOMObject()
-	 */
 	@Override
 	public CDOMObject getCDOMObject()
 	{

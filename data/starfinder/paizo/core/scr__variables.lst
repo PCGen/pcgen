@@ -1,4 +1,6 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 
+# Variable Name
 CHANNEL:PC.STAT|NUMBER=StatScore
 
 LOCAL:PC.MOVEMENT|NUMBER=Speed
@@ -97,5 +99,3 @@ GLOBAL:BOOLEAN=RaceType_Humanoid
 GLOBAL:BOOLEAN=RaceType_Construct
 
 GLOBAL:ORDEREDPAIR=Face
-
-

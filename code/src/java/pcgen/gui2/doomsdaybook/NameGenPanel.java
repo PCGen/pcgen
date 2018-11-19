@@ -88,7 +88,7 @@ public class NameGenPanel extends JPanel
 	private JCheckBox chkStructure;
 	private JComboBox<RuleSet> cbCatalog;
 	private JComboBox<String> cbCategory;
-	private JComboBox<String> cbSex;
+	private JComboBox<String> cbGender;
 	private JComboBox<DataElement> cbStructure;
 	private JLabel jLabel1;
 	private JLabel jLabel2;
@@ -329,14 +329,14 @@ public class NameGenPanel extends JPanel
 
 	//GEN-LAST:event_cbCategoryActionPerformed
 
-	private void cbSexActionPerformed(ActionEvent evt)
-	{ //GEN-FIRST:event_cbSexActionPerformed
+	private void cbGenderActionPerformed(ActionEvent evt)
+	{ //GEN-FIRST:event_cbGenderActionPerformed
 		loadCatalogDD();
 		loadStructureDD();
 		this.clearButtons();
 	}
 
-	//GEN-LAST:event_cbSexActionPerformed
+	//GEN-LAST:event_cbGenderActionPerformed
 
 	private void chkStructureActionPerformed(ActionEvent evt)
 	{ //GEN-FIRST:event_chkStructureActionPerformed
@@ -413,7 +413,7 @@ public class NameGenPanel extends JPanel
 		generateButton = new JButton();
 		jPanel9 = new JPanel();
 		jLabel5 = new JLabel();
-		cbSex = new JComboBox<>();
+		cbGender = new JComboBox<>();
 		jPanel7 = new JPanel();
 		jSeparator4 = new JSeparator();
 		jPanel12 = new JPanel();
@@ -483,9 +483,9 @@ public class NameGenPanel extends JPanel
 		jLabel5.setText(LanguageBundle.getString("in_rndNameSex")); //$NON-NLS-1$
 		jPanel9.add(jLabel5);
 
-		cbSex.addActionListener(this::cbSexActionPerformed);
+		cbGender.addActionListener(this::cbGenderActionPerformed);
 
-		jPanel9.add(cbSex);
+		jPanel9.add(cbGender);
 
 		jPanel14.add(jPanel9, BorderLayout.NORTH);
 
@@ -605,7 +605,7 @@ public class NameGenPanel extends JPanel
 		try
 		{
 			String catKey = (String) cbCategory.getSelectedItem();
-			String sexKey = (String) cbSex.getSelectedItem();
+			String genderKey = (String) cbGender.getSelectedItem();
 			RuleSet oldRS = (RuleSet) cbCatalog.getSelectedItem();
 			String catalogKey = "";
 
@@ -615,9 +615,9 @@ public class NameGenPanel extends JPanel
 			}
 
 			List<RuleSet> cats = categories.get(catKey);
-			List<RuleSet> sexes = categories.get("Sex: " + sexKey);
+			List<RuleSet> genders = categories.get("Sex: " + genderKey);
 			List<RuleSet> join = new ArrayList<>(cats);
-			join.retainAll(sexes);
+			join.retainAll(genders);
 			join.sort(new DataElementComperator());
 
 			Vector<RuleSet> catalogs = new Vector<>();
@@ -677,7 +677,7 @@ public class NameGenPanel extends JPanel
 	{
 		List<String> genders = getGenderCategoryNames();
 		Vector<String> selectable = new Vector<>();
-		String gender = (String) cbSex.getSelectedItem();
+		String gender = (String) cbGender.getSelectedItem();
 
 		//	Get the selected category name
 		String category = (String) cbCategory.getSelectedItem();
@@ -711,10 +711,10 @@ public class NameGenPanel extends JPanel
 		Collections.sort(selectable);
 
 		//	Create a new model for the combobox and set it
-		cbSex.setModel(new DefaultComboBoxModel<>(selectable));
+		cbGender.setModel(new DefaultComboBoxModel<>(selectable));
 		if (gender != null && selectable.contains(gender))
 		{
-			cbSex.setSelectedItem(gender);
+			cbGender.setSelectedItem(gender);
 		}
 	}
 
@@ -975,7 +975,7 @@ public class NameGenPanel extends JPanel
 	 */
 	public String getGender()
 	{
-		return (String) cbSex.getSelectedItem();
+		return (String) cbGender.getSelectedItem();
 	}
 
 	/**
@@ -983,9 +983,9 @@ public class NameGenPanel extends JPanel
 	 */
 	public void setGender(String gender)
 	{
-		if (gender != null && cbSex != null)
+		if (gender != null && cbGender != null)
 		{
-			cbSex.setSelectedItem(gender);
+			cbGender.setSelectedItem(gender);
 		}
 	}
 

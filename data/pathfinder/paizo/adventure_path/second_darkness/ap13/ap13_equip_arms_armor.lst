@@ -1,6 +1,7 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Second Darkness, Chapter 1 - Shadow in the Sky	SOURCESHORT:AP13	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy84em	SOURCEDATE:2008-08
 
 
-# Equipment Name	Required Weapon Proficiency	Type											Cost		Weight	Crit Mult	Crit Range	Damage	Modifier	Wield Category	Size		Source Page
+# Equipment Name	Required Weapon Proficiency	Type											Cost		Weight	Crit Mult	Crit Range	Damage	Modifier			Wield Category	Size		Source Page
 Key Stump		PROFICIENCY:WEAPON|Dagger	TYPE:Weapon.Resizable.Melee.Finesseable.Simple.Piercing.Slashing	COST:2	WT:1		CRITMULT:x2	CRITRANGE:2	DAMAGE:1d4	EQMOD:Material ~ Steel	WIELD:Light		SIZE:M	SOURCEPAGE:p.21

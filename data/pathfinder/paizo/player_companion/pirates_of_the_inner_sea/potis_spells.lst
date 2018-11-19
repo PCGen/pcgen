@@ -1,14 +1,15 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 16794 $ $Author: amaitland $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
-SOURCELONG:Pirates of the Inner Sea	SOURCESHORT:POTIS	SOURCEWEB:http://paizo.com/products/btpy8qif?Pathfinder-Player-Companion-Pirates-of-the-Inner-Sea	SOURCEDATE:2012-04
+SOURCELONG:Pathfinder Player Companion: Pirates of the Inner Sea	SOURCESHORT:POTIS	SOURCEWEB:http://paizo.com/products/btpy8qif	SOURCEDATE:2012-04
 # Original Entry by:Stefan Radermacher
 
 ###Block: Spells
-# Spell Name	Type				Classes of caster					School			Sub-School			Descriptor		Components		Casting Time			Range			Target Area or Effect																Duration								Save Info						Spell Resistance				Source Page
-Black Spot		TYPE:Arcane.Divine	CLASSES:Cleric,Witch=4|Sorcerer,Wizard=5	SCHOOL:Necromancy									COMPS:V, S		CASTTIME:1 standard action	RANGE:Touch		TARGETAREA:Creature touched															DURATION:Permanent						SAVEINFO:Will negates				SPELLRES:Yes				SOURCEPAGE:p.28
-Buoyancy		TYPE:Arcane			CLASSES:Bard,Sorcerer,Wizard=2		SCHOOL:Transmutation								COMPS:V		CASTTIME:1 immediate action	RANGE:Close		TARGETAREA:(CASTERLEVEL) Medium or smaller objects or creatures, no two of which can be more than 20 ft. apart	DURATION:Until on dry land or (CASTERLEVEL) rounds	SAVEINFO:Will negates (harmless,object)	SPELLRES:Yes (harmless,object)	SOURCEPAGE:p.28
-Salvage		TYPE:Arcane.Divine	CLASSES:Cleric,Sorcerer,Wizard=9		SCHOOL:Transmutation								COMPS:V, S, M	CASTTIME:1 standard action	RANGE:Long		TARGETAREA:One shipwreck															DURATION:See text							SAVEINFO:Fortitude negates (object)		SPELLRES:Yes (object)			SOURCEPAGE:p.28
-Skeleton Crew	TYPE:Arcane.Divine	CLASSES:Cleric=3|Sorcerer,Summoner,Witch,Wizard=4		SCHOOL:Necromancy									COMPS:V, S, M	CASTTIME:1 standard action	RANGE:Touch		TARGETAREA:One or more humanoid corpses touched												DURATION:(CASTERLEVEL) days					SAVEINFO:None					SPELLRES:No					SOURCEPAGE:p.29
-Track Ship		TYPE:Arcane.Divine	CLASSES:Bard,Cleric,Sorcerer,Wizard=2				SCHOOL:Divination		SUBSCHOOL:Scrying		DESCRIPTOR:Travel	COMPS:V, S, F	CASTTIME:1 standard action	RANGE:See text	TARGETAREA:Magical icon																DURATION:(CASTERLEVEL) hours					SAVEINFO:Will negates (object)		SPELLRES:Yes (object)			SOURCEPAGE:p.29
+# Spell Name	Type				Classes of caster							School			Sub-School			Descriptor		Components		Casting Time			Range			Target Area or Effect																Duration								Save Info						Spell Resistance				Source Page
+Black Spot		TYPE:Arcane.Divine	CLASSES:Cleric,Witch=4|Sorcerer,Wizard=5			SCHOOL:Necromancy									COMPS:V, S		CASTTIME:1 standard action	RANGE:Touch		TARGETAREA:Creature touched															DURATION:Permanent						SAVEINFO:Will negates				SPELLRES:Yes				SOURCEPAGE:p.28
+Buoyancy		TYPE:Arcane			CLASSES:Bard,Sorcerer,Wizard=2				SCHOOL:Transmutation								COMPS:V		CASTTIME:1 immediate action	RANGE:Close		TARGETAREA:(CASTERLEVEL) Medium or smaller objects or creatures, no two of which can be more than 20 ft. apart	DURATION:Until on dry land or (CASTERLEVEL) rounds	SAVEINFO:Will negates (harmless,object)	SPELLRES:Yes (harmless,object)	SOURCEPAGE:p.28
+Salvage		TYPE:Arcane.Divine	CLASSES:Cleric,Sorcerer,Wizard=9				SCHOOL:Transmutation								COMPS:V, S, M	CASTTIME:1 standard action	RANGE:Long		TARGETAREA:One shipwreck															DURATION:See text							SAVEINFO:Fortitude negates (object)		SPELLRES:Yes (object)			SOURCEPAGE:p.28
+Skeleton Crew	TYPE:Arcane.Divine	CLASSES:Cleric=3|Sorcerer,Summoner,Witch,Wizard=4	SCHOOL:Necromancy									COMPS:V, S, M	CASTTIME:1 standard action	RANGE:Touch		TARGETAREA:One or more humanoid corpses touched												DURATION:(CASTERLEVEL) days					SAVEINFO:None					SPELLRES:No					SOURCEPAGE:p.29
+Track Ship		TYPE:Arcane.Divine	CLASSES:Bard,Cleric,Sorcerer,Wizard=2			SCHOOL:Divination		SUBSCHOOL:Scrying		DESCRIPTOR:Travel	COMPS:V, S, F	CASTTIME:1 standard action	RANGE:See text	TARGETAREA:Magical icon																DURATION:(CASTERLEVEL) hours					SAVEINFO:Will negates (object)		SPELLRES:Yes (object)			SOURCEPAGE:p.29
 Unseen Crew		TYPE:Arcane			CLASSES:Bard=4|Sorcerer,Summoner,Witch,Wizard=5		SCHOOL:Conjuration	SUBSCHOOL:Creation				COMPS:V, S, M	CASTTIME:1 standard action	RANGE:Long		TARGETAREA:(CASTERLEVEL) invisible sailors												DURATION:(CASTERLEVEL) days					SAVEINFO:None					SPELLRES:No					SOURCEPAGE:p.29
 
 #

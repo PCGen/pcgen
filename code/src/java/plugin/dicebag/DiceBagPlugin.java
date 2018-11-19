@@ -128,8 +128,6 @@ public class DiceBagPlugin implements InteractivePlugin
 	 * Delegates all these messages to {@code theController}.
 	 * </p>
 	 * @param message
-	 *
-	 * @see pcgen.pluginmgr.PCGenMessageHandler#handleMessage
 	 */
 	@Override
 	public void handleMessage(PCGenMessage message)
@@ -349,17 +347,11 @@ public class DiceBagPlugin implements InteractivePlugin
 	private final class ActionDelegate extends AbstractAction
 	{
 
-		/**
-		 * @see javax.swing.AbstractAction#AbstractAction(String)
-		 */
 		private ActionDelegate(String name)
 		{
 			super(name);
 		}
 
-		/**
-		 * @see javax.swing.AbstractAction#AbstractAction(String, Icon)
-		 */
 		private ActionDelegate(String name, Icon icon)
 		{
 			super(name, icon);

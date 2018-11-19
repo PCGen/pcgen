@@ -1,3 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 20125 $ $Author: zaister $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
 
@@ -937,28 +938,28 @@ ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=FEAT|Iron Will
 ABILITY:CATEGORY=FEAT|Lightning Reflexes
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Charm Monster
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Freedom of Movement
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Gaseous Form
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Magic Circle against Evil
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Summon Monster III
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Cure Moderate Wounds
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Eagle's Splendor
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Scorching Ray
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Silence
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Endure Elements
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mage Armor
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Obscuring Mist
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Protection from Chaos
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|True Strike
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Daze
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Disrupt Undead
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Light
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Obscuring Mist
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Ray of Frost
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Read Magic
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Resistance
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Stabilize
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Charm Monster
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Freedom of Movement
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Gaseous Form
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Magic Circle against Evil
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Summon Monster III
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Cure Moderate Wounds
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Eagle's Splendor
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Scorching Ray
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Silence
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Endure Elements
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Mage Armor
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Obscuring Mist
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Protection from Chaos
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|True Strike
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Daze
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Disrupt Undead
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Light
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Obscuring Mist
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Ray of Frost
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Read Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Resistance
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Stabilize
 
 
 STARTPACK:Crab (Giant) Default	TYPE:Default Monster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Crab (Giant)],[!PRERACE:1,%]	SOURCEPAGE:p.50
@@ -2845,12 +2846,12 @@ ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Vital Strike
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 LANGBONUS:Common|Elven|Halfling
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mage Armor
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Shield
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Magic
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Light
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mending
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Stabilize
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Mage Armor
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Shield
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Detect Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Light
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Mending
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Stabilize
 
 
 STARTPACK:Dragon (Gold/Adult) Default	TYPE:Default Monster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Gold)],[!PRERACE:1,%]	SOURCEPAGE:p.108
@@ -2881,20 +2882,20 @@ ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Vital Strike
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 LANGBONUS:Common|Elven|Halfling|Celestial
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dispel Magic
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Prayer
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Aid
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Cure Moderate Wounds
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Resist Energy
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Alarm
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Divine Favor
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mage Armor
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Shield
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Shield of Faith
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Magic
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Light
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mending
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Stabilize
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Dispel Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Prayer
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Aid
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Cure Moderate Wounds
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Resist Energy
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Alarm
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Divine Favor
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Mage Armor
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Shield
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Shield of Faith
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Detect Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Light
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Mending
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Stabilize
 
 
 STARTPACK:Dragon (Gold/Ancient) Default	TYPE:Default Monster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Gold)],[!PRERACE:1,%]	SOURCEPAGE:p.108
@@ -2931,37 +2932,37 @@ ABILITY:CATEGORY=FEAT|Staggering Critical
 ABILITY:CATEGORY=FEAT|Vital Strike
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 LANGBONUS:Common|Elven|Halfling|Celestial
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Teleport (Greater)
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Resurrection
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Antimagic Field
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dispel Magic (Greater)
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Heal
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dispel Evil
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Plane Shift
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Teleport
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|True Seeing
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Divination
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Restoration
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Spell Immunity
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Stoneskin
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dispel Magic
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Haste
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Invisibility Purge
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Prayer
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Aid
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Cure Moderate Wounds
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Restoration (Lesser)
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Resist Energy
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Silence
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Alarm
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Divine Favor
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mage Armor
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Shield
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Shield of Faith
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Magic
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Light
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mending
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Stabilize
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Teleport (Greater)
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Resurrection
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Antimagic Field
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Dispel Magic (Greater)
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Heal
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Dispel Evil
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Plane Shift
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Teleport
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|True Seeing
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Divination
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Restoration
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Spell Immunity
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Stoneskin
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Dispel Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Haste
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Invisibility Purge
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Prayer
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Aid
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Cure Moderate Wounds
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Restoration (Lesser)
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Resist Energy
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Silence
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Alarm
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Divine Favor
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Mage Armor
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Shield
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Shield of Faith
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Detect Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Light
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Mending
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Stabilize
 
 
 STARTPACK:Dragon (Silver/Young) Default	TYPE:Default Monster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Silver)],[!PRERACE:1,%]	SOURCEPAGE:p.110
@@ -2987,12 +2988,12 @@ ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 LANGBONUS:Auran|Common|Giant
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Alarm
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|True Strike
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Magic
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Light
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Message
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Read Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Alarm
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|True Strike
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Detect Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Light
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Message
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Read Magic
 
 
 STARTPACK:Dragon (Silver/Adult) Default	TYPE:Default Monster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Silver)],[!PRERACE:1,%]	SOURCEPAGE:p.110
@@ -3023,23 +3024,23 @@ ABILITY:CATEGORY=FEAT|Vital Strike
 ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 LANGBONUS:Auran|Common|Dwarven|Giant|Terran
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dispel Magic
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Wind Wall
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Augury
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Cure Moderate Wounds
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Web
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Alarm
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Bless
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Divine Favor
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Shield
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|True Strike
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Magic
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Flare
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Light
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Message
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Prestidigitation
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Read Magic
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Stabilize
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Dispel Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Wind Wall
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Augury
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Cure Moderate Wounds
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Web
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Alarm
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Bless
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Divine Favor
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Shield
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|True Strike
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Detect Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Flare
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Light
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Message
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Prestidigitation
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Read Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Stabilize
 
 
 STARTPACK:Dragon (Silver/Ancient) Default	TYPE:Default Monster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Silver)],[!PRERACE:1,%]	SOURCEPAGE:p.110
@@ -3076,42 +3077,42 @@ ABILITY:CATEGORY=FEAT|Vital Strike
 ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 LANGBONUS:Auran|Common|Dwarven|Elven|Halfling|Giant|Terran
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Holy Word
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Repulsion
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Banishment
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dispel Magic (Greater)
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Heal
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Break Enchantment
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Flame Strike
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Plane Shift
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Wall of Force
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dimension Door
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Freedom of Movement
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Restoration
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Solid Fog
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Cure Serious Wounds
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dispel Magic
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Hold Person
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Wind Wall
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Augury
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Calm Emotions
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Cure Moderate Wounds
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Invisibility
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Web
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Bless
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Divine Favor
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Protection from Evil
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Shield
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|True Strike
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Magic
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Flare
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Light
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Message
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Prestidigitation
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Read Magic
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Stabilize
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Resistance
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Virtue
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Holy Word
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Repulsion
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Banishment
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Dispel Magic (Greater)
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Heal
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Break Enchantment
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Flame Strike
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Plane Shift
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Wall of Force
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Dimension Door
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Freedom of Movement
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Restoration
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Solid Fog
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Cure Serious Wounds
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Dispel Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Hold Person
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Wind Wall
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Augury
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Calm Emotions
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Cure Moderate Wounds
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Invisibility
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Web
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Bless
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Divine Favor
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Protection from Evil
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Shield
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|True Strike
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Detect Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Flare
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Light
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Message
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Prestidigitation
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Read Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Stabilize
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Resistance
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Virtue
 
 
 STARTPACK:Dragon Turtle Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon Turtle]	SOURCEPAGE:p.112
@@ -3253,15 +3254,15 @@ STAT:STR=12|DEX=13|CON=14|INT=8|WIS=15|CHA=10
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Death Knell|Hold Person|Silence
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Bless|Cause Fear|Cure Light Wounds|Protection from Law
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Bleed|Detect Poison|Read Magic|Resistance
-GEAR:Breastplate						SIZE:M	LOCATION:Equipped		EQMOD:Special Quality ~ Masterwork ~ Armor
-GEAR:Shield (Heavy/Steel)				SIZE:M	LOCATION:Equipped
-GEAR:Rapier							SIZE:M	LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
-GEAR:Crossbow (Hand)					SIZE:M	LOCATION:Carried
-GEAR:Bolt (Crossbow)			QTY:20			LOCATION:Carried
-GEAR:Poison (Drow Poison)		QTY:4				LOCATION:Carried
-GEAR:Potion of Invisibility						LOCATION:Carried
+GEAR:Breastplate							SIZE:M	LOCATION:Equipped		EQMOD:Special Quality ~ Masterwork ~ Armor
+GEAR:Shield (Heavy/Steel)					SIZE:M	LOCATION:Equipped
+GEAR:Rapier								SIZE:M	LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Crossbow (Hand)						SIZE:M	LOCATION:Carried
+GEAR:Bolt (Crossbow)				QTY:20			LOCATION:Carried
+GEAR:Poison (Drow Poison)			QTY:4				LOCATION:Carried
+GEAR:Potion of Invisibility							LOCATION:Carried
 GEAR:Scroll of Dispel Magic (Divine)					LOCATION:Carried
-GEAR:Wand of Cure Light Wounds					LOCATION:Carried
+GEAR:Wand of Cure Light Wounds						LOCATION:Carried
 
 STARTPACK:Dryad Default	TYPE:Default Monster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dryad],[!PRERACE:1,%]	SOURCEPAGE:p.116
 ALIGN:CG
@@ -6873,7 +6874,7 @@ GEAR:Boots of Levitation			LOCATION:Equipped
 GEAR:Headband of Vast Intelligence +2	LOCATION:Equipped
 GEAR:Ring of Protection +2			LOCATION:Equipped
 GEAR:Potion of Invisibility			LOCATION:Carried
-GEAR:Scroll of Dominate Person			LOCATION:Carried
+GEAR:Scroll of Dominate Person		LOCATION:Carried
 GEAR:Scroll of Teleport				LOCATION:Carried
 LANGBONUS:Abyssal|Aklo|Aquan
 SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Circle of Death

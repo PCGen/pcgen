@@ -33,7 +33,6 @@ import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.TreeMapToList;
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.ClassIdentity;
 import pcgen.cdom.base.GroupDefinition;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.grouping.GroupingDefinition;
@@ -128,11 +127,11 @@ public final class TokenLibrary implements PluginLoader
 	 * 
 	 * @return The GroupingDefinition available with the given Format and grouping key.
 	 */
-	public static <T extends Loadable> GroupingDefinition<T> getGrouping(ClassIdentity<T> classIdentity,
+	public static <T> GroupingDefinition<T> getGrouping(Class<T> inputClass,
 		String tokenKey)
 	{
 		boolean isDirect = true;
-		Class<?> actingClass = classIdentity.getReferenceClass();
+		Class<? super T> actingClass = inputClass;
 		while (actingClass != null)
 		{
 			GroupingDefinition token = GROUPING_MAP.get(actingClass, tokenKey);

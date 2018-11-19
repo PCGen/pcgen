@@ -38,8 +38,6 @@ public class LevelInfoFacet extends AbstractListFacet<CharID, PCLevelInfo>
 	 * Overrides the default behavior of AbstractListFacet, since we need to
 	 * ensure we are storing the PCLevelInfo objects in an ordered list (since
 	 * we are implicitly storing the level of the PCLevelInfo by its location)
-	 * 
-	 * @see pcgen.cdom.facet.base.AbstractListFacet#getComponentSet()
 	 */
 	@Override
 	protected Collection<PCLevelInfo> getComponentSet()

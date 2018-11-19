@@ -25,6 +25,7 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.LoadContextFacet;
 import pcgen.cdom.facet.ScopeFacet;
+import pcgen.cdom.facet.SolverManagerFacet;
 import pcgen.cdom.facet.VariableStoreFacet;
 
 /**
@@ -33,9 +34,25 @@ import pcgen.cdom.facet.VariableStoreFacet;
  */
 public final class ChannelUtilities
 {
+	/**
+	 * The LoadContextFacet
+	 */
 	private static final LoadContextFacet LOAD_CONTEXT_FACET = FacetLibrary.getFacet(LoadContextFacet.class);
+	
+	/**
+	 * The ScopeFacet
+	 */
 	private static final ScopeFacet SCOPE_FACET = FacetLibrary.getFacet(ScopeFacet.class);
+	
+	/**
+	 * The VariableStoreFacet
+	 */
 	private static final VariableStoreFacet RESULT_FACET = FacetLibrary.getFacet(VariableStoreFacet.class);
+	
+	/**
+	 * The SolverManagerFacet
+	 */
+	private static final SolverManagerFacet SOLVER_MANAGER_FACET = FacetLibrary.getFacet(SolverManagerFacet.class);
 
 	private ChannelUtilities()
 	{
@@ -82,6 +99,7 @@ public final class ChannelUtilities
 	private static <T> void processSet(CharID id, VariableID<T> varID, Object value)
 	{
 		RESULT_FACET.get(id).put(varID, (T) value);
+		SOLVER_MANAGER_FACET.get(id).solveChildren(varID);
 	}
 
 	/**

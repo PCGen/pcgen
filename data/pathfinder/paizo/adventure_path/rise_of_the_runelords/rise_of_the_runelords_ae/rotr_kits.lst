@@ -1,3 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Wed Jul 23 18:41:10 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Rise of the Runelords Adventure Path	SOURCESHORT:RotR	SOURCEWEB:http://paizo.com/products/btpy8tc0?Pathfinder-Adventure-Path-Rise-of-the-Runelords-Anniversary-Edition	SOURCEDATE:2012-07
 # Original Entry by: Andrew Maitland
@@ -235,17 +236,17 @@ SKILL:Stealth			RANK:3
 ABILITY:CATEGORY=FEAT|Mobility
 ABILITY:CATEGORY=FEAT|Dodge
 ABILITY:CATEGORY=FEAT|Spell Focus (Evocation)
-GEAR:Wand						LOCATION:Carried		EQMOD:Special Ability ~ Spell Effect / Spell Trigger|SPELLNAME[Magic Missile]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[38]
-GEAR:Potion of Cure Light Wounds		LOCATION:Carried
-GEAR:Scroll of Sleep				LOCATION:Carried
+GEAR:Wand							LOCATION:Carried		EQMOD:Special Ability ~ Spell Effect / Spell Trigger|SPELLNAME[Magic Missile]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[38]
+GEAR:Potion of Cure Light Wounds			LOCATION:Carried
+GEAR:Scroll of Sleep					LOCATION:Carried
 GEAR:Scroll of Comprehend Languages (Arcane)	LOCATION:Carried
-GEAR:Scroll of Minor Image			LOCATION:Carried
-GEAR:Scroll of See Invisibility		LOCATION:Carried
+GEAR:Scroll of Minor Image				LOCATION:Carried
+GEAR:Scroll of See Invisibility			LOCATION:Carried
 GEAR:Scroll of Whispering Wind			LOCATION:Carried
-GEAR:Dagger						LOCATION:Primary Hand
-GEAR:Cloak of Resistance +1			LOCATION:Equipped
-GEAR:Everburning Torch				LOCATION:Carried
-GEAR:Spellbook		LOCATION:Carried
+GEAR:Dagger							LOCATION:Primary Hand
+GEAR:Cloak of Resistance +1				LOCATION:Equipped
+GEAR:Everburning Torch					LOCATION:Carried
+GEAR:Spellbook						LOCATION:Carried
 
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Acid Splash
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Burning Hands
@@ -339,7 +340,7 @@ GEAR:Sword (Bastard)				LOCATION:Primary Hand	EQMOD:Special Ability ~ +1 ~ Weapo
 GEAR:Sihedron Medallion				LOCATION:Equipped
 GEAR:Longbow (Composite)			LOCATION:Carried		EQMOD:Special Quality ~ Composite Bow Strength Rating|+3.Special Quality ~ Masterwork ~ Weapon
 GEAR:Arrow				QTY:20	LOCATION:Carried
-GEAR:Holy Symbol	EQMOD:Holy Symbol (Silver)			LOCATION:Carried
+GEAR:Holy Symbol					LOCATION:Carried		EQMOD:Holy Symbol (Silver)
 GEAR:Coin (Platinum Piece)	QTY:7		LOCATION:Carried
 GEAR:Coin (Gold Piece)		QTY:5		LOCATION:Carried
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Cause Fear

@@ -293,24 +293,12 @@ public class AbilityRefChoiceSet implements PrimitiveChoiceSet<CNAbilitySelectio
 		return availableList;
 	}
 
-	/**
-	 * Returns the consistent-with-equals hashCode for this AbilityRefChoiceSet
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{
 		return abilityRefSet.size();
 	}
 
-	/**
-	 * Returns true if this AbilityRefChoiceSet is equal to the given Object.
-	 * Equality is defined as being another AbilityRefChoiceSet object with
-	 * equal underlying contents.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{

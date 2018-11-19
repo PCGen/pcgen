@@ -1,5 +1,6 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
-SOURCELONG:People of the North	SOURCESHORT:POTN	SOURCEWEB:http://paizo.com/products/btpy8v35?Pathfinder-Player-Companion-People-of-the-North	SOURCEDATE:2013-01
+SOURCELONG:Pathfinder Player Companion: People of the North	SOURCESHORT:POTN	SOURCEWEB:http://paizo.com/products/btpy8v35	SOURCEDATE:2013-01
 # ORIGINAL ENTRY: Gwen T. (evilpixie87)
 # ORIGINAL ENTRY DATE: 14 April 2016
 
@@ -7,19 +8,19 @@ SOURCELONG:People of the North	SOURCESHORT:POTN	SOURCEWEB:http://paizo.com/produ
 # Human Ethnicities
 # ==============================
 
-# Template Name				Product Identity?	Visible	Source Page		Auto Language		Bonus Languages		Region					Subrace
-Human Ethnicity (Erutaki)		NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.12	AUTO:LANG|Erutaki												SUBRACE:Erutaki
-Human Ethnicity (Jadwiga)		NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.13	AUTO:LANG|Hallit												SUBRACE:Jadwiga
-Human Ethnicity (Kellid)		NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.6	AUTO:LANG|Hallit												SUBRACE:Kellid
-Human Ethnicity (Ulfen)			NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.10	AUTO:LANG|Skald												SUBRACE:Ulfen
-Human Ethnicity (Varki)			NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.15															SUBRACE:Varki
+# Template Name				Product Identity?	Visible	Source Page		Auto Language	Bonus Languages		Region					Subrace
+Human Ethnicity (Erutaki)		NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.12	AUTO:LANG|Erutaki											SUBRACE:Erutaki
+Human Ethnicity (Jadwiga)		NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.13	AUTO:LANG|Hallit											SUBRACE:Jadwiga
+Human Ethnicity (Kellid)		NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.6	AUTO:LANG|Hallit											SUBRACE:Kellid
+Human Ethnicity (Ulfen)			NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.10	AUTO:LANG|Skald											SUBRACE:Ulfen
+Human Ethnicity (Varki)			NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.15														SUBRACE:Varki
 
-Snowcaster Elf							VISIBLE:NO	SOURCEPAGE:p.8															SUBRACE:Snowcaster
+Snowcaster Elf							VISIBLE:NO	SOURCEPAGE:p.8														SUBRACE:Snowcaster
 
 # ==============================
 # Regional Affinities
 # ==============================
 
-Regional Affinity (Irrisen)		NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.19					LANGBONUS:Hallit,Skald	REGION:Irrisen
-Regional Affinity (Linnorm Kings)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.21					LANGBONUS:Skald		REGION:Lands of the Linnorm Kings
-Regional Affinity (Mammoth Lords)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.23					LANGBONUS:Giant,Hallit	REGION:Realm of the Mammoth Lords
+Regional Affinity (Irrisen)		NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.19				LANGBONUS:Hallit,Skald	REGION:Irrisen
+Regional Affinity (Linnorm Kings)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.21				LANGBONUS:Skald		REGION:Lands of the Linnorm Kings
+Regional Affinity (Mammoth Lords)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.23				LANGBONUS:Giant,Hallit	REGION:Realm of the Mammoth Lords

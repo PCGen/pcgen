@@ -1,3 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 21574 $ $Author: amaitland $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 
 # Template name
@@ -192,7 +193,7 @@ Versatile Human								VISIBLE:NO	SUBRACE:Versatile Human
 
 
 
-Gathlain	KEY:RaceSubtype ~ Gathlain				VISIBLE:NO					RACESUBTYPE:Gathlain			TYPE:Racial Heritage	
-Trox		KEY:RaceSubtype ~ Trox					VISIBLE:NO					RACESUBTYPE:Trox				TYPE:Racial Heritage
-Wyrwood	KEY:RaceSubtype ~ Wyrwood				VISIBLE:NO					RACESUBTYPE:Wyrwood			TYPE:Racial Heritage
-Wyvaran	KEY:RaceSubtype ~ Wyvaran				VISIBLE:NO					RACESUBTYPE:Wyvaran			TYPE:Racial Heritage
+Gathlain		KEY:RaceSubtype ~ Gathlain			VISIBLE:NO					RACESUBTYPE:Gathlain		TYPE:Racial Heritage
+Trox			KEY:RaceSubtype ~ Trox				VISIBLE:NO					RACESUBTYPE:Trox			TYPE:Racial Heritage
+Wyrwood		KEY:RaceSubtype ~ Wyrwood			VISIBLE:NO					RACESUBTYPE:Wyrwood		TYPE:Racial Heritage
+Wyvaran		KEY:RaceSubtype ~ Wyvaran			VISIBLE:NO					RACESUBTYPE:Wyvaran		TYPE:Racial Heritage

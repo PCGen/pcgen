@@ -41,9 +41,6 @@ public abstract class AbstractDisplayPrereqTest extends AbstractPrerequisiteTest
 	 *
 	 * @throws  PrerequisiteException  Oops, haven't implemented passes with
 	 *                                 this signature in the subclass
-	 *
-	 * @see     pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.prereq.Prerequisite,
-	 *          pcgen.core.PlayerCharacter, CDOMObject)
 	 */
 	@Override
 	public final int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
@@ -88,9 +85,6 @@ public abstract class AbstractDisplayPrereqTest extends AbstractPrerequisiteTest
 	 * @throws PrerequisiteException
 	 *             Oops, haven't implemented passes with this signature in the
 	 *             subclass
-	 * 
-	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.prereq.Prerequisite,
-	 *      pcgen.core.PlayerCharacter, CDOMObject)
 	 */
 	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
 		throws PrerequisiteException

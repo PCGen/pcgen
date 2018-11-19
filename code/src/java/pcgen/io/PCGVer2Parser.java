@@ -136,7 +136,8 @@ import pcgen.io.migration.EquipmentMigration;
 import pcgen.io.migration.RaceMigration;
 import pcgen.io.migration.SourceMigration;
 import pcgen.io.migration.SpellMigration;
-import pcgen.output.channel.ChannelCompatibility;
+import pcgen.output.channel.compat.AlignmentCompat;
+import pcgen.output.channel.compat.HandedCompat;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.system.FacadeFactory;
@@ -529,7 +530,7 @@ final class PCGVer2Parser implements PCGParser
 					Constants.APPLICATION_NAME, MessageType.INFORMATION);
 				align = getNoAlignment();
 			}
-			ChannelCompatibility.setCurrentAlignment(thePC.getCharID(), align);
+			AlignmentCompat.setCurrentAlignment(thePC.getCharID(), align);
 
 			return;
 		}
@@ -2952,11 +2953,11 @@ final class PCGVer2Parser implements PCGParser
 		Handed h;
 		try
 		{
-			h = Handed.getHandedByName(handed);
+			h = HandedCompat.getHandedByName(handed);
 		}
 		catch (IllegalArgumentException e)
 		{
-			h = Handed.getDefaultValue();
+			h = HandedCompat.getDefaultHanded();
 			final String msg = LanguageBundle.getFormattedString("Warnings.PCGenParser.IllegalHandedness", //$NON-NLS-1$
 				line, h);
 			warnings.add(msg);

@@ -1,3 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Second Darkness, Chapter 1 - Shadow in the Sky	SOURCESHORT:AP13	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy84em	SOURCEDATE:2008-08
 
@@ -71,14 +72,14 @@ SKILL:Knowledge (Local)		RANK:2
 SKILL:Spellcraft			RANK:2
 ABILITY:CATEGORY=FEAT|Combat Casting
 ABILITY:CATEGORY=FEAT|Improved Initiative
-GEAR:Pouch (Belt)						LOCATION:Carried
-GEAR:Coin (Gold Piece)			QTY:33	LOCATION:Pouch (Belt)
-GEAR:Wand of Shocking Grasp				LOCATION:Carried
-GEAR:Scroll of Pyrotechnics				LOCATION:Carried
-GEAR:Scroll of Shrink Item				LOCATION:Carried
-GEAR:Bracers of Armor +1				LOCATION:Equipped
-GEAR:Sickle							LOCATION:Primary Hand
-GEAR:Spellbook			LOCATION:Carried
+GEAR:Pouch (Belt)					LOCATION:Carried
+GEAR:Coin (Gold Piece)		QTY:33	LOCATION:Pouch (Belt)
+GEAR:Wand of Shocking Grasp			LOCATION:Carried
+GEAR:Scroll of Pyrotechnics			LOCATION:Carried
+GEAR:Scroll of Shrink Item			LOCATION:Carried
+GEAR:Bracers of Armor +1			LOCATION:Equipped
+GEAR:Sickle						LOCATION:Primary Hand
+GEAR:Spellbook					LOCATION:Carried
 LANGBONUS:Infernal|Varisian
 SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Hold Portal
 SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Magic Missile

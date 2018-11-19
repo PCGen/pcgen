@@ -1,107 +1,108 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 21420 $ $Author: evilmynex $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
 
 #Per Ultimate Wilderness, samurai mounts may use light armor proficiency in place of share spells to qualify for archetypes
-# Class of the Master			Type				Hit Dice	Ability																														Define							Bonus Ability Pool					Stat bonus			Modify VAR															Main Race Type
-FOLLOWER:SamuraiMountLVL=1		TYPE:Samurai Mount			ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training	ABILITY:Animal Trick|NORMAL|Animal Training ~ Combat Training	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|!PREABILITY:1,CATEGORY=Archetype,TYPE.CF_CompanionShareSpells	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0								BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1									RACETYPE:Animal
+# Class of the Master			Type				Hit Dice	Ability																																								Define							Bonus Ability Pool					Stat bonus			Modify VAR															Main Race Type
+FOLLOWER:SamuraiMountLVL=1		TYPE:Samurai Mount			ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training	ABILITY:Animal Trick|NORMAL|Animal Training ~ Combat Training	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|!PREABILITY:1,CATEGORY=Archetype,TYPE.CF_CompanionShareSpells	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0													BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1									RACETYPE:Animal
 FOLLOWER:SamuraiMountLVL=1		TYPE:Samurai Mount			ABILITY:Special Ability|AUTOMATIC|Companion ~ Link
 #FOLLOWER:SamuraiMountLVL=1		TYPE:Samurai Mount			ABILITY:Archetype|AUTOMATIC|Companion ~ Block Share Spells Archetypes
-FOLLOWER:SamuraiMountLVL=2		TYPE:Samurai Mount	HD:1																																																					BONUS:VAR|MasterLevel|1
-FOLLOWER:SamuraiMountLVL=3		TYPE:Samurai Mount			ABILITY:Special Ability|AUTOMATIC|Companion ~ Evasion																																							BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:SamuraiMountLVL=4		TYPE:Samurai Mount	HD:1																																									BONUS:ABILITYPOOL|Companion Stat Increase|1					BONUS:VAR|MasterLevel|1
-FOLLOWER:SamuraiMountLVL=5		TYPE:Samurai Mount	HD:1																																																					BONUS:VAR|MasterLevel|1
-FOLLOWER:SamuraiMountLVL=6		TYPE:Samurai Mount	HD:1		ABILITY:Special Ability|AUTOMATIC|Companion ~ Devotion																																						BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:SamuraiMountLVL=7		TYPE:Samurai Mount																																																						BONUS:VAR|MasterLevel|1
-FOLLOWER:SamuraiMountLVL=8		TYPE:Samurai Mount	HD:1																																																					BONUS:VAR|MasterLevel|1
-FOLLOWER:SamuraiMountLVL=9		TYPE:Samurai Mount	HD:1		ABILITY:Special Ability|AUTOMATIC|Companion ~ Multiattack																														BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:SamuraiMountLVL=10		TYPE:Samurai Mount	HD:1																																																					BONUS:VAR|MasterLevel|1
-FOLLOWER:SamuraiMountLVL=11		TYPE:Samurai Mount																																																						BONUS:VAR|MasterLevel|1
-FOLLOWER:SamuraiMountLVL=12		TYPE:Samurai Mount	HD:1																																																	BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:SamuraiMountLVL=13		TYPE:Samurai Mount	HD:1																																																					BONUS:VAR|MasterLevel|1
-FOLLOWER:SamuraiMountLVL=14		TYPE:Samurai Mount	HD:1																																									BONUS:ABILITYPOOL|Companion Stat Increase|1					BONUS:VAR|MasterLevel|1
-FOLLOWER:SamuraiMountLVL=15		TYPE:Samurai Mount																																																		BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:SamuraiMountLVL=16		TYPE:Samurai Mount	HD:1		ABILITY:Special Ability|AUTOMATIC|Companion ~ Improved Evasion																																									BONUS:VAR|MasterLevel|1
-FOLLOWER:SamuraiMountLVL=17		TYPE:Samurai Mount	HD:1																																																					BONUS:VAR|MasterLevel|1
-FOLLOWER:SamuraiMountLVL=18		TYPE:Samurai Mount	HD:1																																																	BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:SamuraiMountLVL=19		TYPE:Samurai Mount																																																						BONUS:VAR|MasterLevel|1
-FOLLOWER:SamuraiMountLVL=20		TYPE:Samurai Mount	HD:1																																									BONUS:ABILITYPOOL|Companion Stat Increase|1					BONUS:VAR|MasterLevel|1
+FOLLOWER:SamuraiMountLVL=2		TYPE:Samurai Mount	HD:1																																																															BONUS:VAR|MasterLevel|1
+FOLLOWER:SamuraiMountLVL=3		TYPE:Samurai Mount			ABILITY:Special Ability|AUTOMATIC|Companion ~ Evasion																																																	BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:SamuraiMountLVL=4		TYPE:Samurai Mount	HD:1																																																			BONUS:ABILITYPOOL|Companion Stat Increase|1					BONUS:VAR|MasterLevel|1
+FOLLOWER:SamuraiMountLVL=5		TYPE:Samurai Mount	HD:1																																																															BONUS:VAR|MasterLevel|1
+FOLLOWER:SamuraiMountLVL=6		TYPE:Samurai Mount	HD:1		ABILITY:Special Ability|AUTOMATIC|Companion ~ Devotion																																																BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:SamuraiMountLVL=7		TYPE:Samurai Mount																																																																BONUS:VAR|MasterLevel|1
+FOLLOWER:SamuraiMountLVL=8		TYPE:Samurai Mount	HD:1																																																															BONUS:VAR|MasterLevel|1
+FOLLOWER:SamuraiMountLVL=9		TYPE:Samurai Mount	HD:1		ABILITY:Special Ability|AUTOMATIC|Companion ~ Multiattack																																								BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:SamuraiMountLVL=10		TYPE:Samurai Mount	HD:1																																																															BONUS:VAR|MasterLevel|1
+FOLLOWER:SamuraiMountLVL=11		TYPE:Samurai Mount																																																																BONUS:VAR|MasterLevel|1
+FOLLOWER:SamuraiMountLVL=12		TYPE:Samurai Mount	HD:1																																																											BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:SamuraiMountLVL=13		TYPE:Samurai Mount	HD:1																																																															BONUS:VAR|MasterLevel|1
+FOLLOWER:SamuraiMountLVL=14		TYPE:Samurai Mount	HD:1																																																			BONUS:ABILITYPOOL|Companion Stat Increase|1					BONUS:VAR|MasterLevel|1
+FOLLOWER:SamuraiMountLVL=15		TYPE:Samurai Mount																																																												BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:SamuraiMountLVL=16		TYPE:Samurai Mount	HD:1		ABILITY:Special Ability|AUTOMATIC|Companion ~ Improved Evasion																																																			BONUS:VAR|MasterLevel|1
+FOLLOWER:SamuraiMountLVL=17		TYPE:Samurai Mount	HD:1																																																															BONUS:VAR|MasterLevel|1
+FOLLOWER:SamuraiMountLVL=18		TYPE:Samurai Mount	HD:1																																																											BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:SamuraiMountLVL=19		TYPE:Samurai Mount																																																																BONUS:VAR|MasterLevel|1
+FOLLOWER:SamuraiMountLVL=20		TYPE:Samurai Mount	HD:1																																																			BONUS:ABILITYPOOL|Companion Stat Increase|1					BONUS:VAR|MasterLevel|1
 #
 
 
 
-# Class of the Master			Type				Hit Dice	Ability																														Define							Bonus Ability Pool					Stat bonus			Modify VAR															Main Race Type
-FOLLOWER:FeatheredCompanionLvl=1	TYPE:Animal Companion			ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training	ABILITY:Special Ability|AUTOMATIC|Half HP|PREVARLT:MasterLvl,4										DEFINE:MasterLevel|0	DEFINE:BonusTricks|0													BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1									RACETYPE:Animal
+# Class of the Master			Type				Hit Dice	Ability																																								Define							Bonus Ability Pool					Stat bonus			Modify VAR															Main Race Type
+FOLLOWER:FeatheredCompanionLvl=1	TYPE:Animal Companion			ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training	ABILITY:Special Ability|AUTOMATIC|Half HP|PREVARLT:MasterLvl,4																				DEFINE:MasterLevel|0	DEFINE:BonusTricks|0													BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1									RACETYPE:Animal
 FOLLOWER:FeatheredCompanionLvl=1	TYPE:Animal Companion			ABILITY:Special Ability|AUTOMATIC|Companion ~ Link
 FOLLOWER:FeatheredCompanionLvl=1	TYPE:Animal Companion			ABILITY:Special Ability|AUTOMATIC|Companion ~ Share Spells
-FOLLOWER:FeatheredCompanionLvl=2	TYPE:Animal Companion	HD:1																																																					BONUS:VAR|MasterLevel|1
-FOLLOWER:FeatheredCompanionLvl=3	TYPE:Animal Companion			ABILITY:Special Ability|AUTOMATIC|Companion ~ Evasion																																							BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:FeatheredCompanionLvl=4	TYPE:Animal Companion	HD:1																																									BONUS:ABILITYPOOL|Companion Stat Increase|1					BONUS:VAR|MasterLevel|1
-FOLLOWER:FeatheredCompanionLvl=5	TYPE:Animal Companion	HD:1																																																					BONUS:VAR|MasterLevel|1
-FOLLOWER:FeatheredCompanionLvl=6	TYPE:Animal Companion	HD:1		ABILITY:Special Ability|AUTOMATIC|Animal Trick ~ Swooping Charge	ABILITY:Special Ability|AUTOMATIC|Companion ~ Devotion																											BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:FeatheredCompanionLvl=7	TYPE:Animal Companion																																																						BONUS:VAR|MasterLevel|1
-FOLLOWER:FeatheredCompanionLvl=8	TYPE:Animal Companion	HD:1																																																					BONUS:VAR|MasterLevel|1
-FOLLOWER:FeatheredCompanionLvl=9	TYPE:Animal Companion	HD:1		ABILITY:Special Ability|AUTOMATIC|Companion ~ Multiattack																														BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:FeatheredCompanionLvl=10	TYPE:Animal Companion	HD:1																																																					BONUS:VAR|MasterLevel|1
-FOLLOWER:FeatheredCompanionLvl=11	TYPE:Animal Companion																																																						BONUS:VAR|MasterLevel|1
-FOLLOWER:FeatheredCompanionLvl=12	TYPE:Animal Companion	HD:1																																																	BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:FeatheredCompanionLvl=13	TYPE:Animal Companion	HD:1																																																					BONUS:VAR|MasterLevel|1
-FOLLOWER:FeatheredCompanionLvl=14	TYPE:Animal Companion	HD:1																																									BONUS:ABILITYPOOL|Companion Stat Increase|1					BONUS:VAR|MasterLevel|1
-FOLLOWER:FeatheredCompanionLvl=15	TYPE:Animal Companion																																																		BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:FeatheredCompanionLvl=16	TYPE:Animal Companion	HD:1		ABILITY:Special Ability|AUTOMATIC|Companion ~ Improved Evasion																																									BONUS:VAR|MasterLevel|1
-FOLLOWER:FeatheredCompanionLvl=17	TYPE:Animal Companion	HD:1																																																					BONUS:VAR|MasterLevel|1
-FOLLOWER:FeatheredCompanionLvl=18	TYPE:Animal Companion	HD:1																																																	BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:FeatheredCompanionLvl=19	TYPE:Animal Companion																																																						BONUS:VAR|MasterLevel|1
-FOLLOWER:FeatheredCompanionLvl=20	TYPE:Animal Companion	HD:1																																									BONUS:ABILITYPOOL|Companion Stat Increase|1					BONUS:VAR|MasterLevel|1
+FOLLOWER:FeatheredCompanionLvl=2	TYPE:Animal Companion	HD:1																																																															BONUS:VAR|MasterLevel|1
+FOLLOWER:FeatheredCompanionLvl=3	TYPE:Animal Companion			ABILITY:Special Ability|AUTOMATIC|Companion ~ Evasion																																																	BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:FeatheredCompanionLvl=4	TYPE:Animal Companion	HD:1																																																			BONUS:ABILITYPOOL|Companion Stat Increase|1					BONUS:VAR|MasterLevel|1
+FOLLOWER:FeatheredCompanionLvl=5	TYPE:Animal Companion	HD:1																																																															BONUS:VAR|MasterLevel|1
+FOLLOWER:FeatheredCompanionLvl=6	TYPE:Animal Companion	HD:1		ABILITY:Special Ability|AUTOMATIC|Animal Trick ~ Swooping Charge	ABILITY:Special Ability|AUTOMATIC|Companion ~ Devotion																																					BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:FeatheredCompanionLvl=7	TYPE:Animal Companion																																																																BONUS:VAR|MasterLevel|1
+FOLLOWER:FeatheredCompanionLvl=8	TYPE:Animal Companion	HD:1																																																															BONUS:VAR|MasterLevel|1
+FOLLOWER:FeatheredCompanionLvl=9	TYPE:Animal Companion	HD:1		ABILITY:Special Ability|AUTOMATIC|Companion ~ Multiattack																																								BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:FeatheredCompanionLvl=10	TYPE:Animal Companion	HD:1																																																															BONUS:VAR|MasterLevel|1
+FOLLOWER:FeatheredCompanionLvl=11	TYPE:Animal Companion																																																																BONUS:VAR|MasterLevel|1
+FOLLOWER:FeatheredCompanionLvl=12	TYPE:Animal Companion	HD:1																																																											BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:FeatheredCompanionLvl=13	TYPE:Animal Companion	HD:1																																																															BONUS:VAR|MasterLevel|1
+FOLLOWER:FeatheredCompanionLvl=14	TYPE:Animal Companion	HD:1																																																			BONUS:ABILITYPOOL|Companion Stat Increase|1					BONUS:VAR|MasterLevel|1
+FOLLOWER:FeatheredCompanionLvl=15	TYPE:Animal Companion																																																												BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:FeatheredCompanionLvl=16	TYPE:Animal Companion	HD:1		ABILITY:Special Ability|AUTOMATIC|Companion ~ Improved Evasion																																																			BONUS:VAR|MasterLevel|1
+FOLLOWER:FeatheredCompanionLvl=17	TYPE:Animal Companion	HD:1																																																															BONUS:VAR|MasterLevel|1
+FOLLOWER:FeatheredCompanionLvl=18	TYPE:Animal Companion	HD:1																																																											BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:FeatheredCompanionLvl=19	TYPE:Animal Companion																																																																BONUS:VAR|MasterLevel|1
+FOLLOWER:FeatheredCompanionLvl=20	TYPE:Animal Companion	HD:1																																																			BONUS:ABILITYPOOL|Companion Stat Increase|1					BONUS:VAR|MasterLevel|1
 
 
 
 ###Block: Empyreal Companion
-# Class of the Master		Type				Hit Dice	Spell Res.		Ability																					Auto Armor Prof				Define							Define Stat				Bonus Ability Pool					Stat bonus			Modify VAR															Main Race Type		Template
-FOLLOWER:EmpyrealCompanion=1	TYPE:Special Mount																												AUTO:ARMORPROF|ARMORTYPE=Barding	DEFINE:MasterLevel|0					DEFINESTAT:MINVALUE|INT|6													BONUS:VAR|MasterLevel|1													RACETYPE:Animal
+# Class of the Master		Type				Hit Dice	Spell Res.		Ability																											Auto Armor Prof				Define							Define Stat				Bonus Ability Pool					Stat bonus			Modify VAR															Main Race Type		Template
+FOLLOWER:EmpyrealCompanion=1	TYPE:Special Mount																																		AUTO:ARMORPROF|ARMORTYPE=Barding	DEFINE:MasterLevel|0					DEFINESTAT:MINVALUE|INT|6													BONUS:VAR|MasterLevel|1													RACETYPE:Animal
 FOLLOWER:EmpyrealCompanion=1	TYPE:Special Mount						ABILITY:Special Ability|AUTOMATIC|Companion ~ Link
 FOLLOWER:EmpyrealCompanion=1	TYPE:Special Mount						ABILITY:Special Ability|AUTOMATIC|Companion ~ Share Spells
-FOLLOWER:EmpyrealCompanion=2	TYPE:Special Mount	HD:1																																																										BONUS:VAR|MasterLevel|1
-FOLLOWER:EmpyrealCompanion=3	TYPE:Special Mount						ABILITY:Special Ability|AUTOMATIC|Companion ~ Evasion																																									BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1
-FOLLOWER:EmpyrealCompanion=4	TYPE:Special Mount	HD:1																																														BONUS:ABILITYPOOL|Companion Stat Increase|1					BONUS:VAR|MasterLevel|1
-FOLLOWER:EmpyrealCompanion=5	TYPE:Special Mount	HD:1																																																										BONUS:VAR|MasterLevel|1
-FOLLOWER:EmpyrealCompanion=6	TYPE:Special Mount	HD:1					ABILITY:Special Ability|AUTOMATIC|Companion ~ Devotion																																								BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1
-FOLLOWER:EmpyrealCompanion=7	TYPE:Special Mount																																																											BONUS:VAR|MasterLevel|1
-FOLLOWER:EmpyrealCompanion=8	TYPE:Special Mount	HD:1																																																										BONUS:VAR|MasterLevel|1													RACETYPE:Magical Beast	TEMPLATE:Celestial Creature
-FOLLOWER:EmpyrealCompanion=9	TYPE:Special Mount	HD:1					ABILITY:Special Ability|AUTOMATIC|Companion ~ Multiattack																																BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1
-FOLLOWER:EmpyrealCompanion=10	TYPE:Special Mount	HD:1																																																										BONUS:VAR|MasterLevel|1
-FOLLOWER:EmpyrealCompanion=11	TYPE:Special Mount																																																											BONUS:VAR|MasterLevel|1
-FOLLOWER:EmpyrealCompanion=12	TYPE:Special Mount	HD:1					ABILITY:Special Ability|AUTOMATIC|Empyreal Creature Flight																																								BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1
-FOLLOWER:EmpyrealCompanion=13	TYPE:Special Mount	HD:1																																																										BONUS:VAR|MasterLevel|1
-FOLLOWER:EmpyrealCompanion=14	TYPE:Special Mount	HD:1																																														BONUS:ABILITYPOOL|Companion Stat Increase|1					BONUS:VAR|MasterLevel|1
-FOLLOWER:EmpyrealCompanion=15	TYPE:Special Mount			SR:MasterLevel+11																																																		BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1
-FOLLOWER:EmpyrealCompanion=16	TYPE:Special Mount	HD:1					ABILITY:Special Ability|AUTOMATIC|Improved Evasion																																													BONUS:VAR|MasterLevel|1
-FOLLOWER:EmpyrealCompanion=17	TYPE:Special Mount	HD:1																																																										BONUS:VAR|MasterLevel|1
-FOLLOWER:EmpyrealCompanion=18	TYPE:Special Mount	HD:1																																																						BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1
-FOLLOWER:EmpyrealCompanion=19	TYPE:Special Mount																																																											BONUS:VAR|MasterLevel|1
-FOLLOWER:EmpyrealCompanion=20	TYPE:Special Mount	HD:1																																														BONUS:ABILITYPOOL|Companion Stat Increase|1					BONUS:VAR|MasterLevel|1
+FOLLOWER:EmpyrealCompanion=2	TYPE:Special Mount	HD:1																																																																BONUS:VAR|MasterLevel|1
+FOLLOWER:EmpyrealCompanion=3	TYPE:Special Mount						ABILITY:Special Ability|AUTOMATIC|Companion ~ Evasion																																															BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1
+FOLLOWER:EmpyrealCompanion=4	TYPE:Special Mount	HD:1																																																				BONUS:ABILITYPOOL|Companion Stat Increase|1					BONUS:VAR|MasterLevel|1
+FOLLOWER:EmpyrealCompanion=5	TYPE:Special Mount	HD:1																																																																BONUS:VAR|MasterLevel|1
+FOLLOWER:EmpyrealCompanion=6	TYPE:Special Mount	HD:1					ABILITY:Special Ability|AUTOMATIC|Companion ~ Devotion																																														BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1
+FOLLOWER:EmpyrealCompanion=7	TYPE:Special Mount																																																																	BONUS:VAR|MasterLevel|1
+FOLLOWER:EmpyrealCompanion=8	TYPE:Special Mount	HD:1																																																																BONUS:VAR|MasterLevel|1													RACETYPE:Magical Beast	TEMPLATE:Celestial Creature
+FOLLOWER:EmpyrealCompanion=9	TYPE:Special Mount	HD:1					ABILITY:Special Ability|AUTOMATIC|Companion ~ Multiattack																																						BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1
+FOLLOWER:EmpyrealCompanion=10	TYPE:Special Mount	HD:1																																																																BONUS:VAR|MasterLevel|1
+FOLLOWER:EmpyrealCompanion=11	TYPE:Special Mount																																																																	BONUS:VAR|MasterLevel|1
+FOLLOWER:EmpyrealCompanion=12	TYPE:Special Mount	HD:1					ABILITY:Special Ability|AUTOMATIC|Empyreal Creature Flight																																														BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1
+FOLLOWER:EmpyrealCompanion=13	TYPE:Special Mount	HD:1																																																																BONUS:VAR|MasterLevel|1
+FOLLOWER:EmpyrealCompanion=14	TYPE:Special Mount	HD:1																																																				BONUS:ABILITYPOOL|Companion Stat Increase|1					BONUS:VAR|MasterLevel|1
+FOLLOWER:EmpyrealCompanion=15	TYPE:Special Mount			SR:MasterLevel+11																																																								BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1
+FOLLOWER:EmpyrealCompanion=16	TYPE:Special Mount	HD:1					ABILITY:Special Ability|AUTOMATIC|Improved Evasion																																																			BONUS:VAR|MasterLevel|1
+FOLLOWER:EmpyrealCompanion=17	TYPE:Special Mount	HD:1																																																																BONUS:VAR|MasterLevel|1
+FOLLOWER:EmpyrealCompanion=18	TYPE:Special Mount	HD:1																																																												BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1
+FOLLOWER:EmpyrealCompanion=19	TYPE:Special Mount																																																																	BONUS:VAR|MasterLevel|1
+FOLLOWER:EmpyrealCompanion=20	TYPE:Special Mount	HD:1																																																				BONUS:ABILITYPOOL|Companion Stat Increase|1					BONUS:VAR|MasterLevel|1
 
 
 
-# Class of the Master		Type				Hit Dice	Spell Res.		Ability																					Auto Armor Prof				Define							Define Stat				Bonus Ability Pool					Stat bonus			Modify VAR															Main Race Type		Template
-FOLLOWER:BeastRiderLvl=1	TYPE:Animal Companion						ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training	ABILITY:Animal Trick|NORMAL|Animal Training ~ Combat Training	ABILITY:FEAT|AUTOMATIC|Endurance							DEFINE:MasterLevel|0	DEFINE:BonusTricks|0													BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1									RACETYPE:Animal
+# Class of the Master		Type				Hit Dice	Spell Res.		Ability																											Auto Armor Prof				Define							Define Stat				Bonus Ability Pool					Stat bonus			Modify VAR															Main Race Type		Template
+FOLLOWER:BeastRiderLvl=1	TYPE:Animal Companion						ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training	ABILITY:Animal Trick|NORMAL|Animal Training ~ Combat Training	ABILITY:FEAT|AUTOMATIC|Endurance							DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																		BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1									RACETYPE:Animal
 FOLLOWER:BeastRiderLvl=1	TYPE:Animal Companion						ABILITY:Special Ability|AUTOMATIC|Companion ~ Link
 FOLLOWER:BeastRiderLvl=1	TYPE:Animal Companion						ABILITY:Special Ability|AUTOMATIC|Companion ~ Share Spells
-FOLLOWER:BeastRiderLvl=2	TYPE:Animal Companion	HD:1																																																										BONUS:VAR|MasterLevel|1
-FOLLOWER:BeastRiderLvl=3	TYPE:Animal Companion						ABILITY:Special Ability|AUTOMATIC|Companion ~ Evasion																																									BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:BeastRiderLvl=4	TYPE:Animal Companion	HD:1																																														BONUS:ABILITYPOOL|Companion Stat Increase|1					BONUS:VAR|MasterLevel|1
-FOLLOWER:BeastRiderLvl=5	TYPE:Animal Companion	HD:1																																																										BONUS:VAR|MasterLevel|1
-FOLLOWER:BeastRiderLvl=6	TYPE:Animal Companion	HD:1					ABILITY:Special Ability|AUTOMATIC|Companion ~ Devotion																																								BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:BeastRiderLvl=7	TYPE:Animal Companion																																																											BONUS:VAR|MasterLevel|1
-FOLLOWER:BeastRiderLvl=8	TYPE:Animal Companion	HD:1																																																										BONUS:VAR|MasterLevel|1
-FOLLOWER:BeastRiderLvl=9	TYPE:Animal Companion	HD:1					ABILITY:Special Ability|AUTOMATIC|Companion ~ Multiattack																																BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:BeastRiderLvl=10	TYPE:Animal Companion	HD:1																																																										BONUS:VAR|MasterLevel|1
-FOLLOWER:BeastRiderLvl=11	TYPE:Animal Companion																																																											BONUS:VAR|MasterLevel|1
-FOLLOWER:BeastRiderLvl=12	TYPE:Animal Companion	HD:1																																																						BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:BeastRiderLvl=13	TYPE:Animal Companion	HD:1																																																										BONUS:VAR|MasterLevel|1
-FOLLOWER:BeastRiderLvl=14	TYPE:Animal Companion	HD:1																																														BONUS:ABILITYPOOL|Companion Stat Increase|1					BONUS:VAR|MasterLevel|1
-FOLLOWER:BeastRiderLvl=15	TYPE:Animal Companion																																																							BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:BeastRiderLvl=16	TYPE:Animal Companion	HD:1					ABILITY:Special Ability|AUTOMATIC|Companion ~ Improved Evasion																																											BONUS:VAR|MasterLevel|1
-FOLLOWER:BeastRiderLvl=17	TYPE:Animal Companion	HD:1																																																										BONUS:VAR|MasterLevel|1
-FOLLOWER:BeastRiderLvl=18	TYPE:Animal Companion	HD:1																																																						BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:BeastRiderLvl=19	TYPE:Animal Companion																																																											BONUS:VAR|MasterLevel|1
-FOLLOWER:BeastRiderLvl=20	TYPE:Animal Companion	HD:1																																														BONUS:ABILITYPOOL|Companion Stat Increase|1					BONUS:VAR|MasterLevel|1
+FOLLOWER:BeastRiderLvl=2	TYPE:Animal Companion	HD:1																																																																BONUS:VAR|MasterLevel|1
+FOLLOWER:BeastRiderLvl=3	TYPE:Animal Companion						ABILITY:Special Ability|AUTOMATIC|Companion ~ Evasion																																															BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:BeastRiderLvl=4	TYPE:Animal Companion	HD:1																																																				BONUS:ABILITYPOOL|Companion Stat Increase|1					BONUS:VAR|MasterLevel|1
+FOLLOWER:BeastRiderLvl=5	TYPE:Animal Companion	HD:1																																																																BONUS:VAR|MasterLevel|1
+FOLLOWER:BeastRiderLvl=6	TYPE:Animal Companion	HD:1					ABILITY:Special Ability|AUTOMATIC|Companion ~ Devotion																																														BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:BeastRiderLvl=7	TYPE:Animal Companion																																																																	BONUS:VAR|MasterLevel|1
+FOLLOWER:BeastRiderLvl=8	TYPE:Animal Companion	HD:1																																																																BONUS:VAR|MasterLevel|1
+FOLLOWER:BeastRiderLvl=9	TYPE:Animal Companion	HD:1					ABILITY:Special Ability|AUTOMATIC|Companion ~ Multiattack																																						BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:BeastRiderLvl=10	TYPE:Animal Companion	HD:1																																																																BONUS:VAR|MasterLevel|1
+FOLLOWER:BeastRiderLvl=11	TYPE:Animal Companion																																																																	BONUS:VAR|MasterLevel|1
+FOLLOWER:BeastRiderLvl=12	TYPE:Animal Companion	HD:1																																																												BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:BeastRiderLvl=13	TYPE:Animal Companion	HD:1																																																																BONUS:VAR|MasterLevel|1
+FOLLOWER:BeastRiderLvl=14	TYPE:Animal Companion	HD:1																																																				BONUS:ABILITYPOOL|Companion Stat Increase|1					BONUS:VAR|MasterLevel|1
+FOLLOWER:BeastRiderLvl=15	TYPE:Animal Companion																																																													BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:BeastRiderLvl=16	TYPE:Animal Companion	HD:1					ABILITY:Special Ability|AUTOMATIC|Companion ~ Improved Evasion																																																	BONUS:VAR|MasterLevel|1
+FOLLOWER:BeastRiderLvl=17	TYPE:Animal Companion	HD:1																																																																BONUS:VAR|MasterLevel|1
+FOLLOWER:BeastRiderLvl=18	TYPE:Animal Companion	HD:1																																																												BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:BeastRiderLvl=19	TYPE:Animal Companion																																																																	BONUS:VAR|MasterLevel|1
+FOLLOWER:BeastRiderLvl=20	TYPE:Animal Companion	HD:1																																																				BONUS:ABILITYPOOL|Companion Stat Increase|1					BONUS:VAR|MasterLevel|1

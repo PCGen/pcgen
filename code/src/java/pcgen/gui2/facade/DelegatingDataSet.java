@@ -24,10 +24,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import pcgen.core.BodyStructure;
 import pcgen.core.PCAlignment;
+import pcgen.core.PCTemplate;
 import pcgen.facade.core.AbilityCategoryFacade;
 import pcgen.facade.core.AbilityFacade;
-import pcgen.facade.core.BodyStructureFacade;
 import pcgen.facade.core.CampaignFacade;
 import pcgen.facade.core.ClassFacade;
 import pcgen.facade.core.DataSetFacade;
@@ -40,7 +41,6 @@ import pcgen.facade.core.RaceFacade;
 import pcgen.facade.core.SizeAdjustmentFacade;
 import pcgen.facade.core.SkillFacade;
 import pcgen.facade.core.StatFacade;
-import pcgen.facade.core.TemplateFacade;
 import pcgen.facade.core.generator.StatGenerationFacade;
 import pcgen.facade.util.AbstractMapFacade;
 import pcgen.facade.util.DelegatingListFacade;
@@ -65,13 +65,13 @@ public class DelegatingDataSet implements DataSetFacade
 	private final DelegatingListFacade<ClassFacade> classes;
 	private final DelegatingListFacade<DeityFacade> deities;
 	private final DelegatingListFacade<SkillFacade> skills;
-	private final DelegatingListFacade<TemplateFacade> templates;
+	private final DelegatingListFacade<PCTemplate> templates;
 	private final DelegatingListFacade<PCAlignment> alignments;
 	private final DelegatingListFacade<KitFacade> kits;
 	private final DelegatingListFacade<StatFacade> stats;
 	private final DelegatingAbilitiesMap abilities;
 	private final DelegatingListFacade<CampaignFacade> campaigns;
-	private final DelegatingListFacade<BodyStructureFacade> bodyStructures;
+	private final DelegatingListFacade<BodyStructure> bodyStructures;
 	private final DelegatingListFacade<EquipmentFacade> equipment;
 	private final DelegatingListFacade<String> xpTableNames;
 	private final DelegatingListFacade<GearBuySellFacade> gearBuySellSchemes;
@@ -260,7 +260,7 @@ public class DelegatingDataSet implements DataSetFacade
 	}
 
 	@Override
-	public ListFacade<TemplateFacade> getTemplates()
+	public ListFacade<PCTemplate> getTemplates()
 	{
 		return templates;
 	}
@@ -315,7 +315,7 @@ public class DelegatingDataSet implements DataSetFacade
 	}
 
 	@Override
-	public ListFacade<BodyStructureFacade> getEquipmentLocations()
+	public ListFacade<BodyStructure> getEquipmentLocations()
 	{
 		return bodyStructures;
 	}

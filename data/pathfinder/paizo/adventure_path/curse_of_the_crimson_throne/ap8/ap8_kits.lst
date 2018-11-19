@@ -1,3 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
 SOURCELONG:Curse of the Crimson Throne, Chapter 2 - Seven Days to the Grave	SOURCESHORT:AP8	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy82qy	SOURCEDATE:2008-04
 
@@ -463,8 +464,8 @@ ABILITY:CATEGORY=Skill Focus|Skill Focus(Craft (Alchemy))
 ABILITY:CATEGORY=Skill Focus|Skill Focus(Heal)
 SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Ghost Sound|Mage Hand|Message|Disguise Self|Mage Armor|Magic Missile|Ray of Enfeeblement|Silent Image|Invisibility|Scorching Ray|Touch of Idiocy|Web|Dispel Magic|Hold Person|Lightning Bolt|Stinking Cloud|Crushing Despair|Dimension Door|Fire Shield
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Ghost Sound|Mage Hand|Message|Disguise Self|Mage Armor|Magic Missile|Ray of Enfeeblement|Silent Image|Invisibility|Scorching Ray|Touch of Idiocy|Web|Dispel Magic|Hold Person|Lightning Bolt|Stinking Cloud|Crushing Despair|Dimension Door|Fire Shield
-GEAR:Wand						LOCATION:Equipped	EQMOD:Special Ability ~ Spell Effect / Spell Trigger|SPELLNAME[Magic Missile]SPELLLEVEL[1]CASTERLEVEL[3]CHARGES[31]
-GEAR:Potion					QTY:2	LOCATION:Equipped	EQMOD:Special Ability ~ Spell Effect / Single Use|SPELLNAME[Inflict Moderate Wounds]CASTER[Cleric]SPELLTYPE[Divine]SPELLLEVEL[2]CASTERLEVEL[3]
-GEAR:Ring of Protection +2			LOCATION:Equipped
-GEAR:Cape of the Mountebank			LOCATION:Equipped
-GEAR:Spellbook		LOCATION:Equipped
+GEAR:Wand					LOCATION:Equipped	EQMOD:Special Ability ~ Spell Effect / Spell Trigger|SPELLNAME[Magic Missile]SPELLLEVEL[1]CASTERLEVEL[3]CHARGES[31]
+GEAR:Potion				QTY:2	LOCATION:Equipped	EQMOD:Special Ability ~ Spell Effect / Single Use|SPELLNAME[Inflict Moderate Wounds]CASTER[Cleric]SPELLTYPE[Divine]SPELLLEVEL[2]CASTERLEVEL[3]
+GEAR:Ring of Protection +2		LOCATION:Equipped
+GEAR:Cape of the Mountebank		LOCATION:Equipped
+GEAR:Spellbook				LOCATION:Equipped

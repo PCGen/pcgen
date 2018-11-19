@@ -33,10 +33,6 @@ import pcgen.output.base.SimpleWrapperLibrary;
  */
 public class DisplayNameActor implements OutputActor<CDOMObject>
 {
-	/**
-	 * @see pcgen.output.base.OutputActor#process(pcgen.cdom.enumeration.CharID,
-	 *      java.lang.Object)
-	 */
 	@Override
 	public TemplateModel process(CharID id, CDOMObject d) throws TemplateModelException
 	{

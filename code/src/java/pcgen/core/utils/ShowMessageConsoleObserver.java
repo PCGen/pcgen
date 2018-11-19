@@ -25,9 +25,6 @@ import pcgen.util.Logging;
 public class ShowMessageConsoleObserver implements Observer
 {
 
-	/**
-	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
-	 */
 	@Override
 	public void update(final Observable o, final Object arg)
 	{

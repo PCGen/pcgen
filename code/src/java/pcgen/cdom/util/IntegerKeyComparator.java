@@ -55,9 +55,6 @@ public class IntegerKeyComparator implements Comparator<CDOMObject>
 		ik = key;
 	}
 
-	/**
-	 * @see java.util.Comparator#compare(java.lang.Object, java.lang.Object)
-	 */
 	@Override
 	public int compare(CDOMObject cdo1, CDOMObject cdo2)
 	{

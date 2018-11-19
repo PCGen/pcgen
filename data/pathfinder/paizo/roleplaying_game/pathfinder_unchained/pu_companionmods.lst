@@ -1,3 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
 # COMMENT: Broken down for easier review
@@ -12,6 +13,7 @@
 # COMMENT: Pool_UnchainedEidolonEvolution tracks Evolution Points gained from Progression
 
 
+# Class of the Master			Type			Modify VAR
 FOLLOWER:EidolonCompanionLVL=1	TYPE:Eidolon	BONUS:VAR|EidolonSubtype_Agathion|mastervar("EidolonSubtype_Agathion")
 FOLLOWER:EidolonCompanionLVL=1	TYPE:Eidolon	BONUS:VAR|EidolonSubtype_Angel|mastervar("EidolonSubtype_Angel")
 FOLLOWER:EidolonCompanionLVL=1	TYPE:Eidolon	BONUS:VAR|EidolonSubtype_Archon|mastervar("EidolonSubtype_Archon")
@@ -25,5 +27,3 @@ FOLLOWER:EidolonCompanionLVL=1	TYPE:Eidolon	BONUS:VAR|EidolonSubtype_Fey|masterv
 FOLLOWER:EidolonCompanionLVL=1	TYPE:Eidolon	BONUS:VAR|EidolonSubtype_Inevitable|mastervar("EidolonSubtype_Inevitable")
 FOLLOWER:EidolonCompanionLVL=1	TYPE:Eidolon	BONUS:VAR|EidolonSubtype_Protean|mastervar("EidolonSubtype_Protean")
 FOLLOWER:EidolonCompanionLVL=1	TYPE:Eidolon	BONUS:VAR|EidolonSubtype_Psychopomp|mastervar("EidolonSubtype_Psychopomp")
-
-

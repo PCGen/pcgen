@@ -63,13 +63,6 @@ public final class KitAbilities extends BaseKit
 		free = argFree;
 	}
 
-	/**
-	 * Returns a string representation of the object.
-	 *
-	 * @return  the string representation of the object
-	 *
-	 * @see     Object#toString()
-	 */
 	@Override
 	public String toString()
 	{

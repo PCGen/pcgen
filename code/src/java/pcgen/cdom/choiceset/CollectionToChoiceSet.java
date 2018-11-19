@@ -62,25 +62,12 @@ public class CollectionToChoiceSet<T> implements PrimitiveChoiceSet<T>
 		return primitive.getCollection(pc, new DereferencingConverter<>(pc));
 	}
 
-	/**
-	 * Returns the consistent-with-equals hashCode for this
-	 * CollectionToChoiceSet
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{
 		return primitive.hashCode();
 	}
 
-	/**
-	 * Returns true if this CollectionToChoiceSet is equal to the given Object.
-	 * Equality is defined as being another CollectionToChoiceSet object with
-	 * equal underlying contents.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{

@@ -1,48 +1,50 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 21789 $ $Author: mjmeans $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 #SOURCELONG:Pathfinder Society Chronicle Sheets	SOURCESHORT:PFSCS	SOURCEWEB:http://www.mywebsite.com	SOURCEDATE:2008-01
 
 # Ability Category								Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object							Plural description for UI	Display where?															Display Location
 
 # This ability pool hold the list of chronicle sheets
+# Ability Category								Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object							Display where?									Display Location
 ABILITYCATEGORY:PFS Chronicle							VISIBLE:NO		EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:PFS Chronicle
-ABILITYCATEGORY:PFSChronicle							VISIBLE:YES		EDITABLE:YES								CATEGORY:PFS Chronicle		TYPE:PFSChronicle												DISPLAYNAME:Chronicle Sheets													DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:PFSChronicle							VISIBLE:YES		EDITABLE:YES								CATEGORY:PFS Chronicle		TYPE:PFSChronicle							DISPLAYNAME:Chronicle Sheets							DISPLAYLOCATION:Chronicles
 
-ABILITYCATEGORY:Ally of Belhaim Perform Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AllyOfBelhaimPerformChoice																										DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Ally of Belhaim Perform Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AllyOfBelhaimPerformChoice															DISPLAYLOCATION:Chronicles
 
-ABILITYCATEGORY:Chronicle_PZO9500-4						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9500-4										DISPLAYNAME:Pathfinder Module: Master of the Fallen Fortress							DISPLAYLOCATION:Chronicles
-ABILITYCATEGORY:Chronicle_PZO9500-5						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9500-5										DISPLAYNAME:Pathfinder Module: We be Goblins										DISPLAYLOCATION:Chronicles
-ABILITYCATEGORY:Chronicle_PZO9500-6						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9500-6										DISPLAYNAME:Pathfinder Module: Dawn of the Scarlet Sun								DISPLAYLOCATION:Chronicles
-ABILITYCATEGORY:Chronicle_PZO9500-7						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9500-7										DISPLAYNAME:Pathfinder Module: We Be Goblins Too!									DISPLAYLOCATION:Chronicles
-ABILITYCATEGORY:Chronicle_PZO9500-8						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9500-8										DISPLAYNAME:Pathfinder Module: Risen from the Sands									DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_PZO9500-4						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9500-4					DISPLAYNAME:Pathfinder Module: Master of the Fallen Fortress	DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_PZO9500-5						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9500-5					DISPLAYNAME:Pathfinder Module: We be Goblins				DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_PZO9500-6						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9500-6					DISPLAYNAME:Pathfinder Module: Dawn of the Scarlet Sun		DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_PZO9500-7						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9500-7					DISPLAYNAME:Pathfinder Module: We Be Goblins Too!			DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_PZO9500-8						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9500-8					DISPLAYNAME:Pathfinder Module: Risen from the Sands			DISPLAYLOCATION:Chronicles
 #ABILITYCATEGORY:Chronicle_PZO9500-9						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9500-9										DISPLAYNAME:Pathfinder Module: We Be Goblins Free!									DISPLAYLOCATION:Chronicles
 #ABILITYCATEGORY:Chronicle_PZO9500-10						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9500-10										DISPLAYNAME:Pathfinder Module: We B4 Goblins!									DISPLAYLOCATION:Chronicles
-ABILITYCATEGORY:Chronicle_PZO9500-12						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9500-12										DISPLAYNAME:Pathfinder Module: We Be 5uper Goblins!									DISPLAYLOCATION:Chronicles
-ABILITYCATEGORY:Chronicle_PZO9520						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9520											DISPLAYNAME:Pathfinder Module: Crypt of the Everflame									DISPLAYLOCATION:Chronicles
-ABILITYCATEGORY:Chronicle_PZO9521						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9521											DISPLAYNAME:Pathfinder Module: Carrion Hill										DISPLAYLOCATION:Chronicles
-ABILITYCATEGORY:Chronicle_PZO9522						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9522											DISPLAYNAME:Pathfinder Module: Masks of the Living God								DISPLAYLOCATION:Chronicles
-ABILITYCATEGORY:Chronicle_PZO9523						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9523											DISPLAYNAME:Pathfinder Module: Realm of the Fellnight Queen								DISPLAYLOCATION:Chronicles
-ABILITYCATEGORY:Chronicle_PZO9524						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9524											DISPLAYNAME:Pathfinder Module: City of Golden Death									DISPLAYLOCATION:Chronicles
-ABILITYCATEGORY:Chronicle_PZO9525						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9525											DISPLAYNAME:Pathfinder Module: From Shore to Sea									DISPLAYLOCATION:Chronicles
-ABILITYCATEGORY:Chronicle_PZO9526						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9526											DISPLAYNAME:Pathfinder Module: Curse of the Riven Sky									DISPLAYLOCATION:Chronicles
-ABILITYCATEGORY:Chronicle_PZO9527						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9527											DISPLAYNAME:Pathfinder Module: The Witchwar Legacy									DISPLAYLOCATION:Chronicles
-ABILITYCATEGORY:Chronicle_PZO9528						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9528											DISPLAYNAME:Pathfinder Module: The Godsmouth Heresy									DISPLAYLOCATION:Chronicles
-ABILITYCATEGORY:Chronicle_PZO9529						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9529											DISPLAYNAME:Pathfinder Module: Cult of the Ebon Destroyers								DISPLAYLOCATION:Chronicles
-ABILITYCATEGORY:Chronicle_PZO9530						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9530											DISPLAYNAME:Pathfinder Module: Tomb of the Iron Medusa								DISPLAYLOCATION:Chronicles
-ABILITYCATEGORY:Chronicle_PZO9531						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9531											DISPLAYNAME:Pathfinder Module: Academy of Secrets									DISPLAYLOCATION:Chronicles
-ABILITYCATEGORY:Chronicle_PZO9532						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9532											DISPLAYNAME:Pathfinder Module: The Harrowing										DISPLAYLOCATION:Chronicles
-ABILITYCATEGORY:Chronicle_PZO9533						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9533											DISPLAYNAME:Pathfinder Module: The Feast of Ravenmoor									DISPLAYLOCATION:Chronicles
-ABILITYCATEGORY:Chronicle_PZO9534						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9534											DISPLAYNAME:Pathfinder Module: The Ruby Phoenix Tournament								DISPLAYLOCATION:Chronicles
-ABILITYCATEGORY:Chronicle_PZO9535						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9535											DISPLAYNAME:Pathfinder Module: The Midnight Mirror									DISPLAYLOCATION:Chronicles
-ABILITYCATEGORY:Chronicle_PZO9536						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9536											DISPLAYNAME:Pathfinder Module: No Response from Deepmar								DISPLAYLOCATION:Chronicles
-ABILITYCATEGORY:Chronicle_PZO9537						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9537											DISPLAYNAME:Pathfinder Module: The Moonscar										DISPLAYLOCATION:Chronicles
-ABILITYCATEGORY:Chronicle_PZO9538						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9538											DISPLAYNAME:Pathfinder Module: Murder's Mark										DISPLAYLOCATION:Chronicles
-ABILITYCATEGORY:Chronicle_PZO9539						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9539											DISPLAYNAME:Pathfinder Module: Broken Chains										DISPLAYLOCATION:Chronicles
-ABILITYCATEGORY:Chronicle_PZO9540						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9540											DISPLAYNAME:Pathfinder Module: Fangwood Keep										DISPLAYLOCATION:Chronicles
-ABILITYCATEGORY:Chronicle_PZO9541						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9541											DISPLAYNAME:Pathfinder Module: Doom Comes to Dustpawn									DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_PZO9500-12					VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9500-12					DISPLAYNAME:Pathfinder Module: We Be 5uper Goblins!			DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_PZO9520						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9520						DISPLAYNAME:Pathfinder Module: Crypt of the Everflame			DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_PZO9521						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9521						DISPLAYNAME:Pathfinder Module: Carrion Hill				DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_PZO9522						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9522						DISPLAYNAME:Pathfinder Module: Masks of the Living God		DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_PZO9523						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9523						DISPLAYNAME:Pathfinder Module: Realm of the Fellnight Queen		DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_PZO9524						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9524						DISPLAYNAME:Pathfinder Module: City of Golden Death			DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_PZO9525						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9525						DISPLAYNAME:Pathfinder Module: From Shore to Sea			DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_PZO9526						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9526						DISPLAYNAME:Pathfinder Module: Curse of the Riven Sky			DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_PZO9527						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9527						DISPLAYNAME:Pathfinder Module: The Witchwar Legacy			DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_PZO9528						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9528						DISPLAYNAME:Pathfinder Module: The Godsmouth Heresy			DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_PZO9529						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9529						DISPLAYNAME:Pathfinder Module: Cult of the Ebon Destroyers		DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_PZO9530						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9530						DISPLAYNAME:Pathfinder Module: Tomb of the Iron Medusa		DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_PZO9531						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9531						DISPLAYNAME:Pathfinder Module: Academy of Secrets			DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_PZO9532						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9532						DISPLAYNAME:Pathfinder Module: The Harrowing				DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_PZO9533						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9533						DISPLAYNAME:Pathfinder Module: The Feast of Ravenmoor			DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_PZO9534						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9534						DISPLAYNAME:Pathfinder Module: The Ruby Phoenix Tournament		DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_PZO9535						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9535						DISPLAYNAME:Pathfinder Module: The Midnight Mirror			DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_PZO9536						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9536						DISPLAYNAME:Pathfinder Module: No Response from Deepmar		DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_PZO9537						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9537						DISPLAYNAME:Pathfinder Module: The Moonscar				DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_PZO9538						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9538						DISPLAYNAME:Pathfinder Module: Murder's Mark				DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_PZO9539						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9539						DISPLAYNAME:Pathfinder Module: Broken Chains				DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_PZO9540						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9540						DISPLAYNAME:Pathfinder Module: Fangwood Keep				DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_PZO9541						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9541						DISPLAYNAME:Pathfinder Module: Doom Comes to Dustpawn			DISPLAYLOCATION:Chronicles
 
-ABILITYCATEGORY:Chronicle_PFS_Special_Ascendance_Day			VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PFS_Special_Ascendance_Day								DISPLAYNAME:PFS Special: Ascendance Day											DISPLAYLOCATION:Chronicles
-ABILITYCATEGORY:Chronicle_PFS_Special_Year_of_the_Risen_Rune	VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PFS_Special_Year_of_the_Risen_Rune						DISPLAYNAME:PFS Special: Year of the Risen Rune										DISPLAYLOCATION:Chronicles
-ABILITYCATEGORY:Chronicle_PFS_Special_Grand_Melee_4711	VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PFS_Special_Grand_Melee_4711						DISPLAYNAME:PFS Special: Grand Melee 4711										DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_PFS_Special_Ascendance_Day			VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PFS_Special_Ascendance_Day			DISPLAYNAME:PFS Special: Ascendance Day					DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_PFS_Special_Year_of_the_Risen_Rune	VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PFS_Special_Year_of_the_Risen_Rune	DISPLAYNAME:PFS Special: Year of the Risen Rune				DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_PFS_Special_Grand_Melee_4711		VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PFS_Special_Grand_Melee_4711		DISPLAYNAME:PFS Special: Grand Melee 4711					DISPLAYLOCATION:Chronicles
 
 #
 # DONE

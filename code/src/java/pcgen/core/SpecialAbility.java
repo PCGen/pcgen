@@ -77,18 +77,12 @@ public final class SpecialAbility extends TextProperty
 		return getPropDesc();
 	}
 
-	/**
-	 * @see pcgen.core.TextProperty#compareTo(java.lang.Object)
-	 */
 	@Override
 	public int compareTo(final Object obj)
 	{
 		return getKeyName().compareToIgnoreCase(obj.toString());
 	}
 
-	/**
-	 * @see pcgen.core.TextProperty#toString()
-	 */
 	@Override
 	public String toString()
 	{

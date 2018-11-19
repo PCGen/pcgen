@@ -86,9 +86,6 @@ public class Operation implements Comparable
 		return value;
 	}
 
-	/**
-	 * @see java.lang.Comparable#compareTo(java.lang.Object)
-	 */
 	@Override
 	public int compareTo(Object obj)
 	{
@@ -98,9 +95,6 @@ public class Operation implements Comparable
 		return title.compareTo(compared);
 	}
 
-	/**
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString()
 	{

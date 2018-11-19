@@ -18,30 +18,24 @@
  */
 package plugin.exporttokens.deprecated;
 
-import pcgen.core.display.CharacterDisplay;
+import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
-import pcgen.io.exporttoken.AbstractExportToken;
+import pcgen.io.exporttoken.Token;
 
 /**
  * SIZE token for export
  */
-public class SizeToken extends AbstractExportToken
+public class SizeToken extends Token
 {
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return "SIZE";
 	}
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-	 */
 	@Override
-	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
-		return display.getSize();
+		return pc.getSizeAdjustment().getKeyName();
 	}
 }

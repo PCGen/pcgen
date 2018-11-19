@@ -1,9 +1,11 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Inner Sea Bestiary	SOURCESHORT:ISB	SOURCEWEB:http://paizo.com/products/btpy8v2x	SOURCEDATE:2013-06
 
 # Original Entry by: Scott Meyer
 
 ###Block: Android Abilities
+# Ability Name					Category of Ability	Ability
 Race Traits ~ Android				CATEGORY:Internal		ABILITY:Internal|AUTOMATIC|Android ~ Default
 
 Android ~ Default					CATEGORY:Internal
@@ -78,22 +80,23 @@ Plant Empathy		KEY:Fungus Queen ~ Plant Empathy		CATEGORY:Special Ability	TYPE:S
 Sporepod			KEY:Fungus Queen ~ Sporepod			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural																																									DESC:The Fungus Queen can instantly travel to one of her spore pods or use them to make tentacle attacks. The Fungus Queen can maintain %1 spore pods.|CHA																																																												SOURCEPAGE:p.12
 
 ###Block: Ghoran Abilities
-Race Traits ~ Ghoran						CATEGORY:Internal
+# Ability Name						Unique Key					Category of Ability		Type												Innate Spells																Description																														Ability																					Modify VAR						Class Skill			Source Page
+Race Traits ~ Ghoran											CATEGORY:Internal
 
-# Ability Name		Unique Key					Category of Ability		Type										Innate Spells																Description																														Class Skill			Source Page
-Delicious			KEY:Ghoran ~ Delicious			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.GhoranRacialTrait.GhoranRacialDefault																				DESC:-2 on Escape Artist and CMD to escape a grapple by creatures with a bite attack with the grab ability.																		SOURCEPAGE:p.14
-Ghorus Seed			KEY:Ghoran ~ Ghorus Seed		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.GhoranRacialTrait.GhoranRacialDefault																				DESC:After 2d6 days, a healthy duplicate of the original grows save that the duplicate may reallocate all of its skill ranks upon sprouting. Expelling the seed causes 1 negative level.					SOURCEPAGE:p.14
-Light Dependant		KEY:Ghoran ~ Light Dependant		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.GhoranRacialTrait.GhoranRacialDefault																				DESC:Take 1d4 Con damage each day they go without exposure to sunlight.																								SOURCEPAGE:p.14
-Natural Armor		KEY:Ghoran ~ Natural Armor		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.GhoranRacialTrait.GhoranRacialDefault												BONUS:VAR|AC_Natural_Armor|2|TYPE=Base		DESC:Ghorans have tough, rugged skin, granting a +2 bonus on natural armor.																							SOURCEPAGE:p.14
-Natural Magic		KEY:Ghoran ~ Natural Magic		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.GhoranRacialTrait.GhoranRacialDefault		SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Detect Poison,10+CHA|Goodberry,11+CHA|Purify Food and Drink,10+CHA	DESC:Ghorans gains spell-like abilities																													SOURCEPAGE:p.14
-Past-Life Knowledge	KEY:Ghoran ~ Past-Life Knowledge	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.GhoranRacialTrait.GhoranRacialDefault																				DESC:Treat all Knowledge skills as class skills																								CSKILL:TYPE=Knowledge	SOURCEPAGE:p.14
+# Ability Name						Unique Key					Category of Ability		Type												Innate Spells																Description																														Ability																					Modify VAR						Class Skill			Source Page
+Delicious							KEY:Ghoran ~ Delicious			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.GhoranRacialTrait.GhoranRacialDefault																			DESC:-2 on Escape Artist and CMD to escape a grapple by creatures with a bite attack with the grab ability.																																															SOURCEPAGE:p.14
+Ghorus Seed							KEY:Ghoran ~ Ghorus Seed		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.GhoranRacialTrait.GhoranRacialDefault																			DESC:After 2d6 days, a healthy duplicate of the original grows save that the duplicate may reallocate all of its skill ranks upon sprouting. Expelling the seed causes 1 negative level.																																		SOURCEPAGE:p.14
+Light Dependant						KEY:Ghoran ~ Light Dependant		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.GhoranRacialTrait.GhoranRacialDefault																			DESC:Take 1d4 Con damage each day they go without exposure to sunlight.																																																					SOURCEPAGE:p.14
+Natural Armor						KEY:Ghoran ~ Natural Armor		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.GhoranRacialTrait.GhoranRacialDefault																			DESC:Ghorans have tough, rugged skin, granting a +2 bonus on natural armor.																																									BONUS:VAR|AC_Natural_Armor|2|TYPE=Base					SOURCEPAGE:p.14
+Natural Magic						KEY:Ghoran ~ Natural Magic		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.GhoranRacialTrait.GhoranRacialDefault	SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Detect Poison,10+CHA|Goodberry,11+CHA|Purify Food and Drink,10+CHA	DESC:Ghorans gains spell-like abilities																																																										SOURCEPAGE:p.14
+Past-Life Knowledge					KEY:Ghoran ~ Past-Life Knowledge	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.GhoranRacialTrait.GhoranRacialDefault																			DESC:Treat all Knowledge skills as class skills																																																					CSKILL:TYPE=Knowledge	SOURCEPAGE:p.14
 
-CATEGORY=Internal|Race Traits ~ Ghoran.MOD		ABILITY:Special Ability|AUTOMATIC|Ghoran ~ Delicious|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GhoranDelicious
-CATEGORY=Internal|Race Traits ~ Ghoran.MOD		ABILITY:Special Ability|AUTOMATIC|Ghoran ~ Ghorus Seed|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GhoranGhorusSeed
-CATEGORY=Internal|Race Traits ~ Ghoran.MOD		ABILITY:Special Ability|AUTOMATIC|Ghoran ~ Light Dependant|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GhoranLightDependant
-CATEGORY=Internal|Race Traits ~ Ghoran.MOD		ABILITY:Special Ability|AUTOMATIC|Ghoran ~ Natural Armor|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GhoranNaturalArmor
-CATEGORY=Internal|Race Traits ~ Ghoran.MOD		ABILITY:Special Ability|AUTOMATIC|Ghoran ~ Natural Magic|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GhoranNaturalMagic
-CATEGORY=Internal|Race Traits ~ Ghoran.MOD		ABILITY:Special Ability|AUTOMATIC|Ghoran ~ Past-Life Knowledge|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GhoranPastLifeKnowledge
+CATEGORY=Internal|Race Traits ~ Ghoran.MOD																																																																									ABILITY:Special Ability|AUTOMATIC|Ghoran ~ Delicious|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GhoranDelicious
+CATEGORY=Internal|Race Traits ~ Ghoran.MOD																																																																									ABILITY:Special Ability|AUTOMATIC|Ghoran ~ Ghorus Seed|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GhoranGhorusSeed
+CATEGORY=Internal|Race Traits ~ Ghoran.MOD																																																																									ABILITY:Special Ability|AUTOMATIC|Ghoran ~ Light Dependant|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GhoranLightDependant
+CATEGORY=Internal|Race Traits ~ Ghoran.MOD																																																																									ABILITY:Special Ability|AUTOMATIC|Ghoran ~ Natural Armor|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GhoranNaturalArmor
+CATEGORY=Internal|Race Traits ~ Ghoran.MOD																																																																									ABILITY:Special Ability|AUTOMATIC|Ghoran ~ Natural Magic|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GhoranNaturalMagic
+CATEGORY=Internal|Race Traits ~ Ghoran.MOD																																																																									ABILITY:Special Ability|AUTOMATIC|Ghoran ~ Past-Life Knowledge|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GhoranPastLifeKnowledge
 
 ###Block: Giant (Shadow) Abilities
 # Ability Name	Unique Key					Category of Ability		Type						Description																							Auto Weapon Prof					Add									Source Page
@@ -101,18 +104,19 @@ Militant		KEY:Shadow Giant ~ Militant		CATEGORY:Special Ability	TYPE:SpecialQual
 Shadow Cloak	KEY:Shadow Giant ~ Shadow Cloak	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:In any illumination other than direct sunlight, a shadow giant can cloak itself in moving shadows as per Blur for 1d6+6 rounds 3/day.																	SOURCEPAGE:p.15
 
 ###Block: Goblin (Monkey) Abilities
-Race Traits ~ Monkey Goblin						CATEGORY:Internal
+# Ability Name							Unique Key					Category of Ability		Type														Description																				Move			Ability																						Bonus to skill						Modify VAR					Source Page
+Race Traits ~ Monkey Goblin											CATEGORY:Internal
 # Ability Name	Unique Key					Category of Ability		Type											Description																													Source Page
 
-Acrobatic		KEY:Monkey Goblin ~ Acrobatic		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.MonkeyGoblinRacialTrait.MonkeyGoblinRacialDefault		DESC:Monkey goblins gain a +2 racial bonus on Acrobatics and Stealth checks.									BONUS:SKILL|Acrobatics,Stealth|2|TYPE=Racial		SOURCEPAGE:p.16
-Fearless		KEY:Monkey Goblin ~ Fearless		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.MonkeyGoblinRacialTrait.MonkeyGoblinRacialDefault		DESC:Monkey goblins gain a +2 racial bonus on all saving throws against fear.									BONUS:VAR|FearResistanceBonus|2				SOURCEPAGE:p.16
-Natural Climber	KEY:Monkey Goblin ~ Natural Climber	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.MonkeyGoblinRacialTrait.MonkeyGoblinRacialDefault		DESC:Monkey goblins have a climb speed of 30 feet.													MOVE:Climb,30							SOURCEPAGE:p.16
-Prehensile Tail	KEY:Monkey Goblin ~ Prehensile Tail	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.MonkeyGoblinRacialTrait.MonkeyGoblinRacialDefault		DESC:Monkey Goblins cannot wield weapons with their tails but they can use them to retrieve small objects as a swift action										SOURCEPAGE:p.16
+Acrobatic								KEY:Monkey Goblin ~ Acrobatic		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.MonkeyGoblinRacialTrait.MonkeyGoblinRacialDefault	DESC:Monkey goblins gain a +2 racial bonus on Acrobatics and Stealth checks.																																			BONUS:SKILL|Acrobatics,Stealth|2|TYPE=Racial							SOURCEPAGE:p.16
+Fearless								KEY:Monkey Goblin ~ Fearless		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.MonkeyGoblinRacialTrait.MonkeyGoblinRacialDefault	DESC:Monkey goblins gain a +2 racial bonus on all saving throws against fear.																																											BONUS:VAR|FearResistanceBonus|2	SOURCEPAGE:p.16
+Natural Climber							KEY:Monkey Goblin ~ Natural Climber	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.MonkeyGoblinRacialTrait.MonkeyGoblinRacialDefault	DESC:Monkey goblins have a climb speed of 30 feet.													MOVE:Climb,30																																						SOURCEPAGE:p.16
+Prehensile Tail							KEY:Monkey Goblin ~ Prehensile Tail	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.MonkeyGoblinRacialTrait.MonkeyGoblinRacialDefault	DESC:Monkey Goblins cannot wield weapons with their tails but they can use them to retrieve small objects as a swift action																																									SOURCEPAGE:p.16
 
-CATEGORY=Internal|Race Traits ~ Monkey Goblin.MOD		ABILITY:Special Ability|AUTOMATIC|Monkey Goblin ~ Acrobatic|!PREABILITY:1,CATEGORY=Special Ability,TYPE.MonkeyGoblinAcrobatic
-CATEGORY=Internal|Race Traits ~ Monkey Goblin.MOD		ABILITY:Special Ability|AUTOMATIC|Monkey Goblin ~ Fearless|!PREABILITY:1,CATEGORY=Special Ability,TYPE.MonkeyGoblinFearless
-CATEGORY=Internal|Race Traits ~ Monkey Goblin.MOD		ABILITY:Special Ability|AUTOMATIC|Monkey Goblin ~ Natural Climber|!PREABILITY:1,CATEGORY=Special Ability,TYPE.MonkeyGoblinNaturalClimber
-CATEGORY=Internal|Race Traits ~ Monkey Goblin.MOD		ABILITY:Special Ability|AUTOMATIC|Monkey Goblin ~ Prehensile Tail|!PREABILITY:1,CATEGORY=Special Ability,TYPE.MonkeyGoblinPrehensileTail
+CATEGORY=Internal|Race Traits ~ Monkey Goblin.MOD																																																		ABILITY:Special Ability|AUTOMATIC|Monkey Goblin ~ Acrobatic|!PREABILITY:1,CATEGORY=Special Ability,TYPE.MonkeyGoblinAcrobatic
+CATEGORY=Internal|Race Traits ~ Monkey Goblin.MOD																																																		ABILITY:Special Ability|AUTOMATIC|Monkey Goblin ~ Fearless|!PREABILITY:1,CATEGORY=Special Ability,TYPE.MonkeyGoblinFearless
+CATEGORY=Internal|Race Traits ~ Monkey Goblin.MOD																																																		ABILITY:Special Ability|AUTOMATIC|Monkey Goblin ~ Natural Climber|!PREABILITY:1,CATEGORY=Special Ability,TYPE.MonkeyGoblinNaturalClimber
+CATEGORY=Internal|Race Traits ~ Monkey Goblin.MOD																																																		ABILITY:Special Ability|AUTOMATIC|Monkey Goblin ~ Prehensile Tail|!PREABILITY:1,CATEGORY=Special Ability,TYPE.MonkeyGoblinPrehensileTail
 
 ###Block: Golem (Marrowstone) Abilities
 # Ability Name	Unique Key						Category of Ability		Type						Description																																																																							Source Page
@@ -345,16 +349,17 @@ Starflight			KEY:Star Monarch ~ Starflight			CATEGORY:Special Ability	TYPE:Speci
 Toxic Flesh			KEY:Star Monarch ~ Toxic Flesh		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																								DESC:A creature injecting any part of a Star Monarch becomes sickened for 1d4 rounds and is affected as though it had consumed a dose of Arsenic (Fort DC 20 negates).			SOURCEPAGE:p.50
 
 ###Block: Syrinx Abilities
-Race Traits ~ Syrinx						CATEGORY:Internal
-# Ability Name	Unique Key					Category of Ability		Type												Description															Source Page		Aspects
-Nocturnal		KEY:Syrinx ~ Nocturnal			CATEGORY:Special Ability	TYPE:SpecialQuality.SyrinxRacialTrait.SyrinxRacialDefault			DESC:+2 on Perception and Stealth checks at night.								SOURCEPAGE:p.51
-Pride			KEY:Syrinx ~ Pride			CATEGORY:Special Ability	TYPE:SpecialQuality.SyrinxRacialTrait.SyrinxRacialDefault			DESC:Syrinx receive a +2 racial bonus on saving throws against mind-affecting effects .		SOURCEPAGE:p.51	ASPECT:SaveBonus|+2 vs Mind-Affecting
-Speak with Avians	KEY:Syrinx ~ Speak with Avians	CATEGORY:Special Ability	TYPE:SpecialQuality.SyrinxRacialTrait.SyrinxRacialDefault.Extraordinary	DESC:Syrinx can speak with all birds of the animal creature type and bird-like magical beasts	SOURCEPAGE:p.51
+# Ability Name						Unique Key					Category of Ability		Type												Description															Ability																					Source Page		Aspects
+Race Traits ~ Syrinx											CATEGORY:Internal
+# Ability Name						Unique Key					Category of Ability		Type												Description															Ability																					Source Page		Aspects
+Nocturnal							KEY:Syrinx ~ Nocturnal			CATEGORY:Special Ability	TYPE:SpecialQuality.SyrinxRacialTrait.SyrinxRacialDefault			DESC:+2 on Perception and Stealth checks at night.																														SOURCEPAGE:p.51
+Pride								KEY:Syrinx ~ Pride			CATEGORY:Special Ability	TYPE:SpecialQuality.SyrinxRacialTrait.SyrinxRacialDefault			DESC:Syrinx receive a +2 racial bonus on saving throws against mind-affecting effects .																								SOURCEPAGE:p.51	ASPECT:SaveBonus|+2 vs Mind-Affecting
+Speak with Avians						KEY:Syrinx ~ Speak with Avians	CATEGORY:Special Ability	TYPE:SpecialQuality.SyrinxRacialTrait.SyrinxRacialDefault.Extraordinary	DESC:Syrinx can speak with all birds of the animal creature type and bird-like magical beasts																							SOURCEPAGE:p.51
 
-CATEGORY=Internal|Race Traits ~ Syrinx.MOD		ABILITY:Special Ability|AUTOMATIC|Maneuverability (Average)|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SyrinxManeuverability
-CATEGORY=Internal|Race Traits ~ Syrinx.MOD		ABILITY:Special Ability|AUTOMATIC|Syrinx ~ Nocturnal|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SyrinxNocturnal
-CATEGORY=Internal|Race Traits ~ Syrinx.MOD		ABILITY:Special Ability|AUTOMATIC|Syrinx ~ Pride|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SyrinxPride
-CATEGORY=Internal|Race Traits ~ Syrinx.MOD		ABILITY:Special Ability|AUTOMATIC|Syrinx ~ Speak with Avians|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SyrinxSpeakWithAvians
+CATEGORY=Internal|Race Traits ~ Syrinx.MOD																																								ABILITY:Special Ability|AUTOMATIC|Maneuverability (Average)|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SyrinxManeuverability
+CATEGORY=Internal|Race Traits ~ Syrinx.MOD																																								ABILITY:Special Ability|AUTOMATIC|Syrinx ~ Nocturnal|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SyrinxNocturnal
+CATEGORY=Internal|Race Traits ~ Syrinx.MOD																																								ABILITY:Special Ability|AUTOMATIC|Syrinx ~ Pride|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SyrinxPride
+CATEGORY=Internal|Race Traits ~ Syrinx.MOD																																								ABILITY:Special Ability|AUTOMATIC|Syrinx ~ Speak with Avians|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SyrinxSpeakWithAvians
 
 ###Block: Thin Man Abilities
 # Ability Name	Unique Key			Category of Ability		Type						Description																																																																				Source Page

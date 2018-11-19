@@ -177,24 +177,12 @@ public class HitDieStep implements Processor<HitDie>
 		return HitDie.class;
 	}
 
-	/**
-	 * Returns the consistent-with-equals hashCode for this HitDieStep
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{
 		return dieLimit == null ? numSteps : numSteps + dieLimit.hashCode() * 29;
 	}
 
-	/**
-	 * Returns true if this HitDieStep is equal to the given Object. Equality is
-	 * defined as being another HitDieStep object with step count and HitDie
-	 * limit.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{

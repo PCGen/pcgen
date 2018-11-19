@@ -241,32 +241,12 @@ public class MapKeyMap
 		return map.isEmpty();
 	}
 
-	/**
-	 * Returns the consistent-with-equals hashCode for this MapKeyMap.
-	 * 
-	 * @return the int
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{
 		return map.hashCode();
 	}
 
-	/**
-	 * Returns true if this MapKeyMap is equal to the given Object.
-	 * 
-	 * Note that equality as defined by this method is both a class of MapKeyMap
-	 * and equality of contents of the MapKeyMap.
-	 * 
-	 * @param obj
-	 *            the o
-	 * 
-	 * @return true, if equals
-	 * 
-	 * @see java.lang.Object#equals(Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{

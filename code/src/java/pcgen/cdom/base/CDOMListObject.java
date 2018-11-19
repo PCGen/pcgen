@@ -84,11 +84,6 @@ public abstract class CDOMListObject<T extends CDOMObject> extends ConcretePrere
 		name = n;
 	}
 
-	/**
-	 * Returns a String representation of this CDOMListObject
-	 * 
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString()
 	{

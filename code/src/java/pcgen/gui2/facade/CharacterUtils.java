@@ -49,7 +49,7 @@ public class CharacterUtils
 			// has a zero price attached
 			//
 			boolean hasClothes = false;
-			SizeAdjustment pcSizeAdj = aPC.getDisplay().getSizeAdjustment();
+			SizeAdjustment pcSizeAdj = aPC.getSizeAdjustment();
 
 			if (!clothes.isEmpty())
 			{

@@ -39,7 +39,6 @@ public final class WieldCategory extends MultiTagBonusObj
 	/**
 	 * Get by index, an individual wield category that may be bonused.
 	 * @param tagNumber the index of the wield category.
-	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
 	 * @return The wield category.
 	 */
 	@Override
@@ -50,7 +49,6 @@ public final class WieldCategory extends MultiTagBonusObj
 
 	/**
 	 * Get the number of wield categories that may be bonused.
-	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
 	 * @return The number of wield categories.
 	 */
 	@Override

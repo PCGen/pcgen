@@ -1,2 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 
-Oni Bloodline	CATEGORY:Arcanist Bloodline Development	TYPE:SorcererBloodlineChoice	BONUS:VAR|Sorcerer_Oni_BloodlineLVL|1	ABILITY:Special Ability|AUTOMATIC|TYPE=Oni Bloodline ~ Power LVL 01	ABILITY:Special Ability|AUTOMATIC|Sorcerer Bloodline ~ Oni
+# Ability Name	Category of Ability				Type					Ability																					Modify VAR
+Oni Bloodline	CATEGORY:Arcanist Bloodline Development	TYPE:SorcererBloodlineChoice	ABILITY:Special Ability|AUTOMATIC|TYPE=Oni Bloodline ~ Power LVL 01	ABILITY:Special Ability|AUTOMATIC|Sorcerer Bloodline ~ Oni	BONUS:VAR|Sorcerer_Oni_BloodlineLVL|1

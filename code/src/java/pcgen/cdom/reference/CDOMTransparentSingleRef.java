@@ -143,7 +143,6 @@ public class CDOMTransparentSingleRef<T extends Loadable> extends CDOMSingleRef<
 	 * 
 	 * @return A representation of this CDOMTransparentSingleRef, suitable for
 	 *         storing in an LST file.
-	 * @see pcgen.cdom.base.CDOMReference#getLSTformat(boolean)
 	 */
 	@Override
 	public String getLSTformat(boolean useAny)
@@ -151,16 +150,6 @@ public class CDOMTransparentSingleRef<T extends Loadable> extends CDOMSingleRef<
 		return getName();
 	}
 
-	/**
-	 * Returns true if this CDOMTransparentSingleRef is equal to the given
-	 * Object. Equality is defined as being another CDOMTransparentSingleRef
-	 * object with equal Class represented by the reference and equal name of
-	 * the underlying reference. This is NOT a deep .equals, in that neither the
-	 * actual contents of this CDOMTransparentSingleRef nor the underlying
-	 * CDOMSingleRef are tested.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{
@@ -172,12 +161,6 @@ public class CDOMTransparentSingleRef<T extends Loadable> extends CDOMSingleRef<
 		return false;
 	}
 
-	/**
-	 * Returns the consistent-with-equals hashCode for this
-	 * CDOMTransparentSingleRef
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{

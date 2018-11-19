@@ -32,6 +32,7 @@ import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.cdom.meta.CorePerspective;
 import pcgen.core.PCAlignment;
+import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.VariableProcessor;
 import pcgen.facade.util.DefaultListFacade;
@@ -266,12 +267,11 @@ public interface CharacterFacade extends CompanionFacade
 	 */
 	public boolean isRemovable(LanguageFacade language);
 
-	public void addTemplate(TemplateFacade template);
+	public void addTemplate(PCTemplate template);
 
-	public void removeTemplate(TemplateFacade template);
+	public void removeTemplate(PCTemplate template);
 
-	public ListFacade<TemplateFacade> getTemplates();
-	//public boolean isBonus(LanguageFacade language);
+	public ListFacade<PCTemplate> getTemplates();
 
 	/**
 	 * Note: this returns both the bonuses that the character
@@ -657,17 +657,6 @@ public interface CharacterFacade extends CompanionFacade
 	 */
 	public boolean isQualifiedFor(EquipmentFacade equipFacade, EquipModFacade eqModFacade);
 
-	public void addCharacterChangeListener(CharacterChangeListener listener);
-
-	public void removeCharacterChangeListener(CharacterChangeListener listener);
-
-	public static interface CharacterChangeListener
-	{
-
-		public void characterChanged();
-
-	}
-
 	public Nature getAbilityNature(AbilityFacade ability);
 	//
 	//	/**
@@ -873,4 +862,6 @@ public interface CharacterFacade extends CompanionFacade
 	public List<CoreViewNodeFacade> getCoreViewTree(CorePerspective pers);
 
 	CharID getCharID();
+
+	public boolean isQualifiedFor(PCTemplate element);
 }

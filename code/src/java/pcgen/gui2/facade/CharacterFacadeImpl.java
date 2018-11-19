@@ -158,7 +158,6 @@ import pcgen.facade.core.SpellFacade;
 import pcgen.facade.core.SpellSupportFacade;
 import pcgen.facade.core.StatFacade;
 import pcgen.facade.core.TempBonusFacade;
-import pcgen.facade.core.TemplateFacade;
 import pcgen.facade.core.TodoFacade;
 import pcgen.facade.core.UIDelegate;
 import pcgen.facade.core.UIDelegate.CustomEquipResult;
@@ -177,6 +176,9 @@ import pcgen.io.ExportException;
 import pcgen.io.ExportHandler;
 import pcgen.io.PCGIOHandler;
 import pcgen.output.channel.ChannelCompatibility;
+import pcgen.output.channel.compat.AlignmentCompat;
+import pcgen.output.channel.compat.GenderCompat;
+import pcgen.output.channel.compat.HandedCompat;
 import pcgen.pluginmgr.PluginManager;
 import pcgen.pluginmgr.messages.PlayerCharacterWasClosedMessage;
 import pcgen.rules.context.LoadContext;
@@ -252,7 +254,7 @@ public class CharacterFacadeImpl
 	private DefaultListFacade<DomainFacade> availDomains;
 	private DefaultReferenceFacade<Integer> maxDomains;
 	private DefaultReferenceFacade<Integer> remainingDomains;
-	private DefaultListFacade<TemplateFacade> templates;
+	private DefaultListFacade<PCTemplate> templates;
 	private ListFacade<RaceFacade> raceList;
 	private DefaultListFacade<KitFacade> kitList;
 	private DefaultReferenceFacade<File> portrait;
@@ -385,13 +387,13 @@ public class CharacterFacadeImpl
 
 		availHands = new DefaultListFacade<>();
 		availGenders = new DefaultListFacade<>();
-		for (Handed handed : Handed.values())
+		for (Handed handed : HandedCompat.getAvailableHanded())
 		{
 			availHands.addElement(handed);
 		}
-		for (Gender gender : Gender.values())
+		for (Gender availableGender : GenderCompat.getAvailableGenders())
 		{
-			availGenders.addElement(gender);
+			availGenders.addElement(availableGender);
 		}
 
 		if (charDisplay.getRace() != null)
@@ -406,7 +408,7 @@ public class CharacterFacadeImpl
 			}
 			for (GenderFacade pcGender : availGenders)
 			{
-				if (pcGender.equals(charDisplay.getGenderObject()))
+				if (pcGender.equals(theCharacter.getGenderObject()))
 				{
 					gender.set(pcGender);
 					break;
@@ -1382,7 +1384,7 @@ public class CharacterFacadeImpl
 		PCAlignment savedAlignmnet = charDisplay.getPCAlignment();
 		for (PCClass aClass : classList)
 		{
-			ChannelCompatibility.setCurrentAlignment(theCharacter.getCharID(), newAlign);
+			AlignmentCompat.setCurrentAlignment(theCharacter.getCharID(), newAlign);
 			{
 				if (!theCharacter.isQualified(aClass))
 				{
@@ -1408,7 +1410,7 @@ public class CharacterFacadeImpl
 			if (!delegate.showWarningConfirm(Constants.APPLICATION_NAME,
 				LanguageBundle.getString("in_sumExClassesWarning") + Constants.LINE_SEPARATOR + unqualified))
 			{
-				ChannelCompatibility.setCurrentAlignment(theCharacter.getCharID(), savedAlignmnet);
+				AlignmentCompat.setCurrentAlignment(theCharacter.getCharID(), savedAlignmnet);
 				return false;
 			}
 
@@ -1497,7 +1499,7 @@ public class CharacterFacadeImpl
 	public void setGender(GenderFacade gender)
 	{
 		theCharacter.setGender((Gender) gender);
-		Gender newGender = charDisplay.getGenderObject();
+		Gender newGender = theCharacter.getGenderObject();
 		this.selectedGender = newGender.toString();
 		this.gender.set(newGender);
 		refreshLanguageList();
@@ -1904,7 +1906,7 @@ public class CharacterFacadeImpl
 			}
 			for (GenderFacade pcGender : availGenders)
 			{
-				if (pcGender.equals(charDisplay.getGenderObject()))
+				if (pcGender.equals(theCharacter.getGenderObject()))
 				{
 					gender.set(pcGender);
 					break;
@@ -3754,7 +3756,7 @@ public class CharacterFacadeImpl
 	public EquipmentFacade getEquipmentSizedForCharacter(EquipmentFacade equipment)
 	{
 		final Equipment equip = (Equipment) equipment;
-		final SizeAdjustment newSize = charDisplay.getSizeAdjustment();
+		final SizeAdjustment newSize = theCharacter.getSizeAdjustment();
 		if (equip.getSizeAdjustment() == newSize || !Globals.canResizeHaveEffect(equip, null))
 		{
 			return equipment;
@@ -4130,14 +4132,12 @@ public class CharacterFacadeImpl
 	 * @see pcgen.facade.core.CharacterFacade#addTemplate(TemplateFacade)
 	 */
 	@Override
-	public void addTemplate(TemplateFacade templateFacade)
+	public void addTemplate(PCTemplate template)
 	{
-		if (templateFacade == null || !(templateFacade instanceof PCTemplate))
+		if (template == null)
 		{
 			return;
 		}
-
-		PCTemplate template = (PCTemplate) templateFacade;
 
 		if (!PrereqHandler.passesAll(template, theCharacter, template))
 		{
@@ -4176,14 +4176,12 @@ public class CharacterFacadeImpl
 	 * @see pcgen.facade.core.CharacterFacade#removeTemplate(TemplateFacade)
 	 */
 	@Override
-	public void removeTemplate(TemplateFacade templateFacade)
+	public void removeTemplate(PCTemplate template)
 	{
-		if (templateFacade == null || !(templateFacade instanceof PCTemplate))
+		if (template == null)
 		{
 			return;
 		}
-
-		PCTemplate template = (PCTemplate) templateFacade;
 
 		if (charDisplay.hasTemplate(template) && template.isRemovable())
 		{
@@ -4207,9 +4205,9 @@ public class CharacterFacadeImpl
 				templates.addElement(template);
 			}
 		}
-		for (Iterator<TemplateFacade> iterator = templates.iterator(); iterator.hasNext();)
+		for (Iterator<PCTemplate> iterator = templates.iterator(); iterator.hasNext();)
 		{
-			PCTemplate pcTemplate = (PCTemplate) iterator.next();
+			PCTemplate pcTemplate = iterator.next();
 			if (!pcTemplates.contains(pcTemplate))
 			{
 				iterator.remove();
@@ -4221,27 +4219,9 @@ public class CharacterFacadeImpl
 	 * @see pcgen.facade.core.CharacterFacade#getTemplates()
 	 */
 	@Override
-	public ListFacade<TemplateFacade> getTemplates()
+	public ListFacade<PCTemplate> getTemplates()
 	{
 		return templates;
-	}
-
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#addCharacterChangeListener(CharacterChangeListener)
-	 */
-	@Override
-	public void addCharacterChangeListener(CharacterChangeListener listener)
-	{
-		//TODO: implement this
-	}
-
-	/**
-	 * @see pcgen.facade.core.CharacterFacade#removeCharacterChangeListener(CharacterChangeListener)
-	 */
-	@Override
-	public void removeCharacterChangeListener(CharacterChangeListener listener)
-	{
-		//TODO: implement this
 	}
 
 	/**
@@ -4790,4 +4770,14 @@ public class CharacterFacadeImpl
 		return theCharacter.getCharID();
 	}
 
+	@Override
+	public boolean isQualifiedFor(PCTemplate template)
+	{
+		if (template == null)
+		{
+			return false;
+		}
+		return PrereqHandler.passesAll(template, theCharacter, template)
+			&& theCharacter.isQualified(template);
+	}
 }
