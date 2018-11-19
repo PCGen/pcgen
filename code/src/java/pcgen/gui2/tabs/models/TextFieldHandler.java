@@ -49,8 +49,8 @@ public abstract class TextFieldHandler implements DocumentListener, ReferenceLis
 	 * 
 	 * @param textField
 	 *            The JTextField to be monitored for changes when this is installed
-	 * @param channelName
-	 *            The WriteableReferenceFacade to be monitored for changes when this is
+	 * @param referenceFacade
+	 *            The ReferenceFacade to be monitored for changes when this is
 	 *            installed
 	 */
 	public TextFieldHandler(JTextField textField, ReferenceFacade<String> referenceFacade)

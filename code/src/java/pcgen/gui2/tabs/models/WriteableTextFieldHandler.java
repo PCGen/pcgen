@@ -48,7 +48,7 @@ public class WriteableTextFieldHandler
 	 * 
 	 * @param textField
 	 *            The JTextField to be monitored for changes when this is installed
-	 * @param channelName
+	 * @param referenceFacade
 	 *            The WriteableReferenceFacade to be monitored for changes when this is
 	 *            installed
 	 */
