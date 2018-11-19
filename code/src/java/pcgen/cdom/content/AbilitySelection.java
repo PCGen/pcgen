@@ -222,9 +222,6 @@ public class AbilitySelection extends Selection<Ability, String> implements Comp
 		return selection.compareTo(oselection);
 	}
 
-	/**
-	 * @see pcgen.cdom.base.Reducible#getCDOMObject()
-	 */
 	@Override
 	public CDOMObject getCDOMObject()
 	{

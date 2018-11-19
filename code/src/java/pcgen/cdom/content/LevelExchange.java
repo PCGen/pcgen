@@ -147,23 +147,12 @@ public class LevelExchange extends ConcretePrereqObject
 		return minDonatingLevel;
 	}
 
-	/**
-	 * Returns a consistent-with-equals hashCode for this LevelExchange
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{
 		return minDonatingLevel * 23 + maxDonatedLevels * 31 + donatingLowerLevelBound;
 	}
 
-	/**
-	 * Returns true if the given object is a LevelExchange with identical
-	 * exchange class and exchange limits
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{
