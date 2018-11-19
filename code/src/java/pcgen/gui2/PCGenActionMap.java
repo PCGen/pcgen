@@ -26,6 +26,8 @@ import java.util.Objects;
 import javax.swing.ActionMap;
 import javax.swing.JOptionPane;
 
+import gmgen.GMGenSystem;
+import pcgen.core.PCTemplate;
 import pcgen.facade.core.AbilityFacade;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.ClassFacade;
@@ -36,7 +38,6 @@ import pcgen.facade.core.SkillFacade;
 import pcgen.facade.core.SourceSelectionFacade;
 import pcgen.facade.core.SpellFacade;
 import pcgen.facade.core.StatFacade;
-import pcgen.facade.core.TemplateFacade;
 import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
@@ -56,8 +57,6 @@ import pcgen.system.CharacterManager;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
-
-import gmgen.GMGenSystem;
 
 /**
  * The PCGenActionMap is the action map for the PCGenFrame, and as such
@@ -203,7 +202,7 @@ public final class PCGenActionMap extends ActionMap
 		put(RACE_FILTERS_COMMAND,
 			new DefaultFiltersAction("mnuToolsFiltersRace", RACE_FILTERS_COMMAND, RaceFacade.class));
 		put(TEMPLATE_FILTERS_COMMAND,
-			new DefaultFiltersAction("mnuToolsFiltersTemplate", TEMPLATE_FILTERS_COMMAND, TemplateFacade.class));
+			new DefaultFiltersAction("mnuToolsFiltersTemplate", TEMPLATE_FILTERS_COMMAND, PCTemplate.class));
 		put(CLASS_FILTERS_COMMAND,
 			new DefaultFiltersAction("mnuToolsFiltersClass", CLASS_FILTERS_COMMAND, ClassFacade.class));
 		put(ABILITY_FILTERS_COMMAND,
@@ -226,7 +225,7 @@ public final class PCGenActionMap extends ActionMap
 		put(RACE_GENERATORS_COMMAND,
 			new DefaultGeneratorsAction("mnuToolsGeneratorsRace", RACE_GENERATORS_COMMAND, RaceFacade.class));
 		put(TEMPLATE_GENERATORS_COMMAND, new DefaultGeneratorsAction("mnuToolsGeneratorsTemplate",
-			TEMPLATE_GENERATORS_COMMAND, TemplateFacade.class));
+			TEMPLATE_GENERATORS_COMMAND, PCTemplate.class));
 		put(CLASS_GENERATORS_COMMAND,
 			new DefaultGeneratorsAction("mnuToolsGeneratorsClass", CLASS_GENERATORS_COMMAND, ClassFacade.class));
 		put(ABILITY_GENERATORS_COMMAND,

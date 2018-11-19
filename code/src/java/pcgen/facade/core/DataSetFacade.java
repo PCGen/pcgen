@@ -22,6 +22,7 @@ import java.util.List;
 
 import pcgen.core.BodyStructure;
 import pcgen.core.PCAlignment;
+import pcgen.core.PCTemplate;
 import pcgen.facade.core.generator.StatGenerationFacade;
 import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.MapFacade;
@@ -51,7 +52,7 @@ public interface DataSetFacade
 
 	public ListFacade<DeityFacade> getDeities();
 
-	public ListFacade<TemplateFacade> getTemplates();
+	public ListFacade<PCTemplate> getTemplates();
 
 	public ListFacade<CampaignFacade> getCampaigns();
 
