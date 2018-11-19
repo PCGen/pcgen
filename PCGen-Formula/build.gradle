@@ -42,7 +42,7 @@ repositories {
     }
     ivy {
         name "tempRepo"
-        url 'http://52.90.171.70:8080/librepo/'
+        url 'http://34.200.115.47:8080/librepo/'
     }
 }
 
