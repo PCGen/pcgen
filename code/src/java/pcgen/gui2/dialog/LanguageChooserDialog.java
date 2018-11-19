@@ -307,12 +307,12 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 
 		private List<String> getTypes(Language pobj)
 		{
-			List<String> list = new ArrayList<>();
+			List<String> typeList = new ArrayList<>();
 			for (pcgen.cdom.enumeration.Type type : pobj.getTrueTypeList(false))
 			{
-				list.add(type.toString());
+				typeList.add(type.toString());
 			}
-			return list;
+			return typeList;
 		}
 
 	}
