@@ -46,7 +46,7 @@ public class BonusToken extends Token
 		return TOKENNAME;
 	}
 
-	/*
+	/**
 	 * TODO: Bonuses need to be stripped out, and there need to be methods for the various types.
 	 */
 	@Override
