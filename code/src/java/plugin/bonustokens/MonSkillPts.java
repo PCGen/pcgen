@@ -39,7 +39,6 @@ public final class MonSkillPts extends MultiTagBonusObj
 	/**
 	 * Get by index, an individual monster skill point attribute that may be bonused.
 	 * @param tagNumber the index of the monster skill point attribute type.
-	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
 	 * @return The type of monster skill point attribute .
 	 */
 	@Override
@@ -50,7 +49,6 @@ public final class MonSkillPts extends MultiTagBonusObj
 
 	/**
 	 * Get the number of types of monster skill point attributes that may be bonused.
-	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
 	 * @return The number of monster skill point attributes.
 	 */
 	@Override

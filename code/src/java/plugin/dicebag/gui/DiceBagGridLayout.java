@@ -57,8 +57,6 @@ public class DiceBagGridLayout extends GridLayout
 	/**
 	 * <p>Default constructor.  Uses a default of {@code MANAGE_BY_ROWS}, a minimum
 	 * size of 50, and a maximum size of 200.</p>
-	 *
-	 * @see java.awt.GridLayout#GridLayout()
 	 */
 	public DiceBagGridLayout()
 	{
@@ -76,8 +74,6 @@ public class DiceBagGridLayout extends GridLayout
 	 * @param manageBy Either {@code MANAGE_BY_ROWS} or <code>MANAGE_BY_COLUMNS</code>.
 	 * @param minSize  Minimum size, expressed in pixels.
 	 * @param maxSize  Maximum size, expressed in pixels.
-	 *
-	 * @see java.awt.GridLayout#GridLayout(int rows, int cols)
 	 */
 	public DiceBagGridLayout(int rows, int cols, int manageBy, int minSize, int maxSize)
 	{
@@ -97,8 +93,6 @@ public class DiceBagGridLayout extends GridLayout
 	 * @param manageBy Either {@code MANAGE_BY_ROWS} or <code>MANAGE_BY_COLUMNS</code>.
 	 * @param minSize  Minimum size, expressed in pixels.
 	 * @param maxSize  Maximum size, expressed in pixels.
-	 *
-	 * @see java.awt.GridLayout#GridLayout(int rows, int cols, int hgap, int vgap)
 	 */
 	public DiceBagGridLayout(int rows, int cols, int hgap, int vgap, int manageBy, int minSize, int maxSize)
 	{
@@ -113,8 +107,6 @@ public class DiceBagGridLayout extends GridLayout
 	 * on the current size of the {@code parent} and the <code>m_manageBy</code>
 	 * value, using an algorithm similar to {@code getMinimumLayoutSize()}.  It then
 	 * sets the new number of rows or columns and calls the {@code super}'s implementation.</p>
-	 *
-	 * @see java.awt.LayoutManager#layoutContainer(java.awt.Container)
 	 *
 	 * @param parent Container -- parent.
 	 */
