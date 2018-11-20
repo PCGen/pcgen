@@ -146,8 +146,6 @@ public class DiceBagView extends JInternalFrame implements Observer
 	}
 
 	/**
-	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
-	 *
 	 * Does nothing
 	 */
 	@Override
@@ -597,9 +595,6 @@ public class DiceBagView extends JInternalFrame implements Observer
 			}
 		}
 
-		/**
-		 * @see javax.swing.table.TableModel#getValueAt(int, int)
-		 */
 		@Override
 		public Object getValueAt(int rowIndex, int columnIndex)
 		{

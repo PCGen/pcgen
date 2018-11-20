@@ -31,6 +31,7 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.cdom.meta.CorePerspective;
+import pcgen.core.Language;
 import pcgen.core.PCAlignment;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
@@ -257,7 +258,7 @@ public interface CharacterFacade extends CompanionFacade
 
 	public boolean isQualifiedFor(ClassFacade c);
 
-	public boolean isAutomatic(LanguageFacade language);
+	public boolean isAutomatic(Language language);
 
 	/**
 	 * Is the user allowed to remove this language currently? 
@@ -265,7 +266,7 @@ public interface CharacterFacade extends CompanionFacade
 	 * @param language The language to be checked.
 	 * @return true if the language can be removed.
 	 */
-	public boolean isRemovable(LanguageFacade language);
+	public boolean isRemovable(Language language);
 
 	public void addTemplate(PCTemplate template);
 
@@ -424,7 +425,7 @@ public interface CharacterFacade extends CompanionFacade
 	 */
 	public ListFacade<DomainFacade> getAvailableDomains();
 
-	public ListFacade<LanguageFacade> getLanguages();
+	public ListFacade<Language> getLanguages();
 
 	public ListFacade<LanguageChooserFacade> getLanguageChoosers();
 
@@ -432,7 +433,7 @@ public interface CharacterFacade extends CompanionFacade
 	 * Remove a bonus language from the character.
 	 * @param lang The language to be removed
 	 */
-	public void removeLanguage(LanguageFacade lang);
+	public void removeLanguage(Language lang);
 
 	/**
 	 * Write the character details, as defined by the export handler to the writer.

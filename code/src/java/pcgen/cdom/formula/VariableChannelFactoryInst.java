@@ -166,10 +166,7 @@ public class VariableChannelFactoryInst implements VariableChannelFactory
 	public static <T> void watchChannel(CharID id, String channelName,
 		DataFacetChangeListener<CharID, T> listener, int priority)
 	{
-		ScopeInstance globalInstance = SCOPE_FACET.getGlobalScope(id);
-		VariableID<T> varID = (VariableID<T>) LOAD_CONTEXT_FACET.get(id.getDatasetID())
-			.get().getVariableContext()
-			.getVariableID(globalInstance, ChannelUtilities.createVarName(channelName));
+		VariableID<T> varID = ChannelUtilities.getChannelVariableID(id, channelName);
 		RESULT_FACET.get(id).addVariableListener(priority, varID, new VariableListener<T>()
 		{
 			@Override
@@ -186,23 +183,4 @@ public class VariableChannelFactoryInst implements VariableChannelFactory
 		});
 	}
 
-	/**
-	 * Defines a listener that should react to a change in a channel.
-	 * 
-	 * @param id
-	 *            The CharID on which the channel should be watched
-	 * @param channelName
-	 *            The name of the channel to be watched
-	 * @param listener
-	 *            The listener to receive an event when the value of the channel changes
-	 */
-	public static <T> void reactToChannel(CharID id, String channelName,
-		VariableListener<T> listener)
-	{
-		ScopeInstance globalInstance = SCOPE_FACET.getGlobalScope(id);
-		VariableID<T> varID = (VariableID<T>) LOAD_CONTEXT_FACET.get(id.getDatasetID())
-			.get().getVariableContext()
-			.getVariableID(globalInstance, ChannelUtilities.createVarName(channelName));
-		RESULT_FACET.get(id).addVariableListener(0, varID, listener);
-	}
 }

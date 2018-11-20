@@ -18,6 +18,7 @@
  */
 package pcgen.facade.core;
 
+import pcgen.core.Language;
 import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.ReferenceFacade;
 
@@ -28,13 +29,13 @@ public interface LanguageChooserFacade
 	 *
 	 * @return the currently available languages
 	 */
-	ListFacade<LanguageFacade> getAvailableList();
+	ListFacade<Language> getAvailableList();
 
 	/**
 	 * 
 	 * @return the currently selected languages
 	 */
-	ListFacade<LanguageFacade> getSelectedList();
+	ListFacade<Language> getSelectedList();
 
 	/**
 	 * adds a language to the selected list and
@@ -42,7 +43,7 @@ public interface LanguageChooserFacade
 	 * is no longer available
 	 * @param language the language to be added
 	 */
-	void addSelected(LanguageFacade language);
+	void addSelected(Language language);
 
 	/**
 	 * removes a language from the selected list and
@@ -50,7 +51,7 @@ public interface LanguageChooserFacade
 	 * is now available
 	 * @param language the language to be removed
 	 */
-	void removeSelected(LanguageFacade language);
+	void removeSelected(Language language);
 
 	ReferenceFacade<Integer> getRemainingSelections();
 

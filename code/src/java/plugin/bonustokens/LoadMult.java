@@ -39,7 +39,6 @@ public final class LoadMult extends MultiTagBonusObj
 	/**
 	 * Get by index, an individual load mult attribute that may be bonused.
 	 * @param tagNumber the index of the load mult attribute.
-	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
 	 * @return The load mult attribute.
 	 */
 	@Override
@@ -50,7 +49,6 @@ public final class LoadMult extends MultiTagBonusObj
 
 	/**
 	 * Get the number of load mult attributes that may be bonused.
-	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
 	 * @return The number of load mult attributes.
 	 */
 	@Override
