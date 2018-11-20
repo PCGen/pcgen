@@ -166,7 +166,6 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade, EquipmentList
 		return availableSpellNodes;
 	}
 
-
 	@Override
 	public ListFacade<SpellNode> getAllKnownSpellNodes()
 	{
