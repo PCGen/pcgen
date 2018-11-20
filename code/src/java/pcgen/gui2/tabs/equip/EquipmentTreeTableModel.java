@@ -390,7 +390,6 @@ public class EquipmentTreeTableModel implements TreeTableModel, ListListener<Equ
 	 * @param path the path to the root node
 	 * @param childIndices the indices of the changed elements
 	 * @param children the changed elements
-	 * @see EventListenerList
 	 */
 	protected void fireTreeNodesChanged(Object source, Object[] path, int[] childIndices, Object[] children)
 	{
@@ -423,7 +422,6 @@ public class EquipmentTreeTableModel implements TreeTableModel, ListListener<Equ
 	 * @param path the path to the root node
 	 * @param childIndices the indices of the new elements
 	 * @param children the new elements
-	 * @see EventListenerList
 	 */
 	protected void fireTreeNodesInserted(Object source, Object[] path, int[] childIndices, Object[] children)
 	{
@@ -456,7 +454,6 @@ public class EquipmentTreeTableModel implements TreeTableModel, ListListener<Equ
 	 * @param path the path to the root node
 	 * @param childIndices the indices of the removed elements
 	 * @param children the removed elements
-	 * @see EventListenerList
 	 */
 	protected void fireTreeNodesRemoved(Object source, Object[] path, int[] childIndices, Object[] children)
 	{
@@ -489,7 +486,6 @@ public class EquipmentTreeTableModel implements TreeTableModel, ListListener<Equ
 	 * @param path the path to the root node
 	 * @param childIndices the indices of the affected elements
 	 * @param children the affected elements
-	 * @see EventListenerList
 	 */
 	protected void fireTreeStructureChanged(Object source, Object[] path, int[] childIndices, Object[] children)
 	{
