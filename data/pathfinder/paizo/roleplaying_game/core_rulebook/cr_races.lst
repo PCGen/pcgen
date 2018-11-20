@@ -17,3 +17,13 @@ Human		SORTKEY:a_base_pc	XTRASKILLPTSPERLVL:SkillPointBonus	STARTFEATS:1	SIZE:M	
 
 # DEVELOPER NOTE: ABILITY:Internal|AUTOMATIC|Race Traits ~ XXX assigns the Traits of the Race and allows them to be swapped out
 # The Base Ability is located in pfcr_abilities_race.lst
+
+
+# Race		Granting a Movement of Walk	Setting the Walk Speed of Local Movement to Race and giving a non-default priority
+Dwarf.MOD		GRANT:MOVEMENT|Walk	MODIFYOTHER:MOVEMENT|Walk|Speed|SET|20|PRIORITY=100
+Elf.MOD		GRANT:MOVEMENT|Walk	MODIFYOTHER:MOVEMENT|Walk|Speed|SET|30|PRIORITY=100
+Gnome.MOD		GRANT:MOVEMENT|Walk	MODIFYOTHER:MOVEMENT|Walk|Speed|SET|20|PRIORITY=100
+Half-Elf.MOD	GRANT:MOVEMENT|Walk	MODIFYOTHER:MOVEMENT|Walk|Speed|SET|30|PRIORITY=100
+Half-Orc.MOD	GRANT:MOVEMENT|Walk	MODIFYOTHER:MOVEMENT|Walk|Speed|SET|30|PRIORITY=100
+Halfling.MOD	GRANT:MOVEMENT|Walk	MODIFYOTHER:MOVEMENT|Walk|Speed|SET|20|PRIORITY=100
+Human.MOD		GRANT:MOVEMENT|Walk	MODIFYOTHER:MOVEMENT|Walk|Speed|SET|30|PRIORITY=100

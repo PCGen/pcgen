@@ -2,3 +2,6 @@
 
 # Variable Name
 GLOBAL:ORDEREDPAIR=Face
+
+LOCAL:PC.MOVEMENT|NUMBER=Speed
+
