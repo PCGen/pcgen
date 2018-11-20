@@ -11,6 +11,9 @@ DEFAULTVARIABLEVALUE:ALIGNMENT|None
 # User Defined Functions
 FUNCTION:d20Mod	VALUE:floor((arg(0)-10)/2)	EXPLANATION:For Ability Score Calculation of Bonus
 
+# User Defined Scopes
+# EXPLANATION:Tracks ArmorTypes (Light, Medium, Heavy)
+DYNAMICSCOPE:ARMORTYPE			
 
 
 

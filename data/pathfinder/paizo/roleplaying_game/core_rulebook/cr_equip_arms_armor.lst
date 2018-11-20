@@ -353,3 +353,17 @@ Improvised Weapon (2d6)		PROFICIENCY:WEAPON|Improvised Weapon	TYPE:Weapon.Melee.
 Improvised Weapon (2d8)		PROFICIENCY:WEAPON|Improvised Weapon	TYPE:Weapon.Melee.Improvised	COST:0	WT:12		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d8	WIELD:TwoHanded	SIZE:M
 Improvised Weapon (2d10)	PROFICIENCY:WEAPON|Improvised Weapon	TYPE:Weapon.Melee.Improvised	COST:0	WT:12		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d10	WIELD:TwoHanded	SIZE:M
 
+# Equipment
+###:Block: Formula Conversion	Info is our new text output tag	We are setting the armor type	We are granting an armortype	Set various things, like Weight, Armor Check and Max Dex of the Equipment
+Padded Armor (Base).MOD		INFO:OutputName|Padded Armor		MODIFY:ArmorType|SET|"Light"	GRANT:ARMORTYPE|ArmorType	MODIFY:WT|SET|10	MODIFY:Eq_ArmorCheckPenalty|SET|0	MODIFY:EQ_MaxDex|SET|8
+Leather Armor (Base).MOD	INFO:OutputName|Leather Armor		MODIFY:ArmorType|SET|"Light"	GRANT:ARMORTYPE|ArmorType	MODIFY:WT|SET|15	MODIFY:Eq_ArmorCheckPenalty|SET|0	MODIFY:EQ_MaxDex|SET|6
+Studded Leather (Base).MOD	INFO:OutputName|Studded Leather	MODIFY:ArmorType|SET|"Light"	GRANT:ARMORTYPE|ArmorType	MODIFY:WT|SET|20	MODIFY:Eq_ArmorCheckPenalty|SET|-1	MODIFY:EQ_MaxDex|SET|5
+Chain Shirt (Base).MOD		INFO:OutputName|Chain Shirt		MODIFY:ArmorType|SET|"Light"	GRANT:ARMORTYPE|ArmorType	MODIFY:WT|SET|25	MODIFY:Eq_ArmorCheckPenalty|SET|-2	MODIFY:EQ_MaxDex|SET|4
+Hide Armor (Base).MOD		INFO:OutputName|Hide Armor		MODIFY:ArmorType|SET|"Medium"	GRANT:ARMORTYPE|ArmorType	MODIFY:WT|SET|25	MODIFY:Eq_ArmorCheckPenalty|SET|-3	MODIFY:EQ_MaxDex|SET|4
+Scale Mail (Base).MOD		INFO:OutputName|Scale Mail		MODIFY:ArmorType|SET|"Medium"	GRANT:ARMORTYPE|ArmorType	MODIFY:WT|SET|30	MODIFY:Eq_ArmorCheckPenalty|SET|-4	MODIFY:EQ_MaxDex|SET|3
+Chainmail (Base).MOD		INFO:OutputName|Chainmail		MODIFY:ArmorType|SET|"Medium"	GRANT:ARMORTYPE|ArmorType	MODIFY:WT|SET|40	MODIFY:Eq_ArmorCheckPenalty|SET|-5	MODIFY:EQ_MaxDex|SET|2
+Breastplate (Base).MOD		INFO:OutputName|Breastplate		MODIFY:ArmorType|SET|"Medium"	GRANT:ARMORTYPE|ArmorType	MODIFY:WT|SET|30	MODIFY:Eq_ArmorCheckPenalty|SET|-4	MODIFY:EQ_MaxDex|SET|3
+Splint Mail (Base).MOD		INFO:OutputName|Splint Mail		MODIFY:ArmorType|SET|"Heavy"	GRANT:ARMORTYPE|ArmorType	MODIFY:WT|SET|45	MODIFY:Eq_ArmorCheckPenalty|SET|-7	MODIFY:EQ_MaxDex|SET|0
+Banded Mail (Base).MOD		INFO:OutputName|Banded Mail		MODIFY:ArmorType|SET|"Heavy"	GRANT:ARMORTYPE|ArmorType	MODIFY:WT|SET|35	MODIFY:Eq_ArmorCheckPenalty|SET|-6	MODIFY:EQ_MaxDex|SET|1
+Half-Plate (Base).MOD		INFO:OutputName|Half-Plate		MODIFY:ArmorType|SET|"Heavy"	GRANT:ARMORTYPE|ArmorType	MODIFY:WT|SET|50	MODIFY:Eq_ArmorCheckPenalty|SET|-7	MODIFY:EQ_MaxDex|SET|0
+Full Plate (Base).MOD		INFO:OutputName|Full Plate		MODIFY:ArmorType|SET|"Heavy"	GRANT:ARMORTYPE|ArmorType	MODIFY:WT|SET|50	MODIFY:Eq_ArmorCheckPenalty|SET|-6	MODIFY:EQ_MaxDex|SET|1

@@ -1,1 +1,6 @@
 
+# Track Armor Types
+ARMORTYPE:Light
+ARMORTYPE:Medium	MODIFY:MovementReducedByArmor|SET|true
+ARMORTYPE:Heavy	MODIFY:MovementReducedByArmor|SET|true
+

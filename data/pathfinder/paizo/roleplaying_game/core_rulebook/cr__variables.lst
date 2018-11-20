@@ -1,1 +1,18 @@
 
+
+###Block: Eqipment Tracking
+LOCAL:PC.EQUIPMENT|NUMBER=WT					EXPLANATION:Set equipment weight
+LOCAL:PC.EQUIPMENT|NUMBER=COST				EXPLANATION:Set equipment price
+LOCAL:PC.EQUIPMENT|NUMBER=Eq_ArmorCheckPenalty		EXPLANATION:Set equipment Sets the Armor Check Penalty
+LOCAL:PC.EQUIPMENT|NUMBER=ACCHECK				EXPLANATION:Future replacement Armor Check Penalty output
+LOCAL:PC.EQUIPMENT|STRING=ArmorType				EXPLANATION:This sets an Armor Type on the Equipment - Light, Medium or Heavy
+
+
+GLOBAL:NUMBER=EQ_Weight						EXPLANATION:Track total WT for Output?
+
+
+
+
+
+
+
