@@ -19,8 +19,6 @@ package pcgen.output.channel.compat;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.util.CControl;
-import pcgen.cdom.util.ControlUtilities;
-import pcgen.core.Globals;
 import pcgen.core.PCAlignment;
 import pcgen.output.channel.ChannelUtilities;
 
@@ -45,8 +43,7 @@ public final class AlignmentCompat
 	 */
 	public static PCAlignment getCurrentAlignment(CharID id)
 	{
-		String channelName = ControlUtilities.getControlToken(Globals.getContext(), CControl.ALIGNMENTINPUT);
-		return (PCAlignment) ChannelUtilities.readGlobalChannel(id, channelName);
+		return (PCAlignment) ChannelUtilities.readControlledChannel(id, CControl.ALIGNMENTINPUT);
 	}
 
 	/**
@@ -59,8 +56,7 @@ public final class AlignmentCompat
 	 */
 	public static void setCurrentAlignment(CharID id, PCAlignment align)
 	{
-		String channelName = ControlUtilities.getControlToken(Globals.getContext(), CControl.ALIGNMENTINPUT);
-		ChannelUtilities.setGlobalChannel(id, channelName, align);
+		ChannelUtilities.setControlledChannel(id, CControl.ALIGNMENTINPUT, align);
 	}
 
 }
