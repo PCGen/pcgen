@@ -25,6 +25,7 @@ import java.util.function.IntFunction;
  * ArrayUtilities is a utility class designed to provide utility methods when working with
  * Arrays.
  */
+@SuppressWarnings("PMD.TooManyMethods")
 public final class ArrayUtilities
 {
 
