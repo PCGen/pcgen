@@ -3,5 +3,7 @@
 # Variable Name
 GLOBAL:ORDEREDPAIR=Face
 
-# Wanted to use Global, but Dynamic Scope is throwing an error
-LOCAL:PC.ARMORTYPE|BOOLEAN=MovementReducedByArmor
+# This is throwing an error
+#LOCAL:PC.ARMORTYPE|BOOLEAN=MovementReducedByArmor
+
+GLOBAL:BOOLEAN=MovementReducedByArmor

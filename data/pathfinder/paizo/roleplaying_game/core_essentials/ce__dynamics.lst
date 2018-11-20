@@ -1,6 +1,8 @@
 
 # Track Armor Types
 ARMORTYPE:Light
-ARMORTYPE:Medium	MODIFY:MovementReducedByArmor|SET|true
-ARMORTYPE:Heavy	MODIFY:MovementReducedByArmor|SET|true
+ARMORTYPE:Medium	MODIFY:MovementReducedByArmor|SET|True
+ARMORTYPE:Heavy	MODIFY:MovementReducedByArmor|SET|True
 
+# MODIFY found invalid var name: MovementReducedByArmor(scope: PC) 
+# (Source: file:/home/travis/build/PCGen/pcgen/data/pathfinder/paizo/roleplaying_game/core_essentials/ce__dynamics.lst 

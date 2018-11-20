@@ -14,7 +14,7 @@ FUNCTION:d20Mod	VALUE:floor((arg(0)-10)/2)	EXPLANATION:For Ability Score Calcula
 # User Defined Scopes
 # EXPLANATION:Tracks ArmorTypes (Light, Medium, Heavy)
 DYNAMICSCOPE:ARMORTYPE			
-
+# Unconstructed Reference: ARMORTYPE (Dynamic) ArmorType
 
 
 
