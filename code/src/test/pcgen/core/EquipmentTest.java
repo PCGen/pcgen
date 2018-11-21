@@ -18,18 +18,13 @@
  */
 package pcgen.core;
 
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.greaterThan;
+import static org.hamcrest.Matchers.not;
 import static org.junit.Assert.assertThat;
 
 import java.math.BigDecimal;
 import java.net.URI;
 import java.net.URISyntaxException;
-
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
-import org.hamcrest.Matchers;
-import org.junit.Assert;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.base.lang.UnreachableError;
@@ -43,6 +38,11 @@ import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.GenericLoader;
+
+import junit.framework.Test;
+import junit.framework.TestSuite;
+import junit.textui.TestRunner;
+import org.hamcrest.Matchers;
 
 /**
  * Equipment Test
@@ -343,9 +343,9 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		Globals.getContext().getReferenceContext().importObject(eq);
 
 		GameMode gameMode = SettingsHandler.getGame();
-		is(Globals.getContext().getReferenceContext()
-				.getConstructedObjectCount(SizeAdjustment.class), gt(0),
-				"size list initialised");
+		assertThat("size list initialised",
+				Globals.getContext().getReferenceContext().getConstructedObjectCount(SizeAdjustment.class),
+			Matchers.is(greaterThan(0)));
 		BaseDice d6 = gameMode.getModeContext().getReferenceContext().constructCDOMObject(BaseDice.class, "1d6");
 		d6.addToDownList(new RollInfo("1d4"));
 		d6.addToDownList(new RollInfo("1d3"));
@@ -371,7 +371,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		// Increase the size
 		custEq.resizeItem(getCharacter(), large);
 		assertThat("increase size", custEq.getSize(), Matchers.is("L"));
-		assertThat("increase size", custEq.getDamage(getCharacter()), Matchers.is("1d4"));
+		assertThat("increase size", custEq.getDamage(getCharacter()), Matchers.is("1d8"));
 	}
 	
 	/**

@@ -13,7 +13,6 @@ import pcgen.util.testchecker.CompareDeadband;
 import pcgen.util.testchecker.CompareEqualBoolean;
 import pcgen.util.testchecker.CompareEqualInt;
 import pcgen.util.testchecker.CompareEqualString;
-import pcgen.util.testchecker.CompareGreaterThan;
 import pcgen.util.testchecker.CompareNull;
 
 import junit.framework.TestCase;
@@ -126,10 +125,5 @@ public abstract class PCGenTestCase extends TestCase
 	protected static CompareNull eqnull()
 	{
 		return new CompareNull();
-	}
-
-	protected static CompareGreaterThan gt(Comparable operand)
-	{
-		return new CompareGreaterThan(operand);
 	}
 }
