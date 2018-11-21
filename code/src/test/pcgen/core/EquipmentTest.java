@@ -18,6 +18,9 @@
  */
 package pcgen.core;
 
+import static org.hamcrest.Matchers.*;
+import static org.junit.Assert.assertThat;
+
 import java.math.BigDecimal;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -25,6 +28,9 @@ import java.net.URISyntaxException;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
+import org.hamcrest.Matchers;
+import org.junit.Assert;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.Constants;
@@ -210,7 +216,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	{
 		String unExpectedKey = Constants.AUTO_RESIZE_PREFIX + "X" + ORIGINAL_KEY;
 
-		is(this.eq.createKeyForAutoResize(null), not(strEq(unExpectedKey)));
+		assertThat(unExpectedKey, not(Matchers.is(this.eq.createKeyForAutoResize(null))));
 		is(this.eq.createKeyForAutoResize(null), strEq(ORIGINAL_KEY));
 	}
 
