@@ -193,16 +193,7 @@ class PluginClassLoader extends PCGenTask
 		findJarFiles(pluginDir);
 		setMaximum(jarFiles.size());
 		loadClasses();
-		Future<?> future = dispatcher.submit(new Runnable()
-		{
-
-			@Override
-			public void run()
-			{
-				dispatcher.shutdown();
-			}
-
-		});
+		Future<?> future = dispatcher.submit(dispatcher::shutdown);
 		try
 		{
 			//This is done to cause this thread to wait until the shutdown task
