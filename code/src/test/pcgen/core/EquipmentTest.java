@@ -360,18 +360,18 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		d6.addToUpList(new RollInfo("12d6"));
 		Globals.getContext().getReferenceContext().importObject(d6);
 
-		is(custEq.getSize(), eq("M"), "starting size");
-		is(custEq.getDamage(getCharacter()), eq("1d6"), "starting size");
+		assertThat("starting size", custEq.getSize(), Matchers.is("M"));
+		assertThat("starting size", custEq.getDamage(getCharacter()), Matchers.is("1d6"));
 
 		// Drop the size
 		custEq.resizeItem(getCharacter(), small);
-		is(custEq.getSize(), eq("S"), "reduce size size");
-		is(custEq.getDamage(getCharacter()), eq("1d4"), "reduce size damage");
+		assertThat("reduce size", custEq.getSize(), Matchers.is("S"));
+		assertThat("reduce size", custEq.getDamage(getCharacter()), Matchers.is("1d4"));
 
 		// Increase the size
 		custEq.resizeItem(getCharacter(), large);
-		is(custEq.getSize(), eq("L"), "reduce size size");
-		is(custEq.getDamage(getCharacter()), eq("1d8"), "reduce size damage");
+		assertThat("increase size", custEq.getSize(), Matchers.is("L"));
+		assertThat("increase size", custEq.getDamage(getCharacter()), Matchers.is("1d4"));
 	}
 	
 	/**

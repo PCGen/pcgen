@@ -12,7 +12,6 @@ import pcgen.util.TestChecker;
 import pcgen.util.testchecker.CompareDeadband;
 import pcgen.util.testchecker.CompareEqualBoolean;
 import pcgen.util.testchecker.CompareEqualInt;
-import pcgen.util.testchecker.CompareEqualObject;
 import pcgen.util.testchecker.CompareEqualString;
 import pcgen.util.testchecker.CompareGreaterThan;
 import pcgen.util.testchecker.CompareNull;
@@ -107,11 +106,6 @@ public abstract class PCGenTestCase extends TestCase
 	public static CompareEqualString strEq(final String s)
 	{
 		return new CompareEqualString(s);
-	}
-
-	public static CompareEqualObject eq(final Object operand)
-	{
-		return new CompareEqualObject(operand);
 	}
 
 	public static CompareEqualBoolean eq(final boolean bo)
