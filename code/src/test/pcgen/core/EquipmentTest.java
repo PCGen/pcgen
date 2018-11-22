@@ -18,13 +18,14 @@
  */
 package pcgen.core;
 
+import static org.hamcrest.Matchers.greaterThan;
+import static org.hamcrest.Matchers.not;
+import static org.junit.Assert.assertThat;
+
 import java.math.BigDecimal;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.Constants;
@@ -37,6 +38,11 @@ import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.GenericLoader;
+
+import junit.framework.Test;
+import junit.framework.TestSuite;
+import junit.textui.TestRunner;
+import org.hamcrest.Matchers;
 
 /**
  * Equipment Test
@@ -210,7 +216,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	{
 		String unExpectedKey = Constants.AUTO_RESIZE_PREFIX + "X" + ORIGINAL_KEY;
 
-		is(this.eq.createKeyForAutoResize(null), not(strEq(unExpectedKey)));
+		assertThat(unExpectedKey, not(Matchers.is(this.eq.createKeyForAutoResize(null))));
 		is(this.eq.createKeyForAutoResize(null), strEq(ORIGINAL_KEY));
 	}
 
@@ -337,9 +343,9 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		Globals.getContext().getReferenceContext().importObject(eq);
 
 		GameMode gameMode = SettingsHandler.getGame();
-		is(Globals.getContext().getReferenceContext()
-				.getConstructedObjectCount(SizeAdjustment.class), gt(0),
-				"size list initialised");
+		assertThat("size list initialised",
+				Globals.getContext().getReferenceContext().getConstructedObjectCount(SizeAdjustment.class),
+			Matchers.is(greaterThan(0)));
 		BaseDice d6 = gameMode.getModeContext().getReferenceContext().constructCDOMObject(BaseDice.class, "1d6");
 		d6.addToDownList(new RollInfo("1d4"));
 		d6.addToDownList(new RollInfo("1d3"));
@@ -354,18 +360,18 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		d6.addToUpList(new RollInfo("12d6"));
 		Globals.getContext().getReferenceContext().importObject(d6);
 
-		is(custEq.getSize(), eq("M"), "starting size");
-		is(custEq.getDamage(getCharacter()), eq("1d6"), "starting size");
+		assertThat("starting size", custEq.getSize(), Matchers.is("M"));
+		assertThat("starting size", custEq.getDamage(getCharacter()), Matchers.is("1d6"));
 
 		// Drop the size
 		custEq.resizeItem(getCharacter(), small);
-		is(custEq.getSize(), eq("S"), "reduce size size");
-		is(custEq.getDamage(getCharacter()), eq("1d4"), "reduce size damage");
+		assertThat("reduce size", custEq.getSize(), Matchers.is("S"));
+		assertThat("reduce size", custEq.getDamage(getCharacter()), Matchers.is("1d4"));
 
 		// Increase the size
 		custEq.resizeItem(getCharacter(), large);
-		is(custEq.getSize(), eq("L"), "reduce size size");
-		is(custEq.getDamage(getCharacter()), eq("1d8"), "reduce size damage");
+		assertThat("increase size", custEq.getSize(), Matchers.is("L"));
+		assertThat("increase size", custEq.getDamage(getCharacter()), Matchers.is("1d8"));
 	}
 	
 	/**
