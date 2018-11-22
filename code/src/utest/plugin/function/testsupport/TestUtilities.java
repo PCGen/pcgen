@@ -25,7 +25,7 @@ import pcgen.base.formula.parse.FormulaParser;
 import pcgen.base.formula.parse.ParseException;
 import pcgen.base.formula.parse.SimpleNode;
 
-import junit.framework.TestCase;
+import org.junit.Assert;
 
 public final class TestUtilities
 {
@@ -42,8 +42,7 @@ public final class TestUtilities
 		}
 		catch (ParseException e)
 		{
-			TestCase
-				.fail("Encountered Unexpected Exception: " + e.getMessage());
+			Assert.fail("Encountered Unexpected Exception: " + e.getMessage());
 			return null;
 		}
 	}
