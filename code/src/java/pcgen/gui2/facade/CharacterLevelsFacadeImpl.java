@@ -211,9 +211,6 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 		updateSkillsTodo();
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterLevelsFacade#getClassTaken(CharacterLevelFacade)
-	 */
 	@Override
 	public ClassFacade getClassTaken(CharacterLevelFacade level)
 	{
@@ -247,9 +244,6 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 		return null;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterLevelsFacade#getHPGained(CharacterLevelFacade)
-	 */
 	@Override
 	public int getHPGained(CharacterLevelFacade level)
 	{
@@ -266,9 +260,6 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterLevelsFacade#getHPRolled(CharacterLevelFacade)
-	 */
 	@Override
 	public int getHPRolled(CharacterLevelFacade level)
 	{
@@ -281,9 +272,6 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 		return charDisplay.getHP(classLevel);
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterLevelsFacade#setHPRolled(CharacterLevelFacade, int)
-	 */
 	@Override
 	public void setHPRolled(CharacterLevelFacade level, int hp)
 	{
@@ -315,9 +303,6 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 		return levelImpl.getCharacterLevel() - 1;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterLevelsFacade#getGainedSkillPoints(CharacterLevelFacade)
-	 */
 	@Override
 	public int getGainedSkillPoints(CharacterLevelFacade level)
 	{
@@ -360,18 +345,12 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 		return Float.NaN;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterLevelsFacade#getRankCost(CharacterLevelFacade, SkillCost)
-	 */
 	@Override
 	public int getRankCost(CharacterLevelFacade level, SkillCost cost)
 	{
 		return cost.getCost();
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterLevelsFacade#getSkillCost(CharacterLevelFacade, SkillFacade)
-	 */
 	@Override
 	public SkillCost getSkillCost(CharacterLevelFacade level, SkillFacade skill)
 	{
@@ -409,9 +388,6 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 		return false;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterLevelsFacade#getSkillModifier(CharacterLevelFacade, SkillFacade)
-	 */
 	@Override
 	public int getSkillModifier(CharacterLevelFacade level, SkillFacade skill)
 	{
@@ -422,9 +398,6 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 		return 0;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterLevelsFacade#getSkillRanks(CharacterLevelFacade, SkillFacade)
-	 */
 	@Override
 	public float getSkillRanks(CharacterLevelFacade level, SkillFacade skill)
 	{
@@ -436,9 +409,6 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 		return 0;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterLevelsFacade#getSkillTotal(CharacterLevelFacade, SkillFacade)
-	 */
 	@Override
 	public int getSkillTotal(CharacterLevelFacade level, SkillFacade skill)
 	{
@@ -467,9 +437,6 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 		return sb;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterLevelsFacade#getSpentSkillPoints(CharacterLevelFacade)
-	 */
 	@Override
 	public int getSpentSkillPoints(CharacterLevelFacade level)
 	{
@@ -481,9 +448,6 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 		return classLevel.getSkillPointsGained(theCharacter) - classLevel.getSkillPointsRemaining();
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterLevelsFacade#getRemainingSkillPoints(CharacterLevelFacade)
-	 */
 	@Override
 	public int getRemainingSkillPoints(CharacterLevelFacade level)
 	{
@@ -495,9 +459,6 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 		return classLevel.getSkillPointsRemaining();
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterLevelsFacade#investSkillPoints(CharacterLevelFacade, SkillFacade, int)
-	 */
 	@Override
 	public boolean investSkillPoints(CharacterLevelFacade level, SkillFacade skill, int points)
 	{
@@ -792,9 +753,6 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 		return numRemaining;
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterLevelsFacade#setGainedSkillPoints(CharacterLevelFacade, int)
-	 */
 	@Override
 	public void setGainedSkillPoints(CharacterLevelFacade level, int points)
 	{
@@ -842,72 +800,48 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 
 	// ============== Listener Management code =========================
 
-	/**
-	 * @see pcgen.facade.core.CharacterLevelsFacade#addClassListener(ClassListener)
-	 */
 	@Override
 	public void addClassListener(ClassListener listener)
 	{
 		listenerList.add(ClassListener.class, listener);
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterLevelsFacade#addHitPointListener(HitPointListener)
-	 */
 	@Override
 	public void addHitPointListener(HitPointListener listener)
 	{
 		listenerList.add(HitPointListener.class, listener);
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterLevelsFacade#addSkillBonusListener(SkillBonusListener)
-	 */
 	@Override
 	public void addSkillBonusListener(SkillBonusListener listener)
 	{
 		listenerList.add(SkillBonusListener.class, listener);
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterLevelsFacade#addSkillPointListener(SkillPointListener)
-	 */
 	@Override
 	public void addSkillPointListener(SkillPointListener listener)
 	{
 		listenerList.add(SkillPointListener.class, listener);
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterLevelsFacade#removeClassListener(ClassListener)
-	 */
 	@Override
 	public void removeClassListener(ClassListener listener)
 	{
 		listenerList.remove(ClassListener.class, listener);
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterLevelsFacade#removeHitPointListener(HitPointListener)
-	 */
 	@Override
 	public void removeHitPointListener(HitPointListener listener)
 	{
 		listenerList.remove(HitPointListener.class, listener);
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterLevelsFacade#removeSkillBonusListener(SkillBonusListener)
-	 */
 	@Override
 	public void removeSkillBonusListener(SkillBonusListener listener)
 	{
 		listenerList.remove(SkillBonusListener.class, listener);
 	}
 
-	/**
-	 * @see pcgen.facade.core.CharacterLevelsFacade#removeSkillPointListener(SkillPointListener)
-	 */
 	@Override
 	public void removeSkillPointListener(SkillPointListener listener)
 	{

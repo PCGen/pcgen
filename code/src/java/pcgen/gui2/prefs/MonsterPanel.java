@@ -75,27 +75,18 @@ public class MonsterPanel extends PCGenPrefsPanel
 		this.add(label);
 	}
 
-	/**
-	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#getTitle()
-	 */
 	@Override
 	public String getTitle()
 	{
 		return IN_MONSTERS;
 	}
 
-	/**
-	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#setOptionsBasedOnControls()
-	 */
 	@Override
 	public void setOptionsBasedOnControls()
 	{
 		SettingsHandler.setIgnoreMonsterHDCap(ignoreMonsterHDCap.isSelected());
 	}
 
-	/**
-	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#applyOptionValuesToControls()
-	 */
 	@Override
 	public void applyOptionValuesToControls()
 	{

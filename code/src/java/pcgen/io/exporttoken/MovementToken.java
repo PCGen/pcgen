@@ -31,9 +31,6 @@ import pcgen.io.ExportHandler;
 //MOVEMENT.movetype
 public class MovementToken extends AbstractExportToken
 {
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
@@ -42,9 +39,6 @@ public class MovementToken extends AbstractExportToken
 
 	//TODO: Move the |MOVEMENT| results into MoveToken, and then Eliminate MovementToken
 	//      Also add .moveType to movement as a switchout replacement for .x
-	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-	 */
 	@Override
 	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
 	{

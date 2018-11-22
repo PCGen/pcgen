@@ -87,18 +87,12 @@ public class LevelUpPanel extends PCGenPrefsPanel
 		this.add(label);
 	}
 
-	/**
-	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#getTitle()
-	 */
 	@Override
 	public String getTitle()
 	{
 		return IN_LEVEL_UP;
 	}
 
-	/**
-	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#setOptionsBasedOnControls()
-	 */
 	@Override
 	public void setOptionsBasedOnControls()
 	{
@@ -107,9 +101,6 @@ public class LevelUpPanel extends PCGenPrefsPanel
 			showWarningAtFirstLevelUp.isSelected());
 	}
 
-	/**
-	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#applyOptionValuesToControls()
-	 */
 	@Override
 	public void applyOptionValuesToControls()
 	{

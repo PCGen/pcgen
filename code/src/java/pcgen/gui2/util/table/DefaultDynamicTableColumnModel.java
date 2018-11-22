@@ -100,7 +100,6 @@ public class DefaultDynamicTableColumnModel extends DefaultTableColumnModel impl
 	 * is lazily created using the parameters passed into
 	 * the fire method.
 	 * @param  e  the event received
-	 * @see javax.swing.event.EventListenerList
 	 */
 	protected void fireAvailableColumnAdded(TableColumnModelEvent e)
 	{
@@ -123,7 +122,6 @@ public class DefaultDynamicTableColumnModel extends DefaultTableColumnModel impl
 	 * is lazily created using the parameters passed into
 	 * the fire method.
 	 * @param  e  the event received
-	 * @see javax.swing.event.EventListenerList
 	 */
 	protected void fireAvailableColumnRemoved(TableColumnModelEvent e)
 	{

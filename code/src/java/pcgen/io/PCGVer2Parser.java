@@ -1183,8 +1183,8 @@ final class PCGVer2Parser implements PCGParser
 		 * HEIGHT:75
 		 * WEIGHT:198
 		 * AGE:17
-		 * GENDER:enum name @see Gender
-		 * HANDED:enum name @see Handed
+		 * GENDER:enum name
+		 * HANDED:enum name
 		 * SKIN:text
 		 * EYECOLOR:text
 		 * HAIRCOLOR:text
@@ -5355,7 +5355,6 @@ final class PCGVer2Parser implements PCGParser
 		 * Returns a string representation of the element.  This string is
 		 * written in XML format.
 		 * @return An XML formatted string.
-		 * @see java.lang.Object#toString()
 		 */
 		@Override
 		public String toString()

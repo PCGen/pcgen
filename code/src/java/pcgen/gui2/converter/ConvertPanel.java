@@ -267,9 +267,6 @@ public class ConvertPanel extends JPanel
 	public class PreviousButtonListener implements ActionListener
 	{
 
-		/**
-		 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
-		 */
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{

@@ -42,27 +42,18 @@ public abstract class TextFieldListener implements DocumentListener
 		this.textField = textField;
 	}
 
-	/**
-	 * @see javax.swing.event.DocumentListener#insertUpdate(javax.swing.event.DocumentEvent)
-	 */
 	@Override
 	public void insertUpdate(DocumentEvent e)
 	{
 		textChanged(textField.getText());
 	}
 
-	/**
-	 * @see javax.swing.event.DocumentListener#removeUpdate(javax.swing.event.DocumentEvent)
-	 */
 	@Override
 	public void removeUpdate(DocumentEvent e)
 	{
 		textChanged(textField.getText());
 	}
 
-	/**
-	 * @see javax.swing.event.DocumentListener#changedUpdate(javax.swing.event.DocumentEvent)
-	 */
 	@Override
 	public void changedUpdate(DocumentEvent e)
 	{
