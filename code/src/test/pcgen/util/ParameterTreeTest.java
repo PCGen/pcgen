@@ -18,20 +18,22 @@
 
 package pcgen.util;
 
+import static org.hamcrest.Matchers.not;
+import static org.junit.Assert.assertThat;
+
 import java.util.regex.Matcher;
 
 import pcgen.PCGenTestCase;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.nfunk.jep.ParseException;
 
 /**
- * <code>ParameterTreeTest</code> is ...
+ * {@code ParameterTreeTest} is ...
  */
 public class ParameterTreeTest extends PCGenTestCase 
 {
-
-
 	/**
 	 * Test method for {@link pcgen.util.ParameterTree#ParameterTree(java.lang.String)}.
 	 */
@@ -240,16 +242,16 @@ public class ParameterTreeTest extends PCGenTestCase
 		final ParameterTree trr = tr.getRightTree();
 
 		// expected branch nodes
-		is(t, not(eqnull()),   "t  not null");
-		is(tr, not(eqnull()),  "tr not null");
+		assertThat("t  not null", t, not(eqnull()));
+		assertThat("tr  not null", tr, not(eqnull()));
 
 		is(t.getContents(),  strEq("[or]"),  "t  has correct contents '[or]'");
 		is(tr.getContents(), strEq("[and]"),  "tr has correct contents '[and]'");
 
 		// expected leaf nodes
-		is(tl,  not(eqnull()), "tl  not null");
-		is(trl, not(eqnull()), "trl not null");
-		is(trr, not(eqnull()), "trr not null");
+		Assert.assertNotNull("tl  not null", tl);
+		Assert.assertNotNull("trl  not null", trl);
+		Assert.assertNotNull("trr  not null", trr);
 
 		is(tl.getContents(),  strEq("TYPE=Foo"), "tl  has correct contents 'TYPE=Foo'");
 		is(trl.getContents(), strEq("TYPE=Bar"), "trl has correct contents 'TYPE=Bar'");
@@ -298,23 +300,21 @@ public class ParameterTreeTest extends PCGenTestCase
 		final ParameterTree trll = trl.getLeftTree();
 		final ParameterTree trlr = trl.getRightTree();
 
-		
-		// expected branch nodes
-		is(t, not(eqnull()),   "t  not null");
-		is(tr, not(eqnull()),  "tr not null");
-		is(trl, not(eqnull()), "trl not null");
+		Assert.assertNotNull("t not null", t);
+		Assert.assertNotNull("tr not null", tr);
+		Assert.assertNotNull("trl not null", trl);
 
 		is(t.getContents(),   strEq("[or]"),  "t  has correct contents '[or]'");
 		is(tr.getContents(),  strEq("[and]"),  "tr has correct contents '[and]'");
 		is(trl.getContents(), strEq("[or]"),  "trl has correct contents '[or]'");
 
 		// expected leaf nodes
-		is(tl,  not(eqnull()), "tl  not null");
-		is(trr, not(eqnull()), "trr not null");
+		Assert.assertNotNull("tl not null", tl);
+		Assert.assertNotNull("trr not null", trr);
 
-		is(trll, not(eqnull()), "trll not null");
-		is(trlr, not(eqnull()), "trlr not null");
-		
+		Assert.assertNotNull("trll not null", trll);
+		Assert.assertNotNull("trlr not null", trlr);
+
 		is(tl.getContents(),  strEq("TYPE=Foo"), "tl  has correct contents 'TYPE=Foo'");
 		is(trr.getContents(), strEq("TYPE=Bar"), "trr has correct contents 'TYPE=Bar'");
 
@@ -353,7 +353,7 @@ public class ParameterTreeTest extends PCGenTestCase
 		catch (ParseException e)
 		{
 			e.printStackTrace();
-			fail("Threw a parse exception");
+			Assert.fail("Threw a parse exception");
 		} 
 
 
@@ -369,12 +369,11 @@ public class ParameterTreeTest extends PCGenTestCase
 		final ParameterTree trlll = trll.getLeftTree();
 		final ParameterTree trllr = trll.getRightTree();
 
-		
 		// expected branch nodes
-		is(t, not(eqnull()),    "t  not null");
-		is(tr, not(eqnull()),   "tr not null");
-		is(trl, not(eqnull()),  "trl not null");
-		is(trll, not(eqnull()), "trll not null");
+		Assert.assertNotNull("t not null", t);
+		Assert.assertNotNull("tr not null", tr);
+		Assert.assertNotNull("trl not null", trl);
+		Assert.assertNotNull("trll not null", trll);
 
 		is(t.getContents(),    strEq("[or]"), "t    has correct contents '[or]'");
 		is(tr.getContents(),   strEq("[and]"), "tr   has correct contents '[and]'");
@@ -382,12 +381,12 @@ public class ParameterTreeTest extends PCGenTestCase
 		is(trll.getContents(), strEq("[or]"), "trll has correct contents '[or]'");
 		
 		// expected leaf nodes
-		is(tl,  not(eqnull()), "tl  not null");
-		is(trr, not(eqnull()), "trr not null");
+		Assert.assertNotNull("tl not null", tl);
+		Assert.assertNotNull("trr not null", trr);
 
-		is(trlr,  not(eqnull()), "trlr not null");
-		is(trlll, not(eqnull()), "trlll not null");
-		is(trllr, not(eqnull()), "trllr not null");
+		Assert.assertNotNull("trlr not null", trlr);
+		Assert.assertNotNull("trlll not null", trlll);
+		Assert.assertNotNull("trllr not null", trllr);
 
 		is(tl.getContents(),    strEq("TYPE=Foo"), "tl  has correct contents 'TYPE=Foo'");
 		is(trr.getContents(),   strEq("TYPE=Bar"), "trr has correct contents 'TYPE=Bar'");
