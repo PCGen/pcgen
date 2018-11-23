@@ -276,8 +276,10 @@ WEAPONCATEGORY:Starship Weapons
 WEAPONNONPROFPENALTY:-4
 
 # Number of hands required to wield weapon categories
+# MUST KEEP "Light" for the Unarmed Attack to Work
 
 WIELDCATEGORY:None				HANDS:0
+WIELDCATEGORY:Light				HANDS:1
 WIELDCATEGORY:OneHanded				HANDS:1					
 WIELDCATEGORY:TwoHanded				HANDS:2					
 WIELDCATEGORY:OneHandOnly			HANDS:1
