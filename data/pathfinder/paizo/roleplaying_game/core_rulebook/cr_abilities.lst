@@ -595,3 +595,8 @@ Stealth													CATEGORY:Class Skill																																								
 Survival													CATEGORY:Class Skill																																																																				CSKILL:Survival
 Swim														CATEGORY:Class Skill																																																																				CSKILL:Swim
 Use Magic Device												CATEGORY:Class Skill																																																																				CSKILL:Use Magic Device
+
+
+###
+
+Tracker ~ Range Penalty	CATEGORY:Internal		BONUS:COMBAT|RANGEPENALTY|RangePenaltyValue	DEFINE:RangePenaltyValue|0	
