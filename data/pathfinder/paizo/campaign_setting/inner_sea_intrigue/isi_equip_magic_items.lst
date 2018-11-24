@@ -7,7 +7,7 @@ SOURCELONG:Pathfinder Player Companion: Inner Sea Intrigue	SOURCESHORT:ISI	SOURC
 # ==============================
 # New Magic Items
 # ==============================
-#FAQ: Page 54—Kyonin bliss is a single-use item.
+#FAQ: Page 54-Kyonin bliss is a single-use item.
 # Equipment Name			Product Identity?	Type							Cost		Weight	Source Page		Innate Spells
 Bloodlink							TYPE:Magic.Wondrous.Amulet			COST:4800			SOURCEPAGE:p.52
 Brastlewark Brew						TYPE:Magic.Wondrous.Consumable		COST:150	WT:1		SOURCEPAGE:p.52

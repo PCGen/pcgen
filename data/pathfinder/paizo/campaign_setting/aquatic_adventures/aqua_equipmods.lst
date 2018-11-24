@@ -12,4 +12,4 @@ Aquadynamic (Greater)	KEY:Special Ability ~ Aquadynamic / Greater ~ Armor	TYPE:A
 
 ###BLOCK: Weapons
 # Modifier Name	Unique Key						Type							Plus		Visible		Source Page		Required Type				Prohibited Type		Special Property
-Underwater		KEY:Special Ability ~ Underwater ~ Weapon	TYPE:Weapon.Melee.Bludgeoning.Slashing	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.63	PRETYPE:3,Enhancement,Weapon,Melee	!PRETYPE:1,Piercing	SPROP:This ability can be placed only on a melee bludgeoning or slashing weapon. Melee attacks with the weapon don’t take the usual –2 penalty for attacking underwater, and they deal full damage.
+Underwater		KEY:Special Ability ~ Underwater ~ Weapon	TYPE:Weapon.Melee.Bludgeoning.Slashing	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.63	PRETYPE:3,Enhancement,Weapon,Melee	!PRETYPE:1,Piercing	SPROP:This ability can be placed only on a melee bludgeoning or slashing weapon. Melee attacks with the weapon don't take the usual -2 penalty for attacking underwater, and they deal full damage.

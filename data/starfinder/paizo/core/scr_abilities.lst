@@ -272,11 +272,11 @@ CATEGORY=Internal|Default.MOD																																																			
 #Encumbered
 #While encumbered, you reduce each of your movement speeds
 #by 10 feet, reduce your maximum Dexterity bonus to AC to +2,
-#and take a –5 penalty to Strength- and Dexterity-based checks.
+#and take a -5 penalty to Strength- and Dexterity-based checks.
 #Overburdened
 #If you have the overburdened condition, you reduce each of your
 #movement speeds to 5 feet, reduce your maximum Dexterity
-#bonus to AC to +0, and take a –5 penalty to Strength- and
+#bonus to AC to +0, and take a -5 penalty to Strength- and
 #Dexterity-based checks.
 #
 #
@@ -1998,7 +1998,7 @@ Size and Type				KEY:Gnome Default ~ Size and Type		SORTKEY:Race_01	CATEGORY:Rac
 Curious					KEY:Gnome Default ~ Curious			SORTKEY:Race_02	CATEGORY:Racial Trait	TYPE:Racial Trait.Gnome Racial Trait.Gnome Default Racial Trait														DESC:Gnomes receive a +2 racial bonus to Culture checks.																																																																																																																					BONUS:SKILL|Display ~ Culture|2|TYPE=Racial																									SOURCEPAGE:p.508
 Dimorphic					KEY:Gnome Default ~ Dimorphic			SORTKEY:Race_03a	CATEGORY:Racial Trait	TYPE:Racial Trait.Gnome Racial Trait.Gnome Default Racial Trait														DESC:A feychild gnome gains +2 Charisma, while a bleachling receives +2 Intelligence.																																																																																																			BONUS:ABILITYPOOL|Gnome Subrace Selection|1																																						SOURCEPAGE:p.508
 Eternal Hope				KEY:Gnome Default ~ Eternal Hope		SORTKEY:Race_04	CATEGORY:Racial Trait	TYPE:Racial Trait.Gnome Racial Trait.Gnome Default Racial Trait														DESC:Gnomes receive a +2 racial bonus to saving throws against fear and despair effects. Once per day, after rolling a 1 on a d20, the gnome can reroll and use the second result (see page 243).																																																																																																																														SOURCEPAGE:p.508	ASPECT:SaveBonus|+2 racial bonus to saving throws against fear and despair effects
-Gnome Magic					KEY:Gnome Default ~ Gnome Magic		SORTKEY:Race_05	CATEGORY:Racial Trait	TYPE:Racial Trait.Gnome Racial Trait.Gnome Default Racial Trait		SPELLS:Innate|CASTERLEVEL=TL|dancing lights|ghost sound|token spell	DESC:Gnomes gain the following spell-like abilities (see page 262): 1/day—dancing lights, ghost sound, and token spell. The caster level for these effects is equal to the gnome’s character level. In addition, gnomes get a +2 racial saving throw bonus against illusion spells and effects.																																																																																																															SOURCEPAGE:p.508	ASPECT:SaveBonus|+2 racial saving throw bonus against illusion spells and effects
+Gnome Magic					KEY:Gnome Default ~ Gnome Magic		SORTKEY:Race_05	CATEGORY:Racial Trait	TYPE:Racial Trait.Gnome Racial Trait.Gnome Default Racial Trait		SPELLS:Innate|CASTERLEVEL=TL|dancing lights|ghost sound|token spell	DESC:Gnomes gain the following spell-like abilities (see page 262): 1/day-dancing lights, ghost sound, and token spell. The caster level for these effects is equal to the gnome's character level. In addition, gnomes get a +2 racial saving throw bonus against illusion spells and effects.																																																																																																															SOURCEPAGE:p.508	ASPECT:SaveBonus|+2 racial saving throw bonus against illusion spells and effects
 Low-Light Vision				KEY:Gnome Default ~ Low-Light Vision	SORTKEY:Race_06	CATEGORY:Racial Trait	TYPE:Racial Trait.Gnome Racial Trait.Gnome Default Racial Trait														DESC:Gnomes can see in dim light as if it were normal light. See Vision and Light on page 261.																																																																																																																																															SOURCEPAGE:p.508
 
 # Gnome Subrace Selection
