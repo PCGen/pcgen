@@ -6,7 +6,7 @@
 # CRITRANGE
 # Legs deactivated PRELEGS - Which is currently used for BONUS:LOADMULT - need to do a table.
 #LEGS:Race_Legs
-CREATUREHANDS:Race_Hands
+#CREATUREHANDS:Race_Hands
 # 
 # FUMBLERANGE
 # 
@@ -35,7 +35,7 @@ FACE:Face
 # ACVARARMOR
 # 
 # EQREACH
-PCREACH:Race_Reach
+#PCREACH:Race_Reach
 # 
 # INITIATIVE
 # INITIATIVESTAT
