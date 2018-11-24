@@ -105,9 +105,9 @@ Pouch, belt							KEY:Pouch (Belt)			TYPE:Container	TYPE:Goods	CONTAINS:UNLIM|Go
 Candle												TYPE:Goods									COST:.01
 Rations, trail						KEY:Rations (Trail)		TYPE:Goods									COST:.5	WT:1
 Case, map or scroll					KEY:Case				TYPE:Goods.Container		CONTAINS:UNLIM|Scroll=1|Map=1	COST:1	WT:.5
-Rope, hemp (50’)						KEY:Rope (Hemp/50')		TYPE:Goods									COST:1	WT:10
-Chain (10’)							KEY:Chain (10')			TYPE:Goods									COST:30	WT:2
-Rope, silk (50’)						KEY:Rope (Silk/50')		TYPE:Goods									COST:10	WT:5
+Rope, hemp (50')						KEY:Rope (Hemp/50')		TYPE:Goods									COST:1	WT:10
+Chain (10')							KEY:Chain (10')			TYPE:Goods									COST:30	WT:2
+Rope, silk (50')						KEY:Rope (Silk/50')		TYPE:Goods									COST:10	WT:5
 Chalk													TYPE:Goods									COST:.01
 Sack								KEY:Sack				TYPE:Goods									COST:.1	WT:1
 Flint and steel											TYPE:Goods									COST:1
@@ -131,8 +131,8 @@ Whetstone												TYPE:Goods									COST:.02	WT:1
 
 # Tools and Kits
 Alchemist's lab											TYPE:Tools									COST:240	WT:40
-Climber’s kit											TYPE:Tools									COST:80	WT:5
-Healer’s kit											TYPE:Tools									COST:50	WT:1
+Climber's kit											TYPE:Tools									COST:80	WT:5
+Healer's kit											TYPE:Tools									COST:50	WT:1
 Magnifying glass											TYPE:Tools									COST:100
 Musical instrument (common)									TYPE:Tools									COST:5
 Musical instrument (masterwork)								TYPE:Tools									COST:100

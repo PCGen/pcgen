@@ -9,7 +9,7 @@ SOURCELONG:Pathfinder Player Companion: Dirty Tactics Toolbox	SOURCESHORT:DTT	SO
 # ==============================
 
 # Modifier Name												Unique Key										Type					Plus		Visible		Source Page		Multiple Requirements							Required Type											Special Property
-Adamant													KEY:Special Ability ~ Adamant ~ Armor					TYPE:Armor				PLUS:2	VISIBLE:QUALIFY	SOURCEPAGE:24											PRETYPE:3,Enhancement,Armor,Heavy								SPROP:Once per day grants DR 3/— for 9 rounds as a swift action.
+Adamant													KEY:Special Ability ~ Adamant ~ Armor					TYPE:Armor				PLUS:2	VISIBLE:QUALIFY	SOURCEPAGE:24											PRETYPE:3,Enhancement,Armor,Heavy								SPROP:Once per day grants DR 3/- for 9 rounds as a swift action.
 Ghost Spike													KEY:Special Ability ~ Ghost Spike ~ Armor					TYPE:Armor				PLUS:2	VISIBLE:QUALIFY	SOURCEPAGE:24											PRETYPE:2,Enhancement,Armor									SPROP:Once per day as a standard action, grows +1 ghost touch armor spikes for 10 rounds.
 Spellsink													KEY:Special Ability ~ Spellsink ~ Armor					TYPE:Armor.Shield			PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:24	PREMULT:2,[PRETYPE:1,Enhancement],[PRETYPE:1,Armor,Shield]														SPROP:Once per day can absorb targeted spell if caster fails DC 14 Will save.
 
