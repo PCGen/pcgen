@@ -185,9 +185,6 @@ public class HtmlInfoBuilder
 		buffer.append("<img src=\"").append(iconPath).append("\" >&nbsp;");
 	}
 
-	/**
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString()
 	{

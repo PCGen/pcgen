@@ -118,7 +118,7 @@ public class VariableChannelFactoryInst implements VariableChannelFactory
 		if (ref == null)
 		{
 			MonitorableVariableStore varStore = RESULT_FACET.get(id);
-			ref = new VariableChannel<>(MGR_FACET.get(id), varStore, varID);
+			ref = VariableChannel.construct(MGR_FACET.get(id), varStore, varID);
 			channels.put(varID, ref);
 			varStore.addVariableListener(varID, ref);
 		}
@@ -166,10 +166,7 @@ public class VariableChannelFactoryInst implements VariableChannelFactory
 	public static <T> void watchChannel(CharID id, String channelName,
 		DataFacetChangeListener<CharID, T> listener, int priority)
 	{
-		ScopeInstance globalInstance = SCOPE_FACET.getGlobalScope(id);
-		VariableID<T> varID = (VariableID<T>) LOAD_CONTEXT_FACET.get(id.getDatasetID())
-			.get().getVariableContext()
-			.getVariableID(globalInstance, ChannelUtilities.createVarName(channelName));
+		VariableID<T> varID = ChannelUtilities.getChannelVariableID(id, channelName);
 		RESULT_FACET.get(id).addVariableListener(priority, varID, new VariableListener<T>()
 		{
 			@Override
@@ -185,4 +182,5 @@ public class VariableChannelFactoryInst implements VariableChannelFactory
 			}
 		});
 	}
+
 }

@@ -53,9 +53,6 @@ import pcgen.util.Logging;
 
 /**
  * {@code SpinningTabbedPane}.
- *
- *
- * @see JTabbedPane
  */
 public class SpinningTabbedPane extends JTabbedPane
 {

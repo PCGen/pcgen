@@ -28,10 +28,13 @@ import javax.swing.undo.UndoManager;
 
 import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.cdom.meta.CorePerspective;
+import pcgen.core.Language;
 import pcgen.core.PCAlignment;
+import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.VariableProcessor;
 import pcgen.facade.util.DefaultListFacade;
@@ -65,13 +68,13 @@ public interface CharacterFacade extends CompanionFacade
 
 	public UndoManager getUndoManager();
 
-	public ReferenceFacade<GenderFacade> getGenderRef();
+	public ReferenceFacade<Gender> getGenderRef();
 
 	public void setAlignment(PCAlignment alignment);
 
 	public ReferenceFacade<PCAlignment> getAlignmentRef();
 
-	public void setGender(GenderFacade gender);
+	public void setGender(Gender gender);
 
 	public void setGender(String gender);
 
@@ -256,7 +259,7 @@ public interface CharacterFacade extends CompanionFacade
 
 	public boolean isQualifiedFor(ClassFacade c);
 
-	public boolean isAutomatic(LanguageFacade language);
+	public boolean isAutomatic(Language language);
 
 	/**
 	 * Is the user allowed to remove this language currently? 
@@ -264,14 +267,13 @@ public interface CharacterFacade extends CompanionFacade
 	 * @param language The language to be checked.
 	 * @return true if the language can be removed.
 	 */
-	public boolean isRemovable(LanguageFacade language);
+	public boolean isRemovable(Language language);
 
-	public void addTemplate(TemplateFacade template);
+	public void addTemplate(PCTemplate template);
 
-	public void removeTemplate(TemplateFacade template);
+	public void removeTemplate(PCTemplate template);
 
-	public ListFacade<TemplateFacade> getTemplates();
-	//public boolean isBonus(LanguageFacade language);
+	public ListFacade<PCTemplate> getTemplates();
 
 	/**
 	 * Note: this returns both the bonuses that the character
@@ -417,14 +419,14 @@ public interface CharacterFacade extends CompanionFacade
 
 	public ListFacade<HandedFacade> getAvailableHands();
 
-	public ListFacade<GenderFacade> getAvailableGenders();
+	public ListFacade<Gender> getAvailableGenders();
 
 	/**
 	 * @return The domains which the character has access to.
 	 */
 	public ListFacade<DomainFacade> getAvailableDomains();
 
-	public ListFacade<LanguageFacade> getLanguages();
+	public ListFacade<Language> getLanguages();
 
 	public ListFacade<LanguageChooserFacade> getLanguageChoosers();
 
@@ -432,7 +434,7 @@ public interface CharacterFacade extends CompanionFacade
 	 * Remove a bonus language from the character.
 	 * @param lang The language to be removed
 	 */
-	public void removeLanguage(LanguageFacade lang);
+	public void removeLanguage(Language lang);
 
 	/**
 	 * Write the character details, as defined by the export handler to the writer.
@@ -546,19 +548,19 @@ public interface CharacterFacade extends CompanionFacade
 	/**
 	 * @return A list of the defined age categories.  
 	 */
-	public ListFacade<SimpleFacade> getAgeCategories();
+	public ListFacade<String> getAgeCategories();
 
 	/**
 	 * Set the character's age category. Will also reset their age if the age category 
 	 * has changed.
 	 * @param ageCat The new age category to be set
 	 */
-	public void setAgeCategory(final SimpleFacade ageCat);
+	public void setAgeCategory(final String ageCat);
 
 	/**
 	 * @return A reference to the age category of the character.
 	 */
-	public ReferenceFacade<SimpleFacade> getAgeCategoryRef();
+	public ReferenceFacade<String> getAgeCategoryRef();
 
 	/**
 	 * @return A reference to the label text for the character's stats total 
@@ -656,17 +658,6 @@ public interface CharacterFacade extends CompanionFacade
 	 * @return True if it can be added, false if not.
 	 */
 	public boolean isQualifiedFor(EquipmentFacade equipFacade, EquipModFacade eqModFacade);
-
-	public void addCharacterChangeListener(CharacterChangeListener listener);
-
-	public void removeCharacterChangeListener(CharacterChangeListener listener);
-
-	public static interface CharacterChangeListener
-	{
-
-		public void characterChanged();
-
-	}
 
 	public Nature getAbilityNature(AbilityFacade ability);
 	//
@@ -873,4 +864,6 @@ public interface CharacterFacade extends CompanionFacade
 	public List<CoreViewNodeFacade> getCoreViewTree(CorePerspective pers);
 
 	CharID getCharID();
+
+	public boolean isQualifiedFor(PCTemplate element);
 }

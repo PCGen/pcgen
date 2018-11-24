@@ -44,7 +44,6 @@ import java.util.TreeSet;
  * 
  * @param <E>
  *            The Class stored in the WeightedCollection
- * @see java.util.Collection
  */
 public class WeightedCollection<E> extends AbstractCollection<E>
 {
@@ -149,8 +148,6 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	 *            The <tt>Collection</tt> to add the elements from.
 	 * @throws NullPointerException
 	 *             if the given Collection is null
-	 * 
-	 * @see java.util.List#addAll(java.util.Collection)
 	 */
 	@Override
 	public boolean addAll(Collection<? extends E> collection)
@@ -170,7 +167,6 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	 *            Element to add.
 	 * @return true if we added successfully
 	 * 
-	 * @see java.util.List#add(int, java.lang.Object)
 	 * @throws IllegalArgumentException
 	 *             if the given weight is less than zero
 	 */
@@ -205,7 +201,6 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	 * @return true if the element was added.
 	 * 
 	 * @see WeightedCollection#add(Object, int)
-	 * @see java.util.List#add(java.lang.Object)
 	 */
 	@Override
 	public boolean add(E element)
@@ -252,8 +247,6 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	 * called.
 	 * 
 	 * @return An <tt>Iterator</tt> for the WeightedCollection.
-	 * 
-	 * @see java.util.Collection#iterator()
 	 */
 	@Override
 	public Iterator<E> iterator()
@@ -287,8 +280,6 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	 * @param element
 	 *            The object to test for
 	 * @return <tt>true</tt> if the object is in the WeightedCollection.
-	 * 
-	 * @see java.util.Collection#contains(java.lang.Object)
 	 */
 	@Override
 	public boolean contains(Object element)
@@ -338,8 +329,6 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	 * @param element
 	 *            The element to remove
 	 * @return <tt>true</tt> if the element was removed.
-	 * 
-	 * @see java.util.Collection#remove(java.lang.Object)
 	 */
 	@Override
 	public boolean remove(Object element)
@@ -361,8 +350,6 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	 * Tests if this WeightedCollection has any elements.
 	 * 
 	 * @return <tt>true</tt> if the WeightedCollection contains no elements.
-	 * 
-	 * @see java.util.Collection#isEmpty()
 	 */
 	@Override
 	public boolean isEmpty()
@@ -372,8 +359,6 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 
 	/**
 	 * Removes all the elements from the WeightedCollection.
-	 * 
-	 * @see java.util.Collection#clear()
 	 */
 	@Override
 	public void clear()
@@ -398,8 +383,6 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	 *            WeightedCollection.
 	 * @return <tt>true</tt> if the specified object is equal to this
 	 *         WeightedCollection.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
 	public boolean equals(Object obj)
@@ -414,27 +397,12 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		return obj instanceof WeightedCollection && theData.equals(((WeightedCollection<?>) obj).theData);
 	}
 
-	/**
-	 * Returns the hash code value for this WeightedCollection.
-	 * <p>
-	 * 
-	 * @return the hash code value for this WeightedCollection.
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{
 		return theData.hashCode();
 	}
 
-	/**
-	 * Returns a string representation of the WeightedCollection.
-	 * 
-	 * @return A string representation of the values in the WeightedCollection.
-	 * 
-	 * @see java.lang.Object#toString()
-	 */
 	@SuppressWarnings("nls")
 	@Override
 	public String toString()
@@ -460,8 +428,6 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	 *         call.
 	 * @throws NullPointerException
 	 *             if the given Collection is null
-	 * 
-	 * @see java.util.List#addAll(int, java.util.Collection)
 	 */
 	public final boolean addAll(Collection<? extends E> collection, int weight)
 	{

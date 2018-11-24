@@ -111,7 +111,6 @@ public class CDOMDirectSingleRef<T extends Loadable> extends CDOMSingleRef<T>
 	 * 
 	 * @return A representation of this CDOMDirectSingleRef, suitable for
 	 *         storing in an LST file.
-	 * @see pcgen.cdom.base.CDOMReference#getLSTformat(boolean)
 	 */
 	@Override
 	public String getLSTformat(boolean useAny)
@@ -119,13 +118,6 @@ public class CDOMDirectSingleRef<T extends Loadable> extends CDOMSingleRef<T>
 		return referencedObject.getKeyName();
 	}
 
-	/**
-	 * Returns true if this CDOMDirectSingleRef is equal to the given Object.
-	 * Equality is defined as being another CDOMDirectSingleRef object with
-	 * equal underlying object.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{
@@ -133,11 +125,6 @@ public class CDOMDirectSingleRef<T extends Loadable> extends CDOMSingleRef<T>
 			&& referencedObject.equals(((CDOMDirectSingleRef<?>) obj).referencedObject);
 	}
 
-	/**
-	 * Returns the consistent-with-equals hashCode for this CDOMDirectSingleRef
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{

@@ -37,7 +37,6 @@ import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.facade.core.LanguageChooserFacade;
-import pcgen.facade.core.LanguageFacade;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.DefaultReferenceFacade;
 import pcgen.facade.util.ListFacade;
@@ -56,9 +55,9 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 	private final CharacterDisplay charDisplay;
 	private final ChooseDriver source;
 	private final String name;
-	private final DefaultListFacade<LanguageFacade> availableList;
-	private final DefaultListFacade<LanguageFacade> selectedList;
-	private final DefaultListFacade<LanguageFacade> originalSelectedList;
+	private final DefaultListFacade<Language> availableList;
+	private final DefaultListFacade<Language> selectedList;
+	private final DefaultListFacade<Language> originalSelectedList;
 	private final DefaultReferenceFacade<Integer> numSelectionsRemain;
 	private final CharacterFacadeImpl pcFacade;
 
@@ -180,7 +179,7 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 	 * @param langListFacade The list facade to be populated
 	 */
 	private void refreshLangListContents(List<? extends Language> langList,
-		DefaultListFacade<LanguageFacade> langListFacade)
+		DefaultListFacade<Language> langListFacade)
 	{
 		Collections.sort(langList);
 		langListFacade.clearContents();
@@ -190,11 +189,8 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 		}
 	}
 
-	/**
-	 * @see pcgen.facade.core.LanguageChooserFacade#addSelected(LanguageFacade)
-	 */
 	@Override
-	public void addSelected(LanguageFacade language)
+	public void addSelected(Language language)
 	{
 		if (numSelectionsRemain.get() <= 0)
 		{
@@ -205,57 +201,39 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 		numSelectionsRemain.set(numSelectionsRemain.get() - 1);
 	}
 
-	/**
-	 * @see pcgen.facade.core.LanguageChooserFacade#removeSelected(LanguageFacade)
-	 */
 	@Override
-	public void removeSelected(LanguageFacade language)
+	public void removeSelected(Language language)
 	{
 		selectedList.removeElement(language);
 		availableList.addElement(language);
 		numSelectionsRemain.set(numSelectionsRemain.get() + 1);
 	}
 
-	/**
-	 * @see pcgen.facade.core.LanguageChooserFacade#getAvailableList()
-	 */
 	@Override
-	public ListFacade<LanguageFacade> getAvailableList()
+	public ListFacade<Language> getAvailableList()
 	{
 		buildLanguageList();
 		return availableList;
 	}
 
-	/**
-	 * @see pcgen.facade.core.LanguageChooserFacade#getName()
-	 */
 	@Override
 	public String getName()
 	{
 		return name;
 	}
 
-	/**
-	 * @see pcgen.facade.core.LanguageChooserFacade#getRemainingSelections()
-	 */
 	@Override
 	public ReferenceFacade<Integer> getRemainingSelections()
 	{
 		return numSelectionsRemain;
 	}
 
-	/**
-	 * @see pcgen.facade.core.LanguageChooserFacade#getSelectedList()
-	 */
 	@Override
-	public ListFacade<LanguageFacade> getSelectedList()
+	public ListFacade<Language> getSelectedList()
 	{
 		return selectedList;
 	}
 
-	/**
-	 * @see pcgen.facade.core.LanguageChooserFacade#commit()
-	 */
 	@Override
 	@SuppressWarnings("unchecked")
 	public void commit()
@@ -263,9 +241,9 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 		ChoiceManagerList<Language> choiceManager = ChooserUtilities.getChoiceManager(source, theCharacter);
 
 		List<Language> selected = new ArrayList<>(selectedList.getSize());
-		for (LanguageFacade langFacade : selectedList)
+		for (Language language : selectedList)
 		{
-			selected.add((Language) langFacade);
+			selected.add(language);
 		}
 		choiceManager.applyChoices(theCharacter, selected);
 
@@ -273,9 +251,6 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 		pcFacade.refreshLanguageList();
 	}
 
-	/**
-	 * @see pcgen.facade.core.LanguageChooserFacade#rollback()
-	 */
 	@Override
 	public void rollback()
 	{

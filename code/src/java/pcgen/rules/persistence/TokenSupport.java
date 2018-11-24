@@ -25,13 +25,10 @@ import java.util.List;
 import java.util.Set;
 
 import pcgen.base.proxy.DeferredMethodController;
-import pcgen.base.proxy.ItemProcessor;
-import pcgen.base.proxy.ListProcessor;
-import pcgen.base.proxy.MapProcessor;
 import pcgen.base.proxy.StagingInfo;
-import pcgen.base.proxy.StagingInfoFactory;
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.DoubleKeyMapToList;
+import pcgen.base.util.ProxyUtilities;
 import pcgen.base.util.TripleKeyMapToList;
 import pcgen.base.util.WeightedCollection;
 import pcgen.cdom.base.GroupDefinition;
@@ -61,21 +58,6 @@ public class TokenSupport
 
 	private final TripleKeyMapToList<Class<?>, String, String, CDOMToken<?>> subTokenCache =
 			new TripleKeyMapToList<>(HashMap.class, CaseInsensitiveMap.class, CaseInsensitiveMap.class);
-
-	/**
-	 * The StagingInfoFactory used to as a Proxy factory for Interface tokens.
-	 */
-	private final StagingInfoFactory stagingFactory = new StagingInfoFactory();
-
-	/**
-	 * Constructs a new TokenSupport object.
-	 */
-	public TokenSupport()
-	{
-		stagingFactory.addProcessor(new ItemProcessor());
-		stagingFactory.addProcessor(new ListProcessor());
-		stagingFactory.addProcessor(new MapProcessor());
-	}
 
 	/**
 	 * Processes the given token information in the scope of the given LoadContext and
@@ -169,7 +151,8 @@ public class TokenSupport
 		CDOMInterfaceToken<R, W> interfaceToken)
 	{
 		StagingInfo<R, W> info =
-				stagingFactory.produceStaging(interfaceToken.getReadInterface(), interfaceToken.getTokenClass());
+				ProxyUtilities.getStagingFactory().produceStaging(
+					interfaceToken.getReadInterface(), interfaceToken.getTokenClass());
 		ParseResult parse;
 		try
 		{

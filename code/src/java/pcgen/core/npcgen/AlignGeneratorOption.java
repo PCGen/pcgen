@@ -31,9 +31,6 @@ public class AlignGeneratorOption extends GeneratorOption
 {
 	private WeightedCollection<PCAlignment> theChoices = null;
 
-	/**
-	 * @see pcgen.core.npcgen.GeneratorOption#addChoice(int, java.lang.String)
-	 */
 	@Override
 	public void addChoice(final int aWeight, final String aValue)
 	{

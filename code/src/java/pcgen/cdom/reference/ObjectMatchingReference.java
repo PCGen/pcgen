@@ -177,7 +177,6 @@ public class ObjectMatchingReference<T extends CDOMObject, V> extends CDOMRefere
 	 * 
 	 * @return A representation of this ObjectMatchingReference, suitable for
 	 *         storing in an LST file.
-	 * @see pcgen.cdom.base.CDOMReference#getLSTformat(boolean)
 	 */
 	@Override
 	public String getLSTformat(boolean useAny)
@@ -215,17 +214,6 @@ public class ObjectMatchingReference<T extends CDOMObject, V> extends CDOMRefere
 		allowNull = includesNulls;
 	}
 
-	/**
-	 * Returns true if this ObjectMatchingReference is equal to the given
-	 * Object. Equality is defined as being another ObjectMatchingReference
-	 * object with equal Class represented by the reference, an equal staring
-	 * CDOMGroupRef and an equal pattern. This may or may not be a deep .equals,
-	 * depending on the behavior of the underlying CDOMGroupRef. You should
-	 * check the documentation for the .equals(Object) method of that class to
-	 * establish the actual behavior of this method.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{
@@ -244,12 +232,6 @@ public class ObjectMatchingReference<T extends CDOMObject, V> extends CDOMRefere
 		return false;
 	}
 
-	/**
-	 * Returns the consistent-with-equals hashCode for this
-	 * ObjectMatchingReference
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{

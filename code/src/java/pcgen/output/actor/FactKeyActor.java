@@ -65,10 +65,6 @@ public class FactKeyActor<T> implements OutputActor<CDOMObject>
 		this.fk = fk;
 	}
 
-	/**
-	 * @see pcgen.output.base.OutputActor#process(pcgen.cdom.enumeration.CharID,
-	 *      java.lang.Object)
-	 */
 	@Override
 	public TemplateModel process(CharID id, CDOMObject d) throws TemplateModelException
 	{

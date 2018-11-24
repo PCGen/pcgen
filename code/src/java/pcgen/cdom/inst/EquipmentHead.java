@@ -79,11 +79,6 @@ public final class EquipmentHead extends CDOMObject
 		return index;
 	}
 
-	/**
-	 * Returns the consistent-with-equals hashCode for this EquipmentHead
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{
@@ -95,13 +90,6 @@ public final class EquipmentHead extends CDOMObject
 		return headSource;
 	}
 
-	/**
-	 * Returns true if this EquipmentHead is equal to the given Object. Equality
-	 * is defined as being another EquipmentHead object with equal CDOM
-	 * characteristics
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{
@@ -117,11 +105,6 @@ public final class EquipmentHead extends CDOMObject
 		return other.index == index && other.headSource.equals(headSource);
 	}
 
-	/**
-	 * Returns true if the EquipmentHead is of the given Type; false otherwise.
-	 * 
-	 * @see pcgen.cdom.base.CDOMObject#isType(java.lang.String)
-	 */
 	@Override
 	public boolean isType(String type)
 	{

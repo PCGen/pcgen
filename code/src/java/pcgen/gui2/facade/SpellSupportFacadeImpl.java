@@ -160,54 +160,36 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade, EquipmentList
 		updateSpellsTodo();
 	}
 
-	/**
-	 * @see pcgen.facade.core.SpellSupportFacade#getAvailableSpellNodes()
-	 */
 	@Override
 	public ListFacade<SpellNode> getAvailableSpellNodes()
 	{
 		return availableSpellNodes;
 	}
 
-	/**
-	 * @see pcgen.facade.core.SpellSupportFacade#getAllKnownSpellNodes()
-	 */
 	@Override
 	public ListFacade<SpellNode> getAllKnownSpellNodes()
 	{
 		return allKnownSpellNodes;
 	}
 
-	/**
-	 * @see pcgen.facade.core.SpellSupportFacade#getKnownSpellNodes()
-	 */
 	@Override
 	public ListFacade<SpellNode> getKnownSpellNodes()
 	{
 		return knownSpellNodes;
 	}
 
-	/**
-	 * @see pcgen.facade.core.SpellSupportFacade#getPreparedSpellNodes()
-	 */
 	@Override
 	public ListFacade<SpellNode> getPreparedSpellNodes()
 	{
 		return preparedSpellNodes;
 	}
 
-	/**
-	 * @see pcgen.facade.core.SpellSupportFacade#getBookSpellNodes()
-	 */
 	@Override
 	public ListFacade<SpellNode> getBookSpellNodes()
 	{
 		return bookSpellNodes;
 	}
 
-	/**
-	 * @see pcgen.facade.core.SpellSupportFacade#addKnownSpell(SpellNode)
-	 */
 	@Override
 	public void addKnownSpell(SpellNode spell)
 	{
@@ -226,9 +208,6 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade, EquipmentList
 		pcFacade.refreshAvailableTempBonuses();
 	}
 
-	/**
-	 * @see pcgen.facade.core.SpellSupportFacade#removeKnownSpell(SpellNode)
-	 */
 	@Override
 	public void removeKnownSpell(SpellNode spell)
 	{
@@ -242,9 +221,6 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade, EquipmentList
 		pcFacade.refreshAvailableTempBonuses();
 	}
 
-	/**
-	 * @see pcgen.facade.core.SpellSupportFacade#addPreparedSpell(SpellNode, String, boolean)
-	 */
 	@Override
 	public void addPreparedSpell(SpellNode spell, String spellList, boolean useMetamagic)
 	{
@@ -387,9 +363,6 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade, EquipmentList
 		return availableList;
 	}
 
-	/**
-	 * @see pcgen.facade.core.SpellSupportFacade#removePreparedSpell(SpellNode, java.lang.String)
-	 */
 	@Override
 	public void removePreparedSpell(SpellNode spell, String spellList)
 	{
@@ -440,9 +413,6 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade, EquipmentList
 		}
 	}
 
-	/**
-	 * @see pcgen.facade.core.SpellSupportFacade#addSpellList(java.lang.String)
-	 */
 	@Override
 	public void addSpellList(String spellList)
 	{
@@ -481,9 +451,6 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade, EquipmentList
 		}
 	}
 
-	/**
-	 * @see pcgen.facade.core.SpellSupportFacade#removeSpellList(java.lang.String)
-	 */
 	@Override
 	public void removeSpellList(String spellList)
 	{
@@ -523,9 +490,6 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade, EquipmentList
 		}
 	}
 
-	/**
-	 * @see pcgen.facade.core.SpellSupportFacade#addToSpellBook(SpellNode, java.lang.String)
-	 */
 	@Override
 	public void addToSpellBook(SpellNode spell, String spellBook)
 	{
@@ -562,9 +526,6 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade, EquipmentList
 		}
 	}
 
-	/**
-	 * @see pcgen.facade.core.SpellSupportFacade#removeFromSpellBook(SpellNode, java.lang.String)
-	 */
 	@Override
 	public void removeFromSpellBook(SpellNode spell, String spellBook)
 	{
@@ -623,9 +584,6 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade, EquipmentList
 		updateSpellsTodo();
 	}
 
-	/**
-	 * @see pcgen.facade.core.SpellSupportFacade#getClassInfo(ClassFacade)
-	 */
 	@Override
 	public String getClassInfo(ClassFacade spellcaster)
 	{
@@ -1417,36 +1375,24 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade, EquipmentList
 			this(spell, (ClassFacade) null, level, rootNode);
 		}
 
-		/**
-		 * @see pcgen.facade.core.SpellSupportFacade.SpellNode#getSpellcastingClass()
-		 */
 		@Override
 		public ClassFacade getSpellcastingClass()
 		{
 			return cls;
 		}
 
-		/**
-		 * @see pcgen.facade.core.SpellSupportFacade.SpellNode#getSpellLevel()
-		 */
 		@Override
 		public String getSpellLevel()
 		{
 			return level;
 		}
 
-		/**
-		 * @see pcgen.facade.core.SpellSupportFacade.SpellNode#getSpell()
-		 */
 		@Override
 		public SpellFacade getSpell()
 		{
 			return spell;
 		}
 
-		/**
-		 * @see pcgen.facade.core.SpellSupportFacade.SpellNode#getRootNode()
-		 */
 		@Override
 		public RootNode getRootNode()
 		{
@@ -1488,9 +1434,6 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade, EquipmentList
 			return LanguageBundle.getFormattedString("in_spellEmptyNode", countStr); //$NON-NLS-1$
 		}
 
-		/**
-		 * @see java.lang.Object#hashCode()
-		 */
 		@Override
 		public int hashCode()
 		{
@@ -1504,9 +1447,6 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade, EquipmentList
 			return result;
 		}
 
-		/**
-		 * @see java.lang.Object#equals(java.lang.Object)
-		 */
 		@Override
 		public boolean equals(Object obj)
 		{

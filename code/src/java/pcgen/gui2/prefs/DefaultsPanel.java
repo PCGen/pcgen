@@ -104,18 +104,12 @@ public class DefaultsPanel extends PCGenPrefsPanel
 		this.add(label);
 	}
 
-	/**
-	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#getTitle()
-	 */
 	@Override
 	public String getTitle()
 	{
 		return IN_DEFAULTS;
 	}
 
-	/**
-	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#setOptionsBasedOnControls()
-	 */
 	@Override
 	public void setOptionsBasedOnControls()
 	{
@@ -128,9 +122,6 @@ public class DefaultsPanel extends PCGenPrefsPanel
 			String.valueOf(previewSheetCombo.getSelectedItem()));
 	}
 
-	/**
-	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#applyOptionValuesToControls()
-	 */
 	@Override
 	public void applyOptionValuesToControls()
 	{

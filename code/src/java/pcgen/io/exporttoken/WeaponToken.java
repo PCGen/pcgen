@@ -108,18 +108,12 @@ public class WeaponToken extends Token
 	/** One weapon, both-hands = 7 */
 	public static final int HITMODE_THHIT = 7;
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return TOKENNAME;
 	}
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-	 */
 	@Override
 	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
@@ -742,11 +736,11 @@ public class WeaponToken extends Token
 	public static String getHeft(PlayerCharacter pc, Equipment eq)
 	{
 		String retString = "";
-		if (pc.getDisplay().sizeInt() > eq.sizeInt())
+		if (pc.sizeInt() > eq.sizeInt())
 		{
 			retString = "LIGHT";
 		}
-		else if (pc.getDisplay().sizeInt() == eq.sizeInt())
+		else if (pc.sizeInt() == eq.sizeInt())
 		{
 			retString = "MEDIUM";
 		}
@@ -2638,7 +2632,7 @@ public class WeaponToken extends Token
 		if (eq.isMonk() && eq.isUnarmed())
 		{
 			int eqSize = pc.getDisplay().getRace().getSafe(FormulaKey.SIZE).resolve(pc, "").intValue();
-			int iMod = pc.getDisplay().sizeInt();
+			int iMod = pc.sizeInt();
 
 			/* This modifies damage (by size) from the default when the race is
 			 * not the default size and the character is the default size for
@@ -2699,9 +2693,8 @@ public class WeaponToken extends Token
 		String profKey = getProfName(eq);
 		if (eq.isNatural())
 		{
-			//			int eqSize = Globals.sizeInt(pc.getRace().getSize());
-			int eqSize = pc.getDisplay().racialSizeInt();
-			int iMod = pc.getDisplay().sizeInt();
+			int eqSize = pc.racialSizeInt();
+			int iMod = pc.sizeInt();
 			iMod += (int) pc.getTotalBonusTo("WEAPONPROF=" + profKey, "DAMAGESIZE");
 			iMod += (int) pc.getTotalBonusTo("COMBAT", "DAMAGESIZE");
 			retString = Globals.adjustDamage(retString, eqSize, iMod);

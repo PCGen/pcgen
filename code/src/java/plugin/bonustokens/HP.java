@@ -44,7 +44,6 @@ public final class HP extends MultiTagBonusObj
 	/**
 	 * Get by index, an individual hit point attribute that may be bonused.
 	 * @param tagNumber the index of the hit point attribute.
-	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
 	 * @return The hit point attribute.
 	 */
 	@Override
@@ -55,7 +54,6 @@ public final class HP extends MultiTagBonusObj
 
 	/**
 	 * Get the number of hit point attributes that may be bonused.
-	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
 	 * @return The number of hit point attributes.
 	 */
 	@Override

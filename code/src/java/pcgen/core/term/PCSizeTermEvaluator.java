@@ -20,10 +20,10 @@
 
 package pcgen.core.term;
 
-import pcgen.core.display.CharacterDisplay;
+import pcgen.core.PlayerCharacter;
 import pcgen.core.spell.Spell;
 
-public class PCSizeTermEvaluator extends BasePCDTermEvaluator implements TermEvaluator
+public class PCSizeTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
 	public PCSizeTermEvaluator(String originalText)
 	{
@@ -32,21 +32,21 @@ public class PCSizeTermEvaluator extends BasePCDTermEvaluator implements TermEva
 
 	// This makes no sense as part of a numeric evaluator
 	@Override
-	public Float resolve(CharacterDisplay display)
+	public Float resolve(PlayerCharacter pc)
 	{
-		return TermUtil.convertToFloat(originalText, evaluate(display));
+		return TermUtil.convertToFloat(originalText, evaluate(pc));
 	}
 
 	@Override
-	public String evaluate(CharacterDisplay display)
+	public String evaluate(PlayerCharacter pc)
 	{
-		return String.valueOf(display.sizeInt());
+		return String.valueOf(pc.sizeInt());
 	}
 
 	@Override
-	public String evaluate(CharacterDisplay display, Spell aSpell)
+	public String evaluate(PlayerCharacter pc, Spell aSpell)
 	{
-		return String.valueOf(display.sizeInt());
+		return String.valueOf(pc.sizeInt());
 	}
 
 	@Override

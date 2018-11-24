@@ -221,9 +221,6 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 		this.add(label);
 	}
 
-	/**
-	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#applyOptionValuesToControls()
-	 */
 	@Override
 	public void applyOptionValuesToControls()
 	{
@@ -417,18 +414,12 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 		}
 	}
 
-	/**
-	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#getTitle()
-	 */
 	@Override
 	public String getTitle()
 	{
 		return IN_ABILITIES;
 	}
 
-	/**
-	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#setOptionsBasedOnControls()
-	 */
 	@Override
 	public void setOptionsBasedOnControls()
 	{
@@ -473,9 +464,6 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 	private final class PurchaseModeButtonListener implements ActionListener
 	{
 
-		/**
-		 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
-		 */
 		@Override
 		public void actionPerformed(ActionEvent actionEvent)
 		{

@@ -35,18 +35,12 @@ import pcgen.io.exporttoken.AbstractExportToken;
  */
 public class UnitSetToken extends AbstractExportToken
 {
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return "UNITSET";
 	}
 
-	/**
-	 * @see AbstractExportToken#getToken(String, CharacterDisplay, ExportHandler)
-	 */
 	@Override
 	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
 	{

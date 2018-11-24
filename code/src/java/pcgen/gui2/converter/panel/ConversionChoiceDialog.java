@@ -143,9 +143,6 @@ public class ConversionChoiceDialog extends JDialog implements ActionListener
 
 	}
 
-	/**
-	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
-	 */
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{

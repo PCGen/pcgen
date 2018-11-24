@@ -755,7 +755,7 @@ public class PCClass extends PObject implements ClassFacade, Cloneable
 	 */
 	String getUDamForEffLevel(int aLevel, final PlayerCharacter aPC, boolean adjustForPCSize)
 	{
-		int pcSize = adjustForPCSize ? aPC.sizeInt() : aPC.getDisplay().racialSizeInt();
+		int pcSize = adjustForPCSize ? aPC.sizeInt() : aPC.racialSizeInt();
 
 		//
 		// Check "Unarmed Strike", then default to "1d3"

@@ -23,8 +23,6 @@ import pcgen.cdom.base.Loadable;
  * A SimpleReferenceManufacturer is a ReferenceManufacturer that will construct
  * or reference non-categorized CDOMObjects.
  * 
- * @see pcgen.cdom.reference.ReferenceManufacturer
- * 
  * @param <T>
  *            The Class of object this SimpleReferenceManufacturer can
  *            manufacture

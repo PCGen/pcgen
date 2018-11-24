@@ -88,23 +88,12 @@ public class FollowerLimit
 		return formula;
 	}
 
-	/**
-	 * Returns a consistent-with-equals hashCode for this FollowerLimit
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{
 		return ref.hashCode() * 31 + formula.hashCode();
 	}
 
-	/**
-	 * Returns true if the given object is a FollowerLimit with identical
-	 * underlying CompanionList reference and limit Formula.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object o)
 	{

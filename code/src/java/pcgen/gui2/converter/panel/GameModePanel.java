@@ -63,9 +63,6 @@ public class GameModePanel extends ConvertSubPanel
 		return false;
 	}
 
-	/**
-	 * @see pcgen.gui2.converter.panel.ConvertSubPanel#returnAllowed()
-	 */
 	@Override
 	public boolean returnAllowed()
 	{

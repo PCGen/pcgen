@@ -359,7 +359,6 @@ public class AbilityCategory
 	 * Sets if abilities of this category should be displayed in the UI.
 	 * 
 	 * @param visible the visibility for abilities, i.e. hidden, visible, etc. 
-	 * @see pcgen.util.enumeration.Visibility
 	 */
 	public void setVisible(Visibility visible)
 	{

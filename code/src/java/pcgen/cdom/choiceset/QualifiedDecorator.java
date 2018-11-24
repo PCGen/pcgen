@@ -125,23 +125,12 @@ public class QualifiedDecorator<T extends CDOMObject> implements PrimitiveChoice
 		return returnSet;
 	}
 
-	/**
-	 * Returns true if this given object is a QualifiedDecorator with identical
-	 * underlying PrimitiveChoiceSet
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{
 		return (obj instanceof QualifiedDecorator) && ((QualifiedDecorator<?>) obj).underlyingPCS.equals(underlyingPCS);
 	}
 
-	/**
-	 * Returns a consistent-with-equals hashCode for this QualifiedDecorator
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{

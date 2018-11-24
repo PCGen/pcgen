@@ -75,7 +75,18 @@ public final class CControl
 	public static final String STATMODSAVE = "STATMODSAVE";
 	public static final String RACESAVE = "RACESAVE";
 
+	/**
+	 * Code Control for the Base Size (original size for the race) of a PC.
+	 */
+	public static final String BASESIZE = "BASESIZE";
+
+	/**
+	 * Code Control for the Current Size of a PC.
+	 */
+	public static final String PCSIZE = "PCSIZE";
+
 	public static final CControl ALIGNMENTINPUT = new CControl("ALIGNMENTINPUT", "Alignment");
+
 
 	/**
 	 * The name of a code control that contains a default value. This is used when a Code

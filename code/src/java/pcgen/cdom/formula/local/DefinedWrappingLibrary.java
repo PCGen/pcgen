@@ -19,7 +19,6 @@ import java.util.Objects;
 
 import pcgen.base.formula.base.FormulaFunction;
 import pcgen.base.formula.base.FunctionLibrary;
-import pcgen.base.formula.base.VarScoped;
 import pcgen.base.util.FormatManager;
 
 /**
@@ -42,7 +41,7 @@ public class DefinedWrappingLibrary implements FunctionLibrary
 	/**
 	 * The value of the defined function.
 	 */
-	private final VarScoped definedValue;
+	private final Object definedValue;
 
 	/**
 	 * The FormatManager indicating the format of the return value for the defined
@@ -64,7 +63,7 @@ public class DefinedWrappingLibrary implements FunctionLibrary
 	 *            The FormatManager indicating the format of the return value for this
 	 *            DefinedWrappingLibrary
 	 */
-	public DefinedWrappingLibrary(FunctionLibrary functionLibrary, String definedName, VarScoped definedValue,
+	public DefinedWrappingLibrary(FunctionLibrary functionLibrary, String definedName, Object definedValue,
 		FormatManager<?> formatManager)
 	{
 		this.functionLibrary = Objects.requireNonNull(functionLibrary);

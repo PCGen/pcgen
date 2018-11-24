@@ -92,23 +92,12 @@ public class ChangeProf extends ConcretePrereqObject
 		return result;
 	}
 
-	/**
-	 * Returns a consistent-with-equals hashCode for this ChangeProf
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{
 		return 31 * source.hashCode() + result.hashCode();
 	}
 
-	/**
-	 * Returns true if the given object is a ChangeProf with identical source
-	 * and target Group
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{

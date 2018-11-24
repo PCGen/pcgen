@@ -67,36 +67,24 @@ public class DomainFacadeImpl extends QualifiedObject<Domain> implements DomainF
 		super(domain, prereq);
 	}
 
-	/**
-	 * @see pcgen.facade.core.InfoFacade#getKeyName()
-	 */
 	@Override
 	public String getKeyName()
 	{
 		return getRawObject().getKeyName();
 	}
 
-	/**
-	 * @see pcgen.facade.core.InfoFacade#getSource()
-	 */
 	@Override
 	public String getSource()
 	{
 		return SourceFormat.getFormattedString(getRawObject(), Globals.getSourceDisplay(), true);
 	}
 
-	/**
-	 * @see pcgen.facade.core.InfoFacade#getSourceForNodeDisplay()
-	 */
 	@Override
 	public String getSourceForNodeDisplay()
 	{
 		return SourceFormat.getFormattedString(getRawObject(), SourceFormat.LONG, false);
 	}
 
-	/**
-	 * @see pcgen.core.QualifiedObject#toString()
-	 */
 	@Override
 	public String toString()
 	{

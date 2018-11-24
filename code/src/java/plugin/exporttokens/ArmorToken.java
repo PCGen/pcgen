@@ -499,11 +499,12 @@ public class ArmorToken extends Token
 			final StringTokenizer aTok = new StringTokenizer(eq.moveString(), ",", false);
 			String tempString = "";
 
-			if (("M".equals(display.getSize()) || "S".equals(display.getSize())) && (aTok.countTokens() > 0))
+			String sizeAbb = aPC.getSizeAdjustment().getKeyName();
+			if (("M".equals(sizeAbb) || "S".equals(sizeAbb)) && (aTok.countTokens() > 0))
 			{
 				tempString = aTok.nextToken();
 
-				if ("S".equals(display.getSize()) && (aTok.countTokens() > 1))
+				if ("S".equals(sizeAbb) && (aTok.countTokens() > 1))
 				{
 					tempString = aTok.nextToken();
 				}

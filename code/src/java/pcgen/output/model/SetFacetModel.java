@@ -75,18 +75,12 @@ public class SetFacetModel<T> implements TemplateSequenceModel, Iterable<T>
 		this.facet = facet;
 	}
 
-	/**
-	 * @see java.lang.Iterable#iterator()
-	 */
 	@Override
 	public Iterator<T> iterator()
 	{
 		return facet.getSet(id).iterator();
 	}
 
-	/**
-	 * @see freemarker.template.TemplateSequenceModel#get(int)
-	 */
 	@Override
 	public TemplateModel get(int index) throws TemplateModelException
 	{
@@ -102,9 +96,6 @@ public class SetFacetModel<T> implements TemplateSequenceModel, Iterable<T>
 		return WRAPPER_FACET.wrap(id, list.get(index));
 	}
 
-	/*
-	 * @see freemarker.template.TemplateSequenceModel#size()
-	 */
 	@Override
 	public int size() throws TemplateModelException
 	{

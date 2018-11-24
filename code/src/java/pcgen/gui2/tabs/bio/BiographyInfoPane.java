@@ -52,12 +52,11 @@ import org.apache.commons.lang3.StringUtils;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.BiographyField;
+import pcgen.cdom.enumeration.Gender;
 import pcgen.core.PCAlignment;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.DeityFacade;
-import pcgen.facade.core.GenderFacade;
 import pcgen.facade.core.HandedFacade;
-import pcgen.facade.core.SimpleFacade;
 import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
@@ -66,6 +65,7 @@ import pcgen.gui2.tabs.TabTitle;
 import pcgen.gui2.tabs.models.CharacterComboBoxModel;
 import pcgen.gui2.tabs.models.FormattedFieldHandler;
 import pcgen.gui2.tabs.models.TextFieldHandler;
+import pcgen.gui2.util.ManagedField;
 import pcgen.gui2.util.ScrollablePanel;
 import pcgen.system.LanguageBundle;
 
@@ -345,18 +345,18 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 	private static class GenderItem extends BioItem
 	{
 
-		private final CharacterComboBoxModel<GenderFacade> genderModel;
+		private final CharacterComboBoxModel<Gender> genderModel;
 
 		public GenderItem(final CharacterFacade character)
 		{
 			super("in_gender", BiographyField.GENDER, character); //$NON-NLS-1$
-			genderModel = new CharacterComboBoxModel<GenderFacade>()
+			genderModel = new CharacterComboBoxModel<Gender>()
 			{
 
 				@Override
 				public void setSelectedItem(Object anItem)
 				{
-					character.setGender((GenderFacade) anItem);
+					character.setGender((Gender) anItem);
 				}
 
 			};
@@ -458,13 +458,13 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 		public AgeItem(final CharacterFacade character)
 		{
 			super("in_age", BiographyField.AGE, character); //$NON-NLS-1$
-			CharacterComboBoxModel<SimpleFacade> ageModel = new CharacterComboBoxModel<SimpleFacade>()
+			CharacterComboBoxModel<String> ageModel = new CharacterComboBoxModel<String>()
 			{
 
 				@Override
 				public void setSelectedItem(Object anItem)
 				{
-					character.setAgeCategory((SimpleFacade) anItem);
+					character.setAgeCategory((String) anItem);
 				}
 
 			};
@@ -667,7 +667,11 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 		private JLabel trailinglabel = null;
 		private final BiographyField bioField;
 		private final CharacterFacade character;
-		private TextFieldHandler textFieldHandler;
+		
+		/**
+		 * The ManagedField holding the information for this BioItem.
+		 */
+		private ManagedField textFieldHandler;
 		private FormattedFieldHandler formattedFieldHandler;
 
 		protected BioItem(String text, BiographyField bioField, CharacterFacade character)
@@ -740,7 +744,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			}
 		}
 
-		protected void setTextFieldHandler(TextFieldHandler handler)
+		protected void setTextFieldHandler(ManagedField handler)
 		{
 			if (textField != null)
 			{

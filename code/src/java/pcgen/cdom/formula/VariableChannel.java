@@ -75,7 +75,8 @@ public final class VariableChannel<T> implements VariableListener<T>, WriteableR
 	 *            The VariableID indicating to which Variable this
 	 *            VariableChannel is providing an interface
 	 */
-	public VariableChannel(SolverManager manager, MonitorableVariableStore varStore, VariableID<T> varID)
+	private VariableChannel(SolverManager manager, MonitorableVariableStore varStore,
+		VariableID<T> varID)
 	{
 		this.manager = Objects.requireNonNull(manager);
 		this.varStore = Objects.requireNonNull(varStore);
@@ -145,6 +146,36 @@ public final class VariableChannel<T> implements VariableListener<T>, WriteableR
 			}
 			listeners[i].referenceChanged(e);
 		}
+	}
+
+	/**
+	 * Returns the VariableID for this VariableChannel.
+	 * 
+	 * As a note on object cleanup: The returned VariableChannel is a listener
+	 * to the given MonitorableVariableStore. Should use of this VariableChannel
+	 * be no longer necessary, then the disconnect() method of the
+	 * VariableChannel should be called in order to disconnect the
+	 * VariableChannel from the WriteableVariableStore.
+	 * 
+	 * @param manager
+	 *            The underlying SolverManager that solves the given
+	 *            VariableID
+	 * @param varStore
+	 *            The MonitorableVariableStore that the results of the
+	 *            calculations by the SolverManager are placed in
+	 * @param varID
+	 *            The VariableID indicating to which Variable this
+	 *            VariableChannel is providing an interface
+	 * @return A new VariableChannel linked as a listener to the given
+	 *         MonitorableVariableStore for the given VariableID
+	 */
+	public static <T> VariableChannel<T> construct(SolverManager manager,
+		MonitorableVariableStore varStore, VariableID<T> varID)
+	{
+		VariableChannel<T> ref =
+				new VariableChannel<>(manager, varStore, varID);
+		varStore.addVariableListener(varID, ref);
+		return ref;
 	}
 
 	/**

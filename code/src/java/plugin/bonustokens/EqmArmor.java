@@ -53,7 +53,6 @@ public final class EqmArmor extends MultiTagBonusObj
 
 	/**
 	 * Get the number of armour equipment attributes that may be bonused.
-	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
 	 * @return The number of equipment attributes.
 	 */
 	@Override

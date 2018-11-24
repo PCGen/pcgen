@@ -26,7 +26,7 @@ import pcgen.core.Kit;
 import pcgen.core.PCAlignment;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.RaceAlignment;
-import pcgen.output.channel.ChannelCompatibility;
+import pcgen.output.channel.compat.AlignmentCompat;
 
 /**
  * Deals with the automatic assignment of an Alignment via a Kit
@@ -47,7 +47,7 @@ public class KitAlignment extends BaseKit
 	@Override
 	public void apply(PlayerCharacter aPC)
 	{
-		ChannelCompatibility.setCurrentAlignment(aPC.getCharID(), align);
+		AlignmentCompat.setCurrentAlignment(aPC.getCharID(), align);
 	}
 
 	/**

@@ -739,9 +739,6 @@ public class JTreeTable extends JTableEx
 		final class ListSelectionHandler implements ListSelectionListener
 		{
 
-			/**
-			 * @see javax.swing.event.ListSelectionListener#valueChanged(javax.swing.event.ListSelectionEvent)
-			 */
 			@Override
 			public void valueChanged(@SuppressWarnings("unused") ListSelectionEvent e)
 			{
@@ -805,9 +802,6 @@ public class JTreeTable extends JTableEx
 			return false;
 		}
 
-		/**
-		 * @see TableCellEditor#getTableCellEditorComponent(JTable, Object, boolean, int, int)
-		 */
 		@Override
 		public Component getTableCellEditorComponent(@SuppressWarnings("unused") JTable table,
 			@SuppressWarnings("unused") Object value, @SuppressWarnings("unused") boolean isSelected,
@@ -878,8 +872,6 @@ public class JTreeTable extends JTableEx
 
 		/**
 		 * Overridden to potential show the popup menu.
-		 *
-		 * @see java.awt.event.MouseAdapter#mousePressed(java.awt.event.MouseEvent)
 		 */
 		@Override
 		public void mousePressed(MouseEvent evt)
@@ -889,8 +881,6 @@ public class JTreeTable extends JTableEx
 
 		/**
 		 * Overridden to potentially show the popup menu.
-		 *
-		 * @see java.awt.event.MouseAdapter#mouseReleased(java.awt.event.MouseEvent)
 		 */
 		@Override
 		public void mouseReleased(MouseEvent evt)

@@ -264,7 +264,7 @@ import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.io.PCGFile;
 import pcgen.io.exporttoken.EqToken;
-import pcgen.output.channel.ChannelCompatibility;
+import pcgen.output.channel.compat.AlignmentCompat;
 import pcgen.persistence.lst.GlobalModifierLoader;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
@@ -5882,7 +5882,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 	public int sizeInt()
 	{
-		return sizeFacet.sizeInt(id);
+		return getSizeAdjustment().get(IntegerKey.SIZEORDER);
 	}
 
 	private int totalHitDice()
@@ -6231,7 +6231,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 		if (!SettingsHandler.getGame().getAlignmentText().isEmpty())
 		{
-			PCAlignment align = ChannelCompatibility.getCurrentAlignment(id);
+			PCAlignment align = AlignmentCompat.getCurrentAlignment(id);
 			if (align != null)
 			{
 				list.add(align);
@@ -6283,7 +6283,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		}
 
 		// SizeAdjustment
-		SizeAdjustment sa = sizeFacet.get(id);
+		SizeAdjustment sa = getSizeAdjustment();
 		if (sa != null)
 		{
 			list.add(sa);
@@ -6666,7 +6666,15 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 	public SizeAdjustment getSizeAdjustment()
 	{
-		return sizeFacet.get(id);
+		String sizeControl = getControl(CControl.PCSIZE);
+		if (sizeControl != null)
+		{
+			return (SizeAdjustment) getGlobal(sizeControl);
+		}
+		else
+		{
+			return sizeFacet.get(id);
+		}
 	}
 
 	public int getSpellClassCount()
@@ -10144,5 +10152,33 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	public <T> T solve(NEPFormula<T> formula)
 	{
 		return solverManagerFacet.get(id).solve(formula);
+	}
+
+	/**
+	 *
+	 * @return the racial size
+	 */
+	public int racialSizeInt()
+	{
+		String baseSizeControl = getControl(CControl.BASESIZE);
+		if (baseSizeControl != null)
+		{
+			SizeAdjustment baseSize = (SizeAdjustment) getGlobal(baseSizeControl);
+			return baseSize.get(IntegerKey.SIZEORDER);
+		}
+		else
+		{
+			return sizeFacet.racialSizeInt(id);
+		}
+	}
+
+	public String getGenderString()
+	{
+		return genderFacet.getGender(id).toString();
+	}
+
+	public Gender getGenderObject()
+	{
+		return genderFacet.getGender(id);
 	}
 }
