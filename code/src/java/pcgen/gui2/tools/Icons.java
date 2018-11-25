@@ -18,8 +18,7 @@
 package pcgen.gui2.tools;
 
 import java.net.URL;
-import java.util.Map;
-import java.util.WeakHashMap;
+import java.util.EnumMap;
 
 import javax.swing.ImageIcon;
 
@@ -49,13 +48,15 @@ public enum Icons
 	stock_list_bulet("-16.png"), stock_list_enum("-16.png"), stock_new("-16.png"), stock_paste("-16.png"),
 	stock_revert("-16.png"), stock_save("-16.png"), stock_spellcheck("-16.png"), stock_text_align_center("-16.png"),
 	stock_text_align_left("-16.png"), stock_text_align_right("-16.png"), stock_text_bold("-16.png"),
-	stock_text_italic("-16.png"), stock_text_underline("-16.png");
+	stock_text_italic("-16.png"), stock_text_underline("-16.png"),
+	ennie_award_2003("bronze200x200-2003.gif"), ennie_award_2005("gold200x200-2005.gif"),
+	menu_mode_rgb("menu-mode-RGB-alt.png");
 
 	/** Path to icons file */
 	private static final String RESOURCE_URL = "/pcgen/resources/images/";
 
 	/** Image cache */
-	private static final Map<Icons, ImageIcon> ICON_MAP = new WeakHashMap<>(Icons.values().length);
+	private static final EnumMap<Icons, ImageIcon> ICON_MAP = new EnumMap<>(Icons.class);
 
 	private final String extension;
 
@@ -73,10 +74,8 @@ public enum Icons
 	 *
 	 * @return {@code ImageIcon}, the icon or {@code null}
 	 * on failure
-	 * @deprecated Should be private to force use of cache. Filename should be defined in this file as enum.
 	 */
-	@Deprecated
-	public static ImageIcon createImageIcon(String fileName)
+	private static ImageIcon createImageIcon(String fileName)
 	{
 		fileName = RESOURCE_URL + fileName;
 		final URL iconURL = Icons.class.getResource(fileName);
