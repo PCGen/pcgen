@@ -20,55 +20,19 @@ package pcgen.util;
 
 import java.util.Iterator;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-
-import org.nfunk.jep.SymbolTable;
-
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 
+import org.nfunk.jep.SymbolTable;
+
 /**
  * Tests {@link PJEP}.
  */
 public class PJepTest extends AbstractCharacterTestCase
 {
-	/**
-	 * Constructs a new {@code PJepTest}.
-	 *
-	 * @see pcgen.PCGenTestCase#PCGenTestCase()
-	 */
-	public PJepTest()
-	{
-		super();
-	}
-
-	/**
-	 * Constructs a new {@code PJepTest} with the given <var>name</var>.
-	 *
-	 * @param name the test case name
-	 *
-	 * @see pcgen.PCGenTestCase#PCGenTestCase(String)
-	 */
-	public PJepTest(final String name)
-	{
-		super(name);
-	}
-
-	public static void main(final String[] args)
-	{
-		junit.textui.TestRunner.run(PJepTest.class);
-	}
-
-	public static Test suite()
-	{
-		// quick method, adds all methods beginning with "test"
-		return new TestSuite(PJepTest.class);
-	}
-
 	public void testMin()
 	{
 		final PJEP jep = new PJEP();

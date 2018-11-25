@@ -61,15 +61,6 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	private PCClass monsterClass;
 	private PCClass companionClass;
 
-	/**
-	 * Run the test
-	 * @param args don't need args apparently
-	 */
-	public static void main(final String[] args)
-	{
-		junit.textui.TestRunner.run(ChallengeRatingPathfinderTest.class);
-	}
-
 	@Override
 	protected void additionalSetUp() throws Exception
 	{

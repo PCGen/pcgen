@@ -17,9 +17,6 @@
  */
 package pcgen.core.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.DamageReduction;
@@ -37,19 +34,6 @@ public class PreDRTest extends AbstractCharacterTestCase
 {
 	private Race race = new Race();
 	private DamageReduction drPlus1;
-
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreDRTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreDRTest.class);
-	}
 
 	/**
 	 * Test basic functionality.

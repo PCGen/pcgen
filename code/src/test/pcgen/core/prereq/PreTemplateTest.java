@@ -17,9 +17,6 @@
  */
 package pcgen.core.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
@@ -28,19 +25,6 @@ import plugin.pretokens.test.PreTemplateTester;
 
 public class PreTemplateTest extends AbstractCharacterTestCase
 {
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreTemplateTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreTemplateTest.class);
-	}
-
 	/**
 	 * Ensure a character with a template correctly passes
 	 * PRETEMPLATE

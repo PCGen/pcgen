@@ -101,14 +101,6 @@ public final class PurchaseModeFrame extends JDialog
 		initComponents();
 	}
 
-	/**
-	 * @param args the command line arguments
-	 */
-	public static void main(String[] args)
-	{
-		new PurchaseModeFrame().setVisible(true);
-	}
-
 	//
 	// Pop up a window to get information about a new purchase method
 	//

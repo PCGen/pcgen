@@ -46,27 +46,6 @@ import plugin.lsttokens.testsupport.BuildUtilities;
  */
 public class PreArmorProfTest extends AbstractCharacterTestCase
 {
-	
-	/**
-	 * The main method.
-	 * 
-	 * @param args the arguments
-	 */
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreArmorProfTest.class);
-	}
-
-	/**
-	 * Suite.
-	 * 
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreArmorProfTest.class);
-	}
-	
 	/**
 	 * Test with a simple armor proficiency.
 	 * 

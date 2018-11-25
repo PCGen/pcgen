@@ -49,19 +49,6 @@ public class PreMultTest extends AbstractCharacterTestCase
 	private Skill knowledge;
 	private PCClass myClass;
 
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreMultTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreMultTest.class);
-	}
-
 	/**
 	 * @see junit.framework.TestCase#setUp()
 	 */

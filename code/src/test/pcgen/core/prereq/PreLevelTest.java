@@ -47,19 +47,6 @@ public class PreLevelTest extends AbstractCharacterTestCase
 	private PCClass myClass = new PCClass();
 	private Race race = new Race();
 
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreLevelTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreLevelTest.class);
-	}
-
 	/**
 	 * Test that Level works.
 	 *
