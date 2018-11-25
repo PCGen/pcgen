@@ -26,7 +26,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
- * <code>PreDomainTest</code> tests that the PREDOMAIN tag is
+ * {@code PreDomainTest} tests that the PREDOMAIN tag is
  * working correctly.
  */
 public class PreCharactertypeTest extends AbstractCharacterTestCase

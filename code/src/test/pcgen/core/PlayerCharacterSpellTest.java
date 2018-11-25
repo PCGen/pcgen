@@ -36,7 +36,7 @@ import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
- * The Class <code>PlayerCharacterSpellTest</code> checks the function of spell related
+ * The Class {@code PlayerCharacterSpellTest} checks the function of spell related
  * code in PlayerCharacter and associated objects.
  *
  * <br/>

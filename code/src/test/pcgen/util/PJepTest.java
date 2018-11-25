@@ -37,7 +37,7 @@ import pcgen.core.Race;
 public class PJepTest extends AbstractCharacterTestCase
 {
 	/**
-	 * Constructs a new <code>PJepTest</code>.
+	 * Constructs a new {@code PJepTest}.
 	 *
 	 * @see pcgen.PCGenTestCase#PCGenTestCase()
 	 */
@@ -47,7 +47,7 @@ public class PJepTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Constructs a new <code>PJepTest</code> with the given <var>name</var>.
+	 * Constructs a new {@code PJepTest} with the given <var>name</var>.
 	 *
 	 * @param name the test case name
 	 *

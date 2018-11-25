@@ -31,7 +31,7 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.pretokens.parser.PreAbilityParser;
 
 /**
- * The Class <code>DataSetTest</code> check that the Dataset class is functioning 
+ * The Class {@code DataSetTest} check that the Dataset class is functioning
  * correctly.
  *
  * <br/>

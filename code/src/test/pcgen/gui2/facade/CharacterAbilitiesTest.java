@@ -34,7 +34,7 @@ import plugin.lsttokens.choose.StringToken;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
- * The Class <code>CharacterAbilitiesTest</code> verifies the operation of the 
+ * The Class {@code CharacterAbilitiesTest} verifies the operation of the
  * CharacterAbilities class.
  *
  * <br/>

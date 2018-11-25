@@ -29,7 +29,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
- * <code>PreLegsTest</code> tests that the PRELEGS tag is
+ * {@code PreLegsTest} tests that the PRELEGS tag is
  * working correctly.
  */
 public class PreLegsTest extends AbstractCharacterTestCase

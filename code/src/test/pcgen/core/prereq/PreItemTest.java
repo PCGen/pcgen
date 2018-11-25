@@ -28,7 +28,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
- * <code>PreItemTest</code> tests that the PREITEM tag is
+ * {@code PreItemTest} tests that the PREITEM tag is
  * working correctly.
  */
 public class PreItemTest extends AbstractCharacterTestCase

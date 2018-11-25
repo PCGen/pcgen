@@ -990,7 +990,7 @@ public class NameGenPanel extends JPanel
 	}
 
 	/**
-	 * The Class <code>GeneratorDtdResolver</code> is an EntityResolver implementation 
+	 * The Class {@code GeneratorDtdResolver} is an EntityResolver implementation
 	 * for use with a SAX parser. It forces the generator.dtd to be read from a 
 	 * known location.
 	 */

@@ -53,7 +53,7 @@ import pcgen.io.ExportHandler;
  * can pick up on. To operate like this, all values returned
  * from this class, with a couple of exceptions, are models that can
  * be listenered to. Two of the most commonly used models are
- * the {@code ReferenceFacade} and the <code>ListFacade</code>
+ * the {@code ReferenceFacade} and the {@code ListFacade}
  *
  * Note: This facade returns references to items of interest.
  * These allow not only the values to be retrieved but also

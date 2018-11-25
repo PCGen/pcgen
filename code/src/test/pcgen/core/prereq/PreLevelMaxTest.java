@@ -36,7 +36,7 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
 
 /**
- * <code>PreLevelMaxTest</code> tests that the PRELEVELMAX tag is
+ * {@code PreLevelMaxTest} tests that the PRELEVELMAX tag is
  * working correctly.
  */
 public class PreLevelMaxTest extends AbstractCharacterTestCase

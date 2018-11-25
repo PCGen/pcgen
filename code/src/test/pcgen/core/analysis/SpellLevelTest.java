@@ -41,7 +41,7 @@ import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
- * The Class <code>SpellLevelTest</code> checks the SpellLevel class.
+ * The Class {@code SpellLevelTest} checks the SpellLevel class.
  * 
  * 
  */

@@ -28,7 +28,7 @@ import junit.textui.TestRunner;
 
 
 /**
- * <code>InfoLabelTextBuilderTest</code> tests the HtmlInfoBuilder.
+ * {@code InfoLabelTextBuilderTest} tests the HtmlInfoBuilder.
  */
 @SuppressWarnings("nls")
 public class HtmlInfoBuilderTest extends TestCase

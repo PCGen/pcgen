@@ -271,7 +271,7 @@ public class AttackDialog extends JDialog
 	}
 
 	/**
-	 * Handles actions from <code>m_targetsCombo</code>; sets chosen combatant
+	 * Handles actions from {@code m_targetsCombo}; sets chosen combatant
 	 * and value of armor class.
 	 *
 	 * @param e Event which fired this handler
@@ -288,8 +288,8 @@ public class AttackDialog extends JDialog
 	}
 
 	/**
-	 * Handles actions from the Roll button; calls table model's <code>rollAttacks</code>
-	 * method with the value of <code>m_field</code>
+	 * Handles actions from the Roll button; calls table model's {@code rollAttacks}
+	 * method with the value of {@code m_field}
 	 */
 	protected void performRoll()
 	{
@@ -469,7 +469,7 @@ public class AttackDialog extends JDialog
 		 * efficient but saves me a lot of typing.  Use fields COLUMN_INDEX_XYZ as the second index.
 		 * You can use columnFromKey(COLUMN_KEY_XYZ) to get the first (column number) index.
 		 * This array is used to initialize the names of the columns and for returning values from
-		 * <code>getColumClass</code> and <code>isCellEditable</code>.
+		 * {@code getColumClass} and <code>isCellEditable</code>.
 		 */
 		/*
 		 * CONSIDER Could this be a List<Blah> where Blah is a type-safe immutable object?
@@ -580,7 +580,7 @@ public class AttackDialog extends JDialog
 		}
 
 		/**
-		 * Iterates through all rows in the table and calls <code>rollAttack(row)</code>.
+		 * Iterates through all rows in the table and calls {@code rollAttack(row)}.
 		 */
 		public void rollAttacks()
 		{
@@ -635,8 +635,8 @@ public class AttackDialog extends JDialog
 
 		/**
 		 * Recalculates the data values on the requested row, based on changes to the
-		 * column index supplied.  Be aware that this does itself call <code>setValueAt</code>,
-		 * so care must be taken to avoid an infinite recursive call.  The <code>if</code> blocks
+		 * column index supplied.  Be aware that this does itself call {@code setValueAt},
+		 * so care must be taken to avoid an infinite recursive call.  The {@code if} blocks
 		 * should all make sure they don't set columns that they in turn react to.
 		 *
 		 * @param row Row that has changed.

@@ -9,8 +9,8 @@ public abstract class TestChecker
 	 * Perform the check that this class represents
 	 *
 	 * @param obj the object to be checked
-	 * @return <code>true</code> if the check passes for <var>obj</var>,
-	 *	       <code>false</code> if it doesn't.
+	 * @return {@code true} if the check passes for <var>obj</var>,
+	 *	       {@code false} if it doesn't.
 	 */
 	public abstract boolean check(Object obj);
 

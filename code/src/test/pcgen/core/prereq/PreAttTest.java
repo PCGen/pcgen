@@ -34,7 +34,7 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
 
 /**
- * <code>PreAttTest</code> tests that the PREATT tag is
+ * {@code PreAttTest} tests that the PREATT tag is
  * working correctly.
  */
 public class PreAttTest extends AbstractCharacterTestCase

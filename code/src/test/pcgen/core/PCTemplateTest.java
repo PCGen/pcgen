@@ -42,7 +42,7 @@ import pcgen.rules.context.LoadContext;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
- * <code>PCTemplateTest</code> tests the fucntion of the PCTemplate class.
+ * {@code PCTemplateTest} tests the fucntion of the PCTemplate class.
  */
 public class PCTemplateTest extends AbstractCharacterTestCase
 {
@@ -50,7 +50,7 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 	private GenericLoader<PCTemplate> loader = new GenericLoader<>(PCTemplate.class);
 	
 	/**
-	 * Constructs a new <code>PCTemplateTest</code>.
+	 * Constructs a new {@code PCTemplateTest}.
 	 *
 	 * @see pcgen.PCGenTestCase#PCGenTestCase()
 	 */
@@ -60,7 +60,7 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Constructs a new <code>PCTemplateTest</code> with the given <var>name</var>.
+	 * Constructs a new {@code PCTemplateTest} with the given <var>name</var>.
 	 *
 	 * @param name the test case name
 	 *

@@ -37,7 +37,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
- * <code>PreHDTest</code> tests that the PREHD tag is
+ * {@code PreHDTest} tests that the PREHD tag is
  * working correctly.
  */
 @SuppressWarnings("nls")

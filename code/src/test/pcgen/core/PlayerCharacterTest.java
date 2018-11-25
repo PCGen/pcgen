@@ -68,7 +68,7 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 import util.TestURI;
 
 /**
- * The Class <code>PlayerCharacterTest</code> is responsible for testing 
+ * The Class {@code PlayerCharacterTest} is responsible for testing
  * that PlayerCharacter is working correctly.
  * 
  * 

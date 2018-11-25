@@ -31,7 +31,7 @@ import pcgen.persistence.PersistenceLayerException;
 import plugin.pretokens.parser.PreAbilityParser;
 
 /**
- * <code>PreAbilityParserTest</code> tests the function of the 
+ * {@code PreAbilityParserTest} tests the function of the
  * PREABILITY parser.
  */
 @SuppressWarnings("nls")

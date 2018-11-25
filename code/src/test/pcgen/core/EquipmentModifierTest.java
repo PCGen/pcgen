@@ -57,7 +57,7 @@ public class EquipmentModifierTest extends TestCase
 	}
 
 	/**
-	 * Constructs a new <code>EquipmentModifierTest</code>.
+	 * Constructs a new {@code EquipmentModifierTest}.
 	 *
 	 * @see pcgen.PCGenTestCase#PCGenTestCase()
 	 */
@@ -79,7 +79,7 @@ public class EquipmentModifierTest extends TestCase
 	}
 
 	/**
-	 * Constructs a new <code>EquipmentModifierTest</code> with the given
+	 * Constructs a new {@code EquipmentModifierTest} with the given
 	 * <var>name</var>.
 	 *
 	 * @param name the test case name
