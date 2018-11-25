@@ -45,7 +45,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * The Class <code>ScanForUnusedIl8nKeys</code> check for any unused keys in 
+ * The Class {@code ScanForUnusedIl8nKeys} check for any unused keys in
  * the il8n properties. Currently it is a utility class masquerading as a unit 
  * test but after completion of localisation work it will be used as means of 
  * verifying the properties files.  

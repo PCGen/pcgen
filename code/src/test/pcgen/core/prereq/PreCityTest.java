@@ -27,7 +27,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
- * <code>PreCityTest</code> tests that the PRECITY tag is
+ * {@code PreCityTest} tests that the PRECITY tag is
  * working correctly.
  */
 public class PreCityTest extends AbstractCharacterTestCase

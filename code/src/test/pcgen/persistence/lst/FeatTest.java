@@ -18,7 +18,7 @@ import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
- * JUnit testcases for <code>pcgen.core.Feat</code>.
+ * JUnit testcases for {@code pcgen.core.Feat}.
  */
 public class FeatTest extends TestCase
 {

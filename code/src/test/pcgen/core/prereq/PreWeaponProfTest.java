@@ -43,7 +43,7 @@ import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
- * <code>PreWeaponProfTest</code> tests that the PREWEAPONPROF tag is
+ * {@code PreWeaponProfTest} tests that the PREWEAPONPROF tag is
  * working correctly.
  */
 public class PreWeaponProfTest extends AbstractCharacterTestCase

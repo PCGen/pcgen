@@ -32,7 +32,7 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.TestHelper;
 
 /**
- * <code>PreLangTest</code> tests that the PRELANG tag is
+ * {@code PreLangTest} tests that the PRELANG tag is
  * working correctly.
  */
 public class PreLangTest extends AbstractCharacterTestCase

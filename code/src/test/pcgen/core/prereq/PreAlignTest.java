@@ -30,7 +30,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
- * <code>PreAlignTest</code> tests that the PREALIGN tag is
+ * {@code PreAlignTest} tests that the PREALIGN tag is
  * working correctly.
  */
 public class PreAlignTest extends AbstractCharacterTestCase

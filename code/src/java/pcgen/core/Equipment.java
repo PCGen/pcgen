@@ -5716,8 +5716,8 @@ public final class Equipment extends PObject
 	 * Convenience method. <p> <br>
 	 * author: Thomas Behr 27-03-02
 	 * 
-	 * @return <code>true</code>, if this instance is a container;
-	 *         <code>false</code>, otherwise
+	 * @return {@code true}, if this instance is a container;
+	 *         {@code false}, otherwise
 	 */
 	public boolean isContainer()
 	{
@@ -6155,7 +6155,7 @@ public final class Equipment extends PObject
 	}
 
 	/**
-	 * The Class <code>EquipmentHeadCostSummary</code> carries the multi 
+	 * The Class {@code EquipmentHeadCostSummary} carries the multi
 	 * valued response back when calculating the cost of a head.  
 	 */
 	private static class EquipmentHeadCostSummary

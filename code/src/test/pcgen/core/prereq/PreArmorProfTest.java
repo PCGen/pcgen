@@ -41,7 +41,7 @@ import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
- * <code>PreArmorProfTest</code> tests that the PREARMORPROF tag is
+ * {@code PreArmorProfTest} tests that the PREARMORPROF tag is
  * working correctly.
  */
 public class PreArmorProfTest extends AbstractCharacterTestCase

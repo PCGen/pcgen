@@ -35,7 +35,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
- * <code>PreCSkillTest</code> tests that the PRECSKILL tag is
+ * {@code PreCSkillTest} tests that the PRECSKILL tag is
  * working correctly.
  */
 public class PreCSkillTest extends AbstractCharacterTestCase

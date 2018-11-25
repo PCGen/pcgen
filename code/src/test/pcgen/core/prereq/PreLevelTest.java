@@ -39,7 +39,7 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
 
 /**
- * <code>PreLevelTest</code> tests that the PRELEVEL tag is
+ * {@code PreLevelTest} tests that the PRELEVEL tag is
  * working correctly.
  */
 public class PreLevelTest extends AbstractCharacterTestCase

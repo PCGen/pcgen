@@ -30,7 +30,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
- * <code>PreDRTest</code> tests that the PREDR tag is
+ * {@code PreDRTest} tests that the PREDR tag is
  * working correctly.
  */
 public class PreDRTest extends AbstractCharacterTestCase

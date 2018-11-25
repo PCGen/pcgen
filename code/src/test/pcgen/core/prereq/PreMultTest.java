@@ -39,7 +39,7 @@ import plugin.pretokens.parser.PreClassParser;
 import plugin.pretokens.parser.PreSkillParser;
 
 /**
- * <code>PreMultTest</code> tests that the PreMult class
+ * {@code PreMultTest} tests that the PreMult class
  * is working correctly.
  */
 

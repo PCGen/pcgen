@@ -31,7 +31,7 @@ import plugin.lsttokens.choose.StringToken;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
- * The Class <code>Gui2InfoFactoryTest</code> verifies the operation of the 
+ * The Class {@code Gui2InfoFactoryTest} verifies the operation of the
  * Gui2InfoFactory class.
  *
  * <br/>

@@ -41,7 +41,7 @@ import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
- * <code>PreShieldProfTest</code> tests that the PREPROFWITHSHIELD tag is
+ * {@code PreShieldProfTest} tests that the PREPROFWITHSHIELD tag is
  * working correctly.
  */
 public class PreShieldProfTest extends AbstractCharacterTestCase

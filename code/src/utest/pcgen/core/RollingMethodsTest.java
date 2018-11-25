@@ -7,7 +7,7 @@ import junit.framework.TestCase;
 import pcgen.base.util.RandomUtil;
 
 /**
- * The Class <code>RollingMethodsTest</code> check that the Rollingmethods class is functioning 
+ * The Class {@code RollingMethodsTest} check that the Rollingmethods class is functioning
  * correctly.
  *
  * <br/>

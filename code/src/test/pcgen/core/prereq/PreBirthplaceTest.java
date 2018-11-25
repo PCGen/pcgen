@@ -27,7 +27,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
- * <code>PreBirthplaceTest</code> tests that the PREBIRTHPLACE tag is
+ * {@code PreBirthplaceTest} tests that the PREBIRTHPLACE tag is
  * working correctly.
  */
 public class PreBirthplaceTest extends AbstractCharacterTestCase

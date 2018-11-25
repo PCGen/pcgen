@@ -23,7 +23,7 @@ import pcgen.gui2.facade.EquipmentSetFacadeImpl.EquipNodeImpl;
 import pcgen.util.TestHelper;
 
 /**
- * The Class <code>EquipmentSetFacadeImplTest</code> is a test class for
+ * The Class {@code EquipmentSetFacadeImplTest} is a test class for
  * EquipmentSetFacadeImpl. 
  *
  * <br/>

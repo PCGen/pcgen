@@ -41,7 +41,7 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 import util.TestURI;
 
 /**
- * <code>OrCommandTest</code> tests the functioning of the jep or plugin
+ * {@code OrCommandTest} tests the functioning of the jep or plugin
  * 
  * (Fri, 26 Oct 2007) $
  * 

@@ -31,7 +31,7 @@ import pcgen.util.enumeration.Visibility;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
- * <code>CountDistinctCommandTest</code> tests the functioning of the jep 
+ * {@code CountDistinctCommandTest} tests the functioning of the jep
  * countdistinct plugin
  */
 public class CountDistinctCommandTest extends AbstractCharacterTestCase

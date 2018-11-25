@@ -33,7 +33,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
- * <code>PreDeityDomainTest</code> tests that the PREDEITYDOMAIN tag is
+ * {@code PreDeityDomainTest} tests that the PREDEITYDOMAIN tag is
  * working correctly.
  */
 public class PreDeityDomainTest extends AbstractCharacterTestCase

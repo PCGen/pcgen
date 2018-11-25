@@ -28,7 +28,7 @@ import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.util.TestHelper;
 
 /**
- * <code>EquipmentListTest</code> checks the functionality of the EquipmentList class.
+ * {@code EquipmentListTest} checks the functionality of the EquipmentList class.
  */
 @SuppressWarnings("nls")
 public class EquipmentListTest extends TestCase
@@ -47,7 +47,7 @@ public class EquipmentListTest extends TestCase
 	}
 
 	/**
-	 * Constructs a new <code>EquipmentListTest</code>.
+	 * Constructs a new {@code EquipmentListTest}.
 	 *
 	 * @see pcgen.PCGenTestCase#PCGenTestCase()
 	 */
@@ -57,7 +57,7 @@ public class EquipmentListTest extends TestCase
 	}
 
 	/**
-	 * Constructs a new <code>EquipmentListTest</code> with the given
+	 * Constructs a new {@code EquipmentListTest} with the given
 	 * <var>name</var>.
 	 *
 	 * @param name the test case name

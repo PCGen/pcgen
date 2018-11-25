@@ -27,7 +27,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
- * <code>PreGenderTest</code> tests that the PREGENDER tag is
+ * {@code PreGenderTest} tests that the PREGENDER tag is
  * working correctly.
  */
 public class PreGenderTest extends AbstractCharacterTestCase

@@ -33,7 +33,7 @@ import pcgen.util.enumeration.Visibility;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
- * <code>AbilityListTokenTest</code> tests the functioning of the ABILITYLIST 
+ * {@code AbilityListTokenTest} tests the functioning of the ABILITYLIST
  * token processing code. 
  */
 public class AbilityListTokenTest extends AbstractCharacterTestCase

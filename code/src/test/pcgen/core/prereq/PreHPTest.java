@@ -35,7 +35,7 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
 
 /**
- * <code>PreHPTest</code> tests that the PREHP tag is
+ * {@code PreHPTest} tests that the PREHP tag is
  * working correctly.
  */
 public class PreHPTest extends AbstractCharacterTestCase

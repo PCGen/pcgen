@@ -56,7 +56,7 @@ import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
- * <code>SkillTokenTest</code> contains tests to verify that the
+ * {@code SkillTokenTest} contains tests to verify that the
  * SKILL token and its sub tokens are working correctly.
  */
 

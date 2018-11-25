@@ -33,7 +33,7 @@ import pcgen.core.character.WieldCategory;
 import pcgen.rules.context.LoadContext;
 
 /**
- * <code>PreEquipTwoWeaponTest</code> tests that the PREEQUIPTWOWEAPON tag is
+ * {@code PreEquipTwoWeaponTest} tests that the PREEQUIPTWOWEAPON tag is
  * working correctly.
  */
 public class PreEquipTwoWeaponTest extends AbstractCharacterTestCase

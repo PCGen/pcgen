@@ -29,7 +29,7 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 /**
- * <code>PluginBuildTest</code> verifies that the pluginbuild.xml file has all 
+ * {@code PluginBuildTest} verifies that the pluginbuild.xml file has all
  * required data. As a result this unit test is a bit different in structure to 
  * a normal test.  
  */
