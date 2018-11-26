@@ -62,9 +62,9 @@ public class AbilityDepthTest extends AbstractTokenModelTest
 
 	private AssocCheck assocCheck;
 
-	public AbilityDepthTest(String name, CDOMToken<? super Ability> firstToken,
-		String firstPrefix, CDOMToken<? super Ability> secondToken,
-		String secondPrefix)
+	private AbilityDepthTest(String name, CDOMToken<? super Ability> firstToken,
+	                         String firstPrefix, CDOMToken<? super Ability> secondToken,
+	                         String secondPrefix)
 	{
 		super("Test_" + name);
 		this.firstToken = firstToken;
@@ -183,11 +183,11 @@ public class AbilityDepthTest extends AbstractTokenModelTest
 			.size();
 	}
 
-	static CDOMToken[] tokens = {ABILITY_LST,
+	private static CDOMToken[] tokens = {ABILITY_LST,
 		ADD_ABILITY_TOKEN, ADD_ABILITY_TOKEN};
-	static String[] prefix = {"FEAT|VIRTUAL|",
+	private static String[] prefix = {"FEAT|VIRTUAL|",
 		"FEAT|NORMAL|STACKS,", "FEAT|VIRTUAL|STACKS,"};
-	static CDOMToken[] targetProhibited = {ADD_ABILITY_TOKEN};
+	private static CDOMToken[] targetProhibited = {ADD_ABILITY_TOKEN};
 
 	@Override
 	public CDOMToken<?> getToken()

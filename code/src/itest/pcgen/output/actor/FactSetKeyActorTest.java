@@ -27,24 +27,15 @@ import pcgen.output.publish.OutputDB;
 import pcgen.output.testsupport.AbstractOutputTestCase;
 import pcgen.output.wrapper.CDOMObjectWrapper;
 
+import org.junit.BeforeClass;
+
 public class FactSetKeyActorTest extends AbstractOutputTestCase
 {
 
 	private static final RaceFacet DF = new RaceFacet();
 
-	private static boolean classSetUpRun = false;
 
-	@Override
-	protected void setUp() throws Exception
-	{
-		super.setUp();
-		if (!classSetUpRun)
-		{
-			classSetUp();
-			classSetUpRun = true;
-		}
-	}
-
+	@BeforeClass
 	private void classSetUp()
 	{
 		OutputDB.reset();

@@ -24,29 +24,21 @@ import pcgen.output.publish.OutputDB;
 import pcgen.output.testsupport.AbstractOutputTestCase;
 import pcgen.output.wrapper.CDOMObjectWrapper;
 
+import org.junit.BeforeClass;
+import org.junit.Test;
+
 public class StringKeyActorTest extends AbstractOutputTestCase
 {
 	private static final RaceFacet DF = new RaceFacet();
 
-	private static boolean classSetUpRun = false;
-
-	@Override
-	protected void setUp() throws Exception
-	{
-		super.setUp();
-		if (!classSetUpRun)
-		{
-			classSetUp();
-			classSetUpRun = true;
-		}
-	}
-
-	private void classSetUp()
+	@BeforeClass
+	public static void classSetUp()
 	{
 		OutputDB.reset();
 		DF.init();
 	}
 
+	@Test
 	public void testStringKeyActor()
 	{
 		Race d = new Race();
@@ -59,6 +51,7 @@ public class StringKeyActorTest extends AbstractOutputTestCase
 		processThroughFreeMarker("${race.damage}", expectedResult);
 	}
 
+	@Test
 	public void testListKeyActorMissingSafe()
 	{
 		StringKeyActor ska = new StringKeyActor(StringKey.DAMAGE);

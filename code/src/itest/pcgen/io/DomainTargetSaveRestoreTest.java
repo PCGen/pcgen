@@ -17,7 +17,7 @@
  */
 package pcgen.io;
 
-import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.helper.ClassSource;
@@ -30,6 +30,8 @@ import plugin.lsttokens.domain.CcskillToken;
 import plugin.lsttokens.domain.CskillToken;
 import plugin.lsttokens.pcclass.HdToken;
 import plugin.lsttokens.skill.ExclusiveToken;
+
+import org.junit.Test;
 
 public class DomainTargetSaveRestoreTest extends
 		AbstractGlobalTargetedSaveRestoreTest<Domain>

@@ -24,30 +24,22 @@ import pcgen.output.publish.OutputDB;
 import pcgen.output.testsupport.AbstractOutputTestCase;
 import pcgen.output.wrapper.CDOMObjectWrapper;
 
+import org.junit.BeforeClass;
+import org.junit.Test;
+
 public class ListKeyActorTest extends AbstractOutputTestCase
 {
 
 	private static final RaceFacet DF = new RaceFacet();
 
-	private static boolean classSetUpRun = false;
-
-	@Override
-	protected void setUp() throws Exception
-	{
-		super.setUp();
-		if (!classSetUpRun)
-		{
-			classSetUp();
-			classSetUpRun = true;
-		}
-	}
-
-	private void classSetUp()
+	@BeforeClass
+	public static void classSetUp()
 	{
 		OutputDB.reset();
 		DF.init();
 	}
 
+	@Test
 	public void testListKeyActor()
 	{
 		Race d = new Race();
@@ -63,6 +55,7 @@ public class ListKeyActorTest extends AbstractOutputTestCase
 		processThroughFreeMarker("${race.booktype[1]}", expectedResult2);
 	}
 
+	@Test
 	public void testListKeyActorMissingSafe()
 	{
 		ListKeyActor lka = new ListKeyActor(ListKey.BOOK_TYPE);
