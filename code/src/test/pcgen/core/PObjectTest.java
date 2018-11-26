@@ -22,8 +22,6 @@ import java.net.URISyntaxException;
 import java.util.Collection;
 import java.util.Iterator;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.base.format.OrderedPairManager;
 import pcgen.base.format.StringManager;
@@ -58,48 +56,6 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 @SuppressWarnings("nls")
 public class PObjectTest extends AbstractCharacterTestCase
 {
-
-	/**
-	 * Constructs a new {@code PObjectTest}.
-	 *
-	 * @see pcgen.PCGenTestCase#PCGenTestCase()
-	 */
-	public PObjectTest()
-	{
-		// Do Nothing
-	}
-
-	/**
-	 * Constructs a new {@code PObjectTest} with the given <var>name</var>.
-	 *
-	 * @param name the test case name
-	 *
-	 * @see pcgen.PCGenTestCase#PCGenTestCase(String)
-	 */
-	public PObjectTest(final String name)
-	{
-		super(name);
-	}
-
-	/**
-	 * Run the tests
-	 * @param args
-	 */
-	public static void main(final String[] args)
-	{
-		junit.textui.TestRunner.run(PObjectTest.class);
-	}
-
-	/**
-	 * Returns all the test methods in this class.
-	 * @return A <tt>TestSuite</tt>
-	 */
-	public static Test suite()
-	{
-		// quick method, adds all methods beginning with "test"
-		return new TestSuite(PObjectTest.class);
-	}
-
 	/**
 	 * Test DR.
 	 */

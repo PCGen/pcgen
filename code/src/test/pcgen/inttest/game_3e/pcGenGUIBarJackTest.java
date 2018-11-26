@@ -19,8 +19,6 @@
  */
 package pcgen.inttest.game_3e;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
 import pcgen.inttest.PcgenFtlTestCase;
 
 /**
@@ -29,42 +27,12 @@ import pcgen.inttest.PcgenFtlTestCase;
 @SuppressWarnings("nls")
 public class pcGenGUIBarJackTest extends PcgenFtlTestCase
 {
-
-	/**
-	 * Runs the test
-	 * 
-	 * @param args Ignored
-	 */
-	public static void main(String[] args)
-	{
-		junit.textui.TestRunner.run(pcGenGUIBarJackTest.class);
-	}
-
 	/**
 	 * Default constructor
 	 */
 	public pcGenGUIBarJackTest()
 	{
 		super("3e_barjack");
-	}
-
-	/**
-	 * standard JUnit style constructor
-	 * @param name No idea
-	 */
-	public pcGenGUIBarJackTest(String name)
-	{
-		super(name);
-	}
-
-	/**
-	 * Returns the test suite containing all the tests in this class.
-	 * 
-	 * @return A <tt>TestSuite</tt>
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(pcGenGUIBarJackTest.class);
 	}
 
 	/**

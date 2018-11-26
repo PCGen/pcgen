@@ -41,19 +41,6 @@ public class PreAttTest extends AbstractCharacterTestCase
 {
 	PCClass myClass = new PCClass();
 
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreAttTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreAttTest.class);
-	}
-
 	/**
 	 * Test the PREATT code.
 	 *

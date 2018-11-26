@@ -34,16 +34,6 @@ import pcgen.util.TestHelper;
 
 public class AbilityUtilitiesTest extends AbstractCharacterTestCase
 {
-
-	/**
-	 * Run the test
-	 * @param args don't need args apparently
-	 */
-	public static void main(final String[] args)
-	{
-		junit.textui.TestRunner.run(AbilityUtilitiesTest.class);
-	}
-
 	/**
 	 * Test method for 'pcgen.core.AbilityUtilities.removeChoicesFromName(String)'
 	 */

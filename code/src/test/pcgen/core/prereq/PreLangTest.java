@@ -17,9 +17,6 @@
  */
 package pcgen.core.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.StringKey;
@@ -40,19 +37,6 @@ public class PreLangTest extends AbstractCharacterTestCase
 	final Language elven = new Language();
 	final Language dwarven = new Language();
 	final Language halfling = new Language();
-
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreLangTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreLangTest.class);
-	}
 
 	/**
 	 * Test the PRELANG code.

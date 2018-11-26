@@ -17,9 +17,6 @@
  */
 package pcgen.core.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -35,25 +32,6 @@ import pcgen.core.Race;
 @SuppressWarnings("nls")
 public class PreRaceTest extends AbstractCharacterTestCase
 {
-	/**
-	 * Runs the test.
-	 * @param args
-	 */
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreRaceTest.class);
-	}
-
-	/**
-	 * Returns a TestSuite consisting of all the tests in this class.
-	 * 
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreRaceTest.class);
-	}
-
 	/**
 	 * Test to ensure that we return false when races don't match.
 	 */

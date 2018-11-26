@@ -33,19 +33,6 @@ import plugin.pretokens.test.PreKitTester;
  */
 public class PreKitTest extends AbstractCharacterTestCase
 {
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreKitTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreKitTest.class);
-	}
-
 	/**
 	 * Ensure a character with a kit correctly passes
 	 * PREKIT

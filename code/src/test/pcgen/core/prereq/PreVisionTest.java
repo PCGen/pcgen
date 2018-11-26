@@ -4,9 +4,6 @@
  */
 package pcgen.core.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.SimpleAssociatedObject;
@@ -21,26 +18,6 @@ import pcgen.util.enumeration.VisionType;
  */
 public class PreVisionTest extends AbstractCharacterTestCase
 {
-
-	/**
-	 * Main
-	 * 
-	 * @param args
-	 */
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreVisionTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreVisionTest.class);
-	}
-
-	
 	public void testVision2Pass()
 	{
 		final PlayerCharacter character = getCharacter();

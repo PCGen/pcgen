@@ -35,19 +35,6 @@ public class PreSpellSubSchoolTest extends AbstractCharacterTestCase
 	private PCClass wiz;
 	private PCClass cle;
 
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreSpellSubSchoolTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreSpellSubSchoolTest.class);
-	}
-
 	@Override
 	protected void setUp() throws Exception
 	{

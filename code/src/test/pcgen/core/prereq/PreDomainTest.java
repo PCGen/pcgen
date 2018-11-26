@@ -42,19 +42,6 @@ public class PreDomainTest extends AbstractCharacterTestCase
 {
 	private Deity deity;
 
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreDomainTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreDomainTest.class);
-	}
-
 	/**
 	 * Test to make sure it is not looking at deity domains.
 	 *

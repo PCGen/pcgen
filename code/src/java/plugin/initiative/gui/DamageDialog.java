@@ -45,14 +45,6 @@ public class DamageDialog extends javax.swing.JDialog
 	}
 
 	/**
-	 * @param args the command line arguments
-	 */
-	public static void main(String[] args)
-	{
-		new DamageDialog(new javax.swing.JFrame(), true).setVisible(true);
-	}
-
-	/**
 	 * Get damage
 	 * @return damage
 	 */
