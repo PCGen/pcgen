@@ -28,6 +28,7 @@ import pcgen.output.testsupport.AbstractOutputTestCase;
 import pcgen.output.wrapper.CDOMObjectWrapper;
 
 import org.junit.BeforeClass;
+import org.junit.Test;
 
 public class FactSetKeyActorTest extends AbstractOutputTestCase
 {
@@ -36,12 +37,13 @@ public class FactSetKeyActorTest extends AbstractOutputTestCase
 
 
 	@BeforeClass
-	private void classSetUp()
+	public static void classSetUp()
 	{
 		OutputDB.reset();
 		DF.init();
 	}
 
+	@Test
 	public void testListKeyActor()
 	{
 		Race d = new Race();
@@ -62,6 +64,7 @@ public class FactSetKeyActorTest extends AbstractOutputTestCase
 	}
 
 
+	@Test
 	public void testSetJoined()
 	{
 		Race d = new Race();
