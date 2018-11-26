@@ -677,11 +677,7 @@ ${pcstring("ABILITYALL.Racial Trait.VISIBLE.${RacialTrait}.TYPE.ASPECT.BonusSave
     <tr>
      <td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>${pcstring('WEAPONH.TOTALHIT')}<br /></b></font></td>
      <td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>${pcstring('WEAPONH.DAMAGE')}<br /></b></font></td>
-     <#if (pcstring("WEAPON.QUALITY.Critical") = "")>
 	 <td align="center" bgcolor="white" class="border8"><b>-</b></td>
-	 <#else>)
-     <td align="center" bgcolor="white" class="border8"><b>${pcstring('WEAPON.QUALITY.Critical')}</b></td>
-	 </#if>
      <td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>${pcstring('REACH')}<br /></b></font></td>
     </tr>
 	<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=UnarmedDisplay","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; ability , ability_has_next>
@@ -785,11 +781,7 @@ ${pcstring("ABILITYALL.Racial Trait.VISIBLE.${RacialTrait}.TYPE.ASPECT.BonusSave
      <td align="center" bgcolor="white" class="border8 font8"><b>${pcstring('WEAPON.${weap}.HAND')}<br /></b></td>
      <td align="center" bgcolor="white" class="border8 font8"><b>${pcstring('WEAPON.${weap}.TYPE')}<br /></b></td>
      <td align="center" bgcolor="white" class="border8 font8"><b>${pcstring('WEAPON.${weap}.SIZE')}<br /></b></td>
-		 <#if (pcstring("WEAPON.${weap}.QUALITY.Critical") = "")>
-			<td align="center" bgcolor="white" class="border8"><b>-</b></td>
-		 <#else>)
-			<td align="center" bgcolor="white" class="border8"><b>${pcstring('WEAPON.${weap}.QUALITY.Critical')}</b></td>
-		 </#if>
+	 <td align="center" bgcolor="white" class="border8 font8"><b>${pcstring('WEAPON.${weap}.QUALITY.Critical')}</b></td>
      <td align="center" bgcolor="white" class="border8 font8"><b>${pcstring('WEAPON.${weap}.REACH')}${pcstring('WEAPON.${weap}.REACHUNIT')}<br /></b></td>
     </tr>
    </table>

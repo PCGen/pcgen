@@ -37,7 +37,7 @@ import pcgen.persistence.lst.FeatLoader;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
- * The Class <code>PCHasVarFunctionTest</code> verifies the correctness of 
+ * The Class {@code PCHasVarFunctionTest} verifies the correctness of
  * the PCHasVarFunction class.
  *
  * <br/>

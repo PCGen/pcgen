@@ -27,7 +27,7 @@ import pcgen.core.character.EquipSet;
 import pcgen.util.TestHelper;
 
 /**
- * The Class <code>EquipSetMigrationTest</code> verifies the EquipSetMigration
+ * The Class {@code EquipSetMigrationTest} verifies the EquipSetMigration
  * class is functioning correctly.
  *
  * <br/>

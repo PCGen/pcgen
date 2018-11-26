@@ -27,7 +27,7 @@ import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 
 /**
- * <code>SourceEntryTest</code> verifies the function of the SourceEntry class.
+ * {@code SourceEntryTest} verifies the function of the SourceEntry class.
  */
 public class SourceEntryTest extends TestCase
 {

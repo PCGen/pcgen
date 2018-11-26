@@ -71,7 +71,7 @@ public class DiceBagGridLayout extends GridLayout
 	 *
 	 * @param rows     Initial number of rows.
 	 * @param cols     Initial number of columns.
-	 * @param manageBy Either {@code MANAGE_BY_ROWS} or <code>MANAGE_BY_COLUMNS</code>.
+	 * @param manageBy Either {@code MANAGE_BY_ROWS} or {@code MANAGE_BY_COLUMNS}.
 	 * @param minSize  Minimum size, expressed in pixels.
 	 * @param maxSize  Maximum size, expressed in pixels.
 	 */
@@ -90,7 +90,7 @@ public class DiceBagGridLayout extends GridLayout
 	 * @param cols     Initial number of columns.
 	 * @param hgap     Horizontal gap
 	 * @param vgap     Vertical gap
-	 * @param manageBy Either {@code MANAGE_BY_ROWS} or <code>MANAGE_BY_COLUMNS</code>.
+	 * @param manageBy Either {@code MANAGE_BY_ROWS} or {@code MANAGE_BY_COLUMNS}.
 	 * @param minSize  Minimum size, expressed in pixels.
 	 * @param maxSize  Maximum size, expressed in pixels.
 	 */
@@ -104,7 +104,7 @@ public class DiceBagGridLayout extends GridLayout
 
 	/**
 	 * <p>This method computes the correct number of rows or columns based
-	 * on the current size of the {@code parent} and the <code>m_manageBy</code>
+	 * on the current size of the {@code parent} and the {@code m_manageBy}
 	 * value, using an algorithm similar to {@code getMinimumLayoutSize()}.  It then
 	 * sets the new number of rows or columns and calls the {@code super}'s implementation.</p>
 	 *

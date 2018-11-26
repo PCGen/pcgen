@@ -31,7 +31,7 @@ import pcgen.util.enumeration.Visibility;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
- * <code>CountCommandTest</code> tests the functioning of the jep count plugin
+ * {@code CountCommandTest} tests the functioning of the jep count plugin
  */
 public class CountCommandTest extends AbstractCharacterTestCase
 {

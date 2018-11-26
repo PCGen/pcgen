@@ -37,7 +37,7 @@ import pcgen.persistence.lst.GenericLoader;
 import pcgen.rules.context.LoadContext;
 
 /**
- * <code>VisionTokenTest</code> tests the function of the VISION token.  
+ * {@code VisionTokenTest} tests the function of the VISION token.
  */
 public class VisionTokenTest extends AbstractCharacterTestCase
 {

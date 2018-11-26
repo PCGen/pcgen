@@ -37,7 +37,7 @@ import pcgen.persistence.lst.FeatLoader;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
- * The Class <code></code> ...
+ * The Class {@code} ...
  *
  * <br/>
  * 

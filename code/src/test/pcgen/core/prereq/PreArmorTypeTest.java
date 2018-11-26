@@ -30,7 +30,7 @@ import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
- * <code>PreArmorTypeTest</code> tests that the PREARMORTYPE tag is
+ * {@code PreArmorTypeTest} tests that the PREARMORTYPE tag is
  * working correctly.
  */
 public class PreArmorTypeTest extends AbstractCharacterTestCase

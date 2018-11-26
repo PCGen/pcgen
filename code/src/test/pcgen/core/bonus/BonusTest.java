@@ -40,7 +40,7 @@ import plugin.bonustokens.Var;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
- * <code>BonusTest</code> test that the Bonus class is functioning
+ * {@code BonusTest} test that the Bonus class is functioning
  * correctly.
  */
 

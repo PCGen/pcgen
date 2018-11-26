@@ -27,7 +27,7 @@ import org.nfunk.jep.ParseException;
 import org.nfunk.jep.function.PostfixMathCommandI;
 
 /**
- * The Class <code>IsgamemodeCommandTest</code> is responsible for checking 
+ * The Class {@code IsgamemodeCommandTest} is responsible for checking
  * that IsgamemodeCommand is working correctly. 
  * 
  * 

@@ -40,7 +40,7 @@ Familiar (Clockwork Familiar)											CATEGORY:Internal																							
 
 ##Familiar Special Abilities
 #Chicken
-Drift							KEY:Chicken ~ Drift					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ChickenRacialTrait												DESC:A chicken flies in short bursts, and can’t use its fly speed to hover. When it flies, it must end its move action by landing or perching on a solid surface.																																																																																			SOURCEPAGE:p.112
+Drift							KEY:Chicken ~ Drift					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ChickenRacialTrait												DESC:A chicken flies in short bursts, and can't use its fly speed to hover. When it flies, it must end its move action by landing or perching on a solid surface.																																																																																			SOURCEPAGE:p.112
 
 #Flying Fox
 Disease Resistant					KEY:Flying Fox ~ Disease Resistant			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.FlyingFoxRacialTrait											DESC:Flying foxes are resistant to disease. They receive a +4 racial bonus on saving throws against disease.																																																																																												SOURCEPAGE:p.112	ASPECT:SaveBonus|+4 on saves vs. disease

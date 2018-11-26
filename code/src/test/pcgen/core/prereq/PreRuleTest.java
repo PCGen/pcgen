@@ -29,7 +29,7 @@ import pcgen.persistence.PersistenceLayerException;
 import plugin.pretokens.parser.PreRuleParser;
 
 /**
- * <code>PreRuleTest</code> checks the function of the rule 
+ * {@code PreRuleTest} checks the function of the rule
  * prereq tester.
  */
 @SuppressWarnings("nls")

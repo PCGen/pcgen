@@ -37,7 +37,7 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
 
 /**
- * <code>PreBaseSizeTest</code> tests that the PREBASESIZE tag is
+ * {@code PreBaseSizeTest} tests that the PREBASESIZE tag is
  * working correctly.
  */
 @SuppressWarnings("nls")

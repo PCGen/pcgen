@@ -10,7 +10,7 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
- * <code>PrereqHandlerTest</code> tests the operation of the
+ * {@code PrereqHandlerTest} tests the operation of the
  * PrereqHandler class.
  */
 @SuppressWarnings("nls")

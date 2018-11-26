@@ -352,7 +352,7 @@ final class MainAbout extends JPanel
 		JPanel aPanel = new JPanel();
 		aPanel.setLayout(new GridBoxLayout(2, 2));
 		aPanel.setBackground(Color.WHITE);
-		Icon goldIcon = Icons.createImageIcon("gold200x200-2005.gif");
+		Icon goldIcon = Icons.ennie_award_2005.getImageIcon();
 		if (goldIcon != null)
 		{
 			JLabel e2005 = new JLabel(goldIcon);
@@ -366,7 +366,7 @@ final class MainAbout extends JPanel
 			aPanel.add(title);
 		}
 
-		Icon bronzeIcon = Icons.createImageIcon("bronze200x200-2003.gif");
+		Icon bronzeIcon = Icons.ennie_award_2003.getImageIcon();;
 		if (bronzeIcon != null)
 		{
 			JLabel e2003 = new JLabel(bronzeIcon);

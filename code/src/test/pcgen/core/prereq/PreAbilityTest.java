@@ -32,7 +32,7 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.pretokens.parser.PreAbilityParser;
 
 /**
- * <code>PreAbilityTest</code> verifies the function of the 
+ * {@code PreAbilityTest} verifies the function of the
  * PreAbilityTester. 
  */
 public class PreAbilityTest extends AbstractCharacterTestCase

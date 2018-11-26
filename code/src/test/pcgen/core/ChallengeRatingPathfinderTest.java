@@ -33,7 +33,7 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 import util.TestURI;
 
 /**
- * The Class <code>ChallengeRatingPathfinderTest</code> checks the calculation
+ * The Class {@code ChallengeRatingPathfinderTest} checks the calculation
  * of challenge ratings for the Pathfinder RPG game mode
  *
  * <br/>

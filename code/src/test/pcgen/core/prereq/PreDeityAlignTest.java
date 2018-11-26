@@ -30,7 +30,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
- * <code>PreDeityAlignTest</code> tests that the PREDEITYALIGN tag is 
+ * {@code PreDeityAlignTest} tests that the PREDEITYALIGN tag is
  * working correctly.
  */
 public class PreDeityAlignTest extends AbstractCharacterTestCase

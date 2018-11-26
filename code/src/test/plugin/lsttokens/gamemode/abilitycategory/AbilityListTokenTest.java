@@ -34,7 +34,7 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 
 
 /**
- * The Class <code>AbilityListTokenTest</code> verifies the processing of the 
+ * The Class {@code AbilityListTokenTest} verifies the processing of the
  * AbilityListToken.
  * 
  * 

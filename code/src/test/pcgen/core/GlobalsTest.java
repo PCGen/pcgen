@@ -16,7 +16,7 @@ import org.hamcrest.Matchers;
 public class GlobalsTest extends PCGenTestCase
 {
 	/**
-	 * Constructs a new <code>GlobalsTest</code>.
+	 * Constructs a new {@code GlobalsTest}.
 	 *
 	 * @see pcgen.PCGenTestCase#PCGenTestCase()
 	 */
@@ -25,7 +25,7 @@ public class GlobalsTest extends PCGenTestCase
 	}
 
 	/**
-	 * Constructs a new <code>GlobalsTest</code> with the given <var>name</var>.
+	 * Constructs a new {@code GlobalsTest} with the given <var>name</var>.
 	 *
 	 * @param name the test case name
 	 *

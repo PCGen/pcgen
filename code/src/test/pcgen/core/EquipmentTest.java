@@ -74,7 +74,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Constructs a new <code>EquipmentTest</code>.
+	 * Constructs a new {@code EquipmentTest}.
 	 *
 	 * @see pcgen.PCGenTestCase#PCGenTestCase()
 	 */
@@ -84,7 +84,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Constructs a new <code>EquipmentTest</code> with the given
+	 * Constructs a new {@code EquipmentTest} with the given
 	 * <var>name</var>.
 	 *
 	 * @param name the test case name

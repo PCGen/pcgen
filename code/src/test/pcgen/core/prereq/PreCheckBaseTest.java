@@ -35,7 +35,7 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
 
 /**
- * <code>PreCheckBaseTest</code> tests that the PRECHECKBASE tag is
+ * {@code PreCheckBaseTest} tests that the PRECHECKBASE tag is
  * working correctly.
  */
 public class PreCheckBaseTest extends AbstractCharacterTestCase

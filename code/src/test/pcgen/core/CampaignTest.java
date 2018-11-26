@@ -28,7 +28,7 @@ import plugin.lsttokens.campaign.UrlToken;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
 /**
- * <code>CampaignTest</code> is ...
+ * {@code CampaignTest} is ...
  * 
  * (Tue, 11 Nov 2008) $
  * 

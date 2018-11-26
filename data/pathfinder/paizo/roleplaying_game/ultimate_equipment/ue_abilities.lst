@@ -80,7 +80,7 @@ Equipment ~ Blood Reservoir of Physical Prowess (STR)	CATEGORY:Internal									
 Equipment ~ Blood Reservoir of Physical Prowess (DEX)	CATEGORY:Internal																																						TEMPBONUS:ANYPC|STAT|DEX|%CHOICE*2	TEMPVALUE:MIN=1|MAX=4|TITLE=Choose Charges to use
 Equipment ~ Blood Reservoir of Physical Prowess (CON)	CATEGORY:Internal																																						TEMPBONUS:ANYPC|STAT|CON|%CHOICE*2	TEMPVALUE:MIN=1|MAX=4|TITLE=Choose Charges to use
 
-
++2 Circumstance Bonus	CATEGORY:Internal	TYPE:Circumstance Bonus from Masterwork Tool	CHOOSE:SKILL|TYPE=Base	MULT:YES	STACK:NO	TEMPBONUS:PC|SKILL|%LIST|2|TYPE=Circumstance	
 
 
 #

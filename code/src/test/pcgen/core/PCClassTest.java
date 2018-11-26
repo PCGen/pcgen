@@ -81,7 +81,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 	PCClass nqClass;
 
 	/**
-	 * Constructs a new <code>PCClassTest</code>.
+	 * Constructs a new {@code PCClassTest}.
 	 *
 	 * @see pcgen.PCGenTestCase#PCGenTestCase()
 	 */
@@ -91,7 +91,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Constructs a new <code>PCClassTest</code> with the given <var>name</var>.
+	 * Constructs a new {@code PCClassTest} with the given <var>name</var>.
 	 *
 	 * @param name the test case name
 	 *

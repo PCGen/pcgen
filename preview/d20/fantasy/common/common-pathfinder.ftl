@@ -394,8 +394,7 @@ ${pcstring('TEXT.LOWER.WEAPON.${weap}.NAME.NOSTAR')} <#t>
 )<#t>
 <#else>
 ${pcstring('WEAPON.${weap}.BASEHIT')} <#t>
-
-<#if (pcstring("WEAPON.${weap}.TYPE")?lower_case?contains("ranged")) >
+<#if (pcboolean("WEAPON.${weap}.ISTYPE.Ranged")) >
 (${pcstring('WEAPON.${weap}.RANGELIST.1.DAMAGE')}<#t>
 <#else>
 (${pcstring('WEAPON.${weap}.DAMAGE')}<#t>
