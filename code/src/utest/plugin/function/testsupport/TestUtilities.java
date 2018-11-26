@@ -47,9 +47,9 @@ public final class TestUtilities
 		}
 	}
 
-	public static final double SMALL_ERROR = Math.pow(10, -10);
+	static final double SMALL_ERROR = Math.pow(10, -10);
 
-	public static boolean doubleEqual(double d1, double d2, double delta)
+	static boolean doubleEqual(double d1, double d2, double delta)
 	{
 		if (delta < 0)
 		{
@@ -62,40 +62,4 @@ public final class TestUtilities
 	}
 
 
-	/**
-	 * Utility method for Unit tests to invoke private constructors
-	 * 
-	 * @param clazz The class we're gonig to invoke the constructor on
-	 * @return An instance of the class
-	 */
-	public static Object invokePrivateConstructor(Class<?> clazz)
-	{
-		Constructor<?> constructor = null; 
-		try
-		{
-			constructor = clazz.getDeclaredConstructor();
-		}
-		catch (NoSuchMethodException e)
-		{
-			System.err.println("Constructor for [" + clazz.getName() + "] does not exist");
-		}
-		
-		constructor.setAccessible(true);
-		Object instance = null;
-		
-		try
-		{
-			instance = constructor.newInstance();
-		}
-		catch (InvocationTargetException | InstantiationException ite)
-		{
-			System.err.println("Instance creation failed with [" + ite.getCause() + "]");
-		}
-		catch (IllegalAccessException iae)
-		{
-			System.err.println("Instance creation failed due to access violation.");
-		}
-
-		return instance;
-	}
 }
