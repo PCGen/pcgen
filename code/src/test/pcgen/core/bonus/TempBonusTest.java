@@ -26,8 +26,8 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
-import pcgen.facade.core.InfoFacade;
 import pcgen.core.spell.Spell;
+import pcgen.facade.core.InfoFacade;
 import pcgen.gui2.facade.TempBonusHelper;
 import pcgen.rules.context.LoadContext;
 

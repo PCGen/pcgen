@@ -30,6 +30,7 @@ import pcgen.persistence.lst.SimpleLoader;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
+
 import util.TestURI;
 
 /**

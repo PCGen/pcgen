@@ -17,14 +17,15 @@
  */
 package pcgen.core.utils;
 
-import junit.framework.TestCase;
-import pcgen.base.lang.StringUtil;
-import pcgen.system.PCGenPropBundle;
-
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+
+import pcgen.base.lang.StringUtil;
+import pcgen.system.PCGenPropBundle;
+
+import junit.framework.TestCase;
 
 /**
  * {@code CoreUtilityTest}.

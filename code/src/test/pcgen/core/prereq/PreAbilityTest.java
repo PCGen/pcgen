@@ -18,8 +18,6 @@
 
 package pcgen.core.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -30,6 +28,9 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.pretokens.parser.PreAbilityParser;
+
+import junit.framework.Test;
+import junit.framework.TestSuite;
 
 /**
  * {@code PreAbilityTest} verifies the function of the
