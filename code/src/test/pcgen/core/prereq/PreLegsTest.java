@@ -17,9 +17,6 @@
  */
 package pcgen.core.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.PCTemplate;
@@ -34,19 +31,6 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
  */
 public class PreLegsTest extends AbstractCharacterTestCase
 {
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreLegsTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreLegsTest.class);
-	}
-
 	/**
 	 * Test the PRELEGS code.
 	 *

@@ -21,10 +21,8 @@ import java.util.Locale;
 
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.LocaleDependentTestCase;
-import junit.framework.Test;
+
 import junit.framework.TestCase;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 
 
 /**
@@ -33,19 +31,6 @@ import junit.textui.TestRunner;
 @SuppressWarnings("nls")
 public class HtmlInfoBuilderTest extends TestCase
 {
-	public static void main(String[] args)
-	{
-		TestRunner.run(HtmlInfoBuilderTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(HtmlInfoBuilderTest.class);
-	}
-	
 	/**
 	 * Test adding a string.
 	 */

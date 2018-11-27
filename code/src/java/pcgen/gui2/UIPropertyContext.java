@@ -25,6 +25,8 @@ import pcgen.cdom.base.Constants;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.system.PropertyContext;
 
+import org.jetbrains.annotations.Nullable;
+
 /**
  * This is a property context which holds UI related user preferences such as
  * screen position and colors.
@@ -109,18 +111,12 @@ public final class UIPropertyContext extends PropertyContext
 		return new Color(Integer.parseInt(prop, 16));
 	}
 
-	public Color getColor(String key, Color defaultValue)
-	{
-		String prop = getProperty(key, Integer.toString(defaultValue.getRGB(), 16));
-		return new Color(Integer.parseInt(prop, 16));
-	}
-
 	public void setColor(String key, Color color)
 	{
 		setProperty(key, Integer.toString(color.getRGB(), 16));
 	}
 
-	public Color initColor(String key, Color defaultValue)
+	private Color initColor(String key, Color defaultValue)
 	{
 		String prop = initProperty(key, Integer.toString(defaultValue.getRGB(), 16));
 		return new Color(Integer.parseInt(prop, 16));
@@ -129,11 +125,6 @@ public final class UIPropertyContext extends PropertyContext
 	public static Color getCustomItemColor()
 	{
 		return getInstance().getColor(CUSTOM_ITEM_COLOR);
-	}
-
-	public static void setCustomItemColor(Color color)
-	{
-		getInstance().setColor(CUSTOM_ITEM_COLOR, color);
 	}
 
 	public static void setQualifiedColor(Color color)
@@ -246,6 +237,7 @@ public final class UIPropertyContext extends PropertyContext
 		return createFilePropertyKey(character.getFileRef().get(), key);
 	}
 
+	@Nullable
 	static String createFilePropertyKey(File file, String key)
 	{
 		if (file == null)

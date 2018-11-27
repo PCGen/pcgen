@@ -39,5 +39,4 @@ public interface DataViewColumn
 
 	public boolean isEditable();
 
-	public boolean shouldCache();
 }

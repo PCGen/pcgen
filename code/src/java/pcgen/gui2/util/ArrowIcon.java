@@ -24,7 +24,6 @@ import java.awt.Graphics;
 
 import javax.swing.Icon;
 import javax.swing.SwingConstants;
-import javax.swing.UIManager;
 
 /**
  * This class contains a lot of code taken from
@@ -41,20 +40,13 @@ public class ArrowIcon implements Icon
 	private int direction;
 	private int size;
 
-	public ArrowIcon(int direction, int size, Color shadow, Color darkShadow, Color highlight)
+	ArrowIcon(int direction, int size, Color shadow, Color darkShadow, Color highlight)
 	{
-		super();
 		this.shadow = shadow;
 		this.darkShadow = darkShadow;
 		this.highlight = highlight;
 		this.direction = direction;
 		this.size = size;
-	}
-
-	public ArrowIcon(int direction, int size)
-	{
-		this(direction, size, UIManager.getColor("controlShadow"), UIManager.getColor("controlDkShadow"),
-			UIManager.getColor("controlLtHighlight"));
 	}
 
 	@Override

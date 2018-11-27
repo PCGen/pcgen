@@ -17,9 +17,6 @@
  */
 package pcgen.core.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.SimpleAssociatedObject;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -39,19 +36,6 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 public class PreDeityDomainTest extends AbstractCharacterTestCase
 {
 	private Deity deity;
-
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreDeityDomainTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreDeityDomainTest.class);
-	}
 
 	/**
 	 * Test for a single domain.

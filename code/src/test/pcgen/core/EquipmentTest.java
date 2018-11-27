@@ -39,9 +39,6 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.GenericLoader;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import org.hamcrest.Matchers;
 
 /**
@@ -55,46 +52,6 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	private Equipment eqDouble = null;
 	private static final String ORIGINAL_KEY = "OrigKey";
 	private CampaignSourceEntry source;
-
-	/**
-	 * Main
-	 * @param args
-	 */
-	public static void main(final String[] args)
-	{
-		TestRunner.run(EquipmentTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(EquipmentTest.class);
-	}
-
-	/**
-	 * Constructs a new {@code EquipmentTest}.
-	 *
-	 * @see pcgen.PCGenTestCase#PCGenTestCase()
-	 */
-	public EquipmentTest()
-	{
-		// Constructor
-	}
-
-	/**
-	 * Constructs a new {@code EquipmentTest} with the given
-	 * <var>name</var>.
-	 *
-	 * @param name the test case name
-	 *
-	 * @see pcgen.PCGenTestCase#PCGenTestCase(String)
-	 */
-	public EquipmentTest(final String name)
-	{
-		super(name);
-	}
 
 	@Override
 	public void additionalSetUp() throws PersistenceLayerException

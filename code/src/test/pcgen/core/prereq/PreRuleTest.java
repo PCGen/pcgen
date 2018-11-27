@@ -17,9 +17,6 @@
  */
 package pcgen.core.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
@@ -36,15 +33,6 @@ import plugin.pretokens.parser.PreRuleParser;
 public class PreRuleTest extends AbstractCharacterTestCase
 {
 	/**
-	 * Runs the test.
-	 * @param args
-	 */
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreRuleTest.class);
-	}
-
-	/**
 	 * @see junit.framework.TestCase#setUp()
 	 */
 	@Override
@@ -59,26 +47,6 @@ public class PreRuleTest extends AbstractCharacterTestCase
 		gameMode.getModeContext().getReferenceContext().importObject(preRule);
 	}
 
-	/**
-	 * @see junit.framework.TestCase#tearDown()
-	 */
-	@Override
-	protected void tearDown() throws Exception
-	{
-		// TODO Auto-generated method stub
-		super.tearDown();
-	}
-
-	/**
-	 * Returns a TestSuite consisting of all the tests in this class.
-	 * 
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreRuleTest.class);
-	}
-	
 	public void testRule() throws Exception
 	{
 		// if ruleEnabled is launch before disabled, the disabled assert are wrong.
@@ -91,7 +59,7 @@ public class PreRuleTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void ruleDisabled() throws PersistenceLayerException
+	private void ruleDisabled() throws PersistenceLayerException
 	{
 		assertFalse("Our rule should start as false", Globals
 			.checkRule("PRERULE"));
@@ -112,7 +80,7 @@ public class PreRuleTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void ruleEnabled() throws PersistenceLayerException
+	private void ruleEnabled() throws PersistenceLayerException
 	{
 		RuleCheck preRule = SettingsHandler.getGame().getModeContext().getReferenceContext()
 				.silentlyGetConstructedCDOMObject(RuleCheck.class, "PRERULE");

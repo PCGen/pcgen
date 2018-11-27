@@ -17,9 +17,6 @@
  */
 package pcgen.core.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.PlayerCharacter;
 import pcgen.persistence.PersistenceLayerException;
@@ -31,20 +28,6 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
  */
 public class PreCharactertypeTest extends AbstractCharacterTestCase
 {
-
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreCharactertypeTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreCharactertypeTest.class);
-	}
-
 	/**
 	 * Test to make sure it is not looking at deity domains.
 	 *

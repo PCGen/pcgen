@@ -17,9 +17,6 @@
  */
 package pcgen.core.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
@@ -41,19 +38,6 @@ import pcgen.rules.context.LoadContext;
 public class PreCheckBaseTest extends AbstractCharacterTestCase
 {
 	PCClass myClass = new PCClass();
-
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreCheckBaseTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreCheckBaseTest.class);
-	}
 
 	/**
 	 * Test that Base Checks work.

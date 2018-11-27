@@ -17,9 +17,6 @@
  */
 package pcgen.core.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.PlayerCharacter;
@@ -33,19 +30,6 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
  */
 public class PreHandsTest extends AbstractCharacterTestCase
 {
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreHandsTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreHandsTest.class);
-	}
-
 	/**
 	 * Test the PREHANDS code.
 	 *

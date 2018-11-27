@@ -21,9 +21,6 @@ package pcgen.core.prereq;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.enumeration.ListKey;
@@ -46,27 +43,6 @@ import plugin.lsttokens.testsupport.BuildUtilities;
  */
 public class PreShieldProfTest extends AbstractCharacterTestCase
 {
-	
-	/**
-	 * The main method.
-	 * 
-	 * @param args the arguments
-	 */
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreShieldProfTest.class);
-	}
-
-	/**
-	 * Suite.
-	 * 
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreShieldProfTest.class);
-	}
-	
 	/**
 	 * Test with a simple shield proficiency.
 	 * 

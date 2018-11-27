@@ -17,9 +17,6 @@
  */
 package pcgen.core.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.PCAttribute;
 import pcgen.core.PlayerCharacter;
@@ -32,19 +29,6 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
  */
 public class PreBirthplaceTest extends AbstractCharacterTestCase
 {
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreBirthplaceTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreBirthplaceTest.class);
-	}
-
 	/**
 	 * Test the PREBIRTHPLACE code.
 	 *

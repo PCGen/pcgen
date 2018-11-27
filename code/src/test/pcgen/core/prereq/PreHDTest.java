@@ -48,23 +48,6 @@ public class PreHDTest extends AbstractCharacterTestCase
 	PCClass monClass = new PCClass();
 
 	/**
-	 * Main method.  Runs the test.
-	 * @param args
-	 */
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreHDTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreHDTest.class);
-	}
-
-	/**
 	 * Test the PREHD code.
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception

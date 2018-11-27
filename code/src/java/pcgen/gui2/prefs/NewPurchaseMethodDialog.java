@@ -27,7 +27,6 @@ import java.awt.event.WindowEvent;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -97,14 +96,6 @@ class NewPurchaseMethodDialog extends JDialog
 	public boolean getWasCancelled()
 	{
 		return wasCancelled;
-	}
-
-	/**
-	 * @param args the command line arguments
-	 */
-	public static void main(String[] args)
-	{
-		new NewPurchaseMethodDialog(new JFrame(), true).setVisible(true);
 	}
 
 	private void cancelButtonActionPerformed()

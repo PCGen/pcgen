@@ -21,8 +21,7 @@ package pcgen.core;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
-import junit.framework.Test;
-import junit.framework.TestSuite;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.LocaleDependentTestCase;
 import pcgen.cdom.base.Constants;
@@ -40,7 +39,7 @@ import pcgen.persistence.lst.BioSetLoaderTest;
 @SuppressWarnings("nls")
 public class BioSetTest extends AbstractCharacterTestCase
 {
-	static final String[] BIO_SET_DATA =
+	private static final String[] BIO_SET_DATA =
 			{
 				"AGESET:0|Adulthood",
 				"RACENAME:Human%		CLASS:Barbarian,Rogue,Sorcerer[BASEAGEADD:1d4]|"
@@ -56,25 +55,6 @@ public class BioSetTest extends AbstractCharacterTestCase
 				"RACENAME:Human%		BASEAGE:53	MAXAGE:69	AGEDIEROLL:4d4+1",
 				"AGESET:3|Venerable	BONUS:STAT|STR,CON,DEX|-6	BONUS:STAT|INT,WIS,CHA|3",
 				"RACENAME:Human%		BASEAGE:70	MAXAGE:110	AGEDIEROLL:4d10"};
-	/**
-	 * Run the tests standalone from the command line.
-	 * @param args Command line args - ignored.
-	 */
-	public static void main(final String[] args)
-	{
-		junit.textui.TestRunner.run(BioSetTest.class);
-	}
-
-	/**
-	 * Quick test suite creation - adds all methods beginning with "test".
-	 *
-	 * @return The Test suite
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(BioSetTest.class);
-	}
-
 	/**
 	 * Basic constructor, name only.
 	 * @param name The name of the test class.
