@@ -329,6 +329,7 @@ task inttest(type: Test, dependsOn: 'jar') {
     testClassesDirs = sourceSets.slowtest.output.classesDirs
     classpath = sourceSets.slowtest.runtimeClasspath
     forkEvery = 1
+    maxParallelForks = 5
     include 'pcgen/inttest/**/*Test.class'
 }
 
