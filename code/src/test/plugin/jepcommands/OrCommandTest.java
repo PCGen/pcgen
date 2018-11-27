@@ -17,6 +17,9 @@
  */
 package plugin.jepcommands;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.number.IsCloseTo.closeTo;
+
 import java.util.Stack;
 
 import pcgen.PCGenTestCase;
@@ -82,7 +85,7 @@ public class OrCommandTest extends PCGenTestCase
 
         final Double result = (Double) s.pop();
 
-        is(result, eq(1.0, 0.1), "if (1.0,2.0) returns 1.0");
+        assertThat("if (1.0,2.0) returns 1.0", result, closeTo(1.0, 0.1));
     }
 
     /* Test the case where the first operand is false, but the second is true */
@@ -100,7 +103,7 @@ public class OrCommandTest extends PCGenTestCase
 
         final Double result = s.pop();
 
-        is(result, eq(2.0, 0.1), "if (0.0,2.0) returns 2.0");
+        assertThat("if (0.0,2.0) returns 2.0", result, closeTo(2.0, 0.1));
     }
 
     /* Test the case where the first two operands are false*/

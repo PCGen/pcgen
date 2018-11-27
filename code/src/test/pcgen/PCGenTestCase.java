@@ -9,7 +9,6 @@ import pcgen.core.SystemCollections;
 import pcgen.core.system.LoadInfo;
 import pcgen.persistence.GameModeFileLoader;
 import pcgen.util.TestChecker;
-import pcgen.util.testchecker.CompareDeadband;
 import pcgen.util.testchecker.CompareEqualBoolean;
 import pcgen.util.testchecker.CompareEqualInt;
 import pcgen.util.testchecker.CompareEqualString;
@@ -115,11 +114,6 @@ public abstract class PCGenTestCase extends TestCase
 	public static CompareEqualInt eq(final int operand)
 	{
 		return new CompareEqualInt(operand);
-	}
-
-	public static CompareDeadband eq(final double operand, final double error)
-	{
-		return new CompareDeadband(operand, error);
 	}
 
 	protected static CompareNull eqnull()
