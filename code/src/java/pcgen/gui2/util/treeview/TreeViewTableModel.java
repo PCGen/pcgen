@@ -100,12 +100,6 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel implements Sor
 			return true;
 		}
 
-		@Override
-		public boolean shouldCache()
-		{
-			return false;
-		}
-
 	};
 
 	protected final Set<E> dataElements = new HashSet<>();

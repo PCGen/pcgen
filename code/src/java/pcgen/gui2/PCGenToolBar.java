@@ -18,9 +18,9 @@
  */
 package pcgen.gui2;
 
+import javax.swing.Action;
+import javax.swing.JButton;
 import javax.swing.JToolBar;
-
-import pcgen.gui2.util.ToolBarUtilities;
 
 /**
  * The toolbar that is displayed in PCGen's main window. Provides shortcuts to
@@ -31,14 +31,23 @@ import pcgen.gui2.util.ToolBarUtilities;
 public final class PCGenToolBar extends JToolBar
 {
 
-	private final PCGenFrame frame;
 	private final PCGenActionMap actionMap;
 
-	public PCGenToolBar(PCGenFrame frame)
+	PCGenToolBar(PCGenFrame frame)
 	{
-		this.frame = frame;
 		this.actionMap = frame.getActionMap();
 		initComponents();
+	}
+
+	private static JButton createToolBarButton(Action action)
+	{
+		JButton button = new JButton();
+		button.putClientProperty("hideActionText", true);
+		button.setFocusable(false);
+		button.setHorizontalTextPosition(CENTER);
+		button.setVerticalTextPosition(BOTTOM);
+		button.setAction(action);
+		return button;
 	}
 
 	private void initComponents()
@@ -46,17 +55,17 @@ public final class PCGenToolBar extends JToolBar
 		setFloatable(false);
 		setRollover(true);
 
-		add(ToolBarUtilities.createToolBarButton(actionMap.get(PCGenActionMap.NEW_COMMAND)));
-		add(ToolBarUtilities.createToolBarButton(actionMap.get(PCGenActionMap.OPEN_COMMAND)));
-		add(ToolBarUtilities.createToolBarButton(actionMap.get(PCGenActionMap.CLOSE_COMMAND)));
-		add(ToolBarUtilities.createToolBarButton(actionMap.get(PCGenActionMap.SAVE_COMMAND)));
+		add(createToolBarButton(actionMap.get(PCGenActionMap.NEW_COMMAND)));
+		add(createToolBarButton(actionMap.get(PCGenActionMap.OPEN_COMMAND)));
+		add(createToolBarButton(actionMap.get(PCGenActionMap.CLOSE_COMMAND)));
+		add(createToolBarButton(actionMap.get(PCGenActionMap.SAVE_COMMAND)));
 		addSeparator();
 
-		add(ToolBarUtilities.createToolBarButton(actionMap.get(PCGenActionMap.PRINT_COMMAND)));
-		add(ToolBarUtilities.createToolBarButton(actionMap.get(PCGenActionMap.EXPORT_COMMAND)));
+		add(createToolBarButton(actionMap.get(PCGenActionMap.PRINT_COMMAND)));
+		add(createToolBarButton(actionMap.get(PCGenActionMap.EXPORT_COMMAND)));
 		addSeparator();
 
-		add(ToolBarUtilities.createToolBarButton(actionMap.get(PCGenActionMap.PREFERENCES_COMMAND)));
+		add(createToolBarButton(actionMap.get(PCGenActionMap.PREFERENCES_COMMAND)));
 		// addSeparator();
 
 		// add(ToolBarUtilities.createToolBarButton(actionMap.get(PCGenActionMap.HELP_CONTEXT_COMMAND)));
