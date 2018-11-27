@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.spell;
 
+import java.util.Objects;
 import java.util.StringJoiner;
 import java.util.StringTokenizer;
 
@@ -89,7 +90,7 @@ public class SubschoolToken extends AbstractTokenWithSeparator<Spell> implements
 		}
 		if (changes.hasAddedItems())
 		{
-			changes.getAdded().forEach(added -> joiner.add(added));
+			changes.getAdded().forEach(added -> joiner.add(Objects.requireNonNull(added)));
 		}
 		return new String[]{joiner.toString()};
 	}
