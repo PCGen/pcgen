@@ -18,14 +18,12 @@
 package plugin.function.testsupport;
 
 import java.io.StringReader;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
+
+import org.junit.Assert;
 
 import pcgen.base.formula.parse.FormulaParser;
 import pcgen.base.formula.parse.ParseException;
 import pcgen.base.formula.parse.SimpleNode;
-
-import org.junit.Assert;
 
 public final class TestUtilities
 {
