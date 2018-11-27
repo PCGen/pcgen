@@ -32,7 +32,7 @@ public class SharedTabPane extends JTabbedPane
 
 	private Component sharedComponent = null;
 
-	public SharedTabPane()
+	protected SharedTabPane()
 	{
 		final SingleSelectionModel selectionModel = getModel();
 		selectionModel.addChangeListener(new ChangeListener()
@@ -67,7 +67,7 @@ public class SharedTabPane extends JTabbedPane
 		insertTab(title, null, new JPanel(new BorderLayout()), null, index);
 	}
 
-	public void addTab(Component tabRenderer)
+	protected void addTab(Component tabRenderer)
 	{
 		int index = getTabCount();
 		addTab(null, new JPanel(new BorderLayout()));
@@ -102,7 +102,7 @@ public class SharedTabPane extends JTabbedPane
 		}
 	}
 
-	public void setSharedComponent(Component comp)
+	protected void setSharedComponent(Component comp)
 	{
 		this.sharedComponent = comp;
 	}

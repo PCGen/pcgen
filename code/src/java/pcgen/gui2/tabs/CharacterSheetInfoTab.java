@@ -59,8 +59,6 @@ import pcgen.util.enumeration.Tab;
 /**
  * The Class {@code CharacterSheetInfoTab} is a placeholder for the
  * character sheet tab.
- *
- * -0800 (Tue, 22 Feb 2011) $
  */
 public class CharacterSheetInfoTab extends FlippingSplitPane implements CharacterInfoTab, DisplayAwareTab
 {

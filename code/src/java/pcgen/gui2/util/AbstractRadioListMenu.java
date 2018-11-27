@@ -33,10 +33,10 @@ public abstract class AbstractRadioListMenu<E> extends AbstractListMenu<E> imple
 {
 
 	private final ButtonGroup group = new ButtonGroup();
-	private Map<E, RadioMenuItem> menuMap = new HashMap<>();
-	private E selectedItem = null;
+	private final Map<E, RadioMenuItem> menuMap = new HashMap<>();
+	private final E selectedItem = null;
 
-	public AbstractRadioListMenu(Action action)
+	protected AbstractRadioListMenu(Action action)
 	{
 		super(action);
 	}
@@ -70,17 +70,17 @@ public abstract class AbstractRadioListMenu<E> extends AbstractListMenu<E> imple
 	/**
 	 * Update the menu so that no entries are selected. 
 	 */
-	public void clearSelection()
+	protected void clearSelection()
 	{
 		group.clearSelection();
 	}
 
-	private static class RadioMenuItem extends JRadioButtonMenuItem
+	private static final class RadioMenuItem extends JRadioButtonMenuItem
 	{
 
 		private final Object item;
 
-		public RadioMenuItem(Object item, boolean selected, ItemListener listener)
+		private RadioMenuItem(Object item, boolean selected, ItemListener listener)
 		{
 			super(item.toString(), selected);
 			this.item = item;

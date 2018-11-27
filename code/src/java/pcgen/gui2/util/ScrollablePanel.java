@@ -37,7 +37,7 @@ import javax.swing.Scrollable;
  */
 public class ScrollablePanel extends JPanel implements Scrollable
 {
-	int scrollNum;
+	private int scrollNum;
 
 	//
 	// Scrollable methods
@@ -49,7 +49,6 @@ public class ScrollablePanel extends JPanel implements Scrollable
 	 */
 	public ScrollablePanel(int scrollNum)
 	{
-		super();
 		this.scrollNum = scrollNum;
 	}
 

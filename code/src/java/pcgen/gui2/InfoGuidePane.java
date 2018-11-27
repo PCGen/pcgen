@@ -51,7 +51,7 @@ import pcgen.system.LanguageBundle;
  * Note: this class extends UIResource so that the component can be added
  * as a child of a JTabbedPane without it becoming a tab
  */
-public class InfoGuidePane extends JComponent implements UIResource
+class InfoGuidePane extends JComponent implements UIResource
 {
 
 	/**
@@ -64,7 +64,7 @@ public class InfoGuidePane extends JComponent implements UIResource
 	private final JEditorPane tipPane;
 	private JPanel mainPanel;
 
-	public InfoGuidePane(PCGenFrame frame, UIContext uiContext)
+	InfoGuidePane(PCGenFrame frame, UIContext uiContext)
 	{
 		this.uiContext = Objects.requireNonNull(uiContext);
 		this.frame = frame;
