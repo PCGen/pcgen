@@ -59,8 +59,8 @@ public class FactSetDefinitionEnforcer<T extends CDOMObject, F> implements Defer
 	 */
 	public FactSetDefinitionEnforcer(FactSetInfo<T, F> fsi)
 	{
-		Objects.requireNonNull(fsi, "FactSet Info cannot be null");
-		def = fsi;
+
+		def = Objects.requireNonNull(fsi, "FactSet Info cannot be null");
 	}
 
 	@Override

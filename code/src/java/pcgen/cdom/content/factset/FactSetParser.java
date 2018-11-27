@@ -62,7 +62,7 @@ public class FactSetParser<T extends CDOMObject, F> extends AbstractTokenWithSep
 	 * @throws IllegalArgumentException
 	 *             if the given FactSetInfo is null
 	 */
-	public FactSetParser(FactSetInfo<T, F> fsi)
+	FactSetParser(FactSetInfo<T, F> fsi)
 	{
 		def = Objects.requireNonNull(fsi);
 	}
@@ -98,6 +98,7 @@ public class FactSetParser<T extends CDOMObject, F> extends AbstractTokenWithSep
 
 			Indirect<F> indirect = fmtManager.convertIndirect(token);
 			objContext.addToSet(obj, fsk, indirect);
+			firstToken = false;
 		}
 		return ParseResult.SUCCESS;
 	}

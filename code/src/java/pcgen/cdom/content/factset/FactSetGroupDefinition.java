@@ -56,7 +56,7 @@ public class FactSetGroupDefinition<T extends CDOMObject, F> implements GroupDef
 	 * @throws IllegalArgumentException
 	 *             if the given FactSetInfo is null
 	 */
-	public FactSetGroupDefinition(FactSetInfo<T, F> fsi)
+	FactSetGroupDefinition(FactSetInfo<T, F> fsi)
 	{
 		Objects.requireNonNull(fsi, "Fact Definition cannot be null");
 		def = fsi;
