@@ -19,7 +19,6 @@ package pcgen.core;
 
 import java.util.List;
 
-import junit.framework.TestCase;
 import pcgen.cdom.base.Constants;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.facade.core.AbilityFacade;
@@ -29,6 +28,8 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.pretokens.parser.PreAbilityParser;
+
+import junit.framework.TestCase;
 
 /**
  * The Class {@code DataSetTest} check that the Dataset class is functioning
