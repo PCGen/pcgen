@@ -19,20 +19,14 @@
 package pcgen.core.chooser;
 
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
 
 import pcgen.base.formula.Formula;
-import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.content.CNAbility;
-import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.AbilityUtilities;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
@@ -136,73 +130,6 @@ public final class ChooserUtilities
 			aMan.setController(new SkillChooseController(s, aPC));
 		}
 		return aMan;
-	}
-
-	/**
-	 * Restrict the available choices to what is allowed by the ability
-	 * category.
-	 * 
-	 * @param availableList
-	 *            The list of available choices, will be modified.
-	 * @param category
-	 *            The ability category
-	 * @param ability
-	 *            The ability the choices are for.
-	 */
-	private static void modifyAvailChoicesForAbilityCategory(List availableList, AbilityCategory category,
-		Ability ability)
-	{
-		AbilityCategory cat;
-		if (category == null)
-		{
-			cat = SettingsHandler.getGame().getAbilityCategory(ability.getCategory());
-		}
-		else
-		{
-			cat = category;
-		}
-
-		if (!cat.hasDirectReferences())
-		{
-			// Do nothing if there aren't any restrictions
-			return;
-		}
-
-		Set<String> allowedSet = new HashSet<>();
-		for (CDOMSingleRef<Ability> ref : cat.getAbilityRefs())
-		{
-			if (ref.contains(ability))
-			{
-				List<String> choices = new ArrayList<>();
-				AbilityUtilities.getUndecoratedName(ref.getLSTformat(false), choices);
-				allowedSet.addAll(choices);
-			}
-		}
-
-		if (allowedSet.isEmpty())
-		{
-			// Do nothing if there aren't any restrictions
-			return;
-		}
-
-		// Remove any non allowed choices from the list
-		for (Iterator iterator = availableList.iterator(); iterator.hasNext();)
-		{
-			Object obj = iterator.next();
-			String key;
-			if (obj instanceof CDOMObject)
-			{
-				key = ((CDOMObject) obj).getKeyName();
-			}
-			else
-			{
-				key = obj.toString();
-			}
-			if (!allowedSet.contains(key))
-			{
-				iterator.remove();
-			}
-		}
 	}
 
 	/**
