@@ -17,6 +17,8 @@
  */
 package plugin.function;
 
+import static plugin.function.testsupport.TestUtilities.doParse;
+
 import org.junit.Test;
 
 import junit.framework.TestCase;
@@ -59,10 +61,10 @@ public class GetOtherFunctionTest extends AbstractFormulaTestCase
 	public void testInvalidWrongArg()
 	{
 		String formula = "getOther(\"PC.SKILL\")";
-		SimpleNode node = TestUtilities.doParse(formula);
+		SimpleNode node = doParse(formula);
 		isNotValid(formula, node, numberManager, null);
 		String s = "getOther(\"PC.SKILL\", \"Foo\", 4, 5)";
-		SimpleNode simpleNode = TestUtilities.doParse(s);
+		SimpleNode simpleNode = doParse(s);
 		isNotValid(s, simpleNode, numberManager, null);
 	}
 
@@ -70,7 +72,7 @@ public class GetOtherFunctionTest extends AbstractFormulaTestCase
 	public void testInvalidWrongFormat1()
 	{
 		String formula = "getOther(3,\"SkillKey\",3)";
-		SimpleNode node = TestUtilities.doParse(formula);
+		SimpleNode node = doParse(formula);
 		isNotValid(formula, node, numberManager, null);
 	}
 
@@ -78,7 +80,7 @@ public class GetOtherFunctionTest extends AbstractFormulaTestCase
 	public void testInvalidWrongFormat2()
 	{
 		String formula = "getOther(\"PC.SKILL\",3,3)";
-		SimpleNode node = TestUtilities.doParse(formula);
+		SimpleNode node = doParse(formula);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = generateFormulaSemantics(null);
 		try
@@ -97,7 +99,7 @@ public class GetOtherFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula =
 				"getOther(\"PC.SKILL\", \"SkillKey\",\"Stuff\")";
-		SimpleNode node = TestUtilities.doParse(formula);
+		SimpleNode node = doParse(formula);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = generateFormulaSemantics(null);
 		Object result = semanticsVisitor.visit(node,
@@ -124,7 +126,7 @@ public class GetOtherFunctionTest extends AbstractFormulaTestCase
 
 		String formula =
 				"getOther(\"PC.SKILL\",\"SkillKey\",LocalVar)";
-		SimpleNode node = TestUtilities.doParse(formula);
+		SimpleNode node = doParse(formula);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = generateFormulaSemantics(null);
 		semanticsVisitor.visit(node, semantics.getWith(ManagerKey.CONTEXT, context));
@@ -154,7 +156,7 @@ public class GetOtherFunctionTest extends AbstractFormulaTestCase
 
 		String formula =
 				"getOther(\"PC.SKILL\",SkillVar,LocalVar)";
-		SimpleNode node = TestUtilities.doParse(formula);
+		SimpleNode node = doParse(formula);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = generateFormulaSemantics(null);
 		semanticsVisitor.visit(node, semantics.getWith(ManagerKey.CONTEXT, context));

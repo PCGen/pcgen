@@ -14,13 +14,9 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created/Reinstated on 2015-11-24
  */
 package pcgen.inttest.game_3e;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
 import pcgen.inttest.PcgenFtlTestCase;
 
 /**
@@ -31,15 +27,6 @@ import pcgen.inttest.PcgenFtlTestCase;
 @SuppressWarnings("nls")
 public class pcGenGUIMonKeeTest extends PcgenFtlTestCase
 {
-	/**
-	 * Run the tests.
-	 * 
-	 * @param args
-	 */
-	public static void main(String[] args)
-	{
-		junit.textui.TestRunner.run(pcGenGUIMonKeeTest.class);
-	}
 
 	/**
 	 * standard JUnit style constructor
@@ -48,15 +35,6 @@ public class pcGenGUIMonKeeTest extends PcgenFtlTestCase
 	public pcGenGUIMonKeeTest(String name)
 	{
 		super(name);
-	}
-
-	/**
-	 * Return a suite of all tests in this class.
-	 * @return A <tt>TestSuite</tt>
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(pcGenGUIMonKeeTest.class);
 	}
 
 	/**

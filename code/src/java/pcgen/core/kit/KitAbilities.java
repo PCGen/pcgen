@@ -243,7 +243,7 @@ public final class KitAbilities extends BaseKit
 
 	/**
 	 * Returns if the skill will be purchased for free.
-	 * @return <code>true</code> if the skill will be free
+	 * @return {@code true} if the skill will be free
 	 */
 	public boolean isFree()
 	{

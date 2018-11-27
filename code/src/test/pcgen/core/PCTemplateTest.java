@@ -24,8 +24,6 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.CDOMReference;
@@ -42,25 +40,15 @@ import pcgen.rules.context.LoadContext;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
- * <code>PCTemplateTest</code> tests the fucntion of the PCTemplate class.
+ * {@code PCTemplateTest} tests the fucntion of the PCTemplate class.
  */
 public class PCTemplateTest extends AbstractCharacterTestCase
 {
 	private PCClass testClass;
 	private GenericLoader<PCTemplate> loader = new GenericLoader<>(PCTemplate.class);
-	
-	/**
-	 * Constructs a new <code>PCTemplateTest</code>.
-	 *
-	 * @see pcgen.PCGenTestCase#PCGenTestCase()
-	 */
-	public PCTemplateTest()
-	{
-		// Do Nothing
-	}
 
 	/**
-	 * Constructs a new <code>PCTemplateTest</code> with the given <var>name</var>.
+	 * Constructs a new {@code PCTemplateTest} with the given <var>name</var>.
 	 *
 	 * @param name the test case name
 	 *
@@ -69,25 +57,6 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 	public PCTemplateTest(final String name)
 	{
 		super(name);
-	}
-
-	/**
-	 * Run the tests
-	 * @param args
-	 */
-	public static void main(final String[] args)
-	{
-		junit.textui.TestRunner.run(PCTemplateTest.class);
-	}
-
-	/**
-	 * Returns all the test methasVFeatshods in this class.
-	 * @return A <tt>TestSuite</tt>
-	 */
-	public static Test suite()
-	{
-		// quick method, adds all methods beginning with "test"
-		return new TestSuite(PCTemplateTest.class);
 	}
 
 	/**

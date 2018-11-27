@@ -28,7 +28,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.core.PlayerCharacter;
 
 /**
- * The Class <code>PortraitTokenTest</code> checks the function of PortraitToken.
+ * The Class {@code PortraitTokenTest} checks the function of PortraitToken.
  *
  * <br/>
  * 

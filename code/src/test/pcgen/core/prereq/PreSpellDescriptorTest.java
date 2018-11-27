@@ -35,19 +35,6 @@ public class PreSpellDescriptorTest extends AbstractCharacterTestCase
 	private PCClass wiz;
 	private PCClass cle;
 
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreSpellDescriptorTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreSpellDescriptorTest.class);
-	}
-
 	@Override
 	protected void setUp() throws Exception
 	{

@@ -33,7 +33,7 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 import util.TestURI;
 
 /**
- * The Class <code>ChallengeRatingPathfinderTest</code> checks the calculation
+ * The Class {@code ChallengeRatingPathfinderTest} checks the calculation
  * of challenge ratings for the Pathfinder RPG game mode
  *
  * <br/>
@@ -60,15 +60,6 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	private PCClass npcClass2;
 	private PCClass monsterClass;
 	private PCClass companionClass;
-
-	/**
-	 * Run the test
-	 * @param args don't need args apparently
-	 */
-	public static void main(final String[] args)
-	{
-		junit.textui.TestRunner.run(ChallengeRatingPathfinderTest.class);
-	}
 
 	@Override
 	protected void additionalSetUp() throws Exception

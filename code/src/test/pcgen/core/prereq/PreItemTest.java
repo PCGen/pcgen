@@ -28,24 +28,11 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
- * <code>PreItemTest</code> tests that the PREITEM tag is
+ * {@code PreItemTest} tests that the PREITEM tag is
  * working correctly.
  */
 public class PreItemTest extends AbstractCharacterTestCase
 {
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreItemTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreItemTest.class);
-	}
-
 	/*
 	 * Class under test for int passes(Prerequisite, PlayerCharacter)
 	 */

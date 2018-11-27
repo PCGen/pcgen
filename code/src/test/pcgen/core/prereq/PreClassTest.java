@@ -41,25 +41,6 @@ import plugin.pretokens.test.PreClassTester;
  */
 public class PreClassTest extends AbstractCharacterTestCase
 {
-    /**
-     * Main method in case we want to run JUnit from the command line
-     * 
-     * @param args
-     */
-    public static void main(final String[] args)
-	{
-		TestRunner.run(PreClassTest.class);
-	}
-
-	/**
-	 * Std JUnit suite return method
-	 * @return PreClassTest
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreClassTest.class);
-	}
-
 	/**
 	 * Test to ensure that a character with a named class can be found.
 	 */

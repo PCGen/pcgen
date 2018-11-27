@@ -20,6 +20,7 @@ package pcgen.cdom.content.factset;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 import java.util.StringTokenizer;
 
 import pcgen.base.util.FormatManager;
@@ -63,11 +64,7 @@ public class FactSetParser<T extends CDOMObject, F> extends AbstractTokenWithSep
 	 */
 	public FactSetParser(FactSetInfo<T, F> fsi)
 	{
-		if (fsi == null)
-		{
-			throw new IllegalArgumentException("FactSet Info cannot be null");
-		}
-		def = fsi;
+		def = Objects.requireNonNull(fsi);
 	}
 
 	@Override
@@ -96,6 +93,7 @@ public class FactSetParser<T extends CDOMObject, F> extends AbstractTokenWithSep
 							+ getTokenName() + ": When used, .CLEARALL must be the first argument");
 				}
 				objContext.removeSet(obj, fsk);
+				firstToken = false;
 			}
 
 			Indirect<F> indirect = fmtManager.convertIndirect(token);

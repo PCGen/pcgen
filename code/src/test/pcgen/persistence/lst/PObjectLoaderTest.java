@@ -39,9 +39,6 @@ import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 import pcgen.util.TestHelper;
-
-import junit.framework.Test;
-import junit.framework.TestSuite;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 public class PObjectLoaderTest extends PCGenTestCase
@@ -49,17 +46,6 @@ public class PObjectLoaderTest extends PCGenTestCase
 	public PObjectLoaderTest(String name)
 	{
 		super(name);
-	}
-
-	public static void main(String[] args)
-	{
-		junit.textui.TestRunner.run(PObjectLoaderTest.class);
-	}
-
-	public static Test suite()
-	{
-		// quick method, adds all methods beginning with "test"
-		return new TestSuite(PObjectLoaderTest.class);
 	}
 
 	/**

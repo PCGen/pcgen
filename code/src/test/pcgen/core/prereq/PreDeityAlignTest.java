@@ -17,9 +17,6 @@
  */
 package pcgen.core.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
@@ -30,25 +27,12 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
- * <code>PreDeityAlignTest</code> tests that the PREDEITYALIGN tag is 
+ * {@code PreDeityAlignTest} tests that the PREDEITYALIGN tag is
  * working correctly.
  */
 public class PreDeityAlignTest extends AbstractCharacterTestCase
 {
 	private Deity deity;
-
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreDeityAlignTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreDeityAlignTest.class);
-	}
 
 	/**
 	 * Test that alignment abbreviation values work correctly in Deity Align tests.

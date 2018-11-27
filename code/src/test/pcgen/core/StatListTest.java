@@ -32,7 +32,7 @@ import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
- * <code>StatListTest</code> checks the function of the 
+ * {@code StatListTest} checks the function of the
  * StatList class. 
  */
 public class StatListTest extends AbstractCharacterTestCase

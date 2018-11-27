@@ -36,7 +36,7 @@ import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
- * The Class <code>SkillModifierTest</code> is responsible for checking that the 
+ * The Class {@code SkillModifierTest} is responsible for checking that the
  * SkillModifier class is operating correctly.
  * 
  * 

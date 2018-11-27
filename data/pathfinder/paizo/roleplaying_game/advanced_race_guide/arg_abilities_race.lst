@@ -478,7 +478,7 @@ CATEGORY=Internal|Race Traits ~ Gathlain.MOD																																				
 ###Block: Default Gathlain Abilities
 # Ability Name					Unique Key				Category of Ability		Type											Innate Spells								Description																												Ability																					Modify VAR						Source Page
 Gathlain Magic					KEY:Gathlain ~ Gathlain Magic	CATEGORY:Special Ability	TYPE:Gathlain Race Trait.SpecialQuality.GathlainRacialDefault	SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Entangle|Feather Step	DESC:Gathlains have a +1 natural armor bonus.																																																			SOURCEPAGE:p.230
-Natural Armor					KEY:Gathlain ~ Natural Armor	CATEGORY:Special Ability	TYPE:Gathlain Race Trait.SpecialQuality.GathlainRacialDefault											DESC:Gathlains can cast entangle and feather step APG each once per day as spell-like abilities. The caster level for each is equal to the gathlain’s character level.																							BONUS:VAR|AC_Natural_Armor|1|TYPE=Base	SOURCEPAGE:p.230
+Natural Armor					KEY:Gathlain ~ Natural Armor	CATEGORY:Special Ability	TYPE:Gathlain Race Trait.SpecialQuality.GathlainRacialDefault											DESC:Gathlains can cast entangle and feather step APG each once per day as spell-like abilities. The caster level for each is equal to the gathlain's character level.																							BONUS:VAR|AC_Natural_Armor|1|TYPE=Base	SOURCEPAGE:p.230
 
 
 #Race Traits ~ Trox
@@ -492,8 +492,8 @@ CATEGORY=Internal|Race Traits ~ Trox.MOD																																								
 ###Block: Default Trox Abilities
 # Ability Name						Unique Key					Category of Ability		Type									Description																																	Move			Ability																		Source Page
 Burrow							KEY:Trox ~ Burrow				CATEGORY:Special Ability	TYPE:Trox Race Trait.SpecialQuality.TroxRacialDefault	DESC:Trox have a burrow speed of 20 feet.																												MOVE:Burrow,30																				SOURCEPAGE:p.234
-Frenzy							KEY:Trox ~ Frenzy				CATEGORY:Special Ability	TYPE:Trox Race Trait.SpecialQuality.TroxRacialDefault	DESC:Once per day when a trox takes damage, it flies into a frenzy for 1 minute, gaining a +2 racial bonus to Constitution and Strength, but a –2 penalty to their AC.																												SOURCEPAGE:p.234
-Grabbing Appendages					KEY:Trox ~ Grabbing Appendages	CATEGORY:Special Ability	TYPE:Trox Race Trait.SpecialQuality.TroxRacialDefault	DESC:A trox’s smaller arms are useful for little more than aiding it with grappling. Trox gain Improved Grapple as a bonus feat, and can maintain a grapple and still make attacks with their main arms.																							SOURCEPAGE:p.234
+Frenzy							KEY:Trox ~ Frenzy				CATEGORY:Special Ability	TYPE:Trox Race Trait.SpecialQuality.TroxRacialDefault	DESC:Once per day when a trox takes damage, it flies into a frenzy for 1 minute, gaining a +2 racial bonus to Constitution and Strength, but a -2 penalty to their AC.																												SOURCEPAGE:p.234
+Grabbing Appendages					KEY:Trox ~ Grabbing Appendages	CATEGORY:Special Ability	TYPE:Trox Race Trait.SpecialQuality.TroxRacialDefault	DESC:A trox's smaller arms are useful for little more than aiding it with grappling. Trox gain Improved Grapple as a bonus feat, and can maintain a grapple and still make attacks with their main arms.																							SOURCEPAGE:p.234
 
 
 #Race Traits ~ Wyrwood

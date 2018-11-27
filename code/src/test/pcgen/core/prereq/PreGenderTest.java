@@ -17,9 +17,6 @@
  */
 package pcgen.core.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.core.PlayerCharacter;
@@ -27,24 +24,11 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
- * <code>PreGenderTest</code> tests that the PREGENDER tag is
+ * {@code PreGenderTest} tests that the PREGENDER tag is
  * working correctly.
  */
 public class PreGenderTest extends AbstractCharacterTestCase
 {
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreGenderTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreGenderTest.class);
-	}
-
 	/**
 	 * Test the PREGENDER code.
 	 *

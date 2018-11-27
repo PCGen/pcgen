@@ -34,7 +34,7 @@ import pcgen.rules.persistence.TokenUtilities;
 import pcgen.util.TestHelper;
 
 /**
- * The Class <code>LoadContextTest</code> checks the function of the LoadCOntext class.
+ * The Class {@code LoadContextTest} checks the function of the LoadCOntext class.
  *
  * <br/>
  * 

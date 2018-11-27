@@ -9,11 +9,11 @@ SOURCELONG:Pathfinder Player Companion: Champions of Corruption	SOURCESHORT:COC	
 # ==============================
 
 # Equipment Name					Type							Cost		Weight	Source Page		Special Property
-Poison (Peasant's Woe)				TYPE:Goods.Poison.Consumable			COST:400			SOURCEPAGE:p.27	SPROP:Injury; Fort DC 15; Onset —; Freq 1 rd (4); Effect –10 ft. speed, 1 Dex dmg; Cure 1 save
-Poison (Brain Blot)				TYPE:Goods.Poison.Consumable			COST:800			SOURCEPAGE:p.27	SPROP:Inhaled; Fort DC 13; Onset 1 min; Freq 1 min (6); Effect –5 concentration/1 hr, 1 Int dmg; Cure 1 save
-Poison (Everwake Serum)				TYPE:Goods.Poison.Consumable			COST:2500			SOURCEPAGE:p.27	SPROP:Ingested; Fort DC 17; Onset —; Freq 1 day (5) Effect No sleep; Cure 2 consecutive saves
+Poison (Peasant's Woe)				TYPE:Goods.Poison.Consumable			COST:400			SOURCEPAGE:p.27	SPROP:Injury; Fort DC 15; Onset -; Freq 1 rd (4); Effect -10 ft. speed, 1 Dex dmg; Cure 1 save
+Poison (Brain Blot)				TYPE:Goods.Poison.Consumable			COST:800			SOURCEPAGE:p.27	SPROP:Inhaled; Fort DC 13; Onset 1 min; Freq 1 min (6); Effect -5 concentration/1 hr, 1 Int dmg; Cure 1 save
+Poison (Everwake Serum)				TYPE:Goods.Poison.Consumable			COST:2500			SOURCEPAGE:p.27	SPROP:Ingested; Fort DC 17; Onset -; Freq 1 day (5) Effect No sleep; Cure 2 consecutive saves
 
-Drug (Euphoric Healing)				TYPE:Goods.Drug.Consumable			COST:0			SOURCEPAGE:p.30	SPROP:Spell; Addiction minor, Fortitude DC 13; Effect 24 hr.; –2 penalty against all mind-affecting spells cast by the amulet's wearer; 1 Wis damage
+Drug (Euphoric Healing)				TYPE:Goods.Drug.Consumable			COST:0			SOURCEPAGE:p.30	SPROP:Spell; Addiction minor, Fortitude DC 13; Effect 24 hr.; -2 penalty against all mind-affecting spells cast by the amulet's wearer; 1 Wis damage
 
 # ==============================
 # New Magic Items

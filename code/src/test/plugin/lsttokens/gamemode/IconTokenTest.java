@@ -24,7 +24,7 @@ import pcgen.core.GameMode;
 import pcgen.core.SettingsHandler;
 
 /**
- * The Class <code>IconTokenTest</code> tests that the IconToken class is 
+ * The Class {@code IconTokenTest} tests that the IconToken class is
  * operating correctly.
  *
  * <br/>

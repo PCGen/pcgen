@@ -47,7 +47,7 @@ import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.MapFacade;
 
 /**
- * The Class <code></code> is ...
+ * The Class {@code} is ...
  *
  * <br/>
  * 

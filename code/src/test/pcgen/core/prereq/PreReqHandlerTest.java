@@ -23,14 +23,11 @@ import java.util.Locale;
 
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.LocaleDependentTestCase;
-import junit.framework.TestCase;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.TestHelper;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
+import junit.framework.TestCase;
 
 
 @SuppressWarnings("nls")
@@ -38,26 +35,7 @@ public class PreReqHandlerTest extends TestCase
 {
 
 	/**
-	 * Run the JUnit test
-	 * @param args
-	 */
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreReqHandlerTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreReqHandlerTest.class);
-	}
-
-	/**
 	 * Sets up the test case by loading the system plugins.
-	 * 
-	 * @see junit.framework.TestCase#setUp()
 	 */
 	@Override
 	public void setUp() throws Exception

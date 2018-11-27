@@ -17,9 +17,6 @@
  */
 package pcgen.core.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
@@ -35,7 +32,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
- * <code>PreCSkillTest</code> tests that the PRECSKILL tag is
+ * {@code PreCSkillTest} tests that the PRECSKILL tag is
  * working correctly.
  */
 public class PreCSkillTest extends AbstractCharacterTestCase
@@ -45,19 +42,6 @@ public class PreCSkillTest extends AbstractCharacterTestCase
 	private Skill spy2;
 	private Skill spy3;
 	private Skill spot;
-
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreCSkillTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreCSkillTest.class);
-	}
 
 	/**
 	 * Test that CSkill works.

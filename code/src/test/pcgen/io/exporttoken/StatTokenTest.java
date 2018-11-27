@@ -35,7 +35,7 @@ import pcgen.core.spell.Spell;
 import pcgen.rules.context.LoadContext;
 
 /**
- * <code>StatTokenTest</code> tests the functioning of the STAT token. 
+ * {@code StatTokenTest} tests the functioning of the STAT token.
  */
 
 public class StatTokenTest extends AbstractCharacterTestCase

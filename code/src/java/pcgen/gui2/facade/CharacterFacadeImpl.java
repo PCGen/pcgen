@@ -99,7 +99,6 @@ import pcgen.core.Race;
 import pcgen.core.RollingMethods;
 import pcgen.core.RuleConstants;
 import pcgen.core.SettingsHandler;
-import pcgen.core.SimpleFacadeImpl;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.Skill;
 import pcgen.core.VariableProcessor;
@@ -144,14 +143,12 @@ import pcgen.facade.core.EquipmentListFacade.EquipmentListEvent;
 import pcgen.facade.core.EquipmentListFacade.EquipmentListListener;
 import pcgen.facade.core.EquipmentSetFacade;
 import pcgen.facade.core.GearBuySellFacade;
-import pcgen.facade.core.GenderFacade;
 import pcgen.facade.core.HandedFacade;
 import pcgen.facade.core.InfoFacade;
 import pcgen.facade.core.InfoFactory;
 import pcgen.facade.core.KitFacade;
 import pcgen.facade.core.LanguageChooserFacade;
 import pcgen.facade.core.RaceFacade;
-import pcgen.facade.core.SimpleFacade;
 import pcgen.facade.core.SkillFacade;
 import pcgen.facade.core.SpellFacade;
 import pcgen.facade.core.SpellSupportFacade;
@@ -205,7 +202,7 @@ public class CharacterFacadeImpl
 	private DefaultListFacade<TempBonusFacade> availTempBonuses;
 	private WriteableReferenceFacade<PCAlignment> alignment;
 	private DefaultListFacade<EquipmentSetFacade> equipmentSets;
-	private DefaultReferenceFacade<GenderFacade> gender;
+	private DefaultReferenceFacade<Gender> gender;
 	private DefaultListFacade<CharacterLevelFacade> pcClassLevels;
 	private DefaultListFacade<HandedFacade> availHands;
 	private DefaultListFacade<GenderFacade> availGenders;
@@ -234,8 +231,8 @@ public class CharacterFacadeImpl
 	private DefaultReferenceFacade<String> previewSheet;
 	private DefaultReferenceFacade<SkillFilter> skillFilter;
 	private DefaultReferenceFacade<Integer> age;
-	private DefaultReferenceFacade<SimpleFacade> ageCategory;
-	private DefaultListFacade<SimpleFacade> ageCategoryList;
+	private DefaultReferenceFacade<String> ageCategory;
+	private DefaultListFacade<String> ageCategoryList;
 	private DefaultReferenceFacade<String> poolPointText;
 	private DefaultReferenceFacade<String> statTotalLabelText;
 	private DefaultReferenceFacade<String> statTotalText;
@@ -401,7 +398,7 @@ public class CharacterFacadeImpl
 					break;
 				}
 			}
-			for (GenderFacade pcGender : availGenders)
+			for (Gender pcGender : availGenders)
 			{
 				if (pcGender.equals(theCharacter.getGenderObject()))
 				{
@@ -601,7 +598,7 @@ public class CharacterFacadeImpl
 		ageCategoryList = new DefaultListFacade<>();
 		for (String ageCat : cats)
 		{
-			ageCategoryList.addElement(new SimpleFacadeImpl(ageCat));
+			ageCategoryList.addElement(ageCat);
 		}
 	}
 
@@ -646,7 +643,7 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public ListFacade<GenderFacade> getAvailableGenders()
+	public ListFacade<Gender> getAvailableGenders()
 	{
 		return availGenders;
 	}
@@ -1404,15 +1401,15 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public ReferenceFacade<GenderFacade> getGenderRef()
+	public ReferenceFacade<Gender> getGenderRef()
 	{
 		return gender;
 	}
 
 	@Override
-	public void setGender(GenderFacade gender)
+	public void setGender(Gender gender)
 	{
-		theCharacter.setGender((Gender) gender);
+		theCharacter.setGender(gender);
 		Gender newGender = theCharacter.getGenderObject();
 		this.selectedGender = newGender.toString();
 		this.gender.set(newGender);
@@ -1425,7 +1422,7 @@ public class CharacterFacadeImpl
 		this.selectedGender = gender;
 		if (charDisplay.getRace() != null)
 		{
-			for (GenderFacade raceGender : availGenders)
+			for (Gender raceGender : availGenders)
 			{
 				if (raceGender.toString().equals(gender))
 				{
@@ -1780,7 +1777,7 @@ public class CharacterFacadeImpl
 					break;
 				}
 			}
-			for (GenderFacade pcGender : availGenders)
+			for (Gender pcGender : availGenders)
 			{
 				if (pcGender.equals(theCharacter.getGenderObject()))
 				{
@@ -2765,9 +2762,9 @@ public class CharacterFacadeImpl
 		if (ageSet != null)
 		{
 			String ageCatName = ageSet.getName();
-			for (SimpleFacade ageCatFacade : ageCategoryList)
+			for (String ageCatFacade : ageCategoryList)
 			{
-				if (ageCatFacade.toString().equals(ageCatName))
+				if (ageCatFacade.equals(ageCatName))
 				{
 					ageCategory.set(ageCatFacade);
 				}
@@ -2782,13 +2779,13 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public ListFacade<SimpleFacade> getAgeCategories()
+	public ListFacade<String> getAgeCategories()
 	{
 		return ageCategoryList;
 	}
 
 	@Override
-	public void setAgeCategory(final SimpleFacade ageCat)
+	public void setAgeCategory(final String ageCat)
 	{
 		if (ageCat == this.ageCategory.get())
 		{
@@ -2819,7 +2816,7 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public ReferenceFacade<SimpleFacade> getAgeCategoryRef()
+	public ReferenceFacade<String> getAgeCategoryRef()
 	{
 		return ageCategory;
 	}

@@ -52,6 +52,7 @@ public class TreeViewPath<E>
 		this(new Object[]{pobj}, 1);
 	}
 
+	@SafeVarargs
 	public TreeViewPath(Object[] path, E... pobjs)
 	{
 		if (path == null || path.length == 0 || pobjs == null || pobjs.length == 0)
@@ -90,7 +91,7 @@ public class TreeViewPath<E>
 	 *
 	 * @return an int giving a count of items the path
 	 */
-	public int getPathCount()
+	int getPathCount()
 	{
 		return length;
 	}
@@ -104,7 +105,7 @@ public class TreeViewPath<E>
 	 * @throws IllegalArgumentException if the index is beyond the length
 	 *         of the path
 	 */
-	public Object getPathComponent(int element)
+	Object getPathComponent(int element)
 	{
 		return path[element];
 	}
@@ -116,7 +117,7 @@ public class TreeViewPath<E>
 	 * @return the Object at the end of the path
 	 */
 	@SuppressWarnings("unchecked")
-	public E getLastPathComponent()
+	private E getLastPathComponent()
 	{
 		return (E) path[length - 1];
 	}
@@ -159,29 +160,6 @@ public class TreeViewPath<E>
 			return false;
 		}
 		return Arrays.equals(path, other.path);
-	}
-
-	/**
-	 * Returns a path containing all the elements of this object, except
-	 * the last path component.
-	 * @return the parent path
-	 */
-	public TreeViewPath<E> getParentPath()
-	{
-		return new TreeViewPath<>(path, length - 1);
-	}
-
-	public TreeViewPath<E> getParentPath(int lastElement)
-	{
-		return new TreeViewPath<>(path, lastElement + 1);
-	}
-
-	public TreeViewPath<E> pathByAddingParent(String singlePath)
-	{
-		Object[] parentPath = new Object[length + 1];
-		parentPath[0] = singlePath;
-		System.arraycopy(path, 0, parentPath, 1, length);
-		return new TreeViewPath<>(parentPath, length + 1);
 	}
 
 	@Override

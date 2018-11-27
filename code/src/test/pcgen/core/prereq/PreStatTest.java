@@ -21,7 +21,7 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.core.PlayerCharacter;
 
 /**
- * The Class <code>PreStatTest</code> checks that PreStatTester is working correctly.
+ * The Class {@code PreStatTest} checks that PreStatTester is working correctly.
  *
  * <br/>
  * 

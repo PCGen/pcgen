@@ -29,19 +29,6 @@ import plugin.pretokens.test.PreTypeTester;
 
 public class PreTypeTest extends AbstractCharacterTestCase
 {
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreTypeTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreTypeTest.class);
-	}
-
 	/**
 	 * Ensure a character with a template correctly passes
 	 * PRETEMPLATE

@@ -17,72 +17,38 @@
  */
 package pcgen.core;
 
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
+
 import java.util.List;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.framework.TestCase;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.util.TestHelper;
 
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
 /**
- * <code>EquipmentListTest</code> checks the functionality of the EquipmentList class.
+ * {@code EquipmentListTest} checks the functionality of the EquipmentList class.
  */
-@SuppressWarnings("nls")
-public class EquipmentListTest extends TestCase
+public class EquipmentListTest
 {
 
 	private Equipment eq = null;
 	private static final String ORIGINAL_KEY = "OrigKey";
-	private boolean firstTime = true;
 
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
+	@BeforeClass
+	public static void beforeClass()
 	{
-		return new TestSuite(EquipmentListTest.class);
+		TestHelper.makeSizeAdjustments();
 	}
 
-	/**
-	 * Constructs a new <code>EquipmentListTest</code>.
-	 *
-	 * @see pcgen.PCGenTestCase#PCGenTestCase()
-	 */
-	public EquipmentListTest()
-	{
-		// Constructor
-	}
-
-	/**
-	 * Constructs a new <code>EquipmentListTest</code> with the given
-	 * <var>name</var>.
-	 *
-	 * @param name the test case name
-	 *
-	 * @see pcgen.PCGenTestCase#PCGenTestCase(String)
-	 */
-	public EquipmentListTest(final String name)
-	{
-		super(name);
-	}
-
-	/**
-	 * @see junit.framework.TestCase#setUp()
-	 */
-	@Override
+	@Before
 	public void setUp() throws Exception
 	{
-		super.setUp();
-
-		if (firstTime)
-		{
-			TestHelper.makeSizeAdjustments();
-			firstTime = false;
-		}
-
 		this.eq = new Equipment();
 		this.eq.setName("Dummy");
 		SizeAdjustment sa = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
@@ -98,14 +64,15 @@ public class EquipmentListTest extends TestCase
 	/**
 	 * test the getEquipmentOfType method
 	 */
+	@Test
 	public void testGetEquipmentOfType()
 	{
 		Globals.getContext().getReferenceContext().importObject(eq);
 
 		List<Equipment> results =
 				EquipmentList.getEquipmentOfType("Weapon.Melee", "Magic");
-		assertEquals("Should get a single result", 1, results.size());
-		assertEquals("Should find the DUmmy equipment object.", eq, results
-			.get(0));
+		assertThat("Should get a single result", results.size(), is(1));
+		assertThat("Should find the DUmmy equipment object.", results
+				.get(0), is(eq));
 	}
 }

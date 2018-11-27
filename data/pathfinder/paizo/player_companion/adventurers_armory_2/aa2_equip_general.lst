@@ -78,8 +78,8 @@ Wing Sheaths																						TYPE:Goods.General.Resizable															COS
 # ==============================
 
 Anesthetic Wine																						TYPE:Goods.Alchemical.Consumable														COST:50	WT:1		SOURCEPAGE:p.29	SPROP:For 1 hour after drinking, gain a +5 bonus on saves vs. pain effects, reduce the amount of any nonlethal damage taken by 1.
-Beast-Scent																							TYPE:Goods.Alchemical.Consumable														COST:75	WT:0.5	SOURCEPAGE:p.24	SPROP:+2 bonus on Handle Animal and wild empathy checks and a –5 penalty on attempts to track the wearer by his original scent. If tracking the smell of beast-scent itself, +10 bonus instead.
-Crystal-Sweet Concoction																				TYPE:Goods.Alchemical.Consumable.Concoction												COST:50			SOURCEPAGE:p.26	SPROP:Grants +2 bonus on Diplomacy checks, –4 penalty on Sense Motive checks. Unstable if mixed with other concoctions!
+Beast-Scent																							TYPE:Goods.Alchemical.Consumable														COST:75	WT:0.5	SOURCEPAGE:p.24	SPROP:+2 bonus on Handle Animal and wild empathy checks and a -5 penalty on attempts to track the wearer by his original scent. If tracking the smell of beast-scent itself, +10 bonus instead.
+Crystal-Sweet Concoction																				TYPE:Goods.Alchemical.Consumable.Concoction												COST:50			SOURCEPAGE:p.26	SPROP:Grants +2 bonus on Diplomacy checks, -4 penalty on Sense Motive checks. Unstable if mixed with other concoctions!
 Curative Myrrh																						TYPE:Goods.Alchemical.Consumable														COST:50			SOURCEPAGE:p.29
 Darkflare																							TYPE:Goods.Alchemical.Consumable														COST:1			SOURCEPAGE:p.25
 Darting-Eye Concoction																					TYPE:Goods.Alchemical.Consumable.Concoction												COST:50			SOURCEPAGE:p.27	SPROP:Grants +2 bonus on Perception checks, -1 penalty on Will saves. Unstable if mixed with other concoctions!
@@ -89,15 +89,15 @@ Gloomstick																							TYPE:Goods.Alchemical.Consumable														C
 Liquid Breeze																						TYPE:Goods.Alchemical.Consumable														COST:30			SOURCEPAGE:p.29	SPROP:Grants the benefits of endure elements for 8 hours, but only against hot environments. This effect is nonmagical and can't be dispelled.
 Kitumu's Ire						NAMEISPI:YES								PROFICIENCY:WEAPON|Splash Weapon	TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Splash										COST:75			SOURCEPAGE:p.25
 Minkaian Ceremonial Tea					NAMEISPI:YES														TYPE:Goods.Alchemical.Consumable														COST:900			SOURCEPAGE:p.28
-Quick-Step Concoction																					TYPE:Goods.Alchemical.Consumable.Concoction												COST:75			SOURCEPAGE:p.27	SPROP:Grants +2 bonus on Acrobatics checks and CMD against trip attempts, –2 penalty on Perception checks. Unstable if mixed with other concoctions!
-Slow-Heart Concoction																					TYPE:Goods.Alchemical.Consumable.Concoction												COST:50			SOURCEPAGE:p.27	SPROP:Reduces any bleed damage by 2 and automatically stabilize when dying, –1 penalty on your Reflex saves. Unstable if mixed with other concoctions!
-Snake-Tongue Concoction																					TYPE:Goods.Alchemical.Consumable.Concoction												COST:50			SOURCEPAGE:p.27	SPROP:Once during duration, as a swift action, lick or spit on a held weapon to apply a dose of black adder venom. Vishkanya apply their racial poison instead; this does not count against that trait's uses per day. Imparts a –1 penalty on Fort saves. Unstable if mixed with other concoctions!
-Sphere-Song Concoction																					TYPE:Goods.Alchemical.Consumable.Concoction												COST:50			SOURCEPAGE:p.27	SPROP:Grants +1 bonus on Will saves, –2 penalty on initiative checks. Unstable if mixed with other concoctions!
+Quick-Step Concoction																					TYPE:Goods.Alchemical.Consumable.Concoction												COST:75			SOURCEPAGE:p.27	SPROP:Grants +2 bonus on Acrobatics checks and CMD against trip attempts, -2 penalty on Perception checks. Unstable if mixed with other concoctions!
+Slow-Heart Concoction																					TYPE:Goods.Alchemical.Consumable.Concoction												COST:50			SOURCEPAGE:p.27	SPROP:Reduces any bleed damage by 2 and automatically stabilize when dying, -1 penalty on your Reflex saves. Unstable if mixed with other concoctions!
+Snake-Tongue Concoction																					TYPE:Goods.Alchemical.Consumable.Concoction												COST:50			SOURCEPAGE:p.27	SPROP:Once during duration, as a swift action, lick or spit on a held weapon to apply a dose of black adder venom. Vishkanya apply their racial poison instead; this does not count against that trait's uses per day. Imparts a -1 penalty on Fort saves. Unstable if mixed with other concoctions!
+Sphere-Song Concoction																					TYPE:Goods.Alchemical.Consumable.Concoction												COST:50			SOURCEPAGE:p.27	SPROP:Grants +1 bonus on Will saves, -2 penalty on initiative checks. Unstable if mixed with other concoctions!
 Spirit-Vision Ink																						TYPE:Goods.Alchemical.Consumable														COST:25			SOURCEPAGE:p.28
 Surgical Jelly																						TYPE:Goods.Alchemical.Consumable														COST:5	WT:2		SOURCEPAGE:p.24	SPROP:Immediately ends any infestations, implanted eggs, or other non-disease effects that can be cured by remove disease that do not require a caster level check.
 Tress Tincture																PROFICIENCY:WEAPON|Splash Weapon	TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Splash										COST:50			SOURCEPAGE:p.25
 Troll Styptic																						TYPE:Goods.Alchemical.Consumable														COST:100			SOURCEPAGE:p.24	SPROP:Grants fast healing 2 for 2d4 rounds, closes any open wounds, negating bleed effects. Must succeed at a DC 15 Fort save or be sickened for duration.
-Wild-Blood Concoction																					TYPE:Goods.Alchemical.Consumable.Concoction												COST:100			SOURCEPAGE:p.27	SPROP:Grants +2 bonus on melee damage rolls with natural and manufactured weapons, –2 penalty to AC. Unstable if mixed with other concoctions!
+Wild-Blood Concoction																					TYPE:Goods.Alchemical.Consumable.Concoction												COST:100			SOURCEPAGE:p.27	SPROP:Grants +2 bonus on melee damage rolls with natural and manufactured weapons, -2 penalty to AC. Unstable if mixed with other concoctions!
 
 # ==============================
 # Clothing
@@ -116,7 +116,7 @@ Outfit (Executioner's)																					TYPE:Goods.Clothing.Resizable.Startin
 Outfit (Squire's)																						TYPE:Goods.Clothing.Resizable.Starting													COST:5	WT:8		SOURCEPAGE:p.20
 Shinobi Shozoku																						TYPE:Goods.Clothing.Resizable															COST:50	WT:2		SOURCEPAGE:p.28	SPROP:+2 on Stealth checks unless also wearing armor with a base armor bonus higher than +1, heavy clothing or carrying heavy equipment.
 Silk Kimono																							TYPE:Goods.Clothing.Resizable															COST:200	WT:5		SOURCEPAGE:p.28
-Sparring Gear																						TYPE:Goods.Clothing.Resizable															COST:3.5	WT:15		SOURCEPAGE:p.20	SPROP:Grants DR 2/— against nonlethal damage.
+Sparring Gear																						TYPE:Goods.Clothing.Resizable															COST:3.5	WT:15		SOURCEPAGE:p.20	SPROP:Grants DR 2/- against nonlethal damage.
 Stiletto Boots																						TYPE:Goods.Clothing.Resizable															COST:10	WT:1		SOURCEPAGE:p.20
 
 # ==============================
