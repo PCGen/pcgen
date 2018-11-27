@@ -30,7 +30,7 @@ import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
 
 /**
- * The Class <code></code> ...
+ * The Class {@code} ...
  *
  * <br/>
  * 

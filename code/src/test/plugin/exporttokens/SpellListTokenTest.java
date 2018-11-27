@@ -40,7 +40,7 @@ import junit.framework.TestSuite;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
- * <code>SpellListTokenTest</code> is ...
+ * {@code SpellListTokenTest} is ...
  */
 
 public class SpellListTokenTest extends AbstractCharacterTestCase

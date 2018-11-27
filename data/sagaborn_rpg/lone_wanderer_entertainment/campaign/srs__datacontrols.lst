@@ -23,6 +23,7 @@ DEFAULTVARIABLEVALUE:ALIGNMENT|None
 
 # End 6.07.00+ only
 
+FACTDEF:RACE|BaseSize					DATAFORMAT:SIZEADJUSTMENT	REQUIRED:YES				VISIBLE:YES							EXPLANATION:All Races must have a Size - in the case of multiple sizes, use the SMALLEST allowed.
 
 # This MUST be included if you enable the datacontrol file....
 # Name						Dataformat				Required	Selectable		Visible	Displayname			Explanation

@@ -33,7 +33,7 @@ import pcgen.system.PCGenPropBundle;
 import pcgen.util.Logging;
 
 /**
- * <code>CoreUtility</code>.
+ * {@code CoreUtility}.
  * 
  * Assorted generic-ish functionality moved from Globals and PlayerCharacter
  * (the two biggest classes in the project.) Some of this code seems awfully

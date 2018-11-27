@@ -28,7 +28,7 @@ import org.nfunk.jep.ParseException;
 import org.nfunk.jep.function.PostfixMathCommandI;
 
 /**
- * <code>OrCommandTest</code> tests the functioning of the jep or plugin
+ * {@code OrCommandTest} tests the functioning of the jep or plugin
  */
 public class OrCommandTest extends PCGenTestCase
 {

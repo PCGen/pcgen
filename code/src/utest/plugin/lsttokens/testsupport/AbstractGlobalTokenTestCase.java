@@ -18,22 +18,17 @@
 package plugin.lsttokens.testsupport;
 
 
-import java.lang.ref.WeakReference;
 import java.net.URISyntaxException;
+import java.util.Arrays;
 import java.util.Locale;
+import java.util.stream.Collectors;
 
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-
-import junit.framework.TestCase;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.core.Campaign;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
-import pcgen.persistence.lst.LstToken;
 import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
@@ -44,6 +39,11 @@ import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.CDOMWriteToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
+
+import junit.framework.TestCase;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.BeforeClass;
 import util.TestURI;
 
 public abstract class AbstractGlobalTokenTestCase extends TestCase
@@ -88,11 +88,6 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 
 	public abstract <T extends CDOMObject> Class<T> getCDOMClass();
 
-	public static void addToken(LstToken tok)
-	{
-		TokenLibrary.addToTokenMap(tok);
-	}
-
 	public static void addBonus(Class<? extends BonusObj> clazz)
 	{
 		try
@@ -108,45 +103,43 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 	public void runRoundRobin(String... str) throws PersistenceLayerException
 	{
 		// Default is not to write out anything
-		assertNull(getWriteToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getWriteToken().unparse(primaryContext, primaryProf));
 
 		// Set value
 		for (String s : str)
 		{
-			assertTrue("Should be able to parse " + s, parse(s));
+			Assert.assertTrue("Should be able to parse " + s, parse(s));
 		}
 		// Get back the appropriate token:
 		String[] unparsed = getWriteToken().unparse(primaryContext, primaryProf);
 
-		assertNotNull(str);
-		assertNotNull(unparsed);
-		assertEquals(str.length, unparsed.length);
+		Assert.assertNotNull(str);
+		Assert.assertNotNull(unparsed);
+		Assert.assertEquals(str.length, unparsed.length);
 
 		for (int i = 0; i < str.length; i++)
 		{
-			assertEquals("Expected " + i + "th unparsed item to be equal",
+			Assert.assertEquals("Expected " + i + "th unparsed item to be equal",
 				str[i], unparsed[i]);
 		}
 
 		// Do round Robin
-		StringBuilder unparsedBuilt = new StringBuilder();
-		for (String s : unparsed)
-		{
-			unparsedBuilt.append(getReadToken().getTokenName()).append(':').append(s).append('\t');
-		}
+		String unparsedBuilt = Arrays.stream(unparsed)
+		                             .map(s -> getReadToken().getTokenName() + ':' + s + '\t')
+		                             .collect(Collectors.joining());
 		getLoader().parseLine(secondaryContext, secondaryProf,
-				unparsedBuilt.toString(), testCampaign.getURI());
+				unparsedBuilt, testCampaign.getURI());
 
 		// Ensure the objects are the same
-		assertEquals(primaryProf, secondaryProf);
+		Assert.assertEquals(primaryProf, secondaryProf);
 
 		// And that it comes back out the same again
 		validateUnparsed(secondaryContext, secondaryProf, unparsed);
 		assertCleanConstruction();
-		assertTrue(secondaryContext.getReferenceContext().validate(null));
-		assertTrue(secondaryContext.getReferenceContext().resolveReferences(null));
-		assertEquals(0, primaryContext.getWriteMessageCount());
-		assertEquals(0, secondaryContext.getWriteMessageCount());
+		Assert.assertTrue(secondaryContext.getReferenceContext().validate(null));
+		Assert.assertTrue(secondaryContext.getReferenceContext().resolveReferences(null));
+		Assert.assertEquals(0, primaryContext.getWriteMessageCount());
+		Assert.assertEquals(0, secondaryContext.getWriteMessageCount());
 	}
 
 	
@@ -160,21 +153,18 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 			throws PersistenceLayerException
 	{
 		// Default is not to write out anything
-		assertNull(getWriteToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getWriteToken().unparse(primaryContext, primaryProf));
 
 		parse(deprecated);
 		primaryProf.setSourceURI(testCampaign.getURI());
 		String[] unparsed = validateUnparsed(primaryContext, primaryProf, target);
 
 		// Do round Robin
-		StringBuilder unparsedBuilt = new StringBuilder();
-		for (String s : unparsed)
-		{
-			unparsedBuilt.append(getReadToken().getTokenName()).append(':').append(
-					s).append('\t');
-		}
+		String unparsedBuilt = Arrays.stream(unparsed)
+		                             .map(s -> getReadToken().getTokenName() + ':' + s + '\t')
+		                             .collect(Collectors.joining());
 		getLoader().parseLine(secondaryContext, secondaryProf,
-				unparsedBuilt.toString(), testCampaign.getURI());
+				unparsedBuilt, testCampaign.getURI());
 		// Ensure the objects are the same
 		isCDOMEqual(primaryProf, secondaryProf);
 		validateUnparsed(secondaryContext, secondaryProf, unparsed);
@@ -186,16 +176,16 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 		String[] sUnparsed = getWriteToken().unparse(sc, sp);
 		if (unparsed == null)
 		{
-			assertNull(sUnparsed);
+			Assert.assertNull(sUnparsed);
 		}
 		else
 		{
 			for (int i = 0; (i < unparsed.length) && (i < sUnparsed.length); i++)
 			{
-				assertEquals("Expected " + i + "th unparsed item to be equal",
+				Assert.assertEquals("Expected " + i + "th unparsed item to be equal",
 					unparsed[i], sUnparsed[i]);
 			}
-			assertEquals("Mismatched number of unparsed values",
+			Assert.assertEquals("Mismatched number of unparsed values",
 				unparsed.length, sUnparsed.length);
 		}
 
@@ -255,13 +245,13 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 
 	private static void isCDOMEqual(CDOMObject cdo1, CDOMObject cdo2)
 	{
-		assertTrue(cdo1.isCDOMEqual(cdo2));
+		Assert.assertTrue(cdo1.isCDOMEqual(cdo2));
 	}
 
 	public void assertNoSideEffects()
 	{
 		isCDOMEqual(primaryProf, secondaryProf);
-		assertFalse(primaryContext.getListContext().hasMasterLists());
+		Assert.assertFalse(primaryContext.getListContext().hasMasterLists());
 	}
 
 	public abstract <T extends ConcretePrereqObject> CDOMToken<T> getReadToken();
@@ -270,7 +260,6 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 
 	public abstract <T extends CDOMObject> CDOMLoader<T> getLoader();
 
-	@Test
 	public void testOverwrite()
 	{
 		parse(getLegalValue());
@@ -288,67 +277,51 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 
 	protected static void expectSingle(String[] unparsed, String expected)
 	{
-		assertNotNull(unparsed);
-		assertEquals(1, unparsed.length);
-		assertEquals("Expected item to be equal", expected, unparsed[0]);
+		Assert.assertNotNull(unparsed);
+		Assert.assertEquals(1, unparsed.length);
+		Assert.assertEquals("Expected item to be equal", expected, unparsed[0]);
 	}
 
 	protected void assertBadUnparse()
 	{
-		assertNull(getWriteToken().unparse(primaryContext, primaryProf));
-		assertTrue(primaryContext.getWriteMessageCount() > 0);
+		Assert.assertNull(getWriteToken().unparse(primaryContext, primaryProf));
+		Assert.assertTrue(primaryContext.getWriteMessageCount() > 0);
 	}
 
 	protected void assertConstructionError()
 	{
 		boolean validate = primaryContext.getReferenceContext().validate(null);
 		boolean resolve = primaryContext.getReferenceContext().resolveReferences(null);
-		assertFalse(validate && resolve);
+		Assert.assertFalse(validate && resolve);
 	}
 
 	protected void assertCleanConstruction()
 	{
-		assertTrue(primaryContext.getReferenceContext().validate(null));
-		assertTrue(primaryContext.getReferenceContext().resolveReferences(null));
+		Assert.assertTrue(primaryContext.getReferenceContext().validate(null));
+		Assert.assertTrue(primaryContext.getReferenceContext().resolveReferences(null));
 	}
 
-	@Test
 	public void testCleanup()
 	{
-		String s = new String(getLegalValue());
-		WeakReference<String> wr = new WeakReference<>(s);
-		assertTrue(parse(s));
-		s = null;
-		System.gc();
-		if (wr.get() != null)
-		{
-			fail("retained");
-		}
+		String s = getLegalValue();
+		Assert.assertTrue(parse(s));
 	}
 
-	@Test
 	public void testAvoidContext()
 	{
 		RuntimeLoadContext context = new RuntimeLoadContext(
 			RuntimeReferenceContext.createRuntimeReferenceContext(),
 			new ConsolidatedListCommitStrategy());
 		additionalSetup(context);
-		WeakReference<LoadContext> wr = new WeakReference<>(context);
 		CDOMObject item = context.getReferenceContext()
 				.constructCDOMObject(getCDOMClass(), "TestObj");
 		ParseResult pr = getReadToken().parseToken(context, item, getLegalValue());
 		if (!pr.passed())
 		{
-			fail();
+			Assert.fail();
 		}
 		context.commit();
-		assertTrue(pr.passed());
-		context = null;
-		System.gc();
-		if (wr.get() != null)
-		{
-			fail("retained");
-		}
+		Assert.assertTrue(pr.passed());
 	}
 
 	protected void additionalSetup(LoadContext context)

@@ -39,7 +39,7 @@ import plugin.pretokens.parser.PreClassParser;
 import plugin.pretokens.parser.PreSkillParser;
 
 /**
- * <code>PreMultTest</code> tests that the PreMult class
+ * {@code PreMultTest} tests that the PreMult class
  * is working correctly.
  */
 
@@ -48,19 +48,6 @@ public class PreMultTest extends AbstractCharacterTestCase
 
 	private Skill knowledge;
 	private PCClass myClass;
-
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreMultTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreMultTest.class);
-	}
 
 	/**
 	 * @see junit.framework.TestCase#setUp()

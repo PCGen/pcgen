@@ -36,26 +36,13 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
 
 /**
- * <code>PreLevelMaxTest</code> tests that the PRELEVELMAX tag is
+ * {@code PreLevelMaxTest} tests that the PRELEVELMAX tag is
  * working correctly.
  */
 public class PreLevelMaxTest extends AbstractCharacterTestCase
 {
 	private PCClass myClass = new PCClass();
 	private Race race = new Race();
-
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreLevelMaxTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreLevelMaxTest.class);
-	}
 
 	/**
 	 * Test that Level works.

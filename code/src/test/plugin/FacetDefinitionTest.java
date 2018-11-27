@@ -30,7 +30,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * <code>FacetDefinitionTest</code> verifies that all facets are registered in the 
+ * {@code FacetDefinitionTest} verifies that all facets are registered in the
  * applicationContext.xml file. As a result this unit test is a bit different in 
  * structure to a normal test.
  * 

@@ -24,7 +24,7 @@ import pcgen.core.display.CharacterDisplay;
 import plugin.exporttokens.deprecated.SpaceToken;
 
 /**
- * <code>SpaceTokenTest</code> - Unit test for the SPACE output token
+ * {@code SpaceTokenTest} - Unit test for the SPACE output token
  */
 public class SpaceTokenTest extends AbstractCharacterTestCase
 {

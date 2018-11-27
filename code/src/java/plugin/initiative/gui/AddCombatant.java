@@ -567,7 +567,7 @@ public class AddCombatant extends AbstractDialog
 
 	/**
 	 * <p>Returns the integer value of the given field</p>
-	 * @param field A {@code JFormattedTextField} with an <code>Integer</code> value
+	 * @param field A {@code JFormattedTextField} with an {@code Integer} value
 	 * @param defaultValue
 	 * @return int
 	 */
@@ -583,7 +583,7 @@ public class AddCombatant extends AbstractDialog
 
 	/**
 	 * <p>Returns the float value of the given field</p>
-	 * @param field A {@code JFormattedTextField} with an <code>Float</code> value
+	 * @param field A {@code JFormattedTextField} with an {@code Float} value
 	 * @param defaultValue
 	 * @return float
 	 */

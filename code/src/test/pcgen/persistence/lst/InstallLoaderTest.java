@@ -137,26 +137,6 @@ public final class InstallLoaderTest extends TestCase
 	}
 
 	/**
-	 * Run the tests standalone from the command line.
-	 *
-	 * @param args Command line args - ignored.
-	 */
-	public static void main(final String[] args)
-	{
-		junit.textui.TestRunner.run(InstallLoaderTest.class);
-	}
-
-	/**
-	 * Quick test suite creation - adds all methods beginning with "test".
-	 *
-	 * @return The Test suite
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(InstallLoaderTest.class);
-	}
-
-	/**
 	 * Validate the test data can be loaded successfully.
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception

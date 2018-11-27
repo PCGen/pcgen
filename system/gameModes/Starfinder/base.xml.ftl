@@ -761,7 +761,7 @@
 			<#else>
 			<damage>${pcstring('VAR.MartialArtsDie.INTVAL')}d${pcstring('VAR.MartialArtsDieSize.INTVAL')}+${pcstring('VAR.MartialArtsBonusDamage.INTVAL')}</damage>
 			</#if>
-			<critical>${pcstring('WEAPONH.CRIT')}/x${pcstring('WEAPONH.MULT')}</critical>
+			<critical>-</critical>
 			<!-- Should be changed to a variable due to improved crit -->
 			<reach>${pcstring('REACH')}</reach>
 			<special_property>
@@ -787,7 +787,7 @@
 			<total>${pcstring('WEAPONH.TOTALHIT')}</total>
 			<to_hit>${fab}</to_hit>
 			<damage>${pcstring('WEAPONH.DAMAGE')}</damage>
-			<critical>${pcstring('WEAPONH.CRIT')}/x${pcstring('WEAPONH.MULT')}</critical>
+			<critical>-</critical>
 			<!-- Should be changed to a variable due to improved crit -->
 			<reach>${pcstring('REACH')}</reach>
 			<special_property>

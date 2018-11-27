@@ -125,12 +125,12 @@ Thievery		CATEGORY:Special Ability	TYPE:Skill	PREVARLT:skillinfo("TOTALRANK", "T
 
 # Ability Name		Unique Key					Category of Ability		Type			Description																						Stackable?	Multiple?	Choose							Ability															Bonus Ability Pool				Aspects
 Human				KEY:Race Features ~ Human		CATEGORY:Special Ability	TYPE:Race Feature	DESC:+1 to any score
-Dwarf				KEY:Race Features ~ Dwarf		CATEGORY:Special Ability	TYPE:Race Feature	DESC:+2 CON, -1 CHA, low light vision 60’, +2 to knowledge checks on one of the following: stonework, woodwork, or metalwork																															BONUS:ABILITYPOOL|Dwarf Knowledge Bonus|1
-Half-Dwarf			KEY:Race Features ~ Half-Dwarf	CATEGORY:Special Ability	TYPE:Race Feature	DESC:+1 CON, low light vision 30’
-Elf				KEY:Race Features ~ Elf			CATEGORY:Special Ability	TYPE:Race Feature	DESC:+1 DEX, cannot use iron, steel causes discomfort, low light vision 60’, immune to magical sleep, require very little food or water													ABILITY:Special Ability|AUTOMATIC|Cannot use iron|steel causes discomfort
-Elfling			KEY:Race Features ~ Elfling		CATEGORY:Special Ability	TYPE:Race Feature	DESC:+2 CHA, -1 WIS, iron causes discomfort, low light vision 60’, fearless (immune to fear effects)																			ABILITY:Special Ability|AUTOMATIC|iron causes discomfort|fearless (immune to fear effects)
-Feral Elfling		KEY:Race Features ~ Feral Elfling	CATEGORY:Special Ability	TYPE:Race Feature	DESC:-1 CHA, +2 DEX, cannot use iron, low light vision 60’, fearless (immune to fear effects)																				ABILITY:Special Ability|AUTOMATIC|Cannot use iron
-Faun				KEY:Race Features ~ Faun		CATEGORY:Special Ability	TYPE:Race Feature	DESC:+1 DEX, +1 CHA, -1 WIS, low light vision 20’, +2 to saves vs charm
+Dwarf				KEY:Race Features ~ Dwarf		CATEGORY:Special Ability	TYPE:Race Feature	DESC:+2 CON, -1 CHA, low light vision 60', +2 to knowledge checks on one of the following: stonework, woodwork, or metalwork																															BONUS:ABILITYPOOL|Dwarf Knowledge Bonus|1
+Half-Dwarf			KEY:Race Features ~ Half-Dwarf	CATEGORY:Special Ability	TYPE:Race Feature	DESC:+1 CON, low light vision 30'
+Elf				KEY:Race Features ~ Elf			CATEGORY:Special Ability	TYPE:Race Feature	DESC:+1 DEX, cannot use iron, steel causes discomfort, low light vision 60', immune to magical sleep, require very little food or water													ABILITY:Special Ability|AUTOMATIC|Cannot use iron|steel causes discomfort
+Elfling			KEY:Race Features ~ Elfling		CATEGORY:Special Ability	TYPE:Race Feature	DESC:+2 CHA, -1 WIS, iron causes discomfort, low light vision 60', fearless (immune to fear effects)																			ABILITY:Special Ability|AUTOMATIC|iron causes discomfort|fearless (immune to fear effects)
+Feral Elfling		KEY:Race Features ~ Feral Elfling	CATEGORY:Special Ability	TYPE:Race Feature	DESC:-1 CHA, +2 DEX, cannot use iron, low light vision 60', fearless (immune to fear effects)																				ABILITY:Special Ability|AUTOMATIC|Cannot use iron
+Faun				KEY:Race Features ~ Faun		CATEGORY:Special Ability	TYPE:Race Feature	DESC:+1 DEX, +1 CHA, -1 WIS, low light vision 20', +2 to saves vs charm
 
 
 
@@ -319,7 +319,7 @@ Animal Companion	KEY:Companion ~ Animal Companion	CATEGORY:Internal		DEFINE:Anim
 Link			KEY:Animal Companion ~ Link		CATEGORY:Special Ability	TYPE:Animal Companion Class Feature.SpecialQuality	DESC:There is a link between an animal companion and their partner. A player can suggest an action to their animal companion as a free action, and there is a favorable understanding and bond between the two.	SOURCEPAGE:p.
 Evasion		KEY:Animal Companion ~ Evasion	CATEGORY:Special Ability	TYPE:Animal Companion Class Feature.SpecialQuality	DESC:If an animal companion makes a successful Reflex save against an attack that deals half damage if successful, the rogue takes no damage.												SOURCEPAGE:p.
 Share Vision	KEY:Animal Companion ~ Share Vision	CATEGORY:Special Ability	TYPE:Animal Companion Class Feature.SpecialQuality	DESC:The player can see through the eyes of their animal companion at will. There are no distance restrictions.																	SOURCEPAGE:p.
-Share Mind		KEY:Animal Companion ~ Share Mind	CATEGORY:Special Ability	TYPE:Animal Companion Class Feature.SpecialQuality	DESC:The player and companion share a strong mind link, and both gain a +4 against mind influencing spells and effects as long as they are with 100’ of each other.								SOURCEPAGE:p.
+Share Mind		KEY:Animal Companion ~ Share Mind	CATEGORY:Special Ability	TYPE:Animal Companion Class Feature.SpecialQuality	DESC:The player and companion share a strong mind link, and both gain a +4 against mind influencing spells and effects as long as they are with 100' of each other.								SOURCEPAGE:p.
 
 ###Block:
 # Ability Name					Category of Ability	Template						Ability																							Modify VAR

@@ -28,6 +28,7 @@ import javax.swing.undo.UndoManager;
 
 import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.cdom.meta.CorePerspective;
@@ -52,7 +53,7 @@ import pcgen.io.ExportHandler;
  * can pick up on. To operate like this, all values returned
  * from this class, with a couple of exceptions, are models that can
  * be listenered to. Two of the most commonly used models are
- * the {@code ReferenceFacade} and the <code>ListFacade</code>
+ * the {@code ReferenceFacade} and the {@code ListFacade}
  *
  * Note: This facade returns references to items of interest.
  * These allow not only the values to be retrieved but also
@@ -67,13 +68,13 @@ public interface CharacterFacade extends CompanionFacade
 
 	public UndoManager getUndoManager();
 
-	public ReferenceFacade<GenderFacade> getGenderRef();
+	public ReferenceFacade<Gender> getGenderRef();
 
 	public void setAlignment(PCAlignment alignment);
 
 	public ReferenceFacade<PCAlignment> getAlignmentRef();
 
-	public void setGender(GenderFacade gender);
+	public void setGender(Gender gender);
 
 	public void setGender(String gender);
 
@@ -418,7 +419,7 @@ public interface CharacterFacade extends CompanionFacade
 
 	public ListFacade<HandedFacade> getAvailableHands();
 
-	public ListFacade<GenderFacade> getAvailableGenders();
+	public ListFacade<Gender> getAvailableGenders();
 
 	/**
 	 * @return The domains which the character has access to.
@@ -547,19 +548,19 @@ public interface CharacterFacade extends CompanionFacade
 	/**
 	 * @return A list of the defined age categories.  
 	 */
-	public ListFacade<SimpleFacade> getAgeCategories();
+	public ListFacade<String> getAgeCategories();
 
 	/**
 	 * Set the character's age category. Will also reset their age if the age category 
 	 * has changed.
 	 * @param ageCat The new age category to be set
 	 */
-	public void setAgeCategory(final SimpleFacade ageCat);
+	public void setAgeCategory(final String ageCat);
 
 	/**
 	 * @return A reference to the age category of the character.
 	 */
-	public ReferenceFacade<SimpleFacade> getAgeCategoryRef();
+	public ReferenceFacade<String> getAgeCategoryRef();
 
 	/**
 	 * @return A reference to the label text for the character's stats total 

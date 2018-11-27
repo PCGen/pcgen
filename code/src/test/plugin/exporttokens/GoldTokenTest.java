@@ -28,7 +28,7 @@ import pcgen.persistence.SourceFileLoader;
 import plugin.exporttokens.deprecated.GoldToken;
 
 /**
- * Unit test for the <code>GoldToken</code> class.
+ * Unit test for the {@code GoldToken} class.
  *
  * <br/>
  * 

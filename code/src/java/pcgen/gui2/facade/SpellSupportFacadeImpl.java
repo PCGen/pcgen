@@ -1334,7 +1334,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade, EquipmentList
 	}
 
 	/**
-	 * The Class <code>SpellNodeImpl</code> holds the information required to 
+	 * The Class {@code SpellNodeImpl} holds the information required to
 	 * display and process a spell. It covers spells that are available, known, 
 	 * memorised etc.
 	 * 
@@ -1522,7 +1522,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade, EquipmentList
 	}
 
 	/**
-	 * The Class <code>DummySpellNodeImpl</code> holds the information required to 
+	 * The Class {@code DummySpellNodeImpl} holds the information required to
 	 * display an empty spell list. It is only used to ensure the spell list name 
 	 * is displayed.
 	 * 

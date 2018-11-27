@@ -41,32 +41,11 @@ import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
- * <code>PreArmorProfTest</code> tests that the PREARMORPROF tag is
+ * {@code PreArmorProfTest} tests that the PREARMORPROF tag is
  * working correctly.
  */
 public class PreArmorProfTest extends AbstractCharacterTestCase
 {
-	
-	/**
-	 * The main method.
-	 * 
-	 * @param args the arguments
-	 */
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreArmorProfTest.class);
-	}
-
-	/**
-	 * Suite.
-	 * 
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreArmorProfTest.class);
-	}
-	
 	/**
 	 * Test with a simple armor proficiency.
 	 * 

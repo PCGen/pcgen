@@ -39,7 +39,7 @@ public interface EquipmentBuilderFacade
 		PRIMARY, SECONDARY;
 
 		/**
-		 * @return boolean <code>true</code> is Primary
+		 * @return boolean {@code true} is Primary
 		 */
 		public boolean isPrimary()
 		{

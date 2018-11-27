@@ -3,12 +3,12 @@ package pcgen.core;
 import junit.framework.TestCase;
 
 /**
- * <code>ClassTypeTest</code> <strong>needs documentation</strong>.
+ * {@code ClassTypeTest} <strong>needs documentation</strong>.
  */
 public class ClassTypeTest extends TestCase
 {
 	/**
-	 * Constructs a new <code>ClassTypeTest</code>.
+	 * Constructs a new {@code ClassTypeTest}.
 	 *
 	 * @see pcgen.PCGenTestCase#PCGenTestCase()
 	 */
@@ -18,7 +18,7 @@ public class ClassTypeTest extends TestCase
 	}
 
 	/**
-	 * Constructs a new <code>ClassTypeTest</code> with the given <var>name</var>.
+	 * Constructs a new {@code ClassTypeTest} with the given <var>name</var>.
 	 *
 	 * @param name the test case name
 	 *

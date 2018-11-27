@@ -38,7 +38,7 @@ Weak Flier								KEY:Archaeopteryx ~ Weak Flier					CATEGORY:Special Ability	TY
 
 #Platypus
 Electrolocation							KEY:Platypus ~ Electrolocation					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Senses												DESC:While underwater, platypuses can sense the tiny electrical currents that trigger muscle movement. This allows them to locate living prey and to distinguish it from inanimate objects. Treat electrolocation as lifesense with a range of 30 feet, but that functions only underwater.																																																																																																										ASPECT:Ability Benefit|(30 ft. while underwater)
-Poison								KEY:Platypus ~ Poison							CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary													DESC:Spur—injury; save Fort DC 9; frequency 1/round for 4 rounds; effect 1 nonlethal damage; cure 1 save.
+Poison								KEY:Platypus ~ Poison							CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary													DESC:Spur-injury; save Fort DC 9; frequency 1/round for 4 rounds; effect 1 nonlethal damage; cure 1 save.
 Semiaquatic								KEY:Platypus ~ Semiaquatic						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary													DESC:Platypuses can hold their breath underwater for up to 5 minutes before they must start attempting Constitution checks to avoid suffocation.
 
 ## Familiar Bonuses granted to Master

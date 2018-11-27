@@ -53,7 +53,7 @@ import pcgen.util.Logging;
 import pcgen.util.TestHelper;
 
 /**
- * The Class <code>DataTest</code> checks the data files for known issues.
+ * The Class {@code DataTest} checks the data files for known issues.
  *
  * <br/>
  * 
