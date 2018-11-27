@@ -17,6 +17,10 @@
  */
 package pcgen.io;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
 import java.util.List;
 
 import pcgen.cdom.content.CNAbility;
@@ -25,18 +29,25 @@ import pcgen.core.Language;
 import pcgen.core.PCTemplate;
 import pcgen.io.testsupport.AbstractSaveRestoreTest;
 import pcgen.persistence.PersistenceLayerException;
+import plugin.exporttokens.deprecated.TemplateToken;
+import plugin.lsttokens.ability.StackToken;
+import plugin.lsttokens.deprecated.TemplateFeatToken;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.TokenRegistration;
+
+import org.junit.Assert;
+import org.junit.Test;
 
 public class GeneralSaveRestoreTest extends AbstractSaveRestoreTest
 {
 
+	@Test
 	public void testTemplateFeat()
 	{
 		//Represents CODE-2547
-		TokenRegistration.register(new plugin.lsttokens.deprecated.TemplateFeatToken());
-		TokenRegistration.register(new plugin.lsttokens.ability.StackToken());
-		TokenRegistration.register(new plugin.exporttokens.deprecated.TemplateToken());
+		TokenRegistration.register(new TemplateFeatToken());
+		TokenRegistration.register(new StackToken());
+		TokenRegistration.register(new TemplateToken());
 		Language lang = context.getReferenceContext().constructCDOMObject(Language.class, "English");
 		Ability a = BuildUtilities.buildAbility(context, BuildUtilities.getFeatCat(), "Ab");
 		PCTemplate pct = context.getReferenceContext().constructCDOMObject(PCTemplate.class, "Templ");
@@ -70,7 +81,7 @@ public class GeneralSaveRestoreTest extends AbstractSaveRestoreTest
 		assertEquals("Ab(English)", ExportHandler.getTokenString(pc, "TEMPLATE.0.FEAT"));
 		assertEquals("Ab(English)", ExportHandler.getTokenString(reloadedPC, "TEMPLATE.0.FEAT"));
 		reloadedPC.removeTemplate(pct);
-		assertFalse(reloadedPC.hasLanguage(lang));
+		Assert.assertFalse(reloadedPC.hasLanguage(lang));
 	}
 	
 	

@@ -27,6 +27,9 @@ import pcgen.core.Race;
 import pcgen.output.publish.OutputDB;
 import pcgen.output.testsupport.AbstractOutputTestCase;
 
+import org.junit.BeforeClass;
+import org.junit.Test;
+
 public class FactKeyActorTest extends AbstractOutputTestCase
 {
 
@@ -34,23 +37,14 @@ public class FactKeyActorTest extends AbstractOutputTestCase
 
 	private static boolean classSetUpRun = false;
 
-	@Override
-	protected void setUp() throws Exception
-	{
-		super.setUp();
-		if (!classSetUpRun)
-		{
-			classSetUp();
-			classSetUpRun = true;
-		}
-	}
-
-	private void classSetUp()
+	@BeforeClass
+	public static void classSetUp()
 	{
 		OutputDB.reset();
 		DF.init();
 	}
 
+	@Test
 	public void testFactKeyActor()
 	{
 		Race d = new Race();
@@ -67,6 +61,7 @@ public class FactKeyActorTest extends AbstractOutputTestCase
 		processThroughFreeMarker("${race.cost}", expectedResult.toString());
 	}
 
+	@Test
 	public void testListKeyActorMissingSafe()
 	{
 		NumberManager mgr = new NumberManager();
