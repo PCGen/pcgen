@@ -86,7 +86,7 @@ public class SourceDateLstTest extends AbstractGlobalTokenTestCase
 	public void testUnparseNull()
 	{
 		primaryProf.put(getKey(), null);
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		assertNull(getWriteToken().unparse(primaryContext, primaryProf));
 	}
 
 //	/*
@@ -124,7 +124,13 @@ public class SourceDateLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Override
-	public CDOMPrimaryToken<CDOMObject> getToken()
+	public CDOMPrimaryToken<CDOMObject> getReadToken()
+	{
+		return token;
+	}
+
+	@Override
+	public CDOMPrimaryToken<CDOMObject> getWriteToken()
 	{
 		return token;
 	}

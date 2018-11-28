@@ -103,7 +103,7 @@ public abstract class AbstractGlobalStringTokenTestCase extends
 	public void testUnparseNull()
 	{
 		primaryProf.put(getStringKey(), null);
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		assertNull(getWriteToken().unparse(primaryContext, primaryProf));
 	}
 
 	/*
@@ -120,7 +120,7 @@ public abstract class AbstractGlobalStringTokenTestCase extends
 	protected String[] setAndUnparse(String val)
 	{
 		primaryProf.put(getStringKey(), val);
-		return getToken().unparse(primaryContext, primaryProf);
+		return getWriteToken().unparse(primaryContext, primaryProf);
 	}
 
 	@Override

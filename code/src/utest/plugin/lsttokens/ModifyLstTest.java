@@ -23,12 +23,14 @@ import org.junit.Test;
 
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.util.FormatManager;
+import pcgen.cdom.base.VarContainer;
 import pcgen.cdom.base.VarHolder;
 import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.CDOMToken;
+import pcgen.rules.persistence.token.CDOMWriteToken;
 import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
@@ -60,7 +62,13 @@ public class ModifyLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Override
-	public CDOMPrimaryToken<VarHolder> getToken()
+	public CDOMToken<VarHolder> getReadToken()
+	{
+		return token;
+	}
+
+	@Override
+	public CDOMWriteToken<VarContainer> getWriteToken()
 	{
 		return token;
 	}

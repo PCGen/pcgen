@@ -35,7 +35,8 @@ import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.TokenLibrary;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.CDOMToken;
+import pcgen.rules.persistence.token.CDOMWriteToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
@@ -71,7 +72,8 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 		{
 			classSetUp();
 		}
-		TokenRegistration.register(getToken());
+		TokenRegistration.register(getReadToken());
+		TokenRegistration.register(getWriteToken());
 		primaryContext = new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),
 			new ConsolidatedListCommitStrategy());
 		secondaryContext = new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),
@@ -101,7 +103,7 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 	public void runRoundRobin(String... str) throws PersistenceLayerException
 	{
 		// Default is not to write out anything
-		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getWriteToken().unparse(primaryContext, primaryProf));
 
 		// Set value
 		for (String s : str)
@@ -109,7 +111,7 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 			Assert.assertTrue("Should be able to parse " + s, parse(s));
 		}
 		// Get back the appropriate token:
-		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		String[] unparsed = getWriteToken().unparse(primaryContext, primaryProf);
 
 		Assert.assertNotNull(str);
 		Assert.assertNotNull(unparsed);
@@ -123,7 +125,7 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 
 		// Do round Robin
 		String unparsedBuilt = Arrays.stream(unparsed)
-		                             .map(s -> getToken().getTokenName() + ':' + s + '\t')
+		                             .map(s -> getReadToken().getTokenName() + ':' + s + '\t')
 		                             .collect(Collectors.joining());
 		getLoader().parseLine(secondaryContext, secondaryProf,
 				unparsedBuilt, testCampaign.getURI());
@@ -151,7 +153,7 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 			throws PersistenceLayerException
 	{
 		// Default is not to write out anything
-		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getWriteToken().unparse(primaryContext, primaryProf));
 
 		parse(deprecated);
 		primaryProf.setSourceURI(testCampaign.getURI());
@@ -159,7 +161,7 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 
 		// Do round Robin
 		String unparsedBuilt = Arrays.stream(unparsed)
-		                             .map(s -> getToken().getTokenName() + ':' + s + '\t')
+		                             .map(s -> getReadToken().getTokenName() + ':' + s + '\t')
 		                             .collect(Collectors.joining());
 		getLoader().parseLine(secondaryContext, secondaryProf,
 				unparsedBuilt, testCampaign.getURI());
@@ -171,7 +173,7 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 	private String[] validateUnparsed(LoadContext sc, CDOMObject sp,
 			String... unparsed)
 	{
-		String[] sUnparsed = getToken().unparse(sc, sp);
+		String[] sUnparsed = getWriteToken().unparse(sc, sp);
 		if (unparsed == null)
 		{
 			Assert.assertNull(sUnparsed);
@@ -195,7 +197,7 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 		ParseResult pr;
 		try
 		{
-			pr = getToken().parseToken(primaryContext, primaryProf, str);
+			pr = getReadToken().parseToken(primaryContext, primaryProf, str);
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -222,7 +224,7 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 
 	public boolean parseSecondary(String str)
 	{
-		boolean b = getToken().parseToken(secondaryContext, secondaryProf, str).passed();
+		boolean b = getReadToken().parseToken(secondaryContext, secondaryProf, str).passed();
 		if (b)
 		{
 			secondaryContext.commit();
@@ -238,7 +240,7 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 
 	protected String getTokenName()
 	{
-		return getToken().getTokenName();
+		return getReadToken().getTokenName();
 	}
 
 	private static void isCDOMEqual(CDOMObject cdo1, CDOMObject cdo2)
@@ -252,7 +254,9 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 		Assert.assertFalse(primaryContext.getListContext().hasMasterLists());
 	}
 
-	public abstract <T extends ConcretePrereqObject> CDOMPrimaryToken<T> getToken();
+	public abstract <T extends ConcretePrereqObject> CDOMToken<T> getReadToken();
+
+	public abstract <T extends ConcretePrereqObject> CDOMWriteToken<T> getWriteToken();
 
 	public abstract <T extends CDOMObject> CDOMLoader<T> getLoader();
 
@@ -280,7 +284,7 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 
 	protected void assertBadUnparse()
 	{
-		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getWriteToken().unparse(primaryContext, primaryProf));
 		Assert.assertTrue(primaryContext.getWriteMessageCount() > 0);
 	}
 
@@ -311,7 +315,7 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 		additionalSetup(context);
 		CDOMObject item = context.getReferenceContext()
 				.constructCDOMObject(getCDOMClass(), "TestObj");
-		ParseResult pr = getToken().parseToken(context, item, getLegalValue());
+		ParseResult pr = getReadToken().parseToken(context, item, getLegalValue());
 		if (!pr.passed())
 		{
 			Assert.fail();

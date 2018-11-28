@@ -21,7 +21,7 @@ import pcgen.cdom.content.VarModifier;
 /**
  * A VarHolder is a (writeable) object that holds Modifiers.
  */
-public interface VarHolder extends VarContainer
+public interface VarHolder
 {
 	/**
 	 * Adds a new local Modifier to this VarContainer.
