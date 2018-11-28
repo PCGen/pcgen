@@ -113,12 +113,12 @@ public class ComplexNEPFormula<T> implements NEPFormula<T>
 
 	/**
 	 * Resolves the ComplexNEPFormula in the context of the given
-	 * ScopeInformation. The given ScopeInformation must contain information
+	 * EvaluationManager. The given EvaluationManager must contain information
 	 * about variable values, available functions, and other characteristics
 	 * required for the formula to produce a value.
 	 * 
 	 * If variables and formulas required by the ComplexNEPFormula are not
-	 * available in the given ScopeInformation, behavior is not guaranteed and
+	 * available in the given EvaluationManager, behavior is not guaranteed and
 	 * ComplexNEPFormula or other methods called within this method reserve the
 	 * right to throw an Exception or otherwise not fail gracefully. (The
 	 * precise behavior is likely defined by the FormulaManager).
@@ -126,7 +126,7 @@ public class ComplexNEPFormula<T> implements NEPFormula<T>
 	 * Note in the case of a valid formula that the format (but not the exact
 	 * class) of the return value is guaranteed by the ComplexNEPFormula. The
 	 * Class may extend the format contained by the ComplexNEPFormula. The exact
-	 * class returned is defined by the ScopeInformation, which can therefore
+	 * class returned is defined by the EvaluationManager, which can therefore
 	 * implement the appropriate processing (precision in the case of numbers)
 	 * desired for the given calculation.
 	 * 

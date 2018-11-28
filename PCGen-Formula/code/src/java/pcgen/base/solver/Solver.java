@@ -56,8 +56,7 @@ public class Solver<T>
 	 * the Solver has if no other Modifier was added to the Solver.
 	 * 
 	 * Note that this Modifier MUST NOT depend on anything (it must be able to
-	 * accept both a null ScopeInformation and null input value to its process
-	 * method).
+	 * accept a null input value to its process method).
 	 */
 	private final Modifier<T> defaultModifier;
 
@@ -77,12 +76,11 @@ public class Solver<T>
 			new HashMapToList<Object, Modifier<T>>();
 
 	/**
-	 * Constructs a new Solver with the given default Modifier and
-	 * ScopeInformation.
+	 * Constructs a new Solver with the given default Modifier.
 	 * 
 	 * The default Modifier MUST NOT depend on anything (it must be able to
-	 * accept both a null ScopeInformation and null input value to its process
-	 * method). (See SetNumberModifier for an example of this)
+	 * accept a null input value to its process method). (See SetNumberModifier
+	 * for an example of this)
 	 * 
 	 * @param defaultModifier
 	 *            The "starting" or "default" modifier for this Solver

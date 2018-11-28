@@ -51,8 +51,8 @@ public class SolverFactory implements DefaultStore
 	 * that format of Solver to this SolverFactory.
 	 * 
 	 * The default Modifier MUST NOT depend on anything (it must be able to
-	 * accept both a null ScopeInformation and null input value to its process
-	 * method). (See SetNumberModifier for an example of this)
+	 * accept a null input value to its process method). (See SetNumberModifier
+	 * for an example of this)
 	 * 
 	 * The default Modifier for a format of Solver may not be redefined for a
 	 * SolverFactory. Once a given default Modifier has been established for a
@@ -124,10 +124,9 @@ public class SolverFactory implements DefaultStore
 	}
 
 	/**
-	 * Returns a new Solver for the given format, which will use the given
-	 * ScopeInformation. The default value of the Solver is loaded based on
-	 * values previously provided to the addSolverType() method of the
-	 * SolverFactory.
+	 * Returns a new Solver for the given format. The default value of the
+	 * Solver is loaded based on values previously provided to the
+	 * addSolverType() method of the SolverFactory.
 	 * 
 	 * @param <T>
 	 *            The format (class) of object managed by the given
@@ -136,7 +135,6 @@ public class SolverFactory implements DefaultStore
 	 *            The FormatManager used to manage items in this generated
 	 *            Solver
 	 * @return A new Solver with default Modifier stored in this SolverFactory
-	 *         and with the given ScopeInformation
 	 * @throws IllegalArgumentException
 	 *             if no default Modifier for the given format has been provided
 	 *             with the addSolverType method on SolverFactory
