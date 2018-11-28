@@ -146,8 +146,8 @@ public class TokenSupport
 		return false;
 	}
 
-	private <R, W> boolean processInterfaceToken(LoadContext context, Object target, String tokenName, String tokenValue,
-		CDOMInterfaceToken<R, W> interfaceToken)
+	private <R, W> boolean processInterfaceToken(LoadContext context, Object target,
+		String tokenName, String tokenValue, CDOMInterfaceToken<R, W> interfaceToken)
 	{
 		//Suppressed as we checked this before this method is called
 		@SuppressWarnings("unchecked")
