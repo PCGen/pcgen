@@ -45,7 +45,6 @@ import pcgen.facade.core.EquipModFacade;
 import pcgen.facade.core.EquipmentBuilderFacade;
 import pcgen.facade.core.EquipmentFacade;
 import pcgen.facade.core.InfoFacade;
-import pcgen.facade.core.SizeAdjustmentFacade;
 import pcgen.facade.core.UIDelegate;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.DefaultReferenceFacade;
@@ -72,7 +71,7 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 	private final PlayerCharacter character;
 	private final Equipment baseEquipment;
 	private final EnumSet<EquipmentHead> equipHeads;
-	private final DefaultReferenceFacade<SizeAdjustmentFacade> sizeRef;
+	private final DefaultReferenceFacade<SizeAdjustment> sizeRef;
 
 	/**
 	 * Create a new EquipmentBuilderFacadeImpl instance for the customization of 
@@ -387,20 +386,20 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 	}
 
 	@Override
-	public void setSize(SizeAdjustmentFacade newSize)
+	public void setSize(SizeAdjustment newSize)
 	{
-		if (newSize == null || !(newSize instanceof SizeAdjustment))
+		if (newSize == null)
 		{
 			return;
 		}
 
-		equip.resizeItem(character, (SizeAdjustment) newSize);
+		equip.resizeItem(character, newSize);
 		equip.nameItemFromModifiers(character);
 		sizeRef.set(newSize);
 	}
 
 	@Override
-	public ReferenceFacade<SizeAdjustmentFacade> getSizeRef()
+	public ReferenceFacade<SizeAdjustment> getSizeRef()
 	{
 		return sizeRef;
 	}

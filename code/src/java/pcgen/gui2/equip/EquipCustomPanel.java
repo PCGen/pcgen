@@ -41,12 +41,12 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
 import pcgen.cdom.base.Constants;
+import pcgen.core.SizeAdjustment;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.EquipModFacade;
 import pcgen.facade.core.EquipmentBuilderFacade;
 import pcgen.facade.core.EquipmentBuilderFacade.EquipmentHead;
 import pcgen.facade.core.EquipmentFacade;
-import pcgen.facade.core.SizeAdjustmentFacade;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.DefaultReferenceFacade;
 import pcgen.facade.util.ListFacade;
@@ -90,7 +90,7 @@ public class EquipCustomPanel extends FlippingSplitPane
 	private final JButton weightButton;
 	private final JButton damageButton;
 	private final JComboBox<EquipmentHead> headCombo;
-	private final JComboBox<SizeAdjustmentFacade> sizeCombo;
+	private final JComboBox<SizeAdjustment> sizeCombo;
 	private final JButton addButton;
 	private final JButton removeButton;
 	private final InfoPane equipModInfoPane;
@@ -736,7 +736,7 @@ public class EquipCustomPanel extends FlippingSplitPane
 
 	}
 
-	private class SizeBoxModel extends CharacterComboBoxModel<SizeAdjustmentFacade>
+	private class SizeBoxModel extends CharacterComboBoxModel<SizeAdjustment>
 	{
 
 		public SizeBoxModel()
@@ -748,11 +748,11 @@ public class EquipCustomPanel extends FlippingSplitPane
 		@Override
 		public void setSelectedItem(Object anItem)
 		{
-			builder.setSize((SizeAdjustmentFacade) anItem);
+			builder.setSize((SizeAdjustment) anItem);
 		}
 
 		@Override
-		public void referenceChanged(ReferenceEvent<SizeAdjustmentFacade> e)
+		public void referenceChanged(ReferenceEvent<SizeAdjustment> e)
 		{
 			super.referenceChanged(e);
 			equipInfoHandler.refreshInfo();

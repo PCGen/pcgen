@@ -25,6 +25,7 @@ import pcgen.core.Deity;
 import pcgen.core.PCAlignment;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
+import pcgen.core.SizeAdjustment;
 import pcgen.facade.core.generator.StatGenerationFacade;
 import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.MapFacade;
@@ -95,7 +96,7 @@ public interface DataSetFacade
 	/**
 	 * @return The list of sizes
 	 */
-	public ListFacade<SizeAdjustmentFacade> getSizes();
+	public ListFacade<SizeAdjustment> getSizes();
 
 	/**
 	 * Update the equipment list from the global equipment list. 

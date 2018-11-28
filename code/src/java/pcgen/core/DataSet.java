@@ -50,7 +50,6 @@ import pcgen.facade.core.GameModeFacade;
 import pcgen.facade.core.GearBuySellFacade;
 import pcgen.facade.core.KitFacade;
 import pcgen.facade.core.RaceFacade;
-import pcgen.facade.core.SizeAdjustmentFacade;
 import pcgen.facade.core.SkillFacade;
 import pcgen.facade.core.generator.StatGenerationFacade;
 import pcgen.facade.util.AbstractMapFacade;
@@ -81,7 +80,7 @@ public class DataSet implements DataSetFacade
 	private final DefaultListFacade<String> xpTableNames;
 	private DefaultListFacade<GearBuySellFacade> gearBuySellSchemes;
 	private final DefaultListFacade<String> characterTypes;
-	private final DefaultListFacade<SizeAdjustmentFacade> sizes;
+	private final DefaultListFacade<SizeAdjustment> sizes;
 
 	public DataSet(LoadContext context, GameMode gameMode, ListFacade<CampaignFacade> campaigns)
 	{
@@ -674,7 +673,7 @@ public class DataSet implements DataSetFacade
 	}
 
 	@Override
-	public ListFacade<SizeAdjustmentFacade> getSizes()
+	public ListFacade<SizeAdjustment> getSizes()
 	{
 		return sizes;
 	}
