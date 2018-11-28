@@ -25,6 +25,7 @@ import java.util.Map;
 import java.util.Set;
 
 import pcgen.core.BodyStructure;
+import pcgen.core.Deity;
 import pcgen.core.PCAlignment;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
@@ -33,7 +34,6 @@ import pcgen.facade.core.AbilityFacade;
 import pcgen.facade.core.CampaignFacade;
 import pcgen.facade.core.ClassFacade;
 import pcgen.facade.core.DataSetFacade;
-import pcgen.facade.core.DeityFacade;
 import pcgen.facade.core.EquipmentFacade;
 import pcgen.facade.core.GameModeFacade;
 import pcgen.facade.core.GearBuySellFacade;
@@ -63,7 +63,7 @@ public class DelegatingDataSet implements DataSetFacade
 
 	private final DelegatingListFacade<RaceFacade> races;
 	private final DelegatingListFacade<ClassFacade> classes;
-	private final DelegatingListFacade<DeityFacade> deities;
+	private final DelegatingListFacade<Deity> deities;
 	private final DelegatingListFacade<SkillFacade> skills;
 	private final DelegatingListFacade<PCTemplate> templates;
 	private final DelegatingListFacade<PCAlignment> alignments;
@@ -254,7 +254,7 @@ public class DelegatingDataSet implements DataSetFacade
 	}
 
 	@Override
-	public ListFacade<DeityFacade> getDeities()
+	public ListFacade<Deity> getDeities()
 	{
 		return deities;
 	}

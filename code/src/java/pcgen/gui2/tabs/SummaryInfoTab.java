@@ -65,13 +65,13 @@ import javax.swing.event.HyperlinkListener;
 import org.apache.commons.lang3.StringUtils;
 
 import pcgen.cdom.enumeration.Gender;
+import pcgen.core.Deity;
 import pcgen.core.PCAlignment;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.CharacterLevelFacade;
 import pcgen.facade.core.CharacterLevelsFacade;
 import pcgen.facade.core.ClassFacade;
 import pcgen.facade.core.DataSetFacade;
-import pcgen.facade.core.DeityFacade;
 import pcgen.facade.core.HandedFacade;
 import pcgen.facade.core.InfoFacade;
 import pcgen.facade.core.RaceFacade;
@@ -873,7 +873,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		private final CharacterComboBoxModel<Gender> genderModel;
 		private final CharacterComboBoxModel<HandedFacade> handsModel;
 		private CharacterComboBoxModel<PCAlignment> alignmentModel;
-		private CharacterComboBoxModel<DeityFacade> deityModel;
+		private CharacterComboBoxModel<Deity> deityModel;
 		private final DeferredCharacterComboBoxModel<RaceFacade> raceModel;
 		private final CharacterComboBoxModel<String> ageCatModel;
 		private final FacadeComboBoxModel<ClassFacade> classModel;
@@ -943,13 +943,13 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			if (dataset.hasDeityDomain())
 			{
 				//initialize deity model
-				deityModel = new CharacterComboBoxModel<DeityFacade>(dataset.getDeities(), character.getDeityRef())
+				deityModel = new CharacterComboBoxModel<Deity>(dataset.getDeities(), character.getDeityRef())
 				{
 
 					@Override
 					public void setSelectedItem(Object anItem)
 					{
-						character.setDeity((DeityFacade) anItem);
+						character.setDeity((Deity) anItem);
 					}
 
 				};

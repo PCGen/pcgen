@@ -18,6 +18,7 @@
  */
 package pcgen.facade.core;
 
+import pcgen.core.Deity;
 import pcgen.core.PCTemplate;
 
 /**
@@ -66,7 +67,7 @@ public interface InfoFactory
 
 	public String getHTMLInfo(AbilityFacade ability);
 
-	public String getHTMLInfo(DeityFacade deity);
+	public String getHTMLInfo(Deity deity);
 
 	public String getHTMLInfo(DomainFacade domain);
 
@@ -185,7 +186,7 @@ public interface InfoFactory
 	 * @param deityFacade The deity to be described.
 	 * @return The description.
 	 */
-	public String getDescription(DeityFacade deityFacade);
+	public String getDescription(Deity deityFacade);
 
 	/**
 	 * Get the description for a domain for this character.
@@ -217,7 +218,7 @@ public interface InfoFactory
 	 * @param deityFacade The deity to be output.
 	 * @return The comma separated list of domains.
 	 */
-	public String getDomains(DeityFacade deityFacade);
+	public String getDomains(Deity deityFacade);
 
 	/**
 	 * Get a display string of the deity's pantheons.
@@ -225,7 +226,7 @@ public interface InfoFactory
 	 * @param deityFacade The deity to be output.
 	 * @return The comma separated list of pantheons.
 	 */
-	public String getPantheons(DeityFacade deityFacade);
+	public String getPantheons(Deity deityFacade);
 
 	/**
 	 * Get a display string of the deity's favored weapons.
@@ -233,7 +234,7 @@ public interface InfoFactory
 	 * @param deityFacade The deity to be output.
 	 * @return The comma separated list of weapons.
 	 */
-	public String getFavoredWeapons(DeityFacade deityFacade);
+	public String getFavoredWeapons(Deity deityFacade);
 
 	/**
 	 * Get a display string of the choices made for this character for the
