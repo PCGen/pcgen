@@ -2187,15 +2187,10 @@ public class Gui2InfoFactory implements InfoFactory
 		Set<String> set = new TreeSet<>();
 		for (CDOMReference<Domain> ref : deity.getSafeListMods(Deity.DOMAINLIST))
 		{
-			for (Domain d : ref.getContainedObjects())
-			{
-				set.add(OutputNameFormatting.piString(d));
-			}
+			ref.getContainedObjects()
+				.forEach(domain -> set.add(OutputNameFormatting.piString(domain)));
 		}
-		final StringBuilder piString = new StringBuilder(100);
-		piString.append(StringUtil.joinToStringBuilder(set, ", ")); //$NON-NLS-1$
-		return piString.toString();
-
+		return StringUtil.join(set, ", "); //$NON-NLS-1$
 	}
 
 	@Override
@@ -2208,13 +2203,8 @@ public class Gui2InfoFactory implements InfoFactory
 		Deity deity = deityFacade;
 		Set<String> set = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
 		FactSetKey<String> fk = FactSetKey.valueOf("Pantheon");
-		for (Indirect<String> indirect : deity.getSafeSetFor(fk))
-		{
-			set.add(indirect.get());
-		}
-		final StringBuilder piString = new StringBuilder(100);
-		piString.append(StringUtil.joinToStringBuilder(set, ",")); //$NON-NLS-1$
-		return piString.toString();
+		deity.getSafeSetFor(fk).forEach(indirect -> set.add(indirect.get()));
+		return StringUtil.join(set, ","); //$NON-NLS-1$
 
 	}
 

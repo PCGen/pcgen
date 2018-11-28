@@ -836,12 +836,12 @@ public class PcgCombatant extends Combatant
 								spellBuff.append("\\");
 								spellBuff.append(aPC.parseSpellString(cs, aPC.getDescription(spell)));
 								spellBuff.append("\\");
-								spellBuff.append(StringUtil.joinToStringBuilder(spell.getListFor(ListKey.RANGE), ", "));
+								spellBuff.append(StringUtil.join(spell.getListFor(ListKey.RANGE), ", "));
 								spellBuff.append("\\");
 								spellBuff.append(spell.getListAsString(ListKey.CASTTIME));
 								spellBuff.append("\\");
 								spellBuff
-									.append(StringUtil.joinToStringBuilder(spell.getListFor(ListKey.SAVE_INFO), ", "));
+									.append(StringUtil.join(spell.getListFor(ListKey.SAVE_INFO), ", "));
 								spellBuff.append("\\");
 								spellBuff.append(aPC.parseSpellString(cs, spell.getListAsString(ListKey.DURATION)));
 								spellBuff.append("\\");

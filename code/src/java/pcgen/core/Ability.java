@@ -19,8 +19,8 @@ package pcgen.core;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringJoiner;
 
-import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Categorized;
 import pcgen.cdom.base.Category;
@@ -78,13 +78,11 @@ public final class Ability extends PObject implements Categorized<Ability>, Abil
 	@Override
 	public String getPCCText()
 	{
-		final StringBuilder txt = new StringBuilder(200);
-		txt.append(getDisplayName());
-		txt.append("\tCATEGORY:").append(getCategory());
-		txt.append("\t");
-		txt.append(StringUtil.joinToStringBuilder(Globals.getContext().unparse(this), "\t"));
-		txt.append("\t");
-		txt.append(PrerequisiteWriter.prereqsToString(this));
+		StringJoiner txt = new StringJoiner("\t");
+		txt.add(getDisplayName());
+		txt.add("CATEGORY:" + getCategory());
+		Globals.getContext().unparse(this).forEach(item -> txt.add(item));
+		txt.add(PrerequisiteWriter.prereqsToString(this));
 		return txt.toString();
 	}
 
