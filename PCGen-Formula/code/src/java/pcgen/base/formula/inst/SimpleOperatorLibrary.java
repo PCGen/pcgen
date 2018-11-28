@@ -64,47 +64,38 @@ public class SimpleOperatorLibrary implements OperatorLibrary
 	public Object evaluate(Operator operator, Object o)
 	{
 		List<UnaryAction> actionList = unaryMTL.getListFor(operator);
-		if (actionList != null)
+		if (actionList == null)
 		{
-			for (UnaryAction action : actionList)
-			{
-				/*
-				 * null indicates the UnaryAction can't evaluate these, but we
-				 * should try another in list (don't unconditionally fail
-				 * because another UnaryAction might work)
-				 */
-				if (action.abstractEvaluate(o.getClass()) != null)
-				{
-					return action.evaluate(o);
-				}
-			}
+			throw new IllegalStateException(
+				"Evaluate called on invalid Unary Operator: "
+					+ operator.getSymbol() + " cannot process "
+					+ o.getClass().getSimpleName());
 		}
-		throw new IllegalStateException(
-			"Evaluate called on invalid Unary Operator: " + operator.getSymbol()
-				+ " cannot process " + o.getClass().getSimpleName());
+		return actionList.stream()
+				.filter(
+					action -> action.abstractEvaluate(o.getClass()).isPresent())
+				.findFirst()
+				.orElseThrow(() -> new IllegalStateException(
+					"Evaluate called on invalid Unary Operator: "
+							+ operator.getSymbol() + " cannot process "
+							+ o.getClass().getSimpleName()))
+				.evaluate(o);
 	}
 
 	@Override
-	public FormatManager<?> processAbstract(Operator operator, Class<?> format)
+	public Optional<FormatManager<?>> processAbstract(Operator operator, Class<?> format)
 	{
 		List<UnaryAction> actionList = unaryMTL.getListFor(operator);
-		if (actionList != null)
+		if (actionList == null)
 		{
-			for (UnaryAction action : actionList)
-			{
-				FormatManager<?> result = action.abstractEvaluate(format);
-				/*
-				 * null indicates the UnaryAction can't evaluate these, but try
-				 * another (don't unconditionally return result because another
-				 * UnaryAction might work)
-				 */
-				if (result != null)
-				{
-					return result;
-				}
-			}
+			return Optional.empty();
 		}
-		return null;
+		//Return the first action that works
+		return actionList.stream()
+				.map(action -> action.abstractEvaluate(format))
+				.filter(o -> o.isPresent())
+				.findFirst()
+				.orElse(Optional.empty());
 	}
 
 	@Override
@@ -112,51 +103,41 @@ public class SimpleOperatorLibrary implements OperatorLibrary
 		Optional<FormatManager<?>> asserted)
 	{
 		List<OperatorAction> actionList = operatorMTL.getListFor(operator);
-		if (actionList != null)
+		if (actionList == null)
 		{
-			for (OperatorAction action : actionList)
-			{
-				/*
-				 * null indicates the OperatorAction can't evaluate these, but
-				 * we should try another in list (don't unconditionally fail
-				 * because another OperatorAction might work)
-				 */
-				if (action.abstractEvaluate(o1.getClass(),
-					o2.getClass(), asserted) != null)
-				{
-					return action.evaluate(o1, o2);
-				}
-			}
-		}
-		throw new IllegalStateException(
-			"Evaluate called on invalid Operator: " + operator.getSymbol()
+			throw new IllegalStateException(
+				"Evaluate called on invalid Operator: " + operator.getSymbol()
 				+ " cannot process " + o1.getClass().getSimpleName() + " and "
 				+ o2.getClass().getSimpleName());
+		}
+		return actionList.stream()
+				.filter(action -> action
+					.abstractEvaluate(o1.getClass(), o2.getClass(), asserted)
+					.isPresent())
+				.findFirst()
+				.orElseThrow(() -> new IllegalStateException(
+					"Evaluate called on invalid Operator: "
+							+ operator.getSymbol() + " cannot process "
+							+ o1.getClass().getSimpleName() + " and "
+							+ o2.getClass().getSimpleName()))
+				.evaluate(o1, o2);
 	}
 
 	@Override
-	public FormatManager<?> processAbstract(Operator operator, Class<?> format1,
+	public Optional<FormatManager<?>> processAbstract(Operator operator, Class<?> format1,
 		Class<?> format2, Optional<FormatManager<?>> asserted)
 	{
 		List<OperatorAction> actionList = operatorMTL.getListFor(operator);
-		if (actionList != null)
+		if (actionList == null)
 		{
-			for (OperatorAction action : actionList)
-			{
-				FormatManager<?> result =
-						action.abstractEvaluate(format1, format2, asserted);
-				/*
-				 * null indicates the OperatorAction can't evaluate these, but
-				 * try another (don't unconditionally return result because
-				 * another OperatorAction might work)
-				 */
-				if (result != null)
-				{
-					return result;
-				}
-			}
+			return Optional.empty();
 		}
-		return null;
+		//Return the first action that works
+		return actionList.stream()
+				.map(action -> action.abstractEvaluate(format1, format2, asserted))
+				.filter(o -> o.isPresent())
+				.findFirst()
+				.orElse(Optional.empty());
 	}
 
 }

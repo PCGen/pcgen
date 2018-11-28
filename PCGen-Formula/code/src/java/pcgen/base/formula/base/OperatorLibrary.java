@@ -80,7 +80,8 @@ public interface OperatorLibrary
 	 * Note that an OperatorAction (and thus by extension OperatorLibrary) provides a
 	 * prediction of the returned Class, not the actual class. The returned Class from
 	 * this method is guaranteed to be assignable from the actual result. In other words,
-	 * this may return Number.class, whereas evaluate may return an Integer or Double.
+	 * this may return a FormatManager for Number.class, whereas evaluate may return an
+	 * Integer or Double.
 	 * 
 	 * @param operator
 	 *            The Operator to be evaluated
@@ -94,11 +95,10 @@ public interface OperatorLibrary
 	 *            some operators may perform a sanity check. Some operators may not
 	 *            require this argument; for others the Operator may not be used if no
 	 *            assertion is provided.
-	 * @return A FormatManager for the data format of the result of the operation if this
-	 *         OperatorLibrary has an OperatorAction for the given Operator arguments;
-	 *         null otherwise
+	 * @return An Optional FormatManager for the data format of the result of the operation if this
+	 *         OperatorLibrary has an OperatorAction for the given Operator arguments
 	 */
-	public FormatManager<?> processAbstract(Operator operator, Class<?> format1,
+	public Optional<FormatManager<?>> processAbstract(Operator operator, Class<?> format1,
 		Class<?> format2, Optional<FormatManager<?>> asserted);
 
 	/**
@@ -141,18 +141,18 @@ public interface OperatorLibrary
 	 * Processes an "abstract" version of the operation, performing a prediction of the
 	 * returned Class rather than on an actual object.
 	 * 
-	 * Note that an UnaryAction (and thus by extension OperatorLibrary) provides a
+	 * Note that a UnaryAction (and thus by extension OperatorLibrary) provides a
 	 * prediction of the returned Class, not the actual class. The returned Class from
 	 * this method is guaranteed to be assignable from the actual result. In other words,
-	 * this may return Number.class, whereas evaluate may return an Integer or Double.
+	 * this may return a FormatManager for Number.class, whereas evaluate may return an
+	 * Integer or Double.
 	 * 
 	 * @param operator
 	 *            The Operator to be evaluated
 	 * @param format
 	 *            The class (data format) of the argument to the abstract operation
-	 * @return A FormatManager for the data format of the result of the operation if this
-	 *         OperatorLibrary has an OperatorAction for the given Operator arguments;
-	 *         null otherwise
+	 * @return An Optional FormatManager for the data format of the result of the operation if this
+	 *         OperatorLibrary has an OperatorAction for the given Operator arguments
 	 */
-	public FormatManager<?> processAbstract(Operator operator, Class<?> format);
+	public Optional<FormatManager<?>> processAbstract(Operator operator, Class<?> format);
 }

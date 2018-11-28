@@ -112,13 +112,13 @@ public class ArraySubtractInstanceTest extends TestCase
 	public void testAbstractEvaluateLegal()
 	{
 		assertEquals(NUMBER_ARRAY_CLASS, op.abstractEvaluate(NUMBER_ARRAY_CLASS,
-			NUMBER_ARRAY_CLASS, Optional.of(numberArrayManager)).getManagedClass());
+			NUMBER_ARRAY_CLASS, Optional.of(numberArrayManager)).get().getManagedClass());
 		assertEquals(BOOLEAN_ARRAY_CLASS, op.abstractEvaluate(BOOLEAN_ARRAY_CLASS,
-			BOOLEAN_ARRAY_CLASS, Optional.of(booleanArrayManager)).getManagedClass());
+			BOOLEAN_ARRAY_CLASS, Optional.of(booleanArrayManager)).get().getManagedClass());
 		assertEquals(NUMBER_ARRAY_CLASS, op.abstractEvaluate(NUMBER_ARRAY_CLASS,
-			NUMBER_CLASS, Optional.of(numberArrayManager)).getManagedClass());
+			NUMBER_CLASS, Optional.of(numberArrayManager)).get().getManagedClass());
 		assertEquals(BOOLEAN_ARRAY_CLASS, op.abstractEvaluate(BOOLEAN_ARRAY_CLASS,
-			BOOLEAN_CLASS, Optional.of(booleanArrayManager)).getManagedClass());
+			BOOLEAN_CLASS, Optional.of(booleanArrayManager)).get().getManagedClass());
 		//TODO Interesting that these REQUIRE a format assertion... why?
 //		assertEquals(NUMBER_ARRAY_CLASS,
 //			op.abstractEvaluate(NUMBER_ARRAY_CLASS, NUMBER_ARRAY_CLASS, Optional.empty())

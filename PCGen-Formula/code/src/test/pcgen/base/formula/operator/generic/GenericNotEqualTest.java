@@ -79,7 +79,7 @@ public class GenericNotEqualTest extends TestCase
 	public void testAbstractEvaluateLegal()
 	{
 		assertEquals(BOOLEAN_CLASS,
-			op.abstractEvaluate(BOOLEAN_CLASS, BOOLEAN_CLASS, null).getManagedClass());
+			op.abstractEvaluate(BOOLEAN_CLASS, BOOLEAN_CLASS, null).get().getManagedClass());
 	}
 
 	public void testEvaluateFailNull()

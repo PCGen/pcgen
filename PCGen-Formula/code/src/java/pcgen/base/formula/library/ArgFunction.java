@@ -156,7 +156,7 @@ public final class ArgFunction implements FormulaFunction
 	 * {@inheritDoc}
 	 */
 	@Override
-	public FormatManager<?> getDependencies(DependencyVisitor visitor,
+	public Optional<FormatManager<?>> getDependencies(DependencyVisitor visitor,
 		DependencyManager manager, Node[] args)
 	{
 		ASTNum node = (ASTNum) args[0];
@@ -174,7 +174,7 @@ public final class ArgFunction implements FormulaFunction
 					+ "but DependencyManager did not have an ArgumentDependencyManager, "
 					+ "so unable to log the dependency");
 		}
-		return (FormatManager<?>) visitor.visit((SimpleNode) masterArgs[argNum], manager);
+		return (Optional<FormatManager<?>>) visitor.visit((SimpleNode) masterArgs[argNum], manager);
 	}
 
 	/**

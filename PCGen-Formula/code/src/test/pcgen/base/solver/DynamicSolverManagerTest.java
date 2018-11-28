@@ -370,8 +370,8 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 		}
 
 		@Override
-		public FormatManager<?> getDependencies(DependencyVisitor visitor, DependencyManager dm,
-			Node[] args)
+		public Optional<FormatManager<?>> getDependencies(
+			DependencyVisitor visitor, DependencyManager dm, Node[] args)
 		{
 			String varName = ((SimpleNode) args[0]).getText();
 			String name = ((SimpleNode) args[1]).getText();
@@ -382,7 +382,7 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 			DependencyManager dynamic = dm.getWith(DependencyManager.VARSTRATEGY, Optional.of(dd));
 			FormatManager<?> returnFormat = visitor.visitVariable(name, dynamic);
 			dm.get(DependencyManager.DYNAMIC).addDependency(dd);
-			return returnFormat;
+			return Optional.of(returnFormat);
 		}
 	}
 

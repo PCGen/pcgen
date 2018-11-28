@@ -72,18 +72,18 @@ public class NumberRemainderTest extends TestCase
 	public void testAbstractEvaluateLegal()
 	{
 		assertEquals(NUMBER_CLASS,
-			op.abstractEvaluate(NUMBER_CLASS, NUMBER_CLASS, null).getManagedClass());
+			op.abstractEvaluate(NUMBER_CLASS, NUMBER_CLASS, null).get().getManagedClass());
 		assertEquals(NUMBER_CLASS,
-			op.abstractEvaluate(DOUBLE_CLASS, DOUBLE_CLASS, null).getManagedClass());
+			op.abstractEvaluate(DOUBLE_CLASS, DOUBLE_CLASS, null).get().getManagedClass());
 		assertEquals(NUMBER_CLASS,
-			op.abstractEvaluate(INTEGER_CLASS, INTEGER_CLASS, null).getManagedClass());
+			op.abstractEvaluate(INTEGER_CLASS, INTEGER_CLASS, null).get().getManagedClass());
 		//mixed okay too
 		assertEquals(NUMBER_CLASS,
-			op.abstractEvaluate(NUMBER_CLASS, DOUBLE_CLASS, null).getManagedClass());
+			op.abstractEvaluate(NUMBER_CLASS, DOUBLE_CLASS, null).get().getManagedClass());
 		assertEquals(NUMBER_CLASS,
-			op.abstractEvaluate(INTEGER_CLASS, DOUBLE_CLASS, null).getManagedClass());
+			op.abstractEvaluate(INTEGER_CLASS, DOUBLE_CLASS, null).get().getManagedClass());
 		assertEquals(NUMBER_CLASS,
-			op.abstractEvaluate(DOUBLE_CLASS, INTEGER_CLASS, null).getManagedClass());
+			op.abstractEvaluate(DOUBLE_CLASS, INTEGER_CLASS, null).get().getManagedClass());
 	}
 
 	public void testEvaluateFailNull()

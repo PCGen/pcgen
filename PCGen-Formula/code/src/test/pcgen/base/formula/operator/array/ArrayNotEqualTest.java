@@ -95,15 +95,15 @@ public class ArrayNotEqualTest extends TestCase
 	public void testAbstractEvaluateLegal()
 	{
 		assertEquals(BOOLEAN_CLASS, op.abstractEvaluate(NUMBER_ARRAY_CLASS,
-			NUMBER_ARRAY_CLASS, Optional.of(numberArrayManager)).getManagedClass());
+			NUMBER_ARRAY_CLASS, Optional.of(numberArrayManager)).get().getManagedClass());
 		assertEquals(BOOLEAN_CLASS, op.abstractEvaluate(BOOLEAN_ARRAY_CLASS,
-			BOOLEAN_ARRAY_CLASS, Optional.of(booleanArrayManager)).getManagedClass());
+			BOOLEAN_ARRAY_CLASS, Optional.of(booleanArrayManager)).get().getManagedClass());
 		assertEquals(BOOLEAN_CLASS,
 			op.abstractEvaluate(NUMBER_ARRAY_CLASS, NUMBER_ARRAY_CLASS, Optional.empty())
-				.getManagedClass());
+			.get().getManagedClass());
 		assertEquals(BOOLEAN_CLASS, op
 			.abstractEvaluate(BOOLEAN_ARRAY_CLASS, BOOLEAN_ARRAY_CLASS, Optional.empty())
-			.getManagedClass());
+			.get().getManagedClass());
 	}
 
 	public void testEvaluateFailNull()

@@ -74,7 +74,7 @@ public class DependencyManager
 	 * A TypedKey used for storing the Format of the input object for the formula served
 	 * by this DependencyManager.
 	 */
-	public static final TypedKey<FormatManager<?>> INPUT_FORMAT = new TypedKey<>();
+	public static final TypedKey<Optional<FormatManager<?>>> INPUT_FORMAT = new TypedKey<>();
 
 	/**
 	 * A TypedKey used for storing the dynamic variables for the formula served by this

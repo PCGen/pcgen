@@ -67,8 +67,8 @@ public interface OperatorAction
 	 * format of the returned Class rather than on actual objects.
 	 * 
 	 * If the OperatorAction cannot perform an action on objects of the given classes,
-	 * then the OperatorAction will return null from this method. An exception should not
-	 * be thrown to indicate incompatibility.
+	 * then the OperatorAction must return Optional.empty() from this method. An exception
+	 * should not be thrown to indicate incompatibility.
 	 * 
 	 * Note that this provides a prediction of the returned format, not the actual class.
 	 * However, the returned FormatManager from this method is guaranteed to be
@@ -76,8 +76,8 @@ public interface OperatorAction
 	 * for Number.class, whereas evaluate may return an Integer or Double.
 	 * 
 	 * The return value of abstractEvaluate is part of a contract with evaluate. If this
-	 * method returns a non-null value, then evaluate should return a non-null value. If
-	 * this method returns null, then evaluate should throw an exception.
+	 * method returns a non-empty value, then evaluate should return a non-null value. If
+	 * this method returns empty, then evaluate should throw an exception.
 	 * 
 	 * @param format1
 	 *            The class (data format) of the first argument to the abstract operation
@@ -89,10 +89,10 @@ public interface OperatorAction
 	 *            some operators may perform a sanity check. Some operators may not
 	 *            require this argument; for others the Operator may not be used if no
 	 *            assertion is provided.
-	 * @return A FormatManager for the data format of the result of the operation if this
-	 *         OperatorAction can process objects of the given classes; null otherwise
+	 * @return An Optional FormatManager for the data format of the result of the
+	 *         operation if this OperatorAction can process objects of the given classes
 	 */
-	public FormatManager<?> abstractEvaluate(Class<?> format1, Class<?> format2,
+	public Optional<FormatManager<?>> abstractEvaluate(Class<?> format1, Class<?> format2,
 		Optional<FormatManager<?>> asserted);
 
 	/**
@@ -100,13 +100,13 @@ public interface OperatorAction
 	 * a non-null result of the evaluation.
 	 * 
 	 * This method requires that abstractEvaluate called on the classes of the
-	 * given arguments would not return null. In other words, if
-	 * abstractEvaluate would have returned null when called with the classes of
+	 * given arguments would not return empty. In other words, if
+	 * abstractEvaluate would have returned empty when called with the classes of
 	 * the given arguments, then evaluate should throw an Exception.
 	 * 
 	 * The return value of evaluate is part of a contract with abstractEvaluate.
-	 * If abstractEvaluate returns a non-null value, then this method should
-	 * return a non-null value. If abstractEvaluate returns null, then this
+	 * If abstractEvaluate returns a non-empty value, then this method should
+	 * return a non-null value. If abstractEvaluate returns empty, then this
 	 * method should throw an Exception.
 	 * 
 	 * @param left

@@ -17,6 +17,8 @@
  */
 package pcgen.base.formula.operator.number;
 
+import java.util.Optional;
+
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.UnaryAction;
 import pcgen.base.formula.parse.Operator;
@@ -46,13 +48,13 @@ public class NumberMinus implements UnaryAction
 	 * {@inheritDoc}
 	 */
 	@Override
-	public FormatManager<?> abstractEvaluate(Class<?> format)
+	public Optional<FormatManager<?>> abstractEvaluate(Class<?> format)
 	{
 		if (FormatUtilities.NUMBER_CLASS.isAssignableFrom(format))
 		{
-			return FormatUtilities.NUMBER_MANAGER;
+			return Optional.of(FormatUtilities.NUMBER_MANAGER);
 		}
-		return null;
+		return Optional.empty();
 	}
 
 	@Override

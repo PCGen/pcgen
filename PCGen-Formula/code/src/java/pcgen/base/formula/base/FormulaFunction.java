@@ -15,6 +15,8 @@
  */
 package pcgen.base.formula.base;
 
+import java.util.Optional;
+
 import pcgen.base.formula.parse.Node;
 import pcgen.base.formula.visitor.DependencyVisitor;
 import pcgen.base.formula.visitor.EvaluateVisitor;
@@ -233,10 +235,10 @@ public interface FormulaFunction
 	 *            The DependencyManager used to support analysis of the FormulaFunction
 	 * @param args
 	 *            The arguments to this FormulaFunction within the Formula
-	 * @return a FormatManager indicating the format of the value returned by this
+	 * @return An Optional FormatManager indicating the format of the value returned by this
 	 *         FormulaFunction
 	 */
-	FormatManager<?> getDependencies(DependencyVisitor visitor, DependencyManager manager,
+	Optional<FormatManager<?>> getDependencies(DependencyVisitor visitor, DependencyManager manager,
 		Node[] args);
 
 	/*

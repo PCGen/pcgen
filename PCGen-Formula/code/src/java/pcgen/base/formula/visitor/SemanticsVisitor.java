@@ -460,16 +460,13 @@ public class SemanticsVisitor implements FormulaParserVisitor
 		OperatorLibrary opLib =
 				semantics.get(FormulaSemantics.FMANAGER).getOperatorLibrary();
 		Optional<FormatManager<?>> asserted = semantics.get(FormulaSemantics.ASSERTED);
-		FormatManager<?> returnedFormat = opLib.processAbstract(op,
+		Optional<FormatManager<?>> returnedFormat = opLib.processAbstract(op,
 			format1.getManagedClass(), format2.getManagedClass(), asserted);
-		//null response means the library couldn't find an appropriate operator
-		if (returnedFormat == null)
-		{
-			throw new SemanticsFailureException("Parse Error: Operator " + op.getSymbol()
-				+ " cannot process children: " + format1.getIdentifierType() + " and "
-				+ format2.getIdentifierType() + " found in " + node.getClass().getName());
-		}
-		return returnedFormat;
+		return returnedFormat.orElseThrow(() -> new SemanticsFailureException(
+			"Parse Error: Operator " + op.getSymbol()
+				+ " cannot process children: " + format1.getIdentifierType()
+				+ " and " + format2.getIdentifierType() + " found in "
+				+ node.getClass().getName()));
 	}
 
 	private FormatManager<?> visitUnaryNode(SimpleNode node, Object data)
@@ -486,15 +483,11 @@ public class SemanticsVisitor implements FormulaParserVisitor
 		FormulaSemantics semantics = (FormulaSemantics) data;
 		OperatorLibrary opLib =
 				semantics.get(FormulaSemantics.FMANAGER).getOperatorLibrary();
-		FormatManager<?> returnedFormat = opLib.processAbstract(op, format.getManagedClass());
-		//null response means the library couldn't find an appropriate operator
-		if (returnedFormat == null)
-		{
-			throw new SemanticsFailureException("Parse Error: Operator " + op.getSymbol()
-				+ " cannot process child: " + format.getIdentifierType() + " found in "
-				+ node.getClass().getName());
-		}
-		return returnedFormat;
+		Optional<FormatManager<?>> returnedFormat = opLib.processAbstract(op, format.getManagedClass());
+		return returnedFormat.orElseThrow(() -> new SemanticsFailureException(
+			"Parse Error: Operator " + op.getSymbol()
+				+ " cannot process child: " + format.getIdentifierType()
+				+ " found in " + node.getClass().getName()));
 	}
 
 	/**

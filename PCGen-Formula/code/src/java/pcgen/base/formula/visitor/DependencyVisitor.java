@@ -337,7 +337,7 @@ public class DependencyVisitor implements FormulaParserVisitor
 	 * @return A FormatManager object, which will indicate the format returned
 	 *         by the Operator.
 	 */
-	private FormatManager<?> visitOperatorNode(SimpleNode node, Object data)
+	private Optional<FormatManager<?>> visitOperatorNode(SimpleNode node, Object data)
 	{
 		DependencyManager manager = (DependencyManager) data;
 		Node child1 = node.jjtGetChild(0);
@@ -351,7 +351,7 @@ public class DependencyVisitor implements FormulaParserVisitor
 			format2.getManagedClass(), manager.get(DependencyManager.ASSERTED));
 	}
 
-	private FormatManager<?> visitUnaryNode(SimpleNode node, Object data)
+	private Optional<FormatManager<?>> visitUnaryNode(SimpleNode node, Object data)
 	{
 		Node child = node.jjtGetChild(0);
 		FormatManager<?> format = (FormatManager<?>) child.jjtAccept(this, data);
