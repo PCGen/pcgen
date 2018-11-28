@@ -110,8 +110,8 @@ public final class FormatUtilities
 
 	/**
 	 * Returns the given FormatManager if it is a valid FormatManager. Validity means
-	 * basic adherence to the FormatManager interface, meaning getIdentifierType() and
-	 * getManagedClass() may not return null.
+	 * basic adherence to the FormatManager interface, meaning getIdentifierType(),
+	 * getManagedClass(), and getComponentManager() may not return null.
 	 * 
 	 * @param fmtManager
 	 *            The FormatManager to be checked to ensure it is valid
@@ -128,6 +128,10 @@ public final class FormatUtilities
 				+ fmFormat + ")");
 		Objects.requireNonNull(fmFormat,
 			"Cannot use a FormatManager with no format (was nominally for Identifier: "
+				+ fmIdent + ")");
+		Objects.requireNonNull(fmtManager.getComponentManager(),
+			"Cannot use a FormatManager with null component manager, "
+				+ "must be Optional.empty() (was nominally for Identifier: "
 				+ fmIdent + ")");
 		return fmtManager;
 	}

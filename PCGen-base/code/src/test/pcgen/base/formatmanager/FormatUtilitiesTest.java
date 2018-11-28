@@ -15,6 +15,8 @@
  */
 package pcgen.base.formatmanager;
 
+import java.util.Optional;
+
 import org.junit.Test;
 
 import junit.framework.TestCase;
@@ -99,9 +101,9 @@ public class FormatUtilitiesTest extends TestCase
 		}
 
 		@Override
-		public FormatManager<?> getComponentManager()
+		public Optional<FormatManager<?>> getComponentManager()
 		{
-			return null;
+			return Optional.empty();
 		}
 
 	}
@@ -146,9 +148,9 @@ public class FormatUtilitiesTest extends TestCase
 		}
 
 		@Override
-		public FormatManager<?> getComponentManager()
+		public Optional<FormatManager<?>> getComponentManager()
 		{
-			return null;
+			return Optional.empty();
 		}
 
 	}

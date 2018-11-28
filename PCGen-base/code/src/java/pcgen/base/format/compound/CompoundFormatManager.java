@@ -18,6 +18,7 @@ package pcgen.base.format.compound;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.function.Function;
 
 import pcgen.base.format.DispatchingFormatManager;
@@ -224,9 +225,9 @@ public class CompoundFormatManager<T> implements DispatchingFormatManager<Compou
 	}
 
 	@Override
-	public FormatManager<?> getComponentManager()
+	public Optional<FormatManager<?>> getComponentManager()
 	{
-		return formatManager;
+		return Optional.of(formatManager);
 	}
 
 	@Override
@@ -367,7 +368,7 @@ public class CompoundFormatManager<T> implements DispatchingFormatManager<Compou
 		}
 
 		@Override
-		public FormatManager<?> getComponentManager()
+		public Optional<FormatManager<?>> getComponentManager()
 		{
 			return CompoundFormatManager.this.getComponentManager();
 		}

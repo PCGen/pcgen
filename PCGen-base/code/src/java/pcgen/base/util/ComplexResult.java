@@ -29,7 +29,7 @@ public interface ComplexResult<T> extends Supplier<T>
 	/**
 	 * Returns any messages contained by this ComplexResult.
 	 * 
-	 * Note: If the ComplexResult returns a non-null value to passed() then the behavior
+	 * Note: If the ComplexResult returns a non-null value to get() then the behavior
 	 * of this method is not controlled by this interface.
 	 * 
 	 * @return A non-null list of messages contained by this ComplexResult.

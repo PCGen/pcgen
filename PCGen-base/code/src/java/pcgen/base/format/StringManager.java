@@ -19,6 +19,7 @@ package pcgen.base.format;
 
 import java.util.Comparator;
 import java.util.Objects;
+import java.util.Optional;
 
 import pcgen.base.util.BasicIndirect;
 import pcgen.base.util.ComparableManager;
@@ -92,13 +93,10 @@ public class StringManager implements FormatManager<String>, ComparableManager<S
 		return (o == this) || (o instanceof StringManager);
 	}
 
-	/**
-	 * Returns null, as this FormatManager does not have a component.
-	 */
 	@Override
-	public FormatManager<?> getComponentManager()
+	public Optional<FormatManager<?>> getComponentManager()
 	{
-		return null;
+		return Optional.empty();
 	}
 
 	@Override

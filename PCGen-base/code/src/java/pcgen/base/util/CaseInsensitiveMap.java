@@ -47,7 +47,7 @@ import pcgen.base.lang.CaseInsensitiveString;
  * Unfortunately, in the case of the iterator methods of {@code Map} (e.g.
  * keySet()), this class will expose the {@code CaseInsensitiveString} that is
  * used internally to this Class. It is therefore a poor implementation to use
- * when iteration over the entries in this Map is requried.
+ * when iteration over the entries in this Map is required.
  *
  * @param <V> The Type of the Values stored in this CaseInsensitiveMap
  */

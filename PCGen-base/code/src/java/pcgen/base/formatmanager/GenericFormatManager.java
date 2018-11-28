@@ -18,6 +18,7 @@
 package pcgen.base.formatmanager;
 
 import java.util.Objects;
+import java.util.Optional;
 
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
@@ -103,9 +104,9 @@ public class GenericFormatManager<T> implements FormatManager<T>
 	}
 
 	@Override
-	public FormatManager<?> getComponentManager()
+	public Optional<FormatManager<?>> getComponentManager()
 	{
-		return null;
+		return Optional.empty();
 	}
 
 	@Override
