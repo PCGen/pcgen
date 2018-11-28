@@ -17,6 +17,8 @@
  */
 package pcgen.base.formula.inst;
 
+import java.util.Optional;
+
 import org.junit.Test;
 
 import junit.framework.TestCase;
@@ -81,15 +83,15 @@ public class SimpleScopeInstanceFactoryTest extends TestCase
 			//ok
 		}
 		ScopeInstance globalInst = factory.getGlobalInstance("Global");
-		assertNull(globalInst.getParentScope());
+		assertTrue(globalInst.getParentScope().isEmpty());
 		assertEquals("Global", globalInst.getLegalScope().getName());
 		assertEquals(scopeInst, globalInst);
 	}
 
 	public void testGet()
 	{
-		ScopeInstance gsi = factory.get("Global", null);
-		assertNull(gsi.getParentScope());
+		ScopeInstance gsi = factory.get("Global", Optional.empty());
+		assertTrue(gsi.getParentScope().isEmpty());
 		assertEquals("Global", gsi.getLegalScope().getName());
 
 		/*
@@ -105,15 +107,15 @@ public class SimpleScopeInstanceFactoryTest extends TestCase
 		 * below of si and gsi.
 		 */
 		Scoped gvs = new Scoped("Var", null, null);
-		ScopeInstance si = factory.get("Global", gvs);
-		assertNull(si.getParentScope());
+		ScopeInstance si = factory.get("Global", Optional.of(gvs));
+		assertTrue(si.getParentScope().isEmpty());
 		assertEquals("Global", si.getLegalScope().getName());
 		assertEquals(si, gsi);
 		assertTrue(si == gsi);
 
 		try
 		{
-			factory.get("Local", gvs);
+			factory.get("Local", Optional.of(gvs));
 			fail("Mixmatch Local and Global should fail");
 		}
 		catch (IllegalArgumentException e)
@@ -130,17 +132,17 @@ public class SimpleScopeInstanceFactoryTest extends TestCase
 			//ok
 		}
 		Scoped lvs = new Scoped("LVar", "Global.Local", gvs);
-		ScopeInstance lsi = factory.get("Global.Local", lvs);
+		ScopeInstance lsi = factory.get("Global.Local", Optional.of(lvs));
 		assertTrue(local.equals(lsi.getLegalScope()));
-		assertTrue(scopeInst.equals(lsi.getParentScope()));
+		assertTrue(scopeInst.equals(lsi.getParentScope().get()));
 		assertEquals("Local", lsi.getLegalScope().getName());
 
 		SimpleLegalScope sublocal = new SimpleLegalScope(local, "SubLocal");
 		legalScopeManager.registerScope(sublocal);
 		Scoped slvs = new Scoped("SVar", "Global.Local.SubLocal", lvs);
-		ScopeInstance slsi = factory.get("Global.Local", slvs);
+		ScopeInstance slsi = factory.get("Global.Local", Optional.of(slvs));
 		assertTrue(local.equals(slsi.getLegalScope()));
-		assertTrue(scopeInst.equals(slsi.getParentScope()));
+		assertTrue(scopeInst.equals(slsi.getParentScope().get()));
 		assertEquals("Local", slsi.getLegalScope().getName());
 
 	}
@@ -166,15 +168,15 @@ public class SimpleScopeInstanceFactoryTest extends TestCase
 		}
 
 		@Override
-		public String getLocalScopeName()
+		public Optional<String> getLocalScopeName()
 		{
-			return scopeName;
+			return Optional.ofNullable(scopeName);
 		}
 
 		@Override
-		public VarScoped getVariableParent()
+		public Optional<VarScoped> getVariableParent()
 		{
-			return parent;
+			return Optional.ofNullable(parent);
 		}
 
 	}

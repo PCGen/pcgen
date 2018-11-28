@@ -207,6 +207,6 @@ public class VariableManager implements VariableLibrary
 			return new VariableID<>(scopeInst, formatManager, varName);
 		}
 		//Recursively check parent scope
-		return getVarIDMessaged(scopeInst.getParentScope(), varName, messageScope);
+		return getVarIDMessaged(scopeInst.getParentScope().get(), varName, messageScope);
 	}
 }

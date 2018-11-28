@@ -146,7 +146,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 		setup.setSolverFactorySupplier(() -> solverFactory);
 		formulaManager = setup.generate();
 		globalInstance = formulaManager.getScopeInstanceFactory().get("Global",
-			new GlobalVarScoped("Global"));
+			Optional.of(new GlobalVarScoped("Global")));
 	}
 
 	public void isValid(String formula, SimpleNode node,
@@ -321,6 +321,6 @@ public abstract class AbstractFormulaTestCase extends TestCase
 
 	protected ScopeInstance getScopeInstance(String scopeName, VarScoped vs)
 	{
-		return getInstanceFactory().get(scopeName, vs);
+		return getInstanceFactory().get(scopeName, Optional.of(vs));
 	}
 }

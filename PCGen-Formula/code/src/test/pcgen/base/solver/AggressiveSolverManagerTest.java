@@ -15,6 +15,8 @@
  */
 package pcgen.base.solver;
 
+import java.util.Optional;
+
 import org.junit.Test;
 
 import pcgen.base.formatmanager.FormatUtilities;
@@ -124,7 +126,7 @@ public class AggressiveSolverManagerTest extends AbstractSolverManagerTest
 		getScopeLibrary().registerScope(localScope);
 
 		ScopeInstance strInst =
-				getInstanceFactory().get("Global.STAT", new MockStat("Strength"));
+				getInstanceFactory().get("Global.STAT", Optional.of(new MockStat("Strength")));
 
 		getVariableLibrary().assertLegalVariableID("Mod", localScope,
 			FormatUtilities.NUMBER_MANAGER);

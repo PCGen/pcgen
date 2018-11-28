@@ -17,6 +17,8 @@
  */
 package pcgen.base.solver.testsupport;
 
+import java.util.Optional;
+
 import pcgen.base.formula.base.VarScoped;
 
 public class MockStat implements VarScoped
@@ -36,16 +38,16 @@ public class MockStat implements VarScoped
 	}
 
 	@Override
-	public String getLocalScopeName()
+	public Optional<String> getLocalScopeName()
 	{
-		return "Global.STAT";
+		return Optional.of("Global.STAT");
 	}
 
 	@Override
-	public VarScoped getVariableParent()
+	public Optional<VarScoped> getVariableParent()
 	{
 		//Global
-		return null;
+		return Optional.empty();
 	}
 	
 }

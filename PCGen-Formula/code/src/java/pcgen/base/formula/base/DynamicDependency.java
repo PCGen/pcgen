@@ -18,6 +18,7 @@ package pcgen.base.formula.base;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 /**
  * A DynamicDependency is a formula dependency that can change the absolute variable upon
@@ -89,7 +90,7 @@ public class DynamicDependency implements VariableStrategy
 	public List<VariableID<?>> generateSources(VariableLibrary varLibrary,
 		ScopeInstanceFactory siFactory, VarScoped sourceObject)
 	{
-		ScopeInstance scopeInst = siFactory.get(sourceScopeName, sourceObject);
+		ScopeInstance scopeInst = siFactory.get(sourceScopeName, Optional.of(sourceObject));
 		List<VariableID<?>> list = new ArrayList<>();
 		for (String sourceVarName : sourceVarNames)
 		{
@@ -115,7 +116,7 @@ public class DynamicDependency implements VariableStrategy
 	public VariableID<?> generateSource(VariableLibrary varLibrary,
 		ScopeInstanceFactory siFactory, VarScoped sourceObject, String sourceVarName)
 	{
-		ScopeInstance scopeInst = siFactory.get(sourceScopeName, sourceObject);
+		ScopeInstance scopeInst = siFactory.get(sourceScopeName, Optional.of(sourceObject));
 		return varLibrary.getVariableID(scopeInst, sourceVarName);
 	}
 

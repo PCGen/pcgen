@@ -16,6 +16,7 @@
 package pcgen.base.formula.inst;
 
 import java.util.Objects;
+import java.util.Optional;
 
 import pcgen.base.formula.base.VarScoped;
 
@@ -28,7 +29,7 @@ public class GlobalVarScoped implements VarScoped
 {
 
 	/**
-	 * The name of this GlobalVarScoped
+	 * The name of this GlobalVarScoped.
 	 */
 	private final String name;
 
@@ -50,22 +51,22 @@ public class GlobalVarScoped implements VarScoped
 	}
 
 	@Override
-	public String getLocalScopeName()
+	public Optional<String> getLocalScopeName()
 	{
-		//null to indicate Global
-		return null;
+		//Empty to indicate Global
+		return Optional.empty();
 	}
 
 	@Override
-	public VarScoped getVariableParent()
+	public Optional<VarScoped> getVariableParent()
 	{
-		//Null to indicate Global
-		return null;
+		//Empty to indicate Global
+		return Optional.empty();
 	}
 
 	@Override
 	public String toString()
 	{
-		return "Global Variable Scope";
+		return "Global Variable Scope (" + name + ")";
 	}
 }

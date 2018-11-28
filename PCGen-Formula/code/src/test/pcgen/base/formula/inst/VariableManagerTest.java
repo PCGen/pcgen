@@ -17,6 +17,9 @@
  */
 package pcgen.base.formula.inst;
 
+import java.util.NoSuchElementException;
+import java.util.Optional;
+
 import org.junit.Test;
 
 import junit.framework.TestCase;
@@ -306,7 +309,7 @@ public class VariableManagerTest extends TestCase
 		SimpleVarScoped eq = new SimpleVarScoped();
 		eq.scopeName = "Global.Equipment";
 		eq.name = "Sword";
-		ScopeInstance eqInst = instanceFactory.get("Global.Equipment", eq);
+		ScopeInstance eqInst = instanceFactory.get("Global.Equipment", Optional.of(eq));
 		try
 		{
 			variableLibrary.getVariableID(null, "Walk");
@@ -357,7 +360,7 @@ public class VariableManagerTest extends TestCase
 			variableLibrary.getVariableID(globalInst, "Walk");
 			fail("undefined name must be rejected");
 		}
-		catch (IllegalArgumentException | NullPointerException e)
+		catch (NoSuchElementException | IllegalArgumentException | NullPointerException e)
 		{
 			//undefined, ok
 		}
@@ -366,7 +369,7 @@ public class VariableManagerTest extends TestCase
 			variableLibrary.getVariableID(eqInst, "Walk");
 			fail("undefined name must be rejected");
 		}
-		catch (IllegalArgumentException | NullPointerException e)
+		catch (NoSuchElementException | IllegalArgumentException | NullPointerException e)
 		{
 			//undefined, ok
 		}
@@ -376,7 +379,7 @@ public class VariableManagerTest extends TestCase
 			variableLibrary.getVariableID(eqInst, "Float");
 			fail("undefined name (unrelated scope) must be rejected");
 		}
-		catch (IllegalArgumentException | NullPointerException e)
+		catch (NoSuchElementException | IllegalArgumentException | NullPointerException e)
 		{
 			//undefined, ok
 		}
@@ -394,14 +397,14 @@ public class VariableManagerTest extends TestCase
 		SimpleVarScoped eq = new SimpleVarScoped();
 		eq.scopeName = "Global.Equipment";
 		eq.name = "Sword";
-		ScopeInstance eqInst = instanceFactory.get("Global.Equipment", eq);
+		ScopeInstance eqInst = instanceFactory.get("Global.Equipment", Optional.of(eq));
 		LegalScope eqPartScope = new SimpleLegalScope(eqScope, "Part");
 		legalScopeManager.registerScope(eqPartScope);
 		SimpleVarScoped eqpart = new SimpleVarScoped();
 		eqpart.scopeName = "Global.Equipment.Part";
 		eqpart.name = "Mod";
 		eqpart.parent = eq;
-		ScopeInstance eqPartInst = instanceFactory.get("Global.Equipment.Part", eqpart);
+		ScopeInstance eqPartInst = instanceFactory.get("Global.Equipment.Part", Optional.of(eqpart));
 		variableLibrary.assertLegalVariableID("Walk", globalScope, numberManager);
 		variableLibrary.assertLegalVariableID("Float", eqScope, numberManager);
 		variableLibrary.assertLegalVariableID("Hover", eqPartScope, numberManager);
@@ -487,13 +490,13 @@ public class VariableManagerTest extends TestCase
 		SimpleVarScoped eq = new SimpleVarScoped();
 		eq.scopeName = "Global.Equipment";
 		eq.name = "Sword";
-		ScopeInstance eqInst = instanceFactory.get("Global.Equipment", eq);
+		ScopeInstance eqInst = instanceFactory.get("Global.Equipment", Optional.of(eq));
 		LegalScope abScope = new SimpleLegalScope(globalScope, "Ability");
 		legalScopeManager.registerScope(abScope);
 		SimpleVarScoped ab = new SimpleVarScoped();
 		ab.scopeName = "Global.Ability";
 		ab.name = "Dodge";
-		ScopeInstance abInst = instanceFactory.get("Global.Ability", ab);
+		ScopeInstance abInst = instanceFactory.get("Global.Ability", Optional.of(ab));
 
 		variableLibrary.assertLegalVariableID("Walk", eqScope, numberManager);
 		VariableID<?> vidm = variableLibrary.getVariableID(eqInst, "Walk");

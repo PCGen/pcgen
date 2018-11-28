@@ -29,7 +29,6 @@ import pcgen.base.formula.base.LegalScopeLibrary;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.VarScoped;
-import pcgen.base.util.DoubleKeyMapToList;
 
 /**
  * A SimpleScopeInstanceFactory is a factory used to instantiate ScopeInstance objects
@@ -40,25 +39,16 @@ public class SimpleScopeInstanceFactory implements ScopeInstanceFactory
 {
 
 	/**
-	 * Contains the map of parent ScopeInstance objects and LegalScope objects
-	 * to the instantiated "children" ScopeInstance objects within the provided
-	 * LegalScope.
-	 */
-	private final DoubleKeyMapToList<ScopeInstance, LegalScope, ScopeInstance> scopeInstances =
-			new DoubleKeyMapToList<ScopeInstance, LegalScope, ScopeInstance>();
-
-	/**
 	 * Contains a map from the owning VarScoped object to the ScopeInstance for
 	 * that object.
 	 */
 	private final Map<VarScoped, ScopeInstance> objectToInstanceCache =
-			new HashMap<VarScoped, ScopeInstance>();
+			new HashMap<>();
 
 	/**
 	 * Contains a map from a format to the global ScopeInstance for that format.
 	 */
-	private final Map<String, ScopeInstance> globals =
-			new HashMap<String, ScopeInstance>();
+	private final Map<String, ScopeInstance> globals = new HashMap<>();
 
 	/**
 	 * The LegalScopeLibrary used to indicate the LegalScope objects for this
@@ -106,7 +96,7 @@ public class SimpleScopeInstanceFactory implements ScopeInstanceFactory
 		ScopeInstance inst = globals.get(name);
 		if (inst == null)
 		{
-			inst = new SimpleScopeInstance(null, legalScope,
+			inst = new SimpleScopeInstance(Optional.empty(), legalScope,
 				new GlobalVarScoped(legalScope.getName()));
 			globals.put(name, inst);
 		}
@@ -114,7 +104,7 @@ public class SimpleScopeInstanceFactory implements ScopeInstanceFactory
 	}
 
 	@Override
-	public ScopeInstance get(String scopeName, VarScoped obj)
+	public ScopeInstance get(String scopeName, Optional<VarScoped> obj)
 	{
 		LegalScope scope = library.getScope(scopeName);
 		if (scope == null)
@@ -132,23 +122,23 @@ public class SimpleScopeInstanceFactory implements ScopeInstanceFactory
 	 * Private so that we know the LegalScope came from the LegalScopeLibrary of
 	 * this SimpleScopeInstanceFactory.
 	 */
-	private ScopeInstance getMessaged(LegalScope instScope, VarScoped current,
-		VarScoped original)
+	private ScopeInstance getMessaged(LegalScope instScope, Optional<VarScoped> current,
+		Optional<VarScoped> original)
 	{
 		Optional<? extends LegalScope> potentialParentScope = instScope.getParentScope();
-		//null is Global object
-		if (current == null)
+		//Empty is Global object
+		if (current.isEmpty())
 		{
 			//is instScope Global?
-			if (!potentialParentScope.isPresent())
+			if (potentialParentScope.isEmpty())
 			{
 				return getGlobalInstance(instScope);
 			}
-			if (original == null)
+			if (original.isEmpty())
 			{
 				//Started with a global assertion
 				throw new IllegalArgumentException(
-					"Requested ScopeInstance for null (Global) object, "
+					"Requested ScopeInstance for Global object, "
 						+ "but with LegalScope that was not Global: "
 						+ instScope.getName());
 			}
@@ -157,13 +147,14 @@ public class SimpleScopeInstanceFactory implements ScopeInstanceFactory
 				//Reached, but did not start with, a global assertion
 				throw new IllegalArgumentException(
 					"Requested ScopeInstance for " + original.getClass().getName() + " "
-						+ original.getKeyName() + " and reached a global parent, "
+						+ original.get().getKeyName() + " and reached a global parent, "
 						+ "but have only reached Scope: " + instScope.getName());
 			}
 		}
-		VarScoped parentObj = current.getVariableParent();
-		String localScopeName = current.getLocalScopeName();
-		if (localScopeName == null)
+		VarScoped currentVarScoped = current.get();
+		Optional<VarScoped> parentObj = currentVarScoped.getVariableParent();
+		Optional<String> localScopeName = currentVarScoped.getLocalScopeName();
+		if (localScopeName.isEmpty())
 		{
 			/*
 			 * Some object may not have a local scope, so fall up: get the parent and
@@ -171,7 +162,7 @@ public class SimpleScopeInstanceFactory implements ScopeInstanceFactory
 			 */
 			return getMessaged(instScope, parentObj, original);
 		}
-		LegalScope currentScope = library.getScope(localScopeName);
+		LegalScope currentScope = library.getScope(localScopeName.get());
 		if (!currentScope.equals(instScope))
 		{
 			/*
@@ -180,29 +171,17 @@ public class SimpleScopeInstanceFactory implements ScopeInstanceFactory
 			 */
 			return getMessaged(instScope, parentObj, original);
 		}
-		//At this point, it really *is* for current
-		ScopeInstance inst = objectToInstanceCache.get(current);
+		//At this point, it really *is* for currentVarScoped
+		ScopeInstance inst = objectToInstanceCache.get(currentVarScoped);
 		if (inst == null)
 		{
 			//Need to build the scope...
 			ScopeInstance parentInstance =
 					getMessaged(potentialParentScope.get(), parentObj, original);
-			inst = constructInstance(parentInstance, currentScope, original);
-			objectToInstanceCache.put(current, inst);
+			inst = new SimpleScopeInstance(Optional.of(parentInstance),
+				currentScope, original.get());
+			objectToInstanceCache.put(currentVarScoped, inst);
 		}
-		return inst;
-	}
-
-	/*
-	 * Private due to lack of checking and ensuring LegalScope is from the
-	 * embedded LegalScopeLibrary.
-	 */
-	private ScopeInstance constructInstance(ScopeInstance parent,
-		LegalScope scope, VarScoped representing)
-	{
-		SimpleScopeInstance inst =
-				new SimpleScopeInstance(parent, scope, representing);
-		scopeInstances.addToListFor(parent, scope, inst);
 		return inst;
 	}
 

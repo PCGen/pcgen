@@ -17,6 +17,8 @@
  */
 package pcgen.base.formula.base;
 
+import java.util.Optional;
+
 /**
  * A ScopeInstanceFactory is a factory used to instantiate ScopeInstance objects given a
  * parent ScopeInstance and LegalScope in which to instantiate the ScopeInstance.
@@ -44,8 +46,8 @@ public interface ScopeInstanceFactory
 	 *            The name of the LegalScope for which the ScopeInstance should be
 	 *            returned
 	 * @param obj
-	 *            The Object where analysis should start in order to determine the
-	 *            appropriate ScopeInstance to be returned.
+	 *            The (Optional) Object where analysis should start in order to determine
+	 *            the appropriate ScopeInstance to be returned.
 	 * @return The ScopeInstance within the given LegalScope and considering the given
 	 *         VarScoped object
 	 * @throws IllegalArgumentException
@@ -53,7 +55,7 @@ public interface ScopeInstanceFactory
 	 *             or an ancestor of the VarScoped object (as determined by
 	 *             getVariableParent())
 	 */
-	public ScopeInstance get(String scopeName, VarScoped obj);
+	public ScopeInstance get(String scopeName, Optional<VarScoped> obj);
 
 	/**
 	 * Returns the LegalScope for the given legal scope name, using the LegalScopeLibrary

@@ -305,15 +305,15 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 		}
 
 		@Override
-		public String getLocalScopeName()
+		public Optional<String> getLocalScopeName()
 		{
-			return "Global.LIMB";
+			return Optional.of("Global.LIMB");
 		}
 
 		@Override
-		public VarScoped getVariableParent()
+		public Optional<VarScoped> getVariableParent()
 		{
-			return null;
+			return Optional.empty();
 		}
 
 		@Override
@@ -363,7 +363,7 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 			VarScoped vs = (VarScoped) args[0].jjtAccept(visitor, em);
 			FormulaManager fManager = em.get(EvaluationManager.FMANAGER);
 			ScopeInstanceFactory siFactory = fManager.getScopeInstanceFactory();
-			ScopeInstance scopeInst = siFactory.get("Global.LIMB", vs);
+			ScopeInstance scopeInst = siFactory.get("Global.LIMB", Optional.of(vs));
 			//Rest of Equation
 			return args[1].jjtAccept(visitor,
 				em.getWith(EvaluationManager.INSTANCE, scopeInst));

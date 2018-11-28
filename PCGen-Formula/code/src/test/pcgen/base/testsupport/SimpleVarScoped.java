@@ -17,6 +17,8 @@
  */
 package pcgen.base.testsupport;
 
+import java.util.Optional;
+
 import pcgen.base.formula.base.VarScoped;
 
 public class SimpleVarScoped implements VarScoped
@@ -33,15 +35,15 @@ public class SimpleVarScoped implements VarScoped
 	}
 
 	@Override
-	public String getLocalScopeName()
+	public Optional<String> getLocalScopeName()
 	{
-		return scopeName;
+		return Optional.ofNullable(scopeName);
 	}
 
 	@Override
-	public VarScoped getVariableParent()
+	public Optional<VarScoped> getVariableParent()
 	{
-		return parent;
+		return Optional.ofNullable(parent);
 	}
 
 }

@@ -19,6 +19,7 @@ package pcgen.base.solver;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import org.junit.Test;
 
@@ -61,9 +62,9 @@ public class SolverTest extends TestCase
 		setup.setLegalScopeManagerSupplier(() -> legalScopeManager);
 		formulaManager = setup.generate();
 		ScopeInstanceFactory scopeInstanceFactory = formulaManager.getScopeInstanceFactory();
-		inst = scopeInstanceFactory.get("Global", new GlobalVarScoped("Global"));
-		str = scopeInstanceFactory.get("Global.STAT", new MockStat("STR"));
-		con = scopeInstanceFactory.get("Global.STAT", new MockStat("CON"));
+		inst = scopeInstanceFactory.get("Global", Optional.of(new GlobalVarScoped("Global")));
+		str = scopeInstanceFactory.get("Global.STAT", Optional.of(new MockStat("STR")));
+		con = scopeInstanceFactory.get("Global.STAT", Optional.of(new MockStat("CON")));
 		evalManager = managerFactory.generateEvaluationManager(formulaManager);
 	}
 

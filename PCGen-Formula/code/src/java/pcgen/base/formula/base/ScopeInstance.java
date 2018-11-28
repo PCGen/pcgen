@@ -17,6 +17,8 @@
  */
 package pcgen.base.formula.base;
 
+import java.util.Optional;
+
 /**
  * ScopeInstance identifies an instance of a scope in which a particular part of
  * a formula (usually a variable) is valid.
@@ -59,11 +61,11 @@ public interface ScopeInstance extends Identified
 	/**
 	 * Returns the ScopeInstance that serves as a "parent" for this ScopeInstance.
 	 * 
-	 * Null is a legal return value for a "master" scope.
+	 * Empty is a legal return value for a "master" scope.
 	 * 
 	 * @return The ScopeInstance that serves as a "parent" for this ScopeInstance
 	 */
-	public ScopeInstance getParentScope();
+	public Optional<ScopeInstance> getParentScope();
 
 	/**
 	 * Returns the owning object for this ScopeInstance.
