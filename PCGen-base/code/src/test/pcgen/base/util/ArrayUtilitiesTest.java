@@ -262,14 +262,14 @@ public class ArrayUtilitiesTest extends TestCase
 	public void testPrependOnCopy()
 	{
 		Integer[] array = null;
-		array = ArrayUtilities.prependOnCopy(4, array);
+		array = ArrayUtilities.prependOnCopy(4, array, Integer.class);
 		assertTrue(array.length == 1);
 		assertTrue(array[0] == 4);
-		array = ArrayUtilities.prependOnCopy(3, array);
+		array = ArrayUtilities.prependOnCopy(3, array, Integer.class);
 		assertTrue(array.length == 2);
 		assertTrue(array[0] == 3);
 		assertTrue(array[1] == 4);
-		assertTrue(Arrays.deepEquals(ArrayUtilities.prependOnCopy(2, array),
+		assertTrue(Arrays.deepEquals(ArrayUtilities.prependOnCopy(2, array, Integer.class),
 			new Integer[]{2, 3, 4}));
 	}
 
@@ -278,14 +278,14 @@ public class ArrayUtilitiesTest extends TestCase
 	{
 		Object[] array = null;
 		Object no = new Object();
-		array = ArrayUtilities.prependOnCopy(no, array);
+		array = ArrayUtilities.prependOnCopy(no, array, Object.class);
 		assertTrue(array.length == 1);
 		assertTrue(array[0].equals(no));
-		array = ArrayUtilities.prependOnCopy(3, array);
+		array = ArrayUtilities.prependOnCopy(3, array, Object.class);
 		assertTrue(array.length == 2);
 		assertTrue(array[0].equals(3));
 		assertTrue(array[1].equals(no));
-		assertTrue(Arrays.deepEquals(ArrayUtilities.prependOnCopy(2, array),
+		assertTrue(Arrays.deepEquals(ArrayUtilities.prependOnCopy(2, array, Object.class),
 			new Object[]{2, 3, no}));
 	}
 
@@ -293,14 +293,14 @@ public class ArrayUtilitiesTest extends TestCase
 	public void testAddOnCopy()
 	{
 		Integer[] array = null;
-		array = ArrayUtilities.addOnCopy(array, 4);
+		array = ArrayUtilities.addOnCopy(array, 4, Integer.class);
 		assertTrue(array.length == 1);
 		assertTrue(array[0] == 4);
-		array = ArrayUtilities.addOnCopy(array, 3);
+		array = ArrayUtilities.addOnCopy(array, 3, Integer.class);
 		assertTrue(array.length == 2);
 		assertTrue(array[0] == 4);
 		assertTrue(array[1] == 3);
-		assertTrue(Arrays.deepEquals(ArrayUtilities.addOnCopy(array, 2),
+		assertTrue(Arrays.deepEquals(ArrayUtilities.addOnCopy(array, 2, Integer.class),
 			new Integer[]{4, 3, 2}));
 	}
 
@@ -309,14 +309,14 @@ public class ArrayUtilitiesTest extends TestCase
 	{
 		Object[] array = null;
 		Object no = new Object();
-		array = ArrayUtilities.addOnCopy(array, no);
+		array = ArrayUtilities.addOnCopy(array, no, Object.class);
 		assertTrue(array.length == 1);
 		assertTrue(array[0].equals(no));
-		array = ArrayUtilities.addOnCopy(array, 3);
+		array = ArrayUtilities.addOnCopy(array, 3, Object.class);
 		assertTrue(array.length == 2);
 		assertTrue(array[0].equals(no));
 		assertTrue(array[1].equals(3));
-		assertTrue(Arrays.deepEquals(ArrayUtilities.addOnCopy(array, 2),
+		assertTrue(Arrays.deepEquals(ArrayUtilities.addOnCopy(array, 2, Object.class),
 			new Object[]{no, 3, 2}));
 	}
 
@@ -324,14 +324,14 @@ public class ArrayUtilitiesTest extends TestCase
 	public void testAddOnCopyNumber()
 	{
 		Integer[] array = null;
-		array = ArrayUtilities.addOnCopy(array, 0, 4);
+		array = ArrayUtilities.addOnCopy(array, 0, 4, Integer.class);
 		assertTrue(array.length == 1);
 		assertTrue(array[0].equals(4));
-		array = ArrayUtilities.addOnCopy(array, 1, 3);
+		array = ArrayUtilities.addOnCopy(array, 1, 3, Integer.class);
 		assertTrue(array.length == 2);
 		assertTrue(array[0].equals(4));
 		assertTrue(array[1].equals(3));
-		assertTrue(Arrays.deepEquals(ArrayUtilities.addOnCopy(array, 1, 2),
+		assertTrue(Arrays.deepEquals(ArrayUtilities.addOnCopy(array, 1, 2, Integer.class),
 			new Integer[]{4, 2, 3}));
 	}
 
@@ -340,14 +340,14 @@ public class ArrayUtilitiesTest extends TestCase
 	{
 		Object[] array = null;
 		Object no = new Object();
-		array = ArrayUtilities.addOnCopy(array, 0, no);
+		array = ArrayUtilities.addOnCopy(array, 0, no, Object.class);
 		assertTrue(array.length == 1);
 		assertTrue(array[0].equals(no));
-		array = ArrayUtilities.addOnCopy(array, 1, 3);
+		array = ArrayUtilities.addOnCopy(array, 1, 3, Object.class);
 		assertTrue(array.length == 2);
 		assertTrue(array[0].equals(no));
 		assertTrue(array[1].equals(3));
-		assertTrue(Arrays.deepEquals(ArrayUtilities.addOnCopy(array, 1, 2),
+		assertTrue(Arrays.deepEquals(ArrayUtilities.addOnCopy(array, 1, 2, Object.class),
 			new Object[]{no, 2, 3}));
 	}
 
