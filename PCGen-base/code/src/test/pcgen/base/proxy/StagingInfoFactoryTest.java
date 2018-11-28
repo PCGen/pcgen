@@ -586,7 +586,7 @@ public class StagingInfoFactoryTest
 		public void addBasic(Number n);
 	}
 
-	public interface SetItem extends GetItemOnly
+	public interface SetItem extends ReadOnlyItem
 	{
 		public default void setBasic(String s)
 		{
@@ -629,7 +629,10 @@ public class StagingInfoFactoryTest
 	public interface ReadOnlyItem extends GetItemOnly
 	{
 		@ReadOnly
-		public Number getReadable();
+		public default Number getReadable()
+		{
+			throw new UnsupportedOperationException();
+		}
 	}
 
 	public class Settable implements SetItem, ReadOnlyItem
