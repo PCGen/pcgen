@@ -29,6 +29,7 @@ import javax.swing.undo.UndoManager;
 import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Gender;
+import pcgen.cdom.enumeration.Handed;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.cdom.meta.CorePerspective;
@@ -370,12 +371,12 @@ public interface CharacterFacade extends CompanionFacade
 	/**
 	 * @return a reference to this character's handedness string
 	 */
-	public ReferenceFacade<HandedFacade> getHandedRef();
+	public ReferenceFacade<Handed> getHandedRef();
 
 	/**
 	 * @param handedness The new handedness string for the character
 	 */
-	public void setHanded(HandedFacade handedness);
+	public void setHanded(Handed handedness);
 
 	/**
 	 * @see CharacterFacade#setFile(File)
@@ -419,7 +420,7 @@ public interface CharacterFacade extends CompanionFacade
 
 	public ReferenceFacade<Integer> getRemainingDomainSelectionsRef();
 
-	public ListFacade<HandedFacade> getAvailableHands();
+	public ListFacade<Handed> getAvailableHands();
 
 	public ListFacade<Gender> getAvailableGenders();
 

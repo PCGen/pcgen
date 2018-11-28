@@ -65,6 +65,7 @@ import javax.swing.event.HyperlinkListener;
 import org.apache.commons.lang3.StringUtils;
 
 import pcgen.cdom.enumeration.Gender;
+import pcgen.cdom.enumeration.Handed;
 import pcgen.core.Deity;
 import pcgen.core.PCAlignment;
 import pcgen.facade.core.CharacterFacade;
@@ -72,7 +73,6 @@ import pcgen.facade.core.CharacterLevelFacade;
 import pcgen.facade.core.CharacterLevelsFacade;
 import pcgen.facade.core.ClassFacade;
 import pcgen.facade.core.DataSetFacade;
-import pcgen.facade.core.HandedFacade;
 import pcgen.facade.core.InfoFacade;
 import pcgen.facade.core.RaceFacade;
 import pcgen.facade.core.TodoFacade;
@@ -871,7 +871,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 	{
 		private final CharacterFacade character;
 		private final CharacterComboBoxModel<Gender> genderModel;
-		private final CharacterComboBoxModel<HandedFacade> handsModel;
+		private final CharacterComboBoxModel<Handed> handsModel;
 		private CharacterComboBoxModel<PCAlignment> alignmentModel;
 		private CharacterComboBoxModel<Deity> deityModel;
 		private final DeferredCharacterComboBoxModel<RaceFacade> raceModel;
@@ -913,13 +913,13 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 
 			//initialize handed model
 			handsModel =
-					new CharacterComboBoxModel<HandedFacade>(character.getAvailableHands(), character.getHandedRef())
+					new CharacterComboBoxModel<Handed>(character.getAvailableHands(), character.getHandedRef())
 					{
 
 						@Override
 						public void setSelectedItem(Object anItem)
 						{
-							character.setHanded((HandedFacade) anItem);
+							character.setHanded((Handed) anItem);
 						}
 
 					};
