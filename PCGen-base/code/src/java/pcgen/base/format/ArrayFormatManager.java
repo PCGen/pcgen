@@ -108,7 +108,6 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 		Class<T> managedClass = componentManager.getManagedClass();
 		if (componentManager instanceof DispatchingFormatManager)
 		{
-			@SuppressWarnings("unchecked")
 			DispatchingFormatManager<T> dfm =
 					(DispatchingFormatManager<T>) componentManager;
 			String[] groups = splitInstructions(instructions, groupSeparator);
@@ -142,7 +141,6 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 		Indirect<T>[] array = null;
 		if (componentManager instanceof DispatchingFormatManager)
 		{
-			@SuppressWarnings("unchecked")
 			DispatchingFormatManager<T> dfm =
 					(DispatchingFormatManager<T>) componentManager;
 			String[] groups = splitInstructions(instructions, groupSeparator);
@@ -229,7 +227,6 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 	{
 		if (componentManager instanceof DispatchingFormatManager)
 		{
-			@SuppressWarnings("unchecked")
 			DispatchingFormatManager<T> dfm =
 					(DispatchingFormatManager<T>) componentManager;
 			Stream<Tuple<String, String>> unconverted =

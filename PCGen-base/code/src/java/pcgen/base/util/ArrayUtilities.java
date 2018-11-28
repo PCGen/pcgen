@@ -232,7 +232,6 @@ public final class ArrayUtilities
 	 * @param <T>
 	 *            The type of the array and the object to be added to the array
 	 */
-	@SuppressWarnings("unchecked")
 	public static <T> T[] prependOnCopy(T object, T[] array)
 	{
 		return addOnCopy(array, 0, object);
@@ -252,7 +251,6 @@ public final class ArrayUtilities
 	 * @param <T>
 	 *            The type of the array and the object to be added to the array
 	 */
-	@SuppressWarnings("unchecked")
 	public static <T> T[] addOnCopy(T[] array, T object)
 	{
 		return addOnCopy(array, (array == null) ? 0 : array.length, object);
