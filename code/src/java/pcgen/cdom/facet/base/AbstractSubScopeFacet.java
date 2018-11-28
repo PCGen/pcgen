@@ -24,6 +24,7 @@ import java.util.IdentityHashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Optional;
 import java.util.Set;
 import java.util.TreeMap;
 
@@ -369,11 +370,13 @@ public class AbstractSubScopeFacet<S1, S2, T> extends AbstractStorageFacet<CharI
 	 *            The ScopeFacetChangeListener to receive
 	 *            TwoScopeFacetChangeEvents from this AbstractScopeFacet
 	 */
+	@SuppressWarnings("unchecked")
 	public void addSubScopeFacetChangeListener(int priority,
 		SubScopeFacetChangeListener<? super S1, ? super S2, ? super T> listener)
 	{
 		SubScopeFacetChangeListener<? super S1, ? super S2, ? super T>[] dfcl =
 				listeners.get(priority);
+		dfcl = Optional.of(dfcl).orElse(new SubScopeFacetChangeListener[0]);
 		listeners.put(priority, ArrayUtilities.prependOnCopy(listener, dfcl));
 	}
 

@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.TreeMap;
 
 import pcgen.base.util.ArrayUtilities;
@@ -94,9 +95,11 @@ public abstract class AbstractDataFacet<IDT extends PCGenIdentifier, T> extends 
 	 *            The DataFacetChangeListener to receive DataFacetChangeEvents
 	 *            from this AbstractDataFacet
 	 */
+	@SuppressWarnings("unchecked")
 	public void addDataFacetChangeListener(int priority, DataFacetChangeListener<IDT, ? super T> listener)
 	{
 		DataFacetChangeListener<IDT, ? super T>[] dfcl = listeners.get(priority);
+		dfcl = Optional.of(dfcl).orElse(new DataFacetChangeListener[0]);
 		listeners.put(priority, ArrayUtilities.prependOnCopy(listener, dfcl));
 	}
 

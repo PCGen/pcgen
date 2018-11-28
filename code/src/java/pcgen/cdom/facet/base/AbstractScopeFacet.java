@@ -24,6 +24,7 @@ import java.util.IdentityHashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Optional;
 import java.util.Set;
 import java.util.TreeMap;
 
@@ -308,11 +309,13 @@ public class AbstractScopeFacet<IDT extends PCGenIdentifier, S, T> extends Abstr
 	 *            The ScopeFacetChangeListener to receive ScopeFacetChangeEvents
 	 *            from this AbstractScopeFacet
 	 */
+	@SuppressWarnings("unchecked")
 	public void addScopeFacetChangeListener(int priority,
 		ScopeFacetChangeListener<? super IDT, ? super S, ? super T> listener)
 	{
 		ScopeFacetChangeListener<? super IDT, ? super S, ? super T>[] dfcl =
 				listeners.get(priority);
+		dfcl = Optional.of(dfcl).orElse(new ScopeFacetChangeListener[0]);
 		listeners.put(priority, ArrayUtilities.prependOnCopy(listener, dfcl));
 	}
 
