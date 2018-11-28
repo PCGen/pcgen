@@ -367,7 +367,7 @@ public class EvaluateVisitor implements FormulaParserVisitor
 	private Object evaluateRelational(SimpleNode node, Object data)
 	{
 		EvaluationManager manager = (EvaluationManager) data;
-		//Pass in null since we can't assert what each side of the logical expression is
+		//Pass in empty since we can't assert what each side of the logical expression is
 		return evaluateOperatorNode(node,
 			manager.getWith(EvaluationManager.ASSERTED, Optional.empty()));
 	}

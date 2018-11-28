@@ -21,10 +21,9 @@ import java.util.Optional;
 
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.DependencyManager;
-import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FormulaFunction;
+import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FunctionLibrary;
-import pcgen.base.formula.base.IndirectDependency;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.OperatorLibrary;
 import pcgen.base.formula.base.VariableLibrary;
@@ -255,12 +254,9 @@ public class DependencyVisitor implements FormulaParserVisitor
 	public Optional<FormatManager<?>> getVariableFormat(DependencyManager manager, String varName)
 	{
 		VariableLibrary varLib = manager.get(DependencyManager.FMANAGER).getFactory();
-		LegalScope legalScope = manager.get(DependencyManager.SCOPE);
-		if (legalScope == null)
-		{
-			//Fall back to INSTANCE
-			legalScope = manager.get(DependencyManager.INSTANCE).getLegalScope();
-		}
+		//Fall back to INSTANCE if necessary
+		LegalScope legalScope = manager.get(DependencyManager.SCOPE).orElse(
+			manager.get(DependencyManager.INSTANCE).get().getLegalScope());
 		return Optional.of(varLib.getVariableFormat(legalScope, varName));
 	}
 
@@ -310,11 +306,9 @@ public class DependencyVisitor implements FormulaParserVisitor
 		FormatManager<?> assertedFormat = asserted.get();
 		if (!assertedFormat.isDirect())
 		{
-			IndirectDependency refManager = manager.get(DependencyManager.INDIRECTS);
-			if (refManager != null)
-			{
-				refManager.add(assertedFormat.convertIndirect(node.getText()));
-			}
+			manager.get(DependencyManager.INDIRECTS)
+				.ifPresent(indManager -> indManager
+					.add(assertedFormat.convertIndirect(node.getText())));
 		}
 		return asserted;
 	}

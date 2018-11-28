@@ -53,7 +53,8 @@ public class DependencyManager
 	 * The SCOPE TypedKey is required if the INSTANCE TypedKey is not used.  Otherwise,
 	 * for DependencyVisitor it is optional.
 	 */
-	public static final TypedKey<LegalScope> SCOPE = new TypedKey<>();
+	public static final TypedKey<Optional<LegalScope>> SCOPE =
+			new TypedKey<>(Optional.empty());
 
 	/**
 	 * A TypedKey used for storing the ScopeInstance contained in this DependencyManager.
@@ -61,7 +62,8 @@ public class DependencyManager
 	 * The INSTANCE TypedKey is optional; it may be required by some VariableStrategy
 	 * objects or other specific situations.
 	 */
-	public static final TypedKey<ScopeInstance> INSTANCE = new TypedKey<>();
+	public static final TypedKey<Optional<ScopeInstance>> INSTANCE =
+			new TypedKey<>(Optional.empty());
 
 	/**
 	 * A TypedKey used for storing the Format currently asserted for the formula served by
@@ -99,7 +101,8 @@ public class DependencyManager
 	/**
 	 * A TypedKey used for holding an object that can track when indirect objects are used.
 	 */
-	public static final TypedKey<IndirectDependency> INDIRECTS = new TypedKey<>();
+	public static final TypedKey<Optional<IndirectDependency>> INDIRECTS =
+			new TypedKey<>(Optional.empty());
 
 	/**
 	 * The underlying map for this DependencyManager that contains the target objects.
