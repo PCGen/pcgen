@@ -19,6 +19,7 @@ package pcgen.facade.core;
 
 import java.util.EnumSet;
 
+import pcgen.core.SizeAdjustment;
 import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.ReferenceFacade;
 
@@ -82,12 +83,12 @@ public interface EquipmentBuilderFacade
 	/**
 	 * @param newSize The new size for the equipment.
 	 */
-	public void setSize(SizeAdjustmentFacade newSize);
+	public void setSize(SizeAdjustment newSize);
 
 	/**
 	 * @return A reference to the equipment's current size.
 	 */
-	public ReferenceFacade<SizeAdjustmentFacade> getSizeRef();
+	public ReferenceFacade<SizeAdjustment> getSizeRef();
 
 	/**
 	 * @return The equipment heads which can be customized on this item of equipment.

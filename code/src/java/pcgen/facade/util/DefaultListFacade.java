@@ -25,6 +25,7 @@ import java.util.List;
 import java.util.ListIterator;
 
 public class DefaultListFacade<E> extends AbstractListFacade<E>
+		implements WriteableListFacade<E>
 {
 
 	private final ArrayList<E> elementList;
@@ -95,17 +96,20 @@ public class DefaultListFacade<E> extends AbstractListFacade<E>
 		return elementList.indexOf(element);
 	}
 
+	@Override
 	public void addElement(E element)
 	{
 		addElement(elementList.size(), element);
 	}
 
+	@Override
 	public void addElement(int index, E element)
 	{
 		elementList.add(index, element);
 		fireElementAdded(this, element, index);
 	}
 
+	@Override
 	public boolean removeElement(E element)
 	{
 		int index = elementList.indexOf(element);
@@ -117,6 +121,7 @@ public class DefaultListFacade<E> extends AbstractListFacade<E>
 		return false;
 	}
 
+	@Override
 	public void removeElement(int index)
 	{
 		fireElementRemoved(this, elementList.remove(index), index);

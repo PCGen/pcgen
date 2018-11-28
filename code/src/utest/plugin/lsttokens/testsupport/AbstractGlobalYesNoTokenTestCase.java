@@ -123,7 +123,7 @@ public abstract class AbstractGlobalYesNoTokenTestCase extends
 	public void testUnparseNull()
 	{
 		primaryProf.put(getObjectKey(), null);
-		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		String[] unparsed = getWriteToken().unparse(primaryContext, primaryProf);
 		assertNull(unparsed);
 	}
 
@@ -135,7 +135,7 @@ public abstract class AbstractGlobalYesNoTokenTestCase extends
 		primaryProf.put(objectKey, new Object());
 		try
 		{
-			getToken().unparse(primaryContext, primaryProf);
+			getWriteToken().unparse(primaryContext, primaryProf);
 			fail();
 		}
 		catch (ClassCastException e)
@@ -147,7 +147,7 @@ public abstract class AbstractGlobalYesNoTokenTestCase extends
 	protected String[] setAndUnparse(boolean val)
 	{
 		primaryProf.put(getObjectKey(), val);
-		return getToken().unparse(primaryContext, primaryProf);
+		return getWriteToken().unparse(primaryContext, primaryProf);
 	}
 
 	@Override

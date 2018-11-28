@@ -60,7 +60,8 @@ import pcgen.core.analysis.BonusActivation;
 import pcgen.core.bonus.BonusObj;
 
 public abstract class CDOMObject extends ConcretePrereqObject
-		implements Cloneable, BonusContainer, Loadable, Reducible, PCGenScoped, VarHolder
+		implements Cloneable, BonusContainer, Loadable, Reducible, PCGenScoped, VarHolder,
+		VarContainer
 {
 
 	/**

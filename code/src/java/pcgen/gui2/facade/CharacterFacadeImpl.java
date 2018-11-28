@@ -142,7 +142,6 @@ import pcgen.facade.core.EquipmentListFacade.EquipmentListEvent;
 import pcgen.facade.core.EquipmentListFacade.EquipmentListListener;
 import pcgen.facade.core.EquipmentSetFacade;
 import pcgen.facade.core.GearBuySellFacade;
-import pcgen.facade.core.HandedFacade;
 import pcgen.facade.core.InfoFacade;
 import pcgen.facade.core.InfoFactory;
 import pcgen.facade.core.KitFacade;
@@ -203,8 +202,8 @@ public class CharacterFacadeImpl
 	private DefaultListFacade<EquipmentSetFacade> equipmentSets;
 	private DefaultReferenceFacade<Gender> gender;
 	private DefaultListFacade<CharacterLevelFacade> pcClassLevels;
-	private DefaultListFacade<HandedFacade> availHands;
 	private DefaultListFacade<Gender> availGenders;
+	private DefaultListFacade<Handed> availHands;
 	private Map<PCStat, WriteableReferenceFacade<Number>> statScoreMap;
 	private final UndoManager undoManager;
 	private final DelegatingDataSet dataSet;
@@ -219,7 +218,7 @@ public class CharacterFacadeImpl
 	private DefaultListFacade<Language> languages;
 	private EquipmentListFacadeImpl purchasedEquip;
 	private DefaultReferenceFacade<File> file;
-	private DefaultReferenceFacade<HandedFacade> handedness;
+	private DefaultReferenceFacade<Handed> handedness;
 	private final UIDelegate delegate;
 	private Set<Language> autoLanguagesCache;
 	private CharacterLevelsFacadeImpl charLevelsFacade;
@@ -389,7 +388,7 @@ public class CharacterFacadeImpl
 
 		if (charDisplay.getRace() != null)
 		{
-			for (HandedFacade handsFacade : availHands)
+			for (Handed handsFacade : availHands)
 			{
 				if (handsFacade.equals(charDisplay.getHandedObject()))
 				{
@@ -636,7 +635,7 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public ListFacade<HandedFacade> getAvailableHands()
+	public ListFacade<Handed> getAvailableHands()
 	{
 		return availHands;
 	}
@@ -1768,7 +1767,7 @@ public class CharacterFacadeImpl
 
 		if (charDisplay.getRace() != null)
 		{
-			for (HandedFacade handsFacade : availHands)
+			for (Handed handsFacade : availHands)
 			{
 				if (handsFacade.toString().equals(charDisplay.getHanded()))
 				{
@@ -2534,13 +2533,13 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public ReferenceFacade<HandedFacade> getHandedRef()
+	public ReferenceFacade<Handed> getHandedRef()
 	{
 		return handedness;
 	}
 
 	@Override
-	public void setHanded(HandedFacade handedness)
+	public void setHanded(Handed handedness)
 	{
 		this.handedness.set(handedness);
 		theCharacter.setHanded((Handed) handedness);
