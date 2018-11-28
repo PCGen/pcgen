@@ -128,7 +128,7 @@ public class NumberManagerTest extends TestCase
 
 	public void testGetComponent()
 	{
-		assertNull(manager.getComponentManager());
+		assertTrue(manager.getComponentManager().isEmpty());
 	}
 
 	public void testIsDirect()

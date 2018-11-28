@@ -227,7 +227,7 @@ public class ArrayFormatManagerTest extends TestCase
 
 	public void testGetComponent()
 	{
-		assertEquals(new NumberManager(), manager.getComponentManager());
+		assertEquals(new NumberManager(), manager.getComponentManager().get());
 	}
 	
 	public void testEscapeNeeded()
