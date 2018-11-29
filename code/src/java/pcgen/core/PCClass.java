@@ -534,7 +534,7 @@ public class PCClass extends PObject implements ClassFacade, Cloneable
 
 		for (Map.Entry<Integer, PCClassLevel> me : levelMap.entrySet())
 		{
-			txt.add(lineSep + " " + me.getKey());
+			txt.add(lineSep + me.getKey());
 			txt.add(PrerequisiteWriter.prereqsToString(me.getValue()));
 			Globals.getContext().unparse(me.getValue()).forEach(item -> txt.add(item));
 		}
