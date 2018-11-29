@@ -325,15 +325,6 @@ public final class Globals
 	}
 
 	/**
-	 * Get game mode align text
-	 * @return game mode align text
-	 */
-	public static String getGameModeAlignmentText()
-	{
-		return SettingsHandler.getGame().getAlignmentText();
-	}
-
-	/**
 	 * Get the game mode point pool name
 	 * @return game mode point pool name
 	 */

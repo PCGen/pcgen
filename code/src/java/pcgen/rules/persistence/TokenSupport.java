@@ -75,6 +75,10 @@ public class TokenSupport
 	 */
 	public <T extends Loadable> boolean processToken(LoadContext context, T target, String tokenName, String tokenValue)
 	{
+		if (tokenName.equals("ALIGNMENTFEATURE"))
+		{
+			System.err.println("!!");
+		}
 		//Interface tokens override everything else... even if NOT VALID!
 		CDOMInterfaceToken<?, ?> interfaceToken = TokenLibrary.getInterfaceToken(tokenName);
 		if (interfaceToken != null)

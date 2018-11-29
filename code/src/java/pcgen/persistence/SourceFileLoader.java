@@ -760,7 +760,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		context.getVariableContext().validateDefaults();
 		//Test for items we know we use (temporary)
 		//Alignment
-		if (!gameMode.getAlignmentText().isEmpty()
+		if (ControlUtilities.isFeatureEnabled(context, CControl.ALIGNMENTFEATURE)
 			&& !context.getVariableContext().hasSolver(refContext.getManufacturer(PCAlignment.class)))
 		{
 			Logging.errorPrint("GameMode " + gameMode.getName() + " has Alignment text - "

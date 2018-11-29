@@ -19,16 +19,16 @@
 package plugin.exporttokens.deprecated;
 
 import pcgen.cdom.enumeration.BiographyField;
-import pcgen.core.Globals;
+import pcgen.cdom.util.CControl;
 import pcgen.core.PCAlignment;
-import pcgen.core.display.CharacterDisplay;
+import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
-import pcgen.io.exporttoken.AbstractExportToken;
+import pcgen.io.exporttoken.Token;
 
 /**
  * Class deals with ALIGNMENT and ALIGNMENT.SHORT Token
  */
-public class AlignmentToken extends AbstractExportToken
+public class AlignmentToken extends Token
 {
 	@Override
 	public String getTokenName()
@@ -37,32 +37,32 @@ public class AlignmentToken extends AbstractExportToken
 	}
 
 	@Override
-	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		String retString = "";
 
-		if (!display.getSuppressBioField(BiographyField.ALIGNMENT))
+		if (!pc.getDisplay().getSuppressBioField(BiographyField.ALIGNMENT))
 		{
 			if ("ALIGNMENT".equals(tokenSource))
 			{
-				retString = getAlignmentDisplay(display);
+				retString = getAlignmentDisplay(pc);
 			}
 			else if ("ALIGNMENT.SHORT".equals(tokenSource))
 			{
-				retString = getShortToken(display);
+				retString = getShortToken(pc);
 			}
 		}
 
 		return retString;
 	}
 
-	private String getAlignmentDisplay(CharacterDisplay display)
+	private String getAlignmentDisplay(PlayerCharacter pc)
 	{
-		if (Globals.getGameModeAlignmentText().isEmpty())
+		if (!pc.isFeatureEnabled(CControl.ALIGNMENTFEATURE))
 		{
 			return "";
 		}
-		final PCAlignment alignment = display.getPCAlignment();
+		final PCAlignment alignment = pc.getDisplay().getPCAlignment();
 		return alignment == null ? "None" : alignment.getDisplayName();
 	}
 
@@ -71,14 +71,14 @@ public class AlignmentToken extends AbstractExportToken
 	 * @param display
 	 * @return Alignment Short Token
 	 */
-	public static String getShortToken(CharacterDisplay display)
+	public static String getShortToken(PlayerCharacter pc)
 	{
-		if (Globals.getGameModeAlignmentText().isEmpty())
+		if (!pc.isFeatureEnabled(CControl.ALIGNMENTFEATURE))
 		{
 			return "";
 		}
 
-		final PCAlignment alignment = display.getPCAlignment();
+		final PCAlignment alignment = pc.getDisplay().getPCAlignment();
 		return alignment == null ? "None" : alignment.getKeyName();
 	}
 }

@@ -199,12 +199,13 @@ public abstract class AbstractCharacterUsingTestCase extends TestCase
 		FormatManager<?> fmtManager, AbstractReferenceContext ref)
 	{
 		CodeControl ai = ref.constructCDOMObject(CodeControl.class, "Controller");
-		String channelName = ChannelUtilities.createVarName("AlignmentInput");
+		String varName = CControl.ALIGNMENTINPUT.getDefaultValue();
+		String channelName = ChannelUtilities.createVarName(varName);
 		context.getVariableContext().assertLegalVariableID(
 			channelName, context.getActiveScope(),
 			fmtManager);
 		String controlName = '*' + CControl.ALIGNMENTINPUT.getName();
-		ai.put(ObjectKey.getKeyFor(String.class, controlName), "AlignmentInput");
+		ai.put(ObjectKey.getKeyFor(String.class, controlName), varName);
 	}
 
 	private <T> void proc(LoadContext context, FormatManager<T> fmtManager)
