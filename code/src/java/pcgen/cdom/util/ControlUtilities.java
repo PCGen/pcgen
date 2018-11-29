@@ -55,6 +55,29 @@ public final class ControlUtilities
 	}
 
 	/**
+	 * Returns true if a feature code control in the given LoadContext is enabled.
+	 * 
+	 * @param context
+	 *            The LoadContext in which the code control is being evaluated
+	 * @param feature
+	 *            The feature code control for which the value should be returned
+	 * @return true if a feature code control in the given LoadContext is enabled; false
+	 *         otherwise
+	 */
+	public static boolean isFeatureEnabled(LoadContext context, String feature)
+	{
+		CodeControl controller = context.getReferenceContext()
+			.silentlyGetConstructedCDOMObject(CodeControl.class, "Controller");
+		if (controller != null)
+		{
+			Boolean object = controller.get(ObjectKey.getKeyFor(Boolean.class,
+				"*" + Objects.requireNonNull(feature)));
+			return (object != null) && object;
+		}
+		return false;
+	}
+
+	/**
 	 * Returns the value of a code control in the given LoadContext. If the given CControl
 	 * is not present in the data, the default value of the given CControl will be
 	 * returned.

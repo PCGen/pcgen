@@ -30,6 +30,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
@@ -10139,6 +10140,20 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	public boolean hasControl(String string)
 	{
 		return controller.get(ObjectKey.getKeyFor(String.class, '*' + string)) != null;
+	}
+
+	/**
+	 * Returns true if a feature code control is enabled.
+	 * 
+	 * @param feature
+	 *            The feature code control for which the value should be returned
+	 * @return true if a feature code control is enabled; false otherwise
+	 */
+	public boolean isFeatureEnabled(String feature)
+	{
+		Boolean object = controller.get(ObjectKey.getKeyFor(Boolean.class,
+			"*" + Objects.requireNonNull(feature)));
+		return (object != null) && object;
 	}
 
 	/**
