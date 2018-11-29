@@ -85,11 +85,7 @@ repositories {
     }
     ivy {
         name "fileRepo"
-        url 'http://librepo.pcgen.org'
-    }
-    ivy {
-        name "tempRepo"
-        url 'http://52.90.171.70:8080/librepo/'
+        url 'http://pc-gen.org/librepo/'
     }
     jcenter()
 }
