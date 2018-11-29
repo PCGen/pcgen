@@ -154,7 +154,7 @@ publishing {
     repositories {
         ivy {
             name "fileRepo"
-            url '/home/pcgen1/public_html/librepo'
+            url '/var/www/librepo'
         }
     }
     publications {
