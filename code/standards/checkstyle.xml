@@ -10,6 +10,15 @@
     <property name="severity" value="error"/>
     <module name="UpperEll"/>
     <module name="IllegalImport"/>
+    <module name="CustomImportOrder">
+      <property name="groups" value="/^java\./,/^javax\./,/^com/,/^org/,(gmgen|pcgen|plugin)"/>
+      <property name="option" value="bottom"/>
+      <property name="ordered" value="true"/>
+      <property name="separated" value="true"/>
+      <property name="separatedStaticGroups" value="true"/>
+      <property name="caseSensitive	" value="false"/>
+      <property name="sortStaticImportsAlphabetically" value="true"/>
+    </module>
   </module>
   <module name="TreeWalker">
     <property name="severity" value="warning"/>
