@@ -227,14 +227,16 @@ public final class ArrayUtilities
 	 *            The object to be placed at the beginning of the returned array
 	 * @param array
 	 *            The original array, to be placed in the latter portion of the new array
+	 * @param arrayClass
+	 *            The class of the component in the array to be returned
 	 * @return A new array with the given object as the first object and the current
 	 *         contents of the array as the rest of the contents.
 	 * @param <T>
 	 *            The type of the array and the object to be added to the array
 	 */
-	public static <T> T[] prependOnCopy(T object, T[] array)
+	public static <T> T[] prependOnCopy(T object, T[] array, Class<T> arrayClass)
 	{
-		return addOnCopy(array, 0, object);
+		return addOnCopy(array, 0, object, arrayClass);
 	}
 
 	/**
@@ -246,14 +248,16 @@ public final class ArrayUtilities
 	 *            The object to be placed at the end of the returned array
 	 * @param array
 	 *            The original array, to be placed in the latter portion of the new array
+	 * @param arrayClass
+	 *            The class of the component in the array to be returned
 	 * @return A new array with the contents of the given array as the first set of the
 	 *         contents and the given object as the last element
 	 * @param <T>
 	 *            The type of the array and the object to be added to the array
 	 */
-	public static <T> T[] addOnCopy(T[] array, T object)
+	public static <T> T[] addOnCopy(T[] array, T object, Class<T> arrayClass)
 	{
-		return addOnCopy(array, (array == null) ? 0 : array.length, object);
+		return addOnCopy(array, (array == null) ? 0 : array.length, object, arrayClass);
 	}
 
 	/**
@@ -268,24 +272,26 @@ public final class ArrayUtilities
 	 *            The index at which the given object will be placed
 	 * @param object
 	 *            The object to be inserted into the array at the given index
+	 * @param arrayClass
+	 *            The class of the component in the array to be returned
 	 * @return A new array with the contents of the given array as the first set of the
 	 *         contents and the given object as the last object
 	 * @param <T>
 	 *            The type of the array and the object to be added to the array
 	 */
 	@SuppressWarnings("unchecked")
-	public static <T> T[] addOnCopy(T[] array, int index, T object)
+	public static <T> T[] addOnCopy(T[] array, int index, T object, Class<T> arrayClass)
 	{
 		T[] newArray;
 		if (array == null)
 		{
-			newArray = (T[]) Array.newInstance(object.getClass(), 1);
+			newArray = (T[]) Array.newInstance(arrayClass, 1);
 		}
 		else
 		{
 			int origSize = array.length;
 			int newSize = (origSize + 1);
-			newArray = (T[]) Array.newInstance(array.getClass().getComponentType(), newSize);
+			newArray = (T[]) Array.newInstance(arrayClass, newSize);
 			if (index != 0)
 			{
 				System.arraycopy(array, 0, newArray, 0, index);
