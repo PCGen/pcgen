@@ -21,7 +21,5 @@ package pcgen.gui2.filter;
 @FunctionalInterface
 public interface Filter<C, E>
 {
-
 	public boolean accept(C context, E element);
-
 }

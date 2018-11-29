@@ -38,7 +38,7 @@ public class TabTitle
 	public static final String TITLE = "title"; //$NON-NLS-1$
 	static final String ICON = "icon"; //$NON-NLS-1$
 	static final String TOOLTIP = "tooltip"; //$NON-NLS-1$
-	public static final String TAB = "tab"; //$NON-NLS-1$
+	private static final String TAB = "tab"; //$NON-NLS-1$
 	private final PropertyChangeSupport support;
 	private final Map<String, Object> propertyTable;
 

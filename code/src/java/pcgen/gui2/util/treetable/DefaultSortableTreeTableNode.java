@@ -25,13 +25,10 @@ import java.util.Vector;
 
 import pcgen.gui2.util.table.Row;
 
-/**
- *
- */
 public class DefaultSortableTreeTableNode extends DefaultTreeTableNode implements SortableTreeTableNode
 {
 
-	public DefaultSortableTreeTableNode()
+	protected DefaultSortableTreeTableNode()
 	{
 		this(Collections.emptyList());
 	}
@@ -49,11 +46,9 @@ public class DefaultSortableTreeTableNode extends DefaultTreeTableNode implement
 		{
 			Vector nonGenericChildren = children;
 			nonGenericChildren.sort(comparator);
-			for (int x = 0; x < children.size(); x++)
-			{
-				SortableTreeTableNode child = (SortableTreeTableNode) children.get(x);
-				child.sortChildren(comparator);
-			}
+			children.stream()
+			        .map(SortableTreeTableNode.class::cast)
+			        .forEach(child -> child.sortChildren(comparator));
 		}
 	}
 

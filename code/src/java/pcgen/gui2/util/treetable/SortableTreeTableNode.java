@@ -22,9 +22,6 @@ import java.util.Comparator;
 
 import pcgen.gui2.util.table.Row;
 
-/**
- *
- */
 public interface SortableTreeTableNode extends TreeTableNode
 {
 

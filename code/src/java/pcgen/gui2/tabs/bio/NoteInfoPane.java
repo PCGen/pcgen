@@ -42,8 +42,6 @@ import pcgen.system.LanguageBundle;
 /**
  * The NoteInfoPane displays a named text area that the user can fill in for her
  * character. This allows the creation of custom notes about the character.
- *
- * 
  */
 @SuppressWarnings("serial")
 public class NoteInfoPane extends JPanel implements CharacterInfoTab

@@ -34,7 +34,7 @@ import pcgen.gui2.util.treeview.TreeViewPath;
 public class FilteredTreeViewTable<C, E> extends JTreeViewTable<E> implements FilterHandler
 {
 
-	private static final TreeView<Object> SEARCH_VIEW = new TreeView<Object>()
+	private static final TreeView<Object> SEARCH_VIEW = new TreeView<>()
 	{
 
 		@Override
@@ -156,11 +156,6 @@ public class FilteredTreeViewTable<C, E> extends JTreeViewTable<E> implements Fi
 	{
 		super.refreshModelData();
 		refilter();
-	}
-
-	public boolean isSearchEnabled()
-	{
-		return searchMode;
 	}
 
 }

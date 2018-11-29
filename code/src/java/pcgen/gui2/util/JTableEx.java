@@ -39,6 +39,9 @@ import pcgen.gui2.util.table.SortableTableModel;
 import pcgen.gui2.util.table.SortableTableRowSorter;
 import pcgen.gui2.util.table.TableCellUtilities;
 
+
+import org.jetbrains.annotations.NotNull;
+
 /**
  *  {@code JTableEx} extends JTable to provide auto-tooltips.
  *
@@ -55,7 +58,7 @@ public class JTableEx extends JTable
 	/**
 	 * Constructor
 	 */
-	public JTableEx()
+	JTableEx()
 	{
 		this(null, null, null);
 	}
@@ -69,17 +72,7 @@ public class JTableEx extends JTable
 		this(tm, null, null);
 	}
 
-	/**
-	 * Constructor
-	 * @param tm
-	 * @param tcm
-	 */
-	public JTableEx(TableModel tm, TableColumnModel tcm)
-	{
-		this(tm, tcm, null);
-	}
-
-	public JTableEx(TableModel tm, TableColumnModel tcm, ListSelectionModel lsm)
+	private JTableEx(TableModel tm, TableColumnModel tcm, ListSelectionModel lsm)
 	{
 		super(tm, tcm, lsm);
 		setFillsViewportHeight(true);
@@ -176,9 +169,9 @@ public class JTableEx extends JTable
 	}
 
 	@Override
-	public void setModel(TableModel dataModel)
+	public void setModel(@NotNull TableModel dataModel)
 	{
-		Objects.requireNonNull(dataModel, "Cannot set a null TableModel");
+		dataModel = Objects.requireNonNull(dataModel, "Cannot set a null TableModel");
 		if (this.dataModel != dataModel)
 		{
 			TableModel old = this.dataModel;
@@ -205,17 +198,6 @@ public class JTableEx extends JTable
 				}
 			}
 		}
-	}
-
-	/**
-	 * set horizontal alignment of column
-	 * and attach a new cell renderer
-	 * @param col
-	 * @param alignment
-	 **/
-	public void setColAlign(int col, int alignment)
-	{
-		getColumnModel().getColumn(col).setCellRenderer(new TableCellUtilities.AlignRenderer(alignment));
 	}
 
 }

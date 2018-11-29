@@ -29,7 +29,7 @@ public abstract class AbstractTreeTableModel extends DefaultTreeModel implements
 		this(null);
 	}
 
-	public AbstractTreeTableModel(TreeTableNode root)
+	AbstractTreeTableModel(TreeTableNode root)
 	{
 		super(root);
 	}

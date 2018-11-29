@@ -62,7 +62,7 @@ public class FilteredTreeViewModel<C, E> implements TreeViewModel<E>, ListListen
 		return data;
 	}
 
-	public void setBaseModel(TreeViewModel<E> model)
+	void setBaseModel(TreeViewModel<E> model)
 	{
 		if (this.model != null)
 		{

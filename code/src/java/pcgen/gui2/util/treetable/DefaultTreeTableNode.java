@@ -24,15 +24,12 @@ import java.util.List;
 
 import javax.swing.tree.DefaultMutableTreeNode;
 
-/**
- *
- */
 public class DefaultTreeTableNode extends DefaultMutableTreeNode implements TreeTableNode
 {
 
 	private List<Object> data;
 
-	public DefaultTreeTableNode()
+	protected DefaultTreeTableNode()
 	{
 		this(Collections.emptyList());
 	}

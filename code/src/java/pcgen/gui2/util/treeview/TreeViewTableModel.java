@@ -257,7 +257,7 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel implements Sor
 
 		private final int level;
 
-		public TreeViewNode(Vector<TreeViewPath<? super E>> paths)
+		private TreeViewNode(Vector<TreeViewPath<? super E>> paths)
 		{
 			this(0, null, paths);
 		}
@@ -328,7 +328,7 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel implements Sor
 			}
 		}
 
-		public void removeTreeViewPath(TreeViewPath<? super E> path)
+		private void removeTreeViewPath(TreeViewPath<? super E> path)
 		{
 			if (!loadedChildren)
 			{

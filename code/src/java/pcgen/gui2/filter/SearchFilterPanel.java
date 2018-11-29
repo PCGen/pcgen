@@ -52,11 +52,11 @@ public class SearchFilterPanel extends JPanel
 
 	private FilterHandler filterHandler;
 	private final JTextField searchField = new JTextField();
-	private final JButton clearButton = new JButton(Icons.CloseX9.getImageIcon());
 
 	public SearchFilterPanel()
 	{
 		searchField.getDocument().addDocumentListener(this);
+		JButton clearButton = new JButton(Icons.CloseX9.getImageIcon());
 		clearButton.addActionListener(this);
 		setLayout(new BorderLayout());
 		add(new JLabel(LanguageBundle.getString("in_filterLabel")), BorderLayout.WEST);
