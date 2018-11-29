@@ -293,12 +293,7 @@ public class ReconstructionVisitor implements FormulaParserVisitor
 	 */
 	private Object processChildren(SimpleNode node, Object data)
 	{
-		int numberOfChildren = node.jjtGetNumChildren();
-		for (int i = 0; i < numberOfChildren; i++)
-		{
-			Node child = node.jjtGetChild(i);
-			child.jjtAccept(this, data);
-		}
+		node.childrenAccept(this, data);
 		return data;
 	}
 

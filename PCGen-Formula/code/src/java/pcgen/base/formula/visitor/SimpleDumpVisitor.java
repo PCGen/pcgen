@@ -35,7 +35,6 @@ import pcgen.base.formula.parse.ASTUnaryMinus;
 import pcgen.base.formula.parse.ASTUnaryNot;
 import pcgen.base.formula.parse.FormulaParserTreeConstants;
 import pcgen.base.formula.parse.FormulaParserVisitor;
-import pcgen.base.formula.parse.Node;
 import pcgen.base.formula.parse.Operator;
 import pcgen.base.formula.parse.SimpleNode;
 
@@ -158,7 +157,7 @@ public class SimpleDumpVisitor implements FormulaParserVisitor
 	 *            The node to be dumped to standard error
 	 * @param data
 	 *            The prefix printed before each line (indentation level)
-	 * @return null
+	 * @return null (assists other methods in this class)
 	 */
 	@SuppressWarnings("PMD.SystemPrintln")
 	private Object dump(SimpleNode node, Object data)
@@ -178,12 +177,7 @@ public class SimpleDumpVisitor implements FormulaParserVisitor
 			System.err.print(node.getText());
 		}
 		System.err.println();
-		int numChildren = node.jjtGetNumChildren();
-		for (int i = 0; i < numChildren; i++)
-		{
-			Node child = node.jjtGetChild(i);
-			child.jjtAccept(this, data + " ");
-		}
+		node.childrenAccept(this, data + " ");
 		return null;
 	}
 }

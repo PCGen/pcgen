@@ -35,7 +35,6 @@ import pcgen.base.formula.parse.ASTUnaryMinus;
 import pcgen.base.formula.parse.ASTUnaryNot;
 import pcgen.base.formula.parse.FormulaParserTreeConstants;
 import pcgen.base.formula.parse.FormulaParserVisitor;
-import pcgen.base.formula.parse.Node;
 import pcgen.base.formula.parse.Operator;
 import pcgen.base.formula.parse.SimpleNode;
 
@@ -187,12 +186,7 @@ public class FullDumpVisitor implements FormulaParserVisitor
 		Object rvr = node.jjtAccept(reconVisitor, new StringBuilder(1000));
 		System.err.print(": ");
 		System.err.println(rvr);
-		int numChildren = node.jjtGetNumChildren();
-		for (int i = 0; i < numChildren; i++)
-		{
-			Node child = node.jjtGetChild(i);
-			child.jjtAccept(this, data + " ");
-		}
+		node.childrenAccept(this, data + " ");
 		return null;
 	}
 }

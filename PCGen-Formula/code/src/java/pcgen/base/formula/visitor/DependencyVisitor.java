@@ -378,8 +378,7 @@ public class DependencyVisitor implements FormulaParserVisitor
 	 */
 	private Object visitRelational(SimpleNode node, Object data)
 	{
-		node.jjtGetChild(0).jjtAccept(this, data);
-		node.jjtGetChild(1).jjtAccept(this, data);
+		node.childrenAccept(this, data);
 		return FormatUtilities.BOOLEAN_MANAGER;
 	}
 }
