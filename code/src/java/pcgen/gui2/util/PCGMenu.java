@@ -28,16 +28,10 @@ import javax.swing.JMenu;
 /**
  * PCGMenu extends JMenu to allow us to customise it. In particular we 
  * are overriding the location of the tooltips for the menu.
- * 
- * 
  */
 @SuppressWarnings("serial")
 public class PCGMenu extends JMenu
 {
-	public PCGMenu()
-	{
-		super();
-	}
 
 	public PCGMenu(Action a)
 	{
@@ -48,7 +42,7 @@ public class PCGMenu extends JMenu
 	public Point getToolTipLocation(MouseEvent event)
 	{
 		Dimension size = getSize();
-		double oneRowUpHeight = size.getHeight() * -1 - 5;
+		double oneRowUpHeight = (size.getHeight() * -1) - 5;
 		return new Point((int) size.getWidth(), (int) oneRowUpHeight);
 	}
 }

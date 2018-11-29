@@ -25,6 +25,7 @@ import java.awt.event.MouseEvent;
 import java.util.Comparator;
 import java.util.Enumeration;
 import java.util.EventObject;
+import java.util.stream.IntStream;
 
 import javax.swing.CellRendererPane;
 import javax.swing.JComponent;
@@ -691,15 +692,9 @@ public class JTreeTable extends JTableEx
 						return;
 					}
 
-					int count = 0;
-
-					for (int i = 0; i < sRows.length; i++)
-					{
-						if (tree.getPathForRow(sRows[i]) != null)
-						{
-							count++;
-						}
-					}
+					int count = (int) IntStream.range(0, sRows.length)
+					                           .filter(i -> tree.getPathForRow(sRows[i]) != null)
+					                           .count();
 
 					if (count == 0)
 					{
@@ -709,9 +704,9 @@ public class JTreeTable extends JTableEx
 					TreePath[] tps = new TreePath[count];
 					count = 0;
 
-					for (int i = 0; i < sRows.length; i++)
+					for (int sRow : sRows)
 					{
-						TreePath tp = tree.getPathForRow(sRows[i]);
+						TreePath tp = tree.getPathForRow(sRow);
 
 						if (tp != null)
 						{

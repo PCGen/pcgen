@@ -37,7 +37,7 @@ public class JComboBoxEx<E> extends JComboBox<E>
 	 * {@code StringIgnoreCaseComparator} (since combo boxes
 	 * display string items to the user).
 	 */
-	private Comparator<Object> comparator = (o1, o2) -> {
+	private final Comparator<Object> comparator = (o1, o2) -> {
 		// Treat null as the empty string.
 		return ((o1 == null) ? "" : o1.toString()).compareToIgnoreCase((o2 == null) ? "" : o2.toString());
 	};
@@ -53,7 +53,6 @@ public class JComboBoxEx<E> extends JComboBox<E>
 	 */
 	public JComboBoxEx()
 	{
-		super();
 	}
 
 	/**
@@ -108,10 +107,7 @@ public class JComboBoxEx<E> extends JComboBox<E>
 		// .newInstance(new Object[] {items}));
 		removeAllItems();
 
-		for (int i = 0; i < items.length; ++i)
-		{
-			super.addItem(items[i]);
-		}
+		Arrays.stream(items).forEach(super::addItem);
 	}
 
 	/**
@@ -119,7 +115,7 @@ public class JComboBoxEx<E> extends JComboBox<E>
 	 *
 	 * @return an array of objects in the combo box
 	 */
-	public E[] getAllItems()
+	private E[] getAllItems()
 	{
 		int count = getItemCount();
 		@SuppressWarnings("unchecked")
@@ -153,38 +149,6 @@ public class JComboBoxEx<E> extends JComboBox<E>
 	}
 
 	/**
-	 * Returns {@code true} if the combo box automatically
-	 * sorts when items change.  If {@code false}, then call
-	 * {@link #sortItems()} to sort items.  This is an
-	 * optimization choice.  The default is {@code false}.
-	 *
-	 * <strong>This only affects combo box methods.</strong> If
-	 * you modify what an item returns for {@code toString()}
-	 * by manipulating the item, you need to call
-	 * {@code sortItems()} manually.
-	 *
-	 * @return {@code true} if the combo box automatically
-	 * sorts when items change.
-	 */
-	public boolean getAutoSort()
-	{
-		return autoSort;
-	}
-
-	/**
-	 * Sets the {@code Comparator} used to sort items.  The
-	 * default is {@code StringIgnoreCaseComparator} (since
-	 * combo boxes display string items to the user).
-	 *
-	 * @param comparator the {@code Comparator} used to sort
-	 * items
-	 */
-	public void setComparator(Comparator<Object> comparator)
-	{
-		this.comparator = comparator;
-	}
-
-	/**
 	 * Returns the {@code Comparator} used to sort items.
 	 * The default is {@code StringIgnoreCaseComparator}
 	 * (since combo boxes display string items to the user).
@@ -210,8 +174,6 @@ public class JComboBoxEx<E> extends JComboBox<E>
 	/**
 	 * Sorts the combo box items using the comparator for this
 	 * combo box.
-	 *
-	 * @see #setComparator(Comparator)
 	 */
 	public void sortItems()
 	{
@@ -224,7 +186,7 @@ public class JComboBoxEx<E> extends JComboBox<E>
 	 * @param aComparator the {@code Comparator} used to sort
 	 * items
 	 */
-	public void sortItems(Comparator<Object> aComparator)
+	private void sortItems(Comparator<Object> aComparator)
 	{
 		// Keep the same item selected after sorting
 		Object selected = getSelectedItem();
