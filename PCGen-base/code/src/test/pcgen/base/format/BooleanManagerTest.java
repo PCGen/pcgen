@@ -124,7 +124,7 @@ public class BooleanManagerTest extends TestCase
 
 	public void testGetComponent()
 	{
-		assertNull(manager.getComponentManager());
+		assertTrue(manager.getComponentManager().isEmpty());
 	}
 
 	public void testIsDirect()

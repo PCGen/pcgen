@@ -23,6 +23,7 @@ import static pcgen.base.util.ArrayUtilities.buildOfClass;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Function;
 import java.util.stream.Stream;
 
@@ -195,9 +196,9 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 	 * managed by this ArrayFormatManager.
 	 */
 	@Override
-	public FormatManager<?> getComponentManager()
+	public Optional<FormatManager<?>> getComponentManager()
 	{
-		return componentManager;
+		return Optional.of(componentManager);
 	}
 
 	/**

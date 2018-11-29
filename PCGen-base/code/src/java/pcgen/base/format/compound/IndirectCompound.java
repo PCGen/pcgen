@@ -52,7 +52,7 @@ class IndirectCompound extends AbstractCompound implements Indirect<Compound>, D
 	{
 		super(fmtManager);
 		dispatchManager = fmtManager;
-		object = fmtManager.getComponentManager()
+		object = fmtManager.getComponentManager().get()
 			.convertIndirect(Objects.requireNonNull(primaryIdentifier));
 	}
 

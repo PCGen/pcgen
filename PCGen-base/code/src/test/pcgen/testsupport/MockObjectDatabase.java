@@ -1,6 +1,7 @@
 package pcgen.testsupport;
 
 import java.util.Objects;
+import java.util.Optional;
 
 import pcgen.base.formatmanager.ObjectDatabase;
 import pcgen.base.util.BasicIndirect;
@@ -83,7 +84,7 @@ public class MockObjectDatabase implements ObjectDatabase
 		}
 
 		@Override
-		public FormatManager<?> getComponentManager()
+		public Optional<FormatManager<?>> getComponentManager()
 		{
 			throw new UnsupportedOperationException();
 		}

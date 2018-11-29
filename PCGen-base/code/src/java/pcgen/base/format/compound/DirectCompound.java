@@ -45,6 +45,7 @@ class DirectCompound extends AbstractCompound
 	{
 		super(fmtManager);
 		object = Objects.requireNonNull(primary);
+		Objects.requireNonNull(getPrimaryUnconverted());
 	}
 
 	/**
@@ -60,14 +61,14 @@ class DirectCompound extends AbstractCompound
 		FormatManager<Compound> fmtManager)
 	{
 		super(fmtManager);
-		object = fmtManager.getComponentManager()
+		object = fmtManager.getComponentManager().get()
 			.convert(Objects.requireNonNull(primaryInstructions));
 	}
 
 	@Override
-	public String getPrimaryUnconverted()
+	public final String getPrimaryUnconverted()
 	{
-		return unconvert(getFormatManager().getComponentManager());
+		return unconvert(getFormatManager().getComponentManager().get());
 	}
 
 	/**

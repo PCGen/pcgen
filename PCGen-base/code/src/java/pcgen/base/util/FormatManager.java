@@ -17,6 +17,8 @@
  */
 package pcgen.base.util;
 
+import java.util.Optional;
+
 /**
  * A FormatManager is an object designed to manage the creation and
  * serialization of certain forms of objects. This serialization is in a
@@ -126,15 +128,12 @@ public interface FormatManager<T> extends Converter<T>
 	public String getIdentifierType();
 
 	/**
-	 * Returns the FormatManager for a component of the format managed by this
+	 * Returns the Optional FormatManager for a component of the format managed by this
 	 * FormatManager, much like getComponentClass() on Class.class can return
 	 * the component in an array.
 	 * 
-	 * If this FormatManager does not have a component, then this will return
-	 * null.
-	 * 
-	 * @return the FormatManager for a component of the format managed by this
+	 * @return The Optional FormatManager for a component of the format managed by this
 	 *         FormatManager
 	 */
-	public FormatManager<?> getComponentManager();
+	public Optional<FormatManager<?>> getComponentManager();
 }

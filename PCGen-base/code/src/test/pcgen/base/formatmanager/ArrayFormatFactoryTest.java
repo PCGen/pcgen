@@ -108,9 +108,9 @@ public class ArrayFormatFactoryTest extends TestCase
 	public void testGetComponent()
 	{
 		FormatManager<?> manager = factory.build("NUMBER", library);
-		assertEquals(new NumberManager(), manager.getComponentManager());
+		assertEquals(new NumberManager(), manager.getComponentManager().get());
 		manager = factory.build("STRING", library);
-		assertEquals(new StringManager(), manager.getComponentManager());
+		assertEquals(new StringManager(), manager.getComponentManager().get());
 	}
 
 	/*

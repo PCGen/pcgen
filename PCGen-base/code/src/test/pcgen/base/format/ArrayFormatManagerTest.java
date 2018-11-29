@@ -17,6 +17,7 @@
 package pcgen.base.format;
 
 import java.util.Arrays;
+import java.util.Optional;
 
 import junit.framework.TestCase;
 import pcgen.base.util.FormatManager;
@@ -226,7 +227,7 @@ public class ArrayFormatManagerTest extends TestCase
 
 	public void testGetComponent()
 	{
-		assertEquals(new NumberManager(), manager.getComponentManager());
+		assertEquals(new NumberManager(), manager.getComponentManager().get());
 	}
 	
 	public void testEscapeNeeded()
@@ -281,9 +282,11 @@ public class ArrayFormatManagerTest extends TestCase
 			}
 
 			@Override
-			public FormatManager<?> getComponentManager()
+			public Optional<FormatManager<?>> getComponentManager()
 			{
-				return null;
-			}}, '\n', ',').isDirect());
+				return Optional.empty();
+			}
+			
+		}, '\n', ',').isDirect());
 	}
 }

@@ -17,6 +17,8 @@
  */
 package pcgen.base.format;
 
+import java.util.Optional;
+
 import pcgen.base.math.OrderedPair;
 import pcgen.base.util.BasicIndirect;
 import pcgen.base.util.FormatManager;
@@ -90,13 +92,10 @@ public class OrderedPairManager implements FormatManager<OrderedPair>
 		return (o == this) || (o instanceof OrderedPairManager);
 	}
 
-	/**
-	 * Returns null, as this FormatManager does not have a component.
-	 */
 	@Override
-	public FormatManager<?> getComponentManager()
+	public Optional<FormatManager<?>> getComponentManager()
 	{
-		return null;
+		return Optional.empty();
 	}
 
 	@Override
