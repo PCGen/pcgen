@@ -62,7 +62,7 @@ public class IconsTest extends TestCase
 		System.out.println("getImageIcon");
 		for (Icons icon : Icons.values())
 		{
-			assertNotNull(icon.getImageIcon());
+			assertNotNull("Expected Icon for: " + icon.name(), icon.getImageIcon());
 		}
 	}
 
