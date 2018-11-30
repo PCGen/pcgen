@@ -542,7 +542,7 @@ public abstract class VariableProcessor
 			}
 			if (parser.hasError())
 			{
-				Logging.errorPrint("Failed to process formala " + formula + " due to error: " + parser.getErrorInfo());
+				Logging.errorPrint("Failed to process formula " + formula + " due to error: " + parser.getErrorInfo());
 			}
 			if (Logging.isLoggable(Logging.DEBUG) && formula.startsWith(DEBUG_FORMULA_PREFIX))
 			{
