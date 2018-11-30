@@ -1340,4 +1340,15 @@ public abstract class CDOMObject extends ConcretePrereqObject
 		//none by default
 		return null;
 	}
+
+	/**
+	 * Indicates if this is the "UNSELECTED" item an object type for the loaded GameMode.
+	 * 
+	 * @return true if this is the "Unselected" item; false otherwise
+	 */
+	public final boolean isUnselected()
+	{
+		return getSafeListFor(ListKey.GROUP).stream()
+			.filter(s -> "Unselected".equalsIgnoreCase(s)).findFirst().isPresent();
+	}
 }
