@@ -37,7 +37,7 @@ spotbugs {
 }
 
 //Unable to determine how to do this with SpotBugs - this is consistent with their docs, but dumps stack
-//tasks.withType(com.github.spotbugs.SpotBugs) {
+//tasks.withType(com.github.spotbugs.SpotBugsTask) {
 //	reports {
 //		xml.enabled = false
 //		html.enabled = true

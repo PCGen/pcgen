@@ -185,7 +185,6 @@ dependencies {
     testCompile group: 'org.xmlunit', name: 'xmlunit-matchers', version:'2.6.2'
 
     spotbugs 'com.github.spotbugs:spotbugs:3.1.8'
-    spotbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.8.0'
 }
 
 ant.importBuild 'build-gradle.xml'
