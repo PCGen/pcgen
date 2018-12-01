@@ -4,4 +4,4 @@ SOURCELONG:Pathfinder Player Companion: Adventurer's Armory 2	SOURCESHORT:AA2	SO
 #Original Entry: Gwen. T (evilpixie87)
 
 # Ability Name		Category of Ability	Ability
-Race Traits ~ Poppet	CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Vulnerability to Fire|!PRETEMPLATE:1,Sealed Poppet
+Racial Traits ~ Poppet	CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Vulnerability to Fire|!PRETEMPLATE:1,Sealed Poppet

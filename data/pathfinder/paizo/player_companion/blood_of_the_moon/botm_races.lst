@@ -3,7 +3,7 @@
 
 
 # Race Name	Starting Feats	Size		Move			Modify VAR				Ability								Nb Legs	Nb Hands	Main Race Type	Race Subtype			Type			Source Page		FACT
-Skinwalker	STARTFEATS:1	SIZE:M	MOVE:Walk,30	BONUS:VAR|HasLowlightVision|1	ABILITY:Internal|AUTOMATIC|Race Traits ~ Skinwalker	LEGS:2	HANDS:2	RACETYPE:Humanoid	RACESUBTYPE:Shapechanger	TYPE:Base.PC	SOURCEPAGE:p.7	FACT:BaseSize|M	FACT:IsPC|True
+Skinwalker	STARTFEATS:1	SIZE:M	MOVE:Walk,30	BONUS:VAR|HasLowlightVision|1	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Skinwalker	LEGS:2	HANDS:2	RACETYPE:Humanoid	RACESUBTYPE:Shapechanger	TYPE:Base.PC	SOURCEPAGE:p.7	FACT:BaseSize|M	FACT:IsPC|True
 
 # Conversion version
 #	MODIFYOTHER:STAT|Wisdom|Bonus.Race|ADD|2

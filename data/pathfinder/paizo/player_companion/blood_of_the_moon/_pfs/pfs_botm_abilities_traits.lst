@@ -2,7 +2,7 @@
 # CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
 # Ability Name						Type			Var. Min. Value
-CATEGORY=Internal|Race Traits ~ Skinwalker.MOD	TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
+CATEGORY=Internal|Racial Traits ~ Skinwalker.MOD	TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
 
 CATEGORY=Internal|Skinwalker ~ Default.MOD	TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
 ###Block: Skinwalker Defaults

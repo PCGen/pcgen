@@ -9,4 +9,4 @@ SOURCELONG:Inner Sea Races	SOURCESHORT:ISR	SOURCEWEB:http://paizo.com/products/b
 # ==============================
 
 # Race Name		SORTKEY			Starting Feats	Size		Move				Reach		Bonus Languages									Stat bonus						Auto Language		Ability							Main Race Type	Race Subtype		Source Page		FACT
-Elf (Aquatic)	SORTKEY:a_base_pc4	STARTFEATS:1	SIZE:M	MOVE:Walk,30,Swim,30	REACH:5	LANGBONUS:Aboleth,Aklo,Aquan,Azlanti,Celestial,Draconic,Sylvan	BONUS:STAT|DEX,INT|2	BONUS:STAT|CON|-2	AUTO:LANG|Common|Elven	ABILITY:Internal|AUTOMATIC|Race Traits ~ Elf	RACETYPE:Humanoid	RACESUBTYPE:Elf|Aquatic	SOURCEPAGE:p.242	FACT:BaseSize|M	FACT:IsPC|true
+Elf (Aquatic)	SORTKEY:a_base_pc4	STARTFEATS:1	SIZE:M	MOVE:Walk,30,Swim,30	REACH:5	LANGBONUS:Aboleth,Aklo,Aquan,Azlanti,Celestial,Draconic,Sylvan	BONUS:STAT|DEX,INT|2	BONUS:STAT|CON|-2	AUTO:LANG|Common|Elven	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Elf	RACETYPE:Humanoid	RACESUBTYPE:Elf|Aquatic	SOURCEPAGE:p.242	FACT:BaseSize|M	FACT:IsPC|true

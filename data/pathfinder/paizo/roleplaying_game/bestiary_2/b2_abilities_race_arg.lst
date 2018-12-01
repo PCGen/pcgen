@@ -3,7 +3,7 @@
 
 ###Block: Set up Dhampir default abilities
 # Ability Name		Category of Ability	Type				Bonus Ability Pool			Stat bonus
-Race Traits ~ Dhampir	CATEGORY:Internal						BONUS:ABILITYPOOL|Dhampir Subrace|1
+Racial Traits ~ Dhampir	CATEGORY:Internal						BONUS:ABILITYPOOL|Dhampir Subrace|1
 
 Standard Dhampir		CATEGORY:Internal		TYPE:DhampirSubrace							BONUS:STAT|DEX,CHA|2|TYPE=Racial	BONUS:STAT|CON|-2|TYPE=Racial
 ###Block:
@@ -30,14 +30,14 @@ Resist Level Drain		KEY:Dhampir ~ Resist Level Drain		CATEGORY:Special Ability	T
 
 ###Block: Set up Fetchling default abilities -----------------------------------------
 # Ability Name						Category of Ability	Ability
-Race Traits ~ Fetchling					CATEGORY:Internal
-CATEGORY=Internal|Race Traits ~ Fetchling.MOD					ABILITY:Fetchling Racial Trait|AUTOMATIC|Fetchling ~ Darkvision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.FetchlingDarkvision
-CATEGORY=Internal|Race Traits ~ Fetchling.MOD					ABILITY:Fetchling Racial Trait|AUTOMATIC|Fetchling ~ Low-Light Vision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.FetchlingLowLightVision
-CATEGORY=Internal|Race Traits ~ Fetchling.MOD					ABILITY:Fetchling Racial Trait|AUTOMATIC|Fetchling ~ Skilled|!PREABILITY:1,CATEGORY=Special Ability,TYPE.FetchlingSkilled
-CATEGORY=Internal|Race Traits ~ Fetchling.MOD					ABILITY:Fetchling Racial Trait|AUTOMATIC|Fetchling ~ Shadow Blending|!PREABILITY:1,CATEGORY=Special Ability,TYPE.FetchlingShadowBlending
-CATEGORY=Internal|Race Traits ~ Fetchling.MOD					ABILITY:Fetchling Racial Trait|AUTOMATIC|Fetchling ~ Shadowy Resistance|!PREABILITY:1,CATEGORY=Special Ability,TYPE.FetchlingShadowyResistance
-CATEGORY=Internal|Race Traits ~ Fetchling.MOD					ABILITY:Fetchling Racial Trait|AUTOMATIC|Fetchling ~ Spell-Like Abilities|!PREABILITY:1,CATEGORY=Special Ability,TYPE.FetchlingSLAs
-CATEGORY=Internal|Race Traits ~ Fetchling.MOD					ABILITY:Fetchling Racial Trait|AUTOMATIC|Fetchling ~ Shadow Travel|!PREABILITY:1,CATEGORY=Special Ability,TYPE.FetchlingShadowTravel
+Racial Traits ~ Fetchling					CATEGORY:Internal
+CATEGORY=Internal|Racial Traits ~ Fetchling.MOD					ABILITY:Fetchling Racial Trait|AUTOMATIC|Fetchling ~ Darkvision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.FetchlingDarkvision
+CATEGORY=Internal|Racial Traits ~ Fetchling.MOD					ABILITY:Fetchling Racial Trait|AUTOMATIC|Fetchling ~ Low-Light Vision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.FetchlingLowLightVision
+CATEGORY=Internal|Racial Traits ~ Fetchling.MOD					ABILITY:Fetchling Racial Trait|AUTOMATIC|Fetchling ~ Skilled|!PREABILITY:1,CATEGORY=Special Ability,TYPE.FetchlingSkilled
+CATEGORY=Internal|Racial Traits ~ Fetchling.MOD					ABILITY:Fetchling Racial Trait|AUTOMATIC|Fetchling ~ Shadow Blending|!PREABILITY:1,CATEGORY=Special Ability,TYPE.FetchlingShadowBlending
+CATEGORY=Internal|Racial Traits ~ Fetchling.MOD					ABILITY:Fetchling Racial Trait|AUTOMATIC|Fetchling ~ Shadowy Resistance|!PREABILITY:1,CATEGORY=Special Ability,TYPE.FetchlingShadowyResistance
+CATEGORY=Internal|Racial Traits ~ Fetchling.MOD					ABILITY:Fetchling Racial Trait|AUTOMATIC|Fetchling ~ Spell-Like Abilities|!PREABILITY:1,CATEGORY=Special Ability,TYPE.FetchlingSLAs
+CATEGORY=Internal|Racial Traits ~ Fetchling.MOD					ABILITY:Fetchling Racial Trait|AUTOMATIC|Fetchling ~ Shadow Travel|!PREABILITY:1,CATEGORY=Special Ability,TYPE.FetchlingShadowTravel
 
 ###Block: Default Fetchling Abilities (POOL=7)
 # Ability Name		Unique Key						Category of Ability		Type																Multiple Requirements																							Define				Innate Spells																																						Description																																																																						Bonus to skill							Modify VAR				Source Page
@@ -59,13 +59,13 @@ Shadow Travel		KEY:Fetchling ~ Shadow Travel			CATEGORY:Special Ability	TYPE:Fet
 ###Block: Set up Ifrit default abilities
 # Ability Name							Category of Ability	Ability
 
-#Race Traits ~ Ifrit	CATEGORY:Internal
+#Racial Traits ~ Ifrit	CATEGORY:Internal
 # Ability Name					Category of Ability	Ability
-Race Traits ~ Ifrit				CATEGORY:Internal
-CATEGORY=Internal|Race Traits ~ Ifrit.MOD					ABILITY:Ifrit Racial Trait|AUTOMATIC|Ifrit ~ Darkvision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.IfritDarkvision
-CATEGORY=Internal|Race Traits ~ Ifrit.MOD					ABILITY:Ifrit Racial Trait|AUTOMATIC|Ifrit ~ Spell-Like Ability|!PREABILITY:1,CATEGORY=Special Ability,TYPE.IfritSLA
-CATEGORY=Internal|Race Traits ~ Ifrit.MOD					ABILITY:Ifrit Racial Trait|AUTOMATIC|Ifrit ~ Energy Resistance|!PREABILITY:1,CATEGORY=Special Ability,TYPE.IfritEnergyResistance
-CATEGORY=Internal|Race Traits ~ Ifrit.MOD					ABILITY:Ifrit Racial Trait|AUTOMATIC|Ifrit ~ Fire Affinity|!PREABILITY:1,CATEGORY=Special Ability,TYPE.IfritFireAffinity
+Racial Traits ~ Ifrit				CATEGORY:Internal
+CATEGORY=Internal|Racial Traits ~ Ifrit.MOD					ABILITY:Ifrit Racial Trait|AUTOMATIC|Ifrit ~ Darkvision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.IfritDarkvision
+CATEGORY=Internal|Racial Traits ~ Ifrit.MOD					ABILITY:Ifrit Racial Trait|AUTOMATIC|Ifrit ~ Spell-Like Ability|!PREABILITY:1,CATEGORY=Special Ability,TYPE.IfritSLA
+CATEGORY=Internal|Racial Traits ~ Ifrit.MOD					ABILITY:Ifrit Racial Trait|AUTOMATIC|Ifrit ~ Energy Resistance|!PREABILITY:1,CATEGORY=Special Ability,TYPE.IfritEnergyResistance
+CATEGORY=Internal|Racial Traits ~ Ifrit.MOD					ABILITY:Ifrit Racial Trait|AUTOMATIC|Ifrit ~ Fire Affinity|!PREABILITY:1,CATEGORY=Special Ability,TYPE.IfritFireAffinity
 
 ###Block: Default Ifrit Abilities (POOL=4)
 # Ability Name		Unique Key					Category of Ability		Type														Multiple Requirements																					Define			Innate Spells										Description																																							Ability								Stat bonus																			Modify VAR							Source Page
@@ -92,13 +92,13 @@ Fire Affinity		KEY:Ifrit ~ Fire Affinity		CATEGORY:Special Ability	TYPE:RacialTr
 ###Block: Set up Grippli default abilities
 # Ability Name							Category of Ability	Ability
 
-#Race Traits ~ Grippli	CATEGORY:Internal
+#Racial Traits ~ Grippli	CATEGORY:Internal
 # Ability Name						Category of Ability	Ability
-Race Traits ~ Grippli					CATEGORY:Internal
-CATEGORY=Internal|Race Traits ~ Grippli.MOD					ABILITY:Grippli Racial Trait|AUTOMATIC|Grippli ~ Darkvision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GrippliDarkvision
-CATEGORY=Internal|Race Traits ~ Grippli.MOD					ABILITY:Grippli Racial Trait|AUTOMATIC|Grippli ~ Swamp Stride|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GrippliSwampStride
-CATEGORY=Internal|Race Traits ~ Grippli.MOD					ABILITY:Grippli Racial Trait|AUTOMATIC|Grippli ~ Camouflage|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GrippliCamouflage
-CATEGORY=Internal|Race Traits ~ Grippli.MOD					ABILITY:Grippli Racial Trait|AUTOMATIC|Grippli ~ Weapon Familiarity|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GrippliWeaponFamiliarity
+Racial Traits ~ Grippli					CATEGORY:Internal
+CATEGORY=Internal|Racial Traits ~ Grippli.MOD					ABILITY:Grippli Racial Trait|AUTOMATIC|Grippli ~ Darkvision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GrippliDarkvision
+CATEGORY=Internal|Racial Traits ~ Grippli.MOD					ABILITY:Grippli Racial Trait|AUTOMATIC|Grippli ~ Swamp Stride|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GrippliSwampStride
+CATEGORY=Internal|Racial Traits ~ Grippli.MOD					ABILITY:Grippli Racial Trait|AUTOMATIC|Grippli ~ Camouflage|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GrippliCamouflage
+CATEGORY=Internal|Racial Traits ~ Grippli.MOD					ABILITY:Grippli Racial Trait|AUTOMATIC|Grippli ~ Weapon Familiarity|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GrippliWeaponFamiliarity
 
 ###Block: Default Grippli Abilities (POOL=4)
 # Ability Name		Unique Key					Category of Ability		Type															Multiple Requirements																						Description														Auto Weapon Prof		Source Page
@@ -117,13 +117,13 @@ Weapon Familiarity	KEY:Grippli ~ Weapon Familiarity	CATEGORY:Special Ability	TYP
 ###Block: Set up Oread default abilities
 # Ability Name							Category of Ability	Ability
 
-#Race Traits ~ Oread	CATEGORY:Internal
+#Racial Traits ~ Oread	CATEGORY:Internal
 # Ability Name					Category of Ability	Ability
-Race Traits ~ Oread				CATEGORY:Internal
-CATEGORY=Internal|Race Traits ~ Oread.MOD					ABILITY:Oread Racial Trait|AUTOMATIC|Oread ~ Darkvision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.OreadDarkvision
-CATEGORY=Internal|Race Traits ~ Oread.MOD					ABILITY:Oread Racial Trait|AUTOMATIC|Oread ~ Spell-Like Ability|!PREABILITY:1,CATEGORY=Special Ability,TYPE.OreadSLA
-CATEGORY=Internal|Race Traits ~ Oread.MOD					ABILITY:Oread Racial Trait|AUTOMATIC|Oread ~ Energy Resistance|!PREABILITY:1,CATEGORY=Special Ability,TYPE.OreadEnergyResistance
-CATEGORY=Internal|Race Traits ~ Oread.MOD					ABILITY:Oread Racial Trait|AUTOMATIC|Oread ~ Earth Affinity|!PREABILITY:1,CATEGORY=Special Ability,TYPE.OreadEarthAffinity
+Racial Traits ~ Oread				CATEGORY:Internal
+CATEGORY=Internal|Racial Traits ~ Oread.MOD					ABILITY:Oread Racial Trait|AUTOMATIC|Oread ~ Darkvision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.OreadDarkvision
+CATEGORY=Internal|Racial Traits ~ Oread.MOD					ABILITY:Oread Racial Trait|AUTOMATIC|Oread ~ Spell-Like Ability|!PREABILITY:1,CATEGORY=Special Ability,TYPE.OreadSLA
+CATEGORY=Internal|Racial Traits ~ Oread.MOD					ABILITY:Oread Racial Trait|AUTOMATIC|Oread ~ Energy Resistance|!PREABILITY:1,CATEGORY=Special Ability,TYPE.OreadEnergyResistance
+CATEGORY=Internal|Racial Traits ~ Oread.MOD					ABILITY:Oread Racial Trait|AUTOMATIC|Oread ~ Earth Affinity|!PREABILITY:1,CATEGORY=Special Ability,TYPE.OreadEarthAffinity
 
 ###Block: Default Oread Abilities (POOL=4)
 # Ability Name		Unique Key					Category of Ability		Type														Multiple Requirements																					Define			Innate Spells									Description																																							Ability								Modify VAR							Source Page
@@ -147,13 +147,13 @@ Earth Affinity		KEY:Oread ~ Earth Affinity		CATEGORY:Special Ability	TYPE:Racial
 ###Block: Set up Sylph default abilities
 # Ability Name							Category of Ability	Ability
 
-#Race Traits ~ Sylph	CATEGORY:Internal
+#Racial Traits ~ Sylph	CATEGORY:Internal
 # Ability Name					Category of Ability	Ability
-Race Traits ~ Sylph				CATEGORY:Internal
-CATEGORY=Internal|Race Traits ~ Sylph.MOD					ABILITY:Sylph Racial Trait|AUTOMATIC|Sylph ~ Darkvision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SylphDarkvision
-CATEGORY=Internal|Race Traits ~ Sylph.MOD					ABILITY:Sylph Racial Trait|AUTOMATIC|Sylph ~ Spell-Like Ability|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SylphSLA
-CATEGORY=Internal|Race Traits ~ Sylph.MOD					ABILITY:Sylph Racial Trait|AUTOMATIC|Sylph ~ Energy Resistance|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SylphEnergyResistance
-CATEGORY=Internal|Race Traits ~ Sylph.MOD					ABILITY:Sylph Racial Trait|AUTOMATIC|Sylph ~ Air Affinity|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SylphAirAffinity
+Racial Traits ~ Sylph				CATEGORY:Internal
+CATEGORY=Internal|Racial Traits ~ Sylph.MOD					ABILITY:Sylph Racial Trait|AUTOMATIC|Sylph ~ Darkvision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SylphDarkvision
+CATEGORY=Internal|Racial Traits ~ Sylph.MOD					ABILITY:Sylph Racial Trait|AUTOMATIC|Sylph ~ Spell-Like Ability|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SylphSLA
+CATEGORY=Internal|Racial Traits ~ Sylph.MOD					ABILITY:Sylph Racial Trait|AUTOMATIC|Sylph ~ Energy Resistance|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SylphEnergyResistance
+CATEGORY=Internal|Racial Traits ~ Sylph.MOD					ABILITY:Sylph Racial Trait|AUTOMATIC|Sylph ~ Air Affinity|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SylphAirAffinity
 
 ###Block: Default Sylph Abilities (POOL=4)
 # Ability Name					Unique Key					Category of Ability		Type														Visible	Multiple Requirements																					Define			Innate Spells									Description																																							Ability																						Caster level																			Bonus DC														Bonus to spell cast/day																																																																																																																																								Modify VAR									Source Page
@@ -182,16 +182,16 @@ Elemental Affinity Bonus Spells ~ Sylph							CATEGORY:Special Ability										
 
 ###Block: Racial Abilities
 # Ability Name						Category of Ability	Define												Ability
-Race Traits ~ Undine					CATEGORY:Internal
-CATEGORY=Internal|Race Traits ~ Undine.MOD					DEFINE:Undine_ReplaceAbilityScores|0							ABILITY:Undine Racial Trait|AUTOMATIC|Undine ~ Ability Scores|PREVAREQ:Undine_ReplaceAbilityScores,0
-CATEGORY=Internal|Race Traits ~ Undine.MOD					DEFINE:Undine_ReplaceType|0									ABILITY:Undine Racial Trait|AUTOMATIC|Undine ~ Type|PREVAREQ:Undine_ReplaceType,0
-CATEGORY=Internal|Race Traits ~ Undine.MOD					DEFINE:Undine_ReplaceSize|0									ABILITY:Undine Racial Trait|AUTOMATIC|Undine ~ Size|PREVAREQ:Undine_ReplaceSize,0
-CATEGORY=Internal|Race Traits ~ Undine.MOD					DEFINE:Undine_ReplaceSpeed|0									ABILITY:Undine Racial Trait|AUTOMATIC|Undine ~ Speed|PREVAREQ:Undine_ReplaceSpeed,0
-CATEGORY=Internal|Race Traits ~ Undine.MOD					DEFINE:Undine_ReplaceVision|0									ABILITY:Undine Racial Trait|AUTOMATIC|Undine ~ Vision|PREVAREQ:Undine_ReplaceVision,0
-CATEGORY=Internal|Race Traits ~ Undine.MOD					DEFINE:Undine_ReplaceSpellLikeAbilities|0							ABILITY:Undine Racial Trait|AUTOMATIC|Undine ~ Spell-Like Abilities|PREVAREQ:Undine_ReplaceSpellLikeAbilities,0
-CATEGORY=Internal|Race Traits ~ Undine.MOD					DEFINE:Undine_ReplaceEnergyResistance|0							ABILITY:Undine Racial Trait|AUTOMATIC|Undine ~ Energy Resistance|PREVAREQ:Undine_ReplaceEnergyResistance,0
-CATEGORY=Internal|Race Traits ~ Undine.MOD					DEFINE:Undine_ReplaceWaterAffinity|0							ABILITY:Undine Racial Trait|AUTOMATIC|Undine ~ Water Affinity|PREVAREQ:Undine_ReplaceWaterAffinity,0
-CATEGORY=Internal|Race Traits ~ Undine.MOD					DEFINE:Undine_ReplaceBaseLanguages|0	DEFINE:Undine_ReplaceLanguages|0	ABILITY:Undine Racial Trait|AUTOMATIC|Undine ~ Languages|PREVAREQ:Undine_ReplaceLanguages,0
+Racial Traits ~ Undine					CATEGORY:Internal
+CATEGORY=Internal|Racial Traits ~ Undine.MOD					DEFINE:Undine_ReplaceAbilityScores|0							ABILITY:Undine Racial Trait|AUTOMATIC|Undine ~ Ability Scores|PREVAREQ:Undine_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Undine.MOD					DEFINE:Undine_ReplaceType|0									ABILITY:Undine Racial Trait|AUTOMATIC|Undine ~ Type|PREVAREQ:Undine_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Undine.MOD					DEFINE:Undine_ReplaceSize|0									ABILITY:Undine Racial Trait|AUTOMATIC|Undine ~ Size|PREVAREQ:Undine_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Undine.MOD					DEFINE:Undine_ReplaceSpeed|0									ABILITY:Undine Racial Trait|AUTOMATIC|Undine ~ Speed|PREVAREQ:Undine_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Undine.MOD					DEFINE:Undine_ReplaceVision|0									ABILITY:Undine Racial Trait|AUTOMATIC|Undine ~ Vision|PREVAREQ:Undine_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Undine.MOD					DEFINE:Undine_ReplaceSpellLikeAbilities|0							ABILITY:Undine Racial Trait|AUTOMATIC|Undine ~ Spell-Like Abilities|PREVAREQ:Undine_ReplaceSpellLikeAbilities,0
+CATEGORY=Internal|Racial Traits ~ Undine.MOD					DEFINE:Undine_ReplaceEnergyResistance|0							ABILITY:Undine Racial Trait|AUTOMATIC|Undine ~ Energy Resistance|PREVAREQ:Undine_ReplaceEnergyResistance,0
+CATEGORY=Internal|Racial Traits ~ Undine.MOD					DEFINE:Undine_ReplaceWaterAffinity|0							ABILITY:Undine Racial Trait|AUTOMATIC|Undine ~ Water Affinity|PREVAREQ:Undine_ReplaceWaterAffinity,0
+CATEGORY=Internal|Racial Traits ~ Undine.MOD					DEFINE:Undine_ReplaceBaseLanguages|0	DEFINE:Undine_ReplaceLanguages|0	ABILITY:Undine Racial Trait|AUTOMATIC|Undine ~ Languages|PREVAREQ:Undine_ReplaceLanguages,0
 
 ###Block: Racial Defaults
 # Ability Name					Unique Key					Category of Ability		Type																	Define											Innate Spells															Description																																									Template																																			Auto Language									Ability					Caster level																																			Stat bonus																																								Modify VAR																																					Vision							Source Page		Aspects
