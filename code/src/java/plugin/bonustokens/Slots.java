@@ -40,7 +40,6 @@ public final class Slots extends MultiTagBonusObj
 	/**
 	 * Get by index, an individual slot type that may be bonused.
 	 * @param tagNumber the index of the slot type.
-	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
 	 * @return The slot type.
 	 */
 	@Override
@@ -51,7 +50,6 @@ public final class Slots extends MultiTagBonusObj
 
 	/**
 	 * Get the number of slot types that may be bonused.
-	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
 	 * @return The number of slot types.
 	 */
 	@Override

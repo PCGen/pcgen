@@ -23,14 +23,14 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import org.junit.Test;
-
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
 
+import org.junit.Test;
+
 /**
- * The Class <code></code> ...
+ * The Class {@code} ...
  *
  * <br/>
  * 

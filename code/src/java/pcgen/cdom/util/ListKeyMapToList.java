@@ -343,25 +343,12 @@ public class ListKeyMapToList
 		return map.isEmpty();
 	}
 
-	/**
-	 * Returns the consistent-with-equals hashCode for this ListKeyMapToList
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{
 		return map.hashCode();
 	}
 
-	/**
-	 * Returns true if this ListKeyMapToList is equal to the given Object.
-	 * 
-	 * Note that equality as defined by this method is both a class of
-	 * ListKeyMapToList and equality of contents of the ListKeyMapToList.
-	 * 
-	 * @see java.lang.Object#equals(Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{

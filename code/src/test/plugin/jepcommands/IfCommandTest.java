@@ -17,6 +17,9 @@
  */
 package plugin.jepcommands;
 
+import static org.hamcrest.number.IsCloseTo.closeTo;
+import static org.junit.Assert.assertThat;
+
 import java.util.Stack;
 
 import pcgen.PCGenTestCase;
@@ -27,7 +30,7 @@ import org.nfunk.jep.ParseException;
 import org.nfunk.jep.function.PostfixMathCommandI;
 
 /**
- * <code>IfCommandTest</code> tests the functioning of the jep if plugin
+ * {@code IfCommandTest} tests the functioning of the jep if plugin
  */
 public class IfCommandTest extends PCGenTestCase
 {
@@ -80,7 +83,7 @@ public class IfCommandTest extends PCGenTestCase
 
         final Double result = s.pop();
 
-        is(result, eq(2.0, 0.1), "if (0.0,1.0,2.0) returns 2.0");
+        assertThat("if (0.0,1.0,2.0) returns 2.0", result, closeTo(2.0, 0.1));
     }
 
     /* Test the case where the condition is a non zero double */
@@ -97,7 +100,7 @@ public class IfCommandTest extends PCGenTestCase
 
         final Double result = s.pop();
 
-        is(result, eq(1.0, 0.1), "if (1.0,1.0,2.0) returns 1.0");
+        assertThat("if (1.0,1.0,2.0) returns 1.0", result, closeTo(1.0, 0.1));
     }
 
     /* Test the case where the condition is a false boolean */

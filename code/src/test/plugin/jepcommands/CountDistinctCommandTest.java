@@ -17,8 +17,9 @@
  */
 package plugin.jepcommands;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
+import static org.hamcrest.Matchers.closeTo;
+import static org.junit.Assert.assertThat;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
@@ -30,8 +31,11 @@ import pcgen.util.TestHelper;
 import pcgen.util.enumeration.Visibility;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
+import junit.framework.Test;
+import junit.framework.TestSuite;
+
 /**
- * <code>CountDistinctCommandTest</code> tests the functioning of the jep 
+ * {@code CountDistinctCommandTest} tests the functioning of the jep
  * countdistinct plugin
  */
 public class CountDistinctCommandTest extends AbstractCharacterTestCase
@@ -445,7 +449,7 @@ public class CountDistinctCommandTest extends AbstractCharacterTestCase
 	//
 	//        final String s = sB.toString();
 	//
-	//        is(character.getVariableValue(s,""), eq(6.0, 0.1), s);
+	//        assertThat(s, character.getVariableValue(s,""), closeTo(6.0, 0.1));
 	//    }
 
 	public void testCountAbilitiesByName()
@@ -469,21 +473,21 @@ public class CountDistinctCommandTest extends AbstractCharacterTestCase
 
 		final String s = sB.toString();
 
-		is(character.getVariableValue(s, ""), eq(0.0, 0.1), s + " no choices");
+		assertThat(s + " no choices", (double) character.getVariableValue(s, ""), closeTo(0.0, 0.1));
 
 		Globals.getContext().unconditionallyProcess(ab, "CHOOSE", "STRING|munch|devour|nibble|ignore");
 		finalizeTest(ab, "munch", character, gCat);
 
-		is(character.getVariableValue(s, ""), eq(1.0, 0.1), s + " one choice");
+		assertThat(s + " one choice", (double) character.getVariableValue(s, ""), closeTo(1.0, 0.1));
 		finalizeTest(ab, "devour", character, gCat);
 		character.setDirty(true);
 
-		is(character.getVariableValue(s, ""), eq(1.0, 0.1), s + " two choices");
+		assertThat(s + " two choices", (double) character.getVariableValue(s, ""), closeTo(1.0, 0.1));
 		finalizeTest(ab, "nibble", character, gCat);
 		assertEquals(3, character.getConsolidatedAssociationList(ab).size());
 		character.setDirty(true);
 
-		is(character.getVariableValue(s, ""), eq(1.0, 0.1), s + " three choices");
+		assertThat(s + " three choices", (double) character.getVariableValue(s, ""), closeTo(1.0, 0.1));
 	}
 
 	public void testCountAbilitiesByKey()
@@ -507,28 +511,28 @@ public class CountDistinctCommandTest extends AbstractCharacterTestCase
 
 		final String s = sB.toString();
 
-		is(character.getVariableValue(s, ""), eq(0.0, 0.1), s + " no choices");
+		assertThat(s + " no choices", (double) character.getVariableValue(s, ""), closeTo(0.0, 0.1));
 
 		Globals.getContext().unconditionallyProcess(ab, "CHOOSE", "STRING|munch|devour|nibble|ignore");
 		AbstractCharacterTestCase.applyAbility(character, gCat, ab, "munch");
 
-		is(character.getVariableValue(s, ""), eq(1.0, 0.1), s + " one choice");
+		assertThat(s + " one choice", (double) character.getVariableValue(s, ""), closeTo(1.0, 0.1));
 
 		AbstractCharacterTestCase.applyAbility(character, gCat, ab, "devour");
 		character.setDirty(true);
 
-		is(character.getVariableValue(s, ""), eq(1.0, 0.1), s + " two choices");
+		assertThat(s + " two choices", (double) character.getVariableValue(s, ""), closeTo(1.0, 0.1));
 
 		AbstractCharacterTestCase.applyAbility(character, gCat, ab, "nibble");
 		character.setDirty(true);
 
-		is(character.getVariableValue(s, ""), eq(1.0, 0.1), s + " three choices");
+		assertThat(s + " three choices", (double) character.getVariableValue(s, ""), closeTo(1.0, 0.1));
 
 		String countKeyChoice = "countdistinct(\"ABILITIES\",\"KEY=KEY_Eat Burger(munch)\")";
-		is(character.getVariableValue(countKeyChoice, ""), eq(1.0, 0.1), countKeyChoice + " chosen");
+		assertThat(countKeyChoice + " chosen", (double) character.getVariableValue(countKeyChoice, ""), closeTo(1.0, 0.1));
 
 		String countStr = "countdistinct(\"ABILITIES\",\"KEY=KEY_Turning\")";
-		is(character.getVariableValue(countStr, ""), eq(1.0, 0.1), countStr + " single application");
+		assertThat(countStr + " single application", (double) character.getVariableValue(countStr, ""), closeTo(1.0, 0.1));
 
 	}
 
@@ -541,7 +545,8 @@ public class CountDistinctCommandTest extends AbstractCharacterTestCase
 	{
 		final PlayerCharacter character = getCharacter();
 		String test = "countdistinct(\"CLASSES\")";
-		is(character.getVariableValue(test, ""), eq(1.0, 0.1), test);
+		assertThat(test, (double) character.getVariableValue(test, ""), closeTo(1.0, 0.1));
+		assertThat(test, (double) character.getVariableValue(test, ""), closeTo(1.0, 0.1));
 
 	}
 }

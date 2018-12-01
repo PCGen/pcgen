@@ -77,7 +77,7 @@ public final class LockedStat extends BonusObj
 		final PCStat pcstat = rc.silentlyGetConstructedCDOMObject(PCStat.class, getBonusInfo());
 		if (pcstat != null)
 		{
-			return pcstat.getName() + " (locked)";
+			return pcstat.getDisplayName() + " (locked)";
 		}
 		return super.getDescription();
 	}

@@ -24,19 +24,15 @@ import java.awt.Graphics;
 
 import javax.swing.Icon;
 
-/**
- *
- */
 public class SignIcon implements Icon
 {
 
 	public enum Sign
 	{
-
 		Plus, Minus;
 	}
 
-	private Sign sign;
+	private final Sign sign;
 
 	public SignIcon(Sign sign)
 	{

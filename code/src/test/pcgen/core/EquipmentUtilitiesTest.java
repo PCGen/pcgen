@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright 2006 (C) Andrew Wilson <nuance@sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -14,11 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
- * $Author: nuance $
- * $Date: 2006-03-22 00:25:03 +0000 (Wed, 22 Mar 2006) $
- * $Revision: 362 $
  */
 package pcgen.core;
 
@@ -33,16 +28,6 @@ import pcgen.util.TestHelper;
 
 public class EquipmentUtilitiesTest extends PCGenTestCase
 {
-
-	/**
-	 * Run the test
-	 * @param args don't need args apparently
-	 */
-	public static void main(final String[] args)
-	{
-		junit.textui.TestRunner.run(EquipmentUtilitiesTest.class);
-	}
-
 	/**
 	 * Test method for 'pcgen.core.EquipmentUtilities.appendToName(String, String)'
 	 */

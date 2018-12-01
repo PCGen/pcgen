@@ -17,7 +17,8 @@
  */
 package pcgen.core.spell;
 
-import pcgen.base.lang.StringUtil;
+import java.util.StringJoiner;
+
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Ungranted;
 import pcgen.cdom.enumeration.ListKey;
@@ -48,13 +49,10 @@ public final class Spell extends PObject implements InfoFacade, Ungranted
 	@Override
 	public String getPCCText()
 	{
-		final StringBuilder txt = new StringBuilder(200);
-		txt.append(getDisplayName());
-		txt.append("\t");
-		txt.append(StringUtil.joinToStringBuilder(Globals.getContext().unparse(this), "\t"));
-		txt.append("\t");
-		txt.append(PrerequisiteWriter.prereqsToString(this));
-
+		StringJoiner txt = new StringJoiner("\t");
+		txt.add(getDisplayName());
+		Globals.getContext().unparse(this).forEach(item -> txt.add(item));
+		txt.add(PrerequisiteWriter.prereqsToString(this));
 		return txt.toString();
 	}
 

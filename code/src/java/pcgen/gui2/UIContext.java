@@ -32,7 +32,7 @@ public class UIContext
 	/**
 	 * Constructs a new UIContext with an empty source list.
 	 */
-	public UIContext()
+	UIContext()
 	{
 		this.currentSourceSelection = new DefaultReferenceFacade<>();
 	}

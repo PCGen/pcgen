@@ -60,18 +60,12 @@ public class EqToken extends Token
 	private static int cachedSerial = 0;
 	private static PlayerCharacter cachedPC = null;
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return TOKENNAME;
 	}
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-	 */
 	@Override
 	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
@@ -290,8 +284,6 @@ public class EqToken extends Token
 	 * EqToken manages its own encoding to allow the data to be encoded but 
 	 * export sheet markup to passed through as is. Tell ExportHandler that it
 	 * should not re-encode the output from this token.  
-	 * 
-	 * @see pcgen.io.exporttoken.Token#isEncoded()
 	 */
 	@Override
 	public boolean isEncoded()

@@ -103,7 +103,6 @@ import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.core.spell.Spell;
 import pcgen.facade.core.AbilityFacade;
 import pcgen.facade.core.ClassFacade;
-import pcgen.facade.core.DeityFacade;
 import pcgen.facade.core.DomainFacade;
 import pcgen.facade.core.EquipModFacade;
 import pcgen.facade.core.EquipmentFacade;
@@ -111,10 +110,8 @@ import pcgen.facade.core.InfoFacade;
 import pcgen.facade.core.InfoFactory;
 import pcgen.facade.core.KitFacade;
 import pcgen.facade.core.RaceFacade;
-import pcgen.facade.core.SkillFacade;
 import pcgen.facade.core.SpellFacade;
 import pcgen.facade.core.TempBonusFacade;
-import pcgen.facade.core.TemplateFacade;
 import pcgen.gui2.util.HtmlInfoBuilder;
 import pcgen.io.exporttoken.EqToken;
 import pcgen.io.exporttoken.WeaponToken;
@@ -161,9 +158,6 @@ public class Gui2InfoFactory implements InfoFactory
 		this.charDisplay = pc == null ? null : pc.getDisplay();
 	}
 
-	/**
-	 * @see pcgen.facade.core.InfoFactory#getFavoredClass(RaceFacade)
-	 */
 	@Override
 	public String getFavoredClass(RaceFacade race)
 	{
@@ -175,9 +169,6 @@ public class Gui2InfoFactory implements InfoFactory
 		return StringUtil.join(favClass, ", ");
 	}
 
-	/**
-	 * @see pcgen.facade.core.InfoFactory#getHTMLInfo(RaceFacade)
-	 */
 	@Override
 	public String getHTMLInfo(RaceFacade raceFacade)
 	{
@@ -288,9 +279,6 @@ public class Gui2InfoFactory implements InfoFactory
 		return infoText.toString();
 	}
 
-	/**
-	 * @see pcgen.facade.core.InfoFactory#getHTMLInfo(ClassFacade, ClassFacade)
-	 */
 	@Override
 	public String getHTMLInfo(ClassFacade classFacade, ClassFacade parentClassFacade)
 	{
@@ -428,17 +416,13 @@ public class Gui2InfoFactory implements InfoFactory
 		return b.toString();
 	}
 
-	/**
-	 * @see pcgen.facade.core.InfoFactory#getHTMLInfo(SkillFacade)
-	 */
 	@Override
-	public String getHTMLInfo(SkillFacade skillFacade)
+	public String getHTMLInfo(Skill skill)
 	{
-		if (!(skillFacade instanceof Skill))
+		if (skill == null)
 		{
 			return EMPTY_STRING;
 		}
-		Skill skill = (Skill) skillFacade;
 
 		final HtmlInfoBuilder infoText = new HtmlInfoBuilder();
 
@@ -525,9 +509,6 @@ public class Gui2InfoFactory implements InfoFactory
 		return infoText.toString();
 	}
 
-	/**
-	 * @see pcgen.facade.core.InfoFactory#getHTMLInfo(AbilityFacade)
-	 */
 	@Override
 	public String getHTMLInfo(AbilityFacade abilityFacade)
 	{
@@ -619,17 +600,14 @@ public class Gui2InfoFactory implements InfoFactory
 		return infoText.toString();
 	}
 
-	/**
-	 * @see pcgen.facade.core.InfoFactory#getHTMLInfo(DeityFacade)
-	 */
 	@Override
-	public String getHTMLInfo(DeityFacade deityFacade)
+	public String getHTMLInfo(Deity deityFacade)
 	{
-		if (!(deityFacade instanceof Deity))
+		if (deityFacade == null)
 		{
 			return EMPTY_STRING;
 		}
-		Deity aDeity = (Deity) deityFacade;
+		Deity aDeity = deityFacade;
 
 		final HtmlInfoBuilder infoText = new HtmlInfoBuilder();
 
@@ -685,9 +663,6 @@ public class Gui2InfoFactory implements InfoFactory
 		return infoText.toString();
 	}
 
-	/**
-	 * @see pcgen.facade.core.InfoFactory#getHTMLInfo(DomainFacade)
-	 */
 	@Override
 	public String getHTMLInfo(DomainFacade domainFacade)
 	{
@@ -749,9 +724,6 @@ public class Gui2InfoFactory implements InfoFactory
 		return infoText.toString();
 	}
 
-	/**
-	 * @see pcgen.facade.core.InfoFactory#getHTMLInfo(EquipmentFacade)
-	 */
 	@Override
 	public String getHTMLInfo(EquipmentFacade equipFacade)
 	{
@@ -1071,9 +1043,6 @@ public class Gui2InfoFactory implements InfoFactory
 		return b;
 	}
 
-	/**
-	 * @see pcgen.facade.core.InfoFactory#getHTMLInfo(EquipModFacade, EquipmentFacade)
-	 */
 	@Override
 	public String getHTMLInfo(EquipModFacade equipModFacade, EquipmentFacade equipFacade)
 	{
@@ -1211,18 +1180,13 @@ public class Gui2InfoFactory implements InfoFactory
 		return sRet;
 	}
 
-	/**
-	 * @see pcgen.facade.core.InfoFactory#getHTMLInfo(TemplateFacade)
-	 */
 	@Override
-	public String getHTMLInfo(TemplateFacade templateFacade)
+	public String getHTMLInfo(PCTemplate template)
 	{
-		if (templateFacade == null)
+		if (template == null)
 		{
 			return EMPTY_STRING;
 		}
-
-		PCTemplate template = (PCTemplate) templateFacade;
 
 		final HtmlInfoBuilder infoText = new HtmlInfoBuilder();
 
@@ -1282,9 +1246,6 @@ public class Gui2InfoFactory implements InfoFactory
 		return infoText.toString();
 	}
 
-	/**
-	 * @see pcgen.facade.core.InfoFactory#getHTMLInfo(KitFacade)
-	 */
 	@Override
 	public String getHTMLInfo(KitFacade kitFacade)
 	{
@@ -1369,9 +1330,6 @@ public class Gui2InfoFactory implements InfoFactory
 		return infoText.toString();
 	}
 
-	/**
-	 * @see pcgen.facade.core.InfoFactory#getHTMLInfo(TempBonusFacade)
-	 */
 	@Override
 	public String getHTMLInfo(TempBonusFacade tempBonusFacade)
 	{
@@ -1490,9 +1448,6 @@ public class Gui2InfoFactory implements InfoFactory
 		return infoText.toString();
 	}
 
-	/**
-	 * @see pcgen.facade.core.InfoFactory#getHTMLInfo(InfoFacade)
-	 */
 	@Override
 	public String getHTMLInfo(InfoFacade facade)
 	{
@@ -1510,10 +1465,6 @@ public class Gui2InfoFactory implements InfoFactory
 		{
 			return getHTMLInfo((ClassFacade) facade, null);
 		}
-		if (facade instanceof DeityFacade)
-		{
-			return getHTMLInfo((DeityFacade) facade);
-		}
 		if (facade instanceof DomainFacade)
 		{
 			return getHTMLInfo((DomainFacade) facade);
@@ -1530,10 +1481,6 @@ public class Gui2InfoFactory implements InfoFactory
 		{
 			return getHTMLInfo((RaceFacade) facade);
 		}
-		if (facade instanceof SkillFacade)
-		{
-			return getHTMLInfo((SkillFacade) facade);
-		}
 		if (facade instanceof SpellFacade)
 		{
 			return getHTMLInfo((SpellFacade) facade);
@@ -1541,10 +1488,6 @@ public class Gui2InfoFactory implements InfoFactory
 		if (facade instanceof TempBonusFacade)
 		{
 			return getHTMLInfo((TempBonusFacade) facade);
-		}
-		if (facade instanceof TemplateFacade)
-		{
-			return getHTMLInfo((TemplateFacade) facade);
 		}
 
 		final HtmlInfoBuilder infoText = new HtmlInfoBuilder();
@@ -1589,9 +1532,6 @@ public class Gui2InfoFactory implements InfoFactory
 		}
 	}
 
-	/**
-	 * @see pcgen.facade.core.InfoFactory#getLevelAdjustment(RaceFacade)
-	 */
 	@Override
 	public String getLevelAdjustment(RaceFacade raceFacade)
 	{
@@ -1603,9 +1543,6 @@ public class Gui2InfoFactory implements InfoFactory
 		return ADJ_FMT.format(race.getSafe(FormulaKey.LEVEL_ADJUSTMENT).resolve(pc, EMPTY_STRING));
 	}
 
-	/**
-	 * @see pcgen.facade.core.InfoFactory#getNumMonsterClassLevels(RaceFacade)
-	 */
 	@Override
 	public int getNumMonsterClassLevels(RaceFacade raceFacade)
 	{
@@ -1622,9 +1559,6 @@ public class Gui2InfoFactory implements InfoFactory
 		return levelCommandFactory.getLevelCount().resolve(pc, EMPTY_STRING).intValue();
 	}
 
-	/**
-	 * @see pcgen.facade.core.InfoFactory#getPreReqHTML(RaceFacade)
-	 */
 	@Override
 	public String getPreReqHTML(RaceFacade raceFacade)
 	{
@@ -1641,9 +1575,6 @@ public class Gui2InfoFactory implements InfoFactory
 		return sb.toString();
 	}
 
-	/**
-	 * @see pcgen.facade.core.InfoFactory#getStatAdjustments(RaceFacade)
-	 */
 	@Override
 	public String getStatAdjustments(RaceFacade raceFacade)
 	{
@@ -1682,9 +1613,6 @@ public class Gui2InfoFactory implements InfoFactory
 		return retString.toString();
 	}
 
-	/**
-	 * @see pcgen.facade.core.InfoFactory#getVision(RaceFacade)
-	 */
 	@Override
 	public String getVision(RaceFacade race)
 	{
@@ -1695,9 +1623,6 @@ public class Gui2InfoFactory implements InfoFactory
 		return VisionDisplay.getVision(pc, (Race) race);
 	}
 
-	/**
-	 * @see pcgen.facade.core.InfoFactory#getCost(EquipmentFacade)
-	 */
 	@Override
 	public float getCost(EquipmentFacade equipment)
 	{
@@ -1708,9 +1633,6 @@ public class Gui2InfoFactory implements InfoFactory
 		return 0;
 	}
 
-	/**
-	 * @see pcgen.facade.core.InfoFactory#getWeight(EquipmentFacade)
-	 */
 	@Override
 	public float getWeight(EquipmentFacade equipment)
 	{
@@ -1722,56 +1644,29 @@ public class Gui2InfoFactory implements InfoFactory
 		return 0;
 	}
 
-	/**
-	 * @see pcgen.facade.core.InfoFactory#getLevelAdjustment(TemplateFacade)
-	 */
 	@Override
-	public String getLevelAdjustment(TemplateFacade templateFacade)
+	public String getLevelAdjustment(PCTemplate template)
 	{
-		if (!(templateFacade instanceof PCTemplate))
-		{
-			return EMPTY_STRING;
-		}
-		PCTemplate template = (PCTemplate) templateFacade;
 		return ADJ_FMT.format(template.getSafe(FormulaKey.LEVEL_ADJUSTMENT).resolve(pc, EMPTY_STRING));
 	}
 
-	/**
-	 * @see pcgen.facade.core.InfoFactory#getModifier(TemplateFacade)
-	 */
 	@Override
-	public String getModifier(TemplateFacade templateFacade)
+	public String getModifier(PCTemplate template)
 	{
-		if (!(templateFacade instanceof PCTemplate))
-		{
-			return EMPTY_STRING;
-		}
-		PCTemplate template = (PCTemplate) templateFacade;
 		return TemplateModifier.modifierString(template, pc);
 	}
 
-	/**
-	 * @see pcgen.facade.core.InfoFactory#getPreReqHTML(TemplateFacade)
-	 */
 	@Override
-	public String getPreReqHTML(TemplateFacade templateFacade)
+	public String getPreReqHTML(PCTemplate template)
 	{
-		if (!(templateFacade instanceof PCTemplate))
-		{
-			return EMPTY_STRING;
-		}
 		StringBuilder sb = new StringBuilder();
 		sb.append("<html>");
-		PCTemplate template = (PCTemplate) templateFacade;
 		sb.append(PrerequisiteUtilities.preReqHTMLStringsForList(pc, null, template.getPrerequisiteList(), false));
 		sb.append(AllowUtilities.getAllowInfo(pc, template));
 		sb.append("</html>");
 		return sb.toString();
 	}
 
-	/**
-	 * @see pcgen.facade.core.InfoFactory#getHTMLInfo(SpellFacade)
-	 */
 	@Override
 	public String getHTMLInfo(SpellFacade spell)
 	{
@@ -1881,9 +1776,6 @@ public class Gui2InfoFactory implements InfoFactory
 		return b.toString();
 	}
 
-	/**
-	 * @see pcgen.facade.core.InfoFactory#getSpellBookInfo(String)
-	 */
 	@Override
 	public String getSpellBookInfo(String name)
 	{
@@ -2017,9 +1909,6 @@ public class Gui2InfoFactory implements InfoFactory
 		return b.toString();
 	}
 
-	/**
-	 * @see pcgen.facade.core.InfoFactory#getDescription(AbilityFacade)
-	 */
 	@Override
 	public String getDescription(AbilityFacade ability)
 	{
@@ -2041,9 +1930,6 @@ public class Gui2InfoFactory implements InfoFactory
 		}
 	}
 
-	/**
-	 * @see pcgen.facade.core.InfoFactory#getDescription(RaceFacade)
-	 */
 	@Override
 	public String getDescription(RaceFacade raceFacade)
 	{
@@ -2063,31 +1949,24 @@ public class Gui2InfoFactory implements InfoFactory
 		}
 	}
 
-	/**
-	 * @see pcgen.facade.core.InfoFactory#getDescription(TemplateFacade)
-	 */
 	@Override
-	public String getDescription(TemplateFacade templateFacade)
+	public String getDescription(PCTemplate template)
 	{
-		if (templateFacade == null || !(templateFacade instanceof PCTemplate))
+		if (template == null)
 		{
 			return EMPTY_STRING;
 		}
 		try
 		{
-			PCTemplate template = (PCTemplate) templateFacade;
 			return DescriptionFormatting.piWrapDesc(template, pc.getDescription(template), false);
 		}
 		catch (Exception e)
 		{
-			Logging.errorPrint("Failed to get description for " + templateFacade, e); //$NON-NLS-1$
+			Logging.errorPrint("Failed to get description for " + template, e); //$NON-NLS-1$
 			return EMPTY_STRING;
 		}
 	}
 
-	/**
-	 * @see pcgen.facade.core.InfoFactory#getDescription(ClassFacade)
-	 */
 	@Override
 	public String getDescription(ClassFacade classFacade)
 	{
@@ -2107,31 +1986,24 @@ public class Gui2InfoFactory implements InfoFactory
 		}
 	}
 
-	/**
-	 * @see pcgen.facade.core.InfoFactory#getDescription(SkillFacade)
-	 */
 	@Override
-	public String getDescription(SkillFacade skillFacade)
+	public String getDescription(Skill skill)
 	{
-		if (skillFacade == null || !(skillFacade instanceof Skill))
+		if (skill == null)
 		{
 			return EMPTY_STRING;
 		}
 		try
 		{
-			Skill skill = (Skill) skillFacade;
 			return DescriptionFormatting.piWrapDesc(skill, pc.getDescription(skill), false);
 		}
 		catch (Exception e)
 		{
-			Logging.errorPrint("Failed to get description for " + skillFacade, e); //$NON-NLS-1$
+			Logging.errorPrint("Failed to get description for " + skill, e); //$NON-NLS-1$
 			return EMPTY_STRING;
 		}
 	}
 
-	/**
-	 * @see pcgen.facade.core.InfoFactory#getDescription(EquipmentFacade)
-	 */
 	@Override
 	public String getDescription(EquipmentFacade equipFacade)
 	{
@@ -2151,9 +2023,6 @@ public class Gui2InfoFactory implements InfoFactory
 		}
 	}
 
-	/**
-	 * @see pcgen.facade.core.InfoFactory#getDescription(KitFacade)
-	 */
 	@Override
 	public String getDescription(KitFacade kitFacade)
 	{
@@ -2173,31 +2042,24 @@ public class Gui2InfoFactory implements InfoFactory
 		}
 	}
 
-	/**
-	 * @see pcgen.facade.core.InfoFactory#getDescription(DeityFacade)
-	 */
 	@Override
-	public String getDescription(DeityFacade deityFacade)
+	public String getDescription(Deity deity)
 	{
-		if (deityFacade == null || !(deityFacade instanceof Deity))
+		if (deity == null)
 		{
 			return EMPTY_STRING;
 		}
 		try
 		{
-			Deity deity = (Deity) deityFacade;
 			return DescriptionFormatting.piWrapDesc(deity, pc.getDescription(deity), false);
 		}
 		catch (Exception e)
 		{
-			Logging.errorPrint("Failed to get description for " + deityFacade, e); //$NON-NLS-1$
+			Logging.errorPrint("Failed to get description for " + deity, e); //$NON-NLS-1$
 			return EMPTY_STRING;
 		}
 	}
 
-	/**
-	 * @see pcgen.facade.core.InfoFactory#getDescription(DomainFacade)
-	 */
 	@Override
 	public String getDescription(DomainFacade domainFacade)
 	{
@@ -2222,9 +2084,6 @@ public class Gui2InfoFactory implements InfoFactory
 		}
 	}
 
-	/**
-	 * @see pcgen.facade.core.InfoFactory#getDescription(SpellFacade)
-	 */
 	@Override
 	public String getDescription(SpellFacade spellFacade)
 	{
@@ -2249,9 +2108,6 @@ public class Gui2InfoFactory implements InfoFactory
 		}
 	}
 
-	/**
-	 * @see pcgen.facade.core.InfoFactory#getDescription(TempBonusFacade)
-	 */
 	@Override
 	public String getDescription(TempBonusFacade tempBonusFacade)
 	{
@@ -2313,51 +2169,35 @@ public class Gui2InfoFactory implements InfoFactory
 		return wrappedAbility;
 	}
 
-	/**
-	 * @see pcgen.facade.core.InfoFactory#getDomains(DeityFacade)
-	 */
 	@Override
-	public String getDomains(DeityFacade deityFacade)
+	public String getDomains(Deity deityFacade)
 	{
-		if (deityFacade == null || !(deityFacade instanceof Deity))
+		if (deityFacade == null)
 		{
 			return EMPTY_STRING;
 		}
-		Deity deity = (Deity) deityFacade;
+		Deity deity = deityFacade;
 		Set<String> set = new TreeSet<>();
 		for (CDOMReference<Domain> ref : deity.getSafeListMods(Deity.DOMAINLIST))
 		{
-			for (Domain d : ref.getContainedObjects())
-			{
-				set.add(OutputNameFormatting.piString(d));
-			}
+			ref.getContainedObjects()
+				.forEach(domain -> set.add(OutputNameFormatting.piString(domain)));
 		}
-		final StringBuilder piString = new StringBuilder(100);
-		piString.append(StringUtil.joinToStringBuilder(set, ", ")); //$NON-NLS-1$
-		return piString.toString();
-
+		return StringUtil.join(set, ", "); //$NON-NLS-1$
 	}
 
-	/**
-	 * @see pcgen.facade.core.InfoFactory#getPantheons(DeityFacade)
-	 */
 	@Override
-	public String getPantheons(DeityFacade deityFacade)
+	public String getPantheons(Deity deityFacade)
 	{
-		if (deityFacade == null || !(deityFacade instanceof Deity))
+		if (deityFacade == null)
 		{
 			return EMPTY_STRING;
 		}
-		Deity deity = (Deity) deityFacade;
+		Deity deity = deityFacade;
 		Set<String> set = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
 		FactSetKey<String> fk = FactSetKey.valueOf("Pantheon");
-		for (Indirect<String> indirect : deity.getSafeSetFor(fk))
-		{
-			set.add(indirect.get());
-		}
-		final StringBuilder piString = new StringBuilder(100);
-		piString.append(StringUtil.joinToStringBuilder(set, ",")); //$NON-NLS-1$
-		return piString.toString();
+		deity.getSafeSetFor(fk).forEach(indirect -> set.add(indirect.get()));
+		return StringUtil.join(set, ","); //$NON-NLS-1$
 
 	}
 
@@ -2365,17 +2205,15 @@ public class Gui2InfoFactory implements InfoFactory
 	 * Get a display string of the deity's favored weapons.
 	 * @param deityFacade The deity to be output.
 	 * @return The comma separated list of weapons.
-	 * 
-	 * @see pcgen.facade.core.InfoFactory#getFavoredWeapons(DeityFacade)
 	 */
 	@Override
-	public String getFavoredWeapons(DeityFacade deityFacade)
+	public String getFavoredWeapons(Deity deityFacade)
 	{
-		if (deityFacade == null || !(deityFacade instanceof Deity))
+		if (deityFacade == null)
 		{
 			return EMPTY_STRING;
 		}
-		Deity deity = (Deity) deityFacade;
+		Deity deity = deityFacade;
 		List<CDOMReference<WeaponProf>> wpnList = deity.getSafeListFor(ListKey.DEITYWEAPON);
 		return ReferenceUtilities.joinLstFormat(wpnList, ",");
 	}
@@ -2424,9 +2262,6 @@ public class Gui2InfoFactory implements InfoFactory
 		}
 	}
 
-	/**
-	 * @see pcgen.facade.core.InfoFactory#getTempBonusTarget(TempBonusFacade)
-	 */
 	@Override
 	public String getTempBonusTarget(TempBonusFacade tempBonusFacade)
 	{
@@ -2446,21 +2281,9 @@ public class Gui2InfoFactory implements InfoFactory
 		{
 			targetSet.addAll(TempBonusHelper.getEquipmentApplyString(tempBonus.getOriginObj()));
 		}
-		StringBuilder target = new StringBuilder(40);
-		for (String string : targetSet)
-		{
-			target.append(string).append(";"); //$NON-NLS-1$
-		}
-		if (target.length() > 0)
-		{
-			target.deleteCharAt(target.length() - 1);
-		}
-		return target.toString();
+		return StringUtil.join(targetSet, ";");
 	}
 
-	/**
-	 * @see pcgen.facade.core.InfoFactory#getMovement(RaceFacade)
-	 */
 	@Override
 	public String getMovement(RaceFacade race)
 	{

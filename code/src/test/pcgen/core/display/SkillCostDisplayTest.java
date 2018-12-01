@@ -17,8 +17,6 @@
  */
 package pcgen.core.display;
 
-import org.junit.Test;
-
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -35,8 +33,10 @@ import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
+import org.junit.Test;
+
 /**
- * The Class <code>SkillModifierTest</code> is responsible for checking that the 
+ * The Class {@code SkillModifierTest} is responsible for checking that the
  * SkillModifier class is operating correctly.
  * 
  * 

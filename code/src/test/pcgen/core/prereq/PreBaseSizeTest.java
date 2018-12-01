@@ -17,9 +17,6 @@
  */
 package pcgen.core.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -37,7 +34,7 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
 
 /**
- * <code>PreBaseSizeTest</code> tests that the PREBASESIZE tag is
+ * {@code PreBaseSizeTest} tests that the PREBASESIZE tag is
  * working correctly.
  */
 @SuppressWarnings("nls")
@@ -45,19 +42,6 @@ public class PreBaseSizeTest extends AbstractCharacterTestCase
 {
 	Race race = new Race();
 	PCTemplate template = new PCTemplate();
-
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreBaseSizeTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreBaseSizeTest.class);
-	}
 
 	/**
 	 * Test the PREBASESIZE code.

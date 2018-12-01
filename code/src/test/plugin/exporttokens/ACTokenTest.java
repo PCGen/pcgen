@@ -39,7 +39,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 
 /**
- * <code>ACTokenTest</code> tests the function of the AC token and 
+ * {@code ACTokenTest} tests the function of the AC token and
  * thus the calculations of armor class.  
  */
 public class ACTokenTest extends AbstractCharacterTestCase

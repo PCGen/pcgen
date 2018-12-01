@@ -22,7 +22,6 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
-import java.awt.SystemColor;
 
 import javax.swing.Icon;
 
@@ -40,17 +39,6 @@ public class SimpleTextIcon implements Icon
 	private final String text;
 	private final FontMetrics metrics;
 	private final Color color;
-
-	/**
-	 * Creates a new SimpleTextIcon and colors the text as black.
-	 *
-	 * @param c the Component used to render the text
-	 * @param text the string to be displayed
-	 */
-	public SimpleTextIcon(Component c, String text)
-	{
-		this(c, text, SystemColor.text);
-	}
 
 	/**
 	 * Creates a new SimpleTextIcon that displays the text as the given color.

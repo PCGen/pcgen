@@ -11,10 +11,10 @@ SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/produc
 Default Language Setting				KEY:Setting Language ~ Default	CATEGORY:Internal		TYPE:RaceLanguageSelection	DESC:Grants the race the default race language of the core supplements.
 #
 
-CATEGORY=Internal|Race Traits ~ Kitsune.MOD																																			ABILITY:Internal|AUTOMATIC|Default Language ~ Kitsune|PREMULT:1,[PREVAREQ:DefaultLanguageSetting,0],[PREABILITY:1,CATEGORY=Internal,Setting Language ~ Default]	BONUS:ABILITYPOOL|Setting Specific Language|1|TYPE=Base
-CATEGORY=Internal|Race Traits ~ Nagaji.MOD																																			ABILITY:Internal|AUTOMATIC|Default Language ~ Nagaji|PREMULT:1,[PREVAREQ:DefaultLanguageSetting,0],[PREABILITY:1,CATEGORY=Internal,Setting Language ~ Default]	BONUS:ABILITYPOOL|Setting Specific Language|1|TYPE=Base
-CATEGORY=Internal|Race Traits ~ Samsaran.MOD																																			ABILITY:Internal|AUTOMATIC|Default Language ~ Samsaran|PREMULT:1,[PREVAREQ:DefaultLanguageSetting,0],[PREABILITY:1,CATEGORY=Internal,Setting Language ~ Default]	BONUS:ABILITYPOOL|Setting Specific Language|1|TYPE=Base
-CATEGORY=Internal|Race Traits ~ Wayang.MOD																																			ABILITY:Internal|AUTOMATIC|Default Language ~ Wayang|PREMULT:1,[PREVAREQ:DefaultLanguageSetting,0],[PREABILITY:1,CATEGORY=Internal,Setting Language ~ Default]	BONUS:ABILITYPOOL|Setting Specific Language|1|TYPE=Base
+CATEGORY=Internal|Racial Traits ~ Kitsune.MOD																																			ABILITY:Internal|AUTOMATIC|Default Language ~ Kitsune|PREMULT:1,[PREVAREQ:DefaultLanguageSetting,0],[PREABILITY:1,CATEGORY=Internal,Setting Language ~ Default]	BONUS:ABILITYPOOL|Setting Specific Language|1|TYPE=Base
+CATEGORY=Internal|Racial Traits ~ Nagaji.MOD																																			ABILITY:Internal|AUTOMATIC|Default Language ~ Nagaji|PREMULT:1,[PREVAREQ:DefaultLanguageSetting,0],[PREABILITY:1,CATEGORY=Internal,Setting Language ~ Default]	BONUS:ABILITYPOOL|Setting Specific Language|1|TYPE=Base
+CATEGORY=Internal|Racial Traits ~ Samsaran.MOD																																			ABILITY:Internal|AUTOMATIC|Default Language ~ Samsaran|PREMULT:1,[PREVAREQ:DefaultLanguageSetting,0],[PREABILITY:1,CATEGORY=Internal,Setting Language ~ Default]	BONUS:ABILITYPOOL|Setting Specific Language|1|TYPE=Base
+CATEGORY=Internal|Racial Traits ~ Wayang.MOD																																			ABILITY:Internal|AUTOMATIC|Default Language ~ Wayang|PREMULT:1,[PREVAREQ:DefaultLanguageSetting,0],[PREABILITY:1,CATEGORY=Internal,Setting Language ~ Default]	BONUS:ABILITYPOOL|Setting Specific Language|1|TYPE=Base
 
 Default Language ~ Kitsune										CATEGORY:Internal																			TEMPLATE:Default Language ~ Kitsune
 Default Language ~ Nagaji										CATEGORY:Internal																			TEMPLATE:Default Language ~ Nagaji
@@ -200,12 +200,12 @@ CATEGORY=Special Ability|Favored Class Bonus ~ Skill Rank.MOD																			
 # Ability Name						Category of Ability		Type				Stackable?	Multiple?	Choose														Ability
 Focused Study Feat					CATEGORY:Special Ability	TYPE:FocusedStudyFeat	STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=Charisma|TYPE=Dexterity|TYPE=Intelligence|TYPE=Strength|TYPE=Wisdom	ABILITY:FEAT|AUTOMATIC|Skill Focus(%LIST)
 
-#Race Traits ~ Changeling
-Race Traits ~ Changeling				CATEGORY:Internal
-CATEGORY=Internal|Race Traits ~ Changeling.MOD																													ABILITY:Changeling Racial Trait|AUTOMATIC|Changeling ~ Darkvision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ChangelingDarkvision
-CATEGORY=Internal|Race Traits ~ Changeling.MOD																													ABILITY:Changeling Racial Trait|AUTOMATIC|Changeling ~ Hag Racial Trait|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ChangelingHagRacialTrait
-CATEGORY=Internal|Race Traits ~ Changeling.MOD																													ABILITY:Changeling Racial Trait|AUTOMATIC|Changeling ~ Claws|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ChangelingClaws
-CATEGORY=Internal|Race Traits ~ Changeling.MOD																													ABILITY:Changeling Racial Trait|AUTOMATIC|Changeling ~ Natural Armor|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ChangelingNaturalArmor
+#Racial Traits ~ Changeling
+Racial Traits ~ Changeling				CATEGORY:Internal
+CATEGORY=Internal|Racial Traits ~ Changeling.MOD																													ABILITY:Changeling Racial Trait|AUTOMATIC|Changeling ~ Darkvision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ChangelingDarkvision
+CATEGORY=Internal|Racial Traits ~ Changeling.MOD																													ABILITY:Changeling Racial Trait|AUTOMATIC|Changeling ~ Hag Racial Trait|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ChangelingHagRacialTrait
+CATEGORY=Internal|Racial Traits ~ Changeling.MOD																													ABILITY:Changeling Racial Trait|AUTOMATIC|Changeling ~ Claws|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ChangelingClaws
+CATEGORY=Internal|Racial Traits ~ Changeling.MOD																													ABILITY:Changeling Racial Trait|AUTOMATIC|Changeling ~ Natural Armor|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ChangelingNaturalArmor
 
 ###Block: Default Changeling Abilities (POOL=4)
 # Ability Name	Unique Key					Category of Ability		Type																Multiple Requirements																							Description								Bonus Ability Pool				Modify VAR											Source Page		Natural Attacks
@@ -233,13 +233,13 @@ Blood Enmity						KEY:Duergar ~ Blood Enmity	CATEGORY:Special Ability	TYPE:Racia
 Daysighted							KEY:Duergar ~ Daysighted	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.DuergarRacialTrait.DuergarLightSensitivity.DuergarSuperiorDarkvision	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Duergar ~ Daysighted],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.DuergarLightSensitivity,TYPE.DuergarSuperiorDarkvision]	DESC:You lack light sensitivity, but only have darkvision to 60'.																																																																											BONUS:VAR|DarkvisionRange|60|TYPE=Base	BONUS:VAR|HasRacialVision|1	COST:0	SOURCEPAGE:p.186
 Deep Magic							KEY:Duergar ~ Deep Magic	CATEGORY:Special Ability	TYPE:DuergarRacialTrait.DuergarSLAInvisibility.DuergarSLAEnlargePerson.SpecialQuality						PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Duergar ~ Deep Magic],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.DuergarSLAInvisibility,TYPE.DuergarSLAEnlargePerson]	DESC:Duergar spellcasters labor long to overcome the inborn spell resistance held by so many of their underground foes. Duergar with this racial trait receive a +2 racial bonus on caster level checks made to overcome spell resistance and a +2 racial bonus on dispel checks. This racial trait replaces the enlarge person and invisibility spell-like abilities.																																						COST:0	SOURCEPAGE:p.186
 
-#Race Traits ~ Gillman
-Race Traits ~ Gillman										CATEGORY:Internal
-CATEGORY=Internal|Race Traits ~ Gillman.MOD																																																																																																																								ABILITY:Gillman Racial Trait|AUTOMATIC|Gillman ~ Swim Speed|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GillmanSwimSpeed
-CATEGORY=Internal|Race Traits ~ Gillman.MOD																																																																																																																								ABILITY:Gillman Racial Trait|AUTOMATIC|Gillman ~ Aquatic|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GillmanAquatic
-CATEGORY=Internal|Race Traits ~ Gillman.MOD																																																																																																																								ABILITY:Gillman Racial Trait|AUTOMATIC|Gillman ~ Enchantment Resistance|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GillmanEnchantmentResistance
-CATEGORY=Internal|Race Traits ~ Gillman.MOD																																																																																																																								ABILITY:Gillman Racial Trait|AUTOMATIC|Gillman ~ Amphibious|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GillmanAmphibious
-CATEGORY=Internal|Race Traits ~ Gillman.MOD																																																																																																																								ABILITY:Gillman Racial Trait|AUTOMATIC|Gillman ~ Water Dependent|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GillmanWaterDependent
+#Racial Traits ~ Gillman
+Racial Traits ~ Gillman										CATEGORY:Internal
+CATEGORY=Internal|Racial Traits ~ Gillman.MOD																																																																																																																								ABILITY:Gillman Racial Trait|AUTOMATIC|Gillman ~ Swim Speed|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GillmanSwimSpeed
+CATEGORY=Internal|Racial Traits ~ Gillman.MOD																																																																																																																								ABILITY:Gillman Racial Trait|AUTOMATIC|Gillman ~ Aquatic|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GillmanAquatic
+CATEGORY=Internal|Racial Traits ~ Gillman.MOD																																																																																																																								ABILITY:Gillman Racial Trait|AUTOMATIC|Gillman ~ Enchantment Resistance|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GillmanEnchantmentResistance
+CATEGORY=Internal|Racial Traits ~ Gillman.MOD																																																																																																																								ABILITY:Gillman Racial Trait|AUTOMATIC|Gillman ~ Amphibious|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GillmanAmphibious
+CATEGORY=Internal|Racial Traits ~ Gillman.MOD																																																																																																																								ABILITY:Gillman Racial Trait|AUTOMATIC|Gillman ~ Water Dependent|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GillmanWaterDependent
 
 ###Block: Default Gillman Abilities (POOL=5)
 # Ability Name		Unique Key						Category of Ability		Type															Multiple Requirements																								Description																												Template		Move			Source Page
@@ -281,13 +281,13 @@ Agile								KEY:Kitsune ~ Agile			CATEGORY:Special Ability	TYPE:RacialTraits.Sp
 Kitsune Magic						KEY:Kitsune ~ Kitsune Magic		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.KitsuneRacialTrait.KitsuneRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Kitsune ~ Kitsune Magic],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneMagic]			DEFINE:KitsuneSLATimes|0	SPELLS:Innate|TIMES=KitsuneSLATimes|CASTERLEVEL=TL|Dancing Lights|PRESTAT:1,CHA=11	DESC:Kitsune add +1 to the DC of any enchantment spells they cast.																											BONUS:DC|SCHOOL.Enchantment|1								BONUS:VAR|KitsuneSLATimes|3						SOURCEPAGE:p.192
 Natural Weapons						KEY:Kitsune ~ Natural Weapons		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.KitsuneRacialTrait.KitsuneRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Kitsune ~ Natural Weapons],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneNaturalWeapons]																					DESC:Kitsune have a bite attack in their natural form.																																																			SOURCEPAGE:p.192	NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d4
 
-#Race Traits ~ Kitsune
-Race Traits ~ Kitsune											CATEGORY:Internal																																																																													ABILITY:Internal|AUTOMATIC|Race Language ~ Default Setting|PREABILITY:1,CATEGORY=Internal,TYPE.RaceAlternativeLanguageSet
-CATEGORY=Internal|Race Traits ~ Kitsune.MOD																																																																																						ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Low-Light Vision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneLow-Light Vision
-CATEGORY=Internal|Race Traits ~ Kitsune.MOD																																																																																						ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Change Shape|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneChangeShape
-CATEGORY=Internal|Race Traits ~ Kitsune.MOD																																																																																						ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Agile|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneAgile
-CATEGORY=Internal|Race Traits ~ Kitsune.MOD																																																																																						ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Kitsune Magic|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneMagic
-CATEGORY=Internal|Race Traits ~ Kitsune.MOD																																																																																						ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Natural Weapons|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneNaturalWeapons
+#Racial Traits ~ Kitsune
+Racial Traits ~ Kitsune											CATEGORY:Internal																																																																													ABILITY:Internal|AUTOMATIC|Race Language ~ Default Setting|PREABILITY:1,CATEGORY=Internal,TYPE.RaceAlternativeLanguageSet
+CATEGORY=Internal|Racial Traits ~ Kitsune.MOD																																																																																						ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Low-Light Vision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneLow-Light Vision
+CATEGORY=Internal|Racial Traits ~ Kitsune.MOD																																																																																						ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Change Shape|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneChangeShape
+CATEGORY=Internal|Racial Traits ~ Kitsune.MOD																																																																																						ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Agile|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneAgile
+CATEGORY=Internal|Racial Traits ~ Kitsune.MOD																																																																																						ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Kitsune Magic|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneMagic
+CATEGORY=Internal|Racial Traits ~ Kitsune.MOD																																																																																						ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Natural Weapons|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneNaturalWeapons
 
 
 
@@ -299,12 +299,12 @@ Resistant							KEY:Nagaji ~ Resistant		CATEGORY:Special Ability	TYPE:NagajiRaci
 Serpent's Sense						KEY:Nagaji ~ Serpent's Sense	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.NagajiRacialTrait.NagajiRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Nagaji ~ Serpent's Sense],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.NagajiSerpentsSense]	DESC:Nagaji receive a +2 racial bonus on Handle Animal checks against reptiles, and a +2 racial bonus on Perception checks.																							BONUS:SITUATION|Handle Animal=reptiles|2|TYPE=Racial	BONUS:SKILL|Perception|2|TYPE=Racial								SOURCEPAGE:p.196
 
 
-#Race Traits ~ Nagaji
-Race Traits ~ Nagaji										CATEGORY:Internal
-CATEGORY=Internal|Race Traits ~ Nagaji.MOD																																																																							ABILITY:Nagaji Racial Trait|AUTOMATIC|Nagaji ~ Low-Light Vision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.NagajiLowLightVision
-CATEGORY=Internal|Race Traits ~ Nagaji.MOD																																																																							ABILITY:Nagaji Racial Trait|AUTOMATIC|Nagaji ~ Resistant|!PREABILITY:1,CATEGORY=Special Ability,TYPE.NagajiResistant
-CATEGORY=Internal|Race Traits ~ Nagaji.MOD																																																																							ABILITY:Nagaji Racial Trait|AUTOMATIC|Nagaji ~ Armored Scales|!PREABILITY:1,CATEGORY=Special Ability,TYPE.NagajiArmoredScales
-CATEGORY=Internal|Race Traits ~ Nagaji.MOD																																																																							ABILITY:Nagaji Racial Trait|AUTOMATIC|Nagaji ~ Serpent's Sense|!PREABILITY:1,CATEGORY=Special Ability,TYPE.NagajiSerpentsSense
+#Racial Traits ~ Nagaji
+Racial Traits ~ Nagaji										CATEGORY:Internal
+CATEGORY=Internal|Racial Traits ~ Nagaji.MOD																																																																							ABILITY:Nagaji Racial Trait|AUTOMATIC|Nagaji ~ Low-Light Vision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.NagajiLowLightVision
+CATEGORY=Internal|Racial Traits ~ Nagaji.MOD																																																																							ABILITY:Nagaji Racial Trait|AUTOMATIC|Nagaji ~ Resistant|!PREABILITY:1,CATEGORY=Special Ability,TYPE.NagajiResistant
+CATEGORY=Internal|Racial Traits ~ Nagaji.MOD																																																																							ABILITY:Nagaji Racial Trait|AUTOMATIC|Nagaji ~ Armored Scales|!PREABILITY:1,CATEGORY=Special Ability,TYPE.NagajiArmoredScales
+CATEGORY=Internal|Racial Traits ~ Nagaji.MOD																																																																							ABILITY:Nagaji Racial Trait|AUTOMATIC|Nagaji ~ Serpent's Sense|!PREABILITY:1,CATEGORY=Special Ability,TYPE.NagajiSerpentsSense
 
 ###Block: Alternate Nagaji Abilities
 # Ability Name	Unique Key				Category of Ability		Type								Multiple Requirements																					Description																																																														Cost		Source Page
@@ -319,12 +319,12 @@ Shards of the Past					KEY:Samsaran ~ Shards of the Past	CATEGORY:Special Abilit
 
 Shards of the Past Bonus										CATEGORY:Special Ability	TYPE:Internal.ShardsBonus							VISIBLE:DISPLAY																																																																						STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=Charisma|TYPE=Dexterity|TYPE=Intelligence|TYPE=Strength|TYPE=Wisdom	SELECT:2																														BONUS:SKILL|LIST|2|TYPE=Racial						CSKILL:LIST
 
-#Race Traits ~ Samsaran
-Race Traits ~ Samsaran											CATEGORY:Internal
-CATEGORY=Internal|Race Traits ~ Samsaran.MOD																																																																																																																				ABILITY:Samsaran Racial Trait|AUTOMATIC|Samsaran ~ Low-Light Vision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SamsaranLowLightVision
-CATEGORY=Internal|Race Traits ~ Samsaran.MOD																																																																																																																				ABILITY:Samsaran Racial Trait|AUTOMATIC|Samsaran ~ Lifebound|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SamsaranLifebound
-CATEGORY=Internal|Race Traits ~ Samsaran.MOD																																																																																																																				ABILITY:Samsaran Racial Trait|AUTOMATIC|Samsaran ~ Samsaran Magic|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SamsaranMagic
-CATEGORY=Internal|Race Traits ~ Samsaran.MOD																																																																																																																				ABILITY:Samsaran Racial Trait|AUTOMATIC|Samsaran ~ Shards of the Past|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SamsaranShardsOfThePast
+#Racial Traits ~ Samsaran
+Racial Traits ~ Samsaran											CATEGORY:Internal
+CATEGORY=Internal|Racial Traits ~ Samsaran.MOD																																																																																																																				ABILITY:Samsaran Racial Trait|AUTOMATIC|Samsaran ~ Low-Light Vision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SamsaranLowLightVision
+CATEGORY=Internal|Racial Traits ~ Samsaran.MOD																																																																																																																				ABILITY:Samsaran Racial Trait|AUTOMATIC|Samsaran ~ Lifebound|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SamsaranLifebound
+CATEGORY=Internal|Racial Traits ~ Samsaran.MOD																																																																																																																				ABILITY:Samsaran Racial Trait|AUTOMATIC|Samsaran ~ Samsaran Magic|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SamsaranMagic
+CATEGORY=Internal|Racial Traits ~ Samsaran.MOD																																																																																																																				ABILITY:Samsaran Racial Trait|AUTOMATIC|Samsaran ~ Shards of the Past|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SamsaranShardsOfThePast
 
 
 
@@ -395,13 +395,13 @@ Hatred						KEY:Strix ~ Hatred		CATEGORY:Special Ability	TYPE:RacialTraits.Speci
 Nocturnal						KEY:Strix ~ Nocturnal		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.StrixRacialTrait.StrixRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Strix ~ Nocturnal],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.StrixNocturnal]			DESC:Strix gain a +2 racial bonus on Perception and Stealth checks in dim light or darkness.																						BONUS:SITUATION|Perception=In dim light or darkness|2|TYPE=Racial	BONUS:SITUATION|Stealth=In dim light or darkness|2|TYPE=Racial												SOURCEPAGE:p.200
 Suspicious						KEY:Strix ~ Suspicious		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.StrixRacialTrait.StrixRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Strix ~ Suspicious],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.StrixSuspicious]			DESC:Strix gain a +2 racial bonus on saving throws against illusion spells and effects.																																																								SOURCEPAGE:p.200
 
-#Race Traits ~ Strix
-Race Traits ~ Strix									CATEGORY:Internal
-CATEGORY=Internal|Race Traits ~ Strix.MOD																																																																	ABILITY:Strix Racial Trait|AUTOMATIC|Strix ~ Low-Light Vision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.StrixLowLightVision
-CATEGORY=Internal|Race Traits ~ Strix.MOD																																																																	ABILITY:Strix Racial Trait|AUTOMATIC|Strix ~ Darkvision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.StrixDarkvision
-CATEGORY=Internal|Race Traits ~ Strix.MOD																																																																	ABILITY:Strix Racial Trait|AUTOMATIC|Strix ~ Hatred|!PREABILITY:1,CATEGORY=Special Ability,TYPE.StrixHatred
-CATEGORY=Internal|Race Traits ~ Strix.MOD																																																																	ABILITY:Strix Racial Trait|AUTOMATIC|Strix ~ Nocturnal|!PREABILITY:1,CATEGORY=Special Ability,TYPE.StrixNocturnal
-CATEGORY=Internal|Race Traits ~ Strix.MOD																																																																	ABILITY:Strix Racial Trait|AUTOMATIC|Strix ~ Suspicious|!PREABILITY:1,CATEGORY=Special Ability,TYPE.StrixSuspicious
+#Racial Traits ~ Strix
+Racial Traits ~ Strix									CATEGORY:Internal
+CATEGORY=Internal|Racial Traits ~ Strix.MOD																																																																	ABILITY:Strix Racial Trait|AUTOMATIC|Strix ~ Low-Light Vision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.StrixLowLightVision
+CATEGORY=Internal|Racial Traits ~ Strix.MOD																																																																	ABILITY:Strix Racial Trait|AUTOMATIC|Strix ~ Darkvision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.StrixDarkvision
+CATEGORY=Internal|Racial Traits ~ Strix.MOD																																																																	ABILITY:Strix Racial Trait|AUTOMATIC|Strix ~ Hatred|!PREABILITY:1,CATEGORY=Special Ability,TYPE.StrixHatred
+CATEGORY=Internal|Racial Traits ~ Strix.MOD																																																																	ABILITY:Strix Racial Trait|AUTOMATIC|Strix ~ Nocturnal|!PREABILITY:1,CATEGORY=Special Ability,TYPE.StrixNocturnal
+CATEGORY=Internal|Racial Traits ~ Strix.MOD																																																																	ABILITY:Strix Racial Trait|AUTOMATIC|Strix ~ Suspicious|!PREABILITY:1,CATEGORY=Special Ability,TYPE.StrixSuspicious
 
 ###Block: Alternate Strix Abilities
 # Ability Name	Unique Key				Category of Ability		Type											Multiple Requirements																			Description																		Add to base move			Save bonus					Bonus to skill						Modify VAR				Class Skill		Cost		Source Page
@@ -454,56 +454,56 @@ Shadow Resistance	KEY:Wayang ~ Shadow Resistance	CATEGORY:Special Ability	TYPE:W
 ###Block: Set up Wayang default abilities
 # Ability Name							Category of Ability	Ability
 
-#Race Traits ~ Wayang
+#Racial Traits ~ Wayang
 # Ability Name						Category of Ability	Ability
-Race Traits ~ Wayang					CATEGORY:Internal
-CATEGORY=Internal|Race Traits ~ Wayang.MOD					ABILITY:Wayang Racial Trait|AUTOMATIC|Wayang ~ Darkvision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.WayangDarkvision
-CATEGORY=Internal|Race Traits ~ Wayang.MOD					ABILITY:Wayang Racial Trait|AUTOMATIC|Wayang ~ Light and Dark|!PREABILITY:1,CATEGORY=Special Ability,TYPE.WayangLightAndDark
-CATEGORY=Internal|Race Traits ~ Wayang.MOD					ABILITY:Wayang Racial Trait|AUTOMATIC|Wayang ~ Lurker|!PREABILITY:1,CATEGORY=Special Ability,TYPE.WayangLurker
-CATEGORY=Internal|Race Traits ~ Wayang.MOD					ABILITY:Wayang Racial Trait|AUTOMATIC|Wayang ~ Shadow Magic|!PREABILITY:1,CATEGORY=Special Ability,TYPE.WayangShadowMagic
-CATEGORY=Internal|Race Traits ~ Wayang.MOD					ABILITY:Wayang Racial Trait|AUTOMATIC|Wayang ~ Shadow Resistance|!PREABILITY:1,CATEGORY=Special Ability,TYPE.WayangShadowResistance
+Racial Traits ~ Wayang					CATEGORY:Internal
+CATEGORY=Internal|Racial Traits ~ Wayang.MOD					ABILITY:Wayang Racial Trait|AUTOMATIC|Wayang ~ Darkvision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.WayangDarkvision
+CATEGORY=Internal|Racial Traits ~ Wayang.MOD					ABILITY:Wayang Racial Trait|AUTOMATIC|Wayang ~ Light and Dark|!PREABILITY:1,CATEGORY=Special Ability,TYPE.WayangLightAndDark
+CATEGORY=Internal|Racial Traits ~ Wayang.MOD					ABILITY:Wayang Racial Trait|AUTOMATIC|Wayang ~ Lurker|!PREABILITY:1,CATEGORY=Special Ability,TYPE.WayangLurker
+CATEGORY=Internal|Racial Traits ~ Wayang.MOD					ABILITY:Wayang Racial Trait|AUTOMATIC|Wayang ~ Shadow Magic|!PREABILITY:1,CATEGORY=Special Ability,TYPE.WayangShadowMagic
+CATEGORY=Internal|Racial Traits ~ Wayang.MOD					ABILITY:Wayang Racial Trait|AUTOMATIC|Wayang ~ Shadow Resistance|!PREABILITY:1,CATEGORY=Special Ability,TYPE.WayangShadowResistance
 
 ###Block: Alternate Wayang Abilities
 # Ability Name						Unique Key					Category of Ability		Type										Multiple Requirements																					Description																																																													Ability																			Cost		Source Page
 Dissolution's Child					KEY:Wayang ~ Dissolution's Child	CATEGORY:Special Ability	TYPE:WayangRacialTrait.WayangShadowMagic.SpecialQuality	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Wayang ~ Dissolution's Child],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.WayangShadowMagic]	DESC:Once per day, you may change your appearance to look as if you were little more than a 4-foot-tall area of shadow. Your physical form still exists and you are not incorporeal-only your appearance changes. This works like invisibility, except it only lasts 1 round per level (maximum 5 rounds). This is a supernatural ability. This racial trait replaces shadow magic.																					COST:0	SOURCEPAGE:p.210
 
 
-#Race Traits ~ Gathlain
+#Racial Traits ~ Gathlain
 # Ability Name						Unique Key					Category of Ability		Type										Multiple Requirements																					Description																																																													Ability																			Cost		Source Page
-Race Traits ~ Gathlain											CATEGORY:Internal
+Racial Traits ~ Gathlain											CATEGORY:Internal
 
-CATEGORY=Internal|Race Traits ~ Gathlain.MOD																																																																																																												ABILITY:Special Ability|AUTOMATIC|Gathlain ~ Gathlain Magic|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GathlainMagic
-CATEGORY=Internal|Race Traits ~ Gathlain.MOD																																																																																																												ABILITY:Special Ability|AUTOMATIC|Gathlain ~ Natural Armor|!PREABILITY:1,CATEGORY=Special Ability,TYPE.NaturalArmor
+CATEGORY=Internal|Racial Traits ~ Gathlain.MOD																																																																																																												ABILITY:Special Ability|AUTOMATIC|Gathlain ~ Gathlain Magic|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GathlainMagic
+CATEGORY=Internal|Racial Traits ~ Gathlain.MOD																																																																																																												ABILITY:Special Ability|AUTOMATIC|Gathlain ~ Natural Armor|!PREABILITY:1,CATEGORY=Special Ability,TYPE.NaturalArmor
 
 ###Block: Default Gathlain Abilities
 # Ability Name					Unique Key				Category of Ability		Type											Innate Spells								Description																												Ability																					Modify VAR						Source Page
-Gathlain Magic					KEY:Gathlain ~ Gathlain Magic	CATEGORY:Special Ability	TYPE:Gathlain Race Trait.SpecialQuality.GathlainRacialDefault	SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Entangle|Feather Step	DESC:Gathlains have a +1 natural armor bonus.																																																			SOURCEPAGE:p.230
-Natural Armor					KEY:Gathlain ~ Natural Armor	CATEGORY:Special Ability	TYPE:Gathlain Race Trait.SpecialQuality.GathlainRacialDefault											DESC:Gathlains can cast entangle and feather step APG each once per day as spell-like abilities. The caster level for each is equal to the gathlain’s character level.																							BONUS:VAR|AC_Natural_Armor|1|TYPE=Base	SOURCEPAGE:p.230
+Gathlain Magic					KEY:Gathlain ~ Gathlain Magic	CATEGORY:Special Ability	TYPE:Gathlain Racial Trait.SpecialQuality.GathlainRacialDefault	SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Entangle|Feather Step	DESC:Gathlains have a +1 natural armor bonus.																																																			SOURCEPAGE:p.230
+Natural Armor					KEY:Gathlain ~ Natural Armor	CATEGORY:Special Ability	TYPE:Gathlain Racial Trait.SpecialQuality.GathlainRacialDefault											DESC:Gathlains can cast entangle and feather step APG each once per day as spell-like abilities. The caster level for each is equal to the gathlain's character level.																							BONUS:VAR|AC_Natural_Armor|1|TYPE=Base	SOURCEPAGE:p.230
 
 
-#Race Traits ~ Trox
+#Racial Traits ~ Trox
 # Ability Name					Unique Key				Category of Ability		Type											Innate Spells								Description																												Ability																					Modify VAR						Source Page
-Race Traits ~ Trox									CATEGORY:Internal
+Racial Traits ~ Trox									CATEGORY:Internal
 
-CATEGORY=Internal|Race Traits ~ Trox.MOD																																																													ABILITY:Special Ability|AUTOMATIC|Trox ~ Burrow|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TroxBurrow
-CATEGORY=Internal|Race Traits ~ Trox.MOD																																																													ABILITY:Special Ability|AUTOMATIC|Trox ~ Frenzy|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TroxFrenzy
-CATEGORY=Internal|Race Traits ~ Trox.MOD																																																													ABILITY:Special Ability|AUTOMATIC|Trox ~ Grabbing Appendages|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TroxGrabbingAppendages
+CATEGORY=Internal|Racial Traits ~ Trox.MOD																																																													ABILITY:Special Ability|AUTOMATIC|Trox ~ Burrow|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TroxBurrow
+CATEGORY=Internal|Racial Traits ~ Trox.MOD																																																													ABILITY:Special Ability|AUTOMATIC|Trox ~ Frenzy|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TroxFrenzy
+CATEGORY=Internal|Racial Traits ~ Trox.MOD																																																													ABILITY:Special Ability|AUTOMATIC|Trox ~ Grabbing Appendages|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TroxGrabbingAppendages
 
 ###Block: Default Trox Abilities
 # Ability Name						Unique Key					Category of Ability		Type									Description																																	Move			Ability																		Source Page
-Burrow							KEY:Trox ~ Burrow				CATEGORY:Special Ability	TYPE:Trox Race Trait.SpecialQuality.TroxRacialDefault	DESC:Trox have a burrow speed of 20 feet.																												MOVE:Burrow,30																				SOURCEPAGE:p.234
-Frenzy							KEY:Trox ~ Frenzy				CATEGORY:Special Ability	TYPE:Trox Race Trait.SpecialQuality.TroxRacialDefault	DESC:Once per day when a trox takes damage, it flies into a frenzy for 1 minute, gaining a +2 racial bonus to Constitution and Strength, but a –2 penalty to their AC.																												SOURCEPAGE:p.234
-Grabbing Appendages					KEY:Trox ~ Grabbing Appendages	CATEGORY:Special Ability	TYPE:Trox Race Trait.SpecialQuality.TroxRacialDefault	DESC:A trox’s smaller arms are useful for little more than aiding it with grappling. Trox gain Improved Grapple as a bonus feat, and can maintain a grapple and still make attacks with their main arms.																							SOURCEPAGE:p.234
+Burrow							KEY:Trox ~ Burrow				CATEGORY:Special Ability	TYPE:Trox Racial Trait.SpecialQuality.TroxRacialDefault	DESC:Trox have a burrow speed of 20 feet.																												MOVE:Burrow,30																				SOURCEPAGE:p.234
+Frenzy							KEY:Trox ~ Frenzy				CATEGORY:Special Ability	TYPE:Trox Racial Trait.SpecialQuality.TroxRacialDefault	DESC:Once per day when a trox takes damage, it flies into a frenzy for 1 minute, gaining a +2 racial bonus to Constitution and Strength, but a -2 penalty to their AC.																												SOURCEPAGE:p.234
+Grabbing Appendages					KEY:Trox ~ Grabbing Appendages	CATEGORY:Special Ability	TYPE:Trox Racial Trait.SpecialQuality.TroxRacialDefault	DESC:A trox's smaller arms are useful for little more than aiding it with grappling. Trox gain Improved Grapple as a bonus feat, and can maintain a grapple and still make attacks with their main arms.																							SOURCEPAGE:p.234
 
 
-#Race Traits ~ Wyrwood
+#Racial Traits ~ Wyrwood
 # Ability Name						Unique Key					Category of Ability		Type									Description																																	Move			Ability																		Source Page
-Race Traits ~ Wyrwood											CATEGORY:Internal
-CATEGORY=Internal|Race Traits ~ Wyrwood.MOD																																																										ABILITY:Special Ability|AUTOMATIC|Wyrwood ~ Senses|!PREABILITY:1,CATEGORY=Special Ability,TYPE.WyrwoodSenses
+Racial Traits ~ Wyrwood											CATEGORY:Internal
+CATEGORY=Internal|Racial Traits ~ Wyrwood.MOD																																																										ABILITY:Special Ability|AUTOMATIC|Wyrwood ~ Senses|!PREABILITY:1,CATEGORY=Special Ability,TYPE.WyrwoodSenses
 
 ###Block: Default Wyrwood Abilities
 # Ability Name	Unique Key			Category of Ability		Type										Description												Modify VAR													Source Page
-Senses		KEY:Wyrwood ~ Senses	CATEGORY:Special Ability	TYPE:Wyrwood Race Trait.SpecialQuality.WyrwoodRacialDefault	DESC:Wyrwoods have low-light vision and can see in the dark up to 60 feet.	BONUS:VAR|DarkvisionRange|60|TYPE=Base	BONUS:VAR|HasLowlightVision|1|TYPE=Base	SOURCEPAGE:p.237
+Senses		KEY:Wyrwood ~ Senses	CATEGORY:Special Ability	TYPE:Wyrwood Racial Trait.SpecialQuality.WyrwoodRacialDefault	DESC:Wyrwoods have low-light vision and can see in the dark up to 60 feet.	BONUS:VAR|DarkvisionRange|60|TYPE=Base	BONUS:VAR|HasLowlightVision|1|TYPE=Base	SOURCEPAGE:p.237
 
 
 # ==============================
@@ -512,16 +512,16 @@ Senses		KEY:Wyrwood ~ Senses	CATEGORY:Special Ability	TYPE:Wyrwood Race Trait.Sp
 
 ###Block: Racial Abilities
 # Ability Name						Category of Ability	Define												Ability
-Race Traits ~ Wyvaran					CATEGORY:Internal
-CATEGORY=Internal|Race Traits ~ Wyvaran.MOD					DEFINE:Wyvaran_ReplaceAbilityScores|0							ABILITY:Wyvaran Racial Trait|AUTOMATIC|Wyvaran ~ Ability Scores|PREVAREQ:Wyvaran_ReplaceAbilityScores,0
-CATEGORY=Internal|Race Traits ~ Wyvaran.MOD					DEFINE:Wyvaran_ReplaceType|0									ABILITY:Wyvaran Racial Trait|AUTOMATIC|Wyvaran ~ Type|PREVAREQ:Wyvaran_ReplaceType,0
-CATEGORY=Internal|Race Traits ~ Wyvaran.MOD					DEFINE:Wyvaran_ReplaceSize|0									ABILITY:Wyvaran Racial Trait|AUTOMATIC|Wyvaran ~ Size|PREVAREQ:Wyvaran_ReplaceSize,0
-CATEGORY=Internal|Race Traits ~ Wyvaran.MOD					DEFINE:Wyvaran_ReplaceSpeed|0									ABILITY:Wyvaran Racial Trait|AUTOMATIC|Wyvaran ~ Speed|PREVAREQ:Wyvaran_ReplaceSpeed,0
-CATEGORY=Internal|Race Traits ~ Wyvaran.MOD					DEFINE:Wyvaran_ReplaceFlight|0								ABILITY:Wyvaran Racial Trait|AUTOMATIC|Wyvaran ~ Flight|PREVAREQ:Wyvaran_ReplaceFlight,0
-CATEGORY=Internal|Race Traits ~ Wyvaran.MOD					DEFINE:Wyvaran_ReplaceSlappingTail|0							ABILITY:Wyvaran Racial Trait|AUTOMATIC|Wyvaran ~ Slapping Tail|PREVAREQ:Wyvaran_ReplaceSlappingTail,0
-CATEGORY=Internal|Race Traits ~ Wyvaran.MOD					DEFINE:Wyvaran_ReplaceDarkvision|0								ABILITY:Wyvaran Racial Trait|AUTOMATIC|Wyvaran ~ Darkvision|PREVAREQ:Wyvaran_ReplaceDarkvision,0
-CATEGORY=Internal|Race Traits ~ Wyvaran.MOD					DEFINE:Wyvaran_ReplaceLowLightVision|0							ABILITY:Wyvaran Racial Trait|AUTOMATIC|Wyvaran ~ Low-Light Vision|PREVAREQ:Wyvaran_ReplaceLowLightVision,0
-CATEGORY=Internal|Race Traits ~ Wyvaran.MOD					DEFINE:Wyvaran_ReplaceLanguages|0	DEFINE:Wyvaran_ReplaceBaseLanguages|0	ABILITY:Wyvaran Racial Trait|AUTOMATIC|Wyvaran ~ Languages|PREVAREQ:Wyvaran_ReplaceLanguages,0
+Racial Traits ~ Wyvaran					CATEGORY:Internal
+CATEGORY=Internal|Racial Traits ~ Wyvaran.MOD					DEFINE:Wyvaran_ReplaceAbilityScores|0							ABILITY:Wyvaran Racial Trait|AUTOMATIC|Wyvaran ~ Ability Scores|PREVAREQ:Wyvaran_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Wyvaran.MOD					DEFINE:Wyvaran_ReplaceType|0									ABILITY:Wyvaran Racial Trait|AUTOMATIC|Wyvaran ~ Type|PREVAREQ:Wyvaran_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Wyvaran.MOD					DEFINE:Wyvaran_ReplaceSize|0									ABILITY:Wyvaran Racial Trait|AUTOMATIC|Wyvaran ~ Size|PREVAREQ:Wyvaran_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Wyvaran.MOD					DEFINE:Wyvaran_ReplaceSpeed|0									ABILITY:Wyvaran Racial Trait|AUTOMATIC|Wyvaran ~ Speed|PREVAREQ:Wyvaran_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Wyvaran.MOD					DEFINE:Wyvaran_ReplaceFlight|0								ABILITY:Wyvaran Racial Trait|AUTOMATIC|Wyvaran ~ Flight|PREVAREQ:Wyvaran_ReplaceFlight,0
+CATEGORY=Internal|Racial Traits ~ Wyvaran.MOD					DEFINE:Wyvaran_ReplaceSlappingTail|0							ABILITY:Wyvaran Racial Trait|AUTOMATIC|Wyvaran ~ Slapping Tail|PREVAREQ:Wyvaran_ReplaceSlappingTail,0
+CATEGORY=Internal|Racial Traits ~ Wyvaran.MOD					DEFINE:Wyvaran_ReplaceDarkvision|0								ABILITY:Wyvaran Racial Trait|AUTOMATIC|Wyvaran ~ Darkvision|PREVAREQ:Wyvaran_ReplaceDarkvision,0
+CATEGORY=Internal|Racial Traits ~ Wyvaran.MOD					DEFINE:Wyvaran_ReplaceLowLightVision|0							ABILITY:Wyvaran Racial Trait|AUTOMATIC|Wyvaran ~ Low-Light Vision|PREVAREQ:Wyvaran_ReplaceLowLightVision,0
+CATEGORY=Internal|Racial Traits ~ Wyvaran.MOD					DEFINE:Wyvaran_ReplaceLanguages|0	DEFINE:Wyvaran_ReplaceBaseLanguages|0	ABILITY:Wyvaran Racial Trait|AUTOMATIC|Wyvaran ~ Languages|PREVAREQ:Wyvaran_ReplaceLanguages,0
 
 ###Block: Racial Defaults
 # Ability Name					Unique Key					Category of Ability		Type																		Define					Description																													Template																								Move		Auto Language									Ability						Stat bonus										Modify VAR							Vision							Source, Long Desc.		Source, Short Desc.	Source URI														Source Page		Aspects									Source Pub. Date
@@ -1620,13 +1620,13 @@ Shadow Blend				KEY:Shadow Creature ~ Shadow Blend				CATEGORY:Special Ability	T
 
 ###Block: Racial Subtypes
 # Ability Name						Bonus Ability Pool
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD		BONUS:ABILITYPOOL|Dwarf Racial Subtype|1
-CATEGORY=Internal|Race Traits ~ Elf.MOD		BONUS:ABILITYPOOL|Elf Racial Subtype|1
-CATEGORY=Internal|Race Traits ~ Gnome.MOD		BONUS:ABILITYPOOL|Gnome Racial Subtype|1
-CATEGORY=Internal|Race Traits ~ Half-Elf.MOD	BONUS:ABILITYPOOL|Half-Elf Racial Subtype|1
-CATEGORY=Internal|Race Traits ~ Half-Orc.MOD	BONUS:ABILITYPOOL|Half-Orc Racial Subtype|1
-CATEGORY=Internal|Race Traits ~ Halfling.MOD	BONUS:ABILITYPOOL|Halfling Racial Subtype|1
-CATEGORY=Internal|Race Traits ~ Human.MOD		BONUS:ABILITYPOOL|Human Racial Subtype|1
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD		BONUS:ABILITYPOOL|Dwarf Racial Subtype|1
+CATEGORY=Internal|Racial Traits ~ Elf.MOD		BONUS:ABILITYPOOL|Elf Racial Subtype|1
+CATEGORY=Internal|Racial Traits ~ Gnome.MOD		BONUS:ABILITYPOOL|Gnome Racial Subtype|1
+CATEGORY=Internal|Racial Traits ~ Half-Elf.MOD	BONUS:ABILITYPOOL|Half-Elf Racial Subtype|1
+CATEGORY=Internal|Racial Traits ~ Half-Orc.MOD	BONUS:ABILITYPOOL|Half-Orc Racial Subtype|1
+CATEGORY=Internal|Racial Traits ~ Halfling.MOD	BONUS:ABILITYPOOL|Halfling Racial Subtype|1
+CATEGORY=Internal|Racial Traits ~ Human.MOD		BONUS:ABILITYPOOL|Human Racial Subtype|1
 
 ###Block: Selections
 # Ability Name	Unique Key							Category of Ability		Type								Description																																																																														Multiple?	Choose								Selections	Template				Ability																																				Bonus Ability Pool				Source Page

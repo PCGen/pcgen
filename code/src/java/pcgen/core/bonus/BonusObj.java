@@ -338,9 +338,6 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 		return stringRepresentation;
 	}
 
-	/**
-	 * @see Object#toString()
-	 */
 	@Override
 	public String toString()
 	{
@@ -536,9 +533,6 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 		}
 	}
 
-	/**
-	 * @see java.lang.Object#clone()
-	 */
 	@Override
 	public BonusObj clone() throws CloneNotSupportedException
 	{

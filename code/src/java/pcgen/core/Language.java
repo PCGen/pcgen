@@ -17,23 +17,18 @@
  */
 package pcgen.core;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.Ungranted;
-import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.list.LanguageList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
-import pcgen.facade.core.LanguageFacade;
 
 /**
  * {@code Language}.
  */
-public final class Language extends PObject implements Comparable<Object>, LanguageFacade, Ungranted, Cloneable
+public final class Language extends PObject implements Comparable<Object>, Ungranted, Cloneable
 {
 	public static final CDOMReference<LanguageList> STARTING_LIST;
 
@@ -104,17 +99,6 @@ public final class Language extends PObject implements Comparable<Object>, Langu
 	public int hashCode()
 	{
 		return getKeyName().hashCode();
-	}
-
-	@Override
-	public List<String> getTypes()
-	{
-		List<String> list = new ArrayList<>();
-		for (Type type : getTrueTypeList(false))
-		{
-			list.add(type.toString());
-		}
-		return list;
 	}
 
 	@Override

@@ -24,8 +24,6 @@ import java.util.Collection;
 import java.util.List;
 import java.util.StringTokenizer;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.base.format.StringManager;
 import pcgen.base.lang.UnreachableError;
@@ -62,6 +60,7 @@ import pcgen.persistence.lst.SimpleLoader;
 import pcgen.rules.context.LoadContext;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.pretokens.parser.PreVariableParser;
+
 import util.TestURI;
 
 
@@ -79,47 +78,6 @@ public class PCClassTest extends AbstractCharacterTestCase
 	PCClass prClass;
 	PCClass qClass;
 	PCClass nqClass;
-
-	/**
-	 * Constructs a new <code>PCClassTest</code>.
-	 *
-	 * @see pcgen.PCGenTestCase#PCGenTestCase()
-	 */
-	public PCClassTest()
-	{
-		// Do Nothing
-	}
-
-	/**
-	 * Constructs a new <code>PCClassTest</code> with the given <var>name</var>.
-	 *
-	 * @param name the test case name
-	 *
-	 * @see pcgen.PCGenTestCase#PCGenTestCase(String)
-	 */
-	public PCClassTest(final String name)
-	{
-		super(name);
-	}
-
-	/**
-	 * Run the test
-	 * @param args
-	 */
-	public static void main(final String[] args)
-	{
-		junit.textui.TestRunner.run(PCClassTest.class);
-	}
-
-	/**
-	 * Returns all test methods in this class.
-	 * @return A <tt>TestSuite</tt>
-	 */
-	public static Test suite()
-	{
-		// quick method, adds all methods beginning with "test"
-		return new TestSuite(PCClassTest.class);
-	}
 
 	/**
 	 * Test name change
@@ -189,7 +147,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		// Craete a huge bugbear first level
 		bugbear = new PlayerCharacter();
 		bugbear.setRace(bigBugbearRace);
-		assertEquals("big bugbear", "L", bugbear.getDisplay().getSize());
+		assertEquals("big bugbear", "L", bugbear.getSizeAdjustment().getKeyName());
 		setPCStat(bugbear, intel, 10);
 		bugbear.incrementClassLevel(1, humanoidClass);
 		// Test skills granted for each level
@@ -210,7 +168,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		// Create a nymph - first level
 		PlayerCharacter nymph = new PlayerCharacter();
 		nymph.setRace(nymphRace);
-		assertEquals("nymph", "M", nymph.getDisplay().getSize());
+		assertEquals("nymph", "M", nymph.getSizeAdjustment().getKeyName());
 		setPCStat(nymph, intel, 10);
 		nymph.incrementClassLevel(1, nymphClass);
 		// Test skills granted for each level

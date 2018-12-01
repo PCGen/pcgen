@@ -17,9 +17,11 @@
  */
 package pcgen.io.exporttoken;
 
+import static org.hamcrest.Matchers.closeTo;
+import static org.junit.Assert.assertThat;
+
 import java.util.List;
-import junit.framework.Test;
-import junit.framework.TestSuite;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
@@ -32,25 +34,15 @@ import pcgen.util.TestHelper;
 import pcgen.util.enumeration.Visibility;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
+import org.junit.Assert;
+
 /**
- * <code>AbilityListTokenTest</code> tests the functioning of the ABILITYLIST 
+ * {@code AbilityListTokenTest} tests the functioning of the ABILITYLIST
  * token processing code. 
  */
 public class AbilityListTokenTest extends AbstractCharacterTestCase
 {
 
-	/**
-	 * Quick test suite creation - adds all methods beginning with "test"
-	 * @return The Test suite
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(AbilityListTokenTest.class);
-	}
-
-	/*
-	 * @see TestCase#setUp()
-	 */
     @Override
 	protected void setUp() throws Exception
 	{
@@ -118,7 +110,6 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 	 */
 	public void testCount()
 	{
-//		verbose = true;
 		PlayerCharacter character = getCharacter();
 
 		AbilityCategory featCategory = 
@@ -136,31 +127,38 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
         addAbility(featCategory, ab6);
 
 
-		is(character.getVariableValue("count(\"ABILITIES\",\"CATEGORY=FEAT\",\"VISIBILITY=DEFAULT\")", ""),
-			eq(4.0, 0.1), "count(\"ABILITIES\",\"CATEGORY=FEAT\",\"VISIBILITY=DEFAULT\")");
+        assertThat(
+		(double) character.getVariableValue("count(\"ABILITIES\",\"CATEGORY=FEAT\",\"VISIBILITY=DEFAULT\")", ""),
+            closeTo(4.0, 0.1));
 
-		is(character.getVariableValue(
-			"count(\"ABILITIES\",\"CATEGORY=FEAT\",\"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY\")", ""),
-			eq(5.0, 0.1), "count(\"ABILITIES\",\"CATEGORY=FEAT\",\"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY\")");
+		assertThat(
+				(double) character.getVariableValue("count(\"ABILITIES\",\"CATEGORY=FEAT\","
+						+ "\"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY\")", ""),
+				closeTo(5.0, 0.1));
 
-		is(character.getVariableValue(
-			"count(\"ABILITIES\",\"CATEGORY=FEAT[and]TYPE=Fighter\",\"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY\")",
-			""), eq(2.0, 0.1),
-			"count(\"ABILITIES\",\"CATEGORY=FEAT[and]TYPE=Fighter\",\"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY\")");
+		assertThat(
+				(double) character.getVariableValue("count(\"ABILITIES\",\"CATEGORY=FEAT[and]TYPE=Fighter\",\"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY\")", ""),
+				closeTo(2.0, 0.1));
 
-		is(character.getVariableValue("count(\"ABILITIES\",\"CATEGORY=BARDIC[and]TYPE=Bardic.General\")", ""),
-			eq(1.0, 0.1), "count(\"ABILITIES\",\"CATEGORY=BARDIC[and]TYPE=Bardic.General\")");
+		assertThat(
+				(double) character.getVariableValue("count(\"ABILITIES\",\"CATEGORY=BARDIC[and]TYPE=Bardic.General\")", ""),
+				closeTo(1.0, 0.1));
 
-		is(character.getVariableValue("count(\"ABILITIES\",\"NATURE=AUTOMATIC\")", ""), eq(0.0, 0.1),
-			"count(\"ABILITIES\",\"NATURE=AUTOMATIC\")");
+		assertThat(
+				(double) character.getVariableValue("count(\"ABILITIES\",\"NATURE=AUTOMATIC\")", ""),
+				closeTo(0.0, 0.1));
 
-		is(character.getVariableValue("count(\"ABILITIES\",\"NATURE=VIRTUAL\")", ""), eq(0.0, 0.1),
-			"count(\"ABILITIES\",\"NATURE=VIRTUAL\")");
+		assertThat(
+				(double) character.getVariableValue("count(\"ABILITIES\",\"NATURE=VIRTUAL\")", ""),
+				closeTo(0.0, 0.1));
 
-		is(character.getVariableValue("count(\"ABILITIES\",\"NATURE=NORMAL\")", ""), eq(6.0, 0.1),
-			"count(\"ABILITIES\",\"NATURE=NORMAL\")");
+		assertThat(
+				(double) character.getVariableValue("count(\"ABILITIES\",\"NATURE=NORMAL\")", ""),
+				closeTo(6.0, 0.1));
 
-		is(character.getVariableValue("count(\"ABILITIES\")", ""), eq(6.0, 0.1), "count(\"ABILITIES\")");
+		assertThat(
+				(double) character.getVariableValue("count(\"ABILITIES\")", ""),
+				closeTo(6.0, 0.1));
 	}
 
 	/**
@@ -174,15 +172,15 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 				"|FOR,%feat,0,count(\"ABILITIES\",\"CATEGORY=FEAT\",\"VISIBILITY=VISIBLE\")-1,1,0|";
 
 		List<String> result = ExportHandler.getParameters(testStr);
-		assertEquals("Complex split len", 6, result.size());
-		assertEquals("Complex split combined token 0", "|FOR", result.get(0));
-		assertEquals("Complex split combined token 1", "%feat", result.get(1));
-		assertEquals("Complex split combined token 2", "0", result.get(2));
-		assertEquals("Complex split combined token 3",
+		Assert.assertEquals("Complex split len", 6, result.size());
+		Assert.assertEquals("Complex split combined token 0", "|FOR", result.get(0));
+		Assert.assertEquals("Complex split combined token 1", "%feat", result.get(1));
+		Assert.assertEquals("Complex split combined token 2", "0", result.get(2));
+		Assert.assertEquals("Complex split combined token 3",
 			"count(\"ABILITIES\",\"CATEGORY=FEAT\",\"VISIBILITY=VISIBLE\")-1",
 			result.get(3));
-		assertEquals("Complex split combined token 4", "1", result.get(4));
-		assertEquals("Complex split combined token 5", "0|", result.get(5));
+		Assert.assertEquals("Complex split combined token 4", "1", result.get(4));
+		Assert.assertEquals("Complex split combined token 5", "0|", result.get(5));
 	}
 
 	public void testForNodeSplitNonJEP()
@@ -191,6 +189,6 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 				"|FOR,%equip1,0,(COUNT[EQUIPMENT.MERGELOC.Not.Coin.NOT.Gem]-1)/2,1,0|";
 
 		List<String> result = ExportHandler.getParameters(testStr);
-		assertEquals("Complex split len", 6, result.size());
+		Assert.assertEquals("Complex split len", 6, result.size());
 	}
 }

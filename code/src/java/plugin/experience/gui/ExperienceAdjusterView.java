@@ -44,7 +44,7 @@ import plugin.experience.ExperienceAdjusterModel;
  * The View for the Experience Adjuster.  This view is independant and will be
  * created by the {@code ExperienceAdjusterController}.  The view is
  * implemented as a {@code JPanel} so it can be added to the
- * {@code JTabbedPane} of the <code>GMGenSystemView</code>.<br>
+ * {@code JTabbedPane} of the {@code GMGenSystemView}.<br>
  */
 // TODO use multi column list rather than a single line
 public class ExperienceAdjusterView extends JPanel

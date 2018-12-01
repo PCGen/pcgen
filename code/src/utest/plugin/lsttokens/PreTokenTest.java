@@ -47,7 +47,13 @@ public class PreTokenTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Override
-	public CDOMPrimaryToken<ConcretePrereqObject> getToken()
+	public CDOMPrimaryToken<ConcretePrereqObject> getReadToken()
+	{
+		return token;
+	}
+
+	@Override
+	public CDOMPrimaryToken<ConcretePrereqObject> getWriteToken()
 	{
 		return token;
 	}

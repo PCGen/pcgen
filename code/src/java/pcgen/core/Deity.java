@@ -17,26 +17,14 @@
  */
 package pcgen.core;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
-
-import pcgen.base.util.Indirect;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.enumeration.FactSetKey;
-import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.list.DomainList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
-import pcgen.cdom.reference.CDOMSingleRef;
-import pcgen.facade.core.DeityFacade;
 
 /**
  * {@code Deity}.
  */
-public final class Deity extends PObject implements DeityFacade
+public final class Deity extends PObject
 {
 	public static final CDOMReference<DomainList> DOMAINLIST;
 
@@ -45,53 +33,5 @@ public final class Deity extends PObject implements DeityFacade
 		DomainList wpl = new DomainList();
 		wpl.setName("*Domains");
 		DOMAINLIST = CDOMDirectSingleRef.getRef(wpl);
-	}
-
-	@Override
-	public List<String> getDomainNames()
-	{
-		List<String> domains = new ArrayList<>();
-		for (CDOMReference<Domain> ref : getSafeListMods(Deity.DOMAINLIST))
-		{
-			for (Domain d : ref.getContainedObjects())
-			{
-				domains.add(String.valueOf(d));
-			}
-		}
-		return domains;
-	}
-
-	@Override
-	public PCAlignment getAlignment()
-	{
-		CDOMSingleRef<PCAlignment> ref = get(ObjectKey.ALIGNMENT);
-		if (ref == null)
-		{
-			return null;
-		}
-		return ref.get();
-	}
-
-	@Override
-	public Collection<String> getPantheons()
-	{
-		Set<String> charDeityPantheon = new TreeSet<>();
-		FactSetKey<String> fk = FactSetKey.valueOf("Pantheon");
-		for (Indirect<String> indirect : getSafeSetFor(fk))
-		{
-			charDeityPantheon.add(indirect.get());
-		}
-		return charDeityPantheon;
-	}
-
-	/**
-	 * Indicates if this is the "UNSELECTED" Deity for the loaded GameMode.
-	 * 
-	 * @return true if this is the "Unselected" Deity; false otherwise
-	 */
-	public boolean isUnselected()
-	{
-		return getSafeListFor(ListKey.GROUP).stream()
-			.filter(s -> "Unselected".equalsIgnoreCase(s)).findFirst().isPresent();
 	}
 }

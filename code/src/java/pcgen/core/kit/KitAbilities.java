@@ -63,13 +63,6 @@ public final class KitAbilities extends BaseKit
 		free = argFree;
 	}
 
-	/**
-	 * Returns a string representation of the object.
-	 *
-	 * @return  the string representation of the object
-	 *
-	 * @see     Object#toString()
-	 */
 	@Override
 	public String toString()
 	{
@@ -250,7 +243,7 @@ public final class KitAbilities extends BaseKit
 
 	/**
 	 * Returns if the skill will be purchased for free.
-	 * @return <code>true</code> if the skill will be free
+	 * @return {@code true} if the skill will be free
 	 */
 	public boolean isFree()
 	{

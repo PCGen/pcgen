@@ -3,9 +3,10 @@ package pcgen.core;
 import java.util.ArrayList;
 import java.util.List;
 
-import junit.framework.TestCase;
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.FormulaFactory;
+
+import junit.framework.TestCase;
 
 public class SpellProgressionCacheTest extends TestCase
 {

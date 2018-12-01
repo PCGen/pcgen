@@ -18,8 +18,6 @@
 
 package pcgen.core;
 
-import org.junit.Test;
-
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.ListKey;
@@ -31,8 +29,10 @@ import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
+import org.junit.Test;
+
 /**
- * <code>StatListTest</code> checks the function of the 
+ * {@code StatListTest} checks the function of the
  * StatList class. 
  */
 public class StatListTest extends AbstractCharacterTestCase

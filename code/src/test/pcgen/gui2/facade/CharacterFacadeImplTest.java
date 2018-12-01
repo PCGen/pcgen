@@ -27,7 +27,7 @@ import pcgen.core.character.EquipSet;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
- * The Class <code>CharacterFacadeImplTest</code> verifies the behaviour of 
+ * The Class {@code CharacterFacadeImplTest} verifies the behaviour of
  * CharacterFacadeImpl.
  *
  * <br/>

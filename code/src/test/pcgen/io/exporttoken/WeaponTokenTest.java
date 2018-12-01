@@ -60,7 +60,7 @@ import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
- * <code>WeaponTokenTest</code> contains tests to verify that the
+ * {@code WeaponTokenTest} contains tests to verify that the
  * WEAPON token is working correctly.
  */
 

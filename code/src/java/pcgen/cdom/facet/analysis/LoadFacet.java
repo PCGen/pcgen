@@ -24,7 +24,7 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.BonusCheckingFacet;
 import pcgen.cdom.facet.FormulaResolvingFacet;
-import pcgen.cdom.facet.model.SizeFacet;
+import pcgen.cdom.facet.PlayerCharacterTrackingFacet;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SizeAdjustment;
 import pcgen.util.enumeration.Load;
@@ -41,7 +41,7 @@ public class LoadFacet
 
 	private FormulaResolvingFacet formulaResolvingFacet;
 	private TotalWeightFacet totalWeightFacet;
-	private SizeFacet sizeFacet;
+	private PlayerCharacterTrackingFacet pcFacet;
 	private BonusCheckingFacet bonusCheckingFacet;
 
 	/**
@@ -131,7 +131,7 @@ public class LoadFacet
 	 */
 	private double getLoadMultForSize(CharID id)
 	{
-		SizeAdjustment sadj = sizeFacet.get(id);
+		SizeAdjustment sadj = pcFacet.getPC(id).getSizeAdjustment();
 		double mult = SettingsHandler.getGame().getLoadInfo().getSizeAdjustment(sadj).doubleValue();
 		mult += bonusCheckingFacet.getBonus(id, "LOADMULT", "TYPE=SIZE");
 		return mult;
@@ -147,9 +147,9 @@ public class LoadFacet
 		this.totalWeightFacet = totalWeightFacet;
 	}
 
-	public void setSizeFacet(SizeFacet sizeFacet)
+	public void setPlayerCharacterTrackingFacet(PlayerCharacterTrackingFacet pcFacet)
 	{
-		this.sizeFacet = sizeFacet;
+		this.pcFacet = pcFacet;
 	}
 
 	public void setBonusCheckingFacet(BonusCheckingFacet bonusCheckingFacet)

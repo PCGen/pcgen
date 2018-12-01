@@ -17,38 +17,22 @@
  */
 package pcgen.core.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Deity;
 import pcgen.core.PlayerCharacter;
-import pcgen.output.channel.ChannelCompatibility;
+import pcgen.output.channel.compat.AlignmentCompat;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
- * <code>PreAlignTest</code> tests that the PREALIGN tag is
+ * {@code PreAlignTest} tests that the PREALIGN tag is
  * working correctly.
  */
 public class PreAlignTest extends AbstractCharacterTestCase
 {
 	private Deity deity;
-
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreAlignTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreAlignTest.class);
-	}
 
 	/**
 	 * Test that negative (!) alignment checks work correctly in Align tests.
@@ -58,7 +42,7 @@ public class PreAlignTest extends AbstractCharacterTestCase
 	public void testNegative() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
-		ChannelCompatibility.setCurrentAlignment(character.getCharID(), ng);
+		AlignmentCompat.setCurrentAlignment(character.getCharID(), ng);
 
 		Prerequisite prereq;
 
@@ -82,7 +66,7 @@ public class PreAlignTest extends AbstractCharacterTestCase
 	public void testAbbrev() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
-		ChannelCompatibility.setCurrentAlignment(character.getCharID(), ng);
+		AlignmentCompat.setCurrentAlignment(character.getCharID(), ng);
 
 		Prerequisite prereq = new Prerequisite();
 		prereq.setKind("align");
@@ -118,7 +102,7 @@ public class PreAlignTest extends AbstractCharacterTestCase
 	public void testDeity() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
-		ChannelCompatibility.setCurrentAlignment(character.getCharID(), ng);
+		AlignmentCompat.setCurrentAlignment(character.getCharID(), ng);
 		character.setDeity(deity);
 		assertEquals("Deity should have been set for character.", deity,
 			character.getDeity());
@@ -129,7 +113,7 @@ public class PreAlignTest extends AbstractCharacterTestCase
 		assertTrue("Number 3 should match deity's alignment of NG",
 			PrereqHandler.passes(prereq, character, null));
 
-		ChannelCompatibility.setCurrentAlignment(character.getCharID(), cg);
+		AlignmentCompat.setCurrentAlignment(character.getCharID(), cg);
 
 		assertFalse("Number 6 should not match deity's alignment of NG",
 			PrereqHandler.passes(prereq, character, null));
@@ -138,7 +122,7 @@ public class PreAlignTest extends AbstractCharacterTestCase
 	public void testMulti() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
-		ChannelCompatibility.setCurrentAlignment(character.getCharID(), ng);
+		AlignmentCompat.setCurrentAlignment(character.getCharID(), ng);
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		Prerequisite prereq = factory.parse("PREALIGN:LE,NG,NE");

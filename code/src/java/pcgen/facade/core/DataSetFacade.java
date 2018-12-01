@@ -20,7 +20,13 @@ package pcgen.facade.core;
 
 import java.util.List;
 
+import pcgen.core.BodyStructure;
+import pcgen.core.Deity;
 import pcgen.core.PCAlignment;
+import pcgen.core.PCStat;
+import pcgen.core.PCTemplate;
+import pcgen.core.SizeAdjustment;
+import pcgen.core.Skill;
 import pcgen.facade.core.generator.StatGenerationFacade;
 import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.MapFacade;
@@ -42,15 +48,15 @@ public interface DataSetFacade
 	 */
 	public List<AbilityFacade> getPrereqAbilities(AbilityFacade abilityFacade);
 
-	public ListFacade<SkillFacade> getSkills();
+	public ListFacade<Skill> getSkills();
 
 	public ListFacade<RaceFacade> getRaces();
 
 	public ListFacade<ClassFacade> getClasses();
 
-	public ListFacade<DeityFacade> getDeities();
+	public ListFacade<Deity> getDeities();
 
-	public ListFacade<TemplateFacade> getTemplates();
+	public ListFacade<PCTemplate> getTemplates();
 
 	public ListFacade<CampaignFacade> getCampaigns();
 
@@ -58,11 +64,11 @@ public interface DataSetFacade
 
 	public ListFacade<PCAlignment> getAlignments();
 
-	public ListFacade<StatFacade> getStats();
+	public ListFacade<PCStat> getStats();
 
 	public ListFacade<StatGenerationFacade> getStatGenerators();
 
-	public SkillFacade getSpeakLanguageSkill();
+	public Skill getSpeakLanguageSkill();
 
 	public ListFacade<EquipmentFacade> getEquipment();
 
@@ -72,7 +78,7 @@ public interface DataSetFacade
 	 */
 	public void addEquipment(EquipmentFacade equip);
 
-	public ListFacade<BodyStructureFacade> getEquipmentLocations();
+	public ListFacade<BodyStructure> getEquipmentLocations();
 
 	public ListFacade<String> getXPTableNames();
 
@@ -91,7 +97,7 @@ public interface DataSetFacade
 	/**
 	 * @return The list of sizes
 	 */
-	public ListFacade<SizeAdjustmentFacade> getSizes();
+	public ListFacade<SizeAdjustment> getSizes();
 
 	/**
 	 * Update the equipment list from the global equipment list. 

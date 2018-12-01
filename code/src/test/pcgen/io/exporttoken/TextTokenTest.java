@@ -27,7 +27,7 @@ import pcgen.io.ExportHandler;
 import plugin.exporttokens.TextToken;
 
 /**
- * <code>TextTokenTest</code> tests the functioning of the TEXT 
+ * {@code TextTokenTest} tests the functioning of the TEXT
  * token processing code. 
  */
 public class TextTokenTest extends AbstractCharacterTestCase

@@ -8,9 +8,6 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -36,26 +33,6 @@ import plugin.pretokens.parser.PreVariableParser;
  */
 public class PreVarTest extends AbstractCharacterTestCase
 {
-
-	/**
-	 * Main
-	 * 
-	 * @param args
-	 */
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreVarTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreVarTest.class);
-	}
-
-	
 	/**
 	 * Test var pass.
 	 *

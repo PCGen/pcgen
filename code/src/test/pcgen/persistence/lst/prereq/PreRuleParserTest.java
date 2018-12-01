@@ -28,7 +28,7 @@ import pcgen.persistence.PersistenceLayerException;
 import plugin.pretokens.parser.PreRuleParser;
 
 /**
- * <code>PreRuleParserTest</code> is ...
+ * {@code PreRuleParserTest} is ...
  */
 @SuppressWarnings("nls")
 public class PreRuleParserTest extends EnUsLocaleDependentTestCase

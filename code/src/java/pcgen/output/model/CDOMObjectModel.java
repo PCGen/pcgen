@@ -67,9 +67,6 @@ public class CDOMObjectModel implements TemplateHashModel, TemplateScalarModel
 		this.cdo = cdo;
 	}
 
-	/**
-	 * @see freemarker.template.TemplateHashModel#get(java.lang.String)
-	 */
 	@Override
 	public TemplateModel get(String key) throws TemplateModelException
 	{
@@ -95,9 +92,6 @@ public class CDOMObjectModel implements TemplateHashModel, TemplateScalarModel
 		return actor.process(id, obj);
 	}
 
-	/**
-	 * @see freemarker.template.TemplateHashModel#isEmpty()
-	 */
 	@Override
 	public boolean isEmpty() throws TemplateModelException
 	{
@@ -105,9 +99,6 @@ public class CDOMObjectModel implements TemplateHashModel, TemplateScalarModel
 		return false;
 	}
 
-	/**
-	 * @see freemarker.template.TemplateScalarModel#getAsString()
-	 */
 	@Override
 	public String getAsString() throws TemplateModelException
 	{

@@ -17,10 +17,7 @@
  */
 package pcgen.cdom.enumeration;
 
-import pcgen.facade.core.HandedFacade;
 import pcgen.system.LanguageBundle;
-
-import java.util.Arrays;
 
 /**
  * Represents the handedness available in PCGen.
@@ -29,7 +26,7 @@ import java.util.Arrays;
  * quickly compared and use less memory when identical Handedness exist in two
  * CDOMObjects.
  */
-public enum Handed implements HandedFacade
+public enum Handed
 {
 	Right
 	{
@@ -75,27 +72,4 @@ public enum Handed implements HandedFacade
 			return LanguageBundle.getString("in_comboOther");
 		}
 	};
-
-	public static Handed getDefaultValue()
-	{
-		return Right;
-	}
-
-	/**
-	 * Retrieve a Handed object to match the name ({@link #name()}) or localized name
-	 * (output by {@link #toString()}). The localized lookup is kept for legacy purpose
-	 * when the localized name was saved in the character files (instead of the
-	 * {@link #name()}).
-	 * 
-	 * @param name
-	 *            The localized display name of the Gender.
-	 * @return The matching Gender.
-	 */
-	public static Handed getHandedByName(String name)
-	{
-		return Arrays.stream(values())
-				.filter(hand -> hand.toString().equals(name))
-				.findFirst()
-				.orElse(valueOf(name));
-	}
 }

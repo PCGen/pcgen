@@ -43,7 +43,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 
 /**
- * <code>SkillTokenTest</code> contains tests to verify that the
+ * {@code SkillTokenTest} contains tests to verify that the
  * SKILL token and its subtokens are working correctly.
  */
 

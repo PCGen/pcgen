@@ -20,10 +20,10 @@ package pcgen.gui2.tabs.summary;
 
 import javax.swing.JEditorPane;
 
+import pcgen.core.PCStat;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.CharacterLevelFacade;
 import pcgen.facade.core.GameModeFacade;
-import pcgen.facade.core.StatFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
 import pcgen.facade.util.event.ReferenceEvent;
@@ -96,7 +96,7 @@ public class InfoPaneHandler implements ReferenceListener<Object>, ListListener<
 		{
 			character.getAlignmentRef().addReferenceListener(this);
 		}
-		for (StatFacade stat : character.getDataSet().getStats())
+		for (PCStat stat : character.getDataSet().getStats())
 		{
 			character.getScoreBaseRef(stat).addReferenceListener(this);
 		}
@@ -123,45 +123,30 @@ public class InfoPaneHandler implements ReferenceListener<Object>, ListListener<
 		support.uninstall();
 	}
 
-	/**
-	 * @see pcgen.facade.util.event.ReferenceListener#referenceChanged(ReferenceEvent)
-	 */
 	@Override
 	public void referenceChanged(ReferenceEvent<Object> e)
 	{
 		scheduleRefresh();
 	}
 
-	/**
-	 * @see pcgen.facade.util.event.ListListener#elementAdded(ListEvent)
-	 */
 	@Override
 	public void elementAdded(ListEvent<CharacterLevelFacade> e)
 	{
 		scheduleRefresh();
 	}
 
-	/**
-	 * @see pcgen.facade.util.event.ListListener#elementRemoved(ListEvent)
-	 */
 	@Override
 	public void elementRemoved(ListEvent<CharacterLevelFacade> e)
 	{
 		scheduleRefresh();
 	}
 
-	/**
-	 * @see pcgen.facade.util.event.ListListener#elementModified(ListEvent)
-	 */
 	@Override
 	public void elementModified(ListEvent<CharacterLevelFacade> e)
 	{
 		scheduleRefresh();
 	}
 
-	/**
-	 * @see pcgen.facade.util.event.ListListener#elementsChanged(ListEvent)
-	 */
 	@Override
 	public void elementsChanged(ListEvent<CharacterLevelFacade> e)
 	{

@@ -97,11 +97,6 @@ class OptionHandler extends DefaultHandler
 		theList = aList;
 	}
 
-	/**
-	 * @throws SAXException 
-	 * 
-	 * @see DefaultHandler#startElement(String, String, String, Attributes)
-	 */
 	@Override
 	public void startElement(final String uri, final String localName, final String aName, final Attributes anAttrs)
 		throws SAXException

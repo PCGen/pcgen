@@ -15,7 +15,7 @@ Black Butterfly	NAMEISPI:YES	DOMAINS:Chaos,Good,Liberation,Void|PREALIGN:NG,CG,C
 Ragathiel		NAMEISPI:YES	DOMAINS:Destruction,Good,Law,Nobility|PREALIGN:LG,LN,NG		DESC:Empyreal lord of chivalry, duty, vengeance				FACT:Title|General of Vengeance	FACT:Symbol|Sword crossed with wing						FACTSET:Animal|Mastiff		FACTSET:Colors|Crimson|Gold	FACTSET:Pantheon|Empyreal Lords	DEITYWEAP:Sword (Bastard)	ALIGN:LG	SOURCEPAGE:p.114
 ###Block:Great Old Ones
 Rhan-Tegoth		NAMEISPI:YES	DOMAINS:Chaos,Evil,Repose,Void|PREALIGN:NE,CN,CE			DESC:Great Old One of hibernation, immortality, and ruin		FACT:Title|Herald of the End Times	FACT:Symbol|Three black stars																	FACTSET:Pantheon|Great Old Ones	DEITYWEAP:Sickle			ALIGN:CE	SOURCEPAGE:p.146
-Tawil at’Umr	NAMEISPI:YES	DOMAINS:Chaos,Knowledge,Travel,Void|PREALIGN:CG,TN,CN,CE																			FACT:Symbol|Black spiral inside of a hexagon														FACTSET:Pantheon|Great Old Ones	DEITYWEAP:Dagger			ALIGN:CN	SOURCEPAGE:p.148
+Tawil at'Umr	NAMEISPI:YES	DOMAINS:Chaos,Knowledge,Travel,Void|PREALIGN:CG,TN,CN,CE																			FACT:Symbol|Black spiral inside of a hexagon														FACTSET:Pantheon|Great Old Ones	DEITYWEAP:Dagger			ALIGN:CN	SOURCEPAGE:p.148
 Yig			NAMEISPI:YES	DOMAINS:Chaos,Community,Protection,Scalykind|PREALIGN:CG,TN,CN,CE	DESC:Great Old One of cycles, procreation, and serpents		FACT:Title|Father of Serpents		FACT:Symbol|Coiled serpent with a crescent mark on its head												FACTSET:Pantheon|Great Old Ones	DEITYWEAP:Dagger (Punching)	ALIGN:CN	SOURCEPAGE:p.150
 ###Block: Horsemen
 Apollyon		NAMEISPI:YES	DOMAINS:Air,Darkness,Destruction,Evil|PREALIGN:TN,LE,NE,CE		DESC:Horseman of pestilence							FACT:Title|Prince of Locusts		FACT:Symbol|Diseased yellow scythe						FACTSET:Animal|Horse|Rat	FACTSET:Colors|White		FACTSET:Pantheon|Horsemen		DEITYWEAP:Scythe			ALIGN:NE	SOURCEPAGE:p.160
@@ -44,7 +44,7 @@ Black Butterfly.MOD	DOMAINS:Azata Subdomain (Chaos),Azata Subdomain (Good),Freed
 Ragathiel.MOD		DOMAINS:Archon Subdomain (Good),Archon Subdomain (Law),Judgment Subdomain,Martyr Subdomain,Rage Subdomain|PREALIGN:LG,LN,NG
 ###Block:Great Old Ones
 Rhan-Tegoth.MOD		DOMAINS:Ancestors Subdomain,Dark Tapestry Subdomain,Entropy Subdomain,Stars Subdomain|PREALIGN:NE,CN,CE
-Tawil at’Umr.MOD		DOMAINS:Dark Tapestry Subdomain,Exploration Subdomain,Night Subdomain,Stars Subdomain|PREALIGN:CG,TN,CN,CE
+Tawil at'Umr.MOD		DOMAINS:Dark Tapestry Subdomain,Exploration Subdomain,Night Subdomain,Stars Subdomain|PREALIGN:CG,TN,CN,CE
 Yig.MOD			DOMAINS:Defense Subdomain,Dragon Subdomain,Revelry Subdomain,Venom Subdomain|PREALIGN:CG,TN,CN,CE
 # Horsemen
 Apollyon.MOD		DOMAINS:Catastrophe Subdomain,Daemon Subdomain,Loss Subdomain,Night Subdomain|PREALIGN:TN,LE,NE,CE

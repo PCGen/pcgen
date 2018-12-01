@@ -17,9 +17,6 @@
  */
 package pcgen.core.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
@@ -34,25 +31,12 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
 
 /**
- * <code>PreAttTest</code> tests that the PREATT tag is
+ * {@code PreAttTest} tests that the PREATT tag is
  * working correctly.
  */
 public class PreAttTest extends AbstractCharacterTestCase
 {
 	PCClass myClass = new PCClass();
-
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreAttTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreAttTest.class);
-	}
 
 	/**
 	 * Test the PREATT code.

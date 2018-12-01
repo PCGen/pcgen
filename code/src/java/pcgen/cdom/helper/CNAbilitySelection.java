@@ -213,9 +213,6 @@ public class CNAbilitySelection extends ConcretePrereqObject implements Qualifyi
 		return false;
 	}
 
-	/**
-	 * @see pcgen.cdom.base.Reducible#getCDOMObject()
-	 */
 	@Override
 	public CDOMObject getCDOMObject()
 	{

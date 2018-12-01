@@ -42,20 +42,14 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.facade.core.AbilityCategoryFacade;
 import pcgen.facade.core.AbilityFacade;
-import pcgen.facade.core.BodyStructureFacade;
 import pcgen.facade.core.CampaignFacade;
 import pcgen.facade.core.ClassFacade;
 import pcgen.facade.core.DataSetFacade;
-import pcgen.facade.core.DeityFacade;
 import pcgen.facade.core.EquipmentFacade;
 import pcgen.facade.core.GameModeFacade;
 import pcgen.facade.core.GearBuySellFacade;
 import pcgen.facade.core.KitFacade;
 import pcgen.facade.core.RaceFacade;
-import pcgen.facade.core.SizeAdjustmentFacade;
-import pcgen.facade.core.SkillFacade;
-import pcgen.facade.core.StatFacade;
-import pcgen.facade.core.TemplateFacade;
 import pcgen.facade.core.generator.StatGenerationFacade;
 import pcgen.facade.util.AbstractMapFacade;
 import pcgen.facade.util.DefaultListFacade;
@@ -69,23 +63,23 @@ public class DataSet implements DataSetFacade
 
 	private final DefaultListFacade<RaceFacade> races;
 	private final DefaultListFacade<ClassFacade> classes;
-	private final DefaultListFacade<DeityFacade> deities;
-	private final DefaultListFacade<SkillFacade> skills;
-	private final DefaultListFacade<TemplateFacade> templates;
+	private final DefaultListFacade<Deity> deities;
+	private final DefaultListFacade<Skill> skills;
+	private final DefaultListFacade<PCTemplate> templates;
 	private final DefaultListFacade<PCAlignment> alignments;
 	private final DefaultListFacade<KitFacade> kits;
-	private final DefaultListFacade<StatFacade> stats;
+	private final DefaultListFacade<PCStat> stats;
 	private final AbilityMap abilityMap;
 	private final LoadContext context;
 	private final GameMode gameMode;
 	private final ListFacade<CampaignFacade> campaigns;
-	private SkillFacade speakLanguageSkill = null;
-	private final DefaultListFacade<BodyStructureFacade> bodyStructures;
+	private Skill speakLanguageSkill = null;
+	private final DefaultListFacade<BodyStructure> bodyStructures;
 	private final DefaultListFacade<EquipmentFacade> equipment;
 	private final DefaultListFacade<String> xpTableNames;
 	private DefaultListFacade<GearBuySellFacade> gearBuySellSchemes;
 	private final DefaultListFacade<String> characterTypes;
-	private final DefaultListFacade<SizeAdjustmentFacade> sizes;
+	private final DefaultListFacade<SizeAdjustment> sizes;
 
 	public DataSet(LoadContext context, GameMode gameMode, ListFacade<CampaignFacade> campaigns)
 	{
@@ -321,7 +315,7 @@ public class DataSet implements DataSetFacade
 	}
 
 	@Override
-	public ListFacade<SkillFacade> getSkills()
+	public ListFacade<Skill> getSkills()
 	{
 		return skills;
 	}
@@ -339,13 +333,13 @@ public class DataSet implements DataSetFacade
 	}
 
 	@Override
-	public ListFacade<DeityFacade> getDeities()
+	public ListFacade<Deity> getDeities()
 	{
 		return deities;
 	}
 
 	@Override
-	public ListFacade<TemplateFacade> getTemplates()
+	public ListFacade<PCTemplate> getTemplates()
 	{
 		return templates;
 	}
@@ -369,7 +363,7 @@ public class DataSet implements DataSetFacade
 	}
 
 	@Override
-	public ListFacade<StatFacade> getStats()
+	public ListFacade<PCStat> getStats()
 	{
 		return stats;
 	}
@@ -381,20 +375,19 @@ public class DataSet implements DataSetFacade
 	}
 
 	@Override
-	public SkillFacade getSpeakLanguageSkill()
+	public Skill getSpeakLanguageSkill()
 	{
 		if (speakLanguageSkill != null)
 		{
 			return speakLanguageSkill;
 		}
 
-		for (SkillFacade aSkillFacade : skills)
+		for (Skill aSkill : skills)
 		{
-			Skill aSkill = (Skill) aSkillFacade;
 			ChooseInformation<?> chooseInfo = aSkill.get(ObjectKey.CHOOSE_INFO);
 			if ((chooseInfo != null) && "LANG".equals(chooseInfo.getName()))
 			{
-				speakLanguageSkill = aSkillFacade;
+				speakLanguageSkill = aSkill;
 			}
 		}
 
@@ -402,7 +395,7 @@ public class DataSet implements DataSetFacade
 	}
 
 	@Override
-	public ListFacade<BodyStructureFacade> getEquipmentLocations()
+	public ListFacade<BodyStructure> getEquipmentLocations()
 	{
 		return bodyStructures;
 	}
@@ -678,7 +671,7 @@ public class DataSet implements DataSetFacade
 	}
 
 	@Override
-	public ListFacade<SizeAdjustmentFacade> getSizes()
+	public ListFacade<SizeAdjustment> getSizes()
 	{
 		return sizes;
 	}

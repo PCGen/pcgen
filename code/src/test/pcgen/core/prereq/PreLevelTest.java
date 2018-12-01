@@ -17,9 +17,6 @@
  */
 package pcgen.core.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.LevelCommandFactory;
@@ -39,26 +36,13 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
 
 /**
- * <code>PreLevelTest</code> tests that the PRELEVEL tag is
+ * {@code PreLevelTest} tests that the PRELEVEL tag is
  * working correctly.
  */
 public class PreLevelTest extends AbstractCharacterTestCase
 {
 	private PCClass myClass = new PCClass();
 	private Race race = new Race();
-
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreLevelTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreLevelTest.class);
-	}
 
 	/**
 	 * Test that Level works.

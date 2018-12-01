@@ -27,7 +27,7 @@ import pcgen.rules.context.LoadContext;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
- * <code>PreFactTest</code> tests that the PREFACT tag is
+ * {@code PreFactTest} tests that the PREFACT tag is
  * working correctly.
  */
 public class PreFactTest extends AbstractCharacterTestCase

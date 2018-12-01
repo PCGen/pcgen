@@ -201,24 +201,12 @@ public class ChoiceSet<T> extends ConcretePrereqObject implements SelectableSet<
 		return pcs.getGroupingState();
 	}
 
-	/**
-	 * Returns the consistent-with-equals hashCode for this ChoiceSet
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{
 		return setName.hashCode() ^ pcs.hashCode();
 	}
 
-	/**
-	 * Returns true if this ChoiceSet is equal to the given Object. Equality is
-	 * defined as being another ChoiceSet object with an equal name and equal
-	 * underlying PrimitiveChoiceSet.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{

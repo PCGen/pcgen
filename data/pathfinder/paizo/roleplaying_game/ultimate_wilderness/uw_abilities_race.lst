@@ -32,14 +32,14 @@ Leshy Traits	KEY:Traits Output ~ Leshy (PC)	CATEGORY:Special Ability	TYPE:Specia
 
 ###Block: Racial Abilities
 # Ability Name						Category of Ability	Define							Ability
-Race Traits ~ Gathlain					CATEGORY:Internal
-CATEGORY=Internal|Race Traits ~ Gathlain.MOD					DEFINE:Gathlain_ReplaceAbilityScores|0		ABILITY:Gathlain Racial Trait|AUTOMATIC|Gathlain ~ Ability Scores|PREVAREQ:Gathlain_ReplaceAbilityScores,0
-CATEGORY=Internal|Race Traits ~ Gathlain.MOD					DEFINE:Gathlain_ReplaceSize|0				ABILITY:Gathlain Racial Trait|AUTOMATIC|Gathlain ~ Size|PREVAREQ:Gathlain_ReplaceSize,0
-CATEGORY=Internal|Race Traits ~ Gathlain.MOD					DEFINE:Gathlain_ReplaceSpeed|0			ABILITY:Gathlain Racial Trait|AUTOMATIC|Gathlain ~ Speed|PREVAREQ:Gathlain_ReplaceSpeed,0
-CATEGORY=Internal|Race Traits ~ Gathlain.MOD					DEFINE:Gathlain_ReplaceVision|0			ABILITY:Gathlain Racial Trait|AUTOMATIC|Gathlain ~ Vision|PREVAREQ:Gathlain_ReplaceVision,0
-CATEGORY=Internal|Race Traits ~ Gathlain.MOD					DEFINE:Gathlain_ReplaceNaturalArmor|0		ABILITY:Gathlain Racial Trait|AUTOMATIC|Gathlain ~ Natural Armor|PREVAREQ:Gathlain_ReplaceNaturalArmor,0
-CATEGORY=Internal|Race Traits ~ Gathlain.MOD					DEFINE:Gathlain_ReplaceSpellLikeAbilities|0	ABILITY:Gathlain Racial Trait|AUTOMATIC|Gathlain ~ Spell-Like Abilities|PREVAREQ:Gathlain_ReplaceSpellLikeAbilities,0
-CATEGORY=Internal|Race Traits ~ Gathlain.MOD					DEFINE:Gathlain_ReplaceLanguages|0			ABILITY:Gathlain Racial Trait|AUTOMATIC|Gathlain ~ Languages|PREVAREQ:Gathlain_ReplaceLanguages,0
+Racial Traits ~ Gathlain					CATEGORY:Internal
+CATEGORY=Internal|Racial Traits ~ Gathlain.MOD					DEFINE:Gathlain_ReplaceAbilityScores|0		ABILITY:Gathlain Racial Trait|AUTOMATIC|Gathlain ~ Ability Scores|PREVAREQ:Gathlain_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Gathlain.MOD					DEFINE:Gathlain_ReplaceSize|0				ABILITY:Gathlain Racial Trait|AUTOMATIC|Gathlain ~ Size|PREVAREQ:Gathlain_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Gathlain.MOD					DEFINE:Gathlain_ReplaceSpeed|0			ABILITY:Gathlain Racial Trait|AUTOMATIC|Gathlain ~ Speed|PREVAREQ:Gathlain_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Gathlain.MOD					DEFINE:Gathlain_ReplaceVision|0			ABILITY:Gathlain Racial Trait|AUTOMATIC|Gathlain ~ Vision|PREVAREQ:Gathlain_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Gathlain.MOD					DEFINE:Gathlain_ReplaceNaturalArmor|0		ABILITY:Gathlain Racial Trait|AUTOMATIC|Gathlain ~ Natural Armor|PREVAREQ:Gathlain_ReplaceNaturalArmor,0
+CATEGORY=Internal|Racial Traits ~ Gathlain.MOD					DEFINE:Gathlain_ReplaceSpellLikeAbilities|0	ABILITY:Gathlain Racial Trait|AUTOMATIC|Gathlain ~ Spell-Like Abilities|PREVAREQ:Gathlain_ReplaceSpellLikeAbilities,0
+CATEGORY=Internal|Racial Traits ~ Gathlain.MOD					DEFINE:Gathlain_ReplaceLanguages|0			ABILITY:Gathlain Racial Trait|AUTOMATIC|Gathlain ~ Languages|PREVAREQ:Gathlain_ReplaceLanguages,0
 
 ###Block: Racial Defaults
 # Ability Name						Unique Key					Category of Ability		Type																		Innate Spells																								Description																																														Template																									Auto Language		Stat bonus														Modify VAR						Source Page
@@ -70,19 +70,19 @@ Slow Speed				KEY:Gathlain ~ Tree-Born Speed		CATEGORY:Special Ability	TYPE:Raci
 
 ###Block: Racial Abilities
 # Ability Name						Category of Ability	Define						Ability
-Race Traits ~ Ghoran					CATEGORY:Internal
-CATEGORY=Internal|Race Traits ~ Ghoran.MOD					DEFINE:Ghoran_ReplaceAbilityScores|0	ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ Ability Scores|PREVAREQ:Ghoran_ReplaceAbilityScores,0
-CATEGORY=Internal|Race Traits ~ Ghoran.MOD					DEFINE:Ghoran_ReplaceSize|0			ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ Size|PREVAREQ:Ghoran_ReplaceSize,0
-CATEGORY=Internal|Race Traits ~ Ghoran.MOD					DEFINE:Ghoran_ReplaceSpeed|0			ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ Speed|PREVAREQ:Ghoran_ReplaceSpeed,0
-CATEGORY=Internal|Race Traits ~ Ghoran.MOD					DEFINE:Ghoran_ReplaceNaturalArmor|0		ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ Natural Armor|PREVAREQ:Ghoran_ReplaceNaturalArmor,0
-CATEGORY=Internal|Race Traits ~ Ghoran.MOD					DEFINE:Ghoran_ReplaceType|0			ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ Type|PREVAREQ:Ghoran_ReplaceType,0
-CATEGORY=Internal|Race Traits ~ Ghoran.MOD					DEFINE:Ghoran_ReplaceDelicious|0		ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ Delicious|PREVAREQ:Ghoran_ReplaceDelicious,0
-CATEGORY=Internal|Race Traits ~ Ghoran.MOD					DEFINE:Ghoran_ReplaceNaturalMagic|0		ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ Natural Magic|PREVAREQ:Ghoran_ReplaceNaturalMagic,0
-CATEGORY=Internal|Race Traits ~ Ghoran.MOD					DEFINE:Ghoran_ReplaceSeed|0			ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ Seed|PREVAREQ:Ghoran_ReplaceSeed,0
-CATEGORY=Internal|Race Traits ~ Ghoran.MOD					DEFINE:Ghoran_ReplaceLightDependent|0	ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ Light Dependent|PREVAREQ:Ghoran_ReplaceLightDependent,0
-CATEGORY=Internal|Race Traits ~ Ghoran.MOD					DEFINE:Ghoran_ReplaceVision|0			ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ Vision|PREVAREQ:Ghoran_ReplaceVision,0
-CATEGORY=Internal|Race Traits ~ Ghoran.MOD					DEFINE:Ghoran_ReplacePastLifeKnowledge|0	ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ Past-Life Knowledge|PREVAREQ:Ghoran_ReplacePastLifeKnowledge,0
-CATEGORY=Internal|Race Traits ~ Ghoran.MOD					DEFINE:Ghoran_ReplaceLanguages|0		ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ Languages|PREVAREQ:Ghoran_ReplaceLanguages,0
+Racial Traits ~ Ghoran					CATEGORY:Internal
+CATEGORY=Internal|Racial Traits ~ Ghoran.MOD					DEFINE:Ghoran_ReplaceAbilityScores|0	ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ Ability Scores|PREVAREQ:Ghoran_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Ghoran.MOD					DEFINE:Ghoran_ReplaceSize|0			ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ Size|PREVAREQ:Ghoran_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Ghoran.MOD					DEFINE:Ghoran_ReplaceSpeed|0			ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ Speed|PREVAREQ:Ghoran_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Ghoran.MOD					DEFINE:Ghoran_ReplaceNaturalArmor|0		ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ Natural Armor|PREVAREQ:Ghoran_ReplaceNaturalArmor,0
+CATEGORY=Internal|Racial Traits ~ Ghoran.MOD					DEFINE:Ghoran_ReplaceType|0			ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ Type|PREVAREQ:Ghoran_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Ghoran.MOD					DEFINE:Ghoran_ReplaceDelicious|0		ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ Delicious|PREVAREQ:Ghoran_ReplaceDelicious,0
+CATEGORY=Internal|Racial Traits ~ Ghoran.MOD					DEFINE:Ghoran_ReplaceNaturalMagic|0		ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ Natural Magic|PREVAREQ:Ghoran_ReplaceNaturalMagic,0
+CATEGORY=Internal|Racial Traits ~ Ghoran.MOD					DEFINE:Ghoran_ReplaceSeed|0			ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ Seed|PREVAREQ:Ghoran_ReplaceSeed,0
+CATEGORY=Internal|Racial Traits ~ Ghoran.MOD					DEFINE:Ghoran_ReplaceLightDependent|0	ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ Light Dependent|PREVAREQ:Ghoran_ReplaceLightDependent,0
+CATEGORY=Internal|Racial Traits ~ Ghoran.MOD					DEFINE:Ghoran_ReplaceVision|0			ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ Vision|PREVAREQ:Ghoran_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Ghoran.MOD					DEFINE:Ghoran_ReplacePastLifeKnowledge|0	ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ Past-Life Knowledge|PREVAREQ:Ghoran_ReplacePastLifeKnowledge,0
+CATEGORY=Internal|Racial Traits ~ Ghoran.MOD					DEFINE:Ghoran_ReplaceLanguages|0		ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ Languages|PREVAREQ:Ghoran_ReplaceLanguages,0
 
 
 ###Block: Racial Defaults
@@ -116,20 +116,20 @@ Spelleater			KEY:Ghoran ~ Spelleater			CATEGORY:Special Ability	TYPE:RacialTrait
 
 ###Block: Racial Abilities
 # Ability Name						Category of Ability	Define							Ability
-Race Traits ~ Vine Leshy				CATEGORY:Internal
-CATEGORY=Internal|Race Traits ~ Vine Leshy.MOD					DEFINE:VineLeshy_ReplaceAbilityScores|0		ABILITY:Vine Leshy Racial Trait|AUTOMATIC|Vine Leshy ~ Ability Scores|PREVAREQ:VineLeshy_ReplaceAbilityScores,0
-CATEGORY=Internal|Race Traits ~ Vine Leshy.MOD					DEFINE:VineLeshy_ReplaceType|0			ABILITY:Vine Leshy Racial Trait|AUTOMATIC|Vine Leshy ~ Type|PREVAREQ:VineLeshy_ReplaceType,0
-CATEGORY=Internal|Race Traits ~ Vine Leshy.MOD					DEFINE:VineLeshy_ReplaceSize|0			ABILITY:Vine Leshy Racial Trait|AUTOMATIC|Vine Leshy ~ Size|PREVAREQ:VineLeshy_ReplaceSize,0
-CATEGORY=Internal|Race Traits ~ Vine Leshy.MOD					DEFINE:VineLeshy_ReplaceSpeed|0			ABILITY:Vine Leshy Racial Trait|AUTOMATIC|Vine Leshy ~ Speed|PREVAREQ:VineLeshy_ReplaceSpeed,0
-CATEGORY=Internal|Race Traits ~ Vine Leshy.MOD					DEFINE:VineLeshy_ReplaceLowLightVision|0		ABILITY:Vine Leshy Racial Trait|AUTOMATIC|Vine Leshy ~ Vision/Low-Light|PREVAREQ:VineLeshy_ReplaceLowLightVision,0
-CATEGORY=Internal|Race Traits ~ Vine Leshy.MOD					DEFINE:VineLeshy_ReplaceDarkvision|0		ABILITY:Vine Leshy Racial Trait|AUTOMATIC|Vine Leshy ~ Vision/Darkvision|PREVAREQ:VineLeshy_ReplaceDarkvision,0
-CATEGORY=Internal|Race Traits ~ Vine Leshy.MOD					DEFINE:VineLeshy_ReplacePasswithoutTrace|0	ABILITY:Vine Leshy Racial Trait|AUTOMATIC|Vine Leshy ~ Pass without Trace|PREVAREQ:VineLeshy_ReplacePasswithoutTrace,0
-CATEGORY=Internal|Race Traits ~ Vine Leshy.MOD					DEFINE:VineLeshy_ReplaceChangeShape|0		ABILITY:Vine Leshy Racial Trait|AUTOMATIC|Vine Leshy ~ Change Shape|PREVAREQ:VineLeshy_ReplaceChangeShape,0
-CATEGORY=Internal|Race Traits ~ Vine Leshy.MOD					DEFINE:VineLeshy_ReplacePlantspeech|0		ABILITY:Vine Leshy Racial Trait|AUTOMATIC|Vine Leshy ~ Plantspeech|PREVAREQ:VineLeshy_ReplacePlantspeech,0
-CATEGORY=Internal|Race Traits ~ Vine Leshy.MOD					DEFINE:VineLeshy_ReplaceVerdantBurst|0		ABILITY:Vine Leshy Racial Trait|AUTOMATIC|Vine Leshy ~ Verdant Burst|PREVAREQ:VineLeshy_ReplaceVerdantBurst,0
-CATEGORY=Internal|Race Traits ~ Vine Leshy.MOD					DEFINE:VineLeshy_ReplaceUnassumingFoliage|0	ABILITY:Vine Leshy Racial Trait|AUTOMATIC|Vine Leshy ~ Unassuming Foliage|PREVAREQ:VineLeshy_ReplaceUnassumingFoliage,0
-CATEGORY=Internal|Race Traits ~ Vine Leshy.MOD					DEFINE:VineLeshy_ReplaceClimber|0			ABILITY:Vine Leshy Racial Trait|AUTOMATIC|Vine Leshy ~ Climber|PREVAREQ:VineLeshy_ReplaceClimber,0
-CATEGORY=Internal|Race Traits ~ Vine Leshy.MOD					DEFINE:VineLeshy_ReplaceLanguages|0			ABILITY:Vine Leshy Racial Trait|AUTOMATIC|Vine Leshy ~ Languages|PREVAREQ:VineLeshy_ReplaceLanguages,0
+Racial Traits ~ Vine Leshy				CATEGORY:Internal
+CATEGORY=Internal|Racial Traits ~ Vine Leshy.MOD					DEFINE:VineLeshy_ReplaceAbilityScores|0		ABILITY:Vine Leshy Racial Trait|AUTOMATIC|Vine Leshy ~ Ability Scores|PREVAREQ:VineLeshy_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Vine Leshy.MOD					DEFINE:VineLeshy_ReplaceType|0			ABILITY:Vine Leshy Racial Trait|AUTOMATIC|Vine Leshy ~ Type|PREVAREQ:VineLeshy_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Vine Leshy.MOD					DEFINE:VineLeshy_ReplaceSize|0			ABILITY:Vine Leshy Racial Trait|AUTOMATIC|Vine Leshy ~ Size|PREVAREQ:VineLeshy_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Vine Leshy.MOD					DEFINE:VineLeshy_ReplaceSpeed|0			ABILITY:Vine Leshy Racial Trait|AUTOMATIC|Vine Leshy ~ Speed|PREVAREQ:VineLeshy_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Vine Leshy.MOD					DEFINE:VineLeshy_ReplaceLowLightVision|0		ABILITY:Vine Leshy Racial Trait|AUTOMATIC|Vine Leshy ~ Vision/Low-Light|PREVAREQ:VineLeshy_ReplaceLowLightVision,0
+CATEGORY=Internal|Racial Traits ~ Vine Leshy.MOD					DEFINE:VineLeshy_ReplaceDarkvision|0		ABILITY:Vine Leshy Racial Trait|AUTOMATIC|Vine Leshy ~ Vision/Darkvision|PREVAREQ:VineLeshy_ReplaceDarkvision,0
+CATEGORY=Internal|Racial Traits ~ Vine Leshy.MOD					DEFINE:VineLeshy_ReplacePasswithoutTrace|0	ABILITY:Vine Leshy Racial Trait|AUTOMATIC|Vine Leshy ~ Pass without Trace|PREVAREQ:VineLeshy_ReplacePasswithoutTrace,0
+CATEGORY=Internal|Racial Traits ~ Vine Leshy.MOD					DEFINE:VineLeshy_ReplaceChangeShape|0		ABILITY:Vine Leshy Racial Trait|AUTOMATIC|Vine Leshy ~ Change Shape|PREVAREQ:VineLeshy_ReplaceChangeShape,0
+CATEGORY=Internal|Racial Traits ~ Vine Leshy.MOD					DEFINE:VineLeshy_ReplacePlantspeech|0		ABILITY:Vine Leshy Racial Trait|AUTOMATIC|Vine Leshy ~ Plantspeech|PREVAREQ:VineLeshy_ReplacePlantspeech,0
+CATEGORY=Internal|Racial Traits ~ Vine Leshy.MOD					DEFINE:VineLeshy_ReplaceVerdantBurst|0		ABILITY:Vine Leshy Racial Trait|AUTOMATIC|Vine Leshy ~ Verdant Burst|PREVAREQ:VineLeshy_ReplaceVerdantBurst,0
+CATEGORY=Internal|Racial Traits ~ Vine Leshy.MOD					DEFINE:VineLeshy_ReplaceUnassumingFoliage|0	ABILITY:Vine Leshy Racial Trait|AUTOMATIC|Vine Leshy ~ Unassuming Foliage|PREVAREQ:VineLeshy_ReplaceUnassumingFoliage,0
+CATEGORY=Internal|Racial Traits ~ Vine Leshy.MOD					DEFINE:VineLeshy_ReplaceClimber|0			ABILITY:Vine Leshy Racial Trait|AUTOMATIC|Vine Leshy ~ Climber|PREVAREQ:VineLeshy_ReplaceClimber,0
+CATEGORY=Internal|Racial Traits ~ Vine Leshy.MOD					DEFINE:VineLeshy_ReplaceLanguages|0			ABILITY:Vine Leshy Racial Trait|AUTOMATIC|Vine Leshy ~ Languages|PREVAREQ:VineLeshy_ReplaceLanguages,0
 
 ###Block: Racial Defaults
 # Ability Name						Unique Key					Category of Ability		Type																			Description																																																																													Template																																							Auto Language		Ability										Bonus to Situation						Bonus to skill				Stat bonus														Modify VAR						Source Page		INFO

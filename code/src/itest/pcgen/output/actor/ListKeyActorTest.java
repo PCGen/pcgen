@@ -18,39 +18,31 @@
 package pcgen.output.actor;
 
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.facet.model.DeityFacet;
-import pcgen.core.Deity;
+import pcgen.cdom.facet.model.RaceFacet;
+import pcgen.core.Race;
 import pcgen.output.publish.OutputDB;
 import pcgen.output.testsupport.AbstractOutputTestCase;
 import pcgen.output.wrapper.CDOMObjectWrapper;
 
+import org.junit.BeforeClass;
+import org.junit.Test;
+
 public class ListKeyActorTest extends AbstractOutputTestCase
 {
 
-	private static final DeityFacet DF = new DeityFacet();
+	private static final RaceFacet DF = new RaceFacet();
 
-	private static boolean classSetUpRun = false;
-
-	@Override
-	protected void setUp() throws Exception
-	{
-		super.setUp();
-		if (!classSetUpRun)
-		{
-			classSetUp();
-			classSetUpRun = true;
-		}
-	}
-
-	private void classSetUp()
+	@BeforeClass
+	public static void classSetUp()
 	{
 		OutputDB.reset();
 		DF.init();
 	}
 
+	@Test
 	public void testListKeyActor()
 	{
-		Deity d = new Deity();
+		Race d = new Race();
 		d.setName("Bob");
 		String expectedResult1 = "Magical";
 		String expectedResult2 = "Long";
@@ -59,16 +51,17 @@ public class ListKeyActorTest extends AbstractOutputTestCase
 		d.addToListFor(ListKey.BOOK_TYPE, expectedResult2);
 		ListKeyActor lka = new ListKeyActor(ListKey.BOOK_TYPE);
 		CDOMObjectWrapper.load(dsid, d.getClass(), "booktype", lka);
-		processThroughFreeMarker("${deity.booktype[0]}", expectedResult1);
-		processThroughFreeMarker("${deity.booktype[1]}", expectedResult2);
+		processThroughFreeMarker("${race.booktype[0]}", expectedResult1);
+		processThroughFreeMarker("${race.booktype[1]}", expectedResult2);
 	}
 
+	@Test
 	public void testListKeyActorMissingSafe()
 	{
 		ListKeyActor lka = new ListKeyActor(ListKey.BOOK_TYPE);
-		CDOMObjectWrapper.load(dsid, Deity.class, "booktype", lka);
-		processThroughFreeMarker("${(deity.booktype[0])!}", "");
-		processThroughFreeMarker("${(deity.booktype.join(\", \"))!}", "");
+		CDOMObjectWrapper.load(dsid, Race.class, "booktype", lka);
+		processThroughFreeMarker("${(race.booktype[0])!}", "");
+		processThroughFreeMarker("${(race.booktype.join(\", \"))!}", "");
 	}
 
 }

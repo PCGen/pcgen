@@ -97,7 +97,7 @@ public final class AllJUnitTests
 		suite.addTest(new TestSuite(pcgen.core.prereq.PreTypeTest.class));
 		suite.addTest(new TestSuite(pcgen.core.prereq.PreVisionTest.class));
 
-		suite.addTest(FeatTest.suite());
+		suite.addTest(new TestSuite(FeatTest.class));
 
 		return suite;
 	}

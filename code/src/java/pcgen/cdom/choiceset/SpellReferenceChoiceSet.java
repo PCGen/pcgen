@@ -193,25 +193,12 @@ public class SpellReferenceChoiceSet implements PrimitiveChoiceSet<CDOMListObjec
 		return returnSet;
 	}
 
-	/**
-	 * Returns the consistent-with-equals hashCode for this
-	 * SpellReferenceChoiceSet
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{
 		return set.size();
 	}
 
-	/**
-	 * Returns true if this SpellReferenceChoiceSet is equal to the given
-	 * Object. Equality is defined as being another SpellReferenceChoiceSet
-	 * object with equal underlying contents.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{

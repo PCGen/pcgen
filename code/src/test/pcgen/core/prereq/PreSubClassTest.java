@@ -17,9 +17,6 @@
  */
 package pcgen.core.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PCClass;
@@ -32,23 +29,6 @@ import plugin.pretokens.test.PreSubClassTester;
 
 public class PreSubClassTest extends AbstractCharacterTestCase
 {
-	/**
-	 * Main
-	 * @param args
-	 */
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreSubClassTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreSubClassTest.class);
-	}
-
 	/**
 	 * Test to ensure that a character with a named class can be found.
 	 *

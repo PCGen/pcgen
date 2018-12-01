@@ -24,23 +24,23 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import pcgen.core.BodyStructure;
+import pcgen.core.Deity;
 import pcgen.core.PCAlignment;
+import pcgen.core.PCStat;
+import pcgen.core.PCTemplate;
+import pcgen.core.SizeAdjustment;
+import pcgen.core.Skill;
 import pcgen.facade.core.AbilityCategoryFacade;
 import pcgen.facade.core.AbilityFacade;
-import pcgen.facade.core.BodyStructureFacade;
 import pcgen.facade.core.CampaignFacade;
 import pcgen.facade.core.ClassFacade;
 import pcgen.facade.core.DataSetFacade;
-import pcgen.facade.core.DeityFacade;
 import pcgen.facade.core.EquipmentFacade;
 import pcgen.facade.core.GameModeFacade;
 import pcgen.facade.core.GearBuySellFacade;
 import pcgen.facade.core.KitFacade;
 import pcgen.facade.core.RaceFacade;
-import pcgen.facade.core.SizeAdjustmentFacade;
-import pcgen.facade.core.SkillFacade;
-import pcgen.facade.core.StatFacade;
-import pcgen.facade.core.TemplateFacade;
 import pcgen.facade.core.generator.StatGenerationFacade;
 import pcgen.facade.util.AbstractMapFacade;
 import pcgen.facade.util.DelegatingListFacade;
@@ -63,20 +63,20 @@ public class DelegatingDataSet implements DataSetFacade
 
 	private final DelegatingListFacade<RaceFacade> races;
 	private final DelegatingListFacade<ClassFacade> classes;
-	private final DelegatingListFacade<DeityFacade> deities;
-	private final DelegatingListFacade<SkillFacade> skills;
-	private final DelegatingListFacade<TemplateFacade> templates;
+	private final DelegatingListFacade<Skill> skills;
+	private final DelegatingListFacade<Deity> deities;
+	private final DelegatingListFacade<PCTemplate> templates;
 	private final DelegatingListFacade<PCAlignment> alignments;
 	private final DelegatingListFacade<KitFacade> kits;
-	private final DelegatingListFacade<StatFacade> stats;
+	private final DelegatingListFacade<PCStat> stats;
 	private final DelegatingAbilitiesMap abilities;
 	private final DelegatingListFacade<CampaignFacade> campaigns;
-	private final DelegatingListFacade<BodyStructureFacade> bodyStructures;
+	private final DelegatingListFacade<BodyStructure> bodyStructures;
 	private final DelegatingListFacade<EquipmentFacade> equipment;
 	private final DelegatingListFacade<String> xpTableNames;
 	private final DelegatingListFacade<GearBuySellFacade> gearBuySellSchemes;
 	private final DelegatingListFacade<String> characterTypes;
-	private final DelegatingListFacade<SizeAdjustmentFacade> sizes;
+	private final DelegatingListFacade<SizeAdjustment> sizes;
 
 	private final DataSetFacade delegate;
 
@@ -236,7 +236,7 @@ public class DelegatingDataSet implements DataSetFacade
 	}
 
 	@Override
-	public ListFacade<SkillFacade> getSkills()
+	public ListFacade<Skill> getSkills()
 	{
 		return skills;
 	}
@@ -254,13 +254,13 @@ public class DelegatingDataSet implements DataSetFacade
 	}
 
 	@Override
-	public ListFacade<DeityFacade> getDeities()
+	public ListFacade<Deity> getDeities()
 	{
 		return deities;
 	}
 
 	@Override
-	public ListFacade<TemplateFacade> getTemplates()
+	public ListFacade<PCTemplate> getTemplates()
 	{
 		return templates;
 	}
@@ -284,7 +284,7 @@ public class DelegatingDataSet implements DataSetFacade
 	}
 
 	@Override
-	public ListFacade<StatFacade> getStats()
+	public ListFacade<PCStat> getStats()
 	{
 		return stats;
 	}
@@ -297,7 +297,7 @@ public class DelegatingDataSet implements DataSetFacade
 	}
 
 	@Override
-	public SkillFacade getSpeakLanguageSkill()
+	public Skill getSpeakLanguageSkill()
 	{
 		return delegate.getSpeakLanguageSkill();
 	}
@@ -315,7 +315,7 @@ public class DelegatingDataSet implements DataSetFacade
 	}
 
 	@Override
-	public ListFacade<BodyStructureFacade> getEquipmentLocations()
+	public ListFacade<BodyStructure> getEquipmentLocations()
 	{
 		return bodyStructures;
 	}
@@ -345,7 +345,7 @@ public class DelegatingDataSet implements DataSetFacade
 	}
 
 	@Override
-	public ListFacade<SizeAdjustmentFacade> getSizes()
+	public ListFacade<SizeAdjustment> getSizes()
 	{
 		return sizes;
 	}

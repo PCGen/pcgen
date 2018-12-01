@@ -83,29 +83,6 @@ public class FontManipulation
 	}
 
 	/**
-	 * For extra large font.
-	 * 
-	 * @param f
-	 *            base font
-	 */
-	public static Font xlarge(Font f)
-	{
-		return f.deriveFont(f.getSize() * 1.333f);
-	}
-
-	/**
-	 * For extra large font.
-	 * 
-	 * @param container
-	 *            element to change the font of
-	 */
-	public static void xlarge(Container container)
-	{
-		Font font = container.getFont();
-		container.setFont(xlarge(font));
-	}
-
-	/**
 	 * For large font.
 	 * 
 	 * @param f
@@ -157,7 +134,7 @@ public class FontManipulation
 	 * @param f
 	 *            base font
 	 */
-	public static Font xsmall(Font f)
+	private static Font xsmall(Font f)
 	{
 		return f.deriveFont(f.getSize() * 0.833f);
 	}

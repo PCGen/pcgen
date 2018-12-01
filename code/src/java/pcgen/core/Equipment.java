@@ -5467,40 +5467,6 @@ public final class Equipment extends PObject
 	}
 
 	/**
-	 * calculates the value of all items in this container If this container
-	 * contains containers, also add the value of all items within that
-	 * container, etc, etc, etc.
-	 * 
-	 * @param aPC The PC that has the Equipment
-	 * @return contained value
-	 */
-	private double getContainedValue(final PlayerCharacter aPC)
-	{
-		double total = 0;
-
-		if (getChildCount() == 0)
-		{
-			return total;
-		}
-
-		for (int e = 0; e < getContainedEquipmentCount(); ++e)
-		{
-			final Equipment anEquip = getContainedEquipment(e);
-
-			if (anEquip.getContainedEquipmentCount() > 0)
-			{
-				total += anEquip.getContainedValue(aPC);
-			}
-			else
-			{
-				total += anEquip.getCost(aPC).floatValue();
-			}
-		}
-
-		return total;
-	}
-
-	/**
 	 * Gets the contained Weight this object recursis all child objects to get
 	 * their contained weight
 	 * 
@@ -5516,25 +5482,15 @@ public final class Equipment extends PObject
 	/**
 	 * Get Base contained weight
 	 * 
-	 * @return base contained weight
-	 */
-	private Float getBaseContainedWeight()
-	{
-		return getBaseContainedWeight(false);
-	}
-
-	/**
-	 * Get Base contained weight
-	 * 
 	 * @param effective Should we recurse child objects?
 	 * @return Base contained weight
 	 */
-	private Float getBaseContainedWeight(final boolean effective)
+	public Float getBaseContainedWeight()
 	{
 
 		Float total = (float) 0;
 
-		if ((getSafe(ObjectKey.CONTAINER_CONSTANT_WEIGHT) && !effective) || (getChildCount() == 0))
+		if ((getSafe(ObjectKey.CONTAINER_CONSTANT_WEIGHT)) || (getChildCount() == 0))
 		{
 			return total;
 		}
@@ -5716,8 +5672,8 @@ public final class Equipment extends PObject
 	 * Convenience method. <p> <br>
 	 * author: Thomas Behr 27-03-02
 	 * 
-	 * @return <code>true</code>, if this instance is a container;
-	 *         <code>false</code>, otherwise
+	 * @return {@code true}, if this instance is a container;
+	 *         {@code false}, otherwise
 	 */
 	public boolean isContainer()
 	{
@@ -6155,7 +6111,7 @@ public final class Equipment extends PObject
 	}
 
 	/**
-	 * The Class <code>EquipmentHeadCostSummary</code> carries the multi 
+	 * The Class {@code EquipmentHeadCostSummary} carries the multi
 	 * valued response back when calculating the cost of a head.  
 	 */
 	private static class EquipmentHeadCostSummary

@@ -4,17 +4,17 @@ SOURCELONG:Pathfinder Player Companion: Adventurer's Armory 2	SOURCESHORT:AA2	SO
 #Original Entry: Gwen. T (evilpixie87)
 
 # Template Name			Source Page		Required Ability														Required Template				Combat bonus	Bonus to HP			Add to base move			Stat bonus		Modify VAR				Ability					Move			Temporary Bonus
-Agile Poppet (Acrobatic)	SOURCEPAGE:p.30	PREABILITY:1,CATEGORY=Internal,Race Traits ~ Poppet																																		ABILITY:FEAT|VIRTUAL|Acrobatic
-Agile Poppet (Athletic)		SOURCEPAGE:p.30	PREABILITY:1,CATEGORY=Internal,Race Traits ~ Poppet																																		ABILITY:FEAT|VIRTUAL|Athletic
-Agile Poppet (Stealthy)		SOURCEPAGE:p.30	PREABILITY:1,CATEGORY=Internal,Race Traits ~ Poppet																																		ABILITY:FEAT|VIRTUAL|Stealthy
-Armored Poppet			SOURCEPAGE:p.30	PREABILITY:1,CATEGORY=Internal,Race Traits ~ Poppet														BONUS:COMBAT|AC|2
-Durable Poppet			SOURCEPAGE:p.30	PREABILITY:1,CATEGORY=Internal,Race Traits ~ Poppet																	BONUS:HP|CURRENTMAX|10
-Fleet Poppet			SOURCEPAGE:p.30	PREABILITY:1,CATEGORY=Internal,Race Traits ~ Poppet																					BONUS:MOVEADD|TYPE.Walk|10
-Heavy Lifter			SOURCEPAGE:p.30	PREABILITY:1,CATEGORY=Internal,Race Traits ~ Poppet																																											TEMPBONUS:ANYPC|LOADMULT|TYPE=SIZE|1.5
-Mighty Poppet			SOURCEPAGE:p.30	PREABILITY:1,CATEGORY=Internal,Race Traits ~ Poppet																										BONUS:STAT|STR|4
-Nimble Poppet			SOURCEPAGE:p.30	PREABILITY:1,CATEGORY=Internal,Race Traits ~ Poppet																										BONUS:STAT|DEX|4
-Scaling Poppet			SOURCEPAGE:p.30	PREABILITY:1,CATEGORY=Internal,Race Traits ~ Poppet	PREABILITY:1,CATEGORY=FEAT,Athletic																																		MOVE:Climb,20
-Sealed Poppet			SOURCEPAGE:p.31	PREABILITY:1,CATEGORY=Internal,Race Traits ~ Poppet
-Soaring Poppet (1)		SOURCEPAGE:p.31	PREABILITY:1,CATEGORY=Internal,Race Traits ~ Poppet	PREABILITY:1,CATEGORY=FEAT,Acrobatic																						BONUS:VAR|Maneuverability|2							MOVE:Fly,20
-Soaring Poppet (2)		SOURCEPAGE:p.31	PREABILITY:1,CATEGORY=Internal,Race Traits ~ Poppet								PRETEMPLATE:1,Soaring Poppet (1)								BONUS:MOVEADD|TYPE.Fly|10									ABILITY:FEAT|VIRTUAL|Hover
-Swimming Poppet			SOURCEPAGE:p.31	PREABILITY:1,CATEGORY=Internal,Race Traits ~ Poppet	PREABILITY:1,CATEGORY=FEAT,Athletic																																		MOVE:Swim,20
+Agile Poppet (Acrobatic)	SOURCEPAGE:p.30	PREABILITY:1,CATEGORY=Internal,Racial Traits ~ Poppet																																		ABILITY:FEAT|VIRTUAL|Acrobatic
+Agile Poppet (Athletic)		SOURCEPAGE:p.30	PREABILITY:1,CATEGORY=Internal,Racial Traits ~ Poppet																																		ABILITY:FEAT|VIRTUAL|Athletic
+Agile Poppet (Stealthy)		SOURCEPAGE:p.30	PREABILITY:1,CATEGORY=Internal,Racial Traits ~ Poppet																																		ABILITY:FEAT|VIRTUAL|Stealthy
+Armored Poppet			SOURCEPAGE:p.30	PREABILITY:1,CATEGORY=Internal,Racial Traits ~ Poppet														BONUS:COMBAT|AC|2
+Durable Poppet			SOURCEPAGE:p.30	PREABILITY:1,CATEGORY=Internal,Racial Traits ~ Poppet																	BONUS:HP|CURRENTMAX|10
+Fleet Poppet			SOURCEPAGE:p.30	PREABILITY:1,CATEGORY=Internal,Racial Traits ~ Poppet																					BONUS:MOVEADD|TYPE.Walk|10
+Heavy Lifter			SOURCEPAGE:p.30	PREABILITY:1,CATEGORY=Internal,Racial Traits ~ Poppet																																											TEMPBONUS:ANYPC|LOADMULT|TYPE=SIZE|1.5
+Mighty Poppet			SOURCEPAGE:p.30	PREABILITY:1,CATEGORY=Internal,Racial Traits ~ Poppet																										BONUS:STAT|STR|4
+Nimble Poppet			SOURCEPAGE:p.30	PREABILITY:1,CATEGORY=Internal,Racial Traits ~ Poppet																										BONUS:STAT|DEX|4
+Scaling Poppet			SOURCEPAGE:p.30	PREABILITY:1,CATEGORY=Internal,Racial Traits ~ Poppet	PREABILITY:1,CATEGORY=FEAT,Athletic																																		MOVE:Climb,20
+Sealed Poppet			SOURCEPAGE:p.31	PREABILITY:1,CATEGORY=Internal,Racial Traits ~ Poppet
+Soaring Poppet (1)		SOURCEPAGE:p.31	PREABILITY:1,CATEGORY=Internal,Racial Traits ~ Poppet	PREABILITY:1,CATEGORY=FEAT,Acrobatic																						BONUS:VAR|Maneuverability|2							MOVE:Fly,20
+Soaring Poppet (2)		SOURCEPAGE:p.31	PREABILITY:1,CATEGORY=Internal,Racial Traits ~ Poppet								PRETEMPLATE:1,Soaring Poppet (1)								BONUS:MOVEADD|TYPE.Fly|10									ABILITY:FEAT|VIRTUAL|Hover
+Swimming Poppet			SOURCEPAGE:p.31	PREABILITY:1,CATEGORY=Internal,Racial Traits ~ Poppet	PREABILITY:1,CATEGORY=FEAT,Athletic																																		MOVE:Swim,20

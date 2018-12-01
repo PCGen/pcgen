@@ -24,7 +24,7 @@ import pcgen.core.prereq.Prerequisite;
 import plugin.pretokens.parser.PreItemParser;
 
 /**
- * <code>PreItemTest</code> is ...
+ * {@code PreItemTest} is ...
  */
 @SuppressWarnings("nls")
 public class PreItemTest extends EnUsLocaleDependentTestCase

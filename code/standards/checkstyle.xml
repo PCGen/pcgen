@@ -3,11 +3,9 @@
 <module name="Checker">	
   <property name="cacheFile" value="checkstyle-cachefile"/>
   <property name="fileExtensions" value="java, xml"/>
-  <!--
   <module name="SuppressionFilter">
-	  <property name="file" value="${samedir}/code/standards/checkstyle-suppressions.xml"/>
+	  <property name="file" value="${samedir}/checkstyle-suppressions.xml"/>
   </module>
-  -->
   <module name="TreeWalker">
     <property name="severity" value="error"/>
     <module name="UpperEll"/>

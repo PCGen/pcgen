@@ -30,9 +30,6 @@ public class RaceGeneratorOption extends GeneratorOption
 {
 	private WeightedCollection<Race> theChoices = null;
 
-	/**
-	 * @see pcgen.core.npcgen.GeneratorOption#addChoice(int, java.lang.String)
-	 */
 	@Override
 	public void addChoice(final int aWeight, final String aValue)
 	{

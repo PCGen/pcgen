@@ -237,7 +237,7 @@ public class PlayerCharacterOutput
 
 	public String getGender()
 	{
-		return display.getGenderObject().toString();
+		return pc.getGenderString();
 	}
 
 	String getHitDice()
@@ -318,7 +318,7 @@ public class PlayerCharacterOutput
 
 	public String getSize()
 	{
-		return display.getSize();
+		return pc.getSizeAdjustment().getKeyName();
 	}
 
 	String getSpecialAbilities()

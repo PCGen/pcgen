@@ -269,24 +269,12 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements Primitiv
 		return returnSet;
 	}
 
-	/**
-	 * Returns the consistent-with-equals hashCode for this SpellCasterChoiceSet
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{
 		return (types == null ? 0 : types.hashCode() * 29) + (primitives == null ? 0 : primitives.hashCode());
 	}
 
-	/**
-	 * Returns true if this SpellCasterChoiceSet is equal to the given Object.
-	 * Equality is defined as being another SpellCasterChoiceSet object with
-	 * equal underlying contents.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{

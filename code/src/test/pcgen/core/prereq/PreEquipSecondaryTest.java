@@ -35,7 +35,7 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
 
 /**
- * <code>PreEquipSecondaryTest</code> tests that the PREEQUIPSECONDARY tag is
+ * {@code PreEquipSecondaryTest} tests that the PREEQUIPSECONDARY tag is
  * working correctly.
  */
 public class PreEquipSecondaryTest extends AbstractCharacterTestCase

@@ -2659,7 +2659,7 @@ public final class SettingsHandler
 
 	/**
 	 * <p>Returns the window state.  This corresponds to the values returned/accepted
-	 * by {@code Frame.getExtendedState} and <code>Frame.setExtendedState</code>.</p>
+	 * by {@code Frame.getExtendedState} and {@code Frame.setExtendedState}.</p>
 	 *
 	 * @return Returns the windowState.
 	 */
@@ -2670,7 +2670,7 @@ public final class SettingsHandler
 
 	/**
 	 * <p>Sets the window state.  This corresponds to the values returned/accepted
-	 * by {@code Frame.getExtendedState} and <code>Frame.setExtendedState</code>.</p>
+	 * by {@code Frame.getExtendedState} and {@code Frame.setExtendedState}.</p>
 	 *
 	 * @param argWindowState The argWindowState to set.
 	 */

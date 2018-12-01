@@ -42,7 +42,7 @@ import tokenmodel.testsupport.AssocCheck;
 import tokenmodel.testsupport.NoAssociations;
 import util.TestURI;
 
-public class AbilityDepthTest extends AbstractTokenModelTest
+public final class AbilityDepthTest extends AbstractTokenModelTest
 {
 
 	private static final GrantedAbilityFacet GRANTED_ABILITY_FACET = FacetLibrary
@@ -62,9 +62,9 @@ public class AbilityDepthTest extends AbstractTokenModelTest
 
 	private AssocCheck assocCheck;
 
-	public AbilityDepthTest(String name, CDOMToken<? super Ability> firstToken,
-		String firstPrefix, CDOMToken<? super Ability> secondToken,
-		String secondPrefix)
+	private AbilityDepthTest(String name, CDOMToken<? super Ability> firstToken,
+	                         String firstPrefix, CDOMToken<? super Ability> secondToken,
+	                         String secondPrefix)
 	{
 		super("Test_" + name);
 		this.firstToken = firstToken;
@@ -151,7 +151,7 @@ public class AbilityDepthTest extends AbstractTokenModelTest
 		assertEquals(0, getCount());
 	}
 
-	protected boolean containsExpected(Ability granted)
+	private boolean containsExpected(Ability granted)
 	{
 		Collection<CNAbility> abilities =
 				GRANTED_ABILITY_FACET.getPoolAbilities(id, BuildUtilities.getFeatCat());
@@ -177,17 +177,17 @@ public class AbilityDepthTest extends AbstractTokenModelTest
 		return false;
 	}
 
-	protected int getCount()
+	private int getCount()
 	{
 		return GRANTED_ABILITY_FACET.getPoolAbilities(id, BuildUtilities.getFeatCat())
 			.size();
 	}
 
-	static CDOMToken[] tokens = {ABILITY_LST,
+	private static final CDOMToken[] tokens = {ABILITY_LST,
 		ADD_ABILITY_TOKEN, ADD_ABILITY_TOKEN};
-	static String[] prefix = {"FEAT|VIRTUAL|",
+	private static final String[] prefix = {"FEAT|VIRTUAL|",
 		"FEAT|NORMAL|STACKS,", "FEAT|VIRTUAL|STACKS,"};
-	static CDOMToken[] targetProhibited = {ADD_ABILITY_TOKEN};
+	private static final CDOMToken[] targetProhibited = {ADD_ABILITY_TOKEN};
 
 	@Override
 	public CDOMToken<?> getToken()

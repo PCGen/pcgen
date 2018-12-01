@@ -118,18 +118,12 @@ public class ColorsPanel extends PCGenPrefsPanel
 		return col;
 	}
 
-	/**
-	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#getTitle()
-	 */
 	@Override
 	public String getTitle()
 	{
 		return IN_COLOR;
 	}
 
-	/**
-	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#setOptionsBasedOnControls()
-	 */
 	@Override
 	public void setOptionsBasedOnControls()
 	{
@@ -144,9 +138,6 @@ public class ColorsPanel extends PCGenPrefsPanel
 		UIPropertyContext.setSourceStatusTestColor(sourceStatusTest.getForeground());
 	}
 
-	/**
-	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#applyOptionValuesToControls()
-	 */
 	@Override
 	public void applyOptionValuesToControls()
 	{
