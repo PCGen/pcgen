@@ -7,41 +7,41 @@
 
 
 # Ability Name					Define						Modify VAR
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD	DEFINE:Dwarf_Trait_DefensiveTraining|0
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD	DEFINE:Dwarf_Trait_Greed|0
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD	DEFINE:Dwarf_Trait_Hatred|0
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD	DEFINE:Dwarf_Trait_Hardy|0
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD	DEFINE:Dwarf_Trait_Stability|0
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD	DEFINE:Dwarf_Trait_Stonecunning|0
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD	DEFINE:Dwarf_Trait_Steady|0
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD	DEFINE:Dwarf_Trait_WeaponFamiliarity|0
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD	DEFINE:Dwarf_Trait_Darkvision|0
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD	DEFINE:Dwarf_Trait_Language|0
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD	DEFINE:Dwarf_Trait_DefensiveTraining|0
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD	DEFINE:Dwarf_Trait_Greed|0
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD	DEFINE:Dwarf_Trait_Hatred|0
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD	DEFINE:Dwarf_Trait_Hardy|0
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD	DEFINE:Dwarf_Trait_Stability|0
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD	DEFINE:Dwarf_Trait_Stonecunning|0
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD	DEFINE:Dwarf_Trait_Steady|0
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD	DEFINE:Dwarf_Trait_WeaponFamiliarity|0
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD	DEFINE:Dwarf_Trait_Darkvision|0
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD	DEFINE:Dwarf_Trait_Language|0
 
 
 
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD								BONUS:VAR|Dwarf_Trait_DefensiveTraining|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfDefensiveTraining
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD								BONUS:VAR|Dwarf_Trait_Greed|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfGreed
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD								BONUS:VAR|Dwarf_Trait_Hatred|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfHatred
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD								BONUS:VAR|Dwarf_Trait_Hardy|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfHardy
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD								BONUS:VAR|Dwarf_Trait_Stability|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfStability
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD								BONUS:VAR|Dwarf_Trait_Stonecunning|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfStonecunning
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD								BONUS:VAR|Dwarf_Trait_Steady|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfSteady
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD								BONUS:VAR|Dwarf_Trait_WeaponFamiliarity|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfWeaponFamiliarity
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD								BONUS:VAR|Dwarf_Trait_Darkvision|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfRacialVision
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD								BONUS:VAR|Dwarf_Trait_Language|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfLanguage
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD								BONUS:VAR|Dwarf_Trait_DefensiveTraining|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfDefensiveTraining
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD								BONUS:VAR|Dwarf_Trait_Greed|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfGreed
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD								BONUS:VAR|Dwarf_Trait_Hatred|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfHatred
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD								BONUS:VAR|Dwarf_Trait_Hardy|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfHardy
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD								BONUS:VAR|Dwarf_Trait_Stability|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfStability
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD								BONUS:VAR|Dwarf_Trait_Stonecunning|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfStonecunning
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD								BONUS:VAR|Dwarf_Trait_Steady|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfSteady
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD								BONUS:VAR|Dwarf_Trait_WeaponFamiliarity|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfWeaponFamiliarity
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD								BONUS:VAR|Dwarf_Trait_Darkvision|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfRacialVision
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD								BONUS:VAR|Dwarf_Trait_Language|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfLanguage
 
 
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD								BONUS:VAR|Dwarf_Trait_DefensiveTraining|1|TYPE=Boolean|PREFACT:1,ABILITIES,Dwarf_Trait_DefensiveTraining=True
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD								BONUS:VAR|Dwarf_Trait_Greed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Dwarf_Trait_Greed=True
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD								BONUS:VAR|Dwarf_Trait_Hatred|1|TYPE=Boolean|PREFACT:1,ABILITIES,Dwarf_Trait_Hatred=True
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD								BONUS:VAR|Dwarf_Trait_Hardy|1|TYPE=Boolean|PREFACT:1,ABILITIES,Dwarf_Trait_Hardy=True
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD								BONUS:VAR|Dwarf_Trait_Stability|1|TYPE=Boolean|PREFACT:1,ABILITIES,Dwarf_Trait_Stability=True
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD								BONUS:VAR|Dwarf_Trait_Stonecunning|1|TYPE=Boolean|PREFACT:1,ABILITIES,Dwarf_Trait_Stonecunning=True
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD								BONUS:VAR|Dwarf_Trait_Steady|1|TYPE=Boolean|PREFACT:1,ABILITIES,Dwarf_Trait_Steady=True
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD								BONUS:VAR|Dwarf_Trait_WeaponFamiliarity|1|TYPE=Boolean|PREFACT:1,ABILITIES,Dwarf_Trait_WeaponFamiliarity=True
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD								BONUS:VAR|Dwarf_Trait_Darkvision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Dwarf_Trait_Darkvision=True
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD								BONUS:VAR|Dwarf_Trait_Language|1|TYPE=Boolean|PREFACT:1,ABILITIES,Dwarf_Trait_Language=True
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD								BONUS:VAR|Dwarf_Trait_DefensiveTraining|1|TYPE=Boolean|PREFACT:1,ABILITIES,Dwarf_Trait_DefensiveTraining=True
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD								BONUS:VAR|Dwarf_Trait_Greed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Dwarf_Trait_Greed=True
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD								BONUS:VAR|Dwarf_Trait_Hatred|1|TYPE=Boolean|PREFACT:1,ABILITIES,Dwarf_Trait_Hatred=True
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD								BONUS:VAR|Dwarf_Trait_Hardy|1|TYPE=Boolean|PREFACT:1,ABILITIES,Dwarf_Trait_Hardy=True
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD								BONUS:VAR|Dwarf_Trait_Stability|1|TYPE=Boolean|PREFACT:1,ABILITIES,Dwarf_Trait_Stability=True
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD								BONUS:VAR|Dwarf_Trait_Stonecunning|1|TYPE=Boolean|PREFACT:1,ABILITIES,Dwarf_Trait_Stonecunning=True
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD								BONUS:VAR|Dwarf_Trait_Steady|1|TYPE=Boolean|PREFACT:1,ABILITIES,Dwarf_Trait_Steady=True
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD								BONUS:VAR|Dwarf_Trait_WeaponFamiliarity|1|TYPE=Boolean|PREFACT:1,ABILITIES,Dwarf_Trait_WeaponFamiliarity=True
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD								BONUS:VAR|Dwarf_Trait_Darkvision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Dwarf_Trait_Darkvision=True
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD								BONUS:VAR|Dwarf_Trait_Language|1|TYPE=Boolean|PREFACT:1,ABILITIES,Dwarf_Trait_Language=True
 
 
 

@@ -6,15 +6,15 @@ SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloa
 
 ###Block:
 
-# DEVELOPER NOTE: Rename these to our proper standard 'Race Traits ~ RaceName'
+# DEVELOPER NOTE: Rename these to our proper standard 'Racial Traits ~ RaceName'
 # Ability Name				SORTKEY	Category of Ability		Type																						Visible		Stackable?	Multiple?	Choose		Template					Auto Language	Ability																	Bonus Ability Pool			Cost
-Race Traits ~ Dwarf					CATEGORY:Internal
-Race Traits ~ Elf						CATEGORY:Internal
-Race Traits ~ Gnome					CATEGORY:Internal
-Race Traits ~ Half-Elf					CATEGORY:Internal
-Race Traits ~ Half-Orc					CATEGORY:Internal
-Race Traits ~ Halfling					CATEGORY:Internal
-Race Traits ~ Human					CATEGORY:Internal																																												ABILITY:Human Subrace|AUTOMATIC|Human ~ Default|!PREABILITY:1,CATEGORY=Internal,TYPE.HumanSubraceSelection
+Racial Traits ~ Dwarf					CATEGORY:Internal
+Racial Traits ~ Elf						CATEGORY:Internal
+Racial Traits ~ Gnome					CATEGORY:Internal
+Racial Traits ~ Half-Elf					CATEGORY:Internal
+Racial Traits ~ Half-Orc					CATEGORY:Internal
+Racial Traits ~ Halfling					CATEGORY:Internal
+Racial Traits ~ Human					CATEGORY:Internal																																												ABILITY:Human Subrace|AUTOMATIC|Human ~ Default|!PREABILITY:1,CATEGORY=Internal,TYPE.HumanSubraceSelection
 
 Remove Excess Points from Pool	SORTKEY:1	CATEGORY:Special Ability	TYPE:HumanRacialTrait.DwarfRacialTrait.ElfRacialTrait.GnomeRacialTrait.HalfElfRacialTrait.HalfOrcRacialTrait.HalflingRacialTrait	VISIBLE:DISPLAY	STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																		COST:1
 
@@ -23,50 +23,50 @@ Human ~ Default						CATEGORY:Internal			TYPE:HumanSubrace																						
 ###Block: Racial Traits
 #
 # Ability Name						Ability
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Defensive Training|PREVAREQ:Dwarf_Trait_DefensiveTraining,0
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Greed|PREVAREQ:Dwarf_Trait_Greed,0
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Hatred|PREVAREQ:Dwarf_Trait_Hatred,0
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Hardy|PREVAREQ:Dwarf_Trait_Hardy,0
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Stability|PREVAREQ:Dwarf_Trait_Stability,0
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Stonecunning|PREVAREQ:Dwarf_Trait_Stonecunning,0
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Steady|PREVAREQ:Dwarf_Trait_Steady,0
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Weapon Familiarity|PREVAREQ:Dwarf_Trait_WeaponFamiliarity,0
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Darkvision|PREVAREQ:Dwarf_Trait_Darkvision,0
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Language|PREVAREQ:Dwarf_Trait_Language,0
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Defensive Training|PREVAREQ:Dwarf_Trait_DefensiveTraining,0
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Greed|PREVAREQ:Dwarf_Trait_Greed,0
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Hatred|PREVAREQ:Dwarf_Trait_Hatred,0
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Hardy|PREVAREQ:Dwarf_Trait_Hardy,0
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Stability|PREVAREQ:Dwarf_Trait_Stability,0
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Stonecunning|PREVAREQ:Dwarf_Trait_Stonecunning,0
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Steady|PREVAREQ:Dwarf_Trait_Steady,0
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Weapon Familiarity|PREVAREQ:Dwarf_Trait_WeaponFamiliarity,0
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Darkvision|PREVAREQ:Dwarf_Trait_Darkvision,0
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Language|PREVAREQ:Dwarf_Trait_Language,0
 #
-CATEGORY=Internal|Race Traits ~ Elf.MOD		ABILITY:Elf Racial Trait|AUTOMATIC|Elf ~ Elven Immunities|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfImmunities
-CATEGORY=Internal|Race Traits ~ Elf.MOD		ABILITY:Elf Racial Trait|AUTOMATIC|Elf ~ Elven Magic|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfMagic
-CATEGORY=Internal|Race Traits ~ Elf.MOD		ABILITY:Elf Racial Trait|AUTOMATIC|Elf ~ Weapon Familiarity|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfWeaponFamiliarity
-CATEGORY=Internal|Race Traits ~ Elf.MOD		ABILITY:Elf Racial Trait|AUTOMATIC|Elf ~ Keen Senses|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfSenses,TYPE.ElfKeenSenses
-CATEGORY=Internal|Race Traits ~ Elf.MOD		ABILITY:Elf Racial Trait|AUTOMATIC|Elf ~ Low-Light Vision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfRacialVision
+CATEGORY=Internal|Racial Traits ~ Elf.MOD		ABILITY:Elf Racial Trait|AUTOMATIC|Elf ~ Elven Immunities|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfImmunities
+CATEGORY=Internal|Racial Traits ~ Elf.MOD		ABILITY:Elf Racial Trait|AUTOMATIC|Elf ~ Elven Magic|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfMagic
+CATEGORY=Internal|Racial Traits ~ Elf.MOD		ABILITY:Elf Racial Trait|AUTOMATIC|Elf ~ Weapon Familiarity|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfWeaponFamiliarity
+CATEGORY=Internal|Racial Traits ~ Elf.MOD		ABILITY:Elf Racial Trait|AUTOMATIC|Elf ~ Keen Senses|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfSenses,TYPE.ElfKeenSenses
+CATEGORY=Internal|Racial Traits ~ Elf.MOD		ABILITY:Elf Racial Trait|AUTOMATIC|Elf ~ Low-Light Vision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfRacialVision
 #
-CATEGORY=Internal|Race Traits ~ Gnome.MOD		ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome ~ Defensive Training|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeDefensiveTraining
-CATEGORY=Internal|Race Traits ~ Gnome.MOD		ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome ~ Gnome Magic|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeMagic
-CATEGORY=Internal|Race Traits ~ Gnome.MOD		ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome ~ Hatred|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeHatred
-CATEGORY=Internal|Race Traits ~ Gnome.MOD		ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome ~ Illusion Resistance|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeIllusionResistance
-CATEGORY=Internal|Race Traits ~ Gnome.MOD		ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome ~ Obsessive|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeObsessive
-CATEGORY=Internal|Race Traits ~ Gnome.MOD		ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome ~ Keen Senses|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeSenses
-CATEGORY=Internal|Race Traits ~ Gnome.MOD		ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome ~ Weapon Familiarity|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeWeaponFamiliarity
-CATEGORY=Internal|Race Traits ~ Gnome.MOD		ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome ~ Low-Light Vision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeRacialVision
+CATEGORY=Internal|Racial Traits ~ Gnome.MOD		ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome ~ Defensive Training|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeDefensiveTraining
+CATEGORY=Internal|Racial Traits ~ Gnome.MOD		ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome ~ Gnome Magic|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeMagic
+CATEGORY=Internal|Racial Traits ~ Gnome.MOD		ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome ~ Hatred|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeHatred
+CATEGORY=Internal|Racial Traits ~ Gnome.MOD		ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome ~ Illusion Resistance|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeIllusionResistance
+CATEGORY=Internal|Racial Traits ~ Gnome.MOD		ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome ~ Obsessive|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeObsessive
+CATEGORY=Internal|Racial Traits ~ Gnome.MOD		ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome ~ Keen Senses|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeSenses
+CATEGORY=Internal|Racial Traits ~ Gnome.MOD		ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome ~ Weapon Familiarity|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeWeaponFamiliarity
+CATEGORY=Internal|Racial Traits ~ Gnome.MOD		ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome ~ Low-Light Vision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeRacialVision
 #
-CATEGORY=Internal|Race Traits ~ Half-Elf.MOD	ABILITY:Half-Elf Racial Trait|AUTOMATIC|Half-Elf ~ Adaptability|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfAdaptability
-CATEGORY=Internal|Race Traits ~ Half-Elf.MOD	ABILITY:Half-Elf Racial Trait|AUTOMATIC|Half-Elf ~ Multitalented|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfMultitalented
-CATEGORY=Internal|Race Traits ~ Half-Elf.MOD	ABILITY:Half-Elf Racial Trait|AUTOMATIC|Half-Elf ~ Elven Immunities|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfImmunities
-CATEGORY=Internal|Race Traits ~ Half-Elf.MOD	ABILITY:Half-Elf Racial Trait|AUTOMATIC|Half-Elf ~ Keen Senses|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfSenses
-CATEGORY=Internal|Race Traits ~ Half-Elf.MOD	ABILITY:Half-Elf Racial Trait|AUTOMATIC|Half-Elf ~ Low-Light Vision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfRacialVision
-CATEGORY=Internal|Race Traits ~ Half-Elf.MOD	ABILITY:Half-Elf Racial Trait|AUTOMATIC|Half-Elf ~ Elf Blood
+CATEGORY=Internal|Racial Traits ~ Half-Elf.MOD	ABILITY:Half-Elf Racial Trait|AUTOMATIC|Half-Elf ~ Adaptability|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfAdaptability
+CATEGORY=Internal|Racial Traits ~ Half-Elf.MOD	ABILITY:Half-Elf Racial Trait|AUTOMATIC|Half-Elf ~ Multitalented|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfMultitalented
+CATEGORY=Internal|Racial Traits ~ Half-Elf.MOD	ABILITY:Half-Elf Racial Trait|AUTOMATIC|Half-Elf ~ Elven Immunities|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfImmunities
+CATEGORY=Internal|Racial Traits ~ Half-Elf.MOD	ABILITY:Half-Elf Racial Trait|AUTOMATIC|Half-Elf ~ Keen Senses|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfSenses
+CATEGORY=Internal|Racial Traits ~ Half-Elf.MOD	ABILITY:Half-Elf Racial Trait|AUTOMATIC|Half-Elf ~ Low-Light Vision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfRacialVision
+CATEGORY=Internal|Racial Traits ~ Half-Elf.MOD	ABILITY:Half-Elf Racial Trait|AUTOMATIC|Half-Elf ~ Elf Blood
 #
-CATEGORY=Internal|Race Traits ~ Half-Orc.MOD	ABILITY:Half-Orc Racial Trait|AUTOMATIC|Half-Orc ~ Intimidating|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfOrcIntimidating
-CATEGORY=Internal|Race Traits ~ Half-Orc.MOD	ABILITY:Half-Orc Racial Trait|AUTOMATIC|Half-Orc ~ Orc Ferocity|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfOrcFerocity
-CATEGORY=Internal|Race Traits ~ Half-Orc.MOD	ABILITY:Half-Orc Racial Trait|AUTOMATIC|Half-Orc ~ Weapon Familiarity|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfOrcWeaponFamiliarity
-CATEGORY=Internal|Race Traits ~ Half-Orc.MOD	ABILITY:Half-Orc Racial Trait|AUTOMATIC|Half-Orc ~ Darkvision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfOrcRacialVision
-CATEGORY=Internal|Race Traits ~ Half-Orc.MOD	ABILITY:Half-Orc Racial Trait|AUTOMATIC|Half-Orc ~ Orc Blood
+CATEGORY=Internal|Racial Traits ~ Half-Orc.MOD	ABILITY:Half-Orc Racial Trait|AUTOMATIC|Half-Orc ~ Intimidating|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfOrcIntimidating
+CATEGORY=Internal|Racial Traits ~ Half-Orc.MOD	ABILITY:Half-Orc Racial Trait|AUTOMATIC|Half-Orc ~ Orc Ferocity|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfOrcFerocity
+CATEGORY=Internal|Racial Traits ~ Half-Orc.MOD	ABILITY:Half-Orc Racial Trait|AUTOMATIC|Half-Orc ~ Weapon Familiarity|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfOrcWeaponFamiliarity
+CATEGORY=Internal|Racial Traits ~ Half-Orc.MOD	ABILITY:Half-Orc Racial Trait|AUTOMATIC|Half-Orc ~ Darkvision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfOrcRacialVision
+CATEGORY=Internal|Racial Traits ~ Half-Orc.MOD	ABILITY:Half-Orc Racial Trait|AUTOMATIC|Half-Orc ~ Orc Blood
 #
-CATEGORY=Internal|Race Traits ~ Halfling.MOD	ABILITY:Halfling Racial Trait|AUTOMATIC|Halfling ~ Fearless|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalflingFearless
-CATEGORY=Internal|Race Traits ~ Halfling.MOD	ABILITY:Halfling Racial Trait|AUTOMATIC|Halfling ~ Halfling Luck|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalflingLuck
-CATEGORY=Internal|Race Traits ~ Halfling.MOD	ABILITY:Halfling Racial Trait|AUTOMATIC|Halfling ~ Keen Senses|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalflingKeenSenses
-CATEGORY=Internal|Race Traits ~ Halfling.MOD	ABILITY:Halfling Racial Trait|AUTOMATIC|Halfling ~ Sure-Footed|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalflingSureFooted
-CATEGORY=Internal|Race Traits ~ Halfling.MOD	ABILITY:Halfling Racial Trait|AUTOMATIC|Halfling ~ Weapon Familiarity|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalflingWeaponFamiliarity
+CATEGORY=Internal|Racial Traits ~ Halfling.MOD	ABILITY:Halfling Racial Trait|AUTOMATIC|Halfling ~ Fearless|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalflingFearless
+CATEGORY=Internal|Racial Traits ~ Halfling.MOD	ABILITY:Halfling Racial Trait|AUTOMATIC|Halfling ~ Halfling Luck|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalflingLuck
+CATEGORY=Internal|Racial Traits ~ Halfling.MOD	ABILITY:Halfling Racial Trait|AUTOMATIC|Halfling ~ Keen Senses|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalflingKeenSenses
+CATEGORY=Internal|Racial Traits ~ Halfling.MOD	ABILITY:Halfling Racial Trait|AUTOMATIC|Halfling ~ Sure-Footed|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalflingSureFooted
+CATEGORY=Internal|Racial Traits ~ Halfling.MOD	ABILITY:Halfling Racial Trait|AUTOMATIC|Halfling ~ Weapon Familiarity|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalflingWeaponFamiliarity
 #
 CATEGORY=Internal|Human ~ Default.MOD		ABILITY:Human Racial Trait|AUTOMATIC|Human ~ Bonus Feat|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HumanBonusFeat
 CATEGORY=Internal|Human ~ Default.MOD		ABILITY:Human Racial Trait|AUTOMATIC|Human ~ Skilled|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HumanSkilled

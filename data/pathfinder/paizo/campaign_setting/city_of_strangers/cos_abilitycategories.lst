@@ -2,4 +2,4 @@
 
 # Ability Category				Visible		Editable?		Change Pool?	Category of Object		Type of Object			Plural description for UI		Display Location
 ABILITYCATEGORY:Bloatmage Class Feature	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Bloatmage Class Feature	PLURAL:Bloatmage Class Features	DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Caulborn Race Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Caulborn Race Trait	PLURAL:Caulborn Race Traits		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Caulborn Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Caulborn Racial Trait	PLURAL:Caulborn Racial Traits		DISPLAYLOCATION:Racial Abilities
