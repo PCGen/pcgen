@@ -29,13 +29,14 @@ import java.awt.Insets;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.SizeRequirements;
 import javax.swing.UIManager;
 import javax.swing.border.Border;
+
 
 import org.apache.commons.lang3.ArrayUtils;
 
@@ -48,8 +49,8 @@ import org.apache.commons.lang3.ArrayUtils;
 public class FilterBar<C, E> extends JPanel implements DisplayableFilter<C, E>
 {
 
-	private final JPanel filterPanel = new JPanel(new FilterLayout());
-	private final List<DisplayableFilter<? super C, ? super E>> filters = new ArrayList<>();
+	private final Container filterPanel = new JPanel(new FilterLayout());
+	private final Collection<DisplayableFilter<? super C, ? super E>> filters = new ArrayList<>();
 	private FilterHandler filterHandler;
 
 	public FilterBar()
@@ -88,13 +89,6 @@ public class FilterBar<C, E> extends JPanel implements DisplayableFilter<C, E>
 		filter.setFilterHandler(filterHandler);
 	}
 
-	public void removeDisplayableFilter(DisplayableFilter<C, E> filter)
-	{
-		filterPanel.remove(filter.getFilterComponent());
-		filters.remove(filter);
-		filter.setFilterHandler(null);
-	}
-
 	@Override
 	public Component getFilterComponent()
 	{
@@ -105,23 +99,14 @@ public class FilterBar<C, E> extends JPanel implements DisplayableFilter<C, E>
 	public void setFilterHandler(FilterHandler handler)
 	{
 		this.filterHandler = handler;
-		for (DisplayableFilter<? super C, ? super E> displayableFilter : filters)
-		{
-			displayableFilter.setFilterHandler(handler);
-		}
+		filters.forEach(displayableFilter -> displayableFilter.setFilterHandler(handler));
 	}
 
 	@Override
 	public boolean accept(C context, E element)
 	{
-		for (DisplayableFilter<? super C, ? super E> displayableFilter : filters)
-		{
-			if (!displayableFilter.accept(context, element))
-			{
-				return false;
-			}
-		}
-		return true;
+		return filters.stream()
+		              .allMatch(displayableFilter -> displayableFilter.accept(context, element));
 	}
 
 	private static class ArrowButton extends JButton
@@ -130,7 +115,7 @@ public class FilterBar<C, E> extends JPanel implements DisplayableFilter<C, E>
 		private boolean entered = false;
 		private boolean open = true;
 
-		public ArrowButton()
+		private ArrowButton()
 		{
 			setMinimumSize(new Dimension(6, 6));
 			setPreferredSize(new Dimension(6, 6));
@@ -216,10 +201,10 @@ public class FilterBar<C, E> extends JPanel implements DisplayableFilter<C, E>
 	 * that it treats the Container's width as absolute and will change the
 	 * height of the container to fit container's children.
 	 */
-	private static class FilterLayout extends FlowLayout
+	private static final class FilterLayout extends FlowLayout
 	{
 
-		public FilterLayout()
+		private FilterLayout()
 		{
 			super(FlowLayout.LEFT, 5, 2);
 		}
@@ -282,8 +267,16 @@ public class FilterBar<C, E> extends JPanel implements DisplayableFilter<C, E>
 			}
 		}
 
-		private void layoutComponents(Container target, int xOffset, int yOffset, int maxwidth, int rowheight,
-			SizeRequirements[] xChildren, SizeRequirements[] yChildren, int start, int end, boolean ltr)
+		private static void layoutComponents(Container target,
+		                                     int xOffset,
+		                                     int yOffset,
+		                                     int maxwidth,
+		                                     int rowheight,
+		                                     SizeRequirements[] xChildren,
+		                                     SizeRequirements[] yChildren,
+		                                     int start,
+		                                     int end,
+		                                     boolean ltr)
 		{
 			SizeRequirements[] children = ArrayUtils.subarray(xChildren, start, end);
 			int[] xOffsets = new int[children.length];
