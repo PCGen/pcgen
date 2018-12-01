@@ -36,7 +36,6 @@ public class ComplexParseResult implements ParseResult
 
 	public ComplexParseResult()
 	{
-		//Start an empty result
 	}
 
 	public ComplexParseResult(String error)
@@ -59,17 +58,12 @@ public class ComplexParseResult implements ParseResult
 		addParseMessage(Logging.LST_WARNING, msg);
 	}
 
-	public void addInfoMessage(String msg)
-	{
-		addParseMessage(Logging.LST_INFO, msg);
-	}
-
 	protected void addParseMessage(Level lvl, String msg)
 	{
 		queuedMessages.add(new QueuedMessage(lvl, msg));
 	}
 
-	public void addMessages(ComplexParseResult pr)
+	private void addMessages(ComplexParseResult pr)
 	{
 		queuedMessages.addAll(pr.queuedMessages);
 	}
@@ -77,32 +71,19 @@ public class ComplexParseResult implements ParseResult
 	@Override
 	public void printMessages(URI uri)
 	{
-		for (QueuedMessage msg : queuedMessages)
-		{
-			Logging.log(msg.level, generateText(msg, uri), msg.stackTrace);
-		}
+		queuedMessages.forEach(msg -> Logging.log(msg.level, generateText(msg, uri), msg.stackTrace));
 	}
 
 	@Override
 	public void addMessagesToLog(URI uri)
 	{
-		for (QueuedMessage msg : queuedMessages)
-		{
-			Logging.addParseMessage(msg.level, generateText(msg, uri), msg.stackTrace);
-		}
+		queuedMessages.forEach(msg -> Logging.addParseMessage(msg.level, generateText(msg, uri), msg.stackTrace));
 	}
 
 	@Override
 	public boolean passed()
 	{
-		for (QueuedMessage msg : queuedMessages)
-		{
-			if (msg.level == Logging.LST_ERROR)
-			{
-				return false;
-			}
-		}
-		return true;
+		return queuedMessages.stream().noneMatch(msg -> msg.level == Logging.LST_ERROR);
 	}
 
 	/**

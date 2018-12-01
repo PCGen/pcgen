@@ -32,7 +32,7 @@ public class PCGenLogLevel extends Level
 	/** Logging level for LST information such as references to missing items in PRE or CHOOSE tags. */
 	public static final PCGenLogLevel LST_INFO = new PCGenLogLevel("LSTINFO", 750);
 
-	protected PCGenLogLevel(String arg0, int arg1)
+	private PCGenLogLevel(String arg0, int arg1)
 	{
 		super(arg0, arg1);
 	}

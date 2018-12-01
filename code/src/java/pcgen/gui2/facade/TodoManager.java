@@ -82,6 +82,7 @@ public class TodoManager
 	 */
 	private TodoFacade findTodoByMessage(String messageKey, String fieldName)
 	{
+
 		if (messageKey != null)
 		{
 			for (TodoFacade item : todoList)
