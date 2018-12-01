@@ -25,6 +25,7 @@ import pcgen.facade.core.ChooserFacade;
  *
  * 
  */
+@FunctionalInterface
 public interface ChoiceHandler
 {
 	/**

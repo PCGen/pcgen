@@ -127,6 +127,7 @@ public interface CharacterLevelsFacade extends ListFacade<CharacterLevelFacade>
 	 */
 	public CharacterLevelFacade findNextLevelForSkill(Skill skill, CharacterLevelFacade baseLevel, float ranks);
 
+	@FunctionalInterface
 	public static interface ClassListener extends EventListener
 	{
 
@@ -134,6 +135,7 @@ public interface CharacterLevelsFacade extends ListFacade<CharacterLevelFacade>
 
 	}
 
+	@FunctionalInterface
 	public static interface HitPointListener extends EventListener
 	{
 
@@ -141,6 +143,7 @@ public interface CharacterLevelsFacade extends ListFacade<CharacterLevelFacade>
 
 	}
 
+	@FunctionalInterface
 	public static interface SkillBonusListener extends EventListener
 	{
 
@@ -148,6 +151,7 @@ public interface CharacterLevelsFacade extends ListFacade<CharacterLevelFacade>
 
 	}
 
+	@FunctionalInterface
 	public static interface SkillPointListener extends EventListener
 	{
 
