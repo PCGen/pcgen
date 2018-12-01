@@ -169,7 +169,7 @@ Section "Java 64 Bit" Section5
         ;Use the right java version
         DetailPrint "Java extraction..."
         SetOutPath "$INSTDIR\${APPDIR}\jre"
-        File /a /r "${SrcDir}\..\..\jre\jre_x64\*.*"
+        File /r "${SrcDir}\..\..\jre\jre_x64\*.*"
         DetailPrint "Java extraction complete!"
 SectionEnd
 
@@ -179,7 +179,7 @@ Section "Java 32 Bit" Section6
         ;Use the right java version
         DetailPrint "Java extraction..."
         SetOutPath "$INSTDIR\${APPDIR}\jre"
-        File /a /r "${SrcDir}\..\..\jre\jre_x32\*.*"
+        File /r "${SrcDir}\..\..\jre\jre_x32\*.*"
         DetailPrint "Java extraction complete!"
 SectionEnd
 
