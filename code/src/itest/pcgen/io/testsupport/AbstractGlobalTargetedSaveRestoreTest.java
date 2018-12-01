@@ -50,7 +50,6 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.springframework.lang.Nullable;
 
 public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject>
 		extends AbstractSaveRestoreTest
@@ -614,7 +613,6 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 	//		assertNull(pc.getSkillRankForClass(granted, null));
 	//	}
 
-	@Nullable
 	protected Runnable getPreEqualityCleanup()
 	{
 		return null;
