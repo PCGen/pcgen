@@ -2,16 +2,16 @@
 SOURCELONG:Ultimate Wilderness	SOURCESHORT:UW	SOURCEWEB:http://paizo.com/products/btpy9ujo	SOURCEDATE:2017-11
 
 #Companion Support
-# Race Name				Ability
-Companion (Amargasaurus)	ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Quadruped (Other)
-Companion (Brontotherium)	ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Quadruped (Hooves)
-Companion (Deinotherium)	ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Quadruped (Other)
-Companion (Devil Monkey)	ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Biped (Hands)
-Companion (Dunkleosteus)	ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Piscine
-Companion (Elasmotherium)	ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Quadruped (Other)
-Companion (Giganotosaurus)	ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Biped (Claws)
-Companion (Kentrosaurus)	ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Quadruped (Other)
-Companion (Mokele-Mbembe)	ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Quadruped (Other)
-Companion (Quetzalcoatlus)	ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Avian
-Companion (Raven (Giant))	ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Avian
-Companion (Titanoboa)		ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Serpentine
+# Race Name					Ability
+Companion (Amargasaurus).MOD		ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Quadruped (Other)
+Companion (Brontotherium).MOD		ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Quadruped (Hooves)
+Companion (Deinotherium).MOD		ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Quadruped (Other)
+Companion (Devil Monkey).MOD		ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Biped (Hands)
+Companion (Dunkleosteus).MOD		ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Piscine
+Companion (Elasmotherium).MOD		ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Quadruped (Other)
+Companion (Giganotosaurus).MOD	ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Biped (Claws)
+Companion (Kentrosaurus).MOD		ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Quadruped (Other)
+Companion (Mokele-Mbembe).MOD		ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Quadruped (Other)
+Companion (Quetzalcoatlus).MOD	ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Avian
+Companion (Raven (Giant)).MOD		ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Avian
+Companion (Titanoboa).MOD		ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Serpentine

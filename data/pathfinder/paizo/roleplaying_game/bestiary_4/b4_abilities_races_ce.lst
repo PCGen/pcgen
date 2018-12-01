@@ -104,7 +104,7 @@ Kaiju Traits		KEY:Traits Output ~ Kaiju		CATEGORY:Special Ability	TYPE:SpecialQu
 Psychopomp Traits		KEY:Traits Output ~ Psychopomp	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Supernatural	DESC:A psychopomp's natural weapons, as well as any weapon it wields, are treated as though they had the ghost touch weapon special ability.	DESC:&nl; A psychopomp notices, locates, and can distinguish between living and undead creatures within 60 feet, just as if it had the blindsight ability. This sense does not allow it to detect objects, but it does allow it to notice living things that are not creatures (such as normal trees).
 
 
-###Block: Race Traits
+###Block: Racial Traits
 # Ability Name			Unique Key							Category of Ability		Type									Required Campaign(s)			Define									Description																																																																																																																																																																						Ability																Combat bonus											Modify VAR
 Alternate Form			KEY:Colossus ~ Alternate Form				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																				DESC:Colossi have the ability to transform themselves into some other shape. This transformation is nonmagical, and is not revealed by true seeing or similar magic.
 Mythic Creation			KEY:Colossus ~ Mythic Creation			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				PRECAMPAIGN:1,Mythic Adventures											DESC:A colossus can be created only by a creator with a mythic tier or rank equal to or greater than that of the colossus it is attempting to create.

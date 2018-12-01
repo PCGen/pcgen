@@ -5,11 +5,11 @@ SOURCELONG:Dragon Empires Gazetteer	SOURCESHORT:DEG	SOURCEWEB:http://paizo.com/p
 Dragon Empire Setting					KEY:Setting Language ~ Dragon Empire Setting	CATEGORY:Internal		TYPE:RaceLanguageSelection	DESC:Grants the race the default race language of the core supplements.
 
 
-CATEGORY=Internal|Race Traits ~ Kitsune.MOD																																				ABILITY:Internal|AUTOMATIC|Dragon Empire ~ Kitsune|PREABILITY:1,CATEGORY=Internal,Setting Language ~ Dragon Empire Setting		BONUS:ABILITYPOOL|Setting Specific Language|1|TYPE=Base	BONUS:VAR|DefaultLanguageSetting|1
-CATEGORY=Internal|Race Traits ~ Nagaji.MOD																																				ABILITY:Internal|AUTOMATIC|Dragon Empire ~ Nagaji|PREABILITY:1,CATEGORY=Internal,Setting Language ~ Dragon Empire Setting		BONUS:ABILITYPOOL|Setting Specific Language|1|TYPE=Base	BONUS:VAR|DefaultLanguageSetting|1
-CATEGORY=Internal|Race Traits ~ Samsaran.MOD																																				ABILITY:Internal|AUTOMATIC|Dragon Empire ~ Samsaran|PREABILITY:1,CATEGORY=Internal,Setting Language ~ Dragon Empire Setting		BONUS:ABILITYPOOL|Setting Specific Language|1|TYPE=Base	BONUS:VAR|DefaultLanguageSetting|1
-CATEGORY=Internal|Race Traits ~ Tengu.MOD																																					ABILITY:Internal|AUTOMATIC|Dragon Empire ~ Tengu|PREABILITY:1,CATEGORY=Internal,Setting Language ~ Dragon Empire Setting		BONUS:ABILITYPOOL|Setting Specific Language|1|TYPE=Base	BONUS:VAR|DefaultLanguageSetting|1
-CATEGORY=Internal|Race Traits ~ Wayang.MOD																																				ABILITY:Internal|AUTOMATIC|Dragon Empire ~ Wayang|PREABILITY:1,CATEGORY=Internal,Setting Language ~ Dragon Empire Setting		BONUS:ABILITYPOOL|Setting Specific Language|1|TYPE=Base	BONUS:VAR|DefaultLanguageSetting|1
+CATEGORY=Internal|Racial Traits ~ Kitsune.MOD																																				ABILITY:Internal|AUTOMATIC|Dragon Empire ~ Kitsune|PREABILITY:1,CATEGORY=Internal,Setting Language ~ Dragon Empire Setting		BONUS:ABILITYPOOL|Setting Specific Language|1|TYPE=Base	BONUS:VAR|DefaultLanguageSetting|1
+CATEGORY=Internal|Racial Traits ~ Nagaji.MOD																																				ABILITY:Internal|AUTOMATIC|Dragon Empire ~ Nagaji|PREABILITY:1,CATEGORY=Internal,Setting Language ~ Dragon Empire Setting		BONUS:ABILITYPOOL|Setting Specific Language|1|TYPE=Base	BONUS:VAR|DefaultLanguageSetting|1
+CATEGORY=Internal|Racial Traits ~ Samsaran.MOD																																				ABILITY:Internal|AUTOMATIC|Dragon Empire ~ Samsaran|PREABILITY:1,CATEGORY=Internal,Setting Language ~ Dragon Empire Setting		BONUS:ABILITYPOOL|Setting Specific Language|1|TYPE=Base	BONUS:VAR|DefaultLanguageSetting|1
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD																																					ABILITY:Internal|AUTOMATIC|Dragon Empire ~ Tengu|PREABILITY:1,CATEGORY=Internal,Setting Language ~ Dragon Empire Setting		BONUS:ABILITYPOOL|Setting Specific Language|1|TYPE=Base	BONUS:VAR|DefaultLanguageSetting|1
+CATEGORY=Internal|Racial Traits ~ Wayang.MOD																																				ABILITY:Internal|AUTOMATIC|Dragon Empire ~ Wayang|PREABILITY:1,CATEGORY=Internal,Setting Language ~ Dragon Empire Setting		BONUS:ABILITYPOOL|Setting Specific Language|1|TYPE=Base	BONUS:VAR|DefaultLanguageSetting|1
 
 Dragon Empire ~ Kitsune													CATEGORY:Internal																			TEMPLATE:Dragon Empire ~ Kitsune
 Dragon Empire ~ Nagaji													CATEGORY:Internal																			TEMPLATE:Dragon Empire ~ Nagaji
@@ -18,12 +18,12 @@ Dragon Empire ~ Tengu													CATEGORY:Internal																			TEMPLATE:D
 Dragon Empire ~ Wayang													CATEGORY:Internal																			TEMPLATE:Dragon Empire ~ Wayang
 
 
-Race Traits ~ Kitsune													CATEGORY:Internal
+Racial Traits ~ Kitsune													CATEGORY:Internal
 #
-CATEGORY=Internal|Race Traits ~ Kitsune.MOD																																				ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Change Shape|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneChangeShape
-CATEGORY=Internal|Race Traits ~ Kitsune.MOD																																				ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Agile|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneAgile
-CATEGORY=Internal|Race Traits ~ Kitsune.MOD																																				ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Kitsune Magic|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneMagic
-CATEGORY=Internal|Race Traits ~ Kitsune.MOD																																				ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Natural Weapon|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneNaturalWeapons
+CATEGORY=Internal|Racial Traits ~ Kitsune.MOD																																				ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Change Shape|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneChangeShape
+CATEGORY=Internal|Racial Traits ~ Kitsune.MOD																																				ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Agile|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneAgile
+CATEGORY=Internal|Racial Traits ~ Kitsune.MOD																																				ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Kitsune Magic|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneMagic
+CATEGORY=Internal|Racial Traits ~ Kitsune.MOD																																				ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Natural Weapon|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneNaturalWeapons
 
 ###Block: Kitsune Abilities
 # Ability Name						Unique Key				Category of Ability		Type															Multiple Requirements																					Innate Spells											Description																																																																											Ability																					Bonus DC				Bonus to skill					Natural Attacks
@@ -35,22 +35,22 @@ Natural Weapon						KEY:Kitsune ~ Natural Weapon	CATEGORY:Special Ability	TYPE:R
 
 
 
-Race Traits ~ Nagaji										CATEGORY:Internal
+Racial Traits ~ Nagaji										CATEGORY:Internal
 #
-CATEGORY=Internal|Race Traits ~ Nagaji.MOD																																																																																																																																											ABILITY:Nagaji Racial Trait|AUTOMATIC|Nagaji ~ Armored Scales|!PREABILITY:1,CATEGORY=Special Ability,TYPE.NagajiArmoredScales
-CATEGORY=Internal|Race Traits ~ Nagaji.MOD																																																																																																																																											ABILITY:Nagaji Racial Trait|AUTOMATIC|Nagaji ~ Resistant|!PREABILITY:1,CATEGORY=Special Ability,TYPE.NagajiResistant
-CATEGORY=Internal|Race Traits ~ Nagaji.MOD																																																																																																																																											ABILITY:Nagaji Racial Trait|AUTOMATIC|Nagaji ~ Serpent's Sense|!PREABILITY:1,CATEGORY=Special Ability,TYPE.NagajiSerpentsSense
+CATEGORY=Internal|Racial Traits ~ Nagaji.MOD																																																																																																																																											ABILITY:Nagaji Racial Trait|AUTOMATIC|Nagaji ~ Armored Scales|!PREABILITY:1,CATEGORY=Special Ability,TYPE.NagajiArmoredScales
+CATEGORY=Internal|Racial Traits ~ Nagaji.MOD																																																																																																																																											ABILITY:Nagaji Racial Trait|AUTOMATIC|Nagaji ~ Resistant|!PREABILITY:1,CATEGORY=Special Ability,TYPE.NagajiResistant
+CATEGORY=Internal|Racial Traits ~ Nagaji.MOD																																																																																																																																											ABILITY:Nagaji Racial Trait|AUTOMATIC|Nagaji ~ Serpent's Sense|!PREABILITY:1,CATEGORY=Special Ability,TYPE.NagajiSerpentsSense
 ###Block: Nagaji Abilities
 # Ability Name						Unique Key				Category of Ability		Type															Multiple Requirements																					Description																				Ability																						Combat bonus						Bonus to skill					Aspects
 Armored Scales						KEY:Nagaji ~ Armored Scales	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.NagajiRacialTrait.NagajiRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Nagaji ~ Armored Scales],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.NagajiArmoredScales]	DESC:Nagaji have a +1 Natural Armor bonus from their scaly flesh.																																		BONUS:COMBAT|AC|1|TYPE=NaturalArmorEnhancement
 Resistant							KEY:Nagaji ~ Resistant		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.NagajiRacialTrait.NagajiRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Nagaji ~ Resistant],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.NagajiResistant]			DESC:Nagaji receive a +2 racial saving throw bonus against mind-affecting effects and poison.																																												ASPECT:SaveBonus|+2 vs Mind-affecting effects; +2 vs Poison
 Serpent's Sense						KEY:Nagaji ~ Serpent's Sense	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.NagajiRacialTrait.NagajiRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Nagaji ~ Serpent's Sense],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.NagajiSerpentsSense]	DESC:Nagaji receive a +2 racial bonus on Handle Animal checks against reptiles, and a +2 racial bonus on Perception checks.																																BONUS:SKILL|Perception|2|TYPE=Racial
 
-Race Traits ~ Samsaran										CATEGORY:Internal
+Racial Traits ~ Samsaran										CATEGORY:Internal
 #
-CATEGORY=Internal|Race Traits ~ Samsaran.MOD																																																																							ABILITY:Samsaran Racial Trait|AUTOMATIC|Samsaran ~ Lifebound|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SamsaranLifebound
-CATEGORY=Internal|Race Traits ~ Samsaran.MOD																																																																							ABILITY:Samsaran Racial Trait|AUTOMATIC|Samsaran ~ Samsaran Magic|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SamsaranMagic
-CATEGORY=Internal|Race Traits ~ Samsaran.MOD																																																																							ABILITY:Samsaran Racial Trait|AUTOMATIC|Samsaran ~ Shards of the Past|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SamsaranShardsofthePast
+CATEGORY=Internal|Racial Traits ~ Samsaran.MOD																																																																							ABILITY:Samsaran Racial Trait|AUTOMATIC|Samsaran ~ Lifebound|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SamsaranLifebound
+CATEGORY=Internal|Racial Traits ~ Samsaran.MOD																																																																							ABILITY:Samsaran Racial Trait|AUTOMATIC|Samsaran ~ Samsaran Magic|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SamsaranMagic
+CATEGORY=Internal|Racial Traits ~ Samsaran.MOD																																																																							ABILITY:Samsaran Racial Trait|AUTOMATIC|Samsaran ~ Shards of the Past|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SamsaranShardsofthePast
 ###Block: Samsaran Abilities
 # Ability Name					Unique Key					Category of Ability		Type															Visible		Multiple Requirements																						Innate Spells														Description																																											Stackable?	Multiple?	Choose			Selections	Ability																				Bonus Ability Pool			Bonus to skill				Class Skill	Aspects
 Lifebound						KEY:Samsaran ~ Lifebound		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.SamsaranRacialTrait.SamsaranRacialDefault				PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Samsaran ~ Lifebound],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.SamsaranLifebound]																			DESC:Samsarans gain a +2 racial bonus on all saving throws made to resist death effects, saving throws against negative energy effects, Fortitude saves made to remove negative levels, and Constitution checks made to stabilize if reduced to negative hit points.																																														ASPECT:SaveBonus|+2 vs Death Effects, Negative Energy; +2 to Fortitude Saves to remove negative levels; +2 to Con checks to Stabilize
@@ -60,13 +60,13 @@ Shards of the Past				KEY:Samsaran ~ Shards of the Past	CATEGORY:Special Ability
 Shards of the Past Bonus									CATEGORY:Special Ability	TYPE:Internal.ShardsBonus											VISIBLE:DISPLAY																																																																																						STACK:NO	MULT:YES	CHOOSE:SKILL|Knowledge%	SELECT:2																												BONUS:SKILL|LIST|2|TYPE=Racial	CSKILL:LIST
 
 
-Race Traits ~ Tengu										CATEGORY:Internal
+Racial Traits ~ Tengu										CATEGORY:Internal
 #
-CATEGORY=Internal|Race Traits ~ Tengu.MOD																																																																																																																													ABILITY:Tengu Racial Trait|AUTOMATIC|Tengu ~ Sneaky|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TenguSneaky
-CATEGORY=Internal|Race Traits ~ Tengu.MOD																																																																																																																													ABILITY:Tengu Racial Trait|AUTOMATIC|Tengu ~ Gifted Linguist|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TenguGiftedLinguist
-CATEGORY=Internal|Race Traits ~ Tengu.MOD																																																																																																																													ABILITY:Tengu Racial Trait|AUTOMATIC|Tengu ~ Swordtrained|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TenguSwordTrained
-CATEGORY=Internal|Race Traits ~ Tengu.MOD																																																																																																																													ABILITY:Tengu Racial Trait|AUTOMATIC|Tengu ~ Natural Attack|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TenguNaturalAttack
-CATEGORY=Internal|Race Traits ~ Tengu.MOD																																																																																																																													ABILITY:Tengu Racial Trait|AUTOMATIC|Tengu ~ Low-Light Vision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TenguLowLightVision
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD																																																																																																																													ABILITY:Tengu Racial Trait|AUTOMATIC|Tengu ~ Sneaky|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TenguSneaky
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD																																																																																																																													ABILITY:Tengu Racial Trait|AUTOMATIC|Tengu ~ Gifted Linguist|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TenguGiftedLinguist
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD																																																																																																																													ABILITY:Tengu Racial Trait|AUTOMATIC|Tengu ~ Swordtrained|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TenguSwordTrained
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD																																																																																																																													ABILITY:Tengu Racial Trait|AUTOMATIC|Tengu ~ Natural Attack|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TenguNaturalAttack
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD																																																																																																																													ABILITY:Tengu Racial Trait|AUTOMATIC|Tengu ~ Low-Light Vision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TenguLowLightVision
 
 ###Block: Tengu Abilities
 # Ability Name						Unique Key				Category of Ability		Type														Multiple Requirements																					Define				Description																			Multiple?	Choose				Selections	Auto Language	Auto Weapon Prof							Ability																					Bonus Ability Pool										Bonus to skill						Modify VAR										Weapon prof. bonus			Vision			Source Page
@@ -83,12 +83,12 @@ Tengu Language Selections									CATEGORY:Special Ability																						
 #Gifted Linguist		KEY:Gifted Linguist ~ Tengu			CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.TenguRacialTrait.TenguRacialDefault			PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Gifted Linguist ~ Tengu],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.TenguGiftedLinguist]		BONUS:VAR|LangSelections|1												DESC:Tengus gain a +4 racial bonus on Linguistics checks, and learn two languages each time they gain a rank in Linguistics instead of just a single language.																																							BONUS:SKILL|Linguistics|4|TYPE=Racial																															SOURCEPAGE:p.12
 #Then also modify the Linguistics skill to include DEFNINE:LangSelections|1	SELECT:LangSelections
 
-Race Traits ~ Wayang										CATEGORY:Internal
+Racial Traits ~ Wayang										CATEGORY:Internal
 #
-CATEGORY=Internal|Race Traits ~ Wayang.MOD																																																																																															ABILITY:Wayang Racial Trait|AUTOMATIC|Wayang ~ Light and Dark|!PREABILITY:1,CATEGORY=Special Ability,TYPE.WayangLightAndDark
-CATEGORY=Internal|Race Traits ~ Wayang.MOD																																																																																															ABILITY:Wayang Racial Trait|AUTOMATIC|Wayang ~ Lurker|!PREABILITY:1,CATEGORY=Special Ability,TYPE.WayangLurker
-CATEGORY=Internal|Race Traits ~ Wayang.MOD																																																																																															ABILITY:Wayang Racial Trait|AUTOMATIC|Wayang ~ Shadow Magic|!PREABILITY:1,CATEGORY=Special Ability,TYPE.WayangShadowMagic
-CATEGORY=Internal|Race Traits ~ Wayang.MOD																																																																																															ABILITY:Wayang Racial Trait|AUTOMATIC|Wayang ~ Shadow Resistance|!PREABILITY:1,CATEGORY=Special Ability,TYPE.WayangShadowResistance
+CATEGORY=Internal|Racial Traits ~ Wayang.MOD																																																																																															ABILITY:Wayang Racial Trait|AUTOMATIC|Wayang ~ Light and Dark|!PREABILITY:1,CATEGORY=Special Ability,TYPE.WayangLightAndDark
+CATEGORY=Internal|Racial Traits ~ Wayang.MOD																																																																																															ABILITY:Wayang Racial Trait|AUTOMATIC|Wayang ~ Lurker|!PREABILITY:1,CATEGORY=Special Ability,TYPE.WayangLurker
+CATEGORY=Internal|Racial Traits ~ Wayang.MOD																																																																																															ABILITY:Wayang Racial Trait|AUTOMATIC|Wayang ~ Shadow Magic|!PREABILITY:1,CATEGORY=Special Ability,TYPE.WayangShadowMagic
+CATEGORY=Internal|Racial Traits ~ Wayang.MOD																																																																																															ABILITY:Wayang Racial Trait|AUTOMATIC|Wayang ~ Shadow Resistance|!PREABILITY:1,CATEGORY=Special Ability,TYPE.WayangShadowResistance
 ###Block: Wayang Abilities
 # Ability Name	Unique Key					Category of Ability		Type															Multiple Requirements																						Innate Spells																		Description																																											Bonus DC				Bonus to skill						Aspects
 Light and Dark	KEY:Wayang ~ Light and Dark		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Supernatural.WayangRacialTrait.WayangRacialDefault		PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Wayang ~ Light and Dark],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.WayangLightandDark]																						DESC:Once per day as an immediate action, a wayang can treat positive and negative energy effects as if the wayang were an undead creature, taking damage from positive energy and healing damage from negative energy. This ability lasts for 1 minute once activated.
