@@ -2,4 +2,5 @@ SOURCELONG:Inner Sea Gods	SOURCESHORT:ISG	SOURCEDATE:2014-04
 # Original Entry by: Jason D
 
 ### Innate spells from APG added to creatures
-CATEGORY=Internal|Race Traits ~ Ataxian.MOD				SPELLS:Innate|TIMES=1|CASTERLEVEL=4|Ray of Sickening,11+CHA
+CATEGORY=Internal|Race Traits ~ Ataxian.MOD								SPELLS:Innate|TIMES=1|CASTERLEVEL=4|Ray of Sickening,11+CHA
+CATEGORY=Internal|Race Traits ~ Personification of Fury.MOD				SPELLS:Innate|TIMES=1|CASTERLEVEL=17|Possess Object

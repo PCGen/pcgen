@@ -259,6 +259,86 @@ ABILITY:CATEGORY=FEAT|Run
 ABILITY:CATEGORY=FEAT|Weapon Focus (Gore)
 
 
+STARTPACK:Archon (Stag) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Archon (Stag)],[!PRERACE:1,%]	SOURCEPAGE:p.283
+ALIGN:LG
+RACE:Archon (Stag)	!PRERACE:1,%
+NAME:Archon (Stag)
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Acrobatics				RANK:6
+SKILL:Knowledge (Nature)		RANK:6
+SKILL:Knowledge (Religion)		RANK:6
+SKILL:Perception				RANK:6
+SKILL:Stealth					RANK:6
+SKILL:Survival					RANK:6
+ABILITY:CATEGORY=FEAT|Point-Blank Shot
+ABILITY:CATEGORY=FEAT|Precise Shot
+ABILITY:CATEGORY=FEAT|Rapid Shot
+GEAR:Longbow	SIZE:M	LOCATION:Both Hands	EQMOD:Special Quality ~ Masterwork ~ Weapon
+
+
+STARTPACK:The First Blade Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,The First Blade],[!PRERACE:1,%]	SOURCEPAGE:p.282
+ALIGN:CN
+RACE:The First Blade	!PRERACE:1,%
+NAME:The First Blade
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Acrobatics				RANK:18
+SKILL:Climb						RANK:18
+SKILL:Intimidate				RANK:18
+SKILL:Knowledge (History)			RANK:18
+SKILL:Perception				RANK:18
+SKILL:Sense Motive				RANK:18
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Overrun
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus (Slam)
+
+
+STARTPACK:Zentragt Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Zentragt],[!PRERACE:1,%]	SOURCEPAGE:p.283
+ALIGN:LG
+RACE:Zentragt	!PRERACE:1,%
+NAME:Zentragt
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Climb						RANK:6
+SKILL:Intimidate				RANK:6
+SKILL:Knowledge (Planes)		RANK:3
+SKILL:Knowledge (Religion)		RANK:3
+SKILL:Perception				RANK:6
+SKILL:Swim						RANK:6
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus (Claw)
+
+
+STARTPACK:Personification of Fury Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Personification of Fury],[!PRERACE:1,%]	SOURCEPAGE:p.282
+ALIGN:TN
+RACE:Personification of Fury	!PRERACE:1,%
+NAME:Personification of Fury
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
+SKILL:Acrobatics				RANK:17
+SKILL:Escape Artist				RANK:17
+SKILL:Fly						RANK:8
+SKILL:Knowledge (Nature)		RANK:17
+SKILL:Knowledge (Planes)		RANK:8
+SKILL:Knowledge (Religion)		RANK:17
+SKILL:Perception				RANK:17
+SKILL:Sense Motive				RANK:9
+SKILL:Stealth					RANK:17
+SKILL:Survival					RANK:9
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Critical (Slam)
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Power Attack
+LANGBONUS:Sylvan|Terran
 
 
 
