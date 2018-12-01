@@ -40,7 +40,6 @@ import pcgen.facade.core.GameModeFacade;
 import pcgen.facade.core.GearBuySellFacade;
 import pcgen.facade.core.KitFacade;
 import pcgen.facade.core.RaceFacade;
-import pcgen.facade.core.generator.StatGenerationFacade;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.DefaultMapFacade;
 import pcgen.facade.util.ListFacade;
@@ -237,16 +236,6 @@ public class MockDataSetFacade implements DataSetFacade
 	 */
     @Override
 	public Skill getSpeakLanguageSkill()
-	{
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	/**
-	 * @see pcgen.facade.core.DataSetFacade#getStatGenerators()
-	 */
-    @Override
-	public ListFacade<StatGenerationFacade> getStatGenerators()
 	{
 		// TODO Auto-generated method stub
 		return null;

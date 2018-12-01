@@ -41,7 +41,6 @@ import pcgen.facade.core.GameModeFacade;
 import pcgen.facade.core.GearBuySellFacade;
 import pcgen.facade.core.KitFacade;
 import pcgen.facade.core.RaceFacade;
-import pcgen.facade.core.generator.StatGenerationFacade;
 import pcgen.facade.util.AbstractMapFacade;
 import pcgen.facade.util.DelegatingListFacade;
 import pcgen.facade.util.ListFacade;
@@ -287,13 +286,6 @@ public class DelegatingDataSet implements DataSetFacade
 	public ListFacade<PCStat> getStats()
 	{
 		return stats;
-	}
-
-	@Override
-	public ListFacade<StatGenerationFacade> getStatGenerators()
-	{
-		//To change body of generated methods, choose Tools | Templates.
-		throw new UnsupportedOperationException("Not supported yet.");
 	}
 
 	@Override

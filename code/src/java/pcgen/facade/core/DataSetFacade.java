@@ -27,7 +27,6 @@ import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.Skill;
-import pcgen.facade.core.generator.StatGenerationFacade;
 import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.MapFacade;
 
@@ -65,8 +64,6 @@ public interface DataSetFacade
 	public ListFacade<PCAlignment> getAlignments();
 
 	public ListFacade<PCStat> getStats();
-
-	public ListFacade<StatGenerationFacade> getStatGenerators();
 
 	public Skill getSpeakLanguageSkill();
 
