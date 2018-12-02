@@ -40,7 +40,7 @@ DEFAULTUNITSET:Imperial
 #
 TAB:CLASS		NAME:in_class					CONTEXT:tabpages\tabclasses.html
 TAB:DESCRIPTION	NAME:in_descrip					CONTEXT:tabpages\tabdescription.html
-TAB:DOMAINS		NAME:in_domains			VISIBLE:NO	CONTEXT:tabpages\tabdomains.html
+TAB:DOMAINS		NAME:in_domains					CONTEXT:tabpages\tabdomains.html
 TAB:FEATS		NAME:in_feats					CONTEXT:tabpages\tabfeatsandabilities.html
 TAB:INVENTORY	NAME:in_inventory					CONTEXT:tabpages\tabinventory.html
 TAB:RACE		NAME:in_race			VISIBLE:NO	CONTEXT:tabpages\tabraces.html

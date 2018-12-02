@@ -4230,4 +4230,10 @@ public class CharacterFacadeImpl
 		}
 		return true;
 	}
+
+	@Override
+	public boolean isFeatureEnabled(String feature)
+	{
+		return theCharacter.isFeatureEnabled(feature);
+	}
 }

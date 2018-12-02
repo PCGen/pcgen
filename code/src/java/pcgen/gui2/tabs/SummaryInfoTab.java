@@ -66,6 +66,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.Handed;
+import pcgen.cdom.util.CControl;
 import pcgen.core.Deity;
 import pcgen.core.PCAlignment;
 import pcgen.core.PCClass;
@@ -940,7 +941,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 						};
 			}
 
-			if (dataset.hasDeityDomain())
+			if (character.isFeatureEnabled(CControl.DOMAINFEATURE))
 			{
 				//initialize deity model
 				deityModel = new CharacterComboBoxModel<Deity>(dataset.getDeities(), character.getDeityRef())
@@ -1009,7 +1010,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 				alignmentComboBox.setModel(alignmentModel);
 				alignmentComboBox.setVisible(true);
 			}
-			boolean hasDeityDomain = character.getDataSet().hasDeityDomain();
+			boolean hasDeityDomain = character.isFeatureEnabled(CControl.DOMAINFEATURE);
 			deityComboBox.setVisible(hasDeityDomain);
 			if (hasDeityDomain)
 			{

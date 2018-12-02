@@ -47,7 +47,7 @@ TAB:PURCHASE	NAME:in_purchase			VISIBLE:YES	CONTEXT:tabpages\tabinventory.html
 TAB:EQUIPPING	NAME:in_InfoEquipping		VISIBLE:YES	CONTEXT:tabpages\tabinventory.html
 
 # Don't Display
-TAB:DOMAINS		NAME:in_domains			VISIBLE:NO	CONTEXT:tabpages\tabdomains.html
+TAB:DOMAINS		NAME:in_domains					CONTEXT:tabpages\tabdomains.html
 TAB:TEMPLATES						VISIBLE:NO
 TAB:SPELLS		NAME:in_spells			VISIBLE:NO	CONTEXT:tabpages\tabspells.html
 TAB:RACE		NAME:in_race			VISIBLE:NO	CONTEXT:tabpages\tabraces.html

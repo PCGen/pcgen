@@ -46,6 +46,7 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 import pcgen.base.util.DoubleKeyMap;
+import pcgen.cdom.util.CControl;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.GameModeFacade;
 import pcgen.facade.core.TodoFacade;
@@ -216,20 +217,17 @@ public final class InfoTabbedPane extends JTabbedPane implements CharacterSelect
 
 			}
 		}
-		if (character != null)
+		if (character.isFeatureEnabled(CControl.DOMAINFEATURE))
 		{
-			if (character.getDataSet().hasDeityDomain())
-			{
-				TabTitle tabTitle = domainInfoTab.getTabTitle();
-				String title = (String) tabTitle.getValue(TabTitle.TITLE);
-				String tooltip = (String) tabTitle.getValue(TabTitle.TOOLTIP);
-				Icon icon = (Icon) tabTitle.getValue(TabTitle.ICON);
-				insertTab(title, icon, domainInfoTab, tooltip, domainTabLocation);
-			}
-			else
-			{
-				remove(domainInfoTab);
-			}
+			TabTitle tabTitle = domainInfoTab.getTabTitle();
+			String title = (String) tabTitle.getValue(TabTitle.TITLE);
+			String tooltip = (String) tabTitle.getValue(TabTitle.TOOLTIP);
+			Icon icon = (Icon) tabTitle.getValue(TabTitle.ICON);
+			insertTab(title, icon, domainInfoTab, tooltip, domainTabLocation);
+		}
+		else
+		{
+			remove(domainInfoTab);
 		}
 	}
 

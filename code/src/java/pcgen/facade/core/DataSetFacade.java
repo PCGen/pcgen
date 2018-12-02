@@ -104,11 +104,4 @@ public interface DataSetFacade
 	 * Update the equipment list from the global equipment list. 
 	 */
 	public void refreshEquipment();
-
-	/**
-	 * Returns true if the DataSet understands Deities and Domains.
-	 * 
-	 * @return true if the DataSet understands Deities and Domains; false otherwise
-	 */
-	public boolean hasDeityDomain();
 }
