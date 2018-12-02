@@ -22,6 +22,7 @@ import java.util.List;
 
 import pcgen.core.BodyStructure;
 import pcgen.core.Deity;
+import pcgen.core.Kit;
 import pcgen.core.PCAlignment;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
@@ -90,7 +91,7 @@ public interface DataSetFacade
 	/**
 	 * @return the list of kits
 	 */
-	public ListFacade<KitFacade> getKits();
+	public ListFacade<Kit> getKits();
 
 	/**
 	 * @return The list of sizes

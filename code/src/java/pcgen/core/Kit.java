@@ -38,7 +38,6 @@ import pcgen.core.kit.KitStat;
 import pcgen.core.kit.KitTable;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.PrerequisiteUtilities;
-import pcgen.facade.core.KitFacade;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.View;
 import pcgen.util.enumeration.Visibility;
@@ -46,7 +45,7 @@ import pcgen.util.enumeration.Visibility;
 /**
  * {@code Kit}.
  */
-public final class Kit extends PObject implements Comparable<Object>, KitFacade
+public final class Kit extends PObject implements Comparable<Object>
 {
 	private int selectValue = -1;
 
@@ -424,14 +423,12 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 		return addToMapFor(MapKey.KIT_TABLE, table.getTableName(), table);
 	}
 
-	@Override
 	public String getDisplayType()
 	{
 		List<Type> trueTypeList = getTrueTypeList(true);
 		return StringUtil.join(trueTypeList, ".");
 	}
 
-	@Override
 	public boolean isPermanent()
 	{
 		return getSafe(ObjectKey.APPLY_MODE) == KitApply.PERMANENT;

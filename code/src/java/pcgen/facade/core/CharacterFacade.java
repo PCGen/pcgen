@@ -34,6 +34,7 @@ import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.cdom.meta.CorePerspective;
 import pcgen.core.Deity;
+import pcgen.core.Kit;
 import pcgen.core.Language;
 import pcgen.core.PCAlignment;
 import pcgen.core.PCStat;
@@ -791,19 +792,19 @@ public interface CharacterFacade extends CompanionFacade
 	/**
 	 * @return The kits that have been applied to the character 
 	 */
-	public DefaultListFacade<KitFacade> getKits();
+	public DefaultListFacade<Kit> getKits();
 
 	/**
 	 * Add a kit to the character. This will test the kit is valid and warn the 
 	 * user if there are potential errors before applying the kit. 
 	 * @param object The kit to be added
 	 */
-	public void addKit(KitFacade object);
+	public void addKit(Kit object);
 
 	/**
 	 * @return The list of kits currently available to the character.
 	 */
-	public List<KitFacade> getAvailableKits();
+	public List<Kit> getAvailableKits();
 
 	/**
 	 * Record the default output sheet for this character.
@@ -877,4 +878,6 @@ public interface CharacterFacade extends CompanionFacade
 	CharID getCharID();
 
 	public boolean isQualifiedFor(PCTemplate element);
+
+	public boolean isQualifiedFor(Kit element);
 }

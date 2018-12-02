@@ -23,6 +23,7 @@ import pcgen.core.AbilityCategory;
 import pcgen.core.BodyStructure;
 import pcgen.core.Deity;
 import pcgen.core.GameMode;
+import pcgen.core.Kit;
 import pcgen.core.PCAlignment;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
@@ -39,7 +40,6 @@ import pcgen.facade.core.DomainFacade;
 import pcgen.facade.core.EquipmentFacade;
 import pcgen.facade.core.GameModeFacade;
 import pcgen.facade.core.GearBuySellFacade;
-import pcgen.facade.core.KitFacade;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.DefaultMapFacade;
 import pcgen.facade.util.ListFacade;
@@ -219,10 +219,9 @@ public class MockDataSetFacade implements DataSetFacade
 	}
 
 	@Override
-	public ListFacade<KitFacade> getKits()
+	public ListFacade<Kit> getKits()
 	{
-		// TODO Auto-generated method stub
-		return null;
+		throw new UnsupportedOperationException();
 	}
 
 	@Override
