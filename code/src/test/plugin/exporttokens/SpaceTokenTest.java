@@ -38,18 +38,12 @@ public class SpaceTokenTest extends AbstractCharacterTestCase
 		return new TestSuite(SpaceTokenTest.class);
 	}
 
-	/*
-	 * @see TestCase#setUp()
-	 */
 	@Override
 	protected void setUp() throws Exception
 	{
 		// Do Nothing
 	}
 
-	/*
-	 * @see TestCase#tearDown()
-	 */
 	@Override
 	protected void tearDown() throws Exception
 	{

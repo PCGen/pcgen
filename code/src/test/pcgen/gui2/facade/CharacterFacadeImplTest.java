@@ -57,9 +57,6 @@ public class CharacterFacadeImplTest extends AbstractCharacterTestCase
 			EquipSet.DEFAULT_SET_PATH, defaultEquipSet.getIdPath());
 	}
 	
-	/**
-	 * @see pcgen.AbstractCharacterTestCase#setUp()
-	 */
 	@Override
 	@Before
 	public void setUp() throws Exception

@@ -76,9 +76,6 @@ public final class InstallLoaderTest extends TestCase
 				"PUBNAMELONG:" + PUBNAMELONG, "PUBNAMESHORT:" + PUBNAMESHORT,
 				"PUBNAMEWEB:" + SOURCEWEB};
 
-	/**
-	 * @see junit.framework.TestCase#setUp()
-	 */
 	@Override
 	protected void setUp() throws Exception
 	{
@@ -86,9 +83,6 @@ public final class InstallLoaderTest extends TestCase
 		TestHelper.loadPlugins();
 	}
 
-	/**
-	 * @see junit.framework.TestCase#tearDown()
-	 */
     @Override
 	protected void tearDown() throws Exception
 	{

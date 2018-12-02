@@ -94,9 +94,6 @@ public class Gui2InfoFactoryTest extends AbstractCharacterTestCase
 			infoFactory.getHTMLInfo(tbf));
 	}	
 	
-	/**
-	 * @see pcgen.AbstractCharacterTestCase#setUp()
-	 */
 	@Override
 	protected void setUp() throws Exception
 	{

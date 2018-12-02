@@ -51,9 +51,6 @@ public class SkillCostDisplayTest extends AbstractCharacterTestCase
 	Ability persuasive = new Ability();
 	Skill bluff;
 
-	/**
-	 * @see pcgen.AbstractCharacterTestCase#setUp()
-	 */
 	@Override
 	protected void setUp() throws Exception
 	{
@@ -103,9 +100,6 @@ public class SkillCostDisplayTest extends AbstractCharacterTestCase
 		character.incrementClassLevel(1, pcClass);
 	}
 
-	/**
-	 * @see pcgen.AbstractCharacterTestCase#tearDown()
-	 */
 	@Override
 	protected void tearDown() throws Exception
 	{

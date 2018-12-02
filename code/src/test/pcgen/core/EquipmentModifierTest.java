@@ -50,8 +50,6 @@ public class EquipmentModifierTest extends TestCase
 	 * <var>name</var>.
 	 *
 	 * @param name the test case name
-	 *
-	 * @see pcgen.PCGenTestCase#PCGenTestCase(String)
 	 */
 	public EquipmentModifierTest(final String name)
 	{

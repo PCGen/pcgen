@@ -366,18 +366,12 @@ public class PObjectTest extends AbstractCharacterTestCase
 			Nature.AUTOMATIC, ab2));
 	}
 
-	/**
-	 * @see pcgen.AbstractCharacterTestCase#setUp()
-	 */
 	@Override
 	protected void setUp() throws Exception
 	{
 		super.setUp();
 	}
 
-	/**
-	 * @see pcgen.AbstractCharacterTestCase#tearDown()
-	 */
 	@Override
 	protected void tearDown() throws Exception
 	{

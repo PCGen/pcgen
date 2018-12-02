@@ -64,9 +64,6 @@ public class VAbilityTokenTest extends AbstractCharacterTestCase
 
 	private Ability skillFocus;
 
-	/*
-	 * @see TestCase#setUp()
-	 */
     @Override
 	protected void setUp() throws Exception
 	{

@@ -76,9 +76,6 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 		Globals.getContext().loadCampaignFacets();
 	}
 
-	/*
-	 * @see TestCase#setUp()
-	 */
     @Override
 	protected void additionalSetUp() throws Exception
 	{
@@ -121,9 +118,6 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 		context.getReferenceContext().importObject(divineClass);
 	}
 
-	/*
-	 * @see TestCase#tearDown()
-	 */
     @Override
 	protected void tearDown() throws Exception
 	{

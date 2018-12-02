@@ -51,8 +51,6 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 	 * Constructs a new {@code PCTemplateTest} with the given <var>name</var>.
 	 *
 	 * @param name the test case name
-	 *
-	 * @see pcgen.PCGenTestCase#PCGenTestCase(String)
 	 */
 	public PCTemplateTest(final String name)
 	{
@@ -360,9 +358,6 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		
 	}
 	
-	/**
-	 * @see pcgen.AbstractCharacterTestCase#setUp()
-	 */
 	@Override
 	protected void setUp() throws Exception
 	{
@@ -376,9 +371,6 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 
 	}
 
-	/**
-	 * @see pcgen.AbstractCharacterTestCase#tearDown()
-	 */
 	@Override
 	protected void tearDown() throws Exception
 	{

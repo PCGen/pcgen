@@ -58,9 +58,6 @@ public class ACTokenTest extends AbstractCharacterTestCase
 		return new TestSuite(ACTokenTest.class);
 	}
 
-	/*
-	 * @see TestCase#setUp()
-	 */
     @Override
 	protected void setUp() throws Exception
 	{
@@ -143,9 +140,6 @@ public class ACTokenTest extends AbstractCharacterTestCase
 
 	}
 
-	/*
-	 * @see TestCase#tearDown()
-	 */
     @Override
 	protected void tearDown() throws Exception
 	{
