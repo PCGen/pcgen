@@ -279,6 +279,13 @@ task cleanRoot(type: Delete) {
     delete "$projectDir/jre"
 }
 
+// Alias tasks
+task buildonly(dependsOn: ['installToRoot']) {
+}
+
+task quickbuild(dependsOn: ['installToRoot', 'test']) {
+}
+
 build {
     it.dependsOn 'copyToOutput', 'syncLibsToRoot'
     mustRunAfter clean
