@@ -38,10 +38,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
 
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang3.StringUtils;
-import org.jetbrains.annotations.Nullable;
-
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.Nature;
@@ -61,6 +57,11 @@ import pcgen.system.PCGenPropBundle;
 import pcgen.system.PCGenSettings;
 import pcgen.util.FileHelper;
 import pcgen.util.Logging;
+
+
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * {@code PCGIOHandler}<br>
@@ -651,10 +652,7 @@ public final class PCGIOHandler extends IOHandler
 	{
 		String versionLine = "VERSION:" + PCGenPropBundle.getVersionNumber();
 		String[] files = new String[characterFiles.size()];
-		for (int i = 0; i < files.length; i++)
-		{
-			files[i] = FileHelper.findRelativePath(partyFile, characterFiles.get(i));
-		}
+		Arrays.setAll(files, i -> FileHelper.findRelativePath(partyFile, characterFiles.get(i)));
 		String filesLine = StringUtils.join(files, ',');
 		try
 		{
