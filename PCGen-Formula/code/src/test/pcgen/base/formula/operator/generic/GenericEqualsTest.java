@@ -68,12 +68,12 @@ public class GenericEqualsTest extends TestCase
 
 	public void testAbstractEvaluateMismatch()
 	{
-		assertNull(op.abstractEvaluate(BOOLEAN_CLASS, INTEGER_CLASS, null));
-		assertNull(op.abstractEvaluate(NUMBER_CLASS, BOOLEAN_CLASS, null));
+		assertTrue(op.abstractEvaluate(BOOLEAN_CLASS, INTEGER_CLASS, null).isEmpty());
+		assertTrue(op.abstractEvaluate(NUMBER_CLASS, BOOLEAN_CLASS, null).isEmpty());
 		//Don't handle arrays
-		assertNull(op.abstractEvaluate(NUMBER_ARRAY_CLASS, NUMBER_ARRAY_CLASS, null));
-		assertNull(op.abstractEvaluate(NUMBER_CLASS, NUMBER_ARRAY_CLASS, null));
-		assertNull(op.abstractEvaluate(NUMBER_ARRAY_CLASS, NUMBER_CLASS, null));
+		assertTrue(op.abstractEvaluate(NUMBER_ARRAY_CLASS, NUMBER_ARRAY_CLASS, null).isEmpty());
+		assertTrue(op.abstractEvaluate(NUMBER_CLASS, NUMBER_ARRAY_CLASS, null).isEmpty());
+		assertTrue(op.abstractEvaluate(NUMBER_ARRAY_CLASS, NUMBER_CLASS, null).isEmpty());
 	}
 
 	public void testAbstractEvaluateLegal()

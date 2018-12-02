@@ -82,14 +82,14 @@ public class ArrayNotEqualTest extends TestCase
 
 	public void testAbstractEvaluateMismatch()
 	{
-		assertNull(op.abstractEvaluate(NUMBER_ARRAY_CLASS, BOOLEAN_ARRAY_CLASS,
-			Optional.empty()));
-		assertNull(op.abstractEvaluate(BOOLEAN_ARRAY_CLASS, INTEGER_ARRAY_CLASS,
-			Optional.of(booleanManager)));
-		assertNull(op.abstractEvaluate(BOOLEAN_ARRAY_CLASS, INTEGER_CLASS,
-			Optional.of(booleanManager)));
-		assertNull(op.abstractEvaluate(NUMBER_ARRAY_CLASS, NUMBER_CLASS,
-			Optional.of(booleanManager)));
+		assertTrue(op.abstractEvaluate(NUMBER_ARRAY_CLASS, BOOLEAN_ARRAY_CLASS,
+			Optional.empty()).isEmpty());
+		assertTrue(op.abstractEvaluate(BOOLEAN_ARRAY_CLASS, INTEGER_ARRAY_CLASS,
+			Optional.of(booleanManager)).isEmpty());
+		assertTrue(op.abstractEvaluate(BOOLEAN_ARRAY_CLASS, INTEGER_CLASS,
+			Optional.of(booleanManager)).isEmpty());
+		assertTrue(op.abstractEvaluate(NUMBER_ARRAY_CLASS, NUMBER_CLASS,
+			Optional.of(booleanManager)).isEmpty());
 	}
 
 	public void testAbstractEvaluateLegal()

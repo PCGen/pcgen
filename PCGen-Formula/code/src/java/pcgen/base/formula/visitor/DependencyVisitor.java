@@ -178,7 +178,7 @@ public class DependencyVisitor implements FormulaParserVisitor
 	public Object visit(ASTNum node, Object data)
 	{
 		//We assume semantics passed
-		return FormatUtilities.NUMBER_MANAGER;
+		return Optional.of(FormatUtilities.NUMBER_MANAGER);
 	}
 
 	/**
@@ -206,7 +206,7 @@ public class DependencyVisitor implements FormulaParserVisitor
 		}
 		else if (argNode instanceof ASTPCGenBracket)
 		{
-			return getVariableFormat(manager, name).getComponentManager().get();
+			return getVariableFormat(manager, name).get().getComponentManager();
 		}
 		throw new IllegalStateException(
 				"Evaluation called on invalid Function (failed semantics?)");
@@ -229,7 +229,7 @@ public class DependencyVisitor implements FormulaParserVisitor
 	 * @param varName
 	 *            The variable name to be added as a dependency
 	 */
-	public FormatManager<?> visitVariable(String varName, DependencyManager manager)
+	public Optional<FormatManager<?>> visitVariable(String varName, DependencyManager manager)
 	{
 		Optional<VariableStrategy> varStrategy =
 				manager.get(DependencyManager.VARSTRATEGY);
@@ -252,7 +252,7 @@ public class DependencyVisitor implements FormulaParserVisitor
 	 * @return The format for the given Variable, in the scope as described by the
 	 *         DependencyManager
 	 */
-	public FormatManager<?> getVariableFormat(DependencyManager manager, String varName)
+	public Optional<FormatManager<?>> getVariableFormat(DependencyManager manager, String varName)
 	{
 		VariableLibrary varLib = manager.get(DependencyManager.FMANAGER).getFactory();
 		LegalScope legalScope = manager.get(DependencyManager.SCOPE);
@@ -261,7 +261,7 @@ public class DependencyVisitor implements FormulaParserVisitor
 			//Fall back to INSTANCE
 			legalScope = manager.get(DependencyManager.INSTANCE).getLegalScope();
 		}
-		return varLib.getVariableFormat(legalScope, varName);
+		return Optional.of(varLib.getVariableFormat(legalScope, varName));
 	}
 
 	/**
@@ -305,7 +305,7 @@ public class DependencyVisitor implements FormulaParserVisitor
 		Optional<FormatManager<?>> asserted = manager.get(DependencyManager.ASSERTED);
 		if (!asserted.isPresent())
 		{
-			return FormatUtilities.STRING_MANAGER;
+			return Optional.of(FormatUtilities.STRING_MANAGER);
 		}
 		FormatManager<?> assertedFormat = asserted.get();
 		if (!assertedFormat.isDirect())
@@ -316,7 +316,7 @@ public class DependencyVisitor implements FormulaParserVisitor
 				refManager.add(assertedFormat.convertIndirect(node.getText()));
 			}
 		}
-		return assertedFormat;
+		return asserted;
 	}
 
 	/**
@@ -341,25 +341,25 @@ public class DependencyVisitor implements FormulaParserVisitor
 	{
 		DependencyManager manager = (DependencyManager) data;
 		Node child1 = node.jjtGetChild(0);
-		FormatManager<?> format1 = (FormatManager<?>) child1.jjtAccept(this, data);
+		Optional<FormatManager<?>> format1 = (Optional<FormatManager<?>>) child1.jjtAccept(this, data);
 		Node child2 = node.jjtGetChild(1);
-		FormatManager<?> format2 = (FormatManager<?>) child2.jjtAccept(this, data);
+		Optional<FormatManager<?>> format2 = (Optional<FormatManager<?>>) child2.jjtAccept(this, data);
 		OperatorLibrary opLib =
 				manager.get(DependencyManager.FMANAGER).getOperatorLibrary();
 		Operator op = node.getOperator();
-		return opLib.processAbstract(op, format1.getManagedClass(),
-			format2.getManagedClass(), manager.get(DependencyManager.ASSERTED));
+		return opLib.processAbstract(op, format1.get().getManagedClass(),
+			format2.get().getManagedClass(), manager.get(DependencyManager.ASSERTED));
 	}
 
 	private Optional<FormatManager<?>> visitUnaryNode(SimpleNode node, Object data)
 	{
 		Node child = node.jjtGetChild(0);
-		FormatManager<?> format = (FormatManager<?>) child.jjtAccept(this, data);
+		Optional<FormatManager<?>> format = (Optional<FormatManager<?>>) child.jjtAccept(this, data);
 		DependencyManager manager = (DependencyManager) data;
 		OperatorLibrary opLib =
 				manager.get(DependencyManager.FMANAGER).getOperatorLibrary();
 		Operator op = node.getOperator();
-		return opLib.processAbstract(op, format.getManagedClass());
+		return opLib.processAbstract(op, format.get().getManagedClass());
 	}
 
 	/**
@@ -379,6 +379,6 @@ public class DependencyVisitor implements FormulaParserVisitor
 	private Object visitRelational(SimpleNode node, Object data)
 	{
 		node.childrenAccept(this, data);
-		return FormatUtilities.BOOLEAN_MANAGER;
+		return Optional.of(FormatUtilities.BOOLEAN_MANAGER);
 	}
 }

@@ -49,7 +49,7 @@ public class NumberMinusTest extends TestCase
 
 	public void testAbstractEvaluateMismatch()
 	{
-		assertNull(op.abstractEvaluate(Boolean.class));
+		assertTrue(op.abstractEvaluate(Boolean.class).isEmpty());
 	}
 
 	public void testAbstractEvaluateLegal()

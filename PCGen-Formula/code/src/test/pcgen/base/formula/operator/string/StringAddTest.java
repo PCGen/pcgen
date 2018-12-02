@@ -64,8 +64,8 @@ public class StringAddTest extends TestCase
 
 	public void testAbstractEvaluateMismatch()
 	{
-		assertNull(op.abstractEvaluate(BOOLEAN_CLASS, STRING_CLASS, null));
-		assertNull(op.abstractEvaluate(STRING_CLASS, NUMBER_CLASS, null));
+		assertTrue(op.abstractEvaluate(BOOLEAN_CLASS, STRING_CLASS, null).isEmpty());
+		assertTrue(op.abstractEvaluate(STRING_CLASS, NUMBER_CLASS, null).isEmpty());
 	}
 
 	public void testAbstractEvaluateLegal()

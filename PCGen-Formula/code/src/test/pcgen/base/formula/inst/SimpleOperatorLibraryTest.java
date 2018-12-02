@@ -69,9 +69,9 @@ public class SimpleOperatorLibraryTest extends TestCase
 	@Test
 	public void testEmpty()
 	{
-		assertNull(
-			library.processAbstract(Operator.ADD, NUMBER_CLASS, INTEGER_CLASS, null));
-		assertNull(library.processAbstract(Operator.MINUS, NUMBER_CLASS));
+		assertTrue(
+			library.processAbstract(Operator.ADD, NUMBER_CLASS, INTEGER_CLASS, null).isEmpty());
+		assertTrue(library.processAbstract(Operator.MINUS, NUMBER_CLASS).isEmpty());
 		try
 		{
 			library.evaluate(Operator.ADD, 1, 2, null);

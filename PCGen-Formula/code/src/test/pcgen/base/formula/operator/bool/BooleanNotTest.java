@@ -48,8 +48,8 @@ public class BooleanNotTest extends TestCase
 
 	public void testAbstractEvaluateMismatch()
 	{
-		assertNull(op.abstractEvaluate(INTEGER_CLASS));
-		assertNull(op.abstractEvaluate(NUMBER_CLASS));
+		assertTrue(op.abstractEvaluate(INTEGER_CLASS).isEmpty());
+		assertTrue(op.abstractEvaluate(NUMBER_CLASS).isEmpty());
 	}
 
 	public void testAbstractEvaluateLegal()
