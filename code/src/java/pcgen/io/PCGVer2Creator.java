@@ -100,6 +100,7 @@ import pcgen.output.channel.compat.AgeCompat;
 import pcgen.output.channel.compat.AlignmentCompat;
 import pcgen.output.channel.compat.HairColorCompat;
 import pcgen.output.channel.compat.HandedCompat;
+import pcgen.output.channel.compat.HeightCompat;
 import pcgen.system.PCGenPropBundle;
 import pcgen.util.FileHelper;
 import pcgen.util.Logging;
@@ -1747,7 +1748,7 @@ public final class PCGVer2Creator
 	private void appendHeightLine(StringBuilder buffer)
 	{
 		buffer.append(IOConstants.TAG_HEIGHT).append(':');
-		buffer.append(charDisplay.getHeight());
+		buffer.append(EntityEncoder.encode(HeightCompat.getCurrentHeight(thePC.getCharID()).toString()));
 		buffer.append(IOConstants.LINE_SEP);
 	}
 

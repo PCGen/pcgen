@@ -73,6 +73,7 @@ import pcgen.io.PCGIOHandler;
 import pcgen.io.PCGVer2Creator;
 import pcgen.output.channel.compat.AgeCompat;
 import pcgen.output.channel.compat.HandedCompat;
+import pcgen.output.channel.compat.HeightCompat;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.persistence.lst.LevelLoader;
 import pcgen.rules.context.AbstractReferenceContext;
@@ -406,7 +407,7 @@ public abstract class AbstractSaveRestoreTest
 	private void setBoilerplate()
 	{
 		pc.setRace(human);
-		pc.setHeight(0);
+		HeightCompat.setCurrentHeight(pc.getCharID(), 0);
 		pc.setWeight(0);
 		pc.setAllowDebt(false);
 		HandedCompat.setCurrentHandedness(pc.getCharID(), Handed.Right);

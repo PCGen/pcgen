@@ -23,6 +23,7 @@ import pcgen.core.Globals;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbstractExportToken;
+import pcgen.output.channel.compat.HeightCompat;
 
 /**
  * Deals with Tokens:
@@ -65,26 +66,29 @@ public class HeightToken extends AbstractExportToken
 
 	private String getHeightInchPart(CharacterDisplay display)
 	{
-		return Integer.toString(display.getHeight() % 12);
+		Integer height = HeightCompat.getCurrentHeight(display.getCharID());
+		return Integer.toString(height % 12);
 	}
 
 	private String getHeightFootPart(CharacterDisplay display)
 	{
-		return Integer.toString(display.getHeight() / 12);
+		Integer height = HeightCompat.getCurrentHeight(display.getCharID());
+		return Integer.toString(height / 12);
 	}
 
 	private String getHeightString(CharacterDisplay display)
 	{
+		Integer height = HeightCompat.getCurrentHeight(display.getCharID());
 		String retString;
 
 		if ("ftin".equals(Globals.getGameModeUnitSet().getHeightUnit()))
 		{
-			retString = Integer.toString(display.getHeight() / 12) + "' " + Integer.toString(display.getHeight() % 12)
+			retString = Integer.toString(height / 12) + "' " + Integer.toString(height % 12)
 				+ '"';
 		}
 		else
 		{
-			retString = Globals.getGameModeUnitSet().displayHeightInUnitSet(display.getHeight()) + ' '
+			retString = Globals.getGameModeUnitSet().displayHeightInUnitSet(height) + ' '
 				+ Globals.getGameModeUnitSet().getHeightUnit();
 		}
 

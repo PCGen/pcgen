@@ -292,7 +292,6 @@
 	<bean id="hasDeityWeaponProfFacet" class="pcgen.cdom.facet.HasDeityWeaponProfFacet">
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
-	<bean id="heightFacet" class="pcgen.cdom.facet.fact.HeightFacet"/>
 	<bean id="hiddenTypeFacet" class="pcgen.cdom.facet.HiddenTypeFacet">
 		<property name="dataSetInitializationFacet" ref="dataSetInitializationFacet"/>
 	</bean>

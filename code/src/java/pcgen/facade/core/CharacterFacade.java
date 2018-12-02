@@ -740,16 +740,6 @@ public interface CharacterFacade extends CompanionFacade
 	public void setEyeColor(String color);
 
 	/**
-	 * @return a reference to this character's height.
-	 */
-	public ReferenceFacade<Integer> getHeightRef();
-
-	/**
-	 * @param height the height to set.
-	 */
-	public void setHeight(int height);
-
-	/**
 	 * @return a reference to this character's weight.
 	 */
 	public ReferenceFacade<Integer> getWeightRef();

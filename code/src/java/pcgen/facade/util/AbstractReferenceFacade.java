@@ -28,8 +28,7 @@ import pcgen.facade.util.event.ReferenceListener;
  * @param <T>
  *            The Type of object stored by this AbstractReferenceFacade
  */
-public abstract class AbstractReferenceFacade<T>
-		implements ReferenceFacade<T>
+public abstract class AbstractReferenceFacade<T> implements ReferenceFacade<T>
 {
 
 	/**
