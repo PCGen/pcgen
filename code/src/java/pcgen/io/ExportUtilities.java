@@ -20,6 +20,8 @@
 package pcgen.io;
 
 import java.io.File;
+import java.util.stream.Stream;
+
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -80,7 +82,6 @@ public final class ExportUtilities
 	public static boolean isPdfTemplate(String templateFilename)
 	{
 		String extension = getOutputExtension(templateFilename, false);
-		return (extension.equalsIgnoreCase("pdf") || extension.equalsIgnoreCase("fo")
-			|| extension.equalsIgnoreCase("xslt") || extension.equalsIgnoreCase("xsl"));
+		return (Stream.of("pdf", "fo", "xslt", "xsl").anyMatch(extension::equalsIgnoreCase));
 	}
 }
