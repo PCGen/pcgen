@@ -1985,4 +1985,10 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentListListene
 		}
 
 	}
+
+	@Override
+	public boolean isRoot()
+	{
+		return eqSet.getParentIdPath().equals("0");
+	}
 }
