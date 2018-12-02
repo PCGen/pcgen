@@ -50,7 +50,6 @@ import pcgen.facade.core.GameModeFacade;
 import pcgen.facade.core.GearBuySellFacade;
 import pcgen.facade.core.KitFacade;
 import pcgen.facade.core.RaceFacade;
-import pcgen.facade.core.generator.StatGenerationFacade;
 import pcgen.facade.util.AbstractMapFacade;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.ListFacade;
@@ -366,12 +365,6 @@ public class DataSet implements DataSetFacade
 	public ListFacade<PCStat> getStats()
 	{
 		return stats;
-	}
-
-	@Override
-	public ListFacade<StatGenerationFacade> getStatGenerators()
-	{
-		throw new UnsupportedOperationException("Not supported yet.");
 	}
 
 	@Override
