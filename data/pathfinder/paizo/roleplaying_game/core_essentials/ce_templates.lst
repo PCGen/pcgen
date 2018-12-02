@@ -1065,20 +1065,20 @@ SOURCELONG:Bestiary 2	SOURCESHORT:B2	SOURCEWEB:http://paizo.com/store/byCompany/
 # ORIGINAL ENTRY DATE: Unknown
 
 ###Block: Creature Subtypes
-# Template Name		Visible	Source Page		Modify VAR																	Class Skill							Ability																																					Auto Language			Race Subtype		Vision
-Aeon				VISIBLE:NO	SOURCEPAGE:p.305	BONUS:VAR|ElectricityResistanceBonus,FireResistanceBonus|10|TYPE=Resistance														ABILITY:Special Ability|AUTOMATIC|Aeon ~ Envisaging|Aeon ~ Extension of All|Aeon ~ Void Form|Immunity to Cold|Immunity to Critical Hits|Immunity to Poison|Resistance to Electricity|Resistance to Fire										RACESUBTYPE:Aeon
-Agathion			VISIBLE:NO	SOURCEPAGE:p.306	BONUS:VAR|ColdResistanceBonus,SonicResistanceBonus|10|TYPE=Resistance	BONUS:VAR|LayOnHandsLVL|min(20,TL)									ABILITY:Special Ability|AUTOMATIC|Agathion ~ Lay on Hands|Agathion ~ Poison Save Bonus|Agathion ~ Speak with Animals|Agathion ~ Truespeech|Immunity to Electricity|Immunity to Petrification|Resistance to Cold|Resistance to Sonic						RACESUBTYPE:Agathion	VISION:Low-Light Vision
-Angel ~ Cassisian		VISIBLE:NO	SOURCEPAGE:p.310	BONUS:VAR|ElectricityResistanceBonus,FireResistanceBonus|10|TYPE=Resistance														ABILITY:Special Ability|AUTOMATIC|Angel ~ Save vs Poison|Angel ~ Truespeech|Immunity to Acid|Immunity to Cold|Immunity to Petrification|Resistance to Electricity|Resistance to Fire													RACESUBTYPE:Angel		VISION:Darkvision (60')|Low-Light Vision
-Daemon			VISIBLE:NO	SOURCEPAGE:p.306	BONUS:VAR|ColdResistanceBonus,ElectricityResistanceBonus,FireResistanceBonus|10|TYPE=Resistance											ABILITY:Special Ability|AUTOMATIC|Aligned (Evil)|Immunity to Acid|Immunity to Death Effects|Immunity to Disease|Immunity to Poison|Resistance to Cold|Resistance to Electricity|Resistance to Fire|Telepathy				AUTO:LANG|Abyssal|Infernal	RACESUBTYPE:Daemon
-Dark Folk			VISIBLE:NO	SOURCEPAGE:p.307																																																																						RACESUBTYPE:Dark Folk
-Dhampir			VISIBLE:NO	SOURCEPAGE:p.89																																																																						RACESUBTYPE:Dhampir
-Grippli			VISIBLE:NO	SOURCEPAGE:p.149																																																																						RACESUBTYPE:Grippli
-Inevitable			VISIBLE:NO	SOURCEPAGE:p.307																			CSKILL:Acrobatics|Diplomacy|Intimidate|Survival	ABILITY:Special Ability|AUTOMATIC|Inevitable ~ Constructed|Inevitable ~ Truespeech|Regeneration ~ Chaotic																										RACESUBTYPE:Inevitable	VISION:Low-Light Vision
-Nightshade			VISIBLE:NO	SOURCEPAGE:p.308																											ABILITY:Special Ability|AUTOMATIC|Nightshade ~ Channel Energy|Nightshade ~ Darksense|Nightshade ~ Desecrating Aura|Nightshade ~ Light Aversion																				RACESUBTYPE:Nightshade	VISION:Low-Light Vision
-Protean			VISIBLE:NO	SOURCEPAGE:p.308	BONUS:VAR|ElectricityResistanceBonus,SonicResistanceBonus|10|TYPE=Resistance														ABILITY:Special Ability|AUTOMATIC|Aligned (Chaos)|Constrict|Grab|Immunity to Acid|Protean ~ Amorphous Anatomy|Protean ~ Change Shape|Protean ~ Freedom of Movement|Resistance to Electricity|Resistance to Sonic									RACESUBTYPE:Protean
-Protean ~ Voidworm	VISIBLE:NO	SOURCEPAGE:p.308	BONUS:VAR|ElectricityResistanceBonus,SonicResistanceBonus|10|TYPE=Resistance														ABILITY:Special Ability|AUTOMATIC|Aligned (Chaos)|Immunity to Acid|Protean ~ Amorphous Anatomy|Protean ~ Change Shape|Protean ~ Freedom of Movement|Resistance to Electricity|Resistance to Sonic											RACESUBTYPE:Protean
-Qlippoth			VISIBLE:NO	SOURCEPAGE:p.309	BONUS:VAR|AcidResistanceBonus,ElectricityResistanceBonus,FireResistanceBonus|10|TYPE=Resistance											ABILITY:Special Ability|AUTOMATIC|Immunity to Cold|Immunity to Mind-Affecting Effects|Immunity to Poison|Resistance to Acid|Resistance to Electricity|Resistance to Fire|Telepathy									AUTO:LANG|Abyssal			RACESUBTYPE:Qlippoth
-Qlippoth ~ Cythnigot	VISIBLE:NO	SOURCEPAGE:p.309	BONUS:VAR|AcidResistanceBonus,ElectricityResistanceBonus,FireResistanceBonus|10|TYPE=Resistance											ABILITY:Special Ability|AUTOMATIC|Immunity to Cold|Immunity to Mind-Affecting Effects|Immunity to Poison|Resistance to Acid|Resistance to Electricity|Resistance to Fire|Telepathy ~ Touch							AUTO:LANG|Abyssal			RACESUBTYPE:Qlippoth
+# Template Name		Visible	Source Page		Race Subtype
+Aeon				VISIBLE:NO	SOURCEPAGE:p.305	RACESUBTYPE:Aeon
+Agathion			VISIBLE:NO	SOURCEPAGE:p.306	RACESUBTYPE:Agathion
+Angel ~ Cassisian		VISIBLE:NO	SOURCEPAGE:p.310	RACESUBTYPE:Angel
+Daemon			VISIBLE:NO	SOURCEPAGE:p.306	RACESUBTYPE:Daemon
+Dark Folk			VISIBLE:NO	SOURCEPAGE:p.307	RACESUBTYPE:Dark Folk
+Dhampir			VISIBLE:NO	SOURCEPAGE:p.89	RACESUBTYPE:Dhampir
+Grippli			VISIBLE:NO	SOURCEPAGE:p.149	RACESUBTYPE:Grippli
+Inevitable			VISIBLE:NO	SOURCEPAGE:p.307	RACESUBTYPE:Inevitable
+Nightshade			VISIBLE:NO	SOURCEPAGE:p.308	RACESUBTYPE:Nightshade
+Protean			VISIBLE:NO	SOURCEPAGE:p.308	RACESUBTYPE:Protean
+Protean ~ Voidworm	VISIBLE:NO	SOURCEPAGE:p.308	RACESUBTYPE:Protean
+Qlippoth			VISIBLE:NO	SOURCEPAGE:p.309	RACESUBTYPE:Qlippoth
+Qlippoth ~ Cythnigot	VISIBLE:NO	SOURCEPAGE:p.309	RACESUBTYPE:Qlippoth
 
 ###Block: Animal Companion templates
 # COMMENT: Some animal companions don't follow the standard die-increase
