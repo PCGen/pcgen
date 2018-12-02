@@ -23,7 +23,6 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.formula.local.ModifierDecoration;
-import pcgen.cdom.inst.CodeControl;
 import pcgen.cdom.util.CControl;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
@@ -32,7 +31,6 @@ import pcgen.core.PCAlignment;
 import pcgen.core.PCStat;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SizeAdjustment;
-import pcgen.output.channel.ChannelUtilities;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
@@ -192,20 +190,7 @@ public abstract class AbstractCharacterUsingTestCase extends TestCase
 
 		FormatManager<?> fmtManager = ref.getFormatManager("ALIGNMENT");
 		proc(context, fmtManager);
-		setAlignmentInputCodeControl(context, fmtManager, ref);
-	}
-
-	private void setAlignmentInputCodeControl(LoadContext context,
-		FormatManager<?> fmtManager, AbstractReferenceContext ref)
-	{
-		CodeControl ai = ref.constructCDOMObject(CodeControl.class, "Controller");
-		String varName = CControl.ALIGNMENTINPUT.getDefaultValue();
-		String channelName = ChannelUtilities.createVarName(varName);
-		context.getVariableContext().assertLegalVariableID(
-			channelName, context.getActiveScope(),
-			fmtManager);
-		String controlName = '*' + CControl.ALIGNMENTINPUT.getName();
-		ai.put(ObjectKey.getKeyFor(String.class, controlName), varName);
+		SourceFileLoader.enableBuiltInControl(context, CControl.ALIGNMENTINPUT);
 	}
 
 	private <T> void proc(LoadContext context, FormatManager<T> fmtManager)

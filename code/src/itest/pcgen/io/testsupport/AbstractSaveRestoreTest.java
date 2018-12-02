@@ -59,7 +59,6 @@ import pcgen.cdom.facet.model.SkillFacet;
 import pcgen.cdom.facet.model.StatFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.cdom.formula.local.ModifierDecoration;
-import pcgen.cdom.inst.CodeControl;
 import pcgen.cdom.util.CControl;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
@@ -74,7 +73,6 @@ import pcgen.core.SizeAdjustment;
 import pcgen.gui2.facade.MockUIDelegate;
 import pcgen.io.PCGIOHandler;
 import pcgen.io.PCGVer2Creator;
-import pcgen.output.channel.ChannelUtilities;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.persistence.lst.LevelLoader;
 import pcgen.rules.context.AbstractReferenceContext;
@@ -342,21 +340,7 @@ public abstract class AbstractSaveRestoreTest
 		ChooserFactory.setDelegate(new MockUIDelegate());
 		FormatManager<?> fmtManager = ref.getFormatManager("ALIGNMENT");
 		proc(fmtManager);
-		setAlignmentInputCodeControl(context, fmtManager, ref);
-	}
-
-	private static void setAlignmentInputCodeControl(LoadContext context,
-	                                                 FormatManager<?> fmtManager,
-	                                                 AbstractReferenceContext ref)
-	{
-		CodeControl ai = ref.constructCDOMObject(CodeControl.class, "Controller");
-		String varName = CControl.ALIGNMENTINPUT.getDefaultValue();
-		String channelName = ChannelUtilities.createVarName(varName);
-		context.getVariableContext().assertLegalVariableID(
-			channelName, context.getActiveScope(),
-			fmtManager);
-		String controlName = '*' + CControl.ALIGNMENTINPUT.getName();
-		ai.put(ObjectKey.getKeyFor(String.class, controlName), varName);
+		SourceFileLoader.enableBuiltInControl(context, CControl.ALIGNMENTINPUT);
 	}
 
 	private <T> void proc(FormatManager<T> fmtManager)
