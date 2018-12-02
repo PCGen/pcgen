@@ -39,7 +39,6 @@ import pcgen.cdom.base.MasterListInterface;
 import pcgen.cdom.content.ACControl;
 import pcgen.cdom.content.RollMethod;
 import pcgen.cdom.content.TabInfo;
-import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.TransparentReference;
 import pcgen.core.character.WieldCategory;
@@ -185,9 +184,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 
 	/** The BioSet used for age calculations */
 	private BioSet bioSet = new BioSet();
-
-	/** SHOWTAB compatibility */
-	private Map<CDOMSingleRef<TabInfo>, Boolean> visibleTabs;
 
 	private Map<String, String> equipTypeIconMap = new HashMap<>();
 
@@ -2530,35 +2526,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		TabInfo ti = getContext().getReferenceContext().silentlyGetConstructedCDOMObject(TabInfo.class, tab.toString());
 		return ti.isVisible();
 	}
-
-	public void setTabVisible(CDOMSingleRef<TabInfo> ref, Boolean set)
-	{
-		if (visibleTabs == null)
-		{
-			visibleTabs = new HashMap<>();
-		}
-		visibleTabs.put(ref, set);
-	}
-
-	public Boolean getTabVisibility(TabInfo ti)
-	{
-		if (visibleTabs == null)
-		{
-			return null;
-		}
-		for (Map.Entry<CDOMSingleRef<TabInfo>, Boolean> me : visibleTabs.entrySet())
-		{
-			if (ti.equals(me.getKey().get()))
-			{
-				return me.getValue();
-			}
-		}
-		return null;
-	}
-
-	/*
-	 * End SHOWTAB compatibility
-	 */
 
 	public LoadInfo getLoadInfo()
 	{
